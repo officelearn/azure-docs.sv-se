@@ -1,0 +1,689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="72157e3a-5216-4c94-84ae-50bb528f9ee1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="72157e3a-5216-4c94-84ae-50bb528f9ee1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1f791319-0a7e-48b6-bb93-5173d9bf62a3">
+        <trans-unit id="61acbed6-632b-4a59-8a7d-ea943a9c5768" xml:space="preserve">
+          <source>Batch and HPC Solutions in the Cloud | Microsoft Azure</source>
+          <target state="new">Batch and HPC Solutions in the Cloud | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9b77e335-f9d6-46c3-be98-35a123553e95" xml:space="preserve">
+          <source>Introduces batch and high performance computing (Big Compute) scenarios and solution options in Azure</source>
+          <target state="new">Introduces batch and high performance computing (Big Compute) scenarios and solution options in Azure</target>
+        </trans-unit>
+        <trans-unit id="41d27e7c-d239-465e-a8f8-83ffea71bff8" xml:space="preserve">
+          <source>This article introduces Azure solutions for batch and high performance computing (HPC) - also called <bpt id="739719d1-a227-4f30-9e7f-78768073e464">&lt;em&gt;</bpt>Big Compute<ept id="739719d1-a227-4f30-9e7f-78768073e464">&lt;/em&gt;</ept>.</source>
+          <target state="new">This article introduces Azure solutions for batch and high performance computing (HPC) - also called <bpt id="739719d1-a227-4f30-9e7f-78768073e464">&lt;em&gt;</bpt>Big Compute<ept id="739719d1-a227-4f30-9e7f-78768073e464">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d195aa12-f213-4a0b-be19-e8a843bcaae9" xml:space="preserve">
+          <source>Although the article is mainly for technical decision-makers, IT managers, and independent software vendors, other IT professionals and developers can use it to familiarize themselves with these solutions.</source>
+          <target state="new">Although the article is mainly for technical decision-makers, IT managers, and independent software vendors, other IT professionals and developers can use it to familiarize themselves with these solutions.</target>
+        </trans-unit>
+        <trans-unit id="0ee56d83-973b-4f19-8361-4b331c7af0a6" xml:space="preserve">
+          <source>Organizations have large-scale computing problems including engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, and financial risk calculations.</source>
+          <target state="new">Organizations have large-scale computing problems including engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, and financial risk calculations.</target>
+        </trans-unit>
+        <trans-unit id="01a8238d-06e2-413f-92bb-45476c2ac3f6" xml:space="preserve">
+          <source>To help organizations solve these problems and make decisions with the resources, scale, and schedule they need, Azure offers scalable, on-demand compute capabilities and services.</source>
+          <target state="new">To help organizations solve these problems and make decisions with the resources, scale, and schedule they need, Azure offers scalable, on-demand compute capabilities and services.</target>
+        </trans-unit>
+        <trans-unit id="bd2ecc1b-69ff-484d-af6c-69d2818302f8" xml:space="preserve">
+          <source>With Azure, organizations can:</source>
+          <target state="new">With Azure, organizations can:</target>
+        </trans-unit>
+        <trans-unit id="ce2bbc82-b517-4edf-a1ab-1f15a8f74279" xml:space="preserve">
+          <source>Create hybrid solutions, extending an on-premises HPC cluster to offload peak workloads to the cloud</source>
+          <target state="new">Create hybrid solutions, extending an on-premises HPC cluster to offload peak workloads to the cloud</target>
+        </trans-unit>
+        <trans-unit id="c67b8341-df25-474e-82d9-6c4b4b3950a9" xml:space="preserve">
+          <source>Run HPC cluster workloads entirely in Azure using existing tool sets and applications</source>
+          <target state="new">Run HPC cluster workloads entirely in Azure using existing tool sets and applications</target>
+        </trans-unit>
+        <trans-unit id="e9e8eb1c-a7b4-4d68-9b4e-4edae310b5c3" xml:space="preserve">
+          <source>Use a managed and scalable Azure service such as <bpt id="7d7e6ea0-6f95-425c-aa59-e3a7b2b7c154">&lt;linkText&gt;</bpt>Batch<ept id="7d7e6ea0-6f95-425c-aa59-e3a7b2b7c154">&lt;/linkText&gt;</ept><bpt id="7d7e6ea0-6f95-425c-aa59-e3a7b2b7c154">&lt;title&gt;</bpt><ept id="7d7e6ea0-6f95-425c-aa59-e3a7b2b7c154">&lt;/title&gt;</ept> to run compute-intensive workloads without having to deploy and manage compute infrastructure</source>
+          <target state="new">Use a managed and scalable Azure service such as <bpt id="7d7e6ea0-6f95-425c-aa59-e3a7b2b7c154">&lt;linkText&gt;</bpt>Batch<ept id="7d7e6ea0-6f95-425c-aa59-e3a7b2b7c154">&lt;/linkText&gt;</ept><bpt id="7d7e6ea0-6f95-425c-aa59-e3a7b2b7c154">&lt;title&gt;</bpt><ept id="7d7e6ea0-6f95-425c-aa59-e3a7b2b7c154">&lt;/title&gt;</ept> to run compute-intensive workloads without having to deploy and manage compute infrastructure</target>
+        </trans-unit>
+        <trans-unit id="22055e19-a290-4f69-9acd-46458c418542" xml:space="preserve">
+          <source>Azure also offers development tools and services for organizations and software vendors to build custom, end-to-end Big Compute solutions.</source>
+          <target state="new">Azure also offers development tools and services for organizations and software vendors to build custom, end-to-end Big Compute solutions.</target>
+        </trans-unit>
+        <trans-unit id="07e716e5-4d25-4df2-9f27-c332ac8f7e1b" xml:space="preserve">
+          <source>Unlike web applications and many line-of-business applications, batch and HPC applications have a defined beginning and end, and they can run on a schedule or on demand, sometimes for hours or longer.</source>
+          <target state="new">Unlike web applications and many line-of-business applications, batch and HPC applications have a defined beginning and end, and they can run on a schedule or on demand, sometimes for hours or longer.</target>
+        </trans-unit>
+        <trans-unit id="11a99f8b-a439-459c-9c4e-b939ca24c23e" xml:space="preserve">
+          <source>Most fall into two main categories: <bpt id="e26d6a19-e203-4f28-8bdd-514b981a6773">&lt;em&gt;</bpt>intrinsically parallel<ept id="e26d6a19-e203-4f28-8bdd-514b981a6773">&lt;/em&gt;</ept> (sometimes called “embarrassingly parallel”, because the problems they solve lend themselves to running in parallel on multiple computers or processors) and <bpt id="f15a3f3a-5b38-45f0-a36b-5147407a426f">&lt;em&gt;</bpt>tightly coupled<ept id="f15a3f3a-5b38-45f0-a36b-5147407a426f">&lt;/em&gt;</ept>.</source>
+          <target state="new">Most fall into two main categories: <bpt id="e26d6a19-e203-4f28-8bdd-514b981a6773">&lt;em&gt;</bpt>intrinsically parallel<ept id="e26d6a19-e203-4f28-8bdd-514b981a6773">&lt;/em&gt;</ept> (sometimes called “embarrassingly parallel”, because the problems they solve lend themselves to running in parallel on multiple computers or processors) and <bpt id="f15a3f3a-5b38-45f0-a36b-5147407a426f">&lt;em&gt;</bpt>tightly coupled<ept id="f15a3f3a-5b38-45f0-a36b-5147407a426f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fff06ba-b337-4e3c-bdda-565866ae714a" xml:space="preserve">
+          <source>See the following table for more about these application types.</source>
+          <target state="new">See the following table for more about these application types.</target>
+        </trans-unit>
+        <trans-unit id="47014b72-c7fa-4edc-99e9-d2ecf972bf69" xml:space="preserve">
+          <source>Some Azure solution approaches work better for one type or the other.</source>
+          <target state="new">Some Azure solution approaches work better for one type or the other.</target>
+        </trans-unit>
+        <trans-unit id="eb016307-a02b-4a4b-ad61-f3099f1daf7a" xml:space="preserve">
+          <source>In Batch and HPC solutions, a running instance of an application is typically called a <bpt id="2eb11deb-3da0-4956-8a7d-d983683ec194">&lt;em&gt;</bpt>job<ept id="2eb11deb-3da0-4956-8a7d-d983683ec194">&lt;/em&gt;</ept>, and each job might get divided into <bpt id="23541983-298f-4a3a-b83b-c0aff5fddd29">&lt;em&gt;</bpt>tasks<ept id="23541983-298f-4a3a-b83b-c0aff5fddd29">&lt;/em&gt;</ept>.</source>
+          <target state="new">In Batch and HPC solutions, a running instance of an application is typically called a <bpt id="2eb11deb-3da0-4956-8a7d-d983683ec194">&lt;em&gt;</bpt>job<ept id="2eb11deb-3da0-4956-8a7d-d983683ec194">&lt;/em&gt;</ept>, and each job might get divided into <bpt id="23541983-298f-4a3a-b83b-c0aff5fddd29">&lt;em&gt;</bpt>tasks<ept id="23541983-298f-4a3a-b83b-c0aff5fddd29">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f2ef027-7478-421b-8006-8c71f5240786" xml:space="preserve">
+          <source>And the clustered compute resources for the application are often called <bpt id="ef6f85fa-737a-42bb-890b-a022e3ba0d90">&lt;em&gt;</bpt>compute nodes<ept id="ef6f85fa-737a-42bb-890b-a022e3ba0d90">&lt;/em&gt;</ept>.</source>
+          <target state="new">And the clustered compute resources for the application are often called <bpt id="ef6f85fa-737a-42bb-890b-a022e3ba0d90">&lt;em&gt;</bpt>compute nodes<ept id="ef6f85fa-737a-42bb-890b-a022e3ba0d90">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab6a930a-0c3c-4e40-bd43-b4bc2c810b6e" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="9399c005-a559-4fa0-ad5a-372d456cc9b2" xml:space="preserve">
+          <source>Characteristics</source>
+          <target state="new">Characteristics</target>
+        </trans-unit>
+        <trans-unit id="47d87ab6-c65d-49ac-b420-dfea3ea44c52" xml:space="preserve">
+          <source>Examples</source>
+          <target state="new">Examples</target>
+        </trans-unit>
+        <trans-unit id="a17f218e-28c9-4c7a-a567-72ecc73ffa1e" xml:space="preserve">
+          <source><bpt id="f3a15beb-01cf-45c9-8f20-b16fe392b247">&lt;strong&gt;</bpt>Intrinsically parallel<ept id="f3a15beb-01cf-45c9-8f20-b16fe392b247">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;<bpt id="65d8b306-c34f-4581-a5df-4b71fcd1f565">&lt;linkText&gt;</bpt>Intrinsically parallel<ept id="65d8b306-c34f-4581-a5df-4b71fcd1f565">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f3a15beb-01cf-45c9-8f20-b16fe392b247">&lt;strong&gt;</bpt>Intrinsically parallel<ept id="f3a15beb-01cf-45c9-8f20-b16fe392b247">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;<bpt id="65d8b306-c34f-4581-a5df-4b71fcd1f565">&lt;linkText&gt;</bpt>Intrinsically parallel<ept id="65d8b306-c34f-4581-a5df-4b71fcd1f565">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5525ee32-25b9-494e-b9c5-d3d936f6727d" xml:space="preserve">
+          <source>• Individual computers run application logic independently&lt;br/&gt;&lt;br/&gt; • Adding computers allows the application to scale and decrease computation time&lt;br/&gt;&lt;br/&gt;• Application consists of separate executables, or is divided into a group of services invoked by a client (a service-oriented architecture, or SOA, application)</source>
+          <target state="new">• Individual computers run application logic independently&lt;br/&gt;&lt;br/&gt; • Adding computers allows the application to scale and decrease computation time&lt;br/&gt;&lt;br/&gt;• Application consists of separate executables, or is divided into a group of services invoked by a client (a service-oriented architecture, or SOA, application)</target>
+        </trans-unit>
+        <trans-unit id="d5315afa-34b6-4873-bb5f-7ca2d49ecd0a" xml:space="preserve">
+          <source>• Financial risk modeling&lt;br/&gt;&lt;br/&gt;• Image rendering and image processing&lt;br/&gt;&lt;br/&gt;• Media encoding and transcoding&lt;br/&gt;&lt;br/&gt;• Monte Carlo simulations&lt;br/&gt;&lt;br/&gt;• Software testing</source>
+          <target state="new">• Financial risk modeling&lt;br/&gt;&lt;br/&gt;• Image rendering and image processing&lt;br/&gt;&lt;br/&gt;• Media encoding and transcoding&lt;br/&gt;&lt;br/&gt;• Monte Carlo simulations&lt;br/&gt;&lt;br/&gt;• Software testing</target>
+        </trans-unit>
+        <trans-unit id="8c3b995a-652f-4608-9ffa-4cd60904c8ab" xml:space="preserve">
+          <source><bpt id="86c160ae-4aff-435f-9486-2840de55fd0a">&lt;strong&gt;</bpt>Tightly coupled<ept id="86c160ae-4aff-435f-9486-2840de55fd0a">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;<bpt id="b7d64528-bd89-493c-b4a8-8bdaa723ccc2">&lt;linkText&gt;</bpt>Tightly coupled<ept id="b7d64528-bd89-493c-b4a8-8bdaa723ccc2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="86c160ae-4aff-435f-9486-2840de55fd0a">&lt;strong&gt;</bpt>Tightly coupled<ept id="86c160ae-4aff-435f-9486-2840de55fd0a">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;<bpt id="b7d64528-bd89-493c-b4a8-8bdaa723ccc2">&lt;linkText&gt;</bpt>Tightly coupled<ept id="b7d64528-bd89-493c-b4a8-8bdaa723ccc2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4455c1ab-cf2d-4552-b79e-24a11ae445f1" xml:space="preserve">
+          <source>• Application requires compute nodes to interact or exchange intermediate results&lt;br/&gt;&lt;br/&gt;• Compute nodes may communicate using the Message Passing Interface (MPI), a common communications protocol for parallel computing&lt;br/&gt;&lt;br/&gt;• The application is sensitive to network latency and bandwidth&lt;br/&gt;&lt;br/&gt;• Application performance can be improved by using compute infrastructure that supports high-speed networking technologies such as InfiniBand and remote direct memory access (RDMA)</source>
+          <target state="new">• Application requires compute nodes to interact or exchange intermediate results&lt;br/&gt;&lt;br/&gt;• Compute nodes may communicate using the Message Passing Interface (MPI), a common communications protocol for parallel computing&lt;br/&gt;&lt;br/&gt;• The application is sensitive to network latency and bandwidth&lt;br/&gt;&lt;br/&gt;• Application performance can be improved by using compute infrastructure that supports high-speed networking technologies such as InfiniBand and remote direct memory access (RDMA)</target>
+        </trans-unit>
+        <trans-unit id="b59fe63c-43c6-4031-9db0-60798e492fc5" xml:space="preserve">
+          <source>• Oil and gas reservoir modeling&lt;br/&gt;&lt;br/&gt;• Engineering design and analysis, such as computational fluid dynamics&lt;br/&gt;&lt;br/&gt;• Physical simulations such as car crashes and nuclear reactions&lt;br/&gt;&lt;br/&gt;• Weather forecasting</source>
+          <target state="new">• Oil and gas reservoir modeling&lt;br/&gt;&lt;br/&gt;• Engineering design and analysis, such as computational fluid dynamics&lt;br/&gt;&lt;br/&gt;• Physical simulations such as car crashes and nuclear reactions&lt;br/&gt;&lt;br/&gt;• Weather forecasting</target>
+        </trans-unit>
+        <trans-unit id="789514cd-071f-4f41-b354-9e03078250be" xml:space="preserve">
+          <source>You can readily migrate many applications that are designed to run in on-premises HPC clusters to Azure, or to a hybrid (cross-premises) environment.</source>
+          <target state="new">You can readily migrate many applications that are designed to run in on-premises HPC clusters to Azure, or to a hybrid (cross-premises) environment.</target>
+        </trans-unit>
+        <trans-unit id="0e38b833-2caf-4810-82cf-eec8b9fb4db8" xml:space="preserve">
+          <source>However, there may be some limitations or considerations, including:</source>
+          <target state="new">However, there may be some limitations or considerations, including:</target>
+        </trans-unit>
+        <trans-unit id="f4c8306c-e238-449d-a6fb-b1f93ca4048b" xml:space="preserve">
+          <source><bpt id="9c3f1d07-2324-4857-a0bb-6478b019f668">&lt;strong&gt;</bpt>Uninterrupted availability of cloud resources<ept id="9c3f1d07-2324-4857-a0bb-6478b019f668">&lt;/strong&gt;</ept> - Depending on the type of cloud compute resources selected for the solution, you might not be able to rely on continuous machine availability for the duration of a job's execution.</source>
+          <target state="new"><bpt id="9c3f1d07-2324-4857-a0bb-6478b019f668">&lt;strong&gt;</bpt>Uninterrupted availability of cloud resources<ept id="9c3f1d07-2324-4857-a0bb-6478b019f668">&lt;/strong&gt;</ept> - Depending on the type of cloud compute resources selected for the solution, you might not be able to rely on continuous machine availability for the duration of a job's execution.</target>
+        </trans-unit>
+        <trans-unit id="37154b4d-47d5-4a2f-a1d8-38e5693db08b" xml:space="preserve">
+          <source>State handling and progress check pointing are common techniques to handle possible transient failures, and more necessary when leveraging cloud resources.</source>
+          <target state="new">State handling and progress check pointing are common techniques to handle possible transient failures, and more necessary when leveraging cloud resources.</target>
+        </trans-unit>
+        <trans-unit id="4ddd4567-a6e8-46b0-b796-c1e606a672ba" xml:space="preserve">
+          <source><bpt id="88c6b9f6-8dfe-4af0-9a72-ee79e9f12af0">&lt;strong&gt;</bpt>Data access<ept id="88c6b9f6-8dfe-4af0-9a72-ee79e9f12af0">&lt;/strong&gt;</ept> - Data access techniques commonly available within an enterprise network cluster, such as NFS, may require special configuration in the cloud, or you might need to adopt different data access practices and patterns for the cloud.</source>
+          <target state="new"><bpt id="88c6b9f6-8dfe-4af0-9a72-ee79e9f12af0">&lt;strong&gt;</bpt>Data access<ept id="88c6b9f6-8dfe-4af0-9a72-ee79e9f12af0">&lt;/strong&gt;</ept> - Data access techniques commonly available within an enterprise network cluster, such as NFS, may require special configuration in the cloud, or you might need to adopt different data access practices and patterns for the cloud.</target>
+        </trans-unit>
+        <trans-unit id="0c1faada-2d77-4903-b0d7-7cc430aad3c6" xml:space="preserve">
+          <source><bpt id="a621a9a8-1711-4930-8f9c-3d7f781f4fc2">&lt;strong&gt;</bpt>Data movement<ept id="a621a9a8-1711-4930-8f9c-3d7f781f4fc2">&lt;/strong&gt;</ept> - For applications that process large amounts of data, strategies are needed to move the data into cloud storage and to compute resources, and you might need to consider high-speed cross-premises networking such as <bpt id="7308c5ac-5bb8-47c7-ae33-bb7b66c235bd">&lt;linkText&gt;</bpt>Azure ExpressRoute<ept id="7308c5ac-5bb8-47c7-ae33-bb7b66c235bd">&lt;/linkText&gt;</ept><bpt id="7308c5ac-5bb8-47c7-ae33-bb7b66c235bd">&lt;title&gt;</bpt><ept id="7308c5ac-5bb8-47c7-ae33-bb7b66c235bd">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a621a9a8-1711-4930-8f9c-3d7f781f4fc2">&lt;strong&gt;</bpt>Data movement<ept id="a621a9a8-1711-4930-8f9c-3d7f781f4fc2">&lt;/strong&gt;</ept> - For applications that process large amounts of data, strategies are needed to move the data into cloud storage and to compute resources, and you might need to consider high-speed cross-premises networking such as <bpt id="7308c5ac-5bb8-47c7-ae33-bb7b66c235bd">&lt;linkText&gt;</bpt>Azure ExpressRoute<ept id="7308c5ac-5bb8-47c7-ae33-bb7b66c235bd">&lt;/linkText&gt;</ept><bpt id="7308c5ac-5bb8-47c7-ae33-bb7b66c235bd">&lt;title&gt;</bpt><ept id="7308c5ac-5bb8-47c7-ae33-bb7b66c235bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="feaad9f6-2a6a-4b25-8c60-d80100cdce41" xml:space="preserve">
+          <source>Also consider legal, regulatory, or policy limitations for storing or accessing that data.</source>
+          <target state="new">Also consider legal, regulatory, or policy limitations for storing or accessing that data.</target>
+        </trans-unit>
+        <trans-unit id="2c803b94-ae6f-49f9-b9ae-215ad0b02bb5" xml:space="preserve">
+          <source><bpt id="bc53b7b4-9311-4498-967a-0737dd84143f">&lt;strong&gt;</bpt>Licensing<ept id="bc53b7b4-9311-4498-967a-0737dd84143f">&lt;/strong&gt;</ept> - Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud.</source>
+          <target state="new"><bpt id="bc53b7b4-9311-4498-967a-0737dd84143f">&lt;strong&gt;</bpt>Licensing<ept id="bc53b7b4-9311-4498-967a-0737dd84143f">&lt;/strong&gt;</ept> - Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="bbc37303-0a0b-430c-8901-19183976cfc9" xml:space="preserve">
+          <source>Not all vendors offer pay-as-you-go licensing.</source>
+          <target state="new">Not all vendors offer pay-as-you-go licensing.</target>
+        </trans-unit>
+        <trans-unit id="385e83ff-eb42-4d94-9353-dbade9198c40" xml:space="preserve">
+          <source>You might need to plan for a licensing server in the cloud for your solution, or a connection to an on-premises license server.</source>
+          <target state="new">You might need to plan for a licensing server in the cloud for your solution, or a connection to an on-premises license server.</target>
+        </trans-unit>
+        <trans-unit id="ceed51c2-38f3-4c73-a1ec-525cf959737c" xml:space="preserve">
+          <source>The dividing lines between Big Compute and Big Data applications aren’t always clear, and some applications may have characteristics of both.</source>
+          <target state="new">The dividing lines between Big Compute and Big Data applications aren’t always clear, and some applications may have characteristics of both.</target>
+        </trans-unit>
+        <trans-unit id="3c57b970-f61b-4f24-842c-2f5ef6f90854" xml:space="preserve">
+          <source>Both involve running large-scale computations, usually on clusters of computers that run on-premises, in the cloud, or both.</source>
+          <target state="new">Both involve running large-scale computations, usually on clusters of computers that run on-premises, in the cloud, or both.</target>
+        </trans-unit>
+        <trans-unit id="0062bb70-0759-457e-8cf8-4f44964acab5" xml:space="preserve">
+          <source>But the solution approaches and supporting tools might differ.</source>
+          <target state="new">But the solution approaches and supporting tools might differ.</target>
+        </trans-unit>
+        <trans-unit id="d8e5bea2-f05a-44c0-a562-dc4e65b073be" xml:space="preserve">
+          <source>• <bpt id="54299525-3fa8-4e1a-a873-65b339079c11">&lt;strong&gt;</bpt>Big Compute<ept id="54299525-3fa8-4e1a-a873-65b339079c11">&lt;/strong&gt;</ept> tends to involve applications that rely on CPU power and memory, such as engineering simulations, financial risk modeling, and digital rendering.</source>
+          <target state="new">• <bpt id="54299525-3fa8-4e1a-a873-65b339079c11">&lt;strong&gt;</bpt>Big Compute<ept id="54299525-3fa8-4e1a-a873-65b339079c11">&lt;/strong&gt;</ept> tends to involve applications that rely on CPU power and memory, such as engineering simulations, financial risk modeling, and digital rendering.</target>
+        </trans-unit>
+        <trans-unit id="6f8608ca-640e-4e19-8eab-52be7394fea2" xml:space="preserve">
+          <source>The clusters that power a Big Compute solution might include computers with specialized multicore processors to perform raw computation, and specialized, high speed networking hardware to connect the computers.</source>
+          <target state="new">The clusters that power a Big Compute solution might include computers with specialized multicore processors to perform raw computation, and specialized, high speed networking hardware to connect the computers.</target>
+        </trans-unit>
+        <trans-unit id="a5e50a72-47f0-4080-8ce3-00856715dbd0" xml:space="preserve">
+          <source>• <bpt id="2d630b83-d072-477d-b0bb-d140511201c0">&lt;strong&gt;</bpt>Big Data<ept id="2d630b83-d072-477d-b0bb-d140511201c0">&lt;/strong&gt;</ept> solves data analysis problems that involve large amounts of data that can’t be managed by a single computer or database management system, such as large volumes of web logs or other business intelligence data.</source>
+          <target state="new">• <bpt id="2d630b83-d072-477d-b0bb-d140511201c0">&lt;strong&gt;</bpt>Big Data<ept id="2d630b83-d072-477d-b0bb-d140511201c0">&lt;/strong&gt;</ept> solves data analysis problems that involve large amounts of data that can’t be managed by a single computer or database management system, such as large volumes of web logs or other business intelligence data.</target>
+        </trans-unit>
+        <trans-unit id="c9758f17-abe5-40bd-817a-f3df571741f1" xml:space="preserve">
+          <source>Big Data tends to rely more on disk capacity and I/O performance than on CPU power, and a Big Data solution often uses specialized tools such as Apache Hadoop to manage the cluster and partition the data.</source>
+          <target state="new">Big Data tends to rely more on disk capacity and I/O performance than on CPU power, and a Big Data solution often uses specialized tools such as Apache Hadoop to manage the cluster and partition the data.</target>
+        </trans-unit>
+        <trans-unit id="751bee4f-909a-4cf3-9b81-e6e820ad9e2e" xml:space="preserve">
+          <source>(For information about Azure HDInsight and other Azure Hadoop solutions, see <bpt id="afc40523-6bbd-4be1-afb1-1965ec3a5b5d">&lt;linkText&gt;</bpt>Hadoop<ept id="afc40523-6bbd-4be1-afb1-1965ec3a5b5d">&lt;/linkText&gt;</ept><bpt id="afc40523-6bbd-4be1-afb1-1965ec3a5b5d">&lt;title&gt;</bpt><ept id="afc40523-6bbd-4be1-afb1-1965ec3a5b5d">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(For information about Azure HDInsight and other Azure Hadoop solutions, see <bpt id="afc40523-6bbd-4be1-afb1-1965ec3a5b5d">&lt;linkText&gt;</bpt>Hadoop<ept id="afc40523-6bbd-4be1-afb1-1965ec3a5b5d">&lt;/linkText&gt;</ept><bpt id="afc40523-6bbd-4be1-afb1-1965ec3a5b5d">&lt;title&gt;</bpt><ept id="afc40523-6bbd-4be1-afb1-1965ec3a5b5d">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="f3a20a4b-9fa2-4f3b-8f2d-28b48cd1d2cc" xml:space="preserve">
+          <source>Running Batch and HPC application usually includes a <bpt id="8b0ae2a1-0f7c-4da2-bcbd-dfc8cfea54d7">&lt;em&gt;</bpt>cluster manager<ept id="8b0ae2a1-0f7c-4da2-bcbd-dfc8cfea54d7">&lt;/em&gt;</ept> and a <bpt id="59f1817c-f593-4b6f-a7a7-ccb6fef890ee">&lt;em&gt;</bpt>job scheduler<ept id="59f1817c-f593-4b6f-a7a7-ccb6fef890ee">&lt;/em&gt;</ept> to help manage clustered compute resources and allocate them to the applications that run the jobs.</source>
+          <target state="new">Running Batch and HPC application usually includes a <bpt id="8b0ae2a1-0f7c-4da2-bcbd-dfc8cfea54d7">&lt;em&gt;</bpt>cluster manager<ept id="8b0ae2a1-0f7c-4da2-bcbd-dfc8cfea54d7">&lt;/em&gt;</ept> and a <bpt id="59f1817c-f593-4b6f-a7a7-ccb6fef890ee">&lt;em&gt;</bpt>job scheduler<ept id="59f1817c-f593-4b6f-a7a7-ccb6fef890ee">&lt;/em&gt;</ept> to help manage clustered compute resources and allocate them to the applications that run the jobs.</target>
+        </trans-unit>
+        <trans-unit id="01848505-7a17-4d03-948c-c3a5309cad05" xml:space="preserve">
+          <source>These functions might be accomplished by separate tools, or an integrated tool.</source>
+          <target state="new">These functions might be accomplished by separate tools, or an integrated tool.</target>
+        </trans-unit>
+        <trans-unit id="a322dedc-d46f-4b65-af12-d0f3439549f3" xml:space="preserve">
+          <source><bpt id="260d5315-e55a-417b-ad47-f37de0abf189">&lt;strong&gt;</bpt>Cluster manager<ept id="260d5315-e55a-417b-ad47-f37de0abf189">&lt;/strong&gt;</ept> - Provisions, releases, and administers compute resources (or compute nodes).</source>
+          <target state="new"><bpt id="260d5315-e55a-417b-ad47-f37de0abf189">&lt;strong&gt;</bpt>Cluster manager<ept id="260d5315-e55a-417b-ad47-f37de0abf189">&lt;/strong&gt;</ept> - Provisions, releases, and administers compute resources (or compute nodes).</target>
+        </trans-unit>
+        <trans-unit id="cc446127-a6db-4fb0-b831-49bb2552c7b0" xml:space="preserve">
+          <source>Depending on the tool, a cluster manager might automate installation of operating system images and applications on compute nodes, scale compute resources according to demands, and monitor the performance of the nodes.</source>
+          <target state="new">Depending on the tool, a cluster manager might automate installation of operating system images and applications on compute nodes, scale compute resources according to demands, and monitor the performance of the nodes.</target>
+        </trans-unit>
+        <trans-unit id="d4bb0dda-b573-432e-98b2-71131b2ac531" xml:space="preserve">
+          <source><bpt id="807fc553-db65-46af-bff3-10e3ff712ffe">&lt;strong&gt;</bpt>Job scheduler<ept id="807fc553-db65-46af-bff3-10e3ff712ffe">&lt;/strong&gt;</ept> - Specifies the resources (such as processors or memory) an application needs, and the conditions when it will run.</source>
+          <target state="new"><bpt id="807fc553-db65-46af-bff3-10e3ff712ffe">&lt;strong&gt;</bpt>Job scheduler<ept id="807fc553-db65-46af-bff3-10e3ff712ffe">&lt;/strong&gt;</ept> - Specifies the resources (such as processors or memory) an application needs, and the conditions when it will run.</target>
+        </trans-unit>
+        <trans-unit id="a59c01ab-2656-416d-b4d2-a3dc2ed9aaa6" xml:space="preserve">
+          <source>A job scheduler maintains a queue of jobs and allocates resources to them based on an assigned priority or other characteristics.</source>
+          <target state="new">A job scheduler maintains a queue of jobs and allocates resources to them based on an assigned priority or other characteristics.</target>
+        </trans-unit>
+        <trans-unit id="ae3942a1-824a-4b1a-a21e-89cb06a1f3fa" xml:space="preserve">
+          <source>Clustering and job scheduling tools for Windows-based and Linux-based clusters, or those developed independently, can migrate well to Azure.</source>
+          <target state="new">Clustering and job scheduling tools for Windows-based and Linux-based clusters, or those developed independently, can migrate well to Azure.</target>
+        </trans-unit>
+        <trans-unit id="dff1726b-f446-45d8-9663-5a708bccc4e4" xml:space="preserve">
+          <source>For example, <bpt id="66990260-9b8f-4f6a-bb84-b13427fb65c7">&lt;linkText&gt;</bpt>Microsoft HPC Pack<ept id="66990260-9b8f-4f6a-bb84-b13427fb65c7">&lt;/linkText&gt;</ept><bpt id="66990260-9b8f-4f6a-bb84-b13427fb65c7">&lt;title&gt;</bpt><ept id="66990260-9b8f-4f6a-bb84-b13427fb65c7">&lt;/title&gt;</ept> is Microsoft’s free compute cluster solution for Windows Server and Windows-based computers.</source>
+          <target state="new">For example, <bpt id="66990260-9b8f-4f6a-bb84-b13427fb65c7">&lt;linkText&gt;</bpt>Microsoft HPC Pack<ept id="66990260-9b8f-4f6a-bb84-b13427fb65c7">&lt;/linkText&gt;</ept><bpt id="66990260-9b8f-4f6a-bb84-b13427fb65c7">&lt;title&gt;</bpt><ept id="66990260-9b8f-4f6a-bb84-b13427fb65c7">&lt;/title&gt;</ept> is Microsoft’s free compute cluster solution for Windows Server and Windows-based computers.</target>
+        </trans-unit>
+        <trans-unit id="223311c4-1f78-458f-8892-504caa046cf4" xml:space="preserve">
+          <source>To reduce the need for dedicated on-premises compute resources, you can extend an HPC Pack cluster to use Azure compute nodes on demand, or deploy a cluster entirely in Azure virtual machines.</source>
+          <target state="new">To reduce the need for dedicated on-premises compute resources, you can extend an HPC Pack cluster to use Azure compute nodes on demand, or deploy a cluster entirely in Azure virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="63606961-352d-4c9f-8ba7-e1abf1d760c1" xml:space="preserve">
+          <source>Cluster management and job scheduling tools help accomplish a Big Compute workflow with predictable steps.</source>
+          <target state="new">Cluster management and job scheduling tools help accomplish a Big Compute workflow with predictable steps.</target>
+        </trans-unit>
+        <trans-unit id="17cb1267-bc6f-4696-8d28-69d1ee25ba29" xml:space="preserve">
+          <source>Depending on the solution, you might omit some steps in the following list or introduce additional, custom tools.</source>
+          <target state="new">Depending on the solution, you might omit some steps in the following list or introduce additional, custom tools.</target>
+        </trans-unit>
+        <trans-unit id="099d10d2-89ad-4481-a7b9-c6df24086ca2" xml:space="preserve">
+          <source>Data intensive workflows might involve additional data pre- and post-processing steps (not listed).</source>
+          <target state="new">Data intensive workflows might involve additional data pre- and post-processing steps (not listed).</target>
+        </trans-unit>
+        <trans-unit id="590e0413-4e92-45bd-8a83-0b54fd1c3c7b" xml:space="preserve">
+          <source><bpt id="61d36c21-13fc-41d8-ae46-9ea8aac0983b">&lt;strong&gt;</bpt>Provision<ept id="61d36c21-13fc-41d8-ae46-9ea8aac0983b">&lt;/strong&gt;</ept> - Prepare the compute environment with the necessary infrastructure, compute resources, and storage to run applications</source>
+          <target state="new"><bpt id="61d36c21-13fc-41d8-ae46-9ea8aac0983b">&lt;strong&gt;</bpt>Provision<ept id="61d36c21-13fc-41d8-ae46-9ea8aac0983b">&lt;/strong&gt;</ept> - Prepare the compute environment with the necessary infrastructure, compute resources, and storage to run applications</target>
+        </trans-unit>
+        <trans-unit id="6f5959d3-93e7-430c-a501-b171936430fc" xml:space="preserve">
+          <source><bpt id="a39b779a-59e9-4500-b050-77fdaf08ec83">&lt;strong&gt;</bpt>Stage<ept id="a39b779a-59e9-4500-b050-77fdaf08ec83">&lt;/strong&gt;</ept> - Move input data and applications into the compute environment</source>
+          <target state="new"><bpt id="a39b779a-59e9-4500-b050-77fdaf08ec83">&lt;strong&gt;</bpt>Stage<ept id="a39b779a-59e9-4500-b050-77fdaf08ec83">&lt;/strong&gt;</ept> - Move input data and applications into the compute environment</target>
+        </trans-unit>
+        <trans-unit id="77165a44-6aad-4004-9d7c-f51b330289d6" xml:space="preserve">
+          <source><bpt id="713fde2a-7714-4f77-bb5a-c7bf3c5d49ad">&lt;strong&gt;</bpt>Schedule<ept id="713fde2a-7714-4f77-bb5a-c7bf3c5d49ad">&lt;/strong&gt;</ept> - Configure jobs and tasks and allocate compute resources to them when resources are available</source>
+          <target state="new"><bpt id="713fde2a-7714-4f77-bb5a-c7bf3c5d49ad">&lt;strong&gt;</bpt>Schedule<ept id="713fde2a-7714-4f77-bb5a-c7bf3c5d49ad">&lt;/strong&gt;</ept> - Configure jobs and tasks and allocate compute resources to them when resources are available</target>
+        </trans-unit>
+        <trans-unit id="29dfa968-7f13-46a3-9e51-fbdc37afdc00" xml:space="preserve">
+          <source><bpt id="4236f6b5-b8a4-4620-8a4f-765b6c3dd347">&lt;strong&gt;</bpt>Monitor<ept id="4236f6b5-b8a4-4620-8a4f-765b6c3dd347">&lt;/strong&gt;</ept> - Provide status information about job and task progress; handle errors or exceptions</source>
+          <target state="new"><bpt id="4236f6b5-b8a4-4620-8a4f-765b6c3dd347">&lt;strong&gt;</bpt>Monitor<ept id="4236f6b5-b8a4-4620-8a4f-765b6c3dd347">&lt;/strong&gt;</ept> - Provide status information about job and task progress; handle errors or exceptions</target>
+        </trans-unit>
+        <trans-unit id="3f50b079-a30a-42d1-ad8c-f92d15f94551" xml:space="preserve">
+          <source><bpt id="9d8a243b-f347-4ab9-a392-3f125521e276">&lt;strong&gt;</bpt>Finish<ept id="9d8a243b-f347-4ab9-a392-3f125521e276">&lt;/strong&gt;</ept> - Return results and post-process output data if needed</source>
+          <target state="new"><bpt id="9d8a243b-f347-4ab9-a392-3f125521e276">&lt;strong&gt;</bpt>Finish<ept id="9d8a243b-f347-4ab9-a392-3f125521e276">&lt;/strong&gt;</ept> - Return results and post-process output data if needed</target>
+        </trans-unit>
+        <trans-unit id="6f6d5c53-938b-443b-a554-27f6d5698136" xml:space="preserve">
+          <source>Azure has a range of compute, data, networking and related services you can use for Big Compute solutions and workflows.</source>
+          <target state="new">Azure has a range of compute, data, networking and related services you can use for Big Compute solutions and workflows.</target>
+        </trans-unit>
+        <trans-unit id="331828be-af15-41fb-95fe-7764575588e9" xml:space="preserve">
+          <source>For in-depth guidance on each of these services, see the Azure services documentation.</source>
+          <target state="new">For in-depth guidance on each of these services, see the Azure services documentation.</target>
+        </trans-unit>
+        <trans-unit id="d16096b0-e5a3-4d39-a122-35f5458654a9" xml:space="preserve">
+          <source>See <bpt id="5bbfcd48-924b-49f2-9ea4-1af6d31e821b">&lt;linkText&gt;</bpt>Solution scenarios<ept id="5bbfcd48-924b-49f2-9ea4-1af6d31e821b">&lt;/linkText&gt;</ept><bpt id="5bbfcd48-924b-49f2-9ea4-1af6d31e821b">&lt;title&gt;</bpt><ept id="5bbfcd48-924b-49f2-9ea4-1af6d31e821b">&lt;/title&gt;</ept> in this article for some common approaches with Batch and HPC applications.</source>
+          <target state="new">See <bpt id="5bbfcd48-924b-49f2-9ea4-1af6d31e821b">&lt;linkText&gt;</bpt>Solution scenarios<ept id="5bbfcd48-924b-49f2-9ea4-1af6d31e821b">&lt;/linkText&gt;</ept><bpt id="5bbfcd48-924b-49f2-9ea4-1af6d31e821b">&lt;title&gt;</bpt><ept id="5bbfcd48-924b-49f2-9ea4-1af6d31e821b">&lt;/title&gt;</ept> in this article for some common approaches with Batch and HPC applications.</target>
+        </trans-unit>
+        <trans-unit id="ae4cabdf-bf1e-4b1f-8fef-04496f53cea5" xml:space="preserve">
+          <source>New services are regularly introduced to the Azure platform and could be useful for your scenario.</source>
+          <target state="new">New services are regularly introduced to the Azure platform and could be useful for your scenario.</target>
+        </trans-unit>
+        <trans-unit id="0155d309-18fa-42f8-a52f-7a19cd2c5dc7" xml:space="preserve">
+          <source>Use of Preview services is recommended only for test or proof of concept deployments, not production workloads.</source>
+          <target state="new">Use of Preview services is recommended only for test or proof of concept deployments, not production workloads.</target>
+        </trans-unit>
+        <trans-unit id="23b13037-c434-497c-b8c8-7caa62be35c9" xml:space="preserve">
+          <source>If you have questions, contact an <bpt id="35360ea5-e420-4a34-91ff-593d3c236865">&lt;linkText&gt;</bpt>Azure partner<ept id="35360ea5-e420-4a34-91ff-593d3c236865">&lt;/linkText&gt;</ept><bpt id="35360ea5-e420-4a34-91ff-593d3c236865">&lt;title&gt;</bpt><ept id="35360ea5-e420-4a34-91ff-593d3c236865">&lt;/title&gt;</ept> or email <bpt id="b74ddc81-8869-48d8-b530-ac1eb7b48622">&lt;em&gt;</bpt>bigcompute@microsoft.com<ept id="b74ddc81-8869-48d8-b530-ac1eb7b48622">&lt;/em&gt;</ept>.</source>
+          <target state="new">If you have questions, contact an <bpt id="35360ea5-e420-4a34-91ff-593d3c236865">&lt;linkText&gt;</bpt>Azure partner<ept id="35360ea5-e420-4a34-91ff-593d3c236865">&lt;/linkText&gt;</ept><bpt id="35360ea5-e420-4a34-91ff-593d3c236865">&lt;title&gt;</bpt><ept id="35360ea5-e420-4a34-91ff-593d3c236865">&lt;/title&gt;</ept> or email <bpt id="b74ddc81-8869-48d8-b530-ac1eb7b48622">&lt;em&gt;</bpt>bigcompute@microsoft.com<ept id="b74ddc81-8869-48d8-b530-ac1eb7b48622">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="28e8de3a-6c31-4101-a6bd-a1bf5d516a7c" xml:space="preserve">
+          <source>Compute services in Azure are at the core of a Big Compute solution.</source>
+          <target state="new">Compute services in Azure are at the core of a Big Compute solution.</target>
+        </trans-unit>
+        <trans-unit id="9b26af93-41bd-4937-8aaa-ce0247fd0e46" xml:space="preserve">
+          <source>The compute services in the following table are used frequently and offer advantages for different scenarios.</source>
+          <target state="new">The compute services in the following table are used frequently and offer advantages for different scenarios.</target>
+        </trans-unit>
+        <trans-unit id="f621499b-360d-466f-9a20-2c9d9262ed08" xml:space="preserve">
+          <source>At a basic level, these services offer different modes for applications to run on virtual machine-based compute instances that Azure provides using Windows Server Hyper-V technology.</source>
+          <target state="new">At a basic level, these services offer different modes for applications to run on virtual machine-based compute instances that Azure provides using Windows Server Hyper-V technology.</target>
+        </trans-unit>
+        <trans-unit id="75ba9f76-36e2-4bc0-b023-2b38f71266a9" xml:space="preserve">
+          <source>Depending on the service, these instances can run a variety of standard and custom Linux and Windows operating systems and tools.</source>
+          <target state="new">Depending on the service, these instances can run a variety of standard and custom Linux and Windows operating systems and tools.</target>
+        </trans-unit>
+        <trans-unit id="5cb7d4e9-b93d-4d3b-b79e-2581880c6ed0" xml:space="preserve">
+          <source>Azure provides a <bpt id="4aecd718-1751-4f01-995a-3f869cee9374">&lt;linkText&gt;</bpt>range of instance sizes<ept id="4aecd718-1751-4f01-995a-3f869cee9374">&lt;/linkText&gt;</ept><bpt id="4aecd718-1751-4f01-995a-3f869cee9374">&lt;title&gt;</bpt><ept id="4aecd718-1751-4f01-995a-3f869cee9374">&lt;/title&gt;</ept> with different configurations of CPU cores, memory, disk capacity, and other characteristics.</source>
+          <target state="new">Azure provides a <bpt id="4aecd718-1751-4f01-995a-3f869cee9374">&lt;linkText&gt;</bpt>range of instance sizes<ept id="4aecd718-1751-4f01-995a-3f869cee9374">&lt;/linkText&gt;</ept><bpt id="4aecd718-1751-4f01-995a-3f869cee9374">&lt;title&gt;</bpt><ept id="4aecd718-1751-4f01-995a-3f869cee9374">&lt;/title&gt;</ept> with different configurations of CPU cores, memory, disk capacity, and other characteristics.</target>
+        </trans-unit>
+        <trans-unit id="0dbd6fa9-b4fa-4038-867a-03c55e06837f" xml:space="preserve">
+          <source>Depending on your needs you can scale the instances to thousands of cores and then scale down when you need fewer resources.</source>
+          <target state="new">Depending on your needs you can scale the instances to thousands of cores and then scale down when you need fewer resources.</target>
+        </trans-unit>
+        <trans-unit id="9f91b3fb-63b5-438f-b349-56cbb338a072" xml:space="preserve">
+          <source>You can take advantage of the A8-A11 instances to improve the performance of some compute-intensive workloads, including parallel MPI applications that require a low latency and high throughput application network.</source>
+          <target state="new">You can take advantage of the A8-A11 instances to improve the performance of some compute-intensive workloads, including parallel MPI applications that require a low latency and high throughput application network.</target>
+        </trans-unit>
+        <trans-unit id="c63b2d57-50b7-4a42-9283-dd792a852e4f" xml:space="preserve">
+          <source>See <bpt id="569ca465-1b06-4739-82c5-1a02393de6e2">&lt;linkText&gt;</bpt>About the A8, A9, A10, and A11 Compute Intensive Instances<ept id="569ca465-1b06-4739-82c5-1a02393de6e2">&lt;/linkText&gt;</ept><bpt id="569ca465-1b06-4739-82c5-1a02393de6e2">&lt;title&gt;</bpt><ept id="569ca465-1b06-4739-82c5-1a02393de6e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="569ca465-1b06-4739-82c5-1a02393de6e2">&lt;linkText&gt;</bpt>About the A8, A9, A10, and A11 Compute Intensive Instances<ept id="569ca465-1b06-4739-82c5-1a02393de6e2">&lt;/linkText&gt;</ept><bpt id="569ca465-1b06-4739-82c5-1a02393de6e2">&lt;title&gt;</bpt><ept id="569ca465-1b06-4739-82c5-1a02393de6e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a876171-b2de-4994-81bb-abec965e47fb" xml:space="preserve">
+          <source>Service</source>
+          <target state="new">Service</target>
+        </trans-unit>
+        <trans-unit id="a46641e8-8363-4dd8-a7dc-61447feeb363" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="6e7005d9-8e53-47dd-bcf8-55d1ad569867" xml:space="preserve">
+          <source><bpt id="ba24eb39-52d7-442a-b0ff-e85de5b61d98">&lt;strong&gt;</bpt>[Cloud services](http://azure.microsoft.com/documentation/services/cloud-services)<ept id="ba24eb39-52d7-442a-b0ff-e85de5b61d98">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;</source>
+          <target state="new"><bpt id="ba24eb39-52d7-442a-b0ff-e85de5b61d98">&lt;strong&gt;</bpt>[Cloud services](http://azure.microsoft.com/documentation/services/cloud-services)<ept id="ba24eb39-52d7-442a-b0ff-e85de5b61d98">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="35dd032b-c0a2-4864-979c-d50341adc743" xml:space="preserve">
+          <source>• Can run Big Compute applications in worker role instances, which are virtual machines running a version of Windows Server and are managed entirely by Azure&lt;br/&gt;&lt;br/&gt;• Enable scalable, reliable applications with low administrative overhead, running in a platform as a service (PaaS) model&lt;br/&gt;&lt;br/&gt;• May require additional tools or development to integrate with on-premises HPC cluster solutions</source>
+          <target state="new">• Can run Big Compute applications in worker role instances, which are virtual machines running a version of Windows Server and are managed entirely by Azure&lt;br/&gt;&lt;br/&gt;• Enable scalable, reliable applications with low administrative overhead, running in a platform as a service (PaaS) model&lt;br/&gt;&lt;br/&gt;• May require additional tools or development to integrate with on-premises HPC cluster solutions</target>
+        </trans-unit>
+        <trans-unit id="9aba97ad-f371-418a-b156-c1af629a744c" xml:space="preserve">
+          <source><bpt id="7a63902d-03d1-4ec9-9461-e7910d5fbc04">&lt;strong&gt;</bpt>[Virtual machines](http://azure.microsoft.com/documentation/services/virtual-machines)<ept id="7a63902d-03d1-4ec9-9461-e7910d5fbc04">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;</source>
+          <target state="new"><bpt id="7a63902d-03d1-4ec9-9461-e7910d5fbc04">&lt;strong&gt;</bpt>[Virtual machines](http://azure.microsoft.com/documentation/services/virtual-machines)<ept id="7a63902d-03d1-4ec9-9461-e7910d5fbc04">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="e005dd8d-eb84-4c4a-82c6-636d3771b5d1" xml:space="preserve">
+          <source>• Provide compute infrastructure as a service (IaaS) using Microsoft Hyper-V technology&lt;br/&gt;&lt;br/&gt;• Enable you to flexibly provision and manage persistent cloud computers from standard Windows Server or Linux images, or images and data disks you supply or from the <bpt id="80ad9737-0733-475c-90ed-91732c511574">&lt;linkText&gt;</bpt>Azure Marketplace<ept id="80ad9737-0733-475c-90ed-91732c511574">&lt;/linkText&gt;</ept><bpt id="80ad9737-0733-475c-90ed-91732c511574">&lt;title&gt;</bpt><ept id="80ad9737-0733-475c-90ed-91732c511574">&lt;/title&gt;</ept>&lt;br/&gt;&lt;br/&gt;• Run on-premises compute cluster tools and applications entirely in the cloud</source>
+          <target state="new">• Provide compute infrastructure as a service (IaaS) using Microsoft Hyper-V technology&lt;br/&gt;&lt;br/&gt;• Enable you to flexibly provision and manage persistent cloud computers from standard Windows Server or Linux images, or images and data disks you supply or from the <bpt id="80ad9737-0733-475c-90ed-91732c511574">&lt;linkText&gt;</bpt>Azure Marketplace<ept id="80ad9737-0733-475c-90ed-91732c511574">&lt;/linkText&gt;</ept><bpt id="80ad9737-0733-475c-90ed-91732c511574">&lt;title&gt;</bpt><ept id="80ad9737-0733-475c-90ed-91732c511574">&lt;/title&gt;</ept>&lt;br/&gt;&lt;br/&gt;• Run on-premises compute cluster tools and applications entirely in the cloud</target>
+        </trans-unit>
+        <trans-unit id="aac4cf90-5816-4291-84d4-49051a72828c" xml:space="preserve">
+          <source><bpt id="beb79b73-4417-4d78-9d67-f15cda9031d7">&lt;strong&gt;</bpt>[Batch](http://azure.microsoft.com/documentation/services/batch)<ept id="beb79b73-4417-4d78-9d67-f15cda9031d7">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;</source>
+          <target state="new"><bpt id="beb79b73-4417-4d78-9d67-f15cda9031d7">&lt;strong&gt;</bpt>[Batch](http://azure.microsoft.com/documentation/services/batch)<ept id="beb79b73-4417-4d78-9d67-f15cda9031d7">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="46b9ce17-ea57-439a-9398-c5538762d22f" xml:space="preserve">
+          <source>• Runs large-scale parallel and batch workloads such as image rendering and media encoding and transcoding in a fully managed service&lt;br/&gt;&lt;br/&gt;• Provides job scheduling and autoscaling of a managed pool of virtual machines&lt;br/&gt;&lt;br/&gt;• Allows developers to build and run applications as a service or cloud-enable existing applications&lt;br/&gt;</source>
+          <target state="new">• Runs large-scale parallel and batch workloads such as image rendering and media encoding and transcoding in a fully managed service&lt;br/&gt;&lt;br/&gt;• Provides job scheduling and autoscaling of a managed pool of virtual machines&lt;br/&gt;&lt;br/&gt;• Allows developers to build and run applications as a service or cloud-enable existing applications&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="1ae9a386-f9c5-4ab2-b65e-63fe912b4690" xml:space="preserve">
+          <source>A Big Compute solution typically operates on a set of input data, and generates data for its results.</source>
+          <target state="new">A Big Compute solution typically operates on a set of input data, and generates data for its results.</target>
+        </trans-unit>
+        <trans-unit id="bd0418e6-e099-47e0-84f3-f69a08594af5" xml:space="preserve">
+          <source>Some of the Azure storage services used in many Big Compute solutions include:</source>
+          <target state="new">Some of the Azure storage services used in many Big Compute solutions include:</target>
+        </trans-unit>
+        <trans-unit id="de902e3e-05e7-4e7b-9ff4-2eadcf9f987b" xml:space="preserve">
+          <source><bpt id="e1e82d58-f49e-4e04-95a5-cd418547159a">&lt;linkText&gt;</bpt>Blob, table, and queue storage<ept id="e1e82d58-f49e-4e04-95a5-cd418547159a">&lt;/linkText&gt;</ept><bpt id="e1e82d58-f49e-4e04-95a5-cd418547159a">&lt;title&gt;</bpt><ept id="e1e82d58-f49e-4e04-95a5-cd418547159a">&lt;/title&gt;</ept> - Manage large amounts of unstructured data, NoSQL data, and messages for workflow and communication, respectively.</source>
+          <target state="new"><bpt id="e1e82d58-f49e-4e04-95a5-cd418547159a">&lt;linkText&gt;</bpt>Blob, table, and queue storage<ept id="e1e82d58-f49e-4e04-95a5-cd418547159a">&lt;/linkText&gt;</ept><bpt id="e1e82d58-f49e-4e04-95a5-cd418547159a">&lt;title&gt;</bpt><ept id="e1e82d58-f49e-4e04-95a5-cd418547159a">&lt;/title&gt;</ept> - Manage large amounts of unstructured data, NoSQL data, and messages for workflow and communication, respectively.</target>
+        </trans-unit>
+        <trans-unit id="f5ffe118-d2ce-4a64-9dd9-23f62c3bf82c" xml:space="preserve">
+          <source>For example, you might use blob storage for large technical data sets, or the input images or media files your application processes.</source>
+          <target state="new">For example, you might use blob storage for large technical data sets, or the input images or media files your application processes.</target>
+        </trans-unit>
+        <trans-unit id="640938a4-e8df-4790-a392-b35eeb75e76f" xml:space="preserve">
+          <source>You might use queues for asynchronous communication in a solution.</source>
+          <target state="new">You might use queues for asynchronous communication in a solution.</target>
+        </trans-unit>
+        <trans-unit id="5e7fcfc9-48b8-4f34-8e9d-cc0f1f887959" xml:space="preserve">
+          <source>See <bpt id="7e9dc434-dc29-475e-bdf6-30321d3ff2a0">&lt;linkText&gt;</bpt>introducton to Microsoft Azure Storage<ept id="7e9dc434-dc29-475e-bdf6-30321d3ff2a0">&lt;/linkText&gt;</ept><bpt id="7e9dc434-dc29-475e-bdf6-30321d3ff2a0">&lt;title&gt;</bpt><ept id="7e9dc434-dc29-475e-bdf6-30321d3ff2a0">&lt;/title&gt;</ept> for more about these storage solutions.</source>
+          <target state="new">See <bpt id="7e9dc434-dc29-475e-bdf6-30321d3ff2a0">&lt;linkText&gt;</bpt>introducton to Microsoft Azure Storage<ept id="7e9dc434-dc29-475e-bdf6-30321d3ff2a0">&lt;/linkText&gt;</ept><bpt id="7e9dc434-dc29-475e-bdf6-30321d3ff2a0">&lt;title&gt;</bpt><ept id="7e9dc434-dc29-475e-bdf6-30321d3ff2a0">&lt;/title&gt;</ept> for more about these storage solutions.</target>
+        </trans-unit>
+        <trans-unit id="aa4f66b0-77f4-4a21-a9d3-d4a1cc67252b" xml:space="preserve">
+          <source><bpt id="14f99644-45a3-4f70-9754-53ef5480724c">&lt;linkText&gt;</bpt>Azure File Storage<ept id="14f99644-45a3-4f70-9754-53ef5480724c">&lt;/linkText&gt;</ept><bpt id="14f99644-45a3-4f70-9754-53ef5480724c">&lt;title&gt;</bpt><ept id="14f99644-45a3-4f70-9754-53ef5480724c">&lt;/title&gt;</ept> - Shares common files and data in Azure using the standard SMB protocol, which is needed for some HPC cluster solutions.</source>
+          <target state="new"><bpt id="14f99644-45a3-4f70-9754-53ef5480724c">&lt;linkText&gt;</bpt>Azure File Storage<ept id="14f99644-45a3-4f70-9754-53ef5480724c">&lt;/linkText&gt;</ept><bpt id="14f99644-45a3-4f70-9754-53ef5480724c">&lt;title&gt;</bpt><ept id="14f99644-45a3-4f70-9754-53ef5480724c">&lt;/title&gt;</ept> - Shares common files and data in Azure using the standard SMB protocol, which is needed for some HPC cluster solutions.</target>
+        </trans-unit>
+        <trans-unit id="43a8994f-e24d-4284-a10c-38de76564540" xml:space="preserve">
+          <source>Some Big Compute scenarios involve large-scale data flows, or generate data that needs further processing or analysis.</source>
+          <target state="new">Some Big Compute scenarios involve large-scale data flows, or generate data that needs further processing or analysis.</target>
+        </trans-unit>
+        <trans-unit id="6419724c-c28f-45fd-a889-14f248eba17e" xml:space="preserve">
+          <source>To handle this, Azure offers a number of data and analysis services including:</source>
+          <target state="new">To handle this, Azure offers a number of data and analysis services including:</target>
+        </trans-unit>
+        <trans-unit id="da20cd71-962a-423d-a09c-72bd812f00a5" xml:space="preserve">
+          <source><bpt id="658caa6e-489f-4f71-b14e-b19d14bb8419">&lt;linkText&gt;</bpt>Data Factory<ept id="658caa6e-489f-4f71-b14e-b19d14bb8419">&lt;/linkText&gt;</ept><bpt id="658caa6e-489f-4f71-b14e-b19d14bb8419">&lt;title&gt;</bpt><ept id="658caa6e-489f-4f71-b14e-b19d14bb8419">&lt;/title&gt;</ept> - Builds data-driven workflows (pipelines) that join, aggregate, and transform data sourced from on-premises, cloud-based, and Internet data stores.</source>
+          <target state="new"><bpt id="658caa6e-489f-4f71-b14e-b19d14bb8419">&lt;linkText&gt;</bpt>Data Factory<ept id="658caa6e-489f-4f71-b14e-b19d14bb8419">&lt;/linkText&gt;</ept><bpt id="658caa6e-489f-4f71-b14e-b19d14bb8419">&lt;title&gt;</bpt><ept id="658caa6e-489f-4f71-b14e-b19d14bb8419">&lt;/title&gt;</ept> - Builds data-driven workflows (pipelines) that join, aggregate, and transform data sourced from on-premises, cloud-based, and Internet data stores.</target>
+        </trans-unit>
+        <trans-unit id="b028f16d-7b43-44ba-bb46-11a983b8ec77" xml:space="preserve">
+          <source><bpt id="0b912e5f-0752-4dc8-94ee-1c32c7acb0a8">&lt;linkText&gt;</bpt>SQL Database<ept id="0b912e5f-0752-4dc8-94ee-1c32c7acb0a8">&lt;/linkText&gt;</ept><bpt id="0b912e5f-0752-4dc8-94ee-1c32c7acb0a8">&lt;title&gt;</bpt><ept id="0b912e5f-0752-4dc8-94ee-1c32c7acb0a8">&lt;/title&gt;</ept> - Provides the key features of a Microsoft SQL Server relational database management system in a managed platform service.</source>
+          <target state="new"><bpt id="0b912e5f-0752-4dc8-94ee-1c32c7acb0a8">&lt;linkText&gt;</bpt>SQL Database<ept id="0b912e5f-0752-4dc8-94ee-1c32c7acb0a8">&lt;/linkText&gt;</ept><bpt id="0b912e5f-0752-4dc8-94ee-1c32c7acb0a8">&lt;title&gt;</bpt><ept id="0b912e5f-0752-4dc8-94ee-1c32c7acb0a8">&lt;/title&gt;</ept> - Provides the key features of a Microsoft SQL Server relational database management system in a managed platform service.</target>
+        </trans-unit>
+        <trans-unit id="dc859a52-7de9-4483-94a7-687c7d157993" xml:space="preserve">
+          <source><bpt id="d3d9341a-e4d6-478e-915a-650faffcc644">&lt;linkText&gt;</bpt>HDInsight<ept id="d3d9341a-e4d6-478e-915a-650faffcc644">&lt;/linkText&gt;</ept><bpt id="d3d9341a-e4d6-478e-915a-650faffcc644">&lt;title&gt;</bpt><ept id="d3d9341a-e4d6-478e-915a-650faffcc644">&lt;/title&gt;</ept> - Deploys and provisions Windows Server or Linux-based Apache Hadoop clusters in the cloud to manage, analyze, and report on big data with high reliability and availability.</source>
+          <target state="new"><bpt id="d3d9341a-e4d6-478e-915a-650faffcc644">&lt;linkText&gt;</bpt>HDInsight<ept id="d3d9341a-e4d6-478e-915a-650faffcc644">&lt;/linkText&gt;</ept><bpt id="d3d9341a-e4d6-478e-915a-650faffcc644">&lt;title&gt;</bpt><ept id="d3d9341a-e4d6-478e-915a-650faffcc644">&lt;/title&gt;</ept> - Deploys and provisions Windows Server or Linux-based Apache Hadoop clusters in the cloud to manage, analyze, and report on big data with high reliability and availability.</target>
+        </trans-unit>
+        <trans-unit id="24ce174a-1195-4f2c-8ce0-c430a9f86303" xml:space="preserve">
+          <source><bpt id="1a29d630-14e1-409e-8564-45e8f3f5f8f8">&lt;linkText&gt;</bpt>Machine Learning<ept id="1a29d630-14e1-409e-8564-45e8f3f5f8f8">&lt;/linkText&gt;</ept><bpt id="1a29d630-14e1-409e-8564-45e8f3f5f8f8">&lt;title&gt;</bpt><ept id="1a29d630-14e1-409e-8564-45e8f3f5f8f8">&lt;/title&gt;</ept> - Helps you create, test, operate, and manage predictive analytic solutions in a fully managed platform service.</source>
+          <target state="new"><bpt id="1a29d630-14e1-409e-8564-45e8f3f5f8f8">&lt;linkText&gt;</bpt>Machine Learning<ept id="1a29d630-14e1-409e-8564-45e8f3f5f8f8">&lt;/linkText&gt;</ept><bpt id="1a29d630-14e1-409e-8564-45e8f3f5f8f8">&lt;title&gt;</bpt><ept id="1a29d630-14e1-409e-8564-45e8f3f5f8f8">&lt;/title&gt;</ept> - Helps you create, test, operate, and manage predictive analytic solutions in a fully managed platform service.</target>
+        </trans-unit>
+        <trans-unit id="ebdf6481-dcc8-41d0-a710-7303d919a350" xml:space="preserve">
+          <source>Your Big Compute solution might need to include other Azure infrastructure and platform services to connect to resources on-premises or in other environments.</source>
+          <target state="new">Your Big Compute solution might need to include other Azure infrastructure and platform services to connect to resources on-premises or in other environments.</target>
+        </trans-unit>
+        <trans-unit id="4671ead3-0b90-49bf-a005-e2195bce099f" xml:space="preserve">
+          <source>Examples include:</source>
+          <target state="new">Examples include:</target>
+        </trans-unit>
+        <trans-unit id="b62ed42f-b40a-4532-8f00-526987b70587" xml:space="preserve">
+          <source><bpt id="d73904e4-17bf-4448-b44d-82eb783c8fd8">&lt;linkText&gt;</bpt>Virtual Network<ept id="d73904e4-17bf-4448-b44d-82eb783c8fd8">&lt;/linkText&gt;</ept><bpt id="d73904e4-17bf-4448-b44d-82eb783c8fd8">&lt;title&gt;</bpt><ept id="d73904e4-17bf-4448-b44d-82eb783c8fd8">&lt;/title&gt;</ept> - Creates a logically isolated section in Azure to connect Azure resources to your on-premises data center or a single client machine using IPSec; allows Big Compute applications to access on-premises data, Active Directory services, and license servers</source>
+          <target state="new"><bpt id="d73904e4-17bf-4448-b44d-82eb783c8fd8">&lt;linkText&gt;</bpt>Virtual Network<ept id="d73904e4-17bf-4448-b44d-82eb783c8fd8">&lt;/linkText&gt;</ept><bpt id="d73904e4-17bf-4448-b44d-82eb783c8fd8">&lt;title&gt;</bpt><ept id="d73904e4-17bf-4448-b44d-82eb783c8fd8">&lt;/title&gt;</ept> - Creates a logically isolated section in Azure to connect Azure resources to your on-premises data center or a single client machine using IPSec; allows Big Compute applications to access on-premises data, Active Directory services, and license servers</target>
+        </trans-unit>
+        <trans-unit id="e7b02de5-6ff8-4d4b-b050-eb36d130372a" xml:space="preserve">
+          <source><bpt id="2cf920b3-cb92-4647-9d0f-d451c89a21e9">&lt;linkText&gt;</bpt>ExpressRoute<ept id="2cf920b3-cb92-4647-9d0f-d451c89a21e9">&lt;/linkText&gt;</ept><bpt id="2cf920b3-cb92-4647-9d0f-d451c89a21e9">&lt;title&gt;</bpt><ept id="2cf920b3-cb92-4647-9d0f-d451c89a21e9">&lt;/title&gt;</ept> - Creates a private connection between Microsoft data centers and infrastructure that’s on-premises or in a co-location environment, with higher security, more reliability, faster speeds, and lower latencies than typical connections over the Internet.</source>
+          <target state="new"><bpt id="2cf920b3-cb92-4647-9d0f-d451c89a21e9">&lt;linkText&gt;</bpt>ExpressRoute<ept id="2cf920b3-cb92-4647-9d0f-d451c89a21e9">&lt;/linkText&gt;</ept><bpt id="2cf920b3-cb92-4647-9d0f-d451c89a21e9">&lt;title&gt;</bpt><ept id="2cf920b3-cb92-4647-9d0f-d451c89a21e9">&lt;/title&gt;</ept> - Creates a private connection between Microsoft data centers and infrastructure that’s on-premises or in a co-location environment, with higher security, more reliability, faster speeds, and lower latencies than typical connections over the Internet.</target>
+        </trans-unit>
+        <trans-unit id="99455e00-55cd-4bde-8e26-56f9af693867" xml:space="preserve">
+          <source><bpt id="c70b5588-e3d7-4e70-afc9-f6b765d7bea6">&lt;linkText&gt;</bpt>Service Bus<ept id="c70b5588-e3d7-4e70-afc9-f6b765d7bea6">&lt;/linkText&gt;</ept><bpt id="c70b5588-e3d7-4e70-afc9-f6b765d7bea6">&lt;title&gt;</bpt><ept id="c70b5588-e3d7-4e70-afc9-f6b765d7bea6">&lt;/title&gt;</ept> - Provides several mechanisms for applications to communicate or exchange data, whether they are located on Azure, on another cloud platform, or in a data center.</source>
+          <target state="new"><bpt id="c70b5588-e3d7-4e70-afc9-f6b765d7bea6">&lt;linkText&gt;</bpt>Service Bus<ept id="c70b5588-e3d7-4e70-afc9-f6b765d7bea6">&lt;/linkText&gt;</ept><bpt id="c70b5588-e3d7-4e70-afc9-f6b765d7bea6">&lt;title&gt;</bpt><ept id="c70b5588-e3d7-4e70-afc9-f6b765d7bea6">&lt;/title&gt;</ept> - Provides several mechanisms for applications to communicate or exchange data, whether they are located on Azure, on another cloud platform, or in a data center.</target>
+        </trans-unit>
+        <trans-unit id="106279b7-c676-4a98-9028-86904b133a62" xml:space="preserve">
+          <source>The following are common scenarios to run Big Compute workloads in Azure by leveraging existing HPC cluster solutions, Azure services, or a combination of the two.</source>
+          <target state="new">The following are common scenarios to run Big Compute workloads in Azure by leveraging existing HPC cluster solutions, Azure services, or a combination of the two.</target>
+        </trans-unit>
+        <trans-unit id="93ae9890-1051-4376-83d0-c8886ae716b4" xml:space="preserve">
+          <source>For organizations with compute intensive workloads that aren't suited to standard HPC cluster tools or that don't migrate directly to Azure services, Azure provides developers and partners a full set of compute capabilities, services, architecture choices, and development tools.</source>
+          <target state="new">For organizations with compute intensive workloads that aren't suited to standard HPC cluster tools or that don't migrate directly to Azure services, Azure provides developers and partners a full set of compute capabilities, services, architecture choices, and development tools.</target>
+        </trans-unit>
+        <trans-unit id="b7006249-b13f-4d9a-a5c4-cbd9200f0a07" xml:space="preserve">
+          <source>Azure can support custom Big Compute workflows that scale to thousands of compute cores.</source>
+          <target state="new">Azure can support custom Big Compute workflows that scale to thousands of compute cores.</target>
+        </trans-unit>
+        <trans-unit id="1a74f1e9-253f-46b4-81d0-0c2b483d412f" xml:space="preserve">
+          <source><bpt id="a10800fc-1f5c-46d5-88f4-999b4dc2864b">&lt;strong&gt;</bpt>When would you choose this?<ept id="a10800fc-1f5c-46d5-88f4-999b4dc2864b">&lt;/strong&gt;</ept> - You might already have an on-premises HPC cluster running your compute intensive workloads but it needs extra compute resources for peak periods such as end-of-month reporting or special projects.</source>
+          <target state="new"><bpt id="a10800fc-1f5c-46d5-88f4-999b4dc2864b">&lt;strong&gt;</bpt>When would you choose this?<ept id="a10800fc-1f5c-46d5-88f4-999b4dc2864b">&lt;/strong&gt;</ept> - You might already have an on-premises HPC cluster running your compute intensive workloads but it needs extra compute resources for peak periods such as end-of-month reporting or special projects.</target>
+        </trans-unit>
+        <trans-unit id="9b0c04d9-6a90-4706-af51-52f2b127a738" xml:space="preserve">
+          <source>Instead of purchasing, deploying, and managing additional hardware and software that may be idle most of the time, you can use Azure to add on-demand compute power to your existing cluster.</source>
+          <target state="new">Instead of purchasing, deploying, and managing additional hardware and software that may be idle most of the time, you can use Azure to add on-demand compute power to your existing cluster.</target>
+        </trans-unit>
+        <trans-unit id="bcfe5128-7853-467c-8307-57aabf4d9805" xml:space="preserve">
+          <source>For example, if your existing on-premises HPC cluster is built with <bpt id="6c2ac126-5039-4c1b-9604-6ec82c45327f">&lt;linkText&gt;</bpt>Microsoft HPC Pack<ept id="6c2ac126-5039-4c1b-9604-6ec82c45327f">&lt;/linkText&gt;</ept><bpt id="6c2ac126-5039-4c1b-9604-6ec82c45327f">&lt;title&gt;</bpt><ept id="6c2ac126-5039-4c1b-9604-6ec82c45327f">&lt;/title&gt;</ept>, you could add extra compute resources in the form of Azure worker role instances running in a cloud service.</source>
+          <target state="new">For example, if your existing on-premises HPC cluster is built with <bpt id="6c2ac126-5039-4c1b-9604-6ec82c45327f">&lt;linkText&gt;</bpt>Microsoft HPC Pack<ept id="6c2ac126-5039-4c1b-9604-6ec82c45327f">&lt;/linkText&gt;</ept><bpt id="6c2ac126-5039-4c1b-9604-6ec82c45327f">&lt;title&gt;</bpt><ept id="6c2ac126-5039-4c1b-9604-6ec82c45327f">&lt;/title&gt;</ept>, you could add extra compute resources in the form of Azure worker role instances running in a cloud service.</target>
+        </trans-unit>
+        <trans-unit id="3491f4a6-f7c1-4ebb-9128-e67bfc9538ab" xml:space="preserve">
+          <source>See the following figure.</source>
+          <target state="new">See the following figure.</target>
+        </trans-unit>
+        <trans-unit id="8d9f097b-0b85-4806-820b-72ed935b3756" xml:space="preserve">
+          <source>For more information and step-by-step instructions, see <bpt id="21c55e8a-046f-4284-9d6b-a5dfb8b79bb7">&lt;linkText&gt;</bpt>Burst to Azure with Microsoft HPC Pack<ept id="21c55e8a-046f-4284-9d6b-a5dfb8b79bb7">&lt;/linkText&gt;</ept><bpt id="21c55e8a-046f-4284-9d6b-a5dfb8b79bb7">&lt;title&gt;</bpt><ept id="21c55e8a-046f-4284-9d6b-a5dfb8b79bb7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information and step-by-step instructions, see <bpt id="21c55e8a-046f-4284-9d6b-a5dfb8b79bb7">&lt;linkText&gt;</bpt>Burst to Azure with Microsoft HPC Pack<ept id="21c55e8a-046f-4284-9d6b-a5dfb8b79bb7">&lt;/linkText&gt;</ept><bpt id="21c55e8a-046f-4284-9d6b-a5dfb8b79bb7">&lt;title&gt;</bpt><ept id="21c55e8a-046f-4284-9d6b-a5dfb8b79bb7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ed21d90-78d4-42c9-82fc-bd40f27208db" xml:space="preserve">
+          <source><bpt id="a6aa4ab7-522c-4cfb-af33-2a123fb93321">&lt;linkText&gt;</bpt>Cluster burst<ept id="a6aa4ab7-522c-4cfb-af33-2a123fb93321">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6aa4ab7-522c-4cfb-af33-2a123fb93321">&lt;linkText&gt;</bpt>Cluster burst<ept id="a6aa4ab7-522c-4cfb-af33-2a123fb93321">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80a4f95f-db1a-4ca8-8be6-74ebcb4d1572" xml:space="preserve">
+          <source>If you want to minimize the footprint of the HPC Pack cluster, you could reduce the on-premises cluster to just the HPC Pack head node.</source>
+          <target state="new">If you want to minimize the footprint of the HPC Pack cluster, you could reduce the on-premises cluster to just the HPC Pack head node.</target>
+        </trans-unit>
+        <trans-unit id="e61701d2-17db-4906-9cf8-2cd0e491ee45" xml:space="preserve">
+          <source>Then, add all compute resources on-demand in Azure.</source>
+          <target state="new">Then, add all compute resources on-demand in Azure.</target>
+        </trans-unit>
+        <trans-unit id="e07d68dc-3bcb-4503-a8b6-0013e5ae4d74" xml:space="preserve">
+          <source>For a tutorial that steps through this scenario, see <bpt id="21b880b7-06be-447c-831f-affbdd08ef4b">&lt;linkText&gt;</bpt>Set up a hybrid compute cluster with Microsoft HPC Pack<ept id="21b880b7-06be-447c-831f-affbdd08ef4b">&lt;/linkText&gt;</ept><bpt id="21b880b7-06be-447c-831f-affbdd08ef4b">&lt;title&gt;</bpt><ept id="21b880b7-06be-447c-831f-affbdd08ef4b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a tutorial that steps through this scenario, see <bpt id="21b880b7-06be-447c-831f-affbdd08ef4b">&lt;linkText&gt;</bpt>Set up a hybrid compute cluster with Microsoft HPC Pack<ept id="21b880b7-06be-447c-831f-affbdd08ef4b">&lt;/linkText&gt;</ept><bpt id="21b880b7-06be-447c-831f-affbdd08ef4b">&lt;title&gt;</bpt><ept id="21b880b7-06be-447c-831f-affbdd08ef4b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18d75f5b-09dd-4fec-8bfe-b1a103a85bbe" xml:space="preserve">
+          <source>This hybrid solution leverages an existing investment in an on-premises cluster, but allows you to scale the fixed on-premises infrastructure for typical (non-peak) workloads.</source>
+          <target state="new">This hybrid solution leverages an existing investment in an on-premises cluster, but allows you to scale the fixed on-premises infrastructure for typical (non-peak) workloads.</target>
+        </trans-unit>
+        <trans-unit id="b6145b48-0723-4189-bb20-666bdbb51e32" xml:space="preserve">
+          <source>If you need to access an on-premises license server or data store, you can set up an Azure virtual network to connect the on-premises cluster to Azure.</source>
+          <target state="new">If you need to access an on-premises license server or data store, you can set up an Azure virtual network to connect the on-premises cluster to Azure.</target>
+        </trans-unit>
+        <trans-unit id="4a5bd0b9-155b-449c-8049-ed79d04bf75d" xml:space="preserve">
+          <source><bpt id="4c9d053c-de2e-4314-9295-ce4608c7bd9b">&lt;strong&gt;</bpt>When would you choose this?<ept id="4c9d053c-de2e-4314-9295-ce4608c7bd9b">&lt;/strong&gt;</ept> - You might already have a substantial investment in an on-premises Windows or Linux HPC cluster including management and scheduling tools and custom applications.</source>
+          <target state="new"><bpt id="4c9d053c-de2e-4314-9295-ce4608c7bd9b">&lt;strong&gt;</bpt>When would you choose this?<ept id="4c9d053c-de2e-4314-9295-ce4608c7bd9b">&lt;/strong&gt;</ept> - You might already have a substantial investment in an on-premises Windows or Linux HPC cluster including management and scheduling tools and custom applications.</target>
+        </trans-unit>
+        <trans-unit id="2182cd44-0c99-473e-86a7-5fee6edcddbd" xml:space="preserve">
+          <source>You might need additional cluster capacity to run your existing toolsets and applications but don't want to invest in additional on-premises infrastructure or modify your applications.</source>
+          <target state="new">You might need additional cluster capacity to run your existing toolsets and applications but don't want to invest in additional on-premises infrastructure or modify your applications.</target>
+        </trans-unit>
+        <trans-unit id="427f627a-d5dc-4ea7-b410-7f432f2c053b" xml:space="preserve">
+          <source>Or you might need to create a new cluster for a a short or long period of time, yet you don't want to pay the cost of purchasing, maintaining and operating it, or allocate the space to install and deploy it.</source>
+          <target state="new">Or you might need to create a new cluster for a a short or long period of time, yet you don't want to pay the cost of purchasing, maintaining and operating it, or allocate the space to install and deploy it.</target>
+        </trans-unit>
+        <trans-unit id="d7e559fa-df83-40de-b0a3-2ce947966eec" xml:space="preserve">
+          <source>You can use Azure automation tools to create an HPC cluster in Azure virtual machines to create the capacity you need.</source>
+          <target state="new">You can use Azure automation tools to create an HPC cluster in Azure virtual machines to create the capacity you need.</target>
+        </trans-unit>
+        <trans-unit id="d6ee1ffb-5f9b-4e05-9083-89709c44ef25" xml:space="preserve">
+          <source>Depending on the the VMs you deploy, you can run a variety of HPC and parallel workloads, including tightly coupled MPI applications.</source>
+          <target state="new">Depending on the the VMs you deploy, you can run a variety of HPC and parallel workloads, including tightly coupled MPI applications.</target>
+        </trans-unit>
+        <trans-unit id="862b2806-611a-4b09-8974-f3c9b86562b8" xml:space="preserve">
+          <source>Check with the vendor of your on-premises cluster solution and applications for additional requirements and best practices for running in a public cloud providing infrastructure as a service (IaaS).</source>
+          <target state="new">Check with the vendor of your on-premises cluster solution and applications for additional requirements and best practices for running in a public cloud providing infrastructure as a service (IaaS).</target>
+        </trans-unit>
+        <trans-unit id="42852ffc-103d-4dde-aefc-85edf095cac1" xml:space="preserve">
+          <source>For example, you can create a Windows Server based HPC cluster with <bpt id="a6364d8e-74f6-4272-b9d3-a283a26adaaf">&lt;linkText&gt;</bpt>Microsoft HPC Pack<ept id="a6364d8e-74f6-4272-b9d3-a283a26adaaf">&lt;/linkText&gt;</ept><bpt id="a6364d8e-74f6-4272-b9d3-a283a26adaaf">&lt;title&gt;</bpt><ept id="a6364d8e-74f6-4272-b9d3-a283a26adaaf">&lt;/title&gt;</ept> in Azure infrastructure services virtual machines (IaaS) to run your workloads, as shown in the following simplified figure.</source>
+          <target state="new">For example, you can create a Windows Server based HPC cluster with <bpt id="a6364d8e-74f6-4272-b9d3-a283a26adaaf">&lt;linkText&gt;</bpt>Microsoft HPC Pack<ept id="a6364d8e-74f6-4272-b9d3-a283a26adaaf">&lt;/linkText&gt;</ept><bpt id="a6364d8e-74f6-4272-b9d3-a283a26adaaf">&lt;title&gt;</bpt><ept id="a6364d8e-74f6-4272-b9d3-a283a26adaaf">&lt;/title&gt;</ept> in Azure infrastructure services virtual machines (IaaS) to run your workloads, as shown in the following simplified figure.</target>
+        </trans-unit>
+        <trans-unit id="7fd5acef-acae-406b-a8bd-81d4bb5c55bf" xml:space="preserve">
+          <source>A cluster user can submit a job securely to the cloud cluster through standard HPC Pack job submission tools running on a client computer.</source>
+          <target state="new">A cluster user can submit a job securely to the cloud cluster through standard HPC Pack job submission tools running on a client computer.</target>
+        </trans-unit>
+        <trans-unit id="da99dff9-8a4f-4cee-8d59-d6b0c562c957" xml:space="preserve">
+          <source>See <bpt id="4cec35ad-9739-4d10-944d-6c8c184502bd">&lt;linkText&gt;</bpt>Microsoft HPC Pack in Azure VMs<ept id="4cec35ad-9739-4d10-944d-6c8c184502bd">&lt;/linkText&gt;</ept><bpt id="4cec35ad-9739-4d10-944d-6c8c184502bd">&lt;title&gt;</bpt><ept id="4cec35ad-9739-4d10-944d-6c8c184502bd">&lt;/title&gt;</ept> for details and deployment options.</source>
+          <target state="new">See <bpt id="4cec35ad-9739-4d10-944d-6c8c184502bd">&lt;linkText&gt;</bpt>Microsoft HPC Pack in Azure VMs<ept id="4cec35ad-9739-4d10-944d-6c8c184502bd">&lt;/linkText&gt;</ept><bpt id="4cec35ad-9739-4d10-944d-6c8c184502bd">&lt;title&gt;</bpt><ept id="4cec35ad-9739-4d10-944d-6c8c184502bd">&lt;/title&gt;</ept> for details and deployment options.</target>
+        </trans-unit>
+        <trans-unit id="d3ae8b4c-c99c-4f04-bf8d-678d352021d2" xml:space="preserve">
+          <source><bpt id="6916d355-5a8f-407c-89ab-0a15ef5c31de">&lt;linkText&gt;</bpt>Cluster in IaaS<ept id="6916d355-5a8f-407c-89ab-0a15ef5c31de">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6916d355-5a8f-407c-89ab-0a15ef5c31de">&lt;linkText&gt;</bpt>Cluster in IaaS<ept id="6916d355-5a8f-407c-89ab-0a15ef5c31de">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b53994e2-de14-427c-8701-000173b203c4" xml:space="preserve">
+          <source><bpt id="a7ff6e69-a713-459c-8343-63361129c6d9">&lt;strong&gt;</bpt>Automated deployment<ept id="a7ff6e69-a713-459c-8343-63361129c6d9">&lt;/strong&gt;</ept> - To deploy a large number of Windows Server or Linux VMs you can use standard or custom VM images and Azure automation tools such as the <bpt id="c153e695-598c-4712-a60d-1c2df229eb9d">&lt;linkText&gt;</bpt>Azure Command-line Interface<ept id="c153e695-598c-4712-a60d-1c2df229eb9d">&lt;/linkText&gt;</ept><bpt id="c153e695-598c-4712-a60d-1c2df229eb9d">&lt;title&gt;</bpt><ept id="c153e695-598c-4712-a60d-1c2df229eb9d">&lt;/title&gt;</ept> or <bpt id="081c03cf-8988-4a03-8aca-4ce1732ade72">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="081c03cf-8988-4a03-8aca-4ce1732ade72">&lt;/linkText&gt;</ept><bpt id="081c03cf-8988-4a03-8aca-4ce1732ade72">&lt;title&gt;</bpt><ept id="081c03cf-8988-4a03-8aca-4ce1732ade72">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a7ff6e69-a713-459c-8343-63361129c6d9">&lt;strong&gt;</bpt>Automated deployment<ept id="a7ff6e69-a713-459c-8343-63361129c6d9">&lt;/strong&gt;</ept> - To deploy a large number of Windows Server or Linux VMs you can use standard or custom VM images and Azure automation tools such as the <bpt id="c153e695-598c-4712-a60d-1c2df229eb9d">&lt;linkText&gt;</bpt>Azure Command-line Interface<ept id="c153e695-598c-4712-a60d-1c2df229eb9d">&lt;/linkText&gt;</ept><bpt id="c153e695-598c-4712-a60d-1c2df229eb9d">&lt;title&gt;</bpt><ept id="c153e695-598c-4712-a60d-1c2df229eb9d">&lt;/title&gt;</ept> or <bpt id="081c03cf-8988-4a03-8aca-4ce1732ade72">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="081c03cf-8988-4a03-8aca-4ce1732ade72">&lt;/linkText&gt;</ept><bpt id="081c03cf-8988-4a03-8aca-4ce1732ade72">&lt;title&gt;</bpt><ept id="081c03cf-8988-4a03-8aca-4ce1732ade72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cab577b8-4f86-48d7-8387-e582d9e17d26" xml:space="preserve">
+          <source>Examples include:</source>
+          <target state="new">Examples include:</target>
+        </trans-unit>
+        <trans-unit id="d381101e-0cd5-4ee2-8695-144e3b57a26f" xml:space="preserve">
+          <source>To deploy an HPC Pack cluster in Azure infrastructure services, you can run a flexible <bpt id="d5a06808-a4ac-42fa-ab09-4b305f7b5ef2">&lt;linkText&gt;</bpt>Azure PowerShell script<ept id="d5a06808-a4ac-42fa-ab09-4b305f7b5ef2">&lt;/linkText&gt;</ept><bpt id="d5a06808-a4ac-42fa-ab09-4b305f7b5ef2">&lt;title&gt;</bpt><ept id="d5a06808-a4ac-42fa-ab09-4b305f7b5ef2">&lt;/title&gt;</ept> from a client computer; the script uses a Windows Server VM image with HPC Pack preinstalled.</source>
+          <target state="new">To deploy an HPC Pack cluster in Azure infrastructure services, you can run a flexible <bpt id="d5a06808-a4ac-42fa-ab09-4b305f7b5ef2">&lt;linkText&gt;</bpt>Azure PowerShell script<ept id="d5a06808-a4ac-42fa-ab09-4b305f7b5ef2">&lt;/linkText&gt;</ept><bpt id="d5a06808-a4ac-42fa-ab09-4b305f7b5ef2">&lt;title&gt;</bpt><ept id="d5a06808-a4ac-42fa-ab09-4b305f7b5ef2">&lt;/title&gt;</ept> from a client computer; the script uses a Windows Server VM image with HPC Pack preinstalled.</target>
+        </trans-unit>
+        <trans-unit id="0a29a749-6f74-492d-8458-9942aee71866" xml:space="preserve">
+          <source>You can also use an Azure <bpt id="ef9d95c2-4320-47c7-a0d4-b9c32e004dc2">&lt;linkText&gt;</bpt>quickstart template<ept id="ef9d95c2-4320-47c7-a0d4-b9c32e004dc2">&lt;/linkText&gt;</ept><bpt id="ef9d95c2-4320-47c7-a0d4-b9c32e004dc2">&lt;title&gt;</bpt><ept id="ef9d95c2-4320-47c7-a0d4-b9c32e004dc2">&lt;/title&gt;</ept> with either Azure PowerShell or the Azure CLI to deploy an HPC Pack cluster.</source>
+          <target state="new">You can also use an Azure <bpt id="ef9d95c2-4320-47c7-a0d4-b9c32e004dc2">&lt;linkText&gt;</bpt>quickstart template<ept id="ef9d95c2-4320-47c7-a0d4-b9c32e004dc2">&lt;/linkText&gt;</ept><bpt id="ef9d95c2-4320-47c7-a0d4-b9c32e004dc2">&lt;title&gt;</bpt><ept id="ef9d95c2-4320-47c7-a0d4-b9c32e004dc2">&lt;/title&gt;</ept> with either Azure PowerShell or the Azure CLI to deploy an HPC Pack cluster.</target>
+        </trans-unit>
+        <trans-unit id="25fbd1cf-39b7-4b93-87e3-57d0bc1c617e" xml:space="preserve">
+          <source>You can use an Azure <bpt id="1a7d853d-2b08-44ba-bd04-e02c2afdb54f">&lt;linkText&gt;</bpt>quickstart template<ept id="1a7d853d-2b08-44ba-bd04-e02c2afdb54f">&lt;/linkText&gt;</ept><bpt id="1a7d853d-2b08-44ba-bd04-e02c2afdb54f">&lt;title&gt;</bpt><ept id="1a7d853d-2b08-44ba-bd04-e02c2afdb54f">&lt;/title&gt;</ept> with either Azure PowerShell or the Azure CLI to deploy a Linux cluster running the <bpt id="8d60736a-14ab-4e2e-ae8f-5d0119c592dd">&lt;linkText&gt;</bpt>SLURM<ept id="8d60736a-14ab-4e2e-ae8f-5d0119c592dd">&lt;/linkText&gt;</ept><bpt id="8d60736a-14ab-4e2e-ae8f-5d0119c592dd">&lt;title&gt;</bpt><ept id="8d60736a-14ab-4e2e-ae8f-5d0119c592dd">&lt;/title&gt;</ept> open source workload manager.</source>
+          <target state="new">You can use an Azure <bpt id="1a7d853d-2b08-44ba-bd04-e02c2afdb54f">&lt;linkText&gt;</bpt>quickstart template<ept id="1a7d853d-2b08-44ba-bd04-e02c2afdb54f">&lt;/linkText&gt;</ept><bpt id="1a7d853d-2b08-44ba-bd04-e02c2afdb54f">&lt;title&gt;</bpt><ept id="1a7d853d-2b08-44ba-bd04-e02c2afdb54f">&lt;/title&gt;</ept> with either Azure PowerShell or the Azure CLI to deploy a Linux cluster running the <bpt id="8d60736a-14ab-4e2e-ae8f-5d0119c592dd">&lt;linkText&gt;</bpt>SLURM<ept id="8d60736a-14ab-4e2e-ae8f-5d0119c592dd">&lt;/linkText&gt;</ept><bpt id="8d60736a-14ab-4e2e-ae8f-5d0119c592dd">&lt;title&gt;</bpt><ept id="8d60736a-14ab-4e2e-ae8f-5d0119c592dd">&lt;/title&gt;</ept> open source workload manager.</target>
+        </trans-unit>
+        <trans-unit id="d676894b-19fb-4d0f-a685-cd7063399edd" xml:space="preserve">
+          <source>Putting an entire HPC cluster in the cloud can have clear benefits.</source>
+          <target state="new">Putting an entire HPC cluster in the cloud can have clear benefits.</target>
+        </trans-unit>
+        <trans-unit id="4d14fb3a-6f52-4fc5-b71c-eca1e4bb2523" xml:space="preserve">
+          <source>An organization can un HPC jobs without buying and managing additional on-premises hardware, and  can control the size of the cluster to use compute resources efficiently.</source>
+          <target state="new">An organization can un HPC jobs without buying and managing additional on-premises hardware, and  can control the size of the cluster to use compute resources efficiently.</target>
+        </trans-unit>
+        <trans-unit id="fb699096-18cb-4826-9aef-cf675e68244e" xml:space="preserve">
+          <source>Many on-premises cluster applications can run unchanged, or with minor modifications, in a cloud-based cluster.</source>
+          <target state="new">Many on-premises cluster applications can run unchanged, or with minor modifications, in a cloud-based cluster.</target>
+        </trans-unit>
+        <trans-unit id="dc6b1b39-632b-47c7-bbbb-2c5823858f4b" xml:space="preserve">
+          <source>Compared with a hybrid solution that extends an on-premises cluster to the cloud, running an application entirely in the cloud can simplify data access.</source>
+          <target state="new">Compared with a hybrid solution that extends an on-premises cluster to the cloud, running an application entirely in the cloud can simplify data access.</target>
+        </trans-unit>
+        <trans-unit id="b23e97ae-c378-4629-a605-ec5a59094ca1" xml:space="preserve">
+          <source>Rather than dividing data between the cloud and on-premises installations, or making one part of the application access data remotely, all of the application data can be stored in the cloud.</source>
+          <target state="new">Rather than dividing data between the cloud and on-premises installations, or making one part of the application access data remotely, all of the application data can be stored in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="1f314b39-ce9f-4793-a9aa-5a05c30a23e4" xml:space="preserve">
+          <source>Some software vendors optimize their applications to run in cloud-based clusters.</source>
+          <target state="new">Some software vendors optimize their applications to run in cloud-based clusters.</target>
+        </trans-unit>
+        <trans-unit id="1d6d82b6-10ef-4dd2-a244-370b3654d960" xml:space="preserve">
+          <source>For example, by deploying the <bpt id="dd601efe-6633-4b01-9e7b-c643ddf0d12b">&lt;linkText&gt;</bpt>MATLAB Distributed Computing Server<ept id="dd601efe-6633-4b01-9e7b-c643ddf0d12b">&lt;/linkText&gt;</ept><bpt id="dd601efe-6633-4b01-9e7b-c643ddf0d12b">&lt;title&gt;</bpt><ept id="dd601efe-6633-4b01-9e7b-c643ddf0d12b">&lt;/title&gt;</ept>, from MathWorks, on an HPC Pack cluster in Azure virtual machines, you can run parallel MATLAB jobs entirely with cloud-based compute resources.</source>
+          <target state="new">For example, by deploying the <bpt id="dd601efe-6633-4b01-9e7b-c643ddf0d12b">&lt;linkText&gt;</bpt>MATLAB Distributed Computing Server<ept id="dd601efe-6633-4b01-9e7b-c643ddf0d12b">&lt;/linkText&gt;</ept><bpt id="dd601efe-6633-4b01-9e7b-c643ddf0d12b">&lt;title&gt;</bpt><ept id="dd601efe-6633-4b01-9e7b-c643ddf0d12b">&lt;/title&gt;</ept>, from MathWorks, on an HPC Pack cluster in Azure virtual machines, you can run parallel MATLAB jobs entirely with cloud-based compute resources.</target>
+        </trans-unit>
+        <trans-unit id="2167a967-cffb-409b-a9ed-369126f0827f" xml:space="preserve">
+          <source><bpt id="edec852b-6c18-4173-b2d4-07cfa47e4048">&lt;strong&gt;</bpt>When would you choose this?<ept id="edec852b-6c18-4173-b2d4-07cfa47e4048">&lt;/strong&gt;</ept> - You might be running a compute-intensive application such as a Monte Carlo simulation, animation rendering, or media transcoding in on-premises workstations or a small cluster.</source>
+          <target state="new"><bpt id="edec852b-6c18-4173-b2d4-07cfa47e4048">&lt;strong&gt;</bpt>When would you choose this?<ept id="edec852b-6c18-4173-b2d4-07cfa47e4048">&lt;/strong&gt;</ept> - You might be running a compute-intensive application such as a Monte Carlo simulation, animation rendering, or media transcoding in on-premises workstations or a small cluster.</target>
+        </trans-unit>
+        <trans-unit id="0ab16b76-0dc7-458a-9339-c7ece33aec56" xml:space="preserve">
+          <source>You don’t want to manage compute resources or a job scheduler; instead, you want to focus on running your application efficiently to solve your business problems.</source>
+          <target state="new">You don’t want to manage compute resources or a job scheduler; instead, you want to focus on running your application efficiently to solve your business problems.</target>
+        </trans-unit>
+        <trans-unit id="4cd336bd-c11b-4558-98ee-433d84d2f49d" xml:space="preserve">
+          <source>Or you might want to offload your compute intensive application, or a third-party application, so it runs entirely as a service in the cloud.</source>
+          <target state="new">Or you might want to offload your compute intensive application, or a third-party application, so it runs entirely as a service in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="dc639fd7-1942-4c90-98a9-3a6d7247c922" xml:space="preserve">
+          <source>Depending on the workload, you might take advantage of an existing Big Compute service in Azure, hosted by Microsoft or another service vendor, to simplify management of both the infrastructure and the application for your solution.</source>
+          <target state="new">Depending on the workload, you might take advantage of an existing Big Compute service in Azure, hosted by Microsoft or another service vendor, to simplify management of both the infrastructure and the application for your solution.</target>
+        </trans-unit>
+        <trans-unit id="2f26fa63-02fd-4f79-ac80-8a99c5b48ff2" xml:space="preserve">
+          <source>Some services host specific applications for customers in selected industries.</source>
+          <target state="new">Some services host specific applications for customers in selected industries.</target>
+        </trans-unit>
+        <trans-unit id="1ae3592c-ff32-41e9-b402-6f7b6ff18fcd" xml:space="preserve">
+          <source>Some services plug into on-premises applications, enabling a hybrid solution.</source>
+          <target state="new">Some services plug into on-premises applications, enabling a hybrid solution.</target>
+        </trans-unit>
+        <trans-unit id="fb7ee4ee-77d1-4a03-93ef-710eb88abe05" xml:space="preserve">
+          <source>Others, like <bpt id="421d1ce3-cf2a-489c-87ad-4c6385f93ff7">&lt;linkText&gt;</bpt>Azure Media Services<ept id="421d1ce3-cf2a-489c-87ad-4c6385f93ff7">&lt;/linkText&gt;</ept><bpt id="421d1ce3-cf2a-489c-87ad-4c6385f93ff7">&lt;title&gt;</bpt><ept id="421d1ce3-cf2a-489c-87ad-4c6385f93ff7">&lt;/title&gt;</ept>, are dedicated platform services.</source>
+          <target state="new">Others, like <bpt id="421d1ce3-cf2a-489c-87ad-4c6385f93ff7">&lt;linkText&gt;</bpt>Azure Media Services<ept id="421d1ce3-cf2a-489c-87ad-4c6385f93ff7">&lt;/linkText&gt;</ept><bpt id="421d1ce3-cf2a-489c-87ad-4c6385f93ff7">&lt;title&gt;</bpt><ept id="421d1ce3-cf2a-489c-87ad-4c6385f93ff7">&lt;/title&gt;</ept>, are dedicated platform services.</target>
+        </trans-unit>
+        <trans-unit id="30b2e1a4-86d4-4cc3-8e9a-e1d3ba2ce6db" xml:space="preserve">
+          <source>To easily cloud enable and scale out an application you run today, <bpt id="b37d542f-d84e-4fb1-9960-5dde2660bf6e">&lt;linkText&gt;</bpt>Batch<ept id="b37d542f-d84e-4fb1-9960-5dde2660bf6e">&lt;/linkText&gt;</ept><bpt id="b37d542f-d84e-4fb1-9960-5dde2660bf6e">&lt;title&gt;</bpt><ept id="b37d542f-d84e-4fb1-9960-5dde2660bf6e">&lt;/title&gt;</ept> provides APIs to schedule jobs and manage compute resources in a service.</source>
+          <target state="new">To easily cloud enable and scale out an application you run today, <bpt id="b37d542f-d84e-4fb1-9960-5dde2660bf6e">&lt;linkText&gt;</bpt>Batch<ept id="b37d542f-d84e-4fb1-9960-5dde2660bf6e">&lt;/linkText&gt;</ept><bpt id="b37d542f-d84e-4fb1-9960-5dde2660bf6e">&lt;title&gt;</bpt><ept id="b37d542f-d84e-4fb1-9960-5dde2660bf6e">&lt;/title&gt;</ept> provides APIs to schedule jobs and manage compute resources in a service.</target>
+        </trans-unit>
+        <trans-unit id="e3ec9e2a-fcd5-43a2-94f5-4955a6a0139b" xml:space="preserve">
+          <source>Batch manages deployment and autoscaling of virtual machines, job scheduling, disaster recovery, data movement, dependency management, application deployment, and all the other plumbing needed to run jobs in the cloud.</source>
+          <target state="new">Batch manages deployment and autoscaling of virtual machines, job scheduling, disaster recovery, data movement, dependency management, application deployment, and all the other plumbing needed to run jobs in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="017daffd-3ada-4567-82c8-0c97c1296479" xml:space="preserve">
+          <source>Currently Batch is ideal for intrinsically parallel applications such as image rendering, financial risk modeling, and Monte Carlo simulations running in Windows Server compute resources.</source>
+          <target state="new">Currently Batch is ideal for intrinsically parallel applications such as image rendering, financial risk modeling, and Monte Carlo simulations running in Windows Server compute resources.</target>
+        </trans-unit>
+        <trans-unit id="fdbc28b5-77cf-4035-8d73-3649d0727667" xml:space="preserve">
+          <source>See the following figure for a typical workflow a developer can create with Batch.</source>
+          <target state="new">See the following figure for a typical workflow a developer can create with Batch.</target>
+        </trans-unit>
+        <trans-unit id="0e3cb2ce-ba4b-4a33-9d75-01c17c58ee4d" xml:space="preserve">
+          <source><bpt id="29e648b8-5127-427b-bd2b-b45b924f35fb">&lt;linkText&gt;</bpt>Azure Batch<ept id="29e648b8-5127-427b-bd2b-b45b924f35fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29e648b8-5127-427b-bd2b-b45b924f35fb">&lt;linkText&gt;</bpt>Azure Batch<ept id="29e648b8-5127-427b-bd2b-b45b924f35fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f60f0f3-8d60-4252-aed4-48c4a13b9e65" xml:space="preserve">
+          <source>Upload input files (such as source data or images, required application .exe or script files, and their dependencies) to Azure Storage.</source>
+          <target state="new">Upload input files (such as source data or images, required application .exe or script files, and their dependencies) to Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="29cddbb4-0898-45b4-ba73-e4ab414255a5" xml:space="preserve">
+          <source>Create a Batch service that will:</source>
+          <target state="new">Create a Batch service that will:</target>
+        </trans-unit>
+        <trans-unit id="46e31506-9645-4956-9ea6-edc306a067ad" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="b693b652-b04d-40b4-aa8b-bdb6108999d3" xml:space="preserve">
+          <source>Deploy a pool of identical Azure VMs to run the application, analagous to compute nodes in an HPC cluster.</source>
+          <target state="new">Deploy a pool of identical Azure VMs to run the application, analagous to compute nodes in an HPC cluster.</target>
+        </trans-unit>
+        <trans-unit id="70e23451-15d2-4336-85c6-e26eb9561c93" xml:space="preserve">
+          <source>The developer specifies their size, the OS they run, and other properties such as whether the pool can autoscale.</source>
+          <target state="new">The developer specifies their size, the OS they run, and other properties such as whether the pool can autoscale.</target>
+        </trans-unit>
+        <trans-unit id="53e43b2e-54e6-4c47-a165-b4422899bba6" xml:space="preserve">
+          <source>When a task runs, it is automatically assigned a VM from this pool.</source>
+          <target state="new">When a task runs, it is automatically assigned a VM from this pool.</target>
+        </trans-unit>
+        <trans-unit id="936636e0-c8bd-4f64-96c2-2c9da7b082fa" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="7af77297-2ff7-4364-9520-31b7159fa7b5" xml:space="preserve">
+          <source>Create a job to run the application.</source>
+          <target state="new">Create a job to run the application.</target>
+        </trans-unit>
+        <trans-unit id="ce0e74f4-9813-4ee4-a860-4d7c9b57c0df" xml:space="preserve">
+          <source>The developer can specify a schedule and priority for the job, or the job can run on-demand.</source>
+          <target state="new">The developer can specify a schedule and priority for the job, or the job can run on-demand.</target>
+        </trans-unit>
+        <trans-unit id="94ee5c50-e91d-4fe9-af04-3d4e808bb7e0" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="d324da1d-277f-497b-921e-41fedb404659" xml:space="preserve">
+          <source>Partition the job into tasks.</source>
+          <target state="new">Partition the job into tasks.</target>
+        </trans-unit>
+        <trans-unit id="1896a7e0-cec6-4971-a85c-0793cdfa53e3" xml:space="preserve">
+          <source>Each task is essentially a command line that runs on one of the VMs in the pool to process information from one of the data files uploaded to Storage.</source>
+          <target state="new">Each task is essentially a command line that runs on one of the VMs in the pool to process information from one of the data files uploaded to Storage.</target>
+        </trans-unit>
+        <trans-unit id="1ec49cbb-dcd6-449a-99b2-e15c0ffe9000" xml:space="preserve">
+          <source>Run the service and monitor the results.</source>
+          <target state="new">Run the service and monitor the results.</target>
+        </trans-unit>
+        <trans-unit id="e54c7200-f86f-43a6-9ee1-5c785988b1bf" xml:space="preserve">
+          <source>See <bpt id="5d99eaa4-6908-47ed-81b3-5335d243d3ac">&lt;linkText&gt;</bpt>Technical Resources for Batch and HPC<ept id="5d99eaa4-6908-47ed-81b3-5335d243d3ac">&lt;/linkText&gt;</ept><bpt id="5d99eaa4-6908-47ed-81b3-5335d243d3ac">&lt;title&gt;</bpt><ept id="5d99eaa4-6908-47ed-81b3-5335d243d3ac">&lt;/title&gt;</ept> to find technical guidance for your solution.</source>
+          <target state="new">See <bpt id="5d99eaa4-6908-47ed-81b3-5335d243d3ac">&lt;linkText&gt;</bpt>Technical Resources for Batch and HPC<ept id="5d99eaa4-6908-47ed-81b3-5335d243d3ac">&lt;/linkText&gt;</ept><bpt id="5d99eaa4-6908-47ed-81b3-5335d243d3ac">&lt;title&gt;</bpt><ept id="5d99eaa4-6908-47ed-81b3-5335d243d3ac">&lt;/title&gt;</ept> to find technical guidance for your solution.</target>
+        </trans-unit>
+        <trans-unit id="5329b0a1-a13a-4aeb-bdbe-6adf7439eec0" xml:space="preserve">
+          <source>For the latest announcements, see the <bpt id="65bc765c-3f5c-4dd3-a55d-fdb62f359c11">&lt;linkText&gt;</bpt>Microsoft HPC and Batch team blog<ept id="65bc765c-3f5c-4dd3-a55d-fdb62f359c11">&lt;/linkText&gt;</ept><bpt id="65bc765c-3f5c-4dd3-a55d-fdb62f359c11">&lt;title&gt;</bpt><ept id="65bc765c-3f5c-4dd3-a55d-fdb62f359c11">&lt;/title&gt;</ept> and the <bpt id="411c7f88-9b90-4300-9178-86844b5bd168">&lt;linkText&gt;</bpt>Azure blog<ept id="411c7f88-9b90-4300-9178-86844b5bd168">&lt;/linkText&gt;</ept><bpt id="411c7f88-9b90-4300-9178-86844b5bd168">&lt;title&gt;</bpt><ept id="411c7f88-9b90-4300-9178-86844b5bd168">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the latest announcements, see the <bpt id="65bc765c-3f5c-4dd3-a55d-fdb62f359c11">&lt;linkText&gt;</bpt>Microsoft HPC and Batch team blog<ept id="65bc765c-3f5c-4dd3-a55d-fdb62f359c11">&lt;/linkText&gt;</ept><bpt id="65bc765c-3f5c-4dd3-a55d-fdb62f359c11">&lt;title&gt;</bpt><ept id="65bc765c-3f5c-4dd3-a55d-fdb62f359c11">&lt;/title&gt;</ept> and the <bpt id="411c7f88-9b90-4300-9178-86844b5bd168">&lt;linkText&gt;</bpt>Azure blog<ept id="411c7f88-9b90-4300-9178-86844b5bd168">&lt;/linkText&gt;</ept><bpt id="411c7f88-9b90-4300-9178-86844b5bd168">&lt;title&gt;</bpt><ept id="411c7f88-9b90-4300-9178-86844b5bd168">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dfaf322f-f2c4-4f1f-9881-aa9bec2cde1a" xml:space="preserve">
+          <source>./media/batch-hpc-solutions/parallel.png</source>
+          <target state="new">./media/batch-hpc-solutions/parallel.png</target>
+        </trans-unit>
+        <trans-unit id="60d77e29-35e5-44f8-8262-998357d1e4d8" xml:space="preserve">
+          <source>./media/batch-hpc-solutions/coupled.png</source>
+          <target state="new">./media/batch-hpc-solutions/coupled.png</target>
+        </trans-unit>
+        <trans-unit id="23a9182e-0e16-4e1b-ad71-d156af29b99a" xml:space="preserve">
+          <source>./media/batch-hpc-solutions/iaas_cluster.png</source>
+          <target state="new">./media/batch-hpc-solutions/iaas_cluster.png</target>
+        </trans-unit>
+        <trans-unit id="5d79da86-0daf-4f55-8a67-d81734aa9fb4" xml:space="preserve">
+          <source>./media/batch-hpc-solutions/burst_cluster.png</source>
+          <target state="new">./media/batch-hpc-solutions/burst_cluster.png</target>
+        </trans-unit>
+        <trans-unit id="39032596-09e9-4169-b206-ace7679e20a5" xml:space="preserve">
+          <source>./media/batch-hpc-solutions/batch_proc.png</source>
+          <target state="new">./media/batch-hpc-solutions/batch_proc.png</target>
+        </trans-unit>
+      </group>
+      <group id="d7b16b8e-bf74-40d1-bf09-1ea784b074e5" />
+    </body>
+  </file>
+</xliff>

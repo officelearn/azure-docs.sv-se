@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="70eb91da-2d9d-4c04-9bb8-467e9be0647f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="70eb91da-2d9d-4c04-9bb8-467e9be0647f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="909286f6-02a6-4343-82fe-8cefc200f45a">
+        <trans-unit id="84e10a37-e136-4279-89d0-225f1205f90e" xml:space="preserve">
+          <source>Survival Analysis with Azure Machine Learning | Microsoft Azure</source>
+          <target state="new">Survival Analysis with Azure Machine Learning | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="fde559e5-bfbe-40d1-846b-be602302a759" xml:space="preserve">
+          <source>Survival Analysis event occurrence probability</source>
+          <target state="new">Survival Analysis event occurrence probability</target>
+        </trans-unit>
+        <trans-unit id="4a748b13-8e06-4ec5-9ada-f5f9d9f5954d" xml:space="preserve">
+          <source>Under many scenarios, the main outcome under assessment is the time to an event of interest.</source>
+          <target state="new">Under many scenarios, the main outcome under assessment is the time to an event of interest.</target>
+        </trans-unit>
+        <trans-unit id="381949fa-bef8-42df-90b8-258994d6ef98" xml:space="preserve">
+          <source>In other words, the question “when this event will occur?”</source>
+          <target state="new">In other words, the question “when this event will occur?”</target>
+        </trans-unit>
+        <trans-unit id="f3171ec2-5daf-4785-9fb9-d2a0b6ab0d3f" xml:space="preserve">
+          <source>is asked.</source>
+          <target state="new">is asked.</target>
+        </trans-unit>
+        <trans-unit id="7ca5d7c0-65cc-43ae-897e-9f92afc4ea75" xml:space="preserve">
+          <source>As examples, consider situations where the data describes the elapsed time (days, years, mileage, etc.)</source>
+          <target state="new">As examples, consider situations where the data describes the elapsed time (days, years, mileage, etc.)</target>
+        </trans-unit>
+        <trans-unit id="ecfae11f-69d8-4f52-81b8-85f30ce5bd1d" xml:space="preserve">
+          <source>until the event of interest (disease relapse, PhD degree received, brake pad failure) occurs.</source>
+          <target state="new">until the event of interest (disease relapse, PhD degree received, brake pad failure) occurs.</target>
+        </trans-unit>
+        <trans-unit id="029b6dbe-ea37-4577-8813-c578d2f6d57e" xml:space="preserve">
+          <source>Each instance in the data represents a specific object (a patient, a student, a car, etc.).</source>
+          <target state="new">Each instance in the data represents a specific object (a patient, a student, a car, etc.).</target>
+        </trans-unit>
+        <trans-unit id="98e6adc0-3f37-4fef-bc97-d308ffe24595" xml:space="preserve">
+          <source><bpt id="0d14551d-69f6-4f2c-b781-9f7cc75d2c5e">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="0d14551d-69f6-4f2c-b781-9f7cc75d2c5e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0d14551d-69f6-4f2c-b781-9f7cc75d2c5e">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="0d14551d-69f6-4f2c-b781-9f7cc75d2c5e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8f0b27d-590f-47cc-a1f8-51ad74c3190f" xml:space="preserve">
+          <source>This <bpt id="a799d633-3609-4dc3-8367-71da1f1e90c2">&lt;linkText&gt;</bpt>web service<ept id="a799d633-3609-4dc3-8367-71da1f1e90c2">&lt;/linkText&gt;</ept><bpt id="a799d633-3609-4dc3-8367-71da1f1e90c2">&lt;title&gt;</bpt><ept id="a799d633-3609-4dc3-8367-71da1f1e90c2">&lt;/title&gt;</ept> answers the question “what is the probability that the event of interest will occur by time n for object x?”</source>
+          <target state="new">This <bpt id="a799d633-3609-4dc3-8367-71da1f1e90c2">&lt;linkText&gt;</bpt>web service<ept id="a799d633-3609-4dc3-8367-71da1f1e90c2">&lt;/linkText&gt;</ept><bpt id="a799d633-3609-4dc3-8367-71da1f1e90c2">&lt;title&gt;</bpt><ept id="a799d633-3609-4dc3-8367-71da1f1e90c2">&lt;/title&gt;</ept> answers the question “what is the probability that the event of interest will occur by time n for object x?”</target>
+        </trans-unit>
+        <trans-unit id="be62e3c4-2807-42c2-9a2d-fcdd19ad13fd" xml:space="preserve">
+          <source>By providing a survival analysis model, this web service enables users to supply data to train the model and test it.</source>
+          <target state="new">By providing a survival analysis model, this web service enables users to supply data to train the model and test it.</target>
+        </trans-unit>
+        <trans-unit id="2c8bab2a-0069-4cdb-9485-838f57096ef1" xml:space="preserve">
+          <source>The main theme of the experiment is to model the length of the elapsed time until the event of interest occurs.</source>
+          <target state="new">The main theme of the experiment is to model the length of the elapsed time until the event of interest occurs.</target>
+        </trans-unit>
+        <trans-unit id="39e3b23e-f948-48aa-996b-ecba0c2a2288" xml:space="preserve">
+          <source>This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example.</source>
+          <target state="new">This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example.</target>
+        </trans-unit>
+        <trans-unit id="6493415f-b942-4b47-ba52-7e8947d3f6fb" xml:space="preserve">
+          <source>But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</source>
+          <target state="new">But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</target>
+        </trans-unit>
+        <trans-unit id="04354e75-5aed-49ac-9c6f-c10dec9ae0d5" xml:space="preserve">
+          <source>With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</source>
+          <target state="new">With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</target>
+        </trans-unit>
+        <trans-unit id="4334ea85-16cd-4dae-9b0a-6f16da86c7df" xml:space="preserve">
+          <source>The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.</source>
+          <target state="new">The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.</target>
+        </trans-unit>
+        <trans-unit id="5cd6e7f0-418c-4d41-80d1-781bb596fc48" xml:space="preserve">
+          <source>The input data schema of the web service is shown in the following table.</source>
+          <target state="new">The input data schema of the web service is shown in the following table.</target>
+        </trans-unit>
+        <trans-unit id="cbbe16e5-63e9-49ae-9ab7-f7ef25f3dc14" xml:space="preserve">
+          <source>Six pieces of information are needed as the input: training data, testing data, time of interest, the index of "time" dimension, the index of "event" dimension, and the variable types (continuous or factor).</source>
+          <target state="new">Six pieces of information are needed as the input: training data, testing data, time of interest, the index of "time" dimension, the index of "event" dimension, and the variable types (continuous or factor).</target>
+        </trans-unit>
+        <trans-unit id="01f5bc7b-29dd-4bb5-8722-e7f9402d49d8" xml:space="preserve">
+          <source>The training data is represented with a string, where the rows are separated by comma, and the columns are separated by semicolon.</source>
+          <target state="new">The training data is represented with a string, where the rows are separated by comma, and the columns are separated by semicolon.</target>
+        </trans-unit>
+        <trans-unit id="97f6ed50-89ba-4c12-91bc-14a8277fc297" xml:space="preserve">
+          <source>The number of features of the data is flexible.</source>
+          <target state="new">The number of features of the data is flexible.</target>
+        </trans-unit>
+        <trans-unit id="cf1b2c20-ebec-4cbf-8140-6ddca5d8cb42" xml:space="preserve">
+          <source>All the elements in the input string must be numeric.</source>
+          <target state="new">All the elements in the input string must be numeric.</target>
+        </trans-unit>
+        <trans-unit id="37373727-6947-4ecd-ab01-4d620849991b" xml:space="preserve">
+          <source>In the training data, the “time” dimension indicates the number of time units (days, years, mileage, etc.)</source>
+          <target state="new">In the training data, the “time” dimension indicates the number of time units (days, years, mileage, etc.)</target>
+        </trans-unit>
+        <trans-unit id="09efdf51-909a-481a-a0a0-ae60415fb204" xml:space="preserve">
+          <source>elapsed since the starting point of the study (a patient receiving drug treatment programs, a student starting PhD study, a car starting to be driven, etc.)</source>
+          <target state="new">elapsed since the starting point of the study (a patient receiving drug treatment programs, a student starting PhD study, a car starting to be driven, etc.)</target>
+        </trans-unit>
+        <trans-unit id="16602ab2-6921-452a-9e9b-b98ede5fdae5" xml:space="preserve">
+          <source>until the event of interest (the patient returning to drug usage, the student obtaining the PhD degree, the car having brake pad failure, etc.)</source>
+          <target state="new">until the event of interest (the patient returning to drug usage, the student obtaining the PhD degree, the car having brake pad failure, etc.)</target>
+        </trans-unit>
+        <trans-unit id="2005de73-72a6-44c6-8186-4bac04fa5396" xml:space="preserve">
+          <source>occurs.</source>
+          <target state="new">occurs.</target>
+        </trans-unit>
+        <trans-unit id="61193ac1-27b9-4c49-a3c6-98079c7f8e8b" xml:space="preserve">
+          <source>The “event” dimension indicates whether the event of interest occurs at the end of the study.</source>
+          <target state="new">The “event” dimension indicates whether the event of interest occurs at the end of the study.</target>
+        </trans-unit>
+        <trans-unit id="c5bc6dd8-ac9a-4e32-82ff-bd43a691d543" xml:space="preserve">
+          <source>A value of “event=1” means that the event of interest occurs at the time indicated by the “time” dimension; “event=0” means that the event of interest has not occurred by the time indicated by the “time” dimension.</source>
+          <target state="new">A value of “event=1” means that the event of interest occurs at the time indicated by the “time” dimension; “event=0” means that the event of interest has not occurred by the time indicated by the “time” dimension.</target>
+        </trans-unit>
+        <trans-unit id="4dd1dd18-5766-452a-87be-d1c8b3ddbef7" xml:space="preserve">
+          <source>trainingdata - A character string.</source>
+          <target state="new">trainingdata - A character string.</target>
+        </trans-unit>
+        <trans-unit id="811d4983-606f-4b60-962e-08af6042a4bd" xml:space="preserve">
+          <source>Rows are separated by comma, and columns are separated by semicolon.</source>
+          <target state="new">Rows are separated by comma, and columns are separated by semicolon.</target>
+        </trans-unit>
+        <trans-unit id="c086273b-c6fc-4032-9dac-45e7a3d6205c" xml:space="preserve">
+          <source>Each row includes “time” dimension, “event” dimension, and predictor variables.</source>
+          <target state="new">Each row includes “time” dimension, “event” dimension, and predictor variables.</target>
+        </trans-unit>
+        <trans-unit id="d3406f57-5170-44b7-9149-6ca35d69e709" xml:space="preserve">
+          <source>testingdata - One row of data that contains predictor variables for a particular object.</source>
+          <target state="new">testingdata - One row of data that contains predictor variables for a particular object.</target>
+        </trans-unit>
+        <trans-unit id="8f723dd0-1d8c-411f-aad2-69cf907b938f" xml:space="preserve">
+          <source>time<bpt id="3cd43974-25ac-4104-8434-4f4f6e220a3b">&lt;em&gt;</bpt>of<ept id="3cd43974-25ac-4104-8434-4f4f6e220a3b">&lt;/em&gt;</ept>interest - The elapsed time of interest n.</source>
+          <target state="new">time<bpt id="3cd43974-25ac-4104-8434-4f4f6e220a3b">&lt;em&gt;</bpt>of<ept id="3cd43974-25ac-4104-8434-4f4f6e220a3b">&lt;/em&gt;</ept>interest - The elapsed time of interest n.</target>
+        </trans-unit>
+        <trans-unit id="44182812-91f1-4f3b-9300-2c06b7e844ec" xml:space="preserve">
+          <source>index_time - The column index of the “time” dimension (starting from 1).</source>
+          <target state="new">index_time - The column index of the “time” dimension (starting from 1).</target>
+        </trans-unit>
+        <trans-unit id="fb69ddcf-d414-4afd-bb68-19290402a1c3" xml:space="preserve">
+          <source>index_event - The column index of the “event” dimension (starting from 1).</source>
+          <target state="new">index_event - The column index of the “event” dimension (starting from 1).</target>
+        </trans-unit>
+        <trans-unit id="8ba8fea4-4387-42b0-8d47-51a3937dbadd" xml:space="preserve">
+          <source>variable_types - A character string with semicolons as separators in it. 0 represents continuous variables and 1 represents factor variables.</source>
+          <target state="new">variable_types - A character string with semicolons as separators in it. 0 represents continuous variables and 1 represents factor variables.</target>
+        </trans-unit>
+        <trans-unit id="0fd90544-4df3-4e4c-9ef3-1aac00c0d546" xml:space="preserve">
+          <source>The output is the probability of an event occurring by a specific time.</source>
+          <target state="new">The output is the probability of an event occurring by a specific time.</target>
+        </trans-unit>
+        <trans-unit id="fb059c57-68b4-41aa-916e-38ae352d3232" xml:space="preserve">
+          <source>This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</source>
+          <target state="new">This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</target>
+        </trans-unit>
+        <trans-unit id="84d27333-5d91-4356-bd37-f7af74a054e4" xml:space="preserve">
+          <source>There are multiple ways of consuming the service in an automated fashion (an example app is <bpt id="43a09404-df05-44d3-b364-96cf31450fce">&lt;linkText&gt;</bpt>here<ept id="43a09404-df05-44d3-b364-96cf31450fce">&lt;/linkText&gt;</ept><bpt id="43a09404-df05-44d3-b364-96cf31450fce">&lt;title&gt;</bpt><ept id="43a09404-df05-44d3-b364-96cf31450fce">&lt;/title&gt;</ept>).</source>
+          <target state="new">There are multiple ways of consuming the service in an automated fashion (an example app is <bpt id="43a09404-df05-44d3-b364-96cf31450fce">&lt;linkText&gt;</bpt>here<ept id="43a09404-df05-44d3-b364-96cf31450fce">&lt;/linkText&gt;</ept><bpt id="43a09404-df05-44d3-b364-96cf31450fce">&lt;title&gt;</bpt><ept id="43a09404-df05-44d3-b364-96cf31450fce">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="12e24e45-f425-4ff2-964f-070656107ad2" xml:space="preserve">
+          <source>The interpretation of this test is as follows.</source>
+          <target state="new">The interpretation of this test is as follows.</target>
+        </trans-unit>
+        <trans-unit id="bf38b252-e650-4523-bb23-5b5ccf346784" xml:space="preserve">
+          <source>Assuming the goal of the data is to model the elapsed time until the return to drug usage for the patients who received one of the two treatment programs.</source>
+          <target state="new">Assuming the goal of the data is to model the elapsed time until the return to drug usage for the patients who received one of the two treatment programs.</target>
+        </trans-unit>
+        <trans-unit id="3c47051d-1c39-44f5-a658-6d147c46e8d8" xml:space="preserve">
+          <source>The output of the web service reads: for patients being 35 years old, having previous drug treatment 2 times, taking the long residential treatment program, and with both heroin and cocaine usage, the probability of returning to the drug usage is 95.64% by day 500.</source>
+          <target state="new">The output of the web service reads: for patients being 35 years old, having previous drug treatment 2 times, taking the long residential treatment program, and with both heroin and cocaine usage, the probability of returning to the drug usage is 95.64% by day 500.</target>
+        </trans-unit>
+        <trans-unit id="91ba855e-64ac-47ff-b39a-16437c3a9834" xml:space="preserve">
+          <source>This web service was created using Azure Machine Learning.</source>
+          <target state="new">This web service was created using Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="1d7a2fe5-b355-4306-8f67-b828a8f55d35" xml:space="preserve">
+          <source>For a free trial, as well as introductory videos on creating experiments and <bpt id="3f2d5df4-762f-4417-80cf-2fb75bdb631c">&lt;linkText&gt;</bpt>publishing web services<ept id="3f2d5df4-762f-4417-80cf-2fb75bdb631c">&lt;/linkText&gt;</ept><bpt id="3f2d5df4-762f-4417-80cf-2fb75bdb631c">&lt;title&gt;</bpt><ept id="3f2d5df4-762f-4417-80cf-2fb75bdb631c">&lt;/title&gt;</ept>, please see <bpt id="7fe7651f-1244-4690-84d9-6e0259775104">&lt;linkText&gt;</bpt>azure.com/ml<ept id="7fe7651f-1244-4690-84d9-6e0259775104">&lt;/linkText&gt;</ept><bpt id="7fe7651f-1244-4690-84d9-6e0259775104">&lt;title&gt;</bpt><ept id="7fe7651f-1244-4690-84d9-6e0259775104">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a free trial, as well as introductory videos on creating experiments and <bpt id="3f2d5df4-762f-4417-80cf-2fb75bdb631c">&lt;linkText&gt;</bpt>publishing web services<ept id="3f2d5df4-762f-4417-80cf-2fb75bdb631c">&lt;/linkText&gt;</ept><bpt id="3f2d5df4-762f-4417-80cf-2fb75bdb631c">&lt;title&gt;</bpt><ept id="3f2d5df4-762f-4417-80cf-2fb75bdb631c">&lt;/title&gt;</ept>, please see <bpt id="7fe7651f-1244-4690-84d9-6e0259775104">&lt;linkText&gt;</bpt>azure.com/ml<ept id="7fe7651f-1244-4690-84d9-6e0259775104">&lt;/linkText&gt;</ept><bpt id="7fe7651f-1244-4690-84d9-6e0259775104">&lt;title&gt;</bpt><ept id="7fe7651f-1244-4690-84d9-6e0259775104">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ecbaf147-0f76-4d8e-9459-cae7d2f8cd40" xml:space="preserve">
+          <source>Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</source>
+          <target state="new">Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</target>
+        </trans-unit>
+        <trans-unit id="3ca1f6f9-777d-463b-ac1c-c12236548637" xml:space="preserve">
+          <source>From within Azure Machine Learning, a new blank experiment was created and two <bpt id="508f96ec-e870-4786-a583-7b67ee8a86fc">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="508f96ec-e870-4786-a583-7b67ee8a86fc">&lt;/linkText&gt;</ept><bpt id="508f96ec-e870-4786-a583-7b67ee8a86fc">&lt;title&gt;</bpt><ept id="508f96ec-e870-4786-a583-7b67ee8a86fc">&lt;/title&gt;</ept> modules were pulled onto the workspace.</source>
+          <target state="new">From within Azure Machine Learning, a new blank experiment was created and two <bpt id="508f96ec-e870-4786-a583-7b67ee8a86fc">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="508f96ec-e870-4786-a583-7b67ee8a86fc">&lt;/linkText&gt;</ept><bpt id="508f96ec-e870-4786-a583-7b67ee8a86fc">&lt;title&gt;</bpt><ept id="508f96ec-e870-4786-a583-7b67ee8a86fc">&lt;/title&gt;</ept> modules were pulled onto the workspace.</target>
+        </trans-unit>
+        <trans-unit id="a8ff2231-6a58-4106-b86e-f9f9b11a7048" xml:space="preserve">
+          <source>The data schema was created with a simple <bpt id="6c2c6e90-8812-48ce-90c1-74eaadbc5dda">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="6c2c6e90-8812-48ce-90c1-74eaadbc5dda">&lt;/linkText&gt;</ept><bpt id="6c2c6e90-8812-48ce-90c1-74eaadbc5dda">&lt;title&gt;</bpt><ept id="6c2c6e90-8812-48ce-90c1-74eaadbc5dda">&lt;/title&gt;</ept>, which defines the input data schema for the web service.</source>
+          <target state="new">The data schema was created with a simple <bpt id="6c2c6e90-8812-48ce-90c1-74eaadbc5dda">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="6c2c6e90-8812-48ce-90c1-74eaadbc5dda">&lt;/linkText&gt;</ept><bpt id="6c2c6e90-8812-48ce-90c1-74eaadbc5dda">&lt;title&gt;</bpt><ept id="6c2c6e90-8812-48ce-90c1-74eaadbc5dda">&lt;/title&gt;</ept>, which defines the input data schema for the web service.</target>
+        </trans-unit>
+        <trans-unit id="90e07d88-22f5-44ae-b27b-1f01e5afeedf" xml:space="preserve">
+          <source>This module is then linked to the second <bpt id="d52437a7-0104-4893-bdcc-9f26ffacf207">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="d52437a7-0104-4893-bdcc-9f26ffacf207">&lt;/linkText&gt;</ept><bpt id="d52437a7-0104-4893-bdcc-9f26ffacf207">&lt;title&gt;</bpt><ept id="d52437a7-0104-4893-bdcc-9f26ffacf207">&lt;/title&gt;</ept> module, which does major work.</source>
+          <target state="new">This module is then linked to the second <bpt id="d52437a7-0104-4893-bdcc-9f26ffacf207">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="d52437a7-0104-4893-bdcc-9f26ffacf207">&lt;/linkText&gt;</ept><bpt id="d52437a7-0104-4893-bdcc-9f26ffacf207">&lt;title&gt;</bpt><ept id="d52437a7-0104-4893-bdcc-9f26ffacf207">&lt;/title&gt;</ept> module, which does major work.</target>
+        </trans-unit>
+        <trans-unit id="88cb5adf-02dc-4a82-a089-82a9ec1ce36a" xml:space="preserve">
+          <source>This module does data preprocessing, model building, and predictions.</source>
+          <target state="new">This module does data preprocessing, model building, and predictions.</target>
+        </trans-unit>
+        <trans-unit id="046b66af-2c51-4495-9de2-0601bd2f152d" xml:space="preserve">
+          <source>In the data preprocessing step, the input data represented by a long string is transformed and converted into a data frame.</source>
+          <target state="new">In the data preprocessing step, the input data represented by a long string is transformed and converted into a data frame.</target>
+        </trans-unit>
+        <trans-unit id="f3f2c704-70d9-45eb-b8bd-588ea95675a6" xml:space="preserve">
+          <source>In the model building step, an external R package “survival_2.37-7.zip” is first installed for conducting survival analysis.</source>
+          <target state="new">In the model building step, an external R package “survival_2.37-7.zip” is first installed for conducting survival analysis.</target>
+        </trans-unit>
+        <trans-unit id="006354a6-0bcf-4de6-bd9c-87865557a8dc" xml:space="preserve">
+          <source>Then the “coxph” function is executed after a series data processing tasks.</source>
+          <target state="new">Then the “coxph” function is executed after a series data processing tasks.</target>
+        </trans-unit>
+        <trans-unit id="722159a5-4dd6-4fbd-b594-7491030c5428" xml:space="preserve">
+          <source>The details of the “coxph” function for survival analysis can be read from the R documentation.</source>
+          <target state="new">The details of the “coxph” function for survival analysis can be read from the R documentation.</target>
+        </trans-unit>
+        <trans-unit id="c2238ce7-6dc0-4b92-86ba-2b67c920169e" xml:space="preserve">
+          <source>In the prediction step, a testing instance is supplied into the trained model with the “surfit” function, and the survival curve for this testing instance is produced as “curve” variable.</source>
+          <target state="new">In the prediction step, a testing instance is supplied into the trained model with the “surfit” function, and the survival curve for this testing instance is produced as “curve” variable.</target>
+        </trans-unit>
+        <trans-unit id="f30efa8b-6cf5-4b24-aeb9-90a512e24cb3" xml:space="preserve">
+          <source>Finally, the probability of the time of interest is obtained.</source>
+          <target state="new">Finally, the probability of the time of interest is obtained.</target>
+        </trans-unit>
+        <trans-unit id="f0b71195-04c7-4758-bb20-e704035e42b8" xml:space="preserve">
+          <source><bpt id="9eb7e1ca-c8c5-4cde-b99d-648fa1c485b7">&lt;linkText&gt;</bpt>experiment flow<ept id="9eb7e1ca-c8c5-4cde-b99d-648fa1c485b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9eb7e1ca-c8c5-4cde-b99d-648fa1c485b7">&lt;linkText&gt;</bpt>experiment flow<ept id="9eb7e1ca-c8c5-4cde-b99d-648fa1c485b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b5d60bc8-b5b7-4f58-8d66-72e26a596333" xml:space="preserve">
+          <source>This web service can take only numerical values as feature variables (columns).</source>
+          <target state="new">This web service can take only numerical values as feature variables (columns).</target>
+        </trans-unit>
+        <trans-unit id="a9f52495-4bac-4ee2-895a-ef7ef58de37f" xml:space="preserve">
+          <source>The “event” column can take only value 0 or 1.</source>
+          <target state="new">The “event” column can take only value 0 or 1.</target>
+        </trans-unit>
+        <trans-unit id="dc8452d7-c419-46f6-917b-a21de19c92be" xml:space="preserve">
+          <source>The “time” column needs to be a positive integer.</source>
+          <target state="new">The “time” column needs to be a positive integer.</target>
+        </trans-unit>
+        <trans-unit id="f47576ed-ba88-4a0d-9db8-7af233b412b7" xml:space="preserve">
+          <source>For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="e63c3c30-c2c3-4ff5-8038-e65e297b8787">&lt;linkText&gt;</bpt>here<ept id="e63c3c30-c2c3-4ff5-8038-e65e297b8787">&lt;/linkText&gt;</ept><bpt id="e63c3c30-c2c3-4ff5-8038-e65e297b8787">&lt;title&gt;</bpt><ept id="e63c3c30-c2c3-4ff5-8038-e65e297b8787">&lt;/title&gt;</ept>.</source>
+          <target state="new">For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="e63c3c30-c2c3-4ff5-8038-e65e297b8787">&lt;linkText&gt;</bpt>here<ept id="e63c3c30-c2c3-4ff5-8038-e65e297b8787">&lt;/linkText&gt;</ept><bpt id="e63c3c30-c2c3-4ff5-8038-e65e297b8787">&lt;title&gt;</bpt><ept id="e63c3c30-c2c3-4ff5-8038-e65e297b8787">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72db2dbb-365d-45a4-8c00-0b012b50503d" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-survival-analysis/survive_img2.png</source>
+          <target state="new">./media/machine-learning-r-csharp-survival-analysis/survive_img2.png</target>
+        </trans-unit>
+        <trans-unit id="4cc5402a-4b18-4dfd-ba79-1d0ce96bd826" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</target>
+        </trans-unit>
+      </group>
+      <group id="e162a8de-0961-4803-80ed-bf551babaabf" />
+    </body>
+  </file>
+</xliff>

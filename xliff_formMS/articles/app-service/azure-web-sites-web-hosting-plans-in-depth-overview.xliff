@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2115b3ef-c8b0-4276-bb4f-40b7d5e4e29f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2115b3ef-c8b0-4276-bb4f-40b7d5e4e29f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4d015804-e895-4bd9-9dcb-b6e628c04ec8">
+        <trans-unit id="67a21d6e-e542-4992-85fb-c52151b7cb48" xml:space="preserve">
+          <source>Azure App Service plans in-depth overview</source>
+          <target state="new">Azure App Service plans in-depth overview</target>
+        </trans-unit>
+        <trans-unit id="d3157c90-4622-4487-92c8-adbe01e46b51" xml:space="preserve">
+          <source>Learn how App Service plans for Azure App Service work, and how they benefit your management experience.</source>
+          <target state="new">Learn how App Service plans for Azure App Service work, and how they benefit your management experience.</target>
+        </trans-unit>
+        <trans-unit id="2fc8010d-aa7e-4cc4-9efc-79faf5294815" xml:space="preserve">
+          <source>An <bpt id="23d108a6-4c64-4bf8-8996-963f41bc4a7f">&lt;strong&gt;</bpt>App Service plan<ept id="23d108a6-4c64-4bf8-8996-963f41bc4a7f">&lt;/strong&gt;</ept> represents a set of features and capacity that you can share across multiple apps in <bpt id="263a6541-21c5-4c6b-bead-73940e9d6ec3">&lt;linkText&gt;</bpt>Azure App Service<ept id="263a6541-21c5-4c6b-bead-73940e9d6ec3">&lt;/linkText&gt;</ept><bpt id="263a6541-21c5-4c6b-bead-73940e9d6ec3">&lt;title&gt;</bpt><ept id="263a6541-21c5-4c6b-bead-73940e9d6ec3">&lt;/title&gt;</ept>, including Web Apps, Mobile Apps, Logic Apps or API Apps.</source>
+          <target state="new">An <bpt id="23d108a6-4c64-4bf8-8996-963f41bc4a7f">&lt;strong&gt;</bpt>App Service plan<ept id="23d108a6-4c64-4bf8-8996-963f41bc4a7f">&lt;/strong&gt;</ept> represents a set of features and capacity that you can share across multiple apps in <bpt id="263a6541-21c5-4c6b-bead-73940e9d6ec3">&lt;linkText&gt;</bpt>Azure App Service<ept id="263a6541-21c5-4c6b-bead-73940e9d6ec3">&lt;/linkText&gt;</ept><bpt id="263a6541-21c5-4c6b-bead-73940e9d6ec3">&lt;title&gt;</bpt><ept id="263a6541-21c5-4c6b-bead-73940e9d6ec3">&lt;/title&gt;</ept>, including Web Apps, Mobile Apps, Logic Apps or API Apps.</target>
+        </trans-unit>
+        <trans-unit id="f77049dc-f4ef-46a5-80fe-e32154aa1a35" xml:space="preserve">
+          <source>These plans support 5 pricing tiers (<bpt id="3e32962c-562b-4689-b23e-592c2ece304a">&lt;strong&gt;</bpt>Free<ept id="3e32962c-562b-4689-b23e-592c2ece304a">&lt;/strong&gt;</ept>, <bpt id="458b704b-84bd-4939-a323-40cf1c2ddfa1">&lt;strong&gt;</bpt>Shared<ept id="458b704b-84bd-4939-a323-40cf1c2ddfa1">&lt;/strong&gt;</ept>, <bpt id="6ffb3604-9e98-4fe3-b997-df95cc0bea60">&lt;strong&gt;</bpt>Basic<ept id="6ffb3604-9e98-4fe3-b997-df95cc0bea60">&lt;/strong&gt;</ept>, <bpt id="8d1a9778-b4db-46a6-af98-2b495ee94bd1">&lt;strong&gt;</bpt>Standard<ept id="8d1a9778-b4db-46a6-af98-2b495ee94bd1">&lt;/strong&gt;</ept> and <bpt id="e42dcdb7-03c0-4e78-b9bd-c4aebe80afc9">&lt;strong&gt;</bpt>Premium<ept id="e42dcdb7-03c0-4e78-b9bd-c4aebe80afc9">&lt;/strong&gt;</ept>) where each tier has its own capabilities and capacity.</source>
+          <target state="new">These plans support 5 pricing tiers (<bpt id="3e32962c-562b-4689-b23e-592c2ece304a">&lt;strong&gt;</bpt>Free<ept id="3e32962c-562b-4689-b23e-592c2ece304a">&lt;/strong&gt;</ept>, <bpt id="458b704b-84bd-4939-a323-40cf1c2ddfa1">&lt;strong&gt;</bpt>Shared<ept id="458b704b-84bd-4939-a323-40cf1c2ddfa1">&lt;/strong&gt;</ept>, <bpt id="6ffb3604-9e98-4fe3-b997-df95cc0bea60">&lt;strong&gt;</bpt>Basic<ept id="6ffb3604-9e98-4fe3-b997-df95cc0bea60">&lt;/strong&gt;</ept>, <bpt id="8d1a9778-b4db-46a6-af98-2b495ee94bd1">&lt;strong&gt;</bpt>Standard<ept id="8d1a9778-b4db-46a6-af98-2b495ee94bd1">&lt;/strong&gt;</ept> and <bpt id="e42dcdb7-03c0-4e78-b9bd-c4aebe80afc9">&lt;strong&gt;</bpt>Premium<ept id="e42dcdb7-03c0-4e78-b9bd-c4aebe80afc9">&lt;/strong&gt;</ept>) where each tier has its own capabilities and capacity.</target>
+        </trans-unit>
+        <trans-unit id="31c6f552-0852-4e56-a3aa-d57f7893e07f" xml:space="preserve">
+          <source>Apps in the same subscription and geographic location can share a plan.</source>
+          <target state="new">Apps in the same subscription and geographic location can share a plan.</target>
+        </trans-unit>
+        <trans-unit id="7ec9121f-b9ad-41b5-877c-608f392189fc" xml:space="preserve">
+          <source>All the apps sharing a plan can leverage all the capabilities and features defined by the plan's tier.</source>
+          <target state="new">All the apps sharing a plan can leverage all the capabilities and features defined by the plan's tier.</target>
+        </trans-unit>
+        <trans-unit id="106bfeb8-5744-4d8a-9147-1f7f2ca1f001" xml:space="preserve">
+          <source>All apps associated with a given plan run on the resources defined by the plan.</source>
+          <target state="new">All apps associated with a given plan run on the resources defined by the plan.</target>
+        </trans-unit>
+        <trans-unit id="a17cbedf-d436-468c-858e-79eb78652e98" xml:space="preserve">
+          <source>For example, if your plan is configured to use two "small" instances in the standard service tier, all apps associated with that plan will run on both instances and will have access to the standard service tier functionality.</source>
+          <target state="new">For example, if your plan is configured to use two "small" instances in the standard service tier, all apps associated with that plan will run on both instances and will have access to the standard service tier functionality.</target>
+        </trans-unit>
+        <trans-unit id="aa1bf839-556e-40b0-8d09-1810f3aba2f7" xml:space="preserve">
+          <source>Plan instances on which apps are running on are fully managed and highly available.</source>
+          <target state="new">Plan instances on which apps are running on are fully managed and highly available.</target>
+        </trans-unit>
+        <trans-unit id="491a7907-4981-472d-b6bb-ab25bae0498d" xml:space="preserve">
+          <source>In this article we'll explore the key characteristics such as tier and scale of an App Service plan and how they come into play while managing your apps.</source>
+          <target state="new">In this article we'll explore the key characteristics such as tier and scale of an App Service plan and how they come into play while managing your apps.</target>
+        </trans-unit>
+        <trans-unit id="84313eaf-a9c3-4dcc-9721-fce778914f9f" xml:space="preserve">
+          <source>An app in App Service can be associated with only one App Service plan at any given time.</source>
+          <target state="new">An app in App Service can be associated with only one App Service plan at any given time.</target>
+        </trans-unit>
+        <trans-unit id="77284e56-16ad-47ac-bc79-0d8d4843df61" xml:space="preserve">
+          <source>Both apps and plans are contained in a resource group.</source>
+          <target state="new">Both apps and plans are contained in a resource group.</target>
+        </trans-unit>
+        <trans-unit id="3a75dd5a-a32c-44dd-9af1-f1fc76f63a1d" xml:space="preserve">
+          <source>A resource group serves as the life-cycle boundary for every resource contained within it.</source>
+          <target state="new">A resource group serves as the life-cycle boundary for every resource contained within it.</target>
+        </trans-unit>
+        <trans-unit id="c1862af2-faea-4a90-b3b8-0ed351b394fe" xml:space="preserve">
+          <source>Resource groups enable you to manage all the pieces of an application together.</source>
+          <target state="new">Resource groups enable you to manage all the pieces of an application together.</target>
+        </trans-unit>
+        <trans-unit id="756f7c0a-ff7a-464f-b7b3-f50fabbb6048" xml:space="preserve">
+          <source>The ability to have multiple App Service plans in a single resource group allows you to allocate different apps to different physical resources.</source>
+          <target state="new">The ability to have multiple App Service plans in a single resource group allows you to allocate different apps to different physical resources.</target>
+        </trans-unit>
+        <trans-unit id="b050b8d8-b53a-44c9-b1f8-0e975bbf3fb9" xml:space="preserve">
+          <source>For example, this allows separation of resources between dev, test and production environments.</source>
+          <target state="new">For example, this allows separation of resources between dev, test and production environments.</target>
+        </trans-unit>
+        <trans-unit id="b586a158-4dca-4e92-bf8b-33c2ed66dd74" xml:space="preserve">
+          <source>A scenario for this is when you might want to allocate one plan with its own dedicated set of resources for your production apps, and a second plan for your dev and test environments.</source>
+          <target state="new">A scenario for this is when you might want to allocate one plan with its own dedicated set of resources for your production apps, and a second plan for your dev and test environments.</target>
+        </trans-unit>
+        <trans-unit id="af352554-465a-4e1a-8080-07bf1a58b10f" xml:space="preserve">
+          <source>In this way, load testing against a new version of your apps will not compete for the same resources as your production apps, which are serving real customers.</source>
+          <target state="new">In this way, load testing against a new version of your apps will not compete for the same resources as your production apps, which are serving real customers.</target>
+        </trans-unit>
+        <trans-unit id="fffd4a39-eb72-4d59-8f23-97c32312a645" xml:space="preserve">
+          <source>Having multiple plans in a single resource group also enables you to define an application that spans across geographical regions.</source>
+          <target state="new">Having multiple plans in a single resource group also enables you to define an application that spans across geographical regions.</target>
+        </trans-unit>
+        <trans-unit id="2b3c6092-48a4-4185-acd0-a4edbfe9fc5b" xml:space="preserve">
+          <source>For example, a highly available app running in two regions will include two plans, one for each region, and one app associated with each plan.</source>
+          <target state="new">For example, a highly available app running in two regions will include two plans, one for each region, and one app associated with each plan.</target>
+        </trans-unit>
+        <trans-unit id="9c44cfbd-8e97-4d1b-90f2-d50bab594771" xml:space="preserve">
+          <source>In such a situation, all the copies of the app will be associated with a single resource group.</source>
+          <target state="new">In such a situation, all the copies of the app will be associated with a single resource group.</target>
+        </trans-unit>
+        <trans-unit id="8f532f79-4896-45ac-9c3d-7be30e489a14" xml:space="preserve">
+          <source>Having a single view of a resource group with multiple plans and multiple apps makes it easy to manage, control and view the health of the application.</source>
+          <target state="new">Having a single view of a resource group with multiple plans and multiple apps makes it easy to manage, control and view the health of the application.</target>
+        </trans-unit>
+        <trans-unit id="3479ef2f-2a15-400f-bbe1-085e6de891aa" xml:space="preserve">
+          <source>When creating a new app, you should consider creating a new resource group when the app you are about to create represents a brand new project.</source>
+          <target state="new">When creating a new app, you should consider creating a new resource group when the app you are about to create represents a brand new project.</target>
+        </trans-unit>
+        <trans-unit id="7a7e0460-53c6-448a-a7c3-c71905af02ee" xml:space="preserve">
+          <source>In this case, creating a new resource group, plan, and app is the right choice.</source>
+          <target state="new">In this case, creating a new resource group, plan, and app is the right choice.</target>
+        </trans-unit>
+        <trans-unit id="78a79cee-94cd-428c-abde-f7bee3948dd2" xml:space="preserve">
+          <source>If the app you are about to create is a component for a larger application, then this web app should be created within the resource group allocated for that larger application.</source>
+          <target state="new">If the app you are about to create is a component for a larger application, then this web app should be created within the resource group allocated for that larger application.</target>
+        </trans-unit>
+        <trans-unit id="a81dd588-06f5-43c0-b8a0-5d73df9645ad" xml:space="preserve">
+          <source>Regardless of the new app being a altogether new application or part of a larger one, you can choose to leverage an existing App Service plan to host it or create a new one.</source>
+          <target state="new">Regardless of the new app being a altogether new application or part of a larger one, you can choose to leverage an existing App Service plan to host it or create a new one.</target>
+        </trans-unit>
+        <trans-unit id="a084ab24-5c73-4b00-8365-291a03b68ee5" xml:space="preserve">
+          <source>This is more a question of capacity and expected load.</source>
+          <target state="new">This is more a question of capacity and expected load.</target>
+        </trans-unit>
+        <trans-unit id="01ef9cf8-801a-46b7-88d9-4d6af5c47e46" xml:space="preserve">
+          <source>If this new app is going to be resource intensive and have different scaling factors than the other apps hosted in an existing plan, it is recommended to isolate it into its own plan.</source>
+          <target state="new">If this new app is going to be resource intensive and have different scaling factors than the other apps hosted in an existing plan, it is recommended to isolate it into its own plan.</target>
+        </trans-unit>
+        <trans-unit id="f952d2ca-3fe9-4c2e-b105-71d344872725" xml:space="preserve">
+          <source>Creating a new plan allows you to allocate a new set of resource for your web app, and provides you with greater control over resource allocation, as each plan gets its own set of instances.</source>
+          <target state="new">Creating a new plan allows you to allocate a new set of resource for your web app, and provides you with greater control over resource allocation, as each plan gets its own set of instances.</target>
+        </trans-unit>
+        <trans-unit id="d91ccc47-7e9f-4bda-b986-5354b6d088a7" xml:space="preserve">
+          <source>Having the capacity to move apps across plans also allows you to change the way resources are allocated across the bigger application.</source>
+          <target state="new">Having the capacity to move apps across plans also allows you to change the way resources are allocated across the bigger application.</target>
+        </trans-unit>
+        <trans-unit id="8d01c88d-2f9a-4d3d-9d44-1270cb72fce0" xml:space="preserve">
+          <source>Finally, if you want to create a new app in a different region, and that region doesn't have an existing plan, you will have to create a new plan in that region to be able to host your app there.</source>
+          <target state="new">Finally, if you want to create a new app in a different region, and that region doesn't have an existing plan, you will have to create a new plan in that region to be able to host your app there.</target>
+        </trans-unit>
+        <trans-unit id="212d2aac-47ff-443d-b4d5-230fbd0dc073" xml:space="preserve">
+          <source>You can't create an empty App Service plan.</source>
+          <target state="new">You can't create an empty App Service plan.</target>
+        </trans-unit>
+        <trans-unit id="9a1f7b19-5802-4e8f-a187-621df42d108d" xml:space="preserve">
+          <source>However, you can explicitly create a new plan during app creation.</source>
+          <target state="new">However, you can explicitly create a new plan during app creation.</target>
+        </trans-unit>
+        <trans-unit id="d236804d-405b-4332-9a00-18987f4d5295" xml:space="preserve">
+          <source>To do this in the <bpt id="b544f635-bbeb-4c47-99df-eb72d42b8af0">&lt;linkText&gt;</bpt>Azure Portal<ept id="b544f635-bbeb-4c47-99df-eb72d42b8af0">&lt;/linkText&gt;</ept><bpt id="b544f635-bbeb-4c47-99df-eb72d42b8af0">&lt;title&gt;</bpt><ept id="b544f635-bbeb-4c47-99df-eb72d42b8af0">&lt;/title&gt;</ept>, click <bpt id="c2a42c29-3636-4209-be48-e31a117b9905">&lt;strong&gt;</bpt>NEW<ept id="c2a42c29-3636-4209-be48-e31a117b9905">&lt;/strong&gt;</ept>, then select <bpt id="b872ceeb-f3c7-4696-b9ac-f68ba311d0ab">&lt;strong&gt;</bpt>Web + mobile<ept id="b872ceeb-f3c7-4696-b9ac-f68ba311d0ab">&lt;/strong&gt;</ept>, then select <bpt id="debe1feb-b804-490c-9a24-239a92834595">&lt;strong&gt;</bpt>Web Apps<ept id="debe1feb-b804-490c-9a24-239a92834595">&lt;/strong&gt;</ept>, <bpt id="8483a6aa-6cab-4fca-b4ef-9f00145be0d8">&lt;strong&gt;</bpt>Mobile Apps<ept id="8483a6aa-6cab-4fca-b4ef-9f00145be0d8">&lt;/strong&gt;</ept>, <bpt id="27ffb5f6-9e9b-4d8a-ae18-e49e7e411766">&lt;strong&gt;</bpt>Logic Apps<ept id="27ffb5f6-9e9b-4d8a-ae18-e49e7e411766">&lt;/strong&gt;</ept> or <bpt id="963b09fb-38ef-4154-9f55-963c3232e14c">&lt;strong&gt;</bpt>API Apps<ept id="963b09fb-38ef-4154-9f55-963c3232e14c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To do this in the <bpt id="b544f635-bbeb-4c47-99df-eb72d42b8af0">&lt;linkText&gt;</bpt>Azure Portal<ept id="b544f635-bbeb-4c47-99df-eb72d42b8af0">&lt;/linkText&gt;</ept><bpt id="b544f635-bbeb-4c47-99df-eb72d42b8af0">&lt;title&gt;</bpt><ept id="b544f635-bbeb-4c47-99df-eb72d42b8af0">&lt;/title&gt;</ept>, click <bpt id="c2a42c29-3636-4209-be48-e31a117b9905">&lt;strong&gt;</bpt>NEW<ept id="c2a42c29-3636-4209-be48-e31a117b9905">&lt;/strong&gt;</ept>, then select <bpt id="b872ceeb-f3c7-4696-b9ac-f68ba311d0ab">&lt;strong&gt;</bpt>Web + mobile<ept id="b872ceeb-f3c7-4696-b9ac-f68ba311d0ab">&lt;/strong&gt;</ept>, then select <bpt id="debe1feb-b804-490c-9a24-239a92834595">&lt;strong&gt;</bpt>Web Apps<ept id="debe1feb-b804-490c-9a24-239a92834595">&lt;/strong&gt;</ept>, <bpt id="8483a6aa-6cab-4fca-b4ef-9f00145be0d8">&lt;strong&gt;</bpt>Mobile Apps<ept id="8483a6aa-6cab-4fca-b4ef-9f00145be0d8">&lt;/strong&gt;</ept>, <bpt id="27ffb5f6-9e9b-4d8a-ae18-e49e7e411766">&lt;strong&gt;</bpt>Logic Apps<ept id="27ffb5f6-9e9b-4d8a-ae18-e49e7e411766">&lt;/strong&gt;</ept> or <bpt id="963b09fb-38ef-4154-9f55-963c3232e14c">&lt;strong&gt;</bpt>API Apps<ept id="963b09fb-38ef-4154-9f55-963c3232e14c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64d519c0-5400-44c6-ad8e-c1aa3aba427f" xml:space="preserve">
+          <source>You can then select or create the App Service plan for the new app.</source>
+          <target state="new">You can then select or create the App Service plan for the new app.</target>
+        </trans-unit>
+        <trans-unit id="07eee5da-1557-48e3-9e21-ac5a8c8150a6" xml:space="preserve">
+          <source><bpt id="84a3a676-f579-4e6a-8d1f-7ef4c95d04e2">&lt;linkText&gt;</bpt>App Service Plan F.A.Q.<ept id="84a3a676-f579-4e6a-8d1f-7ef4c95d04e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="84a3a676-f579-4e6a-8d1f-7ef4c95d04e2">&lt;linkText&gt;</bpt>App Service Plan F.A.Q.<ept id="84a3a676-f579-4e6a-8d1f-7ef4c95d04e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e7f16cc-b9da-447e-93c5-46a1c4e79a34" xml:space="preserve">
+          <source>Apps can be assigned to an existing plan during the creation process.</source>
+          <target state="new">Apps can be assigned to an existing plan during the creation process.</target>
+        </trans-unit>
+        <trans-unit id="6655967e-9353-4896-af32-f5e40597a54c" xml:space="preserve">
+          <source>To do this in the <bpt id="b08b7505-dfad-4f4c-92f5-264aff6ec583">&lt;linkText&gt;</bpt>Azure Portal<ept id="b08b7505-dfad-4f4c-92f5-264aff6ec583">&lt;/linkText&gt;</ept><bpt id="b08b7505-dfad-4f4c-92f5-264aff6ec583">&lt;title&gt;</bpt><ept id="b08b7505-dfad-4f4c-92f5-264aff6ec583">&lt;/title&gt;</ept>, click <bpt id="e45292f8-e313-434b-8655-8afc8356a54f">&lt;strong&gt;</bpt>NEW<ept id="e45292f8-e313-434b-8655-8afc8356a54f">&lt;/strong&gt;</ept>, then select <bpt id="a9b27778-cb89-41ed-8611-5654468c393f">&lt;strong&gt;</bpt>Web + mobile<ept id="a9b27778-cb89-41ed-8611-5654468c393f">&lt;/strong&gt;</ept>, then select <bpt id="9f653332-b26e-4f5b-a7fa-eb16a98b3a29">&lt;strong&gt;</bpt>Web Apps<ept id="9f653332-b26e-4f5b-a7fa-eb16a98b3a29">&lt;/strong&gt;</ept>, <bpt id="de4c7168-fd0b-4059-876f-48598f7b5257">&lt;strong&gt;</bpt>Mobile Apps<ept id="de4c7168-fd0b-4059-876f-48598f7b5257">&lt;/strong&gt;</ept>, <bpt id="cd7e7c9c-81a6-49f1-991c-ac5564373924">&lt;strong&gt;</bpt>Logic Apps<ept id="cd7e7c9c-81a6-49f1-991c-ac5564373924">&lt;/strong&gt;</ept> or <bpt id="2948d942-c8e7-47aa-a267-1d0f991b0dca">&lt;strong&gt;</bpt>API Apps<ept id="2948d942-c8e7-47aa-a267-1d0f991b0dca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To do this in the <bpt id="b08b7505-dfad-4f4c-92f5-264aff6ec583">&lt;linkText&gt;</bpt>Azure Portal<ept id="b08b7505-dfad-4f4c-92f5-264aff6ec583">&lt;/linkText&gt;</ept><bpt id="b08b7505-dfad-4f4c-92f5-264aff6ec583">&lt;title&gt;</bpt><ept id="b08b7505-dfad-4f4c-92f5-264aff6ec583">&lt;/title&gt;</ept>, click <bpt id="e45292f8-e313-434b-8655-8afc8356a54f">&lt;strong&gt;</bpt>NEW<ept id="e45292f8-e313-434b-8655-8afc8356a54f">&lt;/strong&gt;</ept>, then select <bpt id="a9b27778-cb89-41ed-8611-5654468c393f">&lt;strong&gt;</bpt>Web + mobile<ept id="a9b27778-cb89-41ed-8611-5654468c393f">&lt;/strong&gt;</ept>, then select <bpt id="9f653332-b26e-4f5b-a7fa-eb16a98b3a29">&lt;strong&gt;</bpt>Web Apps<ept id="9f653332-b26e-4f5b-a7fa-eb16a98b3a29">&lt;/strong&gt;</ept>, <bpt id="de4c7168-fd0b-4059-876f-48598f7b5257">&lt;strong&gt;</bpt>Mobile Apps<ept id="de4c7168-fd0b-4059-876f-48598f7b5257">&lt;/strong&gt;</ept>, <bpt id="cd7e7c9c-81a6-49f1-991c-ac5564373924">&lt;strong&gt;</bpt>Logic Apps<ept id="cd7e7c9c-81a6-49f1-991c-ac5564373924">&lt;/strong&gt;</ept> or <bpt id="2948d942-c8e7-47aa-a267-1d0f991b0dca">&lt;strong&gt;</bpt>API Apps<ept id="2948d942-c8e7-47aa-a267-1d0f991b0dca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61c08283-29f8-4ba1-b1c7-adfa66916b35" xml:space="preserve">
+          <source>You can then select or create the App Service plan for the new app.</source>
+          <target state="new">You can then select or create the App Service plan for the new app.</target>
+        </trans-unit>
+        <trans-unit id="ed5a1f14-f2fd-43ee-9771-7ad80452bbfb" xml:space="preserve">
+          <source>Clicking <bpt id="18c1d834-e59f-46e5-bcce-e54f56390464">&lt;strong&gt;</bpt>Or select existing<ept id="18c1d834-e59f-46e5-bcce-e54f56390464">&lt;/strong&gt;</ept> will give you the list of existing plan you can choose from.</source>
+          <target state="new">Clicking <bpt id="18c1d834-e59f-46e5-bcce-e54f56390464">&lt;strong&gt;</bpt>Or select existing<ept id="18c1d834-e59f-46e5-bcce-e54f56390464">&lt;/strong&gt;</ept> will give you the list of existing plan you can choose from.</target>
+        </trans-unit>
+        <trans-unit id="340ee581-e250-43db-b660-b795fb9dd7ca" xml:space="preserve">
+          <source><bpt id="6ee3cea5-bdc6-4868-a9ea-ac8435511c6a">&lt;linkText&gt;</bpt>App Service Plan F.A.Q.<ept id="6ee3cea5-bdc6-4868-a9ea-ac8435511c6a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ee3cea5-bdc6-4868-a9ea-ac8435511c6a">&lt;linkText&gt;</bpt>App Service Plan F.A.Q.<ept id="6ee3cea5-bdc6-4868-a9ea-ac8435511c6a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db1fd52e-350c-480c-9c0c-b8d21773c769" xml:space="preserve">
+          <source>You can move an app to a different app service plan in the <bpt id="0baa8744-0370-4a47-aecb-0b435780606a">&lt;linkText&gt;</bpt>Azure Portal<ept id="0baa8744-0370-4a47-aecb-0b435780606a">&lt;/linkText&gt;</ept><bpt id="0baa8744-0370-4a47-aecb-0b435780606a">&lt;title&gt;</bpt><ept id="0baa8744-0370-4a47-aecb-0b435780606a">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can move an app to a different app service plan in the <bpt id="0baa8744-0370-4a47-aecb-0b435780606a">&lt;linkText&gt;</bpt>Azure Portal<ept id="0baa8744-0370-4a47-aecb-0b435780606a">&lt;/linkText&gt;</ept><bpt id="0baa8744-0370-4a47-aecb-0b435780606a">&lt;title&gt;</bpt><ept id="0baa8744-0370-4a47-aecb-0b435780606a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b303748-cd2e-4e7b-b432-da26592c4d9e" xml:space="preserve">
+          <source>Apps can be moved between plans in the same geographical region.</source>
+          <target state="new">Apps can be moved between plans in the same geographical region.</target>
+        </trans-unit>
+        <trans-unit id="a713f675-4e92-44ee-b4b2-4fbb934de3bf" xml:space="preserve">
+          <source>To move an app to another plan, navigate to the app you want to move, then click <bpt id="2881d870-54cc-4e92-94ca-a92eecaf4b86">&lt;strong&gt;</bpt>Change App Service Plan<ept id="2881d870-54cc-4e92-94ca-a92eecaf4b86">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To move an app to another plan, navigate to the app you want to move, then click <bpt id="2881d870-54cc-4e92-94ca-a92eecaf4b86">&lt;strong&gt;</bpt>Change App Service Plan<ept id="2881d870-54cc-4e92-94ca-a92eecaf4b86">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5133881-1a78-4553-98b2-db1fa8bbd49c" xml:space="preserve">
+          <source>This will open the App Service Plan blade.</source>
+          <target state="new">This will open the App Service Plan blade.</target>
+        </trans-unit>
+        <trans-unit id="9cfd5b2c-0477-47b5-bf10-faae064e40d5" xml:space="preserve">
+          <source>At this point, you can either pick an existing plan, or create a new one.</source>
+          <target state="new">At this point, you can either pick an existing plan, or create a new one.</target>
+        </trans-unit>
+        <trans-unit id="1133dcd8-8b4d-4c03-8686-915afa6af237" xml:space="preserve">
+          <source>Plans in a different geographical location are grayed out and cannot be selected.</source>
+          <target state="new">Plans in a different geographical location are grayed out and cannot be selected.</target>
+        </trans-unit>
+        <trans-unit id="ba72ccd6-77d5-4717-b75c-ada2ca20736c" xml:space="preserve">
+          <source><bpt id="6c19ebf9-b703-46f8-97f6-56358e62e0f0">&lt;linkText&gt;</bpt>App Service Plan F.A.Q.<ept id="6c19ebf9-b703-46f8-97f6-56358e62e0f0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6c19ebf9-b703-46f8-97f6-56358e62e0f0">&lt;linkText&gt;</bpt>App Service Plan F.A.Q.<ept id="6c19ebf9-b703-46f8-97f6-56358e62e0f0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73d280fc-9ecd-4b3d-b027-31ba04b251bc" xml:space="preserve">
+          <source>Note that each plan has its own pricing tier.</source>
+          <target state="new">Note that each plan has its own pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="74bf36cd-ac7a-4c6c-8c60-3971824c607c" xml:space="preserve">
+          <source>When you move a site from a <bpt id="6544dc81-b5f6-457a-bc36-09571aacefe3">&lt;strong&gt;</bpt>Free<ept id="6544dc81-b5f6-457a-bc36-09571aacefe3">&lt;/strong&gt;</ept> tier to a <bpt id="22887951-d226-4512-a83f-a619cdef5b36">&lt;strong&gt;</bpt>Standard<ept id="22887951-d226-4512-a83f-a619cdef5b36">&lt;/strong&gt;</ept> tier, your app will be able to leverage all the features and resources of the <bpt id="1ca165e5-5012-4981-ba14-dc0e9b175e58">&lt;strong&gt;</bpt>Standard<ept id="1ca165e5-5012-4981-ba14-dc0e9b175e58">&lt;/strong&gt;</ept> tier.</source>
+          <target state="new">When you move a site from a <bpt id="6544dc81-b5f6-457a-bc36-09571aacefe3">&lt;strong&gt;</bpt>Free<ept id="6544dc81-b5f6-457a-bc36-09571aacefe3">&lt;/strong&gt;</ept> tier to a <bpt id="22887951-d226-4512-a83f-a619cdef5b36">&lt;strong&gt;</bpt>Standard<ept id="22887951-d226-4512-a83f-a619cdef5b36">&lt;/strong&gt;</ept> tier, your app will be able to leverage all the features and resources of the <bpt id="1ca165e5-5012-4981-ba14-dc0e9b175e58">&lt;strong&gt;</bpt>Standard<ept id="1ca165e5-5012-4981-ba14-dc0e9b175e58">&lt;/strong&gt;</ept> tier.</target>
+        </trans-unit>
+        <trans-unit id="fbeeba38-12d5-4fb9-a543-5c4958bd5aa3" xml:space="preserve">
+          <source>There are three ways to scale a plan:</source>
+          <target state="new">There are three ways to scale a plan:</target>
+        </trans-unit>
+        <trans-unit id="4ddded21-05eb-4243-ab4d-23143b2bf10b" xml:space="preserve">
+          <source>Change the plan’s <bpt id="6c752e4b-1ffd-4689-9d7f-05d4ccbf6aa1">&lt;strong&gt;</bpt>pricing tier<ept id="6c752e4b-1ffd-4689-9d7f-05d4ccbf6aa1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Change the plan’s <bpt id="6c752e4b-1ffd-4689-9d7f-05d4ccbf6aa1">&lt;strong&gt;</bpt>pricing tier<ept id="6c752e4b-1ffd-4689-9d7f-05d4ccbf6aa1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07fd2565-f89f-4b17-8d11-2f2f58f30360" xml:space="preserve">
+          <source>For example, a plan in the <bpt id="8e8a67d1-3cd6-4eec-8309-301d00ede485">&lt;strong&gt;</bpt>Basic<ept id="8e8a67d1-3cd6-4eec-8309-301d00ede485">&lt;/strong&gt;</ept> tier can be converted into a <bpt id="a320482f-da59-46b0-beda-b41b53a72d48">&lt;strong&gt;</bpt>Standard<ept id="a320482f-da59-46b0-beda-b41b53a72d48">&lt;/strong&gt;</ept> or <bpt id="6e01c7c0-6a1b-4f09-8edf-beea885f2ea6">&lt;strong&gt;</bpt>Premium<ept id="6e01c7c0-6a1b-4f09-8edf-beea885f2ea6">&lt;/strong&gt;</ept> tier and all apps associated with that plan will be able to leverage the features offered in the new service tier.</source>
+          <target state="new">For example, a plan in the <bpt id="8e8a67d1-3cd6-4eec-8309-301d00ede485">&lt;strong&gt;</bpt>Basic<ept id="8e8a67d1-3cd6-4eec-8309-301d00ede485">&lt;/strong&gt;</ept> tier can be converted into a <bpt id="a320482f-da59-46b0-beda-b41b53a72d48">&lt;strong&gt;</bpt>Standard<ept id="a320482f-da59-46b0-beda-b41b53a72d48">&lt;/strong&gt;</ept> or <bpt id="6e01c7c0-6a1b-4f09-8edf-beea885f2ea6">&lt;strong&gt;</bpt>Premium<ept id="6e01c7c0-6a1b-4f09-8edf-beea885f2ea6">&lt;/strong&gt;</ept> tier and all apps associated with that plan will be able to leverage the features offered in the new service tier.</target>
+        </trans-unit>
+        <trans-unit id="01eeedaa-671c-4e60-8a9e-5325ac948f30" xml:space="preserve">
+          <source>Change the plan’s <bpt id="218483d0-8f22-4641-a975-0c4ac4dbcabc">&lt;strong&gt;</bpt>instance size<ept id="218483d0-8f22-4641-a975-0c4ac4dbcabc">&lt;/strong&gt;</ept>, as an example a plan in the <bpt id="8e94b7c8-78b5-4ad4-be4d-85ffea379ae9">&lt;strong&gt;</bpt>Basic<ept id="8e94b7c8-78b5-4ad4-be4d-85ffea379ae9">&lt;/strong&gt;</ept> tier using <bpt id="76a4ac72-e0cf-44b7-8d66-6772678a80ed">&lt;strong&gt;</bpt>small<ept id="76a4ac72-e0cf-44b7-8d66-6772678a80ed">&lt;/strong&gt;</ept> instances can be changed to use <bpt id="a938384a-b5a1-4aa5-bc98-98d20afc7939">&lt;strong&gt;</bpt>large<ept id="a938384a-b5a1-4aa5-bc98-98d20afc7939">&lt;/strong&gt;</ept> instances.</source>
+          <target state="new">Change the plan’s <bpt id="218483d0-8f22-4641-a975-0c4ac4dbcabc">&lt;strong&gt;</bpt>instance size<ept id="218483d0-8f22-4641-a975-0c4ac4dbcabc">&lt;/strong&gt;</ept>, as an example a plan in the <bpt id="8e94b7c8-78b5-4ad4-be4d-85ffea379ae9">&lt;strong&gt;</bpt>Basic<ept id="8e94b7c8-78b5-4ad4-be4d-85ffea379ae9">&lt;/strong&gt;</ept> tier using <bpt id="76a4ac72-e0cf-44b7-8d66-6772678a80ed">&lt;strong&gt;</bpt>small<ept id="76a4ac72-e0cf-44b7-8d66-6772678a80ed">&lt;/strong&gt;</ept> instances can be changed to use <bpt id="a938384a-b5a1-4aa5-bc98-98d20afc7939">&lt;strong&gt;</bpt>large<ept id="a938384a-b5a1-4aa5-bc98-98d20afc7939">&lt;/strong&gt;</ept> instances.</target>
+        </trans-unit>
+        <trans-unit id="540bcdd5-73f0-4a22-ab04-563b52b16e73" xml:space="preserve">
+          <source>All apps associated with that plan will be able to leverage the additional memory and CPU resources offered by the larger instance size.</source>
+          <target state="new">All apps associated with that plan will be able to leverage the additional memory and CPU resources offered by the larger instance size.</target>
+        </trans-unit>
+        <trans-unit id="7d263f25-d302-4c65-8448-4bfc35307706" xml:space="preserve">
+          <source>Change the plan’s <bpt id="4871ef0b-7803-4169-a6f2-3f5bae70d496">&lt;strong&gt;</bpt>instance count<ept id="4871ef0b-7803-4169-a6f2-3f5bae70d496">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Change the plan’s <bpt id="4871ef0b-7803-4169-a6f2-3f5bae70d496">&lt;strong&gt;</bpt>instance count<ept id="4871ef0b-7803-4169-a6f2-3f5bae70d496">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c2330ee-f898-410a-8670-c41daa81c6f7" xml:space="preserve">
+          <source>For example, a <bpt id="0d05886a-0e19-4499-853d-5bd1719727e2">&lt;strong&gt;</bpt>Standard<ept id="0d05886a-0e19-4499-853d-5bd1719727e2">&lt;/strong&gt;</ept> plan scaled out to 3 instances can be scaled to 10 instances, and a <bpt id="8b1b6754-9a40-44c8-bc10-f4a628968e1d">&lt;strong&gt;</bpt>Premium<ept id="8b1b6754-9a40-44c8-bc10-f4a628968e1d">&lt;/strong&gt;</ept> (preview) plan can be scaled out to 20 instances (under some restrictions).</source>
+          <target state="new">For example, a <bpt id="0d05886a-0e19-4499-853d-5bd1719727e2">&lt;strong&gt;</bpt>Standard<ept id="0d05886a-0e19-4499-853d-5bd1719727e2">&lt;/strong&gt;</ept> plan scaled out to 3 instances can be scaled to 10 instances, and a <bpt id="8b1b6754-9a40-44c8-bc10-f4a628968e1d">&lt;strong&gt;</bpt>Premium<ept id="8b1b6754-9a40-44c8-bc10-f4a628968e1d">&lt;/strong&gt;</ept> (preview) plan can be scaled out to 20 instances (under some restrictions).</target>
+        </trans-unit>
+        <trans-unit id="865fa16b-d6f7-49b8-b047-ac21f2555d20" xml:space="preserve">
+          <source>All apps associated with that plan will be able to leverage the additional memory and CPU resources offered by the larger instance count.</source>
+          <target state="new">All apps associated with that plan will be able to leverage the additional memory and CPU resources offered by the larger instance count.</target>
+        </trans-unit>
+        <trans-unit id="0d965fc1-b450-446a-a2be-3831fa9dc0ce" xml:space="preserve">
+          <source>In the image below you can see the <bpt id="8211eb8c-c4c2-4a1d-80de-80a1a04b1a73">&lt;strong&gt;</bpt>App Service Plan<ept id="8211eb8c-c4c2-4a1d-80de-80a1a04b1a73">&lt;/strong&gt;</ept> blade as well as the <bpt id="e18f711b-0f40-48af-b9db-67bf7d857c17">&lt;strong&gt;</bpt>Pricing Tier<ept id="e18f711b-0f40-48af-b9db-67bf7d857c17">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">In the image below you can see the <bpt id="8211eb8c-c4c2-4a1d-80de-80a1a04b1a73">&lt;strong&gt;</bpt>App Service Plan<ept id="8211eb8c-c4c2-4a1d-80de-80a1a04b1a73">&lt;/strong&gt;</ept> blade as well as the <bpt id="e18f711b-0f40-48af-b9db-67bf7d857c17">&lt;strong&gt;</bpt>Pricing Tier<ept id="e18f711b-0f40-48af-b9db-67bf7d857c17">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="d19af5d3-68a9-4bdf-9364-75aff8157a26" xml:space="preserve">
+          <source>Clicking on the <bpt id="05526dc2-6ce8-46f7-a923-fa9cb605fd0f">&lt;strong&gt;</bpt>Pricing Tier<ept id="05526dc2-6ce8-46f7-a923-fa9cb605fd0f">&lt;/strong&gt;</ept> part in the <bpt id="88b2cfe9-58ee-432e-9532-3334584c9c58">&lt;strong&gt;</bpt>App Service Plan<ept id="88b2cfe9-58ee-432e-9532-3334584c9c58">&lt;/strong&gt;</ept> blade expands the <bpt id="e782cfd5-5f5d-4959-8093-8f2ff7bdd0e7">&lt;strong&gt;</bpt>Pricing Tier<ept id="e782cfd5-5f5d-4959-8093-8f2ff7bdd0e7">&lt;/strong&gt;</ept> blade, where you can change the pricing tier and instance size for the plan.</source>
+          <target state="new">Clicking on the <bpt id="05526dc2-6ce8-46f7-a923-fa9cb605fd0f">&lt;strong&gt;</bpt>Pricing Tier<ept id="05526dc2-6ce8-46f7-a923-fa9cb605fd0f">&lt;/strong&gt;</ept> part in the <bpt id="88b2cfe9-58ee-432e-9532-3334584c9c58">&lt;strong&gt;</bpt>App Service Plan<ept id="88b2cfe9-58ee-432e-9532-3334584c9c58">&lt;/strong&gt;</ept> blade expands the <bpt id="e782cfd5-5f5d-4959-8093-8f2ff7bdd0e7">&lt;strong&gt;</bpt>Pricing Tier<ept id="e782cfd5-5f5d-4959-8093-8f2ff7bdd0e7">&lt;/strong&gt;</ept> blade, where you can change the pricing tier and instance size for the plan.</target>
+        </trans-unit>
+        <trans-unit id="574c5f9f-405b-472f-b5b8-cfbeb0300975" xml:space="preserve">
+          <source><bpt id="48285a44-674c-40bb-897f-c102520c4c10">&lt;linkText&gt;</bpt>App Service Plan F.A.Q.<ept id="48285a44-674c-40bb-897f-c102520c4c10">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48285a44-674c-40bb-897f-c102520c4c10">&lt;linkText&gt;</bpt>App Service Plan F.A.Q.<ept id="48285a44-674c-40bb-897f-c102520c4c10">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30fc33d8-583c-41c1-80c8-b847a3cc55a6" xml:space="preserve">
+          <source>App Service plans represent a set of features and capacity that you can share across your apps.</source>
+          <target state="new">App Service plans represent a set of features and capacity that you can share across your apps.</target>
+        </trans-unit>
+        <trans-unit id="eb83b4e5-3c96-49d0-9a2c-ad1423405931" xml:space="preserve">
+          <source>App Service plans give you the flexibility to allocate specific apps to a given set of resources and further optimize you Azure resource utilization.</source>
+          <target state="new">App Service plans give you the flexibility to allocate specific apps to a given set of resources and further optimize you Azure resource utilization.</target>
+        </trans-unit>
+        <trans-unit id="2e2e1748-a58d-4ea5-b0b7-6ffa10e52488" xml:space="preserve">
+          <source>This way, if you want to save money on your testing environment you can share a plan across multiple apps.</source>
+          <target state="new">This way, if you want to save money on your testing environment you can share a plan across multiple apps.</target>
+        </trans-unit>
+        <trans-unit id="37e44d79-9f9b-49c7-b649-8821b198501d" xml:space="preserve">
+          <source>You can also maximize throughput for your production environment by scaling it across multiple regions and plans.</source>
+          <target state="new">You can also maximize throughput for your production environment by scaling it across multiple regions and plans.</target>
+        </trans-unit>
+        <trans-unit id="b425a27a-5c6c-447c-bf57-be3cb49a8a46" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="2861a15e-0f36-4ed3-938c-4778fbb4ee96">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="2861a15e-0f36-4ed3-938c-4778fbb4ee96">&lt;/linkText&gt;</ept><bpt id="2861a15e-0f36-4ed3-938c-4778fbb4ee96">&lt;title&gt;</bpt><ept id="2861a15e-0f36-4ed3-938c-4778fbb4ee96">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="2861a15e-0f36-4ed3-938c-4778fbb4ee96">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="2861a15e-0f36-4ed3-938c-4778fbb4ee96">&lt;/linkText&gt;</ept><bpt id="2861a15e-0f36-4ed3-938c-4778fbb4ee96">&lt;title&gt;</bpt><ept id="2861a15e-0f36-4ed3-938c-4778fbb4ee96">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b67f4e75-103a-4376-b185-7362abce3bb8" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="0c75a7e2-2949-4536-ad78-05cf05e8bbde">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="0c75a7e2-2949-4536-ad78-05cf05e8bbde">&lt;/linkText&gt;</ept><bpt id="0c75a7e2-2949-4536-ad78-05cf05e8bbde">&lt;title&gt;</bpt><ept id="0c75a7e2-2949-4536-ad78-05cf05e8bbde">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="0c75a7e2-2949-4536-ad78-05cf05e8bbde">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="0c75a7e2-2949-4536-ad78-05cf05e8bbde">&lt;/linkText&gt;</ept><bpt id="0c75a7e2-2949-4536-ad78-05cf05e8bbde">&lt;title&gt;</bpt><ept id="0c75a7e2-2949-4536-ad78-05cf05e8bbde">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

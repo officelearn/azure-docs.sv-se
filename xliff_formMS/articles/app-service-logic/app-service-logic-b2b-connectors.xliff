@@ -1,0 +1,728 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3120b2f8-23ce-4eb5-94de-76aa8dd7dcb4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3120b2f8-23ce-4eb5-94de-76aa8dd7dcb4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c3ff3bca-c841-4c2c-8f20-774d8985c971">
+        <trans-unit id="bb68c096-9daf-4d6e-84f2-fdf19f369ff8" xml:space="preserve">
+          <source>Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Microsoft Azure</source>
+          <target state="new">Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a13cdf72-1ae5-48f6-b01f-71e491fcba24" xml:space="preserve">
+          <source>Learn how to create and configure EDI, EDIFACT, AS2, and TPM connectors; microservices architecture</source>
+          <target state="new">Learn how to create and configure EDI, EDIFACT, AS2, and TPM connectors; microservices architecture</target>
+        </trans-unit>
+        <trans-unit id="75be1a5c-9397-4416-ab13-ae9ca772a896" xml:space="preserve">
+          <source>Microsoft Azure App Service (or App Service for short) includes many BizTalk API Apps that are vital to integration environments.</source>
+          <target state="new">Microsoft Azure App Service (or App Service for short) includes many BizTalk API Apps that are vital to integration environments.</target>
+        </trans-unit>
+        <trans-unit id="c4b8fe18-f7ee-4c24-ad68-9fc15cd3da38" xml:space="preserve">
+          <source>These API Apps are based on concepts and tools used within BizTalk Server, but are now available as part of Azure App Service.</source>
+          <target state="new">These API Apps are based on concepts and tools used within BizTalk Server, but are now available as part of Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="cab3eaf1-49b3-44fd-b410-463455316308" xml:space="preserve">
+          <source>One category of these API Apps are the Business-to-Business (B2B) API Apps.</source>
+          <target state="new">One category of these API Apps are the Business-to-Business (B2B) API Apps.</target>
+        </trans-unit>
+        <trans-unit id="22cc2412-e641-4d34-84b7-39035f708b66" xml:space="preserve">
+          <source>Using these B2B API Apps, you can easily add partners, create agreements, and do everything as you would on-premises using EDI, AS2, and EDIFACT.</source>
+          <target state="new">Using these B2B API Apps, you can easily add partners, create agreements, and do everything as you would on-premises using EDI, AS2, and EDIFACT.</target>
+        </trans-unit>
+        <trans-unit id="fd55a763-8bd3-4142-915c-ea83bd3af66a" xml:space="preserve">
+          <source>These B2B API Apps offer "Trigger" and "Action" capabilities.</source>
+          <target state="new">These B2B API Apps offer "Trigger" and "Action" capabilities.</target>
+        </trans-unit>
+        <trans-unit id="75e04057-d921-493e-a38a-a2b885fdd8f5" xml:space="preserve">
+          <source>A Trigger starts a new instance based on a specific event, like the arrival of an X12 message from a partner.</source>
+          <target state="new">A Trigger starts a new instance based on a specific event, like the arrival of an X12 message from a partner.</target>
+        </trans-unit>
+        <trans-unit id="35c55ead-bfb7-4b91-8523-c778a5e97e41" xml:space="preserve">
+          <source>An Action is the result, like after receiving an X12 message, then send the message using AS2.</source>
+          <target state="new">An Action is the result, like after receiving an X12 message, then send the message using AS2.</target>
+        </trans-unit>
+        <trans-unit id="91e75bb2-6cc6-4cd4-9357-763f6adb78a9" xml:space="preserve">
+          <source>The Business-to-Business (B2B) feature includes existing, pre-built API Apps that allow different companies, divisions, applications, and so on to communicate using AS2, EDI, and EDIFACT.</source>
+          <target state="new">The Business-to-Business (B2B) feature includes existing, pre-built API Apps that allow different companies, divisions, applications, and so on to communicate using AS2, EDI, and EDIFACT.</target>
+        </trans-unit>
+        <trans-unit id="4abb8e43-5566-44da-9537-43cc17d36ef7" xml:space="preserve">
+          <source>The B2B API Apps include: </source>
+          <target state="new">The B2B API Apps include: </target>
+        </trans-unit>
+        <trans-unit id="c127fe84-66e7-4464-8073-e74151f1fa4a" xml:space="preserve">
+          <source>Connector or API Apps</source>
+          <target state="new">Connector or API Apps</target>
+        </trans-unit>
+        <trans-unit id="1404383e-2e26-4a37-8559-d194007b7b6f" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="afab2851-10a8-4176-9931-b81babbc46c4" xml:space="preserve">
+          <source>BizTalk Trading Partner Management</source>
+          <target state="new">BizTalk Trading Partner Management</target>
+        </trans-unit>
+        <trans-unit id="6e44f698-bbec-45f8-b46e-70d7a57ec097" xml:space="preserve">
+          <source>An API App that creates business-to-business (B2B) relationships using partners and agreements.</source>
+          <target state="new">An API App that creates business-to-business (B2B) relationships using partners and agreements.</target>
+        </trans-unit>
+        <trans-unit id="557fe878-c873-4bae-a1f4-c24460138d0e" xml:space="preserve">
+          <source>These relationships utilize the AS2, EDIFACT, and X12 protocol.&lt;br/&gt;&lt;br/&gt;The TPM API App is the base requirement of the AS2 connector, and the X12 or EDIFACT API Apps.</source>
+          <target state="new">These relationships utilize the AS2, EDIFACT, and X12 protocol.&lt;br/&gt;&lt;br/&gt;The TPM API App is the base requirement of the AS2 connector, and the X12 or EDIFACT API Apps.</target>
+        </trans-unit>
+        <trans-unit id="e5a923e7-dccc-46fd-b233-72ada5fba808" xml:space="preserve">
+          <source>AS2 Connector</source>
+          <target state="new">AS2 Connector</target>
+        </trans-unit>
+        <trans-unit id="71393219-992c-43eb-a881-abe65494556b" xml:space="preserve">
+          <source>A connector that receives and sends messages using the AS2 transport.</source>
+          <target state="new">A connector that receives and sends messages using the AS2 transport.</target>
+        </trans-unit>
+        <trans-unit id="b9fb4a4f-fd88-4ce9-96b2-b737ad7cb6bf" xml:space="preserve">
+          <source>The connector transports data securely and reliably over the Internet.</source>
+          <target state="new">The connector transports data securely and reliably over the Internet.</target>
+        </trans-unit>
+        <trans-unit id="50f5d031-45ae-4642-8c90-5f93bf689b37" xml:space="preserve">
+          <source>BizTalk EDIFACT</source>
+          <target state="new">BizTalk EDIFACT</target>
+        </trans-unit>
+        <trans-unit id="d96f1921-8bab-4258-a865-cfa55af71b5b" xml:space="preserve">
+          <source>An API App that receives and sends messages using EDIFACT.</source>
+          <target state="new">An API App that receives and sends messages using EDIFACT.</target>
+        </trans-unit>
+        <trans-unit id="c7268a2c-746f-4b0b-9d5d-185a31b1ff63" xml:space="preserve">
+          <source>EDIFACT is also commonly referred to as UN/EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport) and is widely used across industries.</source>
+          <target state="new">EDIFACT is also commonly referred to as UN/EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport) and is widely used across industries.</target>
+        </trans-unit>
+        <trans-unit id="977bcd77-908b-4fdb-80ca-d8777a683bd2" xml:space="preserve">
+          <source>BizTalk X12</source>
+          <target state="new">BizTalk X12</target>
+        </trans-unit>
+        <trans-unit id="2b1a2e1d-545c-4e04-b699-a4fd5529bc43" xml:space="preserve">
+          <source>An API App that receives and sends messages using the X12 protocol.</source>
+          <target state="new">An API App that receives and sends messages using the X12 protocol.</target>
+        </trans-unit>
+        <trans-unit id="7bee8de4-31a5-4965-a049-4905ddd354e1" xml:space="preserve">
+          <source>X12 is also commonly referred to as ASC X12 (Accredited Standards Committee X12) and is widely used across industries.</source>
+          <target state="new">X12 is also commonly referred to as ASC X12 (Accredited Standards Committee X12) and is widely used across industries.</target>
+        </trans-unit>
+        <trans-unit id="15a84b87-a16a-42b1-9218-2e32bb2ce3a2" xml:space="preserve">
+          <source>Using these API Apps, you can complete different EDI messaging tasks.</source>
+          <target state="new">Using these API Apps, you can complete different EDI messaging tasks.</target>
+        </trans-unit>
+        <trans-unit id="2412008e-a0cf-477b-8da2-0e4a09567a71" xml:space="preserve">
+          <source>For example, using the AS2 connector, you can securely receive and send different types of messages (EDI, XML, Flat-File, and so on) to a customer, a division within your company like Human Resources, or anyone that uses AS2.</source>
+          <target state="new">For example, using the AS2 connector, you can securely receive and send different types of messages (EDI, XML, Flat-File, and so on) to a customer, a division within your company like Human Resources, or anyone that uses AS2.</target>
+        </trans-unit>
+        <trans-unit id="f5b66c14-1c64-460e-86ed-ddda905191f1" xml:space="preserve">
+          <source>You can create as many API Apps as you want and create them easily.</source>
+          <target state="new">You can create as many API Apps as you want and create them easily.</target>
+        </trans-unit>
+        <trans-unit id="82098629-58de-4f32-ad6e-5fe165d73667" xml:space="preserve">
+          <source>You can also reuse a single API App within multiple scenarios or workflows.</source>
+          <target state="new">You can also reuse a single API App within multiple scenarios or workflows.</target>
+        </trans-unit>
+        <trans-unit id="96c26fb7-1dc2-48bb-b76c-db0c78ed59fa" xml:space="preserve">
+          <source>You can do this without writing any code.</source>
+          <target state="new">You can do this without writing any code.</target>
+        </trans-unit>
+        <trans-unit id="b54bbd93-3ba4-4588-92c5-31062600b2df" xml:space="preserve">
+          <source>Let's get started.</source>
+          <target state="new">Let's get started.</target>
+        </trans-unit>
+        <trans-unit id="56ee94fd-7791-4c4d-98d2-02ad3df77bec" xml:space="preserve">
+          <source>When you create B2B API Apps, there are some required resources.</source>
+          <target state="new">When you create B2B API Apps, there are some required resources.</target>
+        </trans-unit>
+        <trans-unit id="b6311285-addc-48aa-8d00-f2f2172b9848" xml:space="preserve">
+          <source>These items must be created by you before they can be used within other API Apps.</source>
+          <target state="new">These items must be created by you before they can be used within other API Apps.</target>
+        </trans-unit>
+        <trans-unit id="15786c8d-1626-4119-b95a-5255a74e56b3" xml:space="preserve">
+          <source>These requirements include:</source>
+          <target state="new">These requirements include:</target>
+        </trans-unit>
+        <trans-unit id="3c2fd57a-782e-4700-a47f-a1a8764beedb" xml:space="preserve">
+          <source>Requirement</source>
+          <target state="new">Requirement</target>
+        </trans-unit>
+        <trans-unit id="3917d925-9ab9-4a8e-ae9e-4713c92d7366" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="064d9b9d-4e1f-40ed-9981-330124108932" xml:space="preserve">
+          <source>Azure SQL Database</source>
+          <target state="new">Azure SQL Database</target>
+        </trans-unit>
+        <trans-unit id="26c7bd41-4819-4af4-997a-d8b5671bd710" xml:space="preserve">
+          <source>Stores B2B items including partners, schemas, certificates, and agreeements.</source>
+          <target state="new">Stores B2B items including partners, schemas, certificates, and agreeements.</target>
+        </trans-unit>
+        <trans-unit id="1dd4cc32-b7b2-48f7-898f-0b6ff69a5a07" xml:space="preserve">
+          <source>Each of the B2B API Apps requires its own Azure SQL Database.</source>
+          <target state="new">Each of the B2B API Apps requires its own Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="f18b3be2-7676-4b57-8462-3f85a87857ff" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;<bpt id="a0fefdc5-0686-448c-a21b-2a5ea14d0332">&lt;strong&gt;</bpt>Note<ept id="a0fefdc5-0686-448c-a21b-2a5ea14d0332">&lt;/strong&gt;</ept> Copy the connection string to this database.&lt;br/&gt;&lt;br/&gt;<bpt id="e7e971eb-6b95-4b0b-a165-1a069976ff8d">&lt;linkText&gt;</bpt>Create an Azure SQL Database<ept id="e7e971eb-6b95-4b0b-a165-1a069976ff8d">&lt;/linkText&gt;</ept><bpt id="e7e971eb-6b95-4b0b-a165-1a069976ff8d">&lt;title&gt;</bpt><ept id="e7e971eb-6b95-4b0b-a165-1a069976ff8d">&lt;/title&gt;</ept></source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;<bpt id="a0fefdc5-0686-448c-a21b-2a5ea14d0332">&lt;strong&gt;</bpt>Note<ept id="a0fefdc5-0686-448c-a21b-2a5ea14d0332">&lt;/strong&gt;</ept> Copy the connection string to this database.&lt;br/&gt;&lt;br/&gt;<bpt id="e7e971eb-6b95-4b0b-a165-1a069976ff8d">&lt;linkText&gt;</bpt>Create an Azure SQL Database<ept id="e7e971eb-6b95-4b0b-a165-1a069976ff8d">&lt;/linkText&gt;</ept><bpt id="e7e971eb-6b95-4b0b-a165-1a069976ff8d">&lt;title&gt;</bpt><ept id="e7e971eb-6b95-4b0b-a165-1a069976ff8d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="932a367d-d13c-456a-97de-65352e6dcbaf" xml:space="preserve">
+          <source>Azure Blob Storage container</source>
+          <target state="new">Azure Blob Storage container</target>
+        </trans-unit>
+        <trans-unit id="8a667799-f6c5-4c84-a34d-9e5b2527cb0f" xml:space="preserve">
+          <source>Stores message properties when AS2 archiving is enabled.</source>
+          <target state="new">Stores message properties when AS2 archiving is enabled.</target>
+        </trans-unit>
+        <trans-unit id="7ed4640a-611e-4c61-b932-4a9292a9fcab" xml:space="preserve">
+          <source>If you don't need AS2 message archiving, a Storage container is not needed.</source>
+          <target state="new">If you don't need AS2 message archiving, a Storage container is not needed.</target>
+        </trans-unit>
+        <trans-unit id="b43812a1-7f75-495b-b833-f9d9c09601b0" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;<bpt id="790a22d8-575c-4505-baa6-275a6c1ce75c">&lt;strong&gt;</bpt>Note<ept id="790a22d8-575c-4505-baa6-275a6c1ce75c">&lt;/strong&gt;</ept> If you are enabling archiving, copy the connection string to this Blob Storage.&lt;br/&gt;&lt;br/&gt;<bpt id="0893b293-8ce0-4d7d-b957-94528403f360">&lt;linkText&gt;</bpt>About Azure Storage Accounts<ept id="0893b293-8ce0-4d7d-b957-94528403f360">&lt;/linkText&gt;</ept><bpt id="0893b293-8ce0-4d7d-b957-94528403f360">&lt;title&gt;</bpt><ept id="0893b293-8ce0-4d7d-b957-94528403f360">&lt;/title&gt;</ept></source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;<bpt id="790a22d8-575c-4505-baa6-275a6c1ce75c">&lt;strong&gt;</bpt>Note<ept id="790a22d8-575c-4505-baa6-275a6c1ce75c">&lt;/strong&gt;</ept> If you are enabling archiving, copy the connection string to this Blob Storage.&lt;br/&gt;&lt;br/&gt;<bpt id="0893b293-8ce0-4d7d-b957-94528403f360">&lt;linkText&gt;</bpt>About Azure Storage Accounts<ept id="0893b293-8ce0-4d7d-b957-94528403f360">&lt;/linkText&gt;</ept><bpt id="0893b293-8ce0-4d7d-b957-94528403f360">&lt;title&gt;</bpt><ept id="0893b293-8ce0-4d7d-b957-94528403f360">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d40f312-d5ec-4234-a5dd-36b1413682be" xml:space="preserve">
+          <source>Service Bus Namespace and its Key values</source>
+          <target state="new">Service Bus Namespace and its Key values</target>
+        </trans-unit>
+        <trans-unit id="9bc28322-6793-4312-9eea-ec6dac9e5eea" xml:space="preserve">
+          <source>Stores X12 and EDIFACT batching data.</source>
+          <target state="new">Stores X12 and EDIFACT batching data.</target>
+        </trans-unit>
+        <trans-unit id="30283160-4655-4dc5-bf99-4fa5d1d7ca71" xml:space="preserve">
+          <source>If you don't need batching, a Service Bus namespace is not needed.&lt;br/&gt;&lt;br/&gt;<bpt id="40edc12e-ceb5-4a86-89d2-ccdb431ddd7d">&lt;strong&gt;</bpt>Note<ept id="40edc12e-ceb5-4a86-89d2-ccdb431ddd7d">&lt;/strong&gt;</ept> If you are enabling batching, copy these values.&lt;br/&gt;&lt;br/&gt;<bpt id="5191db1b-9454-4931-949c-04b4c7bf6aea">&lt;linkText&gt;</bpt>Create a Service Bus Namespace<ept id="5191db1b-9454-4931-949c-04b4c7bf6aea">&lt;/linkText&gt;</ept><bpt id="5191db1b-9454-4931-949c-04b4c7bf6aea">&lt;title&gt;</bpt><ept id="5191db1b-9454-4931-949c-04b4c7bf6aea">&lt;/title&gt;</ept></source>
+          <target state="new">If you don't need batching, a Service Bus namespace is not needed.&lt;br/&gt;&lt;br/&gt;<bpt id="40edc12e-ceb5-4a86-89d2-ccdb431ddd7d">&lt;strong&gt;</bpt>Note<ept id="40edc12e-ceb5-4a86-89d2-ccdb431ddd7d">&lt;/strong&gt;</ept> If you are enabling batching, copy these values.&lt;br/&gt;&lt;br/&gt;<bpt id="5191db1b-9454-4931-949c-04b4c7bf6aea">&lt;linkText&gt;</bpt>Create a Service Bus Namespace<ept id="5191db1b-9454-4931-949c-04b4c7bf6aea">&lt;/linkText&gt;</ept><bpt id="5191db1b-9454-4931-949c-04b4c7bf6aea">&lt;title&gt;</bpt><ept id="5191db1b-9454-4931-949c-04b4c7bf6aea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2dba82cc-6df2-43e6-8bcb-12d9939b7d75" xml:space="preserve">
+          <source>TPM Instance</source>
+          <target state="new">TPM Instance</target>
+        </trans-unit>
+        <trans-unit id="4fd06737-b2ab-4be1-a2a1-5f3ae02f7ae6" xml:space="preserve">
+          <source>A BizTalk Trading Partner Management (TPM) instance is required to create an AS2 connector and X12 or EDIFACT API App.</source>
+          <target state="new">A BizTalk Trading Partner Management (TPM) instance is required to create an AS2 connector and X12 or EDIFACT API App.</target>
+        </trans-unit>
+        <trans-unit id="259c20db-70c6-4a65-be8a-ff2cbad43f8b" xml:space="preserve">
+          <source>When you create the TPM API App, you are creating the TPM Instance.</source>
+          <target state="new">When you create the TPM API App, you are creating the TPM Instance.</target>
+        </trans-unit>
+        <trans-unit id="27ed5499-19cc-4de8-bb91-c7254a289d38" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;<bpt id="a8e311ca-8e1c-4774-8b70-569723425ce9">&lt;strong&gt;</bpt>Note<ept id="a8e311ca-8e1c-4774-8b70-569723425ce9">&lt;/strong&gt;</ept> Know the name of your TPM API App.</source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;<bpt id="a8e311ca-8e1c-4774-8b70-569723425ce9">&lt;strong&gt;</bpt>Note<ept id="a8e311ca-8e1c-4774-8b70-569723425ce9">&lt;/strong&gt;</ept> Know the name of your TPM API App.</target>
+        </trans-unit>
+        <trans-unit id="143660dd-55e7-4c62-8c45-5278084d0e60" xml:space="preserve">
+          <source>B2B API Apps can be created using the Azure portal or using REST APIs.</source>
+          <target state="new">B2B API Apps can be created using the Azure portal or using REST APIs.</target>
+        </trans-unit>
+        <trans-unit id="f0064d4f-42de-405d-9104-96af7079d3d2" xml:space="preserve">
+          <source><bpt id="ad3de7b8-419c-4c0b-9502-0f7725743366">&lt;linkText&gt;</bpt>See the documentation on how to use the REST APIs.<ept id="ad3de7b8-419c-4c0b-9502-0f7725743366">&lt;/linkText&gt;</ept><bpt id="ad3de7b8-419c-4c0b-9502-0f7725743366">&lt;title&gt;</bpt><ept id="ad3de7b8-419c-4c0b-9502-0f7725743366">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ad3de7b8-419c-4c0b-9502-0f7725743366">&lt;linkText&gt;</bpt>See the documentation on how to use the REST APIs.<ept id="ad3de7b8-419c-4c0b-9502-0f7725743366">&lt;/linkText&gt;</ept><bpt id="ad3de7b8-419c-4c0b-9502-0f7725743366">&lt;title&gt;</bpt><ept id="ad3de7b8-419c-4c0b-9502-0f7725743366">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1abcea26-d24f-4d7c-abce-d8491df06f15" xml:space="preserve">
+          <source>In the Azure portal, you can create B2B API Apps when creating Logic Apps, Web Apps, or Mobile Apps.</source>
+          <target state="new">In the Azure portal, you can create B2B API Apps when creating Logic Apps, Web Apps, or Mobile Apps.</target>
+        </trans-unit>
+        <trans-unit id="985c36a3-980d-4e22-b2c3-1673beb2b7ba" xml:space="preserve">
+          <source>Or, you can create one using its own blade.</source>
+          <target state="new">Or, you can create one using its own blade.</target>
+        </trans-unit>
+        <trans-unit id="dde2d18d-63cf-42fc-b0dd-06f06be4a06c" xml:space="preserve">
+          <source>Both ways are easy so it depends on your needs or preferences.</source>
+          <target state="new">Both ways are easy so it depends on your needs or preferences.</target>
+        </trans-unit>
+        <trans-unit id="10e4b0e7-f555-4341-a63e-6915d5468670" xml:space="preserve">
+          <source>Some users prefer to create all the B2B API Apps with their specific properties first.</source>
+          <target state="new">Some users prefer to create all the B2B API Apps with their specific properties first.</target>
+        </trans-unit>
+        <trans-unit id="e31c6b93-baa2-4e7d-8b33-1d65428cd0e2" xml:space="preserve">
+          <source>Then, create the Logic Apps/Web Apps/Mobile Apps, and add the B2B API Apps you created.</source>
+          <target state="new">Then, create the Logic Apps/Web Apps/Mobile Apps, and add the B2B API Apps you created.</target>
+        </trans-unit>
+        <trans-unit id="2912a5bc-0904-48b1-bde8-3bfef51efb1e" xml:space="preserve">
+          <source>The following steps create the B2B API Apps using the API Apps blade.</source>
+          <target state="new">The following steps create the B2B API Apps using the API Apps blade.</target>
+        </trans-unit>
+        <trans-unit id="a918ae8c-9a04-496a-87b5-4b8f856bd2a7" xml:space="preserve">
+          <source>A BizTalk Trading Partner Management (TPM) instance is required to create an AS2 connector and X12 or EDIFACT API App.</source>
+          <target state="new">A BizTalk Trading Partner Management (TPM) instance is required to create an AS2 connector and X12 or EDIFACT API App.</target>
+        </trans-unit>
+        <trans-unit id="83898ff2-b5bf-46a1-9f82-7eac969cacec" xml:space="preserve">
+          <source>When you create the TPM API App, you are creating the TPM Instance.</source>
+          <target state="new">When you create the TPM API App, you are creating the TPM Instance.</target>
+        </trans-unit>
+        <trans-unit id="f1411e1a-5662-474d-ad16-82964ebd5bc3" xml:space="preserve">
+          <source>The following steps create the TPM instance:</source>
+          <target state="new">The following steps create the TPM instance:</target>
+        </trans-unit>
+        <trans-unit id="019bb830-4738-462c-942e-13a5f696b3c1" xml:space="preserve">
+          <source>In the Azure portal Startboard (the Home page), select <bpt id="d47c337e-cd80-4848-adf4-ecd6bdc246df">&lt;strong&gt;</bpt>Marketplace<ept id="d47c337e-cd80-4848-adf4-ecd6bdc246df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal Startboard (the Home page), select <bpt id="d47c337e-cd80-4848-adf4-ecd6bdc246df">&lt;strong&gt;</bpt>Marketplace<ept id="d47c337e-cd80-4848-adf4-ecd6bdc246df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99ac0a9d-6845-4f0a-b2c4-ca8a70cc077c" xml:space="preserve">
+          <source><bpt id="e8523dc0-98e1-4586-8aa2-6194e1e840bb">&lt;strong&gt;</bpt>API Apps<ept id="e8523dc0-98e1-4586-8aa2-6194e1e840bb">&lt;/strong&gt;</ept> lists all the existing API Apps and connectors.</source>
+          <target state="new"><bpt id="e8523dc0-98e1-4586-8aa2-6194e1e840bb">&lt;strong&gt;</bpt>API Apps<ept id="e8523dc0-98e1-4586-8aa2-6194e1e840bb">&lt;/strong&gt;</ept> lists all the existing API Apps and connectors.</target>
+        </trans-unit>
+        <trans-unit id="e8512393-e3cb-49ec-913b-07db48057d9e" xml:space="preserve">
+          <source>You can also <bpt id="57713776-b352-46e9-b67e-e0beefd9f06e">&lt;strong&gt;</bpt>Search<ept id="57713776-b352-46e9-b67e-e0beefd9f06e">&lt;/strong&gt;</ept> for the specific B2B API Apps.</source>
+          <target state="new">You can also <bpt id="57713776-b352-46e9-b67e-e0beefd9f06e">&lt;strong&gt;</bpt>Search<ept id="57713776-b352-46e9-b67e-e0beefd9f06e">&lt;/strong&gt;</ept> for the specific B2B API Apps.</target>
+        </trans-unit>
+        <trans-unit id="61476706-819b-450e-ac87-e39083d47cf7" xml:space="preserve">
+          <source>Select <bpt id="e31f34a2-2237-4c9e-8a16-aa7b876bdabc">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="e31f34a2-2237-4c9e-8a16-aa7b876bdabc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e31f34a2-2237-4c9e-8a16-aa7b876bdabc">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="e31f34a2-2237-4c9e-8a16-aa7b876bdabc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b960fa0e-caf3-42ee-94bd-916d0511df6d" xml:space="preserve">
+          <source>In the new blade, select <bpt id="f3482734-75c8-4990-bfc1-80caeb2f7041">&lt;strong&gt;</bpt>Create<ept id="f3482734-75c8-4990-bfc1-80caeb2f7041">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the new blade, select <bpt id="f3482734-75c8-4990-bfc1-80caeb2f7041">&lt;strong&gt;</bpt>Create<ept id="f3482734-75c8-4990-bfc1-80caeb2f7041">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd60f5d4-a6f4-48ff-83b6-770b7ac3c729" xml:space="preserve">
+          <source>Enter the properties: </source>
+          <target state="new">Enter the properties: </target>
+        </trans-unit>
+        <trans-unit id="8827c729-4cd4-4264-879a-337f94a5493c" xml:space="preserve">
+          <source>Property | Description
+--- | ---
+Name | Enter any name for the TPM instance.</source>
+          <target state="new">Property | Description
+--- | ---
+Name | Enter any name for the TPM instance.</target>
+        </trans-unit>
+        <trans-unit id="4439727a-054f-4e20-aa2d-ce13faa9c124" xml:space="preserve">
+          <source>For example, you can name it <bpt id="fcc33425-001e-4654-9344-497106d0ad97">&lt;em&gt;</bpt>AccountsPayableTPM<ept id="fcc33425-001e-4654-9344-497106d0ad97">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, you can name it <bpt id="fcc33425-001e-4654-9344-497106d0ad97">&lt;em&gt;</bpt>AccountsPayableTPM<ept id="fcc33425-001e-4654-9344-497106d0ad97">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85977a10-d491-4acf-b0c9-a7da688c7e98" xml:space="preserve">
+          <source>Package Settings | Enter the ADO.NET <bpt id="3d1993d8-89b6-40ca-a4b1-0d6b66c4e8b4">&lt;strong&gt;</bpt>Database Connection String<ept id="3d1993d8-89b6-40ca-a4b1-0d6b66c4e8b4">&lt;/strong&gt;</ept> to the Azure SQL Database you created.</source>
+          <target state="new">Package Settings | Enter the ADO.NET <bpt id="3d1993d8-89b6-40ca-a4b1-0d6b66c4e8b4">&lt;strong&gt;</bpt>Database Connection String<ept id="3d1993d8-89b6-40ca-a4b1-0d6b66c4e8b4">&lt;/strong&gt;</ept> to the Azure SQL Database you created.</target>
+        </trans-unit>
+        <trans-unit id="b3d16525-8e28-4f41-bacc-c92af6e9fcff" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;When you copy the connection string, the password is not added to the connection string.</source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;When you copy the connection string, the password is not added to the connection string.</target>
+        </trans-unit>
+        <trans-unit id="b0c8f630-4cc9-4113-be7d-ff528221641d" xml:space="preserve">
+          <source>Be sure to enter the password in the connection string.</source>
+          <target state="new">Be sure to enter the password in the connection string.</target>
+        </trans-unit>
+        <trans-unit id="acdf0576-8475-4a4a-8ecd-c64268efb9f5" xml:space="preserve">
+          <source>App Service Plan | Lists your payment plan.</source>
+          <target state="new">App Service Plan | Lists your payment plan.</target>
+        </trans-unit>
+        <trans-unit id="1265f124-3748-467a-bac9-995710bd934a" xml:space="preserve">
+          <source>You can change it if you need more or less resources.</source>
+          <target state="new">You can change it if you need more or less resources.</target>
+        </trans-unit>
+        <trans-unit id="3467153c-473a-4e42-9d24-6250418a34bc" xml:space="preserve">
+          <source>Pricing Tier | Read-only property that lists the pricing category within your Azure subscription.</source>
+          <target state="new">Pricing Tier | Read-only property that lists the pricing category within your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="98a0f977-3bd7-4d59-89d4-55d9b9ab45f0" xml:space="preserve">
+          <source>Resource Group | Create a new one or use an existing group.</source>
+          <target state="new">Resource Group | Create a new one or use an existing group.</target>
+        </trans-unit>
+        <trans-unit id="fe2cfde6-9502-498d-963b-96007d401a59" xml:space="preserve">
+          <source>All API Apps and connectors for your Logic Apps, Web Apps, and Mobile Apps must be in the same Resource Group.</source>
+          <target state="new">All API Apps and connectors for your Logic Apps, Web Apps, and Mobile Apps must be in the same Resource Group.</target>
+        </trans-unit>
+        <trans-unit id="b4613fe0-9391-4b05-9278-2618b34eeda4" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;<bpt id="de54e3a6-8493-49d3-94dc-d14e74420113">&lt;linkText&gt;</bpt>Using resource groups<ept id="de54e3a6-8493-49d3-94dc-d14e74420113">&lt;/linkText&gt;</ept><bpt id="de54e3a6-8493-49d3-94dc-d14e74420113">&lt;title&gt;</bpt><ept id="de54e3a6-8493-49d3-94dc-d14e74420113">&lt;/title&gt;</ept> explains this property.</source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;<bpt id="de54e3a6-8493-49d3-94dc-d14e74420113">&lt;linkText&gt;</bpt>Using resource groups<ept id="de54e3a6-8493-49d3-94dc-d14e74420113">&lt;/linkText&gt;</ept><bpt id="de54e3a6-8493-49d3-94dc-d14e74420113">&lt;title&gt;</bpt><ept id="de54e3a6-8493-49d3-94dc-d14e74420113">&lt;/title&gt;</ept> explains this property.</target>
+        </trans-unit>
+        <trans-unit id="341ecc0d-80c0-4f79-89b7-7614386b6bef" xml:space="preserve">
+          <source>Subscription | Read-only property that lists your current subscription.</source>
+          <target state="new">Subscription | Read-only property that lists your current subscription.</target>
+        </trans-unit>
+        <trans-unit id="2c4cc2b3-3869-41de-bf30-465c61419f4e" xml:space="preserve">
+          <source>Location | The Geographic location that hosts your Azure service.</source>
+          <target state="new">Location | The Geographic location that hosts your Azure service.</target>
+        </trans-unit>
+        <trans-unit id="02f848d5-39c4-4630-8201-3d32766e269e" xml:space="preserve">
+          <source>Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).</source>
+          <target state="new">Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).</target>
+        </trans-unit>
+        <trans-unit id="dfc794dc-b673-4b90-8a11-2a252953b094" xml:space="preserve">
+          <source>Select <bpt id="867dc35f-29c3-48fb-9c6c-da77dfe3ad7c">&lt;strong&gt;</bpt>Create<ept id="867dc35f-29c3-48fb-9c6c-da77dfe3ad7c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="867dc35f-29c3-48fb-9c6c-da77dfe3ad7c">&lt;strong&gt;</bpt>Create<ept id="867dc35f-29c3-48fb-9c6c-da77dfe3ad7c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4031d6c1-04d6-46d1-8672-5e7b783143c9" xml:space="preserve">
+          <source>After the TPM API APP (TPM Instance) is created, you can then create the AS2 connector and/or the X12 or EDIFACT API Apps.</source>
+          <target state="new">After the TPM API APP (TPM Instance) is created, you can then create the AS2 connector and/or the X12 or EDIFACT API Apps.</target>
+        </trans-unit>
+        <trans-unit id="fb97587b-7029-4ae6-9444-5a0aa519fbd9" xml:space="preserve">
+          <source>In the Azure portal Startboard (the Home page), select <bpt id="881236d4-33ba-424f-b9dd-1e270c91ac88">&lt;strong&gt;</bpt>Marketplace<ept id="881236d4-33ba-424f-b9dd-1e270c91ac88">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal Startboard (the Home page), select <bpt id="881236d4-33ba-424f-b9dd-1e270c91ac88">&lt;strong&gt;</bpt>Marketplace<ept id="881236d4-33ba-424f-b9dd-1e270c91ac88">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1e7cee2-c2d0-4cbd-b327-03f8fa653741" xml:space="preserve">
+          <source><bpt id="fbc32bc5-2a8c-460d-8a2d-8d3f32839237">&lt;strong&gt;</bpt>API Apps<ept id="fbc32bc5-2a8c-460d-8a2d-8d3f32839237">&lt;/strong&gt;</ept> lists all the existing API Apps and connectors.</source>
+          <target state="new"><bpt id="fbc32bc5-2a8c-460d-8a2d-8d3f32839237">&lt;strong&gt;</bpt>API Apps<ept id="fbc32bc5-2a8c-460d-8a2d-8d3f32839237">&lt;/strong&gt;</ept> lists all the existing API Apps and connectors.</target>
+        </trans-unit>
+        <trans-unit id="f399f09b-36cd-4fa3-9ef8-93a869bea5db" xml:space="preserve">
+          <source>You can also <bpt id="57682828-4259-4bf3-9087-c2866ab01612">&lt;strong&gt;</bpt>Search<ept id="57682828-4259-4bf3-9087-c2866ab01612">&lt;/strong&gt;</ept> for the specific B2B API Apps.</source>
+          <target state="new">You can also <bpt id="57682828-4259-4bf3-9087-c2866ab01612">&lt;strong&gt;</bpt>Search<ept id="57682828-4259-4bf3-9087-c2866ab01612">&lt;/strong&gt;</ept> for the specific B2B API Apps.</target>
+        </trans-unit>
+        <trans-unit id="804ded17-b9e3-4c75-91a5-1a2b21fb7b1e" xml:space="preserve">
+          <source>Select <bpt id="b43e850a-c059-4527-b940-dab3ebd14d9d">&lt;strong&gt;</bpt>AS2 Connector<ept id="b43e850a-c059-4527-b940-dab3ebd14d9d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="b43e850a-c059-4527-b940-dab3ebd14d9d">&lt;strong&gt;</bpt>AS2 Connector<ept id="b43e850a-c059-4527-b940-dab3ebd14d9d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b797cac-6cdf-4be0-b4aa-db5d33025651" xml:space="preserve">
+          <source>In the new blade, select <bpt id="0298cb7c-6a6c-436a-b8ec-8733283092b7">&lt;strong&gt;</bpt>Create<ept id="0298cb7c-6a6c-436a-b8ec-8733283092b7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the new blade, select <bpt id="0298cb7c-6a6c-436a-b8ec-8733283092b7">&lt;strong&gt;</bpt>Create<ept id="0298cb7c-6a6c-436a-b8ec-8733283092b7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c5e94e0-49f0-4045-b313-1b30fcb89891" xml:space="preserve">
+          <source>Enter the properties: </source>
+          <target state="new">Enter the properties: </target>
+        </trans-unit>
+        <trans-unit id="b61ba6d4-e38a-4662-a056-ade6003452ee" xml:space="preserve">
+          <source>Property | Description
+--- | ---
+Name | Enter any name for the AS2 connector.</source>
+          <target state="new">Property | Description
+--- | ---
+Name | Enter any name for the AS2 connector.</target>
+        </trans-unit>
+        <trans-unit id="18924f2a-0f05-4daa-8130-4f801bde1d28" xml:space="preserve">
+          <source>For example, you can name it <bpt id="7afa4e33-8156-4c4f-8e01-a6e0138437f0">&lt;em&gt;</bpt>AS2Connector<ept id="7afa4e33-8156-4c4f-8e01-a6e0138437f0">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, you can name it <bpt id="7afa4e33-8156-4c4f-8e01-a6e0138437f0">&lt;em&gt;</bpt>AS2Connector<ept id="7afa4e33-8156-4c4f-8e01-a6e0138437f0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fcd13f11-6e59-464b-9e67-cda9f91ca3ac" xml:space="preserve">
+          <source>Package Settings | Enter the settings specific to that API App, like the TPM Instance name.</source>
+          <target state="new">Package Settings | Enter the settings specific to that API App, like the TPM Instance name.</target>
+        </trans-unit>
+        <trans-unit id="4809d04a-0054-4433-b076-96b7e202310b" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;See <bpt id="b4fd1b5d-9d1e-49d4-9f40-1b38e4f637b3">&lt;linkText&gt;</bpt>Add AS2 Package Settings<ept id="b4fd1b5d-9d1e-49d4-9f40-1b38e4f637b3">&lt;/linkText&gt;</ept><bpt id="b4fd1b5d-9d1e-49d4-9f40-1b38e4f637b3">&lt;title&gt;</bpt><ept id="b4fd1b5d-9d1e-49d4-9f40-1b38e4f637b3">&lt;/title&gt;</ept> in this topic for the specific properties.</source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;See <bpt id="b4fd1b5d-9d1e-49d4-9f40-1b38e4f637b3">&lt;linkText&gt;</bpt>Add AS2 Package Settings<ept id="b4fd1b5d-9d1e-49d4-9f40-1b38e4f637b3">&lt;/linkText&gt;</ept><bpt id="b4fd1b5d-9d1e-49d4-9f40-1b38e4f637b3">&lt;title&gt;</bpt><ept id="b4fd1b5d-9d1e-49d4-9f40-1b38e4f637b3">&lt;/title&gt;</ept> in this topic for the specific properties.</target>
+        </trans-unit>
+        <trans-unit id="436d00d6-1622-42bc-a128-441840158ad1" xml:space="preserve">
+          <source>App Service Plan | Lists your payment plan.</source>
+          <target state="new">App Service Plan | Lists your payment plan.</target>
+        </trans-unit>
+        <trans-unit id="55fb7059-5050-49ea-a329-4874b2c4b762" xml:space="preserve">
+          <source>You can change it if you need more or less resources.</source>
+          <target state="new">You can change it if you need more or less resources.</target>
+        </trans-unit>
+        <trans-unit id="bbe61459-2aee-48ea-8813-184020e1a38b" xml:space="preserve">
+          <source>Pricing Tier | Read-only property that lists the pricing category within your Azure subscription.</source>
+          <target state="new">Pricing Tier | Read-only property that lists the pricing category within your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="68694c52-3cde-4f17-8f32-5f9a2540510f" xml:space="preserve">
+          <source>Resource Group | Create a new one or use an existing group.</source>
+          <target state="new">Resource Group | Create a new one or use an existing group.</target>
+        </trans-unit>
+        <trans-unit id="c670ecb6-6351-433b-a1a2-2cfb19716531" xml:space="preserve">
+          <source><bpt id="fb2f8072-e11a-4549-8850-7e6f35a74801">&lt;linkText&gt;</bpt>Using resource groups<ept id="fb2f8072-e11a-4549-8850-7e6f35a74801">&lt;/linkText&gt;</ept><bpt id="fb2f8072-e11a-4549-8850-7e6f35a74801">&lt;title&gt;</bpt><ept id="fb2f8072-e11a-4549-8850-7e6f35a74801">&lt;/title&gt;</ept> explains this property.</source>
+          <target state="new"><bpt id="fb2f8072-e11a-4549-8850-7e6f35a74801">&lt;linkText&gt;</bpt>Using resource groups<ept id="fb2f8072-e11a-4549-8850-7e6f35a74801">&lt;/linkText&gt;</ept><bpt id="fb2f8072-e11a-4549-8850-7e6f35a74801">&lt;title&gt;</bpt><ept id="fb2f8072-e11a-4549-8850-7e6f35a74801">&lt;/title&gt;</ept> explains this property.</target>
+        </trans-unit>
+        <trans-unit id="824ff06c-1d5a-4210-a0ff-a8cd43138e3b" xml:space="preserve">
+          <source>Subscription | Read-only property that lists your current subscription.</source>
+          <target state="new">Subscription | Read-only property that lists your current subscription.</target>
+        </trans-unit>
+        <trans-unit id="c9fdd0b9-6c5d-470b-9010-ec17702f4a74" xml:space="preserve">
+          <source>Location | The Geographic location that hosts your Azure service.</source>
+          <target state="new">Location | The Geographic location that hosts your Azure service.</target>
+        </trans-unit>
+        <trans-unit id="e1b875fa-e2f3-473d-b892-a721fbc988ef" xml:space="preserve">
+          <source>Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).</source>
+          <target state="new">Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).</target>
+        </trans-unit>
+        <trans-unit id="81f74eda-9540-4232-afed-499f525a1006" xml:space="preserve">
+          <source><bpt id="79079f42-d46b-46d0-bfcb-009903ea83d9">&lt;strong&gt;</bpt>&lt;a name="AddAS2Conn"&gt;&lt;/a&gt;AS2 connector Package Settings<ept id="79079f42-d46b-46d0-bfcb-009903ea83d9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="79079f42-d46b-46d0-bfcb-009903ea83d9">&lt;strong&gt;</bpt>&lt;a name="AddAS2Conn"&gt;&lt;/a&gt;AS2 connector Package Settings<ept id="79079f42-d46b-46d0-bfcb-009903ea83d9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="405784d7-4207-4ae6-9485-b6c4e6cd2b8b" xml:space="preserve">
+          <source>Property | Description
+--- | --- 
+Database Connection String | Enter the ADO.NET connection string to the Azure SQL Database you created.</source>
+          <target state="new">Property | Description
+--- | --- 
+Database Connection String | Enter the ADO.NET connection string to the Azure SQL Database you created.</target>
+        </trans-unit>
+        <trans-unit id="9a64ddcf-8a04-490d-81d4-3a01b4dab2d4" xml:space="preserve">
+          <source>When you copy the connection string, the password is not added to the connection string.</source>
+          <target state="new">When you copy the connection string, the password is not added to the connection string.</target>
+        </trans-unit>
+        <trans-unit id="58e4df80-1fe6-41cc-8b57-9791726800d0" xml:space="preserve">
+          <source>Be sure to enter the password in the connection string before you paste.</source>
+          <target state="new">Be sure to enter the password in the connection string before you paste.</target>
+        </trans-unit>
+        <trans-unit id="f05e0ad9-7eb4-4e79-b357-04a00a1ee18f" xml:space="preserve">
+          <source>Enable Archiving for incoming messages | Optional.</source>
+          <target state="new">Enable Archiving for incoming messages | Optional.</target>
+        </trans-unit>
+        <trans-unit id="ff2e8003-1e8b-497b-80a9-0d6f2ea46aac" xml:space="preserve">
+          <source>Enable this property to store the message properties of an incoming AS2 message received from a partner.</source>
+          <target state="new">Enable this property to store the message properties of an incoming AS2 message received from a partner.</target>
+        </trans-unit>
+        <trans-unit id="3fb67256-d8b7-435d-a9ed-06350db0f1fc" xml:space="preserve">
+          <source>Azure Blob Storage Connection String  | Enter the connection string to the Azure Blob Storage container you created.</source>
+          <target state="new">Azure Blob Storage Connection String  | Enter the connection string to the Azure Blob Storage container you created.</target>
+        </trans-unit>
+        <trans-unit id="02410a76-54b4-45dd-8e39-7a6e36de6184" xml:space="preserve">
+          <source>When Archiving is enabled, the encoded and decoded messages are stored in this Storage container.</source>
+          <target state="new">When Archiving is enabled, the encoded and decoded messages are stored in this Storage container.</target>
+        </trans-unit>
+        <trans-unit id="eced43fd-df5d-4b1e-bd0d-4a942ce954a4" xml:space="preserve">
+          <source>TPM Instance Name | Enter the name of the <bpt id="a330da1d-9836-417b-9c3b-544714d59955">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="a330da1d-9836-417b-9c3b-544714d59955">&lt;/strong&gt;</ept> API App you previously created.</source>
+          <target state="new">TPM Instance Name | Enter the name of the <bpt id="a330da1d-9836-417b-9c3b-544714d59955">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="a330da1d-9836-417b-9c3b-544714d59955">&lt;/strong&gt;</ept> API App you previously created.</target>
+        </trans-unit>
+        <trans-unit id="83046db7-71f4-4d0f-a548-6b2b6c9ae1c2" xml:space="preserve">
+          <source>When you create the AS2 connector, this connector executes only the AS2 agreements within this specific TPM instance.</source>
+          <target state="new">When you create the AS2 connector, this connector executes only the AS2 agreements within this specific TPM instance.</target>
+        </trans-unit>
+        <trans-unit id="e7742aa3-7de3-4702-b9ac-7194eadf4fc3" xml:space="preserve">
+          <source>Select <bpt id="e2ee4215-a6bb-429b-9c83-add7b42fc28e">&lt;strong&gt;</bpt>Create<ept id="e2ee4215-a6bb-429b-9c83-add7b42fc28e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e2ee4215-a6bb-429b-9c83-add7b42fc28e">&lt;strong&gt;</bpt>Create<ept id="e2ee4215-a6bb-429b-9c83-add7b42fc28e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d85265c-cd52-47e5-a151-ebc68517be27" xml:space="preserve">
+          <source>In the Azure portal Startboard (the Home page), select <bpt id="09429c1c-91aa-4e43-a39f-3e716e12d7df">&lt;strong&gt;</bpt>Marketplace<ept id="09429c1c-91aa-4e43-a39f-3e716e12d7df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal Startboard (the Home page), select <bpt id="09429c1c-91aa-4e43-a39f-3e716e12d7df">&lt;strong&gt;</bpt>Marketplace<ept id="09429c1c-91aa-4e43-a39f-3e716e12d7df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ae3aaeb-16f2-40a8-961f-598fa6b0e88c" xml:space="preserve">
+          <source><bpt id="49870c45-0c95-4aa5-be35-c24a212ac441">&lt;strong&gt;</bpt>API Apps<ept id="49870c45-0c95-4aa5-be35-c24a212ac441">&lt;/strong&gt;</ept> lists all the existing API Apps and connectors.</source>
+          <target state="new"><bpt id="49870c45-0c95-4aa5-be35-c24a212ac441">&lt;strong&gt;</bpt>API Apps<ept id="49870c45-0c95-4aa5-be35-c24a212ac441">&lt;/strong&gt;</ept> lists all the existing API Apps and connectors.</target>
+        </trans-unit>
+        <trans-unit id="065e18cc-a1f7-4866-beaa-091799921128" xml:space="preserve">
+          <source>You can also <bpt id="4253d407-f8d8-41cb-bd3b-cbbd4f6964d4">&lt;strong&gt;</bpt>Search<ept id="4253d407-f8d8-41cb-bd3b-cbbd4f6964d4">&lt;/strong&gt;</ept> for the specific B2B API Apps.</source>
+          <target state="new">You can also <bpt id="4253d407-f8d8-41cb-bd3b-cbbd4f6964d4">&lt;strong&gt;</bpt>Search<ept id="4253d407-f8d8-41cb-bd3b-cbbd4f6964d4">&lt;/strong&gt;</ept> for the specific B2B API Apps.</target>
+        </trans-unit>
+        <trans-unit id="2f1310c7-e321-4d66-a3cc-64f4ae7c7dce" xml:space="preserve">
+          <source>Select <bpt id="c8a2a693-45bf-4e61-aedf-9d613af059ea">&lt;strong&gt;</bpt>BizTalk X12<ept id="c8a2a693-45bf-4e61-aedf-9d613af059ea">&lt;/strong&gt;</ept> or <bpt id="e7a2d9fa-9f4c-42e7-914c-718e06cb13e2">&lt;strong&gt;</bpt>BizTalk EDIFACT<ept id="e7a2d9fa-9f4c-42e7-914c-718e06cb13e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="c8a2a693-45bf-4e61-aedf-9d613af059ea">&lt;strong&gt;</bpt>BizTalk X12<ept id="c8a2a693-45bf-4e61-aedf-9d613af059ea">&lt;/strong&gt;</ept> or <bpt id="e7a2d9fa-9f4c-42e7-914c-718e06cb13e2">&lt;strong&gt;</bpt>BizTalk EDIFACT<ept id="e7a2d9fa-9f4c-42e7-914c-718e06cb13e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dda8a64a-4063-4d57-baf6-2c043eb0d4a3" xml:space="preserve">
+          <source>In the new blade, select <bpt id="0aab3d1e-4357-45bf-a47a-068a47ecaf95">&lt;strong&gt;</bpt>Create<ept id="0aab3d1e-4357-45bf-a47a-068a47ecaf95">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the new blade, select <bpt id="0aab3d1e-4357-45bf-a47a-068a47ecaf95">&lt;strong&gt;</bpt>Create<ept id="0aab3d1e-4357-45bf-a47a-068a47ecaf95">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6acccf2-6cbe-4689-ab3a-663a0850a77f" xml:space="preserve">
+          <source>Enter the properties: </source>
+          <target state="new">Enter the properties: </target>
+        </trans-unit>
+        <trans-unit id="40e87abf-df07-432c-be41-2634e0818706" xml:space="preserve">
+          <source>Property | Description
+--- | ---
+Name | Enter any name for the B2B API App.</source>
+          <target state="new">Property | Description
+--- | ---
+Name | Enter any name for the B2B API App.</target>
+        </trans-unit>
+        <trans-unit id="342a5f72-0e4e-4d21-9eef-7f7c13aadaf9" xml:space="preserve">
+          <source>For example, you can name it <bpt id="c812f76e-b9e2-4221-970b-9a8d6bef0650">&lt;em&gt;</bpt>EDI850APIApp<ept id="c812f76e-b9e2-4221-970b-9a8d6bef0650">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, you can name it <bpt id="c812f76e-b9e2-4221-970b-9a8d6bef0650">&lt;em&gt;</bpt>EDI850APIApp<ept id="c812f76e-b9e2-4221-970b-9a8d6bef0650">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="162e0dcd-56a8-40f6-bf26-be500b01cc99" xml:space="preserve">
+          <source>Package Settings | Enter the settings specific to that API App, like the TPM Instance name.</source>
+          <target state="new">Package Settings | Enter the settings specific to that API App, like the TPM Instance name.</target>
+        </trans-unit>
+        <trans-unit id="eabe6e79-9580-4452-b18d-61543befa62f" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;See <bpt id="745eb544-a742-4769-a0a3-d4da57119dec">&lt;linkText&gt;</bpt>X12 or EDIFACT Package Settings<ept id="745eb544-a742-4769-a0a3-d4da57119dec">&lt;/linkText&gt;</ept><bpt id="745eb544-a742-4769-a0a3-d4da57119dec">&lt;title&gt;</bpt><ept id="745eb544-a742-4769-a0a3-d4da57119dec">&lt;/title&gt;</ept> in this topic for the specific properties.</source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;See <bpt id="745eb544-a742-4769-a0a3-d4da57119dec">&lt;linkText&gt;</bpt>X12 or EDIFACT Package Settings<ept id="745eb544-a742-4769-a0a3-d4da57119dec">&lt;/linkText&gt;</ept><bpt id="745eb544-a742-4769-a0a3-d4da57119dec">&lt;title&gt;</bpt><ept id="745eb544-a742-4769-a0a3-d4da57119dec">&lt;/title&gt;</ept> in this topic for the specific properties.</target>
+        </trans-unit>
+        <trans-unit id="fc5f76de-5f62-43c3-88dc-89b0e6868ca7" xml:space="preserve">
+          <source>App Service Plan | Lists your payment plan.</source>
+          <target state="new">App Service Plan | Lists your payment plan.</target>
+        </trans-unit>
+        <trans-unit id="68e60a35-a3ad-4a94-9be6-af3c09e39cb6" xml:space="preserve">
+          <source>You can change it if you need more or less resources.</source>
+          <target state="new">You can change it if you need more or less resources.</target>
+        </trans-unit>
+        <trans-unit id="89dd1ee9-9dd7-4b5b-9a16-cc5e2405a756" xml:space="preserve">
+          <source>Pricing Tier | Read-only property that lists the pricing category within your Azure subscription.</source>
+          <target state="new">Pricing Tier | Read-only property that lists the pricing category within your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="b89bfb23-d88f-41b8-b30a-b19feb6f18b5" xml:space="preserve">
+          <source>Resource Group | Create a new one or use an existing group.</source>
+          <target state="new">Resource Group | Create a new one or use an existing group.</target>
+        </trans-unit>
+        <trans-unit id="0ac6b2be-35c0-4574-b52f-47a721206ba2" xml:space="preserve">
+          <source><bpt id="bb43deb2-1492-4094-9d7f-804f694b95c7">&lt;linkText&gt;</bpt>Using resource groups<ept id="bb43deb2-1492-4094-9d7f-804f694b95c7">&lt;/linkText&gt;</ept><bpt id="bb43deb2-1492-4094-9d7f-804f694b95c7">&lt;title&gt;</bpt><ept id="bb43deb2-1492-4094-9d7f-804f694b95c7">&lt;/title&gt;</ept> explains this property.</source>
+          <target state="new"><bpt id="bb43deb2-1492-4094-9d7f-804f694b95c7">&lt;linkText&gt;</bpt>Using resource groups<ept id="bb43deb2-1492-4094-9d7f-804f694b95c7">&lt;/linkText&gt;</ept><bpt id="bb43deb2-1492-4094-9d7f-804f694b95c7">&lt;title&gt;</bpt><ept id="bb43deb2-1492-4094-9d7f-804f694b95c7">&lt;/title&gt;</ept> explains this property.</target>
+        </trans-unit>
+        <trans-unit id="6336b763-715f-417b-a288-2fd19d3397eb" xml:space="preserve">
+          <source>Subscription | Read-only property that lists your current subscription.</source>
+          <target state="new">Subscription | Read-only property that lists your current subscription.</target>
+        </trans-unit>
+        <trans-unit id="080d0b0b-d5f0-4859-be14-7ebe9bbaaabc" xml:space="preserve">
+          <source>Location | The Geographic location that hosts your Azure service.</source>
+          <target state="new">Location | The Geographic location that hosts your Azure service.</target>
+        </trans-unit>
+        <trans-unit id="c8194cd3-74bc-4372-9680-da661c2665a1" xml:space="preserve">
+          <source>Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).</source>
+          <target state="new">Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).</target>
+        </trans-unit>
+        <trans-unit id="61fd902e-f5c4-4e94-a85e-abb5c5750cb2" xml:space="preserve">
+          <source><bpt id="8797cee1-b898-44c4-9ac1-f20a7d3c3c76">&lt;strong&gt;</bpt>&lt;a name="AddX12"&gt;&lt;/a&gt;X12 and EDIFACT API Apps Package Settings<ept id="8797cee1-b898-44c4-9ac1-f20a7d3c3c76">&lt;/strong&gt;</ept>  </source>
+          <target state="new"><bpt id="8797cee1-b898-44c4-9ac1-f20a7d3c3c76">&lt;strong&gt;</bpt>&lt;a name="AddX12"&gt;&lt;/a&gt;X12 and EDIFACT API Apps Package Settings<ept id="8797cee1-b898-44c4-9ac1-f20a7d3c3c76">&lt;/strong&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="13b920f9-33ae-4023-9562-08590e4cc49d" xml:space="preserve">
+          <source>Property | Description
+--- | --- 
+Database Connection String | Enter the ADO.NET connection string to the Azure SQL Database you created.</source>
+          <target state="new">Property | Description
+--- | --- 
+Database Connection String | Enter the ADO.NET connection string to the Azure SQL Database you created.</target>
+        </trans-unit>
+        <trans-unit id="6b3c639a-5d22-4cf4-9060-a10d38798d15" xml:space="preserve">
+          <source>When you copy the connection string, the password is not added to the connection string.</source>
+          <target state="new">When you copy the connection string, the password is not added to the connection string.</target>
+        </trans-unit>
+        <trans-unit id="b15a4ecc-ee26-4ea6-8ad7-3dabd058967f" xml:space="preserve">
+          <source>Be sure to enter the password in the connection string before you paste.</source>
+          <target state="new">Be sure to enter the password in the connection string before you paste.</target>
+        </trans-unit>
+        <trans-unit id="94ae3323-ad6f-4f79-82b3-5dfe7b189dd9" xml:space="preserve">
+          <source>Service Bus Namespace | Enter the Service Bus namespace you created.</source>
+          <target state="new">Service Bus Namespace | Enter the Service Bus namespace you created.</target>
+        </trans-unit>
+        <trans-unit id="ce993bce-8457-43ab-a434-271dbede9bc8" xml:space="preserve">
+          <source>Required only when batching is enabled.</source>
+          <target state="new">Required only when batching is enabled.</target>
+        </trans-unit>
+        <trans-unit id="f6f74139-c4d7-4d2f-9474-12dc27c544a7" xml:space="preserve">
+          <source>Service Bus Namespace Shared Access Key name | Enter the Service Bus namespace Access Key you created.</source>
+          <target state="new">Service Bus Namespace Shared Access Key name | Enter the Service Bus namespace Access Key you created.</target>
+        </trans-unit>
+        <trans-unit id="bd290db7-9f46-4a3c-9bbe-b23e800de954" xml:space="preserve">
+          <source>Required only when batching is enabled.</source>
+          <target state="new">Required only when batching is enabled.</target>
+        </trans-unit>
+        <trans-unit id="384804b1-170a-4b46-b8c4-139caa5aea7e" xml:space="preserve">
+          <source>Service Bus Namespace Shared Access Key value | Enter the Service Bus namespace Access Key value you created.</source>
+          <target state="new">Service Bus Namespace Shared Access Key value | Enter the Service Bus namespace Access Key value you created.</target>
+        </trans-unit>
+        <trans-unit id="1246e5eb-219a-4f7a-9fc3-a93f1816f7f6" xml:space="preserve">
+          <source>Required only when batching is enabled.</source>
+          <target state="new">Required only when batching is enabled.</target>
+        </trans-unit>
+        <trans-unit id="538d0997-6513-4dfe-9b88-33823d158d30" xml:space="preserve">
+          <source>TPM Instance Name | Enter the name of the <bpt id="f5011c87-ee4d-49b7-a415-39c4b414fafa">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="f5011c87-ee4d-49b7-a415-39c4b414fafa">&lt;/strong&gt;</ept> API App you previously created.</source>
+          <target state="new">TPM Instance Name | Enter the name of the <bpt id="f5011c87-ee4d-49b7-a415-39c4b414fafa">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="f5011c87-ee4d-49b7-a415-39c4b414fafa">&lt;/strong&gt;</ept> API App you previously created.</target>
+        </trans-unit>
+        <trans-unit id="93426c87-d7e4-450c-9a82-9d17aeb0e972" xml:space="preserve">
+          <source>When you create the X12 or EDIFACT API Apps, this API App executes only the X12/EDFIACT agreements within this specific TPM instance.</source>
+          <target state="new">When you create the X12 or EDIFACT API Apps, this API App executes only the X12/EDFIACT agreements within this specific TPM instance.</target>
+        </trans-unit>
+        <trans-unit id="8e0eb0e5-4546-42a5-8822-0c8f76b64090" xml:space="preserve">
+          <source>Select <bpt id="4a74bbd2-3d25-4a35-a9b7-be5f60ac9b1d">&lt;strong&gt;</bpt>Create<ept id="4a74bbd2-3d25-4a35-a9b7-be5f60ac9b1d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="4a74bbd2-3d25-4a35-a9b7-be5f60ac9b1d">&lt;strong&gt;</bpt>Create<ept id="4a74bbd2-3d25-4a35-a9b7-be5f60ac9b1d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60e51617-5f4d-427c-aa60-0781e93b9193" xml:space="preserve">
+          <source>In the Azure Management Portal, open your TPM API App.</source>
+          <target state="new">In the Azure Management Portal, open your TPM API App.</target>
+        </trans-unit>
+        <trans-unit id="51a5d52b-0f56-46e9-a4f8-a51c18b333d1" xml:space="preserve">
+          <source>In the <bpt id="03a84183-78ef-4cdb-a11c-a4ba09710244">&lt;strong&gt;</bpt>Components<ept id="03a84183-78ef-4cdb-a11c-a4ba09710244">&lt;/strong&gt;</ept> section, add your Partners, Agreements, Certificates, and Schemas.</source>
+          <target state="new">In the <bpt id="03a84183-78ef-4cdb-a11c-a4ba09710244">&lt;strong&gt;</bpt>Components<ept id="03a84183-78ef-4cdb-a11c-a4ba09710244">&lt;/strong&gt;</ept> section, add your Partners, Agreements, Certificates, and Schemas.</target>
+        </trans-unit>
+        <trans-unit id="7bac4e19-db0c-4475-b905-496386117877" xml:space="preserve">
+          <source>You can also add agreements to your AS2 connectors, X12 API Apps, and EDIFACT API Apps.</source>
+          <target state="new">You can also add agreements to your AS2 connectors, X12 API Apps, and EDIFACT API Apps.</target>
+        </trans-unit>
+        <trans-unit id="903d2077-dcde-4ef8-95b2-3e87047409a6" xml:space="preserve">
+          <source>In the Azure Management Portal, open your TPM API App.</source>
+          <target state="new">In the Azure Management Portal, open your TPM API App.</target>
+        </trans-unit>
+        <trans-unit id="5071358e-d9fa-4d84-81b1-ad66f1a9497c" xml:space="preserve">
+          <source>In the <bpt id="d38e16fe-90e3-4dc9-b35e-78cd06a44340">&lt;strong&gt;</bpt>Operations<ept id="d38e16fe-90e3-4dc9-b35e-78cd06a44340">&lt;/strong&gt;</ept> section, you can view different management operations.</source>
+          <target state="new">In the <bpt id="d38e16fe-90e3-4dc9-b35e-78cd06a44340">&lt;strong&gt;</bpt>Operations<ept id="d38e16fe-90e3-4dc9-b35e-78cd06a44340">&lt;/strong&gt;</ept> section, you can view different management operations.</target>
+        </trans-unit>
+        <trans-unit id="a617f695-7036-4c22-8381-bb6af1c84b93" xml:space="preserve">
+          <source>For example, you can:</source>
+          <target state="new">For example, you can:</target>
+        </trans-unit>
+        <trans-unit id="73083179-d6c7-4aad-9d2e-154c5f7be9d5" xml:space="preserve">
+          <source>View Informational and Error events</source>
+          <target state="new">View Informational and Error events</target>
+        </trans-unit>
+        <trans-unit id="c444e59b-aab4-4d3e-a61a-f25663e1bf22" xml:space="preserve">
+          <source>View memory usage and thread count of the worker process (w3wp)</source>
+          <target state="new">View memory usage and thread count of the worker process (w3wp)</target>
+        </trans-unit>
+        <trans-unit id="39525269-f17f-4dfb-9961-b3ebfa4d6f07" xml:space="preserve">
+          <source>View the Application and web server logs</source>
+          <target state="new">View the Application and web server logs</target>
+        </trans-unit>
+        <trans-unit id="d192ab85-22bb-48c8-b56b-d54932b3c82b" xml:space="preserve">
+          <source>More at <bpt id="024c1fab-53cd-4c6f-a987-0391857cb087">&lt;linkText&gt;</bpt>Monitor your Logic Apps<ept id="024c1fab-53cd-4c6f-a987-0391857cb087">&lt;/linkText&gt;</ept><bpt id="024c1fab-53cd-4c6f-a987-0391857cb087">&lt;title&gt;</bpt><ept id="024c1fab-53cd-4c6f-a987-0391857cb087">&lt;/title&gt;</ept>.</source>
+          <target state="new">More at <bpt id="024c1fab-53cd-4c6f-a987-0391857cb087">&lt;linkText&gt;</bpt>Monitor your Logic Apps<ept id="024c1fab-53cd-4c6f-a987-0391857cb087">&lt;/linkText&gt;</ept><bpt id="024c1fab-53cd-4c6f-a987-0391857cb087">&lt;title&gt;</bpt><ept id="024c1fab-53cd-4c6f-a987-0391857cb087">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfb8b05b-42da-4cea-8753-a3993f2f6d6b" xml:space="preserve">
+          <source>Microsoft Azure App Service exposes different application types that can use these B2B API Apps.</source>
+          <target state="new">Microsoft Azure App Service exposes different application types that can use these B2B API Apps.</target>
+        </trans-unit>
+        <trans-unit id="58aa919e-8dc6-4435-ba10-bcf87ca6f5a5" xml:space="preserve">
+          <source>You can create a new or add your existing B2B API Apps to Logic Apps, Mobile Apps, or a Web Apps.</source>
+          <target state="new">You can create a new or add your existing B2B API Apps to Logic Apps, Mobile Apps, or a Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="413ca823-975d-4af3-a039-591bc7a6a966" xml:space="preserve">
+          <source>Within your App, simply selecting the B2B API Apps from the Gallery automatically adds it to your App.</source>
+          <target state="new">Within your App, simply selecting the B2B API Apps from the Gallery automatically adds it to your App.</target>
+        </trans-unit>
+        <trans-unit id="105c1202-b43c-43cc-95ce-dbfd4e8e457c" xml:space="preserve">
+          <source>To add connectors and API Apps you previously created, create the Logic Apps, Mobile Apps, or Web Apps in the same Resource Group.</source>
+          <target state="new">To add connectors and API Apps you previously created, create the Logic Apps, Mobile Apps, or Web Apps in the same Resource Group.</target>
+        </trans-unit>
+        <trans-unit id="f5386514-506d-4481-873b-88f35a7f6674" xml:space="preserve">
+          <source>The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps: </source>
+          <target state="new">The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps: </target>
+        </trans-unit>
+        <trans-unit id="e1bba0d0-dee1-48a8-9ffb-e0064a1b8641" xml:space="preserve">
+          <source>In the Azure portal Startboard (home page), go to the <bpt id="7bbe71a5-ed31-4bd1-9bbf-0c4ec6b5a2f4">&lt;strong&gt;</bpt>Marketplace<ept id="7bbe71a5-ed31-4bd1-9bbf-0c4ec6b5a2f4">&lt;/strong&gt;</ept>, and search for your  Logic, Mobile, or Web Apps.</source>
+          <target state="new">In the Azure portal Startboard (home page), go to the <bpt id="7bbe71a5-ed31-4bd1-9bbf-0c4ec6b5a2f4">&lt;strong&gt;</bpt>Marketplace<ept id="7bbe71a5-ed31-4bd1-9bbf-0c4ec6b5a2f4">&lt;/strong&gt;</ept>, and search for your  Logic, Mobile, or Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="9e667862-71f0-4474-98f3-1413165b0b4a" xml:space="preserve">
+          <source>If you are creating a new App, search for Logic Apps, Mobile Apps, or Web Apps.</source>
+          <target state="new">If you are creating a new App, search for Logic Apps, Mobile Apps, or Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="aac831d9-0e20-4c68-9129-96c391cc7c31" xml:space="preserve">
+          <source>Select the App and in the new blade, select <bpt id="5cc953de-b1ec-4714-b61c-da669c7b1789">&lt;strong&gt;</bpt>Create<ept id="5cc953de-b1ec-4714-b61c-da669c7b1789">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the App and in the new blade, select <bpt id="5cc953de-b1ec-4714-b61c-da669c7b1789">&lt;strong&gt;</bpt>Create<ept id="5cc953de-b1ec-4714-b61c-da669c7b1789">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4502965-2c60-49d2-94da-8b7f97f31de0" xml:space="preserve">
+          <source><bpt id="890bf182-ee0d-4e20-b1c2-08715d9060c0">&lt;linkText&gt;</bpt>Create a Logic App<ept id="890bf182-ee0d-4e20-b1c2-08715d9060c0">&lt;/linkText&gt;</ept><bpt id="890bf182-ee0d-4e20-b1c2-08715d9060c0">&lt;title&gt;</bpt><ept id="890bf182-ee0d-4e20-b1c2-08715d9060c0">&lt;/title&gt;</ept> lists the steps.</source>
+          <target state="new"><bpt id="890bf182-ee0d-4e20-b1c2-08715d9060c0">&lt;linkText&gt;</bpt>Create a Logic App<ept id="890bf182-ee0d-4e20-b1c2-08715d9060c0">&lt;/linkText&gt;</ept><bpt id="890bf182-ee0d-4e20-b1c2-08715d9060c0">&lt;title&gt;</bpt><ept id="890bf182-ee0d-4e20-b1c2-08715d9060c0">&lt;/title&gt;</ept> lists the steps.</target>
+        </trans-unit>
+        <trans-unit id="722df66b-2053-4753-aa54-f4f7bedcc3f8" xml:space="preserve">
+          <source>Open your App and select <bpt id="f3e7e689-911d-4da5-bb09-29cd83a29a31">&lt;strong&gt;</bpt>Triggers and Actions<ept id="f3e7e689-911d-4da5-bb09-29cd83a29a31">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open your App and select <bpt id="f3e7e689-911d-4da5-bb09-29cd83a29a31">&lt;strong&gt;</bpt>Triggers and Actions<ept id="f3e7e689-911d-4da5-bb09-29cd83a29a31">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa563b3a-a307-4759-86fd-2ae17b53ee5e" xml:space="preserve">
+          <source>From the <bpt id="36bdb02f-3b3d-46eb-9475-7779611c9559">&lt;strong&gt;</bpt>Gallery<ept id="36bdb02f-3b3d-46eb-9475-7779611c9559">&lt;/strong&gt;</ept>, select the B2B API App, which automatically adds it to your App.</source>
+          <target state="new">From the <bpt id="36bdb02f-3b3d-46eb-9475-7779611c9559">&lt;strong&gt;</bpt>Gallery<ept id="36bdb02f-3b3d-46eb-9475-7779611c9559">&lt;/strong&gt;</ept>, select the B2B API App, which automatically adds it to your App.</target>
+        </trans-unit>
+        <trans-unit id="7b7ef359-0bd2-4fda-8c12-ed80b2b55b51" xml:space="preserve">
+          <source>You can also create a new B2B API App.</source>
+          <target state="new">You can also create a new B2B API App.</target>
+        </trans-unit>
+        <trans-unit id="5515d044-de6e-4349-9b98-cdb65c27ecd2" xml:space="preserve">
+          <source>The AS2 connector and X12, EDIFACT API Apps require a TPM Instance.</source>
+          <target state="new">The AS2 connector and X12, EDIFACT API Apps require a TPM Instance.</target>
+        </trans-unit>
+        <trans-unit id="e635d54e-7a50-4875-8a10-45fe58b71bc3" xml:space="preserve">
+          <source>So if you're creating new B2B API Apps, create the TPM API App first, and then create the AS2 connector, X12 API App, or EDIFACT API App.</source>
+          <target state="new">So if you're creating new B2B API Apps, create the TPM API App first, and then create the AS2 connector, X12 API App, or EDIFACT API App.</target>
+        </trans-unit>
+        <trans-unit id="cdb17d7b-1d83-49c1-98c0-938a74a32445" xml:space="preserve">
+          <source>Select <bpt id="60c3f0f7-e670-4f16-b5f7-ae22f1bc79e9">&lt;strong&gt;</bpt>OK<ept id="60c3f0f7-e670-4f16-b5f7-ae22f1bc79e9">&lt;/strong&gt;</ept> to save your changes.</source>
+          <target state="new">Select <bpt id="60c3f0f7-e670-4f16-b5f7-ae22f1bc79e9">&lt;strong&gt;</bpt>OK<ept id="60c3f0f7-e670-4f16-b5f7-ae22f1bc79e9">&lt;/strong&gt;</ept> to save your changes.</target>
+        </trans-unit>
+        <trans-unit id="aa78f4fd-7e4a-445d-90fc-5866df0734a3" xml:space="preserve">
+          <source><bpt id="a16e8d47-6840-4798-90aa-45ca63fb75da">&lt;linkText&gt;</bpt>Creating a B2B process<ept id="a16e8d47-6840-4798-90aa-45ca63fb75da">&lt;/linkText&gt;</ept><bpt id="a16e8d47-6840-4798-90aa-45ca63fb75da">&lt;title&gt;</bpt><ept id="a16e8d47-6840-4798-90aa-45ca63fb75da">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="83025b90-0e7b-4c96-8472-fdd7e8e6ba9c">&lt;linkText&gt;</bpt>Creating a Trading Partner Agreement<ept id="83025b90-0e7b-4c96-8472-fdd7e8e6ba9c">&lt;/linkText&gt;</ept><bpt id="83025b90-0e7b-4c96-8472-fdd7e8e6ba9c">&lt;title&gt;</bpt><ept id="83025b90-0e7b-4c96-8472-fdd7e8e6ba9c">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="2f933c4b-9232-4dbc-8202-6c0ab718acfc">&lt;linkText&gt;</bpt>What are Connectors and BizTalk API Apps<ept id="2f933c4b-9232-4dbc-8202-6c0ab718acfc">&lt;/linkText&gt;</ept><bpt id="2f933c4b-9232-4dbc-8202-6c0ab718acfc">&lt;title&gt;</bpt><ept id="2f933c4b-9232-4dbc-8202-6c0ab718acfc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a16e8d47-6840-4798-90aa-45ca63fb75da">&lt;linkText&gt;</bpt>Creating a B2B process<ept id="a16e8d47-6840-4798-90aa-45ca63fb75da">&lt;/linkText&gt;</ept><bpt id="a16e8d47-6840-4798-90aa-45ca63fb75da">&lt;title&gt;</bpt><ept id="a16e8d47-6840-4798-90aa-45ca63fb75da">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="83025b90-0e7b-4c96-8472-fdd7e8e6ba9c">&lt;linkText&gt;</bpt>Creating a Trading Partner Agreement<ept id="83025b90-0e7b-4c96-8472-fdd7e8e6ba9c">&lt;/linkText&gt;</ept><bpt id="83025b90-0e7b-4c96-8472-fdd7e8e6ba9c">&lt;title&gt;</bpt><ept id="83025b90-0e7b-4c96-8472-fdd7e8e6ba9c">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="2f933c4b-9232-4dbc-8202-6c0ab718acfc">&lt;linkText&gt;</bpt>What are Connectors and BizTalk API Apps<ept id="2f933c4b-9232-4dbc-8202-6c0ab718acfc">&lt;/linkText&gt;</ept><bpt id="2f933c4b-9232-4dbc-8202-6c0ab718acfc">&lt;title&gt;</bpt><ept id="2f933c4b-9232-4dbc-8202-6c0ab718acfc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3febf855-9e01-45b7-8610-42cde1fc5fb4" xml:space="preserve">
+          <source><bpt id="17e11bcf-fa88-464e-bd62-ccd08b8b5779">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="17e11bcf-fa88-464e-bd62-ccd08b8b5779">&lt;/linkText&gt;</ept><bpt id="17e11bcf-fa88-464e-bd62-ccd08b8b5779">&lt;title&gt;</bpt><ept id="17e11bcf-fa88-464e-bd62-ccd08b8b5779">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="5d81e85f-0006-48a5-ab5a-a7ce05b3dede">&lt;linkText&gt;</bpt>Websites and Web Apps in Azure App Service<ept id="5d81e85f-0006-48a5-ab5a-a7ce05b3dede">&lt;/linkText&gt;</ept><bpt id="5d81e85f-0006-48a5-ab5a-a7ce05b3dede">&lt;title&gt;</bpt><ept id="5d81e85f-0006-48a5-ab5a-a7ce05b3dede">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="17e11bcf-fa88-464e-bd62-ccd08b8b5779">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="17e11bcf-fa88-464e-bd62-ccd08b8b5779">&lt;/linkText&gt;</ept><bpt id="17e11bcf-fa88-464e-bd62-ccd08b8b5779">&lt;title&gt;</bpt><ept id="17e11bcf-fa88-464e-bd62-ccd08b8b5779">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="5d81e85f-0006-48a5-ab5a-a7ce05b3dede">&lt;linkText&gt;</bpt>Websites and Web Apps in Azure App Service<ept id="5d81e85f-0006-48a5-ab5a-a7ce05b3dede">&lt;/linkText&gt;</ept><bpt id="5d81e85f-0006-48a5-ab5a-a7ce05b3dede">&lt;title&gt;</bpt><ept id="5d81e85f-0006-48a5-ab5a-a7ce05b3dede">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cff4c1d-164a-4bad-b089-b08d3eddb332" xml:space="preserve">
+          <source><bpt id="1b324944-f405-48d4-aa05-7051d3868210">&lt;linkText&gt;</bpt>Connectors and API Apps List<ept id="1b324944-f405-48d4-aa05-7051d3868210">&lt;/linkText&gt;</ept><bpt id="1b324944-f405-48d4-aa05-7051d3868210">&lt;title&gt;</bpt><ept id="1b324944-f405-48d4-aa05-7051d3868210">&lt;/title&gt;</ept>&lt;br/&gt;&lt;br/&gt;
+<bpt id="39f361bd-8837-442b-bf1f-c5f77eaf1c44">&lt;linkText&gt;</bpt>What are Connectors and BizTalk API Apps<ept id="39f361bd-8837-442b-bf1f-c5f77eaf1c44">&lt;/linkText&gt;</ept><bpt id="39f361bd-8837-442b-bf1f-c5f77eaf1c44">&lt;title&gt;</bpt><ept id="39f361bd-8837-442b-bf1f-c5f77eaf1c44">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="1b324944-f405-48d4-aa05-7051d3868210">&lt;linkText&gt;</bpt>Connectors and API Apps List<ept id="1b324944-f405-48d4-aa05-7051d3868210">&lt;/linkText&gt;</ept><bpt id="1b324944-f405-48d4-aa05-7051d3868210">&lt;title&gt;</bpt><ept id="1b324944-f405-48d4-aa05-7051d3868210">&lt;/title&gt;</ept>&lt;br/&gt;&lt;br/&gt;
+<bpt id="39f361bd-8837-442b-bf1f-c5f77eaf1c44">&lt;linkText&gt;</bpt>What are Connectors and BizTalk API Apps<ept id="39f361bd-8837-442b-bf1f-c5f77eaf1c44">&lt;/linkText&gt;</ept><bpt id="39f361bd-8837-442b-bf1f-c5f77eaf1c44">&lt;title&gt;</bpt><ept id="39f361bd-8837-442b-bf1f-c5f77eaf1c44">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

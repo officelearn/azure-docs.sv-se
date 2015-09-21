@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f44f3e11-55d6-4584-a713-86c7e884a771" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f44f3e11-55d6-4584-a713-86c7e884a771" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2d69c59a-2992-4b38-af1f-fdefab4a0fb8">
+        <trans-unit id="21182d95-b230-452d-b160-7a73bcd51d6d" xml:space="preserve">
+          <source>Manage API apps</source>
+          <target state="new">Manage API apps</target>
+        </trans-unit>
+        <trans-unit id="c29cc10e-58f2-4d5b-96c3-df8b30571d13" xml:space="preserve">
+          <source>Learn how to manage Azure App Service API apps by using the Azure portal and Visual Studio Server Explorer.</source>
+          <target state="new">Learn how to manage Azure App Service API apps by using the Azure portal and Visual Studio Server Explorer.</target>
+        </trans-unit>
+        <trans-unit id="94d59132-9188-48e4-9baa-dcb81801e889" xml:space="preserve">
+          <source>This article shows how use the <bpt id="f720cc45-50e1-45f2-8611-bf78e460c51c">&lt;linkText&gt;</bpt>Azure preview portal<ept id="f720cc45-50e1-45f2-8611-bf78e460c51c">&lt;/linkText&gt;</ept><bpt id="f720cc45-50e1-45f2-8611-bf78e460c51c">&lt;title&gt;</bpt><ept id="f720cc45-50e1-45f2-8611-bf78e460c51c">&lt;/title&gt;</ept> to perform API app management and monitoring tasks.</source>
+          <target state="new">This article shows how use the <bpt id="f720cc45-50e1-45f2-8611-bf78e460c51c">&lt;linkText&gt;</bpt>Azure preview portal<ept id="f720cc45-50e1-45f2-8611-bf78e460c51c">&lt;/linkText&gt;</ept><bpt id="f720cc45-50e1-45f2-8611-bf78e460c51c">&lt;title&gt;</bpt><ept id="f720cc45-50e1-45f2-8611-bf78e460c51c">&lt;/title&gt;</ept> to perform API app management and monitoring tasks.</target>
+        </trans-unit>
+        <trans-unit id="6443332d-ce2b-4c65-96ae-3c868e63adfb" xml:space="preserve">
+          <source>Here are some of the tasks you can do:</source>
+          <target state="new">Here are some of the tasks you can do:</target>
+        </trans-unit>
+        <trans-unit id="fb357cd4-fd8b-4fe7-8727-4242cab5e5a7" xml:space="preserve">
+          <source>Configure authentication </source>
+          <target state="new">Configure authentication </target>
+        </trans-unit>
+        <trans-unit id="060fcdf1-b174-415a-acaf-eaf4e7ca6731" xml:space="preserve">
+          <source>Enable auto-scaling</source>
+          <target state="new">Enable auto-scaling</target>
+        </trans-unit>
+        <trans-unit id="a2e0e08e-d5b7-42a9-b278-65bba72cc562" xml:space="preserve">
+          <source>View logs</source>
+          <target state="new">View logs</target>
+        </trans-unit>
+        <trans-unit id="97af0039-e9b0-406a-9908-d570f9aac204" xml:space="preserve">
+          <source>See how many requests are made and see how much data is being used by an API app</source>
+          <target state="new">See how many requests are made and see how much data is being used by an API app</target>
+        </trans-unit>
+        <trans-unit id="629074ef-4a7e-471b-98ee-2bf0ec80ff84" xml:space="preserve">
+          <source>Backup an API App and create alerts</source>
+          <target state="new">Backup an API App and create alerts</target>
+        </trans-unit>
+        <trans-unit id="be5138f1-b977-4371-9d7c-9a9102d2287e" xml:space="preserve">
+          <source>Configure role-based access security</source>
+          <target state="new">Configure role-based access security</target>
+        </trans-unit>
+        <trans-unit id="d4ca8f42-4977-427f-b4e2-642d1d7b2114" xml:space="preserve">
+          <source>The article also shows how to do some management tasks in the Server Explorer window in Visual Studio.</source>
+          <target state="new">The article also shows how to do some management tasks in the Server Explorer window in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="5efbc743-2b4b-4ce1-bf35-590ff8557613" xml:space="preserve">
+          <source>In Azure App Service an API app is a <bpt id="599e8bf2-64b0-43d4-a9ed-56697f719981">&lt;linkText&gt;</bpt>web app<ept id="599e8bf2-64b0-43d4-a9ed-56697f719981">&lt;/linkText&gt;</ept><bpt id="599e8bf2-64b0-43d4-a9ed-56697f719981">&lt;title&gt;</bpt><ept id="599e8bf2-64b0-43d4-a9ed-56697f719981">&lt;/title&gt;</ept> that has additional features for hosting web services.</source>
+          <target state="new">In Azure App Service an API app is a <bpt id="599e8bf2-64b0-43d4-a9ed-56697f719981">&lt;linkText&gt;</bpt>web app<ept id="599e8bf2-64b0-43d4-a9ed-56697f719981">&lt;/linkText&gt;</ept><bpt id="599e8bf2-64b0-43d4-a9ed-56697f719981">&lt;title&gt;</bpt><ept id="599e8bf2-64b0-43d4-a9ed-56697f719981">&lt;/title&gt;</ept> that has additional features for hosting web services.</target>
+        </trans-unit>
+        <trans-unit id="0de2f7e0-d325-4654-81bf-47cb35cd0c29" xml:space="preserve">
+          <source>In the Azure portal, there is an <bpt id="2d812fda-3f94-49f7-a335-71998dda519e">&lt;strong&gt;</bpt>API app<ept id="2d812fda-3f94-49f7-a335-71998dda519e">&lt;/strong&gt;</ept> blade for managing the API-specific features, and an <bpt id="e5646495-56c6-4814-946f-0eb4553af090">&lt;strong&gt;</bpt>API App host<ept id="e5646495-56c6-4814-946f-0eb4553af090">&lt;/strong&gt;</ept> blade for managing the underlying web app.</source>
+          <target state="new">In the Azure portal, there is an <bpt id="2d812fda-3f94-49f7-a335-71998dda519e">&lt;strong&gt;</bpt>API app<ept id="2d812fda-3f94-49f7-a335-71998dda519e">&lt;/strong&gt;</ept> blade for managing the API-specific features, and an <bpt id="e5646495-56c6-4814-946f-0eb4553af090">&lt;strong&gt;</bpt>API App host<ept id="e5646495-56c6-4814-946f-0eb4553af090">&lt;/strong&gt;</ept> blade for managing the underlying web app.</target>
+        </trans-unit>
+        <trans-unit id="a1e8003d-0964-4bfb-a9a6-0d53fc1dced0" xml:space="preserve">
+          <source>Every resource group that contains at least one API app also includes a  <bpt id="de8cea6c-4ca0-49e4-a6e1-faf7bad70db0">&lt;em&gt;</bpt>gateway<ept id="de8cea6c-4ca0-49e4-a6e1-faf7bad70db0">&lt;/em&gt;</ept>.</source>
+          <target state="new">Every resource group that contains at least one API app also includes a  <bpt id="de8cea6c-4ca0-49e4-a6e1-faf7bad70db0">&lt;em&gt;</bpt>gateway<ept id="de8cea6c-4ca0-49e4-a6e1-faf7bad70db0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="851f3a33-07f6-4014-9a90-c2e1d5314f19" xml:space="preserve">
+          <source>The gateway acts as a proxy, handling authentication and other administrative functions for all API apps in a resource group.</source>
+          <target state="new">The gateway acts as a proxy, handling authentication and other administrative functions for all API apps in a resource group.</target>
+        </trans-unit>
+        <trans-unit id="3ae125a1-9d8b-457c-b2fa-b6acb70f5be2" xml:space="preserve">
+          <source>Like an API app, a gateway is a web app with extra functionality, so there are also two portal blades for managing the gateway: a <bpt id="5ed4ccfb-e4a4-4a55-a15e-08dbafa2f370">&lt;strong&gt;</bpt>Gateway<ept id="5ed4ccfb-e4a4-4a55-a15e-08dbafa2f370">&lt;/strong&gt;</ept> blade for gateway-specific functions, and a <bpt id="506ae561-4313-402d-92ce-f19e29d3ddea">&lt;strong&gt;</bpt>Gateway host<ept id="506ae561-4313-402d-92ce-f19e29d3ddea">&lt;/strong&gt;</ept> blade for managing the underlying web app.</source>
+          <target state="new">Like an API app, a gateway is a web app with extra functionality, so there are also two portal blades for managing the gateway: a <bpt id="5ed4ccfb-e4a4-4a55-a15e-08dbafa2f370">&lt;strong&gt;</bpt>Gateway<ept id="5ed4ccfb-e4a4-4a55-a15e-08dbafa2f370">&lt;/strong&gt;</ept> blade for gateway-specific functions, and a <bpt id="506ae561-4313-402d-92ce-f19e29d3ddea">&lt;strong&gt;</bpt>Gateway host<ept id="506ae561-4313-402d-92ce-f19e29d3ddea">&lt;/strong&gt;</ept> blade for managing the underlying web app.</target>
+        </trans-unit>
+        <trans-unit id="3e1a17b6-6428-40e8-98ee-9fb70702a729" xml:space="preserve">
+          <source>You use the <bpt id="2efe6a60-873b-4ccd-991e-327f1974186a">&lt;strong&gt;</bpt>API app<ept id="2efe6a60-873b-4ccd-991e-327f1974186a">&lt;/strong&gt;</ept> blade for the following tasks:</source>
+          <target state="new">You use the <bpt id="2efe6a60-873b-4ccd-991e-327f1974186a">&lt;strong&gt;</bpt>API app<ept id="2efe6a60-873b-4ccd-991e-327f1974186a">&lt;/strong&gt;</ept> blade for the following tasks:</target>
+        </trans-unit>
+        <trans-unit id="c2f82e71-b11f-4a51-9f03-7d0b74423908" xml:space="preserve">
+          <source>Configure access level - Click <bpt id="02027e3a-17f8-462a-aa62-808373f34cdc">&lt;strong&gt;</bpt>Settings &gt; Application settings<ept id="02027e3a-17f8-462a-aa62-808373f34cdc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configure access level - Click <bpt id="02027e3a-17f8-462a-aa62-808373f34cdc">&lt;strong&gt;</bpt>Settings &gt; Application settings<ept id="02027e3a-17f8-462a-aa62-808373f34cdc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11573930-b0f2-4ba7-85f5-b419c54771d5" xml:space="preserve">
+          <source>The default value is internal, which means only API apps in the same resource group are allowed to call the API app.</source>
+          <target state="new">The default value is internal, which means only API apps in the same resource group are allowed to call the API app.</target>
+        </trans-unit>
+        <trans-unit id="9ae58b05-253e-401b-be26-1ce6cc648b9e" xml:space="preserve">
+          <source>For more information, see <bpt id="e386ec0f-2ecf-469c-9306-fef96a54e303">&lt;linkText&gt;</bpt>Protect an API app<ept id="e386ec0f-2ecf-469c-9306-fef96a54e303">&lt;/linkText&gt;</ept><bpt id="e386ec0f-2ecf-469c-9306-fef96a54e303">&lt;title&gt;</bpt><ept id="e386ec0f-2ecf-469c-9306-fef96a54e303">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="e386ec0f-2ecf-469c-9306-fef96a54e303">&lt;linkText&gt;</bpt>Protect an API app<ept id="e386ec0f-2ecf-469c-9306-fef96a54e303">&lt;/linkText&gt;</ept><bpt id="e386ec0f-2ecf-469c-9306-fef96a54e303">&lt;title&gt;</bpt><ept id="e386ec0f-2ecf-469c-9306-fef96a54e303">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba0e5b87-4469-42d3-af48-224c7eeb2b3a" xml:space="preserve">
+          <source>Configure update policy - Click <bpt id="02397d2d-d63d-4e2c-ac6e-535ee41fa953">&lt;strong&gt;</bpt>Settings &gt; Application settings<ept id="02397d2d-d63d-4e2c-ac6e-535ee41fa953">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configure update policy - Click <bpt id="02397d2d-d63d-4e2c-ac6e-535ee41fa953">&lt;strong&gt;</bpt>Settings &gt; Application settings<ept id="02397d2d-d63d-4e2c-ac6e-535ee41fa953">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="382c9e4e-ce36-43f5-9ce1-156484daefe5" xml:space="preserve">
+          <source>Default value is <bpt id="8952160f-999f-4b7d-a1e8-ef7e17581f9e">&lt;strong&gt;</bpt>On<ept id="8952160f-999f-4b7d-a1e8-ef7e17581f9e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Default value is <bpt id="8952160f-999f-4b7d-a1e8-ef7e17581f9e">&lt;strong&gt;</bpt>On<ept id="8952160f-999f-4b7d-a1e8-ef7e17581f9e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3a5a52f-7cc8-4b2d-a4a0-2c39f24a3b6d" xml:space="preserve">
+          <source>This means that when a new version of the API app is published to the marketplace, your API app will automatically be updated to the new version if it is a non-breaking change.</source>
+          <target state="new">This means that when a new version of the API app is published to the marketplace, your API app will automatically be updated to the new version if it is a non-breaking change.</target>
+        </trans-unit>
+        <trans-unit id="9e4442c6-e8f7-4306-b512-4577f78e665f" xml:space="preserve">
+          <source>Configure authentication for outgoing calls from the API app - Click <bpt id="047e773a-19fd-4fdd-9a4e-80b0606c0548">&lt;strong&gt;</bpt>Settings &gt; Authentication<ept id="047e773a-19fd-4fdd-9a4e-80b0606c0548">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configure authentication for outgoing calls from the API app - Click <bpt id="047e773a-19fd-4fdd-9a4e-80b0606c0548">&lt;strong&gt;</bpt>Settings &gt; Authentication<ept id="047e773a-19fd-4fdd-9a4e-80b0606c0548">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e92a4c77-fca4-4857-bb95-26a1f4c94b78" xml:space="preserve">
+          <source>If the API app makes calls to an external service that requires authentication, the required configuration values are entered here.</source>
+          <target state="new">If the API app makes calls to an external service that requires authentication, the required configuration values are entered here.</target>
+        </trans-unit>
+        <trans-unit id="f74da589-5e00-4f7f-ab6d-431932269c79" xml:space="preserve">
+          <source>For example, a Dropbox connector requires a client ID and a client secret to access the Dropbox service.</source>
+          <target state="new">For example, a Dropbox connector requires a client ID and a client secret to access the Dropbox service.</target>
+        </trans-unit>
+        <trans-unit id="928cb1d2-c089-44bb-948a-a9e34bafeea5" xml:space="preserve">
+          <source>Configure <bpt id="f92fb4bb-3b13-4d61-a771-6b4572361b22">&lt;linkText&gt;</bpt>RBAC<ept id="f92fb4bb-3b13-4d61-a771-6b4572361b22">&lt;/linkText&gt;</ept><bpt id="f92fb4bb-3b13-4d61-a771-6b4572361b22">&lt;title&gt;</bpt><ept id="f92fb4bb-3b13-4d61-a771-6b4572361b22">&lt;/title&gt;</ept> - Click <bpt id="8ffb954c-6853-4335-80fa-b27c022d6414">&lt;strong&gt;</bpt>Settings &gt; Users<ept id="8ffb954c-6853-4335-80fa-b27c022d6414">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configure <bpt id="f92fb4bb-3b13-4d61-a771-6b4572361b22">&lt;linkText&gt;</bpt>RBAC<ept id="f92fb4bb-3b13-4d61-a771-6b4572361b22">&lt;/linkText&gt;</ept><bpt id="f92fb4bb-3b13-4d61-a771-6b4572361b22">&lt;title&gt;</bpt><ept id="f92fb4bb-3b13-4d61-a771-6b4572361b22">&lt;/title&gt;</ept> - Click <bpt id="8ffb954c-6853-4335-80fa-b27c022d6414">&lt;strong&gt;</bpt>Settings &gt; Users<ept id="8ffb954c-6853-4335-80fa-b27c022d6414">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3dd7ddf-9836-4ff2-a78b-7ae228495163" xml:space="preserve">
+          <source>User access that you configure here determines only who can access the API-app-specific features.</source>
+          <target state="new">User access that you configure here determines only who can access the API-app-specific features.</target>
+        </trans-unit>
+        <trans-unit id="fd1f1c85-35b2-4d62-9f96-d9eab09e76e7" xml:space="preserve">
+          <source>To configure RBAC for the web app features, use the <bpt id="ab735315-afca-4b87-ab24-ddb41c8a4134">&lt;strong&gt;</bpt>API app host<ept id="ab735315-afca-4b87-ab24-ddb41c8a4134">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">To configure RBAC for the web app features, use the <bpt id="ab735315-afca-4b87-ab24-ddb41c8a4134">&lt;strong&gt;</bpt>API app host<ept id="ab735315-afca-4b87-ab24-ddb41c8a4134">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="57d2295c-1fb7-4433-9005-aa010f7d5d41" xml:space="preserve">
+          <source>Normally you would want to keep the RBAC settings for the API app and the API app host in sync.</source>
+          <target state="new">Normally you would want to keep the RBAC settings for the API app and the API app host in sync.</target>
+        </trans-unit>
+        <trans-unit id="c34a9bcb-91d7-4d1a-8de7-47643418ceee" xml:space="preserve">
+          <source>If you give someone access to the API app but not the API app host, they won't be able to use the features on the <bpt id="2bfffe9f-866d-4f64-bfee-15ec5f9706fa">&lt;strong&gt;</bpt>API app<ept id="2bfffe9f-866d-4f64-bfee-15ec5f9706fa">&lt;/strong&gt;</ept> blade that actually pertain to the API app host.</source>
+          <target state="new">If you give someone access to the API app but not the API app host, they won't be able to use the features on the <bpt id="2bfffe9f-866d-4f64-bfee-15ec5f9706fa">&lt;strong&gt;</bpt>API app<ept id="2bfffe9f-866d-4f64-bfee-15ec5f9706fa">&lt;/strong&gt;</ept> blade that actually pertain to the API app host.</target>
+        </trans-unit>
+        <trans-unit id="f0a8b2d5-6550-4420-ba03-d1c3e53a8982" xml:space="preserve">
+          <source>View API definition - Click <bpt id="0241f7a1-e927-4511-a46a-6bc22661e5d6">&lt;strong&gt;</bpt>API definition<ept id="0241f7a1-e927-4511-a46a-6bc22661e5d6">&lt;/strong&gt;</ept> in the <bpt id="b5fa30e2-79ab-4c6a-a2ec-71e8d6ba3d26">&lt;strong&gt;</bpt>Summary<ept id="b5fa30e2-79ab-4c6a-a2ec-71e8d6ba3d26">&lt;/strong&gt;</ept> section to see a list of the methods exposed by the API app.</source>
+          <target state="new">View API definition - Click <bpt id="0241f7a1-e927-4511-a46a-6bc22661e5d6">&lt;strong&gt;</bpt>API definition<ept id="0241f7a1-e927-4511-a46a-6bc22661e5d6">&lt;/strong&gt;</ept> in the <bpt id="b5fa30e2-79ab-4c6a-a2ec-71e8d6ba3d26">&lt;strong&gt;</bpt>Summary<ept id="b5fa30e2-79ab-4c6a-a2ec-71e8d6ba3d26">&lt;/strong&gt;</ept> section to see a list of the methods exposed by the API app.</target>
+        </trans-unit>
+        <trans-unit id="c9fed0dc-b433-4d9a-a1eb-f6b73dceef8f" xml:space="preserve">
+          <source><bpt id="61047c0c-8a3e-4b90-a163-1d4d3f3d13e0">&lt;linkText&gt;</bpt>Install the Hybrid Connection Manager<ept id="61047c0c-8a3e-4b90-a163-1d4d3f3d13e0">&lt;/linkText&gt;</ept><bpt id="61047c0c-8a3e-4b90-a163-1d4d3f3d13e0">&lt;title&gt;</bpt><ept id="61047c0c-8a3e-4b90-a163-1d4d3f3d13e0">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="61047c0c-8a3e-4b90-a163-1d4d3f3d13e0">&lt;linkText&gt;</bpt>Install the Hybrid Connection Manager<ept id="61047c0c-8a3e-4b90-a163-1d4d3f3d13e0">&lt;/linkText&gt;</ept><bpt id="61047c0c-8a3e-4b90-a163-1d4d3f3d13e0">&lt;title&gt;</bpt><ept id="61047c0c-8a3e-4b90-a163-1d4d3f3d13e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9700dcfc-799c-4406-8177-97e525ae3b6a" xml:space="preserve">
+          <source>The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP.</source>
+          <target state="new">The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP.</target>
+        </trans-unit>
+        <trans-unit id="9a982324-1ad1-4ef2-93ee-8d9848c8f98f" xml:space="preserve">
+          <source>This hybrid connectivity uses Azure Service Bus to connect and control the security between your Azure resources and your on-premises resources.</source>
+          <target state="new">This hybrid connectivity uses Azure Service Bus to connect and control the security between your Azure resources and your on-premises resources.</target>
+        </trans-unit>
+        <trans-unit id="89b77b3e-9185-440a-867d-152483a1d9c0" xml:space="preserve">
+          <source>The <bpt id="cea1b241-f7f1-450e-a7e0-b4a22fb9604c">&lt;strong&gt;</bpt>API app<ept id="cea1b241-f7f1-450e-a7e0-b4a22fb9604c">&lt;/strong&gt;</ept> blade enables you to do many tasks that pertain to the underlying web app.</source>
+          <target state="new">The <bpt id="cea1b241-f7f1-450e-a7e0-b4a22fb9604c">&lt;strong&gt;</bpt>API app<ept id="cea1b241-f7f1-450e-a7e0-b4a22fb9604c">&lt;/strong&gt;</ept> blade enables you to do many tasks that pertain to the underlying web app.</target>
+        </trans-unit>
+        <trans-unit id="e896a326-5e3a-4e1a-8997-4c2df8a89803" xml:space="preserve">
+          <source>For example, you can do the following tasks:</source>
+          <target state="new">For example, you can do the following tasks:</target>
+        </trans-unit>
+        <trans-unit id="39c91997-61f6-4148-854a-44f59e512667" xml:space="preserve">
+          <source>Stop, start, and restart the web app that hosts the API app.</source>
+          <target state="new">Stop, start, and restart the web app that hosts the API app.</target>
+        </trans-unit>
+        <trans-unit id="9acc75e9-a20b-4a3f-86d1-ac76544d480e" xml:space="preserve">
+          <source>Select <bpt id="36f1466c-cd55-4038-a89a-ba9d864d13f1">&lt;strong&gt;</bpt>Requests and errors<ept id="36f1466c-cd55-4038-a89a-ba9d864d13f1">&lt;/strong&gt;</ept> to add different performance metrics including commonly-known HTTP error codes, like 200, 400, or 500 HTTP status codes.</source>
+          <target state="new">Select <bpt id="36f1466c-cd55-4038-a89a-ba9d864d13f1">&lt;strong&gt;</bpt>Requests and errors<ept id="36f1466c-cd55-4038-a89a-ba9d864d13f1">&lt;/strong&gt;</ept> to add different performance metrics including commonly-known HTTP error codes, like 200, 400, or 500 HTTP status codes.</target>
+        </trans-unit>
+        <trans-unit id="86d55433-2087-4462-b08c-6bbb014a2621" xml:space="preserve">
+          <source>See response times, see how many requests are made to the API App, and see how much data comes in and how much data goes out.</source>
+          <target state="new">See response times, see how many requests are made to the API App, and see how much data comes in and how much data goes out.</target>
+        </trans-unit>
+        <trans-unit id="218f78ea-9baf-41ac-916a-a83c042e51de" xml:space="preserve">
+          <source>Create email Alerts if a metric exceeds a threshold of your choosing.</source>
+          <target state="new">Create email Alerts if a metric exceeds a threshold of your choosing.</target>
+        </trans-unit>
+        <trans-unit id="9df71219-bdcc-4345-9390-bad3fc838a94" xml:space="preserve">
+          <source>See how much <bpt id="1c78eff5-73db-4281-a0ce-21101e98224c">&lt;strong&gt;</bpt>CPU<ept id="1c78eff5-73db-4281-a0ce-21101e98224c">&lt;/strong&gt;</ept> is used by the API App, review the current <bpt id="14c3eb44-3e4f-410b-8efc-07cc4fda3879">&lt;strong&gt;</bpt>Usage Quota<ept id="14c3eb44-3e4f-410b-8efc-07cc4fda3879">&lt;/strong&gt;</ept> in MB, and see your maximum data usage based on your cost tier.</source>
+          <target state="new">See how much <bpt id="1c78eff5-73db-4281-a0ce-21101e98224c">&lt;strong&gt;</bpt>CPU<ept id="1c78eff5-73db-4281-a0ce-21101e98224c">&lt;/strong&gt;</ept> is used by the API App, review the current <bpt id="14c3eb44-3e4f-410b-8efc-07cc4fda3879">&lt;strong&gt;</bpt>Usage Quota<ept id="14c3eb44-3e4f-410b-8efc-07cc4fda3879">&lt;/strong&gt;</ept> in MB, and see your maximum data usage based on your cost tier.</target>
+        </trans-unit>
+        <trans-unit id="0c739cb3-f0b4-49c6-b61f-ca89eb9b22ad" xml:space="preserve">
+          <source>See <bpt id="1ee79055-e643-4587-b7be-575f45e14a4c">&lt;strong&gt;</bpt>Estimated spend<ept id="1ee79055-e643-4587-b7be-575f45e14a4c">&lt;/strong&gt;</ept>  to determine the potential costs of running your API App.</source>
+          <target state="new">See <bpt id="1ee79055-e643-4587-b7be-575f45e14a4c">&lt;strong&gt;</bpt>Estimated spend<ept id="1ee79055-e643-4587-b7be-575f45e14a4c">&lt;/strong&gt;</ept>  to determine the potential costs of running your API App.</target>
+        </trans-unit>
+        <trans-unit id="eafc3f0f-c546-48f1-911f-7fa51f335bd4" xml:space="preserve">
+          <source>View the application logs and other IIS logs, including web server logs and FREB logs.</source>
+          <target state="new">View the application logs and other IIS logs, including web server logs and FREB logs.</target>
+        </trans-unit>
+        <trans-unit id="8245c1a8-3482-4f28-9735-b66480acead0" xml:space="preserve">
+          <source>Select <bpt id="c33aa08c-6b30-44db-8a5c-7acd77cadc46">&lt;strong&gt;</bpt>Processes<ept id="c33aa08c-6b30-44db-8a5c-7acd77cadc46">&lt;/strong&gt;</ept> to open Process Explorer.</source>
+          <target state="new">Select <bpt id="c33aa08c-6b30-44db-8a5c-7acd77cadc46">&lt;strong&gt;</bpt>Processes<ept id="c33aa08c-6b30-44db-8a5c-7acd77cadc46">&lt;/strong&gt;</ept> to open Process Explorer.</target>
+        </trans-unit>
+        <trans-unit id="ce82092b-fcad-40cc-95cc-b6c7e9cd036d" xml:space="preserve">
+          <source>This shows your web instances and their properties, including thread count and memory usage.</source>
+          <target state="new">This shows your web instances and their properties, including thread count and memory usage.</target>
+        </trans-unit>
+        <trans-unit id="7c027d55-ebc5-45db-86f7-30f47e1a1cb7" xml:space="preserve">
+          <source>These tasks can also be done by using the <bpt id="6635c362-1bde-483d-bb0d-0ac563f135b7">&lt;strong&gt;</bpt>API app host<ept id="6635c362-1bde-483d-bb0d-0ac563f135b7">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">These tasks can also be done by using the <bpt id="6635c362-1bde-483d-bb0d-0ac563f135b7">&lt;strong&gt;</bpt>API app host<ept id="6635c362-1bde-483d-bb0d-0ac563f135b7">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="0e613bab-aff6-4179-8781-103f974d9b36" xml:space="preserve">
+          <source>This is why the two blades share much of the same UI.</source>
+          <target state="new">This is why the two blades share much of the same UI.</target>
+        </trans-unit>
+        <trans-unit id="5d97a2ed-ef02-42b1-b9e7-7fc9f541c42e" xml:space="preserve">
+          <source>For example, The <bpt id="2259313b-f040-4ac7-a05d-7004c63b84f8">&lt;strong&gt;</bpt>Stop<ept id="2259313b-f040-4ac7-a05d-7004c63b84f8">&lt;/strong&gt;</ept>, <bpt id="fb7baf48-19b3-4b0a-8400-a8d40e5106c9">&lt;strong&gt;</bpt>Start<ept id="fb7baf48-19b3-4b0a-8400-a8d40e5106c9">&lt;/strong&gt;</ept>, and <bpt id="c8c6693b-ad4c-4661-a07a-ab94790a8c9f">&lt;strong&gt;</bpt>Restart<ept id="c8c6693b-ad4c-4661-a07a-ab94790a8c9f">&lt;/strong&gt;</ept> buttons on the <bpt id="346ba897-21fd-40d5-93f2-74c15febdad8">&lt;strong&gt;</bpt>API app<ept id="346ba897-21fd-40d5-93f2-74c15febdad8">&lt;/strong&gt;</ept> blade have exactly the same effect as the <bpt id="b09eecb6-c989-43f4-b0a8-0cf900f52e35">&lt;strong&gt;</bpt>Stop<ept id="b09eecb6-c989-43f4-b0a8-0cf900f52e35">&lt;/strong&gt;</ept>, <bpt id="a46024e3-ea1a-4ed5-9c8b-876b920eef2c">&lt;strong&gt;</bpt>Start<ept id="a46024e3-ea1a-4ed5-9c8b-876b920eef2c">&lt;/strong&gt;</ept>, and <bpt id="a545bcea-659d-4fa1-ac55-32c539b071cd">&lt;strong&gt;</bpt>Restart<ept id="a545bcea-659d-4fa1-ac55-32c539b071cd">&lt;/strong&gt;</ept> buttons on the <bpt id="98174a24-f4a1-4248-ac3f-77dca1c03a3c">&lt;strong&gt;</bpt>API App Host<ept id="98174a24-f4a1-4248-ac3f-77dca1c03a3c">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">For example, The <bpt id="2259313b-f040-4ac7-a05d-7004c63b84f8">&lt;strong&gt;</bpt>Stop<ept id="2259313b-f040-4ac7-a05d-7004c63b84f8">&lt;/strong&gt;</ept>, <bpt id="fb7baf48-19b3-4b0a-8400-a8d40e5106c9">&lt;strong&gt;</bpt>Start<ept id="fb7baf48-19b3-4b0a-8400-a8d40e5106c9">&lt;/strong&gt;</ept>, and <bpt id="c8c6693b-ad4c-4661-a07a-ab94790a8c9f">&lt;strong&gt;</bpt>Restart<ept id="c8c6693b-ad4c-4661-a07a-ab94790a8c9f">&lt;/strong&gt;</ept> buttons on the <bpt id="346ba897-21fd-40d5-93f2-74c15febdad8">&lt;strong&gt;</bpt>API app<ept id="346ba897-21fd-40d5-93f2-74c15febdad8">&lt;/strong&gt;</ept> blade have exactly the same effect as the <bpt id="b09eecb6-c989-43f4-b0a8-0cf900f52e35">&lt;strong&gt;</bpt>Stop<ept id="b09eecb6-c989-43f4-b0a8-0cf900f52e35">&lt;/strong&gt;</ept>, <bpt id="a46024e3-ea1a-4ed5-9c8b-876b920eef2c">&lt;strong&gt;</bpt>Start<ept id="a46024e3-ea1a-4ed5-9c8b-876b920eef2c">&lt;/strong&gt;</ept>, and <bpt id="a545bcea-659d-4fa1-ac55-32c539b071cd">&lt;strong&gt;</bpt>Restart<ept id="a545bcea-659d-4fa1-ac55-32c539b071cd">&lt;/strong&gt;</ept> buttons on the <bpt id="98174a24-f4a1-4248-ac3f-77dca1c03a3c">&lt;strong&gt;</bpt>API App Host<ept id="98174a24-f4a1-4248-ac3f-77dca1c03a3c">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="6e37dc43-4c74-4f8f-9215-cfcece5b6573" xml:space="preserve">
+          <source>Likewise, the monitoring information provided on the <bpt id="190debe5-86bb-4787-896e-14a53c9c2c83">&lt;strong&gt;</bpt>API app<ept id="190debe5-86bb-4787-896e-14a53c9c2c83">&lt;/strong&gt;</ept> blade is the same as what the <bpt id="4bdfa429-65c7-4636-a18b-80778a30b6e5">&lt;strong&gt;</bpt>API app host<ept id="4bdfa429-65c7-4636-a18b-80778a30b6e5">&lt;/strong&gt;</ept> blade shows.</source>
+          <target state="new">Likewise, the monitoring information provided on the <bpt id="190debe5-86bb-4787-896e-14a53c9c2c83">&lt;strong&gt;</bpt>API app<ept id="190debe5-86bb-4787-896e-14a53c9c2c83">&lt;/strong&gt;</ept> blade is the same as what the <bpt id="4bdfa429-65c7-4636-a18b-80778a30b6e5">&lt;strong&gt;</bpt>API app host<ept id="4bdfa429-65c7-4636-a18b-80778a30b6e5">&lt;/strong&gt;</ept> blade shows.</target>
+        </trans-unit>
+        <trans-unit id="11f77d7a-75b0-44cc-84fc-c3dc48db28b3" xml:space="preserve">
+          <source>The only functions provided on <bpt id="06395f40-ff32-4f9d-ba55-da96d726bae3">&lt;strong&gt;</bpt>API app<ept id="06395f40-ff32-4f9d-ba55-da96d726bae3">&lt;/strong&gt;</ept> blade that are not duplicates from the <bpt id="1bd08bf6-6ef1-4ee8-97ea-92040f4a0a31">&lt;strong&gt;</bpt>API app host<ept id="1bd08bf6-6ef1-4ee8-97ea-92040f4a0a31">&lt;/strong&gt;</ept> blade are listed in the previous section.</source>
+          <target state="new">The only functions provided on <bpt id="06395f40-ff32-4f9d-ba55-da96d726bae3">&lt;strong&gt;</bpt>API app<ept id="06395f40-ff32-4f9d-ba55-da96d726bae3">&lt;/strong&gt;</ept> blade that are not duplicates from the <bpt id="1bd08bf6-6ef1-4ee8-97ea-92040f4a0a31">&lt;strong&gt;</bpt>API app host<ept id="1bd08bf6-6ef1-4ee8-97ea-92040f4a0a31">&lt;/strong&gt;</ept> blade are listed in the previous section.</target>
+        </trans-unit>
+        <trans-unit id="3b54609e-9a48-4b2f-bd69-311176265747" xml:space="preserve">
+          <source>You use the <bpt id="7f9ac3b9-bc66-4720-a455-633b34c49c4d">&lt;strong&gt;</bpt>API App Host<ept id="7f9ac3b9-bc66-4720-a455-633b34c49c4d">&lt;/strong&gt;</ept> blade for all of the tasks that you would do for any web app.</source>
+          <target state="new">You use the <bpt id="7f9ac3b9-bc66-4720-a455-633b34c49c4d">&lt;strong&gt;</bpt>API App Host<ept id="7f9ac3b9-bc66-4720-a455-633b34c49c4d">&lt;/strong&gt;</ept> blade for all of the tasks that you would do for any web app.</target>
+        </trans-unit>
+        <trans-unit id="cc736c08-dc8f-468b-90af-9696a3715d1a" xml:space="preserve">
+          <source>You use the <bpt id="400d2d2d-952e-48cb-9d8d-9d2414090762">&lt;strong&gt;</bpt>Gateway<ept id="400d2d2d-952e-48cb-9d8d-9d2414090762">&lt;/strong&gt;</ept> blade for the following tasks:</source>
+          <target state="new">You use the <bpt id="400d2d2d-952e-48cb-9d8d-9d2414090762">&lt;strong&gt;</bpt>Gateway<ept id="400d2d2d-952e-48cb-9d8d-9d2414090762">&lt;/strong&gt;</ept> blade for the following tasks:</target>
+        </trans-unit>
+        <trans-unit id="a3da7cb2-309a-4a36-8441-5be315e6b2f5" xml:space="preserve">
+          <source>Authentication provider configuration for incoming calls to API apps - Click <bpt id="fdedfb3d-6799-4f82-aa43-b57627fb1069">&lt;strong&gt;</bpt>Settings &gt; Identity<ept id="fdedfb3d-6799-4f82-aa43-b57627fb1069">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Authentication provider configuration for incoming calls to API apps - Click <bpt id="fdedfb3d-6799-4f82-aa43-b57627fb1069">&lt;strong&gt;</bpt>Settings &gt; Identity<ept id="fdedfb3d-6799-4f82-aa43-b57627fb1069">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9381415-c913-42e9-a77f-03b920d8bbf1" xml:space="preserve">
+          <source>If the gateway needs to authenticate users before allowing them to call API apps in the resource group, the required configuration values are entered here.</source>
+          <target state="new">If the gateway needs to authenticate users before allowing them to call API apps in the resource group, the required configuration values are entered here.</target>
+        </trans-unit>
+        <trans-unit id="f7207f4a-5acc-4082-ae3f-d15f6762515c" xml:space="preserve">
+          <source>For more information, see <bpt id="710e6008-f0df-41bb-807c-0ec95d8a3c3f">&lt;linkText&gt;</bpt>Configure and test a SaaS connector in Azure App Service<ept id="710e6008-f0df-41bb-807c-0ec95d8a3c3f">&lt;/linkText&gt;</ept><bpt id="710e6008-f0df-41bb-807c-0ec95d8a3c3f">&lt;title&gt;</bpt><ept id="710e6008-f0df-41bb-807c-0ec95d8a3c3f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="710e6008-f0df-41bb-807c-0ec95d8a3c3f">&lt;linkText&gt;</bpt>Configure and test a SaaS connector in Azure App Service<ept id="710e6008-f0df-41bb-807c-0ec95d8a3c3f">&lt;/linkText&gt;</ept><bpt id="710e6008-f0df-41bb-807c-0ec95d8a3c3f">&lt;title&gt;</bpt><ept id="710e6008-f0df-41bb-807c-0ec95d8a3c3f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="936d664d-f4d9-403a-b7bd-2d57024210a5" xml:space="preserve">
+          <source>Configure <bpt id="f96a49a9-47dc-4ba7-95c6-ca0e970d8eb4">&lt;linkText&gt;</bpt>RBAC<ept id="f96a49a9-47dc-4ba7-95c6-ca0e970d8eb4">&lt;/linkText&gt;</ept><bpt id="f96a49a9-47dc-4ba7-95c6-ca0e970d8eb4">&lt;title&gt;</bpt><ept id="f96a49a9-47dc-4ba7-95c6-ca0e970d8eb4">&lt;/title&gt;</ept> - Click <bpt id="825bc029-6f16-4286-8eda-5a0a3c210d5c">&lt;strong&gt;</bpt>Settings &gt; Users<ept id="825bc029-6f16-4286-8eda-5a0a3c210d5c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configure <bpt id="f96a49a9-47dc-4ba7-95c6-ca0e970d8eb4">&lt;linkText&gt;</bpt>RBAC<ept id="f96a49a9-47dc-4ba7-95c6-ca0e970d8eb4">&lt;/linkText&gt;</ept><bpt id="f96a49a9-47dc-4ba7-95c6-ca0e970d8eb4">&lt;title&gt;</bpt><ept id="f96a49a9-47dc-4ba7-95c6-ca0e970d8eb4">&lt;/title&gt;</ept> - Click <bpt id="825bc029-6f16-4286-8eda-5a0a3c210d5c">&lt;strong&gt;</bpt>Settings &gt; Users<ept id="825bc029-6f16-4286-8eda-5a0a3c210d5c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b99738d0-1078-4a02-bb2f-a4e0f1268f27" xml:space="preserve">
+          <source>User access that you configure here determines only who can access the gateway-specific features, not the features shared with all web apps.</source>
+          <target state="new">User access that you configure here determines only who can access the gateway-specific features, not the features shared with all web apps.</target>
+        </trans-unit>
+        <trans-unit id="6be8b6fb-401d-4b37-a990-cc143680c936" xml:space="preserve">
+          <source>The gateway and gateway host blades share UI the same as the API app and API app hosts blades.</source>
+          <target state="new">The gateway and gateway host blades share UI the same as the API app and API app hosts blades.</target>
+        </trans-unit>
+        <trans-unit id="8b3060b6-af78-4992-8086-c26bd05fd4b5" xml:space="preserve">
+          <source>You use the <bpt id="19d98d55-128f-4cf2-a54f-3d9fa10aeb46">&lt;strong&gt;</bpt>Gateway Host<ept id="19d98d55-128f-4cf2-a54f-3d9fa10aeb46">&lt;/strong&gt;</ept> blade for all of the tasks that you would do for any web app.</source>
+          <target state="new">You use the <bpt id="19d98d55-128f-4cf2-a54f-3d9fa10aeb46">&lt;strong&gt;</bpt>Gateway Host<ept id="19d98d55-128f-4cf2-a54f-3d9fa10aeb46">&lt;/strong&gt;</ept> blade for all of the tasks that you would do for any web app.</target>
+        </trans-unit>
+        <trans-unit id="330bbc11-38ba-4721-ba95-8bb5af126d4f" xml:space="preserve">
+          <source>One way to get to the <bpt id="557c7f7d-8696-4396-b85b-4afcf6bb0842">&lt;strong&gt;</bpt>API App<ept id="557c7f7d-8696-4396-b85b-4afcf6bb0842">&lt;/strong&gt;</ept> blade is through the Azure portal's browse feature.</source>
+          <target state="new">One way to get to the <bpt id="557c7f7d-8696-4396-b85b-4afcf6bb0842">&lt;strong&gt;</bpt>API App<ept id="557c7f7d-8696-4396-b85b-4afcf6bb0842">&lt;/strong&gt;</ept> blade is through the Azure portal's browse feature.</target>
+        </trans-unit>
+        <trans-unit id="39a95212-82ad-4b23-925f-05e87b085679" xml:space="preserve">
+          <source>In the portal home page, click <bpt id="f3802935-0f61-4501-b230-351e5ef2db6c">&lt;strong&gt;</bpt>Browse &gt; API Apps<ept id="f3802935-0f61-4501-b230-351e5ef2db6c">&lt;/strong&gt;</ept> to see all the API apps that you can manage.</source>
+          <target state="new">In the portal home page, click <bpt id="f3802935-0f61-4501-b230-351e5ef2db6c">&lt;strong&gt;</bpt>Browse &gt; API Apps<ept id="f3802935-0f61-4501-b230-351e5ef2db6c">&lt;/strong&gt;</ept> to see all the API apps that you can manage.</target>
+        </trans-unit>
+        <trans-unit id="358c8f41-b68f-404d-be14-a94f8e4f4a7a" xml:space="preserve">
+          <source><bpt id="787acbc9-c465-4ff1-bb7a-5c9770987c76">&lt;linkText&gt;</bpt><ept id="787acbc9-c465-4ff1-bb7a-5c9770987c76">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="787acbc9-c465-4ff1-bb7a-5c9770987c76">&lt;linkText&gt;</bpt><ept id="787acbc9-c465-4ff1-bb7a-5c9770987c76">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bbb16db-c121-4eab-8495-b28c0b07be77" xml:space="preserve">
+          <source><bpt id="1591c4b5-a91b-40a3-82fa-bceb25a49733">&lt;linkText&gt;</bpt><ept id="1591c4b5-a91b-40a3-82fa-bceb25a49733">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1591c4b5-a91b-40a3-82fa-bceb25a49733">&lt;linkText&gt;</bpt><ept id="1591c4b5-a91b-40a3-82fa-bceb25a49733">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4560458-cc7c-4975-aad4-67ede240a93e" xml:space="preserve">
+          <source>When you click a row in the <bpt id="585caf68-2d03-48cd-b034-300655bd720d">&lt;strong&gt;</bpt>API Apps<ept id="585caf68-2d03-48cd-b034-300655bd720d">&lt;/strong&gt;</ept> list blade, the portal displays the <bpt id="2ce28212-7ded-4751-be28-bbff597313aa">&lt;strong&gt;</bpt>API App<ept id="2ce28212-7ded-4751-be28-bbff597313aa">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">When you click a row in the <bpt id="585caf68-2d03-48cd-b034-300655bd720d">&lt;strong&gt;</bpt>API Apps<ept id="585caf68-2d03-48cd-b034-300655bd720d">&lt;/strong&gt;</ept> list blade, the portal displays the <bpt id="2ce28212-7ded-4751-be28-bbff597313aa">&lt;strong&gt;</bpt>API App<ept id="2ce28212-7ded-4751-be28-bbff597313aa">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="bd338140-35c4-49c7-b31b-55e9ff932902" xml:space="preserve">
+          <source><bpt id="f1c3f608-a2ab-4d16-aa4c-35d0947294ac">&lt;linkText&gt;</bpt><ept id="f1c3f608-a2ab-4d16-aa4c-35d0947294ac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f1c3f608-a2ab-4d16-aa4c-35d0947294ac">&lt;linkText&gt;</bpt><ept id="f1c3f608-a2ab-4d16-aa4c-35d0947294ac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="002cf61d-23ae-4bc5-a529-dbebcf5790b8" xml:space="preserve">
+          <source>To get to the <bpt id="6d879fc4-c83a-4705-815b-b057db4ef054">&lt;strong&gt;</bpt>API App Host<ept id="6d879fc4-c83a-4705-815b-b057db4ef054">&lt;/strong&gt;</ept> blade, click <bpt id="02e96689-a849-4ee3-abd2-926e5ca2fa98">&lt;strong&gt;</bpt>API app host<ept id="02e96689-a849-4ee3-abd2-926e5ca2fa98">&lt;/strong&gt;</ept> in the <bpt id="dcbfd236-3818-4a14-a118-f7f777041729">&lt;strong&gt;</bpt>API App<ept id="dcbfd236-3818-4a14-a118-f7f777041729">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">To get to the <bpt id="6d879fc4-c83a-4705-815b-b057db4ef054">&lt;strong&gt;</bpt>API App Host<ept id="6d879fc4-c83a-4705-815b-b057db4ef054">&lt;/strong&gt;</ept> blade, click <bpt id="02e96689-a849-4ee3-abd2-926e5ca2fa98">&lt;strong&gt;</bpt>API app host<ept id="02e96689-a849-4ee3-abd2-926e5ca2fa98">&lt;/strong&gt;</ept> in the <bpt id="dcbfd236-3818-4a14-a118-f7f777041729">&lt;strong&gt;</bpt>API App<ept id="dcbfd236-3818-4a14-a118-f7f777041729">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="f528e1c8-3800-4fb3-ac10-7c399af48866" xml:space="preserve">
+          <source><bpt id="26a61e6c-63b1-4d25-9526-b39097de80d0">&lt;linkText&gt;</bpt><ept id="26a61e6c-63b1-4d25-9526-b39097de80d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="26a61e6c-63b1-4d25-9526-b39097de80d0">&lt;linkText&gt;</bpt><ept id="26a61e6c-63b1-4d25-9526-b39097de80d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69bf573b-e40f-4f0a-9250-007f016ad4bb" xml:space="preserve">
+          <source><bpt id="a530c099-0a47-4d84-bf32-89a99e16bca0">&lt;linkText&gt;</bpt><ept id="a530c099-0a47-4d84-bf32-89a99e16bca0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a530c099-0a47-4d84-bf32-89a99e16bca0">&lt;linkText&gt;</bpt><ept id="a530c099-0a47-4d84-bf32-89a99e16bca0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70847405-e69c-4154-839a-4dd22be59ad1" xml:space="preserve">
+          <source>To get to the <bpt id="ba5809d2-b2f6-475d-b482-583082dd6379">&lt;strong&gt;</bpt>Gateway<ept id="ba5809d2-b2f6-475d-b482-583082dd6379">&lt;/strong&gt;</ept> blade, click the <bpt id="e13980fd-1efc-4b01-ab6f-318fe32dc883">&lt;strong&gt;</bpt>Gateway<ept id="e13980fd-1efc-4b01-ab6f-318fe32dc883">&lt;/strong&gt;</ept> link in the <bpt id="bc8b8680-4fd7-49d0-9dd2-cb67b6ada345">&lt;strong&gt;</bpt>API App<ept id="bc8b8680-4fd7-49d0-9dd2-cb67b6ada345">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">To get to the <bpt id="ba5809d2-b2f6-475d-b482-583082dd6379">&lt;strong&gt;</bpt>Gateway<ept id="ba5809d2-b2f6-475d-b482-583082dd6379">&lt;/strong&gt;</ept> blade, click the <bpt id="e13980fd-1efc-4b01-ab6f-318fe32dc883">&lt;strong&gt;</bpt>Gateway<ept id="e13980fd-1efc-4b01-ab6f-318fe32dc883">&lt;/strong&gt;</ept> link in the <bpt id="bc8b8680-4fd7-49d0-9dd2-cb67b6ada345">&lt;strong&gt;</bpt>API App<ept id="bc8b8680-4fd7-49d0-9dd2-cb67b6ada345">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="ce593a9d-425f-41bc-88a9-c031f6309b63" xml:space="preserve">
+          <source><bpt id="c6c4a437-14c2-4def-9ed2-a6c35cacaacb">&lt;linkText&gt;</bpt><ept id="c6c4a437-14c2-4def-9ed2-a6c35cacaacb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c6c4a437-14c2-4def-9ed2-a6c35cacaacb">&lt;linkText&gt;</bpt><ept id="c6c4a437-14c2-4def-9ed2-a6c35cacaacb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f618bc3f-6027-4a99-8dee-768d5d44b51e" xml:space="preserve">
+          <source><bpt id="e42938ea-f1c0-41a9-9c74-b963afabed0a">&lt;linkText&gt;</bpt><ept id="e42938ea-f1c0-41a9-9c74-b963afabed0a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e42938ea-f1c0-41a9-9c74-b963afabed0a">&lt;linkText&gt;</bpt><ept id="e42938ea-f1c0-41a9-9c74-b963afabed0a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ddd4362-68ae-4392-8282-1b8d50c77cbd" xml:space="preserve">
+          <source>To get to the <bpt id="b7622d7a-1e12-49bd-b72d-2bc1a982a1e7">&lt;strong&gt;</bpt>Gateway Host<ept id="b7622d7a-1e12-49bd-b72d-2bc1a982a1e7">&lt;/strong&gt;</ept> blade, click the <bpt id="9f92931f-4e4a-48ea-86b3-822e4e75cb3c">&lt;strong&gt;</bpt>Gateway host<ept id="9f92931f-4e4a-48ea-86b3-822e4e75cb3c">&lt;/strong&gt;</ept> link in the <bpt id="fbc4b7b8-6b0c-4fcb-be89-adcc2575d9f4">&lt;strong&gt;</bpt>Gateway<ept id="fbc4b7b8-6b0c-4fcb-be89-adcc2575d9f4">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">To get to the <bpt id="b7622d7a-1e12-49bd-b72d-2bc1a982a1e7">&lt;strong&gt;</bpt>Gateway Host<ept id="b7622d7a-1e12-49bd-b72d-2bc1a982a1e7">&lt;/strong&gt;</ept> blade, click the <bpt id="9f92931f-4e4a-48ea-86b3-822e4e75cb3c">&lt;strong&gt;</bpt>Gateway host<ept id="9f92931f-4e4a-48ea-86b3-822e4e75cb3c">&lt;/strong&gt;</ept> link in the <bpt id="fbc4b7b8-6b0c-4fcb-be89-adcc2575d9f4">&lt;strong&gt;</bpt>Gateway<ept id="fbc4b7b8-6b0c-4fcb-be89-adcc2575d9f4">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="16ac8565-aa0d-4e3a-b2bf-e1469bb7a4b1" xml:space="preserve">
+          <source><bpt id="eb40ad95-4090-4904-9de7-7bf7bec620ff">&lt;linkText&gt;</bpt><ept id="eb40ad95-4090-4904-9de7-7bf7bec620ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb40ad95-4090-4904-9de7-7bf7bec620ff">&lt;linkText&gt;</bpt><ept id="eb40ad95-4090-4904-9de7-7bf7bec620ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8356040-9efe-4e2f-a06b-333e32fb408e" xml:space="preserve">
+          <source><bpt id="f8ad8a4a-5fce-4613-a1c5-955f78719220">&lt;linkText&gt;</bpt><ept id="f8ad8a4a-5fce-4613-a1c5-955f78719220">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8ad8a4a-5fce-4613-a1c5-955f78719220">&lt;linkText&gt;</bpt><ept id="f8ad8a4a-5fce-4613-a1c5-955f78719220">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b7c5dc9-0cc9-44bc-a0c4-77967888a091" xml:space="preserve">
+          <source>In <bpt id="5adfd2b2-bcb3-4469-ba1d-076a01615f70">&lt;strong&gt;</bpt>Server Explorer<ept id="5adfd2b2-bcb3-4469-ba1d-076a01615f70">&lt;/strong&gt;</ept> in Visual Studio you can start a remote debugging session, view streaming logs, and click a menu entry that opens the API app blade in the portal.</source>
+          <target state="new">In <bpt id="5adfd2b2-bcb3-4469-ba1d-076a01615f70">&lt;strong&gt;</bpt>Server Explorer<ept id="5adfd2b2-bcb3-4469-ba1d-076a01615f70">&lt;/strong&gt;</ept> in Visual Studio you can start a remote debugging session, view streaming logs, and click a menu entry that opens the API app blade in the portal.</target>
+        </trans-unit>
+        <trans-unit id="aad2b2e3-7909-4b9c-89cf-e79997c1337a" xml:space="preserve">
+          <source>To get to an API app in Server Explorer, click <bpt id="1a3b2f71-8162-488b-bc4f-6ee570e82984">&lt;strong&gt;</bpt>Azure &gt; App Service &gt; [the resource group name] &gt; [the API app name]<ept id="1a3b2f71-8162-488b-bc4f-6ee570e82984">&lt;/strong&gt;</ept>, as shown in the illustration.</source>
+          <target state="new">To get to an API app in Server Explorer, click <bpt id="1a3b2f71-8162-488b-bc4f-6ee570e82984">&lt;strong&gt;</bpt>Azure &gt; App Service &gt; [the resource group name] &gt; [the API app name]<ept id="1a3b2f71-8162-488b-bc4f-6ee570e82984">&lt;/strong&gt;</ept>, as shown in the illustration.</target>
+        </trans-unit>
+        <trans-unit id="070db197-90d5-4202-a3ed-7afea3fb89f4" xml:space="preserve">
+          <source><bpt id="3a50fccf-32b6-4e9c-afee-8119a26132d7">&lt;linkText&gt;</bpt><ept id="3a50fccf-32b6-4e9c-afee-8119a26132d7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a50fccf-32b6-4e9c-afee-8119a26132d7">&lt;linkText&gt;</bpt><ept id="3a50fccf-32b6-4e9c-afee-8119a26132d7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2db5160-4503-483b-94a6-91f645f05cc2" xml:space="preserve">
+          <source>This article has shown how to use the Azure portal to perform management tasks for API apps.</source>
+          <target state="new">This article has shown how to use the Azure portal to perform management tasks for API apps.</target>
+        </trans-unit>
+        <trans-unit id="b8a9b4dc-8b96-4da2-be5b-ea215f519a45" xml:space="preserve">
+          <source>For API apps that you install from the API app gallery, see also <bpt id="03ef0a54-a39a-4001-acaf-285479716859">&lt;linkText&gt;</bpt>Manage and monitor your built-in API apps and connectors<ept id="03ef0a54-a39a-4001-acaf-285479716859">&lt;/linkText&gt;</ept><bpt id="03ef0a54-a39a-4001-acaf-285479716859">&lt;title&gt;</bpt><ept id="03ef0a54-a39a-4001-acaf-285479716859">&lt;/title&gt;</ept>.</source>
+          <target state="new">For API apps that you install from the API app gallery, see also <bpt id="03ef0a54-a39a-4001-acaf-285479716859">&lt;linkText&gt;</bpt>Manage and monitor your built-in API apps and connectors<ept id="03ef0a54-a39a-4001-acaf-285479716859">&lt;/linkText&gt;</ept><bpt id="03ef0a54-a39a-4001-acaf-285479716859">&lt;title&gt;</bpt><ept id="03ef0a54-a39a-4001-acaf-285479716859">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a60a005-ffff-459f-bd26-03309db8b5eb" xml:space="preserve">
+          <source>For information about how to manage API apps by using the command line, see the articles in the <bpt id="874c4bf7-0a1e-4b50-a488-74aa29798e19">&lt;strong&gt;</bpt>Automate<ept id="874c4bf7-0a1e-4b50-a488-74aa29798e19">&lt;/strong&gt;</ept> section of the menu that appears on the left side of the article (on wide browser windows) or at the top of the article (on narrow browser windows).</source>
+          <target state="new">For information about how to manage API apps by using the command line, see the articles in the <bpt id="874c4bf7-0a1e-4b50-a488-74aa29798e19">&lt;strong&gt;</bpt>Automate<ept id="874c4bf7-0a1e-4b50-a488-74aa29798e19">&lt;/strong&gt;</ept> section of the menu that appears on the left side of the article (on wide browser windows) or at the top of the article (on narrow browser windows).</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

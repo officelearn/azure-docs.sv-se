@@ -1,0 +1,797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="eefac44b-61f4-46d0-87d5-f8cb8604d48a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="eefac44b-61f4-46d0-87d5-f8cb8604d48a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5966d42d-40e7-41fb-a824-eee41bd2d82e">
+        <trans-unit id="3e66de53-2c01-475e-ac94-ce5584f4c664" xml:space="preserve">
+          <source>Azure Mobile Engagement User Interface - Reach How To</source>
+          <target state="new">Azure Mobile Engagement User Interface - Reach How To</target>
+        </trans-unit>
+        <trans-unit id="28aa7e46-94e9-4df5-880c-0491dff4a5e9" xml:space="preserve">
+          <source>User Interface Overview for Azure Mobile Engagement</source>
+          <target state="new">User Interface Overview for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="5c703da8-f5d0-4456-baa3-f781c44a1b3b" xml:space="preserve">
+          <source>Once the SDK is fully integrated into your app, you can get started using the the Reach section of the UI to Push notifications to the users of your app.</source>
+          <target state="new">Once the SDK is fully integrated into your app, you can get started using the the Reach section of the UI to Push notifications to the users of your app.</target>
+        </trans-unit>
+        <trans-unit id="9fca1de4-1581-497a-8b97-ddd4a62bebaa" xml:space="preserve">
+          <source>Confirm that your Reach is integrated into your app with the SDK.</source>
+          <target state="new">Confirm that your Reach is integrated into your app with the SDK.</target>
+        </trans-unit>
+        <trans-unit id="aa50972d-23c5-45ab-b161-37aaf1b70649" xml:space="preserve">
+          <source>Select your application</source>
+          <target state="new">Select your application</target>
+        </trans-unit>
+        <trans-unit id="4ccb6e5a-93b5-4049-80ff-05dd22d52401" xml:space="preserve">
+          <source><bpt id="520b6ee0-0ec6-48c4-a79c-ed9c9db402b2">&lt;linkText&gt;</bpt>First1<ept id="520b6ee0-0ec6-48c4-a79c-ed9c9db402b2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="520b6ee0-0ec6-48c4-a79c-ed9c9db402b2">&lt;linkText&gt;</bpt>First1<ept id="520b6ee0-0ec6-48c4-a79c-ed9c9db402b2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c37e942d-5b84-4ccf-ba4e-3e5a66799700" xml:space="preserve">
+          <source>Go to the "Reach" Section and Click "New announcement"</source>
+          <target state="new">Go to the "Reach" Section and Click "New announcement"</target>
+        </trans-unit>
+        <trans-unit id="624dd26c-8921-44f8-8964-261f0ba83b08" xml:space="preserve">
+          <source><bpt id="10709657-7c1d-4119-a8e1-a0d4a2b4b2fe">&lt;linkText&gt;</bpt>First2<ept id="10709657-7c1d-4119-a8e1-a0d4a2b4b2fe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10709657-7c1d-4119-a8e1-a0d4a2b4b2fe">&lt;linkText&gt;</bpt>First2<ept id="10709657-7c1d-4119-a8e1-a0d4a2b4b2fe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ed91771-04bb-41d6-84e1-8f8a64077673" xml:space="preserve">
+          <source>Create a new campaign and name it</source>
+          <target state="new">Create a new campaign and name it</target>
+        </trans-unit>
+        <trans-unit id="99661694-fbc3-4158-a8e1-9461bf9cfead" xml:space="preserve">
+          <source><bpt id="53425e65-fcf5-46c6-b2c9-11c6550b89b9">&lt;linkText&gt;</bpt>First3<ept id="53425e65-fcf5-46c6-b2c9-11c6550b89b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="53425e65-fcf5-46c6-b2c9-11c6550b89b9">&lt;linkText&gt;</bpt>First3<ept id="53425e65-fcf5-46c6-b2c9-11c6550b89b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6748f44e-63af-4ba6-983a-b70553c5d4e0" xml:space="preserve">
+          <source>Select how the notification should be delivered, as In-app only</source>
+          <target state="new">Select how the notification should be delivered, as In-app only</target>
+        </trans-unit>
+        <trans-unit id="45bfc6eb-265a-4179-9e10-5d16d22daf87" xml:space="preserve">
+          <source><bpt id="480301cb-474d-4e2d-b408-3a9cc292a503">&lt;linkText&gt;</bpt>First4<ept id="480301cb-474d-4e2d-b408-3a9cc292a503">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="480301cb-474d-4e2d-b408-3a9cc292a503">&lt;linkText&gt;</bpt>First4<ept id="480301cb-474d-4e2d-b408-3a9cc292a503">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3480d655-6871-49b1-a9c6-abb49f670546" xml:space="preserve">
+          <source>Create the message you want to push</source>
+          <target state="new">Create the message you want to push</target>
+        </trans-unit>
+        <trans-unit id="e6bca7f4-6985-4221-abd4-40ba53ce79b0" xml:space="preserve">
+          <source><bpt id="6145b9c7-2e5b-4f48-809e-81d76cad8bf1">&lt;linkText&gt;</bpt>First5<ept id="6145b9c7-2e5b-4f48-809e-81d76cad8bf1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6145b9c7-2e5b-4f48-809e-81d76cad8bf1">&lt;linkText&gt;</bpt>First5<ept id="6145b9c7-2e5b-4f48-809e-81d76cad8bf1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01fa05ec-b0cf-4840-80b0-c0de5b950e88" xml:space="preserve">
+          <source>You may write a title on the notification (Optional).</source>
+          <target state="new">You may write a title on the notification (Optional).</target>
+        </trans-unit>
+        <trans-unit id="914eb99f-9b36-423f-978a-928d0a7c6c63" xml:space="preserve">
+          <source>Write push message content.</source>
+          <target state="new">Write push message content.</target>
+        </trans-unit>
+        <trans-unit id="2c72fc96-c94b-45d4-b816-0683621bc247" xml:space="preserve">
+          <source>You can upload an image.</source>
+          <target state="new">You can upload an image.</target>
+        </trans-unit>
+        <trans-unit id="8eee28ef-c342-469a-bf67-ad089e20eefb" xml:space="preserve">
+          <source>Be aware that the size of the file cannot exceed 32,768 bytes.</source>
+          <target state="new">Be aware that the size of the file cannot exceed 32,768 bytes.</target>
+        </trans-unit>
+        <trans-unit id="e11d4377-0db3-42ce-a45e-6a48e0664351" xml:space="preserve">
+          <source>You also have the ability to select further options, but for the focus of this tutorial, we will see that later.</source>
+          <target state="new">You also have the ability to select further options, but for the focus of this tutorial, we will see that later.</target>
+        </trans-unit>
+        <trans-unit id="e328a39d-9df8-4639-a4aa-afe16d14f801" xml:space="preserve">
+          <source>Select the content type as Notification only</source>
+          <target state="new">Select the content type as Notification only</target>
+        </trans-unit>
+        <trans-unit id="ab59081b-4857-4f5e-93d9-128c3531d4b5" xml:space="preserve">
+          <source><bpt id="e47e315b-41db-4839-baa5-27082c6473da">&lt;linkText&gt;</bpt>First6<ept id="e47e315b-41db-4839-baa5-27082c6473da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e47e315b-41db-4839-baa5-27082c6473da">&lt;linkText&gt;</bpt>First6<ept id="e47e315b-41db-4839-baa5-27082c6473da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b8f3402-f390-4e2f-83c1-b712dc881ca7" xml:space="preserve">
+          <source>Create your push campaign and it will appear in your campaign list.</source>
+          <target state="new">Create your push campaign and it will appear in your campaign list.</target>
+        </trans-unit>
+        <trans-unit id="ef8f45e5-7cba-4984-b9c1-cff517f8fe92" xml:space="preserve">
+          <source><bpt id="0123543a-9a46-4b56-b564-e6b02c7fe740">&lt;linkText&gt;</bpt>First7<ept id="0123543a-9a46-4b56-b564-e6b02c7fe740">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0123543a-9a46-4b56-b564-e6b02c7fe740">&lt;linkText&gt;</bpt>First7<ept id="0123543a-9a46-4b56-b564-e6b02c7fe740">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0326ad6-18c3-47c6-b01b-5a901329ece5" xml:space="preserve">
+          <source><bpt id="f55c714d-f5f3-48bd-b67d-4ce13a60af0a">&lt;linkText&gt;</bpt>Test1<ept id="f55c714d-f5f3-48bd-b67d-4ce13a60af0a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f55c714d-f5f3-48bd-b67d-4ce13a60af0a">&lt;linkText&gt;</bpt>Test1<ept id="f55c714d-f5f3-48bd-b67d-4ce13a60af0a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bec62274-e18d-4382-936d-f3fff370ef3b" xml:space="preserve">
+          <source>Register your device.</source>
+          <target state="new">Register your device.</target>
+        </trans-unit>
+        <trans-unit id="8383acd3-a755-455e-9084-cd5d6f2c2759" xml:space="preserve">
+          <source>Click on the checkbox of the device you want to push.</source>
+          <target state="new">Click on the checkbox of the device you want to push.</target>
+        </trans-unit>
+        <trans-unit id="05697387-9aba-4734-ba45-7d7eb3a48d31" xml:space="preserve">
+          <source>Click on the "Test" button to send the push to the device.</source>
+          <target state="new">Click on the "Test" button to send the push to the device.</target>
+        </trans-unit>
+        <trans-unit id="5189ca1c-16e6-469d-a89b-e16f0aeef6b1" xml:space="preserve">
+          <source><bpt id="1e2a2e59-f1ba-40cc-bd02-2976a11e12b9">&lt;linkText&gt;</bpt>Test2<ept id="1e2a2e59-f1ba-40cc-bd02-2976a11e12b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e2a2e59-f1ba-40cc-bd02-2976a11e12b9">&lt;linkText&gt;</bpt>Test2<ept id="1e2a2e59-f1ba-40cc-bd02-2976a11e12b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d63c3dd-dba2-4b43-993d-61eb8410aa71" xml:space="preserve">
+          <source>Activate the campaign</source>
+          <target state="new">Activate the campaign</target>
+        </trans-unit>
+        <trans-unit id="2272dd2c-a23f-44dd-9a6f-9cecf12f49cc" xml:space="preserve">
+          <source><bpt id="60c3dcdd-8a95-44bb-9df4-f48569d6edd0">&lt;linkText&gt;</bpt>Test3<ept id="60c3dcdd-8a95-44bb-9df4-f48569d6edd0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60c3dcdd-8a95-44bb-9df4-f48569d6edd0">&lt;linkText&gt;</bpt>Test3<ept id="60c3dcdd-8a95-44bb-9df4-f48569d6edd0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1005fee-640c-4911-9219-0c3f79465880" xml:space="preserve">
+          <source>Now that you have created your campaign you just need to activate it for the notification to be pushed to your users.</source>
+          <target state="new">Now that you have created your campaign you just need to activate it for the notification to be pushed to your users.</target>
+        </trans-unit>
+        <trans-unit id="483e360e-3492-4589-9759-fbf405dee6e7" xml:space="preserve">
+          <source>This example creates a push where a custom rebate code is entered into the push notification.</source>
+          <target state="new">This example creates a push where a custom rebate code is entered into the push notification.</target>
+        </trans-unit>
+        <trans-unit id="a90b4ba5-5d3f-4c46-bd43-04cad843635a" xml:space="preserve">
+          <source><bpt id="0185df47-4de6-4db0-8134-bbdb5fa04eeb">&lt;linkText&gt;</bpt>Personalize1<ept id="0185df47-4de6-4db0-8134-bbdb5fa04eeb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0185df47-4de6-4db0-8134-bbdb5fa04eeb">&lt;linkText&gt;</bpt>Personalize1<ept id="0185df47-4de6-4db0-8134-bbdb5fa04eeb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0089dbdb-427a-460e-9561-42df2fdfacd1" xml:space="preserve">
+          <source>Personalization works by replacing a marker by from an app info tag so, you'll have to make sure the user has the proper app-info defined first.</source>
+          <target state="new">Personalization works by replacing a marker by from an app info tag so, you'll have to make sure the user has the proper app-info defined first.</target>
+        </trans-unit>
+        <trans-unit id="430c2bd0-bd9b-4a9e-ba39-311d019034cb" xml:space="preserve">
+          <source>In this example the targeted users will have an app info tag named rebate_code defined.</source>
+          <target state="new">In this example the targeted users will have an app info tag named rebate_code defined.</target>
+        </trans-unit>
+        <trans-unit id="13efb61d-e449-4b40-9e14-3bf1271da15a" xml:space="preserve">
+          <source>As you see above the push notification content includes the marker ${rebate_code} which will indicate that it is to be replaced by the actual content of the app info tag.</source>
+          <target state="new">As you see above the push notification content includes the marker ${rebate_code} which will indicate that it is to be replaced by the actual content of the app info tag.</target>
+        </trans-unit>
+        <trans-unit id="32acd5af-7421-4da8-9f0d-c210aff0e45e" xml:space="preserve">
+          <source>Warning: If the app info tag is not defined for the user, the user will not receive the push.</source>
+          <target state="new">Warning: If the app info tag is not defined for the user, the user will not receive the push.</target>
+        </trans-unit>
+        <trans-unit id="adbca8bf-6c2d-4adf-b018-212f860edfee" xml:space="preserve">
+          <source>Result</source>
+          <target state="new">Result</target>
+        </trans-unit>
+        <trans-unit id="5cd59e16-50a5-4ffc-b824-0147e1e808c2" xml:space="preserve">
+          <source><bpt id="45881e3a-0821-4b8b-865a-1f3e57d7bb41">&lt;linkText&gt;</bpt>Personalize2<ept id="45881e3a-0821-4b8b-865a-1f3e57d7bb41">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="45881e3a-0821-4b8b-865a-1f3e57d7bb41">&lt;linkText&gt;</bpt>Personalize2<ept id="45881e3a-0821-4b8b-865a-1f3e57d7bb41">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd07a255-8727-40bf-8b99-7c2db67c4fbc" xml:space="preserve">
+          <source><bpt id="763ba163-abdc-493e-94dc-2557f6017bc8">&lt;linkText&gt;</bpt>Personalize3<ept id="763ba163-abdc-493e-94dc-2557f6017bc8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="763ba163-abdc-493e-94dc-2557f6017bc8">&lt;linkText&gt;</bpt>Personalize3<ept id="763ba163-abdc-493e-94dc-2557f6017bc8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03c3c009-b1be-4ed1-8173-c820acec974b" xml:space="preserve">
+          <source>Including the title of the notification,</source>
+          <target state="new">Including the title of the notification,</target>
+        </trans-unit>
+        <trans-unit id="bd42f1f1-c3d4-4709-811d-840f8955f8ec" xml:space="preserve">
+          <source>And the content of the message.</source>
+          <target state="new">And the content of the message.</target>
+        </trans-unit>
+        <trans-unit id="d2b7e826-7931-43d1-9096-9af6b08d16a9" xml:space="preserve">
+          <source>Choose the type of announcement (Text view or Web view)</source>
+          <target state="new">Choose the type of announcement (Text view or Web view)</target>
+        </trans-unit>
+        <trans-unit id="f6d4c7eb-9144-41f4-86bc-62e4ad2c95b1" xml:space="preserve">
+          <source><bpt id="deceb4d4-5a37-4ebb-b50e-f4ca2cc2b1c4">&lt;linkText&gt;</bpt>Personalize4<ept id="deceb4d4-5a37-4ebb-b50e-f4ca2cc2b1c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="deceb4d4-5a37-4ebb-b50e-f4ca2cc2b1c4">&lt;linkText&gt;</bpt>Personalize4<ept id="deceb4d4-5a37-4ebb-b50e-f4ca2cc2b1c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be94ad9b-64d2-4885-909c-23d861e752e4" xml:space="preserve">
+          <source>The action URL, should you want to customize the landing page</source>
+          <target state="new">The action URL, should you want to customize the landing page</target>
+        </trans-unit>
+        <trans-unit id="e55cd12a-0ba0-4dff-a2f9-564e0bac9aca" xml:space="preserve">
+          <source>The title,</source>
+          <target state="new">The title,</target>
+        </trans-unit>
+        <trans-unit id="bcdfd4d4-c979-4864-a0a5-9a5c2394efa5" xml:space="preserve">
+          <source>The body of the message.</source>
+          <target state="new">The body of the message.</target>
+        </trans-unit>
+        <trans-unit id="2a374a21-9d34-465f-a9e1-fd2b3831dfcf" xml:space="preserve">
+          <source>Choose the type of notification you will push, select your application, go to the "Reach" section, select or create a push campaign and go to the "Notification" section.</source>
+          <target state="new">Choose the type of notification you will push, select your application, go to the "Reach" section, select or create a push campaign and go to the "Notification" section.</target>
+        </trans-unit>
+        <trans-unit id="bb8467fa-dff5-458e-863c-003f0c80f98d" xml:space="preserve">
+          <source>Click on the "delivery mode" you want.</source>
+          <target state="new">Click on the "delivery mode" you want.</target>
+        </trans-unit>
+        <trans-unit id="0731813a-bf28-4b54-ae59-6ced42f861fe" xml:space="preserve">
+          <source>Click on the "Restrict Activities" checkbox when you want the notification occurs on specific activities (screens).</source>
+          <target state="new">Click on the "Restrict Activities" checkbox when you want the notification occurs on specific activities (screens).</target>
+        </trans-unit>
+        <trans-unit id="d596be43-7238-4f8f-8819-572f569bb8b5" xml:space="preserve">
+          <source><bpt id="0f1d139e-aa5a-420a-9070-78c7239dc058">&lt;linkText&gt;</bpt>Differentiate1<ept id="0f1d139e-aa5a-420a-9070-78c7239dc058">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f1d139e-aa5a-420a-9070-78c7239dc058">&lt;linkText&gt;</bpt>Differentiate1<ept id="0f1d139e-aa5a-420a-9070-78c7239dc058">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6256aec-1208-4b31-b13f-e4fec2e5c1f6" xml:space="preserve">
+          <source><bpt id="eec25040-bf41-465f-9849-1d6d45f43e40">&lt;linkText&gt;</bpt>Differentiate2<ept id="eec25040-bf41-465f-9849-1d6d45f43e40">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eec25040-bf41-465f-9849-1d6d45f43e40">&lt;linkText&gt;</bpt>Differentiate2<ept id="eec25040-bf41-465f-9849-1d6d45f43e40">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2781f28-c3ab-48f6-8a3e-a0f3003c8cab" xml:space="preserve">
+          <source>"Out of App Only" delivery mode provides push notification when the application is closed.</source>
+          <target state="new">"Out of App Only" delivery mode provides push notification when the application is closed.</target>
+        </trans-unit>
+        <trans-unit id="c167fc07-acc1-4495-9b29-f25f28cc3389" xml:space="preserve">
+          <source>This is the standard push notification.</source>
+          <target state="new">This is the standard push notification.</target>
+        </trans-unit>
+        <trans-unit id="56e1de37-d039-43c4-a0be-d13935c8a357" xml:space="preserve">
+          <source>When you select "out of app only" ,you must have already provided the certificates from the platform that your application is building on (APNS or GCM).</source>
+          <target state="new">When you select "out of app only" ,you must have already provided the certificates from the platform that your application is building on (APNS or GCM).</target>
+        </trans-unit>
+        <trans-unit id="05e04b69-0b85-40de-a2ea-67b5c0d5066e" xml:space="preserve">
+          <source><bpt id="0dcb3d0d-00c2-45d9-8c06-256329b6b7d1">&lt;linkText&gt;</bpt>Apple Push Notification Service – Certificates<ept id="0dcb3d0d-00c2-45d9-8c06-256329b6b7d1">&lt;/linkText&gt;</ept><bpt id="0dcb3d0d-00c2-45d9-8c06-256329b6b7d1">&lt;title&gt;</bpt><ept id="0dcb3d0d-00c2-45d9-8c06-256329b6b7d1">&lt;/title&gt;</ept>, Google Cloud Messaging – Certificate](http://developer.android.com/google/gcm/index.html) </source>
+          <target state="new"><bpt id="0dcb3d0d-00c2-45d9-8c06-256329b6b7d1">&lt;linkText&gt;</bpt>Apple Push Notification Service – Certificates<ept id="0dcb3d0d-00c2-45d9-8c06-256329b6b7d1">&lt;/linkText&gt;</ept><bpt id="0dcb3d0d-00c2-45d9-8c06-256329b6b7d1">&lt;title&gt;</bpt><ept id="0dcb3d0d-00c2-45d9-8c06-256329b6b7d1">&lt;/title&gt;</ept>, Google Cloud Messaging – Certificate](http://developer.android.com/google/gcm/index.html) </target>
+        </trans-unit>
+        <trans-unit id="5696bc6d-518d-4c27-91a2-c3f5324f9037" xml:space="preserve">
+          <source><bpt id="d5656e87-c053-49b3-b59d-2999c591914f">&lt;linkText&gt;</bpt>Differentiate3<ept id="d5656e87-c053-49b3-b59d-2999c591914f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d5656e87-c053-49b3-b59d-2999c591914f">&lt;linkText&gt;</bpt>Differentiate3<ept id="d5656e87-c053-49b3-b59d-2999c591914f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7827c35-4fa2-41bd-bf38-15af1351af9f" xml:space="preserve">
+          <source>"In-App Only" delivery mode provides push notification when the application is running.</source>
+          <target state="new">"In-App Only" delivery mode provides push notification when the application is running.</target>
+        </trans-unit>
+        <trans-unit id="dcfc3220-87dd-4624-a32b-4ddc43085954" xml:space="preserve">
+          <source>For this notification, you do not need to go through the APNS and GCM system.</source>
+          <target state="new">For this notification, you do not need to go through the APNS and GCM system.</target>
+        </trans-unit>
+        <trans-unit id="8c638f24-f81c-48de-a8f2-3bfcd73c9c8c" xml:space="preserve">
+          <source>You can use the in-app delivery system to reach your end-users.</source>
+          <target state="new">You can use the in-app delivery system to reach your end-users.</target>
+        </trans-unit>
+        <trans-unit id="5dd719ee-08d4-45d8-bde0-30381cbafc14" xml:space="preserve">
+          <source>You can fully customize the notification and decide in which activity (screen) the notification will appear.</source>
+          <target state="new">You can fully customize the notification and decide in which activity (screen) the notification will appear.</target>
+        </trans-unit>
+        <trans-unit id="5ba7cf8f-8918-4a78-8f94-08c376d7cd46" xml:space="preserve">
+          <source>You can choose an "Anytime" delivery mode, ensures you to reach your end-user whether the application is running or not.</source>
+          <target state="new">You can choose an "Anytime" delivery mode, ensures you to reach your end-user whether the application is running or not.</target>
+        </trans-unit>
+        <trans-unit id="ca45aee0-c0fb-4e76-b572-3d98df15c8a8" xml:space="preserve">
+          <source>When you select "Anytime" , you must have already provided the certificates from the platform that your application is building upon (APNS or GCM).</source>
+          <target state="new">When you select "Anytime" , you must have already provided the certificates from the platform that your application is building upon (APNS or GCM).</target>
+        </trans-unit>
+        <trans-unit id="b3b11429-8013-4a0f-b065-7d2afef77485" xml:space="preserve">
+          <source><bpt id="fbfcb3e9-6893-47ac-a986-f1d4194f3260">&lt;linkText&gt;</bpt>Shedule1<ept id="fbfcb3e9-6893-47ac-a986-f1d4194f3260">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fbfcb3e9-6893-47ac-a986-f1d4194f3260">&lt;linkText&gt;</bpt>Shedule1<ept id="fbfcb3e9-6893-47ac-a986-f1d4194f3260">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7214ccc-cf11-455d-ad29-bdd5a58d4218" xml:space="preserve">
+          <source>It is the 21st of March and you have an announcement to make and planed for the 22nd of March at midnight.</source>
+          <target state="new">It is the 21st of March and you have an announcement to make and planed for the 22nd of March at midnight.</target>
+        </trans-unit>
+        <trans-unit id="1ecb43b3-1580-436a-bbda-a56118082698" xml:space="preserve">
+          <source>You don’t have to stay in front of the interface to do a push!</source>
+          <target state="new">You don’t have to stay in front of the interface to do a push!</target>
+        </trans-unit>
+        <trans-unit id="fa20f54b-f087-4f1d-8d4d-ad28187a2576" xml:space="preserve">
+          <source>You can plan in advance the exact minute notifications will be sent.</source>
+          <target state="new">You can plan in advance the exact minute notifications will be sent.</target>
+        </trans-unit>
+        <trans-unit id="89003385-74c0-4662-8753-29a38f57550a" xml:space="preserve">
+          <source>Un-check the "None" checkbox and select a start time </source>
+          <target state="new">Un-check the "None" checkbox and select a start time </target>
+        </trans-unit>
+        <trans-unit id="b6494e82-c067-4717-8985-5b32eb03620b" xml:space="preserve">
+          <source>Choose the date and the time you want to start the push campaign.</source>
+          <target state="new">Choose the date and the time you want to start the push campaign.</target>
+        </trans-unit>
+        <trans-unit id="364db0d1-6f48-43c1-8bf8-71a10721d0df" xml:space="preserve">
+          <source><bpt id="48fe43e3-b0e5-4527-b460-fad531c8aa66">&lt;linkText&gt;</bpt>Shedule2<ept id="48fe43e3-b0e5-4527-b460-fad531c8aa66">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48fe43e3-b0e5-4527-b460-fad531c8aa66">&lt;linkText&gt;</bpt>Shedule2<ept id="48fe43e3-b0e5-4527-b460-fad531c8aa66">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7af47efb-abe4-44b1-8f7b-8f3c9388689b" xml:space="preserve">
+          <source>You want your campaign to stop on the 25th of March at 3.00 pm but you know you won't be there to do it.</source>
+          <target state="new">You want your campaign to stop on the 25th of March at 3.00 pm but you know you won't be there to do it.</target>
+        </trans-unit>
+        <trans-unit id="9b036be8-5329-487e-84f2-aac3fc1d724a" xml:space="preserve">
+          <source>You don’t have to stay in front of the interface to push!</source>
+          <target state="new">You don’t have to stay in front of the interface to push!</target>
+        </trans-unit>
+        <trans-unit id="a3c4faee-736c-45ef-adfa-92fa50cfbd08" xml:space="preserve">
+          <source>You can plan in advance the exact minute your campaign will stop.</source>
+          <target state="new">You can plan in advance the exact minute your campaign will stop.</target>
+        </trans-unit>
+        <trans-unit id="9ad7df18-5fb1-4aed-a821-fe7d8e7f8a4a" xml:space="preserve">
+          <source>Click on the "None" checkbox or select a end time</source>
+          <target state="new">Click on the "None" checkbox or select a end time</target>
+        </trans-unit>
+        <trans-unit id="b90da2dd-b5bb-4983-b15f-6d9885093415" xml:space="preserve">
+          <source>Choose the date and the time you want to finish the push campaign.</source>
+          <target state="new">Choose the date and the time you want to finish the push campaign.</target>
+        </trans-unit>
+        <trans-unit id="6ba9ac63-f32c-4bd2-8550-a11e0e318d8a" xml:space="preserve">
+          <source><bpt id="beaa838f-0298-4def-af96-1271e2cb5a9c">&lt;linkText&gt;</bpt>Shedule3<ept id="beaa838f-0298-4def-af96-1271e2cb5a9c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="beaa838f-0298-4def-af96-1271e2cb5a9c">&lt;linkText&gt;</bpt>Shedule3<ept id="beaa838f-0298-4def-af96-1271e2cb5a9c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a07be72e-041d-4b4e-ab3b-0f5d77247c00" xml:space="preserve">
+          <source>By default, the "None" check-boxes are selected.</source>
+          <target state="new">By default, the "None" check-boxes are selected.</target>
+        </trans-unit>
+        <trans-unit id="5dc85024-26a9-4c6a-a8d8-e41ac2a1f329" xml:space="preserve">
+          <source>This means that the campaign will start as soon as you activate it in the reach section and will end when you will stop it on the reach section.</source>
+          <target state="new">This means that the campaign will start as soon as you activate it in the reach section and will end when you will stop it on the reach section.</target>
+        </trans-unit>
+        <trans-unit id="fea95ad5-20c5-48a0-876c-01ce92e12ec1" xml:space="preserve">
+          <source>Note: Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.</source>
+          <target state="new">Note: Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.</target>
+        </trans-unit>
+        <trans-unit id="e6866239-9c4d-4943-9be1-10b0cfa4945b" xml:space="preserve">
+          <source><bpt id="78a2b73a-3135-437b-ba4d-ea9a10edf26b">&lt;linkText&gt;</bpt>TextView1<ept id="78a2b73a-3135-437b-ba4d-ea9a10edf26b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78a2b73a-3135-437b-ba4d-ea9a10edf26b">&lt;linkText&gt;</bpt>TextView1<ept id="78a2b73a-3135-437b-ba4d-ea9a10edf26b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e637671-62b6-445c-9c6a-4520b6af47e2" xml:space="preserve">
+          <source>A text view is a pop-up with text content.</source>
+          <target state="new">A text view is a pop-up with text content.</target>
+        </trans-unit>
+        <trans-unit id="b996c3fd-0dc3-419c-9089-6141bdfc4143" xml:space="preserve">
+          <source>This pop-up appears after the end-user has clicked on the push notification.</source>
+          <target state="new">This pop-up appears after the end-user has clicked on the push notification.</target>
+        </trans-unit>
+        <trans-unit id="01d5b9d7-7c15-434e-ae83-cde42ba61e20" xml:space="preserve">
+          <source>A text view allows you to present more content to your end-user.</source>
+          <target state="new">A text view allows you to present more content to your end-user.</target>
+        </trans-unit>
+        <trans-unit id="d1175759-20d3-40ac-a090-62239d663b91" xml:space="preserve">
+          <source>This is also the opportunity to present a call to action such as jumping to a page of your app, redirecting to a Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...</source>
+          <target state="new">This is also the opportunity to present a call to action such as jumping to a page of your app, redirecting to a Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...</target>
+        </trans-unit>
+        <trans-unit id="b06c7bac-6150-420d-a0ba-01ce471a985b" xml:space="preserve">
+          <source>Create your Push notification campaign in the "Reach" section and give your campaign a name</source>
+          <target state="new">Create your Push notification campaign in the "Reach" section and give your campaign a name</target>
+        </trans-unit>
+        <trans-unit id="08ae97b8-8b92-41f0-9edf-6326e5bbbcbf" xml:space="preserve">
+          <source><bpt id="0413f575-2c77-4346-9c0a-d1d8a8244bff">&lt;linkText&gt;</bpt>TextView2<ept id="0413f575-2c77-4346-9c0a-d1d8a8244bff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0413f575-2c77-4346-9c0a-d1d8a8244bff">&lt;linkText&gt;</bpt>TextView2<ept id="0413f575-2c77-4346-9c0a-d1d8a8244bff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f19a2a1-8145-443e-a295-26a10437f419" xml:space="preserve">
+          <source>Write the message that will appear on the notification.</source>
+          <target state="new">Write the message that will appear on the notification.</target>
+        </trans-unit>
+        <trans-unit id="d5a07f64-0c7f-4462-a0db-940dc0375a0b" xml:space="preserve">
+          <source>Select the Announcement Content Type of “text”</source>
+          <target state="new">Select the Announcement Content Type of “text”</target>
+        </trans-unit>
+        <trans-unit id="02786942-5c42-4f47-9d0b-e1c992afd7ea" xml:space="preserve">
+          <source><bpt id="06ecbb95-8583-45d1-811b-fd61099cf6ba">&lt;linkText&gt;</bpt>TextView3<ept id="06ecbb95-8583-45d1-811b-fd61099cf6ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06ecbb95-8583-45d1-811b-fd61099cf6ba">&lt;linkText&gt;</bpt>TextView3<ept id="06ecbb95-8583-45d1-811b-fd61099cf6ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f10ec43a-f1d1-498a-b4cb-78226d403943" xml:space="preserve">
+          <source>Note: when you push a text view, it always comes with a notification first.</source>
+          <target state="new">Note: when you push a text view, it always comes with a notification first.</target>
+        </trans-unit>
+        <trans-unit id="56950be1-da32-4569-bb59-c2542c50f417" xml:space="preserve">
+          <source>Define the text (After having selected the text announcement content, the sub-section will appear, allowing you to define the text you want to be displayed.)</source>
+          <target state="new">Define the text (After having selected the text announcement content, the sub-section will appear, allowing you to define the text you want to be displayed.)</target>
+        </trans-unit>
+        <trans-unit id="29fbac6e-bbd4-497f-b52f-7dd32e52a8c7" xml:space="preserve">
+          <source><bpt id="dd2266a3-97da-4e9c-a618-1aedbc6ba9eb">&lt;linkText&gt;</bpt>TextView4<ept id="dd2266a3-97da-4e9c-a618-1aedbc6ba9eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dd2266a3-97da-4e9c-a618-1aedbc6ba9eb">&lt;linkText&gt;</bpt>TextView4<ept id="dd2266a3-97da-4e9c-a618-1aedbc6ba9eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="415f63cf-0650-49ea-9d16-74ce53877ddf" xml:space="preserve">
+          <source>Write the title that will appear at the top of the message.</source>
+          <target state="new">Write the title that will appear at the top of the message.</target>
+        </trans-unit>
+        <trans-unit id="97c58cf8-91d2-4ead-a148-3238a53a2f46" xml:space="preserve">
+          <source>Write the main content of the text view.</source>
+          <target state="new">Write the main content of the text view.</target>
+        </trans-unit>
+        <trans-unit id="06a177a2-d4a4-4a54-ae72-31fb97caafd5" xml:space="preserve">
+          <source>Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to an App store or any kind of sources you can provide).</source>
+          <target state="new">Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to an App store or any kind of sources you can provide).</target>
+        </trans-unit>
+        <trans-unit id="af746a5f-a666-40fc-955c-50fe1bc8af33" xml:space="preserve">
+          <source>Write the content that will appear on the exit button (by clicking on the exit button, the text view will disappear.)</source>
+          <target state="new">Write the content that will appear on the exit button (by clicking on the exit button, the text view will disappear.)</target>
+        </trans-unit>
+        <trans-unit id="a6fbdeb4-bccb-45e0-ae5e-44919ba2926c" xml:space="preserve">
+          <source>Create your push notification campaign and it will appear on the campaign list.</source>
+          <target state="new">Create your push notification campaign and it will appear on the campaign list.</target>
+        </trans-unit>
+        <trans-unit id="b5dbe7c2-726c-446a-97d7-0ada9a3245c3" xml:space="preserve">
+          <source><bpt id="c5b80e64-94f9-477c-86ba-1affd3aecf93">&lt;linkText&gt;</bpt>TextView5<ept id="c5b80e64-94f9-477c-86ba-1affd3aecf93">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c5b80e64-94f9-477c-86ba-1affd3aecf93">&lt;linkText&gt;</bpt>TextView5<ept id="c5b80e64-94f9-477c-86ba-1affd3aecf93">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e47f9f7-0e31-47eb-94e2-8780e3df0604" xml:space="preserve">
+          <source>Activate your push notification campaign to send the text view to your users.</source>
+          <target state="new">Activate your push notification campaign to send the text view to your users.</target>
+        </trans-unit>
+        <trans-unit id="9a439abc-0ed6-471f-bb11-e448c8badaea" xml:space="preserve">
+          <source><bpt id="09758d1c-1bf3-430f-b76a-3a5b27d03503">&lt;linkText&gt;</bpt>TextView6<ept id="09758d1c-1bf3-430f-b76a-3a5b27d03503">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09758d1c-1bf3-430f-b76a-3a5b27d03503">&lt;linkText&gt;</bpt>TextView6<ept id="09758d1c-1bf3-430f-b76a-3a5b27d03503">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8f6f786-46ed-4bfd-a0bb-e0ea5792cc94" xml:space="preserve">
+          <source>Result</source>
+          <target state="new">Result</target>
+        </trans-unit>
+        <trans-unit id="d273f8bd-180d-4684-bc3d-b894a828787b" xml:space="preserve">
+          <source><bpt id="c4ca828b-6f19-41d0-a41f-7ec73254d08f">&lt;linkText&gt;</bpt>TextView7<ept id="c4ca828b-6f19-41d0-a41f-7ec73254d08f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c4ca828b-6f19-41d0-a41f-7ec73254d08f">&lt;linkText&gt;</bpt>TextView7<ept id="c4ca828b-6f19-41d0-a41f-7ec73254d08f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="363e6809-1a53-4903-b4cc-62031b52a8e6" xml:space="preserve">
+          <source>The user receives the notification and click on it.</source>
+          <target state="new">The user receives the notification and click on it.</target>
+        </trans-unit>
+        <trans-unit id="094e2dd6-bdcb-4959-84fc-85c3e4753f34" xml:space="preserve">
+          <source>The text view appears as a pop-up allowing the user to interact with it.</source>
+          <target state="new">The text view appears as a pop-up allowing the user to interact with it.</target>
+        </trans-unit>
+        <trans-unit id="65bb6e20-714b-46e9-9330-9a3f4a6c34e2" xml:space="preserve">
+          <source><bpt id="5a6fb699-ee9c-4d5c-b310-a412d59528c9">&lt;linkText&gt;</bpt>WebView1<ept id="5a6fb699-ee9c-4d5c-b310-a412d59528c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a6fb699-ee9c-4d5c-b310-a412d59528c9">&lt;linkText&gt;</bpt>WebView1<ept id="5a6fb699-ee9c-4d5c-b310-a412d59528c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9e8cb4a-0e04-4dcf-8a82-95a9bc6fc8a8" xml:space="preserve">
+          <source>A web view is a pop-up with web content.</source>
+          <target state="new">A web view is a pop-up with web content.</target>
+        </trans-unit>
+        <trans-unit id="75fe1648-e9fa-427b-a14d-b65ef0e9f541" xml:space="preserve">
+          <source>This pop-up appears when the end-user has clicked on the push notification.</source>
+          <target state="new">This pop-up appears when the end-user has clicked on the push notification.</target>
+        </trans-unit>
+        <trans-unit id="44e187e6-baf9-4848-995d-d64a5aa8895b" xml:space="preserve">
+          <source>A web view allows you to have more interaction with the end-user.</source>
+          <target state="new">A web view allows you to have more interaction with the end-user.</target>
+        </trans-unit>
+        <trans-unit id="eecd64fb-cfb9-4ba7-b440-263950fbdd44" xml:space="preserve">
+          <source>This is also the opportunity to present a call to action such as redirection to App Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...</source>
+          <target state="new">This is also the opportunity to present a call to action such as redirection to App Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...</target>
+        </trans-unit>
+        <trans-unit id="62ce9d46-7333-40b0-9790-a7a8a8726a4d" xml:space="preserve">
+          <source>Create your Push campaign in the "Reach" section and give your campaign a name.</source>
+          <target state="new">Create your Push campaign in the "Reach" section and give your campaign a name.</target>
+        </trans-unit>
+        <trans-unit id="e214fdb6-9c8c-411a-9637-c15b18a00fd6" xml:space="preserve">
+          <source><bpt id="3df9731a-c98d-4e01-96ee-b6ec240fa9a3">&lt;linkText&gt;</bpt>WebView2<ept id="3df9731a-c98d-4e01-96ee-b6ec240fa9a3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3df9731a-c98d-4e01-96ee-b6ec240fa9a3">&lt;linkText&gt;</bpt>WebView2<ept id="3df9731a-c98d-4e01-96ee-b6ec240fa9a3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8599147b-d582-4fc4-8a1a-771a9b384531" xml:space="preserve">
+          <source>Write the message that will appear on the notification.</source>
+          <target state="new">Write the message that will appear on the notification.</target>
+        </trans-unit>
+        <trans-unit id="58abcf15-1112-40d1-bd8b-f994c601eb0a" xml:space="preserve">
+          <source>Select the Announcement Content Type as “web”</source>
+          <target state="new">Select the Announcement Content Type as “web”</target>
+        </trans-unit>
+        <trans-unit id="edeaac3e-7189-4a5e-8764-266741bb49b7" xml:space="preserve">
+          <source><bpt id="3f435eba-ca3e-4d68-b38a-93b294338f2e">&lt;linkText&gt;</bpt>WebView3<ept id="3f435eba-ca3e-4d68-b38a-93b294338f2e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3f435eba-ca3e-4d68-b38a-93b294338f2e">&lt;linkText&gt;</bpt>WebView3<ept id="3f435eba-ca3e-4d68-b38a-93b294338f2e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="812134bf-d878-4518-87b1-a3725b79151e" xml:space="preserve">
+          <source>Notification only: It is a simple standard notification.</source>
+          <target state="new">Notification only: It is a simple standard notification.</target>
+        </trans-unit>
+        <trans-unit id="97080dd5-745d-4865-97b9-7e0e5742948e" xml:space="preserve">
+          <source>Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.</source>
+          <target state="new">Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.</target>
+        </trans-unit>
+        <trans-unit id="7c436ab5-6c2d-439c-b77b-ffccf8ee922d" xml:space="preserve">
+          <source>Text announcement: It is a notification that engages the user to have a look at a text view.</source>
+          <target state="new">Text announcement: It is a notification that engages the user to have a look at a text view.</target>
+        </trans-unit>
+        <trans-unit id="d70be20c-0e96-41b2-8254-9a4559b69794" xml:space="preserve">
+          <source>Web announcement: It is a notification that engages the user to have a look at a web view.</source>
+          <target state="new">Web announcement: It is a notification that engages the user to have a look at a web view.</target>
+        </trans-unit>
+        <trans-unit id="3e9a25a8-46f0-417e-a81c-91fbc67dfa0a" xml:space="preserve">
+          <source>Select the "Web announcement" content.</source>
+          <target state="new">Select the "Web announcement" content.</target>
+        </trans-unit>
+        <trans-unit id="2870caae-66f7-4af3-9705-4d159cbb7d55" xml:space="preserve">
+          <source>Note: When you push a web view, it always comes with a notification first.</source>
+          <target state="new">Note: When you push a web view, it always comes with a notification first.</target>
+        </trans-unit>
+        <trans-unit id="8fb27cd9-9fab-4dfd-88ca-aaf3f934e04d" xml:space="preserve">
+          <source>Define the web content (After having selected the web announcement content, the subsection will appear, allowing you to define the web view content you want to be displayed.)</source>
+          <target state="new">Define the web content (After having selected the web announcement content, the subsection will appear, allowing you to define the web view content you want to be displayed.)</target>
+        </trans-unit>
+        <trans-unit id="c16f37ec-ca64-4241-a0ad-0bac2edbea9e" xml:space="preserve">
+          <source><bpt id="8e541399-034e-4850-84cb-40f7ef5dd289">&lt;linkText&gt;</bpt>WebView4<ept id="8e541399-034e-4850-84cb-40f7ef5dd289">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8e541399-034e-4850-84cb-40f7ef5dd289">&lt;linkText&gt;</bpt>WebView4<ept id="8e541399-034e-4850-84cb-40f7ef5dd289">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a618d6ad-e273-4445-b9ff-e950c1d893f2" xml:space="preserve">
+          <source>Write the title that will appear at the top of the message (optional).</source>
+          <target state="new">Write the title that will appear at the top of the message (optional).</target>
+        </trans-unit>
+        <trans-unit id="a31e4586-abbf-478c-afaa-91b0b90b4ad9" xml:space="preserve">
+          <source>Write your HTML code here.</source>
+          <target state="new">Write your HTML code here.</target>
+        </trans-unit>
+        <trans-unit id="2da7d0d5-4602-4c5f-99ce-d0246940ca2c" xml:space="preserve">
+          <source>Click on the source editing mode button to switch edition and see how it looks like.</source>
+          <target state="new">Click on the source editing mode button to switch edition and see how it looks like.</target>
+        </trans-unit>
+        <trans-unit id="5755aa5b-d588-4edb-bc0f-65f54d59c0db" xml:space="preserve">
+          <source>Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to a Store or any kind of sources you can provide).</source>
+          <target state="new">Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to a Store or any kind of sources you can provide).</target>
+        </trans-unit>
+        <trans-unit id="d99eee84-be89-41b5-8af2-421d9aebcfd7" xml:space="preserve">
+          <source>Write the content that will appear on the exit button (by clicking on the exit button, the web view will disappear).</source>
+          <target state="new">Write the content that will appear on the exit button (by clicking on the exit button, the web view will disappear).</target>
+        </trans-unit>
+        <trans-unit id="77c8cddb-6073-4cf6-a37b-de0911378213" xml:space="preserve">
+          <source>Result</source>
+          <target state="new">Result</target>
+        </trans-unit>
+        <trans-unit id="75cc7210-0a6b-45f0-b88c-876e4cbc44a6" xml:space="preserve">
+          <source><bpt id="1b712018-2355-413c-b179-641a94e8ef01">&lt;linkText&gt;</bpt>WebView5<ept id="1b712018-2355-413c-b179-641a94e8ef01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b712018-2355-413c-b179-641a94e8ef01">&lt;linkText&gt;</bpt>WebView5<ept id="1b712018-2355-413c-b179-641a94e8ef01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6c7d6d6-9ba9-4a86-94c1-2b591a58951d" xml:space="preserve">
+          <source>The user receive the notification and click on it.</source>
+          <target state="new">The user receive the notification and click on it.</target>
+        </trans-unit>
+        <trans-unit id="de4ca684-785a-4c29-8c3b-fb00746ebae0" xml:space="preserve">
+          <source>The text view appears as a pop-up allowing the user to interact with it.</source>
+          <target state="new">The text view appears as a pop-up allowing the user to interact with it.</target>
+        </trans-unit>
+        <trans-unit id="2da5686d-f614-445c-8c2e-7d2785f5f84f" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/First1.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/First1.png</target>
+        </trans-unit>
+        <trans-unit id="abafdd10-1ff9-4c45-9bc0-8beb6fed3208" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/First2.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/First2.png</target>
+        </trans-unit>
+        <trans-unit id="f5eafc23-69f9-4879-88e4-a2698ca39aab" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/First3.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/First3.png</target>
+        </trans-unit>
+        <trans-unit id="92df3487-0442-4a8a-bcca-3c78302ef155" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/First4.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/First4.png</target>
+        </trans-unit>
+        <trans-unit id="b65356f2-b86c-4de6-94af-f7d48a486c83" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/First5.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/First5.png</target>
+        </trans-unit>
+        <trans-unit id="3dde0cc6-c896-49ad-bf90-a394d4c1e81e" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/First6.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/First6.png</target>
+        </trans-unit>
+        <trans-unit id="2e1505f0-e452-4ecb-a511-e4a4903aa453" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/First7.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/First7.png</target>
+        </trans-unit>
+        <trans-unit id="fc5c58c4-f906-436a-9ccd-c570854e3194" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Test1.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Test1.png</target>
+        </trans-unit>
+        <trans-unit id="d16822da-0bba-43ae-9ee9-73c4b0b94034" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Test2.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Test2.png</target>
+        </trans-unit>
+        <trans-unit id="0bfe62a0-6f8e-478b-b6c9-85ccff9f9548" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Test3.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Test3.png</target>
+        </trans-unit>
+        <trans-unit id="f18b6ed6-80c8-4b8a-b798-9df3d7d43a5d" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Personalize1.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Personalize1.png</target>
+        </trans-unit>
+        <trans-unit id="acf0fbdb-0ade-4390-856d-5980161fdbd8" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Personalize2.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Personalize2.png</target>
+        </trans-unit>
+        <trans-unit id="ac6243d0-273e-4e5d-b1ba-9c6f0428d197" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Personalize3.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Personalize3.png</target>
+        </trans-unit>
+        <trans-unit id="1884c63a-a47c-48cd-b3e7-8c830ee3de11" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Personalize4.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Personalize4.png</target>
+        </trans-unit>
+        <trans-unit id="89369edd-96b4-49a9-96e6-5d22685edb85" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Differentiate1.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Differentiate1.png</target>
+        </trans-unit>
+        <trans-unit id="54662c8b-d7c9-4408-a2e1-50b239c85809" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Differentiate2.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Differentiate2.png</target>
+        </trans-unit>
+        <trans-unit id="12855d60-d544-412f-bdca-0163584e6797" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Differentiate3.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Differentiate3.png</target>
+        </trans-unit>
+        <trans-unit id="a3c816b8-71d9-4ef1-a1d0-4681ea315d42" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Schedule1.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Schedule1.png</target>
+        </trans-unit>
+        <trans-unit id="e6132a78-1f7d-471a-be30-1d4edf540834" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Schedule2.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Schedule2.png</target>
+        </trans-unit>
+        <trans-unit id="7bbfabd2-3706-48ad-9443-63f97b9d5ae3" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/Schedule3.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/Schedule3.png</target>
+        </trans-unit>
+        <trans-unit id="050dc69f-2172-4ae5-a221-1e57b3410b6f" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/TextView1.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/TextView1.png</target>
+        </trans-unit>
+        <trans-unit id="5716cc3e-4b1d-4cb4-8bb6-f536bf08b659" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/TextView2.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/TextView2.png</target>
+        </trans-unit>
+        <trans-unit id="4f17e72a-d552-4938-b732-68ec39d5d2f6" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/TextView3.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/TextView3.png</target>
+        </trans-unit>
+        <trans-unit id="abf5f837-9bf0-433a-9eca-fd23acc97519" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/TextView4.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/TextView4.png</target>
+        </trans-unit>
+        <trans-unit id="a80ff814-6417-459c-90c7-cfb3c7470ad2" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/TextView5.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/TextView5.png</target>
+        </trans-unit>
+        <trans-unit id="12b138af-ac6d-4e55-bda7-6216c443a9f1" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/TextView6.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/TextView6.png</target>
+        </trans-unit>
+        <trans-unit id="324582a8-86b0-48ca-9f1f-19f816c9d694" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/TextView7.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/TextView7.png</target>
+        </trans-unit>
+        <trans-unit id="6bc36831-d5b6-465f-8245-361d5ddef9c9" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/WebView1.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/WebView1.png</target>
+        </trans-unit>
+        <trans-unit id="c5422f28-c519-4ac5-9e69-b79da32715a0" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/WebView2.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/WebView2.png</target>
+        </trans-unit>
+        <trans-unit id="97a4c05e-9ebb-4ec0-80a7-5134ced3db88" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/WebView3.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/WebView3.png</target>
+        </trans-unit>
+        <trans-unit id="75ab4cb7-1973-4c9a-a666-de4e01f1eaf1" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/WebView4.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/WebView4.png</target>
+        </trans-unit>
+        <trans-unit id="9cb67861-5049-44ff-8e01-999fe77645bc" xml:space="preserve">
+          <source>./media/mobile-engagement-how-tos/WebView5.png</source>
+          <target state="new">./media/mobile-engagement-how-tos/WebView5.png</target>
+        </trans-unit>
+        <trans-unit id="0ba2887c-f9ef-4f87-a424-b0f73a024e4f" xml:space="preserve">
+          <source>mobile-engagement-user-interface.md</source>
+          <target state="new">mobile-engagement-user-interface.md</target>
+        </trans-unit>
+        <trans-unit id="88a11089-de5c-41fe-b39c-38e04454a140" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide.md</target>
+        </trans-unit>
+        <trans-unit id="842c7808-f13f-4f77-b2c1-a2a35ec0ca57" xml:space="preserve">
+          <source>mobile-engagement-how-tos.md</source>
+          <target state="new">mobile-engagement-how-tos.md</target>
+        </trans-unit>
+        <trans-unit id="ac4446ec-c605-4631-b323-9bf75ebdc74f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525553</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525553</target>
+        </trans-unit>
+        <trans-unit id="dcbdb4b0-e99b-4fad-8d53-1b5de9d7c5b1" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525554</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525554</target>
+        </trans-unit>
+        <trans-unit id="90c3bbb0-2eb0-4779-b551-21fb864fa637" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=525555</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=525555</target>
+        </trans-unit>
+        <trans-unit id="2992cdc6-b2c1-4912-b3f0-7351ca18c6e5" xml:space="preserve">
+          <source>https://account.windowsazure.com/PreviewFeatures</source>
+          <target state="new">https://account.windowsazure.com/PreviewFeatures</target>
+        </trans-unit>
+        <trans-unit id="ce9c9096-90e7-4887-bfe1-50efc3e1ad7c" xml:space="preserve">
+          <source>https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement</source>
+          <target state="new">https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement</target>
+        </trans-unit>
+        <trans-unit id="752d0614-04aa-409d-9534-676bb9fb5640" xml:space="preserve">
+          <source>http://azure.microsoft.com/services/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/services/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="f631a998-10c8-441b-bb10-497d2ac7c9fd" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/services/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/documentation/services/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="006d86dc-767b-4e95-8411-66f8574b1cc6" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/details/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/pricing/details/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="a6cce9fb-54be-4c7f-a539-4473b36aafe4" xml:space="preserve">
+          <source>mobile-engagement-user-interface-navigation.md</source>
+          <target state="new">mobile-engagement-user-interface-navigation.md</target>
+        </trans-unit>
+        <trans-unit id="2bbb4ee4-95f8-48a1-85e6-7ecb59b96d89" xml:space="preserve">
+          <source>mobile-engagement-user-interface-home.md</source>
+          <target state="new">mobile-engagement-user-interface-home.md</target>
+        </trans-unit>
+        <trans-unit id="d267a4fb-0911-4d16-95e4-56293709eef3" xml:space="preserve">
+          <source>mobile-engagement-user-interface-my-account.md</source>
+          <target state="new">mobile-engagement-user-interface-my-account.md</target>
+        </trans-unit>
+        <trans-unit id="f2b69e9d-66c4-4306-ad5a-e42c01d2c184" xml:space="preserve">
+          <source>mobile-engagement-user-interface-analytics.md</source>
+          <target state="new">mobile-engagement-user-interface-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="54512fca-a527-4abc-a0d8-285568e896bd" xml:space="preserve">
+          <source>mobile-engagement-user-interface-monitor.md</source>
+          <target state="new">mobile-engagement-user-interface-monitor.md</target>
+        </trans-unit>
+        <trans-unit id="e57cdda0-1881-4885-b2b2-158a9d9c48e3" xml:space="preserve">
+          <source>mobile-engagement-user-interface-reach.md</source>
+          <target state="new">mobile-engagement-user-interface-reach.md</target>
+        </trans-unit>
+        <trans-unit id="0c0680ed-6ac0-4f23-8b9b-72a1e03b70fb" xml:space="preserve">
+          <source>mobile-engagement-user-interface-segments.md</source>
+          <target state="new">mobile-engagement-user-interface-segments.md</target>
+        </trans-unit>
+        <trans-unit id="1d164c2d-2c80-45ab-9375-64e46584f73c" xml:space="preserve">
+          <source>mobile-engagement-user-interface-dashboard.md</source>
+          <target state="new">mobile-engagement-user-interface-dashboard.md</target>
+        </trans-unit>
+        <trans-unit id="12b8a190-5cbe-4508-ba6b-9d8afaea85ae" xml:space="preserve">
+          <source>mobile-engagement-user-interface-settings.md</source>
+          <target state="new">mobile-engagement-user-interface-settings.md</target>
+        </trans-unit>
+        <trans-unit id="5c3265fa-ab27-4739-9e39-aab6f5ba7941" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-analytics.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="a8db871b-7323-4438-8c38-319800cfa28f" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-apis.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-apis.md</target>
+        </trans-unit>
+        <trans-unit id="eacf12fd-41cc-40ae-bc6f-6488a144e422" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-push-reach.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-push-reach.md</target>
+        </trans-unit>
+        <trans-unit id="8621b2b9-0c2d-4b56-9864-345da6837370" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-service.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-service.md</target>
+        </trans-unit>
+        <trans-unit id="62d8731a-e1bd-42f4-b440-a9eb1ac64e63" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-sdk.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-sdk.md</target>
+        </trans-unit>
+        <trans-unit id="00565c2a-e690-4a52-b36c-c28eb759bae7" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-sr-info.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-sr-info.md</target>
+        </trans-unit>
+        <trans-unit id="9415de21-7125-41a4-abb2-01e4fdd9c895" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-first-push.md</source>
+          <target state="new">../mobile-engagement-how-tos-first-push.md</target>
+        </trans-unit>
+        <trans-unit id="c4ad028e-2fd4-44f7-a641-9f6b8a10b4a3" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-test-campaign.md</source>
+          <target state="new">../mobile-engagement-how-tos-test-campaign.md</target>
+        </trans-unit>
+        <trans-unit id="a918c743-5c57-47ce-ad25-228aba7ee3a0" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-personalize-push.md</source>
+          <target state="new">../mobile-engagement-how-tos-personalize-push.md</target>
+        </trans-unit>
+        <trans-unit id="9c186c07-0406-4341-9fee-2100d276b997" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-differentiate-push.md</source>
+          <target state="new">../mobile-engagement-how-tos-differentiate-push.md</target>
+        </trans-unit>
+        <trans-unit id="4bab313d-b0fa-45b1-8079-c02da094e832" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-schedule-campaign.md</source>
+          <target state="new">../mobile-engagement-how-tos-schedule-campaign.md</target>
+        </trans-unit>
+        <trans-unit id="25481d6d-a675-4daf-ba9e-0a51f0873778" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-text-view.md</source>
+          <target state="new">../mobile-engagement-how-tos-text-view.md</target>
+        </trans-unit>
+        <trans-unit id="4c413d88-5a14-43f9-9d55-c466ed633027" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-web-view.md</source>
+          <target state="new">../mobile-engagement-how-tos-web-view.md</target>
+        </trans-unit>
+      </group>
+      <group id="0d50d436-3d9e-4454-9ef6-c27584e67353" />
+    </body>
+  </file>
+</xliff>

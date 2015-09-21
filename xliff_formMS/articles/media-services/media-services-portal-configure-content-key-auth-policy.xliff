@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b70bd903-5b87-44e5-ba49-dcee5a582f77" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b70bd903-5b87-44e5-ba49-dcee5a582f77" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cd1c9796-a30f-4002-9c65-5372b2305f45">
+        <trans-unit id="9482969c-eb71-48bc-8d17-ecdcfa36fb3b" xml:space="preserve">
+          <source>Configure Content Key Authorization Policy using Portal</source>
+          <target state="new">Configure Content Key Authorization Policy using Portal</target>
+        </trans-unit>
+        <trans-unit id="7b571ac4-d181-4f4a-b0e0-b38e48afd813" xml:space="preserve">
+          <source>Learn how to configure an authorization policy for a content key.</source>
+          <target state="new">Learn how to configure an authorization policy for a content key.</target>
+        </trans-unit>
+        <trans-unit id="82f5f383-1de4-4760-ac4f-afce5a3eef80" xml:space="preserve">
+          <source><bpt id="337eab20-f0a1-4bc8-8091-7645274766a2">&lt;token href="../../includes/media-services-selector-content-key-auth-policy.md"&gt;</bpt><ept id="337eab20-f0a1-4bc8-8091-7645274766a2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="337eab20-f0a1-4bc8-8091-7645274766a2">&lt;token href="../../includes/media-services-selector-content-key-auth-policy.md"&gt;</bpt><ept id="337eab20-f0a1-4bc8-8091-7645274766a2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cba5cec-d502-47c5-bee7-6a80edc9da7d" xml:space="preserve">
+          <source>Microsoft Azure Media Services enables you to deliver your content encrypted with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM.</source>
+          <target state="new">Microsoft Azure Media Services enables you to deliver your content encrypted with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM.</target>
+        </trans-unit>
+        <trans-unit id="fac225c7-c1d2-4989-8c8c-55d62ba00e80" xml:space="preserve">
+          <source>Media Services also provides a <bpt id="266dd664-cf5d-412f-9eee-8357c2b482c8">&lt;strong&gt;</bpt>Key\License Delivery Service<ept id="266dd664-cf5d-412f-9eee-8357c2b482c8">&lt;/strong&gt;</ept> from which clients can obtain a key or license to play the encrypted content.</source>
+          <target state="new">Media Services also provides a <bpt id="266dd664-cf5d-412f-9eee-8357c2b482c8">&lt;strong&gt;</bpt>Key\License Delivery Service<ept id="266dd664-cf5d-412f-9eee-8357c2b482c8">&lt;/strong&gt;</ept> from which clients can obtain a key or license to play the encrypted content.</target>
+        </trans-unit>
+        <trans-unit id="faab58f2-460c-4aa2-b51d-91d1d7b96a56" xml:space="preserve">
+          <source>This topic shows how to use the <bpt id="12df7a6a-9d9c-469e-9997-74b75096ada7">&lt;strong&gt;</bpt>Azure Management Portal<ept id="12df7a6a-9d9c-469e-9997-74b75096ada7">&lt;/strong&gt;</ept> to configure the content key authorization policy.</source>
+          <target state="new">This topic shows how to use the <bpt id="12df7a6a-9d9c-469e-9997-74b75096ada7">&lt;strong&gt;</bpt>Azure Management Portal<ept id="12df7a6a-9d9c-469e-9997-74b75096ada7">&lt;/strong&gt;</ept> to configure the content key authorization policy.</target>
+        </trans-unit>
+        <trans-unit id="19731dfe-2c77-4cd3-88ca-32776c39d327" xml:space="preserve">
+          <source>The key can later be used to dynamically encrypt your content.</source>
+          <target state="new">The key can later be used to dynamically encrypt your content.</target>
+        </trans-unit>
+        <trans-unit id="1b450a36-9c77-4dac-8503-156e8e6ae709" xml:space="preserve">
+          <source>Note that currently you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming.</source>
+          <target state="new">Note that currently you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming.</target>
+        </trans-unit>
+        <trans-unit id="8fd9d9fb-129d-4579-9700-ec7fde65ebe3" xml:space="preserve">
+          <source>You cannot encrypt HDS streaming format, or progressive downloads.</source>
+          <target state="new">You cannot encrypt HDS streaming format, or progressive downloads.</target>
+        </trans-unit>
+        <trans-unit id="f35fff5a-7133-4175-b887-42111793ec99" xml:space="preserve">
+          <source>When a player requests a stream that is set to be dynamically encrypted, Media Services uses the configured key to dynamically encrypt your content using AES or PlayReady encryption.</source>
+          <target state="new">When a player requests a stream that is set to be dynamically encrypted, Media Services uses the configured key to dynamically encrypt your content using AES or PlayReady encryption.</target>
+        </trans-unit>
+        <trans-unit id="6aede10c-3a3e-4f05-833d-6e693ebe01b7" xml:space="preserve">
+          <source>To decrypt the stream, the player will request the key from the key delivery service.</source>
+          <target state="new">To decrypt the stream, the player will request the key from the key delivery service.</target>
+        </trans-unit>
+        <trans-unit id="685b008d-334b-40dc-91d9-7c5bf62cb793" xml:space="preserve">
+          <source>To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.</source>
+          <target state="new">To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.</target>
+        </trans-unit>
+        <trans-unit id="12383662-f63f-4fb5-9743-de07a77ad5ad" xml:space="preserve">
+          <source>If you plan to have multiple content keys or want to specify a <bpt id="b62ee51a-636b-4cf6-b431-adcdae2f6803">&lt;strong&gt;</bpt>Key\License Delivery Service<ept id="b62ee51a-636b-4cf6-b431-adcdae2f6803">&lt;/strong&gt;</ept> URL other than the Media Services key delivery service, use Media Services .NET SDK or REST APIs.</source>
+          <target state="new">If you plan to have multiple content keys or want to specify a <bpt id="b62ee51a-636b-4cf6-b431-adcdae2f6803">&lt;strong&gt;</bpt>Key\License Delivery Service<ept id="b62ee51a-636b-4cf6-b431-adcdae2f6803">&lt;/strong&gt;</ept> URL other than the Media Services key delivery service, use Media Services .NET SDK or REST APIs.</target>
+        </trans-unit>
+        <trans-unit id="6b9657ea-0fd6-43e0-9295-077c753ec4ac" xml:space="preserve">
+          <source><bpt id="00315bdc-ffd3-49a1-b856-64505490a3b1">&lt;linkText&gt;</bpt>Configure Content Key Authorization Policy using Media Services .NET SDK<ept id="00315bdc-ffd3-49a1-b856-64505490a3b1">&lt;/linkText&gt;</ept><bpt id="00315bdc-ffd3-49a1-b856-64505490a3b1">&lt;title&gt;</bpt><ept id="00315bdc-ffd3-49a1-b856-64505490a3b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="00315bdc-ffd3-49a1-b856-64505490a3b1">&lt;linkText&gt;</bpt>Configure Content Key Authorization Policy using Media Services .NET SDK<ept id="00315bdc-ffd3-49a1-b856-64505490a3b1">&lt;/linkText&gt;</ept><bpt id="00315bdc-ffd3-49a1-b856-64505490a3b1">&lt;title&gt;</bpt><ept id="00315bdc-ffd3-49a1-b856-64505490a3b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1fac265-9d9c-40bf-9e8a-659179803a75" xml:space="preserve">
+          <source><bpt id="0e9859b2-c5c0-4e06-a26d-53b0fce9bdcf">&lt;linkText&gt;</bpt>Configure Content Key Authorization Policy using Media Services REST API<ept id="0e9859b2-c5c0-4e06-a26d-53b0fce9bdcf">&lt;/linkText&gt;</ept><bpt id="0e9859b2-c5c0-4e06-a26d-53b0fce9bdcf">&lt;title&gt;</bpt><ept id="0e9859b2-c5c0-4e06-a26d-53b0fce9bdcf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0e9859b2-c5c0-4e06-a26d-53b0fce9bdcf">&lt;linkText&gt;</bpt>Configure Content Key Authorization Policy using Media Services REST API<ept id="0e9859b2-c5c0-4e06-a26d-53b0fce9bdcf">&lt;/linkText&gt;</ept><bpt id="0e9859b2-c5c0-4e06-a26d-53b0fce9bdcf">&lt;title&gt;</bpt><ept id="0e9859b2-c5c0-4e06-a26d-53b0fce9bdcf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98156679-df3c-497b-be7a-02dc042fe8d2" xml:space="preserve">
+          <source>To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one streaming reserved unit.</source>
+          <target state="new">To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one streaming reserved unit.</target>
+        </trans-unit>
+        <trans-unit id="604d86f9-0d02-45b8-9c66-bee39d1b2b65" xml:space="preserve">
+          <source>For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale<bpt id="14b6bfa7-f681-403e-a083-d65c2677b6e1">&lt;em&gt;</bpt>streaming<ept id="14b6bfa7-f681-403e-a083-d65c2677b6e1">&lt;/em&gt;</ept>endpoints).</source>
+          <target state="new">For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale<bpt id="14b6bfa7-f681-403e-a083-d65c2677b6e1">&lt;em&gt;</bpt>streaming<ept id="14b6bfa7-f681-403e-a083-d65c2677b6e1">&lt;/em&gt;</ept>endpoints).</target>
+        </trans-unit>
+        <trans-unit id="26742fd9-84b0-4f1e-b9a3-60b462d661c9" xml:space="preserve">
+          <source>Your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.</source>
+          <target state="new">Your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.</target>
+        </trans-unit>
+        <trans-unit id="961e0e91-1cb0-49c7-8985-e26bce4f0ff5" xml:space="preserve">
+          <source>For more information, see <bpt id="2a1f6a9b-e140-4cf8-a64b-a824641e01ac">&lt;linkText&gt;</bpt>Encode an asset<ept id="2a1f6a9b-e140-4cf8-a64b-a824641e01ac">&lt;/linkText&gt;</ept><bpt id="2a1f6a9b-e140-4cf8-a64b-a824641e01ac">&lt;title&gt;</bpt><ept id="2a1f6a9b-e140-4cf8-a64b-a824641e01ac">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="2a1f6a9b-e140-4cf8-a64b-a824641e01ac">&lt;linkText&gt;</bpt>Encode an asset<ept id="2a1f6a9b-e140-4cf8-a64b-a824641e01ac">&lt;/linkText&gt;</ept><bpt id="2a1f6a9b-e140-4cf8-a64b-a824641e01ac">&lt;title&gt;</bpt><ept id="2a1f6a9b-e140-4cf8-a64b-a824641e01ac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f311206-8b00-4ae3-8c67-875d4458d765" xml:space="preserve">
+          <source>The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.</source>
+          <target state="new">The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.</target>
+        </trans-unit>
+        <trans-unit id="aa644615-50e8-4845-81ff-716488219255" xml:space="preserve">
+          <source>If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.</source>
+          <target state="new">If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.</target>
+        </trans-unit>
+        <trans-unit id="14eec2e3-5509-4ca4-ac01-11847b1214f5" xml:space="preserve">
+          <source>To configure the key authorization policy, select the <bpt id="c27dc913-ec0b-48d9-b03c-d9b26a6aefb0">&lt;strong&gt;</bpt>CONTENT PROTECTION<ept id="c27dc913-ec0b-48d9-b03c-d9b26a6aefb0">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">To configure the key authorization policy, select the <bpt id="c27dc913-ec0b-48d9-b03c-d9b26a6aefb0">&lt;strong&gt;</bpt>CONTENT PROTECTION<ept id="c27dc913-ec0b-48d9-b03c-d9b26a6aefb0">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="5e6e0640-f5fe-40b8-8f71-380ddcd9f0b9" xml:space="preserve">
+          <source>Media Services supports multiple ways of authenticating users who make key requests.</source>
+          <target state="new">Media Services supports multiple ways of authenticating users who make key requests.</target>
+        </trans-unit>
+        <trans-unit id="0c5a626f-5ef7-499d-9b84-6b2f5583d122" xml:space="preserve">
+          <source>The content key authorization policy can have <bpt id="5c5beed2-04f9-434e-8db3-767cd5ad50c4">&lt;strong&gt;</bpt>open<ept id="5c5beed2-04f9-434e-8db3-767cd5ad50c4">&lt;/strong&gt;</ept>, <bpt id="8750a8a3-cf2e-4f58-93de-dd3067465d2c">&lt;strong&gt;</bpt>token<ept id="8750a8a3-cf2e-4f58-93de-dd3067465d2c">&lt;/strong&gt;</ept>, or <bpt id="6013c934-cfc2-4e71-90fe-bc11be05452c">&lt;strong&gt;</bpt>IP<ept id="6013c934-cfc2-4e71-90fe-bc11be05452c">&lt;/strong&gt;</ept> authorization restrictions (<bpt id="15dfded8-7125-4932-9c13-4e0cd6d23851">&lt;strong&gt;</bpt>IP<ept id="15dfded8-7125-4932-9c13-4e0cd6d23851">&lt;/strong&gt;</ept> can be configured with REST or .NET SDK).</source>
+          <target state="new">The content key authorization policy can have <bpt id="5c5beed2-04f9-434e-8db3-767cd5ad50c4">&lt;strong&gt;</bpt>open<ept id="5c5beed2-04f9-434e-8db3-767cd5ad50c4">&lt;/strong&gt;</ept>, <bpt id="8750a8a3-cf2e-4f58-93de-dd3067465d2c">&lt;strong&gt;</bpt>token<ept id="8750a8a3-cf2e-4f58-93de-dd3067465d2c">&lt;/strong&gt;</ept>, or <bpt id="6013c934-cfc2-4e71-90fe-bc11be05452c">&lt;strong&gt;</bpt>IP<ept id="6013c934-cfc2-4e71-90fe-bc11be05452c">&lt;/strong&gt;</ept> authorization restrictions (<bpt id="15dfded8-7125-4932-9c13-4e0cd6d23851">&lt;strong&gt;</bpt>IP<ept id="15dfded8-7125-4932-9c13-4e0cd6d23851">&lt;/strong&gt;</ept> can be configured with REST or .NET SDK).</target>
+        </trans-unit>
+        <trans-unit id="3802051c-98c3-4b61-b91c-12fea2efcba3" xml:space="preserve">
+          <source>The <bpt id="eda809f5-1a80-478b-acda-d70efa0c1512">&lt;strong&gt;</bpt>open<ept id="eda809f5-1a80-478b-acda-d70efa0c1512">&lt;/strong&gt;</ept> restriction means the system will deliver the key to anyone who makes a key request.</source>
+          <target state="new">The <bpt id="eda809f5-1a80-478b-acda-d70efa0c1512">&lt;strong&gt;</bpt>open<ept id="eda809f5-1a80-478b-acda-d70efa0c1512">&lt;/strong&gt;</ept> restriction means the system will deliver the key to anyone who makes a key request.</target>
+        </trans-unit>
+        <trans-unit id="d6363252-f707-4915-960a-b59eb74ee9bf" xml:space="preserve">
+          <source>This restriction might be useful for testing purposes.</source>
+          <target state="new">This restriction might be useful for testing purposes.</target>
+        </trans-unit>
+        <trans-unit id="90012d16-57cf-45cf-89b7-60ebed1b10ae" xml:space="preserve">
+          <source><bpt id="5de84166-13d7-451c-b105-ff76940f6cfa">&lt;linkText&gt;</bpt>OpenPolicy<ept id="5de84166-13d7-451c-b105-ff76940f6cfa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5de84166-13d7-451c-b105-ff76940f6cfa">&lt;linkText&gt;</bpt>OpenPolicy<ept id="5de84166-13d7-451c-b105-ff76940f6cfa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0dc5ec68-4403-4c42-8119-1faa3e40e86d" xml:space="preserve">
+          <source>To choose the token restricted policy, press the <bpt id="1a94039d-bdc3-414a-9ebb-d0ca36a8e8fa">&lt;strong&gt;</bpt>TOKEN<ept id="1a94039d-bdc3-414a-9ebb-d0ca36a8e8fa">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">To choose the token restricted policy, press the <bpt id="1a94039d-bdc3-414a-9ebb-d0ca36a8e8fa">&lt;strong&gt;</bpt>TOKEN<ept id="1a94039d-bdc3-414a-9ebb-d0ca36a8e8fa">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="82f98cdc-b87c-4ce7-b122-9250517b0a86" xml:space="preserve">
+          <source>The <bpt id="9265cdd9-6379-431e-9803-72711adf7a2d">&lt;strong&gt;</bpt>token<ept id="9265cdd9-6379-431e-9803-72711adf7a2d">&lt;/strong&gt;</ept> restricted policy must be accompanied by a token issued by a <bpt id="72d57ff3-aea1-44d8-9dee-e8da79e15d7e">&lt;strong&gt;</bpt>Secure Token Service<ept id="72d57ff3-aea1-44d8-9dee-e8da79e15d7e">&lt;/strong&gt;</ept> (STS).</source>
+          <target state="new">The <bpt id="9265cdd9-6379-431e-9803-72711adf7a2d">&lt;strong&gt;</bpt>token<ept id="9265cdd9-6379-431e-9803-72711adf7a2d">&lt;/strong&gt;</ept> restricted policy must be accompanied by a token issued by a <bpt id="72d57ff3-aea1-44d8-9dee-e8da79e15d7e">&lt;strong&gt;</bpt>Secure Token Service<ept id="72d57ff3-aea1-44d8-9dee-e8da79e15d7e">&lt;/strong&gt;</ept> (STS).</target>
+        </trans-unit>
+        <trans-unit id="f0c8b36c-b3ed-4950-a90f-d1b6526845e1" xml:space="preserve">
+          <source>Media Services supports tokens in the <bpt id="12c31b90-2b5a-44dc-81e0-1a6981aa1806">&lt;strong&gt;</bpt>Simple Web Tokens<ept id="12c31b90-2b5a-44dc-81e0-1a6981aa1806">&lt;/strong&gt;</ept> (<bpt id="34de5556-52f0-4d4c-8ea4-8a226f27441e">&lt;linkText&gt;</bpt>SWT<ept id="34de5556-52f0-4d4c-8ea4-8a226f27441e">&lt;/linkText&gt;</ept><bpt id="34de5556-52f0-4d4c-8ea4-8a226f27441e">&lt;title&gt;</bpt><ept id="34de5556-52f0-4d4c-8ea4-8a226f27441e">&lt;/title&gt;</ept>) format and <bpt id="2a4cf18f-0388-44a2-b180-e2bca2f2641a">&lt;strong&gt;</bpt>JSON Web Token<ept id="2a4cf18f-0388-44a2-b180-e2bca2f2641a">&lt;/strong&gt;</ept> (JWT) format.</source>
+          <target state="new">Media Services supports tokens in the <bpt id="12c31b90-2b5a-44dc-81e0-1a6981aa1806">&lt;strong&gt;</bpt>Simple Web Tokens<ept id="12c31b90-2b5a-44dc-81e0-1a6981aa1806">&lt;/strong&gt;</ept> (<bpt id="34de5556-52f0-4d4c-8ea4-8a226f27441e">&lt;linkText&gt;</bpt>SWT<ept id="34de5556-52f0-4d4c-8ea4-8a226f27441e">&lt;/linkText&gt;</ept><bpt id="34de5556-52f0-4d4c-8ea4-8a226f27441e">&lt;title&gt;</bpt><ept id="34de5556-52f0-4d4c-8ea4-8a226f27441e">&lt;/title&gt;</ept>) format and <bpt id="2a4cf18f-0388-44a2-b180-e2bca2f2641a">&lt;strong&gt;</bpt>JSON Web Token<ept id="2a4cf18f-0388-44a2-b180-e2bca2f2641a">&lt;/strong&gt;</ept> (JWT) format.</target>
+        </trans-unit>
+        <trans-unit id="3770d372-869f-4e62-9972-f1726df31a71" xml:space="preserve">
+          <source>For information, see <bpt id="e6e313a3-ad6f-41d3-bde7-7ca19a408322">&lt;linkText&gt;</bpt>JWT token authentication<ept id="e6e313a3-ad6f-41d3-bde7-7ca19a408322">&lt;/linkText&gt;</ept><bpt id="e6e313a3-ad6f-41d3-bde7-7ca19a408322">&lt;title&gt;</bpt><ept id="e6e313a3-ad6f-41d3-bde7-7ca19a408322">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information, see <bpt id="e6e313a3-ad6f-41d3-bde7-7ca19a408322">&lt;linkText&gt;</bpt>JWT token authentication<ept id="e6e313a3-ad6f-41d3-bde7-7ca19a408322">&lt;/linkText&gt;</ept><bpt id="e6e313a3-ad6f-41d3-bde7-7ca19a408322">&lt;title&gt;</bpt><ept id="e6e313a3-ad6f-41d3-bde7-7ca19a408322">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bbc60e8c-0371-4cc3-bacd-f1508d68fb62" xml:space="preserve">
+          <source>Media Services does not provide <bpt id="14fbdef5-f131-4669-a83e-355547d1aa3a">&lt;strong&gt;</bpt>Secure Token Services<ept id="14fbdef5-f131-4669-a83e-355547d1aa3a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Media Services does not provide <bpt id="14fbdef5-f131-4669-a83e-355547d1aa3a">&lt;strong&gt;</bpt>Secure Token Services<ept id="14fbdef5-f131-4669-a83e-355547d1aa3a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0903268-d234-4bf0-8d3c-7992ee5f61ff" xml:space="preserve">
+          <source>You can create a custom STS or leverage Microsoft Azure ACS to issue tokens.</source>
+          <target state="new">You can create a custom STS or leverage Microsoft Azure ACS to issue tokens.</target>
+        </trans-unit>
+        <trans-unit id="2557b01e-e576-4b63-9196-16857e6b37db" xml:space="preserve">
+          <source>The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration.</source>
+          <target state="new">The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration.</target>
+        </trans-unit>
+        <trans-unit id="bc3e4322-1b7a-4084-a38c-ce98e6e3bb5e" xml:space="preserve">
+          <source>The Media Services key delivery service will return the encryption key to the client if the token is valid and the claims in the token match those configured for the content key.</source>
+          <target state="new">The Media Services key delivery service will return the encryption key to the client if the token is valid and the claims in the token match those configured for the content key.</target>
+        </trans-unit>
+        <trans-unit id="5ce7772c-6394-4850-bac6-01bccfce3f77" xml:space="preserve">
+          <source>For more information, see <bpt id="a05263e8-3ad7-4023-8f43-d298e37f0629">&lt;linkText&gt;</bpt>Use Azure ACS to issue tokens<ept id="a05263e8-3ad7-4023-8f43-d298e37f0629">&lt;/linkText&gt;</ept><bpt id="a05263e8-3ad7-4023-8f43-d298e37f0629">&lt;title&gt;</bpt><ept id="a05263e8-3ad7-4023-8f43-d298e37f0629">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="a05263e8-3ad7-4023-8f43-d298e37f0629">&lt;linkText&gt;</bpt>Use Azure ACS to issue tokens<ept id="a05263e8-3ad7-4023-8f43-d298e37f0629">&lt;/linkText&gt;</ept><bpt id="a05263e8-3ad7-4023-8f43-d298e37f0629">&lt;title&gt;</bpt><ept id="a05263e8-3ad7-4023-8f43-d298e37f0629">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a307210d-2bfa-4962-89da-d500ba56f6a0" xml:space="preserve">
+          <source>When configuring the <bpt id="12b6c358-8ccb-41a6-a708-c3f2c99792a6">&lt;strong&gt;</bpt>TOKEN<ept id="12b6c358-8ccb-41a6-a708-c3f2c99792a6">&lt;/strong&gt;</ept> restricted policy, you must set values for <bpt id="a52cfe58-f3aa-4e6e-a997-334228db17a1">&lt;strong&gt;</bpt>verification key<ept id="a52cfe58-f3aa-4e6e-a997-334228db17a1">&lt;/strong&gt;</ept>, <bpt id="d0884eaa-c06d-436c-8f1d-b325dfffcaae">&lt;strong&gt;</bpt>issuer<ept id="d0884eaa-c06d-436c-8f1d-b325dfffcaae">&lt;/strong&gt;</ept> and <bpt id="c67ec5bf-a105-4780-8e91-96b9b323fc20">&lt;strong&gt;</bpt>audience<ept id="c67ec5bf-a105-4780-8e91-96b9b323fc20">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When configuring the <bpt id="12b6c358-8ccb-41a6-a708-c3f2c99792a6">&lt;strong&gt;</bpt>TOKEN<ept id="12b6c358-8ccb-41a6-a708-c3f2c99792a6">&lt;/strong&gt;</ept> restricted policy, you must set values for <bpt id="a52cfe58-f3aa-4e6e-a997-334228db17a1">&lt;strong&gt;</bpt>verification key<ept id="a52cfe58-f3aa-4e6e-a997-334228db17a1">&lt;/strong&gt;</ept>, <bpt id="d0884eaa-c06d-436c-8f1d-b325dfffcaae">&lt;strong&gt;</bpt>issuer<ept id="d0884eaa-c06d-436c-8f1d-b325dfffcaae">&lt;/strong&gt;</ept> and <bpt id="c67ec5bf-a105-4780-8e91-96b9b323fc20">&lt;strong&gt;</bpt>audience<ept id="c67ec5bf-a105-4780-8e91-96b9b323fc20">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="115c8414-ecb0-475f-a9b9-bd5a73aa5690" xml:space="preserve">
+          <source>The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token.</source>
+          <target state="new">The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token.</target>
+        </trans-unit>
+        <trans-unit id="4bada3f8-0bd2-4354-94f8-a3b1d0388498" xml:space="preserve">
+          <source>The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to.</source>
+          <target state="new">The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to.</target>
+        </trans-unit>
+        <trans-unit id="f64c3765-437a-4eef-a1d0-5760d1ebee16" xml:space="preserve">
+          <source>The Media Services key delivery service validates that these values in the token match the values in the template.</source>
+          <target state="new">The Media Services key delivery service validates that these values in the token match the values in the template.</target>
+        </trans-unit>
+        <trans-unit id="b827f3ff-638d-4d4a-af03-eed95ddc5205" xml:space="preserve">
+          <source>When protecting your content with <bpt id="de5764a9-656c-46e7-97d2-4144bab46003">&lt;strong&gt;</bpt>PlayReady<ept id="de5764a9-656c-46e7-97d2-4144bab46003">&lt;/strong&gt;</ept>, one of the things you need to specify in your authorization policy is an XML string that defines the PlayReady license template.</source>
+          <target state="new">When protecting your content with <bpt id="de5764a9-656c-46e7-97d2-4144bab46003">&lt;strong&gt;</bpt>PlayReady<ept id="de5764a9-656c-46e7-97d2-4144bab46003">&lt;/strong&gt;</ept>, one of the things you need to specify in your authorization policy is an XML string that defines the PlayReady license template.</target>
+        </trans-unit>
+        <trans-unit id="0a6e7da9-0e35-487a-ac58-f660d10ab94b" xml:space="preserve">
+          <source>By default, the following policy is set:</source>
+          <target state="new">By default, the following policy is set:</target>
+        </trans-unit>
+        <trans-unit id="27a1cdc4-01fb-49c8-be39-eeb084b1bc80" xml:space="preserve">
+          <source>You can click the <bpt id="9552e03e-f53e-435d-914c-ce0b2d880c50">&lt;strong&gt;</bpt>import policy xml<ept id="9552e03e-f53e-435d-914c-ce0b2d880c50">&lt;/strong&gt;</ept> button and provide a different XML which conforms to the  XML Schema defined <bpt id="a411409f-e07e-4b9b-8e68-73468bbaae16">&lt;linkText&gt;</bpt>here<ept id="a411409f-e07e-4b9b-8e68-73468bbaae16">&lt;/linkText&gt;</ept><bpt id="a411409f-e07e-4b9b-8e68-73468bbaae16">&lt;title&gt;</bpt><ept id="a411409f-e07e-4b9b-8e68-73468bbaae16">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can click the <bpt id="9552e03e-f53e-435d-914c-ce0b2d880c50">&lt;strong&gt;</bpt>import policy xml<ept id="9552e03e-f53e-435d-914c-ce0b2d880c50">&lt;/strong&gt;</ept> button and provide a different XML which conforms to the  XML Schema defined <bpt id="a411409f-e07e-4b9b-8e68-73468bbaae16">&lt;linkText&gt;</bpt>here<ept id="a411409f-e07e-4b9b-8e68-73468bbaae16">&lt;/linkText&gt;</ept><bpt id="a411409f-e07e-4b9b-8e68-73468bbaae16">&lt;title&gt;</bpt><ept id="a411409f-e07e-4b9b-8e68-73468bbaae16">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d1d0a55-022b-433e-8bf2-4d0716f4a25c" xml:space="preserve">
+          <source>Now that you have configured content key's authorization policy, go to the <bpt id="93be2d47-b48d-4909-bc4f-2a47206dcda1">&lt;linkText&gt;</bpt>How to: Use the Azure Management Portal to enable encryption<ept id="93be2d47-b48d-4909-bc4f-2a47206dcda1">&lt;/linkText&gt;</ept><bpt id="93be2d47-b48d-4909-bc4f-2a47206dcda1">&lt;title&gt;</bpt><ept id="93be2d47-b48d-4909-bc4f-2a47206dcda1">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">Now that you have configured content key's authorization policy, go to the <bpt id="93be2d47-b48d-4909-bc4f-2a47206dcda1">&lt;linkText&gt;</bpt>How to: Use the Azure Management Portal to enable encryption<ept id="93be2d47-b48d-4909-bc4f-2a47206dcda1">&lt;/linkText&gt;</ept><bpt id="93be2d47-b48d-4909-bc4f-2a47206dcda1">&lt;title&gt;</bpt><ept id="93be2d47-b48d-4909-bc4f-2a47206dcda1">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="9f585428-d784-40b0-9472-5def520bf177" xml:space="preserve">
+          <source>./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png</source>
+          <target state="new">./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png</target>
+        </trans-unit>
+        <trans-unit id="962e644b-2f05-4819-97dd-7137f5a4e501" xml:space="preserve">
+          <source>./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png</source>
+          <target state="new">./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png</target>
+        </trans-unit>
+      </group>
+      <group id="774d2f06-c79a-435d-8c44-e4c57508f4ff" />
+    </body>
+  </file>
+</xliff>

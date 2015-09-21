@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="71521d8c-f4ee-45f2-9484-db1e716e8c6e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="71521d8c-f4ee-45f2-9484-db1e716e8c6e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="16facc45-4c8e-4e71-9526-80c518263927">
+        <trans-unit id="66b97f44-1e56-40d6-b5c8-a9de51db3609" xml:space="preserve">
+          <source>Creating an Oracle WebLogic Server 12c Virtual Machine in Azure</source>
+          <target state="new">Creating an Oracle WebLogic Server 12c Virtual Machine in Azure</target>
+        </trans-unit>
+        <trans-unit id="e23a4665-8c2f-481c-84f5-51a45ee8199e" xml:space="preserve">
+          <source>Step through an example of creating an Oracle WebLogic Server 12c virtual machine running Windows Server 2012 in Microsoft Azure.</source>
+          <target state="new">Step through an example of creating an Oracle WebLogic Server 12c virtual machine running Windows Server 2012 in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="4e911402-bbbc-492d-99b0-c02eb771d34c" xml:space="preserve">
+          <source>The following example shows you how you can create a Virtual Machine based on a Microsoft-provided Oracle WebLogic Server 12c image running on Windows Server 2012 in Azure.</source>
+          <target state="new">The following example shows you how you can create a Virtual Machine based on a Microsoft-provided Oracle WebLogic Server 12c image running on Windows Server 2012 in Azure.</target>
+        </trans-unit>
+        <trans-unit id="ef717db4-f275-43cf-b7e2-897b14a6c8aa" xml:space="preserve">
+          <source>Log in to the <bpt id="fa0f8f14-aa46-46ce-a80f-7725f749d152">&lt;linkText&gt;</bpt>Azure Portal<ept id="fa0f8f14-aa46-46ce-a80f-7725f749d152">&lt;/linkText&gt;</ept><bpt id="fa0f8f14-aa46-46ce-a80f-7725f749d152">&lt;title&gt;</bpt><ept id="fa0f8f14-aa46-46ce-a80f-7725f749d152">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="fa0f8f14-aa46-46ce-a80f-7725f749d152">&lt;linkText&gt;</bpt>Azure Portal<ept id="fa0f8f14-aa46-46ce-a80f-7725f749d152">&lt;/linkText&gt;</ept><bpt id="fa0f8f14-aa46-46ce-a80f-7725f749d152">&lt;title&gt;</bpt><ept id="fa0f8f14-aa46-46ce-a80f-7725f749d152">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3fabfaa9-3f95-4a1a-8ec6-6e9ea407045b" xml:space="preserve">
+          <source>Click on the <bpt id="5eed9824-106a-4e3d-a4df-bc80ffefc932">&lt;strong&gt;</bpt>Marketplace<ept id="5eed9824-106a-4e3d-a4df-bc80ffefc932">&lt;/strong&gt;</ept>, click <bpt id="4dec9def-a803-42b0-913b-6a9a13c45bf8">&lt;strong&gt;</bpt>Compute<ept id="4dec9def-a803-42b0-913b-6a9a13c45bf8">&lt;/strong&gt;</ept>, then type <bpt id="39168d5a-6317-4646-b184-43ab223ae1e2">&lt;strong&gt;</bpt>Oracle<ept id="39168d5a-6317-4646-b184-43ab223ae1e2">&lt;/strong&gt;</ept> into the search box.</source>
+          <target state="new">Click on the <bpt id="5eed9824-106a-4e3d-a4df-bc80ffefc932">&lt;strong&gt;</bpt>Marketplace<ept id="5eed9824-106a-4e3d-a4df-bc80ffefc932">&lt;/strong&gt;</ept>, click <bpt id="4dec9def-a803-42b0-913b-6a9a13c45bf8">&lt;strong&gt;</bpt>Compute<ept id="4dec9def-a803-42b0-913b-6a9a13c45bf8">&lt;/strong&gt;</ept>, then type <bpt id="39168d5a-6317-4646-b184-43ab223ae1e2">&lt;strong&gt;</bpt>Oracle<ept id="39168d5a-6317-4646-b184-43ab223ae1e2">&lt;/strong&gt;</ept> into the search box.</target>
+        </trans-unit>
+        <trans-unit id="badba988-971c-41fb-b1f2-d6071ee9bd21" xml:space="preserve">
+          <source>Select the <bpt id="bad504d1-da42-400f-bf14-ca3493bb1d72">&lt;strong&gt;</bpt>Oracle WebLogic Server 12c Standard Edition on Windows Server 2012<ept id="bad504d1-da42-400f-bf14-ca3493bb1d72">&lt;/strong&gt;</ept> or <bpt id="56f4c1a8-1f59-4850-8db8-ec2ba3d86d47">&lt;strong&gt;</bpt>Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012<ept id="56f4c1a8-1f59-4850-8db8-ec2ba3d86d47">&lt;/strong&gt;</ept> image.</source>
+          <target state="new">Select the <bpt id="bad504d1-da42-400f-bf14-ca3493bb1d72">&lt;strong&gt;</bpt>Oracle WebLogic Server 12c Standard Edition on Windows Server 2012<ept id="bad504d1-da42-400f-bf14-ca3493bb1d72">&lt;/strong&gt;</ept> or <bpt id="56f4c1a8-1f59-4850-8db8-ec2ba3d86d47">&lt;strong&gt;</bpt>Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012<ept id="56f4c1a8-1f59-4850-8db8-ec2ba3d86d47">&lt;/strong&gt;</ept> image.</target>
+        </trans-unit>
+        <trans-unit id="40de7662-f2de-4c8b-8ddf-3d027a788a74" xml:space="preserve">
+          <source>Review the information about this image (such as minimum recommended size), and then click <bpt id="7b11d305-e908-47b4-90dc-faafd23fe58e">&lt;strong&gt;</bpt>Next<ept id="7b11d305-e908-47b4-90dc-faafd23fe58e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Review the information about this image (such as minimum recommended size), and then click <bpt id="7b11d305-e908-47b4-90dc-faafd23fe58e">&lt;strong&gt;</bpt>Next<ept id="7b11d305-e908-47b4-90dc-faafd23fe58e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a638c7e2-81ea-42eb-99f9-69142daa71ef" xml:space="preserve">
+          <source>Specify a <bpt id="9edc7a7c-0cca-482b-80d4-78c41e7fd8de">&lt;strong&gt;</bpt>Host Nam<ept id="9edc7a7c-0cca-482b-80d4-78c41e7fd8de">&lt;/strong&gt;</ept>e for the VM.</source>
+          <target state="new">Specify a <bpt id="9edc7a7c-0cca-482b-80d4-78c41e7fd8de">&lt;strong&gt;</bpt>Host Nam<ept id="9edc7a7c-0cca-482b-80d4-78c41e7fd8de">&lt;/strong&gt;</ept>e for the VM.</target>
+        </trans-unit>
+        <trans-unit id="10362674-910a-45ca-bb57-9ae43bde48b4" xml:space="preserve">
+          <source>Specify a <bpt id="ae77afcd-80e0-45d0-932b-4f61590b9559">&lt;strong&gt;</bpt>User Name<ept id="ae77afcd-80e0-45d0-932b-4f61590b9559">&lt;/strong&gt;</ept> for the VM.</source>
+          <target state="new">Specify a <bpt id="ae77afcd-80e0-45d0-932b-4f61590b9559">&lt;strong&gt;</bpt>User Name<ept id="ae77afcd-80e0-45d0-932b-4f61590b9559">&lt;/strong&gt;</ept> for the VM.</target>
+        </trans-unit>
+        <trans-unit id="46806f63-4066-41e6-8afa-67a945b99b53" xml:space="preserve">
+          <source>Note that this user is for remotely logging into the VM; this is not the Oracle database user name.</source>
+          <target state="new">Note that this user is for remotely logging into the VM; this is not the Oracle database user name.</target>
+        </trans-unit>
+        <trans-unit id="9d8fd732-599f-436c-a75e-6b7df5477fce" xml:space="preserve">
+          <source>Specify and confirm a password for the VM, or provide a SSH Public Key.</source>
+          <target state="new">Specify and confirm a password for the VM, or provide a SSH Public Key.</target>
+        </trans-unit>
+        <trans-unit id="4fa6d094-953a-495f-8f15-6fcae0f45493" xml:space="preserve">
+          <source>Choose a <bpt id="088c6017-211f-47ab-965a-2adea3e5de7d">&lt;strong&gt;</bpt>Pricing Tier<ept id="088c6017-211f-47ab-965a-2adea3e5de7d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose a <bpt id="088c6017-211f-47ab-965a-2adea3e5de7d">&lt;strong&gt;</bpt>Pricing Tier<ept id="088c6017-211f-47ab-965a-2adea3e5de7d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0e645b9-ccb4-4f00-a9b9-6f765d1fd3e2" xml:space="preserve">
+          <source>Note that Recommended Pricing Tiers are displayed by default, to see all configuration options, click <bpt id="caff2a66-93bf-448a-963f-0d3ddc86c522">&lt;strong&gt;</bpt>View all<ept id="caff2a66-93bf-448a-963f-0d3ddc86c522">&lt;/strong&gt;</ept> on the top right.</source>
+          <target state="new">Note that Recommended Pricing Tiers are displayed by default, to see all configuration options, click <bpt id="caff2a66-93bf-448a-963f-0d3ddc86c522">&lt;strong&gt;</bpt>View all<ept id="caff2a66-93bf-448a-963f-0d3ddc86c522">&lt;/strong&gt;</ept> on the top right.</target>
+        </trans-unit>
+        <trans-unit id="1821fce7-489e-409f-a10d-c352992edd6c" xml:space="preserve">
+          <source>Set <bpt id="5cb95d52-9bc9-44bc-835d-555f859e8ebe">&lt;linkText&gt;</bpt>Optional Configuration<ept id="5cb95d52-9bc9-44bc-835d-555f859e8ebe">&lt;/linkText&gt;</ept><bpt id="5cb95d52-9bc9-44bc-835d-555f859e8ebe">&lt;title&gt;</bpt><ept id="5cb95d52-9bc9-44bc-835d-555f859e8ebe">&lt;/title&gt;</ept> as needed, with these considerations:</source>
+          <target state="new">Set <bpt id="5cb95d52-9bc9-44bc-835d-555f859e8ebe">&lt;linkText&gt;</bpt>Optional Configuration<ept id="5cb95d52-9bc9-44bc-835d-555f859e8ebe">&lt;/linkText&gt;</ept><bpt id="5cb95d52-9bc9-44bc-835d-555f859e8ebe">&lt;title&gt;</bpt><ept id="5cb95d52-9bc9-44bc-835d-555f859e8ebe">&lt;/title&gt;</ept> as needed, with these considerations:</target>
+        </trans-unit>
+        <trans-unit id="4cde94ee-4723-4469-90af-733e00a4bdb4" xml:space="preserve">
+          <source>Leave <bpt id="201dccb0-6f27-4d35-b9e4-bbf243e10443">&lt;strong&gt;</bpt>Storage Account<ept id="201dccb0-6f27-4d35-b9e4-bbf243e10443">&lt;/strong&gt;</ept> as-is to create a new storage account with the VM name.</source>
+          <target state="new">Leave <bpt id="201dccb0-6f27-4d35-b9e4-bbf243e10443">&lt;strong&gt;</bpt>Storage Account<ept id="201dccb0-6f27-4d35-b9e4-bbf243e10443">&lt;/strong&gt;</ept> as-is to create a new storage account with the VM name.</target>
+        </trans-unit>
+        <trans-unit id="af909a04-2de8-4c09-8817-69001b380697" xml:space="preserve">
+          <source>Leave <bpt id="fe959a56-de38-4706-a818-d3740ef5496d">&lt;strong&gt;</bpt>Availability Set<ept id="fe959a56-de38-4706-a818-d3740ef5496d">&lt;/strong&gt;</ept> as “Not Configured”.</source>
+          <target state="new">Leave <bpt id="fe959a56-de38-4706-a818-d3740ef5496d">&lt;strong&gt;</bpt>Availability Set<ept id="fe959a56-de38-4706-a818-d3740ef5496d">&lt;/strong&gt;</ept> as “Not Configured”.</target>
+        </trans-unit>
+        <trans-unit id="8a20a8e1-ae28-4dc6-9fac-b4cafab5b486" xml:space="preserve">
+          <source>Do not add any <bpt id="07b3a5b2-1505-4cb4-a2be-9c92ec8c4840">&lt;strong&gt;</bpt>endpoints<ept id="07b3a5b2-1505-4cb4-a2be-9c92ec8c4840">&lt;/strong&gt;</ept> at this time.</source>
+          <target state="new">Do not add any <bpt id="07b3a5b2-1505-4cb4-a2be-9c92ec8c4840">&lt;strong&gt;</bpt>endpoints<ept id="07b3a5b2-1505-4cb4-a2be-9c92ec8c4840">&lt;/strong&gt;</ept> at this time.</target>
+        </trans-unit>
+        <trans-unit id="12c68457-0dc2-4817-b933-24308f69856c" xml:space="preserve">
+          <source>Choose or Create a <bpt id="61beeb4d-b894-4505-a048-abbb95832b3b">&lt;linkText&gt;</bpt>Resource Group<ept id="61beeb4d-b894-4505-a048-abbb95832b3b">&lt;/linkText&gt;</ept><bpt id="61beeb4d-b894-4505-a048-abbb95832b3b">&lt;title&gt;</bpt><ept id="61beeb4d-b894-4505-a048-abbb95832b3b">&lt;/title&gt;</ept></source>
+          <target state="new">Choose or Create a <bpt id="61beeb4d-b894-4505-a048-abbb95832b3b">&lt;linkText&gt;</bpt>Resource Group<ept id="61beeb4d-b894-4505-a048-abbb95832b3b">&lt;/linkText&gt;</ept><bpt id="61beeb4d-b894-4505-a048-abbb95832b3b">&lt;title&gt;</bpt><ept id="61beeb4d-b894-4505-a048-abbb95832b3b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afa79155-1c41-4cf0-84bd-af250606cfa0" xml:space="preserve">
+          <source>Choose a <bpt id="35eeb812-a80d-4563-afbc-8ce1d1a1f25c">&lt;strong&gt;</bpt>Subscription<ept id="35eeb812-a80d-4563-afbc-8ce1d1a1f25c">&lt;/strong&gt;</ept></source>
+          <target state="new">Choose a <bpt id="35eeb812-a80d-4563-afbc-8ce1d1a1f25c">&lt;strong&gt;</bpt>Subscription<ept id="35eeb812-a80d-4563-afbc-8ce1d1a1f25c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9c030e4-0765-44e3-baa2-9c6f0ee61daa" xml:space="preserve">
+          <source>Choose a <bpt id="ab8eb3e0-1032-4fc1-b8f6-f1473347bf38">&lt;strong&gt;</bpt>Location<ept id="ab8eb3e0-1032-4fc1-b8f6-f1473347bf38">&lt;/strong&gt;</ept></source>
+          <target state="new">Choose a <bpt id="ab8eb3e0-1032-4fc1-b8f6-f1473347bf38">&lt;strong&gt;</bpt>Location<ept id="ab8eb3e0-1032-4fc1-b8f6-f1473347bf38">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e7b8c52-cebf-46c4-946a-04171d5b7ee3" xml:space="preserve">
+          <source>Log in to the <bpt id="c035746b-f41f-4c21-8cb3-7351393dda53">&lt;linkText&gt;</bpt>Azure Portal<ept id="c035746b-f41f-4c21-8cb3-7351393dda53">&lt;/linkText&gt;</ept><bpt id="c035746b-f41f-4c21-8cb3-7351393dda53">&lt;title&gt;</bpt><ept id="c035746b-f41f-4c21-8cb3-7351393dda53">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="c035746b-f41f-4c21-8cb3-7351393dda53">&lt;linkText&gt;</bpt>Azure Portal<ept id="c035746b-f41f-4c21-8cb3-7351393dda53">&lt;/linkText&gt;</ept><bpt id="c035746b-f41f-4c21-8cb3-7351393dda53">&lt;title&gt;</bpt><ept id="c035746b-f41f-4c21-8cb3-7351393dda53">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13640d6b-e4e2-417b-9bb7-c2157059b249" xml:space="preserve">
+          <source>Click <bpt id="01a33bfd-918b-4d4c-a65c-47071f79108b">&lt;strong&gt;</bpt>Virtual Machines<ept id="01a33bfd-918b-4d4c-a65c-47071f79108b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="01a33bfd-918b-4d4c-a65c-47071f79108b">&lt;strong&gt;</bpt>Virtual Machines<ept id="01a33bfd-918b-4d4c-a65c-47071f79108b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9667fc5-0ad3-4773-8115-87f5d82f479b" xml:space="preserve">
+          <source>Click the name of the Virtual Machine that you want to log in to.</source>
+          <target state="new">Click the name of the Virtual Machine that you want to log in to.</target>
+        </trans-unit>
+        <trans-unit id="c31bf814-e833-43a4-94dd-bbd7fb00d38a" xml:space="preserve">
+          <source>Click <bpt id="f8299497-18ae-4abe-9f11-d9041bdb823d">&lt;strong&gt;</bpt>Connect<ept id="f8299497-18ae-4abe-9f11-d9041bdb823d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f8299497-18ae-4abe-9f11-d9041bdb823d">&lt;strong&gt;</bpt>Connect<ept id="f8299497-18ae-4abe-9f11-d9041bdb823d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b36a0508-305e-482b-a2bf-ddd9237a5dd9" xml:space="preserve">
+          <source>Respond to the prompts as needed to connect to the Virtual Machine.</source>
+          <target state="new">Respond to the prompts as needed to connect to the Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="3b898bce-7db9-4865-a170-c879a027361a" xml:space="preserve">
+          <source>When prompted for the administrator name and password, use the values that you provided when you created the Virtual Machine.</source>
+          <target state="new">When prompted for the administrator name and password, use the values that you provided when you created the Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="4b74d3db-cf06-49f4-97bc-bbddbcf1943f" xml:space="preserve">
+          <source>Within the <bpt id="81d44f62-ed56-4e75-aa5e-fe43c1c6fff7">&lt;strong&gt;</bpt>WebLogic Platform QuickStart<ept id="81d44f62-ed56-4e75-aa5e-fe43c1c6fff7">&lt;/strong&gt;</ept> dialog, click <bpt id="a367dee6-afac-4606-b575-9989cd7b3ae4">&lt;strong&gt;</bpt>Getting Started with WebLogic Server<ept id="a367dee6-afac-4606-b575-9989cd7b3ae4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Within the <bpt id="81d44f62-ed56-4e75-aa5e-fe43c1c6fff7">&lt;strong&gt;</bpt>WebLogic Platform QuickStart<ept id="81d44f62-ed56-4e75-aa5e-fe43c1c6fff7">&lt;/strong&gt;</ept> dialog, click <bpt id="a367dee6-afac-4606-b575-9989cd7b3ae4">&lt;strong&gt;</bpt>Getting Started with WebLogic Server<ept id="a367dee6-afac-4606-b575-9989cd7b3ae4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc6d66c3-7e56-4a7b-9725-00a04c6f3bdc" xml:space="preserve">
+          <source>(If the <bpt id="447046f6-43f1-4cf5-8a81-a83650b1d580">&lt;strong&gt;</bpt>WebLogic Platform QuickStart<ept id="447046f6-43f1-4cf5-8a81-a83650b1d580">&lt;/strong&gt;</ept> dialog is not already opened, open it by clicking <bpt id="a3d577bf-8d76-4c71-95b9-db290da21113">&lt;strong&gt;</bpt>Windows Start<ept id="a3d577bf-8d76-4c71-95b9-db290da21113">&lt;/strong&gt;</ept>, typing <bpt id="91454fe2-bc80-4231-af8f-fa348cf23aa0">&lt;strong&gt;</bpt>Start Admin Server for WebLogic Server Domain<ept id="91454fe2-bc80-4231-af8f-fa348cf23aa0">&lt;/strong&gt;</ept>, and then clicking the <bpt id="f0dae462-22ba-4a15-bc7f-961f686585f2">&lt;strong&gt;</bpt>Start Admin Server for WebLogic Server Domain<ept id="f0dae462-22ba-4a15-bc7f-961f686585f2">&lt;/strong&gt;</ept> icon.)</source>
+          <target state="new">(If the <bpt id="447046f6-43f1-4cf5-8a81-a83650b1d580">&lt;strong&gt;</bpt>WebLogic Platform QuickStart<ept id="447046f6-43f1-4cf5-8a81-a83650b1d580">&lt;/strong&gt;</ept> dialog is not already opened, open it by clicking <bpt id="a3d577bf-8d76-4c71-95b9-db290da21113">&lt;strong&gt;</bpt>Windows Start<ept id="a3d577bf-8d76-4c71-95b9-db290da21113">&lt;/strong&gt;</ept>, typing <bpt id="91454fe2-bc80-4231-af8f-fa348cf23aa0">&lt;strong&gt;</bpt>Start Admin Server for WebLogic Server Domain<ept id="91454fe2-bc80-4231-af8f-fa348cf23aa0">&lt;/strong&gt;</ept>, and then clicking the <bpt id="f0dae462-22ba-4a15-bc7f-961f686585f2">&lt;strong&gt;</bpt>Start Admin Server for WebLogic Server Domain<ept id="f0dae462-22ba-4a15-bc7f-961f686585f2">&lt;/strong&gt;</ept> icon.)</target>
+        </trans-unit>
+        <trans-unit id="8286d091-6e7c-42b1-b105-e0373ac4e9cc" xml:space="preserve">
+          <source>In the <bpt id="5391152b-517d-4683-9851-f4225d602da5">&lt;strong&gt;</bpt>Welcome<ept id="5391152b-517d-4683-9851-f4225d602da5">&lt;/strong&gt;</ept> dialog, select <bpt id="3eeb3ada-58e1-4771-89ba-b7a80bae482d">&lt;strong&gt;</bpt>Create a new WebLogic domain<ept id="3eeb3ada-58e1-4771-89ba-b7a80bae482d">&lt;/strong&gt;</ept> and then click <bpt id="55b3efe8-392a-4956-a71d-ca8168f7ce3d">&lt;strong&gt;</bpt>Next<ept id="55b3efe8-392a-4956-a71d-ca8168f7ce3d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5391152b-517d-4683-9851-f4225d602da5">&lt;strong&gt;</bpt>Welcome<ept id="5391152b-517d-4683-9851-f4225d602da5">&lt;/strong&gt;</ept> dialog, select <bpt id="3eeb3ada-58e1-4771-89ba-b7a80bae482d">&lt;strong&gt;</bpt>Create a new WebLogic domain<ept id="3eeb3ada-58e1-4771-89ba-b7a80bae482d">&lt;/strong&gt;</ept> and then click <bpt id="55b3efe8-392a-4956-a71d-ca8168f7ce3d">&lt;strong&gt;</bpt>Next<ept id="55b3efe8-392a-4956-a71d-ca8168f7ce3d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5dc73386-c23f-4a8f-9085-c12e3bb4ddb2" xml:space="preserve">
+          <source><bpt id="37150970-49e0-480e-b243-590fc7fa8809">&lt;linkText&gt;</bpt><ept id="37150970-49e0-480e-b243-590fc7fa8809">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="37150970-49e0-480e-b243-590fc7fa8809">&lt;linkText&gt;</bpt><ept id="37150970-49e0-480e-b243-590fc7fa8809">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6242aa29-107a-43c0-abe0-eb387f4295fc" xml:space="preserve">
+          <source>In the <bpt id="e812dbfe-6de9-4736-9d29-538bb5d96cf0">&lt;strong&gt;</bpt>Select Domain Source<ept id="e812dbfe-6de9-4736-9d29-538bb5d96cf0">&lt;/strong&gt;</ept> dialog, accept the default values and then click <bpt id="742689d4-d973-4513-b603-23ffaca03b08">&lt;strong&gt;</bpt>Next<ept id="742689d4-d973-4513-b603-23ffaca03b08">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="e812dbfe-6de9-4736-9d29-538bb5d96cf0">&lt;strong&gt;</bpt>Select Domain Source<ept id="e812dbfe-6de9-4736-9d29-538bb5d96cf0">&lt;/strong&gt;</ept> dialog, accept the default values and then click <bpt id="742689d4-d973-4513-b603-23ffaca03b08">&lt;strong&gt;</bpt>Next<ept id="742689d4-d973-4513-b603-23ffaca03b08">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="abed2dfd-57fb-4485-8605-6247af4e9c1a" xml:space="preserve">
+          <source><bpt id="0592de85-57ab-4c51-9b8a-6a1e63e986a5">&lt;linkText&gt;</bpt><ept id="0592de85-57ab-4c51-9b8a-6a1e63e986a5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0592de85-57ab-4c51-9b8a-6a1e63e986a5">&lt;linkText&gt;</bpt><ept id="0592de85-57ab-4c51-9b8a-6a1e63e986a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07fd2841-e8a7-4cc4-814b-e28527e6cb86" xml:space="preserve">
+          <source>In the <bpt id="5957d83b-1a28-430a-8e6b-d051ed69558b">&lt;strong&gt;</bpt>Specify Domain Name and Location<ept id="5957d83b-1a28-430a-8e6b-d051ed69558b">&lt;/strong&gt;</ept> dialog, accept the default values and then click <bpt id="6dbf1e1d-8949-495d-af6a-47abfadf5d38">&lt;strong&gt;</bpt>Next<ept id="6dbf1e1d-8949-495d-af6a-47abfadf5d38">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5957d83b-1a28-430a-8e6b-d051ed69558b">&lt;strong&gt;</bpt>Specify Domain Name and Location<ept id="5957d83b-1a28-430a-8e6b-d051ed69558b">&lt;/strong&gt;</ept> dialog, accept the default values and then click <bpt id="6dbf1e1d-8949-495d-af6a-47abfadf5d38">&lt;strong&gt;</bpt>Next<ept id="6dbf1e1d-8949-495d-af6a-47abfadf5d38">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51d9a3bb-f8e9-4e56-8a6f-ff1d6fe3b4b5" xml:space="preserve">
+          <source><bpt id="c71fa53b-9b6a-4081-bf33-6651a314590b">&lt;linkText&gt;</bpt><ept id="c71fa53b-9b6a-4081-bf33-6651a314590b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c71fa53b-9b6a-4081-bf33-6651a314590b">&lt;linkText&gt;</bpt><ept id="c71fa53b-9b6a-4081-bf33-6651a314590b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc595962-65bd-4662-8b72-84d2407eafc7" xml:space="preserve">
+          <source>In the <bpt id="76a75dde-122a-4a69-863a-7c0f58be4d85">&lt;strong&gt;</bpt>Configure Administrator User Name and Password<ept id="76a75dde-122a-4a69-863a-7c0f58be4d85">&lt;/strong&gt;</ept> dialog:</source>
+          <target state="new">In the <bpt id="76a75dde-122a-4a69-863a-7c0f58be4d85">&lt;strong&gt;</bpt>Configure Administrator User Name and Password<ept id="76a75dde-122a-4a69-863a-7c0f58be4d85">&lt;/strong&gt;</ept> dialog:</target>
+        </trans-unit>
+        <trans-unit id="abd62d2a-91c6-4abd-8230-2edce7f38789" xml:space="preserve">
+          <source>[Optional] Change the user name from <bpt id="64fe013d-6088-44a6-be14-30ec39695fa1">&lt;strong&gt;</bpt>weblogic<ept id="64fe013d-6088-44a6-be14-30ec39695fa1">&lt;/strong&gt;</ept> to a value of your choosing.</source>
+          <target state="new">[Optional] Change the user name from <bpt id="64fe013d-6088-44a6-be14-30ec39695fa1">&lt;strong&gt;</bpt>weblogic<ept id="64fe013d-6088-44a6-be14-30ec39695fa1">&lt;/strong&gt;</ept> to a value of your choosing.</target>
+        </trans-unit>
+        <trans-unit id="a20ee665-8d1e-4ddf-8838-b4621a11bfb3" xml:space="preserve">
+          <source>Specify and confirm a password for the WebLogic Server administrator.</source>
+          <target state="new">Specify and confirm a password for the WebLogic Server administrator.</target>
+        </trans-unit>
+        <trans-unit id="66aae5c9-65c3-43c3-9cb8-2077272d3b7a" xml:space="preserve">
+          <source>Click <bpt id="2a5ace5f-5948-4bf1-b57a-ad65130a8fb1">&lt;strong&gt;</bpt>Next<ept id="2a5ace5f-5948-4bf1-b57a-ad65130a8fb1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="2a5ace5f-5948-4bf1-b57a-ad65130a8fb1">&lt;strong&gt;</bpt>Next<ept id="2a5ace5f-5948-4bf1-b57a-ad65130a8fb1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d2cda8a-e3f5-4213-ba19-7e407be17523" xml:space="preserve">
+          <source><bpt id="ca607d8d-f444-4f23-9c0c-2dbbb13ce2cb">&lt;linkText&gt;</bpt><ept id="ca607d8d-f444-4f23-9c0c-2dbbb13ce2cb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ca607d8d-f444-4f23-9c0c-2dbbb13ce2cb">&lt;linkText&gt;</bpt><ept id="ca607d8d-f444-4f23-9c0c-2dbbb13ce2cb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ceb281d-de1a-4bbc-8aef-f00613a3e5a4" xml:space="preserve">
+          <source>In the <bpt id="123a8010-f8fe-4a2f-9aac-7d173e6a81c8">&lt;strong&gt;</bpt>Configure Server Start Mode and JDK<ept id="123a8010-f8fe-4a2f-9aac-7d173e6a81c8">&lt;/strong&gt;</ept> dialog, select <bpt id="143d67ae-d9da-4ac1-aa2a-64cf9633c14d">&lt;strong&gt;</bpt>Production Mode<ept id="143d67ae-d9da-4ac1-aa2a-64cf9633c14d">&lt;/strong&gt;</ept>, select the available JDK (or browser to a JDK if desired), and then click <bpt id="282569af-3aa0-4f9c-8ea8-7ae7e7212803">&lt;strong&gt;</bpt>Next<ept id="282569af-3aa0-4f9c-8ea8-7ae7e7212803">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="123a8010-f8fe-4a2f-9aac-7d173e6a81c8">&lt;strong&gt;</bpt>Configure Server Start Mode and JDK<ept id="123a8010-f8fe-4a2f-9aac-7d173e6a81c8">&lt;/strong&gt;</ept> dialog, select <bpt id="143d67ae-d9da-4ac1-aa2a-64cf9633c14d">&lt;strong&gt;</bpt>Production Mode<ept id="143d67ae-d9da-4ac1-aa2a-64cf9633c14d">&lt;/strong&gt;</ept>, select the available JDK (or browser to a JDK if desired), and then click <bpt id="282569af-3aa0-4f9c-8ea8-7ae7e7212803">&lt;strong&gt;</bpt>Next<ept id="282569af-3aa0-4f9c-8ea8-7ae7e7212803">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f821ab1-abc9-4134-a9e0-1ebe3cd35a5f" xml:space="preserve">
+          <source><bpt id="105ef306-07b3-4448-a6f1-5b582ec0f0af">&lt;linkText&gt;</bpt><ept id="105ef306-07b3-4448-a6f1-5b582ec0f0af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="105ef306-07b3-4448-a6f1-5b582ec0f0af">&lt;linkText&gt;</bpt><ept id="105ef306-07b3-4448-a6f1-5b582ec0f0af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88040bdd-f188-4396-905e-1f16214eb77f" xml:space="preserve">
+          <source>In the <bpt id="5f42b88c-913e-4f31-9e24-d69205bd9200">&lt;strong&gt;</bpt>Select Optional Configuration<ept id="5f42b88c-913e-4f31-9e24-d69205bd9200">&lt;/strong&gt;</ept> dialog, do not select any options, and then click <bpt id="dfc780ed-a7f1-47ad-9ded-fd9704b2d994">&lt;strong&gt;</bpt>Next<ept id="dfc780ed-a7f1-47ad-9ded-fd9704b2d994">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5f42b88c-913e-4f31-9e24-d69205bd9200">&lt;strong&gt;</bpt>Select Optional Configuration<ept id="5f42b88c-913e-4f31-9e24-d69205bd9200">&lt;/strong&gt;</ept> dialog, do not select any options, and then click <bpt id="dfc780ed-a7f1-47ad-9ded-fd9704b2d994">&lt;strong&gt;</bpt>Next<ept id="dfc780ed-a7f1-47ad-9ded-fd9704b2d994">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fec6a6f2-db87-4a00-8ecd-63b7d7376b84" xml:space="preserve">
+          <source><bpt id="715482c0-c486-4113-b034-b4361deb901a">&lt;linkText&gt;</bpt><ept id="715482c0-c486-4113-b034-b4361deb901a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="715482c0-c486-4113-b034-b4361deb901a">&lt;linkText&gt;</bpt><ept id="715482c0-c486-4113-b034-b4361deb901a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="208ee917-e31a-4777-8b37-d528ce6d5886" xml:space="preserve">
+          <source>In the <bpt id="4e71bba9-d497-4914-abb5-0ab4211091cc">&lt;strong&gt;</bpt>Configuration Summary<ept id="4e71bba9-d497-4914-abb5-0ab4211091cc">&lt;/strong&gt;</ept> dialog, click <bpt id="d6967a23-8003-4f23-8b7c-a31ac407580d">&lt;strong&gt;</bpt>Create<ept id="d6967a23-8003-4f23-8b7c-a31ac407580d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4e71bba9-d497-4914-abb5-0ab4211091cc">&lt;strong&gt;</bpt>Configuration Summary<ept id="4e71bba9-d497-4914-abb5-0ab4211091cc">&lt;/strong&gt;</ept> dialog, click <bpt id="d6967a23-8003-4f23-8b7c-a31ac407580d">&lt;strong&gt;</bpt>Create<ept id="d6967a23-8003-4f23-8b7c-a31ac407580d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e37ec15-9e67-4952-b422-5bc0ad4260d1" xml:space="preserve">
+          <source><bpt id="9b10efc7-0bf9-4b3b-ac00-4d7d731bac11">&lt;linkText&gt;</bpt><ept id="9b10efc7-0bf9-4b3b-ac00-4d7d731bac11">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b10efc7-0bf9-4b3b-ac00-4d7d731bac11">&lt;linkText&gt;</bpt><ept id="9b10efc7-0bf9-4b3b-ac00-4d7d731bac11">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="562bbcca-e3e9-45e3-b6f8-59bb51348059" xml:space="preserve">
+          <source>In the <bpt id="d693d38d-6784-47dc-9ec4-eb340fa9d97a">&lt;strong&gt;</bpt>Creating Domain<ept id="d693d38d-6784-47dc-9ec4-eb340fa9d97a">&lt;/strong&gt;</ept> dialog, check <bpt id="74981465-ca99-41f3-9f36-2d5307c354d4">&lt;strong&gt;</bpt>Start Admin Server<ept id="74981465-ca99-41f3-9f36-2d5307c354d4">&lt;/strong&gt;</ept> and then click <bpt id="8a7e1042-d7a1-448f-8281-a0a84914fe86">&lt;strong&gt;</bpt>Done<ept id="8a7e1042-d7a1-448f-8281-a0a84914fe86">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d693d38d-6784-47dc-9ec4-eb340fa9d97a">&lt;strong&gt;</bpt>Creating Domain<ept id="d693d38d-6784-47dc-9ec4-eb340fa9d97a">&lt;/strong&gt;</ept> dialog, check <bpt id="74981465-ca99-41f3-9f36-2d5307c354d4">&lt;strong&gt;</bpt>Start Admin Server<ept id="74981465-ca99-41f3-9f36-2d5307c354d4">&lt;/strong&gt;</ept> and then click <bpt id="8a7e1042-d7a1-448f-8281-a0a84914fe86">&lt;strong&gt;</bpt>Done<ept id="8a7e1042-d7a1-448f-8281-a0a84914fe86">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8f07f32-b4c6-4c3b-af70-056744294fd9" xml:space="preserve">
+          <source><bpt id="03131499-7351-45f0-9084-0b7c77ba702f">&lt;linkText&gt;</bpt><ept id="03131499-7351-45f0-9084-0b7c77ba702f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="03131499-7351-45f0-9084-0b7c77ba702f">&lt;linkText&gt;</bpt><ept id="03131499-7351-45f0-9084-0b7c77ba702f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b38b1ce-43db-4110-a9c2-63f88c8adf1b" xml:space="preserve">
+          <source>A command prompt for <bpt id="e42089a8-eae5-4502-aef1-6a507624bba9">&lt;strong&gt;</bpt>startWebLogic.cmd<ept id="e42089a8-eae5-4502-aef1-6a507624bba9">&lt;/strong&gt;</ept> is started.</source>
+          <target state="new">A command prompt for <bpt id="e42089a8-eae5-4502-aef1-6a507624bba9">&lt;strong&gt;</bpt>startWebLogic.cmd<ept id="e42089a8-eae5-4502-aef1-6a507624bba9">&lt;/strong&gt;</ept> is started.</target>
+        </trans-unit>
+        <trans-unit id="a1df35ad-6690-4d3d-9cd0-46d24835e4a3" xml:space="preserve">
+          <source>When prompted, provide your WebLogic user name and password.</source>
+          <target state="new">When prompted, provide your WebLogic user name and password.</target>
+        </trans-unit>
+        <trans-unit id="9cbf0043-58f2-4972-a0bc-a84b4aca921d" xml:space="preserve">
+          <source>Still logged in to your Virtual Machine, copy the shoppingcart.war example available at http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war locally.</source>
+          <target state="new">Still logged in to your Virtual Machine, copy the shoppingcart.war example available at http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war locally.</target>
+        </trans-unit>
+        <trans-unit id="a0322927-ecaf-44e7-8103-dce05084564e" xml:space="preserve">
+          <source>For example, create a folder named <bpt id="885ee19f-1d9e-4288-8aba-56173c983bf3">&lt;strong&gt;</bpt>c:\mywar<ept id="885ee19f-1d9e-4288-8aba-56173c983bf3">&lt;/strong&gt;</ept> and save the WAR at http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war to <bpt id="fec8cc39-d049-4584-a927-826a3f9edf6e">&lt;strong&gt;</bpt>c:\mywar<ept id="fec8cc39-d049-4584-a927-826a3f9edf6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, create a folder named <bpt id="885ee19f-1d9e-4288-8aba-56173c983bf3">&lt;strong&gt;</bpt>c:\mywar<ept id="885ee19f-1d9e-4288-8aba-56173c983bf3">&lt;/strong&gt;</ept> and save the WAR at http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war to <bpt id="fec8cc39-d049-4584-a927-826a3f9edf6e">&lt;strong&gt;</bpt>c:\mywar<ept id="fec8cc39-d049-4584-a927-826a3f9edf6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="687a50bf-31a2-48e3-94ec-26f9503546da" xml:space="preserve">
+          <source>Open the <bpt id="8e5499cd-402c-4319-baf3-8a7fa7b0d2c6">&lt;strong&gt;</bpt>WebLogic Server Administration Console<ept id="8e5499cd-402c-4319-baf3-8a7fa7b0d2c6">&lt;/strong&gt;</ept>, http://localhost:7001/console.</source>
+          <target state="new">Open the <bpt id="8e5499cd-402c-4319-baf3-8a7fa7b0d2c6">&lt;strong&gt;</bpt>WebLogic Server Administration Console<ept id="8e5499cd-402c-4319-baf3-8a7fa7b0d2c6">&lt;/strong&gt;</ept>, http://localhost:7001/console.</target>
+        </trans-unit>
+        <trans-unit id="e2e6f70a-0db5-462f-9aaf-02820340f7b7" xml:space="preserve">
+          <source>When prompted, provide your WebLogic user name and password.</source>
+          <target state="new">When prompted, provide your WebLogic user name and password.</target>
+        </trans-unit>
+        <trans-unit id="efdb59ba-d81b-4a9e-9825-7f18fd070188" xml:space="preserve">
+          <source>Within the <bpt id="dcba0047-b722-4db1-a114-e7b3b237da3b">&lt;strong&gt;</bpt>WebLogic Server Administration Console<ept id="dcba0047-b722-4db1-a114-e7b3b237da3b">&lt;/strong&gt;</ept>, click <bpt id="54e99afe-625b-448f-871c-176fc2e7878e">&lt;strong&gt;</bpt>Lock &amp; Edit<ept id="54e99afe-625b-448f-871c-176fc2e7878e">&lt;/strong&gt;</ept>, click <bpt id="d6e288de-f2d1-4886-a302-7b16fcc017de">&lt;strong&gt;</bpt>Deployments<ept id="d6e288de-f2d1-4886-a302-7b16fcc017de">&lt;/strong&gt;</ept>, and then click <bpt id="4420d4cc-ea6f-4b73-a079-ccb59790eedc">&lt;strong&gt;</bpt>Install<ept id="4420d4cc-ea6f-4b73-a079-ccb59790eedc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Within the <bpt id="dcba0047-b722-4db1-a114-e7b3b237da3b">&lt;strong&gt;</bpt>WebLogic Server Administration Console<ept id="dcba0047-b722-4db1-a114-e7b3b237da3b">&lt;/strong&gt;</ept>, click <bpt id="54e99afe-625b-448f-871c-176fc2e7878e">&lt;strong&gt;</bpt>Lock &amp; Edit<ept id="54e99afe-625b-448f-871c-176fc2e7878e">&lt;/strong&gt;</ept>, click <bpt id="d6e288de-f2d1-4886-a302-7b16fcc017de">&lt;strong&gt;</bpt>Deployments<ept id="d6e288de-f2d1-4886-a302-7b16fcc017de">&lt;/strong&gt;</ept>, and then click <bpt id="4420d4cc-ea6f-4b73-a079-ccb59790eedc">&lt;strong&gt;</bpt>Install<ept id="4420d4cc-ea6f-4b73-a079-ccb59790eedc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a7954fa-3e5e-4da9-a161-7878ca405ce4" xml:space="preserve">
+          <source>For <bpt id="7256942c-4ecc-4f42-ab51-f2bb2d2ad992">&lt;strong&gt;</bpt>Path<ept id="7256942c-4ecc-4f42-ab51-f2bb2d2ad992">&lt;/strong&gt;</ept>, type <bpt id="12c052c5-a7c6-4395-ae58-5852d6255c72">&lt;strong&gt;</bpt>c:\mywar\shoppingcart.war.<ept id="12c052c5-a7c6-4395-ae58-5852d6255c72">&lt;/strong&gt;</ept></source>
+          <target state="new">For <bpt id="7256942c-4ecc-4f42-ab51-f2bb2d2ad992">&lt;strong&gt;</bpt>Path<ept id="7256942c-4ecc-4f42-ab51-f2bb2d2ad992">&lt;/strong&gt;</ept>, type <bpt id="12c052c5-a7c6-4395-ae58-5852d6255c72">&lt;strong&gt;</bpt>c:\mywar\shoppingcart.war.<ept id="12c052c5-a7c6-4395-ae58-5852d6255c72">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea33f316-5ca6-4094-8e6f-6e947480fda8" xml:space="preserve">
+          <source><bpt id="1fa4263f-4d94-4cfd-aca2-a9e0e0d8f0dc">&lt;linkText&gt;</bpt><ept id="1fa4263f-4d94-4cfd-aca2-a9e0e0d8f0dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1fa4263f-4d94-4cfd-aca2-a9e0e0d8f0dc">&lt;linkText&gt;</bpt><ept id="1fa4263f-4d94-4cfd-aca2-a9e0e0d8f0dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a574f6f7-fc1b-4216-ab6c-f2fcfbd2f482" xml:space="preserve">
+          <source>Click <bpt id="a8981e28-ed2c-4cfe-a49f-902b0ad8a32e">&lt;strong&gt;</bpt>Next<ept id="a8981e28-ed2c-4cfe-a49f-902b0ad8a32e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a8981e28-ed2c-4cfe-a49f-902b0ad8a32e">&lt;strong&gt;</bpt>Next<ept id="a8981e28-ed2c-4cfe-a49f-902b0ad8a32e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7ea5c8e-1234-4945-8fb2-df0327aa06e8" xml:space="preserve">
+          <source>Select I<bpt id="e989e744-19cb-4797-b44e-d424a68ab8f6">&lt;strong&gt;</bpt>nstall this deployment as an application<ept id="e989e744-19cb-4797-b44e-d424a68ab8f6">&lt;/strong&gt;</ept> and then click <bpt id="3d723d31-4f52-486a-a772-00efac6b2524">&lt;strong&gt;</bpt>Next<ept id="3d723d31-4f52-486a-a772-00efac6b2524">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select I<bpt id="e989e744-19cb-4797-b44e-d424a68ab8f6">&lt;strong&gt;</bpt>nstall this deployment as an application<ept id="e989e744-19cb-4797-b44e-d424a68ab8f6">&lt;/strong&gt;</ept> and then click <bpt id="3d723d31-4f52-486a-a772-00efac6b2524">&lt;strong&gt;</bpt>Next<ept id="3d723d31-4f52-486a-a772-00efac6b2524">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72339c04-f5f2-4288-a2a9-721c436c9082" xml:space="preserve">
+          <source>Click <bpt id="9ad103f3-25f6-40b1-83da-3388c1ea447d">&lt;strong&gt;</bpt>Finish<ept id="9ad103f3-25f6-40b1-83da-3388c1ea447d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9ad103f3-25f6-40b1-83da-3388c1ea447d">&lt;strong&gt;</bpt>Finish<ept id="9ad103f3-25f6-40b1-83da-3388c1ea447d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1fd59ddb-75bc-49b2-9d70-1fb919872b6f" xml:space="preserve">
+          <source>Within the <bpt id="92287f51-6e99-409f-a650-7de78fcb2c6c">&lt;strong&gt;</bpt>WebLogic Server Administration Console<ept id="92287f51-6e99-409f-a650-7de78fcb2c6c">&lt;/strong&gt;</ept>, click <bpt id="3d9744b0-14bc-4838-94d0-1cefff75bc8a">&lt;strong&gt;</bpt>Save<ept id="3d9744b0-14bc-4838-94d0-1cefff75bc8a">&lt;/strong&gt;</ept>, and then click <bpt id="9271ac7c-e9ed-4c96-8b8b-d06b032bef94">&lt;strong&gt;</bpt>Activate Changes<ept id="9271ac7c-e9ed-4c96-8b8b-d06b032bef94">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Within the <bpt id="92287f51-6e99-409f-a650-7de78fcb2c6c">&lt;strong&gt;</bpt>WebLogic Server Administration Console<ept id="92287f51-6e99-409f-a650-7de78fcb2c6c">&lt;/strong&gt;</ept>, click <bpt id="3d9744b0-14bc-4838-94d0-1cefff75bc8a">&lt;strong&gt;</bpt>Save<ept id="3d9744b0-14bc-4838-94d0-1cefff75bc8a">&lt;/strong&gt;</ept>, and then click <bpt id="9271ac7c-e9ed-4c96-8b8b-d06b032bef94">&lt;strong&gt;</bpt>Activate Changes<ept id="9271ac7c-e9ed-4c96-8b8b-d06b032bef94">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81535e1f-22ab-4dcf-ae69-0ca6a8306f00" xml:space="preserve">
+          <source>Click <bpt id="387c84ef-9c2e-41a9-b8d8-048117b457a6">&lt;strong&gt;</bpt>Deployments<ept id="387c84ef-9c2e-41a9-b8d8-048117b457a6">&lt;/strong&gt;</ept>, select <bpt id="2a44acf3-20e3-4a5e-b0c1-77632e564805">&lt;strong&gt;</bpt>shoppingcart<ept id="2a44acf3-20e3-4a5e-b0c1-77632e564805">&lt;/strong&gt;</ept>, click <bpt id="66b92167-fc1d-4257-bfa2-06a3b7af1458">&lt;strong&gt;</bpt>Start<ept id="66b92167-fc1d-4257-bfa2-06a3b7af1458">&lt;/strong&gt;</ept>, and then click <bpt id="fd4bcea0-5a65-456d-aaf8-3686a0e45ef2">&lt;strong&gt;</bpt>Service All Requests<ept id="fd4bcea0-5a65-456d-aaf8-3686a0e45ef2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="387c84ef-9c2e-41a9-b8d8-048117b457a6">&lt;strong&gt;</bpt>Deployments<ept id="387c84ef-9c2e-41a9-b8d8-048117b457a6">&lt;/strong&gt;</ept>, select <bpt id="2a44acf3-20e3-4a5e-b0c1-77632e564805">&lt;strong&gt;</bpt>shoppingcart<ept id="2a44acf3-20e3-4a5e-b0c1-77632e564805">&lt;/strong&gt;</ept>, click <bpt id="66b92167-fc1d-4257-bfa2-06a3b7af1458">&lt;strong&gt;</bpt>Start<ept id="66b92167-fc1d-4257-bfa2-06a3b7af1458">&lt;/strong&gt;</ept>, and then click <bpt id="fd4bcea0-5a65-456d-aaf8-3686a0e45ef2">&lt;strong&gt;</bpt>Service All Requests<ept id="fd4bcea0-5a65-456d-aaf8-3686a0e45ef2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ca7608f-1a7f-4e15-88be-23aae1f6a849" xml:space="preserve">
+          <source>When prompted to confirm, click <bpt id="8d2a8ff6-188a-4e3d-995a-b9b74a3d4aa5">&lt;strong&gt;</bpt>Yes<ept id="8d2a8ff6-188a-4e3d-995a-b9b74a3d4aa5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted to confirm, click <bpt id="8d2a8ff6-188a-4e3d-995a-b9b74a3d4aa5">&lt;strong&gt;</bpt>Yes<ept id="8d2a8ff6-188a-4e3d-995a-b9b74a3d4aa5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39bf71d4-3f65-41ea-bbbf-f14bb67f660a" xml:space="preserve">
+          <source>To see the shopping cart application running locally, open a browser to &lt;http://localhost:7001/shoppingcart&gt;</source>
+          <target state="new">To see the shopping cart application running locally, open a browser to &lt;http://localhost:7001/shoppingcart&gt;</target>
+        </trans-unit>
+        <trans-unit id="c42ee22d-5d54-489c-92ba-fd12f38f32ec" xml:space="preserve">
+          <source>Create an endpoint for your Virtual Machine:</source>
+          <target state="new">Create an endpoint for your Virtual Machine:</target>
+        </trans-unit>
+        <trans-unit id="e6c04888-5ad2-4407-bde6-74ea16bf6bf8" xml:space="preserve">
+          <source>Log in to the <bpt id="f9ad945e-fd38-41ec-94ee-c612a5736906">&lt;linkText&gt;</bpt>Azure Portal<ept id="f9ad945e-fd38-41ec-94ee-c612a5736906">&lt;/linkText&gt;</ept><bpt id="f9ad945e-fd38-41ec-94ee-c612a5736906">&lt;title&gt;</bpt><ept id="f9ad945e-fd38-41ec-94ee-c612a5736906">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="f9ad945e-fd38-41ec-94ee-c612a5736906">&lt;linkText&gt;</bpt>Azure Portal<ept id="f9ad945e-fd38-41ec-94ee-c612a5736906">&lt;/linkText&gt;</ept><bpt id="f9ad945e-fd38-41ec-94ee-c612a5736906">&lt;title&gt;</bpt><ept id="f9ad945e-fd38-41ec-94ee-c612a5736906">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8bc5e016-13d6-4d87-a846-77ec963fc21e" xml:space="preserve">
+          <source>Click <bpt id="fb941036-664d-4e6b-8007-91a743eb3ff8">&lt;strong&gt;</bpt>Browse<ept id="fb941036-664d-4e6b-8007-91a743eb3ff8">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="fb941036-664d-4e6b-8007-91a743eb3ff8">&lt;strong&gt;</bpt>Browse<ept id="fb941036-664d-4e6b-8007-91a743eb3ff8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0a0b405-fd2f-4c24-8d75-3c3c970333dd" xml:space="preserve">
+          <source>Click <bpt id="7af3bee6-714f-4e03-8022-303fefa8fe75">&lt;strong&gt;</bpt>Virtual Machines<ept id="7af3bee6-714f-4e03-8022-303fefa8fe75">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="7af3bee6-714f-4e03-8022-303fefa8fe75">&lt;strong&gt;</bpt>Virtual Machines<ept id="7af3bee6-714f-4e03-8022-303fefa8fe75">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd9ed091-494f-4665-aebf-8475be871f4d" xml:space="preserve">
+          <source>Select the Virtual Machine</source>
+          <target state="new">Select the Virtual Machine</target>
+        </trans-unit>
+        <trans-unit id="b8fb8432-cad8-4e13-ab59-9a42b6883e1a" xml:space="preserve">
+          <source>Click <bpt id="bf4bf10d-6660-4041-8622-168fe4dc5f03">&lt;strong&gt;</bpt>Settings<ept id="bf4bf10d-6660-4041-8622-168fe4dc5f03">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="bf4bf10d-6660-4041-8622-168fe4dc5f03">&lt;strong&gt;</bpt>Settings<ept id="bf4bf10d-6660-4041-8622-168fe4dc5f03">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68088e39-bd43-4aa2-9fe5-bfad275ed4fa" xml:space="preserve">
+          <source>Click <bpt id="838f1c15-b50c-4e5b-96f8-3a090b162753">&lt;strong&gt;</bpt>Endpoints<ept id="838f1c15-b50c-4e5b-96f8-3a090b162753">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="838f1c15-b50c-4e5b-96f8-3a090b162753">&lt;strong&gt;</bpt>Endpoints<ept id="838f1c15-b50c-4e5b-96f8-3a090b162753">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b3eab27-1909-4bf1-8eda-986a8b8e85e8" xml:space="preserve">
+          <source>Click <bpt id="74778ecb-b816-4850-bbfc-75ec6854ea1e">&lt;strong&gt;</bpt>Add<ept id="74778ecb-b816-4850-bbfc-75ec6854ea1e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="74778ecb-b816-4850-bbfc-75ec6854ea1e">&lt;strong&gt;</bpt>Add<ept id="74778ecb-b816-4850-bbfc-75ec6854ea1e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d17cef20-7958-43bc-9c86-d9acbb68125a" xml:space="preserve">
+          <source>Specify a name for the endpoint</source>
+          <target state="new">Specify a name for the endpoint</target>
+        </trans-unit>
+        <trans-unit id="edb5084d-2f74-450a-8ae4-fa507ec957db" xml:space="preserve">
+          <source>Use <bpt id="84f10b0a-55b0-4d47-800c-064532e529b7">&lt;strong&gt;</bpt>TCP<ept id="84f10b0a-55b0-4d47-800c-064532e529b7">&lt;/strong&gt;</ept> for the protocol</source>
+          <target state="new">Use <bpt id="84f10b0a-55b0-4d47-800c-064532e529b7">&lt;strong&gt;</bpt>TCP<ept id="84f10b0a-55b0-4d47-800c-064532e529b7">&lt;/strong&gt;</ept> for the protocol</target>
+        </trans-unit>
+        <trans-unit id="0a656409-5f77-4c47-a7bb-1657fd48618f" xml:space="preserve">
+          <source>Use <bpt id="214ff555-737d-4361-ba1b-a05856557d88">&lt;strong&gt;</bpt>80<ept id="214ff555-737d-4361-ba1b-a05856557d88">&lt;/strong&gt;</ept> for the public port</source>
+          <target state="new">Use <bpt id="214ff555-737d-4361-ba1b-a05856557d88">&lt;strong&gt;</bpt>80<ept id="214ff555-737d-4361-ba1b-a05856557d88">&lt;/strong&gt;</ept> for the public port</target>
+        </trans-unit>
+        <trans-unit id="501feabb-1c3b-4270-9282-f5b6661fcaf7" xml:space="preserve">
+          <source>Use <bpt id="f3032b5a-8bef-447d-8df2-53b9b9a05430">&lt;strong&gt;</bpt>7001<ept id="f3032b5a-8bef-447d-8df2-53b9b9a05430">&lt;/strong&gt;</ept> for the private port.</source>
+          <target state="new">Use <bpt id="f3032b5a-8bef-447d-8df2-53b9b9a05430">&lt;strong&gt;</bpt>7001<ept id="f3032b5a-8bef-447d-8df2-53b9b9a05430">&lt;/strong&gt;</ept> for the private port.</target>
+        </trans-unit>
+        <trans-unit id="41871467-cc3a-4e6d-a08a-a063dac9f5e5" xml:space="preserve">
+          <source>Leave the rest of the options as-is</source>
+          <target state="new">Leave the rest of the options as-is</target>
+        </trans-unit>
+        <trans-unit id="84415f0b-4036-4fef-adec-b04351f65681" xml:space="preserve">
+          <source>Click <bpt id="596ecbc2-30fd-43da-b429-803a0fd1aebd">&lt;strong&gt;</bpt>OK<ept id="596ecbc2-30fd-43da-b429-803a0fd1aebd">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="596ecbc2-30fd-43da-b429-803a0fd1aebd">&lt;strong&gt;</bpt>OK<ept id="596ecbc2-30fd-43da-b429-803a0fd1aebd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d8a47938-446b-4609-924b-d5fef52df5d1" xml:space="preserve">
+          <source>Allow an inbound connection through the firewall to port 7001.</source>
+          <target state="new">Allow an inbound connection through the firewall to port 7001.</target>
+        </trans-unit>
+        <trans-unit id="c38682b1-a41d-428c-94c6-09e98fc91c4a" xml:space="preserve">
+          <source>Log in to your Virtual Machine.</source>
+          <target state="new">Log in to your Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="88373cc8-3ffd-4b9c-9833-30af55182c05" xml:space="preserve">
+          <source>Click <bpt id="d7a71d57-27d9-4ca8-89c5-4397393889ce">&lt;strong&gt;</bpt>Windows Start<ept id="d7a71d57-27d9-4ca8-89c5-4397393889ce">&lt;/strong&gt;</ept>, type <bpt id="6c5e965a-55e6-4234-adfa-bc1469d72bcb">&lt;strong&gt;</bpt>Windows Firewall with Advanced Security<ept id="6c5e965a-55e6-4234-adfa-bc1469d72bcb">&lt;/strong&gt;</ept>, and then click the <bpt id="327dd626-40c3-4e71-a113-d6acfa1ab047">&lt;strong&gt;</bpt>Windows Firewall with Advanced Security<ept id="327dd626-40c3-4e71-a113-d6acfa1ab047">&lt;/strong&gt;</ept> icon.</source>
+          <target state="new">Click <bpt id="d7a71d57-27d9-4ca8-89c5-4397393889ce">&lt;strong&gt;</bpt>Windows Start<ept id="d7a71d57-27d9-4ca8-89c5-4397393889ce">&lt;/strong&gt;</ept>, type <bpt id="6c5e965a-55e6-4234-adfa-bc1469d72bcb">&lt;strong&gt;</bpt>Windows Firewall with Advanced Security<ept id="6c5e965a-55e6-4234-adfa-bc1469d72bcb">&lt;/strong&gt;</ept>, and then click the <bpt id="327dd626-40c3-4e71-a113-d6acfa1ab047">&lt;strong&gt;</bpt>Windows Firewall with Advanced Security<ept id="327dd626-40c3-4e71-a113-d6acfa1ab047">&lt;/strong&gt;</ept> icon.</target>
+        </trans-unit>
+        <trans-unit id="191b8b23-04de-4300-a81c-cefbdb7be3e4" xml:space="preserve">
+          <source>This opens the <bpt id="a55a3064-f8d8-4894-862a-de47e099e812">&lt;strong&gt;</bpt>Windows Firewall with Advanced Security<ept id="a55a3064-f8d8-4894-862a-de47e099e812">&lt;/strong&gt;</ept> management console.</source>
+          <target state="new">This opens the <bpt id="a55a3064-f8d8-4894-862a-de47e099e812">&lt;strong&gt;</bpt>Windows Firewall with Advanced Security<ept id="a55a3064-f8d8-4894-862a-de47e099e812">&lt;/strong&gt;</ept> management console.</target>
+        </trans-unit>
+        <trans-unit id="5d0ee06f-0cee-44c0-8c5f-1200b29c9aa5" xml:space="preserve">
+          <source>Within the firewall management console, click <bpt id="f89c0631-72dd-4e15-8dcf-d4b98c83239b">&lt;strong&gt;</bpt>Inbound Rules<ept id="f89c0631-72dd-4e15-8dcf-d4b98c83239b">&lt;/strong&gt;</ept> in the left hand pane (if you don’t see <bpt id="6616f9e4-d473-4d82-b0de-978d1d339308">&lt;strong&gt;</bpt>Inbound Rules<ept id="6616f9e4-d473-4d82-b0de-978d1d339308">&lt;/strong&gt;</ept>, expand the top node in the left hand pane), and then click New Rule in the right hand pane.</source>
+          <target state="new">Within the firewall management console, click <bpt id="f89c0631-72dd-4e15-8dcf-d4b98c83239b">&lt;strong&gt;</bpt>Inbound Rules<ept id="f89c0631-72dd-4e15-8dcf-d4b98c83239b">&lt;/strong&gt;</ept> in the left hand pane (if you don’t see <bpt id="6616f9e4-d473-4d82-b0de-978d1d339308">&lt;strong&gt;</bpt>Inbound Rules<ept id="6616f9e4-d473-4d82-b0de-978d1d339308">&lt;/strong&gt;</ept>, expand the top node in the left hand pane), and then click New Rule in the right hand pane.</target>
+        </trans-unit>
+        <trans-unit id="7336e184-f209-4cf2-889a-697670eb8c54" xml:space="preserve">
+          <source>For <bpt id="b3ff9cf9-b8d0-4413-8a60-a541ba231925">&lt;strong&gt;</bpt>Rule Type<ept id="b3ff9cf9-b8d0-4413-8a60-a541ba231925">&lt;/strong&gt;</ept>, select <bpt id="63da4619-0e9f-4bec-8694-24a6c7a83205">&lt;strong&gt;</bpt>Port<ept id="63da4619-0e9f-4bec-8694-24a6c7a83205">&lt;/strong&gt;</ept> and click <bpt id="b57b49f2-c181-4892-97c8-9729eed9e150">&lt;strong&gt;</bpt>Next<ept id="b57b49f2-c181-4892-97c8-9729eed9e150">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="b3ff9cf9-b8d0-4413-8a60-a541ba231925">&lt;strong&gt;</bpt>Rule Type<ept id="b3ff9cf9-b8d0-4413-8a60-a541ba231925">&lt;/strong&gt;</ept>, select <bpt id="63da4619-0e9f-4bec-8694-24a6c7a83205">&lt;strong&gt;</bpt>Port<ept id="63da4619-0e9f-4bec-8694-24a6c7a83205">&lt;/strong&gt;</ept> and click <bpt id="b57b49f2-c181-4892-97c8-9729eed9e150">&lt;strong&gt;</bpt>Next<ept id="b57b49f2-c181-4892-97c8-9729eed9e150">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d17f0526-3d3d-49dd-9e93-ff9dc4bc3a26" xml:space="preserve">
+          <source>For <bpt id="6620fcb6-ffc2-48cc-93dd-7052320dcf8b">&lt;strong&gt;</bpt>Protocol and Port<ept id="6620fcb6-ffc2-48cc-93dd-7052320dcf8b">&lt;/strong&gt;</ept>, select <bpt id="3ff6129d-8ecc-4062-9885-0729d5d2dc50">&lt;strong&gt;</bpt>TCP<ept id="3ff6129d-8ecc-4062-9885-0729d5d2dc50">&lt;/strong&gt;</ept>, select <bpt id="c06a4108-1224-486d-8633-c719ad5ab733">&lt;strong&gt;</bpt>Specific local ports<ept id="c06a4108-1224-486d-8633-c719ad5ab733">&lt;/strong&gt;</ept>, enter <bpt id="37300176-9bfa-437a-ac84-a5c9eaa9a7fd">&lt;strong&gt;</bpt>7001<ept id="37300176-9bfa-437a-ac84-a5c9eaa9a7fd">&lt;/strong&gt;</ept> for the port, and then click <bpt id="7e8e63dc-e86f-48f1-a2de-dce4a9654a21">&lt;strong&gt;</bpt>Next<ept id="7e8e63dc-e86f-48f1-a2de-dce4a9654a21">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="6620fcb6-ffc2-48cc-93dd-7052320dcf8b">&lt;strong&gt;</bpt>Protocol and Port<ept id="6620fcb6-ffc2-48cc-93dd-7052320dcf8b">&lt;/strong&gt;</ept>, select <bpt id="3ff6129d-8ecc-4062-9885-0729d5d2dc50">&lt;strong&gt;</bpt>TCP<ept id="3ff6129d-8ecc-4062-9885-0729d5d2dc50">&lt;/strong&gt;</ept>, select <bpt id="c06a4108-1224-486d-8633-c719ad5ab733">&lt;strong&gt;</bpt>Specific local ports<ept id="c06a4108-1224-486d-8633-c719ad5ab733">&lt;/strong&gt;</ept>, enter <bpt id="37300176-9bfa-437a-ac84-a5c9eaa9a7fd">&lt;strong&gt;</bpt>7001<ept id="37300176-9bfa-437a-ac84-a5c9eaa9a7fd">&lt;/strong&gt;</ept> for the port, and then click <bpt id="7e8e63dc-e86f-48f1-a2de-dce4a9654a21">&lt;strong&gt;</bpt>Next<ept id="7e8e63dc-e86f-48f1-a2de-dce4a9654a21">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7980b600-48a0-4d3d-8821-aa46d67d657f" xml:space="preserve">
+          <source>Select <bpt id="320ec472-45b6-446f-91b0-0c394fa1a2ac">&lt;strong&gt;</bpt>Allow the connection<ept id="320ec472-45b6-446f-91b0-0c394fa1a2ac">&lt;/strong&gt;</ept> and click <bpt id="b1569efa-cf0e-4c48-95b2-c14efa95b105">&lt;strong&gt;</bpt>Next<ept id="b1569efa-cf0e-4c48-95b2-c14efa95b105">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="320ec472-45b6-446f-91b0-0c394fa1a2ac">&lt;strong&gt;</bpt>Allow the connection<ept id="320ec472-45b6-446f-91b0-0c394fa1a2ac">&lt;/strong&gt;</ept> and click <bpt id="b1569efa-cf0e-4c48-95b2-c14efa95b105">&lt;strong&gt;</bpt>Next<ept id="b1569efa-cf0e-4c48-95b2-c14efa95b105">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="078b8e0d-d615-4912-bb19-cf05df2d6e72" xml:space="preserve">
+          <source>Accept the defaults for the profiles for which the rule applies and click <bpt id="2c163f69-c921-4555-9fe1-9c02ea8ca78d">&lt;strong&gt;</bpt>Next<ept id="2c163f69-c921-4555-9fe1-9c02ea8ca78d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Accept the defaults for the profiles for which the rule applies and click <bpt id="2c163f69-c921-4555-9fe1-9c02ea8ca78d">&lt;strong&gt;</bpt>Next<ept id="2c163f69-c921-4555-9fe1-9c02ea8ca78d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2dfbfd44-c68f-4b32-813d-b364f27291fd" xml:space="preserve">
+          <source>Specify a name for the rule and optionally a description, and then click <bpt id="e98a2da1-564d-4711-a818-a47151f508d9">&lt;strong&gt;</bpt>Finish<ept id="e98a2da1-564d-4711-a818-a47151f508d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify a name for the rule and optionally a description, and then click <bpt id="e98a2da1-564d-4711-a818-a47151f508d9">&lt;strong&gt;</bpt>Finish<ept id="e98a2da1-564d-4711-a818-a47151f508d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="295e333a-a3cd-4113-9bc0-3094c7724939" xml:space="preserve">
+          <source>To see the shopping cart application running on the Internet, open a browser to the URL in the form of <bpt id="336a5fe2-df2b-468b-9a88-8153ca90def8">&lt;code&gt;</bpt>http://&lt;&lt;unique_domain_name&gt;&gt;/shoppingcart<ept id="336a5fe2-df2b-468b-9a88-8153ca90def8">&lt;/code&gt;</ept>. (You can determine the value for &lt;&lt;<bpt id="01bcc8c2-d916-4127-9606-4b59c04f06de">&lt;em&gt;</bpt>unique_domain_name<ept id="01bcc8c2-d916-4127-9606-4b59c04f06de">&lt;/em&gt;</ept>&gt;&gt; within the <bpt id="74005110-02af-4c83-b905-165c7ca267fc">&lt;linkText&gt;</bpt>Azure Portal<ept id="74005110-02af-4c83-b905-165c7ca267fc">&lt;/linkText&gt;</ept><bpt id="74005110-02af-4c83-b905-165c7ca267fc">&lt;title&gt;</bpt><ept id="74005110-02af-4c83-b905-165c7ca267fc">&lt;/title&gt;</ept> by clicking <bpt id="7c9fcb82-9ed5-4831-81dd-7f96def1282d">&lt;strong&gt;</bpt>Virtual Machines<ept id="7c9fcb82-9ed5-4831-81dd-7f96def1282d">&lt;/strong&gt;</ept> and then selecting the Virtual Machine that you are using to run Oracle WebLogic Server).</source>
+          <target state="new">To see the shopping cart application running on the Internet, open a browser to the URL in the form of <bpt id="336a5fe2-df2b-468b-9a88-8153ca90def8">&lt;code&gt;</bpt>http://&lt;&lt;unique_domain_name&gt;&gt;/shoppingcart<ept id="336a5fe2-df2b-468b-9a88-8153ca90def8">&lt;/code&gt;</ept>. (You can determine the value for &lt;&lt;<bpt id="01bcc8c2-d916-4127-9606-4b59c04f06de">&lt;em&gt;</bpt>unique_domain_name<ept id="01bcc8c2-d916-4127-9606-4b59c04f06de">&lt;/em&gt;</ept>&gt;&gt; within the <bpt id="74005110-02af-4c83-b905-165c7ca267fc">&lt;linkText&gt;</bpt>Azure Portal<ept id="74005110-02af-4c83-b905-165c7ca267fc">&lt;/linkText&gt;</ept><bpt id="74005110-02af-4c83-b905-165c7ca267fc">&lt;title&gt;</bpt><ept id="74005110-02af-4c83-b905-165c7ca267fc">&lt;/title&gt;</ept> by clicking <bpt id="7c9fcb82-9ed5-4831-81dd-7f96def1282d">&lt;strong&gt;</bpt>Virtual Machines<ept id="7c9fcb82-9ed5-4831-81dd-7f96def1282d">&lt;/strong&gt;</ept> and then selecting the Virtual Machine that you are using to run Oracle WebLogic Server).</target>
+        </trans-unit>
+        <trans-unit id="b7bf84ae-14cb-4873-871d-a4489025a5d2" xml:space="preserve">
+          <source>Now that you’ve set up your Virtual Machine running Oracle WebLogic Server, see the following topics for additional information.</source>
+          <target state="new">Now that you’ve set up your Virtual Machine running Oracle WebLogic Server, see the following topics for additional information.</target>
+        </trans-unit>
+        <trans-unit id="45504ad6-f6ed-4421-ab9e-b3646451198e" xml:space="preserve">
+          <source><bpt id="f11cbcea-9c94-4be0-8434-a0b918adc161">&lt;linkText&gt;</bpt>Oracle Virtual Machine images - Miscellaneous Considerations<ept id="f11cbcea-9c94-4be0-8434-a0b918adc161">&lt;/linkText&gt;</ept><bpt id="f11cbcea-9c94-4be0-8434-a0b918adc161">&lt;title&gt;</bpt><ept id="f11cbcea-9c94-4be0-8434-a0b918adc161">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f11cbcea-9c94-4be0-8434-a0b918adc161">&lt;linkText&gt;</bpt>Oracle Virtual Machine images - Miscellaneous Considerations<ept id="f11cbcea-9c94-4be0-8434-a0b918adc161">&lt;/linkText&gt;</ept><bpt id="f11cbcea-9c94-4be0-8434-a0b918adc161">&lt;title&gt;</bpt><ept id="f11cbcea-9c94-4be0-8434-a0b918adc161">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d1cd47b-729c-47f2-a5dd-b280cca65f41" xml:space="preserve">
+          <source><bpt id="4a9ed2cf-2cba-4d3e-a082-2baf9b8fc19e">&lt;linkText&gt;</bpt>Oracle WebLogic Server Product Documentation<ept id="4a9ed2cf-2cba-4d3e-a082-2baf9b8fc19e">&lt;/linkText&gt;</ept><bpt id="4a9ed2cf-2cba-4d3e-a082-2baf9b8fc19e">&lt;title&gt;</bpt><ept id="4a9ed2cf-2cba-4d3e-a082-2baf9b8fc19e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4a9ed2cf-2cba-4d3e-a082-2baf9b8fc19e">&lt;linkText&gt;</bpt>Oracle WebLogic Server Product Documentation<ept id="4a9ed2cf-2cba-4d3e-a082-2baf9b8fc19e">&lt;/linkText&gt;</ept><bpt id="4a9ed2cf-2cba-4d3e-a082-2baf9b8fc19e">&lt;title&gt;</bpt><ept id="4a9ed2cf-2cba-4d3e-a082-2baf9b8fc19e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef4d6fc0-3081-4ab1-b72e-81b1568b5193" xml:space="preserve">
+          <source><bpt id="5004d0b7-6b09-48d1-bf05-5157295b4ab4">&lt;linkText&gt;</bpt>Oracle WebLogic Server 12c using Linux on Microsoft Azure<ept id="5004d0b7-6b09-48d1-bf05-5157295b4ab4">&lt;/linkText&gt;</ept><bpt id="5004d0b7-6b09-48d1-bf05-5157295b4ab4">&lt;title&gt;</bpt><ept id="5004d0b7-6b09-48d1-bf05-5157295b4ab4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5004d0b7-6b09-48d1-bf05-5157295b4ab4">&lt;linkText&gt;</bpt>Oracle WebLogic Server 12c using Linux on Microsoft Azure<ept id="5004d0b7-6b09-48d1-bf05-5157295b4ab4">&lt;/linkText&gt;</ept><bpt id="5004d0b7-6b09-48d1-bf05-5157295b4ab4">&lt;title&gt;</bpt><ept id="5004d0b7-6b09-48d1-bf05-5157295b4ab4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77188332-3df5-4b98-928a-a5e3b391a720" xml:space="preserve">
+          <source><bpt id="443dace7-cd4e-4709-8dc3-abb38eb716a2">&lt;linkText&gt;</bpt>Oracle Virtual Machine images for Azure<ept id="443dace7-cd4e-4709-8dc3-abb38eb716a2">&lt;/linkText&gt;</ept><bpt id="443dace7-cd4e-4709-8dc3-abb38eb716a2">&lt;title&gt;</bpt><ept id="443dace7-cd4e-4709-8dc3-abb38eb716a2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="443dace7-cd4e-4709-8dc3-abb38eb716a2">&lt;linkText&gt;</bpt>Oracle Virtual Machine images for Azure<ept id="443dace7-cd4e-4709-8dc3-abb38eb716a2">&lt;/linkText&gt;</ept><bpt id="443dace7-cd4e-4709-8dc3-abb38eb716a2">&lt;title&gt;</bpt><ept id="443dace7-cd4e-4709-8dc3-abb38eb716a2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2d25af1d-efe7-41fa-b5b2-b3a37a9f7339" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2d25af1d-efe7-41fa-b5b2-b3a37a9f7339" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="02212af9-8ae1-4d1e-ab70-56066103fab1">
+        <trans-unit id="e4b14095-76ad-4285-8b8a-9a419dff6f60" xml:space="preserve">
+          <source>Run Background tasks with WebJobs</source>
+          <target state="new">Run Background tasks with WebJobs</target>
+        </trans-unit>
+        <trans-unit id="7d98a117-778b-460d-a3e0-503253c32964" xml:space="preserve">
+          <source>Learn how to run background tasks in Azure web apps.</source>
+          <target state="new">Learn how to run background tasks in Azure web apps.</target>
+        </trans-unit>
+        <trans-unit id="7d51a132-b569-4acd-9b9a-59f81bf4c0ce" xml:space="preserve">
+          <source>You can run programs or scripts in WebJobs in your <bpt id="7329e396-d000-430f-9f68-6dde0cb6ba26">&lt;linkText&gt;</bpt>App Service<ept id="7329e396-d000-430f-9f68-6dde0cb6ba26">&lt;/linkText&gt;</ept><bpt id="7329e396-d000-430f-9f68-6dde0cb6ba26">&lt;title&gt;</bpt><ept id="7329e396-d000-430f-9f68-6dde0cb6ba26">&lt;/title&gt;</ept> web app in three ways: on demand, continuously, or on a schedule.</source>
+          <target state="new">You can run programs or scripts in WebJobs in your <bpt id="7329e396-d000-430f-9f68-6dde0cb6ba26">&lt;linkText&gt;</bpt>App Service<ept id="7329e396-d000-430f-9f68-6dde0cb6ba26">&lt;/linkText&gt;</ept><bpt id="7329e396-d000-430f-9f68-6dde0cb6ba26">&lt;title&gt;</bpt><ept id="7329e396-d000-430f-9f68-6dde0cb6ba26">&lt;/title&gt;</ept> web app in three ways: on demand, continuously, or on a schedule.</target>
+        </trans-unit>
+        <trans-unit id="d7c3a77c-1a92-4b8f-8a97-60c02239243e" xml:space="preserve">
+          <source>There is no additional cost to use WebJobs.</source>
+          <target state="new">There is no additional cost to use WebJobs.</target>
+        </trans-unit>
+        <trans-unit id="1f7e37b7-c377-40b0-9c51-90b1da570d38" xml:space="preserve">
+          <source>This article shows how to deploy WebJobs by using the <bpt id="f9f2627f-7a36-4475-868d-f9da3701ab87">&lt;linkText&gt;</bpt>Azure Portal<ept id="f9f2627f-7a36-4475-868d-f9da3701ab87">&lt;/linkText&gt;</ept><bpt id="f9f2627f-7a36-4475-868d-f9da3701ab87">&lt;title&gt;</bpt><ept id="f9f2627f-7a36-4475-868d-f9da3701ab87">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article shows how to deploy WebJobs by using the <bpt id="f9f2627f-7a36-4475-868d-f9da3701ab87">&lt;linkText&gt;</bpt>Azure Portal<ept id="f9f2627f-7a36-4475-868d-f9da3701ab87">&lt;/linkText&gt;</ept><bpt id="f9f2627f-7a36-4475-868d-f9da3701ab87">&lt;title&gt;</bpt><ept id="f9f2627f-7a36-4475-868d-f9da3701ab87">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3131f47a-529f-46a2-abd1-1c3b367d6a72" xml:space="preserve">
+          <source>For information about how to deploy by using Visual Studio or a continuous delivery process, see <bpt id="7e45230f-2733-4842-888e-561f03c39fbd">&lt;linkText&gt;</bpt>How to Deploy Azure WebJobs to Web Apps<ept id="7e45230f-2733-4842-888e-561f03c39fbd">&lt;/linkText&gt;</ept><bpt id="7e45230f-2733-4842-888e-561f03c39fbd">&lt;title&gt;</bpt><ept id="7e45230f-2733-4842-888e-561f03c39fbd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to deploy by using Visual Studio or a continuous delivery process, see <bpt id="7e45230f-2733-4842-888e-561f03c39fbd">&lt;linkText&gt;</bpt>How to Deploy Azure WebJobs to Web Apps<ept id="7e45230f-2733-4842-888e-561f03c39fbd">&lt;/linkText&gt;</ept><bpt id="7e45230f-2733-4842-888e-561f03c39fbd">&lt;title&gt;</bpt><ept id="7e45230f-2733-4842-888e-561f03c39fbd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f5efc6e-3e88-40e7-a43d-5bcf04badad1" xml:space="preserve">
+          <source>The Azure WebJobs SDK simplifies many WebJobs programming tasks.</source>
+          <target state="new">The Azure WebJobs SDK simplifies many WebJobs programming tasks.</target>
+        </trans-unit>
+        <trans-unit id="b662d4a5-25c6-45c2-96f5-69c3554b503c" xml:space="preserve">
+          <source>For more information, see <bpt id="d8a367e0-2c88-48ee-b19a-05615d961c26">&lt;linkText&gt;</bpt>What is the WebJobs SDK<ept id="d8a367e0-2c88-48ee-b19a-05615d961c26">&lt;/linkText&gt;</ept><bpt id="d8a367e0-2c88-48ee-b19a-05615d961c26">&lt;title&gt;</bpt><ept id="d8a367e0-2c88-48ee-b19a-05615d961c26">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d8a367e0-2c88-48ee-b19a-05615d961c26">&lt;linkText&gt;</bpt>What is the WebJobs SDK<ept id="d8a367e0-2c88-48ee-b19a-05615d961c26">&lt;/linkText&gt;</ept><bpt id="d8a367e0-2c88-48ee-b19a-05615d961c26">&lt;title&gt;</bpt><ept id="d8a367e0-2c88-48ee-b19a-05615d961c26">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f391ec65-ab77-495d-a3f7-87f74106cfb9" xml:space="preserve">
+          <source>The following file types are accepted:</source>
+          <target state="new">The following file types are accepted:</target>
+        </trans-unit>
+        <trans-unit id="250da9ec-aa47-4361-8c33-939617b5e057" xml:space="preserve">
+          <source>.cmd, .bat, .exe (using windows cmd)</source>
+          <target state="new">.cmd, .bat, .exe (using windows cmd)</target>
+        </trans-unit>
+        <trans-unit id="bdc0d340-7c36-42ed-aa04-2f27ef535665" xml:space="preserve">
+          <source>.ps1 (using powershell)</source>
+          <target state="new">.ps1 (using powershell)</target>
+        </trans-unit>
+        <trans-unit id="ab090909-d0da-44a3-931b-bdf42bf5a634" xml:space="preserve">
+          <source>.sh (using bash)</source>
+          <target state="new">.sh (using bash)</target>
+        </trans-unit>
+        <trans-unit id="d322ea85-0292-410d-a3ba-b360eb2b4d25" xml:space="preserve">
+          <source>.php (using php)</source>
+          <target state="new">.php (using php)</target>
+        </trans-unit>
+        <trans-unit id="38524391-3981-44ca-90d2-c01b663d6300" xml:space="preserve">
+          <source>.py (using python)</source>
+          <target state="new">.py (using python)</target>
+        </trans-unit>
+        <trans-unit id="6f83ff1c-8982-4f31-b460-97651521286d" xml:space="preserve">
+          <source>.js (using node)</source>
+          <target state="new">.js (using node)</target>
+        </trans-unit>
+        <trans-unit id="bd838dec-be9d-4ed8-bb29-148cc218a3f5" xml:space="preserve">
+          <source>.jar (using java)</source>
+          <target state="new">.jar (using java)</target>
+        </trans-unit>
+        <trans-unit id="e5257ef9-63ef-49ad-b530-5c2880417312" xml:space="preserve">
+          <source>In the <bpt id="70cbc033-65e8-401e-88b4-a871af192f8d">&lt;strong&gt;</bpt>Web App<ept id="70cbc033-65e8-401e-88b4-a871af192f8d">&lt;/strong&gt;</ept> blade of the <bpt id="9e081253-a413-46d8-a8de-aa9c153a11c9">&lt;linkText&gt;</bpt>Azure Portal<ept id="9e081253-a413-46d8-a8de-aa9c153a11c9">&lt;/linkText&gt;</ept><bpt id="9e081253-a413-46d8-a8de-aa9c153a11c9">&lt;title&gt;</bpt><ept id="9e081253-a413-46d8-a8de-aa9c153a11c9">&lt;/title&gt;</ept>, click <bpt id="87c6ec7f-d0c3-4619-9f2a-6c53704a8932">&lt;strong&gt;</bpt>All settings &gt; WebJobs<ept id="87c6ec7f-d0c3-4619-9f2a-6c53704a8932">&lt;/strong&gt;</ept> to show the <bpt id="265353e9-09b1-494e-b95c-abb3a7cb41af">&lt;strong&gt;</bpt>WebJobs<ept id="265353e9-09b1-494e-b95c-abb3a7cb41af">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">In the <bpt id="70cbc033-65e8-401e-88b4-a871af192f8d">&lt;strong&gt;</bpt>Web App<ept id="70cbc033-65e8-401e-88b4-a871af192f8d">&lt;/strong&gt;</ept> blade of the <bpt id="9e081253-a413-46d8-a8de-aa9c153a11c9">&lt;linkText&gt;</bpt>Azure Portal<ept id="9e081253-a413-46d8-a8de-aa9c153a11c9">&lt;/linkText&gt;</ept><bpt id="9e081253-a413-46d8-a8de-aa9c153a11c9">&lt;title&gt;</bpt><ept id="9e081253-a413-46d8-a8de-aa9c153a11c9">&lt;/title&gt;</ept>, click <bpt id="87c6ec7f-d0c3-4619-9f2a-6c53704a8932">&lt;strong&gt;</bpt>All settings &gt; WebJobs<ept id="87c6ec7f-d0c3-4619-9f2a-6c53704a8932">&lt;/strong&gt;</ept> to show the <bpt id="265353e9-09b1-494e-b95c-abb3a7cb41af">&lt;strong&gt;</bpt>WebJobs<ept id="265353e9-09b1-494e-b95c-abb3a7cb41af">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="673bd5e4-b7c2-41e3-8f8a-1fc38ecedd97" xml:space="preserve">
+          <source><bpt id="c005e8e2-f50c-4231-9872-726b55617ec5">&lt;linkText&gt;</bpt>WebJob blade<ept id="c005e8e2-f50c-4231-9872-726b55617ec5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c005e8e2-f50c-4231-9872-726b55617ec5">&lt;linkText&gt;</bpt>WebJob blade<ept id="c005e8e2-f50c-4231-9872-726b55617ec5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56162c02-8139-4b67-a266-e69d5dfd4a9c" xml:space="preserve">
+          <source>Click <bpt id="fd725ff6-8fcb-4f87-8546-7f7030efa69f">&lt;strong&gt;</bpt>Add<ept id="fd725ff6-8fcb-4f87-8546-7f7030efa69f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fd725ff6-8fcb-4f87-8546-7f7030efa69f">&lt;strong&gt;</bpt>Add<ept id="fd725ff6-8fcb-4f87-8546-7f7030efa69f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53d0502f-c2a7-4d06-9e30-4fdf95e48276" xml:space="preserve">
+          <source>The <bpt id="71b6fe4f-ae6b-417d-b8bf-395e69b6ff56">&lt;strong&gt;</bpt>Add WebJob<ept id="71b6fe4f-ae6b-417d-b8bf-395e69b6ff56">&lt;/strong&gt;</ept> dialog appears.</source>
+          <target state="new">The <bpt id="71b6fe4f-ae6b-417d-b8bf-395e69b6ff56">&lt;strong&gt;</bpt>Add WebJob<ept id="71b6fe4f-ae6b-417d-b8bf-395e69b6ff56">&lt;/strong&gt;</ept> dialog appears.</target>
+        </trans-unit>
+        <trans-unit id="24d6b036-e667-426f-a954-c2be04c70d34" xml:space="preserve">
+          <source><bpt id="d41223e8-2955-4168-bfb6-e83b9b33188e">&lt;linkText&gt;</bpt>Add WebJob blade<ept id="d41223e8-2955-4168-bfb6-e83b9b33188e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d41223e8-2955-4168-bfb6-e83b9b33188e">&lt;linkText&gt;</bpt>Add WebJob blade<ept id="d41223e8-2955-4168-bfb6-e83b9b33188e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ed87dd6-9314-4895-87c6-0b22a335c303" xml:space="preserve">
+          <source>Under <bpt id="060f480b-74fd-4852-acce-9b40bdfe6d8b">&lt;strong&gt;</bpt>Name<ept id="060f480b-74fd-4852-acce-9b40bdfe6d8b">&lt;/strong&gt;</ept>, provide a name for the WebJob.</source>
+          <target state="new">Under <bpt id="060f480b-74fd-4852-acce-9b40bdfe6d8b">&lt;strong&gt;</bpt>Name<ept id="060f480b-74fd-4852-acce-9b40bdfe6d8b">&lt;/strong&gt;</ept>, provide a name for the WebJob.</target>
+        </trans-unit>
+        <trans-unit id="e520d18c-cf2c-4947-9299-e66c736e6322" xml:space="preserve">
+          <source>The name must start with a letter or a number and cannot contain any special characters other than "-" and "_".</source>
+          <target state="new">The name must start with a letter or a number and cannot contain any special characters other than "-" and "_".</target>
+        </trans-unit>
+        <trans-unit id="79e08663-35ae-4d86-963c-05cb1ce01085" xml:space="preserve">
+          <source>In the <bpt id="4fbe469e-1b5f-4b99-9335-8294f37e32e3">&lt;strong&gt;</bpt>How to Run<ept id="4fbe469e-1b5f-4b99-9335-8294f37e32e3">&lt;/strong&gt;</ept> box, choose <bpt id="c9b3a948-2de2-4353-8432-ee9c77d8c71e">&lt;strong&gt;</bpt>Run on Demand<ept id="c9b3a948-2de2-4353-8432-ee9c77d8c71e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4fbe469e-1b5f-4b99-9335-8294f37e32e3">&lt;strong&gt;</bpt>How to Run<ept id="4fbe469e-1b5f-4b99-9335-8294f37e32e3">&lt;/strong&gt;</ept> box, choose <bpt id="c9b3a948-2de2-4353-8432-ee9c77d8c71e">&lt;strong&gt;</bpt>Run on Demand<ept id="c9b3a948-2de2-4353-8432-ee9c77d8c71e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="281d363f-4d96-4e5e-976a-3c1945632dd0" xml:space="preserve">
+          <source>In the <bpt id="9fed6f55-7500-47d1-88d7-0ee93394403d">&lt;strong&gt;</bpt>File Upload<ept id="9fed6f55-7500-47d1-88d7-0ee93394403d">&lt;/strong&gt;</ept> box, click the folder icon and browse to the zip file that contains your script.</source>
+          <target state="new">In the <bpt id="9fed6f55-7500-47d1-88d7-0ee93394403d">&lt;strong&gt;</bpt>File Upload<ept id="9fed6f55-7500-47d1-88d7-0ee93394403d">&lt;/strong&gt;</ept> box, click the folder icon and browse to the zip file that contains your script.</target>
+        </trans-unit>
+        <trans-unit id="70ecc39d-7870-443e-abf6-e305c1b9dd8b" xml:space="preserve">
+          <source>The zip file should contain your executable (.exe .cmd .bat .sh .php .py .js) as well as any supporting files needed to run the program or script.</source>
+          <target state="new">The zip file should contain your executable (.exe .cmd .bat .sh .php .py .js) as well as any supporting files needed to run the program or script.</target>
+        </trans-unit>
+        <trans-unit id="6e6dd897-7763-4e48-a4b7-4a21f5a967b6" xml:space="preserve">
+          <source>Check <bpt id="2b2be3a5-e8af-480a-bc08-081d58f3756f">&lt;strong&gt;</bpt>Create<ept id="2b2be3a5-e8af-480a-bc08-081d58f3756f">&lt;/strong&gt;</ept> to upload the script to your web app.</source>
+          <target state="new">Check <bpt id="2b2be3a5-e8af-480a-bc08-081d58f3756f">&lt;strong&gt;</bpt>Create<ept id="2b2be3a5-e8af-480a-bc08-081d58f3756f">&lt;/strong&gt;</ept> to upload the script to your web app.</target>
+        </trans-unit>
+        <trans-unit id="199795e7-19d4-440f-a382-bad35a935478" xml:space="preserve">
+          <source>The name you specified for the WebJob appears in the list on the <bpt id="f0a32d62-6635-418f-a278-3ca0085ff69e">&lt;strong&gt;</bpt>WebJobs<ept id="f0a32d62-6635-418f-a278-3ca0085ff69e">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">The name you specified for the WebJob appears in the list on the <bpt id="f0a32d62-6635-418f-a278-3ca0085ff69e">&lt;strong&gt;</bpt>WebJobs<ept id="f0a32d62-6635-418f-a278-3ca0085ff69e">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="7102b2c9-f67e-4697-9b0c-3e0077f2d1f2" xml:space="preserve">
+          <source>To run the WebJob, right-click its name in the list and click <bpt id="0996cf5b-9717-4985-9830-8888ad47bdab">&lt;strong&gt;</bpt>Run<ept id="0996cf5b-9717-4985-9830-8888ad47bdab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To run the WebJob, right-click its name in the list and click <bpt id="0996cf5b-9717-4985-9830-8888ad47bdab">&lt;strong&gt;</bpt>Run<ept id="0996cf5b-9717-4985-9830-8888ad47bdab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfcadb8d-7481-4ec9-8d76-5199246a22a9" xml:space="preserve">
+          <source><bpt id="b456ab6d-0575-4f23-8e08-220829f4377e">&lt;linkText&gt;</bpt>Run WebJob<ept id="b456ab6d-0575-4f23-8e08-220829f4377e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b456ab6d-0575-4f23-8e08-220829f4377e">&lt;linkText&gt;</bpt>Run WebJob<ept id="b456ab6d-0575-4f23-8e08-220829f4377e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a532e1db-0ce0-4e5d-9f7b-26e52aacd0cc" xml:space="preserve">
+          <source>To create a continuously executing WebJob, follow the same steps for creating a WebJob that runs once, but in the <bpt id="80ab3ba6-8953-46be-9cf1-dd68273731e9">&lt;strong&gt;</bpt>How to Run<ept id="80ab3ba6-8953-46be-9cf1-dd68273731e9">&lt;/strong&gt;</ept> box, choose <bpt id="dc25795d-9b28-447a-8ac7-4835f96e1b60">&lt;strong&gt;</bpt>Continuous<ept id="dc25795d-9b28-447a-8ac7-4835f96e1b60">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To create a continuously executing WebJob, follow the same steps for creating a WebJob that runs once, but in the <bpt id="80ab3ba6-8953-46be-9cf1-dd68273731e9">&lt;strong&gt;</bpt>How to Run<ept id="80ab3ba6-8953-46be-9cf1-dd68273731e9">&lt;/strong&gt;</ept> box, choose <bpt id="dc25795d-9b28-447a-8ac7-4835f96e1b60">&lt;strong&gt;</bpt>Continuous<ept id="dc25795d-9b28-447a-8ac7-4835f96e1b60">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="642b879b-2869-4a50-9c0a-e1dcfa596a8b" xml:space="preserve">
+          <source>To start or stop a continuous WebJob, right-click the WebJob in the list and click <bpt id="8f8ef1d3-5f88-4c5c-8861-80f1255fe341">&lt;strong&gt;</bpt>Start<ept id="8f8ef1d3-5f88-4c5c-8861-80f1255fe341">&lt;/strong&gt;</ept> or <bpt id="90b7f045-e531-48ec-9c19-986a0e6b993f">&lt;strong&gt;</bpt>Stop<ept id="90b7f045-e531-48ec-9c19-986a0e6b993f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To start or stop a continuous WebJob, right-click the WebJob in the list and click <bpt id="8f8ef1d3-5f88-4c5c-8861-80f1255fe341">&lt;strong&gt;</bpt>Start<ept id="8f8ef1d3-5f88-4c5c-8861-80f1255fe341">&lt;/strong&gt;</ept> or <bpt id="90b7f045-e531-48ec-9c19-986a0e6b993f">&lt;strong&gt;</bpt>Stop<ept id="90b7f045-e531-48ec-9c19-986a0e6b993f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3781a839-9df7-4be3-991f-f04f0e157228" xml:space="preserve">
+          <source>If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances.</source>
+          <target state="new">If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances.</target>
+        </trans-unit>
+        <trans-unit id="f1a49297-91c9-4dda-8ac2-94c2e064d0c2" xml:space="preserve">
+          <source>On-demand and scheduled WebJobs run on a single instance selected for load balancing by Microsoft Azure.</source>
+          <target state="new">On-demand and scheduled WebJobs run on a single instance selected for load balancing by Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="9e061075-cbb1-427f-9c3e-e529ac96c85c" xml:space="preserve">
+          <source>For Continuous WebJobs to run reliably and on all instances, enable the Always On* configuration setting for the web app otherwise they can stop running when the SCM host site has been idle for too long.</source>
+          <target state="new">For Continuous WebJobs to run reliably and on all instances, enable the Always On* configuration setting for the web app otherwise they can stop running when the SCM host site has been idle for too long.</target>
+        </trans-unit>
+        <trans-unit id="e3561c03-cbf6-432f-b237-ef388c324dff" xml:space="preserve">
+          <source>The Azure management portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the <bpt id="967f2762-608f-469a-bd49-e15730721024">&lt;linkText&gt;</bpt>old portal<ept id="967f2762-608f-469a-bd49-e15730721024">&lt;/linkText&gt;</ept><bpt id="967f2762-608f-469a-bd49-e15730721024">&lt;title&gt;</bpt><ept id="967f2762-608f-469a-bd49-e15730721024">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Azure management portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the <bpt id="967f2762-608f-469a-bd49-e15730721024">&lt;linkText&gt;</bpt>old portal<ept id="967f2762-608f-469a-bd49-e15730721024">&lt;/linkText&gt;</ept><bpt id="967f2762-608f-469a-bd49-e15730721024">&lt;title&gt;</bpt><ept id="967f2762-608f-469a-bd49-e15730721024">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c19c1cb-783e-4819-9567-1868f51502b9" xml:space="preserve">
+          <source>In the <bpt id="00071007-16b2-4f37-bf80-0a585e8f0c35">&lt;linkText&gt;</bpt>old portal<ept id="00071007-16b2-4f37-bf80-0a585e8f0c35">&lt;/linkText&gt;</ept><bpt id="00071007-16b2-4f37-bf80-0a585e8f0c35">&lt;title&gt;</bpt><ept id="00071007-16b2-4f37-bf80-0a585e8f0c35">&lt;/title&gt;</ept> go to the WebJob page and click <bpt id="f8214ad3-521d-44ea-95f4-6d67ef0dedc2">&lt;strong&gt;</bpt>Add<ept id="f8214ad3-521d-44ea-95f4-6d67ef0dedc2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="00071007-16b2-4f37-bf80-0a585e8f0c35">&lt;linkText&gt;</bpt>old portal<ept id="00071007-16b2-4f37-bf80-0a585e8f0c35">&lt;/linkText&gt;</ept><bpt id="00071007-16b2-4f37-bf80-0a585e8f0c35">&lt;title&gt;</bpt><ept id="00071007-16b2-4f37-bf80-0a585e8f0c35">&lt;/title&gt;</ept> go to the WebJob page and click <bpt id="f8214ad3-521d-44ea-95f4-6d67ef0dedc2">&lt;strong&gt;</bpt>Add<ept id="f8214ad3-521d-44ea-95f4-6d67ef0dedc2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72c0b9d4-0dd2-4827-9818-124f5d94b6eb" xml:space="preserve">
+          <source>In the <bpt id="dd09a421-a9ed-4641-91e4-1e5d94aef8ff">&lt;strong&gt;</bpt>How to Run<ept id="dd09a421-a9ed-4641-91e4-1e5d94aef8ff">&lt;/strong&gt;</ept> box, choose <bpt id="e990fb4d-834c-49fb-a285-eb7a9a14be8d">&lt;strong&gt;</bpt>Run on a schedule<ept id="e990fb4d-834c-49fb-a285-eb7a9a14be8d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="dd09a421-a9ed-4641-91e4-1e5d94aef8ff">&lt;strong&gt;</bpt>How to Run<ept id="dd09a421-a9ed-4641-91e4-1e5d94aef8ff">&lt;/strong&gt;</ept> box, choose <bpt id="e990fb4d-834c-49fb-a285-eb7a9a14be8d">&lt;strong&gt;</bpt>Run on a schedule<ept id="e990fb4d-834c-49fb-a285-eb7a9a14be8d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d8a571d-fd68-4fe0-a30f-69d4130269ec" xml:space="preserve">
+          <source><bpt id="d681f426-00d7-4248-8859-47eb13401c9a">&lt;linkText&gt;</bpt>New Scheduled Job<ept id="d681f426-00d7-4248-8859-47eb13401c9a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d681f426-00d7-4248-8859-47eb13401c9a">&lt;linkText&gt;</bpt>New Scheduled Job<ept id="d681f426-00d7-4248-8859-47eb13401c9a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a76d738-c592-4df9-869d-9c73e45a7d67" xml:space="preserve">
+          <source>Choose the <bpt id="f876999f-731e-4956-883b-f510e283d39e">&lt;strong&gt;</bpt>Scheduler Region<ept id="f876999f-731e-4956-883b-f510e283d39e">&lt;/strong&gt;</ept> for your job, and then click the arrow on the bottom right of the dialog to proceed to the next screen.</source>
+          <target state="new">Choose the <bpt id="f876999f-731e-4956-883b-f510e283d39e">&lt;strong&gt;</bpt>Scheduler Region<ept id="f876999f-731e-4956-883b-f510e283d39e">&lt;/strong&gt;</ept> for your job, and then click the arrow on the bottom right of the dialog to proceed to the next screen.</target>
+        </trans-unit>
+        <trans-unit id="3f6aebe3-d486-42b6-9bbb-bd12a4d49296" xml:space="preserve">
+          <source>In the <bpt id="f1689679-2364-43a2-87b2-dc96297a1046">&lt;strong&gt;</bpt>Create Job<ept id="f1689679-2364-43a2-87b2-dc96297a1046">&lt;/strong&gt;</ept> dialog, choose the type of <bpt id="bd3fc0cb-a49a-43ef-a8bc-04abcbd4592e">&lt;strong&gt;</bpt>Recurrence<ept id="bd3fc0cb-a49a-43ef-a8bc-04abcbd4592e">&lt;/strong&gt;</ept> you want: <bpt id="c94f021c-6aa8-46ff-806d-21df8b803d58">&lt;strong&gt;</bpt>One-time job<ept id="c94f021c-6aa8-46ff-806d-21df8b803d58">&lt;/strong&gt;</ept> or <bpt id="30387bcf-6e4a-4122-adc5-3054ec7e8862">&lt;strong&gt;</bpt>Recurring job<ept id="30387bcf-6e4a-4122-adc5-3054ec7e8862">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="f1689679-2364-43a2-87b2-dc96297a1046">&lt;strong&gt;</bpt>Create Job<ept id="f1689679-2364-43a2-87b2-dc96297a1046">&lt;/strong&gt;</ept> dialog, choose the type of <bpt id="bd3fc0cb-a49a-43ef-a8bc-04abcbd4592e">&lt;strong&gt;</bpt>Recurrence<ept id="bd3fc0cb-a49a-43ef-a8bc-04abcbd4592e">&lt;/strong&gt;</ept> you want: <bpt id="c94f021c-6aa8-46ff-806d-21df8b803d58">&lt;strong&gt;</bpt>One-time job<ept id="c94f021c-6aa8-46ff-806d-21df8b803d58">&lt;/strong&gt;</ept> or <bpt id="30387bcf-6e4a-4122-adc5-3054ec7e8862">&lt;strong&gt;</bpt>Recurring job<ept id="30387bcf-6e4a-4122-adc5-3054ec7e8862">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29e4034f-eb29-4043-a6ef-b9fc7a29dc38" xml:space="preserve">
+          <source><bpt id="38538fcb-6853-41df-8320-2946b584ab45">&lt;linkText&gt;</bpt>Schedule Recurrence<ept id="38538fcb-6853-41df-8320-2946b584ab45">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="38538fcb-6853-41df-8320-2946b584ab45">&lt;linkText&gt;</bpt>Schedule Recurrence<ept id="38538fcb-6853-41df-8320-2946b584ab45">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="508811a9-eee0-4127-9102-29b05f902e89" xml:space="preserve">
+          <source>Also choose a <bpt id="2c551a8a-587c-474c-917b-7607ee3dd69e">&lt;strong&gt;</bpt>Starting<ept id="2c551a8a-587c-474c-917b-7607ee3dd69e">&lt;/strong&gt;</ept> time: <bpt id="32a9fa80-cb83-4650-9a39-8324323b2b30">&lt;strong&gt;</bpt>Now<ept id="32a9fa80-cb83-4650-9a39-8324323b2b30">&lt;/strong&gt;</ept> or <bpt id="a22fe08f-a207-46a0-a8ef-e3307239766a">&lt;strong&gt;</bpt>At a specific time<ept id="a22fe08f-a207-46a0-a8ef-e3307239766a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Also choose a <bpt id="2c551a8a-587c-474c-917b-7607ee3dd69e">&lt;strong&gt;</bpt>Starting<ept id="2c551a8a-587c-474c-917b-7607ee3dd69e">&lt;/strong&gt;</ept> time: <bpt id="32a9fa80-cb83-4650-9a39-8324323b2b30">&lt;strong&gt;</bpt>Now<ept id="32a9fa80-cb83-4650-9a39-8324323b2b30">&lt;/strong&gt;</ept> or <bpt id="a22fe08f-a207-46a0-a8ef-e3307239766a">&lt;strong&gt;</bpt>At a specific time<ept id="a22fe08f-a207-46a0-a8ef-e3307239766a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa250b07-bb24-4d95-9f5e-e82c22af76d6" xml:space="preserve">
+          <source><bpt id="22be713b-cb3c-49b4-be75-be21ab87eb55">&lt;linkText&gt;</bpt>Schedule Start Time<ept id="22be713b-cb3c-49b4-be75-be21ab87eb55">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22be713b-cb3c-49b4-be75-be21ab87eb55">&lt;linkText&gt;</bpt>Schedule Start Time<ept id="22be713b-cb3c-49b4-be75-be21ab87eb55">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8b88862-c0ae-44a8-8eeb-66aeb896eae8" xml:space="preserve">
+          <source>If you want to start at a specific time, choose your starting time values under <bpt id="f427d7a8-e53a-44fb-ad7c-23c9c0550919">&lt;strong&gt;</bpt>Starting On<ept id="f427d7a8-e53a-44fb-ad7c-23c9c0550919">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you want to start at a specific time, choose your starting time values under <bpt id="f427d7a8-e53a-44fb-ad7c-23c9c0550919">&lt;strong&gt;</bpt>Starting On<ept id="f427d7a8-e53a-44fb-ad7c-23c9c0550919">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50194276-f5ce-4cea-a302-ec941645ed97" xml:space="preserve">
+          <source><bpt id="728041cf-a3d5-41dd-8436-3a8882ad512e">&lt;linkText&gt;</bpt>Schedule Start at a Specific Time<ept id="728041cf-a3d5-41dd-8436-3a8882ad512e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="728041cf-a3d5-41dd-8436-3a8882ad512e">&lt;linkText&gt;</bpt>Schedule Start at a Specific Time<ept id="728041cf-a3d5-41dd-8436-3a8882ad512e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99b4e20b-b621-4f93-b0d1-61634d02fa88" xml:space="preserve">
+          <source>If you chose a recurring job, you have the <bpt id="ee49e6f7-0c88-4a46-bc3d-4888c06a94fb">&lt;strong&gt;</bpt>Recur Every<ept id="ee49e6f7-0c88-4a46-bc3d-4888c06a94fb">&lt;/strong&gt;</ept> option to specify the frequency of occurrence and the <bpt id="8540171c-0333-4200-8d1c-35b212def668">&lt;strong&gt;</bpt>Ending On<ept id="8540171c-0333-4200-8d1c-35b212def668">&lt;/strong&gt;</ept> option to specify an ending time.</source>
+          <target state="new">If you chose a recurring job, you have the <bpt id="ee49e6f7-0c88-4a46-bc3d-4888c06a94fb">&lt;strong&gt;</bpt>Recur Every<ept id="ee49e6f7-0c88-4a46-bc3d-4888c06a94fb">&lt;/strong&gt;</ept> option to specify the frequency of occurrence and the <bpt id="8540171c-0333-4200-8d1c-35b212def668">&lt;strong&gt;</bpt>Ending On<ept id="8540171c-0333-4200-8d1c-35b212def668">&lt;/strong&gt;</ept> option to specify an ending time.</target>
+        </trans-unit>
+        <trans-unit id="2d40211b-dc19-4fb9-8eb5-9608af932e68" xml:space="preserve">
+          <source><bpt id="acaf32af-20fb-44ad-aae4-6fdc5aa5af3d">&lt;linkText&gt;</bpt>Schedule Recurrence<ept id="acaf32af-20fb-44ad-aae4-6fdc5aa5af3d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="acaf32af-20fb-44ad-aae4-6fdc5aa5af3d">&lt;linkText&gt;</bpt>Schedule Recurrence<ept id="acaf32af-20fb-44ad-aae4-6fdc5aa5af3d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bac72dce-a96f-4924-bb9a-c4442a46200f" xml:space="preserve">
+          <source>If you choose <bpt id="3eeefc6c-51c1-493c-91c3-34ee7928836d">&lt;strong&gt;</bpt>Weeks<ept id="3eeefc6c-51c1-493c-91c3-34ee7928836d">&lt;/strong&gt;</ept>, you can select the <bpt id="670b1570-39a4-401d-b3e3-9aed19d289ec">&lt;strong&gt;</bpt>On a Particular Schedule<ept id="670b1570-39a4-401d-b3e3-9aed19d289ec">&lt;/strong&gt;</ept> box and specify the days of the week that you want the job to run.</source>
+          <target state="new">If you choose <bpt id="3eeefc6c-51c1-493c-91c3-34ee7928836d">&lt;strong&gt;</bpt>Weeks<ept id="3eeefc6c-51c1-493c-91c3-34ee7928836d">&lt;/strong&gt;</ept>, you can select the <bpt id="670b1570-39a4-401d-b3e3-9aed19d289ec">&lt;strong&gt;</bpt>On a Particular Schedule<ept id="670b1570-39a4-401d-b3e3-9aed19d289ec">&lt;/strong&gt;</ept> box and specify the days of the week that you want the job to run.</target>
+        </trans-unit>
+        <trans-unit id="4510c5fd-b935-4248-9778-0ed4849f92e7" xml:space="preserve">
+          <source><bpt id="c7d04375-29a9-4a92-9c8f-917ea11b8d00">&lt;linkText&gt;</bpt>Schedule Days of the Week<ept id="c7d04375-29a9-4a92-9c8f-917ea11b8d00">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c7d04375-29a9-4a92-9c8f-917ea11b8d00">&lt;linkText&gt;</bpt>Schedule Days of the Week<ept id="c7d04375-29a9-4a92-9c8f-917ea11b8d00">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4145f53-af97-4e71-bac2-6065808d8f6e" xml:space="preserve">
+          <source>If you choose <bpt id="f0045031-c02e-4955-9097-d5b3bbf40347">&lt;strong&gt;</bpt>Months<ept id="f0045031-c02e-4955-9097-d5b3bbf40347">&lt;/strong&gt;</ept> and select the <bpt id="1b9af682-52d3-4b00-8d7f-c04c058dfaf0">&lt;strong&gt;</bpt>On a Particular Schedule<ept id="1b9af682-52d3-4b00-8d7f-c04c058dfaf0">&lt;/strong&gt;</ept> box, you can set the job to run on particular numbered <bpt id="668de45d-21e1-41f7-a183-6d3321571aad">&lt;strong&gt;</bpt>Days<ept id="668de45d-21e1-41f7-a183-6d3321571aad">&lt;/strong&gt;</ept> in the month.</source>
+          <target state="new">If you choose <bpt id="f0045031-c02e-4955-9097-d5b3bbf40347">&lt;strong&gt;</bpt>Months<ept id="f0045031-c02e-4955-9097-d5b3bbf40347">&lt;/strong&gt;</ept> and select the <bpt id="1b9af682-52d3-4b00-8d7f-c04c058dfaf0">&lt;strong&gt;</bpt>On a Particular Schedule<ept id="1b9af682-52d3-4b00-8d7f-c04c058dfaf0">&lt;/strong&gt;</ept> box, you can set the job to run on particular numbered <bpt id="668de45d-21e1-41f7-a183-6d3321571aad">&lt;strong&gt;</bpt>Days<ept id="668de45d-21e1-41f7-a183-6d3321571aad">&lt;/strong&gt;</ept> in the month.</target>
+        </trans-unit>
+        <trans-unit id="01a399c6-6293-4ad4-b905-c8012cafc319" xml:space="preserve">
+          <source><bpt id="6574e157-1fc5-4214-b6a8-6ad394dd8756">&lt;linkText&gt;</bpt>Schedule Particular Dates in the Month<ept id="6574e157-1fc5-4214-b6a8-6ad394dd8756">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6574e157-1fc5-4214-b6a8-6ad394dd8756">&lt;linkText&gt;</bpt>Schedule Particular Dates in the Month<ept id="6574e157-1fc5-4214-b6a8-6ad394dd8756">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2de8578c-2531-4443-8a55-b545dcdc334a" xml:space="preserve">
+          <source>If you choose <bpt id="73ae9692-8ac5-46bb-83ba-d3da3ea8a8df">&lt;strong&gt;</bpt>Week Days<ept id="73ae9692-8ac5-46bb-83ba-d3da3ea8a8df">&lt;/strong&gt;</ept>, you can select which day or days of the week in the month you want the job to run on.</source>
+          <target state="new">If you choose <bpt id="73ae9692-8ac5-46bb-83ba-d3da3ea8a8df">&lt;strong&gt;</bpt>Week Days<ept id="73ae9692-8ac5-46bb-83ba-d3da3ea8a8df">&lt;/strong&gt;</ept>, you can select which day or days of the week in the month you want the job to run on.</target>
+        </trans-unit>
+        <trans-unit id="8f9b0b73-1a99-427e-aec7-43a67956ecd5" xml:space="preserve">
+          <source><bpt id="bded135a-2a3f-4d10-bf20-9b9892df24d9">&lt;linkText&gt;</bpt>Schedule Particular Week Days in a Month<ept id="bded135a-2a3f-4d10-bf20-9b9892df24d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bded135a-2a3f-4d10-bf20-9b9892df24d9">&lt;linkText&gt;</bpt>Schedule Particular Week Days in a Month<ept id="bded135a-2a3f-4d10-bf20-9b9892df24d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4469ace0-cd44-4fc9-b0d0-42d1ea5fd9f7" xml:space="preserve">
+          <source>Finally, you can also use the <bpt id="6d104f88-c0db-4123-9590-623b2124e0e9">&lt;strong&gt;</bpt>Occurrences<ept id="6d104f88-c0db-4123-9590-623b2124e0e9">&lt;/strong&gt;</ept> option to choose which week in the month (first, second, third etc.)</source>
+          <target state="new">Finally, you can also use the <bpt id="6d104f88-c0db-4123-9590-623b2124e0e9">&lt;strong&gt;</bpt>Occurrences<ept id="6d104f88-c0db-4123-9590-623b2124e0e9">&lt;/strong&gt;</ept> option to choose which week in the month (first, second, third etc.)</target>
+        </trans-unit>
+        <trans-unit id="0a4d3165-971d-47df-a200-83b704b758e6" xml:space="preserve">
+          <source>you want the job to run on the week days you specified.</source>
+          <target state="new">you want the job to run on the week days you specified.</target>
+        </trans-unit>
+        <trans-unit id="f4c20897-57e3-49fb-89d3-281f01ef14b7" xml:space="preserve">
+          <source><bpt id="fcb5246c-33a1-4102-a182-e5171580b6c8">&lt;linkText&gt;</bpt>Schedule Particular Week Days on Particular Weeks in a Month<ept id="fcb5246c-33a1-4102-a182-e5171580b6c8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fcb5246c-33a1-4102-a182-e5171580b6c8">&lt;linkText&gt;</bpt>Schedule Particular Week Days on Particular Weeks in a Month<ept id="fcb5246c-33a1-4102-a182-e5171580b6c8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ebf8b7b-ca8c-4878-942a-dea700e1e59a" xml:space="preserve">
+          <source>After you have created one or more jobs, their names will appear on the WebJobs tab with their status, schedule type, and other information.</source>
+          <target state="new">After you have created one or more jobs, their names will appear on the WebJobs tab with their status, schedule type, and other information.</target>
+        </trans-unit>
+        <trans-unit id="8e4832b1-97de-412c-80f7-f692cae3d8d4" xml:space="preserve">
+          <source>Historical information for the last 30  WebJobs is maintained.</source>
+          <target state="new">Historical information for the last 30  WebJobs is maintained.</target>
+        </trans-unit>
+        <trans-unit id="3285fa39-da53-4dfa-b478-5b3eceee0c45" xml:space="preserve">
+          <source><bpt id="faaf6253-90a8-4810-b9f7-ea84381d0a2b">&lt;linkText&gt;</bpt>Jobs list<ept id="faaf6253-90a8-4810-b9f7-ea84381d0a2b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="faaf6253-90a8-4810-b9f7-ea84381d0a2b">&lt;linkText&gt;</bpt>Jobs list<ept id="faaf6253-90a8-4810-b9f7-ea84381d0a2b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08740876-c97b-4621-b880-4c9a61331668" xml:space="preserve">
+          <source>Scheduled jobs can be further configured in the Azure Scheduler pages of the <bpt id="7912a7f7-e28a-4b80-b4c1-46c165060449">&lt;linkText&gt;</bpt>old portal<ept id="7912a7f7-e28a-4b80-b4c1-46c165060449">&lt;/linkText&gt;</ept><bpt id="7912a7f7-e28a-4b80-b4c1-46c165060449">&lt;title&gt;</bpt><ept id="7912a7f7-e28a-4b80-b4c1-46c165060449">&lt;/title&gt;</ept>.</source>
+          <target state="new">Scheduled jobs can be further configured in the Azure Scheduler pages of the <bpt id="7912a7f7-e28a-4b80-b4c1-46c165060449">&lt;linkText&gt;</bpt>old portal<ept id="7912a7f7-e28a-4b80-b4c1-46c165060449">&lt;/linkText&gt;</ept><bpt id="7912a7f7-e28a-4b80-b4c1-46c165060449">&lt;title&gt;</bpt><ept id="7912a7f7-e28a-4b80-b4c1-46c165060449">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="372601bc-22cc-4d32-9b21-9280ee51134a" xml:space="preserve">
+          <source>On the WebJobs page, click the job's <bpt id="acf50695-1247-457b-8279-a15035f218be">&lt;strong&gt;</bpt>schedule<ept id="acf50695-1247-457b-8279-a15035f218be">&lt;/strong&gt;</ept> link to navigate to the Azure Scheduler portal page.</source>
+          <target state="new">On the WebJobs page, click the job's <bpt id="acf50695-1247-457b-8279-a15035f218be">&lt;strong&gt;</bpt>schedule<ept id="acf50695-1247-457b-8279-a15035f218be">&lt;/strong&gt;</ept> link to navigate to the Azure Scheduler portal page.</target>
+        </trans-unit>
+        <trans-unit id="318e37be-9081-4940-9422-6425ca386bbf" xml:space="preserve">
+          <source><bpt id="d4e8816c-dbca-4205-823d-c13f23cfa84a">&lt;linkText&gt;</bpt>Link to Azure Scheduler<ept id="d4e8816c-dbca-4205-823d-c13f23cfa84a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d4e8816c-dbca-4205-823d-c13f23cfa84a">&lt;linkText&gt;</bpt>Link to Azure Scheduler<ept id="d4e8816c-dbca-4205-823d-c13f23cfa84a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39fb4dcf-cb9b-4e02-a25d-33d4f4064e88" xml:space="preserve">
+          <source>On the Scheduler page, click the job.</source>
+          <target state="new">On the Scheduler page, click the job.</target>
+        </trans-unit>
+        <trans-unit id="a194a09a-45a2-4bcf-acde-5c0f520a66f1" xml:space="preserve">
+          <source><bpt id="03cacd76-557c-44b7-8fed-bf7e5401ea19">&lt;linkText&gt;</bpt>Job on the Scheduler portal page<ept id="03cacd76-557c-44b7-8fed-bf7e5401ea19">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="03cacd76-557c-44b7-8fed-bf7e5401ea19">&lt;linkText&gt;</bpt>Job on the Scheduler portal page<ept id="03cacd76-557c-44b7-8fed-bf7e5401ea19">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="58ad4a45-331a-46f3-a081-e7200da266a3" xml:space="preserve">
+          <source>The <bpt id="2fb0cdc3-6396-4c2b-be73-4030efe3f12b">&lt;strong&gt;</bpt>Job Action<ept id="2fb0cdc3-6396-4c2b-be73-4030efe3f12b">&lt;/strong&gt;</ept> page opens, where you can further configure the job.</source>
+          <target state="new">The <bpt id="2fb0cdc3-6396-4c2b-be73-4030efe3f12b">&lt;strong&gt;</bpt>Job Action<ept id="2fb0cdc3-6396-4c2b-be73-4030efe3f12b">&lt;/strong&gt;</ept> page opens, where you can further configure the job.</target>
+        </trans-unit>
+        <trans-unit id="aac22ea7-485c-491c-b9df-5a8a978c947d" xml:space="preserve">
+          <source><bpt id="0f9e9803-8df0-4d31-bcad-9d3c6e3d4cd4">&lt;linkText&gt;</bpt>Job Action PageInScheduler<ept id="0f9e9803-8df0-4d31-bcad-9d3c6e3d4cd4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f9e9803-8df0-4d31-bcad-9d3c6e3d4cd4">&lt;linkText&gt;</bpt>Job Action PageInScheduler<ept id="0f9e9803-8df0-4d31-bcad-9d3c6e3d4cd4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="120cf218-a1a1-416c-8a70-975243cbdd52" xml:space="preserve">
+          <source>To view the execution history of a job, including jobs created with the WebJobs SDK, click  its corresponding link under the <bpt id="5a844513-9729-401f-aa5d-04f2b7e3212b">&lt;strong&gt;</bpt>Logs<ept id="5a844513-9729-401f-aa5d-04f2b7e3212b">&lt;/strong&gt;</ept> column of the WebJobs blade.</source>
+          <target state="new">To view the execution history of a job, including jobs created with the WebJobs SDK, click  its corresponding link under the <bpt id="5a844513-9729-401f-aa5d-04f2b7e3212b">&lt;strong&gt;</bpt>Logs<ept id="5a844513-9729-401f-aa5d-04f2b7e3212b">&lt;/strong&gt;</ept> column of the WebJobs blade.</target>
+        </trans-unit>
+        <trans-unit id="7127e751-ebfb-403e-821b-6030ad199fcd" xml:space="preserve">
+          <source>(You can use the clipboard icon to copy the URL of the log file page to the clipboard if you wish.)</source>
+          <target state="new">(You can use the clipboard icon to copy the URL of the log file page to the clipboard if you wish.)</target>
+        </trans-unit>
+        <trans-unit id="84c78c72-5ec8-4ab6-be20-36117e719561" xml:space="preserve">
+          <source><bpt id="5794b597-9208-4f2a-bd1b-e2497ebcce89">&lt;linkText&gt;</bpt>Logs link<ept id="5794b597-9208-4f2a-bd1b-e2497ebcce89">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5794b597-9208-4f2a-bd1b-e2497ebcce89">&lt;linkText&gt;</bpt>Logs link<ept id="5794b597-9208-4f2a-bd1b-e2497ebcce89">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d59b59c0-ec24-4ef6-b999-1cd8b78d3328" xml:space="preserve">
+          <source>Clicking the link opens the details page for the WebJob.</source>
+          <target state="new">Clicking the link opens the details page for the WebJob.</target>
+        </trans-unit>
+        <trans-unit id="57b223f9-0729-4c98-81e5-2e45e3619b5a" xml:space="preserve">
+          <source>This page shows you the name of the command run, the last times it ran, and its success or failure.</source>
+          <target state="new">This page shows you the name of the command run, the last times it ran, and its success or failure.</target>
+        </trans-unit>
+        <trans-unit id="705384c4-9168-4c5b-a939-ab4d4d9d4e24" xml:space="preserve">
+          <source>Under <bpt id="74a39e88-1b91-43ec-952a-b48f5ce830f2">&lt;strong&gt;</bpt>Recent job runs<ept id="74a39e88-1b91-43ec-952a-b48f5ce830f2">&lt;/strong&gt;</ept>, click a time to see further details.</source>
+          <target state="new">Under <bpt id="74a39e88-1b91-43ec-952a-b48f5ce830f2">&lt;strong&gt;</bpt>Recent job runs<ept id="74a39e88-1b91-43ec-952a-b48f5ce830f2">&lt;/strong&gt;</ept>, click a time to see further details.</target>
+        </trans-unit>
+        <trans-unit id="315c6f71-1b28-47b1-a07e-5d7a2976fc0a" xml:space="preserve">
+          <source><bpt id="54111bf9-1591-425b-b31b-e46421080c14">&lt;linkText&gt;</bpt>WebJobDetails<ept id="54111bf9-1591-425b-b31b-e46421080c14">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54111bf9-1591-425b-b31b-e46421080c14">&lt;linkText&gt;</bpt>WebJobDetails<ept id="54111bf9-1591-425b-b31b-e46421080c14">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74fae24a-a88f-4323-b3bf-f67d1d355ae0" xml:space="preserve">
+          <source>The <bpt id="35f15180-783b-49ac-8288-fedc9b9b847b">&lt;strong&gt;</bpt>WebJob Run Details<ept id="35f15180-783b-49ac-8288-fedc9b9b847b">&lt;/strong&gt;</ept> page appears.</source>
+          <target state="new">The <bpt id="35f15180-783b-49ac-8288-fedc9b9b847b">&lt;strong&gt;</bpt>WebJob Run Details<ept id="35f15180-783b-49ac-8288-fedc9b9b847b">&lt;/strong&gt;</ept> page appears.</target>
+        </trans-unit>
+        <trans-unit id="8d82257b-ab71-4e5d-a0fc-96d09baf6960" xml:space="preserve">
+          <source>Click <bpt id="4ea8984d-e96b-4ed0-8110-cb70f6321ad8">&lt;strong&gt;</bpt>Toggle Output<ept id="4ea8984d-e96b-4ed0-8110-cb70f6321ad8">&lt;/strong&gt;</ept> to see the text of the log contents.</source>
+          <target state="new">Click <bpt id="4ea8984d-e96b-4ed0-8110-cb70f6321ad8">&lt;strong&gt;</bpt>Toggle Output<ept id="4ea8984d-e96b-4ed0-8110-cb70f6321ad8">&lt;/strong&gt;</ept> to see the text of the log contents.</target>
+        </trans-unit>
+        <trans-unit id="36ee4db4-2bf3-4ecb-bf0c-141f8a618a42" xml:space="preserve">
+          <source>The output log is in text format.</source>
+          <target state="new">The output log is in text format.</target>
+        </trans-unit>
+        <trans-unit id="4656ff44-bb61-4912-a88f-c3675657e014" xml:space="preserve">
+          <source><bpt id="c18e898a-ee52-49b9-aaf8-67d58b782593">&lt;linkText&gt;</bpt>Web job run details<ept id="c18e898a-ee52-49b9-aaf8-67d58b782593">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c18e898a-ee52-49b9-aaf8-67d58b782593">&lt;linkText&gt;</bpt>Web job run details<ept id="c18e898a-ee52-49b9-aaf8-67d58b782593">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66024c0c-0eac-4f37-8aff-332eaefa2e30" xml:space="preserve">
+          <source>To see the output text in a separate browser window, click the <bpt id="4c0d6af2-bf2e-42b4-9688-f43311fcbb0a">&lt;strong&gt;</bpt>download<ept id="4c0d6af2-bf2e-42b4-9688-f43311fcbb0a">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">To see the output text in a separate browser window, click the <bpt id="4c0d6af2-bf2e-42b4-9688-f43311fcbb0a">&lt;strong&gt;</bpt>download<ept id="4c0d6af2-bf2e-42b4-9688-f43311fcbb0a">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="5d505ffe-867c-4796-914b-70a187dbe5e4" xml:space="preserve">
+          <source>To download the text itself, right-click the link and use your browser options to save the file contents.</source>
+          <target state="new">To download the text itself, right-click the link and use your browser options to save the file contents.</target>
+        </trans-unit>
+        <trans-unit id="af7f4424-540c-48ab-9ab8-e84a9d2340a3" xml:space="preserve">
+          <source><bpt id="6bac868b-00ca-4a07-8569-af04d8db9c8c">&lt;linkText&gt;</bpt>Download log output<ept id="6bac868b-00ca-4a07-8569-af04d8db9c8c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6bac868b-00ca-4a07-8569-af04d8db9c8c">&lt;linkText&gt;</bpt>Download log output<ept id="6bac868b-00ca-4a07-8569-af04d8db9c8c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f0931b0-151a-4417-baac-f5d8c074ab33" xml:space="preserve">
+          <source>The <bpt id="9119aa78-f91b-4986-9eb4-5d2a640c0774">&lt;strong&gt;</bpt>WebJobs<ept id="9119aa78-f91b-4986-9eb4-5d2a640c0774">&lt;/strong&gt;</ept> link at the top of the page provides a convenient way to get to a list of WebJobs on the history dashboard.</source>
+          <target state="new">The <bpt id="9119aa78-f91b-4986-9eb4-5d2a640c0774">&lt;strong&gt;</bpt>WebJobs<ept id="9119aa78-f91b-4986-9eb4-5d2a640c0774">&lt;/strong&gt;</ept> link at the top of the page provides a convenient way to get to a list of WebJobs on the history dashboard.</target>
+        </trans-unit>
+        <trans-unit id="cb15b329-3638-4f5f-a7eb-3c10dfb8a41c" xml:space="preserve">
+          <source><bpt id="2be716cd-8b97-42f7-8036-d41dcea619bd">&lt;linkText&gt;</bpt>Link to WebJobs list<ept id="2be716cd-8b97-42f7-8036-d41dcea619bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2be716cd-8b97-42f7-8036-d41dcea619bd">&lt;linkText&gt;</bpt>Link to WebJobs list<ept id="2be716cd-8b97-42f7-8036-d41dcea619bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ae08316-2ff6-43a4-a103-5571bf9638f3" xml:space="preserve">
+          <source><bpt id="eeda8e39-1f57-4d48-bfa2-91909576f92b">&lt;linkText&gt;</bpt>List of WebJobs in history dashboard<ept id="eeda8e39-1f57-4d48-bfa2-91909576f92b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eeda8e39-1f57-4d48-bfa2-91909576f92b">&lt;linkText&gt;</bpt>List of WebJobs in history dashboard<ept id="eeda8e39-1f57-4d48-bfa2-91909576f92b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca62f109-09a1-4198-9bfe-e0d3fcc473ee" xml:space="preserve">
+          <source>Clicking one of these links takes you to the WebJob Details page for the job you selected.</source>
+          <target state="new">Clicking one of these links takes you to the WebJob Details page for the job you selected.</target>
+        </trans-unit>
+        <trans-unit id="12cb76c7-8c2a-4f9b-b441-2d3500fbc180" xml:space="preserve">
+          <source>Web apps in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the web app's portal is not open in Azure.</source>
+          <target state="new">Web apps in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the web app's portal is not open in Azure.</target>
+        </trans-unit>
+        <trans-unit id="416d156b-0033-4321-8127-8df31526a81a" xml:space="preserve">
+          <source>Requests to the actual site will not reset this.</source>
+          <target state="new">Requests to the actual site will not reset this.</target>
+        </trans-unit>
+        <trans-unit id="ada1ba0f-adec-48b4-8b25-8d429bcf8308" xml:space="preserve">
+          <source>Code for a continuous job needs to be written to run in an endless loop.</source>
+          <target state="new">Code for a continuous job needs to be written to run in an endless loop.</target>
+        </trans-unit>
+        <trans-unit id="cd17c935-5515-4f19-b7a1-c351d346033c" xml:space="preserve">
+          <source>Continuous jobs run continuously only when the web app is up.</source>
+          <target state="new">Continuous jobs run continuously only when the web app is up.</target>
+        </trans-unit>
+        <trans-unit id="6455d8b3-5608-4ac4-aa48-0ced2fe09c2d" xml:space="preserve">
+          <source>Basic and Standard modes offer the Always On feature which, when enabled, prevents web apps from becoming idle.</source>
+          <target state="new">Basic and Standard modes offer the Always On feature which, when enabled, prevents web apps from becoming idle.</target>
+        </trans-unit>
+        <trans-unit id="ef4662c1-ac04-4923-9e5d-4e2809b870fb" xml:space="preserve">
+          <source>You can only debug continuously running WebJobs.</source>
+          <target state="new">You can only debug continuously running WebJobs.</target>
+        </trans-unit>
+        <trans-unit id="ea622e43-c6b5-4cef-b038-b93a71172a53" xml:space="preserve">
+          <source>Debugging scheduled or on-demand WebJobs is not supported.</source>
+          <target state="new">Debugging scheduled or on-demand WebJobs is not supported.</target>
+        </trans-unit>
+        <trans-unit id="aa339ab1-2807-4f73-85e4-475024eb0a1b" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="2713d081-3363-4893-81db-c08f7f71b13c">&lt;linkText&gt;</bpt>Try App Service<ept id="2713d081-3363-4893-81db-c08f7f71b13c">&lt;/linkText&gt;</ept><bpt id="2713d081-3363-4893-81db-c08f7f71b13c">&lt;title&gt;</bpt><ept id="2713d081-3363-4893-81db-c08f7f71b13c">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="2713d081-3363-4893-81db-c08f7f71b13c">&lt;linkText&gt;</bpt>Try App Service<ept id="2713d081-3363-4893-81db-c08f7f71b13c">&lt;/linkText&gt;</ept><bpt id="2713d081-3363-4893-81db-c08f7f71b13c">&lt;title&gt;</bpt><ept id="2713d081-3363-4893-81db-c08f7f71b13c">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="4ef638fa-e063-41a5-ac0d-4773ac85a38a" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="d5a08203-23b5-4d9b-a0a2-71da47e660f7" xml:space="preserve">
+          <source>For more information, see <bpt id="57504585-e742-45d2-8d2e-affed50ecbe6">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources[webjobsrecommendedresources]<ept id="57504585-e742-45d2-8d2e-affed50ecbe6">&lt;/linkText&gt;</ept><bpt id="57504585-e742-45d2-8d2e-affed50ecbe6">&lt;title&gt;</bpt><ept id="57504585-e742-45d2-8d2e-affed50ecbe6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="57504585-e742-45d2-8d2e-affed50ecbe6">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources[webjobsrecommendedresources]<ept id="57504585-e742-45d2-8d2e-affed50ecbe6">&lt;/linkText&gt;</ept><bpt id="57504585-e742-45d2-8d2e-affed50ecbe6">&lt;title&gt;</bpt><ept id="57504585-e742-45d2-8d2e-affed50ecbe6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c3c8668d-48fd-456c-b9aa-c9abd637c57e" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="a6577fc8-98c0-45c2-aa97-f08cd5ea6a3f">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="a6577fc8-98c0-45c2-aa97-f08cd5ea6a3f">&lt;/linkText&gt;</ept><bpt id="a6577fc8-98c0-45c2-aa97-f08cd5ea6a3f">&lt;title&gt;</bpt><ept id="a6577fc8-98c0-45c2-aa97-f08cd5ea6a3f">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="a6577fc8-98c0-45c2-aa97-f08cd5ea6a3f">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="a6577fc8-98c0-45c2-aa97-f08cd5ea6a3f">&lt;/linkText&gt;</ept><bpt id="a6577fc8-98c0-45c2-aa97-f08cd5ea6a3f">&lt;title&gt;</bpt><ept id="a6577fc8-98c0-45c2-aa97-f08cd5ea6a3f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b94639c5-d8af-4166-8f4e-6548e858fc17" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="55446082-e445-4001-97c9-227f343943ea">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="55446082-e445-4001-97c9-227f343943ea">&lt;/linkText&gt;</ept><bpt id="55446082-e445-4001-97c9-227f343943ea">&lt;title&gt;</bpt><ept id="55446082-e445-4001-97c9-227f343943ea">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="55446082-e445-4001-97c9-227f343943ea">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="55446082-e445-4001-97c9-227f343943ea">&lt;/linkText&gt;</ept><bpt id="55446082-e445-4001-97c9-227f343943ea">&lt;title&gt;</bpt><ept id="55446082-e445-4001-97c9-227f343943ea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc201daf-18d5-4741-9cdc-e657a85ba03b" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx</source>
+          <target state="new">http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx</target>
+        </trans-unit>
+        <trans-unit id="2f30b84d-9966-4970-bff8-8082fb55e8dc" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=390226</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=390226</target>
+        </trans-unit>
+        <trans-unit id="ede1ec93-0749-4e10-8c86-55916307f8c2" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/01aOnDemandWebJob.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/01aOnDemandWebJob.png</target>
+        </trans-unit>
+        <trans-unit id="8557f778-1957-4038-91b3-fbb0ab611c37" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/02aWebJobsList.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/02aWebJobsList.png</target>
+        </trans-unit>
+        <trans-unit id="32d40b97-c466-4afe-9503-2fe6bf9913db" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/03aNewContinuousJob.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/03aNewContinuousJob.png</target>
+        </trans-unit>
+        <trans-unit id="7daade63-674f-4709-9886-cddf83aceaf2" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/04aNewScheduledJob.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/04aNewScheduledJob.png</target>
+        </trans-unit>
+        <trans-unit id="5dd7d338-36a8-43f3-a13c-9dcd291ae279" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/05SchdRecurrence.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/05SchdRecurrence.png</target>
+        </trans-unit>
+        <trans-unit id="6c34c141-c1a0-430c-8a33-32a0ba637c82" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/06SchdStart.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/06SchdStart.png</target>
+        </trans-unit>
+        <trans-unit id="45eabfad-e482-4510-ba64-52666d6c50cc" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/07SchdStartOn.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/07SchdStartOn.png</target>
+        </trans-unit>
+        <trans-unit id="5c1f02fa-9dc1-44b8-b779-84668a8f0a3d" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/08SchdRecurEvery.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/08SchdRecurEvery.png</target>
+        </trans-unit>
+        <trans-unit id="05a91e93-f7bb-448e-80b9-b2102e511fa9" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/09SchdWeeksOnParticular.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/09SchdWeeksOnParticular.png</target>
+        </trans-unit>
+        <trans-unit id="d57a091e-4033-4bf4-b2c1-7fe172f42e22" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/10SchdMonthsOnPartDays.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/10SchdMonthsOnPartDays.png</target>
+        </trans-unit>
+        <trans-unit id="bc7bcc2e-1bb1-40c0-868b-9799a5d28668" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/11SchdMonthsOnPartWeekDays.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/11SchdMonthsOnPartWeekDays.png</target>
+        </trans-unit>
+        <trans-unit id="9ef2a5fc-4dac-4637-b8e2-120232298208" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/12SchdMonthsOnPartWeekDaysOccurences.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/12SchdMonthsOnPartWeekDaysOccurences.png</target>
+        </trans-unit>
+        <trans-unit id="018b4a01-a5f8-424e-98fe-c9780b65f8bc" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/13RunOnce.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/13RunOnce.png</target>
+        </trans-unit>
+        <trans-unit id="42c3f8a7-59b4-406c-8f64-b0a4023b83cb" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/13WebJobsListWithSeveralJobs.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/13WebJobsListWithSeveralJobs.png</target>
+        </trans-unit>
+        <trans-unit id="957e1d34-9091-40ff-a7f8-6e8903522d75" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/14WebJobLogs.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/14WebJobLogs.png</target>
+        </trans-unit>
+        <trans-unit id="97047644-b8af-4deb-bfc8-9027c80f238b" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/15WebJobDetails.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/15WebJobDetails.png</target>
+        </trans-unit>
+        <trans-unit id="d455ed1f-2609-41f2-ad7d-55aaf7ae6d99" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/16WebJobRunDetails.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/16WebJobRunDetails.png</target>
+        </trans-unit>
+        <trans-unit id="60204958-91e5-4ffe-b5c6-2900d1643597" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/17DownloadLogOutput.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/17DownloadLogOutput.png</target>
+        </trans-unit>
+        <trans-unit id="e84d3fb5-eb49-4fd5-9f4e-1bc288a95aae" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/18WebJobsLinkToDashboardList.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/18WebJobsLinkToDashboardList.png</target>
+        </trans-unit>
+        <trans-unit id="dfbe4401-a860-41b2-8791-f6f4215ffd37" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/19WebJobsListInJobsDashboard.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/19WebJobsListInJobsDashboard.png</target>
+        </trans-unit>
+        <trans-unit id="8d1e5e28-86bf-4a52-9e52-1dd6fad3c27c" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/31LinkToScheduler.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/31LinkToScheduler.png</target>
+        </trans-unit>
+        <trans-unit id="6b464854-aa26-4432-8eab-ed963c117708" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/32SchedulerPortal.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/32SchedulerPortal.png</target>
+        </trans-unit>
+        <trans-unit id="c38f0b04-5706-4d1e-b011-fae63b815bca" xml:space="preserve">
+          <source>./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png</source>
+          <target state="new">./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png</target>
+        </trans-unit>
+      </group>
+      <group id="a1a93516-ec7d-434a-8445-4ccac33ba166" />
+    </body>
+  </file>
+</xliff>

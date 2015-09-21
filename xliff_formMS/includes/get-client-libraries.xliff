@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2089238c-fffd-428c-903d-3f5728db5cf8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2089238c-fffd-428c-903d-3f5728db5cf8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="69e78531-eafd-4712-a0c4-15390967ce97">
+        <trans-unit id="3ca56f10-c05b-43a7-9387-700b087c3aa6" xml:space="preserve">
+          <source><bpt id="c944145f-93cb-4adb-9a3d-89849d0d4aa1">&lt;linkText&gt;</bpt>Install Git[install-git]<ept id="c944145f-93cb-4adb-9a3d-89849d0d4aa1">&lt;/linkText&gt;</ept><bpt id="c944145f-93cb-4adb-9a3d-89849d0d4aa1">&lt;title&gt;</bpt><ept id="c944145f-93cb-4adb-9a3d-89849d0d4aa1">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="c944145f-93cb-4adb-9a3d-89849d0d4aa1">&lt;linkText&gt;</bpt>Install Git[install-git]<ept id="c944145f-93cb-4adb-9a3d-89849d0d4aa1">&lt;/linkText&gt;</ept><bpt id="c944145f-93cb-4adb-9a3d-89849d0d4aa1">&lt;title&gt;</bpt><ept id="c944145f-93cb-4adb-9a3d-89849d0d4aa1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8611433c-dfd5-4f14-b933-5d6a56a4f54a" xml:space="preserve">
+          <source>On Windows, you will also need to add the Git executable to your PATH environment variable.</source>
+          <target state="new">On Windows, you will also need to add the Git executable to your PATH environment variable.</target>
+        </trans-unit>
+        <trans-unit id="41388c8d-3f15-4740-a704-ca44ca0517a7" xml:space="preserve">
+          <source>Create a file named <bpt id="a3f5039f-dd66-40b8-85d0-9d13fdccb2c7">&lt;strong&gt;</bpt>composer.json<ept id="a3f5039f-dd66-40b8-85d0-9d13fdccb2c7">&lt;/strong&gt;</ept> in the root of your project and add the following code to it:</source>
+          <target state="new">Create a file named <bpt id="a3f5039f-dd66-40b8-85d0-9d13fdccb2c7">&lt;strong&gt;</bpt>composer.json<ept id="a3f5039f-dd66-40b8-85d0-9d13fdccb2c7">&lt;/strong&gt;</ept> in the root of your project and add the following code to it:</target>
+        </trans-unit>
+        <trans-unit id="5efbc850-b883-4c8f-b84e-27cce1db4846" xml:space="preserve">
+          <source>Download **<bpt id="f3758a51-fd9e-4ad5-9cef-58cdc158dee2">&lt;linkText&gt;</bpt>composer.phar[composer-phar]<ept id="f3758a51-fd9e-4ad5-9cef-58cdc158dee2">&lt;/linkText&gt;</ept><bpt id="f3758a51-fd9e-4ad5-9cef-58cdc158dee2">&lt;title&gt;</bpt><ept id="f3758a51-fd9e-4ad5-9cef-58cdc158dee2">&lt;/title&gt;</ept>** in your project root.</source>
+          <target state="new">Download **<bpt id="f3758a51-fd9e-4ad5-9cef-58cdc158dee2">&lt;linkText&gt;</bpt>composer.phar[composer-phar]<ept id="f3758a51-fd9e-4ad5-9cef-58cdc158dee2">&lt;/linkText&gt;</ept><bpt id="f3758a51-fd9e-4ad5-9cef-58cdc158dee2">&lt;title&gt;</bpt><ept id="f3758a51-fd9e-4ad5-9cef-58cdc158dee2">&lt;/title&gt;</ept>** in your project root.</target>
+        </trans-unit>
+        <trans-unit id="3094fe49-379e-47a4-bf6b-1a64ecd0f0ac" xml:space="preserve">
+          <source>Open a command prompt and execute the following command in your project root</source>
+          <target state="new">Open a command prompt and execute the following command in your project root</target>
+        </trans-unit>
+        <trans-unit id="c8e01df7-e01f-498f-bf44-918e15142994" xml:space="preserve">
+          <source>To download and install the PHP Client Libraries for Azure manually, follow these steps:</source>
+          <target state="new">To download and install the PHP Client Libraries for Azure manually, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="feb23221-5c02-4270-8eca-7204cb388ce9" xml:space="preserve">
+          <source>Download a .zip archive that contains the libraries from <bpt id="895df286-ce2a-4290-8731-2e989c84385f">&lt;linkText&gt;</bpt>GitHub[php-sdk-github]<ept id="895df286-ce2a-4290-8731-2e989c84385f">&lt;/linkText&gt;</ept><bpt id="895df286-ce2a-4290-8731-2e989c84385f">&lt;title&gt;</bpt><ept id="895df286-ce2a-4290-8731-2e989c84385f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download a .zip archive that contains the libraries from <bpt id="895df286-ce2a-4290-8731-2e989c84385f">&lt;linkText&gt;</bpt>GitHub[php-sdk-github]<ept id="895df286-ce2a-4290-8731-2e989c84385f">&lt;/linkText&gt;</ept><bpt id="895df286-ce2a-4290-8731-2e989c84385f">&lt;title&gt;</bpt><ept id="895df286-ce2a-4290-8731-2e989c84385f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4a7387f-c760-4b34-8194-1706bc20b8c2" xml:space="preserve">
+          <source>Alternatively, fork the repository and clone it to your local machine.</source>
+          <target state="new">Alternatively, fork the repository and clone it to your local machine.</target>
+        </trans-unit>
+        <trans-unit id="16bc5c40-9d44-48ec-86cd-2c144137f30c" xml:space="preserve">
+          <source>The latter option requires a GitHub account and having Git installed locally.</source>
+          <target state="new">The latter option requires a GitHub account and having Git installed locally.</target>
+        </trans-unit>
+        <trans-unit id="a3124f5b-ad55-4520-9411-61b27e6638ba" xml:space="preserve">
+          <source>The PHP Client Libraries for Azure have a dependency on the [HTTP<bpt id="3e70d535-eb8c-42ea-8789-2bea4541c8fc">&lt;em&gt;</bpt>Request2](http://pear.php.net/package/HTTP<ept id="3e70d535-eb8c-42ea-8789-2bea4541c8fc">&lt;/em&gt;</ept>Request2), [Mail<bpt id="7db220e5-5b04-4694-ba1e-2ec6c65e43c4">&lt;em&gt;</bpt>mime](http://pear.php.net/package/Mail<ept id="7db220e5-5b04-4694-ba1e-2ec6c65e43c4">&lt;/em&gt;</ept>mime), and [Mail<bpt id="fd573289-f408-4d70-8569-4e234f43f5ff">&lt;em&gt;</bpt>mimeDecode](http://pear.php.net/package/Mail<ept id="fd573289-f408-4d70-8569-4e234f43f5ff">&lt;/em&gt;</ept>mimeDecode) PEAR packages.</source>
+          <target state="new">The PHP Client Libraries for Azure have a dependency on the [HTTP<bpt id="3e70d535-eb8c-42ea-8789-2bea4541c8fc">&lt;em&gt;</bpt>Request2](http://pear.php.net/package/HTTP<ept id="3e70d535-eb8c-42ea-8789-2bea4541c8fc">&lt;/em&gt;</ept>Request2), [Mail<bpt id="7db220e5-5b04-4694-ba1e-2ec6c65e43c4">&lt;em&gt;</bpt>mime](http://pear.php.net/package/Mail<ept id="7db220e5-5b04-4694-ba1e-2ec6c65e43c4">&lt;/em&gt;</ept>mime), and [Mail<bpt id="fd573289-f408-4d70-8569-4e234f43f5ff">&lt;em&gt;</bpt>mimeDecode](http://pear.php.net/package/Mail<ept id="fd573289-f408-4d70-8569-4e234f43f5ff">&lt;/em&gt;</ept>mimeDecode) PEAR packages.</target>
+        </trans-unit>
+        <trans-unit id="9369eedc-08a1-4bc7-b302-c015275c3e6f" xml:space="preserve">
+          <source>The recommended way to resolve these dependencies is to install these packages using the <bpt id="b452c14e-6440-494d-9474-fcb66ccc8fdd">&lt;linkText&gt;</bpt>PEAR package manager<ept id="b452c14e-6440-494d-9474-fcb66ccc8fdd">&lt;/linkText&gt;</ept><bpt id="b452c14e-6440-494d-9474-fcb66ccc8fdd">&lt;title&gt;</bpt><ept id="b452c14e-6440-494d-9474-fcb66ccc8fdd">&lt;/title&gt;</ept>.</source>
+          <target state="new">The recommended way to resolve these dependencies is to install these packages using the <bpt id="b452c14e-6440-494d-9474-fcb66ccc8fdd">&lt;linkText&gt;</bpt>PEAR package manager<ept id="b452c14e-6440-494d-9474-fcb66ccc8fdd">&lt;/linkText&gt;</ept><bpt id="b452c14e-6440-494d-9474-fcb66ccc8fdd">&lt;title&gt;</bpt><ept id="b452c14e-6440-494d-9474-fcb66ccc8fdd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d21d3a84-09cf-4111-92b6-68d5771d4c8d" xml:space="preserve">
+          <source>Copy the <bpt id="870a67aa-30fa-4d08-9aad-36097d3b2a9c">&lt;code&gt;</bpt>WindowsAzure<ept id="870a67aa-30fa-4d08-9aad-36097d3b2a9c">&lt;/code&gt;</ept> directory of the downloaded archive to your application directory structure.</source>
+          <target state="new">Copy the <bpt id="870a67aa-30fa-4d08-9aad-36097d3b2a9c">&lt;code&gt;</bpt>WindowsAzure<ept id="870a67aa-30fa-4d08-9aad-36097d3b2a9c">&lt;/code&gt;</ept> directory of the downloaded archive to your application directory structure.</target>
+        </trans-unit>
+        <trans-unit id="bac7549c-4a55-4751-a2a5-4ca0ee9f8053" xml:space="preserve">
+          <source>For more information about installing the PHP Client Libraries for Azure (including information about installing as a PEAR package), see <bpt id="95cf0df9-8d1d-417d-b290-e5ddb8cabe5f">&lt;linkText&gt;</bpt>Download the Azure SDK for PHP[download-sdk-php]<ept id="95cf0df9-8d1d-417d-b290-e5ddb8cabe5f">&lt;/linkText&gt;</ept><bpt id="95cf0df9-8d1d-417d-b290-e5ddb8cabe5f">&lt;title&gt;</bpt><ept id="95cf0df9-8d1d-417d-b290-e5ddb8cabe5f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about installing the PHP Client Libraries for Azure (including information about installing as a PEAR package), see <bpt id="95cf0df9-8d1d-417d-b290-e5ddb8cabe5f">&lt;linkText&gt;</bpt>Download the Azure SDK for PHP[download-sdk-php]<ept id="95cf0df9-8d1d-417d-b290-e5ddb8cabe5f">&lt;/linkText&gt;</ept><bpt id="95cf0df9-8d1d-417d-b290-e5ddb8cabe5f">&lt;title&gt;</bpt><ept id="95cf0df9-8d1d-417d-b290-e5ddb8cabe5f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a385a586-0b8d-4770-af02-67ff298d9513" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=252719</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=252719</target>
+        </trans-unit>
+        <trans-unit id="fd5d451b-d98c-42c5-9eea-c6c2b25fed18" xml:space="preserve">
+          <source>http://git-scm.com/book/en/Getting-Started-Installing-Git</source>
+          <target state="new">http://git-scm.com/book/en/Getting-Started-Installing-Git</target>
+        </trans-unit>
+        <trans-unit id="3787a863-0055-4cb6-9229-5ce4efbf008d" xml:space="preserve">
+          <source>../articles/php-download-sdk.md</source>
+          <target state="new">../articles/php-download-sdk.md</target>
+        </trans-unit>
+        <trans-unit id="9967a25a-0926-4c7b-bda4-777eebdc5c03" xml:space="preserve">
+          <source>http://getcomposer.org/composer.phar</source>
+          <target state="new">http://getcomposer.org/composer.phar</target>
+        </trans-unit>
+      </group>
+      <group id="4ddbe54f-4d0c-4ab0-a33d-16b9e5fd04e9" />
+    </body>
+  </file>
+</xliff>

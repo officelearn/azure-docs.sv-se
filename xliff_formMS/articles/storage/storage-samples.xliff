@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="df869044-352e-4c83-a3d3-f938a71d95fe" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="df869044-352e-4c83-a3d3-f938a71d95fe" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="aa4c4d72-1254-437f-bd4a-0e3981b2a6e0">
+        <trans-unit id="31318ff6-6360-4c51-9923-5586432e918c" xml:space="preserve">
+          <source>Azure Storage Samples | Microsoft Azure</source>
+          <target state="new">Azure Storage Samples | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5ad4cb5a-e414-4981-a8de-3d9f75c2ceb7" xml:space="preserve">
+          <source>View, download, and try samples for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Node.js, and C++ storage client libraries.</source>
+          <target state="new">View, download, and try samples for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Node.js, and C++ storage client libraries.</target>
+        </trans-unit>
+        <trans-unit id="18070687-9c63-4167-b92d-4d1c1b8b55e4" xml:space="preserve">
+          <source>Use the links below to view and download working Azure Storage samples.</source>
+          <target state="new">Use the links below to view and download working Azure Storage samples.</target>
+        </trans-unit>
+        <trans-unit id="916baaab-34c1-4ba5-abe7-582220eb82ec" xml:space="preserve">
+          <source>To explore the .NET samples, download the <bpt id="5e3668f4-5dbb-4546-8836-eec385307b04">&lt;linkText&gt;</bpt>.NET Storage Client Library<ept id="5e3668f4-5dbb-4546-8836-eec385307b04">&lt;/linkText&gt;</ept><bpt id="5e3668f4-5dbb-4546-8836-eec385307b04">&lt;title&gt;</bpt><ept id="5e3668f4-5dbb-4546-8836-eec385307b04">&lt;/title&gt;</ept> from NuGet.</source>
+          <target state="new">To explore the .NET samples, download the <bpt id="5e3668f4-5dbb-4546-8836-eec385307b04">&lt;linkText&gt;</bpt>.NET Storage Client Library<ept id="5e3668f4-5dbb-4546-8836-eec385307b04">&lt;/linkText&gt;</ept><bpt id="5e3668f4-5dbb-4546-8836-eec385307b04">&lt;title&gt;</bpt><ept id="5e3668f4-5dbb-4546-8836-eec385307b04">&lt;/title&gt;</ept> from NuGet.</target>
+        </trans-unit>
+        <trans-unit id="0a3cc8ca-ec52-4d79-b0a3-b2cd14fd0e2b" xml:space="preserve">
+          <source>The .NET Storage Client Library is also available in the <bpt id="67c323ab-825e-4ac0-adc6-70671c3b19b8">&lt;linkText&gt;</bpt>Azure SDK for .NET<ept id="67c323ab-825e-4ac0-adc6-70671c3b19b8">&lt;/linkText&gt;</ept><bpt id="67c323ab-825e-4ac0-adc6-70671c3b19b8">&lt;title&gt;</bpt><ept id="67c323ab-825e-4ac0-adc6-70671c3b19b8">&lt;/title&gt;</ept>.</source>
+          <target state="new">The .NET Storage Client Library is also available in the <bpt id="67c323ab-825e-4ac0-adc6-70671c3b19b8">&lt;linkText&gt;</bpt>Azure SDK for .NET<ept id="67c323ab-825e-4ac0-adc6-70671c3b19b8">&lt;/linkText&gt;</ept><bpt id="67c323ab-825e-4ac0-adc6-70671c3b19b8">&lt;title&gt;</bpt><ept id="67c323ab-825e-4ac0-adc6-70671c3b19b8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2791ae52-b35b-4a3d-a20f-9de77acb9f87" xml:space="preserve">
+          <source><bpt id="5a6df44d-c15c-42c8-9a9c-40722b9bbde6">&lt;linkText&gt;</bpt>Get started with Azure Blobs, Tables, and Queues in 5 minutes<ept id="5a6df44d-c15c-42c8-9a9c-40722b9bbde6">&lt;/linkText&gt;</ept><bpt id="5a6df44d-c15c-42c8-9a9c-40722b9bbde6">&lt;title&gt;</bpt><ept id="5a6df44d-c15c-42c8-9a9c-40722b9bbde6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5a6df44d-c15c-42c8-9a9c-40722b9bbde6">&lt;linkText&gt;</bpt>Get started with Azure Blobs, Tables, and Queues in 5 minutes<ept id="5a6df44d-c15c-42c8-9a9c-40722b9bbde6">&lt;/linkText&gt;</ept><bpt id="5a6df44d-c15c-42c8-9a9c-40722b9bbde6">&lt;title&gt;</bpt><ept id="5a6df44d-c15c-42c8-9a9c-40722b9bbde6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfe32a11-6f94-4fcf-bcb0-de8e338246c6" xml:space="preserve">
+          <source><bpt id="7affc6a5-9fc3-4b29-86ec-bbf82fd7ed19">&lt;linkText&gt;</bpt>Managing Concurrency using Azure Storage - Sample Application<ept id="7affc6a5-9fc3-4b29-86ec-bbf82fd7ed19">&lt;/linkText&gt;</ept><bpt id="7affc6a5-9fc3-4b29-86ec-bbf82fd7ed19">&lt;title&gt;</bpt><ept id="7affc6a5-9fc3-4b29-86ec-bbf82fd7ed19">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7affc6a5-9fc3-4b29-86ec-bbf82fd7ed19">&lt;linkText&gt;</bpt>Managing Concurrency using Azure Storage - Sample Application<ept id="7affc6a5-9fc3-4b29-86ec-bbf82fd7ed19">&lt;/linkText&gt;</ept><bpt id="7affc6a5-9fc3-4b29-86ec-bbf82fd7ed19">&lt;title&gt;</bpt><ept id="7affc6a5-9fc3-4b29-86ec-bbf82fd7ed19">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9b940ab-4662-4327-8565-ff9cd30a102f" xml:space="preserve">
+          <source><bpt id="8587db8f-9845-495d-a9f5-bb2b52d4bf8d">&lt;linkText&gt;</bpt>Get started with blobs<ept id="8587db8f-9845-495d-a9f5-bb2b52d4bf8d">&lt;/linkText&gt;</ept><bpt id="8587db8f-9845-495d-a9f5-bb2b52d4bf8d">&lt;title&gt;</bpt><ept id="8587db8f-9845-495d-a9f5-bb2b52d4bf8d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8587db8f-9845-495d-a9f5-bb2b52d4bf8d">&lt;linkText&gt;</bpt>Get started with blobs<ept id="8587db8f-9845-495d-a9f5-bb2b52d4bf8d">&lt;/linkText&gt;</ept><bpt id="8587db8f-9845-495d-a9f5-bb2b52d4bf8d">&lt;title&gt;</bpt><ept id="8587db8f-9845-495d-a9f5-bb2b52d4bf8d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="225c6472-bc93-411b-b994-0c58016cad54" xml:space="preserve">
+          <source><bpt id="6b90e8bc-f5c2-488c-9a03-d068cf147175">&lt;linkText&gt;</bpt>Get started with tables<ept id="6b90e8bc-f5c2-488c-9a03-d068cf147175">&lt;/linkText&gt;</ept><bpt id="6b90e8bc-f5c2-488c-9a03-d068cf147175">&lt;title&gt;</bpt><ept id="6b90e8bc-f5c2-488c-9a03-d068cf147175">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b90e8bc-f5c2-488c-9a03-d068cf147175">&lt;linkText&gt;</bpt>Get started with tables<ept id="6b90e8bc-f5c2-488c-9a03-d068cf147175">&lt;/linkText&gt;</ept><bpt id="6b90e8bc-f5c2-488c-9a03-d068cf147175">&lt;title&gt;</bpt><ept id="6b90e8bc-f5c2-488c-9a03-d068cf147175">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8af6238d-3ea2-4898-a1db-45b6809a08b1" xml:space="preserve">
+          <source><bpt id="0dfd60ce-bc63-4d55-ac40-2d5c6e351ed1">&lt;linkText&gt;</bpt>Get started with queues<ept id="0dfd60ce-bc63-4d55-ac40-2d5c6e351ed1">&lt;/linkText&gt;</ept><bpt id="0dfd60ce-bc63-4d55-ac40-2d5c6e351ed1">&lt;title&gt;</bpt><ept id="0dfd60ce-bc63-4d55-ac40-2d5c6e351ed1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0dfd60ce-bc63-4d55-ac40-2d5c6e351ed1">&lt;linkText&gt;</bpt>Get started with queues<ept id="0dfd60ce-bc63-4d55-ac40-2d5c6e351ed1">&lt;/linkText&gt;</ept><bpt id="0dfd60ce-bc63-4d55-ac40-2d5c6e351ed1">&lt;title&gt;</bpt><ept id="0dfd60ce-bc63-4d55-ac40-2d5c6e351ed1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4439c6b1-bd6b-474c-90a1-934a6bb139e4" xml:space="preserve">
+          <source><bpt id="702fce8c-177a-4156-9ef0-b6220c4377bc">&lt;linkText&gt;</bpt>Get started with files<ept id="702fce8c-177a-4156-9ef0-b6220c4377bc">&lt;/linkText&gt;</ept><bpt id="702fce8c-177a-4156-9ef0-b6220c4377bc">&lt;title&gt;</bpt><ept id="702fce8c-177a-4156-9ef0-b6220c4377bc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="702fce8c-177a-4156-9ef0-b6220c4377bc">&lt;linkText&gt;</bpt>Get started with files<ept id="702fce8c-177a-4156-9ef0-b6220c4377bc">&lt;/linkText&gt;</ept><bpt id="702fce8c-177a-4156-9ef0-b6220c4377bc">&lt;title&gt;</bpt><ept id="702fce8c-177a-4156-9ef0-b6220c4377bc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce622f09-3290-450a-9124-77a3ec99b408" xml:space="preserve">
+          <source>To explore the Java samples, download the <bpt id="0862a91e-2031-42a8-acee-724975d1637a">&lt;linkText&gt;</bpt>Java Storage Client Library<ept id="0862a91e-2031-42a8-acee-724975d1637a">&lt;/linkText&gt;</ept><bpt id="0862a91e-2031-42a8-acee-724975d1637a">&lt;title&gt;</bpt><ept id="0862a91e-2031-42a8-acee-724975d1637a">&lt;/title&gt;</ept>.</source>
+          <target state="new">To explore the Java samples, download the <bpt id="0862a91e-2031-42a8-acee-724975d1637a">&lt;linkText&gt;</bpt>Java Storage Client Library<ept id="0862a91e-2031-42a8-acee-724975d1637a">&lt;/linkText&gt;</ept><bpt id="0862a91e-2031-42a8-acee-724975d1637a">&lt;title&gt;</bpt><ept id="0862a91e-2031-42a8-acee-724975d1637a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0f1877e-02f6-4ec4-8cd0-8a653616d1a7" xml:space="preserve">
+          <source><bpt id="70cf6daa-61ed-490d-8e86-0347460076ab">&lt;linkText&gt;</bpt>Get started with blobs<ept id="70cf6daa-61ed-490d-8e86-0347460076ab">&lt;/linkText&gt;</ept><bpt id="70cf6daa-61ed-490d-8e86-0347460076ab">&lt;title&gt;</bpt><ept id="70cf6daa-61ed-490d-8e86-0347460076ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="70cf6daa-61ed-490d-8e86-0347460076ab">&lt;linkText&gt;</bpt>Get started with blobs<ept id="70cf6daa-61ed-490d-8e86-0347460076ab">&lt;/linkText&gt;</ept><bpt id="70cf6daa-61ed-490d-8e86-0347460076ab">&lt;title&gt;</bpt><ept id="70cf6daa-61ed-490d-8e86-0347460076ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dde85883-2709-4867-846f-fabf3a41599b" xml:space="preserve">
+          <source><bpt id="eb1fbdae-07a8-4073-8cbb-49182ac8dc13">&lt;linkText&gt;</bpt>Get started with tables<ept id="eb1fbdae-07a8-4073-8cbb-49182ac8dc13">&lt;/linkText&gt;</ept><bpt id="eb1fbdae-07a8-4073-8cbb-49182ac8dc13">&lt;title&gt;</bpt><ept id="eb1fbdae-07a8-4073-8cbb-49182ac8dc13">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eb1fbdae-07a8-4073-8cbb-49182ac8dc13">&lt;linkText&gt;</bpt>Get started with tables<ept id="eb1fbdae-07a8-4073-8cbb-49182ac8dc13">&lt;/linkText&gt;</ept><bpt id="eb1fbdae-07a8-4073-8cbb-49182ac8dc13">&lt;title&gt;</bpt><ept id="eb1fbdae-07a8-4073-8cbb-49182ac8dc13">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc1e817e-2cf7-497c-ba68-d982cb9ee198" xml:space="preserve">
+          <source><bpt id="09dae844-508c-4a5f-831a-d0178245b86e">&lt;linkText&gt;</bpt>Get started with queues<ept id="09dae844-508c-4a5f-831a-d0178245b86e">&lt;/linkText&gt;</ept><bpt id="09dae844-508c-4a5f-831a-d0178245b86e">&lt;title&gt;</bpt><ept id="09dae844-508c-4a5f-831a-d0178245b86e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="09dae844-508c-4a5f-831a-d0178245b86e">&lt;linkText&gt;</bpt>Get started with queues<ept id="09dae844-508c-4a5f-831a-d0178245b86e">&lt;/linkText&gt;</ept><bpt id="09dae844-508c-4a5f-831a-d0178245b86e">&lt;title&gt;</bpt><ept id="09dae844-508c-4a5f-831a-d0178245b86e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7dfc200-f7c5-4549-a138-ab79422fd9bc" xml:space="preserve">
+          <source>To explore the Node.js samples, download the <bpt id="d16390cf-bad0-41d7-99b2-d59e9a5e3493">&lt;linkText&gt;</bpt>Node.js Storage Client Library<ept id="d16390cf-bad0-41d7-99b2-d59e9a5e3493">&lt;/linkText&gt;</ept><bpt id="d16390cf-bad0-41d7-99b2-d59e9a5e3493">&lt;title&gt;</bpt><ept id="d16390cf-bad0-41d7-99b2-d59e9a5e3493">&lt;/title&gt;</ept>.</source>
+          <target state="new">To explore the Node.js samples, download the <bpt id="d16390cf-bad0-41d7-99b2-d59e9a5e3493">&lt;linkText&gt;</bpt>Node.js Storage Client Library<ept id="d16390cf-bad0-41d7-99b2-d59e9a5e3493">&lt;/linkText&gt;</ept><bpt id="d16390cf-bad0-41d7-99b2-d59e9a5e3493">&lt;title&gt;</bpt><ept id="d16390cf-bad0-41d7-99b2-d59e9a5e3493">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98e04cc8-883b-4211-932d-89b50ab2c6ce" xml:space="preserve">
+          <source><bpt id="8afdf9e6-a53c-4bc1-ab55-50cf4bf321f0">&lt;linkText&gt;</bpt>Blob uploader<ept id="8afdf9e6-a53c-4bc1-ab55-50cf4bf321f0">&lt;/linkText&gt;</ept><bpt id="8afdf9e6-a53c-4bc1-ab55-50cf4bf321f0">&lt;title&gt;</bpt><ept id="8afdf9e6-a53c-4bc1-ab55-50cf4bf321f0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8afdf9e6-a53c-4bc1-ab55-50cf4bf321f0">&lt;linkText&gt;</bpt>Blob uploader<ept id="8afdf9e6-a53c-4bc1-ab55-50cf4bf321f0">&lt;/linkText&gt;</ept><bpt id="8afdf9e6-a53c-4bc1-ab55-50cf4bf321f0">&lt;title&gt;</bpt><ept id="8afdf9e6-a53c-4bc1-ab55-50cf4bf321f0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="120ad823-1f77-4365-90d5-0e8f5af339c5" xml:space="preserve">
+          <source><bpt id="92bf3ef4-40a0-4844-900e-2ca88515e667">&lt;linkText&gt;</bpt>Upload and download blob<ept id="92bf3ef4-40a0-4844-900e-2ca88515e667">&lt;/linkText&gt;</ept><bpt id="92bf3ef4-40a0-4844-900e-2ca88515e667">&lt;title&gt;</bpt><ept id="92bf3ef4-40a0-4844-900e-2ca88515e667">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="92bf3ef4-40a0-4844-900e-2ca88515e667">&lt;linkText&gt;</bpt>Upload and download blob<ept id="92bf3ef4-40a0-4844-900e-2ca88515e667">&lt;/linkText&gt;</ept><bpt id="92bf3ef4-40a0-4844-900e-2ca88515e667">&lt;title&gt;</bpt><ept id="92bf3ef4-40a0-4844-900e-2ca88515e667">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b107029a-9367-461a-a3d9-c9007d585a14" xml:space="preserve">
+          <source><bpt id="2435f279-47cd-41ae-8a92-159a955982ac">&lt;linkText&gt;</bpt>Continuation token<ept id="2435f279-47cd-41ae-8a92-159a955982ac">&lt;/linkText&gt;</ept><bpt id="2435f279-47cd-41ae-8a92-159a955982ac">&lt;title&gt;</bpt><ept id="2435f279-47cd-41ae-8a92-159a955982ac">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2435f279-47cd-41ae-8a92-159a955982ac">&lt;linkText&gt;</bpt>Continuation token<ept id="2435f279-47cd-41ae-8a92-159a955982ac">&lt;/linkText&gt;</ept><bpt id="2435f279-47cd-41ae-8a92-159a955982ac">&lt;title&gt;</bpt><ept id="2435f279-47cd-41ae-8a92-159a955982ac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f5e09cb-a60d-4ff0-836c-3411dd3e9047" xml:space="preserve">
+          <source><bpt id="70f737a8-4273-4e1b-b7ee-1b0aa0f878b2">&lt;linkText&gt;</bpt>Retry policy<ept id="70f737a8-4273-4e1b-b7ee-1b0aa0f878b2">&lt;/linkText&gt;</ept><bpt id="70f737a8-4273-4e1b-b7ee-1b0aa0f878b2">&lt;title&gt;</bpt><ept id="70f737a8-4273-4e1b-b7ee-1b0aa0f878b2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="70f737a8-4273-4e1b-b7ee-1b0aa0f878b2">&lt;linkText&gt;</bpt>Retry policy<ept id="70f737a8-4273-4e1b-b7ee-1b0aa0f878b2">&lt;/linkText&gt;</ept><bpt id="70f737a8-4273-4e1b-b7ee-1b0aa0f878b2">&lt;title&gt;</bpt><ept id="70f737a8-4273-4e1b-b7ee-1b0aa0f878b2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9e6261d-aef3-4814-ab88-5cb14c61852a" xml:space="preserve">
+          <source><bpt id="b5ca13a1-4a6a-47b1-8f37-45711d649bbf">&lt;linkText&gt;</bpt>Shared Access Signature<ept id="b5ca13a1-4a6a-47b1-8f37-45711d649bbf">&lt;/linkText&gt;</ept><bpt id="b5ca13a1-4a6a-47b1-8f37-45711d649bbf">&lt;title&gt;</bpt><ept id="b5ca13a1-4a6a-47b1-8f37-45711d649bbf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b5ca13a1-4a6a-47b1-8f37-45711d649bbf">&lt;linkText&gt;</bpt>Shared Access Signature<ept id="b5ca13a1-4a6a-47b1-8f37-45711d649bbf">&lt;/linkText&gt;</ept><bpt id="b5ca13a1-4a6a-47b1-8f37-45711d649bbf">&lt;title&gt;</bpt><ept id="b5ca13a1-4a6a-47b1-8f37-45711d649bbf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4bd8e37-9c63-49ae-82f5-58d04856f4e9" xml:space="preserve">
+          <source><bpt id="6b8ed995-4d69-4b3a-a2d2-414d3690efa7">&lt;linkText&gt;</bpt>Snapshot<ept id="6b8ed995-4d69-4b3a-a2d2-414d3690efa7">&lt;/linkText&gt;</ept><bpt id="6b8ed995-4d69-4b3a-a2d2-414d3690efa7">&lt;title&gt;</bpt><ept id="6b8ed995-4d69-4b3a-a2d2-414d3690efa7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b8ed995-4d69-4b3a-a2d2-414d3690efa7">&lt;linkText&gt;</bpt>Snapshot<ept id="6b8ed995-4d69-4b3a-a2d2-414d3690efa7">&lt;/linkText&gt;</ept><bpt id="6b8ed995-4d69-4b3a-a2d2-414d3690efa7">&lt;title&gt;</bpt><ept id="6b8ed995-4d69-4b3a-a2d2-414d3690efa7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4aae07b0-3dc9-4ef2-976f-08356dfe0cbe" xml:space="preserve">
+          <source><bpt id="45622909-8da7-4480-8b6b-078e631ae98f">&lt;linkText&gt;</bpt>Table Query<ept id="45622909-8da7-4480-8b6b-078e631ae98f">&lt;/linkText&gt;</ept><bpt id="45622909-8da7-4480-8b6b-078e631ae98f">&lt;title&gt;</bpt><ept id="45622909-8da7-4480-8b6b-078e631ae98f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="45622909-8da7-4480-8b6b-078e631ae98f">&lt;linkText&gt;</bpt>Table Query<ept id="45622909-8da7-4480-8b6b-078e631ae98f">&lt;/linkText&gt;</ept><bpt id="45622909-8da7-4480-8b6b-078e631ae98f">&lt;title&gt;</bpt><ept id="45622909-8da7-4480-8b6b-078e631ae98f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e00608b1-b5ec-4513-b64b-87c5dfd205f5" xml:space="preserve">
+          <source>To explore the C++ samples, download the <bpt id="716a52be-703b-42d1-bf0a-ad621fc80af8">&lt;linkText&gt;</bpt>C++ Storage Client Library<ept id="716a52be-703b-42d1-bf0a-ad621fc80af8">&lt;/linkText&gt;</ept><bpt id="716a52be-703b-42d1-bf0a-ad621fc80af8">&lt;title&gt;</bpt><ept id="716a52be-703b-42d1-bf0a-ad621fc80af8">&lt;/title&gt;</ept> from NuGet.</source>
+          <target state="new">To explore the C++ samples, download the <bpt id="716a52be-703b-42d1-bf0a-ad621fc80af8">&lt;linkText&gt;</bpt>C++ Storage Client Library<ept id="716a52be-703b-42d1-bf0a-ad621fc80af8">&lt;/linkText&gt;</ept><bpt id="716a52be-703b-42d1-bf0a-ad621fc80af8">&lt;title&gt;</bpt><ept id="716a52be-703b-42d1-bf0a-ad621fc80af8">&lt;/title&gt;</ept> from NuGet.</target>
+        </trans-unit>
+        <trans-unit id="ea40f836-b2d9-4d81-b75d-ee9fbda50358" xml:space="preserve">
+          <source><bpt id="49579d62-ca64-4add-bf44-a0fcb659549c">&lt;linkText&gt;</bpt>Get started with blobs<ept id="49579d62-ca64-4add-bf44-a0fcb659549c">&lt;/linkText&gt;</ept><bpt id="49579d62-ca64-4add-bf44-a0fcb659549c">&lt;title&gt;</bpt><ept id="49579d62-ca64-4add-bf44-a0fcb659549c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="49579d62-ca64-4add-bf44-a0fcb659549c">&lt;linkText&gt;</bpt>Get started with blobs<ept id="49579d62-ca64-4add-bf44-a0fcb659549c">&lt;/linkText&gt;</ept><bpt id="49579d62-ca64-4add-bf44-a0fcb659549c">&lt;title&gt;</bpt><ept id="49579d62-ca64-4add-bf44-a0fcb659549c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebd9fbb7-bc2d-4f81-b57a-b72f47aefc43" xml:space="preserve">
+          <source><bpt id="1e6ff21e-54c5-42a7-a52d-39156d2c50f8">&lt;linkText&gt;</bpt>Get started with tables<ept id="1e6ff21e-54c5-42a7-a52d-39156d2c50f8">&lt;/linkText&gt;</ept><bpt id="1e6ff21e-54c5-42a7-a52d-39156d2c50f8">&lt;title&gt;</bpt><ept id="1e6ff21e-54c5-42a7-a52d-39156d2c50f8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e6ff21e-54c5-42a7-a52d-39156d2c50f8">&lt;linkText&gt;</bpt>Get started with tables<ept id="1e6ff21e-54c5-42a7-a52d-39156d2c50f8">&lt;/linkText&gt;</ept><bpt id="1e6ff21e-54c5-42a7-a52d-39156d2c50f8">&lt;title&gt;</bpt><ept id="1e6ff21e-54c5-42a7-a52d-39156d2c50f8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d488bc8-f37a-465f-a8b9-be461a1dce7d" xml:space="preserve">
+          <source><bpt id="50f7f6e9-38df-44d9-a356-249373a247b1">&lt;linkText&gt;</bpt>Get started with queues<ept id="50f7f6e9-38df-44d9-a356-249373a247b1">&lt;/linkText&gt;</ept><bpt id="50f7f6e9-38df-44d9-a356-249373a247b1">&lt;title&gt;</bpt><ept id="50f7f6e9-38df-44d9-a356-249373a247b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="50f7f6e9-38df-44d9-a356-249373a247b1">&lt;linkText&gt;</bpt>Get started with queues<ept id="50f7f6e9-38df-44d9-a356-249373a247b1">&lt;/linkText&gt;</ept><bpt id="50f7f6e9-38df-44d9-a356-249373a247b1">&lt;title&gt;</bpt><ept id="50f7f6e9-38df-44d9-a356-249373a247b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f51c92b-d285-422d-979c-494cc88fcc29" xml:space="preserve">
+          <source><bpt id="d4cc8567-096f-418a-a39a-386f5ece1a3f">&lt;linkText&gt;</bpt>Source code for the .NET Storage Client Library<ept id="d4cc8567-096f-418a-a39a-386f5ece1a3f">&lt;/linkText&gt;</ept><bpt id="d4cc8567-096f-418a-a39a-386f5ece1a3f">&lt;title&gt;</bpt><ept id="d4cc8567-096f-418a-a39a-386f5ece1a3f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d4cc8567-096f-418a-a39a-386f5ece1a3f">&lt;linkText&gt;</bpt>Source code for the .NET Storage Client Library<ept id="d4cc8567-096f-418a-a39a-386f5ece1a3f">&lt;/linkText&gt;</ept><bpt id="d4cc8567-096f-418a-a39a-386f5ece1a3f">&lt;title&gt;</bpt><ept id="d4cc8567-096f-418a-a39a-386f5ece1a3f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea2a64b1-a3f4-4ee3-b6ce-b8453fd21266" xml:space="preserve">
+          <source><bpt id="9a1d21f1-9840-4f2c-9ec7-5af01cbbec4f">&lt;linkText&gt;</bpt>.NET Client Library Reference<ept id="9a1d21f1-9840-4f2c-9ec7-5af01cbbec4f">&lt;/linkText&gt;</ept><bpt id="9a1d21f1-9840-4f2c-9ec7-5af01cbbec4f">&lt;title&gt;</bpt><ept id="9a1d21f1-9840-4f2c-9ec7-5af01cbbec4f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9a1d21f1-9840-4f2c-9ec7-5af01cbbec4f">&lt;linkText&gt;</bpt>.NET Client Library Reference<ept id="9a1d21f1-9840-4f2c-9ec7-5af01cbbec4f">&lt;/linkText&gt;</ept><bpt id="9a1d21f1-9840-4f2c-9ec7-5af01cbbec4f">&lt;title&gt;</bpt><ept id="9a1d21f1-9840-4f2c-9ec7-5af01cbbec4f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a31fd198-0cd4-44bc-b35c-c6135a290fcc" xml:space="preserve">
+          <source><bpt id="9a122ace-6041-4e13-8857-9793b03951d0">&lt;linkText&gt;</bpt>Source code for the Java Storage Client Library<ept id="9a122ace-6041-4e13-8857-9793b03951d0">&lt;/linkText&gt;</ept><bpt id="9a122ace-6041-4e13-8857-9793b03951d0">&lt;title&gt;</bpt><ept id="9a122ace-6041-4e13-8857-9793b03951d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9a122ace-6041-4e13-8857-9793b03951d0">&lt;linkText&gt;</bpt>Source code for the Java Storage Client Library<ept id="9a122ace-6041-4e13-8857-9793b03951d0">&lt;/linkText&gt;</ept><bpt id="9a122ace-6041-4e13-8857-9793b03951d0">&lt;title&gt;</bpt><ept id="9a122ace-6041-4e13-8857-9793b03951d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2297585e-c0a7-49a7-9861-0e94a89c2bd0" xml:space="preserve">
+          <source><bpt id="3eb5dbe4-d2cf-4bbc-8162-dd49fef515a4">&lt;linkText&gt;</bpt>Java Client Library Reference<ept id="3eb5dbe4-d2cf-4bbc-8162-dd49fef515a4">&lt;/linkText&gt;</ept><bpt id="3eb5dbe4-d2cf-4bbc-8162-dd49fef515a4">&lt;title&gt;</bpt><ept id="3eb5dbe4-d2cf-4bbc-8162-dd49fef515a4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3eb5dbe4-d2cf-4bbc-8162-dd49fef515a4">&lt;linkText&gt;</bpt>Java Client Library Reference<ept id="3eb5dbe4-d2cf-4bbc-8162-dd49fef515a4">&lt;/linkText&gt;</ept><bpt id="3eb5dbe4-d2cf-4bbc-8162-dd49fef515a4">&lt;title&gt;</bpt><ept id="3eb5dbe4-d2cf-4bbc-8162-dd49fef515a4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ffeb11f-3915-42c3-a762-9edb72e41c4c" xml:space="preserve">
+          <source><bpt id="da1a91c4-5660-48c7-83c9-1ddafc727fbd">&lt;linkText&gt;</bpt>Source code for the Node.js Storage Client Library<ept id="da1a91c4-5660-48c7-83c9-1ddafc727fbd">&lt;/linkText&gt;</ept><bpt id="da1a91c4-5660-48c7-83c9-1ddafc727fbd">&lt;title&gt;</bpt><ept id="da1a91c4-5660-48c7-83c9-1ddafc727fbd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="da1a91c4-5660-48c7-83c9-1ddafc727fbd">&lt;linkText&gt;</bpt>Source code for the Node.js Storage Client Library<ept id="da1a91c4-5660-48c7-83c9-1ddafc727fbd">&lt;/linkText&gt;</ept><bpt id="da1a91c4-5660-48c7-83c9-1ddafc727fbd">&lt;title&gt;</bpt><ept id="da1a91c4-5660-48c7-83c9-1ddafc727fbd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e61d650-95a6-4eb5-b7ac-1f13959f81db" xml:space="preserve">
+          <source><bpt id="bd3ae068-2cf3-452d-baf8-862e6935b4ab">&lt;linkText&gt;</bpt>Node.js Client Library Reference<ept id="bd3ae068-2cf3-452d-baf8-862e6935b4ab">&lt;/linkText&gt;</ept><bpt id="bd3ae068-2cf3-452d-baf8-862e6935b4ab">&lt;title&gt;</bpt><ept id="bd3ae068-2cf3-452d-baf8-862e6935b4ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bd3ae068-2cf3-452d-baf8-862e6935b4ab">&lt;linkText&gt;</bpt>Node.js Client Library Reference<ept id="bd3ae068-2cf3-452d-baf8-862e6935b4ab">&lt;/linkText&gt;</ept><bpt id="bd3ae068-2cf3-452d-baf8-862e6935b4ab">&lt;title&gt;</bpt><ept id="bd3ae068-2cf3-452d-baf8-862e6935b4ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b24d95e3-4475-441e-aa17-882ae42db741" xml:space="preserve">
+          <source><bpt id="465364f1-a776-423d-8f45-1d6747b683c6">&lt;linkText&gt;</bpt>Source code for the C++ Storage Client Library<ept id="465364f1-a776-423d-8f45-1d6747b683c6">&lt;/linkText&gt;</ept><bpt id="465364f1-a776-423d-8f45-1d6747b683c6">&lt;title&gt;</bpt><ept id="465364f1-a776-423d-8f45-1d6747b683c6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="465364f1-a776-423d-8f45-1d6747b683c6">&lt;linkText&gt;</bpt>Source code for the C++ Storage Client Library<ept id="465364f1-a776-423d-8f45-1d6747b683c6">&lt;/linkText&gt;</ept><bpt id="465364f1-a776-423d-8f45-1d6747b683c6">&lt;title&gt;</bpt><ept id="465364f1-a776-423d-8f45-1d6747b683c6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ff93bf1-5cf1-488d-9b41-6db9b7a57e0e" xml:space="preserve">
+          <source><bpt id="4394b335-60cf-499e-82b8-c9f455c41f62">&lt;linkText&gt;</bpt>C++ Client Library Reference<ept id="4394b335-60cf-499e-82b8-c9f455c41f62">&lt;/linkText&gt;</ept><bpt id="4394b335-60cf-499e-82b8-c9f455c41f62">&lt;title&gt;</bpt><ept id="4394b335-60cf-499e-82b8-c9f455c41f62">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="4394b335-60cf-499e-82b8-c9f455c41f62">&lt;linkText&gt;</bpt>C++ Client Library Reference<ept id="4394b335-60cf-499e-82b8-c9f455c41f62">&lt;/linkText&gt;</ept><bpt id="4394b335-60cf-499e-82b8-c9f455c41f62">&lt;title&gt;</bpt><ept id="4394b335-60cf-499e-82b8-c9f455c41f62">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

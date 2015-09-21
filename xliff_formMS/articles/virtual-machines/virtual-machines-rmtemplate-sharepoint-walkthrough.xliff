@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="148a3797-1ad4-4524-984d-760bec00fe5b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="148a3797-1ad4-4524-984d-760bec00fe5b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3bf8878b-fddf-4f68-a00c-b85c3d2d8352">
+        <trans-unit id="797b6c0a-0a8b-413a-8f60-df86800db783" xml:space="preserve">
+          <source>The three-server SharePoint farm Resource Manager template</source>
+          <target state="new">The three-server SharePoint farm Resource Manager template</target>
+        </trans-unit>
+        <trans-unit id="2d023361-3c17-4ffc-8517-98dd0c31b87c" xml:space="preserve">
+          <source>Step through the structure of the Azure Resource Manager template for the three-server SharePoint farm.</source>
+          <target state="new">Step through the structure of the Azure Resource Manager template for the three-server SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="1d64d788-4bf1-4849-9cfc-f0b9addd7dc4" xml:space="preserve">
+          <source>This topic steps you through the structure of the azuredeploy.json template file for the three-server SharePoint farm.</source>
+          <target state="new">This topic steps you through the structure of the azuredeploy.json template file for the three-server SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="ee8cbb70-c84e-4429-a32f-91cf02a62512" xml:space="preserve">
+          <source>You can see the contents of this template in your browser from <bpt id="9e59711f-b281-472e-b1aa-2085578eac0b">&lt;linkText&gt;</bpt>here<ept id="9e59711f-b281-472e-b1aa-2085578eac0b">&lt;/linkText&gt;</ept><bpt id="9e59711f-b281-472e-b1aa-2085578eac0b">&lt;title&gt;</bpt><ept id="9e59711f-b281-472e-b1aa-2085578eac0b">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can see the contents of this template in your browser from <bpt id="9e59711f-b281-472e-b1aa-2085578eac0b">&lt;linkText&gt;</bpt>here<ept id="9e59711f-b281-472e-b1aa-2085578eac0b">&lt;/linkText&gt;</ept><bpt id="9e59711f-b281-472e-b1aa-2085578eac0b">&lt;title&gt;</bpt><ept id="9e59711f-b281-472e-b1aa-2085578eac0b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="557fbe1a-8580-4662-9aa3-fb838c133adb" xml:space="preserve">
+          <source>Alternately, to examine a local copy of the azuredeploy.json file, designate a local folder as the location for the file, and then create it (for example, C:\Azure\Templates\SharePointFarm).</source>
+          <target state="new">Alternately, to examine a local copy of the azuredeploy.json file, designate a local folder as the location for the file, and then create it (for example, C:\Azure\Templates\SharePointFarm).</target>
+        </trans-unit>
+        <trans-unit id="672fa332-6858-45e1-b6c0-681fdef75445" xml:space="preserve">
+          <source>Fill in the folder name and run these commands at the Azure PowerShell command prompt.</source>
+          <target state="new">Fill in the folder name and run these commands at the Azure PowerShell command prompt.</target>
+        </trans-unit>
+        <trans-unit id="74b5e9a9-9be8-42f0-aade-00d0153c7026" xml:space="preserve">
+          <source>Open the azuredeploy.json template in a text editor or tool of your choice.</source>
+          <target state="new">Open the azuredeploy.json template in a text editor or tool of your choice.</target>
+        </trans-unit>
+        <trans-unit id="8a0d3a68-5ae7-4a7f-aff7-2e97a9868aed" xml:space="preserve">
+          <source>The following describes the structure of the template file and the purpose of each section.</source>
+          <target state="new">The following describes the structure of the template file and the purpose of each section.</target>
+        </trans-unit>
+        <trans-unit id="24e0d163-7e8c-4453-8391-e9d5d400cf1f" xml:space="preserve">
+          <source>The <bpt id="42d1a7c0-5ca7-4472-9abf-d2e24014d18c">&lt;strong&gt;</bpt>"parameters"<ept id="42d1a7c0-5ca7-4472-9abf-d2e24014d18c">&lt;/strong&gt;</ept> section specifies parameters that are used to input data into a template.</source>
+          <target state="new">The <bpt id="42d1a7c0-5ca7-4472-9abf-d2e24014d18c">&lt;strong&gt;</bpt>"parameters"<ept id="42d1a7c0-5ca7-4472-9abf-d2e24014d18c">&lt;/strong&gt;</ept> section specifies parameters that are used to input data into a template.</target>
+        </trans-unit>
+        <trans-unit id="1ca23ab3-18e9-4601-9a09-672f7be7a918" xml:space="preserve">
+          <source>You must supply the data when the template is executed.</source>
+          <target state="new">You must supply the data when the template is executed.</target>
+        </trans-unit>
+        <trans-unit id="ec0b8b78-e4e6-47c8-af23-4368dab55330" xml:space="preserve">
+          <source>A maximum of 50 parameters can be defined.</source>
+          <target state="new">A maximum of 50 parameters can be defined.</target>
+        </trans-unit>
+        <trans-unit id="c89a5f0a-2f16-4218-bb22-fe5af99d278b" xml:space="preserve">
+          <source>Here is an example of a parameter for the Azure location:</source>
+          <target state="new">Here is an example of a parameter for the Azure location:</target>
+        </trans-unit>
+        <trans-unit id="0bfe2eed-55b0-47b0-bb92-5ea194d4151d" xml:space="preserve">
+          <source>The <bpt id="47c26c84-cc0d-4509-9b87-f1b56a04a2bc">&lt;strong&gt;</bpt>"variables"<ept id="47c26c84-cc0d-4509-9b87-f1b56a04a2bc">&lt;/strong&gt;</ept> section specifies variables and their values that the template uses.</source>
+          <target state="new">The <bpt id="47c26c84-cc0d-4509-9b87-f1b56a04a2bc">&lt;strong&gt;</bpt>"variables"<ept id="47c26c84-cc0d-4509-9b87-f1b56a04a2bc">&lt;/strong&gt;</ept> section specifies variables and their values that the template uses.</target>
+        </trans-unit>
+        <trans-unit id="52998375-6664-4547-9174-3e60069ae034" xml:space="preserve">
+          <source>Variable values can be explicitly set or be derived from parameter values.</source>
+          <target state="new">Variable values can be explicitly set or be derived from parameter values.</target>
+        </trans-unit>
+        <trans-unit id="072c8603-7e08-464f-807c-dbfe651cb4a3" xml:space="preserve">
+          <source>In contrast to parameters, you do not supply them when you execute the template.</source>
+          <target state="new">In contrast to parameters, you do not supply them when you execute the template.</target>
+        </trans-unit>
+        <trans-unit id="374cc15a-5f85-427e-9754-eaf5fa4f6d14" xml:space="preserve">
+          <source>A maximum of 100 variables can be defined.</source>
+          <target state="new">A maximum of 100 variables can be defined.</target>
+        </trans-unit>
+        <trans-unit id="d3269808-b928-44fe-95d7-2ea094b0893b" xml:space="preserve">
+          <source>Here are some examples:</source>
+          <target state="new">Here are some examples:</target>
+        </trans-unit>
+        <trans-unit id="77229e25-53ba-4e9b-ac94-2985e7eb83ab" xml:space="preserve">
+          <source>The <bpt id="2a794782-5122-444a-8fa0-ff1fafb612fe">&lt;strong&gt;</bpt>"resources"<ept id="2a794782-5122-444a-8fa0-ff1fafb612fe">&lt;/strong&gt;</ept> section specifies information that is needed to deploy the resources for the SharePoint farm in a resource group.</source>
+          <target state="new">The <bpt id="2a794782-5122-444a-8fa0-ff1fafb612fe">&lt;strong&gt;</bpt>"resources"<ept id="2a794782-5122-444a-8fa0-ff1fafb612fe">&lt;/strong&gt;</ept> section specifies information that is needed to deploy the resources for the SharePoint farm in a resource group.</target>
+        </trans-unit>
+        <trans-unit id="3440e9d2-9aed-454e-b5dd-62db4d9edca5" xml:space="preserve">
+          <source>A maximum of 250 resources can be defined, and resource dependencies can only be defined 5 levels deep.</source>
+          <target state="new">A maximum of 250 resources can be defined, and resource dependencies can only be defined 5 levels deep.</target>
+        </trans-unit>
+        <trans-unit id="d4e3ccff-7f3b-452d-8e1f-8587f0d01077" xml:space="preserve">
+          <source>This section contains the following subsections:</source>
+          <target state="new">This section contains the following subsections:</target>
+        </trans-unit>
+        <trans-unit id="36d05d9b-e3da-4c34-9fc3-00d081d65e6c" xml:space="preserve">
+          <source>This section creates a new storage account for all VHD and disk resources for the farm.</source>
+          <target state="new">This section creates a new storage account for all VHD and disk resources for the farm.</target>
+        </trans-unit>
+        <trans-unit id="1c343dd1-d19d-4915-b6ff-7757fb53cdc5" xml:space="preserve">
+          <source>Here is the JSON code for the storage account:</source>
+          <target state="new">Here is the JSON code for the storage account:</target>
+        </trans-unit>
+        <trans-unit id="874b10f6-9319-48c0-8c20-ce8089fc32c0" xml:space="preserve">
+          <source>These sections create a set of public IP addresses through which each virtual machine can be reached over the Internet.</source>
+          <target state="new">These sections create a set of public IP addresses through which each virtual machine can be reached over the Internet.</target>
+        </trans-unit>
+        <trans-unit id="1765eaf6-2340-4b2f-9d23-7d65966eb89e" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="17c9e246-d51d-4e81-b5dd-31a68e2e40c6" xml:space="preserve">
+          <source>These sections create three availability sets, one for each tier of the deployment:</source>
+          <target state="new">These sections create three availability sets, one for each tier of the deployment:</target>
+        </trans-unit>
+        <trans-unit id="37edbef9-1587-44bd-89b9-08781d045311" xml:space="preserve">
+          <source>Active Directory domain controllers</source>
+          <target state="new">Active Directory domain controllers</target>
+        </trans-unit>
+        <trans-unit id="f077d7ae-0ccf-4825-b63c-da87e81da3c3" xml:space="preserve">
+          <source>SQL Server cluster</source>
+          <target state="new">SQL Server cluster</target>
+        </trans-unit>
+        <trans-unit id="213230b3-4576-40fd-ba99-03f43be326ed" xml:space="preserve">
+          <source>SharePoint Servers</source>
+          <target state="new">SharePoint Servers</target>
+        </trans-unit>
+        <trans-unit id="c2c3a694-9cc8-4bfd-bf51-288775400f0a" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="63557e3d-2961-4a6f-94d5-e9346bb1e474" xml:space="preserve">
+          <source>These sections create a cloud-only virtual network with three subnets (one for each tier of the deployment), into which the virtual machines are placed.</source>
+          <target state="new">These sections create a cloud-only virtual network with three subnets (one for each tier of the deployment), into which the virtual machines are placed.</target>
+        </trans-unit>
+        <trans-unit id="4148b3bb-f22c-4f3f-8684-e9f6e1e69755" xml:space="preserve">
+          <source>Here is the JSON code:</source>
+          <target state="new">Here is the JSON code:</target>
+        </trans-unit>
+        <trans-unit id="936c2422-7818-4b4d-a334-b633d9117c94" xml:space="preserve">
+          <source>These sections create load balancer instances for each virtual machine to provide Network Address Translation (NAT) and traffic filtering for inbound traffic from the Internet.</source>
+          <target state="new">These sections create load balancer instances for each virtual machine to provide Network Address Translation (NAT) and traffic filtering for inbound traffic from the Internet.</target>
+        </trans-unit>
+        <trans-unit id="170ab391-9122-40ad-be30-bf50d9d18835" xml:space="preserve">
+          <source>For each load balancer, settings configure the front end, the back end, and inbound NAT rules.</source>
+          <target state="new">For each load balancer, settings configure the front end, the back end, and inbound NAT rules.</target>
+        </trans-unit>
+        <trans-unit id="ae105ec2-d9be-4022-ae39-89cc7b466a26" xml:space="preserve">
+          <source>For example, there are Remote Desktop traffic rules for each virtual machine and, for the SharePoint Server, a rule to allow inbound web traffic (TCP port 80) from the Internet.</source>
+          <target state="new">For example, there are Remote Desktop traffic rules for each virtual machine and, for the SharePoint Server, a rule to allow inbound web traffic (TCP port 80) from the Internet.</target>
+        </trans-unit>
+        <trans-unit id="563ed463-aefc-4d7e-b333-546f2db4f654" xml:space="preserve">
+          <source>Here is the example for the SharePoint Server:</source>
+          <target state="new">Here is the example for the SharePoint Server:</target>
+        </trans-unit>
+        <trans-unit id="86447a86-c23b-498e-95f1-e96c70df77a2" xml:space="preserve">
+          <source>These sections create one network interface for each virtual machine and configure a static IP address for the domain controller.</source>
+          <target state="new">These sections create one network interface for each virtual machine and configure a static IP address for the domain controller.</target>
+        </trans-unit>
+        <trans-unit id="fa7bd3c3-7538-4ddf-9b35-f02b702ab4ce" xml:space="preserve">
+          <source>Here is the example for the network interface of the domain controller:</source>
+          <target state="new">Here is the example for the network interface of the domain controller:</target>
+        </trans-unit>
+        <trans-unit id="5f05b12f-a30e-48ef-9e0d-fd796f9e438a" xml:space="preserve">
+          <source>These sections create and configure the three virtual machines in the deployment.</source>
+          <target state="new">These sections create and configure the three virtual machines in the deployment.</target>
+        </trans-unit>
+        <trans-unit id="071b3bb5-863c-4b64-9c5a-c2212bd665c3" xml:space="preserve">
+          <source>The first section creates and configures the domain controller, which:</source>
+          <target state="new">The first section creates and configures the domain controller, which:</target>
+        </trans-unit>
+        <trans-unit id="1fa73398-b28d-4693-91e2-f7326885acc6" xml:space="preserve">
+          <source>Specifies the storage account, availability set, network interface, and load balancer instance.</source>
+          <target state="new">Specifies the storage account, availability set, network interface, and load balancer instance.</target>
+        </trans-unit>
+        <trans-unit id="3e14e858-e447-4c6c-8788-d2517c65d141" xml:space="preserve">
+          <source>Adds an extra disk.</source>
+          <target state="new">Adds an extra disk.</target>
+        </trans-unit>
+        <trans-unit id="33195bc2-a644-46d5-8d1b-167a4274706f" xml:space="preserve">
+          <source>Runs a PowerShell script to configure the domain controller.</source>
+          <target state="new">Runs a PowerShell script to configure the domain controller.</target>
+        </trans-unit>
+        <trans-unit id="7df39e05-6983-4cc3-9e84-eeb98247783d" xml:space="preserve">
+          <source>Here is the JSON code:</source>
+          <target state="new">Here is the JSON code:</target>
+        </trans-unit>
+        <trans-unit id="6a680c2e-9e42-4daf-8d1a-c312ba0ecb3d" xml:space="preserve">
+          <source>An additional section for the domain controller starting with <bpt id="a87bb7e3-4f85-4380-a65a-5f5e92153f85">&lt;strong&gt;</bpt>"name": "UpdateVNetDNS"<ept id="a87bb7e3-4f85-4380-a65a-5f5e92153f85">&lt;/strong&gt;</ept> configures the DNS server of the virtual network to use the static IP address of the domain controller.</source>
+          <target state="new">An additional section for the domain controller starting with <bpt id="a87bb7e3-4f85-4380-a65a-5f5e92153f85">&lt;strong&gt;</bpt>"name": "UpdateVNetDNS"<ept id="a87bb7e3-4f85-4380-a65a-5f5e92153f85">&lt;/strong&gt;</ept> configures the DNS server of the virtual network to use the static IP address of the domain controller.</target>
+        </trans-unit>
+        <trans-unit id="695b1c3c-37da-444f-b20e-4ef02fd1c73b" xml:space="preserve">
+          <source>The next <bpt id="a37b2101-1306-46d2-9e92-852d4f91ca82">&lt;strong&gt;</bpt>"type": "Microsoft.Compute/virtualMachines"<ept id="a37b2101-1306-46d2-9e92-852d4f91ca82">&lt;/strong&gt;</ept> section creates the SQL Server virtual machines in the deployment and:</source>
+          <target state="new">The next <bpt id="a37b2101-1306-46d2-9e92-852d4f91ca82">&lt;strong&gt;</bpt>"type": "Microsoft.Compute/virtualMachines"<ept id="a37b2101-1306-46d2-9e92-852d4f91ca82">&lt;/strong&gt;</ept> section creates the SQL Server virtual machines in the deployment and:</target>
+        </trans-unit>
+        <trans-unit id="b5d5a163-0251-423b-93b3-e88fc743b8c8" xml:space="preserve">
+          <source>Specifies the storage account, availability set, load balancer, virtual network, and network interface.</source>
+          <target state="new">Specifies the storage account, availability set, load balancer, virtual network, and network interface.</target>
+        </trans-unit>
+        <trans-unit id="b0dedc07-dddd-4666-a1c0-4863b4f10d61" xml:space="preserve">
+          <source>Adds an extra disk.</source>
+          <target state="new">Adds an extra disk.</target>
+        </trans-unit>
+        <trans-unit id="4d86cc5f-8a5a-4270-97f5-4b13e8625076" xml:space="preserve">
+          <source>Additional <bpt id="478b68aa-8487-435d-b823-9af0319f4f95">&lt;strong&gt;</bpt>"Microsoft.Compute/virtualMachines/extensions"<ept id="478b68aa-8487-435d-b823-9af0319f4f95">&lt;/strong&gt;</ept> sections call the PowerShell script to configure the SQL Server.</source>
+          <target state="new">Additional <bpt id="478b68aa-8487-435d-b823-9af0319f4f95">&lt;strong&gt;</bpt>"Microsoft.Compute/virtualMachines/extensions"<ept id="478b68aa-8487-435d-b823-9af0319f4f95">&lt;/strong&gt;</ept> sections call the PowerShell script to configure the SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="764100b6-c099-4b1c-829f-117a5cc06c1b" xml:space="preserve">
+          <source>The next <bpt id="ca8dcbe2-34fb-4516-b0fe-f08d13db6d33">&lt;strong&gt;</bpt>"type": "Microsoft.Compute/virtualMachines"<ept id="ca8dcbe2-34fb-4516-b0fe-f08d13db6d33">&lt;/strong&gt;</ept> section creates the SharePoint virtual machine in the deployment, specifying the storage account, availability set, load balancer, virtual network, and network interface.</source>
+          <target state="new">The next <bpt id="ca8dcbe2-34fb-4516-b0fe-f08d13db6d33">&lt;strong&gt;</bpt>"type": "Microsoft.Compute/virtualMachines"<ept id="ca8dcbe2-34fb-4516-b0fe-f08d13db6d33">&lt;/strong&gt;</ept> section creates the SharePoint virtual machine in the deployment, specifying the storage account, availability set, load balancer, virtual network, and network interface.</target>
+        </trans-unit>
+        <trans-unit id="4437788d-f14b-4889-ac18-f6f95eeb9831" xml:space="preserve">
+          <source>An additional <bpt id="f6000baa-b4cb-4c7a-acf9-7eb29e26c909">&lt;strong&gt;</bpt>"Microsoft.Compute/virtualMachines/extensions"<ept id="f6000baa-b4cb-4c7a-acf9-7eb29e26c909">&lt;/strong&gt;</ept> section calls a PowerShell script to configure the SharePoint farm.</source>
+          <target state="new">An additional <bpt id="f6000baa-b4cb-4c7a-acf9-7eb29e26c909">&lt;strong&gt;</bpt>"Microsoft.Compute/virtualMachines/extensions"<ept id="f6000baa-b4cb-4c7a-acf9-7eb29e26c909">&lt;/strong&gt;</ept> section calls a PowerShell script to configure the SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="83ab02dd-f793-48f2-8704-1aa33f324cf8" xml:space="preserve">
+          <source>Note the overall organization of the subsections of the <bpt id="c97aa8a9-8ac5-4967-bdab-b2c97671db5a">&lt;strong&gt;</bpt>"resources"<ept id="c97aa8a9-8ac5-4967-bdab-b2c97671db5a">&lt;/strong&gt;</ept> section of the JSON file:</source>
+          <target state="new">Note the overall organization of the subsections of the <bpt id="c97aa8a9-8ac5-4967-bdab-b2c97671db5a">&lt;strong&gt;</bpt>"resources"<ept id="c97aa8a9-8ac5-4967-bdab-b2c97671db5a">&lt;/strong&gt;</ept> section of the JSON file:</target>
+        </trans-unit>
+        <trans-unit id="2f67216a-9173-4340-89ee-d77942c1c5d8" xml:space="preserve">
+          <source>Create the elements of Azure infrastructure that are required for supporting multiple virtual machines (a storage account, public IP addresses, availability sets, a virtual network, network interfaces, and load balancer instances).</source>
+          <target state="new">Create the elements of Azure infrastructure that are required for supporting multiple virtual machines (a storage account, public IP addresses, availability sets, a virtual network, network interfaces, and load balancer instances).</target>
+        </trans-unit>
+        <trans-unit id="f31fac6b-a970-42b8-ad70-c76c641bb78a" xml:space="preserve">
+          <source>Create the domain controller virtual machine, which uses the previously created common and specific elements of Azure infrastructure, adds a data disk, and runs a PowerShell script.</source>
+          <target state="new">Create the domain controller virtual machine, which uses the previously created common and specific elements of Azure infrastructure, adds a data disk, and runs a PowerShell script.</target>
+        </trans-unit>
+        <trans-unit id="89f51fe6-2750-4abe-82f3-0b4068f6cbab" xml:space="preserve">
+          <source>Additionally, update the virtual network to use the static IP address of the domain controller.</source>
+          <target state="new">Additionally, update the virtual network to use the static IP address of the domain controller.</target>
+        </trans-unit>
+        <trans-unit id="0274f233-e0ab-41c5-8118-5d3c90327925" xml:space="preserve">
+          <source>Create the SQL Server virtual machine, which uses the previously created common and specific elements of the Azure infrastructure created for the domain controller, adds data disks, and runs a PowerShell script to configure the SQL Server.</source>
+          <target state="new">Create the SQL Server virtual machine, which uses the previously created common and specific elements of the Azure infrastructure created for the domain controller, adds data disks, and runs a PowerShell script to configure the SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="72fd13e6-a7c0-4ea9-94b8-3dac341d87d1" xml:space="preserve">
+          <source>Create the SharePoint Server virtual machine, which uses the previously created common and specific elements of the Azure infrastructure and runs a PowerShell script to configure the SharePoint farm.</source>
+          <target state="new">Create the SharePoint Server virtual machine, which uses the previously created common and specific elements of the Azure infrastructure and runs a PowerShell script to configure the SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="870747a8-0866-4af2-804f-fa4bd89280e2" xml:space="preserve">
+          <source>Your own JSON template to build a multi-tier infrastructure in Azure should follow the same steps:</source>
+          <target state="new">Your own JSON template to build a multi-tier infrastructure in Azure should follow the same steps:</target>
+        </trans-unit>
+        <trans-unit id="c0bf2404-dcf5-47b0-b8ce-42f56a59efd7" xml:space="preserve">
+          <source>Create the common (storage account, virtual network), tier-specific (availability sets), and virtual machine-specific (public IP addresses, availability sets, network interfaces, load balancer instances) elements of Azure infrastructure that are required for your deployment.</source>
+          <target state="new">Create the common (storage account, virtual network), tier-specific (availability sets), and virtual machine-specific (public IP addresses, availability sets, network interfaces, load balancer instances) elements of Azure infrastructure that are required for your deployment.</target>
+        </trans-unit>
+        <trans-unit id="09bdee81-abc1-48fb-b912-e0790c451a27" xml:space="preserve">
+          <source>For each tier in your application (such as authentication, database, web), create and configure the servers in that tier using the common (storage account, virtual network), tier-specific (availability set) and virtual machine-specific (public IP addresses, network interfaces, load balancer instances) elements.</source>
+          <target state="new">For each tier in your application (such as authentication, database, web), create and configure the servers in that tier using the common (storage account, virtual network), tier-specific (availability set) and virtual machine-specific (public IP addresses, network interfaces, load balancer instances) elements.</target>
+        </trans-unit>
+        <trans-unit id="780c62b6-64c3-4867-85c8-8724cd4dcfe6" xml:space="preserve">
+          <source>For more information, see <bpt id="8cf27215-b65b-4585-90d6-3e6ee59806d3">&lt;linkText&gt;</bpt>Azure Resource Manager template language<ept id="8cf27215-b65b-4585-90d6-3e6ee59806d3">&lt;/linkText&gt;</ept><bpt id="8cf27215-b65b-4585-90d6-3e6ee59806d3">&lt;title&gt;</bpt><ept id="8cf27215-b65b-4585-90d6-3e6ee59806d3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="8cf27215-b65b-4585-90d6-3e6ee59806d3">&lt;linkText&gt;</bpt>Azure Resource Manager template language<ept id="8cf27215-b65b-4585-90d6-3e6ee59806d3">&lt;/linkText&gt;</ept><bpt id="8cf27215-b65b-4585-90d6-3e6ee59806d3">&lt;title&gt;</bpt><ept id="8cf27215-b65b-4585-90d6-3e6ee59806d3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="647d6bd6-a8b1-4312-9122-5d9618b4b495" xml:space="preserve">
+          <source><bpt id="2885103f-26e0-4ed8-aa32-058d2b2982e1">&lt;linkText&gt;</bpt>Azure compute, network, and storage providers under Azure Resource Manager<ept id="2885103f-26e0-4ed8-aa32-058d2b2982e1">&lt;/linkText&gt;</ept><bpt id="2885103f-26e0-4ed8-aa32-058d2b2982e1">&lt;title&gt;</bpt><ept id="2885103f-26e0-4ed8-aa32-058d2b2982e1">&lt;/title&gt;</ept>
+<bpt id="1f947d77-bcca-4b88-8618-9ba93147bd62">&lt;linkText&gt;</bpt>Azure Resource Manager overview<ept id="1f947d77-bcca-4b88-8618-9ba93147bd62">&lt;/linkText&gt;</ept><bpt id="1f947d77-bcca-4b88-8618-9ba93147bd62">&lt;title&gt;</bpt><ept id="1f947d77-bcca-4b88-8618-9ba93147bd62">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2885103f-26e0-4ed8-aa32-058d2b2982e1">&lt;linkText&gt;</bpt>Azure compute, network, and storage providers under Azure Resource Manager<ept id="2885103f-26e0-4ed8-aa32-058d2b2982e1">&lt;/linkText&gt;</ept><bpt id="2885103f-26e0-4ed8-aa32-058d2b2982e1">&lt;title&gt;</bpt><ept id="2885103f-26e0-4ed8-aa32-058d2b2982e1">&lt;/title&gt;</ept>
+<bpt id="1f947d77-bcca-4b88-8618-9ba93147bd62">&lt;linkText&gt;</bpt>Azure Resource Manager overview<ept id="1f947d77-bcca-4b88-8618-9ba93147bd62">&lt;/linkText&gt;</ept><bpt id="1f947d77-bcca-4b88-8618-9ba93147bd62">&lt;title&gt;</bpt><ept id="1f947d77-bcca-4b88-8618-9ba93147bd62">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="acc6800c-aa2e-4540-8d7d-bc57c0e1f936" xml:space="preserve">
+          <source><bpt id="c835f8b5-b08a-4cf6-a272-deb0f9d55eb5">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager templates<ept id="c835f8b5-b08a-4cf6-a272-deb0f9d55eb5">&lt;/linkText&gt;</ept><bpt id="c835f8b5-b08a-4cf6-a272-deb0f9d55eb5">&lt;title&gt;</bpt><ept id="c835f8b5-b08a-4cf6-a272-deb0f9d55eb5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c835f8b5-b08a-4cf6-a272-deb0f9d55eb5">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager templates<ept id="c835f8b5-b08a-4cf6-a272-deb0f9d55eb5">&lt;/linkText&gt;</ept><bpt id="c835f8b5-b08a-4cf6-a272-deb0f9d55eb5">&lt;title&gt;</bpt><ept id="c835f8b5-b08a-4cf6-a272-deb0f9d55eb5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51e225d7-5a57-47fe-9335-c7ae5c14137d" xml:space="preserve">
+          <source><bpt id="a9871dd1-0f41-4f09-8305-6a68ad4ae9f5">&lt;linkText&gt;</bpt>Virtual machines documentation<ept id="a9871dd1-0f41-4f09-8305-6a68ad4ae9f5">&lt;/linkText&gt;</ept><bpt id="a9871dd1-0f41-4f09-8305-6a68ad4ae9f5">&lt;title&gt;</bpt><ept id="a9871dd1-0f41-4f09-8305-6a68ad4ae9f5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a9871dd1-0f41-4f09-8305-6a68ad4ae9f5">&lt;linkText&gt;</bpt>Virtual machines documentation<ept id="a9871dd1-0f41-4f09-8305-6a68ad4ae9f5">&lt;/linkText&gt;</ept><bpt id="a9871dd1-0f41-4f09-8305-6a68ad4ae9f5">&lt;title&gt;</bpt><ept id="a9871dd1-0f41-4f09-8305-6a68ad4ae9f5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

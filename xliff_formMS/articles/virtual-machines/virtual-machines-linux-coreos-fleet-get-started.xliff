@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c3051a3b-e727-4caa-9123-586bc6f70993" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c3051a3b-e727-4caa-9123-586bc6f70993" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ee867100-55ab-44ae-9c16-c4bbc1523900">
+        <trans-unit id="f187e66c-1ea3-4b19-8f72-fbbfa3479a89" xml:space="preserve">
+          <source>Get Started with Fleet on CoreOS on Azure</source>
+          <target state="new">Get Started with Fleet on CoreOS on Azure</target>
+        </trans-unit>
+        <trans-unit id="3c4b0a53-e881-45c9-9a40-98d1cefbdfe5" xml:space="preserve">
+          <source>Provides basic examples of using Fleet and Docker on a CoreOS Linux virtual machine on Azure.</source>
+          <target state="new">Provides basic examples of using Fleet and Docker on a CoreOS Linux virtual machine on Azure.</target>
+        </trans-unit>
+        <trans-unit id="89150168-1475-406d-b772-8f4100de88ae" xml:space="preserve">
+          <source>This article gives you two quick examples of using <bpt id="5d60be5c-68d5-4326-9bdc-62d1d6211560">&lt;linkText&gt;</bpt>fleet<ept id="5d60be5c-68d5-4326-9bdc-62d1d6211560">&lt;/linkText&gt;</ept><bpt id="5d60be5c-68d5-4326-9bdc-62d1d6211560">&lt;title&gt;</bpt><ept id="5d60be5c-68d5-4326-9bdc-62d1d6211560">&lt;/title&gt;</ept> and <bpt id="b7e60f61-3f70-4735-b807-ee4e1d0f2368">&lt;linkText&gt;</bpt>Docker<ept id="b7e60f61-3f70-4735-b807-ee4e1d0f2368">&lt;/linkText&gt;</ept><bpt id="b7e60f61-3f70-4735-b807-ee4e1d0f2368">&lt;title&gt;</bpt><ept id="b7e60f61-3f70-4735-b807-ee4e1d0f2368">&lt;/title&gt;</ept> to run applications on a cluster of [CoreOS] virtual machines.</source>
+          <target state="new">This article gives you two quick examples of using <bpt id="5d60be5c-68d5-4326-9bdc-62d1d6211560">&lt;linkText&gt;</bpt>fleet<ept id="5d60be5c-68d5-4326-9bdc-62d1d6211560">&lt;/linkText&gt;</ept><bpt id="5d60be5c-68d5-4326-9bdc-62d1d6211560">&lt;title&gt;</bpt><ept id="5d60be5c-68d5-4326-9bdc-62d1d6211560">&lt;/title&gt;</ept> and <bpt id="b7e60f61-3f70-4735-b807-ee4e1d0f2368">&lt;linkText&gt;</bpt>Docker<ept id="b7e60f61-3f70-4735-b807-ee4e1d0f2368">&lt;/linkText&gt;</ept><bpt id="b7e60f61-3f70-4735-b807-ee4e1d0f2368">&lt;title&gt;</bpt><ept id="b7e60f61-3f70-4735-b807-ee4e1d0f2368">&lt;/title&gt;</ept> to run applications on a cluster of [CoreOS] virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="2ae8eb44-45ba-4743-92c4-3cb7f97534f4" xml:space="preserve">
+          <source>To use these examples, first set up a three-node CoreOS cluster as described in [How to Use CoreOS on Azure].</source>
+          <target state="new">To use these examples, first set up a three-node CoreOS cluster as described in [How to Use CoreOS on Azure].</target>
+        </trans-unit>
+        <trans-unit id="f7675887-b2c7-41b0-aa8b-c8fbdd5bf744" xml:space="preserve">
+          <source>Having done that, you'll understand the very basic elements of CoreOS deployments and have a working cluster and client computer.</source>
+          <target state="new">Having done that, you'll understand the very basic elements of CoreOS deployments and have a working cluster and client computer.</target>
+        </trans-unit>
+        <trans-unit id="ab843c96-1d09-43ec-98ae-6fb6885f528d" xml:space="preserve">
+          <source>We'll use exactly the same cluster name in these examples.</source>
+          <target state="new">We'll use exactly the same cluster name in these examples.</target>
+        </trans-unit>
+        <trans-unit id="6407daa5-fd03-430f-be0f-a1b82ccab341" xml:space="preserve">
+          <source>Also, these examples assume you're using your local Linux host to run your <bpt id="733e7702-c352-4e3e-b509-f13e72807570">&lt;strong&gt;</bpt>fleetctl<ept id="733e7702-c352-4e3e-b509-f13e72807570">&lt;/strong&gt;</ept> commands.</source>
+          <target state="new">Also, these examples assume you're using your local Linux host to run your <bpt id="733e7702-c352-4e3e-b509-f13e72807570">&lt;strong&gt;</bpt>fleetctl<ept id="733e7702-c352-4e3e-b509-f13e72807570">&lt;/strong&gt;</ept> commands.</target>
+        </trans-unit>
+        <trans-unit id="e7899249-2aa1-4101-b7c8-d3ed4dc46885" xml:space="preserve">
+          <source>Here is a simple "Hello World" application that runs in a single Docker container.</source>
+          <target state="new">Here is a simple "Hello World" application that runs in a single Docker container.</target>
+        </trans-unit>
+        <trans-unit id="8494210f-77cd-4fbc-9119-a66fc5bb58bb" xml:space="preserve">
+          <source>This uses the [busybox Docker Hub image].</source>
+          <target state="new">This uses the [busybox Docker Hub image].</target>
+        </trans-unit>
+        <trans-unit id="8df64c6c-93db-44a3-ab3f-729d0537b4a5" xml:space="preserve">
+          <source>On your Linux client computer, use your favorite text editor to create the following <bpt id="025df844-50d6-4289-bf16-61bc299dc865">&lt;strong&gt;</bpt>systemd<ept id="025df844-50d6-4289-bf16-61bc299dc865">&lt;/strong&gt;</ept> unit file and name it <bpt id="3b91e0a6-b279-4b13-bfe4-657bd9130c77">&lt;code&gt;</bpt>helloworld.service<ept id="3b91e0a6-b279-4b13-bfe4-657bd9130c77">&lt;/code&gt;</ept>.</source>
+          <target state="new">On your Linux client computer, use your favorite text editor to create the following <bpt id="025df844-50d6-4289-bf16-61bc299dc865">&lt;strong&gt;</bpt>systemd<ept id="025df844-50d6-4289-bf16-61bc299dc865">&lt;/strong&gt;</ept> unit file and name it <bpt id="3b91e0a6-b279-4b13-bfe4-657bd9130c77">&lt;code&gt;</bpt>helloworld.service<ept id="3b91e0a6-b279-4b13-bfe4-657bd9130c77">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8108f67a-365c-46aa-96af-6acb30d8f0c2" xml:space="preserve">
+          <source>(For details about the syntax, see [Unit Files].)</source>
+          <target state="new">(For details about the syntax, see [Unit Files].)</target>
+        </trans-unit>
+        <trans-unit id="afc53151-26ef-4a41-9859-e2a8df0c52bb" xml:space="preserve">
+          <source>Now connect to the CoreOS cluster and start the unit by running the following <bpt id="a9959fdf-fe55-4391-9996-19fa629f4dfe">&lt;strong&gt;</bpt>fleetctl<ept id="a9959fdf-fe55-4391-9996-19fa629f4dfe">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">Now connect to the CoreOS cluster and start the unit by running the following <bpt id="a9959fdf-fe55-4391-9996-19fa629f4dfe">&lt;strong&gt;</bpt>fleetctl<ept id="a9959fdf-fe55-4391-9996-19fa629f4dfe">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="018252ea-2c30-404a-9524-6639524aa327" xml:space="preserve">
+          <source>The output shows that the unit is started and where it's located.</source>
+          <target state="new">The output shows that the unit is started and where it's located.</target>
+        </trans-unit>
+        <trans-unit id="b3bd861f-1333-4e49-b655-c337d6f30d03" xml:space="preserve">
+          <source>To run your remote <bpt id="369cce57-a40b-4dab-b68e-0ab733556217">&lt;strong&gt;</bpt>fleetctl<ept id="369cce57-a40b-4dab-b68e-0ab733556217">&lt;/strong&gt;</ept> commands without the <bpt id="549cea3f-7816-4a4a-bd4e-acf7764be246">&lt;strong&gt;</bpt>--tunnel<ept id="549cea3f-7816-4a4a-bd4e-acf7764be246">&lt;/strong&gt;</ept> parameter, optionally set the FLEETCTL_TUNNEL environment variable to tunnel the requests.</source>
+          <target state="new">To run your remote <bpt id="369cce57-a40b-4dab-b68e-0ab733556217">&lt;strong&gt;</bpt>fleetctl<ept id="369cce57-a40b-4dab-b68e-0ab733556217">&lt;/strong&gt;</ept> commands without the <bpt id="549cea3f-7816-4a4a-bd4e-acf7764be246">&lt;strong&gt;</bpt>--tunnel<ept id="549cea3f-7816-4a4a-bd4e-acf7764be246">&lt;/strong&gt;</ept> parameter, optionally set the FLEETCTL_TUNNEL environment variable to tunnel the requests.</target>
+        </trans-unit>
+        <trans-unit id="9f8503b9-5442-48e9-89be-94bcbc978e41" xml:space="preserve">
+          <source>For example: <bpt id="ee35fdc1-4584-4f1a-929b-dc7a61228722">&lt;code&gt;</bpt>export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22<ept id="ee35fdc1-4584-4f1a-929b-dc7a61228722">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example: <bpt id="ee35fdc1-4584-4f1a-929b-dc7a61228722">&lt;code&gt;</bpt>export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22<ept id="ee35fdc1-4584-4f1a-929b-dc7a61228722">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ee4b966-6d48-4741-bbd0-848708afecac" xml:space="preserve">
+          <source>You can connect to the container to see the output of the service:</source>
+          <target state="new">You can connect to the container to see the output of the service:</target>
+        </trans-unit>
+        <trans-unit id="24472b79-7b72-4345-b0b3-27173165c9b3" xml:space="preserve">
+          <source>To clean up, stop and unload the unit.</source>
+          <target state="new">To clean up, stop and unload the unit.</target>
+        </trans-unit>
+        <trans-unit id="f06f5a0f-9610-4577-8f64-5739685aa8be" xml:space="preserve">
+          <source>One advantage of using CoreOS, Docker, and <bpt id="210611d0-e6ec-4773-aff0-71d3be13cd97">&lt;strong&gt;</bpt>fleet<ept id="210611d0-e6ec-4773-aff0-71d3be13cd97">&lt;/strong&gt;</ept> is that it's easy to run services in a highly available manner.</source>
+          <target state="new">One advantage of using CoreOS, Docker, and <bpt id="210611d0-e6ec-4773-aff0-71d3be13cd97">&lt;strong&gt;</bpt>fleet<ept id="210611d0-e6ec-4773-aff0-71d3be13cd97">&lt;/strong&gt;</ept> is that it's easy to run services in a highly available manner.</target>
+        </trans-unit>
+        <trans-unit id="178a1e98-6026-433d-804e-9d7e77a890c1" xml:space="preserve">
+          <source>In this example you'll deploy a service that consists of three identical containers running the Apache web server.</source>
+          <target state="new">In this example you'll deploy a service that consists of three identical containers running the Apache web server.</target>
+        </trans-unit>
+        <trans-unit id="00a63d07-4909-41ad-b0d7-36537e0b7fcc" xml:space="preserve">
+          <source>The containers will run on the three VMs in the cluster.</source>
+          <target state="new">The containers will run on the three VMs in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="f46cd204-7e99-48e5-b454-cf5c7ed1c3b8" xml:space="preserve">
+          <source>This example is similar to one in [Launching containers with fleet] and uses the [CoreOS Apache Docker Hub image].</source>
+          <target state="new">This example is similar to one in [Launching containers with fleet] and uses the [CoreOS Apache Docker Hub image].</target>
+        </trans-unit>
+        <trans-unit id="b8aebae2-b288-448f-9232-9a442448ad9d" xml:space="preserve">
+          <source>To run the highly available Apache server, you'll need to configure a load-balanced HTTP endpoint on the virtual machines (public port 80, private port 80).</source>
+          <target state="new">To run the highly available Apache server, you'll need to configure a load-balanced HTTP endpoint on the virtual machines (public port 80, private port 80).</target>
+        </trans-unit>
+        <trans-unit id="460cf250-02fb-415a-9256-cba9606f9ab6" xml:space="preserve">
+          <source>You can do this after creating the CoreOS cluster, using the Azure portal or <bpt id="4a51ce6c-dfa7-4c2e-a117-73ae4164e0cd">&lt;strong&gt;</bpt>azure vm endpoint<ept id="4a51ce6c-dfa7-4c2e-a117-73ae4164e0cd">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">You can do this after creating the CoreOS cluster, using the Azure portal or <bpt id="4a51ce6c-dfa7-4c2e-a117-73ae4164e0cd">&lt;strong&gt;</bpt>azure vm endpoint<ept id="4a51ce6c-dfa7-4c2e-a117-73ae4164e0cd">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="2e090ef4-aef4-4520-b90e-d823a4fc9ed4" xml:space="preserve">
+          <source>See [Configure a load-balanced set] for more information.</source>
+          <target state="new">See [Configure a load-balanced set] for more information.</target>
+        </trans-unit>
+        <trans-unit id="30209b7c-020a-4948-b69c-fc05f78fd26f" xml:space="preserve">
+          <source>On your client computer, use your favorite text editor to create a <bpt id="f3304aa8-e324-402e-943e-8d2d65348a97">&lt;strong&gt;</bpt>systemd<ept id="f3304aa8-e324-402e-943e-8d2d65348a97">&lt;/strong&gt;</ept> template unit file, named apache@.service.</source>
+          <target state="new">On your client computer, use your favorite text editor to create a <bpt id="f3304aa8-e324-402e-943e-8d2d65348a97">&lt;strong&gt;</bpt>systemd<ept id="f3304aa8-e324-402e-943e-8d2d65348a97">&lt;/strong&gt;</ept> template unit file, named apache@.service.</target>
+        </trans-unit>
+        <trans-unit id="0b9aa3c5-3ad5-4131-a9a2-67181b22561a" xml:space="preserve">
+          <source>You'll use that template to launch three separate instances, named apache@1.service, apache@2.service, and apache@3.service:</source>
+          <target state="new">You'll use that template to launch three separate instances, named apache@1.service, apache@2.service, and apache@3.service:</target>
+        </trans-unit>
+        <trans-unit id="0171ceed-d67b-486d-b9b3-543d31f68ff6" xml:space="preserve">
+          <source>The <bpt id="ad7ce584-af2a-4fe1-91f9-61f9f9b381a0">&lt;code&gt;</bpt>X-Conflicts<ept id="ad7ce584-af2a-4fe1-91f9-61f9f9b381a0">&lt;/code&gt;</ept> attribute tells CoreOS that only one instance of this container can be run on a given CoreOS host.</source>
+          <target state="new">The <bpt id="ad7ce584-af2a-4fe1-91f9-61f9f9b381a0">&lt;code&gt;</bpt>X-Conflicts<ept id="ad7ce584-af2a-4fe1-91f9-61f9f9b381a0">&lt;/code&gt;</ept> attribute tells CoreOS that only one instance of this container can be run on a given CoreOS host.</target>
+        </trans-unit>
+        <trans-unit id="3eb4941e-2612-489e-bc69-b0fe389bf20c" xml:space="preserve">
+          <source>For details see [Unit Files].</source>
+          <target state="new">For details see [Unit Files].</target>
+        </trans-unit>
+        <trans-unit id="7c1d1c82-066a-4375-82d4-cb6c2836653b" xml:space="preserve">
+          <source>Now start the unit instances on the CoreOS cluster.</source>
+          <target state="new">Now start the unit instances on the CoreOS cluster.</target>
+        </trans-unit>
+        <trans-unit id="7c82755f-328c-4ffc-867e-6d4155e647aa" xml:space="preserve">
+          <source>You should see that they're running on three different machines:</source>
+          <target state="new">You should see that they're running on three different machines:</target>
+        </trans-unit>
+        <trans-unit id="d56035e8-db69-435f-bda1-3247d91f3239" xml:space="preserve">
+          <source>To reach the Apache server running on one of the units, send a simple request to the cloud service hosting the CoreOS cluster.</source>
+          <target state="new">To reach the Apache server running on one of the units, send a simple request to the cloud service hosting the CoreOS cluster.</target>
+        </trans-unit>
+        <trans-unit id="d2fff364-e2ea-4175-90c1-9fc3609f84a8" xml:space="preserve">
+          <source><bpt id="ca1b6811-6970-46e3-8099-8a19094e80a9">&lt;code&gt;</bpt>curl http://coreos-cluster.cloudapp.net<ept id="ca1b6811-6970-46e3-8099-8a19094e80a9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ca1b6811-6970-46e3-8099-8a19094e80a9">&lt;code&gt;</bpt>curl http://coreos-cluster.cloudapp.net<ept id="ca1b6811-6970-46e3-8099-8a19094e80a9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56cdcf87-456a-42f3-b011-ba6bacac5371" xml:space="preserve">
+          <source>You'll see default text returned from the Apache server similar to:</source>
+          <target state="new">You'll see default text returned from the Apache server similar to:</target>
+        </trans-unit>
+        <trans-unit id="7a7c6fa7-6a6c-4955-a942-d7d25ae3bbc7" xml:space="preserve">
+          <source>You can try shutting down one or more virtual machines in your cluster to verify that the Apache service continues to run.</source>
+          <target state="new">You can try shutting down one or more virtual machines in your cluster to verify that the Apache service continues to run.</target>
+        </trans-unit>
+        <trans-unit id="95186f5b-f5b0-4a6f-bfaa-db20353ba9cf" xml:space="preserve">
+          <source>When done, stop and unload units.</source>
+          <target state="new">When done, stop and unload units.</target>
+        </trans-unit>
+        <trans-unit id="22da104f-1e0b-4f49-802b-0452fed91e4c" xml:space="preserve">
+          <source>You can try doing more with your three-node CoreOS cluster on Azure.</source>
+          <target state="new">You can try doing more with your three-node CoreOS cluster on Azure.</target>
+        </trans-unit>
+        <trans-unit id="eff9298d-f415-4945-89e1-ea9b2bf87d9e" xml:space="preserve">
+          <source>Explore how to create more complex clusters and use Docker and create more interesting applications by reading [Tim Park's CoreOS Tutorial], [Patrick Chanezon's CoreOS Tutorial], [Docker] documentation, and the [CoreOS Overview].</source>
+          <target state="new">Explore how to create more complex clusters and use Docker and create more interesting applications by reading [Tim Park's CoreOS Tutorial], [Patrick Chanezon's CoreOS Tutorial], [Docker] documentation, and the [CoreOS Overview].</target>
+        </trans-unit>
+        <trans-unit id="efe270d7-8d75-446b-9eea-af4df824fb50" xml:space="preserve">
+          <source>To get started with Fleet and CoreOS in Azure Resource Manager, try this <bpt id="deaf19f6-8132-4af4-9529-ee43670603cb">&lt;linkText&gt;</bpt>quickstart template<ept id="deaf19f6-8132-4af4-9529-ee43670603cb">&lt;/linkText&gt;</ept><bpt id="deaf19f6-8132-4af4-9529-ee43670603cb">&lt;title&gt;</bpt><ept id="deaf19f6-8132-4af4-9529-ee43670603cb">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started with Fleet and CoreOS in Azure Resource Manager, try this <bpt id="deaf19f6-8132-4af4-9529-ee43670603cb">&lt;linkText&gt;</bpt>quickstart template<ept id="deaf19f6-8132-4af4-9529-ee43670603cb">&lt;/linkText&gt;</ept><bpt id="deaf19f6-8132-4af4-9529-ee43670603cb">&lt;title&gt;</bpt><ept id="deaf19f6-8132-4af4-9529-ee43670603cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0254b4d-3cfa-48b1-9aa9-ceff9878683d" xml:space="preserve">
+          <source>See [Linux and Open-Source Computing on Azure] for more on using open-source environments on Linux VMs in Azure.</source>
+          <target state="new">See [Linux and Open-Source Computing on Azure] for more on using open-source environments on Linux VMs in Azure.</target>
+        </trans-unit>
+        <trans-unit id="608367e6-049b-4432-8eb0-52415df5f71e" xml:space="preserve">
+          <source>../xplat-cli.md</source>
+          <target state="new">../xplat-cli.md</target>
+        </trans-unit>
+        <trans-unit id="817ba504-1a4d-420e-8a27-ce133a018ce1" xml:space="preserve">
+          <source>https://coreos.com/</source>
+          <target state="new">https://coreos.com/</target>
+        </trans-unit>
+        <trans-unit id="746c06f8-c9e5-4b1f-b254-6d1f69c6d82e" xml:space="preserve">
+          <source>https://coreos.com/using-coreos/</source>
+          <target state="new">https://coreos.com/using-coreos/</target>
+        </trans-unit>
+        <trans-unit id="f00be86e-c2b2-4ded-bd02-30e48fd5fdd1" xml:space="preserve">
+          <source>https://coreos.com/docs/running-coreos/cloud-providers/azure/</source>
+          <target state="new">https://coreos.com/docs/running-coreos/cloud-providers/azure/</target>
+        </trans-unit>
+        <trans-unit id="060e5733-063b-44c2-a756-b4fc3b62e608" xml:space="preserve">
+          <source>https://github.com/timfpark/coreos-azure</source>
+          <target state="new">https://github.com/timfpark/coreos-azure</target>
+        </trans-unit>
+        <trans-unit id="58f7ad92-8ed2-4e60-b2cb-5305a9bd356b" xml:space="preserve">
+          <source>https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init</source>
+          <target state="new">https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init</target>
+        </trans-unit>
+        <trans-unit id="4489cd66-2491-4850-8d60-66a054e4b5b1" xml:space="preserve">
+          <source>http://docker.io</source>
+          <target state="new">http://docker.io</target>
+        </trans-unit>
+        <trans-unit id="7e77a4e6-1717-4722-9a50-dd45646c794e" xml:space="preserve">
+          <source>http://yaml.org/</source>
+          <target state="new">http://yaml.org/</target>
+        </trans-unit>
+        <trans-unit id="74571b0d-b603-491b-847d-d9ec6ad6c0fa" xml:space="preserve">
+          <source>virtual-machines-linux-coreos-how-to.md</source>
+          <target state="new">virtual-machines-linux-coreos-how-to.md</target>
+        </trans-unit>
+        <trans-unit id="1f953894-50f0-489c-87e5-a4ecf2219887" xml:space="preserve">
+          <source>../load-balancer/load-balancer-internet-getstarted.md</source>
+          <target state="new">../load-balancer/load-balancer-internet-getstarted.md</target>
+        </trans-unit>
+        <trans-unit id="cdbb0db8-1cd3-42db-9841-f5d8e754f9e4" xml:space="preserve">
+          <source>https://coreos.com/docs/launching-containers/launching/launching-containers-fleet/</source>
+          <target state="new">https://coreos.com/docs/launching-containers/launching/launching-containers-fleet/</target>
+        </trans-unit>
+        <trans-unit id="1beddfee-c7b3-484f-9bab-a517b11f2644" xml:space="preserve">
+          <source>https://coreos.com/docs/launching-containers/launching/fleet-unit-files/</source>
+          <target state="new">https://coreos.com/docs/launching-containers/launching/fleet-unit-files/</target>
+        </trans-unit>
+        <trans-unit id="d2fc31a3-bb28-4f0b-b322-b6024a9a212f" xml:space="preserve">
+          <source>https://registry.hub.docker.com/_/busybox/</source>
+          <target state="new">https://registry.hub.docker.com/_/busybox/</target>
+        </trans-unit>
+        <trans-unit id="4d09385a-539a-44bd-85a7-69222481d14e" xml:space="preserve">
+          <source>https://registry.hub.docker.com/u/coreos/apache/</source>
+          <target state="new">https://registry.hub.docker.com/u/coreos/apache/</target>
+        </trans-unit>
+        <trans-unit id="1a4d9c7a-75ce-4f79-969a-0fa35b49406d" xml:space="preserve">
+          <source>virtual-machines-linux-opensource.md</source>
+          <target state="new">virtual-machines-linux-opensource.md</target>
+        </trans-unit>
+      </group>
+      <group id="8a6aa3be-fe67-44b5-9b80-6f81cd7c6bcd" />
+    </body>
+  </file>
+</xliff>

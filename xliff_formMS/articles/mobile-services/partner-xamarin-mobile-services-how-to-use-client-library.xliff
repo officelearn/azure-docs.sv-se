@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ebcf1dc2-0add-4318-8e13-ea78089737c8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ebcf1dc2-0add-4318-8e13-ea78089737c8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0f37811b-b028-48e6-b5b0-a33b94441998">
+        <trans-unit id="541292a3-3965-4855-9035-2b97a4c21842" xml:space="preserve">
+          <source>How to use the Xamarin Component client | Microsoft Azure</source>
+          <target state="new">How to use the Xamarin Component client | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ef76f18d-faae-4a57-b2df-f9425e1d941a" xml:space="preserve">
+          <source>Learn how to use the Xamarin Component client for Azure Mobile Services.</source>
+          <target state="new">Learn how to use the Xamarin Component client for Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="62156247-25dd-4e35-b4d6-89298eac744d" xml:space="preserve">
+          <source><bpt id="44cb9cc9-d17c-4a5f-82aa-de79fc34cc1e">&lt;token href="../../includes/mobile-services-selector-client-library.md"&gt;</bpt><ept id="44cb9cc9-d17c-4a5f-82aa-de79fc34cc1e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="44cb9cc9-d17c-4a5f-82aa-de79fc34cc1e">&lt;token href="../../includes/mobile-services-selector-client-library.md"&gt;</bpt><ept id="44cb9cc9-d17c-4a5f-82aa-de79fc34cc1e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d410d74-70cd-4867-974f-ecd8b502e665" xml:space="preserve">
+          <source>This guide shows you how to perform common scenarios using the Xamarin Component client for Azure Mobile Services, in Xamarin apps for iOS and Android.</source>
+          <target state="new">This guide shows you how to perform common scenarios using the Xamarin Component client for Azure Mobile Services, in Xamarin apps for iOS and Android.</target>
+        </trans-unit>
+        <trans-unit id="a070bf58-899b-4fde-8bb2-4abc277aa65f" xml:space="preserve">
+          <source>The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors.</source>
+          <target state="new">The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors.</target>
+        </trans-unit>
+        <trans-unit id="bc741741-8847-4f4f-b6a7-92cbb4062d77" xml:space="preserve">
+          <source>If you are new to Mobile Services, you should consider first completing the "Mobile Services quickstart" tutorial (<bpt id="6814bc6c-b200-49f1-8d9e-8467d5b3e8c4">&lt;linkText&gt;</bpt>Xamarin.iOS[xamarin.ios quickstart tutorial]<ept id="6814bc6c-b200-49f1-8d9e-8467d5b3e8c4">&lt;/linkText&gt;</ept><bpt id="6814bc6c-b200-49f1-8d9e-8467d5b3e8c4">&lt;title&gt;</bpt><ept id="6814bc6c-b200-49f1-8d9e-8467d5b3e8c4">&lt;/title&gt;</ept>/<bpt id="01c910f6-7c90-4b69-8722-3bc6ffc32641">&lt;linkText&gt;</bpt>Xamarin.Android[xamarin.android quickstart tutorial]<ept id="01c910f6-7c90-4b69-8722-3bc6ffc32641">&lt;/linkText&gt;</ept><bpt id="01c910f6-7c90-4b69-8722-3bc6ffc32641">&lt;title&gt;</bpt><ept id="01c910f6-7c90-4b69-8722-3bc6ffc32641">&lt;/title&gt;</ept>) and the "Getting Started with Data in .NET" tutorial (<bpt id="ca450430-840b-4279-acde-17487d5fabe6">&lt;linkText&gt;</bpt>Xamarin.iOS[xamarin.ios data tutorial]<ept id="ca450430-840b-4279-acde-17487d5fabe6">&lt;/linkText&gt;</ept><bpt id="ca450430-840b-4279-acde-17487d5fabe6">&lt;title&gt;</bpt><ept id="ca450430-840b-4279-acde-17487d5fabe6">&lt;/title&gt;</ept>/<bpt id="96838999-522f-4359-8921-734e415a4bc3">&lt;linkText&gt;</bpt>Xamarin.Android[xamarin.android data tutorial]<ept id="96838999-522f-4359-8921-734e415a4bc3">&lt;/linkText&gt;</ept><bpt id="96838999-522f-4359-8921-734e415a4bc3">&lt;title&gt;</bpt><ept id="96838999-522f-4359-8921-734e415a4bc3">&lt;/title&gt;</ept>).</source>
+          <target state="new">If you are new to Mobile Services, you should consider first completing the "Mobile Services quickstart" tutorial (<bpt id="6814bc6c-b200-49f1-8d9e-8467d5b3e8c4">&lt;linkText&gt;</bpt>Xamarin.iOS[xamarin.ios quickstart tutorial]<ept id="6814bc6c-b200-49f1-8d9e-8467d5b3e8c4">&lt;/linkText&gt;</ept><bpt id="6814bc6c-b200-49f1-8d9e-8467d5b3e8c4">&lt;title&gt;</bpt><ept id="6814bc6c-b200-49f1-8d9e-8467d5b3e8c4">&lt;/title&gt;</ept>/<bpt id="01c910f6-7c90-4b69-8722-3bc6ffc32641">&lt;linkText&gt;</bpt>Xamarin.Android[xamarin.android quickstart tutorial]<ept id="01c910f6-7c90-4b69-8722-3bc6ffc32641">&lt;/linkText&gt;</ept><bpt id="01c910f6-7c90-4b69-8722-3bc6ffc32641">&lt;title&gt;</bpt><ept id="01c910f6-7c90-4b69-8722-3bc6ffc32641">&lt;/title&gt;</ept>) and the "Getting Started with Data in .NET" tutorial (<bpt id="ca450430-840b-4279-acde-17487d5fabe6">&lt;linkText&gt;</bpt>Xamarin.iOS[xamarin.ios data tutorial]<ept id="ca450430-840b-4279-acde-17487d5fabe6">&lt;/linkText&gt;</ept><bpt id="ca450430-840b-4279-acde-17487d5fabe6">&lt;title&gt;</bpt><ept id="ca450430-840b-4279-acde-17487d5fabe6">&lt;/title&gt;</ept>/<bpt id="96838999-522f-4359-8921-734e415a4bc3">&lt;linkText&gt;</bpt>Xamarin.Android[xamarin.android data tutorial]<ept id="96838999-522f-4359-8921-734e415a4bc3">&lt;/linkText&gt;</ept><bpt id="96838999-522f-4359-8921-734e415a4bc3">&lt;title&gt;</bpt><ept id="96838999-522f-4359-8921-734e415a4bc3">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="01b0a995-3532-43a2-8124-c1b7b6b257d8" xml:space="preserve">
+          <source>The quickstart tutorial requires <bpt id="d1482ae7-6ed9-4527-a718-ef5d0558d3fb">&lt;linkText&gt;</bpt>Xamarin[xamarin download]<ept id="d1482ae7-6ed9-4527-a718-ef5d0558d3fb">&lt;/linkText&gt;</ept><bpt id="d1482ae7-6ed9-4527-a718-ef5d0558d3fb">&lt;title&gt;</bpt><ept id="d1482ae7-6ed9-4527-a718-ef5d0558d3fb">&lt;/title&gt;</ept> the [Mobile Services SDK] and helps you configure your account and create your first mobile service.</source>
+          <target state="new">The quickstart tutorial requires <bpt id="d1482ae7-6ed9-4527-a718-ef5d0558d3fb">&lt;linkText&gt;</bpt>Xamarin[xamarin download]<ept id="d1482ae7-6ed9-4527-a718-ef5d0558d3fb">&lt;/linkText&gt;</ept><bpt id="d1482ae7-6ed9-4527-a718-ef5d0558d3fb">&lt;title&gt;</bpt><ept id="d1482ae7-6ed9-4527-a718-ef5d0558d3fb">&lt;/title&gt;</ept> the [Mobile Services SDK] and helps you configure your account and create your first mobile service.</target>
+        </trans-unit>
+        <trans-unit id="7e8012a3-eafb-4526-a1fd-23b8650aa0c1" xml:space="preserve">
+          <source><bpt id="c1cd6a41-23f3-4ecc-b073-32f8c3f3ec20">&lt;token href="../../includes/mobile-services-concepts.md"&gt;</bpt><ept id="c1cd6a41-23f3-4ecc-b073-32f8c3f3ec20">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c1cd6a41-23f3-4ecc-b073-32f8c3f3ec20">&lt;token href="../../includes/mobile-services-concepts.md"&gt;</bpt><ept id="c1cd6a41-23f3-4ecc-b073-32f8c3f3ec20">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="825aebe1-62ff-441d-b179-06647c5a1990" xml:space="preserve">
+          <source>We assume that you have created a mobile service and a table.</source>
+          <target state="new">We assume that you have created a mobile service and a table.</target>
+        </trans-unit>
+        <trans-unit id="abc82204-12cd-4496-8feb-ca3ee8492e10" xml:space="preserve">
+          <source>For more information see <bpt id="4ececbe3-f16b-49f5-88f5-4bced71414f1">&lt;linkText&gt;</bpt>Create a table<ept id="4ececbe3-f16b-49f5-88f5-4bced71414f1">&lt;/linkText&gt;</ept><bpt id="4ececbe3-f16b-49f5-88f5-4bced71414f1">&lt;title&gt;</bpt><ept id="4ececbe3-f16b-49f5-88f5-4bced71414f1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="4ececbe3-f16b-49f5-88f5-4bced71414f1">&lt;linkText&gt;</bpt>Create a table<ept id="4ececbe3-f16b-49f5-88f5-4bced71414f1">&lt;/linkText&gt;</ept><bpt id="4ececbe3-f16b-49f5-88f5-4bced71414f1">&lt;title&gt;</bpt><ept id="4ececbe3-f16b-49f5-88f5-4bced71414f1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b26bcfca-99b5-4952-afb4-822e6429a5e0" xml:space="preserve">
+          <source>In the code used in this topic, the table is named <bpt id="983f97b8-d2cf-4707-94b1-67f08c45249f">&lt;code&gt;</bpt>TodoItem<ept id="983f97b8-d2cf-4707-94b1-67f08c45249f">&lt;/code&gt;</ept> and it will have the following columns: <bpt id="30567c42-7fe5-4263-8b19-be397ac7aadb">&lt;code&gt;</bpt>id<ept id="30567c42-7fe5-4263-8b19-be397ac7aadb">&lt;/code&gt;</ept>, <bpt id="a181f1f4-72f9-4cc2-a07e-8ada7f25c11e">&lt;code&gt;</bpt>Text<ept id="a181f1f4-72f9-4cc2-a07e-8ada7f25c11e">&lt;/code&gt;</ept>, and <bpt id="e87c9329-42ea-48e7-b31e-d05ffc52452b">&lt;code&gt;</bpt>Complete<ept id="e87c9329-42ea-48e7-b31e-d05ffc52452b">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the code used in this topic, the table is named <bpt id="983f97b8-d2cf-4707-94b1-67f08c45249f">&lt;code&gt;</bpt>TodoItem<ept id="983f97b8-d2cf-4707-94b1-67f08c45249f">&lt;/code&gt;</ept> and it will have the following columns: <bpt id="30567c42-7fe5-4263-8b19-be397ac7aadb">&lt;code&gt;</bpt>id<ept id="30567c42-7fe5-4263-8b19-be397ac7aadb">&lt;/code&gt;</ept>, <bpt id="a181f1f4-72f9-4cc2-a07e-8ada7f25c11e">&lt;code&gt;</bpt>Text<ept id="a181f1f4-72f9-4cc2-a07e-8ada7f25c11e">&lt;/code&gt;</ept>, and <bpt id="e87c9329-42ea-48e7-b31e-d05ffc52452b">&lt;code&gt;</bpt>Complete<ept id="e87c9329-42ea-48e7-b31e-d05ffc52452b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3eacec65-22c3-416b-9d70-d5e64f7a7787" xml:space="preserve">
+          <source>The corresponding typed client-side .NET type is the following:</source>
+          <target state="new">The corresponding typed client-side .NET type is the following:</target>
+        </trans-unit>
+        <trans-unit id="813c6409-5c33-4142-85b4-0fac5224a9aa" xml:space="preserve">
+          <source>When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests.</source>
+          <target state="new">When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests.</target>
+        </trans-unit>
+        <trans-unit id="93d84d10-5c8e-48ec-95e6-ce014fd63258" xml:space="preserve">
+          <source>For more information, see <bpt id="64bfc5af-a982-45f2-bb8a-c555865c0953">&lt;linkText&gt;</bpt>Dynamic schema<ept id="64bfc5af-a982-45f2-bb8a-c555865c0953">&lt;/linkText&gt;</ept><bpt id="64bfc5af-a982-45f2-bb8a-c555865c0953">&lt;title&gt;</bpt><ept id="64bfc5af-a982-45f2-bb8a-c555865c0953">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="64bfc5af-a982-45f2-bb8a-c555865c0953">&lt;linkText&gt;</bpt>Dynamic schema<ept id="64bfc5af-a982-45f2-bb8a-c555865c0953">&lt;/linkText&gt;</ept><bpt id="64bfc5af-a982-45f2-bb8a-c555865c0953">&lt;title&gt;</bpt><ept id="64bfc5af-a982-45f2-bb8a-c555865c0953">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c0a648d-56db-4c08-ae9f-ba81bd132ef7" xml:space="preserve">
+          <source>The following code creates the <bpt id="4e504dc5-9b8f-4ae1-85cc-16071826fcb1">&lt;code&gt;</bpt>MobileServiceClient<ept id="4e504dc5-9b8f-4ae1-85cc-16071826fcb1">&lt;/code&gt;</ept> object that is used to access your mobile service.</source>
+          <target state="new">The following code creates the <bpt id="4e504dc5-9b8f-4ae1-85cc-16071826fcb1">&lt;code&gt;</bpt>MobileServiceClient<ept id="4e504dc5-9b8f-4ae1-85cc-16071826fcb1">&lt;/code&gt;</ept> object that is used to access your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="507189d8-5fbd-40a9-b6c3-745ead896ad1" xml:space="preserve">
+          <source>In the code above, replace <bpt id="9fc945f2-34f4-49a1-87f9-b8a641d4acf0">&lt;code&gt;</bpt>AppUrl<ept id="9fc945f2-34f4-49a1-87f9-b8a641d4acf0">&lt;/code&gt;</ept> and <bpt id="dac9311d-f281-47df-9e41-00203ae13811">&lt;code&gt;</bpt>AppKey<ept id="dac9311d-f281-47df-9e41-00203ae13811">&lt;/code&gt;</ept> with the mobile service URL and application key, in that order.</source>
+          <target state="new">In the code above, replace <bpt id="9fc945f2-34f4-49a1-87f9-b8a641d4acf0">&lt;code&gt;</bpt>AppUrl<ept id="9fc945f2-34f4-49a1-87f9-b8a641d4acf0">&lt;/code&gt;</ept> and <bpt id="dac9311d-f281-47df-9e41-00203ae13811">&lt;code&gt;</bpt>AppKey<ept id="dac9311d-f281-47df-9e41-00203ae13811">&lt;/code&gt;</ept> with the mobile service URL and application key, in that order.</target>
+        </trans-unit>
+        <trans-unit id="d79cab0e-0de8-4bb0-964d-160478d7e911" xml:space="preserve">
+          <source>Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".</source>
+          <target state="new">Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".</target>
+        </trans-unit>
+        <trans-unit id="3acaeea8-2111-4b01-aadb-48130aa6d0d2" xml:space="preserve">
+          <source>All of the code that accesses or modifies data in the Mobile Services table calls functions on the <bpt id="a06df8b5-eff2-4f12-88e4-ef47e75cec05">&lt;code&gt;</bpt>MobileServiceTable<ept id="a06df8b5-eff2-4f12-88e4-ef47e75cec05">&lt;/code&gt;</ept> object.</source>
+          <target state="new">All of the code that accesses or modifies data in the Mobile Services table calls functions on the <bpt id="a06df8b5-eff2-4f12-88e4-ef47e75cec05">&lt;code&gt;</bpt>MobileServiceTable<ept id="a06df8b5-eff2-4f12-88e4-ef47e75cec05">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="349aa0b8-f644-4ea1-acef-8e09c73ad5ee" xml:space="preserve">
+          <source>You get a reference to the table by calling the <bpt id="0b755573-593f-4761-9a4a-302a755fb018">&lt;linkText&gt;</bpt>GetTable<ept id="0b755573-593f-4761-9a4a-302a755fb018">&lt;/linkText&gt;</ept><bpt id="0b755573-593f-4761-9a4a-302a755fb018">&lt;title&gt;</bpt><ept id="0b755573-593f-4761-9a4a-302a755fb018">&lt;/title&gt;</ept> function on an instance of the <bpt id="c25d9ee8-a173-4fd0-8f57-762654da2347">&lt;code&gt;</bpt>MobileServiceClient<ept id="c25d9ee8-a173-4fd0-8f57-762654da2347">&lt;/code&gt;</ept>.</source>
+          <target state="new">You get a reference to the table by calling the <bpt id="0b755573-593f-4761-9a4a-302a755fb018">&lt;linkText&gt;</bpt>GetTable<ept id="0b755573-593f-4761-9a4a-302a755fb018">&lt;/linkText&gt;</ept><bpt id="0b755573-593f-4761-9a4a-302a755fb018">&lt;title&gt;</bpt><ept id="0b755573-593f-4761-9a4a-302a755fb018">&lt;/title&gt;</ept> function on an instance of the <bpt id="c25d9ee8-a173-4fd0-8f57-762654da2347">&lt;code&gt;</bpt>MobileServiceClient<ept id="c25d9ee8-a173-4fd0-8f57-762654da2347">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6589bc16-d2db-4250-9ed2-776cd4ed6f03" xml:space="preserve">
+          <source>This is the typed serialization model; see discussion of &lt;a href="#untyped"&gt;the untyped serialization model&lt;/a&gt; below.</source>
+          <target state="new">This is the typed serialization model; see discussion of &lt;a href="#untyped"&gt;the untyped serialization model&lt;/a&gt; below.</target>
+        </trans-unit>
+        <trans-unit id="3033faf7-da33-4495-b089-632ec6332f23" xml:space="preserve">
+          <source>This section describes how to issue queries to the mobile service.</source>
+          <target state="new">This section describes how to issue queries to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="ab184341-f111-42fd-baa2-db1354420396" xml:space="preserve">
+          <source>Subsections describe different aspects such as sorting, filtering, and paging.</source>
+          <target state="new">Subsections describe different aspects such as sorting, filtering, and paging.</target>
+        </trans-unit>
+        <trans-unit id="a325231f-a51c-4d62-84a6-a97a0a3bbeea" xml:space="preserve">
+          <source>The following code illustrates how to filter data by including a <bpt id="f928b38b-ac83-44ed-8f78-79ee27a1c43c">&lt;code&gt;</bpt>Where<ept id="f928b38b-ac83-44ed-8f78-79ee27a1c43c">&lt;/code&gt;</ept> clause in a query.</source>
+          <target state="new">The following code illustrates how to filter data by including a <bpt id="f928b38b-ac83-44ed-8f78-79ee27a1c43c">&lt;code&gt;</bpt>Where<ept id="f928b38b-ac83-44ed-8f78-79ee27a1c43c">&lt;/code&gt;</ept> clause in a query.</target>
+        </trans-unit>
+        <trans-unit id="f0bbb1d9-f8bb-4d67-8c84-ace31f32a169" xml:space="preserve">
+          <source>It returns all items from <bpt id="eb30d470-a2d4-44f4-b1f4-0e358076d43e">&lt;code&gt;</bpt>todoTable<ept id="eb30d470-a2d4-44f4-b1f4-0e358076d43e">&lt;/code&gt;</ept> whose <bpt id="e51e8f6d-914b-442e-9c3f-1342aae991c3">&lt;code&gt;</bpt>Complete<ept id="e51e8f6d-914b-442e-9c3f-1342aae991c3">&lt;/code&gt;</ept> property is equal to <bpt id="87c7ece5-a8a4-4d54-826c-e38e242d8721">&lt;code&gt;</bpt>false<ept id="87c7ece5-a8a4-4d54-826c-e38e242d8721">&lt;/code&gt;</ept>.</source>
+          <target state="new">It returns all items from <bpt id="eb30d470-a2d4-44f4-b1f4-0e358076d43e">&lt;code&gt;</bpt>todoTable<ept id="eb30d470-a2d4-44f4-b1f4-0e358076d43e">&lt;/code&gt;</ept> whose <bpt id="e51e8f6d-914b-442e-9c3f-1342aae991c3">&lt;code&gt;</bpt>Complete<ept id="e51e8f6d-914b-442e-9c3f-1342aae991c3">&lt;/code&gt;</ept> property is equal to <bpt id="87c7ece5-a8a4-4d54-826c-e38e242d8721">&lt;code&gt;</bpt>false<ept id="87c7ece5-a8a4-4d54-826c-e38e242d8721">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e90e85f-b74b-4533-9811-ee2e2d91a1de" xml:space="preserve">
+          <source>The <bpt id="f81a46ad-4a09-41dc-b676-099a51cf5737">&lt;code&gt;</bpt>Where<ept id="f81a46ad-4a09-41dc-b676-099a51cf5737">&lt;/code&gt;</ept> function applies a row filtering predicate to the query against the table.</source>
+          <target state="new">The <bpt id="f81a46ad-4a09-41dc-b676-099a51cf5737">&lt;code&gt;</bpt>Where<ept id="f81a46ad-4a09-41dc-b676-099a51cf5737">&lt;/code&gt;</ept> function applies a row filtering predicate to the query against the table.</target>
+        </trans-unit>
+        <trans-unit id="b7ec8699-8ad2-4c05-ad74-2e976d191443" xml:space="preserve">
+          <source>You can view the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or Fiddler.</source>
+          <target state="new">You can view the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or Fiddler.</target>
+        </trans-unit>
+        <trans-unit id="827c2321-824c-4065-8043-71139f404b67" xml:space="preserve">
+          <source>If you look at the request URI below,  notice that we are modifying the query string  itself:</source>
+          <target state="new">If you look at the request URI below,  notice that we are modifying the query string  itself:</target>
+        </trans-unit>
+        <trans-unit id="dbc25e71-acad-497c-890b-cc6930be9f74" xml:space="preserve">
+          <source>The function which is passed to the <bpt id="973adb4f-4022-41dc-8d06-3877a784abb0">&lt;code&gt;</bpt>Where<ept id="973adb4f-4022-41dc-8d06-3877a784abb0">&lt;/code&gt;</ept> method can have an arbitrary number of conditions.</source>
+          <target state="new">The function which is passed to the <bpt id="973adb4f-4022-41dc-8d06-3877a784abb0">&lt;code&gt;</bpt>Where<ept id="973adb4f-4022-41dc-8d06-3877a784abb0">&lt;/code&gt;</ept> method can have an arbitrary number of conditions.</target>
+        </trans-unit>
+        <trans-unit id="6305b7ef-c7a5-4139-9ba5-051065082392" xml:space="preserve">
+          <source>For example, the line below:</source>
+          <target state="new">For example, the line below:</target>
+        </trans-unit>
+        <trans-unit id="54d12204-718c-4239-a9fe-c9b081de4cf5" xml:space="preserve">
+          <source>Would be roughly translated (for the same request shown before) as</source>
+          <target state="new">Would be roughly translated (for the same request shown before) as</target>
+        </trans-unit>
+        <trans-unit id="a9f124f6-f45d-4109-8ecc-1a6cac49b856" xml:space="preserve">
+          <source>The <bpt id="34f64461-9822-41a3-b199-e915fc6a01f2">&lt;code&gt;</bpt>where<ept id="34f64461-9822-41a3-b199-e915fc6a01f2">&lt;/code&gt;</ept> statement above will find items with <bpt id="eaa7e483-a0ff-4411-af5f-f186a7e48e1c">&lt;code&gt;</bpt>Complete<ept id="eaa7e483-a0ff-4411-af5f-f186a7e48e1c">&lt;/code&gt;</ept> status set to false with non-null <bpt id="777ca5de-10d6-4c7f-a5db-227a1f386634">&lt;code&gt;</bpt>Text<ept id="777ca5de-10d6-4c7f-a5db-227a1f386634">&lt;/code&gt;</ept>.</source>
+          <target state="new">The <bpt id="34f64461-9822-41a3-b199-e915fc6a01f2">&lt;code&gt;</bpt>where<ept id="34f64461-9822-41a3-b199-e915fc6a01f2">&lt;/code&gt;</ept> statement above will find items with <bpt id="eaa7e483-a0ff-4411-af5f-f186a7e48e1c">&lt;code&gt;</bpt>Complete<ept id="eaa7e483-a0ff-4411-af5f-f186a7e48e1c">&lt;/code&gt;</ept> status set to false with non-null <bpt id="777ca5de-10d6-4c7f-a5db-227a1f386634">&lt;code&gt;</bpt>Text<ept id="777ca5de-10d6-4c7f-a5db-227a1f386634">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8931e938-3f84-4e75-9adb-2dbb3054cb7a" xml:space="preserve">
+          <source>We also could have written that in multiple lines instead:</source>
+          <target state="new">We also could have written that in multiple lines instead:</target>
+        </trans-unit>
+        <trans-unit id="9e261eb6-22cb-4cdd-9a0e-91ebae22fb20" xml:space="preserve">
+          <source>The two methods are equivalent and may be used interchangeably.</source>
+          <target state="new">The two methods are equivalent and may be used interchangeably.</target>
+        </trans-unit>
+        <trans-unit id="b141d1fd-6692-44db-9f93-2cbc93c01495" xml:space="preserve">
+          <source>The former option -- of concatenating multiple predicates in one query -- is more compact and recommended.</source>
+          <target state="new">The former option -- of concatenating multiple predicates in one query -- is more compact and recommended.</target>
+        </trans-unit>
+        <trans-unit id="80f3ec2c-4667-477a-bac8-83af8a35951c" xml:space="preserve">
+          <source>The <bpt id="291e18b9-d486-4ac6-be23-a90f6133e65a">&lt;code&gt;</bpt>where<ept id="291e18b9-d486-4ac6-be23-a90f6133e65a">&lt;/code&gt;</ept> clause supports operations that be translated into the Mobile Services OData subset. This includes relational operators (==, !=, &lt;, &lt;=, &gt;, &gt;=), arithmetic operators (+, -, /, *, %), number precision (Math.Floor, Math.Ceiling), string functions (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), date properties (Year, Month, Day, Hour, Minute, Second), access properties of an object, and expressions combining all of these.</source>
+          <target state="new">The <bpt id="291e18b9-d486-4ac6-be23-a90f6133e65a">&lt;code&gt;</bpt>where<ept id="291e18b9-d486-4ac6-be23-a90f6133e65a">&lt;/code&gt;</ept> clause supports operations that be translated into the Mobile Services OData subset. This includes relational operators (==, !=, &lt;, &lt;=, &gt;, &gt;=), arithmetic operators (+, -, /, *, %), number precision (Math.Floor, Math.Ceiling), string functions (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), date properties (Year, Month, Day, Hour, Minute, Second), access properties of an object, and expressions combining all of these.</target>
+        </trans-unit>
+        <trans-unit id="e2dcdcbd-ec5a-467c-838b-1fe31236d8f6" xml:space="preserve">
+          <source>The following code illustrates how to sort data by including an <bpt id="6959a73e-8f9e-4e43-85d8-f1eaae6b80bc">&lt;code&gt;</bpt>OrderBy<ept id="6959a73e-8f9e-4e43-85d8-f1eaae6b80bc">&lt;/code&gt;</ept> or <bpt id="ff815246-bc81-4605-b09a-6944725a405c">&lt;code&gt;</bpt>OrderByDescending<ept id="ff815246-bc81-4605-b09a-6944725a405c">&lt;/code&gt;</ept> function in the query.</source>
+          <target state="new">The following code illustrates how to sort data by including an <bpt id="6959a73e-8f9e-4e43-85d8-f1eaae6b80bc">&lt;code&gt;</bpt>OrderBy<ept id="6959a73e-8f9e-4e43-85d8-f1eaae6b80bc">&lt;/code&gt;</ept> or <bpt id="ff815246-bc81-4605-b09a-6944725a405c">&lt;code&gt;</bpt>OrderByDescending<ept id="ff815246-bc81-4605-b09a-6944725a405c">&lt;/code&gt;</ept> function in the query.</target>
+        </trans-unit>
+        <trans-unit id="94f5b8a4-5bfa-451f-b3bd-02007b2a56c8" xml:space="preserve">
+          <source>It returns items from <bpt id="256092fb-fbe0-4d12-93b6-34bbe6a51a24">&lt;code&gt;</bpt>todoTable<ept id="256092fb-fbe0-4d12-93b6-34bbe6a51a24">&lt;/code&gt;</ept> sorted ascending by the <bpt id="f8c51bee-e134-4dfc-bbe7-fc2967c46040">&lt;code&gt;</bpt>Text<ept id="f8c51bee-e134-4dfc-bbe7-fc2967c46040">&lt;/code&gt;</ept> field.</source>
+          <target state="new">It returns items from <bpt id="256092fb-fbe0-4d12-93b6-34bbe6a51a24">&lt;code&gt;</bpt>todoTable<ept id="256092fb-fbe0-4d12-93b6-34bbe6a51a24">&lt;/code&gt;</ept> sorted ascending by the <bpt id="f8c51bee-e134-4dfc-bbe7-fc2967c46040">&lt;code&gt;</bpt>Text<ept id="f8c51bee-e134-4dfc-bbe7-fc2967c46040">&lt;/code&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="f5c5d7de-657d-44ab-acd3-0dfffd2c05ad" xml:space="preserve">
+          <source>By default, the server returns only the first 50 elements.</source>
+          <target state="new">By default, the server returns only the first 50 elements.</target>
+        </trans-unit>
+        <trans-unit id="b80776c3-752a-43f1-8774-74a7244e35da" xml:space="preserve">
+          <source>A server-driven page size is used by default to prevent all elements from being returned.</source>
+          <target state="new">A server-driven page size is used by default to prevent all elements from being returned.</target>
+        </trans-unit>
+        <trans-unit id="1ff9eb73-d914-49b6-b7cc-647b6c582fb8" xml:space="preserve">
+          <source>This keeps default requests for large data sets from negatively impacting the service.</source>
+          <target state="new">This keeps default requests for large data sets from negatively impacting the service.</target>
+        </trans-unit>
+        <trans-unit id="a24f9a9f-1b68-4b51-9c3f-d4f3a6752d54" xml:space="preserve">
+          <source>You may increase the number of items to be returned by calling <bpt id="acf93ead-5b20-4520-a077-d6dfba195558">&lt;code&gt;</bpt>Take<ept id="acf93ead-5b20-4520-a077-d6dfba195558">&lt;/code&gt;</ept> as described in the next section.</source>
+          <target state="new">You may increase the number of items to be returned by calling <bpt id="acf93ead-5b20-4520-a077-d6dfba195558">&lt;code&gt;</bpt>Take<ept id="acf93ead-5b20-4520-a077-d6dfba195558">&lt;/code&gt;</ept> as described in the next section.</target>
+        </trans-unit>
+        <trans-unit id="7f5c79cd-9f1e-4e43-97cd-403de8824e7f" xml:space="preserve">
+          <source>The following code shows how to implement paging in returned data by using the <bpt id="7ffff33b-b84c-495a-93ce-298ddd82d278">&lt;code&gt;</bpt>Take<ept id="7ffff33b-b84c-495a-93ce-298ddd82d278">&lt;/code&gt;</ept> and <bpt id="146f63f6-2f9d-445f-9f10-172c61ac9726">&lt;code&gt;</bpt>Skip<ept id="146f63f6-2f9d-445f-9f10-172c61ac9726">&lt;/code&gt;</ept> clauses in the query.</source>
+          <target state="new">The following code shows how to implement paging in returned data by using the <bpt id="7ffff33b-b84c-495a-93ce-298ddd82d278">&lt;code&gt;</bpt>Take<ept id="7ffff33b-b84c-495a-93ce-298ddd82d278">&lt;/code&gt;</ept> and <bpt id="146f63f6-2f9d-445f-9f10-172c61ac9726">&lt;code&gt;</bpt>Skip<ept id="146f63f6-2f9d-445f-9f10-172c61ac9726">&lt;/code&gt;</ept> clauses in the query.</target>
+        </trans-unit>
+        <trans-unit id="af5f62b8-fae0-43fa-9ba9-c4e3f9f0b096" xml:space="preserve">
+          <source>The following query, when executed, returns the top three items in the table.</source>
+          <target state="new">The following query, when executed, returns the top three items in the table.</target>
+        </trans-unit>
+        <trans-unit id="8d98edb4-8f6d-4938-a7d8-30f827eeb82a" xml:space="preserve">
+          <source>The following revised query skips the first three results and returns the next three after that.</source>
+          <target state="new">The following revised query skips the first three results and returns the next three after that.</target>
+        </trans-unit>
+        <trans-unit id="f254a2dd-ea9b-4746-81cc-adb6e5f29485" xml:space="preserve">
+          <source>This is effectively the second "page" of data, where the page size is three items.</source>
+          <target state="new">This is effectively the second "page" of data, where the page size is three items.</target>
+        </trans-unit>
+        <trans-unit id="3ec94ecc-3ae8-45b7-b5dd-764c027a740c" xml:space="preserve">
+          <source>You can also use the <bpt id="737089f0-61d3-481b-b30e-41a2dbed7cdf">&lt;linkText&gt;</bpt>IncludeTotalCount<ept id="737089f0-61d3-481b-b30e-41a2dbed7cdf">&lt;/linkText&gt;</ept><bpt id="737089f0-61d3-481b-b30e-41a2dbed7cdf">&lt;title&gt;</bpt><ept id="737089f0-61d3-481b-b30e-41a2dbed7cdf">&lt;/title&gt;</ept> method to ensure that the query will get the total count for &lt;i&gt;all&lt;/i&gt; the records that would have been returned, ignoring any take paging/limit clause specified:</source>
+          <target state="new">You can also use the <bpt id="737089f0-61d3-481b-b30e-41a2dbed7cdf">&lt;linkText&gt;</bpt>IncludeTotalCount<ept id="737089f0-61d3-481b-b30e-41a2dbed7cdf">&lt;/linkText&gt;</ept><bpt id="737089f0-61d3-481b-b30e-41a2dbed7cdf">&lt;title&gt;</bpt><ept id="737089f0-61d3-481b-b30e-41a2dbed7cdf">&lt;/title&gt;</ept> method to ensure that the query will get the total count for &lt;i&gt;all&lt;/i&gt; the records that would have been returned, ignoring any take paging/limit clause specified:</target>
+        </trans-unit>
+        <trans-unit id="4857a026-2e2f-431b-a8af-295b24430801" xml:space="preserve">
+          <source>This is a simplified scenario of passing hard-coded paging values to the <bpt id="7a653bd3-ff48-4e7c-93c2-e69df326f63f">&lt;code&gt;</bpt>Take<ept id="7a653bd3-ff48-4e7c-93c2-e69df326f63f">&lt;/code&gt;</ept> and <bpt id="31727fce-5449-433a-bef4-c21fba066e30">&lt;code&gt;</bpt>Skip<ept id="31727fce-5449-433a-bef4-c21fba066e30">&lt;/code&gt;</ept> methods.</source>
+          <target state="new">This is a simplified scenario of passing hard-coded paging values to the <bpt id="7a653bd3-ff48-4e7c-93c2-e69df326f63f">&lt;code&gt;</bpt>Take<ept id="7a653bd3-ff48-4e7c-93c2-e69df326f63f">&lt;/code&gt;</ept> and <bpt id="31727fce-5449-433a-bef4-c21fba066e30">&lt;code&gt;</bpt>Skip<ept id="31727fce-5449-433a-bef4-c21fba066e30">&lt;/code&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="3ad5d93a-ba69-4924-ba8d-2ce5cde6b022" xml:space="preserve">
+          <source>In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.</source>
+          <target state="new">In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.</target>
+        </trans-unit>
+        <trans-unit id="6fd95a8d-8588-4677-8fd7-7ec6c315777c" xml:space="preserve">
+          <source>You can specify which set of properties to include in the results by adding a <bpt id="8aafb2cd-b9a8-430a-ba1e-659ea1200a1e">&lt;code&gt;</bpt>Select<ept id="8aafb2cd-b9a8-430a-ba1e-659ea1200a1e">&lt;/code&gt;</ept> clause to your query.</source>
+          <target state="new">You can specify which set of properties to include in the results by adding a <bpt id="8aafb2cd-b9a8-430a-ba1e-659ea1200a1e">&lt;code&gt;</bpt>Select<ept id="8aafb2cd-b9a8-430a-ba1e-659ea1200a1e">&lt;/code&gt;</ept> clause to your query.</target>
+        </trans-unit>
+        <trans-unit id="aa865847-fddc-44db-a5a1-2a1e82e8fb0b" xml:space="preserve">
+          <source>For example, the following code shows how to select just one field and also how to select and format multiple fields:</source>
+          <target state="new">For example, the following code shows how to select just one field and also how to select and format multiple fields:</target>
+        </trans-unit>
+        <trans-unit id="37fc96fe-06fc-4d63-a953-9c677602202e" xml:space="preserve">
+          <source>All the functions described so far are additive, so we can just keep calling them and we'll each time affect more of the query.</source>
+          <target state="new">All the functions described so far are additive, so we can just keep calling them and we'll each time affect more of the query.</target>
+        </trans-unit>
+        <trans-unit id="c7db0dd8-6c1c-4f9a-acdf-96583aa9c00d" xml:space="preserve">
+          <source>One more example:</source>
+          <target state="new">One more example:</target>
+        </trans-unit>
+        <trans-unit id="d82ab038-e3d8-4c7b-a62d-0a7c0aae7d15" xml:space="preserve">
+          <source>The <bpt id="40e13f3a-6712-4906-a76a-7d3a9aa44cb4">&lt;code&gt;</bpt>LookupAsync<ept id="40e13f3a-6712-4906-a76a-7d3a9aa44cb4">&lt;/code&gt;</ept> function can be used to look up objects from the database with a particular ID.</source>
+          <target state="new">The <bpt id="40e13f3a-6712-4906-a76a-7d3a9aa44cb4">&lt;code&gt;</bpt>LookupAsync<ept id="40e13f3a-6712-4906-a76a-7d3a9aa44cb4">&lt;/code&gt;</ept> function can be used to look up objects from the database with a particular ID.</target>
+        </trans-unit>
+        <trans-unit id="0bbd9681-2329-4066-9347-e5b0d09c2118" xml:space="preserve">
+          <source>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <bpt id="fef778c4-6f8c-4104-9188-b5074d29259d">&lt;strong&gt;</bpt>Id<ept id="fef778c4-6f8c-4104-9188-b5074d29259d">&lt;/strong&gt;</ept> (regardless of case).</source>
+          <target state="new">If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <bpt id="fef778c4-6f8c-4104-9188-b5074d29259d">&lt;strong&gt;</bpt>Id<ept id="fef778c4-6f8c-4104-9188-b5074d29259d">&lt;/strong&gt;</ept> (regardless of case).</target>
+        </trans-unit>
+        <trans-unit id="f8f5c517-8985-468e-8a86-17e0a2e484f1" xml:space="preserve">
+          <source>This is why the example class <bpt id="3a3cc111-cf65-4967-a445-aa9b04e616e5">&lt;strong&gt;</bpt>TodoItem<ept id="3a3cc111-cf65-4967-a445-aa9b04e616e5">&lt;/strong&gt;</ept> has a member of name <bpt id="9316e84f-e8e3-4eb7-903f-3fb428f5d88f">&lt;strong&gt;</bpt>Id<ept id="9316e84f-e8e3-4eb7-903f-3fb428f5d88f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This is why the example class <bpt id="3a3cc111-cf65-4967-a445-aa9b04e616e5">&lt;strong&gt;</bpt>TodoItem<ept id="3a3cc111-cf65-4967-a445-aa9b04e616e5">&lt;/strong&gt;</ept> has a member of name <bpt id="9316e84f-e8e3-4eb7-903f-3fb428f5d88f">&lt;strong&gt;</bpt>Id<ept id="9316e84f-e8e3-4eb7-903f-3fb428f5d88f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="089205e9-5d5c-418c-8387-1249ec322384" xml:space="preserve">
+          <source>An ID value must not be set to anything other than the default value during insert operations; by contrast, the ID value should always be set to a non-default value and present in update and delete operations.</source>
+          <target state="new">An ID value must not be set to anything other than the default value during insert operations; by contrast, the ID value should always be set to a non-default value and present in update and delete operations.</target>
+        </trans-unit>
+        <trans-unit id="5ab26de2-f4aa-4ee1-9fbf-c99a866df905" xml:space="preserve">
+          <source>The following code illustrates how to insert new rows into a table.</source>
+          <target state="new">The following code illustrates how to insert new rows into a table.</target>
+        </trans-unit>
+        <trans-unit id="f0c3b277-3b87-4908-bc03-8b326f89c5d6" xml:space="preserve">
+          <source>The parameter contains the data to be inserted as a .NET object.</source>
+          <target state="new">The parameter contains the data to be inserted as a .NET object.</target>
+        </trans-unit>
+        <trans-unit id="dc43309f-104b-4aa2-a43d-ab4a91201cfe" xml:space="preserve">
+          <source>After the await <bpt id="1471cf07-5f91-492b-a754-bdf91f5aef04">&lt;code&gt;</bpt>todoTable.InsertAsync<ept id="1471cf07-5f91-492b-a754-bdf91f5aef04">&lt;/code&gt;</ept> call returns, the ID of the object in the server is populated to the <bpt id="33a38a95-1bfd-41e0-971d-d2c14b6a36e2">&lt;code&gt;</bpt>todoItem<ept id="33a38a95-1bfd-41e0-971d-d2c14b6a36e2">&lt;/code&gt;</ept> object in the client.</source>
+          <target state="new">After the await <bpt id="1471cf07-5f91-492b-a754-bdf91f5aef04">&lt;code&gt;</bpt>todoTable.InsertAsync<ept id="1471cf07-5f91-492b-a754-bdf91f5aef04">&lt;/code&gt;</ept> call returns, the ID of the object in the server is populated to the <bpt id="33a38a95-1bfd-41e0-971d-d2c14b6a36e2">&lt;code&gt;</bpt>todoItem<ept id="33a38a95-1bfd-41e0-971d-d2c14b6a36e2">&lt;/code&gt;</ept> object in the client.</target>
+        </trans-unit>
+        <trans-unit id="1e06f8fc-24d7-4c02-a146-175201dabba9" xml:space="preserve">
+          <source>To insert untyped data, you may take advantage of Json.NET as shown below.</source>
+          <target state="new">To insert untyped data, you may take advantage of Json.NET as shown below.</target>
+        </trans-unit>
+        <trans-unit id="e1b8e9df-093b-42ea-9eae-078198a9dbef" xml:space="preserve">
+          <source>Again, note that an ID must not be specified when inserting an object.</source>
+          <target state="new">Again, note that an ID must not be specified when inserting an object.</target>
+        </trans-unit>
+        <trans-unit id="3b0d0b0e-ca8c-4264-b1ca-00966c22819f" xml:space="preserve">
+          <source>If you attempt to insert an item with the "Id" field already set, you will get back a <bpt id="9ee5c88a-5b3d-47db-ad29-0df18dd12700">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="9ee5c88a-5b3d-47db-ad29-0df18dd12700">&lt;/code&gt;</ept> from the service.</source>
+          <target state="new">If you attempt to insert an item with the "Id" field already set, you will get back a <bpt id="9ee5c88a-5b3d-47db-ad29-0df18dd12700">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="9ee5c88a-5b3d-47db-ad29-0df18dd12700">&lt;/code&gt;</ept> from the service.</target>
+        </trans-unit>
+        <trans-unit id="6d997e8b-da4d-4fa5-b967-03d5cce1605e" xml:space="preserve">
+          <source>The following code illustrates how to update an existing instance with the same ID with new information.</source>
+          <target state="new">The following code illustrates how to update an existing instance with the same ID with new information.</target>
+        </trans-unit>
+        <trans-unit id="f08f9c8d-0b83-4e29-80d2-215f04623f78" xml:space="preserve">
+          <source>The parameter contains the data to be updated as a .NET object.</source>
+          <target state="new">The parameter contains the data to be updated as a .NET object.</target>
+        </trans-unit>
+        <trans-unit id="07a4a14f-f197-40ab-95cb-bdc46d5e8387" xml:space="preserve">
+          <source>To insert untyped data, you may take advantage of Json.NET like so.</source>
+          <target state="new">To insert untyped data, you may take advantage of Json.NET like so.</target>
+        </trans-unit>
+        <trans-unit id="738b415b-b4ef-480d-8555-d55e80bc507d" xml:space="preserve">
+          <source>Note that when making an update, an ID must be specified, as that is how the mobile service identifies which instance to update.</source>
+          <target state="new">Note that when making an update, an ID must be specified, as that is how the mobile service identifies which instance to update.</target>
+        </trans-unit>
+        <trans-unit id="b3d3350a-df87-4c4d-bfa3-c05132d3ac34" xml:space="preserve">
+          <source>The ID can be obtained from the result of the <bpt id="28ec68d7-f24f-40bf-9055-57d6107790db">&lt;code&gt;</bpt>InsertAsync<ept id="28ec68d7-f24f-40bf-9055-57d6107790db">&lt;/code&gt;</ept> call.</source>
+          <target state="new">The ID can be obtained from the result of the <bpt id="28ec68d7-f24f-40bf-9055-57d6107790db">&lt;code&gt;</bpt>InsertAsync<ept id="28ec68d7-f24f-40bf-9055-57d6107790db">&lt;/code&gt;</ept> call.</target>
+        </trans-unit>
+        <trans-unit id="a0599252-cb18-4267-8fd9-b29a762cbe72" xml:space="preserve">
+          <source>If you attempt to update an item without the "Id" field already set, there is no way for the service to tell which instance to update, so you will get back a <bpt id="045876e3-8c35-417f-98bd-49928b847d99">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="045876e3-8c35-417f-98bd-49928b847d99">&lt;/code&gt;</ept> from the service.</source>
+          <target state="new">If you attempt to update an item without the "Id" field already set, there is no way for the service to tell which instance to update, so you will get back a <bpt id="045876e3-8c35-417f-98bd-49928b847d99">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="045876e3-8c35-417f-98bd-49928b847d99">&lt;/code&gt;</ept> from the service.</target>
+        </trans-unit>
+        <trans-unit id="00b08509-a6ec-4e88-a2a6-8c15b09dfb15" xml:space="preserve">
+          <source>Similarly, if you attempt to update an untyped item without the "Id" field already set, you will again get back a <bpt id="0c6310f3-cc96-4e86-8342-d86efd4079e3">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="0c6310f3-cc96-4e86-8342-d86efd4079e3">&lt;/code&gt;</ept> from the service.</source>
+          <target state="new">Similarly, if you attempt to update an untyped item without the "Id" field already set, you will again get back a <bpt id="0c6310f3-cc96-4e86-8342-d86efd4079e3">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="0c6310f3-cc96-4e86-8342-d86efd4079e3">&lt;/code&gt;</ept> from the service.</target>
+        </trans-unit>
+        <trans-unit id="4f2f39eb-9c22-46aa-af77-2c392904e2b2" xml:space="preserve">
+          <source>The following code illustrates how to delete an existing instance.</source>
+          <target state="new">The following code illustrates how to delete an existing instance.</target>
+        </trans-unit>
+        <trans-unit id="306ad918-33ee-4a1a-bb77-9c0a9d94ccfd" xml:space="preserve">
+          <source>The instance is identified by the "Id" field set on the <bpt id="f2638786-f4c8-4e13-a9fc-ff6b3013bfd6">&lt;code&gt;</bpt>todoItem<ept id="f2638786-f4c8-4e13-a9fc-ff6b3013bfd6">&lt;/code&gt;</ept>.</source>
+          <target state="new">The instance is identified by the "Id" field set on the <bpt id="f2638786-f4c8-4e13-a9fc-ff6b3013bfd6">&lt;code&gt;</bpt>todoItem<ept id="f2638786-f4c8-4e13-a9fc-ff6b3013bfd6">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0f93f12-37a8-438c-8913-eacc0e2edcce" xml:space="preserve">
+          <source>To delete untyped data, you may take advantage of Json.NET like so.</source>
+          <target state="new">To delete untyped data, you may take advantage of Json.NET like so.</target>
+        </trans-unit>
+        <trans-unit id="b0874490-17e4-475b-b2f3-b5d8815ca5c5" xml:space="preserve">
+          <source>Note that when making a delete request, an ID must be specified, as that is how the mobile service identifies which instance to delete.</source>
+          <target state="new">Note that when making a delete request, an ID must be specified, as that is how the mobile service identifies which instance to delete.</target>
+        </trans-unit>
+        <trans-unit id="688acd26-2f08-4eca-8e9b-e8e283979006" xml:space="preserve">
+          <source>A delete request needs only the ID; other properties are not passed to the service, and if any are passed, they are ignored at the service.</source>
+          <target state="new">A delete request needs only the ID; other properties are not passed to the service, and if any are passed, they are ignored at the service.</target>
+        </trans-unit>
+        <trans-unit id="7a2e5719-2cf1-4d29-a47a-b127f094f496" xml:space="preserve">
+          <source>The result of a <bpt id="a8aca86a-60e9-4777-9b03-f372fad6a708">&lt;code&gt;</bpt>DeleteAsync<ept id="a8aca86a-60e9-4777-9b03-f372fad6a708">&lt;/code&gt;</ept> call is usually <bpt id="ae6e9f86-fbc2-44dd-9fa9-33d667a1d4cd">&lt;code&gt;</bpt>null<ept id="ae6e9f86-fbc2-44dd-9fa9-33d667a1d4cd">&lt;/code&gt;</ept> as well.</source>
+          <target state="new">The result of a <bpt id="a8aca86a-60e9-4777-9b03-f372fad6a708">&lt;code&gt;</bpt>DeleteAsync<ept id="a8aca86a-60e9-4777-9b03-f372fad6a708">&lt;/code&gt;</ept> call is usually <bpt id="ae6e9f86-fbc2-44dd-9fa9-33d667a1d4cd">&lt;code&gt;</bpt>null<ept id="ae6e9f86-fbc2-44dd-9fa9-33d667a1d4cd">&lt;/code&gt;</ept> as well.</target>
+        </trans-unit>
+        <trans-unit id="d5577843-9363-43a0-b453-996ea49d2302" xml:space="preserve">
+          <source>The ID to pass in can be obtained from the result of the <bpt id="5bf51bff-6858-49ca-adcb-93d352f284e9">&lt;code&gt;</bpt>InsertAsync<ept id="5bf51bff-6858-49ca-adcb-93d352f284e9">&lt;/code&gt;</ept> call.</source>
+          <target state="new">The ID to pass in can be obtained from the result of the <bpt id="5bf51bff-6858-49ca-adcb-93d352f284e9">&lt;code&gt;</bpt>InsertAsync<ept id="5bf51bff-6858-49ca-adcb-93d352f284e9">&lt;/code&gt;</ept> call.</target>
+        </trans-unit>
+        <trans-unit id="c90c027d-7675-42e5-99df-6e44fc1f6ffc" xml:space="preserve">
+          <source>If you attempt to delete an item without the "Id" field already set, there is no way for the service to tell which instance to delete, so you will get back a <bpt id="0b9f5df2-408a-4137-bd7f-1178f4cbd79f">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="0b9f5df2-408a-4137-bd7f-1178f4cbd79f">&lt;/code&gt;</ept> from the service.</source>
+          <target state="new">If you attempt to delete an item without the "Id" field already set, there is no way for the service to tell which instance to delete, so you will get back a <bpt id="0b9f5df2-408a-4137-bd7f-1178f4cbd79f">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="0b9f5df2-408a-4137-bd7f-1178f4cbd79f">&lt;/code&gt;</ept> from the service.</target>
+        </trans-unit>
+        <trans-unit id="470835fe-9965-43e0-bf3f-d5348451aeba" xml:space="preserve">
+          <source>Similarly, if you attempt to delete an untyped item without the "Id" field already set, you will again get back a <bpt id="d3574180-5216-4a86-8c5a-f4b279ae93f6">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="d3574180-5216-4a86-8c5a-f4b279ae93f6">&lt;/code&gt;</ept> from the service.</source>
+          <target state="new">Similarly, if you attempt to delete an untyped item without the "Id" field already set, you will again get back a <bpt id="d3574180-5216-4a86-8c5a-f4b279ae93f6">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="d3574180-5216-4a86-8c5a-f4b279ae93f6">&lt;/code&gt;</ept> from the service.</target>
+        </trans-unit>
+        <trans-unit id="6f3d262f-64a0-4ef4-a9b1-094f43b266df" xml:space="preserve">
+          <source>Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory.</source>
+          <target state="new">Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="000048a2-e1c6-4909-a832-65feca9f4433" xml:space="preserve">
+          <source>You can set permissions on tables to restrict access for specific operations to only authenticated users.</source>
+          <target state="new">You can set permissions on tables to restrict access for specific operations to only authenticated users.</target>
+        </trans-unit>
+        <trans-unit id="2f603409-6da8-45d0-8d90-8174f2cf2efa" xml:space="preserve">
+          <source>You can also use the identity of authenticated users to implement authorization rules in server scripts.</source>
+          <target state="new">You can also use the identity of authenticated users to implement authorization rules in server scripts.</target>
+        </trans-unit>
+        <trans-unit id="570cc9db-8308-4a61-bd19-71843022fda6" xml:space="preserve">
+          <source>For more information, see the "Get started with authentication" tutorial (<bpt id="5e4f7f72-c864-44a4-a576-e947c0ade9fe">&lt;linkText&gt;</bpt>Xamarin.iOS[xamarin.ios authentication]<ept id="5e4f7f72-c864-44a4-a576-e947c0ade9fe">&lt;/linkText&gt;</ept><bpt id="5e4f7f72-c864-44a4-a576-e947c0ade9fe">&lt;title&gt;</bpt><ept id="5e4f7f72-c864-44a4-a576-e947c0ade9fe">&lt;/title&gt;</ept>/<bpt id="775122bd-0b07-451a-890d-e92dfeb709ad">&lt;linkText&gt;</bpt>Xamarin.Android[xamarin.android authentication]<ept id="775122bd-0b07-451a-890d-e92dfeb709ad">&lt;/linkText&gt;</ept><bpt id="775122bd-0b07-451a-890d-e92dfeb709ad">&lt;title&gt;</bpt><ept id="775122bd-0b07-451a-890d-e92dfeb709ad">&lt;/title&gt;</ept>).</source>
+          <target state="new">For more information, see the "Get started with authentication" tutorial (<bpt id="5e4f7f72-c864-44a4-a576-e947c0ade9fe">&lt;linkText&gt;</bpt>Xamarin.iOS[xamarin.ios authentication]<ept id="5e4f7f72-c864-44a4-a576-e947c0ade9fe">&lt;/linkText&gt;</ept><bpt id="5e4f7f72-c864-44a4-a576-e947c0ade9fe">&lt;title&gt;</bpt><ept id="5e4f7f72-c864-44a4-a576-e947c0ade9fe">&lt;/title&gt;</ept>/<bpt id="775122bd-0b07-451a-890d-e92dfeb709ad">&lt;linkText&gt;</bpt>Xamarin.Android[xamarin.android authentication]<ept id="775122bd-0b07-451a-890d-e92dfeb709ad">&lt;/linkText&gt;</ept><bpt id="775122bd-0b07-451a-890d-e92dfeb709ad">&lt;title&gt;</bpt><ept id="775122bd-0b07-451a-890d-e92dfeb709ad">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="e6b9305a-b206-4b54-b113-465c05f0678e" xml:space="preserve">
+          <source>Two authentication flows are supported: a <bpt id="b31f681e-0414-4624-b4d4-520c5620bc21">&lt;em&gt;</bpt>server flow<ept id="b31f681e-0414-4624-b4d4-520c5620bc21">&lt;/em&gt;</ept> and a <bpt id="87e7d7f3-bd93-40a1-b4d2-972c78e5d8b4">&lt;em&gt;</bpt>client flow<ept id="87e7d7f3-bd93-40a1-b4d2-972c78e5d8b4">&lt;/em&gt;</ept>.</source>
+          <target state="new">Two authentication flows are supported: a <bpt id="b31f681e-0414-4624-b4d4-520c5620bc21">&lt;em&gt;</bpt>server flow<ept id="b31f681e-0414-4624-b4d4-520c5620bc21">&lt;/em&gt;</ept> and a <bpt id="87e7d7f3-bd93-40a1-b4d2-972c78e5d8b4">&lt;em&gt;</bpt>client flow<ept id="87e7d7f3-bd93-40a1-b4d2-972c78e5d8b4">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7af77258-275c-4e95-97cb-bfb3cf824a0f" xml:space="preserve">
+          <source>The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface.</source>
+          <target state="new">The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface.</target>
+        </trans-unit>
+        <trans-unit id="27901f72-c3e9-4a57-bf96-f778dfca4378" xml:space="preserve">
+          <source>The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.</source>
+          <target state="new">The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.</target>
+        </trans-unit>
+        <trans-unit id="cedbbd5d-bb5b-4ec0-a42d-dccd9026f582" xml:space="preserve">
+          <source>To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app,
+you must register your app with your identity provider.</source>
+          <target state="new">To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app,
+you must register your app with your identity provider.</target>
+        </trans-unit>
+        <trans-unit id="daddef85-4db5-4c9f-81c6-8daf13bbeeba" xml:space="preserve">
+          <source>Then in your mobile service, you need to configure the application ID and secret provided by your provider.</source>
+          <target state="new">Then in your mobile service, you need to configure the application ID and secret provided by your provider.</target>
+        </trans-unit>
+        <trans-unit id="994da6ba-8ee0-46de-bb6a-425e7819c36c" xml:space="preserve">
+          <source>For more information, see the "Get started with authentication" tutorial (<bpt id="b8fdb194-0f90-46e1-b778-4832f874d10d">&lt;linkText&gt;</bpt>Xamarin.iOS[xamarin.ios authentication]<ept id="b8fdb194-0f90-46e1-b778-4832f874d10d">&lt;/linkText&gt;</ept><bpt id="b8fdb194-0f90-46e1-b778-4832f874d10d">&lt;title&gt;</bpt><ept id="b8fdb194-0f90-46e1-b778-4832f874d10d">&lt;/title&gt;</ept>/<bpt id="eacadce8-5234-4a82-9f28-3ab40c3e838a">&lt;linkText&gt;</bpt>Xamarin.Android[xamarin.android authentication]<ept id="eacadce8-5234-4a82-9f28-3ab40c3e838a">&lt;/linkText&gt;</ept><bpt id="eacadce8-5234-4a82-9f28-3ab40c3e838a">&lt;title&gt;</bpt><ept id="eacadce8-5234-4a82-9f28-3ab40c3e838a">&lt;/title&gt;</ept>).</source>
+          <target state="new">For more information, see the "Get started with authentication" tutorial (<bpt id="b8fdb194-0f90-46e1-b778-4832f874d10d">&lt;linkText&gt;</bpt>Xamarin.iOS[xamarin.ios authentication]<ept id="b8fdb194-0f90-46e1-b778-4832f874d10d">&lt;/linkText&gt;</ept><bpt id="b8fdb194-0f90-46e1-b778-4832f874d10d">&lt;title&gt;</bpt><ept id="b8fdb194-0f90-46e1-b778-4832f874d10d">&lt;/title&gt;</ept>/<bpt id="eacadce8-5234-4a82-9f28-3ab40c3e838a">&lt;linkText&gt;</bpt>Xamarin.Android[xamarin.android authentication]<ept id="eacadce8-5234-4a82-9f28-3ab40c3e838a">&lt;/linkText&gt;</ept><bpt id="eacadce8-5234-4a82-9f28-3ab40c3e838a">&lt;title&gt;</bpt><ept id="eacadce8-5234-4a82-9f28-3ab40c3e838a">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="eca14ec3-0372-4176-b0d0-58f546560272" xml:space="preserve">
+          <source>Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider.</source>
+          <target state="new">Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider.</target>
+        </trans-unit>
+        <trans-unit id="a3e19deb-34e0-4ef6-bdd3-2aa825b0b6b7" xml:space="preserve">
+          <source>For example, the following code initiates a server flow login by using Facebook.</source>
+          <target state="new">For example, the following code initiates a server flow login by using Facebook.</target>
+        </trans-unit>
+        <trans-unit id="6d896935-bab4-411f-954f-aab37d95fea2" xml:space="preserve">
+          <source>If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.</source>
+          <target state="new">If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.</target>
+        </trans-unit>
+        <trans-unit id="8cfd992b-246f-46d8-a62d-516adf6be97b" xml:space="preserve">
+          <source>In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider.</source>
+          <target state="new">In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider.</target>
+        </trans-unit>
+        <trans-unit id="fe68871f-a3f2-4759-ba9f-794bfb763ff2" xml:space="preserve">
+          <source>The [LoginAsync method] returns a [MobileServiceUser], which provides both the [userId] of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT).</source>
+          <target state="new">The [LoginAsync method] returns a [MobileServiceUser], which provides both the [userId] of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT).</target>
+        </trans-unit>
+        <trans-unit id="1f750265-5d99-455e-b013-36015a16cd92" xml:space="preserve">
+          <source>This token can be cached and re-used until it expires.</source>
+          <target state="new">This token can be cached and re-used until it expires.</target>
+        </trans-unit>
+        <trans-unit id="33abd60b-f0ec-4eb7-b977-e43a1c4202cb" xml:space="preserve">
+          <source>For more information, see [Caching the authentication token].</source>
+          <target state="new">For more information, see [Caching the authentication token].</target>
+        </trans-unit>
+        <trans-unit id="089f716a-b74b-4807-bee3-e779dcccad08" xml:space="preserve">
+          <source>Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication.</source>
+          <target state="new">Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication.</target>
+        </trans-unit>
+        <trans-unit id="f97a535a-4cfa-40f6-a30f-0725506567fb" xml:space="preserve">
+          <source>This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.</source>
+          <target state="new">This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.</target>
+        </trans-unit>
+        <trans-unit id="b2f0e8e8-09c0-4594-91d8-54845c3d254f" xml:space="preserve">
+          <source>In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google.</source>
+          <target state="new">In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google.</target>
+        </trans-unit>
+        <trans-unit id="68d2c3d1-c85c-45f6-bb7b-3883666b7265" xml:space="preserve">
+          <source>In some cases, the call to the login method can be avoided after the first time the user authenticates.</source>
+          <target state="new">In some cases, the call to the login method can be avoided after the first time the user authenticates.</target>
+        </trans-unit>
+        <trans-unit id="b8c5c4c9-dae9-4fda-a909-39fefb6a5769" xml:space="preserve">
+          <source>You can use a local secure store (such as <bpt id="de6c5a16-338c-49f9-8b51-f9ea000d8e13">&lt;linkText&gt;</bpt>Xamarin.Auth[xamarin.auth component]<ept id="de6c5a16-338c-49f9-8b51-f9ea000d8e13">&lt;/linkText&gt;</ept><bpt id="de6c5a16-338c-49f9-8b51-f9ea000d8e13">&lt;title&gt;</bpt><ept id="de6c5a16-338c-49f9-8b51-f9ea000d8e13">&lt;/title&gt;</ept>) to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache.</source>
+          <target state="new">You can use a local secure store (such as <bpt id="de6c5a16-338c-49f9-8b51-f9ea000d8e13">&lt;linkText&gt;</bpt>Xamarin.Auth[xamarin.auth component]<ept id="de6c5a16-338c-49f9-8b51-f9ea000d8e13">&lt;/linkText&gt;</ept><bpt id="de6c5a16-338c-49f9-8b51-f9ea000d8e13">&lt;title&gt;</bpt><ept id="de6c5a16-338c-49f9-8b51-f9ea000d8e13">&lt;/title&gt;</ept>) to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache.</target>
+        </trans-unit>
+        <trans-unit id="fdffbaa9-f014-4a6d-882c-00ec0276e6d7" xml:space="preserve">
+          <source>When the cache is empty, you still need to send the user through the login process.</source>
+          <target state="new">When the cache is empty, you still need to send the user through the login process.</target>
+        </trans-unit>
+        <trans-unit id="e7dfbfa0-5571-456b-bc64-78e39f14df62" xml:space="preserve">
+          <source>There are several ways to encounter, validate, and work around errors in Mobile Services.</source>
+          <target state="new">There are several ways to encounter, validate, and work around errors in Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="cd01bedf-15f1-4f56-acb9-718563c8c948" xml:space="preserve">
+          <source>As an example, server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification.</source>
+          <target state="new">As an example, server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification.</target>
+        </trans-unit>
+        <trans-unit id="3e53ebb6-e80b-4d5e-bd33-d39a3573d461" xml:space="preserve">
+          <source>Imagine defining and registering a server script that validate and modify data, like so:</source>
+          <target state="new">Imagine defining and registering a server script that validate and modify data, like so:</target>
+        </trans-unit>
+        <trans-unit id="b2c5f185-876a-461e-8180-0587091feb41" xml:space="preserve">
+          <source>This server-side script validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.</source>
+          <target state="new">This server-side script validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.</target>
+        </trans-unit>
+        <trans-unit id="66d0d79e-3954-4950-86bc-d66a202e5d9f" xml:space="preserve">
+          <source>Now that the mobile service is validating data and sending error responses on the server-side, you can update your .NET app to be able to handle error responses from validation.</source>
+          <target state="new">Now that the mobile service is validating data and sending error responses on the server-side, you can update your .NET app to be able to handle error responses from validation.</target>
+        </trans-unit>
+        <trans-unit id="c52bdca7-477c-4742-bdd7-cb8940b2ab4d" xml:space="preserve">
+          <source>The Xamarin Component client is designed for strongly typed scenarios.</source>
+          <target state="new">The Xamarin Component client is designed for strongly typed scenarios.</target>
+        </trans-unit>
+        <trans-unit id="f4fdba9f-791e-4d54-ba08-9bab031ba129" xml:space="preserve">
+          <source>However, sometimes, a more loosely typed experience is convenient; for example, this could be when dealing with objects with open schema.</source>
+          <target state="new">However, sometimes, a more loosely typed experience is convenient; for example, this could be when dealing with objects with open schema.</target>
+        </trans-unit>
+        <trans-unit id="ac2d8486-8d72-4767-b866-4b2e21e0aec8" xml:space="preserve">
+          <source>That scenario is enabled as follows.</source>
+          <target state="new">That scenario is enabled as follows.</target>
+        </trans-unit>
+        <trans-unit id="500a3da9-3139-4995-b405-8b43b971ba5f" xml:space="preserve">
+          <source>In queries, you forego LINQ and use the wire format.</source>
+          <target state="new">In queries, you forego LINQ and use the wire format.</target>
+        </trans-unit>
+        <trans-unit id="9cab2ecd-6e3d-4396-b433-b1e384631254" xml:space="preserve">
+          <source>You get back JSON values that you can use like a property bag.</source>
+          <target state="new">You get back JSON values that you can use like a property bag.</target>
+        </trans-unit>
+        <trans-unit id="0230d0e1-2869-48d8-84d0-54eeff077fc6" xml:space="preserve">
+          <source>For more information on JToken and Json.NET, see <bpt id="fde35806-9f8a-4a63-bbf2-b8c124a62b8d">&lt;linkText&gt;</bpt>Json.NET<ept id="fde35806-9f8a-4a63-bbf2-b8c124a62b8d">&lt;/linkText&gt;</ept><bpt id="fde35806-9f8a-4a63-bbf2-b8c124a62b8d">&lt;title&gt;</bpt><ept id="fde35806-9f8a-4a63-bbf2-b8c124a62b8d">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on JToken and Json.NET, see <bpt id="fde35806-9f8a-4a63-bbf2-b8c124a62b8d">&lt;linkText&gt;</bpt>Json.NET<ept id="fde35806-9f8a-4a63-bbf2-b8c124a62b8d">&lt;/linkText&gt;</ept><bpt id="fde35806-9f8a-4a63-bbf2-b8c124a62b8d">&lt;title&gt;</bpt><ept id="fde35806-9f8a-4a63-bbf2-b8c124a62b8d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90fbc4b2-3d49-484f-953b-c323cd1db9b4" xml:space="preserve">
+          <source>The value returned by <bpt id="539dc3cb-ee02-409b-bfbe-a23ae1e74cae">&lt;code&gt;</bpt>MobileServiceClient.GetTable<ept id="539dc3cb-ee02-409b-bfbe-a23ae1e74cae">&lt;/code&gt;</ept> and the queries are interfaces. That makes them easily "mockable" for testing purposes, so you could create a <bpt id="fbd57a44-a534-420b-91a9-183563b7662c">&lt;code&gt;</bpt>MyMockTable : IMobileServiceTable&lt;TodoItem&gt;<ept id="fbd57a44-a534-420b-91a9-183563b7662c">&lt;/code&gt;</ept> that implements your testing logic.</source>
+          <target state="new">The value returned by <bpt id="539dc3cb-ee02-409b-bfbe-a23ae1e74cae">&lt;code&gt;</bpt>MobileServiceClient.GetTable<ept id="539dc3cb-ee02-409b-bfbe-a23ae1e74cae">&lt;/code&gt;</ept> and the queries are interfaces. That makes them easily "mockable" for testing purposes, so you could create a <bpt id="fbd57a44-a534-420b-91a9-183563b7662c">&lt;code&gt;</bpt>MyMockTable : IMobileServiceTable&lt;TodoItem&gt;<ept id="fbd57a44-a534-420b-91a9-183563b7662c">&lt;/code&gt;</ept> that implements your testing logic.</target>
+        </trans-unit>
+        <trans-unit id="cc9592d7-0332-414b-b1e7-61a312aa5980" xml:space="preserve">
+          <source>Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:</source>
+          <target state="new">Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:</target>
+        </trans-unit>
+        <trans-unit id="1417933c-14a0-4dd4-a190-acddf0a3f250" xml:space="preserve">
+          <source>Get started with Mobile Services (<bpt id="7c6f7c2d-8ca5-4cda-bf28-badaa3f11950">&lt;linkText&gt;</bpt>Xamarin.iOS[get started with mobile services ios]<ept id="7c6f7c2d-8ca5-4cda-bf28-badaa3f11950">&lt;/linkText&gt;</ept><bpt id="7c6f7c2d-8ca5-4cda-bf28-badaa3f11950">&lt;title&gt;</bpt><ept id="7c6f7c2d-8ca5-4cda-bf28-badaa3f11950">&lt;/title&gt;</ept>/<bpt id="6d36f4c0-7872-4949-a73e-f2409ec8e98b">&lt;linkText&gt;</bpt>Xamarin.Android[get started with mobile services android]<ept id="6d36f4c0-7872-4949-a73e-f2409ec8e98b">&lt;/linkText&gt;</ept><bpt id="6d36f4c0-7872-4949-a73e-f2409ec8e98b">&lt;title&gt;</bpt><ept id="6d36f4c0-7872-4949-a73e-f2409ec8e98b">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn the basics of how to use Mobile Services.</source>
+          <target state="new">Get started with Mobile Services (<bpt id="7c6f7c2d-8ca5-4cda-bf28-badaa3f11950">&lt;linkText&gt;</bpt>Xamarin.iOS[get started with mobile services ios]<ept id="7c6f7c2d-8ca5-4cda-bf28-badaa3f11950">&lt;/linkText&gt;</ept><bpt id="7c6f7c2d-8ca5-4cda-bf28-badaa3f11950">&lt;title&gt;</bpt><ept id="7c6f7c2d-8ca5-4cda-bf28-badaa3f11950">&lt;/title&gt;</ept>/<bpt id="6d36f4c0-7872-4949-a73e-f2409ec8e98b">&lt;linkText&gt;</bpt>Xamarin.Android[get started with mobile services android]<ept id="6d36f4c0-7872-4949-a73e-f2409ec8e98b">&lt;/linkText&gt;</ept><bpt id="6d36f4c0-7872-4949-a73e-f2409ec8e98b">&lt;title&gt;</bpt><ept id="6d36f4c0-7872-4949-a73e-f2409ec8e98b">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn the basics of how to use Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="76c6e04d-6f40-4e84-a9a9-a90fa812be4b" xml:space="preserve">
+          <source>Get started with data (<bpt id="a2750c2a-6427-45fe-9c3f-4d3a91dd273a">&lt;linkText&gt;</bpt>Xamarin.iOS[get started with data ios]<ept id="a2750c2a-6427-45fe-9c3f-4d3a91dd273a">&lt;/linkText&gt;</ept><bpt id="a2750c2a-6427-45fe-9c3f-4d3a91dd273a">&lt;title&gt;</bpt><ept id="a2750c2a-6427-45fe-9c3f-4d3a91dd273a">&lt;/title&gt;</ept>/<bpt id="37286dfa-5510-4263-b5fc-a0df7aeb3406">&lt;linkText&gt;</bpt>Xamarin.Android[get started with data android]<ept id="37286dfa-5510-4263-b5fc-a0df7aeb3406">&lt;/linkText&gt;</ept><bpt id="37286dfa-5510-4263-b5fc-a0df7aeb3406">&lt;title&gt;</bpt><ept id="37286dfa-5510-4263-b5fc-a0df7aeb3406">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn more about storing and querying data using Mobile Services.</source>
+          <target state="new">Get started with data (<bpt id="a2750c2a-6427-45fe-9c3f-4d3a91dd273a">&lt;linkText&gt;</bpt>Xamarin.iOS[get started with data ios]<ept id="a2750c2a-6427-45fe-9c3f-4d3a91dd273a">&lt;/linkText&gt;</ept><bpt id="a2750c2a-6427-45fe-9c3f-4d3a91dd273a">&lt;title&gt;</bpt><ept id="a2750c2a-6427-45fe-9c3f-4d3a91dd273a">&lt;/title&gt;</ept>/<bpt id="37286dfa-5510-4263-b5fc-a0df7aeb3406">&lt;linkText&gt;</bpt>Xamarin.Android[get started with data android]<ept id="37286dfa-5510-4263-b5fc-a0df7aeb3406">&lt;/linkText&gt;</ept><bpt id="37286dfa-5510-4263-b5fc-a0df7aeb3406">&lt;title&gt;</bpt><ept id="37286dfa-5510-4263-b5fc-a0df7aeb3406">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn more about storing and querying data using Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="d260a0dd-6e1c-4ea5-b31d-d08a8aead7eb" xml:space="preserve">
+          <source>Get started with authentication (<bpt id="a363c327-bef6-4acd-aed8-c2e789478628">&lt;linkText&gt;</bpt>Xamarin.iOS[get started with authentication ios]<ept id="a363c327-bef6-4acd-aed8-c2e789478628">&lt;/linkText&gt;</ept><bpt id="a363c327-bef6-4acd-aed8-c2e789478628">&lt;title&gt;</bpt><ept id="a363c327-bef6-4acd-aed8-c2e789478628">&lt;/title&gt;</ept>/<bpt id="d8f7ff90-1405-468c-ab52-6ff019fc39d1">&lt;linkText&gt;</bpt>Xamarin.Android[get started with authentication android]<ept id="d8f7ff90-1405-468c-ab52-6ff019fc39d1">&lt;/linkText&gt;</ept><bpt id="d8f7ff90-1405-468c-ab52-6ff019fc39d1">&lt;title&gt;</bpt><ept id="d8f7ff90-1405-468c-ab52-6ff019fc39d1">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn how to authenticate users of your app with an identity provider.</source>
+          <target state="new">Get started with authentication (<bpt id="a363c327-bef6-4acd-aed8-c2e789478628">&lt;linkText&gt;</bpt>Xamarin.iOS[get started with authentication ios]<ept id="a363c327-bef6-4acd-aed8-c2e789478628">&lt;/linkText&gt;</ept><bpt id="a363c327-bef6-4acd-aed8-c2e789478628">&lt;title&gt;</bpt><ept id="a363c327-bef6-4acd-aed8-c2e789478628">&lt;/title&gt;</ept>/<bpt id="d8f7ff90-1405-468c-ab52-6ff019fc39d1">&lt;linkText&gt;</bpt>Xamarin.Android[get started with authentication android]<ept id="d8f7ff90-1405-468c-ab52-6ff019fc39d1">&lt;/linkText&gt;</ept><bpt id="d8f7ff90-1405-468c-ab52-6ff019fc39d1">&lt;title&gt;</bpt><ept id="d8f7ff90-1405-468c-ab52-6ff019fc39d1">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn how to authenticate users of your app with an identity provider.</target>
+        </trans-unit>
+        <trans-unit id="8f7604ec-1198-4a2a-8f53-55cb8f31c17b" xml:space="preserve">
+          <source>Validate and modify data with scripts (<bpt id="424f5353-458c-4920-9c2d-d589144da181">&lt;linkText&gt;</bpt>Xamarin.iOS[validate and modify data with scripts ios]<ept id="424f5353-458c-4920-9c2d-d589144da181">&lt;/linkText&gt;</ept><bpt id="424f5353-458c-4920-9c2d-d589144da181">&lt;title&gt;</bpt><ept id="424f5353-458c-4920-9c2d-d589144da181">&lt;/title&gt;</ept>/<bpt id="b097ce93-1eb5-4601-b052-fc3edeb93520">&lt;linkText&gt;</bpt>Xamarin.Android[validate and modify data with scripts android]<ept id="b097ce93-1eb5-4601-b052-fc3edeb93520">&lt;/linkText&gt;</ept><bpt id="b097ce93-1eb5-4601-b052-fc3edeb93520">&lt;title&gt;</bpt><ept id="b097ce93-1eb5-4601-b052-fc3edeb93520">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn more about using server scripts in Mobile Services to validate and change data sent from your app.</source>
+          <target state="new">Validate and modify data with scripts (<bpt id="424f5353-458c-4920-9c2d-d589144da181">&lt;linkText&gt;</bpt>Xamarin.iOS[validate and modify data with scripts ios]<ept id="424f5353-458c-4920-9c2d-d589144da181">&lt;/linkText&gt;</ept><bpt id="424f5353-458c-4920-9c2d-d589144da181">&lt;title&gt;</bpt><ept id="424f5353-458c-4920-9c2d-d589144da181">&lt;/title&gt;</ept>/<bpt id="b097ce93-1eb5-4601-b052-fc3edeb93520">&lt;linkText&gt;</bpt>Xamarin.Android[validate and modify data with scripts android]<ept id="b097ce93-1eb5-4601-b052-fc3edeb93520">&lt;/linkText&gt;</ept><bpt id="b097ce93-1eb5-4601-b052-fc3edeb93520">&lt;title&gt;</bpt><ept id="b097ce93-1eb5-4601-b052-fc3edeb93520">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn more about using server scripts in Mobile Services to validate and change data sent from your app.</target>
+        </trans-unit>
+        <trans-unit id="de3916db-64a0-4276-a231-09f9266e3fe3" xml:space="preserve">
+          <source>Refine queries with paging (<bpt id="633fe873-095c-475e-821a-6c793ce92215">&lt;linkText&gt;</bpt>Xamarin.iOS[refine queries with paging ios]<ept id="633fe873-095c-475e-821a-6c793ce92215">&lt;/linkText&gt;</ept><bpt id="633fe873-095c-475e-821a-6c793ce92215">&lt;title&gt;</bpt><ept id="633fe873-095c-475e-821a-6c793ce92215">&lt;/title&gt;</ept>/<bpt id="0a12ad9e-8699-42db-8587-5e29d52b9256">&lt;linkText&gt;</bpt>Xamarin.Android[refine queries with paging android]<ept id="0a12ad9e-8699-42db-8587-5e29d52b9256">&lt;/linkText&gt;</ept><bpt id="0a12ad9e-8699-42db-8587-5e29d52b9256">&lt;title&gt;</bpt><ept id="0a12ad9e-8699-42db-8587-5e29d52b9256">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn how to use paging in queries to control the amount of data handled in a single request.</source>
+          <target state="new">Refine queries with paging (<bpt id="633fe873-095c-475e-821a-6c793ce92215">&lt;linkText&gt;</bpt>Xamarin.iOS[refine queries with paging ios]<ept id="633fe873-095c-475e-821a-6c793ce92215">&lt;/linkText&gt;</ept><bpt id="633fe873-095c-475e-821a-6c793ce92215">&lt;title&gt;</bpt><ept id="633fe873-095c-475e-821a-6c793ce92215">&lt;/title&gt;</ept>/<bpt id="0a12ad9e-8699-42db-8587-5e29d52b9256">&lt;linkText&gt;</bpt>Xamarin.Android[refine queries with paging android]<ept id="0a12ad9e-8699-42db-8587-5e29d52b9256">&lt;/linkText&gt;</ept><bpt id="0a12ad9e-8699-42db-8587-5e29d52b9256">&lt;title&gt;</bpt><ept id="0a12ad9e-8699-42db-8587-5e29d52b9256">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn how to use paging in queries to control the amount of data handled in a single request.</target>
+        </trans-unit>
+        <trans-unit id="100ca2f3-4e55-44fb-9fd5-becedd1a664d" xml:space="preserve">
+          <source>Authorize users with scripts (<bpt id="ac383e9a-9a5b-4c8c-9ba5-24c1cca7794a">&lt;linkText&gt;</bpt>Xamarin.iOS[authorize users with scripts ios]<ept id="ac383e9a-9a5b-4c8c-9ba5-24c1cca7794a">&lt;/linkText&gt;</ept><bpt id="ac383e9a-9a5b-4c8c-9ba5-24c1cca7794a">&lt;title&gt;</bpt><ept id="ac383e9a-9a5b-4c8c-9ba5-24c1cca7794a">&lt;/title&gt;</ept>/<bpt id="2d5dd43c-6b27-4554-a270-de6748c960ac">&lt;linkText&gt;</bpt>Xamarin.Android[authorize users with scripts android]<ept id="2d5dd43c-6b27-4554-a270-de6748c960ac">&lt;/linkText&gt;</ept><bpt id="2d5dd43c-6b27-4554-a270-de6748c960ac">&lt;title&gt;</bpt><ept id="2d5dd43c-6b27-4554-a270-de6748c960ac">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn how to take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.</source>
+          <target state="new">Authorize users with scripts (<bpt id="ac383e9a-9a5b-4c8c-9ba5-24c1cca7794a">&lt;linkText&gt;</bpt>Xamarin.iOS[authorize users with scripts ios]<ept id="ac383e9a-9a5b-4c8c-9ba5-24c1cca7794a">&lt;/linkText&gt;</ept><bpt id="ac383e9a-9a5b-4c8c-9ba5-24c1cca7794a">&lt;title&gt;</bpt><ept id="ac383e9a-9a5b-4c8c-9ba5-24c1cca7794a">&lt;/title&gt;</ept>/<bpt id="2d5dd43c-6b27-4554-a270-de6748c960ac">&lt;linkText&gt;</bpt>Xamarin.Android[authorize users with scripts android]<ept id="2d5dd43c-6b27-4554-a270-de6748c960ac">&lt;/linkText&gt;</ept><bpt id="2d5dd43c-6b27-4554-a270-de6748c960ac">&lt;title&gt;</bpt><ept id="2d5dd43c-6b27-4554-a270-de6748c960ac">&lt;/title&gt;</ept>)
+&lt;br/&gt;Learn how to take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="327489ae-4e48-4160-8031-ade1a69fb80a" xml:space="preserve">
+          <source>#what-is</source>
+          <target state="new">#what-is</target>
+        </trans-unit>
+        <trans-unit id="505560ec-f1b3-430c-b968-c3a9ac4cee63" xml:space="preserve">
+          <source>#concepts</source>
+          <target state="new">#concepts</target>
+        </trans-unit>
+        <trans-unit id="af8c7eb5-ef6d-4740-a139-1a46ed68a01a" xml:space="preserve">
+          <source>#create-client</source>
+          <target state="new">#create-client</target>
+        </trans-unit>
+        <trans-unit id="c7b0587a-b924-4d75-a115-0911aafbbe29" xml:space="preserve">
+          <source>#instantiating</source>
+          <target state="new">#instantiating</target>
+        </trans-unit>
+        <trans-unit id="8407f57b-075e-4d07-82ce-5e3f9209e13f" xml:space="preserve">
+          <source>#querying</source>
+          <target state="new">#querying</target>
+        </trans-unit>
+        <trans-unit id="fb7a5b42-9dac-4703-96a8-c56a04c12284" xml:space="preserve">
+          <source>#filtering</source>
+          <target state="new">#filtering</target>
+        </trans-unit>
+        <trans-unit id="eee836cf-e357-4715-8e1b-c2efa52e6627" xml:space="preserve">
+          <source>#sorting</source>
+          <target state="new">#sorting</target>
+        </trans-unit>
+        <trans-unit id="4ecbdbeb-7da3-43ca-a531-6565ec541940" xml:space="preserve">
+          <source>#paging</source>
+          <target state="new">#paging</target>
+        </trans-unit>
+        <trans-unit id="652cbcb7-a20d-4699-ae82-deca33dc24bf" xml:space="preserve">
+          <source>#selecting</source>
+          <target state="new">#selecting</target>
+        </trans-unit>
+        <trans-unit id="9892fe44-9c69-4093-a069-094d12932023" xml:space="preserve">
+          <source>#lookingup</source>
+          <target state="new">#lookingup</target>
+        </trans-unit>
+        <trans-unit id="df6ea666-0c4f-4f4a-a45b-69d46b9b432e" xml:space="preserve">
+          <source>#binding</source>
+          <target state="new">#binding</target>
+        </trans-unit>
+        <trans-unit id="952e1570-2867-42f8-914c-885b983e8de1" xml:space="preserve">
+          <source>#inserting</source>
+          <target state="new">#inserting</target>
+        </trans-unit>
+        <trans-unit id="d267cce0-bd8c-49b4-bca2-447323becdde" xml:space="preserve">
+          <source>#modifying</source>
+          <target state="new">#modifying</target>
+        </trans-unit>
+        <trans-unit id="9bf8ddf8-d08d-4796-815c-419b89451f98" xml:space="preserve">
+          <source>#deleting</source>
+          <target state="new">#deleting</target>
+        </trans-unit>
+        <trans-unit id="6cde5d7b-c31f-4750-8234-9b6eca6ac4d5" xml:space="preserve">
+          <source>#authentication</source>
+          <target state="new">#authentication</target>
+        </trans-unit>
+        <trans-unit id="152fce42-ac22-492f-ac61-660ccbd1e909" xml:space="preserve">
+          <source>#errors</source>
+          <target state="new">#errors</target>
+        </trans-unit>
+        <trans-unit id="d851db38-d18b-4715-9c29-e2ca74a0c7d1" xml:space="preserve">
+          <source>#unit-testing</source>
+          <target state="new">#unit-testing</target>
+        </trans-unit>
+        <trans-unit id="16569bf3-2d5e-45c1-bdc5-bb16abb9f401" xml:space="preserve">
+          <source>#querying</source>
+          <target state="new">#querying</target>
+        </trans-unit>
+        <trans-unit id="57c2b439-7b01-49c9-a71d-12f2b961e001" xml:space="preserve">
+          <source>#customizing</source>
+          <target state="new">#customizing</target>
+        </trans-unit>
+        <trans-unit id="6326beb1-c478-40e0-b8bf-fcf897eb3272" xml:space="preserve">
+          <source>#untyped</source>
+          <target state="new">#untyped</target>
+        </trans-unit>
+        <trans-unit id="7ab078c6-52bf-4df9-bd9e-920de2afc566" xml:space="preserve">
+          <source>#headers</source>
+          <target state="new">#headers</target>
+        </trans-unit>
+        <trans-unit id="d11041ca-b08e-4b7c-a7c7-d5ba82ca611d" xml:space="preserve">
+          <source>#serialization</source>
+          <target state="new">#serialization</target>
+        </trans-unit>
+        <trans-unit id="3eb007da-1b13-49d9-be8e-555ea6e73dfa" xml:space="preserve">
+          <source>#nextsteps</source>
+          <target state="new">#nextsteps</target>
+        </trans-unit>
+        <trans-unit id="e59ae4ad-73cc-4436-baab-32406781bc5b" xml:space="preserve">
+          <source>#caching</source>
+          <target state="new">#caching</target>
+        </trans-unit>
+        <trans-unit id="95d74514-effe-4fb1-ac6c-3352d8815334" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/get-started-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="1a000bf8-a95c-4c0e-81f2-089eb5189680" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-xamarin-android</source>
+          <target state="new">/develop/mobile/tutorials/get-started-xamarin-android</target>
+        </trans-unit>
+        <trans-unit id="80e65f7f-c289-4707-99a8-abc5e53e1e7a" xml:space="preserve">
+          <source>http://xamarin.com/download/</source>
+          <target state="new">http://xamarin.com/download/</target>
+        </trans-unit>
+        <trans-unit id="efded2cb-f97b-4663-b2f1-5772855e6a45" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=257545</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=257545</target>
+        </trans-unit>
+        <trans-unit id="2f8cd48f-c3de-4ae7-b26c-e652f0b33406" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-xamarin-ios/</source>
+          <target state="new">/develop/mobile/tutorials/get-started-xamarin-ios/</target>
+        </trans-unit>
+        <trans-unit id="e99cafbd-179c-42f3-838b-524cb4ddf8f7" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-xamarin-android/</source>
+          <target state="new">/develop/mobile/tutorials/get-started-xamarin-android/</target>
+        </trans-unit>
+        <trans-unit id="97a7db46-7d51-45b2-8ae1-f96111f0b06c" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-data-xamarin-ios/</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-data-xamarin-ios/</target>
+        </trans-unit>
+        <trans-unit id="3b2b1c9a-79bc-44e8-bac3-eb1959215d72" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-data-xamarin-android/</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-data-xamarin-android/</target>
+        </trans-unit>
+        <trans-unit id="5a49bf5f-8d32-4810-a415-4678643c0db8" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-users-xamarin-ios/</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-users-xamarin-ios/</target>
+        </trans-unit>
+        <trans-unit id="20ed8a90-781d-4d2a-a2f0-766e6ac06c45" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-users-xamarin-android/</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-users-xamarin-android/</target>
+        </trans-unit>
+        <trans-unit id="ff07bf9a-2963-4beb-ae7a-7d3ce2a897a5" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=257545</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=257545</target>
+        </trans-unit>
+        <trans-unit id="fcf2508a-17a0-476b-9b0a-b77e732a9e49" xml:space="preserve">
+          <source>https://components.xamarin.com/view/xamarin.auth</source>
+          <target state="new">https://components.xamarin.com/view/xamarin.auth</target>
+        </trans-unit>
+        <trans-unit id="931102cf-0d7e-4308-9c11-2ab32bb96a87" xml:space="preserve">
+          <source>http://nuget.org/packages/WindowsAzure.MobileServices/</source>
+          <target state="new">http://nuget.org/packages/WindowsAzure.MobileServices/</target>
+        </trans-unit>
+        <trans-unit id="837bac91-2326-49fc-a40f-55b1efd5e7db" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-data-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-data-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="8b58cfa2-03a1-441e-b28b-bcbe5807ac93" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-data-xamarin-android</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-data-xamarin-android</target>
+        </trans-unit>
+        <trans-unit id="4a62ee76-3a21-44eb-90b0-18802b38eba0" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-users-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-users-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="b90ef247-0798-493b-99d0-d4a2eac10843" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-users-xamarin-android</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-users-xamarin-android</target>
+        </trans-unit>
+        <trans-unit id="42ea615f-d8a4-4366-9747-2be298c7abb8" xml:space="preserve">
+          <source>/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="8b0240b6-7dea-4011-8b89-837cad564e10" xml:space="preserve">
+          <source>/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android</source>
+          <target state="new">/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android</target>
+        </trans-unit>
+        <trans-unit id="4e9e4838-7bd6-48fd-b40a-a745b57f85ea" xml:space="preserve">
+          <source>/develop/mobile/tutorials/add-paging-to-data-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/add-paging-to-data-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="125ae886-638c-40e8-9885-0895a9560117" xml:space="preserve">
+          <source>/develop/mobile/tutorials/add-paging-to-data-xamarin-android</source>
+          <target state="new">/develop/mobile/tutorials/add-paging-to-data-xamarin-android</target>
+        </trans-unit>
+        <trans-unit id="53172f18-6487-4743-b259-bb7060962137" xml:space="preserve">
+          <source>/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="0ae7e2c5-d457-4f3e-8c35-bb820d942cf6" xml:space="preserve">
+          <source>/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android</source>
+          <target state="new">/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android</target>
+        </trans-unit>
+        <trans-unit id="e831f51d-329e-4fa4-82e9-2de346545030" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx</target>
+        </trans-unit>
+        <trans-unit id="43d01127-5dee-43e5-b4b0-1c14b69476f0" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx</target>
+        </trans-unit>
+        <trans-unit id="bf315018-b5e8-4ed5-bba9-4630813d6900" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx</target>
+        </trans-unit>
+        <trans-unit id="a1309558-b6bb-4bf1-a361-b2daf7683504" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx</target>
+        </trans-unit>
+        <trans-unit id="e4f730ab-b54a-4f91-8045-64e0e4e0961d" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="71215462-055b-491b-9216-c49849e369f8" />
+    </body>
+  </file>
+</xliff>

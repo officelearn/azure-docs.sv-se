@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cc44466b-2eda-4ed5-b43e-4d91869d4aa6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cc44466b-2eda-4ed5-b43e-4d91869d4aa6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c1c9b01d-9da1-488b-83b2-6d18c4566b10">
+        <trans-unit id="5f341e28-e509-4f6f-895a-0dc861c6fe1c" xml:space="preserve">
+          <source>How to use Queue storage from Java | Microsoft Azure</source>
+          <target state="new">How to use Queue storage from Java | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ab73e19a-784f-47c7-b077-0d80525b7930" xml:space="preserve">
+          <source>Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java.</source>
+          <target state="new">Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java.</target>
+        </trans-unit>
+        <trans-unit id="34b38ac4-614a-4144-a304-aac475d63c26" xml:space="preserve">
+          <source><bpt id="8058dd1a-459c-4c4e-b031-799910135c81">&lt;token href="../../includes/storage-selector-queue-include.md"&gt;</bpt><ept id="8058dd1a-459c-4c4e-b031-799910135c81">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8058dd1a-459c-4c4e-b031-799910135c81">&lt;token href="../../includes/storage-selector-queue-include.md"&gt;</bpt><ept id="8058dd1a-459c-4c4e-b031-799910135c81">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c794098d-a9a2-47d4-9956-7e26559f0a84" xml:space="preserve">
+          <source>This guide will show you how to perform common scenarios using the Azure Queue storage service.</source>
+          <target state="new">This guide will show you how to perform common scenarios using the Azure Queue storage service.</target>
+        </trans-unit>
+        <trans-unit id="3f55651f-282b-41fa-a5b2-f33f69b82649" xml:space="preserve">
+          <source>The samples are written in Java and use the <bpt id="875de38e-e3d1-4959-a45b-1e6e93e19e43">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="875de38e-e3d1-4959-a45b-1e6e93e19e43">&lt;/linkText&gt;</ept><bpt id="875de38e-e3d1-4959-a45b-1e6e93e19e43">&lt;title&gt;</bpt><ept id="875de38e-e3d1-4959-a45b-1e6e93e19e43">&lt;/title&gt;</ept>.</source>
+          <target state="new">The samples are written in Java and use the <bpt id="875de38e-e3d1-4959-a45b-1e6e93e19e43">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="875de38e-e3d1-4959-a45b-1e6e93e19e43">&lt;/linkText&gt;</ept><bpt id="875de38e-e3d1-4959-a45b-1e6e93e19e43">&lt;title&gt;</bpt><ept id="875de38e-e3d1-4959-a45b-1e6e93e19e43">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2cc767a6-b559-4146-a87c-35954fb8108f" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="3e2ecbf1-c594-411c-be8f-6f49e34d7971">&lt;strong&gt;</bpt>inserting<ept id="3e2ecbf1-c594-411c-be8f-6f49e34d7971">&lt;/strong&gt;</ept>, <bpt id="53bbcb6a-d569-4904-9ce7-b2d8d37e193c">&lt;strong&gt;</bpt>peeking<ept id="53bbcb6a-d569-4904-9ce7-b2d8d37e193c">&lt;/strong&gt;</ept>, <bpt id="df1e8c04-b2a4-4c74-8ebb-8cc4308bc2c9">&lt;strong&gt;</bpt>getting<ept id="df1e8c04-b2a4-4c74-8ebb-8cc4308bc2c9">&lt;/strong&gt;</ept>, and <bpt id="8535e021-d728-4b5b-a5b5-0f4127937e1d">&lt;strong&gt;</bpt>deleting<ept id="8535e021-d728-4b5b-a5b5-0f4127937e1d">&lt;/strong&gt;</ept> queue messages, as well as <bpt id="4c33f390-d4ba-41e5-a276-4cfa49bb5010">&lt;strong&gt;</bpt>creating<ept id="4c33f390-d4ba-41e5-a276-4cfa49bb5010">&lt;/strong&gt;</ept> and <bpt id="e42f0412-4efa-49f7-a935-d66df33e2123">&lt;strong&gt;</bpt>deleting<ept id="e42f0412-4efa-49f7-a935-d66df33e2123">&lt;/strong&gt;</ept> queues.</source>
+          <target state="new">The scenarios covered include <bpt id="3e2ecbf1-c594-411c-be8f-6f49e34d7971">&lt;strong&gt;</bpt>inserting<ept id="3e2ecbf1-c594-411c-be8f-6f49e34d7971">&lt;/strong&gt;</ept>, <bpt id="53bbcb6a-d569-4904-9ce7-b2d8d37e193c">&lt;strong&gt;</bpt>peeking<ept id="53bbcb6a-d569-4904-9ce7-b2d8d37e193c">&lt;/strong&gt;</ept>, <bpt id="df1e8c04-b2a4-4c74-8ebb-8cc4308bc2c9">&lt;strong&gt;</bpt>getting<ept id="df1e8c04-b2a4-4c74-8ebb-8cc4308bc2c9">&lt;/strong&gt;</ept>, and <bpt id="8535e021-d728-4b5b-a5b5-0f4127937e1d">&lt;strong&gt;</bpt>deleting<ept id="8535e021-d728-4b5b-a5b5-0f4127937e1d">&lt;/strong&gt;</ept> queue messages, as well as <bpt id="4c33f390-d4ba-41e5-a276-4cfa49bb5010">&lt;strong&gt;</bpt>creating<ept id="4c33f390-d4ba-41e5-a276-4cfa49bb5010">&lt;/strong&gt;</ept> and <bpt id="e42f0412-4efa-49f7-a935-d66df33e2123">&lt;strong&gt;</bpt>deleting<ept id="e42f0412-4efa-49f7-a935-d66df33e2123">&lt;/strong&gt;</ept> queues.</target>
+        </trans-unit>
+        <trans-unit id="99da83db-9974-4609-aba8-70a44ce55977" xml:space="preserve">
+          <source>For more information on queues, see the <bpt id="a76c1140-f06e-47c3-9463-5e8d21ca276b">&lt;linkText&gt;</bpt>Next steps<ept id="a76c1140-f06e-47c3-9463-5e8d21ca276b">&lt;/linkText&gt;</ept><bpt id="a76c1140-f06e-47c3-9463-5e8d21ca276b">&lt;title&gt;</bpt><ept id="a76c1140-f06e-47c3-9463-5e8d21ca276b">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information on queues, see the <bpt id="a76c1140-f06e-47c3-9463-5e8d21ca276b">&lt;linkText&gt;</bpt>Next steps<ept id="a76c1140-f06e-47c3-9463-5e8d21ca276b">&lt;/linkText&gt;</ept><bpt id="a76c1140-f06e-47c3-9463-5e8d21ca276b">&lt;title&gt;</bpt><ept id="a76c1140-f06e-47c3-9463-5e8d21ca276b">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="420aa3c7-a04e-4d2b-a8af-98e1ca01c08c" xml:space="preserve">
+          <source>Note: An SDK is available for developers who are using Azure Storage on Android devices.</source>
+          <target state="new">Note: An SDK is available for developers who are using Azure Storage on Android devices.</target>
+        </trans-unit>
+        <trans-unit id="0146ee90-fc5b-40e6-8aaa-247ffa69d8ab" xml:space="preserve">
+          <source>For more information, see the <bpt id="dfc71067-7434-4e53-a327-822fd4e9a209">&lt;linkText&gt;</bpt>Azure Storage SDK for Android<ept id="dfc71067-7434-4e53-a327-822fd4e9a209">&lt;/linkText&gt;</ept><bpt id="dfc71067-7434-4e53-a327-822fd4e9a209">&lt;title&gt;</bpt><ept id="dfc71067-7434-4e53-a327-822fd4e9a209">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="dfc71067-7434-4e53-a327-822fd4e9a209">&lt;linkText&gt;</bpt>Azure Storage SDK for Android<ept id="dfc71067-7434-4e53-a327-822fd4e9a209">&lt;/linkText&gt;</ept><bpt id="dfc71067-7434-4e53-a327-822fd4e9a209">&lt;title&gt;</bpt><ept id="dfc71067-7434-4e53-a327-822fd4e9a209">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13152f21-75e6-4d03-b036-470a2802f1a2" xml:space="preserve">
+          <source><bpt id="cb60f85d-d144-47e3-84b4-250f98f1b427">&lt;token href="../../includes/storage-queue-concepts-include.md"&gt;</bpt><ept id="cb60f85d-d144-47e3-84b4-250f98f1b427">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="cb60f85d-d144-47e3-84b4-250f98f1b427">&lt;token href="../../includes/storage-queue-concepts-include.md"&gt;</bpt><ept id="cb60f85d-d144-47e3-84b4-250f98f1b427">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61d733ef-d01f-406d-aabc-4498db68298a" xml:space="preserve">
+          <source><bpt id="7108555e-3b31-4258-b392-92d258dab9be">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="7108555e-3b31-4258-b392-92d258dab9be">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7108555e-3b31-4258-b392-92d258dab9be">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="7108555e-3b31-4258-b392-92d258dab9be">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="754f2ed0-31eb-44f8-9d61-e1cbd015f707" xml:space="preserve">
+          <source>In this guide, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.</source>
+          <target state="new">In this guide, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.</target>
+        </trans-unit>
+        <trans-unit id="143a80e4-b06e-4e42-b632-d5f773e251d0" xml:space="preserve">
+          <source>To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription.</source>
+          <target state="new">To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="8c3e66c5-2a1d-41df-b13f-73c0f0ad0545" xml:space="preserve">
+          <source>Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the <bpt id="142c167c-e92b-4171-8a39-208e93e5feff">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="142c167c-e92b-4171-8a39-208e93e5feff">&lt;/linkText&gt;</ept><bpt id="142c167c-e92b-4171-8a39-208e93e5feff">&lt;title&gt;</bpt><ept id="142c167c-e92b-4171-8a39-208e93e5feff">&lt;/title&gt;</ept> repository on GitHub.</source>
+          <target state="new">Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the <bpt id="142c167c-e92b-4171-8a39-208e93e5feff">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="142c167c-e92b-4171-8a39-208e93e5feff">&lt;/linkText&gt;</ept><bpt id="142c167c-e92b-4171-8a39-208e93e5feff">&lt;title&gt;</bpt><ept id="142c167c-e92b-4171-8a39-208e93e5feff">&lt;/title&gt;</ept> repository on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="25fdd829-e422-4cb6-a170-fbffa0a955dc" xml:space="preserve">
+          <source>If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository.</source>
+          <target state="new">If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository.</target>
+        </trans-unit>
+        <trans-unit id="f5e6363c-e2eb-46ad-8935-fb6ec6e57b07" xml:space="preserve">
+          <source>Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.</source>
+          <target state="new">Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.</target>
+        </trans-unit>
+        <trans-unit id="5a333ee7-15a4-4d01-9331-b2df8cbe1fc2" xml:space="preserve">
+          <source>Add the following import statements to the top of the Java file where you want to use Azure storage APIs to access queues:</source>
+          <target state="new">Add the following import statements to the top of the Java file where you want to use Azure storage APIs to access queues:</target>
+        </trans-unit>
+        <trans-unit id="b2a0d6d6-a683-4e66-90ac-a0a7d839f369" xml:space="preserve">
+          <source>An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services.</source>
+          <target state="new">An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services.</target>
+        </trans-unit>
+        <trans-unit id="254ad151-9bea-4f2d-8e8b-2b2c0922e0e3" xml:space="preserve">
+          <source>When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the <bpt id="a255b2f0-51a6-48d7-aeec-084fb4c2ecef">&lt;em&gt;</bpt>AccountName<ept id="a255b2f0-51a6-48d7-aeec-084fb4c2ecef">&lt;/em&gt;</ept> and <bpt id="04101580-059c-43f7-aac8-cff0ec73cb4d">&lt;em&gt;</bpt>AccountKey<ept id="04101580-059c-43f7-aac8-cff0ec73cb4d">&lt;/em&gt;</ept> values.</source>
+          <target state="new">When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the <bpt id="a255b2f0-51a6-48d7-aeec-084fb4c2ecef">&lt;em&gt;</bpt>AccountName<ept id="a255b2f0-51a6-48d7-aeec-084fb4c2ecef">&lt;/em&gt;</ept> and <bpt id="04101580-059c-43f7-aac8-cff0ec73cb4d">&lt;em&gt;</bpt>AccountKey<ept id="04101580-059c-43f7-aac8-cff0ec73cb4d">&lt;/em&gt;</ept> values.</target>
+        </trans-unit>
+        <trans-unit id="58904e28-c786-4253-a552-0807e6fc76df" xml:space="preserve">
+          <source>This example shows how you can declare a static field to hold the connection string:</source>
+          <target state="new">This example shows how you can declare a static field to hold the connection string:</target>
+        </trans-unit>
+        <trans-unit id="9533ec4b-4c5c-493d-b827-33d20107fa9a" xml:space="preserve">
+          <source>In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, <bpt id="df6bc6af-445b-4e57-a09b-2c22eb959628">&lt;em&gt;</bpt>ServiceConfiguration.cscfg<ept id="df6bc6af-445b-4e57-a09b-2c22eb959628">&lt;/em&gt;</ept>, and can be accessed with a call to the <bpt id="1d801eb9-10a9-4007-bd6f-c50e5404a856">&lt;strong&gt;</bpt>RoleEnvironment.getConfigurationSettings<ept id="1d801eb9-10a9-4007-bd6f-c50e5404a856">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, <bpt id="df6bc6af-445b-4e57-a09b-2c22eb959628">&lt;em&gt;</bpt>ServiceConfiguration.cscfg<ept id="df6bc6af-445b-4e57-a09b-2c22eb959628">&lt;/em&gt;</ept>, and can be accessed with a call to the <bpt id="1d801eb9-10a9-4007-bd6f-c50e5404a856">&lt;strong&gt;</bpt>RoleEnvironment.getConfigurationSettings<ept id="1d801eb9-10a9-4007-bd6f-c50e5404a856">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="61cdb375-07f1-4654-802b-02238fa9b506" xml:space="preserve">
+          <source>Here's an example of getting the connection string from a <bpt id="89e05c9f-911e-4ba0-b138-d3ac06ebcca6">&lt;strong&gt;</bpt>Setting<ept id="89e05c9f-911e-4ba0-b138-d3ac06ebcca6">&lt;/strong&gt;</ept> element named <bpt id="3229e978-be5a-4b18-91b5-5fd617838441">&lt;em&gt;</bpt>StorageConnectionString<ept id="3229e978-be5a-4b18-91b5-5fd617838441">&lt;/em&gt;</ept> in the service configuration file:</source>
+          <target state="new">Here's an example of getting the connection string from a <bpt id="89e05c9f-911e-4ba0-b138-d3ac06ebcca6">&lt;strong&gt;</bpt>Setting<ept id="89e05c9f-911e-4ba0-b138-d3ac06ebcca6">&lt;/strong&gt;</ept> element named <bpt id="3229e978-be5a-4b18-91b5-5fd617838441">&lt;em&gt;</bpt>StorageConnectionString<ept id="3229e978-be5a-4b18-91b5-5fd617838441">&lt;/em&gt;</ept> in the service configuration file:</target>
+        </trans-unit>
+        <trans-unit id="48fae9a0-9330-4ae1-a6b7-422fa1c9cb43" xml:space="preserve">
+          <source>The following samples assume that you have used one of these two methods to get the storage connection string.</source>
+          <target state="new">The following samples assume that you have used one of these two methods to get the storage connection string.</target>
+        </trans-unit>
+        <trans-unit id="c8fc1050-e234-42bb-96d4-cbd9a909c5c5" xml:space="preserve">
+          <source>A <bpt id="b9f03974-c4ee-469f-b687-dcdae6a1a685">&lt;strong&gt;</bpt>CloudQueueClient<ept id="b9f03974-c4ee-469f-b687-dcdae6a1a685">&lt;/strong&gt;</ept> object lets you get reference objects for queues.</source>
+          <target state="new">A <bpt id="b9f03974-c4ee-469f-b687-dcdae6a1a685">&lt;strong&gt;</bpt>CloudQueueClient<ept id="b9f03974-c4ee-469f-b687-dcdae6a1a685">&lt;/strong&gt;</ept> object lets you get reference objects for queues.</target>
+        </trans-unit>
+        <trans-unit id="2fd7e516-a660-454e-91c1-9503622821af" xml:space="preserve">
+          <source>The following code creates a <bpt id="2b655380-0b01-489e-a79c-11eb2514aa88">&lt;strong&gt;</bpt>CloudQueueClient<ept id="2b655380-0b01-489e-a79c-11eb2514aa88">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">The following code creates a <bpt id="2b655380-0b01-489e-a79c-11eb2514aa88">&lt;strong&gt;</bpt>CloudQueueClient<ept id="2b655380-0b01-489e-a79c-11eb2514aa88">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="9a457941-d476-4ff6-862e-8dcde56935ef" xml:space="preserve">
+          <source>(Note: There are additional ways to create <bpt id="f613cf82-c10f-4fed-b1df-bb8ef574fc83">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="f613cf82-c10f-4fed-b1df-bb8ef574fc83">&lt;/strong&gt;</ept> objects; for more information, see <bpt id="61b3ab91-151e-428a-b8ad-2c1cbb68234c">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="61b3ab91-151e-428a-b8ad-2c1cbb68234c">&lt;/strong&gt;</ept> in the [Azure Storage Client SDK Reference].)</source>
+          <target state="new">(Note: There are additional ways to create <bpt id="f613cf82-c10f-4fed-b1df-bb8ef574fc83">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="f613cf82-c10f-4fed-b1df-bb8ef574fc83">&lt;/strong&gt;</ept> objects; for more information, see <bpt id="61b3ab91-151e-428a-b8ad-2c1cbb68234c">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="61b3ab91-151e-428a-b8ad-2c1cbb68234c">&lt;/strong&gt;</ept> in the [Azure Storage Client SDK Reference].)</target>
+        </trans-unit>
+        <trans-unit id="2c066e6b-5a32-4fbe-a493-606b044a4f52" xml:space="preserve">
+          <source>Use the <bpt id="ef6b7190-241d-43e6-97b7-5c75b68d9701">&lt;strong&gt;</bpt>CloudQueueClient<ept id="ef6b7190-241d-43e6-97b7-5c75b68d9701">&lt;/strong&gt;</ept> object to get a reference to the queue you want to use.</source>
+          <target state="new">Use the <bpt id="ef6b7190-241d-43e6-97b7-5c75b68d9701">&lt;strong&gt;</bpt>CloudQueueClient<ept id="ef6b7190-241d-43e6-97b7-5c75b68d9701">&lt;/strong&gt;</ept> object to get a reference to the queue you want to use.</target>
+        </trans-unit>
+        <trans-unit id="4f628be8-955d-441a-848c-dd32ced876ff" xml:space="preserve">
+          <source>You can create the queue if it doesn't exist.</source>
+          <target state="new">You can create the queue if it doesn't exist.</target>
+        </trans-unit>
+        <trans-unit id="80649014-ebd9-4751-bda0-4fa43bab77f8" xml:space="preserve">
+          <source>To insert a message into an existing queue, first create a new <bpt id="bae63e7c-eac4-4e42-a40e-2d913a657040">&lt;strong&gt;</bpt>CloudQueueMessage<ept id="bae63e7c-eac4-4e42-a40e-2d913a657040">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To insert a message into an existing queue, first create a new <bpt id="bae63e7c-eac4-4e42-a40e-2d913a657040">&lt;strong&gt;</bpt>CloudQueueMessage<ept id="bae63e7c-eac4-4e42-a40e-2d913a657040">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aca7df93-efa7-4282-ba15-7e70fa5e339c" xml:space="preserve">
+          <source>Next, call the <bpt id="baade1d8-7bf4-44d2-aa5b-03b39bdca0d5">&lt;strong&gt;</bpt>addMessage<ept id="baade1d8-7bf4-44d2-aa5b-03b39bdca0d5">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">Next, call the <bpt id="baade1d8-7bf4-44d2-aa5b-03b39bdca0d5">&lt;strong&gt;</bpt>addMessage<ept id="baade1d8-7bf4-44d2-aa5b-03b39bdca0d5">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="d178581f-0e96-464b-93d5-470f9208ea77" xml:space="preserve">
+          <source>A <bpt id="d7d9f065-1367-429f-af49-31a595020687">&lt;strong&gt;</bpt>CloudQueueMessage<ept id="d7d9f065-1367-429f-af49-31a595020687">&lt;/strong&gt;</ept> can be created from either a string (in UTF-8 format) or a byte array.</source>
+          <target state="new">A <bpt id="d7d9f065-1367-429f-af49-31a595020687">&lt;strong&gt;</bpt>CloudQueueMessage<ept id="d7d9f065-1367-429f-af49-31a595020687">&lt;/strong&gt;</ept> can be created from either a string (in UTF-8 format) or a byte array.</target>
+        </trans-unit>
+        <trans-unit id="ee00e646-7e3e-4652-a263-261fea8ec625" xml:space="preserve">
+          <source>Here is code which creates a queue (if it doesn't exist) and inserts the message "Hello, World".</source>
+          <target state="new">Here is code which creates a queue (if it doesn't exist) and inserts the message "Hello, World".</target>
+        </trans-unit>
+        <trans-unit id="dbb98927-d0ca-4634-9050-32ea1d31aef9" xml:space="preserve">
+          <source>You can peek at the message in the front of a queue without removing it from the queue by calling <bpt id="471a99e2-9b86-4a88-9f62-9c4e69cc08fc">&lt;strong&gt;</bpt>peekMessage<ept id="471a99e2-9b86-4a88-9f62-9c4e69cc08fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can peek at the message in the front of a queue without removing it from the queue by calling <bpt id="471a99e2-9b86-4a88-9f62-9c4e69cc08fc">&lt;strong&gt;</bpt>peekMessage<ept id="471a99e2-9b86-4a88-9f62-9c4e69cc08fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e54e3201-8ec3-403e-98a2-a0b97b062442" xml:space="preserve">
+          <source>You can change the contents of a message in-place in the queue.</source>
+          <target state="new">You can change the contents of a message in-place in the queue.</target>
+        </trans-unit>
+        <trans-unit id="863f62f5-72cf-436f-920d-2bc0544389d8" xml:space="preserve">
+          <source>If the message represents a work task, you could use this feature to update the status of the work task.</source>
+          <target state="new">If the message represents a work task, you could use this feature to update the status of the work task.</target>
+        </trans-unit>
+        <trans-unit id="e6e8a442-3a2a-4482-a458-e22005814359" xml:space="preserve">
+          <source>The following code updates the queue message with new contents, and sets the visibility timeout to extend another 60 seconds.</source>
+          <target state="new">The following code updates the queue message with new contents, and sets the visibility timeout to extend another 60 seconds.</target>
+        </trans-unit>
+        <trans-unit id="73634e96-cce3-417c-8687-59d77ceba5aa" xml:space="preserve">
+          <source>This saves the state of work associated with the message, and gives the client another minute to continue working on the message.</source>
+          <target state="new">This saves the state of work associated with the message, and gives the client another minute to continue working on the message.</target>
+        </trans-unit>
+        <trans-unit id="ed762416-c3a3-4b5f-867e-0205d234223b" xml:space="preserve">
+          <source>You could use this technique to track multi-step workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure.</source>
+          <target state="new">You could use this technique to track multi-step workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure.</target>
+        </trans-unit>
+        <trans-unit id="80b78417-e16d-4ffa-921b-6fafc90ba703" xml:space="preserve">
+          <source>Typically, you would keep a retry count as well, and if the message is retried more than <bpt id="96bea804-b848-432f-bb51-53d43b9ef6e8">&lt;em&gt;</bpt>n<ept id="96bea804-b848-432f-bb51-53d43b9ef6e8">&lt;/em&gt;</ept> times, you would delete it.</source>
+          <target state="new">Typically, you would keep a retry count as well, and if the message is retried more than <bpt id="96bea804-b848-432f-bb51-53d43b9ef6e8">&lt;em&gt;</bpt>n<ept id="96bea804-b848-432f-bb51-53d43b9ef6e8">&lt;/em&gt;</ept> times, you would delete it.</target>
+        </trans-unit>
+        <trans-unit id="3e9accff-1a6c-4a8e-8617-df06f1ea0d0c" xml:space="preserve">
+          <source>This protects against a message that triggers an application error each time it is processed.</source>
+          <target state="new">This protects against a message that triggers an application error each time it is processed.</target>
+        </trans-unit>
+        <trans-unit id="38f76285-183a-40ad-bdff-e0d1c6431d5b" xml:space="preserve">
+          <source>The following code sample searches through the queue of messages, locates the first message that matches "Hello, World" for the content, then modifies the message content and exits.</source>
+          <target state="new">The following code sample searches through the queue of messages, locates the first message that matches "Hello, World" for the content, then modifies the message content and exits.</target>
+        </trans-unit>
+        <trans-unit id="60b49bbd-f70e-42d2-bc01-e4113dc5ad67" xml:space="preserve">
+          <source>Alternatively, the following code sample updates just the first visible message on the queue.</source>
+          <target state="new">Alternatively, the following code sample updates just the first visible message on the queue.</target>
+        </trans-unit>
+        <trans-unit id="278a2d76-e86e-442b-8458-1e85155146ae" xml:space="preserve">
+          <source>You can get an estimate of the number of messages in a queue.</source>
+          <target state="new">You can get an estimate of the number of messages in a queue.</target>
+        </trans-unit>
+        <trans-unit id="6b9c55d3-b4b8-4063-9e79-357fe74bfc1f" xml:space="preserve">
+          <source>The <bpt id="4e78ee5a-b7f5-4cb8-a9e9-4f6034368e20">&lt;strong&gt;</bpt>downloadAttributes<ept id="4e78ee5a-b7f5-4cb8-a9e9-4f6034368e20">&lt;/strong&gt;</ept> method asks the Queue service for several current values, including a count of how many messages are in a queue.</source>
+          <target state="new">The <bpt id="4e78ee5a-b7f5-4cb8-a9e9-4f6034368e20">&lt;strong&gt;</bpt>downloadAttributes<ept id="4e78ee5a-b7f5-4cb8-a9e9-4f6034368e20">&lt;/strong&gt;</ept> method asks the Queue service for several current values, including a count of how many messages are in a queue.</target>
+        </trans-unit>
+        <trans-unit id="54dad891-f06a-4202-aef1-7ed4acab3abe" xml:space="preserve">
+          <source>The count is only approximate because messages can be added or removed after the Queue service responds to your request.</source>
+          <target state="new">The count is only approximate because messages can be added or removed after the Queue service responds to your request.</target>
+        </trans-unit>
+        <trans-unit id="cf3a6f49-8e52-4afa-b1c8-efd29e84027e" xml:space="preserve">
+          <source>The <bpt id="10db18a7-e9fc-4d39-931e-43c93a7041b8">&lt;strong&gt;</bpt>getApproximateMessageCount<ept id="10db18a7-e9fc-4d39-931e-43c93a7041b8">&lt;/strong&gt;</ept> method returns the last value retrieved by the call to <bpt id="874b4f83-1c46-4622-896f-56db2f318076">&lt;strong&gt;</bpt>downloadAttributes<ept id="874b4f83-1c46-4622-896f-56db2f318076">&lt;/strong&gt;</ept>, without calling the Queue service.</source>
+          <target state="new">The <bpt id="10db18a7-e9fc-4d39-931e-43c93a7041b8">&lt;strong&gt;</bpt>getApproximateMessageCount<ept id="10db18a7-e9fc-4d39-931e-43c93a7041b8">&lt;/strong&gt;</ept> method returns the last value retrieved by the call to <bpt id="874b4f83-1c46-4622-896f-56db2f318076">&lt;strong&gt;</bpt>downloadAttributes<ept id="874b4f83-1c46-4622-896f-56db2f318076">&lt;/strong&gt;</ept>, without calling the Queue service.</target>
+        </trans-unit>
+        <trans-unit id="21af5bc9-8687-43c6-a470-8534b1679707" xml:space="preserve">
+          <source>Your code dequeues a message from a queue in two steps.</source>
+          <target state="new">Your code dequeues a message from a queue in two steps.</target>
+        </trans-unit>
+        <trans-unit id="8bf5e29c-9f96-4c71-ba8d-f5a9729c242a" xml:space="preserve">
+          <source>When you call <bpt id="19704d1e-d51c-4ea6-ba7f-dcd7786ad26e">&lt;strong&gt;</bpt>retrieveMessage<ept id="19704d1e-d51c-4ea6-ba7f-dcd7786ad26e">&lt;/strong&gt;</ept>, you get the next message in a queue.</source>
+          <target state="new">When you call <bpt id="19704d1e-d51c-4ea6-ba7f-dcd7786ad26e">&lt;strong&gt;</bpt>retrieveMessage<ept id="19704d1e-d51c-4ea6-ba7f-dcd7786ad26e">&lt;/strong&gt;</ept>, you get the next message in a queue.</target>
+        </trans-unit>
+        <trans-unit id="c1d78242-e8f5-42a9-ab68-1631d7613233" xml:space="preserve">
+          <source>A message returned from <bpt id="884830a8-849d-48cf-8391-1315af622b8f">&lt;strong&gt;</bpt>retrieveMessage<ept id="884830a8-849d-48cf-8391-1315af622b8f">&lt;/strong&gt;</ept> becomes invisible to any other code reading messages from this queue.</source>
+          <target state="new">A message returned from <bpt id="884830a8-849d-48cf-8391-1315af622b8f">&lt;strong&gt;</bpt>retrieveMessage<ept id="884830a8-849d-48cf-8391-1315af622b8f">&lt;/strong&gt;</ept> becomes invisible to any other code reading messages from this queue.</target>
+        </trans-unit>
+        <trans-unit id="39e23d13-3738-4f71-8aed-ded24dde8795" xml:space="preserve">
+          <source>By default, this message stays invisible for 30 seconds.</source>
+          <target state="new">By default, this message stays invisible for 30 seconds.</target>
+        </trans-unit>
+        <trans-unit id="14042f43-7691-40ce-8076-7f7ea95bb40e" xml:space="preserve">
+          <source>To finish removing the message from the queue, you must also call <bpt id="9ef1dc42-6351-4f9a-a371-cf87ce242636">&lt;strong&gt;</bpt>deleteMessage<ept id="9ef1dc42-6351-4f9a-a371-cf87ce242636">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To finish removing the message from the queue, you must also call <bpt id="9ef1dc42-6351-4f9a-a371-cf87ce242636">&lt;strong&gt;</bpt>deleteMessage<ept id="9ef1dc42-6351-4f9a-a371-cf87ce242636">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f15bd8c4-06f1-43c3-bb75-9a95313b9c1b" xml:space="preserve">
+          <source>This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again.</source>
+          <target state="new">This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again.</target>
+        </trans-unit>
+        <trans-unit id="5f898a4e-f329-4434-a503-a2d216dfe217" xml:space="preserve">
+          <source>Your code calls <bpt id="79c77831-addc-466e-baed-054b2260590c">&lt;strong&gt;</bpt>deleteMessage<ept id="79c77831-addc-466e-baed-054b2260590c">&lt;/strong&gt;</ept> right after the message has been processed.</source>
+          <target state="new">Your code calls <bpt id="79c77831-addc-466e-baed-054b2260590c">&lt;strong&gt;</bpt>deleteMessage<ept id="79c77831-addc-466e-baed-054b2260590c">&lt;/strong&gt;</ept> right after the message has been processed.</target>
+        </trans-unit>
+        <trans-unit id="2989ca83-ba92-42b3-9141-8eb4dba9c380" xml:space="preserve">
+          <source>There are two ways you can customize message retrieval from a queue.</source>
+          <target state="new">There are two ways you can customize message retrieval from a queue.</target>
+        </trans-unit>
+        <trans-unit id="3354cfb3-9932-428f-8098-5b78b3580e59" xml:space="preserve">
+          <source>First, you can get a batch of messages (up to 32).</source>
+          <target state="new">First, you can get a batch of messages (up to 32).</target>
+        </trans-unit>
+        <trans-unit id="2dc968c6-9e8a-4696-b595-62bd1f478b2d" xml:space="preserve">
+          <source>Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message.</source>
+          <target state="new">Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message.</target>
+        </trans-unit>
+        <trans-unit id="9949eb02-73f5-45e7-a98b-9decf44b3810" xml:space="preserve">
+          <source>The following code example uses the <bpt id="76b7e8ae-1a57-4057-8c26-14e637e5e4df">&lt;strong&gt;</bpt>retrieveMessages<ept id="76b7e8ae-1a57-4057-8c26-14e637e5e4df">&lt;/strong&gt;</ept> method to get 20 messages in one call.</source>
+          <target state="new">The following code example uses the <bpt id="76b7e8ae-1a57-4057-8c26-14e637e5e4df">&lt;strong&gt;</bpt>retrieveMessages<ept id="76b7e8ae-1a57-4057-8c26-14e637e5e4df">&lt;/strong&gt;</ept> method to get 20 messages in one call.</target>
+        </trans-unit>
+        <trans-unit id="c4ff7b59-3964-4a79-8c7e-1879a30ac34b" xml:space="preserve">
+          <source>Then it processes each message using a <bpt id="f66f5eba-634d-4475-b1c9-5cb0f89d967b">&lt;strong&gt;</bpt>for<ept id="f66f5eba-634d-4475-b1c9-5cb0f89d967b">&lt;/strong&gt;</ept> loop.</source>
+          <target state="new">Then it processes each message using a <bpt id="f66f5eba-634d-4475-b1c9-5cb0f89d967b">&lt;strong&gt;</bpt>for<ept id="f66f5eba-634d-4475-b1c9-5cb0f89d967b">&lt;/strong&gt;</ept> loop.</target>
+        </trans-unit>
+        <trans-unit id="3fdca122-3aac-4be4-a79b-1e1601089bb0" xml:space="preserve">
+          <source>It also sets the invisibility timeout to five minutes (300 seconds) for each message.</source>
+          <target state="new">It also sets the invisibility timeout to five minutes (300 seconds) for each message.</target>
+        </trans-unit>
+        <trans-unit id="cd199975-0ad8-4ace-84bf-ea49d26f8340" xml:space="preserve">
+          <source>Note that the five minutes starts for all messages at the same time, so when five minutes have passed since the call to <bpt id="ac4ffed1-c60d-4d9e-aec4-d50f3b1c36c9">&lt;strong&gt;</bpt>retrieveMessages<ept id="ac4ffed1-c60d-4d9e-aec4-d50f3b1c36c9">&lt;/strong&gt;</ept>, any messages which have not been deleted will become visible again.</source>
+          <target state="new">Note that the five minutes starts for all messages at the same time, so when five minutes have passed since the call to <bpt id="ac4ffed1-c60d-4d9e-aec4-d50f3b1c36c9">&lt;strong&gt;</bpt>retrieveMessages<ept id="ac4ffed1-c60d-4d9e-aec4-d50f3b1c36c9">&lt;/strong&gt;</ept>, any messages which have not been deleted will become visible again.</target>
+        </trans-unit>
+        <trans-unit id="636e31e9-f675-4285-b64b-05fef215c829" xml:space="preserve">
+          <source>To obtain a list of the current queues, call the <bpt id="4ce997a6-6ff1-43f8-9e7e-6eb7d75c654c">&lt;strong&gt;</bpt>CloudQueueClient.listQueues()<ept id="4ce997a6-6ff1-43f8-9e7e-6eb7d75c654c">&lt;/strong&gt;</ept> method, which will return a collection of <bpt id="7ed6df81-1f3a-4d45-ab5f-663fb735b005">&lt;strong&gt;</bpt>CloudQueue<ept id="7ed6df81-1f3a-4d45-ab5f-663fb735b005">&lt;/strong&gt;</ept> objects.</source>
+          <target state="new">To obtain a list of the current queues, call the <bpt id="4ce997a6-6ff1-43f8-9e7e-6eb7d75c654c">&lt;strong&gt;</bpt>CloudQueueClient.listQueues()<ept id="4ce997a6-6ff1-43f8-9e7e-6eb7d75c654c">&lt;/strong&gt;</ept> method, which will return a collection of <bpt id="7ed6df81-1f3a-4d45-ab5f-663fb735b005">&lt;strong&gt;</bpt>CloudQueue<ept id="7ed6df81-1f3a-4d45-ab5f-663fb735b005">&lt;/strong&gt;</ept> objects.</target>
+        </trans-unit>
+        <trans-unit id="3a070eac-f57e-4239-a21e-ea2d88247dcd" xml:space="preserve">
+          <source>To delete a queue and all the messages contained in it, call the <bpt id="6172cd3d-7669-42d4-9d63-3025b3b09fb7">&lt;strong&gt;</bpt>deleteIfExists<ept id="6172cd3d-7669-42d4-9d63-3025b3b09fb7">&lt;/strong&gt;</ept> method on the <bpt id="25c2da79-2348-4033-b972-eff245e219d9">&lt;strong&gt;</bpt>CloudQueue<ept id="25c2da79-2348-4033-b972-eff245e219d9">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">To delete a queue and all the messages contained in it, call the <bpt id="6172cd3d-7669-42d4-9d63-3025b3b09fb7">&lt;strong&gt;</bpt>deleteIfExists<ept id="6172cd3d-7669-42d4-9d63-3025b3b09fb7">&lt;/strong&gt;</ept> method on the <bpt id="25c2da79-2348-4033-b972-eff245e219d9">&lt;strong&gt;</bpt>CloudQueue<ept id="25c2da79-2348-4033-b972-eff245e219d9">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="e0e42d51-5bb6-45d9-a68f-634b110ddb42" xml:space="preserve">
+          <source>Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.</source>
+          <target state="new">Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.</target>
+        </trans-unit>
+        <trans-unit id="4e18cf6d-4e8a-4fd3-bdca-efce03abd22e" xml:space="preserve">
+          <source><bpt id="5cdf8295-c46d-4c4c-b8b4-a6e59dc1f086">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="5cdf8295-c46d-4c4c-b8b4-a6e59dc1f086">&lt;/linkText&gt;</ept><bpt id="5cdf8295-c46d-4c4c-b8b4-a6e59dc1f086">&lt;title&gt;</bpt><ept id="5cdf8295-c46d-4c4c-b8b4-a6e59dc1f086">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5cdf8295-c46d-4c4c-b8b4-a6e59dc1f086">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="5cdf8295-c46d-4c4c-b8b4-a6e59dc1f086">&lt;/linkText&gt;</ept><bpt id="5cdf8295-c46d-4c4c-b8b4-a6e59dc1f086">&lt;title&gt;</bpt><ept id="5cdf8295-c46d-4c4c-b8b4-a6e59dc1f086">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21c5cbd2-cf52-482d-a2d1-d3ac03d9b250" xml:space="preserve">
+          <source><bpt id="4cbba870-c5be-4f8c-865a-7bd687158a56">&lt;linkText&gt;</bpt>Azure Storage Client SDK Reference<ept id="4cbba870-c5be-4f8c-865a-7bd687158a56">&lt;/linkText&gt;</ept><bpt id="4cbba870-c5be-4f8c-865a-7bd687158a56">&lt;title&gt;</bpt><ept id="4cbba870-c5be-4f8c-865a-7bd687158a56">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4cbba870-c5be-4f8c-865a-7bd687158a56">&lt;linkText&gt;</bpt>Azure Storage Client SDK Reference<ept id="4cbba870-c5be-4f8c-865a-7bd687158a56">&lt;/linkText&gt;</ept><bpt id="4cbba870-c5be-4f8c-865a-7bd687158a56">&lt;title&gt;</bpt><ept id="4cbba870-c5be-4f8c-865a-7bd687158a56">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0c35c48-dd0e-4d58-b9ea-3583a5692ba9" xml:space="preserve">
+          <source><bpt id="a7f44b00-4d4f-493a-9933-0506ba9bba6b">&lt;linkText&gt;</bpt>Azure Storage REST API<ept id="a7f44b00-4d4f-493a-9933-0506ba9bba6b">&lt;/linkText&gt;</ept><bpt id="a7f44b00-4d4f-493a-9933-0506ba9bba6b">&lt;title&gt;</bpt><ept id="a7f44b00-4d4f-493a-9933-0506ba9bba6b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a7f44b00-4d4f-493a-9933-0506ba9bba6b">&lt;linkText&gt;</bpt>Azure Storage REST API<ept id="a7f44b00-4d4f-493a-9933-0506ba9bba6b">&lt;/linkText&gt;</ept><bpt id="a7f44b00-4d4f-493a-9933-0506ba9bba6b">&lt;title&gt;</bpt><ept id="a7f44b00-4d4f-493a-9933-0506ba9bba6b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3892085-bbb5-4c2a-9d10-1f9a15290e5f" xml:space="preserve">
+          <source><bpt id="7d2c22f2-ad7d-4374-ba70-0fbc7410da97">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="7d2c22f2-ad7d-4374-ba70-0fbc7410da97">&lt;/linkText&gt;</ept><bpt id="7d2c22f2-ad7d-4374-ba70-0fbc7410da97">&lt;title&gt;</bpt><ept id="7d2c22f2-ad7d-4374-ba70-0fbc7410da97">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7d2c22f2-ad7d-4374-ba70-0fbc7410da97">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="7d2c22f2-ad7d-4374-ba70-0fbc7410da97">&lt;/linkText&gt;</ept><bpt id="7d2c22f2-ad7d-4374-ba70-0fbc7410da97">&lt;title&gt;</bpt><ept id="7d2c22f2-ad7d-4374-ba70-0fbc7410da97">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3b8a00e-fc69-4bd2-acd4-7c2b0dc36176" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525671</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525671</target>
+        </trans-unit>
+        <trans-unit id="b66074f0-03a3-4cf1-b0a7-18937562cb79" xml:space="preserve">
+          <source>https://github.com/azure/azure-storage-java</source>
+          <target state="new">https://github.com/azure/azure-storage-java</target>
+        </trans-unit>
+        <trans-unit id="b8541112-6a42-402b-a35d-f0649fb2277e" xml:space="preserve">
+          <source>https://github.com/azure/azure-storage-android</source>
+          <target state="new">https://github.com/azure/azure-storage-android</target>
+        </trans-unit>
+        <trans-unit id="47af7d9d-a9c1-43e0-8621-89bf64d4a61a" xml:space="preserve">
+          <source>http://dl.windowsazure.com/storage/javadoc/</source>
+          <target state="new">http://dl.windowsazure.com/storage/javadoc/</target>
+        </trans-unit>
+        <trans-unit id="5829f460-9c23-4341-9507-b09287f60a74" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/gg433040.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/gg433040.aspx</target>
+        </trans-unit>
+        <trans-unit id="9205c480-1ee9-4e4e-9e79-6f5471b0266d" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/windowsazurestorage/</source>
+          <target state="new">http://blogs.msdn.com/b/windowsazurestorage/</target>
+        </trans-unit>
+      </group>
+      <group id="0c5dae66-d2d1-4139-98d1-519f9d28e801" />
+    </body>
+  </file>
+</xliff>

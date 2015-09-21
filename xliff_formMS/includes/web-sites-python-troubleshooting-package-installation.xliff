@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6bf1afd3-e732-4689-b321-24ec5ef5967b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6bf1afd3-e732-4689-b321-24ec5ef5967b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f0842c42-2408-4f64-b2e0-903d291754d0">
+        <trans-unit id="04377c5a-df90-4f14-ad99-52b8f7d704b3" xml:space="preserve">
+          <source>Some packages may not install using pip when run on Azure.</source>
+          <target state="new">Some packages may not install using pip when run on Azure.</target>
+        </trans-unit>
+        <trans-unit id="2ef84fb4-3c3b-4546-b6b7-7682470c22f3" xml:space="preserve">
+          <source>It may simply be that the package is not available on the Python Package Index.</source>
+          <target state="new">It may simply be that the package is not available on the Python Package Index.</target>
+        </trans-unit>
+        <trans-unit id="ee552ba0-e5b2-4c8e-af88-1818eb3748fa" xml:space="preserve">
+          <source>It could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service).</source>
+          <target state="new">It could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service).</target>
+        </trans-unit>
+        <trans-unit id="7024346c-9979-4909-88b0-37440e48cdac" xml:space="preserve">
+          <source>In this section, we'll look at ways to deal with this issue.</source>
+          <target state="new">In this section, we'll look at ways to deal with this issue.</target>
+        </trans-unit>
+        <trans-unit id="65cb6d6d-09cd-4cc8-9f8a-1e60358c5610" xml:space="preserve">
+          <source>If the package installation requires a compiler, you should try contacting the package owner to request that wheels be made available for the package.</source>
+          <target state="new">If the package installation requires a compiler, you should try contacting the package owner to request that wheels be made available for the package.</target>
+        </trans-unit>
+        <trans-unit id="13a00384-4c44-405b-96a7-652d8e531468" xml:space="preserve">
+          <source>With the recent availability of <bpt id="21ac48fe-a9e4-4720-a124-09cabb12017c">&lt;linkText&gt;</bpt>Microsoft Visual C++ Compiler for Python 2.7<ept id="21ac48fe-a9e4-4720-a124-09cabb12017c">&lt;/linkText&gt;</ept><bpt id="21ac48fe-a9e4-4720-a124-09cabb12017c">&lt;title&gt;</bpt><ept id="21ac48fe-a9e4-4720-a124-09cabb12017c">&lt;/title&gt;</ept>, it is now easier to build packages that have native code for Python 2.7.</source>
+          <target state="new">With the recent availability of <bpt id="21ac48fe-a9e4-4720-a124-09cabb12017c">&lt;linkText&gt;</bpt>Microsoft Visual C++ Compiler for Python 2.7<ept id="21ac48fe-a9e4-4720-a124-09cabb12017c">&lt;/linkText&gt;</ept><bpt id="21ac48fe-a9e4-4720-a124-09cabb12017c">&lt;title&gt;</bpt><ept id="21ac48fe-a9e4-4720-a124-09cabb12017c">&lt;/title&gt;</ept>, it is now easier to build packages that have native code for Python 2.7.</target>
+        </trans-unit>
+        <trans-unit id="f0d3a5bf-cb49-4649-96d6-47c3004808fd" xml:space="preserve">
+          <source>Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).</source>
+          <target state="new">Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).</target>
+        </trans-unit>
+        <trans-unit id="8ff558c7-6560-4a02-a0e6-c760f3e8eb6c" xml:space="preserve">
+          <source>If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.</source>
+          <target state="new">If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.</target>
+        </trans-unit>
+        <trans-unit id="98f8e0a1-f5a2-4da2-b819-005c4951085b" xml:space="preserve">
+          <source>Mac/Linux Users: If you don't have access to a Windows machine, see <bpt id="410df473-3eb9-40b1-9ce8-3aca0c843d54">&lt;linkText&gt;</bpt>Create a Virtual Machine Running Windows<ept id="410df473-3eb9-40b1-9ce8-3aca0c843d54">&lt;/linkText&gt;</ept><bpt id="410df473-3eb9-40b1-9ce8-3aca0c843d54">&lt;title&gt;</bpt><ept id="410df473-3eb9-40b1-9ce8-3aca0c843d54">&lt;/title&gt;</ept> for how to create a VM on Azure.</source>
+          <target state="new">Mac/Linux Users: If you don't have access to a Windows machine, see <bpt id="410df473-3eb9-40b1-9ce8-3aca0c843d54">&lt;linkText&gt;</bpt>Create a Virtual Machine Running Windows<ept id="410df473-3eb9-40b1-9ce8-3aca0c843d54">&lt;/linkText&gt;</ept><bpt id="410df473-3eb9-40b1-9ce8-3aca0c843d54">&lt;title&gt;</bpt><ept id="410df473-3eb9-40b1-9ce8-3aca0c843d54">&lt;/title&gt;</ept> for how to create a VM on Azure.</target>
+        </trans-unit>
+        <trans-unit id="1203ca33-9bec-405f-81bc-8752c2066383" xml:space="preserve">
+          <source>You can use it to build the wheels, add them to the repository, and discard the VM if you like.</source>
+          <target state="new">You can use it to build the wheels, add them to the repository, and discard the VM if you like.</target>
+        </trans-unit>
+        <trans-unit id="bf336eba-bab9-45d8-aea8-1cc0bc63eb15" xml:space="preserve">
+          <source>For Python 2.7, you can install <bpt id="83b1f995-bd57-4680-ab04-57b5e07d8156">&lt;linkText&gt;</bpt>Microsoft Visual C++ Compiler for Python 2.7<ept id="83b1f995-bd57-4680-ab04-57b5e07d8156">&lt;/linkText&gt;</ept><bpt id="83b1f995-bd57-4680-ab04-57b5e07d8156">&lt;title&gt;</bpt><ept id="83b1f995-bd57-4680-ab04-57b5e07d8156">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Python 2.7, you can install <bpt id="83b1f995-bd57-4680-ab04-57b5e07d8156">&lt;linkText&gt;</bpt>Microsoft Visual C++ Compiler for Python 2.7<ept id="83b1f995-bd57-4680-ab04-57b5e07d8156">&lt;/linkText&gt;</ept><bpt id="83b1f995-bd57-4680-ab04-57b5e07d8156">&lt;title&gt;</bpt><ept id="83b1f995-bd57-4680-ab04-57b5e07d8156">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69ef56a0-ce34-4974-8d33-6d505c098c55" xml:space="preserve">
+          <source>For Python 3.4, you can install <bpt id="bc11c52f-d335-4b6e-a41c-f5bac0749fd0">&lt;linkText&gt;</bpt>Microsoft Visual C++ 2010 Express<ept id="bc11c52f-d335-4b6e-a41c-f5bac0749fd0">&lt;/linkText&gt;</ept><bpt id="bc11c52f-d335-4b6e-a41c-f5bac0749fd0">&lt;title&gt;</bpt><ept id="bc11c52f-d335-4b6e-a41c-f5bac0749fd0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Python 3.4, you can install <bpt id="bc11c52f-d335-4b6e-a41c-f5bac0749fd0">&lt;linkText&gt;</bpt>Microsoft Visual C++ 2010 Express<ept id="bc11c52f-d335-4b6e-a41c-f5bac0749fd0">&lt;/linkText&gt;</ept><bpt id="bc11c52f-d335-4b6e-a41c-f5bac0749fd0">&lt;title&gt;</bpt><ept id="bc11c52f-d335-4b6e-a41c-f5bac0749fd0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffd59a12-f6b0-41c0-be5e-81f5d9fe3638" xml:space="preserve">
+          <source>To build wheels, you'll need the wheel package:</source>
+          <target state="new">To build wheels, you'll need the wheel package:</target>
+        </trans-unit>
+        <trans-unit id="3fed069a-7362-4e30-948b-9863a3ea44f0" xml:space="preserve">
+          <source>You'll use <bpt id="a0bc273c-de38-4b8a-ad0c-d842019e06f3">&lt;code&gt;</bpt>pip wheel<ept id="a0bc273c-de38-4b8a-ad0c-d842019e06f3">&lt;/code&gt;</ept> to compile a dependency:</source>
+          <target state="new">You'll use <bpt id="a0bc273c-de38-4b8a-ad0c-d842019e06f3">&lt;code&gt;</bpt>pip wheel<ept id="a0bc273c-de38-4b8a-ad0c-d842019e06f3">&lt;/code&gt;</ept> to compile a dependency:</target>
+        </trans-unit>
+        <trans-unit id="fc76e417-1db8-4485-a6e3-6f71615b0b7d" xml:space="preserve">
+          <source>This creates a .whl file in the \wheelhouse folder.</source>
+          <target state="new">This creates a .whl file in the \wheelhouse folder.</target>
+        </trans-unit>
+        <trans-unit id="d33d42d1-417c-4fdb-8e8d-d7e8fe159487" xml:space="preserve">
+          <source>Add the \wheelhouse folder and wheel files to your repository.</source>
+          <target state="new">Add the \wheelhouse folder and wheel files to your repository.</target>
+        </trans-unit>
+        <trans-unit id="70287e17-0467-4b35-90f8-5203e9d5f754" xml:space="preserve">
+          <source>Edit your requirements.txt to add the <bpt id="7004d45c-e217-42fd-9df8-b3a5307aca95">&lt;code&gt;</bpt>--find-links<ept id="7004d45c-e217-42fd-9df8-b3a5307aca95">&lt;/code&gt;</ept> option at the top.</source>
+          <target state="new">Edit your requirements.txt to add the <bpt id="7004d45c-e217-42fd-9df8-b3a5307aca95">&lt;code&gt;</bpt>--find-links<ept id="7004d45c-e217-42fd-9df8-b3a5307aca95">&lt;/code&gt;</ept> option at the top.</target>
+        </trans-unit>
+        <trans-unit id="0b13f53c-3808-4aae-9356-c7bc62683e67" xml:space="preserve">
+          <source>This tells pip to look for an exact match in the local folder before going to the python package index.</source>
+          <target state="new">This tells pip to look for an exact match in the local folder before going to the python package index.</target>
+        </trans-unit>
+        <trans-unit id="47de875a-38d2-4add-af2c-22f05f8331bd" xml:space="preserve">
+          <source>If you want to include all your dependencies in the \wheelhouse folder and not use the python package index at all, you can force pip to ignore the package index by adding <bpt id="a0c812f3-c3fa-4168-b46c-735f56b55a9f">&lt;code&gt;</bpt>--no-index<ept id="a0c812f3-c3fa-4168-b46c-735f56b55a9f">&lt;/code&gt;</ept> to the top of your requirements.txt.</source>
+          <target state="new">If you want to include all your dependencies in the \wheelhouse folder and not use the python package index at all, you can force pip to ignore the package index by adding <bpt id="a0c812f3-c3fa-4168-b46c-735f56b55a9f">&lt;code&gt;</bpt>--no-index<ept id="a0c812f3-c3fa-4168-b46c-735f56b55a9f">&lt;/code&gt;</ept> to the top of your requirements.txt.</target>
+        </trans-unit>
+        <trans-unit id="6ce94877-07dc-49ef-b5da-611b77c49965" xml:space="preserve">
+          <source>You can customize the deployment script to install a package in the virtual environment using an alternate installer, such as easy\_install.</source>
+          <target state="new">You can customize the deployment script to install a package in the virtual environment using an alternate installer, such as easy\_install.</target>
+        </trans-unit>
+        <trans-unit id="4fb05e71-e27b-4677-a9c8-cb9a6a719598" xml:space="preserve">
+          <source>See deploy.cmd for an example that is commented out.</source>
+          <target state="new">See deploy.cmd for an example that is commented out.</target>
+        </trans-unit>
+        <trans-unit id="20f9feb8-d587-43b0-beb9-8dcbcf107a6d" xml:space="preserve">
+          <source>Make sure that such packages aren't listed in requirements.txt, to prevent pip from installing them.</source>
+          <target state="new">Make sure that such packages aren't listed in requirements.txt, to prevent pip from installing them.</target>
+        </trans-unit>
+        <trans-unit id="06265f94-fd6f-4561-84a4-9cf62a94cb97" xml:space="preserve">
+          <source>Add this to the deployment script:</source>
+          <target state="new">Add this to the deployment script:</target>
+        </trans-unit>
+        <trans-unit id="7b9a6924-a04a-4e38-9d4d-f50d992fbcfb" xml:space="preserve">
+          <source>You may also be able to use easy\<bpt id="6f600095-f447-4978-83b5-d9ac8bbde205">&lt;em&gt;</bpt>install to install from an exe installer (some are zip compatible, so easy\<ept id="6f600095-f447-4978-83b5-d9ac8bbde205">&lt;/em&gt;</ept>install supports them).</source>
+          <target state="new">You may also be able to use easy\<bpt id="6f600095-f447-4978-83b5-d9ac8bbde205">&lt;em&gt;</bpt>install to install from an exe installer (some are zip compatible, so easy\<ept id="6f600095-f447-4978-83b5-d9ac8bbde205">&lt;/em&gt;</ept>install supports them).</target>
+        </trans-unit>
+        <trans-unit id="aa0fa84b-ac7b-4c93-ba41-2051709da532" xml:space="preserve">
+          <source>Add the installer to your repository, and invoke easy\_install by passing the path to the executable.</source>
+          <target state="new">Add the installer to your repository, and invoke easy\_install by passing the path to the executable.</target>
+        </trans-unit>
+        <trans-unit id="4c207ba5-7570-41b3-aa54-4eea61e0ea81" xml:space="preserve">
+          <source>Add this to the deployment script:</source>
+          <target state="new">Add this to the deployment script:</target>
+        </trans-unit>
+        <trans-unit id="25ee9693-65cf-419f-88ae-d82274e84f60" xml:space="preserve">
+          <source>Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).</source>
+          <target state="new">Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).</target>
+        </trans-unit>
+        <trans-unit id="8a13b731-c1d0-48bc-a8ba-9389f901e7ad" xml:space="preserve">
+          <source>If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:</source>
+          <target state="new">If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:</target>
+        </trans-unit>
+        <trans-unit id="62eaabfd-1e6e-4c5b-9c2f-8e6c7abe79e1" xml:space="preserve">
+          <source>We recommend that you delete the existing virtual environment on the app, to prevent leftover files from when the virtual environment was managed automatically.</source>
+          <target state="new">We recommend that you delete the existing virtual environment on the app, to prevent leftover files from when the virtual environment was managed automatically.</target>
+        </trans-unit>
+        <trans-unit id="30e77fa4-597d-4b62-b10a-d8a9977c0081" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/</target>
+        </trans-unit>
+        <trans-unit id="ecf8f625-4ba5-413c-a724-bd7312210582" xml:space="preserve">
+          <source>http://aka.ms/vcpython27</source>
+          <target state="new">http://aka.ms/vcpython27</target>
+        </trans-unit>
+        <trans-unit id="43f02eb6-5b46-4fba-8763-b9f6b5d3a327" xml:space="preserve">
+          <source>http://go.microsoft.com/?linkid=9709949</source>
+          <target state="new">http://go.microsoft.com/?linkid=9709949</target>
+        </trans-unit>
+      </group>
+      <group id="507ba64f-947b-4670-b5ff-d524bcf3ff93" />
+    </body>
+  </file>
+</xliff>

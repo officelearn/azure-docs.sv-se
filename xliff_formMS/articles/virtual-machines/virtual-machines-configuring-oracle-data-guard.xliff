@@ -1,0 +1,752 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a5c14b6c-9f39-4082-8c3e-48fe20df6e27" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a5c14b6c-9f39-4082-8c3e-48fe20df6e27" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ab559c51-e964-4ac2-a21f-d38d4dbe2343">
+        <trans-unit id="e2f1a824-3557-4fe1-8acd-a9796ec9b33d" xml:space="preserve">
+          <source>Configuring Oracle Data Guard for Azure</source>
+          <target state="new">Configuring Oracle Data Guard for Azure</target>
+        </trans-unit>
+        <trans-unit id="b4335058-21c8-430b-8673-910d69398c3f" xml:space="preserve">
+          <source>Step through a tutorial for setting up and implementing Oracle Data Guard on Azure Virtual Machines for high availability and disaster recovery.</source>
+          <target state="new">Step through a tutorial for setting up and implementing Oracle Data Guard on Azure Virtual Machines for high availability and disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="79cbbc3a-8afc-4eb2-8758-a0f6b250a649" xml:space="preserve">
+          <source>This tutorial demonstrates how to setup and implement Oracle Data Guard in Azure Virtual Machines environment for high availability and disaster recovery.</source>
+          <target state="new">This tutorial demonstrates how to setup and implement Oracle Data Guard in Azure Virtual Machines environment for high availability and disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="4404eaab-a978-4ec6-8ee1-b5ab4c32d813" xml:space="preserve">
+          <source>The tutorial focuses on one way replication for non-RAC Oracle databases.</source>
+          <target state="new">The tutorial focuses on one way replication for non-RAC Oracle databases.</target>
+        </trans-unit>
+        <trans-unit id="498e1546-303a-4119-8b49-232ba041f2b2" xml:space="preserve">
+          <source>Oracle Data Guard supports data protection and disaster recovery for Oracle Database.</source>
+          <target state="new">Oracle Data Guard supports data protection and disaster recovery for Oracle Database.</target>
+        </trans-unit>
+        <trans-unit id="adfa6fc4-97f1-4d2d-9275-33e9b35bf6eb" xml:space="preserve">
+          <source>It is a simple, high-performance, drop-in solution for disaster recovery, data protection, and high availability for the entire Oracle database.</source>
+          <target state="new">It is a simple, high-performance, drop-in solution for disaster recovery, data protection, and high availability for the entire Oracle database.</target>
+        </trans-unit>
+        <trans-unit id="29bfb401-f4fc-40f3-86d8-538098e2e804" xml:space="preserve">
+          <source>This tutorial assumes that you already have theoretical and practical knowledge on Oracle Database High Availability and Disaster Recovery concepts.</source>
+          <target state="new">This tutorial assumes that you already have theoretical and practical knowledge on Oracle Database High Availability and Disaster Recovery concepts.</target>
+        </trans-unit>
+        <trans-unit id="1784eeb9-68c3-412b-8f74-95c44ccf1d59" xml:space="preserve">
+          <source>For information, see the <bpt id="37d38d82-15b5-4a25-b941-9c4ccf613422">&lt;linkText&gt;</bpt>Oracle web site<ept id="37d38d82-15b5-4a25-b941-9c4ccf613422">&lt;/linkText&gt;</ept><bpt id="37d38d82-15b5-4a25-b941-9c4ccf613422">&lt;title&gt;</bpt><ept id="37d38d82-15b5-4a25-b941-9c4ccf613422">&lt;/title&gt;</ept> and also the [Oracle Data Guard Concepts and Administration Guide](http://docs.oracle.com/cd/E11882<bpt id="29831251-e451-4686-9444-21cb26a7e774">&lt;em&gt;</bpt>01/server.112/e17022/create<ept id="29831251-e451-4686-9444-21cb26a7e774">&lt;/em&gt;</ept>ps.htm).</source>
+          <target state="new">For information, see the <bpt id="37d38d82-15b5-4a25-b941-9c4ccf613422">&lt;linkText&gt;</bpt>Oracle web site<ept id="37d38d82-15b5-4a25-b941-9c4ccf613422">&lt;/linkText&gt;</ept><bpt id="37d38d82-15b5-4a25-b941-9c4ccf613422">&lt;title&gt;</bpt><ept id="37d38d82-15b5-4a25-b941-9c4ccf613422">&lt;/title&gt;</ept> and also the [Oracle Data Guard Concepts and Administration Guide](http://docs.oracle.com/cd/E11882<bpt id="29831251-e451-4686-9444-21cb26a7e774">&lt;em&gt;</bpt>01/server.112/e17022/create<ept id="29831251-e451-4686-9444-21cb26a7e774">&lt;/em&gt;</ept>ps.htm).</target>
+        </trans-unit>
+        <trans-unit id="6636944e-1cb8-4598-9b52-1790b2b21100" xml:space="preserve">
+          <source>In addition, the tutorial assumes that you have already implemented the following prerequisites:</source>
+          <target state="new">In addition, the tutorial assumes that you have already implemented the following prerequisites:</target>
+        </trans-unit>
+        <trans-unit id="e5840a42-43a2-4d37-b372-1a8357420af1" xml:space="preserve">
+          <source>You’ve already reviewed the High Availability and Disaster Recovery Considerations section in the <bpt id="a8cce317-e830-4de2-850e-b5b067e4c605">&lt;linkText&gt;</bpt>Oracle Virtual Machine images - Miscellaneous Considerations<ept id="a8cce317-e830-4de2-850e-b5b067e4c605">&lt;/linkText&gt;</ept><bpt id="a8cce317-e830-4de2-850e-b5b067e4c605">&lt;title&gt;</bpt><ept id="a8cce317-e830-4de2-850e-b5b067e4c605">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">You’ve already reviewed the High Availability and Disaster Recovery Considerations section in the <bpt id="a8cce317-e830-4de2-850e-b5b067e4c605">&lt;linkText&gt;</bpt>Oracle Virtual Machine images - Miscellaneous Considerations<ept id="a8cce317-e830-4de2-850e-b5b067e4c605">&lt;/linkText&gt;</ept><bpt id="a8cce317-e830-4de2-850e-b5b067e4c605">&lt;title&gt;</bpt><ept id="a8cce317-e830-4de2-850e-b5b067e4c605">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="1789a9d1-eb66-46f3-93b6-cd15ff3d3da0" xml:space="preserve">
+          <source>Note that Azure supports standalone Oracle Database instances but not Oracle Real Application Clusters (Oracle RAC) currently.</source>
+          <target state="new">Note that Azure supports standalone Oracle Database instances but not Oracle Real Application Clusters (Oracle RAC) currently.</target>
+        </trans-unit>
+        <trans-unit id="022e7e7d-91f0-4ecb-89d0-9670b39b3a9d" xml:space="preserve">
+          <source>You have created two Virtual Machines (VMs) in Azure using the same platform provided Oracle Enterprise Edition image on Windows Server.</source>
+          <target state="new">You have created two Virtual Machines (VMs) in Azure using the same platform provided Oracle Enterprise Edition image on Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="6b3f12ee-88f6-4d82-b8c3-62edcdb23c57" xml:space="preserve">
+          <source>For information, see <bpt id="d8b42228-27c2-4012-8078-c1c601d54df2">&lt;linkText&gt;</bpt>Creating an Oracle Database 12c Virtual Machine in Azure<ept id="d8b42228-27c2-4012-8078-c1c601d54df2">&lt;/linkText&gt;</ept><bpt id="d8b42228-27c2-4012-8078-c1c601d54df2">&lt;title&gt;</bpt><ept id="d8b42228-27c2-4012-8078-c1c601d54df2">&lt;/title&gt;</ept> and <bpt id="79e0409b-8b44-450c-b0c4-a7f536636207">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="79e0409b-8b44-450c-b0c4-a7f536636207">&lt;/linkText&gt;</ept><bpt id="79e0409b-8b44-450c-b0c4-a7f536636207">&lt;title&gt;</bpt><ept id="79e0409b-8b44-450c-b0c4-a7f536636207">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information, see <bpt id="d8b42228-27c2-4012-8078-c1c601d54df2">&lt;linkText&gt;</bpt>Creating an Oracle Database 12c Virtual Machine in Azure<ept id="d8b42228-27c2-4012-8078-c1c601d54df2">&lt;/linkText&gt;</ept><bpt id="d8b42228-27c2-4012-8078-c1c601d54df2">&lt;title&gt;</bpt><ept id="d8b42228-27c2-4012-8078-c1c601d54df2">&lt;/title&gt;</ept> and <bpt id="79e0409b-8b44-450c-b0c4-a7f536636207">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="79e0409b-8b44-450c-b0c4-a7f536636207">&lt;/linkText&gt;</ept><bpt id="79e0409b-8b44-450c-b0c4-a7f536636207">&lt;title&gt;</bpt><ept id="79e0409b-8b44-450c-b0c4-a7f536636207">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="511c2b78-5562-4253-8065-3af2ba32a545" xml:space="preserve">
+          <source>Make sure that the Virtual Machines are in the <bpt id="82f42902-3321-4a56-b592-c6e74e11540d">&lt;linkText&gt;</bpt>same cloud service<ept id="82f42902-3321-4a56-b592-c6e74e11540d">&lt;/linkText&gt;</ept><bpt id="82f42902-3321-4a56-b592-c6e74e11540d">&lt;title&gt;</bpt><ept id="82f42902-3321-4a56-b592-c6e74e11540d">&lt;/title&gt;</ept> and in the same <bpt id="aba5501f-e9a6-460d-a17a-f2549e18b87d">&lt;linkText&gt;</bpt>Virtual Network<ept id="aba5501f-e9a6-460d-a17a-f2549e18b87d">&lt;/linkText&gt;</ept><bpt id="aba5501f-e9a6-460d-a17a-f2549e18b87d">&lt;title&gt;</bpt><ept id="aba5501f-e9a6-460d-a17a-f2549e18b87d">&lt;/title&gt;</ept> to ensure they can access each other over the persistent private IP address.</source>
+          <target state="new">Make sure that the Virtual Machines are in the <bpt id="82f42902-3321-4a56-b592-c6e74e11540d">&lt;linkText&gt;</bpt>same cloud service<ept id="82f42902-3321-4a56-b592-c6e74e11540d">&lt;/linkText&gt;</ept><bpt id="82f42902-3321-4a56-b592-c6e74e11540d">&lt;title&gt;</bpt><ept id="82f42902-3321-4a56-b592-c6e74e11540d">&lt;/title&gt;</ept> and in the same <bpt id="aba5501f-e9a6-460d-a17a-f2549e18b87d">&lt;linkText&gt;</bpt>Virtual Network<ept id="aba5501f-e9a6-460d-a17a-f2549e18b87d">&lt;/linkText&gt;</ept><bpt id="aba5501f-e9a6-460d-a17a-f2549e18b87d">&lt;title&gt;</bpt><ept id="aba5501f-e9a6-460d-a17a-f2549e18b87d">&lt;/title&gt;</ept> to ensure they can access each other over the persistent private IP address.</target>
+        </trans-unit>
+        <trans-unit id="38a5a0d2-c4d2-4fd3-a9db-72e55c5087cc" xml:space="preserve">
+          <source>Additionally, it is recommended to place the VMs in the same <bpt id="39e7ab83-ee87-4358-95d3-ddf656a946b7">&lt;linkText&gt;</bpt>availability set<ept id="39e7ab83-ee87-4358-95d3-ddf656a946b7">&lt;/linkText&gt;</ept><bpt id="39e7ab83-ee87-4358-95d3-ddf656a946b7">&lt;title&gt;</bpt><ept id="39e7ab83-ee87-4358-95d3-ddf656a946b7">&lt;/title&gt;</ept> to allow Azure to place them into separate fault domains and upgrade domains.</source>
+          <target state="new">Additionally, it is recommended to place the VMs in the same <bpt id="39e7ab83-ee87-4358-95d3-ddf656a946b7">&lt;linkText&gt;</bpt>availability set<ept id="39e7ab83-ee87-4358-95d3-ddf656a946b7">&lt;/linkText&gt;</ept><bpt id="39e7ab83-ee87-4358-95d3-ddf656a946b7">&lt;title&gt;</bpt><ept id="39e7ab83-ee87-4358-95d3-ddf656a946b7">&lt;/title&gt;</ept> to allow Azure to place them into separate fault domains and upgrade domains.</target>
+        </trans-unit>
+        <trans-unit id="af049cfb-25bc-4dbc-970e-5fe31ea56460" xml:space="preserve">
+          <source>Note that Oracle Data Guard is only available with Oracle Database Enterprise Edition.</source>
+          <target state="new">Note that Oracle Data Guard is only available with Oracle Database Enterprise Edition.</target>
+        </trans-unit>
+        <trans-unit id="ce207dbf-e238-45f5-973e-61e19995f84d" xml:space="preserve">
+          <source>Each machine must have at least 2 GB of memory and 5 GB of disk space.</source>
+          <target state="new">Each machine must have at least 2 GB of memory and 5 GB of disk space.</target>
+        </trans-unit>
+        <trans-unit id="c95206ba-71a4-4b08-b390-0a6c6dd91009" xml:space="preserve">
+          <source>For the most up-to-date information on the platform provided VM sizes, see <bpt id="ad5212d4-6141-4b46-89bc-6a4295003bc2">&lt;linkText&gt;</bpt>Virtual Machine Sizes for Azure<ept id="ad5212d4-6141-4b46-89bc-6a4295003bc2">&lt;/linkText&gt;</ept><bpt id="ad5212d4-6141-4b46-89bc-6a4295003bc2">&lt;title&gt;</bpt><ept id="ad5212d4-6141-4b46-89bc-6a4295003bc2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the most up-to-date information on the platform provided VM sizes, see <bpt id="ad5212d4-6141-4b46-89bc-6a4295003bc2">&lt;linkText&gt;</bpt>Virtual Machine Sizes for Azure<ept id="ad5212d4-6141-4b46-89bc-6a4295003bc2">&lt;/linkText&gt;</ept><bpt id="ad5212d4-6141-4b46-89bc-6a4295003bc2">&lt;title&gt;</bpt><ept id="ad5212d4-6141-4b46-89bc-6a4295003bc2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="353eebf4-14a4-4db3-a3d6-4c78398645e4" xml:space="preserve">
+          <source>If you need additional disk volume for your VMs, you can attach additional disks.</source>
+          <target state="new">If you need additional disk volume for your VMs, you can attach additional disks.</target>
+        </trans-unit>
+        <trans-unit id="3a3fd7d6-1417-41a5-a4a1-a8e740262743" xml:space="preserve">
+          <source>For information, see <bpt id="b49a408a-eb48-41aa-af22-8935590fb0f9">&lt;linkText&gt;</bpt>How to Attach a Data Disk to a Virtual Machine<ept id="b49a408a-eb48-41aa-af22-8935590fb0f9">&lt;/linkText&gt;</ept><bpt id="b49a408a-eb48-41aa-af22-8935590fb0f9">&lt;title&gt;</bpt><ept id="b49a408a-eb48-41aa-af22-8935590fb0f9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information, see <bpt id="b49a408a-eb48-41aa-af22-8935590fb0f9">&lt;linkText&gt;</bpt>How to Attach a Data Disk to a Virtual Machine<ept id="b49a408a-eb48-41aa-af22-8935590fb0f9">&lt;/linkText&gt;</ept><bpt id="b49a408a-eb48-41aa-af22-8935590fb0f9">&lt;title&gt;</bpt><ept id="b49a408a-eb48-41aa-af22-8935590fb0f9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2beb7aa9-2105-4dbb-a50c-2cea11e90cc7" xml:space="preserve">
+          <source>You’ve set the Virtual Machine names as “Machine1” for the primary VM and “Machine2” for the standby VM at the Azure Portal.</source>
+          <target state="new">You’ve set the Virtual Machine names as “Machine1” for the primary VM and “Machine2” for the standby VM at the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="e6a446d6-96f9-417d-976b-3fd706ed70c4" xml:space="preserve">
+          <source>You’ve set the <bpt id="670b1844-76d0-4a45-97cc-d38e4ae08b06">&lt;strong&gt;</bpt>ORACLE_HOME<ept id="670b1844-76d0-4a45-97cc-d38e4ae08b06">&lt;/strong&gt;</ept> environment variable to point to the same oracle root installation path in the primary and standby Virtual Machines, such as <bpt id="10f0fbaa-073e-4695-81e6-d8edbcb776bd">&lt;code&gt;</bpt>C:\OracleDatabase\product\11.2.0\dbhome_1\database<ept id="10f0fbaa-073e-4695-81e6-d8edbcb776bd">&lt;/code&gt;</ept>.</source>
+          <target state="new">You’ve set the <bpt id="670b1844-76d0-4a45-97cc-d38e4ae08b06">&lt;strong&gt;</bpt>ORACLE_HOME<ept id="670b1844-76d0-4a45-97cc-d38e4ae08b06">&lt;/strong&gt;</ept> environment variable to point to the same oracle root installation path in the primary and standby Virtual Machines, such as <bpt id="10f0fbaa-073e-4695-81e6-d8edbcb776bd">&lt;code&gt;</bpt>C:\OracleDatabase\product\11.2.0\dbhome_1\database<ept id="10f0fbaa-073e-4695-81e6-d8edbcb776bd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c6bd91a-fc9b-47f4-9e99-b024267f915a" xml:space="preserve">
+          <source>You log on to your Windows server as a member of the <bpt id="593fdd07-64f9-4393-b92a-3dad04868345">&lt;strong&gt;</bpt>Administrators<ept id="593fdd07-64f9-4393-b92a-3dad04868345">&lt;/strong&gt;</ept> group or a member of the <bpt id="91deb11b-dc96-47c1-9e98-4cd437dd5785">&lt;strong&gt;</bpt>ORA_DBA<ept id="91deb11b-dc96-47c1-9e98-4cd437dd5785">&lt;/strong&gt;</ept> group.</source>
+          <target state="new">You log on to your Windows server as a member of the <bpt id="593fdd07-64f9-4393-b92a-3dad04868345">&lt;strong&gt;</bpt>Administrators<ept id="593fdd07-64f9-4393-b92a-3dad04868345">&lt;/strong&gt;</ept> group or a member of the <bpt id="91deb11b-dc96-47c1-9e98-4cd437dd5785">&lt;strong&gt;</bpt>ORA_DBA<ept id="91deb11b-dc96-47c1-9e98-4cd437dd5785">&lt;/strong&gt;</ept> group.</target>
+        </trans-unit>
+        <trans-unit id="7ffa4e26-ece9-4535-8c72-c04e8056aa2c" xml:space="preserve">
+          <source>In this tutorial, you will:</source>
+          <target state="new">In this tutorial, you will:</target>
+        </trans-unit>
+        <trans-unit id="638b88bf-8008-4c0c-a2f8-14c0b2f0e928" xml:space="preserve">
+          <source>Implement the physical standby database environment</source>
+          <target state="new">Implement the physical standby database environment</target>
+        </trans-unit>
+        <trans-unit id="f2defbba-157c-4f9e-a803-af8560972a39" xml:space="preserve">
+          <source>Create a primary database</source>
+          <target state="new">Create a primary database</target>
+        </trans-unit>
+        <trans-unit id="6763b20f-54bc-44f6-bc9f-aff4b91bde61" xml:space="preserve">
+          <source>Prepare the primary database for standby database creation</source>
+          <target state="new">Prepare the primary database for standby database creation</target>
+        </trans-unit>
+        <trans-unit id="393aeebb-3c11-4510-9c5a-50e3b3f917b6" xml:space="preserve">
+          <source>Enable forced logging</source>
+          <target state="new">Enable forced logging</target>
+        </trans-unit>
+        <trans-unit id="26dcbd90-2d5a-400e-b341-078aa422ff38" xml:space="preserve">
+          <source>Create a password file</source>
+          <target state="new">Create a password file</target>
+        </trans-unit>
+        <trans-unit id="d4c64790-d909-44c6-bcc0-b244661558b0" xml:space="preserve">
+          <source>Configure a standby redo log</source>
+          <target state="new">Configure a standby redo log</target>
+        </trans-unit>
+        <trans-unit id="2e56917c-fd7d-4fb6-8355-292337794912" xml:space="preserve">
+          <source>Enable Archiving</source>
+          <target state="new">Enable Archiving</target>
+        </trans-unit>
+        <trans-unit id="c41d897e-e0d0-4aea-9e9b-5d9bca8c54c2" xml:space="preserve">
+          <source>Set primary database initialization parameters</source>
+          <target state="new">Set primary database initialization parameters</target>
+        </trans-unit>
+        <trans-unit id="ffba6b94-3399-47e8-bb1d-12527a398365" xml:space="preserve">
+          <source>Create a physical standby database</source>
+          <target state="new">Create a physical standby database</target>
+        </trans-unit>
+        <trans-unit id="1d22b89a-702d-4a06-a0b0-a99a830a039b" xml:space="preserve">
+          <source>Prepare an initialization parameter file for standby database</source>
+          <target state="new">Prepare an initialization parameter file for standby database</target>
+        </trans-unit>
+        <trans-unit id="2f674a04-7a59-4b49-a071-f758ce793d15" xml:space="preserve">
+          <source>Configure the listener and tnsnames to support the database on primary and standby machines</source>
+          <target state="new">Configure the listener and tnsnames to support the database on primary and standby machines</target>
+        </trans-unit>
+        <trans-unit id="afe22a16-c672-49b3-a74b-b32c4946506a" xml:space="preserve">
+          <source>Configure listener.ora on both servers to hold entries for both databases</source>
+          <target state="new">Configure listener.ora on both servers to hold entries for both databases</target>
+        </trans-unit>
+        <trans-unit id="19e99c6e-31f9-44e2-94d3-4cd0cdda22e5" xml:space="preserve">
+          <source>Configure tnsnames.ora on the primary and standby Virtual Machines to hold entries for both primary and standby databases</source>
+          <target state="new">Configure tnsnames.ora on the primary and standby Virtual Machines to hold entries for both primary and standby databases</target>
+        </trans-unit>
+        <trans-unit id="25098d46-3a76-412b-bbd9-967e9bed6d8a" xml:space="preserve">
+          <source>Start the listener and check tnsping on both Virtual Machines to both services.</source>
+          <target state="new">Start the listener and check tnsping on both Virtual Machines to both services.</target>
+        </trans-unit>
+        <trans-unit id="1f613a69-25aa-475a-84d3-88b8cfc1f9db" xml:space="preserve">
+          <source>Startup the standby instance in nomount state</source>
+          <target state="new">Startup the standby instance in nomount state</target>
+        </trans-unit>
+        <trans-unit id="53180e29-6932-48de-a09f-c813a1bfdadd" xml:space="preserve">
+          <source>Use RMAN to clone the database and to create a standby database</source>
+          <target state="new">Use RMAN to clone the database and to create a standby database</target>
+        </trans-unit>
+        <trans-unit id="2a1bf9ef-b147-4c8b-9e44-ab18606f4b9e" xml:space="preserve">
+          <source>Start the physical standby database in managed recovery mode</source>
+          <target state="new">Start the physical standby database in managed recovery mode</target>
+        </trans-unit>
+        <trans-unit id="7d4cb4a8-62dd-48ab-ba7f-a554099a8be6" xml:space="preserve">
+          <source>Verify the physical standby database</source>
+          <target state="new">Verify the physical standby database</target>
+        </trans-unit>
+        <trans-unit id="8b4570b6-5916-487e-bfc3-f6f71833587f" xml:space="preserve">
+          <source>This tutorial has been setup and tested against the following hardware and software configuration:</source>
+          <target state="new">This tutorial has been setup and tested against the following hardware and software configuration:</target>
+        </trans-unit>
+        <trans-unit id="82154dfc-0279-4a3a-a063-53c90d66c7e0" xml:space="preserve">
+          <source>|                      | <bpt id="e98f5185-c3f4-467e-8b64-45c47d3a7fb3">&lt;strong&gt;</bpt>Primary Database<ept id="e98f5185-c3f4-467e-8b64-45c47d3a7fb3">&lt;/strong&gt;</ept>                      | <bpt id="8b8b11fa-6039-4464-85b5-7673f431a615">&lt;strong&gt;</bpt>Standby Database<ept id="8b8b11fa-6039-4464-85b5-7673f431a615">&lt;/strong&gt;</ept>                      |
+|----------------------|-------------------------------------------|-------------------------------------------|
+| <bpt id="1b617433-fc14-4d61-9be2-85ed973cd3d3">&lt;strong&gt;</bpt>Oracle Release<ept id="1b617433-fc14-4d61-9be2-85ed973cd3d3">&lt;/strong&gt;</ept>   | Oracle11g Enterprise Release (11.2.0.4.0) | Oracle11g Enterprise Release (11.2.0.4.0) |
+| <bpt id="56cc004f-4ea2-46e0-b63f-84e4dedf736a">&lt;strong&gt;</bpt>Machine Name<ept id="56cc004f-4ea2-46e0-b63f-84e4dedf736a">&lt;/strong&gt;</ept>     | Machine1                                  | Machine2                                  |
+| <bpt id="a0afab4e-70a1-4429-8817-5b95786d3c64">&lt;strong&gt;</bpt>Operating System<ept id="a0afab4e-70a1-4429-8817-5b95786d3c64">&lt;/strong&gt;</ept> | Windows 2008 R2                           | Windows 2008 R2                           |
+| <bpt id="5e0315c8-18e2-41cc-9793-26a1f11ad68d">&lt;strong&gt;</bpt>Oracle SID<ept id="5e0315c8-18e2-41cc-9793-26a1f11ad68d">&lt;/strong&gt;</ept>       | TEST                                      | TEST\_STBY                                |
+| <bpt id="79cac800-6731-4302-a57b-5edfae187442">&lt;strong&gt;</bpt>Memory<ept id="79cac800-6731-4302-a57b-5edfae187442">&lt;/strong&gt;</ept>           | Min 2 GB                                  | Min 2 GB                                  |
+| <bpt id="fffb886e-bf38-43e2-a46d-28d8a8bec5a7">&lt;strong&gt;</bpt>Disk Space<ept id="fffb886e-bf38-43e2-a46d-28d8a8bec5a7">&lt;/strong&gt;</ept>       | Min 5 GB                                  | Min 5 GB                                  |</source>
+          <target state="new">|                      | <bpt id="e98f5185-c3f4-467e-8b64-45c47d3a7fb3">&lt;strong&gt;</bpt>Primary Database<ept id="e98f5185-c3f4-467e-8b64-45c47d3a7fb3">&lt;/strong&gt;</ept>                      | <bpt id="8b8b11fa-6039-4464-85b5-7673f431a615">&lt;strong&gt;</bpt>Standby Database<ept id="8b8b11fa-6039-4464-85b5-7673f431a615">&lt;/strong&gt;</ept>                      |
+|----------------------|-------------------------------------------|-------------------------------------------|
+| <bpt id="1b617433-fc14-4d61-9be2-85ed973cd3d3">&lt;strong&gt;</bpt>Oracle Release<ept id="1b617433-fc14-4d61-9be2-85ed973cd3d3">&lt;/strong&gt;</ept>   | Oracle11g Enterprise Release (11.2.0.4.0) | Oracle11g Enterprise Release (11.2.0.4.0) |
+| <bpt id="56cc004f-4ea2-46e0-b63f-84e4dedf736a">&lt;strong&gt;</bpt>Machine Name<ept id="56cc004f-4ea2-46e0-b63f-84e4dedf736a">&lt;/strong&gt;</ept>     | Machine1                                  | Machine2                                  |
+| <bpt id="a0afab4e-70a1-4429-8817-5b95786d3c64">&lt;strong&gt;</bpt>Operating System<ept id="a0afab4e-70a1-4429-8817-5b95786d3c64">&lt;/strong&gt;</ept> | Windows 2008 R2                           | Windows 2008 R2                           |
+| <bpt id="5e0315c8-18e2-41cc-9793-26a1f11ad68d">&lt;strong&gt;</bpt>Oracle SID<ept id="5e0315c8-18e2-41cc-9793-26a1f11ad68d">&lt;/strong&gt;</ept>       | TEST                                      | TEST\_STBY                                |
+| <bpt id="79cac800-6731-4302-a57b-5edfae187442">&lt;strong&gt;</bpt>Memory<ept id="79cac800-6731-4302-a57b-5edfae187442">&lt;/strong&gt;</ept>           | Min 2 GB                                  | Min 2 GB                                  |
+| <bpt id="fffb886e-bf38-43e2-a46d-28d8a8bec5a7">&lt;strong&gt;</bpt>Disk Space<ept id="fffb886e-bf38-43e2-a46d-28d8a8bec5a7">&lt;/strong&gt;</ept>       | Min 5 GB                                  | Min 5 GB                                  |</target>
+        </trans-unit>
+        <trans-unit id="bfb09d98-437d-4e2c-89a6-79fbb76ce50a" xml:space="preserve">
+          <source>For subsequent releases of Oracle Database and Oracle Data Guard, there might be some additional changes that you need to implement.</source>
+          <target state="new">For subsequent releases of Oracle Database and Oracle Data Guard, there might be some additional changes that you need to implement.</target>
+        </trans-unit>
+        <trans-unit id="23e456b7-0528-4f0b-98a2-d998fd26fb1b" xml:space="preserve">
+          <source>For the most up-to-date version specific information, see <bpt id="0d435438-281a-4533-a431-7fb42da22da4">&lt;linkText&gt;</bpt>Data Guard<ept id="0d435438-281a-4533-a431-7fb42da22da4">&lt;/linkText&gt;</ept><bpt id="0d435438-281a-4533-a431-7fb42da22da4">&lt;title&gt;</bpt><ept id="0d435438-281a-4533-a431-7fb42da22da4">&lt;/title&gt;</ept> and <bpt id="f283fe61-e89c-45bf-b842-d719d6b437f6">&lt;linkText&gt;</bpt>Oracle Database<ept id="f283fe61-e89c-45bf-b842-d719d6b437f6">&lt;/linkText&gt;</ept><bpt id="f283fe61-e89c-45bf-b842-d719d6b437f6">&lt;title&gt;</bpt><ept id="f283fe61-e89c-45bf-b842-d719d6b437f6">&lt;/title&gt;</ept> documentation at Oracle web site.</source>
+          <target state="new">For the most up-to-date version specific information, see <bpt id="0d435438-281a-4533-a431-7fb42da22da4">&lt;linkText&gt;</bpt>Data Guard<ept id="0d435438-281a-4533-a431-7fb42da22da4">&lt;/linkText&gt;</ept><bpt id="0d435438-281a-4533-a431-7fb42da22da4">&lt;title&gt;</bpt><ept id="0d435438-281a-4533-a431-7fb42da22da4">&lt;/title&gt;</ept> and <bpt id="f283fe61-e89c-45bf-b842-d719d6b437f6">&lt;linkText&gt;</bpt>Oracle Database<ept id="f283fe61-e89c-45bf-b842-d719d6b437f6">&lt;/linkText&gt;</ept><bpt id="f283fe61-e89c-45bf-b842-d719d6b437f6">&lt;title&gt;</bpt><ept id="f283fe61-e89c-45bf-b842-d719d6b437f6">&lt;/title&gt;</ept> documentation at Oracle web site.</target>
+        </trans-unit>
+        <trans-unit id="50a9cab3-7d9f-4a46-a3f3-d405ecb1c4ae" xml:space="preserve">
+          <source>Create a primary database “TEST” in the primary Virtual Machine.</source>
+          <target state="new">Create a primary database “TEST” in the primary Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="6aef8fdd-c481-495c-9079-e6bbc9d905a7" xml:space="preserve">
+          <source>For information, see Creating and Configuring an Oracle Database.</source>
+          <target state="new">For information, see Creating and Configuring an Oracle Database.</target>
+        </trans-unit>
+        <trans-unit id="e05451f9-f64d-445a-80e7-6133cf8c6c2a" xml:space="preserve">
+          <source>Connect to your database as the SYS user with SYSDBA role in the SQL*Plus command prompt and run the following statement to see the name of your database:</source>
+          <target state="new">Connect to your database as the SYS user with SYSDBA role in the SQL*Plus command prompt and run the following statement to see the name of your database:</target>
+        </trans-unit>
+        <trans-unit id="8cb32571-f96e-4a9e-9fbe-678fc915e93b" xml:space="preserve">
+          <source>Next, query the names of the database files from the dba<bpt id="7f644e70-a4d2-4685-84b5-bc78c19cea0a">&lt;em&gt;</bpt>data<ept id="7f644e70-a4d2-4685-84b5-bc78c19cea0a">&lt;/em&gt;</ept>files system view:</source>
+          <target state="new">Next, query the names of the database files from the dba<bpt id="7f644e70-a4d2-4685-84b5-bc78c19cea0a">&lt;em&gt;</bpt>data<ept id="7f644e70-a4d2-4685-84b5-bc78c19cea0a">&lt;/em&gt;</ept>files system view:</target>
+        </trans-unit>
+        <trans-unit id="a2b49477-f923-4066-bae2-9806c978447e" xml:space="preserve">
+          <source>Before creating a standby database, it’s recommended that you ensure the primary database is configured properly.</source>
+          <target state="new">Before creating a standby database, it’s recommended that you ensure the primary database is configured properly.</target>
+        </trans-unit>
+        <trans-unit id="488c512b-628c-4d31-9ddb-93630b9bcdfc" xml:space="preserve">
+          <source>The following is a list of steps that you need to perform:</source>
+          <target state="new">The following is a list of steps that you need to perform:</target>
+        </trans-unit>
+        <trans-unit id="c4801fac-672b-4e7b-8978-b57ba72b9378" xml:space="preserve">
+          <source>Enable forced logging</source>
+          <target state="new">Enable forced logging</target>
+        </trans-unit>
+        <trans-unit id="9c809630-8669-4daf-beb7-9b3cc2a41c11" xml:space="preserve">
+          <source>Create a password file</source>
+          <target state="new">Create a password file</target>
+        </trans-unit>
+        <trans-unit id="1e01e43b-9413-4f5f-8257-8dcd5dbb0c25" xml:space="preserve">
+          <source>Configure a standby redo log</source>
+          <target state="new">Configure a standby redo log</target>
+        </trans-unit>
+        <trans-unit id="795b2e40-3dde-4397-b427-ab8f2695b05d" xml:space="preserve">
+          <source>Enable Archiving</source>
+          <target state="new">Enable Archiving</target>
+        </trans-unit>
+        <trans-unit id="b8093a74-90ad-46c6-bb5a-33e5b45efdbb" xml:space="preserve">
+          <source>Set primary database initialization parameters</source>
+          <target state="new">Set primary database initialization parameters</target>
+        </trans-unit>
+        <trans-unit id="79b41788-8225-4222-8647-f0d2cc80ab4c" xml:space="preserve">
+          <source>In order to implement a Standby Database, we need to enable 'Forced Logging' in the primary database.</source>
+          <target state="new">In order to implement a Standby Database, we need to enable 'Forced Logging' in the primary database.</target>
+        </trans-unit>
+        <trans-unit id="b24a226e-79f8-47fe-be09-8e89dcd240c4" xml:space="preserve">
+          <source>This option ensures that even in the event that a 'nologging' operation is done, force logging takes precedence and all operations are logged into the redo logs.</source>
+          <target state="new">This option ensures that even in the event that a 'nologging' operation is done, force logging takes precedence and all operations are logged into the redo logs.</target>
+        </trans-unit>
+        <trans-unit id="4e5c8aa7-dec9-470e-86a8-a3c7bac5986f" xml:space="preserve">
+          <source>Therefore, we make sure that everything in the primary database is logged and replication to the standby includes all operations in the primary database.</source>
+          <target state="new">Therefore, we make sure that everything in the primary database is logged and replication to the standby includes all operations in the primary database.</target>
+        </trans-unit>
+        <trans-unit id="290d3d71-c3b9-42e9-b341-1b5f978b00ff" xml:space="preserve">
+          <source>Run the alter database statement to enable force logging:</source>
+          <target state="new">Run the alter database statement to enable force logging:</target>
+        </trans-unit>
+        <trans-unit id="344729bf-f82d-4125-a743-d1660ef4ab35" xml:space="preserve">
+          <source>To be able to ship and apply archived logs from the Primary server to the Standby server, the sys password must be identical on both primary and standby servers.</source>
+          <target state="new">To be able to ship and apply archived logs from the Primary server to the Standby server, the sys password must be identical on both primary and standby servers.</target>
+        </trans-unit>
+        <trans-unit id="dfd282f1-d37e-4a64-a71e-50ef138e7aac" xml:space="preserve">
+          <source>That’s why you create a password file on the primary database and copy it to the Standby server.</source>
+          <target state="new">That’s why you create a password file on the primary database and copy it to the Standby server.</target>
+        </trans-unit>
+        <trans-unit id="70b0bf0a-39ed-46f6-a3b1-79fdb4d1d32a" xml:space="preserve">
+          <source>When using Oracle Database 12c, there is a new user, <bpt id="627e3a18-5452-42aa-a7c9-3310ca009024">&lt;strong&gt;</bpt>SYSDG<ept id="627e3a18-5452-42aa-a7c9-3310ca009024">&lt;/strong&gt;</ept>, which you can use to administer Oracle Data Guard.</source>
+          <target state="new">When using Oracle Database 12c, there is a new user, <bpt id="627e3a18-5452-42aa-a7c9-3310ca009024">&lt;strong&gt;</bpt>SYSDG<ept id="627e3a18-5452-42aa-a7c9-3310ca009024">&lt;/strong&gt;</ept>, which you can use to administer Oracle Data Guard.</target>
+        </trans-unit>
+        <trans-unit id="bb4799c6-5297-47eb-add8-059651fa4773" xml:space="preserve">
+          <source>For more information, see [Changes in Oracle Database 12c Release](http://docs.oracle.com/cd/E16655<bpt id="36f46d1f-790f-4669-a085-a6f7a3606981">&lt;em&gt;</bpt>01/server.121/e10638/release<ept id="36f46d1f-790f-4669-a085-a6f7a3606981">&lt;/em&gt;</ept>changes.htm).</source>
+          <target state="new">For more information, see [Changes in Oracle Database 12c Release](http://docs.oracle.com/cd/E16655<bpt id="36f46d1f-790f-4669-a085-a6f7a3606981">&lt;em&gt;</bpt>01/server.121/e10638/release<ept id="36f46d1f-790f-4669-a085-a6f7a3606981">&lt;/em&gt;</ept>changes.htm).</target>
+        </trans-unit>
+        <trans-unit id="4ab0be0b-0e4a-4a76-b0ea-888539313d7b" xml:space="preserve">
+          <source>In addition, make sure that the ORACLE\_HOME environment is already defined in Machine1.</source>
+          <target state="new">In addition, make sure that the ORACLE\_HOME environment is already defined in Machine1.</target>
+        </trans-unit>
+        <trans-unit id="8d1a3e47-5378-4e4a-9f99-d05098c3f186" xml:space="preserve">
+          <source>If not, define it as an environment variable using the Environment Variables dialog box.</source>
+          <target state="new">If not, define it as an environment variable using the Environment Variables dialog box.</target>
+        </trans-unit>
+        <trans-unit id="88981ec0-a2b5-402d-bb33-2c9b1a327354" xml:space="preserve">
+          <source>To access this dialog box, start the <bpt id="6b10f5ac-b512-4d05-92e2-d0da5d6ba83b">&lt;strong&gt;</bpt>System<ept id="6b10f5ac-b512-4d05-92e2-d0da5d6ba83b">&lt;/strong&gt;</ept> utility by double-clicking the System icon in the <bpt id="94ade76a-c3ba-4c96-b6c5-c7a5c7b859a3">&lt;strong&gt;</bpt>Control Panel<ept id="94ade76a-c3ba-4c96-b6c5-c7a5c7b859a3">&lt;/strong&gt;</ept>; then click the <bpt id="62bd7bfc-8b7c-4038-a5a4-da529c01afe7">&lt;strong&gt;</bpt>Advanced<ept id="62bd7bfc-8b7c-4038-a5a4-da529c01afe7">&lt;/strong&gt;</ept> tab and choose <bpt id="ca5eed1e-6703-4d4b-93b4-e9c85e995ebc">&lt;strong&gt;</bpt>Environment Variables<ept id="ca5eed1e-6703-4d4b-93b4-e9c85e995ebc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To access this dialog box, start the <bpt id="6b10f5ac-b512-4d05-92e2-d0da5d6ba83b">&lt;strong&gt;</bpt>System<ept id="6b10f5ac-b512-4d05-92e2-d0da5d6ba83b">&lt;/strong&gt;</ept> utility by double-clicking the System icon in the <bpt id="94ade76a-c3ba-4c96-b6c5-c7a5c7b859a3">&lt;strong&gt;</bpt>Control Panel<ept id="94ade76a-c3ba-4c96-b6c5-c7a5c7b859a3">&lt;/strong&gt;</ept>; then click the <bpt id="62bd7bfc-8b7c-4038-a5a4-da529c01afe7">&lt;strong&gt;</bpt>Advanced<ept id="62bd7bfc-8b7c-4038-a5a4-da529c01afe7">&lt;/strong&gt;</ept> tab and choose <bpt id="ca5eed1e-6703-4d4b-93b4-e9c85e995ebc">&lt;strong&gt;</bpt>Environment Variables<ept id="ca5eed1e-6703-4d4b-93b4-e9c85e995ebc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff31f6e1-10de-49fb-a4a3-e4872807ac67" xml:space="preserve">
+          <source>Click the <bpt id="1d447fa4-be35-4632-bd74-26fa99e097e6">&lt;strong&gt;</bpt>New<ept id="1d447fa4-be35-4632-bd74-26fa99e097e6">&lt;/strong&gt;</ept> button under the <bpt id="9c6b91ef-0d1e-4ccb-b98b-a259717e94b2">&lt;strong&gt;</bpt>System Variables<ept id="9c6b91ef-0d1e-4ccb-b98b-a259717e94b2">&lt;/strong&gt;</ept> to set the environment variables.</source>
+          <target state="new">Click the <bpt id="1d447fa4-be35-4632-bd74-26fa99e097e6">&lt;strong&gt;</bpt>New<ept id="1d447fa4-be35-4632-bd74-26fa99e097e6">&lt;/strong&gt;</ept> button under the <bpt id="9c6b91ef-0d1e-4ccb-b98b-a259717e94b2">&lt;strong&gt;</bpt>System Variables<ept id="9c6b91ef-0d1e-4ccb-b98b-a259717e94b2">&lt;/strong&gt;</ept> to set the environment variables.</target>
+        </trans-unit>
+        <trans-unit id="54ce2bcc-92ab-43cf-a6fe-e12ceae628a2" xml:space="preserve">
+          <source>After setting up the environment variables, close the existing Windows command prompt and open up a new one.</source>
+          <target state="new">After setting up the environment variables, close the existing Windows command prompt and open up a new one.</target>
+        </trans-unit>
+        <trans-unit id="f388f415-9a23-4d24-bd25-b850ac4e93ea" xml:space="preserve">
+          <source>Run the following statement to switch to the Oracle\<bpt id="9ccbb9d8-1334-4045-9407-e49246922c58">&lt;em&gt;</bpt>Home directory, such as C:\\OracleDatabase\\product\\11.2.0\\dbhome\<ept id="9ccbb9d8-1334-4045-9407-e49246922c58">&lt;/em&gt;</ept>1\\database.</source>
+          <target state="new">Run the following statement to switch to the Oracle\<bpt id="9ccbb9d8-1334-4045-9407-e49246922c58">&lt;em&gt;</bpt>Home directory, such as C:\\OracleDatabase\\product\\11.2.0\\dbhome\<ept id="9ccbb9d8-1334-4045-9407-e49246922c58">&lt;/em&gt;</ept>1\\database.</target>
+        </trans-unit>
+        <trans-unit id="46caef72-0314-4b0c-b006-88f454f9f35b" xml:space="preserve">
+          <source>Then, create a password file using the password file creation utility, <bpt id="0ae14e90-3786-4b6d-8793-ab6316ec39cc">&lt;linkText&gt;</bpt>ORAPWD<ept id="0ae14e90-3786-4b6d-8793-ab6316ec39cc">&lt;/linkText&gt;</ept><bpt id="0ae14e90-3786-4b6d-8793-ab6316ec39cc">&lt;title&gt;</bpt><ept id="0ae14e90-3786-4b6d-8793-ab6316ec39cc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Then, create a password file using the password file creation utility, <bpt id="0ae14e90-3786-4b6d-8793-ab6316ec39cc">&lt;linkText&gt;</bpt>ORAPWD<ept id="0ae14e90-3786-4b6d-8793-ab6316ec39cc">&lt;/linkText&gt;</ept><bpt id="0ae14e90-3786-4b6d-8793-ab6316ec39cc">&lt;title&gt;</bpt><ept id="0ae14e90-3786-4b6d-8793-ab6316ec39cc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ce67db1-2126-4ad2-9cfd-95b85aefa80e" xml:space="preserve">
+          <source>In the same Windows command prompt in Machine1, run the following command by setting the password value as the password of <bpt id="d82e3737-febe-4d8c-81f5-4abaf8f3bf67">&lt;strong&gt;</bpt>SYS<ept id="d82e3737-febe-4d8c-81f5-4abaf8f3bf67">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In the same Windows command prompt in Machine1, run the following command by setting the password value as the password of <bpt id="d82e3737-febe-4d8c-81f5-4abaf8f3bf67">&lt;strong&gt;</bpt>SYS<ept id="d82e3737-febe-4d8c-81f5-4abaf8f3bf67">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="3d58b34d-4d99-432a-8504-7a906e21ccf2" xml:space="preserve">
+          <source>This command creates a password file, named as PWDTEST.ora, in the ORACLE\_HOME\\database directory.</source>
+          <target state="new">This command creates a password file, named as PWDTEST.ora, in the ORACLE\_HOME\\database directory.</target>
+        </trans-unit>
+        <trans-unit id="17a6b670-894e-4fa8-9c43-01802f76adc1" xml:space="preserve">
+          <source>You should copy this file to %ORACLE\_HOME%\\database directory in Machine2 manually.</source>
+          <target state="new">You should copy this file to %ORACLE\_HOME%\\database directory in Machine2 manually.</target>
+        </trans-unit>
+        <trans-unit id="a89f8886-55d8-4a97-bdc7-a62d08692c0b" xml:space="preserve">
+          <source>Then, you need to configure a Standby Redo Log so that the primary can correctly receive the redo when it becomes a standby.</source>
+          <target state="new">Then, you need to configure a Standby Redo Log so that the primary can correctly receive the redo when it becomes a standby.</target>
+        </trans-unit>
+        <trans-unit id="acc67193-93bb-46fc-82fa-eacd216fb42a" xml:space="preserve">
+          <source>Pre-creating them here also allows the standby redo logs to be automatically created on the standby.</source>
+          <target state="new">Pre-creating them here also allows the standby redo logs to be automatically created on the standby.</target>
+        </trans-unit>
+        <trans-unit id="e482f96e-3b1e-4baa-af1d-6ceecfdc1a1f" xml:space="preserve">
+          <source>It is important to configure the Standby Redo Logs (SRL) with the same size as the online redo logs.</source>
+          <target state="new">It is important to configure the Standby Redo Logs (SRL) with the same size as the online redo logs.</target>
+        </trans-unit>
+        <trans-unit id="fa8e1fd5-ae6e-4461-b7b0-aefec1c12f55" xml:space="preserve">
+          <source>The size of the current standby redo log files must exactly match the size of the current primary database online redo log files.</source>
+          <target state="new">The size of the current standby redo log files must exactly match the size of the current primary database online redo log files.</target>
+        </trans-unit>
+        <trans-unit id="467523b6-0c46-41d3-9d80-b11818152af7" xml:space="preserve">
+          <source>Run the following statement in the SQL\*PLUS command prompt in Machine1.</source>
+          <target state="new">Run the following statement in the SQL\*PLUS command prompt in Machine1.</target>
+        </trans-unit>
+        <trans-unit id="6c16ff7b-e789-49a5-b5e2-65dfd0023184" xml:space="preserve">
+          <source>The v$logfile is a system view that contains information about redo log files.</source>
+          <target state="new">The v$logfile is a system view that contains information about redo log files.</target>
+        </trans-unit>
+        <trans-unit id="94ed5f6b-0f7c-49b4-ba30-d9d19ed8a151" xml:space="preserve">
+          <source>Note that 52428800 is 50 megabytes.</source>
+          <target state="new">Note that 52428800 is 50 megabytes.</target>
+        </trans-unit>
+        <trans-unit id="e871a754-23b3-41cf-947c-3521f8f2b81d" xml:space="preserve">
+          <source>Then, in the SQL\*Plus window, run the following statements to add a new standby redo log file group to a standby database and specify a number that identifies the group using the GROUP clause.</source>
+          <target state="new">Then, in the SQL\*Plus window, run the following statements to add a new standby redo log file group to a standby database and specify a number that identifies the group using the GROUP clause.</target>
+        </trans-unit>
+        <trans-unit id="b6e96c95-f088-4a5d-971c-a719ad84c3da" xml:space="preserve">
+          <source>Using group numbers can make administering standby redo log file groups easier:</source>
+          <target state="new">Using group numbers can make administering standby redo log file groups easier:</target>
+        </trans-unit>
+        <trans-unit id="7e43aa60-54b2-42d7-98f4-430131df7664" xml:space="preserve">
+          <source>Next, run the following system view to list information about redo log files.</source>
+          <target state="new">Next, run the following system view to list information about redo log files.</target>
+        </trans-unit>
+        <trans-unit id="11938a26-be60-4368-b2ec-4d95189a264b" xml:space="preserve">
+          <source>This operation also verifies that the standby redo log file groups were created:</source>
+          <target state="new">This operation also verifies that the standby redo log file groups were created:</target>
+        </trans-unit>
+        <trans-unit id="8dd09efe-e4f4-4421-b59e-e35b842cc333" xml:space="preserve">
+          <source>Then, enable archiving by running the following statements to put the primary database in ARCHIVELOG mode and enable automatic archiving.</source>
+          <target state="new">Then, enable archiving by running the following statements to put the primary database in ARCHIVELOG mode and enable automatic archiving.</target>
+        </trans-unit>
+        <trans-unit id="89d3b296-49c6-481a-b584-5195b9c610bc" xml:space="preserve">
+          <source>You can enable archive log mode by mounting the database and then executing the archivelog command.</source>
+          <target state="new">You can enable archive log mode by mounting the database and then executing the archivelog command.</target>
+        </trans-unit>
+        <trans-unit id="d42184b8-a68e-4de8-b98c-553efa8a3484" xml:space="preserve">
+          <source>First, log in as sysdba.</source>
+          <target state="new">First, log in as sysdba.</target>
+        </trans-unit>
+        <trans-unit id="20378edd-5cbd-4cc1-8746-9158d2f04804" xml:space="preserve">
+          <source>In the Windows command prompt, run:</source>
+          <target state="new">In the Windows command prompt, run:</target>
+        </trans-unit>
+        <trans-unit id="7f92e221-6294-43bb-969f-fdf438ef7b9b" xml:space="preserve">
+          <source>Then, shutdown the database in the SQL\*Plus command prompt:</source>
+          <target state="new">Then, shutdown the database in the SQL\*Plus command prompt:</target>
+        </trans-unit>
+        <trans-unit id="fc9e490a-d348-4d4d-b2bf-22156c0c6d3c" xml:space="preserve">
+          <source>Then, execute the startup mount command to mount the database.</source>
+          <target state="new">Then, execute the startup mount command to mount the database.</target>
+        </trans-unit>
+        <trans-unit id="f62acca2-4955-4982-bf70-a569e86f7ea0" xml:space="preserve">
+          <source>This ensures that Oracle associates the instance with the specified database.</source>
+          <target state="new">This ensures that Oracle associates the instance with the specified database.</target>
+        </trans-unit>
+        <trans-unit id="cf0b1739-4c28-4ce9-a9c0-caea02a824ec" xml:space="preserve">
+          <source>Then, run:</source>
+          <target state="new">Then, run:</target>
+        </trans-unit>
+        <trans-unit id="6bc9f9c7-ed1f-40df-b0c4-606f83cfcc86" xml:space="preserve">
+          <source>Then, run the Alter database statement with the Open clause to make the database available for normal use:</source>
+          <target state="new">Then, run the Alter database statement with the Open clause to make the database available for normal use:</target>
+        </trans-unit>
+        <trans-unit id="16c68ebc-fde7-41fa-b98b-9e3b12eab31a" xml:space="preserve">
+          <source>To configure the Data Guard, you need to create and configure the standby parameters on a regular pfile (text initialization parameter file) first.</source>
+          <target state="new">To configure the Data Guard, you need to create and configure the standby parameters on a regular pfile (text initialization parameter file) first.</target>
+        </trans-unit>
+        <trans-unit id="004aa479-2fb6-406d-a800-e3f8827f8f77" xml:space="preserve">
+          <source>When the pfile is ready, you need to convert it to a server parameter file (SPFILE).</source>
+          <target state="new">When the pfile is ready, you need to convert it to a server parameter file (SPFILE).</target>
+        </trans-unit>
+        <trans-unit id="f926e980-f53b-4503-8327-4075e756453a" xml:space="preserve">
+          <source>You can control the Data Guard environment using the parameters in the INIT.ORA file.</source>
+          <target state="new">You can control the Data Guard environment using the parameters in the INIT.ORA file.</target>
+        </trans-unit>
+        <trans-unit id="f8d05f30-ce6d-4453-9681-16838fb48f90" xml:space="preserve">
+          <source>When following this tutorial, you need to update the Primary database INIT.ORA so that it can hold both roles: Primary or Standby.</source>
+          <target state="new">When following this tutorial, you need to update the Primary database INIT.ORA so that it can hold both roles: Primary or Standby.</target>
+        </trans-unit>
+        <trans-unit id="7c8e3baf-e538-4743-8cd3-848abd42f030" xml:space="preserve">
+          <source>Next, you need to edit the pfile to add the standby parameters. To do this, open the INITTEST.ORA file in the location of %ORACLE\_HOME%\\database. Next, append the following statements to the INITTEST.ora file. Note that the naming convention for your INIT.ORA file is INIT\&lt;YourDatabaseName\&gt;.ORA.</source>
+          <target state="new">Next, you need to edit the pfile to add the standby parameters. To do this, open the INITTEST.ORA file in the location of %ORACLE\_HOME%\\database. Next, append the following statements to the INITTEST.ora file. Note that the naming convention for your INIT.ORA file is INIT\&lt;YourDatabaseName\&gt;.ORA.</target>
+        </trans-unit>
+        <trans-unit id="8f2df074-9978-49aa-bc19-63ebaf7b00a3" xml:space="preserve">
+          <source>The previous statement block includes three important setup items:</source>
+          <target state="new">The previous statement block includes three important setup items:</target>
+        </trans-unit>
+        <trans-unit id="5531097c-a73d-4f18-b6fd-ebd81f1de471" xml:space="preserve">
+          <source><bpt id="97ef7600-d636-4339-ae43-21db0b6358f4">&lt;strong&gt;</bpt>LOG_ARCHIVE_CONFIG...:<ept id="97ef7600-d636-4339-ae43-21db0b6358f4">&lt;/strong&gt;</ept> You define the unique database ids using this statement.</source>
+          <target state="new"><bpt id="97ef7600-d636-4339-ae43-21db0b6358f4">&lt;strong&gt;</bpt>LOG_ARCHIVE_CONFIG...:<ept id="97ef7600-d636-4339-ae43-21db0b6358f4">&lt;/strong&gt;</ept> You define the unique database ids using this statement.</target>
+        </trans-unit>
+        <trans-unit id="5ac0158e-e000-4e20-a3c1-69bc272422c9" xml:space="preserve">
+          <source><bpt id="2e4ba322-63a6-4f37-961f-545b9d86c1b5">&lt;strong&gt;</bpt>LOG_ARCHIVE_DEST_1...:<ept id="2e4ba322-63a6-4f37-961f-545b9d86c1b5">&lt;/strong&gt;</ept> You define the local archive folder location using this statement.</source>
+          <target state="new"><bpt id="2e4ba322-63a6-4f37-961f-545b9d86c1b5">&lt;strong&gt;</bpt>LOG_ARCHIVE_DEST_1...:<ept id="2e4ba322-63a6-4f37-961f-545b9d86c1b5">&lt;/strong&gt;</ept> You define the local archive folder location using this statement.</target>
+        </trans-unit>
+        <trans-unit id="9f030904-8856-4a14-862a-558a9ea89c43" xml:space="preserve">
+          <source>We recommend that you create a new directory for your database’s archiving needs and specify the local archive location using this statement explicitly rather than using Oracle’s default folder %ORACLE_HOME%\database\archive.</source>
+          <target state="new">We recommend that you create a new directory for your database’s archiving needs and specify the local archive location using this statement explicitly rather than using Oracle’s default folder %ORACLE_HOME%\database\archive.</target>
+        </trans-unit>
+        <trans-unit id="582db145-cc19-4409-81af-b09e001fb042" xml:space="preserve">
+          <source><bpt id="2d78c928-7051-4a55-8480-6988e5705300">&lt;strong&gt;</bpt>LOG_ARCHIVE_DEST_2 .... LGWR ASYNC...:<ept id="2d78c928-7051-4a55-8480-6988e5705300">&lt;/strong&gt;</ept> You define an asynchronous log writer process (LGWR) to collect transaction redo data and transmit it to standby destinations.</source>
+          <target state="new"><bpt id="2d78c928-7051-4a55-8480-6988e5705300">&lt;strong&gt;</bpt>LOG_ARCHIVE_DEST_2 .... LGWR ASYNC...:<ept id="2d78c928-7051-4a55-8480-6988e5705300">&lt;/strong&gt;</ept> You define an asynchronous log writer process (LGWR) to collect transaction redo data and transmit it to standby destinations.</target>
+        </trans-unit>
+        <trans-unit id="629eaeb7-e5dc-4e61-a3aa-1ae7e9270f87" xml:space="preserve">
+          <source>Here, the DB<bpt id="1de26d77-f8f3-4214-a0c5-c4f861310f70">&lt;em&gt;</bpt>UNIQUE<ept id="1de26d77-f8f3-4214-a0c5-c4f861310f70">&lt;/em&gt;</ept>NAME specifies a unique name for the database at the destination standby server.</source>
+          <target state="new">Here, the DB<bpt id="1de26d77-f8f3-4214-a0c5-c4f861310f70">&lt;em&gt;</bpt>UNIQUE<ept id="1de26d77-f8f3-4214-a0c5-c4f861310f70">&lt;/em&gt;</ept>NAME specifies a unique name for the database at the destination standby server.</target>
+        </trans-unit>
+        <trans-unit id="2b3d6efb-7c02-418f-8026-b5e3684f11ed" xml:space="preserve">
+          <source>Once the new parameter file is ready, you need to create the spfile from it.</source>
+          <target state="new">Once the new parameter file is ready, you need to create the spfile from it.</target>
+        </trans-unit>
+        <trans-unit id="0a87316d-80d9-4765-ba2a-aa363d80efc0" xml:space="preserve">
+          <source>First, shutdown the database:</source>
+          <target state="new">First, shutdown the database:</target>
+        </trans-unit>
+        <trans-unit id="97d61d0b-9dfd-4113-a0b7-75623ecadee2" xml:space="preserve">
+          <source>Next, run startup nomount command as follows:</source>
+          <target state="new">Next, run startup nomount command as follows:</target>
+        </trans-unit>
+        <trans-unit id="b45187c0-f9fe-4696-9ba9-f7c22a8b0358" xml:space="preserve">
+          <source>Now, create a spfile:</source>
+          <target state="new">Now, create a spfile:</target>
+        </trans-unit>
+        <trans-unit id="966dfa41-e001-4a22-bbf7-e4c9b6f476df" xml:space="preserve">
+          <source>Then, shutdown the database:</source>
+          <target state="new">Then, shutdown the database:</target>
+        </trans-unit>
+        <trans-unit id="08a24cc6-30ea-4089-a813-4187c9d1e912" xml:space="preserve">
+          <source>Then, use the startup command to start an instance:</source>
+          <target state="new">Then, use the startup command to start an instance:</target>
+        </trans-unit>
+        <trans-unit id="cf4fa11d-aa86-4047-addc-8f6f7bf7cbdb" xml:space="preserve">
+          <source>This section focuses on the steps that you must perform in Machine2 to prepare the physical standby database.</source>
+          <target state="new">This section focuses on the steps that you must perform in Machine2 to prepare the physical standby database.</target>
+        </trans-unit>
+        <trans-unit id="738569d0-23cd-42ff-a630-d6020519f0aa" xml:space="preserve">
+          <source>First, you need to remote desktop to Machine2 via the Azure Portal.</source>
+          <target state="new">First, you need to remote desktop to Machine2 via the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="4a8c6d02-336a-42a6-9528-fe2f52b98404" xml:space="preserve">
+          <source>Then, on the Standby Server (Machine2), create all the necessary folders for the standby database, such as C:\\\&lt;YourLocalFolder\&gt;\\TEST. While following this tutorial, make sure that the folder structure matches the folder structure on Machine1 to keep all the necessary files, such as controlfile, datafiles, redologfiles, udump, bdump and cdump files. In addition, define the ORACLE\<bpt id="be91bf2d-2c18-4470-839e-f7cf26a1363f">&lt;em&gt;</bpt>HOME and ORACLE\<ept id="be91bf2d-2c18-4470-839e-f7cf26a1363f">&lt;/em&gt;</ept>BASE environment variables in Machine2. If not, define them as an environment variable using the Environment Variables dialog box. To access this dialog box, start the <bpt id="1a49b58d-29d9-48c6-9a23-f4046bbaf1ac">&lt;strong&gt;</bpt>System<ept id="1a49b58d-29d9-48c6-9a23-f4046bbaf1ac">&lt;/strong&gt;</ept> utility by double-clicking the System icon in the <bpt id="f0e275f0-80cc-464f-be02-30bde4b16f8b">&lt;strong&gt;</bpt>Control Panel<ept id="f0e275f0-80cc-464f-be02-30bde4b16f8b">&lt;/strong&gt;</ept>; then click the <bpt id="e3cc23e1-e27b-4bcc-8b4b-15092419b2d8">&lt;strong&gt;</bpt>Advanced<ept id="e3cc23e1-e27b-4bcc-8b4b-15092419b2d8">&lt;/strong&gt;</ept> tab and choose <bpt id="6af13508-36f7-4b79-8b4f-7dc9972aae42">&lt;strong&gt;</bpt>Environment Variables<ept id="6af13508-36f7-4b79-8b4f-7dc9972aae42">&lt;/strong&gt;</ept>. Click the <bpt id="1d8b5ab2-8198-49c1-9168-605072fcea47">&lt;strong&gt;</bpt>New<ept id="1d8b5ab2-8198-49c1-9168-605072fcea47">&lt;/strong&gt;</ept> button under the <bpt id="fe845254-ed5d-4873-98f9-6f481edda28a">&lt;strong&gt;</bpt>System Variables<ept id="fe845254-ed5d-4873-98f9-6f481edda28a">&lt;/strong&gt;</ept> to set the environment variables. After setting up the environment variables, you need to close the existing Windows command prompt and open up a new one to see the changes.</source>
+          <target state="new">Then, on the Standby Server (Machine2), create all the necessary folders for the standby database, such as C:\\\&lt;YourLocalFolder\&gt;\\TEST. While following this tutorial, make sure that the folder structure matches the folder structure on Machine1 to keep all the necessary files, such as controlfile, datafiles, redologfiles, udump, bdump and cdump files. In addition, define the ORACLE\<bpt id="be91bf2d-2c18-4470-839e-f7cf26a1363f">&lt;em&gt;</bpt>HOME and ORACLE\<ept id="be91bf2d-2c18-4470-839e-f7cf26a1363f">&lt;/em&gt;</ept>BASE environment variables in Machine2. If not, define them as an environment variable using the Environment Variables dialog box. To access this dialog box, start the <bpt id="1a49b58d-29d9-48c6-9a23-f4046bbaf1ac">&lt;strong&gt;</bpt>System<ept id="1a49b58d-29d9-48c6-9a23-f4046bbaf1ac">&lt;/strong&gt;</ept> utility by double-clicking the System icon in the <bpt id="f0e275f0-80cc-464f-be02-30bde4b16f8b">&lt;strong&gt;</bpt>Control Panel<ept id="f0e275f0-80cc-464f-be02-30bde4b16f8b">&lt;/strong&gt;</ept>; then click the <bpt id="e3cc23e1-e27b-4bcc-8b4b-15092419b2d8">&lt;strong&gt;</bpt>Advanced<ept id="e3cc23e1-e27b-4bcc-8b4b-15092419b2d8">&lt;/strong&gt;</ept> tab and choose <bpt id="6af13508-36f7-4b79-8b4f-7dc9972aae42">&lt;strong&gt;</bpt>Environment Variables<ept id="6af13508-36f7-4b79-8b4f-7dc9972aae42">&lt;/strong&gt;</ept>. Click the <bpt id="1d8b5ab2-8198-49c1-9168-605072fcea47">&lt;strong&gt;</bpt>New<ept id="1d8b5ab2-8198-49c1-9168-605072fcea47">&lt;/strong&gt;</ept> button under the <bpt id="fe845254-ed5d-4873-98f9-6f481edda28a">&lt;strong&gt;</bpt>System Variables<ept id="fe845254-ed5d-4873-98f9-6f481edda28a">&lt;/strong&gt;</ept> to set the environment variables. After setting up the environment variables, you need to close the existing Windows command prompt and open up a new one to see the changes.</target>
+        </trans-unit>
+        <trans-unit id="d0d00ba6-8485-4c26-9609-f408a09eb8ca" xml:space="preserve">
+          <source>Next, follow these steps:</source>
+          <target state="new">Next, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="138302fc-07aa-4d2b-b48a-7f6c23e324e3" xml:space="preserve">
+          <source>Prepare an initialization parameter file for standby database</source>
+          <target state="new">Prepare an initialization parameter file for standby database</target>
+        </trans-unit>
+        <trans-unit id="068a35d0-f158-4b8a-a258-b7ed9deb8c00" xml:space="preserve">
+          <source>Configure the listener and tnsnames to support the database on primary and standby machines</source>
+          <target state="new">Configure the listener and tnsnames to support the database on primary and standby machines</target>
+        </trans-unit>
+        <trans-unit id="bdc992f1-e054-46e3-b058-732456fc5bc0" xml:space="preserve">
+          <source>Configure listener.ora on both servers to hold entries for both databases</source>
+          <target state="new">Configure listener.ora on both servers to hold entries for both databases</target>
+        </trans-unit>
+        <trans-unit id="66fa2032-04d0-44da-9587-bfb3671f4aa8" xml:space="preserve">
+          <source>Configure tnsnames.ora on the primary and standby Virtual Machines to hold entries for both primary and standby databases</source>
+          <target state="new">Configure tnsnames.ora on the primary and standby Virtual Machines to hold entries for both primary and standby databases</target>
+        </trans-unit>
+        <trans-unit id="21af43bf-1fb9-49f4-bc8c-1c57d959a120" xml:space="preserve">
+          <source>Start the listener and check tnsping on both Virtual Machines to both services.</source>
+          <target state="new">Start the listener and check tnsping on both Virtual Machines to both services.</target>
+        </trans-unit>
+        <trans-unit id="c1873392-3517-43b1-bc15-7c4d535a1a5e" xml:space="preserve">
+          <source>Startup the standby instance in nomount state</source>
+          <target state="new">Startup the standby instance in nomount state</target>
+        </trans-unit>
+        <trans-unit id="544ccb0f-1fe0-413c-8902-154ccfa1631d" xml:space="preserve">
+          <source>Use RMAN to clone the database and to create a standby database</source>
+          <target state="new">Use RMAN to clone the database and to create a standby database</target>
+        </trans-unit>
+        <trans-unit id="92b619ad-5123-4d4e-bee9-483f99e18ea7" xml:space="preserve">
+          <source>Start the physical standby database in managed recovery mode</source>
+          <target state="new">Start the physical standby database in managed recovery mode</target>
+        </trans-unit>
+        <trans-unit id="05f26ca1-485e-4f70-a040-cc4396a4179a" xml:space="preserve">
+          <source>Verify the physical standby database</source>
+          <target state="new">Verify the physical standby database</target>
+        </trans-unit>
+        <trans-unit id="af662079-bb81-4eaf-92b5-7d001b4767e2" xml:space="preserve">
+          <source>This section demonstrates how to prepare an initialization parameter file for the standby database.</source>
+          <target state="new">This section demonstrates how to prepare an initialization parameter file for the standby database.</target>
+        </trans-unit>
+        <trans-unit id="514da024-3a08-47b1-9e47-3ed8f2b26115" xml:space="preserve">
+          <source>To do this, first copy the INITTEST.ORA file from Machine 1 to Machine2 manually.</source>
+          <target state="new">To do this, first copy the INITTEST.ORA file from Machine 1 to Machine2 manually.</target>
+        </trans-unit>
+        <trans-unit id="3a0a2bc3-899e-456b-8c51-690c51486bf1" xml:space="preserve">
+          <source>You should be able to see the INITTEST.ORA file in the %ORACLE\_HOME%\\database folder in both machines.</source>
+          <target state="new">You should be able to see the INITTEST.ORA file in the %ORACLE\_HOME%\\database folder in both machines.</target>
+        </trans-unit>
+        <trans-unit id="91f0c607-ccc6-4006-8a47-eaabdb04abac" xml:space="preserve">
+          <source>Then, modify the INITTEST.ora file in Machine2 to set it up for the standby role as specified below:</source>
+          <target state="new">Then, modify the INITTEST.ora file in Machine2 to set it up for the standby role as specified below:</target>
+        </trans-unit>
+        <trans-unit id="0a72b795-fce0-4436-8f8a-96e9649ab519" xml:space="preserve">
+          <source>The previous statement block includes two important setup items:</source>
+          <target state="new">The previous statement block includes two important setup items:</target>
+        </trans-unit>
+        <trans-unit id="366cd867-240e-4493-bf6f-2a50fb570f3f" xml:space="preserve">
+          <source><bpt id="6ba7646b-bb0f-4716-acec-86c81ecceffc">&lt;strong&gt;</bpt>\*.LOG_ARCHIVE_DEST_1:<ept id="6ba7646b-bb0f-4716-acec-86c81ecceffc">&lt;/strong&gt;</ept> You need to create the c:\OracleDatabase\TEST_STBY\archives folder in Machine2 manually.</source>
+          <target state="new"><bpt id="6ba7646b-bb0f-4716-acec-86c81ecceffc">&lt;strong&gt;</bpt>\*.LOG_ARCHIVE_DEST_1:<ept id="6ba7646b-bb0f-4716-acec-86c81ecceffc">&lt;/strong&gt;</ept> You need to create the c:\OracleDatabase\TEST_STBY\archives folder in Machine2 manually.</target>
+        </trans-unit>
+        <trans-unit id="8f4ed8bc-bd7b-4bd2-aaf7-ba2f505f0a64" xml:space="preserve">
+          <source><bpt id="622e6aac-2d4a-4092-8829-2e8d8a2627a9">&lt;strong&gt;</bpt>\*.LOG_ARCHIVE_DEST_2:<ept id="622e6aac-2d4a-4092-8829-2e8d8a2627a9">&lt;/strong&gt;</ept> This is an optional step.</source>
+          <target state="new"><bpt id="622e6aac-2d4a-4092-8829-2e8d8a2627a9">&lt;strong&gt;</bpt>\*.LOG_ARCHIVE_DEST_2:<ept id="622e6aac-2d4a-4092-8829-2e8d8a2627a9">&lt;/strong&gt;</ept> This is an optional step.</target>
+        </trans-unit>
+        <trans-unit id="6a142e32-de17-47b9-b655-1d121c5da1b7" xml:space="preserve">
+          <source>You set this as it might be needed when the primary machine is in maintenance and the standby machine becomes a primary database.</source>
+          <target state="new">You set this as it might be needed when the primary machine is in maintenance and the standby machine becomes a primary database.</target>
+        </trans-unit>
+        <trans-unit id="d2c7bb71-f549-411f-afb7-ecb35e2abe54" xml:space="preserve">
+          <source>Then, you need to start the standby instance.</source>
+          <target state="new">Then, you need to start the standby instance.</target>
+        </trans-unit>
+        <trans-unit id="34528776-08a2-4c68-b469-fa23e5f810be" xml:space="preserve">
+          <source>On the standby database server, enter the following command at a Windows command prompt to create an Oracle instance by creating a new Windows service:</source>
+          <target state="new">On the standby database server, enter the following command at a Windows command prompt to create an Oracle instance by creating a new Windows service:</target>
+        </trans-unit>
+        <trans-unit id="d08e18c2-bba9-4be6-89b3-10d515921b33" xml:space="preserve">
+          <source>Note that the <bpt id="c72653f5-2c0b-48e6-9c61-99d97f15d8b1">&lt;strong&gt;</bpt>Oradim<ept id="c72653f5-2c0b-48e6-9c61-99d97f15d8b1">&lt;/strong&gt;</ept> command creates an Oracle instance but does not start it.</source>
+          <target state="new">Note that the <bpt id="c72653f5-2c0b-48e6-9c61-99d97f15d8b1">&lt;strong&gt;</bpt>Oradim<ept id="c72653f5-2c0b-48e6-9c61-99d97f15d8b1">&lt;/strong&gt;</ept> command creates an Oracle instance but does not start it.</target>
+        </trans-unit>
+        <trans-unit id="b92bdd62-b408-43ef-b4f8-dc9122878be1" xml:space="preserve">
+          <source>You can find it in the C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN directory.</source>
+          <target state="new">You can find it in the C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN directory.</target>
+        </trans-unit>
+        <trans-unit id="7f07bb3a-fb7f-400c-96af-7eacbbe4b7b0" xml:space="preserve">
+          <source>Before you create a standby database, you need to make sure that the primary and standby databases in your configuration can talk to each other.</source>
+          <target state="new">Before you create a standby database, you need to make sure that the primary and standby databases in your configuration can talk to each other.</target>
+        </trans-unit>
+        <trans-unit id="501f1741-a08c-47c0-973f-df4f26b99c45" xml:space="preserve">
+          <source>To do this, you need to configure both the listener and TNSNames either manually or by using the network configuration utility NETCA.</source>
+          <target state="new">To do this, you need to configure both the listener and TNSNames either manually or by using the network configuration utility NETCA.</target>
+        </trans-unit>
+        <trans-unit id="776699c6-fd3f-475f-b6b0-a0190c4d61f4" xml:space="preserve">
+          <source>This is a mandatory task when you use the Recovery Manager utility (RMAN).</source>
+          <target state="new">This is a mandatory task when you use the Recovery Manager utility (RMAN).</target>
+        </trans-unit>
+        <trans-unit id="95626e19-5085-4328-9a72-b83b7af2ecd8" xml:space="preserve">
+          <source>Remote desktop to Machine1 and edit the listener.ora file as specified below.</source>
+          <target state="new">Remote desktop to Machine1 and edit the listener.ora file as specified below.</target>
+        </trans-unit>
+        <trans-unit id="74a06155-d09b-471d-a032-8127ba44555b" xml:space="preserve">
+          <source>When you edit the listener.ora file, always make sure that the opening and closing parenthesis line up in the same column.</source>
+          <target state="new">When you edit the listener.ora file, always make sure that the opening and closing parenthesis line up in the same column.</target>
+        </trans-unit>
+        <trans-unit id="593d8e5a-0744-494e-802c-c0d6228a9bfe" xml:space="preserve">
+          <source>You can find the listener.ora file in the following folder: c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\.</source>
+          <target state="new">You can find the listener.ora file in the following folder: c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\.</target>
+        </trans-unit>
+        <trans-unit id="b1d2d1f8-16fa-4e1b-a46e-77590fbe42c7" xml:space="preserve">
+          <source>Next, remote desktop to Machine2 and edit the listener.ora file as follows:
+    # listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora</source>
+          <target state="new">Next, remote desktop to Machine2 and edit the listener.ora file as follows:
+    # listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora</target>
+        </trans-unit>
+        <trans-unit id="35870aa4-de28-4654-a54d-00a3945a2c89" xml:space="preserve">
+          <source>Remote desktop to Machine1 and edit the tnsnames.ora file as specified below.</source>
+          <target state="new">Remote desktop to Machine1 and edit the tnsnames.ora file as specified below.</target>
+        </trans-unit>
+        <trans-unit id="7c497ad0-a366-4ff1-b314-9ed600b1eed2" xml:space="preserve">
+          <source>You can find the tnsnames.ora file in the following folder: c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\.</source>
+          <target state="new">You can find the tnsnames.ora file in the following folder: c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\.</target>
+        </trans-unit>
+        <trans-unit id="2bef3b88-a201-4290-a0d6-23cd4eb2cf23" xml:space="preserve">
+          <source>Remote desktop to Machine2 and edit the tnsnames.ora file as follows:</source>
+          <target state="new">Remote desktop to Machine2 and edit the tnsnames.ora file as follows:</target>
+        </trans-unit>
+        <trans-unit id="478f6755-7207-4444-befa-b2effc6504d4" xml:space="preserve">
+          <source>Open up a new Windows command prompt in both primary and standby Virtual Machines and run the following statements:</source>
+          <target state="new">Open up a new Windows command prompt in both primary and standby Virtual Machines and run the following statements:</target>
+        </trans-unit>
+        <trans-unit id="59b911ed-e479-4baa-b092-1669ac1416ce" xml:space="preserve">
+          <source>You need to set up the environment to support the standby database on the standby Virtual Machine (MACHINE2).</source>
+          <target state="new">You need to set up the environment to support the standby database on the standby Virtual Machine (MACHINE2).</target>
+        </trans-unit>
+        <trans-unit id="09c2d04a-4901-46c4-9524-360e9bb628b5" xml:space="preserve">
+          <source>First, copy the password file from the primary machine (Machine1) to the standby machine (Machine2) manually.</source>
+          <target state="new">First, copy the password file from the primary machine (Machine1) to the standby machine (Machine2) manually.</target>
+        </trans-unit>
+        <trans-unit id="8d9ae1fb-5b0c-42d6-9593-bee95ec5cf69" xml:space="preserve">
+          <source>This is necessary as the <bpt id="d2597c73-6728-4645-90eb-09832757e55b">&lt;strong&gt;</bpt>sys<ept id="d2597c73-6728-4645-90eb-09832757e55b">&lt;/strong&gt;</ept> password must be identical on both machines.</source>
+          <target state="new">This is necessary as the <bpt id="d2597c73-6728-4645-90eb-09832757e55b">&lt;strong&gt;</bpt>sys<ept id="d2597c73-6728-4645-90eb-09832757e55b">&lt;/strong&gt;</ept> password must be identical on both machines.</target>
+        </trans-unit>
+        <trans-unit id="26bab9a3-ec8f-4659-a588-f8ec7de19d5b" xml:space="preserve">
+          <source>Then, open the Windows command prompt in Machine2, and setup the environment variables to point to the Standby database as follows:</source>
+          <target state="new">Then, open the Windows command prompt in Machine2, and setup the environment variables to point to the Standby database as follows:</target>
+        </trans-unit>
+        <trans-unit id="b9ef33a6-98ff-4f84-b23e-14aec252874a" xml:space="preserve">
+          <source>Next, start the Standby database in nomount state and then generate an spfile.</source>
+          <target state="new">Next, start the Standby database in nomount state and then generate an spfile.</target>
+        </trans-unit>
+        <trans-unit id="d489b6b2-97c7-419f-9451-e0310f1d8e69" xml:space="preserve">
+          <source>Start the database:</source>
+          <target state="new">Start the database:</target>
+        </trans-unit>
+        <trans-unit id="f220936a-38cf-40db-b3d5-2682dcc32d7c" xml:space="preserve">
+          <source>You can use the Recovery Manager utility (RMAN) to take any backup copy of the primary database to create the physical standby database.</source>
+          <target state="new">You can use the Recovery Manager utility (RMAN) to take any backup copy of the primary database to create the physical standby database.</target>
+        </trans-unit>
+        <trans-unit id="3b792d56-376f-4eb2-a9e8-9ed8c1833616" xml:space="preserve">
+          <source>Remote desktop to the standby Virtual Machine (MACHINE2) and run the RMAN utility by specifying a full connection string for both the TARGET (primary database, Machine1) and AUXILLARY (standby database, Machine2) instances.</source>
+          <target state="new">Remote desktop to the standby Virtual Machine (MACHINE2) and run the RMAN utility by specifying a full connection string for both the TARGET (primary database, Machine1) and AUXILLARY (standby database, Machine2) instances.</target>
+        </trans-unit>
+        <trans-unit id="88b58b72-6727-475a-8890-ac77ce8b7306" xml:space="preserve">
+          <source>Do not use the operating system authentication as there is no database in the standby server machine yet.</source>
+          <target state="new">Do not use the operating system authentication as there is no database in the standby server machine yet.</target>
+        </trans-unit>
+        <trans-unit id="d4aa7d4a-7df8-43a4-99ae-94658bca7ccd" xml:space="preserve">
+          <source>This tutorial demonstrates how to create a physical standby database.</source>
+          <target state="new">This tutorial demonstrates how to create a physical standby database.</target>
+        </trans-unit>
+        <trans-unit id="2ba26b75-646a-4bdf-bbbe-657095a74605" xml:space="preserve">
+          <source>For information on creating a logical standby database, see the Oracle documentation.</source>
+          <target state="new">For information on creating a logical standby database, see the Oracle documentation.</target>
+        </trans-unit>
+        <trans-unit id="e8b6a35f-b65d-4bc5-b467-142aaad406ae" xml:space="preserve">
+          <source>Open up SQL\*Plus command prompt and enable the Data Guard on the standby Virtual Machine or server (MACHINE2) as follows:</source>
+          <target state="new">Open up SQL\*Plus command prompt and enable the Data Guard on the standby Virtual Machine or server (MACHINE2) as follows:</target>
+        </trans-unit>
+        <trans-unit id="e1f7bed9-87dd-458e-9a77-47de33654bb1" xml:space="preserve">
+          <source>When you open the standby database in <bpt id="044349a5-d765-4514-9f1f-0966af5dd460">&lt;strong&gt;</bpt>MOUNT<ept id="044349a5-d765-4514-9f1f-0966af5dd460">&lt;/strong&gt;</ept> mode, the archive log shipping continues and the managed recovery process continues log applying on the standby database.</source>
+          <target state="new">When you open the standby database in <bpt id="044349a5-d765-4514-9f1f-0966af5dd460">&lt;strong&gt;</bpt>MOUNT<ept id="044349a5-d765-4514-9f1f-0966af5dd460">&lt;/strong&gt;</ept> mode, the archive log shipping continues and the managed recovery process continues log applying on the standby database.</target>
+        </trans-unit>
+        <trans-unit id="d14386ce-c276-4b86-a7b5-013cfd3f213f" xml:space="preserve">
+          <source>This ensures that the standby database remains up-to-date with the primary database.</source>
+          <target state="new">This ensures that the standby database remains up-to-date with the primary database.</target>
+        </trans-unit>
+        <trans-unit id="84046fe9-fca3-499e-85c2-aca6bc584571" xml:space="preserve">
+          <source>Note that the standby database cannot be accessible for reporting purposes during this time.</source>
+          <target state="new">Note that the standby database cannot be accessible for reporting purposes during this time.</target>
+        </trans-unit>
+        <trans-unit id="280ee417-2497-419c-bbd9-c97bb4e45815" xml:space="preserve">
+          <source>When you open the standby database in <bpt id="3a1f0241-3117-48cc-97f5-619a880539de">&lt;strong&gt;</bpt>READ ONLY<ept id="3a1f0241-3117-48cc-97f5-619a880539de">&lt;/strong&gt;</ept> mode, the archive log shipping continues.</source>
+          <target state="new">When you open the standby database in <bpt id="3a1f0241-3117-48cc-97f5-619a880539de">&lt;strong&gt;</bpt>READ ONLY<ept id="3a1f0241-3117-48cc-97f5-619a880539de">&lt;/strong&gt;</ept> mode, the archive log shipping continues.</target>
+        </trans-unit>
+        <trans-unit id="d3afd3da-028b-4188-870c-e3218d8c9218" xml:space="preserve">
+          <source>But the managed recovery process stops.</source>
+          <target state="new">But the managed recovery process stops.</target>
+        </trans-unit>
+        <trans-unit id="db98d0c5-da29-4877-9f80-035f4e7ab779" xml:space="preserve">
+          <source>This causes the standby database to become increasingly out of date until the managed recovery process is resumed.</source>
+          <target state="new">This causes the standby database to become increasingly out of date until the managed recovery process is resumed.</target>
+        </trans-unit>
+        <trans-unit id="e8b4d389-ee9e-430b-a4a0-25c72b773ba5" xml:space="preserve">
+          <source>You can access the standby database for reporting purposes during this time but data may not reflect the latest changes.</source>
+          <target state="new">You can access the standby database for reporting purposes during this time but data may not reflect the latest changes.</target>
+        </trans-unit>
+        <trans-unit id="e418e3ac-10a3-4c51-b65b-33531bf596c0" xml:space="preserve">
+          <source>In general, we recommend that you keep the standby database in <bpt id="9ebefbe4-6bc0-452d-9627-37eedfc9ce9d">&lt;strong&gt;</bpt>MOUNT<ept id="9ebefbe4-6bc0-452d-9627-37eedfc9ce9d">&lt;/strong&gt;</ept> mode to keep the data in the standby database up-to-date in case of failure of the primary database.</source>
+          <target state="new">In general, we recommend that you keep the standby database in <bpt id="9ebefbe4-6bc0-452d-9627-37eedfc9ce9d">&lt;strong&gt;</bpt>MOUNT<ept id="9ebefbe4-6bc0-452d-9627-37eedfc9ce9d">&lt;/strong&gt;</ept> mode to keep the data in the standby database up-to-date in case of failure of the primary database.</target>
+        </trans-unit>
+        <trans-unit id="3ba5b3fd-9550-40e2-b17f-c1246908bd63" xml:space="preserve">
+          <source>However, you can keep the standby database in <bpt id="cceb27dc-8de0-4d67-8729-c1662de8e61f">&lt;strong&gt;</bpt>READ ONLY<ept id="cceb27dc-8de0-4d67-8729-c1662de8e61f">&lt;/strong&gt;</ept> mode for reporting purposes depending on your application’s requirements.</source>
+          <target state="new">However, you can keep the standby database in <bpt id="cceb27dc-8de0-4d67-8729-c1662de8e61f">&lt;strong&gt;</bpt>READ ONLY<ept id="cceb27dc-8de0-4d67-8729-c1662de8e61f">&lt;/strong&gt;</ept> mode for reporting purposes depending on your application’s requirements.</target>
+        </trans-unit>
+        <trans-unit id="3ecd97ac-038c-4519-958e-1b94444da288" xml:space="preserve">
+          <source>The following steps demonstrate how to enable the Data Guard in read-only mode using SQL\*Plus:</source>
+          <target state="new">The following steps demonstrate how to enable the Data Guard in read-only mode using SQL\*Plus:</target>
+        </trans-unit>
+        <trans-unit id="08b6dd24-0635-4a76-8c9f-95f7122ebb29" xml:space="preserve">
+          <source>This section demonstrates how to verify the high availability configuration as an administrator.</source>
+          <target state="new">This section demonstrates how to verify the high availability configuration as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="7095bfa9-e782-4578-89d7-a434de107600" xml:space="preserve">
+          <source>Open up SQL\*Plus command prompt window and check archived redo log on the Standby Virtual Machine (Machine2):</source>
+          <target state="new">Open up SQL\*Plus command prompt window and check archived redo log on the Standby Virtual Machine (Machine2):</target>
+        </trans-unit>
+        <trans-unit id="6eda3513-aa20-40b2-a297-46710c324404" xml:space="preserve">
+          <source>Open up SQL*Plus command prompt window and switch logfiles on the Primary machine (Machine1):</source>
+          <target state="new">Open up SQL*Plus command prompt window and switch logfiles on the Primary machine (Machine1):</target>
+        </trans-unit>
+        <trans-unit id="7c37b72a-f89f-4132-bf42-a510929f4c61" xml:space="preserve">
+          <source>Check archived redo log on the Standby Virtual Machine (Machine2):</source>
+          <target state="new">Check archived redo log on the Standby Virtual Machine (Machine2):</target>
+        </trans-unit>
+        <trans-unit id="bf69b73f-c566-4036-919a-3927c3fb5751" xml:space="preserve">
+          <source>Check for any gap on the Standby Virtual Machine (Machine2):</source>
+          <target state="new">Check for any gap on the Standby Virtual Machine (Machine2):</target>
+        </trans-unit>
+        <trans-unit id="1f1d4756-ecdd-47a5-9793-1770adddf559" xml:space="preserve">
+          <source>Another verification method could be to failover to the standby database and then test if it is possible to failback to the primary database.</source>
+          <target state="new">Another verification method could be to failover to the standby database and then test if it is possible to failback to the primary database.</target>
+        </trans-unit>
+        <trans-unit id="ba8f1992-8aeb-4392-baf7-fe40b4e78237" xml:space="preserve">
+          <source>To activate the standby database as a primary database, use the following statements:</source>
+          <target state="new">To activate the standby database as a primary database, use the following statements:</target>
+        </trans-unit>
+        <trans-unit id="363bfa97-1b51-47e7-b237-78b5f2159a7f" xml:space="preserve">
+          <source>If you have not enabled flashback on the original primary database, it’s recommended that you drop the original primary database and recreate as a standby database.</source>
+          <target state="new">If you have not enabled flashback on the original primary database, it’s recommended that you drop the original primary database and recreate as a standby database.</target>
+        </trans-unit>
+        <trans-unit id="d5ad668a-267a-4ecf-9459-cb8881d0ceee" xml:space="preserve">
+          <source>We recommend that you enable flashback database on the primary and the standby databases.</source>
+          <target state="new">We recommend that you enable flashback database on the primary and the standby databases.</target>
+        </trans-unit>
+        <trans-unit id="f49b7589-59b0-46e8-84fa-02b878ec3f66" xml:space="preserve">
+          <source>When a failover happens, the primary database can be flashed back to the time before the failover and quickly converted to a standby database.</source>
+          <target state="new">When a failover happens, the primary database can be flashed back to the time before the failover and quickly converted to a standby database.</target>
+        </trans-unit>
+        <trans-unit id="69c42a92-a5a0-46ab-a6f9-59c5450f9654" xml:space="preserve">
+          <source><bpt id="a58d0143-3f84-49d0-9781-f92e541724de">&lt;linkText&gt;</bpt>Oracle Virtual Machine images for Azure<ept id="a58d0143-3f84-49d0-9781-f92e541724de">&lt;/linkText&gt;</ept><bpt id="a58d0143-3f84-49d0-9781-f92e541724de">&lt;title&gt;</bpt><ept id="a58d0143-3f84-49d0-9781-f92e541724de">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a58d0143-3f84-49d0-9781-f92e541724de">&lt;linkText&gt;</bpt>Oracle Virtual Machine images for Azure<ept id="a58d0143-3f84-49d0-9781-f92e541724de">&lt;/linkText&gt;</ept><bpt id="a58d0143-3f84-49d0-9781-f92e541724de">&lt;title&gt;</bpt><ept id="a58d0143-3f84-49d0-9781-f92e541724de">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

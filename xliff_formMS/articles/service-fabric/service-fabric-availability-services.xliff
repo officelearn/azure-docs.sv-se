@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2598a982-79d0-4219-91c1-4b8f1206a870" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2598a982-79d0-4219-91c1-4b8f1206a870" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="30b75bff-a2c9-42b8-aa08-ca0ca9ace535">
+        <trans-unit id="d83d1b0a-a708-4b19-8f8c-53ab0c2f7331" xml:space="preserve">
+          <source>Availability of Service Fabric Services</source>
+          <target state="new">Availability of Service Fabric Services</target>
+        </trans-unit>
+        <trans-unit id="a58e1c09-2242-4c84-a40a-3167708ebb2c" xml:space="preserve">
+          <source>Describes fault detection, failover, recovery for services</source>
+          <target state="new">Describes fault detection, failover, recovery for services</target>
+        </trans-unit>
+        <trans-unit id="badf3962-0d3a-4f56-86ef-cdf20dc49f5e" xml:space="preserve">
+          <source>Service Fabric services can be either stateful or stateless.</source>
+          <target state="new">Service Fabric services can be either stateful or stateless.</target>
+        </trans-unit>
+        <trans-unit id="25c7ac79-dfcf-4247-be0a-3f16e9be938c" xml:space="preserve">
+          <source>This article gives an overview of how Service Fabric maintains availability of a service in the event of failures.</source>
+          <target state="new">This article gives an overview of how Service Fabric maintains availability of a service in the event of failures.</target>
+        </trans-unit>
+        <trans-unit id="75dec465-ef1b-4837-9b1e-c952a16388ea" xml:space="preserve">
+          <source>A stateless service is an application service that does not have any <bpt id="6021d732-e6d6-407f-9de4-f4ca56184c99">&lt;linkText&gt;</bpt>local persistent state<ept id="6021d732-e6d6-407f-9de4-f4ca56184c99">&lt;/linkText&gt;</ept><bpt id="6021d732-e6d6-407f-9de4-f4ca56184c99">&lt;title&gt;</bpt><ept id="6021d732-e6d6-407f-9de4-f4ca56184c99">&lt;/title&gt;</ept>.</source>
+          <target state="new">A stateless service is an application service that does not have any <bpt id="6021d732-e6d6-407f-9de4-f4ca56184c99">&lt;linkText&gt;</bpt>local persistent state<ept id="6021d732-e6d6-407f-9de4-f4ca56184c99">&lt;/linkText&gt;</ept><bpt id="6021d732-e6d6-407f-9de4-f4ca56184c99">&lt;title&gt;</bpt><ept id="6021d732-e6d6-407f-9de4-f4ca56184c99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a69aaadb-050a-4498-868e-248a56b61194" xml:space="preserve">
+          <source>Creating a stateless service requires defining an instance count which is the number of instances of the stateless service that should be running in the cluster.</source>
+          <target state="new">Creating a stateless service requires defining an instance count which is the number of instances of the stateless service that should be running in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="e67f1f5a-4a98-48f1-9b95-96b86bf31839" xml:space="preserve">
+          <source>These are the number of copies of the application logic that will be instantiated in the cluster.</source>
+          <target state="new">These are the number of copies of the application logic that will be instantiated in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="43a44a43-13d1-4ee6-a3ff-0279c55efcca" xml:space="preserve">
+          <source>Increasing the number of instances is the recommended way of scaling out stateless services.</source>
+          <target state="new">Increasing the number of instances is the recommended way of scaling out stateless services.</target>
+        </trans-unit>
+        <trans-unit id="4a6d5529-07db-47af-9efe-5b8765cd4219" xml:space="preserve">
+          <source>When a fault is detected on any instance of the stateless service a new instance is created on some other eligible node in the cluster.</source>
+          <target state="new">When a fault is detected on any instance of the stateless service a new instance is created on some other eligible node in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="20d144db-0290-46ec-acdd-72a9396c6e99" xml:space="preserve">
+          <source>A Stateful Service has some state that is associated with it.</source>
+          <target state="new">A Stateful Service has some state that is associated with it.</target>
+        </trans-unit>
+        <trans-unit id="9fddeb9b-82d9-4d20-99be-9625a36c1822" xml:space="preserve">
+          <source>In Service Fabric, a stateful service is modeled as a set of replicas.</source>
+          <target state="new">In Service Fabric, a stateful service is modeled as a set of replicas.</target>
+        </trans-unit>
+        <trans-unit id="1985ad4a-781b-4c2e-9274-271105f80809" xml:space="preserve">
+          <source>Each replica is an instance of the code of the service that has a copy of the state.</source>
+          <target state="new">Each replica is an instance of the code of the service that has a copy of the state.</target>
+        </trans-unit>
+        <trans-unit id="cfa5fd94-63e3-4ebf-a551-8ef2902b07bb" xml:space="preserve">
+          <source>Read and Write operations are performed at one replica (called the Primary).</source>
+          <target state="new">Read and Write operations are performed at one replica (called the Primary).</target>
+        </trans-unit>
+        <trans-unit id="98b12514-4e4c-4957-bdd7-296396f5565e" xml:space="preserve">
+          <source>Changes to state due to write operations are <bpt id="837ba9e8-5278-492a-aad8-28be9864698f">&lt;em&gt;</bpt>replicated<ept id="837ba9e8-5278-492a-aad8-28be9864698f">&lt;/em&gt;</ept> to multiple other replicas (called the Active Secondaries).</source>
+          <target state="new">Changes to state due to write operations are <bpt id="837ba9e8-5278-492a-aad8-28be9864698f">&lt;em&gt;</bpt>replicated<ept id="837ba9e8-5278-492a-aad8-28be9864698f">&lt;/em&gt;</ept> to multiple other replicas (called the Active Secondaries).</target>
+        </trans-unit>
+        <trans-unit id="cb4eceb2-47f3-433c-9312-acd87286e603" xml:space="preserve">
+          <source>This combination of Primary and Active Secondary replicas is the replica set of the service.</source>
+          <target state="new">This combination of Primary and Active Secondary replicas is the replica set of the service.</target>
+        </trans-unit>
+        <trans-unit id="996b01bf-eccc-4626-9db3-42f9cf75dbef" xml:space="preserve">
+          <source>There can be only one Primary that is servicing read and write requests.</source>
+          <target state="new">There can be only one Primary that is servicing read and write requests.</target>
+        </trans-unit>
+        <trans-unit id="7e8b2b13-f6d2-4b2a-92a5-85bd11ebc50e" xml:space="preserve">
+          <source>There can be multiple Active Secondary replicas.</source>
+          <target state="new">There can be multiple Active Secondary replicas.</target>
+        </trans-unit>
+        <trans-unit id="5f93f297-1fa1-46f9-b25e-f5e8705350f5" xml:space="preserve">
+          <source>The number of Active Secondary replicas is configurable and a higher number of replicas allows for tolerating a greater number of concurrent software and hardware failures.</source>
+          <target state="new">The number of Active Secondary replicas is configurable and a higher number of replicas allows for tolerating a greater number of concurrent software and hardware failures.</target>
+        </trans-unit>
+        <trans-unit id="527b64be-40c6-4752-89d1-80d3eb9826e8" xml:space="preserve">
+          <source>In the event of a fault (when the Primary replica goes down), Service Fabric makes one of the Active Secondary replicas the new Primary replica.</source>
+          <target state="new">In the event of a fault (when the Primary replica goes down), Service Fabric makes one of the Active Secondary replicas the new Primary replica.</target>
+        </trans-unit>
+        <trans-unit id="8d50f329-befa-480a-ab82-49ab5708ec4b" xml:space="preserve">
+          <source>This Active Secondary replica already has the updated version of the state (via <bpt id="3187f07f-c3da-4f31-a9a1-c2ea7bc953dc">&lt;em&gt;</bpt>replication<ept id="3187f07f-c3da-4f31-a9a1-c2ea7bc953dc">&lt;/em&gt;</ept>) and can continue processing further read and write operations.</source>
+          <target state="new">This Active Secondary replica already has the updated version of the state (via <bpt id="3187f07f-c3da-4f31-a9a1-c2ea7bc953dc">&lt;em&gt;</bpt>replication<ept id="3187f07f-c3da-4f31-a9a1-c2ea7bc953dc">&lt;/em&gt;</ept>) and can continue processing further read and write operations.</target>
+        </trans-unit>
+        <trans-unit id="8ae99b15-9b63-4686-bc18-24e043540e12" xml:space="preserve">
+          <source>This concept of a replica being a Primary or a Active Secondary is known as the replica role.</source>
+          <target state="new">This concept of a replica being a Primary or a Active Secondary is known as the replica role.</target>
+        </trans-unit>
+        <trans-unit id="a73d5697-5704-4142-bf22-466a467b19d6" xml:space="preserve">
+          <source>The Role of a replica is used to manage the lifecycle of the state being managed by that replica.</source>
+          <target state="new">The Role of a replica is used to manage the lifecycle of the state being managed by that replica.</target>
+        </trans-unit>
+        <trans-unit id="25d24af9-9e32-4c6e-90ad-903cdcc13e15" xml:space="preserve">
+          <source>A replica whose role is primary is servicing read requests.</source>
+          <target state="new">A replica whose role is primary is servicing read requests.</target>
+        </trans-unit>
+        <trans-unit id="26a25265-4d46-48d6-9421-2653c506e65e" xml:space="preserve">
+          <source>It is also servicing write requests by updating its state and replicating the changes to the Active Secondaries in its replica set.</source>
+          <target state="new">It is also servicing write requests by updating its state and replicating the changes to the Active Secondaries in its replica set.</target>
+        </trans-unit>
+        <trans-unit id="e708da6c-9eed-4830-ae69-beeb42226f27" xml:space="preserve">
+          <source>An Active Secondary is responsible for receiving state changes that the Primary replica has replicated and updating its view of the state.</source>
+          <target state="new">An Active Secondary is responsible for receiving state changes that the Primary replica has replicated and updating its view of the state.</target>
+        </trans-unit>
+        <trans-unit id="8a43e47f-69b0-4353-a710-d916533511a0" xml:space="preserve">
+          <source>Higher level programming models such as the <bpt id="7ab09476-5723-4d33-a60f-1af675375a74">&lt;linkText&gt;</bpt>Reliable Actors framework<ept id="7ab09476-5723-4d33-a60f-1af675375a74">&lt;/linkText&gt;</ept><bpt id="7ab09476-5723-4d33-a60f-1af675375a74">&lt;title&gt;</bpt><ept id="7ab09476-5723-4d33-a60f-1af675375a74">&lt;/title&gt;</ept> abstract away the concept of replica role from the developer.</source>
+          <target state="new">Higher level programming models such as the <bpt id="7ab09476-5723-4d33-a60f-1af675375a74">&lt;linkText&gt;</bpt>Reliable Actors framework<ept id="7ab09476-5723-4d33-a60f-1af675375a74">&lt;/linkText&gt;</ept><bpt id="7ab09476-5723-4d33-a60f-1af675375a74">&lt;title&gt;</bpt><ept id="7ab09476-5723-4d33-a60f-1af675375a74">&lt;/title&gt;</ept> abstract away the concept of replica role from the developer.</target>
+        </trans-unit>
+        <trans-unit id="06ba4d0f-942d-48f0-8821-28ab0c564e99" xml:space="preserve">
+          <source>For information on Service Fabric concepts, see the following:</source>
+          <target state="new">For information on Service Fabric concepts, see the following:</target>
+        </trans-unit>
+        <trans-unit id="61801f1a-8e4d-4056-a37a-a046c793a5c2" xml:space="preserve">
+          <source><bpt id="2f5a3890-b6dd-4165-959f-1c79b630121e">&lt;linkText&gt;</bpt>Scalability of Service Fabric Services<ept id="2f5a3890-b6dd-4165-959f-1c79b630121e">&lt;/linkText&gt;</ept><bpt id="2f5a3890-b6dd-4165-959f-1c79b630121e">&lt;title&gt;</bpt><ept id="2f5a3890-b6dd-4165-959f-1c79b630121e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2f5a3890-b6dd-4165-959f-1c79b630121e">&lt;linkText&gt;</bpt>Scalability of Service Fabric Services<ept id="2f5a3890-b6dd-4165-959f-1c79b630121e">&lt;/linkText&gt;</ept><bpt id="2f5a3890-b6dd-4165-959f-1c79b630121e">&lt;title&gt;</bpt><ept id="2f5a3890-b6dd-4165-959f-1c79b630121e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="050ed8a7-ffc2-454e-83fe-d999fa5c5eb9" xml:space="preserve">
+          <source><bpt id="a0f070fb-d250-4928-bfeb-e3c1c5afbf7e">&lt;linkText&gt;</bpt>Partitioning Service Fabric Services<ept id="a0f070fb-d250-4928-bfeb-e3c1c5afbf7e">&lt;/linkText&gt;</ept><bpt id="a0f070fb-d250-4928-bfeb-e3c1c5afbf7e">&lt;title&gt;</bpt><ept id="a0f070fb-d250-4928-bfeb-e3c1c5afbf7e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a0f070fb-d250-4928-bfeb-e3c1c5afbf7e">&lt;linkText&gt;</bpt>Partitioning Service Fabric Services<ept id="a0f070fb-d250-4928-bfeb-e3c1c5afbf7e">&lt;/linkText&gt;</ept><bpt id="a0f070fb-d250-4928-bfeb-e3c1c5afbf7e">&lt;title&gt;</bpt><ept id="a0f070fb-d250-4928-bfeb-e3c1c5afbf7e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed2fb52a-5093-4f3c-a272-ffd0f4adf95e" xml:space="preserve">
+          <source><bpt id="d00ac660-1a90-4f85-8e09-793e0f6b266d">&lt;linkText&gt;</bpt>Defining and Managing State<ept id="d00ac660-1a90-4f85-8e09-793e0f6b266d">&lt;/linkText&gt;</ept><bpt id="d00ac660-1a90-4f85-8e09-793e0f6b266d">&lt;title&gt;</bpt><ept id="d00ac660-1a90-4f85-8e09-793e0f6b266d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d00ac660-1a90-4f85-8e09-793e0f6b266d">&lt;linkText&gt;</bpt>Defining and Managing State<ept id="d00ac660-1a90-4f85-8e09-793e0f6b266d">&lt;/linkText&gt;</ept><bpt id="d00ac660-1a90-4f85-8e09-793e0f6b266d">&lt;title&gt;</bpt><ept id="d00ac660-1a90-4f85-8e09-793e0f6b266d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3a61a307-eff1-41f9-8a94-5924e1e66555" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3a61a307-eff1-41f9-8a94-5924e1e66555" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a0cebd7e-f169-4cae-bc62-a55d1c7263eb">
+        <trans-unit id="fc9a50b6-ae1a-41b5-a289-24fad8c0eb7a" xml:space="preserve">
+          <source>In your <bpt id="02f8c460-4085-4b18-963c-7f6e7a7298a9">&lt;strong&gt;</bpt>app<ept id="02f8c460-4085-4b18-963c-7f6e7a7298a9">&lt;/strong&gt;</ept> project, open the file <bpt id="0cf7b75b-91af-42ec-9f4b-94fd274368d3">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="0cf7b75b-91af-42ec-9f4b-94fd274368d3">&lt;/code&gt;</ept>.</source>
+          <target state="new">In your <bpt id="02f8c460-4085-4b18-963c-7f6e7a7298a9">&lt;strong&gt;</bpt>app<ept id="02f8c460-4085-4b18-963c-7f6e7a7298a9">&lt;/strong&gt;</ept> project, open the file <bpt id="0cf7b75b-91af-42ec-9f4b-94fd274368d3">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="0cf7b75b-91af-42ec-9f4b-94fd274368d3">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e46064b-2840-4c9b-80d8-171dd0661c7b" xml:space="preserve">
+          <source>In the code in the next two steps, replace _<bpt id="418ac4dc-20d3-49a1-8ab1-8a8b20251c61">&lt;code&gt;</bpt>**my_app_package**<ept id="418ac4dc-20d3-49a1-8ab1-8a8b20251c61">&lt;/code&gt;</ept>_ with the name of the app package for your project, which is the value of the <bpt id="952f5fda-6fc8-400f-961c-406403a87f74">&lt;code&gt;</bpt>package<ept id="952f5fda-6fc8-400f-961c-406403a87f74">&lt;/code&gt;</ept> attribute of the <bpt id="5c481b2c-eebd-4c22-bfa3-c61b6c9f70de">&lt;code&gt;</bpt>manifest<ept id="5c481b2c-eebd-4c22-bfa3-c61b6c9f70de">&lt;/code&gt;</ept> tag.</source>
+          <target state="new">In the code in the next two steps, replace _<bpt id="418ac4dc-20d3-49a1-8ab1-8a8b20251c61">&lt;code&gt;</bpt>**my_app_package**<ept id="418ac4dc-20d3-49a1-8ab1-8a8b20251c61">&lt;/code&gt;</ept>_ with the name of the app package for your project, which is the value of the <bpt id="952f5fda-6fc8-400f-961c-406403a87f74">&lt;code&gt;</bpt>package<ept id="952f5fda-6fc8-400f-961c-406403a87f74">&lt;/code&gt;</ept> attribute of the <bpt id="5c481b2c-eebd-4c22-bfa3-c61b6c9f70de">&lt;code&gt;</bpt>manifest<ept id="5c481b2c-eebd-4c22-bfa3-c61b6c9f70de">&lt;/code&gt;</ept> tag.</target>
+        </trans-unit>
+        <trans-unit id="b381ecce-08b5-40dc-ae74-cf4b6692563a" xml:space="preserve">
+          <source>Add the following new permissions after the existing <bpt id="2050a702-96b6-4f7b-a1f0-63d2021e4784">&lt;code&gt;</bpt>uses-permission<ept id="2050a702-96b6-4f7b-a1f0-63d2021e4784">&lt;/code&gt;</ept> element:</source>
+          <target state="new">Add the following new permissions after the existing <bpt id="2050a702-96b6-4f7b-a1f0-63d2021e4784">&lt;code&gt;</bpt>uses-permission<ept id="2050a702-96b6-4f7b-a1f0-63d2021e4784">&lt;/code&gt;</ept> element:</target>
+        </trans-unit>
+        <trans-unit id="106281b2-fc75-4db3-a871-476fd50322ec" xml:space="preserve">
+          <source>Add the following code after the <bpt id="72cacca4-e247-469c-87d5-41d6ee0ba1ae">&lt;code&gt;</bpt>application<ept id="72cacca4-e247-469c-87d5-41d6ee0ba1ae">&lt;/code&gt;</ept> opening tag: </source>
+          <target state="new">Add the following code after the <bpt id="72cacca4-e247-469c-87d5-41d6ee0ba1ae">&lt;code&gt;</bpt>application<ept id="72cacca4-e247-469c-87d5-41d6ee0ba1ae">&lt;/code&gt;</ept> opening tag: </target>
+        </trans-unit>
+        <trans-unit id="3f9cf49f-3d8c-4055-b783-e7e1dffa990c" xml:space="preserve">
+          <source>Add this line under <bpt id="a12ccdb6-85bd-4678-ae57-2ddee632e0dc">&lt;em&gt;</bpt>dependencies<ept id="a12ccdb6-85bd-4678-ae57-2ddee632e0dc">&lt;/em&gt;</ept> in the <bpt id="b2dc8b3b-c0c9-404a-a731-a149565f231c">&lt;strong&gt;</bpt>build.gradle<ept id="b2dc8b3b-c0c9-404a-a731-a149565f231c">&lt;/strong&gt;</ept> file in the app directory and re-sync gradle with the project: </source>
+          <target state="new">Add this line under <bpt id="a12ccdb6-85bd-4678-ae57-2ddee632e0dc">&lt;em&gt;</bpt>dependencies<ept id="a12ccdb6-85bd-4678-ae57-2ddee632e0dc">&lt;/em&gt;</ept> in the <bpt id="b2dc8b3b-c0c9-404a-a731-a149565f231c">&lt;strong&gt;</bpt>build.gradle<ept id="b2dc8b3b-c0c9-404a-a731-a149565f231c">&lt;/strong&gt;</ept> file in the app directory and re-sync gradle with the project: </target>
+        </trans-unit>
+        <trans-unit id="0fe2efb2-a035-4008-a5a1-3d93ab768f5c" xml:space="preserve">
+          <source>Open the file <bpt id="b86dba36-afdd-47cf-894c-2c0d6cfef955">&lt;em&gt;</bpt>ToDoItemActivity.java<ept id="b86dba36-afdd-47cf-894c-2c0d6cfef955">&lt;/em&gt;</ept>, and add the following import statement:</source>
+          <target state="new">Open the file <bpt id="b86dba36-afdd-47cf-894c-2c0d6cfef955">&lt;em&gt;</bpt>ToDoItemActivity.java<ept id="b86dba36-afdd-47cf-894c-2c0d6cfef955">&lt;/em&gt;</ept>, and add the following import statement:</target>
+        </trans-unit>
+        <trans-unit id="634b6892-2051-443d-bd55-fa0aed8b267d" xml:space="preserve">
+          <source>Add the following private variable to the class: replace _<bpt id="8591706f-1520-460b-86fb-b9a581dbb0da">&lt;code&gt;</bpt>&lt;PROJECT_NUMBER&gt;<ept id="8591706f-1520-460b-86fb-b9a581dbb0da">&lt;/code&gt;</ept>_ with the Project Number assigned by Google to your app in the preceding procedure:</source>
+          <target state="new">Add the following private variable to the class: replace _<bpt id="8591706f-1520-460b-86fb-b9a581dbb0da">&lt;code&gt;</bpt>&lt;PROJECT_NUMBER&gt;<ept id="8591706f-1520-460b-86fb-b9a581dbb0da">&lt;/code&gt;</ept>_ with the Project Number assigned by Google to your app in the preceding procedure:</target>
+        </trans-unit>
+        <trans-unit id="30a793b7-0ac1-4e74-b195-269c3a068a2a" xml:space="preserve">
+          <source>Change the definition of the <bpt id="dc077a69-0bb1-41b1-ab15-c2e62009d006">&lt;em&gt;</bpt>MobileServiceClient<ept id="dc077a69-0bb1-41b1-ab15-c2e62009d006">&lt;/em&gt;</ept> from <bpt id="36703177-35d9-4637-8c81-92ee8a631df4">&lt;strong&gt;</bpt>private<ept id="36703177-35d9-4637-8c81-92ee8a631df4">&lt;/strong&gt;</ept> to <bpt id="a8ece0c4-faf0-4d7c-8fcd-71fa096ec5b3">&lt;strong&gt;</bpt>public static<ept id="a8ece0c4-faf0-4d7c-8fcd-71fa096ec5b3">&lt;/strong&gt;</ept>, so it now looks like this:</source>
+          <target state="new">Change the definition of the <bpt id="dc077a69-0bb1-41b1-ab15-c2e62009d006">&lt;em&gt;</bpt>MobileServiceClient<ept id="dc077a69-0bb1-41b1-ab15-c2e62009d006">&lt;/em&gt;</ept> from <bpt id="36703177-35d9-4637-8c81-92ee8a631df4">&lt;strong&gt;</bpt>private<ept id="36703177-35d9-4637-8c81-92ee8a631df4">&lt;/strong&gt;</ept> to <bpt id="a8ece0c4-faf0-4d7c-8fcd-71fa096ec5b3">&lt;strong&gt;</bpt>public static<ept id="a8ece0c4-faf0-4d7c-8fcd-71fa096ec5b3">&lt;/strong&gt;</ept>, so it now looks like this:</target>
+        </trans-unit>
+        <trans-unit id="57738dec-7ffb-4756-84d5-7ef1c278285a" xml:space="preserve">
+          <source>Next we need to add a new class to handle notifications.</source>
+          <target state="new">Next we need to add a new class to handle notifications.</target>
+        </trans-unit>
+        <trans-unit id="c5b8b993-9fc2-46cd-a19a-56aafd515542" xml:space="preserve">
+          <source>In the Project Explorer, open the <bpt id="d00efadd-31a4-4f5e-9983-2890843503ab">&lt;strong&gt;</bpt>src<ept id="d00efadd-31a4-4f5e-9983-2890843503ab">&lt;/strong&gt;</ept> =&gt; <bpt id="77057ec2-b9ee-488f-8403-b840cbb44973">&lt;strong&gt;</bpt>main<ept id="77057ec2-b9ee-488f-8403-b840cbb44973">&lt;/strong&gt;</ept> =&gt; <bpt id="6207dcf1-e7cf-4b08-b114-b747b95859a8">&lt;strong&gt;</bpt>java<ept id="6207dcf1-e7cf-4b08-b114-b747b95859a8">&lt;/strong&gt;</ept> nodes, and right-click the  package name node: click <bpt id="8485638a-4e10-4b6b-83e5-07872dea59f5">&lt;strong&gt;</bpt>New<ept id="8485638a-4e10-4b6b-83e5-07872dea59f5">&lt;/strong&gt;</ept>, then click <bpt id="4acfc513-2f57-42ce-ad77-9483e94fe311">&lt;strong&gt;</bpt>Java Class<ept id="4acfc513-2f57-42ce-ad77-9483e94fe311">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Project Explorer, open the <bpt id="d00efadd-31a4-4f5e-9983-2890843503ab">&lt;strong&gt;</bpt>src<ept id="d00efadd-31a4-4f5e-9983-2890843503ab">&lt;/strong&gt;</ept> =&gt; <bpt id="77057ec2-b9ee-488f-8403-b840cbb44973">&lt;strong&gt;</bpt>main<ept id="77057ec2-b9ee-488f-8403-b840cbb44973">&lt;/strong&gt;</ept> =&gt; <bpt id="6207dcf1-e7cf-4b08-b114-b747b95859a8">&lt;strong&gt;</bpt>java<ept id="6207dcf1-e7cf-4b08-b114-b747b95859a8">&lt;/strong&gt;</ept> nodes, and right-click the  package name node: click <bpt id="8485638a-4e10-4b6b-83e5-07872dea59f5">&lt;strong&gt;</bpt>New<ept id="8485638a-4e10-4b6b-83e5-07872dea59f5">&lt;/strong&gt;</ept>, then click <bpt id="4acfc513-2f57-42ce-ad77-9483e94fe311">&lt;strong&gt;</bpt>Java Class<ept id="4acfc513-2f57-42ce-ad77-9483e94fe311">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bef495f7-b216-4ae5-878f-f31d695d11ba" xml:space="preserve">
+          <source>In <bpt id="f7aed615-ddc6-4777-ba3f-476b771f3b0d">&lt;strong&gt;</bpt>Name<ept id="f7aed615-ddc6-4777-ba3f-476b771f3b0d">&lt;/strong&gt;</ept> type <bpt id="15b7f130-7f60-4847-88be-af80eb2e656a">&lt;code&gt;</bpt>MyHandler<ept id="15b7f130-7f60-4847-88be-af80eb2e656a">&lt;/code&gt;</ept>, then click <bpt id="97de42f5-9e23-4193-91dc-9f64e0197624">&lt;strong&gt;</bpt>OK<ept id="97de42f5-9e23-4193-91dc-9f64e0197624">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="f7aed615-ddc6-4777-ba3f-476b771f3b0d">&lt;strong&gt;</bpt>Name<ept id="f7aed615-ddc6-4777-ba3f-476b771f3b0d">&lt;/strong&gt;</ept> type <bpt id="15b7f130-7f60-4847-88be-af80eb2e656a">&lt;code&gt;</bpt>MyHandler<ept id="15b7f130-7f60-4847-88be-af80eb2e656a">&lt;/code&gt;</ept>, then click <bpt id="97de42f5-9e23-4193-91dc-9f64e0197624">&lt;strong&gt;</bpt>OK<ept id="97de42f5-9e23-4193-91dc-9f64e0197624">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0b7bb2b-9763-45c3-bb84-99c3ab5c140a" xml:space="preserve">
+          <source><bpt id="839a200b-05de-43f7-a53c-daabc942b3af">&lt;linkText&gt;</bpt><ept id="839a200b-05de-43f7-a53c-daabc942b3af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="839a200b-05de-43f7-a53c-daabc942b3af">&lt;linkText&gt;</bpt><ept id="839a200b-05de-43f7-a53c-daabc942b3af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc5faaa4-a984-4d6e-8f23-e3bdf7490864" xml:space="preserve">
+          <source>In the MyHandler file, replace the class declaration with </source>
+          <target state="new">In the MyHandler file, replace the class declaration with </target>
+        </trans-unit>
+        <trans-unit id="d9260aef-fe78-4e69-b785-b2c29825479d" xml:space="preserve">
+          <source>Add the following import statements for the <bpt id="75fb3470-4363-4ae5-9012-0c081b506f47">&lt;code&gt;</bpt>MyHandler<ept id="75fb3470-4363-4ae5-9012-0c081b506f47">&lt;/code&gt;</ept> class:</source>
+          <target state="new">Add the following import statements for the <bpt id="75fb3470-4363-4ae5-9012-0c081b506f47">&lt;code&gt;</bpt>MyHandler<ept id="75fb3470-4363-4ae5-9012-0c081b506f47">&lt;/code&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="89221664-5a5d-43f6-815e-91e59b468dcc" xml:space="preserve">
+          <source>Next add the following members for the <bpt id="76a5de45-ab56-401e-bf1d-6e0beda5c336">&lt;code&gt;</bpt>MyHandler<ept id="76a5de45-ab56-401e-bf1d-6e0beda5c336">&lt;/code&gt;</ept> class:</source>
+          <target state="new">Next add the following members for the <bpt id="76a5de45-ab56-401e-bf1d-6e0beda5c336">&lt;code&gt;</bpt>MyHandler<ept id="76a5de45-ab56-401e-bf1d-6e0beda5c336">&lt;/code&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="9c83a677-ae53-4929-b8ec-dfd66db87f41" xml:space="preserve">
+          <source>In the <bpt id="57c3de48-b7e8-446f-8c53-83366e647530">&lt;code&gt;</bpt>MyHandler<ept id="57c3de48-b7e8-446f-8c53-83366e647530">&lt;/code&gt;</ept> class, add the following code to override the <bpt id="674210de-af77-49a9-beea-78a96f84edc2">&lt;strong&gt;</bpt>onRegistered<ept id="674210de-af77-49a9-beea-78a96f84edc2">&lt;/strong&gt;</ept> method, which registers your device with the mobile service Notification Hub.</source>
+          <target state="new">In the <bpt id="57c3de48-b7e8-446f-8c53-83366e647530">&lt;code&gt;</bpt>MyHandler<ept id="57c3de48-b7e8-446f-8c53-83366e647530">&lt;/code&gt;</ept> class, add the following code to override the <bpt id="674210de-af77-49a9-beea-78a96f84edc2">&lt;strong&gt;</bpt>onRegistered<ept id="674210de-af77-49a9-beea-78a96f84edc2">&lt;/strong&gt;</ept> method, which registers your device with the mobile service Notification Hub.</target>
+        </trans-unit>
+        <trans-unit id="bbe0eb1c-6add-4343-bf47-c7ea7802cde7" xml:space="preserve">
+          <source>In the <bpt id="2fd2d796-f70a-4974-85a2-0d03bb9492c4">&lt;code&gt;</bpt>MyHandler<ept id="2fd2d796-f70a-4974-85a2-0d03bb9492c4">&lt;/code&gt;</ept> class, add the following code to override the <bpt id="2f9ecd00-c35b-4e9a-852a-8cc4f001cdb6">&lt;strong&gt;</bpt>onReceive<ept id="2f9ecd00-c35b-4e9a-852a-8cc4f001cdb6">&lt;/strong&gt;</ept> method, which causes the notification to display when it is received.</source>
+          <target state="new">In the <bpt id="2fd2d796-f70a-4974-85a2-0d03bb9492c4">&lt;code&gt;</bpt>MyHandler<ept id="2fd2d796-f70a-4974-85a2-0d03bb9492c4">&lt;/code&gt;</ept> class, add the following code to override the <bpt id="2f9ecd00-c35b-4e9a-852a-8cc4f001cdb6">&lt;strong&gt;</bpt>onReceive<ept id="2f9ecd00-c35b-4e9a-852a-8cc4f001cdb6">&lt;/strong&gt;</ept> method, which causes the notification to display when it is received.</target>
+        </trans-unit>
+        <trans-unit id="ef22ebdb-2697-47ee-a9f0-8251d5ea25ff" xml:space="preserve">
+          <source>Back in the TodoActivity.java file, update the <bpt id="47129cf6-ddf3-4c39-9760-78f315b9af57">&lt;strong&gt;</bpt>onCreate<ept id="47129cf6-ddf3-4c39-9760-78f315b9af57">&lt;/strong&gt;</ept> method of the <bpt id="4fa25e60-82b5-4f16-9fd0-f15264fc51c2">&lt;em&gt;</bpt>ToDoActivity<ept id="4fa25e60-82b5-4f16-9fd0-f15264fc51c2">&lt;/em&gt;</ept> class to register the notification handler class.</source>
+          <target state="new">Back in the TodoActivity.java file, update the <bpt id="47129cf6-ddf3-4c39-9760-78f315b9af57">&lt;strong&gt;</bpt>onCreate<ept id="47129cf6-ddf3-4c39-9760-78f315b9af57">&lt;/strong&gt;</ept> method of the <bpt id="4fa25e60-82b5-4f16-9fd0-f15264fc51c2">&lt;em&gt;</bpt>ToDoActivity<ept id="4fa25e60-82b5-4f16-9fd0-f15264fc51c2">&lt;/em&gt;</ept> class to register the notification handler class.</target>
+        </trans-unit>
+        <trans-unit id="954e0bcc-940a-44dd-8714-acd3e4f5e7a2" xml:space="preserve">
+          <source>Make sure to add this code after the <bpt id="98d7c2d0-1c56-4b44-b4ac-ab5c253d919a">&lt;em&gt;</bpt>MobileServiceClient<ept id="98d7c2d0-1c56-4b44-b4ac-ab5c253d919a">&lt;/em&gt;</ept> is instantiated.</source>
+          <target state="new">Make sure to add this code after the <bpt id="98d7c2d0-1c56-4b44-b4ac-ab5c253d919a">&lt;em&gt;</bpt>MobileServiceClient<ept id="98d7c2d0-1c56-4b44-b4ac-ab5c253d919a">&lt;/em&gt;</ept> is instantiated.</target>
+        </trans-unit>
+        <trans-unit id="9be3d73b-df4b-498b-a878-1e7ab5cc0eb4" xml:space="preserve">
+          <source>Your app is now updated to support push notifications.</source>
+          <target state="new">Your app is now updated to support push notifications.</target>
+        </trans-unit>
+        <trans-unit id="23e3ac80-9042-43bd-875a-75e3b7b7832d" xml:space="preserve">
+          <source>http://aka.ms/Iajk6q</source>
+          <target state="new">http://aka.ms/Iajk6q</target>
+        </trans-unit>
+      </group>
+      <group id="709dfda6-b069-42ab-b6eb-3a2f8ce7bb52" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7815cc28-fff8-4d95-a32d-e9c06eff1f73" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7815cc28-fff8-4d95-a32d-e9c06eff1f73" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="820ae8d3-b9b6-497a-8397-0051f470227a">
+        <trans-unit id="800e8a77-24d3-478f-9bc4-4343c3b3a872" xml:space="preserve">
+          <source>Service Fabric Application Upgrade: Data Serialization</source>
+          <target state="new">Service Fabric Application Upgrade: Data Serialization</target>
+        </trans-unit>
+        <trans-unit id="13fc18e1-ac7f-4321-b47b-97f76b6566b3" xml:space="preserve">
+          <source>Best practices for data serialization to ensure successful application upgrades.</source>
+          <target state="new">Best practices for data serialization to ensure successful application upgrades.</target>
+        </trans-unit>
+        <trans-unit id="99dff1bd-20d9-4a92-9a42-dfdc1b536dac" xml:space="preserve">
+          <source>In a <bpt id="9c79b1ba-6e66-460a-988c-64067ac1eced">&lt;linkText&gt;</bpt>rolling application upgrade<ept id="9c79b1ba-6e66-460a-988c-64067ac1eced">&lt;/linkText&gt;</ept><bpt id="9c79b1ba-6e66-460a-988c-64067ac1eced">&lt;title&gt;</bpt><ept id="9c79b1ba-6e66-460a-988c-64067ac1eced">&lt;/title&gt;</ept>, the upgrade is applied to a subset of nodes, one upgrade domain at a time.</source>
+          <target state="new">In a <bpt id="9c79b1ba-6e66-460a-988c-64067ac1eced">&lt;linkText&gt;</bpt>rolling application upgrade<ept id="9c79b1ba-6e66-460a-988c-64067ac1eced">&lt;/linkText&gt;</ept><bpt id="9c79b1ba-6e66-460a-988c-64067ac1eced">&lt;title&gt;</bpt><ept id="9c79b1ba-6e66-460a-988c-64067ac1eced">&lt;/title&gt;</ept>, the upgrade is applied to a subset of nodes, one upgrade domain at a time.</target>
+        </trans-unit>
+        <trans-unit id="248cdaec-b33c-4953-ba55-92e7a2f91e30" xml:space="preserve">
+          <source>During this process, some upgrade domains will be on the newer version of your application, and some upgrade domains will be on the older version of your application.</source>
+          <target state="new">During this process, some upgrade domains will be on the newer version of your application, and some upgrade domains will be on the older version of your application.</target>
+        </trans-unit>
+        <trans-unit id="bdaeb796-71ba-40ca-93a2-db7e68197cce" xml:space="preserve">
+          <source>At this time, the new version of your application must be able to read the old version of your data, and the old version of your application must be able to read the new version of your data.</source>
+          <target state="new">At this time, the new version of your application must be able to read the old version of your data, and the old version of your application must be able to read the new version of your data.</target>
+        </trans-unit>
+        <trans-unit id="6d826602-630c-4137-8bbc-090d0faff40a" xml:space="preserve">
+          <source>If the data format is not forwards and backwards compatible, the upgrade may fail or data may be lost.</source>
+          <target state="new">If the data format is not forwards and backwards compatible, the upgrade may fail or data may be lost.</target>
+        </trans-unit>
+        <trans-unit id="9802c285-3985-4a3b-b175-f0be84a3f44d" xml:space="preserve">
+          <source>This article discusses what constitutes your data format and best practices for ensuring your data is forwards and backwards compatible.</source>
+          <target state="new">This article discusses what constitutes your data format and best practices for ensuring your data is forwards and backwards compatible.</target>
+        </trans-unit>
+        <trans-unit id="7295651c-df68-463a-8fa8-e452fef09dd0" xml:space="preserve">
+          <source>In Service Fabric, the data that is persisted and replicated comes from your C# classes. For applications using <bpt id="55058656-51cc-4aab-bf6a-606c0f4362a1">&lt;linkText&gt;</bpt>Reliable Collections<ept id="55058656-51cc-4aab-bf6a-606c0f4362a1">&lt;/linkText&gt;</ept><bpt id="55058656-51cc-4aab-bf6a-606c0f4362a1">&lt;title&gt;</bpt><ept id="55058656-51cc-4aab-bf6a-606c0f4362a1">&lt;/title&gt;</ept>, that is the objects in the reliable dictionaries and queues. For applications using <bpt id="a1942e4c-0a8a-4c2d-b6d2-1d5c53c72ffd">&lt;linkText&gt;</bpt>Stateful Reliable Actors<ept id="a1942e4c-0a8a-4c2d-b6d2-1d5c53c72ffd">&lt;/linkText&gt;</ept><bpt id="a1942e4c-0a8a-4c2d-b6d2-1d5c53c72ffd">&lt;title&gt;</bpt><ept id="a1942e4c-0a8a-4c2d-b6d2-1d5c53c72ffd">&lt;/title&gt;</ept>, that is the backing state for the actor. These C# classes must be serializable to be persisted and replicated. Therefore, the data format is defined by the fields and properties that are serialized, as well as how they are serialized. For example, in an <bpt id="558e846a-8799-473b-a252-4607c6b9d29c">&lt;code&gt;</bpt>IReliableDictionary&lt;int, MyClass&gt;<ept id="558e846a-8799-473b-a252-4607c6b9d29c">&lt;/code&gt;</ept> the data is a serialized <bpt id="949fb919-f4a6-4118-a745-bab97c2b56dd">&lt;code&gt;</bpt>int<ept id="949fb919-f4a6-4118-a745-bab97c2b56dd">&lt;/code&gt;</ept> and a serialized <bpt id="b669cf24-f8a7-4f3a-972c-52a8d73b7294">&lt;code&gt;</bpt>MyClass<ept id="b669cf24-f8a7-4f3a-972c-52a8d73b7294">&lt;/code&gt;</ept>.</source>
+          <target state="new">In Service Fabric, the data that is persisted and replicated comes from your C# classes. For applications using <bpt id="55058656-51cc-4aab-bf6a-606c0f4362a1">&lt;linkText&gt;</bpt>Reliable Collections<ept id="55058656-51cc-4aab-bf6a-606c0f4362a1">&lt;/linkText&gt;</ept><bpt id="55058656-51cc-4aab-bf6a-606c0f4362a1">&lt;title&gt;</bpt><ept id="55058656-51cc-4aab-bf6a-606c0f4362a1">&lt;/title&gt;</ept>, that is the objects in the reliable dictionaries and queues. For applications using <bpt id="a1942e4c-0a8a-4c2d-b6d2-1d5c53c72ffd">&lt;linkText&gt;</bpt>Stateful Reliable Actors<ept id="a1942e4c-0a8a-4c2d-b6d2-1d5c53c72ffd">&lt;/linkText&gt;</ept><bpt id="a1942e4c-0a8a-4c2d-b6d2-1d5c53c72ffd">&lt;title&gt;</bpt><ept id="a1942e4c-0a8a-4c2d-b6d2-1d5c53c72ffd">&lt;/title&gt;</ept>, that is the backing state for the actor. These C# classes must be serializable to be persisted and replicated. Therefore, the data format is defined by the fields and properties that are serialized, as well as how they are serialized. For example, in an <bpt id="558e846a-8799-473b-a252-4607c6b9d29c">&lt;code&gt;</bpt>IReliableDictionary&lt;int, MyClass&gt;<ept id="558e846a-8799-473b-a252-4607c6b9d29c">&lt;/code&gt;</ept> the data is a serialized <bpt id="949fb919-f4a6-4118-a745-bab97c2b56dd">&lt;code&gt;</bpt>int<ept id="949fb919-f4a6-4118-a745-bab97c2b56dd">&lt;/code&gt;</ept> and a serialized <bpt id="b669cf24-f8a7-4f3a-972c-52a8d73b7294">&lt;code&gt;</bpt>MyClass<ept id="b669cf24-f8a7-4f3a-972c-52a8d73b7294">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce834ff3-174e-4aab-a016-47ad4d931581" xml:space="preserve">
+          <source>Since the data format is determined by C# classes, changes to the classes may cause a data format change.</source>
+          <target state="new">Since the data format is determined by C# classes, changes to the classes may cause a data format change.</target>
+        </trans-unit>
+        <trans-unit id="a220dbca-f08b-46e5-80df-1ede01300392" xml:space="preserve">
+          <source>Care must be taken to ensure a rolling upgrade can handle the data format change.</source>
+          <target state="new">Care must be taken to ensure a rolling upgrade can handle the data format change.</target>
+        </trans-unit>
+        <trans-unit id="67a56723-70b4-432f-a352-a6a708edd2da" xml:space="preserve">
+          <source>Examples that may cause data format changes:</source>
+          <target state="new">Examples that may cause data format changes:</target>
+        </trans-unit>
+        <trans-unit id="e8d4236a-3fd9-424e-b5a2-f935ac40abd7" xml:space="preserve">
+          <source>Adding or removing fields or properties</source>
+          <target state="new">Adding or removing fields or properties</target>
+        </trans-unit>
+        <trans-unit id="11118452-caef-481b-b5a4-f00da9091ca2" xml:space="preserve">
+          <source>Renaming fields or properties</source>
+          <target state="new">Renaming fields or properties</target>
+        </trans-unit>
+        <trans-unit id="73699578-0ffe-4311-b192-b231b0b2a4e9" xml:space="preserve">
+          <source>Changing the types of fields or properties</source>
+          <target state="new">Changing the types of fields or properties</target>
+        </trans-unit>
+        <trans-unit id="35687280-19c0-4c86-8ba2-9efdb896e8c7" xml:space="preserve">
+          <source>Changing the class name or namespace</source>
+          <target state="new">Changing the class name or namespace</target>
+        </trans-unit>
+        <trans-unit id="a729ca5a-c57e-462e-9499-86d7a468d1c5" xml:space="preserve">
+          <source>The serializer is generally responsible for reading the data and deserializing it into the current version, even if the data is in an older or <bpt id="8eedcbf9-b433-4496-ae10-fcfa09d4797a">&lt;em&gt;</bpt>newer<ept id="8eedcbf9-b433-4496-ae10-fcfa09d4797a">&lt;/em&gt;</ept> version.</source>
+          <target state="new">The serializer is generally responsible for reading the data and deserializing it into the current version, even if the data is in an older or <bpt id="8eedcbf9-b433-4496-ae10-fcfa09d4797a">&lt;em&gt;</bpt>newer<ept id="8eedcbf9-b433-4496-ae10-fcfa09d4797a">&lt;/em&gt;</ept> version.</target>
+        </trans-unit>
+        <trans-unit id="d1feb7b5-ae08-48d6-b828-3826d8885d3b" xml:space="preserve">
+          <source>The default serializer is the <bpt id="1b6ebf3d-b805-4d04-aedc-aab411618fc0">&lt;linkText&gt;</bpt>Data Contract serializer<ept id="1b6ebf3d-b805-4d04-aedc-aab411618fc0">&lt;/linkText&gt;</ept><bpt id="1b6ebf3d-b805-4d04-aedc-aab411618fc0">&lt;title&gt;</bpt><ept id="1b6ebf3d-b805-4d04-aedc-aab411618fc0">&lt;/title&gt;</ept>, which has well-defined versioning rules.</source>
+          <target state="new">The default serializer is the <bpt id="1b6ebf3d-b805-4d04-aedc-aab411618fc0">&lt;linkText&gt;</bpt>Data Contract serializer<ept id="1b6ebf3d-b805-4d04-aedc-aab411618fc0">&lt;/linkText&gt;</ept><bpt id="1b6ebf3d-b805-4d04-aedc-aab411618fc0">&lt;title&gt;</bpt><ept id="1b6ebf3d-b805-4d04-aedc-aab411618fc0">&lt;/title&gt;</ept>, which has well-defined versioning rules.</target>
+        </trans-unit>
+        <trans-unit id="e989c85e-082a-4b6d-9174-04e9dcfe180b" xml:space="preserve">
+          <source>Reliable Collections allows the serializer to be overridden, but Reliable Actors currently does not.</source>
+          <target state="new">Reliable Collections allows the serializer to be overridden, but Reliable Actors currently does not.</target>
+        </trans-unit>
+        <trans-unit id="ba73e57e-7532-46d8-b5ab-38e934123d33" xml:space="preserve">
+          <source>The data serializer plays an important role in enabling rolling upgrades.</source>
+          <target state="new">The data serializer plays an important role in enabling rolling upgrades.</target>
+        </trans-unit>
+        <trans-unit id="0c66cbf6-dbd7-416e-bbd4-9284fbeda2c0" xml:space="preserve">
+          <source>The Data Contract Serializer is the serializer recommended for Service Fabric applications.</source>
+          <target state="new">The Data Contract Serializer is the serializer recommended for Service Fabric applications.</target>
+        </trans-unit>
+        <trans-unit id="b0e23a49-743c-44b3-a68d-e2a0065600da" xml:space="preserve">
+          <source>During a rolling upgrade, there are two main scenarios where the serializer may encounter an older or <bpt id="a22c4643-74e9-456e-aab8-bd51e41770a4">&lt;em&gt;</bpt>newer<ept id="a22c4643-74e9-456e-aab8-bd51e41770a4">&lt;/em&gt;</ept> version of your data:</source>
+          <target state="new">During a rolling upgrade, there are two main scenarios where the serializer may encounter an older or <bpt id="a22c4643-74e9-456e-aab8-bd51e41770a4">&lt;em&gt;</bpt>newer<ept id="a22c4643-74e9-456e-aab8-bd51e41770a4">&lt;/em&gt;</ept> version of your data:</target>
+        </trans-unit>
+        <trans-unit id="1c87b5e2-0b0a-4d20-b706-86b6036c0aa7" xml:space="preserve">
+          <source>After a node is upgraded and starts back up, the new serializer will load the data that was persisted to disk by the old version.</source>
+          <target state="new">After a node is upgraded and starts back up, the new serializer will load the data that was persisted to disk by the old version.</target>
+        </trans-unit>
+        <trans-unit id="95e1cc49-80bc-42c4-a339-1a9a51362524" xml:space="preserve">
+          <source>During the rolling upgrade, the cluster may contain a mix of the old and new versions of your code.</source>
+          <target state="new">During the rolling upgrade, the cluster may contain a mix of the old and new versions of your code.</target>
+        </trans-unit>
+        <trans-unit id="3c8a0d03-7538-4a32-af7c-90b3d5506ded" xml:space="preserve">
+          <source>Since replicas may be placed in different upgrade domains, both the new and old version of your data may be encountered by the serializer (which itself may be the new or old version).</source>
+          <target state="new">Since replicas may be placed in different upgrade domains, both the new and old version of your data may be encountered by the serializer (which itself may be the new or old version).</target>
+        </trans-unit>
+        <trans-unit id="254475c3-44ff-4aa1-9c08-6db496dbe9da" xml:space="preserve">
+          <source>The "new version" and "old version" here refer to the version of your code that is running.</source>
+          <target state="new">The "new version" and "old version" here refer to the version of your code that is running.</target>
+        </trans-unit>
+        <trans-unit id="16b97faf-80ed-4b2a-9ee7-bee7272715b7" xml:space="preserve">
+          <source>The "new serializer" refers to the serializer code executing in the new version of your application.</source>
+          <target state="new">The "new serializer" refers to the serializer code executing in the new version of your application.</target>
+        </trans-unit>
+        <trans-unit id="92e6cd8c-ea7e-40c9-820f-f882bf9e3cd2" xml:space="preserve">
+          <source>The "new data" refers to the serialized C# class from the new version of your application.</source>
+          <target state="new">The "new data" refers to the serialized C# class from the new version of your application.</target>
+        </trans-unit>
+        <trans-unit id="feaeffa5-0ab5-48da-a235-4150ef236428" xml:space="preserve">
+          <source>The two versions of code and data format must be both forward and backward compatible.</source>
+          <target state="new">The two versions of code and data format must be both forward and backward compatible.</target>
+        </trans-unit>
+        <trans-unit id="8ed88350-c9d8-4284-8d93-a98df18d85b2" xml:space="preserve">
+          <source>If they are not compatible, the rolling upgrade may fail or data may be lost.</source>
+          <target state="new">If they are not compatible, the rolling upgrade may fail or data may be lost.</target>
+        </trans-unit>
+        <trans-unit id="874c8eb4-281b-4263-9d39-8f54fbec4213" xml:space="preserve">
+          <source>The rolling upgrade may fail because the code or serializer may throw exceptions or fault when encountering the other version.</source>
+          <target state="new">The rolling upgrade may fail because the code or serializer may throw exceptions or fault when encountering the other version.</target>
+        </trans-unit>
+        <trans-unit id="aa0c8c98-c862-480f-a778-38e565888d5e" xml:space="preserve">
+          <source>Data may be lost if, for example, a new property was added but the old serializer discards it during deserialization.</source>
+          <target state="new">Data may be lost if, for example, a new property was added but the old serializer discards it during deserialization.</target>
+        </trans-unit>
+        <trans-unit id="0e944612-443b-492c-946f-d5a6399fa7fd" xml:space="preserve">
+          <source>Data Contract is the recommended solution for ensuring your data is compatible.</source>
+          <target state="new">Data Contract is the recommended solution for ensuring your data is compatible.</target>
+        </trans-unit>
+        <trans-unit id="56e6c322-4256-4852-8d69-63cb051060b5" xml:space="preserve">
+          <source>It has well-defined versioning rules for adding, removing, and changing fields.</source>
+          <target state="new">It has well-defined versioning rules for adding, removing, and changing fields.</target>
+        </trans-unit>
+        <trans-unit id="b28d4a0a-51c7-4177-bd11-e8b44ec330d9" xml:space="preserve">
+          <source>It also has support for dealing with unknown fields, hooking into the serialization and deserialization process, and for class inheritance.</source>
+          <target state="new">It also has support for dealing with unknown fields, hooking into the serialization and deserialization process, and for class inheritance.</target>
+        </trans-unit>
+        <trans-unit id="69b21d14-0911-41be-8975-a19697f496a8" xml:space="preserve">
+          <source>For more information, see <bpt id="c6d1cf66-f8fc-45b7-b61f-7847d5bc374b">&lt;linkText&gt;</bpt>Using Data Contract<ept id="c6d1cf66-f8fc-45b7-b61f-7847d5bc374b">&lt;/linkText&gt;</ept><bpt id="c6d1cf66-f8fc-45b7-b61f-7847d5bc374b">&lt;title&gt;</bpt><ept id="c6d1cf66-f8fc-45b7-b61f-7847d5bc374b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c6d1cf66-f8fc-45b7-b61f-7847d5bc374b">&lt;linkText&gt;</bpt>Using Data Contract<ept id="c6d1cf66-f8fc-45b7-b61f-7847d5bc374b">&lt;/linkText&gt;</ept><bpt id="c6d1cf66-f8fc-45b7-b61f-7847d5bc374b">&lt;title&gt;</bpt><ept id="c6d1cf66-f8fc-45b7-b61f-7847d5bc374b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fcc7e8c-6bbc-4911-b011-01441e2129f7" xml:space="preserve">
+          <source><bpt id="418e8200-9a93-4aef-8650-fb9af760b2d0">&lt;linkText&gt;</bpt>Upgrade Tutorial<ept id="418e8200-9a93-4aef-8650-fb9af760b2d0">&lt;/linkText&gt;</ept><bpt id="418e8200-9a93-4aef-8650-fb9af760b2d0">&lt;title&gt;</bpt><ept id="418e8200-9a93-4aef-8650-fb9af760b2d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="418e8200-9a93-4aef-8650-fb9af760b2d0">&lt;linkText&gt;</bpt>Upgrade Tutorial<ept id="418e8200-9a93-4aef-8650-fb9af760b2d0">&lt;/linkText&gt;</ept><bpt id="418e8200-9a93-4aef-8650-fb9af760b2d0">&lt;title&gt;</bpt><ept id="418e8200-9a93-4aef-8650-fb9af760b2d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20da86e1-a658-46a0-88fc-71b9005e63d6" xml:space="preserve">
+          <source><bpt id="5074523c-691b-406a-98af-eb1b3e1652a6">&lt;linkText&gt;</bpt>Upgrade Parameters<ept id="5074523c-691b-406a-98af-eb1b3e1652a6">&lt;/linkText&gt;</ept><bpt id="5074523c-691b-406a-98af-eb1b3e1652a6">&lt;title&gt;</bpt><ept id="5074523c-691b-406a-98af-eb1b3e1652a6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5074523c-691b-406a-98af-eb1b3e1652a6">&lt;linkText&gt;</bpt>Upgrade Parameters<ept id="5074523c-691b-406a-98af-eb1b3e1652a6">&lt;/linkText&gt;</ept><bpt id="5074523c-691b-406a-98af-eb1b3e1652a6">&lt;title&gt;</bpt><ept id="5074523c-691b-406a-98af-eb1b3e1652a6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b96c3f6d-6f38-4780-8a93-8a1c9b9b68c3" xml:space="preserve">
+          <source><bpt id="a74d5f98-156f-4228-b4ac-2da3f9696a2b">&lt;linkText&gt;</bpt>Advanced Topics<ept id="a74d5f98-156f-4228-b4ac-2da3f9696a2b">&lt;/linkText&gt;</ept><bpt id="a74d5f98-156f-4228-b4ac-2da3f9696a2b">&lt;title&gt;</bpt><ept id="a74d5f98-156f-4228-b4ac-2da3f9696a2b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a74d5f98-156f-4228-b4ac-2da3f9696a2b">&lt;linkText&gt;</bpt>Advanced Topics<ept id="a74d5f98-156f-4228-b4ac-2da3f9696a2b">&lt;/linkText&gt;</ept><bpt id="a74d5f98-156f-4228-b4ac-2da3f9696a2b">&lt;title&gt;</bpt><ept id="a74d5f98-156f-4228-b4ac-2da3f9696a2b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7f4b1402-0654-4763-a57d-c086cbfcd168" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7f4b1402-0654-4763-a57d-c086cbfcd168" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a397ea54-dcc7-41c3-8a2c-63292906b8cf">
+        <trans-unit id="c390e1db-d482-46ff-b259-cc90384e7631" xml:space="preserve">
+          <source>Virtual Network VPN Gateway FAQ | Microsoft Azure</source>
+          <target state="new">Virtual Network VPN Gateway FAQ | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="45c756fa-ad66-444a-936f-1aaaf7b22f71" xml:space="preserve">
+          <source>The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways</source>
+          <target state="new">The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways</target>
+        </trans-unit>
+        <trans-unit id="004b75d2-f145-425c-a5d7-fa259ff5114d" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="d99097da-f135-4f9b-af72-04cd0b6c82c8" xml:space="preserve">
+          <source>In fact, there is no region constraint.</source>
+          <target state="new">In fact, there is no region constraint.</target>
+        </trans-unit>
+        <trans-unit id="fc71f0be-4d45-4121-a977-836b3e069ba8" xml:space="preserve">
+          <source>One virtual network can connect to another virtual network in the same region, or in a different Azure region.</source>
+          <target state="new">One virtual network can connect to another virtual network in the same region, or in a different Azure region.</target>
+        </trans-unit>
+        <trans-unit id="946697c0-a2d7-46a8-8bbc-83b2e6e412bc" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="c498b393-41d1-4f3d-b275-b0be05b03418" xml:space="preserve">
+          <source>You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs.</source>
+          <target state="new">You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs.</target>
+        </trans-unit>
+        <trans-unit id="89c0d331-0a3f-44de-8752-620e03bebbd7" xml:space="preserve">
+          <source>See the <bpt id="64ac15b4-888e-44cd-9f8b-ca501c5a57a4">&lt;linkText&gt;</bpt>Multi-Site and VNet-to-VNet Connectivity<ept id="64ac15b4-888e-44cd-9f8b-ca501c5a57a4">&lt;/linkText&gt;</ept><bpt id="64ac15b4-888e-44cd-9f8b-ca501c5a57a4">&lt;title&gt;</bpt><ept id="64ac15b4-888e-44cd-9f8b-ca501c5a57a4">&lt;/title&gt;</ept> FAQ section.</source>
+          <target state="new">See the <bpt id="64ac15b4-888e-44cd-9f8b-ca501c5a57a4">&lt;linkText&gt;</bpt>Multi-Site and VNet-to-VNet Connectivity<ept id="64ac15b4-888e-44cd-9f8b-ca501c5a57a4">&lt;/linkText&gt;</ept><bpt id="64ac15b4-888e-44cd-9f8b-ca501c5a57a4">&lt;title&gt;</bpt><ept id="64ac15b4-888e-44cd-9f8b-ca501c5a57a4">&lt;/title&gt;</ept> FAQ section.</target>
+        </trans-unit>
+        <trans-unit id="ac69e61d-8498-4152-8587-76768cb0c410" xml:space="preserve">
+          <source>The following cross-premises connections are supported:</source>
+          <target state="new">The following cross-premises connections are supported:</target>
+        </trans-unit>
+        <trans-unit id="a3329a23-2764-4f77-8590-94681f402477" xml:space="preserve">
+          <source><bpt id="36c56233-f8c0-457f-bc7c-48cac082fcad">&lt;linkText&gt;</bpt>Site-to-Site<ept id="36c56233-f8c0-457f-bc7c-48cac082fcad">&lt;/linkText&gt;</ept><bpt id="36c56233-f8c0-457f-bc7c-48cac082fcad">&lt;title&gt;</bpt><ept id="36c56233-f8c0-457f-bc7c-48cac082fcad">&lt;/title&gt;</ept> – VPN connection over IPsec (IKE v1 and IKE v2).</source>
+          <target state="new"><bpt id="36c56233-f8c0-457f-bc7c-48cac082fcad">&lt;linkText&gt;</bpt>Site-to-Site<ept id="36c56233-f8c0-457f-bc7c-48cac082fcad">&lt;/linkText&gt;</ept><bpt id="36c56233-f8c0-457f-bc7c-48cac082fcad">&lt;title&gt;</bpt><ept id="36c56233-f8c0-457f-bc7c-48cac082fcad">&lt;/title&gt;</ept> – VPN connection over IPsec (IKE v1 and IKE v2).</target>
+        </trans-unit>
+        <trans-unit id="6dac90e9-fc1f-4bc5-b144-c7ef1b2209f5" xml:space="preserve">
+          <source>This type of connection requires a VPN device or RRAS.</source>
+          <target state="new">This type of connection requires a VPN device or RRAS.</target>
+        </trans-unit>
+        <trans-unit id="6175137f-df66-491a-a014-11c5b5a2d482" xml:space="preserve">
+          <source><bpt id="8dcfdd6c-bb58-4f2c-86f1-86bb37580197">&lt;linkText&gt;</bpt>Point-to-Site<ept id="8dcfdd6c-bb58-4f2c-86f1-86bb37580197">&lt;/linkText&gt;</ept><bpt id="8dcfdd6c-bb58-4f2c-86f1-86bb37580197">&lt;title&gt;</bpt><ept id="8dcfdd6c-bb58-4f2c-86f1-86bb37580197">&lt;/title&gt;</ept> – VPN connection over SSTP (Secure Socket Tunneling Protocol).</source>
+          <target state="new"><bpt id="8dcfdd6c-bb58-4f2c-86f1-86bb37580197">&lt;linkText&gt;</bpt>Point-to-Site<ept id="8dcfdd6c-bb58-4f2c-86f1-86bb37580197">&lt;/linkText&gt;</ept><bpt id="8dcfdd6c-bb58-4f2c-86f1-86bb37580197">&lt;title&gt;</bpt><ept id="8dcfdd6c-bb58-4f2c-86f1-86bb37580197">&lt;/title&gt;</ept> – VPN connection over SSTP (Secure Socket Tunneling Protocol).</target>
+        </trans-unit>
+        <trans-unit id="32de3ff1-674e-4d73-a622-4cfa56506d1c" xml:space="preserve">
+          <source>This connection does not require a VPN device.</source>
+          <target state="new">This connection does not require a VPN device.</target>
+        </trans-unit>
+        <trans-unit id="e1fc7a11-d167-4224-9bf3-829d630928a8" xml:space="preserve">
+          <source><bpt id="2e470abf-2225-4ace-ada4-860466e895c6">&lt;linkText&gt;</bpt>VNet-to-VNet<ept id="2e470abf-2225-4ace-ada4-860466e895c6">&lt;/linkText&gt;</ept><bpt id="2e470abf-2225-4ace-ada4-860466e895c6">&lt;title&gt;</bpt><ept id="2e470abf-2225-4ace-ada4-860466e895c6">&lt;/title&gt;</ept> - This type of connection is the same as a site-to-site configuration.</source>
+          <target state="new"><bpt id="2e470abf-2225-4ace-ada4-860466e895c6">&lt;linkText&gt;</bpt>VNet-to-VNet<ept id="2e470abf-2225-4ace-ada4-860466e895c6">&lt;/linkText&gt;</ept><bpt id="2e470abf-2225-4ace-ada4-860466e895c6">&lt;title&gt;</bpt><ept id="2e470abf-2225-4ace-ada4-860466e895c6">&lt;/title&gt;</ept> - This type of connection is the same as a site-to-site configuration.</target>
+        </trans-unit>
+        <trans-unit id="82788315-8a49-44b9-b22e-75e739c99974" xml:space="preserve">
+          <source>VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2).</source>
+          <target state="new">VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2).</target>
+        </trans-unit>
+        <trans-unit id="81c1efdd-8756-45a7-9643-511fe4385dd2" xml:space="preserve">
+          <source>It does not require a VPN device.</source>
+          <target state="new">It does not require a VPN device.</target>
+        </trans-unit>
+        <trans-unit id="3e8ef4df-f393-465e-a81f-28f7c1cdb27e" xml:space="preserve">
+          <source><bpt id="c73b3837-a487-4418-a8d7-a9fe42005f12">&lt;linkText&gt;</bpt>Multi-Site<ept id="c73b3837-a487-4418-a8d7-a9fe42005f12">&lt;/linkText&gt;</ept><bpt id="c73b3837-a487-4418-a8d7-a9fe42005f12">&lt;title&gt;</bpt><ept id="c73b3837-a487-4418-a8d7-a9fe42005f12">&lt;/title&gt;</ept> - This is a variation of a site-to-site configuration that allows you to connect multiple on-premises sites to a virtual network.</source>
+          <target state="new"><bpt id="c73b3837-a487-4418-a8d7-a9fe42005f12">&lt;linkText&gt;</bpt>Multi-Site<ept id="c73b3837-a487-4418-a8d7-a9fe42005f12">&lt;/linkText&gt;</ept><bpt id="c73b3837-a487-4418-a8d7-a9fe42005f12">&lt;title&gt;</bpt><ept id="c73b3837-a487-4418-a8d7-a9fe42005f12">&lt;/title&gt;</ept> - This is a variation of a site-to-site configuration that allows you to connect multiple on-premises sites to a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="814dcacb-bd96-434c-b48e-3c1f8c353cce" xml:space="preserve">
+          <source><bpt id="8ef29ec2-9a18-4c0d-9ee7-6de7648d145c">&lt;linkText&gt;</bpt>ExpressRoute<ept id="8ef29ec2-9a18-4c0d-9ee7-6de7648d145c">&lt;/linkText&gt;</ept><bpt id="8ef29ec2-9a18-4c0d-9ee7-6de7648d145c">&lt;title&gt;</bpt><ept id="8ef29ec2-9a18-4c0d-9ee7-6de7648d145c">&lt;/title&gt;</ept> - ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet.</source>
+          <target state="new"><bpt id="8ef29ec2-9a18-4c0d-9ee7-6de7648d145c">&lt;linkText&gt;</bpt>ExpressRoute<ept id="8ef29ec2-9a18-4c0d-9ee7-6de7648d145c">&lt;/linkText&gt;</ept><bpt id="8ef29ec2-9a18-4c0d-9ee7-6de7648d145c">&lt;title&gt;</bpt><ept id="8ef29ec2-9a18-4c0d-9ee7-6de7648d145c">&lt;/title&gt;</ept> - ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet.</target>
+        </trans-unit>
+        <trans-unit id="911fafdc-c20f-4f16-a078-95abaa389aaa" xml:space="preserve">
+          <source>See the <bpt id="0808c5db-98c2-405e-92e9-563cb68aebca">&lt;linkText&gt;</bpt>ExpressRoute Technical Overview<ept id="0808c5db-98c2-405e-92e9-563cb68aebca">&lt;/linkText&gt;</ept><bpt id="0808c5db-98c2-405e-92e9-563cb68aebca">&lt;title&gt;</bpt><ept id="0808c5db-98c2-405e-92e9-563cb68aebca">&lt;/title&gt;</ept> and the <bpt id="03ddeea3-c4bd-4fee-aaf3-3983bbc7d790">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="03ddeea3-c4bd-4fee-aaf3-3983bbc7d790">&lt;/linkText&gt;</ept><bpt id="03ddeea3-c4bd-4fee-aaf3-3983bbc7d790">&lt;title&gt;</bpt><ept id="03ddeea3-c4bd-4fee-aaf3-3983bbc7d790">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See the <bpt id="0808c5db-98c2-405e-92e9-563cb68aebca">&lt;linkText&gt;</bpt>ExpressRoute Technical Overview<ept id="0808c5db-98c2-405e-92e9-563cb68aebca">&lt;/linkText&gt;</ept><bpt id="0808c5db-98c2-405e-92e9-563cb68aebca">&lt;title&gt;</bpt><ept id="0808c5db-98c2-405e-92e9-563cb68aebca">&lt;/title&gt;</ept> and the <bpt id="03ddeea3-c4bd-4fee-aaf3-3983bbc7d790">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="03ddeea3-c4bd-4fee-aaf3-3983bbc7d790">&lt;/linkText&gt;</ept><bpt id="03ddeea3-c4bd-4fee-aaf3-3983bbc7d790">&lt;title&gt;</bpt><ept id="03ddeea3-c4bd-4fee-aaf3-3983bbc7d790">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="f4507f79-9b75-49fc-8c6c-52cd84a8890a" xml:space="preserve">
+          <source><bpt id="6480de95-5546-45a2-a54d-310cfd6d3c96">&lt;strong&gt;</bpt>Site-to-site<ept id="6480de95-5546-45a2-a54d-310cfd6d3c96">&lt;/strong&gt;</ept> connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing.</source>
+          <target state="new"><bpt id="6480de95-5546-45a2-a54d-310cfd6d3c96">&lt;strong&gt;</bpt>Site-to-site<ept id="6480de95-5546-45a2-a54d-310cfd6d3c96">&lt;/strong&gt;</ept> connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing.</target>
+        </trans-unit>
+        <trans-unit id="621a4d12-326a-4305-ae91-c14864e6525b" xml:space="preserve">
+          <source>It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations.</source>
+          <target state="new">It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations.</target>
+        </trans-unit>
+        <trans-unit id="b76135f8-df0b-4f61-8cb5-196b5dc1e073" xml:space="preserve">
+          <source>This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network.</source>
+          <target state="new">This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network.</target>
+        </trans-unit>
+        <trans-unit id="bec51c35-490f-454e-bf12-7073a41fa207" xml:space="preserve">
+          <source>In order to create this type of connection, you'll have to have the required VPN hardware and an externally facing IPv4 address.</source>
+          <target state="new">In order to create this type of connection, you'll have to have the required VPN hardware and an externally facing IPv4 address.</target>
+        </trans-unit>
+        <trans-unit id="079b672e-4a45-4a4c-a6d0-16fad73fe62f" xml:space="preserve">
+          <source><bpt id="049a29aa-6434-4a4e-964a-13cd64f4f23a">&lt;strong&gt;</bpt>Point-to-site<ept id="049a29aa-6434-4a4e-964a-13cd64f4f23a">&lt;/strong&gt;</ept> connections let you connect from a single computer from anywhere to anything located in your virtual network.</source>
+          <target state="new"><bpt id="049a29aa-6434-4a4e-964a-13cd64f4f23a">&lt;strong&gt;</bpt>Point-to-site<ept id="049a29aa-6434-4a4e-964a-13cd64f4f23a">&lt;/strong&gt;</ept> connections let you connect from a single computer from anywhere to anything located in your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="056c6a4c-ed57-4207-b333-8547203a39c7" xml:space="preserve">
+          <source>It uses the Windows in-box VPN client.</source>
+          <target state="new">It uses the Windows in-box VPN client.</target>
+        </trans-unit>
+        <trans-unit id="6e2be961-0f17-459e-b15b-81641686f923" xml:space="preserve">
+          <source>As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network.</source>
+          <target state="new">As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="eb67ef7a-c1e3-4a35-aeb1-03e49f6e1a7e" xml:space="preserve">
+          <source>It's great when you want to connect to a virtual network, but aren't located on-premises.</source>
+          <target state="new">It's great when you want to connect to a virtual network, but aren't located on-premises.</target>
+        </trans-unit>
+        <trans-unit id="b15fc774-0ca3-45f3-9dcc-a29c0985d87a" xml:space="preserve">
+          <source>It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection.</source>
+          <target state="new">It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection.</target>
+        </trans-unit>
+        <trans-unit id="1addc426-06aa-456d-ae4d-3f87602dd26a" xml:space="preserve">
+          <source>Note: You can configure your virtual network to use both site-to-site and point-to-site concurrently, provided that you create your site-to-site connection using a dynamic routing gateway.</source>
+          <target state="new">Note: You can configure your virtual network to use both site-to-site and point-to-site concurrently, provided that you create your site-to-site connection using a dynamic routing gateway.</target>
+        </trans-unit>
+        <trans-unit id="4214e916-488a-4e9a-bd9e-633e60d6d4ca" xml:space="preserve">
+          <source>For more information, see <bpt id="1330f358-e421-4a66-82a9-98030d145af1">&lt;linkText&gt;</bpt>About secure cross-premises connectivity for virtual networks<ept id="1330f358-e421-4a66-82a9-98030d145af1">&lt;/linkText&gt;</ept><bpt id="1330f358-e421-4a66-82a9-98030d145af1">&lt;title&gt;</bpt><ept id="1330f358-e421-4a66-82a9-98030d145af1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="1330f358-e421-4a66-82a9-98030d145af1">&lt;linkText&gt;</bpt>About secure cross-premises connectivity for virtual networks<ept id="1330f358-e421-4a66-82a9-98030d145af1">&lt;/linkText&gt;</ept><bpt id="1330f358-e421-4a66-82a9-98030d145af1">&lt;title&gt;</bpt><ept id="1330f358-e421-4a66-82a9-98030d145af1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="881760ea-2d23-4d8a-8a47-27743ecdeab4" xml:space="preserve">
+          <source>ExpressRoute lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a co-location environment.</source>
+          <target state="new">ExpressRoute lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a co-location environment.</target>
+        </trans-unit>
+        <trans-unit id="3c944b2b-6428-4c42-bcd3-e02e0f6997ca" xml:space="preserve">
+          <source>With ExpressRoute, you can establish connections to Microsoft cloud services such as Microsoft Azure and Office 365 at an ExpressRoute partner co-location facility, or directly connect from your existing WAN network (such as a MPLS VPN provided by a network service provider).</source>
+          <target state="new">With ExpressRoute, you can establish connections to Microsoft cloud services such as Microsoft Azure and Office 365 at an ExpressRoute partner co-location facility, or directly connect from your existing WAN network (such as a MPLS VPN provided by a network service provider).</target>
+        </trans-unit>
+        <trans-unit id="e9169c8f-1d8a-4a21-bd8b-ccb00f6d027b" xml:space="preserve">
+          <source>ExpressRoute connections offer better security, more reliability, higher bandwidth, and lower latencies than typical connections over the Internet.</source>
+          <target state="new">ExpressRoute connections offer better security, more reliability, higher bandwidth, and lower latencies than typical connections over the Internet.</target>
+        </trans-unit>
+        <trans-unit id="751ac7c4-9046-47ec-81e9-2023cd26d14c" xml:space="preserve">
+          <source>In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits.</source>
+          <target state="new">In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits.</target>
+        </trans-unit>
+        <trans-unit id="d50426ea-c52b-49e9-a0f3-65572a0a0d0b" xml:space="preserve">
+          <source>If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.</source>
+          <target state="new">If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.</target>
+        </trans-unit>
+        <trans-unit id="5810f7e4-1994-4460-8e5f-0746e380be28" xml:space="preserve">
+          <source>See the <bpt id="ca5d543e-bf06-42f3-8631-06d861814169">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="ca5d543e-bf06-42f3-8631-06d861814169">&lt;/linkText&gt;</ept><bpt id="ca5d543e-bf06-42f3-8631-06d861814169">&lt;title&gt;</bpt><ept id="ca5d543e-bf06-42f3-8631-06d861814169">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See the <bpt id="ca5d543e-bf06-42f3-8631-06d861814169">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="ca5d543e-bf06-42f3-8631-06d861814169">&lt;/linkText&gt;</ept><bpt id="ca5d543e-bf06-42f3-8631-06d861814169">&lt;title&gt;</bpt><ept id="ca5d543e-bf06-42f3-8631-06d861814169">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="e03bacf3-c26d-4044-b31e-e9f69d3ffc24" xml:space="preserve">
+          <source>We have validated a set of standard site-to-site VPN devices in partnership with device vendors.</source>
+          <target state="new">We have validated a set of standard site-to-site VPN devices in partnership with device vendors.</target>
+        </trans-unit>
+        <trans-unit id="d46fb729-181f-400f-a31c-fa4443befc9a" xml:space="preserve">
+          <source>A list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specs can be found <bpt id="d72cf4f2-0a0c-413d-8f2a-c881c16fe3b2">&lt;linkText&gt;</bpt>here<ept id="d72cf4f2-0a0c-413d-8f2a-c881c16fe3b2">&lt;/linkText&gt;</ept><bpt id="d72cf4f2-0a0c-413d-8f2a-c881c16fe3b2">&lt;title&gt;</bpt><ept id="d72cf4f2-0a0c-413d-8f2a-c881c16fe3b2">&lt;/title&gt;</ept>.</source>
+          <target state="new">A list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specs can be found <bpt id="d72cf4f2-0a0c-413d-8f2a-c881c16fe3b2">&lt;linkText&gt;</bpt>here<ept id="d72cf4f2-0a0c-413d-8f2a-c881c16fe3b2">&lt;/linkText&gt;</ept><bpt id="d72cf4f2-0a0c-413d-8f2a-c881c16fe3b2">&lt;title&gt;</bpt><ept id="d72cf4f2-0a0c-413d-8f2a-c881c16fe3b2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2daf336f-67d5-4414-9a54-f4499dfa06dc" xml:space="preserve">
+          <source>All devices in the device families listed as known compatible should work with Virtual Network.</source>
+          <target state="new">All devices in the device families listed as known compatible should work with Virtual Network.</target>
+        </trans-unit>
+        <trans-unit id="f3718ed5-f3bf-4539-be29-63781b980f1b" xml:space="preserve">
+          <source>To help configure your VPN device, refer to the device configuration sample or link that corresponds to appropriate device family.</source>
+          <target state="new">To help configure your VPN device, refer to the device configuration sample or link that corresponds to appropriate device family.</target>
+        </trans-unit>
+        <trans-unit id="aab58605-0a99-4f55-a176-e12483eb5e90" xml:space="preserve">
+          <source>If you do not see your device listed as a known compatible VPN device and want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed <bpt id="2ebf5fbe-9cf1-4a04-b415-b1aa26f2f2c0">&lt;linkText&gt;</bpt>here<ept id="2ebf5fbe-9cf1-4a04-b415-b1aa26f2f2c0">&lt;/linkText&gt;</ept><bpt id="2ebf5fbe-9cf1-4a04-b415-b1aa26f2f2c0">&lt;title&gt;</bpt><ept id="2ebf5fbe-9cf1-4a04-b415-b1aa26f2f2c0">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not see your device listed as a known compatible VPN device and want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed <bpt id="2ebf5fbe-9cf1-4a04-b415-b1aa26f2f2c0">&lt;linkText&gt;</bpt>here<ept id="2ebf5fbe-9cf1-4a04-b415-b1aa26f2f2c0">&lt;/linkText&gt;</ept><bpt id="2ebf5fbe-9cf1-4a04-b415-b1aa26f2f2c0">&lt;title&gt;</bpt><ept id="2ebf5fbe-9cf1-4a04-b415-b1aa26f2f2c0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="038b663b-a244-42f1-a89d-26edb0f0abbf" xml:space="preserve">
+          <source>Devices meeting the minimum requirements should work well with VPN gateways.</source>
+          <target state="new">Devices meeting the minimum requirements should work well with VPN gateways.</target>
+        </trans-unit>
+        <trans-unit id="4c65f0de-5c33-4a98-8eae-5f26fa05b5ec" xml:space="preserve">
+          <source>Please contact your device manufacturer for additional support and configuration instructions.</source>
+          <target state="new">Please contact your device manufacturer for additional support and configuration instructions.</target>
+        </trans-unit>
+        <trans-unit id="2830c464-d59f-42f9-8662-8266250d1640" xml:space="preserve">
+          <source>We support Windows Server 2012 Routing and Remote Access (RRAS) servers for site-to-site cross-premises configuration.</source>
+          <target state="new">We support Windows Server 2012 Routing and Remote Access (RRAS) servers for site-to-site cross-premises configuration.</target>
+        </trans-unit>
+        <trans-unit id="4f40cff9-e1b2-49ae-a248-c510465fde49" xml:space="preserve">
+          <source>Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations.</source>
+          <target state="new">Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations.</target>
+        </trans-unit>
+        <trans-unit id="31fae476-09f3-4bef-8b13-f351d52e9ba5" xml:space="preserve">
+          <source>Contact the vendor of the software for configuration and support instructions.</source>
+          <target state="new">Contact the vendor of the software for configuration and support instructions.</target>
+        </trans-unit>
+        <trans-unit id="c8b5c14d-b505-47a7-9555-139e3364867a" xml:space="preserve">
+          <source>The following operating systems are supported:</source>
+          <target state="new">The following operating systems are supported:</target>
+        </trans-unit>
+        <trans-unit id="170c8fba-b1a0-4281-857f-8fd87bafd127" xml:space="preserve">
+          <source>Windows 7 (64-bit version only)</source>
+          <target state="new">Windows 7 (64-bit version only)</target>
+        </trans-unit>
+        <trans-unit id="8fa85776-759d-47a1-8633-e2dbd891e0a7" xml:space="preserve">
+          <source>Windows Server 2008 R2</source>
+          <target state="new">Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="913daf49-ee08-4669-a3fa-29565f35c443" xml:space="preserve">
+          <source>Windows 8 (64-bit version only)</source>
+          <target state="new">Windows 8 (64-bit version only)</target>
+        </trans-unit>
+        <trans-unit id="1a226748-05dc-41a8-8f9d-f08fd9f410d7" xml:space="preserve">
+          <source>Windows Server 2012</source>
+          <target state="new">Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="f3a59753-7f8e-4847-afa8-aa5a4051721b" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="e24a2308-bc8d-4b00-97e2-cf95a6589ce3" xml:space="preserve">
+          <source>Support is limited only to the Windows operating system versions listed above.</source>
+          <target state="new">Support is limited only to the Windows operating system versions listed above.</target>
+        </trans-unit>
+        <trans-unit id="4593ab2a-cf8e-4785-afae-ff72c7fac773" xml:space="preserve">
+          <source>We support up to 128 VPN clients to be able to connect to a virtual network at the same time.</source>
+          <target state="new">We support up to 128 VPN clients to be able to connect to a virtual network at the same time.</target>
+        </trans-unit>
+        <trans-unit id="88ab9b84-e202-4c26-9b8d-3f5d64439324" xml:space="preserve">
+          <source>At this time, only self-signed root certificates are supported.</source>
+          <target state="new">At this time, only self-signed root certificates are supported.</target>
+        </trans-unit>
+        <trans-unit id="c2cff752-0af0-4685-aff3-c1c52fbf504a" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="a3cd4da9-f88c-4060-ab8c-bb74098dbf6a" xml:space="preserve">
+          <source>We use SSTP (Secure Socket Tunneling Protocol) to tunnel through firewalls.</source>
+          <target state="new">We use SSTP (Secure Socket Tunneling Protocol) to tunnel through firewalls.</target>
+        </trans-unit>
+        <trans-unit id="8a0e5923-fbf9-496c-bb4a-fa0b1f12169f" xml:space="preserve">
+          <source>This tunnel will appear as an HTTPs connection.</source>
+          <target state="new">This tunnel will appear as an HTTPs connection.</target>
+        </trans-unit>
+        <trans-unit id="55fbb808-2f5f-4334-81d3-503cf9b7a2c7" xml:space="preserve">
+          <source>By default, the client computer will not reestablish the VPN connection automatically.</source>
+          <target state="new">By default, the client computer will not reestablish the VPN connection automatically.</target>
+        </trans-unit>
+        <trans-unit id="f0c60997-2724-43c2-aba0-288243e51288" xml:space="preserve">
+          <source>Auto-reconnect and DDNS are currently not supported in point-to-site VPNs.</source>
+          <target state="new">Auto-reconnect and DDNS are currently not supported in point-to-site VPNs.</target>
+        </trans-unit>
+        <trans-unit id="65f56a8a-398a-4f10-8983-7ec3110a71ec" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="02e268eb-e9f4-471c-994f-5453d99b42b1" xml:space="preserve">
+          <source>Both these solutions will work if you have a dynamic routing VPN gateway for your virtual network.</source>
+          <target state="new">Both these solutions will work if you have a dynamic routing VPN gateway for your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="36d7d0f4-1f0f-48bf-b5f4-032bd01d061e" xml:space="preserve">
+          <source>We do not support point-to-site in static routing VPN gateways.</source>
+          <target state="new">We do not support point-to-site in static routing VPN gateways.</target>
+        </trans-unit>
+        <trans-unit id="bcd21984-09a7-4e7b-9e3a-5d27d3cd02b2" xml:space="preserve">
+          <source>Yes, it is possible.</source>
+          <target state="new">Yes, it is possible.</target>
+        </trans-unit>
+        <trans-unit id="62525bf4-098a-4fd0-9214-ec2bc8d59697" xml:space="preserve">
+          <source>But the virtual networks cannot have overlapping IP prefixes and the point-to-site address spaces must not overlap between the virtual networks.</source>
+          <target state="new">But the virtual networks cannot have overlapping IP prefixes and the point-to-site address spaces must not overlap between the virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="f5013e26-b15e-4fb7-b54d-33017dddbbc5" xml:space="preserve">
+          <source>It's difficult to maintain the exact throughput of the VPN tunnels.</source>
+          <target state="new">It's difficult to maintain the exact throughput of the VPN tunnels.</target>
+        </trans-unit>
+        <trans-unit id="d5a7fe74-6545-474c-8d08-c38b47fd4468" xml:space="preserve">
+          <source>IPsec and SSTP are crypto-heavy VPN protocols.</source>
+          <target state="new">IPsec and SSTP are crypto-heavy VPN protocols.</target>
+        </trans-unit>
+        <trans-unit id="9a5adb43-c1ba-4ee6-8234-28cabe8c90d9" xml:space="preserve">
+          <source>Throughput is also limited by the latency and bandwidth between your premises and the Internet.</source>
+          <target state="new">Throughput is also limited by the latency and bandwidth between your premises and the Internet.</target>
+        </trans-unit>
+        <trans-unit id="1045f5d9-3c8e-4b15-bd0e-2669206b4eab" xml:space="preserve">
+          <source>Static routing gateways implement policy-based VPNs.</source>
+          <target state="new">Static routing gateways implement policy-based VPNs.</target>
+        </trans-unit>
+        <trans-unit id="116d90fd-b325-4513-a208-1d32e78d1e7c" xml:space="preserve">
+          <source>Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on premises network and the Azure VNet.</source>
+          <target state="new">Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on premises network and the Azure VNet.</target>
+        </trans-unit>
+        <trans-unit id="293f74b2-079b-44c2-85ca-5b65fad06a91" xml:space="preserve">
+          <source>The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.</source>
+          <target state="new">The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.</target>
+        </trans-unit>
+        <trans-unit id="e97cfeda-98d5-4e8a-939e-b19629d1a128" xml:space="preserve">
+          <source>Dynamic routing gateways implement the route-based VPNs.</source>
+          <target state="new">Dynamic routing gateways implement the route-based VPNs.</target>
+        </trans-unit>
+        <trans-unit id="165fd54e-e77d-4b9a-b957-5ae5fe4e9729" xml:space="preserve">
+          <source>Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces.</source>
+          <target state="new">Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces.</target>
+        </trans-unit>
+        <trans-unit id="8fae57a3-19d6-4b71-8342-516fbbb267b8" xml:space="preserve">
+          <source>The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels.</source>
+          <target state="new">The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels.</target>
+        </trans-unit>
+        <trans-unit id="33254f94-46dd-446f-a122-221c3f950570" xml:space="preserve">
+          <source>The policy or traffic selector for route based VPNs are configured as any-to-any (or wild cards).</source>
+          <target state="new">The policy or traffic selector for route based VPNs are configured as any-to-any (or wild cards).</target>
+        </trans-unit>
+        <trans-unit id="43b09a05-ccbd-4e52-a2b8-32a9afc3354b" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="7aee5dff-4104-4ffb-adb0-ae56c03e0774" xml:space="preserve">
+          <source>You have to create your gateway first to get the IP address.</source>
+          <target state="new">You have to create your gateway first to get the IP address.</target>
+        </trans-unit>
+        <trans-unit id="aaaf5b5d-194b-4da7-8bd7-5be9fe6ef338" xml:space="preserve">
+          <source>The IP address will change if you delete and re-create your VPN gateway.</source>
+          <target state="new">The IP address will change if you delete and re-create your VPN gateway.</target>
+        </trans-unit>
+        <trans-unit id="debc7c73-0a3d-4e59-93fa-eae149d0bb20" xml:space="preserve">
+          <source>Azure VPN uses PSK (Pre-Shared Key) authentication.</source>
+          <target state="new">Azure VPN uses PSK (Pre-Shared Key) authentication.</target>
+        </trans-unit>
+        <trans-unit id="7c96be11-566a-452f-a1ff-bc7634f28664" xml:space="preserve">
+          <source>We generate a pre-shared key (PSK) when we create the VPN tunnel.</source>
+          <target state="new">We generate a pre-shared key (PSK) when we create the VPN tunnel.</target>
+        </trans-unit>
+        <trans-unit id="90febde9-40b2-44c6-97b6-18ca40b2d8fc" xml:space="preserve">
+          <source>You can change the auto-generated PSK to your own with the Set Pre-Shared Key PowerShell cmdlet or REST API.</source>
+          <target state="new">You can change the auto-generated PSK to your own with the Set Pre-Shared Key PowerShell cmdlet or REST API.</target>
+        </trans-unit>
+        <trans-unit id="8224e131-cddf-4168-8fa2-1402f7a6a9b1" xml:space="preserve">
+          <source>Yes, the Set Pre-Shared Key API and PowerShell cmdlet can be used to configure both Azure static routing VPN and dynamic routing VPNs.</source>
+          <target state="new">Yes, the Set Pre-Shared Key API and PowerShell cmdlet can be used to configure both Azure static routing VPN and dynamic routing VPNs.</target>
+        </trans-unit>
+        <trans-unit id="27808151-c03e-40fa-a0de-225ca3e6ed41" xml:space="preserve">
+          <source>We are limited to using pre-shared keys (PSK) for authentication.</source>
+          <target state="new">We are limited to using pre-shared keys (PSK) for authentication.</target>
+        </trans-unit>
+        <trans-unit id="f439ebaf-e1b2-45fe-a1ce-250f46f51191" xml:space="preserve">
+          <source>We have a gateway service that we run to enable cross-premises connectivity.</source>
+          <target state="new">We have a gateway service that we run to enable cross-premises connectivity.</target>
+        </trans-unit>
+        <trans-unit id="114301de-7f5f-4587-ba2d-010e12c5aa36" xml:space="preserve">
+          <source>We need 2 IP addresses from your routing domain for us to enable routing between your premises and the cloud.</source>
+          <target state="new">We need 2 IP addresses from your routing domain for us to enable routing between your premises and the cloud.</target>
+        </trans-unit>
+        <trans-unit id="d814c7ff-6b72-45c9-8f35-b4e9430f16f9" xml:space="preserve">
+          <source>We require you to specify at least a /29 subnet from which we can pick IP addresses for setting up routes.</source>
+          <target state="new">We require you to specify at least a /29 subnet from which we can pick IP addresses for setting up routes.</target>
+        </trans-unit>
+        <trans-unit id="fb42c86f-d233-44fb-964e-4dd11c962182" xml:space="preserve">
+          <source>Even though you can create a /29 subnet, understand that some features require a specific gateway size.</source>
+          <target state="new">Even though you can create a /29 subnet, understand that some features require a specific gateway size.</target>
+        </trans-unit>
+        <trans-unit id="ab00875a-7963-460c-9bff-d4208489c0ba" xml:space="preserve">
+          <source>Please follow the  gateway subnet requirements for the feature you want to configure.</source>
+          <target state="new">Please follow the  gateway subnet requirements for the feature you want to configure.</target>
+        </trans-unit>
+        <trans-unit id="3476131a-35f5-4951-b1b2-ce574cf132be" xml:space="preserve">
+          <source>Please note that you must not deploy virtual machines or role instances in the gateway subnet.</source>
+          <target state="new">Please note that you must not deploy virtual machines or role instances in the gateway subnet.</target>
+        </trans-unit>
+        <trans-unit id="8ccc8111-eb92-4c79-83f6-b6a2a1332435" xml:space="preserve">
+          <source>If you are using the Azure Portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.</source>
+          <target state="new">If you are using the Azure Portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.</target>
+        </trans-unit>
+        <trans-unit id="a1c780f5-1326-441e-81f9-efba359e6893" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="93ea6935-e948-44ef-b375-4dacb118b669" xml:space="preserve">
+          <source>See <bpt id="1ec45365-453d-4f39-8b8f-fa699996fcc7">&lt;linkText&gt;</bpt>Configure forced tunneling<ept id="1ec45365-453d-4f39-8b8f-fa699996fcc7">&lt;/linkText&gt;</ept><bpt id="1ec45365-453d-4f39-8b8f-fa699996fcc7">&lt;title&gt;</bpt><ept id="1ec45365-453d-4f39-8b8f-fa699996fcc7">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="1ec45365-453d-4f39-8b8f-fa699996fcc7">&lt;linkText&gt;</bpt>Configure forced tunneling<ept id="1ec45365-453d-4f39-8b8f-fa699996fcc7">&lt;/linkText&gt;</ept><bpt id="1ec45365-453d-4f39-8b8f-fa699996fcc7">&lt;title&gt;</bpt><ept id="1ec45365-453d-4f39-8b8f-fa699996fcc7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea27cd33-6866-4eea-ab4b-2dda3efbde98" xml:space="preserve">
+          <source>Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers.</source>
+          <target state="new">Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers.</target>
+        </trans-unit>
+        <trans-unit id="ed5aba9e-596b-467a-9956-76e5285df2e4" xml:space="preserve">
+          <source>You will need to configure User-Defined Routes in your virtual network to ensure traffic is routed properly between your on premises networks and your virtual network subnets.</source>
+          <target state="new">You will need to configure User-Defined Routes in your virtual network to ensure traffic is routed properly between your on premises networks and your virtual network subnets.</target>
+        </trans-unit>
+        <trans-unit id="318778c9-87b2-4ca6-9161-2921ff1d0ab0" xml:space="preserve">
+          <source>For more information, see <bpt id="756f1e07-0a96-422d-979b-9d5affa01276">&lt;linkText&gt;</bpt>About VPN Gateways<ept id="756f1e07-0a96-422d-979b-9d5affa01276">&lt;/linkText&gt;</ept><bpt id="756f1e07-0a96-422d-979b-9d5affa01276">&lt;title&gt;</bpt><ept id="756f1e07-0a96-422d-979b-9d5affa01276">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="756f1e07-0a96-422d-979b-9d5affa01276">&lt;linkText&gt;</bpt>About VPN Gateways<ept id="756f1e07-0a96-422d-979b-9d5affa01276">&lt;/linkText&gt;</ept><bpt id="756f1e07-0a96-422d-979b-9d5affa01276">&lt;title&gt;</bpt><ept id="756f1e07-0a96-422d-979b-9d5affa01276">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c053e8b-11d2-457e-b707-b1b2c83487d2" xml:space="preserve">
+          <source>Only the Dynamic Routing VPNs.</source>
+          <target state="new">Only the Dynamic Routing VPNs.</target>
+        </trans-unit>
+        <trans-unit id="49d51f00-a60b-495d-beaf-395ec249b5aa" xml:space="preserve">
+          <source>No, both virtual networks MUST be using dynamic routing VPNs.</source>
+          <target state="new">No, both virtual networks MUST be using dynamic routing VPNs.</target>
+        </trans-unit>
+        <trans-unit id="848eeca3-8305-45e4-a999-fae2c9ee461d" xml:space="preserve">
+          <source>Yes, it is protected by IPsec/IKE encryption.</source>
+          <target state="new">Yes, it is protected by IPsec/IKE encryption.</target>
+        </trans-unit>
+        <trans-unit id="6b587b8c-b27d-4f15-9784-0835a8035dc7" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="83c07275-8293-43e1-a56f-9ee2890422e5" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="40c14959-0b98-4e9c-bffb-14a07f25a9c3" xml:space="preserve">
+          <source>10 combined for the Basic and Standard Dynamic Routing gateways; 30 for the High Performance VPN gateways.</source>
+          <target state="new">10 combined for the Basic and Standard Dynamic Routing gateways; 30 for the High Performance VPN gateways.</target>
+        </trans-unit>
+        <trans-unit id="99da6a9e-a85a-4341-b877-c4ea367adf50" xml:space="preserve">
+          <source>Yes, point-to-site (P2S) VPNs can be used with the VPN gateways connecting to multiple on premises sites and other virtual networks.</source>
+          <target state="new">Yes, point-to-site (P2S) VPNs can be used with the VPN gateways connecting to multiple on premises sites and other virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="386e2f0a-188b-4402-bfb1-33eb61488147" xml:space="preserve">
+          <source>No, redundant tunnels between an Azure virtual network and an on-premises site is not supported.</source>
+          <target state="new">No, redundant tunnels between an Azure virtual network and an on-premises site is not supported.</target>
+        </trans-unit>
+        <trans-unit id="b9dde5b0-1f64-4bf6-a16b-d1bc94c12f8d" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="b8ab78c5-6800-4f5a-bcef-904891e60cbb" xml:space="preserve">
+          <source>Overlapping address spaces will cause the netcfg file upload or Creating Virtual Network to fail.</source>
+          <target state="new">Overlapping address spaces will cause the netcfg file upload or Creating Virtual Network to fail.</target>
+        </trans-unit>
+        <trans-unit id="0c50c064-4999-4ad6-bd26-4f559000ceb7" xml:space="preserve">
+          <source>No, all VPN tunnels, including point-to-site VPNs, share the same Azure VPN gateway and the available bandwidth.</source>
+          <target state="new">No, all VPN tunnels, including point-to-site VPNs, share the same Azure VPN gateway and the available bandwidth.</target>
+        </trans-unit>
+        <trans-unit id="ae45cf20-b6c0-4c53-b2db-7381e3bb8568" xml:space="preserve">
+          <source>Transit traffic via Azure VPN gateway is possible, but rely on statically defined address spaces in the netcfg configuration file.</source>
+          <target state="new">Transit traffic via Azure VPN gateway is possible, but rely on statically defined address spaces in the netcfg configuration file.</target>
+        </trans-unit>
+        <trans-unit id="ce1d77f7-b5ae-4af6-8a8f-4eefffe9bac7" xml:space="preserve">
+          <source>BGP is not yet supported with Azure Virtual Networks and VPN gateways.</source>
+          <target state="new">BGP is not yet supported with Azure Virtual Networks and VPN gateways.</target>
+        </trans-unit>
+        <trans-unit id="a6b95f7b-70bc-4424-b35c-f5fc83fd2191" xml:space="preserve">
+          <source>Without BGP, manually defining transit address spaces in netcfg is very error prone, and not recommended.</source>
+          <target state="new">Without BGP, manually defining transit address spaces in netcfg is very error prone, and not recommended.</target>
+        </trans-unit>
+        <trans-unit id="59504919-3fc3-49b8-9b1f-570676500fb2" xml:space="preserve">
+          <source>No, Azure by default generates different pre-shared keys for different VPN connections.</source>
+          <target state="new">No, Azure by default generates different pre-shared keys for different VPN connections.</target>
+        </trans-unit>
+        <trans-unit id="f94d8327-7536-467c-8424-e1cd612a8e35" xml:space="preserve">
+          <source>However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer.</source>
+          <target state="new">However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer.</target>
+        </trans-unit>
+        <trans-unit id="d5559a66-1abe-43ad-9464-dba836f79b84" xml:space="preserve">
+          <source>The key MUST be alphanumerical string of length between 1 to 128 characters.</source>
+          <target state="new">The key MUST be alphanumerical string of length between 1 to 128 characters.</target>
+        </trans-unit>
+        <trans-unit id="7d779184-832a-4fbc-8a50-51b2b20aae42" xml:space="preserve">
+          <source>For traffic between different Azure virtual networks, Azure charges only for traffic traversing from one Azure region to another.</source>
+          <target state="new">For traffic between different Azure virtual networks, Azure charges only for traffic traversing from one Azure region to another.</target>
+        </trans-unit>
+        <trans-unit id="19186398-6f34-4222-b7f8-0d0ed15cfa37" xml:space="preserve">
+          <source>The charge rate is listed in the Azure <bpt id="f3e89d04-0f25-43c4-bfeb-8ee28d81d604">&lt;linkText&gt;</bpt>VPN Gateway Pricing<ept id="f3e89d04-0f25-43c4-bfeb-8ee28d81d604">&lt;/linkText&gt;</ept><bpt id="f3e89d04-0f25-43c4-bfeb-8ee28d81d604">&lt;title&gt;</bpt><ept id="f3e89d04-0f25-43c4-bfeb-8ee28d81d604">&lt;/title&gt;</ept> page.</source>
+          <target state="new">The charge rate is listed in the Azure <bpt id="f3e89d04-0f25-43c4-bfeb-8ee28d81d604">&lt;linkText&gt;</bpt>VPN Gateway Pricing<ept id="f3e89d04-0f25-43c4-bfeb-8ee28d81d604">&lt;/linkText&gt;</ept><bpt id="f3e89d04-0f25-43c4-bfeb-8ee28d81d604">&lt;title&gt;</bpt><ept id="f3e89d04-0f25-43c4-bfeb-8ee28d81d604">&lt;/title&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="1a0a331b-81df-467f-961a-7d8c084cfeb2" xml:space="preserve">
+          <source>Yes, this is supported.</source>
+          <target state="new">Yes, this is supported.</target>
+        </trans-unit>
+        <trans-unit id="552a873c-a826-4df1-8412-4fec1563ec0f" xml:space="preserve">
+          <source>For more information, see <bpt id="20328459-7ea7-4743-9f0d-5f2748e0caf5">&lt;linkText&gt;</bpt>Configure ExpressRoute and Site-to-Site VPN connections that coexist<ept id="20328459-7ea7-4743-9f0d-5f2748e0caf5">&lt;/linkText&gt;</ept><bpt id="20328459-7ea7-4743-9f0d-5f2748e0caf5">&lt;title&gt;</bpt><ept id="20328459-7ea7-4743-9f0d-5f2748e0caf5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="20328459-7ea7-4743-9f0d-5f2748e0caf5">&lt;linkText&gt;</bpt>Configure ExpressRoute and Site-to-Site VPN connections that coexist<ept id="20328459-7ea7-4743-9f0d-5f2748e0caf5">&lt;/linkText&gt;</ept><bpt id="20328459-7ea7-4743-9f0d-5f2748e0caf5">&lt;title&gt;</bpt><ept id="20328459-7ea7-4743-9f0d-5f2748e0caf5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0cd0d408-3ca6-4b77-a551-5079f83cc9e6" xml:space="preserve">
+          <source>You have a few options.</source>
+          <target state="new">You have a few options.</target>
+        </trans-unit>
+        <trans-unit id="27387a0b-7742-4929-982b-40e704a70f2e" xml:space="preserve">
+          <source>If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP.</source>
+          <target state="new">If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP.</target>
+        </trans-unit>
+        <trans-unit id="b00a5914-9450-4aad-8ad2-31387681f9a5" xml:space="preserve">
+          <source>In that case, you would specify the VIP and the port that you want to connect to.</source>
+          <target state="new">In that case, you would specify the VIP and the port that you want to connect to.</target>
+        </trans-unit>
+        <trans-unit id="d9953104-7f44-4965-835c-3fdf114afde5" xml:space="preserve">
+          <source>You'll need to configure the port on your virtual machine for the traffic.</source>
+          <target state="new">You'll need to configure the port on your virtual machine for the traffic.</target>
+        </trans-unit>
+        <trans-unit id="36bd648e-0d27-4ec6-a9b2-771d6916430f" xml:space="preserve">
+          <source>Typically, you would go to the Management Portal and save the settings for the RDP connection to your computer.</source>
+          <target state="new">Typically, you would go to the Management Portal and save the settings for the RDP connection to your computer.</target>
+        </trans-unit>
+        <trans-unit id="eabbed6a-da76-4ac9-9c48-2189d1f3cb8e" xml:space="preserve">
+          <source>The settings will contain the necessary connection information.</source>
+          <target state="new">The settings will contain the necessary connection information.</target>
+        </trans-unit>
+        <trans-unit id="1a4d049f-9143-4ccb-89e7-c1dd9fbba712" xml:space="preserve">
+          <source>If you have a virtual network with cross-premises connectivity configured, you can connect to your virtual machine by using the internal DIP or private IP address.</source>
+          <target state="new">If you have a virtual network with cross-premises connectivity configured, you can connect to your virtual machine by using the internal DIP or private IP address.</target>
+        </trans-unit>
+        <trans-unit id="fca08595-6cd2-4697-b830-67c2115d75f9" xml:space="preserve">
+          <source>You can also connect to your virtual machine by internal DIP from another virtual machine that's located on the same virtual network.</source>
+          <target state="new">You can also connect to your virtual machine by internal DIP from another virtual machine that's located on the same virtual network.</target>
+        </trans-unit>
+        <trans-unit id="308d7fff-8a2c-4848-9723-d6a89a6d189c" xml:space="preserve">
+          <source>You can't RDP to your virtual machine by using the DIP if you are connecting from a location outside of your virtual network.</source>
+          <target state="new">You can't RDP to your virtual machine by using the DIP if you are connecting from a location outside of your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="b36fa649-2e84-4947-9692-72840da80aa8" xml:space="preserve">
+          <source>For example, if you have a point-to-site virtual network configured and you don't establish a connection from your computer, you can't connect to the virtual machine by DIP.</source>
+          <target state="new">For example, if you have a point-to-site virtual network configured and you don't establish a connection from your computer, you can't connect to the virtual machine by DIP.</target>
+        </trans-unit>
+        <trans-unit id="a8b32bfc-413e-4e04-9f1d-0fde1ee4220e" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="0801a4f0-b274-4666-98dc-89505e191224" xml:space="preserve">
+          <source>Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified will go through the virtual network gateway.</source>
+          <target state="new">Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified will go through the virtual network gateway.</target>
+        </trans-unit>
+        <trans-unit id="e58f40fc-d4f2-4b7a-9f99-7acf68e905f9" xml:space="preserve">
+          <source>Traffic has a destination IP located within the virtual network will stay within the virtual network.</source>
+          <target state="new">Traffic has a destination IP located within the virtual network will stay within the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="d799ff89-8246-4ad2-8a17-6cdc3287306e" xml:space="preserve">
+          <source>Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the Azure VPN gateway.</source>
+          <target state="new">Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the Azure VPN gateway.</target>
+        </trans-unit>
+        <trans-unit id="e9abeb03-0009-4a02-9b03-6f773493a409" xml:space="preserve">
+          <source>If you are troubleshooting, it's important to make sure that you have all the ranges listed in your Local Network that you want to send through the gateway.</source>
+          <target state="new">If you are troubleshooting, it's important to make sure that you have all the ranges listed in your Local Network that you want to send through the gateway.</target>
+        </trans-unit>
+        <trans-unit id="b28e2009-70f9-4642-8e87-0f0ea704bda4" xml:space="preserve">
+          <source>Verify that the Local Network address ranges do not overlap with any of the address ranges in the virtual network.</source>
+          <target state="new">Verify that the Local Network address ranges do not overlap with any of the address ranges in the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="369ad1b5-d254-4713-afe6-1e7e0c2a726d" xml:space="preserve">
+          <source>Also, you'll want to verify that the DNS server you are using is resolving the name to the proper IP address.</source>
+          <target state="new">Also, you'll want to verify that the DNS server you are using is resolving the name to the proper IP address.</target>
+        </trans-unit>
+        <trans-unit id="7c41af20-9559-47f8-9e26-a3a7ba8bd084" xml:space="preserve">
+          <source>View more networking FAQs for additional details:</source>
+          <target state="new">View more networking FAQs for additional details:</target>
+        </trans-unit>
+        <trans-unit id="25c1790f-ac1f-4069-af0f-5af2e0e676df" xml:space="preserve">
+          <source><bpt id="b3af610e-b4f2-4ae9-9e10-90d6d117a455">&lt;linkText&gt;</bpt>Virtual Network FAQ<ept id="b3af610e-b4f2-4ae9-9e10-90d6d117a455">&lt;/linkText&gt;</ept><bpt id="b3af610e-b4f2-4ae9-9e10-90d6d117a455">&lt;title&gt;</bpt><ept id="b3af610e-b4f2-4ae9-9e10-90d6d117a455">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b3af610e-b4f2-4ae9-9e10-90d6d117a455">&lt;linkText&gt;</bpt>Virtual Network FAQ<ept id="b3af610e-b4f2-4ae9-9e10-90d6d117a455">&lt;/linkText&gt;</ept><bpt id="b3af610e-b4f2-4ae9-9e10-90d6d117a455">&lt;title&gt;</bpt><ept id="b3af610e-b4f2-4ae9-9e10-90d6d117a455">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5baa9dcf-aa50-4b7a-9c3d-1da3d577d360" xml:space="preserve">
+          <source><bpt id="d92c9277-9c06-40a2-ad02-31a6ebae0e66">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="d92c9277-9c06-40a2-ad02-31a6ebae0e66">&lt;/linkText&gt;</ept><bpt id="d92c9277-9c06-40a2-ad02-31a6ebae0e66">&lt;title&gt;</bpt><ept id="d92c9277-9c06-40a2-ad02-31a6ebae0e66">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d92c9277-9c06-40a2-ad02-31a6ebae0e66">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="d92c9277-9c06-40a2-ad02-31a6ebae0e66">&lt;/linkText&gt;</ept><bpt id="d92c9277-9c06-40a2-ad02-31a6ebae0e66">&lt;title&gt;</bpt><ept id="d92c9277-9c06-40a2-ad02-31a6ebae0e66">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

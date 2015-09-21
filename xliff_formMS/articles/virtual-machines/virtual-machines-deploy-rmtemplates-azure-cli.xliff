@@ -1,0 +1,940 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="262f75c3-48ee-4246-8473-321fb2ae4455" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="262f75c3-48ee-4246-8473-321fb2ae4455" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2333dea6-c673-4541-bb59-6878670a82ac">
+        <trans-unit id="14410bad-7c46-4a98-ba47-1b4e228c5819" xml:space="preserve">
+          <source>Deploy and Manage Azure Virtual Machines using Resource Manager Templates and the Azure CLI for Mac, Linux, and Windows</source>
+          <target state="new">Deploy and Manage Azure Virtual Machines using Resource Manager Templates and the Azure CLI for Mac, Linux, and Windows</target>
+        </trans-unit>
+        <trans-unit id="82ea953d-eb70-4f13-83b6-89afe9462d6d" xml:space="preserve">
+          <source>Easily deploy the most common set of configurations for Azure virtual machines and manage them using Resource Manager Templates and the Azure CLI.</source>
+          <target state="new">Easily deploy the most common set of configurations for Azure virtual machines and manage them using Resource Manager Templates and the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="1d2a9a9c-ebce-425a-bdab-6d9b1363c815" xml:space="preserve">
+          <source>This article shows you how to use Azure Resource Manager templates and Azure CLI to do the following common tasks for deploying and managing Azure Virtual Machines.</source>
+          <target state="new">This article shows you how to use Azure Resource Manager templates and Azure CLI to do the following common tasks for deploying and managing Azure Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="40ff416e-08f7-4466-a8fc-34876a97c6e5" xml:space="preserve">
+          <source>For more templates you can use, see <bpt id="3fc3aa9e-6ec5-4642-9611-65d23e6c775b">&lt;linkText&gt;</bpt>Azure Quickstart Templates<ept id="3fc3aa9e-6ec5-4642-9611-65d23e6c775b">&lt;/linkText&gt;</ept><bpt id="3fc3aa9e-6ec5-4642-9611-65d23e6c775b">&lt;title&gt;</bpt><ept id="3fc3aa9e-6ec5-4642-9611-65d23e6c775b">&lt;/title&gt;</ept> and <bpt id="20d60c24-b62d-4344-b03d-1d4de77a9cc7">&lt;linkText&gt;</bpt>App Frameworks<ept id="20d60c24-b62d-4344-b03d-1d4de77a9cc7">&lt;/linkText&gt;</ept><bpt id="20d60c24-b62d-4344-b03d-1d4de77a9cc7">&lt;title&gt;</bpt><ept id="20d60c24-b62d-4344-b03d-1d4de77a9cc7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more templates you can use, see <bpt id="3fc3aa9e-6ec5-4642-9611-65d23e6c775b">&lt;linkText&gt;</bpt>Azure Quickstart Templates<ept id="3fc3aa9e-6ec5-4642-9611-65d23e6c775b">&lt;/linkText&gt;</ept><bpt id="3fc3aa9e-6ec5-4642-9611-65d23e6c775b">&lt;title&gt;</bpt><ept id="3fc3aa9e-6ec5-4642-9611-65d23e6c775b">&lt;/title&gt;</ept> and <bpt id="20d60c24-b62d-4344-b03d-1d4de77a9cc7">&lt;linkText&gt;</bpt>App Frameworks<ept id="20d60c24-b62d-4344-b03d-1d4de77a9cc7">&lt;/linkText&gt;</ept><bpt id="20d60c24-b62d-4344-b03d-1d4de77a9cc7">&lt;title&gt;</bpt><ept id="20d60c24-b62d-4344-b03d-1d4de77a9cc7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14ae1509-669b-4ec5-9c9f-5f79fd4bb460" xml:space="preserve">
+          <source><bpt id="6039dac0-e58a-4ada-8c58-47258d4c8c72">&lt;linkText&gt;</bpt>Quick-create a Virtual Machine in Azure<ept id="6039dac0-e58a-4ada-8c58-47258d4c8c72">&lt;/linkText&gt;</ept><bpt id="6039dac0-e58a-4ada-8c58-47258d4c8c72">&lt;title&gt;</bpt><ept id="6039dac0-e58a-4ada-8c58-47258d4c8c72">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6039dac0-e58a-4ada-8c58-47258d4c8c72">&lt;linkText&gt;</bpt>Quick-create a Virtual Machine in Azure<ept id="6039dac0-e58a-4ada-8c58-47258d4c8c72">&lt;/linkText&gt;</ept><bpt id="6039dac0-e58a-4ada-8c58-47258d4c8c72">&lt;title&gt;</bpt><ept id="6039dac0-e58a-4ada-8c58-47258d4c8c72">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e111de5c-b1d9-470f-a6df-d3e9e2684f65" xml:space="preserve">
+          <source><bpt id="ba383c6e-04f4-4d48-8138-52cb59841582">&lt;linkText&gt;</bpt>Deploy a Virtual Machine in Azure from a template<ept id="ba383c6e-04f4-4d48-8138-52cb59841582">&lt;/linkText&gt;</ept><bpt id="ba383c6e-04f4-4d48-8138-52cb59841582">&lt;title&gt;</bpt><ept id="ba383c6e-04f4-4d48-8138-52cb59841582">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba383c6e-04f4-4d48-8138-52cb59841582">&lt;linkText&gt;</bpt>Deploy a Virtual Machine in Azure from a template<ept id="ba383c6e-04f4-4d48-8138-52cb59841582">&lt;/linkText&gt;</ept><bpt id="ba383c6e-04f4-4d48-8138-52cb59841582">&lt;title&gt;</bpt><ept id="ba383c6e-04f4-4d48-8138-52cb59841582">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90ec7b4b-fcb0-4981-aba9-58bc98ae50e6" xml:space="preserve">
+          <source><bpt id="72875e34-db08-4b73-b701-0906450b1bdb">&lt;linkText&gt;</bpt>Create a Virtual Machine from a custom image<ept id="72875e34-db08-4b73-b701-0906450b1bdb">&lt;/linkText&gt;</ept><bpt id="72875e34-db08-4b73-b701-0906450b1bdb">&lt;title&gt;</bpt><ept id="72875e34-db08-4b73-b701-0906450b1bdb">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="72875e34-db08-4b73-b701-0906450b1bdb">&lt;linkText&gt;</bpt>Create a Virtual Machine from a custom image<ept id="72875e34-db08-4b73-b701-0906450b1bdb">&lt;/linkText&gt;</ept><bpt id="72875e34-db08-4b73-b701-0906450b1bdb">&lt;title&gt;</bpt><ept id="72875e34-db08-4b73-b701-0906450b1bdb">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="610d6162-6794-48b8-b124-950f98b5cdcd" xml:space="preserve">
+          <source><bpt id="51262f09-83af-4c43-a151-ca4f67dc267b">&lt;linkText&gt;</bpt>Deploy a VM with virtual network and load balancer<ept id="51262f09-83af-4c43-a151-ca4f67dc267b">&lt;/linkText&gt;</ept><bpt id="51262f09-83af-4c43-a151-ca4f67dc267b">&lt;title&gt;</bpt><ept id="51262f09-83af-4c43-a151-ca4f67dc267b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="51262f09-83af-4c43-a151-ca4f67dc267b">&lt;linkText&gt;</bpt>Deploy a VM with virtual network and load balancer<ept id="51262f09-83af-4c43-a151-ca4f67dc267b">&lt;/linkText&gt;</ept><bpt id="51262f09-83af-4c43-a151-ca4f67dc267b">&lt;title&gt;</bpt><ept id="51262f09-83af-4c43-a151-ca4f67dc267b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3466d3b-162f-43de-9264-b95fe230f7ad" xml:space="preserve">
+          <source><bpt id="2c5b8d34-1031-4867-a1d6-8237465e8aba">&lt;linkText&gt;</bpt>Remove a resource group<ept id="2c5b8d34-1031-4867-a1d6-8237465e8aba">&lt;/linkText&gt;</ept><bpt id="2c5b8d34-1031-4867-a1d6-8237465e8aba">&lt;title&gt;</bpt><ept id="2c5b8d34-1031-4867-a1d6-8237465e8aba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c5b8d34-1031-4867-a1d6-8237465e8aba">&lt;linkText&gt;</bpt>Remove a resource group<ept id="2c5b8d34-1031-4867-a1d6-8237465e8aba">&lt;/linkText&gt;</ept><bpt id="2c5b8d34-1031-4867-a1d6-8237465e8aba">&lt;title&gt;</bpt><ept id="2c5b8d34-1031-4867-a1d6-8237465e8aba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65b9d9ad-12ef-4d2b-b142-6cab7c8d8bbe" xml:space="preserve">
+          <source><bpt id="ec9a84cb-989f-4633-83c8-92155e76e0d0">&lt;linkText&gt;</bpt>Show the log for a resource group deployment<ept id="ec9a84cb-989f-4633-83c8-92155e76e0d0">&lt;/linkText&gt;</ept><bpt id="ec9a84cb-989f-4633-83c8-92155e76e0d0">&lt;title&gt;</bpt><ept id="ec9a84cb-989f-4633-83c8-92155e76e0d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ec9a84cb-989f-4633-83c8-92155e76e0d0">&lt;linkText&gt;</bpt>Show the log for a resource group deployment<ept id="ec9a84cb-989f-4633-83c8-92155e76e0d0">&lt;/linkText&gt;</ept><bpt id="ec9a84cb-989f-4633-83c8-92155e76e0d0">&lt;title&gt;</bpt><ept id="ec9a84cb-989f-4633-83c8-92155e76e0d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec2bc7c2-7af8-4c54-a5de-78bf8b6c850e" xml:space="preserve">
+          <source><bpt id="aa1b3561-687c-42f2-8e39-23298d340fb1">&lt;linkText&gt;</bpt>Display information about a Virtual Machine<ept id="aa1b3561-687c-42f2-8e39-23298d340fb1">&lt;/linkText&gt;</ept><bpt id="aa1b3561-687c-42f2-8e39-23298d340fb1">&lt;title&gt;</bpt><ept id="aa1b3561-687c-42f2-8e39-23298d340fb1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aa1b3561-687c-42f2-8e39-23298d340fb1">&lt;linkText&gt;</bpt>Display information about a Virtual Machine<ept id="aa1b3561-687c-42f2-8e39-23298d340fb1">&lt;/linkText&gt;</ept><bpt id="aa1b3561-687c-42f2-8e39-23298d340fb1">&lt;title&gt;</bpt><ept id="aa1b3561-687c-42f2-8e39-23298d340fb1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34f37916-391c-4fc8-9163-9d0d454b13eb" xml:space="preserve">
+          <source><bpt id="c53bfbba-61b0-4b0e-a7b8-b7205ed09a5c">&lt;linkText&gt;</bpt>Connect to a Linux-based Virtual Machine<ept id="c53bfbba-61b0-4b0e-a7b8-b7205ed09a5c">&lt;/linkText&gt;</ept><bpt id="c53bfbba-61b0-4b0e-a7b8-b7205ed09a5c">&lt;title&gt;</bpt><ept id="c53bfbba-61b0-4b0e-a7b8-b7205ed09a5c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c53bfbba-61b0-4b0e-a7b8-b7205ed09a5c">&lt;linkText&gt;</bpt>Connect to a Linux-based Virtual Machine<ept id="c53bfbba-61b0-4b0e-a7b8-b7205ed09a5c">&lt;/linkText&gt;</ept><bpt id="c53bfbba-61b0-4b0e-a7b8-b7205ed09a5c">&lt;title&gt;</bpt><ept id="c53bfbba-61b0-4b0e-a7b8-b7205ed09a5c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c4957cb-0ffd-41ba-967e-2bddceedcb5b" xml:space="preserve">
+          <source><bpt id="3c9f5b16-5825-458e-95e3-05d45501bf36">&lt;linkText&gt;</bpt>Stop a Virtual Machine<ept id="3c9f5b16-5825-458e-95e3-05d45501bf36">&lt;/linkText&gt;</ept><bpt id="3c9f5b16-5825-458e-95e3-05d45501bf36">&lt;title&gt;</bpt><ept id="3c9f5b16-5825-458e-95e3-05d45501bf36">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3c9f5b16-5825-458e-95e3-05d45501bf36">&lt;linkText&gt;</bpt>Stop a Virtual Machine<ept id="3c9f5b16-5825-458e-95e3-05d45501bf36">&lt;/linkText&gt;</ept><bpt id="3c9f5b16-5825-458e-95e3-05d45501bf36">&lt;title&gt;</bpt><ept id="3c9f5b16-5825-458e-95e3-05d45501bf36">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0eae3c4d-671b-453d-bd34-6bd1730dbe78" xml:space="preserve">
+          <source><bpt id="edff6208-df8e-45af-9e05-c987db40bd1f">&lt;linkText&gt;</bpt>Start a Virtual Machine<ept id="edff6208-df8e-45af-9e05-c987db40bd1f">&lt;/linkText&gt;</ept><bpt id="edff6208-df8e-45af-9e05-c987db40bd1f">&lt;title&gt;</bpt><ept id="edff6208-df8e-45af-9e05-c987db40bd1f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="edff6208-df8e-45af-9e05-c987db40bd1f">&lt;linkText&gt;</bpt>Start a Virtual Machine<ept id="edff6208-df8e-45af-9e05-c987db40bd1f">&lt;/linkText&gt;</ept><bpt id="edff6208-df8e-45af-9e05-c987db40bd1f">&lt;title&gt;</bpt><ept id="edff6208-df8e-45af-9e05-c987db40bd1f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccf79d52-91f2-4491-93f7-dee173aaf5fb" xml:space="preserve">
+          <source><bpt id="5b97c7b4-de74-460c-b404-674c0dc73366">&lt;linkText&gt;</bpt>Attach a data disk<ept id="5b97c7b4-de74-460c-b404-674c0dc73366">&lt;/linkText&gt;</ept><bpt id="5b97c7b4-de74-460c-b404-674c0dc73366">&lt;title&gt;</bpt><ept id="5b97c7b4-de74-460c-b404-674c0dc73366">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5b97c7b4-de74-460c-b404-674c0dc73366">&lt;linkText&gt;</bpt>Attach a data disk<ept id="5b97c7b4-de74-460c-b404-674c0dc73366">&lt;/linkText&gt;</ept><bpt id="5b97c7b4-de74-460c-b404-674c0dc73366">&lt;title&gt;</bpt><ept id="5b97c7b4-de74-460c-b404-674c0dc73366">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c836c56d-0a55-4ecd-a27c-f41c4b35d1fa" xml:space="preserve">
+          <source>Before you can use the Azure CLI with Azure resource groups you will need to have the right Azure CLI version and a work or school ID (also called an organizational ID).</source>
+          <target state="new">Before you can use the Azure CLI with Azure resource groups you will need to have the right Azure CLI version and a work or school ID (also called an organizational ID).</target>
+        </trans-unit>
+        <trans-unit id="02d5fb74-ae3f-4316-b72c-63113598e180" xml:space="preserve">
+          <source>Type <bpt id="bb78ea28-6a46-4a79-a770-21af67b58994">&lt;code&gt;</bpt>azure --version<ept id="bb78ea28-6a46-4a79-a770-21af67b58994">&lt;/code&gt;</ept> to see whether you have already installed version 0.9.0 or later </source>
+          <target state="new">Type <bpt id="bb78ea28-6a46-4a79-a770-21af67b58994">&lt;code&gt;</bpt>azure --version<ept id="bb78ea28-6a46-4a79-a770-21af67b58994">&lt;/code&gt;</ept> to see whether you have already installed version 0.9.0 or later </target>
+        </trans-unit>
+        <trans-unit id="f198c0af-6b48-4979-b3ba-708858627d70" xml:space="preserve">
+          <source>If your version is not 0.9.0 or later, you'll need to either <bpt id="0eae853d-231b-4890-8c5e-465063792bbf">&lt;linkText&gt;</bpt>install the Azure CLI<ept id="0eae853d-231b-4890-8c5e-465063792bbf">&lt;/linkText&gt;</ept><bpt id="0eae853d-231b-4890-8c5e-465063792bbf">&lt;title&gt;</bpt><ept id="0eae853d-231b-4890-8c5e-465063792bbf">&lt;/title&gt;</ept> or update using either one of the native installers or through <bpt id="887c0db9-cc2b-4447-8bbe-22c23bb2035d">&lt;strong&gt;</bpt>npm<ept id="887c0db9-cc2b-4447-8bbe-22c23bb2035d">&lt;/strong&gt;</ept> by typing <bpt id="c4f3558e-6017-42d3-87c8-8c516ea72106">&lt;code&gt;</bpt>npm update -g azure-cli<ept id="c4f3558e-6017-42d3-87c8-8c516ea72106">&lt;/code&gt;</ept>.</source>
+          <target state="new">If your version is not 0.9.0 or later, you'll need to either <bpt id="0eae853d-231b-4890-8c5e-465063792bbf">&lt;linkText&gt;</bpt>install the Azure CLI<ept id="0eae853d-231b-4890-8c5e-465063792bbf">&lt;/linkText&gt;</ept><bpt id="0eae853d-231b-4890-8c5e-465063792bbf">&lt;title&gt;</bpt><ept id="0eae853d-231b-4890-8c5e-465063792bbf">&lt;/title&gt;</ept> or update using either one of the native installers or through <bpt id="887c0db9-cc2b-4447-8bbe-22c23bb2035d">&lt;strong&gt;</bpt>npm<ept id="887c0db9-cc2b-4447-8bbe-22c23bb2035d">&lt;/strong&gt;</ept> by typing <bpt id="c4f3558e-6017-42d3-87c8-8c516ea72106">&lt;code&gt;</bpt>npm update -g azure-cli<ept id="c4f3558e-6017-42d3-87c8-8c516ea72106">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f71cefa7-16e8-4113-80fd-27a9a9388f83" xml:space="preserve">
+          <source>You can also run Azure CLI as a Docker container using the following <bpt id="ad214f8f-9595-4390-af7d-f84aa2c5a2ab">&lt;linkText&gt;</bpt>Docker image<ept id="ad214f8f-9595-4390-af7d-f84aa2c5a2ab">&lt;/linkText&gt;</ept><bpt id="ad214f8f-9595-4390-af7d-f84aa2c5a2ab">&lt;title&gt;</bpt><ept id="ad214f8f-9595-4390-af7d-f84aa2c5a2ab">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also run Azure CLI as a Docker container using the following <bpt id="ad214f8f-9595-4390-af7d-f84aa2c5a2ab">&lt;linkText&gt;</bpt>Docker image<ept id="ad214f8f-9595-4390-af7d-f84aa2c5a2ab">&lt;/linkText&gt;</ept><bpt id="ad214f8f-9595-4390-af7d-f84aa2c5a2ab">&lt;title&gt;</bpt><ept id="ad214f8f-9595-4390-af7d-f84aa2c5a2ab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33134456-201f-47bb-a70f-fa8cf1bc9a95" xml:space="preserve">
+          <source>From a Docker host, run the following command:</source>
+          <target state="new">From a Docker host, run the following command:</target>
+        </trans-unit>
+        <trans-unit id="504a2abf-0dba-4657-8677-2caf70e567a8" xml:space="preserve">
+          <source>If you don't already have an Azure subscription but you do have an MSDN subscription, you can activate your <bpt id="d7b856f7-1c2c-4082-845c-aa25c3f13b31">&lt;linkText&gt;</bpt>MSDN subscriber benefits<ept id="d7b856f7-1c2c-4082-845c-aa25c3f13b31">&lt;/linkText&gt;</ept><bpt id="d7b856f7-1c2c-4082-845c-aa25c3f13b31">&lt;title&gt;</bpt><ept id="d7b856f7-1c2c-4082-845c-aa25c3f13b31">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't already have an Azure subscription but you do have an MSDN subscription, you can activate your <bpt id="d7b856f7-1c2c-4082-845c-aa25c3f13b31">&lt;linkText&gt;</bpt>MSDN subscriber benefits<ept id="d7b856f7-1c2c-4082-845c-aa25c3f13b31">&lt;/linkText&gt;</ept><bpt id="d7b856f7-1c2c-4082-845c-aa25c3f13b31">&lt;title&gt;</bpt><ept id="d7b856f7-1c2c-4082-845c-aa25c3f13b31">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e02c7a72-8108-4349-ba58-4e35a0601475" xml:space="preserve">
+          <source>Or you can sign up for a <bpt id="e011f81f-2b6a-4cc3-816c-56a1636729b0">&lt;linkText&gt;</bpt>free trial<ept id="e011f81f-2b6a-4cc3-816c-56a1636729b0">&lt;/linkText&gt;</ept><bpt id="e011f81f-2b6a-4cc3-816c-56a1636729b0">&lt;title&gt;</bpt><ept id="e011f81f-2b6a-4cc3-816c-56a1636729b0">&lt;/title&gt;</ept>.</source>
+          <target state="new">Or you can sign up for a <bpt id="e011f81f-2b6a-4cc3-816c-56a1636729b0">&lt;linkText&gt;</bpt>free trial<ept id="e011f81f-2b6a-4cc3-816c-56a1636729b0">&lt;/linkText&gt;</ept><bpt id="e011f81f-2b6a-4cc3-816c-56a1636729b0">&lt;title&gt;</bpt><ept id="e011f81f-2b6a-4cc3-816c-56a1636729b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b864fb1-f72d-4a84-9b1b-727188f7f73d" xml:space="preserve">
+          <source>You you will need to have a work or school account to use Azure resource management templates, if you have one you can type <bpt id="7ad7dcc5-b1e7-4372-a201-bf71acc42729">&lt;code&gt;</bpt>azure login<ept id="7ad7dcc5-b1e7-4372-a201-bf71acc42729">&lt;/code&gt;</ept>, enter your username and password, and you should successfully log in.</source>
+          <target state="new">You you will need to have a work or school account to use Azure resource management templates, if you have one you can type <bpt id="7ad7dcc5-b1e7-4372-a201-bf71acc42729">&lt;code&gt;</bpt>azure login<ept id="7ad7dcc5-b1e7-4372-a201-bf71acc42729">&lt;/code&gt;</ept>, enter your username and password, and you should successfully log in.</target>
+        </trans-unit>
+        <trans-unit id="464dca2b-7e7d-44b2-b0b3-356310d3dbb5" xml:space="preserve">
+          <source>If you don't have one, you'll see an error message indicating that you need a different type of account.</source>
+          <target state="new">If you don't have one, you'll see an error message indicating that you need a different type of account.</target>
+        </trans-unit>
+        <trans-unit id="0c3540d7-d576-4bbe-b3ec-8e185f30c669" xml:space="preserve">
+          <source>To create one from your current Azure account, see <bpt id="5b6678b5-3b9c-4d0a-82bd-a96cdc51ae22">&lt;linkText&gt;</bpt>Creating a Work or School identity in Azure Active Directory<ept id="5b6678b5-3b9c-4d0a-82bd-a96cdc51ae22">&lt;/linkText&gt;</ept><bpt id="5b6678b5-3b9c-4d0a-82bd-a96cdc51ae22">&lt;title&gt;</bpt><ept id="5b6678b5-3b9c-4d0a-82bd-a96cdc51ae22">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create one from your current Azure account, see <bpt id="5b6678b5-3b9c-4d0a-82bd-a96cdc51ae22">&lt;linkText&gt;</bpt>Creating a Work or School identity in Azure Active Directory<ept id="5b6678b5-3b9c-4d0a-82bd-a96cdc51ae22">&lt;/linkText&gt;</ept><bpt id="5b6678b5-3b9c-4d0a-82bd-a96cdc51ae22">&lt;title&gt;</bpt><ept id="5b6678b5-3b9c-4d0a-82bd-a96cdc51ae22">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73b02272-3625-46ce-b6db-e6c33aa102c4" xml:space="preserve">
+          <source>Your account may have more than one subscription.</source>
+          <target state="new">Your account may have more than one subscription.</target>
+        </trans-unit>
+        <trans-unit id="0fa660c9-29a8-4f81-963b-eca53b260f46" xml:space="preserve">
+          <source>You can list your subscriptions by typing <bpt id="18640118-0578-4f4f-9fdd-173bc88e3ef5">&lt;code&gt;</bpt>azure account list<ept id="18640118-0578-4f4f-9fdd-173bc88e3ef5">&lt;/code&gt;</ept>, which might look something like this:</source>
+          <target state="new">You can list your subscriptions by typing <bpt id="18640118-0578-4f4f-9fdd-173bc88e3ef5">&lt;code&gt;</bpt>azure account list<ept id="18640118-0578-4f4f-9fdd-173bc88e3ef5">&lt;/code&gt;</ept>, which might look something like this:</target>
+        </trans-unit>
+        <trans-unit id="fc04678f-38d0-4390-bb3e-c4dcfe797230" xml:space="preserve">
+          <source>You can set the current Azure subscription by typing</source>
+          <target state="new">You can set the current Azure subscription by typing</target>
+        </trans-unit>
+        <trans-unit id="cfc63d2d-a4c8-475e-933f-7a318e47aef7" xml:space="preserve">
+          <source>with the subscription name or the ID that has the resources you want to manage.</source>
+          <target state="new">with the subscription name or the ID that has the resources you want to manage.</target>
+        </trans-unit>
+        <trans-unit id="0dab1484-8481-4a3d-b92b-774b15228697" xml:space="preserve">
+          <source>By default, the Azure CLI starts in the service management mode (<bpt id="4c34f42f-581c-491e-915a-01e7c600b7df">&lt;strong&gt;</bpt>asm<ept id="4c34f42f-581c-491e-915a-01e7c600b7df">&lt;/strong&gt;</ept> mode).</source>
+          <target state="new">By default, the Azure CLI starts in the service management mode (<bpt id="4c34f42f-581c-491e-915a-01e7c600b7df">&lt;strong&gt;</bpt>asm<ept id="4c34f42f-581c-491e-915a-01e7c600b7df">&lt;/strong&gt;</ept> mode).</target>
+        </trans-unit>
+        <trans-unit id="628e2309-271b-4ebc-8d99-6caa2b1e5e92" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="4fe50839-9b46-4875-8b32-47ee4389f3b6" xml:space="preserve">
+          <source>to switch to resource group mode.</source>
+          <target state="new">to switch to resource group mode.</target>
+        </trans-unit>
+        <trans-unit id="c6578568-0fa8-4d9b-919d-9b8414fb2477" xml:space="preserve">
+          <source>You can switch back to the default set of commands by typing <bpt id="7dfcce7c-dade-4f54-8c98-eb79d09161b0">&lt;code&gt;</bpt>azure config mode asm<ept id="7dfcce7c-dade-4f54-8c98-eb79d09161b0">&lt;/code&gt;</ept>.</source>
+          <target state="new">You can switch back to the default set of commands by typing <bpt id="7dfcce7c-dade-4f54-8c98-eb79d09161b0">&lt;code&gt;</bpt>azure config mode asm<ept id="7dfcce7c-dade-4f54-8c98-eb79d09161b0">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c167685-f6d4-4513-9e28-ee76c29c436c" xml:space="preserve">
+          <source>Most applications are built out of a combination of different resource types (such as one or more VMs and Storage accounts, a SQL database, a Virtual Network, or a content delivery network, or <bpt id="2a8226ee-76f4-4df1-b320-950954a3852e">&lt;em&gt;</bpt>CDN<ept id="2a8226ee-76f4-4df1-b320-950954a3852e">&lt;/em&gt;</ept>).</source>
+          <target state="new">Most applications are built out of a combination of different resource types (such as one or more VMs and Storage accounts, a SQL database, a Virtual Network, or a content delivery network, or <bpt id="2a8226ee-76f4-4df1-b320-950954a3852e">&lt;em&gt;</bpt>CDN<ept id="2a8226ee-76f4-4df1-b320-950954a3852e">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="892f78e1-460e-464a-a059-5dc7935b5643" xml:space="preserve">
+          <source>The default Azure service management API and the Azure classic portal represented these items using a service-by-service approach, which requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.</source>
+          <target state="new">The default Azure service management API and the Azure classic portal represented these items using a service-by-service approach, which requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.</target>
+        </trans-unit>
+        <trans-unit id="c9430041-47a9-4199-aa48-18be672ca2c5" xml:space="preserve">
+          <source><bpt id="2b965e91-0fa7-4cb5-8c57-709d0c61b5a5">&lt;em&gt;</bpt>Azure Resource Manager Templates<ept id="2b965e91-0fa7-4cb5-8c57-709d0c61b5a5">&lt;/em&gt;</ept> make it possible for you to deploy and manage these different resources as one logical deployment unit in a declarative fashion.</source>
+          <target state="new"><bpt id="2b965e91-0fa7-4cb5-8c57-709d0c61b5a5">&lt;em&gt;</bpt>Azure Resource Manager Templates<ept id="2b965e91-0fa7-4cb5-8c57-709d0c61b5a5">&lt;/em&gt;</ept> make it possible for you to deploy and manage these different resources as one logical deployment unit in a declarative fashion.</target>
+        </trans-unit>
+        <trans-unit id="13d5e10e-fa0e-4e42-a5b2-9b49dda80acd" xml:space="preserve">
+          <source>Instead of imperatively telling Azure what to deploy one command after another, you describe your entire deployment in a JSON file -- all of the resources and associated configuration and deployment parameters -- and tell Azure to deploy those resources as one group.</source>
+          <target state="new">Instead of imperatively telling Azure what to deploy one command after another, you describe your entire deployment in a JSON file -- all of the resources and associated configuration and deployment parameters -- and tell Azure to deploy those resources as one group.</target>
+        </trans-unit>
+        <trans-unit id="dffc5f28-d41b-4e95-9f9e-0d5e3417fc52" xml:space="preserve">
+          <source>You can then manage the overall lifecycle of the group's resources by using Azure CLI resource management commands to:</source>
+          <target state="new">You can then manage the overall lifecycle of the group's resources by using Azure CLI resource management commands to:</target>
+        </trans-unit>
+        <trans-unit id="9bd8868c-c642-4f4a-a92c-88e1c708cad4" xml:space="preserve">
+          <source>Stop, start, or delete all of the resources within the group at once.</source>
+          <target state="new">Stop, start, or delete all of the resources within the group at once.</target>
+        </trans-unit>
+        <trans-unit id="36523fcc-431d-42ed-a87f-449b98bf2f9e" xml:space="preserve">
+          <source>Apply Role-Based Access Control (RBAC) rules to lock down security permissions on them.</source>
+          <target state="new">Apply Role-Based Access Control (RBAC) rules to lock down security permissions on them.</target>
+        </trans-unit>
+        <trans-unit id="4a13f60a-2965-4b06-8c8d-a87bbfac7d95" xml:space="preserve">
+          <source>Audit operations.</source>
+          <target state="new">Audit operations.</target>
+        </trans-unit>
+        <trans-unit id="48c1a9bf-816d-4945-8358-c218a869d6b0" xml:space="preserve">
+          <source>Tag resources with additional meta-data for better tracking.</source>
+          <target state="new">Tag resources with additional meta-data for better tracking.</target>
+        </trans-unit>
+        <trans-unit id="33d3b993-f143-45ff-9e0d-67c12878cbaa" xml:space="preserve">
+          <source>You can learn lots more about Azure resource groups and what they can do for you <bpt id="124804b3-f1f4-46d2-84e2-28d1bbbe2ec9">&lt;linkText&gt;</bpt>here<ept id="124804b3-f1f4-46d2-84e2-28d1bbbe2ec9">&lt;/linkText&gt;</ept><bpt id="124804b3-f1f4-46d2-84e2-28d1bbbe2ec9">&lt;title&gt;</bpt><ept id="124804b3-f1f4-46d2-84e2-28d1bbbe2ec9">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn lots more about Azure resource groups and what they can do for you <bpt id="124804b3-f1f4-46d2-84e2-28d1bbbe2ec9">&lt;linkText&gt;</bpt>here<ept id="124804b3-f1f4-46d2-84e2-28d1bbbe2ec9">&lt;/linkText&gt;</ept><bpt id="124804b3-f1f4-46d2-84e2-28d1bbbe2ec9">&lt;title&gt;</bpt><ept id="124804b3-f1f4-46d2-84e2-28d1bbbe2ec9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d6689ea-d85c-4489-832f-b8b7266f0285" xml:space="preserve">
+          <source>If you're interested in authoring templates, see <bpt id="58b8f932-60a8-4b48-8e00-1c79ef876535">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager Templates<ept id="58b8f932-60a8-4b48-8e00-1c79ef876535">&lt;/linkText&gt;</ept><bpt id="58b8f932-60a8-4b48-8e00-1c79ef876535">&lt;title&gt;</bpt><ept id="58b8f932-60a8-4b48-8e00-1c79ef876535">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you're interested in authoring templates, see <bpt id="58b8f932-60a8-4b48-8e00-1c79ef876535">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager Templates<ept id="58b8f932-60a8-4b48-8e00-1c79ef876535">&lt;/linkText&gt;</ept><bpt id="58b8f932-60a8-4b48-8e00-1c79ef876535">&lt;title&gt;</bpt><ept id="58b8f932-60a8-4b48-8e00-1c79ef876535">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="06b5a832-7f80-409d-8829-28abf6840e46" xml:space="preserve">
+          <source>Sometimes you know what image you need, and you need a VM from that image right now and you don't care too much about the infrastructure -- maybe you have to test something on a clean VM.</source>
+          <target state="new">Sometimes you know what image you need, and you need a VM from that image right now and you don't care too much about the infrastructure -- maybe you have to test something on a clean VM.</target>
+        </trans-unit>
+        <trans-unit id="4f185a6c-201a-455f-a775-b4c3e8501bcd" xml:space="preserve">
+          <source>That's when you want to use the <bpt id="1241abe8-258b-496e-897a-516b984b5179">&lt;code&gt;</bpt>azure vm quick-create<ept id="1241abe8-258b-496e-897a-516b984b5179">&lt;/code&gt;</ept> command, and pass the arguments necessary to create a VM and its infrastructure.</source>
+          <target state="new">That's when you want to use the <bpt id="1241abe8-258b-496e-897a-516b984b5179">&lt;code&gt;</bpt>azure vm quick-create<ept id="1241abe8-258b-496e-897a-516b984b5179">&lt;/code&gt;</ept> command, and pass the arguments necessary to create a VM and its infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="c5878e4b-d8f4-4c00-a341-faee3ae249a0" xml:space="preserve">
+          <source>First, create your resource group.</source>
+          <target state="new">First, create your resource group.</target>
+        </trans-unit>
+        <trans-unit id="11a50d79-51aa-4316-8cca-2bda39a1dd4f" xml:space="preserve">
+          <source>Second, you'll need an image.</source>
+          <target state="new">Second, you'll need an image.</target>
+        </trans-unit>
+        <trans-unit id="6e7e735f-6535-4097-a2ba-2cb97cdfb6ce" xml:space="preserve">
+          <source>To find an image with the Azure CLI, see <bpt id="6491f9c3-99dd-439f-b413-ad16dd77929f">&lt;linkText&gt;</bpt>Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI<ept id="6491f9c3-99dd-439f-b413-ad16dd77929f">&lt;/linkText&gt;</ept><bpt id="6491f9c3-99dd-439f-b413-ad16dd77929f">&lt;title&gt;</bpt><ept id="6491f9c3-99dd-439f-b413-ad16dd77929f">&lt;/title&gt;</ept>.</source>
+          <target state="new">To find an image with the Azure CLI, see <bpt id="6491f9c3-99dd-439f-b413-ad16dd77929f">&lt;linkText&gt;</bpt>Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI<ept id="6491f9c3-99dd-439f-b413-ad16dd77929f">&lt;/linkText&gt;</ept><bpt id="6491f9c3-99dd-439f-b413-ad16dd77929f">&lt;title&gt;</bpt><ept id="6491f9c3-99dd-439f-b413-ad16dd77929f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e6ed91c-539e-4bdb-ab3e-0aa67303b8ec" xml:space="preserve">
+          <source>But for this quickstart, here's a short list of popular images.</source>
+          <target state="new">But for this quickstart, here's a short list of popular images.</target>
+        </trans-unit>
+        <trans-unit id="a04951cc-8b73-4813-8b27-d5600c718d99" xml:space="preserve">
+          <source>We'll use CoreOS's Stable image for this quick-create.</source>
+          <target state="new">We'll use CoreOS's Stable image for this quick-create.</target>
+        </trans-unit>
+        <trans-unit id="0d3feac8-8bcb-4ade-9723-53d27bd2fc1d" xml:space="preserve">
+          <source>For the ComputeImageVersion, you can also simply supply 'latest' as the parameter in both the template langauge and in the Azure CLI.</source>
+          <target state="new">For the ComputeImageVersion, you can also simply supply 'latest' as the parameter in both the template langauge and in the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="eaddd82a-e21a-4f41-bcf1-3f8d5fd90172" xml:space="preserve">
+          <source>This will allow you to always use the latest and patched version of the image without having to modidfy your scripts or templates.</source>
+          <target state="new">This will allow you to always use the latest and patched version of the image without having to modidfy your scripts or templates.</target>
+        </trans-unit>
+        <trans-unit id="27d74d7b-f378-4e6c-a92b-a0a264e49413" xml:space="preserve">
+          <source>This is shown below.</source>
+          <target state="new">This is shown below.</target>
+        </trans-unit>
+        <trans-unit id="3c17abde-578d-44a4-afef-3565e9ab68bc" xml:space="preserve">
+          <source>PublisherName</source>
+          <target state="new">PublisherName</target>
+        </trans-unit>
+        <trans-unit id="3c0c254f-f27f-45a2-966e-be9f40afdb8e" xml:space="preserve">
+          <source>Offer</source>
+          <target state="new">Offer</target>
+        </trans-unit>
+        <trans-unit id="94954e8e-9376-4a03-938b-b2c369320fe1" xml:space="preserve">
+          <source>Sku</source>
+          <target state="new">Sku</target>
+        </trans-unit>
+        <trans-unit id="55ed3891-bfd8-4f29-9253-f17842fbef2c" xml:space="preserve">
+          <source>Version</source>
+          <target state="new">Version</target>
+        </trans-unit>
+        <trans-unit id="7dcf4c93-3352-452b-8406-3598626c0ca1" xml:space="preserve">
+          <source>OpenLogic</source>
+          <target state="new">OpenLogic</target>
+        </trans-unit>
+        <trans-unit id="e2ab3df7-3b73-4232-8d02-e5c815706a30" xml:space="preserve">
+          <source>CentOS</source>
+          <target state="new">CentOS</target>
+        </trans-unit>
+        <trans-unit id="10f43659-52d4-4b3a-86a7-2936eb191835" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="0ffecbcd-80ac-4559-bce2-64f78d89173a" xml:space="preserve">
+          <source>7.0.201503</source>
+          <target state="new">7.0.201503</target>
+        </trans-unit>
+        <trans-unit id="0d06b7ef-0d5b-46b2-9af0-ca3ee3cfcd0e" xml:space="preserve">
+          <source>OpenLogic</source>
+          <target state="new">OpenLogic</target>
+        </trans-unit>
+        <trans-unit id="b41bca5a-4570-4f99-b870-870b3ae29790" xml:space="preserve">
+          <source>CentOS</source>
+          <target state="new">CentOS</target>
+        </trans-unit>
+        <trans-unit id="c150a84a-3398-4f2e-a3e3-8031a6e349da" xml:space="preserve">
+          <source>7.1</source>
+          <target state="new">7.1</target>
+        </trans-unit>
+        <trans-unit id="c071f557-0901-46ef-a573-24063e2f8446" xml:space="preserve">
+          <source>7.1.201504</source>
+          <target state="new">7.1.201504</target>
+        </trans-unit>
+        <trans-unit id="847e5b1e-f57c-4280-b699-88e9ded2dc6c" xml:space="preserve">
+          <source>CoreOS</source>
+          <target state="new">CoreOS</target>
+        </trans-unit>
+        <trans-unit id="bf3779a6-010b-4375-9df6-9207452b17b1" xml:space="preserve">
+          <source>CoreOS</source>
+          <target state="new">CoreOS</target>
+        </trans-unit>
+        <trans-unit id="a3dc17cd-e97c-48cd-b0ba-841e46a297b0" xml:space="preserve">
+          <source>Beta</source>
+          <target state="new">Beta</target>
+        </trans-unit>
+        <trans-unit id="fa719e0b-c92d-480a-a26d-22756f86dac6" xml:space="preserve">
+          <source>647.0.0</source>
+          <target state="new">647.0.0</target>
+        </trans-unit>
+        <trans-unit id="4056bb13-5a2a-4d11-b6b7-babc8c761377" xml:space="preserve">
+          <source>CoreOS</source>
+          <target state="new">CoreOS</target>
+        </trans-unit>
+        <trans-unit id="e538086a-084e-4227-a24f-3c104fedfc89" xml:space="preserve">
+          <source>CoreOS</source>
+          <target state="new">CoreOS</target>
+        </trans-unit>
+        <trans-unit id="c914d5ae-8885-4858-9019-482c0dd9d884" xml:space="preserve">
+          <source>Stable</source>
+          <target state="new">Stable</target>
+        </trans-unit>
+        <trans-unit id="759b3118-b7cd-4be8-9e73-89efa3cb4e14" xml:space="preserve">
+          <source>633.1.0</source>
+          <target state="new">633.1.0</target>
+        </trans-unit>
+        <trans-unit id="f1c61317-b480-4efa-bc6e-77d502338b52" xml:space="preserve">
+          <source>MicrosoftDynamicsNAV</source>
+          <target state="new">MicrosoftDynamicsNAV</target>
+        </trans-unit>
+        <trans-unit id="94a03634-46e1-48db-b522-e69257854627" xml:space="preserve">
+          <source>DynamicsNAV</source>
+          <target state="new">DynamicsNAV</target>
+        </trans-unit>
+        <trans-unit id="eeada695-9cfa-46b5-994b-5b2919f38617" xml:space="preserve">
+          <source>2015</source>
+          <target state="new">2015</target>
+        </trans-unit>
+        <trans-unit id="18b254a6-fea9-498e-b267-a56f09951201" xml:space="preserve">
+          <source>8.0.40459</source>
+          <target state="new">8.0.40459</target>
+        </trans-unit>
+        <trans-unit id="497d8016-ce9a-47b8-92cf-4ab338d43e7a" xml:space="preserve">
+          <source>MicrosoftSharePoint</source>
+          <target state="new">MicrosoftSharePoint</target>
+        </trans-unit>
+        <trans-unit id="bb6650a2-8380-4096-87bf-a94f656f1ed0" xml:space="preserve">
+          <source>MicrosoftSharePointServer</source>
+          <target state="new">MicrosoftSharePointServer</target>
+        </trans-unit>
+        <trans-unit id="5ccdbcf6-a552-4412-a2d1-f6f6b2f2ed3a" xml:space="preserve">
+          <source>2013</source>
+          <target state="new">2013</target>
+        </trans-unit>
+        <trans-unit id="2957f922-c777-4d9a-9698-a04856231ec7" xml:space="preserve">
+          <source>1.0.0</source>
+          <target state="new">1.0.0</target>
+        </trans-unit>
+        <trans-unit id="7ea4c583-5b1d-4900-bb68-188d36064ea8" xml:space="preserve">
+          <source>msopentech</source>
+          <target state="new">msopentech</target>
+        </trans-unit>
+        <trans-unit id="fc10fb72-68ca-4974-a83c-25881b0540be" xml:space="preserve">
+          <source>Oracle-Database-12c-Weblogic-Server-12c</source>
+          <target state="new">Oracle-Database-12c-Weblogic-Server-12c</target>
+        </trans-unit>
+        <trans-unit id="5586d541-00e4-4d29-8213-b24f37cd4821" xml:space="preserve">
+          <source>Standard</source>
+          <target state="new">Standard</target>
+        </trans-unit>
+        <trans-unit id="3459163c-77c7-4a99-bbb4-f33cda5f9a30" xml:space="preserve">
+          <source>1.0.0</source>
+          <target state="new">1.0.0</target>
+        </trans-unit>
+        <trans-unit id="4a24e0f1-072d-47b9-a2d4-19572720a39c" xml:space="preserve">
+          <source>msopentech</source>
+          <target state="new">msopentech</target>
+        </trans-unit>
+        <trans-unit id="9f31386b-4cc9-4a98-a332-875d70b10513" xml:space="preserve">
+          <source>Oracle-Database-12c-Weblogic-Server-12c</source>
+          <target state="new">Oracle-Database-12c-Weblogic-Server-12c</target>
+        </trans-unit>
+        <trans-unit id="7ea832e3-1d9c-4a96-a76e-340f319232cf" xml:space="preserve">
+          <source>Enterprise</source>
+          <target state="new">Enterprise</target>
+        </trans-unit>
+        <trans-unit id="00212472-0bc7-48e2-a236-0684e536cffa" xml:space="preserve">
+          <source>1.0.0</source>
+          <target state="new">1.0.0</target>
+        </trans-unit>
+        <trans-unit id="9bfb04ec-8682-45e8-bfbf-ed1b966a2759" xml:space="preserve">
+          <source>MicrosoftSQLServer</source>
+          <target state="new">MicrosoftSQLServer</target>
+        </trans-unit>
+        <trans-unit id="a97896b0-d16f-4e12-8923-f27d476b51ce" xml:space="preserve">
+          <source>SQL2014-WS2012R2</source>
+          <target state="new">SQL2014-WS2012R2</target>
+        </trans-unit>
+        <trans-unit id="fba248b1-f2cc-4d26-b2a1-3509144054a6" xml:space="preserve">
+          <source>Enterprise-Optimized-for-DW</source>
+          <target state="new">Enterprise-Optimized-for-DW</target>
+        </trans-unit>
+        <trans-unit id="650323ee-c5f6-4e3d-bdff-9bda6393697c" xml:space="preserve">
+          <source>12.0.2430</source>
+          <target state="new">12.0.2430</target>
+        </trans-unit>
+        <trans-unit id="4e7295b7-204a-4e52-bf38-f8eea0438a82" xml:space="preserve">
+          <source>MicrosoftSQLServer</source>
+          <target state="new">MicrosoftSQLServer</target>
+        </trans-unit>
+        <trans-unit id="95be05be-c6fe-4e48-ad1a-776add331114" xml:space="preserve">
+          <source>SQL2014-WS2012R2</source>
+          <target state="new">SQL2014-WS2012R2</target>
+        </trans-unit>
+        <trans-unit id="89b883cf-0955-4b47-a38d-30925b5b69a2" xml:space="preserve">
+          <source>Enterprise-Optimized-for-OLTP</source>
+          <target state="new">Enterprise-Optimized-for-OLTP</target>
+        </trans-unit>
+        <trans-unit id="08c67c09-2d1b-4603-a45b-243962a9f733" xml:space="preserve">
+          <source>12.0.2430</source>
+          <target state="new">12.0.2430</target>
+        </trans-unit>
+        <trans-unit id="5ff48b42-5d26-4c4a-a83f-24394410ede4" xml:space="preserve">
+          <source>Canonical</source>
+          <target state="new">Canonical</target>
+        </trans-unit>
+        <trans-unit id="6c4af561-28ab-4fe9-ae86-003de6969c1a" xml:space="preserve">
+          <source>UbuntuServer</source>
+          <target state="new">UbuntuServer</target>
+        </trans-unit>
+        <trans-unit id="a0291fc7-d474-4ae3-ad1f-8fa83c71a8fa" xml:space="preserve">
+          <source>12.04.5-LTS</source>
+          <target state="new">12.04.5-LTS</target>
+        </trans-unit>
+        <trans-unit id="f54f5024-7de0-4a37-9806-d50490a086c5" xml:space="preserve">
+          <source>12.04.201504230</source>
+          <target state="new">12.04.201504230</target>
+        </trans-unit>
+        <trans-unit id="9dd35f78-7aaa-4e97-a86a-7be39b162da0" xml:space="preserve">
+          <source>Canonical</source>
+          <target state="new">Canonical</target>
+        </trans-unit>
+        <trans-unit id="55deb7db-92d3-4088-b84f-47b1c4d485fa" xml:space="preserve">
+          <source>UbuntuServer</source>
+          <target state="new">UbuntuServer</target>
+        </trans-unit>
+        <trans-unit id="0e90c343-16d5-491e-ba72-6c73332fb51d" xml:space="preserve">
+          <source>14.04.2-LTS</source>
+          <target state="new">14.04.2-LTS</target>
+        </trans-unit>
+        <trans-unit id="1df3cb07-53f7-491d-9857-4db9ef9eba57" xml:space="preserve">
+          <source>14.04.201503090</source>
+          <target state="new">14.04.201503090</target>
+        </trans-unit>
+        <trans-unit id="94f972b6-b961-4023-8700-f56f6a38298a" xml:space="preserve">
+          <source>MicrosoftWindowsServer</source>
+          <target state="new">MicrosoftWindowsServer</target>
+        </trans-unit>
+        <trans-unit id="811c56e9-0af4-4e56-9f97-6c3819a72f28" xml:space="preserve">
+          <source>WindowsServer</source>
+          <target state="new">WindowsServer</target>
+        </trans-unit>
+        <trans-unit id="aefdd73b-b335-4177-9686-f6bc45378f50" xml:space="preserve">
+          <source>2012-Datacenter</source>
+          <target state="new">2012-Datacenter</target>
+        </trans-unit>
+        <trans-unit id="a5d337db-1379-4eb9-bfff-46a109fa965b" xml:space="preserve">
+          <source>3.0.201503</source>
+          <target state="new">3.0.201503</target>
+        </trans-unit>
+        <trans-unit id="c5d3b0b5-9fb9-4117-8a35-8dcbc385a4b2" xml:space="preserve">
+          <source>MicrosoftWindowsServer</source>
+          <target state="new">MicrosoftWindowsServer</target>
+        </trans-unit>
+        <trans-unit id="f61322c5-1d91-4f02-87c1-4e1bee595e5e" xml:space="preserve">
+          <source>WindowsServer</source>
+          <target state="new">WindowsServer</target>
+        </trans-unit>
+        <trans-unit id="058341e3-27f9-4867-a697-51c270a97d4c" xml:space="preserve">
+          <source>2012-R2-Datacenter</source>
+          <target state="new">2012-R2-Datacenter</target>
+        </trans-unit>
+        <trans-unit id="048aae22-1005-4f30-a796-90f604102407" xml:space="preserve">
+          <source>4.0.201503</source>
+          <target state="new">4.0.201503</target>
+        </trans-unit>
+        <trans-unit id="4e575080-c92b-478b-b345-6133fff91652" xml:space="preserve">
+          <source>MicrosoftWindowsServer</source>
+          <target state="new">MicrosoftWindowsServer</target>
+        </trans-unit>
+        <trans-unit id="3b52d02c-21d4-4cac-9a93-42a4888e8981" xml:space="preserve">
+          <source>WindowsServer</source>
+          <target state="new">WindowsServer</target>
+        </trans-unit>
+        <trans-unit id="aceaec4d-f8fd-4f3f-90a2-efff1a254076" xml:space="preserve">
+          <source>Windows-Server-Technical-Preview</source>
+          <target state="new">Windows-Server-Technical-Preview</target>
+        </trans-unit>
+        <trans-unit id="8a19c0cc-3107-4f6a-882e-4538c8d85207" xml:space="preserve">
+          <source>5.0.201504</source>
+          <target state="new">5.0.201504</target>
+        </trans-unit>
+        <trans-unit id="04bd6434-66a3-44e1-89a1-2f5dff146ed5" xml:space="preserve">
+          <source>MicrosoftWindowsServerEssentials</source>
+          <target state="new">MicrosoftWindowsServerEssentials</target>
+        </trans-unit>
+        <trans-unit id="21122a8b-35a6-4ce0-b4d5-955696ea2cc4" xml:space="preserve">
+          <source>WindowsServerEssentials</source>
+          <target state="new">WindowsServerEssentials</target>
+        </trans-unit>
+        <trans-unit id="8bb800e5-19d6-4291-90dd-3bb57963d347" xml:space="preserve">
+          <source>WindowsServerEssentials</source>
+          <target state="new">WindowsServerEssentials</target>
+        </trans-unit>
+        <trans-unit id="4ed23ee0-84c9-4115-8815-5c38c9313fd8" xml:space="preserve">
+          <source>1.0.141204</source>
+          <target state="new">1.0.141204</target>
+        </trans-unit>
+        <trans-unit id="313d4ae7-017c-41c1-b840-c02a5c504f76" xml:space="preserve">
+          <source>MicrosoftWindowsServerHPCPack</source>
+          <target state="new">MicrosoftWindowsServerHPCPack</target>
+        </trans-unit>
+        <trans-unit id="f5c1fff3-96ad-471e-88b1-9f47d4464cf7" xml:space="preserve">
+          <source>WindowsServerHPCPack</source>
+          <target state="new">WindowsServerHPCPack</target>
+        </trans-unit>
+        <trans-unit id="87a4339f-6a22-47e2-9a6c-4fd615fe2817" xml:space="preserve">
+          <source>2012R2</source>
+          <target state="new">2012R2</target>
+        </trans-unit>
+        <trans-unit id="a0fffe51-0a99-4bd3-98ca-68f55eaa996c" xml:space="preserve">
+          <source>4.3.4665</source>
+          <target state="new">4.3.4665</target>
+        </trans-unit>
+        <trans-unit id="0e1bd545-f61d-4b6d-a7a0-def78f1e85ba" xml:space="preserve">
+          <source>Just create your VM by entering the <bpt id="28e69b0a-ac02-439d-b668-2e7c1ee3d14b">&lt;code&gt;</bpt>azure vm quick-create command<ept id="28e69b0a-ac02-439d-b668-2e7c1ee3d14b">&lt;/code&gt;</ept> and being ready for the prompts.</source>
+          <target state="new">Just create your VM by entering the <bpt id="28e69b0a-ac02-439d-b668-2e7c1ee3d14b">&lt;code&gt;</bpt>azure vm quick-create command<ept id="28e69b0a-ac02-439d-b668-2e7c1ee3d14b">&lt;/code&gt;</ept> and being ready for the prompts.</target>
+        </trans-unit>
+        <trans-unit id="821bbaef-38ed-4bc8-8129-f273b67456c7" xml:space="preserve">
+          <source>It should look something like this.</source>
+          <target state="new">It should look something like this.</target>
+        </trans-unit>
+        <trans-unit id="996da2ed-1f63-4091-ad12-6a0b9252093f" xml:space="preserve">
+          <source>And away you go with your new VM.</source>
+          <target state="new">And away you go with your new VM.</target>
+        </trans-unit>
+        <trans-unit id="775cbc3f-dc32-4ee0-b564-0278134be5db" xml:space="preserve">
+          <source>Use the instructions in these sections to deploy a new Azure VM using a template with the Azure CLI.</source>
+          <target state="new">Use the instructions in these sections to deploy a new Azure VM using a template with the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="cd65a958-2224-42e2-b330-51284c6af129" xml:space="preserve">
+          <source>This template creates a single virtual machine in a new virtual network with a single subnet, and unlike <bpt id="58f7338f-3609-47e0-850b-39dbb4d3b2b7">&lt;code&gt;</bpt>azure vm quick-create<ept id="58f7338f-3609-47e0-850b-39dbb4d3b2b7">&lt;/code&gt;</ept>, enables you to describe what you want precisely and repeat it without errors.</source>
+          <target state="new">This template creates a single virtual machine in a new virtual network with a single subnet, and unlike <bpt id="58f7338f-3609-47e0-850b-39dbb4d3b2b7">&lt;code&gt;</bpt>azure vm quick-create<ept id="58f7338f-3609-47e0-850b-39dbb4d3b2b7">&lt;/code&gt;</ept>, enables you to describe what you want precisely and repeat it without errors.</target>
+        </trans-unit>
+        <trans-unit id="faf63a4e-b7ae-473e-8528-611d9602c592" xml:space="preserve">
+          <source>Here's what this template creates:</source>
+          <target state="new">Here's what this template creates:</target>
+        </trans-unit>
+        <trans-unit id="e0fe01e0-8938-4675-9f35-8f0f879f970c" xml:space="preserve">
+          <source><bpt id="53ca5dd8-58bb-4b3b-974f-591318e4da93">&lt;linkText&gt;</bpt><ept id="53ca5dd8-58bb-4b3b-974f-591318e4da93">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="53ca5dd8-58bb-4b3b-974f-591318e4da93">&lt;linkText&gt;</bpt><ept id="53ca5dd8-58bb-4b3b-974f-591318e4da93">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2a18f54-5591-492a-9c41-70696fb62951" xml:space="preserve">
+          <source>Here are the contents of the JSON file for the template.</source>
+          <target state="new">Here are the contents of the JSON file for the template.</target>
+        </trans-unit>
+        <trans-unit id="63a82824-acb9-4713-a379-846e36c92f0e" xml:space="preserve">
+          <source>(The template is also located in GitHub <bpt id="a064672d-3554-4c72-b41c-d4dae17131af">&lt;linkText&gt;</bpt>here<ept id="a064672d-3554-4c72-b41c-d4dae17131af">&lt;/linkText&gt;</ept><bpt id="a064672d-3554-4c72-b41c-d4dae17131af">&lt;title&gt;</bpt><ept id="a064672d-3554-4c72-b41c-d4dae17131af">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(The template is also located in GitHub <bpt id="a064672d-3554-4c72-b41c-d4dae17131af">&lt;linkText&gt;</bpt>here<ept id="a064672d-3554-4c72-b41c-d4dae17131af">&lt;/linkText&gt;</ept><bpt id="a064672d-3554-4c72-b41c-d4dae17131af">&lt;title&gt;</bpt><ept id="a064672d-3554-4c72-b41c-d4dae17131af">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="fd39df5d-721c-458a-9132-dbf22a2724a6" xml:space="preserve">
+          <source>Templates are flexible, so the designer may have chosen to give you lots of parameters, or she may have chosen to offer only a few by creating a template that is more fixed.</source>
+          <target state="new">Templates are flexible, so the designer may have chosen to give you lots of parameters, or she may have chosen to offer only a few by creating a template that is more fixed.</target>
+        </trans-unit>
+        <trans-unit id="e3a21eb8-cccf-4fb3-ae6c-f3f0f0ef0f45" xml:space="preserve">
+          <source>In order to collect the information you need to pass the template as parameters, open the template file (this topic has a template inline, below) and examine the <bpt id="64d0706f-657b-4222-81be-190822578e62">&lt;strong&gt;</bpt>parameters<ept id="64d0706f-657b-4222-81be-190822578e62">&lt;/strong&gt;</ept> values.</source>
+          <target state="new">In order to collect the information you need to pass the template as parameters, open the template file (this topic has a template inline, below) and examine the <bpt id="64d0706f-657b-4222-81be-190822578e62">&lt;strong&gt;</bpt>parameters<ept id="64d0706f-657b-4222-81be-190822578e62">&lt;/strong&gt;</ept> values.</target>
+        </trans-unit>
+        <trans-unit id="5087e175-b35c-4504-a04f-cfcdf2d1cdd7" xml:space="preserve">
+          <source>In this case, the template below will ask for:</source>
+          <target state="new">In this case, the template below will ask for:</target>
+        </trans-unit>
+        <trans-unit id="3695e2e9-86f9-4a6b-98d2-8e445d87dbee" xml:space="preserve">
+          <source>a unique storage account name</source>
+          <target state="new">a unique storage account name</target>
+        </trans-unit>
+        <trans-unit id="8077e665-5f60-49f8-b282-19eef0091a42" xml:space="preserve">
+          <source>an admin username for the VM</source>
+          <target state="new">an admin username for the VM</target>
+        </trans-unit>
+        <trans-unit id="7d25a907-d5e9-40a9-a76f-eccf7de34562" xml:space="preserve">
+          <source>a password</source>
+          <target state="new">a password</target>
+        </trans-unit>
+        <trans-unit id="356fc3a3-769a-46af-8dd0-e7833b9547a9" xml:space="preserve">
+          <source>a domain name for the outside world to use</source>
+          <target state="new">a domain name for the outside world to use</target>
+        </trans-unit>
+        <trans-unit id="30ac0380-40ff-4bfc-b92d-993b71670cca" xml:space="preserve">
+          <source>and will accept a Ubuntu Server version number -- but only one of a list.</source>
+          <target state="new">and will accept a Ubuntu Server version number -- but only one of a list.</target>
+        </trans-unit>
+        <trans-unit id="5cf1e4ee-a19d-43f7-bc0a-65c31e58bdfb" xml:space="preserve">
+          <source>Once you decide on these values, you're ready to create a group for and deploy this template into your Azure subscription.</source>
+          <target state="new">Once you decide on these values, you're ready to create a group for and deploy this template into your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="57c3ca12-bbd6-4471-b5e4-ca79e90fbc19" xml:space="preserve">
+          <source>Once you have your parameter values ready, you must create a resource group for your template deployment and then deploy the template.</source>
+          <target state="new">Once you have your parameter values ready, you must create a resource group for your template deployment and then deploy the template.</target>
+        </trans-unit>
+        <trans-unit id="bfff129c-d5ce-4a5a-a872-1aa983bd6085" xml:space="preserve">
+          <source>To create the resource group, type <bpt id="f49ad724-a0cc-4209-824a-c50cad708f16">&lt;code&gt;</bpt>azure group create &lt;group name&gt; &lt;location&gt;<ept id="f49ad724-a0cc-4209-824a-c50cad708f16">&lt;/code&gt;</ept> with the name of the group you want and the data center location into which you want to deploy. This happens quickly:</source>
+          <target state="new">To create the resource group, type <bpt id="f49ad724-a0cc-4209-824a-c50cad708f16">&lt;code&gt;</bpt>azure group create &lt;group name&gt; &lt;location&gt;<ept id="f49ad724-a0cc-4209-824a-c50cad708f16">&lt;/code&gt;</ept> with the name of the group you want and the data center location into which you want to deploy. This happens quickly:</target>
+        </trans-unit>
+        <trans-unit id="6e4221b9-446c-451f-aec0-9d7ed1bff650" xml:space="preserve">
+          <source>Now to create the deployment, call <bpt id="65efb94c-d75f-4acd-9353-8bb919dd69c2">&lt;code&gt;</bpt>azure group deployment create<ept id="65efb94c-d75f-4acd-9353-8bb919dd69c2">&lt;/code&gt;</ept> and pass:</source>
+          <target state="new">Now to create the deployment, call <bpt id="65efb94c-d75f-4acd-9353-8bb919dd69c2">&lt;code&gt;</bpt>azure group deployment create<ept id="65efb94c-d75f-4acd-9353-8bb919dd69c2">&lt;/code&gt;</ept> and pass:</target>
+        </trans-unit>
+        <trans-unit id="70aa8fd5-1b51-4f62-acf7-80f34fe06e01" xml:space="preserve">
+          <source>the template file (in the case that you saved the above JSON template to a local file) </source>
+          <target state="new">the template file (in the case that you saved the above JSON template to a local file) </target>
+        </trans-unit>
+        <trans-unit id="00ce5c4f-b486-416c-a8be-e70d1bcc56d0" xml:space="preserve">
+          <source>a template uri (in the case that you want to point at the file in Github or some other web address)</source>
+          <target state="new">a template uri (in the case that you want to point at the file in Github or some other web address)</target>
+        </trans-unit>
+        <trans-unit id="d9688067-6554-4378-8e5d-89623658ec75" xml:space="preserve">
+          <source>the resource group into which you want to deploy</source>
+          <target state="new">the resource group into which you want to deploy</target>
+        </trans-unit>
+        <trans-unit id="5c9ff70e-7b9e-4fb4-aa7d-dce6d82c2389" xml:space="preserve">
+          <source>and an optional deployment name.</source>
+          <target state="new">and an optional deployment name.</target>
+        </trans-unit>
+        <trans-unit id="d4b0b673-6cb0-48c0-bec8-f561dc74f115" xml:space="preserve">
+          <source>You will be prompted to supply the values of parameters in the <bpt id="32cc3952-3f60-4701-9b02-96da3c899eb7">&lt;strong&gt;</bpt>"parameters"<ept id="32cc3952-3f60-4701-9b02-96da3c899eb7">&lt;/strong&gt;</ept> section of the JSON file.</source>
+          <target state="new">You will be prompted to supply the values of parameters in the <bpt id="32cc3952-3f60-4701-9b02-96da3c899eb7">&lt;strong&gt;</bpt>"parameters"<ept id="32cc3952-3f60-4701-9b02-96da3c899eb7">&lt;/strong&gt;</ept> section of the JSON file.</target>
+        </trans-unit>
+        <trans-unit id="8e8303ac-8a88-47e6-82de-11db73b1e52f" xml:space="preserve">
+          <source>When you have specified all the parameter values, your deployment will begin.</source>
+          <target state="new">When you have specified all the parameter values, your deployment will begin.</target>
+        </trans-unit>
+        <trans-unit id="c38a0c87-4744-49be-85e4-186036cd73fc" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="8c75f3a9-a4e0-4325-bcc0-28521f8bd244" xml:space="preserve">
+          <source>You will receive the following type of information:</source>
+          <target state="new">You will receive the following type of information:</target>
+        </trans-unit>
+        <trans-unit id="23038ada-d396-4fee-a663-3ba1094c9277" xml:space="preserve">
+          <source>You've seen the basic usage of templates above, so now we can use similar instructions to create a custom VM from a specific .vhd file in Azure with a template using the Azure CLI.</source>
+          <target state="new">You've seen the basic usage of templates above, so now we can use similar instructions to create a custom VM from a specific .vhd file in Azure with a template using the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="7fbfffa0-706b-49aa-b687-e4d76a9dee50" xml:space="preserve">
+          <source>The difference here is that this template creates a single virtual machine from a specified virtual hard disk (VHD).</source>
+          <target state="new">The difference here is that this template creates a single virtual machine from a specified virtual hard disk (VHD).</target>
+        </trans-unit>
+        <trans-unit id="dc8bcc4b-7341-4a86-8d1c-e1d4826e18f5" xml:space="preserve">
+          <source>Here are the contents of the JSON file for the template that this section uses as an example, but you can always find the template itself <bpt id="996221fe-7d61-4347-a6b2-610de2835c0f">&lt;linkText&gt;</bpt>here<ept id="996221fe-7d61-4347-a6b2-610de2835c0f">&lt;/linkText&gt;</ept><bpt id="996221fe-7d61-4347-a6b2-610de2835c0f">&lt;title&gt;</bpt><ept id="996221fe-7d61-4347-a6b2-610de2835c0f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Here are the contents of the JSON file for the template that this section uses as an example, but you can always find the template itself <bpt id="996221fe-7d61-4347-a6b2-610de2835c0f">&lt;linkText&gt;</bpt>here<ept id="996221fe-7d61-4347-a6b2-610de2835c0f">&lt;/linkText&gt;</ept><bpt id="996221fe-7d61-4347-a6b2-610de2835c0f">&lt;title&gt;</bpt><ept id="996221fe-7d61-4347-a6b2-610de2835c0f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26b79803-6333-4f88-b6fe-10377039b193" xml:space="preserve">
+          <source>Again, you will need to find the values you want to enter for the parameters that do not have default values.</source>
+          <target state="new">Again, you will need to find the values you want to enter for the parameters that do not have default values.</target>
+        </trans-unit>
+        <trans-unit id="0a917919-1381-4d47-88b7-f3ab2effefb4" xml:space="preserve">
+          <source>When you run the <bpt id="b396564a-aa7b-4785-8e01-3a905d06183f">&lt;code&gt;</bpt>azure group deployment create<ept id="b396564a-aa7b-4785-8e01-3a905d06183f">&lt;/code&gt;</ept> command, the Azure CLI will prompt you to enter those values.</source>
+          <target state="new">When you run the <bpt id="b396564a-aa7b-4785-8e01-3a905d06183f">&lt;code&gt;</bpt>azure group deployment create<ept id="b396564a-aa7b-4785-8e01-3a905d06183f">&lt;/code&gt;</ept> command, the Azure CLI will prompt you to enter those values.</target>
+        </trans-unit>
+        <trans-unit id="4a7517bd-5882-4f1f-9da6-42b59ab308dd" xml:space="preserve">
+          <source>Obviously, you'll need a .vhd for this.</source>
+          <target state="new">Obviously, you'll need a .vhd for this.</target>
+        </trans-unit>
+        <trans-unit id="e8882ed3-ad00-4bad-95bb-01d02770982a" xml:space="preserve">
+          <source>You can either use one you already have in Azure, or you can upload one.</source>
+          <target state="new">You can either use one you already have in Azure, or you can upload one.</target>
+        </trans-unit>
+        <trans-unit id="b8fc8f55-7daf-48b4-b295-0935ebc39c54" xml:space="preserve">
+          <source>For a Windows-based virtual machine, see <bpt id="2cc7dcb8-773a-48cc-8f41-3f781dd6172c">&lt;linkText&gt;</bpt>Create and upload a Windows Server VHD to Azure<ept id="2cc7dcb8-773a-48cc-8f41-3f781dd6172c">&lt;/linkText&gt;</ept><bpt id="2cc7dcb8-773a-48cc-8f41-3f781dd6172c">&lt;title&gt;</bpt><ept id="2cc7dcb8-773a-48cc-8f41-3f781dd6172c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a Windows-based virtual machine, see <bpt id="2cc7dcb8-773a-48cc-8f41-3f781dd6172c">&lt;linkText&gt;</bpt>Create and upload a Windows Server VHD to Azure<ept id="2cc7dcb8-773a-48cc-8f41-3f781dd6172c">&lt;/linkText&gt;</ept><bpt id="2cc7dcb8-773a-48cc-8f41-3f781dd6172c">&lt;title&gt;</bpt><ept id="2cc7dcb8-773a-48cc-8f41-3f781dd6172c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2a77972-6041-45b4-b9fc-12369c1b63d6" xml:space="preserve">
+          <source>For a Linux-based virtual machine, see <bpt id="189d31b5-77db-4a13-939a-1e845ed525af">&lt;linkText&gt;</bpt>Create and upload a Linux VHD in Azure<ept id="189d31b5-77db-4a13-939a-1e845ed525af">&lt;/linkText&gt;</ept><bpt id="189d31b5-77db-4a13-939a-1e845ed525af">&lt;title&gt;</bpt><ept id="189d31b5-77db-4a13-939a-1e845ed525af">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a Linux-based virtual machine, see <bpt id="189d31b5-77db-4a13-939a-1e845ed525af">&lt;linkText&gt;</bpt>Create and upload a Linux VHD in Azure<ept id="189d31b5-77db-4a13-939a-1e845ed525af">&lt;/linkText&gt;</ept><bpt id="189d31b5-77db-4a13-939a-1e845ed525af">&lt;title&gt;</bpt><ept id="189d31b5-77db-4a13-939a-1e845ed525af">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="885c8c6a-4a3a-4357-9db4-5d8ac4c8584d" xml:space="preserve">
+          <source>Now you're ready to create a new virtual machine based on the .vhd. Create a group to deploy into, using <bpt id="d1439d59-8b06-499a-87a4-08e05b71fc8e">&lt;code&gt;</bpt>azure group create &lt;location&gt;<ept id="d1439d59-8b06-499a-87a4-08e05b71fc8e">&lt;/code&gt;</ept>:</source>
+          <target state="new">Now you're ready to create a new virtual machine based on the .vhd. Create a group to deploy into, using <bpt id="d1439d59-8b06-499a-87a4-08e05b71fc8e">&lt;code&gt;</bpt>azure group create &lt;location&gt;<ept id="d1439d59-8b06-499a-87a4-08e05b71fc8e">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="e2f0201f-9c82-44de-ae2f-ab024652a5fc" xml:space="preserve">
+          <source>Then create the deployment, using the <bpt id="089d689a-fe95-43e5-b458-da52fc284af3">&lt;code&gt;</bpt>--template-uri<ept id="089d689a-fe95-43e5-b458-da52fc284af3">&lt;/code&gt;</ept> option to call in the template directly (or you can use the <bpt id="7abfae05-ef0c-4894-b4af-02d10e995a77">&lt;code&gt;</bpt>--template-file<ept id="7abfae05-ef0c-4894-b4af-02d10e995a77">&lt;/code&gt;</ept> option to use a file that you have saved locally).</source>
+          <target state="new">Then create the deployment, using the <bpt id="089d689a-fe95-43e5-b458-da52fc284af3">&lt;code&gt;</bpt>--template-uri<ept id="089d689a-fe95-43e5-b458-da52fc284af3">&lt;/code&gt;</ept> option to call in the template directly (or you can use the <bpt id="7abfae05-ef0c-4894-b4af-02d10e995a77">&lt;code&gt;</bpt>--template-file<ept id="7abfae05-ef0c-4894-b4af-02d10e995a77">&lt;/code&gt;</ept> option to use a file that you have saved locally).</target>
+        </trans-unit>
+        <trans-unit id="9495872d-c192-4b3a-84c5-0727b394942e" xml:space="preserve">
+          <source>Note that because the template has defaults specified, you are only prompted for a few things.</source>
+          <target state="new">Note that because the template has defaults specified, you are only prompted for a few things.</target>
+        </trans-unit>
+        <trans-unit id="052b36f0-d83b-421e-9c5c-6cb28cfc1af2" xml:space="preserve">
+          <source>If you deploy the template in different places, you may find some naming collisions occur with the default values (particularly the DNS name you create).</source>
+          <target state="new">If you deploy the template in different places, you may find some naming collisions occur with the default values (particularly the DNS name you create).</target>
+        </trans-unit>
+        <trans-unit id="97940b39-d531-4477-b0b4-2611978c0165" xml:space="preserve">
+          <source>--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json \
+myResourceGroup \
+customVhdDeployment
+    info:    Executing command group deployment create
+    info:    Supply values for the following parameters
+    adminUserName: ops
+    adminPassword: password
+    osType: linux
+    subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</source>
+          <target state="new">--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json \
+myResourceGroup \
+customVhdDeployment
+    info:    Executing command group deployment create
+    info:    Supply values for the following parameters
+    adminUserName: ops
+    adminPassword: password
+    osType: linux
+    subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</target>
+        </trans-unit>
+        <trans-unit id="e9826f2e-4d3e-4d6a-9827-2284b1c527b4" xml:space="preserve">
+          <source>Output looks something like the following:</source>
+          <target state="new">Output looks something like the following:</target>
+        </trans-unit>
+        <trans-unit id="1adecf6b-e322-4e97-b3c1-0709e7f70046" xml:space="preserve">
+          <source>This template allows you to create 2 Virtual Machines under a Load balancer and configure a load balancing rule on Port 80.</source>
+          <target state="new">This template allows you to create 2 Virtual Machines under a Load balancer and configure a load balancing rule on Port 80.</target>
+        </trans-unit>
+        <trans-unit id="bc0cecf3-8e0a-4473-8ab7-49b1e4160c14" xml:space="preserve">
+          <source>This template also deploys a Storage Account, Virtual Network, Public IP address, Availability Set and Network Interfaces.</source>
+          <target state="new">This template also deploys a Storage Account, Virtual Network, Public IP address, Availability Set and Network Interfaces.</target>
+        </trans-unit>
+        <trans-unit id="dcc75981-c6fa-4c7f-833e-2d39b6bb7ac7" xml:space="preserve">
+          <source><bpt id="69806e5a-3658-415b-a59e-3718c250d78a">&lt;linkText&gt;</bpt><ept id="69806e5a-3658-415b-a59e-3718c250d78a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="69806e5a-3658-415b-a59e-3718c250d78a">&lt;linkText&gt;</bpt><ept id="69806e5a-3658-415b-a59e-3718c250d78a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71bf8e8a-9264-474a-9228-5dc1672f0048" xml:space="preserve">
+          <source>Follow these steps to deploy a multi-VM application that uses a virtual network and a load balancer using a Resource Manager template in the Github template repository using Azure PowerShell commands.</source>
+          <target state="new">Follow these steps to deploy a multi-VM application that uses a virtual network and a load balancer using a Resource Manager template in the Github template repository using Azure PowerShell commands.</target>
+        </trans-unit>
+        <trans-unit id="a160ba22-a62b-49cc-8a4e-e0a061941d98" xml:space="preserve">
+          <source>Here are the contents of the JSON file for the template.</source>
+          <target state="new">Here are the contents of the JSON file for the template.</target>
+        </trans-unit>
+        <trans-unit id="f4ab2baf-b68d-415b-8a27-91f72deababc" xml:space="preserve">
+          <source>If you want the most recent version, it's located <bpt id="05cf41d0-e44c-4624-96b4-a29a63652406">&lt;linkText&gt;</bpt>here<ept id="05cf41d0-e44c-4624-96b4-a29a63652406">&lt;/linkText&gt;</ept><bpt id="05cf41d0-e44c-4624-96b4-a29a63652406">&lt;title&gt;</bpt><ept id="05cf41d0-e44c-4624-96b4-a29a63652406">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want the most recent version, it's located <bpt id="05cf41d0-e44c-4624-96b4-a29a63652406">&lt;linkText&gt;</bpt>here<ept id="05cf41d0-e44c-4624-96b4-a29a63652406">&lt;/linkText&gt;</ept><bpt id="05cf41d0-e44c-4624-96b4-a29a63652406">&lt;title&gt;</bpt><ept id="05cf41d0-e44c-4624-96b4-a29a63652406">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b363ec1e-6592-4460-b4b9-21ca3c1487f5" xml:space="preserve">
+          <source>This topic uses the <bpt id="d9488e75-e587-4eeb-8a1a-9ce753766b73">&lt;code&gt;</bpt>--template-uri<ept id="d9488e75-e587-4eeb-8a1a-9ce753766b73">&lt;/code&gt;</ept> switch to call in the template, but you can also use the <bpt id="6d86354b-b16a-4cad-a573-db3513313a06">&lt;code&gt;</bpt>--template-file<ept id="6d86354b-b16a-4cad-a573-db3513313a06">&lt;/code&gt;</ept> switch to pass a local version.</source>
+          <target state="new">This topic uses the <bpt id="d9488e75-e587-4eeb-8a1a-9ce753766b73">&lt;code&gt;</bpt>--template-uri<ept id="d9488e75-e587-4eeb-8a1a-9ce753766b73">&lt;/code&gt;</ept> switch to call in the template, but you can also use the <bpt id="6d86354b-b16a-4cad-a573-db3513313a06">&lt;code&gt;</bpt>--template-file<ept id="6d86354b-b16a-4cad-a573-db3513313a06">&lt;/code&gt;</ept> switch to pass a local version.</target>
+        </trans-unit>
+        <trans-unit id="33f6908f-501a-427b-8418-859607ae3501" xml:space="preserve">
+          <source>Create a resource group for the template using <bpt id="0537367c-454a-4195-b737-b314d6525fa2">&lt;code&gt;</bpt>azure group create &lt;location&gt;<ept id="0537367c-454a-4195-b737-b314d6525fa2">&lt;/code&gt;</ept>, and then create a deployment into that resource group using <bpt id="1ca731b1-6f3c-4c76-8cda-6155b146fea3">&lt;code&gt;</bpt>azure group deployment create<ept id="1ca731b1-6f3c-4c76-8cda-6155b146fea3">&lt;/code&gt;</ept> and passing the resource group, a deployment name, and answering the prompts for parameters in the template that did not have default values.</source>
+          <target state="new">Create a resource group for the template using <bpt id="0537367c-454a-4195-b737-b314d6525fa2">&lt;code&gt;</bpt>azure group create &lt;location&gt;<ept id="0537367c-454a-4195-b737-b314d6525fa2">&lt;/code&gt;</ept>, and then create a deployment into that resource group using <bpt id="1ca731b1-6f3c-4c76-8cda-6155b146fea3">&lt;code&gt;</bpt>azure group deployment create<ept id="1ca731b1-6f3c-4c76-8cda-6155b146fea3">&lt;/code&gt;</ept> and passing the resource group, a deployment name, and answering the prompts for parameters in the template that did not have default values.</target>
+        </trans-unit>
+        <trans-unit id="6a5ed35a-256f-49bd-b43b-9176791cebe8" xml:space="preserve">
+          <source>Now use the <bpt id="a1c1b936-81f0-45b8-b55d-bc8a97ba6e87">&lt;code&gt;</bpt>azure group deployment create<ept id="a1c1b936-81f0-45b8-b55d-bc8a97ba6e87">&lt;/code&gt;</ept> command and the <bpt id="c9c0bd59-ecfa-437c-ade9-5208515ef71a">&lt;code&gt;</bpt>--template-uri<ept id="c9c0bd59-ecfa-437c-ade9-5208515ef71a">&lt;/code&gt;</ept> option to deploy the template.</source>
+          <target state="new">Now use the <bpt id="a1c1b936-81f0-45b8-b55d-bc8a97ba6e87">&lt;code&gt;</bpt>azure group deployment create<ept id="a1c1b936-81f0-45b8-b55d-bc8a97ba6e87">&lt;/code&gt;</ept> command and the <bpt id="c9c0bd59-ecfa-437c-ade9-5208515ef71a">&lt;code&gt;</bpt>--template-uri<ept id="c9c0bd59-ecfa-437c-ade9-5208515ef71a">&lt;/code&gt;</ept> option to deploy the template.</target>
+        </trans-unit>
+        <trans-unit id="440d10a6-7b74-40b1-997c-8708d830ae64" xml:space="preserve">
+          <source>Be ready with your parameter values when it prompts you, as below.</source>
+          <target state="new">Be ready with your parameter values when it prompts you, as below.</target>
+        </trans-unit>
+        <trans-unit id="ff76ed4a-3dee-469d-b12e-8bf4ec43cfc9" xml:space="preserve">
+          <source>--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json \
+lbgroup \
+newdeployment
+    info:    Executing command group deployment create
+    info:    Supply values for the following parameters
+    location: westus
+    newStorageAccountName: storagename
+    adminUsername: ops
+    adminPassword: password
+    dnsNameforLBIP: lbdomainname
+    + Initializing template configurations and parameters                          
+    + Creating a deployment                                                        
+    info:    Created template deployment "newdeployment"
+    + Registering providers                                                        
+    info:    Registering provider microsoft.storage
+    info:    Registering provider microsoft.compute
+    info:    Registering provider microsoft.network
+    + Waiting for deployment to complete                                           
+    data:    DeploymentName     : newdeployment
+    data:    ResourceGroupName  : lbgroup
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : 2015-04-28T20:58:40.1678876Z
+    data:    Mode               : Incremental
+    data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json
+    data:    ContentVersion     : 1.0.0.0
+    data:    Name                   Type          Value                 
+    data:    ---------------------  ------------  ----------------------
+    data:    location               String        westus                
+    data:    newStorageAccountName  String        storagename         
+    data:    adminUsername          String        ops                   
+    data:    adminPassword          SecureString  undefined             
+    data:    dnsNameforLBIP         String        lbdomainname         
+    data:    backendPort            Int           3389                  
+    data:    vmNamePrefix           String        myVM                  
+    data:    imagePublisher         String        MicrosoftWindowsServer
+    data:    imageOffer             String        WindowsServer         
+    data:    imageSKU               String        2012-R2-Datacenter    
+    data:    lbName                 String        myLB                  
+    data:    nicNamePrefix          String        nic                   
+    data:    publicIPAddressName    String        myPublicIP            
+    data:    vnetName               String        myVNET                
+    data:    vmSize                 String        Standard_A1           
+    info:    group deployment create command OK</source>
+          <target state="new">--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json \
+lbgroup \
+newdeployment
+    info:    Executing command group deployment create
+    info:    Supply values for the following parameters
+    location: westus
+    newStorageAccountName: storagename
+    adminUsername: ops
+    adminPassword: password
+    dnsNameforLBIP: lbdomainname
+    + Initializing template configurations and parameters                          
+    + Creating a deployment                                                        
+    info:    Created template deployment "newdeployment"
+    + Registering providers                                                        
+    info:    Registering provider microsoft.storage
+    info:    Registering provider microsoft.compute
+    info:    Registering provider microsoft.network
+    + Waiting for deployment to complete                                           
+    data:    DeploymentName     : newdeployment
+    data:    ResourceGroupName  : lbgroup
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : 2015-04-28T20:58:40.1678876Z
+    data:    Mode               : Incremental
+    data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json
+    data:    ContentVersion     : 1.0.0.0
+    data:    Name                   Type          Value                 
+    data:    ---------------------  ------------  ----------------------
+    data:    location               String        westus                
+    data:    newStorageAccountName  String        storagename         
+    data:    adminUsername          String        ops                   
+    data:    adminPassword          SecureString  undefined             
+    data:    dnsNameforLBIP         String        lbdomainname         
+    data:    backendPort            Int           3389                  
+    data:    vmNamePrefix           String        myVM                  
+    data:    imagePublisher         String        MicrosoftWindowsServer
+    data:    imageOffer             String        WindowsServer         
+    data:    imageSKU               String        2012-R2-Datacenter    
+    data:    lbName                 String        myLB                  
+    data:    nicNamePrefix          String        nic                   
+    data:    publicIPAddressName    String        myPublicIP            
+    data:    vnetName               String        myVNET                
+    data:    vmSize                 String        Standard_A1           
+    info:    group deployment create command OK</target>
+        </trans-unit>
+        <trans-unit id="27f1ccfe-734a-472d-a204-a7c7ad8f053a" xml:space="preserve">
+          <source>Note that this template deploys a Windows Server image; however, it could easily be replaced by any Linux image, too.</source>
+          <target state="new">Note that this template deploys a Windows Server image; however, it could easily be replaced by any Linux image, too.</target>
+        </trans-unit>
+        <trans-unit id="4b5a353b-6a59-47c2-85cc-79888223d140" xml:space="preserve">
+          <source>Want to create a Docker Cluster across multiple regions?</source>
+          <target state="new">Want to create a Docker Cluster across multiple regions?</target>
+        </trans-unit>
+        <trans-unit id="eccd5edb-4bb0-447d-8692-58c25e059e96" xml:space="preserve">
+          <source><bpt id="c7e353a5-a279-4ff0-9f99-7b5709cb1527">&lt;linkText&gt;</bpt>You can do it<ept id="c7e353a5-a279-4ff0-9f99-7b5709cb1527">&lt;/linkText&gt;</ept><bpt id="c7e353a5-a279-4ff0-9f99-7b5709cb1527">&lt;title&gt;</bpt><ept id="c7e353a5-a279-4ff0-9f99-7b5709cb1527">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="c7e353a5-a279-4ff0-9f99-7b5709cb1527">&lt;linkText&gt;</bpt>You can do it<ept id="c7e353a5-a279-4ff0-9f99-7b5709cb1527">&lt;/linkText&gt;</ept><bpt id="c7e353a5-a279-4ff0-9f99-7b5709cb1527">&lt;title&gt;</bpt><ept id="c7e353a5-a279-4ff0-9f99-7b5709cb1527">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ed31898-20e4-4847-983f-b5d4227de4e6" xml:space="preserve">
+          <source>Remember that you can redeploy to a resource group, but if you done with one, you delete it using <bpt id="c5a69fd5-aafd-4efd-a6c7-bdd3d01fa855">&lt;code&gt;</bpt>azure group delete &lt;group name&gt;<ept id="c5a69fd5-aafd-4efd-a6c7-bdd3d01fa855">&lt;/code&gt;</ept>. </source>
+          <target state="new">Remember that you can redeploy to a resource group, but if you done with one, you delete it using <bpt id="c5a69fd5-aafd-4efd-a6c7-bdd3d01fa855">&lt;code&gt;</bpt>azure group delete &lt;group name&gt;<ept id="c5a69fd5-aafd-4efd-a6c7-bdd3d01fa855">&lt;/code&gt;</ept>. </target>
+        </trans-unit>
+        <trans-unit id="93480ed6-28d1-4ea4-9354-7ccb0fc36ab0" xml:space="preserve">
+          <source>This one is quite common while creating or using templates. The call to display the deployment logs for a group is <bpt id="f3a4a8f5-9ba2-4480-98df-edb9da803062">&lt;code&gt;</bpt>azure group log show &lt;groupname&gt;<ept id="f3a4a8f5-9ba2-4480-98df-edb9da803062">&lt;/code&gt;</ept>, which displays quite a bit of information useful to understand why something happened -- or didn't. (For more information on troubleshooting your deployments, as well as other information about issues, see <bpt id="6988852d-c7d1-4c5a-9095-31b059f92ccf">&lt;linkText&gt;</bpt>Troubleshooting Resource Group Deployments in Azure<ept id="6988852d-c7d1-4c5a-9095-31b059f92ccf">&lt;/linkText&gt;</ept><bpt id="6988852d-c7d1-4c5a-9095-31b059f92ccf">&lt;title&gt;</bpt><ept id="6988852d-c7d1-4c5a-9095-31b059f92ccf">&lt;/title&gt;</ept>.)</source>
+          <target state="new">This one is quite common while creating or using templates. The call to display the deployment logs for a group is <bpt id="f3a4a8f5-9ba2-4480-98df-edb9da803062">&lt;code&gt;</bpt>azure group log show &lt;groupname&gt;<ept id="f3a4a8f5-9ba2-4480-98df-edb9da803062">&lt;/code&gt;</ept>, which displays quite a bit of information useful to understand why something happened -- or didn't. (For more information on troubleshooting your deployments, as well as other information about issues, see <bpt id="6988852d-c7d1-4c5a-9095-31b059f92ccf">&lt;linkText&gt;</bpt>Troubleshooting Resource Group Deployments in Azure<ept id="6988852d-c7d1-4c5a-9095-31b059f92ccf">&lt;/linkText&gt;</ept><bpt id="6988852d-c7d1-4c5a-9095-31b059f92ccf">&lt;title&gt;</bpt><ept id="6988852d-c7d1-4c5a-9095-31b059f92ccf">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="12612441-9870-4a77-8006-8cd47b254ea5" xml:space="preserve">
+          <source>To target specific failures, for example, you might use tools like <bpt id="4e8ee1e2-da29-41e5-bdef-cc802c1021cb">&lt;strong&gt;</bpt>jq<ept id="4e8ee1e2-da29-41e5-bdef-cc802c1021cb">&lt;/strong&gt;</ept> to query things a bit more precisely, such as which individual failures you need to correct.</source>
+          <target state="new">To target specific failures, for example, you might use tools like <bpt id="4e8ee1e2-da29-41e5-bdef-cc802c1021cb">&lt;strong&gt;</bpt>jq<ept id="4e8ee1e2-da29-41e5-bdef-cc802c1021cb">&lt;/strong&gt;</ept> to query things a bit more precisely, such as which individual failures you need to correct.</target>
+        </trans-unit>
+        <trans-unit id="88af1b79-124f-4335-a204-e7de0a703061" xml:space="preserve">
+          <source>The following example uses <bpt id="fdafa06f-d12d-4212-9817-492d23265d29">&lt;strong&gt;</bpt>jq<ept id="fdafa06f-d12d-4212-9817-492d23265d29">&lt;/strong&gt;</ept> to parse a deployment log for the <bpt id="be62bed5-9d5d-45b9-8e31-dba790bb07bf">&lt;strong&gt;</bpt>lbgroup<ept id="be62bed5-9d5d-45b9-8e31-dba790bb07bf">&lt;/strong&gt;</ept>, looking for failures</source>
+          <target state="new">The following example uses <bpt id="fdafa06f-d12d-4212-9817-492d23265d29">&lt;strong&gt;</bpt>jq<ept id="fdafa06f-d12d-4212-9817-492d23265d29">&lt;/strong&gt;</ept> to parse a deployment log for the <bpt id="be62bed5-9d5d-45b9-8e31-dba790bb07bf">&lt;strong&gt;</bpt>lbgroup<ept id="be62bed5-9d5d-45b9-8e31-dba790bb07bf">&lt;/strong&gt;</ept>, looking for failures</target>
+        </trans-unit>
+        <trans-unit id="17e4ddfd-dc15-44de-8896-dc505f1aef9d" xml:space="preserve">
+          <source>You can discover very quickly what went wrong, fix, and retry.</source>
+          <target state="new">You can discover very quickly what went wrong, fix, and retry.</target>
+        </trans-unit>
+        <trans-unit id="db583b5a-acc8-49b1-a808-7fc2a2f0a62d" xml:space="preserve">
+          <source>In the following case, the template had been creating two VMs at the same time, which created a lock on the .vhd.</source>
+          <target state="new">In the following case, the template had been creating two VMs at the same time, which created a lock on the .vhd.</target>
+        </trans-unit>
+        <trans-unit id="1f41e470-cdbe-4bb1-a46e-e089afaab6b1" xml:space="preserve">
+          <source>(After modifying the template, the deployment succeeded quickly.)</source>
+          <target state="new">(After modifying the template, the deployment succeeded quickly.)</target>
+        </trans-unit>
+        <trans-unit id="a356fa01-d526-4a29-8198-d0838f6e08f0" xml:space="preserve">
+          <source>You can see information about specific VMs in your resource group using the <bpt id="2a196271-711a-42eb-8512-a47d5c7ddb73">&lt;code&gt;</bpt>azure vm show &lt;groupname&gt; &lt;vmname&gt; command<ept id="2a196271-711a-42eb-8512-a47d5c7ddb73">&lt;/code&gt;</ept>. You might need to list the VMs in a group, first, if you have more than one, using <bpt id="2bf0c48b-dabb-49af-b42f-1cc1f3fbfe15">&lt;code&gt;</bpt>azure vm list &lt;groupname&gt;<ept id="2bf0c48b-dabb-49af-b42f-1cc1f3fbfe15">&lt;/code&gt;</ept>.</source>
+          <target state="new">You can see information about specific VMs in your resource group using the <bpt id="2a196271-711a-42eb-8512-a47d5c7ddb73">&lt;code&gt;</bpt>azure vm show &lt;groupname&gt; &lt;vmname&gt; command<ept id="2a196271-711a-42eb-8512-a47d5c7ddb73">&lt;/code&gt;</ept>. You might need to list the VMs in a group, first, if you have more than one, using <bpt id="2bf0c48b-dabb-49af-b42f-1cc1f3fbfe15">&lt;code&gt;</bpt>azure vm list &lt;groupname&gt;<ept id="2bf0c48b-dabb-49af-b42f-1cc1f3fbfe15">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="227630f9-d9fc-4fde-8bc6-b9fd2ceda39f" xml:space="preserve">
+          <source>and then, looking up myVM1:</source>
+          <target state="new">and then, looking up myVM1:</target>
+        </trans-unit>
+        <trans-unit id="4328ddc2-afff-49ca-bc2e-ebfc85a37e01" xml:space="preserve">
+          <source>If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as <bpt id="f0c47ebf-24da-4381-9d27-2e6c3774a534">&lt;strong&gt;</bpt>[jq](https://github.com/stedolan/jq)<ept id="f0c47ebf-24da-4381-9d27-2e6c3774a534">&lt;/strong&gt;</ept>, <bpt id="94a8cf7d-af6b-4271-8e77-1e602ebff6d3">&lt;strong&gt;</bpt>[jsawk](https://github.com/micha/jsawk)<ept id="94a8cf7d-af6b-4271-8e77-1e602ebff6d3">&lt;/strong&gt;</ept>, or language libraries good for the task.</source>
+          <target state="new">If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as <bpt id="f0c47ebf-24da-4381-9d27-2e6c3774a534">&lt;strong&gt;</bpt>[jq](https://github.com/stedolan/jq)<ept id="f0c47ebf-24da-4381-9d27-2e6c3774a534">&lt;/strong&gt;</ept>, <bpt id="94a8cf7d-af6b-4271-8e77-1e602ebff6d3">&lt;strong&gt;</bpt>[jsawk](https://github.com/micha/jsawk)<ept id="94a8cf7d-af6b-4271-8e77-1e602ebff6d3">&lt;/strong&gt;</ept>, or language libraries good for the task.</target>
+        </trans-unit>
+        <trans-unit id="55673d0a-a1c1-4f34-989f-9d153e303d38" xml:space="preserve">
+          <source>Typically Linux machines are connected to through SSH.</source>
+          <target state="new">Typically Linux machines are connected to through SSH.</target>
+        </trans-unit>
+        <trans-unit id="c8f82f83-d304-4689-a852-199b1e7d8cea" xml:space="preserve">
+          <source>For more information, see <bpt id="f6054521-f2a1-4599-8dba-d0cf8bebff01">&lt;linkText&gt;</bpt>How to Use SSH with Linux on Azure<ept id="f6054521-f2a1-4599-8dba-d0cf8bebff01">&lt;/linkText&gt;</ept><bpt id="f6054521-f2a1-4599-8dba-d0cf8bebff01">&lt;title&gt;</bpt><ept id="f6054521-f2a1-4599-8dba-d0cf8bebff01">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="f6054521-f2a1-4599-8dba-d0cf8bebff01">&lt;linkText&gt;</bpt>How to Use SSH with Linux on Azure<ept id="f6054521-f2a1-4599-8dba-d0cf8bebff01">&lt;/linkText&gt;</ept><bpt id="f6054521-f2a1-4599-8dba-d0cf8bebff01">&lt;title&gt;</bpt><ept id="f6054521-f2a1-4599-8dba-d0cf8bebff01">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e2cf840-b11b-4e70-8b75-a54c5d085454" xml:space="preserve">
+          <source>Run this command:</source>
+          <target state="new">Run this command:</target>
+        </trans-unit>
+        <trans-unit id="4ee460f0-0cd3-4b07-a48a-155fa23800ff" xml:space="preserve">
+          <source>Use this parameter to keep the virtual IP (VIP) of the vnet in case it's the last VM in that vnet. &lt;br&gt;&lt;br&gt; If you use the <bpt id="2259d19a-e5ef-4eed-a46f-9c913eb23215">&lt;code&gt;</bpt>StayProvisioned<ept id="2259d19a-e5ef-4eed-a46f-9c913eb23215">&lt;/code&gt;</ept> parameter, you'll still be billed for the VM.</source>
+          <target state="new">Use this parameter to keep the virtual IP (VIP) of the vnet in case it's the last VM in that vnet. &lt;br&gt;&lt;br&gt; If you use the <bpt id="2259d19a-e5ef-4eed-a46f-9c913eb23215">&lt;code&gt;</bpt>StayProvisioned<ept id="2259d19a-e5ef-4eed-a46f-9c913eb23215">&lt;/code&gt;</ept> parameter, you'll still be billed for the VM.</target>
+        </trans-unit>
+        <trans-unit id="066711b1-ed0c-4fad-87e1-25aa2b483b75" xml:space="preserve">
+          <source>Run this command:</source>
+          <target state="new">Run this command:</target>
+        </trans-unit>
+        <trans-unit id="7ac9d425-a9fd-43ca-bead-a68f41405dcd" xml:space="preserve">
+          <source>You'll also need to decide whether to attach a new disk or one that contains data.</source>
+          <target state="new">You'll also need to decide whether to attach a new disk or one that contains data.</target>
+        </trans-unit>
+        <trans-unit id="dbeb0e76-560f-4300-9c25-1d13dbaba461" xml:space="preserve">
+          <source>For a new disk, the command creates the .vhd file and attaches it in the same command.</source>
+          <target state="new">For a new disk, the command creates the .vhd file and attaches it in the same command.</target>
+        </trans-unit>
+        <trans-unit id="aa8e102c-4e3b-4d01-98a4-6d5fb53c686a" xml:space="preserve">
+          <source>To attach a new disk, run this command:</source>
+          <target state="new">To attach a new disk, run this command:</target>
+        </trans-unit>
+        <trans-unit id="b7fc6f7b-952d-476d-a10c-787f79fb3fe1" xml:space="preserve">
+          <source>To attach an existing data disk, run this command:</source>
+          <target state="new">To attach an existing data disk, run this command:</target>
+        </trans-unit>
+        <trans-unit id="c6f3c23b-6736-4a5e-9184-f9216d0f022d" xml:space="preserve">
+          <source>Then you'll need to mount the disk, as you normally would in Linux (or in Windows).</source>
+          <target state="new">Then you'll need to mount the disk, as you normally would in Linux (or in Windows).</target>
+        </trans-unit>
+        <trans-unit id="7c45cbdb-7c1e-4fd9-8bdb-2b2d51c7f029" xml:space="preserve">
+          <source>For far more examples of Azure CLI usage with the <bpt id="2105fa32-be98-4b7b-9f79-64f8ae96594d">&lt;strong&gt;</bpt>arm<ept id="2105fa32-be98-4b7b-9f79-64f8ae96594d">&lt;/strong&gt;</ept> mode, see <bpt id="2dddbb19-11fd-4300-ac77-b97f303c137f">&lt;linkText&gt;</bpt>Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management<ept id="2dddbb19-11fd-4300-ac77-b97f303c137f">&lt;/linkText&gt;</ept><bpt id="2dddbb19-11fd-4300-ac77-b97f303c137f">&lt;title&gt;</bpt><ept id="2dddbb19-11fd-4300-ac77-b97f303c137f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For far more examples of Azure CLI usage with the <bpt id="2105fa32-be98-4b7b-9f79-64f8ae96594d">&lt;strong&gt;</bpt>arm<ept id="2105fa32-be98-4b7b-9f79-64f8ae96594d">&lt;/strong&gt;</ept> mode, see <bpt id="2dddbb19-11fd-4300-ac77-b97f303c137f">&lt;linkText&gt;</bpt>Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management<ept id="2dddbb19-11fd-4300-ac77-b97f303c137f">&lt;/linkText&gt;</ept><bpt id="2dddbb19-11fd-4300-ac77-b97f303c137f">&lt;title&gt;</bpt><ept id="2dddbb19-11fd-4300-ac77-b97f303c137f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ec844da-339c-4b8e-9619-ae2895829c0f" xml:space="preserve">
+          <source>To learn more about Azure resources and their concepts, see <bpt id="c89e6b85-2c75-462b-9e06-711eb9ea64f0">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="c89e6b85-2c75-462b-9e06-711eb9ea64f0">&lt;/linkText&gt;</ept><bpt id="c89e6b85-2c75-462b-9e06-711eb9ea64f0">&lt;title&gt;</bpt><ept id="c89e6b85-2c75-462b-9e06-711eb9ea64f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Azure resources and their concepts, see <bpt id="c89e6b85-2c75-462b-9e06-711eb9ea64f0">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="c89e6b85-2c75-462b-9e06-711eb9ea64f0">&lt;/linkText&gt;</ept><bpt id="c89e6b85-2c75-462b-9e06-711eb9ea64f0">&lt;title&gt;</bpt><ept id="c89e6b85-2c75-462b-9e06-711eb9ea64f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a842bfc-0e92-4cc7-9860-28010c4abd1f" xml:space="preserve">
+          <source>For more templates you can use, see <bpt id="d9cbd814-aadd-4605-8dc9-f0fbdd01d049">&lt;linkText&gt;</bpt>Azure Quickstart Templates<ept id="d9cbd814-aadd-4605-8dc9-f0fbdd01d049">&lt;/linkText&gt;</ept><bpt id="d9cbd814-aadd-4605-8dc9-f0fbdd01d049">&lt;title&gt;</bpt><ept id="d9cbd814-aadd-4605-8dc9-f0fbdd01d049">&lt;/title&gt;</ept> and <bpt id="b57dcaed-2470-41ea-9eb4-a45f89e3cc72">&lt;linkText&gt;</bpt>App Frameworks<ept id="b57dcaed-2470-41ea-9eb4-a45f89e3cc72">&lt;/linkText&gt;</ept><bpt id="b57dcaed-2470-41ea-9eb4-a45f89e3cc72">&lt;title&gt;</bpt><ept id="b57dcaed-2470-41ea-9eb4-a45f89e3cc72">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more templates you can use, see <bpt id="d9cbd814-aadd-4605-8dc9-f0fbdd01d049">&lt;linkText&gt;</bpt>Azure Quickstart Templates<ept id="d9cbd814-aadd-4605-8dc9-f0fbdd01d049">&lt;/linkText&gt;</ept><bpt id="d9cbd814-aadd-4605-8dc9-f0fbdd01d049">&lt;title&gt;</bpt><ept id="d9cbd814-aadd-4605-8dc9-f0fbdd01d049">&lt;/title&gt;</ept> and <bpt id="b57dcaed-2470-41ea-9eb4-a45f89e3cc72">&lt;linkText&gt;</bpt>App Frameworks<ept id="b57dcaed-2470-41ea-9eb4-a45f89e3cc72">&lt;/linkText&gt;</ept><bpt id="b57dcaed-2470-41ea-9eb4-a45f89e3cc72">&lt;title&gt;</bpt><ept id="b57dcaed-2470-41ea-9eb4-a45f89e3cc72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

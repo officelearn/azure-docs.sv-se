@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d9f6664e-a0b6-4d68-bc81-ddb3fd5548ce" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d9f6664e-a0b6-4d68-bc81-ddb3fd5548ce" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8d57e679-a63e-4e01-9ca1-eedcb39d3093">
+        <trans-unit id="18665360-741a-4658-99d5-dc7e602a3d3a" xml:space="preserve">
+          <source>&lt;properties writer="kathydav" editor="tysonn" manager="timlt" /&gt;</source>
+          <target state="new">&lt;properties writer="kathydav" editor="tysonn" manager="timlt" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="ae5d7788-2d68-49f8-af43-dde1915b7628" xml:space="preserve">
+          <source>When you no longer need a data disk that is attached to a virtual machine, you can easily detach it.</source>
+          <target state="new">When you no longer need a data disk that is attached to a virtual machine, you can easily detach it.</target>
+        </trans-unit>
+        <trans-unit id="e36cd58e-b9f5-40c9-94ec-fd4b763328df" xml:space="preserve">
+          <source>This removes the disk from the virtual machine, but doesn't remove it from storage.</source>
+          <target state="new">This removes the disk from the virtual machine, but doesn't remove it from storage.</target>
+        </trans-unit>
+        <trans-unit id="a412965b-54b8-43d0-867f-78ccbc4e62bf" xml:space="preserve">
+          <source>If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.</source>
+          <target state="new">If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.</target>
+        </trans-unit>
+        <trans-unit id="73467e2f-e273-4112-9d47-57c6acf3aba8" xml:space="preserve">
+          <source>A virtual machine in Azure uses different types of disks: an operating system disk, a local temporary disk, and optional data disks.</source>
+          <target state="new">A virtual machine in Azure uses different types of disks: an operating system disk, a local temporary disk, and optional data disks.</target>
+        </trans-unit>
+        <trans-unit id="7777659e-56fd-4070-b387-c98283a18a1a" xml:space="preserve">
+          <source>Data disks are the recommended way to store data for a virtual machine.</source>
+          <target state="new">Data disks are the recommended way to store data for a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="0ddbdf5f-bf4b-4a15-b218-0c4261736542" xml:space="preserve">
+          <source>For details about disks, see <bpt id="988ca821-4bc0-4eeb-9fd8-091e8bf5891f">&lt;linkText&gt;</bpt>About disks and images<ept id="988ca821-4bc0-4eeb-9fd8-091e8bf5891f">&lt;/linkText&gt;</ept><bpt id="988ca821-4bc0-4eeb-9fd8-091e8bf5891f">&lt;title&gt;</bpt><ept id="988ca821-4bc0-4eeb-9fd8-091e8bf5891f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about disks, see <bpt id="988ca821-4bc0-4eeb-9fd8-091e8bf5891f">&lt;linkText&gt;</bpt>About disks and images<ept id="988ca821-4bc0-4eeb-9fd8-091e8bf5891f">&lt;/linkText&gt;</ept><bpt id="988ca821-4bc0-4eeb-9fd8-091e8bf5891f">&lt;title&gt;</bpt><ept id="988ca821-4bc0-4eeb-9fd8-091e8bf5891f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc2e8bd7-1576-44a5-b037-8dd176e4e91c" xml:space="preserve">
+          <source>It is not currently possible to detach an operating system disk.</source>
+          <target state="new">It is not currently possible to detach an operating system disk.</target>
+        </trans-unit>
+        <trans-unit id="90ac6da3-c106-4434-a84b-442e59323ceb" xml:space="preserve">
+          <source>Get the list of disks attached to your VM:</source>
+          <target state="new">Get the list of disks attached to your VM:</target>
+        </trans-unit>
+        <trans-unit id="b9afa93d-3863-4d55-b760-a014fef3409f" xml:space="preserve">
+          <source>If you omit <bpt id="83de952a-63c8-4b66-9d64-eeaa3971f27f">&lt;code&gt;</bpt>&lt;vm-name&gt;<ept id="83de952a-63c8-4b66-9d64-eeaa3971f27f">&lt;/code&gt;</ept>, you will get a list of all disks in your subscription.</source>
+          <target state="new">If you omit <bpt id="83de952a-63c8-4b66-9d64-eeaa3971f27f">&lt;code&gt;</bpt>&lt;vm-name&gt;<ept id="83de952a-63c8-4b66-9d64-eeaa3971f27f">&lt;/code&gt;</ept>, you will get a list of all disks in your subscription.</target>
+        </trans-unit>
+        <trans-unit id="bc96ef99-e32c-43de-82ef-33e0c286d07a" xml:space="preserve">
+          <source>Detach a disk:</source>
+          <target state="new">Detach a disk:</target>
+        </trans-unit>
+        <trans-unit id="e37d4e75-4837-4343-8d2b-50a1c0d139ac" xml:space="preserve">
+          <source><bpt id="f1e128bf-19f0-4c86-98f8-12e2393aaf81">&lt;code&gt;</bpt>lun<ept id="f1e128bf-19f0-4c86-98f8-12e2393aaf81">&lt;/code&gt;</ept> identifies the disk to be detached, and will be a number which can be found in your VM's disk list.</source>
+          <target state="new"><bpt id="f1e128bf-19f0-4c86-98f8-12e2393aaf81">&lt;code&gt;</bpt>lun<ept id="f1e128bf-19f0-4c86-98f8-12e2393aaf81">&lt;/code&gt;</ept> identifies the disk to be detached, and will be a number which can be found in your VM's disk list.</target>
+        </trans-unit>
+        <trans-unit id="1492faf2-dd81-4da3-bec4-41ee52d0d3a1" xml:space="preserve">
+          <source>Sample walkthrough including terminal output:</source>
+          <target state="new">Sample walkthrough including terminal output:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

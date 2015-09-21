@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b5743828-8794-49c3-b931-1724d24da423" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b5743828-8794-49c3-b931-1724d24da423" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="55c33419-876d-49d8-8341-f2e151b67939">
+        <trans-unit id="d803e72c-49f6-4e6a-97cd-6d015d664c0b" xml:space="preserve">
+          <source>Create and upload an Ubuntu Linux VHD in Azure</source>
+          <target state="new">Create and upload an Ubuntu Linux VHD in Azure</target>
+        </trans-unit>
+        <trans-unit id="960595f8-44d7-4de8-9b95-ee8df913f92d" xml:space="preserve">
+          <source>Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.</source>
+          <target state="new">Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.</target>
+        </trans-unit>
+        <trans-unit id="286faeb5-b0d8-4d7b-b82d-f8a1fdd85b2b" xml:space="preserve">
+          <source>This article assumes that you have already installed an Ubuntu Linux operating system to a virtual hard disk.</source>
+          <target state="new">This article assumes that you have already installed an Ubuntu Linux operating system to a virtual hard disk.</target>
+        </trans-unit>
+        <trans-unit id="18c9a7cc-8586-4fe5-a216-9cbd6f4b2851" xml:space="preserve">
+          <source>Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V.</source>
+          <target state="new">Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V.</target>
+        </trans-unit>
+        <trans-unit id="d33d903f-035d-4a58-b7bc-cd4e2b673ff3" xml:space="preserve">
+          <source>For instructions, see <bpt id="d9f39cd7-b46d-4528-a1c6-da518db48a0d">&lt;linkText&gt;</bpt>Install the Hyper-V Role and Configure a Virtual Machine<ept id="d9f39cd7-b46d-4528-a1c6-da518db48a0d">&lt;/linkText&gt;</ept><bpt id="d9f39cd7-b46d-4528-a1c6-da518db48a0d">&lt;title&gt;</bpt><ept id="d9f39cd7-b46d-4528-a1c6-da518db48a0d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="d9f39cd7-b46d-4528-a1c6-da518db48a0d">&lt;linkText&gt;</bpt>Install the Hyper-V Role and Configure a Virtual Machine<ept id="d9f39cd7-b46d-4528-a1c6-da518db48a0d">&lt;/linkText&gt;</ept><bpt id="d9f39cd7-b46d-4528-a1c6-da518db48a0d">&lt;title&gt;</bpt><ept id="d9f39cd7-b46d-4528-a1c6-da518db48a0d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c2948b5-ce29-49f5-91d0-2ef6f6e6ad9b" xml:space="preserve">
+          <source><bpt id="11f29998-39db-4237-bf01-e3cf829d9112">&lt;strong&gt;</bpt>Ubuntu Installation Notes<ept id="11f29998-39db-4237-bf01-e3cf829d9112">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="11f29998-39db-4237-bf01-e3cf829d9112">&lt;strong&gt;</bpt>Ubuntu Installation Notes<ept id="11f29998-39db-4237-bf01-e3cf829d9112">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c884e030-2a17-4e31-bed3-26dde578bd4e" xml:space="preserve">
+          <source>The newer VHDX format is not supported in Azure.</source>
+          <target state="new">The newer VHDX format is not supported in Azure.</target>
+        </trans-unit>
+        <trans-unit id="9775181f-c643-404f-9bf8-d7c9d278b0fe" xml:space="preserve">
+          <source>You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.</source>
+          <target state="new">You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="6269d81b-7a46-48ce-bae4-0455fcee345a" xml:space="preserve">
+          <source>When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations).</source>
+          <target state="new">When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations).</target>
+        </trans-unit>
+        <trans-unit id="2d417a4c-c65a-4ee5-96e4-3ec8a56c42a3" xml:space="preserve">
+          <source>This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.</source>
+          <target state="new">This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.</target>
+        </trans-unit>
+        <trans-unit id="b37d5a81-33de-4ea6-83b1-607ac662985b" xml:space="preserve">
+          <source>LVM or <bpt id="b2481f7b-c3e2-4090-a7eb-8589fc0fb819">&lt;linkText&gt;</bpt>RAID<ept id="b2481f7b-c3e2-4090-a7eb-8589fc0fb819">&lt;/linkText&gt;</ept><bpt id="b2481f7b-c3e2-4090-a7eb-8589fc0fb819">&lt;title&gt;</bpt><ept id="b2481f7b-c3e2-4090-a7eb-8589fc0fb819">&lt;/title&gt;</ept> may be used on data disks if preferred.</source>
+          <target state="new">LVM or <bpt id="b2481f7b-c3e2-4090-a7eb-8589fc0fb819">&lt;linkText&gt;</bpt>RAID<ept id="b2481f7b-c3e2-4090-a7eb-8589fc0fb819">&lt;/linkText&gt;</ept><bpt id="b2481f7b-c3e2-4090-a7eb-8589fc0fb819">&lt;title&gt;</bpt><ept id="b2481f7b-c3e2-4090-a7eb-8589fc0fb819">&lt;/title&gt;</ept> may be used on data disks if preferred.</target>
+        </trans-unit>
+        <trans-unit id="fe5c7f8d-6044-40dd-b0a9-30a4d1b8997a" xml:space="preserve">
+          <source>Do not configure a swap partition on the OS disk.</source>
+          <target state="new">Do not configure a swap partition on the OS disk.</target>
+        </trans-unit>
+        <trans-unit id="a5d37ea1-bd8b-4d97-a3e2-f1e5de31a7d9" xml:space="preserve">
+          <source>The Linux agent can be configured to create a swap file on the temporary resource disk.</source>
+          <target state="new">The Linux agent can be configured to create a swap file on the temporary resource disk.</target>
+        </trans-unit>
+        <trans-unit id="8e85d946-6b1f-4921-997c-98a6aa463ea4" xml:space="preserve">
+          <source>More information about this can be found in the steps below.</source>
+          <target state="new">More information about this can be found in the steps below.</target>
+        </trans-unit>
+        <trans-unit id="a2b7feca-a15d-4e02-b3f2-d0a2b288478e" xml:space="preserve">
+          <source>All of the VHDs must have sizes that are multiples of 1 MB.</source>
+          <target state="new">All of the VHDs must have sizes that are multiples of 1 MB.</target>
+        </trans-unit>
+        <trans-unit id="defab7dd-dad2-4927-a1ad-74388e83ce60" xml:space="preserve">
+          <source>In the center pane of Hyper-V Manager, select the virtual machine.</source>
+          <target state="new">In the center pane of Hyper-V Manager, select the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="fa28c8a7-ad75-4caa-bb5e-12e64fb34a1f" xml:space="preserve">
+          <source>Click <bpt id="f4f91d80-7b50-4f36-845b-e41bed4f0fa4">&lt;strong&gt;</bpt>Connect<ept id="f4f91d80-7b50-4f36-845b-e41bed4f0fa4">&lt;/strong&gt;</ept> to open the window for the virtual machine.</source>
+          <target state="new">Click <bpt id="f4f91d80-7b50-4f36-845b-e41bed4f0fa4">&lt;strong&gt;</bpt>Connect<ept id="f4f91d80-7b50-4f36-845b-e41bed4f0fa4">&lt;/strong&gt;</ept> to open the window for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="4b9118af-7df4-4025-a11a-32e1f9a23ee0" xml:space="preserve">
+          <source>Replace the current repositories in the image to use Ubuntu's Azure repos.</source>
+          <target state="new">Replace the current repositories in the image to use Ubuntu's Azure repos.</target>
+        </trans-unit>
+        <trans-unit id="f8bb9d77-abff-4dea-926e-73736f1913de" xml:space="preserve">
+          <source>The steps vary slightly depending on the Ubuntu version.</source>
+          <target state="new">The steps vary slightly depending on the Ubuntu version.</target>
+        </trans-unit>
+        <trans-unit id="95689263-ade3-4210-ac53-16fc4c670d5a" xml:space="preserve">
+          <source>Before editing /etc/apt/sources.list, it is recommended to make a backup</source>
+          <target state="new">Before editing /etc/apt/sources.list, it is recommended to make a backup</target>
+        </trans-unit>
+        <trans-unit id="ccf0b896-44a6-46f3-950a-3db9bded6642" xml:space="preserve">
+          <source>Ubuntu 12.04:</source>
+          <target state="new">Ubuntu 12.04:</target>
+        </trans-unit>
+        <trans-unit id="3dec52a5-bd6f-49ed-9b91-ac0215abba2b" xml:space="preserve">
+          <source>Ubuntu 12.10:</source>
+          <target state="new">Ubuntu 12.10:</target>
+        </trans-unit>
+        <trans-unit id="b3304ac5-e465-41ed-ad0c-585d170b6678" xml:space="preserve">
+          <source>Ubuntu 14.04+:</source>
+          <target state="new">Ubuntu 14.04+:</target>
+        </trans-unit>
+        <trans-unit id="f7275cda-cb08-4c50-a3ed-8f1d5e40a677" xml:space="preserve">
+          <source>Update the operating system to the latest kernel by running the following commands : </source>
+          <target state="new">Update the operating system to the latest kernel by running the following commands : </target>
+        </trans-unit>
+        <trans-unit id="a492d554-996f-45b0-8332-ccee85c5f72b" xml:space="preserve">
+          <source>Ubuntu 12.04:</source>
+          <target state="new">Ubuntu 12.04:</target>
+        </trans-unit>
+        <trans-unit id="db104ad2-239a-4a8b-b90d-d1f4cd60a308" xml:space="preserve">
+          <source>Ubuntu 12.10:</source>
+          <target state="new">Ubuntu 12.10:</target>
+        </trans-unit>
+        <trans-unit id="77d76eee-1851-49f9-8877-4e8353ebb952" xml:space="preserve">
+          <source>Ubuntu 14.04+:</source>
+          <target state="new">Ubuntu 14.04+:</target>
+        </trans-unit>
+        <trans-unit id="2832d25f-f879-4267-9fb1-661ed8a9f472" xml:space="preserve">
+          <source>(optional) If the Ubuntu system encounters an error and reboots, then it will often wait at the grub boot prompt for user input preventing the system from booting properly.</source>
+          <target state="new">(optional) If the Ubuntu system encounters an error and reboots, then it will often wait at the grub boot prompt for user input preventing the system from booting properly.</target>
+        </trans-unit>
+        <trans-unit id="9dbb20a0-b0a3-40e8-9e8c-5639e268433f" xml:space="preserve">
+          <source>To prevent this, complete the following steps:</source>
+          <target state="new">To prevent this, complete the following steps:</target>
+        </trans-unit>
+        <trans-unit id="b612d042-3052-4296-b305-be4aff843f5c" xml:space="preserve">
+          <source>a) Open the /etc/grub.d/00_header file.</source>
+          <target state="new">a) Open the /etc/grub.d/00_header file.</target>
+        </trans-unit>
+        <trans-unit id="7900f65a-7ba4-478a-86ae-14f2c575f83c" xml:space="preserve">
+          <source>b) In the function <bpt id="1c45724c-8e5d-48b8-a007-2b71dec12153">&lt;strong&gt;</bpt>make_timeout()<ept id="1c45724c-8e5d-48b8-a007-2b71dec12153">&lt;/strong&gt;</ept>, search for <bpt id="421ff68b-efca-4a71-91da-907c247a116c">&lt;strong&gt;</bpt>if ["\${recordfail}" = 1 ]; then<ept id="421ff68b-efca-4a71-91da-907c247a116c">&lt;/strong&gt;</ept></source>
+          <target state="new">b) In the function <bpt id="1c45724c-8e5d-48b8-a007-2b71dec12153">&lt;strong&gt;</bpt>make_timeout()<ept id="1c45724c-8e5d-48b8-a007-2b71dec12153">&lt;/strong&gt;</ept>, search for <bpt id="421ff68b-efca-4a71-91da-907c247a116c">&lt;strong&gt;</bpt>if ["\${recordfail}" = 1 ]; then<ept id="421ff68b-efca-4a71-91da-907c247a116c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb5dd345-f90a-4553-b796-dc6ff20a1645" xml:space="preserve">
+          <source>c) Change the statement below this line to <bpt id="d7998938-38bf-48dc-a7f4-40003049a186">&lt;strong&gt;</bpt>set timeout=5<ept id="d7998938-38bf-48dc-a7f4-40003049a186">&lt;/strong&gt;</ept>.</source>
+          <target state="new">c) Change the statement below this line to <bpt id="d7998938-38bf-48dc-a7f4-40003049a186">&lt;strong&gt;</bpt>set timeout=5<ept id="d7998938-38bf-48dc-a7f4-40003049a186">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca825fec-3fb4-4607-8eeb-30cbcd80a3bb" xml:space="preserve">
+          <source>d) Run 'sudo update-grub'.</source>
+          <target state="new">d) Run 'sudo update-grub'.</target>
+        </trans-unit>
+        <trans-unit id="2e0a6c72-d389-475a-b95d-f55032aed1df" xml:space="preserve">
+          <source>Modify the kernel boot line for Grub to include additional kernel parameters for Azure.</source>
+          <target state="new">Modify the kernel boot line for Grub to include additional kernel parameters for Azure.</target>
+        </trans-unit>
+        <trans-unit id="0daef41b-3b9b-4eb0-93cb-7eaee3f058c9" xml:space="preserve">
+          <source>To do this open "/etc/default/grub" in a text editor, find the variable called <bpt id="ba125834-7ed6-414e-9ae4-d5328a726d45">&lt;code&gt;</bpt>GRUB_CMDLINE_LINUX_DEFAULT<ept id="ba125834-7ed6-414e-9ae4-d5328a726d45">&lt;/code&gt;</ept> (or add it if needed) and edit it to include the following parameters:</source>
+          <target state="new">To do this open "/etc/default/grub" in a text editor, find the variable called <bpt id="ba125834-7ed6-414e-9ae4-d5328a726d45">&lt;code&gt;</bpt>GRUB_CMDLINE_LINUX_DEFAULT<ept id="ba125834-7ed6-414e-9ae4-d5328a726d45">&lt;/code&gt;</ept> (or add it if needed) and edit it to include the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="28398032-fa3f-4daa-ab93-3484e0c001c5" xml:space="preserve">
+          <source>Save and close this file, and then run '<bpt id="bdeca979-40f1-482b-861a-da8ef3827f77">&lt;code&gt;</bpt>sudo update-grub<ept id="bdeca979-40f1-482b-861a-da8ef3827f77">&lt;/code&gt;</ept>'.</source>
+          <target state="new">Save and close this file, and then run '<bpt id="bdeca979-40f1-482b-861a-da8ef3827f77">&lt;code&gt;</bpt>sudo update-grub<ept id="bdeca979-40f1-482b-861a-da8ef3827f77">&lt;/code&gt;</ept>'.</target>
+        </trans-unit>
+        <trans-unit id="5fa7aa39-e1cf-4981-b018-b5c2b2d2e363" xml:space="preserve">
+          <source>This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.</source>
+          <target state="new">This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.</target>
+        </trans-unit>
+        <trans-unit id="c18ed30b-e842-4fea-a831-8ce1feb3ab09" xml:space="preserve">
+          <source>Ensure that the SSH server is installed and configured to start at boot time.</source>
+          <target state="new">Ensure that the SSH server is installed and configured to start at boot time.</target>
+        </trans-unit>
+        <trans-unit id="dcc165a1-21d1-45fe-be52-56a0445fde18" xml:space="preserve">
+          <source>This is usually the default.</source>
+          <target state="new">This is usually the default.</target>
+        </trans-unit>
+        <trans-unit id="871c2b59-8714-4b64-a461-33f97e13b57d" xml:space="preserve">
+          <source>Install the Azure Linux Agent:</source>
+          <target state="new">Install the Azure Linux Agent:</target>
+        </trans-unit>
+        <trans-unit id="7ac3969f-2591-4e6c-9888-be9ef50063be" xml:space="preserve">
+          <source>Note that installing the <bpt id="dd3a9f88-fb1d-43ef-8f7b-d8a7a93f5d98">&lt;code&gt;</bpt>walinuxagent<ept id="dd3a9f88-fb1d-43ef-8f7b-d8a7a93f5d98">&lt;/code&gt;</ept> package will remove the <bpt id="830599fc-aac5-42fd-ad3b-e5672584891a">&lt;code&gt;</bpt>NetworkManager<ept id="830599fc-aac5-42fd-ad3b-e5672584891a">&lt;/code&gt;</ept> and <bpt id="d316b6c4-0c72-43bd-af6c-eee7de5222f5">&lt;code&gt;</bpt>NetworkManager-gnome<ept id="d316b6c4-0c72-43bd-af6c-eee7de5222f5">&lt;/code&gt;</ept> packages, if they are installed.</source>
+          <target state="new">Note that installing the <bpt id="dd3a9f88-fb1d-43ef-8f7b-d8a7a93f5d98">&lt;code&gt;</bpt>walinuxagent<ept id="dd3a9f88-fb1d-43ef-8f7b-d8a7a93f5d98">&lt;/code&gt;</ept> package will remove the <bpt id="830599fc-aac5-42fd-ad3b-e5672584891a">&lt;code&gt;</bpt>NetworkManager<ept id="830599fc-aac5-42fd-ad3b-e5672584891a">&lt;/code&gt;</ept> and <bpt id="d316b6c4-0c72-43bd-af6c-eee7de5222f5">&lt;code&gt;</bpt>NetworkManager-gnome<ept id="d316b6c4-0c72-43bd-af6c-eee7de5222f5">&lt;/code&gt;</ept> packages, if they are installed.</target>
+        </trans-unit>
+        <trans-unit id="9fdd9930-8ffd-448a-92d7-2bc24350b431" xml:space="preserve">
+          <source>Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:</source>
+          <target state="new">Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:</target>
+        </trans-unit>
+        <trans-unit id="c2377147-7b28-4617-baff-547c1a1e3118" xml:space="preserve">
+          <source>Click <bpt id="27333a30-31a2-4e34-8d18-bde1f50e44f6">&lt;strong&gt;</bpt>Action -&gt; Shut Down<ept id="27333a30-31a2-4e34-8d18-bde1f50e44f6">&lt;/strong&gt;</ept> in Hyper-V Manager.</source>
+          <target state="new">Click <bpt id="27333a30-31a2-4e34-8d18-bde1f50e44f6">&lt;strong&gt;</bpt>Action -&gt; Shut Down<ept id="27333a30-31a2-4e34-8d18-bde1f50e44f6">&lt;/strong&gt;</ept> in Hyper-V Manager.</target>
+        </trans-unit>
+        <trans-unit id="c06c99f1-4842-48fe-8b44-47cb3315655b" xml:space="preserve">
+          <source>Your Linux VHD is now ready to be uploaded to Azure.</source>
+          <target state="new">Your Linux VHD is now ready to be uploaded to Azure.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

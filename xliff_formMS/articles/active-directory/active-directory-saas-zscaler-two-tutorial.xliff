@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2420c6a4-fbcd-454a-9099-b2cd2b6947cc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2420c6a4-fbcd-454a-9099-b2cd2b6947cc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e3a50e70-0db9-44ce-8a66-6d02fa3b628c">
+        <trans-unit id="07a7acdd-cf97-4d39-b773-69627f2a70a1" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with Zscaler Two | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with Zscaler Two | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3f79dca4-61c8-4aba-8bff-82dda365f578" xml:space="preserve">
+          <source>Learn how to use Zscaler Two with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Zscaler Two with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="7c69d240-af49-43d6-8b2a-18f88f7f76e9" xml:space="preserve">
+          <source>For feedback, click <bpt id="d9c223ee-e043-4535-b86c-d018c76a6128">&lt;linkText&gt;</bpt>here<ept id="d9c223ee-e043-4535-b86c-d018c76a6128">&lt;/linkText&gt;</ept><bpt id="d9c223ee-e043-4535-b86c-d018c76a6128">&lt;title&gt;</bpt><ept id="d9c223ee-e043-4535-b86c-d018c76a6128">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="d9c223ee-e043-4535-b86c-d018c76a6128">&lt;linkText&gt;</bpt>here<ept id="d9c223ee-e043-4535-b86c-d018c76a6128">&lt;/linkText&gt;</ept><bpt id="d9c223ee-e043-4535-b86c-d018c76a6128">&lt;title&gt;</bpt><ept id="d9c223ee-e043-4535-b86c-d018c76a6128">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1fc53231-9035-4461-8df9-442d4a2d3275" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and ZScaler Two.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and ZScaler Two.</target>
+        </trans-unit>
+        <trans-unit id="00286b7b-2283-4076-b508-0810b08220e1" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="c06f9db9-a091-4ac3-bff2-50fb415dfe12" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="66d37464-f219-4a2a-9f71-01aaae01d7d3" xml:space="preserve">
+          <source>A ZScaler Two single sign-on enabled subscription</source>
+          <target state="new">A ZScaler Two single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="7a2bac1f-c2cc-49bc-880e-5c8c12fed7ab" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to ZScaler Two will be able to single sign into the application at your ZScaler Two company site (service provider initiated sign on), or using the <bpt id="c2cc362c-a2ac-4a0d-bab5-048b3b8ae11e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c2cc362c-a2ac-4a0d-bab5-048b3b8ae11e">&lt;/linkText&gt;</ept><bpt id="c2cc362c-a2ac-4a0d-bab5-048b3b8ae11e">&lt;title&gt;</bpt><ept id="c2cc362c-a2ac-4a0d-bab5-048b3b8ae11e">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to ZScaler Two will be able to single sign into the application at your ZScaler Two company site (service provider initiated sign on), or using the <bpt id="c2cc362c-a2ac-4a0d-bab5-048b3b8ae11e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c2cc362c-a2ac-4a0d-bab5-048b3b8ae11e">&lt;/linkText&gt;</ept><bpt id="c2cc362c-a2ac-4a0d-bab5-048b3b8ae11e">&lt;title&gt;</bpt><ept id="c2cc362c-a2ac-4a0d-bab5-048b3b8ae11e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df0d9468-34c3-4c77-b278-baffda35447c" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="620bb005-8ebe-4390-970a-e6e073ea304f" xml:space="preserve">
+          <source>Enabling the application integration for ZScaler Two</source>
+          <target state="new">Enabling the application integration for ZScaler Two</target>
+        </trans-unit>
+        <trans-unit id="c28aba92-c8b0-44ef-a0bf-c0ccc32e8f53" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="e4024c99-a43d-49bd-b5f8-48e7d899912f" xml:space="preserve">
+          <source>Configuring proxy settings</source>
+          <target state="new">Configuring proxy settings</target>
+        </trans-unit>
+        <trans-unit id="4f7acede-e66c-4ba1-a884-6754a9e5d254" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="3dceb445-8e2f-4907-8673-b3afe32314cd" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="818b2ef8-c4de-4fe8-b356-22fd8b22384f" xml:space="preserve">
+          <source><bpt id="c75eab75-0255-4d28-98d3-555b9b070230">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="c75eab75-0255-4d28-98d3-555b9b070230">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c75eab75-0255-4d28-98d3-555b9b070230">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="c75eab75-0255-4d28-98d3-555b9b070230">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ab56829-2fde-4660-8e57-6f274d2aa275" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for ZScaler Two.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for ZScaler Two.</target>
+        </trans-unit>
+        <trans-unit id="86e663e5-9043-4f4d-b473-5ee9936a09eb" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="d1f43263-3e66-400b-ab82-a470d0027769">&lt;strong&gt;</bpt>Active Directory<ept id="d1f43263-3e66-400b-ab82-a470d0027769">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="d1f43263-3e66-400b-ab82-a470d0027769">&lt;strong&gt;</bpt>Active Directory<ept id="d1f43263-3e66-400b-ab82-a470d0027769">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a513ce5-ed47-4bb4-a9eb-8cfa4b732fc6" xml:space="preserve">
+          <source><bpt id="87af9b34-0852-4eda-95bd-97ff0123d037">&lt;linkText&gt;</bpt>Active Directory<ept id="87af9b34-0852-4eda-95bd-97ff0123d037">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87af9b34-0852-4eda-95bd-97ff0123d037">&lt;linkText&gt;</bpt>Active Directory<ept id="87af9b34-0852-4eda-95bd-97ff0123d037">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f15037fa-821d-4a9e-9990-4dc3dbcd29ec" xml:space="preserve">
+          <source>From the <bpt id="bb93e5dd-54fd-40cf-8750-ff4c3a75056f">&lt;strong&gt;</bpt>Directory<ept id="bb93e5dd-54fd-40cf-8750-ff4c3a75056f">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="bb93e5dd-54fd-40cf-8750-ff4c3a75056f">&lt;strong&gt;</bpt>Directory<ept id="bb93e5dd-54fd-40cf-8750-ff4c3a75056f">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="3bdf8d6b-4736-4954-98d3-507dce4d6602" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="3aa87ba9-91d4-44a9-8d18-35a44569b323">&lt;strong&gt;</bpt>Applications<ept id="3aa87ba9-91d4-44a9-8d18-35a44569b323">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="3aa87ba9-91d4-44a9-8d18-35a44569b323">&lt;strong&gt;</bpt>Applications<ept id="3aa87ba9-91d4-44a9-8d18-35a44569b323">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="02f4aee7-719c-4d17-8d56-60867e6a50a2" xml:space="preserve">
+          <source><bpt id="b14dfafd-6414-45d0-ae86-12edadb5026a">&lt;linkText&gt;</bpt>Applications<ept id="b14dfafd-6414-45d0-ae86-12edadb5026a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b14dfafd-6414-45d0-ae86-12edadb5026a">&lt;linkText&gt;</bpt>Applications<ept id="b14dfafd-6414-45d0-ae86-12edadb5026a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36d33971-92bf-43e9-8145-8a48498bd35f" xml:space="preserve">
+          <source>Click <bpt id="1270fedd-bb58-42b4-9662-30d57a8b6563">&lt;strong&gt;</bpt>Add<ept id="1270fedd-bb58-42b4-9662-30d57a8b6563">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="1270fedd-bb58-42b4-9662-30d57a8b6563">&lt;strong&gt;</bpt>Add<ept id="1270fedd-bb58-42b4-9662-30d57a8b6563">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="444d1973-ab83-4d48-a536-6dc2459cdb00" xml:space="preserve">
+          <source><bpt id="da1aa37b-24d1-4055-9960-ca5972f2d034">&lt;linkText&gt;</bpt>Add application<ept id="da1aa37b-24d1-4055-9960-ca5972f2d034">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da1aa37b-24d1-4055-9960-ca5972f2d034">&lt;linkText&gt;</bpt>Add application<ept id="da1aa37b-24d1-4055-9960-ca5972f2d034">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c98491f-0e3d-4f84-b7e2-f4306947bdb5" xml:space="preserve">
+          <source>On the <bpt id="ad96c857-b467-4deb-9125-3e98587fcded">&lt;strong&gt;</bpt>What do you want to do<ept id="ad96c857-b467-4deb-9125-3e98587fcded">&lt;/strong&gt;</ept> dialog, click <bpt id="8f79b69a-d0e8-4b09-8d9f-b1e1858f532f">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="8f79b69a-d0e8-4b09-8d9f-b1e1858f532f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ad96c857-b467-4deb-9125-3e98587fcded">&lt;strong&gt;</bpt>What do you want to do<ept id="ad96c857-b467-4deb-9125-3e98587fcded">&lt;/strong&gt;</ept> dialog, click <bpt id="8f79b69a-d0e8-4b09-8d9f-b1e1858f532f">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="8f79b69a-d0e8-4b09-8d9f-b1e1858f532f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dba278f5-0422-4bee-90ac-1684a450416e" xml:space="preserve">
+          <source><bpt id="738005c6-c2b3-4a5d-8680-21450ce76786">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="738005c6-c2b3-4a5d-8680-21450ce76786">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="738005c6-c2b3-4a5d-8680-21450ce76786">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="738005c6-c2b3-4a5d-8680-21450ce76786">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="030603e9-23bc-4ce0-9d5e-8e6bf9e202d0" xml:space="preserve">
+          <source>In the <bpt id="4d295b91-abfd-4c21-84c0-877937c668cf">&lt;strong&gt;</bpt>search box<ept id="4d295b91-abfd-4c21-84c0-877937c668cf">&lt;/strong&gt;</ept>, type <bpt id="97d30c1a-ee4d-4ea3-ab2b-e71559119344">&lt;strong&gt;</bpt>ZScaler Two<ept id="97d30c1a-ee4d-4ea3-ab2b-e71559119344">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4d295b91-abfd-4c21-84c0-877937c668cf">&lt;strong&gt;</bpt>search box<ept id="4d295b91-abfd-4c21-84c0-877937c668cf">&lt;/strong&gt;</ept>, type <bpt id="97d30c1a-ee4d-4ea3-ab2b-e71559119344">&lt;strong&gt;</bpt>ZScaler Two<ept id="97d30c1a-ee4d-4ea3-ab2b-e71559119344">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9623c29-2bc7-4576-9ae3-1a71abfac5dc" xml:space="preserve">
+          <source><bpt id="94ec6127-95e5-4a43-94f1-98ab23101e38">&lt;linkText&gt;</bpt>Application Gallery<ept id="94ec6127-95e5-4a43-94f1-98ab23101e38">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="94ec6127-95e5-4a43-94f1-98ab23101e38">&lt;linkText&gt;</bpt>Application Gallery<ept id="94ec6127-95e5-4a43-94f1-98ab23101e38">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92a8838b-be0a-452d-8eb9-1dbd2c57a28a" xml:space="preserve">
+          <source>In the results pane, select <bpt id="c2cdd96c-437e-495b-b46a-68e2333622db">&lt;strong&gt;</bpt>ZScaler Two<ept id="c2cdd96c-437e-495b-b46a-68e2333622db">&lt;/strong&gt;</ept>, and then click <bpt id="22a07de4-a4a1-491b-ae16-50066765030e">&lt;strong&gt;</bpt>Complete<ept id="22a07de4-a4a1-491b-ae16-50066765030e">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="c2cdd96c-437e-495b-b46a-68e2333622db">&lt;strong&gt;</bpt>ZScaler Two<ept id="c2cdd96c-437e-495b-b46a-68e2333622db">&lt;/strong&gt;</ept>, and then click <bpt id="22a07de4-a4a1-491b-ae16-50066765030e">&lt;strong&gt;</bpt>Complete<ept id="22a07de4-a4a1-491b-ae16-50066765030e">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="56135404-8f20-4589-bfdb-67007619ce76" xml:space="preserve">
+          <source><bpt id="25be4131-91ac-4a72-b3e5-530d0ecf0aaf">&lt;linkText&gt;</bpt>ZScaler Two<ept id="25be4131-91ac-4a72-b3e5-530d0ecf0aaf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="25be4131-91ac-4a72-b3e5-530d0ecf0aaf">&lt;linkText&gt;</bpt>ZScaler Two<ept id="25be4131-91ac-4a72-b3e5-530d0ecf0aaf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c545746-ac9f-4343-9354-fb12d3e2e4f0" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to ZScaler Two with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to ZScaler Two with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="0bfebcb1-5288-4f9a-8893-3a110666ba77" xml:space="preserve">
+          <source>As part of this procedure, you are required to upload a base-64 encoded certificate to your ZScaler Two tenant.</source>
+          <target state="new">As part of this procedure, you are required to upload a base-64 encoded certificate to your ZScaler Two tenant.</target>
+        </trans-unit>
+        <trans-unit id="62232e1e-15cd-4c8b-8f28-4d3a4ec561e1" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="8004b5d0-af20-47be-9be0-44fd26264fb3">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="8004b5d0-af20-47be-9be0-44fd26264fb3">&lt;/linkText&gt;</ept><bpt id="8004b5d0-af20-47be-9be0-44fd26264fb3">&lt;title&gt;</bpt><ept id="8004b5d0-af20-47be-9be0-44fd26264fb3">&lt;/title&gt;</ept></source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="8004b5d0-af20-47be-9be0-44fd26264fb3">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="8004b5d0-af20-47be-9be0-44fd26264fb3">&lt;/linkText&gt;</ept><bpt id="8004b5d0-af20-47be-9be0-44fd26264fb3">&lt;title&gt;</bpt><ept id="8004b5d0-af20-47be-9be0-44fd26264fb3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f884ce1-7695-4f68-8ce2-d9109b4343b8" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="abc944a9-eb10-4793-a495-4d4a169dc2ab">&lt;strong&gt;</bpt>ZScaler Two<ept id="abc944a9-eb10-4793-a495-4d4a169dc2ab">&lt;/strong&gt;</ept> application integration page, click <bpt id="eed9037f-8e11-4905-b90e-a19cea5d31f8">&lt;strong&gt;</bpt>Configure single sign-on<ept id="eed9037f-8e11-4905-b90e-a19cea5d31f8">&lt;/strong&gt;</ept> to open the <bpt id="8b0687db-47a4-406b-915f-a6c938c1873c">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="8b0687db-47a4-406b-915f-a6c938c1873c">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="abc944a9-eb10-4793-a495-4d4a169dc2ab">&lt;strong&gt;</bpt>ZScaler Two<ept id="abc944a9-eb10-4793-a495-4d4a169dc2ab">&lt;/strong&gt;</ept> application integration page, click <bpt id="eed9037f-8e11-4905-b90e-a19cea5d31f8">&lt;strong&gt;</bpt>Configure single sign-on<ept id="eed9037f-8e11-4905-b90e-a19cea5d31f8">&lt;/strong&gt;</ept> to open the <bpt id="8b0687db-47a4-406b-915f-a6c938c1873c">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="8b0687db-47a4-406b-915f-a6c938c1873c">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="52076fb2-8bd3-428d-bc74-fc1dfcf21c1a" xml:space="preserve">
+          <source><bpt id="098d896c-5040-4bca-991d-ed430e8cb3ea">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="098d896c-5040-4bca-991d-ed430e8cb3ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="098d896c-5040-4bca-991d-ed430e8cb3ea">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="098d896c-5040-4bca-991d-ed430e8cb3ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90651070-b76a-4b11-9747-f26018577c46" xml:space="preserve">
+          <source>On the <bpt id="ad7acdf7-7f48-4f7c-a32f-d45b6a11cfd3">&lt;strong&gt;</bpt>How would you like users to sign on to ZScaler Two<ept id="ad7acdf7-7f48-4f7c-a32f-d45b6a11cfd3">&lt;/strong&gt;</ept> page, select <bpt id="c43184d7-a726-4d59-9dce-e7fa0f8a9f7c">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="c43184d7-a726-4d59-9dce-e7fa0f8a9f7c">&lt;/strong&gt;</ept>, and then click <bpt id="3b72ee3b-5114-4eca-b7d9-7bf56061393d">&lt;strong&gt;</bpt>Next<ept id="3b72ee3b-5114-4eca-b7d9-7bf56061393d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ad7acdf7-7f48-4f7c-a32f-d45b6a11cfd3">&lt;strong&gt;</bpt>How would you like users to sign on to ZScaler Two<ept id="ad7acdf7-7f48-4f7c-a32f-d45b6a11cfd3">&lt;/strong&gt;</ept> page, select <bpt id="c43184d7-a726-4d59-9dce-e7fa0f8a9f7c">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="c43184d7-a726-4d59-9dce-e7fa0f8a9f7c">&lt;/strong&gt;</ept>, and then click <bpt id="3b72ee3b-5114-4eca-b7d9-7bf56061393d">&lt;strong&gt;</bpt>Next<ept id="3b72ee3b-5114-4eca-b7d9-7bf56061393d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="688fb496-1368-491e-af58-05dc5c307f50" xml:space="preserve">
+          <source><bpt id="8e505485-9cbc-4d83-86ac-019f10599320">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="8e505485-9cbc-4d83-86ac-019f10599320">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8e505485-9cbc-4d83-86ac-019f10599320">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="8e505485-9cbc-4d83-86ac-019f10599320">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4547ce1f-048d-4502-a01c-374ed733cfd8" xml:space="preserve">
+          <source>On the <bpt id="420dc335-21c9-4328-9a89-9b3850168dc9">&lt;strong&gt;</bpt>Configure App URL<ept id="420dc335-21c9-4328-9a89-9b3850168dc9">&lt;/strong&gt;</ept> page, in the <bpt id="03a87c85-a154-4b5e-8156-2834ff5979e9">&lt;strong&gt;</bpt>ZScaler Two Sign On URL<ept id="03a87c85-a154-4b5e-8156-2834ff5979e9">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign-on to your ZScaler Two application, and then click <bpt id="6c2fd3b2-9524-4f98-81fe-15b457e0cf25">&lt;strong&gt;</bpt>Next<ept id="6c2fd3b2-9524-4f98-81fe-15b457e0cf25">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="420dc335-21c9-4328-9a89-9b3850168dc9">&lt;strong&gt;</bpt>Configure App URL<ept id="420dc335-21c9-4328-9a89-9b3850168dc9">&lt;/strong&gt;</ept> page, in the <bpt id="03a87c85-a154-4b5e-8156-2834ff5979e9">&lt;strong&gt;</bpt>ZScaler Two Sign On URL<ept id="03a87c85-a154-4b5e-8156-2834ff5979e9">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign-on to your ZScaler Two application, and then click <bpt id="6c2fd3b2-9524-4f98-81fe-15b457e0cf25">&lt;strong&gt;</bpt>Next<ept id="6c2fd3b2-9524-4f98-81fe-15b457e0cf25">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="920e8f52-92d5-4deb-ae73-b9f21cc8e1be" xml:space="preserve">
+          <source><bpt id="3e9d7ebe-509c-42e7-9962-502bb332650b">&lt;linkText&gt;</bpt>Configure App URL<ept id="3e9d7ebe-509c-42e7-9962-502bb332650b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e9d7ebe-509c-42e7-9962-502bb332650b">&lt;linkText&gt;</bpt>Configure App URL<ept id="3e9d7ebe-509c-42e7-9962-502bb332650b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02b6284c-2a79-42d6-8b89-d7b1a2c81c00" xml:space="preserve">
+          <source>You can get the actual value for your environment from your ZScaler Two support team if you need it.</source>
+          <target state="new">You can get the actual value for your environment from your ZScaler Two support team if you need it.</target>
+        </trans-unit>
+        <trans-unit id="6f5917a4-4a03-403c-b333-b752c6b6c07c" xml:space="preserve">
+          <source>On the <bpt id="81975be6-4676-4a94-8e71-1ac02d067c69">&lt;strong&gt;</bpt>Configure single sign-on at ZScaler Two<ept id="81975be6-4676-4a94-8e71-1ac02d067c69">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="12222c9d-d43b-4760-a4c3-b1b45589df05">&lt;strong&gt;</bpt>Download certificate<ept id="12222c9d-d43b-4760-a4c3-b1b45589df05">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="81975be6-4676-4a94-8e71-1ac02d067c69">&lt;strong&gt;</bpt>Configure single sign-on at ZScaler Two<ept id="81975be6-4676-4a94-8e71-1ac02d067c69">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="12222c9d-d43b-4760-a4c3-b1b45589df05">&lt;strong&gt;</bpt>Download certificate<ept id="12222c9d-d43b-4760-a4c3-b1b45589df05">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="fa4e0a36-3a34-4de9-a87c-b72dee07f47f" xml:space="preserve">
+          <source><bpt id="55373de9-51b6-4ea4-bcb5-a29af9cfcaec">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="55373de9-51b6-4ea4-bcb5-a29af9cfcaec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55373de9-51b6-4ea4-bcb5-a29af9cfcaec">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="55373de9-51b6-4ea4-bcb5-a29af9cfcaec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="473e64ef-9f8f-46e8-b8a7-0749a4d05991" xml:space="preserve">
+          <source>In a different web browser window, log into your ZScaler Two company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your ZScaler Two company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="ccdbaf06-3342-43fc-beca-2f02ca9604f4" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="5ea7cd41-9c52-4055-a6a9-5cefe722c16f">&lt;strong&gt;</bpt>Administration<ept id="5ea7cd41-9c52-4055-a6a9-5cefe722c16f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="5ea7cd41-9c52-4055-a6a9-5cefe722c16f">&lt;strong&gt;</bpt>Administration<ept id="5ea7cd41-9c52-4055-a6a9-5cefe722c16f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18a9866d-6417-4f86-a5d7-fd4e23c8e815" xml:space="preserve">
+          <source><bpt id="e7fb0545-34dc-4bb9-bae3-69afc1555630">&lt;linkText&gt;</bpt>Administration<ept id="e7fb0545-34dc-4bb9-bae3-69afc1555630">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7fb0545-34dc-4bb9-bae3-69afc1555630">&lt;linkText&gt;</bpt>Administration<ept id="e7fb0545-34dc-4bb9-bae3-69afc1555630">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1bd63567-6b5b-4ab6-944b-9f357ae8fa79" xml:space="preserve">
+          <source>Under <bpt id="5249e2dc-6e88-4d8f-b8c5-f8718d5d3049">&lt;strong&gt;</bpt>Manage Administrators &amp; Roles<ept id="5249e2dc-6e88-4d8f-b8c5-f8718d5d3049">&lt;/strong&gt;</ept>, click <bpt id="dd78b46c-6959-4f9b-9f9a-55e7b58d2049">&lt;strong&gt;</bpt>Manage Users &amp; Authentication<ept id="dd78b46c-6959-4f9b-9f9a-55e7b58d2049">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="5249e2dc-6e88-4d8f-b8c5-f8718d5d3049">&lt;strong&gt;</bpt>Manage Administrators &amp; Roles<ept id="5249e2dc-6e88-4d8f-b8c5-f8718d5d3049">&lt;/strong&gt;</ept>, click <bpt id="dd78b46c-6959-4f9b-9f9a-55e7b58d2049">&lt;strong&gt;</bpt>Manage Users &amp; Authentication<ept id="dd78b46c-6959-4f9b-9f9a-55e7b58d2049">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9541f91f-4809-4bc1-bc15-6ce5dd324594" xml:space="preserve">
+          <source><bpt id="611645b5-d244-4ad6-aac3-ad24f2042dec">&lt;linkText&gt;</bpt>Manage Users &amp; Authentication<ept id="611645b5-d244-4ad6-aac3-ad24f2042dec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="611645b5-d244-4ad6-aac3-ad24f2042dec">&lt;linkText&gt;</bpt>Manage Users &amp; Authentication<ept id="611645b5-d244-4ad6-aac3-ad24f2042dec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7203124e-d6c8-4db2-8a69-5a19f774c88b" xml:space="preserve">
+          <source>In the <bpt id="b59a6615-dfe2-4223-a575-772d50d85688">&lt;strong&gt;</bpt>Choose Authentication Options for your Organization<ept id="b59a6615-dfe2-4223-a575-772d50d85688">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="b59a6615-dfe2-4223-a575-772d50d85688">&lt;strong&gt;</bpt>Choose Authentication Options for your Organization<ept id="b59a6615-dfe2-4223-a575-772d50d85688">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="9033265c-3d81-4198-9dcf-d1f9dd5e87bd" xml:space="preserve">
+          <source><bpt id="719886de-6a97-453a-9d94-bcf3de27c21b">&lt;linkText&gt;</bpt>Authentication<ept id="719886de-6a97-453a-9d94-bcf3de27c21b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="719886de-6a97-453a-9d94-bcf3de27c21b">&lt;linkText&gt;</bpt>Authentication<ept id="719886de-6a97-453a-9d94-bcf3de27c21b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60aef848-c803-4745-a957-80e446b5ee50" xml:space="preserve">
+          <source>Select <bpt id="ec90f1b5-9aa5-4968-a0cd-3eddb71c0534">&lt;strong&gt;</bpt>Authenticate using SAML Single Sign-On<ept id="ec90f1b5-9aa5-4968-a0cd-3eddb71c0534">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="ec90f1b5-9aa5-4968-a0cd-3eddb71c0534">&lt;strong&gt;</bpt>Authenticate using SAML Single Sign-On<ept id="ec90f1b5-9aa5-4968-a0cd-3eddb71c0534">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87a9312e-b779-4f88-8ab8-efd26ca977e4" xml:space="preserve">
+          <source>Click <bpt id="4230ff8e-498a-4d67-8030-dbe6cb18b6ce">&lt;strong&gt;</bpt>Configure SAML Single Sign-On Parameters<ept id="4230ff8e-498a-4d67-8030-dbe6cb18b6ce">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="4230ff8e-498a-4d67-8030-dbe6cb18b6ce">&lt;strong&gt;</bpt>Configure SAML Single Sign-On Parameters<ept id="4230ff8e-498a-4d67-8030-dbe6cb18b6ce">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c598eb6-117d-4711-9aed-c3db6853dba7" xml:space="preserve">
+          <source>On the <bpt id="64f5bf88-930d-4592-a950-1bfd084b5aa8">&lt;strong&gt;</bpt>Configure SAML Single Sign-On Parameters<ept id="64f5bf88-930d-4592-a950-1bfd084b5aa8">&lt;/strong&gt;</ept> dialog page, perform the following steps, and then click <bpt id="d2387602-b893-4dd8-a138-2f2e37cd45ca">&lt;strong&gt;</bpt>Done<ept id="d2387602-b893-4dd8-a138-2f2e37cd45ca">&lt;/strong&gt;</ept>:</source>
+          <target state="new">On the <bpt id="64f5bf88-930d-4592-a950-1bfd084b5aa8">&lt;strong&gt;</bpt>Configure SAML Single Sign-On Parameters<ept id="64f5bf88-930d-4592-a950-1bfd084b5aa8">&lt;/strong&gt;</ept> dialog page, perform the following steps, and then click <bpt id="d2387602-b893-4dd8-a138-2f2e37cd45ca">&lt;strong&gt;</bpt>Done<ept id="d2387602-b893-4dd8-a138-2f2e37cd45ca">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="5aa6fbb3-93f9-4314-aff0-c9c5b9bf97e3" xml:space="preserve">
+          <source><bpt id="acc4aa8f-13c2-492f-9046-0706e3f4617f">&lt;linkText&gt;</bpt>Single Sign-On<ept id="acc4aa8f-13c2-492f-9046-0706e3f4617f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="acc4aa8f-13c2-492f-9046-0706e3f4617f">&lt;linkText&gt;</bpt>Single Sign-On<ept id="acc4aa8f-13c2-492f-9046-0706e3f4617f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f214cb64-ccb0-4788-b651-a1c99f105c4f" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="8203c5a4-ebd8-4742-9852-d4a3484839c5">&lt;strong&gt;</bpt>Configure single sign-on at ZScaler Two<ept id="8203c5a4-ebd8-4742-9852-d4a3484839c5">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="49a2bbb1-f17b-460f-9faf-5912293f9cf3">&lt;strong&gt;</bpt>Authentication Request URL<ept id="49a2bbb1-f17b-460f-9faf-5912293f9cf3">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="58695b31-c43a-43b2-a8cc-8dbc012f9c0e">&lt;strong&gt;</bpt>URL of the SAML Portal to which users are sent for authentication<ept id="58695b31-c43a-43b2-a8cc-8dbc012f9c0e">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="8203c5a4-ebd8-4742-9852-d4a3484839c5">&lt;strong&gt;</bpt>Configure single sign-on at ZScaler Two<ept id="8203c5a4-ebd8-4742-9852-d4a3484839c5">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="49a2bbb1-f17b-460f-9faf-5912293f9cf3">&lt;strong&gt;</bpt>Authentication Request URL<ept id="49a2bbb1-f17b-460f-9faf-5912293f9cf3">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="58695b31-c43a-43b2-a8cc-8dbc012f9c0e">&lt;strong&gt;</bpt>URL of the SAML Portal to which users are sent for authentication<ept id="58695b31-c43a-43b2-a8cc-8dbc012f9c0e">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="2030cd1b-4343-465d-9de4-3a670b03a980" xml:space="preserve">
+          <source>In the <bpt id="ff98f3b4-a3bd-4386-8e45-081aa5d01087">&lt;strong&gt;</bpt>Attribute containing Login Name<ept id="ff98f3b4-a3bd-4386-8e45-081aa5d01087">&lt;/strong&gt;</ept> textbox, type <bpt id="ed93f87f-00ee-44d5-a895-d0d0b25319e9">&lt;strong&gt;</bpt>NameID<ept id="ed93f87f-00ee-44d5-a895-d0d0b25319e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ff98f3b4-a3bd-4386-8e45-081aa5d01087">&lt;strong&gt;</bpt>Attribute containing Login Name<ept id="ff98f3b4-a3bd-4386-8e45-081aa5d01087">&lt;/strong&gt;</ept> textbox, type <bpt id="ed93f87f-00ee-44d5-a895-d0d0b25319e9">&lt;strong&gt;</bpt>NameID<ept id="ed93f87f-00ee-44d5-a895-d0d0b25319e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20d542e1-2aa0-4d20-ae2d-b64c37d582d6" xml:space="preserve">
+          <source>To upload your downloaded certificate, click <bpt id="b258d94e-c19a-434d-b33c-088680c08afb">&lt;strong&gt;</bpt>Zscaler pem<ept id="b258d94e-c19a-434d-b33c-088680c08afb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To upload your downloaded certificate, click <bpt id="b258d94e-c19a-434d-b33c-088680c08afb">&lt;strong&gt;</bpt>Zscaler pem<ept id="b258d94e-c19a-434d-b33c-088680c08afb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="101aa04d-fa9a-4d08-8ec2-9ed4f93e2f2a" xml:space="preserve">
+          <source>Select <bpt id="fbc0e38e-9371-4eca-bc67-7e99d5ec6c2a">&lt;strong&gt;</bpt>Enable SAML Auto-Provisioning<ept id="fbc0e38e-9371-4eca-bc67-7e99d5ec6c2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="fbc0e38e-9371-4eca-bc67-7e99d5ec6c2a">&lt;strong&gt;</bpt>Enable SAML Auto-Provisioning<ept id="fbc0e38e-9371-4eca-bc67-7e99d5ec6c2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d622b80-765c-4e48-809d-331c79491c67" xml:space="preserve">
+          <source>On the <bpt id="6a47325b-9d83-482b-ba36-71fe88154271">&lt;strong&gt;</bpt>Configure User Authentication<ept id="6a47325b-9d83-482b-ba36-71fe88154271">&lt;/strong&gt;</ept> dialog page, perform the following steps:</source>
+          <target state="new">On the <bpt id="6a47325b-9d83-482b-ba36-71fe88154271">&lt;strong&gt;</bpt>Configure User Authentication<ept id="6a47325b-9d83-482b-ba36-71fe88154271">&lt;/strong&gt;</ept> dialog page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="f94c7189-bfd4-42c7-8bb5-315c20b5b236" xml:space="preserve">
+          <source><bpt id="24b7b91b-ba43-47e1-868d-0ae86480abf9">&lt;linkText&gt;</bpt>Administration<ept id="24b7b91b-ba43-47e1-868d-0ae86480abf9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24b7b91b-ba43-47e1-868d-0ae86480abf9">&lt;linkText&gt;</bpt>Administration<ept id="24b7b91b-ba43-47e1-868d-0ae86480abf9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c38cc8c9-e9f1-4c0b-bc75-d46c8631b7dd" xml:space="preserve">
+          <source>Click <bpt id="09110440-35a6-4dc7-8d5c-e71b5e6af661">&lt;strong&gt;</bpt>Save<ept id="09110440-35a6-4dc7-8d5c-e71b5e6af661">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="09110440-35a6-4dc7-8d5c-e71b5e6af661">&lt;strong&gt;</bpt>Save<ept id="09110440-35a6-4dc7-8d5c-e71b5e6af661">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dfde4e9a-c657-4d61-98f6-0fee26597849" xml:space="preserve">
+          <source>Click <bpt id="8fb7aa12-eb03-4292-887d-a298005b7c8b">&lt;strong&gt;</bpt>Activate Now<ept id="8fb7aa12-eb03-4292-887d-a298005b7c8b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8fb7aa12-eb03-4292-887d-a298005b7c8b">&lt;strong&gt;</bpt>Activate Now<ept id="8fb7aa12-eb03-4292-887d-a298005b7c8b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2694d585-d732-49f8-8f8f-e77be440449a" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="771b2e78-7a6c-4ee6-b52b-16dce636d938">&lt;strong&gt;</bpt>Configure single sign-on at ZScaler Two<ept id="771b2e78-7a6c-4ee6-b52b-16dce636d938">&lt;/strong&gt;</ept> dialog page, select the single sign-on configuration confirmation, and then click <bpt id="c66a2bd0-4ec3-451e-bbd5-07c4e31d201c">&lt;strong&gt;</bpt>Complete<ept id="c66a2bd0-4ec3-451e-bbd5-07c4e31d201c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal, on the <bpt id="771b2e78-7a6c-4ee6-b52b-16dce636d938">&lt;strong&gt;</bpt>Configure single sign-on at ZScaler Two<ept id="771b2e78-7a6c-4ee6-b52b-16dce636d938">&lt;/strong&gt;</ept> dialog page, select the single sign-on configuration confirmation, and then click <bpt id="c66a2bd0-4ec3-451e-bbd5-07c4e31d201c">&lt;strong&gt;</bpt>Complete<ept id="c66a2bd0-4ec3-451e-bbd5-07c4e31d201c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c66a05d3-befa-4a59-9f9c-68858c0c4776" xml:space="preserve">
+          <source><bpt id="358db650-ddcf-4829-95ce-359534cfb758">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="358db650-ddcf-4829-95ce-359534cfb758">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="358db650-ddcf-4829-95ce-359534cfb758">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="358db650-ddcf-4829-95ce-359534cfb758">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2ccd14a-977c-4365-8fe1-a11eaf2a6fbb" xml:space="preserve">
+          <source>Start <bpt id="9a4f32fd-fd66-4ff4-acfe-ab95521fa761">&lt;strong&gt;</bpt>Internet Explorer<ept id="9a4f32fd-fd66-4ff4-acfe-ab95521fa761">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Start <bpt id="9a4f32fd-fd66-4ff4-acfe-ab95521fa761">&lt;strong&gt;</bpt>Internet Explorer<ept id="9a4f32fd-fd66-4ff4-acfe-ab95521fa761">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2af53755-1ad2-48c5-a642-dd6a5f86fa96" xml:space="preserve">
+          <source>Select <bpt id="c5558375-50c2-4097-bfc1-bbe240795470">&lt;strong&gt;</bpt>Internet options<ept id="c5558375-50c2-4097-bfc1-bbe240795470">&lt;/strong&gt;</ept> from the <bpt id="a6bc4871-d4f8-46c1-a5ca-197119ba1aaa">&lt;strong&gt;</bpt>Tools<ept id="a6bc4871-d4f8-46c1-a5ca-197119ba1aaa">&lt;/strong&gt;</ept> menu to open the <bpt id="aa387e3b-c94d-4c3f-8c61-ed87276d6b39">&lt;strong&gt;</bpt>Internet Options<ept id="aa387e3b-c94d-4c3f-8c61-ed87276d6b39">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Select <bpt id="c5558375-50c2-4097-bfc1-bbe240795470">&lt;strong&gt;</bpt>Internet options<ept id="c5558375-50c2-4097-bfc1-bbe240795470">&lt;/strong&gt;</ept> from the <bpt id="a6bc4871-d4f8-46c1-a5ca-197119ba1aaa">&lt;strong&gt;</bpt>Tools<ept id="a6bc4871-d4f8-46c1-a5ca-197119ba1aaa">&lt;/strong&gt;</ept> menu to open the <bpt id="aa387e3b-c94d-4c3f-8c61-ed87276d6b39">&lt;strong&gt;</bpt>Internet Options<ept id="aa387e3b-c94d-4c3f-8c61-ed87276d6b39">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="3efd3687-3366-41ec-9cb6-b0f3be6fc803" xml:space="preserve">
+          <source><bpt id="2e7e7f5b-c878-4b0b-b897-942bb6837cad">&lt;linkText&gt;</bpt>Internet Options<ept id="2e7e7f5b-c878-4b0b-b897-942bb6837cad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e7e7f5b-c878-4b0b-b897-942bb6837cad">&lt;linkText&gt;</bpt>Internet Options<ept id="2e7e7f5b-c878-4b0b-b897-942bb6837cad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4692b914-5c05-4f19-beb5-843f41bdf913" xml:space="preserve">
+          <source>Click the <bpt id="0f07852d-d2a7-4910-ba82-65173da798b5">&lt;strong&gt;</bpt>Connections<ept id="0f07852d-d2a7-4910-ba82-65173da798b5">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="0f07852d-d2a7-4910-ba82-65173da798b5">&lt;strong&gt;</bpt>Connections<ept id="0f07852d-d2a7-4910-ba82-65173da798b5">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="0e869a07-7b6f-46cf-b40b-c027d2fa34cf" xml:space="preserve">
+          <source><bpt id="67305aeb-15c2-4e8d-a86e-4f36130d7faf">&lt;linkText&gt;</bpt>Connections<ept id="67305aeb-15c2-4e8d-a86e-4f36130d7faf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="67305aeb-15c2-4e8d-a86e-4f36130d7faf">&lt;linkText&gt;</bpt>Connections<ept id="67305aeb-15c2-4e8d-a86e-4f36130d7faf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5bd11aa-f3fd-49bb-8605-8f597665d9a8" xml:space="preserve">
+          <source>Click <bpt id="62b9574a-e83f-48bd-80d0-9110f2ae41b1">&lt;strong&gt;</bpt>LAN settings<ept id="62b9574a-e83f-48bd-80d0-9110f2ae41b1">&lt;/strong&gt;</ept> to open the <bpt id="b8942e06-7834-44fe-8c85-44e796290637">&lt;strong&gt;</bpt>LAN Settings<ept id="b8942e06-7834-44fe-8c85-44e796290637">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Click <bpt id="62b9574a-e83f-48bd-80d0-9110f2ae41b1">&lt;strong&gt;</bpt>LAN settings<ept id="62b9574a-e83f-48bd-80d0-9110f2ae41b1">&lt;/strong&gt;</ept> to open the <bpt id="b8942e06-7834-44fe-8c85-44e796290637">&lt;strong&gt;</bpt>LAN Settings<ept id="b8942e06-7834-44fe-8c85-44e796290637">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="4aed717a-c286-4633-ba2a-9675d04c1c88" xml:space="preserve">
+          <source>In the Proxy server section, perform the following steps:</source>
+          <target state="new">In the Proxy server section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="00581c55-70ba-4fe3-9159-48855e9d0dbd" xml:space="preserve">
+          <source><bpt id="613652a2-e2ec-450c-b08e-4b8b12ad8a2e">&lt;linkText&gt;</bpt>Proxy server<ept id="613652a2-e2ec-450c-b08e-4b8b12ad8a2e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="613652a2-e2ec-450c-b08e-4b8b12ad8a2e">&lt;linkText&gt;</bpt>Proxy server<ept id="613652a2-e2ec-450c-b08e-4b8b12ad8a2e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72ed41cd-4968-4985-afce-00ea29b358d1" xml:space="preserve">
+          <source>Select Use a proxy server for your LAN.</source>
+          <target state="new">Select Use a proxy server for your LAN.</target>
+        </trans-unit>
+        <trans-unit id="6a2bfca8-5fdb-4e12-9211-98995af39eaa" xml:space="preserve">
+          <source>In the Address textbox, type <bpt id="485feee5-9fe3-443c-b7be-b441114940e5">&lt;strong&gt;</bpt>gateway.zscalerone.net<ept id="485feee5-9fe3-443c-b7be-b441114940e5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Address textbox, type <bpt id="485feee5-9fe3-443c-b7be-b441114940e5">&lt;strong&gt;</bpt>gateway.zscalerone.net<ept id="485feee5-9fe3-443c-b7be-b441114940e5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98186fbd-da41-4aaf-8310-940bc9b6d020" xml:space="preserve">
+          <source>In the Port textbox, type <bpt id="989ad8da-54c0-4a2d-91a8-6be5dc7a3c45">&lt;strong&gt;</bpt>80<ept id="989ad8da-54c0-4a2d-91a8-6be5dc7a3c45">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Port textbox, type <bpt id="989ad8da-54c0-4a2d-91a8-6be5dc7a3c45">&lt;strong&gt;</bpt>80<ept id="989ad8da-54c0-4a2d-91a8-6be5dc7a3c45">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7eb3328a-04b9-4720-9131-f64f3b6ab7d7" xml:space="preserve">
+          <source>Select <bpt id="8ea54cd4-ac4f-49c0-965b-a3a93a73cb20">&lt;strong&gt;</bpt>Bypass proxy server for local addresses<ept id="8ea54cd4-ac4f-49c0-965b-a3a93a73cb20">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="8ea54cd4-ac4f-49c0-965b-a3a93a73cb20">&lt;strong&gt;</bpt>Bypass proxy server for local addresses<ept id="8ea54cd4-ac4f-49c0-965b-a3a93a73cb20">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50fa985c-9877-4dc0-bd84-3721b792bb95" xml:space="preserve">
+          <source>Click <bpt id="31f4486c-fffe-4ed5-8735-2c086d189db5">&lt;strong&gt;</bpt>OK<ept id="31f4486c-fffe-4ed5-8735-2c086d189db5">&lt;/strong&gt;</ept> to close the <bpt id="93ba6c5b-63e5-4128-978d-9856e94e9155">&lt;strong&gt;</bpt>Local Area Network (LAN) Settings<ept id="93ba6c5b-63e5-4128-978d-9856e94e9155">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Click <bpt id="31f4486c-fffe-4ed5-8735-2c086d189db5">&lt;strong&gt;</bpt>OK<ept id="31f4486c-fffe-4ed5-8735-2c086d189db5">&lt;/strong&gt;</ept> to close the <bpt id="93ba6c5b-63e5-4128-978d-9856e94e9155">&lt;strong&gt;</bpt>Local Area Network (LAN) Settings<ept id="93ba6c5b-63e5-4128-978d-9856e94e9155">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="35721098-09a7-4873-ab85-477c8cf12d3a" xml:space="preserve">
+          <source>Click <bpt id="d5cd594b-f03d-473f-b2dd-ffdd59c0be19">&lt;strong&gt;</bpt>OK<ept id="d5cd594b-f03d-473f-b2dd-ffdd59c0be19">&lt;/strong&gt;</ept> to close the <bpt id="b380b638-4ce9-4596-9eb3-088d6011e190">&lt;strong&gt;</bpt>Internet Options<ept id="b380b638-4ce9-4596-9eb3-088d6011e190">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Click <bpt id="d5cd594b-f03d-473f-b2dd-ffdd59c0be19">&lt;strong&gt;</bpt>OK<ept id="d5cd594b-f03d-473f-b2dd-ffdd59c0be19">&lt;/strong&gt;</ept> to close the <bpt id="b380b638-4ce9-4596-9eb3-088d6011e190">&lt;strong&gt;</bpt>Internet Options<ept id="b380b638-4ce9-4596-9eb3-088d6011e190">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="47e921ec-a43f-4673-a1f6-16db9368c2ff" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into ZScaler Two, they must be provisioned to ZScaler Two.</source>
+          <target state="new">In order to enable Azure AD users to log into ZScaler Two, they must be provisioned to ZScaler Two.</target>
+        </trans-unit>
+        <trans-unit id="f138b30f-eab6-431a-97cc-6faed559fa93" xml:space="preserve">
+          <source>In the case of ZScaler Two, provisioning is a manual task.</source>
+          <target state="new">In the case of ZScaler Two, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="5f670818-2db6-4ef7-9331-fd8d6c031438" xml:space="preserve">
+          <source>Log in to your <bpt id="6e7b4f89-c1cc-42f3-bcce-a38e034c4bf9">&lt;strong&gt;</bpt>Zscaler<ept id="6e7b4f89-c1cc-42f3-bcce-a38e034c4bf9">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="6e7b4f89-c1cc-42f3-bcce-a38e034c4bf9">&lt;strong&gt;</bpt>Zscaler<ept id="6e7b4f89-c1cc-42f3-bcce-a38e034c4bf9">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="081b96e3-70a1-4ea9-9d5d-8e1c020c4268" xml:space="preserve">
+          <source>Click <bpt id="eafd6015-79c4-4294-90ad-75c4883d4fda">&lt;strong&gt;</bpt>Administration<ept id="eafd6015-79c4-4294-90ad-75c4883d4fda">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="eafd6015-79c4-4294-90ad-75c4883d4fda">&lt;strong&gt;</bpt>Administration<ept id="eafd6015-79c4-4294-90ad-75c4883d4fda">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="afa53c5f-2970-4837-882b-2d417e5c04de" xml:space="preserve">
+          <source><bpt id="f6ac985a-6cc7-4de8-bd88-c13fa5f75011">&lt;linkText&gt;</bpt>Administration<ept id="f6ac985a-6cc7-4de8-bd88-c13fa5f75011">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f6ac985a-6cc7-4de8-bd88-c13fa5f75011">&lt;linkText&gt;</bpt>Administration<ept id="f6ac985a-6cc7-4de8-bd88-c13fa5f75011">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d730d46-765e-4ad3-a2b0-c4151c0b4a24" xml:space="preserve">
+          <source>Click <bpt id="c0659b87-2b8c-41be-87da-7ea83df46699">&lt;strong&gt;</bpt>User Management<ept id="c0659b87-2b8c-41be-87da-7ea83df46699">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c0659b87-2b8c-41be-87da-7ea83df46699">&lt;strong&gt;</bpt>User Management<ept id="c0659b87-2b8c-41be-87da-7ea83df46699">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc42629f-c1e5-415f-a6a7-54f44c788288" xml:space="preserve">
+          <source><bpt id="7aa86237-0606-4a56-aac0-b5332d8ef342">&lt;linkText&gt;</bpt>Add<ept id="7aa86237-0606-4a56-aac0-b5332d8ef342">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7aa86237-0606-4a56-aac0-b5332d8ef342">&lt;linkText&gt;</bpt>Add<ept id="7aa86237-0606-4a56-aac0-b5332d8ef342">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49cd481d-011b-4eb4-8689-053c4acdf3e4" xml:space="preserve">
+          <source>In the <bpt id="b8f91b52-46b0-49df-862f-97cd118ef300">&lt;strong&gt;</bpt>Users<ept id="b8f91b52-46b0-49df-862f-97cd118ef300">&lt;/strong&gt;</ept> tab, click <bpt id="bcc6f138-76ca-41fb-884e-202b67f28f22">&lt;strong&gt;</bpt>Add<ept id="bcc6f138-76ca-41fb-884e-202b67f28f22">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b8f91b52-46b0-49df-862f-97cd118ef300">&lt;strong&gt;</bpt>Users<ept id="b8f91b52-46b0-49df-862f-97cd118ef300">&lt;/strong&gt;</ept> tab, click <bpt id="bcc6f138-76ca-41fb-884e-202b67f28f22">&lt;strong&gt;</bpt>Add<ept id="bcc6f138-76ca-41fb-884e-202b67f28f22">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="569e32e2-1943-43f4-aa95-8256480c495f" xml:space="preserve">
+          <source><bpt id="89f3111a-e59d-4759-8ccc-fefbfec3517c">&lt;linkText&gt;</bpt>Add<ept id="89f3111a-e59d-4759-8ccc-fefbfec3517c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="89f3111a-e59d-4759-8ccc-fefbfec3517c">&lt;linkText&gt;</bpt>Add<ept id="89f3111a-e59d-4759-8ccc-fefbfec3517c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a40d4304-35c7-4b3b-8a27-d6c913e6c04f" xml:space="preserve">
+          <source>In the Add User section, perform the following steps:</source>
+          <target state="new">In the Add User section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="a4ad296d-ef2e-4583-9791-e923a2d417e6" xml:space="preserve">
+          <source><bpt id="06d499d0-7eb8-44fe-bf06-298707d5dfcc">&lt;linkText&gt;</bpt>Add User<ept id="06d499d0-7eb8-44fe-bf06-298707d5dfcc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06d499d0-7eb8-44fe-bf06-298707d5dfcc">&lt;linkText&gt;</bpt>Add User<ept id="06d499d0-7eb8-44fe-bf06-298707d5dfcc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="84ef5e28-f035-4401-9d70-324c73c5e26d" xml:space="preserve">
+          <source>Type the <bpt id="d4327e41-0a6f-4c5d-a16c-7b0c3ebe082c">&lt;strong&gt;</bpt>UserID<ept id="d4327e41-0a6f-4c5d-a16c-7b0c3ebe082c">&lt;/strong&gt;</ept>, <bpt id="b820d213-cbf6-4eda-b0ff-98d3159a8519">&lt;strong&gt;</bpt>User Display Name<ept id="b820d213-cbf6-4eda-b0ff-98d3159a8519">&lt;/strong&gt;</ept>, <bpt id="bd0592d7-ae4d-4b97-8f2b-f38d63ff646f">&lt;strong&gt;</bpt>Password<ept id="bd0592d7-ae4d-4b97-8f2b-f38d63ff646f">&lt;/strong&gt;</ept>, <bpt id="8d0015e6-ef24-4d86-81d8-21db3fd480ca">&lt;strong&gt;</bpt>Confirm Password<ept id="8d0015e6-ef24-4d86-81d8-21db3fd480ca">&lt;/strong&gt;</ept>, and then select <bpt id="8cd528be-a24c-4e5c-bd1c-deaa21f4e023">&lt;strong&gt;</bpt>Groups<ept id="8cd528be-a24c-4e5c-bd1c-deaa21f4e023">&lt;/strong&gt;</ept> and the <bpt id="c92d0466-d3f3-4e69-a355-3ce6b789d73d">&lt;strong&gt;</bpt>Department<ept id="c92d0466-d3f3-4e69-a355-3ce6b789d73d">&lt;/strong&gt;</ept> of a valid AAD account you want to provision.</source>
+          <target state="new">Type the <bpt id="d4327e41-0a6f-4c5d-a16c-7b0c3ebe082c">&lt;strong&gt;</bpt>UserID<ept id="d4327e41-0a6f-4c5d-a16c-7b0c3ebe082c">&lt;/strong&gt;</ept>, <bpt id="b820d213-cbf6-4eda-b0ff-98d3159a8519">&lt;strong&gt;</bpt>User Display Name<ept id="b820d213-cbf6-4eda-b0ff-98d3159a8519">&lt;/strong&gt;</ept>, <bpt id="bd0592d7-ae4d-4b97-8f2b-f38d63ff646f">&lt;strong&gt;</bpt>Password<ept id="bd0592d7-ae4d-4b97-8f2b-f38d63ff646f">&lt;/strong&gt;</ept>, <bpt id="8d0015e6-ef24-4d86-81d8-21db3fd480ca">&lt;strong&gt;</bpt>Confirm Password<ept id="8d0015e6-ef24-4d86-81d8-21db3fd480ca">&lt;/strong&gt;</ept>, and then select <bpt id="8cd528be-a24c-4e5c-bd1c-deaa21f4e023">&lt;strong&gt;</bpt>Groups<ept id="8cd528be-a24c-4e5c-bd1c-deaa21f4e023">&lt;/strong&gt;</ept> and the <bpt id="c92d0466-d3f3-4e69-a355-3ce6b789d73d">&lt;strong&gt;</bpt>Department<ept id="c92d0466-d3f3-4e69-a355-3ce6b789d73d">&lt;/strong&gt;</ept> of a valid AAD account you want to provision.</target>
+        </trans-unit>
+        <trans-unit id="f7adcd61-7c4e-40b6-816e-5b9cfa04476c" xml:space="preserve">
+          <source>Click <bpt id="a22f6d9a-bcb5-4b60-971b-1ab9c720b1a3">&lt;strong&gt;</bpt>Save<ept id="a22f6d9a-bcb5-4b60-971b-1ab9c720b1a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a22f6d9a-bcb5-4b60-971b-1ab9c720b1a3">&lt;strong&gt;</bpt>Save<ept id="a22f6d9a-bcb5-4b60-971b-1ab9c720b1a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="71250226-d4d7-4758-b8e6-2cefcb657a3b" xml:space="preserve">
+          <source>You can use any other ZScaler Two user account creation tools or APIs provided by ZScaler Two to provision AAD user accounts.</source>
+          <target state="new">You can use any other ZScaler Two user account creation tools or APIs provided by ZScaler Two to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="77226e14-5b80-4b6b-ae39-590d51c3ddad" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="86d8b56e-564e-49b8-b6b1-0bd3c090492a" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="abb72004-515e-4b7a-b646-0bb86c64d11b" xml:space="preserve">
+          <source>On the <bpt id="46e4a341-2352-4100-8ea1-4af40b2313ab">&lt;strong&gt;</bpt>ZScaler Two<ept id="46e4a341-2352-4100-8ea1-4af40b2313ab">&lt;/strong&gt;</ept> application integration page, click <bpt id="609cf70e-cb42-4b87-b4ea-110f5e2f351a">&lt;strong&gt;</bpt>Assign users<ept id="609cf70e-cb42-4b87-b4ea-110f5e2f351a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="46e4a341-2352-4100-8ea1-4af40b2313ab">&lt;strong&gt;</bpt>ZScaler Two<ept id="46e4a341-2352-4100-8ea1-4af40b2313ab">&lt;/strong&gt;</ept> application integration page, click <bpt id="609cf70e-cb42-4b87-b4ea-110f5e2f351a">&lt;strong&gt;</bpt>Assign users<ept id="609cf70e-cb42-4b87-b4ea-110f5e2f351a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="771b3769-2027-42da-be7a-739b8a7e642b" xml:space="preserve">
+          <source><bpt id="c22eba38-7dd6-487f-9dab-e1f50292fb5e">&lt;linkText&gt;</bpt>Assign Users<ept id="c22eba38-7dd6-487f-9dab-e1f50292fb5e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c22eba38-7dd6-487f-9dab-e1f50292fb5e">&lt;linkText&gt;</bpt>Assign Users<ept id="c22eba38-7dd6-487f-9dab-e1f50292fb5e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44d5918a-62f4-4488-92fa-59ff01d59201" xml:space="preserve">
+          <source>Select your test user, click <bpt id="e5070744-99f7-45bf-88d9-c64cadad16b7">&lt;strong&gt;</bpt>Assign<ept id="e5070744-99f7-45bf-88d9-c64cadad16b7">&lt;/strong&gt;</ept>, and then click <bpt id="cc5d3b6e-6335-4628-90eb-c5ed56457c3a">&lt;strong&gt;</bpt>Yes<ept id="cc5d3b6e-6335-4628-90eb-c5ed56457c3a">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="e5070744-99f7-45bf-88d9-c64cadad16b7">&lt;strong&gt;</bpt>Assign<ept id="e5070744-99f7-45bf-88d9-c64cadad16b7">&lt;/strong&gt;</ept>, and then click <bpt id="cc5d3b6e-6335-4628-90eb-c5ed56457c3a">&lt;strong&gt;</bpt>Yes<ept id="cc5d3b6e-6335-4628-90eb-c5ed56457c3a">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="3a7ef0cb-d2be-46d2-abeb-716594ba0833" xml:space="preserve">
+          <source><bpt id="35abe153-0f27-4362-a5e9-47c9b3eb5b45">&lt;linkText&gt;</bpt>Yes<ept id="35abe153-0f27-4362-a5e9-47c9b3eb5b45">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35abe153-0f27-4362-a5e9-47c9b3eb5b45">&lt;linkText&gt;</bpt>Yes<ept id="35abe153-0f27-4362-a5e9-47c9b3eb5b45">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="080282ed-3799-40bb-8843-17d72523e447" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="d1e446ef-861c-4d75-b305-896e44947f05" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="d0c6045b-2d38-4a06-86f8-1e96169b91b9">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="d0c6045b-2d38-4a06-86f8-1e96169b91b9">&lt;/linkText&gt;</ept><bpt id="d0c6045b-2d38-4a06-86f8-1e96169b91b9">&lt;title&gt;</bpt><ept id="d0c6045b-2d38-4a06-86f8-1e96169b91b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="d0c6045b-2d38-4a06-86f8-1e96169b91b9">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="d0c6045b-2d38-4a06-86f8-1e96169b91b9">&lt;/linkText&gt;</ept><bpt id="d0c6045b-2d38-4a06-86f8-1e96169b91b9">&lt;title&gt;</bpt><ept id="d0c6045b-2d38-4a06-86f8-1e96169b91b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

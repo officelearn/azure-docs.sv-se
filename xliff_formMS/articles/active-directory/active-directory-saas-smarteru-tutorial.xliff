@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="597166d7-79cb-4527-b5b2-dc8521c87895" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="597166d7-79cb-4527-b5b2-dc8521c87895" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="879ad36e-c82d-43bf-b74f-6df8a5dd3fbe">
+        <trans-unit id="893e00f3-c906-489e-ae65-eba0ce47abbe" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with SmarterU | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with SmarterU | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3d40f7e5-9fef-4b14-b3c3-a529ad735ff6" xml:space="preserve">
+          <source>Learn how to use SmarterU with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use SmarterU with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="b11aa6b4-8bf6-439d-8744-4347107df113" xml:space="preserve">
+          <source>For feedback, click <bpt id="c02cdc39-ca6a-49c9-a11b-d3ed6f9aaec2">&lt;linkText&gt;</bpt>here<ept id="c02cdc39-ca6a-49c9-a11b-d3ed6f9aaec2">&lt;/linkText&gt;</ept><bpt id="c02cdc39-ca6a-49c9-a11b-d3ed6f9aaec2">&lt;title&gt;</bpt><ept id="c02cdc39-ca6a-49c9-a11b-d3ed6f9aaec2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="c02cdc39-ca6a-49c9-a11b-d3ed6f9aaec2">&lt;linkText&gt;</bpt>here<ept id="c02cdc39-ca6a-49c9-a11b-d3ed6f9aaec2">&lt;/linkText&gt;</ept><bpt id="c02cdc39-ca6a-49c9-a11b-d3ed6f9aaec2">&lt;title&gt;</bpt><ept id="c02cdc39-ca6a-49c9-a11b-d3ed6f9aaec2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08d7b962-3920-403e-ade6-fb81a7d19c31" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and SmarterU.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and SmarterU.</target>
+        </trans-unit>
+        <trans-unit id="202ba364-ff6d-4fed-83a5-464b76192236" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="8b9f9ea5-2bb8-4ac1-801f-92886831d42a" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="ad2b9aba-7b42-4607-a7c4-21d7d749f86a" xml:space="preserve">
+          <source>A SmarterU tenant</source>
+          <target state="new">A SmarterU tenant</target>
+        </trans-unit>
+        <trans-unit id="49a8f2d1-39bf-4044-9035-af6d7f178cc2" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to SmarterU will be able to single sign into the application at your SmarterU company site (service provider initiated sign on), or using the <bpt id="e7bd8fd3-22c2-4261-af0c-55b5ec9c0876">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="e7bd8fd3-22c2-4261-af0c-55b5ec9c0876">&lt;/linkText&gt;</ept><bpt id="e7bd8fd3-22c2-4261-af0c-55b5ec9c0876">&lt;title&gt;</bpt><ept id="e7bd8fd3-22c2-4261-af0c-55b5ec9c0876">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to SmarterU will be able to single sign into the application at your SmarterU company site (service provider initiated sign on), or using the <bpt id="e7bd8fd3-22c2-4261-af0c-55b5ec9c0876">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="e7bd8fd3-22c2-4261-af0c-55b5ec9c0876">&lt;/linkText&gt;</ept><bpt id="e7bd8fd3-22c2-4261-af0c-55b5ec9c0876">&lt;title&gt;</bpt><ept id="e7bd8fd3-22c2-4261-af0c-55b5ec9c0876">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98b97f65-2a3b-4b71-964f-22a92d873237" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="b72a369e-1370-481c-a904-01c13f516b42" xml:space="preserve">
+          <source>Enabling the application integration for SmarterU</source>
+          <target state="new">Enabling the application integration for SmarterU</target>
+        </trans-unit>
+        <trans-unit id="d3c6160f-2c3c-4c64-9e31-3c8b1abfba79" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="5ddb1f42-e7f2-471d-8dd3-c10ab2ba665e" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="1e12e104-efa5-4bde-819f-cfedaee474f4" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="0a8956b3-4549-4842-b577-66564f4ae614" xml:space="preserve">
+          <source><bpt id="62b2c050-eb84-4d40-b72b-923932abd06c">&lt;linkText&gt;</bpt>Scenario<ept id="62b2c050-eb84-4d40-b72b-923932abd06c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62b2c050-eb84-4d40-b72b-923932abd06c">&lt;linkText&gt;</bpt>Scenario<ept id="62b2c050-eb84-4d40-b72b-923932abd06c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f24068a-f8e0-412b-ac3a-ce40e74c041b" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for SmarterU.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for SmarterU.</target>
+        </trans-unit>
+        <trans-unit id="91b6f155-af80-4836-b387-553681ef87de" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="d5448679-e3e3-41f8-8a59-0c9a866fcd77">&lt;strong&gt;</bpt>Active Directory<ept id="d5448679-e3e3-41f8-8a59-0c9a866fcd77">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="d5448679-e3e3-41f8-8a59-0c9a866fcd77">&lt;strong&gt;</bpt>Active Directory<ept id="d5448679-e3e3-41f8-8a59-0c9a866fcd77">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21511e87-1402-49b1-85f5-c6081f73a3f8" xml:space="preserve">
+          <source><bpt id="a501dd73-3bc1-4663-84f1-40b4dde650d7">&lt;linkText&gt;</bpt>Active Directory<ept id="a501dd73-3bc1-4663-84f1-40b4dde650d7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a501dd73-3bc1-4663-84f1-40b4dde650d7">&lt;linkText&gt;</bpt>Active Directory<ept id="a501dd73-3bc1-4663-84f1-40b4dde650d7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a895bce9-69c7-4fbc-bc36-2914d53e7520" xml:space="preserve">
+          <source>From the <bpt id="a0eeb338-c045-4f50-8b26-00d79fbcb706">&lt;strong&gt;</bpt>Directory<ept id="a0eeb338-c045-4f50-8b26-00d79fbcb706">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="a0eeb338-c045-4f50-8b26-00d79fbcb706">&lt;strong&gt;</bpt>Directory<ept id="a0eeb338-c045-4f50-8b26-00d79fbcb706">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="40accce8-606e-455d-a5ca-f99364c522ff" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="0d12b8b0-fe0c-4b61-9897-33784ff251d8">&lt;strong&gt;</bpt>Applications<ept id="0d12b8b0-fe0c-4b61-9897-33784ff251d8">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="0d12b8b0-fe0c-4b61-9897-33784ff251d8">&lt;strong&gt;</bpt>Applications<ept id="0d12b8b0-fe0c-4b61-9897-33784ff251d8">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="85a61133-6b72-4be0-b50a-6e183f463b95" xml:space="preserve">
+          <source><bpt id="08cb2049-2870-41b5-8cbe-ca5909a33195">&lt;linkText&gt;</bpt>Applications<ept id="08cb2049-2870-41b5-8cbe-ca5909a33195">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="08cb2049-2870-41b5-8cbe-ca5909a33195">&lt;linkText&gt;</bpt>Applications<ept id="08cb2049-2870-41b5-8cbe-ca5909a33195">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb80f446-344f-4ae8-ac54-0c8aea4dcf28" xml:space="preserve">
+          <source>Click <bpt id="c46eaa98-3e8b-4431-93d3-1c5289926459">&lt;strong&gt;</bpt>Add<ept id="c46eaa98-3e8b-4431-93d3-1c5289926459">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="c46eaa98-3e8b-4431-93d3-1c5289926459">&lt;strong&gt;</bpt>Add<ept id="c46eaa98-3e8b-4431-93d3-1c5289926459">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="3ddd53e0-9576-44ed-9852-3f701bf5bc3a" xml:space="preserve">
+          <source><bpt id="b003f87d-9c92-466c-be87-3f65468e5c63">&lt;linkText&gt;</bpt>Add application<ept id="b003f87d-9c92-466c-be87-3f65468e5c63">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b003f87d-9c92-466c-be87-3f65468e5c63">&lt;linkText&gt;</bpt>Add application<ept id="b003f87d-9c92-466c-be87-3f65468e5c63">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9e0bee3-925b-4d63-a96f-3dcbc4adeb2d" xml:space="preserve">
+          <source>On the <bpt id="92942199-3ae1-47a5-b839-e6efbd58849b">&lt;strong&gt;</bpt>What do you want to do<ept id="92942199-3ae1-47a5-b839-e6efbd58849b">&lt;/strong&gt;</ept> dialog, click <bpt id="dbdf525a-0cd2-4b35-996b-fb1446971a74">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="dbdf525a-0cd2-4b35-996b-fb1446971a74">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="92942199-3ae1-47a5-b839-e6efbd58849b">&lt;strong&gt;</bpt>What do you want to do<ept id="92942199-3ae1-47a5-b839-e6efbd58849b">&lt;/strong&gt;</ept> dialog, click <bpt id="dbdf525a-0cd2-4b35-996b-fb1446971a74">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="dbdf525a-0cd2-4b35-996b-fb1446971a74">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17c047db-7f0f-4edd-8e0a-a1b405fe94ee" xml:space="preserve">
+          <source><bpt id="248ed275-3dec-4214-bc22-8fea4c29c761">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="248ed275-3dec-4214-bc22-8fea4c29c761">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="248ed275-3dec-4214-bc22-8fea4c29c761">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="248ed275-3dec-4214-bc22-8fea4c29c761">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f7c1ecf-74a3-4589-b7d4-850a102b21fb" xml:space="preserve">
+          <source>In the <bpt id="f819b7c3-2a85-4cf4-973e-2d1618cca674">&lt;strong&gt;</bpt>search box<ept id="f819b7c3-2a85-4cf4-973e-2d1618cca674">&lt;/strong&gt;</ept>, type <bpt id="53705641-5fb8-4895-9b65-256d94733f0b">&lt;strong&gt;</bpt>SmarterU<ept id="53705641-5fb8-4895-9b65-256d94733f0b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="f819b7c3-2a85-4cf4-973e-2d1618cca674">&lt;strong&gt;</bpt>search box<ept id="f819b7c3-2a85-4cf4-973e-2d1618cca674">&lt;/strong&gt;</ept>, type <bpt id="53705641-5fb8-4895-9b65-256d94733f0b">&lt;strong&gt;</bpt>SmarterU<ept id="53705641-5fb8-4895-9b65-256d94733f0b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97cb8e6d-60bc-4075-97af-5f07d95d36dc" xml:space="preserve">
+          <source><bpt id="e9bc7579-c359-40b3-b125-5e6ed3a9d09e">&lt;linkText&gt;</bpt>Application fallery<ept id="e9bc7579-c359-40b3-b125-5e6ed3a9d09e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e9bc7579-c359-40b3-b125-5e6ed3a9d09e">&lt;linkText&gt;</bpt>Application fallery<ept id="e9bc7579-c359-40b3-b125-5e6ed3a9d09e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0fa5340b-7243-4534-9a09-4379b25eb0b9" xml:space="preserve">
+          <source>In the results pane, select <bpt id="a9506794-bc25-48fd-aaa4-c5fd3a3a4804">&lt;strong&gt;</bpt>SmarterU<ept id="a9506794-bc25-48fd-aaa4-c5fd3a3a4804">&lt;/strong&gt;</ept>, and then click <bpt id="01f6419b-decf-4a45-86d4-0c50cce7ff21">&lt;strong&gt;</bpt>Complete<ept id="01f6419b-decf-4a45-86d4-0c50cce7ff21">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="a9506794-bc25-48fd-aaa4-c5fd3a3a4804">&lt;strong&gt;</bpt>SmarterU<ept id="a9506794-bc25-48fd-aaa4-c5fd3a3a4804">&lt;/strong&gt;</ept>, and then click <bpt id="01f6419b-decf-4a45-86d4-0c50cce7ff21">&lt;strong&gt;</bpt>Complete<ept id="01f6419b-decf-4a45-86d4-0c50cce7ff21">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="d49a571b-7332-401e-857c-6f6500e5c924" xml:space="preserve">
+          <source><bpt id="7723e03e-2b31-47d0-87ab-65402a2b647d">&lt;linkText&gt;</bpt>SmarterU<ept id="7723e03e-2b31-47d0-87ab-65402a2b647d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7723e03e-2b31-47d0-87ab-65402a2b647d">&lt;linkText&gt;</bpt>SmarterU<ept id="7723e03e-2b31-47d0-87ab-65402a2b647d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d58ffbb-f57f-49c7-945e-3c083fd743c9" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to SmarterU with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to SmarterU with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="955374cb-be90-4ce0-a40a-992d36d22130" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="705a15c7-5dbe-4f89-ade7-fdcc480893c5">&lt;strong&gt;</bpt>SmarterU<ept id="705a15c7-5dbe-4f89-ade7-fdcc480893c5">&lt;/strong&gt;</ept> application integration page, click <bpt id="b0e152a6-48de-4307-8de7-84e1c7e75332">&lt;strong&gt;</bpt>Configure single sign-on<ept id="b0e152a6-48de-4307-8de7-84e1c7e75332">&lt;/strong&gt;</ept> to open the <bpt id="eb20ad6b-cb5d-45bb-a171-803e37f3030c">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="eb20ad6b-cb5d-45bb-a171-803e37f3030c">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="705a15c7-5dbe-4f89-ade7-fdcc480893c5">&lt;strong&gt;</bpt>SmarterU<ept id="705a15c7-5dbe-4f89-ade7-fdcc480893c5">&lt;/strong&gt;</ept> application integration page, click <bpt id="b0e152a6-48de-4307-8de7-84e1c7e75332">&lt;strong&gt;</bpt>Configure single sign-on<ept id="b0e152a6-48de-4307-8de7-84e1c7e75332">&lt;/strong&gt;</ept> to open the <bpt id="eb20ad6b-cb5d-45bb-a171-803e37f3030c">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="eb20ad6b-cb5d-45bb-a171-803e37f3030c">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="8f1e6c23-ede9-4065-babe-79fd279a5a4c" xml:space="preserve">
+          <source><bpt id="fe255515-258f-49c2-8cc7-4f2120ea4ded">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="fe255515-258f-49c2-8cc7-4f2120ea4ded">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe255515-258f-49c2-8cc7-4f2120ea4ded">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="fe255515-258f-49c2-8cc7-4f2120ea4ded">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64fa90ac-f115-4225-8ce9-f1dc0ca56f46" xml:space="preserve">
+          <source>On the <bpt id="ad8407f7-a994-40f7-b490-8f579459f18d">&lt;strong&gt;</bpt>How would you like users to sign on to SmarterU<ept id="ad8407f7-a994-40f7-b490-8f579459f18d">&lt;/strong&gt;</ept> page, select <bpt id="357f691b-a9ad-4fea-890b-723d1b9ab8e0">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="357f691b-a9ad-4fea-890b-723d1b9ab8e0">&lt;/strong&gt;</ept>, and then click <bpt id="6c643c94-52bc-4988-aaaa-29d166a8f7ed">&lt;strong&gt;</bpt>Next<ept id="6c643c94-52bc-4988-aaaa-29d166a8f7ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ad8407f7-a994-40f7-b490-8f579459f18d">&lt;strong&gt;</bpt>How would you like users to sign on to SmarterU<ept id="ad8407f7-a994-40f7-b490-8f579459f18d">&lt;/strong&gt;</ept> page, select <bpt id="357f691b-a9ad-4fea-890b-723d1b9ab8e0">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="357f691b-a9ad-4fea-890b-723d1b9ab8e0">&lt;/strong&gt;</ept>, and then click <bpt id="6c643c94-52bc-4988-aaaa-29d166a8f7ed">&lt;strong&gt;</bpt>Next<ept id="6c643c94-52bc-4988-aaaa-29d166a8f7ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="299059a4-9f5e-48fb-aa84-180bbff04d34" xml:space="preserve">
+          <source><bpt id="aec737e5-0a70-480c-9c83-e46870eaab95">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="aec737e5-0a70-480c-9c83-e46870eaab95">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aec737e5-0a70-480c-9c83-e46870eaab95">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="aec737e5-0a70-480c-9c83-e46870eaab95">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0902080d-65b8-476c-9fbb-8132c9fc8446" xml:space="preserve">
+          <source>On the <bpt id="2272d2c7-ae4a-4f63-b4f7-278489234112">&lt;strong&gt;</bpt>Configure single sign-on at SmarterU<ept id="2272d2c7-ae4a-4f63-b4f7-278489234112">&lt;/strong&gt;</ept> page, to download your metadata, click <bpt id="cda492a8-ba92-4981-9d2f-02877295cb8e">&lt;strong&gt;</bpt>Download metadata<ept id="cda492a8-ba92-4981-9d2f-02877295cb8e">&lt;/strong&gt;</ept>, and then the data file locally as <bpt id="1cf8f7f1-08da-4b2b-b5be-d728d7d2b96f">&lt;strong&gt;</bpt>c:\\SmarterUMetaData.cer<ept id="1cf8f7f1-08da-4b2b-b5be-d728d7d2b96f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="2272d2c7-ae4a-4f63-b4f7-278489234112">&lt;strong&gt;</bpt>Configure single sign-on at SmarterU<ept id="2272d2c7-ae4a-4f63-b4f7-278489234112">&lt;/strong&gt;</ept> page, to download your metadata, click <bpt id="cda492a8-ba92-4981-9d2f-02877295cb8e">&lt;strong&gt;</bpt>Download metadata<ept id="cda492a8-ba92-4981-9d2f-02877295cb8e">&lt;/strong&gt;</ept>, and then the data file locally as <bpt id="1cf8f7f1-08da-4b2b-b5be-d728d7d2b96f">&lt;strong&gt;</bpt>c:\\SmarterUMetaData.cer<ept id="1cf8f7f1-08da-4b2b-b5be-d728d7d2b96f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61e8ee9b-8482-443c-973a-8fbba15f5f59" xml:space="preserve">
+          <source><bpt id="c8d5739c-cd38-466b-9e17-1f0eebad26c5">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="c8d5739c-cd38-466b-9e17-1f0eebad26c5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c8d5739c-cd38-466b-9e17-1f0eebad26c5">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="c8d5739c-cd38-466b-9e17-1f0eebad26c5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a50f5c08-13bc-4c07-9b1a-100b398062c5" xml:space="preserve">
+          <source>In a different web browser window, log into your SmarterU company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your SmarterU company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="fba101fb-743f-4531-beed-8f7464acdc67" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="ab5c073e-3a04-4f7f-9069-aa4eed6f9f6b">&lt;strong&gt;</bpt>Account Settings<ept id="ab5c073e-3a04-4f7f-9069-aa4eed6f9f6b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="ab5c073e-3a04-4f7f-9069-aa4eed6f9f6b">&lt;strong&gt;</bpt>Account Settings<ept id="ab5c073e-3a04-4f7f-9069-aa4eed6f9f6b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1634e1fe-a6e4-4d56-ab3d-7955da305576" xml:space="preserve">
+          <source><bpt id="f03f0a47-6605-4318-ab4c-f21a7798ab04">&lt;linkText&gt;</bpt>Account Settings<ept id="f03f0a47-6605-4318-ab4c-f21a7798ab04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f03f0a47-6605-4318-ab4c-f21a7798ab04">&lt;linkText&gt;</bpt>Account Settings<ept id="f03f0a47-6605-4318-ab4c-f21a7798ab04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b18344e0-0c48-411a-b0c2-46456d1e5cad" xml:space="preserve">
+          <source>On the account configuration page, perform the following steps:</source>
+          <target state="new">On the account configuration page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="a48ee060-8700-4ce7-aad7-f528572a3016" xml:space="preserve">
+          <source><bpt id="cf112348-307a-47cf-a84a-bb956ca50186">&lt;linkText&gt;</bpt>External Authorization<ept id="cf112348-307a-47cf-a84a-bb956ca50186">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf112348-307a-47cf-a84a-bb956ca50186">&lt;linkText&gt;</bpt>External Authorization<ept id="cf112348-307a-47cf-a84a-bb956ca50186">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="105b51fd-ab71-46d2-955f-7d740db3d260" xml:space="preserve">
+          <source>Select <bpt id="98725956-e8bb-4d05-92e6-05d9a884c7df">&lt;strong&gt;</bpt>Enable External Authorization<ept id="98725956-e8bb-4d05-92e6-05d9a884c7df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="98725956-e8bb-4d05-92e6-05d9a884c7df">&lt;strong&gt;</bpt>Enable External Authorization<ept id="98725956-e8bb-4d05-92e6-05d9a884c7df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63909427-d662-4a6f-86b2-10da306aabfb" xml:space="preserve">
+          <source>In the <bpt id="34dbef10-a5cb-4624-acde-b4ffda8a4006">&lt;strong&gt;</bpt>Master Login Control<ept id="34dbef10-a5cb-4624-acde-b4ffda8a4006">&lt;/strong&gt;</ept> section, select the <bpt id="349c17fc-0d55-4744-9660-095231b84391">&lt;strong&gt;</bpt>SmarterU<ept id="349c17fc-0d55-4744-9660-095231b84391">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the <bpt id="34dbef10-a5cb-4624-acde-b4ffda8a4006">&lt;strong&gt;</bpt>Master Login Control<ept id="34dbef10-a5cb-4624-acde-b4ffda8a4006">&lt;/strong&gt;</ept> section, select the <bpt id="349c17fc-0d55-4744-9660-095231b84391">&lt;strong&gt;</bpt>SmarterU<ept id="349c17fc-0d55-4744-9660-095231b84391">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="cc2764f7-9839-4a32-872b-9158ef8d7018" xml:space="preserve">
+          <source>In the <bpt id="7775de06-6026-4a00-9589-9396dcae8c0a">&lt;strong&gt;</bpt>User Default Login<ept id="7775de06-6026-4a00-9589-9396dcae8c0a">&lt;/strong&gt;</ept> section, select the <bpt id="669cc00b-078f-4144-9478-a3a66b9c669d">&lt;strong&gt;</bpt>SmarterU<ept id="669cc00b-078f-4144-9478-a3a66b9c669d">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the <bpt id="7775de06-6026-4a00-9589-9396dcae8c0a">&lt;strong&gt;</bpt>User Default Login<ept id="7775de06-6026-4a00-9589-9396dcae8c0a">&lt;/strong&gt;</ept> section, select the <bpt id="669cc00b-078f-4144-9478-a3a66b9c669d">&lt;strong&gt;</bpt>SmarterU<ept id="669cc00b-078f-4144-9478-a3a66b9c669d">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2bf2d4d1-ec0e-4b18-a310-ee3a8dd7e273" xml:space="preserve">
+          <source>Select <bpt id="fd70c6ca-4063-4ecc-a90f-d7137fe2ef05">&lt;strong&gt;</bpt>Enable Okta<ept id="fd70c6ca-4063-4ecc-a90f-d7137fe2ef05">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="fd70c6ca-4063-4ecc-a90f-d7137fe2ef05">&lt;strong&gt;</bpt>Enable Okta<ept id="fd70c6ca-4063-4ecc-a90f-d7137fe2ef05">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc7a6d9f-791f-4d92-b474-762a13ab23ae" xml:space="preserve">
+          <source>Copy the content of the downloaded metadata file, and then paste it into the <bpt id="89e9a9e7-a071-4dde-ba8d-88e129953a97">&lt;strong&gt;</bpt>Okta Metadata<ept id="89e9a9e7-a071-4dde-ba8d-88e129953a97">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Copy the content of the downloaded metadata file, and then paste it into the <bpt id="89e9a9e7-a071-4dde-ba8d-88e129953a97">&lt;strong&gt;</bpt>Okta Metadata<ept id="89e9a9e7-a071-4dde-ba8d-88e129953a97">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="eda31b38-098d-4c3f-9984-9c3c992e4052" xml:space="preserve">
+          <source>Click <bpt id="42a5e576-19fc-4a92-9ecf-c11b9763e9bb">&lt;strong&gt;</bpt>Save<ept id="42a5e576-19fc-4a92-9ecf-c11b9763e9bb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="42a5e576-19fc-4a92-9ecf-c11b9763e9bb">&lt;strong&gt;</bpt>Save<ept id="42a5e576-19fc-4a92-9ecf-c11b9763e9bb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8dc11027-736b-43d5-a475-2a2be15aa27a" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="27d344b4-bc22-4bbb-a20f-79ebac252264">&lt;strong&gt;</bpt>Complete<ept id="27d344b4-bc22-4bbb-a20f-79ebac252264">&lt;/strong&gt;</ept> to close the <bpt id="e65b4a61-f0dd-4d9c-a29b-1b81e1a9be55">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="e65b4a61-f0dd-4d9c-a29b-1b81e1a9be55">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="27d344b4-bc22-4bbb-a20f-79ebac252264">&lt;strong&gt;</bpt>Complete<ept id="27d344b4-bc22-4bbb-a20f-79ebac252264">&lt;/strong&gt;</ept> to close the <bpt id="e65b4a61-f0dd-4d9c-a29b-1b81e1a9be55">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="e65b4a61-f0dd-4d9c-a29b-1b81e1a9be55">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="6ae16d2c-cea7-4bca-9ddb-203f63f9d802" xml:space="preserve">
+          <source><bpt id="228e9fe8-0032-4476-adb4-32fe797949d0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="228e9fe8-0032-4476-adb4-32fe797949d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="228e9fe8-0032-4476-adb4-32fe797949d0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="228e9fe8-0032-4476-adb4-32fe797949d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6afbfd2-1a44-435d-a676-7a0b838b808c" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into SmarterU, they must be provisioned into SmarterU.</source>
+          <target state="new">In order to enable Azure AD users to log into SmarterU, they must be provisioned into SmarterU.</target>
+        </trans-unit>
+        <trans-unit id="a2640c2e-29dd-446d-9e8f-029dead587a1" xml:space="preserve">
+          <source>In the case of SmarterU, provisioning is a manual task.</source>
+          <target state="new">In the case of SmarterU, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="e1158b31-f1e4-4f7e-a7fd-fb3efd5e53cd" xml:space="preserve">
+          <source>Log in to your <bpt id="8ddf1515-a1c4-41cd-a15b-50445e3ea65b">&lt;strong&gt;</bpt>SmarterU<ept id="8ddf1515-a1c4-41cd-a15b-50445e3ea65b">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="8ddf1515-a1c4-41cd-a15b-50445e3ea65b">&lt;strong&gt;</bpt>SmarterU<ept id="8ddf1515-a1c4-41cd-a15b-50445e3ea65b">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="ae11460c-02fc-48e3-abb5-39658aad5d29" xml:space="preserve">
+          <source>Go to <bpt id="9c3915bb-92ae-4128-af11-130543ba8e38">&lt;strong&gt;</bpt>Users<ept id="9c3915bb-92ae-4128-af11-130543ba8e38">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="9c3915bb-92ae-4128-af11-130543ba8e38">&lt;strong&gt;</bpt>Users<ept id="9c3915bb-92ae-4128-af11-130543ba8e38">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8821164d-cecd-470b-85e0-8f145dcc70f2" xml:space="preserve">
+          <source>In the user section, perform the following steps:</source>
+          <target state="new">In the user section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="fdaf3f91-5f38-4077-99da-1bdea44ea0c8" xml:space="preserve">
+          <source><bpt id="07f9ecdf-70f8-445c-a77b-77edd443abb1">&lt;linkText&gt;</bpt>New User<ept id="07f9ecdf-70f8-445c-a77b-77edd443abb1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="07f9ecdf-70f8-445c-a77b-77edd443abb1">&lt;linkText&gt;</bpt>New User<ept id="07f9ecdf-70f8-445c-a77b-77edd443abb1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e79546cb-9533-431b-83cc-f7866f6a5fc1" xml:space="preserve">
+          <source>Click <bpt id="9c0ce1c6-8ddf-47d9-bc71-06fd33e00a3e">&lt;strong&gt;</bpt>+User<ept id="9c0ce1c6-8ddf-47d9-bc71-06fd33e00a3e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9c0ce1c6-8ddf-47d9-bc71-06fd33e00a3e">&lt;strong&gt;</bpt>+User<ept id="9c0ce1c6-8ddf-47d9-bc71-06fd33e00a3e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e48d7a64-e7ca-4933-9cff-a7e5cc2c97d2" xml:space="preserve">
+          <source>Type the related attribute values of the Azure AD user account into the following textboxes: <bpt id="1efb1d62-1a24-4a13-9dc7-15746de2d7dd">&lt;strong&gt;</bpt>Primary Email<ept id="1efb1d62-1a24-4a13-9dc7-15746de2d7dd">&lt;/strong&gt;</ept>, <bpt id="76b95895-2429-49e6-b9b6-4c7d4a12b70e">&lt;strong&gt;</bpt>Employee ID<ept id="76b95895-2429-49e6-b9b6-4c7d4a12b70e">&lt;/strong&gt;</ept>, <bpt id="54de86a1-a0d7-47f3-a2e1-d56ae1f70568">&lt;strong&gt;</bpt>Password<ept id="54de86a1-a0d7-47f3-a2e1-d56ae1f70568">&lt;/strong&gt;</ept>, <bpt id="a59a9a73-4184-4c15-9017-8fded8c1481b">&lt;strong&gt;</bpt>Verify Password<ept id="a59a9a73-4184-4c15-9017-8fded8c1481b">&lt;/strong&gt;</ept>, <bpt id="d6af9427-c5e9-430c-a8e3-a0f288ff249b">&lt;strong&gt;</bpt>Given Name<ept id="d6af9427-c5e9-430c-a8e3-a0f288ff249b">&lt;/strong&gt;</ept>, <bpt id="1bbfaa33-e800-4754-8f40-e552e5527cd1">&lt;strong&gt;</bpt>Surname<ept id="1bbfaa33-e800-4754-8f40-e552e5527cd1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type the related attribute values of the Azure AD user account into the following textboxes: <bpt id="1efb1d62-1a24-4a13-9dc7-15746de2d7dd">&lt;strong&gt;</bpt>Primary Email<ept id="1efb1d62-1a24-4a13-9dc7-15746de2d7dd">&lt;/strong&gt;</ept>, <bpt id="76b95895-2429-49e6-b9b6-4c7d4a12b70e">&lt;strong&gt;</bpt>Employee ID<ept id="76b95895-2429-49e6-b9b6-4c7d4a12b70e">&lt;/strong&gt;</ept>, <bpt id="54de86a1-a0d7-47f3-a2e1-d56ae1f70568">&lt;strong&gt;</bpt>Password<ept id="54de86a1-a0d7-47f3-a2e1-d56ae1f70568">&lt;/strong&gt;</ept>, <bpt id="a59a9a73-4184-4c15-9017-8fded8c1481b">&lt;strong&gt;</bpt>Verify Password<ept id="a59a9a73-4184-4c15-9017-8fded8c1481b">&lt;/strong&gt;</ept>, <bpt id="d6af9427-c5e9-430c-a8e3-a0f288ff249b">&lt;strong&gt;</bpt>Given Name<ept id="d6af9427-c5e9-430c-a8e3-a0f288ff249b">&lt;/strong&gt;</ept>, <bpt id="1bbfaa33-e800-4754-8f40-e552e5527cd1">&lt;strong&gt;</bpt>Surname<ept id="1bbfaa33-e800-4754-8f40-e552e5527cd1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad4f3c46-94cb-41e3-9686-c6695ee7485e" xml:space="preserve">
+          <source>Click <bpt id="1ea54909-0689-491d-905d-9b579ecd94f4">&lt;strong&gt;</bpt>Active<ept id="1ea54909-0689-491d-905d-9b579ecd94f4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1ea54909-0689-491d-905d-9b579ecd94f4">&lt;strong&gt;</bpt>Active<ept id="1ea54909-0689-491d-905d-9b579ecd94f4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aacf3bbd-9c19-4860-9250-943eaa30e0cb" xml:space="preserve">
+          <source>Click <bpt id="b0dfe626-c78c-4eb2-a455-cbd3491c7104">&lt;strong&gt;</bpt>Save<ept id="b0dfe626-c78c-4eb2-a455-cbd3491c7104">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b0dfe626-c78c-4eb2-a455-cbd3491c7104">&lt;strong&gt;</bpt>Save<ept id="b0dfe626-c78c-4eb2-a455-cbd3491c7104">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="42f1c43d-e127-4ce0-befb-a4e598c6a7e4" xml:space="preserve">
+          <source>You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision AAD user accounts.</source>
+          <target state="new">You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="69e828eb-270d-4298-9bd8-35dda57adac5" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="0f6dc4cb-6401-4f5c-9552-6549ca1c5fc4" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="67b4f4ce-3071-437e-bfd4-01909d42abaf" xml:space="preserve">
+          <source>On the <bpt id="60c349c4-e245-4296-9111-904b2a06627a">&lt;strong&gt;</bpt>SmarterU **application integration page, click **Assign users<ept id="60c349c4-e245-4296-9111-904b2a06627a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="60c349c4-e245-4296-9111-904b2a06627a">&lt;strong&gt;</bpt>SmarterU **application integration page, click **Assign users<ept id="60c349c4-e245-4296-9111-904b2a06627a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68bb0331-037a-4f24-ae56-6225d47168d6" xml:space="preserve">
+          <source><bpt id="2e3fb201-2737-4b46-8023-5ca681c59afc">&lt;linkText&gt;</bpt>Assign Users<ept id="2e3fb201-2737-4b46-8023-5ca681c59afc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e3fb201-2737-4b46-8023-5ca681c59afc">&lt;linkText&gt;</bpt>Assign Users<ept id="2e3fb201-2737-4b46-8023-5ca681c59afc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff4906db-aa19-43ee-849b-ab180698128b" xml:space="preserve">
+          <source>Select your test user, click <bpt id="7ed429da-f729-4fe0-b0d4-41277c71b160">&lt;strong&gt;</bpt>Assign<ept id="7ed429da-f729-4fe0-b0d4-41277c71b160">&lt;/strong&gt;</ept>, and then click <bpt id="d6407bb8-2f4a-4dbc-84a6-d3b94f0dc9d7">&lt;strong&gt;</bpt>Yes<ept id="d6407bb8-2f4a-4dbc-84a6-d3b94f0dc9d7">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="7ed429da-f729-4fe0-b0d4-41277c71b160">&lt;strong&gt;</bpt>Assign<ept id="7ed429da-f729-4fe0-b0d4-41277c71b160">&lt;/strong&gt;</ept>, and then click <bpt id="d6407bb8-2f4a-4dbc-84a6-d3b94f0dc9d7">&lt;strong&gt;</bpt>Yes<ept id="d6407bb8-2f4a-4dbc-84a6-d3b94f0dc9d7">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="844c4f2a-56c2-4546-b4f2-db6c9eb381cc" xml:space="preserve">
+          <source><bpt id="f5401ebf-5f87-4f82-976e-1d6a727503f6">&lt;linkText&gt;</bpt>Yes<ept id="f5401ebf-5f87-4f82-976e-1d6a727503f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f5401ebf-5f87-4f82-976e-1d6a727503f6">&lt;linkText&gt;</bpt>Yes<ept id="f5401ebf-5f87-4f82-976e-1d6a727503f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b24c4e0a-9239-428b-929e-96eb105f05bc" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="99bf084a-21fa-47f7-9d95-d297ffc5227d" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="38eac0f1-404c-4acd-a428-2511fde1f08b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="38eac0f1-404c-4acd-a428-2511fde1f08b">&lt;/linkText&gt;</ept><bpt id="38eac0f1-404c-4acd-a428-2511fde1f08b">&lt;title&gt;</bpt><ept id="38eac0f1-404c-4acd-a428-2511fde1f08b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="38eac0f1-404c-4acd-a428-2511fde1f08b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="38eac0f1-404c-4acd-a428-2511fde1f08b">&lt;/linkText&gt;</ept><bpt id="38eac0f1-404c-4acd-a428-2511fde1f08b">&lt;title&gt;</bpt><ept id="38eac0f1-404c-4acd-a428-2511fde1f08b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2d7dfc67-1c96-4070-9c7b-113058e6ac8b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2d7dfc67-1c96-4070-9c7b-113058e6ac8b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b0f55137-899d-4c50-a48e-386835564bb6">
+        <trans-unit id="c97af605-0df6-44ac-b9e0-e10ad8b8ef53" xml:space="preserve">
+          <source>Manage access control records in StorSimple | Microsoft Azure</source>
+          <target state="new">Manage access control records in StorSimple | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2e236c40-481b-4129-9cf9-e2e5c4104b55" xml:space="preserve">
+          <source>Describes how to use access control records (ACRs) to determine which hosts can connect to a volume on the StorSimple device.</source>
+          <target state="new">Describes how to use access control records (ACRs) to determine which hosts can connect to a volume on the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="512bdc2a-6bd7-40af-adc2-386d7c9ecbdb" xml:space="preserve">
+          <source>Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple device.</source>
+          <target state="new">Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="096bd5c8-d33c-4cbe-8689-146f4ed53746" xml:space="preserve">
+          <source>ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts.</source>
+          <target state="new">ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts.</target>
+        </trans-unit>
+        <trans-unit id="86f66745-3e24-466b-ba2d-d9d0649ce4d3" xml:space="preserve">
+          <source>When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name and if there is a match, then the connection is established.</source>
+          <target state="new">When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name and if there is a match, then the connection is established.</target>
+        </trans-unit>
+        <trans-unit id="3f9c4782-0e36-4aed-a5c0-aaead9ff3fbf" xml:space="preserve">
+          <source>The access control records section on the <bpt id="cd8ddd0a-a7d8-47b5-af37-0a96a6faa20f">&lt;strong&gt;</bpt>Configure<ept id="cd8ddd0a-a7d8-47b5-af37-0a96a6faa20f">&lt;/strong&gt;</ept> page displays all the access control records with the corresponding IQNs of the hosts.</source>
+          <target state="new">The access control records section on the <bpt id="cd8ddd0a-a7d8-47b5-af37-0a96a6faa20f">&lt;strong&gt;</bpt>Configure<ept id="cd8ddd0a-a7d8-47b5-af37-0a96a6faa20f">&lt;/strong&gt;</ept> page displays all the access control records with the corresponding IQNs of the hosts.</target>
+        </trans-unit>
+        <trans-unit id="07ebe2e9-a703-45f3-88b0-33e48eba60bb" xml:space="preserve">
+          <source>This tutorial explains the following common ACR-related tasks:</source>
+          <target state="new">This tutorial explains the following common ACR-related tasks:</target>
+        </trans-unit>
+        <trans-unit id="92f9fbec-92cc-4140-8c80-680bc6e5d1b3" xml:space="preserve">
+          <source>Add an access control record </source>
+          <target state="new">Add an access control record </target>
+        </trans-unit>
+        <trans-unit id="69b64120-68f8-41d0-8342-e93bd9c09684" xml:space="preserve">
+          <source>Edit an access control record </source>
+          <target state="new">Edit an access control record </target>
+        </trans-unit>
+        <trans-unit id="197b1020-2cda-4ba3-8e63-639eb14e8a38" xml:space="preserve">
+          <source>Delete an access control record </source>
+          <target state="new">Delete an access control record </target>
+        </trans-unit>
+        <trans-unit id="d393ce2f-6ffb-47ec-af46-b5a7de995ecb" xml:space="preserve">
+          <source>When assigning an ACR to a volume, take care that the volume is not concurrently accessed by more than one non-clustered host because this could corrupt the volume.</source>
+          <target state="new">When assigning an ACR to a volume, take care that the volume is not concurrently accessed by more than one non-clustered host because this could corrupt the volume.</target>
+        </trans-unit>
+        <trans-unit id="a4b55787-6124-416d-898b-f5dea57d97c0" xml:space="preserve">
+          <source>When deleting an ACR from a volume, make sure that the corresponding host is not accessing the volume because the deletion could result in a read-write disruption.</source>
+          <target state="new">When deleting an ACR from a volume, make sure that the corresponding host is not accessing the volume because the deletion could result in a read-write disruption.</target>
+        </trans-unit>
+        <trans-unit id="3c3c4b11-2d31-4884-883e-cfe6d4af4698" xml:space="preserve">
+          <source>You use the StorSimple Manager service <bpt id="bf0fabaa-962a-4b45-ad09-899a0f67296e">&lt;strong&gt;</bpt>Configure<ept id="bf0fabaa-962a-4b45-ad09-899a0f67296e">&lt;/strong&gt;</ept> page to add ACRs.</source>
+          <target state="new">You use the StorSimple Manager service <bpt id="bf0fabaa-962a-4b45-ad09-899a0f67296e">&lt;strong&gt;</bpt>Configure<ept id="bf0fabaa-962a-4b45-ad09-899a0f67296e">&lt;/strong&gt;</ept> page to add ACRs.</target>
+        </trans-unit>
+        <trans-unit id="575de87b-ec06-47a0-816c-e970822dcebd" xml:space="preserve">
+          <source>Typically, you will associate one ACR with one volume.</source>
+          <target state="new">Typically, you will associate one ACR with one volume.</target>
+        </trans-unit>
+        <trans-unit id="d8bc0f6f-97c2-48d4-8865-66eb59cdccb1" xml:space="preserve">
+          <source>Perform the following steps to add an ACR.</source>
+          <target state="new">Perform the following steps to add an ACR.</target>
+        </trans-unit>
+        <trans-unit id="69f094f2-c0c0-423a-a7b4-6ebcc0b9f180" xml:space="preserve">
+          <source>On the service landing page, select your service, double-click the service name, and then click the <bpt id="449e3b63-ccb2-4b70-add9-c1a9c5b27589">&lt;strong&gt;</bpt>Configure<ept id="449e3b63-ccb2-4b70-add9-c1a9c5b27589">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the service landing page, select your service, double-click the service name, and then click the <bpt id="449e3b63-ccb2-4b70-add9-c1a9c5b27589">&lt;strong&gt;</bpt>Configure<ept id="449e3b63-ccb2-4b70-add9-c1a9c5b27589">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="7bd936b9-adae-4ad3-b58b-d2c8144796cf" xml:space="preserve">
+          <source>In the tabular listing under <bpt id="9ec02734-20aa-47f5-9200-993c1bf237c3">&lt;strong&gt;</bpt>Access control records<ept id="9ec02734-20aa-47f5-9200-993c1bf237c3">&lt;/strong&gt;</ept>, supply a <bpt id="074ad0c4-cf61-4498-a1b8-728441ed9b6a">&lt;strong&gt;</bpt>Name<ept id="074ad0c4-cf61-4498-a1b8-728441ed9b6a">&lt;/strong&gt;</ept> for your ACR.</source>
+          <target state="new">In the tabular listing under <bpt id="9ec02734-20aa-47f5-9200-993c1bf237c3">&lt;strong&gt;</bpt>Access control records<ept id="9ec02734-20aa-47f5-9200-993c1bf237c3">&lt;/strong&gt;</ept>, supply a <bpt id="074ad0c4-cf61-4498-a1b8-728441ed9b6a">&lt;strong&gt;</bpt>Name<ept id="074ad0c4-cf61-4498-a1b8-728441ed9b6a">&lt;/strong&gt;</ept> for your ACR.</target>
+        </trans-unit>
+        <trans-unit id="b5a6f0b5-eb85-4747-8f70-d96b959cee7e" xml:space="preserve">
+          <source>Provide the IQN name of your Windows host under <bpt id="18b5e339-67fe-495b-bccf-654918ad9a87">&lt;strong&gt;</bpt>iSCSI Initiator Name<ept id="18b5e339-67fe-495b-bccf-654918ad9a87">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Provide the IQN name of your Windows host under <bpt id="18b5e339-67fe-495b-bccf-654918ad9a87">&lt;strong&gt;</bpt>iSCSI Initiator Name<ept id="18b5e339-67fe-495b-bccf-654918ad9a87">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e08b3083-a60e-485f-8d67-76d22eb29ace" xml:space="preserve">
+          <source>To get the IQN of your Windows Server host, do the following:</source>
+          <target state="new">To get the IQN of your Windows Server host, do the following:</target>
+        </trans-unit>
+        <trans-unit id="6044ff1a-cbe4-4654-9a6c-0a63babbb455" xml:space="preserve">
+          <source>Start the Microsoft iSCSI initiator on your Windows host.</source>
+          <target state="new">Start the Microsoft iSCSI initiator on your Windows host.</target>
+        </trans-unit>
+        <trans-unit id="bd228422-c2ee-40b1-95e8-f58a5d4c0e29" xml:space="preserve">
+          <source>In the iSCSI Initiator Properties window, on the Configuration tab, select and copy the string from the Initiator Name field.</source>
+          <target state="new">In the iSCSI Initiator Properties window, on the Configuration tab, select and copy the string from the Initiator Name field.</target>
+        </trans-unit>
+        <trans-unit id="a98a4535-da4c-433d-a1ae-32c3db916b21" xml:space="preserve">
+          <source>Paste this string in the <bpt id="0b57a762-d706-49ec-98c7-3705e7097ddd">&lt;strong&gt;</bpt>iSCSI Initiator Name<ept id="0b57a762-d706-49ec-98c7-3705e7097ddd">&lt;/strong&gt;</ept> field on the ACRs table in the Management Portal.</source>
+          <target state="new">Paste this string in the <bpt id="0b57a762-d706-49ec-98c7-3705e7097ddd">&lt;strong&gt;</bpt>iSCSI Initiator Name<ept id="0b57a762-d706-49ec-98c7-3705e7097ddd">&lt;/strong&gt;</ept> field on the ACRs table in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="14fed9e6-868a-4011-8901-6c5dfeec7d0f" xml:space="preserve">
+          <source>Click <bpt id="40ea02d0-cbc7-4bac-b2c9-7caba10ede95">&lt;strong&gt;</bpt>Save<ept id="40ea02d0-cbc7-4bac-b2c9-7caba10ede95">&lt;/strong&gt;</ept> to save the newly created ACR.</source>
+          <target state="new">Click <bpt id="40ea02d0-cbc7-4bac-b2c9-7caba10ede95">&lt;strong&gt;</bpt>Save<ept id="40ea02d0-cbc7-4bac-b2c9-7caba10ede95">&lt;/strong&gt;</ept> to save the newly created ACR.</target>
+        </trans-unit>
+        <trans-unit id="1d1c33b2-6321-4b2f-b9ae-cfa41250d930" xml:space="preserve">
+          <source>The tabular listing will be updated to reflect this addition.</source>
+          <target state="new">The tabular listing will be updated to reflect this addition.</target>
+        </trans-unit>
+        <trans-unit id="84337dd3-943f-4613-b0a6-4ae2fedbd24b" xml:space="preserve">
+          <source>You use the <bpt id="6b7e20b3-b4c9-410b-a628-c4bb065db1c3">&lt;strong&gt;</bpt>Configure<ept id="6b7e20b3-b4c9-410b-a628-c4bb065db1c3">&lt;/strong&gt;</ept> page in the Management Portal to edit ACRs.</source>
+          <target state="new">You use the <bpt id="6b7e20b3-b4c9-410b-a628-c4bb065db1c3">&lt;strong&gt;</bpt>Configure<ept id="6b7e20b3-b4c9-410b-a628-c4bb065db1c3">&lt;/strong&gt;</ept> page in the Management Portal to edit ACRs.</target>
+        </trans-unit>
+        <trans-unit id="2e62dd8b-26a7-46e1-85b8-cb73e36f9fe6" xml:space="preserve">
+          <source>You can modify only those ACRs that are currently not in use.</source>
+          <target state="new">You can modify only those ACRs that are currently not in use.</target>
+        </trans-unit>
+        <trans-unit id="6f55aa8a-e9d3-431b-97cc-0b35ff8003b9" xml:space="preserve">
+          <source>To edit an ACR associated with a volume that is currently in use, you must first take the volume offline.</source>
+          <target state="new">To edit an ACR associated with a volume that is currently in use, you must first take the volume offline.</target>
+        </trans-unit>
+        <trans-unit id="c2f65c33-5477-4d44-830d-778085d1d0ba" xml:space="preserve">
+          <source>Perform the following steps to edit an ACR.</source>
+          <target state="new">Perform the following steps to edit an ACR.</target>
+        </trans-unit>
+        <trans-unit id="061f26b5-7c15-427e-aaf4-4a580b2dcfe6" xml:space="preserve">
+          <source>On the service landing page, select your service, double-click the service name, and then click the <bpt id="84054c21-d989-452e-bb5e-9fb14f5827e5">&lt;strong&gt;</bpt>Configure<ept id="84054c21-d989-452e-bb5e-9fb14f5827e5">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the service landing page, select your service, double-click the service name, and then click the <bpt id="84054c21-d989-452e-bb5e-9fb14f5827e5">&lt;strong&gt;</bpt>Configure<ept id="84054c21-d989-452e-bb5e-9fb14f5827e5">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="9f01aa75-d1d5-436b-9b7a-8a7c91448703" xml:space="preserve">
+          <source>In the tabular listing of the access control records, hover over the ACR that you wish to modify.</source>
+          <target state="new">In the tabular listing of the access control records, hover over the ACR that you wish to modify.</target>
+        </trans-unit>
+        <trans-unit id="f2600312-e657-4a1e-bf69-d85cd71085f6" xml:space="preserve">
+          <source>Supply a new name and/or IQN for the ACR.</source>
+          <target state="new">Supply a new name and/or IQN for the ACR.</target>
+        </trans-unit>
+        <trans-unit id="1ef9ff54-8d95-4559-8330-c9b2e88bd6f9" xml:space="preserve">
+          <source>Click <bpt id="0ec77c4f-8063-45aa-b561-75471c35d429">&lt;strong&gt;</bpt>Save<ept id="0ec77c4f-8063-45aa-b561-75471c35d429">&lt;/strong&gt;</ept> to save the modified ACR.</source>
+          <target state="new">Click <bpt id="0ec77c4f-8063-45aa-b561-75471c35d429">&lt;strong&gt;</bpt>Save<ept id="0ec77c4f-8063-45aa-b561-75471c35d429">&lt;/strong&gt;</ept> to save the modified ACR.</target>
+        </trans-unit>
+        <trans-unit id="30882c58-c9fd-4b92-800a-2986933bda2d" xml:space="preserve">
+          <source>The tabular listing will be updated to reflect this change.</source>
+          <target state="new">The tabular listing will be updated to reflect this change.</target>
+        </trans-unit>
+        <trans-unit id="a04ae764-31a2-4a09-93fa-3459c5795835" xml:space="preserve">
+          <source>You use the <bpt id="447a5144-7f51-4ee8-bc04-4772f28a6fb2">&lt;strong&gt;</bpt>Configure<ept id="447a5144-7f51-4ee8-bc04-4772f28a6fb2">&lt;/strong&gt;</ept> page in the Management Portal to delete ACRs.</source>
+          <target state="new">You use the <bpt id="447a5144-7f51-4ee8-bc04-4772f28a6fb2">&lt;strong&gt;</bpt>Configure<ept id="447a5144-7f51-4ee8-bc04-4772f28a6fb2">&lt;/strong&gt;</ept> page in the Management Portal to delete ACRs.</target>
+        </trans-unit>
+        <trans-unit id="c8d1f81c-8025-4290-b834-47aeb9b50660" xml:space="preserve">
+          <source>You can delete only those ACRs that are currently not in use.</source>
+          <target state="new">You can delete only those ACRs that are currently not in use.</target>
+        </trans-unit>
+        <trans-unit id="b13a8355-c6c8-4307-9ce1-8e34eacbb9aa" xml:space="preserve">
+          <source>To delete an ACR associated with a volume that is currently in use, you must first take the volume offline.</source>
+          <target state="new">To delete an ACR associated with a volume that is currently in use, you must first take the volume offline.</target>
+        </trans-unit>
+        <trans-unit id="4e7e70ed-0b9b-4705-8041-14aa72809da7" xml:space="preserve">
+          <source>Perform the following steps to delete an access control record.</source>
+          <target state="new">Perform the following steps to delete an access control record.</target>
+        </trans-unit>
+        <trans-unit id="4af9902d-c6f5-42d0-9583-3892795492f9" xml:space="preserve">
+          <source>On the service landing page, select your service, double-click the service name, and then click the <bpt id="f3021e72-4d81-47a7-bb8c-603b879a5fdd">&lt;strong&gt;</bpt>Configure<ept id="f3021e72-4d81-47a7-bb8c-603b879a5fdd">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the service landing page, select your service, double-click the service name, and then click the <bpt id="f3021e72-4d81-47a7-bb8c-603b879a5fdd">&lt;strong&gt;</bpt>Configure<ept id="f3021e72-4d81-47a7-bb8c-603b879a5fdd">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="df06461d-a463-4994-b6d5-1170021d77e3" xml:space="preserve">
+          <source>In the tabular listing of the access control records (ACRs), hover over the ACR that you wish to delete.</source>
+          <target state="new">In the tabular listing of the access control records (ACRs), hover over the ACR that you wish to delete.</target>
+        </trans-unit>
+        <trans-unit id="c603b4ce-7305-4966-aaf1-e637eddec11a" xml:space="preserve">
+          <source>A delete icon (<bpt id="9553d8a1-8423-459f-9b78-6aa91fe516b0">&lt;strong&gt;</bpt>x<ept id="9553d8a1-8423-459f-9b78-6aa91fe516b0">&lt;/strong&gt;</ept>) will appear in the extreme right column for the ACR that you select.</source>
+          <target state="new">A delete icon (<bpt id="9553d8a1-8423-459f-9b78-6aa91fe516b0">&lt;strong&gt;</bpt>x<ept id="9553d8a1-8423-459f-9b78-6aa91fe516b0">&lt;/strong&gt;</ept>) will appear in the extreme right column for the ACR that you select.</target>
+        </trans-unit>
+        <trans-unit id="857387e3-f164-4f69-abe3-75edc4d8c8c0" xml:space="preserve">
+          <source>Click the <bpt id="cd1ab243-b243-424d-a4af-827334778ff5">&lt;strong&gt;</bpt>x<ept id="cd1ab243-b243-424d-a4af-827334778ff5">&lt;/strong&gt;</ept> icon to delete the ACR.</source>
+          <target state="new">Click the <bpt id="cd1ab243-b243-424d-a4af-827334778ff5">&lt;strong&gt;</bpt>x<ept id="cd1ab243-b243-424d-a4af-827334778ff5">&lt;/strong&gt;</ept> icon to delete the ACR.</target>
+        </trans-unit>
+        <trans-unit id="5cc7a5b0-133c-48a8-8601-ddfb0a5e58e6" xml:space="preserve">
+          <source>When prompted for confirmation, click <bpt id="1c546e15-f67a-432e-8d82-367cbc13591f">&lt;strong&gt;</bpt>YES<ept id="1c546e15-f67a-432e-8d82-367cbc13591f">&lt;/strong&gt;</ept> to continue with the deletion.</source>
+          <target state="new">When prompted for confirmation, click <bpt id="1c546e15-f67a-432e-8d82-367cbc13591f">&lt;strong&gt;</bpt>YES<ept id="1c546e15-f67a-432e-8d82-367cbc13591f">&lt;/strong&gt;</ept> to continue with the deletion.</target>
+        </trans-unit>
+        <trans-unit id="3c515c15-91ee-49c3-8651-52b773d4fe50" xml:space="preserve">
+          <source>The tabular listing will be updated to reflect the deletion.</source>
+          <target state="new">The tabular listing will be updated to reflect the deletion.</target>
+        </trans-unit>
+        <trans-unit id="22f9f5bb-9cd8-471c-9e60-598223c0be1e" xml:space="preserve">
+          <source>Read more about <bpt id="81118c93-b105-4289-92aa-9d10d56727f9">&lt;linkText&gt;</bpt>managing StorSimple volumes<ept id="81118c93-b105-4289-92aa-9d10d56727f9">&lt;/linkText&gt;</ept><bpt id="81118c93-b105-4289-92aa-9d10d56727f9">&lt;title&gt;</bpt><ept id="81118c93-b105-4289-92aa-9d10d56727f9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more about <bpt id="81118c93-b105-4289-92aa-9d10d56727f9">&lt;linkText&gt;</bpt>managing StorSimple volumes<ept id="81118c93-b105-4289-92aa-9d10d56727f9">&lt;/linkText&gt;</ept><bpt id="81118c93-b105-4289-92aa-9d10d56727f9">&lt;title&gt;</bpt><ept id="81118c93-b105-4289-92aa-9d10d56727f9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

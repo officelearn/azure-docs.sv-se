@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4de7c7b4-893f-485e-a514-9ddc586b747a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4de7c7b4-893f-485e-a514-9ddc586b747a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f3af9011-d231-46ba-8abc-f69e6791960e">
+        <trans-unit id="dd150874-0757-4f0a-8754-ea7499469fc0" xml:space="preserve">
+          <source>Follow these steps to create a new mobile service.</source>
+          <target state="new">Follow these steps to create a new mobile service.</target>
+        </trans-unit>
+        <trans-unit id="cbb453ce-1f3c-4b09-a9e5-d52fedc0f79f" xml:space="preserve">
+          <source>Log into the <bpt id="da734fa2-3988-4e59-ac22-8bbfed74cdf9">&lt;linkText&gt;</bpt>Management Portal<ept id="da734fa2-3988-4e59-ac22-8bbfed74cdf9">&lt;/linkText&gt;</ept><bpt id="da734fa2-3988-4e59-ac22-8bbfed74cdf9">&lt;title&gt;</bpt><ept id="da734fa2-3988-4e59-ac22-8bbfed74cdf9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log into the <bpt id="da734fa2-3988-4e59-ac22-8bbfed74cdf9">&lt;linkText&gt;</bpt>Management Portal<ept id="da734fa2-3988-4e59-ac22-8bbfed74cdf9">&lt;/linkText&gt;</ept><bpt id="da734fa2-3988-4e59-ac22-8bbfed74cdf9">&lt;title&gt;</bpt><ept id="da734fa2-3988-4e59-ac22-8bbfed74cdf9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2516a847-1f62-4d03-8b02-4a7f9ad812b4" xml:space="preserve">
+          <source>At the bottom of the navigation pane, click <bpt id="f66acc64-13c4-4f17-a988-b532c52a537f">&lt;strong&gt;</bpt>+NEW<ept id="f66acc64-13c4-4f17-a988-b532c52a537f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the navigation pane, click <bpt id="f66acc64-13c4-4f17-a988-b532c52a537f">&lt;strong&gt;</bpt>+NEW<ept id="f66acc64-13c4-4f17-a988-b532c52a537f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4bd39c03-5d17-40cb-8b6f-aaacd955cf21" xml:space="preserve">
+          <source>Expand <bpt id="7a09798e-d098-4cbd-b052-8d58f4517679">&lt;strong&gt;</bpt>Compute<ept id="7a09798e-d098-4cbd-b052-8d58f4517679">&lt;/strong&gt;</ept> and <bpt id="f79a6599-aea9-46fa-b461-9c78cda7ec92">&lt;strong&gt;</bpt>Mobile Service<ept id="f79a6599-aea9-46fa-b461-9c78cda7ec92">&lt;/strong&gt;</ept>, then click <bpt id="bbc917f6-655a-49e5-bf15-5ad3e5c1abe4">&lt;strong&gt;</bpt>Create<ept id="bbc917f6-655a-49e5-bf15-5ad3e5c1abe4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand <bpt id="7a09798e-d098-4cbd-b052-8d58f4517679">&lt;strong&gt;</bpt>Compute<ept id="7a09798e-d098-4cbd-b052-8d58f4517679">&lt;/strong&gt;</ept> and <bpt id="f79a6599-aea9-46fa-b461-9c78cda7ec92">&lt;strong&gt;</bpt>Mobile Service<ept id="f79a6599-aea9-46fa-b461-9c78cda7ec92">&lt;/strong&gt;</ept>, then click <bpt id="bbc917f6-655a-49e5-bf15-5ad3e5c1abe4">&lt;strong&gt;</bpt>Create<ept id="bbc917f6-655a-49e5-bf15-5ad3e5c1abe4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae5cf402-5479-4404-bc98-4bfe0c4ca77b" xml:space="preserve">
+          <source><bpt id="66958b1e-04b6-4498-8356-73230ee15fc3">&lt;linkText&gt;</bpt><ept id="66958b1e-04b6-4498-8356-73230ee15fc3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="66958b1e-04b6-4498-8356-73230ee15fc3">&lt;linkText&gt;</bpt><ept id="66958b1e-04b6-4498-8356-73230ee15fc3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8be84f88-a3b0-4d3d-a87b-804a15a6d17b" xml:space="preserve">
+          <source>This displays the <bpt id="2da88a90-8916-48e6-95de-0ed7650f8ed5">&lt;strong&gt;</bpt>Create a Mobile Service<ept id="2da88a90-8916-48e6-95de-0ed7650f8ed5">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">This displays the <bpt id="2da88a90-8916-48e6-95de-0ed7650f8ed5">&lt;strong&gt;</bpt>Create a Mobile Service<ept id="2da88a90-8916-48e6-95de-0ed7650f8ed5">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="33ac41c9-58e9-4938-a793-6d4d7976dd64" xml:space="preserve">
+          <source>In the <bpt id="ca829f02-1a8f-43da-8907-64ac173b941c">&lt;strong&gt;</bpt>Create a Mobile Service<ept id="ca829f02-1a8f-43da-8907-64ac173b941c">&lt;/strong&gt;</ept> page, select <bpt id="84c013c4-c7f6-4019-9e98-c17a655a8257">&lt;strong&gt;</bpt>Create a free 20 MB SQL Database<ept id="84c013c4-c7f6-4019-9e98-c17a655a8257">&lt;/strong&gt;</ept>, select <bpt id="16791073-5771-4c19-a8b8-350f5d0daf7b">&lt;strong&gt;</bpt>.NET<ept id="16791073-5771-4c19-a8b8-350f5d0daf7b">&lt;/strong&gt;</ept> runtime, then type a subdomain name for the new mobile service in the <bpt id="39042c0f-c205-424d-9b2e-3b573b9f14df">&lt;strong&gt;</bpt>URL<ept id="39042c0f-c205-424d-9b2e-3b573b9f14df">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the <bpt id="ca829f02-1a8f-43da-8907-64ac173b941c">&lt;strong&gt;</bpt>Create a Mobile Service<ept id="ca829f02-1a8f-43da-8907-64ac173b941c">&lt;/strong&gt;</ept> page, select <bpt id="84c013c4-c7f6-4019-9e98-c17a655a8257">&lt;strong&gt;</bpt>Create a free 20 MB SQL Database<ept id="84c013c4-c7f6-4019-9e98-c17a655a8257">&lt;/strong&gt;</ept>, select <bpt id="16791073-5771-4c19-a8b8-350f5d0daf7b">&lt;strong&gt;</bpt>.NET<ept id="16791073-5771-4c19-a8b8-350f5d0daf7b">&lt;/strong&gt;</ept> runtime, then type a subdomain name for the new mobile service in the <bpt id="39042c0f-c205-424d-9b2e-3b573b9f14df">&lt;strong&gt;</bpt>URL<ept id="39042c0f-c205-424d-9b2e-3b573b9f14df">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="b7dd527f-6028-48db-87cc-e3d59bb72d40" xml:space="preserve">
+          <source>Click the right arrow button to go to the next page.</source>
+          <target state="new">Click the right arrow button to go to the next page.</target>
+        </trans-unit>
+        <trans-unit id="573921ac-d18e-4fee-a714-2d9045ccd869" xml:space="preserve">
+          <source><bpt id="a5fb0cae-e274-4d86-a7ca-042bc2f63bca">&lt;linkText&gt;</bpt><ept id="a5fb0cae-e274-4d86-a7ca-042bc2f63bca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a5fb0cae-e274-4d86-a7ca-042bc2f63bca">&lt;linkText&gt;</bpt><ept id="a5fb0cae-e274-4d86-a7ca-042bc2f63bca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb696693-3218-43d7-9051-5b991d63d610" xml:space="preserve">
+          <source>This displays the <bpt id="840d1731-503e-4f80-9758-614dbc886564">&lt;strong&gt;</bpt>Specify database settings<ept id="840d1731-503e-4f80-9758-614dbc886564">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">This displays the <bpt id="840d1731-503e-4f80-9758-614dbc886564">&lt;strong&gt;</bpt>Specify database settings<ept id="840d1731-503e-4f80-9758-614dbc886564">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="412c0039-6ec9-4655-82d0-64674cf9fe23" xml:space="preserve">
+          <source>As part of this tutorial, you create a new SQL Database instance and server.</source>
+          <target state="new">As part of this tutorial, you create a new SQL Database instance and server.</target>
+        </trans-unit>
+        <trans-unit id="ac208c5a-2c58-4165-9c5d-76868bda24ef" xml:space="preserve">
+          <source>You can reuse this new database and administer it as you would any other SQL Database instance.</source>
+          <target state="new">You can reuse this new database and administer it as you would any other SQL Database instance.</target>
+        </trans-unit>
+        <trans-unit id="10e6a418-720b-496c-879e-0bd9a0ddf479" xml:space="preserve">
+          <source>If you already have a database in the same region as the new mobile service, you can instead choose <bpt id="7b743978-c3a3-4026-bdc3-5fc6e2bd3530">&lt;strong&gt;</bpt>Use existing Database<ept id="7b743978-c3a3-4026-bdc3-5fc6e2bd3530">&lt;/strong&gt;</ept> and then select that database.</source>
+          <target state="new">If you already have a database in the same region as the new mobile service, you can instead choose <bpt id="7b743978-c3a3-4026-bdc3-5fc6e2bd3530">&lt;strong&gt;</bpt>Use existing Database<ept id="7b743978-c3a3-4026-bdc3-5fc6e2bd3530">&lt;/strong&gt;</ept> and then select that database.</target>
+        </trans-unit>
+        <trans-unit id="cef04dfe-ba71-492a-a063-7cd03e4ada49" xml:space="preserve">
+          <source>The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</source>
+          <target state="new">The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</target>
+        </trans-unit>
+        <trans-unit id="d5951c26-969b-4c73-9ada-4792ac02e793" xml:space="preserve">
+          <source>In <bpt id="d7961d6d-e752-4eaa-b5c1-d05b73a5304f">&lt;strong&gt;</bpt>Name<ept id="d7961d6d-e752-4eaa-b5c1-d05b73a5304f">&lt;/strong&gt;</ept>, type the name of the new database, then type <bpt id="b8f8b7ce-aa50-486c-8bba-c53c9ed8a995">&lt;strong&gt;</bpt>Login name<ept id="b8f8b7ce-aa50-486c-8bba-c53c9ed8a995">&lt;/strong&gt;</ept>, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.</source>
+          <target state="new">In <bpt id="d7961d6d-e752-4eaa-b5c1-d05b73a5304f">&lt;strong&gt;</bpt>Name<ept id="d7961d6d-e752-4eaa-b5c1-d05b73a5304f">&lt;/strong&gt;</ept>, type the name of the new database, then type <bpt id="b8f8b7ce-aa50-486c-8bba-c53c9ed8a995">&lt;strong&gt;</bpt>Login name<ept id="b8f8b7ce-aa50-486c-8bba-c53c9ed8a995">&lt;/strong&gt;</ept>, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.</target>
+        </trans-unit>
+        <trans-unit id="64954798-e990-47a8-a065-784cf80a4121" xml:space="preserve">
+          <source><bpt id="c123f2a7-dd2a-49a7-aa7e-a5db7d89b260">&lt;linkText&gt;</bpt><ept id="c123f2a7-dd2a-49a7-aa7e-a5db7d89b260">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c123f2a7-dd2a-49a7-aa7e-a5db7d89b260">&lt;linkText&gt;</bpt><ept id="c123f2a7-dd2a-49a7-aa7e-a5db7d89b260">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39ecb76d-dce3-4367-9975-722a53005a63" xml:space="preserve">
+          <source>You have now created a new mobile service that can be used by your mobile apps.</source>
+          <target state="new">You have now created a new mobile service that can be used by your mobile apps.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9dce3204-ef2c-4ba2-b3c6-8e2446c94586" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9dce3204-ef2c-4ba2-b3c6-8e2446c94586" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e6558111-6f12-48db-810b-aa59d2dc9932">
+        <trans-unit id="bb90889a-9d10-4b69-ab6f-7dbc61748c55" xml:space="preserve">
+          <source>Open Visual Studio 2015 or Visual Studio 2013.</source>
+          <target state="new">Open Visual Studio 2015 or Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="bc73e55d-96a5-48ce-be81-294c350033e7" xml:space="preserve">
+          <source>Select <bpt id="01fd650b-9d33-4646-974c-fd48d446d36d">&lt;strong&gt;</bpt>File &gt; New &gt; Project<ept id="01fd650b-9d33-4646-974c-fd48d446d36d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="01fd650b-9d33-4646-974c-fd48d446d36d">&lt;strong&gt;</bpt>File &gt; New &gt; Project<ept id="01fd650b-9d33-4646-974c-fd48d446d36d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58df4804-f561-49b3-9911-228ba1a6bcaf" xml:space="preserve">
+          <source>Select the <bpt id="f75725ae-d80b-4cff-80e6-0458f4673aac">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="f75725ae-d80b-4cff-80e6-0458f4673aac">&lt;/strong&gt;</ept> template.</source>
+          <target state="new">Select the <bpt id="f75725ae-d80b-4cff-80e6-0458f4673aac">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="f75725ae-d80b-4cff-80e6-0458f4673aac">&lt;/strong&gt;</ept> template.</target>
+        </trans-unit>
+        <trans-unit id="dde98fd3-05ec-4877-ad00-d7bf90c4150f" xml:space="preserve">
+          <source>Make sure that the <bpt id="b919e613-b62b-4b88-ad17-ee86c027cc54">&lt;strong&gt;</bpt>Add Application Insights to Project<ept id="b919e613-b62b-4b88-ad17-ee86c027cc54">&lt;/strong&gt;</ept> check box is cleared.</source>
+          <target state="new">Make sure that the <bpt id="b919e613-b62b-4b88-ad17-ee86c027cc54">&lt;strong&gt;</bpt>Add Application Insights to Project<ept id="b919e613-b62b-4b88-ad17-ee86c027cc54">&lt;/strong&gt;</ept> check box is cleared.</target>
+        </trans-unit>
+        <trans-unit id="576a68f3-9914-463f-8761-e4a011d69dbb" xml:space="preserve">
+          <source>Enter a name for the project.</source>
+          <target state="new">Enter a name for the project.</target>
+        </trans-unit>
+        <trans-unit id="f1d3f4f8-aa66-437d-9cff-8a539d0ebf68" xml:space="preserve">
+          <source><bpt id="74c5a974-22d4-4db8-8462-4794493c850c">&lt;linkText&gt;</bpt><ept id="74c5a974-22d4-4db8-8462-4794493c850c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="74c5a974-22d4-4db8-8462-4794493c850c">&lt;linkText&gt;</bpt><ept id="74c5a974-22d4-4db8-8462-4794493c850c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af0fd2c2-1a39-4b84-8bda-e0419e6c3fae" xml:space="preserve">
+          <source>Click <bpt id="cca46812-f869-413d-a76d-0f1ec6eb0e2a">&lt;strong&gt;</bpt>OK<ept id="cca46812-f869-413d-a76d-0f1ec6eb0e2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="cca46812-f869-413d-a76d-0f1ec6eb0e2a">&lt;strong&gt;</bpt>OK<ept id="cca46812-f869-413d-a76d-0f1ec6eb0e2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb98f9ed-787a-48b8-96fb-867000586c12" xml:space="preserve">
+          <source>In the <bpt id="aadb9206-e7d6-4b96-8ef7-27aa12d7bab9">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="aadb9206-e7d6-4b96-8ef7-27aa12d7bab9">&lt;/strong&gt;</ept> dialog, select the <bpt id="d00f61ed-c7cd-4050-8de7-a50414d3d751">&lt;strong&gt;</bpt>Azure API App<ept id="d00f61ed-c7cd-4050-8de7-a50414d3d751">&lt;/strong&gt;</ept> project template.</source>
+          <target state="new">In the <bpt id="aadb9206-e7d6-4b96-8ef7-27aa12d7bab9">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="aadb9206-e7d6-4b96-8ef7-27aa12d7bab9">&lt;/strong&gt;</ept> dialog, select the <bpt id="d00f61ed-c7cd-4050-8de7-a50414d3d751">&lt;strong&gt;</bpt>Azure API App<ept id="d00f61ed-c7cd-4050-8de7-a50414d3d751">&lt;/strong&gt;</ept> project template.</target>
+        </trans-unit>
+        <trans-unit id="c3e37459-cef7-49a1-b214-734e21afe5f5" xml:space="preserve">
+          <source><bpt id="16902797-163b-4bfa-8849-d9fa96c4e042">&lt;linkText&gt;</bpt><ept id="16902797-163b-4bfa-8849-d9fa96c4e042">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16902797-163b-4bfa-8849-d9fa96c4e042">&lt;linkText&gt;</bpt><ept id="16902797-163b-4bfa-8849-d9fa96c4e042">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c462f452-36e8-419f-acd0-79bd0a2b88d5" xml:space="preserve">
+          <source>Click <bpt id="f153fd7b-6aef-4031-8c18-6d8fdc256fc3">&lt;strong&gt;</bpt>OK<ept id="f153fd7b-6aef-4031-8c18-6d8fdc256fc3">&lt;/strong&gt;</ept> to generate the project.</source>
+          <target state="new">Click <bpt id="f153fd7b-6aef-4031-8c18-6d8fdc256fc3">&lt;strong&gt;</bpt>OK<ept id="f153fd7b-6aef-4031-8c18-6d8fdc256fc3">&lt;/strong&gt;</ept> to generate the project.</target>
+        </trans-unit>
+        <trans-unit id="be18ce9a-b38b-4970-9a07-55d6dd10ad43" xml:space="preserve">
+          <source>Visual Studio creates a Web API project configured for deployment as an API app.</source>
+          <target state="new">Visual Studio creates a Web API project configured for deployment as an API app.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

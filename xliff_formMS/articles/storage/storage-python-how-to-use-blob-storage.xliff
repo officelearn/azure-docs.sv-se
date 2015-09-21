@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="acef4751-fa68-475b-a448-24f11fb208c4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="acef4751-fa68-475b-a448-24f11fb208c4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="40f9152c-0562-4f30-b134-7b277184ce38">
+        <trans-unit id="05274749-8127-44d1-b9e3-d41b92414f95" xml:space="preserve">
+          <source>How to use Azure Blob storage from Python | Microsoft Azure</source>
+          <target state="new">How to use Azure Blob storage from Python | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="910f9005-0dac-461a-8a51-64e407882c49" xml:space="preserve">
+          <source>Learn how to use the Azure Blob storage from Python to upload, list, download, and delete blobs.</source>
+          <target state="new">Learn how to use the Azure Blob storage from Python to upload, list, download, and delete blobs.</target>
+        </trans-unit>
+        <trans-unit id="d68ceb8a-920e-4c5f-bb7d-d8c03c899eb6" xml:space="preserve">
+          <source><bpt id="2054d24e-5eca-4bed-b3e0-a255bcd12372">&lt;token href="../../includes/storage-selector-blob-include.md"&gt;</bpt><ept id="2054d24e-5eca-4bed-b3e0-a255bcd12372">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2054d24e-5eca-4bed-b3e0-a255bcd12372">&lt;token href="../../includes/storage-selector-blob-include.md"&gt;</bpt><ept id="2054d24e-5eca-4bed-b3e0-a255bcd12372">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a22b1146-d6e1-423e-aa72-1b998a0876b7" xml:space="preserve">
+          <source>This article will show you how to perform common scenarios using Blob storage.</source>
+          <target state="new">This article will show you how to perform common scenarios using Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="555fdced-0172-4892-b60e-58a43ec07ecf" xml:space="preserve">
+          <source>The samples are written in Python and use the <bpt id="6a3ae29a-f7ed-462e-ad62-874185032b0a">&lt;linkText&gt;</bpt>Python Azure Storage package<ept id="6a3ae29a-f7ed-462e-ad62-874185032b0a">&lt;/linkText&gt;</ept><bpt id="6a3ae29a-f7ed-462e-ad62-874185032b0a">&lt;title&gt;</bpt><ept id="6a3ae29a-f7ed-462e-ad62-874185032b0a">&lt;/title&gt;</ept>.</source>
+          <target state="new">The samples are written in Python and use the <bpt id="6a3ae29a-f7ed-462e-ad62-874185032b0a">&lt;linkText&gt;</bpt>Python Azure Storage package<ept id="6a3ae29a-f7ed-462e-ad62-874185032b0a">&lt;/linkText&gt;</ept><bpt id="6a3ae29a-f7ed-462e-ad62-874185032b0a">&lt;title&gt;</bpt><ept id="6a3ae29a-f7ed-462e-ad62-874185032b0a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dfb38f35-a64d-4120-b3d5-977899c051fc" xml:space="preserve">
+          <source>The scenarios covered include uploading, listing,
+downloading, and deleting blobs.</source>
+          <target state="new">The scenarios covered include uploading, listing,
+downloading, and deleting blobs.</target>
+        </trans-unit>
+        <trans-unit id="6382a6a1-0713-45e6-bf08-19a26edc7719" xml:space="preserve">
+          <source><bpt id="33e27e80-4c63-4e9f-8513-e5e52fde846a">&lt;token href="../../includes/storage-blob-concepts-include.md"&gt;</bpt><ept id="33e27e80-4c63-4e9f-8513-e5e52fde846a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="33e27e80-4c63-4e9f-8513-e5e52fde846a">&lt;token href="../../includes/storage-blob-concepts-include.md"&gt;</bpt><ept id="33e27e80-4c63-4e9f-8513-e5e52fde846a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1efae681-0f6f-498f-acff-8c351d4694fc" xml:space="preserve">
+          <source><bpt id="87859c67-96ed-483f-b47c-487557c37f0b">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="87859c67-96ed-483f-b47c-487557c37f0b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="87859c67-96ed-483f-b47c-487557c37f0b">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="87859c67-96ed-483f-b47c-487557c37f0b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4cad3f5-2d91-4482-8d22-a989ee817267" xml:space="preserve">
+          <source>If you need to install Python or the <bpt id="0b45e5c9-91a0-4291-a566-8aa5e6813f1f">&lt;linkText&gt;</bpt>Python Azure package<ept id="0b45e5c9-91a0-4291-a566-8aa5e6813f1f">&lt;/linkText&gt;</ept><bpt id="0b45e5c9-91a0-4291-a566-8aa5e6813f1f">&lt;title&gt;</bpt><ept id="0b45e5c9-91a0-4291-a566-8aa5e6813f1f">&lt;/title&gt;</ept>, see the <bpt id="55c807a1-9ba7-489a-9aed-2a92433b172d">&lt;linkText&gt;</bpt>Python Installation Guide<ept id="55c807a1-9ba7-489a-9aed-2a92433b172d">&lt;/linkText&gt;</ept><bpt id="55c807a1-9ba7-489a-9aed-2a92433b172d">&lt;title&gt;</bpt><ept id="55c807a1-9ba7-489a-9aed-2a92433b172d">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need to install Python or the <bpt id="0b45e5c9-91a0-4291-a566-8aa5e6813f1f">&lt;linkText&gt;</bpt>Python Azure package<ept id="0b45e5c9-91a0-4291-a566-8aa5e6813f1f">&lt;/linkText&gt;</ept><bpt id="0b45e5c9-91a0-4291-a566-8aa5e6813f1f">&lt;title&gt;</bpt><ept id="0b45e5c9-91a0-4291-a566-8aa5e6813f1f">&lt;/title&gt;</ept>, see the <bpt id="55c807a1-9ba7-489a-9aed-2a92433b172d">&lt;linkText&gt;</bpt>Python Installation Guide<ept id="55c807a1-9ba7-489a-9aed-2a92433b172d">&lt;/linkText&gt;</ept><bpt id="55c807a1-9ba7-489a-9aed-2a92433b172d">&lt;title&gt;</bpt><ept id="55c807a1-9ba7-489a-9aed-2a92433b172d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5dc7e019-602c-42ac-b5e8-3b6e59f7c737" xml:space="preserve">
+          <source>The <bpt id="a1daffd4-dee3-47e9-8d5a-19f6afe87482">&lt;strong&gt;</bpt>BlobService<ept id="a1daffd4-dee3-47e9-8d5a-19f6afe87482">&lt;/strong&gt;</ept> object lets you work with containers and blobs.</source>
+          <target state="new">The <bpt id="a1daffd4-dee3-47e9-8d5a-19f6afe87482">&lt;strong&gt;</bpt>BlobService<ept id="a1daffd4-dee3-47e9-8d5a-19f6afe87482">&lt;/strong&gt;</ept> object lets you work with containers and blobs.</target>
+        </trans-unit>
+        <trans-unit id="0afbbc7f-cce0-4798-b99c-269fd0330f5d" xml:space="preserve">
+          <source>The
+following code creates a <bpt id="fce54268-08d3-4028-83b6-6eeebe49e064">&lt;strong&gt;</bpt>BlobService<ept id="fce54268-08d3-4028-83b6-6eeebe49e064">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">The
+following code creates a <bpt id="fce54268-08d3-4028-83b6-6eeebe49e064">&lt;strong&gt;</bpt>BlobService<ept id="fce54268-08d3-4028-83b6-6eeebe49e064">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="147db2f4-31d5-429d-9de1-54cee08d89f6" xml:space="preserve">
+          <source>Add the following near
+the top of any Python file in which you wish to programmatically access Azure Storage.</source>
+          <target state="new">Add the following near
+the top of any Python file in which you wish to programmatically access Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="5a066f34-d60b-4d85-84cb-12ed491c32d3" xml:space="preserve">
+          <source>The following code creates a <bpt id="e9fad790-eb14-4b85-9193-8c177f00e796">&lt;strong&gt;</bpt>BlobService<ept id="e9fad790-eb14-4b85-9193-8c177f00e796">&lt;/strong&gt;</ept> object using the storage account name and account key.</source>
+          <target state="new">The following code creates a <bpt id="e9fad790-eb14-4b85-9193-8c177f00e796">&lt;strong&gt;</bpt>BlobService<ept id="e9fad790-eb14-4b85-9193-8c177f00e796">&lt;/strong&gt;</ept> object using the storage account name and account key.</target>
+        </trans-unit>
+        <trans-unit id="cb09e42e-c63d-4199-9e6f-150d99edc510" xml:space="preserve">
+          <source>Replace 'myaccount' and 'mykey' with the real account and key.</source>
+          <target state="new">Replace 'myaccount' and 'mykey' with the real account and key.</target>
+        </trans-unit>
+        <trans-unit id="b909389c-a98f-428e-a144-441d3a75da9f" xml:space="preserve">
+          <source><bpt id="6208ea41-9b8c-4d62-8626-81c59509c061">&lt;token href="../../includes/storage-container-naming-rules-include.md"&gt;</bpt><ept id="6208ea41-9b8c-4d62-8626-81c59509c061">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6208ea41-9b8c-4d62-8626-81c59509c061">&lt;token href="../../includes/storage-container-naming-rules-include.md"&gt;</bpt><ept id="6208ea41-9b8c-4d62-8626-81c59509c061">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="520116f1-a364-4327-8625-ca8397a23748" xml:space="preserve">
+          <source>In the following code example, you can use a <bpt id="1e552a96-f7f4-48d8-a548-d4f265116534">&lt;strong&gt;</bpt>BlobService<ept id="1e552a96-f7f4-48d8-a548-d4f265116534">&lt;/strong&gt;</ept> object to create the container if it doesn't exist.</source>
+          <target state="new">In the following code example, you can use a <bpt id="1e552a96-f7f4-48d8-a548-d4f265116534">&lt;strong&gt;</bpt>BlobService<ept id="1e552a96-f7f4-48d8-a548-d4f265116534">&lt;/strong&gt;</ept> object to create the container if it doesn't exist.</target>
+        </trans-unit>
+        <trans-unit id="1edecc2e-508e-4a26-a472-24432306853c" xml:space="preserve">
+          <source>By default, the new container is private, so you must specify your storage access key (as you did earlier) to download blobs from this container.</source>
+          <target state="new">By default, the new container is private, so you must specify your storage access key (as you did earlier) to download blobs from this container.</target>
+        </trans-unit>
+        <trans-unit id="fd522064-8b07-445e-a8db-9c83df2138b0" xml:space="preserve">
+          <source>If you want to make the files within the container available to everyone, you can create the container and pass the public access level using the following code.</source>
+          <target state="new">If you want to make the files within the container available to everyone, you can create the container and pass the public access level using the following code.</target>
+        </trans-unit>
+        <trans-unit id="387dcafd-e5ef-4d2a-a32e-aba760133fc8" xml:space="preserve">
+          <source>Alternatively, you can modify a container after you have created it using the following code.</source>
+          <target state="new">Alternatively, you can modify a container after you have created it using the following code.</target>
+        </trans-unit>
+        <trans-unit id="7e7a0205-c26d-425e-bb00-0ac39d674d8a" xml:space="preserve">
+          <source>After this change, anyone on the Internet can see blobs in a public
+container, but only you can modify or delete them.</source>
+          <target state="new">After this change, anyone on the Internet can see blobs in a public
+container, but only you can modify or delete them.</target>
+        </trans-unit>
+        <trans-unit id="a19b91ee-b291-4065-8d7d-fb1a0556782e" xml:space="preserve">
+          <source>To upload data to a blob, use the <bpt id="ff3473bf-83a7-41b2-bd12-f56f0a9823d3">&lt;strong&gt;</bpt>put\_block\_blob\_from\_path<ept id="ff3473bf-83a7-41b2-bd12-f56f0a9823d3">&lt;/strong&gt;</ept>, <bpt id="1b73c16b-3614-43a8-8121-cc5c8ef259fd">&lt;strong&gt;</bpt>put\_block\_blob\_from\_file<ept id="1b73c16b-3614-43a8-8121-cc5c8ef259fd">&lt;/strong&gt;</ept>, <bpt id="48fc5c4c-5589-4e10-97a4-43c82c0aac1f">&lt;strong&gt;</bpt>put\_block\_blob\_from\_bytes<ept id="48fc5c4c-5589-4e10-97a4-43c82c0aac1f">&lt;/strong&gt;</ept> or <bpt id="6f967466-646d-450a-9f5e-30c3963a21e8">&lt;strong&gt;</bpt>put\_block\_blob\_from\_text<ept id="6f967466-646d-450a-9f5e-30c3963a21e8">&lt;/strong&gt;</ept> methods.</source>
+          <target state="new">To upload data to a blob, use the <bpt id="ff3473bf-83a7-41b2-bd12-f56f0a9823d3">&lt;strong&gt;</bpt>put\_block\_blob\_from\_path<ept id="ff3473bf-83a7-41b2-bd12-f56f0a9823d3">&lt;/strong&gt;</ept>, <bpt id="1b73c16b-3614-43a8-8121-cc5c8ef259fd">&lt;strong&gt;</bpt>put\_block\_blob\_from\_file<ept id="1b73c16b-3614-43a8-8121-cc5c8ef259fd">&lt;/strong&gt;</ept>, <bpt id="48fc5c4c-5589-4e10-97a4-43c82c0aac1f">&lt;strong&gt;</bpt>put\_block\_blob\_from\_bytes<ept id="48fc5c4c-5589-4e10-97a4-43c82c0aac1f">&lt;/strong&gt;</ept> or <bpt id="6f967466-646d-450a-9f5e-30c3963a21e8">&lt;strong&gt;</bpt>put\_block\_blob\_from\_text<ept id="6f967466-646d-450a-9f5e-30c3963a21e8">&lt;/strong&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="99437f68-1cca-47c4-a13c-18d12eeda970" xml:space="preserve">
+          <source>They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.</source>
+          <target state="new">They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.</target>
+        </trans-unit>
+        <trans-unit id="e99537eb-3c78-4bd4-b396-74ccec3af95e" xml:space="preserve">
+          <source><bpt id="c9c73302-c556-4168-914a-e124d0be7b9c">&lt;strong&gt;</bpt>put\_block\_blob\_from\_path<ept id="c9c73302-c556-4168-914a-e124d0be7b9c">&lt;/strong&gt;</ept> uploads the contents of a file from the specified path, and <bpt id="e709f6bd-9ad5-49f2-801e-3a28918d1ad1">&lt;strong&gt;</bpt>put\_block\_blob\_from\_file<ept id="e709f6bd-9ad5-49f2-801e-3a28918d1ad1">&lt;/strong&gt;</ept> uploads the contents from an already opened file/stream.</source>
+          <target state="new"><bpt id="c9c73302-c556-4168-914a-e124d0be7b9c">&lt;strong&gt;</bpt>put\_block\_blob\_from\_path<ept id="c9c73302-c556-4168-914a-e124d0be7b9c">&lt;/strong&gt;</ept> uploads the contents of a file from the specified path, and <bpt id="e709f6bd-9ad5-49f2-801e-3a28918d1ad1">&lt;strong&gt;</bpt>put\_block\_blob\_from\_file<ept id="e709f6bd-9ad5-49f2-801e-3a28918d1ad1">&lt;/strong&gt;</ept> uploads the contents from an already opened file/stream.</target>
+        </trans-unit>
+        <trans-unit id="f751f32c-6a49-447d-a102-51170aa50ffc" xml:space="preserve">
+          <source><bpt id="0474eb73-a015-4e10-9e27-c86d87de474f">&lt;strong&gt;</bpt>put\_block\_blob\_from\_bytes<ept id="0474eb73-a015-4e10-9e27-c86d87de474f">&lt;/strong&gt;</ept> uploads an array of bytes, and <bpt id="ac3ae82b-228a-47d7-b1e9-adaf984ef605">&lt;strong&gt;</bpt>put\_block\_blob\_from\_text<ept id="ac3ae82b-228a-47d7-b1e9-adaf984ef605">&lt;/strong&gt;</ept> uploads the specified text value using the specified encoding (defaults to UTF-8).</source>
+          <target state="new"><bpt id="0474eb73-a015-4e10-9e27-c86d87de474f">&lt;strong&gt;</bpt>put\_block\_blob\_from\_bytes<ept id="0474eb73-a015-4e10-9e27-c86d87de474f">&lt;/strong&gt;</ept> uploads an array of bytes, and <bpt id="ac3ae82b-228a-47d7-b1e9-adaf984ef605">&lt;strong&gt;</bpt>put\_block\_blob\_from\_text<ept id="ac3ae82b-228a-47d7-b1e9-adaf984ef605">&lt;/strong&gt;</ept> uploads the specified text value using the specified encoding (defaults to UTF-8).</target>
+        </trans-unit>
+        <trans-unit id="44b561e0-d475-4475-87e1-e6322079f5c8" xml:space="preserve">
+          <source>The following example uploads the contents of the <bpt id="ebc70351-d3db-4c7f-a9ca-c95183e19b93">&lt;strong&gt;</bpt>sunset.png<ept id="ebc70351-d3db-4c7f-a9ca-c95183e19b93">&lt;/strong&gt;</ept> file into the <bpt id="04d42b5f-4af3-4fb5-8cc8-0b6a9c7c7606">&lt;strong&gt;</bpt>myblob<ept id="04d42b5f-4af3-4fb5-8cc8-0b6a9c7c7606">&lt;/strong&gt;</ept> blob.</source>
+          <target state="new">The following example uploads the contents of the <bpt id="ebc70351-d3db-4c7f-a9ca-c95183e19b93">&lt;strong&gt;</bpt>sunset.png<ept id="ebc70351-d3db-4c7f-a9ca-c95183e19b93">&lt;/strong&gt;</ept> file into the <bpt id="04d42b5f-4af3-4fb5-8cc8-0b6a9c7c7606">&lt;strong&gt;</bpt>myblob<ept id="04d42b5f-4af3-4fb5-8cc8-0b6a9c7c7606">&lt;/strong&gt;</ept> blob.</target>
+        </trans-unit>
+        <trans-unit id="d0f75650-860c-4004-8fc6-2ebc3e600017" xml:space="preserve">
+          <source>To list the blobs in a container, use the <bpt id="fe1fff32-1f2d-4f51-949d-595234429f47">&lt;strong&gt;</bpt>list\_blobs<ept id="fe1fff32-1f2d-4f51-949d-595234429f47">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To list the blobs in a container, use the <bpt id="fe1fff32-1f2d-4f51-949d-595234429f47">&lt;strong&gt;</bpt>list\_blobs<ept id="fe1fff32-1f2d-4f51-949d-595234429f47">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="a081e4db-2aa5-4a95-a571-eaabb2020abb" xml:space="preserve">
+          <source>Each
+call to <bpt id="5b8dde24-c007-40b8-a825-825994ef4eaa">&lt;strong&gt;</bpt>list\_blobs<ept id="5b8dde24-c007-40b8-a825-825994ef4eaa">&lt;/strong&gt;</ept> will return a segment of results.</source>
+          <target state="new">Each
+call to <bpt id="5b8dde24-c007-40b8-a825-825994ef4eaa">&lt;strong&gt;</bpt>list\_blobs<ept id="5b8dde24-c007-40b8-a825-825994ef4eaa">&lt;/strong&gt;</ept> will return a segment of results.</target>
+        </trans-unit>
+        <trans-unit id="1b7ca4ea-2190-41af-bdfc-543b58cadb33" xml:space="preserve">
+          <source>To get all results,
+check the <bpt id="e1896344-8283-47af-8c31-5730661f3739">&lt;strong&gt;</bpt>next\_marker<ept id="e1896344-8283-47af-8c31-5730661f3739">&lt;/strong&gt;</ept> of the results and call <bpt id="245885e1-d0a0-45ea-9aed-86a800226d61">&lt;strong&gt;</bpt>list\_blobs<ept id="245885e1-d0a0-45ea-9aed-86a800226d61">&lt;/strong&gt;</ept> again as
+needed.</source>
+          <target state="new">To get all results,
+check the <bpt id="e1896344-8283-47af-8c31-5730661f3739">&lt;strong&gt;</bpt>next\_marker<ept id="e1896344-8283-47af-8c31-5730661f3739">&lt;/strong&gt;</ept> of the results and call <bpt id="245885e1-d0a0-45ea-9aed-86a800226d61">&lt;strong&gt;</bpt>list\_blobs<ept id="245885e1-d0a0-45ea-9aed-86a800226d61">&lt;/strong&gt;</ept> again as
+needed.</target>
+        </trans-unit>
+        <trans-unit id="3d00fda7-5081-4d2f-adfc-090572d320a5" xml:space="preserve">
+          <source>The following code outputs the <bpt id="ce910c03-3b10-43a2-8150-75b52245f53e">&lt;strong&gt;</bpt>name<ept id="ce910c03-3b10-43a2-8150-75b52245f53e">&lt;/strong&gt;</ept> of each blob in a container
+to the console.</source>
+          <target state="new">The following code outputs the <bpt id="ce910c03-3b10-43a2-8150-75b52245f53e">&lt;strong&gt;</bpt>name<ept id="ce910c03-3b10-43a2-8150-75b52245f53e">&lt;/strong&gt;</ept> of each blob in a container
+to the console.</target>
+        </trans-unit>
+        <trans-unit id="c0e99024-d55a-462b-a008-720dcc1c4a08" xml:space="preserve">
+          <source>Each segment of results can contain a variable number of blobs up to a maximum
+of 5000.</source>
+          <target state="new">Each segment of results can contain a variable number of blobs up to a maximum
+of 5000.</target>
+        </trans-unit>
+        <trans-unit id="12798be2-760b-4543-b2b7-0e6fc7f8fa45" xml:space="preserve">
+          <source>If <bpt id="0e7b3b48-15de-4d28-857d-274ad3edd9ab">&lt;strong&gt;</bpt>next\_marker<ept id="0e7b3b48-15de-4d28-857d-274ad3edd9ab">&lt;/strong&gt;</ept> exists for a particular segment, there may be
+more blobs in the container.</source>
+          <target state="new">If <bpt id="0e7b3b48-15de-4d28-857d-274ad3edd9ab">&lt;strong&gt;</bpt>next\_marker<ept id="0e7b3b48-15de-4d28-857d-274ad3edd9ab">&lt;/strong&gt;</ept> exists for a particular segment, there may be
+more blobs in the container.</target>
+        </trans-unit>
+        <trans-unit id="d6cdf73a-ece5-4f24-945e-8d781648dbb9" xml:space="preserve">
+          <source>To download data from a blob, use <bpt id="dfe982d5-51a1-4b13-92b5-1530c35885dc">&lt;strong&gt;</bpt>get\_blob\_to\_path<ept id="dfe982d5-51a1-4b13-92b5-1530c35885dc">&lt;/strong&gt;</ept>, <bpt id="33dcc801-1986-414f-9d28-98cbddcd31f9">&lt;strong&gt;</bpt>get\_blob\_to\_file<ept id="33dcc801-1986-414f-9d28-98cbddcd31f9">&lt;/strong&gt;</ept>, <bpt id="3c05114c-3088-46fc-b3d8-c8e6adbacf7b">&lt;strong&gt;</bpt>get\_blob\_to\_bytes<ept id="3c05114c-3088-46fc-b3d8-c8e6adbacf7b">&lt;/strong&gt;</ept>, or <bpt id="4527755b-53b0-4130-a18b-d44264367c3d">&lt;strong&gt;</bpt>get\_blob\_to\_text<ept id="4527755b-53b0-4130-a18b-d44264367c3d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To download data from a blob, use <bpt id="dfe982d5-51a1-4b13-92b5-1530c35885dc">&lt;strong&gt;</bpt>get\_blob\_to\_path<ept id="dfe982d5-51a1-4b13-92b5-1530c35885dc">&lt;/strong&gt;</ept>, <bpt id="33dcc801-1986-414f-9d28-98cbddcd31f9">&lt;strong&gt;</bpt>get\_blob\_to\_file<ept id="33dcc801-1986-414f-9d28-98cbddcd31f9">&lt;/strong&gt;</ept>, <bpt id="3c05114c-3088-46fc-b3d8-c8e6adbacf7b">&lt;strong&gt;</bpt>get\_blob\_to\_bytes<ept id="3c05114c-3088-46fc-b3d8-c8e6adbacf7b">&lt;/strong&gt;</ept>, or <bpt id="4527755b-53b0-4130-a18b-d44264367c3d">&lt;strong&gt;</bpt>get\_blob\_to\_text<ept id="4527755b-53b0-4130-a18b-d44264367c3d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29f9ec96-97bb-4591-bac5-a4ea64beb027" xml:space="preserve">
+          <source>They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.</source>
+          <target state="new">They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.</target>
+        </trans-unit>
+        <trans-unit id="80389feb-60f2-4ca2-abca-a126a7736219" xml:space="preserve">
+          <source>The following example demonstrates using <bpt id="3af38117-1804-4885-8f35-3a1629039641">&lt;strong&gt;</bpt>get\_blob\_to\_path<ept id="3af38117-1804-4885-8f35-3a1629039641">&lt;/strong&gt;</ept> to download the contents of the <bpt id="99958e77-2596-4083-aca0-ec5c10ce4ec3">&lt;strong&gt;</bpt>myblob<ept id="99958e77-2596-4083-aca0-ec5c10ce4ec3">&lt;/strong&gt;</ept> blob and store it to the <bpt id="8b063829-5409-41cf-b03f-1c4f7a39e169">&lt;strong&gt;</bpt>out-sunset.png<ept id="8b063829-5409-41cf-b03f-1c4f7a39e169">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">The following example demonstrates using <bpt id="3af38117-1804-4885-8f35-3a1629039641">&lt;strong&gt;</bpt>get\_blob\_to\_path<ept id="3af38117-1804-4885-8f35-3a1629039641">&lt;/strong&gt;</ept> to download the contents of the <bpt id="99958e77-2596-4083-aca0-ec5c10ce4ec3">&lt;strong&gt;</bpt>myblob<ept id="99958e77-2596-4083-aca0-ec5c10ce4ec3">&lt;/strong&gt;</ept> blob and store it to the <bpt id="8b063829-5409-41cf-b03f-1c4f7a39e169">&lt;strong&gt;</bpt>out-sunset.png<ept id="8b063829-5409-41cf-b03f-1c4f7a39e169">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="64096b76-0bfd-4b39-9dc8-1ab0b4f9f16f" xml:space="preserve">
+          <source>Finally, to delete a blob, call <bpt id="bec2874c-3f04-44ff-ae73-c0d97648c1fb">&lt;strong&gt;</bpt>delete_blob<ept id="bec2874c-3f04-44ff-ae73-c0d97648c1fb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Finally, to delete a blob, call <bpt id="bec2874c-3f04-44ff-ae73-c0d97648c1fb">&lt;strong&gt;</bpt>delete_blob<ept id="bec2874c-3f04-44ff-ae73-c0d97648c1fb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b223f78-db9f-4b8b-9e4b-5d1180efa255" xml:space="preserve">
+          <source>Now that you have learned the basics of Blob storage, follow these links
+to learn about more complex storage tasks.</source>
+          <target state="new">Now that you have learned the basics of Blob storage, follow these links
+to learn about more complex storage tasks.</target>
+        </trans-unit>
+        <trans-unit id="53bd85f7-e54f-4e34-80c9-aeb24dfa556d" xml:space="preserve">
+          <source>See the MSDN Reference: <bpt id="bc62f0fa-468e-44ae-ac17-6e418dc6f691">&lt;linkText&gt;</bpt>Storing and Accessing Data in Azure<ept id="bc62f0fa-468e-44ae-ac17-6e418dc6f691">&lt;/linkText&gt;</ept><bpt id="bc62f0fa-468e-44ae-ac17-6e418dc6f691">&lt;title&gt;</bpt><ept id="bc62f0fa-468e-44ae-ac17-6e418dc6f691">&lt;/title&gt;</ept></source>
+          <target state="new">See the MSDN Reference: <bpt id="bc62f0fa-468e-44ae-ac17-6e418dc6f691">&lt;linkText&gt;</bpt>Storing and Accessing Data in Azure<ept id="bc62f0fa-468e-44ae-ac17-6e418dc6f691">&lt;/linkText&gt;</ept><bpt id="bc62f0fa-468e-44ae-ac17-6e418dc6f691">&lt;title&gt;</bpt><ept id="bc62f0fa-468e-44ae-ac17-6e418dc6f691">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b128f559-838a-4604-b3a0-301d52a86aec" xml:space="preserve">
+          <source>Visit the <bpt id="c25d6cf6-4304-4731-9404-f64ba69c8bf0">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="c25d6cf6-4304-4731-9404-f64ba69c8bf0">&lt;/linkText&gt;</ept><bpt id="c25d6cf6-4304-4731-9404-f64ba69c8bf0">&lt;title&gt;</bpt><ept id="c25d6cf6-4304-4731-9404-f64ba69c8bf0">&lt;/title&gt;</ept></source>
+          <target state="new">Visit the <bpt id="c25d6cf6-4304-4731-9404-f64ba69c8bf0">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="c25d6cf6-4304-4731-9404-f64ba69c8bf0">&lt;/linkText&gt;</ept><bpt id="c25d6cf6-4304-4731-9404-f64ba69c8bf0">&lt;title&gt;</bpt><ept id="c25d6cf6-4304-4731-9404-f64ba69c8bf0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38801cf8-bae0-4969-b9bc-e06c603da06e" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/gg433040.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/gg433040.aspx</target>
+        </trans-unit>
+        <trans-unit id="b10a36f9-df05-4617-b97c-ebb5ffaa0730" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/windowsazurestorage/</source>
+          <target state="new">http://blogs.msdn.com/b/windowsazurestorage/</target>
+        </trans-unit>
+        <trans-unit id="59de5aac-cd45-4c9d-b9e1-0b638cedf05b" xml:space="preserve">
+          <source>https://pypi.python.org/pypi/azure</source>
+          <target state="new">https://pypi.python.org/pypi/azure</target>
+        </trans-unit>
+        <trans-unit id="71a30338-c1be-4b27-9c92-b92a263a641e" xml:space="preserve">
+          <source>https://pypi.python.org/pypi/azure-storage</source>
+          <target state="new">https://pypi.python.org/pypi/azure-storage</target>
+        </trans-unit>
+      </group>
+      <group id="d2523937-60d1-4ac5-995a-f6705fa5d716" />
+    </body>
+  </file>
+</xliff>

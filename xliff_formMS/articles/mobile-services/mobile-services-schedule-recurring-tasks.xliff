@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="36483b01-8835-42f3-8c11-69d76221ebf4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="36483b01-8835-42f3-8c11-69d76221ebf4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="23c663da-12ec-4562-875d-94cfc916ffc0">
+        <trans-unit id="44322ce9-053d-4e8a-bcf2-89ce6290e0be" xml:space="preserve">
+          <source>Schedule Backend Tasks with Scheduler | Microsoft Azure</source>
+          <target state="new">Schedule Backend Tasks with Scheduler | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="12c920eb-9a87-4a11-b8e2-1fb27326b737" xml:space="preserve">
+          <source>Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app.</source>
+          <target state="new">Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app.</target>
+        </trans-unit>
+        <trans-unit id="4b0f698f-f6d7-457b-b667-d544d619428c" xml:space="preserve">
+          <source>This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define.</source>
+          <target state="new">This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define.</target>
+        </trans-unit>
+        <trans-unit id="0b94f71e-70e3-4ac6-b4bc-ebaaa9034fec" xml:space="preserve">
+          <source>In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table.</source>
+          <target state="new">In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table.</target>
+        </trans-unit>
+        <trans-unit id="2c20ae79-b141-463b-9c3c-f29592dfb80f" xml:space="preserve">
+          <source>Some other periodic tasks that can be scheduled include:</source>
+          <target state="new">Some other periodic tasks that can be scheduled include:</target>
+        </trans-unit>
+        <trans-unit id="27c600c0-e79e-4920-be0b-cfd185f0afb1" xml:space="preserve">
+          <source>Archiving old or duplicate data records.</source>
+          <target state="new">Archiving old or duplicate data records.</target>
+        </trans-unit>
+        <trans-unit id="2d57fc07-ab8c-43e7-90fb-c6274acb34f1" xml:space="preserve">
+          <source>Requesting and storing external data, such as tweets, RSS entries, and location information.</source>
+          <target state="new">Requesting and storing external data, such as tweets, RSS entries, and location information.</target>
+        </trans-unit>
+        <trans-unit id="165f9e8b-471a-4cd5-abca-07d5fc73ae8d" xml:space="preserve">
+          <source>Processing or resizing stored images.</source>
+          <target state="new">Processing or resizing stored images.</target>
+        </trans-unit>
+        <trans-unit id="8462ec1c-10a8-454d-98d0-0817c9825790" xml:space="preserve">
+          <source>This tutorial shows you how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table.</source>
+          <target state="new">This tutorial shows you how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table.</target>
+        </trans-unit>
+        <trans-unit id="5c720374-dd66-4324-b630-a2b8e98b01fd" xml:space="preserve">
+          <source><bpt id="d35a9d08-5d34-4c43-a838-ca980164d6b1">&lt;token href="../../includes/mobile-services-register-twitter-access.md"&gt;</bpt><ept id="d35a9d08-5d34-4c43-a838-ca980164d6b1">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d35a9d08-5d34-4c43-a838-ca980164d6b1">&lt;token href="../../includes/mobile-services-register-twitter-access.md"&gt;</bpt><ept id="d35a9d08-5d34-4c43-a838-ca980164d6b1">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4e7750c-d70f-43b8-b950-4065aa61f075" xml:space="preserve">
+          <source>Next, you need to create a new table in which to store tweets.</source>
+          <target state="new">Next, you need to create a new table in which to store tweets.</target>
+        </trans-unit>
+        <trans-unit id="11157254-6f2e-4ac1-b3fb-39fb86a18f9c" xml:space="preserve">
+          <source>In the Management Portal, click the <bpt id="43de0c31-98aa-4231-8d7f-766985fba224">&lt;strong&gt;</bpt>Data<ept id="43de0c31-98aa-4231-8d7f-766985fba224">&lt;/strong&gt;</ept> tab for your mobile service, then click <bpt id="82f5cb2f-7484-4229-8f52-e98bbdd823ab">&lt;strong&gt;</bpt>+Create<ept id="82f5cb2f-7484-4229-8f52-e98bbdd823ab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Management Portal, click the <bpt id="43de0c31-98aa-4231-8d7f-766985fba224">&lt;strong&gt;</bpt>Data<ept id="43de0c31-98aa-4231-8d7f-766985fba224">&lt;/strong&gt;</ept> tab for your mobile service, then click <bpt id="82f5cb2f-7484-4229-8f52-e98bbdd823ab">&lt;strong&gt;</bpt>+Create<ept id="82f5cb2f-7484-4229-8f52-e98bbdd823ab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08f4c3f4-d2b5-4b30-8516-7997b5f75e00" xml:space="preserve">
+          <source>In <bpt id="7242cefc-df28-43c8-bf97-23c156cb6993">&lt;strong&gt;</bpt>Table name<ept id="7242cefc-df28-43c8-bf97-23c156cb6993">&lt;/strong&gt;</ept> type <bpt id="1267c2d6-70d2-4014-bf1e-d3658989e3d4">&lt;em&gt;</bpt>Updates<ept id="1267c2d6-70d2-4014-bf1e-d3658989e3d4">&lt;/em&gt;</ept>, then click the check button.</source>
+          <target state="new">In <bpt id="7242cefc-df28-43c8-bf97-23c156cb6993">&lt;strong&gt;</bpt>Table name<ept id="7242cefc-df28-43c8-bf97-23c156cb6993">&lt;/strong&gt;</ept> type <bpt id="1267c2d6-70d2-4014-bf1e-d3658989e3d4">&lt;em&gt;</bpt>Updates<ept id="1267c2d6-70d2-4014-bf1e-d3658989e3d4">&lt;/em&gt;</ept>, then click the check button.</target>
+        </trans-unit>
+        <trans-unit id="864496a6-e08b-4940-a615-37b2cf552129" xml:space="preserve">
+          <source>Now, you can create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.</source>
+          <target state="new">Now, you can create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.</target>
+        </trans-unit>
+        <trans-unit id="578a0a66-5f04-4254-933a-8b2fc8bf0b81" xml:space="preserve">
+          <source>Click the <bpt id="cc6b5b23-6f21-46e9-b87c-559b4788509e">&lt;strong&gt;</bpt>Scheduler<ept id="cc6b5b23-6f21-46e9-b87c-559b4788509e">&lt;/strong&gt;</ept> tab, then click <bpt id="40e52098-51bf-4941-bf7d-d8fa6ccbd4a0">&lt;strong&gt;</bpt>+Create<ept id="40e52098-51bf-4941-bf7d-d8fa6ccbd4a0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="cc6b5b23-6f21-46e9-b87c-559b4788509e">&lt;strong&gt;</bpt>Scheduler<ept id="cc6b5b23-6f21-46e9-b87c-559b4788509e">&lt;/strong&gt;</ept> tab, then click <bpt id="40e52098-51bf-4941-bf7d-d8fa6ccbd4a0">&lt;strong&gt;</bpt>+Create<ept id="40e52098-51bf-4941-bf7d-d8fa6ccbd4a0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c4bec3e-841a-4abb-9272-3cea60cc379b" xml:space="preserve">
+          <source>When you run your mobile service in &lt;em&gt;Free&lt;/em&gt; tier, you are only able to run one scheduled job at a time.</source>
+          <target state="new">When you run your mobile service in &lt;em&gt;Free&lt;/em&gt; tier, you are only able to run one scheduled job at a time.</target>
+        </trans-unit>
+        <trans-unit id="f0575ca5-624a-4ca1-aa07-2ece4e74b4da" xml:space="preserve">
+          <source>In paid tiers, you can run up to ten scheduled jobs at a time.</source>
+          <target state="new">In paid tiers, you can run up to ten scheduled jobs at a time.</target>
+        </trans-unit>
+        <trans-unit id="d0cad127-d64a-42cd-b137-6edb553149c9" xml:space="preserve">
+          <source>In the scheduler dialog, enter <bpt id="2ba86e12-c986-4fc5-a0db-1b86289608d6">&lt;em&gt;</bpt>getUpdates<ept id="2ba86e12-c986-4fc5-a0db-1b86289608d6">&lt;/em&gt;</ept> for the <bpt id="2e1139b9-25a9-4c2b-97e5-87d88fb9b7d0">&lt;strong&gt;</bpt>Job Name<ept id="2e1139b9-25a9-4c2b-97e5-87d88fb9b7d0">&lt;/strong&gt;</ept>, set the schedule interval and units, then click the check button.</source>
+          <target state="new">In the scheduler dialog, enter <bpt id="2ba86e12-c986-4fc5-a0db-1b86289608d6">&lt;em&gt;</bpt>getUpdates<ept id="2ba86e12-c986-4fc5-a0db-1b86289608d6">&lt;/em&gt;</ept> for the <bpt id="2e1139b9-25a9-4c2b-97e5-87d88fb9b7d0">&lt;strong&gt;</bpt>Job Name<ept id="2e1139b9-25a9-4c2b-97e5-87d88fb9b7d0">&lt;/strong&gt;</ept>, set the schedule interval and units, then click the check button.</target>
+        </trans-unit>
+        <trans-unit id="9816c2cc-f98f-4a5c-8245-651793d80b67" xml:space="preserve">
+          <source>This creates a new job named <bpt id="e772ef82-205d-40c2-aba7-1595b6182435">&lt;strong&gt;</bpt>getUpdates<ept id="e772ef82-205d-40c2-aba7-1595b6182435">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This creates a new job named <bpt id="e772ef82-205d-40c2-aba7-1595b6182435">&lt;strong&gt;</bpt>getUpdates<ept id="e772ef82-205d-40c2-aba7-1595b6182435">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c4edfed-c724-46d8-a029-8a0d80e96a18" xml:space="preserve">
+          <source>Click the new job you just created, click the <bpt id="44d4c75b-be50-46ce-b98b-dc4902309cf0">&lt;strong&gt;</bpt>Script<ept id="44d4c75b-be50-46ce-b98b-dc4902309cf0">&lt;/strong&gt;</ept> tab and replace the placeholder function <bpt id="2bf0a5dc-5c0c-4c84-a848-e5f46c4f8f6a">&lt;strong&gt;</bpt>getUpdates<ept id="2bf0a5dc-5c0c-4c84-a848-e5f46c4f8f6a">&lt;/strong&gt;</ept> with the following code:</source>
+          <target state="new">Click the new job you just created, click the <bpt id="44d4c75b-be50-46ce-b98b-dc4902309cf0">&lt;strong&gt;</bpt>Script<ept id="44d4c75b-be50-46ce-b98b-dc4902309cf0">&lt;/strong&gt;</ept> tab and replace the placeholder function <bpt id="2bf0a5dc-5c0c-4c84-a848-e5f46c4f8f6a">&lt;strong&gt;</bpt>getUpdates<ept id="2bf0a5dc-5c0c-4c84-a848-e5f46c4f8f6a">&lt;/strong&gt;</ept> with the following code:</target>
+        </trans-unit>
+        <trans-unit id="0c5954ad-fbf2-458f-988c-ed96252c4efc" xml:space="preserve">
+          <source>This script calls the Twitter query API using stored credentials to request recent tweets that contain the hashtag <bpt id="0453c157-e68a-43d2-9728-f8e3889220b8">&lt;code&gt;</bpt>#mobileservices<ept id="0453c157-e68a-43d2-9728-f8e3889220b8">&lt;/code&gt;</ept>.</source>
+          <target state="new">This script calls the Twitter query API using stored credentials to request recent tweets that contain the hashtag <bpt id="0453c157-e68a-43d2-9728-f8e3889220b8">&lt;code&gt;</bpt>#mobileservices<ept id="0453c157-e68a-43d2-9728-f8e3889220b8">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aede95b9-cc8d-4c40-ab0d-77ae15888968" xml:space="preserve">
+          <source>Duplicate tweets and replies are removed from the results before they are stored in the table.</source>
+          <target state="new">Duplicate tweets and replies are removed from the results before they are stored in the table.</target>
+        </trans-unit>
+        <trans-unit id="e232ac73-dc82-41b9-8cde-b2b496e7f465" xml:space="preserve">
+          <source>This sample assumes that only a few rows are inserted into the table during each scheduled run.</source>
+          <target state="new">This sample assumes that only a few rows are inserted into the table during each scheduled run.</target>
+        </trans-unit>
+        <trans-unit id="1ee0df08-77a4-43ab-9b92-d48e6b5f052b" xml:space="preserve">
+          <source>In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier.</source>
+          <target state="new">In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier.</target>
+        </trans-unit>
+        <trans-unit id="66fa8ae9-d2ec-4e73-93f5-a673da24e332" xml:space="preserve">
+          <source>In this case, you should perform inserts in batches.</source>
+          <target state="new">In this case, you should perform inserts in batches.</target>
+        </trans-unit>
+        <trans-unit id="7550f204-65b9-499e-b51d-9b0e4bfa9fff" xml:space="preserve">
+          <source>For more information, see <bpt id="71ff4ada-4195-4552-9a5c-8fb5167be2f8">&lt;linkText&gt;</bpt>How to: Perform bulk inserts<ept id="71ff4ada-4195-4552-9a5c-8fb5167be2f8">&lt;/linkText&gt;</ept><bpt id="71ff4ada-4195-4552-9a5c-8fb5167be2f8">&lt;title&gt;</bpt><ept id="71ff4ada-4195-4552-9a5c-8fb5167be2f8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="71ff4ada-4195-4552-9a5c-8fb5167be2f8">&lt;linkText&gt;</bpt>How to: Perform bulk inserts<ept id="71ff4ada-4195-4552-9a5c-8fb5167be2f8">&lt;/linkText&gt;</ept><bpt id="71ff4ada-4195-4552-9a5c-8fb5167be2f8">&lt;title&gt;</bpt><ept id="71ff4ada-4195-4552-9a5c-8fb5167be2f8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a6c6d49-c3ae-4ee8-94e4-a7cd483bf8ad" xml:space="preserve">
+          <source>Click <bpt id="230c52ae-2b3b-4e7d-85fd-ae76b3ecf1bc">&lt;strong&gt;</bpt>Run Once<ept id="230c52ae-2b3b-4e7d-85fd-ae76b3ecf1bc">&lt;/strong&gt;</ept> to test the script.</source>
+          <target state="new">Click <bpt id="230c52ae-2b3b-4e7d-85fd-ae76b3ecf1bc">&lt;strong&gt;</bpt>Run Once<ept id="230c52ae-2b3b-4e7d-85fd-ae76b3ecf1bc">&lt;/strong&gt;</ept> to test the script.</target>
+        </trans-unit>
+        <trans-unit id="e9bf7694-3295-4248-af7b-0fa6286fbe15" xml:space="preserve">
+          <source>This saves and executes the job while it remains disabled in the scheduler.</source>
+          <target state="new">This saves and executes the job while it remains disabled in the scheduler.</target>
+        </trans-unit>
+        <trans-unit id="7a64bf69-5ecf-4936-b48d-19f25508d317" xml:space="preserve">
+          <source>Click the back button, click <bpt id="1a7d5b02-0b66-4578-bf05-19579f8d8106">&lt;strong&gt;</bpt>Data<ept id="1a7d5b02-0b66-4578-bf05-19579f8d8106">&lt;/strong&gt;</ept>, click the <bpt id="99db8df7-a5fb-484b-b6ea-30f09b6114f1">&lt;strong&gt;</bpt>Updates<ept id="99db8df7-a5fb-484b-b6ea-30f09b6114f1">&lt;/strong&gt;</ept> table, click <bpt id="e15fac03-89a7-437c-987a-444885119654">&lt;strong&gt;</bpt>Browse<ept id="e15fac03-89a7-437c-987a-444885119654">&lt;/strong&gt;</ept>, and verify that Twitter data has been inserted into the table.</source>
+          <target state="new">Click the back button, click <bpt id="1a7d5b02-0b66-4578-bf05-19579f8d8106">&lt;strong&gt;</bpt>Data<ept id="1a7d5b02-0b66-4578-bf05-19579f8d8106">&lt;/strong&gt;</ept>, click the <bpt id="99db8df7-a5fb-484b-b6ea-30f09b6114f1">&lt;strong&gt;</bpt>Updates<ept id="99db8df7-a5fb-484b-b6ea-30f09b6114f1">&lt;/strong&gt;</ept> table, click <bpt id="e15fac03-89a7-437c-987a-444885119654">&lt;strong&gt;</bpt>Browse<ept id="e15fac03-89a7-437c-987a-444885119654">&lt;/strong&gt;</ept>, and verify that Twitter data has been inserted into the table.</target>
+        </trans-unit>
+        <trans-unit id="9259bb6d-bcf1-4570-bc05-17d1c8290dda" xml:space="preserve">
+          <source>Click the back button, click <bpt id="571a635b-6841-4365-ad87-1a99218b4346">&lt;strong&gt;</bpt>Scheduler<ept id="571a635b-6841-4365-ad87-1a99218b4346">&lt;/strong&gt;</ept>, select <bpt id="37965236-81e4-43d0-aab3-958435917b97">&lt;strong&gt;</bpt>getUpdates<ept id="37965236-81e4-43d0-aab3-958435917b97">&lt;/strong&gt;</ept>, then click <bpt id="ae2310f0-33c0-476e-b1e4-c267f8c0a3c5">&lt;strong&gt;</bpt>Enable<ept id="ae2310f0-33c0-476e-b1e4-c267f8c0a3c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the back button, click <bpt id="571a635b-6841-4365-ad87-1a99218b4346">&lt;strong&gt;</bpt>Scheduler<ept id="571a635b-6841-4365-ad87-1a99218b4346">&lt;/strong&gt;</ept>, select <bpt id="37965236-81e4-43d0-aab3-958435917b97">&lt;strong&gt;</bpt>getUpdates<ept id="37965236-81e4-43d0-aab3-958435917b97">&lt;/strong&gt;</ept>, then click <bpt id="ae2310f0-33c0-476e-b1e4-c267f8c0a3c5">&lt;strong&gt;</bpt>Enable<ept id="ae2310f0-33c0-476e-b1e4-c267f8c0a3c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3601a152-2967-40d1-bf88-8d225944a1f9" xml:space="preserve">
+          <source>This enables the job to run on the specified schedule, in this case every hour.</source>
+          <target state="new">This enables the job to run on the specified schedule, in this case every hour.</target>
+        </trans-unit>
+        <trans-unit id="eb26ed11-7331-4658-a486-0760d123c95d" xml:space="preserve">
+          <source>Congratulations, you have successfully created a new scheduled job in your mobile service.</source>
+          <target state="new">Congratulations, you have successfully created a new scheduled job in your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="715f72ea-6421-4e8d-ac18-96e3a84aa07a" xml:space="preserve">
+          <source>This job will be executed as scheduled until you disable or modify it.</source>
+          <target state="new">This job will be executed as scheduled until you disable or modify it.</target>
+        </trans-unit>
+        <trans-unit id="39bf5a10-af3d-4598-8a37-a7bca5b720ad" xml:space="preserve">
+          <source>[Mobile Services server script reference]
+&lt;br/&gt;Learn more about registering and using server scripts.</source>
+          <target state="new">[Mobile Services server script reference]
+&lt;br/&gt;Learn more about registering and using server scripts.</target>
+        </trans-unit>
+        <trans-unit id="881733c9-b66b-43e2-b119-4ce7909fe4d5" xml:space="preserve">
+          <source>#get-oauth-credentials</source>
+          <target state="new">#get-oauth-credentials</target>
+        </trans-unit>
+        <trans-unit id="dd6bdb2a-1a56-475e-bf49-be6da0775a67" xml:space="preserve">
+          <source>#create-table</source>
+          <target state="new">#create-table</target>
+        </trans-unit>
+        <trans-unit id="39bafb6d-f601-4e6d-aef8-1488a3a10ed8" xml:space="preserve">
+          <source>#add-job</source>
+          <target state="new">#add-job</target>
+        </trans-unit>
+        <trans-unit id="6a2ad4a2-30a2-4238-a276-c683162360f1" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="91cb04dc-2c1f-440e-b7c7-c45d4840932d" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262293</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262293</target>
+        </trans-unit>
+        <trans-unit id="9acc3bcd-99ee-41d2-984e-95c6f79f45fa" xml:space="preserve">
+          <source>http://www.windowsazure.com/</source>
+          <target state="new">http://www.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="b598502f-9cc3-458b-87c3-efbb5585f523" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="8cfa6498-9fde-46b3-acfc-8a5664aa5c42" xml:space="preserve">
+          <source>/develop/mobile/how-to-guides/register-for-twitter-authentication</source>
+          <target state="new">/develop/mobile/how-to-guides/register-for-twitter-authentication</target>
+        </trans-unit>
+        <trans-unit id="f125d44a-750b-48d4-bf35-d3cc2808323b" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=268300</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=268300</target>
+        </trans-unit>
+        <trans-unit id="b553cc70-045e-4af7-a4d5-6fa47b465878" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7</target>
+        </trans-unit>
+      </group>
+      <group id="1768fa8c-f460-42fa-b7ae-d21a0994a42d" />
+    </body>
+  </file>
+</xliff>

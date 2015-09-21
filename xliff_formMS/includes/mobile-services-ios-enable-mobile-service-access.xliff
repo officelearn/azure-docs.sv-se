@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ea106a0a-9c50-4c0e-b570-0fde7750a6b3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ea106a0a-9c50-4c0e-b570-0fde7750a6b3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9f524d6c-7cb8-4f22-adb0-11685a057cb6">
+        <trans-unit id="74283104-adbe-4c48-8268-aa6acd41bb76" xml:space="preserve">
+          <source>Now, let's update the app to store items in Azure Mobile Services instead of the local in-memory collection.</source>
+          <target state="new">Now, let's update the app to store items in Azure Mobile Services instead of the local in-memory collection.</target>
+        </trans-unit>
+        <trans-unit id="937a2012-1b3a-45a2-b594-e1823c388891" xml:space="preserve">
+          <source>In <bpt id="69377acf-e7c8-4422-a1f8-2da364117b74">&lt;strong&gt;</bpt>TodoService.h<ept id="69377acf-e7c8-4422-a1f8-2da364117b74">&lt;/strong&gt;</ept>, locate the following line:</source>
+          <target state="new">In <bpt id="69377acf-e7c8-4422-a1f8-2da364117b74">&lt;strong&gt;</bpt>TodoService.h<ept id="69377acf-e7c8-4422-a1f8-2da364117b74">&lt;/strong&gt;</ept>, locate the following line:</target>
+        </trans-unit>
+        <trans-unit id="129ada7d-4316-4a90-ab51-fe60b003e02f" xml:space="preserve">
+          <source>Replace this comment with the following line.</source>
+          <target state="new">Replace this comment with the following line.</target>
+        </trans-unit>
+        <trans-unit id="88ebfbd0-0952-4806-83c2-bef4ed4dff09" xml:space="preserve">
+          <source>This creates a property that represents the <bpt id="38007a03-4c22-4343-ad07-cb7c5e6d588e">&lt;code&gt;</bpt>MSClient<ept id="38007a03-4c22-4343-ad07-cb7c5e6d588e">&lt;/code&gt;</ept> to connect to the service.</source>
+          <target state="new">This creates a property that represents the <bpt id="38007a03-4c22-4343-ad07-cb7c5e6d588e">&lt;code&gt;</bpt>MSClient<ept id="38007a03-4c22-4343-ad07-cb7c5e6d588e">&lt;/code&gt;</ept> to connect to the service.</target>
+        </trans-unit>
+        <trans-unit id="e74df2d7-f4fc-4d91-b811-fd1da4531dac" xml:space="preserve">
+          <source>In <bpt id="8ed98a45-efef-4164-a88a-1cc83eda5b89">&lt;strong&gt;</bpt>TodoService.m<ept id="8ed98a45-efef-4164-a88a-1cc83eda5b89">&lt;/strong&gt;</ept>, locate the following line:</source>
+          <target state="new">In <bpt id="8ed98a45-efef-4164-a88a-1cc83eda5b89">&lt;strong&gt;</bpt>TodoService.m<ept id="8ed98a45-efef-4164-a88a-1cc83eda5b89">&lt;/strong&gt;</ept>, locate the following line:</target>
+        </trans-unit>
+        <trans-unit id="93c3bbf8-68a2-4737-b6e1-9e9c1da36b5e" xml:space="preserve">
+          <source>Replace this comment with the following line inside the <bpt id="98b7ffc6-3926-48d6-a1f2-e0b345d0998c">&lt;code&gt;</bpt>@interface<ept id="98b7ffc6-3926-48d6-a1f2-e0b345d0998c">&lt;/code&gt;</ept> declaration.</source>
+          <target state="new">Replace this comment with the following line inside the <bpt id="98b7ffc6-3926-48d6-a1f2-e0b345d0998c">&lt;code&gt;</bpt>@interface<ept id="98b7ffc6-3926-48d6-a1f2-e0b345d0998c">&lt;/code&gt;</ept> declaration.</target>
+        </trans-unit>
+        <trans-unit id="d723c432-e05f-4432-85ac-0f0a8dbdc05b" xml:space="preserve">
+          <source>This creates a property representation for your mobile services table.</source>
+          <target state="new">This creates a property representation for your mobile services table.</target>
+        </trans-unit>
+        <trans-unit id="216d33f8-bc36-4ce8-8bbc-e11b481ca215" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="e8c99ce6-ac52-4854-b2fc-412c64fbf6b8">&lt;strong&gt;</bpt>Mobile Services<ept id="e8c99ce6-ac52-4854-b2fc-412c64fbf6b8">&lt;/strong&gt;</ept>, and then click the mobile service.</source>
+          <target state="new">In the Management Portal, click <bpt id="e8c99ce6-ac52-4854-b2fc-412c64fbf6b8">&lt;strong&gt;</bpt>Mobile Services<ept id="e8c99ce6-ac52-4854-b2fc-412c64fbf6b8">&lt;/strong&gt;</ept>, and then click the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="046632db-cef0-4960-8a3e-e10e7c8b9937" xml:space="preserve">
+          <source>Click the <bpt id="a05ba851-d3b6-4257-a6a4-8dd82a529416">&lt;strong&gt;</bpt>Dashboard<ept id="a05ba851-d3b6-4257-a6a4-8dd82a529416">&lt;/strong&gt;</ept> tab and make a note of the <bpt id="3a9a55ee-7f96-4e46-b5a4-6e37a9431d32">&lt;strong&gt;</bpt>Site URL<ept id="3a9a55ee-7f96-4e46-b5a4-6e37a9431d32">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="a05ba851-d3b6-4257-a6a4-8dd82a529416">&lt;strong&gt;</bpt>Dashboard<ept id="a05ba851-d3b6-4257-a6a4-8dd82a529416">&lt;/strong&gt;</ept> tab and make a note of the <bpt id="3a9a55ee-7f96-4e46-b5a4-6e37a9431d32">&lt;strong&gt;</bpt>Site URL<ept id="3a9a55ee-7f96-4e46-b5a4-6e37a9431d32">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7563f2d8-dbf0-4d7c-931c-aaeb03d8847a" xml:space="preserve">
+          <source>Then click <bpt id="0b0f4ce2-aac3-44a6-ae7c-a2c6fe4bfffc">&lt;strong&gt;</bpt>Manage Keys<ept id="0b0f4ce2-aac3-44a6-ae7c-a2c6fe4bfffc">&lt;/strong&gt;</ept> and make a note of the <bpt id="9b37bbdf-1c81-4701-8c04-6b21f1426731">&lt;strong&gt;</bpt>Application Key<ept id="9b37bbdf-1c81-4701-8c04-6b21f1426731">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="0b0f4ce2-aac3-44a6-ae7c-a2c6fe4bfffc">&lt;strong&gt;</bpt>Manage Keys<ept id="0b0f4ce2-aac3-44a6-ae7c-a2c6fe4bfffc">&lt;/strong&gt;</ept> and make a note of the <bpt id="9b37bbdf-1c81-4701-8c04-6b21f1426731">&lt;strong&gt;</bpt>Application Key<ept id="9b37bbdf-1c81-4701-8c04-6b21f1426731">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="264dd087-ccf6-4372-a24f-95c97da3b407" xml:space="preserve">
+          <source>You will need these values when accessing the mobile service from your app code.</source>
+          <target state="new">You will need these values when accessing the mobile service from your app code.</target>
+        </trans-unit>
+        <trans-unit id="7614b6c9-6f84-4960-80ce-157b7d678947" xml:space="preserve">
+          <source>In <bpt id="8fdc4671-d1d6-4179-86fe-88f442d52160">&lt;strong&gt;</bpt>TodoService.m<ept id="8fdc4671-d1d6-4179-86fe-88f442d52160">&lt;/strong&gt;</ept>, locate the following line:</source>
+          <target state="new">In <bpt id="8fdc4671-d1d6-4179-86fe-88f442d52160">&lt;strong&gt;</bpt>TodoService.m<ept id="8fdc4671-d1d6-4179-86fe-88f442d52160">&lt;/strong&gt;</ept>, locate the following line:</target>
+        </trans-unit>
+        <trans-unit id="31500dbe-b4cf-4716-94a3-c8b0444940ca" xml:space="preserve">
+          <source>After this comment, add the following line of code.</source>
+          <target state="new">After this comment, add the following line of code.</target>
+        </trans-unit>
+        <trans-unit id="94a96e2c-55c7-4e2f-884d-a3453eb8023c" xml:space="preserve">
+          <source>Replace <bpt id="1a101d6d-71fe-42ef-8c6e-564c991f5594">&lt;code&gt;</bpt>APPURL<ept id="1a101d6d-71fe-42ef-8c6e-564c991f5594">&lt;/code&gt;</ept> and <bpt id="86b8e4b0-aae2-4b51-a5a8-a8deec6d2e1c">&lt;code&gt;</bpt>APPKEY<ept id="86b8e4b0-aae2-4b51-a5a8-a8deec6d2e1c">&lt;/code&gt;</ept> with the site URL and application key you obtained in the previous step.</source>
+          <target state="new">Replace <bpt id="1a101d6d-71fe-42ef-8c6e-564c991f5594">&lt;code&gt;</bpt>APPURL<ept id="1a101d6d-71fe-42ef-8c6e-564c991f5594">&lt;/code&gt;</ept> and <bpt id="86b8e4b0-aae2-4b51-a5a8-a8deec6d2e1c">&lt;code&gt;</bpt>APPKEY<ept id="86b8e4b0-aae2-4b51-a5a8-a8deec6d2e1c">&lt;/code&gt;</ept> with the site URL and application key you obtained in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="aa28849e-278f-4b65-bcd1-4e5c6f422381" xml:space="preserve">
+          <source>In <bpt id="2143dc0f-e76f-4b83-b0b0-663c04d9e8d5">&lt;strong&gt;</bpt>TodoService.m<ept id="2143dc0f-e76f-4b83-b0b0-663c04d9e8d5">&lt;/strong&gt;</ept>, locate the following line:</source>
+          <target state="new">In <bpt id="2143dc0f-e76f-4b83-b0b0-663c04d9e8d5">&lt;strong&gt;</bpt>TodoService.m<ept id="2143dc0f-e76f-4b83-b0b0-663c04d9e8d5">&lt;/strong&gt;</ept>, locate the following line:</target>
+        </trans-unit>
+        <trans-unit id="7677f625-a18d-4688-bdb0-44409e19f2e5" xml:space="preserve">
+          <source>Replace this comment with the following line.</source>
+          <target state="new">Replace this comment with the following line.</target>
+        </trans-unit>
+        <trans-unit id="ad70447b-84e9-455a-8d51-b51ff328708c" xml:space="preserve">
+          <source>This creates the TodoItem table instance.</source>
+          <target state="new">This creates the TodoItem table instance.</target>
+        </trans-unit>
+        <trans-unit id="cd952dde-3a65-4b96-b8b2-431c4d4f2a0c" xml:space="preserve">
+          <source>In <bpt id="4debba76-3269-47bd-b777-7772a4008820">&lt;strong&gt;</bpt>TodoService.m<ept id="4debba76-3269-47bd-b777-7772a4008820">&lt;/strong&gt;</ept>, locate the following line:</source>
+          <target state="new">In <bpt id="4debba76-3269-47bd-b777-7772a4008820">&lt;strong&gt;</bpt>TodoService.m<ept id="4debba76-3269-47bd-b777-7772a4008820">&lt;/strong&gt;</ept>, locate the following line:</target>
+        </trans-unit>
+        <trans-unit id="ab3fa193-d152-4b82-8ff9-133f90122bd0" xml:space="preserve">
+          <source>Replace this comment with the following line.</source>
+          <target state="new">Replace this comment with the following line.</target>
+        </trans-unit>
+        <trans-unit id="aa6e347b-fc27-49c3-b156-a5e76149569c" xml:space="preserve">
+          <source>This creates a query to return all tasks that have not yet been completed.</source>
+          <target state="new">This creates a query to return all tasks that have not yet been completed.</target>
+        </trans-unit>
+        <trans-unit id="f110514d-bf19-44ca-a094-50284737f1ac" xml:space="preserve">
+          <source>Locate the following line:</source>
+          <target state="new">Locate the following line:</target>
+        </trans-unit>
+        <trans-unit id="0ef024dd-2064-4d7e-9d35-2ec79528e555" xml:space="preserve">
+          <source>Replace the comment and the subsequent <bpt id="26c1712e-93af-41fb-9801-99af0eeda21d">&lt;strong&gt;</bpt>completion<ept id="26c1712e-93af-41fb-9801-99af0eeda21d">&lt;/strong&gt;</ept> block invocation with the following code:</source>
+          <target state="new">Replace the comment and the subsequent <bpt id="26c1712e-93af-41fb-9801-99af0eeda21d">&lt;strong&gt;</bpt>completion<ept id="26c1712e-93af-41fb-9801-99af0eeda21d">&lt;/strong&gt;</ept> block invocation with the following code:</target>
+        </trans-unit>
+        <trans-unit id="1dca0836-f31e-4286-a7f2-3f89ffc548a0" xml:space="preserve">
+          <source>Locate the <bpt id="7d08f24e-1980-46ff-bb4e-a3839be92034">&lt;strong&gt;</bpt>addItem<ept id="7d08f24e-1980-46ff-bb4e-a3839be92034">&lt;/strong&gt;</ept> method, and replace its body with the following code.</source>
+          <target state="new">Locate the <bpt id="7d08f24e-1980-46ff-bb4e-a3839be92034">&lt;strong&gt;</bpt>addItem<ept id="7d08f24e-1980-46ff-bb4e-a3839be92034">&lt;/strong&gt;</ept> method, and replace its body with the following code.</target>
+        </trans-unit>
+        <trans-unit id="8c946595-e76c-4101-bc21-eb7bebe9e1ad" xml:space="preserve">
+          <source>This code sends an insert request to the mobile service.</source>
+          <target state="new">This code sends an insert request to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="10562828-82ca-4df7-9211-5a5055d03e50" xml:space="preserve">
+          <source>Locate the <bpt id="b7e78422-1233-4d39-be33-cc19fa2fe1d7">&lt;strong&gt;</bpt>completeItem<ept id="b7e78422-1233-4d39-be33-cc19fa2fe1d7">&lt;/strong&gt;</ept> method, and locate the following commented line of code:</source>
+          <target state="new">Locate the <bpt id="b7e78422-1233-4d39-be33-cc19fa2fe1d7">&lt;strong&gt;</bpt>completeItem<ept id="b7e78422-1233-4d39-be33-cc19fa2fe1d7">&lt;/strong&gt;</ept> method, and locate the following commented line of code:</target>
+        </trans-unit>
+        <trans-unit id="3002ea27-0c95-4d01-8a20-12673373f00f" xml:space="preserve">
+          <source>Replace the body of the method, from that point to the end of the method, with the following code.</source>
+          <target state="new">Replace the body of the method, from that point to the end of the method, with the following code.</target>
+        </trans-unit>
+        <trans-unit id="d9ffdf50-68b9-4fdc-90b5-2b2b78056f7d" xml:space="preserve">
+          <source>This code removes todo items after they are marked as completed.</source>
+          <target state="new">This code removes todo items after they are marked as completed.</target>
+        </trans-unit>
+        <trans-unit id="a4359f2c-ab50-4f46-8255-8aacb6e1de53" xml:space="preserve">
+          <source>In TodoListController.m, locate the <bpt id="a211e400-cbc1-4516-b075-72bd924001e7">&lt;strong&gt;</bpt>onAdd<ept id="a211e400-cbc1-4516-b075-72bd924001e7">&lt;/strong&gt;</ept> method and overwrite it with the following code:</source>
+          <target state="new">In TodoListController.m, locate the <bpt id="a211e400-cbc1-4516-b075-72bd924001e7">&lt;strong&gt;</bpt>onAdd<ept id="a211e400-cbc1-4516-b075-72bd924001e7">&lt;/strong&gt;</ept> method and overwrite it with the following code:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

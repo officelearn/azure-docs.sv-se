@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bf70dcdd-2280-4a67-94bc-5aa52bccd548" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bf70dcdd-2280-4a67-94bc-5aa52bccd548" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9c42cfb3-9e22-42d6-a44a-a1d44ed2364d">
+        <trans-unit id="f798877f-7e50-4181-b2a9-cf130b9799b6" xml:space="preserve">
+          <source>Azure Batch development libraries and tools | Microsoft Azure</source>
+          <target state="new">Azure Batch development libraries and tools | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="98f86f3f-d88e-4601-80d9-365302459293" xml:space="preserve">
+          <source>Get the libraries and tools you need to develop Azure Batch applications</source>
+          <target state="new">Get the libraries and tools you need to develop Azure Batch applications</target>
+        </trans-unit>
+        <trans-unit id="811a5b4c-fc2f-4685-be39-0c6d60c21b52" xml:space="preserve">
+          <source>&lt;p&gt; Get these libraries and tools to develop Azure Batch applications.</source>
+          <target state="new">&lt;p&gt; Get these libraries and tools to develop Azure Batch applications.</target>
+        </trans-unit>
+        <trans-unit id="62a413e2-471d-4ff8-adde-08d278d7678c" xml:space="preserve">
+          <source><bpt id="ca6dcc27-e8d7-4584-bda3-a89d7cd8a8f6">&lt;linkText&gt;</bpt>Batch Client Library for .NET<ept id="ca6dcc27-e8d7-4584-bda3-a89d7cd8a8f6">&lt;/linkText&gt;</ept><bpt id="ca6dcc27-e8d7-4584-bda3-a89d7cd8a8f6">&lt;title&gt;</bpt><ept id="ca6dcc27-e8d7-4584-bda3-a89d7cd8a8f6">&lt;/title&gt;</ept> (NuGet) – Develop client applications to run jobs with the Batch service</source>
+          <target state="new"><bpt id="ca6dcc27-e8d7-4584-bda3-a89d7cd8a8f6">&lt;linkText&gt;</bpt>Batch Client Library for .NET<ept id="ca6dcc27-e8d7-4584-bda3-a89d7cd8a8f6">&lt;/linkText&gt;</ept><bpt id="ca6dcc27-e8d7-4584-bda3-a89d7cd8a8f6">&lt;title&gt;</bpt><ept id="ca6dcc27-e8d7-4584-bda3-a89d7cd8a8f6">&lt;/title&gt;</ept> (NuGet) – Develop client applications to run jobs with the Batch service</target>
+        </trans-unit>
+        <trans-unit id="c6f1b490-5d0d-4d64-9670-63568fdcc363" xml:space="preserve">
+          <source><bpt id="880934dc-89dd-4a3c-a5c2-35ec9f4170dc">&lt;linkText&gt;</bpt>Batch Management Library<ept id="880934dc-89dd-4a3c-a5c2-35ec9f4170dc">&lt;/linkText&gt;</ept><bpt id="880934dc-89dd-4a3c-a5c2-35ec9f4170dc">&lt;title&gt;</bpt><ept id="880934dc-89dd-4a3c-a5c2-35ec9f4170dc">&lt;/title&gt;</ept> (NuGet) – Manage Batch accounts</source>
+          <target state="new"><bpt id="880934dc-89dd-4a3c-a5c2-35ec9f4170dc">&lt;linkText&gt;</bpt>Batch Management Library<ept id="880934dc-89dd-4a3c-a5c2-35ec9f4170dc">&lt;/linkText&gt;</ept><bpt id="880934dc-89dd-4a3c-a5c2-35ec9f4170dc">&lt;title&gt;</bpt><ept id="880934dc-89dd-4a3c-a5c2-35ec9f4170dc">&lt;/title&gt;</ept> (NuGet) – Manage Batch accounts</target>
+        </trans-unit>
+        <trans-unit id="a2497ed2-c24e-41b6-b8e7-bef104a88992" xml:space="preserve">
+          <source><bpt id="ee78214e-31b5-438e-94ea-b45043c8c743">&lt;linkText&gt;</bpt>Batch Explorer<ept id="ee78214e-31b5-438e-94ea-b45043c8c743">&lt;/linkText&gt;</ept><bpt id="ee78214e-31b5-438e-94ea-b45043c8c743">&lt;title&gt;</bpt><ept id="ee78214e-31b5-438e-94ea-b45043c8c743">&lt;/title&gt;</ept> (GitHub) - GUI application and sample to browse, access, and update major elements within a Batch account, including jobs and tasks, compute nodes and pools, and files on a compute node.</source>
+          <target state="new"><bpt id="ee78214e-31b5-438e-94ea-b45043c8c743">&lt;linkText&gt;</bpt>Batch Explorer<ept id="ee78214e-31b5-438e-94ea-b45043c8c743">&lt;/linkText&gt;</ept><bpt id="ee78214e-31b5-438e-94ea-b45043c8c743">&lt;title&gt;</bpt><ept id="ee78214e-31b5-438e-94ea-b45043c8c743">&lt;/title&gt;</ept> (GitHub) - GUI application and sample to browse, access, and update major elements within a Batch account, including jobs and tasks, compute nodes and pools, and files on a compute node.</target>
+        </trans-unit>
+        <trans-unit id="ff62f44f-bf4c-4527-971b-f625012271e9" xml:space="preserve">
+          <source>See the <bpt id="92eccc56-4da9-44d5-9418-ef30c8e758c6">&lt;linkText&gt;</bpt>blog post<ept id="92eccc56-4da9-44d5-9418-ef30c8e758c6">&lt;/linkText&gt;</ept><bpt id="92eccc56-4da9-44d5-9418-ef30c8e758c6">&lt;title&gt;</bpt><ept id="92eccc56-4da9-44d5-9418-ef30c8e758c6">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the <bpt id="92eccc56-4da9-44d5-9418-ef30c8e758c6">&lt;linkText&gt;</bpt>blog post<ept id="92eccc56-4da9-44d5-9418-ef30c8e758c6">&lt;/linkText&gt;</ept><bpt id="92eccc56-4da9-44d5-9418-ef30c8e758c6">&lt;title&gt;</bpt><ept id="92eccc56-4da9-44d5-9418-ef30c8e758c6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="394bc80d-5f53-47d9-881e-3b0a113da619" xml:space="preserve">
+          <source><bpt id="773f5a6a-9f77-4c06-a5f7-db0f5d36e7d8">&lt;linkText&gt;</bpt>Batch Apps Cloud SDK<ept id="773f5a6a-9f77-4c06-a5f7-db0f5d36e7d8">&lt;/linkText&gt;</ept><bpt id="773f5a6a-9f77-4c06-a5f7-db0f5d36e7d8">&lt;title&gt;</bpt><ept id="773f5a6a-9f77-4c06-a5f7-db0f5d36e7d8">&lt;/title&gt;</ept> (NuGet) – Enable applications to offload jobs to the Batch service</source>
+          <target state="new"><bpt id="773f5a6a-9f77-4c06-a5f7-db0f5d36e7d8">&lt;linkText&gt;</bpt>Batch Apps Cloud SDK<ept id="773f5a6a-9f77-4c06-a5f7-db0f5d36e7d8">&lt;/linkText&gt;</ept><bpt id="773f5a6a-9f77-4c06-a5f7-db0f5d36e7d8">&lt;title&gt;</bpt><ept id="773f5a6a-9f77-4c06-a5f7-db0f5d36e7d8">&lt;/title&gt;</ept> (NuGet) – Enable applications to offload jobs to the Batch service</target>
+        </trans-unit>
+        <trans-unit id="f0b3f4cf-e4c8-4033-ab87-5d8cd2f0026c" xml:space="preserve">
+          <source><bpt id="c68a7416-3229-4b0a-a60d-695b0d8537d8">&lt;linkText&gt;</bpt>Batch Apps Visual Studio Extension<ept id="c68a7416-3229-4b0a-a60d-695b0d8537d8">&lt;/linkText&gt;</ept><bpt id="c68a7416-3229-4b0a-a60d-695b0d8537d8">&lt;title&gt;</bpt><ept id="c68a7416-3229-4b0a-a60d-695b0d8537d8">&lt;/title&gt;</ept> (Visual Studio Gallery) – Cloud-enable applications in Visual Studio using the Batch Apps Cloud SDK</source>
+          <target state="new"><bpt id="c68a7416-3229-4b0a-a60d-695b0d8537d8">&lt;linkText&gt;</bpt>Batch Apps Visual Studio Extension<ept id="c68a7416-3229-4b0a-a60d-695b0d8537d8">&lt;/linkText&gt;</ept><bpt id="c68a7416-3229-4b0a-a60d-695b0d8537d8">&lt;title&gt;</bpt><ept id="c68a7416-3229-4b0a-a60d-695b0d8537d8">&lt;/title&gt;</ept> (Visual Studio Gallery) – Cloud-enable applications in Visual Studio using the Batch Apps Cloud SDK</target>
+        </trans-unit>
+        <trans-unit id="54601ec1-272c-4e53-b3cd-f23df3163c9d" xml:space="preserve">
+          <source><bpt id="f7a97478-ebf6-4c18-b9f5-4846933e4385">&lt;linkText&gt;</bpt>Batch Apps Client SDK<ept id="f7a97478-ebf6-4c18-b9f5-4846933e4385">&lt;/linkText&gt;</ept><bpt id="f7a97478-ebf6-4c18-b9f5-4846933e4385">&lt;title&gt;</bpt><ept id="f7a97478-ebf6-4c18-b9f5-4846933e4385">&lt;/title&gt;</ept> (NuGet) – Interact with applications enabled to offload jobs to the Batch service</source>
+          <target state="new"><bpt id="f7a97478-ebf6-4c18-b9f5-4846933e4385">&lt;linkText&gt;</bpt>Batch Apps Client SDK<ept id="f7a97478-ebf6-4c18-b9f5-4846933e4385">&lt;/linkText&gt;</ept><bpt id="f7a97478-ebf6-4c18-b9f5-4846933e4385">&lt;title&gt;</bpt><ept id="f7a97478-ebf6-4c18-b9f5-4846933e4385">&lt;/title&gt;</ept> (NuGet) – Interact with applications enabled to offload jobs to the Batch service</target>
+        </trans-unit>
+        <trans-unit id="d0bd977e-e5ed-442c-b032-373c896129cc" xml:space="preserve">
+          <source><bpt id="1828a490-17ac-4496-8b67-e6695b6f05f7">&lt;linkText&gt;</bpt>Batch Apps Python Client<ept id="1828a490-17ac-4496-8b67-e6695b6f05f7">&lt;/linkText&gt;</ept><bpt id="1828a490-17ac-4496-8b67-e6695b6f05f7">&lt;title&gt;</bpt><ept id="1828a490-17ac-4496-8b67-e6695b6f05f7">&lt;/title&gt;</ept> (GitHub) - Python client module to interact with applications set up in a Batch Apps service</source>
+          <target state="new"><bpt id="1828a490-17ac-4496-8b67-e6695b6f05f7">&lt;linkText&gt;</bpt>Batch Apps Python Client<ept id="1828a490-17ac-4496-8b67-e6695b6f05f7">&lt;/linkText&gt;</ept><bpt id="1828a490-17ac-4496-8b67-e6695b6f05f7">&lt;title&gt;</bpt><ept id="1828a490-17ac-4496-8b67-e6695b6f05f7">&lt;/title&gt;</ept> (GitHub) - Python client module to interact with applications set up in a Batch Apps service</target>
+        </trans-unit>
+        <trans-unit id="0897c0a9-236b-45ee-87da-a13742f2eaf4" xml:space="preserve">
+          <source>Azure will only release the Batch Apps API as a Preview.</source>
+          <target state="new">Azure will only release the Batch Apps API as a Preview.</target>
+        </trans-unit>
+        <trans-unit id="383829d1-4dca-40f4-88f0-99959e9fe7f1" xml:space="preserve">
+          <source>You should only develop with it for test or proof-of-concept projects.</source>
+          <target state="new">You should only develop with it for test or proof-of-concept projects.</target>
+        </trans-unit>
+        <trans-unit id="befcdbea-d603-48ba-b8f8-96bd4b6c1487" xml:space="preserve">
+          <source>Key Batch Apps capabilities will be integrated into the Batch API in future service releases.</source>
+          <target state="new">Key Batch Apps capabilities will be integrated into the Batch API in future service releases.</target>
+        </trans-unit>
+        <trans-unit id="64af6e0d-a68d-4c05-8dce-cdfb1c0f96a6" xml:space="preserve">
+          <source><bpt id="63288fa9-0a2f-4126-baca-c65963b01dcd">&lt;linkText&gt;</bpt>Code samples<ept id="63288fa9-0a2f-4126-baca-c65963b01dcd">&lt;/linkText&gt;</ept><bpt id="63288fa9-0a2f-4126-baca-c65963b01dcd">&lt;title&gt;</bpt><ept id="63288fa9-0a2f-4126-baca-c65963b01dcd">&lt;/title&gt;</ept> (GitHub)</source>
+          <target state="new"><bpt id="63288fa9-0a2f-4126-baca-c65963b01dcd">&lt;linkText&gt;</bpt>Code samples<ept id="63288fa9-0a2f-4126-baca-c65963b01dcd">&lt;/linkText&gt;</ept><bpt id="63288fa9-0a2f-4126-baca-c65963b01dcd">&lt;title&gt;</bpt><ept id="63288fa9-0a2f-4126-baca-c65963b01dcd">&lt;/title&gt;</ept> (GitHub)</target>
+        </trans-unit>
+        <trans-unit id="1f612791-dd28-4d83-a1a9-a9b4a263d5e7" xml:space="preserve">
+          <source><bpt id="b1dddbb3-9213-44f4-bf50-a36311637009">&lt;linkText&gt;</bpt>Azure Batch forum<ept id="b1dddbb3-9213-44f4-bf50-a36311637009">&lt;/linkText&gt;</ept><bpt id="b1dddbb3-9213-44f4-bf50-a36311637009">&lt;title&gt;</bpt><ept id="b1dddbb3-9213-44f4-bf50-a36311637009">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b1dddbb3-9213-44f4-bf50-a36311637009">&lt;linkText&gt;</bpt>Azure Batch forum<ept id="b1dddbb3-9213-44f4-bf50-a36311637009">&lt;/linkText&gt;</ept><bpt id="b1dddbb3-9213-44f4-bf50-a36311637009">&lt;title&gt;</bpt><ept id="b1dddbb3-9213-44f4-bf50-a36311637009">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fdfb1a0b-d149-4527-9776-556eb406b26a" xml:space="preserve">
+          <source>#batch</source>
+          <target state="new">#batch</target>
+        </trans-unit>
+        <trans-unit id="6607f79f-01b1-475b-995f-b58641ab007d" xml:space="preserve">
+          <source>#batch-apps</source>
+          <target state="new">#batch-apps</target>
+        </trans-unit>
+        <trans-unit id="cfda097a-38f3-479c-bd4c-c30ecb911e4b" xml:space="preserve">
+          <source>#additional-resources</source>
+          <target state="new">#additional-resources</target>
+        </trans-unit>
+      </group>
+      <group id="51b8e293-fbdb-4b79-8069-aa115ee53c2b" />
+    </body>
+  </file>
+</xliff>

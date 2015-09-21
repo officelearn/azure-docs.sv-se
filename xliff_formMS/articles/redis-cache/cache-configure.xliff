@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="42844844-f212-444a-a7ab-57fe1b5d70ae" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="42844844-f212-444a-a7ab-57fe1b5d70ae" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d2289f1f-6675-4f9f-a668-409568adbc7f">
+        <trans-unit id="3ce6f771-8f6b-4788-a858-129fe7c2e3df" xml:space="preserve">
+          <source>How to configure Azure Redis Cache</source>
+          <target state="new">How to configure Azure Redis Cache</target>
+        </trans-unit>
+        <trans-unit id="e4a1a65a-7781-467f-b9ae-5151b075bd0f" xml:space="preserve">
+          <source>Understand the default Redis configuration for Azure Redis Cache and learn how to configure your Azure Redis Cache instances</source>
+          <target state="new">Understand the default Redis configuration for Azure Redis Cache and learn how to configure your Azure Redis Cache instances</target>
+        </trans-unit>
+        <trans-unit id="fe015761-01e6-47a0-ad1d-dfce3d2229d2" xml:space="preserve">
+          <source>This topic describes how to review and update the configuration for your Azure Redis Cache instances, and covers the default Redis server configuration for Azure Redis Cache instances.</source>
+          <target state="new">This topic describes how to review and update the configuration for your Azure Redis Cache instances, and covers the default Redis server configuration for Azure Redis Cache instances.</target>
+        </trans-unit>
+        <trans-unit id="896cb3d1-3bd8-4cdd-be04-d89ec1d67cff" xml:space="preserve">
+          <source>Caches can be accessed in the <bpt id="2cadd242-be6d-47cf-b3b5-c95aa96fdf76">&lt;linkText&gt;</bpt>Azure preview portal<ept id="2cadd242-be6d-47cf-b3b5-c95aa96fdf76">&lt;/linkText&gt;</ept><bpt id="2cadd242-be6d-47cf-b3b5-c95aa96fdf76">&lt;title&gt;</bpt><ept id="2cadd242-be6d-47cf-b3b5-c95aa96fdf76">&lt;/title&gt;</ept> using the <bpt id="0952d858-40c5-4e15-bb03-f336ea60a44d">&lt;strong&gt;</bpt>Browse<ept id="0952d858-40c5-4e15-bb03-f336ea60a44d">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Caches can be accessed in the <bpt id="2cadd242-be6d-47cf-b3b5-c95aa96fdf76">&lt;linkText&gt;</bpt>Azure preview portal<ept id="2cadd242-be6d-47cf-b3b5-c95aa96fdf76">&lt;/linkText&gt;</ept><bpt id="2cadd242-be6d-47cf-b3b5-c95aa96fdf76">&lt;title&gt;</bpt><ept id="2cadd242-be6d-47cf-b3b5-c95aa96fdf76">&lt;/title&gt;</ept> using the <bpt id="0952d858-40c5-4e15-bb03-f336ea60a44d">&lt;strong&gt;</bpt>Browse<ept id="0952d858-40c5-4e15-bb03-f336ea60a44d">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="0c04795c-fc9a-494d-929b-d42b5ec40bb3" xml:space="preserve">
+          <source><bpt id="2e7e28fb-c521-44e4-82c2-9777ccd201ae">&lt;linkText&gt;</bpt>Azure Redis Cache Browse Blade<ept id="2e7e28fb-c521-44e4-82c2-9777ccd201ae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e7e28fb-c521-44e4-82c2-9777ccd201ae">&lt;linkText&gt;</bpt>Azure Redis Cache Browse Blade<ept id="2e7e28fb-c521-44e4-82c2-9777ccd201ae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0758cf4a-cc14-4af8-9d18-7e04c7bc3003" xml:space="preserve">
+          <source>Click <bpt id="ebb1e34e-cd59-4199-9325-3d49209e18cb">&lt;strong&gt;</bpt>Redis Caches<ept id="ebb1e34e-cd59-4199-9325-3d49209e18cb">&lt;/strong&gt;</ept> to view your caches.</source>
+          <target state="new">Click <bpt id="ebb1e34e-cd59-4199-9325-3d49209e18cb">&lt;strong&gt;</bpt>Redis Caches<ept id="ebb1e34e-cd59-4199-9325-3d49209e18cb">&lt;/strong&gt;</ept> to view your caches.</target>
+        </trans-unit>
+        <trans-unit id="bc626398-908b-4907-8cb6-93d686604580" xml:space="preserve">
+          <source><bpt id="68509507-46b3-4121-92cc-df30bbc11615">&lt;linkText&gt;</bpt>Azure Redis Cache Browse Cache List<ept id="68509507-46b3-4121-92cc-df30bbc11615">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="68509507-46b3-4121-92cc-df30bbc11615">&lt;linkText&gt;</bpt>Azure Redis Cache Browse Cache List<ept id="68509507-46b3-4121-92cc-df30bbc11615">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="796e7ab8-b24b-4dba-b3ca-f96c83169e70" xml:space="preserve">
+          <source>Select the desired cache to view the properties for that cache.</source>
+          <target state="new">Select the desired cache to view the properties for that cache.</target>
+        </trans-unit>
+        <trans-unit id="31200a9a-8664-44d8-9adb-a1cbb054562a" xml:space="preserve">
+          <source><bpt id="78ab19ed-15f9-4d2b-a4e4-96276d9356d9">&lt;linkText&gt;</bpt>Redis Cache All Settings<ept id="78ab19ed-15f9-4d2b-a4e4-96276d9356d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78ab19ed-15f9-4d2b-a4e4-96276d9356d9">&lt;linkText&gt;</bpt>Redis Cache All Settings<ept id="78ab19ed-15f9-4d2b-a4e4-96276d9356d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2b014fe-e613-47e2-9428-5397b88865f5" xml:space="preserve">
+          <source>Click <bpt id="e5aac1a6-f242-4454-8fa5-939491acda89">&lt;strong&gt;</bpt>Settings<ept id="e5aac1a6-f242-4454-8fa5-939491acda89">&lt;/strong&gt;</ept> or <bpt id="30f1790c-a6c8-4724-b856-8163aaef239b">&lt;strong&gt;</bpt>All settings<ept id="30f1790c-a6c8-4724-b856-8163aaef239b">&lt;/strong&gt;</ept> to view and configure your cache.</source>
+          <target state="new">Click <bpt id="e5aac1a6-f242-4454-8fa5-939491acda89">&lt;strong&gt;</bpt>Settings<ept id="e5aac1a6-f242-4454-8fa5-939491acda89">&lt;/strong&gt;</ept> or <bpt id="30f1790c-a6c8-4724-b856-8163aaef239b">&lt;strong&gt;</bpt>All settings<ept id="30f1790c-a6c8-4724-b856-8163aaef239b">&lt;/strong&gt;</ept> to view and configure your cache.</target>
+        </trans-unit>
+        <trans-unit id="90339c47-91af-4d58-8c2d-c139134fb799" xml:space="preserve">
+          <source><bpt id="8554e552-4f87-435d-96d6-edc165b596ce">&lt;linkText&gt;</bpt>Redis Cache Settings<ept id="8554e552-4f87-435d-96d6-edc165b596ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8554e552-4f87-435d-96d6-edc165b596ce">&lt;linkText&gt;</bpt>Redis Cache Settings<ept id="8554e552-4f87-435d-96d6-edc165b596ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17647866-c1b9-4b43-8ec8-0394f9fce788" xml:space="preserve">
+          <source>Click <bpt id="5afe3b78-0a75-4e8f-abe9-ecec047c92b8">&lt;strong&gt;</bpt>Properties<ept id="5afe3b78-0a75-4e8f-abe9-ecec047c92b8">&lt;/strong&gt;</ept> to view information about your cache, including the cache endpoint and ports.</source>
+          <target state="new">Click <bpt id="5afe3b78-0a75-4e8f-abe9-ecec047c92b8">&lt;strong&gt;</bpt>Properties<ept id="5afe3b78-0a75-4e8f-abe9-ecec047c92b8">&lt;/strong&gt;</ept> to view information about your cache, including the cache endpoint and ports.</target>
+        </trans-unit>
+        <trans-unit id="c1d835fa-e353-462c-8f7f-56655c76072e" xml:space="preserve">
+          <source><bpt id="a1aec190-56c3-46a4-ace9-29a609c42807">&lt;linkText&gt;</bpt>Redis Cache Properties<ept id="a1aec190-56c3-46a4-ace9-29a609c42807">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a1aec190-56c3-46a4-ace9-29a609c42807">&lt;linkText&gt;</bpt>Redis Cache Properties<ept id="a1aec190-56c3-46a4-ace9-29a609c42807">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98573155-530e-4bd2-b7c4-cd8105243a78" xml:space="preserve">
+          <source>Click <bpt id="2e8b411e-342a-46f4-804c-56965dc468fc">&lt;strong&gt;</bpt>Access keys<ept id="2e8b411e-342a-46f4-804c-56965dc468fc">&lt;/strong&gt;</ept> to view or regenerate the access keys for your cache.</source>
+          <target state="new">Click <bpt id="2e8b411e-342a-46f4-804c-56965dc468fc">&lt;strong&gt;</bpt>Access keys<ept id="2e8b411e-342a-46f4-804c-56965dc468fc">&lt;/strong&gt;</ept> to view or regenerate the access keys for your cache.</target>
+        </trans-unit>
+        <trans-unit id="100d1247-5f4f-475b-8186-a8cf856d7295" xml:space="preserve">
+          <source>These keys are used along with the host name and ports from the <bpt id="614813de-d82e-4654-a79f-4d009897f8ee">&lt;strong&gt;</bpt>Properties<ept id="614813de-d82e-4654-a79f-4d009897f8ee">&lt;/strong&gt;</ept> blade by the clients connecting to your cache.</source>
+          <target state="new">These keys are used along with the host name and ports from the <bpt id="614813de-d82e-4654-a79f-4d009897f8ee">&lt;strong&gt;</bpt>Properties<ept id="614813de-d82e-4654-a79f-4d009897f8ee">&lt;/strong&gt;</ept> blade by the clients connecting to your cache.</target>
+        </trans-unit>
+        <trans-unit id="7140c743-f008-4438-9f00-d15395e615f0" xml:space="preserve">
+          <source><bpt id="b9b7d42e-ef89-4ba0-85e1-bbe090fea96c">&lt;linkText&gt;</bpt>Redis Cache Access Keys<ept id="b9b7d42e-ef89-4ba0-85e1-bbe090fea96c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b9b7d42e-ef89-4ba0-85e1-bbe090fea96c">&lt;linkText&gt;</bpt>Redis Cache Access Keys<ept id="b9b7d42e-ef89-4ba0-85e1-bbe090fea96c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b22f305f-2cc8-4ac7-9a2a-7d0002334c2d" xml:space="preserve">
+          <source>By default, non-SSL access is disabled for new caches.</source>
+          <target state="new">By default, non-SSL access is disabled for new caches.</target>
+        </trans-unit>
+        <trans-unit id="362352be-14b3-465a-b3c1-df5aa7694660" xml:space="preserve">
+          <source>To enable the non-SSL port, click <bpt id="6beff543-62af-421e-84d0-88c83eab094c">&lt;strong&gt;</bpt>Access Ports<ept id="6beff543-62af-421e-84d0-88c83eab094c">&lt;/strong&gt;</ept> blade and then click <bpt id="afcddcf2-033e-4447-bd2b-e595f7cac600">&lt;strong&gt;</bpt>No<ept id="afcddcf2-033e-4447-bd2b-e595f7cac600">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To enable the non-SSL port, click <bpt id="6beff543-62af-421e-84d0-88c83eab094c">&lt;strong&gt;</bpt>Access Ports<ept id="6beff543-62af-421e-84d0-88c83eab094c">&lt;/strong&gt;</ept> blade and then click <bpt id="afcddcf2-033e-4447-bd2b-e595f7cac600">&lt;strong&gt;</bpt>No<ept id="afcddcf2-033e-4447-bd2b-e595f7cac600">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a8795d3-1510-42c4-80af-626055f28618" xml:space="preserve">
+          <source><bpt id="5fa501ce-426f-4073-8c36-0ab56ed5f1af">&lt;linkText&gt;</bpt>Redis Cache Access Ports<ept id="5fa501ce-426f-4073-8c36-0ab56ed5f1af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5fa501ce-426f-4073-8c36-0ab56ed5f1af">&lt;linkText&gt;</bpt>Redis Cache Access Ports<ept id="5fa501ce-426f-4073-8c36-0ab56ed5f1af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="760bd43e-378c-4fe3-82a1-8c16f1cab4eb" xml:space="preserve">
+          <source>Click <bpt id="3021b677-ae97-4732-9bc9-635b04b2afe2">&lt;strong&gt;</bpt>Pricing tier<ept id="3021b677-ae97-4732-9bc9-635b04b2afe2">&lt;/strong&gt;</ept> to view or change the pricing tier for your cache.</source>
+          <target state="new">Click <bpt id="3021b677-ae97-4732-9bc9-635b04b2afe2">&lt;strong&gt;</bpt>Pricing tier<ept id="3021b677-ae97-4732-9bc9-635b04b2afe2">&lt;/strong&gt;</ept> to view or change the pricing tier for your cache.</target>
+        </trans-unit>
+        <trans-unit id="a3f313fe-63e1-4591-821c-1f85b5217e3f" xml:space="preserve">
+          <source>For more information on scaling, see <bpt id="aeafab8a-3ac9-4ef1-bbbe-cdc55810f604">&lt;linkText&gt;</bpt>How to Scale Azure Redis Cache<ept id="aeafab8a-3ac9-4ef1-bbbe-cdc55810f604">&lt;/linkText&gt;</ept><bpt id="aeafab8a-3ac9-4ef1-bbbe-cdc55810f604">&lt;title&gt;</bpt><ept id="aeafab8a-3ac9-4ef1-bbbe-cdc55810f604">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on scaling, see <bpt id="aeafab8a-3ac9-4ef1-bbbe-cdc55810f604">&lt;linkText&gt;</bpt>How to Scale Azure Redis Cache<ept id="aeafab8a-3ac9-4ef1-bbbe-cdc55810f604">&lt;/linkText&gt;</ept><bpt id="aeafab8a-3ac9-4ef1-bbbe-cdc55810f604">&lt;title&gt;</bpt><ept id="aeafab8a-3ac9-4ef1-bbbe-cdc55810f604">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6204e148-7e1e-46e0-9bd4-3861e19a0ff0" xml:space="preserve">
+          <source><bpt id="07ce291c-d078-488a-b893-813a1a687e6b">&lt;linkText&gt;</bpt>Redis Cache pricing tier<ept id="07ce291c-d078-488a-b893-813a1a687e6b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="07ce291c-d078-488a-b893-813a1a687e6b">&lt;linkText&gt;</bpt>Redis Cache pricing tier<ept id="07ce291c-d078-488a-b893-813a1a687e6b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee6aaf4b-0c6b-4a21-bbae-d195521d72a2" xml:space="preserve">
+          <source>Click <bpt id="3f09e689-9107-4a1e-9dd8-79e20e23ba57">&lt;strong&gt;</bpt>Diagnostics<ept id="3f09e689-9107-4a1e-9dd8-79e20e23ba57">&lt;/strong&gt;</ept> to configure the storage account used to store cache diagnostics.</source>
+          <target state="new">Click <bpt id="3f09e689-9107-4a1e-9dd8-79e20e23ba57">&lt;strong&gt;</bpt>Diagnostics<ept id="3f09e689-9107-4a1e-9dd8-79e20e23ba57">&lt;/strong&gt;</ept> to configure the storage account used to store cache diagnostics.</target>
+        </trans-unit>
+        <trans-unit id="a20fdb08-94ca-4211-9fb9-36f38b3bd0fa" xml:space="preserve">
+          <source><bpt id="f661b0f5-8944-4520-a5fb-1070604d65ab">&lt;linkText&gt;</bpt>Redis Cache Diagnostics<ept id="f661b0f5-8944-4520-a5fb-1070604d65ab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f661b0f5-8944-4520-a5fb-1070604d65ab">&lt;linkText&gt;</bpt>Redis Cache Diagnostics<ept id="f661b0f5-8944-4520-a5fb-1070604d65ab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e7acfeb-f243-45f8-af71-08cbc07db590" xml:space="preserve">
+          <source>For more information, see <bpt id="420d7434-471e-4cef-b369-5820cceface7">&lt;linkText&gt;</bpt>How to monitor Azure Redis Cache<ept id="420d7434-471e-4cef-b369-5820cceface7">&lt;/linkText&gt;</ept><bpt id="420d7434-471e-4cef-b369-5820cceface7">&lt;title&gt;</bpt><ept id="420d7434-471e-4cef-b369-5820cceface7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="420d7434-471e-4cef-b369-5820cceface7">&lt;linkText&gt;</bpt>How to monitor Azure Redis Cache<ept id="420d7434-471e-4cef-b369-5820cceface7">&lt;/linkText&gt;</ept><bpt id="420d7434-471e-4cef-b369-5820cceface7">&lt;title&gt;</bpt><ept id="420d7434-471e-4cef-b369-5820cceface7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65b6954c-a1b6-45c3-9a63-4a71b6ce195c" xml:space="preserve">
+          <source>Click <bpt id="0d05d230-f1e9-4ac4-98c0-2f062da2a0f1">&lt;strong&gt;</bpt>Maxmemory policy<ept id="0d05d230-f1e9-4ac4-98c0-2f062da2a0f1">&lt;/strong&gt;</ept> to configure the memory policies for the cache.</source>
+          <target state="new">Click <bpt id="0d05d230-f1e9-4ac4-98c0-2f062da2a0f1">&lt;strong&gt;</bpt>Maxmemory policy<ept id="0d05d230-f1e9-4ac4-98c0-2f062da2a0f1">&lt;/strong&gt;</ept> to configure the memory policies for the cache.</target>
+        </trans-unit>
+        <trans-unit id="a4becd35-0c27-4b87-a13f-5661c556e5b3" xml:space="preserve">
+          <source>The <bpt id="56c6c29f-381d-4d15-9d8b-8dd3c2b1b016">&lt;strong&gt;</bpt>maxmemory-policy<ept id="56c6c29f-381d-4d15-9d8b-8dd3c2b1b016">&lt;/strong&gt;</ept> setting configures the eviction policy for the cache and <bpt id="87987a25-0618-4e82-939a-145d8232d920">&lt;strong&gt;</bpt>maxmemory-reserved<ept id="87987a25-0618-4e82-939a-145d8232d920">&lt;/strong&gt;</ept> configures the memory reserved for non-cache processes.</source>
+          <target state="new">The <bpt id="56c6c29f-381d-4d15-9d8b-8dd3c2b1b016">&lt;strong&gt;</bpt>maxmemory-policy<ept id="56c6c29f-381d-4d15-9d8b-8dd3c2b1b016">&lt;/strong&gt;</ept> setting configures the eviction policy for the cache and <bpt id="87987a25-0618-4e82-939a-145d8232d920">&lt;strong&gt;</bpt>maxmemory-reserved<ept id="87987a25-0618-4e82-939a-145d8232d920">&lt;/strong&gt;</ept> configures the memory reserved for non-cache processes.</target>
+        </trans-unit>
+        <trans-unit id="08f9c6ce-22f5-4e4c-9d8f-b36e5a44cb6d" xml:space="preserve">
+          <source><bpt id="12b36a2d-1343-483f-80bd-cbac14891278">&lt;linkText&gt;</bpt>Redis Cache Maxmemory Policy<ept id="12b36a2d-1343-483f-80bd-cbac14891278">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="12b36a2d-1343-483f-80bd-cbac14891278">&lt;linkText&gt;</bpt>Redis Cache Maxmemory Policy<ept id="12b36a2d-1343-483f-80bd-cbac14891278">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e76aa4bc-43c3-4a20-ab61-b3e4518ac10c" xml:space="preserve">
+          <source><bpt id="26e110a7-2c0f-43a1-8d52-883e84df58ae">&lt;strong&gt;</bpt>Maxmemory policy<ept id="26e110a7-2c0f-43a1-8d52-883e84df58ae">&lt;/strong&gt;</ept> allows you to choose from the following eviction policies.</source>
+          <target state="new"><bpt id="26e110a7-2c0f-43a1-8d52-883e84df58ae">&lt;strong&gt;</bpt>Maxmemory policy<ept id="26e110a7-2c0f-43a1-8d52-883e84df58ae">&lt;/strong&gt;</ept> allows you to choose from the following eviction policies.</target>
+        </trans-unit>
+        <trans-unit id="3ba3e983-0614-4a0c-b067-6da23bcbca68" xml:space="preserve">
+          <source>volatile-lru - this is the default.</source>
+          <target state="new">volatile-lru - this is the default.</target>
+        </trans-unit>
+        <trans-unit id="a23d6e0a-aaba-4802-8970-771bce6c8c65" xml:space="preserve">
+          <source>allkeys-lru</source>
+          <target state="new">allkeys-lru</target>
+        </trans-unit>
+        <trans-unit id="8f1787cf-5ebb-4e59-821a-7968bb3c09fa" xml:space="preserve">
+          <source>volatile-random</source>
+          <target state="new">volatile-random</target>
+        </trans-unit>
+        <trans-unit id="c9aae8ab-cc99-42cf-a360-06fce399e00f" xml:space="preserve">
+          <source>allkeys-random</source>
+          <target state="new">allkeys-random</target>
+        </trans-unit>
+        <trans-unit id="0c781e17-a32c-414c-b5d1-b4ff8ad31bca" xml:space="preserve">
+          <source>volatile-ttl</source>
+          <target state="new">volatile-ttl</target>
+        </trans-unit>
+        <trans-unit id="a529e7a1-551f-42f1-b00f-fe1f468bdccd" xml:space="preserve">
+          <source>noeviction</source>
+          <target state="new">noeviction</target>
+        </trans-unit>
+        <trans-unit id="56595d04-646e-4827-8534-e22fda098069" xml:space="preserve">
+          <source>For more information about maxmemory policies, see <bpt id="3abad572-1461-4899-9181-519aca2e9aa5">&lt;linkText&gt;</bpt>Eviction policies<ept id="3abad572-1461-4899-9181-519aca2e9aa5">&lt;/linkText&gt;</ept><bpt id="3abad572-1461-4899-9181-519aca2e9aa5">&lt;title&gt;</bpt><ept id="3abad572-1461-4899-9181-519aca2e9aa5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about maxmemory policies, see <bpt id="3abad572-1461-4899-9181-519aca2e9aa5">&lt;linkText&gt;</bpt>Eviction policies<ept id="3abad572-1461-4899-9181-519aca2e9aa5">&lt;/linkText&gt;</ept><bpt id="3abad572-1461-4899-9181-519aca2e9aa5">&lt;title&gt;</bpt><ept id="3abad572-1461-4899-9181-519aca2e9aa5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bdca1aa4-7a37-4417-92c0-159ab2d747ac" xml:space="preserve">
+          <source>The <bpt id="22512573-744a-4484-a828-e43e39beb14b">&lt;strong&gt;</bpt>maxmemory-reserved<ept id="22512573-744a-4484-a828-e43e39beb14b">&lt;/strong&gt;</ept> setting configures the amount of memory in MB that is reserved for non-cache operations such as replication during failover.</source>
+          <target state="new">The <bpt id="22512573-744a-4484-a828-e43e39beb14b">&lt;strong&gt;</bpt>maxmemory-reserved<ept id="22512573-744a-4484-a828-e43e39beb14b">&lt;/strong&gt;</ept> setting configures the amount of memory in MB that is reserved for non-cache operations such as replication during failover.</target>
+        </trans-unit>
+        <trans-unit id="63e22902-95f3-4658-aad2-9fe2916d5535" xml:space="preserve">
+          <source>It can also be used when you have a high fragmentation ratio.</source>
+          <target state="new">It can also be used when you have a high fragmentation ratio.</target>
+        </trans-unit>
+        <trans-unit id="b25708a1-bf17-48f5-9bc2-78c8fc0ff6d9" xml:space="preserve">
+          <source>Setting this value allows you to have a more consistent Redis server experience when your load varies.</source>
+          <target state="new">Setting this value allows you to have a more consistent Redis server experience when your load varies.</target>
+        </trans-unit>
+        <trans-unit id="bf03ed43-f5a0-4423-9e7e-cbed6d0ddbca" xml:space="preserve">
+          <source>This value should be set higher for workloads which are write heavy.</source>
+          <target state="new">This value should be set higher for workloads which are write heavy.</target>
+        </trans-unit>
+        <trans-unit id="a5c5523b-7713-4185-803f-925c4a31b894" xml:space="preserve">
+          <source>When memory is reserved for such operations it is unavailable for storage of cached data.</source>
+          <target state="new">When memory is reserved for such operations it is unavailable for storage of cached data.</target>
+        </trans-unit>
+        <trans-unit id="df660c6f-36cb-40cd-a66f-ec64a5cb0669" xml:space="preserve">
+          <source>The <bpt id="96b0d153-8029-4cd6-9239-d7b647c19520">&lt;strong&gt;</bpt>maxmemory-reserved<ept id="96b0d153-8029-4cd6-9239-d7b647c19520">&lt;/strong&gt;</ept> setting is only available for Standard caches.</source>
+          <target state="new">The <bpt id="96b0d153-8029-4cd6-9239-d7b647c19520">&lt;strong&gt;</bpt>maxmemory-reserved<ept id="96b0d153-8029-4cd6-9239-d7b647c19520">&lt;/strong&gt;</ept> setting is only available for Standard caches.</target>
+        </trans-unit>
+        <trans-unit id="a952a780-6afb-4405-875c-c72e64b73430" xml:space="preserve">
+          <source>Click <bpt id="5f54dbec-ab72-4018-8f65-dc9aa9d75013">&lt;strong&gt;</bpt>Advanced settings<ept id="5f54dbec-ab72-4018-8f65-dc9aa9d75013">&lt;/strong&gt;</ept> to configure Redis keyspace notifications.</source>
+          <target state="new">Click <bpt id="5f54dbec-ab72-4018-8f65-dc9aa9d75013">&lt;strong&gt;</bpt>Advanced settings<ept id="5f54dbec-ab72-4018-8f65-dc9aa9d75013">&lt;/strong&gt;</ept> to configure Redis keyspace notifications.</target>
+        </trans-unit>
+        <trans-unit id="fc777d2e-96ab-4ab1-aafc-b9c5c1b77305" xml:space="preserve">
+          <source>Keyspace notifications allows clients to receive notifications when certain events occur.</source>
+          <target state="new">Keyspace notifications allows clients to receive notifications when certain events occur.</target>
+        </trans-unit>
+        <trans-unit id="008bc4a1-c50b-4f75-9512-713c9f75a551" xml:space="preserve">
+          <source><bpt id="506395b3-adf9-4402-b6f5-87b155fd257a">&lt;linkText&gt;</bpt>Redis Cache Advanced Settings<ept id="506395b3-adf9-4402-b6f5-87b155fd257a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="506395b3-adf9-4402-b6f5-87b155fd257a">&lt;linkText&gt;</bpt>Redis Cache Advanced Settings<ept id="506395b3-adf9-4402-b6f5-87b155fd257a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9fc215c-3a8a-424f-ac5e-2eee21c0d079" xml:space="preserve">
+          <source>Keyspace notifications and the <bpt id="1459efde-c17a-4280-aace-98da5a5ef2d5">&lt;strong&gt;</bpt>notify-keyspace-events<ept id="1459efde-c17a-4280-aace-98da5a5ef2d5">&lt;/strong&gt;</ept> setting are only available for Standard caches.</source>
+          <target state="new">Keyspace notifications and the <bpt id="1459efde-c17a-4280-aace-98da5a5ef2d5">&lt;strong&gt;</bpt>notify-keyspace-events<ept id="1459efde-c17a-4280-aace-98da5a5ef2d5">&lt;/strong&gt;</ept> setting are only available for Standard caches.</target>
+        </trans-unit>
+        <trans-unit id="b017e59c-7537-4d61-880d-1e1af5aed526" xml:space="preserve">
+          <source>For more information, see <bpt id="2a1f4843-5578-4980-acd1-69298e12d8e7">&lt;linkText&gt;</bpt>Redis Keyspace Notifications<ept id="2a1f4843-5578-4980-acd1-69298e12d8e7">&lt;/linkText&gt;</ept><bpt id="2a1f4843-5578-4980-acd1-69298e12d8e7">&lt;title&gt;</bpt><ept id="2a1f4843-5578-4980-acd1-69298e12d8e7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="2a1f4843-5578-4980-acd1-69298e12d8e7">&lt;linkText&gt;</bpt>Redis Keyspace Notifications<ept id="2a1f4843-5578-4980-acd1-69298e12d8e7">&lt;/linkText&gt;</ept><bpt id="2a1f4843-5578-4980-acd1-69298e12d8e7">&lt;title&gt;</bpt><ept id="2a1f4843-5578-4980-acd1-69298e12d8e7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bc8bdfc-63b2-424e-aba5-06584b8d71a2" xml:space="preserve">
+          <source>For sample code, see the <bpt id="7f82ee81-bd9c-40f3-90f2-bf65fb8f9726">&lt;linkText&gt;</bpt>KeySpaceNotifications.cs<ept id="7f82ee81-bd9c-40f3-90f2-bf65fb8f9726">&lt;/linkText&gt;</ept><bpt id="7f82ee81-bd9c-40f3-90f2-bf65fb8f9726">&lt;title&gt;</bpt><ept id="7f82ee81-bd9c-40f3-90f2-bf65fb8f9726">&lt;/title&gt;</ept> file in the <bpt id="4b626932-5869-4a2d-8cf8-95958361a735">&lt;linkText&gt;</bpt>Hello world<ept id="4b626932-5869-4a2d-8cf8-95958361a735">&lt;/linkText&gt;</ept><bpt id="4b626932-5869-4a2d-8cf8-95958361a735">&lt;title&gt;</bpt><ept id="4b626932-5869-4a2d-8cf8-95958361a735">&lt;/title&gt;</ept> sample.</source>
+          <target state="new">For sample code, see the <bpt id="7f82ee81-bd9c-40f3-90f2-bf65fb8f9726">&lt;linkText&gt;</bpt>KeySpaceNotifications.cs<ept id="7f82ee81-bd9c-40f3-90f2-bf65fb8f9726">&lt;/linkText&gt;</ept><bpt id="7f82ee81-bd9c-40f3-90f2-bf65fb8f9726">&lt;title&gt;</bpt><ept id="7f82ee81-bd9c-40f3-90f2-bf65fb8f9726">&lt;/title&gt;</ept> file in the <bpt id="4b626932-5869-4a2d-8cf8-95958361a735">&lt;linkText&gt;</bpt>Hello world<ept id="4b626932-5869-4a2d-8cf8-95958361a735">&lt;/linkText&gt;</ept><bpt id="4b626932-5869-4a2d-8cf8-95958361a735">&lt;title&gt;</bpt><ept id="4b626932-5869-4a2d-8cf8-95958361a735">&lt;/title&gt;</ept> sample.</target>
+        </trans-unit>
+        <trans-unit id="1843e628-6922-4a7c-8e21-35da96630f0d" xml:space="preserve">
+          <source><bpt id="4f86a17d-06da-481a-aa4b-2afd2bd0ef93">&lt;linkText&gt;</bpt>Redis Cache Users and Tags<ept id="4f86a17d-06da-481a-aa4b-2afd2bd0ef93">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4f86a17d-06da-481a-aa4b-2afd2bd0ef93">&lt;linkText&gt;</bpt>Redis Cache Users and Tags<ept id="4f86a17d-06da-481a-aa4b-2afd2bd0ef93">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99010882-2fee-4e2a-8d31-320e07477b7f" xml:space="preserve">
+          <source>The <bpt id="dae6e565-eb54-40d8-873b-a81ac0ae4be7">&lt;strong&gt;</bpt>Users<ept id="dae6e565-eb54-40d8-873b-a81ac0ae4be7">&lt;/strong&gt;</ept> section provides support for role-based access control (RBAC) in the preview portal to help organizations meet their access management requirements simply and precisely.</source>
+          <target state="new">The <bpt id="dae6e565-eb54-40d8-873b-a81ac0ae4be7">&lt;strong&gt;</bpt>Users<ept id="dae6e565-eb54-40d8-873b-a81ac0ae4be7">&lt;/strong&gt;</ept> section provides support for role-based access control (RBAC) in the preview portal to help organizations meet their access management requirements simply and precisely.</target>
+        </trans-unit>
+        <trans-unit id="049f7c7c-f65a-442e-bc94-5410c097df0f" xml:space="preserve">
+          <source>For more information, see <bpt id="c08a4815-9c1b-4225-9329-c10bd55488e4">&lt;linkText&gt;</bpt>Role-based access control in the Azure preview portal<ept id="c08a4815-9c1b-4225-9329-c10bd55488e4">&lt;/linkText&gt;</ept><bpt id="c08a4815-9c1b-4225-9329-c10bd55488e4">&lt;title&gt;</bpt><ept id="c08a4815-9c1b-4225-9329-c10bd55488e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c08a4815-9c1b-4225-9329-c10bd55488e4">&lt;linkText&gt;</bpt>Role-based access control in the Azure preview portal<ept id="c08a4815-9c1b-4225-9329-c10bd55488e4">&lt;/linkText&gt;</ept><bpt id="c08a4815-9c1b-4225-9329-c10bd55488e4">&lt;title&gt;</bpt><ept id="c08a4815-9c1b-4225-9329-c10bd55488e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b21b15e-4fb6-4174-8bb3-0b8d5f4e4b4c" xml:space="preserve">
+          <source>The <bpt id="acdc5e7c-9051-47bb-bbf9-06dcc985f3bb">&lt;strong&gt;</bpt>Tags<ept id="acdc5e7c-9051-47bb-bbf9-06dcc985f3bb">&lt;/strong&gt;</ept> section helps you organize your resources.</source>
+          <target state="new">The <bpt id="acdc5e7c-9051-47bb-bbf9-06dcc985f3bb">&lt;strong&gt;</bpt>Tags<ept id="acdc5e7c-9051-47bb-bbf9-06dcc985f3bb">&lt;/strong&gt;</ept> section helps you organize your resources.</target>
+        </trans-unit>
+        <trans-unit id="7f51af1b-8679-4e16-8f0d-291b70476b22" xml:space="preserve">
+          <source>For more information, see <bpt id="92f34972-8a24-4126-874b-6d8d567bba79">&lt;linkText&gt;</bpt>Using tags to organize your Azure resources<ept id="92f34972-8a24-4126-874b-6d8d567bba79">&lt;/linkText&gt;</ept><bpt id="92f34972-8a24-4126-874b-6d8d567bba79">&lt;title&gt;</bpt><ept id="92f34972-8a24-4126-874b-6d8d567bba79">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="92f34972-8a24-4126-874b-6d8d567bba79">&lt;linkText&gt;</bpt>Using tags to organize your Azure resources<ept id="92f34972-8a24-4126-874b-6d8d567bba79">&lt;/linkText&gt;</ept><bpt id="92f34972-8a24-4126-874b-6d8d567bba79">&lt;title&gt;</bpt><ept id="92f34972-8a24-4126-874b-6d8d567bba79">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d76af97-f284-4e46-bf8f-d865a81bc02a" xml:space="preserve">
+          <source>New Azure Redis Cache instances are configured with the following default Redis configuration values.</source>
+          <target state="new">New Azure Redis Cache instances are configured with the following default Redis configuration values.</target>
+        </trans-unit>
+        <trans-unit id="c3b82e85-816f-4215-a52d-c3eb534ee75b" xml:space="preserve">
+          <source>The settings in this section cannot be changed using the <bpt id="b42767a8-4281-42ef-a93f-9a2c0012bffb">&lt;code&gt;</bpt>StackExchange.Redis.IServer.ConfigSet<ept id="b42767a8-4281-42ef-a93f-9a2c0012bffb">&lt;/code&gt;</ept> method.</source>
+          <target state="new">The settings in this section cannot be changed using the <bpt id="b42767a8-4281-42ef-a93f-9a2c0012bffb">&lt;code&gt;</bpt>StackExchange.Redis.IServer.ConfigSet<ept id="b42767a8-4281-42ef-a93f-9a2c0012bffb">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="40a37d95-6013-47c7-a3d6-2c30b9c7798a" xml:space="preserve">
+          <source>If this method is called with one of the commands in this section, an exception similar to the following is thrown:</source>
+          <target state="new">If this method is called with one of the commands in this section, an exception similar to the following is thrown:</target>
+        </trans-unit>
+        <trans-unit id="3f7c91b4-e81f-461b-a6c5-bbd5a1adc0d4" xml:space="preserve">
+          <source><bpt id="7ef7560c-cfb8-48a8-8856-92444d857846">&lt;code&gt;</bpt>StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'<ept id="7ef7560c-cfb8-48a8-8856-92444d857846">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="7ef7560c-cfb8-48a8-8856-92444d857846">&lt;code&gt;</bpt>StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'<ept id="7ef7560c-cfb8-48a8-8856-92444d857846">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3082f53-5008-484a-9b2f-6a42f2f0b1ed" xml:space="preserve">
+          <source>Any values that are configurable, such as <bpt id="183835f2-7a5e-497e-9053-b051febff902">&lt;strong&gt;</bpt>max-memory-policy<ept id="183835f2-7a5e-497e-9053-b051febff902">&lt;/strong&gt;</ept>, are configurable through the preview portal.</source>
+          <target state="new">Any values that are configurable, such as <bpt id="183835f2-7a5e-497e-9053-b051febff902">&lt;strong&gt;</bpt>max-memory-policy<ept id="183835f2-7a5e-497e-9053-b051febff902">&lt;/strong&gt;</ept>, are configurable through the preview portal.</target>
+        </trans-unit>
+        <trans-unit id="d61c3066-bdb8-4749-b3ac-9b8c788b54d1" xml:space="preserve">
+          <source>Setting</source>
+          <target state="new">Setting</target>
+        </trans-unit>
+        <trans-unit id="ab36cb17-5a0a-4a6d-b58d-fb8f0009e3b6" xml:space="preserve">
+          <source>Default value</source>
+          <target state="new">Default value</target>
+        </trans-unit>
+        <trans-unit id="58eb95d2-2bb5-4647-952f-ccfd4a8bbf65" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="a29dad9d-95e5-48a7-b522-16191ad30e7f" xml:space="preserve">
+          <source>databases</source>
+          <target state="new">databases</target>
+        </trans-unit>
+        <trans-unit id="d850e582-f2de-47a0-bf70-4f7f67794998" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="46245cd3-011f-41d7-99ab-88df7fb0d0c8" xml:space="preserve">
+          <source>The default database is DB 0, you can select a different one on a per-connection basis using connection.GetDataBase(dbid) where dbid is a number between 0 and 15.</source>
+          <target state="new">The default database is DB 0, you can select a different one on a per-connection basis using connection.GetDataBase(dbid) where dbid is a number between 0 and 15.</target>
+        </trans-unit>
+        <trans-unit id="1134a888-da90-4ab6-8452-9f8bc5658791" xml:space="preserve">
+          <source>maxclients</source>
+          <target state="new">maxclients</target>
+        </trans-unit>
+        <trans-unit id="b211fad5-7ab7-4ad3-88b4-8b272e272448" xml:space="preserve">
+          <source>Depends on the pricing tier&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">Depends on the pricing tier&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="04e3b131-d1e3-430c-bfb6-06064134e3cc" xml:space="preserve">
+          <source>This is the maximum number of connected clients allowed at the same time.</source>
+          <target state="new">This is the maximum number of connected clients allowed at the same time.</target>
+        </trans-unit>
+        <trans-unit id="80565743-c8be-410f-9b0c-29aa5af99cb0" xml:space="preserve">
+          <source>Once the limit is reached Redis will close all the new connections sending an error 'max number of clients reached'.</source>
+          <target state="new">Once the limit is reached Redis will close all the new connections sending an error 'max number of clients reached'.</target>
+        </trans-unit>
+        <trans-unit id="bf262071-7167-4eed-a774-36f7342b9426" xml:space="preserve">
+          <source>maxmemory-policy</source>
+          <target state="new">maxmemory-policy</target>
+        </trans-unit>
+        <trans-unit id="d52091fe-404a-4819-996b-c3523e01eec9" xml:space="preserve">
+          <source>volatile-lru</source>
+          <target state="new">volatile-lru</target>
+        </trans-unit>
+        <trans-unit id="7b0bf1a0-1485-43ca-ade2-6e96fe5c54ac" xml:space="preserve">
+          <source>Maxmemory policy is the setting for how Redis will select what to remove when maxmemory (the size of the cache offering you selected when you created the cache) is reached.</source>
+          <target state="new">Maxmemory policy is the setting for how Redis will select what to remove when maxmemory (the size of the cache offering you selected when you created the cache) is reached.</target>
+        </trans-unit>
+        <trans-unit id="e9a13816-94e2-4b03-b293-2622683efd95" xml:space="preserve">
+          <source>With Azure Redis Cache the default setting is volatile-lru, which removes the keys with an expire set using an LRU algorithm.</source>
+          <target state="new">With Azure Redis Cache the default setting is volatile-lru, which removes the keys with an expire set using an LRU algorithm.</target>
+        </trans-unit>
+        <trans-unit id="1cc2ad47-b263-40a5-bfb2-cec93bd8da46" xml:space="preserve">
+          <source>This setting can be configured in the preview portal.</source>
+          <target state="new">This setting can be configured in the preview portal.</target>
+        </trans-unit>
+        <trans-unit id="fe040bdd-b2fd-47ae-be9d-2c79258ca422" xml:space="preserve">
+          <source>For more information, see <bpt id="81706d81-5e4a-46fc-a28e-d4d895567050">&lt;linkText&gt;</bpt>Maxmemory-policy and maxmemory-reserved<ept id="81706d81-5e4a-46fc-a28e-d4d895567050">&lt;/linkText&gt;</ept><bpt id="81706d81-5e4a-46fc-a28e-d4d895567050">&lt;title&gt;</bpt><ept id="81706d81-5e4a-46fc-a28e-d4d895567050">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="81706d81-5e4a-46fc-a28e-d4d895567050">&lt;linkText&gt;</bpt>Maxmemory-policy and maxmemory-reserved<ept id="81706d81-5e4a-46fc-a28e-d4d895567050">&lt;/linkText&gt;</ept><bpt id="81706d81-5e4a-46fc-a28e-d4d895567050">&lt;title&gt;</bpt><ept id="81706d81-5e4a-46fc-a28e-d4d895567050">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a32353a0-389f-4c53-9438-80c2a76dc7c0" xml:space="preserve">
+          <source>maxmemory-samples</source>
+          <target state="new">maxmemory-samples</target>
+        </trans-unit>
+        <trans-unit id="4e108465-5e49-4b9c-8612-d0a7f290ad13" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="925cb82c-32e4-4595-8b58-8dc165644093" xml:space="preserve">
+          <source>LRU and minimal TTL algorithms are not precise algorithms but approximated algorithms (in order to save memory), so you can select as well the sample size to check.</source>
+          <target state="new">LRU and minimal TTL algorithms are not precise algorithms but approximated algorithms (in order to save memory), so you can select as well the sample size to check.</target>
+        </trans-unit>
+        <trans-unit id="2db4ca63-5441-4a73-9e07-1991e2f8c7df" xml:space="preserve">
+          <source>For instance for default Redis will check three keys and pick the one that was used less recently.</source>
+          <target state="new">For instance for default Redis will check three keys and pick the one that was used less recently.</target>
+        </trans-unit>
+        <trans-unit id="11ed6bf1-8b21-4d98-b88d-2c12397f79d6" xml:space="preserve">
+          <source>lua-time-limit</source>
+          <target state="new">lua-time-limit</target>
+        </trans-unit>
+        <trans-unit id="4d8dd77d-10ec-4ecd-81ed-363b3c275124" xml:space="preserve">
+          <source>5,000</source>
+          <target state="new">5,000</target>
+        </trans-unit>
+        <trans-unit id="ac8b840c-fff5-459c-ab09-7db44c8cebf2" xml:space="preserve">
+          <source>Max execution time of a Lua script in milliseconds.</source>
+          <target state="new">Max execution time of a Lua script in milliseconds.</target>
+        </trans-unit>
+        <trans-unit id="101b658e-18f1-4cd7-8101-442b253b3016" xml:space="preserve">
+          <source>If the maximum execution time is reached Redis will log that a script is still in execution after the maximum allowed time and will start to reply to queries with an error.</source>
+          <target state="new">If the maximum execution time is reached Redis will log that a script is still in execution after the maximum allowed time and will start to reply to queries with an error.</target>
+        </trans-unit>
+        <trans-unit id="35afd8c1-2f9c-4918-89bf-8683bea64c47" xml:space="preserve">
+          <source>lua-event-limit</source>
+          <target state="new">lua-event-limit</target>
+        </trans-unit>
+        <trans-unit id="a2d4f3d0-5484-4171-9af3-e74a62abc777" xml:space="preserve">
+          <source>500</source>
+          <target state="new">500</target>
+        </trans-unit>
+        <trans-unit id="2ecdc914-8056-4700-bc97-1a747919436f" xml:space="preserve">
+          <source>This is the max size of script event queue.</source>
+          <target state="new">This is the max size of script event queue.</target>
+        </trans-unit>
+        <trans-unit id="90b4e6ba-0baf-44b0-a8f4-9709df786484" xml:space="preserve">
+          <source>client-output-buffer-limit normalclient-output-buffer-limit pubsub</source>
+          <target state="new">client-output-buffer-limit normalclient-output-buffer-limit pubsub</target>
+        </trans-unit>
+        <trans-unit id="3f961e00-5cc9-4103-8cb4-5f9a903d70ce" xml:space="preserve">
+          <source>0 0 032mb 8mb 60</source>
+          <target state="new">0 0 032mb 8mb 60</target>
+        </trans-unit>
+        <trans-unit id="148c0bcc-78fa-4fb3-98cf-0bbac2de6ee5" xml:space="preserve">
+          <source>The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them).</source>
+          <target state="new">The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them).</target>
+        </trans-unit>
+        <trans-unit id="02b3664e-3346-48c3-b386-7886b7d7fcaf" xml:space="preserve">
+          <source>For more information, see <bpt id="60243856-1913-47dd-9d34-74da459a7e1c">&lt;linkText&gt;</bpt>http://redis.io/topics/clients<ept id="60243856-1913-47dd-9d34-74da459a7e1c">&lt;/linkText&gt;</ept><bpt id="60243856-1913-47dd-9d34-74da459a7e1c">&lt;title&gt;</bpt><ept id="60243856-1913-47dd-9d34-74da459a7e1c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="60243856-1913-47dd-9d34-74da459a7e1c">&lt;linkText&gt;</bpt>http://redis.io/topics/clients<ept id="60243856-1913-47dd-9d34-74da459a7e1c">&lt;/linkText&gt;</ept><bpt id="60243856-1913-47dd-9d34-74da459a7e1c">&lt;title&gt;</bpt><ept id="60243856-1913-47dd-9d34-74da459a7e1c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="45e74d71-4164-4f75-92d9-8c0463c4e01b" xml:space="preserve">
+          <source>&lt;sup&gt;1&lt;/sup&gt;<bpt id="11f3d9e3-478a-42ac-a92b-7d04164d4f14">&lt;code&gt;</bpt>maxclients<ept id="11f3d9e3-478a-42ac-a92b-7d04164d4f14">&lt;/code&gt;</ept> is different for each Azure Redis Cache pricing tier.</source>
+          <target state="new">&lt;sup&gt;1&lt;/sup&gt;<bpt id="11f3d9e3-478a-42ac-a92b-7d04164d4f14">&lt;code&gt;</bpt>maxclients<ept id="11f3d9e3-478a-42ac-a92b-7d04164d4f14">&lt;/code&gt;</ept> is different for each Azure Redis Cache pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="5e877861-5973-40fd-9b12-f26037d2ea27" xml:space="preserve">
+          <source>C0 (250 MB) cache - up to 256 connections</source>
+          <target state="new">C0 (250 MB) cache - up to 256 connections</target>
+        </trans-unit>
+        <trans-unit id="33261d55-a280-4545-8e45-a9d38d026883" xml:space="preserve">
+          <source>C1 (1 GB) cache - up to 1,000 connections</source>
+          <target state="new">C1 (1 GB) cache - up to 1,000 connections</target>
+        </trans-unit>
+        <trans-unit id="4f5487f9-f5b0-4c8c-be46-13077c02f49a" xml:space="preserve">
+          <source>C2 (2.5 GB) cache - up to 2,000 connections</source>
+          <target state="new">C2 (2.5 GB) cache - up to 2,000 connections</target>
+        </trans-unit>
+        <trans-unit id="eab19213-c6fc-43f8-b687-baa9f33514d2" xml:space="preserve">
+          <source>C3 (6 GB) cache - up to 5,000 connections</source>
+          <target state="new">C3 (6 GB) cache - up to 5,000 connections</target>
+        </trans-unit>
+        <trans-unit id="cded90b2-161b-4858-874b-b805a2ea94a8" xml:space="preserve">
+          <source>C4 (13 GB) cache - up to 10,000 connections</source>
+          <target state="new">C4 (13 GB) cache - up to 10,000 connections</target>
+        </trans-unit>
+        <trans-unit id="6470c1fe-edda-484b-b3b5-b8aa54cb5b28" xml:space="preserve">
+          <source>C5 (26 GB) cache - up to 15,000 connections</source>
+          <target state="new">C5 (26 GB) cache - up to 15,000 connections</target>
+        </trans-unit>
+        <trans-unit id="259e1560-3b48-4fbc-8c65-bbd77279cb7e" xml:space="preserve">
+          <source>C6 (53 GB) cache - up to 20,000 connections</source>
+          <target state="new">C6 (53 GB) cache - up to 20,000 connections</target>
+        </trans-unit>
+        <trans-unit id="50469d4c-9f20-45d7-b65f-d38e00557d39" xml:space="preserve">
+          <source>Because configuration and management of Azure Redis Cache instances is done using the preview portal the following commands are disabled.</source>
+          <target state="new">Because configuration and management of Azure Redis Cache instances is done using the preview portal the following commands are disabled.</target>
+        </trans-unit>
+        <trans-unit id="4a07bdc1-c8de-4d24-b423-2acb6c9413fc" xml:space="preserve">
+          <source>If you try to invoke them you will receive an error message similar to <bpt id="ff491a8a-e08c-4495-a6a3-4da9474840f0">&lt;code&gt;</bpt>"(error) ERR unknown command"<ept id="ff491a8a-e08c-4495-a6a3-4da9474840f0">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you try to invoke them you will receive an error message similar to <bpt id="ff491a8a-e08c-4495-a6a3-4da9474840f0">&lt;code&gt;</bpt>"(error) ERR unknown command"<ept id="ff491a8a-e08c-4495-a6a3-4da9474840f0">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e406acb6-49c2-4b76-b328-2281a614a1e4" xml:space="preserve">
+          <source>BGREWRITEAOF</source>
+          <target state="new">BGREWRITEAOF</target>
+        </trans-unit>
+        <trans-unit id="18e8bd4c-a7c1-4921-b3bb-35a03200e926" xml:space="preserve">
+          <source>BGSAVE</source>
+          <target state="new">BGSAVE</target>
+        </trans-unit>
+        <trans-unit id="74e7fdd0-8319-4354-9aaa-fbd5d9458875" xml:space="preserve">
+          <source>CONFIG</source>
+          <target state="new">CONFIG</target>
+        </trans-unit>
+        <trans-unit id="c95fe665-c423-493b-b604-ac490f74b2da" xml:space="preserve">
+          <source>DEBUG</source>
+          <target state="new">DEBUG</target>
+        </trans-unit>
+        <trans-unit id="613f49b5-fa5a-410e-b59a-ab731f560acb" xml:space="preserve">
+          <source>MIGRATE</source>
+          <target state="new">MIGRATE</target>
+        </trans-unit>
+        <trans-unit id="ce3f7b06-31c9-468e-a2e0-5c6f935abe0a" xml:space="preserve">
+          <source>SAVE</source>
+          <target state="new">SAVE</target>
+        </trans-unit>
+        <trans-unit id="af8ffca8-0057-451e-aac8-6ad7268c7a68" xml:space="preserve">
+          <source>SHUTDOWN</source>
+          <target state="new">SHUTDOWN</target>
+        </trans-unit>
+        <trans-unit id="04d2d716-2c2a-4a93-bc3c-d7b07cb8f0dd" xml:space="preserve">
+          <source>SLAVEOF</source>
+          <target state="new">SLAVEOF</target>
+        </trans-unit>
+        <trans-unit id="632ea39d-7f6d-45f4-893a-ea2acf10faae" xml:space="preserve">
+          <source>For more information about Redis commands, see <bpt id="ded7e682-1e41-4577-947e-9a30a85ee489">&lt;linkText&gt;</bpt>http://redis.io/commands<ept id="ded7e682-1e41-4577-947e-9a30a85ee489">&lt;/linkText&gt;</ept><bpt id="ded7e682-1e41-4577-947e-9a30a85ee489">&lt;title&gt;</bpt><ept id="ded7e682-1e41-4577-947e-9a30a85ee489">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Redis commands, see <bpt id="ded7e682-1e41-4577-947e-9a30a85ee489">&lt;linkText&gt;</bpt>http://redis.io/commands<ept id="ded7e682-1e41-4577-947e-9a30a85ee489">&lt;/linkText&gt;</ept><bpt id="ded7e682-1e41-4577-947e-9a30a85ee489">&lt;title&gt;</bpt><ept id="ded7e682-1e41-4577-947e-9a30a85ee489">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be252340-f6ec-4326-a2ce-28c0142ff505" xml:space="preserve">
+          <source>You can securely issue commands to your Azure Redis Cache instances using the <bpt id="7eea7eb4-ec31-4379-b9bd-0bb9201f172d">&lt;strong&gt;</bpt>Redis Console<ept id="7eea7eb4-ec31-4379-b9bd-0bb9201f172d">&lt;/strong&gt;</ept>, which is available for Standard caches.</source>
+          <target state="new">You can securely issue commands to your Azure Redis Cache instances using the <bpt id="7eea7eb4-ec31-4379-b9bd-0bb9201f172d">&lt;strong&gt;</bpt>Redis Console<ept id="7eea7eb4-ec31-4379-b9bd-0bb9201f172d">&lt;/strong&gt;</ept>, which is available for Standard caches.</target>
+        </trans-unit>
+        <trans-unit id="314592be-339d-4749-ba2e-b29f890b7054" xml:space="preserve">
+          <source>To access the Redis Console, click <bpt id="f87057ef-7d41-4315-87d7-a6ed4433c79b">&lt;strong&gt;</bpt>Console<ept id="f87057ef-7d41-4315-87d7-a6ed4433c79b">&lt;/strong&gt;</ept> from the <bpt id="475b7cc8-7bdf-4593-8359-f697f328bb9c">&lt;strong&gt;</bpt>Redis Cache<ept id="475b7cc8-7bdf-4593-8359-f697f328bb9c">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">To access the Redis Console, click <bpt id="f87057ef-7d41-4315-87d7-a6ed4433c79b">&lt;strong&gt;</bpt>Console<ept id="f87057ef-7d41-4315-87d7-a6ed4433c79b">&lt;/strong&gt;</ept> from the <bpt id="475b7cc8-7bdf-4593-8359-f697f328bb9c">&lt;strong&gt;</bpt>Redis Cache<ept id="475b7cc8-7bdf-4593-8359-f697f328bb9c">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="c0ff9a13-3c09-48fb-b307-c7731f518bbe" xml:space="preserve">
+          <source><bpt id="66b96b9e-f4a7-4f38-8f82-cb8df404c969">&lt;linkText&gt;</bpt>Redis console<ept id="66b96b9e-f4a7-4f38-8f82-cb8df404c969">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="66b96b9e-f4a7-4f38-8f82-cb8df404c969">&lt;linkText&gt;</bpt>Redis console<ept id="66b96b9e-f4a7-4f38-8f82-cb8df404c969">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e33ef088-54b1-46c8-ab56-2f5cc95ffecf" xml:space="preserve">
+          <source>The Redis Console is only available for Standard caches.</source>
+          <target state="new">The Redis Console is only available for Standard caches.</target>
+        </trans-unit>
+        <trans-unit id="58af0fb7-43dc-4ba3-b4fc-48e470c96cfc" xml:space="preserve">
+          <source>To issue commands against your cache instance, simply type in the desired command into the console.</source>
+          <target state="new">To issue commands against your cache instance, simply type in the desired command into the console.</target>
+        </trans-unit>
+        <trans-unit id="b962b21d-d46a-4d18-829d-9b8cc51130b5" xml:space="preserve">
+          <source><bpt id="b79fcb21-310d-4e26-a1ab-57c44bb15bbc">&lt;linkText&gt;</bpt>Redis console<ept id="b79fcb21-310d-4e26-a1ab-57c44bb15bbc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b79fcb21-310d-4e26-a1ab-57c44bb15bbc">&lt;linkText&gt;</bpt>Redis console<ept id="b79fcb21-310d-4e26-a1ab-57c44bb15bbc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb920743-4674-4c16-8907-6480aea31551" xml:space="preserve">
+          <source>For list of Redis commands that are disabled for Azure Redis Cache, see the previous <bpt id="18965e4a-e272-4084-abd2-e25141ff3423">&lt;linkText&gt;</bpt>Redis commands not supported in Azure Redis Cache<ept id="18965e4a-e272-4084-abd2-e25141ff3423">&lt;/linkText&gt;</ept><bpt id="18965e4a-e272-4084-abd2-e25141ff3423">&lt;title&gt;</bpt><ept id="18965e4a-e272-4084-abd2-e25141ff3423">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For list of Redis commands that are disabled for Azure Redis Cache, see the previous <bpt id="18965e4a-e272-4084-abd2-e25141ff3423">&lt;linkText&gt;</bpt>Redis commands not supported in Azure Redis Cache<ept id="18965e4a-e272-4084-abd2-e25141ff3423">&lt;/linkText&gt;</ept><bpt id="18965e4a-e272-4084-abd2-e25141ff3423">&lt;title&gt;</bpt><ept id="18965e4a-e272-4084-abd2-e25141ff3423">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="1f5611b1-e2c9-4b26-9d8b-82a1757e45d5" xml:space="preserve">
+          <source>For more information about Redis commands, see <bpt id="4c696cab-468d-4fd9-9130-d34858962726">&lt;linkText&gt;</bpt>http://redis.io/commands<ept id="4c696cab-468d-4fd9-9130-d34858962726">&lt;/linkText&gt;</ept><bpt id="4c696cab-468d-4fd9-9130-d34858962726">&lt;title&gt;</bpt><ept id="4c696cab-468d-4fd9-9130-d34858962726">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Redis commands, see <bpt id="4c696cab-468d-4fd9-9130-d34858962726">&lt;linkText&gt;</bpt>http://redis.io/commands<ept id="4c696cab-468d-4fd9-9130-d34858962726">&lt;/linkText&gt;</ept><bpt id="4c696cab-468d-4fd9-9130-d34858962726">&lt;title&gt;</bpt><ept id="4c696cab-468d-4fd9-9130-d34858962726">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19b0fc58-e549-429f-ae51-302208c1e8fa" xml:space="preserve">
+          <source>For more information on working with Redis commands, see <bpt id="bf50687c-f2d3-473b-b5db-9c5271ca25a9">&lt;linkText&gt;</bpt>How can I run Redis commands?<ept id="bf50687c-f2d3-473b-b5db-9c5271ca25a9">&lt;/linkText&gt;</ept><bpt id="bf50687c-f2d3-473b-b5db-9c5271ca25a9">&lt;title&gt;</bpt><ept id="bf50687c-f2d3-473b-b5db-9c5271ca25a9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on working with Redis commands, see <bpt id="bf50687c-f2d3-473b-b5db-9c5271ca25a9">&lt;linkText&gt;</bpt>How can I run Redis commands?<ept id="bf50687c-f2d3-473b-b5db-9c5271ca25a9">&lt;/linkText&gt;</ept><bpt id="bf50687c-f2d3-473b-b5db-9c5271ca25a9">&lt;title&gt;</bpt><ept id="bf50687c-f2d3-473b-b5db-9c5271ca25a9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

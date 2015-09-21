@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="64a4e9b1-9914-4ca3-9c1e-b82bc3692b15" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="64a4e9b1-9914-4ca3-9c1e-b82bc3692b15" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2fb7b2a7-027e-4782-9f3e-e6b0899acba2">
+        <trans-unit id="3132a60e-0831-4837-a344-15c587d25fe5" xml:space="preserve">
+          <source>Service Bus Quotas</source>
+          <target state="new">Service Bus Quotas</target>
+        </trans-unit>
+        <trans-unit id="00b0bad1-808a-4b3d-816f-d635cad45f04" xml:space="preserve">
+          <source>Service Bus limits and quotas.</source>
+          <target state="new">Service Bus limits and quotas.</target>
+        </trans-unit>
+        <trans-unit id="cad57e4b-b947-44d6-aaec-1f33781ec7b0" xml:space="preserve">
+          <source>This section lists basic quotas and throttling thresholds in Microsoft Azure Service Bus messaging.</source>
+          <target state="new">This section lists basic quotas and throttling thresholds in Microsoft Azure Service Bus messaging.</target>
+        </trans-unit>
+        <trans-unit id="27915e10-829b-444b-ae5e-8e6ac0f0113f" xml:space="preserve">
+          <source><bpt id="2aae87e2-c1ad-46db-bec0-02dc68b03a33">&lt;token href="../../includes/service-bus-quotas-table.md"&gt;</bpt><ept id="2aae87e2-c1ad-46db-bec0-02dc68b03a33">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="2aae87e2-c1ad-46db-bec0-02dc68b03a33">&lt;token href="../../includes/service-bus-quotas-table.md"&gt;</bpt><ept id="2aae87e2-c1ad-46db-bec0-02dc68b03a33">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

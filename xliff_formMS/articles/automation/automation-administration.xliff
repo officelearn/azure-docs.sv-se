@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0a62cf27-9f53-4031-90a3-f0624f1e505a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0a62cf27-9f53-4031-90a3-f0624f1e505a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6937590d-765b-42de-84e1-2f48a8224dac">
+        <trans-unit id="6358f0cf-99c9-4064-b152-64a867d1743f" xml:space="preserve">
+          <source>Azure Automation administration</source>
+          <target state="new">Azure Automation administration</target>
+        </trans-unit>
+        <trans-unit id="9de3e7b5-1c5c-4c2b-8a27-02d0171beca7" xml:space="preserve">
+          <source>This article contains multiple topics for administering an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation.</source>
+          <target state="new">This article contains multiple topics for administering an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="2701fe31-2761-47ef-9184-ce56f9c9cb00" xml:space="preserve">
+          <source>This article contains multiple topics for administering an Azure Automation environment.</source>
+          <target state="new">This article contains multiple topics for administering an Azure Automation environment.</target>
+        </trans-unit>
+        <trans-unit id="4ad32ff4-4c9d-4d20-a7cd-3c29e1c354a2" xml:space="preserve">
+          <source>When you delete a resource in Azure Automation, it is retained for 90 days for auditing purposes before being removed permanently.</source>
+          <target state="new">When you delete a resource in Azure Automation, it is retained for 90 days for auditing purposes before being removed permanently.</target>
+        </trans-unit>
+        <trans-unit id="54844a9c-be27-4911-85ed-130bc058f590" xml:space="preserve">
+          <source>You can’t see or use the resource during this time.</source>
+          <target state="new">You can’t see or use the resource during this time.</target>
+        </trans-unit>
+        <trans-unit id="680c9b97-379a-4813-a8ee-c13c7c97089b" xml:space="preserve">
+          <source>This policy also applies to resources that belong to an automation account that is deleted.</source>
+          <target state="new">This policy also applies to resources that belong to an automation account that is deleted.</target>
+        </trans-unit>
+        <trans-unit id="443e3155-a07c-4db3-9e8e-d14d7588f737" xml:space="preserve">
+          <source>Azure Automation automatically deletes and permanently removes jobs older than 90 days.</source>
+          <target state="new">Azure Automation automatically deletes and permanently removes jobs older than 90 days.</target>
+        </trans-unit>
+        <trans-unit id="1dc98f80-6fe8-48e5-a790-da10e4717622" xml:space="preserve">
+          <source>The following table summarizes the retention policy for different resources.</source>
+          <target state="new">The following table summarizes the retention policy for different resources.</target>
+        </trans-unit>
+        <trans-unit id="48d8add5-3ad7-43ab-becf-7fc8b4fcd5a4" xml:space="preserve">
+          <source>Data</source>
+          <target state="new">Data</target>
+        </trans-unit>
+        <trans-unit id="c85f2f50-2515-4553-b5ad-582ee63d496d" xml:space="preserve">
+          <source>Policy</source>
+          <target state="new">Policy</target>
+        </trans-unit>
+        <trans-unit id="02643c27-5add-49dc-8c48-25ff5de815a1" xml:space="preserve">
+          <source>Accounts</source>
+          <target state="new">Accounts</target>
+        </trans-unit>
+        <trans-unit id="7404cbda-4663-4f2f-a585-88be1bd34b96" xml:space="preserve">
+          <source>Permanently removed 90 days after the account is deleted by a user.</source>
+          <target state="new">Permanently removed 90 days after the account is deleted by a user.</target>
+        </trans-unit>
+        <trans-unit id="a61fb19c-c630-45ea-bee3-d26d631513e4" xml:space="preserve">
+          <source>Assets</source>
+          <target state="new">Assets</target>
+        </trans-unit>
+        <trans-unit id="be810817-bf2a-4cdf-b693-74165a8f5ec8" xml:space="preserve">
+          <source>Permanently removed 90 days after the asset is deleted by a user, or 90 days after the account that holds the asset is deleted by a user.</source>
+          <target state="new">Permanently removed 90 days after the asset is deleted by a user, or 90 days after the account that holds the asset is deleted by a user.</target>
+        </trans-unit>
+        <trans-unit id="25cac0dd-29ee-40bf-a15f-617f463cad2e" xml:space="preserve">
+          <source>Modules</source>
+          <target state="new">Modules</target>
+        </trans-unit>
+        <trans-unit id="9b57134a-fe16-4573-86aa-445cae72d276" xml:space="preserve">
+          <source>Permanently removed 90 days after the module is deleted by a user, or 90 days after the account that holds the module is deleted by a user.</source>
+          <target state="new">Permanently removed 90 days after the module is deleted by a user, or 90 days after the account that holds the module is deleted by a user.</target>
+        </trans-unit>
+        <trans-unit id="c2c6f763-a0f7-4197-b55b-50d59756427d" xml:space="preserve">
+          <source>Runbooks</source>
+          <target state="new">Runbooks</target>
+        </trans-unit>
+        <trans-unit id="e2a56637-006b-4889-bf35-ba0280a8768c" xml:space="preserve">
+          <source>Permanently removed 90 days after the resource is deleted by a user, or 90 days after the account that holds the resource is deleted by a user.</source>
+          <target state="new">Permanently removed 90 days after the resource is deleted by a user, or 90 days after the account that holds the resource is deleted by a user.</target>
+        </trans-unit>
+        <trans-unit id="5f0cc8aa-b970-4ace-8f46-559a532ce71a" xml:space="preserve">
+          <source>Jobs</source>
+          <target state="new">Jobs</target>
+        </trans-unit>
+        <trans-unit id="dd0968d6-d4f6-495e-aeb2-dd28a1b256b8" xml:space="preserve">
+          <source>Deleted and permanently removed 90 days after last being modified.</source>
+          <target state="new">Deleted and permanently removed 90 days after last being modified.</target>
+        </trans-unit>
+        <trans-unit id="05094d29-c0bf-4ef0-b902-71f2f6d9bcee" xml:space="preserve">
+          <source>This could be after the job completes, is stopped, or is suspended.</source>
+          <target state="new">This could be after the job completes, is stopped, or is suspended.</target>
+        </trans-unit>
+        <trans-unit id="a58aea3f-80b0-48b1-9d11-51aaa1142ff3" xml:space="preserve">
+          <source>The retention policy applies to all users and currently cannot be customized.</source>
+          <target state="new">The retention policy applies to all users and currently cannot be customized.</target>
+        </trans-unit>
+        <trans-unit id="d1592e8d-9179-4fb2-a7d3-b4851849290d" xml:space="preserve">
+          <source>When you delete an automation account in Microsoft Azure, all objects in the account are deleted including runbooks, modules, settings, jobs, and assets.</source>
+          <target state="new">When you delete an automation account in Microsoft Azure, all objects in the account are deleted including runbooks, modules, settings, jobs, and assets.</target>
+        </trans-unit>
+        <trans-unit id="5d1e830d-f9b7-4e01-993e-8e386d54e1e3" xml:space="preserve">
+          <source>The objects cannot be recovered after the account is deleted.</source>
+          <target state="new">The objects cannot be recovered after the account is deleted.</target>
+        </trans-unit>
+        <trans-unit id="5ee7f468-ba85-4cf3-8b91-fc68e7e7f91c" xml:space="preserve">
+          <source>You can use the following information to backup the contents of your automation account before deleting it.</source>
+          <target state="new">You can use the following information to backup the contents of your automation account before deleting it.</target>
+        </trans-unit>
+        <trans-unit id="eae52fa5-5610-44e3-97c8-164b52fc163d" xml:space="preserve">
+          <source>You can export your runbooks to script files using either the Azure Management Portal or the <bpt id="008ebf1a-5ccf-453e-ad4d-ffe2d570d028">&lt;linkText&gt;</bpt>Get-AzureAutomationRunbookDefinition<ept id="008ebf1a-5ccf-453e-ad4d-ffe2d570d028">&lt;/linkText&gt;</ept><bpt id="008ebf1a-5ccf-453e-ad4d-ffe2d570d028">&lt;title&gt;</bpt><ept id="008ebf1a-5ccf-453e-ad4d-ffe2d570d028">&lt;/title&gt;</ept> cmdlet in Windows PowerShell.</source>
+          <target state="new">You can export your runbooks to script files using either the Azure Management Portal or the <bpt id="008ebf1a-5ccf-453e-ad4d-ffe2d570d028">&lt;linkText&gt;</bpt>Get-AzureAutomationRunbookDefinition<ept id="008ebf1a-5ccf-453e-ad4d-ffe2d570d028">&lt;/linkText&gt;</ept><bpt id="008ebf1a-5ccf-453e-ad4d-ffe2d570d028">&lt;title&gt;</bpt><ept id="008ebf1a-5ccf-453e-ad4d-ffe2d570d028">&lt;/title&gt;</ept> cmdlet in Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="56292acf-f124-4614-9e0a-3841ed134a2a" xml:space="preserve">
+          <source>These script files can be imported into another automation account as discussed in <bpt id="5311e995-cc7c-47cf-a392-6530aa671ab6">&lt;linkText&gt;</bpt>Creating or Importing a Runbook<ept id="5311e995-cc7c-47cf-a392-6530aa671ab6">&lt;/linkText&gt;</ept><bpt id="5311e995-cc7c-47cf-a392-6530aa671ab6">&lt;title&gt;</bpt><ept id="5311e995-cc7c-47cf-a392-6530aa671ab6">&lt;/title&gt;</ept>.</source>
+          <target state="new">These script files can be imported into another automation account as discussed in <bpt id="5311e995-cc7c-47cf-a392-6530aa671ab6">&lt;linkText&gt;</bpt>Creating or Importing a Runbook<ept id="5311e995-cc7c-47cf-a392-6530aa671ab6">&lt;/linkText&gt;</ept><bpt id="5311e995-cc7c-47cf-a392-6530aa671ab6">&lt;title&gt;</bpt><ept id="5311e995-cc7c-47cf-a392-6530aa671ab6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="047481ca-3639-45d7-9443-3c28b4859038" xml:space="preserve">
+          <source>You cannot export integration modules from Azure Automation.</source>
+          <target state="new">You cannot export integration modules from Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="8fa1b397-9991-4223-b5bf-cf50af9af2cd" xml:space="preserve">
+          <source>You must ensure that they are available outside of the automation account.</source>
+          <target state="new">You must ensure that they are available outside of the automation account.</target>
+        </trans-unit>
+        <trans-unit id="37ed06ff-83a0-4dbb-94d2-41b6ea4a3c7f" xml:space="preserve">
+          <source>You cannot export <bpt id="5195cf14-0693-4bae-a26e-5abd02c49eb3">&lt;linkText&gt;</bpt>assets<ept id="5195cf14-0693-4bae-a26e-5abd02c49eb3">&lt;/linkText&gt;</ept><bpt id="5195cf14-0693-4bae-a26e-5abd02c49eb3">&lt;title&gt;</bpt><ept id="5195cf14-0693-4bae-a26e-5abd02c49eb3">&lt;/title&gt;</ept> from Azure Automation.</source>
+          <target state="new">You cannot export <bpt id="5195cf14-0693-4bae-a26e-5abd02c49eb3">&lt;linkText&gt;</bpt>assets<ept id="5195cf14-0693-4bae-a26e-5abd02c49eb3">&lt;/linkText&gt;</ept><bpt id="5195cf14-0693-4bae-a26e-5abd02c49eb3">&lt;title&gt;</bpt><ept id="5195cf14-0693-4bae-a26e-5abd02c49eb3">&lt;/title&gt;</ept> from Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="f202fe7d-f3c1-4e9b-a497-c5d489557a8f" xml:space="preserve">
+          <source>Using the Azure Management Portal, you must note the details of variables, credentials, certificates, connections, and schedules.</source>
+          <target state="new">Using the Azure Management Portal, you must note the details of variables, credentials, certificates, connections, and schedules.</target>
+        </trans-unit>
+        <trans-unit id="32c396c7-f0d6-48a0-94b3-7dd304c21efb" xml:space="preserve">
+          <source>You must then manually create any assets that are used by runbooks that you import into another automation.</source>
+          <target state="new">You must then manually create any assets that are used by runbooks that you import into another automation.</target>
+        </trans-unit>
+        <trans-unit id="f1a9e2c3-dbc4-49dc-b310-bbcf5051c2db" xml:space="preserve">
+          <source>You can use <bpt id="f1a965e9-b7f0-41cf-a6ab-c483deb7ce87">&lt;linkText&gt;</bpt>Azure cmdlets<ept id="f1a965e9-b7f0-41cf-a6ab-c483deb7ce87">&lt;/linkText&gt;</ept><bpt id="f1a965e9-b7f0-41cf-a6ab-c483deb7ce87">&lt;title&gt;</bpt><ept id="f1a965e9-b7f0-41cf-a6ab-c483deb7ce87">&lt;/title&gt;</ept> to retrieve details of unencrypted assets and either save them for future reference or create equivalent assets in another automation account.</source>
+          <target state="new">You can use <bpt id="f1a965e9-b7f0-41cf-a6ab-c483deb7ce87">&lt;linkText&gt;</bpt>Azure cmdlets<ept id="f1a965e9-b7f0-41cf-a6ab-c483deb7ce87">&lt;/linkText&gt;</ept><bpt id="f1a965e9-b7f0-41cf-a6ab-c483deb7ce87">&lt;title&gt;</bpt><ept id="f1a965e9-b7f0-41cf-a6ab-c483deb7ce87">&lt;/title&gt;</ept> to retrieve details of unencrypted assets and either save them for future reference or create equivalent assets in another automation account.</target>
+        </trans-unit>
+        <trans-unit id="64ea8a65-01ff-4990-bd8e-6f0f3433cfa4" xml:space="preserve">
+          <source>You cannot retrieve the value for encrypted variables or the password field of credentials using cmdlets.</source>
+          <target state="new">You cannot retrieve the value for encrypted variables or the password field of credentials using cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="0bae15f3-1c2e-419d-936f-317feb6eee23" xml:space="preserve">
+          <source>If you don't know these values, then you can retrieve them from a runbook using the <bpt id="18bba7bb-16c1-4ddf-bace-73d32a71093b">&lt;linkText&gt;</bpt>Get-AutomationVariable<ept id="18bba7bb-16c1-4ddf-bace-73d32a71093b">&lt;/linkText&gt;</ept><bpt id="18bba7bb-16c1-4ddf-bace-73d32a71093b">&lt;title&gt;</bpt><ept id="18bba7bb-16c1-4ddf-bace-73d32a71093b">&lt;/title&gt;</ept> and <bpt id="b0612b73-fdc3-4c44-80c2-85519b3e75c6">&lt;linkText&gt;</bpt>Get-AutomationPSCredential<ept id="b0612b73-fdc3-4c44-80c2-85519b3e75c6">&lt;/linkText&gt;</ept><bpt id="b0612b73-fdc3-4c44-80c2-85519b3e75c6">&lt;title&gt;</bpt><ept id="b0612b73-fdc3-4c44-80c2-85519b3e75c6">&lt;/title&gt;</ept> activities.</source>
+          <target state="new">If you don't know these values, then you can retrieve them from a runbook using the <bpt id="18bba7bb-16c1-4ddf-bace-73d32a71093b">&lt;linkText&gt;</bpt>Get-AutomationVariable<ept id="18bba7bb-16c1-4ddf-bace-73d32a71093b">&lt;/linkText&gt;</ept><bpt id="18bba7bb-16c1-4ddf-bace-73d32a71093b">&lt;title&gt;</bpt><ept id="18bba7bb-16c1-4ddf-bace-73d32a71093b">&lt;/title&gt;</ept> and <bpt id="b0612b73-fdc3-4c44-80c2-85519b3e75c6">&lt;linkText&gt;</bpt>Get-AutomationPSCredential<ept id="b0612b73-fdc3-4c44-80c2-85519b3e75c6">&lt;/linkText&gt;</ept><bpt id="b0612b73-fdc3-4c44-80c2-85519b3e75c6">&lt;title&gt;</bpt><ept id="b0612b73-fdc3-4c44-80c2-85519b3e75c6">&lt;/title&gt;</ept> activities.</target>
+        </trans-unit>
+        <trans-unit id="453db71f-e7de-4764-a018-63371b967251" xml:space="preserve">
+          <source>You cannot export certificates from Azure Automation.</source>
+          <target state="new">You cannot export certificates from Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="ddcf695b-3c59-40e5-a206-a2eb74a6638c" xml:space="preserve">
+          <source>You must ensure that any certificates are available outside of Azure.</source>
+          <target state="new">You must ensure that any certificates are available outside of Azure.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

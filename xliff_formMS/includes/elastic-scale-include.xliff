@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d9779f39-5107-4c71-9460-f8ce6555847e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d9779f39-5107-4c71-9460-f8ce6555847e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2bb79687-0a65-4275-93cd-5e3b97b66bd1">
+        <trans-unit id="075b5a27-6440-4cb0-bf9b-1d2284fa8714" xml:space="preserve">
+          <source>Not using elastic database tools yet?</source>
+          <target state="new">Not using elastic database tools yet?</target>
+        </trans-unit>
+        <trans-unit id="febb8e0d-3c15-4dc9-9c5b-558f8b3859b2" xml:space="preserve">
+          <source>Check out our <bpt id="1c76a839-8800-41e9-af7e-3aa199ea0c14">&lt;linkText&gt;</bpt>Getting Started Guide<ept id="1c76a839-8800-41e9-af7e-3aa199ea0c14">&lt;/linkText&gt;</ept><bpt id="1c76a839-8800-41e9-af7e-3aa199ea0c14">&lt;title&gt;</bpt><ept id="1c76a839-8800-41e9-af7e-3aa199ea0c14">&lt;/title&gt;</ept> and <bpt id="c7353927-2dca-4304-acac-ca0a7a20d19e">&lt;linkText&gt;</bpt>Documentation Map<ept id="c7353927-2dca-4304-acac-ca0a7a20d19e">&lt;/linkText&gt;</ept><bpt id="c7353927-2dca-4304-acac-ca0a7a20d19e">&lt;title&gt;</bpt><ept id="c7353927-2dca-4304-acac-ca0a7a20d19e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Check out our <bpt id="1c76a839-8800-41e9-af7e-3aa199ea0c14">&lt;linkText&gt;</bpt>Getting Started Guide<ept id="1c76a839-8800-41e9-af7e-3aa199ea0c14">&lt;/linkText&gt;</ept><bpt id="1c76a839-8800-41e9-af7e-3aa199ea0c14">&lt;title&gt;</bpt><ept id="1c76a839-8800-41e9-af7e-3aa199ea0c14">&lt;/title&gt;</ept> and <bpt id="c7353927-2dca-4304-acac-ca0a7a20d19e">&lt;linkText&gt;</bpt>Documentation Map<ept id="c7353927-2dca-4304-acac-ca0a7a20d19e">&lt;/linkText&gt;</ept><bpt id="c7353927-2dca-4304-acac-ca0a7a20d19e">&lt;title&gt;</bpt><ept id="c7353927-2dca-4304-acac-ca0a7a20d19e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d3c5be7-83a9-4189-bef4-0406a81138ca" xml:space="preserve">
+          <source>For questions, please reach out to us on the <bpt id="08e7fee6-4f20-440c-99f9-e8400e04e229">&lt;linkText&gt;</bpt>SQL Database forum<ept id="08e7fee6-4f20-440c-99f9-e8400e04e229">&lt;/linkText&gt;</ept><bpt id="08e7fee6-4f20-440c-99f9-e8400e04e229">&lt;title&gt;</bpt><ept id="08e7fee6-4f20-440c-99f9-e8400e04e229">&lt;/title&gt;</ept> and for feature requests, please add them to the <bpt id="5d594bd4-1aff-4693-8a02-5159955cbbad">&lt;linkText&gt;</bpt>SQL Database feedback forum<ept id="5d594bd4-1aff-4693-8a02-5159955cbbad">&lt;/linkText&gt;</ept><bpt id="5d594bd4-1aff-4693-8a02-5159955cbbad">&lt;title&gt;</bpt><ept id="5d594bd4-1aff-4693-8a02-5159955cbbad">&lt;/title&gt;</ept>.</source>
+          <target state="new">For questions, please reach out to us on the <bpt id="08e7fee6-4f20-440c-99f9-e8400e04e229">&lt;linkText&gt;</bpt>SQL Database forum<ept id="08e7fee6-4f20-440c-99f9-e8400e04e229">&lt;/linkText&gt;</ept><bpt id="08e7fee6-4f20-440c-99f9-e8400e04e229">&lt;title&gt;</bpt><ept id="08e7fee6-4f20-440c-99f9-e8400e04e229">&lt;/title&gt;</ept> and for feature requests, please add them to the <bpt id="5d594bd4-1aff-4693-8a02-5159955cbbad">&lt;linkText&gt;</bpt>SQL Database feedback forum<ept id="5d594bd4-1aff-4693-8a02-5159955cbbad">&lt;/linkText&gt;</ept><bpt id="5d594bd4-1aff-4693-8a02-5159955cbbad">&lt;title&gt;</bpt><ept id="5d594bd4-1aff-4693-8a02-5159955cbbad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

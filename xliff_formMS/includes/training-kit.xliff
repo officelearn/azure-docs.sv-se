@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f046467f-8f11-46f0-a9d4-9ec2d7e2372d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f046467f-8f11-46f0-a9d4-9ec2d7e2372d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="335aa325-fbff-48a4-be4e-d3f1028c97c8">
+        <trans-unit id="bf374da5-d240-485b-aab8-9d68cbbf1b54" xml:space="preserve">
+          <source>Azure Readiness Content</source>
+          <target state="new">Azure Readiness Content</target>
+        </trans-unit>
+        <trans-unit id="cebf42bc-ca21-432a-aa36-965048f3872f" xml:space="preserve">
+          <source>The Azure Readiness Content provides a set of presentations and demos designed to help learn the latest Microsoft Azure features and services.</source>
+          <target state="new">The Azure Readiness Content provides a set of presentations and demos designed to help learn the latest Microsoft Azure features and services.</target>
+        </trans-unit>
+        <trans-unit id="f340323d-9e72-4193-9713-3054300e99ef" xml:space="preserve">
+          <source>download</source>
+          <target state="new">download</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5f06b465-4bce-4719-8225-a6e2c7ea03e8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5f06b465-4bce-4719-8225-a6e2c7ea03e8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7a4fdd1f-0b44-44bc-8355-2fd984d01ea8">
+        <trans-unit id="36821469-6b64-48ae-9996-bef7fe28b923" xml:space="preserve">
+          <source>Operating System Functionality on Azure App Service Web Apps</source>
+          <target state="new">Operating System Functionality on Azure App Service Web Apps</target>
+        </trans-unit>
+        <trans-unit id="c0453514-157b-4230-adae-3a063a36e564" xml:space="preserve">
+          <source>Learn about the OS functionality available to web applications on Azure App Service</source>
+          <target state="new">Learn about the OS functionality available to web applications on Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="655a4f6c-5dcf-4cf1-85e3-c9fa1cb6d434" xml:space="preserve">
+          <source>This article describes the common baseline operating system functionality that is available to all applications running on <bpt id="a51812a5-841c-4c16-81a9-2221d7954a9b">&lt;linkText&gt;</bpt>Azure App Service<ept id="a51812a5-841c-4c16-81a9-2221d7954a9b">&lt;/linkText&gt;</ept><bpt id="a51812a5-841c-4c16-81a9-2221d7954a9b">&lt;title&gt;</bpt><ept id="a51812a5-841c-4c16-81a9-2221d7954a9b">&lt;/title&gt;</ept> Web Apps.</source>
+          <target state="new">This article describes the common baseline operating system functionality that is available to all applications running on <bpt id="a51812a5-841c-4c16-81a9-2221d7954a9b">&lt;linkText&gt;</bpt>Azure App Service<ept id="a51812a5-841c-4c16-81a9-2221d7954a9b">&lt;/linkText&gt;</ept><bpt id="a51812a5-841c-4c16-81a9-2221d7954a9b">&lt;title&gt;</bpt><ept id="a51812a5-841c-4c16-81a9-2221d7954a9b">&lt;/title&gt;</ept> Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="eac73713-36e5-4a1a-be24-3cf004fb10b6" xml:space="preserve">
+          <source>This functionality includes file, network, and registry access, and diagnostics logs and events.</source>
+          <target state="new">This functionality includes file, network, and registry access, and diagnostics logs and events.</target>
+        </trans-unit>
+        <trans-unit id="a64f6e7b-d24e-4a24-bddb-2e7a8431e4ab" xml:space="preserve">
+          <source><bpt id="5d97f06e-6288-4dd7-b194-250f51f47156">&lt;bookmark&gt;</bpt><ept id="5d97f06e-6288-4dd7-b194-250f51f47156">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="5d97f06e-6288-4dd7-b194-250f51f47156">&lt;bookmark&gt;</bpt><ept id="5d97f06e-6288-4dd7-b194-250f51f47156">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22aad73d-4596-430e-9fee-1bb2476f56e3" xml:space="preserve">
+          <source>Web Apps runs customer apps in a multi-tenant hosting environment.</source>
+          <target state="new">Web Apps runs customer apps in a multi-tenant hosting environment.</target>
+        </trans-unit>
+        <trans-unit id="bc45c0a5-83a9-4d72-8b58-a77a0c58b3e9" xml:space="preserve">
+          <source>Web apps deployed in the <bpt id="36e4af1c-eef6-48a1-8fbb-f19c2f085604">&lt;strong&gt;</bpt>Free<ept id="36e4af1c-eef6-48a1-8fbb-f19c2f085604">&lt;/strong&gt;</ept> and <bpt id="ae7263c9-f34e-4b41-9443-9000bf09fe85">&lt;strong&gt;</bpt>Shared<ept id="ae7263c9-f34e-4b41-9443-9000bf09fe85">&lt;/strong&gt;</ept> tiers run in worker processes on shared virtual machines, while web apps deployed in the <bpt id="0a034727-5d6c-4902-b25e-f59a4a1473f6">&lt;strong&gt;</bpt>Standard<ept id="0a034727-5d6c-4902-b25e-f59a4a1473f6">&lt;/strong&gt;</ept> and <bpt id="6057b964-a0f8-455d-ac84-1b34fb30395f">&lt;strong&gt;</bpt>Premium<ept id="6057b964-a0f8-455d-ac84-1b34fb30395f">&lt;/strong&gt;</ept> tiers run on virtual machine(s) dedicated specifically for the web apps associated with a single customer.</source>
+          <target state="new">Web apps deployed in the <bpt id="36e4af1c-eef6-48a1-8fbb-f19c2f085604">&lt;strong&gt;</bpt>Free<ept id="36e4af1c-eef6-48a1-8fbb-f19c2f085604">&lt;/strong&gt;</ept> and <bpt id="ae7263c9-f34e-4b41-9443-9000bf09fe85">&lt;strong&gt;</bpt>Shared<ept id="ae7263c9-f34e-4b41-9443-9000bf09fe85">&lt;/strong&gt;</ept> tiers run in worker processes on shared virtual machines, while web apps deployed in the <bpt id="0a034727-5d6c-4902-b25e-f59a4a1473f6">&lt;strong&gt;</bpt>Standard<ept id="0a034727-5d6c-4902-b25e-f59a4a1473f6">&lt;/strong&gt;</ept> and <bpt id="6057b964-a0f8-455d-ac84-1b34fb30395f">&lt;strong&gt;</bpt>Premium<ept id="6057b964-a0f8-455d-ac84-1b34fb30395f">&lt;/strong&gt;</ept> tiers run on virtual machine(s) dedicated specifically for the web apps associated with a single customer.</target>
+        </trans-unit>
+        <trans-unit id="cb259ab9-93ac-49f0-9bcd-51850fd62e25" xml:space="preserve">
+          <source>Because Web Apps supports a seamless scaling experience between different tiers, the security configuration enforced for web apps remains the same.</source>
+          <target state="new">Because Web Apps supports a seamless scaling experience between different tiers, the security configuration enforced for web apps remains the same.</target>
+        </trans-unit>
+        <trans-unit id="2b5ab308-fdc1-4e4a-ba0d-6a39c32855a1" xml:space="preserve">
+          <source>This ensures that web applications don't suddenly behave differently, failing in unexpected ways, when a web app switches from one tier to another.</source>
+          <target state="new">This ensures that web applications don't suddenly behave differently, failing in unexpected ways, when a web app switches from one tier to another.</target>
+        </trans-unit>
+        <trans-unit id="dae95426-c17b-41ab-9642-910c66128822" xml:space="preserve">
+          <source><bpt id="f011232a-8097-4820-868c-d338791531f8">&lt;bookmark&gt;</bpt><ept id="f011232a-8097-4820-868c-d338791531f8">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="f011232a-8097-4820-868c-d338791531f8">&lt;bookmark&gt;</bpt><ept id="f011232a-8097-4820-868c-d338791531f8">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c60ab869-a646-4924-8f96-d44fc4215def" xml:space="preserve">
+          <source>Web Apps tiers control the amount of compute resources (CPU, disk storage, memory, and network egress) available to web apps.</source>
+          <target state="new">Web Apps tiers control the amount of compute resources (CPU, disk storage, memory, and network egress) available to web apps.</target>
+        </trans-unit>
+        <trans-unit id="9d93a87b-a40f-44d3-b40c-0b0b3403e460" xml:space="preserve">
+          <source>However, the breadth of framework functionality available to applications remains the same regardless of the scaling tiers.</source>
+          <target state="new">However, the breadth of framework functionality available to applications remains the same regardless of the scaling tiers.</target>
+        </trans-unit>
+        <trans-unit id="6c1396c9-6b14-417d-9c76-a14664067a84" xml:space="preserve">
+          <source>Web Apps supports a variety of development frameworks, including ASP.NET, classic ASP, node.js, PHP and python - all of which run as extensions within IIS.</source>
+          <target state="new">Web Apps supports a variety of development frameworks, including ASP.NET, classic ASP, node.js, PHP and python - all of which run as extensions within IIS.</target>
+        </trans-unit>
+        <trans-unit id="4ebe8030-3a47-41e3-b73d-6c0b2026aa34" xml:space="preserve">
+          <source>In order to simplify and normalize security configuration, Web apps typically run the various development frameworks with their default settings.</source>
+          <target state="new">In order to simplify and normalize security configuration, Web apps typically run the various development frameworks with their default settings.</target>
+        </trans-unit>
+        <trans-unit id="2cc20550-7a30-4694-8fb8-f75692bce8e6" xml:space="preserve">
+          <source>One approach to configuring web apps could have been to customize the API surface area and functionality for each individual development framework.</source>
+          <target state="new">One approach to configuring web apps could have been to customize the API surface area and functionality for each individual development framework.</target>
+        </trans-unit>
+        <trans-unit id="d78bda07-5e2c-4457-80d6-fbb962212b84" xml:space="preserve">
+          <source>Web Apps instead takes a more generic approach by enabling a common baseline of operating system functionality regardless of a web app's development framework.</source>
+          <target state="new">Web Apps instead takes a more generic approach by enabling a common baseline of operating system functionality regardless of a web app's development framework.</target>
+        </trans-unit>
+        <trans-unit id="d9fb51ad-dcb9-4c8d-9c0b-abfeb2a8b687" xml:space="preserve">
+          <source>The following sections summarize the general kinds of operating system functionality available to web apps on Azure.</source>
+          <target state="new">The following sections summarize the general kinds of operating system functionality available to web apps on Azure.</target>
+        </trans-unit>
+        <trans-unit id="fd81ab38-b815-426e-9d84-0d7ac40e947b" xml:space="preserve">
+          <source><bpt id="9a5844b9-f8c9-4d4a-9837-33e5ef5116e3">&lt;bookmark&gt;</bpt><ept id="9a5844b9-f8c9-4d4a-9837-33e5ef5116e3">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="9a5844b9-f8c9-4d4a-9837-33e5ef5116e3">&lt;bookmark&gt;</bpt><ept id="9a5844b9-f8c9-4d4a-9837-33e5ef5116e3">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d2f0ba1-ddc7-48fe-9047-cb2b9cd1135a" xml:space="preserve">
+          <source>Various drives exist within Web Apps, including local drives and network drives.</source>
+          <target state="new">Various drives exist within Web Apps, including local drives and network drives.</target>
+        </trans-unit>
+        <trans-unit id="2d711ddb-790f-46ca-86ef-f903ac30560a" xml:space="preserve">
+          <source><bpt id="e734fafd-c52a-4844-86db-bf920e807e9c">&lt;bookmark&gt;</bpt><ept id="e734fafd-c52a-4844-86db-bf920e807e9c">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e734fafd-c52a-4844-86db-bf920e807e9c">&lt;bookmark&gt;</bpt><ept id="e734fafd-c52a-4844-86db-bf920e807e9c">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bb1f701-1118-4f80-8cfd-0efc58765b5e" xml:space="preserve">
+          <source>At its core, Web Apps is a service running on top of the Azure PaaS (platform as a service) infrastructure.</source>
+          <target state="new">At its core, Web Apps is a service running on top of the Azure PaaS (platform as a service) infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="8f6f75ac-a26e-4d88-be01-b74f3332c218" xml:space="preserve">
+          <source>As a result, the local drives that are "attached" to a virtual machine are the same drive types available to any worker role running in Azure.</source>
+          <target state="new">As a result, the local drives that are "attached" to a virtual machine are the same drive types available to any worker role running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="90775908-7afe-4cf1-84c9-50bc11cf9775" xml:space="preserve">
+          <source>This includes an operating system drive (the D:\ drive), an application drive that contains Azure Package cspkg files used exclusively by Web Apps (and inaccessible to customers), and a "user" drive (the C:\ drive), whose size varies depending on the size of the VM.</source>
+          <target state="new">This includes an operating system drive (the D:\ drive), an application drive that contains Azure Package cspkg files used exclusively by Web Apps (and inaccessible to customers), and a "user" drive (the C:\ drive), whose size varies depending on the size of the VM.</target>
+        </trans-unit>
+        <trans-unit id="8f29d4b6-bc06-4d9b-ae51-64c8d8166ff5" xml:space="preserve">
+          <source><bpt id="456951d2-0291-485b-bbf4-fe746501d935">&lt;bookmark&gt;</bpt><ept id="456951d2-0291-485b-bbf4-fe746501d935">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="456951d2-0291-485b-bbf4-fe746501d935">&lt;bookmark&gt;</bpt><ept id="456951d2-0291-485b-bbf4-fe746501d935">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d11d63c6-7beb-4cb7-942f-a017d4455a65" xml:space="preserve">
+          <source>One of the unique aspects of Web Apps that makes web application deployment and maintenance straightforward is that all user content is stored on a set of UNC shares.</source>
+          <target state="new">One of the unique aspects of Web Apps that makes web application deployment and maintenance straightforward is that all user content is stored on a set of UNC shares.</target>
+        </trans-unit>
+        <trans-unit id="b4507587-e53b-4d34-95c4-fe12049e7f3e" xml:space="preserve">
+          <source>This model maps very nicely to the common pattern of content storage used by on-premises web hosting environments that have multiple load-balanced servers.</source>
+          <target state="new">This model maps very nicely to the common pattern of content storage used by on-premises web hosting environments that have multiple load-balanced servers.</target>
+        </trans-unit>
+        <trans-unit id="166999fb-8912-429a-8816-582aaced3ae3" xml:space="preserve">
+          <source>Within Web Apps there are number of UNC shares created in each data center.</source>
+          <target state="new">Within Web Apps there are number of UNC shares created in each data center.</target>
+        </trans-unit>
+        <trans-unit id="f0cd7278-5cbf-4cde-9b33-8e6f1b4a9b22" xml:space="preserve">
+          <source>A percentage of the user content for all customers in each data center is allocated to each UNC share.</source>
+          <target state="new">A percentage of the user content for all customers in each data center is allocated to each UNC share.</target>
+        </trans-unit>
+        <trans-unit id="eff08932-8dc1-46e1-9d21-9274b63e4ce1" xml:space="preserve">
+          <source>Furthermore, all of the file content for a single customer's subscription is always placed on the same UNC share.</source>
+          <target state="new">Furthermore, all of the file content for a single customer's subscription is always placed on the same UNC share.</target>
+        </trans-unit>
+        <trans-unit id="f41b027c-739a-4d0e-ade1-c8f34b0c95c8" xml:space="preserve">
+          <source>Note that due to how cloud services work, the specific virtual machine responsible for hosting a UNC share will change over time.</source>
+          <target state="new">Note that due to how cloud services work, the specific virtual machine responsible for hosting a UNC share will change over time.</target>
+        </trans-unit>
+        <trans-unit id="b174dafe-b07c-495d-b3bf-4affebdfbed5" xml:space="preserve">
+          <source>It is guaranteed that UNC shares will be mounted by different virtual machines as they are brought up and down during the normal course of cloud operations.</source>
+          <target state="new">It is guaranteed that UNC shares will be mounted by different virtual machines as they are brought up and down during the normal course of cloud operations.</target>
+        </trans-unit>
+        <trans-unit id="f8d9c023-174b-40f2-9414-b87d4ae99897" xml:space="preserve">
+          <source>For this reason, web applications should never make hard-coded assumptions that the machine information in a UNC file path will remain stable over time.</source>
+          <target state="new">For this reason, web applications should never make hard-coded assumptions that the machine information in a UNC file path will remain stable over time.</target>
+        </trans-unit>
+        <trans-unit id="e426994e-60b4-4fa1-99f3-14d8b956447e" xml:space="preserve">
+          <source>Instead, they should use the convenient <bpt id="12dba18c-3706-4c2f-8e18-4700e4a9584b">&lt;em&gt;</bpt>faux<ept id="12dba18c-3706-4c2f-8e18-4700e4a9584b">&lt;/em&gt;</ept> absolute path <bpt id="09a04aa3-329d-41c5-bc2d-05ee1ee6d390">&lt;strong&gt;</bpt>D:\home\site<ept id="09a04aa3-329d-41c5-bc2d-05ee1ee6d390">&lt;/strong&gt;</ept> that Web Apps provides.</source>
+          <target state="new">Instead, they should use the convenient <bpt id="12dba18c-3706-4c2f-8e18-4700e4a9584b">&lt;em&gt;</bpt>faux<ept id="12dba18c-3706-4c2f-8e18-4700e4a9584b">&lt;/em&gt;</ept> absolute path <bpt id="09a04aa3-329d-41c5-bc2d-05ee1ee6d390">&lt;strong&gt;</bpt>D:\home\site<ept id="09a04aa3-329d-41c5-bc2d-05ee1ee6d390">&lt;/strong&gt;</ept> that Web Apps provides.</target>
+        </trans-unit>
+        <trans-unit id="61d88f3e-cb68-4423-b889-8db2d35da3a3" xml:space="preserve">
+          <source>This faux absolute path provides a portable, app-and-user-agnostic method for referring to one's own app.</source>
+          <target state="new">This faux absolute path provides a portable, app-and-user-agnostic method for referring to one's own app.</target>
+        </trans-unit>
+        <trans-unit id="ded634a7-78ee-4af7-b2b6-c4eeb18753bb" xml:space="preserve">
+          <source>By using <bpt id="a7fd2f57-052c-4f5b-92c9-d6bef9741246">&lt;strong&gt;</bpt>D:\home\site<ept id="a7fd2f57-052c-4f5b-92c9-d6bef9741246">&lt;/strong&gt;</ept>, one can transfer shared files from app to app without having to configure a new absolute path for each transfer.</source>
+          <target state="new">By using <bpt id="a7fd2f57-052c-4f5b-92c9-d6bef9741246">&lt;strong&gt;</bpt>D:\home\site<ept id="a7fd2f57-052c-4f5b-92c9-d6bef9741246">&lt;/strong&gt;</ept>, one can transfer shared files from app to app without having to configure a new absolute path for each transfer.</target>
+        </trans-unit>
+        <trans-unit id="b421095b-7b6b-4181-a18c-77d592ace972" xml:space="preserve">
+          <source><bpt id="63df85a2-5c6a-4078-8304-8644d51fb8f1">&lt;bookmark&gt;</bpt><ept id="63df85a2-5c6a-4078-8304-8644d51fb8f1">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="63df85a2-5c6a-4078-8304-8644d51fb8f1">&lt;bookmark&gt;</bpt><ept id="63df85a2-5c6a-4078-8304-8644d51fb8f1">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fef0554b-0132-44b9-a15a-d4d548d0c7c0" xml:space="preserve">
+          <source>Each customer's subscription has a reserved directory structure on a specific UNC share within a data center.</source>
+          <target state="new">Each customer's subscription has a reserved directory structure on a specific UNC share within a data center.</target>
+        </trans-unit>
+        <trans-unit id="46371150-27b8-4015-8280-9610aea0c13c" xml:space="preserve">
+          <source>A customer may have multiple web apps created within a specific data center, so all of the directories belonging to a single customer subscription are created on the same UNC share.</source>
+          <target state="new">A customer may have multiple web apps created within a specific data center, so all of the directories belonging to a single customer subscription are created on the same UNC share.</target>
+        </trans-unit>
+        <trans-unit id="8f1f38b2-2e0e-4e3b-a34d-1f320482f860" xml:space="preserve">
+          <source>The share may include directories such as those for content, error and diagnostic logs, and earlier versions of the web app created by source control.</source>
+          <target state="new">The share may include directories such as those for content, error and diagnostic logs, and earlier versions of the web app created by source control.</target>
+        </trans-unit>
+        <trans-unit id="6102711a-64f3-4b3d-be03-8e3268d8dcce" xml:space="preserve">
+          <source>As expected, a customer's web app directories are available for read and write access at runtime by a web app's application code.</source>
+          <target state="new">As expected, a customer's web app directories are available for read and write access at runtime by a web app's application code.</target>
+        </trans-unit>
+        <trans-unit id="9c5f58c1-2c3f-4036-9e43-4713a4f77b02" xml:space="preserve">
+          <source>On the local drives attached to the virtual machine that runs a web app, Web Apps reserves a chunk of space on the C:\ drive for app-specific temporary local storage.</source>
+          <target state="new">On the local drives attached to the virtual machine that runs a web app, Web Apps reserves a chunk of space on the C:\ drive for app-specific temporary local storage.</target>
+        </trans-unit>
+        <trans-unit id="7b8c716a-7e85-4fa9-9a56-20fe4fcd67dd" xml:space="preserve">
+          <source>Although a web app has full read/write access to its own temporary local storage, that storage really isn't intended to be used directly by application code.</source>
+          <target state="new">Although a web app has full read/write access to its own temporary local storage, that storage really isn't intended to be used directly by application code.</target>
+        </trans-unit>
+        <trans-unit id="d2798763-44fc-4af0-8277-103befcfba20" xml:space="preserve">
+          <source>Rather, the intent is to provide temporary file storage for IIS and web application frameworks.</source>
+          <target state="new">Rather, the intent is to provide temporary file storage for IIS and web application frameworks.</target>
+        </trans-unit>
+        <trans-unit id="421a7b19-e8e2-4ceb-96fe-018332377c5b" xml:space="preserve">
+          <source>Web Apps also limits the amount of temporary local storage available to each web app to prevent individual apps from consuming excessive amounts of local file storage.</source>
+          <target state="new">Web Apps also limits the amount of temporary local storage available to each web app to prevent individual apps from consuming excessive amounts of local file storage.</target>
+        </trans-unit>
+        <trans-unit id="08046acf-a528-4f10-a8e8-ecdbd656f3dd" xml:space="preserve">
+          <source>Two examples of how Web Apps uses temporary local storage are the directory for temporary ASP.NET files and the directory for IIS compressed files.</source>
+          <target state="new">Two examples of how Web Apps uses temporary local storage are the directory for temporary ASP.NET files and the directory for IIS compressed files.</target>
+        </trans-unit>
+        <trans-unit id="4d720c53-1bbd-4c1a-a9ec-9118f1336f22" xml:space="preserve">
+          <source>The ASP.NET compilation system uses the "Temporary ASP.NET Files" directory as a temporary compilation cache location.</source>
+          <target state="new">The ASP.NET compilation system uses the "Temporary ASP.NET Files" directory as a temporary compilation cache location.</target>
+        </trans-unit>
+        <trans-unit id="2fe4932c-9336-42b5-b9fb-22508c293ed0" xml:space="preserve">
+          <source>IIS uses the "IIS Temporary Compressed Files" directory to store compressed response output.</source>
+          <target state="new">IIS uses the "IIS Temporary Compressed Files" directory to store compressed response output.</target>
+        </trans-unit>
+        <trans-unit id="246df15b-4c8c-4e9d-a22f-8e875cb55ff3" xml:space="preserve">
+          <source>Both of these types of file usage (as well as others) are remapped in Web Apps to per-app temporary local storage.</source>
+          <target state="new">Both of these types of file usage (as well as others) are remapped in Web Apps to per-app temporary local storage.</target>
+        </trans-unit>
+        <trans-unit id="0badc172-cdba-4f05-a789-480ffc626a23" xml:space="preserve">
+          <source>This remapping ensures that functionality continues as expected.</source>
+          <target state="new">This remapping ensures that functionality continues as expected.</target>
+        </trans-unit>
+        <trans-unit id="b9230014-b4e1-4574-bb88-0e6e3061dbc0" xml:space="preserve">
+          <source>Each app in Web Apps runs as a random unique low-privileged worker process identity called the "application pool identity", described further here: <bpt id="15afe9ac-6939-46e1-99b6-63a8b79fad0e">&lt;linkText&gt;</bpt>http://www.iis.net/learn/manage/configuring-security/application-pool-identities<ept id="15afe9ac-6939-46e1-99b6-63a8b79fad0e">&lt;/linkText&gt;</ept><bpt id="15afe9ac-6939-46e1-99b6-63a8b79fad0e">&lt;title&gt;</bpt><ept id="15afe9ac-6939-46e1-99b6-63a8b79fad0e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Each app in Web Apps runs as a random unique low-privileged worker process identity called the "application pool identity", described further here: <bpt id="15afe9ac-6939-46e1-99b6-63a8b79fad0e">&lt;linkText&gt;</bpt>http://www.iis.net/learn/manage/configuring-security/application-pool-identities<ept id="15afe9ac-6939-46e1-99b6-63a8b79fad0e">&lt;/linkText&gt;</ept><bpt id="15afe9ac-6939-46e1-99b6-63a8b79fad0e">&lt;title&gt;</bpt><ept id="15afe9ac-6939-46e1-99b6-63a8b79fad0e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44f92f69-2525-418e-a319-15778d55447d" xml:space="preserve">
+          <source>Application code uses this identity for basic read-only access to the operating system drive (the D:\ drive).</source>
+          <target state="new">Application code uses this identity for basic read-only access to the operating system drive (the D:\ drive).</target>
+        </trans-unit>
+        <trans-unit id="66d981f9-80f6-4c35-96b3-f36618780b17" xml:space="preserve">
+          <source>This means application code can list common directory structures and read common files on operating system drive.</source>
+          <target state="new">This means application code can list common directory structures and read common files on operating system drive.</target>
+        </trans-unit>
+        <trans-unit id="ae7c15f1-84ca-4cef-afc4-da4733324420" xml:space="preserve">
+          <source>Although this might appear to be a somewhat broad level of access, the same directories and files are accessible when you provision a worker role in an Azure hosted service and read the drive contents.</source>
+          <target state="new">Although this might appear to be a somewhat broad level of access, the same directories and files are accessible when you provision a worker role in an Azure hosted service and read the drive contents.</target>
+        </trans-unit>
+        <trans-unit id="22906783-ab2e-4446-ade2-a94062d1b7d1" xml:space="preserve">
+          <source><bpt id="f484b206-7e87-4b61-ac1c-95c19116d725">&lt;bookmark&gt;</bpt><ept id="f484b206-7e87-4b61-ac1c-95c19116d725">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="f484b206-7e87-4b61-ac1c-95c19116d725">&lt;bookmark&gt;</bpt><ept id="f484b206-7e87-4b61-ac1c-95c19116d725">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb5e68da-7564-4f59-b3e3-67f66beb9756" xml:space="preserve">
+          <source>The home directory contains an app's content, and web applications can write to it.</source>
+          <target state="new">The home directory contains an app's content, and web applications can write to it.</target>
+        </trans-unit>
+        <trans-unit id="3616d0c1-4f6a-44e5-9dea-04d2893e7b0f" xml:space="preserve">
+          <source>If a web app runs on multiple instances, the home directory is shared among all instances so that all instances see the same directory.</source>
+          <target state="new">If a web app runs on multiple instances, the home directory is shared among all instances so that all instances see the same directory.</target>
+        </trans-unit>
+        <trans-unit id="0c2b5795-4a90-4cc2-b3b2-b64ef0a701c1" xml:space="preserve">
+          <source>So, for example, if a web app saves uploaded files to the home directory, those files are immediately available to all instances.</source>
+          <target state="new">So, for example, if a web app saves uploaded files to the home directory, those files are immediately available to all instances.</target>
+        </trans-unit>
+        <trans-unit id="1d9e6918-4d30-43e2-a947-abbee67142bf" xml:space="preserve">
+          <source><bpt id="666fe90d-ee90-4b4b-85b2-8de148e2c3cd">&lt;bookmark&gt;</bpt><ept id="666fe90d-ee90-4b4b-85b2-8de148e2c3cd">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="666fe90d-ee90-4b4b-85b2-8de148e2c3cd">&lt;bookmark&gt;</bpt><ept id="666fe90d-ee90-4b4b-85b2-8de148e2c3cd">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="724401a4-8dff-45bb-a019-5aed53119962" xml:space="preserve">
+          <source>Application code can use TCP/IP and UDP based protocols to make outbound network connections to Internet accessible endpoints that expose external services.</source>
+          <target state="new">Application code can use TCP/IP and UDP based protocols to make outbound network connections to Internet accessible endpoints that expose external services.</target>
+        </trans-unit>
+        <trans-unit id="bc99f30d-ca13-4063-9864-0607fe9c7bf9" xml:space="preserve">
+          <source>Applications can use these same protocols to connect to services within Azure&amp;#151;for example, by establishing HTTPS connections to SQL Azure.</source>
+          <target state="new">Applications can use these same protocols to connect to services within Azure&amp;#151;for example, by establishing HTTPS connections to SQL Azure.</target>
+        </trans-unit>
+        <trans-unit id="54040d19-0155-4002-a3ed-5bbd70104e11" xml:space="preserve">
+          <source>There is also a limited capability for applications to establish one local loopback connection, and have an application listen on that local loopback socket.</source>
+          <target state="new">There is also a limited capability for applications to establish one local loopback connection, and have an application listen on that local loopback socket.</target>
+        </trans-unit>
+        <trans-unit id="7c45e85c-d8b7-4f51-a37d-31bafcff808c" xml:space="preserve">
+          <source>This feature exists primarily to enable applications that listen on local loopback sockets as part of their functionality.</source>
+          <target state="new">This feature exists primarily to enable applications that listen on local loopback sockets as part of their functionality.</target>
+        </trans-unit>
+        <trans-unit id="ed937c2c-ad73-428f-a8ad-5e5ea6e93444" xml:space="preserve">
+          <source>Note that each customer's application sees a "private" loopback connection; application "A" cannot listen to a local loopback socket established by application "B".</source>
+          <target state="new">Note that each customer's application sees a "private" loopback connection; application "A" cannot listen to a local loopback socket established by application "B".</target>
+        </trans-unit>
+        <trans-unit id="7f4fa70d-2a4d-4b67-8572-99b23d79d596" xml:space="preserve">
+          <source>Named pipes are also supported as an inter-process communication (IPC) mechanism between different processes that collectively run a web app.</source>
+          <target state="new">Named pipes are also supported as an inter-process communication (IPC) mechanism between different processes that collectively run a web app.</target>
+        </trans-unit>
+        <trans-unit id="70fd13ba-4342-4021-9a11-b5926d7171a1" xml:space="preserve">
+          <source>For example, the IIS FastCGI module relies on named pipes to coordinate the individual processes that run PHP pages.</source>
+          <target state="new">For example, the IIS FastCGI module relies on named pipes to coordinate the individual processes that run PHP pages.</target>
+        </trans-unit>
+        <trans-unit id="2c1811b2-225f-4ecb-9d4a-44e00dbb74e1" xml:space="preserve">
+          <source><bpt id="f917352a-e207-4f7e-9701-a1c72f0e1274">&lt;bookmark&gt;</bpt><ept id="f917352a-e207-4f7e-9701-a1c72f0e1274">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="f917352a-e207-4f7e-9701-a1c72f0e1274">&lt;bookmark&gt;</bpt><ept id="f917352a-e207-4f7e-9701-a1c72f0e1274">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71d44fd6-b3f3-4828-ae53-2f9c58b6e652" xml:space="preserve">
+          <source>As noted earlier, web apps run inside of low-privileged worker processes using a random application pool identity.</source>
+          <target state="new">As noted earlier, web apps run inside of low-privileged worker processes using a random application pool identity.</target>
+        </trans-unit>
+        <trans-unit id="3e91ddfd-aa49-4788-b88d-67599ff7bb8f" xml:space="preserve">
+          <source>Application code has access to the memory space associated with the worker process, as well as any child processes that may be spawned by CGI processes or other applications.</source>
+          <target state="new">Application code has access to the memory space associated with the worker process, as well as any child processes that may be spawned by CGI processes or other applications.</target>
+        </trans-unit>
+        <trans-unit id="7ab95694-007a-4ffe-87ff-4d81162fde54" xml:space="preserve">
+          <source>However, one customer's web app cannot access the memory or data of another customer's web app even if it is on the same virtual machine.</source>
+          <target state="new">However, one customer's web app cannot access the memory or data of another customer's web app even if it is on the same virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7e567e0f-daa6-405c-8f48-a2eeaf30ec9c" xml:space="preserve">
+          <source>Applications can run scripts or pages written with supported web application development frameworks.</source>
+          <target state="new">Applications can run scripts or pages written with supported web application development frameworks.</target>
+        </trans-unit>
+        <trans-unit id="7cd27688-025b-426a-881d-54384a6b3508" xml:space="preserve">
+          <source>Web Apps doesn't configure any web application framework settings to more restricted modes.</source>
+          <target state="new">Web Apps doesn't configure any web application framework settings to more restricted modes.</target>
+        </trans-unit>
+        <trans-unit id="7829db84-44bf-46d1-afbd-fe1a4ad88ba4" xml:space="preserve">
+          <source>For example, ASP.NET apps running on Web Apps run in "full" trust as opposed to a more restricted trust mode.</source>
+          <target state="new">For example, ASP.NET apps running on Web Apps run in "full" trust as opposed to a more restricted trust mode.</target>
+        </trans-unit>
+        <trans-unit id="345cc512-313a-4c7f-8e8e-44ab148dde7d" xml:space="preserve">
+          <source>Application frameworks, including both classic ASP and ASP.NET, can call in-process COM components (but not out of process COM components) like ADO (ActiveX Data Objects) that are registered by default on the Windows operating system.</source>
+          <target state="new">Application frameworks, including both classic ASP and ASP.NET, can call in-process COM components (but not out of process COM components) like ADO (ActiveX Data Objects) that are registered by default on the Windows operating system.</target>
+        </trans-unit>
+        <trans-unit id="5470e233-6a73-413b-aa0c-6fce9a270289" xml:space="preserve">
+          <source>Web applications can spawn and run arbitrary code.</source>
+          <target state="new">Web applications can spawn and run arbitrary code.</target>
+        </trans-unit>
+        <trans-unit id="375b82df-4a2d-48b8-ac08-ed4a06bb03de" xml:space="preserve">
+          <source>It is allowable for a web application to do things like spawn a command shell or run a PowerShell script.</source>
+          <target state="new">It is allowable for a web application to do things like spawn a command shell or run a PowerShell script.</target>
+        </trans-unit>
+        <trans-unit id="e4d439bf-42d7-4256-b763-d5dc3327fe49" xml:space="preserve">
+          <source>However, even though arbitrary code and processes can be spawned from a web application, executable programs and scripts are still restricted to the privileges granted to the parent application pool.</source>
+          <target state="new">However, even though arbitrary code and processes can be spawned from a web application, executable programs and scripts are still restricted to the privileges granted to the parent application pool.</target>
+        </trans-unit>
+        <trans-unit id="0612ecdc-eb63-4ed6-856a-0d6858ba0aa5" xml:space="preserve">
+          <source>For example, a web app can spawn an executable that makes an outbound HTTP call, but that same executable cannot attempt to unbind the IP address of a virtual machine from its NIC.</source>
+          <target state="new">For example, a web app can spawn an executable that makes an outbound HTTP call, but that same executable cannot attempt to unbind the IP address of a virtual machine from its NIC.</target>
+        </trans-unit>
+        <trans-unit id="aa024600-bb5c-40f6-adca-9f87732a63ac" xml:space="preserve">
+          <source>Making an outbound network call is allowed to low-privileged code, but attempting to reconfigure network settings on a virtual machine requires administrative privileges.</source>
+          <target state="new">Making an outbound network call is allowed to low-privileged code, but attempting to reconfigure network settings on a virtual machine requires administrative privileges.</target>
+        </trans-unit>
+        <trans-unit id="632f7837-22eb-456c-8d9a-507c6ea4790f" xml:space="preserve">
+          <source><bpt id="e76eef9e-a99d-4f42-b1f9-75a1de715ad2">&lt;bookmark&gt;</bpt><ept id="e76eef9e-a99d-4f42-b1f9-75a1de715ad2">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e76eef9e-a99d-4f42-b1f9-75a1de715ad2">&lt;bookmark&gt;</bpt><ept id="e76eef9e-a99d-4f42-b1f9-75a1de715ad2">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6dce385b-873b-48bd-b26f-46b2a8122d7e" xml:space="preserve">
+          <source>Log information is another set of data that some web applications attempt to access.</source>
+          <target state="new">Log information is another set of data that some web applications attempt to access.</target>
+        </trans-unit>
+        <trans-unit id="5baa4bc3-a0a9-4e49-8b3a-222482eb9c62" xml:space="preserve">
+          <source>The types of log information available to code running in Web Apps includes diagnostic and log information generated by a web app that is also easily accessible to a web app.</source>
+          <target state="new">The types of log information available to code running in Web Apps includes diagnostic and log information generated by a web app that is also easily accessible to a web app.</target>
+        </trans-unit>
+        <trans-unit id="3ea5bfe8-b42e-40a1-a111-4ee657b4fee2" xml:space="preserve">
+          <source>For example, W3C HTTP logs generated by an active web app are available either on a log directory in the network share location created for the web app, or available in blob storage if a customer has set up W3C logging to storage.</source>
+          <target state="new">For example, W3C HTTP logs generated by an active web app are available either on a log directory in the network share location created for the web app, or available in blob storage if a customer has set up W3C logging to storage.</target>
+        </trans-unit>
+        <trans-unit id="e27d4ca1-abea-4894-ab23-dfb284f9ce7e" xml:space="preserve">
+          <source>The latter option enables large quantities of logs to be gathered without the risk of exceeding the file storage limits associated with a network share.</source>
+          <target state="new">The latter option enables large quantities of logs to be gathered without the risk of exceeding the file storage limits associated with a network share.</target>
+        </trans-unit>
+        <trans-unit id="5778e0a8-91e0-4ed7-ad1a-e0ebdf308160" xml:space="preserve">
+          <source>In a similar vein, real-time diagnostics information from .NET applications can also be logged using the .NET tracing and diagnostics infrastructure, with options to write the trace information to either the web app's network share, or alternatively to a blob storage location.</source>
+          <target state="new">In a similar vein, real-time diagnostics information from .NET applications can also be logged using the .NET tracing and diagnostics infrastructure, with options to write the trace information to either the web app's network share, or alternatively to a blob storage location.</target>
+        </trans-unit>
+        <trans-unit id="f813fc60-295a-4a18-ace3-4fa59c7e26ea" xml:space="preserve">
+          <source>Areas of diagnostics logging and tracing that aren't available to web applications on Azure are Windows ETW events, and common Windows event logs (e.g. System, Application and Security event logs).</source>
+          <target state="new">Areas of diagnostics logging and tracing that aren't available to web applications on Azure are Windows ETW events, and common Windows event logs (e.g. System, Application and Security event logs).</target>
+        </trans-unit>
+        <trans-unit id="0d4016fd-ef07-4189-93f0-f8d131167f73" xml:space="preserve">
+          <source>Since ETW trace information can potentially be viewable machine-wide (with the right ACLs), read and write access to ETW events are blocked.</source>
+          <target state="new">Since ETW trace information can potentially be viewable machine-wide (with the right ACLs), read and write access to ETW events are blocked.</target>
+        </trans-unit>
+        <trans-unit id="5520cce2-10e2-414d-a6d2-c869ccf3597e" xml:space="preserve">
+          <source>Developers might notice that API calls to read and write ETW events and common Windows event logs appear to work, but that is because WEb Apps is "faking" the calls so that they appear to succeed.</source>
+          <target state="new">Developers might notice that API calls to read and write ETW events and common Windows event logs appear to work, but that is because WEb Apps is "faking" the calls so that they appear to succeed.</target>
+        </trans-unit>
+        <trans-unit id="046d92e3-4433-4ad0-9420-f5d5781bf808" xml:space="preserve">
+          <source>In reality, the web app code has no access to this event data.</source>
+          <target state="new">In reality, the web app code has no access to this event data.</target>
+        </trans-unit>
+        <trans-unit id="e9600741-5140-4684-b6d5-006fa57e96d8" xml:space="preserve">
+          <source><bpt id="fda17e1c-add3-4b66-8818-c0d3d1c2288d">&lt;bookmark&gt;</bpt><ept id="fda17e1c-add3-4b66-8818-c0d3d1c2288d">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="fda17e1c-add3-4b66-8818-c0d3d1c2288d">&lt;bookmark&gt;</bpt><ept id="fda17e1c-add3-4b66-8818-c0d3d1c2288d">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65ce7884-f198-4984-9243-a2de1dfca34a" xml:space="preserve">
+          <source>Applications have read-only access to much (though not all) of the registry of the virtual machine they are running on.</source>
+          <target state="new">Applications have read-only access to much (though not all) of the registry of the virtual machine they are running on.</target>
+        </trans-unit>
+        <trans-unit id="29087bdb-c5f0-4c49-a10f-567333d2b187" xml:space="preserve">
+          <source>In practice, this means registry keys that allow read-only access to the local Users group are accessible by web applications.</source>
+          <target state="new">In practice, this means registry keys that allow read-only access to the local Users group are accessible by web applications.</target>
+        </trans-unit>
+        <trans-unit id="db68ae9c-a18e-4480-81f3-18a353dafe27" xml:space="preserve">
+          <source>One area of the registry that is currently not supported for either read or write access is the HKEY\<bpt id="9b578c0a-3653-4c20-b59c-20aeafd61e41">&lt;em&gt;</bpt>CURRENT\<ept id="9b578c0a-3653-4c20-b59c-20aeafd61e41">&lt;/em&gt;</ept>USER hive.</source>
+          <target state="new">One area of the registry that is currently not supported for either read or write access is the HKEY\<bpt id="9b578c0a-3653-4c20-b59c-20aeafd61e41">&lt;em&gt;</bpt>CURRENT\<ept id="9b578c0a-3653-4c20-b59c-20aeafd61e41">&lt;/em&gt;</ept>USER hive.</target>
+        </trans-unit>
+        <trans-unit id="1a63fa71-1f02-402d-90f5-ed2fc0f66908" xml:space="preserve">
+          <source>Write-access to the registry is blocked, including access to any per-user registry keys.</source>
+          <target state="new">Write-access to the registry is blocked, including access to any per-user registry keys.</target>
+        </trans-unit>
+        <trans-unit id="d190be00-4910-4af8-883b-c46ef20e7942" xml:space="preserve">
+          <source>From an application perspective, write access to the registry should never be relied upon in a cloud environment since applications can (and do) get migrated across different virtual machines.</source>
+          <target state="new">From an application perspective, write access to the registry should never be relied upon in a cloud environment since applications can (and do) get migrated across different virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="297ee27b-f0a4-4095-85ad-635078be9037" xml:space="preserve">
+          <source>The only persistent writeable storage that can be depended on by a web application is the per-app content directory structure stored on the Web Apps UNC shares.</source>
+          <target state="new">The only persistent writeable storage that can be depended on by a web application is the per-app content directory structure stored on the Web Apps UNC shares.</target>
+        </trans-unit>
+        <trans-unit id="edd952a5-17f4-4f76-8d0b-4b06cc36788c" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="a1e00cb8-851d-498d-8899-452e18d331b1">&lt;linkText&gt;</bpt>Try App Service<ept id="a1e00cb8-851d-498d-8899-452e18d331b1">&lt;/linkText&gt;</ept><bpt id="a1e00cb8-851d-498d-8899-452e18d331b1">&lt;title&gt;</bpt><ept id="a1e00cb8-851d-498d-8899-452e18d331b1">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="a1e00cb8-851d-498d-8899-452e18d331b1">&lt;linkText&gt;</bpt>Try App Service<ept id="a1e00cb8-851d-498d-8899-452e18d331b1">&lt;/linkText&gt;</ept><bpt id="a1e00cb8-851d-498d-8899-452e18d331b1">&lt;title&gt;</bpt><ept id="a1e00cb8-851d-498d-8899-452e18d331b1">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="c606baf0-3a38-4bf6-889b-c4076e34defa" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="90b5c2a8-da40-4128-a53e-9056902909ff" xml:space="preserve">
+          <source><bpt id="22de4f28-b227-4409-9018-dedd265d5c9d">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="22de4f28-b227-4409-9018-dedd265d5c9d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="22de4f28-b227-4409-9018-dedd265d5c9d">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="22de4f28-b227-4409-9018-dedd265d5c9d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

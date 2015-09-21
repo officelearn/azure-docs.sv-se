@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="35fec728-be26-4e83-b5ef-b9360467c2d7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="35fec728-be26-4e83-b5ef-b9360467c2d7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="88b7c9a6-3f6c-4f36-b5a6-ab0530f8e906">
+        <trans-unit id="3d7bb374-60f5-486c-94d1-b05e554b3fc1" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="29f28ccd-2bdf-46bd-bf27-34efe3181291" xml:space="preserve">
+          <source>Free</source>
+          <target state="new">Free</target>
+        </trans-unit>
+        <trans-unit id="ba065502-2e81-4468-995d-50c420ede266" xml:space="preserve">
+          <source>Shared (Preview)</source>
+          <target state="new">Shared (Preview)</target>
+        </trans-unit>
+        <trans-unit id="720ca6d8-1592-4620-bd64-e0500b4b9676" xml:space="preserve">
+          <source>Basic</source>
+          <target state="new">Basic</target>
+        </trans-unit>
+        <trans-unit id="451eee76-3fa4-43f8-94b3-cd0a715b9a1c" xml:space="preserve">
+          <source>Standard</source>
+          <target state="new">Standard</target>
+        </trans-unit>
+        <trans-unit id="f9c7f3f4-1d04-47b1-ad96-bd559e2d2fa8" xml:space="preserve">
+          <source>Premium (Preview)&lt;/th&gt;</source>
+          <target state="new">Premium (Preview)&lt;/th&gt;</target>
+        </trans-unit>
+        <trans-unit id="679131d9-d1de-4f4e-964d-737bf52c1884" xml:space="preserve">
+          <source><bpt id="9ed0da9d-ff00-407b-a725-31d0def97ffe">&lt;linkText&gt;</bpt>Web, mobile, or API apps<ept id="9ed0da9d-ff00-407b-a725-31d0def97ffe">&lt;/linkText&gt;</ept><bpt id="9ed0da9d-ff00-407b-a725-31d0def97ffe">&lt;title&gt;</bpt><ept id="9ed0da9d-ff00-407b-a725-31d0def97ffe">&lt;/title&gt;</ept> per <bpt id="a68c699e-389a-481e-8bf0-9a4096f2a6de">&lt;linkText&gt;</bpt>App Service plan<ept id="a68c699e-389a-481e-8bf0-9a4096f2a6de">&lt;/linkText&gt;</ept><bpt id="a68c699e-389a-481e-8bf0-9a4096f2a6de">&lt;title&gt;</bpt><ept id="a68c699e-389a-481e-8bf0-9a4096f2a6de">&lt;/title&gt;</ept>&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new"><bpt id="9ed0da9d-ff00-407b-a725-31d0def97ffe">&lt;linkText&gt;</bpt>Web, mobile, or API apps<ept id="9ed0da9d-ff00-407b-a725-31d0def97ffe">&lt;/linkText&gt;</ept><bpt id="9ed0da9d-ff00-407b-a725-31d0def97ffe">&lt;title&gt;</bpt><ept id="9ed0da9d-ff00-407b-a725-31d0def97ffe">&lt;/title&gt;</ept> per <bpt id="a68c699e-389a-481e-8bf0-9a4096f2a6de">&lt;linkText&gt;</bpt>App Service plan<ept id="a68c699e-389a-481e-8bf0-9a4096f2a6de">&lt;/linkText&gt;</ept><bpt id="a68c699e-389a-481e-8bf0-9a4096f2a6de">&lt;title&gt;</bpt><ept id="a68c699e-389a-481e-8bf0-9a4096f2a6de">&lt;/title&gt;</ept>&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="22336bcc-c236-4536-b43f-dd24ec0bfb88" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="16ee7701-7b29-4f93-bdd0-3b30a66acaaf" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="528d5787-7a84-446c-9811-0df7e59f2dd6" xml:space="preserve">
+          <source>Unlimited&lt;sup&gt;2&lt;/sup&gt;</source>
+          <target state="new">Unlimited&lt;sup&gt;2&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="3d6c9572-6e9f-4d8c-993e-5dff4bb1d941" xml:space="preserve">
+          <source>Unlimited&lt;sup&gt;2&lt;/sup&gt;</source>
+          <target state="new">Unlimited&lt;sup&gt;2&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="709e2364-e21d-4583-b5b7-c5d553e08e9c" xml:space="preserve">
+          <source>Unlimited&lt;sup&gt;2&lt;/sup&gt;</source>
+          <target state="new">Unlimited&lt;sup&gt;2&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="f7f3d3ca-cf0d-4d42-bd5a-43311c5b64d5" xml:space="preserve">
+          <source><bpt id="fd461818-aedf-4314-b95f-36c0386e4d0d">&lt;linkText&gt;</bpt>Logic apps<ept id="fd461818-aedf-4314-b95f-36c0386e4d0d">&lt;/linkText&gt;</ept><bpt id="fd461818-aedf-4314-b95f-36c0386e4d0d">&lt;title&gt;</bpt><ept id="fd461818-aedf-4314-b95f-36c0386e4d0d">&lt;/title&gt;</ept> per <bpt id="1fa685a0-7c72-4e16-99ab-c46801364701">&lt;linkText&gt;</bpt>App Service plan<ept id="1fa685a0-7c72-4e16-99ab-c46801364701">&lt;/linkText&gt;</ept><bpt id="1fa685a0-7c72-4e16-99ab-c46801364701">&lt;title&gt;</bpt><ept id="1fa685a0-7c72-4e16-99ab-c46801364701">&lt;/title&gt;</ept>&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new"><bpt id="fd461818-aedf-4314-b95f-36c0386e4d0d">&lt;linkText&gt;</bpt>Logic apps<ept id="fd461818-aedf-4314-b95f-36c0386e4d0d">&lt;/linkText&gt;</ept><bpt id="fd461818-aedf-4314-b95f-36c0386e4d0d">&lt;title&gt;</bpt><ept id="fd461818-aedf-4314-b95f-36c0386e4d0d">&lt;/title&gt;</ept> per <bpt id="1fa685a0-7c72-4e16-99ab-c46801364701">&lt;linkText&gt;</bpt>App Service plan<ept id="1fa685a0-7c72-4e16-99ab-c46801364701">&lt;/linkText&gt;</ept><bpt id="1fa685a0-7c72-4e16-99ab-c46801364701">&lt;title&gt;</bpt><ept id="1fa685a0-7c72-4e16-99ab-c46801364701">&lt;/title&gt;</ept>&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="084b92f9-e027-4171-82f3-7c2e089da0fc" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="0eeaa060-3895-492f-99d2-308c3d794dbb" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="c43012bb-42aa-4268-b624-cd81b1250024" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="aff7182e-502b-49f4-a8a8-7b9a35950954" xml:space="preserve">
+          <source>20 per core</source>
+          <target state="new">20 per core</target>
+        </trans-unit>
+        <trans-unit id="458de6bc-aef5-4c69-8b51-8dd698c0a130" xml:space="preserve">
+          <source>20 per core</source>
+          <target state="new">20 per core</target>
+        </trans-unit>
+        <trans-unit id="33f7496b-559e-4846-881c-67fae3dd2b4b" xml:space="preserve">
+          <source><bpt id="359c6231-8638-4a5c-838a-214dfec38e4e">&lt;linkText&gt;</bpt>App Service plan<ept id="359c6231-8638-4a5c-838a-214dfec38e4e">&lt;/linkText&gt;</ept><bpt id="359c6231-8638-4a5c-838a-214dfec38e4e">&lt;title&gt;</bpt><ept id="359c6231-8638-4a5c-838a-214dfec38e4e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="359c6231-8638-4a5c-838a-214dfec38e4e">&lt;linkText&gt;</bpt>App Service plan<ept id="359c6231-8638-4a5c-838a-214dfec38e4e">&lt;/linkText&gt;</ept><bpt id="359c6231-8638-4a5c-838a-214dfec38e4e">&lt;title&gt;</bpt><ept id="359c6231-8638-4a5c-838a-214dfec38e4e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="518af427-5dc8-4c4a-9c55-4ba423cf2413" xml:space="preserve">
+          <source>1 per region</source>
+          <target state="new">1 per region</target>
+        </trans-unit>
+        <trans-unit id="c2bed0de-eb4c-4787-beca-7fa90a31620a" xml:space="preserve">
+          <source>10 per resource group</source>
+          <target state="new">10 per resource group</target>
+        </trans-unit>
+        <trans-unit id="7f94ba1b-e18f-4e28-b050-da6a6d40b72d" xml:space="preserve">
+          <source>10 per resource group</source>
+          <target state="new">10 per resource group</target>
+        </trans-unit>
+        <trans-unit id="612dadd7-1800-45c2-bbb1-2f69e6226349" xml:space="preserve">
+          <source>10 per resource group</source>
+          <target state="new">10 per resource group</target>
+        </trans-unit>
+        <trans-unit id="8de50a90-d897-4985-8149-8fc8ddc4b162" xml:space="preserve">
+          <source>10 per resource group</source>
+          <target state="new">10 per resource group</target>
+        </trans-unit>
+        <trans-unit id="f331296f-0a0e-44f4-bf02-120920b98da3" xml:space="preserve">
+          <source>Compute instance type</source>
+          <target state="new">Compute instance type</target>
+        </trans-unit>
+        <trans-unit id="8c64499c-d6a5-4800-ab9b-2b4c6f55833b" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="92e395f8-f0c9-4c0c-9c93-35eef034b700" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="220ab9d6-6646-45e5-8788-85a1d1403900" xml:space="preserve">
+          <source>Dedicated&lt;sup&gt;3&lt;/sup&gt;</source>
+          <target state="new">Dedicated&lt;sup&gt;3&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="9f843ad3-088f-440f-9f16-a9e1177da2a9" xml:space="preserve">
+          <source>Dedicated&lt;sup&gt;3&lt;/sup&gt;</source>
+          <target state="new">Dedicated&lt;sup&gt;3&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="7b295c27-41e8-4418-bc99-1e83d78f5471" xml:space="preserve">
+          <source>Dedicated&lt;sup&gt;3&lt;/sup&gt;&lt;/p&gt;</source>
+          <target state="new">Dedicated&lt;sup&gt;3&lt;/sup&gt;&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="97cac7ca-e3fc-423b-ad85-a321411c041b" xml:space="preserve">
+          <source><bpt id="c78ca6c4-13cc-42e2-9250-b1b62906200b">&lt;linkText&gt;</bpt>Scale-Out<ept id="c78ca6c4-13cc-42e2-9250-b1b62906200b">&lt;/linkText&gt;</ept><bpt id="c78ca6c4-13cc-42e2-9250-b1b62906200b">&lt;title&gt;</bpt><ept id="c78ca6c4-13cc-42e2-9250-b1b62906200b">&lt;/title&gt;</ept> (max instances)</source>
+          <target state="new"><bpt id="c78ca6c4-13cc-42e2-9250-b1b62906200b">&lt;linkText&gt;</bpt>Scale-Out<ept id="c78ca6c4-13cc-42e2-9250-b1b62906200b">&lt;/linkText&gt;</ept><bpt id="c78ca6c4-13cc-42e2-9250-b1b62906200b">&lt;title&gt;</bpt><ept id="c78ca6c4-13cc-42e2-9250-b1b62906200b">&lt;/title&gt;</ept> (max instances)</target>
+        </trans-unit>
+        <trans-unit id="ce8f65bf-e771-4272-87ca-2e79dce3854f" xml:space="preserve">
+          <source>1 shared</source>
+          <target state="new">1 shared</target>
+        </trans-unit>
+        <trans-unit id="b9e84ebe-f355-4b6e-a811-2cc9127d7ed1" xml:space="preserve">
+          <source>1 shared</source>
+          <target state="new">1 shared</target>
+        </trans-unit>
+        <trans-unit id="6a885c90-9aa1-4cb6-92e9-9f8feca8a911" xml:space="preserve">
+          <source>3 dedicated&lt;sup&gt;3&lt;/sup&gt;</source>
+          <target state="new">3 dedicated&lt;sup&gt;3&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="32c79723-96d1-42e7-8522-3f07fb3dd471" xml:space="preserve">
+          <source>10 dedicated&lt;sup&gt;3&lt;/sup&gt;</source>
+          <target state="new">10 dedicated&lt;sup&gt;3&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="40cf381c-0967-4458-aec8-80b516edecbb" xml:space="preserve">
+          <source>50 dedicated&lt;sup&gt;3,4&lt;/sup&gt;</source>
+          <target state="new">50 dedicated&lt;sup&gt;3,4&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="acde734d-63a9-43a7-90ac-f2701514eb97" xml:space="preserve">
+          <source>Storage&lt;sup&gt;5&lt;/sup&gt;</source>
+          <target state="new">Storage&lt;sup&gt;5&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="09a98e07-8b39-4754-9bf6-777bef7a6a49" xml:space="preserve">
+          <source>1 GB&lt;sup&gt;5&lt;/sup&gt;</source>
+          <target state="new">1 GB&lt;sup&gt;5&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="38bb7a46-4f32-4d24-8ca1-2d47ac1ffc7d" xml:space="preserve">
+          <source>1 GB&lt;sup&gt;5&lt;/sup&gt;</source>
+          <target state="new">1 GB&lt;sup&gt;5&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="33f3e5d7-8e97-4e20-a254-19e3e904e57d" xml:space="preserve">
+          <source>10 GB&lt;sup&gt;5&lt;/sup&gt;</source>
+          <target state="new">10 GB&lt;sup&gt;5&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="1e774492-7d78-4aad-aeb8-501286b41102" xml:space="preserve">
+          <source>50 GB&lt;sup&gt;5&lt;/sup&gt;</source>
+          <target state="new">50 GB&lt;sup&gt;5&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="6a9c1fb0-a0db-4cbd-b19e-b36e230593ce" xml:space="preserve">
+          <source>500 GB&lt;sup&gt;4,5&lt;/sup&gt;&lt;/p&gt;</source>
+          <target state="new">500 GB&lt;sup&gt;4,5&lt;/sup&gt;&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="b0e399a3-9104-4461-8023-8f7d3680fe8c" xml:space="preserve">
+          <source>CPU time (day)&lt;sup&gt;6&lt;/sup&gt;</source>
+          <target state="new">CPU time (day)&lt;sup&gt;6&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="cf1140cb-eef0-41c8-be05-bd5c883317f0" xml:space="preserve">
+          <source>60 minutes</source>
+          <target state="new">60 minutes</target>
+        </trans-unit>
+        <trans-unit id="18d1de6c-3173-4a41-9b57-0c780544dfb4" xml:space="preserve">
+          <source>240 minutes</source>
+          <target state="new">240 minutes</target>
+        </trans-unit>
+        <trans-unit id="0139bdf2-a5d1-4441-bb63-e9f97f66a619" xml:space="preserve">
+          <source>Unlimited, pay at standard <bpt id="c5fbb367-95a2-473d-8f2e-437b6469c9d3">&lt;linkText&gt;</bpt>rates<ept id="c5fbb367-95a2-473d-8f2e-437b6469c9d3">&lt;/linkText&gt;</ept><bpt id="c5fbb367-95a2-473d-8f2e-437b6469c9d3">&lt;title&gt;</bpt><ept id="c5fbb367-95a2-473d-8f2e-437b6469c9d3">&lt;/title&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">Unlimited, pay at standard <bpt id="c5fbb367-95a2-473d-8f2e-437b6469c9d3">&lt;linkText&gt;</bpt>rates<ept id="c5fbb367-95a2-473d-8f2e-437b6469c9d3">&lt;/linkText&gt;</ept><bpt id="c5fbb367-95a2-473d-8f2e-437b6469c9d3">&lt;title&gt;</bpt><ept id="c5fbb367-95a2-473d-8f2e-437b6469c9d3">&lt;/title&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="f2f8c458-eb7c-4821-87ab-8699da455752" xml:space="preserve">
+          <source>Unlimited, pay at standard rates</source>
+          <target state="new">Unlimited, pay at standard rates</target>
+        </trans-unit>
+        <trans-unit id="94947766-44b6-422e-902f-a5bffaaa5739" xml:space="preserve">
+          <source>Unlimited, pay at standard rates</source>
+          <target state="new">Unlimited, pay at standard rates</target>
+        </trans-unit>
+        <trans-unit id="81cd3c0f-6102-4465-80dd-c08f6c1d2d97" xml:space="preserve">
+          <source>Memory (1 hour)</source>
+          <target state="new">Memory (1 hour)</target>
+        </trans-unit>
+        <trans-unit id="fc662f0a-b0d3-4a3a-bba9-18468e22ac93" xml:space="preserve">
+          <source>1024 MB per App Service plan</source>
+          <target state="new">1024 MB per App Service plan</target>
+        </trans-unit>
+        <trans-unit id="db24770e-a13b-4fca-a282-47c1c5814be9" xml:space="preserve">
+          <source>1024 MB per app</source>
+          <target state="new">1024 MB per app</target>
+        </trans-unit>
+        <trans-unit id="cf357bc5-c7b0-4887-a596-6eca8807c562" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="c97450dd-994e-49f6-9e6a-9080963dfa66" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="025a7710-d98f-419c-a0f5-4bf24a28e00d" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="e8dcb015-9a2a-41f4-8c1f-633f4ef7185b" xml:space="preserve">
+          <source>Bandwidth</source>
+          <target state="new">Bandwidth</target>
+        </trans-unit>
+        <trans-unit id="67e9a3e5-6ced-4462-ac1b-9e64728360fa" xml:space="preserve">
+          <source>165 MB</source>
+          <target state="new">165 MB</target>
+        </trans-unit>
+        <trans-unit id="c26006ca-20c9-41cd-9a63-d1fecb777bf7" xml:space="preserve">
+          <source>Unlimited, <bpt id="f949bb4c-75ac-4402-82dd-89f0ffa3dcea">&lt;linkText&gt;</bpt>data transfer rates<ept id="f949bb4c-75ac-4402-82dd-89f0ffa3dcea">&lt;/linkText&gt;</ept><bpt id="f949bb4c-75ac-4402-82dd-89f0ffa3dcea">&lt;title&gt;</bpt><ept id="f949bb4c-75ac-4402-82dd-89f0ffa3dcea">&lt;/title&gt;</ept> apply</source>
+          <target state="new">Unlimited, <bpt id="f949bb4c-75ac-4402-82dd-89f0ffa3dcea">&lt;linkText&gt;</bpt>data transfer rates<ept id="f949bb4c-75ac-4402-82dd-89f0ffa3dcea">&lt;/linkText&gt;</ept><bpt id="f949bb4c-75ac-4402-82dd-89f0ffa3dcea">&lt;title&gt;</bpt><ept id="f949bb4c-75ac-4402-82dd-89f0ffa3dcea">&lt;/title&gt;</ept> apply</target>
+        </trans-unit>
+        <trans-unit id="579c6406-2f01-4ebd-ba78-d2addee97626" xml:space="preserve">
+          <source>Unlimited, data transfer rates apply</source>
+          <target state="new">Unlimited, data transfer rates apply</target>
+        </trans-unit>
+        <trans-unit id="49faa97b-50d2-4109-aa10-7d44e003fcc3" xml:space="preserve">
+          <source>Unlimited, data transfer rates apply</source>
+          <target state="new">Unlimited, data transfer rates apply</target>
+        </trans-unit>
+        <trans-unit id="9a81d3da-68ef-45e9-bcc2-fc227e056493" xml:space="preserve">
+          <source>Unlimited, data transfer rates apply</source>
+          <target state="new">Unlimited, data transfer rates apply</target>
+        </trans-unit>
+        <trans-unit id="120e8eca-dbe8-41c8-8bd7-e61c939fa64b" xml:space="preserve">
+          <source>Application architecture</source>
+          <target state="new">Application architecture</target>
+        </trans-unit>
+        <trans-unit id="524d727b-0e61-4f8a-bbaf-44f6936a86f6" xml:space="preserve">
+          <source>32-bit</source>
+          <target state="new">32-bit</target>
+        </trans-unit>
+        <trans-unit id="902a3e8a-8c24-42a4-995a-f5df7e8f42ce" xml:space="preserve">
+          <source>32-bit</source>
+          <target state="new">32-bit</target>
+        </trans-unit>
+        <trans-unit id="67d66e84-0eda-4c39-94b3-62d43323ae38" xml:space="preserve">
+          <source>32-bit/64-bit</source>
+          <target state="new">32-bit/64-bit</target>
+        </trans-unit>
+        <trans-unit id="558acade-edba-473e-a595-6b297619781b" xml:space="preserve">
+          <source>32-bit/64-bit</source>
+          <target state="new">32-bit/64-bit</target>
+        </trans-unit>
+        <trans-unit id="bd296dc3-a887-41fa-91bc-c9662b624153" xml:space="preserve">
+          <source>32-bit/64-bit</source>
+          <target state="new">32-bit/64-bit</target>
+        </trans-unit>
+        <trans-unit id="87132c2e-d948-450e-b500-e0403dca5b53" xml:space="preserve">
+          <source>Web Sockets per instance&lt;sup&gt;7&lt;/sup&gt;</source>
+          <target state="new">Web Sockets per instance&lt;sup&gt;7&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="2e70a410-e9d7-4523-8ce4-9450edad1bb1" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="ca401de9-2e99-417c-a4b1-98e6316494d7" xml:space="preserve">
+          <source>35</source>
+          <target state="new">35</target>
+        </trans-unit>
+        <trans-unit id="3776c90c-154c-4bc6-844c-f945affbbc62" xml:space="preserve">
+          <source>350</source>
+          <target state="new">350</target>
+        </trans-unit>
+        <trans-unit id="9f57e75a-a14d-4061-b69e-9878db1b6f4e" xml:space="preserve">
+          <source>Unlimited</source>
+          <target state="new">Unlimited</target>
+        </trans-unit>
+        <trans-unit id="047a835b-f140-489d-a41b-c77657730a36" xml:space="preserve">
+          <source>Unlimited</source>
+          <target state="new">Unlimited</target>
+        </trans-unit>
+        <trans-unit id="42226e8e-0bc7-41ab-92e3-0632d28c11af" xml:space="preserve">
+          <source>Concurrent <bpt id="a6c631fb-9d4c-432a-9bae-715a83b368e0">&lt;linkText&gt;</bpt>debugger connections<ept id="a6c631fb-9d4c-432a-9bae-715a83b368e0">&lt;/linkText&gt;</ept><bpt id="a6c631fb-9d4c-432a-9bae-715a83b368e0">&lt;title&gt;</bpt><ept id="a6c631fb-9d4c-432a-9bae-715a83b368e0">&lt;/title&gt;</ept> per application</source>
+          <target state="new">Concurrent <bpt id="a6c631fb-9d4c-432a-9bae-715a83b368e0">&lt;linkText&gt;</bpt>debugger connections<ept id="a6c631fb-9d4c-432a-9bae-715a83b368e0">&lt;/linkText&gt;</ept><bpt id="a6c631fb-9d4c-432a-9bae-715a83b368e0">&lt;title&gt;</bpt><ept id="a6c631fb-9d4c-432a-9bae-715a83b368e0">&lt;/title&gt;</ept> per application</target>
+        </trans-unit>
+        <trans-unit id="b8820b11-84db-4b9a-a589-e714007c22de" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="2ecae9c6-0a3e-4356-8f5b-92127f778c25" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="d9e73a8a-f98b-4c71-81ef-323accc16f44" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="4dd2cd5b-9fba-48b7-975e-33225c864394" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="a747fdc6-1cc4-45fd-be9d-fa97d921616c" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="a7732130-aa60-4b42-acaf-21f8b7fce8e0" xml:space="preserve">
+          <source><bpt id="6c9f45d1-9565-4574-9d44-b480bee601dd">&lt;linkText&gt;</bpt>azurewebsites.net subdomain with FTP/S and SSL<ept id="6c9f45d1-9565-4574-9d44-b480bee601dd">&lt;/linkText&gt;</ept><bpt id="6c9f45d1-9565-4574-9d44-b480bee601dd">&lt;title&gt;</bpt><ept id="6c9f45d1-9565-4574-9d44-b480bee601dd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6c9f45d1-9565-4574-9d44-b480bee601dd">&lt;linkText&gt;</bpt>azurewebsites.net subdomain with FTP/S and SSL<ept id="6c9f45d1-9565-4574-9d44-b480bee601dd">&lt;/linkText&gt;</ept><bpt id="6c9f45d1-9565-4574-9d44-b480bee601dd">&lt;title&gt;</bpt><ept id="6c9f45d1-9565-4574-9d44-b480bee601dd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ceed868-deb6-493c-81d2-636e28055b66" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="687ab7ee-a983-4db9-a010-8348ce03fe71" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="fdc049a7-9ca2-4b73-a016-e55fa7991871" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="b61bf100-a217-475c-8895-6e5391a9d915" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="80ec9c24-d7bb-46d4-8fe1-d7c77b93f441" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="37e31656-349a-41e0-84f5-4335bab086bb" xml:space="preserve">
+          <source><bpt id="780f7f1e-a0f1-437f-9063-e951d990b94d">&lt;linkText&gt;</bpt>Custom domain<ept id="780f7f1e-a0f1-437f-9063-e951d990b94d">&lt;/linkText&gt;</ept><bpt id="780f7f1e-a0f1-437f-9063-e951d990b94d">&lt;title&gt;</bpt><ept id="780f7f1e-a0f1-437f-9063-e951d990b94d">&lt;/title&gt;</ept> support</source>
+          <target state="new"><bpt id="780f7f1e-a0f1-437f-9063-e951d990b94d">&lt;linkText&gt;</bpt>Custom domain<ept id="780f7f1e-a0f1-437f-9063-e951d990b94d">&lt;/linkText&gt;</ept><bpt id="780f7f1e-a0f1-437f-9063-e951d990b94d">&lt;title&gt;</bpt><ept id="780f7f1e-a0f1-437f-9063-e951d990b94d">&lt;/title&gt;</ept> support</target>
+        </trans-unit>
+        <trans-unit id="d50295c8-ad1f-45b8-a35c-1075d2521b16" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="3ba3e44f-c7bd-4ba7-a457-b462348fd8db" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="19830c66-898d-4313-b5d3-a6a4b0546d2f" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="d7593bba-ef0a-42f7-a1c9-509311b1c74f" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="4a723283-6e8b-4e7b-9b9d-7ccccab342f7" xml:space="preserve">
+          <source>Custom domain <bpt id="42cfeca8-57a8-42d0-a2b1-3274d8d46906">&lt;linkText&gt;</bpt>SSL support<ept id="42cfeca8-57a8-42d0-a2b1-3274d8d46906">&lt;/linkText&gt;</ept><bpt id="42cfeca8-57a8-42d0-a2b1-3274d8d46906">&lt;title&gt;</bpt><ept id="42cfeca8-57a8-42d0-a2b1-3274d8d46906">&lt;/title&gt;</ept></source>
+          <target state="new">Custom domain <bpt id="42cfeca8-57a8-42d0-a2b1-3274d8d46906">&lt;linkText&gt;</bpt>SSL support<ept id="42cfeca8-57a8-42d0-a2b1-3274d8d46906">&lt;/linkText&gt;</ept><bpt id="42cfeca8-57a8-42d0-a2b1-3274d8d46906">&lt;title&gt;</bpt><ept id="42cfeca8-57a8-42d0-a2b1-3274d8d46906">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cde89a3a-14f4-451a-a804-1b0a36438008" xml:space="preserve">
+          <source>Unlimited</source>
+          <target state="new">Unlimited</target>
+        </trans-unit>
+        <trans-unit id="c916d400-de16-4ce2-b43b-e48e53818e6c" xml:space="preserve">
+          <source>Unlimited, 5 SNI SSL and 1 IP SSL connections included</source>
+          <target state="new">Unlimited, 5 SNI SSL and 1 IP SSL connections included</target>
+        </trans-unit>
+        <trans-unit id="40bc068c-da2e-4c62-a56c-e8a18c3c1da0" xml:space="preserve">
+          <source>Unlimited, 5 SNI SSL and 1 IP SSL connections included</source>
+          <target state="new">Unlimited, 5 SNI SSL and 1 IP SSL connections included</target>
+        </trans-unit>
+        <trans-unit id="ecbc28ee-1ba8-4e0c-b972-a04dbd0b7d9c" xml:space="preserve">
+          <source>Integrated Load Balancer</source>
+          <target state="new">Integrated Load Balancer</target>
+        </trans-unit>
+        <trans-unit id="92747381-9e78-41fc-95bb-fe3c19799882" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="effa90f6-9059-4f72-85a2-e6f077fc993e" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="cc58ae53-9cf2-4c2a-a3a2-946e718ec8ea" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="2a0ccac6-50ee-4352-8956-80f92b7f2e4b" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="3f7571a2-6d52-4614-895a-e9e238c6ec2a" xml:space="preserve">
+          <source><bpt id="dbe744ca-e385-4a9a-add8-f5b597cf2df4">&lt;linkText&gt;</bpt>Always On<ept id="dbe744ca-e385-4a9a-add8-f5b597cf2df4">&lt;/linkText&gt;</ept><bpt id="dbe744ca-e385-4a9a-add8-f5b597cf2df4">&lt;title&gt;</bpt><ept id="dbe744ca-e385-4a9a-add8-f5b597cf2df4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dbe744ca-e385-4a9a-add8-f5b597cf2df4">&lt;linkText&gt;</bpt>Always On<ept id="dbe744ca-e385-4a9a-add8-f5b597cf2df4">&lt;/linkText&gt;</ept><bpt id="dbe744ca-e385-4a9a-add8-f5b597cf2df4">&lt;title&gt;</bpt><ept id="dbe744ca-e385-4a9a-add8-f5b597cf2df4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cce3cec8-1b7c-4d8c-b033-f0aeaf55e4e9" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="7ee5a2a3-db50-4e25-9e4c-01f0cc15cff4" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="cea02719-9e21-4d42-99b0-f7032e4fa840" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="d15bb74b-8107-485e-bcd1-d11b7bce8fc4" xml:space="preserve">
+          <source><bpt id="74c0b009-d6f8-4285-b131-c2a1b27477cf">&lt;linkText&gt;</bpt>Scheduled Backups<ept id="74c0b009-d6f8-4285-b131-c2a1b27477cf">&lt;/linkText&gt;</ept><bpt id="74c0b009-d6f8-4285-b131-c2a1b27477cf">&lt;title&gt;</bpt><ept id="74c0b009-d6f8-4285-b131-c2a1b27477cf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="74c0b009-d6f8-4285-b131-c2a1b27477cf">&lt;linkText&gt;</bpt>Scheduled Backups<ept id="74c0b009-d6f8-4285-b131-c2a1b27477cf">&lt;/linkText&gt;</ept><bpt id="74c0b009-d6f8-4285-b131-c2a1b27477cf">&lt;title&gt;</bpt><ept id="74c0b009-d6f8-4285-b131-c2a1b27477cf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12a33041-7855-4343-b549-2553ea823a3f" xml:space="preserve">
+          <source>Once per day</source>
+          <target state="new">Once per day</target>
+        </trans-unit>
+        <trans-unit id="73060b4e-1fb2-4c78-b7da-4addb07449ab" xml:space="preserve">
+          <source>Once every 5 minutes&lt;sup&gt;8&lt;/sup&gt;</source>
+          <target state="new">Once every 5 minutes&lt;sup&gt;8&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="8f1639cd-bbb8-4a75-82a4-4d2a6cee0e11" xml:space="preserve">
+          <source><bpt id="28aa251a-44a1-40f5-a6f4-b342e9795848">&lt;linkText&gt;</bpt>Auto Scale<ept id="28aa251a-44a1-40f5-a6f4-b342e9795848">&lt;/linkText&gt;</ept><bpt id="28aa251a-44a1-40f5-a6f4-b342e9795848">&lt;title&gt;</bpt><ept id="28aa251a-44a1-40f5-a6f4-b342e9795848">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="28aa251a-44a1-40f5-a6f4-b342e9795848">&lt;linkText&gt;</bpt>Auto Scale<ept id="28aa251a-44a1-40f5-a6f4-b342e9795848">&lt;/linkText&gt;</ept><bpt id="28aa251a-44a1-40f5-a6f4-b342e9795848">&lt;title&gt;</bpt><ept id="28aa251a-44a1-40f5-a6f4-b342e9795848">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62e64394-cafb-4466-a846-3ee88aa48144" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="a9356cee-0d75-4f32-be59-ebe295f9b359" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="508808f6-11ba-437a-804a-eaef6b892227" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="6781d89d-77fa-446f-9cf7-64e2d6d02269" xml:space="preserve">
+          <source><bpt id="24d82745-c52e-44c2-9d0d-71173105a839">&lt;linkText&gt;</bpt>WebJobs<ept id="24d82745-c52e-44c2-9d0d-71173105a839">&lt;/linkText&gt;</ept><bpt id="24d82745-c52e-44c2-9d0d-71173105a839">&lt;title&gt;</bpt><ept id="24d82745-c52e-44c2-9d0d-71173105a839">&lt;/title&gt;</ept>&lt;sup&gt;9&lt;/sup&gt;</source>
+          <target state="new"><bpt id="24d82745-c52e-44c2-9d0d-71173105a839">&lt;linkText&gt;</bpt>WebJobs<ept id="24d82745-c52e-44c2-9d0d-71173105a839">&lt;/linkText&gt;</ept><bpt id="24d82745-c52e-44c2-9d0d-71173105a839">&lt;title&gt;</bpt><ept id="24d82745-c52e-44c2-9d0d-71173105a839">&lt;/title&gt;</ept>&lt;sup&gt;9&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="ec4a6917-d3e0-4b55-86ee-6d41ac5f63d0" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="64337200-5159-4aee-917b-5220b2029f80" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="85b8cb99-f0b6-48c9-998c-6eca10db75d9" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="e9ac3754-a11b-47c1-bf92-b556b920f8a3" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="99e0e755-7539-46f0-a015-c91a87019986" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="4e1b89d3-895b-47a5-8112-fef2d5c6d485" xml:space="preserve">
+          <source><bpt id="223017be-79d9-451e-b3a1-6361091eed6a">&lt;linkText&gt;</bpt>Azure Scheduler<ept id="223017be-79d9-451e-b3a1-6361091eed6a">&lt;/linkText&gt;</ept><bpt id="223017be-79d9-451e-b3a1-6361091eed6a">&lt;title&gt;</bpt><ept id="223017be-79d9-451e-b3a1-6361091eed6a">&lt;/title&gt;</ept> support</source>
+          <target state="new"><bpt id="223017be-79d9-451e-b3a1-6361091eed6a">&lt;linkText&gt;</bpt>Azure Scheduler<ept id="223017be-79d9-451e-b3a1-6361091eed6a">&lt;/linkText&gt;</ept><bpt id="223017be-79d9-451e-b3a1-6361091eed6a">&lt;title&gt;</bpt><ept id="223017be-79d9-451e-b3a1-6361091eed6a">&lt;/title&gt;</ept> support</target>
+        </trans-unit>
+        <trans-unit id="d0fe4eed-7432-46be-9be1-e53ea8bd2296" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="6d046413-e36f-4c51-acd8-4864978e82b9" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="b6781975-0371-425e-b1dd-18f559a361ed" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="c81a26dd-953d-40c3-ac65-9dccad18ae30" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="ec2fd907-336b-4f8f-bd49-1d855f4a61e3" xml:space="preserve">
+          <source><bpt id="f910bca3-27dd-4786-aa46-c4087053ffe9">&lt;linkText&gt;</bpt>Endpoint monitoring<ept id="f910bca3-27dd-4786-aa46-c4087053ffe9">&lt;/linkText&gt;</ept><bpt id="f910bca3-27dd-4786-aa46-c4087053ffe9">&lt;title&gt;</bpt><ept id="f910bca3-27dd-4786-aa46-c4087053ffe9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f910bca3-27dd-4786-aa46-c4087053ffe9">&lt;linkText&gt;</bpt>Endpoint monitoring<ept id="f910bca3-27dd-4786-aa46-c4087053ffe9">&lt;/linkText&gt;</ept><bpt id="f910bca3-27dd-4786-aa46-c4087053ffe9">&lt;title&gt;</bpt><ept id="f910bca3-27dd-4786-aa46-c4087053ffe9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b2a94d4-1a65-4683-9d73-06b6b36eb12a" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="6f85c72f-cefe-42fd-9835-57c730d66008" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="58413fcc-7718-42de-b83d-9ab911b0d465" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="7d5be6fa-6f8d-4317-b572-64ad3ebacbad" xml:space="preserve">
+          <source><bpt id="baf0e868-237e-4a6e-90a4-b33debfa9ee3">&lt;linkText&gt;</bpt>Staging Slots (Preview)<ept id="baf0e868-237e-4a6e-90a4-b33debfa9ee3">&lt;/linkText&gt;</ept><bpt id="baf0e868-237e-4a6e-90a4-b33debfa9ee3">&lt;title&gt;</bpt><ept id="baf0e868-237e-4a6e-90a4-b33debfa9ee3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="baf0e868-237e-4a6e-90a4-b33debfa9ee3">&lt;linkText&gt;</bpt>Staging Slots (Preview)<ept id="baf0e868-237e-4a6e-90a4-b33debfa9ee3">&lt;/linkText&gt;</ept><bpt id="baf0e868-237e-4a6e-90a4-b33debfa9ee3">&lt;title&gt;</bpt><ept id="baf0e868-237e-4a6e-90a4-b33debfa9ee3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a2df27d-30ee-4656-b8ce-769edc5e069d" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="80d0e613-c576-412a-8730-6eceefab1391" xml:space="preserve">
+          <source>20</source>
+          <target state="new">20</target>
+        </trans-unit>
+        <trans-unit id="b18b9c9c-4c58-438d-a740-77a21651eec4" xml:space="preserve">
+          <source>Custom domains per app&lt;/a&gt;</source>
+          <target state="new">Custom domains per app&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="ef14a735-da3b-4140-8fa1-096acb41857f" xml:space="preserve">
+          <source>500</source>
+          <target state="new">500</target>
+        </trans-unit>
+        <trans-unit id="29343c53-c025-4a4f-b71b-038fb9afe94e" xml:space="preserve">
+          <source>500</source>
+          <target state="new">500</target>
+        </trans-unit>
+        <trans-unit id="731d8bdc-5e88-4b75-bc35-8b54cb4f4e21" xml:space="preserve">
+          <source>500</source>
+          <target state="new">500</target>
+        </trans-unit>
+        <trans-unit id="5df84839-cae2-4a4a-a8a7-30690799bee9" xml:space="preserve">
+          <source>500</source>
+          <target state="new">500</target>
+        </trans-unit>
+        <trans-unit id="07c16811-7c32-489b-b765-5e6b9a9c065f" xml:space="preserve">
+          <source>SLA</source>
+          <target state="new">SLA</target>
+        </trans-unit>
+        <trans-unit id="a4f25723-010f-43a9-827a-db55f1a1acd5" xml:space="preserve">
+          <source>&lt;p&gt;</source>
+          <target state="new">&lt;p&gt;</target>
+        </trans-unit>
+        <trans-unit id="2f535cfd-587a-4542-8942-8595e8dff047" xml:space="preserve">
+          <source>99.9%</source>
+          <target state="new">99.9%</target>
+        </trans-unit>
+        <trans-unit id="1da06198-ac01-49b1-b6f3-4863a2ca6e39" xml:space="preserve">
+          <source>99.95%&lt;sup&gt;10&lt;/sup&gt;</source>
+          <target state="new">99.95%&lt;sup&gt;10&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="63f3b5de-8177-4953-ab40-36f44bf4c428" xml:space="preserve">
+          <source>99.95%&lt;sup&gt;10&lt;/sup&gt;</source>
+          <target state="new">99.95%&lt;sup&gt;10&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="aa1af545-8371-4384-a4e4-31f545f75d26" xml:space="preserve">
+          <source>&lt;sup&gt;1&lt;/sup&gt;Apps and storage quotas are per App Service plan unless noted otherwise.</source>
+          <target state="new">&lt;sup&gt;1&lt;/sup&gt;Apps and storage quotas are per App Service plan unless noted otherwise.</target>
+        </trans-unit>
+        <trans-unit id="edf99a26-8bee-403b-830d-668f93eb4658" xml:space="preserve">
+          <source>&lt;sup&gt;2&lt;/sup&gt;The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.</source>
+          <target state="new">&lt;sup&gt;2&lt;/sup&gt;The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.</target>
+        </trans-unit>
+        <trans-unit id="559e107c-f8f9-4469-9463-9ce8dbff12ae" xml:space="preserve">
+          <source>&lt;sup&gt;3&lt;/sup&gt;Dedicated instances can be of different sizes.</source>
+          <target state="new">&lt;sup&gt;3&lt;/sup&gt;Dedicated instances can be of different sizes.</target>
+        </trans-unit>
+        <trans-unit id="ce04c69d-1946-49ce-accb-0ff85508764c" xml:space="preserve">
+          <source>See <bpt id="f0bca364-f81a-419f-96c7-24296c435cf1">&lt;linkText&gt;</bpt>App Service Pricing<ept id="f0bca364-f81a-419f-96c7-24296c435cf1">&lt;/linkText&gt;</ept><bpt id="f0bca364-f81a-419f-96c7-24296c435cf1">&lt;title&gt;</bpt><ept id="f0bca364-f81a-419f-96c7-24296c435cf1">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See <bpt id="f0bca364-f81a-419f-96c7-24296c435cf1">&lt;linkText&gt;</bpt>App Service Pricing<ept id="f0bca364-f81a-419f-96c7-24296c435cf1">&lt;/linkText&gt;</ept><bpt id="f0bca364-f81a-419f-96c7-24296c435cf1">&lt;title&gt;</bpt><ept id="f0bca364-f81a-419f-96c7-24296c435cf1">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="3dfca99c-ff53-48cd-b166-5970166e8b07" xml:space="preserve">
+          <source>Additional instances are available by opening a support request.</source>
+          <target state="new">Additional instances are available by opening a support request.</target>
+        </trans-unit>
+        <trans-unit id="dbe5e9c0-58d8-41a4-b010-06d92af16cd8" xml:space="preserve">
+          <source>&lt;sup&gt;4&lt;/sup&gt;Premium tier allows up to 50 computes instances (subject to availability) and 500 GB of disk space when using App Service Environments, and 20 compute instances and 250 GB storage otherwise.</source>
+          <target state="new">&lt;sup&gt;4&lt;/sup&gt;Premium tier allows up to 50 computes instances (subject to availability) and 500 GB of disk space when using App Service Environments, and 20 compute instances and 250 GB storage otherwise.</target>
+        </trans-unit>
+        <trans-unit id="c6baa793-6e06-45f4-b69b-84da1dc0c8c6" xml:space="preserve">
+          <source>&lt;sup&gt;5&lt;/sup&gt;The storage limit is the total content size across all apps in the 
+same App Service plan.</source>
+          <target state="new">&lt;sup&gt;5&lt;/sup&gt;The storage limit is the total content size across all apps in the 
+same App Service plan.</target>
+        </trans-unit>
+        <trans-unit id="48ae6d28-5963-4fef-8a7a-ec8d6f0e67c7" xml:space="preserve">
+          <source>Storage limits can be increased by opening a support request.</source>
+          <target state="new">Storage limits can be increased by opening a support request.</target>
+        </trans-unit>
+        <trans-unit id="8a378feb-69e0-45d5-a969-9174b131cd83" xml:space="preserve">
+          <source>&lt;sup&gt;6&lt;/sup&gt;These resources are constrained by physical resources on the dedicated instances (the instance size and the number of instances).</source>
+          <target state="new">&lt;sup&gt;6&lt;/sup&gt;These resources are constrained by physical resources on the dedicated instances (the instance size and the number of instances).</target>
+        </trans-unit>
+        <trans-unit id="04a8a12b-64fe-48a6-bbad-92e88d555159" xml:space="preserve">
+          <source>&lt;sup&gt;7&lt;/sup&gt;If you scale an app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances.</source>
+          <target state="new">&lt;sup&gt;7&lt;/sup&gt;If you scale an app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances.</target>
+        </trans-unit>
+        <trans-unit id="7633565c-69dd-4fbe-9a79-3ad601d1b68b" xml:space="preserve">
+          <source>&lt;sup&gt;8&lt;/sup&gt;Premium tier allows backup intervals down up to every 5 minutes when using App Service Environments, and 50 times per day otherwise.</source>
+          <target state="new">&lt;sup&gt;8&lt;/sup&gt;Premium tier allows backup intervals down up to every 5 minutes when using App Service Environments, and 50 times per day otherwise.</target>
+        </trans-unit>
+        <trans-unit id="c51433dc-7fdc-42bc-93f7-2e4db9586d93" xml:space="preserve">
+          <source>&lt;sup&gt;9&lt;/sup&gt;Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance.</source>
+          <target state="new">&lt;sup&gt;9&lt;/sup&gt;Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance.</target>
+        </trans-unit>
+        <trans-unit id="19214514-5907-4b1c-9181-596f8ec7ce41" xml:space="preserve">
+          <source>Always On is required for continuous WebJobs execution.</source>
+          <target state="new">Always On is required for continuous WebJobs execution.</target>
+        </trans-unit>
+        <trans-unit id="ae075fa8-ed46-480b-9e2d-b2353d2a9e10" xml:space="preserve">
+          <source>Azure Scheduler Free or Standard is required for scheduled WebJobs.</source>
+          <target state="new">Azure Scheduler Free or Standard is required for scheduled WebJobs.</target>
+        </trans-unit>
+        <trans-unit id="7015a10c-8e63-4c67-82cb-f567c12c8c1b" xml:space="preserve">
+          <source>&lt;sup&gt;10&lt;/sup&gt;SLA of 99.95% provided for deployments that use multiple instances with Azure Traffic Manager configured for failover.</source>
+          <target state="new">&lt;sup&gt;10&lt;/sup&gt;SLA of 99.95% provided for deployments that use multiple instances with Azure Traffic Manager configured for failover.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

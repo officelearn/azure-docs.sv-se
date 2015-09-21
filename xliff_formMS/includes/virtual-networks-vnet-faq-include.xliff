@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ec2f70f5-99dd-4ec4-9701-b316e89798ca" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ec2f70f5-99dd-4ec4-9701-b316e89798ca" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fd3354d4-521e-4298-9697-64232822e878">
+        <trans-unit id="6e2c29db-26d2-4d29-9484-ac8b35af3720" xml:space="preserve">
+          <source>You can use VNets to provision and manage virtual private networks (VPNs) in Azure and, optionally, link the VNets with other VNets in Azure, or with your on-premises IT infrastructure to create hybrid or cross-premises solutions.</source>
+          <target state="new">You can use VNets to provision and manage virtual private networks (VPNs) in Azure and, optionally, link the VNets with other VNets in Azure, or with your on-premises IT infrastructure to create hybrid or cross-premises solutions.</target>
+        </trans-unit>
+        <trans-unit id="d8867826-a564-4cfc-b4d9-4d4a70e383e8" xml:space="preserve">
+          <source>Each VNet you create has its own CIDR block, and can be linked to other VNets and on-premises networks as long as the CIDR blocks do not collide.</source>
+          <target state="new">Each VNet you create has its own CIDR block, and can be linked to other VNets and on-premises networks as long as the CIDR blocks do not collide.</target>
+        </trans-unit>
+        <trans-unit id="8168c03d-8c35-4dd8-807c-5028340c39a6" xml:space="preserve">
+          <source>You also have controls of DNS server settings for VNets, and segmentation of the VNet into subnets.</source>
+          <target state="new">You also have controls of DNS server settings for VNets, and segmentation of the VNet into subnets.</target>
+        </trans-unit>
+        <trans-unit id="84daf6ba-25b9-4930-ac0b-d0675fd9e7d7" xml:space="preserve">
+          <source>Use VNets to:</source>
+          <target state="new">Use VNets to:</target>
+        </trans-unit>
+        <trans-unit id="c7798802-a02a-4220-a443-42ec346ea4e8" xml:space="preserve">
+          <source>Create a dedicated private cloud-only virtual network</source>
+          <target state="new">Create a dedicated private cloud-only virtual network</target>
+        </trans-unit>
+        <trans-unit id="af62a2ac-b29b-422c-a86e-f015027c892f" xml:space="preserve">
+          <source>Sometimes you don't require a cross-premises configuration for your solution.</source>
+          <target state="new">Sometimes you don't require a cross-premises configuration for your solution.</target>
+        </trans-unit>
+        <trans-unit id="94ee34cf-9fb9-46bc-afea-622e66bb0443" xml:space="preserve">
+          <source>When you create a VNet, your services and VMs within your VNet can communicate directly and securely with each other in the cloud.</source>
+          <target state="new">When you create a VNet, your services and VMs within your VNet can communicate directly and securely with each other in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="f05f5d1d-0169-438b-9dcd-4b57ca597453" xml:space="preserve">
+          <source>This keeps traffic securely within the VNet, but still allows you to configure endpoint connections for the VMs and services that require Internet communication as part of your solution.</source>
+          <target state="new">This keeps traffic securely within the VNet, but still allows you to configure endpoint connections for the VMs and services that require Internet communication as part of your solution.</target>
+        </trans-unit>
+        <trans-unit id="78003eb1-8db7-4203-947c-f4d59f034fe0" xml:space="preserve">
+          <source>Securely extend your data center</source>
+          <target state="new">Securely extend your data center</target>
+        </trans-unit>
+        <trans-unit id="039048ea-71a5-4ccb-b357-b953f9d9b592" xml:space="preserve">
+          <source>With VNets, you can build traditional site-to-site (S2S) VPNs to securely scale your datacenter capacity.</source>
+          <target state="new">With VNets, you can build traditional site-to-site (S2S) VPNs to securely scale your datacenter capacity.</target>
+        </trans-unit>
+        <trans-unit id="e23ff8d6-deef-473f-ba58-690b49b3c7bf" xml:space="preserve">
+          <source>S2S VPNs use IPSEC to provide a secure connection between your corporate VPN gateway and Azure.</source>
+          <target state="new">S2S VPNs use IPSEC to provide a secure connection between your corporate VPN gateway and Azure.</target>
+        </trans-unit>
+        <trans-unit id="9ad9ed79-cfdf-4633-b62b-8a05dc484f28" xml:space="preserve">
+          <source>Enable hybrid cloud scenarios</source>
+          <target state="new">Enable hybrid cloud scenarios</target>
+        </trans-unit>
+        <trans-unit id="7d519e69-60cc-422c-8ecb-49b42d291a9d" xml:space="preserve">
+          <source>VNets give you the flexibility to support a range of hybrid cloud scenarios.</source>
+          <target state="new">VNets give you the flexibility to support a range of hybrid cloud scenarios.</target>
+        </trans-unit>
+        <trans-unit id="f5d661e6-4e60-454e-97f8-0b42e61a8a43" xml:space="preserve">
+          <source>You can securely connect cloud-based applications to any type of on-premises system such as mainframes and Unix systems.</source>
+          <target state="new">You can securely connect cloud-based applications to any type of on-premises system such as mainframes and Unix systems.</target>
+        </trans-unit>
+        <trans-unit id="5fcf959d-837b-4f60-9555-88094513d844" xml:space="preserve">
+          <source>Visit the <bpt id="15c6a742-7783-4d31-9e11-4bac47e5ed0d">&lt;linkText&gt;</bpt>Virtual Network Overview<ept id="15c6a742-7783-4d31-9e11-4bac47e5ed0d">&lt;/linkText&gt;</ept><bpt id="15c6a742-7783-4d31-9e11-4bac47e5ed0d">&lt;title&gt;</bpt><ept id="15c6a742-7783-4d31-9e11-4bac47e5ed0d">&lt;/title&gt;</ept> to see a decision table that will help you decide the best network design option for you.</source>
+          <target state="new">Visit the <bpt id="15c6a742-7783-4d31-9e11-4bac47e5ed0d">&lt;linkText&gt;</bpt>Virtual Network Overview<ept id="15c6a742-7783-4d31-9e11-4bac47e5ed0d">&lt;/linkText&gt;</ept><bpt id="15c6a742-7783-4d31-9e11-4bac47e5ed0d">&lt;title&gt;</bpt><ept id="15c6a742-7783-4d31-9e11-4bac47e5ed0d">&lt;/title&gt;</ept> to see a decision table that will help you decide the best network design option for you.</target>
+        </trans-unit>
+        <trans-unit id="335adcea-e6e0-4fec-a72b-c0f24d4982d5" xml:space="preserve">
+          <source>Visit <bpt id="8986a125-1bd5-44d5-8355-0112555aff36">&lt;linkText&gt;</bpt>the Virtual Network documentation<ept id="8986a125-1bd5-44d5-8355-0112555aff36">&lt;/linkText&gt;</ept><bpt id="8986a125-1bd5-44d5-8355-0112555aff36">&lt;title&gt;</bpt><ept id="8986a125-1bd5-44d5-8355-0112555aff36">&lt;/title&gt;</ept> to get started.</source>
+          <target state="new">Visit <bpt id="8986a125-1bd5-44d5-8355-0112555aff36">&lt;linkText&gt;</bpt>the Virtual Network documentation<ept id="8986a125-1bd5-44d5-8355-0112555aff36">&lt;/linkText&gt;</ept><bpt id="8986a125-1bd5-44d5-8355-0112555aff36">&lt;title&gt;</bpt><ept id="8986a125-1bd5-44d5-8355-0112555aff36">&lt;/title&gt;</ept> to get started.</target>
+        </trans-unit>
+        <trans-unit id="6a865f2f-a5ad-4ba0-ae91-17b2fbf8f910" xml:space="preserve">
+          <source>This page has links to common configuration steps as well as information that will help you understand the things that you'll need to take into consideration when designing your virtual network.</source>
+          <target state="new">This page has links to common configuration steps as well as information that will help you understand the things that you'll need to take into consideration when designing your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="176b8458-e62c-449c-9cb6-235e23f341bd" xml:space="preserve">
+          <source>VNets can be used with a variety of different Azure services, such as Cloud Services (PaaS), Virtual Machines, and Web Apps.</source>
+          <target state="new">VNets can be used with a variety of different Azure services, such as Cloud Services (PaaS), Virtual Machines, and Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="36e38648-183c-4a00-9878-0a089271bd18" xml:space="preserve">
+          <source>However, there are a few services that are not supported on a VNet.</source>
+          <target state="new">However, there are a few services that are not supported on a VNet.</target>
+        </trans-unit>
+        <trans-unit id="2fa345ce-1a7c-4908-a5ac-81ae0b2a8e2b" xml:space="preserve">
+          <source>Please check the specific service you want to use and verify that it is compatible.</source>
+          <target state="new">Please check the specific service you want to use and verify that it is compatible.</target>
+        </trans-unit>
+        <trans-unit id="ce1d4fe6-3553-43dc-9986-c477965323bf" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="c0cc3c04-6698-47ae-9b03-11ece01c4bc7" xml:space="preserve">
+          <source>You can use a VNet without using site-to-site connectivity.</source>
+          <target state="new">You can use a VNet without using site-to-site connectivity.</target>
+        </trans-unit>
+        <trans-unit id="cbc51834-a7f0-4b9b-a77c-49dd004a84ee" xml:space="preserve">
+          <source>This is particularly useful if you want to run domain controllers and SharePoint farms in Azure.</source>
+          <target state="new">This is particularly useful if you want to run domain controllers and SharePoint farms in Azure.</target>
+        </trans-unit>
+        <trans-unit id="0f5dba12-83f7-4046-84b9-0a86d7b64fbc" xml:space="preserve">
+          <source>You can use the following tools to create or configure a virtual network:</source>
+          <target state="new">You can use the following tools to create or configure a virtual network:</target>
+        </trans-unit>
+        <trans-unit id="252d8e4f-cae3-445e-b8f3-8c8c61049ff0" xml:space="preserve">
+          <source>You can use the Management Portal.</source>
+          <target state="new">You can use the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="54aff995-bc1d-4002-91cb-4d57a4632cf3" xml:space="preserve">
+          <source>See <bpt id="4ecca0b5-41a9-4ec4-86b2-f5f2500026de">&lt;linkText&gt;</bpt>How to manage Virtual Network (VNet) Properties<ept id="4ecca0b5-41a9-4ec4-86b2-f5f2500026de">&lt;/linkText&gt;</ept><bpt id="4ecca0b5-41a9-4ec4-86b2-f5f2500026de">&lt;title&gt;</bpt><ept id="4ecca0b5-41a9-4ec4-86b2-f5f2500026de">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="4ecca0b5-41a9-4ec4-86b2-f5f2500026de">&lt;linkText&gt;</bpt>How to manage Virtual Network (VNet) Properties<ept id="4ecca0b5-41a9-4ec4-86b2-f5f2500026de">&lt;/linkText&gt;</ept><bpt id="4ecca0b5-41a9-4ec4-86b2-f5f2500026de">&lt;title&gt;</bpt><ept id="4ecca0b5-41a9-4ec4-86b2-f5f2500026de">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="543fc4f4-ba2a-43d6-a7d2-5c31c642195d" xml:space="preserve">
+          <source>You can use a network configuration file (netcfg).</source>
+          <target state="new">You can use a network configuration file (netcfg).</target>
+        </trans-unit>
+        <trans-unit id="0d6d6275-e568-4278-bd90-0aaed93e5903" xml:space="preserve">
+          <source>See <bpt id="2b51eb91-4215-4b06-a095-a9fcedd7560e">&lt;linkText&gt;</bpt>Configure a virtual network using a network configuration file<ept id="2b51eb91-4215-4b06-a095-a9fcedd7560e">&lt;/linkText&gt;</ept><bpt id="2b51eb91-4215-4b06-a095-a9fcedd7560e">&lt;title&gt;</bpt><ept id="2b51eb91-4215-4b06-a095-a9fcedd7560e">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="2b51eb91-4215-4b06-a095-a9fcedd7560e">&lt;linkText&gt;</bpt>Configure a virtual network using a network configuration file<ept id="2b51eb91-4215-4b06-a095-a9fcedd7560e">&lt;/linkText&gt;</ept><bpt id="2b51eb91-4215-4b06-a095-a9fcedd7560e">&lt;title&gt;</bpt><ept id="2b51eb91-4215-4b06-a095-a9fcedd7560e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c51c635e-ecc7-4685-8f00-903d54e746f9" xml:space="preserve">
+          <source>You can use public IP address ranges and any IP address range defined in <bpt id="173b172b-ced2-435e-95d2-9f3e4f75ad43">&lt;linkText&gt;</bpt>RFC 1918<ept id="173b172b-ced2-435e-95d2-9f3e4f75ad43">&lt;/linkText&gt;</ept><bpt id="173b172b-ced2-435e-95d2-9f3e4f75ad43">&lt;title&gt;</bpt><ept id="173b172b-ced2-435e-95d2-9f3e4f75ad43">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can use public IP address ranges and any IP address range defined in <bpt id="173b172b-ced2-435e-95d2-9f3e4f75ad43">&lt;linkText&gt;</bpt>RFC 1918<ept id="173b172b-ced2-435e-95d2-9f3e4f75ad43">&lt;/linkText&gt;</ept><bpt id="173b172b-ced2-435e-95d2-9f3e4f75ad43">&lt;title&gt;</bpt><ept id="173b172b-ced2-435e-95d2-9f3e4f75ad43">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8560541-f278-47ee-83e7-81b4485f5914" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="6e83b2ec-5220-4438-b337-2315df7ef0ae" xml:space="preserve">
+          <source>For more information about public IP address ranges, see <bpt id="cfcf676a-61a8-48cd-ba17-c09ae20aa32a">&lt;linkText&gt;</bpt>Public IP address space in a Virtual Network (VNet)<ept id="cfcf676a-61a8-48cd-ba17-c09ae20aa32a">&lt;/linkText&gt;</ept><bpt id="cfcf676a-61a8-48cd-ba17-c09ae20aa32a">&lt;title&gt;</bpt><ept id="cfcf676a-61a8-48cd-ba17-c09ae20aa32a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about public IP address ranges, see <bpt id="cfcf676a-61a8-48cd-ba17-c09ae20aa32a">&lt;linkText&gt;</bpt>Public IP address space in a Virtual Network (VNet)<ept id="cfcf676a-61a8-48cd-ba17-c09ae20aa32a">&lt;/linkText&gt;</ept><bpt id="cfcf676a-61a8-48cd-ba17-c09ae20aa32a">&lt;title&gt;</bpt><ept id="cfcf676a-61a8-48cd-ba17-c09ae20aa32a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb25bac8-5e03-4dce-b2e7-8d1803a31dbe" xml:space="preserve">
+          <source>Keep in mind that your public IPs will not be directly accessible from the Internet.</source>
+          <target state="new">Keep in mind that your public IPs will not be directly accessible from the Internet.</target>
+        </trans-unit>
+        <trans-unit id="4ea0329f-a11d-494f-9b99-0a72e63d39a0" xml:space="preserve">
+          <source>There is no limit on the number of subnets you use within a VNet.</source>
+          <target state="new">There is no limit on the number of subnets you use within a VNet.</target>
+        </trans-unit>
+        <trans-unit id="a8f101ba-5be4-46de-93a8-c64bae88b158" xml:space="preserve">
+          <source>All the subnets must be fully contained in the virtual network address space and should not overlap with one another.</source>
+          <target state="new">All the subnets must be fully contained in the virtual network address space and should not overlap with one another.</target>
+        </trans-unit>
+        <trans-unit id="840313c1-7148-4a99-a2ad-2b05cc8dcd69" xml:space="preserve">
+          <source>Azure reserves some IP addresses within each subnet.</source>
+          <target state="new">Azure reserves some IP addresses within each subnet.</target>
+        </trans-unit>
+        <trans-unit id="44bae75d-f5c8-48a2-b6ee-cac6a9b1e918" xml:space="preserve">
+          <source>The first and last IP addresses of the subnets are reserved for protocol conformance, along with two more addresses used for Azure services.</source>
+          <target state="new">The first and last IP addresses of the subnets are reserved for protocol conformance, along with two more addresses used for Azure services.</target>
+        </trans-unit>
+        <trans-unit id="c5801af9-3d51-4757-8bc8-37ddc6af4bc6" xml:space="preserve">
+          <source>The smallest subnet we support is a /29 and the largest is a /8 (using CIDR subnet definitions).</source>
+          <target state="new">The smallest subnet we support is a /29 and the largest is a /8 (using CIDR subnet definitions).</target>
+        </trans-unit>
+        <trans-unit id="b95d866a-c93e-416b-92b2-c96bda9f6cb2" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="f71fa88f-a961-4202-aa44-81ecaa650117" xml:space="preserve">
+          <source>VNets are Layer-3 overlays.</source>
+          <target state="new">VNets are Layer-3 overlays.</target>
+        </trans-unit>
+        <trans-unit id="940245bf-7d8b-4ef8-b253-fae4294d3724" xml:space="preserve">
+          <source>Azure does not support any Layer-2 semantics.</source>
+          <target state="new">Azure does not support any Layer-2 semantics.</target>
+        </trans-unit>
+        <trans-unit id="7131ac55-d3e1-4af6-afe4-a704edb754c7" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="c918eafd-cb9e-43ce-bb59-2b7a65bbe2fe" xml:space="preserve">
+          <source>You can use User Defined Routing (UDR).</source>
+          <target state="new">You can use User Defined Routing (UDR).</target>
+        </trans-unit>
+        <trans-unit id="b4a72a9a-6d65-4f4a-a90a-daf0b6ac4bfa" xml:space="preserve">
+          <source>For more information about UDR, visit <bpt id="2ea6bc67-397f-4adf-be11-f733190cc338">&lt;linkText&gt;</bpt>User Defined Routes and IP Forwarding<ept id="2ea6bc67-397f-4adf-be11-f733190cc338">&lt;/linkText&gt;</ept><bpt id="2ea6bc67-397f-4adf-be11-f733190cc338">&lt;title&gt;</bpt><ept id="2ea6bc67-397f-4adf-be11-f733190cc338">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about UDR, visit <bpt id="2ea6bc67-397f-4adf-be11-f733190cc338">&lt;linkText&gt;</bpt>User Defined Routes and IP Forwarding<ept id="2ea6bc67-397f-4adf-be11-f733190cc338">&lt;/linkText&gt;</ept><bpt id="2ea6bc67-397f-4adf-be11-f733190cc338">&lt;title&gt;</bpt><ept id="2ea6bc67-397f-4adf-be11-f733190cc338">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6661aeb-4663-4145-a7ed-1bac36d16d3a" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="eee9d0b3-a207-48eb-aa7f-2c781f9e1e4c" xml:space="preserve">
+          <source>We do not support multicast or broadcast.</source>
+          <target state="new">We do not support multicast or broadcast.</target>
+        </trans-unit>
+        <trans-unit id="59ef7a09-7b3e-4458-b25d-9a956dabec15" xml:space="preserve">
+          <source>You can use standard IP-based protocols within VNets.</source>
+          <target state="new">You can use standard IP-based protocols within VNets.</target>
+        </trans-unit>
+        <trans-unit id="d8933cac-d417-4134-8108-41af18134df4" xml:space="preserve">
+          <source>However, multicast, broadcast, IP-in-IP encapsulated packets and Generic Routing Encapsulation (GRE) packets are blocked within VNets.</source>
+          <target state="new">However, multicast, broadcast, IP-in-IP encapsulated packets and Generic Routing Encapsulation (GRE) packets are blocked within VNets.</target>
+        </trans-unit>
+        <trans-unit id="088d91c9-dcd6-451c-b3b8-e96a33523593" xml:space="preserve">
+          <source>Standard protocols that work include:</source>
+          <target state="new">Standard protocols that work include:</target>
+        </trans-unit>
+        <trans-unit id="cad6b35f-9331-43c3-9e75-c4f70fb9b4cc" xml:space="preserve">
+          <source>TCP</source>
+          <target state="new">TCP</target>
+        </trans-unit>
+        <trans-unit id="6ff05bd9-8ecd-4757-96bf-6a338caf8f1f" xml:space="preserve">
+          <source>UDP</source>
+          <target state="new">UDP</target>
+        </trans-unit>
+        <trans-unit id="bfd1a081-234a-4cba-b9c8-1180318be5c3" xml:space="preserve">
+          <source>ICMP</source>
+          <target state="new">ICMP</target>
+        </trans-unit>
+        <trans-unit id="9a528b5c-1a2f-498f-839d-5cf0bab1618b" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="00d5a1cb-f810-4e94-be5d-3b68ee0ac9f6" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="10fcd79e-73e3-4952-ab3f-f4e64801d7ca" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="7ad052b4-8201-40b1-987f-9fa3e893a51d" xml:space="preserve">
+          <source>Subnets can be added to VNets at any time as long as the subnet address is not part of another subnet in the VNet.</source>
+          <target state="new">Subnets can be added to VNets at any time as long as the subnet address is not part of another subnet in the VNet.</target>
+        </trans-unit>
+        <trans-unit id="6901c4b0-dbda-492f-bb08-54b57209e884" xml:space="preserve">
+          <source>You can add, remove, expand or shrink a subnet if there are no VMs or services deployed within it by using PowerShell cmdlets or the NETCFG file.</source>
+          <target state="new">You can add, remove, expand or shrink a subnet if there are no VMs or services deployed within it by using PowerShell cmdlets or the NETCFG file.</target>
+        </trans-unit>
+        <trans-unit id="098cdd6d-f6fe-46ad-8f31-0e549d965363" xml:space="preserve">
+          <source>You can also add, remove, expand or shrink any prefixes as long as the subnets that contain VMs or services are not affected by the change.</source>
+          <target state="new">You can also add, remove, expand or shrink any prefixes as long as the subnets that contain VMs or services are not affected by the change.</target>
+        </trans-unit>
+        <trans-unit id="4f4e8c21-d4f4-44d8-aab3-384124fc6902" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="e55deb40-ded8-4757-8820-14f668d60dfa" xml:space="preserve">
+          <source>You can add, remove, and modify the CIDR blocks used by a VNet.</source>
+          <target state="new">You can add, remove, and modify the CIDR blocks used by a VNet.</target>
+        </trans-unit>
+        <trans-unit id="9751071c-2e6a-40db-bba8-b4de3a69878f" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="ba1c7318-3334-43ac-ad5f-7bafd143eb3f" xml:space="preserve">
+          <source>All services deployed within a VNet can connect to the internet.</source>
+          <target state="new">All services deployed within a VNet can connect to the internet.</target>
+        </trans-unit>
+        <trans-unit id="686bf095-28b9-453e-8674-7cb714794119" xml:space="preserve">
+          <source>Every cloud service deployed in Azure has a publicly addressable VIP assigned to it.</source>
+          <target state="new">Every cloud service deployed in Azure has a publicly addressable VIP assigned to it.</target>
+        </trans-unit>
+        <trans-unit id="66585195-e5e5-4fa3-ac92-a9ca6e7be8c5" xml:space="preserve">
+          <source>You will have to define input endpoints for PaaS roles and endpoints for virtual machines to enable these services to accept connections from the internet.</source>
+          <target state="new">You will have to define input endpoints for PaaS roles and endpoints for virtual machines to enable these services to accept connections from the internet.</target>
+        </trans-unit>
+        <trans-unit id="98ca48f9-640c-4e7f-9b49-22a1a5c95641" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="fcc1f849-2779-42d8-8de6-76fbef3b8a13" xml:space="preserve">
+          <source>You cannot use IPv6 with VNets at this time.</source>
+          <target state="new">You cannot use IPv6 with VNets at this time.</target>
+        </trans-unit>
+        <trans-unit id="6d5d6a62-628d-4e5b-96e6-31401999bf9b" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="3e52ad25-85ff-4c92-b7d2-c8cd79b65c79" xml:space="preserve">
+          <source>A VNet is limited to a single region.</source>
+          <target state="new">A VNet is limited to a single region.</target>
+        </trans-unit>
+        <trans-unit id="942d41a1-f4ea-4212-b190-1eae0e371ae8" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="9d98beeb-dee5-497e-be25-659c3faf823a" xml:space="preserve">
+          <source>You can create VNet to VNet communication by using REST APIs or Windows PowerShell.</source>
+          <target state="new">You can create VNet to VNet communication by using REST APIs or Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="b1816ae7-3683-464d-a993-cd862bff19f4" xml:space="preserve">
+          <source>See <bpt id="3f1a9db1-e308-4a36-b4b0-de0095d5fe00">&lt;linkText&gt;</bpt>Configure a VNet to VNet Connection<ept id="3f1a9db1-e308-4a36-b4b0-de0095d5fe00">&lt;/linkText&gt;</ept><bpt id="3f1a9db1-e308-4a36-b4b0-de0095d5fe00">&lt;title&gt;</bpt><ept id="3f1a9db1-e308-4a36-b4b0-de0095d5fe00">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="3f1a9db1-e308-4a36-b4b0-de0095d5fe00">&lt;linkText&gt;</bpt>Configure a VNet to VNet Connection<ept id="3f1a9db1-e308-4a36-b4b0-de0095d5fe00">&lt;/linkText&gt;</ept><bpt id="3f1a9db1-e308-4a36-b4b0-de0095d5fe00">&lt;title&gt;</bpt><ept id="3f1a9db1-e308-4a36-b4b0-de0095d5fe00">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bdbe8a21-8d88-4984-8a8b-d9cfba80df2a" xml:space="preserve">
+          <source>Use the decision table on the <bpt id="cfacd98e-5c05-4152-afd2-8a30bb7f158a">&lt;linkText&gt;</bpt>Name Resolution for VMs and Role Instances<ept id="cfacd98e-5c05-4152-afd2-8a30bb7f158a">&lt;/linkText&gt;</ept><bpt id="cfacd98e-5c05-4152-afd2-8a30bb7f158a">&lt;title&gt;</bpt><ept id="cfacd98e-5c05-4152-afd2-8a30bb7f158a">&lt;/title&gt;</ept> page to guide you through all the DNS options available.</source>
+          <target state="new">Use the decision table on the <bpt id="cfacd98e-5c05-4152-afd2-8a30bb7f158a">&lt;linkText&gt;</bpt>Name Resolution for VMs and Role Instances<ept id="cfacd98e-5c05-4152-afd2-8a30bb7f158a">&lt;/linkText&gt;</ept><bpt id="cfacd98e-5c05-4152-afd2-8a30bb7f158a">&lt;title&gt;</bpt><ept id="cfacd98e-5c05-4152-afd2-8a30bb7f158a">&lt;/title&gt;</ept> page to guide you through all the DNS options available.</target>
+        </trans-unit>
+        <trans-unit id="fa4e4c35-aea5-4e91-947a-eb8207426067" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="0c08464d-ac50-4f2f-8b03-fca1f7e9f6e2" xml:space="preserve">
+          <source>You can specify DNS server IP addresses in the VNet settings.</source>
+          <target state="new">You can specify DNS server IP addresses in the VNet settings.</target>
+        </trans-unit>
+        <trans-unit id="d194d703-42b4-4628-8866-9638e2d342e7" xml:space="preserve">
+          <source>This will be applied as the default DNS server(s) for all VMs in the VNet.</source>
+          <target state="new">This will be applied as the default DNS server(s) for all VMs in the VNet.</target>
+        </trans-unit>
+        <trans-unit id="66f6afae-9ec0-46c0-a36f-b0edb01dbb0a" xml:space="preserve">
+          <source>You can specify up to 12 DNS servers.</source>
+          <target state="new">You can specify up to 12 DNS servers.</target>
+        </trans-unit>
+        <trans-unit id="660ff9b8-2169-4907-877b-d0a9b3b45f9c" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="90405276-e740-47a5-8f52-941e3d17ba1a" xml:space="preserve">
+          <source>You can change the DNS server list for your VNet at any time.</source>
+          <target state="new">You can change the DNS server list for your VNet at any time.</target>
+        </trans-unit>
+        <trans-unit id="effafc09-1c27-4baa-89d5-20532c6d9a1a" xml:space="preserve">
+          <source>If you change your DNS server list, you will need to restart each of the VMs in your VNet in order for them to pick up the new DNS server.</source>
+          <target state="new">If you change your DNS server list, you will need to restart each of the VMs in your VNet in order for them to pick up the new DNS server.</target>
+        </trans-unit>
+        <trans-unit id="e67921ba-aa31-4c6b-b733-ed1c343d6e34" xml:space="preserve">
+          <source>Azure-provided DNS is a multi-tenant DNS service offered by Microsoft.</source>
+          <target state="new">Azure-provided DNS is a multi-tenant DNS service offered by Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="c98cee05-b9f8-4409-8a67-bd26acf36b3e" xml:space="preserve">
+          <source>Azure registers all of your VMs and role instances in this service.</source>
+          <target state="new">Azure registers all of your VMs and role instances in this service.</target>
+        </trans-unit>
+        <trans-unit id="44b8b747-3687-42a2-9725-90cc3657b3be" xml:space="preserve">
+          <source>This service provides name resolution by hostname for VMs and role instances contained within the same cloud service, and by FQDN for VMs and role instances in the same VNet.</source>
+          <target state="new">This service provides name resolution by hostname for VMs and role instances contained within the same cloud service, and by FQDN for VMs and role instances in the same VNet.</target>
+        </trans-unit>
+        <trans-unit id="4dffcbb6-b19b-4a52-a85b-07a90bdc984f" xml:space="preserve">
+          <source>There is a limitation at this time to the first 100 cloud services in the virtual network for cross-tenant name resolution using Azure-provided DNS.</source>
+          <target state="new">There is a limitation at this time to the first 100 cloud services in the virtual network for cross-tenant name resolution using Azure-provided DNS.</target>
+        </trans-unit>
+        <trans-unit id="f16e5ab9-a4fb-4dd0-88c7-21e1013e0ed1" xml:space="preserve">
+          <source>If you are using your own DNS server, this limitation does not apply.</source>
+          <target state="new">If you are using your own DNS server, this limitation does not apply.</target>
+        </trans-unit>
+        <trans-unit id="60167fa6-906e-4b68-b43b-264c700f8531" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="151419cf-0a73-4890-9565-b2df8275d142" xml:space="preserve">
+          <source>You can set DNS servers on a per-cloud service basis to override the default network settings.</source>
+          <target state="new">You can set DNS servers on a per-cloud service basis to override the default network settings.</target>
+        </trans-unit>
+        <trans-unit id="5de221e8-d6ba-45fe-b319-c7cf69413dea" xml:space="preserve">
+          <source>However, we recommend that you use network-wide DNS as much as possible.</source>
+          <target state="new">However, we recommend that you use network-wide DNS as much as possible.</target>
+        </trans-unit>
+        <trans-unit id="5ce7b23d-c1c7-4d69-93fe-59a4ea409f41" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="89b93b72-df04-4783-a4f7-5f981f897a70" xml:space="preserve">
+          <source>You cannot specify a custom DNS suffix for your VNets.</source>
+          <target state="new">You cannot specify a custom DNS suffix for your VNets.</target>
+        </trans-unit>
+        <trans-unit id="4ff16d3a-1717-420f-ae0f-0a675b4e9c5e" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="2fe11a84-3912-4cc4-985a-1246ec17e757" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="5ec85bc2-a1b8-4fdb-a712-8b3709c0d3c6" xml:space="preserve">
+          <source>You can deploy any distro of Linux supported by Azure.</source>
+          <target state="new">You can deploy any distro of Linux supported by Azure.</target>
+        </trans-unit>
+        <trans-unit id="2aecb424-c07a-4f78-8578-f9831d444132" xml:space="preserve">
+          <source>An internal IP address is an IP address that is assigned to each VM within a VNet by DHCP.</source>
+          <target state="new">An internal IP address is an IP address that is assigned to each VM within a VNet by DHCP.</target>
+        </trans-unit>
+        <trans-unit id="e6f922f4-1c26-410a-a952-0fb04018fadc" xml:space="preserve">
+          <source>It's not public facing.</source>
+          <target state="new">It's not public facing.</target>
+        </trans-unit>
+        <trans-unit id="40bca134-6283-4cb9-9bd4-d40ee817fa62" xml:space="preserve">
+          <source>If you have created a VNet, the internal IP address is assigned from the range that you specified in the subnet settings of your VNet.</source>
+          <target state="new">If you have created a VNet, the internal IP address is assigned from the range that you specified in the subnet settings of your VNet.</target>
+        </trans-unit>
+        <trans-unit id="a810cc48-8026-4426-8a6c-2f4ba14f2bb7" xml:space="preserve">
+          <source>If you do not have a VNet, an internal IP address will still be assigned.</source>
+          <target state="new">If you do not have a VNet, an internal IP address will still be assigned.</target>
+        </trans-unit>
+        <trans-unit id="526b825d-9bfd-4d02-a182-09642143ff4d" xml:space="preserve">
+          <source>The internal IP address will remain with the VM for its lifetime, unless that VM is deallocated.</source>
+          <target state="new">The internal IP address will remain with the VM for its lifetime, unless that VM is deallocated.</target>
+        </trans-unit>
+        <trans-unit id="773fdf8f-2718-4742-b32f-982842a7c25b" xml:space="preserve">
+          <source>A public VIP is the public IP address that is assigned to your cloud service or load balancer.</source>
+          <target state="new">A public VIP is the public IP address that is assigned to your cloud service or load balancer.</target>
+        </trans-unit>
+        <trans-unit id="28617dd1-4039-4f18-8499-668d35b60ebb" xml:space="preserve">
+          <source>It is not assigned directly to your VM NIC.</source>
+          <target state="new">It is not assigned directly to your VM NIC.</target>
+        </trans-unit>
+        <trans-unit id="75884c65-71b4-4c9a-86e0-2bea2284184a" xml:space="preserve">
+          <source>The VIP stays with the cloud service it is assigned to until all the VMs in that cloud service are deallocated or deleted.</source>
+          <target state="new">The VIP stays with the cloud service it is assigned to until all the VMs in that cloud service are deallocated or deleted.</target>
+        </trans-unit>
+        <trans-unit id="8bcdc73d-7466-4521-a4e8-53990a4152ad" xml:space="preserve">
+          <source>At that point, it is released.</source>
+          <target state="new">At that point, it is released.</target>
+        </trans-unit>
+        <trans-unit id="43e5ba3d-3bbc-49be-a12f-cce5c0d551ce" xml:space="preserve">
+          <source><bpt id="8b079868-68df-4ded-8be2-53532313920c">&lt;strong&gt;</bpt>Internal IP address -<ept id="8b079868-68df-4ded-8be2-53532313920c">&lt;/strong&gt;</ept> If you deploy a VM to a VNet, the VM receives an internal IP address from a pool of internal IP addresses that you specify.</source>
+          <target state="new"><bpt id="8b079868-68df-4ded-8be2-53532313920c">&lt;strong&gt;</bpt>Internal IP address -<ept id="8b079868-68df-4ded-8be2-53532313920c">&lt;/strong&gt;</ept> If you deploy a VM to a VNet, the VM receives an internal IP address from a pool of internal IP addresses that you specify.</target>
+        </trans-unit>
+        <trans-unit id="aba4b361-8f2a-4e56-bf3f-63c76973f68c" xml:space="preserve">
+          <source>VMs communicate within the VNets by using internal IP addresses.</source>
+          <target state="new">VMs communicate within the VNets by using internal IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="b1250bc6-baf2-4763-a0fe-0f87b97cd452" xml:space="preserve">
+          <source>Although Azure assigns a dynamic internal IP address, you can request a static address for your VM.</source>
+          <target state="new">Although Azure assigns a dynamic internal IP address, you can request a static address for your VM.</target>
+        </trans-unit>
+        <trans-unit id="8b2ac2d2-cd78-4ffe-a23f-fd5303a5f560" xml:space="preserve">
+          <source>To learn more about static internal IP addresses, visit <bpt id="7bc488d9-4925-409d-874b-881855346e5e">&lt;linkText&gt;</bpt>How to Set a Static Internal IP<ept id="7bc488d9-4925-409d-874b-881855346e5e">&lt;/linkText&gt;</ept><bpt id="7bc488d9-4925-409d-874b-881855346e5e">&lt;title&gt;</bpt><ept id="7bc488d9-4925-409d-874b-881855346e5e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about static internal IP addresses, visit <bpt id="7bc488d9-4925-409d-874b-881855346e5e">&lt;linkText&gt;</bpt>How to Set a Static Internal IP<ept id="7bc488d9-4925-409d-874b-881855346e5e">&lt;/linkText&gt;</ept><bpt id="7bc488d9-4925-409d-874b-881855346e5e">&lt;title&gt;</bpt><ept id="7bc488d9-4925-409d-874b-881855346e5e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14e2e231-322b-40cb-971f-d533f5d702f1" xml:space="preserve">
+          <source><bpt id="a477160d-3c93-4e99-bb29-8f89daabc6cc">&lt;strong&gt;</bpt>VIP -<ept id="a477160d-3c93-4e99-bb29-8f89daabc6cc">&lt;/strong&gt;</ept> Your VM is also associated with a VIP, although a VIP is never assigned to the VM directly.</source>
+          <target state="new"><bpt id="a477160d-3c93-4e99-bb29-8f89daabc6cc">&lt;strong&gt;</bpt>VIP -<ept id="a477160d-3c93-4e99-bb29-8f89daabc6cc">&lt;/strong&gt;</ept> Your VM is also associated with a VIP, although a VIP is never assigned to the VM directly.</target>
+        </trans-unit>
+        <trans-unit id="e890604e-b87f-4025-b353-49ba4e6ca497" xml:space="preserve">
+          <source>A VIP is a public IP address that can be assigned to your cloud service.</source>
+          <target state="new">A VIP is a public IP address that can be assigned to your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="6c8c0b73-1f4d-4619-9bf5-19508f3fb4d8" xml:space="preserve">
+          <source>You can, optionally, reserve a VIP for your cloud service.</source>
+          <target state="new">You can, optionally, reserve a VIP for your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="59c3ab38-8888-4ed6-88f1-0e2012e8f927" xml:space="preserve">
+          <source>See <bpt id="477a4982-1881-424b-b09c-a6a0acf37d06">&lt;linkText&gt;</bpt>Reserved Public IP<ept id="477a4982-1881-424b-b09c-a6a0acf37d06">&lt;/linkText&gt;</ept><bpt id="477a4982-1881-424b-b09c-a6a0acf37d06">&lt;title&gt;</bpt><ept id="477a4982-1881-424b-b09c-a6a0acf37d06">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="477a4982-1881-424b-b09c-a6a0acf37d06">&lt;linkText&gt;</bpt>Reserved Public IP<ept id="477a4982-1881-424b-b09c-a6a0acf37d06">&lt;/linkText&gt;</ept><bpt id="477a4982-1881-424b-b09c-a6a0acf37d06">&lt;title&gt;</bpt><ept id="477a4982-1881-424b-b09c-a6a0acf37d06">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a76dca34-9b7e-4081-ad41-7748bc6cc837" xml:space="preserve">
+          <source><bpt id="57cc054b-441a-40ac-ad93-bad7b4b88910">&lt;strong&gt;</bpt>ILPIP -<ept id="57cc054b-441a-40ac-ad93-bad7b4b88910">&lt;/strong&gt;</ept> You can also configure an instance-level public IP address (ILPIP).</source>
+          <target state="new"><bpt id="57cc054b-441a-40ac-ad93-bad7b4b88910">&lt;strong&gt;</bpt>ILPIP -<ept id="57cc054b-441a-40ac-ad93-bad7b4b88910">&lt;/strong&gt;</ept> You can also configure an instance-level public IP address (ILPIP).</target>
+        </trans-unit>
+        <trans-unit id="363daab6-9077-40aa-beeb-487c13ce4546" xml:space="preserve">
+          <source>ILPIPs are directly associated with the VM, rather than the cloud service.</source>
+          <target state="new">ILPIPs are directly associated with the VM, rather than the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="ab711fd6-c0cc-4699-ba5f-649327a8cca7" xml:space="preserve">
+          <source>To learn more about ILPIPs, visit <bpt id="cd43ef51-1f83-4142-850f-720818bfb48f">&lt;linkText&gt;</bpt>Instance-Level Public IP Overview<ept id="cd43ef51-1f83-4142-850f-720818bfb48f">&lt;/linkText&gt;</ept><bpt id="cd43ef51-1f83-4142-850f-720818bfb48f">&lt;title&gt;</bpt><ept id="cd43ef51-1f83-4142-850f-720818bfb48f">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about ILPIPs, visit <bpt id="cd43ef51-1f83-4142-850f-720818bfb48f">&lt;linkText&gt;</bpt>Instance-Level Public IP Overview<ept id="cd43ef51-1f83-4142-850f-720818bfb48f">&lt;/linkText&gt;</ept><bpt id="cd43ef51-1f83-4142-850f-720818bfb48f">&lt;title&gt;</bpt><ept id="cd43ef51-1f83-4142-850f-720818bfb48f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a50efbb6-e160-4958-8cc7-2d0bf6b6b7c1" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="3482f327-41c6-4d9d-b250-127588f8cf2d" xml:space="preserve">
+          <source>You cannot reserve an internal IP address.</source>
+          <target state="new">You cannot reserve an internal IP address.</target>
+        </trans-unit>
+        <trans-unit id="498dc6fb-7124-4463-a6dd-cfafbe347d13" xml:space="preserve">
+          <source>If an iternal IP address is available it will be assigned to a VM or role instance by the DHCP server.</source>
+          <target state="new">If an iternal IP address is available it will be assigned to a VM or role instance by the DHCP server.</target>
+        </trans-unit>
+        <trans-unit id="d0a85964-a230-46b8-b868-da6ece742f6f" xml:space="preserve">
+          <source>That VM may or may not be the one that you want the internal IP address to be assigned to.</source>
+          <target state="new">That VM may or may not be the one that you want the internal IP address to be assigned to.</target>
+        </trans-unit>
+        <trans-unit id="dc99b855-b7d0-4fd5-88b3-e8ffca1464cd" xml:space="preserve">
+          <source>You can, however, change the internal IP address of an already created VM to any available internal IP address.</source>
+          <target state="new">You can, however, change the internal IP address of an already created VM to any available internal IP address.</target>
+        </trans-unit>
+        <trans-unit id="174f6791-2d64-48b3-b337-84b2351b05d4" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="32ca8eba-6038-4b19-a352-efb5693e1b37" xml:space="preserve">
+          <source>Internal IP addresses remain with the VM for its lifetime unless the VM is deallocated.</source>
+          <target state="new">Internal IP addresses remain with the VM for its lifetime unless the VM is deallocated.</target>
+        </trans-unit>
+        <trans-unit id="d54c3759-7f96-4f32-8d11-8b3f4b85bf2b" xml:space="preserve">
+          <source>When a VM is deallocated, the internal IP address is released unless you defined a static internal IP address for your VM.</source>
+          <target state="new">When a VM is deallocated, the internal IP address is released unless you defined a static internal IP address for your VM.</target>
+        </trans-unit>
+        <trans-unit id="e2a136d2-daed-444b-a2d0-11d8e81d09e8" xml:space="preserve">
+          <source>If the VM is simply stopped (and not put in the status <bpt id="47d03cc8-8a27-4e12-a4d7-0de3fb880ec8">&lt;strong&gt;</bpt>Stopped (Deallocated)<ept id="47d03cc8-8a27-4e12-a4d7-0de3fb880ec8">&lt;/strong&gt;</ept>) the IP address will remain assigned to the VM.</source>
+          <target state="new">If the VM is simply stopped (and not put in the status <bpt id="47d03cc8-8a27-4e12-a4d7-0de3fb880ec8">&lt;strong&gt;</bpt>Stopped (Deallocated)<ept id="47d03cc8-8a27-4e12-a4d7-0de3fb880ec8">&lt;/strong&gt;</ept>) the IP address will remain assigned to the VM.</target>
+        </trans-unit>
+        <trans-unit id="ddcc505f-e0f8-47f5-95fa-2ccc7503fa17" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="318a7f6b-b41b-4f2e-97d2-3d4e27fec3c1" xml:space="preserve">
+          <source>You must not change any interface properties of VMs.</source>
+          <target state="new">You must not change any interface properties of VMs.</target>
+        </trans-unit>
+        <trans-unit id="af87b0bb-4076-4e7b-997c-e8fb294c00d8" xml:space="preserve">
+          <source>Any changes may lead to potentially losing connectivity to the VM.</source>
+          <target state="new">Any changes may lead to potentially losing connectivity to the VM.</target>
+        </trans-unit>
+        <trans-unit id="594320a0-8444-4498-ad6c-31342beb4ffd" xml:space="preserve">
+          <source>Nothing.</source>
+          <target state="new">Nothing.</target>
+        </trans-unit>
+        <trans-unit id="2cf365af-d2f6-4ac1-88af-9d3579ed9b93" xml:space="preserve">
+          <source>The IP addresses (both public VIP and internal IP address) will stay with your cloud service or VM.</source>
+          <target state="new">The IP addresses (both public VIP and internal IP address) will stay with your cloud service or VM.</target>
+        </trans-unit>
+        <trans-unit id="7b8b3363-af60-4010-aa6a-6221ec9ace89" xml:space="preserve">
+          <source>If you want to simply shut down the VM, don't use the Management Portal to do so.</source>
+          <target state="new">If you want to simply shut down the VM, don't use the Management Portal to do so.</target>
+        </trans-unit>
+        <trans-unit id="f48624d9-a57d-4f61-bdd4-21f0267d7d5d" xml:space="preserve">
+          <source>Currently, the shutdown button will deallocate the virtual machine.</source>
+          <target state="new">Currently, the shutdown button will deallocate the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="2db9e591-ab3e-4005-9495-d9678a1e5466" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="43988a0f-b8b8-4846-a0aa-a13c975b4108" xml:space="preserve">
+          <source>You can find more information <bpt id="2379b2f2-ea70-4e98-8e36-d6fd610b3b85">&lt;linkText&gt;</bpt>here<ept id="2379b2f2-ea70-4e98-8e36-d6fd610b3b85">&lt;/linkText&gt;</ept><bpt id="2379b2f2-ea70-4e98-8e36-d6fd610b3b85">&lt;title&gt;</bpt><ept id="2379b2f2-ea70-4e98-8e36-d6fd610b3b85">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find more information <bpt id="2379b2f2-ea70-4e98-8e36-d6fd610b3b85">&lt;linkText&gt;</bpt>here<ept id="2379b2f2-ea70-4e98-8e36-d6fd610b3b85">&lt;/linkText&gt;</ept><bpt id="2379b2f2-ea70-4e98-8e36-d6fd610b3b85">&lt;title&gt;</bpt><ept id="2379b2f2-ea70-4e98-8e36-d6fd610b3b85">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b867a017-d9d4-4532-b69b-a8830ad9e598" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="6f141732-1dc6-48ad-be32-2790c24aa6a3" xml:space="preserve">
+          <source>A MAC address cannot be statically configured.</source>
+          <target state="new">A MAC address cannot be statically configured.</target>
+        </trans-unit>
+        <trans-unit id="5429101c-0f0b-43a4-9346-ceafd01e989b" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="9d994d45-b659-42d9-92a8-aa6f94b6d45b" xml:space="preserve">
+          <source>A VM's MAC address can change for a different reasons.</source>
+          <target state="new">A VM's MAC address can change for a different reasons.</target>
+        </trans-unit>
+        <trans-unit id="df7ede3c-e093-4424-a3cc-cbbdd06cc95b" xml:space="preserve">
+          <source>If the VM is put in the status Stopped (Deallocated), if you change the VM size, or if there is service healing or planned maintenance of the host server, the MAC address is not retained.</source>
+          <target state="new">If the VM is put in the status Stopped (Deallocated), if you change the VM size, or if there is service healing or planned maintenance of the host server, the MAC address is not retained.</target>
+        </trans-unit>
+        <trans-unit id="be938785-bf0e-4760-a93f-efc55a467da4" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="231c126f-1232-45c8-877e-2ae8a4c98b81" xml:space="preserve">
+          <source>All services deployed within a VNet can connect to the Internet.</source>
+          <target state="new">All services deployed within a VNet can connect to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="831cbc17-38d5-4d6d-85d9-b71eb24da19f" xml:space="preserve">
+          <source>Additionally, every cloud service deployed in Azure has a publicly addressable VIP assigned to it.</source>
+          <target state="new">Additionally, every cloud service deployed in Azure has a publicly addressable VIP assigned to it.</target>
+        </trans-unit>
+        <trans-unit id="b9a9fbc9-fd65-4dde-b9ca-1ed390dc0c18" xml:space="preserve">
+          <source>You have to define input endpoints for PaaS roles and endpoints for VMs to enable these services to accept connections from the Internet.</source>
+          <target state="new">You have to define input endpoints for PaaS roles and endpoints for VMs to enable these services to accept connections from the Internet.</target>
+        </trans-unit>
+        <trans-unit id="61ee4cbd-2d50-4347-abdf-800fb926c66e" xml:space="preserve">
+          <source>You can only use compute services within VNets.</source>
+          <target state="new">You can only use compute services within VNets.</target>
+        </trans-unit>
+        <trans-unit id="7e455c08-99d7-4558-a72d-70e1ff014cec" xml:space="preserve">
+          <source>Compute services are limited to Cloud Services (web and worker roles) and VMs.</source>
+          <target state="new">Compute services are limited to Cloud Services (web and worker roles) and VMs.</target>
+        </trans-unit>
+        <trans-unit id="4ace3f56-6174-4fff-aecb-e0185dce4c51" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="41499f59-b810-4737-aeef-ca296b636d50" xml:space="preserve">
+          <source>An Azure Web App cannot be deployed in a VNet.</source>
+          <target state="new">An Azure Web App cannot be deployed in a VNet.</target>
+        </trans-unit>
+        <trans-unit id="c35e5f7c-2fc5-49c3-905b-94bf5e648653" xml:space="preserve">
+          <source>However, Web Apps can securely connect and access resources in your Azure VNet if you have point-to-site configured for your VNet.</source>
+          <target state="new">However, Web Apps can securely connect and access resources in your Azure VNet if you have point-to-site configured for your VNet.</target>
+        </trans-unit>
+        <trans-unit id="0570536c-503b-4a0f-aa96-9e74abb7538d" xml:space="preserve">
+          <source>For more information, see the following:</source>
+          <target state="new">For more information, see the following:</target>
+        </trans-unit>
+        <trans-unit id="76a65eeb-0a24-463f-9305-16137d0fbd20" xml:space="preserve">
+          <source><bpt id="c5bb9a4c-5219-4e05-8876-9f09edaebb9a">&lt;linkText&gt;</bpt>Web Apps Virtual Network Integration<ept id="c5bb9a4c-5219-4e05-8876-9f09edaebb9a">&lt;/linkText&gt;</ept><bpt id="c5bb9a4c-5219-4e05-8876-9f09edaebb9a">&lt;title&gt;</bpt><ept id="c5bb9a4c-5219-4e05-8876-9f09edaebb9a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c5bb9a4c-5219-4e05-8876-9f09edaebb9a">&lt;linkText&gt;</bpt>Web Apps Virtual Network Integration<ept id="c5bb9a4c-5219-4e05-8876-9f09edaebb9a">&lt;/linkText&gt;</ept><bpt id="c5bb9a4c-5219-4e05-8876-9f09edaebb9a">&lt;title&gt;</bpt><ept id="c5bb9a4c-5219-4e05-8876-9f09edaebb9a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29d72419-b322-4565-be6b-be70475ba9f7" xml:space="preserve">
+          <source><bpt id="56c788ab-d51a-4d92-a0be-3be66a808903">&lt;linkText&gt;</bpt>Using VNet Integration and Hybrid Connections with Web Apps<ept id="56c788ab-d51a-4d92-a0be-3be66a808903">&lt;/linkText&gt;</ept><bpt id="56c788ab-d51a-4d92-a0be-3be66a808903">&lt;title&gt;</bpt><ept id="56c788ab-d51a-4d92-a0be-3be66a808903">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="56c788ab-d51a-4d92-a0be-3be66a808903">&lt;linkText&gt;</bpt>Using VNet Integration and Hybrid Connections with Web Apps<ept id="56c788ab-d51a-4d92-a0be-3be66a808903">&lt;/linkText&gt;</ept><bpt id="56c788ab-d51a-4d92-a0be-3be66a808903">&lt;title&gt;</bpt><ept id="56c788ab-d51a-4d92-a0be-3be66a808903">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e985edb-1dbe-4e4a-8a8a-3f3b150cfab8" xml:space="preserve">
+          <source><bpt id="ed1ad2e3-3b22-42ca-bcfb-18ef803f8172">&lt;linkText&gt;</bpt>Integrate a web app with an Azure Virtual Network<ept id="ed1ad2e3-3b22-42ca-bcfb-18ef803f8172">&lt;/linkText&gt;</ept><bpt id="ed1ad2e3-3b22-42ca-bcfb-18ef803f8172">&lt;title&gt;</bpt><ept id="ed1ad2e3-3b22-42ca-bcfb-18ef803f8172">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ed1ad2e3-3b22-42ca-bcfb-18ef803f8172">&lt;linkText&gt;</bpt>Integrate a web app with an Azure Virtual Network<ept id="ed1ad2e3-3b22-42ca-bcfb-18ef803f8172">&lt;/linkText&gt;</ept><bpt id="ed1ad2e3-3b22-42ca-bcfb-18ef803f8172">&lt;title&gt;</bpt><ept id="ed1ad2e3-3b22-42ca-bcfb-18ef803f8172">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0df3b33f-86ce-4aab-806e-0a1389ea8037" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="c91800d6-d1c3-4e54-a803-f8c07bf71e14" xml:space="preserve">
+          <source>You can deploy PaaS services within VNets.</source>
+          <target state="new">You can deploy PaaS services within VNets.</target>
+        </trans-unit>
+        <trans-unit id="783f0f87-ffc9-4286-8387-811d4a38bd81" xml:space="preserve">
+          <source>You can accomplish this by specifying the VNet name and the role /subnet mappings in the network configuration section of your service configuration.</source>
+          <target state="new">You can accomplish this by specifying the VNet name and the role /subnet mappings in the network configuration section of your service configuration.</target>
+        </trans-unit>
+        <trans-unit id="96f5d4a0-efd3-4fb9-9677-b37d3696d96e" xml:space="preserve">
+          <source>You do not need to update any of your binaries.</source>
+          <target state="new">You do not need to update any of your binaries.</target>
+        </trans-unit>
+        <trans-unit id="0dff4968-c281-4215-9ee7-cfa221a31086" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="acd00e31-177a-4505-851a-9f666953f88c" xml:space="preserve">
+          <source>You cannot move services in and out of VNets.</source>
+          <target state="new">You cannot move services in and out of VNets.</target>
+        </trans-unit>
+        <trans-unit id="5dc73ef5-95cc-4d17-8dec-d73b06ad22aa" xml:space="preserve">
+          <source>You will have to delete and re-deploy the service to move it to another VNet.</source>
+          <target state="new">You will have to delete and re-deploy the service to move it to another VNet.</target>
+        </trans-unit>
+        <trans-unit id="d1760752-32f7-4da8-9eeb-24c3ff097f53" xml:space="preserve">
+          <source>VNets are completely isolated from one another, and other services hosted in the Azure infrastructure.</source>
+          <target state="new">VNets are completely isolated from one another, and other services hosted in the Azure infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="ce9af4aa-d2a5-41c1-b99b-4c6dd4eac552" xml:space="preserve">
+          <source>A VNet is a trust boundary.</source>
+          <target state="new">A VNet is a trust boundary.</target>
+        </trans-unit>
+        <trans-unit id="5726e394-338a-48fc-85df-a2340617ce6a" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="46894525-5a73-4c86-af72-6c337ae0150b" xml:space="preserve">
+          <source>You cannot associate ACLs or NSGs to VNets.</source>
+          <target state="new">You cannot associate ACLs or NSGs to VNets.</target>
+        </trans-unit>
+        <trans-unit id="04c523a8-a41c-4f2e-9e6a-a87f1b0dd6c6" xml:space="preserve">
+          <source>However, ACLs can be defined on input endpoints for VMs that have been deployed to a VNets, and NSGs can be associated to subnets or NICs.</source>
+          <target state="new">However, ACLs can be defined on input endpoints for VMs that have been deployed to a VNets, and NSGs can be associated to subnets or NICs.</target>
+        </trans-unit>
+        <trans-unit id="b3fb2140-2e4f-4dbf-9cfa-bd66678fad72" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="a9f8d161-4f3c-4319-8fa6-60fb994fd407" xml:space="preserve">
+          <source>You can download it <bpt id="07954d63-d4e2-40f1-a034-3a40d00c9f38">&lt;linkText&gt;</bpt>here<ept id="07954d63-d4e2-40f1-a034-3a40d00c9f38">&lt;/linkText&gt;</ept><bpt id="07954d63-d4e2-40f1-a034-3a40d00c9f38">&lt;title&gt;</bpt><ept id="07954d63-d4e2-40f1-a034-3a40d00c9f38">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can download it <bpt id="07954d63-d4e2-40f1-a034-3a40d00c9f38">&lt;linkText&gt;</bpt>here<ept id="07954d63-d4e2-40f1-a034-3a40d00c9f38">&lt;/linkText&gt;</ept><bpt id="07954d63-d4e2-40f1-a034-3a40d00c9f38">&lt;title&gt;</bpt><ept id="07954d63-d4e2-40f1-a034-3a40d00c9f38">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f0fb865-a734-4f1c-aa8e-2e5cb37958a5" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="52e2af8f-3f7b-4820-950c-259b17b2e901" xml:space="preserve">
+          <source>You can use REST APIs to manage VNets and cross-premises connectivity.</source>
+          <target state="new">You can use REST APIs to manage VNets and cross-premises connectivity.</target>
+        </trans-unit>
+        <trans-unit id="b300a65c-20d0-41a7-8a91-cc37408b14c4" xml:space="preserve">
+          <source>More information can be found <bpt id="d5ecb8ed-980a-4af5-aef6-42b277bccc57">&lt;linkText&gt;</bpt>here<ept id="d5ecb8ed-980a-4af5-aef6-42b277bccc57">&lt;/linkText&gt;</ept><bpt id="d5ecb8ed-980a-4af5-aef6-42b277bccc57">&lt;title&gt;</bpt><ept id="d5ecb8ed-980a-4af5-aef6-42b277bccc57">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information can be found <bpt id="d5ecb8ed-980a-4af5-aef6-42b277bccc57">&lt;linkText&gt;</bpt>here<ept id="d5ecb8ed-980a-4af5-aef6-42b277bccc57">&lt;/linkText&gt;</ept><bpt id="d5ecb8ed-980a-4af5-aef6-42b277bccc57">&lt;title&gt;</bpt><ept id="d5ecb8ed-980a-4af5-aef6-42b277bccc57">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa61aefa-a01f-45d9-926a-27071daf2cc1" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="ddb761b7-5de0-4f22-82ac-df810ff52670" xml:space="preserve">
+          <source>You can use PowerShell and command line tools for a variety of platforms.</source>
+          <target state="new">You can use PowerShell and command line tools for a variety of platforms.</target>
+        </trans-unit>
+        <trans-unit id="e1ef52b2-251c-4725-9611-c39bea33e643" xml:space="preserve">
+          <source>More information can be found <bpt id="dbf139f0-09bf-49bb-a32f-fae8144febb0">&lt;linkText&gt;</bpt>here<ept id="dbf139f0-09bf-49bb-a32f-fae8144febb0">&lt;/linkText&gt;</ept><bpt id="dbf139f0-09bf-49bb-a32f-fae8144febb0">&lt;title&gt;</bpt><ept id="dbf139f0-09bf-49bb-a32f-fae8144febb0">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information can be found <bpt id="dbf139f0-09bf-49bb-a32f-fae8144febb0">&lt;linkText&gt;</bpt>here<ept id="dbf139f0-09bf-49bb-a32f-fae8144febb0">&lt;/linkText&gt;</ept><bpt id="dbf139f0-09bf-49bb-a32f-fae8144febb0">&lt;title&gt;</bpt><ept id="dbf139f0-09bf-49bb-a32f-fae8144febb0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

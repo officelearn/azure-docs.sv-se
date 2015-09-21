@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4568476a-49bc-4389-a6e2-dd8b88dd7820" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4568476a-49bc-4389-a6e2-dd8b88dd7820" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="92b0cf82-25a3-4613-9243-b4a119e3df96">
+        <trans-unit id="cf072325-c8b4-4d9c-8789-230488c1be13" xml:space="preserve">
+          <source>Tutorial: Create a cloud-only virtual network</source>
+          <target state="new">Tutorial: Create a cloud-only virtual network</target>
+        </trans-unit>
+        <trans-unit id="aadb381d-502f-4e8a-bfb3-bd6e0998d314" xml:space="preserve">
+          <source>Learn how to create an example cloud-only Azure Virtual Network in this tutorial.</source>
+          <target state="new">Learn how to create an example cloud-only Azure Virtual Network in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="211c055a-8962-4fe8-9a42-a2ff6d366478" xml:space="preserve">
+          <source>This tutorial walks you through the steps in the Azure Management Portal to create an example cloud-only Azure Virtual Network that contains two subnets.</source>
+          <target state="new">This tutorial walks you through the steps in the Azure Management Portal to create an example cloud-only Azure Virtual Network that contains two subnets.</target>
+        </trans-unit>
+        <trans-unit id="117ab9b5-4257-42f8-bafd-2271be3076db" xml:space="preserve">
+          <source>The resulting virtual network will look like the following:</source>
+          <target state="new">The resulting virtual network will look like the following:</target>
+        </trans-unit>
+        <trans-unit id="5edd07ae-59ea-46be-a1e8-0a9e707a31a5" xml:space="preserve">
+          <source><bpt id="ae67dd11-73e4-458b-9754-645cee92ba3a">&lt;linkText&gt;</bpt>createvnet<ept id="ae67dd11-73e4-458b-9754-645cee92ba3a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae67dd11-73e4-458b-9754-645cee92ba3a">&lt;linkText&gt;</bpt>createvnet<ept id="ae67dd11-73e4-458b-9754-645cee92ba3a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00e44098-ea5a-4a1d-a94a-aef3309fa83e" xml:space="preserve">
+          <source>For example, the FrontEndSubnet could be used for web servers and the BackEndSubnet could be used for SQL servers or domain controllers.</source>
+          <target state="new">For example, the FrontEndSubnet could be used for web servers and the BackEndSubnet could be used for SQL servers or domain controllers.</target>
+        </trans-unit>
+        <trans-unit id="f7a9b0d9-9312-4bcb-bcb6-60d45bd9f8b5" xml:space="preserve">
+          <source>This tutorial assumes you have no prior experience using Azure.</source>
+          <target state="new">This tutorial assumes you have no prior experience using Azure.</target>
+        </trans-unit>
+        <trans-unit id="84a1e452-5a97-4737-aac4-963c6f7ead8b" xml:space="preserve">
+          <source>It is meant to help you become familiar with the steps required to create your own virtual network by stepping you through an example configuration.</source>
+          <target state="new">It is meant to help you become familiar with the steps required to create your own virtual network by stepping you through an example configuration.</target>
+        </trans-unit>
+        <trans-unit id="d3cad78a-d8e0-4ad2-bad0-8e4903b1c4cc" xml:space="preserve">
+          <source>If you want to create a cloud-only virtual network that works for your specific configuration, see <bpt id="4bdeebfe-13fc-4c3c-9735-f71942085480">&lt;linkText&gt;</bpt>Configure a Cloud-Only Virtual Network in the Management Portal<ept id="4bdeebfe-13fc-4c3c-9735-f71942085480">&lt;/linkText&gt;</ept><bpt id="4bdeebfe-13fc-4c3c-9735-f71942085480">&lt;title&gt;</bpt><ept id="4bdeebfe-13fc-4c3c-9735-f71942085480">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to create a cloud-only virtual network that works for your specific configuration, see <bpt id="4bdeebfe-13fc-4c3c-9735-f71942085480">&lt;linkText&gt;</bpt>Configure a Cloud-Only Virtual Network in the Management Portal<ept id="4bdeebfe-13fc-4c3c-9735-f71942085480">&lt;/linkText&gt;</ept><bpt id="4bdeebfe-13fc-4c3c-9735-f71942085480">&lt;title&gt;</bpt><ept id="4bdeebfe-13fc-4c3c-9735-f71942085480">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90a35c46-84a7-42d6-ba2d-e114f824e971" xml:space="preserve">
+          <source>If you are looking for design scenarios and advanced information about Virtual Network, see the <bpt id="c575536c-9484-4e3b-86dc-82de4878848e">&lt;linkText&gt;</bpt>Azure Virtual Network Overview<ept id="c575536c-9484-4e3b-86dc-82de4878848e">&lt;/linkText&gt;</ept><bpt id="c575536c-9484-4e3b-86dc-82de4878848e">&lt;title&gt;</bpt><ept id="c575536c-9484-4e3b-86dc-82de4878848e">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are looking for design scenarios and advanced information about Virtual Network, see the <bpt id="c575536c-9484-4e3b-86dc-82de4878848e">&lt;linkText&gt;</bpt>Azure Virtual Network Overview<ept id="c575536c-9484-4e3b-86dc-82de4878848e">&lt;/linkText&gt;</ept><bpt id="c575536c-9484-4e3b-86dc-82de4878848e">&lt;title&gt;</bpt><ept id="c575536c-9484-4e3b-86dc-82de4878848e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c631a85-6e27-491e-9006-f98d0ada8453" xml:space="preserve">
+          <source>This tutorial does not walk you through creating a cross-premises configuration, in which the virtual network is connected to your organization network.</source>
+          <target state="new">This tutorial does not walk you through creating a cross-premises configuration, in which the virtual network is connected to your organization network.</target>
+        </trans-unit>
+        <trans-unit id="fab48db0-ea88-41c3-b180-846df20af3ef" xml:space="preserve">
+          <source>For a tutorial that walks you through creating a virtual network with cross-premises connectivity and a site-to-site VPN connection (i.e., connecting to Active Directory or SharePoint located at your company), see <bpt id="36a14a97-be56-4595-be40-d06b3c2be874">&lt;linkText&gt;</bpt>Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity<ept id="36a14a97-be56-4595-be40-d06b3c2be874">&lt;/linkText&gt;</ept><bpt id="36a14a97-be56-4595-be40-d06b3c2be874">&lt;title&gt;</bpt><ept id="36a14a97-be56-4595-be40-d06b3c2be874">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a tutorial that walks you through creating a virtual network with cross-premises connectivity and a site-to-site VPN connection (i.e., connecting to Active Directory or SharePoint located at your company), see <bpt id="36a14a97-be56-4595-be40-d06b3c2be874">&lt;linkText&gt;</bpt>Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity<ept id="36a14a97-be56-4595-be40-d06b3c2be874">&lt;/linkText&gt;</ept><bpt id="36a14a97-be56-4595-be40-d06b3c2be874">&lt;title&gt;</bpt><ept id="36a14a97-be56-4595-be40-d06b3c2be874">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c5a435f-d1f9-4d9d-a09c-42e5eb140de0" xml:space="preserve">
+          <source>In this tutorial you will learn how to set up a basic Azure cloud-only virtual network with two subnets.</source>
+          <target state="new">In this tutorial you will learn how to set up a basic Azure cloud-only virtual network with two subnets.</target>
+        </trans-unit>
+        <trans-unit id="4909a23f-a280-43f8-a504-95f74af36e46" xml:space="preserve">
+          <source>A Microsoft account with at least one valid, active Azure subscription.</source>
+          <target state="new">A Microsoft account with at least one valid, active Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="d314170f-1b94-4ae2-ab8e-b6df5efd2409" xml:space="preserve">
+          <source>If you do not already have an Azure subscription, you can sign up for a free trial at <bpt id="e4be862e-0ac5-47d0-9707-0d9f0e99a599">&lt;linkText&gt;</bpt>Try Azure<ept id="e4be862e-0ac5-47d0-9707-0d9f0e99a599">&lt;/linkText&gt;</ept><bpt id="e4be862e-0ac5-47d0-9707-0d9f0e99a599">&lt;title&gt;</bpt><ept id="e4be862e-0ac5-47d0-9707-0d9f0e99a599">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not already have an Azure subscription, you can sign up for a free trial at <bpt id="e4be862e-0ac5-47d0-9707-0d9f0e99a599">&lt;linkText&gt;</bpt>Try Azure<ept id="e4be862e-0ac5-47d0-9707-0d9f0e99a599">&lt;/linkText&gt;</ept><bpt id="e4be862e-0ac5-47d0-9707-0d9f0e99a599">&lt;title&gt;</bpt><ept id="e4be862e-0ac5-47d0-9707-0d9f0e99a599">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1266cc0-53fc-40f1-81be-32b9e0e81f2d" xml:space="preserve">
+          <source>If you have an MSDN Subscription, see <bpt id="77b21718-8fa2-409b-a97d-574d29f7f8cd">&lt;linkText&gt;</bpt>Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits<ept id="77b21718-8fa2-409b-a97d-574d29f7f8cd">&lt;/linkText&gt;</ept><bpt id="77b21718-8fa2-409b-a97d-574d29f7f8cd">&lt;title&gt;</bpt><ept id="77b21718-8fa2-409b-a97d-574d29f7f8cd">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have an MSDN Subscription, see <bpt id="77b21718-8fa2-409b-a97d-574d29f7f8cd">&lt;linkText&gt;</bpt>Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits<ept id="77b21718-8fa2-409b-a97d-574d29f7f8cd">&lt;/linkText&gt;</ept><bpt id="77b21718-8fa2-409b-a97d-574d29f7f8cd">&lt;title&gt;</bpt><ept id="77b21718-8fa2-409b-a97d-574d29f7f8cd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c35c5545-633c-4709-8b1b-80cece29d338" xml:space="preserve">
+          <source>To create this example cloud-only virtual network, do the following</source>
+          <target state="new">To create this example cloud-only virtual network, do the following</target>
+        </trans-unit>
+        <trans-unit id="575a7f33-373a-4638-80b1-4015c06f6d45" xml:space="preserve">
+          <source>Log in to the Management Portal.</source>
+          <target state="new">Log in to the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="2786cfc6-170c-4d37-98dd-c37a3f6beb3a" xml:space="preserve">
+          <source>In the lower left-hand corner of the screen, click <bpt id="610dce02-a0fb-41da-abbd-70da684e817c">&lt;strong&gt;</bpt>New<ept id="610dce02-a0fb-41da-abbd-70da684e817c">&lt;/strong&gt;</ept> &gt; <bpt id="554b8059-b818-46b6-a62c-1232757559ae">&lt;strong&gt;</bpt>Network Services<ept id="554b8059-b818-46b6-a62c-1232757559ae">&lt;/strong&gt;</ept> &gt; <bpt id="2810add7-8622-4f8a-a73f-57f1f49dd41e">&lt;strong&gt;</bpt>Virtual Network<ept id="2810add7-8622-4f8a-a73f-57f1f49dd41e">&lt;/strong&gt;</ept>, and then click <bpt id="b26f5a0c-9863-43e5-bb27-e63ed545bf4e">&lt;strong&gt;</bpt>Custom Create<ept id="b26f5a0c-9863-43e5-bb27-e63ed545bf4e">&lt;/strong&gt;</ept> to begin the configuration wizard.</source>
+          <target state="new">In the lower left-hand corner of the screen, click <bpt id="610dce02-a0fb-41da-abbd-70da684e817c">&lt;strong&gt;</bpt>New<ept id="610dce02-a0fb-41da-abbd-70da684e817c">&lt;/strong&gt;</ept> &gt; <bpt id="554b8059-b818-46b6-a62c-1232757559ae">&lt;strong&gt;</bpt>Network Services<ept id="554b8059-b818-46b6-a62c-1232757559ae">&lt;/strong&gt;</ept> &gt; <bpt id="2810add7-8622-4f8a-a73f-57f1f49dd41e">&lt;strong&gt;</bpt>Virtual Network<ept id="2810add7-8622-4f8a-a73f-57f1f49dd41e">&lt;/strong&gt;</ept>, and then click <bpt id="b26f5a0c-9863-43e5-bb27-e63ed545bf4e">&lt;strong&gt;</bpt>Custom Create<ept id="b26f5a0c-9863-43e5-bb27-e63ed545bf4e">&lt;/strong&gt;</ept> to begin the configuration wizard.</target>
+        </trans-unit>
+        <trans-unit id="4e0382e1-411d-422f-ab2f-aa2d0b4da30b" xml:space="preserve">
+          <source><bpt id="16b20e84-2982-4e5d-93a9-77162ec50810">&lt;linkText&gt;</bpt><ept id="16b20e84-2982-4e5d-93a9-77162ec50810">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16b20e84-2982-4e5d-93a9-77162ec50810">&lt;linkText&gt;</bpt><ept id="16b20e84-2982-4e5d-93a9-77162ec50810">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee41d535-f82d-4d21-a177-a5f478c33a78" xml:space="preserve">
+          <source>On the <bpt id="fb9b5fd4-2f1b-4361-9382-e155fe0b6070">&lt;strong&gt;</bpt>Virtual Network Details<ept id="fb9b5fd4-2f1b-4361-9382-e155fe0b6070">&lt;/strong&gt;</ept> page, enter the following information:</source>
+          <target state="new">On the <bpt id="fb9b5fd4-2f1b-4361-9382-e155fe0b6070">&lt;strong&gt;</bpt>Virtual Network Details<ept id="fb9b5fd4-2f1b-4361-9382-e155fe0b6070">&lt;/strong&gt;</ept> page, enter the following information:</target>
+        </trans-unit>
+        <trans-unit id="3f5607f6-0f9f-41fc-af8e-79f2e09c5aee" xml:space="preserve">
+          <source><bpt id="71a26b7f-c10e-45b0-8ff2-38771c5a1f03">&lt;strong&gt;</bpt>Name -<ept id="71a26b7f-c10e-45b0-8ff2-38771c5a1f03">&lt;/strong&gt;</ept> Type <bpt id="f9d63fc1-e4f5-4160-a74c-f81552b3e7e5">&lt;strong&gt;</bpt>YourVirtualNetwork<ept id="f9d63fc1-e4f5-4160-a74c-f81552b3e7e5">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="71a26b7f-c10e-45b0-8ff2-38771c5a1f03">&lt;strong&gt;</bpt>Name -<ept id="71a26b7f-c10e-45b0-8ff2-38771c5a1f03">&lt;/strong&gt;</ept> Type <bpt id="f9d63fc1-e4f5-4160-a74c-f81552b3e7e5">&lt;strong&gt;</bpt>YourVirtualNetwork<ept id="f9d63fc1-e4f5-4160-a74c-f81552b3e7e5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3859efad-7a96-45b4-89e3-0d476926166e" xml:space="preserve">
+          <source><bpt id="8a04214a-6970-4793-8070-5a88bc16091e">&lt;strong&gt;</bpt>Region -<ept id="8a04214a-6970-4793-8070-5a88bc16091e">&lt;/strong&gt;</ept> The virtual network will be created at a datacenter located in the specified region.</source>
+          <target state="new"><bpt id="8a04214a-6970-4793-8070-5a88bc16091e">&lt;strong&gt;</bpt>Region -<ept id="8a04214a-6970-4793-8070-5a88bc16091e">&lt;/strong&gt;</ept> The virtual network will be created at a datacenter located in the specified region.</target>
+        </trans-unit>
+        <trans-unit id="74bb6074-a76f-4740-8011-1a1cbc221a59" xml:space="preserve">
+          <source>For the best performance, select the region to which you belong from the drop-down list.</source>
+          <target state="new">For the best performance, select the region to which you belong from the drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="b6cac420-c829-40eb-aa90-8a9e1e343644" xml:space="preserve">
+          <source><bpt id="3b0519f8-c6cc-4b54-be79-4990d133b1d9">&lt;linkText&gt;</bpt><ept id="3b0519f8-c6cc-4b54-be79-4990d133b1d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b0519f8-c6cc-4b54-be79-4990d133b1d9">&lt;linkText&gt;</bpt><ept id="3b0519f8-c6cc-4b54-be79-4990d133b1d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36597319-2b2f-45e1-baa4-1457fa571673" xml:space="preserve">
+          <source>Click the next arrow on the lower right. For more information about the settings on this page, see the Virtual Network Details page section in <bpt id="d98f1101-0336-4fe3-814f-2a4f20faebb6">&lt;linkText&gt;</bpt>About Configuring a Virtual Network using the Management Portal<ept id="d98f1101-0336-4fe3-814f-2a4f20faebb6">&lt;/linkText&gt;</ept><bpt id="d98f1101-0336-4fe3-814f-2a4f20faebb6">&lt;title&gt;</bpt><ept id="d98f1101-0336-4fe3-814f-2a4f20faebb6">&lt;/title&gt;</ept>.</source>
+          <target state="new">Click the next arrow on the lower right. For more information about the settings on this page, see the Virtual Network Details page section in <bpt id="d98f1101-0336-4fe3-814f-2a4f20faebb6">&lt;linkText&gt;</bpt>About Configuring a Virtual Network using the Management Portal<ept id="d98f1101-0336-4fe3-814f-2a4f20faebb6">&lt;/linkText&gt;</ept><bpt id="d98f1101-0336-4fe3-814f-2a4f20faebb6">&lt;title&gt;</bpt><ept id="d98f1101-0336-4fe3-814f-2a4f20faebb6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d52d1697-ff8b-45de-960f-049e24fb661f" xml:space="preserve">
+          <source>On the <bpt id="3fb25cc3-bcf1-4069-84d9-6b277e917bdd">&lt;strong&gt;</bpt>DNS Servers and VPN Connectivity<ept id="3fb25cc3-bcf1-4069-84d9-6b277e917bdd">&lt;/strong&gt;</ept> page, click the next arrow on the lower right. Azure will assign an Internet-based Azure DNS server to new virtual machines that are added to this virtual network, which will allow them to access Internet resources. For more information about the settings on this page, see the DNS Servers and VPN Connectivity page in <bpt id="6a7f2b61-2bed-4e6d-a1cd-bd2c5c1db5bd">&lt;linkText&gt;</bpt>About Configuring a Virtual Network using the Management Portal<ept id="6a7f2b61-2bed-4e6d-a1cd-bd2c5c1db5bd">&lt;/linkText&gt;</ept><bpt id="6a7f2b61-2bed-4e6d-a1cd-bd2c5c1db5bd">&lt;title&gt;</bpt><ept id="6a7f2b61-2bed-4e6d-a1cd-bd2c5c1db5bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">On the <bpt id="3fb25cc3-bcf1-4069-84d9-6b277e917bdd">&lt;strong&gt;</bpt>DNS Servers and VPN Connectivity<ept id="3fb25cc3-bcf1-4069-84d9-6b277e917bdd">&lt;/strong&gt;</ept> page, click the next arrow on the lower right. Azure will assign an Internet-based Azure DNS server to new virtual machines that are added to this virtual network, which will allow them to access Internet resources. For more information about the settings on this page, see the DNS Servers and VPN Connectivity page in <bpt id="6a7f2b61-2bed-4e6d-a1cd-bd2c5c1db5bd">&lt;linkText&gt;</bpt>About Configuring a Virtual Network using the Management Portal<ept id="6a7f2b61-2bed-4e6d-a1cd-bd2c5c1db5bd">&lt;/linkText&gt;</ept><bpt id="6a7f2b61-2bed-4e6d-a1cd-bd2c5c1db5bd">&lt;title&gt;</bpt><ept id="6a7f2b61-2bed-4e6d-a1cd-bd2c5c1db5bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="303844dc-d8dc-4a1a-aa2b-1ad1d1c8befd" xml:space="preserve">
+          <source>Just like a real network, the virtual network needs a range of IP addresses (known as an address space) to assign to virtual machines that you place within it.</source>
+          <target state="new">Just like a real network, the virtual network needs a range of IP addresses (known as an address space) to assign to virtual machines that you place within it.</target>
+        </trans-unit>
+        <trans-unit id="12edb42a-3b68-4550-bf3f-8e4f6e0e51f9" xml:space="preserve">
+          <source>The virtual network also supports subnets, which need their own address spaces, derived from the virtual network address space.</source>
+          <target state="new">The virtual network also supports subnets, which need their own address spaces, derived from the virtual network address space.</target>
+        </trans-unit>
+        <trans-unit id="9fef2d34-b692-4b85-a4b2-04972d9b4d89" xml:space="preserve">
+          <source>For this tutorial, we will create the BackEndSubnet and FrontEndSubnet.</source>
+          <target state="new">For this tutorial, we will create the BackEndSubnet and FrontEndSubnet.</target>
+        </trans-unit>
+        <trans-unit id="e5b9ca09-0f93-48fa-8970-5464c1a8287d" xml:space="preserve">
+          <source>On the <bpt id="3289b4a4-514c-4434-86d5-57ded8007256">&lt;strong&gt;</bpt>Virtual Network Address Spaces<ept id="3289b4a4-514c-4434-86d5-57ded8007256">&lt;/strong&gt;</ept> page, configure the following:</source>
+          <target state="new">On the <bpt id="3289b4a4-514c-4434-86d5-57ded8007256">&lt;strong&gt;</bpt>Virtual Network Address Spaces<ept id="3289b4a4-514c-4434-86d5-57ded8007256">&lt;/strong&gt;</ept> page, configure the following:</target>
+        </trans-unit>
+        <trans-unit id="8b29bedb-1cfc-4ca7-8028-309d0873d707" xml:space="preserve">
+          <source>For Address Space, select <bpt id="ab52bd26-5476-49bb-ade7-e1910e3922ec">&lt;strong&gt;</bpt>/16 (65535)<ept id="ab52bd26-5476-49bb-ade7-e1910e3922ec">&lt;/strong&gt;</ept> in <bpt id="17459dd8-a1b6-453f-91dc-e79564f1f421">&lt;strong&gt;</bpt>CIDR (ADDRESS COUNT)<ept id="17459dd8-a1b6-453f-91dc-e79564f1f421">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For Address Space, select <bpt id="ab52bd26-5476-49bb-ade7-e1910e3922ec">&lt;strong&gt;</bpt>/16 (65535)<ept id="ab52bd26-5476-49bb-ade7-e1910e3922ec">&lt;/strong&gt;</ept> in <bpt id="17459dd8-a1b6-453f-91dc-e79564f1f421">&lt;strong&gt;</bpt>CIDR (ADDRESS COUNT)<ept id="17459dd8-a1b6-453f-91dc-e79564f1f421">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8ab5561-217a-46a8-b2d5-f4bb6a5ebcc5" xml:space="preserve">
+          <source>For subnets, in the first row, type <bpt id="a72fc32e-420b-4f2d-b651-47a1b53dd2ca">&lt;strong&gt;</bpt>BackEndSubnet<ept id="a72fc32e-420b-4f2d-b651-47a1b53dd2ca">&lt;/strong&gt;</ept> over the existing name and <bpt id="7db8362f-77f1-47f1-b860-6358b844890f">&lt;strong&gt;</bpt>10.0.1.0<ept id="7db8362f-77f1-47f1-b860-6358b844890f">&lt;/strong&gt;</ept> for the starting IP, then select <bpt id="0228edec-aca0-463a-b1c0-191252c8f026">&lt;strong&gt;</bpt>/24 (256)<ept id="0228edec-aca0-463a-b1c0-191252c8f026">&lt;/strong&gt;</ept> in <bpt id="2a7bbe13-bc12-49c9-8ecf-4edb6c2cae1a">&lt;strong&gt;</bpt>CIDR (ADDRESS COUNT)<ept id="2a7bbe13-bc12-49c9-8ecf-4edb6c2cae1a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For subnets, in the first row, type <bpt id="a72fc32e-420b-4f2d-b651-47a1b53dd2ca">&lt;strong&gt;</bpt>BackEndSubnet<ept id="a72fc32e-420b-4f2d-b651-47a1b53dd2ca">&lt;/strong&gt;</ept> over the existing name and <bpt id="7db8362f-77f1-47f1-b860-6358b844890f">&lt;strong&gt;</bpt>10.0.1.0<ept id="7db8362f-77f1-47f1-b860-6358b844890f">&lt;/strong&gt;</ept> for the starting IP, then select <bpt id="0228edec-aca0-463a-b1c0-191252c8f026">&lt;strong&gt;</bpt>/24 (256)<ept id="0228edec-aca0-463a-b1c0-191252c8f026">&lt;/strong&gt;</ept> in <bpt id="2a7bbe13-bc12-49c9-8ecf-4edb6c2cae1a">&lt;strong&gt;</bpt>CIDR (ADDRESS COUNT)<ept id="2a7bbe13-bc12-49c9-8ecf-4edb6c2cae1a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51ef6dda-dc66-45c0-ac8f-228c724a509a" xml:space="preserve">
+          <source>Click <bpt id="452a4033-36c9-4f79-9c54-70b16c88692d">&lt;strong&gt;</bpt>add subnet<ept id="452a4033-36c9-4f79-9c54-70b16c88692d">&lt;/strong&gt;</ept>, and then type <bpt id="d6520b00-a57b-4ffc-8068-d993d37ef7a2">&lt;strong&gt;</bpt>FrontEndSubnet<ept id="d6520b00-a57b-4ffc-8068-d993d37ef7a2">&lt;/strong&gt;</ept> for the name and <bpt id="5e89667b-353a-490b-be23-dd6c30020382">&lt;strong&gt;</bpt>10.0.2.0<ept id="5e89667b-353a-490b-be23-dd6c30020382">&lt;/strong&gt;</ept> for the starting IP.</source>
+          <target state="new">Click <bpt id="452a4033-36c9-4f79-9c54-70b16c88692d">&lt;strong&gt;</bpt>add subnet<ept id="452a4033-36c9-4f79-9c54-70b16c88692d">&lt;/strong&gt;</ept>, and then type <bpt id="d6520b00-a57b-4ffc-8068-d993d37ef7a2">&lt;strong&gt;</bpt>FrontEndSubnet<ept id="d6520b00-a57b-4ffc-8068-d993d37ef7a2">&lt;/strong&gt;</ept> for the name and <bpt id="5e89667b-353a-490b-be23-dd6c30020382">&lt;strong&gt;</bpt>10.0.2.0<ept id="5e89667b-353a-490b-be23-dd6c30020382">&lt;/strong&gt;</ept> for the starting IP.</target>
+        </trans-unit>
+        <trans-unit id="e0d03900-f341-4453-b4ec-9e81d30efb60" xml:space="preserve">
+          <source><bpt id="09d89009-17b9-4c74-b84e-485028c164c3">&lt;linkText&gt;</bpt><ept id="09d89009-17b9-4c74-b84e-485028c164c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09d89009-17b9-4c74-b84e-485028c164c3">&lt;linkText&gt;</bpt><ept id="09d89009-17b9-4c74-b84e-485028c164c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f51239c-7c12-4bf7-b13f-1c06ac0c193d" xml:space="preserve">
+          <source>Returning to our diagram of the virtual network, you have configured the following address spaces:</source>
+          <target state="new">Returning to our diagram of the virtual network, you have configured the following address spaces:</target>
+        </trans-unit>
+        <trans-unit id="a3445877-3aca-498b-8423-7d9053dd8cf4" xml:space="preserve">
+          <source>FrontEndSubnet: 10.0.2.0/24</source>
+          <target state="new">FrontEndSubnet: 10.0.2.0/24</target>
+        </trans-unit>
+        <trans-unit id="1db8b067-e2ad-433c-a200-a0d53430e767" xml:space="preserve">
+          <source>BackEndSubnet: 10.0.1.0/24</source>
+          <target state="new">BackEndSubnet: 10.0.1.0/24</target>
+        </trans-unit>
+        <trans-unit id="51ca3279-ecea-4999-a026-f3ba7297ed14" xml:space="preserve">
+          <source>For more information about the settings on this page, see the Virtual Network Address Spaces page in <bpt id="2c3a65e1-4b3a-4cf6-acd7-a6cbf1d27c07">&lt;linkText&gt;</bpt>About Configuring a Virtual Network using the Management Portal<ept id="2c3a65e1-4b3a-4cf6-acd7-a6cbf1d27c07">&lt;/linkText&gt;</ept><bpt id="2c3a65e1-4b3a-4cf6-acd7-a6cbf1d27c07">&lt;title&gt;</bpt><ept id="2c3a65e1-4b3a-4cf6-acd7-a6cbf1d27c07">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the settings on this page, see the Virtual Network Address Spaces page in <bpt id="2c3a65e1-4b3a-4cf6-acd7-a6cbf1d27c07">&lt;linkText&gt;</bpt>About Configuring a Virtual Network using the Management Portal<ept id="2c3a65e1-4b3a-4cf6-acd7-a6cbf1d27c07">&lt;/linkText&gt;</ept><bpt id="2c3a65e1-4b3a-4cf6-acd7-a6cbf1d27c07">&lt;title&gt;</bpt><ept id="2c3a65e1-4b3a-4cf6-acd7-a6cbf1d27c07">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c415b9e9-4a44-4c35-9cdb-70c44ed30430" xml:space="preserve">
+          <source>Click the checkmark in the lower right of the page and your virtual network will begin to create.</source>
+          <target state="new">Click the checkmark in the lower right of the page and your virtual network will begin to create.</target>
+        </trans-unit>
+        <trans-unit id="935f29c3-d538-4ffb-8fcb-8c43e61ec95c" xml:space="preserve">
+          <source>When your virtual network has been created, you will see <bpt id="7ca47414-a51c-41f8-ae65-910e891546cc">&lt;strong&gt;</bpt>Created<ept id="7ca47414-a51c-41f8-ae65-910e891546cc">&lt;/strong&gt;</ept> listed under Status on the <bpt id="88423b70-ae77-413e-9df3-52936a85b5d3">&lt;strong&gt;</bpt>Networks<ept id="88423b70-ae77-413e-9df3-52936a85b5d3">&lt;/strong&gt;</ept> page in the Azure Management Portal.</source>
+          <target state="new">When your virtual network has been created, you will see <bpt id="7ca47414-a51c-41f8-ae65-910e891546cc">&lt;strong&gt;</bpt>Created<ept id="7ca47414-a51c-41f8-ae65-910e891546cc">&lt;/strong&gt;</ept> listed under Status on the <bpt id="88423b70-ae77-413e-9df3-52936a85b5d3">&lt;strong&gt;</bpt>Networks<ept id="88423b70-ae77-413e-9df3-52936a85b5d3">&lt;/strong&gt;</ept> page in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="71881fe3-c7c5-4093-9abe-cd9fd16b5177" xml:space="preserve">
+          <source><bpt id="1b25588f-039b-417d-835d-b072470ee5a6">&lt;linkText&gt;</bpt><ept id="1b25588f-039b-417d-835d-b072470ee5a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b25588f-039b-417d-835d-b072470ee5a6">&lt;linkText&gt;</bpt><ept id="1b25588f-039b-417d-835d-b072470ee5a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e78562f2-8e35-466b-99c7-f2384b3df9da" xml:space="preserve">
+          <source>You can continue learning about Azure infrastructure services with the following:</source>
+          <target state="new">You can continue learning about Azure infrastructure services with the following:</target>
+        </trans-unit>
+        <trans-unit id="ff293ec7-061e-4614-855a-fb695742e782" xml:space="preserve">
+          <source><bpt id="8f10c8e0-2125-48d2-b379-2350013e2fed">&lt;linkText&gt;</bpt>How to Create a Custom Virtual Machine<ept id="8f10c8e0-2125-48d2-b379-2350013e2fed">&lt;/linkText&gt;</ept><bpt id="8f10c8e0-2125-48d2-b379-2350013e2fed">&lt;title&gt;</bpt><ept id="8f10c8e0-2125-48d2-b379-2350013e2fed">&lt;/title&gt;</ept> Use this topic to install a virtual machine in your virtual network.</source>
+          <target state="new"><bpt id="8f10c8e0-2125-48d2-b379-2350013e2fed">&lt;linkText&gt;</bpt>How to Create a Custom Virtual Machine<ept id="8f10c8e0-2125-48d2-b379-2350013e2fed">&lt;/linkText&gt;</ept><bpt id="8f10c8e0-2125-48d2-b379-2350013e2fed">&lt;title&gt;</bpt><ept id="8f10c8e0-2125-48d2-b379-2350013e2fed">&lt;/title&gt;</ept> Use this topic to install a virtual machine in your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="3720b383-94d9-4a30-8f47-8dfefa26a435" xml:space="preserve">
+          <source>For more information about virtual machines and installation options, see <bpt id="ffc0df2b-bcf7-4631-80fe-e3b04dca63e5">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="ffc0df2b-bcf7-4631-80fe-e3b04dca63e5">&lt;/linkText&gt;</ept><bpt id="ffc0df2b-bcf7-4631-80fe-e3b04dca63e5">&lt;title&gt;</bpt><ept id="ffc0df2b-bcf7-4631-80fe-e3b04dca63e5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about virtual machines and installation options, see <bpt id="ffc0df2b-bcf7-4631-80fe-e3b04dca63e5">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="ffc0df2b-bcf7-4631-80fe-e3b04dca63e5">&lt;/linkText&gt;</ept><bpt id="ffc0df2b-bcf7-4631-80fe-e3b04dca63e5">&lt;title&gt;</bpt><ept id="ffc0df2b-bcf7-4631-80fe-e3b04dca63e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e14efc4f-9d6f-474d-8f87-871ad06d307b" xml:space="preserve">
+          <source><bpt id="57837002-75da-4c4a-b2fa-222b2e12a070">&lt;linkText&gt;</bpt>Install a new Active Directory forest on an Azure Virtual Network<ept id="57837002-75da-4c4a-b2fa-222b2e12a070">&lt;/linkText&gt;</ept><bpt id="57837002-75da-4c4a-b2fa-222b2e12a070">&lt;title&gt;</bpt><ept id="57837002-75da-4c4a-b2fa-222b2e12a070">&lt;/title&gt;</ept> - Use this topic to install a new Windows Server Active Directory (AD) forest without connectivity to any other network.</source>
+          <target state="new"><bpt id="57837002-75da-4c4a-b2fa-222b2e12a070">&lt;linkText&gt;</bpt>Install a new Active Directory forest on an Azure Virtual Network<ept id="57837002-75da-4c4a-b2fa-222b2e12a070">&lt;/linkText&gt;</ept><bpt id="57837002-75da-4c4a-b2fa-222b2e12a070">&lt;title&gt;</bpt><ept id="57837002-75da-4c4a-b2fa-222b2e12a070">&lt;/title&gt;</ept> - Use this topic to install a new Windows Server Active Directory (AD) forest without connectivity to any other network.</target>
+        </trans-unit>
+        <trans-unit id="6015780e-07d4-4120-9669-a84ce27e5949" xml:space="preserve">
+          <source>The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation.</source>
+          <target state="new">The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation.</target>
+        </trans-unit>
+        <trans-unit id="43d7ea05-e319-4008-a5c4-6b968504a659" xml:space="preserve">
+          <source>If you plan to use this tutorial, do not create any VMs by using the Management Portal.</source>
+          <target state="new">If you plan to use this tutorial, do not create any VMs by using the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="ebedca36-a7b9-4d42-a474-9715f987f8c4" xml:space="preserve">
+          <source>For more information, see <bpt id="d10748d5-55b5-4351-9e70-581ab81c9380">&lt;linkText&gt;</bpt>Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines<ept id="d10748d5-55b5-4351-9e70-581ab81c9380">&lt;/linkText&gt;</ept><bpt id="d10748d5-55b5-4351-9e70-581ab81c9380">&lt;title&gt;</bpt><ept id="d10748d5-55b5-4351-9e70-581ab81c9380">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d10748d5-55b5-4351-9e70-581ab81c9380">&lt;linkText&gt;</bpt>Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines<ept id="d10748d5-55b5-4351-9e70-581ab81c9380">&lt;/linkText&gt;</ept><bpt id="d10748d5-55b5-4351-9e70-581ab81c9380">&lt;title&gt;</bpt><ept id="d10748d5-55b5-4351-9e70-581ab81c9380">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ff4d646-7b47-4554-b608-bfb2b9c54d11" xml:space="preserve">
+          <source>To remove this virtual network, select it, click <bpt id="e4a50dce-0c92-4f0d-90b2-782fbe66958a">&lt;strong&gt;</bpt>Delete<ept id="e4a50dce-0c92-4f0d-90b2-782fbe66958a">&lt;/strong&gt;</ept>, and then click <bpt id="9ffeba48-0782-4b5a-9a20-fed1a71851b1">&lt;strong&gt;</bpt>Yes<ept id="9ffeba48-0782-4b5a-9a20-fed1a71851b1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To remove this virtual network, select it, click <bpt id="e4a50dce-0c92-4f0d-90b2-782fbe66958a">&lt;strong&gt;</bpt>Delete<ept id="e4a50dce-0c92-4f0d-90b2-782fbe66958a">&lt;/strong&gt;</ept>, and then click <bpt id="9ffeba48-0782-4b5a-9a20-fed1a71851b1">&lt;strong&gt;</bpt>Yes<ept id="9ffeba48-0782-4b5a-9a20-fed1a71851b1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d87bb3f-689f-41fc-a0a1-f879d1dcad91" xml:space="preserve">
+          <source>When you are ready to create a cloud-only virtual network that works for your specific configuration, see <bpt id="1df139c0-0d81-4602-bf2d-9ab1fb6ab15b">&lt;linkText&gt;</bpt>Configure a Cloud-Only Virtual Network in the Management Portal<ept id="1df139c0-0d81-4602-bf2d-9ab1fb6ab15b">&lt;/linkText&gt;</ept><bpt id="1df139c0-0d81-4602-bf2d-9ab1fb6ab15b">&lt;title&gt;</bpt><ept id="1df139c0-0d81-4602-bf2d-9ab1fb6ab15b">&lt;/title&gt;</ept>.</source>
+          <target state="new">When you are ready to create a cloud-only virtual network that works for your specific configuration, see <bpt id="1df139c0-0d81-4602-bf2d-9ab1fb6ab15b">&lt;linkText&gt;</bpt>Configure a Cloud-Only Virtual Network in the Management Portal<ept id="1df139c0-0d81-4602-bf2d-9ab1fb6ab15b">&lt;/linkText&gt;</ept><bpt id="1df139c0-0d81-4602-bf2d-9ab1fb6ab15b">&lt;title&gt;</bpt><ept id="1df139c0-0d81-4602-bf2d-9ab1fb6ab15b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2538374e-b5d6-473c-b867-a63f4a7f2bd9" xml:space="preserve">
+          <source>If you are looking for design scenarios and advanced information about Virtual Network, see the <bpt id="d5573425-fd63-4d4e-a881-206ace1d4c5f">&lt;linkText&gt;</bpt>Azure Virtual Network Overview<ept id="d5573425-fd63-4d4e-a881-206ace1d4c5f">&lt;/linkText&gt;</ept><bpt id="d5573425-fd63-4d4e-a881-206ace1d4c5f">&lt;title&gt;</bpt><ept id="d5573425-fd63-4d4e-a881-206ace1d4c5f">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are looking for design scenarios and advanced information about Virtual Network, see the <bpt id="d5573425-fd63-4d4e-a881-206ace1d4c5f">&lt;linkText&gt;</bpt>Azure Virtual Network Overview<ept id="d5573425-fd63-4d4e-a881-206ace1d4c5f">&lt;/linkText&gt;</ept><bpt id="d5573425-fd63-4d4e-a881-206ace1d4c5f">&lt;title&gt;</bpt><ept id="d5573425-fd63-4d4e-a881-206ace1d4c5f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ed8f48e-3dee-4b5c-ae38-6c0f648071c3" xml:space="preserve">
+          <source>For additional Virtual Network configuration procedures and settings, see <bpt id="db19b612-c06f-4e6b-88bc-5c3551473771">&lt;linkText&gt;</bpt>Azure Virtual Network Configuration Tasks<ept id="db19b612-c06f-4e6b-88bc-5c3551473771">&lt;/linkText&gt;</ept><bpt id="db19b612-c06f-4e6b-88bc-5c3551473771">&lt;title&gt;</bpt><ept id="db19b612-c06f-4e6b-88bc-5c3551473771">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional Virtual Network configuration procedures and settings, see <bpt id="db19b612-c06f-4e6b-88bc-5c3551473771">&lt;linkText&gt;</bpt>Azure Virtual Network Configuration Tasks<ept id="db19b612-c06f-4e6b-88bc-5c3551473771">&lt;/linkText&gt;</ept><bpt id="db19b612-c06f-4e6b-88bc-5c3551473771">&lt;title&gt;</bpt><ept id="db19b612-c06f-4e6b-88bc-5c3551473771">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85465026-1a1a-408d-b173-0907926890a6" xml:space="preserve">
+          <source><bpt id="ee79f339-e8f7-405b-8927-170bf0dba95c">&lt;linkText&gt;</bpt>Azure Virtual Network FAQ<ept id="ee79f339-e8f7-405b-8927-170bf0dba95c">&lt;/linkText&gt;</ept><bpt id="ee79f339-e8f7-405b-8927-170bf0dba95c">&lt;title&gt;</bpt><ept id="ee79f339-e8f7-405b-8927-170bf0dba95c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ee79f339-e8f7-405b-8927-170bf0dba95c">&lt;linkText&gt;</bpt>Azure Virtual Network FAQ<ept id="ee79f339-e8f7-405b-8927-170bf0dba95c">&lt;/linkText&gt;</ept><bpt id="ee79f339-e8f7-405b-8927-170bf0dba95c">&lt;title&gt;</bpt><ept id="ee79f339-e8f7-405b-8927-170bf0dba95c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e0cd3aa-0ad5-4643-a11b-92ff874a5dff" xml:space="preserve">
+          <source><bpt id="161b80e0-1c1c-4105-808a-4082722caa3c">&lt;linkText&gt;</bpt>Azure Virtual Network Configuration Tasks<ept id="161b80e0-1c1c-4105-808a-4082722caa3c">&lt;/linkText&gt;</ept><bpt id="161b80e0-1c1c-4105-808a-4082722caa3c">&lt;title&gt;</bpt><ept id="161b80e0-1c1c-4105-808a-4082722caa3c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="161b80e0-1c1c-4105-808a-4082722caa3c">&lt;linkText&gt;</bpt>Azure Virtual Network Configuration Tasks<ept id="161b80e0-1c1c-4105-808a-4082722caa3c">&lt;/linkText&gt;</ept><bpt id="161b80e0-1c1c-4105-808a-4082722caa3c">&lt;title&gt;</bpt><ept id="161b80e0-1c1c-4105-808a-4082722caa3c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32ab1038-db76-40c3-a1d1-ef75c5fb55b8" xml:space="preserve">
+          <source><bpt id="e601e445-06da-4ded-bf84-024adfe1efc0">&lt;linkText&gt;</bpt>Configuring a Virtual Network Using Network Configuration Files<ept id="e601e445-06da-4ded-bf84-024adfe1efc0">&lt;/linkText&gt;</ept><bpt id="e601e445-06da-4ded-bf84-024adfe1efc0">&lt;title&gt;</bpt><ept id="e601e445-06da-4ded-bf84-024adfe1efc0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e601e445-06da-4ded-bf84-024adfe1efc0">&lt;linkText&gt;</bpt>Configuring a Virtual Network Using Network Configuration Files<ept id="e601e445-06da-4ded-bf84-024adfe1efc0">&lt;/linkText&gt;</ept><bpt id="e601e445-06da-4ded-bf84-024adfe1efc0">&lt;title&gt;</bpt><ept id="e601e445-06da-4ded-bf84-024adfe1efc0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a82562c4-2762-4b88-ae2e-419c4ccffdcf" xml:space="preserve">
+          <source><bpt id="cae0e745-3915-46cd-9a8f-7fc29b57bd7a">&lt;linkText&gt;</bpt>Name Resoultion for VMs and Role Instances<ept id="cae0e745-3915-46cd-9a8f-7fc29b57bd7a">&lt;/linkText&gt;</ept><bpt id="cae0e745-3915-46cd-9a8f-7fc29b57bd7a">&lt;title&gt;</bpt><ept id="cae0e745-3915-46cd-9a8f-7fc29b57bd7a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cae0e745-3915-46cd-9a8f-7fc29b57bd7a">&lt;linkText&gt;</bpt>Name Resoultion for VMs and Role Instances<ept id="cae0e745-3915-46cd-9a8f-7fc29b57bd7a">&lt;/linkText&gt;</ept><bpt id="cae0e745-3915-46cd-9a8f-7fc29b57bd7a">&lt;title&gt;</bpt><ept id="cae0e745-3915-46cd-9a8f-7fc29b57bd7a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8fbd6695-e069-4846-8ce3-3b14885c64c4" xml:space="preserve">
+          <source>./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png</source>
+          <target state="new">./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png</target>
+        </trans-unit>
+        <trans-unit id="29eb0d5f-0de3-46bb-b411-f16c87b96590" xml:space="preserve">
+          <source>./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png</source>
+          <target state="new">./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png</target>
+        </trans-unit>
+        <trans-unit id="79656cb3-02dc-466f-b377-1a64d671f771" xml:space="preserve">
+          <source>./media/create-virtual-network/createVNet_03_DNSServersandVPNConnectivity.png</source>
+          <target state="new">./media/create-virtual-network/createVNet_03_DNSServersandVPNConnectivity.png</target>
+        </trans-unit>
+        <trans-unit id="abc80505-d460-418a-ad52-0897e27147c6" xml:space="preserve">
+          <source>./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png</source>
+          <target state="new">./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png</target>
+        </trans-unit>
+        <trans-unit id="42bbccf7-4ea2-48fd-b017-44e4b7c3a7be" xml:space="preserve">
+          <source>./media/create-virtual-network/createVNet_05_VirtualNetworkCreatedStatus.png</source>
+          <target state="new">./media/create-virtual-network/createVNet_05_VirtualNetworkCreatedStatus.png</target>
+        </trans-unit>
+        <trans-unit id="bc8c537c-b6e4-4c97-ba70-23387da162cc" xml:space="preserve">
+          <source>./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png</source>
+          <target state="new">./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png</target>
+        </trans-unit>
+        <trans-unit id="674d5840-9d80-4085-a1f1-25f6d8aaa89d" xml:space="preserve">
+          <source>./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png</source>
+          <target state="new">./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png</target>
+        </trans-unit>
+      </group>
+      <group id="f703798c-a6fa-46d5-b54c-09da3ffe5fbd" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2edb72c8-dfda-4ac4-a5eb-545d2276dd5d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2edb72c8-dfda-4ac4-a5eb-545d2276dd5d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d531bb1e-6317-43d8-8f2a-e75052115294">
+        <trans-unit id="4b109766-5da5-4f3e-a34e-c9bff33895a9" xml:space="preserve">
+          <source>Monitor your StorSimple device | Microsoft Azure</source>
+          <target state="new">Monitor your StorSimple device | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="aed8613b-fc42-48bb-8b47-f6a66236e0fd" xml:space="preserve">
+          <source>Describes how to use the StorSimple Manager service to monitor I/O performance, capacity utilization, network throughput, and device performance.</source>
+          <target state="new">Describes how to use the StorSimple Manager service to monitor I/O performance, capacity utilization, network throughput, and device performance.</target>
+        </trans-unit>
+        <trans-unit id="f8d74985-9580-47e1-8513-be212b1e4978" xml:space="preserve">
+          <source>You can use the StorSimple Manager service to monitor specific devices within your StorSimple solution.</source>
+          <target state="new">You can use the StorSimple Manager service to monitor specific devices within your StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="73fe0a3e-3191-4454-991a-7545bc36f97c" xml:space="preserve">
+          <source>You can create custom charts based on I/O performance, capacity utilization, network throughput, and device performance metrics.</source>
+          <target state="new">You can create custom charts based on I/O performance, capacity utilization, network throughput, and device performance metrics.</target>
+        </trans-unit>
+        <trans-unit id="93aa24e5-86a6-4bc5-bfa6-1b5d6ef46eb1" xml:space="preserve">
+          <source>To view the monitoring information for a specific device, in the Azure Portal, select the StorSimple Manager service, click the <bpt id="d1389275-4770-4e21-a889-c0212a5b3d78">&lt;strong&gt;</bpt>Monitor<ept id="d1389275-4770-4e21-a889-c0212a5b3d78">&lt;/strong&gt;</ept> tab, and then select from the list of devices.</source>
+          <target state="new">To view the monitoring information for a specific device, in the Azure Portal, select the StorSimple Manager service, click the <bpt id="d1389275-4770-4e21-a889-c0212a5b3d78">&lt;strong&gt;</bpt>Monitor<ept id="d1389275-4770-4e21-a889-c0212a5b3d78">&lt;/strong&gt;</ept> tab, and then select from the list of devices.</target>
+        </trans-unit>
+        <trans-unit id="71be8bd2-067c-4b1d-aebb-923b51e1babb" xml:space="preserve">
+          <source>The <bpt id="d5f7b279-80f0-4033-8e33-c8c0f0786eec">&lt;strong&gt;</bpt>Monitor<ept id="d5f7b279-80f0-4033-8e33-c8c0f0786eec">&lt;/strong&gt;</ept> page contains the following information.</source>
+          <target state="new">The <bpt id="d5f7b279-80f0-4033-8e33-c8c0f0786eec">&lt;strong&gt;</bpt>Monitor<ept id="d5f7b279-80f0-4033-8e33-c8c0f0786eec">&lt;/strong&gt;</ept> page contains the following information.</target>
+        </trans-unit>
+        <trans-unit id="37c30fae-639b-489a-9b70-a4f27e6db4b7" xml:space="preserve">
+          <source><bpt id="de825d3c-2c18-4348-9a7a-e2ee88f19975">&lt;strong&gt;</bpt>I/O performance<ept id="de825d3c-2c18-4348-9a7a-e2ee88f19975">&lt;/strong&gt;</ept> tracks metrics related to the number of read and write operations between either the iSCSI initiator interfaces on the host server and the device or the device and the cloud.</source>
+          <target state="new"><bpt id="de825d3c-2c18-4348-9a7a-e2ee88f19975">&lt;strong&gt;</bpt>I/O performance<ept id="de825d3c-2c18-4348-9a7a-e2ee88f19975">&lt;/strong&gt;</ept> tracks metrics related to the number of read and write operations between either the iSCSI initiator interfaces on the host server and the device or the device and the cloud.</target>
+        </trans-unit>
+        <trans-unit id="5cbbf9f9-1da8-4d7e-8fcc-b628faf3d969" xml:space="preserve">
+          <source>This performance can be measured for a specific volume, a specific volume container, or all volume containers.</source>
+          <target state="new">This performance can be measured for a specific volume, a specific volume container, or all volume containers.</target>
+        </trans-unit>
+        <trans-unit id="7b2bf996-f09b-427f-b6f5-c8b70ff3688a" xml:space="preserve">
+          <source>The chart below shows the IOs for the initiator to your device for all the volumes for a production device.</source>
+          <target state="new">The chart below shows the IOs for the initiator to your device for all the volumes for a production device.</target>
+        </trans-unit>
+        <trans-unit id="b3afbf67-7c71-45df-b153-0cd3a17e89e2" xml:space="preserve">
+          <source>The metrics plotted are read and write bytes per second, read and write IO operations per second, and read and write latencies.</source>
+          <target state="new">The metrics plotted are read and write bytes per second, read and write IO operations per second, and read and write latencies.</target>
+        </trans-unit>
+        <trans-unit id="f8a84360-86ce-4b9b-8d87-bdc3d385d128" xml:space="preserve">
+          <source><bpt id="897886e0-a1dd-4144-8dcf-2d53ffdbaf99">&lt;linkText&gt;</bpt>IO performance from initiator to device<ept id="897886e0-a1dd-4144-8dcf-2d53ffdbaf99">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="897886e0-a1dd-4144-8dcf-2d53ffdbaf99">&lt;linkText&gt;</bpt>IO performance from initiator to device<ept id="897886e0-a1dd-4144-8dcf-2d53ffdbaf99">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d75efb13-ab26-4301-a017-628c9534d91d" xml:space="preserve">
+          <source>For the same device, the IOs are plotted for data from the device to the cloud for all the volume containers.</source>
+          <target state="new">For the same device, the IOs are plotted for data from the device to the cloud for all the volume containers.</target>
+        </trans-unit>
+        <trans-unit id="9b9018f6-857a-4fee-a0ce-9d2aedb1d3de" xml:space="preserve">
+          <source>On this device, the data is only in the linear tier and nothing has spilled to the cloud.</source>
+          <target state="new">On this device, the data is only in the linear tier and nothing has spilled to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="f2d7276f-781b-499b-9cfd-c01f98fddf32" xml:space="preserve">
+          <source>There are no read-write operations occurring from device to the cloud.</source>
+          <target state="new">There are no read-write operations occurring from device to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="092aefcf-54fb-44a8-a80f-ec990692f030" xml:space="preserve">
+          <source>Consequently, the peaks in the chart are at an interval of 5 minutes that corresponds to the frequency at which the heartbeat is checked between the device and the service.</source>
+          <target state="new">Consequently, the peaks in the chart are at an interval of 5 minutes that corresponds to the frequency at which the heartbeat is checked between the device and the service.</target>
+        </trans-unit>
+        <trans-unit id="94dd0904-fec6-4940-a2c3-6a5931042c34" xml:space="preserve">
+          <source><bpt id="096493b0-c0e4-4654-a658-95e4f064cc16">&lt;linkText&gt;</bpt>IO performance from device to cloud<ept id="096493b0-c0e4-4654-a658-95e4f064cc16">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="096493b0-c0e4-4654-a658-95e4f064cc16">&lt;linkText&gt;</bpt>IO performance from device to cloud<ept id="096493b0-c0e4-4654-a658-95e4f064cc16">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a84f1354-f280-4425-b59e-dc059a3f9d25" xml:space="preserve">
+          <source>For the same device, a cloud snapshot was taken for volume data starting at 2:00 pm.</source>
+          <target state="new">For the same device, a cloud snapshot was taken for volume data starting at 2:00 pm.</target>
+        </trans-unit>
+        <trans-unit id="0912a674-d0f1-400a-ac7b-0bfaca2420c0" xml:space="preserve">
+          <source>This resulted in data flowing from the device to the cloud.</source>
+          <target state="new">This resulted in data flowing from the device to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="d596b780-c4b7-431c-a099-3e7e40ccb4f4" xml:space="preserve">
+          <source>Reads-writes were served to the cloud in this duration.</source>
+          <target state="new">Reads-writes were served to the cloud in this duration.</target>
+        </trans-unit>
+        <trans-unit id="431ad2ed-5604-411a-a929-b305d6bfd7d1" xml:space="preserve">
+          <source>The IO chart shows a peak in the various metrics corresponding to the time when the snapshot was taken.</source>
+          <target state="new">The IO chart shows a peak in the various metrics corresponding to the time when the snapshot was taken.</target>
+        </trans-unit>
+        <trans-unit id="310cd5d8-5a91-467a-9626-f97d16b277cb" xml:space="preserve">
+          <source><bpt id="f9e2ea4a-c028-41ce-8eb0-de05f36abd1d">&lt;linkText&gt;</bpt>IO performance for device to cloud after cloud snapshot<ept id="f9e2ea4a-c028-41ce-8eb0-de05f36abd1d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f9e2ea4a-c028-41ce-8eb0-de05f36abd1d">&lt;linkText&gt;</bpt>IO performance for device to cloud after cloud snapshot<ept id="f9e2ea4a-c028-41ce-8eb0-de05f36abd1d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da1cc020-074e-4148-a1d6-3e32b1e99d8a" xml:space="preserve">
+          <source><bpt id="35afab8a-7f07-4ce8-824c-f68b5feea18f">&lt;strong&gt;</bpt>Capacity utilization<ept id="35afab8a-7f07-4ce8-824c-f68b5feea18f">&lt;/strong&gt;</ept> tracks metrics related to the amount of data storage space that is used by the volumes, volume containers, or device.</source>
+          <target state="new"><bpt id="35afab8a-7f07-4ce8-824c-f68b5feea18f">&lt;strong&gt;</bpt>Capacity utilization<ept id="35afab8a-7f07-4ce8-824c-f68b5feea18f">&lt;/strong&gt;</ept> tracks metrics related to the amount of data storage space that is used by the volumes, volume containers, or device.</target>
+        </trans-unit>
+        <trans-unit id="94b3814a-9626-416d-8335-4a5ccc302e27" xml:space="preserve">
+          <source>You can create reports based on the capacity utilization of your primary storage, your cloud storage, or your device storage.</source>
+          <target state="new">You can create reports based on the capacity utilization of your primary storage, your cloud storage, or your device storage.</target>
+        </trans-unit>
+        <trans-unit id="066bef97-718a-4678-8795-10e27b9c070f" xml:space="preserve">
+          <source>Capacity utilization can be measured on a specific volume, a specific volume container, or all volume containers.</source>
+          <target state="new">Capacity utilization can be measured on a specific volume, a specific volume container, or all volume containers.</target>
+        </trans-unit>
+        <trans-unit id="6c93ffe4-8ccb-4d58-b658-4bf7c85824c3" xml:space="preserve">
+          <source>The primary, cloud and device storage capacity can be described as follows:</source>
+          <target state="new">The primary, cloud and device storage capacity can be described as follows:</target>
+        </trans-unit>
+        <trans-unit id="9eed06a8-4325-4857-96b5-a0f8a86e4bc0" xml:space="preserve">
+          <source><bpt id="85e1502b-a912-4061-ba58-58f74301ef63">&lt;strong&gt;</bpt>Primary storage capacity utilization<ept id="85e1502b-a912-4061-ba58-58f74301ef63">&lt;/strong&gt;</ept> shows the amount of data written to StorSimple volumes before the data is deduplicated and compressed.</source>
+          <target state="new"><bpt id="85e1502b-a912-4061-ba58-58f74301ef63">&lt;strong&gt;</bpt>Primary storage capacity utilization<ept id="85e1502b-a912-4061-ba58-58f74301ef63">&lt;/strong&gt;</ept> shows the amount of data written to StorSimple volumes before the data is deduplicated and compressed.</target>
+        </trans-unit>
+        <trans-unit id="97b88cdb-2c76-4980-b37d-831c63eb01df" xml:space="preserve">
+          <source>The following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken.</source>
+          <target state="new">The following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken.</target>
+        </trans-unit>
+        <trans-unit id="9a53f9d7-69e5-42f9-97ee-5313156f5d0e" xml:space="preserve">
+          <source>Given that this is just volume data, a cloud snapshot should not change the primary storage.</source>
+          <target state="new">Given that this is just volume data, a cloud snapshot should not change the primary storage.</target>
+        </trans-unit>
+        <trans-unit id="140a871a-c70d-46a5-b6a2-d8a0f4c97470" xml:space="preserve">
+          <source>As you can see, the chart shows no difference in the primary capacity utilization as a result of taking a cloud snapshot.</source>
+          <target state="new">As you can see, the chart shows no difference in the primary capacity utilization as a result of taking a cloud snapshot.</target>
+        </trans-unit>
+        <trans-unit id="2c30dee8-84a2-450b-ac29-928be683dc0f" xml:space="preserve">
+          <source>Note that the cloud snapshot started at around 2:00 pm on that device.</source>
+          <target state="new">Note that the cloud snapshot started at around 2:00 pm on that device.</target>
+        </trans-unit>
+        <trans-unit id="28794b8f-c832-4246-b2c6-ae3592645a6a" xml:space="preserve">
+          <source><bpt id="9149df4a-4ff4-4fa6-b21b-f591240da319">&lt;linkText&gt;</bpt>Primary capacity utilization before cloud snapshot<ept id="9149df4a-4ff4-4fa6-b21b-f591240da319">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9149df4a-4ff4-4fa6-b21b-f591240da319">&lt;linkText&gt;</bpt>Primary capacity utilization before cloud snapshot<ept id="9149df4a-4ff4-4fa6-b21b-f591240da319">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9160f1f-221d-49b9-a6b8-8fecf3702944" xml:space="preserve">
+          <source><bpt id="7d5e8035-3ee6-4010-91a2-e808f343de32">&lt;linkText&gt;</bpt>Primary capacity utilization after cloud snapshot<ept id="7d5e8035-3ee6-4010-91a2-e808f343de32">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7d5e8035-3ee6-4010-91a2-e808f343de32">&lt;linkText&gt;</bpt>Primary capacity utilization after cloud snapshot<ept id="7d5e8035-3ee6-4010-91a2-e808f343de32">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0abbeb9-0522-4d64-a2fc-be186eefe556" xml:space="preserve">
+          <source><bpt id="19237287-701e-45e1-84fb-27c32807c9c9">&lt;strong&gt;</bpt>Cloud storage capacity utilization<ept id="19237287-701e-45e1-84fb-27c32807c9c9">&lt;/strong&gt;</ept> shows the amount of cloud storage used.</source>
+          <target state="new"><bpt id="19237287-701e-45e1-84fb-27c32807c9c9">&lt;strong&gt;</bpt>Cloud storage capacity utilization<ept id="19237287-701e-45e1-84fb-27c32807c9c9">&lt;/strong&gt;</ept> shows the amount of cloud storage used.</target>
+        </trans-unit>
+        <trans-unit id="22c52e91-51f1-45ff-bbd1-58e4d73cfb57" xml:space="preserve">
+          <source>This data is deduplicated and compressed.</source>
+          <target state="new">This data is deduplicated and compressed.</target>
+        </trans-unit>
+        <trans-unit id="9c9a8f5e-2aa5-425e-85f2-88e74f911e3a" xml:space="preserve">
+          <source>This amount includes cloud snapshots which might contain data that isn't reflected in any primary volume and is kept for legacy or required retention purposes.</source>
+          <target state="new">This amount includes cloud snapshots which might contain data that isn't reflected in any primary volume and is kept for legacy or required retention purposes.</target>
+        </trans-unit>
+        <trans-unit id="6ba96dbd-2e63-40e3-b653-6ba192a0b223" xml:space="preserve">
+          <source>You can compare the primary and cloud storage consumption figures to get an idea of the data reduction rate, although the number will not be exact.</source>
+          <target state="new">You can compare the primary and cloud storage consumption figures to get an idea of the data reduction rate, although the number will not be exact.</target>
+        </trans-unit>
+        <trans-unit id="b78a2ebf-efe7-4098-be53-4bfd3a44f846" xml:space="preserve">
+          <source>The following charts show the cloud storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken.</source>
+          <target state="new">The following charts show the cloud storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken.</target>
+        </trans-unit>
+        <trans-unit id="aebd8aed-5341-4774-8156-bcde58482bb8" xml:space="preserve">
+          <source>The cloud snapshot started at around 2:00 pm on that device and you can see the cloud capacity utilization shot up at the same time, increasing from 5.73 MB to 4.04 GB.</source>
+          <target state="new">The cloud snapshot started at around 2:00 pm on that device and you can see the cloud capacity utilization shot up at the same time, increasing from 5.73 MB to 4.04 GB.</target>
+        </trans-unit>
+        <trans-unit id="ea0e0b9c-5a81-407d-ac34-95325bcad349" xml:space="preserve">
+          <source><bpt id="4685301d-0261-4caf-aa6a-cba060100efe">&lt;linkText&gt;</bpt>Cloud capacity utilization before cloud snapshot<ept id="4685301d-0261-4caf-aa6a-cba060100efe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4685301d-0261-4caf-aa6a-cba060100efe">&lt;linkText&gt;</bpt>Cloud capacity utilization before cloud snapshot<ept id="4685301d-0261-4caf-aa6a-cba060100efe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="085e432a-06db-45c2-af2e-10a77a8c6a3b" xml:space="preserve">
+          <source><bpt id="737c742e-0539-4b99-aa11-ff59b7aa56fd">&lt;linkText&gt;</bpt>Cloud capacity utilization after cloud snapshot<ept id="737c742e-0539-4b99-aa11-ff59b7aa56fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="737c742e-0539-4b99-aa11-ff59b7aa56fd">&lt;linkText&gt;</bpt>Cloud capacity utilization after cloud snapshot<ept id="737c742e-0539-4b99-aa11-ff59b7aa56fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c171fd2-6972-4f1b-9979-26f4486e469a" xml:space="preserve">
+          <source><bpt id="8f6d7baf-0d2c-4b6d-809f-52ac4f9ca676">&lt;strong&gt;</bpt>Device storage capacity utilization<ept id="8f6d7baf-0d2c-4b6d-809f-52ac4f9ca676">&lt;/strong&gt;</ept> shows the total utilization for the device, which will be more than primary storage utilization because it includes the SSD linear tier.</source>
+          <target state="new"><bpt id="8f6d7baf-0d2c-4b6d-809f-52ac4f9ca676">&lt;strong&gt;</bpt>Device storage capacity utilization<ept id="8f6d7baf-0d2c-4b6d-809f-52ac4f9ca676">&lt;/strong&gt;</ept> shows the total utilization for the device, which will be more than primary storage utilization because it includes the SSD linear tier.</target>
+        </trans-unit>
+        <trans-unit id="92b53d15-f50f-478b-b1f1-f54fb32b1012" xml:space="preserve">
+          <source>This tier contains an amount of data that also exists on the device's other tiers.</source>
+          <target state="new">This tier contains an amount of data that also exists on the device's other tiers.</target>
+        </trans-unit>
+        <trans-unit id="cc66f7f8-d0df-4d14-a3f3-a715adde7480" xml:space="preserve">
+          <source>The capacity in the SSD linear tier is cycled so that when new data comes in, the old data is moved to the HDD tier (at which time it is deduplicated and compressed) and subsequently to the cloud.</source>
+          <target state="new">The capacity in the SSD linear tier is cycled so that when new data comes in, the old data is moved to the HDD tier (at which time it is deduplicated and compressed) and subsequently to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="936ff053-d3a2-4b8d-8700-5f675ad68ae0" xml:space="preserve">
+          <source>Over time, primary capacity utilization and device capacity utilization will most likely increase together until the data begins to be tiered to the cloud.</source>
+          <target state="new">Over time, primary capacity utilization and device capacity utilization will most likely increase together until the data begins to be tiered to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="dccba6cc-c864-4926-bd1a-115daadf08f4" xml:space="preserve">
+          <source>At that point, the device capacity utilization will probably begin to plateau, but the primary capacity utilization will increase as more data is written.</source>
+          <target state="new">At that point, the device capacity utilization will probably begin to plateau, but the primary capacity utilization will increase as more data is written.</target>
+        </trans-unit>
+        <trans-unit id="bab1fbea-0d98-41ce-a8f9-76e60f83a682" xml:space="preserve">
+          <source>The following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken.</source>
+          <target state="new">The following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken.</target>
+        </trans-unit>
+        <trans-unit id="720d02b6-945e-4441-bdd0-eec4adcdbe6c" xml:space="preserve">
+          <source>The cloud snapshot started at 2:00 pm and the device capacity utilization started decreasing at that time.</source>
+          <target state="new">The cloud snapshot started at 2:00 pm and the device capacity utilization started decreasing at that time.</target>
+        </trans-unit>
+        <trans-unit id="1beaa6b6-4dee-44b4-8dba-faff261e3b3b" xml:space="preserve">
+          <source>The device storage capacity utilization went down from 11.58 GB to 7.48 GB.</source>
+          <target state="new">The device storage capacity utilization went down from 11.58 GB to 7.48 GB.</target>
+        </trans-unit>
+        <trans-unit id="426a8c60-4635-48c9-8167-d670a7b7787e" xml:space="preserve">
+          <source>This indicates that most likely the uncompressed data in the linear SSD tier was deduplicated, compressed, and moved into the HDD tier.</source>
+          <target state="new">This indicates that most likely the uncompressed data in the linear SSD tier was deduplicated, compressed, and moved into the HDD tier.</target>
+        </trans-unit>
+        <trans-unit id="d080fd2a-a5ee-4b4c-9e1b-f0a79dfde4e4" xml:space="preserve">
+          <source>Note that if the device already has a large amount of data in both the SSD and HDD tiers, you may not see this decrease.</source>
+          <target state="new">Note that if the device already has a large amount of data in both the SSD and HDD tiers, you may not see this decrease.</target>
+        </trans-unit>
+        <trans-unit id="788a5717-a8e0-44c6-a5de-d0a9bcdb5534" xml:space="preserve">
+          <source>In this example, the device has a small amount of data.</source>
+          <target state="new">In this example, the device has a small amount of data.</target>
+        </trans-unit>
+        <trans-unit id="ffd63606-f788-45ac-80b8-fe690e49829d" xml:space="preserve">
+          <source><bpt id="126a425a-99b2-4311-a331-bf0623a0a46f">&lt;linkText&gt;</bpt>Device capacity utilization before cloud snapshot<ept id="126a425a-99b2-4311-a331-bf0623a0a46f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="126a425a-99b2-4311-a331-bf0623a0a46f">&lt;linkText&gt;</bpt>Device capacity utilization before cloud snapshot<ept id="126a425a-99b2-4311-a331-bf0623a0a46f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="888e1a86-d1d8-45f9-b457-438caf065236" xml:space="preserve">
+          <source><bpt id="197691b8-3056-403c-8e63-299a9b688032">&lt;linkText&gt;</bpt>Device capacity utilization after cloud snapshot<ept id="197691b8-3056-403c-8e63-299a9b688032">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="197691b8-3056-403c-8e63-299a9b688032">&lt;linkText&gt;</bpt>Device capacity utilization after cloud snapshot<ept id="197691b8-3056-403c-8e63-299a9b688032">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ee11276-1b8a-4ee3-813f-5331836a9b7a" xml:space="preserve">
+          <source><bpt id="3ce4a30b-69bb-4c68-9b64-6a2b10c0b27b">&lt;strong&gt;</bpt>Network throughput<ept id="3ce4a30b-69bb-4c68-9b64-6a2b10c0b27b">&lt;/strong&gt;</ept> tracks metrics related to the amount of data transferred from the iSCSI initiator network interfaces on the host server and the device and between the device and the cloud.</source>
+          <target state="new"><bpt id="3ce4a30b-69bb-4c68-9b64-6a2b10c0b27b">&lt;strong&gt;</bpt>Network throughput<ept id="3ce4a30b-69bb-4c68-9b64-6a2b10c0b27b">&lt;/strong&gt;</ept> tracks metrics related to the amount of data transferred from the iSCSI initiator network interfaces on the host server and the device and between the device and the cloud.</target>
+        </trans-unit>
+        <trans-unit id="8ec473b9-0ed1-4711-a298-3a892892cb67" xml:space="preserve">
+          <source>You can monitor this metric for each of the iSCSI network interfaces on your device.</source>
+          <target state="new">You can monitor this metric for each of the iSCSI network interfaces on your device.</target>
+        </trans-unit>
+        <trans-unit id="c8f78795-8be2-4b1d-958d-45a036247aba" xml:space="preserve">
+          <source>The charts below show the network throughput for the Data 0 and Data 4, both 1 GbE network interfaces on your device.</source>
+          <target state="new">The charts below show the network throughput for the Data 0 and Data 4, both 1 GbE network interfaces on your device.</target>
+        </trans-unit>
+        <trans-unit id="a7b24a2d-d883-4f8f-80ff-1dd9f6141a1b" xml:space="preserve">
+          <source>In this instance, Data 0 was cloud-enabled whereas Data 4 was iSCSI-enabled.</source>
+          <target state="new">In this instance, Data 0 was cloud-enabled whereas Data 4 was iSCSI-enabled.</target>
+        </trans-unit>
+        <trans-unit id="252045ce-8e2d-4a08-8618-a31b61ba2cd1" xml:space="preserve">
+          <source>You can see both the inbound and the outbound traffic for your StorSimple device.</source>
+          <target state="new">You can see both the inbound and the outbound traffic for your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="b00c6302-bc34-4992-b0b2-4f50b579fe7f" xml:space="preserve">
+          <source>Note that the flat line in the chart starting from 3:24 pm is owing to the fact that we gather data only every 5 minutes and should be ignored.</source>
+          <target state="new">Note that the flat line in the chart starting from 3:24 pm is owing to the fact that we gather data only every 5 minutes and should be ignored.</target>
+        </trans-unit>
+        <trans-unit id="bfd998a7-f572-453b-bf56-8ee09a4ff729" xml:space="preserve">
+          <source><bpt id="533a7457-0fec-44b8-a893-51482fcd99e2">&lt;linkText&gt;</bpt>Network throughput for Data4<ept id="533a7457-0fec-44b8-a893-51482fcd99e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="533a7457-0fec-44b8-a893-51482fcd99e2">&lt;linkText&gt;</bpt>Network throughput for Data4<ept id="533a7457-0fec-44b8-a893-51482fcd99e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c325d1b-2cf8-4340-acbc-2d46c8034301" xml:space="preserve">
+          <source><bpt id="9e325343-6ca1-443f-a345-f5c4974997f3">&lt;linkText&gt;</bpt>Network throughput for Data4<ept id="9e325343-6ca1-443f-a345-f5c4974997f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9e325343-6ca1-443f-a345-f5c4974997f3">&lt;linkText&gt;</bpt>Network throughput for Data4<ept id="9e325343-6ca1-443f-a345-f5c4974997f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6a1fd72-d64f-477a-8403-b20e90b7d45a" xml:space="preserve">
+          <source><bpt id="c24664d9-75dd-4a35-afcb-de79a27a3205">&lt;strong&gt;</bpt>Device performance<ept id="c24664d9-75dd-4a35-afcb-de79a27a3205">&lt;/strong&gt;</ept> tracks metrics related to the performance of your device.</source>
+          <target state="new"><bpt id="c24664d9-75dd-4a35-afcb-de79a27a3205">&lt;strong&gt;</bpt>Device performance<ept id="c24664d9-75dd-4a35-afcb-de79a27a3205">&lt;/strong&gt;</ept> tracks metrics related to the performance of your device.</target>
+        </trans-unit>
+        <trans-unit id="7ecec3c9-2866-40a9-83c0-26ce91b6352c" xml:space="preserve">
+          <source>The chart below shows the CPU utilization stats for a device in production.</source>
+          <target state="new">The chart below shows the CPU utilization stats for a device in production.</target>
+        </trans-unit>
+        <trans-unit id="5bd72f07-44f4-421a-8301-7cf87118e1bf" xml:space="preserve">
+          <source><bpt id="97e89504-91e7-4b6c-b52e-9fd44daa798b">&lt;linkText&gt;</bpt>CPU utilization for device<ept id="97e89504-91e7-4b6c-b52e-9fd44daa798b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="97e89504-91e7-4b6c-b52e-9fd44daa798b">&lt;linkText&gt;</bpt>CPU utilization for device<ept id="97e89504-91e7-4b6c-b52e-9fd44daa798b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e7e97a1-8e6f-41cb-8e13-c95650bb8178" xml:space="preserve">
+          <source><bpt id="2fe57661-aed8-4dd9-82ae-153b6886d34a">&lt;linkText&gt;</bpt>Learn how to use the StorSimple Manager service device dashboard<ept id="2fe57661-aed8-4dd9-82ae-153b6886d34a">&lt;/linkText&gt;</ept><bpt id="2fe57661-aed8-4dd9-82ae-153b6886d34a">&lt;title&gt;</bpt><ept id="2fe57661-aed8-4dd9-82ae-153b6886d34a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="2fe57661-aed8-4dd9-82ae-153b6886d34a">&lt;linkText&gt;</bpt>Learn how to use the StorSimple Manager service device dashboard<ept id="2fe57661-aed8-4dd9-82ae-153b6886d34a">&lt;/linkText&gt;</ept><bpt id="2fe57661-aed8-4dd9-82ae-153b6886d34a">&lt;title&gt;</bpt><ept id="2fe57661-aed8-4dd9-82ae-153b6886d34a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

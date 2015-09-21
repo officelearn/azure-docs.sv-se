@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6db1fd37-d324-408e-a1fc-a7ac7d924e08" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6db1fd37-d324-408e-a1fc-a7ac7d924e08" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="aca2a7a1-f6fe-4aec-8385-8ef72f8da982">
+        <trans-unit id="b5e243df-ec62-4fd6-8ab2-95b9cc478785" xml:space="preserve">
+          <source>PolyBase in SQL Data Warehouse Tutorial | Microsoft Azure</source>
+          <target state="new">PolyBase in SQL Data Warehouse Tutorial | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="af048dda-6ea8-4c7d-8d57-fad6647f3f31" xml:space="preserve">
+          <source>Learn what PolyBase is and how to use it for data warehousing scenarios.</source>
+          <target state="new">Learn what PolyBase is and how to use it for data warehousing scenarios.</target>
+        </trans-unit>
+        <trans-unit id="c1ecbe55-46d9-49bb-a8b9-a471608a9956" xml:space="preserve">
+          <source>PolyBase technology allows you to query and join data from multiple sources, all by using Transact-SQL commands.</source>
+          <target state="new">PolyBase technology allows you to query and join data from multiple sources, all by using Transact-SQL commands.</target>
+        </trans-unit>
+        <trans-unit id="53ea315c-6c4b-4e96-beb4-489fa36dc819" xml:space="preserve">
+          <source>Using PolyBase, you can query data stored in Azure blob storage and load it into SQL Data 
+Warehouse database with the following steps:</source>
+          <target state="new">Using PolyBase, you can query data stored in Azure blob storage and load it into SQL Data 
+Warehouse database with the following steps:</target>
+        </trans-unit>
+        <trans-unit id="bb8c8044-c738-480b-9442-420ec1ee5d4c" xml:space="preserve">
+          <source>Create database master key and credential.</source>
+          <target state="new">Create database master key and credential.</target>
+        </trans-unit>
+        <trans-unit id="6196162d-abc5-4276-98ce-ac15347e52b4" xml:space="preserve">
+          <source>Create PolyBase objects: external data source, external file format, and external table.</source>
+          <target state="new">Create PolyBase objects: external data source, external file format, and external table.</target>
+        </trans-unit>
+        <trans-unit id="fc7bf897-12b0-454e-8b8d-1e57a76e7616" xml:space="preserve">
+          <source>Query data stored in Azure blob storage.</source>
+          <target state="new">Query data stored in Azure blob storage.</target>
+        </trans-unit>
+        <trans-unit id="4d7d0d5a-d3f2-4541-954f-e68ad03870d3" xml:space="preserve">
+          <source>Load data from Azure blob storage into SQL Data Warehouse.</source>
+          <target state="new">Load data from Azure blob storage into SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="ac2c2b9f-6c7f-4e75-b33f-02a45253ea88" xml:space="preserve">
+          <source>To step through this tutorial, you need:</source>
+          <target state="new">To step through this tutorial, you need:</target>
+        </trans-unit>
+        <trans-unit id="2eef403b-22b4-47ee-bd6e-878ee04b2b84" xml:space="preserve">
+          <source>Azure storage account</source>
+          <target state="new">Azure storage account</target>
+        </trans-unit>
+        <trans-unit id="e10251a6-929b-4c35-9551-64158a308a58" xml:space="preserve">
+          <source>Your data stored in Azure blob storage as delimited text files</source>
+          <target state="new">Your data stored in Azure blob storage as delimited text files</target>
+        </trans-unit>
+        <trans-unit id="592586f5-7b09-4982-a41c-a71c7814f46b" xml:space="preserve">
+          <source>First, you will create the objects that PolyBase requires for connecting to and querying data in Azure blob storage.</source>
+          <target state="new">First, you will create the objects that PolyBase requires for connecting to and querying data in Azure blob storage.</target>
+        </trans-unit>
+        <trans-unit id="edae87fc-2df7-4d19-8268-aafcde8c0c7d" xml:space="preserve">
+          <source>Connect to user database on your server to create a database master key.</source>
+          <target state="new">Connect to user database on your server to create a database master key.</target>
+        </trans-unit>
+        <trans-unit id="958f99a0-850d-4145-9c5d-e2e27b347af8" xml:space="preserve">
+          <source>This key is used to encrypt your credential secret in the next step.</source>
+          <target state="new">This key is used to encrypt your credential secret in the next step.</target>
+        </trans-unit>
+        <trans-unit id="eab42b90-ed7d-48c1-8165-2eb0c85d6aeb" xml:space="preserve">
+          <source>Reference topic: <bpt id="5d1cd06d-6206-4435-a8ec-5203bc373bfa">&lt;linkText&gt;</bpt>CREATE MASTER KEY (Transact-SQL)<ept id="5d1cd06d-6206-4435-a8ec-5203bc373bfa">&lt;/linkText&gt;</ept><bpt id="5d1cd06d-6206-4435-a8ec-5203bc373bfa">&lt;title&gt;</bpt><ept id="5d1cd06d-6206-4435-a8ec-5203bc373bfa">&lt;/title&gt;</ept>.</source>
+          <target state="new">Reference topic: <bpt id="5d1cd06d-6206-4435-a8ec-5203bc373bfa">&lt;linkText&gt;</bpt>CREATE MASTER KEY (Transact-SQL)<ept id="5d1cd06d-6206-4435-a8ec-5203bc373bfa">&lt;/linkText&gt;</ept><bpt id="5d1cd06d-6206-4435-a8ec-5203bc373bfa">&lt;title&gt;</bpt><ept id="5d1cd06d-6206-4435-a8ec-5203bc373bfa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0fde993e-0a3a-4b2c-9901-85cccb8b2561" xml:space="preserve">
+          <source>To access Azure blob storage, you need to create a database scoped credential that stores authentication information for your Azure storage account.</source>
+          <target state="new">To access Azure blob storage, you need to create a database scoped credential that stores authentication information for your Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="d67df3f2-65ba-497e-8633-ad30b5e1b683" xml:space="preserve">
+          <source>Connect to your data warehouse database and create a database scoped credential for each Azure storage account you want to access.</source>
+          <target state="new">Connect to your data warehouse database and create a database scoped credential for each Azure storage account you want to access.</target>
+        </trans-unit>
+        <trans-unit id="8884fd7b-17da-4db2-989a-6cae5d407e14" xml:space="preserve">
+          <source>Specify an identity name and your Azure storage account key as the Secret.</source>
+          <target state="new">Specify an identity name and your Azure storage account key as the Secret.</target>
+        </trans-unit>
+        <trans-unit id="a0059b5d-3338-4898-b714-b4d0862b9fac" xml:space="preserve">
+          <source>The identity name does not affect authentication to Azure Storage.</source>
+          <target state="new">The identity name does not affect authentication to Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="485de688-bb2b-4a14-b2f4-da2f926cbb28" xml:space="preserve">
+          <source>To see if a database-scoped credential already exists, use   sys.database_credentials, not sys.credentials which only shows the server credentials.</source>
+          <target state="new">To see if a database-scoped credential already exists, use   sys.database_credentials, not sys.credentials which only shows the server credentials.</target>
+        </trans-unit>
+        <trans-unit id="bc3e0b84-d9d1-4708-8606-1e9d0f823149" xml:space="preserve">
+          <source>Reference topic: <bpt id="025b5200-cd2d-4a47-8488-d84906340ae5">&lt;linkText&gt;</bpt>CREATE CREDENTIAL (Transact-SQL)<ept id="025b5200-cd2d-4a47-8488-d84906340ae5">&lt;/linkText&gt;</ept><bpt id="025b5200-cd2d-4a47-8488-d84906340ae5">&lt;title&gt;</bpt><ept id="025b5200-cd2d-4a47-8488-d84906340ae5">&lt;/title&gt;</ept>.</source>
+          <target state="new">Reference topic: <bpt id="025b5200-cd2d-4a47-8488-d84906340ae5">&lt;linkText&gt;</bpt>CREATE CREDENTIAL (Transact-SQL)<ept id="025b5200-cd2d-4a47-8488-d84906340ae5">&lt;/linkText&gt;</ept><bpt id="025b5200-cd2d-4a47-8488-d84906340ae5">&lt;title&gt;</bpt><ept id="025b5200-cd2d-4a47-8488-d84906340ae5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c808589-e495-40b1-90b5-9a4b689cf19a" xml:space="preserve">
+          <source>To drop a database scoped credential you simply use the following syntax:</source>
+          <target state="new">To drop a database scoped credential you simply use the following syntax:</target>
+        </trans-unit>
+        <trans-unit id="c00dee77-a804-4bdb-a81c-bf7100b9dfde" xml:space="preserve">
+          <source>Reference topic: <bpt id="0510eff8-2337-4307-a787-a510c1e27967">&lt;linkText&gt;</bpt>DROP CREDENTIAL (Transact-SQL)<ept id="0510eff8-2337-4307-a787-a510c1e27967">&lt;/linkText&gt;</ept><bpt id="0510eff8-2337-4307-a787-a510c1e27967">&lt;title&gt;</bpt><ept id="0510eff8-2337-4307-a787-a510c1e27967">&lt;/title&gt;</ept>.</source>
+          <target state="new">Reference topic: <bpt id="0510eff8-2337-4307-a787-a510c1e27967">&lt;linkText&gt;</bpt>DROP CREDENTIAL (Transact-SQL)<ept id="0510eff8-2337-4307-a787-a510c1e27967">&lt;/linkText&gt;</ept><bpt id="0510eff8-2337-4307-a787-a510c1e27967">&lt;title&gt;</bpt><ept id="0510eff8-2337-4307-a787-a510c1e27967">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32831292-8e69-4029-bfb8-c77b0ad392ff" xml:space="preserve">
+          <source>The external data source is a database object that stores the location of the Azure blob storage data and your access information.</source>
+          <target state="new">The external data source is a database object that stores the location of the Azure blob storage data and your access information.</target>
+        </trans-unit>
+        <trans-unit id="9ce6fc8c-cd54-4ac5-bba1-c4feedc4ad35" xml:space="preserve">
+          <source>You need to define an external data source for each Azure Storage container you want to access.</source>
+          <target state="new">You need to define an external data source for each Azure Storage container you want to access.</target>
+        </trans-unit>
+        <trans-unit id="8c065ef9-6c2b-4e18-b5f7-aa42c97cb7be" xml:space="preserve">
+          <source>Reference topic: <bpt id="c451dc74-f541-483f-a2f7-0722e57b9d03">&lt;linkText&gt;</bpt>CREATE EXTERNAL DATA SOURCE (Transact-SQL)<ept id="c451dc74-f541-483f-a2f7-0722e57b9d03">&lt;/linkText&gt;</ept><bpt id="c451dc74-f541-483f-a2f7-0722e57b9d03">&lt;title&gt;</bpt><ept id="c451dc74-f541-483f-a2f7-0722e57b9d03">&lt;/title&gt;</ept>.</source>
+          <target state="new">Reference topic: <bpt id="c451dc74-f541-483f-a2f7-0722e57b9d03">&lt;linkText&gt;</bpt>CREATE EXTERNAL DATA SOURCE (Transact-SQL)<ept id="c451dc74-f541-483f-a2f7-0722e57b9d03">&lt;/linkText&gt;</ept><bpt id="c451dc74-f541-483f-a2f7-0722e57b9d03">&lt;title&gt;</bpt><ept id="c451dc74-f541-483f-a2f7-0722e57b9d03">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c4b551d-0123-42ae-bbfd-b901efb2f429" xml:space="preserve">
+          <source>To drop the external data source the syntax is as follows:</source>
+          <target state="new">To drop the external data source the syntax is as follows:</target>
+        </trans-unit>
+        <trans-unit id="8e4504f4-6dbe-44ee-bdc7-5b2c355d68c6" xml:space="preserve">
+          <source>Reference topic: <bpt id="c3c2ce17-9b61-4d12-83ae-4b449005319e">&lt;linkText&gt;</bpt>DROP EXTERNAL DATA SOURCE (Transact-SQL)<ept id="c3c2ce17-9b61-4d12-83ae-4b449005319e">&lt;/linkText&gt;</ept><bpt id="c3c2ce17-9b61-4d12-83ae-4b449005319e">&lt;title&gt;</bpt><ept id="c3c2ce17-9b61-4d12-83ae-4b449005319e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Reference topic: <bpt id="c3c2ce17-9b61-4d12-83ae-4b449005319e">&lt;linkText&gt;</bpt>DROP EXTERNAL DATA SOURCE (Transact-SQL)<ept id="c3c2ce17-9b61-4d12-83ae-4b449005319e">&lt;/linkText&gt;</ept><bpt id="c3c2ce17-9b61-4d12-83ae-4b449005319e">&lt;title&gt;</bpt><ept id="c3c2ce17-9b61-4d12-83ae-4b449005319e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bbc2d527-434f-4e36-814f-37ddac437f2a" xml:space="preserve">
+          <source>The external file format is a database object that specifies the format of the external data.</source>
+          <target state="new">The external file format is a database object that specifies the format of the external data.</target>
+        </trans-unit>
+        <trans-unit id="4deb5a7b-5a75-4345-ba80-f9524ab641eb" xml:space="preserve">
+          <source>In this example, we have uncompressed data in a text file and the fields are separated with the pipe character ('|').</source>
+          <target state="new">In this example, we have uncompressed data in a text file and the fields are separated with the pipe character ('|').</target>
+        </trans-unit>
+        <trans-unit id="55c7b19d-fe20-459f-a16e-900c263daa2c" xml:space="preserve">
+          <source>PolyBase can work with compressed and uncompressed data in delimited text, Hive RCFILE and HIVE ORC formats.</source>
+          <target state="new">PolyBase can work with compressed and uncompressed data in delimited text, Hive RCFILE and HIVE ORC formats.</target>
+        </trans-unit>
+        <trans-unit id="2c8a09fc-a75f-450f-860c-057d996e3ec0" xml:space="preserve">
+          <source>Reference topic: <bpt id="e4b90dc7-4deb-4b44-9d61-e9e39ba067bd">&lt;linkText&gt;</bpt>CREATE EXTERNAL FILE FORMAT (Transact-SQL)<ept id="e4b90dc7-4deb-4b44-9d61-e9e39ba067bd">&lt;/linkText&gt;</ept><bpt id="e4b90dc7-4deb-4b44-9d61-e9e39ba067bd">&lt;title&gt;</bpt><ept id="e4b90dc7-4deb-4b44-9d61-e9e39ba067bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">Reference topic: <bpt id="e4b90dc7-4deb-4b44-9d61-e9e39ba067bd">&lt;linkText&gt;</bpt>CREATE EXTERNAL FILE FORMAT (Transact-SQL)<ept id="e4b90dc7-4deb-4b44-9d61-e9e39ba067bd">&lt;/linkText&gt;</ept><bpt id="e4b90dc7-4deb-4b44-9d61-e9e39ba067bd">&lt;title&gt;</bpt><ept id="e4b90dc7-4deb-4b44-9d61-e9e39ba067bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ddcb47d-36b3-4889-b2f5-e39e78d41c4e" xml:space="preserve">
+          <source>To drop an external file format the syntax is as follows:</source>
+          <target state="new">To drop an external file format the syntax is as follows:</target>
+        </trans-unit>
+        <trans-unit id="0d5fd673-c9eb-4cf6-aaa8-e9628a53d988" xml:space="preserve">
+          <source>Reference topic: <bpt id="8f5c14af-67e9-4110-8e3d-e2d7c548a650">&lt;linkText&gt;</bpt>DROP EXTERNAL FILE FORMAT (Transact-SQL)<ept id="8f5c14af-67e9-4110-8e3d-e2d7c548a650">&lt;/linkText&gt;</ept><bpt id="8f5c14af-67e9-4110-8e3d-e2d7c548a650">&lt;title&gt;</bpt><ept id="8f5c14af-67e9-4110-8e3d-e2d7c548a650">&lt;/title&gt;</ept>.</source>
+          <target state="new">Reference topic: <bpt id="8f5c14af-67e9-4110-8e3d-e2d7c548a650">&lt;linkText&gt;</bpt>DROP EXTERNAL FILE FORMAT (Transact-SQL)<ept id="8f5c14af-67e9-4110-8e3d-e2d7c548a650">&lt;/linkText&gt;</ept><bpt id="8f5c14af-67e9-4110-8e3d-e2d7c548a650">&lt;title&gt;</bpt><ept id="8f5c14af-67e9-4110-8e3d-e2d7c548a650">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c92ff9dd-e6bd-44a1-b9e0-6662d1d68f47" xml:space="preserve">
+          <source>The external table definition is similar to a relational table definition.</source>
+          <target state="new">The external table definition is similar to a relational table definition.</target>
+        </trans-unit>
+        <trans-unit id="78f86ea0-6494-4940-8734-0152df54f417" xml:space="preserve">
+          <source>The key difference is the location and the format of the data.</source>
+          <target state="new">The key difference is the location and the format of the data.</target>
+        </trans-unit>
+        <trans-unit id="e4989626-490d-4c5e-a6d9-596f08fc8e44" xml:space="preserve">
+          <source>The external table definition is stored in the SQL Data Warehouse database.</source>
+          <target state="new">The external table definition is stored in the SQL Data Warehouse database.</target>
+        </trans-unit>
+        <trans-unit id="97d05c66-443a-4fd2-b82a-fd7cf77f2eb2" xml:space="preserve">
+          <source>The data is stored in the location specified by the data source.</source>
+          <target state="new">The data is stored in the location specified by the data source.</target>
+        </trans-unit>
+        <trans-unit id="2d66a8f0-fc5d-4d1f-92aa-6a946088819e" xml:space="preserve">
+          <source>The LOCATION option specifies the path to the data from the root of the data source.</source>
+          <target state="new">The LOCATION option specifies the path to the data from the root of the data source.</target>
+        </trans-unit>
+        <trans-unit id="b7bab6dd-f612-4b17-ab8a-04fc812cdc64" xml:space="preserve">
+          <source>In this example, the data is located at 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'.</source>
+          <target state="new">In this example, the data is located at 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'.</target>
+        </trans-unit>
+        <trans-unit id="3629cf4f-d003-48c9-a643-e4b708a8b68b" xml:space="preserve">
+          <source>All the files for the same table need to be under the same logical folder in Azure BLOB.</source>
+          <target state="new">All the files for the same table need to be under the same logical folder in Azure BLOB.</target>
+        </trans-unit>
+        <trans-unit id="b8b9eda6-5ff0-4aa9-8c61-f957e8cf75ec" xml:space="preserve">
+          <source>Please note that you cannot create statistics on an external table at this time.</source>
+          <target state="new">Please note that you cannot create statistics on an external table at this time.</target>
+        </trans-unit>
+        <trans-unit id="20fec121-8527-4f0b-9d42-4ff37099da17" xml:space="preserve">
+          <source>Reference topic: <bpt id="7f04eddf-ae7c-445b-aad9-5a60c9227cbc">&lt;linkText&gt;</bpt>CREATE EXTERNAL TABLE (Transact-SQL)<ept id="7f04eddf-ae7c-445b-aad9-5a60c9227cbc">&lt;/linkText&gt;</ept><bpt id="7f04eddf-ae7c-445b-aad9-5a60c9227cbc">&lt;title&gt;</bpt><ept id="7f04eddf-ae7c-445b-aad9-5a60c9227cbc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Reference topic: <bpt id="7f04eddf-ae7c-445b-aad9-5a60c9227cbc">&lt;linkText&gt;</bpt>CREATE EXTERNAL TABLE (Transact-SQL)<ept id="7f04eddf-ae7c-445b-aad9-5a60c9227cbc">&lt;/linkText&gt;</ept><bpt id="7f04eddf-ae7c-445b-aad9-5a60c9227cbc">&lt;title&gt;</bpt><ept id="7f04eddf-ae7c-445b-aad9-5a60c9227cbc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cbd977c3-bac5-4bea-b502-855ca98033f1" xml:space="preserve">
+          <source>The objects you just created are stored in SQL Data Warehouse database.</source>
+          <target state="new">The objects you just created are stored in SQL Data Warehouse database.</target>
+        </trans-unit>
+        <trans-unit id="8fe274ae-593a-47c0-9978-dfada293f24c" xml:space="preserve">
+          <source>You can view them in the SQL Server Data Tools (SSDT) Object Explorer.</source>
+          <target state="new">You can view them in the SQL Server Data Tools (SSDT) Object Explorer.</target>
+        </trans-unit>
+        <trans-unit id="e9699fad-acc9-4e71-91f1-bdf64d39d963" xml:space="preserve">
+          <source>To drop an external table you need to use the following syntax:</source>
+          <target state="new">To drop an external table you need to use the following syntax:</target>
+        </trans-unit>
+        <trans-unit id="6587280c-7f85-4e40-8c55-cbab4777fbeb" xml:space="preserve">
+          <source>When dropping an external table you must use <bpt id="7774f362-777e-4b50-972b-5a7a47f67e54">&lt;code&gt;</bpt>DROP EXTERNAL TABLE<ept id="7774f362-777e-4b50-972b-5a7a47f67e54">&lt;/code&gt;</ept> you <bpt id="86e59929-c07f-4d78-a817-7d481781deda">&lt;strong&gt;</bpt>cannot<ept id="86e59929-c07f-4d78-a817-7d481781deda">&lt;/strong&gt;</ept> use <bpt id="053e06e9-09c6-4400-93c0-c4b99782c820">&lt;code&gt;</bpt>DROP TABLE<ept id="053e06e9-09c6-4400-93c0-c4b99782c820">&lt;/code&gt;</ept>.</source>
+          <target state="new">When dropping an external table you must use <bpt id="7774f362-777e-4b50-972b-5a7a47f67e54">&lt;code&gt;</bpt>DROP EXTERNAL TABLE<ept id="7774f362-777e-4b50-972b-5a7a47f67e54">&lt;/code&gt;</ept> you <bpt id="86e59929-c07f-4d78-a817-7d481781deda">&lt;strong&gt;</bpt>cannot<ept id="86e59929-c07f-4d78-a817-7d481781deda">&lt;/strong&gt;</ept> use <bpt id="053e06e9-09c6-4400-93c0-c4b99782c820">&lt;code&gt;</bpt>DROP TABLE<ept id="053e06e9-09c6-4400-93c0-c4b99782c820">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bba38ad-259d-471a-a223-5516f83df24a" xml:space="preserve">
+          <source>Reference topic: <bpt id="19093218-bfa9-4e1e-a999-5893aec9435e">&lt;linkText&gt;</bpt>DROP EXTERNAL TABLE (Transact-SQL)<ept id="19093218-bfa9-4e1e-a999-5893aec9435e">&lt;/linkText&gt;</ept><bpt id="19093218-bfa9-4e1e-a999-5893aec9435e">&lt;title&gt;</bpt><ept id="19093218-bfa9-4e1e-a999-5893aec9435e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Reference topic: <bpt id="19093218-bfa9-4e1e-a999-5893aec9435e">&lt;linkText&gt;</bpt>DROP EXTERNAL TABLE (Transact-SQL)<ept id="19093218-bfa9-4e1e-a999-5893aec9435e">&lt;/linkText&gt;</ept><bpt id="19093218-bfa9-4e1e-a999-5893aec9435e">&lt;title&gt;</bpt><ept id="19093218-bfa9-4e1e-a999-5893aec9435e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0c43aef-0c17-47f5-aa17-675d4b706382" xml:space="preserve">
+          <source>It is also worth noting that external tables are visible in both <bpt id="a66a4b1c-256d-4387-92d9-66e8e739bdd8">&lt;code&gt;</bpt>sys.tables<ept id="a66a4b1c-256d-4387-92d9-66e8e739bdd8">&lt;/code&gt;</ept> and more specifically in <bpt id="e80d5246-8268-4985-a4d7-82b8a4a18774">&lt;code&gt;</bpt>sys.external_tables<ept id="e80d5246-8268-4985-a4d7-82b8a4a18774">&lt;/code&gt;</ept> catalog views.</source>
+          <target state="new">It is also worth noting that external tables are visible in both <bpt id="a66a4b1c-256d-4387-92d9-66e8e739bdd8">&lt;code&gt;</bpt>sys.tables<ept id="a66a4b1c-256d-4387-92d9-66e8e739bdd8">&lt;/code&gt;</ept> and more specifically in <bpt id="e80d5246-8268-4985-a4d7-82b8a4a18774">&lt;code&gt;</bpt>sys.external_tables<ept id="e80d5246-8268-4985-a4d7-82b8a4a18774">&lt;/code&gt;</ept> catalog views.</target>
+        </trans-unit>
+        <trans-unit id="124fa9f2-65cb-4081-9b52-9a2cfa47a5a6" xml:space="preserve">
+          <source>From time to time you will want to change the access key to your blob storage for security reasons.</source>
+          <target state="new">From time to time you will want to change the access key to your blob storage for security reasons.</target>
+        </trans-unit>
+        <trans-unit id="4b496a7d-0d39-469a-8f6a-8d711f8d26a2" xml:space="preserve">
+          <source>The most elegant way to perform this task is to follow a process known as "rotating the keys".</source>
+          <target state="new">The most elegant way to perform this task is to follow a process known as "rotating the keys".</target>
+        </trans-unit>
+        <trans-unit id="a552c401-3622-4e10-b42e-a74a6504b03b" xml:space="preserve">
+          <source>You may have noticed that you have two storage keys for your blob storage account.</source>
+          <target state="new">You may have noticed that you have two storage keys for your blob storage account.</target>
+        </trans-unit>
+        <trans-unit id="cbdcd537-ae64-4913-a918-8f19fb8edb25" xml:space="preserve">
+          <source>This is so that you can transition</source>
+          <target state="new">This is so that you can transition</target>
+        </trans-unit>
+        <trans-unit id="728febcb-aabe-4880-8876-494e330cf1d2" xml:space="preserve">
+          <source>Rotating your Azure storage account keys is a simple three step process</source>
+          <target state="new">Rotating your Azure storage account keys is a simple three step process</target>
+        </trans-unit>
+        <trans-unit id="73441f9b-254c-4b0d-a15d-6a26aa6b492a" xml:space="preserve">
+          <source>Create second database scoped credential based on the secondary storage access key</source>
+          <target state="new">Create second database scoped credential based on the secondary storage access key</target>
+        </trans-unit>
+        <trans-unit id="c580152f-9faf-47f2-9204-8fa112d06951" xml:space="preserve">
+          <source>Create second external data source based off this new credential</source>
+          <target state="new">Create second external data source based off this new credential</target>
+        </trans-unit>
+        <trans-unit id="21634bbe-9981-4cc4-bc54-e517cfb8bcba" xml:space="preserve">
+          <source>Drop and create the external table(s) pointing to the new external data source</source>
+          <target state="new">Drop and create the external table(s) pointing to the new external data source</target>
+        </trans-unit>
+        <trans-unit id="a561b618-4079-42cb-bc10-0a9fe04cb11d" xml:space="preserve">
+          <source>When you have migrated all your external tables to the new external data source then you can perform the clean up tasks:</source>
+          <target state="new">When you have migrated all your external tables to the new external data source then you can perform the clean up tasks:</target>
+        </trans-unit>
+        <trans-unit id="7dabcc32-149f-48e3-b058-7b96adc20648" xml:space="preserve">
+          <source>Drop first external data source</source>
+          <target state="new">Drop first external data source</target>
+        </trans-unit>
+        <trans-unit id="88f3f41f-cd50-4616-9f83-dd80b24be1b4" xml:space="preserve">
+          <source>Drop first database scoped credential based on the primary storage access key</source>
+          <target state="new">Drop first database scoped credential based on the primary storage access key</target>
+        </trans-unit>
+        <trans-unit id="ad8a8a39-fc1c-48bd-8fa3-c11beaacc77a" xml:space="preserve">
+          <source>Log into Azure and regenerate the primary access key ready for the next time</source>
+          <target state="new">Log into Azure and regenerate the primary access key ready for the next time</target>
+        </trans-unit>
+        <trans-unit id="9290b48f-18a3-414e-a45f-a91a7fa5354f" xml:space="preserve">
+          <source>Queries against external tables simply use the table name as though it was a relational table.</source>
+          <target state="new">Queries against external tables simply use the table name as though it was a relational table.</target>
+        </trans-unit>
+        <trans-unit id="41d9bcda-78d6-4dd8-96cb-42466c204499" xml:space="preserve">
+          <source>This is an ad-hoc query that joins insurance customer data stored in SQL Data Warehouse, with automobile sensor data stored in Azure storage blob.</source>
+          <target state="new">This is an ad-hoc query that joins insurance customer data stored in SQL Data Warehouse, with automobile sensor data stored in Azure storage blob.</target>
+        </trans-unit>
+        <trans-unit id="4d1f16bf-7564-4470-8208-da1a07943993" xml:space="preserve">
+          <source>The result shows the drivers that drive faster than others.</source>
+          <target state="new">The result shows the drivers that drive faster than others.</target>
+        </trans-unit>
+        <trans-unit id="a85f9214-36ca-4526-b1c0-0eb782776f82" xml:space="preserve">
+          <source>This example loads data from Azure blob storage to SQL Data Warehouse database.</source>
+          <target state="new">This example loads data from Azure blob storage to SQL Data Warehouse database.</target>
+        </trans-unit>
+        <trans-unit id="655f9844-191a-4e0e-954f-536db82542d2" xml:space="preserve">
+          <source>Storing data directly removes the data transfer time for queries.</source>
+          <target state="new">Storing data directly removes the data transfer time for queries.</target>
+        </trans-unit>
+        <trans-unit id="5f0c11b8-0e95-4fe9-b480-0da1fe5b32a9" xml:space="preserve">
+          <source>Storing data with a columnstore index improves query performance for analysis queries by up to 10x.</source>
+          <target state="new">Storing data with a columnstore index improves query performance for analysis queries by up to 10x.</target>
+        </trans-unit>
+        <trans-unit id="8d2dcad6-c026-4585-92a2-17500e2ed835" xml:space="preserve">
+          <source>This example uses the CREATE TABLE AS SELECT statement to load data.</source>
+          <target state="new">This example uses the CREATE TABLE AS SELECT statement to load data.</target>
+        </trans-unit>
+        <trans-unit id="64cc7c35-1ea1-4f60-8ca6-39fb0d3db7fe" xml:space="preserve">
+          <source>The new table inherits the columns named in the query.</source>
+          <target state="new">The new table inherits the columns named in the query.</target>
+        </trans-unit>
+        <trans-unit id="a664b66e-d467-4d47-9518-ed4b432e4efc" xml:space="preserve">
+          <source>It inherits the data types of those columns from the external table definition.</source>
+          <target state="new">It inherits the data types of those columns from the external table definition.</target>
+        </trans-unit>
+        <trans-unit id="de2c7243-c1c6-40e5-b0ae-a3ea777d401b" xml:space="preserve">
+          <source>CREATE TABLE AS SELECT is a highly performant Transact-SQL statement  that replaces INSERT...SELECT.</source>
+          <target state="new">CREATE TABLE AS SELECT is a highly performant Transact-SQL statement  that replaces INSERT...SELECT.</target>
+        </trans-unit>
+        <trans-unit id="697a0b0a-7fd5-4e2b-ada1-182dd55eecb0" xml:space="preserve">
+          <source>It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.</source>
+          <target state="new">It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="ecbf05ba-6315-491e-8ac2-3f1112d8de2a" xml:space="preserve">
+          <source>See <bpt id="0424485f-7772-4e78-a6d4-f07c1429eeac">&lt;linkText&gt;</bpt>CREATE TABLE AS SELECT (Transact-SQL)<ept id="0424485f-7772-4e78-a6d4-f07c1429eeac">&lt;/linkText&gt;</ept><bpt id="0424485f-7772-4e78-a6d4-f07c1429eeac">&lt;title&gt;</bpt><ept id="0424485f-7772-4e78-a6d4-f07c1429eeac">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="0424485f-7772-4e78-a6d4-f07c1429eeac">&lt;linkText&gt;</bpt>CREATE TABLE AS SELECT (Transact-SQL)<ept id="0424485f-7772-4e78-a6d4-f07c1429eeac">&lt;/linkText&gt;</ept><bpt id="0424485f-7772-4e78-a6d4-f07c1429eeac">&lt;title&gt;</bpt><ept id="0424485f-7772-4e78-a6d4-f07c1429eeac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a0f1dac-7252-48cf-b48c-fa85520da580" xml:space="preserve">
+          <source>At present PolyBase supports loading data files that have been UTF-8 encoded.</source>
+          <target state="new">At present PolyBase supports loading data files that have been UTF-8 encoded.</target>
+        </trans-unit>
+        <trans-unit id="e3fb5c64-c219-46f0-b27c-850ea2672247" xml:space="preserve">
+          <source>As UTF-8 uses the same character encoding as ASCII PolyBase will also support loading data that is ASCII encoded.</source>
+          <target state="new">As UTF-8 uses the same character encoding as ASCII PolyBase will also support loading data that is ASCII encoded.</target>
+        </trans-unit>
+        <trans-unit id="bdad022b-efee-48bc-a728-ee6dc429c4d2" xml:space="preserve">
+          <source>However, PolyBase does not support other character encoding such as UTF-16 / Unicode or extended ASCII characters.</source>
+          <target state="new">However, PolyBase does not support other character encoding such as UTF-16 / Unicode or extended ASCII characters.</target>
+        </trans-unit>
+        <trans-unit id="c92c1cd7-26d8-4081-ad85-93f712355231" xml:space="preserve">
+          <source>Extended ASCII includes characters with accents such as the umlaut which is common in German.</source>
+          <target state="new">Extended ASCII includes characters with accents such as the umlaut which is common in German.</target>
+        </trans-unit>
+        <trans-unit id="e834674d-280e-44ec-b14f-a9349a64ae07" xml:space="preserve">
+          <source>To work around this requirement the best answer is to re-write to UTF-8 encoding.</source>
+          <target state="new">To work around this requirement the best answer is to re-write to UTF-8 encoding.</target>
+        </trans-unit>
+        <trans-unit id="4df4e38e-d4b1-4e28-b80a-005435abc162" xml:space="preserve">
+          <source>There are several ways to do this.</source>
+          <target state="new">There are several ways to do this.</target>
+        </trans-unit>
+        <trans-unit id="a3353108-31be-43af-bebd-638f8386a1f9" xml:space="preserve">
+          <source>Below are two approaches using Powershell:</source>
+          <target state="new">Below are two approaches using Powershell:</target>
+        </trans-unit>
+        <trans-unit id="cb5791bb-b1d8-40bd-b83c-a94d60a395ec" xml:space="preserve">
+          <source>Below is a simple one line Powershell script that creates the file.</source>
+          <target state="new">Below is a simple one line Powershell script that creates the file.</target>
+        </trans-unit>
+        <trans-unit id="83ae1c9f-e039-4c3e-8515-e793637233e2" xml:space="preserve">
+          <source>However, whilst this is a simple way to re-encode the data it is by no means the most efficient.</source>
+          <target state="new">However, whilst this is a simple way to re-encode the data it is by no means the most efficient.</target>
+        </trans-unit>
+        <trans-unit id="f4f9aa57-3bbb-4483-a27d-39efb31b01ab" xml:space="preserve">
+          <source>The io streaming example below is much, much faster and achieves the same result.</source>
+          <target state="new">The io streaming example below is much, much faster and achieves the same result.</target>
+        </trans-unit>
+        <trans-unit id="b0acd7e0-ecef-4c8c-9fe4-4f4636d5805f" xml:space="preserve">
+          <source>The code sample below is more complex but as it streams the rows of data from source to target it is much more efficient.</source>
+          <target state="new">The code sample below is more complex but as it streams the rows of data from source to target it is much more efficient.</target>
+        </trans-unit>
+        <trans-unit id="358a7db1-882f-4b2c-bdfd-dcd3f2a03eb2" xml:space="preserve">
+          <source>Use this approach for larger files.</source>
+          <target state="new">Use this approach for larger files.</target>
+        </trans-unit>
+        <trans-unit id="0365aa07-8c55-4acc-bc1e-174fcc5421e1" xml:space="preserve">
+          <source>For more development tips, see <bpt id="654134da-06d3-46db-830f-db3552c34b1f">&lt;linkText&gt;</bpt>development overview<ept id="654134da-06d3-46db-830f-db3552c34b1f">&lt;/linkText&gt;</ept><bpt id="654134da-06d3-46db-830f-db3552c34b1f">&lt;title&gt;</bpt><ept id="654134da-06d3-46db-830f-db3552c34b1f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="654134da-06d3-46db-830f-db3552c34b1f">&lt;linkText&gt;</bpt>development overview<ept id="654134da-06d3-46db-830f-db3552c34b1f">&lt;/linkText&gt;</ept><bpt id="654134da-06d3-46db-830f-db3552c34b1f">&lt;title&gt;</bpt><ept id="654134da-06d3-46db-830f-db3552c34b1f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31ff4ee5-9564-4f93-85e4-2477600fcce9" xml:space="preserve">
+          <source>sql-data-warehouse-load-with-bcp.md</source>
+          <target state="new">sql-data-warehouse-load-with-bcp.md</target>
+        </trans-unit>
+        <trans-unit id="73a7e7fa-2c9b-4c20-825a-66981398a285" xml:space="preserve">
+          <source>sql-data-warehouse-load-with-polybase.md</source>
+          <target state="new">sql-data-warehouse-load-with-polybase.md</target>
+        </trans-unit>
+        <trans-unit id="2e7bfb50-f041-439e-a928-5679dafbf0a4" xml:space="preserve">
+          <source>sql-data-warehouse-solution-partners.md</source>
+          <target state="new">sql-data-warehouse-solution-partners.md</target>
+        </trans-unit>
+        <trans-unit id="49935fec-d04f-4dbf-b9c0-cb1e108a0fb2" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+        <trans-unit id="76a23994-6953-4805-bed1-9cca4c438a1a" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn894007.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn894007.aspx</target>
+        </trans-unit>
+        <trans-unit id="e1e0412f-64b8-4085-a9c3-d7679c0e4fc8" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn835035.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn835035.aspx</target>
+        </trans-unit>
+        <trans-unit id="f79c5399-05c9-46b5-99b2-a64257629d54" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/ms141095.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/ms141095.aspx</target>
+        </trans-unit>
+        <trans-unit id="7e5ffd60-2d65-4539-b91a-a157d07e5fd5" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/ms141026.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/ms141026.aspx</target>
+        </trans-unit>
+        <trans-unit id="e663f4b4-d3a9-4282-986e-31062e996e60" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx</target>
+        </trans-unit>
+        <trans-unit id="4b8d397a-4aad-4aa4-a5eb-81e6441dd26e" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx</target>
+        </trans-unit>
+        <trans-unit id="8cc69b62-02f0-47f9-a14c-34fd2c93267f" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx</target>
+        </trans-unit>
+        <trans-unit id="4ec00510-8fbc-48f7-b488-bb1e77aaa128" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/mt146367.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/mt146367.aspx</target>
+        </trans-unit>
+        <trans-unit id="b09a558b-7bc9-4fc9-b2f0-dc13475f7e15" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/mt146379.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/mt146379.aspx</target>
+        </trans-unit>
+        <trans-unit id="07d72628-3aeb-4223-b6f1-dd8be5105e2c" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/mt130698.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/mt130698.aspx</target>
+        </trans-unit>
+        <trans-unit id="a3d8b7fd-a91e-49f8-94b4-02c78b722d61" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/mt204041.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/mt204041.aspx</target>
+        </trans-unit>
+        <trans-unit id="dc5499cd-8ad5-49d0-92f4-f84d56f9ca54" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/ms174382.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/ms174382.aspx</target>
+        </trans-unit>
+        <trans-unit id="5085704c-8852-48a2-b0e1-3938316299c0" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/ms189522.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/ms189522.aspx</target>
+        </trans-unit>
+        <trans-unit id="452ff11e-8f88-439c-b17f-29d35cd80de6" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/ms189450.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/ms189450.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="9a78df78-118f-40da-a0da-e4a1dbc04528" />
+    </body>
+  </file>
+</xliff>

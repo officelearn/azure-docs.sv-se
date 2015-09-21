@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1ddb228a-702c-42e0-ba3b-693a34b65ad4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1ddb228a-702c-42e0-ba3b-693a34b65ad4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="66fbd300-c4cd-4ffa-99c7-a4d808c90619">
+        <trans-unit id="7b9977b5-b455-47c3-babf-d939ab665c62" xml:space="preserve">
+          <source>Operational Insights Security</source>
+          <target state="new">Operational Insights Security</target>
+        </trans-unit>
+        <trans-unit id="b25f0457-9ffa-44f0-8cb5-c7cb7b621bdd" xml:space="preserve">
+          <source>Learn about how Operational Insights protects your privacy and secures your data.</source>
+          <target state="new">Learn about how Operational Insights protects your privacy and secures your data.</target>
+        </trans-unit>
+        <trans-unit id="3b47d1f9-a1c2-4ff4-b6c1-fad8a370562a" xml:space="preserve">
+          <source><bpt id="fff7d347-6ff8-4da6-b9d6-b73e6d920084">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="fff7d347-6ff8-4da6-b9d6-b73e6d920084">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="fff7d347-6ff8-4da6-b9d6-b73e6d920084">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="fff7d347-6ff8-4da6-b9d6-b73e6d920084">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac4b9f07-d329-4bb1-ac5a-b34b9132dd69" xml:space="preserve">
+          <source>Microsoft is committed to protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization.</source>
+          <target state="new">Microsoft is committed to protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization.</target>
+        </trans-unit>
+        <trans-unit id="8ab2c371-2a7c-460b-84eb-bf68c9908c8f" xml:space="preserve">
+          <source>We recognize that when you entrust your data to others, that trust requires rigorous security.</source>
+          <target state="new">We recognize that when you entrust your data to others, that trust requires rigorous security.</target>
+        </trans-unit>
+        <trans-unit id="fb6c6701-0d51-427e-8cf0-e26c7dda1d65" xml:space="preserve">
+          <source>Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.</source>
+          <target state="new">Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.</target>
+        </trans-unit>
+        <trans-unit id="bab35805-b165-4780-9970-fc331a79a0b6" xml:space="preserve">
+          <source>Securing and protecting data is a top priority at Microsoft.</source>
+          <target state="new">Securing and protecting data is a top priority at Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="70a74769-a878-4a09-a8f1-ee847b9c066e" xml:space="preserve">
+          <source>Please contact us with any questions, suggestions, or issues about any of the following information, including our security policies at <bpt id="40c189bd-9f31-488a-a7ec-af305ec6c516">&lt;linkText&gt;</bpt>Azure support options<ept id="40c189bd-9f31-488a-a7ec-af305ec6c516">&lt;/linkText&gt;</ept><bpt id="40c189bd-9f31-488a-a7ec-af305ec6c516">&lt;title&gt;</bpt><ept id="40c189bd-9f31-488a-a7ec-af305ec6c516">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please contact us with any questions, suggestions, or issues about any of the following information, including our security policies at <bpt id="40c189bd-9f31-488a-a7ec-af305ec6c516">&lt;linkText&gt;</bpt>Azure support options<ept id="40c189bd-9f31-488a-a7ec-af305ec6c516">&lt;/linkText&gt;</ept><bpt id="40c189bd-9f31-488a-a7ec-af305ec6c516">&lt;title&gt;</bpt><ept id="40c189bd-9f31-488a-a7ec-af305ec6c516">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7350bc15-7c6d-4b11-bbe8-38944abc4d06" xml:space="preserve">
+          <source>This article explains how data is collected, processed, and secured in the Operations Management Suite (OMS).</source>
+          <target state="new">This article explains how data is collected, processed, and secured in the Operations Management Suite (OMS).</target>
+        </trans-unit>
+        <trans-unit id="24c26376-8caf-4539-a0ac-cc3f89721142" xml:space="preserve">
+          <source>It was previously called Microsoft Azure Operational Insights.</source>
+          <target state="new">It was previously called Microsoft Azure Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="c2b22814-211b-493e-a66d-fd7082e41c61" xml:space="preserve">
+          <source>You can use either agents to connect directly to the web service or you can use System Center Operations Manager to collect operational data for the OMS service.</source>
+          <target state="new">You can use either agents to connect directly to the web service or you can use System Center Operations Manager to collect operational data for the OMS service.</target>
+        </trans-unit>
+        <trans-unit id="cf9763f6-8896-4ce6-8231-763335506294" xml:space="preserve">
+          <source>The collected data is sent over the Internet to the OMS service, which is hosted in Microsoft Azure.</source>
+          <target state="new">The collected data is sent over the Internet to the OMS service, which is hosted in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="9b6223e8-8ad8-4b31-981a-4ed3b6f5a3fd" xml:space="preserve">
+          <source>The OMS service manages your data securely by using the following methods:</source>
+          <target state="new">The OMS service manages your data securely by using the following methods:</target>
+        </trans-unit>
+        <trans-unit id="8d43df8e-fe72-48b2-ba06-39688214f97a" xml:space="preserve">
+          <source><bpt id="77c7879a-3524-403d-8d6d-de8c17560bfe">&lt;strong&gt;</bpt>Data segregation:<ept id="77c7879a-3524-403d-8d6d-de8c17560bfe">&lt;/strong&gt;</ept> Customer data is kept logically separate on each component throughout the OMS service.</source>
+          <target state="new"><bpt id="77c7879a-3524-403d-8d6d-de8c17560bfe">&lt;strong&gt;</bpt>Data segregation:<ept id="77c7879a-3524-403d-8d6d-de8c17560bfe">&lt;/strong&gt;</ept> Customer data is kept logically separate on each component throughout the OMS service.</target>
+        </trans-unit>
+        <trans-unit id="e059de3a-3176-489a-983f-68c9fc21ad49" xml:space="preserve">
+          <source>All data is tagged per organization.</source>
+          <target state="new">All data is tagged per organization.</target>
+        </trans-unit>
+        <trans-unit id="ffe83235-28a0-48b5-a0ee-a6fae7ea96fe" xml:space="preserve">
+          <source>This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service.</source>
+          <target state="new">This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service.</target>
+        </trans-unit>
+        <trans-unit id="e2577c90-303d-4759-b104-900157277a1d" xml:space="preserve">
+          <source>Each customer has a dedicated Azure blob that houses the long-term data.</source>
+          <target state="new">Each customer has a dedicated Azure blob that houses the long-term data.</target>
+        </trans-unit>
+        <trans-unit id="3a772587-8480-4db6-9a8e-c561156649a3" xml:space="preserve">
+          <source>The blob is encrypted with unique per-customer keys, which are changed every 90 days.</source>
+          <target state="new">The blob is encrypted with unique per-customer keys, which are changed every 90 days.</target>
+        </trans-unit>
+        <trans-unit id="fca3fe1a-62b3-447f-b4a2-b67018d8576b" xml:space="preserve">
+          <source><bpt id="f7c80e25-c2ca-4a4f-97ed-c168c3d3de43">&lt;strong&gt;</bpt>Data retention:<ept id="f7c80e25-c2ca-4a4f-97ed-c168c3d3de43">&lt;/strong&gt;</ept> Aggregated metrics for some of the solutions (previously called intelligence packs), such as Capacity Management, is stored in a SQL Database hosted by Microsoft Azure.</source>
+          <target state="new"><bpt id="f7c80e25-c2ca-4a4f-97ed-c168c3d3de43">&lt;strong&gt;</bpt>Data retention:<ept id="f7c80e25-c2ca-4a4f-97ed-c168c3d3de43">&lt;/strong&gt;</ept> Aggregated metrics for some of the solutions (previously called intelligence packs), such as Capacity Management, is stored in a SQL Database hosted by Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="d5db0b67-8d40-46b9-a1b0-1e6df578eb9e" xml:space="preserve">
+          <source>This data is stored for 390 days.</source>
+          <target state="new">This data is stored for 390 days.</target>
+        </trans-unit>
+        <trans-unit id="3f35cc45-e12a-4e6d-b8b2-f38e3ba15f88" xml:space="preserve">
+          <source>Indexed log search data is stored and retained according to the pricing plan.</source>
+          <target state="new">Indexed log search data is stored and retained according to the pricing plan.</target>
+        </trans-unit>
+        <trans-unit id="037ba5d0-614e-43aa-8df2-33504e18a9af" xml:space="preserve">
+          <source>For more information look at the <bpt id="5aa3dd30-c675-4062-af0b-ae30508e9f0b">&lt;linkText&gt;</bpt>Pricing Page<ept id="5aa3dd30-c675-4062-af0b-ae30508e9f0b">&lt;/linkText&gt;</ept><bpt id="5aa3dd30-c675-4062-af0b-ae30508e9f0b">&lt;title&gt;</bpt><ept id="5aa3dd30-c675-4062-af0b-ae30508e9f0b">&lt;/title&gt;</ept></source>
+          <target state="new">For more information look at the <bpt id="5aa3dd30-c675-4062-af0b-ae30508e9f0b">&lt;linkText&gt;</bpt>Pricing Page<ept id="5aa3dd30-c675-4062-af0b-ae30508e9f0b">&lt;/linkText&gt;</ept><bpt id="5aa3dd30-c675-4062-af0b-ae30508e9f0b">&lt;title&gt;</bpt><ept id="5aa3dd30-c675-4062-af0b-ae30508e9f0b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c1c2f98-d0af-4f95-b756-f006c85e9046" xml:space="preserve">
+          <source><bpt id="02f62b42-a917-449f-9c2d-03bf2b8d72b6">&lt;strong&gt;</bpt>Physical security:<ept id="02f62b42-a917-449f-9c2d-03bf2b8d72b6">&lt;/strong&gt;</ept> The OMS service is manned by Microsoft personnel and all activities are logged and can be audited.</source>
+          <target state="new"><bpt id="02f62b42-a917-449f-9c2d-03bf2b8d72b6">&lt;strong&gt;</bpt>Physical security:<ept id="02f62b42-a917-449f-9c2d-03bf2b8d72b6">&lt;/strong&gt;</ept> The OMS service is manned by Microsoft personnel and all activities are logged and can be audited.</target>
+        </trans-unit>
+        <trans-unit id="a3751a35-215d-42c8-9d6d-f6058185d214" xml:space="preserve">
+          <source>The OMS service runs completely in Azure and complies with the Azure common engineering criteria.</source>
+          <target state="new">The OMS service runs completely in Azure and complies with the Azure common engineering criteria.</target>
+        </trans-unit>
+        <trans-unit id="bb1fc758-b0ab-48fe-9227-7be89a93c734" xml:space="preserve">
+          <source>You can view details about the physical security of Azure assets on page 18 of the <bpt id="2a02e969-3ea3-48ba-b86b-67d9e4ef4cfe">&lt;linkText&gt;</bpt>Microsoft Azure Security Overview<ept id="2a02e969-3ea3-48ba-b86b-67d9e4ef4cfe">&lt;/linkText&gt;</ept><bpt id="2a02e969-3ea3-48ba-b86b-67d9e4ef4cfe">&lt;title&gt;</bpt><ept id="2a02e969-3ea3-48ba-b86b-67d9e4ef4cfe">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can view details about the physical security of Azure assets on page 18 of the <bpt id="2a02e969-3ea3-48ba-b86b-67d9e4ef4cfe">&lt;linkText&gt;</bpt>Microsoft Azure Security Overview<ept id="2a02e969-3ea3-48ba-b86b-67d9e4ef4cfe">&lt;/linkText&gt;</ept><bpt id="2a02e969-3ea3-48ba-b86b-67d9e4ef4cfe">&lt;title&gt;</bpt><ept id="2a02e969-3ea3-48ba-b86b-67d9e4ef4cfe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8971e293-2d75-49e5-94c5-351dc01862c2" xml:space="preserve">
+          <source><bpt id="9bcbab99-bf5d-4b13-993c-75ed61c4cb66">&lt;strong&gt;</bpt>Compliance and certifications:<ept id="9bcbab99-bf5d-4b13-993c-75ed61c4cb66">&lt;/strong&gt;</ept> The OMS software development and service team is actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire a variety of certifications, including ISO.</source>
+          <target state="new"><bpt id="9bcbab99-bf5d-4b13-993c-75ed61c4cb66">&lt;strong&gt;</bpt>Compliance and certifications:<ept id="9bcbab99-bf5d-4b13-993c-75ed61c4cb66">&lt;/strong&gt;</ept> The OMS software development and service team is actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire a variety of certifications, including ISO.</target>
+        </trans-unit>
+        <trans-unit id="d4834f35-e653-4196-b454-1a3221eb8c4e" xml:space="preserve">
+          <source>We currently meet the following security standards:</source>
+          <target state="new">We currently meet the following security standards:</target>
+        </trans-unit>
+        <trans-unit id="d3c43a83-0c15-4e6d-8726-a3f25510619a" xml:space="preserve">
+          <source>Windows Common Engineering Criteria</source>
+          <target state="new">Windows Common Engineering Criteria</target>
+        </trans-unit>
+        <trans-unit id="a843c0c0-17e9-444e-977c-e44295c62ca0" xml:space="preserve">
+          <source>Microsoft Trustworthy Computing Certification</source>
+          <target state="new">Microsoft Trustworthy Computing Certification</target>
+        </trans-unit>
+        <trans-unit id="3ae0254d-bbe6-480f-927e-281110631789" xml:space="preserve">
+          <source>The following diagram shows the flow of information from your company and how it is secured as is moves to the OMS service, ultimately seen by you in OMS.</source>
+          <target state="new">The following diagram shows the flow of information from your company and how it is secured as is moves to the OMS service, ultimately seen by you in OMS.</target>
+        </trans-unit>
+        <trans-unit id="d0076584-b987-42d4-ba13-342da2a1c837" xml:space="preserve">
+          <source>More information about each step follows the diagram.</source>
+          <target state="new">More information about each step follows the diagram.</target>
+        </trans-unit>
+        <trans-unit id="aa3be502-fcab-4626-b927-c111c94f28b8" xml:space="preserve">
+          <source><bpt id="53f0eaa7-f88e-45d6-91db-c87cba065e4c">&lt;linkText&gt;</bpt>Image of OMS data collection and security<ept id="53f0eaa7-f88e-45d6-91db-c87cba065e4c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="53f0eaa7-f88e-45d6-91db-c87cba065e4c">&lt;linkText&gt;</bpt>Image of OMS data collection and security<ept id="53f0eaa7-f88e-45d6-91db-c87cba065e4c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b03dae0c-1314-48fb-92d5-c820ed2494fc" xml:space="preserve">
+          <source>For your organization to send data to the OMS service, you must either configure Microsoft Monitoring agents when connecting directly to the web service or use a configuration wizard in the Operations console in Operations Manager.</source>
+          <target state="new">For your organization to send data to the OMS service, you must either configure Microsoft Monitoring agents when connecting directly to the web service or use a configuration wizard in the Operations console in Operations Manager.</target>
+        </trans-unit>
+        <trans-unit id="fd220e28-49b5-462e-bffd-4db346101a9f" xml:space="preserve">
+          <source>Users (which might be you, other individual users, or a group of people) must create one or more OMS accounts and register either each directly-connected agent or their Operations Manager environment by using one of the following accounts:</source>
+          <target state="new">Users (which might be you, other individual users, or a group of people) must create one or more OMS accounts and register either each directly-connected agent or their Operations Manager environment by using one of the following accounts:</target>
+        </trans-unit>
+        <trans-unit id="31a16ff3-5003-4d90-8309-750248c0fc1e" xml:space="preserve">
+          <source><bpt id="c552f039-cf4b-44c5-a702-eafb4646c191">&lt;linkText&gt;</bpt>Organizational ID<ept id="c552f039-cf4b-44c5-a702-eafb4646c191">&lt;/linkText&gt;</ept><bpt id="c552f039-cf4b-44c5-a702-eafb4646c191">&lt;title&gt;</bpt><ept id="c552f039-cf4b-44c5-a702-eafb4646c191">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c552f039-cf4b-44c5-a702-eafb4646c191">&lt;linkText&gt;</bpt>Organizational ID<ept id="c552f039-cf4b-44c5-a702-eafb4646c191">&lt;/linkText&gt;</ept><bpt id="c552f039-cf4b-44c5-a702-eafb4646c191">&lt;title&gt;</bpt><ept id="c552f039-cf4b-44c5-a702-eafb4646c191">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e8427da-ab34-4f6b-91bf-627e0fa4fc5f" xml:space="preserve">
+          <source><bpt id="24f18cc5-5469-4b04-8d40-d8846afb5b62">&lt;linkText&gt;</bpt>Microsoft Account - Outlook, Office Live, MSN<ept id="24f18cc5-5469-4b04-8d40-d8846afb5b62">&lt;/linkText&gt;</ept><bpt id="24f18cc5-5469-4b04-8d40-d8846afb5b62">&lt;title&gt;</bpt><ept id="24f18cc5-5469-4b04-8d40-d8846afb5b62">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="24f18cc5-5469-4b04-8d40-d8846afb5b62">&lt;linkText&gt;</bpt>Microsoft Account - Outlook, Office Live, MSN<ept id="24f18cc5-5469-4b04-8d40-d8846afb5b62">&lt;/linkText&gt;</ept><bpt id="24f18cc5-5469-4b04-8d40-d8846afb5b62">&lt;title&gt;</bpt><ept id="24f18cc5-5469-4b04-8d40-d8846afb5b62">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5fff75c-901f-4ebb-9f17-38c04c276407" xml:space="preserve">
+          <source>An OMS account is where data is collected, aggregated, analyzed, and presented.</source>
+          <target state="new">An OMS account is where data is collected, aggregated, analyzed, and presented.</target>
+        </trans-unit>
+        <trans-unit id="3fb11819-4634-46ce-85e6-1eefc3f9806e" xml:space="preserve">
+          <source>An OMS account is primarily used as a means to partition data, and each OMS account is unique.</source>
+          <target state="new">An OMS account is primarily used as a means to partition data, and each OMS account is unique.</target>
+        </trans-unit>
+        <trans-unit id="dac5687e-10f1-4d69-b8c3-989f7dbe66da" xml:space="preserve">
+          <source>For example, you might want to have your production data managed with one OMS account and your test data managed with another account.</source>
+          <target state="new">For example, you might want to have your production data managed with one OMS account and your test data managed with another account.</target>
+        </trans-unit>
+        <trans-unit id="2400cdc7-b05a-4d7b-b2e5-a9e6b8ae186a" xml:space="preserve">
+          <source>Accounts also help an administrator control user access to the data.</source>
+          <target state="new">Accounts also help an administrator control user access to the data.</target>
+        </trans-unit>
+        <trans-unit id="f74a0615-336a-430c-967f-9d5d66b854a7" xml:space="preserve">
+          <source>Each OMS account can have multiple user accounts associated with it, and each user account can have multiple OMS accounts.</source>
+          <target state="new">Each OMS account can have multiple user accounts associated with it, and each user account can have multiple OMS accounts.</target>
+        </trans-unit>
+        <trans-unit id="73e1554d-5616-4a35-a1a8-3d1b649ef228" xml:space="preserve">
+          <source>When the configuration wizard is complete, each Operations Manager management group establishes a connection with the OMS service.</source>
+          <target state="new">When the configuration wizard is complete, each Operations Manager management group establishes a connection with the OMS service.</target>
+        </trans-unit>
+        <trans-unit id="2ad9baf0-2567-4486-809a-4b3b38e64fce" xml:space="preserve">
+          <source>You then use the Add Computers Wizard to choose which computers in the management group are allowed to send data to the service.</source>
+          <target state="new">You then use the Add Computers Wizard to choose which computers in the management group are allowed to send data to the service.</target>
+        </trans-unit>
+        <trans-unit id="10f2b072-2ba5-4784-853a-8c9e3854ca4a" xml:space="preserve">
+          <source>Both types of agents collect data for OMS.</source>
+          <target state="new">Both types of agents collect data for OMS.</target>
+        </trans-unit>
+        <trans-unit id="25bc56cf-6853-420f-8e2d-7ab5d133de93" xml:space="preserve">
+          <source>The type of data that is collected is dependent on the types of solutions used.</source>
+          <target state="new">The type of data that is collected is dependent on the types of solutions used.</target>
+        </trans-unit>
+        <trans-unit id="bb41562a-672e-4613-a621-78ee287eee09" xml:space="preserve">
+          <source>A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic.</source>
+          <target state="new">A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic.</target>
+        </trans-unit>
+        <trans-unit id="a955a473-7bc7-4909-9f41-c06fd102ec2f" xml:space="preserve">
+          <source>Only OMS administrators can use OMS to import a solution.</source>
+          <target state="new">Only OMS administrators can use OMS to import a solution.</target>
+        </trans-unit>
+        <trans-unit id="ab68f391-9868-4ffa-84f3-c4f4ff8c2577" xml:space="preserve">
+          <source>After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to the Operations Manager agents that you have chosen.</source>
+          <target state="new">After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to the Operations Manager agents that you have chosen.</target>
+        </trans-unit>
+        <trans-unit id="e6f168dd-eb18-4122-ad79-92a134b617f4" xml:space="preserve">
+          <source>Afterward, the agents collect the data.</source>
+          <target state="new">Afterward, the agents collect the data.</target>
+        </trans-unit>
+        <trans-unit id="aca40674-6748-42b0-9c28-efdc0d36af6c" xml:space="preserve">
+          <source>The following table lists the available solutions in OMS and the types of data they collect.</source>
+          <target state="new">The following table lists the available solutions in OMS and the types of data they collect.</target>
+        </trans-unit>
+        <trans-unit id="f6ea717e-e055-4603-8810-e75902dc8e0f" xml:space="preserve">
+          <source><bpt id="7e08fc33-e69c-4552-b55b-cd0431ce21c8">&lt;strong&gt;</bpt>Solution<ept id="7e08fc33-e69c-4552-b55b-cd0431ce21c8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7e08fc33-e69c-4552-b55b-cd0431ce21c8">&lt;strong&gt;</bpt>Solution<ept id="7e08fc33-e69c-4552-b55b-cd0431ce21c8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ee576af-7d3a-4f06-ba40-7509b3e6b83d" xml:space="preserve">
+          <source><bpt id="fd47351b-621d-4793-b258-3c153bdf5722">&lt;strong&gt;</bpt>Data types<ept id="fd47351b-621d-4793-b258-3c153bdf5722">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fd47351b-621d-4793-b258-3c153bdf5722">&lt;strong&gt;</bpt>Data types<ept id="fd47351b-621d-4793-b258-3c153bdf5722">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4cd55965-f66d-4642-ba19-59d258ea6a5d" xml:space="preserve">
+          <source>Configuration Assessment</source>
+          <target state="new">Configuration Assessment</target>
+        </trans-unit>
+        <trans-unit id="a081edd4-b6d4-4bc5-8775-2370dbedc4cc" xml:space="preserve">
+          <source>Configuration data, metadata, and state data</source>
+          <target state="new">Configuration data, metadata, and state data</target>
+        </trans-unit>
+        <trans-unit id="a6f7195e-7330-46d5-b7e8-f82369c7d594" xml:space="preserve">
+          <source>Capacity Planning</source>
+          <target state="new">Capacity Planning</target>
+        </trans-unit>
+        <trans-unit id="9dcb7a84-772a-494a-a827-9b54a99d7a24" xml:space="preserve">
+          <source>Performance data, metadata, and state data</source>
+          <target state="new">Performance data, metadata, and state data</target>
+        </trans-unit>
+        <trans-unit id="e7dad1e9-563e-4a47-8064-ccf659cb9853" xml:space="preserve">
+          <source>Antimalware</source>
+          <target state="new">Antimalware</target>
+        </trans-unit>
+        <trans-unit id="682d5c6d-240d-42f7-836a-abf5cb8cf668" xml:space="preserve">
+          <source>Configuration data, metadata, and state data</source>
+          <target state="new">Configuration data, metadata, and state data</target>
+        </trans-unit>
+        <trans-unit id="a8930fc2-2f52-4748-9274-aec23a51b279" xml:space="preserve">
+          <source>System Update Assessment</source>
+          <target state="new">System Update Assessment</target>
+        </trans-unit>
+        <trans-unit id="1f5c383a-69d8-4199-b4ca-7b7a5a779ec6" xml:space="preserve">
+          <source>Metadata and state data</source>
+          <target state="new">Metadata and state data</target>
+        </trans-unit>
+        <trans-unit id="989d0c75-26b1-46bd-bc49-4e8912a4abbc" xml:space="preserve">
+          <source>Log Management</source>
+          <target state="new">Log Management</target>
+        </trans-unit>
+        <trans-unit id="1b43023e-5099-480e-882a-b583851a3ca6" xml:space="preserve">
+          <source>User-defined event logs</source>
+          <target state="new">User-defined event logs</target>
+        </trans-unit>
+        <trans-unit id="aec30fe2-a625-431a-9d2b-e24a9654dc18" xml:space="preserve">
+          <source>Change Tracking</source>
+          <target state="new">Change Tracking</target>
+        </trans-unit>
+        <trans-unit id="60bb0995-6c15-451a-b30a-06f0f7bf0cdb" xml:space="preserve">
+          <source>Software inventory and Windows service metadata</source>
+          <target state="new">Software inventory and Windows service metadata</target>
+        </trans-unit>
+        <trans-unit id="0761b425-528a-49b8-a046-0d9822a9ccd5" xml:space="preserve">
+          <source>SQL and Active Directory Assessment</source>
+          <target state="new">SQL and Active Directory Assessment</target>
+        </trans-unit>
+        <trans-unit id="f3cb9dbc-048e-4e42-8a5c-cb86abf9d38f" xml:space="preserve">
+          <source>WMI data, registry data, performance data, and SQL Server dynamic management view results</source>
+          <target state="new">WMI data, registry data, performance data, and SQL Server dynamic management view results</target>
+        </trans-unit>
+        <trans-unit id="1da3546e-db31-4941-a15a-c0d26b552954" xml:space="preserve">
+          <source>The following table shows examples of data types:</source>
+          <target state="new">The following table shows examples of data types:</target>
+        </trans-unit>
+        <trans-unit id="1172eb61-c41c-4097-990e-5bb11ab39f66" xml:space="preserve">
+          <source><bpt id="a2d611ad-8851-4696-8d62-42e9c283a14a">&lt;strong&gt;</bpt>Data type<ept id="a2d611ad-8851-4696-8d62-42e9c283a14a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a2d611ad-8851-4696-8d62-42e9c283a14a">&lt;strong&gt;</bpt>Data type<ept id="a2d611ad-8851-4696-8d62-42e9c283a14a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d8f1332a-eec4-4ff7-bd8e-66ee000b22a1" xml:space="preserve">
+          <source><bpt id="d8e3b300-f215-4fc0-8302-858465e63be3">&lt;strong&gt;</bpt>Fields<ept id="d8e3b300-f215-4fc0-8302-858465e63be3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d8e3b300-f215-4fc0-8302-858465e63be3">&lt;strong&gt;</bpt>Fields<ept id="d8e3b300-f215-4fc0-8302-858465e63be3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36f95029-3b45-4f7c-8d75-68b72e9f51ff" xml:space="preserve">
+          <source>Alert</source>
+          <target state="new">Alert</target>
+        </trans-unit>
+        <trans-unit id="806bac21-65b3-4b19-8ed0-d5734804c377" xml:space="preserve">
+          <source>Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount</source>
+          <target state="new">Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount</target>
+        </trans-unit>
+        <trans-unit id="9e8946a2-3d05-4661-a575-ab76ca82b7ed" xml:space="preserve">
+          <source>Configuration</source>
+          <target state="new">Configuration</target>
+        </trans-unit>
+        <trans-unit id="579a13d0-4c63-4780-9542-7e3c7c96545d" xml:space="preserve">
+          <source>CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate</source>
+          <target state="new">CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate</target>
+        </trans-unit>
+        <trans-unit id="88243a24-95e0-464c-bea3-c0c20478b33d" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="68581dd4-8657-4a26-a27c-3f14b3f3ecb8" xml:space="preserve">
+          <source>EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <bpt id="ba6081cf-cd87-47f5-9094-1e497a8be532">&lt;strong&gt;</bpt>Note:<ept id="ba6081cf-cd87-47f5-9094-1e497a8be532">&lt;/strong&gt;</ept> <bpt id="2266267c-463f-4f2b-9b0a-ce36e7274a2e">&lt;em&gt;</bpt>When you log events with custom fields into the Windows event log, OMS collects them.<ept id="2266267c-463f-4f2b-9b0a-ce36e7274a2e">&lt;/em&gt;</ept></source>
+          <target state="new">EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <bpt id="ba6081cf-cd87-47f5-9094-1e497a8be532">&lt;strong&gt;</bpt>Note:<ept id="ba6081cf-cd87-47f5-9094-1e497a8be532">&lt;/strong&gt;</ept> <bpt id="2266267c-463f-4f2b-9b0a-ce36e7274a2e">&lt;em&gt;</bpt>When you log events with custom fields into the Windows event log, OMS collects them.<ept id="2266267c-463f-4f2b-9b0a-ce36e7274a2e">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2e4c1de-3376-4252-97b9-9379c9368344" xml:space="preserve">
+          <source>Metadata</source>
+          <target state="new">Metadata</target>
+        </trans-unit>
+        <trans-unit id="93d39f06-9e9c-4ede-a66d-e18f9b6341c2" xml:space="preserve">
+          <source>BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime</source>
+          <target state="new">BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime</target>
+        </trans-unit>
+        <trans-unit id="5ceab215-7b64-463a-9f09-337d71f231eb" xml:space="preserve">
+          <source>Performance</source>
+          <target state="new">Performance</target>
+        </trans-unit>
+        <trans-unit id="dda02133-c9d0-4eec-a23e-9ef1924cc1c9" xml:space="preserve">
+          <source>ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded</source>
+          <target state="new">ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded</target>
+        </trans-unit>
+        <trans-unit id="31193813-e4a0-4bf8-a599-d68bdce6dd58" xml:space="preserve">
+          <source>State</source>
+          <target state="new">State</target>
+        </trans-unit>
+        <trans-unit id="b7e5f409-caae-403b-b07f-017a893ec9f0" xml:space="preserve">
+          <source>StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified</source>
+          <target state="new">StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified</target>
+        </trans-unit>
+        <trans-unit id="9a3e3666-b382-4f1e-89a0-f2a790b06751" xml:space="preserve">
+          <source>With agents that connect directly to the web service, you register them with a key and a secure connection is established between the agent and the OMS service by using port 443.</source>
+          <target state="new">With agents that connect directly to the web service, you register them with a key and a secure connection is established between the agent and the OMS service by using port 443.</target>
+        </trans-unit>
+        <trans-unit id="7ef3bbf7-48d6-42c6-8bbb-3fc9708c3095" xml:space="preserve">
+          <source>With Operations Manager, you register an account with the OMS service and a secure HTTPS connection is established between the Operations Manager management server and the OMS service by using port 443.</source>
+          <target state="new">With Operations Manager, you register an account with the OMS service and a secure HTTPS connection is established between the Operations Manager management server and the OMS service by using port 443.</target>
+        </trans-unit>
+        <trans-unit id="bbdc67d8-7597-4410-ae57-d7f06962b79d" xml:space="preserve">
+          <source>If Operations Manager is unable to communicate to the service for any reason, the collected data is stored in a temporary cache and the management server tries to resend the data every 8 minutes for 2 hours.</source>
+          <target state="new">If Operations Manager is unable to communicate to the service for any reason, the collected data is stored in a temporary cache and the management server tries to resend the data every 8 minutes for 2 hours.</target>
+        </trans-unit>
+        <trans-unit id="5e2810ad-64eb-4a8a-a9ee-0a106097649d" xml:space="preserve">
+          <source>Collected data is compressed and sent to the OMS service, bypassing on-premises databases, so it does not add any load to them.</source>
+          <target state="new">Collected data is compressed and sent to the OMS service, bypassing on-premises databases, so it does not add any load to them.</target>
+        </trans-unit>
+        <trans-unit id="2322f06f-7a63-4d35-a600-2d6cd2c16776" xml:space="preserve">
+          <source>After the collected data is sent, it is removed from the cache.</source>
+          <target state="new">After the collected data is sent, it is removed from the cache.</target>
+        </trans-unit>
+        <trans-unit id="fe3f5a22-e39b-452c-b7a7-3953a340a774" xml:space="preserve">
+          <source>The OMS service ensures that incoming data is from a trusted source by validating certificates and the data integrity.</source>
+          <target state="new">The OMS service ensures that incoming data is from a trusted source by validating certificates and the data integrity.</target>
+        </trans-unit>
+        <trans-unit id="78abe599-7454-49d3-8651-14d0f9b26ddd" xml:space="preserve">
+          <source>The unprocessed raw data is then stored as a blob in <bpt id="a36a44e5-0b4b-4c2f-ae09-0d430112ba02">&lt;linkText&gt;</bpt>Microsoft Azure Storage<ept id="a36a44e5-0b4b-4c2f-ae09-0d430112ba02">&lt;/linkText&gt;</ept><bpt id="a36a44e5-0b4b-4c2f-ae09-0d430112ba02">&lt;title&gt;</bpt><ept id="a36a44e5-0b4b-4c2f-ae09-0d430112ba02">&lt;/title&gt;</ept>.</source>
+          <target state="new">The unprocessed raw data is then stored as a blob in <bpt id="a36a44e5-0b4b-4c2f-ae09-0d430112ba02">&lt;linkText&gt;</bpt>Microsoft Azure Storage<ept id="a36a44e5-0b4b-4c2f-ae09-0d430112ba02">&lt;/linkText&gt;</ept><bpt id="a36a44e5-0b4b-4c2f-ae09-0d430112ba02">&lt;title&gt;</bpt><ept id="a36a44e5-0b4b-4c2f-ae09-0d430112ba02">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a843d95-f308-440e-9c7d-dc89d5dfe77b" xml:space="preserve">
+          <source>Each OMS user has a dedicated Azure blob, which is accessible only to that user.</source>
+          <target state="new">Each OMS user has a dedicated Azure blob, which is accessible only to that user.</target>
+        </trans-unit>
+        <trans-unit id="9782110e-e7a7-4f7d-bf07-c876b1ec8992" xml:space="preserve">
+          <source>The type of data that is stored is dependent on the types of solutions that were imported and used to collect data.</source>
+          <target state="new">The type of data that is stored is dependent on the types of solutions that were imported and used to collect data.</target>
+        </trans-unit>
+        <trans-unit id="93f2f14a-d575-47ac-83d9-11dbb9e550bc" xml:space="preserve">
+          <source>The OMS service processes the raw data, and the aggregated processed data is stored in a SQL database.</source>
+          <target state="new">The OMS service processes the raw data, and the aggregated processed data is stored in a SQL database.</target>
+        </trans-unit>
+        <trans-unit id="8667ed05-3e81-4fb2-8c27-e4730601c0dc" xml:space="preserve">
+          <source>Communication between the OMS service and SQL database relies on SQL database authentication.</source>
+          <target state="new">Communication between the OMS service and SQL database relies on SQL database authentication.</target>
+        </trans-unit>
+        <trans-unit id="69baa3fd-bc45-43dc-9d49-59dc2a4cc838" xml:space="preserve">
+          <source>You can sign in to OMS by using the account you set up previously.</source>
+          <target state="new">You can sign in to OMS by using the account you set up previously.</target>
+        </trans-unit>
+        <trans-unit id="aa9996c6-d556-44df-83ee-b2820680e994" xml:space="preserve">
+          <source>All traffic between OMS and the OMS service is sent over a secure HTTPS channel.</source>
+          <target state="new">All traffic between OMS and the OMS service is sent over a secure HTTPS channel.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

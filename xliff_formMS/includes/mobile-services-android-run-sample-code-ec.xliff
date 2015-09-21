@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e7191dab-4cb3-4c1f-b7e8-a779fcfd7f6e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e7191dab-4cb3-4c1f-b7e8-a779fcfd7f6e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fc42970a-9ac3-40ee-9c1c-1cbd77777719">
+        <trans-unit id="ad8fafa7-15df-46b4-99ec-88b6f6324f6a" xml:space="preserve">
+          <source>In Package Explorer, expand <bpt id="cf82bce9-b85a-410d-9990-c5141bc9e3fd">&lt;strong&gt;</bpt>GetStartedWithData<ept id="cf82bce9-b85a-410d-9990-c5141bc9e3fd">&lt;/strong&gt;</ept>, <bpt id="24655f19-5658-4880-ac22-aa8cf9fbb2a6">&lt;strong&gt;</bpt>src<ept id="24655f19-5658-4880-ac22-aa8cf9fbb2a6">&lt;/strong&gt;</ept>, and <bpt id="800b5ffd-bad5-46f7-9208-5f1e528aa776">&lt;strong&gt;</bpt>.com.example.GetStartedWithData<ept id="800b5ffd-bad5-46f7-9208-5f1e528aa776">&lt;/strong&gt;</ept>, then examine the ToDoActivity.java file.</source>
+          <target state="new">In Package Explorer, expand <bpt id="cf82bce9-b85a-410d-9990-c5141bc9e3fd">&lt;strong&gt;</bpt>GetStartedWithData<ept id="cf82bce9-b85a-410d-9990-c5141bc9e3fd">&lt;/strong&gt;</ept>, <bpt id="24655f19-5658-4880-ac22-aa8cf9fbb2a6">&lt;strong&gt;</bpt>src<ept id="24655f19-5658-4880-ac22-aa8cf9fbb2a6">&lt;/strong&gt;</ept>, and <bpt id="800b5ffd-bad5-46f7-9208-5f1e528aa776">&lt;strong&gt;</bpt>.com.example.GetStartedWithData<ept id="800b5ffd-bad5-46f7-9208-5f1e528aa776">&lt;/strong&gt;</ept>, then examine the ToDoActivity.java file.</target>
+        </trans-unit>
+        <trans-unit id="bee5d83e-3e0b-4dde-8acb-614178eb7170" xml:space="preserve">
+          <source><bpt id="df04f03e-29e0-4fc2-93ac-ccb00eaffae9">&lt;linkText&gt;</bpt><ept id="df04f03e-29e0-4fc2-93ac-ccb00eaffae9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df04f03e-29e0-4fc2-93ac-ccb00eaffae9">&lt;linkText&gt;</bpt><ept id="df04f03e-29e0-4fc2-93ac-ccb00eaffae9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cef98775-f9df-4e78-aa9e-ab48aecd7807" xml:space="preserve">
+          <source>Notice that there are <bpt id="12846bab-cbee-4476-8628-30c38ca333a4">&lt;code&gt;</bpt>//TODO<ept id="12846bab-cbee-4476-8628-30c38ca333a4">&lt;/code&gt;</ept> comments that specify the steps you must take to make this app work with your mobile service.</source>
+          <target state="new">Notice that there are <bpt id="12846bab-cbee-4476-8628-30c38ca333a4">&lt;code&gt;</bpt>//TODO<ept id="12846bab-cbee-4476-8628-30c38ca333a4">&lt;/code&gt;</ept> comments that specify the steps you must take to make this app work with your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="e951da70-9613-4ff4-b534-3a748a17bf02" xml:space="preserve">
+          <source>From the <bpt id="1f8e176b-7935-453b-8ce7-7d11de73c0b2">&lt;strong&gt;</bpt>Run<ept id="1f8e176b-7935-453b-8ce7-7d11de73c0b2">&lt;/strong&gt;</ept> menu, click <bpt id="53dc10f3-bb69-49f4-b4bf-c0a2c843375f">&lt;strong&gt;</bpt>Run<ept id="53dc10f3-bb69-49f4-b4bf-c0a2c843375f">&lt;/strong&gt;</ept> and then click <bpt id="3bc18987-f6ab-4900-b11d-ebb1a207a548">&lt;strong&gt;</bpt>Android Application<ept id="3bc18987-f6ab-4900-b11d-ebb1a207a548">&lt;/strong&gt;</ept> to start the project.</source>
+          <target state="new">From the <bpt id="1f8e176b-7935-453b-8ce7-7d11de73c0b2">&lt;strong&gt;</bpt>Run<ept id="1f8e176b-7935-453b-8ce7-7d11de73c0b2">&lt;/strong&gt;</ept> menu, click <bpt id="53dc10f3-bb69-49f4-b4bf-c0a2c843375f">&lt;strong&gt;</bpt>Run<ept id="53dc10f3-bb69-49f4-b4bf-c0a2c843375f">&lt;/strong&gt;</ept> and then click <bpt id="3bc18987-f6ab-4900-b11d-ebb1a207a548">&lt;strong&gt;</bpt>Android Application<ept id="3bc18987-f6ab-4900-b11d-ebb1a207a548">&lt;/strong&gt;</ept> to start the project.</target>
+        </trans-unit>
+        <trans-unit id="d3c14811-5c37-4916-9d49-0cfb29cd7bbe" xml:space="preserve">
+          <source>You can run this project using an Android phone, or using the Android emulator.</source>
+          <target state="new">You can run this project using an Android phone, or using the Android emulator.</target>
+        </trans-unit>
+        <trans-unit id="20b60a58-7469-4f81-bf89-9a50b6d4f8d2" xml:space="preserve">
+          <source>Running with an Android phone  requires you to download a phone-specific USB driver.</source>
+          <target state="new">Running with an Android phone  requires you to download a phone-specific USB driver.</target>
+        </trans-unit>
+        <trans-unit id="534826e1-3647-4643-a432-980790b5d6e0" xml:space="preserve">
+          <source>To run the project in the Android emulator, you must define a least one Android Virtual Device (AVD).</source>
+          <target state="new">To run the project in the Android emulator, you must define a least one Android Virtual Device (AVD).</target>
+        </trans-unit>
+        <trans-unit id="ff5f2c32-a26b-4c8d-a947-76d84baef561" xml:space="preserve">
+          <source>Use the AVD Manager to create and manage these devices.</source>
+          <target state="new">Use the AVD Manager to create and manage these devices.</target>
+        </trans-unit>
+        <trans-unit id="70a46b86-7c1c-4f11-a4dc-6fd9da7b8f60" xml:space="preserve">
+          <source>In the app, type meaningful text, such as <bpt id="c248d4bc-e0f5-4271-9a18-9f89318e43f4">&lt;em&gt;</bpt>Complete the tutorial<ept id="c248d4bc-e0f5-4271-9a18-9f89318e43f4">&lt;/em&gt;</ept>, and then click <bpt id="1531bdaf-f3c7-4d64-a15c-9e469b32a23b">&lt;strong&gt;</bpt>Add<ept id="1531bdaf-f3c7-4d64-a15c-9e469b32a23b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type meaningful text, such as <bpt id="c248d4bc-e0f5-4271-9a18-9f89318e43f4">&lt;em&gt;</bpt>Complete the tutorial<ept id="c248d4bc-e0f5-4271-9a18-9f89318e43f4">&lt;/em&gt;</ept>, and then click <bpt id="1531bdaf-f3c7-4d64-a15c-9e469b32a23b">&lt;strong&gt;</bpt>Add<ept id="1531bdaf-f3c7-4d64-a15c-9e469b32a23b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2c5351a-1a9e-4b1a-9aa4-cdc074597512" xml:space="preserve">
+          <source><bpt id="47d5946f-b914-46bf-8145-65ac5dea02ef">&lt;linkText&gt;</bpt><ept id="47d5946f-b914-46bf-8145-65ac5dea02ef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="47d5946f-b914-46bf-8145-65ac5dea02ef">&lt;linkText&gt;</bpt><ept id="47d5946f-b914-46bf-8145-65ac5dea02ef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="981438a0-fbe0-4dca-9c29-2a00d39afe18" xml:space="preserve">
+          <source>Notice that the saved text is stored in an in-memory collection and displayed in the list below.</source>
+          <target state="new">Notice that the saved text is stored in an in-memory collection and displayed in the list below.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4403fe94-8fec-45c3-ab0a-74ba0da39cf7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4403fe94-8fec-45c3-ab0a-74ba0da39cf7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9810e4b6-ce3f-4ab6-b08a-fde0401821cc">
+        <trans-unit id="c1bffba5-e63e-4387-8e37-94e1b3f4814a" xml:space="preserve">
+          <source>Enable offline sync for your Azure Mobile App (Xamarin iOS)</source>
+          <target state="new">Enable offline sync for your Azure Mobile App (Xamarin iOS)</target>
+        </trans-unit>
+        <trans-unit id="76f05321-1660-4e3a-8e5c-ad68130e9163" xml:space="preserve">
+          <source>Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin iOS application</source>
+          <target state="new">Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin iOS application</target>
+        </trans-unit>
+        <trans-unit id="f4734a2e-d450-41ac-9679-2048bf44e545" xml:space="preserve">
+          <source><bpt id="f149dcf1-1d22-44a6-8570-6514fbe31557">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="f149dcf1-1d22-44a6-8570-6514fbe31557">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f149dcf1-1d22-44a6-8570-6514fbe31557">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="f149dcf1-1d22-44a6-8570-6514fbe31557">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4e74529-4bd0-4bba-910a-3b7c4b2b4143" xml:space="preserve">
+          <source>This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamarin.iOS.</source>
+          <target state="new">This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamarin.iOS.</target>
+        </trans-unit>
+        <trans-unit id="82d403ee-2b6d-442e-a556-13164c138521" xml:space="preserve">
+          <source>Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection.</source>
+          <target state="new">Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection.</target>
+        </trans-unit>
+        <trans-unit id="e07e0147-982e-4d11-bd2f-c9485ba1c6d3" xml:space="preserve">
+          <source>Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.</source>
+          <target state="new">Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.</target>
+        </trans-unit>
+        <trans-unit id="7e95f434-8479-4861-8419-32e2e61686a5" xml:space="preserve">
+          <source>In this tutorial, you will update the Xamarin.iOS app project from the tutorial [Create a Xamarin iOS app] to support the offline features of Azure Mobile Apps.</source>
+          <target state="new">In this tutorial, you will update the Xamarin.iOS app project from the tutorial [Create a Xamarin iOS app] to support the offline features of Azure Mobile Apps.</target>
+        </trans-unit>
+        <trans-unit id="25f9d8ab-a7d5-4e03-ad3a-e756a448a440" xml:space="preserve">
+          <source>If you do not use the downloaded quick start server project, you must add the data access extension packages to your project.</source>
+          <target state="new">If you do not use the downloaded quick start server project, you must add the data access extension packages to your project.</target>
+        </trans-unit>
+        <trans-unit id="2a939c83-0204-47b7-93de-60ba49aacc46" xml:space="preserve">
+          <source>For more information about server extension packages, see <bpt id="8bf6dd18-27ee-4113-9ff3-7194ea5df451">&lt;linkText&gt;</bpt>Work with the .NET backend server SDK for Azure Mobile Apps<ept id="8bf6dd18-27ee-4113-9ff3-7194ea5df451">&lt;/linkText&gt;</ept><bpt id="8bf6dd18-27ee-4113-9ff3-7194ea5df451">&lt;title&gt;</bpt><ept id="8bf6dd18-27ee-4113-9ff3-7194ea5df451">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about server extension packages, see <bpt id="8bf6dd18-27ee-4113-9ff3-7194ea5df451">&lt;linkText&gt;</bpt>Work with the .NET backend server SDK for Azure Mobile Apps<ept id="8bf6dd18-27ee-4113-9ff3-7194ea5df451">&lt;/linkText&gt;</ept><bpt id="8bf6dd18-27ee-4113-9ff3-7194ea5df451">&lt;title&gt;</bpt><ept id="8bf6dd18-27ee-4113-9ff3-7194ea5df451">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8bf6df11-dcab-4405-bc88-66a7a1b13657" xml:space="preserve">
+          <source>To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].</source>
+          <target state="new">To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].</target>
+        </trans-unit>
+        <trans-unit id="82196063-ba25-4661-b1e1-87fb8aab1986" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="66eb5542-c49f-438a-8d22-cef73deb02c0" xml:space="preserve">
+          <source>Visual Studio 2013</source>
+          <target state="new">Visual Studio 2013</target>
+        </trans-unit>
+        <trans-unit id="23e3fa84-5989-43ad-898d-f4642fdaca80" xml:space="preserve">
+          <source>Visual Studio [Xamarin extension] <bpt id="e2da0930-16f2-4df9-9b36-87839a51667b">&lt;strong&gt;</bpt>or<ept id="e2da0930-16f2-4df9-9b36-87839a51667b">&lt;/strong&gt;</ept> [Xamarin Studio] on OS X</source>
+          <target state="new">Visual Studio [Xamarin extension] <bpt id="e2da0930-16f2-4df9-9b36-87839a51667b">&lt;strong&gt;</bpt>or<ept id="e2da0930-16f2-4df9-9b36-87839a51667b">&lt;/strong&gt;</ept> [Xamarin Studio] on OS X</target>
+        </trans-unit>
+        <trans-unit id="4da6a9d1-7256-40b9-a3f3-3e7476dcc8bb" xml:space="preserve">
+          <source>Completion of the tutorial [Create a Xamarin iOS app].</source>
+          <target state="new">Completion of the tutorial [Create a Xamarin iOS app].</target>
+        </trans-unit>
+        <trans-unit id="ad149d88-81ea-459c-91a6-6c22bf4f628d" xml:space="preserve">
+          <source>This tutorial uses the completed app covered in that tutorial.</source>
+          <target state="new">This tutorial uses the completed app covered in that tutorial.</target>
+        </trans-unit>
+        <trans-unit id="e9664d52-fae5-4959-807c-4d03105d13c6" xml:space="preserve">
+          <source>The Xamarin client project that you downloaded when you completed the tutorial [Create a Xamarin iOS app] already contains code supporting offline synchronization using a local SQLite database.</source>
+          <target state="new">The Xamarin client project that you downloaded when you completed the tutorial [Create a Xamarin iOS app] already contains code supporting offline synchronization using a local SQLite database.</target>
+        </trans-unit>
+        <trans-unit id="b75c75ae-98d8-4e8b-a2f6-1a9569583d69" xml:space="preserve">
+          <source>Here is a brief overview of what is already included in the tutorial code.</source>
+          <target state="new">Here is a brief overview of what is already included in the tutorial code.</target>
+        </trans-unit>
+        <trans-unit id="93c35c9d-4802-463f-acad-40f1945ffb90" xml:space="preserve">
+          <source>For a conceptual overview of the feature, see [Offline Data Sync in Azure Mobile Apps].</source>
+          <target state="new">For a conceptual overview of the feature, see [Offline Data Sync in Azure Mobile Apps].</target>
+        </trans-unit>
+        <trans-unit id="cb406de1-9915-4e57-8e94-a6178e671b4d" xml:space="preserve">
+          <source>Before any table operations can be performed, the local store must be initialized.</source>
+          <target state="new">Before any table operations can be performed, the local store must be initialized.</target>
+        </trans-unit>
+        <trans-unit id="7f239931-4e70-4c8d-bad1-b0526798fb7c" xml:space="preserve">
+          <source>The local store database is initialized when <bpt id="99f08a62-2a50-4a88-b730-0b2bb6b499c8">&lt;code&gt;</bpt>QSTodoListViewController.ViewDidLoad()<ept id="99f08a62-2a50-4a88-b730-0b2bb6b499c8">&lt;/code&gt;</ept> executes <bpt id="deb3996e-6469-49d9-8b16-71401c5a2af4">&lt;code&gt;</bpt>QSTodoService.InitializeStoreAsync()<ept id="deb3996e-6469-49d9-8b16-71401c5a2af4">&lt;/code&gt;</ept>.</source>
+          <target state="new">The local store database is initialized when <bpt id="99f08a62-2a50-4a88-b730-0b2bb6b499c8">&lt;code&gt;</bpt>QSTodoListViewController.ViewDidLoad()<ept id="99f08a62-2a50-4a88-b730-0b2bb6b499c8">&lt;/code&gt;</ept> executes <bpt id="deb3996e-6469-49d9-8b16-71401c5a2af4">&lt;code&gt;</bpt>QSTodoService.InitializeStoreAsync()<ept id="deb3996e-6469-49d9-8b16-71401c5a2af4">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4bc185b-d3f4-49a4-9e9a-ad50eba7beed" xml:space="preserve">
+          <source>This creates a new local SQLite database using the <bpt id="213947c9-d11f-44c7-ae26-40228e82e59e">&lt;code&gt;</bpt>MobileServiceSQLiteStore<ept id="213947c9-d11f-44c7-ae26-40228e82e59e">&lt;/code&gt;</ept> class provided by the Azure Mobile App client SDK.</source>
+          <target state="new">This creates a new local SQLite database using the <bpt id="213947c9-d11f-44c7-ae26-40228e82e59e">&lt;code&gt;</bpt>MobileServiceSQLiteStore<ept id="213947c9-d11f-44c7-ae26-40228e82e59e">&lt;/code&gt;</ept> class provided by the Azure Mobile App client SDK.</target>
+        </trans-unit>
+        <trans-unit id="579377a5-6fe8-4a57-b4a8-0a74544d7866" xml:space="preserve">
+          <source>The <bpt id="37c1736a-48a3-4669-86ce-502a0bc1541b">&lt;code&gt;</bpt>DefineTable<ept id="37c1736a-48a3-4669-86ce-502a0bc1541b">&lt;/code&gt;</ept> method creates a table in the local store that matches the fields in the provided type, <bpt id="20b06141-174b-4830-af15-be1d0b5866fc">&lt;code&gt;</bpt>ToDoItem<ept id="20b06141-174b-4830-af15-be1d0b5866fc">&lt;/code&gt;</ept> in this case.</source>
+          <target state="new">The <bpt id="37c1736a-48a3-4669-86ce-502a0bc1541b">&lt;code&gt;</bpt>DefineTable<ept id="37c1736a-48a3-4669-86ce-502a0bc1541b">&lt;/code&gt;</ept> method creates a table in the local store that matches the fields in the provided type, <bpt id="20b06141-174b-4830-af15-be1d0b5866fc">&lt;code&gt;</bpt>ToDoItem<ept id="20b06141-174b-4830-af15-be1d0b5866fc">&lt;/code&gt;</ept> in this case.</target>
+        </trans-unit>
+        <trans-unit id="eb53a458-4b4b-4a4b-895a-4150280707df" xml:space="preserve">
+          <source>The type doesn't have to include all of the columns that are in the remote database.</source>
+          <target state="new">The type doesn't have to include all of the columns that are in the remote database.</target>
+        </trans-unit>
+        <trans-unit id="d26c2388-2a29-4461-be8a-19dc5827596a" xml:space="preserve">
+          <source>It is possible to store just a subset of columns.</source>
+          <target state="new">It is possible to store just a subset of columns.</target>
+        </trans-unit>
+        <trans-unit id="69cce3f3-d2b2-4e41-969d-cc1905056ce4" xml:space="preserve">
+          <source>The <bpt id="dbc5d6f9-091d-4420-be04-bf2d68d6777e">&lt;code&gt;</bpt>todoTable<ept id="dbc5d6f9-091d-4420-be04-bf2d68d6777e">&lt;/code&gt;</ept> member of <bpt id="c86bebee-9544-4448-8fc1-42de1b1a68e0">&lt;code&gt;</bpt>QSTodoService<ept id="c86bebee-9544-4448-8fc1-42de1b1a68e0">&lt;/code&gt;</ept> is of the <bpt id="d8a16329-8cf7-4d06-96df-3123625c2e62">&lt;code&gt;</bpt>IMobileServiceSyncTable<ept id="d8a16329-8cf7-4d06-96df-3123625c2e62">&lt;/code&gt;</ept> type instead of <bpt id="a01881f7-37db-4a45-ad02-2cec5c415a5d">&lt;code&gt;</bpt>IMobileServiceTable<ept id="a01881f7-37db-4a45-ad02-2cec5c415a5d">&lt;/code&gt;</ept>.</source>
+          <target state="new">The <bpt id="dbc5d6f9-091d-4420-be04-bf2d68d6777e">&lt;code&gt;</bpt>todoTable<ept id="dbc5d6f9-091d-4420-be04-bf2d68d6777e">&lt;/code&gt;</ept> member of <bpt id="c86bebee-9544-4448-8fc1-42de1b1a68e0">&lt;code&gt;</bpt>QSTodoService<ept id="c86bebee-9544-4448-8fc1-42de1b1a68e0">&lt;/code&gt;</ept> is of the <bpt id="d8a16329-8cf7-4d06-96df-3123625c2e62">&lt;code&gt;</bpt>IMobileServiceSyncTable<ept id="d8a16329-8cf7-4d06-96df-3123625c2e62">&lt;/code&gt;</ept> type instead of <bpt id="a01881f7-37db-4a45-ad02-2cec5c415a5d">&lt;code&gt;</bpt>IMobileServiceTable<ept id="a01881f7-37db-4a45-ad02-2cec5c415a5d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="28069de2-76c6-459c-871b-85e33a6a9299" xml:space="preserve">
+          <source>This directs all create, read, update, and delete (CRUD) table operations to the local store database.</source>
+          <target state="new">This directs all create, read, update, and delete (CRUD) table operations to the local store database.</target>
+        </trans-unit>
+        <trans-unit id="4b290247-c202-4d1c-82fc-a53dcbb9b078" xml:space="preserve">
+          <source>You decide when those changes are pushed up to the Azure Mobile App backend by calling <bpt id="c06cd8a9-d846-492c-851d-70a605856c47">&lt;code&gt;</bpt>IMobileServiceSyncContext.PushAsync()<ept id="c06cd8a9-d846-492c-851d-70a605856c47">&lt;/code&gt;</ept> using the sync context for the client connection.</source>
+          <target state="new">You decide when those changes are pushed up to the Azure Mobile App backend by calling <bpt id="c06cd8a9-d846-492c-851d-70a605856c47">&lt;code&gt;</bpt>IMobileServiceSyncContext.PushAsync()<ept id="c06cd8a9-d846-492c-851d-70a605856c47">&lt;/code&gt;</ept> using the sync context for the client connection.</target>
+        </trans-unit>
+        <trans-unit id="5374359c-ae22-4fe3-9bb8-fccd20b27de3" xml:space="preserve">
+          <source>The sync context helps preserve table relationships by tracking and pushing changes in all tables a client app has modified when <bpt id="d3dd9f28-e1a7-4a5a-bbc3-7b89fdc838de">&lt;code&gt;</bpt>PushAsync<ept id="d3dd9f28-e1a7-4a5a-bbc3-7b89fdc838de">&lt;/code&gt;</ept> is called.</source>
+          <target state="new">The sync context helps preserve table relationships by tracking and pushing changes in all tables a client app has modified when <bpt id="d3dd9f28-e1a7-4a5a-bbc3-7b89fdc838de">&lt;code&gt;</bpt>PushAsync<ept id="d3dd9f28-e1a7-4a5a-bbc3-7b89fdc838de">&lt;/code&gt;</ept> is called.</target>
+        </trans-unit>
+        <trans-unit id="bffa41ae-d2a1-4e92-9de3-0403651d015b" xml:space="preserve">
+          <source>The provided code calls <bpt id="3f936fb4-9706-4f5d-9900-55a5ed45e557">&lt;code&gt;</bpt>QSTodoService.SyncAsync()<ept id="3f936fb4-9706-4f5d-9900-55a5ed45e557">&lt;/code&gt;</ept> to sync whenever the todoitem list is refreshed or a todoitem is added or completed.</source>
+          <target state="new">The provided code calls <bpt id="3f936fb4-9706-4f5d-9900-55a5ed45e557">&lt;code&gt;</bpt>QSTodoService.SyncAsync()<ept id="3f936fb4-9706-4f5d-9900-55a5ed45e557">&lt;/code&gt;</ept> to sync whenever the todoitem list is refreshed or a todoitem is added or completed.</target>
+        </trans-unit>
+        <trans-unit id="7d2fe9aa-7afb-425f-8d93-5c369c52eb8b" xml:space="preserve">
+          <source>So it syncs after every local change executing a push on the sync context and a pull on the sync table.</source>
+          <target state="new">So it syncs after every local change executing a push on the sync context and a pull on the sync table.</target>
+        </trans-unit>
+        <trans-unit id="d61133fa-8047-40e6-a022-2f0ef4ac72a4" xml:space="preserve">
+          <source>However, it is important to realize that if a pull is executed against a table that has pending local updates tracked by the context, that pull operation will automatically trigger a context push first.</source>
+          <target state="new">However, it is important to realize that if a pull is executed against a table that has pending local updates tracked by the context, that pull operation will automatically trigger a context push first.</target>
+        </trans-unit>
+        <trans-unit id="27976c98-3261-4dda-87b4-24e0988f103c" xml:space="preserve">
+          <source>So in these cases (refresh, adding and completing items) you could omit the explicit <bpt id="56ef26cf-b979-46ed-8318-a62c17cd9faa">&lt;code&gt;</bpt>PushAsync<ept id="56ef26cf-b979-46ed-8318-a62c17cd9faa">&lt;/code&gt;</ept> call.</source>
+          <target state="new">So in these cases (refresh, adding and completing items) you could omit the explicit <bpt id="56ef26cf-b979-46ed-8318-a62c17cd9faa">&lt;code&gt;</bpt>PushAsync<ept id="56ef26cf-b979-46ed-8318-a62c17cd9faa">&lt;/code&gt;</ept> call.</target>
+        </trans-unit>
+        <trans-unit id="7df66614-17a0-4632-bd32-4d2ecf5d1824" xml:space="preserve">
+          <source>It is redundant.</source>
+          <target state="new">It is redundant.</target>
+        </trans-unit>
+        <trans-unit id="a8546d7e-5229-496e-aa17-8dc257b763f9" xml:space="preserve">
+          <source>In the provided code, all records in the remote <bpt id="6ee06bbe-4751-4524-8579-226413d6002a">&lt;code&gt;</bpt>TodoItem<ept id="6ee06bbe-4751-4524-8579-226413d6002a">&lt;/code&gt;</ept> table are queried, but it is also possible to filter records by passing a query id and query to <bpt id="5e524176-6ee0-4cf1-8404-248aeac27e0a">&lt;code&gt;</bpt>PushAsync<ept id="5e524176-6ee0-4cf1-8404-248aeac27e0a">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the provided code, all records in the remote <bpt id="6ee06bbe-4751-4524-8579-226413d6002a">&lt;code&gt;</bpt>TodoItem<ept id="6ee06bbe-4751-4524-8579-226413d6002a">&lt;/code&gt;</ept> table are queried, but it is also possible to filter records by passing a query id and query to <bpt id="5e524176-6ee0-4cf1-8404-248aeac27e0a">&lt;code&gt;</bpt>PushAsync<ept id="5e524176-6ee0-4cf1-8404-248aeac27e0a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bf06524-1f2f-4bd2-96fd-408339e9bb04" xml:space="preserve">
+          <source>For more information see the section <bpt id="f2d857d1-b38a-4df7-bb3a-d1a4aee6da06">&lt;em&gt;</bpt>Incremental Sync<ept id="f2d857d1-b38a-4df7-bb3a-d1a4aee6da06">&lt;/em&gt;</ept> in [Offline Data Sync in Azure Mobile Apps].</source>
+          <target state="new">For more information see the section <bpt id="f2d857d1-b38a-4df7-bb3a-d1a4aee6da06">&lt;em&gt;</bpt>Incremental Sync<ept id="f2d857d1-b38a-4df7-bb3a-d1a4aee6da06">&lt;/em&gt;</ept> in [Offline Data Sync in Azure Mobile Apps].</target>
+        </trans-unit>
+        <trans-unit id="d3e51b0b-02b3-4a6a-9137-a5ee0423ee8a" xml:space="preserve">
+          <source>Run the client application at least once to to populate the local store database.</source>
+          <target state="new">Run the client application at least once to to populate the local store database.</target>
+        </trans-unit>
+        <trans-unit id="0bbc44e2-c072-459c-87b4-42b02bf1a878" xml:space="preserve">
+          <source>In the next section, you will simulate an offline scenario and modify the data in the local store while the app is offline.</source>
+          <target state="new">In the next section, you will simulate an offline scenario and modify the data in the local store while the app is offline.</target>
+        </trans-unit>
+        <trans-unit id="da487b00-494b-4958-be51-f7d2d8c045d3" xml:space="preserve">
+          <source>In this section, you will modify the client project to simulate an offline scenario by using an invalid application URL for your backend.</source>
+          <target state="new">In this section, you will modify the client project to simulate an offline scenario by using an invalid application URL for your backend.</target>
+        </trans-unit>
+        <trans-unit id="56f44b9c-6cfe-414b-834d-682707de3de5" xml:space="preserve">
+          <source>When you add or change data items, these changes will be held in the local store, but not synced to the backend data store until the connection is re-established.</source>
+          <target state="new">When you add or change data items, these changes will be held in the local store, but not synced to the backend data store until the connection is re-established.</target>
+        </trans-unit>
+        <trans-unit id="d2db64fb-d1c0-4a68-a8b1-97fa6e38ad9f" xml:space="preserve">
+          <source>At the top of <bpt id="baf933ca-f3b5-42eb-9b6c-ca85acc118e9">&lt;code&gt;</bpt>QSTodoService.cs<ept id="baf933ca-f3b5-42eb-9b6c-ca85acc118e9">&lt;/code&gt;</ept>, change the initialization of <bpt id="367fae0d-e31c-4a13-bdb4-62ace6c03ccd">&lt;code&gt;</bpt>applicationURL<ept id="367fae0d-e31c-4a13-bdb4-62ace6c03ccd">&lt;/code&gt;</ept> and <bpt id="20a22d35-14a0-40a0-9abb-a05d7648436c">&lt;code&gt;</bpt>gatewayURL<ept id="20a22d35-14a0-40a0-9abb-a05d7648436c">&lt;/code&gt;</ept> to point to invalid URLs:</source>
+          <target state="new">At the top of <bpt id="baf933ca-f3b5-42eb-9b6c-ca85acc118e9">&lt;code&gt;</bpt>QSTodoService.cs<ept id="baf933ca-f3b5-42eb-9b6c-ca85acc118e9">&lt;/code&gt;</ept>, change the initialization of <bpt id="367fae0d-e31c-4a13-bdb4-62ace6c03ccd">&lt;code&gt;</bpt>applicationURL<ept id="367fae0d-e31c-4a13-bdb4-62ace6c03ccd">&lt;/code&gt;</ept> and <bpt id="20a22d35-14a0-40a0-9abb-a05d7648436c">&lt;code&gt;</bpt>gatewayURL<ept id="20a22d35-14a0-40a0-9abb-a05d7648436c">&lt;/code&gt;</ept> to point to invalid URLs:</target>
+        </trans-unit>
+        <trans-unit id="68041fc9-8400-4b06-8c20-976c9a1d7668" xml:space="preserve">
+          <source>Add an additional <bpt id="b273ad28-0682-42cc-9096-994cf3fa9aad">&lt;code&gt;</bpt>catch<ept id="b273ad28-0682-42cc-9096-994cf3fa9aad">&lt;/code&gt;</ept> for the <bpt id="8e665120-8665-4f9a-95f3-77eea030983e">&lt;code&gt;</bpt>Exception<ept id="8e665120-8665-4f9a-95f3-77eea030983e">&lt;/code&gt;</ept> class in <bpt id="c599a735-f32f-42ee-90bd-5a4a50b5a73e">&lt;code&gt;</bpt>QSTodoService.SyncAsync<ept id="c599a735-f32f-42ee-90bd-5a4a50b5a73e">&lt;/code&gt;</ept> that will write the exception message to the console.</source>
+          <target state="new">Add an additional <bpt id="b273ad28-0682-42cc-9096-994cf3fa9aad">&lt;code&gt;</bpt>catch<ept id="b273ad28-0682-42cc-9096-994cf3fa9aad">&lt;/code&gt;</ept> for the <bpt id="8e665120-8665-4f9a-95f3-77eea030983e">&lt;code&gt;</bpt>Exception<ept id="8e665120-8665-4f9a-95f3-77eea030983e">&lt;/code&gt;</ept> class in <bpt id="c599a735-f32f-42ee-90bd-5a4a50b5a73e">&lt;code&gt;</bpt>QSTodoService.SyncAsync<ept id="c599a735-f32f-42ee-90bd-5a4a50b5a73e">&lt;/code&gt;</ept> that will write the exception message to the console.</target>
+        </trans-unit>
+        <trans-unit id="8f479a91-a0a3-404b-8c0d-ba127d12bcca" xml:space="preserve">
+          <source>Build and run the client app.</source>
+          <target state="new">Build and run the client app.</target>
+        </trans-unit>
+        <trans-unit id="c1b394bf-c6d4-421a-8dff-a7814f5cc2da" xml:space="preserve">
+          <source>Add some new todo items and notice exception logged in the console for each attempt to sync with the Mobile App backend.</source>
+          <target state="new">Add some new todo items and notice exception logged in the console for each attempt to sync with the Mobile App backend.</target>
+        </trans-unit>
+        <trans-unit id="36cf4a2c-679a-4c3f-8dcd-fa2a49e87cd4" xml:space="preserve">
+          <source>These new items exist only in the local store until they can be pushed to the mobile backend.</source>
+          <target state="new">These new items exist only in the local store until they can be pushed to the mobile backend.</target>
+        </trans-unit>
+        <trans-unit id="418143aa-9b2a-4147-8f77-a9308d942821" xml:space="preserve">
+          <source>The client app behaves as if is connected to the backend, supporting all create, read, update, delete (CRUD) operations.</source>
+          <target state="new">The client app behaves as if is connected to the backend, supporting all create, read, update, delete (CRUD) operations.</target>
+        </trans-unit>
+        <trans-unit id="71fda5fc-282e-4df3-b855-dcf74a09610b" xml:space="preserve">
+          <source>Close the app and restart it to verify that the new items you created are persisted to the local store.</source>
+          <target state="new">Close the app and restart it to verify that the new items you created are persisted to the local store.</target>
+        </trans-unit>
+        <trans-unit id="b7bd8988-8df2-4feb-8a07-c6283fa709f2" xml:space="preserve">
+          <source>(Optional) Use Visual Studio to view your Azure SQL Database table to see that the data in the backend database has not changed.</source>
+          <target state="new">(Optional) Use Visual Studio to view your Azure SQL Database table to see that the data in the backend database has not changed.</target>
+        </trans-unit>
+        <trans-unit id="af282c7f-54bd-4e56-8daa-be62318be7ca" xml:space="preserve">
+          <source>In Visual Studio, open <bpt id="d7d3abfa-16b2-4053-abf7-7f1ca52dab2a">&lt;strong&gt;</bpt>Server Explorer<ept id="d7d3abfa-16b2-4053-abf7-7f1ca52dab2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, open <bpt id="d7d3abfa-16b2-4053-abf7-7f1ca52dab2a">&lt;strong&gt;</bpt>Server Explorer<ept id="d7d3abfa-16b2-4053-abf7-7f1ca52dab2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2020201-184d-4de6-ba13-820785714ef8" xml:space="preserve">
+          <source>Navigate to your database in <bpt id="398187b0-3aa6-42b9-8bba-b5d7303f0071">&lt;strong&gt;</bpt>Azure<ept id="398187b0-3aa6-42b9-8bba-b5d7303f0071">&lt;/strong&gt;</ept>-&gt;<bpt id="6fe0dc69-7e23-4819-b3a0-2bb07a408d51">&lt;strong&gt;</bpt>SQL Databases<ept id="6fe0dc69-7e23-4819-b3a0-2bb07a408d51">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to your database in <bpt id="398187b0-3aa6-42b9-8bba-b5d7303f0071">&lt;strong&gt;</bpt>Azure<ept id="398187b0-3aa6-42b9-8bba-b5d7303f0071">&lt;/strong&gt;</ept>-&gt;<bpt id="6fe0dc69-7e23-4819-b3a0-2bb07a408d51">&lt;strong&gt;</bpt>SQL Databases<ept id="6fe0dc69-7e23-4819-b3a0-2bb07a408d51">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe0fb51d-4a62-4897-9454-82767cb7b7f1" xml:space="preserve">
+          <source>Right-click your database and select <bpt id="ce490fb7-e144-420e-983a-0ff2fb87d95c">&lt;strong&gt;</bpt>Open in SQL Server Object Explorer<ept id="ce490fb7-e144-420e-983a-0ff2fb87d95c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click your database and select <bpt id="ce490fb7-e144-420e-983a-0ff2fb87d95c">&lt;strong&gt;</bpt>Open in SQL Server Object Explorer<ept id="ce490fb7-e144-420e-983a-0ff2fb87d95c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9c4e9c2-e8f6-4170-a810-a053c7fe3a4b" xml:space="preserve">
+          <source>Now you can browse to your SQL database table and its contents.</source>
+          <target state="new">Now you can browse to your SQL database table and its contents.</target>
+        </trans-unit>
+        <trans-unit id="aad87c00-a0aa-484b-9a9b-e3826cd950af" xml:space="preserve">
+          <source>(Optional) Use a REST tool such as Fiddler or Postman to query your mobile backend, using a GET query in the form <bpt id="cbe91044-4079-4a62-bd01-9a0cd86a4407">&lt;code&gt;</bpt>https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem<ept id="cbe91044-4079-4a62-bd01-9a0cd86a4407">&lt;/code&gt;</ept>.</source>
+          <target state="new">(Optional) Use a REST tool such as Fiddler or Postman to query your mobile backend, using a GET query in the form <bpt id="cbe91044-4079-4a62-bd01-9a0cd86a4407">&lt;code&gt;</bpt>https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem<ept id="cbe91044-4079-4a62-bd01-9a0cd86a4407">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d241301-f96c-4a63-91f7-536056c745ff" xml:space="preserve">
+          <source>In this section you will reconnect the app to the mobile backend, which simulates the app coming back to an online state.</source>
+          <target state="new">In this section you will reconnect the app to the mobile backend, which simulates the app coming back to an online state.</target>
+        </trans-unit>
+        <trans-unit id="edd2ab29-036d-40be-8649-c39ae5ba53e2" xml:space="preserve">
+          <source>When you perform the refresh gesture, data will be synced to your mobile backend.</source>
+          <target state="new">When you perform the refresh gesture, data will be synced to your mobile backend.</target>
+        </trans-unit>
+        <trans-unit id="023f40b7-be4e-4b86-a135-f43dd33d26dc" xml:space="preserve">
+          <source>Open <bpt id="a75f8f99-7abe-4b45-b479-aa79b2268499">&lt;code&gt;</bpt>QSTodoService.cs<ept id="a75f8f99-7abe-4b45-b479-aa79b2268499">&lt;/code&gt;</ept>.</source>
+          <target state="new">Open <bpt id="a75f8f99-7abe-4b45-b479-aa79b2268499">&lt;code&gt;</bpt>QSTodoService.cs<ept id="a75f8f99-7abe-4b45-b479-aa79b2268499">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b3edbbc-6a83-4d4a-8831-bc2ecb871f80" xml:space="preserve">
+          <source>Correct the <bpt id="e11c06ef-8f81-4dd0-b756-5d693e3c5f63">&lt;code&gt;</bpt>applicationURL<ept id="e11c06ef-8f81-4dd0-b756-5d693e3c5f63">&lt;/code&gt;</ept> and <bpt id="5467ba9c-de98-4044-859f-3602d6ddc796">&lt;code&gt;</bpt>gatewayURL<ept id="5467ba9c-de98-4044-859f-3602d6ddc796">&lt;/code&gt;</ept> to point to the correct URLs.</source>
+          <target state="new">Correct the <bpt id="e11c06ef-8f81-4dd0-b756-5d693e3c5f63">&lt;code&gt;</bpt>applicationURL<ept id="e11c06ef-8f81-4dd0-b756-5d693e3c5f63">&lt;/code&gt;</ept> and <bpt id="5467ba9c-de98-4044-859f-3602d6ddc796">&lt;code&gt;</bpt>gatewayURL<ept id="5467ba9c-de98-4044-859f-3602d6ddc796">&lt;/code&gt;</ept> to point to the correct URLs.</target>
+        </trans-unit>
+        <trans-unit id="568b26da-7947-41e1-a484-406a4b62e738" xml:space="preserve">
+          <source>Rebuild and run the client app.</source>
+          <target state="new">Rebuild and run the client app.</target>
+        </trans-unit>
+        <trans-unit id="b5629d86-bb6b-4bc0-affe-e77f58208c38" xml:space="preserve">
+          <source>The app attempts to sync with the Azure Mobile App backend after launching.</source>
+          <target state="new">The app attempts to sync with the Azure Mobile App backend after launching.</target>
+        </trans-unit>
+        <trans-unit id="c691aeda-7af4-4da5-bcd2-b97ff3e2f6a4" xml:space="preserve">
+          <source>Verify no exceptions logged in the debug console.</source>
+          <target state="new">Verify no exceptions logged in the debug console.</target>
+        </trans-unit>
+        <trans-unit id="ef090bc7-cbaf-4f99-9a29-c04a74255e83" xml:space="preserve">
+          <source>(Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler.</source>
+          <target state="new">(Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler.</target>
+        </trans-unit>
+        <trans-unit id="5df4ae29-bccb-49f0-8ea5-43429701872f" xml:space="preserve">
+          <source>Notice the data has been synchronized between the Azure Mobile App backend database and the local store.</source>
+          <target state="new">Notice the data has been synchronized between the Azure Mobile App backend database and the local store.</target>
+        </trans-unit>
+        <trans-unit id="f24644a3-12d8-45d3-9c1c-376fce1af37b" xml:space="preserve">
+          <source>Notice the data has been synchronized between the database and the local store and contains the items you added while your app was disconnected.</source>
+          <target state="new">Notice the data has been synchronized between the database and the local store and contains the items you added while your app was disconnected.</target>
+        </trans-unit>
+        <trans-unit id="f752cd31-4f5b-437e-92a6-bf51597e2c1a" xml:space="preserve">
+          <source>[Offline Data Sync in Azure Mobile Apps]</source>
+          <target state="new">[Offline Data Sync in Azure Mobile Apps]</target>
+        </trans-unit>
+        <trans-unit id="c5ef307d-fa0a-41c8-a93b-fb8129ce60a3" xml:space="preserve">
+          <source>[Cloud Cover: Offline Sync in Azure Mobile Services] \(note: the video is on Mobile Services, but offline sync works in a similar way in Azure Mobile Apps\)    </source>
+          <target state="new">[Cloud Cover: Offline Sync in Azure Mobile Services] \(note: the video is on Mobile Services, but offline sync works in a similar way in Azure Mobile Apps\)    </target>
+        </trans-unit>
+        <trans-unit id="9e280890-e726-491a-bf64-f54934e30848" xml:space="preserve">
+          <source>../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md</source>
+          <target state="new">../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md</target>
+        </trans-unit>
+        <trans-unit id="ee89e656-a670-43e3-bcf1-4b3cd895f76e" xml:space="preserve">
+          <source>../app-service-mobile-offline-data-sync-preview.md</source>
+          <target state="new">../app-service-mobile-offline-data-sync-preview.md</target>
+        </trans-unit>
+        <trans-unit id="0599371a-3c9f-4b28-865c-564bd5c95deb" xml:space="preserve">
+          <source>../partner-xamarin-mobile-services-how-to-use-client-library.md</source>
+          <target state="new">../partner-xamarin-mobile-services-how-to-use-client-library.md</target>
+        </trans-unit>
+        <trans-unit id="163d1c01-2be3-4b87-be67-7dd0edcb1bbe" xml:space="preserve">
+          <source>http://xamarin.com/download</source>
+          <target state="new">http://xamarin.com/download</target>
+        </trans-unit>
+        <trans-unit id="53a62a44-10a9-427e-9fd0-0ec31cfa85d3" xml:space="preserve">
+          <source>http://xamarin.com/visual-studio</source>
+          <target state="new">http://xamarin.com/visual-studio</target>
+        </trans-unit>
+        <trans-unit id="7b32cb05-a9d8-4e7c-9aed-0508865afc00" xml:space="preserve">
+          <source>http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri</source>
+          <target state="new">http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri</target>
+        </trans-unit>
+      </group>
+      <group id="dbba12e6-c4a7-44e0-b258-33e00cbf7b48" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="89006de5-2626-4928-9efa-f5f01bb3f3b8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="89006de5-2626-4928-9efa-f5f01bb3f3b8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="77049b89-3157-4075-81da-307d285e0d7a">
+        <trans-unit id="3018d598-8bed-47c3-a807-9622ff525ba2" xml:space="preserve">
+          <source>Troubleshoot Application Proxy</source>
+          <target state="new">Troubleshoot Application Proxy</target>
+        </trans-unit>
+        <trans-unit id="73cfcef0-59db-43d6-9c6b-aa8594d8511e" xml:space="preserve">
+          <source>Covers how to troubleshoot errors in Azure AD Application Proxy.</source>
+          <target state="new">Covers how to troubleshoot errors in Azure AD Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="5f228cee-b950-4685-a874-ca6f54295fc4" xml:space="preserve">
+          <source>Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</source>
+          <target state="new">Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="315f6582-e6ed-4f7f-8a9f-891b14f7ec03" xml:space="preserve">
+          <source>For more information, see <bpt id="909861e7-0548-4e0f-967a-cf413239c1e0">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="909861e7-0548-4e0f-967a-cf413239c1e0">&lt;/linkText&gt;</ept><bpt id="909861e7-0548-4e0f-967a-cf413239c1e0">&lt;title&gt;</bpt><ept id="909861e7-0548-4e0f-967a-cf413239c1e0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="909861e7-0548-4e0f-967a-cf413239c1e0">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="909861e7-0548-4e0f-967a-cf413239c1e0">&lt;/linkText&gt;</ept><bpt id="909861e7-0548-4e0f-967a-cf413239c1e0">&lt;title&gt;</bpt><ept id="909861e7-0548-4e0f-967a-cf413239c1e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c5facb9-20cd-4698-a238-6244718a94ec" xml:space="preserve">
+          <source>If errors occur in accessing a published application or in publishing applications, check the following options to see if Microsoft Azure AD Application Proxy is working correctly:</source>
+          <target state="new">If errors occur in accessing a published application or in publishing applications, check the following options to see if Microsoft Azure AD Application Proxy is working correctly:</target>
+        </trans-unit>
+        <trans-unit id="c0389362-f4c2-4f97-9915-491ea4523706" xml:space="preserve">
+          <source>Open the Windows Services console and verify that the “Microsoft AAD Application Proxy Connector” service is enabled and running.</source>
+          <target state="new">Open the Windows Services console and verify that the “Microsoft AAD Application Proxy Connector” service is enabled and running.</target>
+        </trans-unit>
+        <trans-unit id="dbb58c43-dd7a-49bd-9742-46de2d3ebe72" xml:space="preserve">
+          <source>You may also want to look at the Application Proxy service properties page, as shown in the following image:</source>
+          <target state="new">You may also want to look at the Application Proxy service properties page, as shown in the following image:</target>
+        </trans-unit>
+        <trans-unit id="04788c52-6768-45e8-b2bf-a656c3730ce2" xml:space="preserve">
+          <source><bpt id="5e0d2ab0-11a2-49e7-8f5b-8932cdf72a73">&lt;linkText&gt;</bpt>Microsoft AAD Application Proxy Connector Properties screenshot<ept id="5e0d2ab0-11a2-49e7-8f5b-8932cdf72a73">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5e0d2ab0-11a2-49e7-8f5b-8932cdf72a73">&lt;linkText&gt;</bpt>Microsoft AAD Application Proxy Connector Properties screenshot<ept id="5e0d2ab0-11a2-49e7-8f5b-8932cdf72a73">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="181c4059-08ab-452a-91c4-9e642057b3a3" xml:space="preserve">
+          <source>Open Event Viewer and look for events related to the Application Proxy connector located under <bpt id="758855cc-9700-4017-8e50-11e15b556c08">&lt;strong&gt;</bpt>Applications and Services Logs<ept id="758855cc-9700-4017-8e50-11e15b556c08">&lt;/strong&gt;</ept> &gt; <bpt id="ff944820-3cf4-4703-b30d-08a1a4e0be01">&lt;strong&gt;</bpt>Microsoft<ept id="ff944820-3cf4-4703-b30d-08a1a4e0be01">&lt;/strong&gt;</ept> &gt; <bpt id="c2a865ff-0878-4c02-ade8-7b08617359a2">&lt;strong&gt;</bpt>AadApplicationProxy<ept id="c2a865ff-0878-4c02-ade8-7b08617359a2">&lt;/strong&gt;</ept> &gt; <bpt id="8d739d4c-c0cd-44c9-8bae-6aee099fa988">&lt;strong&gt;</bpt>Connector<ept id="8d739d4c-c0cd-44c9-8bae-6aee099fa988">&lt;/strong&gt;</ept> &gt; <bpt id="1cbd3676-eeb1-4a15-adcc-aad2321ca74e">&lt;strong&gt;</bpt>Admin<ept id="1cbd3676-eeb1-4a15-adcc-aad2321ca74e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open Event Viewer and look for events related to the Application Proxy connector located under <bpt id="758855cc-9700-4017-8e50-11e15b556c08">&lt;strong&gt;</bpt>Applications and Services Logs<ept id="758855cc-9700-4017-8e50-11e15b556c08">&lt;/strong&gt;</ept> &gt; <bpt id="ff944820-3cf4-4703-b30d-08a1a4e0be01">&lt;strong&gt;</bpt>Microsoft<ept id="ff944820-3cf4-4703-b30d-08a1a4e0be01">&lt;/strong&gt;</ept> &gt; <bpt id="c2a865ff-0878-4c02-ade8-7b08617359a2">&lt;strong&gt;</bpt>AadApplicationProxy<ept id="c2a865ff-0878-4c02-ade8-7b08617359a2">&lt;/strong&gt;</ept> &gt; <bpt id="8d739d4c-c0cd-44c9-8bae-6aee099fa988">&lt;strong&gt;</bpt>Connector<ept id="8d739d4c-c0cd-44c9-8bae-6aee099fa988">&lt;/strong&gt;</ept> &gt; <bpt id="1cbd3676-eeb1-4a15-adcc-aad2321ca74e">&lt;strong&gt;</bpt>Admin<ept id="1cbd3676-eeb1-4a15-adcc-aad2321ca74e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2680656f-1ea9-45b8-8182-e50b7c04626f" xml:space="preserve">
+          <source>If needed, more detailed logs are available by turning on analytics and debugging logs and turning on the Application Proxy connector session log, as shown in the following image:</source>
+          <target state="new">If needed, more detailed logs are available by turning on analytics and debugging logs and turning on the Application Proxy connector session log, as shown in the following image:</target>
+        </trans-unit>
+        <trans-unit id="d641bfa6-982f-4446-adf2-5994723e5698" xml:space="preserve">
+          <source><bpt id="bef6f3cb-56ca-4610-9aca-327a619a6424">&lt;linkText&gt;</bpt>Application Proxy Connector session log screenshot<ept id="bef6f3cb-56ca-4610-9aca-327a619a6424">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bef6f3cb-56ca-4610-9aca-327a619a6424">&lt;linkText&gt;</bpt>Application Proxy Connector session log screenshot<ept id="bef6f3cb-56ca-4610-9aca-327a619a6424">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e54f659b-e43b-472e-bf86-88c556428a19" xml:space="preserve">
+          <source>Error</source>
+          <target state="new">Error</target>
+        </trans-unit>
+        <trans-unit id="ebaf41f8-a6bc-4f85-b569-4098786f03d4" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="50d1fa54-6a7a-4fb6-9423-89bffba5df9b" xml:space="preserve">
+          <source>Resolution</source>
+          <target state="new">Resolution</target>
+        </trans-unit>
+        <trans-unit id="a35b0dee-85ac-409e-bbca-edebf1ca0ab9" xml:space="preserve">
+          <source>This corporate app can’t be accessed.</source>
+          <target state="new">This corporate app can’t be accessed.</target>
+        </trans-unit>
+        <trans-unit id="dce66d6f-d22d-4ae0-bdee-e2bfd9b7c7f8" xml:space="preserve">
+          <source>You are not authorized to access this application.</source>
+          <target state="new">You are not authorized to access this application.</target>
+        </trans-unit>
+        <trans-unit id="9001e75a-4e33-47d7-884a-e19ed11f229d" xml:space="preserve">
+          <source>Authorization failed.</source>
+          <target state="new">Authorization failed.</target>
+        </trans-unit>
+        <trans-unit id="35af36d7-0087-4ad6-974e-6d53a146c590" xml:space="preserve">
+          <source>Make sure to assign the user with access to this application.</source>
+          <target state="new">Make sure to assign the user with access to this application.</target>
+        </trans-unit>
+        <trans-unit id="47c67644-6661-4681-9b69-fdefc426880e" xml:space="preserve">
+          <source>You may not have assigned the user for this application.</source>
+          <target state="new">You may not have assigned the user for this application.</target>
+        </trans-unit>
+        <trans-unit id="f8883b2e-0b5e-47e3-8b38-28b608b679f8" xml:space="preserve">
+          <source>Go to the Application tab, and under Users and Groups, assign this user or user group to this application.</source>
+          <target state="new">Go to the Application tab, and under Users and Groups, assign this user or user group to this application.</target>
+        </trans-unit>
+        <trans-unit id="32a97cd2-961b-4aaf-9382-8c5443e7dbf8" xml:space="preserve">
+          <source>This corporate app can’t be accessed.</source>
+          <target state="new">This corporate app can’t be accessed.</target>
+        </trans-unit>
+        <trans-unit id="b5206e98-3c4b-4efc-ba35-5f77190ab742" xml:space="preserve">
+          <source>You are not authorized to access this application.</source>
+          <target state="new">You are not authorized to access this application.</target>
+        </trans-unit>
+        <trans-unit id="542d3e6d-35b1-44a7-933d-c69c33ba0e25" xml:space="preserve">
+          <source>Authorization failed.</source>
+          <target state="new">Authorization failed.</target>
+        </trans-unit>
+        <trans-unit id="1d86f111-e077-459e-ad42-113b96980e37" xml:space="preserve">
+          <source>Make sure that the user has a license for Azure Active Directory Premium or Basic.</source>
+          <target state="new">Make sure that the user has a license for Azure Active Directory Premium or Basic.</target>
+        </trans-unit>
+        <trans-unit id="855dcc82-fdd8-4df7-b9fe-91f0f413a7ec" xml:space="preserve">
+          <source>Your user may get this error when trying to access the app you published if the user who tried to access the application was not explicitly assigned with a Premium/Basic license by the subscriber’s administrator.</source>
+          <target state="new">Your user may get this error when trying to access the app you published if the user who tried to access the application was not explicitly assigned with a Premium/Basic license by the subscriber’s administrator.</target>
+        </trans-unit>
+        <trans-unit id="2a1aa0c5-faed-4a2f-bc08-b2debc43d3a0" xml:space="preserve">
+          <source>Go to the subscriber’s Active Directory <bpt id="8e7d1b6e-9af9-4893-84bf-d8ecfdba4ab5">&lt;strong&gt;</bpt>Licenses<ept id="8e7d1b6e-9af9-4893-84bf-d8ecfdba4ab5">&lt;/strong&gt;</ept> tab and make sure that this user or user group is assigned a Premium or Basic license.</source>
+          <target state="new">Go to the subscriber’s Active Directory <bpt id="8e7d1b6e-9af9-4893-84bf-d8ecfdba4ab5">&lt;strong&gt;</bpt>Licenses<ept id="8e7d1b6e-9af9-4893-84bf-d8ecfdba4ab5">&lt;/strong&gt;</ept> tab and make sure that this user or user group is assigned a Premium or Basic license.</target>
+        </trans-unit>
+        <trans-unit id="6b2761b0-8db4-4906-a5df-7f1b84679a84" xml:space="preserve">
+          <source>If registration fails during the Connector wizard installation, you can view the reason for the failure either by looking in the event log under <bpt id="0cc26353-0597-4c39-898a-e395ef029e4a">&lt;strong&gt;</bpt>Windows Logs<ept id="0cc26353-0597-4c39-898a-e395ef029e4a">&lt;/strong&gt;</ept> &gt; <bpt id="e9d1b368-335a-4086-a5d1-27be1a70f04d">&lt;strong&gt;</bpt>Application<ept id="e9d1b368-335a-4086-a5d1-27be1a70f04d">&lt;/strong&gt;</ept>, or by running the following Windows PowerShell command.</source>
+          <target state="new">If registration fails during the Connector wizard installation, you can view the reason for the failure either by looking in the event log under <bpt id="0cc26353-0597-4c39-898a-e395ef029e4a">&lt;strong&gt;</bpt>Windows Logs<ept id="0cc26353-0597-4c39-898a-e395ef029e4a">&lt;/strong&gt;</ept> &gt; <bpt id="e9d1b368-335a-4086-a5d1-27be1a70f04d">&lt;strong&gt;</bpt>Application<ept id="e9d1b368-335a-4086-a5d1-27be1a70f04d">&lt;/strong&gt;</ept>, or by running the following Windows PowerShell command.</target>
+        </trans-unit>
+        <trans-unit id="c82d0c16-a750-4cd4-88e7-6c4fa33bd90f" xml:space="preserve">
+          <source>Error</source>
+          <target state="new">Error</target>
+        </trans-unit>
+        <trans-unit id="c6b99bcf-85f8-4c9d-8f6b-935e73906540" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="200242e3-810f-4918-bd1f-58409f8a79cb" xml:space="preserve">
+          <source>Resolution</source>
+          <target state="new">Resolution</target>
+        </trans-unit>
+        <trans-unit id="d3b40978-6760-47fd-a3d4-f748bd0e5c0a" xml:space="preserve">
+          <source>Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly.</source>
+          <target state="new">Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly.</target>
+        </trans-unit>
+        <trans-unit id="bb4adf35-447d-4abc-8c4b-c6b404857401" xml:space="preserve">
+          <source>Error: 'One or more errors occurred.'</source>
+          <target state="new">Error: 'One or more errors occurred.'</target>
+        </trans-unit>
+        <trans-unit id="f4842351-3926-4c00-aec8-9525fc6bdc9a" xml:space="preserve">
+          <source>You closed the registration window without performing login to Azure AD.</source>
+          <target state="new">You closed the registration window without performing login to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="ad209f06-c79e-4ae0-b06c-a0a07f9f762a" xml:space="preserve">
+          <source>Run the Connector wizard again and register the Connector.</source>
+          <target state="new">Run the Connector wizard again and register the Connector.</target>
+        </trans-unit>
+        <trans-unit id="07000307-2c70-4619-a835-7b6d864ac181" xml:space="preserve">
+          <source>Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly.</source>
+          <target state="new">Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly.</target>
+        </trans-unit>
+        <trans-unit id="73545b1f-553d-4d43-8f8d-9755a953f00a" xml:space="preserve">
+          <source>Error: 'AADSTS50001: Resource <bpt id="a8b88ec7-eb1b-407f-be66-3df228bf81eb">&lt;code&gt;</bpt>https://proxy.cloudwebappproxy.net/registerapp<ept id="a8b88ec7-eb1b-407f-be66-3df228bf81eb">&lt;/code&gt;</ept> is disabled.'</source>
+          <target state="new">Error: 'AADSTS50001: Resource <bpt id="a8b88ec7-eb1b-407f-be66-3df228bf81eb">&lt;code&gt;</bpt>https://proxy.cloudwebappproxy.net/registerapp<ept id="a8b88ec7-eb1b-407f-be66-3df228bf81eb">&lt;/code&gt;</ept> is disabled.'</target>
+        </trans-unit>
+        <trans-unit id="9bf2889a-bc16-4352-8222-b4ec33f75041" xml:space="preserve">
+          <source>Application Proxy is disabled.</source>
+          <target state="new">Application Proxy is disabled.</target>
+        </trans-unit>
+        <trans-unit id="febb2605-c5d0-45d4-ae8f-12c7be8ec707" xml:space="preserve">
+          <source>Make sure you enable Application Proxy in the Azure AD portal before trying to register the Connector.</source>
+          <target state="new">Make sure you enable Application Proxy in the Azure AD portal before trying to register the Connector.</target>
+        </trans-unit>
+        <trans-unit id="eddb23f4-d334-4abe-8058-f197c59ab86e" xml:space="preserve">
+          <source>For more information on enabling Application Proxy, see <bpt id="3ce2cd16-945c-4531-bad4-54c2e6aab48b">&lt;linkText&gt;</bpt>Enable Application Proxy services<ept id="3ce2cd16-945c-4531-bad4-54c2e6aab48b">&lt;/linkText&gt;</ept><bpt id="3ce2cd16-945c-4531-bad4-54c2e6aab48b">&lt;title&gt;</bpt><ept id="3ce2cd16-945c-4531-bad4-54c2e6aab48b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on enabling Application Proxy, see <bpt id="3ce2cd16-945c-4531-bad4-54c2e6aab48b">&lt;linkText&gt;</bpt>Enable Application Proxy services<ept id="3ce2cd16-945c-4531-bad4-54c2e6aab48b">&lt;/linkText&gt;</ept><bpt id="3ce2cd16-945c-4531-bad4-54c2e6aab48b">&lt;title&gt;</bpt><ept id="3ce2cd16-945c-4531-bad4-54c2e6aab48b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64f6e8c8-7de0-4dbe-b190-ba2aa6a983d0" xml:space="preserve">
+          <source>Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly.</source>
+          <target state="new">Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly.</target>
+        </trans-unit>
+        <trans-unit id="588e4b5c-d45c-4ff8-9cef-b5a6f3689ec4" xml:space="preserve">
+          <source>Error: 'One or more errors occurred.'</source>
+          <target state="new">Error: 'One or more errors occurred.'</target>
+        </trans-unit>
+        <trans-unit id="62502072-ae60-41f4-9210-4a943b557325" xml:space="preserve">
+          <source>If the registration window opens and then immediately closes without allowing you to log in, you will probably get this error.</source>
+          <target state="new">If the registration window opens and then immediately closes without allowing you to log in, you will probably get this error.</target>
+        </trans-unit>
+        <trans-unit id="c2b588ca-5da8-4d47-ae5f-247f1a6261a9" xml:space="preserve">
+          <source>This error occurs when there is some sort of networking error on your system.</source>
+          <target state="new">This error occurs when there is some sort of networking error on your system.</target>
+        </trans-unit>
+        <trans-unit id="2a88885e-9a09-4cba-b5e1-a770c026766f" xml:space="preserve">
+          <source>Make sure that it is possible to connect from a browser to a public website and that the ports are open as specified in <bpt id="568f6fa9-8d3f-444d-94d6-9e87831a5311">&lt;linkText&gt;</bpt>Application Proxy prerequisites<ept id="568f6fa9-8d3f-444d-94d6-9e87831a5311">&lt;/linkText&gt;</ept><bpt id="568f6fa9-8d3f-444d-94d6-9e87831a5311">&lt;title&gt;</bpt><ept id="568f6fa9-8d3f-444d-94d6-9e87831a5311">&lt;/title&gt;</ept>.</source>
+          <target state="new">Make sure that it is possible to connect from a browser to a public website and that the ports are open as specified in <bpt id="568f6fa9-8d3f-444d-94d6-9e87831a5311">&lt;linkText&gt;</bpt>Application Proxy prerequisites<ept id="568f6fa9-8d3f-444d-94d6-9e87831a5311">&lt;/linkText&gt;</ept><bpt id="568f6fa9-8d3f-444d-94d6-9e87831a5311">&lt;title&gt;</bpt><ept id="568f6fa9-8d3f-444d-94d6-9e87831a5311">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9469952-f270-468d-a915-c5349cd86d8e" xml:space="preserve">
+          <source>Connector registration failed: Make sure your computer is connected to the Internet.</source>
+          <target state="new">Connector registration failed: Make sure your computer is connected to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="91d7da1b-2fbd-41ce-8c5d-21411dca5976" xml:space="preserve">
+          <source>Error: 'There was no endpoint listening at <bpt id="dacfa1c4-edfe-4ad3-a01a-48b2034aa300">&lt;code&gt;</bpt>https://connector.msappproxy.net:9090/register/RegisterConnector<ept id="dacfa1c4-edfe-4ad3-a01a-48b2034aa300">&lt;/code&gt;</ept> that could accept the message.</source>
+          <target state="new">Error: 'There was no endpoint listening at <bpt id="dacfa1c4-edfe-4ad3-a01a-48b2034aa300">&lt;code&gt;</bpt>https://connector.msappproxy.net:9090/register/RegisterConnector<ept id="dacfa1c4-edfe-4ad3-a01a-48b2034aa300">&lt;/code&gt;</ept> that could accept the message.</target>
+        </trans-unit>
+        <trans-unit id="3ad9237c-50dd-4569-9703-07f33e61b625" xml:space="preserve">
+          <source>This is often caused by an incorrect address or SOAP action.</source>
+          <target state="new">This is often caused by an incorrect address or SOAP action.</target>
+        </trans-unit>
+        <trans-unit id="b6bf6023-16a6-45e4-9796-20d7a717f953" xml:space="preserve">
+          <source>See InnerException, if present, for more details.'</source>
+          <target state="new">See InnerException, if present, for more details.'</target>
+        </trans-unit>
+        <trans-unit id="138ab0a1-97d3-4159-8ae1-505a083bdb2f" xml:space="preserve">
+          <source>If you log in using your Azure AD username and password but then you receive this error, it may be that all ports above 8081 are blocked.</source>
+          <target state="new">If you log in using your Azure AD username and password but then you receive this error, it may be that all ports above 8081 are blocked.</target>
+        </trans-unit>
+        <trans-unit id="a9a165b0-822f-4bdd-8ec1-10e1b1c343fc" xml:space="preserve">
+          <source>Make sure that the necessary ports are open.</source>
+          <target state="new">Make sure that the necessary ports are open.</target>
+        </trans-unit>
+        <trans-unit id="a751bbb3-1bb9-4ba5-a6de-01eccdcd79ee" xml:space="preserve">
+          <source>For more information see <bpt id="27cf7002-d8a9-4f22-9c87-4f4770a4fe7c">&lt;linkText&gt;</bpt>Application Proxy prerequisites<ept id="27cf7002-d8a9-4f22-9c87-4f4770a4fe7c">&lt;/linkText&gt;</ept><bpt id="27cf7002-d8a9-4f22-9c87-4f4770a4fe7c">&lt;title&gt;</bpt><ept id="27cf7002-d8a9-4f22-9c87-4f4770a4fe7c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="27cf7002-d8a9-4f22-9c87-4f4770a4fe7c">&lt;linkText&gt;</bpt>Application Proxy prerequisites<ept id="27cf7002-d8a9-4f22-9c87-4f4770a4fe7c">&lt;/linkText&gt;</ept><bpt id="27cf7002-d8a9-4f22-9c87-4f4770a4fe7c">&lt;title&gt;</bpt><ept id="27cf7002-d8a9-4f22-9c87-4f4770a4fe7c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee6e1cf7-6efb-4757-a3ee-5ae6410c443c" xml:space="preserve">
+          <source>Clear error is presented in the registration window.</source>
+          <target state="new">Clear error is presented in the registration window.</target>
+        </trans-unit>
+        <trans-unit id="5e76cc51-b935-4249-935b-c491cb5f2448" xml:space="preserve">
+          <source>Cannot proceed – only to close the window</source>
+          <target state="new">Cannot proceed – only to close the window</target>
+        </trans-unit>
+        <trans-unit id="18eaf235-ca6c-47b1-92cb-aef5efaaa066" xml:space="preserve">
+          <source>You entered the wrong username or password.</source>
+          <target state="new">You entered the wrong username or password.</target>
+        </trans-unit>
+        <trans-unit id="674b7352-6b6e-451b-a632-8fff636b77d1" xml:space="preserve">
+          <source>Try again.</source>
+          <target state="new">Try again.</target>
+        </trans-unit>
+        <trans-unit id="f6a1e88b-8389-41af-9f8d-da008a2061c9" xml:space="preserve">
+          <source>Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly.</source>
+          <target state="new">Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly.</target>
+        </trans-unit>
+        <trans-unit id="ff997ee1-d1ba-43ab-912e-46caba8a094c" xml:space="preserve">
+          <source>Error: 'AADSTS50059: No tenant-identifying information found in either the request or implied by any provided credentials and search by service principle URI has failed.</source>
+          <target state="new">Error: 'AADSTS50059: No tenant-identifying information found in either the request or implied by any provided credentials and search by service principle URI has failed.</target>
+        </trans-unit>
+        <trans-unit id="7b1f48fc-6362-4bac-aa75-74099d2f69e1" xml:space="preserve">
+          <source>You are trying to log in using a Microsoft Account and not a domain that is part of the organization ID of the directory you are trying to access.</source>
+          <target state="new">You are trying to log in using a Microsoft Account and not a domain that is part of the organization ID of the directory you are trying to access.</target>
+        </trans-unit>
+        <trans-unit id="7b73737b-e32f-4c22-a693-6cce81919104" xml:space="preserve">
+          <source>Make sure that the admin is part of the same domain name as the tenant domain, for example, if the Azure AD domain is contoso.com, the admin should be admin@contoso.com.</source>
+          <target state="new">Make sure that the admin is part of the same domain name as the tenant domain, for example, if the Azure AD domain is contoso.com, the admin should be admin@contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="e11601f6-edaa-434e-bc71-1999e79ae08f" xml:space="preserve">
+          <source>Failed to retrieve the current execution policy for running PowerShell scripts</source>
+          <target state="new">Failed to retrieve the current execution policy for running PowerShell scripts</target>
+        </trans-unit>
+        <trans-unit id="dcc75d45-ce76-4da7-a8c5-9e337c5f3747" xml:space="preserve">
+          <source>If the Connector installation fails, check to make sure that PowerShell executionpolicy is not disabled.</source>
+          <target state="new">If the Connector installation fails, check to make sure that PowerShell executionpolicy is not disabled.</target>
+        </trans-unit>
+        <trans-unit id="68f8cbce-1b0d-4d3b-9b3e-d211cf8739ea" xml:space="preserve">
+          <source>Open the Group Policy Editor.</source>
+          <target state="new">Open the Group Policy Editor.</target>
+        </trans-unit>
+        <trans-unit id="f3a6ee7c-7b9a-46b1-b25a-4fc673ee352a" xml:space="preserve">
+          <source>Go to Computer Configuration &gt; Administrative Templates &gt; Windows Components &gt; Windows PowerShell and double click on Turn on Script Execution.</source>
+          <target state="new">Go to Computer Configuration &gt; Administrative Templates &gt; Windows Components &gt; Windows PowerShell and double click on Turn on Script Execution.</target>
+        </trans-unit>
+        <trans-unit id="0b84ae7e-a7a2-45c4-bd44-833d1d49c567" xml:space="preserve">
+          <source>This can be set to either Not Configured or Enabled.</source>
+          <target state="new">This can be set to either Not Configured or Enabled.</target>
+        </trans-unit>
+        <trans-unit id="97969e35-1faf-4656-b927-921e2dc99165" xml:space="preserve">
+          <source>If set to Enabled, make sure that under Options, the Execution Policy is set to either <bpt id="3af94359-a685-4552-baf6-b6b86663e396">&lt;strong&gt;</bpt>Allow local scripts and remote signed scripts<ept id="3af94359-a685-4552-baf6-b6b86663e396">&lt;/strong&gt;</ept> or to <bpt id="3784c54c-57bc-4f04-8aa6-ead5e4b424d5">&lt;strong&gt;</bpt>Allow all scripts<ept id="3784c54c-57bc-4f04-8aa6-ead5e4b424d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If set to Enabled, make sure that under Options, the Execution Policy is set to either <bpt id="3af94359-a685-4552-baf6-b6b86663e396">&lt;strong&gt;</bpt>Allow local scripts and remote signed scripts<ept id="3af94359-a685-4552-baf6-b6b86663e396">&lt;/strong&gt;</ept> or to <bpt id="3784c54c-57bc-4f04-8aa6-ead5e4b424d5">&lt;strong&gt;</bpt>Allow all scripts<ept id="3784c54c-57bc-4f04-8aa6-ead5e4b424d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="424236eb-f5e6-4544-9cb1-947d3a930ec8" xml:space="preserve">
+          <source>Connector failed to download the configuration</source>
+          <target state="new">Connector failed to download the configuration</target>
+        </trans-unit>
+        <trans-unit id="5951f601-8761-42f7-9771-1cf5892e74f2" xml:space="preserve">
+          <source>The Connector’s client certificate, which is used for authentication, expired.</source>
+          <target state="new">The Connector’s client certificate, which is used for authentication, expired.</target>
+        </trans-unit>
+        <trans-unit id="ead6dc26-8f69-465d-94e7-2301e3bc76eb" xml:space="preserve">
+          <source>This may also occur if you have the Connector installed behind a proxy.</source>
+          <target state="new">This may also occur if you have the Connector installed behind a proxy.</target>
+        </trans-unit>
+        <trans-unit id="d15eb8ce-9bc0-4bef-940a-409c2fb85007" xml:space="preserve">
+          <source>In this case the Connector cannot access the Internet and will not be able to provide applications to remote users.</source>
+          <target state="new">In this case the Connector cannot access the Internet and will not be able to provide applications to remote users.</target>
+        </trans-unit>
+        <trans-unit id="69369a63-f339-49d0-ad7a-48a5e6d24d75" xml:space="preserve">
+          <source>Renew trust manually using the <bpt id="dab283c5-6fe6-454c-ad33-5987b7d1380b">&lt;code&gt;</bpt>Register-AppProxyConnector<ept id="dab283c5-6fe6-454c-ad33-5987b7d1380b">&lt;/code&gt;</ept> cmdlet in Windows PowerShell.</source>
+          <target state="new">Renew trust manually using the <bpt id="dab283c5-6fe6-454c-ad33-5987b7d1380b">&lt;code&gt;</bpt>Register-AppProxyConnector<ept id="dab283c5-6fe6-454c-ad33-5987b7d1380b">&lt;/code&gt;</ept> cmdlet in Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="1b043f02-72af-4eb5-81c4-fcc62a2da8e9" xml:space="preserve">
+          <source>If your Connector is behind a proxy, it is necessary to grant Internet access to the Connector accounts “network services” and “local system”.</source>
+          <target state="new">If your Connector is behind a proxy, it is necessary to grant Internet access to the Connector accounts “network services” and “local system”.</target>
+        </trans-unit>
+        <trans-unit id="e0c0df90-e1f2-4d12-8ab5-a53da27ef3c0" xml:space="preserve">
+          <source>This can be accomplished either by granting them access to the Proxy or by setting them to bypass the proxy.</source>
+          <target state="new">This can be accomplished either by granting them access to the Proxy or by setting them to bypass the proxy.</target>
+        </trans-unit>
+        <trans-unit id="a02d71de-df1d-4ce3-ba6f-d6f17e09c931" xml:space="preserve">
+          <source>Connector registration failed: Make sure you are a Global Administrator of your Active Directory to register the Connector.</source>
+          <target state="new">Connector registration failed: Make sure you are a Global Administrator of your Active Directory to register the Connector.</target>
+        </trans-unit>
+        <trans-unit id="b793bcfa-c904-4b90-acc6-5e6097df894a" xml:space="preserve">
+          <source>Error: 'The registration request was denied.'</source>
+          <target state="new">Error: 'The registration request was denied.'</target>
+        </trans-unit>
+        <trans-unit id="1a75f441-c534-4842-9685-43ae52cd3740" xml:space="preserve">
+          <source>The alias you're trying to log in with isn't an admin on this domain.</source>
+          <target state="new">The alias you're trying to log in with isn't an admin on this domain.</target>
+        </trans-unit>
+        <trans-unit id="c4cf7a5a-c2d7-4f63-bb64-a914820c25dd" xml:space="preserve">
+          <source>Your Connector is always installed for the directory that owns the user’s domain.</source>
+          <target state="new">Your Connector is always installed for the directory that owns the user’s domain.</target>
+        </trans-unit>
+        <trans-unit id="73c0340a-3db7-4c7b-9269-3599a1b86612" xml:space="preserve">
+          <source>Make sure that the admin you are trying to log in as has global permissions to the Azure AD tenant.</source>
+          <target state="new">Make sure that the admin you are trying to log in as has global permissions to the Azure AD tenant.</target>
+        </trans-unit>
+        <trans-unit id="5f32b91c-9d87-4e80-a3b4-a15175077a8d" xml:space="preserve">
+          <source>Error</source>
+          <target state="new">Error</target>
+        </trans-unit>
+        <trans-unit id="b083bad1-ac25-4a2e-9734-75698d7c6fbb" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="617173a6-285b-49c7-b51d-b57122365572" xml:space="preserve">
+          <source>Resolution</source>
+          <target state="new">Resolution</target>
+        </trans-unit>
+        <trans-unit id="10fea656-79d4-4d7a-8d21-4c8f682706e5" xml:space="preserve">
+          <source>Failed to retrieve the current execution policy for running PowerShell scripts</source>
+          <target state="new">Failed to retrieve the current execution policy for running PowerShell scripts</target>
+        </trans-unit>
+        <trans-unit id="3fea1914-0bf2-49fd-a6bc-d01ef818c1b5" xml:space="preserve">
+          <source>If the Connector installation fails, check to make sure that PowerShell executionpolicy is not disabled.</source>
+          <target state="new">If the Connector installation fails, check to make sure that PowerShell executionpolicy is not disabled.</target>
+        </trans-unit>
+        <trans-unit id="4b50aee7-6e45-42f1-8b4a-6a2910545c60" xml:space="preserve">
+          <source>Open the Group Policy Editor.</source>
+          <target state="new">Open the Group Policy Editor.</target>
+        </trans-unit>
+        <trans-unit id="333fa049-40d2-48df-8346-54f1ee7e1594" xml:space="preserve">
+          <source>Go to Computer Configuration &gt; Administrative Templates &gt; Windows Components &gt; Windows PowerShell and double click on Turn on Script Execution.</source>
+          <target state="new">Go to Computer Configuration &gt; Administrative Templates &gt; Windows Components &gt; Windows PowerShell and double click on Turn on Script Execution.</target>
+        </trans-unit>
+        <trans-unit id="59fd1853-8401-463f-9412-d72441da9a1d" xml:space="preserve">
+          <source>This can be set to either Not Configured or Enabled.</source>
+          <target state="new">This can be set to either Not Configured or Enabled.</target>
+        </trans-unit>
+        <trans-unit id="1f41560b-78c8-425a-b5f5-ace26713f7cc" xml:space="preserve">
+          <source>If set to Enabled, make sure that under Options, the Execution Policy is set to either <bpt id="322f5ef4-9193-4c25-a9f4-08aee6da3bc2">&lt;strong&gt;</bpt>Allow local scripts and remote signed scripts<ept id="322f5ef4-9193-4c25-a9f4-08aee6da3bc2">&lt;/strong&gt;</ept> or to <bpt id="1558127c-4bde-404d-8072-b66e6d0fdc4f">&lt;strong&gt;</bpt>Allow all scripts<ept id="1558127c-4bde-404d-8072-b66e6d0fdc4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If set to Enabled, make sure that under Options, the Execution Policy is set to either <bpt id="322f5ef4-9193-4c25-a9f4-08aee6da3bc2">&lt;strong&gt;</bpt>Allow local scripts and remote signed scripts<ept id="322f5ef4-9193-4c25-a9f4-08aee6da3bc2">&lt;/strong&gt;</ept> or to <bpt id="1558127c-4bde-404d-8072-b66e6d0fdc4f">&lt;strong&gt;</bpt>Allow all scripts<ept id="1558127c-4bde-404d-8072-b66e6d0fdc4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc155975-0677-4823-9969-86cf2fee763e" xml:space="preserve">
+          <source>12008 - Azure AD exceeded the maximum number of permitted Kerberos authentication attempts to the backend server.</source>
+          <target state="new">12008 - Azure AD exceeded the maximum number of permitted Kerberos authentication attempts to the backend server.</target>
+        </trans-unit>
+        <trans-unit id="ec608615-6e50-434b-b5aa-d4230de48887" xml:space="preserve">
+          <source>This event may indicate incorrect configuration between Azure AD and the backend application server, or a problem in time and date configuration on both machines.</source>
+          <target state="new">This event may indicate incorrect configuration between Azure AD and the backend application server, or a problem in time and date configuration on both machines.</target>
+        </trans-unit>
+        <trans-unit id="b195b65d-b4d5-4fd6-b3f4-60e5d83533e6" xml:space="preserve">
+          <source>The backend server declined the Kerberos ticket created by Azure AD.</source>
+          <target state="new">The backend server declined the Kerberos ticket created by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="586cd7f1-a719-40a5-b83e-3c4438e4c1ad" xml:space="preserve">
+          <source>Verify that the configuration of the Azure AD and the backend application server are configured correctly.</source>
+          <target state="new">Verify that the configuration of the Azure AD and the backend application server are configured correctly.</target>
+        </trans-unit>
+        <trans-unit id="c4fec11d-0bda-4116-826a-d130253b893c" xml:space="preserve">
+          <source>Make sure that the time and date configuration on the Azure AD and the backend application server are synchronized.</source>
+          <target state="new">Make sure that the time and date configuration on the Azure AD and the backend application server are synchronized.</target>
+        </trans-unit>
+        <trans-unit id="79e0ed97-db66-42fd-9574-cfb7cf1e69ff" xml:space="preserve">
+          <source>13016 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because there is no UPN in the edge token or in the access cookie.</source>
+          <target state="new">13016 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because there is no UPN in the edge token or in the access cookie.</target>
+        </trans-unit>
+        <trans-unit id="cd664e91-9d1b-4701-bbb0-d3dd94baf8d8" xml:space="preserve">
+          <source>There is a problem with the STS configuration.</source>
+          <target state="new">There is a problem with the STS configuration.</target>
+        </trans-unit>
+        <trans-unit id="7da00548-76bb-4304-9f9f-ad9a6f6bd299" xml:space="preserve">
+          <source>Fix the UPN claim configuration in the STS.</source>
+          <target state="new">Fix the UPN claim configuration in the STS.</target>
+        </trans-unit>
+        <trans-unit id="95325383-8ee1-4cca-bdca-62dc359a66d5" xml:space="preserve">
+          <source>13019 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because of the following general API error.</source>
+          <target state="new">13019 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because of the following general API error.</target>
+        </trans-unit>
+        <trans-unit id="2120ec97-ac80-4e32-a435-d74ef9b685f0" xml:space="preserve">
+          <source>This event may indicate incorrect configuration between Azure AD and the domain controller server, or a problem in time and date configuration on both machines.</source>
+          <target state="new">This event may indicate incorrect configuration between Azure AD and the domain controller server, or a problem in time and date configuration on both machines.</target>
+        </trans-unit>
+        <trans-unit id="ae6d79d3-1dba-483b-b332-a34db5c79044" xml:space="preserve">
+          <source>The domain controller declined the Kerberos ticket created by Azure AD.</source>
+          <target state="new">The domain controller declined the Kerberos ticket created by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="180b8b3e-6ff1-41ea-9acb-a8eb2a037e53" xml:space="preserve">
+          <source>Verify that the configuration of the Azure AD and the backend application server are configured correctly, especially the SPN configuration.</source>
+          <target state="new">Verify that the configuration of the Azure AD and the backend application server are configured correctly, especially the SPN configuration.</target>
+        </trans-unit>
+        <trans-unit id="dd05fdb5-d22c-42c7-9963-2b6e60921ec6" xml:space="preserve">
+          <source>Make sure the Azure AD is domain joined to the same domain as the domain controller to ensure that the domain controller establishes trust with Azure AD.</source>
+          <target state="new">Make sure the Azure AD is domain joined to the same domain as the domain controller to ensure that the domain controller establishes trust with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="14f8837d-704d-4d75-b99b-c65ddfd364fe" xml:space="preserve">
+          <source>Make sure that the time and date configuration on the Azure AD and the domain controller are synchronized.</source>
+          <target state="new">Make sure that the time and date configuration on the Azure AD and the domain controller are synchronized.</target>
+        </trans-unit>
+        <trans-unit id="f6f26986-c7c4-4031-a2b6-97db2c9e1419" xml:space="preserve">
+          <source>13020 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because the backend server SPN is not defined.</source>
+          <target state="new">13020 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because the backend server SPN is not defined.</target>
+        </trans-unit>
+        <trans-unit id="925e8afe-027b-4cd7-8739-c0403af8a222" xml:space="preserve">
+          <source>This event may indicate incorrect configuration between Azure AD and the domain controller server, or a problem in time and date configuration on both machines.</source>
+          <target state="new">This event may indicate incorrect configuration between Azure AD and the domain controller server, or a problem in time and date configuration on both machines.</target>
+        </trans-unit>
+        <trans-unit id="57db584b-57eb-4a9f-8d0f-5fd9b0e03e54" xml:space="preserve">
+          <source>The domain controller declined the Kerberos ticket created by Azure AD.</source>
+          <target state="new">The domain controller declined the Kerberos ticket created by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="2af25458-72dd-4f04-982c-df909000d979" xml:space="preserve">
+          <source>Verify that the configuration of the Azure AD and the backend application server are configured correctly, especially the SPN configuration.</source>
+          <target state="new">Verify that the configuration of the Azure AD and the backend application server are configured correctly, especially the SPN configuration.</target>
+        </trans-unit>
+        <trans-unit id="39c479d5-7232-4548-951d-4614326220a0" xml:space="preserve">
+          <source>Make sure the Azure AD is domain joined to the same domain as the domain controller to ensure that the domain controller establishes trust with Azure AD.</source>
+          <target state="new">Make sure the Azure AD is domain joined to the same domain as the domain controller to ensure that the domain controller establishes trust with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="034aa79d-5a26-46f5-be32-5792ee5f8e35" xml:space="preserve">
+          <source>Make sure that the time and date configuration on the Azure AD and the domain controller are synchronized.</source>
+          <target state="new">Make sure that the time and date configuration on the Azure AD and the domain controller are synchronized.</target>
+        </trans-unit>
+        <trans-unit id="f9c195b2-684c-4713-b933-a00065df1052" xml:space="preserve">
+          <source>13022 - Azure AD cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.</source>
+          <target state="new">13022 - Azure AD cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.</target>
+        </trans-unit>
+        <trans-unit id="322f722f-8923-4a2f-aebb-6e7f391a5aa7" xml:space="preserve">
+          <source>This event may indicate incorrect configuration between Azure AD and the backend application server, or a problem in time and date configuration on both machines.</source>
+          <target state="new">This event may indicate incorrect configuration between Azure AD and the backend application server, or a problem in time and date configuration on both machines.</target>
+        </trans-unit>
+        <trans-unit id="5049caa7-312f-47df-b8a3-be6a9c81bb4b" xml:space="preserve">
+          <source>The backend server declined the Kerberos ticket created by Azure AD.</source>
+          <target state="new">The backend server declined the Kerberos ticket created by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="524bf716-8fd2-4569-9c39-0466f1ac62f2" xml:space="preserve">
+          <source>Verify that the configuration of the Azure AD and the backend application server are configured correctly.</source>
+          <target state="new">Verify that the configuration of the Azure AD and the backend application server are configured correctly.</target>
+        </trans-unit>
+        <trans-unit id="e959a887-fd96-4f22-a69b-a4c619c914af" xml:space="preserve">
+          <source>Make sure that the time and date configuration on the Azure AD and the backend application server are synchronized.</source>
+          <target state="new">Make sure that the time and date configuration on the Azure AD and the backend application server are synchronized.</target>
+        </trans-unit>
+        <trans-unit id="582a53ca-444a-486c-87ec-e7cdd7c4d72e" xml:space="preserve">
+          <source>The website cannot display the page.</source>
+          <target state="new">The website cannot display the page.</target>
+        </trans-unit>
+        <trans-unit id="5b8fb3c3-312c-4f8d-8788-309fec93541e" xml:space="preserve">
+          <source>Your user may get this error when trying to access the app you published if the application is an IWA application, the defined SPN for this application may be incorrect.</source>
+          <target state="new">Your user may get this error when trying to access the app you published if the application is an IWA application, the defined SPN for this application may be incorrect.</target>
+        </trans-unit>
+        <trans-unit id="e66958e6-daa0-4b77-9d54-f6eda6832251" xml:space="preserve">
+          <source>For IWA apps: Make sure that the SPN configured for this application is correct.</source>
+          <target state="new">For IWA apps: Make sure that the SPN configured for this application is correct.</target>
+        </trans-unit>
+        <trans-unit id="637c0a0e-29ab-4485-84bc-0ac22e79039e" xml:space="preserve">
+          <source>The website cannot display the page.</source>
+          <target state="new">The website cannot display the page.</target>
+        </trans-unit>
+        <trans-unit id="7a08d5c6-acc4-43f9-9c0d-c496a1075a72" xml:space="preserve">
+          <source>Your user may get this error when trying to access the app you published if the application is an OWA application, this could be caused by one of the following:</source>
+          <target state="new">Your user may get this error when trying to access the app you published if the application is an OWA application, this could be caused by one of the following:</target>
+        </trans-unit>
+        <trans-unit id="3c18e11a-4406-4b90-b3d3-c8ee72fca25d" xml:space="preserve">
+          <source>The steps to mitigate accordingly:</source>
+          <target state="new">The steps to mitigate accordingly:</target>
+        </trans-unit>
+        <trans-unit id="6a8c22f8-6f87-452d-8ae9-8ba46cb9855d" xml:space="preserve">
+          <source>The defined SPN for this application is incorrect.</source>
+          <target state="new">The defined SPN for this application is incorrect.</target>
+        </trans-unit>
+        <trans-unit id="4b888f1c-7307-439b-8ef6-1bc9aa051119" xml:space="preserve">
+          <source>Make sure that the SPN configured for this application is correct.</source>
+          <target state="new">Make sure that the SPN configured for this application is correct.</target>
+        </trans-unit>
+        <trans-unit id="1461ff34-fb48-478c-b03f-ac0cb00867df" xml:space="preserve">
+          <source>The user who tried to access the application is using a Microsoft account rather than the proper corporate account to sign in, or the user is a guest user.</source>
+          <target state="new">The user who tried to access the application is using a Microsoft account rather than the proper corporate account to sign in, or the user is a guest user.</target>
+        </trans-unit>
+        <trans-unit id="0c4aa98e-aa7b-424c-9789-494f4f9cb792" xml:space="preserve">
+          <source>Make sure the user signs in using their corporate account that matches the domain of the published application.</source>
+          <target state="new">Make sure the user signs in using their corporate account that matches the domain of the published application.</target>
+        </trans-unit>
+        <trans-unit id="be7c0a1b-4c0a-4dd0-8508-50371998f516" xml:space="preserve">
+          <source>Microsoft Account users and guest cannot access IWA applications.</source>
+          <target state="new">Microsoft Account users and guest cannot access IWA applications.</target>
+        </trans-unit>
+        <trans-unit id="c6111728-2ece-492e-9327-ea4e39c593ba" xml:space="preserve">
+          <source>The user who tried to access the application is not properly defined for this application on the on-prem side.</source>
+          <target state="new">The user who tried to access the application is not properly defined for this application on the on-prem side.</target>
+        </trans-unit>
+        <trans-unit id="b3e97f70-92cb-4f0d-8e59-5b4749c6f8b8" xml:space="preserve">
+          <source>Make sure that this user has the proper permissions as defined for this backend application on the on-prem machine.</source>
+          <target state="new">Make sure that this user has the proper permissions as defined for this backend application on the on-prem machine.</target>
+        </trans-unit>
+        <trans-unit id="18f1b1cc-be64-48ee-af7c-d72371a418f8" xml:space="preserve">
+          <source>This corporate app can’t be accessed.</source>
+          <target state="new">This corporate app can’t be accessed.</target>
+        </trans-unit>
+        <trans-unit id="fb334d80-e084-4843-830b-75e164f3a4b4" xml:space="preserve">
+          <source>You are not authorized to access this application.</source>
+          <target state="new">You are not authorized to access this application.</target>
+        </trans-unit>
+        <trans-unit id="d6f49f44-53d4-4bc8-b3b6-81ab8556f5b7" xml:space="preserve">
+          <source>Authorization failed.</source>
+          <target state="new">Authorization failed.</target>
+        </trans-unit>
+        <trans-unit id="13777b55-9b87-4e7a-be93-c1070fbaaf86" xml:space="preserve">
+          <source>Make sure to assign the user with access to this application.</source>
+          <target state="new">Make sure to assign the user with access to this application.</target>
+        </trans-unit>
+        <trans-unit id="f30ef298-3794-41d8-8126-cfcb64920dd8" xml:space="preserve">
+          <source>Your user may get this error when trying to access the app you published if the user who tried to access the application is using a Microsoft Account rather than the proper corporate account to sign in, or the user is a guest user.</source>
+          <target state="new">Your user may get this error when trying to access the app you published if the user who tried to access the application is using a Microsoft Account rather than the proper corporate account to sign in, or the user is a guest user.</target>
+        </trans-unit>
+        <trans-unit id="e28218c8-4326-4949-afc0-6c458a823fac" xml:space="preserve">
+          <source>Microsoft Account users and guest cannot access IWA applications.</source>
+          <target state="new">Microsoft Account users and guest cannot access IWA applications.</target>
+        </trans-unit>
+        <trans-unit id="608bc065-5c23-4ba5-9a51-22077a7db2e7" xml:space="preserve">
+          <source>Make sure the user signs in using their corporate account that matches the domain of the published application.</source>
+          <target state="new">Make sure the user signs in using their corporate account that matches the domain of the published application.</target>
+        </trans-unit>
+        <trans-unit id="ed856f55-88b7-4dd6-8a51-f3ae2f38df0c" xml:space="preserve">
+          <source>This corporate app can’t be accessed right now.</source>
+          <target state="new">This corporate app can’t be accessed right now.</target>
+        </trans-unit>
+        <trans-unit id="87d908fb-fe66-49bc-938d-ee6016b87401" xml:space="preserve">
+          <source>Please try again later…The connector timed out.</source>
+          <target state="new">Please try again later…The connector timed out.</target>
+        </trans-unit>
+        <trans-unit id="551fe414-d4cd-44e1-bcb1-a2cea8ece744" xml:space="preserve">
+          <source>Your user may get this error when trying to access the app you published if the user who tried to access the application is not properly defined for this application on the on-prem side.</source>
+          <target state="new">Your user may get this error when trying to access the app you published if the user who tried to access the application is not properly defined for this application on the on-prem side.</target>
+        </trans-unit>
+        <trans-unit id="a74c8eba-7c9f-4c79-accc-aabb4c349f7e" xml:space="preserve">
+          <source>Make sure that this user has the proper permissions as defined for this backend application on the on-prem machine.</source>
+          <target state="new">Make sure that this user has the proper permissions as defined for this backend application on the on-prem machine.</target>
+        </trans-unit>
+        <trans-unit id="25e481f3-fd7a-4c48-b63d-49318ba62cd7" xml:space="preserve">
+          <source><bpt id="881a957a-cfaa-45f0-b329-9dbb68661b79">&lt;linkText&gt;</bpt>Using Application Proxy to publish applications for secure remote access<ept id="881a957a-cfaa-45f0-b329-9dbb68661b79">&lt;/linkText&gt;</ept><bpt id="881a957a-cfaa-45f0-b329-9dbb68661b79">&lt;title&gt;</bpt><ept id="881a957a-cfaa-45f0-b329-9dbb68661b79">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="881a957a-cfaa-45f0-b329-9dbb68661b79">&lt;linkText&gt;</bpt>Using Application Proxy to publish applications for secure remote access<ept id="881a957a-cfaa-45f0-b329-9dbb68661b79">&lt;/linkText&gt;</ept><bpt id="881a957a-cfaa-45f0-b329-9dbb68661b79">&lt;title&gt;</bpt><ept id="881a957a-cfaa-45f0-b329-9dbb68661b79">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdce699b-00f5-4f8a-9c10-af1c4ac4f66c" xml:space="preserve">
+          <source><bpt id="2f6c18da-9544-409e-936e-cc7867b8a49d">&lt;linkText&gt;</bpt>Enable Application Proxy services<ept id="2f6c18da-9544-409e-936e-cc7867b8a49d">&lt;/linkText&gt;</ept><bpt id="2f6c18da-9544-409e-936e-cc7867b8a49d">&lt;title&gt;</bpt><ept id="2f6c18da-9544-409e-936e-cc7867b8a49d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2f6c18da-9544-409e-936e-cc7867b8a49d">&lt;linkText&gt;</bpt>Enable Application Proxy services<ept id="2f6c18da-9544-409e-936e-cc7867b8a49d">&lt;/linkText&gt;</ept><bpt id="2f6c18da-9544-409e-936e-cc7867b8a49d">&lt;title&gt;</bpt><ept id="2f6c18da-9544-409e-936e-cc7867b8a49d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91c82229-737f-467d-a0af-c0d08cb5b8de" xml:space="preserve">
+          <source>./media/active-directory-application-proxy-troubleshoot/ConnectorProperties.jpg</source>
+          <target state="new">./media/active-directory-application-proxy-troubleshoot/ConnectorProperties.jpg</target>
+        </trans-unit>
+        <trans-unit id="3f188259-f461-4059-89f3-fc84e14b548e" xml:space="preserve">
+          <source>./media/active-directory-application-proxy-troubleshoot/SessionLog.jpg</source>
+          <target state="new">./media/active-directory-application-proxy-troubleshoot/SessionLog.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="13a1ee6e-ddc1-4a81-884a-dcd9366cdadb" />
+    </body>
+  </file>
+</xliff>

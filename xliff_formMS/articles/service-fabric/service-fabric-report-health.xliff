@@ -1,0 +1,796 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="af56537f-0424-45e9-9017-06e89c57933f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="af56537f-0424-45e9-9017-06e89c57933f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ab5559e4-3a63-4589-9b83-02dba8697d80">
+        <trans-unit id="3f5191ae-312a-4d2b-8441-403bfd8132d8" xml:space="preserve">
+          <source>Adding custom Service Fabric health reports</source>
+          <target state="new">Adding custom Service Fabric health reports</target>
+        </trans-unit>
+        <trans-unit id="a04451a6-df36-492d-bcf9-811bca39fac3" xml:space="preserve">
+          <source>Describes how to send custom health reports to Azure Service Fabric health entities. Gives recommendations for designing and implementing quality health reports.</source>
+          <target state="new">Describes how to send custom health reports to Azure Service Fabric health entities. Gives recommendations for designing and implementing quality health reports.</target>
+        </trans-unit>
+        <trans-unit id="2704fae1-8a34-40cf-aaec-7a92d0c1f061" xml:space="preserve">
+          <source>Service Fabric introduces a <bpt id="e58a4037-6000-4c81-92cf-b12dd63dc6f0">&lt;linkText&gt;</bpt>Health Model<ept id="e58a4037-6000-4c81-92cf-b12dd63dc6f0">&lt;/linkText&gt;</ept><bpt id="e58a4037-6000-4c81-92cf-b12dd63dc6f0">&lt;title&gt;</bpt><ept id="e58a4037-6000-4c81-92cf-b12dd63dc6f0">&lt;/title&gt;</ept> designed to flag unhealthy cluster or application conditions on specific entities.</source>
+          <target state="new">Service Fabric introduces a <bpt id="e58a4037-6000-4c81-92cf-b12dd63dc6f0">&lt;linkText&gt;</bpt>Health Model<ept id="e58a4037-6000-4c81-92cf-b12dd63dc6f0">&lt;/linkText&gt;</ept><bpt id="e58a4037-6000-4c81-92cf-b12dd63dc6f0">&lt;title&gt;</bpt><ept id="e58a4037-6000-4c81-92cf-b12dd63dc6f0">&lt;/title&gt;</ept> designed to flag unhealthy cluster or application conditions on specific entities.</target>
+        </trans-unit>
+        <trans-unit id="e981b774-bf4b-461f-9609-310b41f5895d" xml:space="preserve">
+          <source>This is accomplished by using <bpt id="323c76c7-1adf-4709-9dea-a732f37b45cc">&lt;strong&gt;</bpt>health reporters<ept id="323c76c7-1adf-4709-9dea-a732f37b45cc">&lt;/strong&gt;</ept> (System components and watchdogs).</source>
+          <target state="new">This is accomplished by using <bpt id="323c76c7-1adf-4709-9dea-a732f37b45cc">&lt;strong&gt;</bpt>health reporters<ept id="323c76c7-1adf-4709-9dea-a732f37b45cc">&lt;/strong&gt;</ept> (System components and watchdogs).</target>
+        </trans-unit>
+        <trans-unit id="9df6703d-6e9a-4f44-bd05-b9e147cec868" xml:space="preserve">
+          <source>The goal is easy and fast diagnosis and repair.</source>
+          <target state="new">The goal is easy and fast diagnosis and repair.</target>
+        </trans-unit>
+        <trans-unit id="a75d4df1-72e4-40cd-851c-3098b6383697" xml:space="preserve">
+          <source>Service writers need to think upfront about health.</source>
+          <target state="new">Service writers need to think upfront about health.</target>
+        </trans-unit>
+        <trans-unit id="d432c340-0d19-4d21-9f78-1908ffc20138" xml:space="preserve">
+          <source>Any condition that can impact health should be reported on, especially if it can help flagging problems close to the root.</source>
+          <target state="new">Any condition that can impact health should be reported on, especially if it can help flagging problems close to the root.</target>
+        </trans-unit>
+        <trans-unit id="5190549d-1c1d-437a-bd57-163144f77dde" xml:space="preserve">
+          <source>This can save a lot of debugging and investigation once the service is up and running at scale in the cloud (private or Azure).</source>
+          <target state="new">This can save a lot of debugging and investigation once the service is up and running at scale in the cloud (private or Azure).</target>
+        </trans-unit>
+        <trans-unit id="c8941576-e566-4908-98bd-b833c01594b7" xml:space="preserve">
+          <source>The Service Fabric reporters monitor identified conditions of interest.</source>
+          <target state="new">The Service Fabric reporters monitor identified conditions of interest.</target>
+        </trans-unit>
+        <trans-unit id="3633a175-6950-4a25-97c5-c72732f66fa6" xml:space="preserve">
+          <source>They report on those conditions based on their local view.</source>
+          <target state="new">They report on those conditions based on their local view.</target>
+        </trans-unit>
+        <trans-unit id="2c5f7aa0-df6b-4164-b6b3-e68e9a276359" xml:space="preserve">
+          <source>The <bpt id="37568fd6-e2ec-4e9e-8a39-b6d1cbf204c7">&lt;linkText&gt;</bpt>Health Store<ept id="37568fd6-e2ec-4e9e-8a39-b6d1cbf204c7">&lt;/linkText&gt;</ept><bpt id="37568fd6-e2ec-4e9e-8a39-b6d1cbf204c7">&lt;title&gt;</bpt><ept id="37568fd6-e2ec-4e9e-8a39-b6d1cbf204c7">&lt;/title&gt;</ept> aggregates health data sent by all reporters to determine whether entities are globally healthy.</source>
+          <target state="new">The <bpt id="37568fd6-e2ec-4e9e-8a39-b6d1cbf204c7">&lt;linkText&gt;</bpt>Health Store<ept id="37568fd6-e2ec-4e9e-8a39-b6d1cbf204c7">&lt;/linkText&gt;</ept><bpt id="37568fd6-e2ec-4e9e-8a39-b6d1cbf204c7">&lt;title&gt;</bpt><ept id="37568fd6-e2ec-4e9e-8a39-b6d1cbf204c7">&lt;/title&gt;</ept> aggregates health data sent by all reporters to determine whether entities are globally healthy.</target>
+        </trans-unit>
+        <trans-unit id="b74079d1-e40a-4c7d-af40-3b4335456bfa" xml:space="preserve">
+          <source>The model is intended to be rich, flexible and easy to use.</source>
+          <target state="new">The model is intended to be rich, flexible and easy to use.</target>
+        </trans-unit>
+        <trans-unit id="6c485712-58d3-471b-bffd-02476183f971" xml:space="preserve">
+          <source>The quality of the health reports determines how accurate the health view of the cluster is.</source>
+          <target state="new">The quality of the health reports determines how accurate the health view of the cluster is.</target>
+        </trans-unit>
+        <trans-unit id="70953866-01cd-408f-a639-723a0e43656b" xml:space="preserve">
+          <source>False positives that show unhealthy issues wrongly can negatively impact upgrades or other services that use health data, like repair services or alerting mechanisms.</source>
+          <target state="new">False positives that show unhealthy issues wrongly can negatively impact upgrades or other services that use health data, like repair services or alerting mechanisms.</target>
+        </trans-unit>
+        <trans-unit id="df866819-0161-475c-b31f-99e24cc9735d" xml:space="preserve">
+          <source>Therefore, some thought is needed to provide reports that capture conditions of interest in the best possible way.</source>
+          <target state="new">Therefore, some thought is needed to provide reports that capture conditions of interest in the best possible way.</target>
+        </trans-unit>
+        <trans-unit id="2221297b-5ac7-422e-b0ce-7bab51216aed" xml:space="preserve">
+          <source>To design and implement health reporting, watchdogs and System components must:</source>
+          <target state="new">To design and implement health reporting, watchdogs and System components must:</target>
+        </trans-unit>
+        <trans-unit id="18f06f06-7513-405e-8c23-c1f89093cf24" xml:space="preserve">
+          <source>Define the condition they are interested in, the way it is monitored and the impact on the cluster/application functionality.</source>
+          <target state="new">Define the condition they are interested in, the way it is monitored and the impact on the cluster/application functionality.</target>
+        </trans-unit>
+        <trans-unit id="e1253d7d-a932-4079-957f-cdb770692614" xml:space="preserve">
+          <source>This defines the health report property and health state.</source>
+          <target state="new">This defines the health report property and health state.</target>
+        </trans-unit>
+        <trans-unit id="6226d969-1601-4db8-88c5-6874e88b8ba2" xml:space="preserve">
+          <source>Determine the <bpt id="ffc3be94-312e-44f9-8832-4402c225b4ec">&lt;linkText&gt;</bpt>entity<ept id="ffc3be94-312e-44f9-8832-4402c225b4ec">&lt;/linkText&gt;</ept><bpt id="ffc3be94-312e-44f9-8832-4402c225b4ec">&lt;title&gt;</bpt><ept id="ffc3be94-312e-44f9-8832-4402c225b4ec">&lt;/title&gt;</ept> the report applies to.</source>
+          <target state="new">Determine the <bpt id="ffc3be94-312e-44f9-8832-4402c225b4ec">&lt;linkText&gt;</bpt>entity<ept id="ffc3be94-312e-44f9-8832-4402c225b4ec">&lt;/linkText&gt;</ept><bpt id="ffc3be94-312e-44f9-8832-4402c225b4ec">&lt;title&gt;</bpt><ept id="ffc3be94-312e-44f9-8832-4402c225b4ec">&lt;/title&gt;</ept> the report applies to.</target>
+        </trans-unit>
+        <trans-unit id="cf742c39-aacc-436d-9877-3c7a3f5912d7" xml:space="preserve">
+          <source>Determine where the reporting is done from, either from within service, internal or external watchdog.</source>
+          <target state="new">Determine where the reporting is done from, either from within service, internal or external watchdog.</target>
+        </trans-unit>
+        <trans-unit id="0d87a352-2e2b-47d1-895d-2e2c19d257e3" xml:space="preserve">
+          <source>Define a source used to identify the reporter.</source>
+          <target state="new">Define a source used to identify the reporter.</target>
+        </trans-unit>
+        <trans-unit id="4f8cd279-b18f-407c-9086-886af17ef87e" xml:space="preserve">
+          <source>Choose a reporting strategy, either periodically or on transitions.</source>
+          <target state="new">Choose a reporting strategy, either periodically or on transitions.</target>
+        </trans-unit>
+        <trans-unit id="e6a57891-1866-4f63-913e-94f558f87de3" xml:space="preserve">
+          <source>The recommended way is periodically, as it requires simpler code and is therefore less prone to errors.</source>
+          <target state="new">The recommended way is periodically, as it requires simpler code and is therefore less prone to errors.</target>
+        </trans-unit>
+        <trans-unit id="faa4722d-5679-4818-8542-08af7bce807b" xml:space="preserve">
+          <source>Determine how long the report for unhealthy conditions should stay in health store and how it should be cleared.</source>
+          <target state="new">Determine how long the report for unhealthy conditions should stay in health store and how it should be cleared.</target>
+        </trans-unit>
+        <trans-unit id="b9a57caf-d73e-4a92-b6df-92a5d45d045b" xml:space="preserve">
+          <source>This defines the report time to live and remove on expiration behavior.</source>
+          <target state="new">This defines the report time to live and remove on expiration behavior.</target>
+        </trans-unit>
+        <trans-unit id="d2007c9c-aac1-4f5f-b5a9-83efb21cb1e3" xml:space="preserve">
+          <source>As mentioned above, reporting can be done from:</source>
+          <target state="new">As mentioned above, reporting can be done from:</target>
+        </trans-unit>
+        <trans-unit id="ec90a829-4b9d-4afe-8c42-53a6505a18b8" xml:space="preserve">
+          <source>The monitored Service Fabric service replica.</source>
+          <target state="new">The monitored Service Fabric service replica.</target>
+        </trans-unit>
+        <trans-unit id="cde82363-6889-4b30-8c7a-29a547263221" xml:space="preserve">
+          <source>Internal watchdogs deployed as a Service Fabric service. Eg. a Service Fabric stateless service that monitors conditions and issues report.</source>
+          <target state="new">Internal watchdogs deployed as a Service Fabric service. Eg. a Service Fabric stateless service that monitors conditions and issues report.</target>
+        </trans-unit>
+        <trans-unit id="e3a5789f-78e4-47d0-82ec-65c74f165d39" xml:space="preserve">
+          <source>The watchdogs can be deployed an all nodes or can be affinitized to the monitored service.</source>
+          <target state="new">The watchdogs can be deployed an all nodes or can be affinitized to the monitored service.</target>
+        </trans-unit>
+        <trans-unit id="c6911d2e-9dd0-4fcc-b8b7-e861b321e2f8" xml:space="preserve">
+          <source>Internal Watchdogs that run on the Service Fabric nodes but are <bpt id="23730974-01ac-4d91-aec4-cfcc4d415f8e">&lt;strong&gt;</bpt>not<ept id="23730974-01ac-4d91-aec4-cfcc4d415f8e">&lt;/strong&gt;</ept> implemented as Service Fabric services.</source>
+          <target state="new">Internal Watchdogs that run on the Service Fabric nodes but are <bpt id="23730974-01ac-4d91-aec4-cfcc4d415f8e">&lt;strong&gt;</bpt>not<ept id="23730974-01ac-4d91-aec4-cfcc4d415f8e">&lt;/strong&gt;</ept> implemented as Service Fabric services.</target>
+        </trans-unit>
+        <trans-unit id="bd3bd485-634d-4cf7-ae43-183bdd9ef52b" xml:space="preserve">
+          <source>External watchdogs that are probing the resource from <bpt id="74ad2e22-bc68-4fc7-b730-9dc0c0ddd206">&lt;strong&gt;</bpt>outside<ept id="74ad2e22-bc68-4fc7-b730-9dc0c0ddd206">&lt;/strong&gt;</ept> the Service Fabric cluster.</source>
+          <target state="new">External watchdogs that are probing the resource from <bpt id="74ad2e22-bc68-4fc7-b730-9dc0c0ddd206">&lt;strong&gt;</bpt>outside<ept id="74ad2e22-bc68-4fc7-b730-9dc0c0ddd206">&lt;/strong&gt;</ept> the Service Fabric cluster.</target>
+        </trans-unit>
+        <trans-unit id="6fca5511-1636-4f74-8f21-7fb274811a0f" xml:space="preserve">
+          <source>Eg.</source>
+          <target state="new">Eg.</target>
+        </trans-unit>
+        <trans-unit id="7a23b1f8-24f0-401b-a33c-a65763bd6bfb" xml:space="preserve">
+          <source>Gomez like monitoring service.</source>
+          <target state="new">Gomez like monitoring service.</target>
+        </trans-unit>
+        <trans-unit id="1244de00-e12a-4830-92f3-e05787c6740a" xml:space="preserve">
+          <source>Out of the box, the cluster is populated with health reports sent by the system components.</source>
+          <target state="new">Out of the box, the cluster is populated with health reports sent by the system components.</target>
+        </trans-unit>
+        <trans-unit id="c4f6d67d-f031-44e5-b8a1-246edc4de89e" xml:space="preserve">
+          <source>Read more at <bpt id="04d365f6-8a3a-4444-9a39-9101ecce0f5f">&lt;linkText&gt;</bpt>Using System health reports for troubleshooting<ept id="04d365f6-8a3a-4444-9a39-9101ecce0f5f">&lt;/linkText&gt;</ept><bpt id="04d365f6-8a3a-4444-9a39-9101ecce0f5f">&lt;title&gt;</bpt><ept id="04d365f6-8a3a-4444-9a39-9101ecce0f5f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more at <bpt id="04d365f6-8a3a-4444-9a39-9101ecce0f5f">&lt;linkText&gt;</bpt>Using System health reports for troubleshooting<ept id="04d365f6-8a3a-4444-9a39-9101ecce0f5f">&lt;/linkText&gt;</ept><bpt id="04d365f6-8a3a-4444-9a39-9101ecce0f5f">&lt;title&gt;</bpt><ept id="04d365f6-8a3a-4444-9a39-9101ecce0f5f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e911b33-2ddc-4794-8a4c-eeacdac914da" xml:space="preserve">
+          <source>The user reports must be sent on <bpt id="58502dea-5a11-4c5b-a1b8-6ca1199aceed">&lt;linkText&gt;</bpt>health entities<ept id="58502dea-5a11-4c5b-a1b8-6ca1199aceed">&lt;/linkText&gt;</ept><bpt id="58502dea-5a11-4c5b-a1b8-6ca1199aceed">&lt;title&gt;</bpt><ept id="58502dea-5a11-4c5b-a1b8-6ca1199aceed">&lt;/title&gt;</ept> already created by the system.</source>
+          <target state="new">The user reports must be sent on <bpt id="58502dea-5a11-4c5b-a1b8-6ca1199aceed">&lt;linkText&gt;</bpt>health entities<ept id="58502dea-5a11-4c5b-a1b8-6ca1199aceed">&lt;/linkText&gt;</ept><bpt id="58502dea-5a11-4c5b-a1b8-6ca1199aceed">&lt;title&gt;</bpt><ept id="58502dea-5a11-4c5b-a1b8-6ca1199aceed">&lt;/title&gt;</ept> already created by the system.</target>
+        </trans-unit>
+        <trans-unit id="99872493-94aa-48c5-9734-be50980334cb" xml:space="preserve">
+          <source>Once the health reporting design is clear, sending health reports is easy.</source>
+          <target state="new">Once the health reporting design is clear, sending health reports is easy.</target>
+        </trans-unit>
+        <trans-unit id="477dd2c1-1de8-428e-b059-018e0ee8ed27" xml:space="preserve">
+          <source>It can be done through API using FabricClient.HealthManager.ReportHealth, through Powershell or through REST.</source>
+          <target state="new">It can be done through API using FabricClient.HealthManager.ReportHealth, through Powershell or through REST.</target>
+        </trans-unit>
+        <trans-unit id="24730511-1e9f-4d92-b858-a0280cf77c22" xml:space="preserve">
+          <source>Internally, all methods use a health client contained inside a fabric client.</source>
+          <target state="new">Internally, all methods use a health client contained inside a fabric client.</target>
+        </trans-unit>
+        <trans-unit id="64d70d59-9086-4aec-9a97-c608be752946" xml:space="preserve">
+          <source>There are configuration knobs to batch reports for improved performance.</source>
+          <target state="new">There are configuration knobs to batch reports for improved performance.</target>
+        </trans-unit>
+        <trans-unit id="a1c3b2ff-6960-4a15-b3db-a920b5f0bf8b" xml:space="preserve">
+          <source>Report health is sync and only represents the validation work on client side.</source>
+          <target state="new">Report health is sync and only represents the validation work on client side.</target>
+        </trans-unit>
+        <trans-unit id="fa92f9e9-9ce2-44b0-9006-4d431387ab99" xml:space="preserve">
+          <source>The fact that the report is accepted by the health client doesn't mean it is applied in store; it will be sent asynchronously, possibly batched with other reports and the processing on the server may fail (eg.</source>
+          <target state="new">The fact that the report is accepted by the health client doesn't mean it is applied in store; it will be sent asynchronously, possibly batched with other reports and the processing on the server may fail (eg.</target>
+        </trans-unit>
+        <trans-unit id="1459fcc5-6f20-4635-b665-861b3fa3ee13" xml:space="preserve">
+          <source>stale sequence number, the entity on which the report must be applied has been deleted etc).</source>
+          <target state="new">stale sequence number, the entity on which the report must be applied has been deleted etc).</target>
+        </trans-unit>
+        <trans-unit id="ef6074d7-f193-479b-9d5d-b33cbce44fa3" xml:space="preserve">
+          <source>The health reports are sent to the Health Store using a health client, which lives inside the fabric client.</source>
+          <target state="new">The health reports are sent to the Health Store using a health client, which lives inside the fabric client.</target>
+        </trans-unit>
+        <trans-unit id="0225882b-8197-486c-a328-6af08b946333" xml:space="preserve">
+          <source>The health client can be configured with the following:</source>
+          <target state="new">The health client can be configured with the following:</target>
+        </trans-unit>
+        <trans-unit id="b5ac7108-1e18-4807-a00d-7d7d223e04ff" xml:space="preserve">
+          <source>HealthReportSendInterval.</source>
+          <target state="new">HealthReportSendInterval.</target>
+        </trans-unit>
+        <trans-unit id="a4b01bfa-3d7e-4ea0-b21f-85cf1f82104f" xml:space="preserve">
+          <source>The delay between the time the report is added to the client and the time it is sent to Health Store.</source>
+          <target state="new">The delay between the time the report is added to the client and the time it is sent to Health Store.</target>
+        </trans-unit>
+        <trans-unit id="f762f1d9-c7aa-4d04-b5c2-d27727cccb51" xml:space="preserve">
+          <source>This is used to batch reports in a single message rather than send one message per each report, for improved performance.</source>
+          <target state="new">This is used to batch reports in a single message rather than send one message per each report, for improved performance.</target>
+        </trans-unit>
+        <trans-unit id="a6c8ef90-90b8-47e6-a5f7-fc164e210d80" xml:space="preserve">
+          <source>Default: 30 seconds.</source>
+          <target state="new">Default: 30 seconds.</target>
+        </trans-unit>
+        <trans-unit id="419b1a98-48e8-4170-bc14-ad106ffc2167" xml:space="preserve">
+          <source>HealthReportRetrySendInterval.</source>
+          <target state="new">HealthReportRetrySendInterval.</target>
+        </trans-unit>
+        <trans-unit id="bc8905e6-4c77-4ac4-955e-1de2342fa7fe" xml:space="preserve">
+          <source>The interval at which the health client re-sends accumulated health reports to Health Store.</source>
+          <target state="new">The interval at which the health client re-sends accumulated health reports to Health Store.</target>
+        </trans-unit>
+        <trans-unit id="4b6579db-c474-4d8a-a00a-ffdfd81c6033" xml:space="preserve">
+          <source>Default: 30 seconds.</source>
+          <target state="new">Default: 30 seconds.</target>
+        </trans-unit>
+        <trans-unit id="ecbbafb2-2508-45c8-8d63-129b3236c7b6" xml:space="preserve">
+          <source>HealthOperationTimeout.</source>
+          <target state="new">HealthOperationTimeout.</target>
+        </trans-unit>
+        <trans-unit id="2e25a0c8-1975-419e-b39a-e559f788537d" xml:space="preserve">
+          <source>The timeout for a report message sent to Health Store.</source>
+          <target state="new">The timeout for a report message sent to Health Store.</target>
+        </trans-unit>
+        <trans-unit id="100a13a5-c3e1-4c46-a076-f71e9d1c3217" xml:space="preserve">
+          <source>If a message times out, the health client retries until the Health Store confirms that the reports have been processed.</source>
+          <target state="new">If a message times out, the health client retries until the Health Store confirms that the reports have been processed.</target>
+        </trans-unit>
+        <trans-unit id="98a58423-3136-4b45-bff0-abb68895d060" xml:space="preserve">
+          <source>Default: 2 minutes.</source>
+          <target state="new">Default: 2 minutes.</target>
+        </trans-unit>
+        <trans-unit id="33c5a722-b2ff-40d9-9c9f-1e9cbc732eec" xml:space="preserve">
+          <source>When the reports are batched, the fabric client must be kept alive for at least HealthReportSendInterval to ensure they are sent.</source>
+          <target state="new">When the reports are batched, the fabric client must be kept alive for at least HealthReportSendInterval to ensure they are sent.</target>
+        </trans-unit>
+        <trans-unit id="2dfeda39-6101-418e-906d-9974f2597646" xml:space="preserve">
+          <source>If the message is lost or Health Store is not able to apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.</source>
+          <target state="new">If the message is lost or Health Store is not able to apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.</target>
+        </trans-unit>
+        <trans-unit id="cc74ecf3-a078-43f0-be5c-a23337052c2f" xml:space="preserve">
+          <source>The buffering on the client takes the uniqueness of the reports into consideration.</source>
+          <target state="new">The buffering on the client takes the uniqueness of the reports into consideration.</target>
+        </trans-unit>
+        <trans-unit id="e3139628-a9db-4c21-8191-4c2f0a9c5d4f" xml:space="preserve">
+          <source>For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports will get replaced with last version.</source>
+          <target state="new">For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports will get replaced with last version.</target>
+        </trans-unit>
+        <trans-unit id="7fc35a06-272c-4c34-a6d8-6eedf9d83238" xml:space="preserve">
+          <source>At most one such report exists in the client queue.</source>
+          <target state="new">At most one such report exists in the client queue.</target>
+        </trans-unit>
+        <trans-unit id="5c5d796e-925d-4a24-b693-cffe3987b699" xml:space="preserve">
+          <source>If batching is configured, the number of reports sent to the Health Store is just one per send interval, the last added report, which reflects the most current state of the entity.</source>
+          <target state="new">If batching is configured, the number of reports sent to the Health Store is just one per send interval, the last added report, which reflects the most current state of the entity.</target>
+        </trans-unit>
+        <trans-unit id="7614206c-c52d-444f-a06e-9d0ed0840a2d" xml:space="preserve">
+          <source>All configuration parameters can be specified when creating the FabricClient, by passing FabricClientSettings with desired values for health related entries.</source>
+          <target state="new">All configuration parameters can be specified when creating the FabricClient, by passing FabricClientSettings with desired values for health related entries.</target>
+        </trans-unit>
+        <trans-unit id="46b7d9d5-6ed8-4903-92a4-57af099d490f" xml:space="preserve">
+          <source>The following creates a fabric client and specifies that the reports should be sent as soon as they are added.</source>
+          <target state="new">The following creates a fabric client and specifies that the reports should be sent as soon as they are added.</target>
+        </trans-unit>
+        <trans-unit id="02e8e083-ce9f-4d8a-bc86-0fb00c509bfb" xml:space="preserve">
+          <source>On retryable errors or timeouts, retries happen every 40 seconds.</source>
+          <target state="new">On retryable errors or timeouts, retries happen every 40 seconds.</target>
+        </trans-unit>
+        <trans-unit id="35514143-f917-42a8-a52d-92e7d42453e7" xml:space="preserve">
+          <source>Same parameters can be specified when creating a connection to a cluster through Powershell.</source>
+          <target state="new">Same parameters can be specified when creating a connection to a cluster through Powershell.</target>
+        </trans-unit>
+        <trans-unit id="20f943da-d2dd-4d6d-b1a4-c177d5a7004d" xml:space="preserve">
+          <source>The following starts a connection to a local cluster:</source>
+          <target state="new">The following starts a connection to a local cluster:</target>
+        </trans-unit>
+        <trans-unit id="bbdc226a-6ff1-4099-8240-2ef226f88b57" xml:space="preserve">
+          <source>To ensure that unauthorized services can't report health against the entities in the cluster, the server can be configured to accept only requests from secured clients.</source>
+          <target state="new">To ensure that unauthorized services can't report health against the entities in the cluster, the server can be configured to accept only requests from secured clients.</target>
+        </trans-unit>
+        <trans-unit id="a0270db3-c002-41c7-bbf9-a4dfbec286f4" xml:space="preserve">
+          <source>Since the reporting is done through FabricClient, this means the FabricClient must have security enabled in order to be able to communicate with the cluster eg. with Kerberos or certificate authentication.</source>
+          <target state="new">Since the reporting is done through FabricClient, this means the FabricClient must have security enabled in order to be able to communicate with the cluster eg. with Kerberos or certificate authentication.</target>
+        </trans-unit>
+        <trans-unit id="2308b8ad-d95c-4d42-a181-369726436c04" xml:space="preserve">
+          <source>The first step in generating high quality reports is identifying conditions that can impact the health of the service.</source>
+          <target state="new">The first step in generating high quality reports is identifying conditions that can impact the health of the service.</target>
+        </trans-unit>
+        <trans-unit id="2cc46d93-67a5-476b-8308-14fd57db9113" xml:space="preserve">
+          <source>Any condition that can help flag problems in the service or cluster when they start or even better, before they happen, can potentially save billions of dollars.</source>
+          <target state="new">Any condition that can help flag problems in the service or cluster when they start or even better, before they happen, can potentially save billions of dollars.</target>
+        </trans-unit>
+        <trans-unit id="bb7b73cc-3b7b-49d3-bd0d-cf72dfade8b8" xml:space="preserve">
+          <source>Think less down time, less night hours spent investigating and repairing issues, high customer satisfaction.</source>
+          <target state="new">Think less down time, less night hours spent investigating and repairing issues, high customer satisfaction.</target>
+        </trans-unit>
+        <trans-unit id="7b29ea27-c90c-4eb1-828c-bb4ee23ed375" xml:space="preserve">
+          <source>Once the conditions are identified, watchdog writers need to figure out the best way to monitor them for best balance between overhead and usefulness.</source>
+          <target state="new">Once the conditions are identified, watchdog writers need to figure out the best way to monitor them for best balance between overhead and usefulness.</target>
+        </trans-unit>
+        <trans-unit id="f7f9c23a-32fd-44c2-a919-6ce0c2e85ec8" xml:space="preserve">
+          <source>For example, consider a service that does some complex calculations using some temporary files on a share.</source>
+          <target state="new">For example, consider a service that does some complex calculations using some temporary files on a share.</target>
+        </trans-unit>
+        <trans-unit id="db5ce041-f025-490d-9109-1c2d48ea243b" xml:space="preserve">
+          <source>A watchdog could monitor the share to make sure enough space is available.</source>
+          <target state="new">A watchdog could monitor the share to make sure enough space is available.</target>
+        </trans-unit>
+        <trans-unit id="60d237e1-117c-4468-9263-a9ca9e5b03ad" xml:space="preserve">
+          <source>It could listen for notifications for file/directory changes.</source>
+          <target state="new">It could listen for notifications for file/directory changes.</target>
+        </trans-unit>
+        <trans-unit id="301d3a43-d0ad-4b7f-903f-cdf8ea4f41e4" xml:space="preserve">
+          <source>It can report an warning if an up-front threshold is reached and error if the share is full.</source>
+          <target state="new">It can report an warning if an up-front threshold is reached and error if the share is full.</target>
+        </trans-unit>
+        <trans-unit id="99b73138-1bc4-4dbb-ba3d-aa3922b4fde5" xml:space="preserve">
+          <source>On warning, a repair system could start clean up of older files on the share.</source>
+          <target state="new">On warning, a repair system could start clean up of older files on the share.</target>
+        </trans-unit>
+        <trans-unit id="d43b5c26-3071-4cea-9de2-8e53f415e239" xml:space="preserve">
+          <source>On error, a repair system could move the service replica to another node.</source>
+          <target state="new">On error, a repair system could move the service replica to another node.</target>
+        </trans-unit>
+        <trans-unit id="5c682ef0-b925-440a-914a-052818099131" xml:space="preserve">
+          <source>Note how the condition states are described in terms of health: what is the state of the condition that can be considered healthy or unhealthy (warning or error).</source>
+          <target state="new">Note how the condition states are described in terms of health: what is the state of the condition that can be considered healthy or unhealthy (warning or error).</target>
+        </trans-unit>
+        <trans-unit id="0fad8201-684a-419e-9918-ed4d5cdfd52e" xml:space="preserve">
+          <source>Once the monitoring details are set, watchdog writer need to figure out how to implement the watchdog.</source>
+          <target state="new">Once the monitoring details are set, watchdog writer need to figure out how to implement the watchdog.</target>
+        </trans-unit>
+        <trans-unit id="80707b65-cc5b-499a-88a7-65964d8f9410" xml:space="preserve">
+          <source>If the conditions can be determined from within the service, the watchdog can be part of the monitored service itself.</source>
+          <target state="new">If the conditions can be determined from within the service, the watchdog can be part of the monitored service itself.</target>
+        </trans-unit>
+        <trans-unit id="42d12854-76ad-426c-b00e-17e2f7450cef" xml:space="preserve">
+          <source>For example, the service code can check the share usage and report using a local fabric client every time it tries to write a file.</source>
+          <target state="new">For example, the service code can check the share usage and report using a local fabric client every time it tries to write a file.</target>
+        </trans-unit>
+        <trans-unit id="80800d7e-23b9-4c43-8b08-a7d3f1c529e0" xml:space="preserve">
+          <source>The advantage of this approach is that reporting is simple.</source>
+          <target state="new">The advantage of this approach is that reporting is simple.</target>
+        </trans-unit>
+        <trans-unit id="1a29cf46-2904-4d87-99dd-c115a7769f27" xml:space="preserve">
+          <source>Care must be taken to prevent watchdog bugs from impacting the service functionality.</source>
+          <target state="new">Care must be taken to prevent watchdog bugs from impacting the service functionality.</target>
+        </trans-unit>
+        <trans-unit id="6b67176c-11f1-4e54-9a58-03e88dfb0da1" xml:space="preserve">
+          <source>Reporting from within the monitored service is not always an option.</source>
+          <target state="new">Reporting from within the monitored service is not always an option.</target>
+        </trans-unit>
+        <trans-unit id="99b7379e-3758-4819-be74-1e8cd7990cab" xml:space="preserve">
+          <source>An watchdog within the service may not be able to detect the conditions: either it doesn't have the logic or data to make the determination, or the overhead of monitoring the conditions is high, or the conditions are not specific to a service, but affect interactions between services.</source>
+          <target state="new">An watchdog within the service may not be able to detect the conditions: either it doesn't have the logic or data to make the determination, or the overhead of monitoring the conditions is high, or the conditions are not specific to a service, but affect interactions between services.</target>
+        </trans-unit>
+        <trans-unit id="5771022a-9eec-4feb-84e7-9f50324a268b" xml:space="preserve">
+          <source>Another option is to have watchogs in the cluster as separate processes.</source>
+          <target state="new">Another option is to have watchogs in the cluster as separate processes.</target>
+        </trans-unit>
+        <trans-unit id="7c6f2288-7193-4a77-9526-296f0e2feb02" xml:space="preserve">
+          <source>The watchdogs simply monitor the conditions and report, without affecting the main services in any way.</source>
+          <target state="new">The watchdogs simply monitor the conditions and report, without affecting the main services in any way.</target>
+        </trans-unit>
+        <trans-unit id="6ce57fa9-6cd2-4b33-9a28-f92a8ebcd506" xml:space="preserve">
+          <source>These watchdogs could for example be implemented as stateless services in the same application, deployed on all nodes or on the same nodes as the service.</source>
+          <target state="new">These watchdogs could for example be implemented as stateless services in the same application, deployed on all nodes or on the same nodes as the service.</target>
+        </trans-unit>
+        <trans-unit id="9cd15994-535b-40dc-a8a9-156d849add0f" xml:space="preserve">
+          <source>Sometimes, an watchdog running in the cluster is not an option either.</source>
+          <target state="new">Sometimes, an watchdog running in the cluster is not an option either.</target>
+        </trans-unit>
+        <trans-unit id="78645fa4-750d-47a4-b8ca-81fba80e81e7" xml:space="preserve">
+          <source>If the monitored conditions are the availability or the functionality of the service as users see it, it's best to have the watchdogs in the same place as the user clients, testing the operations in the same way users call them.</source>
+          <target state="new">If the monitored conditions are the availability or the functionality of the service as users see it, it's best to have the watchdogs in the same place as the user clients, testing the operations in the same way users call them.</target>
+        </trans-unit>
+        <trans-unit id="79e8e9db-da00-4355-a2bc-5cdaf74543b3" xml:space="preserve">
+          <source>For example, we can have a watchog leaving outside the cluster and issuing requests to the service, checking the latency and the correctness of the result (for a calculator service, does 2+2 return 4 in a reasonable time?).</source>
+          <target state="new">For example, we can have a watchog leaving outside the cluster and issuing requests to the service, checking the latency and the correctness of the result (for a calculator service, does 2+2 return 4 in a reasonable time?).</target>
+        </trans-unit>
+        <trans-unit id="31eaa1b3-c0b7-41bb-8d80-861d93bdc6ff" xml:space="preserve">
+          <source>Once the watchdog details have been finalized, decide a source id that uniquely identifies it.</source>
+          <target state="new">Once the watchdog details have been finalized, decide a source id that uniquely identifies it.</target>
+        </trans-unit>
+        <trans-unit id="fa60c54e-e575-48e8-bfd3-1825fa637aa7" xml:space="preserve">
+          <source>If multiple watchdogs of the same type are living in the cluster, they must either report on different entities, or if they report on the same entity, make sure the source id or the property is different, so reports can coexist.</source>
+          <target state="new">If multiple watchdogs of the same type are living in the cluster, they must either report on different entities, or if they report on the same entity, make sure the source id or the property is different, so reports can coexist.</target>
+        </trans-unit>
+        <trans-unit id="81f2eb5e-52f1-486d-aa6a-dd7790e6edb1" xml:space="preserve">
+          <source>The property of the health report should capture the monitored condition. Eg. for the example above, the property could be ShareSize.</source>
+          <target state="new">The property of the health report should capture the monitored condition. Eg. for the example above, the property could be ShareSize.</target>
+        </trans-unit>
+        <trans-unit id="90adedf0-d312-4993-848d-19a9f4081064" xml:space="preserve">
+          <source>If multiple data applied to the same condition, the property should contain some dynamic information to allow reports to coexist.</source>
+          <target state="new">If multiple data applied to the same condition, the property should contain some dynamic information to allow reports to coexist.</target>
+        </trans-unit>
+        <trans-unit id="d97d5ec3-7fb6-4c0b-8a90-33eede8eef81" xml:space="preserve">
+          <source>For example, if there are multiple shares that need to be monitored, the property name can be ShareSize-sharename.</source>
+          <target state="new">For example, if there are multiple shares that need to be monitored, the property name can be ShareSize-sharename.</target>
+        </trans-unit>
+        <trans-unit id="0a700152-adbd-4bca-92eb-7c6fadce8fb2" xml:space="preserve">
+          <source>The health store should <bpt id="c137c97a-1402-47ed-8757-5d7c81a2b42e">&lt;strong&gt;</bpt>not<ept id="c137c97a-1402-47ed-8757-5d7c81a2b42e">&lt;/strong&gt;</ept> be used to keep status information.</source>
+          <target state="new">The health store should <bpt id="c137c97a-1402-47ed-8757-5d7c81a2b42e">&lt;strong&gt;</bpt>not<ept id="c137c97a-1402-47ed-8757-5d7c81a2b42e">&lt;/strong&gt;</ept> be used to keep status information.</target>
+        </trans-unit>
+        <trans-unit id="327f9e50-62f2-4a4a-a031-38be514dd760" xml:space="preserve">
+          <source>Only health related information should be reported as health, information that impacts the health evaluation of an entity.</source>
+          <target state="new">Only health related information should be reported as health, information that impacts the health evaluation of an entity.</target>
+        </trans-unit>
+        <trans-unit id="6822b79d-06d8-41c1-8ebb-3a5fbdb0336f" xml:space="preserve">
+          <source>The health store was not designed as a general purpose store.</source>
+          <target state="new">The health store was not designed as a general purpose store.</target>
+        </trans-unit>
+        <trans-unit id="f4476c93-f2a1-4dd6-99cb-b68f6f06986d" xml:space="preserve">
+          <source>It uses health evaluation logic to aggregate all data into health state.</source>
+          <target state="new">It uses health evaluation logic to aggregate all data into health state.</target>
+        </trans-unit>
+        <trans-unit id="de67be84-96d7-46de-8ee8-adaa764c3797" xml:space="preserve">
+          <source>Sending non-health related information (eg.</source>
+          <target state="new">Sending non-health related information (eg.</target>
+        </trans-unit>
+        <trans-unit id="ce65b020-059c-49c1-97da-9371539356a0" xml:space="preserve">
+          <source>reporting status with health state Ok) will not impact aggregated health state, but can negatively affect the performance of the health store.</source>
+          <target state="new">reporting status with health state Ok) will not impact aggregated health state, but can negatively affect the performance of the health store.</target>
+        </trans-unit>
+        <trans-unit id="66dfa19a-fab2-42a7-aa52-612dfb07281b" xml:space="preserve">
+          <source>The next decision point is what entity to report on.</source>
+          <target state="new">The next decision point is what entity to report on.</target>
+        </trans-unit>
+        <trans-unit id="38344a40-8094-4792-a1c8-cf0621607312" xml:space="preserve">
+          <source>Most of the time, this is obvious based on the condition.</source>
+          <target state="new">Most of the time, this is obvious based on the condition.</target>
+        </trans-unit>
+        <trans-unit id="412e2d23-7014-42d0-ade1-0823a91444cb" xml:space="preserve">
+          <source>Choose the entity with best granularity possible.</source>
+          <target state="new">Choose the entity with best granularity possible.</target>
+        </trans-unit>
+        <trans-unit id="8827f40f-2ce6-44fa-a149-069577214375" xml:space="preserve">
+          <source>If a condition impacts all replicas in a partition, report on the partition, not on the service.</source>
+          <target state="new">If a condition impacts all replicas in a partition, report on the partition, not on the service.</target>
+        </trans-unit>
+        <trans-unit id="aea8597e-f9cf-48df-b620-c558bad8b188" xml:space="preserve">
+          <source>There are corner cases where more thought is needed.</source>
+          <target state="new">There are corner cases where more thought is needed.</target>
+        </trans-unit>
+        <trans-unit id="cacd2946-79dc-491a-922d-a8b8e386b139" xml:space="preserve">
+          <source>If the condition impacts an entity (eg.</source>
+          <target state="new">If the condition impacts an entity (eg.</target>
+        </trans-unit>
+        <trans-unit id="1d8cfda8-c198-411c-97e5-751d84c60f2d" xml:space="preserve">
+          <source>replica) but the desire is to have the condition flagged for more than replica life duration, they it should be reported on partition.</source>
+          <target state="new">replica) but the desire is to have the condition flagged for more than replica life duration, they it should be reported on partition.</target>
+        </trans-unit>
+        <trans-unit id="da9783b5-130a-4494-9a4c-33762717dd71" xml:space="preserve">
+          <source>Otherwise, when the replica is deleted, all reports associated with it are cleaned up from store.</source>
+          <target state="new">Otherwise, when the replica is deleted, all reports associated with it are cleaned up from store.</target>
+        </trans-unit>
+        <trans-unit id="5751d19e-0a79-4067-9871-fe847e754fab" xml:space="preserve">
+          <source>This means watchdog writers needs to also think about the lifetime of the entity and of the report.</source>
+          <target state="new">This means watchdog writers needs to also think about the lifetime of the entity and of the report.</target>
+        </trans-unit>
+        <trans-unit id="1fb0feec-4558-4390-b2d3-16092f0a3660" xml:space="preserve">
+          <source>It must be clear when a report should be cleaned up from a store (eg.</source>
+          <target state="new">It must be clear when a report should be cleaned up from a store (eg.</target>
+        </trans-unit>
+        <trans-unit id="2db4f00b-45af-4c8b-a6cc-6ee6b08b1dc4" xml:space="preserve">
+          <source>when an Error reported on an entity is not applying anymore).</source>
+          <target state="new">when an Error reported on an entity is not applying anymore).</target>
+        </trans-unit>
+        <trans-unit id="012b87d2-0d63-4d3c-aa4b-31b3c17fefe7" xml:space="preserve">
+          <source>Let's look at an example to put together the above points.</source>
+          <target state="new">Let's look at an example to put together the above points.</target>
+        </trans-unit>
+        <trans-unit id="3b965f1d-d2f0-47b9-baad-8d5857e3882e" xml:space="preserve">
+          <source>Consider a Service Fabric application composed of a Master stateful persisted service and Slaves stateless services deployed on all nodes (one Slave service type for a type of task).</source>
+          <target state="new">Consider a Service Fabric application composed of a Master stateful persisted service and Slaves stateless services deployed on all nodes (one Slave service type for a type of task).</target>
+        </trans-unit>
+        <trans-unit id="6bf5d002-cb2d-4947-8105-08f9f7e38836" xml:space="preserve">
+          <source>The Master has a processing queue with commands to be executed by slaves.</source>
+          <target state="new">The Master has a processing queue with commands to be executed by slaves.</target>
+        </trans-unit>
+        <trans-unit id="20ee9d38-fff7-4116-8b4a-b6016d5ee6a5" xml:space="preserve">
+          <source>The slaves execute the incoming requests and send back Acks.</source>
+          <target state="new">The slaves execute the incoming requests and send back Acks.</target>
+        </trans-unit>
+        <trans-unit id="249922fa-32e2-4ebe-afc0-c41f9d08774a" xml:space="preserve">
+          <source>One condition that could be monitored is Master processing queue length.</source>
+          <target state="new">One condition that could be monitored is Master processing queue length.</target>
+        </trans-unit>
+        <trans-unit id="1ffc563c-04d4-490a-bb71-2eea64f35a09" xml:space="preserve">
+          <source>If the master queue length reaches a threshold, report Warning, as that means the slaves can't handle the load.</source>
+          <target state="new">If the master queue length reaches a threshold, report Warning, as that means the slaves can't handle the load.</target>
+        </trans-unit>
+        <trans-unit id="e1cf37c4-3904-40a2-8cd3-ef0e9e86faa6" xml:space="preserve">
+          <source>If the queue reached max length and commands are dropped, report Error as the service can't recover.</source>
+          <target state="new">If the queue reached max length and commands are dropped, report Error as the service can't recover.</target>
+        </trans-unit>
+        <trans-unit id="e5bffb15-ff53-4afc-937c-f3a4eca51b7d" xml:space="preserve">
+          <source>The reports can be on property "QueueStatus".</source>
+          <target state="new">The reports can be on property "QueueStatus".</target>
+        </trans-unit>
+        <trans-unit id="62eccdb9-bce9-41f8-86ee-9d464747f373" xml:space="preserve">
+          <source>The watchdog lives inside the service and it's sent periodically on the Master primary replica.</source>
+          <target state="new">The watchdog lives inside the service and it's sent periodically on the Master primary replica.</target>
+        </trans-unit>
+        <trans-unit id="32ee5422-86ba-413c-b4aa-eaf78ea4a4cd" xml:space="preserve">
+          <source>The TTL is 2 minutes and it's sent periodically every 30 seconds.</source>
+          <target state="new">The TTL is 2 minutes and it's sent periodically every 30 seconds.</target>
+        </trans-unit>
+        <trans-unit id="9d7ad244-cf38-4fdd-8a5d-021cbef81e65" xml:space="preserve">
+          <source>If the primary goes down, the report is cleaned up automatically from store.</source>
+          <target state="new">If the primary goes down, the report is cleaned up automatically from store.</target>
+        </trans-unit>
+        <trans-unit id="6ad9ea71-8b94-4d8e-9007-17d01d59368f" xml:space="preserve">
+          <source>If the service replica is up but deadlocked or having other issues, the report will expire in the health store and the entity will be evaluated at error.</source>
+          <target state="new">If the service replica is up but deadlocked or having other issues, the report will expire in the health store and the entity will be evaluated at error.</target>
+        </trans-unit>
+        <trans-unit id="fbad3dff-13c0-491e-8de1-1379f48a998f" xml:space="preserve">
+          <source>Other condition that can be monitored is task execution time.</source>
+          <target state="new">Other condition that can be monitored is task execution time.</target>
+        </trans-unit>
+        <trans-unit id="dd221757-4f14-4195-a9a5-01622293b34f" xml:space="preserve">
+          <source>The Master distributes the tasks to the slaves based on the task type.</source>
+          <target state="new">The Master distributes the tasks to the slaves based on the task type.</target>
+        </trans-unit>
+        <trans-unit id="79f493c9-42e2-44ac-a236-6e17bc1f7922" xml:space="preserve">
+          <source>Depending on the design, the Master could poll the slaves for task status or it could wait for slaves to send back ACKs when done.</source>
+          <target state="new">Depending on the design, the Master could poll the slaves for task status or it could wait for slaves to send back ACKs when done.</target>
+        </trans-unit>
+        <trans-unit id="4ceda251-94d1-4aa8-861d-0c3a35d44267" xml:space="preserve">
+          <source>In the second case, care must be taken to detect situations where slaves die or messages get lost.</source>
+          <target state="new">In the second case, care must be taken to detect situations where slaves die or messages get lost.</target>
+        </trans-unit>
+        <trans-unit id="2ee4f998-2690-4f68-9bbf-2c6c9768cad0" xml:space="preserve">
+          <source>One option is for Master to send a ping request to the same Slave, which sends back the status.</source>
+          <target state="new">One option is for Master to send a ping request to the same Slave, which sends back the status.</target>
+        </trans-unit>
+        <trans-unit id="155e91ea-0489-4b09-8076-a0d9c6214527" xml:space="preserve">
+          <source>If no status is received, consider failure and re-schedule the task.</source>
+          <target state="new">If no status is received, consider failure and re-schedule the task.</target>
+        </trans-unit>
+        <trans-unit id="7608b431-6af0-4cf9-8247-caca18a0cd67" xml:space="preserve">
+          <source>This assumes that the tasks are idempotent.</source>
+          <target state="new">This assumes that the tasks are idempotent.</target>
+        </trans-unit>
+        <trans-unit id="52d58a61-c014-47fb-bac1-e6852ead7898" xml:space="preserve">
+          <source>We can translate the monitored condition as warning if task is not done in a certain time t1 (eg.</source>
+          <target state="new">We can translate the monitored condition as warning if task is not done in a certain time t1 (eg.</target>
+        </trans-unit>
+        <trans-unit id="8f11be41-e473-4e20-918e-3ee56103cd52" xml:space="preserve">
+          <source>10 minutes); and error if the task is not completed in time t2 (eg.</source>
+          <target state="new">10 minutes); and error if the task is not completed in time t2 (eg.</target>
+        </trans-unit>
+        <trans-unit id="0ce44c61-bc20-4269-bb8b-db0a1f74c645" xml:space="preserve">
+          <source>20 minutes).</source>
+          <target state="new">20 minutes).</target>
+        </trans-unit>
+        <trans-unit id="08b43008-b4f4-430f-a725-43f792421be2" xml:space="preserve">
+          <source>This reporting can be done in multiple ways:</source>
+          <target state="new">This reporting can be done in multiple ways:</target>
+        </trans-unit>
+        <trans-unit id="38f7b418-577e-44a7-8192-973edd3d9ebf" xml:space="preserve">
+          <source>The Master primary replica reports periodically on itself.</source>
+          <target state="new">The Master primary replica reports periodically on itself.</target>
+        </trans-unit>
+        <trans-unit id="0baec03f-1752-44c0-85c4-68b8a870b293" xml:space="preserve">
+          <source>We can have one property for all pending tasks in the queue: if at least one task takes longer, report on property "PendingTasks" warning or error, as appropriate.</source>
+          <target state="new">We can have one property for all pending tasks in the queue: if at least one task takes longer, report on property "PendingTasks" warning or error, as appropriate.</target>
+        </trans-unit>
+        <trans-unit id="ad5240cb-21f8-440d-b94d-cf0fb51a8135" xml:space="preserve">
+          <source>If there are no pending tasks or all are just started, report Ok.</source>
+          <target state="new">If there are no pending tasks or all are just started, report Ok.</target>
+        </trans-unit>
+        <trans-unit id="c4853c91-6686-4452-9237-5e5145b71356" xml:space="preserve">
+          <source>The tasks are persisted, so if primary goes down, the new promoted primary can continue to report properly.</source>
+          <target state="new">The tasks are persisted, so if primary goes down, the new promoted primary can continue to report properly.</target>
+        </trans-unit>
+        <trans-unit id="5f6cb5dc-803f-4004-b70a-6d1951a3fc21" xml:space="preserve">
+          <source>Another watchdog process (in the cloud or external) checks the tasks (from outside, based on desired task result) to see if they are completed.</source>
+          <target state="new">Another watchdog process (in the cloud or external) checks the tasks (from outside, based on desired task result) to see if they are completed.</target>
+        </trans-unit>
+        <trans-unit id="6d9cef50-1c85-4305-82b3-fe64ae247118" xml:space="preserve">
+          <source>If they do not respect the thresholds, report on Master service.</source>
+          <target state="new">If they do not respect the thresholds, report on Master service.</target>
+        </trans-unit>
+        <trans-unit id="03e691fc-c86b-40a8-b9ee-fc2189a248b2" xml:space="preserve">
+          <source>Report on each task and include the task identifier (eg: PendingTask+taskid).</source>
+          <target state="new">Report on each task and include the task identifier (eg: PendingTask+taskid).</target>
+        </trans-unit>
+        <trans-unit id="7bd94279-81b5-4dd2-b3de-579683afc5bf" xml:space="preserve">
+          <source>Report only on unhealthy states.</source>
+          <target state="new">Report only on unhealthy states.</target>
+        </trans-unit>
+        <trans-unit id="dc02a6ff-755d-46e2-a4f1-dc9356254499" xml:space="preserve">
+          <source>Set TTL to a few minutes and mark the reports to be removed when expired to ensure cleanup.</source>
+          <target state="new">Set TTL to a few minutes and mark the reports to be removed when expired to ensure cleanup.</target>
+        </trans-unit>
+        <trans-unit id="52678c30-71ee-4b27-97ee-0562cf204716" xml:space="preserve">
+          <source>The slave that is executing a task is reporting if it takes longer than expected to run it.</source>
+          <target state="new">The slave that is executing a task is reporting if it takes longer than expected to run it.</target>
+        </trans-unit>
+        <trans-unit id="1a32fad5-08e5-44be-a6be-ad5e0aa535ff" xml:space="preserve">
+          <source>It reports on the service instance on property "PendingTasks".</source>
+          <target state="new">It reports on the service instance on property "PendingTasks".</target>
+        </trans-unit>
+        <trans-unit id="579f0023-826c-47ea-a249-e8ccb45326fc" xml:space="preserve">
+          <source>This pinpoints the service instance that has issues, but it doesn't capture the situation where the instance dies.</source>
+          <target state="new">This pinpoints the service instance that has issues, but it doesn't capture the situation where the instance dies.</target>
+        </trans-unit>
+        <trans-unit id="fcfb90ab-ee6b-4373-b619-c8e8e9f0b6cf" xml:space="preserve">
+          <source>The reports are cleaned up at that time.</source>
+          <target state="new">The reports are cleaned up at that time.</target>
+        </trans-unit>
+        <trans-unit id="cd526e68-431a-4a11-af31-2bf95aec2764" xml:space="preserve">
+          <source>It could report on the Slave service; if the Slave completes the task, the slave instance clears the report from store.</source>
+          <target state="new">It could report on the Slave service; if the Slave completes the task, the slave instance clears the report from store.</target>
+        </trans-unit>
+        <trans-unit id="e69664e7-6104-47ae-b433-31bb9d5a91c7" xml:space="preserve">
+          <source>This doesn't capture the situation where the ack message is lost and the task is not finished from Master point of view.</source>
+          <target state="new">This doesn't capture the situation where the ack message is lost and the task is not finished from Master point of view.</target>
+        </trans-unit>
+        <trans-unit id="e0b7397a-3b0e-472c-be31-bfc7efc954ad" xml:space="preserve">
+          <source>However the reporting is done in the cases described above, they will be captured in application health when health is evaluated.</source>
+          <target state="new">However the reporting is done in the cases described above, they will be captured in application health when health is evaluated.</target>
+        </trans-unit>
+        <trans-unit id="4da567e9-f172-413b-b3e1-8d5702cf541d" xml:space="preserve">
+          <source>Using the health reporting model, watchdogs can send reports periodically or on transitions.</source>
+          <target state="new">Using the health reporting model, watchdogs can send reports periodically or on transitions.</target>
+        </trans-unit>
+        <trans-unit id="558df8fc-9466-459d-8409-4aa6fece8967" xml:space="preserve">
+          <source>The recommended way is periodically, because the code is much simpler, therefore less error prone.</source>
+          <target state="new">The recommended way is periodically, because the code is much simpler, therefore less error prone.</target>
+        </trans-unit>
+        <trans-unit id="b186a5ef-38af-4b56-8c6f-bfa4e9990379" xml:space="preserve">
+          <source>The watchdogs must strive to be as simple as possible to avoid bugs which trigger wrong reports.</source>
+          <target state="new">The watchdogs must strive to be as simple as possible to avoid bugs which trigger wrong reports.</target>
+        </trans-unit>
+        <trans-unit id="5da60335-b3c1-4a57-b9eb-b95f1002b555" xml:space="preserve">
+          <source>Incorrect unhealthy report will impact health evaluation and scenarios based on health, like upgrades.</source>
+          <target state="new">Incorrect unhealthy report will impact health evaluation and scenarios based on health, like upgrades.</target>
+        </trans-unit>
+        <trans-unit id="4b53d87d-0c14-4128-820e-a9c580e4e487" xml:space="preserve">
+          <source>Incorrect healthy reports hide issues in the cluster, which is not desired.</source>
+          <target state="new">Incorrect healthy reports hide issues in the cluster, which is not desired.</target>
+        </trans-unit>
+        <trans-unit id="e0d89077-6fc7-49f5-9bae-71d3dbc9c30e" xml:space="preserve">
+          <source>For periodic reporting, the watchdog can be implemented with a timer.</source>
+          <target state="new">For periodic reporting, the watchdog can be implemented with a timer.</target>
+        </trans-unit>
+        <trans-unit id="0e37f497-9eeb-4394-bfe8-3884c9045a03" xml:space="preserve">
+          <source>On timer callback, the watchdog can check the state and send an report based on current state.</source>
+          <target state="new">On timer callback, the watchdog can check the state and send an report based on current state.</target>
+        </trans-unit>
+        <trans-unit id="78ba6a97-779f-441c-843f-1c04d2b805af" xml:space="preserve">
+          <source>There is no need to see what report was sent previously or make any optimization in terms of messaging.</source>
+          <target state="new">There is no need to see what report was sent previously or make any optimization in terms of messaging.</target>
+        </trans-unit>
+        <trans-unit id="a31d10ba-eb05-47a1-93dd-3b49e48bfe0e" xml:space="preserve">
+          <source>The health client has batching logic to help with that.</source>
+          <target state="new">The health client has batching logic to help with that.</target>
+        </trans-unit>
+        <trans-unit id="33aa5399-1214-4b39-b55a-736ffaca0624" xml:space="preserve">
+          <source>As long as the health client is kept alive, it will retry internally until the report is ACKed by the health store or the watchdog generates a newer report with the same entity, property and source.</source>
+          <target state="new">As long as the health client is kept alive, it will retry internally until the report is ACKed by the health store or the watchdog generates a newer report with the same entity, property and source.</target>
+        </trans-unit>
+        <trans-unit id="58d935f1-deb3-4bdc-9f58-c4410f41e4f3" xml:space="preserve">
+          <source>Reporting on transition requires careful state handling.</source>
+          <target state="new">Reporting on transition requires careful state handling.</target>
+        </trans-unit>
+        <trans-unit id="3349b442-0b2b-4841-8dee-eec0960137be" xml:space="preserve">
+          <source>The watchdog monitors some conditions and only reports when the conditions change.</source>
+          <target state="new">The watchdog monitors some conditions and only reports when the conditions change.</target>
+        </trans-unit>
+        <trans-unit id="073ca7fe-ff1e-46d0-aba4-c5373e104672" xml:space="preserve">
+          <source>The plus side is that less reports are needed.</source>
+          <target state="new">The plus side is that less reports are needed.</target>
+        </trans-unit>
+        <trans-unit id="46937a5f-79fb-41fc-9be5-6548bed88be0" xml:space="preserve">
+          <source>The minus is that the logic of the watchdog is complex.</source>
+          <target state="new">The minus is that the logic of the watchdog is complex.</target>
+        </trans-unit>
+        <trans-unit id="4848cc7f-f855-4fbc-9b72-2e90d058c68a" xml:space="preserve">
+          <source>The conditions or the reports must be maintained so they can be inspected to determine state changes.</source>
+          <target state="new">The conditions or the reports must be maintained so they can be inspected to determine state changes.</target>
+        </trans-unit>
+        <trans-unit id="75220ced-dcf8-4109-9375-61d5b62ed68f" xml:space="preserve">
+          <source>On failover, care must be taken to send a report which may have not be sent previously (queued, but not yet sent to health store).</source>
+          <target state="new">On failover, care must be taken to send a report which may have not be sent previously (queued, but not yet sent to health store).</target>
+        </trans-unit>
+        <trans-unit id="d39f0a33-41a1-4bc9-9bb1-b57bf6910897" xml:space="preserve">
+          <source>The sequence number must be always increasing, or the reports will be rejected due to staleness.</source>
+          <target state="new">The sequence number must be always increasing, or the reports will be rejected due to staleness.</target>
+        </trans-unit>
+        <trans-unit id="773795bf-5105-4f0e-a92d-e3b17d840407" xml:space="preserve">
+          <source>In the rare cases where data loss is incurred, there may be synchronization needed between the state of the reporter and the state of the health store.</source>
+          <target state="new">In the rare cases where data loss is incurred, there may be synchronization needed between the state of the reporter and the state of the health store.</target>
+        </trans-unit>
+        <trans-unit id="962b4e3a-04ef-4f62-beda-015d048eba03" xml:space="preserve">
+          <source>Once the entity and report details are clear, sending health reports can be done though API, Powershell or REST.</source>
+          <target state="new">Once the entity and report details are clear, sending health reports can be done though API, Powershell or REST.</target>
+        </trans-unit>
+        <trans-unit id="e853dd6b-6188-4013-afdb-2e40cda240e7" xml:space="preserve">
+          <source>In order to report through API, users need to create a health report specific to the entity type they want to report on and then give it to a health client.</source>
+          <target state="new">In order to report through API, users need to create a health report specific to the entity type they want to report on and then give it to a health client.</target>
+        </trans-unit>
+        <trans-unit id="a6696b9d-f271-475b-8fde-e59f6cda2181" xml:space="preserve">
+          <source>The following example shows periodic reporting from a watchdog from within the cluster.</source>
+          <target state="new">The following example shows periodic reporting from a watchdog from within the cluster.</target>
+        </trans-unit>
+        <trans-unit id="7db305d4-bd83-4d77-affe-7b0a75e8ed6e" xml:space="preserve">
+          <source>The watcher checks whether an external resource can be accessed from within a node.</source>
+          <target state="new">The watcher checks whether an external resource can be accessed from within a node.</target>
+        </trans-unit>
+        <trans-unit id="63681e73-316c-4f8f-bdfd-5060e4bac270" xml:space="preserve">
+          <source>The resource is needed by a service manifest within the application.</source>
+          <target state="new">The resource is needed by a service manifest within the application.</target>
+        </trans-unit>
+        <trans-unit id="bc390fa0-886e-4808-9a38-2c6c5dcbea48" xml:space="preserve">
+          <source>If the resource is unavailable, the other services within the application can function properly.</source>
+          <target state="new">If the resource is unavailable, the other services within the application can function properly.</target>
+        </trans-unit>
+        <trans-unit id="38d4fe67-7836-4a39-8f8d-28e0e0f6f199" xml:space="preserve">
+          <source>Therefore, the report is sent on the deployed service package entity, periodically, every 30 seconds.</source>
+          <target state="new">Therefore, the report is sent on the deployed service package entity, periodically, every 30 seconds.</target>
+        </trans-unit>
+        <trans-unit id="1a595c37-2fa5-47ba-a54e-355f0af47737" xml:space="preserve">
+          <source>Users can send health reports with Send-ServiceFabric<bpt id="a9274ff0-f3e1-4f43-ac7f-c8df0c8bbf54">&lt;em&gt;</bpt>EntityType<ept id="a9274ff0-f3e1-4f43-ac7f-c8df0c8bbf54">&lt;/em&gt;</ept>HealthReport.</source>
+          <target state="new">Users can send health reports with Send-ServiceFabric<bpt id="a9274ff0-f3e1-4f43-ac7f-c8df0c8bbf54">&lt;em&gt;</bpt>EntityType<ept id="a9274ff0-f3e1-4f43-ac7f-c8df0c8bbf54">&lt;/em&gt;</ept>HealthReport.</target>
+        </trans-unit>
+        <trans-unit id="0023b34d-b6d0-40f5-be2c-b0f96d0c807c" xml:space="preserve">
+          <source>The following example shows periodic reporting on CPU values on a node.</source>
+          <target state="new">The following example shows periodic reporting on CPU values on a node.</target>
+        </trans-unit>
+        <trans-unit id="a8b58c66-89df-4d9c-92a2-e40a9c86c511" xml:space="preserve">
+          <source>The reports should be sent every 30 seconds, they have a TTL of 2 minute.</source>
+          <target state="new">The reports should be sent every 30 seconds, they have a TTL of 2 minute.</target>
+        </trans-unit>
+        <trans-unit id="067bd97e-cc85-4cae-a5af-0e070075d77c" xml:space="preserve">
+          <source>If they expire, it means the reporter has issues, so the node is evaluated at error.</source>
+          <target state="new">If they expire, it means the reporter has issues, so the node is evaluated at error.</target>
+        </trans-unit>
+        <trans-unit id="266aedb8-0038-49c2-b6a4-6a6f99a871ed" xml:space="preserve">
+          <source>When the CPU is above a threshold, the report has health state Warning, if CPU is above threshold for more than a configured time it's reported as Error.</source>
+          <target state="new">When the CPU is above a threshold, the report has health state Warning, if CPU is above threshold for more than a configured time it's reported as Error.</target>
+        </trans-unit>
+        <trans-unit id="1ffacea0-4be0-4fcb-89df-dc5f71d31c3d" xml:space="preserve">
+          <source>Otherwise, the reporter sends Ok.</source>
+          <target state="new">Otherwise, the reporter sends Ok.</target>
+        </trans-unit>
+        <trans-unit id="30ab9bd3-b894-4722-aadb-e109bb9c70e7" xml:space="preserve">
+          <source>The following example reports a transient Warning on a replica.</source>
+          <target state="new">The following example reports a transient Warning on a replica.</target>
+        </trans-unit>
+        <trans-unit id="0abd7bf0-e907-4b70-9e1f-7cbfe58f7f0b" xml:space="preserve">
+          <source>It first get the partition id and the replica id for the service it is interested in, then sends a report from PowershellWatcher on property ResourceDependency.</source>
+          <target state="new">It first get the partition id and the replica id for the service it is interested in, then sends a report from PowershellWatcher on property ResourceDependency.</target>
+        </trans-unit>
+        <trans-unit id="02d597a3-8445-451a-9a6f-d1bc35eac6ee" xml:space="preserve">
+          <source>The report is only of interest for 2 minutes, and it will be automatically removed from store.</source>
+          <target state="new">The report is only of interest for 2 minutes, and it will be automatically removed from store.</target>
+        </trans-unit>
+        <trans-unit id="763761f7-3edc-4945-8370-dacd0471a1c3" xml:space="preserve">
+          <source>Based on the health data, service writers and cluster/application administrators can think of ways to consume the information.</source>
+          <target state="new">Based on the health data, service writers and cluster/application administrators can think of ways to consume the information.</target>
+        </trans-unit>
+        <trans-unit id="2a856d36-7094-4e3f-8ac8-bb4347e00689" xml:space="preserve">
+          <source>For example, they can set up alerts based on health status to catch severe issues before provoking outages.</source>
+          <target state="new">For example, they can set up alerts based on health status to catch severe issues before provoking outages.</target>
+        </trans-unit>
+        <trans-unit id="f9a615c6-f860-42c7-8098-308b7de57608" xml:space="preserve">
+          <source>They can set up automatic repair systems to fix issues automatically.</source>
+          <target state="new">They can set up automatic repair systems to fix issues automatically.</target>
+        </trans-unit>
+        <trans-unit id="12728f5a-1128-41be-bb41-1eef0d27d41c" xml:space="preserve">
+          <source><bpt id="f8cdf7c6-3a32-4aa3-9ae9-ebbac6538cd3">&lt;linkText&gt;</bpt>Introduction to Service Fabric Health Monitoring<ept id="f8cdf7c6-3a32-4aa3-9ae9-ebbac6538cd3">&lt;/linkText&gt;</ept><bpt id="f8cdf7c6-3a32-4aa3-9ae9-ebbac6538cd3">&lt;title&gt;</bpt><ept id="f8cdf7c6-3a32-4aa3-9ae9-ebbac6538cd3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f8cdf7c6-3a32-4aa3-9ae9-ebbac6538cd3">&lt;linkText&gt;</bpt>Introduction to Service Fabric Health Monitoring<ept id="f8cdf7c6-3a32-4aa3-9ae9-ebbac6538cd3">&lt;/linkText&gt;</ept><bpt id="f8cdf7c6-3a32-4aa3-9ae9-ebbac6538cd3">&lt;title&gt;</bpt><ept id="f8cdf7c6-3a32-4aa3-9ae9-ebbac6538cd3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="053397d7-dbea-48fd-9068-d86900545393" xml:space="preserve">
+          <source><bpt id="40d421e8-be2b-4994-af86-f7aaa5f359e8">&lt;linkText&gt;</bpt>How to view Service Fabric health reports<ept id="40d421e8-be2b-4994-af86-f7aaa5f359e8">&lt;/linkText&gt;</ept><bpt id="40d421e8-be2b-4994-af86-f7aaa5f359e8">&lt;title&gt;</bpt><ept id="40d421e8-be2b-4994-af86-f7aaa5f359e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="40d421e8-be2b-4994-af86-f7aaa5f359e8">&lt;linkText&gt;</bpt>How to view Service Fabric health reports<ept id="40d421e8-be2b-4994-af86-f7aaa5f359e8">&lt;/linkText&gt;</ept><bpt id="40d421e8-be2b-4994-af86-f7aaa5f359e8">&lt;title&gt;</bpt><ept id="40d421e8-be2b-4994-af86-f7aaa5f359e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68c38177-9def-4326-9f7d-07af3a6664d3" xml:space="preserve">
+          <source><bpt id="a41bfa72-e4a4-4197-a36a-79a79d4eaa91">&lt;linkText&gt;</bpt>Using System health reports for troubleshooting<ept id="a41bfa72-e4a4-4197-a36a-79a79d4eaa91">&lt;/linkText&gt;</ept><bpt id="a41bfa72-e4a4-4197-a36a-79a79d4eaa91">&lt;title&gt;</bpt><ept id="a41bfa72-e4a4-4197-a36a-79a79d4eaa91">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a41bfa72-e4a4-4197-a36a-79a79d4eaa91">&lt;linkText&gt;</bpt>Using System health reports for troubleshooting<ept id="a41bfa72-e4a4-4197-a36a-79a79d4eaa91">&lt;/linkText&gt;</ept><bpt id="a41bfa72-e4a4-4197-a36a-79a79d4eaa91">&lt;title&gt;</bpt><ept id="a41bfa72-e4a4-4197-a36a-79a79d4eaa91">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c26fc818-85b2-46d1-9b79-966a0df74cda" xml:space="preserve">
+          <source><bpt id="336177dc-c5a7-43ac-9aef-70253cc46685">&lt;linkText&gt;</bpt>How to Monitor and Diagnose Services locally<ept id="336177dc-c5a7-43ac-9aef-70253cc46685">&lt;/linkText&gt;</ept><bpt id="336177dc-c5a7-43ac-9aef-70253cc46685">&lt;title&gt;</bpt><ept id="336177dc-c5a7-43ac-9aef-70253cc46685">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="336177dc-c5a7-43ac-9aef-70253cc46685">&lt;linkText&gt;</bpt>How to Monitor and Diagnose Services locally<ept id="336177dc-c5a7-43ac-9aef-70253cc46685">&lt;/linkText&gt;</ept><bpt id="336177dc-c5a7-43ac-9aef-70253cc46685">&lt;title&gt;</bpt><ept id="336177dc-c5a7-43ac-9aef-70253cc46685">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ffa4fb6e-7bf3-48bd-b862-bfa53738f444" xml:space="preserve">
+          <source><bpt id="7fc73360-12e2-4212-891f-589e10e8f3c1">&lt;linkText&gt;</bpt>Service Fabric Application Upgrade<ept id="7fc73360-12e2-4212-891f-589e10e8f3c1">&lt;/linkText&gt;</ept><bpt id="7fc73360-12e2-4212-891f-589e10e8f3c1">&lt;title&gt;</bpt><ept id="7fc73360-12e2-4212-891f-589e10e8f3c1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7fc73360-12e2-4212-891f-589e10e8f3c1">&lt;linkText&gt;</bpt>Service Fabric Application Upgrade<ept id="7fc73360-12e2-4212-891f-589e10e8f3c1">&lt;/linkText&gt;</ept><bpt id="7fc73360-12e2-4212-891f-589e10e8f3c1">&lt;title&gt;</bpt><ept id="7fc73360-12e2-4212-891f-589e10e8f3c1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cc4ccdec-2c6d-401a-9a6f-792816951e30" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cc4ccdec-2c6d-401a-9a6f-792816951e30" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7ef90554-c4c2-4384-880d-96ab2ab39079">
+        <trans-unit id="6beca9e4-1f74-4979-9d48-8413bda896dc" xml:space="preserve">
+          <source>Describes what happened to your Azure Mobile Service project in Cordova</source>
+          <target state="new">Describes what happened to your Azure Mobile Service project in Cordova</target>
+        </trans-unit>
+        <trans-unit id="5ac80e35-f84f-4d6e-81c7-73e544418312" xml:space="preserve">
+          <source>The Azure Mobile Service Client plugin included with all Multi-Device Hybrid Apps has been enabled.</source>
+          <target state="new">The Azure Mobile Service Client plugin included with all Multi-Device Hybrid Apps has been enabled.</target>
+        </trans-unit>
+        <trans-unit id="86f17bcc-ebb4-45f4-b0dc-51e5a4b17139" xml:space="preserve">
+          <source>Under <bpt id="69a15c2a-f4a7-44b7-9a87-0e630b568b52">&lt;code&gt;</bpt>services\mobileServices\settings<ept id="69a15c2a-f4a7-44b7-9a87-0e630b568b52">&lt;/code&gt;</ept>, a new JavaScript (.js) file with a <bpt id="7564298d-a16b-4074-8bc8-21da927c3846">&lt;strong&gt;</bpt>MobileServiceClient<ept id="7564298d-a16b-4074-8bc8-21da927c3846">&lt;/strong&gt;</ept> was generated containing the selected mobile service’s application URL and application key.</source>
+          <target state="new">Under <bpt id="69a15c2a-f4a7-44b7-9a87-0e630b568b52">&lt;code&gt;</bpt>services\mobileServices\settings<ept id="69a15c2a-f4a7-44b7-9a87-0e630b568b52">&lt;/code&gt;</ept>, a new JavaScript (.js) file with a <bpt id="7564298d-a16b-4074-8bc8-21da927c3846">&lt;strong&gt;</bpt>MobileServiceClient<ept id="7564298d-a16b-4074-8bc8-21da927c3846">&lt;/strong&gt;</ept> was generated containing the selected mobile service’s application URL and application key.</target>
+        </trans-unit>
+        <trans-unit id="eee06258-27eb-471c-8af4-c878ea1b8d51" xml:space="preserve">
+          <source>The file contains the initialization of a mobile service client object, similar to the following code.</source>
+          <target state="new">The file contains the initialization of a mobile service client object, similar to the following code.</target>
+        </trans-unit>
+        <trans-unit id="6902bd9a-2028-4a97-85c0-04e4e25fcfb9" xml:space="preserve">
+          <source><bpt id="51caa2f5-91dc-4160-bf2e-73326f772ca0">&lt;linkText&gt;</bpt>Learn more about mobile services<ept id="51caa2f5-91dc-4160-bf2e-73326f772ca0">&lt;/linkText&gt;</ept><bpt id="51caa2f5-91dc-4160-bf2e-73326f772ca0">&lt;title&gt;</bpt><ept id="51caa2f5-91dc-4160-bf2e-73326f772ca0">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="51caa2f5-91dc-4160-bf2e-73326f772ca0">&lt;linkText&gt;</bpt>Learn more about mobile services<ept id="51caa2f5-91dc-4160-bf2e-73326f772ca0">&lt;/linkText&gt;</ept><bpt id="51caa2f5-91dc-4160-bf2e-73326f772ca0">&lt;title&gt;</bpt><ept id="51caa2f5-91dc-4160-bf2e-73326f772ca0">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

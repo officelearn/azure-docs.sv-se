@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1f5803f7-c6b9-4be6-8be6-b913156a6683" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1f5803f7-c6b9-4be6-8be6-b913156a6683" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="767a2303-1747-4eae-acfe-422e5a6874e6">
+        <trans-unit id="cb181096-229a-4f73-b5b9-295dd290f83d" xml:space="preserve">
+          <source>Windows Phone Silverlight SDK Upgrade Procedures</source>
+          <target state="new">Windows Phone Silverlight SDK Upgrade Procedures</target>
+        </trans-unit>
+        <trans-unit id="07d618bc-bfd9-4cee-b3d0-01258af6713b" xml:space="preserve">
+          <source>Windows Phone Silverlight SDK Upgrade Procedures for Azure Mobile Engagement</source>
+          <target state="new">Windows Phone Silverlight SDK Upgrade Procedures for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="6759b97c-076b-4fa0-a4c5-d7d96c4b32a2" xml:space="preserve">
+          <source>If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.</source>
+          <target state="new">If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.</target>
+        </trans-unit>
+        <trans-unit id="6c179e4a-1acc-4689-91f3-061f3a0b7b0a" xml:space="preserve">
+          <source>You may have to follow several procedures if you missed several versions of the SDK.</source>
+          <target state="new">You may have to follow several procedures if you missed several versions of the SDK.</target>
+        </trans-unit>
+        <trans-unit id="a3d16d0a-08bc-4755-b9fa-4e223b5e714b" xml:space="preserve">
+          <source>For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.</source>
+          <target state="new">For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.</target>
+        </trans-unit>
+        <trans-unit id="5f51b329-d81d-46f9-b2c3-f5959a7d7b73" xml:space="preserve">
+          <source>The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement.</source>
+          <target state="new">The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement.</target>
+        </trans-unit>
+        <trans-unit id="6f35be5f-bcb4-406b-82d3-ceee693bc3b3" xml:space="preserve">
+          <source>[Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app.</source>
+          <target state="new">[Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app.</target>
+        </trans-unit>
+        <trans-unit id="3ba1424b-ae4a-4548-bd96-faa3e441c329" xml:space="preserve">
+          <source>Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers</source>
+          <target state="new">Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers</target>
+        </trans-unit>
+        <trans-unit id="986e36dd-59d0-480b-a063-44582b611eb3" xml:space="preserve">
+          <source>If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.1.1 first then apply the following procedure</source>
+          <target state="new">If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.1.1 first then apply the following procedure</target>
+        </trans-unit>
+        <trans-unit id="5acdb833-23eb-4a36-a934-a0e025a65386" xml:space="preserve">
+          <source>Replace <bpt id="1e118e8b-8053-42e5-9d7b-c3e7472dab81">&lt;strong&gt;</bpt>Capptain.WindowsPhone<ept id="1e118e8b-8053-42e5-9d7b-c3e7472dab81">&lt;/strong&gt;</ept> by <bpt id="cf62756f-e910-4252-b9f6-4498bf96b52c">&lt;strong&gt;</bpt>MicrosoftAzure.MobileEngagement<ept id="cf62756f-e910-4252-b9f6-4498bf96b52c">&lt;/strong&gt;</ept> Nuget package.</source>
+          <target state="new">Replace <bpt id="1e118e8b-8053-42e5-9d7b-c3e7472dab81">&lt;strong&gt;</bpt>Capptain.WindowsPhone<ept id="1e118e8b-8053-42e5-9d7b-c3e7472dab81">&lt;/strong&gt;</ept> by <bpt id="cf62756f-e910-4252-b9f6-4498bf96b52c">&lt;strong&gt;</bpt>MicrosoftAzure.MobileEngagement<ept id="cf62756f-e910-4252-b9f6-4498bf96b52c">&lt;/strong&gt;</ept> Nuget package.</target>
+        </trans-unit>
+        <trans-unit id="c4945dc1-341d-4f65-91e7-6eb99cf5b145" xml:space="preserve">
+          <source>The SDK uses the term <bpt id="aeb405e8-a640-4a9b-9864-3ac5961ee87f">&lt;code&gt;</bpt>Engagement<ept id="aeb405e8-a640-4a9b-9864-3ac5961ee87f">&lt;/code&gt;</ept>.</source>
+          <target state="new">The SDK uses the term <bpt id="aeb405e8-a640-4a9b-9864-3ac5961ee87f">&lt;code&gt;</bpt>Engagement<ept id="aeb405e8-a640-4a9b-9864-3ac5961ee87f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99ec8eda-c63f-43e0-8699-c6e3624cee18" xml:space="preserve">
+          <source>You need to update your project to match this change.</source>
+          <target state="new">You need to update your project to match this change.</target>
+        </trans-unit>
+        <trans-unit id="f19b02cb-bd40-4f0e-8c5c-961d16580374" xml:space="preserve">
+          <source>You need to uninstall your current Capptain nuget package.</source>
+          <target state="new">You need to uninstall your current Capptain nuget package.</target>
+        </trans-unit>
+        <trans-unit id="bbe4b433-a154-49e5-a7f2-0d3876573c8c" xml:space="preserve">
+          <source>Consider that all your changes in Capptain Resources folder will be removed.</source>
+          <target state="new">Consider that all your changes in Capptain Resources folder will be removed.</target>
+        </trans-unit>
+        <trans-unit id="f7798e1d-8448-4476-be8b-11900320c343" xml:space="preserve">
+          <source>If you want to keep those files then make a copy of them.</source>
+          <target state="new">If you want to keep those files then make a copy of them.</target>
+        </trans-unit>
+        <trans-unit id="1236fbd7-5717-43df-b0a9-8d9610361ba2" xml:space="preserve">
+          <source>After that, install the new Microsoft Azure Engagement nuget package on your project.</source>
+          <target state="new">After that, install the new Microsoft Azure Engagement nuget package on your project.</target>
+        </trans-unit>
+        <trans-unit id="680b6d88-4d57-4f11-8d2d-c9cd3f084e50" xml:space="preserve">
+          <source>You can find it directly on <bpt id="58175a16-39b3-4f0d-a3c6-df31443adbf2">&lt;linkText&gt;</bpt>Nuget<ept id="58175a16-39b3-4f0d-a3c6-df31443adbf2">&lt;/linkText&gt;</ept><bpt id="58175a16-39b3-4f0d-a3c6-df31443adbf2">&lt;title&gt;</bpt><ept id="58175a16-39b3-4f0d-a3c6-df31443adbf2">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find it directly on <bpt id="58175a16-39b3-4f0d-a3c6-df31443adbf2">&lt;linkText&gt;</bpt>Nuget<ept id="58175a16-39b3-4f0d-a3c6-df31443adbf2">&lt;/linkText&gt;</ept><bpt id="58175a16-39b3-4f0d-a3c6-df31443adbf2">&lt;title&gt;</bpt><ept id="58175a16-39b3-4f0d-a3c6-df31443adbf2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6dd87e30-63e3-4b36-bc3b-21954558783a" xml:space="preserve">
+          <source>This action replaces all resources files used by Engagement and adds the new Engagement DLL to your project References.</source>
+          <target state="new">This action replaces all resources files used by Engagement and adds the new Engagement DLL to your project References.</target>
+        </trans-unit>
+        <trans-unit id="59df646a-277f-4a63-8b34-7f49660d049f" xml:space="preserve">
+          <source>You have to clean your project references by deleting Capptain DLL references.</source>
+          <target state="new">You have to clean your project references by deleting Capptain DLL references.</target>
+        </trans-unit>
+        <trans-unit id="09ac06c4-f85f-4f52-a855-529fb20c05fd" xml:space="preserve">
+          <source>If you do not make this, the version of Capptain will conflict and errors will happen.</source>
+          <target state="new">If you do not make this, the version of Capptain will conflict and errors will happen.</target>
+        </trans-unit>
+        <trans-unit id="21a6b214-2b73-4ecd-a57d-2a9b02cead66" xml:space="preserve">
+          <source>If you have customized Capptain resources, copy your old files content and paste them in the new Engagement files.</source>
+          <target state="new">If you have customized Capptain resources, copy your old files content and paste them in the new Engagement files.</target>
+        </trans-unit>
+        <trans-unit id="b495be09-899f-49df-9fbd-985eb314fde6" xml:space="preserve">
+          <source>Please note that both xaml and cs files have to be updated.</source>
+          <target state="new">Please note that both xaml and cs files have to be updated.</target>
+        </trans-unit>
+        <trans-unit id="0be0c227-fe30-44cf-8ea7-7ae8f43ecf48" xml:space="preserve">
+          <source>When those steps are completed you only have to replace old Capptain references by the new Engagement references.</source>
+          <target state="new">When those steps are completed you only have to replace old Capptain references by the new Engagement references.</target>
+        </trans-unit>
+        <trans-unit id="833da68b-cc1a-4b51-bbfe-46249107f9af" xml:space="preserve">
+          <source>All Capptain namespaces have to be updated.</source>
+          <target state="new">All Capptain namespaces have to be updated.</target>
+        </trans-unit>
+        <trans-unit id="6127daf7-95c2-42ca-ad49-8d0776e876ac" xml:space="preserve">
+          <source>Before migration:</source>
+          <target state="new">Before migration:</target>
+        </trans-unit>
+        <trans-unit id="6be94261-c5d1-49f3-a36c-c1c61e412cd9" xml:space="preserve">
+          <source>After migration:</source>
+          <target state="new">After migration:</target>
+        </trans-unit>
+        <trans-unit id="8236d490-e968-45c2-b97c-7e025495cc92" xml:space="preserve">
+          <source>All Capptain classes that contain "Capptain" should contain "Engagement".</source>
+          <target state="new">All Capptain classes that contain "Capptain" should contain "Engagement".</target>
+        </trans-unit>
+        <trans-unit id="518f2d85-15b7-4496-91ab-3c8209b4bfdf" xml:space="preserve">
+          <source>Before migration:</source>
+          <target state="new">Before migration:</target>
+        </trans-unit>
+        <trans-unit id="3b7d9b4f-2af3-42c7-a46e-6d42ea0073b4" xml:space="preserve">
+          <source>After migration:</source>
+          <target state="new">After migration:</target>
+        </trans-unit>
+        <trans-unit id="4c6c8f51-44c1-419f-9a40-339bc148cd87" xml:space="preserve">
+          <source>For xaml files Capptain namespace and attributes also change.</source>
+          <target state="new">For xaml files Capptain namespace and attributes also change.</target>
+        </trans-unit>
+        <trans-unit id="af4755bb-aa4e-4ba1-9860-88957e2835c7" xml:space="preserve">
+          <source>Before migration:</source>
+          <target state="new">Before migration:</target>
+        </trans-unit>
+        <trans-unit id="00e55093-df12-434b-b724-08d37cd1caf0" xml:space="preserve">
+          <source>After migration:</source>
+          <target state="new">After migration:</target>
+        </trans-unit>
+        <trans-unit id="47a77180-51b0-47cd-9902-aec48d595510" xml:space="preserve">
+          <source>For the other resources like Capptain pictures, please note that they also have been renamed to use "Engagement".</source>
+          <target state="new">For the other resources like Capptain pictures, please note that they also have been renamed to use "Engagement".</target>
+        </trans-unit>
+        <trans-unit id="224b59f1-7469-4d57-8bc5-bf8d2c30dcf6" xml:space="preserve">
+          <source>Engagement uses a connection string.</source>
+          <target state="new">Engagement uses a connection string.</target>
+        </trans-unit>
+        <trans-unit id="e17295be-fe5f-4928-a8b7-658ab074061b" xml:space="preserve">
+          <source>You don't have to specify an application ID and an SDK key with Mobile Engagement, you only have to specify a connection string.</source>
+          <target state="new">You don't have to specify an application ID and an SDK key with Mobile Engagement, you only have to specify a connection string.</target>
+        </trans-unit>
+        <trans-unit id="15f908f0-7277-4477-a8ee-c75f7fee7e00" xml:space="preserve">
+          <source>You can set it up on your EngagementConfiguration file.</source>
+          <target state="new">You can set it up on your EngagementConfiguration file.</target>
+        </trans-unit>
+        <trans-unit id="68745d01-c590-4ac8-98b3-242cee040315" xml:space="preserve">
+          <source>The Engagement configuration can be set in your <bpt id="323fd94c-6f91-4631-957f-4cc79a9c41a5">&lt;code&gt;</bpt>Resources\EngagementConfiguration.xml<ept id="323fd94c-6f91-4631-957f-4cc79a9c41a5">&lt;/code&gt;</ept> file of your project.</source>
+          <target state="new">The Engagement configuration can be set in your <bpt id="323fd94c-6f91-4631-957f-4cc79a9c41a5">&lt;code&gt;</bpt>Resources\EngagementConfiguration.xml<ept id="323fd94c-6f91-4631-957f-4cc79a9c41a5">&lt;/code&gt;</ept> file of your project.</target>
+        </trans-unit>
+        <trans-unit id="9d59824d-dec9-4266-a415-a4a491f536e7" xml:space="preserve">
+          <source>Edit this file to specify:</source>
+          <target state="new">Edit this file to specify:</target>
+        </trans-unit>
+        <trans-unit id="243cc9d2-1653-4365-83d1-ff11b5cc0294" xml:space="preserve">
+          <source>Your application connection string between tags <bpt id="22cbfb1e-f8db-403b-8eb2-0720fb436e2d">&lt;code&gt;</bpt>&lt;connectionString&gt;<ept id="22cbfb1e-f8db-403b-8eb2-0720fb436e2d">&lt;/code&gt;</ept> and <bpt id="ab3ac8ed-80c9-45d5-9ccb-4223cc33af66">&lt;code&gt;</bpt>&lt;\connectionString&gt;<ept id="ab3ac8ed-80c9-45d5-9ccb-4223cc33af66">&lt;/code&gt;</ept>.</source>
+          <target state="new">Your application connection string between tags <bpt id="22cbfb1e-f8db-403b-8eb2-0720fb436e2d">&lt;code&gt;</bpt>&lt;connectionString&gt;<ept id="22cbfb1e-f8db-403b-8eb2-0720fb436e2d">&lt;/code&gt;</ept> and <bpt id="ab3ac8ed-80c9-45d5-9ccb-4223cc33af66">&lt;code&gt;</bpt>&lt;\connectionString&gt;<ept id="ab3ac8ed-80c9-45d5-9ccb-4223cc33af66">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8627a1f2-63cf-4f5a-aa95-8f953d5c8840" xml:space="preserve">
+          <source>If you want to specify it at runtime instead, you can call the following method before the Engagement agent initialization:</source>
+          <target state="new">If you want to specify it at runtime instead, you can call the following method before the Engagement agent initialization:</target>
+        </trans-unit>
+        <trans-unit id="7ce869df-4c91-4d50-a1b1-cfa4dd763f15" xml:space="preserve">
+          <source>The connection string for your application is displayed in the Azure Management Portal.</source>
+          <target state="new">The connection string for your application is displayed in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="fbdb0b54-89e9-4d9c-aa36-76f5962166c3" xml:space="preserve">
+          <source>All items named <bpt id="e2768608-b0ea-4817-98f3-d574d65d9299">&lt;em&gt;</bpt>capptain<ept id="e2768608-b0ea-4817-98f3-d574d65d9299">&lt;/em&gt;</ept> have been named <bpt id="f4012250-edd0-4de7-bddf-e80eb3b58aae">&lt;em&gt;</bpt>engagement<ept id="f4012250-edd0-4de7-bddf-e80eb3b58aae">&lt;/em&gt;</ept>.</source>
+          <target state="new">All items named <bpt id="e2768608-b0ea-4817-98f3-d574d65d9299">&lt;em&gt;</bpt>capptain<ept id="e2768608-b0ea-4817-98f3-d574d65d9299">&lt;/em&gt;</ept> have been named <bpt id="f4012250-edd0-4de7-bddf-e80eb3b58aae">&lt;em&gt;</bpt>engagement<ept id="f4012250-edd0-4de7-bddf-e80eb3b58aae">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25987f45-9ae9-411c-9614-5f20455d54df" xml:space="preserve">
+          <source>Similarly for <bpt id="bd45749e-d859-4299-8ead-f2f4d1b56a4d">&lt;em&gt;</bpt>Capptain<ept id="bd45749e-d859-4299-8ead-f2f4d1b56a4d">&lt;/em&gt;</ept> to <bpt id="9932e8b6-2a46-41e7-9cbb-5b8e77eb565a">&lt;em&gt;</bpt>Engagement<ept id="9932e8b6-2a46-41e7-9cbb-5b8e77eb565a">&lt;/em&gt;</ept>.</source>
+          <target state="new">Similarly for <bpt id="bd45749e-d859-4299-8ead-f2f4d1b56a4d">&lt;em&gt;</bpt>Capptain<ept id="bd45749e-d859-4299-8ead-f2f4d1b56a4d">&lt;/em&gt;</ept> to <bpt id="9932e8b6-2a46-41e7-9cbb-5b8e77eb565a">&lt;em&gt;</bpt>Engagement<ept id="9932e8b6-2a46-41e7-9cbb-5b8e77eb565a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5cfaec1-093f-4fe1-a50a-825e03ceaf3f" xml:space="preserve">
+          <source>Examples of commonly used Capptain items :</source>
+          <target state="new">Examples of commonly used Capptain items :</target>
+        </trans-unit>
+        <trans-unit id="9e1b7cb7-b95a-4ce8-a337-2e917fbaf377" xml:space="preserve">
+          <source>CapptainConfiguration now named EngagementConfiguration</source>
+          <target state="new">CapptainConfiguration now named EngagementConfiguration</target>
+        </trans-unit>
+        <trans-unit id="8283aa63-2dbd-4129-81c1-9558c8c55e97" xml:space="preserve">
+          <source>CapptainAgent now named EngagementAgent</source>
+          <target state="new">CapptainAgent now named EngagementAgent</target>
+        </trans-unit>
+        <trans-unit id="27572230-0aa9-491b-849f-5c57e0130533" xml:space="preserve">
+          <source>CapptainReach now named EngagementReach</source>
+          <target state="new">CapptainReach now named EngagementReach</target>
+        </trans-unit>
+        <trans-unit id="5edcedf6-f8e5-4f4c-8859-727f8860999c" xml:space="preserve">
+          <source>CapptainHttpConfig now named EngagementHttpConfig</source>
+          <target state="new">CapptainHttpConfig now named EngagementHttpConfig</target>
+        </trans-unit>
+        <trans-unit id="c15c04f9-ac9b-4eec-94f8-fe53633eb823" xml:space="preserve">
+          <source>GetCapptainPageName now named GetEngagementPageName</source>
+          <target state="new">GetCapptainPageName now named GetEngagementPageName</target>
+        </trans-unit>
+        <trans-unit id="af1d54b4-1189-481f-9d06-93243c5ab367" xml:space="preserve">
+          <source>Note that rename also affects overridden methods.</source>
+          <target state="new">Note that rename also affects overridden methods.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

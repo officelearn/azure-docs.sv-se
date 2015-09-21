@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dc72c510-9194-4885-8fbb-88d86762e838" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dc72c510-9194-4885-8fbb-88d86762e838" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="841bfdbe-77ca-476e-9be3-58c35bb89017">
+        <trans-unit id="8d14028c-9e75-4380-a688-0b3efc1dd1f6" xml:space="preserve">
+          <source>Windows Universal Apps Reach SDK Integration</source>
+          <target state="new">Windows Universal Apps Reach SDK Integration</target>
+        </trans-unit>
+        <trans-unit id="b5812dae-75b7-4ac0-9fe1-6cd01339e1aa" xml:space="preserve">
+          <source>How to Integrate Azure Mobile Engagement Reach with Windows Universal Apps</source>
+          <target state="new">How to Integrate Azure Mobile Engagement Reach with Windows Universal Apps</target>
+        </trans-unit>
+        <trans-unit id="464f44d4-a86c-4c0e-a554-69c567994d47" xml:space="preserve">
+          <source>You must follow the integration procedure described in the <bpt id="3569662b-8206-406e-9c07-9cb219b39fdd">&lt;linkText&gt;</bpt>Windows Universal Engagement SDK Integration<ept id="3569662b-8206-406e-9c07-9cb219b39fdd">&lt;/linkText&gt;</ept><bpt id="3569662b-8206-406e-9c07-9cb219b39fdd">&lt;title&gt;</bpt><ept id="3569662b-8206-406e-9c07-9cb219b39fdd">&lt;/title&gt;</ept> before following this guide.</source>
+          <target state="new">You must follow the integration procedure described in the <bpt id="3569662b-8206-406e-9c07-9cb219b39fdd">&lt;linkText&gt;</bpt>Windows Universal Engagement SDK Integration<ept id="3569662b-8206-406e-9c07-9cb219b39fdd">&lt;/linkText&gt;</ept><bpt id="3569662b-8206-406e-9c07-9cb219b39fdd">&lt;title&gt;</bpt><ept id="3569662b-8206-406e-9c07-9cb219b39fdd">&lt;/title&gt;</ept> before following this guide.</target>
+        </trans-unit>
+        <trans-unit id="c1d00b05-95ca-417f-8d6b-04110b71ffb9" xml:space="preserve">
+          <source>You do not have anything to add.</source>
+          <target state="new">You do not have anything to add.</target>
+        </trans-unit>
+        <trans-unit id="e0fb0898-b22c-450c-8847-b42bf657081d" xml:space="preserve">
+          <source><bpt id="dd1e0250-de1c-43f3-b0ec-841be11be494">&lt;code&gt;</bpt>EngagementReach<ept id="dd1e0250-de1c-43f3-b0ec-841be11be494">&lt;/code&gt;</ept> references and resources are already in your project.</source>
+          <target state="new"><bpt id="dd1e0250-de1c-43f3-b0ec-841be11be494">&lt;code&gt;</bpt>EngagementReach<ept id="dd1e0250-de1c-43f3-b0ec-841be11be494">&lt;/code&gt;</ept> references and resources are already in your project.</target>
+        </trans-unit>
+        <trans-unit id="96fc4d66-9372-4d73-a188-a71f9938faec" xml:space="preserve">
+          <source>You can customize images located in the <bpt id="f6b46858-9bac-4a71-bfd8-2f5522703f36">&lt;code&gt;</bpt>Resources<ept id="f6b46858-9bac-4a71-bfd8-2f5522703f36">&lt;/code&gt;</ept> folder of your project, especially the brand icon (that default to the Engagement icon).</source>
+          <target state="new">You can customize images located in the <bpt id="f6b46858-9bac-4a71-bfd8-2f5522703f36">&lt;code&gt;</bpt>Resources<ept id="f6b46858-9bac-4a71-bfd8-2f5522703f36">&lt;/code&gt;</ept> folder of your project, especially the brand icon (that default to the Engagement icon).</target>
+        </trans-unit>
+        <trans-unit id="b6753595-3ff2-4a0d-b7d6-d1fbf9583af3" xml:space="preserve">
+          <source>On Universal Apps you can also move the <bpt id="3330edae-dea9-45a1-bfa6-4a5c2a04b54c">&lt;code&gt;</bpt>Resources<ept id="3330edae-dea9-45a1-bfa6-4a5c2a04b54c">&lt;/code&gt;</ept> folder on your shared project to share its content between apps, but you will have to keep the <bpt id="6414b4bb-fced-4849-829f-aa02e441c8dc">&lt;code&gt;</bpt>Resources\EngagementConfiguration.xml<ept id="6414b4bb-fced-4849-829f-aa02e441c8dc">&lt;/code&gt;</ept> file on its default location as it is platform dependent.</source>
+          <target state="new">On Universal Apps you can also move the <bpt id="3330edae-dea9-45a1-bfa6-4a5c2a04b54c">&lt;code&gt;</bpt>Resources<ept id="3330edae-dea9-45a1-bfa6-4a5c2a04b54c">&lt;/code&gt;</ept> folder on your shared project to share its content between apps, but you will have to keep the <bpt id="6414b4bb-fced-4849-829f-aa02e441c8dc">&lt;code&gt;</bpt>Resources\EngagementConfiguration.xml<ept id="6414b4bb-fced-4849-829f-aa02e441c8dc">&lt;/code&gt;</ept> file on its default location as it is platform dependent.</target>
+        </trans-unit>
+        <trans-unit id="bff64b46-f048-44be-8e7c-672ebda22992" xml:space="preserve">
+          <source>In order to use the <bpt id="cec20d28-fe9d-4ac9-a586-2f830cd82273">&lt;strong&gt;</bpt>Windows Notification Service<ept id="cec20d28-fe9d-4ac9-a586-2f830cd82273">&lt;/strong&gt;</ept> (referred as WNS) in your <bpt id="8dd22f2d-df75-4f45-a02b-238f491162c6">&lt;code&gt;</bpt>Package.appxmanifest<ept id="8dd22f2d-df75-4f45-a02b-238f491162c6">&lt;/code&gt;</ept> file on <bpt id="8040bb34-7cde-4916-aee2-2bd1b8905906">&lt;code&gt;</bpt>Application UI<ept id="8040bb34-7cde-4916-aee2-2bd1b8905906">&lt;/code&gt;</ept> click on <bpt id="c39898f1-b2d9-4031-9a55-1a2e3c9db21e">&lt;code&gt;</bpt>All Image Assets<ept id="c39898f1-b2d9-4031-9a55-1a2e3c9db21e">&lt;/code&gt;</ept> in the left bot box.</source>
+          <target state="new">In order to use the <bpt id="cec20d28-fe9d-4ac9-a586-2f830cd82273">&lt;strong&gt;</bpt>Windows Notification Service<ept id="cec20d28-fe9d-4ac9-a586-2f830cd82273">&lt;/strong&gt;</ept> (referred as WNS) in your <bpt id="8dd22f2d-df75-4f45-a02b-238f491162c6">&lt;code&gt;</bpt>Package.appxmanifest<ept id="8dd22f2d-df75-4f45-a02b-238f491162c6">&lt;/code&gt;</ept> file on <bpt id="8040bb34-7cde-4916-aee2-2bd1b8905906">&lt;code&gt;</bpt>Application UI<ept id="8040bb34-7cde-4916-aee2-2bd1b8905906">&lt;/code&gt;</ept> click on <bpt id="c39898f1-b2d9-4031-9a55-1a2e3c9db21e">&lt;code&gt;</bpt>All Image Assets<ept id="c39898f1-b2d9-4031-9a55-1a2e3c9db21e">&lt;/code&gt;</ept> in the left bot box.</target>
+        </trans-unit>
+        <trans-unit id="04e29541-454e-4a77-9b45-2449f3f98a6e" xml:space="preserve">
+          <source>At the right of the box in <bpt id="5e148a15-f364-4e3d-a17d-6d56ce7440d6">&lt;code&gt;</bpt>Notifications<ept id="5e148a15-f364-4e3d-a17d-6d56ce7440d6">&lt;/code&gt;</ept>, change <bpt id="ba8dc216-b455-4dd1-80c1-dab7e6372378">&lt;code&gt;</bpt>toast capable<ept id="ba8dc216-b455-4dd1-80c1-dab7e6372378">&lt;/code&gt;</ept> from <bpt id="b3362db5-17b6-4d1b-a67d-aee6ec6dab57">&lt;code&gt;</bpt>(not set)<ept id="b3362db5-17b6-4d1b-a67d-aee6ec6dab57">&lt;/code&gt;</ept> to <bpt id="16de79d5-7207-43dc-b3fe-adc6f4e426bd">&lt;code&gt;</bpt>(Yes)<ept id="16de79d5-7207-43dc-b3fe-adc6f4e426bd">&lt;/code&gt;</ept>.</source>
+          <target state="new">At the right of the box in <bpt id="5e148a15-f364-4e3d-a17d-6d56ce7440d6">&lt;code&gt;</bpt>Notifications<ept id="5e148a15-f364-4e3d-a17d-6d56ce7440d6">&lt;/code&gt;</ept>, change <bpt id="ba8dc216-b455-4dd1-80c1-dab7e6372378">&lt;code&gt;</bpt>toast capable<ept id="ba8dc216-b455-4dd1-80c1-dab7e6372378">&lt;/code&gt;</ept> from <bpt id="b3362db5-17b6-4d1b-a67d-aee6ec6dab57">&lt;code&gt;</bpt>(not set)<ept id="b3362db5-17b6-4d1b-a67d-aee6ec6dab57">&lt;/code&gt;</ept> to <bpt id="16de79d5-7207-43dc-b3fe-adc6f4e426bd">&lt;code&gt;</bpt>(Yes)<ept id="16de79d5-7207-43dc-b3fe-adc6f4e426bd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8131bfa4-9bc2-4933-b151-e48009a38319" xml:space="preserve">
+          <source>Moreover, you need to synchronize your app to your Microsoft account and to the engagement platform.</source>
+          <target state="new">Moreover, you need to synchronize your app to your Microsoft account and to the engagement platform.</target>
+        </trans-unit>
+        <trans-unit id="ca1cc143-329b-4f85-bab8-bc27be5d70ea" xml:space="preserve">
+          <source>For this you need to create an account or log on <bpt id="a2764a71-07cb-4a7e-8421-3a6f0f6e98ec">&lt;linkText&gt;</bpt>windows dev center<ept id="a2764a71-07cb-4a7e-8421-3a6f0f6e98ec">&lt;/linkText&gt;</ept><bpt id="a2764a71-07cb-4a7e-8421-3a6f0f6e98ec">&lt;title&gt;</bpt><ept id="a2764a71-07cb-4a7e-8421-3a6f0f6e98ec">&lt;/title&gt;</ept>.</source>
+          <target state="new">For this you need to create an account or log on <bpt id="a2764a71-07cb-4a7e-8421-3a6f0f6e98ec">&lt;linkText&gt;</bpt>windows dev center<ept id="a2764a71-07cb-4a7e-8421-3a6f0f6e98ec">&lt;/linkText&gt;</ept><bpt id="a2764a71-07cb-4a7e-8421-3a6f0f6e98ec">&lt;title&gt;</bpt><ept id="a2764a71-07cb-4a7e-8421-3a6f0f6e98ec">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13af9f9d-afaa-4ccc-9283-b00a226ae682" xml:space="preserve">
+          <source>After that create a new application and find the SID and secret key.</source>
+          <target state="new">After that create a new application and find the SID and secret key.</target>
+        </trans-unit>
+        <trans-unit id="9ea09db4-a5b8-475d-befa-a27a43615c8e" xml:space="preserve">
+          <source>On the engagement frontend, go on your app setting in <bpt id="8ea61318-2da5-4de6-a225-e1581476fec7">&lt;code&gt;</bpt>native push<ept id="8ea61318-2da5-4de6-a225-e1581476fec7">&lt;/code&gt;</ept> and paste your credentials.</source>
+          <target state="new">On the engagement frontend, go on your app setting in <bpt id="8ea61318-2da5-4de6-a225-e1581476fec7">&lt;code&gt;</bpt>native push<ept id="8ea61318-2da5-4de6-a225-e1581476fec7">&lt;/code&gt;</ept> and paste your credentials.</target>
+        </trans-unit>
+        <trans-unit id="e4f6f157-7ab5-401c-ab70-74b0642e4d86" xml:space="preserve">
+          <source>After that, right click on your project, select <bpt id="4d061eca-5fad-4c0b-940e-12fee90f879a">&lt;code&gt;</bpt>store<ept id="4d061eca-5fad-4c0b-940e-12fee90f879a">&lt;/code&gt;</ept> and <bpt id="e8fcff8e-180e-42ca-9c87-fdb1f0c0a23f">&lt;code&gt;</bpt>Associate App with the Store...<ept id="e8fcff8e-180e-42ca-9c87-fdb1f0c0a23f">&lt;/code&gt;</ept>.</source>
+          <target state="new">After that, right click on your project, select <bpt id="4d061eca-5fad-4c0b-940e-12fee90f879a">&lt;code&gt;</bpt>store<ept id="4d061eca-5fad-4c0b-940e-12fee90f879a">&lt;/code&gt;</ept> and <bpt id="e8fcff8e-180e-42ca-9c87-fdb1f0c0a23f">&lt;code&gt;</bpt>Associate App with the Store...<ept id="e8fcff8e-180e-42ca-9c87-fdb1f0c0a23f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3864f77c-fe3b-48e9-a515-33d49cc68eab" xml:space="preserve">
+          <source>You just need to select the application you have create before to synchronize it.</source>
+          <target state="new">You just need to select the application you have create before to synchronize it.</target>
+        </trans-unit>
+        <trans-unit id="7f6d49cb-fb86-4452-8efd-53fe5a075d0b" xml:space="preserve">
+          <source>Modify the <bpt id="97dae4c0-1fda-4c5d-abb8-0026be0024d0">&lt;code&gt;</bpt>App.xaml.cs<ept id="97dae4c0-1fda-4c5d-abb8-0026be0024d0">&lt;/code&gt;</ept>:</source>
+          <target state="new">Modify the <bpt id="97dae4c0-1fda-4c5d-abb8-0026be0024d0">&lt;code&gt;</bpt>App.xaml.cs<ept id="97dae4c0-1fda-4c5d-abb8-0026be0024d0">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="32ced2e2-f57e-405e-b2d6-be9c0f5a3fb5" xml:space="preserve">
+          <source>Add to your <bpt id="144cf420-b4ee-47da-a0de-204c821f80c0">&lt;code&gt;</bpt>using<ept id="144cf420-b4ee-47da-a0de-204c821f80c0">&lt;/code&gt;</ept> statements :</source>
+          <target state="new">Add to your <bpt id="144cf420-b4ee-47da-a0de-204c821f80c0">&lt;code&gt;</bpt>using<ept id="144cf420-b4ee-47da-a0de-204c821f80c0">&lt;/code&gt;</ept> statements :</target>
+        </trans-unit>
+        <trans-unit id="79e9bb3f-9fb5-4554-a04f-2f9ffd8926dc" xml:space="preserve">
+          <source>Insert <bpt id="e93948dd-fc15-48ac-8d57-89ddbdeefb33">&lt;code&gt;</bpt>EngagementReach.Instance.Init<ept id="e93948dd-fc15-48ac-8d57-89ddbdeefb33">&lt;/code&gt;</ept> just after <bpt id="a70ae029-1d68-4064-b4ec-581179515069">&lt;code&gt;</bpt>EngagementAgent.Instance.Init<ept id="a70ae029-1d68-4064-b4ec-581179515069">&lt;/code&gt;</ept> in <bpt id="2f53ae46-4954-4970-a45d-91f602c67b37">&lt;code&gt;</bpt>OnLaunched<ept id="2f53ae46-4954-4970-a45d-91f602c67b37">&lt;/code&gt;</ept> :</source>
+          <target state="new">Insert <bpt id="e93948dd-fc15-48ac-8d57-89ddbdeefb33">&lt;code&gt;</bpt>EngagementReach.Instance.Init<ept id="e93948dd-fc15-48ac-8d57-89ddbdeefb33">&lt;/code&gt;</ept> just after <bpt id="a70ae029-1d68-4064-b4ec-581179515069">&lt;code&gt;</bpt>EngagementAgent.Instance.Init<ept id="a70ae029-1d68-4064-b4ec-581179515069">&lt;/code&gt;</ept> in <bpt id="2f53ae46-4954-4970-a45d-91f602c67b37">&lt;code&gt;</bpt>OnLaunched<ept id="2f53ae46-4954-4970-a45d-91f602c67b37">&lt;/code&gt;</ept> :</target>
+        </trans-unit>
+        <trans-unit id="eb4edd1d-f262-4d5a-bbc0-eb51f3b78de4" xml:space="preserve">
+          <source>If you want to enable engagement reach when your app is activated by a command, another application or a custom scheme, override <bpt id="7bd29ebf-4573-4901-b100-875175bccdee">&lt;code&gt;</bpt>OnActivated<ept id="7bd29ebf-4573-4901-b100-875175bccdee">&lt;/code&gt;</ept> method:</source>
+          <target state="new">If you want to enable engagement reach when your app is activated by a command, another application or a custom scheme, override <bpt id="7bd29ebf-4573-4901-b100-875175bccdee">&lt;code&gt;</bpt>OnActivated<ept id="7bd29ebf-4573-4901-b100-875175bccdee">&lt;/code&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="ad353cee-916f-4623-b1be-21f6c3b021d3" xml:space="preserve">
+          <source>The <bpt id="8bb19153-c82b-4f92-9ab7-6ec294b53b91">&lt;code&gt;</bpt>EngagementReach.Instance.Init<ept id="8bb19153-c82b-4f92-9ab7-6ec294b53b91">&lt;/code&gt;</ept> runs in a dedicated thread.</source>
+          <target state="new">The <bpt id="8bb19153-c82b-4f92-9ab7-6ec294b53b91">&lt;code&gt;</bpt>EngagementReach.Instance.Init<ept id="8bb19153-c82b-4f92-9ab7-6ec294b53b91">&lt;/code&gt;</ept> runs in a dedicated thread.</target>
+        </trans-unit>
+        <trans-unit id="01fe05ff-d928-4cbb-add6-2b50426538e0" xml:space="preserve">
+          <source>You do not have to do it yourself.</source>
+          <target state="new">You do not have to do it yourself.</target>
+        </trans-unit>
+        <trans-unit id="a1557357-56bb-4c71-89c7-95243970e87b" xml:space="preserve">
+          <source>You can specify the name of the WNS push channel of your application in the <bpt id="96f7c542-1efb-44c9-94a3-87a2d5126556">&lt;code&gt;</bpt>Resources\EngagementConfiguration.xml<ept id="96f7c542-1efb-44c9-94a3-87a2d5126556">&lt;/code&gt;</ept> file of your project on <bpt id="13f8dcf2-3270-4b00-b408-405cd9cb489f">&lt;code&gt;</bpt>&lt;channelName&gt;&lt;/channelName&gt;<ept id="13f8dcf2-3270-4b00-b408-405cd9cb489f">&lt;/code&gt;</ept>.</source>
+          <target state="new">You can specify the name of the WNS push channel of your application in the <bpt id="96f7c542-1efb-44c9-94a3-87a2d5126556">&lt;code&gt;</bpt>Resources\EngagementConfiguration.xml<ept id="96f7c542-1efb-44c9-94a3-87a2d5126556">&lt;/code&gt;</ept> file of your project on <bpt id="13f8dcf2-3270-4b00-b408-405cd9cb489f">&lt;code&gt;</bpt>&lt;channelName&gt;&lt;/channelName&gt;<ept id="13f8dcf2-3270-4b00-b408-405cd9cb489f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52a00dd7-e0ae-47f0-b3ab-a47be09ec82c" xml:space="preserve">
+          <source>By default, Engagement creates a name based on the appId.</source>
+          <target state="new">By default, Engagement creates a name based on the appId.</target>
+        </trans-unit>
+        <trans-unit id="11fcfb9b-5ccf-48d0-a05c-60bd4271899a" xml:space="preserve">
+          <source>You have no need to specify the name yourself, except if you plan to use the push channel outside of Engagement.</source>
+          <target state="new">You have no need to specify the name yourself, except if you plan to use the push channel outside of Engagement.</target>
+        </trans-unit>
+        <trans-unit id="314a2bef-7b24-4df3-a8a5-3f56b7a49084" xml:space="preserve">
+          <source>Engagement provides two ways to implement Reach notification and announcement: the Overlay integration and the Web View integration.</source>
+          <target state="new">Engagement provides two ways to implement Reach notification and announcement: the Overlay integration and the Web View integration.</target>
+        </trans-unit>
+        <trans-unit id="7aa1ca83-9e49-447b-ab9c-4e45498156ea" xml:space="preserve">
+          <source>Overlay integration doesn't require a lot of code to write into your application.</source>
+          <target state="new">Overlay integration doesn't require a lot of code to write into your application.</target>
+        </trans-unit>
+        <trans-unit id="95bdb3e0-af87-4af3-9da5-2b2fc598c762" xml:space="preserve">
+          <source>You just need to tag your pages, xaml and cs files, with EngagementPageOverlay.</source>
+          <target state="new">You just need to tag your pages, xaml and cs files, with EngagementPageOverlay.</target>
+        </trans-unit>
+        <trans-unit id="9a0df73c-6fdd-4071-b678-cd7cf4bc4355" xml:space="preserve">
+          <source>Moreover, if you customize the Engagement default view, your customization will be shared with all tagged pages and just defined once.</source>
+          <target state="new">Moreover, if you customize the Engagement default view, your customization will be shared with all tagged pages and just defined once.</target>
+        </trans-unit>
+        <trans-unit id="1bca75aa-aebf-4ae1-b664-639e235b5bd2" xml:space="preserve">
+          <source>But if your pages need to inherit from an object other than EngagementPageOverlay, you are stuck and forced to use Web View integration.</source>
+          <target state="new">But if your pages need to inherit from an object other than EngagementPageOverlay, you are stuck and forced to use Web View integration.</target>
+        </trans-unit>
+        <trans-unit id="45d9d33a-402e-4949-be2b-0cd1fd7b6b0d" xml:space="preserve">
+          <source>Webview integration is more complicated to be implemented.</source>
+          <target state="new">Webview integration is more complicated to be implemented.</target>
+        </trans-unit>
+        <trans-unit id="9b144bfa-e097-447d-a0b3-8540b78cea97" xml:space="preserve">
+          <source>But if your App pages need to inherit from an object other than "Page", then you have to integrate the Web View and its behavior.</source>
+          <target state="new">But if your App pages need to inherit from an object other than "Page", then you have to integrate the Web View and its behavior.</target>
+        </trans-unit>
+        <trans-unit id="c32cd55e-66c4-48b9-baf6-14a51a88d94c" xml:space="preserve">
+          <source>You should consider adding a root level <bpt id="e102387d-d5c1-45ff-be5f-b7aadf8d0218">&lt;code&gt;</bpt>&lt;Grid&gt;&lt;/Grid&gt;<ept id="e102387d-d5c1-45ff-be5f-b7aadf8d0218">&lt;/code&gt;</ept> element to surround all page content.</source>
+          <target state="new">You should consider adding a root level <bpt id="e102387d-d5c1-45ff-be5f-b7aadf8d0218">&lt;code&gt;</bpt>&lt;Grid&gt;&lt;/Grid&gt;<ept id="e102387d-d5c1-45ff-be5f-b7aadf8d0218">&lt;/code&gt;</ept> element to surround all page content.</target>
+        </trans-unit>
+        <trans-unit id="691fa009-19fe-4565-8c7d-515b39a96caa" xml:space="preserve">
+          <source>For Webview integration, just add Webview as child of this grid.</source>
+          <target state="new">For Webview integration, just add Webview as child of this grid.</target>
+        </trans-unit>
+        <trans-unit id="eea56203-0e26-4ef2-96c5-362530c85631" xml:space="preserve">
+          <source>If you need to set Engagement component elsewhere, remember that you have to manage the display size yourself.</source>
+          <target state="new">If you need to set Engagement component elsewhere, remember that you have to manage the display size yourself.</target>
+        </trans-unit>
+        <trans-unit id="8b5c2859-6cc3-4e5c-a44a-4140d80f47a2" xml:space="preserve">
+          <source>Engagement provides an overlay for notification and announcement display.</source>
+          <target state="new">Engagement provides an overlay for notification and announcement display.</target>
+        </trans-unit>
+        <trans-unit id="92c9786a-c909-4c98-91a2-61a978356b01" xml:space="preserve">
+          <source>If you want to use it, do not use webview integration.</source>
+          <target state="new">If you want to use it, do not use webview integration.</target>
+        </trans-unit>
+        <trans-unit id="9dc91a4a-290f-4927-9dd7-45ec9dad1f98" xml:space="preserve">
+          <source>In your .xaml file change EngagementPage reference to EngagementPageOverlay</source>
+          <target state="new">In your .xaml file change EngagementPage reference to EngagementPageOverlay</target>
+        </trans-unit>
+        <trans-unit id="e7c278a4-b4d5-43e3-8de1-5b4cce682ca9" xml:space="preserve">
+          <source>Add to your namespaces declarations:</source>
+          <target state="new">Add to your namespaces declarations:</target>
+        </trans-unit>
+        <trans-unit id="c18ca8c3-3436-4dcd-93f3-6566a7312716" xml:space="preserve">
+          <source>Replace <bpt id="dce667ff-f024-43d4-a0bd-196667ff50ba">&lt;code&gt;</bpt>engagement:EngagementPage<ept id="dce667ff-f024-43d4-a0bd-196667ff50ba">&lt;/code&gt;</ept> with <bpt id="6f1cc996-3ed8-4a99-bbbe-9fb312831c3e">&lt;code&gt;</bpt>engagement:EngagementPageOverlay<ept id="6f1cc996-3ed8-4a99-bbbe-9fb312831c3e">&lt;/code&gt;</ept>:</source>
+          <target state="new">Replace <bpt id="dce667ff-f024-43d4-a0bd-196667ff50ba">&lt;code&gt;</bpt>engagement:EngagementPage<ept id="dce667ff-f024-43d4-a0bd-196667ff50ba">&lt;/code&gt;</ept> with <bpt id="6f1cc996-3ed8-4a99-bbbe-9fb312831c3e">&lt;code&gt;</bpt>engagement:EngagementPageOverlay<ept id="6f1cc996-3ed8-4a99-bbbe-9fb312831c3e">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="c5675745-cd47-4aba-ae95-14dae1036626" xml:space="preserve">
+          <source><bpt id="ec9b37e0-33da-46bb-a202-212b07f4aa30">&lt;strong&gt;</bpt>With EngagementPage:<ept id="ec9b37e0-33da-46bb-a202-212b07f4aa30">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ec9b37e0-33da-46bb-a202-212b07f4aa30">&lt;strong&gt;</bpt>With EngagementPage:<ept id="ec9b37e0-33da-46bb-a202-212b07f4aa30">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cde96742-26f9-4b1f-86d9-0745c7124466" xml:space="preserve">
+          <source><bpt id="55c0908c-1d12-4d25-ad08-11c5b503a907">&lt;strong&gt;</bpt>With EngagementPageOverlay:<ept id="55c0908c-1d12-4d25-ad08-11c5b503a907">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="55c0908c-1d12-4d25-ad08-11c5b503a907">&lt;strong&gt;</bpt>With EngagementPageOverlay:<ept id="55c0908c-1d12-4d25-ad08-11c5b503a907">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5463dbeb-4bee-4438-8b75-da0e3099f2c0" xml:space="preserve">
+          <source><bpt id="48bf7816-36bc-4a3e-a154-00e4a04b30b9">&lt;strong&gt;</bpt>With EngagementPageOverlay for 8.1:<ept id="48bf7816-36bc-4a3e-a154-00e4a04b30b9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="48bf7816-36bc-4a3e-a154-00e4a04b30b9">&lt;strong&gt;</bpt>With EngagementPageOverlay for 8.1:<ept id="48bf7816-36bc-4a3e-a154-00e4a04b30b9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="accb9add-a452-4d9d-9017-70beb2a26e8d" xml:space="preserve">
+          <source>Then in your .cs file tag your page in "EngagementPageOverlay" instead of "EngagementPage" and import "Microsoft.Azure.Engagement.Overlay".</source>
+          <target state="new">Then in your .cs file tag your page in "EngagementPageOverlay" instead of "EngagementPage" and import "Microsoft.Azure.Engagement.Overlay".</target>
+        </trans-unit>
+        <trans-unit id="62c82be9-0dc1-45b8-88d9-86ff1e75442d" xml:space="preserve">
+          <source>Replace <bpt id="1f3857d7-9131-4fd5-a618-653b0c7d786f">&lt;code&gt;</bpt>EngagementPage<ept id="1f3857d7-9131-4fd5-a618-653b0c7d786f">&lt;/code&gt;</ept> with <bpt id="facefb94-dd42-44c7-9d40-7fa7f907e512">&lt;code&gt;</bpt>EngagementPageOverlay<ept id="facefb94-dd42-44c7-9d40-7fa7f907e512">&lt;/code&gt;</ept>:</source>
+          <target state="new">Replace <bpt id="1f3857d7-9131-4fd5-a618-653b0c7d786f">&lt;code&gt;</bpt>EngagementPage<ept id="1f3857d7-9131-4fd5-a618-653b0c7d786f">&lt;/code&gt;</ept> with <bpt id="facefb94-dd42-44c7-9d40-7fa7f907e512">&lt;code&gt;</bpt>EngagementPageOverlay<ept id="facefb94-dd42-44c7-9d40-7fa7f907e512">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="6ee6444c-2168-4146-9f87-13663b3f8b0f" xml:space="preserve">
+          <source><bpt id="cbdf1553-46d3-475e-9bd8-c5f10990aba4">&lt;strong&gt;</bpt>With EngagementPage:<ept id="cbdf1553-46d3-475e-9bd8-c5f10990aba4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cbdf1553-46d3-475e-9bd8-c5f10990aba4">&lt;strong&gt;</bpt>With EngagementPage:<ept id="cbdf1553-46d3-475e-9bd8-c5f10990aba4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48e47e74-5492-4ff7-9ba8-45c69454ac6c" xml:space="preserve">
+          <source><bpt id="17bf72f2-7d3c-489f-bad6-a6f39e88fbd1">&lt;strong&gt;</bpt>With EngagementPageOverlay:<ept id="17bf72f2-7d3c-489f-bad6-a6f39e88fbd1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="17bf72f2-7d3c-489f-bad6-a6f39e88fbd1">&lt;strong&gt;</bpt>With EngagementPageOverlay:<ept id="17bf72f2-7d3c-489f-bad6-a6f39e88fbd1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96fa9605-8d00-480f-8b94-1b3e73fb0b9b" xml:space="preserve">
+          <source>Now this page uses the engagement overlay mechanism, you don't have to insert a web view.</source>
+          <target state="new">Now this page uses the engagement overlay mechanism, you don't have to insert a web view.</target>
+        </trans-unit>
+        <trans-unit id="a099d199-635b-4949-bb2c-f5034abb9b02" xml:space="preserve">
+          <source>The Engagement overlay uses the first “Grid” element it finds in your xaml file to add two web views on your page.</source>
+          <target state="new">The Engagement overlay uses the first “Grid” element it finds in your xaml file to add two web views on your page.</target>
+        </trans-unit>
+        <trans-unit id="4a15df2d-c8d0-466e-b9cf-b4e98b417099" xml:space="preserve">
+          <source>If you want to locate where web views will be set, you can define a grid named “EngagementGrid” like this:</source>
+          <target state="new">If you want to locate where web views will be set, you can define a grid named “EngagementGrid” like this:</target>
+        </trans-unit>
+        <trans-unit id="c5711195-443a-4abb-b47a-7ac7e23b974a" xml:space="preserve">
+          <source>You can customize the overlay notification and announcement directly on their xaml and cs files:</source>
+          <target state="new">You can customize the overlay notification and announcement directly on their xaml and cs files:</target>
+        </trans-unit>
+        <trans-unit id="cb321c1e-73e8-44d9-940f-ed4e059db641" xml:space="preserve">
+          <source><bpt id="1343057a-5ec3-45b1-8673-9992de8b2e88">&lt;code&gt;</bpt>EngagementAnnouncement.html<ept id="1343057a-5ec3-45b1-8673-9992de8b2e88">&lt;/code&gt;</ept> : The <bpt id="99ec2a81-da44-43c2-a703-28caac1c3055">&lt;code&gt;</bpt>Announcement<ept id="99ec2a81-da44-43c2-a703-28caac1c3055">&lt;/code&gt;</ept> web view html design.</source>
+          <target state="new"><bpt id="1343057a-5ec3-45b1-8673-9992de8b2e88">&lt;code&gt;</bpt>EngagementAnnouncement.html<ept id="1343057a-5ec3-45b1-8673-9992de8b2e88">&lt;/code&gt;</ept> : The <bpt id="99ec2a81-da44-43c2-a703-28caac1c3055">&lt;code&gt;</bpt>Announcement<ept id="99ec2a81-da44-43c2-a703-28caac1c3055">&lt;/code&gt;</ept> web view html design.</target>
+        </trans-unit>
+        <trans-unit id="534a93de-8493-49c8-9cba-a3e677f55d7a" xml:space="preserve">
+          <source><bpt id="64228563-cd5d-49a3-90c3-a1a965e656e9">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml<ept id="64228563-cd5d-49a3-90c3-a1a965e656e9">&lt;/code&gt;</ept> : The <bpt id="d85d8bbf-a119-493a-a039-385fc70a75b8">&lt;code&gt;</bpt>Announcement<ept id="d85d8bbf-a119-493a-a039-385fc70a75b8">&lt;/code&gt;</ept> xaml design.</source>
+          <target state="new"><bpt id="64228563-cd5d-49a3-90c3-a1a965e656e9">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml<ept id="64228563-cd5d-49a3-90c3-a1a965e656e9">&lt;/code&gt;</ept> : The <bpt id="d85d8bbf-a119-493a-a039-385fc70a75b8">&lt;code&gt;</bpt>Announcement<ept id="d85d8bbf-a119-493a-a039-385fc70a75b8">&lt;/code&gt;</ept> xaml design.</target>
+        </trans-unit>
+        <trans-unit id="92946702-7d17-4381-b3a4-7b9f393a0395" xml:space="preserve">
+          <source><bpt id="debac47b-4217-4d98-b8f4-20d3de267bf9">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml.cs<ept id="debac47b-4217-4d98-b8f4-20d3de267bf9">&lt;/code&gt;</ept> : The <bpt id="a8d171e2-3440-4090-8d53-aeac70f5b110">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml<ept id="a8d171e2-3440-4090-8d53-aeac70f5b110">&lt;/code&gt;</ept> linked code.</source>
+          <target state="new"><bpt id="debac47b-4217-4d98-b8f4-20d3de267bf9">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml.cs<ept id="debac47b-4217-4d98-b8f4-20d3de267bf9">&lt;/code&gt;</ept> : The <bpt id="a8d171e2-3440-4090-8d53-aeac70f5b110">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml<ept id="a8d171e2-3440-4090-8d53-aeac70f5b110">&lt;/code&gt;</ept> linked code.</target>
+        </trans-unit>
+        <trans-unit id="d050b4cd-d27e-48e7-88ea-c60a9f3077cd" xml:space="preserve">
+          <source><bpt id="731fbd47-6fce-4d17-aef1-9fa818e0ea2e">&lt;code&gt;</bpt>EngagementNotification.html<ept id="731fbd47-6fce-4d17-aef1-9fa818e0ea2e">&lt;/code&gt;</ept> : The <bpt id="ab43fe7c-20ce-4109-a10a-d946cb06df2d">&lt;code&gt;</bpt>Notification<ept id="ab43fe7c-20ce-4109-a10a-d946cb06df2d">&lt;/code&gt;</ept> web view html design.</source>
+          <target state="new"><bpt id="731fbd47-6fce-4d17-aef1-9fa818e0ea2e">&lt;code&gt;</bpt>EngagementNotification.html<ept id="731fbd47-6fce-4d17-aef1-9fa818e0ea2e">&lt;/code&gt;</ept> : The <bpt id="ab43fe7c-20ce-4109-a10a-d946cb06df2d">&lt;code&gt;</bpt>Notification<ept id="ab43fe7c-20ce-4109-a10a-d946cb06df2d">&lt;/code&gt;</ept> web view html design.</target>
+        </trans-unit>
+        <trans-unit id="a16511fd-9fd4-4123-8529-fbe15544ac68" xml:space="preserve">
+          <source><bpt id="bf0645af-bc22-4170-92b5-06370101c29b">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml<ept id="bf0645af-bc22-4170-92b5-06370101c29b">&lt;/code&gt;</ept> : The <bpt id="55c50ad5-9dbe-420b-8d2c-c37e275f444e">&lt;code&gt;</bpt>Notification<ept id="55c50ad5-9dbe-420b-8d2c-c37e275f444e">&lt;/code&gt;</ept> xaml design.</source>
+          <target state="new"><bpt id="bf0645af-bc22-4170-92b5-06370101c29b">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml<ept id="bf0645af-bc22-4170-92b5-06370101c29b">&lt;/code&gt;</ept> : The <bpt id="55c50ad5-9dbe-420b-8d2c-c37e275f444e">&lt;code&gt;</bpt>Notification<ept id="55c50ad5-9dbe-420b-8d2c-c37e275f444e">&lt;/code&gt;</ept> xaml design.</target>
+        </trans-unit>
+        <trans-unit id="cf1e82c9-3b44-4888-b3bb-af27914ca1a3" xml:space="preserve">
+          <source><bpt id="48f2212d-64cd-4db4-bd2a-6719141bfeb2">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml.cs<ept id="48f2212d-64cd-4db4-bd2a-6719141bfeb2">&lt;/code&gt;</ept> : The <bpt id="3c4e7e70-d83d-49a3-a311-8be8441a6306">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml<ept id="3c4e7e70-d83d-49a3-a311-8be8441a6306">&lt;/code&gt;</ept> linked code.</source>
+          <target state="new"><bpt id="48f2212d-64cd-4db4-bd2a-6719141bfeb2">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml.cs<ept id="48f2212d-64cd-4db4-bd2a-6719141bfeb2">&lt;/code&gt;</ept> : The <bpt id="3c4e7e70-d83d-49a3-a311-8be8441a6306">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml<ept id="3c4e7e70-d83d-49a3-a311-8be8441a6306">&lt;/code&gt;</ept> linked code.</target>
+        </trans-unit>
+        <trans-unit id="77882762-cc94-46d3-af34-72f852202b4f" xml:space="preserve">
+          <source><bpt id="9a877fe5-ade9-46aa-9767-7a7b6b553803">&lt;code&gt;</bpt>EngagementPageOverlay.cs<ept id="9a877fe5-ade9-46aa-9767-7a7b6b553803">&lt;/code&gt;</ept> : The <bpt id="02778e29-c55d-45ba-9ba9-d0d432f7ec3e">&lt;code&gt;</bpt>Overlay<ept id="02778e29-c55d-45ba-9ba9-d0d432f7ec3e">&lt;/code&gt;</ept> announcement and notification display code.</source>
+          <target state="new"><bpt id="9a877fe5-ade9-46aa-9767-7a7b6b553803">&lt;code&gt;</bpt>EngagementPageOverlay.cs<ept id="9a877fe5-ade9-46aa-9767-7a7b6b553803">&lt;/code&gt;</ept> : The <bpt id="02778e29-c55d-45ba-9ba9-d0d432f7ec3e">&lt;code&gt;</bpt>Overlay<ept id="02778e29-c55d-45ba-9ba9-d0d432f7ec3e">&lt;/code&gt;</ept> announcement and notification display code.</target>
+        </trans-unit>
+        <trans-unit id="0c25c00e-b919-4104-bdab-6bcab87ca6e4" xml:space="preserve">
+          <source>If you want to use it, do not use Overlay integration.</source>
+          <target state="new">If you want to use it, do not use Overlay integration.</target>
+        </trans-unit>
+        <trans-unit id="2c41b574-6bbf-46cd-918c-11571c8919e8" xml:space="preserve">
+          <source>To display engagement content, you need to integrate the two xaml WebView in each page and you need to display notification and announcement.</source>
+          <target state="new">To display engagement content, you need to integrate the two xaml WebView in each page and you need to display notification and announcement.</target>
+        </trans-unit>
+        <trans-unit id="f61c2358-2917-4169-a704-64bf0ea7e11b" xml:space="preserve">
+          <source>So add this code in your xaml file:</source>
+          <target state="new">So add this code in your xaml file:</target>
+        </trans-unit>
+        <trans-unit id="d84e0376-f8f9-4403-ac0f-928a85c9a3b8" xml:space="preserve">
+          <source><bpt id="d816140e-a010-4f30-a43f-fc4717b0aab6">&lt;strong&gt;</bpt>For 8.1 integration:<ept id="d816140e-a010-4f30-a43f-fc4717b0aab6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d816140e-a010-4f30-a43f-fc4717b0aab6">&lt;strong&gt;</bpt>For 8.1 integration:<ept id="d816140e-a010-4f30-a43f-fc4717b0aab6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7da8da25-5e4c-41c2-a975-cfb6c3b62e26" xml:space="preserve">
+          <source>And your associate .cs file have to look like:</source>
+          <target state="new">And your associate .cs file have to look like:</target>
+        </trans-unit>
+        <trans-unit id="3f0ae092-f53c-4843-a735-2e84054b06ff" xml:space="preserve">
+          <source>This implementation embedded WebView resizing when the device screen is turned.</source>
+          <target state="new">This implementation embedded WebView resizing when the device screen is turned.</target>
+        </trans-unit>
+        <trans-unit id="347efe45-6ca7-43ce-b384-820e010015a0" xml:space="preserve">
+          <source>If you want your application to be able to receive Reach data pushes, you have to implement two events of the EngagementReach class:</source>
+          <target state="new">If you want your application to be able to receive Reach data pushes, you have to implement two events of the EngagementReach class:</target>
+        </trans-unit>
+        <trans-unit id="25ce70ef-911b-48ad-9d26-4b94f127bc49" xml:space="preserve">
+          <source>In App.xaml.cs in "Public App(){}" add:</source>
+          <target state="new">In App.xaml.cs in "Public App(){}" add:</target>
+        </trans-unit>
+        <trans-unit id="52c5246e-4a1a-4bec-b505-52220d2de5b9" xml:space="preserve">
+          <source>You can see that the callback of each method returns a boolean.</source>
+          <target state="new">You can see that the callback of each method returns a boolean.</target>
+        </trans-unit>
+        <trans-unit id="9789a80d-bbb4-487a-805e-df1c563b39de" xml:space="preserve">
+          <source>Engagement sends a feedback to its back-end after dispatching the data push.</source>
+          <target state="new">Engagement sends a feedback to its back-end after dispatching the data push.</target>
+        </trans-unit>
+        <trans-unit id="d4563ea7-7fab-400b-8d56-778621dd46c9" xml:space="preserve">
+          <source>If the callback returns false, the <bpt id="360b733a-02e0-4bc2-b019-b763177b8fd4">&lt;code&gt;</bpt>exit<ept id="360b733a-02e0-4bc2-b019-b763177b8fd4">&lt;/code&gt;</ept> feedback will be send.</source>
+          <target state="new">If the callback returns false, the <bpt id="360b733a-02e0-4bc2-b019-b763177b8fd4">&lt;code&gt;</bpt>exit<ept id="360b733a-02e0-4bc2-b019-b763177b8fd4">&lt;/code&gt;</ept> feedback will be send.</target>
+        </trans-unit>
+        <trans-unit id="a7b01aca-d33f-4e2d-bf64-c049aacb6c86" xml:space="preserve">
+          <source>Otherwise, it will be <bpt id="afbab73b-8539-47e5-ac30-bdca93c02850">&lt;code&gt;</bpt>action<ept id="afbab73b-8539-47e5-ac30-bdca93c02850">&lt;/code&gt;</ept>.</source>
+          <target state="new">Otherwise, it will be <bpt id="afbab73b-8539-47e5-ac30-bdca93c02850">&lt;code&gt;</bpt>action<ept id="afbab73b-8539-47e5-ac30-bdca93c02850">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99add685-4e0b-4c14-81f5-88e77ff8f169" xml:space="preserve">
+          <source>If no callback is set for the events, the <bpt id="92f4021b-97ea-4fb1-ba22-4fe01a28394a">&lt;code&gt;</bpt>drop<ept id="92f4021b-97ea-4fb1-ba22-4fe01a28394a">&lt;/code&gt;</ept> feedback will be returned to Engagement.</source>
+          <target state="new">If no callback is set for the events, the <bpt id="92f4021b-97ea-4fb1-ba22-4fe01a28394a">&lt;code&gt;</bpt>drop<ept id="92f4021b-97ea-4fb1-ba22-4fe01a28394a">&lt;/code&gt;</ept> feedback will be returned to Engagement.</target>
+        </trans-unit>
+        <trans-unit id="681d6a9b-b2d1-4cf9-b91b-22f0d6faa4d2" xml:space="preserve">
+          <source>Engagement is not able to receive multiples feedbacks for a data push.</source>
+          <target state="new">Engagement is not able to receive multiples feedbacks for a data push.</target>
+        </trans-unit>
+        <trans-unit id="b0bb3787-aa27-4567-96c0-ab7360ef49e2" xml:space="preserve">
+          <source>If you plan to set several handlers on an event, be aware that the feedback will correspond to the last one sent.</source>
+          <target state="new">If you plan to set several handlers on an event, be aware that the feedback will correspond to the last one sent.</target>
+        </trans-unit>
+        <trans-unit id="2f4f05ce-8be4-49ec-a995-6471c10b4736" xml:space="preserve">
+          <source>In this case, we recommend to always returns the same value to avoid having confusing feedback on the front-end.</source>
+          <target state="new">In this case, we recommend to always returns the same value to avoid having confusing feedback on the front-end.</target>
+        </trans-unit>
+        <trans-unit id="8efcb660-3242-4c04-a873-6b576fb50038" xml:space="preserve">
+          <source>We allow you to customize the reach UI.</source>
+          <target state="new">We allow you to customize the reach UI.</target>
+        </trans-unit>
+        <trans-unit id="df9eb760-9a3d-4ffa-af0d-7786794eeb87" xml:space="preserve">
+          <source>To do so, you have to create a subclass of the <bpt id="5cab3858-7ebb-4223-81d8-5b984223dfb8">&lt;code&gt;</bpt>EngagementReachHandler<ept id="5cab3858-7ebb-4223-81d8-5b984223dfb8">&lt;/code&gt;</ept> class.</source>
+          <target state="new">To do so, you have to create a subclass of the <bpt id="5cab3858-7ebb-4223-81d8-5b984223dfb8">&lt;code&gt;</bpt>EngagementReachHandler<ept id="5cab3858-7ebb-4223-81d8-5b984223dfb8">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="4bb5d579-4a7a-4c75-b1f4-e74366f26bcd" xml:space="preserve">
+          <source><bpt id="e3ac20ef-6e71-451e-a6de-4b68d0728d8d">&lt;strong&gt;</bpt>Sample Code :<ept id="e3ac20ef-6e71-451e-a6de-4b68d0728d8d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e3ac20ef-6e71-451e-a6de-4b68d0728d8d">&lt;strong&gt;</bpt>Sample Code :<ept id="e3ac20ef-6e71-451e-a6de-4b68d0728d8d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="867a3ac3-938b-4237-8759-94642f34723d" xml:space="preserve">
+          <source>Then, set the content of the <bpt id="6e995adb-be2b-417c-b2a7-21b1d273b6b6">&lt;code&gt;</bpt>EngagementReach.Instance.Handler<ept id="6e995adb-be2b-417c-b2a7-21b1d273b6b6">&lt;/code&gt;</ept> field with your custom object in your <bpt id="5f4098a1-e7e5-40a1-a894-d488b73b46b8">&lt;code&gt;</bpt>App.xaml.cs<ept id="5f4098a1-e7e5-40a1-a894-d488b73b46b8">&lt;/code&gt;</ept> class within the <bpt id="2a70b258-e294-4a24-9fac-6c54497c29ad">&lt;code&gt;</bpt>App()<ept id="2a70b258-e294-4a24-9fac-6c54497c29ad">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Then, set the content of the <bpt id="6e995adb-be2b-417c-b2a7-21b1d273b6b6">&lt;code&gt;</bpt>EngagementReach.Instance.Handler<ept id="6e995adb-be2b-417c-b2a7-21b1d273b6b6">&lt;/code&gt;</ept> field with your custom object in your <bpt id="5f4098a1-e7e5-40a1-a894-d488b73b46b8">&lt;code&gt;</bpt>App.xaml.cs<ept id="5f4098a1-e7e5-40a1-a894-d488b73b46b8">&lt;/code&gt;</ept> class within the <bpt id="2a70b258-e294-4a24-9fac-6c54497c29ad">&lt;code&gt;</bpt>App()<ept id="2a70b258-e294-4a24-9fac-6c54497c29ad">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="86b97f4c-2f60-43eb-b430-f80ff8f1a158" xml:space="preserve">
+          <source><bpt id="9b67a761-ddb1-4211-a1da-58b7f0d33718">&lt;strong&gt;</bpt>Sample Code :<ept id="9b67a761-ddb1-4211-a1da-58b7f0d33718">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9b67a761-ddb1-4211-a1da-58b7f0d33718">&lt;strong&gt;</bpt>Sample Code :<ept id="9b67a761-ddb1-4211-a1da-58b7f0d33718">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f31d5a6-2aa4-4d9c-b8de-ca8373257df5" xml:space="preserve">
+          <source>By default, Engagement uses its own implementation of <bpt id="daeef392-9c7a-4c61-b01a-beac7b5a2ab7">&lt;code&gt;</bpt>EngagementReachHandler<ept id="daeef392-9c7a-4c61-b01a-beac7b5a2ab7">&lt;/code&gt;</ept>.</source>
+          <target state="new">By default, Engagement uses its own implementation of <bpt id="daeef392-9c7a-4c61-b01a-beac7b5a2ab7">&lt;code&gt;</bpt>EngagementReachHandler<ept id="daeef392-9c7a-4c61-b01a-beac7b5a2ab7">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a19b39a5-0131-43b8-bcb2-e62f3b27701e" xml:space="preserve">
+          <source>You don't have to create your own, and if you do so, you don't have to override every method.</source>
+          <target state="new">You don't have to create your own, and if you do so, you don't have to override every method.</target>
+        </trans-unit>
+        <trans-unit id="f73e42dd-c095-4a85-a513-dad2e98fdcd7" xml:space="preserve">
+          <source>The default behavior is to select the Engagement base object.</source>
+          <target state="new">The default behavior is to select the Engagement base object.</target>
+        </trans-unit>
+        <trans-unit id="3de4c2b5-712e-40a4-964c-b8feb5cd2e7d" xml:space="preserve">
+          <source>By default, Reach will use the embedded resources of the DLL to display the notifications and pages.</source>
+          <target state="new">By default, Reach will use the embedded resources of the DLL to display the notifications and pages.</target>
+        </trans-unit>
+        <trans-unit id="3be76431-977d-46df-9739-4ba66d39a40d" xml:space="preserve">
+          <source>To provide a full customization possibilities we only use web view.</source>
+          <target state="new">To provide a full customization possibilities we only use web view.</target>
+        </trans-unit>
+        <trans-unit id="17cedcd5-61c5-4a33-a815-dffc11c10271" xml:space="preserve">
+          <source>If you want to customize layouts, override directly the resources files <bpt id="e607704a-153e-4c93-8517-a12894dde3fa">&lt;code&gt;</bpt>EngagementAnnouncement.html<ept id="e607704a-153e-4c93-8517-a12894dde3fa">&lt;/code&gt;</ept> and <bpt id="ce986f30-d197-4251-ace0-9f9ee10136f7">&lt;code&gt;</bpt>EngagementNotification.html<ept id="ce986f30-d197-4251-ace0-9f9ee10136f7">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you want to customize layouts, override directly the resources files <bpt id="e607704a-153e-4c93-8517-a12894dde3fa">&lt;code&gt;</bpt>EngagementAnnouncement.html<ept id="e607704a-153e-4c93-8517-a12894dde3fa">&lt;/code&gt;</ept> and <bpt id="ce986f30-d197-4251-ace0-9f9ee10136f7">&lt;code&gt;</bpt>EngagementNotification.html<ept id="ce986f30-d197-4251-ace0-9f9ee10136f7">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf941305-31d1-4901-a0fd-20f8871690f3" xml:space="preserve">
+          <source>Engagement needs all code in <bpt id="dfe5a4b4-744c-4512-8aa5-425cea481598">&lt;code&gt;</bpt>&lt;body&gt;&lt;/body&gt;<ept id="dfe5a4b4-744c-4512-8aa5-425cea481598">&lt;/code&gt;</ept> to run correctly.</source>
+          <target state="new">Engagement needs all code in <bpt id="dfe5a4b4-744c-4512-8aa5-425cea481598">&lt;code&gt;</bpt>&lt;body&gt;&lt;/body&gt;<ept id="dfe5a4b4-744c-4512-8aa5-425cea481598">&lt;/code&gt;</ept> to run correctly.</target>
+        </trans-unit>
+        <trans-unit id="51831737-9141-4a88-8f7e-c14f78641f2a" xml:space="preserve">
+          <source>But you can add tag outer <bpt id="1b6b1a02-f77e-4bae-b8d3-5f8683de8440">&lt;code&gt;</bpt>engagement_webview_area<ept id="1b6b1a02-f77e-4bae-b8d3-5f8683de8440">&lt;/code&gt;</ept>.</source>
+          <target state="new">But you can add tag outer <bpt id="1b6b1a02-f77e-4bae-b8d3-5f8683de8440">&lt;code&gt;</bpt>engagement_webview_area<ept id="1b6b1a02-f77e-4bae-b8d3-5f8683de8440">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6686aa10-1b0a-46c3-8cc3-c9572de1cf87" xml:space="preserve">
+          <source>However, you can decide to use your own resources.</source>
+          <target state="new">However, you can decide to use your own resources.</target>
+        </trans-unit>
+        <trans-unit id="0ae3ab3f-800c-49f1-a40f-e142ad67cc89" xml:space="preserve">
+          <source>You can override <bpt id="af3c66e6-a5fe-4e45-8a8c-0f74591ce846">&lt;code&gt;</bpt>EngagementReachHandler<ept id="af3c66e6-a5fe-4e45-8a8c-0f74591ce846">&lt;/code&gt;</ept> methods in your subclass to tell Engagement to use your layouts, but take care to embedded the engagement mechanism:</source>
+          <target state="new">You can override <bpt id="af3c66e6-a5fe-4e45-8a8c-0f74591ce846">&lt;code&gt;</bpt>EngagementReachHandler<ept id="af3c66e6-a5fe-4e45-8a8c-0f74591ce846">&lt;/code&gt;</ept> methods in your subclass to tell Engagement to use your layouts, but take care to embedded the engagement mechanism:</target>
+        </trans-unit>
+        <trans-unit id="7785d47e-ba61-4c40-8909-78deb4a863ca" xml:space="preserve">
+          <source><bpt id="7be076ad-f47f-4a01-a19d-e04eabe4adf7">&lt;strong&gt;</bpt>Sample Code :<ept id="7be076ad-f47f-4a01-a19d-e04eabe4adf7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7be076ad-f47f-4a01-a19d-e04eabe4adf7">&lt;strong&gt;</bpt>Sample Code :<ept id="7be076ad-f47f-4a01-a19d-e04eabe4adf7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2426e40-9217-4832-9633-56416115ac38" xml:space="preserve">
+          <source>By default, AnnouncementHTML is <bpt id="b49f466e-2366-4349-8a6d-8ddc480d2892">&lt;code&gt;</bpt>ms-appx-web:///Resources/EngagementAnnouncement.html<ept id="b49f466e-2366-4349-8a6d-8ddc480d2892">&lt;/code&gt;</ept>.</source>
+          <target state="new">By default, AnnouncementHTML is <bpt id="b49f466e-2366-4349-8a6d-8ddc480d2892">&lt;code&gt;</bpt>ms-appx-web:///Resources/EngagementAnnouncement.html<ept id="b49f466e-2366-4349-8a6d-8ddc480d2892">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="781f9f68-f76e-460e-8d1c-27f0110e3bde" xml:space="preserve">
+          <source>It represents the html file that design the content of a push message (Text announcement, Web anoucement and Poll announcement).</source>
+          <target state="new">It represents the html file that design the content of a push message (Text announcement, Web anoucement and Poll announcement).</target>
+        </trans-unit>
+        <trans-unit id="41a91d5d-0e95-4123-aba9-fb524d1aa3cd" xml:space="preserve">
+          <source>AnnouncementName is <bpt id="7dd1825b-0d1c-424f-ace5-2911961e3d2a">&lt;code&gt;</bpt>engagement_announcement_content<ept id="7dd1825b-0d1c-424f-ace5-2911961e3d2a">&lt;/code&gt;</ept>.</source>
+          <target state="new">AnnouncementName is <bpt id="7dd1825b-0d1c-424f-ace5-2911961e3d2a">&lt;code&gt;</bpt>engagement_announcement_content<ept id="7dd1825b-0d1c-424f-ace5-2911961e3d2a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7d4acfc-54ba-4dfd-9d7e-555bb2e277be" xml:space="preserve">
+          <source>It is the name of the webview design in your xaml page.</source>
+          <target state="new">It is the name of the webview design in your xaml page.</target>
+        </trans-unit>
+        <trans-unit id="ca89936d-f113-4d73-be8a-58a984c3858a" xml:space="preserve">
+          <source>NotfificationHTML is <bpt id="0795a96b-6a56-402c-bae7-aeda467aec60">&lt;code&gt;</bpt>ms-appx-web:///Resources/EngagementNotification.html<ept id="0795a96b-6a56-402c-bae7-aeda467aec60">&lt;/code&gt;</ept>.</source>
+          <target state="new">NotfificationHTML is <bpt id="0795a96b-6a56-402c-bae7-aeda467aec60">&lt;code&gt;</bpt>ms-appx-web:///Resources/EngagementNotification.html<ept id="0795a96b-6a56-402c-bae7-aeda467aec60">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17fe0202-2164-4cb7-bcc3-785ece3c80fb" xml:space="preserve">
+          <source>It represents the html file that design the notification of a push message.</source>
+          <target state="new">It represents the html file that design the notification of a push message.</target>
+        </trans-unit>
+        <trans-unit id="06f7341c-3c24-450b-b913-92303f361ee5" xml:space="preserve">
+          <source>NotfificationName is <bpt id="051faed8-c450-43e0-9786-91566923da52">&lt;code&gt;</bpt>engagement_notification_content<ept id="051faed8-c450-43e0-9786-91566923da52">&lt;/code&gt;</ept>.</source>
+          <target state="new">NotfificationName is <bpt id="051faed8-c450-43e0-9786-91566923da52">&lt;code&gt;</bpt>engagement_notification_content<ept id="051faed8-c450-43e0-9786-91566923da52">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="059984d5-aaa2-4b56-931d-19b0e1988143" xml:space="preserve">
+          <source>It is the name of the webview design in your xaml page.</source>
+          <target state="new">It is the name of the webview design in your xaml page.</target>
+        </trans-unit>
+        <trans-unit id="e22e0761-7b71-4bb9-9b0e-14673d4c6656" xml:space="preserve">
+          <source>You can customize notification and announcement web view has you want if you preserve Engagement object.</source>
+          <target state="new">You can customize notification and announcement web view has you want if you preserve Engagement object.</target>
+        </trans-unit>
+        <trans-unit id="dbbe88fd-7bf1-4120-803c-12ea2aa02743" xml:space="preserve">
+          <source>Take care that webview object is described three times - the first time in your xaml, second time in your .cs file in the "setwebview()" method, and third time in the html file.</source>
+          <target state="new">Take care that webview object is described three times - the first time in your xaml, second time in your .cs file in the "setwebview()" method, and third time in the html file.</target>
+        </trans-unit>
+        <trans-unit id="8d04f674-7bf0-4af9-8ba3-b19b8142a1ac" xml:space="preserve">
+          <source>In your xaml you describe the current graphical layout webview component.</source>
+          <target state="new">In your xaml you describe the current graphical layout webview component.</target>
+        </trans-unit>
+        <trans-unit id="8b39f350-cf70-4e7b-9566-8d90dc2727aa" xml:space="preserve">
+          <source>In your .cs file you can define "setwebview()" in which you set the dimension of the two webview (notification, announcement).</source>
+          <target state="new">In your .cs file you can define "setwebview()" in which you set the dimension of the two webview (notification, announcement).</target>
+        </trans-unit>
+        <trans-unit id="2843fc03-dd9f-46e4-b7dc-ea3aef6fbf34" xml:space="preserve">
+          <source>It is very effective when the application is resizing.</source>
+          <target state="new">It is very effective when the application is resizing.</target>
+        </trans-unit>
+        <trans-unit id="f99352c4-b1a8-4923-8080-d4624898a50d" xml:space="preserve">
+          <source>In the Engagement html file we describe the webview content, design and the elements positions between each other.</source>
+          <target state="new">In the Engagement html file we describe the webview content, design and the elements positions between each other.</target>
+        </trans-unit>
+        <trans-unit id="121e6077-5a8d-4430-a61e-c98d86780ee9" xml:space="preserve">
+          <source>When a user clicks on a system notification (a toast), Engagement launches the application, load the content of the push messages, and display the page for the corresponding campaign.</source>
+          <target state="new">When a user clicks on a system notification (a toast), Engagement launches the application, load the content of the push messages, and display the page for the corresponding campaign.</target>
+        </trans-unit>
+        <trans-unit id="4f06d820-fd09-4c71-afaf-4d2a20912ee6" xml:space="preserve">
+          <source>There is a delay between the launch of the application and the display of the page (depending on the speed of your network).</source>
+          <target state="new">There is a delay between the launch of the application and the display of the page (depending on the speed of your network).</target>
+        </trans-unit>
+        <trans-unit id="10a3ae0a-2e97-4a8e-a4a6-22ab7b66239c" xml:space="preserve">
+          <source>To indicate to the user that something is loading, you should provide a visual information, like a progress bar or a progress indicator.</source>
+          <target state="new">To indicate to the user that something is loading, you should provide a visual information, like a progress bar or a progress indicator.</target>
+        </trans-unit>
+        <trans-unit id="0731f985-b9bd-4e10-a93d-4d9ed3af7566" xml:space="preserve">
+          <source>Engagement cannot handle that itself, but provides a few handlers for you.</source>
+          <target state="new">Engagement cannot handle that itself, but provides a few handlers for you.</target>
+        </trans-unit>
+        <trans-unit id="0b81aafe-beca-4659-8c22-bcc7ce6055cd" xml:space="preserve">
+          <source>To implement the callback, in App.xaml.cs in "Public App(){}" add:</source>
+          <target state="new">To implement the callback, in App.xaml.cs in "Public App(){}" add:</target>
+        </trans-unit>
+        <trans-unit id="34293cb4-cb02-478e-891a-ecdeaee26685" xml:space="preserve">
+          <source>You can set the callback in your "Public App(){}" method of your <bpt id="bcaab3ca-66e6-49b4-b363-79d1cc1cbec4">&lt;code&gt;</bpt>App.xaml.cs<ept id="bcaab3ca-66e6-49b4-b363-79d1cc1cbec4">&lt;/code&gt;</ept> file, preferably before the <bpt id="2442c84a-114f-4bd5-baa3-9004b96d3757">&lt;code&gt;</bpt>EngagementReach.Instance.Init()<ept id="2442c84a-114f-4bd5-baa3-9004b96d3757">&lt;/code&gt;</ept> call.</source>
+          <target state="new">You can set the callback in your "Public App(){}" method of your <bpt id="bcaab3ca-66e6-49b4-b363-79d1cc1cbec4">&lt;code&gt;</bpt>App.xaml.cs<ept id="bcaab3ca-66e6-49b4-b363-79d1cc1cbec4">&lt;/code&gt;</ept> file, preferably before the <bpt id="2442c84a-114f-4bd5-baa3-9004b96d3757">&lt;code&gt;</bpt>EngagementReach.Instance.Init()<ept id="2442c84a-114f-4bd5-baa3-9004b96d3757">&lt;/code&gt;</ept> call.</target>
+        </trans-unit>
+        <trans-unit id="76f9674c-4ceb-4100-bc39-b47af2e21ab1" xml:space="preserve">
+          <source>Each handler is called by the UI Thread.</source>
+          <target state="new">Each handler is called by the UI Thread.</target>
+        </trans-unit>
+        <trans-unit id="a230d9fb-65e5-42f3-8a90-743efde2ac60" xml:space="preserve">
+          <source>You do not have to worry when using a MessageBox or something UI-related.</source>
+          <target state="new">You do not have to worry when using a MessageBox or something UI-related.</target>
+        </trans-unit>
+        <trans-unit id="21ea8bcc-5479-4a9c-aaa8-8f436aea4d6e" xml:space="preserve">
+          <source>We provide custom scheme use.</source>
+          <target state="new">We provide custom scheme use.</target>
+        </trans-unit>
+        <trans-unit id="696ee6eb-da51-40ad-a422-d5ec43672239" xml:space="preserve">
+          <source>You can send different type of URI from engagement frontend to be used in your engagement application.</source>
+          <target state="new">You can send different type of URI from engagement frontend to be used in your engagement application.</target>
+        </trans-unit>
+        <trans-unit id="2db2dd22-4786-4f3a-b053-1a926e1e8bcc" xml:space="preserve">
+          <source>Default scheme like <bpt id="fc6e6912-3fd5-42b4-813e-0b4d03fbc347">&lt;code&gt;</bpt>http, ftp, ...<ept id="fc6e6912-3fd5-42b4-813e-0b4d03fbc347">&lt;/code&gt;</ept> are manage by Windows, a window will prompt if they are no default application installed on device.</source>
+          <target state="new">Default scheme like <bpt id="fc6e6912-3fd5-42b4-813e-0b4d03fbc347">&lt;code&gt;</bpt>http, ftp, ...<ept id="fc6e6912-3fd5-42b4-813e-0b4d03fbc347">&lt;/code&gt;</ept> are manage by Windows, a window will prompt if they are no default application installed on device.</target>
+        </trans-unit>
+        <trans-unit id="46668cdf-1eab-41fe-8cb4-6628ffe47541" xml:space="preserve">
+          <source>Other scheme like application scheme can be used.</source>
+          <target state="new">Other scheme like application scheme can be used.</target>
+        </trans-unit>
+        <trans-unit id="1094e021-da06-4573-bb92-35a5a1dd0372" xml:space="preserve">
+          <source>Moreover, you can use a custom scheme for your application.</source>
+          <target state="new">Moreover, you can use a custom scheme for your application.</target>
+        </trans-unit>
+        <trans-unit id="340ff76e-a882-422e-a43d-50234ea9c834" xml:space="preserve">
+          <source>The simple way to set a custom scheme in your application is to open your <bpt id="7903a947-7f17-47c7-9d7e-c3ec6f030a6d">&lt;code&gt;</bpt>Package.appxmanifest<ept id="7903a947-7f17-47c7-9d7e-c3ec6f030a6d">&lt;/code&gt;</ept> go in <bpt id="111f39ff-37b3-4ee1-a36b-e23e9d8458eb">&lt;code&gt;</bpt>Declarations<ept id="111f39ff-37b3-4ee1-a36b-e23e9d8458eb">&lt;/code&gt;</ept> panel.</source>
+          <target state="new">The simple way to set a custom scheme in your application is to open your <bpt id="7903a947-7f17-47c7-9d7e-c3ec6f030a6d">&lt;code&gt;</bpt>Package.appxmanifest<ept id="7903a947-7f17-47c7-9d7e-c3ec6f030a6d">&lt;/code&gt;</ept> go in <bpt id="111f39ff-37b3-4ee1-a36b-e23e9d8458eb">&lt;code&gt;</bpt>Declarations<ept id="111f39ff-37b3-4ee1-a36b-e23e9d8458eb">&lt;/code&gt;</ept> panel.</target>
+        </trans-unit>
+        <trans-unit id="ad61f3aa-c95d-40f2-9a91-d175ae9f7352" xml:space="preserve">
+          <source>Select <bpt id="7f05a3ed-6b30-4e60-80ea-2fb460cb6482">&lt;code&gt;</bpt>Protocol<ept id="7f05a3ed-6b30-4e60-80ea-2fb460cb6482">&lt;/code&gt;</ept> in the Available Declarations scroll box and add it.</source>
+          <target state="new">Select <bpt id="7f05a3ed-6b30-4e60-80ea-2fb460cb6482">&lt;code&gt;</bpt>Protocol<ept id="7f05a3ed-6b30-4e60-80ea-2fb460cb6482">&lt;/code&gt;</ept> in the Available Declarations scroll box and add it.</target>
+        </trans-unit>
+        <trans-unit id="9636a62c-7c1c-44d2-b95f-4146f4ed45b4" xml:space="preserve">
+          <source>Edit the <bpt id="ff5543d3-ec0e-46e9-b02f-32aaf1a76a21">&lt;code&gt;</bpt>Name<ept id="ff5543d3-ec0e-46e9-b02f-32aaf1a76a21">&lt;/code&gt;</ept> field with your new protocol desired name.</source>
+          <target state="new">Edit the <bpt id="ff5543d3-ec0e-46e9-b02f-32aaf1a76a21">&lt;code&gt;</bpt>Name<ept id="ff5543d3-ec0e-46e9-b02f-32aaf1a76a21">&lt;/code&gt;</ept> field with your new protocol desired name.</target>
+        </trans-unit>
+        <trans-unit id="6e6fa1ce-29f6-4e37-9eb3-965f887a60ed" xml:space="preserve">
+          <source>Now to use this protocol, edit your <bpt id="37cb17a6-b989-448c-b8bc-8b60248f3549">&lt;code&gt;</bpt>App.xaml.cs<ept id="37cb17a6-b989-448c-b8bc-8b60248f3549">&lt;/code&gt;</ept> with the <bpt id="164544e6-387e-482d-95fe-215ba86e2d0e">&lt;code&gt;</bpt>OnActivated<ept id="164544e6-387e-482d-95fe-215ba86e2d0e">&lt;/code&gt;</ept> method, and don't forget to initialize engagement here also:</source>
+          <target state="new">Now to use this protocol, edit your <bpt id="37cb17a6-b989-448c-b8bc-8b60248f3549">&lt;code&gt;</bpt>App.xaml.cs<ept id="37cb17a6-b989-448c-b8bc-8b60248f3549">&lt;/code&gt;</ept> with the <bpt id="164544e6-387e-482d-95fe-215ba86e2d0e">&lt;code&gt;</bpt>OnActivated<ept id="164544e6-387e-482d-95fe-215ba86e2d0e">&lt;/code&gt;</ept> method, and don't forget to initialize engagement here also:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

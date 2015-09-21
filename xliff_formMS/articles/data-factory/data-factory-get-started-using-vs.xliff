@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="573fa3d1-a45d-4a04-b7b4-012f6c2a6e2a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="573fa3d1-a45d-4a04-b7b4-012f6c2a6e2a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5cc6f2a7-4be7-4690-9933-30372f7b0f2a">
+        <trans-unit id="7a57ff1c-0232-49d1-807f-2fcde4793b7a" xml:space="preserve">
+          <source>Tutorial: Create a pipeline with Copy Activity using Visual Studio</source>
+          <target state="new">Tutorial: Create a pipeline with Copy Activity using Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="5e092f72-99fb-405f-9bcc-e5615473d347" xml:space="preserve">
+          <source>In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.</source>
+          <target state="new">In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="66082468-cb9a-4575-93b3-ebca2e865c69" xml:space="preserve">
+          <source>In This tutorial you will first create an Azure data factory named  <bpt id="4155f0a7-e0c8-49a1-8337-d2703beabdd0">&lt;strong&gt;</bpt>ADFTutorialDataFactoryVS<ept id="4155f0a7-e0c8-49a1-8337-d2703beabdd0">&lt;/strong&gt;</ept> using the Azure Preview Portal and then do the following using Visual Studio 2013:</source>
+          <target state="new">In This tutorial you will first create an Azure data factory named  <bpt id="4155f0a7-e0c8-49a1-8337-d2703beabdd0">&lt;strong&gt;</bpt>ADFTutorialDataFactoryVS<ept id="4155f0a7-e0c8-49a1-8337-d2703beabdd0">&lt;/strong&gt;</ept> using the Azure Preview Portal and then do the following using Visual Studio 2013:</target>
+        </trans-unit>
+        <trans-unit id="75552427-0241-4535-806d-9a77b106b248" xml:space="preserve">
+          <source>Create two linked services: <bpt id="2193991b-a31e-4c71-9051-e9b68b76dea5">&lt;strong&gt;</bpt>AzureStorageLinkedService1<ept id="2193991b-a31e-4c71-9051-e9b68b76dea5">&lt;/strong&gt;</ept> and <bpt id="70066c21-ede9-4599-b2f0-413acfddd9e0">&lt;strong&gt;</bpt>AzureSqlinkedService1<ept id="70066c21-ede9-4599-b2f0-413acfddd9e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create two linked services: <bpt id="2193991b-a31e-4c71-9051-e9b68b76dea5">&lt;strong&gt;</bpt>AzureStorageLinkedService1<ept id="2193991b-a31e-4c71-9051-e9b68b76dea5">&lt;/strong&gt;</ept> and <bpt id="70066c21-ede9-4599-b2f0-413acfddd9e0">&lt;strong&gt;</bpt>AzureSqlinkedService1<ept id="70066c21-ede9-4599-b2f0-413acfddd9e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc9ea6bc-73f8-4a9d-b816-de843412be15" xml:space="preserve">
+          <source>The AzureStorageLinkedService1 links an Azure storage and AzureSqlLinkedService1 links an Azure SQL database to the data factory: <bpt id="0257b632-76d1-467a-8d74-be7403f8a0a6">&lt;strong&gt;</bpt>ADFTutorialDataFactoryVS<ept id="0257b632-76d1-467a-8d74-be7403f8a0a6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The AzureStorageLinkedService1 links an Azure storage and AzureSqlLinkedService1 links an Azure SQL database to the data factory: <bpt id="0257b632-76d1-467a-8d74-be7403f8a0a6">&lt;strong&gt;</bpt>ADFTutorialDataFactoryVS<ept id="0257b632-76d1-467a-8d74-be7403f8a0a6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b4d532a-0ea9-4c7e-b643-fb9a5446828c" xml:space="preserve">
+          <source>The input data for the pipeline resides in a blob container in the Azure blob storage and output data will be stored in a table in the Azure SQL database.</source>
+          <target state="new">The input data for the pipeline resides in a blob container in the Azure blob storage and output data will be stored in a table in the Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="5688dc68-67e5-472a-a174-a9c8c3c828d9" xml:space="preserve">
+          <source>Therefore, you add these two data stores as linked services to the data factory.</source>
+          <target state="new">Therefore, you add these two data stores as linked services to the data factory.</target>
+        </trans-unit>
+        <trans-unit id="f4e84b68-1296-4b7c-9b64-dc557901495f" xml:space="preserve">
+          <source>Create two data factory tables: <bpt id="cd4f1146-b423-4718-9fbc-5fce87b02df1">&lt;strong&gt;</bpt>EmpTableFromBlob<ept id="cd4f1146-b423-4718-9fbc-5fce87b02df1">&lt;/strong&gt;</ept> and <bpt id="2decdf3b-b79b-4806-9d36-a6686e6f1b51">&lt;strong&gt;</bpt>EmpSQLTable<ept id="2decdf3b-b79b-4806-9d36-a6686e6f1b51">&lt;/strong&gt;</ept>, which represent the input/output data that is stored in the data stores.</source>
+          <target state="new">Create two data factory tables: <bpt id="cd4f1146-b423-4718-9fbc-5fce87b02df1">&lt;strong&gt;</bpt>EmpTableFromBlob<ept id="cd4f1146-b423-4718-9fbc-5fce87b02df1">&lt;/strong&gt;</ept> and <bpt id="2decdf3b-b79b-4806-9d36-a6686e6f1b51">&lt;strong&gt;</bpt>EmpSQLTable<ept id="2decdf3b-b79b-4806-9d36-a6686e6f1b51">&lt;/strong&gt;</ept>, which represent the input/output data that is stored in the data stores.</target>
+        </trans-unit>
+        <trans-unit id="c720d2b1-dcae-4608-86dd-400a77169bb7" xml:space="preserve">
+          <source>For the EmpTableFromBlob, you will specify the blob container that contains a blob with the source data and for the EmpSQLTable, you will specify the SQL table that will store the output data.</source>
+          <target state="new">For the EmpTableFromBlob, you will specify the blob container that contains a blob with the source data and for the EmpSQLTable, you will specify the SQL table that will store the output data.</target>
+        </trans-unit>
+        <trans-unit id="9b7fabb5-b242-4905-9d67-c28b2ecf632a" xml:space="preserve">
+          <source>You will also specify other properties such as structure of the data, availability of the data, etc...</source>
+          <target state="new">You will also specify other properties such as structure of the data, availability of the data, etc...</target>
+        </trans-unit>
+        <trans-unit id="46c7a4bb-a716-45de-b74a-65147a173b7b" xml:space="preserve">
+          <source>Create a pipeline named <bpt id="75fff319-d85c-4eb6-8736-fc7d1c0e2c41">&lt;strong&gt;</bpt>ADFTutorialPipeline<ept id="75fff319-d85c-4eb6-8736-fc7d1c0e2c41">&lt;/strong&gt;</ept> in the ADFTutorialDataFactoryVS.</source>
+          <target state="new">Create a pipeline named <bpt id="75fff319-d85c-4eb6-8736-fc7d1c0e2c41">&lt;strong&gt;</bpt>ADFTutorialPipeline<ept id="75fff319-d85c-4eb6-8736-fc7d1c0e2c41">&lt;/strong&gt;</ept> in the ADFTutorialDataFactoryVS.</target>
+        </trans-unit>
+        <trans-unit id="98bc89e7-2a4d-460d-b42e-098944b591fe" xml:space="preserve">
+          <source>The pipeline will have a <bpt id="900cde52-ceb8-47d9-80bd-100c5dc83b23">&lt;strong&gt;</bpt>Copy Activity<ept id="900cde52-ceb8-47d9-80bd-100c5dc83b23">&lt;/strong&gt;</ept> that copies input data from the Azure blob to the output Azure SQL table</source>
+          <target state="new">The pipeline will have a <bpt id="900cde52-ceb8-47d9-80bd-100c5dc83b23">&lt;strong&gt;</bpt>Copy Activity<ept id="900cde52-ceb8-47d9-80bd-100c5dc83b23">&lt;/strong&gt;</ept> that copies input data from the Azure blob to the output Azure SQL table</target>
+        </trans-unit>
+        <trans-unit id="54eca1eb-0067-4baa-8bca-791ce276adb6" xml:space="preserve">
+          <source>In this step, you use the Azure Preview Portal to create an Azure data factory named <bpt id="cd6631c0-cfd2-42e2-83ac-903be9ab97c1">&lt;strong&gt;</bpt>ADFTutorialDataFactoryVS<ept id="cd6631c0-cfd2-42e2-83ac-903be9ab97c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this step, you use the Azure Preview Portal to create an Azure data factory named <bpt id="cd6631c0-cfd2-42e2-83ac-903be9ab97c1">&lt;strong&gt;</bpt>ADFTutorialDataFactoryVS<ept id="cd6631c0-cfd2-42e2-83ac-903be9ab97c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f2c1ce9-824e-40a8-ab59-8dc4cab4e49f" xml:space="preserve">
+          <source>After logging into the <bpt id="6d99f644-0320-40dc-8a95-818fb221ed7d">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="6d99f644-0320-40dc-8a95-818fb221ed7d">&lt;/linkText&gt;</ept><bpt id="6d99f644-0320-40dc-8a95-818fb221ed7d">&lt;title&gt;</bpt><ept id="6d99f644-0320-40dc-8a95-818fb221ed7d">&lt;/title&gt;</ept>, click <bpt id="ccfb630f-15c3-40de-a45d-b7da71a47fb7">&lt;strong&gt;</bpt>NEW<ept id="ccfb630f-15c3-40de-a45d-b7da71a47fb7">&lt;/strong&gt;</ept> from the bottom-left corner, select <bpt id="9ac607d6-4e43-4ccd-b6ff-79c6dfffa49f">&lt;strong&gt;</bpt>Data analytics<ept id="9ac607d6-4e43-4ccd-b6ff-79c6dfffa49f">&lt;/strong&gt;</ept> in the <bpt id="0e7ebc07-cde6-4d7c-b52f-dcf09b2552e2">&lt;strong&gt;</bpt>Create<ept id="0e7ebc07-cde6-4d7c-b52f-dcf09b2552e2">&lt;/strong&gt;</ept> blade, and click <bpt id="babac33d-1af8-4239-953d-49fdba0704fa">&lt;strong&gt;</bpt>Data Factory<ept id="babac33d-1af8-4239-953d-49fdba0704fa">&lt;/strong&gt;</ept> in the <bpt id="d7886109-ff1b-483d-b65e-5dd7a1efc0ec">&lt;strong&gt;</bpt>Data analytics<ept id="d7886109-ff1b-483d-b65e-5dd7a1efc0ec">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">After logging into the <bpt id="6d99f644-0320-40dc-8a95-818fb221ed7d">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="6d99f644-0320-40dc-8a95-818fb221ed7d">&lt;/linkText&gt;</ept><bpt id="6d99f644-0320-40dc-8a95-818fb221ed7d">&lt;title&gt;</bpt><ept id="6d99f644-0320-40dc-8a95-818fb221ed7d">&lt;/title&gt;</ept>, click <bpt id="ccfb630f-15c3-40de-a45d-b7da71a47fb7">&lt;strong&gt;</bpt>NEW<ept id="ccfb630f-15c3-40de-a45d-b7da71a47fb7">&lt;/strong&gt;</ept> from the bottom-left corner, select <bpt id="9ac607d6-4e43-4ccd-b6ff-79c6dfffa49f">&lt;strong&gt;</bpt>Data analytics<ept id="9ac607d6-4e43-4ccd-b6ff-79c6dfffa49f">&lt;/strong&gt;</ept> in the <bpt id="0e7ebc07-cde6-4d7c-b52f-dcf09b2552e2">&lt;strong&gt;</bpt>Create<ept id="0e7ebc07-cde6-4d7c-b52f-dcf09b2552e2">&lt;/strong&gt;</ept> blade, and click <bpt id="babac33d-1af8-4239-953d-49fdba0704fa">&lt;strong&gt;</bpt>Data Factory<ept id="babac33d-1af8-4239-953d-49fdba0704fa">&lt;/strong&gt;</ept> in the <bpt id="d7886109-ff1b-483d-b65e-5dd7a1efc0ec">&lt;strong&gt;</bpt>Data analytics<ept id="d7886109-ff1b-483d-b65e-5dd7a1efc0ec">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="c07b8bec-500c-42f4-89fe-798cf7affb13" xml:space="preserve">
+          <source><bpt id="cf853ece-d12a-4cd0-b209-857e70bd4a8c">&lt;linkText&gt;</bpt>New-&gt;DataFactory<ept id="cf853ece-d12a-4cd0-b209-857e70bd4a8c">&lt;/linkText&gt;</ept>   </source>
+          <target state="new"><bpt id="cf853ece-d12a-4cd0-b209-857e70bd4a8c">&lt;linkText&gt;</bpt>New-&gt;DataFactory<ept id="cf853ece-d12a-4cd0-b209-857e70bd4a8c">&lt;/linkText&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="4a4247cc-026f-441b-8cae-f440ab9af828" xml:space="preserve">
+          <source>In the <bpt id="5a293671-bd52-45db-a0fb-b5b18ccc45ec">&lt;strong&gt;</bpt>New data factory<ept id="5a293671-bd52-45db-a0fb-b5b18ccc45ec">&lt;/strong&gt;</ept> blade:</source>
+          <target state="new">In the <bpt id="5a293671-bd52-45db-a0fb-b5b18ccc45ec">&lt;strong&gt;</bpt>New data factory<ept id="5a293671-bd52-45db-a0fb-b5b18ccc45ec">&lt;/strong&gt;</ept> blade:</target>
+        </trans-unit>
+        <trans-unit id="62ac5bfa-3e31-407b-91e4-328b62f71dc9" xml:space="preserve">
+          <source>Enter <bpt id="e1a2a46b-51cc-46ac-a05e-bb8b2cf5ba11">&lt;strong&gt;</bpt>ADFTutorialDataFactoryVS<ept id="e1a2a46b-51cc-46ac-a05e-bb8b2cf5ba11">&lt;/strong&gt;</ept> for the <bpt id="c058f1a3-59f9-40b6-b508-c8cd16cff778">&lt;strong&gt;</bpt>name<ept id="c058f1a3-59f9-40b6-b508-c8cd16cff778">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter <bpt id="e1a2a46b-51cc-46ac-a05e-bb8b2cf5ba11">&lt;strong&gt;</bpt>ADFTutorialDataFactoryVS<ept id="e1a2a46b-51cc-46ac-a05e-bb8b2cf5ba11">&lt;/strong&gt;</ept> for the <bpt id="c058f1a3-59f9-40b6-b508-c8cd16cff778">&lt;strong&gt;</bpt>name<ept id="c058f1a3-59f9-40b6-b508-c8cd16cff778">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf132b60-423e-49f2-a8c4-a24bc948114f" xml:space="preserve">
+          <source><bpt id="3318b57b-b205-45c5-aff6-a85ee05beaef">&lt;linkText&gt;</bpt>New data factory blade<ept id="3318b57b-b205-45c5-aff6-a85ee05beaef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3318b57b-b205-45c5-aff6-a85ee05beaef">&lt;linkText&gt;</bpt>New data factory blade<ept id="3318b57b-b205-45c5-aff6-a85ee05beaef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb157236-3a0b-4789-bf5d-35091252721d" xml:space="preserve">
+          <source>Click <bpt id="49c5b644-ec25-47e6-9b40-8a5d9e486d5d">&lt;strong&gt;</bpt>RESOURCE GROUP NAME<ept id="49c5b644-ec25-47e6-9b40-8a5d9e486d5d">&lt;/strong&gt;</ept> and do the following:</source>
+          <target state="new">Click <bpt id="49c5b644-ec25-47e6-9b40-8a5d9e486d5d">&lt;strong&gt;</bpt>RESOURCE GROUP NAME<ept id="49c5b644-ec25-47e6-9b40-8a5d9e486d5d">&lt;/strong&gt;</ept> and do the following:</target>
+        </trans-unit>
+        <trans-unit id="4cdbfb86-4ce7-4d29-bc7d-278e144a7727" xml:space="preserve">
+          <source>Click <bpt id="e3a2974b-03c9-4017-b548-1cc699290a04">&lt;strong&gt;</bpt>Create a new resource group<ept id="e3a2974b-03c9-4017-b548-1cc699290a04">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e3a2974b-03c9-4017-b548-1cc699290a04">&lt;strong&gt;</bpt>Create a new resource group<ept id="e3a2974b-03c9-4017-b548-1cc699290a04">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a10a40f-071a-410a-991d-2fd335f1280a" xml:space="preserve">
+          <source>In the <bpt id="1df84267-eeca-42c6-affd-4e2d99a64240">&lt;strong&gt;</bpt>Create resource group<ept id="1df84267-eeca-42c6-affd-4e2d99a64240">&lt;/strong&gt;</ept> blade, enter <bpt id="4dccbaf6-1e59-4a3a-8a45-bdf866805938">&lt;strong&gt;</bpt>ADFTutorialResourceGroup<ept id="4dccbaf6-1e59-4a3a-8a45-bdf866805938">&lt;/strong&gt;</ept> for the <bpt id="18449b5b-766e-4b77-9744-2b19665d8211">&lt;strong&gt;</bpt>name<ept id="18449b5b-766e-4b77-9744-2b19665d8211">&lt;/strong&gt;</ept> of the resource group, and click <bpt id="188f5094-109e-402c-adff-88f68fca91d8">&lt;strong&gt;</bpt>OK<ept id="188f5094-109e-402c-adff-88f68fca91d8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1df84267-eeca-42c6-affd-4e2d99a64240">&lt;strong&gt;</bpt>Create resource group<ept id="1df84267-eeca-42c6-affd-4e2d99a64240">&lt;/strong&gt;</ept> blade, enter <bpt id="4dccbaf6-1e59-4a3a-8a45-bdf866805938">&lt;strong&gt;</bpt>ADFTutorialResourceGroup<ept id="4dccbaf6-1e59-4a3a-8a45-bdf866805938">&lt;/strong&gt;</ept> for the <bpt id="18449b5b-766e-4b77-9744-2b19665d8211">&lt;strong&gt;</bpt>name<ept id="18449b5b-766e-4b77-9744-2b19665d8211">&lt;/strong&gt;</ept> of the resource group, and click <bpt id="188f5094-109e-402c-adff-88f68fca91d8">&lt;strong&gt;</bpt>OK<ept id="188f5094-109e-402c-adff-88f68fca91d8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da0c4f8b-f226-473c-b53e-5aff678547fc" xml:space="preserve">
+          <source><bpt id="ea5fe71f-890d-4e4d-b3b2-b5ecd4d3545a">&lt;linkText&gt;</bpt>Create Resource Group<ept id="ea5fe71f-890d-4e4d-b3b2-b5ecd4d3545a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea5fe71f-890d-4e4d-b3b2-b5ecd4d3545a">&lt;linkText&gt;</bpt>Create Resource Group<ept id="ea5fe71f-890d-4e4d-b3b2-b5ecd4d3545a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc50cb15-2b9c-4b54-8e5c-99b32ea9d714" xml:space="preserve">
+          <source>Some of the steps in this tutorial assume that you use the name: <bpt id="6e5f1c2a-984a-4918-af84-e9d6a4116b7f">&lt;strong&gt;</bpt>ADFTutorialResourceGroup<ept id="6e5f1c2a-984a-4918-af84-e9d6a4116b7f">&lt;/strong&gt;</ept> for the resource group.</source>
+          <target state="new">Some of the steps in this tutorial assume that you use the name: <bpt id="6e5f1c2a-984a-4918-af84-e9d6a4116b7f">&lt;strong&gt;</bpt>ADFTutorialResourceGroup<ept id="6e5f1c2a-984a-4918-af84-e9d6a4116b7f">&lt;/strong&gt;</ept> for the resource group.</target>
+        </trans-unit>
+        <trans-unit id="c7e48a58-a034-49c4-b43a-b2c0c68231b7" xml:space="preserve">
+          <source>To learn about resource groups, see <bpt id="2fc5b6a6-9697-4b03-9d41-3462d7f4e47a">&lt;linkText&gt;</bpt>Using resource groups to manage your Azure resources<ept id="2fc5b6a6-9697-4b03-9d41-3462d7f4e47a">&lt;/linkText&gt;</ept><bpt id="2fc5b6a6-9697-4b03-9d41-3462d7f4e47a">&lt;title&gt;</bpt><ept id="2fc5b6a6-9697-4b03-9d41-3462d7f4e47a">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn about resource groups, see <bpt id="2fc5b6a6-9697-4b03-9d41-3462d7f4e47a">&lt;linkText&gt;</bpt>Using resource groups to manage your Azure resources<ept id="2fc5b6a6-9697-4b03-9d41-3462d7f4e47a">&lt;/linkText&gt;</ept><bpt id="2fc5b6a6-9697-4b03-9d41-3462d7f4e47a">&lt;title&gt;</bpt><ept id="2fc5b6a6-9697-4b03-9d41-3462d7f4e47a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aee5dade-4ba4-4b3a-b603-cd44dd5abc2e" xml:space="preserve">
+          <source>In the <bpt id="347369df-f85a-4e1a-97e0-6abce561e3f0">&lt;strong&gt;</bpt>New data factory<ept id="347369df-f85a-4e1a-97e0-6abce561e3f0">&lt;/strong&gt;</ept> blade, notice that <bpt id="69e21b26-3134-4bd0-a0e6-75c5abf64644">&lt;strong&gt;</bpt>Add to Startboard<ept id="69e21b26-3134-4bd0-a0e6-75c5abf64644">&lt;/strong&gt;</ept> is selected.</source>
+          <target state="new">In the <bpt id="347369df-f85a-4e1a-97e0-6abce561e3f0">&lt;strong&gt;</bpt>New data factory<ept id="347369df-f85a-4e1a-97e0-6abce561e3f0">&lt;/strong&gt;</ept> blade, notice that <bpt id="69e21b26-3134-4bd0-a0e6-75c5abf64644">&lt;strong&gt;</bpt>Add to Startboard<ept id="69e21b26-3134-4bd0-a0e6-75c5abf64644">&lt;/strong&gt;</ept> is selected.</target>
+        </trans-unit>
+        <trans-unit id="5578f6d1-974a-447e-8439-cb5e9e17e279" xml:space="preserve">
+          <source>Click <bpt id="635008a1-62ce-4afd-b254-fad3e05b46f1">&lt;strong&gt;</bpt>Create<ept id="635008a1-62ce-4afd-b254-fad3e05b46f1">&lt;/strong&gt;</ept> in the <bpt id="e2a6abe2-e516-47a8-a168-e2377dcc3498">&lt;strong&gt;</bpt>New data factory<ept id="e2a6abe2-e516-47a8-a168-e2377dcc3498">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click <bpt id="635008a1-62ce-4afd-b254-fad3e05b46f1">&lt;strong&gt;</bpt>Create<ept id="635008a1-62ce-4afd-b254-fad3e05b46f1">&lt;/strong&gt;</ept> in the <bpt id="e2a6abe2-e516-47a8-a168-e2377dcc3498">&lt;strong&gt;</bpt>New data factory<ept id="e2a6abe2-e516-47a8-a168-e2377dcc3498">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="e3dc5685-8049-43f7-ab1a-36f32d86d032" xml:space="preserve">
+          <source>The name of the Azure data factory must be globally unique.</source>
+          <target state="new">The name of the Azure data factory must be globally unique.</target>
+        </trans-unit>
+        <trans-unit id="072f7fba-bce0-452f-af93-e47bdf8d14ca" xml:space="preserve">
+          <source>If you receive the error: <bpt id="0d3b49bb-107b-4060-83de-d4d36433d2aa">&lt;strong&gt;</bpt>Data factory name “ADFTutorialDataFactoryVS” is not available<ept id="0d3b49bb-107b-4060-83de-d4d36433d2aa">&lt;/strong&gt;</ept>, change the name of the data factory (for example, yournameADFTutorialDataFactoryVS) and try creating again.</source>
+          <target state="new">If you receive the error: <bpt id="0d3b49bb-107b-4060-83de-d4d36433d2aa">&lt;strong&gt;</bpt>Data factory name “ADFTutorialDataFactoryVS” is not available<ept id="0d3b49bb-107b-4060-83de-d4d36433d2aa">&lt;/strong&gt;</ept>, change the name of the data factory (for example, yournameADFTutorialDataFactoryVS) and try creating again.</target>
+        </trans-unit>
+        <trans-unit id="67c3f29e-2e4f-4613-9850-19b05e0cb80e" xml:space="preserve">
+          <source>Use this name in place of ADFTutorialFactory while performing remaining steps in this tutorial.</source>
+          <target state="new">Use this name in place of ADFTutorialFactory while performing remaining steps in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="6df5c9c0-426c-4058-8342-52a6fe0bd500" xml:space="preserve">
+          <source>See <bpt id="6a1dfa15-803d-490b-a8a2-f4b87487a973">&lt;linkText&gt;</bpt>Data Factory - Naming Rules[data-factory-naming-rules]<ept id="6a1dfa15-803d-490b-a8a2-f4b87487a973">&lt;/linkText&gt;</ept><bpt id="6a1dfa15-803d-490b-a8a2-f4b87487a973">&lt;title&gt;</bpt><ept id="6a1dfa15-803d-490b-a8a2-f4b87487a973">&lt;/title&gt;</ept> topic for naming rules for Data Factory artifacts.</source>
+          <target state="new">See <bpt id="6a1dfa15-803d-490b-a8a2-f4b87487a973">&lt;linkText&gt;</bpt>Data Factory - Naming Rules[data-factory-naming-rules]<ept id="6a1dfa15-803d-490b-a8a2-f4b87487a973">&lt;/linkText&gt;</ept><bpt id="6a1dfa15-803d-490b-a8a2-f4b87487a973">&lt;title&gt;</bpt><ept id="6a1dfa15-803d-490b-a8a2-f4b87487a973">&lt;/title&gt;</ept> topic for naming rules for Data Factory artifacts.</target>
+        </trans-unit>
+        <trans-unit id="e34abda3-eca0-4258-931d-d251af91d51a" xml:space="preserve">
+          <source><bpt id="4759559e-28d7-4ebe-a6d6-b484909f3848">&lt;linkText&gt;</bpt>Data Factory name not available<ept id="4759559e-28d7-4ebe-a6d6-b484909f3848">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4759559e-28d7-4ebe-a6d6-b484909f3848">&lt;linkText&gt;</bpt>Data Factory name not available<ept id="4759559e-28d7-4ebe-a6d6-b484909f3848">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac901dcb-a93a-4794-84d4-91ba1123c3d2" xml:space="preserve">
+          <source>Click <bpt id="6b8c536d-9fd3-499b-91df-486595f53b87">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="6b8c536d-9fd3-499b-91df-486595f53b87">&lt;/strong&gt;</ept> hub on the left and look for notifications from the creation process.</source>
+          <target state="new">Click <bpt id="6b8c536d-9fd3-499b-91df-486595f53b87">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="6b8c536d-9fd3-499b-91df-486595f53b87">&lt;/strong&gt;</ept> hub on the left and look for notifications from the creation process.</target>
+        </trans-unit>
+        <trans-unit id="25a514e4-0192-4dd9-b15e-324622f7d38e" xml:space="preserve">
+          <source>Click <bpt id="d5a9b878-c1fc-4cc2-b016-4efb19e29ba9">&lt;strong&gt;</bpt>X<ept id="d5a9b878-c1fc-4cc2-b016-4efb19e29ba9">&lt;/strong&gt;</ept> to close the <bpt id="8b946cad-3aa9-474e-8c41-bac33c2c68b7">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="8b946cad-3aa9-474e-8c41-bac33c2c68b7">&lt;/strong&gt;</ept> blade if it is open.</source>
+          <target state="new">Click <bpt id="d5a9b878-c1fc-4cc2-b016-4efb19e29ba9">&lt;strong&gt;</bpt>X<ept id="d5a9b878-c1fc-4cc2-b016-4efb19e29ba9">&lt;/strong&gt;</ept> to close the <bpt id="8b946cad-3aa9-474e-8c41-bac33c2c68b7">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="8b946cad-3aa9-474e-8c41-bac33c2c68b7">&lt;/strong&gt;</ept> blade if it is open.</target>
+        </trans-unit>
+        <trans-unit id="881170e6-20eb-4492-bc9f-c2a2a14ad508" xml:space="preserve">
+          <source>After the creation is complete, you will see the <bpt id="779e6863-7fec-40b1-be6d-56d5ceed484a">&lt;strong&gt;</bpt>DATA FACTORY<ept id="779e6863-7fec-40b1-be6d-56d5ceed484a">&lt;/strong&gt;</ept> blade as shown below.</source>
+          <target state="new">After the creation is complete, you will see the <bpt id="779e6863-7fec-40b1-be6d-56d5ceed484a">&lt;strong&gt;</bpt>DATA FACTORY<ept id="779e6863-7fec-40b1-be6d-56d5ceed484a">&lt;/strong&gt;</ept> blade as shown below.</target>
+        </trans-unit>
+        <trans-unit id="e400d010-61d7-4ac8-884e-7f82617231b1" xml:space="preserve">
+          <source><bpt id="4f7dce4e-40d8-4d75-a2f3-d53242a83ee9">&lt;linkText&gt;</bpt>Data factory home page<ept id="4f7dce4e-40d8-4d75-a2f3-d53242a83ee9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4f7dce4e-40d8-4d75-a2f3-d53242a83ee9">&lt;linkText&gt;</bpt>Data factory home page<ept id="4f7dce4e-40d8-4d75-a2f3-d53242a83ee9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c24cf093-cb68-41bb-8b8f-ac707841f767" xml:space="preserve">
+          <source>You must have the following installed on your computer: </source>
+          <target state="new">You must have the following installed on your computer: </target>
+        </trans-unit>
+        <trans-unit id="442b2e62-ac95-40e7-89cc-85b5cee1e372" xml:space="preserve">
+          <source>Visual Studio 2013</source>
+          <target state="new">Visual Studio 2013</target>
+        </trans-unit>
+        <trans-unit id="c14d47af-cde8-4f5d-963b-a12d18182681" xml:space="preserve">
+          <source>Download Azure SDK for Visual Studio 2013.</source>
+          <target state="new">Download Azure SDK for Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="57b0c311-a68a-42a2-9a3c-fdb03a0c3dd3" xml:space="preserve">
+          <source>Navigate to <bpt id="ead2a7a5-e17e-4318-a363-aa833e8a6e3f">&lt;linkText&gt;</bpt>Azure Download Page<ept id="ead2a7a5-e17e-4318-a363-aa833e8a6e3f">&lt;/linkText&gt;</ept><bpt id="ead2a7a5-e17e-4318-a363-aa833e8a6e3f">&lt;title&gt;</bpt><ept id="ead2a7a5-e17e-4318-a363-aa833e8a6e3f">&lt;/title&gt;</ept> and click <bpt id="986abb1a-d8e7-4aca-acbd-8630a1508261">&lt;strong&gt;</bpt>VS 2013 install<ept id="986abb1a-d8e7-4aca-acbd-8630a1508261">&lt;/strong&gt;</ept> in the <bpt id="3eb1db7e-b710-4489-9104-165383e29af1">&lt;strong&gt;</bpt>.NET<ept id="3eb1db7e-b710-4489-9104-165383e29af1">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Navigate to <bpt id="ead2a7a5-e17e-4318-a363-aa833e8a6e3f">&lt;linkText&gt;</bpt>Azure Download Page<ept id="ead2a7a5-e17e-4318-a363-aa833e8a6e3f">&lt;/linkText&gt;</ept><bpt id="ead2a7a5-e17e-4318-a363-aa833e8a6e3f">&lt;title&gt;</bpt><ept id="ead2a7a5-e17e-4318-a363-aa833e8a6e3f">&lt;/title&gt;</ept> and click <bpt id="986abb1a-d8e7-4aca-acbd-8630a1508261">&lt;strong&gt;</bpt>VS 2013 install<ept id="986abb1a-d8e7-4aca-acbd-8630a1508261">&lt;/strong&gt;</ept> in the <bpt id="3eb1db7e-b710-4489-9104-165383e29af1">&lt;strong&gt;</bpt>.NET<ept id="3eb1db7e-b710-4489-9104-165383e29af1">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="82cd3c9a-951f-4366-b59a-1726fb7b357e" xml:space="preserve">
+          <source>Launch <bpt id="2c9f5fb5-6f98-41f3-9fa9-788e3dcadfc1">&lt;strong&gt;</bpt>Visual Studio 2013<ept id="2c9f5fb5-6f98-41f3-9fa9-788e3dcadfc1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Launch <bpt id="2c9f5fb5-6f98-41f3-9fa9-788e3dcadfc1">&lt;strong&gt;</bpt>Visual Studio 2013<ept id="2c9f5fb5-6f98-41f3-9fa9-788e3dcadfc1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0b12bbe-a3c1-4d1c-a538-c18c6088c7df" xml:space="preserve">
+          <source>Click <bpt id="9bee7db2-ef15-4a09-83d8-ad956a7823a1">&lt;strong&gt;</bpt>File<ept id="9bee7db2-ef15-4a09-83d8-ad956a7823a1">&lt;/strong&gt;</ept>, point to <bpt id="e92ae66c-125c-4ee4-99ca-9989847d3185">&lt;strong&gt;</bpt>New<ept id="e92ae66c-125c-4ee4-99ca-9989847d3185">&lt;/strong&gt;</ept>, and click <bpt id="57c48cb7-c2e2-4f54-855e-6008788cea35">&lt;strong&gt;</bpt>Project<ept id="57c48cb7-c2e2-4f54-855e-6008788cea35">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9bee7db2-ef15-4a09-83d8-ad956a7823a1">&lt;strong&gt;</bpt>File<ept id="9bee7db2-ef15-4a09-83d8-ad956a7823a1">&lt;/strong&gt;</ept>, point to <bpt id="e92ae66c-125c-4ee4-99ca-9989847d3185">&lt;strong&gt;</bpt>New<ept id="e92ae66c-125c-4ee4-99ca-9989847d3185">&lt;/strong&gt;</ept>, and click <bpt id="57c48cb7-c2e2-4f54-855e-6008788cea35">&lt;strong&gt;</bpt>Project<ept id="57c48cb7-c2e2-4f54-855e-6008788cea35">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48022705-7f8e-477f-bbcb-5d426c4bf6d1" xml:space="preserve">
+          <source>You should see the <bpt id="fe4f822a-20cd-49b1-9079-0e4b70d36b94">&lt;strong&gt;</bpt>New Project<ept id="fe4f822a-20cd-49b1-9079-0e4b70d36b94">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">You should see the <bpt id="fe4f822a-20cd-49b1-9079-0e4b70d36b94">&lt;strong&gt;</bpt>New Project<ept id="fe4f822a-20cd-49b1-9079-0e4b70d36b94">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="abbf888f-1ed9-4c02-8cd4-fe13339f9ac9" xml:space="preserve">
+          <source>In the <bpt id="cb4c7568-57e6-40b7-afc7-9e67993bdc76">&lt;strong&gt;</bpt>New Project<ept id="cb4c7568-57e6-40b7-afc7-9e67993bdc76">&lt;/strong&gt;</ept> dialog, select the <bpt id="abf728e8-8361-40d6-b23e-ee699ae0b4fe">&lt;strong&gt;</bpt>DataFactory<ept id="abf728e8-8361-40d6-b23e-ee699ae0b4fe">&lt;/strong&gt;</ept> template, and click <bpt id="10ad98e5-9d26-489c-a406-e1988d968fe5">&lt;strong&gt;</bpt>Empty Data Factory Project<ept id="10ad98e5-9d26-489c-a406-e1988d968fe5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="cb4c7568-57e6-40b7-afc7-9e67993bdc76">&lt;strong&gt;</bpt>New Project<ept id="cb4c7568-57e6-40b7-afc7-9e67993bdc76">&lt;/strong&gt;</ept> dialog, select the <bpt id="abf728e8-8361-40d6-b23e-ee699ae0b4fe">&lt;strong&gt;</bpt>DataFactory<ept id="abf728e8-8361-40d6-b23e-ee699ae0b4fe">&lt;/strong&gt;</ept> template, and click <bpt id="10ad98e5-9d26-489c-a406-e1988d968fe5">&lt;strong&gt;</bpt>Empty Data Factory Project<ept id="10ad98e5-9d26-489c-a406-e1988d968fe5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ab0b55a-dec3-46e9-89ef-029a4566161a" xml:space="preserve">
+          <source>If you don't see the DataFactory template, close Visual Studio, install Azure SDK for Visual Studio 2013, and reopen Visual Studio.</source>
+          <target state="new">If you don't see the DataFactory template, close Visual Studio, install Azure SDK for Visual Studio 2013, and reopen Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="a236af51-9d0c-4937-8740-f957429e3bab" xml:space="preserve">
+          <source><bpt id="2029f62a-f080-4de9-bbe4-b417cdaff069">&lt;linkText&gt;</bpt>New project dialog box<ept id="2029f62a-f080-4de9-bbe4-b417cdaff069">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2029f62a-f080-4de9-bbe4-b417cdaff069">&lt;linkText&gt;</bpt>New project dialog box<ept id="2029f62a-f080-4de9-bbe4-b417cdaff069">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f708924-d622-454b-9c54-65d629aa75ec" xml:space="preserve">
+          <source>Enter a <bpt id="214b7736-8e6d-476b-a9ce-7f99cfe666ab">&lt;strong&gt;</bpt>name<ept id="214b7736-8e6d-476b-a9ce-7f99cfe666ab">&lt;/strong&gt;</ept> for the project, <bpt id="6273ba6b-f2e4-4f70-a511-f49fd7bec855">&lt;strong&gt;</bpt>location<ept id="6273ba6b-f2e4-4f70-a511-f49fd7bec855">&lt;/strong&gt;</ept>, and a name for the <bpt id="025e2c7b-d8d4-476f-b3f3-810ff8e2b0ac">&lt;strong&gt;</bpt>solution<ept id="025e2c7b-d8d4-476f-b3f3-810ff8e2b0ac">&lt;/strong&gt;</ept>, and click <bpt id="a6bd53c3-233e-4b92-a63b-fad321508de0">&lt;strong&gt;</bpt>OK<ept id="a6bd53c3-233e-4b92-a63b-fad321508de0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a <bpt id="214b7736-8e6d-476b-a9ce-7f99cfe666ab">&lt;strong&gt;</bpt>name<ept id="214b7736-8e6d-476b-a9ce-7f99cfe666ab">&lt;/strong&gt;</ept> for the project, <bpt id="6273ba6b-f2e4-4f70-a511-f49fd7bec855">&lt;strong&gt;</bpt>location<ept id="6273ba6b-f2e4-4f70-a511-f49fd7bec855">&lt;/strong&gt;</ept>, and a name for the <bpt id="025e2c7b-d8d4-476f-b3f3-810ff8e2b0ac">&lt;strong&gt;</bpt>solution<ept id="025e2c7b-d8d4-476f-b3f3-810ff8e2b0ac">&lt;/strong&gt;</ept>, and click <bpt id="a6bd53c3-233e-4b92-a63b-fad321508de0">&lt;strong&gt;</bpt>OK<ept id="a6bd53c3-233e-4b92-a63b-fad321508de0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0e53338-4e16-4ab7-ae60-6a5f7143fdf8" xml:space="preserve">
+          <source><bpt id="c896049c-804d-40e9-8b5f-45fbd1ba0f97">&lt;linkText&gt;</bpt>Solution Explorer<ept id="c896049c-804d-40e9-8b5f-45fbd1ba0f97">&lt;/linkText&gt;</ept>   </source>
+          <target state="new"><bpt id="c896049c-804d-40e9-8b5f-45fbd1ba0f97">&lt;linkText&gt;</bpt>Solution Explorer<ept id="c896049c-804d-40e9-8b5f-45fbd1ba0f97">&lt;/linkText&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="1d0c084a-8878-40e3-b82d-f09430794bf0" xml:space="preserve">
+          <source>Linked services link data stores or compute services to an Azure data factory.</source>
+          <target state="new">Linked services link data stores or compute services to an Azure data factory.</target>
+        </trans-unit>
+        <trans-unit id="ada5f545-8b9b-43af-8022-4af78e85ffc5" xml:space="preserve">
+          <source>A data store can be an Azure Storage, Azure SQL Database or an on-premises SQL Server database.</source>
+          <target state="new">A data store can be an Azure Storage, Azure SQL Database or an on-premises SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="ae23c7ca-3131-49d0-8220-f461d314b615" xml:space="preserve">
+          <source>In this step, you will create two linked services: <bpt id="1f6e9eb2-9319-43c8-bd56-7fc3d213d90d">&lt;strong&gt;</bpt>AzureStorageLinkedService1<ept id="1f6e9eb2-9319-43c8-bd56-7fc3d213d90d">&lt;/strong&gt;</ept> and <bpt id="cbd3d616-aa41-42d1-aa43-6365d70c4943">&lt;strong&gt;</bpt>AzureSqlLinkedService1<ept id="cbd3d616-aa41-42d1-aa43-6365d70c4943">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this step, you will create two linked services: <bpt id="1f6e9eb2-9319-43c8-bd56-7fc3d213d90d">&lt;strong&gt;</bpt>AzureStorageLinkedService1<ept id="1f6e9eb2-9319-43c8-bd56-7fc3d213d90d">&lt;/strong&gt;</ept> and <bpt id="cbd3d616-aa41-42d1-aa43-6365d70c4943">&lt;strong&gt;</bpt>AzureSqlLinkedService1<ept id="cbd3d616-aa41-42d1-aa43-6365d70c4943">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="584bdb46-9fb4-4049-865b-28705ae012dd" xml:space="preserve">
+          <source>AzureStorageLinkedService1 linked service links an Azure Storage Account and AzureSqlLinkedService links an Azure SQL database to the data factory: <bpt id="4692390f-86f3-47bf-9189-2bf7728c15d1">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="4692390f-86f3-47bf-9189-2bf7728c15d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">AzureStorageLinkedService1 linked service links an Azure Storage Account and AzureSqlLinkedService links an Azure SQL database to the data factory: <bpt id="4692390f-86f3-47bf-9189-2bf7728c15d1">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="4692390f-86f3-47bf-9189-2bf7728c15d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54e84a60-fc28-4555-94b8-b9bd773f8b3d" xml:space="preserve">
+          <source>Right-click <bpt id="2b3998e5-e270-496a-8d7c-0439f5030562">&lt;strong&gt;</bpt>Linked Services<ept id="2b3998e5-e270-496a-8d7c-0439f5030562">&lt;/strong&gt;</ept> in the solution explorer, point to <bpt id="58a29adb-e948-4901-b821-3b5b592eb6c6">&lt;strong&gt;</bpt>Add<ept id="58a29adb-e948-4901-b821-3b5b592eb6c6">&lt;/strong&gt;</ept>, and click <bpt id="8b354d4c-6dda-410b-a961-26de859e8520">&lt;strong&gt;</bpt>New Item<ept id="8b354d4c-6dda-410b-a961-26de859e8520">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="2b3998e5-e270-496a-8d7c-0439f5030562">&lt;strong&gt;</bpt>Linked Services<ept id="2b3998e5-e270-496a-8d7c-0439f5030562">&lt;/strong&gt;</ept> in the solution explorer, point to <bpt id="58a29adb-e948-4901-b821-3b5b592eb6c6">&lt;strong&gt;</bpt>Add<ept id="58a29adb-e948-4901-b821-3b5b592eb6c6">&lt;/strong&gt;</ept>, and click <bpt id="8b354d4c-6dda-410b-a961-26de859e8520">&lt;strong&gt;</bpt>New Item<ept id="8b354d4c-6dda-410b-a961-26de859e8520">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b666c326-2216-48a9-a964-d8b9db5bfff4" xml:space="preserve">
+          <source>In the <bpt id="9daea30a-306d-4243-b77b-3e0c5a9112c8">&lt;strong&gt;</bpt>Add New Item<ept id="9daea30a-306d-4243-b77b-3e0c5a9112c8">&lt;/strong&gt;</ept> dialog box, select <bpt id="ae6e500e-6af2-4397-a38f-b911cb6f3b29">&lt;strong&gt;</bpt>Azure Storage Linked Service<ept id="ae6e500e-6af2-4397-a38f-b911cb6f3b29">&lt;/strong&gt;</ept> from the list, and click <bpt id="0f2f1c0c-b8a4-4d0a-8db6-8c6e25ea8afb">&lt;strong&gt;</bpt>Add<ept id="0f2f1c0c-b8a4-4d0a-8db6-8c6e25ea8afb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="9daea30a-306d-4243-b77b-3e0c5a9112c8">&lt;strong&gt;</bpt>Add New Item<ept id="9daea30a-306d-4243-b77b-3e0c5a9112c8">&lt;/strong&gt;</ept> dialog box, select <bpt id="ae6e500e-6af2-4397-a38f-b911cb6f3b29">&lt;strong&gt;</bpt>Azure Storage Linked Service<ept id="ae6e500e-6af2-4397-a38f-b911cb6f3b29">&lt;/strong&gt;</ept> from the list, and click <bpt id="0f2f1c0c-b8a4-4d0a-8db6-8c6e25ea8afb">&lt;strong&gt;</bpt>Add<ept id="0f2f1c0c-b8a4-4d0a-8db6-8c6e25ea8afb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd7db01d-a9c3-46a9-9ed1-3fbf63990d37" xml:space="preserve">
+          <source><bpt id="a56661fd-01b9-43bb-8a87-13c362e8954f">&lt;linkText&gt;</bpt>New Linked Service<ept id="a56661fd-01b9-43bb-8a87-13c362e8954f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a56661fd-01b9-43bb-8a87-13c362e8954f">&lt;linkText&gt;</bpt>New Linked Service<ept id="a56661fd-01b9-43bb-8a87-13c362e8954f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c609ddb-1a8a-4bae-97da-32f732f6dad7" xml:space="preserve">
+          <source>Replace <bpt id="7942224a-73aa-4022-9c4f-07f47c29c525">&lt;strong&gt;</bpt>accountname<ept id="7942224a-73aa-4022-9c4f-07f47c29c525">&lt;/strong&gt;</ept> and <bpt id="41c9c0ff-eb51-4a22-8246-bdfe18b4d14d">&lt;strong&gt;</bpt>accountkey<ept id="41c9c0ff-eb51-4a22-8246-bdfe18b4d14d">&lt;/strong&gt;</ept> with the name of your Azure storage account and its key.</source>
+          <target state="new">Replace <bpt id="7942224a-73aa-4022-9c4f-07f47c29c525">&lt;strong&gt;</bpt>accountname<ept id="7942224a-73aa-4022-9c4f-07f47c29c525">&lt;/strong&gt;</ept> and <bpt id="41c9c0ff-eb51-4a22-8246-bdfe18b4d14d">&lt;strong&gt;</bpt>accountkey<ept id="41c9c0ff-eb51-4a22-8246-bdfe18b4d14d">&lt;/strong&gt;</ept> with the name of your Azure storage account and its key.</target>
+        </trans-unit>
+        <trans-unit id="22422421-d05f-4ab0-9f8c-1f5fa117e6e3" xml:space="preserve">
+          <source><bpt id="92da8755-060c-4ce6-a694-d96c2edc1500">&lt;linkText&gt;</bpt>Azure Storage Linked Service<ept id="92da8755-060c-4ce6-a694-d96c2edc1500">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="92da8755-060c-4ce6-a694-d96c2edc1500">&lt;linkText&gt;</bpt>Azure Storage Linked Service<ept id="92da8755-060c-4ce6-a694-d96c2edc1500">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13a2dcfc-759d-410b-85a8-498cb03b84d7" xml:space="preserve">
+          <source>Save the <bpt id="f40ecd6b-3bd3-488e-9b90-6d10a0086a8e">&lt;strong&gt;</bpt>AzureStorageLinkedService1.json<ept id="f40ecd6b-3bd3-488e-9b90-6d10a0086a8e">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save the <bpt id="f40ecd6b-3bd3-488e-9b90-6d10a0086a8e">&lt;strong&gt;</bpt>AzureStorageLinkedService1.json<ept id="f40ecd6b-3bd3-488e-9b90-6d10a0086a8e">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="ce50c884-e353-4ee1-b344-c6904d37567f" xml:space="preserve">
+          <source>Right-click on <bpt id="d42d92f4-d837-46f1-8e46-da311bf91134">&lt;strong&gt;</bpt>Linked Services<ept id="d42d92f4-d837-46f1-8e46-da311bf91134">&lt;/strong&gt;</ept> node in the <bpt id="e2159a4a-f67c-4e74-9158-d8c2b5db6ac0">&lt;strong&gt;</bpt>Solution Explorer<ept id="e2159a4a-f67c-4e74-9158-d8c2b5db6ac0">&lt;/strong&gt;</ept> again, point to <bpt id="12fe95b6-4260-453a-956e-863142361125">&lt;strong&gt;</bpt>Add<ept id="12fe95b6-4260-453a-956e-863142361125">&lt;/strong&gt;</ept>, and click <bpt id="d58f7f7d-ee3f-418b-a874-ad9b201c6467">&lt;strong&gt;</bpt>New Item<ept id="d58f7f7d-ee3f-418b-a874-ad9b201c6467">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click on <bpt id="d42d92f4-d837-46f1-8e46-da311bf91134">&lt;strong&gt;</bpt>Linked Services<ept id="d42d92f4-d837-46f1-8e46-da311bf91134">&lt;/strong&gt;</ept> node in the <bpt id="e2159a4a-f67c-4e74-9158-d8c2b5db6ac0">&lt;strong&gt;</bpt>Solution Explorer<ept id="e2159a4a-f67c-4e74-9158-d8c2b5db6ac0">&lt;/strong&gt;</ept> again, point to <bpt id="12fe95b6-4260-453a-956e-863142361125">&lt;strong&gt;</bpt>Add<ept id="12fe95b6-4260-453a-956e-863142361125">&lt;/strong&gt;</ept>, and click <bpt id="d58f7f7d-ee3f-418b-a874-ad9b201c6467">&lt;strong&gt;</bpt>New Item<ept id="d58f7f7d-ee3f-418b-a874-ad9b201c6467">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e59c8c0-353b-47ed-8939-5b6a2a958aa1" xml:space="preserve">
+          <source>This time, select <bpt id="9ec3528a-e5b8-4ef3-9c30-29ea84fcfaa9">&lt;strong&gt;</bpt>Azure SQL Linked Service<ept id="9ec3528a-e5b8-4ef3-9c30-29ea84fcfaa9">&lt;/strong&gt;</ept>, and click <bpt id="d3e0db69-af06-4800-acf7-7e0bc6a44e1b">&lt;strong&gt;</bpt>Add<ept id="d3e0db69-af06-4800-acf7-7e0bc6a44e1b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This time, select <bpt id="9ec3528a-e5b8-4ef3-9c30-29ea84fcfaa9">&lt;strong&gt;</bpt>Azure SQL Linked Service<ept id="9ec3528a-e5b8-4ef3-9c30-29ea84fcfaa9">&lt;/strong&gt;</ept>, and click <bpt id="d3e0db69-af06-4800-acf7-7e0bc6a44e1b">&lt;strong&gt;</bpt>Add<ept id="d3e0db69-af06-4800-acf7-7e0bc6a44e1b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f15d61d-49ba-4577-94c1-fa521407bcb8" xml:space="preserve">
+          <source>In the <bpt id="4584e26d-1ad9-4547-a5a1-3d8af6d14232">&lt;strong&gt;</bpt>AzureSqlLinkedService1.json file<ept id="4584e26d-1ad9-4547-a5a1-3d8af6d14232">&lt;/strong&gt;</ept>, replace <bpt id="2e14706b-408a-4b45-bbeb-d90b4db19678">&lt;strong&gt;</bpt>servername<ept id="2e14706b-408a-4b45-bbeb-d90b4db19678">&lt;/strong&gt;</ept>, <bpt id="ec119431-99e8-45c2-9a05-78d47eb9630b">&lt;strong&gt;</bpt>databasename<ept id="ec119431-99e8-45c2-9a05-78d47eb9630b">&lt;/strong&gt;</ept>, <bpt id="e716cd90-77e8-45dd-b1ba-8b0a43f2c37f">&lt;strong&gt;</bpt>username@servername<ept id="e716cd90-77e8-45dd-b1ba-8b0a43f2c37f">&lt;/strong&gt;</ept>, and <bpt id="1d0ada6f-b04e-4d0d-b7e3-01e65a00c2dc">&lt;strong&gt;</bpt>password<ept id="1d0ada6f-b04e-4d0d-b7e3-01e65a00c2dc">&lt;/strong&gt;</ept> with names of your Azure SQL server, database, user account, and  password.</source>
+          <target state="new">In the <bpt id="4584e26d-1ad9-4547-a5a1-3d8af6d14232">&lt;strong&gt;</bpt>AzureSqlLinkedService1.json file<ept id="4584e26d-1ad9-4547-a5a1-3d8af6d14232">&lt;/strong&gt;</ept>, replace <bpt id="2e14706b-408a-4b45-bbeb-d90b4db19678">&lt;strong&gt;</bpt>servername<ept id="2e14706b-408a-4b45-bbeb-d90b4db19678">&lt;/strong&gt;</ept>, <bpt id="ec119431-99e8-45c2-9a05-78d47eb9630b">&lt;strong&gt;</bpt>databasename<ept id="ec119431-99e8-45c2-9a05-78d47eb9630b">&lt;/strong&gt;</ept>, <bpt id="e716cd90-77e8-45dd-b1ba-8b0a43f2c37f">&lt;strong&gt;</bpt>username@servername<ept id="e716cd90-77e8-45dd-b1ba-8b0a43f2c37f">&lt;/strong&gt;</ept>, and <bpt id="1d0ada6f-b04e-4d0d-b7e3-01e65a00c2dc">&lt;strong&gt;</bpt>password<ept id="1d0ada6f-b04e-4d0d-b7e3-01e65a00c2dc">&lt;/strong&gt;</ept> with names of your Azure SQL server, database, user account, and  password.</target>
+        </trans-unit>
+        <trans-unit id="cfbf4c85-f6a2-441b-bd50-db71812b3737" xml:space="preserve">
+          <source>Save the <bpt id="5500de35-0b19-40fa-96a0-0cb02e68b038">&lt;strong&gt;</bpt>AzureSqlLinkedService1.json<ept id="5500de35-0b19-40fa-96a0-0cb02e68b038">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save the <bpt id="5500de35-0b19-40fa-96a0-0cb02e68b038">&lt;strong&gt;</bpt>AzureSqlLinkedService1.json<ept id="5500de35-0b19-40fa-96a0-0cb02e68b038">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="b6716c26-e6c5-47eb-b234-4c589a979cd2" xml:space="preserve">
+          <source>In the previous step, you created linked services <bpt id="6f601efb-2c9d-49bb-9ab4-f8ee8ea9036b">&lt;strong&gt;</bpt>AzureStorageLinkedService1<ept id="6f601efb-2c9d-49bb-9ab4-f8ee8ea9036b">&lt;/strong&gt;</ept> and <bpt id="736ead54-1e7f-484d-9177-7007de5a41d6">&lt;strong&gt;</bpt>AzureSqlLinkedService1<ept id="736ead54-1e7f-484d-9177-7007de5a41d6">&lt;/strong&gt;</ept> to link an Azure Storage account and Azure SQL database to the data factory: <bpt id="d092d246-2bf3-4509-aebb-16cdd0cff17a">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="d092d246-2bf3-4509-aebb-16cdd0cff17a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the previous step, you created linked services <bpt id="6f601efb-2c9d-49bb-9ab4-f8ee8ea9036b">&lt;strong&gt;</bpt>AzureStorageLinkedService1<ept id="6f601efb-2c9d-49bb-9ab4-f8ee8ea9036b">&lt;/strong&gt;</ept> and <bpt id="736ead54-1e7f-484d-9177-7007de5a41d6">&lt;strong&gt;</bpt>AzureSqlLinkedService1<ept id="736ead54-1e7f-484d-9177-7007de5a41d6">&lt;/strong&gt;</ept> to link an Azure Storage account and Azure SQL database to the data factory: <bpt id="d092d246-2bf3-4509-aebb-16cdd0cff17a">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="d092d246-2bf3-4509-aebb-16cdd0cff17a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4112db12-17ee-4050-ae37-b07f264f0066" xml:space="preserve">
+          <source>In this step, you will define two data factory tables -- <bpt id="97dad20a-a42a-4ee8-a40d-79fb05ca1fa9">&lt;strong&gt;</bpt>EmpTableFromBlob<ept id="97dad20a-a42a-4ee8-a40d-79fb05ca1fa9">&lt;/strong&gt;</ept> and <bpt id="bc34956b-7154-4755-a04d-91d31c9f204b">&lt;strong&gt;</bpt>EmpSQLTable<ept id="bc34956b-7154-4755-a04d-91d31c9f204b">&lt;/strong&gt;</ept> -- that represent the input/output data that is stored in the data stores referred by AzureStorageLinkedService1 and AzureSqlLinkedService1 respectively.</source>
+          <target state="new">In this step, you will define two data factory tables -- <bpt id="97dad20a-a42a-4ee8-a40d-79fb05ca1fa9">&lt;strong&gt;</bpt>EmpTableFromBlob<ept id="97dad20a-a42a-4ee8-a40d-79fb05ca1fa9">&lt;/strong&gt;</ept> and <bpt id="bc34956b-7154-4755-a04d-91d31c9f204b">&lt;strong&gt;</bpt>EmpSQLTable<ept id="bc34956b-7154-4755-a04d-91d31c9f204b">&lt;/strong&gt;</ept> -- that represent the input/output data that is stored in the data stores referred by AzureStorageLinkedService1 and AzureSqlLinkedService1 respectively.</target>
+        </trans-unit>
+        <trans-unit id="77a13d1c-bc14-4713-834c-64da5f1bc4a8" xml:space="preserve">
+          <source>For  EmpTableFromBlob, you will specify the blob container that contains a blob with the source data and for EmpSQLTable, you will specify the SQL table that will store the output data.</source>
+          <target state="new">For  EmpTableFromBlob, you will specify the blob container that contains a blob with the source data and for EmpSQLTable, you will specify the SQL table that will store the output data.</target>
+        </trans-unit>
+        <trans-unit id="af38da5d-2890-44d3-b7a8-3cfc3d0cc975" xml:space="preserve">
+          <source>Right-click <bpt id="dcc9ed3d-ad19-4a88-b9eb-9d7404d1a8a9">&lt;strong&gt;</bpt>Tables<ept id="dcc9ed3d-ad19-4a88-b9eb-9d7404d1a8a9">&lt;/strong&gt;</ept> in the <bpt id="9acf4fed-f072-469f-8314-0c247fdebe2e">&lt;strong&gt;</bpt>Solution Explorer<ept id="9acf4fed-f072-469f-8314-0c247fdebe2e">&lt;/strong&gt;</ept>, point to <bpt id="c1af43b9-51dd-4960-b329-2b47206f11ae">&lt;strong&gt;</bpt>Add<ept id="c1af43b9-51dd-4960-b329-2b47206f11ae">&lt;/strong&gt;</ept>, and click <bpt id="9bfc2fdc-3f13-48eb-bfc8-4c0e6689aa1b">&lt;strong&gt;</bpt>New Item<ept id="9bfc2fdc-3f13-48eb-bfc8-4c0e6689aa1b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="dcc9ed3d-ad19-4a88-b9eb-9d7404d1a8a9">&lt;strong&gt;</bpt>Tables<ept id="dcc9ed3d-ad19-4a88-b9eb-9d7404d1a8a9">&lt;/strong&gt;</ept> in the <bpt id="9acf4fed-f072-469f-8314-0c247fdebe2e">&lt;strong&gt;</bpt>Solution Explorer<ept id="9acf4fed-f072-469f-8314-0c247fdebe2e">&lt;/strong&gt;</ept>, point to <bpt id="c1af43b9-51dd-4960-b329-2b47206f11ae">&lt;strong&gt;</bpt>Add<ept id="c1af43b9-51dd-4960-b329-2b47206f11ae">&lt;/strong&gt;</ept>, and click <bpt id="9bfc2fdc-3f13-48eb-bfc8-4c0e6689aa1b">&lt;strong&gt;</bpt>New Item<ept id="9bfc2fdc-3f13-48eb-bfc8-4c0e6689aa1b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35b933e2-3b0b-4f61-96a9-245000ba14de" xml:space="preserve">
+          <source>In the <bpt id="73cec4a6-31ac-424f-b93a-2af2d07c70d8">&lt;strong&gt;</bpt>Add New Item<ept id="73cec4a6-31ac-424f-b93a-2af2d07c70d8">&lt;/strong&gt;</ept> dialog box, select <bpt id="4283ca7e-6587-4c5b-b38d-3e201a1a42d9">&lt;strong&gt;</bpt>Azure Blob<ept id="4283ca7e-6587-4c5b-b38d-3e201a1a42d9">&lt;/strong&gt;</ept>, and click <bpt id="51794aa2-5812-4eb0-b56a-4c0a9b1705af">&lt;strong&gt;</bpt>Add<ept id="51794aa2-5812-4eb0-b56a-4c0a9b1705af">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="73cec4a6-31ac-424f-b93a-2af2d07c70d8">&lt;strong&gt;</bpt>Add New Item<ept id="73cec4a6-31ac-424f-b93a-2af2d07c70d8">&lt;/strong&gt;</ept> dialog box, select <bpt id="4283ca7e-6587-4c5b-b38d-3e201a1a42d9">&lt;strong&gt;</bpt>Azure Blob<ept id="4283ca7e-6587-4c5b-b38d-3e201a1a42d9">&lt;/strong&gt;</ept>, and click <bpt id="51794aa2-5812-4eb0-b56a-4c0a9b1705af">&lt;strong&gt;</bpt>Add<ept id="51794aa2-5812-4eb0-b56a-4c0a9b1705af">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="443606a5-1ff9-40f0-8e85-e8eb311a35bc" xml:space="preserve">
+          <source>Replace the JSON text with the following text and save the <bpt id="410b2aa8-ec79-4ed1-a9ef-a042705a35c7">&lt;strong&gt;</bpt>AzureBlobLocation1.json<ept id="410b2aa8-ec79-4ed1-a9ef-a042705a35c7">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Replace the JSON text with the following text and save the <bpt id="410b2aa8-ec79-4ed1-a9ef-a042705a35c7">&lt;strong&gt;</bpt>AzureBlobLocation1.json<ept id="410b2aa8-ec79-4ed1-a9ef-a042705a35c7">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="054429c2-b2a4-44e3-8374-d8115fd50b0f" xml:space="preserve">
+          <source>Right-click <bpt id="22de4b4d-bc12-456c-adb5-fae336373a8d">&lt;strong&gt;</bpt>Tables<ept id="22de4b4d-bc12-456c-adb5-fae336373a8d">&lt;/strong&gt;</ept> in the <bpt id="f82e2a97-cb3b-478e-a779-100af010c160">&lt;strong&gt;</bpt>Solution Explorer<ept id="f82e2a97-cb3b-478e-a779-100af010c160">&lt;/strong&gt;</ept> again, point to <bpt id="27715d95-396b-43d3-b348-92af1fa2a134">&lt;strong&gt;</bpt>Add<ept id="27715d95-396b-43d3-b348-92af1fa2a134">&lt;/strong&gt;</ept>, and click <bpt id="7e8af782-1b78-477d-8398-1b91300cc774">&lt;strong&gt;</bpt>New Item<ept id="7e8af782-1b78-477d-8398-1b91300cc774">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="22de4b4d-bc12-456c-adb5-fae336373a8d">&lt;strong&gt;</bpt>Tables<ept id="22de4b4d-bc12-456c-adb5-fae336373a8d">&lt;/strong&gt;</ept> in the <bpt id="f82e2a97-cb3b-478e-a779-100af010c160">&lt;strong&gt;</bpt>Solution Explorer<ept id="f82e2a97-cb3b-478e-a779-100af010c160">&lt;/strong&gt;</ept> again, point to <bpt id="27715d95-396b-43d3-b348-92af1fa2a134">&lt;strong&gt;</bpt>Add<ept id="27715d95-396b-43d3-b348-92af1fa2a134">&lt;/strong&gt;</ept>, and click <bpt id="7e8af782-1b78-477d-8398-1b91300cc774">&lt;strong&gt;</bpt>New Item<ept id="7e8af782-1b78-477d-8398-1b91300cc774">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="136b86c8-5f94-4fdb-9583-b9432265a799" xml:space="preserve">
+          <source>In the <bpt id="b609e020-9aee-4611-831e-225a4515a4cb">&lt;strong&gt;</bpt>Add New Item<ept id="b609e020-9aee-4611-831e-225a4515a4cb">&lt;/strong&gt;</ept> dialog box, select <bpt id="885c2a6a-6902-457f-a041-5c30496e3876">&lt;strong&gt;</bpt>Azure SQL<ept id="885c2a6a-6902-457f-a041-5c30496e3876">&lt;/strong&gt;</ept>, and click <bpt id="64960606-6c8d-46a1-9ee8-1a20e3bfcbb6">&lt;strong&gt;</bpt>Add<ept id="64960606-6c8d-46a1-9ee8-1a20e3bfcbb6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b609e020-9aee-4611-831e-225a4515a4cb">&lt;strong&gt;</bpt>Add New Item<ept id="b609e020-9aee-4611-831e-225a4515a4cb">&lt;/strong&gt;</ept> dialog box, select <bpt id="885c2a6a-6902-457f-a041-5c30496e3876">&lt;strong&gt;</bpt>Azure SQL<ept id="885c2a6a-6902-457f-a041-5c30496e3876">&lt;/strong&gt;</ept>, and click <bpt id="64960606-6c8d-46a1-9ee8-1a20e3bfcbb6">&lt;strong&gt;</bpt>Add<ept id="64960606-6c8d-46a1-9ee8-1a20e3bfcbb6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb0cdfb4-55db-4e1c-92bd-b4f7ae786652" xml:space="preserve">
+          <source>Replace the JSON text with the following JSON and save the <bpt id="5baa0f2b-4036-4b07-8224-47df4c732a61">&lt;strong&gt;</bpt>AzureSqlTableLocation1.json<ept id="5baa0f2b-4036-4b07-8224-47df4c732a61">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Replace the JSON text with the following JSON and save the <bpt id="5baa0f2b-4036-4b07-8224-47df4c732a61">&lt;strong&gt;</bpt>AzureSqlTableLocation1.json<ept id="5baa0f2b-4036-4b07-8224-47df4c732a61">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="7d910333-109c-48b5-ace1-07697a6baa71" xml:space="preserve">
+          <source>You have created input/output linked services and tables so far.</source>
+          <target state="new">You have created input/output linked services and tables so far.</target>
+        </trans-unit>
+        <trans-unit id="e1f45633-1e94-474b-bb73-334871e4aede" xml:space="preserve">
+          <source>Now, you will create a pipeline with a <bpt id="3ea6a9c8-85d5-4548-8e4d-8fc3cb78d12b">&lt;strong&gt;</bpt>Copy Activity<ept id="3ea6a9c8-85d5-4548-8e4d-8fc3cb78d12b">&lt;/strong&gt;</ept> to copy data from the Azure blob to Azure SQL database.</source>
+          <target state="new">Now, you will create a pipeline with a <bpt id="3ea6a9c8-85d5-4548-8e4d-8fc3cb78d12b">&lt;strong&gt;</bpt>Copy Activity<ept id="3ea6a9c8-85d5-4548-8e4d-8fc3cb78d12b">&lt;/strong&gt;</ept> to copy data from the Azure blob to Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="58b322c8-0539-4e55-9db3-ba7842ad8096" xml:space="preserve">
+          <source>Right-click <bpt id="4e275abc-6fc3-46b1-9ecc-8329957e4401">&lt;strong&gt;</bpt>Pipelines<ept id="4e275abc-6fc3-46b1-9ecc-8329957e4401">&lt;/strong&gt;</ept> in the <bpt id="1593caa2-8a90-41f7-ac6f-06876d7f5d35">&lt;strong&gt;</bpt>Solution Explorer<ept id="1593caa2-8a90-41f7-ac6f-06876d7f5d35">&lt;/strong&gt;</ept>, point to <bpt id="ed90c61e-d8b8-4cb4-bf98-4d95b67b112f">&lt;strong&gt;</bpt>Add<ept id="ed90c61e-d8b8-4cb4-bf98-4d95b67b112f">&lt;/strong&gt;</ept>, and click <bpt id="eda371a5-11de-4ecb-9caa-c82d184dcc33">&lt;strong&gt;</bpt>New Item<ept id="eda371a5-11de-4ecb-9caa-c82d184dcc33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="4e275abc-6fc3-46b1-9ecc-8329957e4401">&lt;strong&gt;</bpt>Pipelines<ept id="4e275abc-6fc3-46b1-9ecc-8329957e4401">&lt;/strong&gt;</ept> in the <bpt id="1593caa2-8a90-41f7-ac6f-06876d7f5d35">&lt;strong&gt;</bpt>Solution Explorer<ept id="1593caa2-8a90-41f7-ac6f-06876d7f5d35">&lt;/strong&gt;</ept>, point to <bpt id="ed90c61e-d8b8-4cb4-bf98-4d95b67b112f">&lt;strong&gt;</bpt>Add<ept id="ed90c61e-d8b8-4cb4-bf98-4d95b67b112f">&lt;/strong&gt;</ept>, and click <bpt id="eda371a5-11de-4ecb-9caa-c82d184dcc33">&lt;strong&gt;</bpt>New Item<ept id="eda371a5-11de-4ecb-9caa-c82d184dcc33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab5fe3d4-60db-491b-8127-a6c5bec16968" xml:space="preserve">
+          <source>Select <bpt id="6680eb53-4ba4-4b43-bfc2-058fae9440d5">&lt;strong&gt;</bpt>Copy Data Pipeline<ept id="6680eb53-4ba4-4b43-bfc2-058fae9440d5">&lt;/strong&gt;</ept> in the <bpt id="2186b9d8-2de9-4d36-89da-61ba30759063">&lt;strong&gt;</bpt>Add New Item<ept id="2186b9d8-2de9-4d36-89da-61ba30759063">&lt;/strong&gt;</ept> dialog box and click <bpt id="38f98786-0d9f-4fc0-8d24-18bcc7d4232b">&lt;strong&gt;</bpt>Add<ept id="38f98786-0d9f-4fc0-8d24-18bcc7d4232b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="6680eb53-4ba4-4b43-bfc2-058fae9440d5">&lt;strong&gt;</bpt>Copy Data Pipeline<ept id="6680eb53-4ba4-4b43-bfc2-058fae9440d5">&lt;/strong&gt;</ept> in the <bpt id="2186b9d8-2de9-4d36-89da-61ba30759063">&lt;strong&gt;</bpt>Add New Item<ept id="2186b9d8-2de9-4d36-89da-61ba30759063">&lt;/strong&gt;</ept> dialog box and click <bpt id="38f98786-0d9f-4fc0-8d24-18bcc7d4232b">&lt;strong&gt;</bpt>Add<ept id="38f98786-0d9f-4fc0-8d24-18bcc7d4232b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c678e0a7-0136-4d2a-9fcd-5287f32dfc37" xml:space="preserve">
+          <source>Replace the JSON with the following JSON and save the <bpt id="129fbb33-e36a-47cb-8d61-89c31197b6a5">&lt;strong&gt;</bpt>CopyActivity1.json<ept id="129fbb33-e36a-47cb-8d61-89c31197b6a5">&lt;/strong&gt;</ept> file..</source>
+          <target state="new">Replace the JSON with the following JSON and save the <bpt id="129fbb33-e36a-47cb-8d61-89c31197b6a5">&lt;strong&gt;</bpt>CopyActivity1.json<ept id="129fbb33-e36a-47cb-8d61-89c31197b6a5">&lt;/strong&gt;</ept> file..</target>
+        </trans-unit>
+        <trans-unit id="bf78af9f-3c20-4d7e-9621-36aeece28445" xml:space="preserve">
+          <source>In the toolbar area, right-click and select <bpt id="ed5ef24f-5e96-4367-aa70-40b39876915c">&lt;strong&gt;</bpt>Data Factory<ept id="ed5ef24f-5e96-4367-aa70-40b39876915c">&lt;/strong&gt;</ept> to enabled the Data Factory toolbar if it is not already enabled.</source>
+          <target state="new">In the toolbar area, right-click and select <bpt id="ed5ef24f-5e96-4367-aa70-40b39876915c">&lt;strong&gt;</bpt>Data Factory<ept id="ed5ef24f-5e96-4367-aa70-40b39876915c">&lt;/strong&gt;</ept> to enabled the Data Factory toolbar if it is not already enabled.</target>
+        </trans-unit>
+        <trans-unit id="3a6287ca-6ff1-4b70-bd45-0399d48b47f1" xml:space="preserve">
+          <source>In the <bpt id="0e5a4313-5e6d-47ba-883b-be2eedc1a1d5">&lt;strong&gt;</bpt>Data Factory toolbar<ept id="0e5a4313-5e6d-47ba-883b-be2eedc1a1d5">&lt;/strong&gt;</ept>, click the <bpt id="0a3bc6b6-6b96-426d-83e0-5bd16959865d">&lt;strong&gt;</bpt>drop-down box<ept id="0a3bc6b6-6b96-426d-83e0-5bd16959865d">&lt;/strong&gt;</ept> to see all the data factories in your Azure subscription.</source>
+          <target state="new">In the <bpt id="0e5a4313-5e6d-47ba-883b-be2eedc1a1d5">&lt;strong&gt;</bpt>Data Factory toolbar<ept id="0e5a4313-5e6d-47ba-883b-be2eedc1a1d5">&lt;/strong&gt;</ept>, click the <bpt id="0a3bc6b6-6b96-426d-83e0-5bd16959865d">&lt;strong&gt;</bpt>drop-down box<ept id="0a3bc6b6-6b96-426d-83e0-5bd16959865d">&lt;/strong&gt;</ept> to see all the data factories in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="9f44793c-4cd6-4bbe-ba43-3a5c1c123f2b" xml:space="preserve">
+          <source>If you see the <bpt id="b3c73dbb-abb8-4e9a-8e0b-7a1a4955e301">&lt;strong&gt;</bpt>Sign-in to Visual Studio<ept id="b3c73dbb-abb8-4e9a-8e0b-7a1a4955e301">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">If you see the <bpt id="b3c73dbb-abb8-4e9a-8e0b-7a1a4955e301">&lt;strong&gt;</bpt>Sign-in to Visual Studio<ept id="b3c73dbb-abb8-4e9a-8e0b-7a1a4955e301">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="ae5de120-80f7-46e9-9227-dd289688f9be" xml:space="preserve">
+          <source>Enter the <bpt id="463751ef-c27c-4d2c-bcab-5a0253a0c65e">&lt;strong&gt;</bpt>email account<ept id="463751ef-c27c-4d2c-bcab-5a0253a0c65e">&lt;/strong&gt;</ept> associated with the Azure subscription in which you want to create the data factory, enter <bpt id="58dbceed-14d5-455c-b655-b33ba8568d9e">&lt;strong&gt;</bpt>Password<ept id="58dbceed-14d5-455c-b655-b33ba8568d9e">&lt;/strong&gt;</ept>, and click <bpt id="9c2fe02a-7fc2-4c3e-9228-d4ab41fb17cc">&lt;strong&gt;</bpt>Sign-in<ept id="9c2fe02a-7fc2-4c3e-9228-d4ab41fb17cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the <bpt id="463751ef-c27c-4d2c-bcab-5a0253a0c65e">&lt;strong&gt;</bpt>email account<ept id="463751ef-c27c-4d2c-bcab-5a0253a0c65e">&lt;/strong&gt;</ept> associated with the Azure subscription in which you want to create the data factory, enter <bpt id="58dbceed-14d5-455c-b655-b33ba8568d9e">&lt;strong&gt;</bpt>Password<ept id="58dbceed-14d5-455c-b655-b33ba8568d9e">&lt;/strong&gt;</ept>, and click <bpt id="9c2fe02a-7fc2-4c3e-9228-d4ab41fb17cc">&lt;strong&gt;</bpt>Sign-in<ept id="9c2fe02a-7fc2-4c3e-9228-d4ab41fb17cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93585875-25f6-4aea-8a43-600bc731db62" xml:space="preserve">
+          <source>Once the sign-in is successful, you should see all the data factories in the Azure subscription.</source>
+          <target state="new">Once the sign-in is successful, you should see all the data factories in the Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="e7ec220e-c7f6-4f54-b4a9-daef88d3725e" xml:space="preserve">
+          <source>In this tutorial, you will create a new data facotry.</source>
+          <target state="new">In this tutorial, you will create a new data facotry.</target>
+        </trans-unit>
+        <trans-unit id="a486e682-1719-4bec-895e-d63f417b8b8a" xml:space="preserve">
+          <source>In the drop-down list, select <bpt id="370b4db7-2a21-4702-8ed8-4ccc34b60402">&lt;strong&gt;</bpt>ADFTutorialFactoryVS<ept id="370b4db7-2a21-4702-8ed8-4ccc34b60402">&lt;/strong&gt;</ept>, and click <bpt id="0351eb1b-8e5c-4bba-96ff-911c0b962a5c">&lt;strong&gt;</bpt>Publish<ept id="0351eb1b-8e5c-4bba-96ff-911c0b962a5c">&lt;/strong&gt;</ept> button to deploy/publish the linked services, datasets, and the pipeline.</source>
+          <target state="new">In the drop-down list, select <bpt id="370b4db7-2a21-4702-8ed8-4ccc34b60402">&lt;strong&gt;</bpt>ADFTutorialFactoryVS<ept id="370b4db7-2a21-4702-8ed8-4ccc34b60402">&lt;/strong&gt;</ept>, and click <bpt id="0351eb1b-8e5c-4bba-96ff-911c0b962a5c">&lt;strong&gt;</bpt>Publish<ept id="0351eb1b-8e5c-4bba-96ff-911c0b962a5c">&lt;/strong&gt;</ept> button to deploy/publish the linked services, datasets, and the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="de548730-254e-4cc3-9cf8-7353c6748c90" xml:space="preserve">
+          <source><bpt id="af59ce49-d413-4ea8-aac5-48f4a22430c9">&lt;linkText&gt;</bpt>Publish button<ept id="af59ce49-d413-4ea8-aac5-48f4a22430c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af59ce49-d413-4ea8-aac5-48f4a22430c9">&lt;linkText&gt;</bpt>Publish button<ept id="af59ce49-d413-4ea8-aac5-48f4a22430c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57d9a553-b6a0-45a1-9a81-4a3412048970" xml:space="preserve">
+          <source>You should see the status of publishing in the Data Factory Task List window that is shown in the picture above.</source>
+          <target state="new">You should see the status of publishing in the Data Factory Task List window that is shown in the picture above.</target>
+        </trans-unit>
+        <trans-unit id="822a20a6-9a74-45fe-9414-e3900e4477f4" xml:space="preserve">
+          <source>Confirm that publishing has succeeded.</source>
+          <target state="new">Confirm that publishing has succeeded.</target>
+        </trans-unit>
+        <trans-unit id="07ee7d1a-f3aa-45b3-885a-a477b75a2e2a" xml:space="preserve">
+          <source>In <bpt id="267eba7b-ce12-43c4-b303-08cc9c24f250">&lt;strong&gt;</bpt>Visual Studio<ept id="267eba7b-ce12-43c4-b303-08cc9c24f250">&lt;/strong&gt;</ept>, click <bpt id="7c81f855-cec2-46b6-9435-0e784c08e0aa">&lt;strong&gt;</bpt>View<ept id="7c81f855-cec2-46b6-9435-0e784c08e0aa">&lt;/strong&gt;</ept> on the menu, and click <bpt id="acefa5e3-a559-4106-8241-78bdeadba48d">&lt;strong&gt;</bpt>Server Explorer<ept id="acefa5e3-a559-4106-8241-78bdeadba48d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="267eba7b-ce12-43c4-b303-08cc9c24f250">&lt;strong&gt;</bpt>Visual Studio<ept id="267eba7b-ce12-43c4-b303-08cc9c24f250">&lt;/strong&gt;</ept>, click <bpt id="7c81f855-cec2-46b6-9435-0e784c08e0aa">&lt;strong&gt;</bpt>View<ept id="7c81f855-cec2-46b6-9435-0e784c08e0aa">&lt;/strong&gt;</ept> on the menu, and click <bpt id="acefa5e3-a559-4106-8241-78bdeadba48d">&lt;strong&gt;</bpt>Server Explorer<ept id="acefa5e3-a559-4106-8241-78bdeadba48d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9aa5a419-eeb2-4f9a-baf7-cf2047cd3d5e" xml:space="preserve">
+          <source>In the Server Explorer window, expand <bpt id="df66b084-1382-4449-8443-80aef25ce269">&lt;strong&gt;</bpt>Azure<ept id="df66b084-1382-4449-8443-80aef25ce269">&lt;/strong&gt;</ept> and expand <bpt id="4576da38-313a-4bfb-8f56-59a96853d1fe">&lt;strong&gt;</bpt>Data Factory<ept id="4576da38-313a-4bfb-8f56-59a96853d1fe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Server Explorer window, expand <bpt id="df66b084-1382-4449-8443-80aef25ce269">&lt;strong&gt;</bpt>Azure<ept id="df66b084-1382-4449-8443-80aef25ce269">&lt;/strong&gt;</ept> and expand <bpt id="4576da38-313a-4bfb-8f56-59a96853d1fe">&lt;strong&gt;</bpt>Data Factory<ept id="4576da38-313a-4bfb-8f56-59a96853d1fe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e6dc790-ab69-47a1-9ffb-6bb9add3d601" xml:space="preserve">
+          <source>If you see <bpt id="27e66308-f9a8-421b-b061-c8f3af4aae15">&lt;strong&gt;</bpt>Sign in to Visual Studio<ept id="27e66308-f9a8-421b-b061-c8f3af4aae15">&lt;/strong&gt;</ept>, enter the <bpt id="c79f8a6c-40c4-4a61-8e4c-4f1310db2a90">&lt;strong&gt;</bpt>account<ept id="c79f8a6c-40c4-4a61-8e4c-4f1310db2a90">&lt;/strong&gt;</ept> associated with your Azure subscription and click <bpt id="6df9a032-1ba1-4a03-9e12-45f5a2e69ed8">&lt;strong&gt;</bpt>Continue<ept id="6df9a032-1ba1-4a03-9e12-45f5a2e69ed8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you see <bpt id="27e66308-f9a8-421b-b061-c8f3af4aae15">&lt;strong&gt;</bpt>Sign in to Visual Studio<ept id="27e66308-f9a8-421b-b061-c8f3af4aae15">&lt;/strong&gt;</ept>, enter the <bpt id="c79f8a6c-40c4-4a61-8e4c-4f1310db2a90">&lt;strong&gt;</bpt>account<ept id="c79f8a6c-40c4-4a61-8e4c-4f1310db2a90">&lt;/strong&gt;</ept> associated with your Azure subscription and click <bpt id="6df9a032-1ba1-4a03-9e12-45f5a2e69ed8">&lt;strong&gt;</bpt>Continue<ept id="6df9a032-1ba1-4a03-9e12-45f5a2e69ed8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8ecab76-49de-4500-9e87-d299a3477e2d" xml:space="preserve">
+          <source>Enter <bpt id="83c05dfe-2f0c-493b-a54c-b4ed5f1cd4cc">&lt;strong&gt;</bpt>password<ept id="83c05dfe-2f0c-493b-a54c-b4ed5f1cd4cc">&lt;/strong&gt;</ept>, and click <bpt id="168085b0-eae3-4c1b-82e9-d185d84039e3">&lt;strong&gt;</bpt>Sign in<ept id="168085b0-eae3-4c1b-82e9-d185d84039e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter <bpt id="83c05dfe-2f0c-493b-a54c-b4ed5f1cd4cc">&lt;strong&gt;</bpt>password<ept id="83c05dfe-2f0c-493b-a54c-b4ed5f1cd4cc">&lt;/strong&gt;</ept>, and click <bpt id="168085b0-eae3-4c1b-82e9-d185d84039e3">&lt;strong&gt;</bpt>Sign in<ept id="168085b0-eae3-4c1b-82e9-d185d84039e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c83a8d4-b7ab-45e8-a56b-515da1ea5cac" xml:space="preserve">
+          <source>Visual Studio tries to get information about all Azure data factories in your subscription.</source>
+          <target state="new">Visual Studio tries to get information about all Azure data factories in your subscription.</target>
+        </trans-unit>
+        <trans-unit id="d0a57e59-f9bf-42dc-bf6f-876aadd501b8" xml:space="preserve">
+          <source>You will see the status of this operation in the <bpt id="3895a6fa-06a6-49d0-a90d-534c3b959617">&lt;strong&gt;</bpt>Data Factory Task List<ept id="3895a6fa-06a6-49d0-a90d-534c3b959617">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">You will see the status of this operation in the <bpt id="3895a6fa-06a6-49d0-a90d-534c3b959617">&lt;strong&gt;</bpt>Data Factory Task List<ept id="3895a6fa-06a6-49d0-a90d-534c3b959617">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="1be91f81-0fc4-4d61-840a-23953b9d3717" xml:space="preserve">
+          <source><bpt id="c9ea204a-9ae7-4a6a-b0a7-2ac2a52717f3">&lt;linkText&gt;</bpt>Server Explorer<ept id="c9ea204a-9ae7-4a6a-b0a7-2ac2a52717f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9ea204a-9ae7-4a6a-b0a7-2ac2a52717f3">&lt;linkText&gt;</bpt>Server Explorer<ept id="c9ea204a-9ae7-4a6a-b0a7-2ac2a52717f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6d03b4c-b3b6-44c6-9aa7-12b9102a6931" xml:space="preserve">
+          <source>You can right-click on a data factory, and select Export Data Factory to New Project to create a Visual Studio project based on an existing data factory.</source>
+          <target state="new">You can right-click on a data factory, and select Export Data Factory to New Project to create a Visual Studio project based on an existing data factory.</target>
+        </trans-unit>
+        <trans-unit id="1d1ea3fd-844f-46d4-a826-ee21ad241ec6" xml:space="preserve">
+          <source><bpt id="b8500e0f-7ba0-4b0a-b977-9e10fc2845c8">&lt;linkText&gt;</bpt>Export data factory to a VS project<ept id="b8500e0f-7ba0-4b0a-b977-9e10fc2845c8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8500e0f-7ba0-4b0a-b977-9e10fc2845c8">&lt;linkText&gt;</bpt>Export data factory to a VS project<ept id="b8500e0f-7ba0-4b0a-b977-9e10fc2845c8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0431b2ab-a4b0-4362-af4e-39ff3886beb3" xml:space="preserve">
+          <source>To update Azure Data Factory tools for Visual Studio, do the following:</source>
+          <target state="new">To update Azure Data Factory tools for Visual Studio, do the following:</target>
+        </trans-unit>
+        <trans-unit id="6a24c592-9965-428f-8be7-8584ad21af3d" xml:space="preserve">
+          <source>Click <bpt id="87020a73-9b3c-46c3-97fd-2617cac49567">&lt;strong&gt;</bpt>Tools<ept id="87020a73-9b3c-46c3-97fd-2617cac49567">&lt;/strong&gt;</ept> on the menu and select <bpt id="29bc70e0-9a59-4eb3-969e-a397f792f4f4">&lt;strong&gt;</bpt>Extensions and Updates<ept id="29bc70e0-9a59-4eb3-969e-a397f792f4f4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="87020a73-9b3c-46c3-97fd-2617cac49567">&lt;strong&gt;</bpt>Tools<ept id="87020a73-9b3c-46c3-97fd-2617cac49567">&lt;/strong&gt;</ept> on the menu and select <bpt id="29bc70e0-9a59-4eb3-969e-a397f792f4f4">&lt;strong&gt;</bpt>Extensions and Updates<ept id="29bc70e0-9a59-4eb3-969e-a397f792f4f4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="700f6a9b-7da6-4442-b91e-99392bb3d3e4" xml:space="preserve">
+          <source>Select <bpt id="aec9f10a-6c54-4b96-aaf5-3eb5d26c7e9e">&lt;strong&gt;</bpt>Updates<ept id="aec9f10a-6c54-4b96-aaf5-3eb5d26c7e9e">&lt;/strong&gt;</ept> in the left pane and then select <bpt id="63152a06-1dc6-4399-b682-06612bddf2c8">&lt;strong&gt;</bpt>Visual Studio Gallery<ept id="63152a06-1dc6-4399-b682-06612bddf2c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="aec9f10a-6c54-4b96-aaf5-3eb5d26c7e9e">&lt;strong&gt;</bpt>Updates<ept id="aec9f10a-6c54-4b96-aaf5-3eb5d26c7e9e">&lt;/strong&gt;</ept> in the left pane and then select <bpt id="63152a06-1dc6-4399-b682-06612bddf2c8">&lt;strong&gt;</bpt>Visual Studio Gallery<ept id="63152a06-1dc6-4399-b682-06612bddf2c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0140109-c892-4941-8fb3-3d1875fd972d" xml:space="preserve">
+          <source>Select <bpt id="4599ea28-e622-46e2-b32e-d6f6d495da24">&lt;strong&gt;</bpt>Azure Data Factory tools for Visual Studio<ept id="4599ea28-e622-46e2-b32e-d6f6d495da24">&lt;/strong&gt;</ept> and click <bpt id="d9b71aa6-c691-4c72-a24c-ea27b9c7e399">&lt;strong&gt;</bpt>Update<ept id="d9b71aa6-c691-4c72-a24c-ea27b9c7e399">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="4599ea28-e622-46e2-b32e-d6f6d495da24">&lt;strong&gt;</bpt>Azure Data Factory tools for Visual Studio<ept id="4599ea28-e622-46e2-b32e-d6f6d495da24">&lt;/strong&gt;</ept> and click <bpt id="d9b71aa6-c691-4c72-a24c-ea27b9c7e399">&lt;strong&gt;</bpt>Update<ept id="d9b71aa6-c691-4c72-a24c-ea27b9c7e399">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf8203d6-9b1f-4157-8d82-f4774d721cab" xml:space="preserve">
+          <source>If you do not see this entry, you already have the latest version of the tools.</source>
+          <target state="new">If you do not see this entry, you already have the latest version of the tools.</target>
+        </trans-unit>
+        <trans-unit id="14ff0a68-2c58-40a9-a613-f1d394edbead" xml:space="preserve">
+          <source>See <bpt id="2f012a63-7e74-4f86-a979-6bb7a2fd288e">&lt;linkText&gt;</bpt>Monitor datasets and pipeline<ept id="2f012a63-7e74-4f86-a979-6bb7a2fd288e">&lt;/linkText&gt;</ept><bpt id="2f012a63-7e74-4f86-a979-6bb7a2fd288e">&lt;title&gt;</bpt><ept id="2f012a63-7e74-4f86-a979-6bb7a2fd288e">&lt;/title&gt;</ept> for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.</source>
+          <target state="new">See <bpt id="2f012a63-7e74-4f86-a979-6bb7a2fd288e">&lt;linkText&gt;</bpt>Monitor datasets and pipeline<ept id="2f012a63-7e74-4f86-a979-6bb7a2fd288e">&lt;/linkText&gt;</ept><bpt id="2f012a63-7e74-4f86-a979-6bb7a2fd288e">&lt;title&gt;</bpt><ept id="2f012a63-7e74-4f86-a979-6bb7a2fd288e">&lt;/title&gt;</ept> for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="1e32d951-2862-4a9c-ae32-9f57ad8d0cf8" xml:space="preserve">
+          <source>We would really appreciate your feedback on this article.</source>
+          <target state="new">We would really appreciate your feedback on this article.</target>
+        </trans-unit>
+        <trans-unit id="2a6fa6cc-f0e1-4251-bcb6-2e77663ac4f5" xml:space="preserve">
+          <source>Please take a few minutes to submit your feedback via <bpt id="dad75ee6-bfab-4901-b2b9-c1ff7721c6ff">&lt;linkText&gt;</bpt>email<ept id="dad75ee6-bfab-4901-b2b9-c1ff7721c6ff">&lt;/linkText&gt;</ept><bpt id="dad75ee6-bfab-4901-b2b9-c1ff7721c6ff">&lt;title&gt;</bpt><ept id="dad75ee6-bfab-4901-b2b9-c1ff7721c6ff">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please take a few minutes to submit your feedback via <bpt id="dad75ee6-bfab-4901-b2b9-c1ff7721c6ff">&lt;linkText&gt;</bpt>email<ept id="dad75ee6-bfab-4901-b2b9-c1ff7721c6ff">&lt;/linkText&gt;</ept><bpt id="dad75ee6-bfab-4901-b2b9-c1ff7721c6ff">&lt;title&gt;</bpt><ept id="dad75ee6-bfab-4901-b2b9-c1ff7721c6ff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

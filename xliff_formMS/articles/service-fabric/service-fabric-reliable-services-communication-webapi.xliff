@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="595d94d9-c060-4484-a608-a1570693e30f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="595d94d9-c060-4484-a608-a1570693e30f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b1376fb4-218d-4d20-bcc3-ee88027df766">
+        <trans-unit id="ab0adbde-59a8-49d8-953a-6bdaa5bea786" xml:space="preserve">
+          <source>Service Fabric Web API Services with OWIN self-host | Microsoft Azure</source>
+          <target state="new">Service Fabric Web API Services with OWIN self-host | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f323ba53-706d-4e8a-840f-61440fc969c3" xml:space="preserve">
+          <source>This Service Fabric article explains how to implement service communication using ASP.NET Web API with OWIN self-hosting in Reliable Services.</source>
+          <target state="new">This Service Fabric article explains how to implement service communication using ASP.NET Web API with OWIN self-hosting in Reliable Services.</target>
+        </trans-unit>
+        <trans-unit id="98b9c6b8-f35a-4eb4-934b-41e9dd48c5c4" xml:space="preserve">
+          <source>Service Fabric puts the power in your hands when deciding how you want your services to communicate with users and with each other.</source>
+          <target state="new">Service Fabric puts the power in your hands when deciding how you want your services to communicate with users and with each other.</target>
+        </trans-unit>
+        <trans-unit id="65848136-5a6a-4a52-af74-27e886f52c8c" xml:space="preserve">
+          <source>This tutorial focuses on implementing service communication using ASP.NET Web API with OWIN self-hosting in Service Fabric's <bpt id="d79c61d8-de41-488f-ae35-b131731b6e31">&lt;em&gt;</bpt>Reliable Services<ept id="d79c61d8-de41-488f-ae35-b131731b6e31">&lt;/em&gt;</ept> API.</source>
+          <target state="new">This tutorial focuses on implementing service communication using ASP.NET Web API with OWIN self-hosting in Service Fabric's <bpt id="d79c61d8-de41-488f-ae35-b131731b6e31">&lt;em&gt;</bpt>Reliable Services<ept id="d79c61d8-de41-488f-ae35-b131731b6e31">&lt;/em&gt;</ept> API.</target>
+        </trans-unit>
+        <trans-unit id="3949ef47-0d66-48cb-bce2-64493a14dc2b" xml:space="preserve">
+          <source>We'll go in depth into the <bpt id="2ce39d53-4e32-407f-8812-4ce0916d3c5f">&lt;em&gt;</bpt>Reliable Services<ept id="2ce39d53-4e32-407f-8812-4ce0916d3c5f">&lt;/em&gt;</ept> pluggable communication API and show you step-by-step how to set up a custom communication listener for you service with Web API used as an example.</source>
+          <target state="new">We'll go in depth into the <bpt id="2ce39d53-4e32-407f-8812-4ce0916d3c5f">&lt;em&gt;</bpt>Reliable Services<ept id="2ce39d53-4e32-407f-8812-4ce0916d3c5f">&lt;/em&gt;</ept> pluggable communication API and show you step-by-step how to set up a custom communication listener for you service with Web API used as an example.</target>
+        </trans-unit>
+        <trans-unit id="257f6f03-7830-4430-87b0-356c4e12cd3f" xml:space="preserve">
+          <source>To see a complete example of a Web API communication listener, check out the <bpt id="58b50ba7-bf7d-47be-9a00-fdb4d2c72ac7">&lt;linkText&gt;</bpt>Service Fabric WebApplication sample on GitHub<ept id="58b50ba7-bf7d-47be-9a00-fdb4d2c72ac7">&lt;/linkText&gt;</ept><bpt id="58b50ba7-bf7d-47be-9a00-fdb4d2c72ac7">&lt;title&gt;</bpt><ept id="58b50ba7-bf7d-47be-9a00-fdb4d2c72ac7">&lt;/title&gt;</ept>.</source>
+          <target state="new">To see a complete example of a Web API communication listener, check out the <bpt id="58b50ba7-bf7d-47be-9a00-fdb4d2c72ac7">&lt;linkText&gt;</bpt>Service Fabric WebApplication sample on GitHub<ept id="58b50ba7-bf7d-47be-9a00-fdb4d2c72ac7">&lt;/linkText&gt;</ept><bpt id="58b50ba7-bf7d-47be-9a00-fdb4d2c72ac7">&lt;title&gt;</bpt><ept id="58b50ba7-bf7d-47be-9a00-fdb4d2c72ac7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80396a50-3b53-4dda-a753-1236515e2fb0" xml:space="preserve">
+          <source>ASP.NET Web API is a popular and powerful framework for building HTTP APIs on top of the .NET Framework.</source>
+          <target state="new">ASP.NET Web API is a popular and powerful framework for building HTTP APIs on top of the .NET Framework.</target>
+        </trans-unit>
+        <trans-unit id="17aac619-09d9-41d0-9444-1dc479995223" xml:space="preserve">
+          <source>Head on over to <bpt id="5d89db94-30df-4c66-ac58-cac5dd9f95b9">&lt;linkText&gt;</bpt>www.asp.net/webapi<ept id="5d89db94-30df-4c66-ac58-cac5dd9f95b9">&lt;/linkText&gt;</ept><bpt id="5d89db94-30df-4c66-ac58-cac5dd9f95b9">&lt;title&gt;</bpt><ept id="5d89db94-30df-4c66-ac58-cac5dd9f95b9">&lt;/title&gt;</ept> to learn more about Web API if you're not familiar with it already.</source>
+          <target state="new">Head on over to <bpt id="5d89db94-30df-4c66-ac58-cac5dd9f95b9">&lt;linkText&gt;</bpt>www.asp.net/webapi<ept id="5d89db94-30df-4c66-ac58-cac5dd9f95b9">&lt;/linkText&gt;</ept><bpt id="5d89db94-30df-4c66-ac58-cac5dd9f95b9">&lt;title&gt;</bpt><ept id="5d89db94-30df-4c66-ac58-cac5dd9f95b9">&lt;/title&gt;</ept> to learn more about Web API if you're not familiar with it already.</target>
+        </trans-unit>
+        <trans-unit id="ee1b7a66-d904-4696-9baa-aa3594f34cd3" xml:space="preserve">
+          <source>Web API in Service Fabric is the same ASP.NET Web API you know and love.</source>
+          <target state="new">Web API in Service Fabric is the same ASP.NET Web API you know and love.</target>
+        </trans-unit>
+        <trans-unit id="1057964f-ac7a-4cea-a734-772d8b3de435" xml:space="preserve">
+          <source>The difference is in how you <bpt id="cc55c355-ec01-4b7d-9eb0-a338ec970493">&lt;em&gt;</bpt>host<ept id="cc55c355-ec01-4b7d-9eb0-a338ec970493">&lt;/em&gt;</ept> a Web API application (hint: you won't be using IIS).</source>
+          <target state="new">The difference is in how you <bpt id="cc55c355-ec01-4b7d-9eb0-a338ec970493">&lt;em&gt;</bpt>host<ept id="cc55c355-ec01-4b7d-9eb0-a338ec970493">&lt;/em&gt;</ept> a Web API application (hint: you won't be using IIS).</target>
+        </trans-unit>
+        <trans-unit id="a3148ac6-a446-48a5-833f-0085fc3d2774" xml:space="preserve">
+          <source>To better understand the difference, let's break it into two parts:</source>
+          <target state="new">To better understand the difference, let's break it into two parts:</target>
+        </trans-unit>
+        <trans-unit id="24c61c2b-99be-4ee8-91af-0a23dc7bb82d" xml:space="preserve">
+          <source>The Web API application (your controllers, models, etc.)</source>
+          <target state="new">The Web API application (your controllers, models, etc.)</target>
+        </trans-unit>
+        <trans-unit id="7333a993-a350-4f56-abdd-2a7b616e745d" xml:space="preserve">
+          <source>The host (the web server, usually IIS)</source>
+          <target state="new">The host (the web server, usually IIS)</target>
+        </trans-unit>
+        <trans-unit id="66f34d30-4bc0-4472-bcdb-18243b40db4e" xml:space="preserve">
+          <source>The Web API application itself doesn't change here - it's no different from Web API applications you may have written in the past, and you should be able to simply move most of your application code right over.</source>
+          <target state="new">The Web API application itself doesn't change here - it's no different from Web API applications you may have written in the past, and you should be able to simply move most of your application code right over.</target>
+        </trans-unit>
+        <trans-unit id="b2488ce4-d9e2-43ef-96be-3186d3512487" xml:space="preserve">
+          <source>Hosting the application may be a little different from what you're used to if you're used to hosting on IIS.</source>
+          <target state="new">Hosting the application may be a little different from what you're used to if you're used to hosting on IIS.</target>
+        </trans-unit>
+        <trans-unit id="fe73549b-c62b-47b6-9b86-0a9ae51d09ac" xml:space="preserve">
+          <source>But before we get into the hosting part, let's start with the more familiar part: the Web API application.</source>
+          <target state="new">But before we get into the hosting part, let's start with the more familiar part: the Web API application.</target>
+        </trans-unit>
+        <trans-unit id="435d167e-4848-4790-9c4a-736d2665b79d" xml:space="preserve">
+          <source>Start by creating a new application, with a single stateless service, in Visual Studio 2015:</source>
+          <target state="new">Start by creating a new application, with a single stateless service, in Visual Studio 2015:</target>
+        </trans-unit>
+        <trans-unit id="48388a9d-3c11-4c07-b87f-22c444187bd5" xml:space="preserve">
+          <source><bpt id="ec5cefc8-3337-4f44-ad1d-f7ccf0464941">&lt;linkText&gt;</bpt>Create a new Service Fabric application<ept id="ec5cefc8-3337-4f44-ad1d-f7ccf0464941">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec5cefc8-3337-4f44-ad1d-f7ccf0464941">&lt;linkText&gt;</bpt>Create a new Service Fabric application<ept id="ec5cefc8-3337-4f44-ad1d-f7ccf0464941">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18d79b04-0668-4bf4-a808-9b0dca253ce7" xml:space="preserve">
+          <source><bpt id="bf7803da-7bb4-4ebc-87e8-8bcc358725e2">&lt;linkText&gt;</bpt>Create a single stateless service<ept id="bf7803da-7bb4-4ebc-87e8-8bcc358725e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bf7803da-7bb4-4ebc-87e8-8bcc358725e2">&lt;linkText&gt;</bpt>Create a single stateless service<ept id="bf7803da-7bb4-4ebc-87e8-8bcc358725e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63a42522-5e80-4a93-98aa-5c90c50fd89a" xml:space="preserve">
+          <source>This gives us an empty Stateless Service that will host the Web API application.</source>
+          <target state="new">This gives us an empty Stateless Service that will host the Web API application.</target>
+        </trans-unit>
+        <trans-unit id="c4d893d7-9e56-4af8-9b08-65323cb66981" xml:space="preserve">
+          <source>We're going to set the application up from scratch to see how it's all put together.</source>
+          <target state="new">We're going to set the application up from scratch to see how it's all put together.</target>
+        </trans-unit>
+        <trans-unit id="e8b3a86c-4857-4579-b98f-983779f76e19" xml:space="preserve">
+          <source>The first step is to pull in some NuGet packages for Web API.</source>
+          <target state="new">The first step is to pull in some NuGet packages for Web API.</target>
+        </trans-unit>
+        <trans-unit id="b1073593-c3c2-4690-93f8-630cfa0e715d" xml:space="preserve">
+          <source>The package we want to use is <bpt id="69becf19-0ac8-4e87-bdcf-274a7ff07b78">&lt;strong&gt;</bpt>Microsoft.AspNet.WebApi.OwinSelfHost<ept id="69becf19-0ac8-4e87-bdcf-274a7ff07b78">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The package we want to use is <bpt id="69becf19-0ac8-4e87-bdcf-274a7ff07b78">&lt;strong&gt;</bpt>Microsoft.AspNet.WebApi.OwinSelfHost<ept id="69becf19-0ac8-4e87-bdcf-274a7ff07b78">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5800672-dc36-4fad-8915-3222f79a36f2" xml:space="preserve">
+          <source>This package includes all the necessary Web API packages and the <bpt id="b81b7bd0-56e7-4e94-9391-29762ed31caa">&lt;em&gt;</bpt>host<ept id="b81b7bd0-56e7-4e94-9391-29762ed31caa">&lt;/em&gt;</ept> packages - this will be important later.</source>
+          <target state="new">This package includes all the necessary Web API packages and the <bpt id="b81b7bd0-56e7-4e94-9391-29762ed31caa">&lt;em&gt;</bpt>host<ept id="b81b7bd0-56e7-4e94-9391-29762ed31caa">&lt;/em&gt;</ept> packages - this will be important later.</target>
+        </trans-unit>
+        <trans-unit id="da5b36a4-b068-4cd2-9f82-cdb5ed503d97" xml:space="preserve">
+          <source><bpt id="2e8892c4-98f6-4af0-b879-ded85258a866">&lt;linkText&gt;</bpt><ept id="2e8892c4-98f6-4af0-b879-ded85258a866">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e8892c4-98f6-4af0-b879-ded85258a866">&lt;linkText&gt;</bpt><ept id="2e8892c4-98f6-4af0-b879-ded85258a866">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="331beb4b-ca79-4238-acf8-1befc0ac6283" xml:space="preserve">
+          <source>With the packages installed, we can begin building out the basic Web API project structure.</source>
+          <target state="new">With the packages installed, we can begin building out the basic Web API project structure.</target>
+        </trans-unit>
+        <trans-unit id="812e475a-5a50-470d-8068-e7953c5e1b8b" xml:space="preserve">
+          <source>If you've used  Web API, the project structure should look very familiar.</source>
+          <target state="new">If you've used  Web API, the project structure should look very familiar.</target>
+        </trans-unit>
+        <trans-unit id="0148954c-8485-49b7-9f3b-93a3f2de509b" xml:space="preserve">
+          <source>Start by creating the basic Web API directories:</source>
+          <target state="new">Start by creating the basic Web API directories:</target>
+        </trans-unit>
+        <trans-unit id="82c64de4-7c0c-4dc1-86c6-6027196d613b" xml:space="preserve">
+          <source>App_Start</source>
+          <target state="new">App_Start</target>
+        </trans-unit>
+        <trans-unit id="9fc8dae3-7983-4935-ad66-926cc7282162" xml:space="preserve">
+          <source>Controllers</source>
+          <target state="new">Controllers</target>
+        </trans-unit>
+        <trans-unit id="9e71c7ef-e414-47ec-87ac-692db857c23d" xml:space="preserve">
+          <source>Models</source>
+          <target state="new">Models</target>
+        </trans-unit>
+        <trans-unit id="ceac1833-ad37-433c-aad3-e440bbf6d6c2" xml:space="preserve">
+          <source>Add the basic Web API configuration classes in the App_Start directory:</source>
+          <target state="new">Add the basic Web API configuration classes in the App_Start directory:</target>
+        </trans-unit>
+        <trans-unit id="c05520a3-331a-4b9a-b518-21bfe054032c" xml:space="preserve">
+          <source>FormatterConfig.cs</source>
+          <target state="new">FormatterConfig.cs</target>
+        </trans-unit>
+        <trans-unit id="229def5b-db6b-49c0-803a-05dde41b4981" xml:space="preserve">
+          <source>RouteConfig.cs</source>
+          <target state="new">RouteConfig.cs</target>
+        </trans-unit>
+        <trans-unit id="b97772e1-8e73-45fa-b74e-696c7bd55150" xml:space="preserve">
+          <source>Add a default controller in the Controllers directory:</source>
+          <target state="new">Add a default controller in the Controllers directory:</target>
+        </trans-unit>
+        <trans-unit id="69d521eb-06b4-4284-b337-ae240f6e8272" xml:space="preserve">
+          <source>DefaultController.cs</source>
+          <target state="new">DefaultController.cs</target>
+        </trans-unit>
+        <trans-unit id="37db5881-7992-4b1f-996e-fa75b778381a" xml:space="preserve">
+          <source>Finally, add a Startup class at the project root to register the routing, formatters, and any other configuration setup.</source>
+          <target state="new">Finally, add a Startup class at the project root to register the routing, formatters, and any other configuration setup.</target>
+        </trans-unit>
+        <trans-unit id="f34617e7-9a88-430d-8232-37a4131825f4" xml:space="preserve">
+          <source>This is also where Web API plugs in to the <bpt id="9fe11449-ed9f-4902-a0be-5aad8608d38e">&lt;em&gt;</bpt>host<ept id="9fe11449-ed9f-4902-a0be-5aad8608d38e">&lt;/em&gt;</ept>, which will be revisited again later.</source>
+          <target state="new">This is also where Web API plugs in to the <bpt id="9fe11449-ed9f-4902-a0be-5aad8608d38e">&lt;em&gt;</bpt>host<ept id="9fe11449-ed9f-4902-a0be-5aad8608d38e">&lt;/em&gt;</ept>, which will be revisited again later.</target>
+        </trans-unit>
+        <trans-unit id="7066d426-27c0-4332-a9a7-8f6b942da12d" xml:space="preserve">
+          <source>While setting up the Startup class, create an interface called <bpt id="46a4d7e1-6cef-42b2-91fc-ebf567a6ef37">&lt;em&gt;</bpt>IOwinAppBuilder<ept id="46a4d7e1-6cef-42b2-91fc-ebf567a6ef37">&lt;/em&gt;</ept> for the Startup class that defines the Configuration method.</source>
+          <target state="new">While setting up the Startup class, create an interface called <bpt id="46a4d7e1-6cef-42b2-91fc-ebf567a6ef37">&lt;em&gt;</bpt>IOwinAppBuilder<ept id="46a4d7e1-6cef-42b2-91fc-ebf567a6ef37">&lt;/em&gt;</ept> for the Startup class that defines the Configuration method.</target>
+        </trans-unit>
+        <trans-unit id="ef030312-bf99-488d-8f97-0779532162be" xml:space="preserve">
+          <source>Although not technically required for Web API to work, it will allow more flexible use of the Startup class later.</source>
+          <target state="new">Although not technically required for Web API to work, it will allow more flexible use of the Startup class later.</target>
+        </trans-unit>
+        <trans-unit id="a95961d6-c0f5-41d7-92f1-abf04e739f74" xml:space="preserve">
+          <source>Startup.cs</source>
+          <target state="new">Startup.cs</target>
+        </trans-unit>
+        <trans-unit id="5693cbf3-3189-4d7f-a80f-e461a10e682f" xml:space="preserve">
+          <source>IOwinAppBuilder.cs</source>
+          <target state="new">IOwinAppBuilder.cs</target>
+        </trans-unit>
+        <trans-unit id="9cf63d45-6796-4fc0-80d8-802ca6900903" xml:space="preserve">
+          <source>That's it for the application part.</source>
+          <target state="new">That's it for the application part.</target>
+        </trans-unit>
+        <trans-unit id="3872c89e-66c8-4504-aaad-57da4b953588" xml:space="preserve">
+          <source>At this point we've just set up the basic Web API project layout.</source>
+          <target state="new">At this point we've just set up the basic Web API project layout.</target>
+        </trans-unit>
+        <trans-unit id="4f4d2092-01ae-4718-9650-ac773ad8516c" xml:space="preserve">
+          <source>Compared to Web API projects you may have written in the past or to the basic Web API template, it shouldn't look much different so far.</source>
+          <target state="new">Compared to Web API projects you may have written in the past or to the basic Web API template, it shouldn't look much different so far.</target>
+        </trans-unit>
+        <trans-unit id="30ef0071-5d99-4397-bfbc-9507c0bd8767" xml:space="preserve">
+          <source>Your business logic goes in the controllers and models as usual.</source>
+          <target state="new">Your business logic goes in the controllers and models as usual.</target>
+        </trans-unit>
+        <trans-unit id="2d0a0be4-fa06-4ac7-84b4-6d2a4f89271b" xml:space="preserve">
+          <source>Now what do we do about hosting so we can actually run it?</source>
+          <target state="new">Now what do we do about hosting so we can actually run it?</target>
+        </trans-unit>
+        <trans-unit id="643fa2c4-b2f6-4373-9bfc-cccc1801e73b" xml:space="preserve">
+          <source>In Service Fabric, your service runs in a <bpt id="de27c682-89f4-4b3f-bfba-8946bd47f300">&lt;em&gt;</bpt>service host process<ept id="de27c682-89f4-4b3f-bfba-8946bd47f300">&lt;/em&gt;</ept> - an executable that runs your service code.</source>
+          <target state="new">In Service Fabric, your service runs in a <bpt id="de27c682-89f4-4b3f-bfba-8946bd47f300">&lt;em&gt;</bpt>service host process<ept id="de27c682-89f4-4b3f-bfba-8946bd47f300">&lt;/em&gt;</ept> - an executable that runs your service code.</target>
+        </trans-unit>
+        <trans-unit id="6462b85a-d5b9-40e8-a566-45d5fd9b806f" xml:space="preserve">
+          <source>When writing a service using the Reliable Services API, and in fact in most cases when you're writing a service on Service Fabric in .NET, your service project just compiles to an .EXE that registers your service type and runs your code.</source>
+          <target state="new">When writing a service using the Reliable Services API, and in fact in most cases when you're writing a service on Service Fabric in .NET, your service project just compiles to an .EXE that registers your service type and runs your code.</target>
+        </trans-unit>
+        <trans-unit id="0f0990af-7ae7-45d4-9e17-30530746bf8b" xml:space="preserve">
+          <source>In fact, if you open <bpt id="e26b3ece-0789-44bd-b297-ff2265370f5f">&lt;strong&gt;</bpt>Program.cs<ept id="e26b3ece-0789-44bd-b297-ff2265370f5f">&lt;/strong&gt;</ept> in the stateless service project, you should see:</source>
+          <target state="new">In fact, if you open <bpt id="e26b3ece-0789-44bd-b297-ff2265370f5f">&lt;strong&gt;</bpt>Program.cs<ept id="e26b3ece-0789-44bd-b297-ff2265370f5f">&lt;/strong&gt;</ept> in the stateless service project, you should see:</target>
+        </trans-unit>
+        <trans-unit id="4c471cc7-ab95-4dfe-9ffa-c4d67ee0f211" xml:space="preserve">
+          <source>If that looks suspiciously like the entry point to a console application, that's because it is:</source>
+          <target state="new">If that looks suspiciously like the entry point to a console application, that's because it is:</target>
+        </trans-unit>
+        <trans-unit id="b21cb058-95e4-4d31-9150-568b0231e43f" xml:space="preserve">
+          <source><bpt id="7ff727f3-bf6e-4dff-aa5c-dc9ec3d8abd6">&lt;linkText&gt;</bpt><ept id="7ff727f3-bf6e-4dff-aa5c-dc9ec3d8abd6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ff727f3-bf6e-4dff-aa5c-dc9ec3d8abd6">&lt;linkText&gt;</bpt><ept id="7ff727f3-bf6e-4dff-aa5c-dc9ec3d8abd6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="838939a0-900c-42c0-bca4-450b9314208d" xml:space="preserve">
+          <source>Details about the service host process and service registration is beyond the scope of this article, but it's important to know for now that <bpt id="8264161e-fc53-4650-9c87-564097cfd72e">&lt;strong&gt;</bpt>your service code is running in its own process<ept id="8264161e-fc53-4650-9c87-564097cfd72e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Details about the service host process and service registration is beyond the scope of this article, but it's important to know for now that <bpt id="8264161e-fc53-4650-9c87-564097cfd72e">&lt;strong&gt;</bpt>your service code is running in its own process<ept id="8264161e-fc53-4650-9c87-564097cfd72e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e065af5-f7f7-4f4d-b0a0-a314f37d44ec" xml:space="preserve">
+          <source>Given that your Web API application code is hosted in its own process, how do we hook it up to a web server?</source>
+          <target state="new">Given that your Web API application code is hosted in its own process, how do we hook it up to a web server?</target>
+        </trans-unit>
+        <trans-unit id="36257999-5341-4e9b-9762-ecfbfd8f127f" xml:space="preserve">
+          <source>Enter <bpt id="543a5292-4d7a-4fb9-bc48-e0c7300c37d4">&lt;linkText&gt;</bpt>OWIN<ept id="543a5292-4d7a-4fb9-bc48-e0c7300c37d4">&lt;/linkText&gt;</ept><bpt id="543a5292-4d7a-4fb9-bc48-e0c7300c37d4">&lt;title&gt;</bpt><ept id="543a5292-4d7a-4fb9-bc48-e0c7300c37d4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Enter <bpt id="543a5292-4d7a-4fb9-bc48-e0c7300c37d4">&lt;linkText&gt;</bpt>OWIN<ept id="543a5292-4d7a-4fb9-bc48-e0c7300c37d4">&lt;/linkText&gt;</ept><bpt id="543a5292-4d7a-4fb9-bc48-e0c7300c37d4">&lt;title&gt;</bpt><ept id="543a5292-4d7a-4fb9-bc48-e0c7300c37d4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8580866-6358-4600-a226-107e1b71e782" xml:space="preserve">
+          <source>OWIN is simply a contract between .NET web applications and web servers.</source>
+          <target state="new">OWIN is simply a contract between .NET web applications and web servers.</target>
+        </trans-unit>
+        <trans-unit id="680d5836-8e25-4a66-879a-7b8e47eb1541" xml:space="preserve">
+          <source>Traditionally with ASP.NET - up to MVC 5 - the web application was tightly coupled to IIS through System.Web.</source>
+          <target state="new">Traditionally with ASP.NET - up to MVC 5 - the web application was tightly coupled to IIS through System.Web.</target>
+        </trans-unit>
+        <trans-unit id="35aad59c-b4af-4ec2-b742-029012c392c3" xml:space="preserve">
+          <source>However, Web API implements OWIN, which allows you to write a web application that is decoupled from the web server that hosts it.</source>
+          <target state="new">However, Web API implements OWIN, which allows you to write a web application that is decoupled from the web server that hosts it.</target>
+        </trans-unit>
+        <trans-unit id="1b0b03c7-9601-44f2-b64f-5a814807bd8a" xml:space="preserve">
+          <source>This allows you to use a <bpt id="a3d23ce0-7c7d-43a6-ae7c-d949cb1ed366">&lt;em&gt;</bpt>self-host<ept id="a3d23ce0-7c7d-43a6-ae7c-d949cb1ed366">&lt;/em&gt;</ept> OWIN web server that you can start in your own process, which fits perfectly in the Service Fabric hosting model we just described.</source>
+          <target state="new">This allows you to use a <bpt id="a3d23ce0-7c7d-43a6-ae7c-d949cb1ed366">&lt;em&gt;</bpt>self-host<ept id="a3d23ce0-7c7d-43a6-ae7c-d949cb1ed366">&lt;/em&gt;</ept> OWIN web server that you can start in your own process, which fits perfectly in the Service Fabric hosting model we just described.</target>
+        </trans-unit>
+        <trans-unit id="a0eb3bc2-5046-4400-9e9d-322df91764eb" xml:space="preserve">
+          <source>In this article, we'll use Katana as the OWIN host for the Web API application.</source>
+          <target state="new">In this article, we'll use Katana as the OWIN host for the Web API application.</target>
+        </trans-unit>
+        <trans-unit id="b4680bcd-da5b-49d8-ad88-d43aa7e15652" xml:space="preserve">
+          <source>Katana is an open-source OWIN host implementation.</source>
+          <target state="new">Katana is an open-source OWIN host implementation.</target>
+        </trans-unit>
+        <trans-unit id="2d0734e3-72c8-4efb-bf06-d74095b105b1" xml:space="preserve">
+          <source>To learn more about Katana, head over to the <bpt id="df7a3e80-9c74-4b3d-9cf4-45ac6011ab6e">&lt;linkText&gt;</bpt>Katana site<ept id="df7a3e80-9c74-4b3d-9cf4-45ac6011ab6e">&lt;/linkText&gt;</ept><bpt id="df7a3e80-9c74-4b3d-9cf4-45ac6011ab6e">&lt;title&gt;</bpt><ept id="df7a3e80-9c74-4b3d-9cf4-45ac6011ab6e">&lt;/title&gt;</ept>, and for a quick overview of how to use Katana to self-host Web API, check out this article on how to <bpt id="5090e01a-68fa-4ca2-947c-e657881b1286">&lt;linkText&gt;</bpt>Use OWIN to Self-Host ASP.NET Web API 2<ept id="5090e01a-68fa-4ca2-947c-e657881b1286">&lt;/linkText&gt;</ept><bpt id="5090e01a-68fa-4ca2-947c-e657881b1286">&lt;title&gt;</bpt><ept id="5090e01a-68fa-4ca2-947c-e657881b1286">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Katana, head over to the <bpt id="df7a3e80-9c74-4b3d-9cf4-45ac6011ab6e">&lt;linkText&gt;</bpt>Katana site<ept id="df7a3e80-9c74-4b3d-9cf4-45ac6011ab6e">&lt;/linkText&gt;</ept><bpt id="df7a3e80-9c74-4b3d-9cf4-45ac6011ab6e">&lt;title&gt;</bpt><ept id="df7a3e80-9c74-4b3d-9cf4-45ac6011ab6e">&lt;/title&gt;</ept>, and for a quick overview of how to use Katana to self-host Web API, check out this article on how to <bpt id="5090e01a-68fa-4ca2-947c-e657881b1286">&lt;linkText&gt;</bpt>Use OWIN to Self-Host ASP.NET Web API 2<ept id="5090e01a-68fa-4ca2-947c-e657881b1286">&lt;/linkText&gt;</ept><bpt id="5090e01a-68fa-4ca2-947c-e657881b1286">&lt;title&gt;</bpt><ept id="5090e01a-68fa-4ca2-947c-e657881b1286">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a91e559-e2de-4efe-9da6-f8a17cbbb7e7" xml:space="preserve">
+          <source>The Reliable Services API provides two entry points for your business logic:</source>
+          <target state="new">The Reliable Services API provides two entry points for your business logic:</target>
+        </trans-unit>
+        <trans-unit id="7f242f1f-01a3-408b-a2fe-fcbe6c8f32b5" xml:space="preserve">
+          <source>An open-ended entry point method where you can begin executing any workload you want, intended mainly for long-running compute workloads:</source>
+          <target state="new">An open-ended entry point method where you can begin executing any workload you want, intended mainly for long-running compute workloads:</target>
+        </trans-unit>
+        <trans-unit id="1f0d29a8-5dfb-4851-88fa-c921882072bc" xml:space="preserve">
+          <source>A communication entry point where you can plug in your communication stack of choice:</source>
+          <target state="new">A communication entry point where you can plug in your communication stack of choice:</target>
+        </trans-unit>
+        <trans-unit id="a766e65c-b2fc-40f8-be14-89612154e243" xml:space="preserve">
+          <source>The web server - and any other communication stack you may use in the future, such as WebSockets - should use the ICommunicationListener interface to correctly integrate with the system.</source>
+          <target state="new">The web server - and any other communication stack you may use in the future, such as WebSockets - should use the ICommunicationListener interface to correctly integrate with the system.</target>
+        </trans-unit>
+        <trans-unit id="ffae2bf8-8e51-4411-bc89-6f22932bfc92" xml:space="preserve">
+          <source>The reasons for this will become more apparent in the following steps.</source>
+          <target state="new">The reasons for this will become more apparent in the following steps.</target>
+        </trans-unit>
+        <trans-unit id="0d9c7450-82c2-47bd-b114-ee7841b6ae9a" xml:space="preserve">
+          <source>First create a class called OwinCommunicationListener that implements ICommunicationListener:</source>
+          <target state="new">First create a class called OwinCommunicationListener that implements ICommunicationListener:</target>
+        </trans-unit>
+        <trans-unit id="142eaa22-90cf-436a-86dd-b1405d3da9bb" xml:space="preserve">
+          <source>OwinCommunicationListener.cs:</source>
+          <target state="new">OwinCommunicationListener.cs:</target>
+        </trans-unit>
+        <trans-unit id="8ee972db-40a1-4789-bf10-53ffa9c8040e" xml:space="preserve">
+          <source>The ICommunicationListener interface provides 4 methods to manage a communication listener for your service:</source>
+          <target state="new">The ICommunicationListener interface provides 4 methods to manage a communication listener for your service:</target>
+        </trans-unit>
+        <trans-unit id="f6886d50-74e5-4d13-bf16-df0837d6612b" xml:space="preserve">
+          <source><bpt id="1b3e6fc9-8b87-4289-a68d-882bc71364b2">&lt;strong&gt;</bpt>Initialize<ept id="1b3e6fc9-8b87-4289-a68d-882bc71364b2">&lt;/strong&gt;</ept>: this is typically where you set up the address that the service will be listening on.</source>
+          <target state="new"><bpt id="1b3e6fc9-8b87-4289-a68d-882bc71364b2">&lt;strong&gt;</bpt>Initialize<ept id="1b3e6fc9-8b87-4289-a68d-882bc71364b2">&lt;/strong&gt;</ept>: this is typically where you set up the address that the service will be listening on.</target>
+        </trans-unit>
+        <trans-unit id="e362cd65-c41f-413a-90a5-532c40f82a71" xml:space="preserve">
+          <source>For the web server, this is where the URL is set up.</source>
+          <target state="new">For the web server, this is where the URL is set up.</target>
+        </trans-unit>
+        <trans-unit id="cbb7d13f-c06f-4bdf-8ff6-45ed67199251" xml:space="preserve">
+          <source><bpt id="38577ea2-4178-493c-9820-44340adf1e7b">&lt;strong&gt;</bpt>OpenAsync<ept id="38577ea2-4178-493c-9820-44340adf1e7b">&lt;/strong&gt;</ept>: start listening for requests.</source>
+          <target state="new"><bpt id="38577ea2-4178-493c-9820-44340adf1e7b">&lt;strong&gt;</bpt>OpenAsync<ept id="38577ea2-4178-493c-9820-44340adf1e7b">&lt;/strong&gt;</ept>: start listening for requests.</target>
+        </trans-unit>
+        <trans-unit id="c8c9174e-3256-4892-8595-d5331c3e7ba8" xml:space="preserve">
+          <source><bpt id="0150d89c-547c-4cfe-acd5-0ecad6f6d1df">&lt;strong&gt;</bpt>CloseAsync<ept id="0150d89c-547c-4cfe-acd5-0ecad6f6d1df">&lt;/strong&gt;</ept>: stop listening for requests, finish any in-flight requests, and shut down gracefully.</source>
+          <target state="new"><bpt id="0150d89c-547c-4cfe-acd5-0ecad6f6d1df">&lt;strong&gt;</bpt>CloseAsync<ept id="0150d89c-547c-4cfe-acd5-0ecad6f6d1df">&lt;/strong&gt;</ept>: stop listening for requests, finish any in-flight requests, and shut down gracefully.</target>
+        </trans-unit>
+        <trans-unit id="29c8cbf9-8e10-444d-b566-718fa61fd13c" xml:space="preserve">
+          <source><bpt id="2bf0770a-67e9-4054-bff1-cd81ca6835b0">&lt;strong&gt;</bpt>Abort<ept id="2bf0770a-67e9-4054-bff1-cd81ca6835b0">&lt;/strong&gt;</ept>: cancel everything and stop immediately.</source>
+          <target state="new"><bpt id="2bf0770a-67e9-4054-bff1-cd81ca6835b0">&lt;strong&gt;</bpt>Abort<ept id="2bf0770a-67e9-4054-bff1-cd81ca6835b0">&lt;/strong&gt;</ept>: cancel everything and stop immediately.</target>
+        </trans-unit>
+        <trans-unit id="9d9ae866-db8a-4e72-8f3f-dbe797de4b39" xml:space="preserve">
+          <source>To get started, add private class members for a URL path prefix and the <bpt id="b795f48c-f96d-4b2f-9b77-fcab6fddfb28">&lt;strong&gt;</bpt>Startup<ept id="b795f48c-f96d-4b2f-9b77-fcab6fddfb28">&lt;/strong&gt;</ept> class that was created earlier.</source>
+          <target state="new">To get started, add private class members for a URL path prefix and the <bpt id="b795f48c-f96d-4b2f-9b77-fcab6fddfb28">&lt;strong&gt;</bpt>Startup<ept id="b795f48c-f96d-4b2f-9b77-fcab6fddfb28">&lt;/strong&gt;</ept> class that was created earlier.</target>
+        </trans-unit>
+        <trans-unit id="284639ad-e946-4f5e-8819-7c890a011b6e" xml:space="preserve">
+          <source>These will be initialized through the constructor and used later when setting up the listening URL.</source>
+          <target state="new">These will be initialized through the constructor and used later when setting up the listening URL.</target>
+        </trans-unit>
+        <trans-unit id="b9ca7047-84af-4364-8595-a1de9d5d4134" xml:space="preserve">
+          <source>Also add private class members to save the listening address and the server handle that are created during initialization and later when the server is started, respectively.</source>
+          <target state="new">Also add private class members to save the listening address and the server handle that are created during initialization and later when the server is started, respectively.</target>
+        </trans-unit>
+        <trans-unit id="546b50cf-411d-4ae3-8255-0b705e956327" xml:space="preserve">
+          <source>The web server URL will be set up here.</source>
+          <target state="new">The web server URL will be set up here.</target>
+        </trans-unit>
+        <trans-unit id="d6498d6e-e3d8-4554-b238-42278875b326" xml:space="preserve">
+          <source>To do this, you need a couple pieces of information:</source>
+          <target state="new">To do this, you need a couple pieces of information:</target>
+        </trans-unit>
+        <trans-unit id="cb19c741-e4a5-419b-9900-2c8ca8b5a91c" xml:space="preserve">
+          <source><bpt id="b3a0b6cd-6bdc-44ca-a9ec-bd8824124154">&lt;strong&gt;</bpt>A URL path prefix<ept id="b3a0b6cd-6bdc-44ca-a9ec-bd8824124154">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="b3a0b6cd-6bdc-44ca-a9ec-bd8824124154">&lt;strong&gt;</bpt>A URL path prefix<ept id="b3a0b6cd-6bdc-44ca-a9ec-bd8824124154">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d272c102-671d-4769-ba93-2fcd04a446c6" xml:space="preserve">
+          <source>Although optional, it's good to set this up now so you can safely host multiple web services in your application.</source>
+          <target state="new">Although optional, it's good to set this up now so you can safely host multiple web services in your application.</target>
+        </trans-unit>
+        <trans-unit id="1012e63a-f95e-461e-8813-06db73c8aa5e" xml:space="preserve">
+          <source><bpt id="ec84c202-9939-4ae8-a322-18f9ef5d444f">&lt;strong&gt;</bpt>A port<ept id="ec84c202-9939-4ae8-a322-18f9ef5d444f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ec84c202-9939-4ae8-a322-18f9ef5d444f">&lt;strong&gt;</bpt>A port<ept id="ec84c202-9939-4ae8-a322-18f9ef5d444f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd4489d7-8344-4581-b4e2-34a17cdb3545" xml:space="preserve">
+          <source>Before we grab a port for the web server, it's important to understand that Service Fabric provides an application layer that acts as a buffer between your application and the underlying operating system that it runs on.</source>
+          <target state="new">Before we grab a port for the web server, it's important to understand that Service Fabric provides an application layer that acts as a buffer between your application and the underlying operating system that it runs on.</target>
+        </trans-unit>
+        <trans-unit id="e58a0766-354d-4479-a80c-ef7f4f3e9c23" xml:space="preserve">
+          <source>As such, Service Fabric provides a way to configure <bpt id="0c3ef5a9-d488-4ba7-ace9-dcfb6e05dc83">&lt;em&gt;</bpt>endpoints<ept id="0c3ef5a9-d488-4ba7-ace9-dcfb6e05dc83">&lt;/em&gt;</ept> for your services.</source>
+          <target state="new">As such, Service Fabric provides a way to configure <bpt id="0c3ef5a9-d488-4ba7-ace9-dcfb6e05dc83">&lt;em&gt;</bpt>endpoints<ept id="0c3ef5a9-d488-4ba7-ace9-dcfb6e05dc83">&lt;/em&gt;</ept> for your services.</target>
+        </trans-unit>
+        <trans-unit id="d945407c-3345-4ed5-997b-a179be01526d" xml:space="preserve">
+          <source>Service Fabric takes care of making sure the endpoint is available for your service to use so that you don't have to configure it yourself with the underlying OS environment.</source>
+          <target state="new">Service Fabric takes care of making sure the endpoint is available for your service to use so that you don't have to configure it yourself with the underlying OS environment.</target>
+        </trans-unit>
+        <trans-unit id="a516b7ec-a388-449d-a5a7-cd6787bbc158" xml:space="preserve">
+          <source>This allows you to easily host your Service Fabric application in different environments without having to make any changes to your application (for example, you can host the same application in Azure or in your own data center).</source>
+          <target state="new">This allows you to easily host your Service Fabric application in different environments without having to make any changes to your application (for example, you can host the same application in Azure or in your own data center).</target>
+        </trans-unit>
+        <trans-unit id="ff2b97e5-d540-49c9-bdd5-98beed0e7c40" xml:space="preserve">
+          <source>Configure an HTTP endpoint in PackageRoot\ServiceManifest.xml:</source>
+          <target state="new">Configure an HTTP endpoint in PackageRoot\ServiceManifest.xml:</target>
+        </trans-unit>
+        <trans-unit id="e00803a9-9b62-42d9-91fb-913782403659" xml:space="preserve">
+          <source>This step is important because the service host process runs under restricted credentials (Network Service on Windows), which means your service won't have access to set up an HTTP endpoint on its own.</source>
+          <target state="new">This step is important because the service host process runs under restricted credentials (Network Service on Windows), which means your service won't have access to set up an HTTP endpoint on its own.</target>
+        </trans-unit>
+        <trans-unit id="0b93b919-f8a2-4e86-98b2-60576b993494" xml:space="preserve">
+          <source>By using the endpoint configuration, Service Fabric knows to set up the proper ACL for the URL that the service will listen on while providing a standard place to configure endpoints.</source>
+          <target state="new">By using the endpoint configuration, Service Fabric knows to set up the proper ACL for the URL that the service will listen on while providing a standard place to configure endpoints.</target>
+        </trans-unit>
+        <trans-unit id="2a25c0db-3e57-4270-8c72-acf1a3a6f35a" xml:space="preserve">
+          <source>Back in OwinCommunicationListener.cs, get the endpoint information in the Initialize method to get the port.</source>
+          <target state="new">Back in OwinCommunicationListener.cs, get the endpoint information in the Initialize method to get the port.</target>
+        </trans-unit>
+        <trans-unit id="7691fefa-3f88-436e-9bd5-2c0887934da5" xml:space="preserve">
+          <source>Create the URL that the service will listen on and save it to the class member variable created earlier.</source>
+          <target state="new">Create the URL that the service will listen on and save it to the class member variable created earlier.</target>
+        </trans-unit>
+        <trans-unit id="a9cf7f5d-385e-4577-8c72-bdd37db4dd5d" xml:space="preserve">
+          <source>This will be used in OpenAsync to start the web server.</source>
+          <target state="new">This will be used in OpenAsync to start the web server.</target>
+        </trans-unit>
+        <trans-unit id="6e056b1a-5879-470b-9fbb-9d5acc2294f9" xml:space="preserve">
+          <source>Note that "http://+" is used here.</source>
+          <target state="new">Note that "http://+" is used here.</target>
+        </trans-unit>
+        <trans-unit id="0481e1b3-624f-4331-9eb8-3717bb3699a0" xml:space="preserve">
+          <source>This is to make sure the web server is listening on all available addresses, including localhost, FQDN, and the machine IP.</source>
+          <target state="new">This is to make sure the web server is listening on all available addresses, including localhost, FQDN, and the machine IP.</target>
+        </trans-unit>
+        <trans-unit id="611de8fe-9ba5-4907-8262-6b7151c23cdc" xml:space="preserve">
+          <source>OpenAsync is called by the platform after Initialize.</source>
+          <target state="new">OpenAsync is called by the platform after Initialize.</target>
+        </trans-unit>
+        <trans-unit id="ee907356-8e91-41d1-a367-d8a254cbaf8d" xml:space="preserve">
+          <source>This is where you use the address that was created in Initialize to open the web server.</source>
+          <target state="new">This is where you use the address that was created in Initialize to open the web server.</target>
+        </trans-unit>
+        <trans-unit id="7b705963-e0f4-47b6-96e2-a0a15f2fe74b" xml:space="preserve">
+          <source>Implementing OpenAsync is one of the most important reasons why the web server (or any communication stack) is implemented as an ICommunicationListener rather than just opening it directly from RunAsync() in the Service.</source>
+          <target state="new">Implementing OpenAsync is one of the most important reasons why the web server (or any communication stack) is implemented as an ICommunicationListener rather than just opening it directly from RunAsync() in the Service.</target>
+        </trans-unit>
+        <trans-unit id="5c4ed99d-edb1-4780-973e-f2d0ac4c4831" xml:space="preserve">
+          <source>The return value from OpenAsync is the address that the web server is listening on.</source>
+          <target state="new">The return value from OpenAsync is the address that the web server is listening on.</target>
+        </trans-unit>
+        <trans-unit id="25a597e6-76eb-43b7-88a5-5bfc24ff67c7" xml:space="preserve">
+          <source>When this address is returned to the system, it registers the address with the service.</source>
+          <target state="new">When this address is returned to the system, it registers the address with the service.</target>
+        </trans-unit>
+        <trans-unit id="9173f862-54fc-43e7-b501-d4592aaadc71" xml:space="preserve">
+          <source>Service Fabric provides an API that allows clients or other services to then ask for this address by service name.</source>
+          <target state="new">Service Fabric provides an API that allows clients or other services to then ask for this address by service name.</target>
+        </trans-unit>
+        <trans-unit id="aca01588-39df-4b0f-ab4e-27a40fa4bfea" xml:space="preserve">
+          <source>This is important because  the service address is not static as services are moved around in the cluster for resource balancing and availability purposes.</source>
+          <target state="new">This is important because  the service address is not static as services are moved around in the cluster for resource balancing and availability purposes.</target>
+        </trans-unit>
+        <trans-unit id="5fb53c14-ca41-4deb-84a1-0a1d6b5a3f23" xml:space="preserve">
+          <source>This is the mechanism that allows clients to resolve the listening address for a service.</source>
+          <target state="new">This is the mechanism that allows clients to resolve the listening address for a service.</target>
+        </trans-unit>
+        <trans-unit id="b9ac2430-29d7-4728-a5fe-b4405c16b0fb" xml:space="preserve">
+          <source>With that in mind, OpenAsync starts the web server and return the address it's listening on.</source>
+          <target state="new">With that in mind, OpenAsync starts the web server and return the address it's listening on.</target>
+        </trans-unit>
+        <trans-unit id="bbfce147-f266-4827-9126-53bff60c715f" xml:space="preserve">
+          <source>Note that it listens on "http://+", but before returning the address, the "+" is replaced with the IP or FQDN of the node it is currently on.</source>
+          <target state="new">Note that it listens on "http://+", but before returning the address, the "+" is replaced with the IP or FQDN of the node it is currently on.</target>
+        </trans-unit>
+        <trans-unit id="52b0ebdf-33a7-4189-ba27-1b5b72aa28f3" xml:space="preserve">
+          <source>The reason for this is that this address that is being returned by the method is what's registered with the system, and it's what clients and other service will see when they ask for the service's address.</source>
+          <target state="new">The reason for this is that this address that is being returned by the method is what's registered with the system, and it's what clients and other service will see when they ask for the service's address.</target>
+        </trans-unit>
+        <trans-unit id="0ab31ad0-6e25-4ca5-9aeb-efdcc7426319" xml:space="preserve">
+          <source>For clients to correctly connect to it, they need an actual IP or FQDN in the address.</source>
+          <target state="new">For clients to correctly connect to it, they need an actual IP or FQDN in the address.</target>
+        </trans-unit>
+        <trans-unit id="f9c1d83a-5610-408c-a143-e3ba3d39df9c" xml:space="preserve">
+          <source>Note that this references the <bpt id="9200cf78-0e2c-4c8e-a963-082afd9791b5">&lt;strong&gt;</bpt>Startup<ept id="9200cf78-0e2c-4c8e-a963-082afd9791b5">&lt;/strong&gt;</ept> class that was passed in to the OwinCommunicationListener in the constructor.</source>
+          <target state="new">Note that this references the <bpt id="9200cf78-0e2c-4c8e-a963-082afd9791b5">&lt;strong&gt;</bpt>Startup<ept id="9200cf78-0e2c-4c8e-a963-082afd9791b5">&lt;/strong&gt;</ept> class that was passed in to the OwinCommunicationListener in the constructor.</target>
+        </trans-unit>
+        <trans-unit id="8afe8a20-d03d-4ef6-bb1e-ddb202d51bfe" xml:space="preserve">
+          <source>This Startup instance is used by the web server to bootstrap the Web API application.</source>
+          <target state="new">This Startup instance is used by the web server to bootstrap the Web API application.</target>
+        </trans-unit>
+        <trans-unit id="79cc5de9-821e-41ba-8233-33d4c7d09bf2" xml:space="preserve">
+          <source>The ServiceEventSource.Current.Message() line will appear in the diagnostics event window later when you run the application to let you know the web server has started successfully.</source>
+          <target state="new">The ServiceEventSource.Current.Message() line will appear in the diagnostics event window later when you run the application to let you know the web server has started successfully.</target>
+        </trans-unit>
+        <trans-unit id="d6259d46-135f-4221-a330-5c1e73c30de6" xml:space="preserve">
+          <source>Finally, implement both CloseAsync and Abort to stop the web server.</source>
+          <target state="new">Finally, implement both CloseAsync and Abort to stop the web server.</target>
+        </trans-unit>
+        <trans-unit id="d30a657f-eca4-48d8-91b8-fee31e454348" xml:space="preserve">
+          <source>The web server can be stopped by disposing the server handle that was created during OpenAsync.</source>
+          <target state="new">The web server can be stopped by disposing the server handle that was created during OpenAsync.</target>
+        </trans-unit>
+        <trans-unit id="017a7d9c-db08-4ee6-b69c-3f04febd0426" xml:space="preserve">
+          <source>In this example implementation, both CloseAsync and Abort simply stop the web server.</source>
+          <target state="new">In this example implementation, both CloseAsync and Abort simply stop the web server.</target>
+        </trans-unit>
+        <trans-unit id="9ffe0933-ce67-4896-b035-52b6be36beda" xml:space="preserve">
+          <source>You may opt to perform a more gracefully coordinated shut down of the web server in CloseAsync; for example, waiting for in-flight requests to complete before returning.</source>
+          <target state="new">You may opt to perform a more gracefully coordinated shut down of the web server in CloseAsync; for example, waiting for in-flight requests to complete before returning.</target>
+        </trans-unit>
+        <trans-unit id="f1197d0f-58d9-4307-8970-4303346a77d7" xml:space="preserve">
+          <source>You're now ready to create and return an instance of OwinCommunicationListener to start the web server.</source>
+          <target state="new">You're now ready to create and return an instance of OwinCommunicationListener to start the web server.</target>
+        </trans-unit>
+        <trans-unit id="2e5b200f-d7ca-4803-8bb1-3967589b14c3" xml:space="preserve">
+          <source>Back in the Service class (Service.cs), override the <bpt id="8dbe459e-5b9e-4bad-a34e-7989fae50d1a">&lt;strong&gt;</bpt>CreateCommunicationListener()<ept id="8dbe459e-5b9e-4bad-a34e-7989fae50d1a">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Back in the Service class (Service.cs), override the <bpt id="8dbe459e-5b9e-4bad-a34e-7989fae50d1a">&lt;strong&gt;</bpt>CreateCommunicationListener()<ept id="8dbe459e-5b9e-4bad-a34e-7989fae50d1a">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="fc708f2e-2fd2-42c3-b563-4b6dc04f8d98" xml:space="preserve">
+          <source>This is where the Web API <bpt id="dfeb649b-7f78-48f5-a1c6-3b56b9f1247d">&lt;em&gt;</bpt>application<ept id="dfeb649b-7f78-48f5-a1c6-3b56b9f1247d">&lt;/em&gt;</ept> and the OWIN <bpt id="1889e426-3d2b-46b3-9a50-64808fb587e1">&lt;em&gt;</bpt>host<ept id="1889e426-3d2b-46b3-9a50-64808fb587e1">&lt;/em&gt;</ept> finally meet: The <bpt id="392b61e8-e092-45ca-854c-2abc9f77e641">&lt;em&gt;</bpt>host<ept id="392b61e8-e092-45ca-854c-2abc9f77e641">&lt;/em&gt;</ept> (<bpt id="13477111-e401-421a-bd7d-eb8c8abb4184">&lt;strong&gt;</bpt>OwinCommunicationListener<ept id="13477111-e401-421a-bd7d-eb8c8abb4184">&lt;/strong&gt;</ept>) is given an instance of the <bpt id="f07d10e1-f10c-4f8a-86d0-08b88f1ee0c9">&lt;em&gt;</bpt>application<ept id="f07d10e1-f10c-4f8a-86d0-08b88f1ee0c9">&lt;/em&gt;</ept> (Web API via <bpt id="593ae624-7177-4f2e-bbd9-fe40d985457d">&lt;strong&gt;</bpt>Startup<ept id="593ae624-7177-4f2e-bbd9-fe40d985457d">&lt;/strong&gt;</ept>), and Service Fabric manages its lifecycle.</source>
+          <target state="new">This is where the Web API <bpt id="dfeb649b-7f78-48f5-a1c6-3b56b9f1247d">&lt;em&gt;</bpt>application<ept id="dfeb649b-7f78-48f5-a1c6-3b56b9f1247d">&lt;/em&gt;</ept> and the OWIN <bpt id="1889e426-3d2b-46b3-9a50-64808fb587e1">&lt;em&gt;</bpt>host<ept id="1889e426-3d2b-46b3-9a50-64808fb587e1">&lt;/em&gt;</ept> finally meet: The <bpt id="392b61e8-e092-45ca-854c-2abc9f77e641">&lt;em&gt;</bpt>host<ept id="392b61e8-e092-45ca-854c-2abc9f77e641">&lt;/em&gt;</ept> (<bpt id="13477111-e401-421a-bd7d-eb8c8abb4184">&lt;strong&gt;</bpt>OwinCommunicationListener<ept id="13477111-e401-421a-bd7d-eb8c8abb4184">&lt;/strong&gt;</ept>) is given an instance of the <bpt id="f07d10e1-f10c-4f8a-86d0-08b88f1ee0c9">&lt;em&gt;</bpt>application<ept id="f07d10e1-f10c-4f8a-86d0-08b88f1ee0c9">&lt;/em&gt;</ept> (Web API via <bpt id="593ae624-7177-4f2e-bbd9-fe40d985457d">&lt;strong&gt;</bpt>Startup<ept id="593ae624-7177-4f2e-bbd9-fe40d985457d">&lt;/strong&gt;</ept>), and Service Fabric manages its lifecycle.</target>
+        </trans-unit>
+        <trans-unit id="6808d6e7-1aa3-4070-9a01-48323e48bad9" xml:space="preserve">
+          <source>This same pattern can typically be followed with any communication stack.</source>
+          <target state="new">This same pattern can typically be followed with any communication stack.</target>
+        </trans-unit>
+        <trans-unit id="14cfcca3-4c81-4722-ae81-7f6db94423a9" xml:space="preserve">
+          <source>In this example, you don't need to do anything in the RunAsync() method, so that override can simply be removed.</source>
+          <target state="new">In this example, you don't need to do anything in the RunAsync() method, so that override can simply be removed.</target>
+        </trans-unit>
+        <trans-unit id="4a6551d5-e4dc-4cac-93b5-4bb1d4ebe302" xml:space="preserve">
+          <source>The final Service implementation should be very simple, as it only needs to create the communication listener:</source>
+          <target state="new">The final Service implementation should be very simple, as it only needs to create the communication listener:</target>
+        </trans-unit>
+        <trans-unit id="09d0746f-5218-43c5-8c77-23efe51f17a4" xml:space="preserve">
+          <source>And the complete OwinCommunicationListener class:</source>
+          <target state="new">And the complete OwinCommunicationListener class:</target>
+        </trans-unit>
+        <trans-unit id="4c2d49a8-1b0c-47e7-9f70-b83792c678f2" xml:space="preserve">
+          <source>With all the pieces in place, your project should now look like a typical Web API application with the Reliable Services API entry points and an OWIN host:</source>
+          <target state="new">With all the pieces in place, your project should now look like a typical Web API application with the Reliable Services API entry points and an OWIN host:</target>
+        </trans-unit>
+        <trans-unit id="6cf1154b-071b-47a0-915d-26fa7f7b832d" xml:space="preserve">
+          <source><bpt id="df9559de-58c7-4b57-9d15-8d3c0b5b1c63">&lt;linkText&gt;</bpt><ept id="df9559de-58c7-4b57-9d15-8d3c0b5b1c63">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df9559de-58c7-4b57-9d15-8d3c0b5b1c63">&lt;linkText&gt;</bpt><ept id="df9559de-58c7-4b57-9d15-8d3c0b5b1c63">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="331ccad5-5582-4fc8-9efd-b4ee032de79e" xml:space="preserve">
+          <source>If you haven't done so, <bpt id="45b05194-1ef6-4d8a-b432-3f9f1999f5fe">&lt;linkText&gt;</bpt>set up your development environment<ept id="45b05194-1ef6-4d8a-b432-3f9f1999f5fe">&lt;/linkText&gt;</ept><bpt id="45b05194-1ef6-4d8a-b432-3f9f1999f5fe">&lt;title&gt;</bpt><ept id="45b05194-1ef6-4d8a-b432-3f9f1999f5fe">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you haven't done so, <bpt id="45b05194-1ef6-4d8a-b432-3f9f1999f5fe">&lt;linkText&gt;</bpt>set up your development environment<ept id="45b05194-1ef6-4d8a-b432-3f9f1999f5fe">&lt;/linkText&gt;</ept><bpt id="45b05194-1ef6-4d8a-b432-3f9f1999f5fe">&lt;title&gt;</bpt><ept id="45b05194-1ef6-4d8a-b432-3f9f1999f5fe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7ca0861-5a01-40ea-b5f2-7637dd16263d" xml:space="preserve">
+          <source>You can now build and deploy your service.</source>
+          <target state="new">You can now build and deploy your service.</target>
+        </trans-unit>
+        <trans-unit id="02c4a0c7-ea8f-487d-90ee-9db68f52542b" xml:space="preserve">
+          <source>Press <bpt id="9b9c1844-eeee-4170-ab27-251518e1ab64">&lt;strong&gt;</bpt>F5<ept id="9b9c1844-eeee-4170-ab27-251518e1ab64">&lt;/strong&gt;</ept> in Visual Studio to build and deploy the application.</source>
+          <target state="new">Press <bpt id="9b9c1844-eeee-4170-ab27-251518e1ab64">&lt;strong&gt;</bpt>F5<ept id="9b9c1844-eeee-4170-ab27-251518e1ab64">&lt;/strong&gt;</ept> in Visual Studio to build and deploy the application.</target>
+        </trans-unit>
+        <trans-unit id="aeaec91e-345c-42bf-8a7b-8d1903b54306" xml:space="preserve">
+          <source>In the Diagnostics Events window, you should see a message indicating the web server opened on <bpt id="eb3f3c2f-bae6-483b-ada2-f68ce2898885">&lt;strong&gt;</bpt>http://localhost:80/api<ept id="eb3f3c2f-bae6-483b-ada2-f68ce2898885">&lt;/strong&gt;</ept></source>
+          <target state="new">In the Diagnostics Events window, you should see a message indicating the web server opened on <bpt id="eb3f3c2f-bae6-483b-ada2-f68ce2898885">&lt;strong&gt;</bpt>http://localhost:80/api<ept id="eb3f3c2f-bae6-483b-ada2-f68ce2898885">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef8953ae-4131-412a-a415-7b7e475bd2c1" xml:space="preserve">
+          <source><bpt id="46f65551-5a6a-4653-a17b-c24ccb0bd63f">&lt;linkText&gt;</bpt><ept id="46f65551-5a6a-4653-a17b-c24ccb0bd63f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46f65551-5a6a-4653-a17b-c24ccb0bd63f">&lt;linkText&gt;</bpt><ept id="46f65551-5a6a-4653-a17b-c24ccb0bd63f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5b43594-02fa-48bd-96cf-2d6fed96f553" xml:space="preserve">
+          <source>If the port is already be open by another process on your machine, you may see an error here indicating the listener couldn't be opened.</source>
+          <target state="new">If the port is already be open by another process on your machine, you may see an error here indicating the listener couldn't be opened.</target>
+        </trans-unit>
+        <trans-unit id="2d055a90-0af5-4818-8714-0ffe88cf4575" xml:space="preserve">
+          <source>If that's the case, try using a different port in the Endpoint configuration in ServiceManifest.xml.</source>
+          <target state="new">If that's the case, try using a different port in the Endpoint configuration in ServiceManifest.xml.</target>
+        </trans-unit>
+        <trans-unit id="9a9c6861-9f82-4d5d-9d37-ecc6ea0e3031" xml:space="preserve">
+          <source>Once the service is running, open a browser and navigate to <bpt id="940a7836-f291-4991-9afd-9477fbd8e233">&lt;linkText&gt;</bpt>http://localhost/api<ept id="940a7836-f291-4991-9afd-9477fbd8e233">&lt;/linkText&gt;</ept><bpt id="940a7836-f291-4991-9afd-9477fbd8e233">&lt;title&gt;</bpt><ept id="940a7836-f291-4991-9afd-9477fbd8e233">&lt;/title&gt;</ept> to test it out.</source>
+          <target state="new">Once the service is running, open a browser and navigate to <bpt id="940a7836-f291-4991-9afd-9477fbd8e233">&lt;linkText&gt;</bpt>http://localhost/api<ept id="940a7836-f291-4991-9afd-9477fbd8e233">&lt;/linkText&gt;</ept><bpt id="940a7836-f291-4991-9afd-9477fbd8e233">&lt;title&gt;</bpt><ept id="940a7836-f291-4991-9afd-9477fbd8e233">&lt;/title&gt;</ept> to test it out.</target>
+        </trans-unit>
+        <trans-unit id="e7f8c911-3fbd-4b89-afb1-71628a4dd248" xml:space="preserve">
+          <source>Scaling out stateless web apps typically means adding more machines and spinning up the web app on them.</source>
+          <target state="new">Scaling out stateless web apps typically means adding more machines and spinning up the web app on them.</target>
+        </trans-unit>
+        <trans-unit id="770f86f6-4418-4e3a-9885-8cbb5fd03e42" xml:space="preserve">
+          <source>Service Fabric's orchestration engine can do this for you whenever new nodes are added to a cluster.</source>
+          <target state="new">Service Fabric's orchestration engine can do this for you whenever new nodes are added to a cluster.</target>
+        </trans-unit>
+        <trans-unit id="83304ba8-01e6-43cb-8a62-b68be55e385e" xml:space="preserve">
+          <source>When creating instances of a stateless service, you can specify the number of instances you want to create.</source>
+          <target state="new">When creating instances of a stateless service, you can specify the number of instances you want to create.</target>
+        </trans-unit>
+        <trans-unit id="3ed4f34c-9149-4124-aea5-54f1a09a3899" xml:space="preserve">
+          <source>Service Fabric will place that number of instances on nodes in the cluster accordingly, making sure not to create more than one instance on any one node.</source>
+          <target state="new">Service Fabric will place that number of instances on nodes in the cluster accordingly, making sure not to create more than one instance on any one node.</target>
+        </trans-unit>
+        <trans-unit id="c7605a57-7b7b-450a-84c0-c4c5e270cc31" xml:space="preserve">
+          <source>You can also instruct Service Fabric to always create an instance on every node by specifying "-1" for the instance count.</source>
+          <target state="new">You can also instruct Service Fabric to always create an instance on every node by specifying "-1" for the instance count.</target>
+        </trans-unit>
+        <trans-unit id="81ccbd1e-e114-413d-be0e-d70bcfa4440e" xml:space="preserve">
+          <source>This guarantees that whenever you add nodes to scale out your cluster, an instance of your stateless service will be created on the new nodes.</source>
+          <target state="new">This guarantees that whenever you add nodes to scale out your cluster, an instance of your stateless service will be created on the new nodes.</target>
+        </trans-unit>
+        <trans-unit id="c646342f-bba2-4772-bf71-5b698b56c21f" xml:space="preserve">
+          <source>This value is a property of the service instance, so it is set when creating a service instance either through PowerShell:</source>
+          <target state="new">This value is a property of the service instance, so it is set when creating a service instance either through PowerShell:</target>
+        </trans-unit>
+        <trans-unit id="229ccc8a-9875-4310-a8a7-9c0fd7a739eb" xml:space="preserve">
+          <source>Or when defining a default service in a Visual Studio Stateless Service project:</source>
+          <target state="new">Or when defining a default service in a Visual Studio Stateless Service project:</target>
+        </trans-unit>
+        <trans-unit id="dd6e1a4c-c498-420e-9421-1caff6469a89" xml:space="preserve">
+          <source>For more information on creating application and service instances, see <bpt id="7f7fd49c-8ae9-42aa-a77b-b68fb1f9e72a">&lt;linkText&gt;</bpt>how to deploy and remove applications<ept id="7f7fd49c-8ae9-42aa-a77b-b68fb1f9e72a">&lt;/linkText&gt;</ept><bpt id="7f7fd49c-8ae9-42aa-a77b-b68fb1f9e72a">&lt;title&gt;</bpt><ept id="7f7fd49c-8ae9-42aa-a77b-b68fb1f9e72a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on creating application and service instances, see <bpt id="7f7fd49c-8ae9-42aa-a77b-b68fb1f9e72a">&lt;linkText&gt;</bpt>how to deploy and remove applications<ept id="7f7fd49c-8ae9-42aa-a77b-b68fb1f9e72a">&lt;/linkText&gt;</ept><bpt id="7f7fd49c-8ae9-42aa-a77b-b68fb1f9e72a">&lt;title&gt;</bpt><ept id="7f7fd49c-8ae9-42aa-a77b-b68fb1f9e72a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e58f2fa4-54aa-4314-b0a8-178bb1f221a5" xml:space="preserve">
+          <source>In ASP.NET 5, the concept and programming model of separating the <bpt id="fd8d984d-4496-47ae-8ae5-2a3140be9706">&lt;em&gt;</bpt>application<ept id="fd8d984d-4496-47ae-8ae5-2a3140be9706">&lt;/em&gt;</ept> from the <bpt id="b9dc8354-7db9-4a7e-b7c3-6883fe8b0f5c">&lt;em&gt;</bpt>host<ept id="b9dc8354-7db9-4a7e-b7c3-6883fe8b0f5c">&lt;/em&gt;</ept> in web applications remains the same.</source>
+          <target state="new">In ASP.NET 5, the concept and programming model of separating the <bpt id="fd8d984d-4496-47ae-8ae5-2a3140be9706">&lt;em&gt;</bpt>application<ept id="fd8d984d-4496-47ae-8ae5-2a3140be9706">&lt;/em&gt;</ept> from the <bpt id="b9dc8354-7db9-4a7e-b7c3-6883fe8b0f5c">&lt;em&gt;</bpt>host<ept id="b9dc8354-7db9-4a7e-b7c3-6883fe8b0f5c">&lt;/em&gt;</ept> in web applications remains the same.</target>
+        </trans-unit>
+        <trans-unit id="eb1f66d5-2d92-4abc-b2da-e5d37941143d" xml:space="preserve">
+          <source>It can also be applied to other forms of communication.</source>
+          <target state="new">It can also be applied to other forms of communication.</target>
+        </trans-unit>
+        <trans-unit id="380abc1e-557e-466b-8ce5-9dd00e1bc871" xml:space="preserve">
+          <source>In addition, although the <bpt id="42c853ed-5b9b-45cf-965e-363d0a0fa3a9">&lt;em&gt;</bpt>host<ept id="42c853ed-5b9b-45cf-965e-363d0a0fa3a9">&lt;/em&gt;</ept> may differ in ASP.NET 5, the Web API <bpt id="5197ecc1-6da7-4a05-a367-c670838d5422">&lt;em&gt;</bpt>application<ept id="5197ecc1-6da7-4a05-a367-c670838d5422">&lt;/em&gt;</ept> layer remains the same, which is where the bulk of application logic actually lives.</source>
+          <target state="new">In addition, although the <bpt id="42c853ed-5b9b-45cf-965e-363d0a0fa3a9">&lt;em&gt;</bpt>host<ept id="42c853ed-5b9b-45cf-965e-363d0a0fa3a9">&lt;/em&gt;</ept> may differ in ASP.NET 5, the Web API <bpt id="5197ecc1-6da7-4a05-a367-c670838d5422">&lt;em&gt;</bpt>application<ept id="5197ecc1-6da7-4a05-a367-c670838d5422">&lt;/em&gt;</ept> layer remains the same, which is where the bulk of application logic actually lives.</target>
+        </trans-unit>
+        <trans-unit id="3564ced0-af4f-454c-ae6b-d8fe19c9baca" xml:space="preserve">
+          <source><bpt id="99521fb7-e809-46c4-8efc-05534668dd17">&lt;linkText&gt;</bpt>Debugging your Service Fabric Application in Visual Studio<ept id="99521fb7-e809-46c4-8efc-05534668dd17">&lt;/linkText&gt;</ept><bpt id="99521fb7-e809-46c4-8efc-05534668dd17">&lt;title&gt;</bpt><ept id="99521fb7-e809-46c4-8efc-05534668dd17">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="99521fb7-e809-46c4-8efc-05534668dd17">&lt;linkText&gt;</bpt>Debugging your Service Fabric Application in Visual Studio<ept id="99521fb7-e809-46c4-8efc-05534668dd17">&lt;/linkText&gt;</ept><bpt id="99521fb7-e809-46c4-8efc-05534668dd17">&lt;title&gt;</bpt><ept id="99521fb7-e809-46c4-8efc-05534668dd17">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

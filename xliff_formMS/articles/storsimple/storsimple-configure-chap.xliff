@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e5fc974a-28b6-4b4b-a34e-04ad6f4f8bf8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e5fc974a-28b6-4b4b-a34e-04ad6f4f8bf8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3092bc1f-d193-4bb0-9d22-1e77b771d362">
+        <trans-unit id="4dad3d18-e511-459a-b7cc-032070e8d393" xml:space="preserve">
+          <source>Configure CHAP for your StorSimple device | Microsoft Azure</source>
+          <target state="new">Configure CHAP for your StorSimple device | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0389faca-bbac-4b97-9027-e319f4939ca1" xml:space="preserve">
+          <source>Describes how to configure the Challenge Handshake Authentication Protocol (CHAP) on a StorSimple device.</source>
+          <target state="new">Describes how to configure the Challenge Handshake Authentication Protocol (CHAP) on a StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="41eec5ac-d9b9-43bc-b7e1-d3c4fc42cdad" xml:space="preserve">
+          <source>This tutorial explains how to configure CHAP for your StorSimple device.</source>
+          <target state="new">This tutorial explains how to configure CHAP for your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="080045be-9d71-4649-ab14-9f413593e5c7" xml:space="preserve">
+          <source>CHAP stands for Challenge Handshake Authentication Protocol.</source>
+          <target state="new">CHAP stands for Challenge Handshake Authentication Protocol.</target>
+        </trans-unit>
+        <trans-unit id="eb275ce0-195a-4141-a47f-280b76862141" xml:space="preserve">
+          <source>It is an authentication scheme used by servers to validate the identity of remote clients.</source>
+          <target state="new">It is an authentication scheme used by servers to validate the identity of remote clients.</target>
+        </trans-unit>
+        <trans-unit id="c1dfd35f-4cb9-4bf7-a188-4616c95523dc" xml:space="preserve">
+          <source>The verification is based on a shared password or secret.</source>
+          <target state="new">The verification is based on a shared password or secret.</target>
+        </trans-unit>
+        <trans-unit id="bb6f9b88-b309-4337-a82c-5ac250e7b8c1" xml:space="preserve">
+          <source>CHAP can be one-way (unidirectional) or mutual (bidirectional).</source>
+          <target state="new">CHAP can be one-way (unidirectional) or mutual (bidirectional).</target>
+        </trans-unit>
+        <trans-unit id="37fc7fe6-3466-47d2-9aa3-8807e1fe7359" xml:space="preserve">
+          <source>One-way CHAP is when the target authenticates an initiator.</source>
+          <target state="new">One-way CHAP is when the target authenticates an initiator.</target>
+        </trans-unit>
+        <trans-unit id="5e620c32-4f74-42de-b0a3-d5b66be86b4b" xml:space="preserve">
+          <source>Mutual or reverse CHAP, on the other hand, requires that the target authenticate the initiator and then the initiator authenticate the target.</source>
+          <target state="new">Mutual or reverse CHAP, on the other hand, requires that the target authenticate the initiator and then the initiator authenticate the target.</target>
+        </trans-unit>
+        <trans-unit id="04ea04a0-46ea-4355-a147-4af0a413a025" xml:space="preserve">
+          <source>Initiator authentication can be implemented without target authentication.</source>
+          <target state="new">Initiator authentication can be implemented without target authentication.</target>
+        </trans-unit>
+        <trans-unit id="3d1370b0-85f4-4dad-85b8-2c1ac619ffd0" xml:space="preserve">
+          <source>However, target authentication can be implemented only if initiator authentication is also implemented.</source>
+          <target state="new">However, target authentication can be implemented only if initiator authentication is also implemented.</target>
+        </trans-unit>
+        <trans-unit id="adb28cc7-7f89-4a20-abe5-19c30b719a3a" xml:space="preserve">
+          <source>As a best practice, we recommend that you use CHAP to enhance iSCSI security.</source>
+          <target state="new">As a best practice, we recommend that you use CHAP to enhance iSCSI security.</target>
+        </trans-unit>
+        <trans-unit id="d86d4528-9a3c-4444-a98b-01b0118d9ab6" xml:space="preserve">
+          <source>Keep in mind that IPSEC is not currently supported on StorSimple devices.</source>
+          <target state="new">Keep in mind that IPSEC is not currently supported on StorSimple devices.</target>
+        </trans-unit>
+        <trans-unit id="4fc7a208-91d3-4538-ae16-be484fc28ba2" xml:space="preserve">
+          <source>The CHAP settings on the StorSimple device can be configured in the following ways:</source>
+          <target state="new">The CHAP settings on the StorSimple device can be configured in the following ways:</target>
+        </trans-unit>
+        <trans-unit id="8d992623-506c-47ea-ac74-90cf11860bd0" xml:space="preserve">
+          <source>Unidirectional or one-way authentication</source>
+          <target state="new">Unidirectional or one-way authentication</target>
+        </trans-unit>
+        <trans-unit id="3186958e-b7d9-4d15-8aac-a347becedb1e" xml:space="preserve">
+          <source>Bidirectional or mutual or reverse authentication</source>
+          <target state="new">Bidirectional or mutual or reverse authentication</target>
+        </trans-unit>
+        <trans-unit id="9b57b5f2-a29b-4080-9b7b-5ec6df146b2b" xml:space="preserve">
+          <source>In each of these cases, the device Management Portal and the server iSCSI initiator software need to be configured.</source>
+          <target state="new">In each of these cases, the device Management Portal and the server iSCSI initiator software need to be configured.</target>
+        </trans-unit>
+        <trans-unit id="7e45d3e6-db16-49df-9940-7624edc7d058" xml:space="preserve">
+          <source>The detailed steps for this configuration are described in the following tutorial.</source>
+          <target state="new">The detailed steps for this configuration are described in the following tutorial.</target>
+        </trans-unit>
+        <trans-unit id="0d4eaa25-a352-42a0-bebf-3831d3e2608a" xml:space="preserve">
+          <source>In unidirectional authentication, the target authenticates the initiator.</source>
+          <target state="new">In unidirectional authentication, the target authenticates the initiator.</target>
+        </trans-unit>
+        <trans-unit id="e4a72c17-1dcc-4874-8207-89bc56b13948" xml:space="preserve">
+          <source>This authentication requires that you configure the CHAP initiator settings on the StorSimple device and the iSCSI Initiator software on the host.</source>
+          <target state="new">This authentication requires that you configure the CHAP initiator settings on the StorSimple device and the iSCSI Initiator software on the host.</target>
+        </trans-unit>
+        <trans-unit id="face3087-d67c-415c-9c17-109116d182b4" xml:space="preserve">
+          <source>The detailed procedures for your StorSimple device and Windows host are described next.</source>
+          <target state="new">The detailed procedures for your StorSimple device and Windows host are described next.</target>
+        </trans-unit>
+        <trans-unit id="87385b45-bafd-46e0-b553-5229476688e2" xml:space="preserve">
+          <source>In the Management Portal, on the <bpt id="b7503e1f-77c7-43c3-b723-754f2b3afe3f">&lt;strong&gt;</bpt>Devices<ept id="b7503e1f-77c7-43c3-b723-754f2b3afe3f">&lt;/strong&gt;</ept> page, click the <bpt id="ca99d216-6528-4f6b-8c2b-335b41f36f4e">&lt;strong&gt;</bpt>Configure<ept id="ca99d216-6528-4f6b-8c2b-335b41f36f4e">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the Management Portal, on the <bpt id="b7503e1f-77c7-43c3-b723-754f2b3afe3f">&lt;strong&gt;</bpt>Devices<ept id="b7503e1f-77c7-43c3-b723-754f2b3afe3f">&lt;/strong&gt;</ept> page, click the <bpt id="ca99d216-6528-4f6b-8c2b-335b41f36f4e">&lt;strong&gt;</bpt>Configure<ept id="ca99d216-6528-4f6b-8c2b-335b41f36f4e">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="ef77c5b7-deea-49cc-baf9-5e574a45dc1c" xml:space="preserve">
+          <source><bpt id="2d46aa75-e510-4728-8c2d-6c7fdf4e088b">&lt;linkText&gt;</bpt>CHAP Initiator<ept id="2d46aa75-e510-4728-8c2d-6c7fdf4e088b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2d46aa75-e510-4728-8c2d-6c7fdf4e088b">&lt;linkText&gt;</bpt>CHAP Initiator<ept id="2d46aa75-e510-4728-8c2d-6c7fdf4e088b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6293f7fd-c18d-42fb-a886-1fd2a5ff3409" xml:space="preserve">
+          <source>Scroll down on this page, and in the <bpt id="5d9d54e9-deef-41ef-a3d3-bf5aad80243d">&lt;strong&gt;</bpt>CHAP Initiator<ept id="5d9d54e9-deef-41ef-a3d3-bf5aad80243d">&lt;/strong&gt;</ept> section:</source>
+          <target state="new">Scroll down on this page, and in the <bpt id="5d9d54e9-deef-41ef-a3d3-bf5aad80243d">&lt;strong&gt;</bpt>CHAP Initiator<ept id="5d9d54e9-deef-41ef-a3d3-bf5aad80243d">&lt;/strong&gt;</ept> section:</target>
+        </trans-unit>
+        <trans-unit id="e482aa0a-dc9f-43ff-9884-49cdf0052c65" xml:space="preserve">
+          <source>Provide a user name for your CHAP initiator.</source>
+          <target state="new">Provide a user name for your CHAP initiator.</target>
+        </trans-unit>
+        <trans-unit id="b85532b5-3b40-4db9-aee9-316ed7394951" xml:space="preserve">
+          <source>Supply a password for your CHAP initiator.</source>
+          <target state="new">Supply a password for your CHAP initiator.</target>
+        </trans-unit>
+        <trans-unit id="a907f2df-ba01-4cf4-9668-2f7f3b8d1634" xml:space="preserve">
+          <source>The CHAP user name must contain fewer than 233 characters.</source>
+          <target state="new">The CHAP user name must contain fewer than 233 characters.</target>
+        </trans-unit>
+        <trans-unit id="2bc7c51b-345d-418c-a527-b2addddcbd8a" xml:space="preserve">
+          <source>The CHAP password must be between 12 and 16 characters.</source>
+          <target state="new">The CHAP password must be between 12 and 16 characters.</target>
+        </trans-unit>
+        <trans-unit id="af7a0a98-d1a6-400d-ae9b-3e265f01eff0" xml:space="preserve">
+          <source>A longer user name or password will result in an authentication failure on the Windows host.</source>
+          <target state="new">A longer user name or password will result in an authentication failure on the Windows host.</target>
+        </trans-unit>
+        <trans-unit id="53f37657-6418-4d27-9ed5-e81e130fd9ff" xml:space="preserve">
+          <source>On the Windows host server, start the iSCSI Initiator.</source>
+          <target state="new">On the Windows host server, start the iSCSI Initiator.</target>
+        </trans-unit>
+        <trans-unit id="86b7c7d8-a0df-4869-a934-33da1a3f19c8" xml:space="preserve">
+          <source>In the <bpt id="d242bac3-2644-48c7-a422-f22e2421806d">&lt;strong&gt;</bpt>iSCSI Initiator Properties<ept id="d242bac3-2644-48c7-a422-f22e2421806d">&lt;/strong&gt;</ept> window, perform the following steps:</source>
+          <target state="new">In the <bpt id="d242bac3-2644-48c7-a422-f22e2421806d">&lt;strong&gt;</bpt>iSCSI Initiator Properties<ept id="d242bac3-2644-48c7-a422-f22e2421806d">&lt;/strong&gt;</ept> window, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="59f8986b-b469-4cca-bd87-9f8caf23ee9c" xml:space="preserve">
+          <source>Click the <bpt id="d9b8630c-a1a8-43e9-95b6-b77af8bdd143">&lt;strong&gt;</bpt>Discovery<ept id="d9b8630c-a1a8-43e9-95b6-b77af8bdd143">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="d9b8630c-a1a8-43e9-95b6-b77af8bdd143">&lt;strong&gt;</bpt>Discovery<ept id="d9b8630c-a1a8-43e9-95b6-b77af8bdd143">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="d2d058d0-8a8b-4c49-8f41-280e839d595c" xml:space="preserve">
+          <source><bpt id="ad83bfe6-b17f-48c8-a129-46d1ff06e57b">&lt;linkText&gt;</bpt>iSCSI initiator properties<ept id="ad83bfe6-b17f-48c8-a129-46d1ff06e57b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ad83bfe6-b17f-48c8-a129-46d1ff06e57b">&lt;linkText&gt;</bpt>iSCSI initiator properties<ept id="ad83bfe6-b17f-48c8-a129-46d1ff06e57b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1349879f-e74b-4c4e-9111-434d2920ba1b" xml:space="preserve">
+          <source>Click <bpt id="eb0f5aff-55bb-40fe-9c6f-8060c42a6519">&lt;strong&gt;</bpt>Discover Portal<ept id="eb0f5aff-55bb-40fe-9c6f-8060c42a6519">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="eb0f5aff-55bb-40fe-9c6f-8060c42a6519">&lt;strong&gt;</bpt>Discover Portal<ept id="eb0f5aff-55bb-40fe-9c6f-8060c42a6519">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="870b661d-db17-4f8b-b984-9bb87d15dc08" xml:space="preserve">
+          <source>In the <bpt id="9cdcf1fb-d284-455a-829d-ac69483a528f">&lt;strong&gt;</bpt>Discover Target Portal<ept id="9cdcf1fb-d284-455a-829d-ac69483a528f">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="9cdcf1fb-d284-455a-829d-ac69483a528f">&lt;strong&gt;</bpt>Discover Target Portal<ept id="9cdcf1fb-d284-455a-829d-ac69483a528f">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="a5d03b97-121c-491f-ae7f-217cb23e1d6b" xml:space="preserve">
+          <source>Specify the IP address of your device.</source>
+          <target state="new">Specify the IP address of your device.</target>
+        </trans-unit>
+        <trans-unit id="b08c8f40-e3f4-4112-aa74-b4e142fb0f41" xml:space="preserve">
+          <source>Click <bpt id="00133eba-ec12-49f0-8346-87a903e88b98">&lt;strong&gt;</bpt>Advanced<ept id="00133eba-ec12-49f0-8346-87a903e88b98">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="00133eba-ec12-49f0-8346-87a903e88b98">&lt;strong&gt;</bpt>Advanced<ept id="00133eba-ec12-49f0-8346-87a903e88b98">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="262a660d-8336-4a55-b593-d91e40b7763a" xml:space="preserve">
+          <source><bpt id="e1efb559-d919-4260-ae68-2a9dd07b91c7">&lt;linkText&gt;</bpt>Discover target portal<ept id="e1efb559-d919-4260-ae68-2a9dd07b91c7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1efb559-d919-4260-ae68-2a9dd07b91c7">&lt;linkText&gt;</bpt>Discover target portal<ept id="e1efb559-d919-4260-ae68-2a9dd07b91c7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30488217-6cb8-4b2d-9c08-7be6c040b3a5" xml:space="preserve">
+          <source>In the <bpt id="442401a3-8a01-40c1-9bb0-5d3180372a2e">&lt;strong&gt;</bpt>Advanced Settings<ept id="442401a3-8a01-40c1-9bb0-5d3180372a2e">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="442401a3-8a01-40c1-9bb0-5d3180372a2e">&lt;strong&gt;</bpt>Advanced Settings<ept id="442401a3-8a01-40c1-9bb0-5d3180372a2e">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="a136a4ee-7e64-40ab-bf31-7fc229c61808" xml:space="preserve">
+          <source>Select the <bpt id="c8d631de-63fe-40ad-89de-d8001a3bf926">&lt;strong&gt;</bpt>Enable CHAP log on<ept id="c8d631de-63fe-40ad-89de-d8001a3bf926">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">Select the <bpt id="c8d631de-63fe-40ad-89de-d8001a3bf926">&lt;strong&gt;</bpt>Enable CHAP log on<ept id="c8d631de-63fe-40ad-89de-d8001a3bf926">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="780159fe-eab1-4ea8-a50c-31116b1583db" xml:space="preserve">
+          <source>In the <bpt id="7b6ba65a-0aad-4c47-a345-997c48618bc0">&lt;strong&gt;</bpt>Name<ept id="7b6ba65a-0aad-4c47-a345-997c48618bc0">&lt;/strong&gt;</ept> field, supply the user name that you specified for the CHAP Initiator in the Management Portal.</source>
+          <target state="new">In the <bpt id="7b6ba65a-0aad-4c47-a345-997c48618bc0">&lt;strong&gt;</bpt>Name<ept id="7b6ba65a-0aad-4c47-a345-997c48618bc0">&lt;/strong&gt;</ept> field, supply the user name that you specified for the CHAP Initiator in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="0d3ebdde-4f8e-4b8d-94ac-0a6b4f0a8757" xml:space="preserve">
+          <source>In the <bpt id="be66ab44-5d97-4d6a-887d-ddc21c5fd1c2">&lt;strong&gt;</bpt>Target secret<ept id="be66ab44-5d97-4d6a-887d-ddc21c5fd1c2">&lt;/strong&gt;</ept> field, supply the password that you specified for the CHAP Initiator in the Management Portal.</source>
+          <target state="new">In the <bpt id="be66ab44-5d97-4d6a-887d-ddc21c5fd1c2">&lt;strong&gt;</bpt>Target secret<ept id="be66ab44-5d97-4d6a-887d-ddc21c5fd1c2">&lt;/strong&gt;</ept> field, supply the password that you specified for the CHAP Initiator in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="53c5faf2-64ae-4e3c-8346-bee03be80c93" xml:space="preserve">
+          <source>Click <bpt id="676cc4d9-4c57-4444-9eb3-800ea8aa2aef">&lt;strong&gt;</bpt>OK<ept id="676cc4d9-4c57-4444-9eb3-800ea8aa2aef">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="676cc4d9-4c57-4444-9eb3-800ea8aa2aef">&lt;strong&gt;</bpt>OK<ept id="676cc4d9-4c57-4444-9eb3-800ea8aa2aef">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31157a95-9601-4879-88e2-262e4495702b" xml:space="preserve">
+          <source><bpt id="9202681e-2da9-4eab-bb3a-de126736fa47">&lt;linkText&gt;</bpt>Advanceds settings general<ept id="9202681e-2da9-4eab-bb3a-de126736fa47">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9202681e-2da9-4eab-bb3a-de126736fa47">&lt;linkText&gt;</bpt>Advanceds settings general<ept id="9202681e-2da9-4eab-bb3a-de126736fa47">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47e53ac6-3507-4acd-bfb6-5754e14c5466" xml:space="preserve">
+          <source>On the <bpt id="5de33c16-5bae-4aad-b0e0-ae5ea10f47e5">&lt;strong&gt;</bpt>Targets<ept id="5de33c16-5bae-4aad-b0e0-ae5ea10f47e5">&lt;/strong&gt;</ept> tab of the <bpt id="23d32e5f-5cf5-478b-b637-171898e39c70">&lt;strong&gt;</bpt>iSCSI Initiator Properties<ept id="23d32e5f-5cf5-478b-b637-171898e39c70">&lt;/strong&gt;</ept> window, the device status should appear as <bpt id="d940db9a-0d1f-4a44-af5c-f1162d7a48f6">&lt;strong&gt;</bpt>Connected<ept id="d940db9a-0d1f-4a44-af5c-f1162d7a48f6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5de33c16-5bae-4aad-b0e0-ae5ea10f47e5">&lt;strong&gt;</bpt>Targets<ept id="5de33c16-5bae-4aad-b0e0-ae5ea10f47e5">&lt;/strong&gt;</ept> tab of the <bpt id="23d32e5f-5cf5-478b-b637-171898e39c70">&lt;strong&gt;</bpt>iSCSI Initiator Properties<ept id="23d32e5f-5cf5-478b-b637-171898e39c70">&lt;/strong&gt;</ept> window, the device status should appear as <bpt id="d940db9a-0d1f-4a44-af5c-f1162d7a48f6">&lt;strong&gt;</bpt>Connected<ept id="d940db9a-0d1f-4a44-af5c-f1162d7a48f6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ebdc057-0c3e-4f5e-8138-1fe1d08dbdf7" xml:space="preserve">
+          <source>If you change the iSCSI name, the new name will be used for new iSCSI sessions.</source>
+          <target state="new">If you change the iSCSI name, the new name will be used for new iSCSI sessions.</target>
+        </trans-unit>
+        <trans-unit id="7f04fa43-fbc3-41b8-afc9-9aaa98c058f0" xml:space="preserve">
+          <source>New settings are not used for existing sessions until you log off and log on again.</source>
+          <target state="new">New settings are not used for existing sessions until you log off and log on again.</target>
+        </trans-unit>
+        <trans-unit id="7c42f5da-8c59-4158-bfda-4d7965eecd04" xml:space="preserve">
+          <source>For more information about configuring CHAP on the Windows host server, go to <bpt id="47c8dc5a-6472-4c7a-9c98-7a1264a93ef7">&lt;linkText&gt;</bpt>Additional considerations<ept id="47c8dc5a-6472-4c7a-9c98-7a1264a93ef7">&lt;/linkText&gt;</ept><bpt id="47c8dc5a-6472-4c7a-9c98-7a1264a93ef7">&lt;title&gt;</bpt><ept id="47c8dc5a-6472-4c7a-9c98-7a1264a93ef7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about configuring CHAP on the Windows host server, go to <bpt id="47c8dc5a-6472-4c7a-9c98-7a1264a93ef7">&lt;linkText&gt;</bpt>Additional considerations<ept id="47c8dc5a-6472-4c7a-9c98-7a1264a93ef7">&lt;/linkText&gt;</ept><bpt id="47c8dc5a-6472-4c7a-9c98-7a1264a93ef7">&lt;title&gt;</bpt><ept id="47c8dc5a-6472-4c7a-9c98-7a1264a93ef7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad47eeec-b483-4816-a17c-51f170f31c1b" xml:space="preserve">
+          <source>In bidirectional authentication, the target authenticates the initiator and then the initiator authenticates the target.</source>
+          <target state="new">In bidirectional authentication, the target authenticates the initiator and then the initiator authenticates the target.</target>
+        </trans-unit>
+        <trans-unit id="02d9a48b-afd1-4da9-8565-2c31932c070b" xml:space="preserve">
+          <source>This requires the user to configure the CHAP initiator settings, as well as the reverse CHAP settings on the device and iSCSI Initiator software on the host.</source>
+          <target state="new">This requires the user to configure the CHAP initiator settings, as well as the reverse CHAP settings on the device and iSCSI Initiator software on the host.</target>
+        </trans-unit>
+        <trans-unit id="a2746808-e520-439f-b65b-40c5c3135c1d" xml:space="preserve">
+          <source>The following procedures describe the steps to configure mutual authentication on the device and on the Windows host.</source>
+          <target state="new">The following procedures describe the steps to configure mutual authentication on the device and on the Windows host.</target>
+        </trans-unit>
+        <trans-unit id="e5f08d08-78f7-4e3c-9f87-95d310aa2a15" xml:space="preserve">
+          <source>In the Management Portal, on the <bpt id="97dd0126-d01b-43dd-8d60-568f7ede6cad">&lt;strong&gt;</bpt>Devices<ept id="97dd0126-d01b-43dd-8d60-568f7ede6cad">&lt;/strong&gt;</ept> page, click the <bpt id="e13fdd1b-9f23-4c5b-bcb1-19db57726599">&lt;strong&gt;</bpt>Configure<ept id="e13fdd1b-9f23-4c5b-bcb1-19db57726599">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the Management Portal, on the <bpt id="97dd0126-d01b-43dd-8d60-568f7ede6cad">&lt;strong&gt;</bpt>Devices<ept id="97dd0126-d01b-43dd-8d60-568f7ede6cad">&lt;/strong&gt;</ept> page, click the <bpt id="e13fdd1b-9f23-4c5b-bcb1-19db57726599">&lt;strong&gt;</bpt>Configure<ept id="e13fdd1b-9f23-4c5b-bcb1-19db57726599">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="ac97e8af-7324-414a-85e6-f989095cf07f" xml:space="preserve">
+          <source><bpt id="10183af4-f16d-4c02-bf6f-cc70fa5cb002">&lt;linkText&gt;</bpt>CHAP target<ept id="10183af4-f16d-4c02-bf6f-cc70fa5cb002">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10183af4-f16d-4c02-bf6f-cc70fa5cb002">&lt;linkText&gt;</bpt>CHAP target<ept id="10183af4-f16d-4c02-bf6f-cc70fa5cb002">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f5e99f9-d003-4300-90a4-129e500553b2" xml:space="preserve">
+          <source>Scroll down on this page, and in the <bpt id="4ccc9dd9-42a1-4fe7-81de-af48035034ba">&lt;strong&gt;</bpt>CHAP Target<ept id="4ccc9dd9-42a1-4fe7-81de-af48035034ba">&lt;/strong&gt;</ept> section:</source>
+          <target state="new">Scroll down on this page, and in the <bpt id="4ccc9dd9-42a1-4fe7-81de-af48035034ba">&lt;strong&gt;</bpt>CHAP Target<ept id="4ccc9dd9-42a1-4fe7-81de-af48035034ba">&lt;/strong&gt;</ept> section:</target>
+        </trans-unit>
+        <trans-unit id="31979b84-f04f-40bf-b239-1e53e4fbf0e7" xml:space="preserve">
+          <source>Provide a <bpt id="122d5fb9-2978-4f51-8b4b-58be00ec3050">&lt;strong&gt;</bpt>Reverse CHAP user name<ept id="122d5fb9-2978-4f51-8b4b-58be00ec3050">&lt;/strong&gt;</ept> for your device.</source>
+          <target state="new">Provide a <bpt id="122d5fb9-2978-4f51-8b4b-58be00ec3050">&lt;strong&gt;</bpt>Reverse CHAP user name<ept id="122d5fb9-2978-4f51-8b4b-58be00ec3050">&lt;/strong&gt;</ept> for your device.</target>
+        </trans-unit>
+        <trans-unit id="5abb0ef1-8d2b-4841-91c7-52b1f2944621" xml:space="preserve">
+          <source>Supply a <bpt id="2b7d2b0a-fac5-48ed-b9de-9e6c347a727e">&lt;strong&gt;</bpt>Reverse CHAP password<ept id="2b7d2b0a-fac5-48ed-b9de-9e6c347a727e">&lt;/strong&gt;</ept> for your device.</source>
+          <target state="new">Supply a <bpt id="2b7d2b0a-fac5-48ed-b9de-9e6c347a727e">&lt;strong&gt;</bpt>Reverse CHAP password<ept id="2b7d2b0a-fac5-48ed-b9de-9e6c347a727e">&lt;/strong&gt;</ept> for your device.</target>
+        </trans-unit>
+        <trans-unit id="27f2bc2c-3aae-4e40-bfd2-34ed0ce00798" xml:space="preserve">
+          <source>Confirm the password.</source>
+          <target state="new">Confirm the password.</target>
+        </trans-unit>
+        <trans-unit id="710693d0-3f25-4ad4-ad0a-9557c3be851c" xml:space="preserve">
+          <source>In the <bpt id="aef8f5bb-1569-4602-bc74-bae7c2dc5c54">&lt;strong&gt;</bpt>CHAP Initiator<ept id="aef8f5bb-1569-4602-bc74-bae7c2dc5c54">&lt;/strong&gt;</ept> section:</source>
+          <target state="new">In the <bpt id="aef8f5bb-1569-4602-bc74-bae7c2dc5c54">&lt;strong&gt;</bpt>CHAP Initiator<ept id="aef8f5bb-1569-4602-bc74-bae7c2dc5c54">&lt;/strong&gt;</ept> section:</target>
+        </trans-unit>
+        <trans-unit id="1617ebe6-b4b2-4f3c-8de9-de2d7d57b8d9" xml:space="preserve">
+          <source>Provide a <bpt id="ec0275ad-4db5-45da-8a1c-9a9a5e3e71f2">&lt;strong&gt;</bpt>user name<ept id="ec0275ad-4db5-45da-8a1c-9a9a5e3e71f2">&lt;/strong&gt;</ept> for your device.</source>
+          <target state="new">Provide a <bpt id="ec0275ad-4db5-45da-8a1c-9a9a5e3e71f2">&lt;strong&gt;</bpt>user name<ept id="ec0275ad-4db5-45da-8a1c-9a9a5e3e71f2">&lt;/strong&gt;</ept> for your device.</target>
+        </trans-unit>
+        <trans-unit id="a00952f2-7da1-4907-96ba-383543d97763" xml:space="preserve">
+          <source>Provide a <bpt id="b5d518cb-6404-4af3-8b8d-7e198aa9dbb8">&lt;strong&gt;</bpt>password<ept id="b5d518cb-6404-4af3-8b8d-7e198aa9dbb8">&lt;/strong&gt;</ept> for your device.</source>
+          <target state="new">Provide a <bpt id="b5d518cb-6404-4af3-8b8d-7e198aa9dbb8">&lt;strong&gt;</bpt>password<ept id="b5d518cb-6404-4af3-8b8d-7e198aa9dbb8">&lt;/strong&gt;</ept> for your device.</target>
+        </trans-unit>
+        <trans-unit id="a6a064ea-2f9d-4df6-bdd6-43f6b5fe8b1f" xml:space="preserve">
+          <source>Confirm the password.</source>
+          <target state="new">Confirm the password.</target>
+        </trans-unit>
+        <trans-unit id="dcb64425-0a50-4e1c-ab2d-c8e50918e721" xml:space="preserve">
+          <source>Click <bpt id="2b84be32-ebbe-4006-94bb-64d6f2b25b37">&lt;strong&gt;</bpt>Save<ept id="2b84be32-ebbe-4006-94bb-64d6f2b25b37">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="2b84be32-ebbe-4006-94bb-64d6f2b25b37">&lt;strong&gt;</bpt>Save<ept id="2b84be32-ebbe-4006-94bb-64d6f2b25b37">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="167ed65d-8ddc-422c-8735-f660ae47c6fb" xml:space="preserve">
+          <source>A confirmation message will be displayed.</source>
+          <target state="new">A confirmation message will be displayed.</target>
+        </trans-unit>
+        <trans-unit id="02d35bc6-fdf8-41a0-85ea-262b9256da7d" xml:space="preserve">
+          <source>Click <bpt id="08445b1a-1e15-4f05-a17b-b9b8ed676b68">&lt;strong&gt;</bpt>OK<ept id="08445b1a-1e15-4f05-a17b-b9b8ed676b68">&lt;/strong&gt;</ept> to save the changes.</source>
+          <target state="new">Click <bpt id="08445b1a-1e15-4f05-a17b-b9b8ed676b68">&lt;strong&gt;</bpt>OK<ept id="08445b1a-1e15-4f05-a17b-b9b8ed676b68">&lt;/strong&gt;</ept> to save the changes.</target>
+        </trans-unit>
+        <trans-unit id="58d2aeea-8b3b-46f1-94d8-1f333704bcc6" xml:space="preserve">
+          <source>On the Windows host server, start the iSCSI Initiator.</source>
+          <target state="new">On the Windows host server, start the iSCSI Initiator.</target>
+        </trans-unit>
+        <trans-unit id="f7599d28-aa82-4c93-9610-1b7a86eaaf7c" xml:space="preserve">
+          <source>In the <bpt id="93ff0739-0e15-4927-9b1e-42e0008525f5">&lt;strong&gt;</bpt>iSCSI Initiator Properties<ept id="93ff0739-0e15-4927-9b1e-42e0008525f5">&lt;/strong&gt;</ept> window, click the <bpt id="e01653df-a179-4f20-b257-5b1463408b63">&lt;strong&gt;</bpt>Configuration<ept id="e01653df-a179-4f20-b257-5b1463408b63">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the <bpt id="93ff0739-0e15-4927-9b1e-42e0008525f5">&lt;strong&gt;</bpt>iSCSI Initiator Properties<ept id="93ff0739-0e15-4927-9b1e-42e0008525f5">&lt;/strong&gt;</ept> window, click the <bpt id="e01653df-a179-4f20-b257-5b1463408b63">&lt;strong&gt;</bpt>Configuration<ept id="e01653df-a179-4f20-b257-5b1463408b63">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="ad38d3d6-cffb-476c-8245-07511e831335" xml:space="preserve">
+          <source>Click <bpt id="9262d60c-1383-4d23-855e-7aaa13b8f10d">&lt;strong&gt;</bpt>CHAP<ept id="9262d60c-1383-4d23-855e-7aaa13b8f10d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9262d60c-1383-4d23-855e-7aaa13b8f10d">&lt;strong&gt;</bpt>CHAP<ept id="9262d60c-1383-4d23-855e-7aaa13b8f10d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="272f50b8-09bc-48ef-aa6a-0017391c1f5b" xml:space="preserve">
+          <source>In the <bpt id="489f9733-aa81-401e-ad10-78a599e5924c">&lt;strong&gt;</bpt>iSCSI Initiator Mutual CHAP Secret<ept id="489f9733-aa81-401e-ad10-78a599e5924c">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="489f9733-aa81-401e-ad10-78a599e5924c">&lt;strong&gt;</bpt>iSCSI Initiator Mutual CHAP Secret<ept id="489f9733-aa81-401e-ad10-78a599e5924c">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="6bf415c2-5d48-4eb6-be37-8d602ab531f9" xml:space="preserve">
+          <source>Type the <bpt id="4c243991-2d5b-4296-82ca-08739db7c42a">&lt;strong&gt;</bpt>Reverse CHAP Password<ept id="4c243991-2d5b-4296-82ca-08739db7c42a">&lt;/strong&gt;</ept> that you configured in the Management Portal.</source>
+          <target state="new">Type the <bpt id="4c243991-2d5b-4296-82ca-08739db7c42a">&lt;strong&gt;</bpt>Reverse CHAP Password<ept id="4c243991-2d5b-4296-82ca-08739db7c42a">&lt;/strong&gt;</ept> that you configured in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="9ec38049-c1d9-4568-bf8f-c83751400c57" xml:space="preserve">
+          <source>Click <bpt id="7d744c62-0970-4c24-a676-edce680f84db">&lt;strong&gt;</bpt>OK<ept id="7d744c62-0970-4c24-a676-edce680f84db">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7d744c62-0970-4c24-a676-edce680f84db">&lt;strong&gt;</bpt>OK<ept id="7d744c62-0970-4c24-a676-edce680f84db">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4b7e2c7-05da-428e-8ea7-bd44e85ba45d" xml:space="preserve">
+          <source><bpt id="d9f405a6-a6e8-424d-8755-a500c19b07b2">&lt;linkText&gt;</bpt>iSCSI initiator mutual CHAP secret<ept id="d9f405a6-a6e8-424d-8755-a500c19b07b2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d9f405a6-a6e8-424d-8755-a500c19b07b2">&lt;linkText&gt;</bpt>iSCSI initiator mutual CHAP secret<ept id="d9f405a6-a6e8-424d-8755-a500c19b07b2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a29b6a9f-890c-492a-bf86-7b8f9fbc33b1" xml:space="preserve">
+          <source>Click the <bpt id="d1ab4bf4-d1f2-4616-a680-84fef515cae6">&lt;strong&gt;</bpt>Targets<ept id="d1ab4bf4-d1f2-4616-a680-84fef515cae6">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="d1ab4bf4-d1f2-4616-a680-84fef515cae6">&lt;strong&gt;</bpt>Targets<ept id="d1ab4bf4-d1f2-4616-a680-84fef515cae6">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="57b49aec-0e60-40c3-abd1-ce70d9e83932" xml:space="preserve">
+          <source>Click the <bpt id="2cc49ea4-fb57-45a7-af80-519cae54c9a1">&lt;strong&gt;</bpt>Connect<ept id="2cc49ea4-fb57-45a7-af80-519cae54c9a1">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="2cc49ea4-fb57-45a7-af80-519cae54c9a1">&lt;strong&gt;</bpt>Connect<ept id="2cc49ea4-fb57-45a7-af80-519cae54c9a1">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="d1eedd58-762b-40ce-809d-58a9d698af83" xml:space="preserve">
+          <source>In the <bpt id="e331cdc1-feb5-4d9d-b135-8b80ee16c305">&lt;strong&gt;</bpt>Connect To Target<ept id="e331cdc1-feb5-4d9d-b135-8b80ee16c305">&lt;/strong&gt;</ept> dialog box, click <bpt id="b0114e23-54e9-4442-a6df-b18d1c5ef2f0">&lt;strong&gt;</bpt>Advanced<ept id="b0114e23-54e9-4442-a6df-b18d1c5ef2f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="e331cdc1-feb5-4d9d-b135-8b80ee16c305">&lt;strong&gt;</bpt>Connect To Target<ept id="e331cdc1-feb5-4d9d-b135-8b80ee16c305">&lt;/strong&gt;</ept> dialog box, click <bpt id="b0114e23-54e9-4442-a6df-b18d1c5ef2f0">&lt;strong&gt;</bpt>Advanced<ept id="b0114e23-54e9-4442-a6df-b18d1c5ef2f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="570ddcf8-35a3-46ca-8256-19c3d96122d6" xml:space="preserve">
+          <source>In the <bpt id="ef5c6a6f-4b74-434c-83a3-a26fce612fc2">&lt;strong&gt;</bpt>Advanced Properties<ept id="ef5c6a6f-4b74-434c-83a3-a26fce612fc2">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="ef5c6a6f-4b74-434c-83a3-a26fce612fc2">&lt;strong&gt;</bpt>Advanced Properties<ept id="ef5c6a6f-4b74-434c-83a3-a26fce612fc2">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="9c0e0f29-afd3-47f0-a85d-d54c61f4d6a0" xml:space="preserve">
+          <source>Select the <bpt id="f1ccd7a3-bc03-45de-a278-0304e7c1e19b">&lt;strong&gt;</bpt>Enable CHAP log on<ept id="f1ccd7a3-bc03-45de-a278-0304e7c1e19b">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">Select the <bpt id="f1ccd7a3-bc03-45de-a278-0304e7c1e19b">&lt;strong&gt;</bpt>Enable CHAP log on<ept id="f1ccd7a3-bc03-45de-a278-0304e7c1e19b">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="fb9e2651-6f91-460a-a158-a74fb8461b5e" xml:space="preserve">
+          <source>In the <bpt id="17de97f7-8697-429e-95de-73cd3abca2a2">&lt;strong&gt;</bpt>Name<ept id="17de97f7-8697-429e-95de-73cd3abca2a2">&lt;/strong&gt;</ept> field, supply the user name that you specified for the CHAP Initiator in the Management Portal.</source>
+          <target state="new">In the <bpt id="17de97f7-8697-429e-95de-73cd3abca2a2">&lt;strong&gt;</bpt>Name<ept id="17de97f7-8697-429e-95de-73cd3abca2a2">&lt;/strong&gt;</ept> field, supply the user name that you specified for the CHAP Initiator in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="c01dcb44-2951-47fc-9f88-4c5d6a3d1295" xml:space="preserve">
+          <source>In the <bpt id="9c3167d7-8ebf-4767-b492-f9582fcf401d">&lt;strong&gt;</bpt>Target secret<ept id="9c3167d7-8ebf-4767-b492-f9582fcf401d">&lt;/strong&gt;</ept> field, supply the password that you specified for the CHAP Initiator in the Management Portal.</source>
+          <target state="new">In the <bpt id="9c3167d7-8ebf-4767-b492-f9582fcf401d">&lt;strong&gt;</bpt>Target secret<ept id="9c3167d7-8ebf-4767-b492-f9582fcf401d">&lt;/strong&gt;</ept> field, supply the password that you specified for the CHAP Initiator in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="1cc62aba-1a10-4e81-9943-adf5419addcb" xml:space="preserve">
+          <source>Select the <bpt id="d1acd258-8530-48b1-87e6-7d9c349c3599">&lt;strong&gt;</bpt>Perform mutual authentication<ept id="d1acd258-8530-48b1-87e6-7d9c349c3599">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">Select the <bpt id="d1acd258-8530-48b1-87e6-7d9c349c3599">&lt;strong&gt;</bpt>Perform mutual authentication<ept id="d1acd258-8530-48b1-87e6-7d9c349c3599">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="645b7cfa-a17a-4e09-a166-d478b30b7f5a" xml:space="preserve">
+          <source><bpt id="a73acd65-7f60-4a72-a9aa-f4c5342aa3be">&lt;linkText&gt;</bpt>Advanceds settings mutual authentication<ept id="a73acd65-7f60-4a72-a9aa-f4c5342aa3be">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a73acd65-7f60-4a72-a9aa-f4c5342aa3be">&lt;linkText&gt;</bpt>Advanceds settings mutual authentication<ept id="a73acd65-7f60-4a72-a9aa-f4c5342aa3be">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e856327-6161-40bb-82ea-ed9f05d0c6c9" xml:space="preserve">
+          <source>Click <bpt id="9a688495-e47d-4aa6-aac0-cfbdec63f4eb">&lt;strong&gt;</bpt>OK<ept id="9a688495-e47d-4aa6-aac0-cfbdec63f4eb">&lt;/strong&gt;</ept> to complete the CHAP configuration.</source>
+          <target state="new">Click <bpt id="9a688495-e47d-4aa6-aac0-cfbdec63f4eb">&lt;strong&gt;</bpt>OK<ept id="9a688495-e47d-4aa6-aac0-cfbdec63f4eb">&lt;/strong&gt;</ept> to complete the CHAP configuration.</target>
+        </trans-unit>
+        <trans-unit id="8482c5ef-56cd-42e7-8b7d-7e1392aa995d" xml:space="preserve">
+          <source>For more information about configuring CHAP on the Windows host server, go to <bpt id="3186276a-6545-4730-95aa-651f93d64672">&lt;linkText&gt;</bpt>Additional considerations<ept id="3186276a-6545-4730-95aa-651f93d64672">&lt;/linkText&gt;</ept><bpt id="3186276a-6545-4730-95aa-651f93d64672">&lt;title&gt;</bpt><ept id="3186276a-6545-4730-95aa-651f93d64672">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about configuring CHAP on the Windows host server, go to <bpt id="3186276a-6545-4730-95aa-651f93d64672">&lt;linkText&gt;</bpt>Additional considerations<ept id="3186276a-6545-4730-95aa-651f93d64672">&lt;/linkText&gt;</ept><bpt id="3186276a-6545-4730-95aa-651f93d64672">&lt;title&gt;</bpt><ept id="3186276a-6545-4730-95aa-651f93d64672">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69f59e66-55f5-4d88-aec0-fffb6fd239be" xml:space="preserve">
+          <source>The <bpt id="0f6a3036-b96d-4738-b352-3005efba1f79">&lt;strong&gt;</bpt>Quick Connect<ept id="0f6a3036-b96d-4738-b352-3005efba1f79">&lt;/strong&gt;</ept> feature does not support connections that have CHAP enabled.</source>
+          <target state="new">The <bpt id="0f6a3036-b96d-4738-b352-3005efba1f79">&lt;strong&gt;</bpt>Quick Connect<ept id="0f6a3036-b96d-4738-b352-3005efba1f79">&lt;/strong&gt;</ept> feature does not support connections that have CHAP enabled.</target>
+        </trans-unit>
+        <trans-unit id="3832b63e-2509-4ad4-9c64-609e9fd5e1a2" xml:space="preserve">
+          <source>When CHAP is enabled, make sure that you use the <bpt id="124ad59d-5230-42b6-a9a9-c002b60f1c56">&lt;strong&gt;</bpt>Connect<ept id="124ad59d-5230-42b6-a9a9-c002b60f1c56">&lt;/strong&gt;</ept> button that is available on the <bpt id="5b67dc58-31bf-4a4e-a4a2-eb7a6b3e745f">&lt;strong&gt;</bpt>Targets<ept id="5b67dc58-31bf-4a4e-a4a2-eb7a6b3e745f">&lt;/strong&gt;</ept> tab to connect to a target.</source>
+          <target state="new">When CHAP is enabled, make sure that you use the <bpt id="124ad59d-5230-42b6-a9a9-c002b60f1c56">&lt;strong&gt;</bpt>Connect<ept id="124ad59d-5230-42b6-a9a9-c002b60f1c56">&lt;/strong&gt;</ept> button that is available on the <bpt id="5b67dc58-31bf-4a4e-a4a2-eb7a6b3e745f">&lt;strong&gt;</bpt>Targets<ept id="5b67dc58-31bf-4a4e-a4a2-eb7a6b3e745f">&lt;/strong&gt;</ept> tab to connect to a target.</target>
+        </trans-unit>
+        <trans-unit id="8f95fb0a-a82c-49a7-9bc7-578e627e587a" xml:space="preserve">
+          <source><bpt id="1557c0c3-067b-4384-b3ea-2d6f37bae9a7">&lt;linkText&gt;</bpt>Connect to target<ept id="1557c0c3-067b-4384-b3ea-2d6f37bae9a7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1557c0c3-067b-4384-b3ea-2d6f37bae9a7">&lt;linkText&gt;</bpt>Connect to target<ept id="1557c0c3-067b-4384-b3ea-2d6f37bae9a7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99167798-6466-4970-bb73-a25a9b01bab0" xml:space="preserve">
+          <source>In the <bpt id="44807ec7-e54c-4216-952c-0ae2140a3c7c">&lt;strong&gt;</bpt>Connect to Target<ept id="44807ec7-e54c-4216-952c-0ae2140a3c7c">&lt;/strong&gt;</ept> dialog box that is presented, select the <bpt id="f2303a5b-2ab7-442c-b8ff-281616d900e1">&lt;strong&gt;</bpt>Add this connection to the list of Favorite Targets<ept id="f2303a5b-2ab7-442c-b8ff-281616d900e1">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">In the <bpt id="44807ec7-e54c-4216-952c-0ae2140a3c7c">&lt;strong&gt;</bpt>Connect to Target<ept id="44807ec7-e54c-4216-952c-0ae2140a3c7c">&lt;/strong&gt;</ept> dialog box that is presented, select the <bpt id="f2303a5b-2ab7-442c-b8ff-281616d900e1">&lt;strong&gt;</bpt>Add this connection to the list of Favorite Targets<ept id="f2303a5b-2ab7-442c-b8ff-281616d900e1">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="f92619ba-0ddd-4f94-b317-8677d3932df1" xml:space="preserve">
+          <source>This ensures that every time the computer restarts, an attempt is made to restore the connection to the iSCSI favorite targets.</source>
+          <target state="new">This ensures that every time the computer restarts, an attempt is made to restore the connection to the iSCSI favorite targets.</target>
+        </trans-unit>
+        <trans-unit id="c7cad3fa-f2a0-44bc-bbb2-01d271905f84" xml:space="preserve">
+          <source>If your CHAP configuration is incorrect, then you are likely to see an <bpt id="53e0fc8c-5de9-4766-bd12-3f1e0d7b8926">&lt;strong&gt;</bpt>Authentication failure<ept id="53e0fc8c-5de9-4766-bd12-3f1e0d7b8926">&lt;/strong&gt;</ept> error message.</source>
+          <target state="new">If your CHAP configuration is incorrect, then you are likely to see an <bpt id="53e0fc8c-5de9-4766-bd12-3f1e0d7b8926">&lt;strong&gt;</bpt>Authentication failure<ept id="53e0fc8c-5de9-4766-bd12-3f1e0d7b8926">&lt;/strong&gt;</ept> error message.</target>
+        </trans-unit>
+        <trans-unit id="6efc449b-8ea7-443f-bc19-22dcf32a9508" xml:space="preserve">
+          <source>You can verify that CHAP is being used by completing the following steps.</source>
+          <target state="new">You can verify that CHAP is being used by completing the following steps.</target>
+        </trans-unit>
+        <trans-unit id="c6c8b8cc-13e4-4063-9f51-fe81e16f0d92" xml:space="preserve">
+          <source>Click <bpt id="0097b86b-9f27-4ca5-8c71-430eec1ccc4d">&lt;strong&gt;</bpt>Favorite Targets<ept id="0097b86b-9f27-4ca5-8c71-430eec1ccc4d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0097b86b-9f27-4ca5-8c71-430eec1ccc4d">&lt;strong&gt;</bpt>Favorite Targets<ept id="0097b86b-9f27-4ca5-8c71-430eec1ccc4d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6503249f-8f12-4ef9-ae3a-a7f8b0835b99" xml:space="preserve">
+          <source>Select the target for which you enabled authentication.</source>
+          <target state="new">Select the target for which you enabled authentication.</target>
+        </trans-unit>
+        <trans-unit id="a638b3a0-2d23-4609-9440-9eee461aba07" xml:space="preserve">
+          <source>Click <bpt id="07765541-971a-46a9-a6cc-7187c63d73d7">&lt;strong&gt;</bpt>Details<ept id="07765541-971a-46a9-a6cc-7187c63d73d7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="07765541-971a-46a9-a6cc-7187c63d73d7">&lt;strong&gt;</bpt>Details<ept id="07765541-971a-46a9-a6cc-7187c63d73d7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="314bad1e-9fe4-495e-914b-470cf82fe506" xml:space="preserve">
+          <source><bpt id="1cce6f67-9665-4509-adec-b5b9c2780713">&lt;linkText&gt;</bpt>iSCSI initiator properties favorite targets<ept id="1cce6f67-9665-4509-adec-b5b9c2780713">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1cce6f67-9665-4509-adec-b5b9c2780713">&lt;linkText&gt;</bpt>iSCSI initiator properties favorite targets<ept id="1cce6f67-9665-4509-adec-b5b9c2780713">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="123d7528-bef6-4159-9b3e-bea4e9796ae0" xml:space="preserve">
+          <source>In the <bpt id="c8c6b14d-58fc-40fd-87c2-f16484dad80f">&lt;strong&gt;</bpt>Favorite Target Details<ept id="c8c6b14d-58fc-40fd-87c2-f16484dad80f">&lt;/strong&gt;</ept> dialog box, note the entry in the <bpt id="6c07520b-ad7a-4d61-8336-c4d206c656c9">&lt;strong&gt;</bpt>Authentication<ept id="6c07520b-ad7a-4d61-8336-c4d206c656c9">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">In the <bpt id="c8c6b14d-58fc-40fd-87c2-f16484dad80f">&lt;strong&gt;</bpt>Favorite Target Details<ept id="c8c6b14d-58fc-40fd-87c2-f16484dad80f">&lt;/strong&gt;</ept> dialog box, note the entry in the <bpt id="6c07520b-ad7a-4d61-8336-c4d206c656c9">&lt;strong&gt;</bpt>Authentication<ept id="6c07520b-ad7a-4d61-8336-c4d206c656c9">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="2dab1ff0-ddcd-4385-93cb-f8742caa991f" xml:space="preserve">
+          <source>If the configuration was successful, it should say <bpt id="2fff82e3-7e5e-4e79-b91d-31e5118fd437">&lt;strong&gt;</bpt>CHAP<ept id="2fff82e3-7e5e-4e79-b91d-31e5118fd437">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the configuration was successful, it should say <bpt id="2fff82e3-7e5e-4e79-b91d-31e5118fd437">&lt;strong&gt;</bpt>CHAP<ept id="2fff82e3-7e5e-4e79-b91d-31e5118fd437">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e1794da-308f-40fa-a713-5bc1be979c26" xml:space="preserve">
+          <source><bpt id="04bbda20-3344-4b03-9c4f-cebee270147c">&lt;linkText&gt;</bpt>Favorite target details<ept id="04bbda20-3344-4b03-9c4f-cebee270147c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="04bbda20-3344-4b03-9c4f-cebee270147c">&lt;linkText&gt;</bpt>Favorite target details<ept id="04bbda20-3344-4b03-9c4f-cebee270147c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80f1527d-c5c6-4b91-a303-0be01cd37cd8" xml:space="preserve">
+          <source>Learn more about <bpt id="1f9fc4df-ecea-4065-ba00-202f89cb729b">&lt;linkText&gt;</bpt>StorSimple security<ept id="1f9fc4df-ecea-4065-ba00-202f89cb729b">&lt;/linkText&gt;</ept><bpt id="1f9fc4df-ecea-4065-ba00-202f89cb729b">&lt;title&gt;</bpt><ept id="1f9fc4df-ecea-4065-ba00-202f89cb729b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about <bpt id="1f9fc4df-ecea-4065-ba00-202f89cb729b">&lt;linkText&gt;</bpt>StorSimple security<ept id="1f9fc4df-ecea-4065-ba00-202f89cb729b">&lt;/linkText&gt;</ept><bpt id="1f9fc4df-ecea-4065-ba00-202f89cb729b">&lt;title&gt;</bpt><ept id="1f9fc4df-ecea-4065-ba00-202f89cb729b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="64c78a2d-806c-4a73-998c-a9f04e207d41" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="64c78a2d-806c-4a73-998c-a9f04e207d41" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="53bfda6b-df48-422c-a44f-95fd8f9a0b76">
+        <trans-unit id="58a7abb6-9c7b-4923-ae24-06a22018c1c3" xml:space="preserve">
+          <source>Service Bus AMQP overview | Microsoft Azure</source>
+          <target state="new">Service Bus AMQP overview | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="363af7a6-b361-4fe8-9790-18d0c6133396" xml:space="preserve">
+          <source>Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure.</source>
+          <target state="new">Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure.</target>
+        </trans-unit>
+        <trans-unit id="2eab8f50-e68c-489c-b624-cb76c49a98e7" xml:space="preserve">
+          <source>Both the Azure Service Bus cloud service and on-prem <bpt id="7f987682-72c8-41e0-9ee5-37eeb6a7c7d0">&lt;linkText&gt;</bpt>Service Bus for Windows Server (Service Bus 1.1)<ept id="7f987682-72c8-41e0-9ee5-37eeb6a7c7d0">&lt;/linkText&gt;</ept><bpt id="7f987682-72c8-41e0-9ee5-37eeb6a7c7d0">&lt;title&gt;</bpt><ept id="7f987682-72c8-41e0-9ee5-37eeb6a7c7d0">&lt;/title&gt;</ept> support the Advanced Message Queueing Protocol (AMQP) 1.0.</source>
+          <target state="new">Both the Azure Service Bus cloud service and on-prem <bpt id="7f987682-72c8-41e0-9ee5-37eeb6a7c7d0">&lt;linkText&gt;</bpt>Service Bus for Windows Server (Service Bus 1.1)<ept id="7f987682-72c8-41e0-9ee5-37eeb6a7c7d0">&lt;/linkText&gt;</ept><bpt id="7f987682-72c8-41e0-9ee5-37eeb6a7c7d0">&lt;title&gt;</bpt><ept id="7f987682-72c8-41e0-9ee5-37eeb6a7c7d0">&lt;/title&gt;</ept> support the Advanced Message Queueing Protocol (AMQP) 1.0.</target>
+        </trans-unit>
+        <trans-unit id="0695e895-35fb-4eef-a232-731e84412945" xml:space="preserve">
+          <source>AMQP enables you to build cross-platform, hybrid applications using an open standard protocol.</source>
+          <target state="new">AMQP enables you to build cross-platform, hybrid applications using an open standard protocol.</target>
+        </trans-unit>
+        <trans-unit id="19c7b7e0-21da-4c42-8fb6-9501ab8d1299" xml:space="preserve">
+          <source>You can construct applications using components that are built using different languages and frameworks, and that run on different operating systems.</source>
+          <target state="new">You can construct applications using components that are built using different languages and frameworks, and that run on different operating systems.</target>
+        </trans-unit>
+        <trans-unit id="8cc72cde-a45d-4d97-ab31-cc27bd218bca" xml:space="preserve">
+          <source>All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.</source>
+          <target state="new">All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.</target>
+        </trans-unit>
+        <trans-unit id="1dc82acd-9def-460e-af84-d89221cfbdf6" xml:space="preserve">
+          <source>Traditionally, message-oriented middleware products have used proprietary protocols for communication between client applications and brokers.</source>
+          <target state="new">Traditionally, message-oriented middleware products have used proprietary protocols for communication between client applications and brokers.</target>
+        </trans-unit>
+        <trans-unit id="3e908407-cc42-4809-bf05-516a04a6da52" xml:space="preserve">
+          <source>This means that once you've selected a particular vendor's messaging broker, you must use that vendor's libraries to connect your client applications to that broker.</source>
+          <target state="new">This means that once you've selected a particular vendor's messaging broker, you must use that vendor's libraries to connect your client applications to that broker.</target>
+        </trans-unit>
+        <trans-unit id="68494d63-f35b-4680-af47-57d0985170e1" xml:space="preserve">
+          <source>This results in a degree of dependence on that vendor, since porting an application to a different product requires code changes in all the connected applications.</source>
+          <target state="new">This results in a degree of dependence on that vendor, since porting an application to a different product requires code changes in all the connected applications.</target>
+        </trans-unit>
+        <trans-unit id="74671275-07ce-41a2-9b2b-919a251e35fb" xml:space="preserve">
+          <source>Furthermore, connecting messaging brokers from different vendors is tricky.</source>
+          <target state="new">Furthermore, connecting messaging brokers from different vendors is tricky.</target>
+        </trans-unit>
+        <trans-unit id="3219f6bd-f86a-44cc-987d-b8512f31ffd4" xml:space="preserve">
+          <source>This typically requires application-level bridging to move messages from one system to another and to translate between their proprietary message formats.</source>
+          <target state="new">This typically requires application-level bridging to move messages from one system to another and to translate between their proprietary message formats.</target>
+        </trans-unit>
+        <trans-unit id="1d104c48-eb35-4383-b0eb-c5b8cf3bd6b3" xml:space="preserve">
+          <source>This is a common requirement; for example, when you must provide a new unified interface to older disparate systems, or integrate IT systems following a merger.</source>
+          <target state="new">This is a common requirement; for example, when you must provide a new unified interface to older disparate systems, or integrate IT systems following a merger.</target>
+        </trans-unit>
+        <trans-unit id="c3f92b28-f865-4c90-9046-62c08505f70a" xml:space="preserve">
+          <source>The software industry is a fast-moving business; new programming languages and application frameworks are introduced at a sometimes bewildering pace.</source>
+          <target state="new">The software industry is a fast-moving business; new programming languages and application frameworks are introduced at a sometimes bewildering pace.</target>
+        </trans-unit>
+        <trans-unit id="05969cca-70b6-429e-a6e1-1a08ed1e69be" xml:space="preserve">
+          <source>Similarly, the requirements of IT systems evolve over time and developers want to take advantage of the latest platform features.</source>
+          <target state="new">Similarly, the requirements of IT systems evolve over time and developers want to take advantage of the latest platform features.</target>
+        </trans-unit>
+        <trans-unit id="e2d3ac87-f1c4-4433-8466-334bae8881fe" xml:space="preserve">
+          <source>However, sometimes the selected messaging vendor does not support these platforms.</source>
+          <target state="new">However, sometimes the selected messaging vendor does not support these platforms.</target>
+        </trans-unit>
+        <trans-unit id="a5c87653-e46a-4675-a52e-4d60507b6f75" xml:space="preserve">
+          <source>Because messaging protocols are proprietary, it's not possible for others to provide libraries for these new platforms.</source>
+          <target state="new">Because messaging protocols are proprietary, it's not possible for others to provide libraries for these new platforms.</target>
+        </trans-unit>
+        <trans-unit id="3f47b093-84d2-44c9-ab96-79d07b49c36e" xml:space="preserve">
+          <source>Therefore, you must use approaches such as building gateways or bridges that enable you to continue to use the messaging product.</source>
+          <target state="new">Therefore, you must use approaches such as building gateways or bridges that enable you to continue to use the messaging product.</target>
+        </trans-unit>
+        <trans-unit id="258ddeef-16ef-4be1-b9df-cdf97621d697" xml:space="preserve">
+          <source>The development of the Advanced Message Queuing Protocol (AMQP) 1.0 was motivated by these issues.</source>
+          <target state="new">The development of the Advanced Message Queuing Protocol (AMQP) 1.0 was motivated by these issues.</target>
+        </trans-unit>
+        <trans-unit id="9033aa5f-7aaa-4a97-a684-27f474feffed" xml:space="preserve">
+          <source>It originated at JP Morgan Chase, who, like most financial services firms, are heavy users of message-oriented middleware.</source>
+          <target state="new">It originated at JP Morgan Chase, who, like most financial services firms, are heavy users of message-oriented middleware.</target>
+        </trans-unit>
+        <trans-unit id="4946552d-87c0-4269-8084-15623cae6dd7" xml:space="preserve">
+          <source>The goal was simple: to create an open-standard messaging protocol that made it possible to build message-based applications using components built using different languages, frameworks, and operating systems, all using best-of-breed components from a range of suppliers.</source>
+          <target state="new">The goal was simple: to create an open-standard messaging protocol that made it possible to build message-based applications using components built using different languages, frameworks, and operating systems, all using best-of-breed components from a range of suppliers.</target>
+        </trans-unit>
+        <trans-unit id="7a8fc8d5-c8cc-439a-9a08-8962f4476a88" xml:space="preserve">
+          <source>AMQP 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform, messaging applications.</source>
+          <target state="new">AMQP 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform, messaging applications.</target>
+        </trans-unit>
+        <trans-unit id="01cbd0b2-2a6e-445e-897a-cf996cba5f21" xml:space="preserve">
+          <source>The protocol has a simple goal: to define the mechanics of the secure, reliable, and efficient transfer of messages between two parties.</source>
+          <target state="new">The protocol has a simple goal: to define the mechanics of the secure, reliable, and efficient transfer of messages between two parties.</target>
+        </trans-unit>
+        <trans-unit id="0f036d5c-7bde-4336-86ad-c9131bcc1cd0" xml:space="preserve">
+          <source>The messages themselves are encoded using a portable data representation that enables heterogeneous senders and receivers to exchange structured business messages at full fidelity.</source>
+          <target state="new">The messages themselves are encoded using a portable data representation that enables heterogeneous senders and receivers to exchange structured business messages at full fidelity.</target>
+        </trans-unit>
+        <trans-unit id="4badcd97-0725-41eb-b0f9-81bfa0b7f3f7" xml:space="preserve">
+          <source>The following is a summary of the most important features:</source>
+          <target state="new">The following is a summary of the most important features:</target>
+        </trans-unit>
+        <trans-unit id="77d8b829-c2fc-4bd1-a8d3-c48161f48cec" xml:space="preserve">
+          <source><bpt id="657edcd5-7ef4-4f07-a2cd-7f05309926ee">&lt;strong&gt;</bpt>Efficient<ept id="657edcd5-7ef4-4f07-a2cd-7f05309926ee">&lt;/strong&gt;</ept>: AMQP 1.0 is a connection-oriented protocol that uses a binary encoding for the protocol instructions and the business messages transferred over it.</source>
+          <target state="new"><bpt id="657edcd5-7ef4-4f07-a2cd-7f05309926ee">&lt;strong&gt;</bpt>Efficient<ept id="657edcd5-7ef4-4f07-a2cd-7f05309926ee">&lt;/strong&gt;</ept>: AMQP 1.0 is a connection-oriented protocol that uses a binary encoding for the protocol instructions and the business messages transferred over it.</target>
+        </trans-unit>
+        <trans-unit id="51cfb146-3561-410a-a51d-33d39bf83392" xml:space="preserve">
+          <source>It incorporates sophisticated flow-control schemes to maximize the utilization of the network and the connected components.</source>
+          <target state="new">It incorporates sophisticated flow-control schemes to maximize the utilization of the network and the connected components.</target>
+        </trans-unit>
+        <trans-unit id="1f500d87-a29c-49cc-a1e6-f74b441b2460" xml:space="preserve">
+          <source>That said, the protocol was designed to strike a balance between efficiency, flexibility and interoperability.</source>
+          <target state="new">That said, the protocol was designed to strike a balance between efficiency, flexibility and interoperability.</target>
+        </trans-unit>
+        <trans-unit id="4581150d-6bc5-4529-8f27-d183d9985537" xml:space="preserve">
+          <source><bpt id="0d4e6281-48aa-4f4a-816e-2621cbad48ff">&lt;strong&gt;</bpt>Reliable<ept id="0d4e6281-48aa-4f4a-816e-2621cbad48ff">&lt;/strong&gt;</ept>: The AMQP 1.0 protocol allows messages to be exchanged with a range of reliability guarantees, from fire-and-forget to reliable, exactly-once acknowledged delivery.</source>
+          <target state="new"><bpt id="0d4e6281-48aa-4f4a-816e-2621cbad48ff">&lt;strong&gt;</bpt>Reliable<ept id="0d4e6281-48aa-4f4a-816e-2621cbad48ff">&lt;/strong&gt;</ept>: The AMQP 1.0 protocol allows messages to be exchanged with a range of reliability guarantees, from fire-and-forget to reliable, exactly-once acknowledged delivery.</target>
+        </trans-unit>
+        <trans-unit id="823bf0cd-922c-499d-a428-91f9f88d831c" xml:space="preserve">
+          <source><bpt id="a79acfe6-06ef-4023-87bd-888654966649">&lt;strong&gt;</bpt>Flexible<ept id="a79acfe6-06ef-4023-87bd-888654966649">&lt;/strong&gt;</ept>: AMQP 1.0 is a flexible protocol that can be used to support different topologies.</source>
+          <target state="new"><bpt id="a79acfe6-06ef-4023-87bd-888654966649">&lt;strong&gt;</bpt>Flexible<ept id="a79acfe6-06ef-4023-87bd-888654966649">&lt;/strong&gt;</ept>: AMQP 1.0 is a flexible protocol that can be used to support different topologies.</target>
+        </trans-unit>
+        <trans-unit id="db97f4b5-3287-4700-a4ca-cb04520a6492" xml:space="preserve">
+          <source>The same protocol can be used for client-to-client, client-to-broker, and broker-to-broker communications.</source>
+          <target state="new">The same protocol can be used for client-to-client, client-to-broker, and broker-to-broker communications.</target>
+        </trans-unit>
+        <trans-unit id="33f5516c-ef26-47d7-b104-af247b7aa835" xml:space="preserve">
+          <source><bpt id="989e68d4-7028-450a-9c1b-8e6fd5da8c2d">&lt;strong&gt;</bpt>Broker-model independent<ept id="989e68d4-7028-450a-9c1b-8e6fd5da8c2d">&lt;/strong&gt;</ept>: The AMQP 1.0 specification does not make any requirements on the messaging model used by a broker.</source>
+          <target state="new"><bpt id="989e68d4-7028-450a-9c1b-8e6fd5da8c2d">&lt;strong&gt;</bpt>Broker-model independent<ept id="989e68d4-7028-450a-9c1b-8e6fd5da8c2d">&lt;/strong&gt;</ept>: The AMQP 1.0 specification does not make any requirements on the messaging model used by a broker.</target>
+        </trans-unit>
+        <trans-unit id="e9a674d0-536b-4098-a64c-a581b17db6ba" xml:space="preserve">
+          <source>This means that it's possible to easily add AMQP 1.0 support to existing messaging brokers.</source>
+          <target state="new">This means that it's possible to easily add AMQP 1.0 support to existing messaging brokers.</target>
+        </trans-unit>
+        <trans-unit id="fc4b7db0-196f-4da9-87b6-30000c527e34" xml:space="preserve">
+          <source>AMQP 1.0 has been in development since 2008 by a core group of more than 20 companies, both technology suppliers and end-user firms.</source>
+          <target state="new">AMQP 1.0 has been in development since 2008 by a core group of more than 20 companies, both technology suppliers and end-user firms.</target>
+        </trans-unit>
+        <trans-unit id="8c7b2235-6dfc-4da2-87cf-4e8d30fa431f" xml:space="preserve">
+          <source>During that time, user firms have contributed their real-world business requirements and the technology vendors have evolved the protocol to meet those requirements.</source>
+          <target state="new">During that time, user firms have contributed their real-world business requirements and the technology vendors have evolved the protocol to meet those requirements.</target>
+        </trans-unit>
+        <trans-unit id="8d4cd2a4-722c-4d92-a95d-65de63519950" xml:space="preserve">
+          <source>Throughout the process, vendors have participated in workshops in which they collaborated to validate the interoperability between their implementations.</source>
+          <target state="new">Throughout the process, vendors have participated in workshops in which they collaborated to validate the interoperability between their implementations.</target>
+        </trans-unit>
+        <trans-unit id="db3f3c3d-b7b3-4255-83ff-567b98aab43f" xml:space="preserve">
+          <source>In October 2011, the development work transitioned to a technical committee within the Organization for the Advancement of Structured Information Standards (OASIS) and the OASIS AMQP 1.0 Standard was released in October 2012.</source>
+          <target state="new">In October 2011, the development work transitioned to a technical committee within the Organization for the Advancement of Structured Information Standards (OASIS) and the OASIS AMQP 1.0 Standard was released in October 2012.</target>
+        </trans-unit>
+        <trans-unit id="81b6d3fd-77d4-4373-b5e7-b0136c3da698" xml:space="preserve">
+          <source>The following firms participated in the technical committee during the development of the standard:</source>
+          <target state="new">The following firms participated in the technical committee during the development of the standard:</target>
+        </trans-unit>
+        <trans-unit id="8127b662-41de-4182-98a7-cebe216df048" xml:space="preserve">
+          <source><bpt id="831913c2-a05b-4ec0-95d0-1c0372af2ecb">&lt;strong&gt;</bpt>Technology vendors<ept id="831913c2-a05b-4ec0-95d0-1c0372af2ecb">&lt;/strong&gt;</ept>: Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.</source>
+          <target state="new"><bpt id="831913c2-a05b-4ec0-95d0-1c0372af2ecb">&lt;strong&gt;</bpt>Technology vendors<ept id="831913c2-a05b-4ec0-95d0-1c0372af2ecb">&lt;/strong&gt;</ept>: Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.</target>
+        </trans-unit>
+        <trans-unit id="373727e7-5d0d-4131-8a0e-20551bf70d7a" xml:space="preserve">
+          <source><bpt id="28543761-d7cb-4ecd-b4fa-66df1f5197d5">&lt;strong&gt;</bpt>User firms<ept id="28543761-d7cb-4ecd-b4fa-66df1f5197d5">&lt;/strong&gt;</ept>: Bank of America, Credit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.</source>
+          <target state="new"><bpt id="28543761-d7cb-4ecd-b4fa-66df1f5197d5">&lt;strong&gt;</bpt>User firms<ept id="28543761-d7cb-4ecd-b4fa-66df1f5197d5">&lt;/strong&gt;</ept>: Bank of America, Credit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.</target>
+        </trans-unit>
+        <trans-unit id="6312ab26-c4d6-489e-b335-f9cd47e3056b" xml:space="preserve">
+          <source>Some of the commonly cited benefits of open standards include:</source>
+          <target state="new">Some of the commonly cited benefits of open standards include:</target>
+        </trans-unit>
+        <trans-unit id="7ea9eb7d-2d73-4c1b-985a-b417c4d1e99a" xml:space="preserve">
+          <source>Less chance of vendor lock-in</source>
+          <target state="new">Less chance of vendor lock-in</target>
+        </trans-unit>
+        <trans-unit id="26919763-41b9-431e-8f84-0f6af0c29fea" xml:space="preserve">
+          <source>Interoperability</source>
+          <target state="new">Interoperability</target>
+        </trans-unit>
+        <trans-unit id="3caf5995-f634-4aaa-ad00-26249e1ca447" xml:space="preserve">
+          <source>Broad availability of libraries and tooling</source>
+          <target state="new">Broad availability of libraries and tooling</target>
+        </trans-unit>
+        <trans-unit id="b73329b7-0f83-437a-9f83-0324952de6b3" xml:space="preserve">
+          <source>Protection against obsolescence</source>
+          <target state="new">Protection against obsolescence</target>
+        </trans-unit>
+        <trans-unit id="6344e9d1-c8cf-415e-b284-1b2216b7ebcd" xml:space="preserve">
+          <source>Availability of knowledgeable staff</source>
+          <target state="new">Availability of knowledgeable staff</target>
+        </trans-unit>
+        <trans-unit id="0d6987e0-ac74-4bfb-94a3-40e465fa6772" xml:space="preserve">
+          <source>Lower and manageable risk</source>
+          <target state="new">Lower and manageable risk</target>
+        </trans-unit>
+        <trans-unit id="d2f29567-e637-4ab5-81ab-f1906c8d011b" xml:space="preserve">
+          <source>AMQP 1.0 support in Azure Service Bus means that you can now leverage the Service Bus queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol.</source>
+          <target state="new">AMQP 1.0 support in Azure Service Bus means that you can now leverage the Service Bus queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol.</target>
+        </trans-unit>
+        <trans-unit id="9e4fcecf-b75e-4add-ae28-973df57eccd1" xml:space="preserve">
+          <source>Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.</source>
+          <target state="new">Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.</target>
+        </trans-unit>
+        <trans-unit id="5b6a31b7-7ec0-49ab-a6af-636bc845d9a4" xml:space="preserve">
+          <source>The following figure illustrates an example deployment in which Java clients running on Linux, written using the standard Java Message Service (JMS) API and .NET clients running on Windows, exchange messages via Service Bus using AMQP 1.0.</source>
+          <target state="new">The following figure illustrates an example deployment in which Java clients running on Linux, written using the standard Java Message Service (JMS) API and .NET clients running on Windows, exchange messages via Service Bus using AMQP 1.0.</target>
+        </trans-unit>
+        <trans-unit id="03db804e-1c1f-490e-948f-32da87747f09" xml:space="preserve">
+          <source><bpt id="3eb43584-955d-4da1-8c6c-19b907a1ea5e">&lt;linkText&gt;</bpt><ept id="3eb43584-955d-4da1-8c6c-19b907a1ea5e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3eb43584-955d-4da1-8c6c-19b907a1ea5e">&lt;linkText&gt;</bpt><ept id="3eb43584-955d-4da1-8c6c-19b907a1ea5e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1daaf7f3-ba26-4fd0-aac4-53a49aadcb4c" xml:space="preserve">
+          <source><bpt id="3f802570-a33a-4ea8-9a00-ababab2e96f6">&lt;strong&gt;</bpt>Figure 1: Example deployment scenario showing cross-platform messaging using Service Bus and AMQP 1.0<ept id="3f802570-a33a-4ea8-9a00-ababab2e96f6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3f802570-a33a-4ea8-9a00-ababab2e96f6">&lt;strong&gt;</bpt>Figure 1: Example deployment scenario showing cross-platform messaging using Service Bus and AMQP 1.0<ept id="3f802570-a33a-4ea8-9a00-ababab2e96f6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b122108-ccd0-408b-9644-00f0c046b764" xml:space="preserve">
+          <source>At this time the following client libraries are known to work with Service Bus:</source>
+          <target state="new">At this time the following client libraries are known to work with Service Bus:</target>
+        </trans-unit>
+        <trans-unit id="b3d78b1d-ef0b-4501-86b4-26b1e5faeb95" xml:space="preserve">
+          <source>Language</source>
+          <target state="new">Language</target>
+        </trans-unit>
+        <trans-unit id="616e376f-fc76-491a-8be8-cf23c2405cd7" xml:space="preserve">
+          <source>Library</source>
+          <target state="new">Library</target>
+        </trans-unit>
+        <trans-unit id="626ec520-8f94-4bc2-8984-dff0e594a08e" xml:space="preserve">
+          <source>Java</source>
+          <target state="new">Java</target>
+        </trans-unit>
+        <trans-unit id="3eda236e-40c7-46de-b253-966b1e645ddf" xml:space="preserve">
+          <source>Apache Qpid Java Message Service (JMS) client&lt;br/&gt;IIT Software SwiftMQ Java client</source>
+          <target state="new">Apache Qpid Java Message Service (JMS) client&lt;br/&gt;IIT Software SwiftMQ Java client</target>
+        </trans-unit>
+        <trans-unit id="a72ffe20-6895-45a8-b33a-8b538c26208b" xml:space="preserve">
+          <source>C</source>
+          <target state="new">C</target>
+        </trans-unit>
+        <trans-unit id="91459fa2-05b5-4564-bce6-bde6a1d4bf57" xml:space="preserve">
+          <source>Apache Qpid Proton-C</source>
+          <target state="new">Apache Qpid Proton-C</target>
+        </trans-unit>
+        <trans-unit id="5d01a7d6-e6b0-463b-a878-4801bee88843" xml:space="preserve">
+          <source>PHP</source>
+          <target state="new">PHP</target>
+        </trans-unit>
+        <trans-unit id="9edc169c-803a-4713-b5cc-ed05fdbc2c62" xml:space="preserve">
+          <source>Apache Qpid Proton-PHP</source>
+          <target state="new">Apache Qpid Proton-PHP</target>
+        </trans-unit>
+        <trans-unit id="a87ab88d-8acd-402b-b54a-f43739726660" xml:space="preserve">
+          <source>Python</source>
+          <target state="new">Python</target>
+        </trans-unit>
+        <trans-unit id="cbcbfe07-c3a8-4bfb-adaa-fc1f4aa09943" xml:space="preserve">
+          <source>Apache Qpid Proton-Python</source>
+          <target state="new">Apache Qpid Proton-Python</target>
+        </trans-unit>
+        <trans-unit id="af514a75-5f4c-4672-a58c-16236040b1bc" xml:space="preserve">
+          <source>C#</source>
+          <target state="new">C#</target>
+        </trans-unit>
+        <trans-unit id="a78268e8-d645-4509-8e58-0045abbf6e97" xml:space="preserve">
+          <source>AMQP .Net Lite</source>
+          <target state="new">AMQP .Net Lite</target>
+        </trans-unit>
+        <trans-unit id="49422831-948c-4113-aa1d-14c7d534a2e7" xml:space="preserve">
+          <source><bpt id="500861da-deb3-4aa6-9f62-74240547e30a">&lt;strong&gt;</bpt>Figure 2: Table of AMQP 1.0 client libraries<ept id="500861da-deb3-4aa6-9f62-74240547e30a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="500861da-deb3-4aa6-9f62-74240547e30a">&lt;strong&gt;</bpt>Figure 2: Table of AMQP 1.0 client libraries<ept id="500861da-deb3-4aa6-9f62-74240547e30a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4ecec1f-3297-43d0-9ed4-828e80beb959" xml:space="preserve">
+          <source>For more information about how to obtain and use these libraries with Service Bus, see the <bpt id="b0a66e34-5805-488f-9e31-a0f78da616f1">&lt;linkText&gt;</bpt>Service Bus AMQP Developer's Guide<ept id="b0a66e34-5805-488f-9e31-a0f78da616f1">&lt;/linkText&gt;</ept><bpt id="b0a66e34-5805-488f-9e31-a0f78da616f1">&lt;title&gt;</bpt><ept id="b0a66e34-5805-488f-9e31-a0f78da616f1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to obtain and use these libraries with Service Bus, see the <bpt id="b0a66e34-5805-488f-9e31-a0f78da616f1">&lt;linkText&gt;</bpt>Service Bus AMQP Developer's Guide<ept id="b0a66e34-5805-488f-9e31-a0f78da616f1">&lt;/linkText&gt;</ept><bpt id="b0a66e34-5805-488f-9e31-a0f78da616f1">&lt;title&gt;</bpt><ept id="b0a66e34-5805-488f-9e31-a0f78da616f1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7a74682-0ee9-4684-b765-7fb48bb2f166" xml:space="preserve">
+          <source>See the "References" section below for further information.</source>
+          <target state="new">See the "References" section below for further information.</target>
+        </trans-unit>
+        <trans-unit id="ecc7a25d-a8ff-4c8c-9a41-b6e25c9d5642" xml:space="preserve">
+          <source>AMQP 1.0 is an open, reliable messaging protocol that you can use to build cross-platform, hybrid applications.</source>
+          <target state="new">AMQP 1.0 is an open, reliable messaging protocol that you can use to build cross-platform, hybrid applications.</target>
+        </trans-unit>
+        <trans-unit id="7e37a1af-5102-408c-9ccc-a30d917ac7af" xml:space="preserve">
+          <source>AMQP 1.0 is an OASIS standard.</source>
+          <target state="new">AMQP 1.0 is an OASIS standard.</target>
+        </trans-unit>
+        <trans-unit id="e2622898-c072-4fcd-bf9d-399c503f5e2e" xml:space="preserve">
+          <source>AMQP 1.0 support is now available in Azure Service Bus as well as Service Bus for Windows Server (Service Bus 1.1).</source>
+          <target state="new">AMQP 1.0 support is now available in Azure Service Bus as well as Service Bus for Windows Server (Service Bus 1.1).</target>
+        </trans-unit>
+        <trans-unit id="6654b729-db63-47f2-9201-0aed096fe9e2" xml:space="preserve">
+          <source>Pricing is the same as for the existing protocols.</source>
+          <target state="new">Pricing is the same as for the existing protocols.</target>
+        </trans-unit>
+        <trans-unit id="0e2cbc24-13bc-4cdb-894b-12d993d33747" xml:space="preserve">
+          <source><bpt id="4c2a5a90-de9b-4f23-8368-4741b2d488e5">&lt;linkText&gt;</bpt>How to use AMQP 1.0 with the Service Bus .NET API<ept id="4c2a5a90-de9b-4f23-8368-4741b2d488e5">&lt;/linkText&gt;</ept><bpt id="4c2a5a90-de9b-4f23-8368-4741b2d488e5">&lt;title&gt;</bpt><ept id="4c2a5a90-de9b-4f23-8368-4741b2d488e5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4c2a5a90-de9b-4f23-8368-4741b2d488e5">&lt;linkText&gt;</bpt>How to use AMQP 1.0 with the Service Bus .NET API<ept id="4c2a5a90-de9b-4f23-8368-4741b2d488e5">&lt;/linkText&gt;</ept><bpt id="4c2a5a90-de9b-4f23-8368-4741b2d488e5">&lt;title&gt;</bpt><ept id="4c2a5a90-de9b-4f23-8368-4741b2d488e5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d686ede-3ed5-4e3b-88b5-febc2817afce" xml:space="preserve">
+          <source><bpt id="e82f28d0-8282-4b69-a932-64cb6d8e9ee1">&lt;linkText&gt;</bpt>How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0<ept id="e82f28d0-8282-4b69-a932-64cb6d8e9ee1">&lt;/linkText&gt;</ept><bpt id="e82f28d0-8282-4b69-a932-64cb6d8e9ee1">&lt;title&gt;</bpt><ept id="e82f28d0-8282-4b69-a932-64cb6d8e9ee1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e82f28d0-8282-4b69-a932-64cb6d8e9ee1">&lt;linkText&gt;</bpt>How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0<ept id="e82f28d0-8282-4b69-a932-64cb6d8e9ee1">&lt;/linkText&gt;</ept><bpt id="e82f28d0-8282-4b69-a932-64cb6d8e9ee1">&lt;title&gt;</bpt><ept id="e82f28d0-8282-4b69-a932-64cb6d8e9ee1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6eba47a8-b06f-4b36-8121-c986ff5c7738" xml:space="preserve">
+          <source><bpt id="09d8d0c9-073d-466c-96d7-1f99f579d6a5">&lt;linkText&gt;</bpt>Service Bus AMQP Developer's Guide<ept id="09d8d0c9-073d-466c-96d7-1f99f579d6a5">&lt;/linkText&gt;</ept><bpt id="09d8d0c9-073d-466c-96d7-1f99f579d6a5">&lt;title&gt;</bpt><ept id="09d8d0c9-073d-466c-96d7-1f99f579d6a5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="09d8d0c9-073d-466c-96d7-1f99f579d6a5">&lt;linkText&gt;</bpt>Service Bus AMQP Developer's Guide<ept id="09d8d0c9-073d-466c-96d7-1f99f579d6a5">&lt;/linkText&gt;</ept><bpt id="09d8d0c9-073d-466c-96d7-1f99f579d6a5">&lt;title&gt;</bpt><ept id="09d8d0c9-073d-466c-96d7-1f99f579d6a5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66cf0512-f830-4454-83a0-6a04d153cb0c" xml:space="preserve">
+          <source><bpt id="0d5e0216-18dd-4336-b30f-9825a3fc1858">&lt;linkText&gt;</bpt>OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0 specification<ept id="0d5e0216-18dd-4336-b30f-9825a3fc1858">&lt;/linkText&gt;</ept><bpt id="0d5e0216-18dd-4336-b30f-9825a3fc1858">&lt;title&gt;</bpt><ept id="0d5e0216-18dd-4336-b30f-9825a3fc1858">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0d5e0216-18dd-4336-b30f-9825a3fc1858">&lt;linkText&gt;</bpt>OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0 specification<ept id="0d5e0216-18dd-4336-b30f-9825a3fc1858">&lt;/linkText&gt;</ept><bpt id="0d5e0216-18dd-4336-b30f-9825a3fc1858">&lt;title&gt;</bpt><ept id="0d5e0216-18dd-4336-b30f-9825a3fc1858">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b6be832-9c57-4da7-bebf-2a70cbb5acdb" xml:space="preserve">
+          <source>./media/service-bus-amqp-overview/Example1.png</source>
+          <target state="new">./media/service-bus-amqp-overview/Example1.png</target>
+        </trans-unit>
+        <trans-unit id="ebed6654-2103-48f8-bc3c-d7c09dc5895b" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/jj841071.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/jj841071.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="c8553c52-f0f0-406d-805b-b31bd5d6c22f" />
+    </body>
+  </file>
+</xliff>

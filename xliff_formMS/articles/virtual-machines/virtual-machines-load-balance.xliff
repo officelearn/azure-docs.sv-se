@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0af8d69c-5297-4a56-bef7-0698f7278aa5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0af8d69c-5297-4a56-bef7-0698f7278aa5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="80746db7-66f9-4246-9916-254c358d4bfc">
+        <trans-unit id="c936b573-00b8-46b6-89f3-b4c27fa0e4c2" xml:space="preserve">
+          <source>Load balancing for Azure infrastructure services</source>
+          <target state="new">Load balancing for Azure infrastructure services</target>
+        </trans-unit>
+        <trans-unit id="68ebcd70-660e-45cf-a029-6e82d80ed54c" xml:space="preserve">
+          <source>Describes the two different types of load balancing supported by Azure: Load balancer for cloud services and Azure Traffic Manager for client traffic.</source>
+          <target state="new">Describes the two different types of load balancing supported by Azure: Load balancer for cloud services and Azure Traffic Manager for client traffic.</target>
+        </trans-unit>
+        <trans-unit id="28f78cd4-3493-4a09-b71c-21203f0077d9" xml:space="preserve">
+          <source>There are two levels of load balancing available for Azure infrastructure services:</source>
+          <target state="new">There are two levels of load balancing available for Azure infrastructure services:</target>
+        </trans-unit>
+        <trans-unit id="91fc7223-032e-4aba-bf8e-5060a6e8c235" xml:space="preserve">
+          <source><bpt id="56c89313-82bc-4197-a10f-6464196eeba2">&lt;strong&gt;</bpt>DNS Level<ept id="56c89313-82bc-4197-a10f-6464196eeba2">&lt;/strong&gt;</ept>:  Load balancing for traffic to different cloud services located in different data centers, to different Azure websites located in different data centers, or to external endpoints.</source>
+          <target state="new"><bpt id="56c89313-82bc-4197-a10f-6464196eeba2">&lt;strong&gt;</bpt>DNS Level<ept id="56c89313-82bc-4197-a10f-6464196eeba2">&lt;/strong&gt;</ept>:  Load balancing for traffic to different cloud services located in different data centers, to different Azure websites located in different data centers, or to external endpoints.</target>
+        </trans-unit>
+        <trans-unit id="15ec50fc-d5d8-4330-a58d-c4f6a3b4e908" xml:space="preserve">
+          <source>This is done with Azure Traffic Manager and the Round Robin load balancing method.</source>
+          <target state="new">This is done with Azure Traffic Manager and the Round Robin load balancing method.</target>
+        </trans-unit>
+        <trans-unit id="1cc9fd8d-5bc4-47a3-8bfa-aeec1616004f" xml:space="preserve">
+          <source><bpt id="0cd3e6bc-5efb-452a-8bb5-4da27b774957">&lt;strong&gt;</bpt>Network Level<ept id="0cd3e6bc-5efb-452a-8bb5-4da27b774957">&lt;/strong&gt;</ept>:  Load balancing of incoming Internet traffic to different virtual machines of a cloud service, or load balancing of traffic between virtual machines in a cloud service or virtual network.</source>
+          <target state="new"><bpt id="0cd3e6bc-5efb-452a-8bb5-4da27b774957">&lt;strong&gt;</bpt>Network Level<ept id="0cd3e6bc-5efb-452a-8bb5-4da27b774957">&lt;/strong&gt;</ept>:  Load balancing of incoming Internet traffic to different virtual machines of a cloud service, or load balancing of traffic between virtual machines in a cloud service or virtual network.</target>
+        </trans-unit>
+        <trans-unit id="ddee03c8-73e5-4838-a0fb-39432715fc88" xml:space="preserve">
+          <source>This is done with the Azure load balancer.</source>
+          <target state="new">This is done with the Azure load balancer.</target>
+        </trans-unit>
+        <trans-unit id="3decdfcd-58cc-4ed5-86fb-0e7c68a34e33" xml:space="preserve">
+          <source>Traffic Manager allows you to control the distribution of user traffic to endpoints, which can include cloud services, websites, external sites, and other Traffic Manager profiles.</source>
+          <target state="new">Traffic Manager allows you to control the distribution of user traffic to endpoints, which can include cloud services, websites, external sites, and other Traffic Manager profiles.</target>
+        </trans-unit>
+        <trans-unit id="118b5de6-cb9a-4be2-80f0-688ee3d4e460" xml:space="preserve">
+          <source>Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources.</source>
+          <target state="new">Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources.</target>
+        </trans-unit>
+        <trans-unit id="294b3a65-44fe-4550-be5e-9df4488d088f" xml:space="preserve">
+          <source>Your cloud services or websites can be running in different datacenters across the world.</source>
+          <target state="new">Your cloud services or websites can be running in different datacenters across the world.</target>
+        </trans-unit>
+        <trans-unit id="eb20a70a-2ca3-47d3-82ff-e6f4b42b9965" xml:space="preserve">
+          <source>You must use either REST or Windows PowerShell to configure external endpoints or Traffic Manager profiles as endpoints.</source>
+          <target state="new">You must use either REST or Windows PowerShell to configure external endpoints or Traffic Manager profiles as endpoints.</target>
+        </trans-unit>
+        <trans-unit id="d85411f2-dd13-4149-855d-c223c0f27356" xml:space="preserve">
+          <source>Traffic Manager uses three load-balancing methods to distribute traffic:</source>
+          <target state="new">Traffic Manager uses three load-balancing methods to distribute traffic:</target>
+        </trans-unit>
+        <trans-unit id="402d0b91-2ae1-4324-ada2-cadc3c99bc42" xml:space="preserve">
+          <source><bpt id="a4ee0399-a538-4dff-8db8-04c3e480a8bb">&lt;strong&gt;</bpt>Failover<ept id="a4ee0399-a538-4dff-8db8-04c3e480a8bb">&lt;/strong&gt;</ept>:  Use this method when you want to use a primary endpoint for all traffic, but provide backups in case the primary becomes unavailable.</source>
+          <target state="new"><bpt id="a4ee0399-a538-4dff-8db8-04c3e480a8bb">&lt;strong&gt;</bpt>Failover<ept id="a4ee0399-a538-4dff-8db8-04c3e480a8bb">&lt;/strong&gt;</ept>:  Use this method when you want to use a primary endpoint for all traffic, but provide backups in case the primary becomes unavailable.</target>
+        </trans-unit>
+        <trans-unit id="f0b649b1-1264-4f2c-a6c7-1ec6d29f0d34" xml:space="preserve">
+          <source><bpt id="3b344de8-21b3-4c6d-9cc3-aac324f5c5a5">&lt;strong&gt;</bpt>Performance<ept id="3b344de8-21b3-4c6d-9cc3-aac324f5c5a5">&lt;/strong&gt;</ept>:  Use this method when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.</source>
+          <target state="new"><bpt id="3b344de8-21b3-4c6d-9cc3-aac324f5c5a5">&lt;strong&gt;</bpt>Performance<ept id="3b344de8-21b3-4c6d-9cc3-aac324f5c5a5">&lt;/strong&gt;</ept>:  Use this method when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.</target>
+        </trans-unit>
+        <trans-unit id="195fdff1-419b-4c9d-9d46-5cd0ced780f3" xml:space="preserve">
+          <source><bpt id="1211522b-31f5-409f-9bae-4812184e0a0d">&lt;strong&gt;</bpt>Round Robin:<ept id="1211522b-31f5-409f-9bae-4812184e0a0d">&lt;/strong&gt;</ept>  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or websites in different datacenters.</source>
+          <target state="new"><bpt id="1211522b-31f5-409f-9bae-4812184e0a0d">&lt;strong&gt;</bpt>Round Robin:<ept id="1211522b-31f5-409f-9bae-4812184e0a0d">&lt;/strong&gt;</ept>  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or websites in different datacenters.</target>
+        </trans-unit>
+        <trans-unit id="b2e4ec16-3c5f-4de4-a5fe-1e30497b8322" xml:space="preserve">
+          <source>For more information, see <bpt id="d6cfa043-6cc7-4564-a305-802b1244aa77">&lt;linkText&gt;</bpt>About Traffic Manager Load Balancing Methods<ept id="d6cfa043-6cc7-4564-a305-802b1244aa77">&lt;/linkText&gt;</ept><bpt id="d6cfa043-6cc7-4564-a305-802b1244aa77">&lt;title&gt;</bpt><ept id="d6cfa043-6cc7-4564-a305-802b1244aa77">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d6cfa043-6cc7-4564-a305-802b1244aa77">&lt;linkText&gt;</bpt>About Traffic Manager Load Balancing Methods<ept id="d6cfa043-6cc7-4564-a305-802b1244aa77">&lt;/linkText&gt;</ept><bpt id="d6cfa043-6cc7-4564-a305-802b1244aa77">&lt;title&gt;</bpt><ept id="d6cfa043-6cc7-4564-a305-802b1244aa77">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f140dd84-5248-42ea-aed8-70c8f23454a3" xml:space="preserve">
+          <source>The following diagram shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.</source>
+          <target state="new">The following diagram shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.</target>
+        </trans-unit>
+        <trans-unit id="6d6e7b36-950e-493d-80cc-79d0d50d6a8d" xml:space="preserve">
+          <source><bpt id="eb868647-4ad3-4967-a2cf-7e9861544835">&lt;linkText&gt;</bpt>loadbalancing<ept id="eb868647-4ad3-4967-a2cf-7e9861544835">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb868647-4ad3-4967-a2cf-7e9861544835">&lt;linkText&gt;</bpt>loadbalancing<ept id="eb868647-4ad3-4967-a2cf-7e9861544835">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef35be3c-2a0e-4828-9589-b94c7581f1ae" xml:space="preserve">
+          <source>The basic process is the following:</source>
+          <target state="new">The basic process is the following:</target>
+        </trans-unit>
+        <trans-unit id="8a9e8484-d6e1-4ab8-903a-a7f15e9b4897" xml:space="preserve">
+          <source>An Internet client queries a domain name corresponding to a web service.</source>
+          <target state="new">An Internet client queries a domain name corresponding to a web service.</target>
+        </trans-unit>
+        <trans-unit id="ad18e2ff-98db-4d10-bd4d-c20b26c7d89b" xml:space="preserve">
+          <source>DNS forwards the name query request to Traffic Manager.</source>
+          <target state="new">DNS forwards the name query request to Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="0e5de697-227b-4b61-9acf-900e4c307729" xml:space="preserve">
+          <source>Traffic Manager chooses the next cloud service in the Round Robin list and sends back the DNS name.</source>
+          <target state="new">Traffic Manager chooses the next cloud service in the Round Robin list and sends back the DNS name.</target>
+        </trans-unit>
+        <trans-unit id="2b9355ef-4b5b-464e-b45d-e9e91839ee4a" xml:space="preserve">
+          <source>The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.</source>
+          <target state="new">The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.</target>
+        </trans-unit>
+        <trans-unit id="f408dee0-250e-4b9a-8b51-227f38ed9cf3" xml:space="preserve">
+          <source>The Internet client connects with the cloud service chosen by Traffic Manager.</source>
+          <target state="new">The Internet client connects with the cloud service chosen by Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="295930d2-2724-474a-be48-d285bce52710" xml:space="preserve">
+          <source>For more information, see <bpt id="74abc856-a3e9-4a00-97b7-d94d6f4ef1f6">&lt;linkText&gt;</bpt>Traffic Manager<ept id="74abc856-a3e9-4a00-97b7-d94d6f4ef1f6">&lt;/linkText&gt;</ept><bpt id="74abc856-a3e9-4a00-97b7-d94d6f4ef1f6">&lt;title&gt;</bpt><ept id="74abc856-a3e9-4a00-97b7-d94d6f4ef1f6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="74abc856-a3e9-4a00-97b7-d94d6f4ef1f6">&lt;linkText&gt;</bpt>Traffic Manager<ept id="74abc856-a3e9-4a00-97b7-d94d6f4ef1f6">&lt;/linkText&gt;</ept><bpt id="74abc856-a3e9-4a00-97b7-d94d6f4ef1f6">&lt;title&gt;</bpt><ept id="74abc856-a3e9-4a00-97b7-d94d6f4ef1f6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8ed6154-0e09-45b3-a72a-b5b5dd9ee177" xml:space="preserve">
+          <source>Virtual machines in the same cloud service or virtual network can communicate with each other directly using their private IP addresses.</source>
+          <target state="new">Virtual machines in the same cloud service or virtual network can communicate with each other directly using their private IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="91d2daee-1354-4f68-961c-c16e0a43f02f" xml:space="preserve">
+          <source>Computers and services outside the cloud service or virtual network can only communicate with virtual machines in a cloud service or virtual network with a configured endpoint.</source>
+          <target state="new">Computers and services outside the cloud service or virtual network can only communicate with virtual machines in a cloud service or virtual network with a configured endpoint.</target>
+        </trans-unit>
+        <trans-unit id="ddbddfd9-945f-464e-87a9-64c79b81a123" xml:space="preserve">
+          <source>An endpoint is a mapping of a public IP address and port to that private IP address and port of a virtual machine or web role within an Azure cloud service.</source>
+          <target state="new">An endpoint is a mapping of a public IP address and port to that private IP address and port of a virtual machine or web role within an Azure cloud service.</target>
+        </trans-unit>
+        <trans-unit id="3665f4df-f5e0-49fc-8a60-2b7332064c51" xml:space="preserve">
+          <source>The Azure Load Balancer randomly distributes a specific type of incoming traffic across multiple virtual machines or services in a configuration known as a load-balanced set.</source>
+          <target state="new">The Azure Load Balancer randomly distributes a specific type of incoming traffic across multiple virtual machines or services in a configuration known as a load-balanced set.</target>
+        </trans-unit>
+        <trans-unit id="1ad4a37f-3b91-4158-a375-c2a323b18e8a" xml:space="preserve">
+          <source>For example, you can spread the load of web request traffic across multiple web servers or web roles.</source>
+          <target state="new">For example, you can spread the load of web request traffic across multiple web servers or web roles.</target>
+        </trans-unit>
+        <trans-unit id="27a47eaa-3391-42f4-b5d0-cad9e95a278f" xml:space="preserve">
+          <source>The following diagram shows a load-balanced endpoint for standard (unencrypted) web traffic that is shared among three virtual machines for the public and private TCP port of 80.</source>
+          <target state="new">The following diagram shows a load-balanced endpoint for standard (unencrypted) web traffic that is shared among three virtual machines for the public and private TCP port of 80.</target>
+        </trans-unit>
+        <trans-unit id="aefab65d-914d-4754-8706-3afa2762d736" xml:space="preserve">
+          <source>These three virtual machines are in a load-balanced set.</source>
+          <target state="new">These three virtual machines are in a load-balanced set.</target>
+        </trans-unit>
+        <trans-unit id="fa066d75-9c3c-4e0e-970b-9d758b3b5455" xml:space="preserve">
+          <source><bpt id="7427fd7e-5d5e-4e60-9032-675296dadabb">&lt;linkText&gt;</bpt>loadbalancing<ept id="7427fd7e-5d5e-4e60-9032-675296dadabb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7427fd7e-5d5e-4e60-9032-675296dadabb">&lt;linkText&gt;</bpt>loadbalancing<ept id="7427fd7e-5d5e-4e60-9032-675296dadabb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6a2ea8b-447b-4e46-90cf-86b4f91f7a41" xml:space="preserve">
+          <source>For more information, see <bpt id="e1b8161f-46c5-4a5e-acc8-10587440433e">&lt;linkText&gt;</bpt>Azure Load Balancer<ept id="e1b8161f-46c5-4a5e-acc8-10587440433e">&lt;/linkText&gt;</ept><bpt id="e1b8161f-46c5-4a5e-acc8-10587440433e">&lt;title&gt;</bpt><ept id="e1b8161f-46c5-4a5e-acc8-10587440433e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="e1b8161f-46c5-4a5e-acc8-10587440433e">&lt;linkText&gt;</bpt>Azure Load Balancer<ept id="e1b8161f-46c5-4a5e-acc8-10587440433e">&lt;/linkText&gt;</ept><bpt id="e1b8161f-46c5-4a5e-acc8-10587440433e">&lt;title&gt;</bpt><ept id="e1b8161f-46c5-4a5e-acc8-10587440433e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="393c9bac-e68b-4674-92ae-c83e261268c1" xml:space="preserve">
+          <source>For the steps to create a load-balanced set, see <bpt id="664cc566-fc93-4bd1-861a-4763b3aac232">&lt;linkText&gt;</bpt>Configure a load-balanced set<ept id="664cc566-fc93-4bd1-861a-4763b3aac232">&lt;/linkText&gt;</ept><bpt id="664cc566-fc93-4bd1-861a-4763b3aac232">&lt;title&gt;</bpt><ept id="664cc566-fc93-4bd1-861a-4763b3aac232">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the steps to create a load-balanced set, see <bpt id="664cc566-fc93-4bd1-861a-4763b3aac232">&lt;linkText&gt;</bpt>Configure a load-balanced set<ept id="664cc566-fc93-4bd1-861a-4763b3aac232">&lt;/linkText&gt;</ept><bpt id="664cc566-fc93-4bd1-861a-4763b3aac232">&lt;title&gt;</bpt><ept id="664cc566-fc93-4bd1-861a-4763b3aac232">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e59ca3fd-6280-4933-85b7-1f2b68231af9" xml:space="preserve">
+          <source>Azure can also load balance within a cloud service or virtual network.</source>
+          <target state="new">Azure can also load balance within a cloud service or virtual network.</target>
+        </trans-unit>
+        <trans-unit id="02c037ff-6f2c-48d8-bf2f-cbc2dc426816" xml:space="preserve">
+          <source>This is known as internal load balancing and can be used in the following ways:</source>
+          <target state="new">This is known as internal load balancing and can be used in the following ways:</target>
+        </trans-unit>
+        <trans-unit id="c7bda628-3ae7-4d49-9f13-14289562a0c5" xml:space="preserve">
+          <source>To load balance between servers in different tiers of a multi-tier application (for example, between web and database tiers).</source>
+          <target state="new">To load balance between servers in different tiers of a multi-tier application (for example, between web and database tiers).</target>
+        </trans-unit>
+        <trans-unit id="082dbbc0-395a-4ffc-bd76-d1819e7949f7" xml:space="preserve">
+          <source>To load balance line-of-business (LOB) applications hosted in Azure without requiring additional load balancer hardware or software.</source>
+          <target state="new">To load balance line-of-business (LOB) applications hosted in Azure without requiring additional load balancer hardware or software.</target>
+        </trans-unit>
+        <trans-unit id="4cfd156f-81fe-49d7-83dd-038b0e98a5db" xml:space="preserve">
+          <source>To include on-premises servers in the set of computers whose traffic is load balanced.</source>
+          <target state="new">To include on-premises servers in the set of computers whose traffic is load balanced.</target>
+        </trans-unit>
+        <trans-unit id="c2ca7c6c-c304-492f-9c52-e5c117b26ba5" xml:space="preserve">
+          <source>Similar to Azure load balancing, internal load balancing is facilitated by configuring an internal load-balanced set.</source>
+          <target state="new">Similar to Azure load balancing, internal load balancing is facilitated by configuring an internal load-balanced set.</target>
+        </trans-unit>
+        <trans-unit id="c2b02167-82e7-4f37-ab21-32725dccac2a" xml:space="preserve">
+          <source>The following diagram shows an example of an internal load-balanced endpoint for a line of business (LOB) application that is shared among three virtual machines in a cross-premises virtual network.</source>
+          <target state="new">The following diagram shows an example of an internal load-balanced endpoint for a line of business (LOB) application that is shared among three virtual machines in a cross-premises virtual network.</target>
+        </trans-unit>
+        <trans-unit id="9ac4bc18-6765-4c45-bf74-e6ec9821cfa2" xml:space="preserve">
+          <source><bpt id="5ba8841b-6340-4d6c-a1fd-4c9984a83639">&lt;linkText&gt;</bpt>loadbalancing<ept id="5ba8841b-6340-4d6c-a1fd-4c9984a83639">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5ba8841b-6340-4d6c-a1fd-4c9984a83639">&lt;linkText&gt;</bpt>loadbalancing<ept id="5ba8841b-6340-4d6c-a1fd-4c9984a83639">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fb4b082-58d2-4a58-a7e6-6dfed48b2337" xml:space="preserve">
+          <source>For the steps to create a load-balanced set, see <bpt id="01c6dc53-5707-4535-8375-2eb6cf100064">&lt;linkText&gt;</bpt>Configure an internal load-balanced set<ept id="01c6dc53-5707-4535-8375-2eb6cf100064">&lt;/linkText&gt;</ept><bpt id="01c6dc53-5707-4535-8375-2eb6cf100064">&lt;title&gt;</bpt><ept id="01c6dc53-5707-4535-8375-2eb6cf100064">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the steps to create a load-balanced set, see <bpt id="01c6dc53-5707-4535-8375-2eb6cf100064">&lt;linkText&gt;</bpt>Configure an internal load-balanced set<ept id="01c6dc53-5707-4535-8375-2eb6cf100064">&lt;/linkText&gt;</ept><bpt id="01c6dc53-5707-4535-8375-2eb6cf100064">&lt;title&gt;</bpt><ept id="01c6dc53-5707-4535-8375-2eb6cf100064">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f1b4c31-cadb-4c57-9fc3-94f0ce09e3c3" xml:space="preserve">
+          <source>For more information about load balancer, see <bpt id="fabab6cb-e3a1-4c55-b5ea-6c43e35148c0">&lt;linkText&gt;</bpt>Internal load balancing<ept id="fabab6cb-e3a1-4c55-b5ea-6c43e35148c0">&lt;/linkText&gt;</ept><bpt id="fabab6cb-e3a1-4c55-b5ea-6c43e35148c0">&lt;title&gt;</bpt><ept id="fabab6cb-e3a1-4c55-b5ea-6c43e35148c0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about load balancer, see <bpt id="fabab6cb-e3a1-4c55-b5ea-6c43e35148c0">&lt;linkText&gt;</bpt>Internal load balancing<ept id="fabab6cb-e3a1-4c55-b5ea-6c43e35148c0">&lt;/linkText&gt;</ept><bpt id="fabab6cb-e3a1-4c55-b5ea-6c43e35148c0">&lt;title&gt;</bpt><ept id="fabab6cb-e3a1-4c55-b5ea-6c43e35148c0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

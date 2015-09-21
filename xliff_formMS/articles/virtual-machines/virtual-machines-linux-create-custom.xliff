@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9603097e-e233-464b-bbba-521b205abb19" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9603097e-e233-464b-bbba-521b205abb19" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bbd09d2d-8309-40ab-9c6b-5f55b02a528e">
+        <trans-unit id="277e10e1-da61-4b98-9b2f-2ce8b528ebcd" xml:space="preserve">
+          <source>Create a custom virtual machine running Linux in Azure</source>
+          <target state="new">Create a custom virtual machine running Linux in Azure</target>
+        </trans-unit>
+        <trans-unit id="ef8c71a6-ac6e-47b4-b8fe-75ca05621c19" xml:space="preserve">
+          <source>Learn how to create a custom virtual machine running Linux in Azure.</source>
+          <target state="new">Learn how to create a custom virtual machine running Linux in Azure.</target>
+        </trans-unit>
+        <trans-unit id="dd9c7748-5014-448e-87ba-dbd0672094b2" xml:space="preserve">
+          <source>This topic describes how to create a <bpt id="b8f3ebb8-2cfc-4838-8597-1cfd2a1bece7">&lt;em&gt;</bpt>custom<ept id="b8f3ebb8-2cfc-4838-8597-1cfd2a1bece7">&lt;/em&gt;</ept> virtual machine with the Azure CLI using the classic deployment model.</source>
+          <target state="new">This topic describes how to create a <bpt id="b8f3ebb8-2cfc-4838-8597-1cfd2a1bece7">&lt;em&gt;</bpt>custom<ept id="b8f3ebb8-2cfc-4838-8597-1cfd2a1bece7">&lt;/em&gt;</ept> virtual machine with the Azure CLI using the classic deployment model.</target>
+        </trans-unit>
+        <trans-unit id="f70133e5-371b-48d4-8b6f-437b719f3f74" xml:space="preserve">
+          <source>We will use a Linux image from the available <bpt id="01bc73dd-f04c-4663-84f3-c54a493759b7">&lt;strong&gt;</bpt>IMAGES<ept id="01bc73dd-f04c-4663-84f3-c54a493759b7">&lt;/strong&gt;</ept> on Azure.</source>
+          <target state="new">We will use a Linux image from the available <bpt id="01bc73dd-f04c-4663-84f3-c54a493759b7">&lt;strong&gt;</bpt>IMAGES<ept id="01bc73dd-f04c-4663-84f3-c54a493759b7">&lt;/strong&gt;</ept> on Azure.</target>
+        </trans-unit>
+        <trans-unit id="7ce07d67-f089-4610-bed4-a38eb60220ec" xml:space="preserve">
+          <source>The Azure CLI commands give following configuration choices among others:</source>
+          <target state="new">The Azure CLI commands give following configuration choices among others:</target>
+        </trans-unit>
+        <trans-unit id="c59e95b3-350d-45c6-9da3-8ff1fc4c9dab" xml:space="preserve">
+          <source>Connecting the VM to a virtual network</source>
+          <target state="new">Connecting the VM to a virtual network</target>
+        </trans-unit>
+        <trans-unit id="70972514-b958-4e2c-938a-e06a9f72c808" xml:space="preserve">
+          <source>Adding the VM to an existing cloud service</source>
+          <target state="new">Adding the VM to an existing cloud service</target>
+        </trans-unit>
+        <trans-unit id="a35a526f-bf06-4d93-a3dd-50b85cfd515c" xml:space="preserve">
+          <source>Adding the VM to an existing storage account</source>
+          <target state="new">Adding the VM to an existing storage account</target>
+        </trans-unit>
+        <trans-unit id="9441c35a-7789-4d66-8727-67aacc3b2395" xml:space="preserve">
+          <source>Adding the VM to an availability set or location</source>
+          <target state="new">Adding the VM to an availability set or location</target>
+        </trans-unit>
+        <trans-unit id="8605b707-bfd6-45c8-b0bf-3b7c4ecb7d0f" xml:space="preserve">
+          <source>If you want your virtual machine to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the virtual machine.</source>
+          <target state="new">If you want your virtual machine to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="554743a4-b0af-44a2-addf-5f3e80931e05" xml:space="preserve">
+          <source>A virtual machine can be configured to join a virtual network only when you create the virtual machine.</source>
+          <target state="new">A virtual machine can be configured to join a virtual network only when you create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="184eef83-ee1c-4d4d-82e0-ba882f95bbf4" xml:space="preserve">
+          <source>For details on virtual networks, see <bpt id="8c6dd2d3-7c02-43a6-aa89-aaeed5fe6f26">&lt;linkText&gt;</bpt>Azure Virtual Network Overview<ept id="8c6dd2d3-7c02-43a6-aa89-aaeed5fe6f26">&lt;/linkText&gt;</ept><bpt id="8c6dd2d3-7c02-43a6-aa89-aaeed5fe6f26">&lt;title&gt;</bpt><ept id="8c6dd2d3-7c02-43a6-aa89-aaeed5fe6f26">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on virtual networks, see <bpt id="8c6dd2d3-7c02-43a6-aa89-aaeed5fe6f26">&lt;linkText&gt;</bpt>Azure Virtual Network Overview<ept id="8c6dd2d3-7c02-43a6-aa89-aaeed5fe6f26">&lt;/linkText&gt;</ept><bpt id="8c6dd2d3-7c02-43a6-aa89-aaeed5fe6f26">&lt;title&gt;</bpt><ept id="8c6dd2d3-7c02-43a6-aa89-aaeed5fe6f26">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf271128-5b41-4667-9f09-436c756fe913" xml:space="preserve">
+          <source>&lt;p/&gt;
+<bpt id="53f1fa9d-93ec-4927-97be-8ff35579eaed">&lt;token href="../../includes/service-management-pointer-to-resource-manager.md"&gt;</bpt><ept id="53f1fa9d-93ec-4927-97be-8ff35579eaed">&lt;/token&gt;</ept></source>
+          <target state="new">&lt;p/&gt;
+<bpt id="53f1fa9d-93ec-4927-97be-8ff35579eaed">&lt;token href="../../includes/service-management-pointer-to-resource-manager.md"&gt;</bpt><ept id="53f1fa9d-93ec-4927-97be-8ff35579eaed">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9722735d-89c5-4ba3-b217-753bc85d30d6" xml:space="preserve">
+          <source><bpt id="7cfd9880-b941-4eea-bd9d-fa4d41dddc53">&lt;linkText&gt;</bpt>Create a Virtual Machine Running Linux<ept id="7cfd9880-b941-4eea-bd9d-fa4d41dddc53">&lt;/linkText&gt;</ept><bpt id="7cfd9880-b941-4eea-bd9d-fa4d41dddc53">&lt;title&gt;</bpt><ept id="7cfd9880-b941-4eea-bd9d-fa4d41dddc53">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7cfd9880-b941-4eea-bd9d-fa4d41dddc53">&lt;linkText&gt;</bpt>Create a Virtual Machine Running Linux<ept id="7cfd9880-b941-4eea-bd9d-fa4d41dddc53">&lt;/linkText&gt;</ept><bpt id="7cfd9880-b941-4eea-bd9d-fa4d41dddc53">&lt;title&gt;</bpt><ept id="7cfd9880-b941-4eea-bd9d-fa4d41dddc53">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8097f4aa-ceaf-446c-ac45-24042b3852c9" xml:space="preserve">
+          <source><bpt id="06c6b91b-4ebf-4862-8ddd-5a36c86e5a46">&lt;token href="../../includes/virtual-machines-create-linuxvm.md"&gt;</bpt><ept id="06c6b91b-4ebf-4862-8ddd-5a36c86e5a46">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="06c6b91b-4ebf-4862-8ddd-5a36c86e5a46">&lt;token href="../../includes/virtual-machines-create-linuxvm.md"&gt;</bpt><ept id="06c6b91b-4ebf-4862-8ddd-5a36c86e5a46">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

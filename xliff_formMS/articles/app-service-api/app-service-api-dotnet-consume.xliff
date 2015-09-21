@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="db1d537d-8153-41b7-a1b6-cb02104f5917" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="db1d537d-8153-41b7-a1b6-cb02104f5917" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="69f43a03-0f3e-4f5d-8228-59dcaae062dc">
+        <trans-unit id="bb150d0f-5d22-4309-8463-2ae0ddb69291" xml:space="preserve">
+          <source>Consume an API app in Azure App Service from a .NET client</source>
+          <target state="new">Consume an API app in Azure App Service from a .NET client</target>
+        </trans-unit>
+        <trans-unit id="5da513a2-5f73-4b74-8494-9fe1b6874bfc" xml:space="preserve">
+          <source>Learn how to consume an API app from a .NET client using the App Service SDK.</source>
+          <target state="new">Learn how to consume an API app from a .NET client using the App Service SDK.</target>
+        </trans-unit>
+        <trans-unit id="580de791-aeee-4e9f-a42d-af2598f2bc5f" xml:space="preserve">
+          <source>This tutorial shows how to use the App Service SDK to write code that calls an <bpt id="04d876dd-5e79-4e5a-b0f0-ebae193452a8">&lt;linkText&gt;</bpt>API app<ept id="04d876dd-5e79-4e5a-b0f0-ebae193452a8">&lt;/linkText&gt;</ept><bpt id="04d876dd-5e79-4e5a-b0f0-ebae193452a8">&lt;title&gt;</bpt><ept id="04d876dd-5e79-4e5a-b0f0-ebae193452a8">&lt;/title&gt;</ept> that has been configured for <bpt id="b3d5c2b7-786f-4fda-acd3-1ada048a3055">&lt;strong&gt;</bpt>Public (anonymous)<ept id="b3d5c2b7-786f-4fda-acd3-1ada048a3055">&lt;/strong&gt;</ept> or <bpt id="6bd6950f-1ef0-42da-930e-fbe4cebc0b12">&lt;strong&gt;</bpt>Public (authenticated)<ept id="6bd6950f-1ef0-42da-930e-fbe4cebc0b12">&lt;/strong&gt;</ept> access level.</source>
+          <target state="new">This tutorial shows how to use the App Service SDK to write code that calls an <bpt id="04d876dd-5e79-4e5a-b0f0-ebae193452a8">&lt;linkText&gt;</bpt>API app<ept id="04d876dd-5e79-4e5a-b0f0-ebae193452a8">&lt;/linkText&gt;</ept><bpt id="04d876dd-5e79-4e5a-b0f0-ebae193452a8">&lt;title&gt;</bpt><ept id="04d876dd-5e79-4e5a-b0f0-ebae193452a8">&lt;/title&gt;</ept> that has been configured for <bpt id="b3d5c2b7-786f-4fda-acd3-1ada048a3055">&lt;strong&gt;</bpt>Public (anonymous)<ept id="b3d5c2b7-786f-4fda-acd3-1ada048a3055">&lt;/strong&gt;</ept> or <bpt id="6bd6950f-1ef0-42da-930e-fbe4cebc0b12">&lt;strong&gt;</bpt>Public (authenticated)<ept id="6bd6950f-1ef0-42da-930e-fbe4cebc0b12">&lt;/strong&gt;</ept> access level.</target>
+        </trans-unit>
+        <trans-unit id="531e5b63-19e8-4b19-92ea-89f1143aede9" xml:space="preserve">
+          <source>The article covers the following example scenarios:</source>
+          <target state="new">The article covers the following example scenarios:</target>
+        </trans-unit>
+        <trans-unit id="268f70a8-4a07-4440-bcd1-a58af61da114" xml:space="preserve">
+          <source>Call a <bpt id="4902b93f-0d3d-4e79-be28-754a7d099106">&lt;strong&gt;</bpt>Public (anonymous)<ept id="4902b93f-0d3d-4e79-be28-754a7d099106">&lt;/strong&gt;</ept> API app from a console application</source>
+          <target state="new">Call a <bpt id="4902b93f-0d3d-4e79-be28-754a7d099106">&lt;strong&gt;</bpt>Public (anonymous)<ept id="4902b93f-0d3d-4e79-be28-754a7d099106">&lt;/strong&gt;</ept> API app from a console application</target>
+        </trans-unit>
+        <trans-unit id="244cf9aa-c84f-4713-9ed5-add3d1665e01" xml:space="preserve">
+          <source>Call a <bpt id="8ed42c00-d202-4fb1-b939-84174ad03db6">&lt;strong&gt;</bpt>Public (authenticated)<ept id="8ed42c00-d202-4fb1-b939-84174ad03db6">&lt;/strong&gt;</ept> API app from a Windows Desktop application </source>
+          <target state="new">Call a <bpt id="8ed42c00-d202-4fb1-b939-84174ad03db6">&lt;strong&gt;</bpt>Public (authenticated)<ept id="8ed42c00-d202-4fb1-b939-84174ad03db6">&lt;/strong&gt;</ept> API app from a Windows Desktop application </target>
+        </trans-unit>
+        <trans-unit id="af348e3a-c13f-4ba3-a965-fb86b3fbed1b" xml:space="preserve">
+          <source>Each of these tutorial sections is independent -- you can follow the instructions for the second scenario without having completed the steps for the first one.</source>
+          <target state="new">Each of these tutorial sections is independent -- you can follow the instructions for the second scenario without having completed the steps for the first one.</target>
+        </trans-unit>
+        <trans-unit id="58437ba4-04da-436b-9420-ce84414305de" xml:space="preserve">
+          <source>For information about how to call an <bpt id="cc795035-0640-48dc-854a-5baee203b9c7">&lt;strong&gt;</bpt>Internal<ept id="cc795035-0640-48dc-854a-5baee203b9c7">&lt;/strong&gt;</ept> API app, see <bpt id="63f24cf1-8843-47e2-acf1-b4408e753c96">&lt;linkText&gt;</bpt>Consume an internal API app from a .NET client<ept id="63f24cf1-8843-47e2-acf1-b4408e753c96">&lt;/linkText&gt;</ept><bpt id="63f24cf1-8843-47e2-acf1-b4408e753c96">&lt;title&gt;</bpt><ept id="63f24cf1-8843-47e2-acf1-b4408e753c96">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to call an <bpt id="cc795035-0640-48dc-854a-5baee203b9c7">&lt;strong&gt;</bpt>Internal<ept id="cc795035-0640-48dc-854a-5baee203b9c7">&lt;/strong&gt;</ept> API app, see <bpt id="63f24cf1-8843-47e2-acf1-b4408e753c96">&lt;linkText&gt;</bpt>Consume an internal API app from a .NET client<ept id="63f24cf1-8843-47e2-acf1-b4408e753c96">&lt;/linkText&gt;</ept><bpt id="63f24cf1-8843-47e2-acf1-b4408e753c96">&lt;title&gt;</bpt><ept id="63f24cf1-8843-47e2-acf1-b4408e753c96">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9b6e638-45a4-4085-b306-639c31b0f363" xml:space="preserve">
+          <source>the tutorial assumes that you are familiar with how to create projects and add code to them in Visual Studio, and how to <bpt id="a7a6bba2-ab13-43e4-b4dc-6defff5dc475">&lt;linkText&gt;</bpt>manage API apps in the Azure preview portal<ept id="a7a6bba2-ab13-43e4-b4dc-6defff5dc475">&lt;/linkText&gt;</ept><bpt id="a7a6bba2-ab13-43e4-b4dc-6defff5dc475">&lt;title&gt;</bpt><ept id="a7a6bba2-ab13-43e4-b4dc-6defff5dc475">&lt;/title&gt;</ept>.</source>
+          <target state="new">the tutorial assumes that you are familiar with how to create projects and add code to them in Visual Studio, and how to <bpt id="a7a6bba2-ab13-43e4-b4dc-6defff5dc475">&lt;linkText&gt;</bpt>manage API apps in the Azure preview portal<ept id="a7a6bba2-ab13-43e4-b4dc-6defff5dc475">&lt;/linkText&gt;</ept><bpt id="a7a6bba2-ab13-43e4-b4dc-6defff5dc475">&lt;title&gt;</bpt><ept id="a7a6bba2-ab13-43e4-b4dc-6defff5dc475">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="665dfc89-fd48-4034-b4e5-075761d72c01" xml:space="preserve">
+          <source>The project and code samples in this article are based on the API app project that you create, deploy, and protect in these articles:</source>
+          <target state="new">The project and code samples in this article are based on the API app project that you create, deploy, and protect in these articles:</target>
+        </trans-unit>
+        <trans-unit id="38e939da-41f9-4124-83c7-e3b0beddd826" xml:space="preserve">
+          <source><bpt id="3383f8e7-3d46-4186-a3e6-9290fb49a0d5">&lt;linkText&gt;</bpt>Create an API app<ept id="3383f8e7-3d46-4186-a3e6-9290fb49a0d5">&lt;/linkText&gt;</ept><bpt id="3383f8e7-3d46-4186-a3e6-9290fb49a0d5">&lt;title&gt;</bpt><ept id="3383f8e7-3d46-4186-a3e6-9290fb49a0d5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3383f8e7-3d46-4186-a3e6-9290fb49a0d5">&lt;linkText&gt;</bpt>Create an API app<ept id="3383f8e7-3d46-4186-a3e6-9290fb49a0d5">&lt;/linkText&gt;</ept><bpt id="3383f8e7-3d46-4186-a3e6-9290fb49a0d5">&lt;title&gt;</bpt><ept id="3383f8e7-3d46-4186-a3e6-9290fb49a0d5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50c7bea5-e55e-4aa5-aae8-06b4905d0198" xml:space="preserve">
+          <source><bpt id="d33b1da8-5db6-4284-be58-84b5c7bf62f9">&lt;linkText&gt;</bpt>Deploy an API app<ept id="d33b1da8-5db6-4284-be58-84b5c7bf62f9">&lt;/linkText&gt;</ept><bpt id="d33b1da8-5db6-4284-be58-84b5c7bf62f9">&lt;title&gt;</bpt><ept id="d33b1da8-5db6-4284-be58-84b5c7bf62f9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d33b1da8-5db6-4284-be58-84b5c7bf62f9">&lt;linkText&gt;</bpt>Deploy an API app<ept id="d33b1da8-5db6-4284-be58-84b5c7bf62f9">&lt;/linkText&gt;</ept><bpt id="d33b1da8-5db6-4284-be58-84b5c7bf62f9">&lt;title&gt;</bpt><ept id="d33b1da8-5db6-4284-be58-84b5c7bf62f9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="906b63a6-6213-4b81-9533-e55073efeb59" xml:space="preserve">
+          <source><bpt id="40318336-46f1-424f-9f48-15cd4000d3a9">&lt;linkText&gt;</bpt>Protect an API app<ept id="40318336-46f1-424f-9f48-15cd4000d3a9">&lt;/linkText&gt;</ept><bpt id="40318336-46f1-424f-9f48-15cd4000d3a9">&lt;title&gt;</bpt><ept id="40318336-46f1-424f-9f48-15cd4000d3a9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="40318336-46f1-424f-9f48-15cd4000d3a9">&lt;linkText&gt;</bpt>Protect an API app<ept id="40318336-46f1-424f-9f48-15cd4000d3a9">&lt;/linkText&gt;</ept><bpt id="40318336-46f1-424f-9f48-15cd4000d3a9">&lt;title&gt;</bpt><ept id="40318336-46f1-424f-9f48-15cd4000d3a9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9dad70e-992c-4fd2-ac99-4c84f954f7c6" xml:space="preserve">
+          <source><bpt id="23567ec7-bcc7-439e-80b6-fb3a278c6068">&lt;token href="../../includes/install-sdk-2013-only.md"&gt;</bpt><ept id="23567ec7-bcc7-439e-80b6-fb3a278c6068">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="23567ec7-bcc7-439e-80b6-fb3a278c6068">&lt;token href="../../includes/install-sdk-2013-only.md"&gt;</bpt><ept id="23567ec7-bcc7-439e-80b6-fb3a278c6068">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81075fd9-cdc1-4a9d-9fde-19acbd4bfffa" xml:space="preserve">
+          <source>This tutorial requires version 2.6 or later of the Azure SDK for .NET.</source>
+          <target state="new">This tutorial requires version 2.6 or later of the Azure SDK for .NET.</target>
+        </trans-unit>
+        <trans-unit id="c9380d63-8b85-431c-b3b4-ead47d3393bc" xml:space="preserve">
+          <source>In this section you create a console application project and add code to it that calls an API app that doesn't require authentication.</source>
+          <target state="new">In this section you create a console application project and add code to it that calls an API app that doesn't require authentication.</target>
+        </trans-unit>
+        <trans-unit id="1754bf6c-814e-4239-8e80-0f05d8b49ec3" xml:space="preserve">
+          <source>If you haven't already done so, follow the <bpt id="4adaa81b-1faf-40bb-9b16-6924d78a84bc">&lt;linkText&gt;</bpt>Deploy an API app<ept id="4adaa81b-1faf-40bb-9b16-6924d78a84bc">&lt;/linkText&gt;</ept><bpt id="4adaa81b-1faf-40bb-9b16-6924d78a84bc">&lt;title&gt;</bpt><ept id="4adaa81b-1faf-40bb-9b16-6924d78a84bc">&lt;/title&gt;</ept> to deploy the ContactsList sample project to an API app in your Azure subscription.</source>
+          <target state="new">If you haven't already done so, follow the <bpt id="4adaa81b-1faf-40bb-9b16-6924d78a84bc">&lt;linkText&gt;</bpt>Deploy an API app<ept id="4adaa81b-1faf-40bb-9b16-6924d78a84bc">&lt;/linkText&gt;</ept><bpt id="4adaa81b-1faf-40bb-9b16-6924d78a84bc">&lt;title&gt;</bpt><ept id="4adaa81b-1faf-40bb-9b16-6924d78a84bc">&lt;/title&gt;</ept> to deploy the ContactsList sample project to an API app in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="7e1905b2-3a2c-4b8e-83d2-6e3e7e14b11f" xml:space="preserve">
+          <source>That tutorial directs you to set the access level in the Visual Studio publish dialog to <bpt id="a47f9871-ae30-47ba-b623-ab2482ab4a93">&lt;strong&gt;</bpt>Available to anyone<ept id="a47f9871-ae30-47ba-b623-ab2482ab4a93">&lt;/strong&gt;</ept>, which is the same as <bpt id="ba4ee9e4-be20-4145-b545-ec79b2bb677d">&lt;strong&gt;</bpt>Public (anonymous)<ept id="ba4ee9e4-be20-4145-b545-ec79b2bb677d">&lt;/strong&gt;</ept> in the portal.</source>
+          <target state="new">That tutorial directs you to set the access level in the Visual Studio publish dialog to <bpt id="a47f9871-ae30-47ba-b623-ab2482ab4a93">&lt;strong&gt;</bpt>Available to anyone<ept id="a47f9871-ae30-47ba-b623-ab2482ab4a93">&lt;/strong&gt;</ept>, which is the same as <bpt id="ba4ee9e4-be20-4145-b545-ec79b2bb677d">&lt;strong&gt;</bpt>Public (anonymous)<ept id="ba4ee9e4-be20-4145-b545-ec79b2bb677d">&lt;/strong&gt;</ept> in the portal.</target>
+        </trans-unit>
+        <trans-unit id="ce4621fe-236e-447d-8de1-e576a6719211" xml:space="preserve">
+          <source>However, if you did the <bpt id="aafd9011-75f0-4c4c-990e-fdce7d33e037">&lt;linkText&gt;</bpt>Protect an API app<ept id="aafd9011-75f0-4c4c-990e-fdce7d33e037">&lt;/linkText&gt;</ept><bpt id="aafd9011-75f0-4c4c-990e-fdce7d33e037">&lt;title&gt;</bpt><ept id="aafd9011-75f0-4c4c-990e-fdce7d33e037">&lt;/title&gt;</ept> tutorial after that, the access level has been set to <bpt id="ad21277f-dfe0-4c27-bef9-5dc76388b918">&lt;strong&gt;</bpt>Public (authenticated)<ept id="ad21277f-dfe0-4c27-bef9-5dc76388b918">&lt;/strong&gt;</ept>, and in that case you need to change it as directed in the following step.</source>
+          <target state="new">However, if you did the <bpt id="aafd9011-75f0-4c4c-990e-fdce7d33e037">&lt;linkText&gt;</bpt>Protect an API app<ept id="aafd9011-75f0-4c4c-990e-fdce7d33e037">&lt;/linkText&gt;</ept><bpt id="aafd9011-75f0-4c4c-990e-fdce7d33e037">&lt;title&gt;</bpt><ept id="aafd9011-75f0-4c4c-990e-fdce7d33e037">&lt;/title&gt;</ept> tutorial after that, the access level has been set to <bpt id="ad21277f-dfe0-4c27-bef9-5dc76388b918">&lt;strong&gt;</bpt>Public (authenticated)<ept id="ad21277f-dfe0-4c27-bef9-5dc76388b918">&lt;/strong&gt;</ept>, and in that case you need to change it as directed in the following step.</target>
+        </trans-unit>
+        <trans-unit id="952cf048-1c29-40bd-95db-a2241c4f92f8" xml:space="preserve">
+          <source>In the <bpt id="84560315-fd0f-42db-9e85-68f58236e24d">&lt;linkText&gt;</bpt>Azure preview portal<ept id="84560315-fd0f-42db-9e85-68f58236e24d">&lt;/linkText&gt;</ept><bpt id="84560315-fd0f-42db-9e85-68f58236e24d">&lt;title&gt;</bpt><ept id="84560315-fd0f-42db-9e85-68f58236e24d">&lt;/title&gt;</ept>, in the <bpt id="da9fc675-f485-4f4e-9c39-3b61c38807ba">&lt;strong&gt;</bpt>API app<ept id="da9fc675-f485-4f4e-9c39-3b61c38807ba">&lt;/strong&gt;</ept> blade for the API app that you want to call, go to <bpt id="01807ae9-0163-4dc9-a156-1b3e0811f047">&lt;strong&gt;</bpt>Settings &gt; Application Settings<ept id="01807ae9-0163-4dc9-a156-1b3e0811f047">&lt;/strong&gt;</ept> and set <bpt id="4652319d-beba-4b03-9855-6326c7ffd9b6">&lt;strong&gt;</bpt>Access level<ept id="4652319d-beba-4b03-9855-6326c7ffd9b6">&lt;/strong&gt;</ept> to <bpt id="3a3c67e7-a596-4271-953e-9f23235b089f">&lt;strong&gt;</bpt>Public (anonymous)<ept id="3a3c67e7-a596-4271-953e-9f23235b089f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="84560315-fd0f-42db-9e85-68f58236e24d">&lt;linkText&gt;</bpt>Azure preview portal<ept id="84560315-fd0f-42db-9e85-68f58236e24d">&lt;/linkText&gt;</ept><bpt id="84560315-fd0f-42db-9e85-68f58236e24d">&lt;title&gt;</bpt><ept id="84560315-fd0f-42db-9e85-68f58236e24d">&lt;/title&gt;</ept>, in the <bpt id="da9fc675-f485-4f4e-9c39-3b61c38807ba">&lt;strong&gt;</bpt>API app<ept id="da9fc675-f485-4f4e-9c39-3b61c38807ba">&lt;/strong&gt;</ept> blade for the API app that you want to call, go to <bpt id="01807ae9-0163-4dc9-a156-1b3e0811f047">&lt;strong&gt;</bpt>Settings &gt; Application Settings<ept id="01807ae9-0163-4dc9-a156-1b3e0811f047">&lt;/strong&gt;</ept> and set <bpt id="4652319d-beba-4b03-9855-6326c7ffd9b6">&lt;strong&gt;</bpt>Access level<ept id="4652319d-beba-4b03-9855-6326c7ffd9b6">&lt;/strong&gt;</ept> to <bpt id="3a3c67e7-a596-4271-953e-9f23235b089f">&lt;strong&gt;</bpt>Public (anonymous)<ept id="3a3c67e7-a596-4271-953e-9f23235b089f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ac949f7-2e54-4d02-8d14-7b81522384df" xml:space="preserve">
+          <source><bpt id="b6ec12ce-7774-4548-9bbd-6a5c9faf5cc2">&lt;linkText&gt;</bpt><ept id="b6ec12ce-7774-4548-9bbd-6a5c9faf5cc2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b6ec12ce-7774-4548-9bbd-6a5c9faf5cc2">&lt;linkText&gt;</bpt><ept id="b6ec12ce-7774-4548-9bbd-6a5c9faf5cc2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec3dc72e-bcb1-4e12-bb86-cd819f6e8030" xml:space="preserve">
+          <source>In Visual Studio, create a console application project.</source>
+          <target state="new">In Visual Studio, create a console application project.</target>
+        </trans-unit>
+        <trans-unit id="6b110871-7460-4e6e-b6a6-9afc51b566a3" xml:space="preserve">
+          <source><bpt id="afbe1bed-7654-42f9-a0be-02f3d8988196">&lt;token href="../../includes/app-service-api-dotnet-add-generated-client.md"&gt;</bpt><ept id="afbe1bed-7654-42f9-a0be-02f3d8988196">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="afbe1bed-7654-42f9-a0be-02f3d8988196">&lt;token href="../../includes/app-service-api-dotnet-add-generated-client.md"&gt;</bpt><ept id="afbe1bed-7654-42f9-a0be-02f3d8988196">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c30bbdd-159a-4197-975d-b609e5f5c28d" xml:space="preserve">
+          <source>To call the API app, all you have to do is create a client object and call methods on it, as in this example:</source>
+          <target state="new">To call the API app, all you have to do is create a client object and call methods on it, as in this example:</target>
+        </trans-unit>
+        <trans-unit id="f5170ded-239a-4f15-bb39-a35dd6d56d9d" xml:space="preserve">
+          <source>Open <bpt id="d8b62658-84a1-46a6-b9cc-6ffbe4bed4b8">&lt;em&gt;</bpt>Program.cs<ept id="d8b62658-84a1-46a6-b9cc-6ffbe4bed4b8">&lt;/em&gt;</ept>, and add the following code inside the <bpt id="2644e143-8b53-4ff5-9d56-a1f3cb35eaf9">&lt;code&gt;</bpt>Main<ept id="2644e143-8b53-4ff5-9d56-a1f3cb35eaf9">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Open <bpt id="d8b62658-84a1-46a6-b9cc-6ffbe4bed4b8">&lt;em&gt;</bpt>Program.cs<ept id="d8b62658-84a1-46a6-b9cc-6ffbe4bed4b8">&lt;/em&gt;</ept>, and add the following code inside the <bpt id="2644e143-8b53-4ff5-9d56-a1f3cb35eaf9">&lt;code&gt;</bpt>Main<ept id="2644e143-8b53-4ff5-9d56-a1f3cb35eaf9">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="c947b356-88a1-44e9-b566-b89fb1fb400f" xml:space="preserve">
+          <source>Press CTRL+F5 to run the application.</source>
+          <target state="new">Press CTRL+F5 to run the application.</target>
+        </trans-unit>
+        <trans-unit id="114294cf-1a36-4bc9-b965-b385d82ffd5f" xml:space="preserve">
+          <source><bpt id="7e5c4fb5-ebe7-4fb9-894a-934669fb3ad7">&lt;linkText&gt;</bpt>Generation Complete<ept id="7e5c4fb5-ebe7-4fb9-894a-934669fb3ad7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7e5c4fb5-ebe7-4fb9-894a-934669fb3ad7">&lt;linkText&gt;</bpt>Generation Complete<ept id="7e5c4fb5-ebe7-4fb9-894a-934669fb3ad7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb383408-f787-493a-910e-422538616dd4" xml:space="preserve">
+          <source>In this section you create a Windows desktop application project and add code to it that calls an API app that requires authentication.</source>
+          <target state="new">In this section you create a Windows desktop application project and add code to it that calls an API app that requires authentication.</target>
+        </trans-unit>
+        <trans-unit id="c8fcc0f6-d321-4618-b426-aa7120741d52" xml:space="preserve">
+          <source>Follow the <bpt id="47d92f04-1d8f-4f71-8989-f1f7de7727fb">&lt;linkText&gt;</bpt>Protect an API app<ept id="47d92f04-1d8f-4f71-8989-f1f7de7727fb">&lt;/linkText&gt;</ept><bpt id="47d92f04-1d8f-4f71-8989-f1f7de7727fb">&lt;title&gt;</bpt><ept id="47d92f04-1d8f-4f71-8989-f1f7de7727fb">&lt;/title&gt;</ept> tutorial to set up an API app with <bpt id="fa93611e-aff7-48bd-84c1-8d982b1d386d">&lt;strong&gt;</bpt>Public (authenticated)<ept id="fa93611e-aff7-48bd-84c1-8d982b1d386d">&lt;/strong&gt;</ept> access level.</source>
+          <target state="new">Follow the <bpt id="47d92f04-1d8f-4f71-8989-f1f7de7727fb">&lt;linkText&gt;</bpt>Protect an API app<ept id="47d92f04-1d8f-4f71-8989-f1f7de7727fb">&lt;/linkText&gt;</ept><bpt id="47d92f04-1d8f-4f71-8989-f1f7de7727fb">&lt;title&gt;</bpt><ept id="47d92f04-1d8f-4f71-8989-f1f7de7727fb">&lt;/title&gt;</ept> tutorial to set up an API app with <bpt id="fa93611e-aff7-48bd-84c1-8d982b1d386d">&lt;strong&gt;</bpt>Public (authenticated)<ept id="fa93611e-aff7-48bd-84c1-8d982b1d386d">&lt;/strong&gt;</ept> access level.</target>
+        </trans-unit>
+        <trans-unit id="9122687a-dbe1-4b93-ae17-e785909e2774" xml:space="preserve">
+          <source>In Visual Studio, create a Windows Forms desktop project.</source>
+          <target state="new">In Visual Studio, create a Windows Forms desktop project.</target>
+        </trans-unit>
+        <trans-unit id="6e7f4856-1031-4f73-8d97-6e2c568d8e65" xml:space="preserve">
+          <source>In the form designer, add the following controls:</source>
+          <target state="new">In the form designer, add the following controls:</target>
+        </trans-unit>
+        <trans-unit id="5ee74eb9-214d-4766-b01a-d4107b025cd0" xml:space="preserve">
+          <source>A button control</source>
+          <target state="new">A button control</target>
+        </trans-unit>
+        <trans-unit id="d6503fdd-9b74-4748-b48a-6b55a7e14d13" xml:space="preserve">
+          <source>A text box control</source>
+          <target state="new">A text box control</target>
+        </trans-unit>
+        <trans-unit id="e9d8410f-6119-40c6-a71e-7d33b328de8c" xml:space="preserve">
+          <source>A web browser control</source>
+          <target state="new">A web browser control</target>
+        </trans-unit>
+        <trans-unit id="b1686d94-a6e7-47fb-a4d7-bda1ecfa942c" xml:space="preserve">
+          <source>Set the text box control to multi-line.</source>
+          <target state="new">Set the text box control to multi-line.</target>
+        </trans-unit>
+        <trans-unit id="73d6ee13-187f-4753-a468-4f8c68b2520b" xml:space="preserve">
+          <source>Your form should look like the following example.</source>
+          <target state="new">Your form should look like the following example.</target>
+        </trans-unit>
+        <trans-unit id="dc3ff2ce-2b01-48d5-a16b-029fc90137f0" xml:space="preserve">
+          <source><bpt id="4101d6be-fa1d-4528-8158-20e23c627635">&lt;linkText&gt;</bpt><ept id="4101d6be-fa1d-4528-8158-20e23c627635">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4101d6be-fa1d-4528-8158-20e23c627635">&lt;linkText&gt;</bpt><ept id="4101d6be-fa1d-4528-8158-20e23c627635">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f50cc6d5-b94a-493d-a2a6-37faa8bd35c6" xml:space="preserve">
+          <source>In <bpt id="fa723a05-6c45-4e23-90aa-8c9cb08e480a">&lt;strong&gt;</bpt>Solution Explorer<ept id="fa723a05-6c45-4e23-90aa-8c9cb08e480a">&lt;/strong&gt;</ept>, right-click the project (not the solution) and select <bpt id="5bb04d74-6a7c-4430-9c01-a2a549bd6a61">&lt;strong&gt;</bpt>Add &gt; Azure API App Client<ept id="5bb04d74-6a7c-4430-9c01-a2a549bd6a61">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="fa723a05-6c45-4e23-90aa-8c9cb08e480a">&lt;strong&gt;</bpt>Solution Explorer<ept id="fa723a05-6c45-4e23-90aa-8c9cb08e480a">&lt;/strong&gt;</ept>, right-click the project (not the solution) and select <bpt id="5bb04d74-6a7c-4430-9c01-a2a549bd6a61">&lt;strong&gt;</bpt>Add &gt; Azure API App Client<ept id="5bb04d74-6a7c-4430-9c01-a2a549bd6a61">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ebe97df5-1061-405f-b622-e5ef459f7946" xml:space="preserve">
+          <source>In the <bpt id="94ee526c-ff59-4206-98d5-1de6feaf5139">&lt;strong&gt;</bpt>Add Azure API App Client<ept id="94ee526c-ff59-4206-98d5-1de6feaf5139">&lt;/strong&gt;</ept> dialog, click <bpt id="8c7c956e-51b4-43f8-8439-c65a91ed6c80">&lt;strong&gt;</bpt>Download from Azure API App<ept id="8c7c956e-51b4-43f8-8439-c65a91ed6c80">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="94ee526c-ff59-4206-98d5-1de6feaf5139">&lt;strong&gt;</bpt>Add Azure API App Client<ept id="94ee526c-ff59-4206-98d5-1de6feaf5139">&lt;/strong&gt;</ept> dialog, click <bpt id="8c7c956e-51b4-43f8-8439-c65a91ed6c80">&lt;strong&gt;</bpt>Download from Azure API App<ept id="8c7c956e-51b4-43f8-8439-c65a91ed6c80">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea6c12e7-25ac-4c85-8843-3462b94a9b8a" xml:space="preserve">
+          <source>From the drop-down list, select the API app that you want to call, and then click <bpt id="b6e75f94-e916-47a3-a5c4-0f2187d39be6">&lt;strong&gt;</bpt>OK<ept id="b6e75f94-e916-47a3-a5c4-0f2187d39be6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the drop-down list, select the API app that you want to call, and then click <bpt id="b6e75f94-e916-47a3-a5c4-0f2187d39be6">&lt;strong&gt;</bpt>OK<ept id="b6e75f94-e916-47a3-a5c4-0f2187d39be6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1e3904d-9e55-45e1-8f47-212eb9878828" xml:space="preserve">
+          <source>In the Azure preview portal, copy the URL for your API app's gateway.</source>
+          <target state="new">In the Azure preview portal, copy the URL for your API app's gateway.</target>
+        </trans-unit>
+        <trans-unit id="6ee3655f-78c7-4517-9c66-c2dcf3f7c8fc" xml:space="preserve">
+          <source>You'll use this value in the next step.</source>
+          <target state="new">You'll use this value in the next step.</target>
+        </trans-unit>
+        <trans-unit id="25d0b842-35ef-4739-8255-b85f44935332" xml:space="preserve">
+          <source><bpt id="d194fdbe-f026-46ed-bbd8-2769aa30e651">&lt;linkText&gt;</bpt><ept id="d194fdbe-f026-46ed-bbd8-2769aa30e651">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d194fdbe-f026-46ed-bbd8-2769aa30e651">&lt;linkText&gt;</bpt><ept id="d194fdbe-f026-46ed-bbd8-2769aa30e651">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0025c8eb-00b1-4760-9bb9-24642b1b33a0" xml:space="preserve">
+          <source>In <bpt id="160c9012-fc00-4bb8-b840-20869a309288">&lt;em&gt;</bpt>Form1.cs<ept id="160c9012-fc00-4bb8-b840-20869a309288">&lt;/em&gt;</ept> source code, add the following code before the <bpt id="a5adb58c-26fa-4640-9462-fa14f7309ca0">&lt;code&gt;</bpt>Form1()<ept id="a5adb58c-26fa-4640-9462-fa14f7309ca0">&lt;/code&gt;</ept> constructor, replacing the value for GATEWAY_URL with the value you copied in the previous step.</source>
+          <target state="new">In <bpt id="160c9012-fc00-4bb8-b840-20869a309288">&lt;em&gt;</bpt>Form1.cs<ept id="160c9012-fc00-4bb8-b840-20869a309288">&lt;/em&gt;</ept> source code, add the following code before the <bpt id="a5adb58c-26fa-4640-9462-fa14f7309ca0">&lt;code&gt;</bpt>Form1()<ept id="a5adb58c-26fa-4640-9462-fa14f7309ca0">&lt;/code&gt;</ept> constructor, replacing the value for GATEWAY_URL with the value you copied in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="857f78ab-fd0c-45fa-86ed-0d2ded1036a9" xml:space="preserve">
+          <source>Make sure you include the trailing slash (/).</source>
+          <target state="new">Make sure you include the trailing slash (/).</target>
+        </trans-unit>
+        <trans-unit id="0107a6de-b706-455e-b58d-e7a77077f24e" xml:space="preserve">
+          <source>In the form designer, double-click the button to add a click handler, and then in the handler method add code to go to the login URL for the gateway, for example:</source>
+          <target state="new">In the form designer, double-click the button to add a click handler, and then in the handler method add code to go to the login URL for the gateway, for example:</target>
+        </trans-unit>
+        <trans-unit id="fc3a6183-8bab-42d7-abb6-70876cbf632c" xml:space="preserve">
+          <source>Replace "[authprovider]" with the code for the identity service provider that you configured in the gateway, for example, "aad", "twitter", "google", "microsoftaccount", or "facebook".</source>
+          <target state="new">Replace "[authprovider]" with the code for the identity service provider that you configured in the gateway, for example, "aad", "twitter", "google", "microsoftaccount", or "facebook".</target>
+        </trans-unit>
+        <trans-unit id="6cb5351c-537f-43a7-a0ad-4265e534f43b" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="ec0c0ea8-a3e5-44e6-b94d-1db007ae2dc1" xml:space="preserve">
+          <source>Add a <bpt id="05c66b91-c442-4216-b76a-7244e2b18b54">&lt;code&gt;</bpt>DocumentCompleted<ept id="05c66b91-c442-4216-b76a-7244e2b18b54">&lt;/code&gt;</ept> event handler for the web browser control, and add the following code to the handler method.</source>
+          <target state="new">Add a <bpt id="05c66b91-c442-4216-b76a-7244e2b18b54">&lt;code&gt;</bpt>DocumentCompleted<ept id="05c66b91-c442-4216-b76a-7244e2b18b54">&lt;/code&gt;</ept> event handler for the web browser control, and add the following code to the handler method.</target>
+        </trans-unit>
+        <trans-unit id="2a716e0e-fa48-432e-afe6-9771d7931357" xml:space="preserve">
+          <source>The code you've added runs after the user logs in using the web browser control.</source>
+          <target state="new">The code you've added runs after the user logs in using the web browser control.</target>
+        </trans-unit>
+        <trans-unit id="f1d23758-13f1-45dd-881c-2fad49bab9e4" xml:space="preserve">
+          <source>After a successful login, the response URL contains the user ID and password.</source>
+          <target state="new">After a successful login, the response URL contains the user ID and password.</target>
+        </trans-unit>
+        <trans-unit id="c62c1544-f3db-43cf-9785-197561033063" xml:space="preserve">
+          <source>The code extracts these values from the URL, provides them to the App Service client object, and then uses that object to create an API app client object.</source>
+          <target state="new">The code extracts these values from the URL, provides them to the App Service client object, and then uses that object to create an API app client object.</target>
+        </trans-unit>
+        <trans-unit id="5bb5c500-4e51-4aba-b47e-ec605dc7f17f" xml:space="preserve">
+          <source>You can then call the API by calling methods on this API app client object.</source>
+          <target state="new">You can then call the API by calling methods on this API app client object.</target>
+        </trans-unit>
+        <trans-unit id="76427bf5-5b16-4cbd-b870-5dd2ad07b427" xml:space="preserve">
+          <source>Press CTRL+F5 to run the application.</source>
+          <target state="new">Press CTRL+F5 to run the application.</target>
+        </trans-unit>
+        <trans-unit id="0663f332-451f-4147-959e-d6b28e93f6c1" xml:space="preserve">
+          <source>Click the button, and when the browser control displays a login page, enter the credentials of a user authorized to call the API app.</source>
+          <target state="new">Click the button, and when the browser control displays a login page, enter the credentials of a user authorized to call the API app.</target>
+        </trans-unit>
+        <trans-unit id="d6233f00-d345-442a-a597-c59ebb16109c" xml:space="preserve">
+          <source>Azure authenticates you, and the application calls the API app and displays the response.</source>
+          <target state="new">Azure authenticates you, and the application calls the API app and displays the response.</target>
+        </trans-unit>
+        <trans-unit id="5fd1221a-639e-4e03-bc71-785a19f3a4a0" xml:space="preserve">
+          <source><bpt id="dfd7aedc-b513-493f-a0a4-696ea8a2b7fd">&lt;linkText&gt;</bpt><ept id="dfd7aedc-b513-493f-a0a4-696ea8a2b7fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dfd7aedc-b513-493f-a0a4-696ea8a2b7fd">&lt;linkText&gt;</bpt><ept id="dfd7aedc-b513-493f-a0a4-696ea8a2b7fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b195924a-d1d5-4c22-913b-651fe081f3e3" xml:space="preserve">
+          <source>The sample application illustrates <bpt id="3b939bf5-3c87-499d-b7f5-85fe1471ce74">&lt;linkText&gt;</bpt>server flow<ept id="3b939bf5-3c87-499d-b7f5-85fe1471ce74">&lt;/linkText&gt;</ept><bpt id="3b939bf5-3c87-499d-b7f5-85fe1471ce74">&lt;title&gt;</bpt><ept id="3b939bf5-3c87-499d-b7f5-85fe1471ce74">&lt;/title&gt;</ept>, which means the gateway gets the identity provider's access token.</source>
+          <target state="new">The sample application illustrates <bpt id="3b939bf5-3c87-499d-b7f5-85fe1471ce74">&lt;linkText&gt;</bpt>server flow<ept id="3b939bf5-3c87-499d-b7f5-85fe1471ce74">&lt;/linkText&gt;</ept><bpt id="3b939bf5-3c87-499d-b7f5-85fe1471ce74">&lt;title&gt;</bpt><ept id="3b939bf5-3c87-499d-b7f5-85fe1471ce74">&lt;/title&gt;</ept>, which means the gateway gets the identity provider's access token.</target>
+        </trans-unit>
+        <trans-unit id="ce036ea4-f3a7-4742-907e-d1c525032c76" xml:space="preserve">
+          <source>For <bpt id="fe64ded5-6603-4527-a7fe-a9293619f950">&lt;linkText&gt;</bpt>client flow<ept id="fe64ded5-6603-4527-a7fe-a9293619f950">&lt;/linkText&gt;</ept><bpt id="fe64ded5-6603-4527-a7fe-a9293619f950">&lt;title&gt;</bpt><ept id="fe64ded5-6603-4527-a7fe-a9293619f950">&lt;/title&gt;</ept>, in which your client application gets the access token directly from the identity provider and sends it to the gateway, you call <bpt id="9b8e7472-3d21-45d2-856c-33b3e7230ef0">&lt;code&gt;</bpt>LoginAsync<ept id="9b8e7472-3d21-45d2-856c-33b3e7230ef0">&lt;/code&gt;</ept> rather than <bpt id="579b0429-a156-4455-8312-ac7cb90e6a4b">&lt;code&gt;</bpt>SetCurrentUser<ept id="579b0429-a156-4455-8312-ac7cb90e6a4b">&lt;/code&gt;</ept>.</source>
+          <target state="new">For <bpt id="fe64ded5-6603-4527-a7fe-a9293619f950">&lt;linkText&gt;</bpt>client flow<ept id="fe64ded5-6603-4527-a7fe-a9293619f950">&lt;/linkText&gt;</ept><bpt id="fe64ded5-6603-4527-a7fe-a9293619f950">&lt;title&gt;</bpt><ept id="fe64ded5-6603-4527-a7fe-a9293619f950">&lt;/title&gt;</ept>, in which your client application gets the access token directly from the identity provider and sends it to the gateway, you call <bpt id="9b8e7472-3d21-45d2-856c-33b3e7230ef0">&lt;code&gt;</bpt>LoginAsync<ept id="9b8e7472-3d21-45d2-856c-33b3e7230ef0">&lt;/code&gt;</ept> rather than <bpt id="579b0429-a156-4455-8312-ac7cb90e6a4b">&lt;code&gt;</bpt>SetCurrentUser<ept id="579b0429-a156-4455-8312-ac7cb90e6a4b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3925520-2e8f-42bc-bf0f-dda750735280" xml:space="preserve">
+          <source>The following code example assumes that you have the identity provider's access token in a string variable named <bpt id="bd4a1789-df17-4546-9e08-4d87df7264e2">&lt;code&gt;</bpt>providerAccessToken<ept id="bd4a1789-df17-4546-9e08-4d87df7264e2">&lt;/code&gt;</ept> and the identity provider indicator ("aad", "microsoftaccount", "google", "twitter", or "facebook") in a string variable named <bpt id="664381a5-4049-43c8-9637-4c052051917d">&lt;code&gt;</bpt>idProvider<ept id="664381a5-4049-43c8-9637-4c052051917d">&lt;/code&gt;</ept>:</source>
+          <target state="new">The following code example assumes that you have the identity provider's access token in a string variable named <bpt id="bd4a1789-df17-4546-9e08-4d87df7264e2">&lt;code&gt;</bpt>providerAccessToken<ept id="bd4a1789-df17-4546-9e08-4d87df7264e2">&lt;/code&gt;</ept> and the identity provider indicator ("aad", "microsoftaccount", "google", "twitter", or "facebook") in a string variable named <bpt id="664381a5-4049-43c8-9637-4c052051917d">&lt;code&gt;</bpt>idProvider<ept id="664381a5-4049-43c8-9637-4c052051917d">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="be6ba739-be4c-4d7c-af2d-c5d1b6942488" xml:space="preserve">
+          <source>This article has shown how to consume an API app from a .NET client, for API apps set to <bpt id="6a398e37-66e0-496f-b675-80d2751d0039">&lt;strong&gt;</bpt>Public (authenticated)<ept id="6a398e37-66e0-496f-b675-80d2751d0039">&lt;/strong&gt;</ept> and <bpt id="ae23f16e-db05-497b-9023-9eca57128bd6">&lt;strong&gt;</bpt>Public (anonymous)<ept id="ae23f16e-db05-497b-9023-9eca57128bd6">&lt;/strong&gt;</ept> access levels.</source>
+          <target state="new">This article has shown how to consume an API app from a .NET client, for API apps set to <bpt id="6a398e37-66e0-496f-b675-80d2751d0039">&lt;strong&gt;</bpt>Public (authenticated)<ept id="6a398e37-66e0-496f-b675-80d2751d0039">&lt;/strong&gt;</ept> and <bpt id="ae23f16e-db05-497b-9023-9eca57128bd6">&lt;strong&gt;</bpt>Public (anonymous)<ept id="ae23f16e-db05-497b-9023-9eca57128bd6">&lt;/strong&gt;</ept> access levels.</target>
+        </trans-unit>
+        <trans-unit id="a2d3cd86-c013-4d16-800f-dda3510d9e64" xml:space="preserve">
+          <source>For additional examples of code that calls an API app from .NET clients, download the <bpt id="eccbd227-3e97-44a5-b503-544d5ce63561">&lt;linkText&gt;</bpt>Azure Cards<ept id="eccbd227-3e97-44a5-b503-544d5ce63561">&lt;/linkText&gt;</ept><bpt id="eccbd227-3e97-44a5-b503-544d5ce63561">&lt;title&gt;</bpt><ept id="eccbd227-3e97-44a5-b503-544d5ce63561">&lt;/title&gt;</ept> sample application.</source>
+          <target state="new">For additional examples of code that calls an API app from .NET clients, download the <bpt id="eccbd227-3e97-44a5-b503-544d5ce63561">&lt;linkText&gt;</bpt>Azure Cards<ept id="eccbd227-3e97-44a5-b503-544d5ce63561">&lt;/linkText&gt;</ept><bpt id="eccbd227-3e97-44a5-b503-544d5ce63561">&lt;title&gt;</bpt><ept id="eccbd227-3e97-44a5-b503-544d5ce63561">&lt;/title&gt;</ept> sample application.</target>
+        </trans-unit>
+        <trans-unit id="7038d474-1214-4c1b-8f5a-99d74a50fefd" xml:space="preserve">
+          <source>For information about how to use authentication in API apps, see <bpt id="c13d7af0-223b-4014-b3f9-3de31d55d71e">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps in Azure App Service<ept id="c13d7af0-223b-4014-b3f9-3de31d55d71e">&lt;/linkText&gt;</ept><bpt id="c13d7af0-223b-4014-b3f9-3de31d55d71e">&lt;title&gt;</bpt><ept id="c13d7af0-223b-4014-b3f9-3de31d55d71e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to use authentication in API apps, see <bpt id="c13d7af0-223b-4014-b3f9-3de31d55d71e">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps in Azure App Service<ept id="c13d7af0-223b-4014-b3f9-3de31d55d71e">&lt;/linkText&gt;</ept><bpt id="c13d7af0-223b-4014-b3f9-3de31d55d71e">&lt;title&gt;</bpt><ept id="c13d7af0-223b-4014-b3f9-3de31d55d71e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

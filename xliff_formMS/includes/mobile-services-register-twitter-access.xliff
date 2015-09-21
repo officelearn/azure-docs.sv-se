@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="439c5ba0-6d46-4fda-8bcf-1f5825fa44c1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="439c5ba0-6d46-4fda-8bcf-1f5825fa44c1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b0613aa4-0cbe-4a50-b800-f9e9eefffd07">
+        <trans-unit id="59d8221a-d047-4467-a9f1-60760b57103a" xml:space="preserve">
+          <source>The new Twitter v1.1 APIs requires your app to authenticate before accessing resources.</source>
+          <target state="new">The new Twitter v1.1 APIs requires your app to authenticate before accessing resources.</target>
+        </trans-unit>
+        <trans-unit id="6a1268ad-5325-41b4-9544-5a4bd3707696" xml:space="preserve">
+          <source>First, you need to get the credentials needed to request access by using OAuth 2.0.</source>
+          <target state="new">First, you need to get the credentials needed to request access by using OAuth 2.0.</target>
+        </trans-unit>
+        <trans-unit id="b77faa18-4628-4a1f-bdd6-b50a4130e9da" xml:space="preserve">
+          <source>Then, you will store them securely in the app settings for your mobile service.</source>
+          <target state="new">Then, you will store them securely in the app settings for your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="8fdc5b22-06b3-4fb9-bff1-df4631640512" xml:space="preserve">
+          <source>If you haven't already done so, complete the steps in the topic &lt;a href="../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md/" target="_blank"&gt;Register your apps for Twitter login with Mobile Services&lt;/a&gt;.</source>
+          <target state="new">If you haven't already done so, complete the steps in the topic &lt;a href="../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md/" target="_blank"&gt;Register your apps for Twitter login with Mobile Services&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="e0e42b70-fad5-442c-83d4-c8d4eb10571f" xml:space="preserve">
+          <source>Twitter generates the credentials needed to enable you to access Twitter v1.1 APIs.</source>
+          <target state="new">Twitter generates the credentials needed to enable you to access Twitter v1.1 APIs.</target>
+        </trans-unit>
+        <trans-unit id="7dcca8f5-ea24-4da1-aeb2-4ec7f4b8a7ef" xml:space="preserve">
+          <source>You can get these credentials from the Twitter Developers website.</source>
+          <target state="new">You can get these credentials from the Twitter Developers website.</target>
+        </trans-unit>
+        <trans-unit id="246507d4-ab3d-4bc2-93d5-8f0cab5a714a" xml:space="preserve">
+          <source>Navigate to the &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank"&gt;Twitter Developers&lt;/a&gt; website, sign-in with your Twitter account credentials and select your Twitter app.</source>
+          <target state="new">Navigate to the &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank"&gt;Twitter Developers&lt;/a&gt; website, sign-in with your Twitter account credentials and select your Twitter app.</target>
+        </trans-unit>
+        <trans-unit id="170d8b1a-0ae6-42b9-90c5-c6c095cee0fc" xml:space="preserve">
+          <source>In the <bpt id="e3b7e4dc-6920-4eba-9739-3ee7d030554e">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="e3b7e4dc-6920-4eba-9739-3ee7d030554e">&lt;/strong&gt;</ept> tab for the app, make a note of the following values:</source>
+          <target state="new">In the <bpt id="e3b7e4dc-6920-4eba-9739-3ee7d030554e">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="e3b7e4dc-6920-4eba-9739-3ee7d030554e">&lt;/strong&gt;</ept> tab for the app, make a note of the following values:</target>
+        </trans-unit>
+        <trans-unit id="e23015bf-7655-46fa-b213-48b8b8c85bfb" xml:space="preserve">
+          <source><bpt id="d2bb2fe8-5b72-435f-b54e-9e57318ef4bf">&lt;strong&gt;</bpt>Consumer key<ept id="d2bb2fe8-5b72-435f-b54e-9e57318ef4bf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d2bb2fe8-5b72-435f-b54e-9e57318ef4bf">&lt;strong&gt;</bpt>Consumer key<ept id="d2bb2fe8-5b72-435f-b54e-9e57318ef4bf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a56a5b98-6768-4fc4-a34d-a6abd803a603" xml:space="preserve">
+          <source><bpt id="ea23257d-e903-4770-98e3-3f584248ad55">&lt;strong&gt;</bpt>Consumer secret<ept id="ea23257d-e903-4770-98e3-3f584248ad55">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ea23257d-e903-4770-98e3-3f584248ad55">&lt;strong&gt;</bpt>Consumer secret<ept id="ea23257d-e903-4770-98e3-3f584248ad55">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f48d00e-0daf-40b5-b98f-27ade8135118" xml:space="preserve">
+          <source><bpt id="a6ddc66d-1050-438b-b158-4ecb921a50f5">&lt;strong&gt;</bpt>Access token<ept id="a6ddc66d-1050-438b-b158-4ecb921a50f5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a6ddc66d-1050-438b-b158-4ecb921a50f5">&lt;strong&gt;</bpt>Access token<ept id="a6ddc66d-1050-438b-b158-4ecb921a50f5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="601c36ec-66bb-4638-90fa-64cd0beba355" xml:space="preserve">
+          <source><bpt id="623c715d-9268-4705-bfa7-6d7407e1def0">&lt;strong&gt;</bpt>Access token secret<ept id="623c715d-9268-4705-bfa7-6d7407e1def0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="623c715d-9268-4705-bfa7-6d7407e1def0">&lt;strong&gt;</bpt>Access token secret<ept id="623c715d-9268-4705-bfa7-6d7407e1def0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88c3f665-7b2c-404a-aefb-3a3b2eb51021" xml:space="preserve">
+          <source>Log on to the [Azure Management Portal], click <bpt id="38f95747-643e-4d77-afc6-09c823fdf0f3">&lt;strong&gt;</bpt>Mobile Services<ept id="38f95747-643e-4d77-afc6-09c823fdf0f3">&lt;/strong&gt;</ept>, and then click your mobile service.</source>
+          <target state="new">Log on to the [Azure Management Portal], click <bpt id="38f95747-643e-4d77-afc6-09c823fdf0f3">&lt;strong&gt;</bpt>Mobile Services<ept id="38f95747-643e-4d77-afc6-09c823fdf0f3">&lt;/strong&gt;</ept>, and then click your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="2c05694e-52af-474a-ad6a-1b1e33ab63db" xml:space="preserve">
+          <source>Click the <bpt id="9da302db-1050-4704-a0d3-8b872645eb30">&lt;strong&gt;</bpt>Identity<ept id="9da302db-1050-4704-a0d3-8b872645eb30">&lt;/strong&gt;</ept> tab, enter the <bpt id="95742b13-233d-4520-a596-29022b540799">&lt;strong&gt;</bpt>Consumer key<ept id="95742b13-233d-4520-a596-29022b540799">&lt;/strong&gt;</ept> and <bpt id="f7828802-58af-4b60-8b97-94c41ce04b66">&lt;strong&gt;</bpt>Consumer secret<ept id="f7828802-58af-4b60-8b97-94c41ce04b66">&lt;/strong&gt;</ept> values obtained from Twitter, and click <bpt id="6575850c-4256-4dca-8a6f-1581ef65883c">&lt;strong&gt;</bpt>Save<ept id="6575850c-4256-4dca-8a6f-1581ef65883c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="9da302db-1050-4704-a0d3-8b872645eb30">&lt;strong&gt;</bpt>Identity<ept id="9da302db-1050-4704-a0d3-8b872645eb30">&lt;/strong&gt;</ept> tab, enter the <bpt id="95742b13-233d-4520-a596-29022b540799">&lt;strong&gt;</bpt>Consumer key<ept id="95742b13-233d-4520-a596-29022b540799">&lt;/strong&gt;</ept> and <bpt id="f7828802-58af-4b60-8b97-94c41ce04b66">&lt;strong&gt;</bpt>Consumer secret<ept id="f7828802-58af-4b60-8b97-94c41ce04b66">&lt;/strong&gt;</ept> values obtained from Twitter, and click <bpt id="6575850c-4256-4dca-8a6f-1581ef65883c">&lt;strong&gt;</bpt>Save<ept id="6575850c-4256-4dca-8a6f-1581ef65883c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17d4ac86-aa8b-4678-ac03-6bf5f0741737" xml:space="preserve">
+          <source><bpt id="819f4e8b-4ab2-4b69-9fe7-c394d3b54ac1">&lt;linkText&gt;</bpt><ept id="819f4e8b-4ab2-4b69-9fe7-c394d3b54ac1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="819f4e8b-4ab2-4b69-9fe7-c394d3b54ac1">&lt;linkText&gt;</bpt><ept id="819f4e8b-4ab2-4b69-9fe7-c394d3b54ac1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="062ec4b1-a9bc-4cc0-936f-63ee4af5cfdb" xml:space="preserve">
+          <source>Click the <bpt id="e9c8a265-cc2a-4039-829b-db39a8b19ff9">&lt;strong&gt;</bpt>Configure<ept id="e9c8a265-cc2a-4039-829b-db39a8b19ff9">&lt;/strong&gt;</ept> tab, scroll down to <bpt id="99296cea-e0f3-4470-b04b-bdab546cf8a9">&lt;strong&gt;</bpt>App settings<ept id="99296cea-e0f3-4470-b04b-bdab546cf8a9">&lt;/strong&gt;</ept> and enter a <bpt id="e28162e9-22b2-4668-a7c5-e61afa70060d">&lt;strong&gt;</bpt>Name<ept id="e28162e9-22b2-4668-a7c5-e61afa70060d">&lt;/strong&gt;</ept> and <bpt id="3b2ba7d2-7468-4dc1-a7e7-77a6df87615e">&lt;strong&gt;</bpt>Value<ept id="3b2ba7d2-7468-4dc1-a7e7-77a6df87615e">&lt;/strong&gt;</ept> pair for each of the following that you obtained from the Twitter site, then click <bpt id="319c471b-4d7d-4c22-b326-4b3c2fc724ad">&lt;strong&gt;</bpt>Save<ept id="319c471b-4d7d-4c22-b326-4b3c2fc724ad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="e9c8a265-cc2a-4039-829b-db39a8b19ff9">&lt;strong&gt;</bpt>Configure<ept id="e9c8a265-cc2a-4039-829b-db39a8b19ff9">&lt;/strong&gt;</ept> tab, scroll down to <bpt id="99296cea-e0f3-4470-b04b-bdab546cf8a9">&lt;strong&gt;</bpt>App settings<ept id="99296cea-e0f3-4470-b04b-bdab546cf8a9">&lt;/strong&gt;</ept> and enter a <bpt id="e28162e9-22b2-4668-a7c5-e61afa70060d">&lt;strong&gt;</bpt>Name<ept id="e28162e9-22b2-4668-a7c5-e61afa70060d">&lt;/strong&gt;</ept> and <bpt id="3b2ba7d2-7468-4dc1-a7e7-77a6df87615e">&lt;strong&gt;</bpt>Value<ept id="3b2ba7d2-7468-4dc1-a7e7-77a6df87615e">&lt;/strong&gt;</ept> pair for each of the following that you obtained from the Twitter site, then click <bpt id="319c471b-4d7d-4c22-b326-4b3c2fc724ad">&lt;strong&gt;</bpt>Save<ept id="319c471b-4d7d-4c22-b326-4b3c2fc724ad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4736442-412a-4f63-90ed-b727fa0331df" xml:space="preserve">
+          <source><bpt id="734a65f3-59b4-4cf2-bb0e-1f9466573ca9">&lt;code&gt;</bpt>TWITTER_ACCESS_TOKEN<ept id="734a65f3-59b4-4cf2-bb0e-1f9466573ca9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="734a65f3-59b4-4cf2-bb0e-1f9466573ca9">&lt;code&gt;</bpt>TWITTER_ACCESS_TOKEN<ept id="734a65f3-59b4-4cf2-bb0e-1f9466573ca9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d50812c5-f99f-452f-8637-7ffa604a4e5b" xml:space="preserve">
+          <source><bpt id="9b210e2c-cfec-47b6-8a38-a139defbf0a5">&lt;code&gt;</bpt>TWITTER_ACCESS_TOKEN_SECRET<ept id="9b210e2c-cfec-47b6-8a38-a139defbf0a5">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="9b210e2c-cfec-47b6-8a38-a139defbf0a5">&lt;code&gt;</bpt>TWITTER_ACCESS_TOKEN_SECRET<ept id="9b210e2c-cfec-47b6-8a38-a139defbf0a5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91f787a5-795c-4861-8f3e-507cb258446d" xml:space="preserve">
+          <source><bpt id="bf466856-92a9-4e58-bb08-2416495c4bca">&lt;linkText&gt;</bpt><ept id="bf466856-92a9-4e58-bb08-2416495c4bca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bf466856-92a9-4e58-bb08-2416495c4bca">&lt;linkText&gt;</bpt><ept id="bf466856-92a9-4e58-bb08-2416495c4bca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ebe3df4-bc5a-483d-92d1-77d81fe0f601" xml:space="preserve">
+          <source>This stores the Twitter access token in app settings.</source>
+          <target state="new">This stores the Twitter access token in app settings.</target>
+        </trans-unit>
+        <trans-unit id="e93fa10d-3d94-44cf-8951-c4b969df04f4" xml:space="preserve">
+          <source>Like the consumer credentials on the <bpt id="989c4357-a05f-4a94-818e-acdcd40c5365">&lt;strong&gt;</bpt>Identity<ept id="989c4357-a05f-4a94-818e-acdcd40c5365">&lt;/strong&gt;</ept> tab, the access credentials are also stored encrypted in app settings, and you can access them in your server scripts without hard-coding them in the script file.</source>
+          <target state="new">Like the consumer credentials on the <bpt id="989c4357-a05f-4a94-818e-acdcd40c5365">&lt;strong&gt;</bpt>Identity<ept id="989c4357-a05f-4a94-818e-acdcd40c5365">&lt;/strong&gt;</ept> tab, the access credentials are also stored encrypted in app settings, and you can access them in your server scripts without hard-coding them in the script file.</target>
+        </trans-unit>
+        <trans-unit id="8e6832c1-377c-4a61-8ee1-bc296dafaab7" xml:space="preserve">
+          <source>For more information, see [App settings].</source>
+          <target state="new">For more information, see [App settings].</target>
+        </trans-unit>
+        <trans-unit id="0aa7ddc7-bf47-4bba-bdb5-0e195a02728c" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262293</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262293</target>
+        </trans-unit>
+        <trans-unit id="eaac45dd-b90e-4a8b-b22e-a55a527fe11b" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="89a10c50-f9f6-4756-aa8e-1b28c73c42da" xml:space="preserve">
+          <source>../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md</source>
+          <target state="new">../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md</target>
+        </trans-unit>
+        <trans-unit id="a5c37449-5190-401b-b11b-840a7e774263" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=268300</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=268300</target>
+        </trans-unit>
+        <trans-unit id="1ccd78a6-2809-4311-bfa7-0f5779788366" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7</target>
+        </trans-unit>
+      </group>
+      <group id="0c79536a-6a9f-4389-81ec-4988c8d37bcc" />
+    </body>
+  </file>
+</xliff>

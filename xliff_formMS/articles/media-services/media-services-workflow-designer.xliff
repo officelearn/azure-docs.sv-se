@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="09899574-acb0-4e2d-bc43-3fb6c679da8c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="09899574-acb0-4e2d-bc43-3fb6c679da8c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cc319c36-377c-407e-a836-88b34794fc07">
+        <trans-unit id="19bb2f9c-c23f-40ad-8d79-2521613b7739" xml:space="preserve">
+          <source>Create Advanced Encoding Workflows with Workflow Designer</source>
+          <target state="new">Create Advanced Encoding Workflows with Workflow Designer</target>
+        </trans-unit>
+        <trans-unit id="02a4ad6e-393c-4580-afd5-f1d929a3e464" xml:space="preserve">
+          <source>Learn about how to create advanced encoding workflows with Workflow Designer.</source>
+          <target state="new">Learn about how to create advanced encoding workflows with Workflow Designer.</target>
+        </trans-unit>
+        <trans-unit id="cbea61fc-b904-4c45-90ee-46f668f987d5" xml:space="preserve">
+          <source>The <bpt id="6f4c5aff-beaa-4864-9200-76b0b3f8c8ec">&lt;strong&gt;</bpt>Workflow Designer<ept id="6f4c5aff-beaa-4864-9200-76b0b3f8c8ec">&lt;/strong&gt;</ept> is a standalone tool that is used to create workflows/graphs for encoding with <bpt id="2682d017-4aaa-422e-96d9-7d531948b2df">&lt;strong&gt;</bpt>Media Encoder Premium Workflow<ept id="2682d017-4aaa-422e-96d9-7d531948b2df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="6f4c5aff-beaa-4864-9200-76b0b3f8c8ec">&lt;strong&gt;</bpt>Workflow Designer<ept id="6f4c5aff-beaa-4864-9200-76b0b3f8c8ec">&lt;/strong&gt;</ept> is a standalone tool that is used to create workflows/graphs for encoding with <bpt id="2682d017-4aaa-422e-96d9-7d531948b2df">&lt;strong&gt;</bpt>Media Encoder Premium Workflow<ept id="2682d017-4aaa-422e-96d9-7d531948b2df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd0e57ee-becf-4b79-8bf9-579bf9a3a7e2" xml:space="preserve">
+          <source>This tool can also be used to modify <bpt id="98770e47-e9b0-4c00-aec7-4e3c72532bc6">&lt;linkText&gt;</bpt>existing workflows<ept id="98770e47-e9b0-4c00-aec7-4e3c72532bc6">&lt;/linkText&gt;</ept><bpt id="98770e47-e9b0-4c00-aec7-4e3c72532bc6">&lt;title&gt;</bpt><ept id="98770e47-e9b0-4c00-aec7-4e3c72532bc6">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tool can also be used to modify <bpt id="98770e47-e9b0-4c00-aec7-4e3c72532bc6">&lt;linkText&gt;</bpt>existing workflows<ept id="98770e47-e9b0-4c00-aec7-4e3c72532bc6">&lt;/linkText&gt;</ept><bpt id="98770e47-e9b0-4c00-aec7-4e3c72532bc6">&lt;title&gt;</bpt><ept id="98770e47-e9b0-4c00-aec7-4e3c72532bc6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3fe671c8-390d-454a-9bc3-690caa9dc893" xml:space="preserve">
+          <source>To get a copy of the Workflow Designer tool, please contact mepd@microsoft.com.</source>
+          <target state="new">To get a copy of the Workflow Designer tool, please contact mepd@microsoft.com.</target>
+        </trans-unit>
+        <trans-unit id="6d75d51c-741e-4a8d-bc57-97b677215d85" xml:space="preserve">
+          <source>Once a workflow file is created, it can be uploaded as an Asset, and then be used for encoding media files.</source>
+          <target state="new">Once a workflow file is created, it can be uploaded as an Asset, and then be used for encoding media files.</target>
+        </trans-unit>
+        <trans-unit id="1e019f00-f3d5-4211-be87-ba5ea3cb1dd2" xml:space="preserve">
+          <source>For information on how to encode with <bpt id="65fbb172-1746-4cdc-aa08-793a0b5cab8d">&lt;strong&gt;</bpt>Media Encoder Premium Workflow<ept id="65fbb172-1746-4cdc-aa08-793a0b5cab8d">&lt;/strong&gt;</ept> using <bpt id="95e35618-339f-4f04-8585-cd119bc991de">&lt;strong&gt;</bpt>.NET<ept id="95e35618-339f-4f04-8585-cd119bc991de">&lt;/strong&gt;</ept>, see <bpt id="2c16c810-0baf-4062-ab63-693851136066">&lt;linkText&gt;</bpt>Advanced encoding with Media Encoder Premium Workflow<ept id="2c16c810-0baf-4062-ab63-693851136066">&lt;/linkText&gt;</ept><bpt id="2c16c810-0baf-4062-ab63-693851136066">&lt;title&gt;</bpt><ept id="2c16c810-0baf-4062-ab63-693851136066">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on how to encode with <bpt id="65fbb172-1746-4cdc-aa08-793a0b5cab8d">&lt;strong&gt;</bpt>Media Encoder Premium Workflow<ept id="65fbb172-1746-4cdc-aa08-793a0b5cab8d">&lt;/strong&gt;</ept> using <bpt id="95e35618-339f-4f04-8585-cd119bc991de">&lt;strong&gt;</bpt>.NET<ept id="95e35618-339f-4f04-8585-cd119bc991de">&lt;/strong&gt;</ept>, see <bpt id="2c16c810-0baf-4062-ab63-693851136066">&lt;linkText&gt;</bpt>Advanced encoding with Media Encoder Premium Workflow<ept id="2c16c810-0baf-4062-ab63-693851136066">&lt;/linkText&gt;</ept><bpt id="2c16c810-0baf-4062-ab63-693851136066">&lt;title&gt;</bpt><ept id="2c16c810-0baf-4062-ab63-693851136066">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7dbbfb9b-5165-4ee5-ab8e-e3977d60f777" xml:space="preserve">
+          <source>The default workflow files can be modified using the designer tool.</source>
+          <target state="new">The default workflow files can be modified using the designer tool.</target>
+        </trans-unit>
+        <trans-unit id="0ea3d0e3-7ba6-4394-8a06-695c7c3e2fdb" xml:space="preserve">
+          <source>You can get the default workflow files <bpt id="e4faedcb-9d4f-4925-8660-e804e65e8e48">&lt;linkText&gt;</bpt>here<ept id="e4faedcb-9d4f-4925-8660-e804e65e8e48">&lt;/linkText&gt;</ept><bpt id="e4faedcb-9d4f-4925-8660-e804e65e8e48">&lt;title&gt;</bpt><ept id="e4faedcb-9d4f-4925-8660-e804e65e8e48">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get the default workflow files <bpt id="e4faedcb-9d4f-4925-8660-e804e65e8e48">&lt;linkText&gt;</bpt>here<ept id="e4faedcb-9d4f-4925-8660-e804e65e8e48">&lt;/linkText&gt;</ept><bpt id="e4faedcb-9d4f-4925-8660-e804e65e8e48">&lt;title&gt;</bpt><ept id="e4faedcb-9d4f-4925-8660-e804e65e8e48">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2fd9302-cadd-4c3e-a820-02868259263c" xml:space="preserve">
+          <source>The folder also contains the description of these files.</source>
+          <target state="new">The folder also contains the description of these files.</target>
+        </trans-unit>
+        <trans-unit id="0da53dc2-8b61-463f-8518-b62cd91663cc" xml:space="preserve">
+          <source>The following videos demonstrate how to use the designer.</source>
+          <target state="new">The following videos demonstrate how to use the designer.</target>
+        </trans-unit>
+        <trans-unit id="aaa7beed-fbe4-4efd-9546-03fe1a46bb2b" xml:space="preserve">
+          <source>Day 1 video covers:</source>
+          <target state="new">Day 1 video covers:</target>
+        </trans-unit>
+        <trans-unit id="58b4ca67-2d44-418d-8367-e9d5b997e398" xml:space="preserve">
+          <source>Designer Overview</source>
+          <target state="new">Designer Overview</target>
+        </trans-unit>
+        <trans-unit id="f288a68e-848d-44a6-a1e9-d6bd8ec720a1" xml:space="preserve">
+          <source>Basic Workflows – “Hello World”</source>
+          <target state="new">Basic Workflows – “Hello World”</target>
+        </trans-unit>
+        <trans-unit id="a6c46b98-70fe-4d9a-a45e-c476a399dcdc" xml:space="preserve">
+          <source>Creating multiple output MP4 files for use with Azure Media Services streaming</source>
+          <target state="new">Creating multiple output MP4 files for use with Azure Media Services streaming</target>
+        </trans-unit>
+        <trans-unit id="f7262489-062a-4e31-879c-02181502125c" xml:space="preserve">
+          <source>Day 2 video covers:</source>
+          <target state="new">Day 2 video covers:</target>
+        </trans-unit>
+        <trans-unit id="5e8745f2-a062-40ed-8af4-e3eae37c6d1b" xml:space="preserve">
+          <source>Varying Source file scenarios – handling audio</source>
+          <target state="new">Varying Source file scenarios – handling audio</target>
+        </trans-unit>
+        <trans-unit id="c8aae26c-74e8-41de-b433-e870ca9fdde5" xml:space="preserve">
+          <source>Workflows with advanced Logic</source>
+          <target state="new">Workflows with advanced Logic</target>
+        </trans-unit>
+        <trans-unit id="48624a03-8089-448c-b418-5f8a821a9ace" xml:space="preserve">
+          <source>Graph stages</source>
+          <target state="new">Graph stages</target>
+        </trans-unit>
+        <trans-unit id="d9865762-5ecd-4611-912c-505fc60a4d70" xml:space="preserve">
+          <source>Day 3 video covers:</source>
+          <target state="new">Day 3 video covers:</target>
+        </trans-unit>
+        <trans-unit id="36df2c32-019f-41fa-b32c-e1f5af07e23e" xml:space="preserve">
+          <source>Scripting inside of Workflows/Blueprints</source>
+          <target state="new">Scripting inside of Workflows/Blueprints</target>
+        </trans-unit>
+        <trans-unit id="edb93145-ab13-458a-b867-6b6c6d760085" xml:space="preserve">
+          <source>Restrictions with the current Encoder</source>
+          <target state="new">Restrictions with the current Encoder</target>
+        </trans-unit>
+        <trans-unit id="e4e54f78-6871-43f7-8dc0-8877d663978c" xml:space="preserve">
+          <source>Q&amp;A</source>
+          <target state="new">Q&amp;A</target>
+        </trans-unit>
+        <trans-unit id="3a8eade4-e179-4950-99f4-89d2052c00ea" xml:space="preserve">
+          <source><bpt id="ffc13d42-28d7-4216-9d68-5ded46d9036e">&lt;linkText&gt;</bpt>Azure Premium Encoder Workflow Designer Training Videos<ept id="ffc13d42-28d7-4216-9d68-5ded46d9036e">&lt;/linkText&gt;</ept><bpt id="ffc13d42-28d7-4216-9d68-5ded46d9036e">&lt;title&gt;</bpt><ept id="ffc13d42-28d7-4216-9d68-5ded46d9036e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ffc13d42-28d7-4216-9d68-5ded46d9036e">&lt;linkText&gt;</bpt>Azure Premium Encoder Workflow Designer Training Videos<ept id="ffc13d42-28d7-4216-9d68-5ded46d9036e">&lt;/linkText&gt;</ept><bpt id="ffc13d42-28d7-4216-9d68-5ded46d9036e">&lt;title&gt;</bpt><ept id="ffc13d42-28d7-4216-9d68-5ded46d9036e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bbe67d60-f59d-461e-b150-6a09cc9e047c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bbe67d60-f59d-461e-b150-6a09cc9e047c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="01a259d3-0809-4b5b-8f4f-09a16fc3c042">
+        <trans-unit id="fdfbabca-d51a-4d63-a32b-19aa932ce40a" xml:space="preserve">
+          <source>Monitor usage in Windows Store and Phone apps with Application Insights</source>
+          <target state="new">Monitor usage in Windows Store and Phone apps with Application Insights</target>
+        </trans-unit>
+        <trans-unit id="315fd492-4a64-4263-a017-8b426c797a47" xml:space="preserve">
+          <source>Analyze usage of your Windows device app with Application Insights.</source>
+          <target state="new">Analyze usage of your Windows device app with Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="3195bb90-fe59-456f-93e6-ead5028d69be" xml:space="preserve">
+          <source><bpt id="dbee1e6d-b134-44e9-b713-2643c4bd79da">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="dbee1e6d-b134-44e9-b713-2643c4bd79da">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="dbee1e6d-b134-44e9-b713-2643c4bd79da">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="dbee1e6d-b134-44e9-b713-2643c4bd79da">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3cd4439-51dd-4317-bc20-3769f1aa35ec" xml:space="preserve">
+          <source>Learn how many users you have, and which pages they're looking at in your app.</source>
+          <target state="new">Learn how many users you have, and which pages they're looking at in your app.</target>
+        </trans-unit>
+        <trans-unit id="effe06a0-fd72-47a6-ae24-7fb43f187d31" xml:space="preserve">
+          <source>Application Insights provides you with that data out of the box.</source>
+          <target state="new">Application Insights provides you with that data out of the box.</target>
+        </trans-unit>
+        <trans-unit id="fb0ae554-64d9-4440-b9d3-799af0519db6" xml:space="preserve">
+          <source>And by inserting a few lines of code in your app, you can learn more about the paths users take through your app and what they achieve with it.</source>
+          <target state="new">And by inserting a few lines of code in your app, you can learn more about the paths users take through your app and what they achieve with it.</target>
+        </trans-unit>
+        <trans-unit id="da025384-fb17-4fd6-8a5e-a2f1a79e37f4" xml:space="preserve">
+          <source>If you haven't done this already, add <bpt id="2c3aa89b-450d-4f84-aea5-700ba023cd16">&lt;linkText&gt;</bpt>Application Insights to your app project[windows]<ept id="2c3aa89b-450d-4f84-aea5-700ba023cd16">&lt;/linkText&gt;</ept><bpt id="2c3aa89b-450d-4f84-aea5-700ba023cd16">&lt;title&gt;</bpt><ept id="2c3aa89b-450d-4f84-aea5-700ba023cd16">&lt;/title&gt;</ept>, and republish it.</source>
+          <target state="new">If you haven't done this already, add <bpt id="2c3aa89b-450d-4f84-aea5-700ba023cd16">&lt;linkText&gt;</bpt>Application Insights to your app project[windows]<ept id="2c3aa89b-450d-4f84-aea5-700ba023cd16">&lt;/linkText&gt;</ept><bpt id="2c3aa89b-450d-4f84-aea5-700ba023cd16">&lt;title&gt;</bpt><ept id="2c3aa89b-450d-4f84-aea5-700ba023cd16">&lt;/title&gt;</ept>, and republish it.</target>
+        </trans-unit>
+        <trans-unit id="66d30e9d-1f20-4b70-affb-c283cb32dcaf" xml:space="preserve">
+          <source>From the Overview timeline, click through Users and Sessions charts to see more detailed analytics.</source>
+          <target state="new">From the Overview timeline, click through Users and Sessions charts to see more detailed analytics.</target>
+        </trans-unit>
+        <trans-unit id="73c26140-24e9-4a8f-b737-9becf555be46" xml:space="preserve">
+          <source><bpt id="9959f81b-18d7-4907-ab3f-dbda5ae7929e">&lt;linkText&gt;</bpt><ept id="9959f81b-18d7-4907-ab3f-dbda5ae7929e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9959f81b-18d7-4907-ab3f-dbda5ae7929e">&lt;linkText&gt;</bpt><ept id="9959f81b-18d7-4907-ab3f-dbda5ae7929e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edc24020-41fc-4a4f-9b11-d108e2af2bc2" xml:space="preserve">
+          <source><bpt id="65784b35-fefc-4a6b-b141-1f40629a1044">&lt;strong&gt;</bpt>Users<ept id="65784b35-fefc-4a6b-b141-1f40629a1044">&lt;/strong&gt;</ept> are tracked anonymously, so the same user on different devices would be counted twice.</source>
+          <target state="new"><bpt id="65784b35-fefc-4a6b-b141-1f40629a1044">&lt;strong&gt;</bpt>Users<ept id="65784b35-fefc-4a6b-b141-1f40629a1044">&lt;/strong&gt;</ept> are tracked anonymously, so the same user on different devices would be counted twice.</target>
+        </trans-unit>
+        <trans-unit id="cbbdade6-b167-4f34-97af-b5b773e7d28d" xml:space="preserve">
+          <source>A <bpt id="ac941bcd-edf2-4002-b5c0-594a72bd222f">&lt;strong&gt;</bpt>session<ept id="ac941bcd-edf2-4002-b5c0-594a72bd222f">&lt;/strong&gt;</ept> is counted when the app is suspended (for more than a brief interval, to avoid counting accidental suspensions).</source>
+          <target state="new">A <bpt id="ac941bcd-edf2-4002-b5c0-594a72bd222f">&lt;strong&gt;</bpt>session<ept id="ac941bcd-edf2-4002-b5c0-594a72bd222f">&lt;/strong&gt;</ept> is counted when the app is suspended (for more than a brief interval, to avoid counting accidental suspensions).</target>
+        </trans-unit>
+        <trans-unit id="667b19ff-9a4b-452d-905e-fd656276418d" xml:space="preserve">
+          <source>Segment a chart to get a breakdown by a variety of criteria.</source>
+          <target state="new">Segment a chart to get a breakdown by a variety of criteria.</target>
+        </trans-unit>
+        <trans-unit id="ff7f1978-3b28-4df3-b2a6-2e74eefa470a" xml:space="preserve">
+          <source>For example, to see how many users are using each version of your app, open the Users chart and segment by Application Version:</source>
+          <target state="new">For example, to see how many users are using each version of your app, open the Users chart and segment by Application Version:</target>
+        </trans-unit>
+        <trans-unit id="58425ca2-0d9b-46fd-b4c4-3cdc224eecdf" xml:space="preserve">
+          <source><bpt id="b508d42d-df4f-4292-8983-391f9d72988d">&lt;linkText&gt;</bpt>On the users chart, switch on Segmenting and choose Application version<ept id="b508d42d-df4f-4292-8983-391f9d72988d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b508d42d-df4f-4292-8983-391f9d72988d">&lt;linkText&gt;</bpt>On the users chart, switch on Segmenting and choose Application version<ept id="b508d42d-df4f-4292-8983-391f9d72988d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3baed4ca-24d2-404b-862a-ad698f37375f" xml:space="preserve">
+          <source>To discover the paths that users follow through your app, insert <bpt id="72ab0cc3-ce55-4498-860f-66ec9d295082">&lt;linkText&gt;</bpt>page view telemetry[api]<ept id="72ab0cc3-ce55-4498-860f-66ec9d295082">&lt;/linkText&gt;</ept><bpt id="72ab0cc3-ce55-4498-860f-66ec9d295082">&lt;title&gt;</bpt><ept id="72ab0cc3-ce55-4498-860f-66ec9d295082">&lt;/title&gt;</ept> into  your code:</source>
+          <target state="new">To discover the paths that users follow through your app, insert <bpt id="72ab0cc3-ce55-4498-860f-66ec9d295082">&lt;linkText&gt;</bpt>page view telemetry[api]<ept id="72ab0cc3-ce55-4498-860f-66ec9d295082">&lt;/linkText&gt;</ept><bpt id="72ab0cc3-ce55-4498-860f-66ec9d295082">&lt;title&gt;</bpt><ept id="72ab0cc3-ce55-4498-860f-66ec9d295082">&lt;/title&gt;</ept> into  your code:</target>
+        </trans-unit>
+        <trans-unit id="2d141428-e2c4-4dc0-8767-0c4283229803" xml:space="preserve">
+          <source>See the results on the page views chart, and by opening its details:</source>
+          <target state="new">See the results on the page views chart, and by opening its details:</target>
+        </trans-unit>
+        <trans-unit id="3fcc11d1-0e76-471b-a3ff-eaf0666841c8" xml:space="preserve">
+          <source><bpt id="696e75c7-c21c-4852-879e-e145a88fac2f">&lt;linkText&gt;</bpt><ept id="696e75c7-c21c-4852-879e-e145a88fac2f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="696e75c7-c21c-4852-879e-e145a88fac2f">&lt;linkText&gt;</bpt><ept id="696e75c7-c21c-4852-879e-e145a88fac2f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="663620bf-2cdc-42fc-8157-8d81f842ae6d" xml:space="preserve">
+          <source>Click through any page to see the details of specific occurrences.</source>
+          <target state="new">Click through any page to see the details of specific occurrences.</target>
+        </trans-unit>
+        <trans-unit id="8c5be388-60d3-42c7-a5a2-b8b1d109e80d" xml:space="preserve">
+          <source>By inserting code to send custom events from your app, you can track your users' behavior and the usage of specific features and scenarios.</source>
+          <target state="new">By inserting code to send custom events from your app, you can track your users' behavior and the usage of specific features and scenarios.</target>
+        </trans-unit>
+        <trans-unit id="85cc5b7d-a94f-4bee-90ef-27ab0f4b1d11" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="53b5e6d3-2084-47d5-a5ea-1ce5a604a3db" xml:space="preserve">
+          <source>The data will appear in the Custom Events grid.</source>
+          <target state="new">The data will appear in the Custom Events grid.</target>
+        </trans-unit>
+        <trans-unit id="ffb93ed6-1f7f-4510-a196-3e814a9eef0d" xml:space="preserve">
+          <source>You can either see an aggregated view in Metrics Explorer, or click through any event to see specific occurrences.</source>
+          <target state="new">You can either see an aggregated view in Metrics Explorer, or click through any event to see specific occurrences.</target>
+        </trans-unit>
+        <trans-unit id="3c888860-b3c2-4283-9f8e-69653369310f" xml:space="preserve">
+          <source><bpt id="44c18a2f-939e-47e2-ac29-d338abe4689b">&lt;linkText&gt;</bpt><ept id="44c18a2f-939e-47e2-ac29-d338abe4689b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="44c18a2f-939e-47e2-ac29-d338abe4689b">&lt;linkText&gt;</bpt><ept id="44c18a2f-939e-47e2-ac29-d338abe4689b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74f17f83-ff3f-43f4-9341-1b8ec475cf83" xml:space="preserve">
+          <source>You can add string and numeric properties to any event.</source>
+          <target state="new">You can add string and numeric properties to any event.</target>
+        </trans-unit>
+        <trans-unit id="d2ee6e31-e91d-4c0e-a154-68fe59d3209c" xml:space="preserve">
+          <source>Click through any occurrence to see its detailed properties, including those you have defined.</source>
+          <target state="new">Click through any occurrence to see its detailed properties, including those you have defined.</target>
+        </trans-unit>
+        <trans-unit id="5beb0d59-782e-4e72-a7d1-9dd55e8c1d55" xml:space="preserve">
+          <source><bpt id="1b7a19c0-3e8c-4e47-9cff-d12574eef502">&lt;linkText&gt;</bpt><ept id="1b7a19c0-3e8c-4e47-9cff-d12574eef502">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b7a19c0-3e8c-4e47-9cff-d12574eef502">&lt;linkText&gt;</bpt><ept id="1b7a19c0-3e8c-4e47-9cff-d12574eef502">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a3355a8-bc5d-42ba-868f-43e6a78408e5" xml:space="preserve">
+          <source>See <bpt id="5b74177e-49cb-4510-a251-3bef1ebf55d2">&lt;linkText&gt;</bpt>API reference[api]<ept id="5b74177e-49cb-4510-a251-3bef1ebf55d2">&lt;/linkText&gt;</ept><bpt id="5b74177e-49cb-4510-a251-3bef1ebf55d2">&lt;title&gt;</bpt><ept id="5b74177e-49cb-4510-a251-3bef1ebf55d2">&lt;/title&gt;</ept> for more about custom events.</source>
+          <target state="new">See <bpt id="5b74177e-49cb-4510-a251-3bef1ebf55d2">&lt;linkText&gt;</bpt>API reference[api]<ept id="5b74177e-49cb-4510-a251-3bef1ebf55d2">&lt;/linkText&gt;</ept><bpt id="5b74177e-49cb-4510-a251-3bef1ebf55d2">&lt;title&gt;</bpt><ept id="5b74177e-49cb-4510-a251-3bef1ebf55d2">&lt;/title&gt;</ept> for more about custom events.</target>
+        </trans-unit>
+        <trans-unit id="44e2b0d4-bef6-42d7-b620-2bb6c250dc3b" xml:space="preserve">
+          <source>Session is a fundamental concept in Application Insights, which strives to associate every telemetry event - such as crashes or custom events that you code yourself - with a specific user session.</source>
+          <target state="new">Session is a fundamental concept in Application Insights, which strives to associate every telemetry event - such as crashes or custom events that you code yourself - with a specific user session.</target>
+        </trans-unit>
+        <trans-unit id="144e5508-ee41-4ffd-839b-a43ca2f10108" xml:space="preserve">
+          <source>Rich context information is collected about each session, such as device characteristics, geo location, operating system, and so on.</source>
+          <target state="new">Rich context information is collected about each session, such as device characteristics, geo location, operating system, and so on.</target>
+        </trans-unit>
+        <trans-unit id="fd67b8e0-0a58-4004-81a3-16b8e1bb21c8" xml:space="preserve">
+          <source>When <bpt id="4643d848-e966-4d11-a31b-2252645c252f">&lt;linkText&gt;</bpt>diagnosing problems[diagnostic]<ept id="4643d848-e966-4d11-a31b-2252645c252f">&lt;/linkText&gt;</ept><bpt id="4643d848-e966-4d11-a31b-2252645c252f">&lt;title&gt;</bpt><ept id="4643d848-e966-4d11-a31b-2252645c252f">&lt;/title&gt;</ept>, you can find all the telemetry related to the session in which a problem occurred, including all requests, and any events, exceptions or traces that were logged.</source>
+          <target state="new">When <bpt id="4643d848-e966-4d11-a31b-2252645c252f">&lt;linkText&gt;</bpt>diagnosing problems[diagnostic]<ept id="4643d848-e966-4d11-a31b-2252645c252f">&lt;/linkText&gt;</ept><bpt id="4643d848-e966-4d11-a31b-2252645c252f">&lt;title&gt;</bpt><ept id="4643d848-e966-4d11-a31b-2252645c252f">&lt;/title&gt;</ept>, you can find all the telemetry related to the session in which a problem occurred, including all requests, and any events, exceptions or traces that were logged.</target>
+        </trans-unit>
+        <trans-unit id="e27e0a54-eaf4-47cc-bb61-143c6b9597ce" xml:space="preserve">
+          <source>Sessions provide a good measure of the popularity of contexts such as device, operating system or location.</source>
+          <target state="new">Sessions provide a good measure of the popularity of contexts such as device, operating system or location.</target>
+        </trans-unit>
+        <trans-unit id="0c42bc4a-01af-40d0-af25-0c98d2445462" xml:space="preserve">
+          <source>By showing the count of sessions grouped by device, for example, you get a more accurate count of how often that device is used with your app, than by counting page views.</source>
+          <target state="new">By showing the count of sessions grouped by device, for example, you get a more accurate count of how often that device is used with your app, than by counting page views.</target>
+        </trans-unit>
+        <trans-unit id="d27ecf9d-9506-48e6-84d6-631853e849c5" xml:space="preserve">
+          <source>This would be a useful input to triage of any device-specific issue.</source>
+          <target state="new">This would be a useful input to triage of any device-specific issue.</target>
+        </trans-unit>
+        <trans-unit id="97fcdffb-95df-4c17-be31-dc94af193902" xml:space="preserve">
+          <source>A session represents a single encounter between the user and the app.</source>
+          <target state="new">A session represents a single encounter between the user and the app.</target>
+        </trans-unit>
+        <trans-unit id="e39ef2f0-0016-4633-a094-9f3ba3fd1b37" xml:space="preserve">
+          <source>In its simplest form, session starts with a user launching the app and finishes when user leaves the app.</source>
+          <target state="new">In its simplest form, session starts with a user launching the app and finishes when user leaves the app.</target>
+        </trans-unit>
+        <trans-unit id="99c3c953-3bb1-4536-a5ea-9cb117e43cbd" xml:space="preserve">
+          <source>For mobile apps, the session is terminated when the app is suspended (moved to background) for more than 20 seconds.</source>
+          <target state="new">For mobile apps, the session is terminated when the app is suspended (moved to background) for more than 20 seconds.</target>
+        </trans-unit>
+        <trans-unit id="2ca58fe6-eac8-49ab-ae20-9495ef95223f" xml:space="preserve">
+          <source>If the app is resumed, a new session will start.</source>
+          <target state="new">If the app is resumed, a new session will start.</target>
+        </trans-unit>
+        <trans-unit id="5fd55270-453a-4ea8-9347-2f810bee1e1b" xml:space="preserve">
+          <source>Naturally, a user may have multiple sessions in a day, or even in a single hour.</source>
+          <target state="new">Naturally, a user may have multiple sessions in a day, or even in a single hour.</target>
+        </trans-unit>
+        <trans-unit id="22338542-5e80-4fe9-a5b4-331ed7c49023" xml:space="preserve">
+          <source><bpt id="0e032afb-c24e-44ce-a312-ce1cd8dcf5f2">&lt;strong&gt;</bpt>Session duration<ept id="0e032afb-c24e-44ce-a312-ce1cd8dcf5f2">&lt;/strong&gt;</ept> is a metric that represents the span of time between the first and last telemetry items of the session.</source>
+          <target state="new"><bpt id="0e032afb-c24e-44ce-a312-ce1cd8dcf5f2">&lt;strong&gt;</bpt>Session duration<ept id="0e032afb-c24e-44ce-a312-ce1cd8dcf5f2">&lt;/strong&gt;</ept> is a metric that represents the span of time between the first and last telemetry items of the session.</target>
+        </trans-unit>
+        <trans-unit id="006611de-1f9d-4d8b-b8dd-589b7b47aebb" xml:space="preserve">
+          <source>(It doesn't include the timeout period.)</source>
+          <target state="new">(It doesn't include the timeout period.)</target>
+        </trans-unit>
+        <trans-unit id="2950991c-7335-4a6f-848b-2d0db6d7bc11" xml:space="preserve">
+          <source><bpt id="89f54f22-e5fd-4a5b-9ec0-efeca6da898e">&lt;strong&gt;</bpt>Session count<ept id="89f54f22-e5fd-4a5b-9ec0-efeca6da898e">&lt;/strong&gt;</ept> in a certain interval is defined as the number of unique sessions with some activity during this interval.</source>
+          <target state="new"><bpt id="89f54f22-e5fd-4a5b-9ec0-efeca6da898e">&lt;strong&gt;</bpt>Session count<ept id="89f54f22-e5fd-4a5b-9ec0-efeca6da898e">&lt;/strong&gt;</ept> in a certain interval is defined as the number of unique sessions with some activity during this interval.</target>
+        </trans-unit>
+        <trans-unit id="a2213cf0-c140-422f-b156-47a1b586d6e5" xml:space="preserve">
+          <source>When you look at a long time range such as daily session count for the past week, this is usually equivalent to the total number of sessions.</source>
+          <target state="new">When you look at a long time range such as daily session count for the past week, this is usually equivalent to the total number of sessions.</target>
+        </trans-unit>
+        <trans-unit id="b76c74d4-6e49-43fa-abb0-a2facdf7ab2d" xml:space="preserve">
+          <source>However, when you explore shorter time ranges such as hourly grain, a long session spanning multiple hours will be counted for each hour in which the session was active.</source>
+          <target state="new">However, when you explore shorter time ranges such as hourly grain, a long session spanning multiple hours will be counted for each hour in which the session was active.</target>
+        </trans-unit>
+        <trans-unit id="ffc04dda-977d-400d-a7d6-759e10f74296" xml:space="preserve">
+          <source>Each user session is associated with a unique user id, generated on the app's use and kept in device local storage.</source>
+          <target state="new">Each user session is associated with a unique user id, generated on the app's use and kept in device local storage.</target>
+        </trans-unit>
+        <trans-unit id="bb77f933-6b71-44a9-9207-61c7c7fc1cf2" xml:space="preserve">
+          <source>A user who uses multiple devices will be counted more than once.</source>
+          <target state="new">A user who uses multiple devices will be counted more than once.</target>
+        </trans-unit>
+        <trans-unit id="6b901229-7595-4ee4-a0de-a5876eb8a364" xml:space="preserve">
+          <source>The <bpt id="b6d10e85-bf1d-4e14-b981-54b7a0d2178b">&lt;strong&gt;</bpt>user count<ept id="b6d10e85-bf1d-4e14-b981-54b7a0d2178b">&lt;/strong&gt;</ept> metric in a certain interval is defined as the number of unique users with recorded activity during this interval.</source>
+          <target state="new">The <bpt id="b6d10e85-bf1d-4e14-b981-54b7a0d2178b">&lt;strong&gt;</bpt>user count<ept id="b6d10e85-bf1d-4e14-b981-54b7a0d2178b">&lt;/strong&gt;</ept> metric in a certain interval is defined as the number of unique users with recorded activity during this interval.</target>
+        </trans-unit>
+        <trans-unit id="0ebc55fb-f090-474d-8336-4449aa2358a0" xml:space="preserve">
+          <source>As a result, users with long sessions may be accounted multiple times, when you set a time range so that the grain is less than an hour or so.</source>
+          <target state="new">As a result, users with long sessions may be accounted multiple times, when you set a time range so that the grain is less than an hour or so.</target>
+        </trans-unit>
+        <trans-unit id="bad33446-65fe-4ac0-8adc-756b3ed7acfb" xml:space="preserve">
+          <source><bpt id="ee713145-a5d4-48bb-b653-dbde6ea071df">&lt;strong&gt;</bpt>New Users<ept id="ee713145-a5d4-48bb-b653-dbde6ea071df">&lt;/strong&gt;</ept> counts the users whose first sessions with the app occurred during this interval.</source>
+          <target state="new"><bpt id="ee713145-a5d4-48bb-b653-dbde6ea071df">&lt;strong&gt;</bpt>New Users<ept id="ee713145-a5d4-48bb-b653-dbde6ea071df">&lt;/strong&gt;</ept> counts the users whose first sessions with the app occurred during this interval.</target>
+        </trans-unit>
+        <trans-unit id="e1061fd8-45d0-4850-afd2-58dab3d7453d" xml:space="preserve">
+          <source>If you build in debug mode, events are sent as soon as they are generated.</source>
+          <target state="new">If you build in debug mode, events are sent as soon as they are generated.</target>
+        </trans-unit>
+        <trans-unit id="86304899-66af-49f5-ac3b-ecafd14100a7" xml:space="preserve">
+          <source>If you lose internet connectivity and then exit the app before regaining connectivity, offline telemetry is discarded.</source>
+          <target state="new">If you lose internet connectivity and then exit the app before regaining connectivity, offline telemetry is discarded.</target>
+        </trans-unit>
+        <trans-unit id="87c82507-3164-483e-b61e-ce8053b1f74a" xml:space="preserve">
+          <source>If you build in release configuration, events are stored in the device and sent when the application resumes.</source>
+          <target state="new">If you build in release configuration, events are stored in the device and sent when the application resumes.</target>
+        </trans-unit>
+        <trans-unit id="bd03d565-c732-4e4f-9680-82f48b6e6033" xml:space="preserve">
+          <source>Data is also sent on the application's first use.</source>
+          <target state="new">Data is also sent on the application's first use.</target>
+        </trans-unit>
+        <trans-unit id="60c17aea-294f-4e44-a6f0-7861a9efb3d0" xml:space="preserve">
+          <source>If there is no internet connectivity upon startup, previous telemetry as well as telemetry for the current lifecycle is stored and sent on the next resume.</source>
+          <target state="new">If there is no internet connectivity upon startup, previous telemetry as well as telemetry for the current lifecycle is stored and sent on the next resume.</target>
+        </trans-unit>
+        <trans-unit id="ca3e33e9-9b94-491f-8e56-cafc4b4e074d" xml:space="preserve">
+          <source><bpt id="2b976cbb-54c4-47a6-a94c-88b8f539a930">&lt;linkText&gt;</bpt>Know your users[knowusers]<ept id="2b976cbb-54c4-47a6-a94c-88b8f539a930">&lt;/linkText&gt;</ept><bpt id="2b976cbb-54c4-47a6-a94c-88b8f539a930">&lt;title&gt;</bpt><ept id="2b976cbb-54c4-47a6-a94c-88b8f539a930">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2b976cbb-54c4-47a6-a94c-88b8f539a930">&lt;linkText&gt;</bpt>Know your users[knowusers]<ept id="2b976cbb-54c4-47a6-a94c-88b8f539a930">&lt;/linkText&gt;</ept><bpt id="2b976cbb-54c4-47a6-a94c-88b8f539a930">&lt;title&gt;</bpt><ept id="2b976cbb-54c4-47a6-a94c-88b8f539a930">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="140838de-32e6-469e-88c7-d4b9a96b53e2" xml:space="preserve">
+          <source><bpt id="3a075381-9c94-4575-9fe7-081a5f0f0439">&lt;linkText&gt;</bpt>Learn more about Metrics Explorer[metrics]<ept id="3a075381-9c94-4575-9fe7-081a5f0f0439">&lt;/linkText&gt;</ept><bpt id="3a075381-9c94-4575-9fe7-081a5f0f0439">&lt;title&gt;</bpt><ept id="3a075381-9c94-4575-9fe7-081a5f0f0439">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3a075381-9c94-4575-9fe7-081a5f0f0439">&lt;linkText&gt;</bpt>Learn more about Metrics Explorer[metrics]<ept id="3a075381-9c94-4575-9fe7-081a5f0f0439">&lt;/linkText&gt;</ept><bpt id="3a075381-9c94-4575-9fe7-081a5f0f0439">&lt;title&gt;</bpt><ept id="3a075381-9c94-4575-9fe7-081a5f0f0439">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36c610ba-5372-44fc-ab20-887c6f4f4554" xml:space="preserve">
+          <source><bpt id="1e27fc90-96a6-4b42-ac6e-10bc0c0da499">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="1e27fc90-96a6-4b42-ac6e-10bc0c0da499">&lt;/linkText&gt;</ept><bpt id="1e27fc90-96a6-4b42-ac6e-10bc0c0da499">&lt;title&gt;</bpt><ept id="1e27fc90-96a6-4b42-ac6e-10bc0c0da499">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e27fc90-96a6-4b42-ac6e-10bc0c0da499">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="1e27fc90-96a6-4b42-ac6e-10bc0c0da499">&lt;/linkText&gt;</ept><bpt id="1e27fc90-96a6-4b42-ac6e-10bc0c0da499">&lt;title&gt;</bpt><ept id="1e27fc90-96a6-4b42-ac6e-10bc0c0da499">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5128e1ce-835f-4f24-8c9f-8d25273a04ba" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="46e89569-0cea-41ef-b67f-cbe7c6223cc2" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="39459762-50e9-4578-9c57-9df7a77ee4e6" xml:space="preserve">
+          <source>app-insights-overview-usage.md</source>
+          <target state="new">app-insights-overview-usage.md</target>
+        </trans-unit>
+        <trans-unit id="d495d24b-7e46-4f3a-949a-7da1c4123c65" xml:space="preserve">
+          <source>app-insights-metrics-explorer.md</source>
+          <target state="new">app-insights-metrics-explorer.md</target>
+        </trans-unit>
+        <trans-unit id="c2664366-d9c6-49ae-911c-426507f71c04" xml:space="preserve">
+          <source>http://portal.azure.com/</source>
+          <target state="new">http://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="f9a6e29f-776a-4c2e-aeda-740c32dd5548" xml:space="preserve">
+          <source>app-insights-troubleshoot-faq.md</source>
+          <target state="new">app-insights-troubleshoot-faq.md</target>
+        </trans-unit>
+        <trans-unit id="4ce0939f-199c-464a-a1ca-a70c7b6f0de0" xml:space="preserve">
+          <source>app-insights-windows-get-started.md</source>
+          <target state="new">app-insights-windows-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="969a177d-559d-4e12-937a-39aa93cd5ee4" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="488f86cb-02b8-40cc-88af-d57770611600" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="488f86cb-02b8-40cc-88af-d57770611600" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5f2bf400-e9f0-4bdc-b1c4-534dbc16fe05">
+        <trans-unit id="cd34fc22-29a1-4d6c-a01a-c71d3e3dd2be" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with Mimecast Admin Console | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with Mimecast Admin Console | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7c2d0e4c-f5b3-4793-9ee8-5137fae87680" xml:space="preserve">
+          <source>Learn how to use Mimecast Admin Console with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Mimecast Admin Console with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="1750e01b-c5ef-4127-963f-1f44f630b1eb" xml:space="preserve">
+          <source>For feedback, click <bpt id="4cdc4899-3c7f-40fc-9c07-9bbd32cfab02">&lt;linkText&gt;</bpt>here<ept id="4cdc4899-3c7f-40fc-9c07-9bbd32cfab02">&lt;/linkText&gt;</ept><bpt id="4cdc4899-3c7f-40fc-9c07-9bbd32cfab02">&lt;title&gt;</bpt><ept id="4cdc4899-3c7f-40fc-9c07-9bbd32cfab02">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="4cdc4899-3c7f-40fc-9c07-9bbd32cfab02">&lt;linkText&gt;</bpt>here<ept id="4cdc4899-3c7f-40fc-9c07-9bbd32cfab02">&lt;/linkText&gt;</ept><bpt id="4cdc4899-3c7f-40fc-9c07-9bbd32cfab02">&lt;title&gt;</bpt><ept id="4cdc4899-3c7f-40fc-9c07-9bbd32cfab02">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="910366cd-323d-4c13-857b-ea3500d60fc3" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Mimecast Admin Console.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Mimecast Admin Console.</target>
+        </trans-unit>
+        <trans-unit id="b10ac458-acec-473e-bdfd-db7c3aaed292" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="1d4e597f-531a-4a4f-ad22-daa4f9f49911" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="d533a16b-cf5f-4ed0-8ba8-f6162e332dc2" xml:space="preserve">
+          <source>A Mimecast Admin Console single sign-on enabled subscription</source>
+          <target state="new">A Mimecast Admin Console single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="25a92943-bc09-4779-a6ee-d86d9b82e35a" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Mimecast Admin Console will be able to single sign into the application at your Mimecast Admin Console company site (service provider initiated sign on), or using the <bpt id="083b373b-0fcb-4e3e-93cf-43f019e89782">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="083b373b-0fcb-4e3e-93cf-43f019e89782">&lt;/linkText&gt;</ept><bpt id="083b373b-0fcb-4e3e-93cf-43f019e89782">&lt;title&gt;</bpt><ept id="083b373b-0fcb-4e3e-93cf-43f019e89782">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Mimecast Admin Console will be able to single sign into the application at your Mimecast Admin Console company site (service provider initiated sign on), or using the <bpt id="083b373b-0fcb-4e3e-93cf-43f019e89782">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="083b373b-0fcb-4e3e-93cf-43f019e89782">&lt;/linkText&gt;</ept><bpt id="083b373b-0fcb-4e3e-93cf-43f019e89782">&lt;title&gt;</bpt><ept id="083b373b-0fcb-4e3e-93cf-43f019e89782">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2801e26b-eea8-4ce5-b579-da0bc4f997ef" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="dcefc0d5-0505-4bff-9051-e9a2a3b60444" xml:space="preserve">
+          <source>Enabling the application integration for Mimecast Admin Console</source>
+          <target state="new">Enabling the application integration for Mimecast Admin Console</target>
+        </trans-unit>
+        <trans-unit id="60564919-9be9-4888-b21c-7cfc14eb9b0d" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="70060116-e2d3-4a9a-8514-ddc856ccbf54" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="44ddab44-5b1f-4fc0-8085-9de8e7af1808" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="e8026af5-c2a9-48b1-8c7b-c04d9cc7dca0" xml:space="preserve">
+          <source><bpt id="f37798e7-def5-4367-9adf-726cde710b90">&lt;linkText&gt;</bpt>Scenario<ept id="f37798e7-def5-4367-9adf-726cde710b90">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f37798e7-def5-4367-9adf-726cde710b90">&lt;linkText&gt;</bpt>Scenario<ept id="f37798e7-def5-4367-9adf-726cde710b90">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dbfb6d51-f452-4d94-a177-dc2180a4297c" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Mimecast Admin Console.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Mimecast Admin Console.</target>
+        </trans-unit>
+        <trans-unit id="a41e36ab-1257-4e6f-a70d-1749b13ae645" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="47540822-336e-4e36-a145-b5e837a72e7f">&lt;strong&gt;</bpt>Active Directory<ept id="47540822-336e-4e36-a145-b5e837a72e7f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="47540822-336e-4e36-a145-b5e837a72e7f">&lt;strong&gt;</bpt>Active Directory<ept id="47540822-336e-4e36-a145-b5e837a72e7f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="647ab67e-2849-4b5c-bfa8-8c9be20cb182" xml:space="preserve">
+          <source><bpt id="51239e1b-565f-4209-af38-0dbb45dc93eb">&lt;linkText&gt;</bpt>Active Directory<ept id="51239e1b-565f-4209-af38-0dbb45dc93eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="51239e1b-565f-4209-af38-0dbb45dc93eb">&lt;linkText&gt;</bpt>Active Directory<ept id="51239e1b-565f-4209-af38-0dbb45dc93eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1df8c3e4-51b5-4a42-a9b5-91ca37f3d090" xml:space="preserve">
+          <source>From the <bpt id="2bd5ed87-1891-490f-959b-f2a55a23cab4">&lt;strong&gt;</bpt>Directory<ept id="2bd5ed87-1891-490f-959b-f2a55a23cab4">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="2bd5ed87-1891-490f-959b-f2a55a23cab4">&lt;strong&gt;</bpt>Directory<ept id="2bd5ed87-1891-490f-959b-f2a55a23cab4">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="af8ea736-1b77-4cb6-bc67-9103973cf235" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="d84b5f1f-d1e9-4375-9808-b4231f05d45a">&lt;strong&gt;</bpt>Applications<ept id="d84b5f1f-d1e9-4375-9808-b4231f05d45a">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="d84b5f1f-d1e9-4375-9808-b4231f05d45a">&lt;strong&gt;</bpt>Applications<ept id="d84b5f1f-d1e9-4375-9808-b4231f05d45a">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="df82ae98-9b62-48a1-9fda-ec8c0026ee84" xml:space="preserve">
+          <source><bpt id="bc62124f-8726-42b9-b3ae-8368b6c406f6">&lt;linkText&gt;</bpt>Applications<ept id="bc62124f-8726-42b9-b3ae-8368b6c406f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bc62124f-8726-42b9-b3ae-8368b6c406f6">&lt;linkText&gt;</bpt>Applications<ept id="bc62124f-8726-42b9-b3ae-8368b6c406f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fd90388-71a7-4a3e-94ed-73b9e139ecd7" xml:space="preserve">
+          <source>Click <bpt id="1c12e792-47ce-4c03-9b85-e11808cdcc15">&lt;strong&gt;</bpt>Add<ept id="1c12e792-47ce-4c03-9b85-e11808cdcc15">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="1c12e792-47ce-4c03-9b85-e11808cdcc15">&lt;strong&gt;</bpt>Add<ept id="1c12e792-47ce-4c03-9b85-e11808cdcc15">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="19cf0b55-fe10-4c82-b1c0-044251a21b54" xml:space="preserve">
+          <source><bpt id="7aadd366-3d54-4fd2-82b8-56d15db6f0b1">&lt;linkText&gt;</bpt>Add application<ept id="7aadd366-3d54-4fd2-82b8-56d15db6f0b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7aadd366-3d54-4fd2-82b8-56d15db6f0b1">&lt;linkText&gt;</bpt>Add application<ept id="7aadd366-3d54-4fd2-82b8-56d15db6f0b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c43f5a21-79f4-44d1-9a0d-8e368f6db4b1" xml:space="preserve">
+          <source>On the <bpt id="31fce69c-d02b-499d-8a9c-a83dc34a3085">&lt;strong&gt;</bpt>What do you want to do<ept id="31fce69c-d02b-499d-8a9c-a83dc34a3085">&lt;/strong&gt;</ept> dialog, click <bpt id="74647a05-cde8-4ca4-b6f9-b9c4be9d0681">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="74647a05-cde8-4ca4-b6f9-b9c4be9d0681">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="31fce69c-d02b-499d-8a9c-a83dc34a3085">&lt;strong&gt;</bpt>What do you want to do<ept id="31fce69c-d02b-499d-8a9c-a83dc34a3085">&lt;/strong&gt;</ept> dialog, click <bpt id="74647a05-cde8-4ca4-b6f9-b9c4be9d0681">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="74647a05-cde8-4ca4-b6f9-b9c4be9d0681">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c82ef0bd-4082-4ab9-b821-4e71d0f35e60" xml:space="preserve">
+          <source><bpt id="dcd2c173-6230-4b39-a43d-f727536be3f2">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="dcd2c173-6230-4b39-a43d-f727536be3f2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dcd2c173-6230-4b39-a43d-f727536be3f2">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="dcd2c173-6230-4b39-a43d-f727536be3f2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b08ade70-54b0-424e-922e-95c00dffc720" xml:space="preserve">
+          <source>In the <bpt id="5c895031-2a60-46fb-ba3b-a6611378dfcf">&lt;strong&gt;</bpt>search box<ept id="5c895031-2a60-46fb-ba3b-a6611378dfcf">&lt;/strong&gt;</ept>, type <bpt id="8a94b8da-e875-4afe-8f85-e4c09f3df73d">&lt;strong&gt;</bpt>Mimecast Admin Console<ept id="8a94b8da-e875-4afe-8f85-e4c09f3df73d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5c895031-2a60-46fb-ba3b-a6611378dfcf">&lt;strong&gt;</bpt>search box<ept id="5c895031-2a60-46fb-ba3b-a6611378dfcf">&lt;/strong&gt;</ept>, type <bpt id="8a94b8da-e875-4afe-8f85-e4c09f3df73d">&lt;strong&gt;</bpt>Mimecast Admin Console<ept id="8a94b8da-e875-4afe-8f85-e4c09f3df73d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2add78aa-21b3-45d0-b5e2-fcc9de5ca281" xml:space="preserve">
+          <source><bpt id="9040b395-22bd-4af5-9ba4-2ee0ae8987d6">&lt;linkText&gt;</bpt>Application Gallery<ept id="9040b395-22bd-4af5-9ba4-2ee0ae8987d6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9040b395-22bd-4af5-9ba4-2ee0ae8987d6">&lt;linkText&gt;</bpt>Application Gallery<ept id="9040b395-22bd-4af5-9ba4-2ee0ae8987d6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b9c25c9-faf2-4eef-876a-2b93d6e7aac1" xml:space="preserve">
+          <source>In the results pane, select <bpt id="f3f10f6d-0d6d-49bc-bdd7-6778821a84bb">&lt;strong&gt;</bpt>Mimecast Admin Console<ept id="f3f10f6d-0d6d-49bc-bdd7-6778821a84bb">&lt;/strong&gt;</ept>, and then click <bpt id="53baaff5-419f-4d8c-b3ba-89816b822fcd">&lt;strong&gt;</bpt>Complete<ept id="53baaff5-419f-4d8c-b3ba-89816b822fcd">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="f3f10f6d-0d6d-49bc-bdd7-6778821a84bb">&lt;strong&gt;</bpt>Mimecast Admin Console<ept id="f3f10f6d-0d6d-49bc-bdd7-6778821a84bb">&lt;/strong&gt;</ept>, and then click <bpt id="53baaff5-419f-4d8c-b3ba-89816b822fcd">&lt;strong&gt;</bpt>Complete<ept id="53baaff5-419f-4d8c-b3ba-89816b822fcd">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="20abc207-f20e-480e-bb7f-8604fca19c24" xml:space="preserve">
+          <source><bpt id="ea9ba19c-6588-443f-ac21-9975d8b04035">&lt;linkText&gt;</bpt>Mimecast Admin Console<ept id="ea9ba19c-6588-443f-ac21-9975d8b04035">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea9ba19c-6588-443f-ac21-9975d8b04035">&lt;linkText&gt;</bpt>Mimecast Admin Console<ept id="ea9ba19c-6588-443f-ac21-9975d8b04035">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b139dcd0-5b0a-4fb8-be97-6b3699cf1b5b" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Mimecast Admin Console with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Mimecast Admin Console with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="ae195426-dcdc-4ca7-903a-aae0af2645b9" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="b9f85232-9ffa-4f3e-bc73-db2c21b2d38a" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="2b7d6e9a-8fef-46fd-ae8e-a5d9f5686602">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="2b7d6e9a-8fef-46fd-ae8e-a5d9f5686602">&lt;/linkText&gt;</ept><bpt id="2b7d6e9a-8fef-46fd-ae8e-a5d9f5686602">&lt;title&gt;</bpt><ept id="2b7d6e9a-8fef-46fd-ae8e-a5d9f5686602">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="2b7d6e9a-8fef-46fd-ae8e-a5d9f5686602">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="2b7d6e9a-8fef-46fd-ae8e-a5d9f5686602">&lt;/linkText&gt;</ept><bpt id="2b7d6e9a-8fef-46fd-ae8e-a5d9f5686602">&lt;title&gt;</bpt><ept id="2b7d6e9a-8fef-46fd-ae8e-a5d9f5686602">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02bfab3d-a1a6-4dea-89df-a8cb6741669c" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="d7b7565e-6927-4649-93ab-397a866bc52b">&lt;strong&gt;</bpt>Mimecast Admin Console<ept id="d7b7565e-6927-4649-93ab-397a866bc52b">&lt;/strong&gt;</ept> application integration page, click <bpt id="5ffda524-1500-481a-a740-79a15950da3a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="5ffda524-1500-481a-a740-79a15950da3a">&lt;/strong&gt;</ept> to open the <bpt id="32923fe5-5f7e-4e56-87f5-e84d11f1a351">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="32923fe5-5f7e-4e56-87f5-e84d11f1a351">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="d7b7565e-6927-4649-93ab-397a866bc52b">&lt;strong&gt;</bpt>Mimecast Admin Console<ept id="d7b7565e-6927-4649-93ab-397a866bc52b">&lt;/strong&gt;</ept> application integration page, click <bpt id="5ffda524-1500-481a-a740-79a15950da3a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="5ffda524-1500-481a-a740-79a15950da3a">&lt;/strong&gt;</ept> to open the <bpt id="32923fe5-5f7e-4e56-87f5-e84d11f1a351">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="32923fe5-5f7e-4e56-87f5-e84d11f1a351">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="4b864995-e3c8-4fc7-ae4c-fb596603f0df" xml:space="preserve">
+          <source><bpt id="cb2a7d8f-0243-4337-b558-06715024adfc">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="cb2a7d8f-0243-4337-b558-06715024adfc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb2a7d8f-0243-4337-b558-06715024adfc">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="cb2a7d8f-0243-4337-b558-06715024adfc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="696197ed-c609-4351-b5f4-b1014638bbc4" xml:space="preserve">
+          <source>On the <bpt id="1ecded73-2b53-4011-85c1-f0a50d938050">&lt;strong&gt;</bpt>How would you like users to sign on to Mimecast Admin Console<ept id="1ecded73-2b53-4011-85c1-f0a50d938050">&lt;/strong&gt;</ept> page, select <bpt id="f2a276fe-f1a8-444f-a170-72a78818cf06">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="f2a276fe-f1a8-444f-a170-72a78818cf06">&lt;/strong&gt;</ept>, and then click <bpt id="8503a96b-8c0d-4fbb-8687-38c58fd33d36">&lt;strong&gt;</bpt>Next<ept id="8503a96b-8c0d-4fbb-8687-38c58fd33d36">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="1ecded73-2b53-4011-85c1-f0a50d938050">&lt;strong&gt;</bpt>How would you like users to sign on to Mimecast Admin Console<ept id="1ecded73-2b53-4011-85c1-f0a50d938050">&lt;/strong&gt;</ept> page, select <bpt id="f2a276fe-f1a8-444f-a170-72a78818cf06">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="f2a276fe-f1a8-444f-a170-72a78818cf06">&lt;/strong&gt;</ept>, and then click <bpt id="8503a96b-8c0d-4fbb-8687-38c58fd33d36">&lt;strong&gt;</bpt>Next<ept id="8503a96b-8c0d-4fbb-8687-38c58fd33d36">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d56f0ed5-1824-452d-9674-6b5cf9a08de0" xml:space="preserve">
+          <source><bpt id="94ebe63e-79e6-457a-ba82-8e85bb9463fa">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="94ebe63e-79e6-457a-ba82-8e85bb9463fa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="94ebe63e-79e6-457a-ba82-8e85bb9463fa">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="94ebe63e-79e6-457a-ba82-8e85bb9463fa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c809c07-b66c-4bcd-a4c2-25756ca59c55" xml:space="preserve">
+          <source>On the <bpt id="81beb0f5-9298-4146-aaa6-feb9e46ebcdf">&lt;strong&gt;</bpt>Configure App URL<ept id="81beb0f5-9298-4146-aaa6-feb9e46ebcdf">&lt;/strong&gt;</ept> page, in the <bpt id="1549f78d-9d04-4368-8821-69995b801bee">&lt;strong&gt;</bpt>Mimecast Admin Console Sign On URL<ept id="1549f78d-9d04-4368-8821-69995b801bee">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to your Mimecast Admin Console application (e.g.: “https://webmail-uk.mimecast.com” or “https://webmail-us.mimecast.com”), and then click <bpt id="b9dc1f5c-90eb-4592-b58d-b9672f61c191">&lt;strong&gt;</bpt>Next<ept id="b9dc1f5c-90eb-4592-b58d-b9672f61c191">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="81beb0f5-9298-4146-aaa6-feb9e46ebcdf">&lt;strong&gt;</bpt>Configure App URL<ept id="81beb0f5-9298-4146-aaa6-feb9e46ebcdf">&lt;/strong&gt;</ept> page, in the <bpt id="1549f78d-9d04-4368-8821-69995b801bee">&lt;strong&gt;</bpt>Mimecast Admin Console Sign On URL<ept id="1549f78d-9d04-4368-8821-69995b801bee">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to your Mimecast Admin Console application (e.g.: “https://webmail-uk.mimecast.com” or “https://webmail-us.mimecast.com”), and then click <bpt id="b9dc1f5c-90eb-4592-b58d-b9672f61c191">&lt;strong&gt;</bpt>Next<ept id="b9dc1f5c-90eb-4592-b58d-b9672f61c191">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c485bb3-4ae8-489e-8941-d47ce3f63fee" xml:space="preserve">
+          <source>The sign on URL is region specific.</source>
+          <target state="new">The sign on URL is region specific.</target>
+        </trans-unit>
+        <trans-unit id="b139bbbf-50d9-46fe-8c34-06f374ff07af" xml:space="preserve">
+          <source><bpt id="485bf47e-5251-4c23-833f-706fb495a974">&lt;linkText&gt;</bpt>Configure App URL<ept id="485bf47e-5251-4c23-833f-706fb495a974">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="485bf47e-5251-4c23-833f-706fb495a974">&lt;linkText&gt;</bpt>Configure App URL<ept id="485bf47e-5251-4c23-833f-706fb495a974">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5eb88d9e-d660-4f8f-b93b-66a9369a1f09" xml:space="preserve">
+          <source>On the <bpt id="14712ea8-c48e-46bc-8bbd-847b19485eaf">&lt;strong&gt;</bpt>Configure single sign-on at Mimecast Admin Console<ept id="14712ea8-c48e-46bc-8bbd-847b19485eaf">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="f2ce5623-d7c3-4406-b5cb-048d412f954e">&lt;strong&gt;</bpt>Download certificate<ept id="f2ce5623-d7c3-4406-b5cb-048d412f954e">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</source>
+          <target state="new">On the <bpt id="14712ea8-c48e-46bc-8bbd-847b19485eaf">&lt;strong&gt;</bpt>Configure single sign-on at Mimecast Admin Console<ept id="14712ea8-c48e-46bc-8bbd-847b19485eaf">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="f2ce5623-d7c3-4406-b5cb-048d412f954e">&lt;strong&gt;</bpt>Download certificate<ept id="f2ce5623-d7c3-4406-b5cb-048d412f954e">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="3a6b5e43-d809-4075-a2a3-48ce9e956ac4" xml:space="preserve">
+          <source><bpt id="9a99a8ac-f391-483d-bfe9-256fc41c5c43">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="9a99a8ac-f391-483d-bfe9-256fc41c5c43">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9a99a8ac-f391-483d-bfe9-256fc41c5c43">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="9a99a8ac-f391-483d-bfe9-256fc41c5c43">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc01e9fa-3364-4bb7-87d7-b31b3453ead9" xml:space="preserve">
+          <source>In a different web browser window, log into your Mimecast Admin Console as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Mimecast Admin Console as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="9d12b249-c97b-470a-8f14-7612e1518300" xml:space="preserve">
+          <source>Go to <bpt id="9797e170-9cc8-44bb-a4b8-de18398632a3">&lt;strong&gt;</bpt>Services \&gt; Application<ept id="9797e170-9cc8-44bb-a4b8-de18398632a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="9797e170-9cc8-44bb-a4b8-de18398632a3">&lt;strong&gt;</bpt>Services \&gt; Application<ept id="9797e170-9cc8-44bb-a4b8-de18398632a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e2301c7-1e56-4ec2-8afb-1a53a1d9f220" xml:space="preserve">
+          <source><bpt id="73e6d8d3-3ab1-4362-bfe0-40a91f05bb99">&lt;linkText&gt;</bpt>Services<ept id="73e6d8d3-3ab1-4362-bfe0-40a91f05bb99">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73e6d8d3-3ab1-4362-bfe0-40a91f05bb99">&lt;linkText&gt;</bpt>Services<ept id="73e6d8d3-3ab1-4362-bfe0-40a91f05bb99">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aeccce31-1620-460f-83c3-450ac24f08db" xml:space="preserve">
+          <source>Click <bpt id="5ca65e79-1295-49e9-a8a6-f36e370b6bf4">&lt;strong&gt;</bpt>Authentication Profiles<ept id="5ca65e79-1295-49e9-a8a6-f36e370b6bf4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5ca65e79-1295-49e9-a8a6-f36e370b6bf4">&lt;strong&gt;</bpt>Authentication Profiles<ept id="5ca65e79-1295-49e9-a8a6-f36e370b6bf4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86242ca2-8f83-4509-b0e6-605e34f0b03f" xml:space="preserve">
+          <source><bpt id="71767c15-5b20-4343-890d-427723e3ab54">&lt;linkText&gt;</bpt>Authentication Profiles<ept id="71767c15-5b20-4343-890d-427723e3ab54">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="71767c15-5b20-4343-890d-427723e3ab54">&lt;linkText&gt;</bpt>Authentication Profiles<ept id="71767c15-5b20-4343-890d-427723e3ab54">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e97dfc87-25ee-43b9-8054-44da5bef57fd" xml:space="preserve">
+          <source>Click <bpt id="f8ca269e-4431-4937-8874-f63102c64a46">&lt;strong&gt;</bpt>New Authentication Profile<ept id="f8ca269e-4431-4937-8874-f63102c64a46">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f8ca269e-4431-4937-8874-f63102c64a46">&lt;strong&gt;</bpt>New Authentication Profile<ept id="f8ca269e-4431-4937-8874-f63102c64a46">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d24c03f3-42f5-4866-bba6-0bc801356f3d" xml:space="preserve">
+          <source><bpt id="55525e4e-2549-412c-ba33-ac1c8bf38603">&lt;linkText&gt;</bpt>New Authentication Profiles<ept id="55525e4e-2549-412c-ba33-ac1c8bf38603">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55525e4e-2549-412c-ba33-ac1c8bf38603">&lt;linkText&gt;</bpt>New Authentication Profiles<ept id="55525e4e-2549-412c-ba33-ac1c8bf38603">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0f996bd-8e8e-4133-9efd-16d68f789d8f" xml:space="preserve">
+          <source>In the <bpt id="4fe18468-90ac-4d76-8ebf-00b99441a990">&lt;strong&gt;</bpt>Authentication Profile<ept id="4fe18468-90ac-4d76-8ebf-00b99441a990">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="4fe18468-90ac-4d76-8ebf-00b99441a990">&lt;strong&gt;</bpt>Authentication Profile<ept id="4fe18468-90ac-4d76-8ebf-00b99441a990">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="1cb5fdb6-2086-4a7d-99b7-2642bdea6a7c" xml:space="preserve">
+          <source><bpt id="083c66d5-2bc9-4e5b-98f2-d46a9fdfbf60">&lt;linkText&gt;</bpt>Authentication Profile<ept id="083c66d5-2bc9-4e5b-98f2-d46a9fdfbf60">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="083c66d5-2bc9-4e5b-98f2-d46a9fdfbf60">&lt;linkText&gt;</bpt>Authentication Profile<ept id="083c66d5-2bc9-4e5b-98f2-d46a9fdfbf60">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bf810ce-da29-4768-bd15-5723417b7df6" xml:space="preserve">
+          <source>In the <bpt id="8d075c1d-4674-46eb-9795-295227de7bd7">&lt;strong&gt;</bpt>Description<ept id="8d075c1d-4674-46eb-9795-295227de7bd7">&lt;/strong&gt;</ept> textbox, type a name for your configuration.</source>
+          <target state="new">In the <bpt id="8d075c1d-4674-46eb-9795-295227de7bd7">&lt;strong&gt;</bpt>Description<ept id="8d075c1d-4674-46eb-9795-295227de7bd7">&lt;/strong&gt;</ept> textbox, type a name for your configuration.</target>
+        </trans-unit>
+        <trans-unit id="8355f11f-2eb7-497c-991a-76e2110108c2" xml:space="preserve">
+          <source>Select <bpt id="e16a04cf-efb5-4a61-a3e0-2d0c303d4085">&lt;strong&gt;</bpt>Enforce SAML Authentication for Mimecast Admin Console<ept id="e16a04cf-efb5-4a61-a3e0-2d0c303d4085">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e16a04cf-efb5-4a61-a3e0-2d0c303d4085">&lt;strong&gt;</bpt>Enforce SAML Authentication for Mimecast Admin Console<ept id="e16a04cf-efb5-4a61-a3e0-2d0c303d4085">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24b1356e-ca89-410a-9051-c633ea13895d" xml:space="preserve">
+          <source>As <bpt id="357359cb-7df6-4724-9504-f1aa1590116e">&lt;strong&gt;</bpt>Provider<ept id="357359cb-7df6-4724-9504-f1aa1590116e">&lt;/strong&gt;</ept>, select <bpt id="667aee2d-1fac-416b-8413-8f31e49002ab">&lt;strong&gt;</bpt>Azure Active Directory<ept id="667aee2d-1fac-416b-8413-8f31e49002ab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="357359cb-7df6-4724-9504-f1aa1590116e">&lt;strong&gt;</bpt>Provider<ept id="357359cb-7df6-4724-9504-f1aa1590116e">&lt;/strong&gt;</ept>, select <bpt id="667aee2d-1fac-416b-8413-8f31e49002ab">&lt;strong&gt;</bpt>Azure Active Directory<ept id="667aee2d-1fac-416b-8413-8f31e49002ab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a68c979e-6d65-4127-b959-41fee81534ef" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="aee94858-131e-4155-9bae-1cf72f07b896">&lt;strong&gt;</bpt>Configure single sign-on at Mimecast Admin Console<ept id="aee94858-131e-4155-9bae-1cf72f07b896">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="238620f4-d286-4807-93d9-9e24d22da7a8">&lt;strong&gt;</bpt>Issuer URL<ept id="238620f4-d286-4807-93d9-9e24d22da7a8">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="15a7a49b-125d-446e-924d-83fa3df4881e">&lt;strong&gt;</bpt>Issuer URL<ept id="15a7a49b-125d-446e-924d-83fa3df4881e">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="aee94858-131e-4155-9bae-1cf72f07b896">&lt;strong&gt;</bpt>Configure single sign-on at Mimecast Admin Console<ept id="aee94858-131e-4155-9bae-1cf72f07b896">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="238620f4-d286-4807-93d9-9e24d22da7a8">&lt;strong&gt;</bpt>Issuer URL<ept id="238620f4-d286-4807-93d9-9e24d22da7a8">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="15a7a49b-125d-446e-924d-83fa3df4881e">&lt;strong&gt;</bpt>Issuer URL<ept id="15a7a49b-125d-446e-924d-83fa3df4881e">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="dc07455d-06f0-4655-ac84-8e452e0af7c2" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="6bb906bd-9d36-41c7-ba86-1c89225032ed">&lt;strong&gt;</bpt>Configure single sign-on at Mimecast Admin Console<ept id="6bb906bd-9d36-41c7-ba86-1c89225032ed">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="7412c900-99c7-4e2e-98fa-517d862d4f65">&lt;strong&gt;</bpt>Remote Login URL<ept id="7412c900-99c7-4e2e-98fa-517d862d4f65">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="6c311d56-96b4-49e5-942d-6424f066ee2b">&lt;strong&gt;</bpt>Login URL<ept id="6c311d56-96b4-49e5-942d-6424f066ee2b">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="6bb906bd-9d36-41c7-ba86-1c89225032ed">&lt;strong&gt;</bpt>Configure single sign-on at Mimecast Admin Console<ept id="6bb906bd-9d36-41c7-ba86-1c89225032ed">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="7412c900-99c7-4e2e-98fa-517d862d4f65">&lt;strong&gt;</bpt>Remote Login URL<ept id="7412c900-99c7-4e2e-98fa-517d862d4f65">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="6c311d56-96b4-49e5-942d-6424f066ee2b">&lt;strong&gt;</bpt>Login URL<ept id="6c311d56-96b4-49e5-942d-6424f066ee2b">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="f72c60c9-9b8c-4765-8f4d-d3bcd5b23c53" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="11661d27-f3a6-4002-b758-ae895c34740b">&lt;strong&gt;</bpt>Configure single sign-on at Mimecast Admin Console<ept id="11661d27-f3a6-4002-b758-ae895c34740b">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="226329c3-1aaa-432e-b570-12a648d9fe21">&lt;strong&gt;</bpt>Remote Login URL<ept id="226329c3-1aaa-432e-b570-12a648d9fe21">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="e90d8fce-bf64-4e9b-9031-823912d79597">&lt;strong&gt;</bpt>Logout URL<ept id="e90d8fce-bf64-4e9b-9031-823912d79597">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="11661d27-f3a6-4002-b758-ae895c34740b">&lt;strong&gt;</bpt>Configure single sign-on at Mimecast Admin Console<ept id="11661d27-f3a6-4002-b758-ae895c34740b">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="226329c3-1aaa-432e-b570-12a648d9fe21">&lt;strong&gt;</bpt>Remote Login URL<ept id="226329c3-1aaa-432e-b570-12a648d9fe21">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="e90d8fce-bf64-4e9b-9031-823912d79597">&lt;strong&gt;</bpt>Logout URL<ept id="e90d8fce-bf64-4e9b-9031-823912d79597">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="d8959437-52b2-42a1-9a2b-3634b7a2b044" xml:space="preserve">
+          <source>The Login URL value and the Logout URL value are for the Mimecast Admin Console the same.</source>
+          <target state="new">The Login URL value and the Logout URL value are for the Mimecast Admin Console the same.</target>
+        </trans-unit>
+        <trans-unit id="d6f9bebb-4443-438a-8449-88bf68a22f6a" xml:space="preserve">
+          <source>Create a <bpt id="41cdbaf8-4044-4a20-8805-1905f3e4a4fb">&lt;strong&gt;</bpt>base-64 encoded<ept id="41cdbaf8-4044-4a20-8805-1905f3e4a4fb">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="41cdbaf8-4044-4a20-8805-1905f3e4a4fb">&lt;strong&gt;</bpt>base-64 encoded<ept id="41cdbaf8-4044-4a20-8805-1905f3e4a4fb">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="470c9d2a-c710-4da2-b50a-d3975fed8cef" xml:space="preserve">
+          <source>For more details, see <bpt id="e1cb88dc-51c3-42bb-8cff-54b124c2c7b5">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="e1cb88dc-51c3-42bb-8cff-54b124c2c7b5">&lt;/linkText&gt;</ept><bpt id="e1cb88dc-51c3-42bb-8cff-54b124c2c7b5">&lt;title&gt;</bpt><ept id="e1cb88dc-51c3-42bb-8cff-54b124c2c7b5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="e1cb88dc-51c3-42bb-8cff-54b124c2c7b5">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="e1cb88dc-51c3-42bb-8cff-54b124c2c7b5">&lt;/linkText&gt;</ept><bpt id="e1cb88dc-51c3-42bb-8cff-54b124c2c7b5">&lt;title&gt;</bpt><ept id="e1cb88dc-51c3-42bb-8cff-54b124c2c7b5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93bcdf3b-edbd-4ae2-a956-0e2f7b8a52f1" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, remove the first line (“<bpt id="be724473-1bb5-4385-84ef-4c2f20d227a7">&lt;em&gt;</bpt>--<ept id="be724473-1bb5-4385-84ef-4c2f20d227a7">&lt;/em&gt;</ept>“) and the last line (“<bpt id="9749dfaa-bda4-4721-bc2b-9749e8880e50">&lt;em&gt;</bpt>--<ept id="9749dfaa-bda4-4721-bc2b-9749e8880e50">&lt;/em&gt;</ept>“), copy the remaining content of it into your clipboard, and then paste it to the <bpt id="b7b62d65-6135-46b6-8ce2-0f35aed1453c">&lt;strong&gt;</bpt>Identity Provider Certificate (Metadata)<ept id="b7b62d65-6135-46b6-8ce2-0f35aed1453c">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, remove the first line (“<bpt id="be724473-1bb5-4385-84ef-4c2f20d227a7">&lt;em&gt;</bpt>--<ept id="be724473-1bb5-4385-84ef-4c2f20d227a7">&lt;/em&gt;</ept>“) and the last line (“<bpt id="9749dfaa-bda4-4721-bc2b-9749e8880e50">&lt;em&gt;</bpt>--<ept id="9749dfaa-bda4-4721-bc2b-9749e8880e50">&lt;/em&gt;</ept>“), copy the remaining content of it into your clipboard, and then paste it to the <bpt id="b7b62d65-6135-46b6-8ce2-0f35aed1453c">&lt;strong&gt;</bpt>Identity Provider Certificate (Metadata)<ept id="b7b62d65-6135-46b6-8ce2-0f35aed1453c">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="ebf7e717-29a9-4fc3-a89a-0724fb9f0d81" xml:space="preserve">
+          <source>Select <bpt id="df50eb79-761d-46af-892c-c90169ac24c2">&lt;strong&gt;</bpt>Allow Single Sign On<ept id="df50eb79-761d-46af-892c-c90169ac24c2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="df50eb79-761d-46af-892c-c90169ac24c2">&lt;strong&gt;</bpt>Allow Single Sign On<ept id="df50eb79-761d-46af-892c-c90169ac24c2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e066b1c7-e886-4432-b859-da36a16d4b63" xml:space="preserve">
+          <source>Click <bpt id="12f839a4-7628-492c-82f5-9c234fa567b4">&lt;strong&gt;</bpt>Save<ept id="12f839a4-7628-492c-82f5-9c234fa567b4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="12f839a4-7628-492c-82f5-9c234fa567b4">&lt;strong&gt;</bpt>Save<ept id="12f839a4-7628-492c-82f5-9c234fa567b4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99c0fadd-5789-44cf-80f9-8524c85933d9" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="2a364be2-c34e-4563-bd85-cb78d28ddce6">&lt;strong&gt;</bpt>Complete<ept id="2a364be2-c34e-4563-bd85-cb78d28ddce6">&lt;/strong&gt;</ept> to close the <bpt id="0863d070-1edb-4203-b243-41fffdede0e2">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="0863d070-1edb-4203-b243-41fffdede0e2">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="2a364be2-c34e-4563-bd85-cb78d28ddce6">&lt;strong&gt;</bpt>Complete<ept id="2a364be2-c34e-4563-bd85-cb78d28ddce6">&lt;/strong&gt;</ept> to close the <bpt id="0863d070-1edb-4203-b243-41fffdede0e2">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="0863d070-1edb-4203-b243-41fffdede0e2">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="06118d8b-bfff-4257-a32a-ddfc38e3367c" xml:space="preserve">
+          <source><bpt id="cf20eb03-b39d-473b-8df2-e29801fafd58">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="cf20eb03-b39d-473b-8df2-e29801fafd58">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf20eb03-b39d-473b-8df2-e29801fafd58">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="cf20eb03-b39d-473b-8df2-e29801fafd58">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14856232-debe-43d3-8c45-a21a8081c7a0" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Mimecast Admin Console, they must be provisioned into Mimecast Admin Console.</source>
+          <target state="new">In order to enable Azure AD users to log into Mimecast Admin Console, they must be provisioned into Mimecast Admin Console.</target>
+        </trans-unit>
+        <trans-unit id="5cd16a6e-0971-46a9-9a5d-0d7e95892338" xml:space="preserve">
+          <source>In the case of Mimecast Admin Console, provisioning is a manual task.</source>
+          <target state="new">In the case of Mimecast Admin Console, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="c69f6884-6f4b-4be8-9b0c-b2133150835e" xml:space="preserve">
+          <source>You need to register a domain before you can create users.</source>
+          <target state="new">You need to register a domain before you can create users.</target>
+        </trans-unit>
+        <trans-unit id="8e1e7db8-9ed7-45d5-bb8d-70512a917c1a" xml:space="preserve">
+          <source>Sign on to your <bpt id="cc7718d0-f61d-45d4-9abc-919c09e521f9">&lt;strong&gt;</bpt>Mimecast Admin Console<ept id="cc7718d0-f61d-45d4-9abc-919c09e521f9">&lt;/strong&gt;</ept> as administrator.</source>
+          <target state="new">Sign on to your <bpt id="cc7718d0-f61d-45d4-9abc-919c09e521f9">&lt;strong&gt;</bpt>Mimecast Admin Console<ept id="cc7718d0-f61d-45d4-9abc-919c09e521f9">&lt;/strong&gt;</ept> as administrator.</target>
+        </trans-unit>
+        <trans-unit id="053f8673-9dcb-42bd-9d8f-629c1d4a8cee" xml:space="preserve">
+          <source>Go to <bpt id="dc6f3cbf-1bc5-4f02-8fa0-0d312973b0e8">&lt;strong&gt;</bpt>Directories \&gt; Internal<ept id="dc6f3cbf-1bc5-4f02-8fa0-0d312973b0e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="dc6f3cbf-1bc5-4f02-8fa0-0d312973b0e8">&lt;strong&gt;</bpt>Directories \&gt; Internal<ept id="dc6f3cbf-1bc5-4f02-8fa0-0d312973b0e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a89ffa1-2600-41ec-aea3-f8cac4824b7f" xml:space="preserve">
+          <source><bpt id="e7630c2b-2d01-41eb-9868-b8d111d4cbb4">&lt;linkText&gt;</bpt>Directories<ept id="e7630c2b-2d01-41eb-9868-b8d111d4cbb4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7630c2b-2d01-41eb-9868-b8d111d4cbb4">&lt;linkText&gt;</bpt>Directories<ept id="e7630c2b-2d01-41eb-9868-b8d111d4cbb4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef19b781-06e9-4a20-a05b-f283acf53cf6" xml:space="preserve">
+          <source>Click <bpt id="11b680af-3e3c-4c2d-b7b3-992fb1149474">&lt;strong&gt;</bpt>Register New Domain<ept id="11b680af-3e3c-4c2d-b7b3-992fb1149474">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="11b680af-3e3c-4c2d-b7b3-992fb1149474">&lt;strong&gt;</bpt>Register New Domain<ept id="11b680af-3e3c-4c2d-b7b3-992fb1149474">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d5b1d6f-d61e-455e-bd3a-7e10a6ef2e26" xml:space="preserve">
+          <source><bpt id="ef085ba3-35dc-4891-b015-87a90a70ab65">&lt;linkText&gt;</bpt>Register New Domain<ept id="ef085ba3-35dc-4891-b015-87a90a70ab65">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef085ba3-35dc-4891-b015-87a90a70ab65">&lt;linkText&gt;</bpt>Register New Domain<ept id="ef085ba3-35dc-4891-b015-87a90a70ab65">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf381d81-3668-4da3-9776-819d1f5f87a5" xml:space="preserve">
+          <source>After your new domain has been created, click <bpt id="265af903-5101-4bfa-853e-6c47431d412f">&lt;strong&gt;</bpt>New Address<ept id="265af903-5101-4bfa-853e-6c47431d412f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After your new domain has been created, click <bpt id="265af903-5101-4bfa-853e-6c47431d412f">&lt;strong&gt;</bpt>New Address<ept id="265af903-5101-4bfa-853e-6c47431d412f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e27f4b7a-7dd7-45b2-b0ac-8ad17e8a5974" xml:space="preserve">
+          <source><bpt id="93d00380-d740-4d30-9cc2-e3fb6940f879">&lt;linkText&gt;</bpt>New Address<ept id="93d00380-d740-4d30-9cc2-e3fb6940f879">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93d00380-d740-4d30-9cc2-e3fb6940f879">&lt;linkText&gt;</bpt>New Address<ept id="93d00380-d740-4d30-9cc2-e3fb6940f879">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c513063-d6a8-427f-989d-004625dbac37" xml:space="preserve">
+          <source>In the new address dialog, perform the following steps:</source>
+          <target state="new">In the new address dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="e348372f-a440-421f-89bf-74383224ed60" xml:space="preserve">
+          <source><bpt id="7281ccc9-6ed6-4c99-9781-9d2b8c584af3">&lt;linkText&gt;</bpt>Save<ept id="7281ccc9-6ed6-4c99-9781-9d2b8c584af3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7281ccc9-6ed6-4c99-9781-9d2b8c584af3">&lt;linkText&gt;</bpt>Save<ept id="7281ccc9-6ed6-4c99-9781-9d2b8c584af3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c78c2370-f45d-449f-a170-cc69929fb97e" xml:space="preserve">
+          <source>Type the <bpt id="3e1d59cc-2595-4e3f-bd74-3ead3021ff19">&lt;strong&gt;</bpt>Email Address<ept id="3e1d59cc-2595-4e3f-bd74-3ead3021ff19">&lt;/strong&gt;</ept>, <bpt id="8a1d4382-3aac-4510-9339-1bf0f28e22ad">&lt;strong&gt;</bpt>Global Name<ept id="8a1d4382-3aac-4510-9339-1bf0f28e22ad">&lt;/strong&gt;</ept>, <bpt id="631f5b6e-1db6-4393-bb1d-b4d06bbe1447">&lt;strong&gt;</bpt>Password<ept id="631f5b6e-1db6-4393-bb1d-b4d06bbe1447">&lt;/strong&gt;</ept> and <bpt id="a89883d2-6bc8-4020-9313-31d49b6cdea2">&lt;strong&gt;</bpt>Confirm Password<ept id="a89883d2-6bc8-4020-9313-31d49b6cdea2">&lt;/strong&gt;</ept> attributes of a valid AAD account you want to provision into the related textboxes.</source>
+          <target state="new">Type the <bpt id="3e1d59cc-2595-4e3f-bd74-3ead3021ff19">&lt;strong&gt;</bpt>Email Address<ept id="3e1d59cc-2595-4e3f-bd74-3ead3021ff19">&lt;/strong&gt;</ept>, <bpt id="8a1d4382-3aac-4510-9339-1bf0f28e22ad">&lt;strong&gt;</bpt>Global Name<ept id="8a1d4382-3aac-4510-9339-1bf0f28e22ad">&lt;/strong&gt;</ept>, <bpt id="631f5b6e-1db6-4393-bb1d-b4d06bbe1447">&lt;strong&gt;</bpt>Password<ept id="631f5b6e-1db6-4393-bb1d-b4d06bbe1447">&lt;/strong&gt;</ept> and <bpt id="a89883d2-6bc8-4020-9313-31d49b6cdea2">&lt;strong&gt;</bpt>Confirm Password<ept id="a89883d2-6bc8-4020-9313-31d49b6cdea2">&lt;/strong&gt;</ept> attributes of a valid AAD account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="1f243711-71f5-4e27-9256-a1de3464c116" xml:space="preserve">
+          <source>Click <bpt id="5cd10536-49e5-4b99-afed-eeb78b68dcb1">&lt;strong&gt;</bpt>Save<ept id="5cd10536-49e5-4b99-afed-eeb78b68dcb1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5cd10536-49e5-4b99-afed-eeb78b68dcb1">&lt;strong&gt;</bpt>Save<ept id="5cd10536-49e5-4b99-afed-eeb78b68dcb1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b313ece-baa3-4e8f-9878-00eec62d92b4" xml:space="preserve">
+          <source>You can use any other Mimecast Admin Console user account creation tools or APIs provided by Mimecast Admin Console to provision AAD user accounts.</source>
+          <target state="new">You can use any other Mimecast Admin Console user account creation tools or APIs provided by Mimecast Admin Console to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="21d52d3e-dbc9-450c-b51f-01f755b50807" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="50411ab5-db6d-48f3-a4dc-5bafe3cb3709" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="b8ea3350-65e7-4b25-87c4-8c351210af29" xml:space="preserve">
+          <source>On the <bpt id="10c6d4cf-f7b6-45dc-98c5-b97142cdb369">&lt;strong&gt;</bpt>Mimecast Admin Console **application integration page, click **Assign users<ept id="10c6d4cf-f7b6-45dc-98c5-b97142cdb369">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="10c6d4cf-f7b6-45dc-98c5-b97142cdb369">&lt;strong&gt;</bpt>Mimecast Admin Console **application integration page, click **Assign users<ept id="10c6d4cf-f7b6-45dc-98c5-b97142cdb369">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ef814d0-e7d5-4df7-b359-2fae0720f0ad" xml:space="preserve">
+          <source><bpt id="0e883e9e-7240-4e3d-83ae-5c7f813d6780">&lt;linkText&gt;</bpt>Assign Users<ept id="0e883e9e-7240-4e3d-83ae-5c7f813d6780">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e883e9e-7240-4e3d-83ae-5c7f813d6780">&lt;linkText&gt;</bpt>Assign Users<ept id="0e883e9e-7240-4e3d-83ae-5c7f813d6780">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f83d4537-a75d-43b4-a517-42579926d9ce" xml:space="preserve">
+          <source>Select your test user, click <bpt id="d3d3d20f-df79-415d-b323-ff6f97817852">&lt;strong&gt;</bpt>Assign<ept id="d3d3d20f-df79-415d-b323-ff6f97817852">&lt;/strong&gt;</ept>, and then click <bpt id="83bef721-a513-48a9-8da3-26cf8ddbefa4">&lt;strong&gt;</bpt>Yes<ept id="83bef721-a513-48a9-8da3-26cf8ddbefa4">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="d3d3d20f-df79-415d-b323-ff6f97817852">&lt;strong&gt;</bpt>Assign<ept id="d3d3d20f-df79-415d-b323-ff6f97817852">&lt;/strong&gt;</ept>, and then click <bpt id="83bef721-a513-48a9-8da3-26cf8ddbefa4">&lt;strong&gt;</bpt>Yes<ept id="83bef721-a513-48a9-8da3-26cf8ddbefa4">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="f4e79e0e-86df-4ce6-b4db-b3605e89d85e" xml:space="preserve">
+          <source><bpt id="9806e46e-a503-4c33-951e-30c58ba77ca1">&lt;linkText&gt;</bpt>Yes<ept id="9806e46e-a503-4c33-951e-30c58ba77ca1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9806e46e-a503-4c33-951e-30c58ba77ca1">&lt;linkText&gt;</bpt>Yes<ept id="9806e46e-a503-4c33-951e-30c58ba77ca1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0e3f79f-d78b-47ca-ad42-3d2c1c0fce21" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="a8c8f95f-f1dd-4e21-88cc-d5853e275e8b" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="40eef503-a11d-42a5-8337-21066ebf9eba">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="40eef503-a11d-42a5-8337-21066ebf9eba">&lt;/linkText&gt;</ept><bpt id="40eef503-a11d-42a5-8337-21066ebf9eba">&lt;title&gt;</bpt><ept id="40eef503-a11d-42a5-8337-21066ebf9eba">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="40eef503-a11d-42a5-8337-21066ebf9eba">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="40eef503-a11d-42a5-8337-21066ebf9eba">&lt;/linkText&gt;</ept><bpt id="40eef503-a11d-42a5-8337-21066ebf9eba">&lt;title&gt;</bpt><ept id="40eef503-a11d-42a5-8337-21066ebf9eba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

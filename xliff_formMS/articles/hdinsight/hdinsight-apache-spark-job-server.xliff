@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c25d1992-46af-4b48-884f-97669af77574" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c25d1992-46af-4b48-884f-97669af77574" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="da384bff-e1e3-4027-9bd7-b3e86dfb0bd0">
+        <trans-unit id="8ef55dd7-fdf7-4abe-99ca-66bc21cc4be1" xml:space="preserve">
+          <source>Apache Spark Job Server on HDInsight | Microsoft Azure</source>
+          <target state="new">Apache Spark Job Server on HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="95fe7499-d6bf-458b-be77-7c2a326d5a95" xml:space="preserve">
+          <source>Learn how to use the Spark Job Server to remotely submit and manage jobs on a Spark cluster.</source>
+          <target state="new">Learn how to use the Spark Job Server to remotely submit and manage jobs on a Spark cluster.</target>
+        </trans-unit>
+        <trans-unit id="91655132-30fb-493c-b5fa-3345265a0526" xml:space="preserve">
+          <source>Apache Spark cluster on Azure HDInight packages the Spark Job Server as part of the cluster deployment.</source>
+          <target state="new">Apache Spark cluster on Azure HDInight packages the Spark Job Server as part of the cluster deployment.</target>
+        </trans-unit>
+        <trans-unit id="064dc394-dcea-46ce-9d3f-c5e17c29c39a" xml:space="preserve">
+          <source>Spark Job Server provides REST APIs to create Spark context, submit Spark application to context, check job status, kill context, etc. This article provides some examples on how to use Curl to perform some common tasks on a Spark cluster using a Job Server.</source>
+          <target state="new">Spark Job Server provides REST APIs to create Spark context, submit Spark application to context, check job status, kill context, etc. This article provides some examples on how to use Curl to perform some common tasks on a Spark cluster using a Job Server.</target>
+        </trans-unit>
+        <trans-unit id="e5f12b58-494a-43f5-9cbc-f7c8d92767dd" xml:space="preserve">
+          <source>For complete documentation for the Spark Job Server, see <bpt id="1243796c-fcc0-42de-a9fc-5f7db7a8dad6">&lt;linkText&gt;</bpt>https://github.com/spark-jobserver/spark-jobserver<ept id="1243796c-fcc0-42de-a9fc-5f7db7a8dad6">&lt;/linkText&gt;</ept><bpt id="1243796c-fcc0-42de-a9fc-5f7db7a8dad6">&lt;title&gt;</bpt><ept id="1243796c-fcc0-42de-a9fc-5f7db7a8dad6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For complete documentation for the Spark Job Server, see <bpt id="1243796c-fcc0-42de-a9fc-5f7db7a8dad6">&lt;linkText&gt;</bpt>https://github.com/spark-jobserver/spark-jobserver<ept id="1243796c-fcc0-42de-a9fc-5f7db7a8dad6">&lt;/linkText&gt;</ept><bpt id="1243796c-fcc0-42de-a9fc-5f7db7a8dad6">&lt;title&gt;</bpt><ept id="1243796c-fcc0-42de-a9fc-5f7db7a8dad6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0dcae92b-ea1a-4c51-b8c1-e5d4de8a4f37" xml:space="preserve">
+          <source>Example:</source>
+          <target state="new">Example:</target>
+        </trans-unit>
+        <trans-unit id="a45a9cca-dbab-4abd-91dd-23cd93f0aa20" xml:space="preserve">
+          <source>Example:</source>
+          <target state="new">Example:</target>
+        </trans-unit>
+        <trans-unit id="4a2ec6ac-3c3f-4134-a901-bb52e25ede92" xml:space="preserve">
+          <source>Example:</source>
+          <target state="new">Example:</target>
+        </trans-unit>
+        <trans-unit id="e668c316-1519-4231-9735-ebc94c9ccf9f" xml:space="preserve">
+          <source>where mypostdata.txt defines your application.</source>
+          <target state="new">where mypostdata.txt defines your application.</target>
+        </trans-unit>
+        <trans-unit id="95c2f7de-c364-418c-b94d-835c8e4a2135" xml:space="preserve">
+          <source>Example:</source>
+          <target state="new">Example:</target>
+        </trans-unit>
+        <trans-unit id="c0873603-12e3-444d-be33-1af108958ff4" xml:space="preserve">
+          <source><bpt id="d6d246bf-3d37-47bc-82cd-8137e05e5931">&lt;linkText&gt;</bpt>Overview: Apache Spark on Azure HDInsight<ept id="d6d246bf-3d37-47bc-82cd-8137e05e5931">&lt;/linkText&gt;</ept><bpt id="d6d246bf-3d37-47bc-82cd-8137e05e5931">&lt;title&gt;</bpt><ept id="d6d246bf-3d37-47bc-82cd-8137e05e5931">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d6d246bf-3d37-47bc-82cd-8137e05e5931">&lt;linkText&gt;</bpt>Overview: Apache Spark on Azure HDInsight<ept id="d6d246bf-3d37-47bc-82cd-8137e05e5931">&lt;/linkText&gt;</ept><bpt id="d6d246bf-3d37-47bc-82cd-8137e05e5931">&lt;title&gt;</bpt><ept id="d6d246bf-3d37-47bc-82cd-8137e05e5931">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7026875-3c4e-4d0f-9544-abc35e1dc4e4" xml:space="preserve">
+          <source><bpt id="66c7c2fa-60ce-4930-a512-96ecd6f583f3">&lt;linkText&gt;</bpt>Provision a Spark on HDInsight cluster<ept id="66c7c2fa-60ce-4930-a512-96ecd6f583f3">&lt;/linkText&gt;</ept><bpt id="66c7c2fa-60ce-4930-a512-96ecd6f583f3">&lt;title&gt;</bpt><ept id="66c7c2fa-60ce-4930-a512-96ecd6f583f3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="66c7c2fa-60ce-4930-a512-96ecd6f583f3">&lt;linkText&gt;</bpt>Provision a Spark on HDInsight cluster<ept id="66c7c2fa-60ce-4930-a512-96ecd6f583f3">&lt;/linkText&gt;</ept><bpt id="66c7c2fa-60ce-4930-a512-96ecd6f583f3">&lt;title&gt;</bpt><ept id="66c7c2fa-60ce-4930-a512-96ecd6f583f3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e21c2850-bbdb-444a-babd-0307bdc522e4" xml:space="preserve">
+          <source><bpt id="16980395-b0ee-41e7-8d52-01f6be664da9">&lt;linkText&gt;</bpt>Perform interactive data analysis using Spark in HDInsight with BI tools<ept id="16980395-b0ee-41e7-8d52-01f6be664da9">&lt;/linkText&gt;</ept><bpt id="16980395-b0ee-41e7-8d52-01f6be664da9">&lt;title&gt;</bpt><ept id="16980395-b0ee-41e7-8d52-01f6be664da9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="16980395-b0ee-41e7-8d52-01f6be664da9">&lt;linkText&gt;</bpt>Perform interactive data analysis using Spark in HDInsight with BI tools<ept id="16980395-b0ee-41e7-8d52-01f6be664da9">&lt;/linkText&gt;</ept><bpt id="16980395-b0ee-41e7-8d52-01f6be664da9">&lt;title&gt;</bpt><ept id="16980395-b0ee-41e7-8d52-01f6be664da9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="857d5d26-2a15-4c1d-b5f2-e2b8f63b7d8d" xml:space="preserve">
+          <source><bpt id="58b7ab3c-0167-4d89-9ca2-3815b3ebaad7">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building machine learning applications<ept id="58b7ab3c-0167-4d89-9ca2-3815b3ebaad7">&lt;/linkText&gt;</ept><bpt id="58b7ab3c-0167-4d89-9ca2-3815b3ebaad7">&lt;title&gt;</bpt><ept id="58b7ab3c-0167-4d89-9ca2-3815b3ebaad7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="58b7ab3c-0167-4d89-9ca2-3815b3ebaad7">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building machine learning applications<ept id="58b7ab3c-0167-4d89-9ca2-3815b3ebaad7">&lt;/linkText&gt;</ept><bpt id="58b7ab3c-0167-4d89-9ca2-3815b3ebaad7">&lt;title&gt;</bpt><ept id="58b7ab3c-0167-4d89-9ca2-3815b3ebaad7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2fc3b10-70a6-489b-8971-d553d3c83577" xml:space="preserve">
+          <source><bpt id="db8fdf49-73e2-4f1d-bbab-4989095b7b6a">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building real-time streaming applications<ept id="db8fdf49-73e2-4f1d-bbab-4989095b7b6a">&lt;/linkText&gt;</ept><bpt id="db8fdf49-73e2-4f1d-bbab-4989095b7b6a">&lt;title&gt;</bpt><ept id="db8fdf49-73e2-4f1d-bbab-4989095b7b6a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="db8fdf49-73e2-4f1d-bbab-4989095b7b6a">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building real-time streaming applications<ept id="db8fdf49-73e2-4f1d-bbab-4989095b7b6a">&lt;/linkText&gt;</ept><bpt id="db8fdf49-73e2-4f1d-bbab-4989095b7b6a">&lt;title&gt;</bpt><ept id="db8fdf49-73e2-4f1d-bbab-4989095b7b6a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fafb4a73-d727-45f2-b0da-ae99f350719c" xml:space="preserve">
+          <source><bpt id="3fd439f9-6163-4b7a-b48a-8f812becc007">&lt;linkText&gt;</bpt>Manage resources for the Apache Spark cluster in Azure HDInsight<ept id="3fd439f9-6163-4b7a-b48a-8f812becc007">&lt;/linkText&gt;</ept><bpt id="3fd439f9-6163-4b7a-b48a-8f812becc007">&lt;title&gt;</bpt><ept id="3fd439f9-6163-4b7a-b48a-8f812becc007">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3fd439f9-6163-4b7a-b48a-8f812becc007">&lt;linkText&gt;</bpt>Manage resources for the Apache Spark cluster in Azure HDInsight<ept id="3fd439f9-6163-4b7a-b48a-8f812becc007">&lt;/linkText&gt;</ept><bpt id="3fd439f9-6163-4b7a-b48a-8f812becc007">&lt;title&gt;</bpt><ept id="3fd439f9-6163-4b7a-b48a-8f812becc007">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3269ff66-47b4-4b5c-ad71-ba33a1688501" xml:space="preserve">
+          <source>../hdinsight-component-versioning/</source>
+          <target state="new">../hdinsight-component-versioning/</target>
+        </trans-unit>
+        <trans-unit id="655e1052-c648-440d-a164-af36cf7b4fa1" xml:space="preserve">
+          <source>../hdinsight-upload-data/</source>
+          <target state="new">../hdinsight-upload-data/</target>
+        </trans-unit>
+        <trans-unit id="ff6453d1-fd53-4dd2-bb01-8bf841b43c6e" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage/</source>
+          <target state="new">../hdinsight-use-blob-storage/</target>
+        </trans-unit>
+        <trans-unit id="4404de4d-f3a1-42df-a07d-5d111eb97d1e" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="3ba93e72-39f0-493c-9b55-99caf74bb0a5" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="a2627a70-af68-4d5d-a797-59534f860ff8" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="53a60f27-a654-4742-8d0b-65acf49545c0" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="1cdf62a5-a605-4c23-851a-2fdc6898fdea" xml:space="preserve">
+          <source>../storage-create-storage-account/</source>
+          <target state="new">../storage-create-storage-account/</target>
+        </trans-unit>
+      </group>
+      <group id="81416013-8bdd-4ed7-a200-a9c72d14b581" />
+    </body>
+  </file>
+</xliff>

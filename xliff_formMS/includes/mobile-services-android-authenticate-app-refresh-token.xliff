@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8c447767-64f8-4d16-b7ee-32dc13b354a5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8c447767-64f8-4d16-b7ee-32dc13b354a5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="786f7f28-e852-498e-b79b-5a8d0782f8b1">
+        <trans-unit id="0269dae6-4db1-418c-917f-905b72fb8590" xml:space="preserve">
+          <source>Our token cache should work in a simple case but, what happens when the token expires or is revoked?</source>
+          <target state="new">Our token cache should work in a simple case but, what happens when the token expires or is revoked?</target>
+        </trans-unit>
+        <trans-unit id="17e56110-05f6-47e6-92d4-663382104e97" xml:space="preserve">
+          <source>The token could expire when the app is not running.</source>
+          <target state="new">The token could expire when the app is not running.</target>
+        </trans-unit>
+        <trans-unit id="fa50463d-8fa2-4828-8bca-8b498e1bd4ff" xml:space="preserve">
+          <source>This would mean the token cache is invalid.</source>
+          <target state="new">This would mean the token cache is invalid.</target>
+        </trans-unit>
+        <trans-unit id="63bc91f2-1ed4-41f4-8c02-addfd2f41155" xml:space="preserve">
+          <source>The token could also expire while the app is actually running during a call the app makes directly or a call made by the Mobile Services library.</source>
+          <target state="new">The token could also expire while the app is actually running during a call the app makes directly or a call made by the Mobile Services library.</target>
+        </trans-unit>
+        <trans-unit id="83b4e580-471c-4bd0-ab1b-9ce726abe0a4" xml:space="preserve">
+          <source>The result will be an HTTP status code 401 "Unauthorized".</source>
+          <target state="new">The result will be an HTTP status code 401 "Unauthorized".</target>
+        </trans-unit>
+        <trans-unit id="78004443-1280-4393-8c8e-63acb1d9b2db" xml:space="preserve">
+          <source>We need to be able to detect an expired token, and refresh it.</source>
+          <target state="new">We need to be able to detect an expired token, and refresh it.</target>
+        </trans-unit>
+        <trans-unit id="16ea81a1-98e9-4d49-9381-2c22c03b1b01" xml:space="preserve">
+          <source>To do this we use a <bpt id="6903b49a-5742-462b-87e4-e512831ac10a">&lt;linkText&gt;</bpt>ServiceFilter<ept id="6903b49a-5742-462b-87e4-e512831ac10a">&lt;/linkText&gt;</ept><bpt id="6903b49a-5742-462b-87e4-e512831ac10a">&lt;title&gt;</bpt><ept id="6903b49a-5742-462b-87e4-e512831ac10a">&lt;/title&gt;</ept> from the <bpt id="c4c58ae3-7f07-4fd4-ab20-c13f7c802bc3">&lt;linkText&gt;</bpt>Android client library<ept id="c4c58ae3-7f07-4fd4-ab20-c13f7c802bc3">&lt;/linkText&gt;</ept><bpt id="c4c58ae3-7f07-4fd4-ab20-c13f7c802bc3">&lt;title&gt;</bpt><ept id="c4c58ae3-7f07-4fd4-ab20-c13f7c802bc3">&lt;/title&gt;</ept>.</source>
+          <target state="new">To do this we use a <bpt id="6903b49a-5742-462b-87e4-e512831ac10a">&lt;linkText&gt;</bpt>ServiceFilter<ept id="6903b49a-5742-462b-87e4-e512831ac10a">&lt;/linkText&gt;</ept><bpt id="6903b49a-5742-462b-87e4-e512831ac10a">&lt;title&gt;</bpt><ept id="6903b49a-5742-462b-87e4-e512831ac10a">&lt;/title&gt;</ept> from the <bpt id="c4c58ae3-7f07-4fd4-ab20-c13f7c802bc3">&lt;linkText&gt;</bpt>Android client library<ept id="c4c58ae3-7f07-4fd4-ab20-c13f7c802bc3">&lt;/linkText&gt;</ept><bpt id="c4c58ae3-7f07-4fd4-ab20-c13f7c802bc3">&lt;title&gt;</bpt><ept id="c4c58ae3-7f07-4fd4-ab20-c13f7c802bc3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc6c5244-da8e-45cc-88ee-39a2705cecd8" xml:space="preserve">
+          <source>In this section you will define a ServiceFilter that will detect a HTTP status code 401 response and trigger a refresh of the token and the token cache.</source>
+          <target state="new">In this section you will define a ServiceFilter that will detect a HTTP status code 401 response and trigger a refresh of the token and the token cache.</target>
+        </trans-unit>
+        <trans-unit id="b4ddebd8-daec-43ef-89dd-cbae22f7844f" xml:space="preserve">
+          <source>Additionally, this ServiceFilter will block other outbound requests during authentication so that those requests can use the refreshed token.</source>
+          <target state="new">Additionally, this ServiceFilter will block other outbound requests during authentication so that those requests can use the refreshed token.</target>
+        </trans-unit>
+        <trans-unit id="1551b74b-0924-41c9-87ff-e0f0520bbccb" xml:space="preserve">
+          <source>Open the ToDoActivity.java file and add the following import statements:</source>
+          <target state="new">Open the ToDoActivity.java file and add the following import statements:</target>
+        </trans-unit>
+        <trans-unit id="31b8dee2-adb1-4b09-8e46-a2d2d7082775" xml:space="preserve">
+          <source>Add the following members to the <bpt id="3e33c8e2-5562-4964-9176-35ec6ba3f563">&lt;code&gt;</bpt>ToDoActivity<ept id="3e33c8e2-5562-4964-9176-35ec6ba3f563">&lt;/code&gt;</ept> class.</source>
+          <target state="new">Add the following members to the <bpt id="3e33c8e2-5562-4964-9176-35ec6ba3f563">&lt;code&gt;</bpt>ToDoActivity<ept id="3e33c8e2-5562-4964-9176-35ec6ba3f563">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="3efef887-d9c8-46cf-b513-e1f36a984a4f" xml:space="preserve">
+          <source>These will be used to help synchronize the authentication of the user.</source>
+          <target state="new">These will be used to help synchronize the authentication of the user.</target>
+        </trans-unit>
+        <trans-unit id="ae5dbc8c-45e7-4b8c-89bd-3b28e785d780" xml:space="preserve">
+          <source>We only want to authenticate once.</source>
+          <target state="new">We only want to authenticate once.</target>
+        </trans-unit>
+        <trans-unit id="6754bab1-fdc8-488a-b6c3-b9ba47908862" xml:space="preserve">
+          <source>Any calls during an authentication should wait and use the new token from the authentication in progress.</source>
+          <target state="new">Any calls during an authentication should wait and use the new token from the authentication in progress.</target>
+        </trans-unit>
+        <trans-unit id="df9198cd-60da-45e4-a6ae-55291bdfec26" xml:space="preserve">
+          <source>In the ToDoActivity.java file, add the following method to the ToDoActivity class that will be used to block outbound calls on other threads while authentication is in progress.</source>
+          <target state="new">In the ToDoActivity.java file, add the following method to the ToDoActivity class that will be used to block outbound calls on other threads while authentication is in progress.</target>
+        </trans-unit>
+        <trans-unit id="fe3279bd-5ecb-4044-affa-30766ca97bdb" xml:space="preserve">
+          <source>In the ToDoActivity.java file, add the following method to the ToDoActivity class.</source>
+          <target state="new">In the ToDoActivity.java file, add the following method to the ToDoActivity class.</target>
+        </trans-unit>
+        <trans-unit id="8a2bee7a-f272-495d-8597-943c7d8a2482" xml:space="preserve">
+          <source>This method will actually trigger the wait and then update the token on outbound requests when authentication is complete.</source>
+          <target state="new">This method will actually trigger the wait and then update the token on outbound requests when authentication is complete.</target>
+        </trans-unit>
+        <trans-unit id="8022b6b6-ed58-43e0-a3ff-0ac5a81c5877" xml:space="preserve">
+          <source>In the ToDoActivity.java file, update the <bpt id="66cc4b70-f27b-482a-9cb9-ae26dce715e6">&lt;code&gt;</bpt>authenticate<ept id="66cc4b70-f27b-482a-9cb9-ae26dce715e6">&lt;/code&gt;</ept> method of the ToDoActivity class so that it accepts a boolean parameter to allow forcing the refresh of the token and token cache.</source>
+          <target state="new">In the ToDoActivity.java file, update the <bpt id="66cc4b70-f27b-482a-9cb9-ae26dce715e6">&lt;code&gt;</bpt>authenticate<ept id="66cc4b70-f27b-482a-9cb9-ae26dce715e6">&lt;/code&gt;</ept> method of the ToDoActivity class so that it accepts a boolean parameter to allow forcing the refresh of the token and token cache.</target>
+        </trans-unit>
+        <trans-unit id="05c84644-2b8e-48e5-bb67-db372b9f7f8c" xml:space="preserve">
+          <source>We also need to notify any blocked threads when authentication is completed so they can pick up the new token.</source>
+          <target state="new">We also need to notify any blocked threads when authentication is completed so they can pick up the new token.</target>
+        </trans-unit>
+        <trans-unit id="e1d9316d-a752-429b-a538-56adbbd6985a" xml:space="preserve">
+          <source>In the ToDoActivity.java file, add this code for a new <bpt id="9f6d203d-a8fa-4850-8da5-a06337ce1f83">&lt;code&gt;</bpt>RefreshTokenCacheFilter<ept id="9f6d203d-a8fa-4850-8da5-a06337ce1f83">&lt;/code&gt;</ept> class inside the ToDoActivity class:</source>
+          <target state="new">In the ToDoActivity.java file, add this code for a new <bpt id="9f6d203d-a8fa-4850-8da5-a06337ce1f83">&lt;code&gt;</bpt>RefreshTokenCacheFilter<ept id="9f6d203d-a8fa-4850-8da5-a06337ce1f83">&lt;/code&gt;</ept> class inside the ToDoActivity class:</target>
+        </trans-unit>
+        <trans-unit id="36a45a48-6e13-49f1-a21a-d9d12128a2c3" xml:space="preserve">
+          <source>This service filter will check each response for HTTP status code 401 "Unauthorized".</source>
+          <target state="new">This service filter will check each response for HTTP status code 401 "Unauthorized".</target>
+        </trans-unit>
+        <trans-unit id="3de81e8e-a7e1-4bda-b705-3617326c3a6d" xml:space="preserve">
+          <source>If a 401 is encountered, a new login request to obtain a new token will be setup on the UI thread.</source>
+          <target state="new">If a 401 is encountered, a new login request to obtain a new token will be setup on the UI thread.</target>
+        </trans-unit>
+        <trans-unit id="125b228e-5f1f-400e-aa3d-69f76a551563" xml:space="preserve">
+          <source>Other calls will be blocked until the login is completed, or until 5 attempts have failed.</source>
+          <target state="new">Other calls will be blocked until the login is completed, or until 5 attempts have failed.</target>
+        </trans-unit>
+        <trans-unit id="ca431770-d673-4d79-959e-b7d2407953a8" xml:space="preserve">
+          <source>If the new token is obtained, the request that triggered the 401 will be retried with the new token and any blocked calls will be retried with the new token.</source>
+          <target state="new">If the new token is obtained, the request that triggered the 401 will be retried with the new token and any blocked calls will be retried with the new token.</target>
+        </trans-unit>
+        <trans-unit id="fc36e46c-696e-4e0b-88d1-bdcdae4054fc" xml:space="preserve">
+          <source>In the ToDoActivity.java file, add this code for a new <bpt id="bbbac3b8-c937-4d7b-8e82-620f0353e3e9">&lt;code&gt;</bpt>ProgressFilter<ept id="bbbac3b8-c937-4d7b-8e82-620f0353e3e9">&lt;/code&gt;</ept> class inside the ToDoActivity class:</source>
+          <target state="new">In the ToDoActivity.java file, add this code for a new <bpt id="bbbac3b8-c937-4d7b-8e82-620f0353e3e9">&lt;code&gt;</bpt>ProgressFilter<ept id="bbbac3b8-c937-4d7b-8e82-620f0353e3e9">&lt;/code&gt;</ept> class inside the ToDoActivity class:</target>
+        </trans-unit>
+        <trans-unit id="fdf55fda-b2ef-408a-b8fa-eeea93bbecfd" xml:space="preserve">
+          <source>This filter will show the progress bar on the beginning of the request and will hide it when the response arrived.</source>
+          <target state="new">This filter will show the progress bar on the beginning of the request and will hide it when the response arrived.</target>
+        </trans-unit>
+        <trans-unit id="6e9490d8-cb5f-43e8-9343-6931756e4c93" xml:space="preserve">
+          <source>In the ToDoActivity.java file, update the <bpt id="e234826c-516b-4f33-bba5-7b318673e0ce">&lt;code&gt;</bpt>onCreate<ept id="e234826c-516b-4f33-bba5-7b318673e0ce">&lt;/code&gt;</ept> method as follows:</source>
+          <target state="new">In the ToDoActivity.java file, update the <bpt id="e234826c-516b-4f33-bba5-7b318673e0ce">&lt;code&gt;</bpt>onCreate<ept id="e234826c-516b-4f33-bba5-7b318673e0ce">&lt;/code&gt;</ept> method as follows:</target>
+        </trans-unit>
+        <trans-unit id="3bd1060b-0ac8-46a0-b877-5e05d39c9592" xml:space="preserve">
+          <source>In this code, <bpt id="69222361-63d9-4521-93b3-31e1f83acf6d">&lt;code&gt;</bpt>RefreshTokenCacheFilter<ept id="69222361-63d9-4521-93b3-31e1f83acf6d">&lt;/code&gt;</ept> is used in addition to <bpt id="a97d26f2-ab44-40e0-aa7f-11617151430d">&lt;code&gt;</bpt>ProgressFilter<ept id="a97d26f2-ab44-40e0-aa7f-11617151430d">&lt;/code&gt;</ept>.</source>
+          <target state="new">In this code, <bpt id="69222361-63d9-4521-93b3-31e1f83acf6d">&lt;code&gt;</bpt>RefreshTokenCacheFilter<ept id="69222361-63d9-4521-93b3-31e1f83acf6d">&lt;/code&gt;</ept> is used in addition to <bpt id="a97d26f2-ab44-40e0-aa7f-11617151430d">&lt;code&gt;</bpt>ProgressFilter<ept id="a97d26f2-ab44-40e0-aa7f-11617151430d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12c88682-e4ce-44a6-9f96-b84327fab353" xml:space="preserve">
+          <source>Also during <bpt id="7242d142-21ec-4f5b-b31e-e5734186cae3">&lt;code&gt;</bpt>onCreate<ept id="7242d142-21ec-4f5b-b31e-e5734186cae3">&lt;/code&gt;</ept> we want to load the token cache.</source>
+          <target state="new">Also during <bpt id="7242d142-21ec-4f5b-b31e-e5734186cae3">&lt;code&gt;</bpt>onCreate<ept id="7242d142-21ec-4f5b-b31e-e5734186cae3">&lt;/code&gt;</ept> we want to load the token cache.</target>
+        </trans-unit>
+        <trans-unit id="14cde85e-094e-4c3d-b190-90ada1b37bc2" xml:space="preserve">
+          <source>So <bpt id="75301a9d-cb49-4065-b7be-2b1bb823d12d">&lt;code&gt;</bpt>false<ept id="75301a9d-cb49-4065-b7be-2b1bb823d12d">&lt;/code&gt;</ept> is passed in to the <bpt id="67b8da43-aabd-4f09-a337-2250875e5cf6">&lt;code&gt;</bpt>authenticate<ept id="67b8da43-aabd-4f09-a337-2250875e5cf6">&lt;/code&gt;</ept> method.</source>
+          <target state="new">So <bpt id="75301a9d-cb49-4065-b7be-2b1bb823d12d">&lt;code&gt;</bpt>false<ept id="75301a9d-cb49-4065-b7be-2b1bb823d12d">&lt;/code&gt;</ept> is passed in to the <bpt id="67b8da43-aabd-4f09-a337-2250875e5cf6">&lt;code&gt;</bpt>authenticate<ept id="67b8da43-aabd-4f09-a337-2250875e5cf6">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

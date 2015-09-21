@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="13ac579c-1223-4586-b442-1901b09ddbf1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="13ac579c-1223-4586-b442-1901b09ddbf1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c2922e7b-52bc-44b0-8f79-ca11df1c8ee1">
+        <trans-unit id="245fd62f-9615-4ece-aca9-ccec43eb518d" xml:space="preserve">
+          <source>Forecasting-Exponential Smoothing | Microsoft Azure</source>
+          <target state="new">Forecasting-Exponential Smoothing | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2b535b3b-8d5f-427f-9b70-a7de44e68606" xml:space="preserve">
+          <source>Web service: Forecasting-Exponential Smoothing</source>
+          <target state="new">Web service: Forecasting-Exponential Smoothing</target>
+        </trans-unit>
+        <trans-unit id="29c51595-05e4-42c6-9457-ab3f75b5b54c" xml:space="preserve">
+          <source>This <bpt id="458beb81-8951-4a27-9835-3ff752ac98c1">&lt;linkText&gt;</bpt>web service<ept id="458beb81-8951-4a27-9835-3ff752ac98c1">&lt;/linkText&gt;</ept><bpt id="458beb81-8951-4a27-9835-3ff752ac98c1">&lt;title&gt;</bpt><ept id="458beb81-8951-4a27-9835-3ff752ac98c1">&lt;/title&gt;</ept> implements the Exponential Smoothing model (ETS) to produce predictions based on the historical data provided by the user.</source>
+          <target state="new">This <bpt id="458beb81-8951-4a27-9835-3ff752ac98c1">&lt;linkText&gt;</bpt>web service<ept id="458beb81-8951-4a27-9835-3ff752ac98c1">&lt;/linkText&gt;</ept><bpt id="458beb81-8951-4a27-9835-3ff752ac98c1">&lt;title&gt;</bpt><ept id="458beb81-8951-4a27-9835-3ff752ac98c1">&lt;/title&gt;</ept> implements the Exponential Smoothing model (ETS) to produce predictions based on the historical data provided by the user.</target>
+        </trans-unit>
+        <trans-unit id="6593c534-5aeb-42a5-8a63-9757042e0880" xml:space="preserve">
+          <source>Will the demand for a specific product increase this year?</source>
+          <target state="new">Will the demand for a specific product increase this year?</target>
+        </trans-unit>
+        <trans-unit id="3dc42d42-3c94-46c8-ae97-23810b26f99f" xml:space="preserve">
+          <source>Can I predict my product sales for the Christmas season, so that I can effectively plan my inventory?</source>
+          <target state="new">Can I predict my product sales for the Christmas season, so that I can effectively plan my inventory?</target>
+        </trans-unit>
+        <trans-unit id="80513cee-e0ff-4fbe-a749-3415f9f7d793" xml:space="preserve">
+          <source>Forecasting models are apt to address such questions.</source>
+          <target state="new">Forecasting models are apt to address such questions.</target>
+        </trans-unit>
+        <trans-unit id="378ef117-0445-4748-972e-ec9073776b48" xml:space="preserve">
+          <source>Given the past data, these models examine hidden trends and seasonality to predict future trends.</source>
+          <target state="new">Given the past data, these models examine hidden trends and seasonality to predict future trends.</target>
+        </trans-unit>
+        <trans-unit id="7393b7d9-cac5-42e3-89bf-28b5d73691e7" xml:space="preserve">
+          <source><bpt id="6b72a4fb-34dd-4a28-89eb-f4d46a080386">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="6b72a4fb-34dd-4a28-89eb-f4d46a080386">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6b72a4fb-34dd-4a28-89eb-f4d46a080386">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="6b72a4fb-34dd-4a28-89eb-f4d46a080386">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5267d133-edb5-4ffb-826c-69b488db4250" xml:space="preserve">
+          <source>This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example.</source>
+          <target state="new">This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example.</target>
+        </trans-unit>
+        <trans-unit id="1e8be571-b287-4a37-83dd-0617e4d6c3fb" xml:space="preserve">
+          <source>But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</source>
+          <target state="new">But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</target>
+        </trans-unit>
+        <trans-unit id="2dfbf5a3-cac6-42bd-b04c-fc29dee0227b" xml:space="preserve">
+          <source>With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</source>
+          <target state="new">With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</target>
+        </trans-unit>
+        <trans-unit id="0d4f6336-0b9e-4843-ad50-7b2d04faa10c" xml:space="preserve">
+          <source>The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.</source>
+          <target state="new">The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.</target>
+        </trans-unit>
+        <trans-unit id="586e8fc3-2e5a-4bef-8b8d-1169a8cd354a" xml:space="preserve">
+          <source>This service accepts 4 arguments and calculates the ETS forecasts.</source>
+          <target state="new">This service accepts 4 arguments and calculates the ETS forecasts.</target>
+        </trans-unit>
+        <trans-unit id="0e8185ce-efd8-4354-acc4-56cd08a1be32" xml:space="preserve">
+          <source>The input arguments are:</source>
+          <target state="new">The input arguments are:</target>
+        </trans-unit>
+        <trans-unit id="54b5762f-ffbc-4a61-8329-923fcb7382b6" xml:space="preserve">
+          <source>Frequency - Indicates the frequency of the raw data (daily/weekly/monthly/quarterly/yearly).</source>
+          <target state="new">Frequency - Indicates the frequency of the raw data (daily/weekly/monthly/quarterly/yearly).</target>
+        </trans-unit>
+        <trans-unit id="98567bdb-4438-469f-aed0-22d4136a4c0c" xml:space="preserve">
+          <source>Horizon - Future forecast time-frame.</source>
+          <target state="new">Horizon - Future forecast time-frame.</target>
+        </trans-unit>
+        <trans-unit id="2a44d4a8-7131-42aa-9116-ebe17869556d" xml:space="preserve">
+          <source>Date - Add in the new time series data for time.</source>
+          <target state="new">Date - Add in the new time series data for time.</target>
+        </trans-unit>
+        <trans-unit id="78dd99c5-32d8-417d-9b54-604269397970" xml:space="preserve">
+          <source>Value - Add in the new time series data values.</source>
+          <target state="new">Value - Add in the new time series data values.</target>
+        </trans-unit>
+        <trans-unit id="fbc5c205-1438-471f-91a9-a394ce9b2244" xml:space="preserve">
+          <source>The output of the service is the calculated forecast values.</source>
+          <target state="new">The output of the service is the calculated forecast values.</target>
+        </trans-unit>
+        <trans-unit id="6d195e21-971a-45de-8194-dac9d1b0da55" xml:space="preserve">
+          <source>Sample input could be: </source>
+          <target state="new">Sample input could be: </target>
+        </trans-unit>
+        <trans-unit id="4aa01a78-1684-4124-8f02-f137381e7953" xml:space="preserve">
+          <source>Frequency - 12</source>
+          <target state="new">Frequency - 12</target>
+        </trans-unit>
+        <trans-unit id="368b99fd-edab-414b-8c41-9414f12721bd" xml:space="preserve">
+          <source>Horizon - 12</source>
+          <target state="new">Horizon - 12</target>
+        </trans-unit>
+        <trans-unit id="82a6ccc2-a474-49cc-9c5e-a706b8627095" xml:space="preserve">
+          <source>Date - 1/15/2012;2/15/2012;3/15/2012;4/15/2012;5/15/2012;6/15/2012;7/15/2012;8/15/2012;9/15/2012;10/15/2012;11/15/2012;12/15/2012;
+1/15/2013;2/15/2013;3/15/2013;4/15/2013;5/15/2013;6/15/2013;7/15/2013;8/15/2013;9/15/2013;10/15/2013;11/15/2013;12/15/2013;
+1/15/2014;2/15/2014;3/15/2014;4/15/2014;5/15/2014;6/15/2014;7/15/2014;8/15/2014;9/15/2014</source>
+          <target state="new">Date - 1/15/2012;2/15/2012;3/15/2012;4/15/2012;5/15/2012;6/15/2012;7/15/2012;8/15/2012;9/15/2012;10/15/2012;11/15/2012;12/15/2012;
+1/15/2013;2/15/2013;3/15/2013;4/15/2013;5/15/2013;6/15/2013;7/15/2013;8/15/2013;9/15/2013;10/15/2013;11/15/2013;12/15/2013;
+1/15/2014;2/15/2014;3/15/2014;4/15/2014;5/15/2014;6/15/2014;7/15/2014;8/15/2014;9/15/2014</target>
+        </trans-unit>
+        <trans-unit id="53d40953-a412-432d-b9e4-159fc1c6ddea" xml:space="preserve">
+          <source>Value - 3.479;3.68;3.832;3.941;3.797;3.586;3.508;3.731;3.915;3.844;3.634;3.549;3.557;3.785;3.782;3.601;3.544;3.556;3.65;3.709;3.682;3.511;
+3.429;3.51;3.523;3.525;3.626;3.695;3.711;3.711;3.693;3.571;3.509</source>
+          <target state="new">Value - 3.479;3.68;3.832;3.941;3.797;3.586;3.508;3.731;3.915;3.844;3.634;3.549;3.557;3.785;3.782;3.601;3.544;3.556;3.65;3.709;3.682;3.511;
+3.429;3.51;3.523;3.525;3.626;3.695;3.711;3.711;3.693;3.571;3.509</target>
+        </trans-unit>
+        <trans-unit id="f829a1b2-055d-4663-8ed2-e7181c35f015" xml:space="preserve">
+          <source>This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</source>
+          <target state="new">This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</target>
+        </trans-unit>
+        <trans-unit id="9e263e8e-8a25-4989-9cf9-7c40a3745a9b" xml:space="preserve">
+          <source>There are multiple ways of consuming the service in an automated fashion (an example app is <bpt id="82b5ab78-88f5-4312-9a8e-668ead4a1d66">&lt;linkText&gt;</bpt>here<ept id="82b5ab78-88f5-4312-9a8e-668ead4a1d66">&lt;/linkText&gt;</ept><bpt id="82b5ab78-88f5-4312-9a8e-668ead4a1d66">&lt;title&gt;</bpt><ept id="82b5ab78-88f5-4312-9a8e-668ead4a1d66">&lt;/title&gt;</ept>).</source>
+          <target state="new">There are multiple ways of consuming the service in an automated fashion (an example app is <bpt id="82b5ab78-88f5-4312-9a8e-668ead4a1d66">&lt;linkText&gt;</bpt>here<ept id="82b5ab78-88f5-4312-9a8e-668ead4a1d66">&lt;/linkText&gt;</ept><bpt id="82b5ab78-88f5-4312-9a8e-668ead4a1d66">&lt;title&gt;</bpt><ept id="82b5ab78-88f5-4312-9a8e-668ead4a1d66">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="4328567c-3d0f-4e6d-a8f9-5430be5bf4ff" xml:space="preserve">
+          <source>This web service was created using Azure Machine Learning.</source>
+          <target state="new">This web service was created using Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="c352d4c3-9be7-4393-b0cc-535c069ed344" xml:space="preserve">
+          <source>For a free trial, as well as introductory videos on creating experiments and <bpt id="5debb0d3-4e54-482b-ae88-8e6cd62c3772">&lt;linkText&gt;</bpt>publishing web services<ept id="5debb0d3-4e54-482b-ae88-8e6cd62c3772">&lt;/linkText&gt;</ept><bpt id="5debb0d3-4e54-482b-ae88-8e6cd62c3772">&lt;title&gt;</bpt><ept id="5debb0d3-4e54-482b-ae88-8e6cd62c3772">&lt;/title&gt;</ept>, please see <bpt id="88c9c60c-cf4b-432c-8011-e87e124867e2">&lt;linkText&gt;</bpt>azure.com/ml<ept id="88c9c60c-cf4b-432c-8011-e87e124867e2">&lt;/linkText&gt;</ept><bpt id="88c9c60c-cf4b-432c-8011-e87e124867e2">&lt;title&gt;</bpt><ept id="88c9c60c-cf4b-432c-8011-e87e124867e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a free trial, as well as introductory videos on creating experiments and <bpt id="5debb0d3-4e54-482b-ae88-8e6cd62c3772">&lt;linkText&gt;</bpt>publishing web services<ept id="5debb0d3-4e54-482b-ae88-8e6cd62c3772">&lt;/linkText&gt;</ept><bpt id="5debb0d3-4e54-482b-ae88-8e6cd62c3772">&lt;title&gt;</bpt><ept id="5debb0d3-4e54-482b-ae88-8e6cd62c3772">&lt;/title&gt;</ept>, please see <bpt id="88c9c60c-cf4b-432c-8011-e87e124867e2">&lt;linkText&gt;</bpt>azure.com/ml<ept id="88c9c60c-cf4b-432c-8011-e87e124867e2">&lt;/linkText&gt;</ept><bpt id="88c9c60c-cf4b-432c-8011-e87e124867e2">&lt;title&gt;</bpt><ept id="88c9c60c-cf4b-432c-8011-e87e124867e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7ba821f-e8ef-47f7-a2de-84de01fd6a0c" xml:space="preserve">
+          <source>Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</source>
+          <target state="new">Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</target>
+        </trans-unit>
+        <trans-unit id="24e09f46-4e6c-41c9-878a-e4250294eeb1" xml:space="preserve">
+          <source>From within Azure Machine Learning, a new blank experiment was created.</source>
+          <target state="new">From within Azure Machine Learning, a new blank experiment was created.</target>
+        </trans-unit>
+        <trans-unit id="82c657e4-fe0d-4b6e-b4e2-9783b04cf07a" xml:space="preserve">
+          <source>Sample input data was uploaded with a predefined data schema.</source>
+          <target state="new">Sample input data was uploaded with a predefined data schema.</target>
+        </trans-unit>
+        <trans-unit id="eb22147c-2da3-486e-a873-3c7846ad0233" xml:space="preserve">
+          <source>Linked to the data schema is an <bpt id="fb98c1f8-5daa-4f97-864c-eed125aeeca3">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="fb98c1f8-5daa-4f97-864c-eed125aeeca3">&lt;/linkText&gt;</ept><bpt id="fb98c1f8-5daa-4f97-864c-eed125aeeca3">&lt;title&gt;</bpt><ept id="fb98c1f8-5daa-4f97-864c-eed125aeeca3">&lt;/title&gt;</ept> module that generates the ETS forecasting model by using ‘ets’ and ‘forecast’ functions from R. </source>
+          <target state="new">Linked to the data schema is an <bpt id="fb98c1f8-5daa-4f97-864c-eed125aeeca3">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="fb98c1f8-5daa-4f97-864c-eed125aeeca3">&lt;/linkText&gt;</ept><bpt id="fb98c1f8-5daa-4f97-864c-eed125aeeca3">&lt;title&gt;</bpt><ept id="fb98c1f8-5daa-4f97-864c-eed125aeeca3">&lt;/title&gt;</ept> module that generates the ETS forecasting model by using ‘ets’ and ‘forecast’ functions from R. </target>
+        </trans-unit>
+        <trans-unit id="554caa4b-3f05-4761-82e1-c3b61eac2c0d" xml:space="preserve">
+          <source><bpt id="03eaa07d-9ac7-452b-9bc8-879b5a22422e">&lt;linkText&gt;</bpt>Experiment flow<ept id="03eaa07d-9ac7-452b-9bc8-879b5a22422e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="03eaa07d-9ac7-452b-9bc8-879b5a22422e">&lt;linkText&gt;</bpt>Experiment flow<ept id="03eaa07d-9ac7-452b-9bc8-879b5a22422e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4099c03f-44ab-4da8-8970-ba2fafaabade" xml:space="preserve">
+          <source>This is a very simple example for ETS forecasting.</source>
+          <target state="new">This is a very simple example for ETS forecasting.</target>
+        </trans-unit>
+        <trans-unit id="8eefa042-72cd-4471-b681-39a43e049c85" xml:space="preserve">
+          <source>As can be seen from the example code above, no error catching is implemented, and the service assumes that all the variables are continuous/positive values and the frequency should be an integer greater than 1.</source>
+          <target state="new">As can be seen from the example code above, no error catching is implemented, and the service assumes that all the variables are continuous/positive values and the frequency should be an integer greater than 1.</target>
+        </trans-unit>
+        <trans-unit id="68aad4c8-4635-48d2-bed7-24b5c0c44d5d" xml:space="preserve">
+          <source>The length of the date and value vectors should be the same.</source>
+          <target state="new">The length of the date and value vectors should be the same.</target>
+        </trans-unit>
+        <trans-unit id="45f27091-f61b-46a7-8812-7103cfe09368" xml:space="preserve">
+          <source>The date variable should adhere to the format ‘mm/dd/yyyy’.</source>
+          <target state="new">The date variable should adhere to the format ‘mm/dd/yyyy’.</target>
+        </trans-unit>
+        <trans-unit id="cee3b8da-8595-48cb-bca9-9e926c37d1fa" xml:space="preserve">
+          <source>For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="4df5333e-4f23-4528-8a32-60ed2ab50ad5">&lt;linkText&gt;</bpt>here<ept id="4df5333e-4f23-4528-8a32-60ed2ab50ad5">&lt;/linkText&gt;</ept><bpt id="4df5333e-4f23-4528-8a32-60ed2ab50ad5">&lt;title&gt;</bpt><ept id="4df5333e-4f23-4528-8a32-60ed2ab50ad5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="4df5333e-4f23-4528-8a32-60ed2ab50ad5">&lt;linkText&gt;</bpt>here<ept id="4df5333e-4f23-4528-8a32-60ed2ab50ad5">&lt;/linkText&gt;</ept><bpt id="4df5333e-4f23-4528-8a32-60ed2ab50ad5">&lt;title&gt;</bpt><ept id="4df5333e-4f23-4528-8a32-60ed2ab50ad5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15ec8f51-eb63-43d6-b959-47f446ebc385" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img1.png</source>
+          <target state="new">./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img1.png</target>
+        </trans-unit>
+        <trans-unit id="0ed30f0b-ac64-4bb2-b874-856f0e90c598" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img2.png</source>
+          <target state="new">./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img2.png</target>
+        </trans-unit>
+        <trans-unit id="d7a3da41-3272-4e61-99de-744a4921f703" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img3.png</source>
+          <target state="new">./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img3.png</target>
+        </trans-unit>
+        <trans-unit id="0723947c-52db-4775-94ff-d134ab92c34a" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</target>
+        </trans-unit>
+      </group>
+      <group id="8736aabb-d510-40a9-8854-3eb40f783067" />
+    </body>
+  </file>
+</xliff>

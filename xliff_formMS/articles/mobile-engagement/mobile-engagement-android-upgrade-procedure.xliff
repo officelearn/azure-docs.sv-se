@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="57076d02-f802-4177-965f-9ec473739c82" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="57076d02-f802-4177-965f-9ec473739c82" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ef0bc6f3-4594-483e-99e8-6e2331670cba">
+        <trans-unit id="6492232e-fb17-4d7e-9067-dbbff1478204" xml:space="preserve">
+          <source>Azure Mobile Engagement Android SDK Integration</source>
+          <target state="new">Azure Mobile Engagement Android SDK Integration</target>
+        </trans-unit>
+        <trans-unit id="56b97199-0963-4b30-9e27-7babb685cd77" xml:space="preserve">
+          <source>Latest updates and procedures for Android SDK for Azure Mobile Engagement</source>
+          <target state="new">Latest updates and procedures for Android SDK for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="e6f98a51-d802-49dd-bdc8-b4ad0522f349" xml:space="preserve">
+          <source>If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.</source>
+          <target state="new">If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.</target>
+        </trans-unit>
+        <trans-unit id="4d223618-e935-45a1-8c5c-faf1ed3db532" xml:space="preserve">
+          <source>You may have to follow several procedures if you missed several versions of the SDK.</source>
+          <target state="new">You may have to follow several procedures if you missed several versions of the SDK.</target>
+        </trans-unit>
+        <trans-unit id="e4d0f18f-bd3e-4bd6-8177-b567d4e67988" xml:space="preserve">
+          <source>For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.</source>
+          <target state="new">For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.</target>
+        </trans-unit>
+        <trans-unit id="962e8cde-169c-4d78-88c6-1e14c64ea7f0" xml:space="preserve">
+          <source>Whatever the version you upgrade from, you have to replace the <bpt id="30cf0c6d-d917-4d67-ba0c-1531f51d604b">&lt;code&gt;</bpt>mobile-engagement-VERSION.jar<ept id="30cf0c6d-d917-4d67-ba0c-1531f51d604b">&lt;/code&gt;</ept> with the new one.</source>
+          <target state="new">Whatever the version you upgrade from, you have to replace the <bpt id="30cf0c6d-d917-4d67-ba0c-1531f51d604b">&lt;code&gt;</bpt>mobile-engagement-VERSION.jar<ept id="30cf0c6d-d917-4d67-ba0c-1531f51d604b">&lt;/code&gt;</ept> with the new one.</target>
+        </trans-unit>
+        <trans-unit id="670a6d77-1d6d-4e55-928b-c1f0fa3c1a0e" xml:space="preserve">
+          <source>The SDK now handle new permission model from Android M.</source>
+          <target state="new">The SDK now handle new permission model from Android M.</target>
+        </trans-unit>
+        <trans-unit id="eeb8c26a-ca7f-44a8-8294-1c6e78a8dadf" xml:space="preserve">
+          <source>If you use location features or big picture notifications please read <bpt id="5d1b3245-9e8b-4d30-96cf-ce8fc7f8c65b">&lt;linkText&gt;</bpt>this section<ept id="5d1b3245-9e8b-4d30-96cf-ce8fc7f8c65b">&lt;/linkText&gt;</ept><bpt id="5d1b3245-9e8b-4d30-96cf-ce8fc7f8c65b">&lt;title&gt;</bpt><ept id="5d1b3245-9e8b-4d30-96cf-ce8fc7f8c65b">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you use location features or big picture notifications please read <bpt id="5d1b3245-9e8b-4d30-96cf-ce8fc7f8c65b">&lt;linkText&gt;</bpt>this section<ept id="5d1b3245-9e8b-4d30-96cf-ce8fc7f8c65b">&lt;/linkText&gt;</ept><bpt id="5d1b3245-9e8b-4d30-96cf-ce8fc7f8c65b">&lt;title&gt;</bpt><ept id="5d1b3245-9e8b-4d30-96cf-ce8fc7f8c65b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6dca1e68-5864-480d-af0f-623c0dedd33f" xml:space="preserve">
+          <source>In addition to the new permission model, we now support configuring location features at runtime.</source>
+          <target state="new">In addition to the new permission model, we now support configuring location features at runtime.</target>
+        </trans-unit>
+        <trans-unit id="fb8b89a2-4002-489a-a53f-2231120c5177" xml:space="preserve">
+          <source>We are still compatible with the manifest parameters for location but it's now deprecated.</source>
+          <target state="new">We are still compatible with the manifest parameters for location but it's now deprecated.</target>
+        </trans-unit>
+        <trans-unit id="50b6927b-51cd-4515-a67c-dc00e927cb53" xml:space="preserve">
+          <source>To use runtime configuration, remove the following sections from your <bpt id="e8f82685-0954-4833-97be-6ea1e91126c8">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="e8f82685-0954-4833-97be-6ea1e91126c8">&lt;/code&gt;</ept>:</source>
+          <target state="new">To use runtime configuration, remove the following sections from your <bpt id="e8f82685-0954-4833-97be-6ea1e91126c8">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="e8f82685-0954-4833-97be-6ea1e91126c8">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="cb110a23-4195-4d42-940e-1608385779b4" xml:space="preserve">
+          <source>and read <bpt id="d5ea91a2-7fd8-42d4-944b-2d2cd701dcfe">&lt;linkText&gt;</bpt>this updated procedure<ept id="d5ea91a2-7fd8-42d4-944b-2d2cd701dcfe">&lt;/linkText&gt;</ept><bpt id="d5ea91a2-7fd8-42d4-944b-2d2cd701dcfe">&lt;title&gt;</bpt><ept id="d5ea91a2-7fd8-42d4-944b-2d2cd701dcfe">&lt;/title&gt;</ept> to use runtime configuration instead.</source>
+          <target state="new">and read <bpt id="d5ea91a2-7fd8-42d4-944b-2d2cd701dcfe">&lt;linkText&gt;</bpt>this updated procedure<ept id="d5ea91a2-7fd8-42d4-944b-2d2cd701dcfe">&lt;/linkText&gt;</ept><bpt id="d5ea91a2-7fd8-42d4-944b-2d2cd701dcfe">&lt;title&gt;</bpt><ept id="d5ea91a2-7fd8-42d4-944b-2d2cd701dcfe">&lt;/title&gt;</ept> to use runtime configuration instead.</target>
+        </trans-unit>
+        <trans-unit id="eace58f6-448a-4a58-b98c-2460497221f5" xml:space="preserve">
+          <source>Native push (GCM/ADM) is now also used for in app notifications so you must configure the native push credentials for any type of push campaign.</source>
+          <target state="new">Native push (GCM/ADM) is now also used for in app notifications so you must configure the native push credentials for any type of push campaign.</target>
+        </trans-unit>
+        <trans-unit id="e34b974c-0e1e-422f-a10f-2a49477bff31" xml:space="preserve">
+          <source>If not already done please follow <bpt id="2cdf274b-2277-427f-81b3-6aeebe2017bf">&lt;linkText&gt;</bpt>this procedure<ept id="2cdf274b-2277-427f-81b3-6aeebe2017bf">&lt;/linkText&gt;</ept><bpt id="2cdf274b-2277-427f-81b3-6aeebe2017bf">&lt;title&gt;</bpt><ept id="2cdf274b-2277-427f-81b3-6aeebe2017bf">&lt;/title&gt;</ept>.</source>
+          <target state="new">If not already done please follow <bpt id="2cdf274b-2277-427f-81b3-6aeebe2017bf">&lt;linkText&gt;</bpt>this procedure<ept id="2cdf274b-2277-427f-81b3-6aeebe2017bf">&lt;/linkText&gt;</ept><bpt id="2cdf274b-2277-427f-81b3-6aeebe2017bf">&lt;title&gt;</bpt><ept id="2cdf274b-2277-427f-81b3-6aeebe2017bf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80d4603a-88b1-4649-82dc-e0c47561fa16" xml:space="preserve">
+          <source>Reach integration has been modified in <bpt id="292f1855-7094-4e65-a6ac-be0e10e787ec">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="292f1855-7094-4e65-a6ac-be0e10e787ec">&lt;/code&gt;</ept>.</source>
+          <target state="new">Reach integration has been modified in <bpt id="292f1855-7094-4e65-a6ac-be0e10e787ec">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="292f1855-7094-4e65-a6ac-be0e10e787ec">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3212958b-49b6-4124-8e79-1677a18683ed" xml:space="preserve">
+          <source>Replace this:</source>
+          <target state="new">Replace this:</target>
+        </trans-unit>
+        <trans-unit id="82b95007-f1ab-4329-9458-c0d57b4732a4" xml:space="preserve">
+          <source>By</source>
+          <target state="new">By</target>
+        </trans-unit>
+        <trans-unit id="3ff14eee-bcf0-44ca-ac00-ef01e943a7cb" xml:space="preserve">
+          <source>There is possibly a loading screen now when you click on an announcement (with text/web content) or a poll.</source>
+          <target state="new">There is possibly a loading screen now when you click on an announcement (with text/web content) or a poll.</target>
+        </trans-unit>
+        <trans-unit id="c2a4f445-d157-4923-84ce-cd9a7c77bd21" xml:space="preserve">
+          <source>You have to add this for those campaigns to work in 4.0.0:</source>
+          <target state="new">You have to add this for those campaigns to work in 4.0.0:</target>
+        </trans-unit>
+        <trans-unit id="bf248b6b-fb51-4d80-8820-630fd833b20c" xml:space="preserve">
+          <source>Embed the new <bpt id="1ba10ce1-5894-4fa5-9b8e-769574efbe9b">&lt;code&gt;</bpt>res/layout/engagement_loading.xml<ept id="1ba10ce1-5894-4fa5-9b8e-769574efbe9b">&lt;/code&gt;</ept> file into your project.</source>
+          <target state="new">Embed the new <bpt id="1ba10ce1-5894-4fa5-9b8e-769574efbe9b">&lt;code&gt;</bpt>res/layout/engagement_loading.xml<ept id="1ba10ce1-5894-4fa5-9b8e-769574efbe9b">&lt;/code&gt;</ept> file into your project.</target>
+        </trans-unit>
+        <trans-unit id="b483b5da-b4bf-4266-9bc4-890492e9473d" xml:space="preserve">
+          <source>The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement.</source>
+          <target state="new">The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement.</target>
+        </trans-unit>
+        <trans-unit id="66e2bfd7-d175-4ecf-9227-25c9b6812db5" xml:space="preserve">
+          <source>If you are migrating from an earlier version, please consult the Capptain web site to migrate to 2.4.0 first and then apply the following procedure.</source>
+          <target state="new">If you are migrating from an earlier version, please consult the Capptain web site to migrate to 2.4.0 first and then apply the following procedure.</target>
+        </trans-unit>
+        <trans-unit id="acfbfd5d-2760-4e86-84d7-5a2b4dd08064" xml:space="preserve">
+          <source>Capptain and Mobile Engagement are not the same services, and the procedure given below only highlights how to migrate the client app.</source>
+          <target state="new">Capptain and Mobile Engagement are not the same services, and the procedure given below only highlights how to migrate the client app.</target>
+        </trans-unit>
+        <trans-unit id="4e9825c3-1610-4e67-b5da-f60abcfc116f" xml:space="preserve">
+          <source>Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers.</source>
+          <target state="new">Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers.</target>
+        </trans-unit>
+        <trans-unit id="10e27db8-1c00-4917-b47f-6d908b4692d6" xml:space="preserve">
+          <source>Replace <bpt id="7c83775e-2c55-4525-b2a0-c14218f07452">&lt;code&gt;</bpt>capptain.jar<ept id="7c83775e-2c55-4525-b2a0-c14218f07452">&lt;/code&gt;</ept> by <bpt id="f4e8c358-46a1-4433-b5cf-cc13a620a7d0">&lt;code&gt;</bpt>mobile-engagement-VERSION.jar<ept id="f4e8c358-46a1-4433-b5cf-cc13a620a7d0">&lt;/code&gt;</ept> in your <bpt id="0ea48f6f-a7bc-41fc-a178-0cebb4a08bdf">&lt;code&gt;</bpt>libs<ept id="0ea48f6f-a7bc-41fc-a178-0cebb4a08bdf">&lt;/code&gt;</ept> folder.</source>
+          <target state="new">Replace <bpt id="7c83775e-2c55-4525-b2a0-c14218f07452">&lt;code&gt;</bpt>capptain.jar<ept id="7c83775e-2c55-4525-b2a0-c14218f07452">&lt;/code&gt;</ept> by <bpt id="f4e8c358-46a1-4433-b5cf-cc13a620a7d0">&lt;code&gt;</bpt>mobile-engagement-VERSION.jar<ept id="f4e8c358-46a1-4433-b5cf-cc13a620a7d0">&lt;/code&gt;</ept> in your <bpt id="0ea48f6f-a7bc-41fc-a178-0cebb4a08bdf">&lt;code&gt;</bpt>libs<ept id="0ea48f6f-a7bc-41fc-a178-0cebb4a08bdf">&lt;/code&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="6149bf89-3f8e-4939-86a2-e38181b28825" xml:space="preserve">
+          <source>Every resource file that we provided (prefixed by <bpt id="ad5af873-4282-457c-a170-5a9d2bab87a8">&lt;code&gt;</bpt>capptain_<ept id="ad5af873-4282-457c-a170-5a9d2bab87a8">&lt;/code&gt;</ept>) has to be replaced by the new ones (prefixed with <bpt id="6540a7a1-d509-4e9f-9572-a316d441c78f">&lt;code&gt;</bpt>engagement_<ept id="6540a7a1-d509-4e9f-9572-a316d441c78f">&lt;/code&gt;</ept>).</source>
+          <target state="new">Every resource file that we provided (prefixed by <bpt id="ad5af873-4282-457c-a170-5a9d2bab87a8">&lt;code&gt;</bpt>capptain_<ept id="ad5af873-4282-457c-a170-5a9d2bab87a8">&lt;/code&gt;</ept>) has to be replaced by the new ones (prefixed with <bpt id="6540a7a1-d509-4e9f-9572-a316d441c78f">&lt;code&gt;</bpt>engagement_<ept id="6540a7a1-d509-4e9f-9572-a316d441c78f">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="194044c3-e574-485f-a434-af86ab7185cb" xml:space="preserve">
+          <source>If you customized those files, you have to re-apply your customization on the new files, <bpt id="e69c0189-8c7c-47cd-8284-cfec9a4e9970">&lt;strong&gt;</bpt>all the identifiers in the resource files have also been renamed<ept id="e69c0189-8c7c-47cd-8284-cfec9a4e9970">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you customized those files, you have to re-apply your customization on the new files, <bpt id="e69c0189-8c7c-47cd-8284-cfec9a4e9970">&lt;strong&gt;</bpt>all the identifiers in the resource files have also been renamed<ept id="e69c0189-8c7c-47cd-8284-cfec9a4e9970">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55505c4a-82f0-4762-ba3a-a70bf188bb78" xml:space="preserve">
+          <source>Now Engagement uses a connection string to configure the SDK identifiers such as the application identifier.</source>
+          <target state="new">Now Engagement uses a connection string to configure the SDK identifiers such as the application identifier.</target>
+        </trans-unit>
+        <trans-unit id="fe884ea4-24b0-4f19-9c79-0d45588076f3" xml:space="preserve">
+          <source>You have to use <bpt id="ad754f18-8d90-431d-8680-2b1d070e45a9">&lt;code&gt;</bpt>EngagementAgent.init<ept id="ad754f18-8d90-431d-8680-2b1d070e45a9">&lt;/code&gt;</ept> method in your launcher activity like this:</source>
+          <target state="new">You have to use <bpt id="ad754f18-8d90-431d-8680-2b1d070e45a9">&lt;code&gt;</bpt>EngagementAgent.init<ept id="ad754f18-8d90-431d-8680-2b1d070e45a9">&lt;/code&gt;</ept> method in your launcher activity like this:</target>
+        </trans-unit>
+        <trans-unit id="b5437193-9ea0-4256-a481-24a6898ffad8" xml:space="preserve">
+          <source>The connection string for your application is displayed on Azure Portal.</source>
+          <target state="new">The connection string for your application is displayed on Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="6a5fa4ef-8ed7-4db0-9bc5-6ce07acaee73" xml:space="preserve">
+          <source>Please remove any call to <bpt id="b7ea7eb3-b9fd-45c0-b490-81180c669bf6">&lt;code&gt;</bpt>CapptainAgent.configure<ept id="b7ea7eb3-b9fd-45c0-b490-81180c669bf6">&lt;/code&gt;</ept> as <bpt id="5d9b3571-321e-4340-b31e-49a8f2b6e61a">&lt;code&gt;</bpt>EngagementAgent.init<ept id="5d9b3571-321e-4340-b31e-49a8f2b6e61a">&lt;/code&gt;</ept> replaces that method.</source>
+          <target state="new">Please remove any call to <bpt id="b7ea7eb3-b9fd-45c0-b490-81180c669bf6">&lt;code&gt;</bpt>CapptainAgent.configure<ept id="b7ea7eb3-b9fd-45c0-b490-81180c669bf6">&lt;/code&gt;</ept> as <bpt id="5d9b3571-321e-4340-b31e-49a8f2b6e61a">&lt;code&gt;</bpt>EngagementAgent.init<ept id="5d9b3571-321e-4340-b31e-49a8f2b6e61a">&lt;/code&gt;</ept> replaces that method.</target>
+        </trans-unit>
+        <trans-unit id="07e1cd87-547b-4bbd-a46e-c354955f0a74" xml:space="preserve">
+          <source>The <bpt id="9ca225ec-ecbf-4373-82cb-cce8c9461f72">&lt;code&gt;</bpt>appId<ept id="9ca225ec-ecbf-4373-82cb-cce8c9461f72">&lt;/code&gt;</ept> can no longer be configured using <bpt id="7aba5725-ae49-4866-9bcc-fb95c7ef1c79">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="7aba5725-ae49-4866-9bcc-fb95c7ef1c79">&lt;/code&gt;</ept>.</source>
+          <target state="new">The <bpt id="9ca225ec-ecbf-4373-82cb-cce8c9461f72">&lt;code&gt;</bpt>appId<ept id="9ca225ec-ecbf-4373-82cb-cce8c9461f72">&lt;/code&gt;</ept> can no longer be configured using <bpt id="7aba5725-ae49-4866-9bcc-fb95c7ef1c79">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="7aba5725-ae49-4866-9bcc-fb95c7ef1c79">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c989698-aad1-42c8-a6dd-7ebca3ff0578" xml:space="preserve">
+          <source>Please remove this section from your <bpt id="0160a350-3693-4971-bf01-f3c31a1a79c5">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="0160a350-3693-4971-bf01-f3c31a1a79c5">&lt;/code&gt;</ept> if you have it:</source>
+          <target state="new">Please remove this section from your <bpt id="0160a350-3693-4971-bf01-f3c31a1a79c5">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="0160a350-3693-4971-bf01-f3c31a1a79c5">&lt;/code&gt;</ept> if you have it:</target>
+        </trans-unit>
+        <trans-unit id="827d7286-202e-494d-ae34-b050e9f2f707" xml:space="preserve">
+          <source>Every call to any Java class of our SDK has to be renamed; for example, <bpt id="44da904d-0573-4026-a14b-3814262160f5">&lt;code&gt;</bpt>CapptainAgent.getInstance(this)<ept id="44da904d-0573-4026-a14b-3814262160f5">&lt;/code&gt;</ept> must be renamed <bpt id="90baaf6a-0ee6-4514-bf43-fe4ff19b1a44">&lt;code&gt;</bpt>EngagementAgent.getInstance(this)<ept id="90baaf6a-0ee6-4514-bf43-fe4ff19b1a44">&lt;/code&gt;</ept>, <bpt id="196126ef-0bac-45cb-b5e7-5a0a5cbbaab5">&lt;code&gt;</bpt>extends CapptainActivity<ept id="196126ef-0bac-45cb-b5e7-5a0a5cbbaab5">&lt;/code&gt;</ept> must be renamed <bpt id="dffd4c3a-20d2-494b-9968-a858f1305554">&lt;code&gt;</bpt>extends EngagementActivity<ept id="dffd4c3a-20d2-494b-9968-a858f1305554">&lt;/code&gt;</ept> etc...</source>
+          <target state="new">Every call to any Java class of our SDK has to be renamed; for example, <bpt id="44da904d-0573-4026-a14b-3814262160f5">&lt;code&gt;</bpt>CapptainAgent.getInstance(this)<ept id="44da904d-0573-4026-a14b-3814262160f5">&lt;/code&gt;</ept> must be renamed <bpt id="90baaf6a-0ee6-4514-bf43-fe4ff19b1a44">&lt;code&gt;</bpt>EngagementAgent.getInstance(this)<ept id="90baaf6a-0ee6-4514-bf43-fe4ff19b1a44">&lt;/code&gt;</ept>, <bpt id="196126ef-0bac-45cb-b5e7-5a0a5cbbaab5">&lt;code&gt;</bpt>extends CapptainActivity<ept id="196126ef-0bac-45cb-b5e7-5a0a5cbbaab5">&lt;/code&gt;</ept> must be renamed <bpt id="dffd4c3a-20d2-494b-9968-a858f1305554">&lt;code&gt;</bpt>extends EngagementActivity<ept id="dffd4c3a-20d2-494b-9968-a858f1305554">&lt;/code&gt;</ept> etc...</target>
+        </trans-unit>
+        <trans-unit id="8dcf2adf-0eba-4c69-a6b1-b718dc4b18b7" xml:space="preserve">
+          <source>If you were integrated with default agent preference files, the default file name is now <bpt id="68a6c085-952a-4bf5-8653-fdc26746e0bc">&lt;code&gt;</bpt>engagement.agent<ept id="68a6c085-952a-4bf5-8653-fdc26746e0bc">&lt;/code&gt;</ept> and the key is <bpt id="4d4858e3-b909-4e42-9977-e2ee19fb9513">&lt;code&gt;</bpt>engagement:agent<ept id="4d4858e3-b909-4e42-9977-e2ee19fb9513">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you were integrated with default agent preference files, the default file name is now <bpt id="68a6c085-952a-4bf5-8653-fdc26746e0bc">&lt;code&gt;</bpt>engagement.agent<ept id="68a6c085-952a-4bf5-8653-fdc26746e0bc">&lt;/code&gt;</ept> and the key is <bpt id="4d4858e3-b909-4e42-9977-e2ee19fb9513">&lt;code&gt;</bpt>engagement:agent<ept id="4d4858e3-b909-4e42-9977-e2ee19fb9513">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2782ba46-2c02-4c24-aae2-9e51589df774" xml:space="preserve">
+          <source>When creating web announcements, the Javascript binder is now <bpt id="5d47c3da-faa4-4f28-8ba8-c929713dfb75">&lt;code&gt;</bpt>engagementReachContent<ept id="5d47c3da-faa4-4f28-8ba8-c929713dfb75">&lt;/code&gt;</ept>.</source>
+          <target state="new">When creating web announcements, the Javascript binder is now <bpt id="5d47c3da-faa4-4f28-8ba8-c929713dfb75">&lt;code&gt;</bpt>engagementReachContent<ept id="5d47c3da-faa4-4f28-8ba8-c929713dfb75">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09042f0e-bcb4-4611-99c5-5312c5f0646d" xml:space="preserve">
+          <source>A lot of changes happened there, the service is not shared anymore, and a lot of receivers are not exportable anymore.</source>
+          <target state="new">A lot of changes happened there, the service is not shared anymore, and a lot of receivers are not exportable anymore.</target>
+        </trans-unit>
+        <trans-unit id="8c4279fd-9627-4aea-803b-b32b273ecfaa" xml:space="preserve">
+          <source>The service declaration is now simpler; remove the intent filter and all meta-data inside it, and add <bpt id="39a0357f-303e-497c-a61b-8c28930cd434">&lt;code&gt;</bpt>exportable=false<ept id="39a0357f-303e-497c-a61b-8c28930cd434">&lt;/code&gt;</ept>.</source>
+          <target state="new">The service declaration is now simpler; remove the intent filter and all meta-data inside it, and add <bpt id="39a0357f-303e-497c-a61b-8c28930cd434">&lt;code&gt;</bpt>exportable=false<ept id="39a0357f-303e-497c-a61b-8c28930cd434">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e1a44df-48aa-4bef-838c-431d60c16604" xml:space="preserve">
+          <source>Plus everything is renamed to use engagement.</source>
+          <target state="new">Plus everything is renamed to use engagement.</target>
+        </trans-unit>
+        <trans-unit id="daef2d0e-b4d3-4e69-aeec-7e3dfc11872a" xml:space="preserve">
+          <source>It now looks like:</source>
+          <target state="new">It now looks like:</target>
+        </trans-unit>
+        <trans-unit id="502c0616-a453-49cb-b744-ec97161490b8" xml:space="preserve">
+          <source>When you want to enable test logs, the meta-data has now been moved to the application tag and has been renamed:</source>
+          <target state="new">When you want to enable test logs, the meta-data has now been moved to the application tag and has been renamed:</target>
+        </trans-unit>
+        <trans-unit id="942515d8-e4c2-456d-b72a-c75c8ce79673" xml:space="preserve">
+          <source>All other meta-data have just been renamed, here is the full list (of course rename only the ones you use):</source>
+          <target state="new">All other meta-data have just been renamed, here is the full list (of course rename only the ones you use):</target>
+        </trans-unit>
+        <trans-unit id="ac8e70c5-678b-44d1-9d9b-5091d6f8e550" xml:space="preserve">
+          <source>Google Play and SmartAd tracking has been removed from SDK you just have to remove this without replacement:</source>
+          <target state="new">Google Play and SmartAd tracking has been removed from SDK you just have to remove this without replacement:</target>
+        </trans-unit>
+        <trans-unit id="8207a8db-328e-499b-bf53-2185c5a43e15" xml:space="preserve">
+          <source>The Reach activities are now declared like this:</source>
+          <target state="new">The Reach activities are now declared like this:</target>
+        </trans-unit>
+        <trans-unit id="3ac41a3a-6ee1-4a67-ac1f-a5439a07b7bd" xml:space="preserve">
+          <source>If you have custom Reach activities, you need only to change the intent actions to match either <bpt id="3e655a99-2413-417e-a8e4-a22fed971cc7">&lt;code&gt;</bpt>com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT<ept id="3e655a99-2413-417e-a8e4-a22fed971cc7">&lt;/code&gt;</ept> or <bpt id="c677f767-e871-484b-abb6-dbbacf4416a6">&lt;code&gt;</bpt>com.microsoft.azure.engagement.reach.intent.action.POLL<ept id="c677f767-e871-484b-abb6-dbbacf4416a6">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you have custom Reach activities, you need only to change the intent actions to match either <bpt id="3e655a99-2413-417e-a8e4-a22fed971cc7">&lt;code&gt;</bpt>com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT<ept id="3e655a99-2413-417e-a8e4-a22fed971cc7">&lt;/code&gt;</ept> or <bpt id="c677f767-e871-484b-abb6-dbbacf4416a6">&lt;code&gt;</bpt>com.microsoft.azure.engagement.reach.intent.action.POLL<ept id="c677f767-e871-484b-abb6-dbbacf4416a6">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3ecc3fe-26ac-44ed-9e04-ea7217c213cc" xml:space="preserve">
+          <source>The broadcast receivers have been renamed, plus we now add <bpt id="e4ec02d2-1013-4735-9ce3-57aaf7d20387">&lt;code&gt;</bpt>exported=false<ept id="e4ec02d2-1013-4735-9ce3-57aaf7d20387">&lt;/code&gt;</ept>.</source>
+          <target state="new">The broadcast receivers have been renamed, plus we now add <bpt id="e4ec02d2-1013-4735-9ce3-57aaf7d20387">&lt;code&gt;</bpt>exported=false<ept id="e4ec02d2-1013-4735-9ce3-57aaf7d20387">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="761caed3-ea26-4c4d-a233-3f56b2f7fb80" xml:space="preserve">
+          <source>Here is the full list of the receivers with the new specification, (of course rename only the ones you use):</source>
+          <target state="new">Here is the full list of the receivers with the new specification, (of course rename only the ones you use):</target>
+        </trans-unit>
+        <trans-unit id="b64a666c-5d81-4497-b56a-9042938f3123" xml:space="preserve">
+          <source>Tracking receiver has been removed, so you have to remove this section:</source>
+          <target state="new">Tracking receiver has been removed, so you have to remove this section:</target>
+        </trans-unit>
+        <trans-unit id="755530c8-690a-4ca8-aa7b-d36d24c7edee" xml:space="preserve">
+          <source>Note that the declaration of your implementation of the broadcast receiver <bpt id="0c38dde2-38cb-4ebb-858b-61710e2de7bb">&lt;strong&gt;</bpt>EngagementMessageReceiver<ept id="0c38dde2-38cb-4ebb-858b-61710e2de7bb">&lt;/strong&gt;</ept> has changed in the <bpt id="50c2d77a-2369-4b55-af47-c6ad0717f76d">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="50c2d77a-2369-4b55-af47-c6ad0717f76d">&lt;/code&gt;</ept>.</source>
+          <target state="new">Note that the declaration of your implementation of the broadcast receiver <bpt id="0c38dde2-38cb-4ebb-858b-61710e2de7bb">&lt;strong&gt;</bpt>EngagementMessageReceiver<ept id="0c38dde2-38cb-4ebb-858b-61710e2de7bb">&lt;/strong&gt;</ept> has changed in the <bpt id="50c2d77a-2369-4b55-af47-c6ad0717f76d">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="50c2d77a-2369-4b55-af47-c6ad0717f76d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5728e50f-8328-4b7d-87ba-1d3e9aeca06e" xml:space="preserve">
+          <source>This is because the API to send and remove arbitrary XMPP messages from arbitrary XMPP entities and the API to send and receive messages between devices have been removed.</source>
+          <target state="new">This is because the API to send and remove arbitrary XMPP messages from arbitrary XMPP entities and the API to send and receive messages between devices have been removed.</target>
+        </trans-unit>
+        <trans-unit id="d5cfcbe4-2271-4399-950b-fb3a692614ce" xml:space="preserve">
+          <source>Thus, you have also to delete the following callbacks from your <bpt id="9c5609a3-552c-4bc9-883b-56540b6968cc">&lt;strong&gt;</bpt>EngagementMessageReceiver<ept id="9c5609a3-552c-4bc9-883b-56540b6968cc">&lt;/strong&gt;</ept> implementation :</source>
+          <target state="new">Thus, you have also to delete the following callbacks from your <bpt id="9c5609a3-552c-4bc9-883b-56540b6968cc">&lt;strong&gt;</bpt>EngagementMessageReceiver<ept id="9c5609a3-552c-4bc9-883b-56540b6968cc">&lt;/strong&gt;</ept> implementation :</target>
+        </trans-unit>
+        <trans-unit id="3e80aef6-8f3a-4d75-9a6e-1b46e9fbca38" xml:space="preserve">
+          <source>and</source>
+          <target state="new">and</target>
+        </trans-unit>
+        <trans-unit id="78ed048c-be7d-42ec-bc0c-4b172d5e0a1f" xml:space="preserve">
+          <source>then delete any call on <bpt id="7c22699f-fb39-4975-977d-70690b323c73">&lt;strong&gt;</bpt>EngagementAgent<ept id="7c22699f-fb39-4975-977d-70690b323c73">&lt;/strong&gt;</ept> for :</source>
+          <target state="new">then delete any call on <bpt id="7c22699f-fb39-4975-977d-70690b323c73">&lt;strong&gt;</bpt>EngagementAgent<ept id="7c22699f-fb39-4975-977d-70690b323c73">&lt;/strong&gt;</ept> for :</target>
+        </trans-unit>
+        <trans-unit id="e96c3185-eb4c-4cd2-ad13-8983cdb4c8e2" xml:space="preserve">
+          <source>and</source>
+          <target state="new">and</target>
+        </trans-unit>
+        <trans-unit id="a61fe90f-9e8d-48c7-a9d9-6417650bafb4" xml:space="preserve">
+          <source>Proguard configuration can be impacted by rebranding, the rules are now looking like:</source>
+          <target state="new">Proguard configuration can be impacted by rebranding, the rules are now looking like:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

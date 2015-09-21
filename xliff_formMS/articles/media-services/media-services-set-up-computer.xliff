@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="40e464b7-c4e8-4314-8039-77f626000636" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="40e464b7-c4e8-4314-8039-77f626000636" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eff5c697-9624-48c4-ab42-05606127bef9">
+        <trans-unit id="605cb287-8c46-4050-bce0-9686fcc2041a" xml:space="preserve">
+          <source>Set up your environment | Microsoft Azure</source>
+          <target state="new">Set up your environment | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="982d126b-28e0-4e59-989f-e8b99f2a8346" xml:space="preserve">
+          <source>Set up your environment for developing with Azure Media Services.</source>
+          <target state="new">Set up your environment for developing with Azure Media Services.</target>
+        </trans-unit>
+        <trans-unit id="ceaa2734-5d49-4b7a-91e1-8355fd5376d2" xml:space="preserve">
+          <source><bpt id="e68c962b-7a36-41d0-91c9-ca81d99d9dd5">&lt;bookmark&gt;</bpt><ept id="e68c962b-7a36-41d0-91c9-ca81d99d9dd5">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e68c962b-7a36-41d0-91c9-ca81d99d9dd5">&lt;bookmark&gt;</bpt><ept id="e68c962b-7a36-41d0-91c9-ca81d99d9dd5">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15601081-208a-4539-9915-5e11b0f592f2" xml:space="preserve">
+          <source>Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Services account.</source>
+          <target state="new">Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="03b1f2c6-ce13-4c8d-bce4-023cab2b0fd9" xml:space="preserve">
+          <source>&lt;a id="setup<bpt id="f7ef9141-528c-40e8-bdbc-a5172052afd5">&lt;em&gt;</bpt>dev<ept id="f7ef9141-528c-40e8-bdbc-a5172052afd5">&lt;/em&gt;</ept>env"&gt;&lt;/a&gt;</source>
+          <target state="new">&lt;a id="setup<bpt id="f7ef9141-528c-40e8-bdbc-a5172052afd5">&lt;em&gt;</bpt>dev<ept id="f7ef9141-528c-40e8-bdbc-a5172052afd5">&lt;/em&gt;</ept>env"&gt;&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="dd7be461-830b-41de-9970-b2245bd55e4b" xml:space="preserve">
+          <source>Choose .NET or the REST API for your development environment.</source>
+          <target state="new">Choose .NET or the REST API for your development environment.</target>
+        </trans-unit>
+        <trans-unit id="5bcafb6a-236c-40ba-9fe8-c573820c208d" xml:space="preserve">
+          <source><bpt id="6b6b025c-0db2-4413-bb77-b630f25f23ee">&lt;token href="../../includes/media-services-selector-setup.md"&gt;</bpt><ept id="6b6b025c-0db2-4413-bb77-b630f25f23ee">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6b6b025c-0db2-4413-bb77-b630f25f23ee">&lt;token href="../../includes/media-services-selector-setup.md"&gt;</bpt><ept id="6b6b025c-0db2-4413-bb77-b630f25f23ee">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a072e597-22a9-4805-a481-cfa3d0412eb9" xml:space="preserve">
+          <source><bpt id="ff7de947-ce30-4ed9-bc71-78f4d93135a5">&lt;bookmark&gt;</bpt><ept id="ff7de947-ce30-4ed9-bc71-78f4d93135a5">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="ff7de947-ce30-4ed9-bc71-78f4d93135a5">&lt;bookmark&gt;</bpt><ept id="ff7de947-ce30-4ed9-bc71-78f4d93135a5">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36d1ab7a-b466-4259-9952-a7e821244a04" xml:space="preserve">
+          <source>Choose .NET or the REST API to programmatically connect to Azure Media Services.</source>
+          <target state="new">Choose .NET or the REST API to programmatically connect to Azure Media Services.</target>
+        </trans-unit>
+        <trans-unit id="e17b0959-46c1-4f96-a89a-ca327928bc71" xml:space="preserve">
+          <source><bpt id="3171703b-ec93-4a97-b944-084a7e4d2094">&lt;token href="../../includes/media-services-selector-connect.md"&gt;</bpt><ept id="3171703b-ec93-4a97-b944-084a7e4d2094">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3171703b-ec93-4a97-b944-084a7e4d2094">&lt;token href="../../includes/media-services-selector-connect.md"&gt;</bpt><ept id="3171703b-ec93-4a97-b944-084a7e4d2094">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3c71486-3e97-4996-ab71-35dbf27e4ae5" xml:space="preserve">
+          <source><bpt id="ba3aef20-ab0a-4a10-b882-926797df8e9d">&lt;linkText&gt;</bpt>Get started with delivering Video-on-Demand (VoD) content using .NET SDK<ept id="ba3aef20-ab0a-4a10-b882-926797df8e9d">&lt;/linkText&gt;</ept><bpt id="ba3aef20-ab0a-4a10-b882-926797df8e9d">&lt;title&gt;</bpt><ept id="ba3aef20-ab0a-4a10-b882-926797df8e9d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba3aef20-ab0a-4a10-b882-926797df8e9d">&lt;linkText&gt;</bpt>Get started with delivering Video-on-Demand (VoD) content using .NET SDK<ept id="ba3aef20-ab0a-4a10-b882-926797df8e9d">&lt;/linkText&gt;</ept><bpt id="ba3aef20-ab0a-4a10-b882-926797df8e9d">&lt;title&gt;</bpt><ept id="ba3aef20-ab0a-4a10-b882-926797df8e9d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d4032c1-bf5d-4ecc-b5fb-a7b1d28f37c0" xml:space="preserve">
+          <source><bpt id="e84ae304-6201-42df-9537-f7b48fcbf8b6">&lt;linkText&gt;</bpt>Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream (Preview)<ept id="e84ae304-6201-42df-9537-f7b48fcbf8b6">&lt;/linkText&gt;</ept><bpt id="e84ae304-6201-42df-9537-f7b48fcbf8b6">&lt;title&gt;</bpt><ept id="e84ae304-6201-42df-9537-f7b48fcbf8b6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e84ae304-6201-42df-9537-f7b48fcbf8b6">&lt;linkText&gt;</bpt>Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream (Preview)<ept id="e84ae304-6201-42df-9537-f7b48fcbf8b6">&lt;/linkText&gt;</ept><bpt id="e84ae304-6201-42df-9537-f7b48fcbf8b6">&lt;title&gt;</bpt><ept id="e84ae304-6201-42df-9537-f7b48fcbf8b6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f777e3ef-1f55-4613-b511-1659672c7ccf" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f777e3ef-1f55-4613-b511-1659672c7ccf" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ca17bce0-3b3f-4f6b-bd3d-95ad3dcfff04">
+        <trans-unit id="e6005c74-bae5-4645-82a9-893c60ef1b5b" xml:space="preserve">
+          <source>Application Insights for JavaScript web apps | Microsoft Azure</source>
+          <target state="new">Application Insights for JavaScript web apps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e738b01b-a139-4871-ae3f-eca3c419609d" xml:space="preserve">
+          <source>Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.</source>
+          <target state="new">Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.</target>
+        </trans-unit>
+        <trans-unit id="9d4e4958-fe6c-483c-8199-d1c967253d1c" xml:space="preserve">
+          <source><bpt id="611f1c82-3111-4023-bfd7-ebb538ff3c5a">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="611f1c82-3111-4023-bfd7-ebb538ff3c5a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="611f1c82-3111-4023-bfd7-ebb538ff3c5a">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="611f1c82-3111-4023-bfd7-ebb538ff3c5a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4106880f-2c68-44dd-bf86-eec482fbd5fc" xml:space="preserve">
+          <source>Find out about the performance and usage of your web page.</source>
+          <target state="new">Find out about the performance and usage of your web page.</target>
+        </trans-unit>
+        <trans-unit id="afd99e94-5f21-47f2-8146-8815f371e996" xml:space="preserve">
+          <source>Add Visual Studio Application Insights to your page, and you'll find out how many users you have, how often they come back, and which pages they use most.</source>
+          <target state="new">Add Visual Studio Application Insights to your page, and you'll find out how many users you have, how often they come back, and which pages they use most.</target>
+        </trans-unit>
+        <trans-unit id="d7a0f8bc-84be-46ef-a471-128a7e8b4aa9" xml:space="preserve">
+          <source>You'll also get reports of load times and any exceptions.</source>
+          <target state="new">You'll also get reports of load times and any exceptions.</target>
+        </trans-unit>
+        <trans-unit id="6c81bc19-0d3e-468f-9d4a-f80b00588d90" xml:space="preserve">
+          <source>Add a few <bpt id="8f5babb9-4c57-4ddc-ab7c-0aa21da34b58">&lt;linkText&gt;</bpt>custom events and metrics[track]<ept id="8f5babb9-4c57-4ddc-ab7c-0aa21da34b58">&lt;/linkText&gt;</ept><bpt id="8f5babb9-4c57-4ddc-ab7c-0aa21da34b58">&lt;title&gt;</bpt><ept id="8f5babb9-4c57-4ddc-ab7c-0aa21da34b58">&lt;/title&gt;</ept>, and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.</source>
+          <target state="new">Add a few <bpt id="8f5babb9-4c57-4ddc-ab7c-0aa21da34b58">&lt;linkText&gt;</bpt>custom events and metrics[track]<ept id="8f5babb9-4c57-4ddc-ab7c-0aa21da34b58">&lt;/linkText&gt;</ept><bpt id="8f5babb9-4c57-4ddc-ab7c-0aa21da34b58">&lt;title&gt;</bpt><ept id="8f5babb9-4c57-4ddc-ab7c-0aa21da34b58">&lt;/title&gt;</ept>, and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.</target>
+        </trans-unit>
+        <trans-unit id="e6682fc6-f081-41b7-8292-2b5fa22e88f2" xml:space="preserve">
+          <source><bpt id="6202191b-85ff-43d2-8e00-c0b4ea5ef7b6">&lt;linkText&gt;</bpt>Choose New, Developer Services, Application Insights.<ept id="6202191b-85ff-43d2-8e00-c0b4ea5ef7b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6202191b-85ff-43d2-8e00-c0b4ea5ef7b6">&lt;linkText&gt;</bpt>Choose New, Developer Services, Application Insights.<ept id="6202191b-85ff-43d2-8e00-c0b4ea5ef7b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76f83989-ddef-409d-be49-9c4b5ac75164" xml:space="preserve">
+          <source>If you already set up server telemetry for your <bpt id="e6c93e55-9d69-48c4-a6b6-960d057dd048">&lt;linkText&gt;</bpt>ASP.NET[greenbrown]<ept id="e6c93e55-9d69-48c4-a6b6-960d057dd048">&lt;/linkText&gt;</ept><bpt id="e6c93e55-9d69-48c4-a6b6-960d057dd048">&lt;title&gt;</bpt><ept id="e6c93e55-9d69-48c4-a6b6-960d057dd048">&lt;/title&gt;</ept> or <bpt id="9d926804-ba2a-4c93-a45b-46c357c87653">&lt;linkText&gt;</bpt>Java[java]<ept id="9d926804-ba2a-4c93-a45b-46c357c87653">&lt;/linkText&gt;</ept><bpt id="9d926804-ba2a-4c93-a45b-46c357c87653">&lt;title&gt;</bpt><ept id="9d926804-ba2a-4c93-a45b-46c357c87653">&lt;/title&gt;</ept> web app, you'll get the picture from both client and server angles.</source>
+          <target state="new">If you already set up server telemetry for your <bpt id="e6c93e55-9d69-48c4-a6b6-960d057dd048">&lt;linkText&gt;</bpt>ASP.NET[greenbrown]<ept id="e6c93e55-9d69-48c4-a6b6-960d057dd048">&lt;/linkText&gt;</ept><bpt id="e6c93e55-9d69-48c4-a6b6-960d057dd048">&lt;title&gt;</bpt><ept id="e6c93e55-9d69-48c4-a6b6-960d057dd048">&lt;/title&gt;</ept> or <bpt id="9d926804-ba2a-4c93-a45b-46c357c87653">&lt;linkText&gt;</bpt>Java[java]<ept id="9d926804-ba2a-4c93-a45b-46c357c87653">&lt;/linkText&gt;</ept><bpt id="9d926804-ba2a-4c93-a45b-46c357c87653">&lt;title&gt;</bpt><ept id="9d926804-ba2a-4c93-a45b-46c357c87653">&lt;/title&gt;</ept> web app, you'll get the picture from both client and server angles.</target>
+        </trans-unit>
+        <trans-unit id="d915851f-ab6d-486a-9ba2-e1e2edb47935" xml:space="preserve">
+          <source>The two streams will be integrated in the Application Insights portal.</source>
+          <target state="new">The two streams will be integrated in the Application Insights portal.</target>
+        </trans-unit>
+        <trans-unit id="ee7b9ee0-0031-4313-b7f3-3b4544feb525" xml:space="preserve">
+          <source>If you don't have an Azure subscription and would like to try Application Insights on your web page, visit <bpt id="81a85ec7-513e-4995-89b5-fb16725d0763">&lt;linkText&gt;</bpt>Try Application Insights<ept id="81a85ec7-513e-4995-89b5-fb16725d0763">&lt;/linkText&gt;</ept><bpt id="81a85ec7-513e-4995-89b5-fb16725d0763">&lt;title&gt;</bpt><ept id="81a85ec7-513e-4995-89b5-fb16725d0763">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have an Azure subscription and would like to try Application Insights on your web page, visit <bpt id="81a85ec7-513e-4995-89b5-fb16725d0763">&lt;linkText&gt;</bpt>Try Application Insights<ept id="81a85ec7-513e-4995-89b5-fb16725d0763">&lt;/linkText&gt;</ept><bpt id="81a85ec7-513e-4995-89b5-fb16725d0763">&lt;title&gt;</bpt><ept id="81a85ec7-513e-4995-89b5-fb16725d0763">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f28a3ad-d02c-42b4-bb09-0f7fa1740876" xml:space="preserve">
+          <source>The Application Insights resource is where data about your page's performance and usage is displayed.</source>
+          <target state="new">The Application Insights resource is where data about your page's performance and usage is displayed.</target>
+        </trans-unit>
+        <trans-unit id="8cd9fae1-dcd4-474d-a8d3-ca6c4a89769c" xml:space="preserve">
+          <source>(If you already created a resource, maybe to collect data from your web server, skip this step.)</source>
+          <target state="new">(If you already created a resource, maybe to collect data from your web server, skip this step.)</target>
+        </trans-unit>
+        <trans-unit id="38d187d6-ef6c-4eac-b09a-848b8d5f4bba" xml:space="preserve">
+          <source>In the <bpt id="92b0a32d-4802-4a9f-b6f4-fe9d985eaea6">&lt;linkText&gt;</bpt>Azure portal<ept id="92b0a32d-4802-4a9f-b6f4-fe9d985eaea6">&lt;/linkText&gt;</ept><bpt id="92b0a32d-4802-4a9f-b6f4-fe9d985eaea6">&lt;title&gt;</bpt><ept id="92b0a32d-4802-4a9f-b6f4-fe9d985eaea6">&lt;/title&gt;</ept>, create a new Application Insights resource:</source>
+          <target state="new">In the <bpt id="92b0a32d-4802-4a9f-b6f4-fe9d985eaea6">&lt;linkText&gt;</bpt>Azure portal<ept id="92b0a32d-4802-4a9f-b6f4-fe9d985eaea6">&lt;/linkText&gt;</ept><bpt id="92b0a32d-4802-4a9f-b6f4-fe9d985eaea6">&lt;title&gt;</bpt><ept id="92b0a32d-4802-4a9f-b6f4-fe9d985eaea6">&lt;/title&gt;</ept>, create a new Application Insights resource:</target>
+        </trans-unit>
+        <trans-unit id="683fe2a4-0051-4723-8356-30d599f9a029" xml:space="preserve">
+          <source><bpt id="a26e2d7f-f0a1-4131-8420-e62d812802d8">&lt;linkText&gt;</bpt>Choose New, Developer Services, Application Insights.<ept id="a26e2d7f-f0a1-4131-8420-e62d812802d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a26e2d7f-f0a1-4131-8420-e62d812802d8">&lt;linkText&gt;</bpt>Choose New, Developer Services, Application Insights.<ept id="a26e2d7f-f0a1-4131-8420-e62d812802d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f53049d-6847-43f3-ac73-200b4f2df7d1" xml:space="preserve">
+          <source><bpt id="16ecc37c-8d21-43b5-99a6-e37775388a11">&lt;em&gt;</bpt>Questions already?<ept id="16ecc37c-8d21-43b5-99a6-e37775388a11">&lt;/em&gt;</ept> <bpt id="7aaad319-d853-43c4-a913-7d4707a6f734">&lt;linkText&gt;</bpt>More about creating a resource[new]<ept id="7aaad319-d853-43c4-a913-7d4707a6f734">&lt;/linkText&gt;</ept><bpt id="7aaad319-d853-43c4-a913-7d4707a6f734">&lt;title&gt;</bpt><ept id="7aaad319-d853-43c4-a913-7d4707a6f734">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="16ecc37c-8d21-43b5-99a6-e37775388a11">&lt;em&gt;</bpt>Questions already?<ept id="16ecc37c-8d21-43b5-99a6-e37775388a11">&lt;/em&gt;</ept> <bpt id="7aaad319-d853-43c4-a913-7d4707a6f734">&lt;linkText&gt;</bpt>More about creating a resource[new]<ept id="7aaad319-d853-43c4-a913-7d4707a6f734">&lt;/linkText&gt;</ept><bpt id="7aaad319-d853-43c4-a913-7d4707a6f734">&lt;title&gt;</bpt><ept id="7aaad319-d853-43c4-a913-7d4707a6f734">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ded8aefd-85ac-46de-937e-12e22529697a" xml:space="preserve">
+          <source>In Quick Start, get the script for web pages:</source>
+          <target state="new">In Quick Start, get the script for web pages:</target>
+        </trans-unit>
+        <trans-unit id="51e89caf-010c-414a-9dd8-3fbd1ded7ea2" xml:space="preserve">
+          <source>![On your app overview blade, choose Quick Start, Get code to monitor my web pages.</source>
+          <target state="new">![On your app overview blade, choose Quick Start, Get code to monitor my web pages.</target>
+        </trans-unit>
+        <trans-unit id="02121cb7-82df-440d-b72f-29a1bce49546" xml:space="preserve">
+          <source>Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)</source>
+          <target state="new">Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)</target>
+        </trans-unit>
+        <trans-unit id="a9a93114-52fb-4386-8875-d92c06ae3c9d" xml:space="preserve">
+          <source>Insert the script just before the &amp;lt;/head&amp;gt; tag of every page you want to track.</source>
+          <target state="new">Insert the script just before the &amp;lt;/head&amp;gt; tag of every page you want to track.</target>
+        </trans-unit>
+        <trans-unit id="7abe55aa-c851-4ad6-8ad7-4ddc1b66ab80" xml:space="preserve">
+          <source>If your website has a master page, you can put the script there.</source>
+          <target state="new">If your website has a master page, you can put the script there.</target>
+        </trans-unit>
+        <trans-unit id="0eebf58a-a4e8-4d12-b75e-0fcf3a7ba3b7" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="759523cc-0e23-4573-8941-54239e9fdda4" xml:space="preserve">
+          <source>In an ASP.NET MVC project, you'd put it in View\Shared\\_Layout.cshtml</source>
+          <target state="new">In an ASP.NET MVC project, you'd put it in View\Shared\\_Layout.cshtml</target>
+        </trans-unit>
+        <trans-unit id="d80a3994-75e7-4d86-9296-389a187cf54e" xml:space="preserve">
+          <source>In a SharePoint site, on the control panel, open <bpt id="e8393df8-8bb3-439b-a60f-4d7bdf98e3fd">&lt;linkText&gt;</bpt>Site Settings / Master Page<ept id="e8393df8-8bb3-439b-a60f-4d7bdf98e3fd">&lt;/linkText&gt;</ept><bpt id="e8393df8-8bb3-439b-a60f-4d7bdf98e3fd">&lt;title&gt;</bpt><ept id="e8393df8-8bb3-439b-a60f-4d7bdf98e3fd">&lt;/title&gt;</ept>.</source>
+          <target state="new">In a SharePoint site, on the control panel, open <bpt id="e8393df8-8bb3-439b-a60f-4d7bdf98e3fd">&lt;linkText&gt;</bpt>Site Settings / Master Page<ept id="e8393df8-8bb3-439b-a60f-4d7bdf98e3fd">&lt;/linkText&gt;</ept><bpt id="e8393df8-8bb3-439b-a60f-4d7bdf98e3fd">&lt;title&gt;</bpt><ept id="e8393df8-8bb3-439b-a60f-4d7bdf98e3fd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf528e9b-9026-4825-8778-e207390de646" xml:space="preserve">
+          <source>The script contains the instrumentation key that directs the data to your Application Insights resource.</source>
+          <target state="new">The script contains the instrumentation key that directs the data to your Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="8ea60be5-12bf-487d-b5ea-9c5b6a89f3fe" xml:space="preserve">
+          <source>*(If you're using a well-known web page framework, look around for Application Insights adaptors.</source>
+          <target state="new">*(If you're using a well-known web page framework, look around for Application Insights adaptors.</target>
+        </trans-unit>
+        <trans-unit id="33788cec-2bee-4b30-81e5-5e2c5d8f1fe1" xml:space="preserve">
+          <source>For example, there's <bpt id="0410a5ab-f776-4192-a853-b5ec328b900b">&lt;linkText&gt;</bpt>an AngularJS module<ept id="0410a5ab-f776-4192-a853-b5ec328b900b">&lt;/linkText&gt;</ept><bpt id="0410a5ab-f776-4192-a853-b5ec328b900b">&lt;title&gt;</bpt><ept id="0410a5ab-f776-4192-a853-b5ec328b900b">&lt;/title&gt;</ept>.)*</source>
+          <target state="new">For example, there's <bpt id="0410a5ab-f776-4192-a853-b5ec328b900b">&lt;linkText&gt;</bpt>an AngularJS module<ept id="0410a5ab-f776-4192-a853-b5ec328b900b">&lt;/linkText&gt;</ept><bpt id="0410a5ab-f776-4192-a853-b5ec328b900b">&lt;title&gt;</bpt><ept id="0410a5ab-f776-4192-a853-b5ec328b900b">&lt;/title&gt;</ept>.)*</target>
+        </trans-unit>
+        <trans-unit id="fe061d4e-1ea2-4793-b469-6f093c56e459" xml:space="preserve">
+          <source>Run your web app, use it a while to generate telemetry, and wait a few seconds.</source>
+          <target state="new">Run your web app, use it a while to generate telemetry, and wait a few seconds.</target>
+        </trans-unit>
+        <trans-unit id="e4976fc0-0fed-4e38-9534-da5759859650" xml:space="preserve">
+          <source>You can either run it using the  <bpt id="e4f0deef-c828-4e6f-94c4-d0b460edea1a">&lt;strong&gt;</bpt>F5<ept id="e4f0deef-c828-4e6f-94c4-d0b460edea1a">&lt;/strong&gt;</ept> key on your development machine, or publish it and let users play with it.</source>
+          <target state="new">You can either run it using the  <bpt id="e4f0deef-c828-4e6f-94c4-d0b460edea1a">&lt;strong&gt;</bpt>F5<ept id="e4f0deef-c828-4e6f-94c4-d0b460edea1a">&lt;/strong&gt;</ept> key on your development machine, or publish it and let users play with it.</target>
+        </trans-unit>
+        <trans-unit id="3345b37e-8ade-4079-8277-18147456644f" xml:space="preserve">
+          <source>If you want to check the telemetry that a web app is sending to Application Insights, use your browser's debugging tools (<bpt id="745be742-bfb8-44c8-b7fa-8943e5de410d">&lt;strong&gt;</bpt>F12<ept id="745be742-bfb8-44c8-b7fa-8943e5de410d">&lt;/strong&gt;</ept> on many browsers).</source>
+          <target state="new">If you want to check the telemetry that a web app is sending to Application Insights, use your browser's debugging tools (<bpt id="745be742-bfb8-44c8-b7fa-8943e5de410d">&lt;strong&gt;</bpt>F12<ept id="745be742-bfb8-44c8-b7fa-8943e5de410d">&lt;/strong&gt;</ept> on many browsers).</target>
+        </trans-unit>
+        <trans-unit id="20f758bf-a860-4a8f-8e72-d7cd35beef2a" xml:space="preserve">
+          <source>Data is sent to dc.services.visualstudio.com.</source>
+          <target state="new">Data is sent to dc.services.visualstudio.com.</target>
+        </trans-unit>
+        <trans-unit id="308443f0-4637-42fd-8626-61d66d3daa93" xml:space="preserve">
+          <source>In the application overview blade, there's a chart near the top that shows average time to load pages into the browser:</source>
+          <target state="new">In the application overview blade, there's a chart near the top that shows average time to load pages into the browser:</target>
+        </trans-unit>
+        <trans-unit id="b2f81faa-62c6-4ba2-aade-4b59ff96b1eb" xml:space="preserve">
+          <source><bpt id="9c43d821-f144-4697-9331-f04d2fabad57">&lt;linkText&gt;</bpt><ept id="9c43d821-f144-4697-9331-f04d2fabad57">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9c43d821-f144-4697-9331-f04d2fabad57">&lt;linkText&gt;</bpt><ept id="9c43d821-f144-4697-9331-f04d2fabad57">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9686ce2d-02aa-48bb-8b58-c75a0e624bbd" xml:space="preserve">
+          <source>*No data yet?</source>
+          <target state="new">*No data yet?</target>
+        </trans-unit>
+        <trans-unit id="129b48ab-3033-4616-bb0d-8b225e1347a9" xml:space="preserve">
+          <source>Click <bpt id="dc3e2610-7dc9-4db8-a2e7-0bf10a2a1f20">&lt;strong&gt;</bpt>Refresh<ept id="dc3e2610-7dc9-4db8-a2e7-0bf10a2a1f20">&lt;/strong&gt;</ept> at the top of the page.</source>
+          <target state="new">Click <bpt id="dc3e2610-7dc9-4db8-a2e7-0bf10a2a1f20">&lt;strong&gt;</bpt>Refresh<ept id="dc3e2610-7dc9-4db8-a2e7-0bf10a2a1f20">&lt;/strong&gt;</ept> at the top of the page.</target>
+        </trans-unit>
+        <trans-unit id="5af18a80-c4b6-4545-ac5f-f847f98d76b1" xml:space="preserve">
+          <source>Still nothing?</source>
+          <target state="new">Still nothing?</target>
+        </trans-unit>
+        <trans-unit id="0e0d866d-d6d7-4009-ac8e-090b3929c79d" xml:space="preserve">
+          <source>See <bpt id="dd4beb05-3bc3-467f-bdb8-9f8395c0ee2d">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="dd4beb05-3bc3-467f-bdb8-9f8395c0ee2d">&lt;/linkText&gt;</ept><bpt id="dd4beb05-3bc3-467f-bdb8-9f8395c0ee2d">&lt;title&gt;</bpt><ept id="dd4beb05-3bc3-467f-bdb8-9f8395c0ee2d">&lt;/title&gt;</ept>.*</source>
+          <target state="new">See <bpt id="dd4beb05-3bc3-467f-bdb8-9f8395c0ee2d">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="dd4beb05-3bc3-467f-bdb8-9f8395c0ee2d">&lt;/linkText&gt;</ept><bpt id="dd4beb05-3bc3-467f-bdb8-9f8395c0ee2d">&lt;title&gt;</bpt><ept id="dd4beb05-3bc3-467f-bdb8-9f8395c0ee2d">&lt;/title&gt;</ept>.*</target>
+        </trans-unit>
+        <trans-unit id="93f34219-e9c3-4a7d-b4ef-c4e44831f9b7" xml:space="preserve">
+          <source>Click that chart, and you get a more detailed version:</source>
+          <target state="new">Click that chart, and you get a more detailed version:</target>
+        </trans-unit>
+        <trans-unit id="0394d1af-556c-46f2-baee-8bca764585b5" xml:space="preserve">
+          <source><bpt id="e5a63166-2439-40fe-b1fb-0c2d92e4aa8b">&lt;linkText&gt;</bpt><ept id="e5a63166-2439-40fe-b1fb-0c2d92e4aa8b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e5a63166-2439-40fe-b1fb-0c2d92e4aa8b">&lt;linkText&gt;</bpt><ept id="e5a63166-2439-40fe-b1fb-0c2d92e4aa8b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36718e87-7756-4955-b760-1b2ca6a46b37" xml:space="preserve">
+          <source>This is a stacked chart which breaks the total page load time into the <bpt id="2383e9a6-a6ee-4530-aef5-f1696fea0dc6">&lt;linkText&gt;</bpt>standard timings defined by W3C<ept id="2383e9a6-a6ee-4530-aef5-f1696fea0dc6">&lt;/linkText&gt;</ept><bpt id="2383e9a6-a6ee-4530-aef5-f1696fea0dc6">&lt;title&gt;</bpt><ept id="2383e9a6-a6ee-4530-aef5-f1696fea0dc6">&lt;/title&gt;</ept>.</source>
+          <target state="new">This is a stacked chart which breaks the total page load time into the <bpt id="2383e9a6-a6ee-4530-aef5-f1696fea0dc6">&lt;linkText&gt;</bpt>standard timings defined by W3C<ept id="2383e9a6-a6ee-4530-aef5-f1696fea0dc6">&lt;/linkText&gt;</ept><bpt id="2383e9a6-a6ee-4530-aef5-f1696fea0dc6">&lt;title&gt;</bpt><ept id="2383e9a6-a6ee-4530-aef5-f1696fea0dc6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d2253b0-669c-4293-859b-48ad839b7e3c" xml:space="preserve">
+          <source><bpt id="b1ee6140-ec4e-4b52-ab49-8fa6f45539bb">&lt;linkText&gt;</bpt><ept id="b1ee6140-ec4e-4b52-ab49-8fa6f45539bb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1ee6140-ec4e-4b52-ab49-8fa6f45539bb">&lt;linkText&gt;</bpt><ept id="b1ee6140-ec4e-4b52-ab49-8fa6f45539bb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b62442c0-8277-40fa-ab0f-ea330851951f" xml:space="preserve">
+          <source>Note that the <bpt id="ef8c70af-a731-460a-8c5c-fc11dffde9c8">&lt;em&gt;</bpt>network connect<ept id="ef8c70af-a731-460a-8c5c-fc11dffde9c8">&lt;/em&gt;</ept> time is usually lower than you might expect, because it's an average over all requests from the browser to the server.</source>
+          <target state="new">Note that the <bpt id="ef8c70af-a731-460a-8c5c-fc11dffde9c8">&lt;em&gt;</bpt>network connect<ept id="ef8c70af-a731-460a-8c5c-fc11dffde9c8">&lt;/em&gt;</ept> time is usually lower than you might expect, because it's an average over all requests from the browser to the server.</target>
+        </trans-unit>
+        <trans-unit id="3ba6b89a-7afe-4bff-9e06-dc1672467494" xml:space="preserve">
+          <source>Many individual requests have a connect time of 0 because there is already an active connection to the server.</source>
+          <target state="new">Many individual requests have a connect time of 0 because there is already an active connection to the server.</target>
+        </trans-unit>
+        <trans-unit id="30d064bb-4aa7-4eb3-92e8-00c410fc25b1" xml:space="preserve">
+          <source>Further down in the details blade, there's a grid segmented by page URL:</source>
+          <target state="new">Further down in the details blade, there's a grid segmented by page URL:</target>
+        </trans-unit>
+        <trans-unit id="298b2382-d12a-4211-a654-423d0673b1a3" xml:space="preserve">
+          <source><bpt id="f49a6dd3-9d4b-4da1-84b5-60361106ad84">&lt;linkText&gt;</bpt><ept id="f49a6dd3-9d4b-4da1-84b5-60361106ad84">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f49a6dd3-9d4b-4da1-84b5-60361106ad84">&lt;linkText&gt;</bpt><ept id="f49a6dd3-9d4b-4da1-84b5-60361106ad84">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18be7e7a-8709-4945-ad24-9a3c291175fb" xml:space="preserve">
+          <source>If you'd like to see the performance of the pages over time, double-click the grid and change its chart type:</source>
+          <target state="new">If you'd like to see the performance of the pages over time, double-click the grid and change its chart type:</target>
+        </trans-unit>
+        <trans-unit id="69c1d94b-84e9-49e6-8abf-83ed78cf7763" xml:space="preserve">
+          <source><bpt id="b4e72f87-aac0-462a-8e25-540b31d19875">&lt;linkText&gt;</bpt><ept id="b4e72f87-aac0-462a-8e25-540b31d19875">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b4e72f87-aac0-462a-8e25-540b31d19875">&lt;linkText&gt;</bpt><ept id="b4e72f87-aac0-462a-8e25-540b31d19875">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cdec142-407f-456c-bd56-fbba97a6b7fb" xml:space="preserve">
+          <source>Back on the overview blade, click <bpt id="780ef151-7938-4803-8732-39e53e9ac7ae">&lt;strong&gt;</bpt>Usage<ept id="780ef151-7938-4803-8732-39e53e9ac7ae">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Back on the overview blade, click <bpt id="780ef151-7938-4803-8732-39e53e9ac7ae">&lt;strong&gt;</bpt>Usage<ept id="780ef151-7938-4803-8732-39e53e9ac7ae">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="64c04072-e168-40f8-a092-cbd1218289f3" xml:space="preserve">
+          <source><bpt id="3e3b9dd2-7462-45ac-af9c-5bccaf624960">&lt;linkText&gt;</bpt><ept id="3e3b9dd2-7462-45ac-af9c-5bccaf624960">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e3b9dd2-7462-45ac-af9c-5bccaf624960">&lt;linkText&gt;</bpt><ept id="3e3b9dd2-7462-45ac-af9c-5bccaf624960">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a1a6b9f-d031-4a59-b41b-93a3670bce04" xml:space="preserve">
+          <source><bpt id="52d54a86-330a-41bd-95c6-c65c664b1dde">&lt;strong&gt;</bpt>Users:<ept id="52d54a86-330a-41bd-95c6-c65c664b1dde">&lt;/strong&gt;</ept> The count of distinct users over the time range of the chart.</source>
+          <target state="new"><bpt id="52d54a86-330a-41bd-95c6-c65c664b1dde">&lt;strong&gt;</bpt>Users:<ept id="52d54a86-330a-41bd-95c6-c65c664b1dde">&lt;/strong&gt;</ept> The count of distinct users over the time range of the chart.</target>
+        </trans-unit>
+        <trans-unit id="f35e2414-3ea1-4928-904f-9c1ee9c808fc" xml:space="preserve">
+          <source>(Cookies are used to identify returning users.)</source>
+          <target state="new">(Cookies are used to identify returning users.)</target>
+        </trans-unit>
+        <trans-unit id="610cf29c-826e-4e32-afb9-8640958861b2" xml:space="preserve">
+          <source><bpt id="db32428e-2aae-4031-9969-f834fb5f9de7">&lt;strong&gt;</bpt>Sessions:<ept id="db32428e-2aae-4031-9969-f834fb5f9de7">&lt;/strong&gt;</ept> A session is counted when a user has not made any requests for 30 minutes.</source>
+          <target state="new"><bpt id="db32428e-2aae-4031-9969-f834fb5f9de7">&lt;strong&gt;</bpt>Sessions:<ept id="db32428e-2aae-4031-9969-f834fb5f9de7">&lt;/strong&gt;</ept> A session is counted when a user has not made any requests for 30 minutes.</target>
+        </trans-unit>
+        <trans-unit id="eca85466-ddc9-4aaa-b54d-d63b291b975f" xml:space="preserve">
+          <source><bpt id="88f6699d-8b1a-405a-839d-4697709cef2d">&lt;strong&gt;</bpt>Page views<ept id="88f6699d-8b1a-405a-839d-4697709cef2d">&lt;/strong&gt;</ept> Counts the number of calls to trackPageView(), typically called once in each web page.</source>
+          <target state="new"><bpt id="88f6699d-8b1a-405a-839d-4697709cef2d">&lt;strong&gt;</bpt>Page views<ept id="88f6699d-8b1a-405a-839d-4697709cef2d">&lt;/strong&gt;</ept> Counts the number of calls to trackPageView(), typically called once in each web page.</target>
+        </trans-unit>
+        <trans-unit id="6da1996f-79cd-4f97-b082-0fcc861dd914" xml:space="preserve">
+          <source>Click any of the charts to see more detail.</source>
+          <target state="new">Click any of the charts to see more detail.</target>
+        </trans-unit>
+        <trans-unit id="8a8a77fa-f2d8-4372-b524-6be2c9af2bde" xml:space="preserve">
+          <source>Notice that you can change the time range of the charts.</source>
+          <target state="new">Notice that you can change the time range of the charts.</target>
+        </trans-unit>
+        <trans-unit id="25679c42-9c3e-4142-8842-05818f54c992" xml:space="preserve">
+          <source><bpt id="392459c6-ba26-4374-8095-6f56d13d407e">&lt;linkText&gt;</bpt><ept id="392459c6-ba26-4374-8095-6f56d13d407e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="392459c6-ba26-4374-8095-6f56d13d407e">&lt;linkText&gt;</bpt><ept id="392459c6-ba26-4374-8095-6f56d13d407e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="194dce7c-9067-4287-9b78-35c63c74ea17" xml:space="preserve">
+          <source>Click a chart to see other metrics that you can display, or add a new chart and select the metrics it displays.</source>
+          <target state="new">Click a chart to see other metrics that you can display, or add a new chart and select the metrics it displays.</target>
+        </trans-unit>
+        <trans-unit id="bed6b793-f2de-4660-b58d-a3839a8cbd5f" xml:space="preserve">
+          <source><bpt id="5b9f351d-40d7-4180-9164-fe24c9bd847f">&lt;linkText&gt;</bpt><ept id="5b9f351d-40d7-4180-9164-fe24c9bd847f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b9f351d-40d7-4180-9164-fe24c9bd847f">&lt;linkText&gt;</bpt><ept id="5b9f351d-40d7-4180-9164-fe24c9bd847f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e4f5398-850d-48d2-88fc-7c77c61cbe95" xml:space="preserve">
+          <source>Metrics can only be displayed in some combinations.</source>
+          <target state="new">Metrics can only be displayed in some combinations.</target>
+        </trans-unit>
+        <trans-unit id="ed9730d5-1637-4c74-bba2-821c19952da1" xml:space="preserve">
+          <source>When you select a metric, the incompatible ones are disabled.</source>
+          <target state="new">When you select a metric, the incompatible ones are disabled.</target>
+        </trans-unit>
+        <trans-unit id="9d745652-f8b5-4442-af79-4804336c05a4" xml:space="preserve">
+          <source>By default, a page count occurs each time a new page loads into the client browser.</source>
+          <target state="new">By default, a page count occurs each time a new page loads into the client browser.</target>
+        </trans-unit>
+        <trans-unit id="fc66dd2f-c7a1-4c31-9133-c3629794e1b8" xml:space="preserve">
+          <source>But you might want to count additional page views.</source>
+          <target state="new">But you might want to count additional page views.</target>
+        </trans-unit>
+        <trans-unit id="ab5e4aba-d022-4648-996f-898bd6fac871" xml:space="preserve">
+          <source>For example, a page might display its content in tabs and you want to count a page when the user switches tabs.</source>
+          <target state="new">For example, a page might display its content in tabs and you want to count a page when the user switches tabs.</target>
+        </trans-unit>
+        <trans-unit id="61ced2f4-fdb0-45f1-890e-b7fa92e159af" xml:space="preserve">
+          <source>Or JavaScript code in the page might load new content without changing the browser's URL.</source>
+          <target state="new">Or JavaScript code in the page might load new content without changing the browser's URL.</target>
+        </trans-unit>
+        <trans-unit id="35dc4cbe-cb3e-45f9-a684-29c1375e6135" xml:space="preserve">
+          <source>Insert a JavaScript call like this at the appropriate point in your client code:</source>
+          <target state="new">Insert a JavaScript call like this at the appropriate point in your client code:</target>
+        </trans-unit>
+        <trans-unit id="f8baa40c-7cec-4083-a03d-0dd1dae5b268" xml:space="preserve">
+          <source>The page name can contain the same characters as a URL, but anything after "#" or "?" will be ignored.</source>
+          <target state="new">The page name can contain the same characters as a URL, but anything after "#" or "?" will be ignored.</target>
+        </trans-unit>
+        <trans-unit id="7f008c10-8ef5-4cd5-b0d4-a3bb4783a10f" xml:space="preserve">
+          <source>Usually page view telemetry is analyzed by Application Insights and you see only cumulative reports, averaged over all your users.</source>
+          <target state="new">Usually page view telemetry is analyzed by Application Insights and you see only cumulative reports, averaged over all your users.</target>
+        </trans-unit>
+        <trans-unit id="46d9b35d-c794-40d3-ace3-48d4d5fae603" xml:space="preserve">
+          <source>But for debugging purposes, you can also look at individual page view events.</source>
+          <target state="new">But for debugging purposes, you can also look at individual page view events.</target>
+        </trans-unit>
+        <trans-unit id="30d24227-40ba-4947-afd6-653368606f70" xml:space="preserve">
+          <source>In the Diagnostic Search blade, set Filters to Page View.</source>
+          <target state="new">In the Diagnostic Search blade, set Filters to Page View.</target>
+        </trans-unit>
+        <trans-unit id="15e5bf23-4aea-45ff-a955-454b20cb0df0" xml:space="preserve">
+          <source><bpt id="64f3402f-30d2-4fe4-9cc1-b9cd4f8a6aa1">&lt;linkText&gt;</bpt><ept id="64f3402f-30d2-4fe4-9cc1-b9cd4f8a6aa1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="64f3402f-30d2-4fe4-9cc1-b9cd4f8a6aa1">&lt;linkText&gt;</bpt><ept id="64f3402f-30d2-4fe4-9cc1-b9cd4f8a6aa1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d69b36b-2836-4097-a47d-2773ea118d10" xml:space="preserve">
+          <source>Select any event to see more detail.</source>
+          <target state="new">Select any event to see more detail.</target>
+        </trans-unit>
+        <trans-unit id="e0e3b168-83a9-4c91-8120-56faaa902639" xml:space="preserve">
+          <source>In the details page, click "..." to see even more detail.</source>
+          <target state="new">In the details page, click "..." to see even more detail.</target>
+        </trans-unit>
+        <trans-unit id="33dd942e-1c89-4947-aa16-c0cd3e7d69cf" xml:space="preserve">
+          <source>If you use <bpt id="ee918754-47f7-4091-9780-a7c90296799e">&lt;linkText&gt;</bpt>Search[diagnostic]<ept id="ee918754-47f7-4091-9780-a7c90296799e">&lt;/linkText&gt;</ept><bpt id="ee918754-47f7-4091-9780-a7c90296799e">&lt;title&gt;</bpt><ept id="ee918754-47f7-4091-9780-a7c90296799e">&lt;/title&gt;</ept>, notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does.</source>
+          <target state="new">If you use <bpt id="ee918754-47f7-4091-9780-a7c90296799e">&lt;linkText&gt;</bpt>Search[diagnostic]<ept id="ee918754-47f7-4091-9780-a7c90296799e">&lt;/linkText&gt;</ept><bpt id="ee918754-47f7-4091-9780-a7c90296799e">&lt;title&gt;</bpt><ept id="ee918754-47f7-4091-9780-a7c90296799e">&lt;/title&gt;</ept>, notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does.</target>
+        </trans-unit>
+        <trans-unit id="23c91fa1-68f7-46ea-b6d5-5a9e1553330b" xml:space="preserve">
+          <source>And you cannot begin a search term with a wildcard.</source>
+          <target state="new">And you cannot begin a search term with a wildcard.</target>
+        </trans-unit>
+        <trans-unit id="baa37844-4838-4587-ad6e-c09696a889d3" xml:space="preserve">
+          <source>For example, searching for "*bou" would not match "About".</source>
+          <target state="new">For example, searching for "*bou" would not match "About".</target>
+        </trans-unit>
+        <trans-unit id="73e732b4-b875-4cda-8187-136e58c19fe8" xml:space="preserve">
+          <source><bpt id="454c8936-e3f9-4f81-b117-daf576730b08">&lt;linkText&gt;</bpt>Learn more about diagnostic search[diagnostic]<ept id="454c8936-e3f9-4f81-b117-daf576730b08">&lt;/linkText&gt;</ept><bpt id="454c8936-e3f9-4f81-b117-daf576730b08">&lt;title&gt;</bpt><ept id="454c8936-e3f9-4f81-b117-daf576730b08">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="454c8936-e3f9-4f81-b117-daf576730b08">&lt;linkText&gt;</bpt>Learn more about diagnostic search[diagnostic]<ept id="454c8936-e3f9-4f81-b117-daf576730b08">&lt;/linkText&gt;</ept><bpt id="454c8936-e3f9-4f81-b117-daf576730b08">&lt;title&gt;</bpt><ept id="454c8936-e3f9-4f81-b117-daf576730b08">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5803a1d9-da03-4ff4-90f7-42b6e689ee33" xml:space="preserve">
+          <source><bpt id="260fa97e-7cf3-4cb9-bc7b-401edc142f4e">&lt;strong&gt;</bpt>Page view duration<ept id="260fa97e-7cf3-4cb9-bc7b-401edc142f4e">&lt;/strong&gt;</ept>&amp;#151;The time it takes to load the page and start running scripts.</source>
+          <target state="new"><bpt id="260fa97e-7cf3-4cb9-bc7b-401edc142f4e">&lt;strong&gt;</bpt>Page view duration<ept id="260fa97e-7cf3-4cb9-bc7b-401edc142f4e">&lt;/strong&gt;</ept>&amp;#151;The time it takes to load the page and start running scripts.</target>
+        </trans-unit>
+        <trans-unit id="c6f57ad3-12f2-45f3-9363-9b6dbb742c77" xml:space="preserve">
+          <source>Specifically, the interval between starting to load the page and execution of the trackPageView.</source>
+          <target state="new">Specifically, the interval between starting to load the page and execution of the trackPageView.</target>
+        </trans-unit>
+        <trans-unit id="0c0857fa-eeef-4b05-a535-d52fdc8edb6c" xml:space="preserve">
+          <source>If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value.</source>
+          <target state="new">If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value.</target>
+        </trans-unit>
+        <trans-unit id="2f4e1329-0400-474a-9fad-5d7d3e807a09" xml:space="preserve">
+          <source>Want to find out what your users do with your app?</source>
+          <target state="new">Want to find out what your users do with your app?</target>
+        </trans-unit>
+        <trans-unit id="68e4c195-765a-4c4a-81e8-92ffc4ca17ba" xml:space="preserve">
+          <source>By inserting calls in your client and server code, you can send your own telemetry to Application Insights.</source>
+          <target state="new">By inserting calls in your client and server code, you can send your own telemetry to Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="5ff857fc-f78c-480e-9ff9-951d009b3ff0" xml:space="preserve">
+          <source>For example, you can find out the numbers of users who create orders without completing them, or which validation errors are hit most often, or the average score in a game.</source>
+          <target state="new">For example, you can find out the numbers of users who create orders without completing them, or which validation errors are hit most often, or the average score in a game.</target>
+        </trans-unit>
+        <trans-unit id="523f68c5-c6f0-4d04-be45-b372e2f63f53" xml:space="preserve">
+          <source><bpt id="4bd0dbd5-f66e-43fe-879d-ad94075c275d">&lt;linkText&gt;</bpt>Learn about the custom events and metrics API[track]<ept id="4bd0dbd5-f66e-43fe-879d-ad94075c275d">&lt;/linkText&gt;</ept><bpt id="4bd0dbd5-f66e-43fe-879d-ad94075c275d">&lt;title&gt;</bpt><ept id="4bd0dbd5-f66e-43fe-879d-ad94075c275d">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="4bd0dbd5-f66e-43fe-879d-ad94075c275d">&lt;linkText&gt;</bpt>Learn about the custom events and metrics API[track]<ept id="4bd0dbd5-f66e-43fe-879d-ad94075c275d">&lt;/linkText&gt;</ept><bpt id="4bd0dbd5-f66e-43fe-879d-ad94075c275d">&lt;title&gt;</bpt><ept id="4bd0dbd5-f66e-43fe-879d-ad94075c275d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c791140-c6a3-42b5-8e88-f0adbeca53bf" xml:space="preserve">
+          <source><bpt id="5946c61a-92bd-4186-8ecd-f84e63828536">&lt;linkText&gt;</bpt>API reference<ept id="5946c61a-92bd-4186-8ecd-f84e63828536">&lt;/linkText&gt;</ept><bpt id="5946c61a-92bd-4186-8ecd-f84e63828536">&lt;title&gt;</bpt><ept id="5946c61a-92bd-4186-8ecd-f84e63828536">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5946c61a-92bd-4186-8ecd-f84e63828536">&lt;linkText&gt;</bpt>API reference<ept id="5946c61a-92bd-4186-8ecd-f84e63828536">&lt;/linkText&gt;</ept><bpt id="5946c61a-92bd-4186-8ecd-f84e63828536">&lt;title&gt;</bpt><ept id="5946c61a-92bd-4186-8ecd-f84e63828536">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6dd38314-5fbf-497a-b2e7-662acb10bd76" xml:space="preserve">
+          <source>If you haven't done this yet, you can get insights from your server and display the data along with your client-side data, enabling you to assess performance at the server and diagnose any issues.</source>
+          <target state="new">If you haven't done this yet, you can get insights from your server and display the data along with your client-side data, enabling you to assess performance at the server and diagnose any issues.</target>
+        </trans-unit>
+        <trans-unit id="dc57d811-1d97-498d-afea-e6d8b071d423" xml:space="preserve">
+          <source><bpt id="67d09a2d-53a3-46fb-abc1-9a293c245d1c">&lt;linkText&gt;</bpt>Add Application Insights to an ASP.NET app[greenbrown]<ept id="67d09a2d-53a3-46fb-abc1-9a293c245d1c">&lt;/linkText&gt;</ept><bpt id="67d09a2d-53a3-46fb-abc1-9a293c245d1c">&lt;title&gt;</bpt><ept id="67d09a2d-53a3-46fb-abc1-9a293c245d1c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="67d09a2d-53a3-46fb-abc1-9a293c245d1c">&lt;linkText&gt;</bpt>Add Application Insights to an ASP.NET app[greenbrown]<ept id="67d09a2d-53a3-46fb-abc1-9a293c245d1c">&lt;/linkText&gt;</ept><bpt id="67d09a2d-53a3-46fb-abc1-9a293c245d1c">&lt;title&gt;</bpt><ept id="67d09a2d-53a3-46fb-abc1-9a293c245d1c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02cd2481-c54d-428f-9caa-74008c71a375" xml:space="preserve">
+          <source><bpt id="8c923d43-4b17-43be-98ba-be7a0e81316b">&lt;linkText&gt;</bpt>Add Application Insights to a Java web app[java]<ept id="8c923d43-4b17-43be-98ba-be7a0e81316b">&lt;/linkText&gt;</ept><bpt id="8c923d43-4b17-43be-98ba-be7a0e81316b">&lt;title&gt;</bpt><ept id="8c923d43-4b17-43be-98ba-be7a0e81316b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8c923d43-4b17-43be-98ba-be7a0e81316b">&lt;linkText&gt;</bpt>Add Application Insights to a Java web app[java]<ept id="8c923d43-4b17-43be-98ba-be7a0e81316b">&lt;/linkText&gt;</ept><bpt id="8c923d43-4b17-43be-98ba-be7a0e81316b">&lt;title&gt;</bpt><ept id="8c923d43-4b17-43be-98ba-be7a0e81316b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d92f3aa-14e3-4e15-8e6f-15925d8272bc" xml:space="preserve">
+          <source><bpt id="eda819ff-10ed-4481-af2a-cd29dd19bbf7">&lt;linkText&gt;</bpt>Track usage with custom events and metrics[track]<ept id="eda819ff-10ed-4481-af2a-cd29dd19bbf7">&lt;/linkText&gt;</ept><bpt id="eda819ff-10ed-4481-af2a-cd29dd19bbf7">&lt;title&gt;</bpt><ept id="eda819ff-10ed-4481-af2a-cd29dd19bbf7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eda819ff-10ed-4481-af2a-cd29dd19bbf7">&lt;linkText&gt;</bpt>Track usage with custom events and metrics[track]<ept id="eda819ff-10ed-4481-af2a-cd29dd19bbf7">&lt;/linkText&gt;</ept><bpt id="eda819ff-10ed-4481-af2a-cd29dd19bbf7">&lt;title&gt;</bpt><ept id="eda819ff-10ed-4481-af2a-cd29dd19bbf7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="601927dd-5bc8-4c3f-99d4-42b6332cb490" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="be75d464-e4c1-4798-ab56-d5a19d74ddc7" xml:space="preserve">
+          <source>app-insights-start-monitoring-app-health-usage.md</source>
+          <target state="new">app-insights-start-monitoring-app-health-usage.md</target>
+        </trans-unit>
+        <trans-unit id="6b8d4fd0-2cbd-49d3-bf44-1dce7393394e" xml:space="preserve">
+          <source>app-insights-java-get-started.md</source>
+          <target state="new">app-insights-java-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="329841c2-c106-4d44-90b4-96504631bb20" xml:space="preserve">
+          <source>app-insights-create-new-resource.md</source>
+          <target state="new">app-insights-create-new-resource.md</target>
+        </trans-unit>
+        <trans-unit id="f7da5cab-9275-4ec0-b453-83790f454a8c" xml:space="preserve">
+          <source>app-insights-troubleshoot-faq.md</source>
+          <target state="new">app-insights-troubleshoot-faq.md</target>
+        </trans-unit>
+        <trans-unit id="fd55a849-6436-4661-9424-df8f615cf702" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+      </group>
+      <group id="29a10bca-03d9-4db0-b193-e7ca6210b0bc" />
+    </body>
+  </file>
+</xliff>

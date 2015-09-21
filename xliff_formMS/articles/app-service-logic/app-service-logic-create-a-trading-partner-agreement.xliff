@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b03110d9-660b-459d-800a-1b882dcd1596" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b03110d9-660b-459d-800a-1b882dcd1596" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e81621b1-0e1e-4b04-9863-c981c1484cd4">
+        <trans-unit id="b2e72da0-dd1e-48d6-be49-de2807c80c34" xml:space="preserve">
+          <source>Create a Trading Partner Agreement in Microsoft Azure App Service</source>
+          <target state="new">Create a Trading Partner Agreement in Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="c7c4f731-d114-4ecc-9750-04121497eef2" xml:space="preserve">
+          <source>Create Trading Partner Agreements</source>
+          <target state="new">Create Trading Partner Agreements</target>
+        </trans-unit>
+        <trans-unit id="671bdc06-d62d-4929-8813-36a20e91e872" xml:space="preserve">
+          <source>Trading partners are the entities involved in B2B (Business-to-Business) communications.</source>
+          <target state="new">Trading partners are the entities involved in B2B (Business-to-Business) communications.</target>
+        </trans-unit>
+        <trans-unit id="2bc0e390-70ee-4b5a-8a7d-3786c1eccb8e" xml:space="preserve">
+          <source>When two partners establish a relationship, this is referred to as an <bpt id="0fa3fb8e-c1a7-4f97-af78-87a88c707075">&lt;em&gt;</bpt>Agreement<ept id="0fa3fb8e-c1a7-4f97-af78-87a88c707075">&lt;/em&gt;</ept>.</source>
+          <target state="new">When two partners establish a relationship, this is referred to as an <bpt id="0fa3fb8e-c1a7-4f97-af78-87a88c707075">&lt;em&gt;</bpt>Agreement<ept id="0fa3fb8e-c1a7-4f97-af78-87a88c707075">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="373280e3-fed9-4829-9e57-896a1095b732" xml:space="preserve">
+          <source>The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.</source>
+          <target state="new">The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.</target>
+        </trans-unit>
+        <trans-unit id="9f1bf62c-ec5a-4067-98cf-1ea9d9d6d905" xml:space="preserve">
+          <source>The various B2B protocols and transports supported  Azure App Service include:</source>
+          <target state="new">The various B2B protocols and transports supported  Azure App Service include:</target>
+        </trans-unit>
+        <trans-unit id="b62d79c5-87ec-4d98-80a2-902a3edcd6cb" xml:space="preserve">
+          <source>AS2 (Applicability Statement 2)</source>
+          <target state="new">AS2 (Applicability Statement 2)</target>
+        </trans-unit>
+        <trans-unit id="d24b63e1-3f5f-4973-bb7d-6d83b9b7c336" xml:space="preserve">
+          <source>EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))</source>
+          <target state="new">EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))</target>
+        </trans-unit>
+        <trans-unit id="8def464d-bdfd-44a8-b3f6-5c286bbc21e2" xml:space="preserve">
+          <source>X12 (ASC X12)</source>
+          <target state="new">X12 (ASC X12)</target>
+        </trans-unit>
+        <trans-unit id="6bfa1270-02a5-48af-9c32-dbba19f25f24" xml:space="preserve">
+          <source>The following API Apps enable these capabilities using a rich and intuitive experience in the Azure Portal:</source>
+          <target state="new">The following API Apps enable these capabilities using a rich and intuitive experience in the Azure Portal:</target>
+        </trans-unit>
+        <trans-unit id="ff2f2cdd-930c-4a2e-9aba-da9168d6a79a" xml:space="preserve">
+          <source>Create and management of Partners, Profiles &amp; Identities</source>
+          <target state="new">Create and management of Partners, Profiles &amp; Identities</target>
+        </trans-unit>
+        <trans-unit id="f24081a9-7bc7-41bc-81af-bb77f2ff3011" xml:space="preserve">
+          <source>Storage and management of EDI Schemas</source>
+          <target state="new">Storage and management of EDI Schemas</target>
+        </trans-unit>
+        <trans-unit id="74b73da4-ef24-4230-822a-9272ba2180c4" xml:space="preserve">
+          <source>Storage and management of certificates (used in AS2 protocol)</source>
+          <target state="new">Storage and management of certificates (used in AS2 protocol)</target>
+        </trans-unit>
+        <trans-unit id="dd7aaca3-cdc3-4850-9e7e-df5a4fb4d693" xml:space="preserve">
+          <source>Creation and management of AS2 Agreements</source>
+          <target state="new">Creation and management of AS2 Agreements</target>
+        </trans-unit>
+        <trans-unit id="30d32d47-4178-4c51-881e-6fffc3b87f69" xml:space="preserve">
+          <source>Creation and management of EDIFACT Agreements (includes batching on the send side)</source>
+          <target state="new">Creation and management of EDIFACT Agreements (includes batching on the send side)</target>
+        </trans-unit>
+        <trans-unit id="ad4351a3-3a38-4dbb-9a1a-c2b83341b263" xml:space="preserve">
+          <source>Creation and management of X12 Agreements (includes batching on the send side)</source>
+          <target state="new">Creation and management of X12 Agreements (includes batching on the send side)</target>
+        </trans-unit>
+        <trans-unit id="5d5054ec-970f-4ce1-ae2c-11d30440ce69" xml:space="preserve">
+          <source><bpt id="22364626-f603-49fe-b16f-ec3a5b21856d">&lt;linkText&gt;</bpt><ept id="22364626-f603-49fe-b16f-ec3a5b21856d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22364626-f603-49fe-b16f-ec3a5b21856d">&lt;linkText&gt;</bpt><ept id="22364626-f603-49fe-b16f-ec3a5b21856d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19b0feeb-6900-4b70-b9e3-561c20855a78" xml:space="preserve">
+          <source>Executes AS2 Agreements as defined in the related TPM API App instance</source>
+          <target state="new">Executes AS2 Agreements as defined in the related TPM API App instance</target>
+        </trans-unit>
+        <trans-unit id="b7468d6e-4234-44ab-8454-9ced9d9d5516" xml:space="preserve">
+          <source>Surfaces AS2 processing/tracking information for troubleshooting</source>
+          <target state="new">Surfaces AS2 processing/tracking information for troubleshooting</target>
+        </trans-unit>
+        <trans-unit id="b471d32e-7b3e-4f4b-8c11-0003b67cd9b2" xml:space="preserve">
+          <source>Executes EDIFACT Agreements as defined in the related TPM API App instance</source>
+          <target state="new">Executes EDIFACT Agreements as defined in the related TPM API App instance</target>
+        </trans-unit>
+        <trans-unit id="f2d9e014-835f-4298-bf17-1839bb8685e2" xml:space="preserve">
+          <source>Surfaces EDIFACT processing/tracking information for troubleshooting</source>
+          <target state="new">Surfaces EDIFACT processing/tracking information for troubleshooting</target>
+        </trans-unit>
+        <trans-unit id="f1c6a7b0-58cf-41db-843a-19ed42833aa3" xml:space="preserve">
+          <source>Provides state management of batches (start and stop) as defined in EDIFACT Agreement(s) in the related TPM API App instance</source>
+          <target state="new">Provides state management of batches (start and stop) as defined in EDIFACT Agreement(s) in the related TPM API App instance</target>
+        </trans-unit>
+        <trans-unit id="e1cc333c-21dd-4312-8e2e-f9e93f820e29" xml:space="preserve">
+          <source>Executes X12 Agreements as defined in the related TPM API App instance </source>
+          <target state="new">Executes X12 Agreements as defined in the related TPM API App instance </target>
+        </trans-unit>
+        <trans-unit id="33a5f3a6-0d30-40cb-9e0f-b70c685ad2f6" xml:space="preserve">
+          <source>Surfaces X12 processing/tracking information for troubleshooting</source>
+          <target state="new">Surfaces X12 processing/tracking information for troubleshooting</target>
+        </trans-unit>
+        <trans-unit id="6a59723c-ba39-4db1-a029-ab31484c87c7" xml:space="preserve">
+          <source>Provides state management of batches (start and stop) as defined in X12 Agreement(s) in the related TPM API App instance</source>
+          <target state="new">Provides state management of batches (start and stop) as defined in X12 Agreement(s) in the related TPM API App instance</target>
+        </trans-unit>
+        <trans-unit id="ab999907-d75a-48b4-8091-b09fa0671ee3" xml:space="preserve">
+          <source>As previously stated, the AS2, X12, and EDIFACT API Apps require a TPM API App to function as expected.</source>
+          <target state="new">As previously stated, the AS2, X12, and EDIFACT API Apps require a TPM API App to function as expected.</target>
+        </trans-unit>
+        <trans-unit id="40040756-834f-4515-aa72-4c412143f906" xml:space="preserve">
+          <source>To create trading partner agreements:</source>
+          <target state="new">To create trading partner agreements:</target>
+        </trans-unit>
+        <trans-unit id="e40e1c8a-0742-4ec7-af44-45651a58d239" xml:space="preserve">
+          <source>Create an instance of the <bpt id="c662f7cb-b96c-4cfc-bd6b-700635a21480">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="c662f7cb-b96c-4cfc-bd6b-700635a21480">&lt;/strong&gt;</ept> connector.</source>
+          <target state="new">Create an instance of the <bpt id="c662f7cb-b96c-4cfc-bd6b-700635a21480">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="c662f7cb-b96c-4cfc-bd6b-700635a21480">&lt;/strong&gt;</ept> connector.</target>
+        </trans-unit>
+        <trans-unit id="5ee60cc5-3c59-4422-ba4e-08296f75cec1" xml:space="preserve">
+          <source>This requires a blank SQL Database to function.</source>
+          <target state="new">This requires a blank SQL Database to function.</target>
+        </trans-unit>
+        <trans-unit id="eeca524e-c195-4a57-a550-b4b11530b706" xml:space="preserve">
+          <source>Before starting be sure to have a blank database available and ready for use.</source>
+          <target state="new">Before starting be sure to have a blank database available and ready for use.</target>
+        </trans-unit>
+        <trans-unit id="6f0b667d-2433-460d-a667-517a5155f6c1" xml:space="preserve">
+          <source>Upload schemas and certificates as required by the agreements.</source>
+          <target state="new">Upload schemas and certificates as required by the agreements.</target>
+        </trans-unit>
+        <trans-unit id="794bcec5-8f7e-4f6a-bc0b-0315a02965ca" xml:space="preserve">
+          <source>This is to be done by browsing the TPM instance created and stepping into the ‘Schemas’ and/or ‘Certificates’ part</source>
+          <target state="new">This is to be done by browsing the TPM instance created and stepping into the ‘Schemas’ and/or ‘Certificates’ part</target>
+        </trans-unit>
+        <trans-unit id="c83347dc-b36c-45d2-816c-03fbffeba812" xml:space="preserve">
+          <source>Browse to the TPM instance created and step into the <bpt id="cbabf74f-d3e3-4d84-81f5-36f5656d009e">&lt;strong&gt;</bpt>Partners<ept id="cbabf74f-d3e3-4d84-81f5-36f5656d009e">&lt;/strong&gt;</ept> part</source>
+          <target state="new">Browse to the TPM instance created and step into the <bpt id="cbabf74f-d3e3-4d84-81f5-36f5656d009e">&lt;strong&gt;</bpt>Partners<ept id="cbabf74f-d3e3-4d84-81f5-36f5656d009e">&lt;/strong&gt;</ept> part</target>
+        </trans-unit>
+        <trans-unit id="739150c7-20aa-4c76-9977-83650b4bbe67" xml:space="preserve">
+          <source>Create partners as desired.</source>
+          <target state="new">Create partners as desired.</target>
+        </trans-unit>
+        <trans-unit id="fe2bb351-bf77-4708-91a7-ed5a2961796f" xml:space="preserve">
+          <source>Also edit the profile(s) as appropriate and add the required identities</source>
+          <target state="new">Also edit the profile(s) as appropriate and add the required identities</target>
+        </trans-unit>
+        <trans-unit id="c1e9738e-be0e-4352-b4d1-7a68340eea66" xml:space="preserve">
+          <source>Now use the <bpt id="9d8cfd47-c6ee-4128-a1e0-757c02dc1132">&lt;strong&gt;</bpt>Agreements<ept id="9d8cfd47-c6ee-4128-a1e0-757c02dc1132">&lt;/strong&gt;</ept> part to create agreements.</source>
+          <target state="new">Now use the <bpt id="9d8cfd47-c6ee-4128-a1e0-757c02dc1132">&lt;strong&gt;</bpt>Agreements<ept id="9d8cfd47-c6ee-4128-a1e0-757c02dc1132">&lt;/strong&gt;</ept> part to create agreements.</target>
+        </trans-unit>
+        <trans-unit id="12dac2bd-aad5-401f-a1ba-cd0243f00eaa" xml:space="preserve">
+          <source>During agreement creation one of the initial steps is to choose the protocol.</source>
+          <target state="new">During agreement creation one of the initial steps is to choose the protocol.</target>
+        </trans-unit>
+        <trans-unit id="e531557a-7f7b-4d09-9447-7afb2381d9dd" xml:space="preserve">
+          <source>Based on the protocol chosen the rest of the agreement configuration takes place.</source>
+          <target state="new">Based on the protocol chosen the rest of the agreement configuration takes place.</target>
+        </trans-unit>
+        <trans-unit id="59f0d20f-a8e3-4167-80a9-c553d417cd11" xml:space="preserve">
+          <source><bpt id="e02d8bc7-c311-40e1-bae9-7c4a0b98bcc3">&lt;linkText&gt;</bpt><ept id="e02d8bc7-c311-40e1-bae9-7c4a0b98bcc3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e02d8bc7-c311-40e1-bae9-7c4a0b98bcc3">&lt;linkText&gt;</bpt><ept id="e02d8bc7-c311-40e1-bae9-7c4a0b98bcc3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc286a54-669a-4662-8f2b-c1b8f7ef9840" xml:space="preserve">
+          <source><bpt id="bab9168a-0581-43d6-beb8-457b040b9713">&lt;linkText&gt;</bpt><ept id="bab9168a-0581-43d6-beb8-457b040b9713">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bab9168a-0581-43d6-beb8-457b040b9713">&lt;linkText&gt;</bpt><ept id="bab9168a-0581-43d6-beb8-457b040b9713">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="686b513a-f1db-4ab6-8d95-50b12fe8367a" xml:space="preserve">
+          <source>./media/app-service-logic-create-a-trading-partner-agreement/TPMResourceView.jpg</source>
+          <target state="new">./media/app-service-logic-create-a-trading-partner-agreement/TPMResourceView.jpg</target>
+        </trans-unit>
+        <trans-unit id="7e89becd-ffef-43eb-88bf-f131c4c35a26" xml:space="preserve">
+          <source>./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.jpg</source>
+          <target state="new">./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.jpg</target>
+        </trans-unit>
+        <trans-unit id="408dee46-1dfb-4bf3-96a2-6e4a53a59fc2" xml:space="preserve">
+          <source>./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg</source>
+          <target state="new">./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="cb7e532f-27f4-48d5-abc5-999192854fa8" />
+    </body>
+  </file>
+</xliff>

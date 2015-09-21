@@ -1,0 +1,605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f7dba5b0-2703-445e-a82f-62887aef799a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f7dba5b0-2703-445e-a82f-62887aef799a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3f382244-77b3-47f1-a341-cea11e234a60">
+        <trans-unit id="8dc2292c-aa1c-4d8e-aed8-0d2f38a6e217" xml:space="preserve">
+          <source>Tutorial: Integrating Google Apps with Azure Active Directory | Microsoft Azure</source>
+          <target state="new">Tutorial: Integrating Google Apps with Azure Active Directory | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="32e022cb-4a22-4404-becd-bcfd874c61d8" xml:space="preserve">
+          <source>Learn how to use Google Apps with Azure Active Directory to enable single sign-on, automated provisioning, and more!</source>
+          <target state="new">Learn how to use Google Apps with Azure Active Directory to enable single sign-on, automated provisioning, and more!</target>
+        </trans-unit>
+        <trans-unit id="bbd628e6-f834-4df8-8103-4e6d5f2ad0a5" xml:space="preserve">
+          <source>This tutorial will show you how to connect your Google Apps environment to your Azure Active Directory (Azure AD).</source>
+          <target state="new">This tutorial will show you how to connect your Google Apps environment to your Azure Active Directory (Azure AD).</target>
+        </trans-unit>
+        <trans-unit id="ce9dbc84-c68a-473f-b97c-7a691c8ed900" xml:space="preserve">
+          <source>You will learn how to configure single sign-on to Google Apps, how to enable automated user provisioning, and how to assign users to have access to Google Apps.</source>
+          <target state="new">You will learn how to configure single sign-on to Google Apps, how to enable automated user provisioning, and how to assign users to have access to Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="37c3296d-5e2c-4ac8-96c4-3e8957649c9c" xml:space="preserve">
+          <source>To access Azure Active Directory through the <bpt id="1e3dc81a-920c-40d4-90d7-28a81a9fe84e">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1e3dc81a-920c-40d4-90d7-28a81a9fe84e">&lt;/linkText&gt;</ept><bpt id="1e3dc81a-920c-40d4-90d7-28a81a9fe84e">&lt;title&gt;</bpt><ept id="1e3dc81a-920c-40d4-90d7-28a81a9fe84e">&lt;/title&gt;</ept>, you must first have a valid Azure subscription.</source>
+          <target state="new">To access Azure Active Directory through the <bpt id="1e3dc81a-920c-40d4-90d7-28a81a9fe84e">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1e3dc81a-920c-40d4-90d7-28a81a9fe84e">&lt;/linkText&gt;</ept><bpt id="1e3dc81a-920c-40d4-90d7-28a81a9fe84e">&lt;title&gt;</bpt><ept id="1e3dc81a-920c-40d4-90d7-28a81a9fe84e">&lt;/title&gt;</ept>, you must first have a valid Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="1813251a-cfb5-4e02-8fe0-73eb11d746ca" xml:space="preserve">
+          <source>You must have a valid tenant for <bpt id="470c079a-f31a-4730-8873-b85c95994356">&lt;linkText&gt;</bpt>Google Apps for Work<ept id="470c079a-f31a-4730-8873-b85c95994356">&lt;/linkText&gt;</ept><bpt id="470c079a-f31a-4730-8873-b85c95994356">&lt;title&gt;</bpt><ept id="470c079a-f31a-4730-8873-b85c95994356">&lt;/title&gt;</ept> or <bpt id="0df97526-10a0-4bd7-b45a-7945a045a4a4">&lt;linkText&gt;</bpt>Google Apps for Education<ept id="0df97526-10a0-4bd7-b45a-7945a045a4a4">&lt;/linkText&gt;</ept><bpt id="0df97526-10a0-4bd7-b45a-7945a045a4a4">&lt;title&gt;</bpt><ept id="0df97526-10a0-4bd7-b45a-7945a045a4a4">&lt;/title&gt;</ept>.</source>
+          <target state="new">You must have a valid tenant for <bpt id="470c079a-f31a-4730-8873-b85c95994356">&lt;linkText&gt;</bpt>Google Apps for Work<ept id="470c079a-f31a-4730-8873-b85c95994356">&lt;/linkText&gt;</ept><bpt id="470c079a-f31a-4730-8873-b85c95994356">&lt;title&gt;</bpt><ept id="470c079a-f31a-4730-8873-b85c95994356">&lt;/title&gt;</ept> or <bpt id="0df97526-10a0-4bd7-b45a-7945a045a4a4">&lt;linkText&gt;</bpt>Google Apps for Education<ept id="0df97526-10a0-4bd7-b45a-7945a045a4a4">&lt;/linkText&gt;</ept><bpt id="0df97526-10a0-4bd7-b45a-7945a045a4a4">&lt;title&gt;</bpt><ept id="0df97526-10a0-4bd7-b45a-7945a045a4a4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13716bc6-ff97-426e-89f8-f4e3516c477a" xml:space="preserve">
+          <source>You may use a free trial account for either service.</source>
+          <target state="new">You may use a free trial account for either service.</target>
+        </trans-unit>
+        <trans-unit id="bb213ec7-d2b6-4f15-b60d-7c665643f02e" xml:space="preserve">
+          <source>In the <bpt id="981c260c-dbca-41e5-8484-3c4c067d6ef6">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="981c260c-dbca-41e5-8484-3c4c067d6ef6">&lt;/linkText&gt;</ept><bpt id="981c260c-dbca-41e5-8484-3c4c067d6ef6">&lt;title&gt;</bpt><ept id="981c260c-dbca-41e5-8484-3c4c067d6ef6">&lt;/title&gt;</ept>, on the left navigation pane, click <bpt id="4ee4f67e-b84a-42a5-b791-40293cde430a">&lt;strong&gt;</bpt>Active Directory<ept id="4ee4f67e-b84a-42a5-b791-40293cde430a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="981c260c-dbca-41e5-8484-3c4c067d6ef6">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="981c260c-dbca-41e5-8484-3c4c067d6ef6">&lt;/linkText&gt;</ept><bpt id="981c260c-dbca-41e5-8484-3c4c067d6ef6">&lt;title&gt;</bpt><ept id="981c260c-dbca-41e5-8484-3c4c067d6ef6">&lt;/title&gt;</ept>, on the left navigation pane, click <bpt id="4ee4f67e-b84a-42a5-b791-40293cde430a">&lt;strong&gt;</bpt>Active Directory<ept id="4ee4f67e-b84a-42a5-b791-40293cde430a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d81cd588-239b-49fa-baa8-d4b7103d3135" xml:space="preserve">
+          <source><bpt id="b8df6ee8-5768-4b74-ba8e-fa8c4343ad9f">&lt;linkText&gt;</bpt>Select Active Directory from the left navigation pane.<ept id="b8df6ee8-5768-4b74-ba8e-fa8c4343ad9f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8df6ee8-5768-4b74-ba8e-fa8c4343ad9f">&lt;linkText&gt;</bpt>Select Active Directory from the left navigation pane.<ept id="b8df6ee8-5768-4b74-ba8e-fa8c4343ad9f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02f5bf07-f073-43a2-b04a-d47bff137675" xml:space="preserve">
+          <source>From the <bpt id="7dbc2338-7423-4f1f-9524-6cfe0a345f72">&lt;strong&gt;</bpt>Directory<ept id="7dbc2338-7423-4f1f-9524-6cfe0a345f72">&lt;/strong&gt;</ept> list, select the directory that you would like to add Google Apps to.</source>
+          <target state="new">From the <bpt id="7dbc2338-7423-4f1f-9524-6cfe0a345f72">&lt;strong&gt;</bpt>Directory<ept id="7dbc2338-7423-4f1f-9524-6cfe0a345f72">&lt;/strong&gt;</ept> list, select the directory that you would like to add Google Apps to.</target>
+        </trans-unit>
+        <trans-unit id="81d7a3e5-d432-4b09-9e3b-ddde3d4f65d3" xml:space="preserve">
+          <source>Click on <bpt id="26d9bdff-98d0-4097-ac84-626542d06b91">&lt;strong&gt;</bpt>Applications<ept id="26d9bdff-98d0-4097-ac84-626542d06b91">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">Click on <bpt id="26d9bdff-98d0-4097-ac84-626542d06b91">&lt;strong&gt;</bpt>Applications<ept id="26d9bdff-98d0-4097-ac84-626542d06b91">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="4d4f204f-7104-4b9e-a547-08c260c841a5" xml:space="preserve">
+          <source><bpt id="cb4479f6-5399-4d11-9027-fc1925004730">&lt;linkText&gt;</bpt>Click on Applications.<ept id="cb4479f6-5399-4d11-9027-fc1925004730">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb4479f6-5399-4d11-9027-fc1925004730">&lt;linkText&gt;</bpt>Click on Applications.<ept id="cb4479f6-5399-4d11-9027-fc1925004730">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb27be21-1b2c-4535-9c4e-7ca5acea3088" xml:space="preserve">
+          <source>Click <bpt id="7f653035-0fa3-4bc9-a85a-fec9bed6095d">&lt;strong&gt;</bpt>Add<ept id="7f653035-0fa3-4bc9-a85a-fec9bed6095d">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="7f653035-0fa3-4bc9-a85a-fec9bed6095d">&lt;strong&gt;</bpt>Add<ept id="7f653035-0fa3-4bc9-a85a-fec9bed6095d">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="6083d776-99d5-43aa-98d0-35b01ee6c6a7" xml:space="preserve">
+          <source><bpt id="c6de7f3b-d8bc-4d97-b193-c47695397f4c">&lt;linkText&gt;</bpt>Click Add to add a new application.<ept id="c6de7f3b-d8bc-4d97-b193-c47695397f4c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c6de7f3b-d8bc-4d97-b193-c47695397f4c">&lt;linkText&gt;</bpt>Click Add to add a new application.<ept id="c6de7f3b-d8bc-4d97-b193-c47695397f4c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07ef9e60-e8d2-4eb0-bdf1-eb67a985ef27" xml:space="preserve">
+          <source>On the <bpt id="93cb5eb8-2a3b-48c9-a986-07b065787dcb">&lt;strong&gt;</bpt>What do you want to do<ept id="93cb5eb8-2a3b-48c9-a986-07b065787dcb">&lt;/strong&gt;</ept> dialog, click <bpt id="ae9d56c3-4597-4fa5-a3e3-fa6e44a3357a">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="ae9d56c3-4597-4fa5-a3e3-fa6e44a3357a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="93cb5eb8-2a3b-48c9-a986-07b065787dcb">&lt;strong&gt;</bpt>What do you want to do<ept id="93cb5eb8-2a3b-48c9-a986-07b065787dcb">&lt;/strong&gt;</ept> dialog, click <bpt id="ae9d56c3-4597-4fa5-a3e3-fa6e44a3357a">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="ae9d56c3-4597-4fa5-a3e3-fa6e44a3357a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="393d9652-206c-4008-9d90-54c66e0d605e" xml:space="preserve">
+          <source><bpt id="65c77252-dabf-4e48-a881-f4ed2c5fb326">&lt;linkText&gt;</bpt>Click Add an application from the gallery.<ept id="65c77252-dabf-4e48-a881-f4ed2c5fb326">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="65c77252-dabf-4e48-a881-f4ed2c5fb326">&lt;linkText&gt;</bpt>Click Add an application from the gallery.<ept id="65c77252-dabf-4e48-a881-f4ed2c5fb326">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bcf7dea-f92b-442f-bdb5-99bf1eec5f33" xml:space="preserve">
+          <source>In the <bpt id="6e35dbb9-b421-4755-83ef-e000e35c82ef">&lt;strong&gt;</bpt>search box<ept id="6e35dbb9-b421-4755-83ef-e000e35c82ef">&lt;/strong&gt;</ept>, type <bpt id="061d0e55-f97c-439b-bd08-aba12a0941dc">&lt;strong&gt;</bpt>Google Apps<ept id="061d0e55-f97c-439b-bd08-aba12a0941dc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="6e35dbb9-b421-4755-83ef-e000e35c82ef">&lt;strong&gt;</bpt>search box<ept id="6e35dbb9-b421-4755-83ef-e000e35c82ef">&lt;/strong&gt;</ept>, type <bpt id="061d0e55-f97c-439b-bd08-aba12a0941dc">&lt;strong&gt;</bpt>Google Apps<ept id="061d0e55-f97c-439b-bd08-aba12a0941dc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98f091ab-89fd-4a6e-af3a-db17288156b7" xml:space="preserve">
+          <source>Then select <bpt id="bec596ab-34c6-45c6-82ec-9dd7cc282f78">&lt;strong&gt;</bpt>Google Apps<ept id="bec596ab-34c6-45c6-82ec-9dd7cc282f78">&lt;/strong&gt;</ept> from the results, and click <bpt id="02722314-7cba-4efa-b54c-21539096c722">&lt;strong&gt;</bpt>Complete<ept id="02722314-7cba-4efa-b54c-21539096c722">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">Then select <bpt id="bec596ab-34c6-45c6-82ec-9dd7cc282f78">&lt;strong&gt;</bpt>Google Apps<ept id="bec596ab-34c6-45c6-82ec-9dd7cc282f78">&lt;/strong&gt;</ept> from the results, and click <bpt id="02722314-7cba-4efa-b54c-21539096c722">&lt;strong&gt;</bpt>Complete<ept id="02722314-7cba-4efa-b54c-21539096c722">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="acd6b9af-82e1-4984-b7ea-43de91229b46" xml:space="preserve">
+          <source><bpt id="6e59a8f4-85fe-41fd-a29c-0da947c06a10">&lt;linkText&gt;</bpt>Add Google Apps.<ept id="6e59a8f4-85fe-41fd-a29c-0da947c06a10">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e59a8f4-85fe-41fd-a29c-0da947c06a10">&lt;linkText&gt;</bpt>Add Google Apps.<ept id="6e59a8f4-85fe-41fd-a29c-0da947c06a10">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6673183d-7d62-4b5c-9a76-a1e76d649d40" xml:space="preserve">
+          <source>You should now see the Quick Start page for Google Apps:</source>
+          <target state="new">You should now see the Quick Start page for Google Apps:</target>
+        </trans-unit>
+        <trans-unit id="360bd423-4df4-4a27-bc44-c8e68f4b6f4c" xml:space="preserve">
+          <source><bpt id="afa11b60-f264-4e78-9328-a5bc84cac4b4">&lt;linkText&gt;</bpt>Google Apps' Quick Start page in Azure AD<ept id="afa11b60-f264-4e78-9328-a5bc84cac4b4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="afa11b60-f264-4e78-9328-a5bc84cac4b4">&lt;linkText&gt;</bpt>Google Apps' Quick Start page in Azure AD<ept id="afa11b60-f264-4e78-9328-a5bc84cac4b4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c3b7be3-8d81-4293-ab7c-fdafc26cb464" xml:space="preserve">
+          <source>In Azure AD, on the Quick Start page for Google Apps, click the <bpt id="38a844ce-980b-4198-99f6-d8bc2c6f59ab">&lt;strong&gt;</bpt>Configure single sign-on<ept id="38a844ce-980b-4198-99f6-d8bc2c6f59ab">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In Azure AD, on the Quick Start page for Google Apps, click the <bpt id="38a844ce-980b-4198-99f6-d8bc2c6f59ab">&lt;strong&gt;</bpt>Configure single sign-on<ept id="38a844ce-980b-4198-99f6-d8bc2c6f59ab">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="6f924bcb-a134-4c4b-9993-683c13e551ad" xml:space="preserve">
+          <source><bpt id="c746ba38-2d62-4f02-9c68-ef2b220fe9b4">&lt;linkText&gt;</bpt>The configure single sign-on button<ept id="c746ba38-2d62-4f02-9c68-ef2b220fe9b4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c746ba38-2d62-4f02-9c68-ef2b220fe9b4">&lt;linkText&gt;</bpt>The configure single sign-on button<ept id="c746ba38-2d62-4f02-9c68-ef2b220fe9b4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ee172cb-5608-4235-aeb6-55687fa227ee" xml:space="preserve">
+          <source>A dialog will open and you'll see a screen that asks "How would you like users to sign on to Google Apps?"</source>
+          <target state="new">A dialog will open and you'll see a screen that asks "How would you like users to sign on to Google Apps?"</target>
+        </trans-unit>
+        <trans-unit id="11b2e8c8-ff17-4388-b16c-a7b4bb6ed340" xml:space="preserve">
+          <source>Select <bpt id="d96576f3-2c35-4333-bd1b-1fd0dfe1c3d8">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="d96576f3-2c35-4333-bd1b-1fd0dfe1c3d8">&lt;/strong&gt;</ept>, and then click <bpt id="fd9fab31-6edc-4e2e-bf04-51abd14660a5">&lt;strong&gt;</bpt>Next<ept id="fd9fab31-6edc-4e2e-bf04-51abd14660a5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="d96576f3-2c35-4333-bd1b-1fd0dfe1c3d8">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="d96576f3-2c35-4333-bd1b-1fd0dfe1c3d8">&lt;/strong&gt;</ept>, and then click <bpt id="fd9fab31-6edc-4e2e-bf04-51abd14660a5">&lt;strong&gt;</bpt>Next<ept id="fd9fab31-6edc-4e2e-bf04-51abd14660a5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f97caded-cda7-4360-be99-07cd230bb7d5" xml:space="preserve">
+          <source><bpt id="ad4f6307-d5ef-430c-bfbb-ad3e55f28eb6">&lt;linkText&gt;</bpt>Select Azure AD Single Sign-On<ept id="ad4f6307-d5ef-430c-bfbb-ad3e55f28eb6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ad4f6307-d5ef-430c-bfbb-ad3e55f28eb6">&lt;linkText&gt;</bpt>Select Azure AD Single Sign-On<ept id="ad4f6307-d5ef-430c-bfbb-ad3e55f28eb6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="324b491f-892d-4580-86e6-9a945c5f1bae" xml:space="preserve">
+          <source>To learn more about about the different single sign-on options, <bpt id="a4b68ac5-b979-45fd-be61-38c250a5cfd0">&lt;linkText&gt;</bpt>click here<ept id="a4b68ac5-b979-45fd-be61-38c250a5cfd0">&lt;/linkText&gt;</ept><bpt id="a4b68ac5-b979-45fd-be61-38c250a5cfd0">&lt;title&gt;</bpt><ept id="a4b68ac5-b979-45fd-be61-38c250a5cfd0">&lt;/title&gt;</ept></source>
+          <target state="new">To learn more about about the different single sign-on options, <bpt id="a4b68ac5-b979-45fd-be61-38c250a5cfd0">&lt;linkText&gt;</bpt>click here<ept id="a4b68ac5-b979-45fd-be61-38c250a5cfd0">&lt;/linkText&gt;</ept><bpt id="a4b68ac5-b979-45fd-be61-38c250a5cfd0">&lt;title&gt;</bpt><ept id="a4b68ac5-b979-45fd-be61-38c250a5cfd0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="400f32e3-aa9a-4b6f-805b-9d45fc6a784a" xml:space="preserve">
+          <source>On the <bpt id="77e7ffa5-cdb8-4628-addf-602c438d54fc">&lt;strong&gt;</bpt>Configure App Settings<ept id="77e7ffa5-cdb8-4628-addf-602c438d54fc">&lt;/strong&gt;</ept> page, for the <bpt id="dae0a09b-c264-49ff-b98f-efc2791c1dcb">&lt;strong&gt;</bpt>Sign On URL<ept id="dae0a09b-c264-49ff-b98f-efc2791c1dcb">&lt;/strong&gt;</ept> field, type in your Google Apps tenant URL using the following format: <bpt id="d9a2354a-0e19-4d8a-b006-41fc4efb4720">&lt;code&gt;</bpt>https://mail.google.com/a/&lt;yourdomain&gt;<ept id="d9a2354a-0e19-4d8a-b006-41fc4efb4720">&lt;/code&gt;</ept></source>
+          <target state="new">On the <bpt id="77e7ffa5-cdb8-4628-addf-602c438d54fc">&lt;strong&gt;</bpt>Configure App Settings<ept id="77e7ffa5-cdb8-4628-addf-602c438d54fc">&lt;/strong&gt;</ept> page, for the <bpt id="dae0a09b-c264-49ff-b98f-efc2791c1dcb">&lt;strong&gt;</bpt>Sign On URL<ept id="dae0a09b-c264-49ff-b98f-efc2791c1dcb">&lt;/strong&gt;</ept> field, type in your Google Apps tenant URL using the following format: <bpt id="d9a2354a-0e19-4d8a-b006-41fc4efb4720">&lt;code&gt;</bpt>https://mail.google.com/a/&lt;yourdomain&gt;<ept id="d9a2354a-0e19-4d8a-b006-41fc4efb4720">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6e5aed1-e4ff-42f9-b6fc-30b547094db0" xml:space="preserve">
+          <source><bpt id="e2d55062-7d13-4e5e-ae56-2a7961319185">&lt;linkText&gt;</bpt>Type in your tenant URL<ept id="e2d55062-7d13-4e5e-ae56-2a7961319185">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e2d55062-7d13-4e5e-ae56-2a7961319185">&lt;linkText&gt;</bpt>Type in your tenant URL<ept id="e2d55062-7d13-4e5e-ae56-2a7961319185">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eab48468-48ed-40d2-9790-273165c709e2" xml:space="preserve">
+          <source>On the <bpt id="26e016e6-3c84-44b5-be1f-82078ea8ae3e">&lt;strong&gt;</bpt>Configure single sign-on at Google Apps<ept id="26e016e6-3c84-44b5-be1f-82078ea8ae3e">&lt;/strong&gt;</ept> page, click on <bpt id="ea0c641d-8fae-4c4d-a1a4-3012ad213447">&lt;strong&gt;</bpt>Download certificate<ept id="ea0c641d-8fae-4c4d-a1a4-3012ad213447">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</source>
+          <target state="new">On the <bpt id="26e016e6-3c84-44b5-be1f-82078ea8ae3e">&lt;strong&gt;</bpt>Configure single sign-on at Google Apps<ept id="26e016e6-3c84-44b5-be1f-82078ea8ae3e">&lt;/strong&gt;</ept> page, click on <bpt id="ea0c641d-8fae-4c4d-a1a4-3012ad213447">&lt;strong&gt;</bpt>Download certificate<ept id="ea0c641d-8fae-4c4d-a1a4-3012ad213447">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="5654bc42-4ffb-4485-a507-634330279bc2" xml:space="preserve">
+          <source><bpt id="ed004b58-1b4f-48b8-9e2a-fdd2104750b8">&lt;linkText&gt;</bpt>Download the certificate.<ept id="ed004b58-1b4f-48b8-9e2a-fdd2104750b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ed004b58-1b4f-48b8-9e2a-fdd2104750b8">&lt;linkText&gt;</bpt>Download the certificate.<ept id="ed004b58-1b4f-48b8-9e2a-fdd2104750b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="202195e1-244f-43f1-8e94-0bf09c76c0c8" xml:space="preserve">
+          <source>Open a new tab in your browser, and sign into the <bpt id="10dabebb-dbb7-445f-8a6b-f598af6d92bf">&lt;linkText&gt;</bpt>Google Apps Admin Console<ept id="10dabebb-dbb7-445f-8a6b-f598af6d92bf">&lt;/linkText&gt;</ept><bpt id="10dabebb-dbb7-445f-8a6b-f598af6d92bf">&lt;title&gt;</bpt><ept id="10dabebb-dbb7-445f-8a6b-f598af6d92bf">&lt;/title&gt;</ept> using your administrator account.</source>
+          <target state="new">Open a new tab in your browser, and sign into the <bpt id="10dabebb-dbb7-445f-8a6b-f598af6d92bf">&lt;linkText&gt;</bpt>Google Apps Admin Console<ept id="10dabebb-dbb7-445f-8a6b-f598af6d92bf">&lt;/linkText&gt;</ept><bpt id="10dabebb-dbb7-445f-8a6b-f598af6d92bf">&lt;title&gt;</bpt><ept id="10dabebb-dbb7-445f-8a6b-f598af6d92bf">&lt;/title&gt;</ept> using your administrator account.</target>
+        </trans-unit>
+        <trans-unit id="1c56a8a7-3f44-4c0b-af4d-bd19267cf417" xml:space="preserve">
+          <source>Click <bpt id="8373e990-ca70-48b4-823a-aa9c70c57d1c">&lt;strong&gt;</bpt>Security<ept id="8373e990-ca70-48b4-823a-aa9c70c57d1c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8373e990-ca70-48b4-823a-aa9c70c57d1c">&lt;strong&gt;</bpt>Security<ept id="8373e990-ca70-48b4-823a-aa9c70c57d1c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e96b0e0-f22a-4feb-b621-121164c1336a" xml:space="preserve">
+          <source>If you don't see the link, it may be hidden under the <bpt id="2c4569a7-24b8-4822-b6bb-930361ecab74">&lt;strong&gt;</bpt>More Controls<ept id="2c4569a7-24b8-4822-b6bb-930361ecab74">&lt;/strong&gt;</ept> menu at the bottom of the screen.</source>
+          <target state="new">If you don't see the link, it may be hidden under the <bpt id="2c4569a7-24b8-4822-b6bb-930361ecab74">&lt;strong&gt;</bpt>More Controls<ept id="2c4569a7-24b8-4822-b6bb-930361ecab74">&lt;/strong&gt;</ept> menu at the bottom of the screen.</target>
+        </trans-unit>
+        <trans-unit id="d5f41dcd-3e7a-4804-87dd-23aca8fa57ea" xml:space="preserve">
+          <source><bpt id="1fcb3ae3-7aae-45a8-90e0-e4bd042c75e5">&lt;linkText&gt;</bpt>Click Security.<ept id="1fcb3ae3-7aae-45a8-90e0-e4bd042c75e5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1fcb3ae3-7aae-45a8-90e0-e4bd042c75e5">&lt;linkText&gt;</bpt>Click Security.<ept id="1fcb3ae3-7aae-45a8-90e0-e4bd042c75e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59293cb9-76f0-4792-a71f-d594a4214777" xml:space="preserve">
+          <source>On the <bpt id="256e43c3-68e2-4def-89d4-74a713e58731">&lt;strong&gt;</bpt>Security<ept id="256e43c3-68e2-4def-89d4-74a713e58731">&lt;/strong&gt;</ept> page, click <bpt id="6cb76ef0-3c4b-451a-ab65-c3510596cd25">&lt;strong&gt;</bpt>Set up single sign-on (SSO).<ept id="6cb76ef0-3c4b-451a-ab65-c3510596cd25">&lt;/strong&gt;</ept></source>
+          <target state="new">On the <bpt id="256e43c3-68e2-4def-89d4-74a713e58731">&lt;strong&gt;</bpt>Security<ept id="256e43c3-68e2-4def-89d4-74a713e58731">&lt;/strong&gt;</ept> page, click <bpt id="6cb76ef0-3c4b-451a-ab65-c3510596cd25">&lt;strong&gt;</bpt>Set up single sign-on (SSO).<ept id="6cb76ef0-3c4b-451a-ab65-c3510596cd25">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="508c3422-7420-47ff-9093-c789c255f1c0" xml:space="preserve">
+          <source><bpt id="a5a47759-ad0b-4719-8ebf-99c0f36912a7">&lt;linkText&gt;</bpt>Click SSO.<ept id="a5a47759-ad0b-4719-8ebf-99c0f36912a7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a5a47759-ad0b-4719-8ebf-99c0f36912a7">&lt;linkText&gt;</bpt>Click SSO.<ept id="a5a47759-ad0b-4719-8ebf-99c0f36912a7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9ecc13c-08d4-4e9c-9ab0-f62f2f4c0417" xml:space="preserve">
+          <source>Perform the following configuration changes:</source>
+          <target state="new">Perform the following configuration changes:</target>
+        </trans-unit>
+        <trans-unit id="200602ff-4350-416d-8824-a195f092e072" xml:space="preserve">
+          <source><bpt id="5daae6f1-497f-42f8-afdc-ef4550527f69">&lt;linkText&gt;</bpt>Configure SSO<ept id="5daae6f1-497f-42f8-afdc-ef4550527f69">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5daae6f1-497f-42f8-afdc-ef4550527f69">&lt;linkText&gt;</bpt>Configure SSO<ept id="5daae6f1-497f-42f8-afdc-ef4550527f69">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f20c078f-f31d-4d5f-a467-fe3c5243e685" xml:space="preserve">
+          <source>Select <bpt id="c0a295c9-86e2-415b-bff3-a9493d1ffc3b">&lt;strong&gt;</bpt>Setup SSO with third party identity provider<ept id="c0a295c9-86e2-415b-bff3-a9493d1ffc3b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="c0a295c9-86e2-415b-bff3-a9493d1ffc3b">&lt;strong&gt;</bpt>Setup SSO with third party identity provider<ept id="c0a295c9-86e2-415b-bff3-a9493d1ffc3b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a2b5bd5-7d5c-4f6f-beab-5f6b1c27b22d" xml:space="preserve">
+          <source>In Azure AD, copy the <bpt id="61c15323-44af-41aa-91b8-5000b558a4c1">&lt;strong&gt;</bpt>Single sign-on service URL<ept id="61c15323-44af-41aa-91b8-5000b558a4c1">&lt;/strong&gt;</ept>, and paste it into the <bpt id="07a89eba-9509-477a-a2e6-55772a527144">&lt;strong&gt;</bpt>Sign-in page URL<ept id="07a89eba-9509-477a-a2e6-55772a527144">&lt;/strong&gt;</ept> field in Google Apps.</source>
+          <target state="new">In Azure AD, copy the <bpt id="61c15323-44af-41aa-91b8-5000b558a4c1">&lt;strong&gt;</bpt>Single sign-on service URL<ept id="61c15323-44af-41aa-91b8-5000b558a4c1">&lt;/strong&gt;</ept>, and paste it into the <bpt id="07a89eba-9509-477a-a2e6-55772a527144">&lt;strong&gt;</bpt>Sign-in page URL<ept id="07a89eba-9509-477a-a2e6-55772a527144">&lt;/strong&gt;</ept> field in Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="6ad324be-f17b-4ae2-9787-b776820b8ff0" xml:space="preserve">
+          <source>In Azure AD, copy the <bpt id="fcbdc30d-409a-441d-98ca-bc7f7e3a4077">&lt;strong&gt;</bpt>Single sign-out service URL<ept id="fcbdc30d-409a-441d-98ca-bc7f7e3a4077">&lt;/strong&gt;</ept>, and paste it into the <bpt id="650bf5fc-584c-47d5-ad3f-0622c62a1090">&lt;strong&gt;</bpt>Sign-out page URL<ept id="650bf5fc-584c-47d5-ad3f-0622c62a1090">&lt;/strong&gt;</ept> field in Google Apps.</source>
+          <target state="new">In Azure AD, copy the <bpt id="fcbdc30d-409a-441d-98ca-bc7f7e3a4077">&lt;strong&gt;</bpt>Single sign-out service URL<ept id="fcbdc30d-409a-441d-98ca-bc7f7e3a4077">&lt;/strong&gt;</ept>, and paste it into the <bpt id="650bf5fc-584c-47d5-ad3f-0622c62a1090">&lt;strong&gt;</bpt>Sign-out page URL<ept id="650bf5fc-584c-47d5-ad3f-0622c62a1090">&lt;/strong&gt;</ept> field in Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="43dadf06-976e-49f1-ac14-cf99e472756b" xml:space="preserve">
+          <source>In Azure AD, copy the <bpt id="8a53823c-8f6e-4a4f-a70f-8f0307192fb7">&lt;strong&gt;</bpt>Change password URL<ept id="8a53823c-8f6e-4a4f-a70f-8f0307192fb7">&lt;/strong&gt;</ept>, and paste it into the <bpt id="8bb07c6f-0bcc-48a4-97cd-f8591356b783">&lt;strong&gt;</bpt>Change password URL<ept id="8bb07c6f-0bcc-48a4-97cd-f8591356b783">&lt;/strong&gt;</ept> field in Google Apps.</source>
+          <target state="new">In Azure AD, copy the <bpt id="8a53823c-8f6e-4a4f-a70f-8f0307192fb7">&lt;strong&gt;</bpt>Change password URL<ept id="8a53823c-8f6e-4a4f-a70f-8f0307192fb7">&lt;/strong&gt;</ept>, and paste it into the <bpt id="8bb07c6f-0bcc-48a4-97cd-f8591356b783">&lt;strong&gt;</bpt>Change password URL<ept id="8bb07c6f-0bcc-48a4-97cd-f8591356b783">&lt;/strong&gt;</ept> field in Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="c6af5f95-3f2a-4cfe-a140-d9a18e31b4ab" xml:space="preserve">
+          <source>In Google Apps, for the <bpt id="c9cc6307-f4f6-4be3-95f0-c8960e8cdc17">&lt;strong&gt;</bpt>Verification certificate<ept id="c9cc6307-f4f6-4be3-95f0-c8960e8cdc17">&lt;/strong&gt;</ept>, upload the certificate that you downloaded in step #4.</source>
+          <target state="new">In Google Apps, for the <bpt id="c9cc6307-f4f6-4be3-95f0-c8960e8cdc17">&lt;strong&gt;</bpt>Verification certificate<ept id="c9cc6307-f4f6-4be3-95f0-c8960e8cdc17">&lt;/strong&gt;</ept>, upload the certificate that you downloaded in step #4.</target>
+        </trans-unit>
+        <trans-unit id="3d652614-6a66-4c02-9528-1d95b10b5cf6" xml:space="preserve">
+          <source>Click <bpt id="16680d5e-f593-4692-8c06-99660a95d017">&lt;strong&gt;</bpt>Save Changes<ept id="16680d5e-f593-4692-8c06-99660a95d017">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="16680d5e-f593-4692-8c06-99660a95d017">&lt;strong&gt;</bpt>Save Changes<ept id="16680d5e-f593-4692-8c06-99660a95d017">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53a3143e-d541-4a6e-8429-38fb22643a34" xml:space="preserve">
+          <source>In Azure AD, select the single sign-on configuration confirmation checkbox to enable the certificate that you uploaded to Google Apps.</source>
+          <target state="new">In Azure AD, select the single sign-on configuration confirmation checkbox to enable the certificate that you uploaded to Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="eda396c8-3d97-4576-8730-f9f95fc17065" xml:space="preserve">
+          <source>Then click <bpt id="04a7a1b8-04b1-4c39-b129-8ef46df263c5">&lt;strong&gt;</bpt>Next<ept id="04a7a1b8-04b1-4c39-b129-8ef46df263c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="04a7a1b8-04b1-4c39-b129-8ef46df263c5">&lt;strong&gt;</bpt>Next<ept id="04a7a1b8-04b1-4c39-b129-8ef46df263c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20ba8064-eb36-4590-b686-93f5e308f862" xml:space="preserve">
+          <source><bpt id="3ccdaebf-c3cf-4498-bbf1-9fc85e28ee2f">&lt;linkText&gt;</bpt>Check the confirmation checkbox<ept id="3ccdaebf-c3cf-4498-bbf1-9fc85e28ee2f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ccdaebf-c3cf-4498-bbf1-9fc85e28ee2f">&lt;linkText&gt;</bpt>Check the confirmation checkbox<ept id="3ccdaebf-c3cf-4498-bbf1-9fc85e28ee2f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a19d38e-b89a-4931-a200-22aa4b15c2e6" xml:space="preserve">
+          <source>On the final page of the dialog, type in an email address if you would like to receive email notifications for errors and warnings related to the maintenance of this single sign-on configuration.</source>
+          <target state="new">On the final page of the dialog, type in an email address if you would like to receive email notifications for errors and warnings related to the maintenance of this single sign-on configuration.</target>
+        </trans-unit>
+        <trans-unit id="ad01fb54-6ed7-4cb0-9aca-7885d5065030" xml:space="preserve">
+          <source><bpt id="dc302f75-416f-4248-b5d9-2c53b7eacc1e">&lt;linkText&gt;</bpt>Type in your email address.<ept id="dc302f75-416f-4248-b5d9-2c53b7eacc1e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dc302f75-416f-4248-b5d9-2c53b7eacc1e">&lt;linkText&gt;</bpt>Type in your email address.<ept id="dc302f75-416f-4248-b5d9-2c53b7eacc1e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b2302d3-7a76-416a-83f2-aa3a5f518a94" xml:space="preserve">
+          <source>Click <bpt id="4ca2cf63-b4ed-4199-9423-3195629f311e">&lt;strong&gt;</bpt>Complete<ept id="4ca2cf63-b4ed-4199-9423-3195629f311e">&lt;/strong&gt;</ept> to close the dialog.</source>
+          <target state="new">Click <bpt id="4ca2cf63-b4ed-4199-9423-3195629f311e">&lt;strong&gt;</bpt>Complete<ept id="4ca2cf63-b4ed-4199-9423-3195629f311e">&lt;/strong&gt;</ept> to close the dialog.</target>
+        </trans-unit>
+        <trans-unit id="fbacfe6b-ab3e-45e6-adfe-dec2309f62ee" xml:space="preserve">
+          <source>To test your configuration, see the section below titled <bpt id="71c96b4e-d3c7-4302-ad53-da8a9e3df800">&lt;linkText&gt;</bpt>Assign Users to Google Apps<ept id="71c96b4e-d3c7-4302-ad53-da8a9e3df800">&lt;/linkText&gt;</ept><bpt id="71c96b4e-d3c7-4302-ad53-da8a9e3df800">&lt;title&gt;</bpt><ept id="71c96b4e-d3c7-4302-ad53-da8a9e3df800">&lt;/title&gt;</ept>.</source>
+          <target state="new">To test your configuration, see the section below titled <bpt id="71c96b4e-d3c7-4302-ad53-da8a9e3df800">&lt;linkText&gt;</bpt>Assign Users to Google Apps<ept id="71c96b4e-d3c7-4302-ad53-da8a9e3df800">&lt;/linkText&gt;</ept><bpt id="71c96b4e-d3c7-4302-ad53-da8a9e3df800">&lt;title&gt;</bpt><ept id="71c96b4e-d3c7-4302-ad53-da8a9e3df800">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd8e1091-cb36-4e88-963a-21ea0e049699" xml:space="preserve">
+          <source>Another viable option for automating user provisioning to Google Apps is to use <bpt id="2ee1c02e-3eb6-4f64-a782-9155a93235b4">&lt;linkText&gt;</bpt>Google Apps Directory Sync (GADS)<ept id="2ee1c02e-3eb6-4f64-a782-9155a93235b4">&lt;/linkText&gt;</ept><bpt id="2ee1c02e-3eb6-4f64-a782-9155a93235b4">&lt;title&gt;</bpt><ept id="2ee1c02e-3eb6-4f64-a782-9155a93235b4">&lt;/title&gt;</ept> which provisions your on-premises Active Directory identities to Google Apps.</source>
+          <target state="new">Another viable option for automating user provisioning to Google Apps is to use <bpt id="2ee1c02e-3eb6-4f64-a782-9155a93235b4">&lt;linkText&gt;</bpt>Google Apps Directory Sync (GADS)<ept id="2ee1c02e-3eb6-4f64-a782-9155a93235b4">&lt;/linkText&gt;</ept><bpt id="2ee1c02e-3eb6-4f64-a782-9155a93235b4">&lt;title&gt;</bpt><ept id="2ee1c02e-3eb6-4f64-a782-9155a93235b4">&lt;/title&gt;</ept> which provisions your on-premises Active Directory identities to Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="d0d07291-2fd8-4524-a896-1c9cbae56d82" xml:space="preserve">
+          <source>In contrast, the solution in this tutorial provisions your Azure Active Directory (cloud) users and mail-enabled groups to Google Apps.</source>
+          <target state="new">In contrast, the solution in this tutorial provisions your Azure Active Directory (cloud) users and mail-enabled groups to Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="3cefe355-d646-48ed-bc37-4fc14b0a5140" xml:space="preserve">
+          <source>Sign into the <bpt id="d9eea7ed-d043-416e-8c34-e8ac17aaaf4c">&lt;linkText&gt;</bpt>Google Apps Admin Console<ept id="d9eea7ed-d043-416e-8c34-e8ac17aaaf4c">&lt;/linkText&gt;</ept><bpt id="d9eea7ed-d043-416e-8c34-e8ac17aaaf4c">&lt;title&gt;</bpt><ept id="d9eea7ed-d043-416e-8c34-e8ac17aaaf4c">&lt;/title&gt;</ept> using your administrator account, and click <bpt id="2ad3d05d-e31e-4837-bd8d-1f4998dc87fe">&lt;strong&gt;</bpt>Security<ept id="2ad3d05d-e31e-4837-bd8d-1f4998dc87fe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Sign into the <bpt id="d9eea7ed-d043-416e-8c34-e8ac17aaaf4c">&lt;linkText&gt;</bpt>Google Apps Admin Console<ept id="d9eea7ed-d043-416e-8c34-e8ac17aaaf4c">&lt;/linkText&gt;</ept><bpt id="d9eea7ed-d043-416e-8c34-e8ac17aaaf4c">&lt;title&gt;</bpt><ept id="d9eea7ed-d043-416e-8c34-e8ac17aaaf4c">&lt;/title&gt;</ept> using your administrator account, and click <bpt id="2ad3d05d-e31e-4837-bd8d-1f4998dc87fe">&lt;strong&gt;</bpt>Security<ept id="2ad3d05d-e31e-4837-bd8d-1f4998dc87fe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e757530-9eb2-4f8f-93d8-ff8649c0b087" xml:space="preserve">
+          <source>If you don't see the link, it may be hidden under the <bpt id="f28030c0-7efa-4335-b583-4940f550d7d4">&lt;strong&gt;</bpt>More Controls<ept id="f28030c0-7efa-4335-b583-4940f550d7d4">&lt;/strong&gt;</ept> menu at the bottom of the screen.</source>
+          <target state="new">If you don't see the link, it may be hidden under the <bpt id="f28030c0-7efa-4335-b583-4940f550d7d4">&lt;strong&gt;</bpt>More Controls<ept id="f28030c0-7efa-4335-b583-4940f550d7d4">&lt;/strong&gt;</ept> menu at the bottom of the screen.</target>
+        </trans-unit>
+        <trans-unit id="4fa80a53-d78a-4815-a29b-d7b99debe016" xml:space="preserve">
+          <source><bpt id="53ef6089-bfaf-4ed0-8746-5edac7efb34f">&lt;linkText&gt;</bpt>Click Security.<ept id="53ef6089-bfaf-4ed0-8746-5edac7efb34f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="53ef6089-bfaf-4ed0-8746-5edac7efb34f">&lt;linkText&gt;</bpt>Click Security.<ept id="53ef6089-bfaf-4ed0-8746-5edac7efb34f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f6e7be4-55fa-4e0f-b759-f25e0943d9d6" xml:space="preserve">
+          <source>On the <bpt id="ec7b364b-c0e6-44e6-9bc9-60408a774fd3">&lt;strong&gt;</bpt>Security<ept id="ec7b364b-c0e6-44e6-9bc9-60408a774fd3">&lt;/strong&gt;</ept> page, click <bpt id="2e30fd30-ccb7-434a-b4d0-f77052a203c1">&lt;strong&gt;</bpt>API Reference<ept id="2e30fd30-ccb7-434a-b4d0-f77052a203c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ec7b364b-c0e6-44e6-9bc9-60408a774fd3">&lt;strong&gt;</bpt>Security<ept id="ec7b364b-c0e6-44e6-9bc9-60408a774fd3">&lt;/strong&gt;</ept> page, click <bpt id="2e30fd30-ccb7-434a-b4d0-f77052a203c1">&lt;strong&gt;</bpt>API Reference<ept id="2e30fd30-ccb7-434a-b4d0-f77052a203c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bdcab6f2-60a7-4a68-b3d8-0f81576695ba" xml:space="preserve">
+          <source><bpt id="1781ec15-b3b3-434c-9ea5-99dc26914c81">&lt;linkText&gt;</bpt>Click API Reference.<ept id="1781ec15-b3b3-434c-9ea5-99dc26914c81">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1781ec15-b3b3-434c-9ea5-99dc26914c81">&lt;linkText&gt;</bpt>Click API Reference.<ept id="1781ec15-b3b3-434c-9ea5-99dc26914c81">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ab738c5-7cb7-4eb4-831f-b22c3e1fe940" xml:space="preserve">
+          <source>Select <bpt id="5441ef44-33df-464b-9477-856b6aca298c">&lt;strong&gt;</bpt>Enable API access<ept id="5441ef44-33df-464b-9477-856b6aca298c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="5441ef44-33df-464b-9477-856b6aca298c">&lt;strong&gt;</bpt>Enable API access<ept id="5441ef44-33df-464b-9477-856b6aca298c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af7c4539-4be6-42e2-a730-28101a9aee24" xml:space="preserve">
+          <source><bpt id="37bb3512-ca87-4062-b803-47a9d7062d1a">&lt;linkText&gt;</bpt>Click API Reference.<ept id="37bb3512-ca87-4062-b803-47a9d7062d1a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="37bb3512-ca87-4062-b803-47a9d7062d1a">&lt;linkText&gt;</bpt>Click API Reference.<ept id="37bb3512-ca87-4062-b803-47a9d7062d1a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="216b8b04-1473-4133-87fe-aea7f215a401" xml:space="preserve">
+          <source>For every user that you intend to provision to Google Apps, their username in Azure Active Directory <bpt id="36abc06e-ed4b-41a3-9c25-50c658499d08">&lt;em&gt;</bpt>must<ept id="36abc06e-ed4b-41a3-9c25-50c658499d08">&lt;/em&gt;</ept> be tied to a custom domain.</source>
+          <target state="new">For every user that you intend to provision to Google Apps, their username in Azure Active Directory <bpt id="36abc06e-ed4b-41a3-9c25-50c658499d08">&lt;em&gt;</bpt>must<ept id="36abc06e-ed4b-41a3-9c25-50c658499d08">&lt;/em&gt;</ept> be tied to a custom domain.</target>
+        </trans-unit>
+        <trans-unit id="96f3ea5b-097b-49fd-89e6-f1fdcc573c4b" xml:space="preserve">
+          <source>For example, usernames that look like bob@contoso.onmicrosoft.com will not be accepted by Google Apps, whereas bob@contoso.com will be accepted.</source>
+          <target state="new">For example, usernames that look like bob@contoso.onmicrosoft.com will not be accepted by Google Apps, whereas bob@contoso.com will be accepted.</target>
+        </trans-unit>
+        <trans-unit id="70d1afbf-8806-4b87-af63-fa8de21f4dd0" xml:space="preserve">
+          <source>You can change an existing user's domain by editing their properties in Azure AD.</source>
+          <target state="new">You can change an existing user's domain by editing their properties in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="d508ccb6-ee88-4b8d-8718-e8dec2a0bb83" xml:space="preserve">
+          <source>Instructions for how to set a custom domain for both Azure Active Directory and Google Apps are included below.</source>
+          <target state="new">Instructions for how to set a custom domain for both Azure Active Directory and Google Apps are included below.</target>
+        </trans-unit>
+        <trans-unit id="7c3eb495-37eb-45d9-9536-9ec8fa46e10e" xml:space="preserve">
+          <source>If you haven't added a custom domain name to your Azure Active Directory yet, then follow the steps below:</source>
+          <target state="new">If you haven't added a custom domain name to your Azure Active Directory yet, then follow the steps below:</target>
+        </trans-unit>
+        <trans-unit id="e5f9b876-833e-49b4-b04f-53ac6a95a246" xml:space="preserve">
+          <source>In the <bpt id="d3e45b73-e382-4179-abb1-a4097cab067f">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="d3e45b73-e382-4179-abb1-a4097cab067f">&lt;/linkText&gt;</ept><bpt id="d3e45b73-e382-4179-abb1-a4097cab067f">&lt;title&gt;</bpt><ept id="d3e45b73-e382-4179-abb1-a4097cab067f">&lt;/title&gt;</ept>, on the left navigation pane, click <bpt id="91c6d73e-0ca7-48e4-8810-8e9987129021">&lt;strong&gt;</bpt>Active Directory<ept id="91c6d73e-0ca7-48e4-8810-8e9987129021">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d3e45b73-e382-4179-abb1-a4097cab067f">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="d3e45b73-e382-4179-abb1-a4097cab067f">&lt;/linkText&gt;</ept><bpt id="d3e45b73-e382-4179-abb1-a4097cab067f">&lt;title&gt;</bpt><ept id="d3e45b73-e382-4179-abb1-a4097cab067f">&lt;/title&gt;</ept>, on the left navigation pane, click <bpt id="91c6d73e-0ca7-48e4-8810-8e9987129021">&lt;strong&gt;</bpt>Active Directory<ept id="91c6d73e-0ca7-48e4-8810-8e9987129021">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0fa37f53-ac60-4ff1-811f-6b8fdf88e24a" xml:space="preserve">
+          <source>In the directory list, select your directory.</source>
+          <target state="new">In the directory list, select your directory.</target>
+        </trans-unit>
+        <trans-unit id="1aff474f-e16d-4fcf-a414-786b15a08d11" xml:space="preserve">
+          <source>Click on <bpt id="8e9faeef-2dd0-4f31-aad3-7c1d5fd2abc1">&lt;strong&gt;</bpt>Domains<ept id="8e9faeef-2dd0-4f31-aad3-7c1d5fd2abc1">&lt;/strong&gt;</ept> from the top-level menu, and then click on <bpt id="6ba79e7b-da88-47c5-8cbd-ada4c177a15d">&lt;strong&gt;</bpt>Add a custom domain<ept id="6ba79e7b-da88-47c5-8cbd-ada4c177a15d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click on <bpt id="8e9faeef-2dd0-4f31-aad3-7c1d5fd2abc1">&lt;strong&gt;</bpt>Domains<ept id="8e9faeef-2dd0-4f31-aad3-7c1d5fd2abc1">&lt;/strong&gt;</ept> from the top-level menu, and then click on <bpt id="6ba79e7b-da88-47c5-8cbd-ada4c177a15d">&lt;strong&gt;</bpt>Add a custom domain<ept id="6ba79e7b-da88-47c5-8cbd-ada4c177a15d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ca55337-a0ee-4ccc-b0fc-75b57419a548" xml:space="preserve">
+          <source><bpt id="c9e0bcb7-d808-43df-a6d4-c7d304e429b6">&lt;linkText&gt;</bpt>Add a Custom Domain<ept id="c9e0bcb7-d808-43df-a6d4-c7d304e429b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9e0bcb7-d808-43df-a6d4-c7d304e429b6">&lt;linkText&gt;</bpt>Add a Custom Domain<ept id="c9e0bcb7-d808-43df-a6d4-c7d304e429b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7ed6782-8626-4756-a9d4-73e965cfa2d0" xml:space="preserve">
+          <source>Type your domain name into the <bpt id="5d12322d-8ceb-446a-ad0c-fb2a259bbdfe">&lt;strong&gt;</bpt>Domain name<ept id="5d12322d-8ceb-446a-ad0c-fb2a259bbdfe">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Type your domain name into the <bpt id="5d12322d-8ceb-446a-ad0c-fb2a259bbdfe">&lt;strong&gt;</bpt>Domain name<ept id="5d12322d-8ceb-446a-ad0c-fb2a259bbdfe">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="c4c41f82-e01d-4690-b0e7-695e760c4068" xml:space="preserve">
+          <source>This should be the same domain name that you intend to use for Google Apps.</source>
+          <target state="new">This should be the same domain name that you intend to use for Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="bed560c2-4f4b-4120-97e5-0ca48f70eace" xml:space="preserve">
+          <source>When ready, click the <bpt id="79afa9b7-c98a-4767-bf3d-ad0eff03d0c3">&lt;strong&gt;</bpt>Add<ept id="79afa9b7-c98a-4767-bf3d-ad0eff03d0c3">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">When ready, click the <bpt id="79afa9b7-c98a-4767-bf3d-ad0eff03d0c3">&lt;strong&gt;</bpt>Add<ept id="79afa9b7-c98a-4767-bf3d-ad0eff03d0c3">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="294656cb-48c4-43c2-bf40-a2462a8432fb" xml:space="preserve">
+          <source><bpt id="d308c7ab-b132-44a8-9a3f-c897f26a73b3">&lt;linkText&gt;</bpt>Type in your domain name.<ept id="d308c7ab-b132-44a8-9a3f-c897f26a73b3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d308c7ab-b132-44a8-9a3f-c897f26a73b3">&lt;linkText&gt;</bpt>Type in your domain name.<ept id="d308c7ab-b132-44a8-9a3f-c897f26a73b3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18e9dc83-9904-408f-9313-703bff0ac1ff" xml:space="preserve">
+          <source>Click <bpt id="be6b9d78-a5ef-4d4c-848a-49c595307f43">&lt;strong&gt;</bpt>Next<ept id="be6b9d78-a5ef-4d4c-848a-49c595307f43">&lt;/strong&gt;</ept> to go to the verification page. To verify that you own this domain, you must edit the domain's DNS records according to the values provided on this page. You may choose to verify using either <bpt id="ce769282-abc2-4d38-af62-480ab5e44682">&lt;strong&gt;</bpt>MX records<ept id="ce769282-abc2-4d38-af62-480ab5e44682">&lt;/strong&gt;</ept> or <bpt id="cb2fc258-ecef-42e8-8c69-604d5392b834">&lt;strong&gt;</bpt>TXT records<ept id="cb2fc258-ecef-42e8-8c69-604d5392b834">&lt;/strong&gt;</ept>, depending on what you select for the <bpt id="150697d4-9ea2-45b2-9a85-c139197455eb">&lt;strong&gt;</bpt>Record Type<ept id="150697d4-9ea2-45b2-9a85-c139197455eb">&lt;/strong&gt;</ept> option. For more comprehensive instructions on how to verify domain name with Azure AD, see <bpt id="cf529849-1a21-45e4-becc-0a625b93f5e8">&lt;linkText&gt;</bpt>Add your own domain name to Azure AD<ept id="cf529849-1a21-45e4-becc-0a625b93f5e8">&lt;/linkText&gt;</ept><bpt id="cf529849-1a21-45e4-becc-0a625b93f5e8">&lt;title&gt;</bpt><ept id="cf529849-1a21-45e4-becc-0a625b93f5e8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Click <bpt id="be6b9d78-a5ef-4d4c-848a-49c595307f43">&lt;strong&gt;</bpt>Next<ept id="be6b9d78-a5ef-4d4c-848a-49c595307f43">&lt;/strong&gt;</ept> to go to the verification page. To verify that you own this domain, you must edit the domain's DNS records according to the values provided on this page. You may choose to verify using either <bpt id="ce769282-abc2-4d38-af62-480ab5e44682">&lt;strong&gt;</bpt>MX records<ept id="ce769282-abc2-4d38-af62-480ab5e44682">&lt;/strong&gt;</ept> or <bpt id="cb2fc258-ecef-42e8-8c69-604d5392b834">&lt;strong&gt;</bpt>TXT records<ept id="cb2fc258-ecef-42e8-8c69-604d5392b834">&lt;/strong&gt;</ept>, depending on what you select for the <bpt id="150697d4-9ea2-45b2-9a85-c139197455eb">&lt;strong&gt;</bpt>Record Type<ept id="150697d4-9ea2-45b2-9a85-c139197455eb">&lt;/strong&gt;</ept> option. For more comprehensive instructions on how to verify domain name with Azure AD, see <bpt id="cf529849-1a21-45e4-becc-0a625b93f5e8">&lt;linkText&gt;</bpt>Add your own domain name to Azure AD<ept id="cf529849-1a21-45e4-becc-0a625b93f5e8">&lt;/linkText&gt;</ept><bpt id="cf529849-1a21-45e4-becc-0a625b93f5e8">&lt;title&gt;</bpt><ept id="cf529849-1a21-45e4-becc-0a625b93f5e8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c137e559-3ea6-4d03-af0e-c09a4074d0c9" xml:space="preserve">
+          <source><bpt id="39e1e5e9-9eb8-4bfb-9088-1b8ea0bd24b9">&lt;linkText&gt;</bpt>Verify your domain name.<ept id="39e1e5e9-9eb8-4bfb-9088-1b8ea0bd24b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="39e1e5e9-9eb8-4bfb-9088-1b8ea0bd24b9">&lt;linkText&gt;</bpt>Verify your domain name.<ept id="39e1e5e9-9eb8-4bfb-9088-1b8ea0bd24b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="addbe972-b341-4ce0-b925-71cac93300b1" xml:space="preserve">
+          <source>Repeat the above steps for all of the domains that you intend to add to your directory.</source>
+          <target state="new">Repeat the above steps for all of the domains that you intend to add to your directory.</target>
+        </trans-unit>
+        <trans-unit id="3525658d-cff8-42f8-b312-804504feb42a" xml:space="preserve">
+          <source>Now that you have verified all of your domains with Azure AD, you must now verify them again with Google Apps.</source>
+          <target state="new">Now that you have verified all of your domains with Azure AD, you must now verify them again with Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="a2de6883-7bf4-427c-80a0-dda8964a6b1d" xml:space="preserve">
+          <source>For each domain that isn't already registered with Google Apps, perform the following steps:</source>
+          <target state="new">For each domain that isn't already registered with Google Apps, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="828d86a2-9154-4627-8e51-4aed862e0f74" xml:space="preserve">
+          <source>In the <bpt id="7b9a0ea7-390e-47e9-b315-6d280258b747">&lt;linkText&gt;</bpt>Google Apps Admin Console<ept id="7b9a0ea7-390e-47e9-b315-6d280258b747">&lt;/linkText&gt;</ept><bpt id="7b9a0ea7-390e-47e9-b315-6d280258b747">&lt;title&gt;</bpt><ept id="7b9a0ea7-390e-47e9-b315-6d280258b747">&lt;/title&gt;</ept>, click on <bpt id="13c0f7b8-a975-423e-8f20-0634915ef652">&lt;strong&gt;</bpt>Domains<ept id="13c0f7b8-a975-423e-8f20-0634915ef652">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="7b9a0ea7-390e-47e9-b315-6d280258b747">&lt;linkText&gt;</bpt>Google Apps Admin Console<ept id="7b9a0ea7-390e-47e9-b315-6d280258b747">&lt;/linkText&gt;</ept><bpt id="7b9a0ea7-390e-47e9-b315-6d280258b747">&lt;title&gt;</bpt><ept id="7b9a0ea7-390e-47e9-b315-6d280258b747">&lt;/title&gt;</ept>, click on <bpt id="13c0f7b8-a975-423e-8f20-0634915ef652">&lt;strong&gt;</bpt>Domains<ept id="13c0f7b8-a975-423e-8f20-0634915ef652">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d86e95ea-7d6a-4a93-9395-ea49a8c280e2" xml:space="preserve">
+          <source><bpt id="f8bfd231-16f7-4629-a2c8-6c75f571dcae">&lt;linkText&gt;</bpt>Click on Domains<ept id="f8bfd231-16f7-4629-a2c8-6c75f571dcae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8bfd231-16f7-4629-a2c8-6c75f571dcae">&lt;linkText&gt;</bpt>Click on Domains<ept id="f8bfd231-16f7-4629-a2c8-6c75f571dcae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d91472e3-485f-41c8-93f0-98cfc1002eb0" xml:space="preserve">
+          <source>Click <bpt id="c3b5a74c-e468-403e-942f-fc2ea9bc8c55">&lt;strong&gt;</bpt>Add a domain or a domain alias<ept id="c3b5a74c-e468-403e-942f-fc2ea9bc8c55">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c3b5a74c-e468-403e-942f-fc2ea9bc8c55">&lt;strong&gt;</bpt>Add a domain or a domain alias<ept id="c3b5a74c-e468-403e-942f-fc2ea9bc8c55">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3c9e9bd-dfad-4146-862c-1f0d274592c7" xml:space="preserve">
+          <source><bpt id="a16704f8-cac9-43d0-af84-7a11bf6aa26f">&lt;linkText&gt;</bpt>Add a new domain<ept id="a16704f8-cac9-43d0-af84-7a11bf6aa26f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a16704f8-cac9-43d0-af84-7a11bf6aa26f">&lt;linkText&gt;</bpt>Add a new domain<ept id="a16704f8-cac9-43d0-af84-7a11bf6aa26f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bbc02424-5b4f-4a05-9e59-10c351bdb05f" xml:space="preserve">
+          <source>Select <bpt id="07b7f565-1fbf-45c5-b175-ff8c92978138">&lt;strong&gt;</bpt>Add another domain<ept id="07b7f565-1fbf-45c5-b175-ff8c92978138">&lt;/strong&gt;</ept>, and type in the name of the domain that you would like to add.</source>
+          <target state="new">Select <bpt id="07b7f565-1fbf-45c5-b175-ff8c92978138">&lt;strong&gt;</bpt>Add another domain<ept id="07b7f565-1fbf-45c5-b175-ff8c92978138">&lt;/strong&gt;</ept>, and type in the name of the domain that you would like to add.</target>
+        </trans-unit>
+        <trans-unit id="0b9e7a94-4326-442e-b65c-b88694682df1" xml:space="preserve">
+          <source><bpt id="7978d440-eb1a-45e5-a4dd-b0cb5c8ec10f">&lt;linkText&gt;</bpt>Type in your domain name<ept id="7978d440-eb1a-45e5-a4dd-b0cb5c8ec10f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7978d440-eb1a-45e5-a4dd-b0cb5c8ec10f">&lt;linkText&gt;</bpt>Type in your domain name<ept id="7978d440-eb1a-45e5-a4dd-b0cb5c8ec10f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e210449e-6dc8-4fb5-ab53-bd9e4330709b" xml:space="preserve">
+          <source>Click on <bpt id="02d09cd2-57bb-46ad-9f57-7ea87516744c">&lt;strong&gt;</bpt>Continue and verify domain ownership<ept id="02d09cd2-57bb-46ad-9f57-7ea87516744c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click on <bpt id="02d09cd2-57bb-46ad-9f57-7ea87516744c">&lt;strong&gt;</bpt>Continue and verify domain ownership<ept id="02d09cd2-57bb-46ad-9f57-7ea87516744c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f247ce0-376a-4c85-8859-475c050890c1" xml:space="preserve">
+          <source>Then follow the steps to verify that you own the domain name.</source>
+          <target state="new">Then follow the steps to verify that you own the domain name.</target>
+        </trans-unit>
+        <trans-unit id="cf3b24e8-20af-4801-b45d-74311a6e638a" xml:space="preserve">
+          <source>For comprehensive instructions on how to verify your domain with Google Apps, see <bpt id="3843f856-2ef6-46fe-86dc-ad26619d4936">&lt;linkText&gt;</bpt>Verify your site ownership with Google Apps<ept id="3843f856-2ef6-46fe-86dc-ad26619d4936">&lt;/linkText&gt;</ept><bpt id="3843f856-2ef6-46fe-86dc-ad26619d4936">&lt;title&gt;</bpt><ept id="3843f856-2ef6-46fe-86dc-ad26619d4936">&lt;/title&gt;</ept>.</source>
+          <target state="new">For comprehensive instructions on how to verify your domain with Google Apps, see <bpt id="3843f856-2ef6-46fe-86dc-ad26619d4936">&lt;linkText&gt;</bpt>Verify your site ownership with Google Apps<ept id="3843f856-2ef6-46fe-86dc-ad26619d4936">&lt;/linkText&gt;</ept><bpt id="3843f856-2ef6-46fe-86dc-ad26619d4936">&lt;title&gt;</bpt><ept id="3843f856-2ef6-46fe-86dc-ad26619d4936">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="843bef78-ab1b-4dd8-a98a-b0a76f351c8e" xml:space="preserve">
+          <source>Repeat the above steps for any additional domains that you intend to add to Google Apps.</source>
+          <target state="new">Repeat the above steps for any additional domains that you intend to add to Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="9d285d51-3968-4370-b5c1-5605c2a76421" xml:space="preserve">
+          <source>If you change the primary domain for your Google Apps tenant, and if you have already configured single sign-on with Azure AD, then you will have to repeat step #3 under <bpt id="7b56c60e-92f7-497b-a501-59a4c489d474">&lt;linkText&gt;</bpt>Step Two: Enable Single Sign-On<ept id="7b56c60e-92f7-497b-a501-59a4c489d474">&lt;/linkText&gt;</ept><bpt id="7b56c60e-92f7-497b-a501-59a4c489d474">&lt;title&gt;</bpt><ept id="7b56c60e-92f7-497b-a501-59a4c489d474">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you change the primary domain for your Google Apps tenant, and if you have already configured single sign-on with Azure AD, then you will have to repeat step #3 under <bpt id="7b56c60e-92f7-497b-a501-59a4c489d474">&lt;linkText&gt;</bpt>Step Two: Enable Single Sign-On<ept id="7b56c60e-92f7-497b-a501-59a4c489d474">&lt;/linkText&gt;</ept><bpt id="7b56c60e-92f7-497b-a501-59a4c489d474">&lt;title&gt;</bpt><ept id="7b56c60e-92f7-497b-a501-59a4c489d474">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ae1966b-a686-445e-b414-134cc3cb4131" xml:space="preserve">
+          <source>In the <bpt id="8d64cf2c-4376-4307-b2dc-aaa587dab115">&lt;linkText&gt;</bpt>Google Apps Admin Console<ept id="8d64cf2c-4376-4307-b2dc-aaa587dab115">&lt;/linkText&gt;</ept><bpt id="8d64cf2c-4376-4307-b2dc-aaa587dab115">&lt;title&gt;</bpt><ept id="8d64cf2c-4376-4307-b2dc-aaa587dab115">&lt;/title&gt;</ept>, click on <bpt id="7519069b-1ad0-4b2c-8e49-9bb86eb3ccad">&lt;strong&gt;</bpt>Admin Roles<ept id="7519069b-1ad0-4b2c-8e49-9bb86eb3ccad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="8d64cf2c-4376-4307-b2dc-aaa587dab115">&lt;linkText&gt;</bpt>Google Apps Admin Console<ept id="8d64cf2c-4376-4307-b2dc-aaa587dab115">&lt;/linkText&gt;</ept><bpt id="8d64cf2c-4376-4307-b2dc-aaa587dab115">&lt;title&gt;</bpt><ept id="8d64cf2c-4376-4307-b2dc-aaa587dab115">&lt;/title&gt;</ept>, click on <bpt id="7519069b-1ad0-4b2c-8e49-9bb86eb3ccad">&lt;strong&gt;</bpt>Admin Roles<ept id="7519069b-1ad0-4b2c-8e49-9bb86eb3ccad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40fdbf52-17f2-49b1-a9a7-5f8ddf9d29ad" xml:space="preserve">
+          <source><bpt id="ae8f3a51-458e-43c6-a578-355b294b668d">&lt;linkText&gt;</bpt>Click on Google Apps<ept id="ae8f3a51-458e-43c6-a578-355b294b668d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae8f3a51-458e-43c6-a578-355b294b668d">&lt;linkText&gt;</bpt>Click on Google Apps<ept id="ae8f3a51-458e-43c6-a578-355b294b668d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aada8ec4-dd2a-467f-a040-8a901c1a63d0" xml:space="preserve">
+          <source>Determine which admin account you would like to use to manage user provisioning.</source>
+          <target state="new">Determine which admin account you would like to use to manage user provisioning.</target>
+        </trans-unit>
+        <trans-unit id="af75faa2-60cb-4544-8b85-bc25b178c07c" xml:space="preserve">
+          <source>For the <bpt id="c2be2635-0b78-4a86-83a7-26ecb6da0e8e">&lt;strong&gt;</bpt>admin role<ept id="c2be2635-0b78-4a86-83a7-26ecb6da0e8e">&lt;/strong&gt;</ept> of that account, edit the <bpt id="5ea1989d-e589-4d8b-9e21-d538a6b32558">&lt;strong&gt;</bpt>Privileges<ept id="5ea1989d-e589-4d8b-9e21-d538a6b32558">&lt;/strong&gt;</ept> for that role.</source>
+          <target state="new">For the <bpt id="c2be2635-0b78-4a86-83a7-26ecb6da0e8e">&lt;strong&gt;</bpt>admin role<ept id="c2be2635-0b78-4a86-83a7-26ecb6da0e8e">&lt;/strong&gt;</ept> of that account, edit the <bpt id="5ea1989d-e589-4d8b-9e21-d538a6b32558">&lt;strong&gt;</bpt>Privileges<ept id="5ea1989d-e589-4d8b-9e21-d538a6b32558">&lt;/strong&gt;</ept> for that role.</target>
+        </trans-unit>
+        <trans-unit id="b5eab3a5-6403-44d9-91e7-b3957d806108" xml:space="preserve">
+          <source>Make sure it has all of the <bpt id="4401e48b-33b8-421f-a198-b36807161d68">&lt;strong&gt;</bpt>Admin API Privileges<ept id="4401e48b-33b8-421f-a198-b36807161d68">&lt;/strong&gt;</ept> enabled so that this account can be used for provisioning.</source>
+          <target state="new">Make sure it has all of the <bpt id="4401e48b-33b8-421f-a198-b36807161d68">&lt;strong&gt;</bpt>Admin API Privileges<ept id="4401e48b-33b8-421f-a198-b36807161d68">&lt;/strong&gt;</ept> enabled so that this account can be used for provisioning.</target>
+        </trans-unit>
+        <trans-unit id="1f58bcc3-418a-4234-b084-6749323e24d5" xml:space="preserve">
+          <source><bpt id="14f202e5-e938-4f9f-92f7-7dffea7e73f2">&lt;linkText&gt;</bpt>Click on Google Apps<ept id="14f202e5-e938-4f9f-92f7-7dffea7e73f2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="14f202e5-e938-4f9f-92f7-7dffea7e73f2">&lt;linkText&gt;</bpt>Click on Google Apps<ept id="14f202e5-e938-4f9f-92f7-7dffea7e73f2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46f66907-e82f-4b7a-8056-123c8b9860bc" xml:space="preserve">
+          <source>If you are configuring a production environment, the best practice is to create a new admin account in Google Apps specifically for this step.</source>
+          <target state="new">If you are configuring a production environment, the best practice is to create a new admin account in Google Apps specifically for this step.</target>
+        </trans-unit>
+        <trans-unit id="96d2da6a-90e5-4c5c-8cac-a782528e4c63" xml:space="preserve">
+          <source>These account must have an admin role associated with it that has the necessary API privileges.</source>
+          <target state="new">These account must have an admin role associated with it that has the necessary API privileges.</target>
+        </trans-unit>
+        <trans-unit id="0b156e79-36d2-4cb6-9ce5-42ceed8d852e" xml:space="preserve">
+          <source>In Azure Active Directory, click on <bpt id="17bd753e-5a8c-40ef-a50b-560820864ec4">&lt;strong&gt;</bpt>Applications<ept id="17bd753e-5a8c-40ef-a50b-560820864ec4">&lt;/strong&gt;</ept> in the top-level menu, and then click on <bpt id="8225c5bc-8d75-494d-aae6-14356f5cd1f3">&lt;strong&gt;</bpt>Google Apps<ept id="8225c5bc-8d75-494d-aae6-14356f5cd1f3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Azure Active Directory, click on <bpt id="17bd753e-5a8c-40ef-a50b-560820864ec4">&lt;strong&gt;</bpt>Applications<ept id="17bd753e-5a8c-40ef-a50b-560820864ec4">&lt;/strong&gt;</ept> in the top-level menu, and then click on <bpt id="8225c5bc-8d75-494d-aae6-14356f5cd1f3">&lt;strong&gt;</bpt>Google Apps<ept id="8225c5bc-8d75-494d-aae6-14356f5cd1f3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b13cdb8-552b-4aac-9331-39660b2f2897" xml:space="preserve">
+          <source><bpt id="d6b3e836-c564-4226-87f8-463d15fd7c2f">&lt;linkText&gt;</bpt>Click on Google Apps<ept id="d6b3e836-c564-4226-87f8-463d15fd7c2f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d6b3e836-c564-4226-87f8-463d15fd7c2f">&lt;linkText&gt;</bpt>Click on Google Apps<ept id="d6b3e836-c564-4226-87f8-463d15fd7c2f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96ff4e68-61fb-4f6d-82e7-51645cffb520" xml:space="preserve">
+          <source>On the Quick Start page for Google Apps, click on <bpt id="648aebff-97ca-4a41-95a5-c19bf8447580">&lt;strong&gt;</bpt>Configure user provisioning<ept id="648aebff-97ca-4a41-95a5-c19bf8447580">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Quick Start page for Google Apps, click on <bpt id="648aebff-97ca-4a41-95a5-c19bf8447580">&lt;strong&gt;</bpt>Configure user provisioning<ept id="648aebff-97ca-4a41-95a5-c19bf8447580">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="895648b2-7d6f-4abc-9890-51b6097cf832" xml:space="preserve">
+          <source><bpt id="111066fa-2caf-40c0-adef-e9f85d368627">&lt;linkText&gt;</bpt>Configure user provisioning<ept id="111066fa-2caf-40c0-adef-e9f85d368627">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="111066fa-2caf-40c0-adef-e9f85d368627">&lt;linkText&gt;</bpt>Configure user provisioning<ept id="111066fa-2caf-40c0-adef-e9f85d368627">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f6e6c22-7d25-4c05-8154-7a2a2bc4bde8" xml:space="preserve">
+          <source>In the dialog that opens, click on <bpt id="419b0cb6-0071-448e-8d95-51967d256c27">&lt;strong&gt;</bpt>enable user provisioning<ept id="419b0cb6-0071-448e-8d95-51967d256c27">&lt;/strong&gt;</ept> to authenticate into the Google Apps Admin Account that you would like to use to manage provisioning.</source>
+          <target state="new">In the dialog that opens, click on <bpt id="419b0cb6-0071-448e-8d95-51967d256c27">&lt;strong&gt;</bpt>enable user provisioning<ept id="419b0cb6-0071-448e-8d95-51967d256c27">&lt;/strong&gt;</ept> to authenticate into the Google Apps Admin Account that you would like to use to manage provisioning.</target>
+        </trans-unit>
+        <trans-unit id="f859bb0d-8189-457a-b7fb-533a3150a281" xml:space="preserve">
+          <source><bpt id="9bba3229-6ada-4c34-99fd-cc652d177cbe">&lt;linkText&gt;</bpt>Enable provisioning<ept id="9bba3229-6ada-4c34-99fd-cc652d177cbe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9bba3229-6ada-4c34-99fd-cc652d177cbe">&lt;linkText&gt;</bpt>Enable provisioning<ept id="9bba3229-6ada-4c34-99fd-cc652d177cbe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="811753eb-a02c-4858-b6bd-98183e6d71ff" xml:space="preserve">
+          <source>Confirm that you would like to give Azure Active Directory permission to make changes to your Google Apps tenant.</source>
+          <target state="new">Confirm that you would like to give Azure Active Directory permission to make changes to your Google Apps tenant.</target>
+        </trans-unit>
+        <trans-unit id="4ecfe65f-37b8-49fd-b616-f9c0734693e0" xml:space="preserve">
+          <source><bpt id="25ba34b0-3f0c-46de-866b-69a304380ac6">&lt;linkText&gt;</bpt>Confirm permissions.<ept id="25ba34b0-3f0c-46de-866b-69a304380ac6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="25ba34b0-3f0c-46de-866b-69a304380ac6">&lt;linkText&gt;</bpt>Confirm permissions.<ept id="25ba34b0-3f0c-46de-866b-69a304380ac6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a1dc8cf-75aa-4ca0-adc1-d2f82504f21b" xml:space="preserve">
+          <source>Click <bpt id="ba4f7d2c-def9-4535-a1c9-d2285035b54e">&lt;strong&gt;</bpt>Complete<ept id="ba4f7d2c-def9-4535-a1c9-d2285035b54e">&lt;/strong&gt;</ept> to close the dialog.</source>
+          <target state="new">Click <bpt id="ba4f7d2c-def9-4535-a1c9-d2285035b54e">&lt;strong&gt;</bpt>Complete<ept id="ba4f7d2c-def9-4535-a1c9-d2285035b54e">&lt;/strong&gt;</ept> to close the dialog.</target>
+        </trans-unit>
+        <trans-unit id="f6c0f745-0698-448f-8f53-f0de586dbe1a" xml:space="preserve">
+          <source>To test your configuration, start creating a new test account in the directory.</source>
+          <target state="new">To test your configuration, start creating a new test account in the directory.</target>
+        </trans-unit>
+        <trans-unit id="849d47b4-45e0-4336-b710-4b66eb85ca13" xml:space="preserve">
+          <source>On the Google Apps Quick Start page, click on the <bpt id="4f3028a5-08a8-48ae-84a8-274921afb281">&lt;strong&gt;</bpt>Assign Users<ept id="4f3028a5-08a8-48ae-84a8-274921afb281">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">On the Google Apps Quick Start page, click on the <bpt id="4f3028a5-08a8-48ae-84a8-274921afb281">&lt;strong&gt;</bpt>Assign Users<ept id="4f3028a5-08a8-48ae-84a8-274921afb281">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="4fd80e43-956f-4887-a0d3-6c91e00ba36a" xml:space="preserve">
+          <source><bpt id="d0c565ef-a6aa-4233-9b2c-97890e0a2b06">&lt;linkText&gt;</bpt>Click on Assign Users<ept id="d0c565ef-a6aa-4233-9b2c-97890e0a2b06">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d0c565ef-a6aa-4233-9b2c-97890e0a2b06">&lt;linkText&gt;</bpt>Click on Assign Users<ept id="d0c565ef-a6aa-4233-9b2c-97890e0a2b06">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d58e2fda-dd52-4567-a194-4fe53f38b052" xml:space="preserve">
+          <source>Select your test user, and click the <bpt id="44915a99-072b-4dfb-8bc5-04d6c49827d9">&lt;strong&gt;</bpt>Assign<ept id="44915a99-072b-4dfb-8bc5-04d6c49827d9">&lt;/strong&gt;</ept> button at the bottom of the screen:</source>
+          <target state="new">Select your test user, and click the <bpt id="44915a99-072b-4dfb-8bc5-04d6c49827d9">&lt;strong&gt;</bpt>Assign<ept id="44915a99-072b-4dfb-8bc5-04d6c49827d9">&lt;/strong&gt;</ept> button at the bottom of the screen:</target>
+        </trans-unit>
+        <trans-unit id="fc1b1dc3-07f6-4860-a675-ce958b575069" xml:space="preserve">
+          <source>If you haven't enable automated user provisioning, then you'll see the following prompt to confirm:</source>
+          <target state="new">If you haven't enable automated user provisioning, then you'll see the following prompt to confirm:</target>
+        </trans-unit>
+        <trans-unit id="5248721c-e024-47c9-9422-ecb0d1c6d87a" xml:space="preserve">
+          <source><bpt id="d977020e-8e46-425c-adc0-730f090409d3">&lt;linkText&gt;</bpt>Confirm the assignment.<ept id="d977020e-8e46-425c-adc0-730f090409d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d977020e-8e46-425c-adc0-730f090409d3">&lt;linkText&gt;</bpt>Confirm the assignment.<ept id="d977020e-8e46-425c-adc0-730f090409d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5f31c2d-dec3-4c5d-b893-62ca21f13deb" xml:space="preserve">
+          <source>If you have enabled automated user provisioning, then you'll see a prompt to define what type of role the user should have in Google Apps.</source>
+          <target state="new">If you have enabled automated user provisioning, then you'll see a prompt to define what type of role the user should have in Google Apps.</target>
+        </trans-unit>
+        <trans-unit id="66aaa4c7-3d4a-4920-9001-ca09941968be" xml:space="preserve">
+          <source>Newly provisioned users should appear in your Google Apps environment after a few minutes.</source>
+          <target state="new">Newly provisioned users should appear in your Google Apps environment after a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="90d4f5d9-d5ac-403e-87cc-5ed850b6ca3c" xml:space="preserve">
+          <source>To test your single sign-on settings, open the Access Panel at <bpt id="0ac0f82a-f6fa-4d81-b7cf-58dc670e0ad9">&lt;linkText&gt;</bpt>https://myapps.microsoft.com<ept id="0ac0f82a-f6fa-4d81-b7cf-58dc670e0ad9">&lt;/linkText&gt;</ept><bpt id="0ac0f82a-f6fa-4d81-b7cf-58dc670e0ad9">&lt;title&gt;</bpt><ept id="0ac0f82a-f6fa-4d81-b7cf-58dc670e0ad9">&lt;/title&gt;</ept>, then sign into the test account, and click on <bpt id="aff2031e-84f1-4c18-9151-fbae9d0b365d">&lt;strong&gt;</bpt>Google Apps<ept id="aff2031e-84f1-4c18-9151-fbae9d0b365d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To test your single sign-on settings, open the Access Panel at <bpt id="0ac0f82a-f6fa-4d81-b7cf-58dc670e0ad9">&lt;linkText&gt;</bpt>https://myapps.microsoft.com<ept id="0ac0f82a-f6fa-4d81-b7cf-58dc670e0ad9">&lt;/linkText&gt;</ept><bpt id="0ac0f82a-f6fa-4d81-b7cf-58dc670e0ad9">&lt;title&gt;</bpt><ept id="0ac0f82a-f6fa-4d81-b7cf-58dc670e0ad9">&lt;/title&gt;</ept>, then sign into the test account, and click on <bpt id="aff2031e-84f1-4c18-9151-fbae9d0b365d">&lt;strong&gt;</bpt>Google Apps<ept id="aff2031e-84f1-4c18-9151-fbae9d0b365d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d77a1fe-7bd7-49bf-a1da-925005f08c19" xml:space="preserve">
+          <source><bpt id="f1edde1b-7b8d-4abf-8f59-5dde5ac0d94e">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="f1edde1b-7b8d-4abf-8f59-5dde5ac0d94e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f1edde1b-7b8d-4abf-8f59-5dde5ac0d94e">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="f1edde1b-7b8d-4abf-8f59-5dde5ac0d94e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5503fcfe-4e84-4871-9db4-28f6f40e2726" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/azure-active-directory.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/azure-active-directory.png</target>
+        </trans-unit>
+        <trans-unit id="66e02993-eba1-46ad-8612-a121474f85ea" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/applications-tab.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/applications-tab.png</target>
+        </trans-unit>
+        <trans-unit id="6fa7b0ec-ba0b-4ad9-8b85-d1139ed55842" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/add-app.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/add-app.png</target>
+        </trans-unit>
+        <trans-unit id="41624bf6-d012-4a47-bec3-e04a119fa76c" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/add-app-gallery.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/add-app-gallery.png</target>
+        </trans-unit>
+        <trans-unit id="366693ec-f96a-4394-b892-75ec6e1466fc" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/add-gapps.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/add-gapps.png</target>
+        </trans-unit>
+        <trans-unit id="96dc28ef-2729-47ca-aefb-4138b84e105b" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-added.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-added.png</target>
+        </trans-unit>
+        <trans-unit id="7edf77cb-edb9-4b95-bc68-06f291a87c0e" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/config-sso.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/config-sso.png</target>
+        </trans-unit>
+        <trans-unit id="f2438192-6369-4721-b3ed-1c68ac31f029" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/sso-gapps.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/sso-gapps.png</target>
+        </trans-unit>
+        <trans-unit id="ffe4c735-aa48-4f66-9471-6f10cbd92425" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/sso-url.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/sso-url.png</target>
+        </trans-unit>
+        <trans-unit id="93b7462a-ccb3-4e52-a8cd-93040481ce78" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/download-cert.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/download-cert.png</target>
+        </trans-unit>
+        <trans-unit id="3b10cbbf-c6d8-4369-a802-8d64a3bc7f55" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-security.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-security.png</target>
+        </trans-unit>
+        <trans-unit id="e0837c72-b222-4c33-a819-289c47b5e3fc" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/security-gapps.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/security-gapps.png</target>
+        </trans-unit>
+        <trans-unit id="49e3f22d-0e69-47fb-b1fb-85b9659fb915" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-sso-config.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-sso-config.png</target>
+        </trans-unit>
+        <trans-unit id="4bbfd4fc-f61b-4f2d-9999-a836d05fb973" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-sso-confirm.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-sso-confirm.png</target>
+        </trans-unit>
+        <trans-unit id="87e1d4cd-1be2-4ba6-99d1-bb8641cd3acf" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-sso-email.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-sso-email.png</target>
+        </trans-unit>
+        <trans-unit id="3e096eff-f71c-40ec-99b1-95da435ddf6a" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-api.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-api.png</target>
+        </trans-unit>
+        <trans-unit id="e47fca52-b5b5-46a1-9bb7-a61cf3d002ae" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-api-enabled.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-api-enabled.png</target>
+        </trans-unit>
+        <trans-unit id="68f9acc8-9a79-4399-8896-4cb965e6f84b" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/add-custom-domain.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/add-custom-domain.png</target>
+        </trans-unit>
+        <trans-unit id="2703b88d-8eab-4e48-900d-c778eccce95d" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/specify-domain.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/specify-domain.png</target>
+        </trans-unit>
+        <trans-unit id="74ae9ac1-4acb-411d-acdd-e639e5b04935" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/verify-domain.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/verify-domain.png</target>
+        </trans-unit>
+        <trans-unit id="697fb53d-ede7-457c-a1b2-e9c2bf84d7d8" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-domains.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-domains.png</target>
+        </trans-unit>
+        <trans-unit id="41389d6e-da27-4e6f-90cc-1bb78cf6a679" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-add-domain.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-add-domain.png</target>
+        </trans-unit>
+        <trans-unit id="28b4fb02-d667-412c-929d-b2669af66ce5" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-add-another.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-add-another.png</target>
+        </trans-unit>
+        <trans-unit id="8356acdd-d28c-4b33-b5d9-2a7a08c12247" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/apps-gapps.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/apps-gapps.png</target>
+        </trans-unit>
+        <trans-unit id="090d3048-920b-4f84-ba68-a481890e937d" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-provisioning.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-provisioning.png</target>
+        </trans-unit>
+        <trans-unit id="2e304cc1-4e00-49ec-bc66-4cfca0d0f65a" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-provisioning-auth.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-provisioning-auth.png</target>
+        </trans-unit>
+        <trans-unit id="1d696d69-3fb4-4ec5-b778-bc8b2bf76ee5" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-admin.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-admin.png</target>
+        </trans-unit>
+        <trans-unit id="8a98d0f8-5826-4c65-bae0-6668aef897cc" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-admin-privileges.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-admin-privileges.png</target>
+        </trans-unit>
+        <trans-unit id="3f4732e5-c2ba-47d3-b323-fab409cfa23e" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/gapps-auth.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/gapps-auth.png</target>
+        </trans-unit>
+        <trans-unit id="4541926d-d413-400b-99f2-dc7d3db46982" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/assign-users.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/assign-users.png</target>
+        </trans-unit>
+        <trans-unit id="8c05e492-bb1d-4fae-af97-0698e2346195" xml:space="preserve">
+          <source>./media/active-directory-saas-google-apps-tutorial/assign-confirm.png</source>
+          <target state="new">./media/active-directory-saas-google-apps-tutorial/assign-confirm.png</target>
+        </trans-unit>
+      </group>
+      <group id="1ee01ddd-2772-44f1-b8cb-e013725006d6" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5ea1c7c7-79de-4dad-afdf-beaa169574ab" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5ea1c7c7-79de-4dad-afdf-beaa169574ab" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="817b84f6-c1ed-49a8-bbe0-4c12fb1c3d83">
+        <trans-unit id="e790bcf4-27ee-46ba-9693-d968b6d3b4b4" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration integration with Druva | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration integration with Druva | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="bb3f82e2-3b97-4f36-9ec5-ab5576672b18" xml:space="preserve">
+          <source>Learn how to use Druva with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Druva with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="3fa31bbe-e985-41c4-945b-85de2dcdb0de" xml:space="preserve">
+          <source>For feedback, click <bpt id="78ebe000-36f8-4b1f-a93c-8a00c65aca0e">&lt;linkText&gt;</bpt>here<ept id="78ebe000-36f8-4b1f-a93c-8a00c65aca0e">&lt;/linkText&gt;</ept><bpt id="78ebe000-36f8-4b1f-a93c-8a00c65aca0e">&lt;title&gt;</bpt><ept id="78ebe000-36f8-4b1f-a93c-8a00c65aca0e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="78ebe000-36f8-4b1f-a93c-8a00c65aca0e">&lt;linkText&gt;</bpt>here<ept id="78ebe000-36f8-4b1f-a93c-8a00c65aca0e">&lt;/linkText&gt;</ept><bpt id="78ebe000-36f8-4b1f-a93c-8a00c65aca0e">&lt;title&gt;</bpt><ept id="78ebe000-36f8-4b1f-a93c-8a00c65aca0e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7835698b-14dc-401c-a820-061d7977f1ef" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Druva.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Druva.</target>
+        </trans-unit>
+        <trans-unit id="719eccbd-157e-45df-8a95-c634bcc6b825" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="bb853bca-8465-4ee5-90a4-efb26eb282f9" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="be57238c-b06d-4d56-b54c-3ab5ed41af35" xml:space="preserve">
+          <source>A Druva single sign-on enabled subscription</source>
+          <target state="new">A Druva single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="aa33868d-6e22-4b88-972e-02efe1724e38" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Druva will be able to single sign into the application at your Druva company site (service provider initiated sign on), or using the <bpt id="34b6b4b6-6efc-45b8-b9d5-96fc0f7cff98">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="34b6b4b6-6efc-45b8-b9d5-96fc0f7cff98">&lt;/linkText&gt;</ept><bpt id="34b6b4b6-6efc-45b8-b9d5-96fc0f7cff98">&lt;title&gt;</bpt><ept id="34b6b4b6-6efc-45b8-b9d5-96fc0f7cff98">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Druva will be able to single sign into the application at your Druva company site (service provider initiated sign on), or using the <bpt id="34b6b4b6-6efc-45b8-b9d5-96fc0f7cff98">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="34b6b4b6-6efc-45b8-b9d5-96fc0f7cff98">&lt;/linkText&gt;</ept><bpt id="34b6b4b6-6efc-45b8-b9d5-96fc0f7cff98">&lt;title&gt;</bpt><ept id="34b6b4b6-6efc-45b8-b9d5-96fc0f7cff98">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4d825ad-a760-4499-a7c6-94f8a50bd70f" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="c2ec3a2e-693c-4462-a884-4493bd9ee939" xml:space="preserve">
+          <source>Enabling the application integration for Druva</source>
+          <target state="new">Enabling the application integration for Druva</target>
+        </trans-unit>
+        <trans-unit id="87ae9e95-cef3-4c5f-9aa6-731e32e3f2f1" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="3779c88e-c6ef-40cd-92d8-f08c91d1138a" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="819a1964-1760-44f9-a1b6-95586e2c64a1" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="4558bcca-6541-4a5e-a015-bc23d41f5d16" xml:space="preserve">
+          <source><bpt id="66631220-a972-46e5-af09-4da06b5a6ae5">&lt;linkText&gt;</bpt>Scenario<ept id="66631220-a972-46e5-af09-4da06b5a6ae5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="66631220-a972-46e5-af09-4da06b5a6ae5">&lt;linkText&gt;</bpt>Scenario<ept id="66631220-a972-46e5-af09-4da06b5a6ae5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78c03c33-aa20-40fe-8682-a2ec6a3a6943" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Druva.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Druva.</target>
+        </trans-unit>
+        <trans-unit id="cbaffb8c-b50d-4178-9df1-50e68ffc6edb" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="7ca766cb-65ba-4262-818d-e265e875e049">&lt;strong&gt;</bpt>Active Directory<ept id="7ca766cb-65ba-4262-818d-e265e875e049">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="7ca766cb-65ba-4262-818d-e265e875e049">&lt;strong&gt;</bpt>Active Directory<ept id="7ca766cb-65ba-4262-818d-e265e875e049">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="376e0900-052d-42b3-9fbe-c913e637d849" xml:space="preserve">
+          <source><bpt id="2e5e2088-da0e-4045-aa78-1c6c5310fc53">&lt;linkText&gt;</bpt>Active Directory<ept id="2e5e2088-da0e-4045-aa78-1c6c5310fc53">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e5e2088-da0e-4045-aa78-1c6c5310fc53">&lt;linkText&gt;</bpt>Active Directory<ept id="2e5e2088-da0e-4045-aa78-1c6c5310fc53">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ce120a2-e43f-4b03-9ba6-2ff5e6e5242b" xml:space="preserve">
+          <source>From the <bpt id="ccc09fff-8fee-46c8-a700-d14335f105cf">&lt;strong&gt;</bpt>Directory<ept id="ccc09fff-8fee-46c8-a700-d14335f105cf">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="ccc09fff-8fee-46c8-a700-d14335f105cf">&lt;strong&gt;</bpt>Directory<ept id="ccc09fff-8fee-46c8-a700-d14335f105cf">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="e63c27a4-4c35-47df-890b-d2d69db82bd1" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="99d55fa0-4756-4940-9cae-af905bd6342c">&lt;strong&gt;</bpt>Applications<ept id="99d55fa0-4756-4940-9cae-af905bd6342c">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="99d55fa0-4756-4940-9cae-af905bd6342c">&lt;strong&gt;</bpt>Applications<ept id="99d55fa0-4756-4940-9cae-af905bd6342c">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="02464df6-f4eb-4602-a5a7-50b752ce7710" xml:space="preserve">
+          <source><bpt id="73c2415a-2632-44f6-8d1a-4d821ff0113c">&lt;linkText&gt;</bpt>Applications<ept id="73c2415a-2632-44f6-8d1a-4d821ff0113c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73c2415a-2632-44f6-8d1a-4d821ff0113c">&lt;linkText&gt;</bpt>Applications<ept id="73c2415a-2632-44f6-8d1a-4d821ff0113c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90d9e335-63ad-4235-b733-4556f8ca1f60" xml:space="preserve">
+          <source>Click <bpt id="bf648ec1-2fe3-4869-87cb-d0f1179183df">&lt;strong&gt;</bpt>Add<ept id="bf648ec1-2fe3-4869-87cb-d0f1179183df">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="bf648ec1-2fe3-4869-87cb-d0f1179183df">&lt;strong&gt;</bpt>Add<ept id="bf648ec1-2fe3-4869-87cb-d0f1179183df">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="9dc21e82-5c2d-4bb0-b36f-627b036e661c" xml:space="preserve">
+          <source><bpt id="8ef7dcac-78cf-492d-b5de-23f86b3d4423">&lt;linkText&gt;</bpt>Add application<ept id="8ef7dcac-78cf-492d-b5de-23f86b3d4423">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8ef7dcac-78cf-492d-b5de-23f86b3d4423">&lt;linkText&gt;</bpt>Add application<ept id="8ef7dcac-78cf-492d-b5de-23f86b3d4423">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87c91a7c-3389-4e23-bb15-8ca4db86cd15" xml:space="preserve">
+          <source>On the <bpt id="6e73774a-7e20-4770-92a5-0c8b01977c76">&lt;strong&gt;</bpt>What do you want to do<ept id="6e73774a-7e20-4770-92a5-0c8b01977c76">&lt;/strong&gt;</ept> dialog, click <bpt id="1c190200-f8f3-4fdb-86d7-9e4d4169800c">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="1c190200-f8f3-4fdb-86d7-9e4d4169800c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6e73774a-7e20-4770-92a5-0c8b01977c76">&lt;strong&gt;</bpt>What do you want to do<ept id="6e73774a-7e20-4770-92a5-0c8b01977c76">&lt;/strong&gt;</ept> dialog, click <bpt id="1c190200-f8f3-4fdb-86d7-9e4d4169800c">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="1c190200-f8f3-4fdb-86d7-9e4d4169800c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46a4389d-c8f6-4181-9599-8b588c0a109f" xml:space="preserve">
+          <source><bpt id="73b7fd32-afad-4f4d-97e7-3a8637bcb371">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="73b7fd32-afad-4f4d-97e7-3a8637bcb371">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73b7fd32-afad-4f4d-97e7-3a8637bcb371">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="73b7fd32-afad-4f4d-97e7-3a8637bcb371">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae286fc7-87bf-4d04-b442-67329674a56f" xml:space="preserve">
+          <source>In the <bpt id="5094dc5c-ccfb-4a5b-b3a9-e1b3072ed8b4">&lt;strong&gt;</bpt>search box<ept id="5094dc5c-ccfb-4a5b-b3a9-e1b3072ed8b4">&lt;/strong&gt;</ept>, type <bpt id="eed7482e-222e-401d-bd21-e8259f63111f">&lt;strong&gt;</bpt>Druva<ept id="eed7482e-222e-401d-bd21-e8259f63111f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5094dc5c-ccfb-4a5b-b3a9-e1b3072ed8b4">&lt;strong&gt;</bpt>search box<ept id="5094dc5c-ccfb-4a5b-b3a9-e1b3072ed8b4">&lt;/strong&gt;</ept>, type <bpt id="eed7482e-222e-401d-bd21-e8259f63111f">&lt;strong&gt;</bpt>Druva<ept id="eed7482e-222e-401d-bd21-e8259f63111f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="424c3722-5482-44dd-9862-97cd67ad0b55" xml:space="preserve">
+          <source><bpt id="fb880ce3-ee33-49b7-bdd2-3395daebff90">&lt;linkText&gt;</bpt>Application Gallery<ept id="fb880ce3-ee33-49b7-bdd2-3395daebff90">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb880ce3-ee33-49b7-bdd2-3395daebff90">&lt;linkText&gt;</bpt>Application Gallery<ept id="fb880ce3-ee33-49b7-bdd2-3395daebff90">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4577ccdb-c63d-4d33-b53d-54c734d1acdc" xml:space="preserve">
+          <source>In the results pane, select <bpt id="24dfcc2c-ce87-413e-a931-bebd69a8fe57">&lt;strong&gt;</bpt>Druva<ept id="24dfcc2c-ce87-413e-a931-bebd69a8fe57">&lt;/strong&gt;</ept>, and then click <bpt id="29dc2d90-eeff-4387-85a7-c3469e860033">&lt;strong&gt;</bpt>Complete<ept id="29dc2d90-eeff-4387-85a7-c3469e860033">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="24dfcc2c-ce87-413e-a931-bebd69a8fe57">&lt;strong&gt;</bpt>Druva<ept id="24dfcc2c-ce87-413e-a931-bebd69a8fe57">&lt;/strong&gt;</ept>, and then click <bpt id="29dc2d90-eeff-4387-85a7-c3469e860033">&lt;strong&gt;</bpt>Complete<ept id="29dc2d90-eeff-4387-85a7-c3469e860033">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="05dab8d8-b0ef-4cc8-b211-e8ea170d6122" xml:space="preserve">
+          <source><bpt id="c135c7a6-7898-47f8-9883-1a366ba20e47">&lt;linkText&gt;</bpt>Druva<ept id="c135c7a6-7898-47f8-9883-1a366ba20e47">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c135c7a6-7898-47f8-9883-1a366ba20e47">&lt;linkText&gt;</bpt>Druva<ept id="c135c7a6-7898-47f8-9883-1a366ba20e47">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b4e21ce-ca44-4c55-850a-ee78566f461b" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Druva with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Druva with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="60a74066-d887-4ac7-b827-ec85b56b6b18" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="c17a81bb-4c7b-4c10-b734-2ac307d3833e" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="b9b0a7fe-835f-4e2b-94c4-20896698cdfa">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="b9b0a7fe-835f-4e2b-94c4-20896698cdfa">&lt;/linkText&gt;</ept><bpt id="b9b0a7fe-835f-4e2b-94c4-20896698cdfa">&lt;title&gt;</bpt><ept id="b9b0a7fe-835f-4e2b-94c4-20896698cdfa">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="b9b0a7fe-835f-4e2b-94c4-20896698cdfa">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="b9b0a7fe-835f-4e2b-94c4-20896698cdfa">&lt;/linkText&gt;</ept><bpt id="b9b0a7fe-835f-4e2b-94c4-20896698cdfa">&lt;title&gt;</bpt><ept id="b9b0a7fe-835f-4e2b-94c4-20896698cdfa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f88e8da-224b-44ca-a045-c01d9bfd5452" xml:space="preserve">
+          <source>Your Druva application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your <bpt id="b4e53988-ac84-43e8-be80-dc2beab89532">&lt;strong&gt;</bpt>saml token attributes<ept id="b4e53988-ac84-43e8-be80-dc2beab89532">&lt;/strong&gt;</ept> configuration.</source>
+          <target state="new">Your Druva application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your <bpt id="b4e53988-ac84-43e8-be80-dc2beab89532">&lt;strong&gt;</bpt>saml token attributes<ept id="b4e53988-ac84-43e8-be80-dc2beab89532">&lt;/strong&gt;</ept> configuration.</target>
+        </trans-unit>
+        <trans-unit id="e2bc7617-e432-4a77-87ba-040913b92a18" xml:space="preserve">
+          <source>The following screenshot shows an example for this.</source>
+          <target state="new">The following screenshot shows an example for this.</target>
+        </trans-unit>
+        <trans-unit id="2f73bc2a-fb5a-467e-ac64-e477db321e66" xml:space="preserve">
+          <source><bpt id="c0ad4486-8dc0-4744-a08d-122096be7594">&lt;linkText&gt;</bpt>SAML Token Attributes<ept id="c0ad4486-8dc0-4744-a08d-122096be7594">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c0ad4486-8dc0-4744-a08d-122096be7594">&lt;linkText&gt;</bpt>SAML Token Attributes<ept id="c0ad4486-8dc0-4744-a08d-122096be7594">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6d21561-2a67-4066-abe5-ea38e666851d" xml:space="preserve">
+          <source>In the Azure Active Directory portal, on the <bpt id="efc13c9b-75c7-4caa-b2b3-b7e8c63bdc37">&lt;strong&gt;</bpt>Druva<ept id="efc13c9b-75c7-4caa-b2b3-b7e8c63bdc37">&lt;/strong&gt;</ept> application integration page, click <bpt id="8d300d9d-0181-464e-b31f-b5c55c7b92c1">&lt;strong&gt;</bpt>Configure single sign-on<ept id="8d300d9d-0181-464e-b31f-b5c55c7b92c1">&lt;/strong&gt;</ept> to open the <bpt id="c0fc531a-acc7-4064-afb5-de3e0334dccf">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="c0fc531a-acc7-4064-afb5-de3e0334dccf">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure Active Directory portal, on the <bpt id="efc13c9b-75c7-4caa-b2b3-b7e8c63bdc37">&lt;strong&gt;</bpt>Druva<ept id="efc13c9b-75c7-4caa-b2b3-b7e8c63bdc37">&lt;/strong&gt;</ept> application integration page, click <bpt id="8d300d9d-0181-464e-b31f-b5c55c7b92c1">&lt;strong&gt;</bpt>Configure single sign-on<ept id="8d300d9d-0181-464e-b31f-b5c55c7b92c1">&lt;/strong&gt;</ept> to open the <bpt id="c0fc531a-acc7-4064-afb5-de3e0334dccf">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="c0fc531a-acc7-4064-afb5-de3e0334dccf">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="4add14e1-fcb0-4d7b-9bfc-5cbd90586515" xml:space="preserve">
+          <source><bpt id="d320087f-fbfe-450d-8594-593f79d9a151">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="d320087f-fbfe-450d-8594-593f79d9a151">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d320087f-fbfe-450d-8594-593f79d9a151">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="d320087f-fbfe-450d-8594-593f79d9a151">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad14c356-3163-4020-8e42-c15731ce5dbd" xml:space="preserve">
+          <source>On the <bpt id="ed0cf97c-a091-4da2-8a53-169725de364d">&lt;strong&gt;</bpt>How would you like users to sign on to Druva<ept id="ed0cf97c-a091-4da2-8a53-169725de364d">&lt;/strong&gt;</ept> page, select <bpt id="0ec383a5-4ac3-420e-bbab-241b62422f8e">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0ec383a5-4ac3-420e-bbab-241b62422f8e">&lt;/strong&gt;</ept>, and then click <bpt id="5e768c58-4f12-482c-91d1-467cdffc78c0">&lt;strong&gt;</bpt>Next<ept id="5e768c58-4f12-482c-91d1-467cdffc78c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ed0cf97c-a091-4da2-8a53-169725de364d">&lt;strong&gt;</bpt>How would you like users to sign on to Druva<ept id="ed0cf97c-a091-4da2-8a53-169725de364d">&lt;/strong&gt;</ept> page, select <bpt id="0ec383a5-4ac3-420e-bbab-241b62422f8e">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0ec383a5-4ac3-420e-bbab-241b62422f8e">&lt;/strong&gt;</ept>, and then click <bpt id="5e768c58-4f12-482c-91d1-467cdffc78c0">&lt;strong&gt;</bpt>Next<ept id="5e768c58-4f12-482c-91d1-467cdffc78c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af6a8c51-8974-4100-903e-89ff3fb0951a" xml:space="preserve">
+          <source><bpt id="c2421db8-d4c4-47af-b136-c52361aa8f5b">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="c2421db8-d4c4-47af-b136-c52361aa8f5b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c2421db8-d4c4-47af-b136-c52361aa8f5b">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="c2421db8-d4c4-47af-b136-c52361aa8f5b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2031a0b1-e199-426e-9765-2ef32b7770db" xml:space="preserve">
+          <source>On the <bpt id="f472669e-c017-4bba-a5e2-4175191fc51f">&lt;strong&gt;</bpt>Configure App URL<ept id="f472669e-c017-4bba-a5e2-4175191fc51f">&lt;/strong&gt;</ept> page, in the <bpt id="8504d960-0c44-431b-8153-5f7e579896cf">&lt;strong&gt;</bpt>Druva Sign On URL<ept id="8504d960-0c44-431b-8153-5f7e579896cf">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to your Druva application (e.g.: "<bpt id="5aecd940-6a0c-4f00-a3b3-9dcc7d9b457e">&lt;em&gt;</bpt>https://cloud.druva.com/home/<ept id="5aecd940-6a0c-4f00-a3b3-9dcc7d9b457e">&lt;/em&gt;</ept>”), and then click <bpt id="ae79cc5d-f219-446b-9889-c40d40422000">&lt;strong&gt;</bpt>Next<ept id="ae79cc5d-f219-446b-9889-c40d40422000">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f472669e-c017-4bba-a5e2-4175191fc51f">&lt;strong&gt;</bpt>Configure App URL<ept id="f472669e-c017-4bba-a5e2-4175191fc51f">&lt;/strong&gt;</ept> page, in the <bpt id="8504d960-0c44-431b-8153-5f7e579896cf">&lt;strong&gt;</bpt>Druva Sign On URL<ept id="8504d960-0c44-431b-8153-5f7e579896cf">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to your Druva application (e.g.: "<bpt id="5aecd940-6a0c-4f00-a3b3-9dcc7d9b457e">&lt;em&gt;</bpt>https://cloud.druva.com/home/<ept id="5aecd940-6a0c-4f00-a3b3-9dcc7d9b457e">&lt;/em&gt;</ept>”), and then click <bpt id="ae79cc5d-f219-446b-9889-c40d40422000">&lt;strong&gt;</bpt>Next<ept id="ae79cc5d-f219-446b-9889-c40d40422000">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b232770c-b561-4971-a45e-f7680805ca80" xml:space="preserve">
+          <source><bpt id="3dbdfb5c-43f7-4db4-bbf1-40b3bfa70379">&lt;linkText&gt;</bpt>Configure App URL<ept id="3dbdfb5c-43f7-4db4-bbf1-40b3bfa70379">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3dbdfb5c-43f7-4db4-bbf1-40b3bfa70379">&lt;linkText&gt;</bpt>Configure App URL<ept id="3dbdfb5c-43f7-4db4-bbf1-40b3bfa70379">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e831eb90-b722-4298-acdb-f23e865a71a6" xml:space="preserve">
+          <source>On the <bpt id="9e25a711-7c5c-466a-a065-a18c9677d0d5">&lt;strong&gt;</bpt>Configure single sign-on at Druva<ept id="9e25a711-7c5c-466a-a065-a18c9677d0d5">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="dad9fcce-6732-4c0b-bf79-a4f1bde04e21">&lt;strong&gt;</bpt>Download certificate<ept id="dad9fcce-6732-4c0b-bf79-a4f1bde04e21">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</source>
+          <target state="new">On the <bpt id="9e25a711-7c5c-466a-a065-a18c9677d0d5">&lt;strong&gt;</bpt>Configure single sign-on at Druva<ept id="9e25a711-7c5c-466a-a065-a18c9677d0d5">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="dad9fcce-6732-4c0b-bf79-a4f1bde04e21">&lt;strong&gt;</bpt>Download certificate<ept id="dad9fcce-6732-4c0b-bf79-a4f1bde04e21">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="896a2a24-e12a-47a8-9d0f-7778df81face" xml:space="preserve">
+          <source><bpt id="b08a3f6a-1e64-48f7-a8ff-9a96095a1e3c">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="b08a3f6a-1e64-48f7-a8ff-9a96095a1e3c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b08a3f6a-1e64-48f7-a8ff-9a96095a1e3c">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="b08a3f6a-1e64-48f7-a8ff-9a96095a1e3c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2873cf55-ec25-47d9-ab4b-f5c9ffc6676b" xml:space="preserve">
+          <source>In a different web browser window, log into your Druva company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Druva company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="b1d68fd9-f3ad-46c7-9dd9-035446c7cbb4" xml:space="preserve">
+          <source>Go to <bpt id="be208283-efdb-4c47-b99a-efb45a7c1440">&lt;strong&gt;</bpt>Manage \&gt; Settings<ept id="be208283-efdb-4c47-b99a-efb45a7c1440">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="be208283-efdb-4c47-b99a-efb45a7c1440">&lt;strong&gt;</bpt>Manage \&gt; Settings<ept id="be208283-efdb-4c47-b99a-efb45a7c1440">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d96b7404-d3b4-4c4c-9429-f7006252abb5" xml:space="preserve">
+          <source><bpt id="a52b4717-4a90-44ad-a67d-3cdb4fe1af6e">&lt;linkText&gt;</bpt>Settings<ept id="a52b4717-4a90-44ad-a67d-3cdb4fe1af6e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a52b4717-4a90-44ad-a67d-3cdb4fe1af6e">&lt;linkText&gt;</bpt>Settings<ept id="a52b4717-4a90-44ad-a67d-3cdb4fe1af6e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41e352d4-acc9-47d2-87bb-f3010710a9b0" xml:space="preserve">
+          <source>On the Single Sign-On Settings dialog, perform the following steps:</source>
+          <target state="new">On the Single Sign-On Settings dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="e52623d3-4fd7-423f-9f0c-2da093da367b" xml:space="preserve">
+          <source><bpt id="e76081f9-d4c4-4e85-852b-bfe3ef912513">&lt;linkText&gt;</bpt>Singl Sign-On Settings<ept id="e76081f9-d4c4-4e85-852b-bfe3ef912513">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e76081f9-d4c4-4e85-852b-bfe3ef912513">&lt;linkText&gt;</bpt>Singl Sign-On Settings<ept id="e76081f9-d4c4-4e85-852b-bfe3ef912513">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bd14e19-8ebf-42ff-bef4-8f06fd9b2eb6" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="83fc0dac-0f45-4323-8284-153cee064960">&lt;strong&gt;</bpt>Configure single sign-on at Druva<ept id="83fc0dac-0f45-4323-8284-153cee064960">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="aaddf791-970d-4ad2-a20e-33aa029856b4">&lt;strong&gt;</bpt>Remote Login URL<ept id="aaddf791-970d-4ad2-a20e-33aa029856b4">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="85e8400d-cf5c-4bf3-bafe-30ebdb89abf4">&lt;strong&gt;</bpt>ID Provider Login URL<ept id="85e8400d-cf5c-4bf3-bafe-30ebdb89abf4">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="83fc0dac-0f45-4323-8284-153cee064960">&lt;strong&gt;</bpt>Configure single sign-on at Druva<ept id="83fc0dac-0f45-4323-8284-153cee064960">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="aaddf791-970d-4ad2-a20e-33aa029856b4">&lt;strong&gt;</bpt>Remote Login URL<ept id="aaddf791-970d-4ad2-a20e-33aa029856b4">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="85e8400d-cf5c-4bf3-bafe-30ebdb89abf4">&lt;strong&gt;</bpt>ID Provider Login URL<ept id="85e8400d-cf5c-4bf3-bafe-30ebdb89abf4">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="2b92699f-41e8-4bd2-933b-f22e997e0465" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="546f1bd3-697f-4e8e-9ecd-0dcf0562f9d4">&lt;strong&gt;</bpt>Configure single sign-on at Druva<ept id="546f1bd3-697f-4e8e-9ecd-0dcf0562f9d4">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="85bb9dbd-ce04-4ffc-98bd-8719e51bcb10">&lt;strong&gt;</bpt>Remote Logout URL<ept id="85bb9dbd-ce04-4ffc-98bd-8719e51bcb10">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="a536a18a-d9e4-413b-b736-1c27cbf412d8">&lt;strong&gt;</bpt>ID Provider Logout URL<ept id="a536a18a-d9e4-413b-b736-1c27cbf412d8">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="546f1bd3-697f-4e8e-9ecd-0dcf0562f9d4">&lt;strong&gt;</bpt>Configure single sign-on at Druva<ept id="546f1bd3-697f-4e8e-9ecd-0dcf0562f9d4">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="85bb9dbd-ce04-4ffc-98bd-8719e51bcb10">&lt;strong&gt;</bpt>Remote Logout URL<ept id="85bb9dbd-ce04-4ffc-98bd-8719e51bcb10">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="a536a18a-d9e4-413b-b736-1c27cbf412d8">&lt;strong&gt;</bpt>ID Provider Logout URL<ept id="a536a18a-d9e4-413b-b736-1c27cbf412d8">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="83937f94-6d5f-4d72-b8a2-c6a1f0d128ad" xml:space="preserve">
+          <source>Create a <bpt id="3a8decc7-1450-4df3-a81e-e987304ca447">&lt;strong&gt;</bpt>base-64 encoded<ept id="3a8decc7-1450-4df3-a81e-e987304ca447">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="3a8decc7-1450-4df3-a81e-e987304ca447">&lt;strong&gt;</bpt>base-64 encoded<ept id="3a8decc7-1450-4df3-a81e-e987304ca447">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="dcf1ccad-d052-40a6-ab26-2929a01e5938" xml:space="preserve">
+          <source>For more details, see <bpt id="8a74d64c-1e54-44a1-840d-bf7bb4aa894b">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="8a74d64c-1e54-44a1-840d-bf7bb4aa894b">&lt;/linkText&gt;</ept><bpt id="8a74d64c-1e54-44a1-840d-bf7bb4aa894b">&lt;title&gt;</bpt><ept id="8a74d64c-1e54-44a1-840d-bf7bb4aa894b">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="8a74d64c-1e54-44a1-840d-bf7bb4aa894b">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="8a74d64c-1e54-44a1-840d-bf7bb4aa894b">&lt;/linkText&gt;</ept><bpt id="8a74d64c-1e54-44a1-840d-bf7bb4aa894b">&lt;title&gt;</bpt><ept id="8a74d64c-1e54-44a1-840d-bf7bb4aa894b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b522879-f438-4d3e-8f37-85a0b86411c2" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="7568d4d5-f8c2-4840-ab1e-2facde1f7020">&lt;strong&gt;</bpt>ID Provider Certificate<ept id="7568d4d5-f8c2-4840-ab1e-2facde1f7020">&lt;/strong&gt;</ept> textbox</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="7568d4d5-f8c2-4840-ab1e-2facde1f7020">&lt;strong&gt;</bpt>ID Provider Certificate<ept id="7568d4d5-f8c2-4840-ab1e-2facde1f7020">&lt;/strong&gt;</ept> textbox</target>
+        </trans-unit>
+        <trans-unit id="4c5b6b17-0137-44ad-935a-9754f7dd10d3" xml:space="preserve">
+          <source>To open the <bpt id="c84be64d-46e5-4362-808b-c51fb065766d">&lt;strong&gt;</bpt>Settings<ept id="c84be64d-46e5-4362-808b-c51fb065766d">&lt;/strong&gt;</ept> page, click <bpt id="fa7972b0-2c86-4aea-ae92-fb4ab617bd4d">&lt;strong&gt;</bpt>Save<ept id="fa7972b0-2c86-4aea-ae92-fb4ab617bd4d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To open the <bpt id="c84be64d-46e5-4362-808b-c51fb065766d">&lt;strong&gt;</bpt>Settings<ept id="c84be64d-46e5-4362-808b-c51fb065766d">&lt;/strong&gt;</ept> page, click <bpt id="fa7972b0-2c86-4aea-ae92-fb4ab617bd4d">&lt;strong&gt;</bpt>Save<ept id="fa7972b0-2c86-4aea-ae92-fb4ab617bd4d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc7aa3f1-4234-4c14-8b50-488a1bbd86c6" xml:space="preserve">
+          <source>On the <bpt id="1535bf8c-35c4-4ef6-be6c-cbcfd9e261f3">&lt;strong&gt;</bpt>Settings<ept id="1535bf8c-35c4-4ef6-be6c-cbcfd9e261f3">&lt;/strong&gt;</ept> page, click <bpt id="d98674aa-28e9-49c7-a6cf-0863a091db8e">&lt;strong&gt;</bpt>Generate SSO Token<ept id="d98674aa-28e9-49c7-a6cf-0863a091db8e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="1535bf8c-35c4-4ef6-be6c-cbcfd9e261f3">&lt;strong&gt;</bpt>Settings<ept id="1535bf8c-35c4-4ef6-be6c-cbcfd9e261f3">&lt;/strong&gt;</ept> page, click <bpt id="d98674aa-28e9-49c7-a6cf-0863a091db8e">&lt;strong&gt;</bpt>Generate SSO Token<ept id="d98674aa-28e9-49c7-a6cf-0863a091db8e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ddc6e22f-0957-43ff-992a-955ef452d297" xml:space="preserve">
+          <source><bpt id="1cc89a2e-fe07-4db4-9231-906300b17c0d">&lt;linkText&gt;</bpt>Settings<ept id="1cc89a2e-fe07-4db4-9231-906300b17c0d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1cc89a2e-fe07-4db4-9231-906300b17c0d">&lt;linkText&gt;</bpt>Settings<ept id="1cc89a2e-fe07-4db4-9231-906300b17c0d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c368293a-d9ad-492a-9e3e-8fb21fcc9569" xml:space="preserve">
+          <source>On the <bpt id="1e6eedb8-349d-4931-aa2f-22787c81001e">&lt;strong&gt;</bpt>Single Sign-on Authentication Token<ept id="1e6eedb8-349d-4931-aa2f-22787c81001e">&lt;/strong&gt;</ept> dialog, perform the following steps:</source>
+          <target state="new">On the <bpt id="1e6eedb8-349d-4931-aa2f-22787c81001e">&lt;strong&gt;</bpt>Single Sign-on Authentication Token<ept id="1e6eedb8-349d-4931-aa2f-22787c81001e">&lt;/strong&gt;</ept> dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="b82e277d-f928-413c-b882-223247b036b0" xml:space="preserve">
+          <source><bpt id="e9ff8db6-68d5-4450-a8c0-3de31caae4e3">&lt;linkText&gt;</bpt>SSO Token<ept id="e9ff8db6-68d5-4450-a8c0-3de31caae4e3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e9ff8db6-68d5-4450-a8c0-3de31caae4e3">&lt;linkText&gt;</bpt>SSO Token<ept id="e9ff8db6-68d5-4450-a8c0-3de31caae4e3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc28bd36-7122-4777-ad43-b106791b6495" xml:space="preserve">
+          <source>Click <bpt id="e6ed941c-de3d-4615-b1cd-654ffa4f99d7">&lt;strong&gt;</bpt>Copy<ept id="e6ed941c-de3d-4615-b1cd-654ffa4f99d7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e6ed941c-de3d-4615-b1cd-654ffa4f99d7">&lt;strong&gt;</bpt>Copy<ept id="e6ed941c-de3d-4615-b1cd-654ffa4f99d7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f2f0a83-fcd5-4545-ba7a-177deb505233" xml:space="preserve">
+          <source>Click <bpt id="d2ffa38d-4bbe-4359-ad08-2eeaa615ee3f">&lt;strong&gt;</bpt>Close<ept id="d2ffa38d-4bbe-4359-ad08-2eeaa615ee3f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d2ffa38d-4bbe-4359-ad08-2eeaa615ee3f">&lt;strong&gt;</bpt>Close<ept id="d2ffa38d-4bbe-4359-ad08-2eeaa615ee3f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="625fa8ee-9ece-4096-8d76-e98b30a1bc60" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="3596fbad-6f85-45d8-b185-383118abe6e1">&lt;strong&gt;</bpt>Complete<ept id="3596fbad-6f85-45d8-b185-383118abe6e1">&lt;/strong&gt;</ept> to close the <bpt id="8f989a8b-d99a-418a-9c42-ef68d753ac17">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="8f989a8b-d99a-418a-9c42-ef68d753ac17">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="3596fbad-6f85-45d8-b185-383118abe6e1">&lt;strong&gt;</bpt>Complete<ept id="3596fbad-6f85-45d8-b185-383118abe6e1">&lt;/strong&gt;</ept> to close the <bpt id="8f989a8b-d99a-418a-9c42-ef68d753ac17">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="8f989a8b-d99a-418a-9c42-ef68d753ac17">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="5823deaa-c120-4879-86f5-d26192a43852" xml:space="preserve">
+          <source><bpt id="f79737cb-261c-4cce-98eb-c6fc005121f4">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f79737cb-261c-4cce-98eb-c6fc005121f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f79737cb-261c-4cce-98eb-c6fc005121f4">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f79737cb-261c-4cce-98eb-c6fc005121f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3805b1f5-9412-41da-bda0-5e9614ba62b9" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="66050448-4deb-4aa5-91b7-a36b7caa5cd6">&lt;strong&gt;</bpt>Attributes<ept id="66050448-4deb-4aa5-91b7-a36b7caa5cd6">&lt;/strong&gt;</ept> to open the <bpt id="fcb45fc2-3db2-42e8-a622-d90b42775b64">&lt;strong&gt;</bpt>SAML Token Attributes<ept id="fcb45fc2-3db2-42e8-a622-d90b42775b64">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">In the menu on the top, click <bpt id="66050448-4deb-4aa5-91b7-a36b7caa5cd6">&lt;strong&gt;</bpt>Attributes<ept id="66050448-4deb-4aa5-91b7-a36b7caa5cd6">&lt;/strong&gt;</ept> to open the <bpt id="fcb45fc2-3db2-42e8-a622-d90b42775b64">&lt;strong&gt;</bpt>SAML Token Attributes<ept id="fcb45fc2-3db2-42e8-a622-d90b42775b64">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="38a39cee-1593-44c0-a490-f20a31328859" xml:space="preserve">
+          <source><bpt id="bba8167c-b667-4f8f-8151-b20d55894d9d">&lt;linkText&gt;</bpt>Attributes<ept id="bba8167c-b667-4f8f-8151-b20d55894d9d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bba8167c-b667-4f8f-8151-b20d55894d9d">&lt;linkText&gt;</bpt>Attributes<ept id="bba8167c-b667-4f8f-8151-b20d55894d9d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67a16ced-4684-46a1-a085-293641c30dd0" xml:space="preserve">
+          <source>To add the required attribute mappings, perform the following steps:</source>
+          <target state="new">To add the required attribute mappings, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="ec1493ad-6de9-4e0b-8480-dce34daf4f33" xml:space="preserve">
+          <source>|Attribute Name|Attribute Value|
+|---|---|
+|insync\<bpt id="0f4bcfd8-564e-4611-9978-e9fa96ad156d">&lt;em&gt;</bpt>auth\<ept id="0f4bcfd8-564e-4611-9978-e9fa96ad156d">&lt;/em&gt;</ept>token|&lt;<bpt id="6906e1d4-0533-4de0-b8d4-3bb57797c8d1">&lt;em&gt;</bpt>clipboard value<ept id="6906e1d4-0533-4de0-b8d4-3bb57797c8d1">&lt;/em&gt;</ept>&gt;|</source>
+          <target state="new">|Attribute Name|Attribute Value|
+|---|---|
+|insync\<bpt id="0f4bcfd8-564e-4611-9978-e9fa96ad156d">&lt;em&gt;</bpt>auth\<ept id="0f4bcfd8-564e-4611-9978-e9fa96ad156d">&lt;/em&gt;</ept>token|&lt;<bpt id="6906e1d4-0533-4de0-b8d4-3bb57797c8d1">&lt;em&gt;</bpt>clipboard value<ept id="6906e1d4-0533-4de0-b8d4-3bb57797c8d1">&lt;/em&gt;</ept>&gt;|</target>
+        </trans-unit>
+        <trans-unit id="0964856c-d5d6-456a-8f94-e656284866dd" xml:space="preserve">
+          <source>For each data row in the table above, click <bpt id="846ac3eb-7f3f-45c3-92cf-ab81c41359f1">&lt;strong&gt;</bpt>add user attribute<ept id="846ac3eb-7f3f-45c3-92cf-ab81c41359f1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For each data row in the table above, click <bpt id="846ac3eb-7f3f-45c3-92cf-ab81c41359f1">&lt;strong&gt;</bpt>add user attribute<ept id="846ac3eb-7f3f-45c3-92cf-ab81c41359f1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5bbd6901-005f-401d-8d51-2342129a6306" xml:space="preserve">
+          <source>In the <bpt id="e4a46237-2794-4640-9fda-d3b0544c462f">&lt;strong&gt;</bpt>Attribute Name<ept id="e4a46237-2794-4640-9fda-d3b0544c462f">&lt;/strong&gt;</ept> textbox, type the attribute name shown for that row.</source>
+          <target state="new">In the <bpt id="e4a46237-2794-4640-9fda-d3b0544c462f">&lt;strong&gt;</bpt>Attribute Name<ept id="e4a46237-2794-4640-9fda-d3b0544c462f">&lt;/strong&gt;</ept> textbox, type the attribute name shown for that row.</target>
+        </trans-unit>
+        <trans-unit id="2459ffe1-d82d-4622-a1b1-911a29ed6299" xml:space="preserve">
+          <source>In the <bpt id="c21af92d-7024-4b7d-83a5-10ea4df58b3e">&lt;strong&gt;</bpt>Attribute Value<ept id="c21af92d-7024-4b7d-83a5-10ea4df58b3e">&lt;/strong&gt;</ept> textbox, type the attribute value shown for that row.</source>
+          <target state="new">In the <bpt id="c21af92d-7024-4b7d-83a5-10ea4df58b3e">&lt;strong&gt;</bpt>Attribute Value<ept id="c21af92d-7024-4b7d-83a5-10ea4df58b3e">&lt;/strong&gt;</ept> textbox, type the attribute value shown for that row.</target>
+        </trans-unit>
+        <trans-unit id="882acf15-a222-4786-9834-e643dd5fbb3a" xml:space="preserve">
+          <source>Click <bpt id="cf74dcb6-7b7b-420a-8cc1-3f99cd1fff2c">&lt;strong&gt;</bpt>Complete<ept id="cf74dcb6-7b7b-420a-8cc1-3f99cd1fff2c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="cf74dcb6-7b7b-420a-8cc1-3f99cd1fff2c">&lt;strong&gt;</bpt>Complete<ept id="cf74dcb6-7b7b-420a-8cc1-3f99cd1fff2c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de1ad10b-a27c-4aef-b49d-b86648b144b4" xml:space="preserve">
+          <source>Click <bpt id="e996c490-6236-4fa4-a2c8-250c801f9567">&lt;strong&gt;</bpt>Apply Changes<ept id="e996c490-6236-4fa4-a2c8-250c801f9567">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e996c490-6236-4fa4-a2c8-250c801f9567">&lt;strong&gt;</bpt>Apply Changes<ept id="e996c490-6236-4fa4-a2c8-250c801f9567">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12f6dfa2-200e-44fa-a1a7-b8c5eda40af6" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Druva, they must be provisioned into Druva.</source>
+          <target state="new">In order to enable Azure AD users to log into Druva, they must be provisioned into Druva.</target>
+        </trans-unit>
+        <trans-unit id="2c4ff66f-679e-4334-9c8c-c75f6bfb320d" xml:space="preserve">
+          <source>In the case of Druva, provisioning is a manual task.</source>
+          <target state="new">In the case of Druva, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="170dc82b-ccd5-4997-ba18-fe73f1173584" xml:space="preserve">
+          <source>Log in to your <bpt id="dcef3a2a-2cf0-490d-b54c-14b9d0e101ed">&lt;strong&gt;</bpt>Druva<ept id="dcef3a2a-2cf0-490d-b54c-14b9d0e101ed">&lt;/strong&gt;</ept> company site as administrator.</source>
+          <target state="new">Log in to your <bpt id="dcef3a2a-2cf0-490d-b54c-14b9d0e101ed">&lt;strong&gt;</bpt>Druva<ept id="dcef3a2a-2cf0-490d-b54c-14b9d0e101ed">&lt;/strong&gt;</ept> company site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="5da44ea5-3010-4ab9-a1dd-5393af8712c2" xml:space="preserve">
+          <source>Go to <bpt id="77e77bd8-a83c-4cb4-84dc-454bf8aeab67">&lt;strong&gt;</bpt>Manage \&gt; Users<ept id="77e77bd8-a83c-4cb4-84dc-454bf8aeab67">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="77e77bd8-a83c-4cb4-84dc-454bf8aeab67">&lt;strong&gt;</bpt>Manage \&gt; Users<ept id="77e77bd8-a83c-4cb4-84dc-454bf8aeab67">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7e040d8-41e3-4e77-b244-665303f43ef3" xml:space="preserve">
+          <source><bpt id="afe088cf-13c4-41d1-bd06-639072624037">&lt;linkText&gt;</bpt>Manage Users<ept id="afe088cf-13c4-41d1-bd06-639072624037">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="afe088cf-13c4-41d1-bd06-639072624037">&lt;linkText&gt;</bpt>Manage Users<ept id="afe088cf-13c4-41d1-bd06-639072624037">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f270f5b-1d1c-4bcd-bff2-6360d66ea2b4" xml:space="preserve">
+          <source>Click <bpt id="9c4f8d28-79f4-41ca-932b-e6c386bccd1e">&lt;strong&gt;</bpt>Create New<ept id="9c4f8d28-79f4-41ca-932b-e6c386bccd1e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9c4f8d28-79f4-41ca-932b-e6c386bccd1e">&lt;strong&gt;</bpt>Create New<ept id="9c4f8d28-79f4-41ca-932b-e6c386bccd1e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="acd2cb1a-e32d-4096-9b5f-49a517c93d0a" xml:space="preserve">
+          <source><bpt id="3de86544-1219-4e8e-a10a-60ef86f9a00d">&lt;linkText&gt;</bpt>Manage Users<ept id="3de86544-1219-4e8e-a10a-60ef86f9a00d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3de86544-1219-4e8e-a10a-60ef86f9a00d">&lt;linkText&gt;</bpt>Manage Users<ept id="3de86544-1219-4e8e-a10a-60ef86f9a00d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f4e311a-d771-404a-a70e-7492aee162a1" xml:space="preserve">
+          <source>On the Create New User dialog, perform the following steps:</source>
+          <target state="new">On the Create New User dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="32c8f8db-4988-451a-85bc-a58b608533cc" xml:space="preserve">
+          <source><bpt id="12689c8c-0499-40d9-a750-565ac4bbf6c7">&lt;linkText&gt;</bpt>Create NewUser<ept id="12689c8c-0499-40d9-a750-565ac4bbf6c7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="12689c8c-0499-40d9-a750-565ac4bbf6c7">&lt;linkText&gt;</bpt>Create NewUser<ept id="12689c8c-0499-40d9-a750-565ac4bbf6c7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5352d342-ebbe-4660-8c04-446add993a9b" xml:space="preserve">
+          <source>Type the email address and the name of a valid Azure Active Directory user account you want to provision into the related textboxes.</source>
+          <target state="new">Type the email address and the name of a valid Azure Active Directory user account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="d5d0387e-a684-4653-b04f-787e6adc2353" xml:space="preserve">
+          <source>Click <bpt id="7f8a6918-d1ff-43c9-a6ea-bb4885c19f64">&lt;strong&gt;</bpt>Create User<ept id="7f8a6918-d1ff-43c9-a6ea-bb4885c19f64">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7f8a6918-d1ff-43c9-a6ea-bb4885c19f64">&lt;strong&gt;</bpt>Create User<ept id="7f8a6918-d1ff-43c9-a6ea-bb4885c19f64">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f17281af-4d59-4ad7-a8d5-09a1fedf0e00" xml:space="preserve">
+          <source>You can use any other Druva user account creation tools or APIs provided by Druva to provision AAD user accounts.</source>
+          <target state="new">You can use any other Druva user account creation tools or APIs provided by Druva to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="60e314e1-81c8-48c3-9bc9-15ee23802993" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="bdfb2d9f-5d0b-40a3-9262-739ff3f2b25e" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="0c2776b8-503e-43c0-b4c0-dac4348e3d4b" xml:space="preserve">
+          <source>On the <bpt id="c12e296c-c002-437f-9b80-0b706f85fe97">&lt;strong&gt;</bpt>Druva **application integration page, click **Assign users<ept id="c12e296c-c002-437f-9b80-0b706f85fe97">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c12e296c-c002-437f-9b80-0b706f85fe97">&lt;strong&gt;</bpt>Druva **application integration page, click **Assign users<ept id="c12e296c-c002-437f-9b80-0b706f85fe97">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="838154a2-9051-4037-884b-a4fafbd889c5" xml:space="preserve">
+          <source><bpt id="591fbbd3-f066-4cbc-b484-a8b13995479e">&lt;linkText&gt;</bpt>Assign Users<ept id="591fbbd3-f066-4cbc-b484-a8b13995479e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="591fbbd3-f066-4cbc-b484-a8b13995479e">&lt;linkText&gt;</bpt>Assign Users<ept id="591fbbd3-f066-4cbc-b484-a8b13995479e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e7ce7f1-144b-47ac-aac9-caa020bc49b4" xml:space="preserve">
+          <source>Select your test user, click <bpt id="59d69bea-739d-4d0d-828a-a47553000351">&lt;strong&gt;</bpt>Assign<ept id="59d69bea-739d-4d0d-828a-a47553000351">&lt;/strong&gt;</ept>, and then click <bpt id="dc8243ca-a078-4f32-ab1c-8749049a8bad">&lt;strong&gt;</bpt>Yes<ept id="dc8243ca-a078-4f32-ab1c-8749049a8bad">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="59d69bea-739d-4d0d-828a-a47553000351">&lt;strong&gt;</bpt>Assign<ept id="59d69bea-739d-4d0d-828a-a47553000351">&lt;/strong&gt;</ept>, and then click <bpt id="dc8243ca-a078-4f32-ab1c-8749049a8bad">&lt;strong&gt;</bpt>Yes<ept id="dc8243ca-a078-4f32-ab1c-8749049a8bad">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="4358cf51-ccfc-4fcf-9318-606dbeb5f84f" xml:space="preserve">
+          <source><bpt id="424b8334-3357-486c-91ef-59f79c793cf6">&lt;linkText&gt;</bpt>Yes<ept id="424b8334-3357-486c-91ef-59f79c793cf6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="424b8334-3357-486c-91ef-59f79c793cf6">&lt;linkText&gt;</bpt>Yes<ept id="424b8334-3357-486c-91ef-59f79c793cf6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80fb819d-1593-4c5c-9043-d3bfcb274388" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="59908eb5-d1b7-4a2b-a08b-5f0fdc6eb465" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="7f041ca9-0d75-42e5-bd71-cfc57318137d">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="7f041ca9-0d75-42e5-bd71-cfc57318137d">&lt;/linkText&gt;</ept><bpt id="7f041ca9-0d75-42e5-bd71-cfc57318137d">&lt;title&gt;</bpt><ept id="7f041ca9-0d75-42e5-bd71-cfc57318137d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="7f041ca9-0d75-42e5-bd71-cfc57318137d">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="7f041ca9-0d75-42e5-bd71-cfc57318137d">&lt;/linkText&gt;</ept><bpt id="7f041ca9-0d75-42e5-bd71-cfc57318137d">&lt;title&gt;</bpt><ept id="7f041ca9-0d75-42e5-bd71-cfc57318137d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

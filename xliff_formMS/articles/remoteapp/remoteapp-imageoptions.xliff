@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5442c528-d854-4a2f-ab0a-4fdac9c9f353" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5442c528-d854-4a2f-ab0a-4fdac9c9f353" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0edab351-c179-4411-9e57-4776620d14df">
+        <trans-unit id="ffd1db89-6e39-4cc6-9d17-ef5b28e3f24d" xml:space="preserve">
+          <source>Create an Azure RemoteApp image</source>
+          <target state="new">Create an Azure RemoteApp image</target>
+        </trans-unit>
+        <trans-unit id="ee928a53-d99e-4cd7-8a1b-2870d0245e28" xml:space="preserve">
+          <source>Learn about the options available for creating images for Azure RemoteApp</source>
+          <target state="new">Learn about the options available for creating images for Azure RemoteApp</target>
+        </trans-unit>
+        <trans-unit id="9584743f-350f-4d3f-97eb-0d87479ecda9" xml:space="preserve">
+          <source>Azure RemoteApp uses images to hold the apps that you share with your users.</source>
+          <target state="new">Azure RemoteApp uses images to hold the apps that you share with your users.</target>
+        </trans-unit>
+        <trans-unit id="e3127050-da2e-449c-9854-6df15e79ead2" xml:space="preserve">
+          <source>To create an Azure RemoteApp collection with your choice of applications, whether it is cloud or hybrid, you  start by creating an image with those applications installed.</source>
+          <target state="new">To create an Azure RemoteApp collection with your choice of applications, whether it is cloud or hybrid, you  start by creating an image with those applications installed.</target>
+        </trans-unit>
+        <trans-unit id="e1230fb3-a55d-4980-9f93-2d59f312a74e" xml:space="preserve">
+          <source>Then, create a collection that uses that image, assign users to the collection, and publish apps to those users.</source>
+          <target state="new">Then, create a collection that uses that image, assign users to the collection, and publish apps to those users.</target>
+        </trans-unit>
+        <trans-unit id="23d85e02-faed-4227-8aa3-d7edc9d9946a" xml:space="preserve">
+          <source>You have several options for creating or using images.</source>
+          <target state="new">You have several options for creating or using images.</target>
+        </trans-unit>
+        <trans-unit id="504f0129-58dd-428b-9c06-9b751b0d5d4c" xml:space="preserve">
+          <source>The basic <bpt id="770d99ad-366a-4c6b-ba89-56edd9aea843">&lt;linkText&gt;</bpt>requirement<ept id="770d99ad-366a-4c6b-ba89-56edd9aea843">&lt;/linkText&gt;</ept><bpt id="770d99ad-366a-4c6b-ba89-56edd9aea843">&lt;title&gt;</bpt><ept id="770d99ad-366a-4c6b-ba89-56edd9aea843">&lt;/title&gt;</ept> for an image is that it run Windows Server 2012 R2 and have the Remote Desktop Session Host (RDSH) role installed.</source>
+          <target state="new">The basic <bpt id="770d99ad-366a-4c6b-ba89-56edd9aea843">&lt;linkText&gt;</bpt>requirement<ept id="770d99ad-366a-4c6b-ba89-56edd9aea843">&lt;/linkText&gt;</ept><bpt id="770d99ad-366a-4c6b-ba89-56edd9aea843">&lt;title&gt;</bpt><ept id="770d99ad-366a-4c6b-ba89-56edd9aea843">&lt;/title&gt;</ept> for an image is that it run Windows Server 2012 R2 and have the Remote Desktop Session Host (RDSH) role installed.</target>
+        </trans-unit>
+        <trans-unit id="480ddb89-986a-47ff-90a8-7733cfd8744b" xml:space="preserve">
+          <source>How you get that is where things get interesting.</source>
+          <target state="new">How you get that is where things get interesting.</target>
+        </trans-unit>
+        <trans-unit id="f3c22735-b5ec-428c-b5a2-281ef7c33506" xml:space="preserve">
+          <source>You have the following options when it comes to images:</source>
+          <target state="new">You have the following options when it comes to images:</target>
+        </trans-unit>
+        <trans-unit id="9c40cde4-add0-4f72-99a7-c46972f6ca88" xml:space="preserve">
+          <source>You can import and use an <bpt id="3ff22dff-0c2e-48a5-a276-16059a775f1d">&lt;linkText&gt;</bpt>image based on an Azure virtual machine<ept id="3ff22dff-0c2e-48a5-a276-16059a775f1d">&lt;/linkText&gt;</ept><bpt id="3ff22dff-0c2e-48a5-a276-16059a775f1d">&lt;title&gt;</bpt><ept id="3ff22dff-0c2e-48a5-a276-16059a775f1d">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can import and use an <bpt id="3ff22dff-0c2e-48a5-a276-16059a775f1d">&lt;linkText&gt;</bpt>image based on an Azure virtual machine<ept id="3ff22dff-0c2e-48a5-a276-16059a775f1d">&lt;/linkText&gt;</ept><bpt id="3ff22dff-0c2e-48a5-a276-16059a775f1d">&lt;title&gt;</bpt><ept id="3ff22dff-0c2e-48a5-a276-16059a775f1d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9361e4f3-bf21-4b92-8e52-2240bd811186" xml:space="preserve">
+          <source>This is good for line-of-business apps that require custom settings.</source>
+          <target state="new">This is good for line-of-business apps that require custom settings.</target>
+        </trans-unit>
+        <trans-unit id="eb01b2ed-2319-4519-b10f-5a4aa5415310" xml:space="preserve">
+          <source>You can customize the image to work for the app.</source>
+          <target state="new">You can customize the image to work for the app.</target>
+        </trans-unit>
+        <trans-unit id="c7878fe7-d537-4ed0-9167-8c37212c33b3" xml:space="preserve">
+          <source>You can <bpt id="0e738481-82e1-4390-bd14-5ecd103898f6">&lt;linkText&gt;</bpt>create and upload a custom image<ept id="0e738481-82e1-4390-bd14-5ecd103898f6">&lt;/linkText&gt;</ept><bpt id="0e738481-82e1-4390-bd14-5ecd103898f6">&lt;title&gt;</bpt><ept id="0e738481-82e1-4390-bd14-5ecd103898f6">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can <bpt id="0e738481-82e1-4390-bd14-5ecd103898f6">&lt;linkText&gt;</bpt>create and upload a custom image<ept id="0e738481-82e1-4390-bd14-5ecd103898f6">&lt;/linkText&gt;</ept><bpt id="0e738481-82e1-4390-bd14-5ecd103898f6">&lt;title&gt;</bpt><ept id="0e738481-82e1-4390-bd14-5ecd103898f6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8803a83-6746-431d-8d47-2a888d02d0b0" xml:space="preserve">
+          <source>This is good if you already have an image that you use for your on-premises Remote Desktop Services deployment.</source>
+          <target state="new">This is good if you already have an image that you use for your on-premises Remote Desktop Services deployment.</target>
+        </trans-unit>
+        <trans-unit id="6ecb38c3-1990-4fd6-90d9-a8182883c12f" xml:space="preserve">
+          <source>You can use one of the <bpt id="a97b8990-9d43-4cc2-9a28-c60a515be236">&lt;linkText&gt;</bpt>template images<ept id="a97b8990-9d43-4cc2-9a28-c60a515be236">&lt;/linkText&gt;</ept><bpt id="a97b8990-9d43-4cc2-9a28-c60a515be236">&lt;title&gt;</bpt><ept id="a97b8990-9d43-4cc2-9a28-c60a515be236">&lt;/title&gt;</ept> included in your RemoteApp subscription.</source>
+          <target state="new">You can use one of the <bpt id="a97b8990-9d43-4cc2-9a28-c60a515be236">&lt;linkText&gt;</bpt>template images<ept id="a97b8990-9d43-4cc2-9a28-c60a515be236">&lt;/linkText&gt;</ept><bpt id="a97b8990-9d43-4cc2-9a28-c60a515be236">&lt;title&gt;</bpt><ept id="a97b8990-9d43-4cc2-9a28-c60a515be236">&lt;/title&gt;</ept> included in your RemoteApp subscription.</target>
+        </trans-unit>
+        <trans-unit id="688df584-970e-40e5-9b0f-5c2350d6190e" xml:space="preserve">
+          <source>These images are created and maintained by the RemoteApp team and contain some standard applications (like the Office suite) that you can make available to your users.</source>
+          <target state="new">These images are created and maintained by the RemoteApp team and contain some standard applications (like the Office suite) that you can make available to your users.</target>
+        </trans-unit>
+        <trans-unit id="97562474-253a-48c3-88c7-ff54e449796d" xml:space="preserve">
+          <source>Note that only the Office 365 Pro Plus image can be used in a production setting.</source>
+          <target state="new">Note that only the Office 365 Pro Plus image can be used in a production setting.</target>
+        </trans-unit>
+        <trans-unit id="f4bcbe65-36df-4bed-97fa-fd977f9fc8c5" xml:space="preserve">
+          <source>Regardless of where you get your image or how you create it, you'll want to make sure you understand the <bpt id="15ce25b2-f3b4-40c5-946c-9b1180e2de8d">&lt;linkText&gt;</bpt>app requirements<ept id="15ce25b2-f3b4-40c5-946c-9b1180e2de8d">&lt;/linkText&gt;</ept><bpt id="15ce25b2-f3b4-40c5-946c-9b1180e2de8d">&lt;title&gt;</bpt><ept id="15ce25b2-f3b4-40c5-946c-9b1180e2de8d">&lt;/title&gt;</ept> to ensure that your app works well in RemoteApp.</source>
+          <target state="new">Regardless of where you get your image or how you create it, you'll want to make sure you understand the <bpt id="15ce25b2-f3b4-40c5-946c-9b1180e2de8d">&lt;linkText&gt;</bpt>app requirements<ept id="15ce25b2-f3b4-40c5-946c-9b1180e2de8d">&lt;/linkText&gt;</ept><bpt id="15ce25b2-f3b4-40c5-946c-9b1180e2de8d">&lt;title&gt;</bpt><ept id="15ce25b2-f3b4-40c5-946c-9b1180e2de8d">&lt;/title&gt;</ept> to ensure that your app works well in RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="ae303b63-1a07-4c5f-a1f7-f2bf5413fdec" xml:space="preserve">
+          <source>Then, the next step is to create a <bpt id="a2cc948f-de14-421e-b773-f0069e9ae1d7">&lt;linkText&gt;</bpt>cloud<ept id="a2cc948f-de14-421e-b773-f0069e9ae1d7">&lt;/linkText&gt;</ept><bpt id="a2cc948f-de14-421e-b773-f0069e9ae1d7">&lt;title&gt;</bpt><ept id="a2cc948f-de14-421e-b773-f0069e9ae1d7">&lt;/title&gt;</ept> or <bpt id="e545576d-d0a5-4c0f-88c0-6c00b8cbe3be">&lt;linkText&gt;</bpt>hybrid<ept id="e545576d-d0a5-4c0f-88c0-6c00b8cbe3be">&lt;/linkText&gt;</ept><bpt id="e545576d-d0a5-4c0f-88c0-6c00b8cbe3be">&lt;title&gt;</bpt><ept id="e545576d-d0a5-4c0f-88c0-6c00b8cbe3be">&lt;/title&gt;</ept> collection.</source>
+          <target state="new">Then, the next step is to create a <bpt id="a2cc948f-de14-421e-b773-f0069e9ae1d7">&lt;linkText&gt;</bpt>cloud<ept id="a2cc948f-de14-421e-b773-f0069e9ae1d7">&lt;/linkText&gt;</ept><bpt id="a2cc948f-de14-421e-b773-f0069e9ae1d7">&lt;title&gt;</bpt><ept id="a2cc948f-de14-421e-b773-f0069e9ae1d7">&lt;/title&gt;</ept> or <bpt id="e545576d-d0a5-4c0f-88c0-6c00b8cbe3be">&lt;linkText&gt;</bpt>hybrid<ept id="e545576d-d0a5-4c0f-88c0-6c00b8cbe3be">&lt;/linkText&gt;</ept><bpt id="e545576d-d0a5-4c0f-88c0-6c00b8cbe3be">&lt;title&gt;</bpt><ept id="e545576d-d0a5-4c0f-88c0-6c00b8cbe3be">&lt;/title&gt;</ept> collection.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

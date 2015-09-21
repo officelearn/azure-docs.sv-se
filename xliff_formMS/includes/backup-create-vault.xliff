@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e073efc3-cc64-4067-9ebe-2b6b4cc5e218" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e073efc3-cc64-4067-9ebe-2b6b4cc5e218" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="980407a6-7299-4c23-9643-b8b49e3ba093">
+        <trans-unit id="05c3bbb0-ebe4-4006-b88f-5b488cb80e6c" xml:space="preserve">
+          <source>To back up files and data from Windows Server or Data Protection Manager (DPM) to Azure or when backing up IaaS VMs to Azure, you must create a backup vault in the geographic region where you want to store the data.</source>
+          <target state="new">To back up files and data from Windows Server or Data Protection Manager (DPM) to Azure or when backing up IaaS VMs to Azure, you must create a backup vault in the geographic region where you want to store the data.</target>
+        </trans-unit>
+        <trans-unit id="0eafde0b-ac0f-40ea-a30e-16f472273022" xml:space="preserve">
+          <source>The following steps will walk you through the creation of the vault used to store backups.</source>
+          <target state="new">The following steps will walk you through the creation of the vault used to store backups.</target>
+        </trans-unit>
+        <trans-unit id="3c430c61-101c-4fc0-875c-3c61d269e558" xml:space="preserve">
+          <source>Sign in to the <bpt id="bde31b8c-6def-4a3f-b591-38b7d92249ef">&lt;linkText&gt;</bpt>Management Portal<ept id="bde31b8c-6def-4a3f-b591-38b7d92249ef">&lt;/linkText&gt;</ept><bpt id="bde31b8c-6def-4a3f-b591-38b7d92249ef">&lt;title&gt;</bpt><ept id="bde31b8c-6def-4a3f-b591-38b7d92249ef">&lt;/title&gt;</ept></source>
+          <target state="new">Sign in to the <bpt id="bde31b8c-6def-4a3f-b591-38b7d92249ef">&lt;linkText&gt;</bpt>Management Portal<ept id="bde31b8c-6def-4a3f-b591-38b7d92249ef">&lt;/linkText&gt;</ept><bpt id="bde31b8c-6def-4a3f-b591-38b7d92249ef">&lt;title&gt;</bpt><ept id="bde31b8c-6def-4a3f-b591-38b7d92249ef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60cbac6d-831f-43e2-aa02-e9df36028b2f" xml:space="preserve">
+          <source>Click <bpt id="1d732cef-2b50-4a4c-b663-0ba3121df560">&lt;strong&gt;</bpt>New<ept id="1d732cef-2b50-4a4c-b663-0ba3121df560">&lt;/strong&gt;</ept> &gt; <bpt id="e78aeb4a-6567-45b5-b587-2d114520930e">&lt;strong&gt;</bpt>Data Services<ept id="e78aeb4a-6567-45b5-b587-2d114520930e">&lt;/strong&gt;</ept> &gt; <bpt id="a5300dac-8a24-40b0-aa07-436c7a8dfb1a">&lt;strong&gt;</bpt>Recovery Services<ept id="a5300dac-8a24-40b0-aa07-436c7a8dfb1a">&lt;/strong&gt;</ept> &gt; <bpt id="d80897b4-ccb0-4689-a91b-aadefdc521cb">&lt;strong&gt;</bpt>Backup Vault<ept id="d80897b4-ccb0-4689-a91b-aadefdc521cb">&lt;/strong&gt;</ept> and choose <bpt id="f7baf05f-26b3-4164-b7b0-98d314f124e2">&lt;strong&gt;</bpt>Quick Create<ept id="f7baf05f-26b3-4164-b7b0-98d314f124e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1d732cef-2b50-4a4c-b663-0ba3121df560">&lt;strong&gt;</bpt>New<ept id="1d732cef-2b50-4a4c-b663-0ba3121df560">&lt;/strong&gt;</ept> &gt; <bpt id="e78aeb4a-6567-45b5-b587-2d114520930e">&lt;strong&gt;</bpt>Data Services<ept id="e78aeb4a-6567-45b5-b587-2d114520930e">&lt;/strong&gt;</ept> &gt; <bpt id="a5300dac-8a24-40b0-aa07-436c7a8dfb1a">&lt;strong&gt;</bpt>Recovery Services<ept id="a5300dac-8a24-40b0-aa07-436c7a8dfb1a">&lt;/strong&gt;</ept> &gt; <bpt id="d80897b4-ccb0-4689-a91b-aadefdc521cb">&lt;strong&gt;</bpt>Backup Vault<ept id="d80897b4-ccb0-4689-a91b-aadefdc521cb">&lt;/strong&gt;</ept> and choose <bpt id="f7baf05f-26b3-4164-b7b0-98d314f124e2">&lt;strong&gt;</bpt>Quick Create<ept id="f7baf05f-26b3-4164-b7b0-98d314f124e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88c0c8f6-f23a-47d9-a20f-a3d1c67a4782" xml:space="preserve">
+          <source><bpt id="f78e7364-26d1-4099-8f7e-cb1f4ee66377">&lt;linkText&gt;</bpt>Create vault<ept id="f78e7364-26d1-4099-8f7e-cb1f4ee66377">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f78e7364-26d1-4099-8f7e-cb1f4ee66377">&lt;linkText&gt;</bpt>Create vault<ept id="f78e7364-26d1-4099-8f7e-cb1f4ee66377">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54bd8358-efc6-4906-83da-f7c17ac646b1" xml:space="preserve">
+          <source>For the <bpt id="cc4f967c-ece3-40c4-b93a-7240d2c0eb57">&lt;strong&gt;</bpt>Name<ept id="cc4f967c-ece3-40c4-b93a-7240d2c0eb57">&lt;/strong&gt;</ept> parameter, enter a friendly name to identify the backup vault.</source>
+          <target state="new">For the <bpt id="cc4f967c-ece3-40c4-b93a-7240d2c0eb57">&lt;strong&gt;</bpt>Name<ept id="cc4f967c-ece3-40c4-b93a-7240d2c0eb57">&lt;/strong&gt;</ept> parameter, enter a friendly name to identify the backup vault.</target>
+        </trans-unit>
+        <trans-unit id="1849bfc8-2db8-4170-b2f7-81f6aa605568" xml:space="preserve">
+          <source>This needs to be unique for each subscription.</source>
+          <target state="new">This needs to be unique for each subscription.</target>
+        </trans-unit>
+        <trans-unit id="c4e1a771-52e0-41eb-a9cb-14e9ab5d3603" xml:space="preserve">
+          <source>For the <bpt id="ec8a05a8-1583-490d-83fb-6f13048c6c33">&lt;strong&gt;</bpt>Region<ept id="ec8a05a8-1583-490d-83fb-6f13048c6c33">&lt;/strong&gt;</ept> parameter, select the geographic region for the backup vault.</source>
+          <target state="new">For the <bpt id="ec8a05a8-1583-490d-83fb-6f13048c6c33">&lt;strong&gt;</bpt>Region<ept id="ec8a05a8-1583-490d-83fb-6f13048c6c33">&lt;/strong&gt;</ept> parameter, select the geographic region for the backup vault.</target>
+        </trans-unit>
+        <trans-unit id="8b346d74-a0d8-4e47-83e8-6046d5904958" xml:space="preserve">
+          <source>The choice determines the geographic region to which your backup data is sent.</source>
+          <target state="new">The choice determines the geographic region to which your backup data is sent.</target>
+        </trans-unit>
+        <trans-unit id="c0f182c8-5984-4108-b693-70606e00cea1" xml:space="preserve">
+          <source>By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure.</source>
+          <target state="new">By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure.</target>
+        </trans-unit>
+        <trans-unit id="7ae3c7d4-e091-423a-bcb4-8dac3a4bec28" xml:space="preserve">
+          <source>Click on <bpt id="d3c532ab-8fce-47c5-ac92-13ca7d17dc23">&lt;strong&gt;</bpt>Create Vault<ept id="d3c532ab-8fce-47c5-ac92-13ca7d17dc23">&lt;/strong&gt;</ept> to complete the workflow.</source>
+          <target state="new">Click on <bpt id="d3c532ab-8fce-47c5-ac92-13ca7d17dc23">&lt;strong&gt;</bpt>Create Vault<ept id="d3c532ab-8fce-47c5-ac92-13ca7d17dc23">&lt;/strong&gt;</ept> to complete the workflow.</target>
+        </trans-unit>
+        <trans-unit id="2d3309d5-20cf-4f99-b9b7-57023651f7dc" xml:space="preserve">
+          <source>It can take a while for the backup vault to be created.</source>
+          <target state="new">It can take a while for the backup vault to be created.</target>
+        </trans-unit>
+        <trans-unit id="535591c2-f81c-403b-9463-ab82d93b055e" xml:space="preserve">
+          <source>To check the status, you can monitor the notifications at the bottom of the portal.</source>
+          <target state="new">To check the status, you can monitor the notifications at the bottom of the portal.</target>
+        </trans-unit>
+        <trans-unit id="230531b6-f496-4755-8994-c055d9752ed1" xml:space="preserve">
+          <source><bpt id="fbece255-6667-4548-96b6-1ba7958172da">&lt;linkText&gt;</bpt>Creatinging Vault<ept id="fbece255-6667-4548-96b6-1ba7958172da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fbece255-6667-4548-96b6-1ba7958172da">&lt;linkText&gt;</bpt>Creatinging Vault<ept id="fbece255-6667-4548-96b6-1ba7958172da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17cb36d8-32f9-46f1-a8e6-5a6bee8559f0" xml:space="preserve">
+          <source>After the backup vault has been created, a message tells you the vault has been successfully created.</source>
+          <target state="new">After the backup vault has been created, a message tells you the vault has been successfully created.</target>
+        </trans-unit>
+        <trans-unit id="fc6ad948-c0f1-4bc2-9641-0d7fc3308538" xml:space="preserve">
+          <source>The vault is also listed in the resources for Recovery Services as <bpt id="3d90653b-7828-4685-a62c-60b26f55e006">&lt;strong&gt;</bpt>Active<ept id="3d90653b-7828-4685-a62c-60b26f55e006">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The vault is also listed in the resources for Recovery Services as <bpt id="3d90653b-7828-4685-a62c-60b26f55e006">&lt;strong&gt;</bpt>Active<ept id="3d90653b-7828-4685-a62c-60b26f55e006">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01f49fce-7f66-4458-9bfa-810aef0ef883" xml:space="preserve">
+          <source><bpt id="5a440ab1-7162-4ed8-85dd-5befb3575a57">&lt;linkText&gt;</bpt>Creating Vault status<ept id="5a440ab1-7162-4ed8-85dd-5befb3575a57">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a440ab1-7162-4ed8-85dd-5befb3575a57">&lt;linkText&gt;</bpt>Creating Vault status<ept id="5a440ab1-7162-4ed8-85dd-5befb3575a57">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f034162a-0908-4b83-bf56-f42f1a6c5e8e" xml:space="preserve">
+          <source>The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault.</source>
+          <target state="new">The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault.</target>
+        </trans-unit>
+        <trans-unit id="cadf73e1-0cc0-4213-9783-a7c9fd5b93f3" xml:space="preserve">
+          <source>Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.</source>
+          <target state="new">Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.</target>
+        </trans-unit>
+        <trans-unit id="0ec56a22-1354-49cb-94ea-2cb3b5839bad" xml:space="preserve">
+          <source>Your business needs would determine the storage redundancy of the Azure Backup backend storage.</source>
+          <target state="new">Your business needs would determine the storage redundancy of the Azure Backup backend storage.</target>
+        </trans-unit>
+        <trans-unit id="c58cbee8-dd6f-409c-82e9-3448027dbc88" xml:space="preserve">
+          <source>If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) Geo-Redundant storage option.</source>
+          <target state="new">If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) Geo-Redundant storage option.</target>
+        </trans-unit>
+        <trans-unit id="7898f7fb-a6b4-4d46-9da3-a7f890d6f53b" xml:space="preserve">
+          <source>This is seen under the <bpt id="8e7747a9-02c0-43f8-907c-168c8e2abe68">&lt;strong&gt;</bpt>Configure<ept id="8e7747a9-02c0-43f8-907c-168c8e2abe68">&lt;/strong&gt;</ept> option of your Backup vault.</source>
+          <target state="new">This is seen under the <bpt id="8e7747a9-02c0-43f8-907c-168c8e2abe68">&lt;strong&gt;</bpt>Configure<ept id="8e7747a9-02c0-43f8-907c-168c8e2abe68">&lt;/strong&gt;</ept> option of your Backup vault.</target>
+        </trans-unit>
+        <trans-unit id="78bb2b6a-5c38-4824-853a-dcabea8ebbed" xml:space="preserve">
+          <source><bpt id="b64fe20b-2eb5-4639-8323-b569fa6b350f">&lt;linkText&gt;</bpt>GRS<ept id="b64fe20b-2eb5-4639-8323-b569fa6b350f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b64fe20b-2eb5-4639-8323-b569fa6b350f">&lt;linkText&gt;</bpt>GRS<ept id="b64fe20b-2eb5-4639-8323-b569fa6b350f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ea0ba23-6737-4e48-915a-e68e078e72ef" xml:space="preserve">
+          <source>GRS maintains six copies of your data.</source>
+          <target state="new">GRS maintains six copies of your data.</target>
+        </trans-unit>
+        <trans-unit id="0196a97e-2c08-4485-a901-49a1b12cd92a" xml:space="preserve">
+          <source>With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability.</source>
+          <target state="new">With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability.</target>
+        </trans-unit>
+        <trans-unit id="5f7bc3d8-b7cd-4791-8768-d78dd38a83f6" xml:space="preserve">
+          <source>In the event of a failure at the primary region, by storing data in GRS, Azure Backup ensures that your data is durable in two separate regions.</source>
+          <target state="new">In the event of a failure at the primary region, by storing data in GRS, Azure Backup ensures that your data is durable in two separate regions.</target>
+        </trans-unit>
+        <trans-unit id="67a5be08-4046-403e-b193-3b6e85287aff" xml:space="preserve">
+          <source>Loclly redundant storage (LRS) maintains three copies of your data.</source>
+          <target state="new">Loclly redundant storage (LRS) maintains three copies of your data.</target>
+        </trans-unit>
+        <trans-unit id="daff2dfd-e82c-4975-a3ea-793c005e18c6" xml:space="preserve">
+          <source>LRS is replicated three times within a single facility in a single region.</source>
+          <target state="new">LRS is replicated three times within a single facility in a single region.</target>
+        </trans-unit>
+        <trans-unit id="32453410-5c60-4cb8-977f-a123fa394aec" xml:space="preserve">
+          <source>LRS protects your data from normal hardware failures, but not from the failure of an entire Azure facility.</source>
+          <target state="new">LRS protects your data from normal hardware failures, but not from the failure of an entire Azure facility.</target>
+        </trans-unit>
+        <trans-unit id="8f7f5489-a5d9-4335-bba4-96f32a8d25ae" xml:space="preserve">
+          <source>If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises &amp; using Azure for your long term retention needs), you should consider choosing Locally Redundant Storage from the <bpt id="538d7b72-f040-4a76-9662-b713cb8e3806">&lt;strong&gt;</bpt>Configure<ept id="538d7b72-f040-4a76-9662-b713cb8e3806">&lt;/strong&gt;</ept> option of your Backup vault. This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.</source>
+          <target state="new">If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises &amp; using Azure for your long term retention needs), you should consider choosing Locally Redundant Storage from the <bpt id="538d7b72-f040-4a76-9662-b713cb8e3806">&lt;strong&gt;</bpt>Configure<ept id="538d7b72-f040-4a76-9662-b713cb8e3806">&lt;/strong&gt;</ept> option of your Backup vault. This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.</target>
+        </trans-unit>
+        <trans-unit id="06b0d5cb-aab3-4054-bb3b-befed86e2980" xml:space="preserve">
+          <source><bpt id="82d5b506-248c-4383-996e-22189e11151a">&lt;linkText&gt;</bpt>LRS<ept id="82d5b506-248c-4383-996e-22189e11151a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="82d5b506-248c-4383-996e-22189e11151a">&lt;linkText&gt;</bpt>LRS<ept id="82d5b506-248c-4383-996e-22189e11151a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

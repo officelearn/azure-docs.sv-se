@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="20a7011b-1dd7-41af-9320-53f587c0b9cc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="20a7011b-1dd7-41af-9320-53f587c0b9cc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4c40bf9d-de52-4a90-ada6-3a5a38626ce0">
+        <trans-unit id="6cc9d790-3acc-4de5-bc56-d54f90550c5d" xml:space="preserve">
+          <source>Manage Azure SQL Databases using Azure Automation</source>
+          <target state="new">Manage Azure SQL Databases using Azure Automation</target>
+        </trans-unit>
+        <trans-unit id="0bd66f45-5d63-4139-89c6-ffda11472803" xml:space="preserve">
+          <source>Learn about how the Azure Automation service can be used to manage Azure SQL databases at scale.</source>
+          <target state="new">Learn about how the Azure Automation service can be used to manage Azure SQL databases at scale.</target>
+        </trans-unit>
+        <trans-unit id="afbc1dc6-51e9-453a-b624-d63ec3563a8a" xml:space="preserve">
+          <source>This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure SQL databases.</source>
+          <target state="new">This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure SQL databases.</target>
+        </trans-unit>
+        <trans-unit id="ec0a26e2-1888-4e8a-b376-bac11fdd3172" xml:space="preserve">
+          <source><bpt id="7f10cf25-0730-4b66-b1a4-317996014be1">&lt;linkText&gt;</bpt>Azure Automation<ept id="7f10cf25-0730-4b66-b1a4-317996014be1">&lt;/linkText&gt;</ept><bpt id="7f10cf25-0730-4b66-b1a4-317996014be1">&lt;title&gt;</bpt><ept id="7f10cf25-0730-4b66-b1a4-317996014be1">&lt;/title&gt;</ept> is an Azure service for simplifying cloud management through process automation.</source>
+          <target state="new"><bpt id="7f10cf25-0730-4b66-b1a4-317996014be1">&lt;linkText&gt;</bpt>Azure Automation<ept id="7f10cf25-0730-4b66-b1a4-317996014be1">&lt;/linkText&gt;</ept><bpt id="7f10cf25-0730-4b66-b1a4-317996014be1">&lt;title&gt;</bpt><ept id="7f10cf25-0730-4b66-b1a4-317996014be1">&lt;/title&gt;</ept> is an Azure service for simplifying cloud management through process automation.</target>
+        </trans-unit>
+        <trans-unit id="2ce23e59-e885-4151-bc97-e0254660f2cd" xml:space="preserve">
+          <source>Using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time to value for your organization.</source>
+          <target state="new">Using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time to value for your organization.</target>
+        </trans-unit>
+        <trans-unit id="e7f9de9e-e3ec-4b5c-b6e5-550e7fa30171" xml:space="preserve">
+          <source>Azure Automation provides a highly-reliable and highly-available workflow execution engine that scales to meet your needs as your organization grows.</source>
+          <target state="new">Azure Automation provides a highly-reliable and highly-available workflow execution engine that scales to meet your needs as your organization grows.</target>
+        </trans-unit>
+        <trans-unit id="564a66db-f00f-402a-9128-ffb93342b24e" xml:space="preserve">
+          <source>In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.</source>
+          <target state="new">In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.</target>
+        </trans-unit>
+        <trans-unit id="a1b3a0d9-db41-4ba5-bcf3-e8c372bdb9d4" xml:space="preserve">
+          <source>Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.</source>
+          <target state="new">Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="ca8bdb9a-85cf-44d2-9e10-1bac11a535d8" xml:space="preserve">
+          <source>Azure SQL Database can be managed in Azure Automation by using the <bpt id="d1ae2a5f-261d-42df-acb3-a0cda8761a36">&lt;linkText&gt;</bpt>Azure SQL Database PowerShell cmdlets<ept id="d1ae2a5f-261d-42df-acb3-a0cda8761a36">&lt;/linkText&gt;</ept><bpt id="d1ae2a5f-261d-42df-acb3-a0cda8761a36">&lt;title&gt;</bpt><ept id="d1ae2a5f-261d-42df-acb3-a0cda8761a36">&lt;/title&gt;</ept> that are available in the <bpt id="f4d25659-3c79-4a16-ab2a-5b197ef97eae">&lt;linkText&gt;</bpt>Azure PowerShell tools<ept id="f4d25659-3c79-4a16-ab2a-5b197ef97eae">&lt;/linkText&gt;</ept><bpt id="f4d25659-3c79-4a16-ab2a-5b197ef97eae">&lt;title&gt;</bpt><ept id="f4d25659-3c79-4a16-ab2a-5b197ef97eae">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure SQL Database can be managed in Azure Automation by using the <bpt id="d1ae2a5f-261d-42df-acb3-a0cda8761a36">&lt;linkText&gt;</bpt>Azure SQL Database PowerShell cmdlets<ept id="d1ae2a5f-261d-42df-acb3-a0cda8761a36">&lt;/linkText&gt;</ept><bpt id="d1ae2a5f-261d-42df-acb3-a0cda8761a36">&lt;title&gt;</bpt><ept id="d1ae2a5f-261d-42df-acb3-a0cda8761a36">&lt;/title&gt;</ept> that are available in the <bpt id="f4d25659-3c79-4a16-ab2a-5b197ef97eae">&lt;linkText&gt;</bpt>Azure PowerShell tools<ept id="f4d25659-3c79-4a16-ab2a-5b197ef97eae">&lt;/linkText&gt;</ept><bpt id="f4d25659-3c79-4a16-ab2a-5b197ef97eae">&lt;title&gt;</bpt><ept id="f4d25659-3c79-4a16-ab2a-5b197ef97eae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="195889ad-769f-4bf4-821e-8bf56a42194d" xml:space="preserve">
+          <source>Azure Automation has these Azure SQL Database PowerShell cmdlets available out of the box, so that you can perform all of your SQL DB management tasks within the service.</source>
+          <target state="new">Azure Automation has these Azure SQL Database PowerShell cmdlets available out of the box, so that you can perform all of your SQL DB management tasks within the service.</target>
+        </trans-unit>
+        <trans-unit id="e91214a2-497c-46d0-a4a3-4a92ddeb44ba" xml:space="preserve">
+          <source>You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.</source>
+          <target state="new">You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.</target>
+        </trans-unit>
+        <trans-unit id="9f04f1c6-5175-4759-aba5-d6d1c4a8c401" xml:space="preserve">
+          <source>Azure Automation also has the ability to communicate with SQL servers directly, by issuing SQL commands using PowerShell.</source>
+          <target state="new">Azure Automation also has the ability to communicate with SQL servers directly, by issuing SQL commands using PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="a6c958dc-52a4-46b4-9d61-a78f4bbc2bcc" xml:space="preserve">
+          <source>The <bpt id="b4521496-6968-451d-855f-f8935ef32a96">&lt;linkText&gt;</bpt>Azure Automation runbook gallery<ept id="b4521496-6968-451d-855f-f8935ef32a96">&lt;/linkText&gt;</ept><bpt id="b4521496-6968-451d-855f-f8935ef32a96">&lt;title&gt;</bpt><ept id="b4521496-6968-451d-855f-f8935ef32a96">&lt;/title&gt;</ept> contains a variety of product team and community runbooks to get started automating management of Azure SQL Databases, other Azure services, and 3rd party systems.</source>
+          <target state="new">The <bpt id="b4521496-6968-451d-855f-f8935ef32a96">&lt;linkText&gt;</bpt>Azure Automation runbook gallery<ept id="b4521496-6968-451d-855f-f8935ef32a96">&lt;/linkText&gt;</ept><bpt id="b4521496-6968-451d-855f-f8935ef32a96">&lt;title&gt;</bpt><ept id="b4521496-6968-451d-855f-f8935ef32a96">&lt;/title&gt;</ept> contains a variety of product team and community runbooks to get started automating management of Azure SQL Databases, other Azure services, and 3rd party systems.</target>
+        </trans-unit>
+        <trans-unit id="e84765f2-d910-4ccf-a991-f928b2befce5" xml:space="preserve">
+          <source>Gallery runbooks include:</source>
+          <target state="new">Gallery runbooks include:</target>
+        </trans-unit>
+        <trans-unit id="b2bece2d-bb96-429f-bbc5-9813719cbde5" xml:space="preserve">
+          <source><bpt id="62d7b08d-90f0-4c9f-85d4-6294834cadbb">&lt;linkText&gt;</bpt>Run SQL queries against a SQL Server database<ept id="62d7b08d-90f0-4c9f-85d4-6294834cadbb">&lt;/linkText&gt;</ept><bpt id="62d7b08d-90f0-4c9f-85d4-6294834cadbb">&lt;title&gt;</bpt><ept id="62d7b08d-90f0-4c9f-85d4-6294834cadbb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="62d7b08d-90f0-4c9f-85d4-6294834cadbb">&lt;linkText&gt;</bpt>Run SQL queries against a SQL Server database<ept id="62d7b08d-90f0-4c9f-85d4-6294834cadbb">&lt;/linkText&gt;</ept><bpt id="62d7b08d-90f0-4c9f-85d4-6294834cadbb">&lt;title&gt;</bpt><ept id="62d7b08d-90f0-4c9f-85d4-6294834cadbb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edbe3fab-7e23-4823-92d1-88d191b6c97b" xml:space="preserve">
+          <source><bpt id="ad767056-8568-463c-b185-e89848ac9353">&lt;linkText&gt;</bpt>Vertically scale (up or down) an Azure SQL Database on a schedule<ept id="ad767056-8568-463c-b185-e89848ac9353">&lt;/linkText&gt;</ept><bpt id="ad767056-8568-463c-b185-e89848ac9353">&lt;title&gt;</bpt><ept id="ad767056-8568-463c-b185-e89848ac9353">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ad767056-8568-463c-b185-e89848ac9353">&lt;linkText&gt;</bpt>Vertically scale (up or down) an Azure SQL Database on a schedule<ept id="ad767056-8568-463c-b185-e89848ac9353">&lt;/linkText&gt;</ept><bpt id="ad767056-8568-463c-b185-e89848ac9353">&lt;title&gt;</bpt><ept id="ad767056-8568-463c-b185-e89848ac9353">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef10f4a5-0418-47ce-8ea5-b940f2861548" xml:space="preserve">
+          <source><bpt id="854d8764-9332-4287-91aa-b9226b884f41">&lt;linkText&gt;</bpt>Truncate a SQL table if its database approaches its maximum size<ept id="854d8764-9332-4287-91aa-b9226b884f41">&lt;/linkText&gt;</ept><bpt id="854d8764-9332-4287-91aa-b9226b884f41">&lt;title&gt;</bpt><ept id="854d8764-9332-4287-91aa-b9226b884f41">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="854d8764-9332-4287-91aa-b9226b884f41">&lt;linkText&gt;</bpt>Truncate a SQL table if its database approaches its maximum size<ept id="854d8764-9332-4287-91aa-b9226b884f41">&lt;/linkText&gt;</ept><bpt id="854d8764-9332-4287-91aa-b9226b884f41">&lt;title&gt;</bpt><ept id="854d8764-9332-4287-91aa-b9226b884f41">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d8d5a5f-f030-4fd0-833e-1a99d75ce432" xml:space="preserve">
+          <source><bpt id="8406f5ba-4b3a-4684-a7e2-788a68dab067">&lt;linkText&gt;</bpt>Index tables in an Azure SQL Database if they are highly fragmented<ept id="8406f5ba-4b3a-4684-a7e2-788a68dab067">&lt;/linkText&gt;</ept><bpt id="8406f5ba-4b3a-4684-a7e2-788a68dab067">&lt;title&gt;</bpt><ept id="8406f5ba-4b3a-4684-a7e2-788a68dab067">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8406f5ba-4b3a-4684-a7e2-788a68dab067">&lt;linkText&gt;</bpt>Index tables in an Azure SQL Database if they are highly fragmented<ept id="8406f5ba-4b3a-4684-a7e2-788a68dab067">&lt;/linkText&gt;</ept><bpt id="8406f5ba-4b3a-4684-a7e2-788a68dab067">&lt;title&gt;</bpt><ept id="8406f5ba-4b3a-4684-a7e2-788a68dab067">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="482b044c-867d-4aed-a2a4-954e2f5db21b" xml:space="preserve">
+          <source>Now that you've learned the basics of Azure Automation and how it can be used to manage Azure SQL databases, follow these links to learn more about Azure Automation.</source>
+          <target state="new">Now that you've learned the basics of Azure Automation and how it can be used to manage Azure SQL databases, follow these links to learn more about Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="ef2329f8-4687-45e1-913f-0ba5334c303e" xml:space="preserve">
+          <source>See the Azure Automation <bpt id="1d32b467-d95d-429f-8a75-3e142981ef33">&lt;linkText&gt;</bpt>Getting Started Tutorial<ept id="1d32b467-d95d-429f-8a75-3e142981ef33">&lt;/linkText&gt;</ept><bpt id="1d32b467-d95d-429f-8a75-3e142981ef33">&lt;title&gt;</bpt><ept id="1d32b467-d95d-429f-8a75-3e142981ef33">&lt;/title&gt;</ept></source>
+          <target state="new">See the Azure Automation <bpt id="1d32b467-d95d-429f-8a75-3e142981ef33">&lt;linkText&gt;</bpt>Getting Started Tutorial<ept id="1d32b467-d95d-429f-8a75-3e142981ef33">&lt;/linkText&gt;</ept><bpt id="1d32b467-d95d-429f-8a75-3e142981ef33">&lt;title&gt;</bpt><ept id="1d32b467-d95d-429f-8a75-3e142981ef33">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd902749-3037-4fe6-b959-0364903565ab" xml:space="preserve">
+          <source>Read the <bpt id="1133a20c-5fc9-44d6-93c4-55ee4c4b1775">&lt;linkText&gt;</bpt>Azure Automation: Your SQL Agent in the Cloud<ept id="1133a20c-5fc9-44d6-93c4-55ee4c4b1775">&lt;/linkText&gt;</ept><bpt id="1133a20c-5fc9-44d6-93c4-55ee4c4b1775">&lt;title&gt;</bpt><ept id="1133a20c-5fc9-44d6-93c4-55ee4c4b1775">&lt;/title&gt;</ept> blog post</source>
+          <target state="new">Read the <bpt id="1133a20c-5fc9-44d6-93c4-55ee4c4b1775">&lt;linkText&gt;</bpt>Azure Automation: Your SQL Agent in the Cloud<ept id="1133a20c-5fc9-44d6-93c4-55ee4c4b1775">&lt;/linkText&gt;</ept><bpt id="1133a20c-5fc9-44d6-93c4-55ee4c4b1775">&lt;title&gt;</bpt><ept id="1133a20c-5fc9-44d6-93c4-55ee4c4b1775">&lt;/title&gt;</ept> blog post</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

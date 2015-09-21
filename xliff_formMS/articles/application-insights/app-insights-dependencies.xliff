@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fabb6fe3-856b-4dc3-90e7-4cc3b61f38de" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fabb6fe3-856b-4dc3-90e7-4cc3b61f38de" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2533ae4d-4a78-4d20-b3a4-835fefd1ee33">
+        <trans-unit id="e00d9a0e-5768-4aba-b845-fa3d97e1ed22" xml:space="preserve">
+          <source>Diagnosing issues with dependencies in Application Insights</source>
+          <target state="new">Diagnosing issues with dependencies in Application Insights</target>
+        </trans-unit>
+        <trans-unit id="1a7b91d6-206a-48a0-80a2-ff97c3eaafad" xml:space="preserve">
+          <source>Find failures and slow performance caused by dependencies</source>
+          <target state="new">Find failures and slow performance caused by dependencies</target>
+        </trans-unit>
+        <trans-unit id="eeb483e0-29ec-4f1a-ad32-bb1274161d98" xml:space="preserve">
+          <source>A <bpt id="9864e470-d62b-4069-8b21-97e44436c4f1">&lt;em&gt;</bpt>dependency<ept id="9864e470-d62b-4069-8b21-97e44436c4f1">&lt;/em&gt;</ept> is an external component that is called by your app.</source>
+          <target state="new">A <bpt id="9864e470-d62b-4069-8b21-97e44436c4f1">&lt;em&gt;</bpt>dependency<ept id="9864e470-d62b-4069-8b21-97e44436c4f1">&lt;/em&gt;</ept> is an external component that is called by your app.</target>
+        </trans-unit>
+        <trans-unit id="3a43e776-8cb1-437d-aef0-99d1660acc43" xml:space="preserve">
+          <source>It's typically a service called using HTTP, or a database, or a file system.</source>
+          <target state="new">It's typically a service called using HTTP, or a database, or a file system.</target>
+        </trans-unit>
+        <trans-unit id="d3ff048a-44fd-44fa-9071-d9cc978c716f" xml:space="preserve">
+          <source>In Visual Studio Application Insights, you can easily see how long your application waits for dependencies and how often a dependency call fails.</source>
+          <target state="new">In Visual Studio Application Insights, you can easily see how long your application waits for dependencies and how often a dependency call fails.</target>
+        </trans-unit>
+        <trans-unit id="f85a8ef9-d358-4da4-a4ee-f6e2c0ec8e73" xml:space="preserve">
+          <source>Out of the box dependency monitoring is currently available for:</source>
+          <target state="new">Out of the box dependency monitoring is currently available for:</target>
+        </trans-unit>
+        <trans-unit id="8d4407f4-6c71-495b-a9f5-415856c3bb73" xml:space="preserve">
+          <source>ASP.NET web apps and services running on an IIS server or on Azure</source>
+          <target state="new">ASP.NET web apps and services running on an IIS server or on Azure</target>
+        </trans-unit>
+        <trans-unit id="a18d3552-69bd-48d2-b2b1-65ecb23313cb" xml:space="preserve">
+          <source><bpt id="f8f6d1d2-2b15-4b54-8636-2e870b5b99b6">&lt;linkText&gt;</bpt>Java web apps<ept id="f8f6d1d2-2b15-4b54-8636-2e870b5b99b6">&lt;/linkText&gt;</ept><bpt id="f8f6d1d2-2b15-4b54-8636-2e870b5b99b6">&lt;title&gt;</bpt><ept id="f8f6d1d2-2b15-4b54-8636-2e870b5b99b6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f8f6d1d2-2b15-4b54-8636-2e870b5b99b6">&lt;linkText&gt;</bpt>Java web apps<ept id="f8f6d1d2-2b15-4b54-8636-2e870b5b99b6">&lt;/linkText&gt;</ept><bpt id="f8f6d1d2-2b15-4b54-8636-2e870b5b99b6">&lt;title&gt;</bpt><ept id="f8f6d1d2-2b15-4b54-8636-2e870b5b99b6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5df1b898-a467-4fa8-94cc-4e1a6c4aa118" xml:space="preserve">
+          <source>For other types, such as device apps, you can write your own monitor using the <bpt id="7f0d7112-653b-40c5-8263-c41986dc15f3">&lt;linkText&gt;</bpt>TrackDependency API<ept id="7f0d7112-653b-40c5-8263-c41986dc15f3">&lt;/linkText&gt;</ept><bpt id="7f0d7112-653b-40c5-8263-c41986dc15f3">&lt;title&gt;</bpt><ept id="7f0d7112-653b-40c5-8263-c41986dc15f3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For other types, such as device apps, you can write your own monitor using the <bpt id="7f0d7112-653b-40c5-8263-c41986dc15f3">&lt;linkText&gt;</bpt>TrackDependency API<ept id="7f0d7112-653b-40c5-8263-c41986dc15f3">&lt;/linkText&gt;</ept><bpt id="7f0d7112-653b-40c5-8263-c41986dc15f3">&lt;title&gt;</bpt><ept id="7f0d7112-653b-40c5-8263-c41986dc15f3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a33f89c0-b8a0-4365-881d-5e9fd8c46383" xml:space="preserve">
+          <source>The out-of-the-box dependency monitor currently reports calls to these  types of dependencies:</source>
+          <target state="new">The out-of-the-box dependency monitor currently reports calls to these  types of dependencies:</target>
+        </trans-unit>
+        <trans-unit id="82aba46e-89a7-461b-b920-c6e8e604b6d2" xml:space="preserve">
+          <source>ASP.NET</source>
+          <target state="new">ASP.NET</target>
+        </trans-unit>
+        <trans-unit id="8c56965e-c6e8-4885-8b02-557335120af5" xml:space="preserve">
+          <source>SQL databases</source>
+          <target state="new">SQL databases</target>
+        </trans-unit>
+        <trans-unit id="86a2e779-018d-4765-9f5e-beb66e83714f" xml:space="preserve">
+          <source>ASP.NET web and WCF services that use HTTP-based bindings</source>
+          <target state="new">ASP.NET web and WCF services that use HTTP-based bindings</target>
+        </trans-unit>
+        <trans-unit id="10e9be11-744d-4fc5-bf62-dab3246a4f99" xml:space="preserve">
+          <source>Local or remote HTTP calls</source>
+          <target state="new">Local or remote HTTP calls</target>
+        </trans-unit>
+        <trans-unit id="3138b1ba-8850-4d01-8ee2-da0fd6963ee0" xml:space="preserve">
+          <source>Azure DocumentDb, table, blob storage, and queue</source>
+          <target state="new">Azure DocumentDb, table, blob storage, and queue</target>
+        </trans-unit>
+        <trans-unit id="d8281730-ab8d-4af3-9ec7-d58fb1f4c8f0" xml:space="preserve">
+          <source>Java</source>
+          <target state="new">Java</target>
+        </trans-unit>
+        <trans-unit id="a33066fa-27e0-402a-bb92-2826be0ed463" xml:space="preserve">
+          <source>Calls to a database through a <bpt id="8bc4c39e-2a1d-4435-ae55-accf60c9b6dd">&lt;linkText&gt;</bpt>JDBC<ept id="8bc4c39e-2a1d-4435-ae55-accf60c9b6dd">&lt;/linkText&gt;</ept><bpt id="8bc4c39e-2a1d-4435-ae55-accf60c9b6dd">&lt;title&gt;</bpt><ept id="8bc4c39e-2a1d-4435-ae55-accf60c9b6dd">&lt;/title&gt;</ept> driver, such as MySQL, SQL Server, PostgreSQL or SQLite.</source>
+          <target state="new">Calls to a database through a <bpt id="8bc4c39e-2a1d-4435-ae55-accf60c9b6dd">&lt;linkText&gt;</bpt>JDBC<ept id="8bc4c39e-2a1d-4435-ae55-accf60c9b6dd">&lt;/linkText&gt;</ept><bpt id="8bc4c39e-2a1d-4435-ae55-accf60c9b6dd">&lt;title&gt;</bpt><ept id="8bc4c39e-2a1d-4435-ae55-accf60c9b6dd">&lt;/title&gt;</ept> driver, such as MySQL, SQL Server, PostgreSQL or SQLite.</target>
+        </trans-unit>
+        <trans-unit id="27afc233-5d1a-452d-b0e6-447b3046958a" xml:space="preserve">
+          <source>Again, you could write your own SDK calls to monitor other dependencies.</source>
+          <target state="new">Again, you could write your own SDK calls to monitor other dependencies.</target>
+        </trans-unit>
+        <trans-unit id="32ca6539-d174-4ae8-9efe-2af43a4961c4" xml:space="preserve">
+          <source>Install the appropriate agent for the host server.</source>
+          <target state="new">Install the appropriate agent for the host server.</target>
+        </trans-unit>
+        <trans-unit id="a376bd1a-367d-4ab4-9eb4-3aaf718ef2fc" xml:space="preserve">
+          <source>Platform</source>
+          <target state="new">Platform</target>
+        </trans-unit>
+        <trans-unit id="659c78ff-c6f4-45ea-b995-e23bcd161104" xml:space="preserve">
+          <source>Install</source>
+          <target state="new">Install</target>
+        </trans-unit>
+        <trans-unit id="1cb484d4-6031-46ff-8bb5-63325034a8e4" xml:space="preserve">
+          <source>IIS Server</source>
+          <target state="new">IIS Server</target>
+        </trans-unit>
+        <trans-unit id="3f4091f2-c475-4fa2-9f37-92b369b5ca01" xml:space="preserve">
+          <source><bpt id="deb5e276-d9b1-4968-85e9-94f48059a8af">&lt;linkText&gt;</bpt>Status Monitor<ept id="deb5e276-d9b1-4968-85e9-94f48059a8af">&lt;/linkText&gt;</ept><bpt id="deb5e276-d9b1-4968-85e9-94f48059a8af">&lt;title&gt;</bpt><ept id="deb5e276-d9b1-4968-85e9-94f48059a8af">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="deb5e276-d9b1-4968-85e9-94f48059a8af">&lt;linkText&gt;</bpt>Status Monitor<ept id="deb5e276-d9b1-4968-85e9-94f48059a8af">&lt;/linkText&gt;</ept><bpt id="deb5e276-d9b1-4968-85e9-94f48059a8af">&lt;title&gt;</bpt><ept id="deb5e276-d9b1-4968-85e9-94f48059a8af">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7969fb3-b579-41b7-a67b-accc6ce6e10a" xml:space="preserve">
+          <source>Azure Web App</source>
+          <target state="new">Azure Web App</target>
+        </trans-unit>
+        <trans-unit id="cea643cf-e640-4f63-8492-b2e12d3a43ca" xml:space="preserve">
+          <source><bpt id="9b6e09d3-69f2-4894-a042-c7cd6a58498a">&lt;linkText&gt;</bpt>Application Insights Extension<ept id="9b6e09d3-69f2-4894-a042-c7cd6a58498a">&lt;/linkText&gt;</ept><bpt id="9b6e09d3-69f2-4894-a042-c7cd6a58498a">&lt;title&gt;</bpt><ept id="9b6e09d3-69f2-4894-a042-c7cd6a58498a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9b6e09d3-69f2-4894-a042-c7cd6a58498a">&lt;linkText&gt;</bpt>Application Insights Extension<ept id="9b6e09d3-69f2-4894-a042-c7cd6a58498a">&lt;/linkText&gt;</ept><bpt id="9b6e09d3-69f2-4894-a042-c7cd6a58498a">&lt;title&gt;</bpt><ept id="9b6e09d3-69f2-4894-a042-c7cd6a58498a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71a02338-d2b8-4dd1-98e4-427f5778455b" xml:space="preserve">
+          <source>Java web server</source>
+          <target state="new">Java web server</target>
+        </trans-unit>
+        <trans-unit id="e38df9de-cfda-4f22-b77b-4b7223d31489" xml:space="preserve">
+          <source><bpt id="0a776a0a-e8f1-4c5f-adcb-d9d610e27f21">&lt;linkText&gt;</bpt>Java web apps<ept id="0a776a0a-e8f1-4c5f-adcb-d9d610e27f21">&lt;/linkText&gt;</ept><bpt id="0a776a0a-e8f1-4c5f-adcb-d9d610e27f21">&lt;title&gt;</bpt><ept id="0a776a0a-e8f1-4c5f-adcb-d9d610e27f21">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0a776a0a-e8f1-4c5f-adcb-d9d610e27f21">&lt;linkText&gt;</bpt>Java web apps<ept id="0a776a0a-e8f1-4c5f-adcb-d9d610e27f21">&lt;/linkText&gt;</ept><bpt id="0a776a0a-e8f1-4c5f-adcb-d9d610e27f21">&lt;title&gt;</bpt><ept id="0a776a0a-e8f1-4c5f-adcb-d9d610e27f21">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ef59d32-3db4-46c5-a6a0-75a2eb5c5fe4" xml:space="preserve">
+          <source>The Status Monitor for IIS Servers doesn't need you to rebuild your source project with the Application Insights SDK.</source>
+          <target state="new">The Status Monitor for IIS Servers doesn't need you to rebuild your source project with the Application Insights SDK.</target>
+        </trans-unit>
+        <trans-unit id="a649e017-c4bc-4c42-9ff0-8f6cfca4e1b4" xml:space="preserve">
+          <source>To assess the performance of requests at your server:</source>
+          <target state="new">To assess the performance of requests at your server:</target>
+        </trans-unit>
+        <trans-unit id="58ddbc3a-6aae-42c5-a8cb-a0730ee11df3" xml:space="preserve">
+          <source><bpt id="cf871b05-6b7f-48b2-baeb-62a8649145e4">&lt;linkText&gt;</bpt>In the Overview page of your application in Application Insights, click the Performance tile<ept id="cf871b05-6b7f-48b2-baeb-62a8649145e4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf871b05-6b7f-48b2-baeb-62a8649145e4">&lt;linkText&gt;</bpt>In the Overview page of your application in Application Insights, click the Performance tile<ept id="cf871b05-6b7f-48b2-baeb-62a8649145e4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aeb9381c-d10e-44c3-8fe9-6bc634040ee7" xml:space="preserve">
+          <source>Scroll down to look at the grid of requests:</source>
+          <target state="new">Scroll down to look at the grid of requests:</target>
+        </trans-unit>
+        <trans-unit id="2d24a308-4e5c-47f2-adb8-e44531a9fb47" xml:space="preserve">
+          <source><bpt id="e18b99a0-615a-4099-b40c-915c35731b6c">&lt;linkText&gt;</bpt>List of requests with averages and counts<ept id="e18b99a0-615a-4099-b40c-915c35731b6c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e18b99a0-615a-4099-b40c-915c35731b6c">&lt;linkText&gt;</bpt>List of requests with averages and counts<ept id="e18b99a0-615a-4099-b40c-915c35731b6c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38499c57-760e-469e-a5cd-456d5d0450c5" xml:space="preserve">
+          <source>The top one is taking very long.</source>
+          <target state="new">The top one is taking very long.</target>
+        </trans-unit>
+        <trans-unit id="c12304cd-97da-466c-8179-5cb4a497775e" xml:space="preserve">
+          <source>Let's see if we can find out where the time is spent.</source>
+          <target state="new">Let's see if we can find out where the time is spent.</target>
+        </trans-unit>
+        <trans-unit id="202e88d5-e8c5-48e5-a6b4-b9ccd50a654c" xml:space="preserve">
+          <source>Click that row to see individual request events:</source>
+          <target state="new">Click that row to see individual request events:</target>
+        </trans-unit>
+        <trans-unit id="70a47749-fb3a-4f87-b18c-65550e34ee40" xml:space="preserve">
+          <source><bpt id="65c21cbc-f003-407f-962d-e706fb09eb9a">&lt;linkText&gt;</bpt>List of request occurrences<ept id="65c21cbc-f003-407f-962d-e706fb09eb9a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="65c21cbc-f003-407f-962d-e706fb09eb9a">&lt;linkText&gt;</bpt>List of request occurrences<ept id="65c21cbc-f003-407f-962d-e706fb09eb9a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a6713dd-9d88-4f61-8799-9c76797e64cb" xml:space="preserve">
+          <source>Click any long-running instance to inspect it further.</source>
+          <target state="new">Click any long-running instance to inspect it further.</target>
+        </trans-unit>
+        <trans-unit id="86bd6631-5ed5-4a0d-8d71-d781d497a5fd" xml:space="preserve">
+          <source>Scroll down a bit to choose an instance.</source>
+          <target state="new">Scroll down a bit to choose an instance.</target>
+        </trans-unit>
+        <trans-unit id="3d549c43-d80b-4257-8eb8-c10c320357c5" xml:space="preserve">
+          <source>Latency in the pipeline might mean that the data for the top instances is incomplete.</source>
+          <target state="new">Latency in the pipeline might mean that the data for the top instances is incomplete.</target>
+        </trans-unit>
+        <trans-unit id="34fcfc36-49f8-498b-b66a-3ecccf6cf862" xml:space="preserve">
+          <source>Scroll down to the remote dependency calls related to this request:</source>
+          <target state="new">Scroll down to the remote dependency calls related to this request:</target>
+        </trans-unit>
+        <trans-unit id="2e50f93b-7bca-4e48-8a00-f413fb5bbb7f" xml:space="preserve">
+          <source><bpt id="3bb781f2-432f-4313-a8a2-007b70f0510a">&lt;linkText&gt;</bpt>Find Calls to Remote Dependencies, identify unusual Duration<ept id="3bb781f2-432f-4313-a8a2-007b70f0510a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3bb781f2-432f-4313-a8a2-007b70f0510a">&lt;linkText&gt;</bpt>Find Calls to Remote Dependencies, identify unusual Duration<ept id="3bb781f2-432f-4313-a8a2-007b70f0510a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7832e41c-f931-4f00-8407-d3ff64049eaf" xml:space="preserve">
+          <source>It looks like most of the time servicing this request was spent in a call to a local service.</source>
+          <target state="new">It looks like most of the time servicing this request was spent in a call to a local service.</target>
+        </trans-unit>
+        <trans-unit id="400bb97a-ef04-4c6f-88cb-9b582df8c275" xml:space="preserve">
+          <source>Select that row to get more information:</source>
+          <target state="new">Select that row to get more information:</target>
+        </trans-unit>
+        <trans-unit id="c9a07f0d-99db-42ef-94ce-1273925dfa53" xml:space="preserve">
+          <source><bpt id="9fef05e6-aece-43a6-8114-156db3bede12">&lt;linkText&gt;</bpt>Click through that remote dependency to identify the culprit<ept id="9fef05e6-aece-43a6-8114-156db3bede12">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9fef05e6-aece-43a6-8114-156db3bede12">&lt;linkText&gt;</bpt>Click through that remote dependency to identify the culprit<ept id="9fef05e6-aece-43a6-8114-156db3bede12">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47b2f4b9-00de-4702-b23a-73e73965b23d" xml:space="preserve">
+          <source>The detail includes sufficient information to diagnose the problem.</source>
+          <target state="new">The detail includes sufficient information to diagnose the problem.</target>
+        </trans-unit>
+        <trans-unit id="9824b692-2bbe-4e80-9021-783038165fcb" xml:space="preserve">
+          <source>If there are failed requests, click the chart.</source>
+          <target state="new">If there are failed requests, click the chart.</target>
+        </trans-unit>
+        <trans-unit id="c11cf62f-ad7a-4f4c-a2bb-5cb16ecb381d" xml:space="preserve">
+          <source><bpt id="a1e01c80-8aac-49ba-9ef5-e08c8bfdd244">&lt;linkText&gt;</bpt>Click the failed requests chart<ept id="a1e01c80-8aac-49ba-9ef5-e08c8bfdd244">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a1e01c80-8aac-49ba-9ef5-e08c8bfdd244">&lt;linkText&gt;</bpt>Click the failed requests chart<ept id="a1e01c80-8aac-49ba-9ef5-e08c8bfdd244">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcb5a091-2ff0-4d8d-962f-78cd1f2819b9" xml:space="preserve">
+          <source>Click through a request type and request instance, to find a failed call to a remote dependency.</source>
+          <target state="new">Click through a request type and request instance, to find a failed call to a remote dependency.</target>
+        </trans-unit>
+        <trans-unit id="37f03d58-e1d8-4b86-aae8-2379a1104d26" xml:space="preserve">
+          <source><bpt id="05ae5ab6-96ae-4922-8f58-83543f63648f">&lt;linkText&gt;</bpt>Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.<ept id="05ae5ab6-96ae-4922-8f58-83543f63648f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="05ae5ab6-96ae-4922-8f58-83543f63648f">&lt;linkText&gt;</bpt>Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.<ept id="05ae5ab6-96ae-4922-8f58-83543f63648f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92b60df1-69d0-48be-9ff5-bb4a7dcaca13" xml:space="preserve">
+          <source>The standard dependency-tracking module automatically discovers external dependencies such as databases and REST APIs.</source>
+          <target state="new">The standard dependency-tracking module automatically discovers external dependencies such as databases and REST APIs.</target>
+        </trans-unit>
+        <trans-unit id="1584d7ce-e4bb-420d-ab46-48c962a961a9" xml:space="preserve">
+          <source>But you might want some additional components to be treated in the same way.</source>
+          <target state="new">But you might want some additional components to be treated in the same way.</target>
+        </trans-unit>
+        <trans-unit id="b827ed4d-ce13-41c0-8455-430ea51f8aad" xml:space="preserve">
+          <source>You can write code that sends dependency information, using the same <bpt id="efa4c6f0-7a59-42e7-bb56-8a0bc527dbe0">&lt;linkText&gt;</bpt>TrackDependency API<ept id="efa4c6f0-7a59-42e7-bb56-8a0bc527dbe0">&lt;/linkText&gt;</ept><bpt id="efa4c6f0-7a59-42e7-bb56-8a0bc527dbe0">&lt;title&gt;</bpt><ept id="efa4c6f0-7a59-42e7-bb56-8a0bc527dbe0">&lt;/title&gt;</ept> that is used by the standard modules.</source>
+          <target state="new">You can write code that sends dependency information, using the same <bpt id="efa4c6f0-7a59-42e7-bb56-8a0bc527dbe0">&lt;linkText&gt;</bpt>TrackDependency API<ept id="efa4c6f0-7a59-42e7-bb56-8a0bc527dbe0">&lt;/linkText&gt;</ept><bpt id="efa4c6f0-7a59-42e7-bb56-8a0bc527dbe0">&lt;title&gt;</bpt><ept id="efa4c6f0-7a59-42e7-bb56-8a0bc527dbe0">&lt;/title&gt;</ept> that is used by the standard modules.</target>
+        </trans-unit>
+        <trans-unit id="bab56de2-dbd7-4135-bef4-e430e81b4131" xml:space="preserve">
+          <source>For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times.</source>
+          <target state="new">For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times.</target>
+        </trans-unit>
+        <trans-unit id="d16bc322-b353-4730-99a7-43d5ae90e366" xml:space="preserve">
+          <source>To have this data displayed in the dependency charts in Application Insights, send it using <bpt id="ca90c99b-ceae-4fdf-8618-214b1bbe1c08">&lt;code&gt;</bpt>TrackDependency<ept id="ca90c99b-ceae-4fdf-8618-214b1bbe1c08">&lt;/code&gt;</ept>.</source>
+          <target state="new">To have this data displayed in the dependency charts in Application Insights, send it using <bpt id="ca90c99b-ceae-4fdf-8618-214b1bbe1c08">&lt;code&gt;</bpt>TrackDependency<ept id="ca90c99b-ceae-4fdf-8618-214b1bbe1c08">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df5ce831-3a59-447c-96fd-57add8a1fea0" xml:space="preserve">
+          <source>If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in <bpt id="d1b975ec-d3ca-4683-811e-05e992fc95f7">&lt;linkText&gt;</bpt>ApplicationInsights.config<ept id="d1b975ec-d3ca-4683-811e-05e992fc95f7">&lt;/linkText&gt;</ept><bpt id="d1b975ec-d3ca-4683-811e-05e992fc95f7">&lt;title&gt;</bpt><ept id="d1b975ec-d3ca-4683-811e-05e992fc95f7">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in <bpt id="d1b975ec-d3ca-4683-811e-05e992fc95f7">&lt;linkText&gt;</bpt>ApplicationInsights.config<ept id="d1b975ec-d3ca-4683-811e-05e992fc95f7">&lt;/linkText&gt;</ept><bpt id="d1b975ec-d3ca-4683-811e-05e992fc95f7">&lt;title&gt;</bpt><ept id="d1b975ec-d3ca-4683-811e-05e992fc95f7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

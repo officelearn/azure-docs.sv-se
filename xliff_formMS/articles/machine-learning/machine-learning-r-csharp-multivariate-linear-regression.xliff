@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ddda2d12-1ede-40d7-94bf-15e31b9a1903" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ddda2d12-1ede-40d7-94bf-15e31b9a1903" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3f752702-afdb-4948-8333-3fa1976842ab">
+        <trans-unit id="a3b5751d-af6a-4491-816e-fcaae0665385" xml:space="preserve">
+          <source>Multivariate Linear Regression | Microsoft Azure</source>
+          <target state="new">Multivariate Linear Regression | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2f620cde-59ff-4741-9960-85971613cdff" xml:space="preserve">
+          <source>Multivariate Linear Regression</source>
+          <target state="new">Multivariate Linear Regression</target>
+        </trans-unit>
+        <trans-unit id="8fc5485c-ac68-4d11-9ab3-00f0a0f96094" xml:space="preserve">
+          <source>Suppose you have a dataset and would like to quickly predict a dependent variable (y) for each individual (i) based on independent variables.</source>
+          <target state="new">Suppose you have a dataset and would like to quickly predict a dependent variable (y) for each individual (i) based on independent variables.</target>
+        </trans-unit>
+        <trans-unit id="26d1db2d-ad90-4b5c-bdc9-614d15598023" xml:space="preserve">
+          <source>Linear regression is a popular statistical technique used for such predictions.</source>
+          <target state="new">Linear regression is a popular statistical technique used for such predictions.</target>
+        </trans-unit>
+        <trans-unit id="8600765a-694f-4986-89a4-3f9d8d0308fa" xml:space="preserve">
+          <source>Here the dependent variable y is assumed to be a continuous value.</source>
+          <target state="new">Here the dependent variable y is assumed to be a continuous value.</target>
+        </trans-unit>
+        <trans-unit id="9a886119-fdbb-4a4e-b6fc-02fff8958945" xml:space="preserve">
+          <source><bpt id="e25c7758-6216-427b-8386-3c4cc000daaf">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="e25c7758-6216-427b-8386-3c4cc000daaf">&lt;/token&gt;</ept>  </source>
+          <target state="new"><bpt id="e25c7758-6216-427b-8386-3c4cc000daaf">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="e25c7758-6216-427b-8386-3c4cc000daaf">&lt;/token&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="0fc22f8e-d894-4ccb-8918-847a6ccf2c31" xml:space="preserve">
+          <source>A simple scenario could be where the researcher is trying to predict the weight of an individual (y) based on their height (x).</source>
+          <target state="new">A simple scenario could be where the researcher is trying to predict the weight of an individual (y) based on their height (x).</target>
+        </trans-unit>
+        <trans-unit id="f407af7b-23d6-4c4f-9f3f-9a525fba91ad" xml:space="preserve">
+          <source>A more advanced scenario could be where the researcher has additional information for the individual (such as weight, gender, race) and attempts to predict the weight of the individual.</source>
+          <target state="new">A more advanced scenario could be where the researcher has additional information for the individual (such as weight, gender, race) and attempts to predict the weight of the individual.</target>
+        </trans-unit>
+        <trans-unit id="6990b400-f3c4-4df8-9d0f-1b67a76f3eb3" xml:space="preserve">
+          <source>This [web service]( https://datamarket.azure.com/dataset/aml<bpt id="2d9c9c55-b4cc-4f9b-933a-901c3235bd0d">&lt;em&gt;</bpt>labs/multivariate<ept id="2d9c9c55-b4cc-4f9b-933a-901c3235bd0d">&lt;/em&gt;</ept>regression) fits the linear regression model to the data and outputs the predicted value (y) for each of the observations in the data.</source>
+          <target state="new">This [web service]( https://datamarket.azure.com/dataset/aml<bpt id="2d9c9c55-b4cc-4f9b-933a-901c3235bd0d">&lt;em&gt;</bpt>labs/multivariate<ept id="2d9c9c55-b4cc-4f9b-933a-901c3235bd0d">&lt;/em&gt;</ept>regression) fits the linear regression model to the data and outputs the predicted value (y) for each of the observations in the data.</target>
+        </trans-unit>
+        <trans-unit id="7f0cebc5-708b-4dda-a59f-400c1fb8664b" xml:space="preserve">
+          <source>This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example.</source>
+          <target state="new">This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example.</target>
+        </trans-unit>
+        <trans-unit id="cdb0a684-c171-4ba4-863d-e1a361b98808" xml:space="preserve">
+          <source>But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</source>
+          <target state="new">But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</target>
+        </trans-unit>
+        <trans-unit id="40e1afb7-9897-4869-bf4f-3ebac3bd8df4" xml:space="preserve">
+          <source>With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</source>
+          <target state="new">With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</target>
+        </trans-unit>
+        <trans-unit id="0f3f7b02-e0fd-428a-9272-97689c37626b" xml:space="preserve">
+          <source>The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.</source>
+          <target state="new">The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.</target>
+        </trans-unit>
+        <trans-unit id="7d9347e2-88ec-4b94-b32a-6f0a502d560a" xml:space="preserve">
+          <source>This web service gives the predicted values of the dependent variable based on the independent variables for all of the observations.</source>
+          <target state="new">This web service gives the predicted values of the dependent variable based on the independent variables for all of the observations.</target>
+        </trans-unit>
+        <trans-unit id="b0946d65-f86f-4547-9677-edb911f7ed0f" xml:space="preserve">
+          <source>The web service expects the end user to input data as a string where rows are separated by commas (,) and columns are separated by semicolons (;).</source>
+          <target state="new">The web service expects the end user to input data as a string where rows are separated by commas (,) and columns are separated by semicolons (;).</target>
+        </trans-unit>
+        <trans-unit id="e79049fe-0abf-4ecc-927c-1dee5dc0cb0a" xml:space="preserve">
+          <source>The web service expects 1 row at a time and expects the first column to be the dependent variable.</source>
+          <target state="new">The web service expects 1 row at a time and expects the first column to be the dependent variable.</target>
+        </trans-unit>
+        <trans-unit id="8f598eec-90b3-4933-89ed-d187b0e7e692" xml:space="preserve">
+          <source>An example dataset could look like this:</source>
+          <target state="new">An example dataset could look like this:</target>
+        </trans-unit>
+        <trans-unit id="461240c1-0d2b-4249-96d2-5f08e5c1d745" xml:space="preserve">
+          <source><bpt id="1dbf2b30-efd6-4791-9008-acd8e26be4b9">&lt;linkText&gt;</bpt>Sample data<ept id="1dbf2b30-efd6-4791-9008-acd8e26be4b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1dbf2b30-efd6-4791-9008-acd8e26be4b9">&lt;linkText&gt;</bpt>Sample data<ept id="1dbf2b30-efd6-4791-9008-acd8e26be4b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7143bc9f-487d-4e7d-8b69-e6482bbec2d8" xml:space="preserve">
+          <source>Observations without a dependent variable should be input as “NA” for y.</source>
+          <target state="new">Observations without a dependent variable should be input as “NA” for y.</target>
+        </trans-unit>
+        <trans-unit id="af327c77-e3a4-4c0a-adbb-d315f067c9f2" xml:space="preserve">
+          <source>Th</source>
+          <target state="new">Th</target>
+        </trans-unit>
+        <trans-unit id="a8d5d11f-40d2-48c9-9db2-4ffbd1bc6bd1" xml:space="preserve">
+          <source>e data input for the above dataset would be the following string: “10;5;2,18;1;6,6;5.3;2.1,7;5;5,22;3;4,12;2;1,NA;3;4”.</source>
+          <target state="new">e data input for the above dataset would be the following string: “10;5;2,18;1;6,6;5.3;2.1,7;5;5,22;3;4,12;2;1,NA;3;4”.</target>
+        </trans-unit>
+        <trans-unit id="dfa34148-c798-432e-bbde-fe42ff854cba" xml:space="preserve">
+          <source>The output is the predicted value for each of the rows based on the independent variables.</source>
+          <target state="new">The output is the predicted value for each of the rows based on the independent variables.</target>
+        </trans-unit>
+        <trans-unit id="9e18b337-c65a-432d-a683-c696f366678b" xml:space="preserve">
+          <source>This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</source>
+          <target state="new">This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</target>
+        </trans-unit>
+        <trans-unit id="13187f18-d617-490a-89c2-66ca4f99cfe4" xml:space="preserve">
+          <source>There are multiple ways of consuming the service in an automated fashion (an example app is <bpt id="7d628bd9-a0b1-4e4f-9a1c-edf663934d41">&lt;linkText&gt;</bpt>here<ept id="7d628bd9-a0b1-4e4f-9a1c-edf663934d41">&lt;/linkText&gt;</ept><bpt id="7d628bd9-a0b1-4e4f-9a1c-edf663934d41">&lt;title&gt;</bpt><ept id="7d628bd9-a0b1-4e4f-9a1c-edf663934d41">&lt;/title&gt;</ept>).</source>
+          <target state="new">There are multiple ways of consuming the service in an automated fashion (an example app is <bpt id="7d628bd9-a0b1-4e4f-9a1c-edf663934d41">&lt;linkText&gt;</bpt>here<ept id="7d628bd9-a0b1-4e4f-9a1c-edf663934d41">&lt;/linkText&gt;</ept><bpt id="7d628bd9-a0b1-4e4f-9a1c-edf663934d41">&lt;title&gt;</bpt><ept id="7d628bd9-a0b1-4e4f-9a1c-edf663934d41">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="741fc5d1-f58a-4a41-8dae-36567f907bc0" xml:space="preserve">
+          <source>This web service was created using Azure Machine Learning.</source>
+          <target state="new">This web service was created using Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="c2fdc4ae-697f-4862-9e38-4aa57bf76cc1" xml:space="preserve">
+          <source>For a free trial, as well as introductory videos on creating experiments and <bpt id="be19b12c-eac2-4e08-9f14-a28cc82b8c56">&lt;linkText&gt;</bpt>publishing web services<ept id="be19b12c-eac2-4e08-9f14-a28cc82b8c56">&lt;/linkText&gt;</ept><bpt id="be19b12c-eac2-4e08-9f14-a28cc82b8c56">&lt;title&gt;</bpt><ept id="be19b12c-eac2-4e08-9f14-a28cc82b8c56">&lt;/title&gt;</ept>, please see <bpt id="05113298-01dc-49df-9b15-ebd89131189a">&lt;linkText&gt;</bpt>azure.com/ml<ept id="05113298-01dc-49df-9b15-ebd89131189a">&lt;/linkText&gt;</ept><bpt id="05113298-01dc-49df-9b15-ebd89131189a">&lt;title&gt;</bpt><ept id="05113298-01dc-49df-9b15-ebd89131189a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a free trial, as well as introductory videos on creating experiments and <bpt id="be19b12c-eac2-4e08-9f14-a28cc82b8c56">&lt;linkText&gt;</bpt>publishing web services<ept id="be19b12c-eac2-4e08-9f14-a28cc82b8c56">&lt;/linkText&gt;</ept><bpt id="be19b12c-eac2-4e08-9f14-a28cc82b8c56">&lt;title&gt;</bpt><ept id="be19b12c-eac2-4e08-9f14-a28cc82b8c56">&lt;/title&gt;</ept>, please see <bpt id="05113298-01dc-49df-9b15-ebd89131189a">&lt;linkText&gt;</bpt>azure.com/ml<ept id="05113298-01dc-49df-9b15-ebd89131189a">&lt;/linkText&gt;</ept><bpt id="05113298-01dc-49df-9b15-ebd89131189a">&lt;title&gt;</bpt><ept id="05113298-01dc-49df-9b15-ebd89131189a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aeb86ddf-366f-4d67-a157-0c18327e4997" xml:space="preserve">
+          <source>Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</source>
+          <target state="new">Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</target>
+        </trans-unit>
+        <trans-unit id="877ac098-5d65-4639-aa18-ed3159280636" xml:space="preserve">
+          <source>From within Azure Machine Learning, a new blank experiment was created and two <bpt id="5d26eb40-477c-4f3d-95cf-2391d55f8f5e">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="5d26eb40-477c-4f3d-95cf-2391d55f8f5e">&lt;/linkText&gt;</ept><bpt id="5d26eb40-477c-4f3d-95cf-2391d55f8f5e">&lt;title&gt;</bpt><ept id="5d26eb40-477c-4f3d-95cf-2391d55f8f5e">&lt;/title&gt;</ept> modules were pulled onto the workspace.</source>
+          <target state="new">From within Azure Machine Learning, a new blank experiment was created and two <bpt id="5d26eb40-477c-4f3d-95cf-2391d55f8f5e">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="5d26eb40-477c-4f3d-95cf-2391d55f8f5e">&lt;/linkText&gt;</ept><bpt id="5d26eb40-477c-4f3d-95cf-2391d55f8f5e">&lt;title&gt;</bpt><ept id="5d26eb40-477c-4f3d-95cf-2391d55f8f5e">&lt;/title&gt;</ept> modules were pulled onto the workspace.</target>
+        </trans-unit>
+        <trans-unit id="00ac96f3-6279-4a85-8868-8fbdcc8caf21" xml:space="preserve">
+          <source>This web service runs an Azure Machine Learning experiment with an underlying R script.</source>
+          <target state="new">This web service runs an Azure Machine Learning experiment with an underlying R script.</target>
+        </trans-unit>
+        <trans-unit id="3c9e286d-18b5-4c04-a167-28962f66a3d1" xml:space="preserve">
+          <source>There are 2 parts to this experiment: schema definition, and training model + scoring.</source>
+          <target state="new">There are 2 parts to this experiment: schema definition, and training model + scoring.</target>
+        </trans-unit>
+        <trans-unit id="84d24516-4656-498e-8d77-a2a49a503658" xml:space="preserve">
+          <source>The first module defines the expected structure of the input dataset, where the first variable is the dependent variable and the remaining variables are independent.</source>
+          <target state="new">The first module defines the expected structure of the input dataset, where the first variable is the dependent variable and the remaining variables are independent.</target>
+        </trans-unit>
+        <trans-unit id="329a7c87-306b-4256-b107-b5c08924b503" xml:space="preserve">
+          <source>The second module fits a generic linear regression model for the input data.</source>
+          <target state="new">The second module fits a generic linear regression model for the input data.</target>
+        </trans-unit>
+        <trans-unit id="3b2c8d2a-ad84-4a73-92a6-711144e802c4" xml:space="preserve">
+          <source><bpt id="1764071e-1449-4150-aee1-c0aef7aea7a0">&lt;linkText&gt;</bpt>Experiment flow<ept id="1764071e-1449-4150-aee1-c0aef7aea7a0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1764071e-1449-4150-aee1-c0aef7aea7a0">&lt;linkText&gt;</bpt>Experiment flow<ept id="1764071e-1449-4150-aee1-c0aef7aea7a0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a314f9af-ab73-408d-a3ff-c5141b1b48d3" xml:space="preserve">
+          <source>This is a very simple example of a multiple linear regression web service.</source>
+          <target state="new">This is a very simple example of a multiple linear regression web service.</target>
+        </trans-unit>
+        <trans-unit id="522c81e7-6574-4738-bcf7-a3a4c9b19dd7" xml:space="preserve">
+          <source>As can be seen from the example code above, no error catching is implemented and the service assumes everything is a continuous variable (no categorical features allowed), as the service only inputs numeric values at the time of the creation of this web service.</source>
+          <target state="new">As can be seen from the example code above, no error catching is implemented and the service assumes everything is a continuous variable (no categorical features allowed), as the service only inputs numeric values at the time of the creation of this web service.</target>
+        </trans-unit>
+        <trans-unit id="709d7367-e4fe-4ee7-b708-102d1af94a03" xml:space="preserve">
+          <source>Also, the service currently handles limited data size, due to the request/response nature of the web service call and the fact that the model is being fit every time the web service is called.</source>
+          <target state="new">Also, the service currently handles limited data size, due to the request/response nature of the web service call and the fact that the model is being fit every time the web service is called.</target>
+        </trans-unit>
+        <trans-unit id="3cdbf47c-d756-45d8-8255-d3d79051a7ae" xml:space="preserve">
+          <source>For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="4f6bc9f7-6c0d-4082-a03e-a2f53bd9dbb2">&lt;linkText&gt;</bpt>here<ept id="4f6bc9f7-6c0d-4082-a03e-a2f53bd9dbb2">&lt;/linkText&gt;</ept><bpt id="4f6bc9f7-6c0d-4082-a03e-a2f53bd9dbb2">&lt;title&gt;</bpt><ept id="4f6bc9f7-6c0d-4082-a03e-a2f53bd9dbb2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="4f6bc9f7-6c0d-4082-a03e-a2f53bd9dbb2">&lt;linkText&gt;</bpt>here<ept id="4f6bc9f7-6c0d-4082-a03e-a2f53bd9dbb2">&lt;/linkText&gt;</ept><bpt id="4f6bc9f7-6c0d-4082-a03e-a2f53bd9dbb2">&lt;title&gt;</bpt><ept id="4f6bc9f7-6c0d-4082-a03e-a2f53bd9dbb2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4fe01fe-d405-471d-a450-2d74671c904f" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img1.png</source>
+          <target state="new">./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img1.png</target>
+        </trans-unit>
+        <trans-unit id="f819eb2d-f1a7-401e-a5d4-f2fbf3fa2397" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img2.png</source>
+          <target state="new">./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img2.png</target>
+        </trans-unit>
+        <trans-unit id="9cda7931-a773-4720-8067-f35fab22f3c8" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img3.png</source>
+          <target state="new">./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img3.png</target>
+        </trans-unit>
+        <trans-unit id="ca7b4ed6-f97f-4fee-8198-6e7fd1a27e0a" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</target>
+        </trans-unit>
+      </group>
+      <group id="84d56c3a-b3ed-4a9f-84ac-89fcb8363531" />
+    </body>
+  </file>
+</xliff>

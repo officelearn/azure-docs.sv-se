@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="be25326c-4571-4489-a2c2-01deb64b04ff" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="be25326c-4571-4489-a2c2-01deb64b04ff" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="060d1bf3-c793-4c7c-9cff-51ee09447146">
+        <trans-unit id="51218d5a-6485-4830-849b-6da1fdf54459" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication Reports</source>
+          <target state="new">Azure Multi-Factor Authentication Reports</target>
+        </trans-unit>
+        <trans-unit id="48594563-e514-4bf6-b747-35a810d3ee10" xml:space="preserve">
+          <source>This describes how to use the Azure Multi-Factor Authentication feature - reports.</source>
+          <target state="new">This describes how to use the Azure Multi-Factor Authentication feature - reports.</target>
+        </trans-unit>
+        <trans-unit id="b08f728d-f7dd-481b-9415-d6a8f1dfc98a" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication provides several reports that can be used by you and your organization.</source>
+          <target state="new">Azure Multi-Factor Authentication provides several reports that can be used by you and your organization.</target>
+        </trans-unit>
+        <trans-unit id="ac95b570-17c5-4456-902c-c9bb384e32da" xml:space="preserve">
+          <source>These reports can be accessed through the Multi-Factor Authentication Management Portal.</source>
+          <target state="new">These reports can be accessed through the Multi-Factor Authentication Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="87c45459-2d09-4213-b123-97fc4785cd4c" xml:space="preserve">
+          <source>The following is a list of the available reports.</source>
+          <target state="new">The following is a list of the available reports.</target>
+        </trans-unit>
+        <trans-unit id="4a9e00ec-a08e-4527-a38d-34b6f90d76cb" xml:space="preserve">
+          <source>You can access reports through the Azure Management portal.</source>
+          <target state="new">You can access reports through the Azure Management portal.</target>
+        </trans-unit>
+        <trans-unit id="282d363f-0a17-4c47-8e43-67f5c4549f04" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="1da2ef44-151e-4749-b470-8643c81d7217" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="5f7d5a8c-dc21-4360-acaa-1eb8656450c6" xml:space="preserve">
+          <source>Usage</source>
+          <target state="new">Usage</target>
+        </trans-unit>
+        <trans-unit id="3825f99e-45d6-4738-b7e3-e8ea4bb37db6" xml:space="preserve">
+          <source>The usage reports display information on overall usage, user summary and user details.</source>
+          <target state="new">The usage reports display information on overall usage, user summary and user details.</target>
+        </trans-unit>
+        <trans-unit id="a5407d7e-031d-46c1-a3a9-85c0fafc1ec3" xml:space="preserve">
+          <source>Server Status</source>
+          <target state="new">Server Status</target>
+        </trans-unit>
+        <trans-unit id="7a7944ff-ff5f-4bc8-b3f2-bef4b130383e" xml:space="preserve">
+          <source>This report displays the status of Multi-Factor Authentication Servers associated with your account.</source>
+          <target state="new">This report displays the status of Multi-Factor Authentication Servers associated with your account.</target>
+        </trans-unit>
+        <trans-unit id="43d0e0ea-5180-47d1-8611-65dd9a723c16" xml:space="preserve">
+          <source>Blocked User History</source>
+          <target state="new">Blocked User History</target>
+        </trans-unit>
+        <trans-unit id="a7dc48b5-ed16-4eff-976b-bfab91b662bb" xml:space="preserve">
+          <source>These reports show the history of requests to block or unblock users.</source>
+          <target state="new">These reports show the history of requests to block or unblock users.</target>
+        </trans-unit>
+        <trans-unit id="6d96b874-a413-422d-bcc1-4d78c0b2666f" xml:space="preserve">
+          <source>Bypassed User History</source>
+          <target state="new">Bypassed User History</target>
+        </trans-unit>
+        <trans-unit id="b08b1fd9-03db-47c9-9d40-d275c9eb7ef4" xml:space="preserve">
+          <source>Shows the history of requests to bypass Multi-Factor Authentication for a user's phone number.</source>
+          <target state="new">Shows the history of requests to bypass Multi-Factor Authentication for a user's phone number.</target>
+        </trans-unit>
+        <trans-unit id="b69810f2-a1bd-48d6-bfdc-669836605ac1" xml:space="preserve">
+          <source>Fraud Alert</source>
+          <target state="new">Fraud Alert</target>
+        </trans-unit>
+        <trans-unit id="aceb7808-fbe2-44f8-a7a4-8cc3183685ec" xml:space="preserve">
+          <source>Shows a history of fraud alerts submitted during the date range you specified.</source>
+          <target state="new">Shows a history of fraud alerts submitted during the date range you specified.</target>
+        </trans-unit>
+        <trans-unit id="c30deb16-84ec-4971-94a1-2314ad9377e6" xml:space="preserve">
+          <source>Queued</source>
+          <target state="new">Queued</target>
+        </trans-unit>
+        <trans-unit id="9e999e76-2db1-4043-ae19-589eb33b859b" xml:space="preserve">
+          <source>Lists reports queued for processing and their status.</source>
+          <target state="new">Lists reports queued for processing and their status.</target>
+        </trans-unit>
+        <trans-unit id="112ee5d4-82a0-4945-bd29-c04a068c4474" xml:space="preserve">
+          <source>A link to download or view the report is provided when the report is complete.</source>
+          <target state="new">A link to download or view the report is provided when the report is complete.</target>
+        </trans-unit>
+        <trans-unit id="136b72fc-887c-4eea-9b88-c37995fa69ca" xml:space="preserve">
+          <source>Log on to <bpt id="170692e1-5f98-4655-b867-b46093873f5a">&lt;linkText&gt;</bpt>http://azure.microsoft.com<ept id="170692e1-5f98-4655-b867-b46093873f5a">&lt;/linkText&gt;</ept><bpt id="170692e1-5f98-4655-b867-b46093873f5a">&lt;title&gt;</bpt><ept id="170692e1-5f98-4655-b867-b46093873f5a">&lt;/title&gt;</ept></source>
+          <target state="new">Log on to <bpt id="170692e1-5f98-4655-b867-b46093873f5a">&lt;linkText&gt;</bpt>http://azure.microsoft.com<ept id="170692e1-5f98-4655-b867-b46093873f5a">&lt;/linkText&gt;</ept><bpt id="170692e1-5f98-4655-b867-b46093873f5a">&lt;title&gt;</bpt><ept id="170692e1-5f98-4655-b867-b46093873f5a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5265ddb6-2357-4efb-b2ae-816df8cbef7a" xml:space="preserve">
+          <source>On the left, select Active Directory.</source>
+          <target state="new">On the left, select Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="98953218-9819-4837-996c-b3de9e73991e" xml:space="preserve">
+          <source>At the top select Multi-Factor Auth Providers.</source>
+          <target state="new">At the top select Multi-Factor Auth Providers.</target>
+        </trans-unit>
+        <trans-unit id="c0073398-76fc-4444-b5ee-6e2b38472a44" xml:space="preserve">
+          <source>This will bring up a list of your Multi-Factor Auth Providers.</source>
+          <target state="new">This will bring up a list of your Multi-Factor Auth Providers.</target>
+        </trans-unit>
+        <trans-unit id="be58fc83-e2dd-4687-9a51-25bb4f6aac26" xml:space="preserve">
+          <source>If you have more than one Multi-Factor Auth Provider, select the one you wish to view the fraud alert report and click Manage at the bottom of the page.</source>
+          <target state="new">If you have more than one Multi-Factor Auth Provider, select the one you wish to view the fraud alert report and click Manage at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="75bb6b4a-e7ff-4e6f-8c76-dc109fb11e3f" xml:space="preserve">
+          <source>If you have only one, just click Manage.</source>
+          <target state="new">If you have only one, just click Manage.</target>
+        </trans-unit>
+        <trans-unit id="9390a7a3-a416-4208-8116-7b4f93002505" xml:space="preserve">
+          <source>This will open the Azure Multi-Factor Authentication Management Portal.</source>
+          <target state="new">This will open the Azure Multi-Factor Authentication Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="dc6bdb1a-bc0f-4686-9a42-49dbd82f6b64" xml:space="preserve">
+          <source>On the Azure Multi-Factor Authentication Management Portal, on the left, you will see View a Report.</source>
+          <target state="new">On the Azure Multi-Factor Authentication Management Portal, on the left, you will see View a Report.</target>
+        </trans-unit>
+        <trans-unit id="d9499a9a-f175-4f68-ab26-efdcc3bf82e3" xml:space="preserve">
+          <source>From here you can select the reports described above.</source>
+          <target state="new">From here you can select the reports described above.</target>
+        </trans-unit>
+        <trans-unit id="1c01e7d1-99af-4c22-b0f3-ef56bc63bcd4" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="6ef62a74-22ee-40af-b87c-9d6a3442eb60">&lt;linkText&gt;</bpt>Cloud<ept id="6ef62a74-22ee-40af-b87c-9d6a3442eb60">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="6ef62a74-22ee-40af-b87c-9d6a3442eb60">&lt;linkText&gt;</bpt>Cloud<ept id="6ef62a74-22ee-40af-b87c-9d6a3442eb60">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="58c70c1b-e88a-4d7d-afe3-64a6d253c90f" xml:space="preserve">
+          <source><bpt id="2165bb3e-f111-4ab8-80bc-ee03cd78b474">&lt;strong&gt;</bpt>Additional Resources<ept id="2165bb3e-f111-4ab8-80bc-ee03cd78b474">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2165bb3e-f111-4ab8-80bc-ee03cd78b474">&lt;strong&gt;</bpt>Additional Resources<ept id="2165bb3e-f111-4ab8-80bc-ee03cd78b474">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41ab94cb-1961-44d0-8d28-a0253ae8c7c4" xml:space="preserve">
+          <source><bpt id="dad14f6d-4da5-437c-9f9a-928548d624af">&lt;linkText&gt;</bpt>For Users<ept id="dad14f6d-4da5-437c-9f9a-928548d624af">&lt;/linkText&gt;</ept><bpt id="dad14f6d-4da5-437c-9f9a-928548d624af">&lt;title&gt;</bpt><ept id="dad14f6d-4da5-437c-9f9a-928548d624af">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dad14f6d-4da5-437c-9f9a-928548d624af">&lt;linkText&gt;</bpt>For Users<ept id="dad14f6d-4da5-437c-9f9a-928548d624af">&lt;/linkText&gt;</ept><bpt id="dad14f6d-4da5-437c-9f9a-928548d624af">&lt;title&gt;</bpt><ept id="dad14f6d-4da5-437c-9f9a-928548d624af">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02fe0b88-3eb9-4aea-9b76-3df566415576" xml:space="preserve">
+          <source><bpt id="d7c405e6-7132-411d-9fae-a8222faabd9a">&lt;linkText&gt;</bpt>Azure Multi-Factor Authentication on MSDN<ept id="d7c405e6-7132-411d-9fae-a8222faabd9a">&lt;/linkText&gt;</ept><bpt id="d7c405e6-7132-411d-9fae-a8222faabd9a">&lt;title&gt;</bpt><ept id="d7c405e6-7132-411d-9fae-a8222faabd9a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d7c405e6-7132-411d-9fae-a8222faabd9a">&lt;linkText&gt;</bpt>Azure Multi-Factor Authentication on MSDN<ept id="d7c405e6-7132-411d-9fae-a8222faabd9a">&lt;/linkText&gt;</ept><bpt id="d7c405e6-7132-411d-9fae-a8222faabd9a">&lt;title&gt;</bpt><ept id="d7c405e6-7132-411d-9fae-a8222faabd9a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

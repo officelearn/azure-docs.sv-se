@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0a50d8ce-2bf4-4705-ac08-c9f5085b4971" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0a50d8ce-2bf4-4705-ac08-c9f5085b4971" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4507921d-01ae-4980-8cd5-3e44c9811940">
+        <trans-unit id="0dc76afd-2aa0-4cee-930c-bc6eddae4cfd" xml:space="preserve">
+          <source>DPM Protection of SharePoint farm to Azure | Microsoft Azure</source>
+          <target state="new">DPM Protection of SharePoint farm to Azure | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ea2b35d7-af68-427e-8e34-d00adf6aa8de" xml:space="preserve">
+          <source>This article provides an overview of DPM Protection of SharePoint farm to Azure</source>
+          <target state="new">This article provides an overview of DPM Protection of SharePoint farm to Azure</target>
+        </trans-unit>
+        <trans-unit id="700359a8-fa4c-41e1-bf19-ed4e852743de" xml:space="preserve">
+          <source>You back up a SharePoint farm to Azure using System Center Data Protection Manager (DPM) in much the same way you back up other data sources.</source>
+          <target state="new">You back up a SharePoint farm to Azure using System Center Data Protection Manager (DPM) in much the same way you back up other data sources.</target>
+        </trans-unit>
+        <trans-unit id="b9a44059-9e7c-4394-b071-f423f8d86de0" xml:space="preserve">
+          <source>Azure provides  flexibility in the backup schedule to create daily, weekly, monthly or yearly backup points and gives you varying retention policy options for various backup points.</source>
+          <target state="new">Azure provides  flexibility in the backup schedule to create daily, weekly, monthly or yearly backup points and gives you varying retention policy options for various backup points.</target>
+        </trans-unit>
+        <trans-unit id="6395e9ed-8c14-4722-888c-bc6c5fba31cb" xml:space="preserve">
+          <source>DPM provides you capability to store local disk copies for quicker recovery time objectives (RTO) and to Azure for a cost effective long term retention target.</source>
+          <target state="new">DPM provides you capability to store local disk copies for quicker recovery time objectives (RTO) and to Azure for a cost effective long term retention target.</target>
+        </trans-unit>
+        <trans-unit id="cea18656-d9eb-4c4c-b424-e780c8752f57" xml:space="preserve">
+          <source>Azure Backup for DPM supports the following scenarios.</source>
+          <target state="new">Azure Backup for DPM supports the following scenarios.</target>
+        </trans-unit>
+        <trans-unit id="f529b79d-5817-4062-9ac3-58c9edd902b7" xml:space="preserve">
+          <source>Workload</source>
+          <target state="new">Workload</target>
+        </trans-unit>
+        <trans-unit id="00b78f22-37d3-4552-8d81-b588a3ab8116" xml:space="preserve">
+          <source>Version</source>
+          <target state="new">Version</target>
+        </trans-unit>
+        <trans-unit id="d81b5fcf-1d86-40cb-bd7c-f003fd3c2727" xml:space="preserve">
+          <source>SharePoint deployment</source>
+          <target state="new">SharePoint deployment</target>
+        </trans-unit>
+        <trans-unit id="5fed436e-a30d-4e34-8735-dd0ce6371a50" xml:space="preserve">
+          <source>DPM deployment type</source>
+          <target state="new">DPM deployment type</target>
+        </trans-unit>
+        <trans-unit id="389c3968-727f-4b66-92df-9a6bc95171be" xml:space="preserve">
+          <source>DPM - System Center 2012 R2</source>
+          <target state="new">DPM - System Center 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="e92ed00d-046e-413b-b3ab-d914758a1a49" xml:space="preserve">
+          <source>Protection and Recovery</source>
+          <target state="new">Protection and Recovery</target>
+        </trans-unit>
+        <trans-unit id="f58be5cb-e846-419d-9365-d75f94855897" xml:space="preserve">
+          <source>SharePoint</source>
+          <target state="new">SharePoint</target>
+        </trans-unit>
+        <trans-unit id="c914027c-7a1b-4a0c-ad2b-2002f66c4baa" xml:space="preserve">
+          <source>SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0</source>
+          <target state="new">SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0</target>
+        </trans-unit>
+        <trans-unit id="16ec065f-5656-4e33-8b60-ee43ae854473" xml:space="preserve">
+          <source>SharePoint deployed as a physical server or Hyper-V/VmWare virtual machine &lt;br&gt; -------------- &lt;br&gt; SQL AlwaysOn</source>
+          <target state="new">SharePoint deployed as a physical server or Hyper-V/VmWare virtual machine &lt;br&gt; -------------- &lt;br&gt; SQL AlwaysOn</target>
+        </trans-unit>
+        <trans-unit id="6ae4ca82-54a6-4cdc-b397-f9376cf9d780" xml:space="preserve">
+          <source>Physical server or on-premises Hyper-V Virtual Machine</source>
+          <target state="new">Physical server or on-premises Hyper-V Virtual Machine</target>
+        </trans-unit>
+        <trans-unit id="7924aca5-10b2-4e5f-aa27-4343a22ff204" xml:space="preserve">
+          <source>Supports back up to Azure from Update Rollup 5</source>
+          <target state="new">Supports back up to Azure from Update Rollup 5</target>
+        </trans-unit>
+        <trans-unit id="f8ce5ed0-5e8a-45e0-b353-caf7ce5aa4d3" xml:space="preserve">
+          <source>Protect SharePoint Farm Recover: Farm, database, file or list item from disk and recovery farm and database from Azure</source>
+          <target state="new">Protect SharePoint Farm Recover: Farm, database, file or list item from disk and recovery farm and database from Azure</target>
+        </trans-unit>
+        <trans-unit id="ccbf82c1-eafd-405b-b53c-a94b8004d11e" xml:space="preserve">
+          <source>There are a few things you need to ensure before backing up a SharePoint farm to Azure.</source>
+          <target state="new">There are a few things you need to ensure before backing up a SharePoint farm to Azure.</target>
+        </trans-unit>
+        <trans-unit id="b7e44fef-5529-4545-90d8-e8ab52c16500" xml:space="preserve">
+          <source>Before you proceed, ensure that all the  <bpt id="28933370-9bd9-491f-ac25-5870777d08d1">&lt;linkText&gt;</bpt>prerequisites<ept id="28933370-9bd9-491f-ac25-5870777d08d1">&lt;/linkText&gt;</ept><bpt id="28933370-9bd9-491f-ac25-5870777d08d1">&lt;title&gt;</bpt><ept id="28933370-9bd9-491f-ac25-5870777d08d1">&lt;/title&gt;</ept> for using Microsoft Azure Backup to protect workloads have been met.</source>
+          <target state="new">Before you proceed, ensure that all the  <bpt id="28933370-9bd9-491f-ac25-5870777d08d1">&lt;linkText&gt;</bpt>prerequisites<ept id="28933370-9bd9-491f-ac25-5870777d08d1">&lt;/linkText&gt;</ept><bpt id="28933370-9bd9-491f-ac25-5870777d08d1">&lt;title&gt;</bpt><ept id="28933370-9bd9-491f-ac25-5870777d08d1">&lt;/title&gt;</ept> for using Microsoft Azure Backup to protect workloads have been met.</target>
+        </trans-unit>
+        <trans-unit id="75691759-16f1-4117-8c98-4b1a8035dbfe" xml:space="preserve">
+          <source>The prerequisites cover tasks such as: creating a backup vault, downloading vault credentials, installing the Azure Backup Agent and registering the server with the vault.</source>
+          <target state="new">The prerequisites cover tasks such as: creating a backup vault, downloading vault credentials, installing the Azure Backup Agent and registering the server with the vault.</target>
+        </trans-unit>
+        <trans-unit id="c71163ad-eb59-422c-91b5-9d821d9beca8" xml:space="preserve">
+          <source>The DPM agent must be installed on the SharePoint server, SQL servers, and any other servers that are part of the SharePoint farm.</source>
+          <target state="new">The DPM agent must be installed on the SharePoint server, SQL servers, and any other servers that are part of the SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="4c29f6b2-9fc2-498b-b849-2c4874c611fc" xml:space="preserve">
+          <source>For more information about setting up the protection agent, see <bpt id="3fa9ff86-e207-4545-bd89-7f6abef23568">&lt;linkText&gt;</bpt>Setup Protection Agent<ept id="3fa9ff86-e207-4545-bd89-7f6abef23568">&lt;/linkText&gt;</ept><bpt id="3fa9ff86-e207-4545-bd89-7f6abef23568">&lt;title&gt;</bpt><ept id="3fa9ff86-e207-4545-bd89-7f6abef23568">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about setting up the protection agent, see <bpt id="3fa9ff86-e207-4545-bd89-7f6abef23568">&lt;linkText&gt;</bpt>Setup Protection Agent<ept id="3fa9ff86-e207-4545-bd89-7f6abef23568">&lt;/linkText&gt;</ept><bpt id="3fa9ff86-e207-4545-bd89-7f6abef23568">&lt;title&gt;</bpt><ept id="3fa9ff86-e207-4545-bd89-7f6abef23568">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78b51d8a-0c67-4002-8dda-337499481bc1" xml:space="preserve">
+          <source>The only exception is that you only install the agent on a single Web Front End (WFE) server.</source>
+          <target state="new">The only exception is that you only install the agent on a single Web Front End (WFE) server.</target>
+        </trans-unit>
+        <trans-unit id="754bba8b-85cc-4543-96ac-07d4c31efa22" xml:space="preserve">
+          <source>DPM only needs the agent on one WFE server to serve as the entry point for protection.</source>
+          <target state="new">DPM only needs the agent on one WFE server to serve as the entry point for protection.</target>
+        </trans-unit>
+        <trans-unit id="97e1155c-a6b2-4506-a09a-e0794a7429e6" xml:space="preserve">
+          <source>For every 10 million items in the farm, there must be at least 2 GB of space on the volume where the DPM folder is located.</source>
+          <target state="new">For every 10 million items in the farm, there must be at least 2 GB of space on the volume where the DPM folder is located.</target>
+        </trans-unit>
+        <trans-unit id="93b12fd9-494c-4a5f-9db1-ab836b342af2" xml:space="preserve">
+          <source>This space is required for catalog generation.</source>
+          <target state="new">This space is required for catalog generation.</target>
+        </trans-unit>
+        <trans-unit id="5b8f69e8-af69-4ee1-abf0-f6c6a11abddd" xml:space="preserve">
+          <source>For DPM to recover specific items (site collections, sites, lists, document libraries, folders, individual documents, and list items), catalog generation creates a list of the URLs contained within each content database.</source>
+          <target state="new">For DPM to recover specific items (site collections, sites, lists, document libraries, folders, individual documents, and list items), catalog generation creates a list of the URLs contained within each content database.</target>
+        </trans-unit>
+        <trans-unit id="ecc3c826-7e4c-4e83-88f3-2d480b5161bd" xml:space="preserve">
+          <source>You can view the list of URLs in the recoverable item pane in the Recovery task area of DPM Administrator Console.</source>
+          <target state="new">You can view the list of URLs in the recoverable item pane in the Recovery task area of DPM Administrator Console.</target>
+        </trans-unit>
+        <trans-unit id="9c28deeb-c011-4d9b-8922-b4cad82872f6" xml:space="preserve">
+          <source>DPM runs as a Local System and to back up SQL Server databases it needs sysadmin privileges on that account for the SQL server.</source>
+          <target state="new">DPM runs as a Local System and to back up SQL Server databases it needs sysadmin privileges on that account for the SQL server.</target>
+        </trans-unit>
+        <trans-unit id="0a33a4a5-cf1f-4dc0-9b36-5bba0ab97743" xml:space="preserve">
+          <source>Set NT AUTHORITY\SYSTEM to <bpt id="4e68e49c-001d-4f70-b776-4acf42651d69">&lt;em&gt;</bpt>sysadmin<ept id="4e68e49c-001d-4f70-b776-4acf42651d69">&lt;/em&gt;</ept> on the SQL Server you want to back up.</source>
+          <target state="new">Set NT AUTHORITY\SYSTEM to <bpt id="4e68e49c-001d-4f70-b776-4acf42651d69">&lt;em&gt;</bpt>sysadmin<ept id="4e68e49c-001d-4f70-b776-4acf42651d69">&lt;/em&gt;</ept> on the SQL Server you want to back up.</target>
+        </trans-unit>
+        <trans-unit id="89276c8b-350f-4ec9-8838-764a2b5d5e6b" xml:space="preserve">
+          <source>In the SharePoint farm, if you have SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that DPM will protect.</source>
+          <target state="new">In the SharePoint farm, if you have SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that DPM will protect.</target>
+        </trans-unit>
+        <trans-unit id="ae2ab8e8-6c9b-474d-b50f-cbd3bd6d6f0a" xml:space="preserve">
+          <source>While performance depends on many factors such as size of SharePoint farm, as general guidance one DPM Server can be used to protect a 25TB SharePoint farm.</source>
+          <target state="new">While performance depends on many factors such as size of SharePoint farm, as general guidance one DPM Server can be used to protect a 25TB SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="c74268a1-3397-4e70-8c14-5461b1b80583" xml:space="preserve">
+          <source>To begin protection of a SharePoint farm to Azure, you need to install DPM Update Rollup 5 or higher.</source>
+          <target state="new">To begin protection of a SharePoint farm to Azure, you need to install DPM Update Rollup 5 or higher.</target>
+        </trans-unit>
+        <trans-unit id="cbd1d57d-8785-477d-a29f-b4e586513be5" xml:space="preserve">
+          <source>Update Rollup 5 provides the ability to protect a SharePoint farm (configured using SQL AlwaysOn) to Azure.</source>
+          <target state="new">Update Rollup 5 provides the ability to protect a SharePoint farm (configured using SQL AlwaysOn) to Azure.</target>
+        </trans-unit>
+        <trans-unit id="a3410ead-0532-47ae-a5f5-6fdbc788d88d" xml:space="preserve">
+          <source>For more information see <bpt id="f0b335bb-08bb-4556-a1e2-c577a77db75a">&lt;linkText&gt;</bpt>installing DPM Update Rollup 5<ept id="f0b335bb-08bb-4556-a1e2-c577a77db75a">&lt;/linkText&gt;</ept><bpt id="f0b335bb-08bb-4556-a1e2-c577a77db75a">&lt;title&gt;</bpt><ept id="f0b335bb-08bb-4556-a1e2-c577a77db75a">&lt;/title&gt;</ept></source>
+          <target state="new">For more information see <bpt id="f0b335bb-08bb-4556-a1e2-c577a77db75a">&lt;linkText&gt;</bpt>installing DPM Update Rollup 5<ept id="f0b335bb-08bb-4556-a1e2-c577a77db75a">&lt;/linkText&gt;</ept><bpt id="f0b335bb-08bb-4556-a1e2-c577a77db75a">&lt;title&gt;</bpt><ept id="f0b335bb-08bb-4556-a1e2-c577a77db75a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce0cdbd4-616a-4d39-867c-832604c17d8a" xml:space="preserve">
+          <source>Protecting a SharePoint farm does not protect search indexes or application service databases.</source>
+          <target state="new">Protecting a SharePoint farm does not protect search indexes or application service databases.</target>
+        </trans-unit>
+        <trans-unit id="ba1c3ac7-83c7-4b52-911d-e1493d709980" xml:space="preserve">
+          <source>You will need to configure the protection of these databases separately.</source>
+          <target state="new">You will need to configure the protection of these databases separately.</target>
+        </trans-unit>
+        <trans-unit id="e0d002c0-5aad-478f-9c61-7a1baa6796a4" xml:space="preserve">
+          <source>DPM does not provide backup of SharePoint SQL databases hosted on Scale out file server (SOFS) shares.</source>
+          <target state="new">DPM does not provide backup of SharePoint SQL databases hosted on Scale out file server (SOFS) shares.</target>
+        </trans-unit>
+        <trans-unit id="fc01f789-2781-497e-b60d-f9e39487e5bf" xml:space="preserve">
+          <source>You must configure the SharePoint VSS Writer service (WSS Writer service) using <bpt id="07a1c2cd-5c73-483e-909e-35cb652920ca">&lt;strong&gt;</bpt>ConfigureSharePoint.exe<ept id="07a1c2cd-5c73-483e-909e-35cb652920ca">&lt;/strong&gt;</ept> before you can protect SharePoint using DPM.</source>
+          <target state="new">You must configure the SharePoint VSS Writer service (WSS Writer service) using <bpt id="07a1c2cd-5c73-483e-909e-35cb652920ca">&lt;strong&gt;</bpt>ConfigureSharePoint.exe<ept id="07a1c2cd-5c73-483e-909e-35cb652920ca">&lt;/strong&gt;</ept> before you can protect SharePoint using DPM.</target>
+        </trans-unit>
+        <trans-unit id="9841fb33-8914-46ac-9f51-802c0481f9c4" xml:space="preserve">
+          <source>You can find <bpt id="2aa12d4a-9527-4862-a5ba-f3f3ff5b7941">&lt;strong&gt;</bpt>ConfigureSharePoint.exe<ept id="2aa12d4a-9527-4862-a5ba-f3f3ff5b7941">&lt;/strong&gt;</ept> in the [DPM Installation Path]\bin folder on the front-end Web server.</source>
+          <target state="new">You can find <bpt id="2aa12d4a-9527-4862-a5ba-f3f3ff5b7941">&lt;strong&gt;</bpt>ConfigureSharePoint.exe<ept id="2aa12d4a-9527-4862-a5ba-f3f3ff5b7941">&lt;/strong&gt;</ept> in the [DPM Installation Path]\bin folder on the front-end Web server.</target>
+        </trans-unit>
+        <trans-unit id="42d4a92e-a9ff-48c2-bcc8-b4700f09ddfd" xml:space="preserve">
+          <source>This tool provides the protection agent with the credentials for the SharePoint farm.</source>
+          <target state="new">This tool provides the protection agent with the credentials for the SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="fa639624-c9d3-489b-bc92-7c587b1fa644" xml:space="preserve">
+          <source>You run it on a single WFE server.</source>
+          <target state="new">You run it on a single WFE server.</target>
+        </trans-unit>
+        <trans-unit id="f8427511-ed5b-4d35-94d1-b90e03d2739f" xml:space="preserve">
+          <source>If you have multiple WFE servers select just one when you configure a protection group.</source>
+          <target state="new">If you have multiple WFE servers select just one when you configure a protection group.</target>
+        </trans-unit>
+        <trans-unit id="956855a1-e321-45d5-bf36-005d280d7df6" xml:space="preserve">
+          <source>On the WFE server, at a command prompt, go to [DPM installation location]\bin\</source>
+          <target state="new">On the WFE server, at a command prompt, go to [DPM installation location]\bin\</target>
+        </trans-unit>
+        <trans-unit id="f6eefa95-a7b1-4a4c-8431-d707b2bf1fcc" xml:space="preserve">
+          <source>Run ConfigureSharePoint -EnableSharePointProtection</source>
+          <target state="new">Run ConfigureSharePoint -EnableSharePointProtection</target>
+        </trans-unit>
+        <trans-unit id="f553cdd4-03f1-4469-9d7f-c9a472744ce6" xml:space="preserve">
+          <source>Enter the farm administrator credentials.</source>
+          <target state="new">Enter the farm administrator credentials.</target>
+        </trans-unit>
+        <trans-unit id="3e9cd835-87be-4b54-9617-a86287870895" xml:space="preserve">
+          <source>This account should be a member of the local Administrator group on the WFE server.</source>
+          <target state="new">This account should be a member of the local Administrator group on the WFE server.</target>
+        </trans-unit>
+        <trans-unit id="0ba9c94e-2cff-442f-9ae3-e0ca1d7507b8" xml:space="preserve">
+          <source>If the farm administrator isn’t a local admin grant the following permissions on the WFE server:</source>
+          <target state="new">If the farm administrator isn’t a local admin grant the following permissions on the WFE server:</target>
+        </trans-unit>
+        <trans-unit id="ae36089a-56d2-4888-9756-62354c7e7cde" xml:space="preserve">
+          <source>Grant the WSS<bpt id="54a7d554-02c5-443d-bb5c-f2af3ac5de70">&lt;em&gt;</bpt>Admin<ept id="54a7d554-02c5-443d-bb5c-f2af3ac5de70">&lt;/em&gt;</ept>WPG group full control to the DPM folder (%Program Files%\Microsoft Data Protection Manager\DPM).</source>
+          <target state="new">Grant the WSS<bpt id="54a7d554-02c5-443d-bb5c-f2af3ac5de70">&lt;em&gt;</bpt>Admin<ept id="54a7d554-02c5-443d-bb5c-f2af3ac5de70">&lt;/em&gt;</ept>WPG group full control to the DPM folder (%Program Files%\Microsoft Data Protection Manager\DPM).</target>
+        </trans-unit>
+        <trans-unit id="ea5b93d6-55e0-4ea9-9a16-eebcc11f8b30" xml:space="preserve">
+          <source>Grant the WSS<bpt id="f4b3084b-8464-4d12-bb03-d815d382c73e">&lt;em&gt;</bpt>Admin<ept id="f4b3084b-8464-4d12-bb03-d815d382c73e">&lt;/em&gt;</ept>WPG group read access to the DPM Registry key (HKEY<bpt id="8c3bbf8c-cff5-49cd-a335-e7f24b6650cb">&lt;em&gt;</bpt>LOCAL<ept id="8c3bbf8c-cff5-49cd-a335-e7f24b6650cb">&lt;/em&gt;</ept>MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).</source>
+          <target state="new">Grant the WSS<bpt id="f4b3084b-8464-4d12-bb03-d815d382c73e">&lt;em&gt;</bpt>Admin<ept id="f4b3084b-8464-4d12-bb03-d815d382c73e">&lt;/em&gt;</ept>WPG group read access to the DPM Registry key (HKEY<bpt id="8c3bbf8c-cff5-49cd-a335-e7f24b6650cb">&lt;em&gt;</bpt>LOCAL<ept id="8c3bbf8c-cff5-49cd-a335-e7f24b6650cb">&lt;/em&gt;</ept>MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).</target>
+        </trans-unit>
+        <trans-unit id="e29101e6-31d8-4203-8d37-d6591808e8d6" xml:space="preserve">
+          <source>You’ll need to rerun ConfigureSharePoint.exe whenever there’s a change in the SharePoint farm administrator credentials.</source>
+          <target state="new">You’ll need to rerun ConfigureSharePoint.exe whenever there’s a change in the SharePoint farm administrator credentials.</target>
+        </trans-unit>
+        <trans-unit id="4aa60b69-c6b4-4c48-8671-9b1bd67932cb" xml:space="preserve">
+          <source>Once you have configured DPM and the SharePoint farm as explained above, SharePoint can be protected by DPM.</source>
+          <target state="new">Once you have configured DPM and the SharePoint farm as explained above, SharePoint can be protected by DPM.</target>
+        </trans-unit>
+        <trans-unit id="720c92ed-2e04-4b28-ba31-72b792237e28" xml:space="preserve">
+          <source>From the <bpt id="1b431c14-099c-4cb0-8707-d0063ca70c95">&lt;strong&gt;</bpt>Protection<ept id="1b431c14-099c-4cb0-8707-d0063ca70c95">&lt;/strong&gt;</ept> tab of the DPM Administrator Console, click <bpt id="e7136517-5286-4493-b698-4c0cfac5eb61">&lt;strong&gt;</bpt>New<ept id="e7136517-5286-4493-b698-4c0cfac5eb61">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="1b431c14-099c-4cb0-8707-d0063ca70c95">&lt;strong&gt;</bpt>Protection<ept id="1b431c14-099c-4cb0-8707-d0063ca70c95">&lt;/strong&gt;</ept> tab of the DPM Administrator Console, click <bpt id="e7136517-5286-4493-b698-4c0cfac5eb61">&lt;strong&gt;</bpt>New<ept id="e7136517-5286-4493-b698-4c0cfac5eb61">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea86fb52-a73a-4da0-9364-f620e535c519" xml:space="preserve">
+          <source><bpt id="5e1629b7-0adb-4086-85b2-e782d0f0f970">&lt;linkText&gt;</bpt>New Protection Tab<ept id="5e1629b7-0adb-4086-85b2-e782d0f0f970">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5e1629b7-0adb-4086-85b2-e782d0f0f970">&lt;linkText&gt;</bpt>New Protection Tab<ept id="5e1629b7-0adb-4086-85b2-e782d0f0f970">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e79fc0af-7f68-464e-b5b5-17419d9a45aa" xml:space="preserve">
+          <source>On the <bpt id="b96c5446-3686-4e69-93ca-e35d2c1f7c80">&lt;strong&gt;</bpt>Select Protection Group Type<ept id="b96c5446-3686-4e69-93ca-e35d2c1f7c80">&lt;/strong&gt;</ept> screen of the <bpt id="c8fc98df-dbf6-4bcc-9db3-178ae53fcf79">&lt;strong&gt;</bpt>Create New Protection Group<ept id="c8fc98df-dbf6-4bcc-9db3-178ae53fcf79">&lt;/strong&gt;</ept> wizard, select <bpt id="a4525f0a-d28a-47d8-8d0f-e575ce9fac17">&lt;strong&gt;</bpt>Servers<ept id="a4525f0a-d28a-47d8-8d0f-e575ce9fac17">&lt;/strong&gt;</ept> and click <bpt id="f792762d-6265-4f72-a26e-0f1e794760d1">&lt;strong&gt;</bpt>Next<ept id="f792762d-6265-4f72-a26e-0f1e794760d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b96c5446-3686-4e69-93ca-e35d2c1f7c80">&lt;strong&gt;</bpt>Select Protection Group Type<ept id="b96c5446-3686-4e69-93ca-e35d2c1f7c80">&lt;/strong&gt;</ept> screen of the <bpt id="c8fc98df-dbf6-4bcc-9db3-178ae53fcf79">&lt;strong&gt;</bpt>Create New Protection Group<ept id="c8fc98df-dbf6-4bcc-9db3-178ae53fcf79">&lt;/strong&gt;</ept> wizard, select <bpt id="a4525f0a-d28a-47d8-8d0f-e575ce9fac17">&lt;strong&gt;</bpt>Servers<ept id="a4525f0a-d28a-47d8-8d0f-e575ce9fac17">&lt;/strong&gt;</ept> and click <bpt id="f792762d-6265-4f72-a26e-0f1e794760d1">&lt;strong&gt;</bpt>Next<ept id="f792762d-6265-4f72-a26e-0f1e794760d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dca9b477-52dc-48d5-86d7-15a8b6a16a31" xml:space="preserve">
+          <source><bpt id="cbb07915-c4bf-4a3a-b83b-16ff3f16e7ba">&lt;linkText&gt;</bpt>Select Protection Group type<ept id="cbb07915-c4bf-4a3a-b83b-16ff3f16e7ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cbb07915-c4bf-4a3a-b83b-16ff3f16e7ba">&lt;linkText&gt;</bpt>Select Protection Group type<ept id="cbb07915-c4bf-4a3a-b83b-16ff3f16e7ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85a5b2a3-e866-4276-a189-062c9cf79b7b" xml:space="preserve">
+          <source>On the <bpt id="02a91cef-7a2d-4384-a312-2ed171a48656">&lt;strong&gt;</bpt>Select Group Members<ept id="02a91cef-7a2d-4384-a312-2ed171a48656">&lt;/strong&gt;</ept> screen, select the check box for the SharePoint server you want to protect and click <bpt id="e2c763cd-aa7d-45d9-94dd-d9ff4869c489">&lt;strong&gt;</bpt>Next<ept id="e2c763cd-aa7d-45d9-94dd-d9ff4869c489">&lt;/strong&gt;</ept></source>
+          <target state="new">On the <bpt id="02a91cef-7a2d-4384-a312-2ed171a48656">&lt;strong&gt;</bpt>Select Group Members<ept id="02a91cef-7a2d-4384-a312-2ed171a48656">&lt;/strong&gt;</ept> screen, select the check box for the SharePoint server you want to protect and click <bpt id="e2c763cd-aa7d-45d9-94dd-d9ff4869c489">&lt;strong&gt;</bpt>Next<ept id="e2c763cd-aa7d-45d9-94dd-d9ff4869c489">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="881215bc-0570-4c8f-9c21-dec7c339f2a5" xml:space="preserve">
+          <source><bpt id="e277da93-273c-4741-a7b7-1dc2240643d5">&lt;linkText&gt;</bpt>Select group members<ept id="e277da93-273c-4741-a7b7-1dc2240643d5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e277da93-273c-4741-a7b7-1dc2240643d5">&lt;linkText&gt;</bpt>Select group members<ept id="e277da93-273c-4741-a7b7-1dc2240643d5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7395ca0a-0602-4e4f-8298-cb1d0f76a6be" xml:space="preserve">
+          <source>With the DPM agent installed, you can see the server in the wizard.</source>
+          <target state="new">With the DPM agent installed, you can see the server in the wizard.</target>
+        </trans-unit>
+        <trans-unit id="72b9a6ed-442f-4f88-a0f5-50adb8dcfb0f" xml:space="preserve">
+          <source>DPM also shows its structure.</source>
+          <target state="new">DPM also shows its structure.</target>
+        </trans-unit>
+        <trans-unit id="6c40917f-4118-4296-82b7-ae74c9cabe01" xml:space="preserve">
+          <source>Because ConfigureSharePoint.exe was run, DPM communicates with the SharePoint VSS Writer and its corresponding SQL databases and recognizes the SharePoint farm structure (the associated content databases and any corresponding items).</source>
+          <target state="new">Because ConfigureSharePoint.exe was run, DPM communicates with the SharePoint VSS Writer and its corresponding SQL databases and recognizes the SharePoint farm structure (the associated content databases and any corresponding items).</target>
+        </trans-unit>
+        <trans-unit id="32f1b931-85ff-4abf-9536-4dbe0ac36aec" xml:space="preserve">
+          <source>On the <bpt id="d4eb5ebc-38ce-43aa-8230-011a20a83e4c">&lt;strong&gt;</bpt>Select Data Protection Method<ept id="d4eb5ebc-38ce-43aa-8230-011a20a83e4c">&lt;/strong&gt;</ept> screen, enter the name of the <bpt id="5cdd7341-4d78-4c01-8872-88e7781b0d0b">&lt;em&gt;</bpt>Protection Group<ept id="5cdd7341-4d78-4c01-8872-88e7781b0d0b">&lt;/em&gt;</ept> and select your preferred <bpt id="65427816-9640-47fc-81df-35881d324ed2">&lt;em&gt;</bpt>protection methods<ept id="65427816-9640-47fc-81df-35881d324ed2">&lt;/em&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d4eb5ebc-38ce-43aa-8230-011a20a83e4c">&lt;strong&gt;</bpt>Select Data Protection Method<ept id="d4eb5ebc-38ce-43aa-8230-011a20a83e4c">&lt;/strong&gt;</ept> screen, enter the name of the <bpt id="5cdd7341-4d78-4c01-8872-88e7781b0d0b">&lt;em&gt;</bpt>Protection Group<ept id="5cdd7341-4d78-4c01-8872-88e7781b0d0b">&lt;/em&gt;</ept> and select your preferred <bpt id="65427816-9640-47fc-81df-35881d324ed2">&lt;em&gt;</bpt>protection methods<ept id="65427816-9640-47fc-81df-35881d324ed2">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e82357e-089b-44ad-9fe0-4d29669fcca9" xml:space="preserve">
+          <source>Click <bpt id="29098889-6a92-4156-807d-fb1f3e749520">&lt;strong&gt;</bpt>Next<ept id="29098889-6a92-4156-807d-fb1f3e749520">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="29098889-6a92-4156-807d-fb1f3e749520">&lt;strong&gt;</bpt>Next<ept id="29098889-6a92-4156-807d-fb1f3e749520">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffe12041-e2ab-4a8d-b5b8-f7efc05f773c" xml:space="preserve">
+          <source><bpt id="191dcbd7-56fb-415b-a559-c529422907f4">&lt;linkText&gt;</bpt>Select data protection method<ept id="191dcbd7-56fb-415b-a559-c529422907f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="191dcbd7-56fb-415b-a559-c529422907f4">&lt;linkText&gt;</bpt>Select data protection method<ept id="191dcbd7-56fb-415b-a559-c529422907f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9e3e15d-8698-4c3c-bee5-2b5b09fa5ba0" xml:space="preserve">
+          <source>Choosing disk protection helps to meet recovery time objectives with short recovery times.</source>
+          <target state="new">Choosing disk protection helps to meet recovery time objectives with short recovery times.</target>
+        </trans-unit>
+        <trans-unit id="e3cecc43-19a2-4219-85c8-054e5c1221a0" xml:space="preserve">
+          <source>Azure is a cost effective long-term protection target compared to tapes.</source>
+          <target state="new">Azure is a cost effective long-term protection target compared to tapes.</target>
+        </trans-unit>
+        <trans-unit id="b9fba535-8850-48e9-ae8a-3d7ebb5a5244" xml:space="preserve">
+          <source>For more information see this <bpt id="22658c3a-dffd-4925-b63c-97fc61135483">&lt;linkText&gt;</bpt>article<ept id="22658c3a-dffd-4925-b63c-97fc61135483">&lt;/linkText&gt;</ept><bpt id="22658c3a-dffd-4925-b63c-97fc61135483">&lt;title&gt;</bpt><ept id="22658c3a-dffd-4925-b63c-97fc61135483">&lt;/title&gt;</ept></source>
+          <target state="new">For more information see this <bpt id="22658c3a-dffd-4925-b63c-97fc61135483">&lt;linkText&gt;</bpt>article<ept id="22658c3a-dffd-4925-b63c-97fc61135483">&lt;/linkText&gt;</ept><bpt id="22658c3a-dffd-4925-b63c-97fc61135483">&lt;title&gt;</bpt><ept id="22658c3a-dffd-4925-b63c-97fc61135483">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="175a24e0-3ec8-4c97-8ca2-5537462a16b8" xml:space="preserve">
+          <source>On the <bpt id="75346879-a5f2-4d87-b782-44c5be8a7e21">&lt;strong&gt;</bpt>Specify Short-Term Goals<ept id="75346879-a5f2-4d87-b782-44c5be8a7e21">&lt;/strong&gt;</ept> screen, select your preferred <bpt id="4fea7475-6bbb-4b91-979b-2491d10bb018">&lt;em&gt;</bpt>retention range<ept id="4fea7475-6bbb-4b91-979b-2491d10bb018">&lt;/em&gt;</ept> and identify when you want backups to occur.</source>
+          <target state="new">On the <bpt id="75346879-a5f2-4d87-b782-44c5be8a7e21">&lt;strong&gt;</bpt>Specify Short-Term Goals<ept id="75346879-a5f2-4d87-b782-44c5be8a7e21">&lt;/strong&gt;</ept> screen, select your preferred <bpt id="4fea7475-6bbb-4b91-979b-2491d10bb018">&lt;em&gt;</bpt>retention range<ept id="4fea7475-6bbb-4b91-979b-2491d10bb018">&lt;/em&gt;</ept> and identify when you want backups to occur.</target>
+        </trans-unit>
+        <trans-unit id="f6e36cd6-3d42-4004-8b92-502fdb267fa5" xml:space="preserve">
+          <source><bpt id="46ac5d87-ff82-4861-b2d2-ef25f7013cd2">&lt;linkText&gt;</bpt>Specify short-term goals<ept id="46ac5d87-ff82-4861-b2d2-ef25f7013cd2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46ac5d87-ff82-4861-b2d2-ef25f7013cd2">&lt;linkText&gt;</bpt>Specify short-term goals<ept id="46ac5d87-ff82-4861-b2d2-ef25f7013cd2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7665b9d7-c3f3-4542-9d0a-103fd7630625" xml:space="preserve">
+          <source>Since recovery is most often required for data less than five days old, we selected a retention range of 5 days on disk and ensured that the backup happens during non-production hours, for this example.</source>
+          <target state="new">Since recovery is most often required for data less than five days old, we selected a retention range of 5 days on disk and ensured that the backup happens during non-production hours, for this example.</target>
+        </trans-unit>
+        <trans-unit id="200c1469-950f-495d-a962-33ed3a288a60" xml:space="preserve">
+          <source>Review the storage pool disk space allocated for the protection group and click <bpt id="337f5f55-23ec-4d29-92a1-ab4870c0ec0a">&lt;strong&gt;</bpt>Next<ept id="337f5f55-23ec-4d29-92a1-ab4870c0ec0a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Review the storage pool disk space allocated for the protection group and click <bpt id="337f5f55-23ec-4d29-92a1-ab4870c0ec0a">&lt;strong&gt;</bpt>Next<ept id="337f5f55-23ec-4d29-92a1-ab4870c0ec0a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81838f49-405d-484c-8716-78a027706e84" xml:space="preserve">
+          <source>For every protection group, DPM allocates disk space to store and manage replicas.</source>
+          <target state="new">For every protection group, DPM allocates disk space to store and manage replicas.</target>
+        </trans-unit>
+        <trans-unit id="6f2ada2d-70bb-4c24-96bb-7fb3c68a3bc7" xml:space="preserve">
+          <source>At this point, DPM must create a copy of the selected data.</source>
+          <target state="new">At this point, DPM must create a copy of the selected data.</target>
+        </trans-unit>
+        <trans-unit id="6decd32e-d5e8-4197-a428-0a210cec5a91" xml:space="preserve">
+          <source>Select how and when you want the replica created and click <bpt id="11de0edc-1d56-4c30-b674-4f8a55a2f5b8">&lt;strong&gt;</bpt>Next<ept id="11de0edc-1d56-4c30-b674-4f8a55a2f5b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select how and when you want the replica created and click <bpt id="11de0edc-1d56-4c30-b674-4f8a55a2f5b8">&lt;strong&gt;</bpt>Next<ept id="11de0edc-1d56-4c30-b674-4f8a55a2f5b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="acd2feb5-07f1-4192-abf6-75e60a03a629" xml:space="preserve">
+          <source><bpt id="61031ddf-fe30-49f9-a786-f81e45a4c47c">&lt;linkText&gt;</bpt>Choose replica creation method<ept id="61031ddf-fe30-49f9-a786-f81e45a4c47c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="61031ddf-fe30-49f9-a786-f81e45a4c47c">&lt;linkText&gt;</bpt>Choose replica creation method<ept id="61031ddf-fe30-49f9-a786-f81e45a4c47c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b85206f-0048-4b02-8c17-4c7573babc05" xml:space="preserve">
+          <source>To ensure network traffic is not effected, select a time outside production hours.</source>
+          <target state="new">To ensure network traffic is not effected, select a time outside production hours.</target>
+        </trans-unit>
+        <trans-unit id="fa485c4b-c1f4-45ee-9ce8-0dffe2a11b72" xml:space="preserve">
+          <source>DPM ensures data integrity by performing consistency checks on the replica.</source>
+          <target state="new">DPM ensures data integrity by performing consistency checks on the replica.</target>
+        </trans-unit>
+        <trans-unit id="699987ef-ecdd-445c-8c77-2ad08258aafe" xml:space="preserve">
+          <source>There are two available options.</source>
+          <target state="new">There are two available options.</target>
+        </trans-unit>
+        <trans-unit id="ac195ae9-93d3-4937-a675-e90134d0febb" xml:space="preserve">
+          <source>You can define a schedule for running consistency checks, or allow DPM to run consistency checks automatically on the replica whenever it becomes inconsistent.</source>
+          <target state="new">You can define a schedule for running consistency checks, or allow DPM to run consistency checks automatically on the replica whenever it becomes inconsistent.</target>
+        </trans-unit>
+        <trans-unit id="95e25b9a-5a0e-4000-b2f1-7cfc3bdf1333" xml:space="preserve">
+          <source>Select your preferred option and click <bpt id="6b2d8fe6-bfad-4e10-ba0d-196d3d8ace44">&lt;strong&gt;</bpt>Next<ept id="6b2d8fe6-bfad-4e10-ba0d-196d3d8ace44">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select your preferred option and click <bpt id="6b2d8fe6-bfad-4e10-ba0d-196d3d8ace44">&lt;strong&gt;</bpt>Next<ept id="6b2d8fe6-bfad-4e10-ba0d-196d3d8ace44">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b57b7de7-c406-43fc-b724-d2b7be3eaf9c" xml:space="preserve">
+          <source><bpt id="3d778b4b-9cb5-4a87-91bf-d57e62482356">&lt;linkText&gt;</bpt>Consistency Check<ept id="3d778b4b-9cb5-4a87-91bf-d57e62482356">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d778b4b-9cb5-4a87-91bf-d57e62482356">&lt;linkText&gt;</bpt>Consistency Check<ept id="3d778b4b-9cb5-4a87-91bf-d57e62482356">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06e66a5b-fc65-4aba-b2f5-6032e93e096c" xml:space="preserve">
+          <source>On the <bpt id="d9db481f-2930-4dbb-8e2d-ef74cda93622">&lt;strong&gt;</bpt>Specify Online Protection Data<ept id="d9db481f-2930-4dbb-8e2d-ef74cda93622">&lt;/strong&gt;</ept> screen, select the SharePoint farm you want to protect and click <bpt id="71949071-0ea8-46ed-9a73-62e2df89cf15">&lt;strong&gt;</bpt>Next<ept id="71949071-0ea8-46ed-9a73-62e2df89cf15">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d9db481f-2930-4dbb-8e2d-ef74cda93622">&lt;strong&gt;</bpt>Specify Online Protection Data<ept id="d9db481f-2930-4dbb-8e2d-ef74cda93622">&lt;/strong&gt;</ept> screen, select the SharePoint farm you want to protect and click <bpt id="71949071-0ea8-46ed-9a73-62e2df89cf15">&lt;strong&gt;</bpt>Next<ept id="71949071-0ea8-46ed-9a73-62e2df89cf15">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1fdaac38-d3eb-479c-b89a-c8f7bdf40785" xml:space="preserve">
+          <source><bpt id="349065af-ac76-44a2-99b4-d73306820480">&lt;linkText&gt;</bpt>DPM SharePoint Protection1<ept id="349065af-ac76-44a2-99b4-d73306820480">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="349065af-ac76-44a2-99b4-d73306820480">&lt;linkText&gt;</bpt>DPM SharePoint Protection1<ept id="349065af-ac76-44a2-99b4-d73306820480">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00ac09f7-8bda-447c-a0d1-6d997340b256" xml:space="preserve">
+          <source>On the <bpt id="e34e388f-f4bb-48fd-ada5-5e8e4b76958b">&lt;strong&gt;</bpt>Specify Online Backup Schedule<ept id="e34e388f-f4bb-48fd-ada5-5e8e4b76958b">&lt;/strong&gt;</ept> screen, select your preferred schedule and click <bpt id="dd355f83-012d-4040-b58b-a30caeffe5bf">&lt;strong&gt;</bpt>Next<ept id="dd355f83-012d-4040-b58b-a30caeffe5bf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e34e388f-f4bb-48fd-ada5-5e8e4b76958b">&lt;strong&gt;</bpt>Specify Online Backup Schedule<ept id="e34e388f-f4bb-48fd-ada5-5e8e4b76958b">&lt;/strong&gt;</ept> screen, select your preferred schedule and click <bpt id="dd355f83-012d-4040-b58b-a30caeffe5bf">&lt;strong&gt;</bpt>Next<ept id="dd355f83-012d-4040-b58b-a30caeffe5bf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9120d7a-8588-415b-9f75-466fb6497fc1" xml:space="preserve">
+          <source><bpt id="5a002326-c6ff-47cd-ac1b-bcb700576cd2">&lt;linkText&gt;</bpt>Online_backup_schedule<ept id="5a002326-c6ff-47cd-ac1b-bcb700576cd2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a002326-c6ff-47cd-ac1b-bcb700576cd2">&lt;linkText&gt;</bpt>Online_backup_schedule<ept id="5a002326-c6ff-47cd-ac1b-bcb700576cd2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71f0954c-2ad3-4e27-bf39-98371f1a3d26" xml:space="preserve">
+          <source>DPM allows 2 daily backups at different times to Azure.</source>
+          <target state="new">DPM allows 2 daily backups at different times to Azure.</target>
+        </trans-unit>
+        <trans-unit id="028bd27b-e6a7-44ea-8fab-e496f33fee7f" xml:space="preserve">
+          <source>Depending on the backup schedule you selected, on the <bpt id="079ecd5a-31c1-4b40-9491-13a9f28bfefc">&lt;strong&gt;</bpt>Specify Online Retention Policy<ept id="079ecd5a-31c1-4b40-9491-13a9f28bfefc">&lt;/strong&gt;</ept> screen, select the retention policy for daily, weekly, monthly, and yearly backup points.</source>
+          <target state="new">Depending on the backup schedule you selected, on the <bpt id="079ecd5a-31c1-4b40-9491-13a9f28bfefc">&lt;strong&gt;</bpt>Specify Online Retention Policy<ept id="079ecd5a-31c1-4b40-9491-13a9f28bfefc">&lt;/strong&gt;</ept> screen, select the retention policy for daily, weekly, monthly, and yearly backup points.</target>
+        </trans-unit>
+        <trans-unit id="415bedc5-d1ce-4722-bfba-032f9c56bebc" xml:space="preserve">
+          <source><bpt id="fb89f99b-fa30-488d-86d1-ab6e3fdee2fe">&lt;linkText&gt;</bpt>Online_retention_policy<ept id="fb89f99b-fa30-488d-86d1-ab6e3fdee2fe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb89f99b-fa30-488d-86d1-ab6e3fdee2fe">&lt;linkText&gt;</bpt>Online_retention_policy<ept id="fb89f99b-fa30-488d-86d1-ab6e3fdee2fe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="109c4536-30d6-4b93-a7b7-7f0d4b150938" xml:space="preserve">
+          <source>DPM uses a Grandfather-father-son retention scheme in which a different retention policy can be chosen for different backup points.</source>
+          <target state="new">DPM uses a Grandfather-father-son retention scheme in which a different retention policy can be chosen for different backup points.</target>
+        </trans-unit>
+        <trans-unit id="1de385a1-f920-46b6-b5df-9294988265f2" xml:space="preserve">
+          <source>Similar to disk, an initial reference point replica needs to be created in Azure.</source>
+          <target state="new">Similar to disk, an initial reference point replica needs to be created in Azure.</target>
+        </trans-unit>
+        <trans-unit id="02ffadc9-8240-42f9-ad64-0fdef972f80d" xml:space="preserve">
+          <source>Select your preferred option for creating the initial backup copy to Azure and click <bpt id="86b2edf9-ed8e-4b21-83a1-4ebb93cde767">&lt;strong&gt;</bpt>Next<ept id="86b2edf9-ed8e-4b21-83a1-4ebb93cde767">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select your preferred option for creating the initial backup copy to Azure and click <bpt id="86b2edf9-ed8e-4b21-83a1-4ebb93cde767">&lt;strong&gt;</bpt>Next<ept id="86b2edf9-ed8e-4b21-83a1-4ebb93cde767">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="729c4096-c767-42ea-b06a-9fa35e7bfabd" xml:space="preserve">
+          <source><bpt id="27bead25-237f-425a-8f4b-8bd583b15dba">&lt;linkText&gt;</bpt>Online_replica<ept id="27bead25-237f-425a-8f4b-8bd583b15dba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="27bead25-237f-425a-8f4b-8bd583b15dba">&lt;linkText&gt;</bpt>Online_replica<ept id="27bead25-237f-425a-8f4b-8bd583b15dba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f17b75ef-f1ff-4380-b875-6c7fd721b7f9" xml:space="preserve">
+          <source>Review your selected settings on the <bpt id="a5208864-d2d8-4798-ba79-d13a8771a7db">&lt;strong&gt;</bpt>Summary<ept id="a5208864-d2d8-4798-ba79-d13a8771a7db">&lt;/strong&gt;</ept> page and click <bpt id="c508de4a-b90a-4c62-9e6f-614c16b9185b">&lt;strong&gt;</bpt>Create Group<ept id="c508de4a-b90a-4c62-9e6f-614c16b9185b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Review your selected settings on the <bpt id="a5208864-d2d8-4798-ba79-d13a8771a7db">&lt;strong&gt;</bpt>Summary<ept id="a5208864-d2d8-4798-ba79-d13a8771a7db">&lt;/strong&gt;</ept> page and click <bpt id="c508de4a-b90a-4c62-9e6f-614c16b9185b">&lt;strong&gt;</bpt>Create Group<ept id="c508de4a-b90a-4c62-9e6f-614c16b9185b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83bf187e-e52e-4d4d-b5b7-a722788b7508" xml:space="preserve">
+          <source>You will see a success message once the protection group has been created.</source>
+          <target state="new">You will see a success message once the protection group has been created.</target>
+        </trans-unit>
+        <trans-unit id="15c6b800-3ad8-4766-b86c-ae0d2393802a" xml:space="preserve">
+          <source><bpt id="515446bf-e6f8-4a79-b113-ad1e7103ee2e">&lt;linkText&gt;</bpt>Summary<ept id="515446bf-e6f8-4a79-b113-ad1e7103ee2e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="515446bf-e6f8-4a79-b113-ad1e7103ee2e">&lt;linkText&gt;</bpt>Summary<ept id="515446bf-e6f8-4a79-b113-ad1e7103ee2e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e65a9e3e-d14f-4ce6-9b98-d17233c042cb" xml:space="preserve">
+          <source>In the example below, the <bpt id="78139e1a-a659-4c18-a89c-d0697550d439">&lt;em&gt;</bpt>Recovering SharePoint item<ept id="78139e1a-a659-4c18-a89c-d0697550d439">&lt;/em&gt;</ept> has been accidentally deleted and needs to be recovered.</source>
+          <target state="new">In the example below, the <bpt id="78139e1a-a659-4c18-a89c-d0697550d439">&lt;em&gt;</bpt>Recovering SharePoint item<ept id="78139e1a-a659-4c18-a89c-d0697550d439">&lt;/em&gt;</ept> has been accidentally deleted and needs to be recovered.</target>
+        </trans-unit>
+        <trans-unit id="7c06d00a-6683-430c-8b65-c22037579382" xml:space="preserve">
+          <source><bpt id="9404f77f-6dec-4502-b41d-5c757ea56128">&lt;linkText&gt;</bpt>DPM SharePoint Protection4<ept id="9404f77f-6dec-4502-b41d-5c757ea56128">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9404f77f-6dec-4502-b41d-5c757ea56128">&lt;linkText&gt;</bpt>DPM SharePoint Protection4<ept id="9404f77f-6dec-4502-b41d-5c757ea56128">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4db83c0c-4ef2-459a-b750-ba8e157f806a" xml:space="preserve">
+          <source>Open the <bpt id="8b90c036-b632-4a35-9e0e-821839aa7431">&lt;strong&gt;</bpt>DPM Administrator Console<ept id="8b90c036-b632-4a35-9e0e-821839aa7431">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the <bpt id="8b90c036-b632-4a35-9e0e-821839aa7431">&lt;strong&gt;</bpt>DPM Administrator Console<ept id="8b90c036-b632-4a35-9e0e-821839aa7431">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca84ff53-03c6-4758-9fc2-d5104ae7de83" xml:space="preserve">
+          <source>All SharePoint farms protected by DPM are shown in the Protection tab.</source>
+          <target state="new">All SharePoint farms protected by DPM are shown in the Protection tab.</target>
+        </trans-unit>
+        <trans-unit id="468f0a21-3080-4f1f-88d0-f8df27462535" xml:space="preserve">
+          <source><bpt id="55a86392-3929-42bf-a412-816ad10e4bab">&lt;linkText&gt;</bpt>DPM SharePoint Protection3<ept id="55a86392-3929-42bf-a412-816ad10e4bab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55a86392-3929-42bf-a412-816ad10e4bab">&lt;linkText&gt;</bpt>DPM SharePoint Protection3<ept id="55a86392-3929-42bf-a412-816ad10e4bab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d74fd63-622c-46f9-a9f5-290f9722972c" xml:space="preserve">
+          <source>To begin recovering the item, select the <bpt id="96991b01-266a-4268-bb52-3f79a99e7df6">&lt;strong&gt;</bpt>Recovery<ept id="96991b01-266a-4268-bb52-3f79a99e7df6">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">To begin recovering the item, select the <bpt id="96991b01-266a-4268-bb52-3f79a99e7df6">&lt;strong&gt;</bpt>Recovery<ept id="96991b01-266a-4268-bb52-3f79a99e7df6">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="980e7ea4-70a1-4884-9c61-51ca9cd3394c" xml:space="preserve">
+          <source><bpt id="112fbee0-92f0-4ca2-8c4b-56eeb543ef1e">&lt;linkText&gt;</bpt>DPM SharePoint Protection5<ept id="112fbee0-92f0-4ca2-8c4b-56eeb543ef1e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="112fbee0-92f0-4ca2-8c4b-56eeb543ef1e">&lt;linkText&gt;</bpt>DPM SharePoint Protection5<ept id="112fbee0-92f0-4ca2-8c4b-56eeb543ef1e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e6d5c38-7360-4fa1-9f93-21345c07fc8e" xml:space="preserve">
+          <source>You can search SharePoint for the <bpt id="83cf5989-e37c-4ae9-a1e0-98bb2d1b98c7">&lt;em&gt;</bpt>Recovering SharePoint item<ept id="83cf5989-e37c-4ae9-a1e0-98bb2d1b98c7">&lt;/em&gt;</ept> using a wild card based search within a recovery point range.</source>
+          <target state="new">You can search SharePoint for the <bpt id="83cf5989-e37c-4ae9-a1e0-98bb2d1b98c7">&lt;em&gt;</bpt>Recovering SharePoint item<ept id="83cf5989-e37c-4ae9-a1e0-98bb2d1b98c7">&lt;/em&gt;</ept> using a wild card based search within a recovery point range.</target>
+        </trans-unit>
+        <trans-unit id="4c8f3b34-68a6-492d-8d27-a9977a50fe3a" xml:space="preserve">
+          <source><bpt id="4fa5b329-805a-4ccf-a99b-92f03df7a1dc">&lt;linkText&gt;</bpt>DPM SharePoint Protection6<ept id="4fa5b329-805a-4ccf-a99b-92f03df7a1dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4fa5b329-805a-4ccf-a99b-92f03df7a1dc">&lt;linkText&gt;</bpt>DPM SharePoint Protection6<ept id="4fa5b329-805a-4ccf-a99b-92f03df7a1dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5aff36cb-7b56-4cbc-bf62-c41082eed80d" xml:space="preserve">
+          <source>Select the appropriate recovery point from the search results, right click, and select <bpt id="8fca34db-a2bb-4ad5-945f-c319cf854725">&lt;strong&gt;</bpt>Recover<ept id="8fca34db-a2bb-4ad5-945f-c319cf854725">&lt;/strong&gt;</ept></source>
+          <target state="new">Select the appropriate recovery point from the search results, right click, and select <bpt id="8fca34db-a2bb-4ad5-945f-c319cf854725">&lt;strong&gt;</bpt>Recover<ept id="8fca34db-a2bb-4ad5-945f-c319cf854725">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5330e5fd-6e62-4a01-b322-04b2164e012f" xml:space="preserve">
+          <source>You can also navigate through various recovery points and select a database or item to recover.</source>
+          <target state="new">You can also navigate through various recovery points and select a database or item to recover.</target>
+        </trans-unit>
+        <trans-unit id="0b826625-3254-4f2e-bdd3-2952a37887cd" xml:space="preserve">
+          <source>Select <bpt id="d1ea2a5f-5850-4efd-aa8f-c0941131b27a">&lt;strong&gt;</bpt>date &gt; Recovery time<ept id="d1ea2a5f-5850-4efd-aa8f-c0941131b27a">&lt;/strong&gt;</ept> then select the correct <bpt id="ed3fb4df-b612-4840-b1fb-53771df7c744">&lt;strong&gt;</bpt>database &gt; SharePoint farm &gt; recovery point &gt; item<ept id="ed3fb4df-b612-4840-b1fb-53771df7c744">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="d1ea2a5f-5850-4efd-aa8f-c0941131b27a">&lt;strong&gt;</bpt>date &gt; Recovery time<ept id="d1ea2a5f-5850-4efd-aa8f-c0941131b27a">&lt;/strong&gt;</ept> then select the correct <bpt id="ed3fb4df-b612-4840-b1fb-53771df7c744">&lt;strong&gt;</bpt>database &gt; SharePoint farm &gt; recovery point &gt; item<ept id="ed3fb4df-b612-4840-b1fb-53771df7c744">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92cce286-77e6-4252-b23c-e304482d9c71" xml:space="preserve">
+          <source><bpt id="617174df-1e82-4060-ae11-ea3964c2af12">&lt;linkText&gt;</bpt>DPM SharePoint Protection7<ept id="617174df-1e82-4060-ae11-ea3964c2af12">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="617174df-1e82-4060-ae11-ea3964c2af12">&lt;linkText&gt;</bpt>DPM SharePoint Protection7<ept id="617174df-1e82-4060-ae11-ea3964c2af12">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7ec08b5-43b0-47a1-8a21-2b3a23cc786c" xml:space="preserve">
+          <source>Right click the item and select <bpt id="be376f12-dd59-48f1-9aed-0f6c20ccd5f6">&lt;strong&gt;</bpt>Recover<ept id="be376f12-dd59-48f1-9aed-0f6c20ccd5f6">&lt;/strong&gt;</ept> to open the <bpt id="6699176e-fc22-4d0d-bcc0-4f876bcd0de9">&lt;strong&gt;</bpt>Recovery Wizard<ept id="6699176e-fc22-4d0d-bcc0-4f876bcd0de9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right click the item and select <bpt id="be376f12-dd59-48f1-9aed-0f6c20ccd5f6">&lt;strong&gt;</bpt>Recover<ept id="be376f12-dd59-48f1-9aed-0f6c20ccd5f6">&lt;/strong&gt;</ept> to open the <bpt id="6699176e-fc22-4d0d-bcc0-4f876bcd0de9">&lt;strong&gt;</bpt>Recovery Wizard<ept id="6699176e-fc22-4d0d-bcc0-4f876bcd0de9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfe60e23-112f-4ac6-9a3d-4f68562ebded" xml:space="preserve">
+          <source>Click <bpt id="422f8bfd-b9f4-41dc-9aa6-8f6293a9a80a">&lt;strong&gt;</bpt>Next<ept id="422f8bfd-b9f4-41dc-9aa6-8f6293a9a80a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="422f8bfd-b9f4-41dc-9aa6-8f6293a9a80a">&lt;strong&gt;</bpt>Next<ept id="422f8bfd-b9f4-41dc-9aa6-8f6293a9a80a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae0ca5ad-cdf1-4bd5-b0af-fed6347bdf47" xml:space="preserve">
+          <source><bpt id="f47a64bd-e7f3-4918-be57-664ba42895df">&lt;linkText&gt;</bpt>Review Recovery Selection<ept id="f47a64bd-e7f3-4918-be57-664ba42895df">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f47a64bd-e7f3-4918-be57-664ba42895df">&lt;linkText&gt;</bpt>Review Recovery Selection<ept id="f47a64bd-e7f3-4918-be57-664ba42895df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7807fe7-bf92-42c7-b72b-0e429113c455" xml:space="preserve">
+          <source>Select the type of recovery you want to perform and click <bpt id="954d173d-7cb4-4324-9d49-ecbd320d75fc">&lt;strong&gt;</bpt>Next<ept id="954d173d-7cb4-4324-9d49-ecbd320d75fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the type of recovery you want to perform and click <bpt id="954d173d-7cb4-4324-9d49-ecbd320d75fc">&lt;strong&gt;</bpt>Next<ept id="954d173d-7cb4-4324-9d49-ecbd320d75fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff7336e4-1fc6-434e-9b01-c3a768fa3496" xml:space="preserve">
+          <source><bpt id="7c2d9094-dd04-49e2-8b8d-4e027f4ddf71">&lt;linkText&gt;</bpt>Recovery Type<ept id="7c2d9094-dd04-49e2-8b8d-4e027f4ddf71">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7c2d9094-dd04-49e2-8b8d-4e027f4ddf71">&lt;linkText&gt;</bpt>Recovery Type<ept id="7c2d9094-dd04-49e2-8b8d-4e027f4ddf71">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3263774a-0c8b-4637-a8fd-64f696e4b3fe" xml:space="preserve">
+          <source>Example above shows recovery item to original SharePoint site.</source>
+          <target state="new">Example above shows recovery item to original SharePoint site.</target>
+        </trans-unit>
+        <trans-unit id="321fbf75-e4b6-472e-995e-10cb744579be" xml:space="preserve">
+          <source>Select the <bpt id="fe8a7591-55f6-4e16-94d8-329980cb5eb3">&lt;strong&gt;</bpt>Recovery Process<ept id="fe8a7591-55f6-4e16-94d8-329980cb5eb3">&lt;/strong&gt;</ept> you want to use.</source>
+          <target state="new">Select the <bpt id="fe8a7591-55f6-4e16-94d8-329980cb5eb3">&lt;strong&gt;</bpt>Recovery Process<ept id="fe8a7591-55f6-4e16-94d8-329980cb5eb3">&lt;/strong&gt;</ept> you want to use.</target>
+        </trans-unit>
+        <trans-unit id="d6eca057-e136-4cc8-b91e-66eb20ce52d4" xml:space="preserve">
+          <source>Select <bpt id="e516720b-3eb4-46fe-911a-fdd3a85495c3">&lt;strong&gt;</bpt>Recover witahout using a recovery farm<ept id="e516720b-3eb4-46fe-911a-fdd3a85495c3">&lt;/strong&gt;</ept> if the SharePoint farm has not changed and is the same as the recovery point that is being restored.</source>
+          <target state="new">Select <bpt id="e516720b-3eb4-46fe-911a-fdd3a85495c3">&lt;strong&gt;</bpt>Recover witahout using a recovery farm<ept id="e516720b-3eb4-46fe-911a-fdd3a85495c3">&lt;/strong&gt;</ept> if the SharePoint farm has not changed and is the same as the recovery point that is being restored.</target>
+        </trans-unit>
+        <trans-unit id="8ffcc1d7-afbd-45bb-965a-ef20dd5e380c" xml:space="preserve">
+          <source>Select <bpt id="e926958b-68ef-4a51-8382-fca85a64db40">&lt;strong&gt;</bpt>Recover using a recovery farm<ept id="e926958b-68ef-4a51-8382-fca85a64db40">&lt;/strong&gt;</ept> if the SharePoint farm has changed since the recovery point was created.</source>
+          <target state="new">Select <bpt id="e926958b-68ef-4a51-8382-fca85a64db40">&lt;strong&gt;</bpt>Recover using a recovery farm<ept id="e926958b-68ef-4a51-8382-fca85a64db40">&lt;/strong&gt;</ept> if the SharePoint farm has changed since the recovery point was created.</target>
+        </trans-unit>
+        <trans-unit id="424afa9c-7bf7-436c-8442-a8061c7dcb3f" xml:space="preserve">
+          <source><bpt id="4e25eaae-77dd-4e4f-a13a-dbbeddf888bc">&lt;linkText&gt;</bpt>Recovery Process<ept id="4e25eaae-77dd-4e4f-a13a-dbbeddf888bc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e25eaae-77dd-4e4f-a13a-dbbeddf888bc">&lt;linkText&gt;</bpt>Recovery Process<ept id="4e25eaae-77dd-4e4f-a13a-dbbeddf888bc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a687fb23-2f96-4c1d-8923-46fcb3b9837d" xml:space="preserve">
+          <source>Provide a staging SQL instance location for recovering the database temporarily, and provide a staging file share on the DPM Server and SharePoint server to recover the item.</source>
+          <target state="new">Provide a staging SQL instance location for recovering the database temporarily, and provide a staging file share on the DPM Server and SharePoint server to recover the item.</target>
+        </trans-unit>
+        <trans-unit id="0200a2c6-dc23-49a9-98f1-9d737611ae32" xml:space="preserve">
+          <source><bpt id="1dfc1a55-dffa-4366-9be1-8b332079717e">&lt;linkText&gt;</bpt>Staging Location1<ept id="1dfc1a55-dffa-4366-9be1-8b332079717e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1dfc1a55-dffa-4366-9be1-8b332079717e">&lt;linkText&gt;</bpt>Staging Location1<ept id="1dfc1a55-dffa-4366-9be1-8b332079717e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96a716d7-014d-41db-b855-d775fb2f2049" xml:space="preserve">
+          <source>DPM attaches the content database, which is hosting the SharePoint item, to the temporary SQL Instance.</source>
+          <target state="new">DPM attaches the content database, which is hosting the SharePoint item, to the temporary SQL Instance.</target>
+        </trans-unit>
+        <trans-unit id="478271fc-8038-458a-b72a-527922073e67" xml:space="preserve">
+          <source>From the content database the DPM Server recovers the item and puts it on the staging file location on the DPM server.</source>
+          <target state="new">From the content database the DPM Server recovers the item and puts it on the staging file location on the DPM server.</target>
+        </trans-unit>
+        <trans-unit id="c5907af9-a038-4d02-b28e-4d4d3c38e371" xml:space="preserve">
+          <source>The item recovered on the staging location, on the DPM server, now needs to be exported to the staging location on the SharePoint farm.</source>
+          <target state="new">The item recovered on the staging location, on the DPM server, now needs to be exported to the staging location on the SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="9c482657-d7ee-42bd-8922-32d5ea6a2f09" xml:space="preserve">
+          <source><bpt id="eaac145c-e17e-4840-b278-bb438b670df9">&lt;linkText&gt;</bpt>Staging Location2<ept id="eaac145c-e17e-4840-b278-bb438b670df9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eaac145c-e17e-4840-b278-bb438b670df9">&lt;linkText&gt;</bpt>Staging Location2<ept id="eaac145c-e17e-4840-b278-bb438b670df9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f6faed7-853e-4c5d-8014-c43761a035cd" xml:space="preserve">
+          <source>Select <bpt id="ff55a51a-ef49-453e-99b6-6f7c73381c80">&lt;strong&gt;</bpt>Specify recovery options<ept id="ff55a51a-ef49-453e-99b6-6f7c73381c80">&lt;/strong&gt;</ept> and apply security settings to the SharePoint farm or apply the security settings of the recovery point.</source>
+          <target state="new">Select <bpt id="ff55a51a-ef49-453e-99b6-6f7c73381c80">&lt;strong&gt;</bpt>Specify recovery options<ept id="ff55a51a-ef49-453e-99b6-6f7c73381c80">&lt;/strong&gt;</ept> and apply security settings to the SharePoint farm or apply the security settings of the recovery point.</target>
+        </trans-unit>
+        <trans-unit id="09f03ac3-dc89-44a8-9fac-dd0542256253" xml:space="preserve">
+          <source>Click <bpt id="9c135deb-c127-4cbd-b61b-085c24abcf5f">&lt;strong&gt;</bpt>Next<ept id="9c135deb-c127-4cbd-b61b-085c24abcf5f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9c135deb-c127-4cbd-b61b-085c24abcf5f">&lt;strong&gt;</bpt>Next<ept id="9c135deb-c127-4cbd-b61b-085c24abcf5f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5a4dbf5-1d20-46c9-a6fc-a435b8b9f96e" xml:space="preserve">
+          <source><bpt id="b9aed875-c1bb-43ac-b755-ef5a84142de5">&lt;linkText&gt;</bpt>Recovery Options<ept id="b9aed875-c1bb-43ac-b755-ef5a84142de5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b9aed875-c1bb-43ac-b755-ef5a84142de5">&lt;linkText&gt;</bpt>Recovery Options<ept id="b9aed875-c1bb-43ac-b755-ef5a84142de5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5556ac9-cc82-4a08-8320-d43366b862a1" xml:space="preserve">
+          <source>You can choose to throttle the network bandwidth usage.</source>
+          <target state="new">You can choose to throttle the network bandwidth usage.</target>
+        </trans-unit>
+        <trans-unit id="47cdb57e-444e-4d03-9c26-319fc4c9f51d" xml:space="preserve">
+          <source>This minimizes impact to the production server during production hours.</source>
+          <target state="new">This minimizes impact to the production server during production hours.</target>
+        </trans-unit>
+        <trans-unit id="97cdae76-7d73-4c7c-b7e8-a29997553dfa" xml:space="preserve">
+          <source>Review the summary information and click <bpt id="1fee8324-15a8-4b13-9a14-3a97a09ec29d">&lt;strong&gt;</bpt>Recover<ept id="1fee8324-15a8-4b13-9a14-3a97a09ec29d">&lt;/strong&gt;</ept> to begin recovery of the file.</source>
+          <target state="new">Review the summary information and click <bpt id="1fee8324-15a8-4b13-9a14-3a97a09ec29d">&lt;strong&gt;</bpt>Recover<ept id="1fee8324-15a8-4b13-9a14-3a97a09ec29d">&lt;/strong&gt;</ept> to begin recovery of the file.</target>
+        </trans-unit>
+        <trans-unit id="a501ca11-913d-4922-b3d3-a6dc27e7c42e" xml:space="preserve">
+          <source><bpt id="9e31d045-b875-446e-8bf0-a3cde8cc088b">&lt;linkText&gt;</bpt>Recovery summary<ept id="9e31d045-b875-446e-8bf0-a3cde8cc088b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9e31d045-b875-446e-8bf0-a3cde8cc088b">&lt;linkText&gt;</bpt>Recovery summary<ept id="9e31d045-b875-446e-8bf0-a3cde8cc088b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23b59032-9dad-45c4-ba76-80fbe502e48b" xml:space="preserve">
+          <source>Now select the <bpt id="1d4dec2d-63c6-4b9b-bada-9d78c3e0ec87">&lt;strong&gt;</bpt>Monitoring<ept id="1d4dec2d-63c6-4b9b-bada-9d78c3e0ec87">&lt;/strong&gt;</ept> tab in the <bpt id="7fbfade8-9610-4a01-83c6-3be64f986ecc">&lt;strong&gt;</bpt>DPM Administrator Console<ept id="7fbfade8-9610-4a01-83c6-3be64f986ecc">&lt;/strong&gt;</ept> to view the <bpt id="023075fd-366c-4604-b619-4fc45f5202cf">&lt;em&gt;</bpt>Status<ept id="023075fd-366c-4604-b619-4fc45f5202cf">&lt;/em&gt;</ept> of the recovery.</source>
+          <target state="new">Now select the <bpt id="1d4dec2d-63c6-4b9b-bada-9d78c3e0ec87">&lt;strong&gt;</bpt>Monitoring<ept id="1d4dec2d-63c6-4b9b-bada-9d78c3e0ec87">&lt;/strong&gt;</ept> tab in the <bpt id="7fbfade8-9610-4a01-83c6-3be64f986ecc">&lt;strong&gt;</bpt>DPM Administrator Console<ept id="7fbfade8-9610-4a01-83c6-3be64f986ecc">&lt;/strong&gt;</ept> to view the <bpt id="023075fd-366c-4604-b619-4fc45f5202cf">&lt;em&gt;</bpt>Status<ept id="023075fd-366c-4604-b619-4fc45f5202cf">&lt;/em&gt;</ept> of the recovery.</target>
+        </trans-unit>
+        <trans-unit id="95fff8d5-d6fe-4f71-aeb3-e0c7b9c38b89" xml:space="preserve">
+          <source><bpt id="e1230068-23e4-4565-8ebd-ede70f0dc958">&lt;linkText&gt;</bpt>Recovery Status<ept id="e1230068-23e4-4565-8ebd-ede70f0dc958">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1230068-23e4-4565-8ebd-ede70f0dc958">&lt;linkText&gt;</bpt>Recovery Status<ept id="e1230068-23e4-4565-8ebd-ede70f0dc958">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf95fb24-3fe3-46da-8d11-890ccb4c231c" xml:space="preserve">
+          <source>The file is now restored.</source>
+          <target state="new">The file is now restored.</target>
+        </trans-unit>
+        <trans-unit id="098d105e-3592-4e75-91f9-3a1345042280" xml:space="preserve">
+          <source>You can refresh the SharePoint site to check the restored file.</source>
+          <target state="new">You can refresh the SharePoint site to check the restored file.</target>
+        </trans-unit>
+        <trans-unit id="b75b3607-eca0-4bf8-b9c0-835c45245d97" xml:space="preserve">
+          <source>To recover a SharePoint content database, navigate through various recovery points (as shown above) and select the recovery point to you want to recover.</source>
+          <target state="new">To recover a SharePoint content database, navigate through various recovery points (as shown above) and select the recovery point to you want to recover.</target>
+        </trans-unit>
+        <trans-unit id="7f509f8e-b81c-45f9-a53f-b21c3794201e" xml:space="preserve">
+          <source><bpt id="b7e2d538-5d11-4955-bf03-387a838eb84d">&lt;linkText&gt;</bpt>DPM SharePoint Protection8<ept id="b7e2d538-5d11-4955-bf03-387a838eb84d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7e2d538-5d11-4955-bf03-387a838eb84d">&lt;linkText&gt;</bpt>DPM SharePoint Protection8<ept id="b7e2d538-5d11-4955-bf03-387a838eb84d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4b21446-677b-4954-afc8-8274cbefac15" xml:space="preserve">
+          <source>Double-click the SharePoint recovery point to show the available SharePoint catalog information.</source>
+          <target state="new">Double-click the SharePoint recovery point to show the available SharePoint catalog information.</target>
+        </trans-unit>
+        <trans-unit id="68fe0ffe-7e36-40c1-9ce4-433ee7190767" xml:space="preserve">
+          <source>Since the SharePoint farm is protected for long term retention in Azure, no catalog information (meta data) is available on the DPM Server.</source>
+          <target state="new">Since the SharePoint farm is protected for long term retention in Azure, no catalog information (meta data) is available on the DPM Server.</target>
+        </trans-unit>
+        <trans-unit id="d649464f-9c15-48c7-9128-c05b45de52e0" xml:space="preserve">
+          <source>As a result, whenever a point-in-time SharePoint content database needs to be recovered you need to re-catalog the SharePoint farm.</source>
+          <target state="new">As a result, whenever a point-in-time SharePoint content database needs to be recovered you need to re-catalog the SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="efd32d11-3515-49f4-9235-d189865aa413" xml:space="preserve">
+          <source>Click <bpt id="509bf12a-e461-4da7-8043-55a286d689e4">&lt;strong&gt;</bpt>Re-catalog<ept id="509bf12a-e461-4da7-8043-55a286d689e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="509bf12a-e461-4da7-8043-55a286d689e4">&lt;strong&gt;</bpt>Re-catalog<ept id="509bf12a-e461-4da7-8043-55a286d689e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5bde388-082a-4362-85f3-605157d1d713" xml:space="preserve">
+          <source><bpt id="f7e9c810-933f-47da-ba16-1415b1528e7e">&lt;linkText&gt;</bpt>DPM SharePoint Protection10<ept id="f7e9c810-933f-47da-ba16-1415b1528e7e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f7e9c810-933f-47da-ba16-1415b1528e7e">&lt;linkText&gt;</bpt>DPM SharePoint Protection10<ept id="f7e9c810-933f-47da-ba16-1415b1528e7e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72465680-8413-4846-baaf-a27111c28802" xml:space="preserve">
+          <source>The <bpt id="85959d8e-8c6f-49a6-becb-976007f00799">&lt;strong&gt;</bpt>Cloud Recatalog<ept id="85959d8e-8c6f-49a6-becb-976007f00799">&lt;/strong&gt;</ept> status window appears.</source>
+          <target state="new">The <bpt id="85959d8e-8c6f-49a6-becb-976007f00799">&lt;strong&gt;</bpt>Cloud Recatalog<ept id="85959d8e-8c6f-49a6-becb-976007f00799">&lt;/strong&gt;</ept> status window appears.</target>
+        </trans-unit>
+        <trans-unit id="cc7b1180-33b7-4406-8337-7093513fc16b" xml:space="preserve">
+          <source><bpt id="9f867827-879c-4bec-9d24-00e491137b55">&lt;linkText&gt;</bpt>DPM SharePoint Protection11<ept id="9f867827-879c-4bec-9d24-00e491137b55">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9f867827-879c-4bec-9d24-00e491137b55">&lt;linkText&gt;</bpt>DPM SharePoint Protection11<ept id="9f867827-879c-4bec-9d24-00e491137b55">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="309e90be-5d16-434b-bb7d-40104cd30b51" xml:space="preserve">
+          <source>Once cataloging is complete, the status changes to <bpt id="e646f009-dec4-499e-906e-e62d6a0e0662">&lt;em&gt;</bpt>Success<ept id="e646f009-dec4-499e-906e-e62d6a0e0662">&lt;/em&gt;</ept>.</source>
+          <target state="new">Once cataloging is complete, the status changes to <bpt id="e646f009-dec4-499e-906e-e62d6a0e0662">&lt;em&gt;</bpt>Success<ept id="e646f009-dec4-499e-906e-e62d6a0e0662">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ab23a04-3bca-4238-b4c3-81f00fd07a13" xml:space="preserve">
+          <source>Click <bpt id="40613a99-aefc-4674-ab5b-7ae69148f1b1">&lt;strong&gt;</bpt>Close<ept id="40613a99-aefc-4674-ab5b-7ae69148f1b1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="40613a99-aefc-4674-ab5b-7ae69148f1b1">&lt;strong&gt;</bpt>Close<ept id="40613a99-aefc-4674-ab5b-7ae69148f1b1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad3cdf93-6288-405a-8077-4a7759f9eebc" xml:space="preserve">
+          <source><bpt id="0d0b7b9e-62a8-491f-9b62-39c84b5e61e8">&lt;linkText&gt;</bpt>DPM SharePoint Protection12<ept id="0d0b7b9e-62a8-491f-9b62-39c84b5e61e8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d0b7b9e-62a8-491f-9b62-39c84b5e61e8">&lt;linkText&gt;</bpt>DPM SharePoint Protection12<ept id="0d0b7b9e-62a8-491f-9b62-39c84b5e61e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff1cb07c-2bbf-43cb-be75-bd2d2b1769dc" xml:space="preserve">
+          <source>Click the SharePoint object shown in DPM <bpt id="310d4ae3-b518-4d42-9930-319d92fbe879">&lt;strong&gt;</bpt>Recovery<ept id="310d4ae3-b518-4d42-9930-319d92fbe879">&lt;/strong&gt;</ept> tab to get the content database structure.</source>
+          <target state="new">Click the SharePoint object shown in DPM <bpt id="310d4ae3-b518-4d42-9930-319d92fbe879">&lt;strong&gt;</bpt>Recovery<ept id="310d4ae3-b518-4d42-9930-319d92fbe879">&lt;/strong&gt;</ept> tab to get the content database structure.</target>
+        </trans-unit>
+        <trans-unit id="33653c3a-3727-438e-9426-1acab1605d45" xml:space="preserve">
+          <source>Right click &gt; <bpt id="a2af96a4-aa63-43f6-b02e-98cf94061994">&lt;strong&gt;</bpt>Recover<ept id="a2af96a4-aa63-43f6-b02e-98cf94061994">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right click &gt; <bpt id="a2af96a4-aa63-43f6-b02e-98cf94061994">&lt;strong&gt;</bpt>Recover<ept id="a2af96a4-aa63-43f6-b02e-98cf94061994">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82cb403a-5335-4a29-8643-c942be12edbe" xml:space="preserve">
+          <source><bpt id="78b40573-6574-4954-ae65-ffeb68746e98">&lt;linkText&gt;</bpt>DPM SharePoint Protection13<ept id="78b40573-6574-4954-ae65-ffeb68746e98">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78b40573-6574-4954-ae65-ffeb68746e98">&lt;linkText&gt;</bpt>DPM SharePoint Protection13<ept id="78b40573-6574-4954-ae65-ffeb68746e98">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce2434f8-4841-4328-a612-834486bd2077" xml:space="preserve">
+          <source>At this point, follow the <bpt id="cb8d06f3-48a9-4833-a27d-73ceeb638e3e">&lt;linkText&gt;</bpt>recovery steps above<ept id="cb8d06f3-48a9-4833-a27d-73ceeb638e3e">&lt;/linkText&gt;</ept><bpt id="cb8d06f3-48a9-4833-a27d-73ceeb638e3e">&lt;title&gt;</bpt><ept id="cb8d06f3-48a9-4833-a27d-73ceeb638e3e">&lt;/title&gt;</ept> for recovering a Sharepoint content database from disk.</source>
+          <target state="new">At this point, follow the <bpt id="cb8d06f3-48a9-4833-a27d-73ceeb638e3e">&lt;linkText&gt;</bpt>recovery steps above<ept id="cb8d06f3-48a9-4833-a27d-73ceeb638e3e">&lt;/linkText&gt;</ept><bpt id="cb8d06f3-48a9-4833-a27d-73ceeb638e3e">&lt;title&gt;</bpt><ept id="cb8d06f3-48a9-4833-a27d-73ceeb638e3e">&lt;/title&gt;</ept> for recovering a Sharepoint content database from disk.</target>
+        </trans-unit>
+        <trans-unit id="abb9f059-07ff-42b8-b65b-c9268a98705d" xml:space="preserve">
+          <source>Q: Which versions of DPM support SQL 2014 and SQL 2012 (SP2)&lt;br&gt;
+A: DPM 2012 R2 with Update Rollup 4 supports the same</source>
+          <target state="new">Q: Which versions of DPM support SQL 2014 and SQL 2012 (SP2)&lt;br&gt;
+A: DPM 2012 R2 with Update Rollup 4 supports the same</target>
+        </trans-unit>
+        <trans-unit id="62dd08db-36be-482c-853d-7c39e87b5bb8" xml:space="preserve">
+          <source>Q: Can I recover SharePoint item to the original location if SharePoint is configured using SQL AlwaysOn (with protection on disk)?&lt;br&gt;
+A: Yes the item can be recovered to the original SharePoint site</source>
+          <target state="new">Q: Can I recover SharePoint item to the original location if SharePoint is configured using SQL AlwaysOn (with protection on disk)?&lt;br&gt;
+A: Yes the item can be recovered to the original SharePoint site</target>
+        </trans-unit>
+        <trans-unit id="02f940f4-0aed-43e4-9c40-804bb705e2b5" xml:space="preserve">
+          <source>Q: Can I recover a SharePoint database to the original location if SharePoint is configured using SQL AlwaysOn?&lt;br&gt;
+A: Since SharePoint databases are configured in SQL AlwaysOn, they cannot be modified unless the availability group (AG) is removed. As a result DPM cannot restore database to original location. You can recovery SQL database to another SQL instance.</source>
+          <target state="new">Q: Can I recover a SharePoint database to the original location if SharePoint is configured using SQL AlwaysOn?&lt;br&gt;
+A: Since SharePoint databases are configured in SQL AlwaysOn, they cannot be modified unless the availability group (AG) is removed. As a result DPM cannot restore database to original location. You can recovery SQL database to another SQL instance.</target>
+        </trans-unit>
+        <trans-unit id="a4d64aaf-bb63-49a5-8494-38e50a115a2a" xml:space="preserve">
+          <source>Learn more about DPM Protection of SharePoint - see <bpt id="7dcb114b-3ed0-4cbb-911c-a95322a36d27">&lt;linkText&gt;</bpt>Video Series - DPM Protection of SharePoint<ept id="7dcb114b-3ed0-4cbb-911c-a95322a36d27">&lt;/linkText&gt;</ept><bpt id="7dcb114b-3ed0-4cbb-911c-a95322a36d27">&lt;title&gt;</bpt><ept id="7dcb114b-3ed0-4cbb-911c-a95322a36d27">&lt;/title&gt;</ept></source>
+          <target state="new">Learn more about DPM Protection of SharePoint - see <bpt id="7dcb114b-3ed0-4cbb-911c-a95322a36d27">&lt;linkText&gt;</bpt>Video Series - DPM Protection of SharePoint<ept id="7dcb114b-3ed0-4cbb-911c-a95322a36d27">&lt;/linkText&gt;</ept><bpt id="7dcb114b-3ed0-4cbb-911c-a95322a36d27">&lt;title&gt;</bpt><ept id="7dcb114b-3ed0-4cbb-911c-a95322a36d27">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ab08f39-2e4e-42d4-a783-ce55053088eb" xml:space="preserve">
+          <source>Review <bpt id="6e267d60-c6c8-4002-ba12-e698ae257608">&lt;linkText&gt;</bpt>Release Notes for System Center 2012 - Data Protection Manager<ept id="6e267d60-c6c8-4002-ba12-e698ae257608">&lt;/linkText&gt;</ept><bpt id="6e267d60-c6c8-4002-ba12-e698ae257608">&lt;title&gt;</bpt><ept id="6e267d60-c6c8-4002-ba12-e698ae257608">&lt;/title&gt;</ept></source>
+          <target state="new">Review <bpt id="6e267d60-c6c8-4002-ba12-e698ae257608">&lt;linkText&gt;</bpt>Release Notes for System Center 2012 - Data Protection Manager<ept id="6e267d60-c6c8-4002-ba12-e698ae257608">&lt;/linkText&gt;</ept><bpt id="6e267d60-c6c8-4002-ba12-e698ae257608">&lt;title&gt;</bpt><ept id="6e267d60-c6c8-4002-ba12-e698ae257608">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6deef3b-95b9-4a78-8ff9-09d7ab26e4ba" xml:space="preserve">
+          <source>Review <bpt id="1def0565-6f68-4f91-97db-0d252e446cf2">&lt;linkText&gt;</bpt>Release Notes for Data Protection Manager in System Center 2012 SP1<ept id="1def0565-6f68-4f91-97db-0d252e446cf2">&lt;/linkText&gt;</ept><bpt id="1def0565-6f68-4f91-97db-0d252e446cf2">&lt;title&gt;</bpt><ept id="1def0565-6f68-4f91-97db-0d252e446cf2">&lt;/title&gt;</ept></source>
+          <target state="new">Review <bpt id="1def0565-6f68-4f91-97db-0d252e446cf2">&lt;linkText&gt;</bpt>Release Notes for Data Protection Manager in System Center 2012 SP1<ept id="1def0565-6f68-4f91-97db-0d252e446cf2">&lt;/linkText&gt;</ept><bpt id="1def0565-6f68-4f91-97db-0d252e446cf2">&lt;title&gt;</bpt><ept id="1def0565-6f68-4f91-97db-0d252e446cf2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

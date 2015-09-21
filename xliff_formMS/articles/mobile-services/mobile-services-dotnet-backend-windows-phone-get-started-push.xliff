@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d1d055cb-15bf-4f52-a4de-4880057c49d0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d1d055cb-15bf-4f52-a4de-4880057c49d0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fdfb9aa0-611b-4899-8428-c613f7449473">
+        <trans-unit id="934b91aa-042c-494d-b065-695b17a5ae17" xml:space="preserve">
+          <source>Use Azure Mobile Services and Notification Hubs to send notifications to your Windows Phone app</source>
+          <target state="new">Use Azure Mobile Services and Notification Hubs to send notifications to your Windows Phone app</target>
+        </trans-unit>
+        <trans-unit id="7e3cf541-6d5c-4ba7-8a15-8ba5b4edfb92" xml:space="preserve">
+          <source>Learn how to use Notification Hubs with Azure mobile services to send push notifications to your Windows phone app.</source>
+          <target state="new">Learn how to use Notification Hubs with Azure mobile services to send push notifications to your Windows phone app.</target>
+        </trans-unit>
+        <trans-unit id="dd21d778-e74e-4333-9c9f-758f29ec97ab" xml:space="preserve">
+          <source><bpt id="0f712fe9-8d06-45bd-b3d3-ff0ca58fd113">&lt;token href="../../includes/mobile-services-selector-get-started-push-legacy.md"&gt;</bpt><ept id="0f712fe9-8d06-45bd-b3d3-ff0ca58fd113">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0f712fe9-8d06-45bd-b3d3-ff0ca58fd113">&lt;token href="../../includes/mobile-services-selector-get-started-push-legacy.md"&gt;</bpt><ept id="0f712fe9-8d06-45bd-b3d3-ff0ca58fd113">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56dfdc4c-2624-4429-b835-1a4152164b08" xml:space="preserve">
+          <source>This topic shows you how to use Azure Mobile Services with a .NET backend to send push notifications to a Windows Phone Silverlight 8 app using the Microsoft Push Notification Service (MPNS).</source>
+          <target state="new">This topic shows you how to use Azure Mobile Services with a .NET backend to send push notifications to a Windows Phone Silverlight 8 app using the Microsoft Push Notification Service (MPNS).</target>
+        </trans-unit>
+        <trans-unit id="9b10a7f3-ce28-41e6-a2e8-6904c53b1611" xml:space="preserve">
+          <source>In this tutorial you enable push notifications using Azure Notification Hubs to the quickstart project.</source>
+          <target state="new">In this tutorial you enable push notifications using Azure Notification Hubs to the quickstart project.</target>
+        </trans-unit>
+        <trans-unit id="a72fe019-db1f-4aff-a910-bfa43e0a4703" xml:space="preserve">
+          <source>When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted.</source>
+          <target state="new">When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted.</target>
+        </trans-unit>
+        <trans-unit id="8690a37d-b8c9-4f90-bf44-a40cb7a97a13" xml:space="preserve">
+          <source>The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.</source>
+          <target state="new">The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.</target>
+        </trans-unit>
+        <trans-unit id="c1206fa8-d357-4a6e-b0f8-9da65ddc2086" xml:space="preserve">
+          <source>This tutorial is based on the Mobile Services TodoList project.</source>
+          <target state="new">This tutorial is based on the Mobile Services TodoList project.</target>
+        </trans-unit>
+        <trans-unit id="8dce0ace-4ea8-45ae-bb7c-782f888f358f" xml:space="preserve">
+          <source>Before you start this tutorial, you must first complete [Add Mobile Services to an existing app] to connect your project to the mobile service.</source>
+          <target state="new">Before you start this tutorial, you must first complete [Add Mobile Services to an existing app] to connect your project to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="9d956c64-f95a-4fc2-a498-cf54fcaa09ad" xml:space="preserve">
+          <source>This tutorial targets Windows Phone 8.1 Silverlight apps.</source>
+          <target state="new">This tutorial targets Windows Phone 8.1 Silverlight apps.</target>
+        </trans-unit>
+        <trans-unit id="14485e1e-23be-4ede-bca1-76d522a7bea2" xml:space="preserve">
+          <source>If you are instead building a Windows Phone 8.1 Store app, see the <bpt id="05f9a729-eac5-4776-83ab-9275108aeef1">&lt;linkText&gt;</bpt>Windows Store app<ept id="05f9a729-eac5-4776-83ab-9275108aeef1">&lt;/linkText&gt;</ept><bpt id="05f9a729-eac5-4776-83ab-9275108aeef1">&lt;title&gt;</bpt><ept id="05f9a729-eac5-4776-83ab-9275108aeef1">&lt;/title&gt;</ept> version of this tutorial.</source>
+          <target state="new">If you are instead building a Windows Phone 8.1 Store app, see the <bpt id="05f9a729-eac5-4776-83ab-9275108aeef1">&lt;linkText&gt;</bpt>Windows Store app<ept id="05f9a729-eac5-4776-83ab-9275108aeef1">&lt;/linkText&gt;</ept><bpt id="05f9a729-eac5-4776-83ab-9275108aeef1">&lt;title&gt;</bpt><ept id="05f9a729-eac5-4776-83ab-9275108aeef1">&lt;/title&gt;</ept> version of this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="92fc8a29-dbee-48ee-8e29-beb34c7a1bba" xml:space="preserve">
+          <source>For information on Windows Phone Silverlight apps and how they compare with Windows Phone Store apps, see [Windows Phone Silverlight 8.1 apps].</source>
+          <target state="new">For information on Windows Phone Silverlight apps and how they compare with Windows Phone Store apps, see [Windows Phone Silverlight 8.1 apps].</target>
+        </trans-unit>
+        <trans-unit id="72aa3a29-c663-4741-9ab1-10218f18cc79" xml:space="preserve">
+          <source>Before your app can receive push notifications, you must register a notification channel.</source>
+          <target state="new">Before your app can receive push notifications, you must register a notification channel.</target>
+        </trans-unit>
+        <trans-unit id="ca94e921-562f-4692-85c8-4e2a57bd7d87" xml:space="preserve">
+          <source>In Visual Studio, open the file App.xaml.cs and add the following <bpt id="d6c98952-4c39-4cc2-934a-e188011154a0">&lt;code&gt;</bpt>using<ept id="d6c98952-4c39-4cc2-934a-e188011154a0">&lt;/code&gt;</ept> statement:</source>
+          <target state="new">In Visual Studio, open the file App.xaml.cs and add the following <bpt id="d6c98952-4c39-4cc2-934a-e188011154a0">&lt;code&gt;</bpt>using<ept id="d6c98952-4c39-4cc2-934a-e188011154a0">&lt;/code&gt;</ept> statement:</target>
+        </trans-unit>
+        <trans-unit id="22fc8131-063c-4324-ad5e-194105314702" xml:space="preserve">
+          <source>Add the following <bpt id="c013a49e-7719-4f04-8dca-731d1bbb6bf9">&lt;code&gt;</bpt>AcquirePushChannel<ept id="c013a49e-7719-4f04-8dca-731d1bbb6bf9">&lt;/code&gt;</ept> method to <bpt id="3dcaa7fd-af7d-4a8d-bb9e-2351cb635b81">&lt;code&gt;</bpt>App<ept id="3dcaa7fd-af7d-4a8d-bb9e-2351cb635b81">&lt;/code&gt;</ept> class:</source>
+          <target state="new">Add the following <bpt id="c013a49e-7719-4f04-8dca-731d1bbb6bf9">&lt;code&gt;</bpt>AcquirePushChannel<ept id="c013a49e-7719-4f04-8dca-731d1bbb6bf9">&lt;/code&gt;</ept> method to <bpt id="3dcaa7fd-af7d-4a8d-bb9e-2351cb635b81">&lt;code&gt;</bpt>App<ept id="3dcaa7fd-af7d-4a8d-bb9e-2351cb635b81">&lt;/code&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="5fb00cb8-5296-49f7-baa7-fbc7f4a2876a" xml:space="preserve">
+          <source>This code retrieves the channel URI for the app if it exists.</source>
+          <target state="new">This code retrieves the channel URI for the app if it exists.</target>
+        </trans-unit>
+        <trans-unit id="54a8a779-4442-4b5a-b490-a4096b8dfc24" xml:space="preserve">
+          <source>Otherwise, it will be created.</source>
+          <target state="new">Otherwise, it will be created.</target>
+        </trans-unit>
+        <trans-unit id="cc63676b-166d-4262-b97e-f4c2f64839f9" xml:space="preserve">
+          <source>The channel URI is then opened and bound for toast notifications.</source>
+          <target state="new">The channel URI is then opened and bound for toast notifications.</target>
+        </trans-unit>
+        <trans-unit id="f867b6f1-a7cb-4792-a607-d433f60fcfd5" xml:space="preserve">
+          <source>Once the channel URI is completely opened, the handler for the <bpt id="7470f5ac-6d68-4aa5-9d70-03155f522a5a">&lt;code&gt;</bpt>ChannelUriUpdated<ept id="7470f5ac-6d68-4aa5-9d70-03155f522a5a">&lt;/code&gt;</ept> method is called and the channel is registered to received push notifications.</source>
+          <target state="new">Once the channel URI is completely opened, the handler for the <bpt id="7470f5ac-6d68-4aa5-9d70-03155f522a5a">&lt;code&gt;</bpt>ChannelUriUpdated<ept id="7470f5ac-6d68-4aa5-9d70-03155f522a5a">&lt;/code&gt;</ept> method is called and the channel is registered to received push notifications.</target>
+        </trans-unit>
+        <trans-unit id="d0020247-3e65-4998-ab6d-c9d3a9ace93e" xml:space="preserve">
+          <source>If the registration should fail, the channel is closed so that subsequent executions of the app can try registration again.</source>
+          <target state="new">If the registration should fail, the channel is closed so that subsequent executions of the app can try registration again.</target>
+        </trans-unit>
+        <trans-unit id="1cbd8228-cf01-4ed7-b6c8-a6bb9be2c13e" xml:space="preserve">
+          <source>The <bpt id="9aaeb8e7-27f8-499d-a16c-4dd28e481bfc">&lt;code&gt;</bpt>ShellToastNotificationReceived<ept id="9aaeb8e7-27f8-499d-a16c-4dd28e481bfc">&lt;/code&gt;</ept> handler is setup so that the app can receive and handle push notifications while running.</source>
+          <target state="new">The <bpt id="9aaeb8e7-27f8-499d-a16c-4dd28e481bfc">&lt;code&gt;</bpt>ShellToastNotificationReceived<ept id="9aaeb8e7-27f8-499d-a16c-4dd28e481bfc">&lt;/code&gt;</ept> handler is setup so that the app can receive and handle push notifications while running.</target>
+        </trans-unit>
+        <trans-unit id="cf868f7f-c5b3-4d82-8413-3611d1736626" xml:space="preserve">
+          <source>In the <bpt id="bf986712-edeb-4b3c-859b-bb987e46c219">&lt;code&gt;</bpt>Application_Launching<ept id="bf986712-edeb-4b3c-859b-bb987e46c219">&lt;/code&gt;</ept> event handler in App.xaml.cs, add the following call to the new <bpt id="fea102af-f6c0-4843-a7fe-59aca5a6a0bf">&lt;code&gt;</bpt>AcquirePushChannel<ept id="fea102af-f6c0-4843-a7fe-59aca5a6a0bf">&lt;/code&gt;</ept> method:</source>
+          <target state="new">In the <bpt id="bf986712-edeb-4b3c-859b-bb987e46c219">&lt;code&gt;</bpt>Application_Launching<ept id="bf986712-edeb-4b3c-859b-bb987e46c219">&lt;/code&gt;</ept> event handler in App.xaml.cs, add the following call to the new <bpt id="fea102af-f6c0-4843-a7fe-59aca5a6a0bf">&lt;code&gt;</bpt>AcquirePushChannel<ept id="fea102af-f6c0-4843-a7fe-59aca5a6a0bf">&lt;/code&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="64247215-1a67-4687-860a-c1f76d9ea855" xml:space="preserve">
+          <source>This makes sure that registration is requested every time that the app is loaded.</source>
+          <target state="new">This makes sure that registration is requested every time that the app is loaded.</target>
+        </trans-unit>
+        <trans-unit id="69c3cfd6-9bab-4ab9-9c6f-300226b08052" xml:space="preserve">
+          <source>In your app, you may only want to make this registration periodically to ensure that the registration is current.</source>
+          <target state="new">In your app, you may only want to make this registration periodically to ensure that the registration is current.</target>
+        </trans-unit>
+        <trans-unit id="f5ce45ef-ed3c-4e71-a38c-6d45338d7fc1" xml:space="preserve">
+          <source>Press the <bpt id="c9d21b77-8584-479c-803f-22bde1b117f0">&lt;strong&gt;</bpt>F5<ept id="c9d21b77-8584-479c-803f-22bde1b117f0">&lt;/strong&gt;</ept> key to run the app.</source>
+          <target state="new">Press the <bpt id="c9d21b77-8584-479c-803f-22bde1b117f0">&lt;strong&gt;</bpt>F5<ept id="c9d21b77-8584-479c-803f-22bde1b117f0">&lt;/strong&gt;</ept> key to run the app.</target>
+        </trans-unit>
+        <trans-unit id="742f383e-0138-4402-8cc4-5d9ae59cd692" xml:space="preserve">
+          <source>A popup dialog with the registration key is displayed.</source>
+          <target state="new">A popup dialog with the registration key is displayed.</target>
+        </trans-unit>
+        <trans-unit id="9ccdb966-97c0-4531-b266-e988aaacede9" xml:space="preserve">
+          <source>In Visual Studio, open the Package.appxmanifest file and make sure that <bpt id="1d6f0c3e-9fe7-4a60-a24b-14213729d3fb">&lt;strong&gt;</bpt>Toast capable<ept id="1d6f0c3e-9fe7-4a60-a24b-14213729d3fb">&lt;/strong&gt;</ept> is set to <bpt id="43da144a-e68d-4b80-96ca-ef49166a161d">&lt;strong&gt;</bpt>Yes<ept id="43da144a-e68d-4b80-96ca-ef49166a161d">&lt;/strong&gt;</ept> on the <bpt id="73683d4f-c283-48ce-b59e-efcd2a6157f5">&lt;strong&gt;</bpt>Application UI<ept id="73683d4f-c283-48ce-b59e-efcd2a6157f5">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In Visual Studio, open the Package.appxmanifest file and make sure that <bpt id="1d6f0c3e-9fe7-4a60-a24b-14213729d3fb">&lt;strong&gt;</bpt>Toast capable<ept id="1d6f0c3e-9fe7-4a60-a24b-14213729d3fb">&lt;/strong&gt;</ept> is set to <bpt id="43da144a-e68d-4b80-96ca-ef49166a161d">&lt;strong&gt;</bpt>Yes<ept id="43da144a-e68d-4b80-96ca-ef49166a161d">&lt;/strong&gt;</ept> on the <bpt id="73683d4f-c283-48ce-b59e-efcd2a6157f5">&lt;strong&gt;</bpt>Application UI<ept id="73683d4f-c283-48ce-b59e-efcd2a6157f5">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2484dc4e-8191-4605-8fb2-935cb810c2ff" xml:space="preserve">
+          <source><bpt id="f7f650a3-8728-42a0-a97e-381986cc5e66">&lt;linkText&gt;</bpt><ept id="f7f650a3-8728-42a0-a97e-381986cc5e66">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f7f650a3-8728-42a0-a97e-381986cc5e66">&lt;linkText&gt;</bpt><ept id="f7f650a3-8728-42a0-a97e-381986cc5e66">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72d59841-268b-4925-a0b2-b791ee31255f" xml:space="preserve">
+          <source>This makes sure that your app can raise toast notifications.</source>
+          <target state="new">This makes sure that your app can raise toast notifications.</target>
+        </trans-unit>
+        <trans-unit id="32423815-8b7f-4b36-a317-83e9dcedaa7a" xml:space="preserve">
+          <source>In Visual Studio Solution Explorer, expand the <bpt id="272a2c3a-0107-4c67-9eba-b87b0545339a">&lt;strong&gt;</bpt>Controllers<ept id="272a2c3a-0107-4c67-9eba-b87b0545339a">&lt;/strong&gt;</ept> folder in the mobile service project.</source>
+          <target state="new">In Visual Studio Solution Explorer, expand the <bpt id="272a2c3a-0107-4c67-9eba-b87b0545339a">&lt;strong&gt;</bpt>Controllers<ept id="272a2c3a-0107-4c67-9eba-b87b0545339a">&lt;/strong&gt;</ept> folder in the mobile service project.</target>
+        </trans-unit>
+        <trans-unit id="3bef7c3e-601a-4b7b-bb5f-1cd0eb891bc5" xml:space="preserve">
+          <source>Open TodoItemController.cs and update the <bpt id="c93e53df-c98a-4f34-a97a-38cdf04b974d">&lt;code&gt;</bpt>PostTodoItem<ept id="c93e53df-c98a-4f34-a97a-38cdf04b974d">&lt;/code&gt;</ept> method definition with the following code:</source>
+          <target state="new">Open TodoItemController.cs and update the <bpt id="c93e53df-c98a-4f34-a97a-38cdf04b974d">&lt;code&gt;</bpt>PostTodoItem<ept id="c93e53df-c98a-4f34-a97a-38cdf04b974d">&lt;/code&gt;</ept> method definition with the following code:</target>
+        </trans-unit>
+        <trans-unit id="0bbd51bb-bf2c-49f4-9c94-ecc0908e0627" xml:space="preserve">
+          <source>This code will send a push notification (with the text of the inserted item) after inserting a todo item.</source>
+          <target state="new">This code will send a push notification (with the text of the inserted item) after inserting a todo item.</target>
+        </trans-unit>
+        <trans-unit id="78c3c1af-11a5-44d7-9df9-6e2f3e03a5e1" xml:space="preserve">
+          <source>In the event of an error, the code will add an error log entry which is viewable on the <bpt id="15efd161-e8d2-4255-9cf1-edcb947f9767">&lt;strong&gt;</bpt>Logs<ept id="15efd161-e8d2-4255-9cf1-edcb947f9767">&lt;/strong&gt;</ept> tab of the mobile service in the Management Portal.</source>
+          <target state="new">In the event of an error, the code will add an error log entry which is viewable on the <bpt id="15efd161-e8d2-4255-9cf1-edcb947f9767">&lt;strong&gt;</bpt>Logs<ept id="15efd161-e8d2-4255-9cf1-edcb947f9767">&lt;/strong&gt;</ept> tab of the mobile service in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="e97361c9-9c1b-4e1a-b36a-1e3a547f8713" xml:space="preserve">
+          <source>Log on to the [Azure Management Portal], click <bpt id="04caa645-3bfa-45dc-9c2a-7de146b13a73">&lt;strong&gt;</bpt>Mobile Services<ept id="04caa645-3bfa-45dc-9c2a-7de146b13a73">&lt;/strong&gt;</ept>, and then click your app.</source>
+          <target state="new">Log on to the [Azure Management Portal], click <bpt id="04caa645-3bfa-45dc-9c2a-7de146b13a73">&lt;strong&gt;</bpt>Mobile Services<ept id="04caa645-3bfa-45dc-9c2a-7de146b13a73">&lt;/strong&gt;</ept>, and then click your app.</target>
+        </trans-unit>
+        <trans-unit id="436251de-e152-4270-b6a4-d77cca7778c8" xml:space="preserve">
+          <source>Click the <bpt id="1c188bbd-4ecd-4b5f-8b67-84f99f4e24c1">&lt;strong&gt;</bpt>Push<ept id="1c188bbd-4ecd-4b5f-8b67-84f99f4e24c1">&lt;/strong&gt;</ept> tab, check <bpt id="6458e77f-b258-491c-b587-620a15626845">&lt;strong&gt;</bpt>Enable unauthenticated push notifications<ept id="6458e77f-b258-491c-b587-620a15626845">&lt;/strong&gt;</ept>, then click <bpt id="3fb810dd-faa0-4512-935a-27411fcb2b92">&lt;strong&gt;</bpt>Save<ept id="3fb810dd-faa0-4512-935a-27411fcb2b92">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="1c188bbd-4ecd-4b5f-8b67-84f99f4e24c1">&lt;strong&gt;</bpt>Push<ept id="1c188bbd-4ecd-4b5f-8b67-84f99f4e24c1">&lt;/strong&gt;</ept> tab, check <bpt id="6458e77f-b258-491c-b587-620a15626845">&lt;strong&gt;</bpt>Enable unauthenticated push notifications<ept id="6458e77f-b258-491c-b587-620a15626845">&lt;/strong&gt;</ept>, then click <bpt id="3fb810dd-faa0-4512-935a-27411fcb2b92">&lt;strong&gt;</bpt>Save<ept id="3fb810dd-faa0-4512-935a-27411fcb2b92">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c905ae5f-4d73-4d2a-bf4a-32c24dfb652e" xml:space="preserve">
+          <source><bpt id="5ed909a5-f8f0-4cc8-ada1-7cb4155b536b">&lt;linkText&gt;</bpt>Mobile Services Push tab<ept id="5ed909a5-f8f0-4cc8-ada1-7cb4155b536b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5ed909a5-f8f0-4cc8-ada1-7cb4155b536b">&lt;linkText&gt;</bpt>Mobile Services Push tab<ept id="5ed909a5-f8f0-4cc8-ada1-7cb4155b536b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28cfe541-29d6-47db-9d9a-2c0bf86ccbbc" xml:space="preserve">
+          <source>This tutorial uses MPNS in unauthenticated mode.</source>
+          <target state="new">This tutorial uses MPNS in unauthenticated mode.</target>
+        </trans-unit>
+        <trans-unit id="2e5dbc10-db43-49de-97be-ece2027b72ac" xml:space="preserve">
+          <source>In this mode, MPNS limits the number of notifications that can be sent to a device channel.</source>
+          <target state="new">In this mode, MPNS limits the number of notifications that can be sent to a device channel.</target>
+        </trans-unit>
+        <trans-unit id="4fc344ea-fc2d-443f-8a8a-9aafed3b90f7" xml:space="preserve">
+          <source>To remove this restriction, you must generate and upload a certificate by clicking &lt;strong&gt;Upload&lt;/strong&gt; and selecting the certificate.</source>
+          <target state="new">To remove this restriction, you must generate and upload a certificate by clicking &lt;strong&gt;Upload&lt;/strong&gt; and selecting the certificate.</target>
+        </trans-unit>
+        <trans-unit id="59fd31dc-dfa0-4631-aa77-d6f9b0a8b89e" xml:space="preserve">
+          <source>For more information on generating the certificate, see &lt;a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx"&gt;Setting up an authenticated web service to send push notifications for Windows Phone&lt;/a&gt;.</source>
+          <target state="new">For more information on generating the certificate, see &lt;a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx"&gt;Setting up an authenticated web service to send push notifications for Windows Phone&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="0b34e491-d99b-4c66-8556-a254e4154c08" xml:space="preserve">
+          <source>This enables the mobile service to connect to MPNS in unauthenticated mode to send push notifications.</source>
+          <target state="new">This enables the mobile service to connect to MPNS in unauthenticated mode to send push notifications.</target>
+        </trans-unit>
+        <trans-unit id="5c7210a1-81d2-416a-b5a1-b40fcfc00ee5" xml:space="preserve">
+          <source><bpt id="b50f333e-33e2-47ea-8aff-50499851f8f2">&lt;token href="../../includes/mobile-services-dotnet-backend-configure-local-push.md"&gt;</bpt><ept id="b50f333e-33e2-47ea-8aff-50499851f8f2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b50f333e-33e2-47ea-8aff-50499851f8f2">&lt;token href="../../includes/mobile-services-dotnet-backend-configure-local-push.md"&gt;</bpt><ept id="b50f333e-33e2-47ea-8aff-50499851f8f2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a97bffc-cccc-4de9-b0b8-b0963da0b642" xml:space="preserve">
+          <source>In Visual Studio, press the F5 key to run the app.</source>
+          <target state="new">In Visual Studio, press the F5 key to run the app.</target>
+        </trans-unit>
+        <trans-unit id="60302eb2-519d-44de-9d56-d09265067f39" xml:space="preserve">
+          <source>You may encounter a 401 Unauthorized RegistrationAuthorizationException when testing on the Windows Phone emulator.</source>
+          <target state="new">You may encounter a 401 Unauthorized RegistrationAuthorizationException when testing on the Windows Phone emulator.</target>
+        </trans-unit>
+        <trans-unit id="5fdc0608-3ab3-411d-a3ca-eee1fad8d092" xml:space="preserve">
+          <source>This can occur during the <bpt id="48961b04-b981-4c00-9623-34c2d7abe924">&lt;code&gt;</bpt>RegisterNativeAsync()<ept id="48961b04-b981-4c00-9623-34c2d7abe924">&lt;/code&gt;</ept> call because of the way the Windows Phone emulator syncs it's clock with the host PC.</source>
+          <target state="new">This can occur during the <bpt id="48961b04-b981-4c00-9623-34c2d7abe924">&lt;code&gt;</bpt>RegisterNativeAsync()<ept id="48961b04-b981-4c00-9623-34c2d7abe924">&lt;/code&gt;</ept> call because of the way the Windows Phone emulator syncs it's clock with the host PC.</target>
+        </trans-unit>
+        <trans-unit id="e1b1a243-2e73-4e0f-aba4-490c41c50780" xml:space="preserve">
+          <source>It can result in a security token that will be rejected.</source>
+          <target state="new">It can result in a security token that will be rejected.</target>
+        </trans-unit>
+        <trans-unit id="b990e48d-51b3-4600-9176-536348d24bc5" xml:space="preserve">
+          <source>To resolve this simply manually set the clock in the emulator before testing.</source>
+          <target state="new">To resolve this simply manually set the clock in the emulator before testing.</target>
+        </trans-unit>
+        <trans-unit id="c0447fba-9919-47e0-96af-637a6aec6a77" xml:space="preserve">
+          <source>In the app, enter the text "hello push" in the textbox, click <bpt id="5f66b6fc-a63d-4140-ae00-c4f276136a1d">&lt;strong&gt;</bpt>Save<ept id="5f66b6fc-a63d-4140-ae00-c4f276136a1d">&lt;/strong&gt;</ept>, then immediately click the start button or back button to leave the app.</source>
+          <target state="new">In the app, enter the text "hello push" in the textbox, click <bpt id="5f66b6fc-a63d-4140-ae00-c4f276136a1d">&lt;strong&gt;</bpt>Save<ept id="5f66b6fc-a63d-4140-ae00-c4f276136a1d">&lt;/strong&gt;</ept>, then immediately click the start button or back button to leave the app.</target>
+        </trans-unit>
+        <trans-unit id="87484be2-24ea-4277-953e-784a0b9ccdc7" xml:space="preserve">
+          <source><bpt id="da5f8337-66e6-4fa7-99b0-af29c7f6f07f">&lt;linkText&gt;</bpt>Insert text<ept id="da5f8337-66e6-4fa7-99b0-af29c7f6f07f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da5f8337-66e6-4fa7-99b0-af29c7f6f07f">&lt;linkText&gt;</bpt>Insert text<ept id="da5f8337-66e6-4fa7-99b0-af29c7f6f07f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2673c713-d212-417f-a50f-130629736502" xml:space="preserve">
+          <source>This sends an insert request to the mobile service to store the added item.</source>
+          <target state="new">This sends an insert request to the mobile service to store the added item.</target>
+        </trans-unit>
+        <trans-unit id="9ef7acb2-d44a-4b48-8f99-94b40ed0cf7d" xml:space="preserve">
+          <source>Notice that the device receives a toast notification that says <bpt id="35bef980-dd57-455c-b630-56788ced645e">&lt;strong&gt;</bpt>hello push<ept id="35bef980-dd57-455c-b630-56788ced645e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice that the device receives a toast notification that says <bpt id="35bef980-dd57-455c-b630-56788ced645e">&lt;strong&gt;</bpt>hello push<ept id="35bef980-dd57-455c-b630-56788ced645e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4e24170-9a49-431f-8810-f665f704b5e3" xml:space="preserve">
+          <source><bpt id="36f0410f-551d-4cf5-bd72-fc432f56f27a">&lt;linkText&gt;</bpt>Push notification received<ept id="36f0410f-551d-4cf5-bd72-fc432f56f27a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="36f0410f-551d-4cf5-bd72-fc432f56f27a">&lt;linkText&gt;</bpt>Push notification received<ept id="36f0410f-551d-4cf5-bd72-fc432f56f27a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b0ba7e0-2426-47dd-b645-b08b8a294f8b" xml:space="preserve">
+          <source>You will not receive the notification when you are still in the app.</source>
+          <target state="new">You will not receive the notification when you are still in the app.</target>
+        </trans-unit>
+        <trans-unit id="dba51a4b-470f-4998-ac4a-09f217b58a86" xml:space="preserve">
+          <source>To receive a toast notification while the app is active, you must handle the <bpt id="a271cf59-67e2-4b8b-b0eb-c0fd946e216f">&lt;linkText&gt;</bpt>ShellToastNotificationReceived<ept id="a271cf59-67e2-4b8b-b0eb-c0fd946e216f">&lt;/linkText&gt;</ept><bpt id="a271cf59-67e2-4b8b-b0eb-c0fd946e216f">&lt;title&gt;</bpt><ept id="a271cf59-67e2-4b8b-b0eb-c0fd946e216f">&lt;/title&gt;</ept> event.</source>
+          <target state="new">To receive a toast notification while the app is active, you must handle the <bpt id="a271cf59-67e2-4b8b-b0eb-c0fd946e216f">&lt;linkText&gt;</bpt>ShellToastNotificationReceived<ept id="a271cf59-67e2-4b8b-b0eb-c0fd946e216f">&lt;/linkText&gt;</ept><bpt id="a271cf59-67e2-4b8b-b0eb-c0fd946e216f">&lt;title&gt;</bpt><ept id="a271cf59-67e2-4b8b-b0eb-c0fd946e216f">&lt;/title&gt;</ept> event.</target>
+        </trans-unit>
+        <trans-unit id="989fd23d-d81b-49b6-b3e8-7d8fdab5b818" xml:space="preserve">
+          <source>This tutorial demonstrated the basics of enabling a Windows Phone app to use Mobile Services and Notification Hubs to send push notifications.</source>
+          <target state="new">This tutorial demonstrated the basics of enabling a Windows Phone app to use Mobile Services and Notification Hubs to send push notifications.</target>
+        </trans-unit>
+        <trans-unit id="49e33f76-9dd2-47f8-99d7-3d1e2579dc1a" xml:space="preserve">
+          <source>Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.</source>
+          <target state="new">Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.</target>
+        </trans-unit>
+        <trans-unit id="d624c5b4-5911-4f2a-9ca3-c87049a9f8c8" xml:space="preserve">
+          <source>Consider finding out more about the following Mobile Services and Notification Hubs topics:</source>
+          <target state="new">Consider finding out more about the following Mobile Services and Notification Hubs topics:</target>
+        </trans-unit>
+        <trans-unit id="0504cf77-5732-465d-bb54-778679084682" xml:space="preserve">
+          <source>[Add authentication to your app]
+&lt;br/&gt;Learn how to authenticate users of your app with different account types using mobile services.</source>
+          <target state="new">[Add authentication to your app]
+&lt;br/&gt;Learn how to authenticate users of your app with different account types using mobile services.</target>
+        </trans-unit>
+        <trans-unit id="b726ce09-d137-4f28-bc22-4740623a5831" xml:space="preserve">
+          <source>[What are Notification Hubs?]</source>
+          <target state="new">[What are Notification Hubs?]</target>
+        </trans-unit>
+        <trans-unit id="d525d9e1-30e4-4138-8611-ce345208c245" xml:space="preserve">
+          <source>&lt;br/&gt;Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.</source>
+          <target state="new">&lt;br/&gt;Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.</target>
+        </trans-unit>
+        <trans-unit id="b513e8d0-af68-421f-8e02-07d747045476" xml:space="preserve">
+          <source><bpt id="a4f9044e-6210-4ff1-b56a-b64fd158cae2">&lt;linkText&gt;</bpt>Debug Notification Hubs applications<ept id="a4f9044e-6210-4ff1-b56a-b64fd158cae2">&lt;/linkText&gt;</ept><bpt id="a4f9044e-6210-4ff1-b56a-b64fd158cae2">&lt;title&gt;</bpt><ept id="a4f9044e-6210-4ff1-b56a-b64fd158cae2">&lt;/title&gt;</ept>
+&lt;/br&gt;Get guidance troubleshooting and debugging Notification Hubs solutions.</source>
+          <target state="new"><bpt id="a4f9044e-6210-4ff1-b56a-b64fd158cae2">&lt;linkText&gt;</bpt>Debug Notification Hubs applications<ept id="a4f9044e-6210-4ff1-b56a-b64fd158cae2">&lt;/linkText&gt;</ept><bpt id="a4f9044e-6210-4ff1-b56a-b64fd158cae2">&lt;title&gt;</bpt><ept id="a4f9044e-6210-4ff1-b56a-b64fd158cae2">&lt;/title&gt;</ept>
+&lt;/br&gt;Get guidance troubleshooting and debugging Notification Hubs solutions.</target>
+        </trans-unit>
+        <trans-unit id="93244014-153d-44b2-a9ba-11db05d3c1d9" xml:space="preserve">
+          <source>[Mobile Services .NET How-to Conceptual Reference]
+&lt;br/&gt;Learn more about how to use Mobile Services with .NET.</source>
+          <target state="new">[Mobile Services .NET How-to Conceptual Reference]
+&lt;br/&gt;Learn more about how to use Mobile Services with .NET.</target>
+        </trans-unit>
+        <trans-unit id="30f87ebe-ef0e-4079-8250-13ce3752bfae" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png</target>
+        </trans-unit>
+        <trans-unit id="b5f6c129-5b98-4394-a5ac-19b9b0063a25" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png</target>
+        </trans-unit>
+        <trans-unit id="722b038e-3d0e-452b-8844-7f1745c5b771" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png</target>
+        </trans-unit>
+        <trans-unit id="aa3cccd6-e52e-4a02-b870-4cb74b89404e" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-phone-get-started-data.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-phone-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="5948f504-31cc-4ec9-80df-facf74a31957" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-phone-get-started-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-phone-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="c0e53c5d-a1da-4bfa-a2e7-019be2251a5b" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md</target>
+        </trans-unit>
+        <trans-unit id="21a7762d-ff2a-4ca0-855e-18ed658ef4d5" xml:space="preserve">
+          <source>../notification-hubs-overview.md</source>
+          <target state="new">../notification-hubs-overview.md</target>
+        </trans-unit>
+        <trans-unit id="b9f08f6a-2e1d-4ff1-8d41-99522d2c2dbe" xml:space="preserve">
+          <source>../notification-hubs-windows-phone-send-breaking-news.md</source>
+          <target state="new">../notification-hubs-windows-phone-send-breaking-news.md</target>
+        </trans-unit>
+        <trans-unit id="9d55657d-69e2-4a39-821d-640852169940" xml:space="preserve">
+          <source>../notification-hubs-windows-phone-send-localized-breaking-news.md</source>
+          <target state="new">../notification-hubs-windows-phone-send-localized-breaking-news.md</target>
+        </trans-unit>
+        <trans-unit id="787828e5-7229-4ec7-a1be-960f9abd97f8" xml:space="preserve">
+          <source>mobile-services-html-how-to-use-client-library.md</source>
+          <target state="new">mobile-services-html-how-to-use-client-library.md</target>
+        </trans-unit>
+        <trans-unit id="ee420578-6ae4-4880-b8a2-17d74b6178fb" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx</target>
+        </trans-unit>
+        <trans-unit id="6a1489b4-814e-4e56-b6f1-fa6080d3fe25" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="e88ac3e7-fba6-4ed5-879b-54426daab53a" />
+    </body>
+  </file>
+</xliff>

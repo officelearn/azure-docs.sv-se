@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1de3122b-0a67-458b-8375-f4359a474a81" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1de3122b-0a67-458b-8375-f4359a474a81" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f3dafd2d-5809-4272-991f-9f165aa34f93">
+        <trans-unit id="93ef85cc-b1c6-477e-a77f-0aeb53d71de2" xml:space="preserve">
+          <source>After the records for your domain name have propagated, you must associate them with your Web App.</source>
+          <target state="new">After the records for your domain name have propagated, you must associate them with your Web App.</target>
+        </trans-unit>
+        <trans-unit id="ed901c7b-4b23-407d-907b-7e7a87202b3b" xml:space="preserve">
+          <source>Use the following steps to enable the domain names using your web browser.</source>
+          <target state="new">Use the following steps to enable the domain names using your web browser.</target>
+        </trans-unit>
+        <trans-unit id="8d458f05-c8ec-4d5a-a591-f61f40a532d4" xml:space="preserve">
+          <source>It can take some time for CNAME records created in the previous steps to propagate through the DNS system.</source>
+          <target state="new">It can take some time for CNAME records created in the previous steps to propagate through the DNS system.</target>
+        </trans-unit>
+        <trans-unit id="e91f840b-6c28-4e8e-8abb-1e1162d533ff" xml:space="preserve">
+          <source>You cannot add the domain name of to your web app until the CNAME has propagated.</source>
+          <target state="new">You cannot add the domain name of to your web app until the CNAME has propagated.</target>
+        </trans-unit>
+        <trans-unit id="49fe045c-f60f-4ff5-b8df-62c6dd3a9f3c" xml:space="preserve">
+          <source>If you are using an A record, you cannot add the A record domain name to your web app until the <bpt id="10769e51-a323-4ef2-8d7a-125da29f957b">&lt;strong&gt;</bpt>awverify<ept id="10769e51-a323-4ef2-8d7a-125da29f957b">&lt;/strong&gt;</ept> CNAME record created in the previous step has propagated.</source>
+          <target state="new">If you are using an A record, you cannot add the A record domain name to your web app until the <bpt id="10769e51-a323-4ef2-8d7a-125da29f957b">&lt;strong&gt;</bpt>awverify<ept id="10769e51-a323-4ef2-8d7a-125da29f957b">&lt;/strong&gt;</ept> CNAME record created in the previous step has propagated.</target>
+        </trans-unit>
+        <trans-unit id="ab2875dc-fd72-42e3-ad80-a7acdae08f12" xml:space="preserve">
+          <source>You can use a service such as &lt;a href="http://www.digwebinterface.com/"&gt;http://www.digwebinterface.com/&lt;/a&gt; to verify that the CNAME is available.</source>
+          <target state="new">You can use a service such as &lt;a href="http://www.digwebinterface.com/"&gt;http://www.digwebinterface.com/&lt;/a&gt; to verify that the CNAME is available.</target>
+        </trans-unit>
+        <trans-unit id="2c7cf41e-ef4b-4707-a98c-965644920ef0" xml:space="preserve">
+          <source>In your browser, open the <bpt id="42e10c2b-7d21-4e88-ac61-9e5269538638">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="42e10c2b-7d21-4e88-ac61-9e5269538638">&lt;/linkText&gt;</ept><bpt id="42e10c2b-7d21-4e88-ac61-9e5269538638">&lt;title&gt;</bpt><ept id="42e10c2b-7d21-4e88-ac61-9e5269538638">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, open the <bpt id="42e10c2b-7d21-4e88-ac61-9e5269538638">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="42e10c2b-7d21-4e88-ac61-9e5269538638">&lt;/linkText&gt;</ept><bpt id="42e10c2b-7d21-4e88-ac61-9e5269538638">&lt;title&gt;</bpt><ept id="42e10c2b-7d21-4e88-ac61-9e5269538638">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d60e048-e763-4e1f-b5e1-71251aa865cf" xml:space="preserve">
+          <source>In the <bpt id="086d4b1c-3503-414f-96e4-2963e849568e">&lt;strong&gt;</bpt>Web Apps<ept id="086d4b1c-3503-414f-96e4-2963e849568e">&lt;/strong&gt;</ept> tab, click the name of your web app, select <bpt id="d190b65b-e0aa-4933-acfc-43c79daf9f4a">&lt;strong&gt;</bpt>Settings<ept id="d190b65b-e0aa-4933-acfc-43c79daf9f4a">&lt;/strong&gt;</ept>, and then select <bpt id="61a90f66-bd0e-496f-9ab9-6e6484c37263">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="61a90f66-bd0e-496f-9ab9-6e6484c37263">&lt;/strong&gt;</ept></source>
+          <target state="new">In the <bpt id="086d4b1c-3503-414f-96e4-2963e849568e">&lt;strong&gt;</bpt>Web Apps<ept id="086d4b1c-3503-414f-96e4-2963e849568e">&lt;/strong&gt;</ept> tab, click the name of your web app, select <bpt id="d190b65b-e0aa-4933-acfc-43c79daf9f4a">&lt;strong&gt;</bpt>Settings<ept id="d190b65b-e0aa-4933-acfc-43c79daf9f4a">&lt;/strong&gt;</ept>, and then select <bpt id="61a90f66-bd0e-496f-9ab9-6e6484c37263">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="61a90f66-bd0e-496f-9ab9-6e6484c37263">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a960ec9e-7805-4d94-b888-7dd6cc6073fa" xml:space="preserve">
+          <source><bpt id="856dcfec-d623-4d90-bd60-a309be32f27d">&lt;linkText&gt;</bpt><ept id="856dcfec-d623-4d90-bd60-a309be32f27d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="856dcfec-d623-4d90-bd60-a309be32f27d">&lt;linkText&gt;</bpt><ept id="856dcfec-d623-4d90-bd60-a309be32f27d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20733467-df69-43df-ba32-8570ed843926" xml:space="preserve">
+          <source>In the <bpt id="8f0bedb9-a14a-4106-8a60-c5d88c11ee31">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="8f0bedb9-a14a-4106-8a60-c5d88c11ee31">&lt;/strong&gt;</ept> blade, click <bpt id="81f0d07e-860d-4147-9801-2550e9989570">&lt;strong&gt;</bpt>Bring external domains<ept id="81f0d07e-860d-4147-9801-2550e9989570">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="8f0bedb9-a14a-4106-8a60-c5d88c11ee31">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="8f0bedb9-a14a-4106-8a60-c5d88c11ee31">&lt;/strong&gt;</ept> blade, click <bpt id="81f0d07e-860d-4147-9801-2550e9989570">&lt;strong&gt;</bpt>Bring external domains<ept id="81f0d07e-860d-4147-9801-2550e9989570">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd9e6f08-b268-4cd6-8a74-76fa0c38b80d" xml:space="preserve">
+          <source><bpt id="f6b67d0c-73bd-4f6d-8f34-afe75594f7a0">&lt;linkText&gt;</bpt><ept id="f6b67d0c-73bd-4f6d-8f34-afe75594f7a0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f6b67d0c-73bd-4f6d-8f34-afe75594f7a0">&lt;linkText&gt;</bpt><ept id="f6b67d0c-73bd-4f6d-8f34-afe75594f7a0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40641ce2-fe90-4a4c-a1d0-f423df6e0b6f" xml:space="preserve">
+          <source>Use the <bpt id="231dc79e-77a9-430d-9c6b-be68bb84e639">&lt;strong&gt;</bpt>DOMAIN NAMES<ept id="231dc79e-77a9-430d-9c6b-be68bb84e639">&lt;/strong&gt;</ept> text boxes to enter the domain names to associate with this web app.</source>
+          <target state="new">Use the <bpt id="231dc79e-77a9-430d-9c6b-be68bb84e639">&lt;strong&gt;</bpt>DOMAIN NAMES<ept id="231dc79e-77a9-430d-9c6b-be68bb84e639">&lt;/strong&gt;</ept> text boxes to enter the domain names to associate with this web app.</target>
+        </trans-unit>
+        <trans-unit id="81da18ef-5956-41ce-9dd0-f5f32d68170b" xml:space="preserve">
+          <source><bpt id="f020ec05-7456-41fd-920c-31809744e5ec">&lt;linkText&gt;</bpt><ept id="f020ec05-7456-41fd-920c-31809744e5ec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f020ec05-7456-41fd-920c-31809744e5ec">&lt;linkText&gt;</bpt><ept id="f020ec05-7456-41fd-920c-31809744e5ec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb8e4c32-b5c7-40f2-90b8-9bd93e4e4a6c" xml:space="preserve">
+          <source>Click <bpt id="829db202-e093-41e5-a9bf-2abec3bab380">&lt;strong&gt;</bpt>Save<ept id="829db202-e093-41e5-a9bf-2abec3bab380">&lt;/strong&gt;</ept> to save the domain name configuration.</source>
+          <target state="new">Click <bpt id="829db202-e093-41e5-a9bf-2abec3bab380">&lt;strong&gt;</bpt>Save<ept id="829db202-e093-41e5-a9bf-2abec3bab380">&lt;/strong&gt;</ept> to save the domain name configuration.</target>
+        </trans-unit>
+        <trans-unit id="b41678cb-9ce2-4017-b69e-18400ed4f81e" xml:space="preserve">
+          <source>Once configuration has completed, the custom domain name will be listed in the <bpt id="c93b9c19-9d99-4618-ada8-d05cc0a4390d">&lt;strong&gt;</bpt>domain names<ept id="c93b9c19-9d99-4618-ada8-d05cc0a4390d">&lt;/strong&gt;</ept> section of your web app.</source>
+          <target state="new">Once configuration has completed, the custom domain name will be listed in the <bpt id="c93b9c19-9d99-4618-ada8-d05cc0a4390d">&lt;strong&gt;</bpt>domain names<ept id="c93b9c19-9d99-4618-ada8-d05cc0a4390d">&lt;/strong&gt;</ept> section of your web app.</target>
+        </trans-unit>
+        <trans-unit id="4fecd0f2-e36c-4fb8-9d84-883990b66db2" xml:space="preserve">
+          <source>At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.</source>
+          <target state="new">At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

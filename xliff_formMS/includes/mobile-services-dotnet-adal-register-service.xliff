@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f86615a9-36fe-4136-bcb5-8c9e3b6fe850" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f86615a9-36fe-4136-bcb5-8c9e3b6fe850" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="250b0325-5f0d-4ebf-b15d-05c91bca5c0b">
+        <trans-unit id="92aeac7b-6519-4716-88a8-a47b9b663cb4" xml:space="preserve">
+          <source>In this section you will register your mobile service with the Azure Active Directory and configure permissions to allow single sign-on impersonation.</source>
+          <target state="new">In this section you will register your mobile service with the Azure Active Directory and configure permissions to allow single sign-on impersonation.</target>
+        </trans-unit>
+        <trans-unit id="36672bac-ee7b-41f8-9910-72fbcec5b9be" xml:space="preserve">
+          <source>Register your application with your Azure Active Directory by following the [How to Register with the Azure Active Directory] topic.</source>
+          <target state="new">Register your application with your Azure Active Directory by following the [How to Register with the Azure Active Directory] topic.</target>
+        </trans-unit>
+        <trans-unit id="4c642b97-415c-467b-bb91-4ee43b9ea967" xml:space="preserve">
+          <source>In the [Azure Management Portal], go back to the Azure Active Directory extension and click on your active directory</source>
+          <target state="new">In the [Azure Management Portal], go back to the Azure Active Directory extension and click on your active directory</target>
+        </trans-unit>
+        <trans-unit id="bcec2ad3-f3ae-4dd3-96c5-67eb82dfc8cd" xml:space="preserve">
+          <source>Click the <bpt id="06db4a6b-f8c0-43c0-bcf9-dfa98bc3ee55">&lt;strong&gt;</bpt>Applications<ept id="06db4a6b-f8c0-43c0-bcf9-dfa98bc3ee55">&lt;/strong&gt;</ept> tab and then click your application.</source>
+          <target state="new">Click the <bpt id="06db4a6b-f8c0-43c0-bcf9-dfa98bc3ee55">&lt;strong&gt;</bpt>Applications<ept id="06db4a6b-f8c0-43c0-bcf9-dfa98bc3ee55">&lt;/strong&gt;</ept> tab and then click your application.</target>
+        </trans-unit>
+        <trans-unit id="9d514210-fc2b-40e7-99e2-7ff25a2cac0f" xml:space="preserve">
+          <source>Click <bpt id="d13a5f18-31da-4f02-9f8d-11119e58a3e0">&lt;strong&gt;</bpt>Manage Manifest<ept id="d13a5f18-31da-4f02-9f8d-11119e58a3e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d13a5f18-31da-4f02-9f8d-11119e58a3e0">&lt;strong&gt;</bpt>Manage Manifest<ept id="d13a5f18-31da-4f02-9f8d-11119e58a3e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a15a2c8-556c-4ef9-86dd-9bc358790338" xml:space="preserve">
+          <source>Then click <bpt id="6a372289-713d-4967-bfe4-2ae037b366d4">&lt;strong&gt;</bpt>Download Manifest<ept id="6a372289-713d-4967-bfe4-2ae037b366d4">&lt;/strong&gt;</ept> and save the application manifest to a local directory.</source>
+          <target state="new">Then click <bpt id="6a372289-713d-4967-bfe4-2ae037b366d4">&lt;strong&gt;</bpt>Download Manifest<ept id="6a372289-713d-4967-bfe4-2ae037b366d4">&lt;/strong&gt;</ept> and save the application manifest to a local directory.</target>
+        </trans-unit>
+        <trans-unit id="0520f174-8cfe-41e1-b0df-3d16c1a4cb01" xml:space="preserve">
+          <source><bpt id="76010aca-0e80-4493-a72a-fca7a8397e74">&lt;linkText&gt;</bpt><ept id="76010aca-0e80-4493-a72a-fca7a8397e74">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="76010aca-0e80-4493-a72a-fca7a8397e74">&lt;linkText&gt;</bpt><ept id="76010aca-0e80-4493-a72a-fca7a8397e74">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="efd9753b-5b96-4983-9779-b7764cefc049" xml:space="preserve">
+          <source>Open the application manifest file with Visual Studio.</source>
+          <target state="new">Open the application manifest file with Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="5a5d15a5-57c9-445f-861d-3dc00bf6361d" xml:space="preserve">
+          <source>At the top of the file find the app permissions line that looks as follows:</source>
+          <target state="new">At the top of the file find the app permissions line that looks as follows:</target>
+        </trans-unit>
+        <trans-unit id="9a7afda5-de27-4664-ac1b-c5bbc8857a3c" xml:space="preserve">
+          <source>Replace that line with the following app permissions and save the file.</source>
+          <target state="new">Replace that line with the following app permissions and save the file.</target>
+        </trans-unit>
+        <trans-unit id="d65b392b-a23f-4416-a9af-9b69db3dd910" xml:space="preserve">
+          <source>In the Azure Management portal, click <bpt id="b76e59a6-d699-4572-aa34-09f67e8aec04">&lt;strong&gt;</bpt>Manage Manifest<ept id="b76e59a6-d699-4572-aa34-09f67e8aec04">&lt;/strong&gt;</ept> for the application again and click <bpt id="b20ed0d9-d350-4f75-9d91-7b0466793ebb">&lt;strong&gt;</bpt>Upload Manifest<ept id="b20ed0d9-d350-4f75-9d91-7b0466793ebb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management portal, click <bpt id="b76e59a6-d699-4572-aa34-09f67e8aec04">&lt;strong&gt;</bpt>Manage Manifest<ept id="b76e59a6-d699-4572-aa34-09f67e8aec04">&lt;/strong&gt;</ept> for the application again and click <bpt id="b20ed0d9-d350-4f75-9d91-7b0466793ebb">&lt;strong&gt;</bpt>Upload Manifest<ept id="b20ed0d9-d350-4f75-9d91-7b0466793ebb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4cb515db-1ae2-4c9a-8886-e9dbbcc6a4eb" xml:space="preserve">
+          <source>Browse to the location of the application manifest that you just updated and upload the manifest.</source>
+          <target state="new">Browse to the location of the application manifest that you just updated and upload the manifest.</target>
+        </trans-unit>
+        <trans-unit id="42a3ac7d-f7b6-498e-a21a-4d5fc2750865" xml:space="preserve">
+          <source>../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md</source>
+          <target state="new">../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md</target>
+        </trans-unit>
+        <trans-unit id="a3a38189-363e-40bb-8bba-b7a51c7406a7" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="c5bdd423-67ea-47d4-9fb7-aeccb2f5db73" />
+    </body>
+  </file>
+</xliff>

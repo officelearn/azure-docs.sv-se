@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="17e7cb73-1e51-48ce-bcd0-3978eeedd10d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="17e7cb73-1e51-48ce-bcd0-3978eeedd10d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9ad2f887-256c-4ec4-9127-03a2726a734b">
+        <trans-unit id="da66f3a0-7a5d-4a64-a065-dac02160b888" xml:space="preserve">
+          <source>DocumentDB limits and quotas | Microsoft Azure</source>
+          <target state="new">DocumentDB limits and quotas | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="33d95bcd-1218-4f34-b7f1-bc291bc2635a" xml:space="preserve">
+          <source>Learn about the limits and quota enforcements of DocumentDB.</source>
+          <target state="new">Learn about the limits and quota enforcements of DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="5d5f03b5-e4b1-4a3d-95e8-b33e7b03797d" xml:space="preserve">
+          <source>The following table describes the limits and quota enforcements of DocumentDB.</source>
+          <target state="new">The following table describes the limits and quota enforcements of DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="531fdbc5-79cd-4670-a79f-15fd9e6fa852" xml:space="preserve">
+          <source><bpt id="1f020f37-23bc-4448-93ca-228402c0f07f">&lt;token href="../../includes/azure-documentdb-limits.md"&gt;</bpt><ept id="1f020f37-23bc-4448-93ca-228402c0f07f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1f020f37-23bc-4448-93ca-228402c0f07f">&lt;token href="../../includes/azure-documentdb-limits.md"&gt;</bpt><ept id="1f020f37-23bc-4448-93ca-228402c0f07f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

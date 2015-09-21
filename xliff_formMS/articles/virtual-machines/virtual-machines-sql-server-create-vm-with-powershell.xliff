@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="aa4bbd81-7df3-4ebf-bbb0-27ed75b4dc46" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="aa4bbd81-7df3-4ebf-bbb0-27ed75b4dc46" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="29b8dce8-a887-4a79-ac7d-2e80206cbf51">
+        <trans-unit id="d8bf7f4b-18c9-4227-94d9-5d15d84e2db9" xml:space="preserve">
+          <source>Create a SQL Server Virtual Machine in Azure (PowerShell)</source>
+          <target state="new">Create a SQL Server Virtual Machine in Azure (PowerShell)</target>
+        </trans-unit>
+        <trans-unit id="53dc3f51-6f19-4b95-81ea-200e21dd18ea" xml:space="preserve">
+          <source>Provides steps and PowerShell scripts for creating an Azure VM with SQL Server virtual machine gallery images.</source>
+          <target state="new">Provides steps and PowerShell scripts for creating an Azure VM with SQL Server virtual machine gallery images.</target>
+        </trans-unit>
+        <trans-unit id="52a8441b-fe2f-45a6-a95b-05f69482d7f6" xml:space="preserve">
+          <source>This article provides steps for how to create a SQL Server virtual machine in Azure by using the PowerShell cmdlets.</source>
+          <target state="new">This article provides steps for how to create a SQL Server virtual machine in Azure by using the PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="e7cfd186-74cc-4ac3-ae1f-b4ff0bc7bf60" xml:space="preserve">
+          <source>This article is for a virtual machine created in Service Management, and it is a SQL Server specific expansion on the more general steps found in the topic <bpt id="01c0d186-49a6-4b76-92d9-cfcdb7e9641c">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines<ept id="01c0d186-49a6-4b76-92d9-cfcdb7e9641c">&lt;/linkText&gt;</ept><bpt id="01c0d186-49a6-4b76-92d9-cfcdb7e9641c">&lt;title&gt;</bpt><ept id="01c0d186-49a6-4b76-92d9-cfcdb7e9641c">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article is for a virtual machine created in Service Management, and it is a SQL Server specific expansion on the more general steps found in the topic <bpt id="01c0d186-49a6-4b76-92d9-cfcdb7e9641c">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines<ept id="01c0d186-49a6-4b76-92d9-cfcdb7e9641c">&lt;/linkText&gt;</ept><bpt id="01c0d186-49a6-4b76-92d9-cfcdb7e9641c">&lt;title&gt;</bpt><ept id="01c0d186-49a6-4b76-92d9-cfcdb7e9641c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d145b6b3-219f-4800-a98f-18afe8addab3" xml:space="preserve">
+          <source>Instead of Service Management, if you want to create a SQL Server virtual machine with Resource Manager in PowerShell, see the generic instructions for resource manager VMs in the following topic: <bpt id="fe41ac16-4ae6-48c1-a3ae-281bbf3ddb99">&lt;linkText&gt;</bpt>Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell<ept id="fe41ac16-4ae6-48c1-a3ae-281bbf3ddb99">&lt;/linkText&gt;</ept><bpt id="fe41ac16-4ae6-48c1-a3ae-281bbf3ddb99">&lt;title&gt;</bpt><ept id="fe41ac16-4ae6-48c1-a3ae-281bbf3ddb99">&lt;/title&gt;</ept>.</source>
+          <target state="new">Instead of Service Management, if you want to create a SQL Server virtual machine with Resource Manager in PowerShell, see the generic instructions for resource manager VMs in the following topic: <bpt id="fe41ac16-4ae6-48c1-a3ae-281bbf3ddb99">&lt;linkText&gt;</bpt>Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell<ept id="fe41ac16-4ae6-48c1-a3ae-281bbf3ddb99">&lt;/linkText&gt;</ept><bpt id="fe41ac16-4ae6-48c1-a3ae-281bbf3ddb99">&lt;title&gt;</bpt><ept id="fe41ac16-4ae6-48c1-a3ae-281bbf3ddb99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0703f0b7-f060-4cd3-8cfd-8443c68d2567" xml:space="preserve">
+          <source>If you do not have an Azure account, visit <bpt id="d2a6354a-3004-4c5e-a1c6-9c01f86f9e0b">&lt;linkText&gt;</bpt>Azure free trial<ept id="d2a6354a-3004-4c5e-a1c6-9c01f86f9e0b">&lt;/linkText&gt;</ept><bpt id="d2a6354a-3004-4c5e-a1c6-9c01f86f9e0b">&lt;title&gt;</bpt><ept id="d2a6354a-3004-4c5e-a1c6-9c01f86f9e0b">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not have an Azure account, visit <bpt id="d2a6354a-3004-4c5e-a1c6-9c01f86f9e0b">&lt;linkText&gt;</bpt>Azure free trial<ept id="d2a6354a-3004-4c5e-a1c6-9c01f86f9e0b">&lt;/linkText&gt;</ept><bpt id="d2a6354a-3004-4c5e-a1c6-9c01f86f9e0b">&lt;title&gt;</bpt><ept id="d2a6354a-3004-4c5e-a1c6-9c01f86f9e0b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e10d33e-ebfc-4b05-897a-b8844e5b006a" xml:space="preserve">
+          <source><bpt id="ca2cf11f-f0e3-410a-97cd-9f7e06c74853">&lt;linkText&gt;</bpt>Install the latest Azure PowerShell cmdlets<ept id="ca2cf11f-f0e3-410a-97cd-9f7e06c74853">&lt;/linkText&gt;</ept><bpt id="ca2cf11f-f0e3-410a-97cd-9f7e06c74853">&lt;title&gt;</bpt><ept id="ca2cf11f-f0e3-410a-97cd-9f7e06c74853">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="ca2cf11f-f0e3-410a-97cd-9f7e06c74853">&lt;linkText&gt;</bpt>Install the latest Azure PowerShell cmdlets<ept id="ca2cf11f-f0e3-410a-97cd-9f7e06c74853">&lt;/linkText&gt;</ept><bpt id="ca2cf11f-f0e3-410a-97cd-9f7e06c74853">&lt;title&gt;</bpt><ept id="ca2cf11f-f0e3-410a-97cd-9f7e06c74853">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd8f6d08-5c21-4f42-ba13-0a0ec490bf99" xml:space="preserve">
+          <source><bpt id="4045c0c8-b906-423d-91e8-4c8936865da2">&lt;linkText&gt;</bpt>Connect PowerShell with your Azure subscription<ept id="4045c0c8-b906-423d-91e8-4c8936865da2">&lt;/linkText&gt;</ept><bpt id="4045c0c8-b906-423d-91e8-4c8936865da2">&lt;title&gt;</bpt><ept id="4045c0c8-b906-423d-91e8-4c8936865da2">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="4045c0c8-b906-423d-91e8-4c8936865da2">&lt;linkText&gt;</bpt>Connect PowerShell with your Azure subscription<ept id="4045c0c8-b906-423d-91e8-4c8936865da2">&lt;/linkText&gt;</ept><bpt id="4045c0c8-b906-423d-91e8-4c8936865da2">&lt;title&gt;</bpt><ept id="4045c0c8-b906-423d-91e8-4c8936865da2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="010bcc05-8889-4859-8288-475a395a550e" xml:space="preserve">
+          <source>Your SQL Server Virtual Machine will be hosted in a cloud service that resides a specific Azure region.</source>
+          <target state="new">Your SQL Server Virtual Machine will be hosted in a cloud service that resides a specific Azure region.</target>
+        </trans-unit>
+        <trans-unit id="2a94b1d2-f013-4b27-b6cb-9d11e8e67aa0" xml:space="preserve">
+          <source>The following steps help you to determine your region, storage account, and cloud service that will be used for the rest of the tutorial.</source>
+          <target state="new">The following steps help you to determine your region, storage account, and cloud service that will be used for the rest of the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="2ef58576-5703-46e8-a807-d165b05201b9" xml:space="preserve">
+          <source>Determine the data center that you want to use to host your SQL Server VM.</source>
+          <target state="new">Determine the data center that you want to use to host your SQL Server VM.</target>
+        </trans-unit>
+        <trans-unit id="dc3eb27e-0e3d-4f25-9954-a80bbd23b9d1" xml:space="preserve">
+          <source>The following PowerShell commands will display the available regions in detail with a summary list at the end.</source>
+          <target state="new">The following PowerShell commands will display the available regions in detail with a summary list at the end.</target>
+        </trans-unit>
+        <trans-unit id="3da5c868-4684-446d-8386-615a6bf748fb" xml:space="preserve">
+          <source>Once you've identified your preferred location, set a variable named <bpt id="c8594443-b420-4bbb-8e19-497d5d586ded">&lt;strong&gt;</bpt>$dcLocation<ept id="c8594443-b420-4bbb-8e19-497d5d586ded">&lt;/strong&gt;</ept> to that region.</source>
+          <target state="new">Once you've identified your preferred location, set a variable named <bpt id="c8594443-b420-4bbb-8e19-497d5d586ded">&lt;strong&gt;</bpt>$dcLocation<ept id="c8594443-b420-4bbb-8e19-497d5d586ded">&lt;/strong&gt;</ept> to that region.</target>
+        </trans-unit>
+        <trans-unit id="06651a62-2e44-4b50-befd-c1889f1d23eb" xml:space="preserve">
+          <source>Determine the Azure subscription you will use for the new virtual machine.</source>
+          <target state="new">Determine the Azure subscription you will use for the new virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="0f1a3b95-56e7-42c5-bb8c-ebbfbb1165e3" xml:space="preserve">
+          <source>Assign your target Azure subscription to the <bpt id="ea83cf58-03c0-4f0a-9a9c-b63611fa250a">&lt;strong&gt;</bpt>$subscr<ept id="ea83cf58-03c0-4f0a-9a9c-b63611fa250a">&lt;/strong&gt;</ept> variable.</source>
+          <target state="new">Assign your target Azure subscription to the <bpt id="ea83cf58-03c0-4f0a-9a9c-b63611fa250a">&lt;strong&gt;</bpt>$subscr<ept id="ea83cf58-03c0-4f0a-9a9c-b63611fa250a">&lt;/strong&gt;</ept> variable.</target>
+        </trans-unit>
+        <trans-unit id="eb1b8a87-43ac-4682-b325-747155ee43d1" xml:space="preserve">
+          <source>Then set this as your current Azure subscription.</source>
+          <target state="new">Then set this as your current Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="d9ec5e10-79bb-4044-90e3-f540d1dab16c" xml:space="preserve">
+          <source>Then check for existing storage accounts.</source>
+          <target state="new">Then check for existing storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="73db60de-811c-48ac-a2bc-c64607955a20" xml:space="preserve">
+          <source>The following script displays all storage accounts that exist in your chosen region:</source>
+          <target state="new">The following script displays all storage accounts that exist in your chosen region:</target>
+        </trans-unit>
+        <trans-unit id="c3ad3180-ceb7-4333-b3f9-db2b283908e0" xml:space="preserve">
+          <source>If you require a new storage account, first create an all-lower-case storage account name with the New-AzureStorageAccount command as in the following example: <bpt id="1a242345-92b6-495c-a2b8-330224b14aad">&lt;strong&gt;</bpt>New-AzureStorageAccount -StorageAccountName "&lt;storage account name&gt;" -Location $dcLocation<ept id="1a242345-92b6-495c-a2b8-330224b14aad">&lt;/strong&gt;</ept></source>
+          <target state="new">If you require a new storage account, first create an all-lower-case storage account name with the New-AzureStorageAccount command as in the following example: <bpt id="1a242345-92b6-495c-a2b8-330224b14aad">&lt;strong&gt;</bpt>New-AzureStorageAccount -StorageAccountName "&lt;storage account name&gt;" -Location $dcLocation<ept id="1a242345-92b6-495c-a2b8-330224b14aad">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9bdd2e0-40c8-4235-a101-77b54d6bd272" xml:space="preserve">
+          <source>Assign the target storage account name to the <bpt id="91fe62b7-f59b-449c-b1b1-6dbb9d14c636">&lt;strong&gt;</bpt>$staccount<ept id="91fe62b7-f59b-449c-b1b1-6dbb9d14c636">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Assign the target storage account name to the <bpt id="91fe62b7-f59b-449c-b1b1-6dbb9d14c636">&lt;strong&gt;</bpt>$staccount<ept id="91fe62b7-f59b-449c-b1b1-6dbb9d14c636">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b58cfe61-9754-43a1-bbf7-828515807f88" xml:space="preserve">
+          <source>Then use <bpt id="0fdcf412-b42c-4834-8d33-dd85543ec16d">&lt;strong&gt;</bpt>Set-AzureSubscription<ept id="0fdcf412-b42c-4834-8d33-dd85543ec16d">&lt;/strong&gt;</ept> to set the subscription and current storage account.</source>
+          <target state="new">Then use <bpt id="0fdcf412-b42c-4834-8d33-dd85543ec16d">&lt;strong&gt;</bpt>Set-AzureSubscription<ept id="0fdcf412-b42c-4834-8d33-dd85543ec16d">&lt;/strong&gt;</ept> to set the subscription and current storage account.</target>
+        </trans-unit>
+        <trans-unit id="17dd8a60-6f3b-4740-b23a-ad1b7cc97261" xml:space="preserve">
+          <source>Find out the list of available SQL Server virtual machines images from the gallery.</source>
+          <target state="new">Find out the list of available SQL Server virtual machines images from the gallery.</target>
+        </trans-unit>
+        <trans-unit id="6372aa08-dc74-497b-90f2-0c9925142f76" xml:space="preserve">
+          <source>These images all have an <bpt id="bb9c7c0e-2897-4f0f-9525-38d7e65b6b0e">&lt;strong&gt;</bpt>ImageFamily<ept id="bb9c7c0e-2897-4f0f-9525-38d7e65b6b0e">&lt;/strong&gt;</ept> property that starts with "SQL".</source>
+          <target state="new">These images all have an <bpt id="bb9c7c0e-2897-4f0f-9525-38d7e65b6b0e">&lt;strong&gt;</bpt>ImageFamily<ept id="bb9c7c0e-2897-4f0f-9525-38d7e65b6b0e">&lt;/strong&gt;</ept> property that starts with "SQL".</target>
+        </trans-unit>
+        <trans-unit id="a7691de2-7472-4873-a9d6-4a4d887c1c7c" xml:space="preserve">
+          <source>The following query displays the image family available to you that have SQL Server preinstalled.</source>
+          <target state="new">The following query displays the image family available to you that have SQL Server preinstalled.</target>
+        </trans-unit>
+        <trans-unit id="42481a46-ef26-4ba5-98ce-08ad9c9aabcd" xml:space="preserve">
+          <source>When you find the  virtual machine image family, there could be multiple published images in this family.</source>
+          <target state="new">When you find the  virtual machine image family, there could be multiple published images in this family.</target>
+        </trans-unit>
+        <trans-unit id="4aafa71c-47a7-44fb-9c21-984eb99fcd25" xml:space="preserve">
+          <source>Use the following script to find the latest published virtual machine image name for your selected image family (such as <bpt id="62ef84c3-06ef-49cc-9c97-6e2bd744360f">&lt;strong&gt;</bpt>SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2<ept id="62ef84c3-06ef-49cc-9c97-6e2bd744360f">&lt;/strong&gt;</ept>):</source>
+          <target state="new">Use the following script to find the latest published virtual machine image name for your selected image family (such as <bpt id="62ef84c3-06ef-49cc-9c97-6e2bd744360f">&lt;strong&gt;</bpt>SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2<ept id="62ef84c3-06ef-49cc-9c97-6e2bd744360f">&lt;/strong&gt;</ept>):</target>
+        </trans-unit>
+        <trans-unit id="06ba1ec7-447d-4196-86e8-4d635b67a0b4" xml:space="preserve">
+          <source>Finally, create the virtual machine with PowerShell:</source>
+          <target state="new">Finally, create the virtual machine with PowerShell:</target>
+        </trans-unit>
+        <trans-unit id="2ba7fc34-883a-47da-813f-d94161b95b42" xml:space="preserve">
+          <source>Create a cloud service to host the new VM.</source>
+          <target state="new">Create a cloud service to host the new VM.</target>
+        </trans-unit>
+        <trans-unit id="2fb19b56-a2d6-4c37-abfc-9e3f8bb04009" xml:space="preserve">
+          <source>Note that it is also possible to use an existing cloud service instead.</source>
+          <target state="new">Note that it is also possible to use an existing cloud service instead.</target>
+        </trans-unit>
+        <trans-unit id="79088004-9cbb-4297-9916-bf744afdd123" xml:space="preserve">
+          <source>Create a new variable <bpt id="f6411131-997b-465a-9020-7a2648ce8ee4">&lt;strong&gt;</bpt>$svcname<ept id="f6411131-997b-465a-9020-7a2648ce8ee4">&lt;/strong&gt;</ept> with the short name of the cloud service.</source>
+          <target state="new">Create a new variable <bpt id="f6411131-997b-465a-9020-7a2648ce8ee4">&lt;strong&gt;</bpt>$svcname<ept id="f6411131-997b-465a-9020-7a2648ce8ee4">&lt;/strong&gt;</ept> with the short name of the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="721c7ce2-a375-49b5-b005-684861bfed06" xml:space="preserve">
+          <source>Specify the virtual machine name and a size.</source>
+          <target state="new">Specify the virtual machine name and a size.</target>
+        </trans-unit>
+        <trans-unit id="3913a82b-fe05-4284-8d44-7e5f4e06d4fd" xml:space="preserve">
+          <source>For more information about virtual machine sizes, see <bpt id="04cc9a37-1bad-43b4-83c5-322d45ee5bc1">&lt;linkText&gt;</bpt>Virtual Machine Sizes for Azure<ept id="04cc9a37-1bad-43b4-83c5-322d45ee5bc1">&lt;/linkText&gt;</ept><bpt id="04cc9a37-1bad-43b4-83c5-322d45ee5bc1">&lt;title&gt;</bpt><ept id="04cc9a37-1bad-43b4-83c5-322d45ee5bc1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about virtual machine sizes, see <bpt id="04cc9a37-1bad-43b4-83c5-322d45ee5bc1">&lt;linkText&gt;</bpt>Virtual Machine Sizes for Azure<ept id="04cc9a37-1bad-43b4-83c5-322d45ee5bc1">&lt;/linkText&gt;</ept><bpt id="04cc9a37-1bad-43b4-83c5-322d45ee5bc1">&lt;title&gt;</bpt><ept id="04cc9a37-1bad-43b4-83c5-322d45ee5bc1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7271ebb7-c3fa-44df-913f-03a7e4ed0a18" xml:space="preserve">
+          <source>Specify the local administrator account and password.</source>
+          <target state="new">Specify the local administrator account and password.</target>
+        </trans-unit>
+        <trans-unit id="f634bc91-34d5-4f00-8382-1a4f0c92fe16" xml:space="preserve">
+          <source>Run the following script to create the virtual machine.</source>
+          <target state="new">Run the following script to create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="5c8949a9-a2c0-4773-a87d-f6229a24c75b" xml:space="preserve">
+          <source>For additional explanation and configuration options, see the <bpt id="f5511588-4e35-4474-aa89-6835feb33843">&lt;strong&gt;</bpt>Build your command set<ept id="f5511588-4e35-4474-aa89-6835feb33843">&lt;/strong&gt;</ept> section in <bpt id="d6302a8d-8f68-4903-9545-6a22ba333301">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines<ept id="d6302a8d-8f68-4903-9545-6a22ba333301">&lt;/linkText&gt;</ept><bpt id="d6302a8d-8f68-4903-9545-6a22ba333301">&lt;title&gt;</bpt><ept id="d6302a8d-8f68-4903-9545-6a22ba333301">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional explanation and configuration options, see the <bpt id="f5511588-4e35-4474-aa89-6835feb33843">&lt;strong&gt;</bpt>Build your command set<ept id="f5511588-4e35-4474-aa89-6835feb33843">&lt;/strong&gt;</ept> section in <bpt id="d6302a8d-8f68-4903-9545-6a22ba333301">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines<ept id="d6302a8d-8f68-4903-9545-6a22ba333301">&lt;/linkText&gt;</ept><bpt id="d6302a8d-8f68-4903-9545-6a22ba333301">&lt;title&gt;</bpt><ept id="d6302a8d-8f68-4903-9545-6a22ba333301">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83825b56-12cc-41af-bf9e-617e532672db" xml:space="preserve">
+          <source>The following script provides and example of a complete script that creates a <bpt id="f7b8658e-f266-4cc2-8879-50b54128f431">&lt;strong&gt;</bpt>SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2<ept id="f7b8658e-f266-4cc2-8879-50b54128f431">&lt;/strong&gt;</ept> virtual machine.</source>
+          <target state="new">The following script provides and example of a complete script that creates a <bpt id="f7b8658e-f266-4cc2-8879-50b54128f431">&lt;strong&gt;</bpt>SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2<ept id="f7b8658e-f266-4cc2-8879-50b54128f431">&lt;/strong&gt;</ept> virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="8f8cf9be-cd39-4a63-b412-4eae7841ebbd" xml:space="preserve">
+          <source>If you use this script, you must customize the initial variables based on the previous steps in this topic.</source>
+          <target state="new">If you use this script, you must customize the initial variables based on the previous steps in this topic.</target>
+        </trans-unit>
+        <trans-unit id="2c17e519-092d-4419-a9c6-35e0ea48a2fc" xml:space="preserve">
+          <source>Create the .RDP files in the current user's document folder to launch these virtual machines to complete setup:</source>
+          <target state="new">Create the .RDP files in the current user's document folder to launch these virtual machines to complete setup:</target>
+        </trans-unit>
+        <trans-unit id="f7297549-3bf1-44f3-aba4-d7eee0d75f8d" xml:space="preserve">
+          <source>In the documents directory, launch the RDP file.</source>
+          <target state="new">In the documents directory, launch the RDP file.</target>
+        </trans-unit>
+        <trans-unit id="a48d1450-0599-4ae0-bf9c-d773b328c6f2" xml:space="preserve">
+          <source>Connect with the administrator user name and password provided earlier (for example, if your user name was VMAdmin, specify "\VMAdmin" as the user and provide the password).</source>
+          <target state="new">Connect with the administrator user name and password provided earlier (for example, if your user name was VMAdmin, specify "\VMAdmin" as the user and provide the password).</target>
+        </trans-unit>
+        <trans-unit id="529916f3-6c76-49e8-9cb8-27f9173591d5" xml:space="preserve">
+          <source>After logging onto the machine with remote desktop, configure SQL Server based on the instructions in <bpt id="17966abd-eb5f-494f-b703-5b5de1fe3025">&lt;linkText&gt;</bpt>Steps for configuring SQL Server connectivity in an Azure VM<ept id="17966abd-eb5f-494f-b703-5b5de1fe3025">&lt;/linkText&gt;</ept><bpt id="17966abd-eb5f-494f-b703-5b5de1fe3025">&lt;title&gt;</bpt><ept id="17966abd-eb5f-494f-b703-5b5de1fe3025">&lt;/title&gt;</ept>.</source>
+          <target state="new">After logging onto the machine with remote desktop, configure SQL Server based on the instructions in <bpt id="17966abd-eb5f-494f-b703-5b5de1fe3025">&lt;linkText&gt;</bpt>Steps for configuring SQL Server connectivity in an Azure VM<ept id="17966abd-eb5f-494f-b703-5b5de1fe3025">&lt;/linkText&gt;</ept><bpt id="17966abd-eb5f-494f-b703-5b5de1fe3025">&lt;title&gt;</bpt><ept id="17966abd-eb5f-494f-b703-5b5de1fe3025">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61b84e5f-ef1e-4c10-80a0-9c5cf96b2816" xml:space="preserve">
+          <source>You can find additional instructions for provisioning virtual machines with PowerShell in the <bpt id="f7fd48f3-3e7a-42ec-aa2d-5b4b8bb0992c">&lt;linkText&gt;</bpt>virtual machines documentation<ept id="f7fd48f3-3e7a-42ec-aa2d-5b4b8bb0992c">&lt;/linkText&gt;</ept><bpt id="f7fd48f3-3e7a-42ec-aa2d-5b4b8bb0992c">&lt;title&gt;</bpt><ept id="f7fd48f3-3e7a-42ec-aa2d-5b4b8bb0992c">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find additional instructions for provisioning virtual machines with PowerShell in the <bpt id="f7fd48f3-3e7a-42ec-aa2d-5b4b8bb0992c">&lt;linkText&gt;</bpt>virtual machines documentation<ept id="f7fd48f3-3e7a-42ec-aa2d-5b4b8bb0992c">&lt;/linkText&gt;</ept><bpt id="f7fd48f3-3e7a-42ec-aa2d-5b4b8bb0992c">&lt;title&gt;</bpt><ept id="f7fd48f3-3e7a-42ec-aa2d-5b4b8bb0992c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed453e61-b2ed-42f3-a770-17ce846fa4a4" xml:space="preserve">
+          <source>For additional scripts related to SQL Server and Premium Storage, see <bpt id="74df476d-0cb2-4dc2-b596-b15cfee73d68">&lt;linkText&gt;</bpt>Use Azure Premium Storage with SQL Server on Virtual Machines<ept id="74df476d-0cb2-4dc2-b596-b15cfee73d68">&lt;/linkText&gt;</ept><bpt id="74df476d-0cb2-4dc2-b596-b15cfee73d68">&lt;title&gt;</bpt><ept id="74df476d-0cb2-4dc2-b596-b15cfee73d68">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional scripts related to SQL Server and Premium Storage, see <bpt id="74df476d-0cb2-4dc2-b596-b15cfee73d68">&lt;linkText&gt;</bpt>Use Azure Premium Storage with SQL Server on Virtual Machines<ept id="74df476d-0cb2-4dc2-b596-b15cfee73d68">&lt;/linkText&gt;</ept><bpt id="74df476d-0cb2-4dc2-b596-b15cfee73d68">&lt;title&gt;</bpt><ept id="74df476d-0cb2-4dc2-b596-b15cfee73d68">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="954f97ac-2ca3-468d-a81f-42f7be0a278a" xml:space="preserve">
+          <source>In many cases, the next step is to migrate your databases to this new SQL Server VM.</source>
+          <target state="new">In many cases, the next step is to migrate your databases to this new SQL Server VM.</target>
+        </trans-unit>
+        <trans-unit id="0d1ab124-dbdb-489c-ab93-cbc5a9158dd2" xml:space="preserve">
+          <source>For database migration guidance, see <bpt id="66534027-6b9e-4ca4-bff1-4be750b42861">&lt;linkText&gt;</bpt>Migrating a Database to SQL Server on an Azure VM<ept id="66534027-6b9e-4ca4-bff1-4be750b42861">&lt;/linkText&gt;</ept><bpt id="66534027-6b9e-4ca4-bff1-4be750b42861">&lt;title&gt;</bpt><ept id="66534027-6b9e-4ca4-bff1-4be750b42861">&lt;/title&gt;</ept>.</source>
+          <target state="new">For database migration guidance, see <bpt id="66534027-6b9e-4ca4-bff1-4be750b42861">&lt;linkText&gt;</bpt>Migrating a Database to SQL Server on an Azure VM<ept id="66534027-6b9e-4ca4-bff1-4be750b42861">&lt;/linkText&gt;</ept><bpt id="66534027-6b9e-4ca4-bff1-4be750b42861">&lt;title&gt;</bpt><ept id="66534027-6b9e-4ca4-bff1-4be750b42861">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="efd3341d-f3b9-46e5-864e-a7cb1c13e00c" xml:space="preserve">
+          <source>If you're also interested in seeing how to perform these steps from the Azure Management Portal, see <bpt id="37255192-1f7e-43f8-b749-0d2ca2a5b38c">&lt;linkText&gt;</bpt>Provisioning a SQL Server Virtual Machine on Azure<ept id="37255192-1f7e-43f8-b749-0d2ca2a5b38c">&lt;/linkText&gt;</ept><bpt id="37255192-1f7e-43f8-b749-0d2ca2a5b38c">&lt;title&gt;</bpt><ept id="37255192-1f7e-43f8-b749-0d2ca2a5b38c">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you're also interested in seeing how to perform these steps from the Azure Management Portal, see <bpt id="37255192-1f7e-43f8-b749-0d2ca2a5b38c">&lt;linkText&gt;</bpt>Provisioning a SQL Server Virtual Machine on Azure<ept id="37255192-1f7e-43f8-b749-0d2ca2a5b38c">&lt;/linkText&gt;</ept><bpt id="37255192-1f7e-43f8-b749-0d2ca2a5b38c">&lt;title&gt;</bpt><ept id="37255192-1f7e-43f8-b749-0d2ca2a5b38c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a771d46c-4f97-48c4-bbf8-f552ed0ddd0f" xml:space="preserve">
+          <source>In addition to these resources, we recommend that you review <bpt id="df079bd0-2be2-4b3a-9d44-f262941e52ec">&lt;linkText&gt;</bpt>other topics related to running SQL Server in Azure Virtual Machines<ept id="df079bd0-2be2-4b3a-9d44-f262941e52ec">&lt;/linkText&gt;</ept><bpt id="df079bd0-2be2-4b3a-9d44-f262941e52ec">&lt;title&gt;</bpt><ept id="df079bd0-2be2-4b3a-9d44-f262941e52ec">&lt;/title&gt;</ept>.</source>
+          <target state="new">In addition to these resources, we recommend that you review <bpt id="df079bd0-2be2-4b3a-9d44-f262941e52ec">&lt;linkText&gt;</bpt>other topics related to running SQL Server in Azure Virtual Machines<ept id="df079bd0-2be2-4b3a-9d44-f262941e52ec">&lt;/linkText&gt;</ept><bpt id="df079bd0-2be2-4b3a-9d44-f262941e52ec">&lt;title&gt;</bpt><ept id="df079bd0-2be2-4b3a-9d44-f262941e52ec">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

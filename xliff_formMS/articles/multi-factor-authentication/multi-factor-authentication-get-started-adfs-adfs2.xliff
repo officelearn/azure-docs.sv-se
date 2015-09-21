@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4217778c-6b91-409d-afd4-ec397059cf0a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4217778c-6b91-409d-afd4-ec397059cf0a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7ab0d947-d08d-404a-bc9b-1774377ec3f9">
+        <trans-unit id="67810cfd-1ef3-4c5e-bc9d-9d1a635ea8b0" xml:space="preserve">
+          <source>Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0</source>
+          <target state="new">Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0</target>
+        </trans-unit>
+        <trans-unit id="9f8e3191-6f61-4c5d-9ac5-88ff3607e954" xml:space="preserve">
+          <source>This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS 2.0.</source>
+          <target state="new">This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS 2.0.</target>
+        </trans-unit>
+        <trans-unit id="39e22b42-066d-4b5b-9708-be83da90c0c5" xml:space="preserve">
+          <source>If your organization is federated with Azure Active Directory and you have resources that are on-premises or in the cloud that you wish to secure you can do this by using the Azure Multi-Factor Authentication Sever and configuring it to work with AD FS so that multi-factor authentication is triggered for high value end points.</source>
+          <target state="new">If your organization is federated with Azure Active Directory and you have resources that are on-premises or in the cloud that you wish to secure you can do this by using the Azure Multi-Factor Authentication Sever and configuring it to work with AD FS so that multi-factor authentication is triggered for high value end points.</target>
+        </trans-unit>
+        <trans-unit id="4fbef848-4501-409a-ae22-e4f7410c0e77" xml:space="preserve">
+          <source>This documentation covers using the Azure Multi-Factor Authentication Server with AD FS 2.0.</source>
+          <target state="new">This documentation covers using the Azure Multi-Factor Authentication Server with AD FS 2.0.</target>
+        </trans-unit>
+        <trans-unit id="8e15f9f8-6dce-4763-845d-41ca14a8c11f" xml:space="preserve">
+          <source>For infomation on using Azure Multi-Factor Authentication with Windows Serve 2012 R2 AD FS see <bpt id="529e1d11-63b9-4c98-924e-0d820472d2fa">&lt;linkText&gt;</bpt>Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS<ept id="529e1d11-63b9-4c98-924e-0d820472d2fa">&lt;/linkText&gt;</ept><bpt id="529e1d11-63b9-4c98-924e-0d820472d2fa">&lt;title&gt;</bpt><ept id="529e1d11-63b9-4c98-924e-0d820472d2fa">&lt;/title&gt;</ept>.</source>
+          <target state="new">For infomation on using Azure Multi-Factor Authentication with Windows Serve 2012 R2 AD FS see <bpt id="529e1d11-63b9-4c98-924e-0d820472d2fa">&lt;linkText&gt;</bpt>Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS<ept id="529e1d11-63b9-4c98-924e-0d820472d2fa">&lt;/linkText&gt;</ept><bpt id="529e1d11-63b9-4c98-924e-0d820472d2fa">&lt;title&gt;</bpt><ept id="529e1d11-63b9-4c98-924e-0d820472d2fa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="721f187d-0941-4fc7-99db-f5f2f17f2ef6" xml:space="preserve">
+          <source>To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication Server on the ADFS proxy server and configure the Server per the following steps.</source>
+          <target state="new">To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication Server on the ADFS proxy server and configure the Server per the following steps.</target>
+        </trans-unit>
+        <trans-unit id="65c61fa6-9737-4d83-be12-90f48ffd28d7" xml:space="preserve">
+          <source>Within the Azure Multi-Factor Authentication Server click the IIS Authentication icon in the left menu.</source>
+          <target state="new">Within the Azure Multi-Factor Authentication Server click the IIS Authentication icon in the left menu.</target>
+        </trans-unit>
+        <trans-unit id="c21a14b0-b0ee-4c65-a705-a671123f4c7a" xml:space="preserve">
+          <source>Click the Form-Based tab.</source>
+          <target state="new">Click the Form-Based tab.</target>
+        </trans-unit>
+        <trans-unit id="f8e484e9-6dd7-4bb1-9eca-4a62ca9ff176" xml:space="preserve">
+          <source>Click the Add…</source>
+          <target state="new">Click the Add…</target>
+        </trans-unit>
+        <trans-unit id="04e61d29-ccea-4cc9-b795-b78bca806246" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="39e1020f-e6c4-4bbe-b9d3-769ec7965395" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="2dd9fcea-1ca8-4485-b24f-d8fb5b1bfc0c">&lt;linkText&gt;</bpt>Setup<ept id="2dd9fcea-1ca8-4485-b24f-d8fb5b1bfc0c">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="2dd9fcea-1ca8-4485-b24f-d8fb5b1bfc0c">&lt;linkText&gt;</bpt>Setup<ept id="2dd9fcea-1ca8-4485-b24f-d8fb5b1bfc0c">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="55b612b7-4d9a-4dbb-a7c1-2137ddcd890f" xml:space="preserve">
+          <source>To detect username, password and domain variables automatically, enter the Login URL (e.g. https://sso.contoso.com/adfs/ls) within the Auto-Configure Form-Based Website dialog box and click OK.</source>
+          <target state="new">To detect username, password and domain variables automatically, enter the Login URL (e.g. https://sso.contoso.com/adfs/ls) within the Auto-Configure Form-Based Website dialog box and click OK.</target>
+        </trans-unit>
+        <trans-unit id="bdfb81fe-0a5d-421c-aed7-4504ce93b4cb" xml:space="preserve">
+          <source>Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</source>
+          <target state="new">Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="d60b9c86-4c0f-4a29-96f7-9dcdfdaa12c0" xml:space="preserve">
+          <source>If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</source>
+          <target state="new">If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</target>
+        </trans-unit>
+        <trans-unit id="90ccf133-e963-4e4e-a2a7-47e2847ea509" xml:space="preserve">
+          <source>See the help file for additional information on this feature.</source>
+          <target state="new">See the help file for additional information on this feature.</target>
+        </trans-unit>
+        <trans-unit id="a1108a6a-e5a9-415b-8d89-dfb470bfd212" xml:space="preserve">
+          <source>If the page variables cannot be detected automatically, click the Specify Manually…</source>
+          <target state="new">If the page variables cannot be detected automatically, click the Specify Manually…</target>
+        </trans-unit>
+        <trans-unit id="8bf2535f-3363-4ec8-80fb-eb1f413d5b62" xml:space="preserve">
+          <source>button in the Auto-Configure Form-Based Website dialog box.</source>
+          <target state="new">button in the Auto-Configure Form-Based Website dialog box.</target>
+        </trans-unit>
+        <trans-unit id="eb89a1d7-1c5b-4d43-a722-658d382f312a" xml:space="preserve">
+          <source>In the Add Form-Based Website dialog box, enter the URL to the ADFS login page in the Submit URL field (e.g. https://sso.contoso.com/adfs/ls) and enter an Application name (optional).</source>
+          <target state="new">In the Add Form-Based Website dialog box, enter the URL to the ADFS login page in the Submit URL field (e.g. https://sso.contoso.com/adfs/ls) and enter an Application name (optional).</target>
+        </trans-unit>
+        <trans-unit id="5f1349ba-e088-415c-8cec-360f4bd68f0f" xml:space="preserve">
+          <source>The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</source>
+          <target state="new">The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</target>
+        </trans-unit>
+        <trans-unit id="42d3bda5-184d-43f6-958a-5d3664d79c7b" xml:space="preserve">
+          <source>See the help file for more information on the Submit URL.</source>
+          <target state="new">See the help file for more information on the Submit URL.</target>
+        </trans-unit>
+        <trans-unit id="c6e49883-8551-4c1b-8833-6173504fb346" xml:space="preserve">
+          <source>Set the Request format to “POST or GET”.</source>
+          <target state="new">Set the Request format to “POST or GET”.</target>
+        </trans-unit>
+        <trans-unit id="1d34cf21-95a0-4707-8c40-21300010074e" xml:space="preserve">
+          <source>Enter the Username variable (ctl00$ContentPlaceHolder1$UsernameTextBox) and Password variable (ctl00$ContentPlaceHolder1$PasswordTextBox).</source>
+          <target state="new">Enter the Username variable (ctl00$ContentPlaceHolder1$UsernameTextBox) and Password variable (ctl00$ContentPlaceHolder1$PasswordTextBox).</target>
+        </trans-unit>
+        <trans-unit id="96ea7e4d-47fa-493a-9dbe-07387fecfcb4" xml:space="preserve">
+          <source>If your form-based login page displays a domain textbox, enter the Domain variable as well.</source>
+          <target state="new">If your form-based login page displays a domain textbox, enter the Domain variable as well.</target>
+        </trans-unit>
+        <trans-unit id="cc8a6faf-237b-4495-a66f-eee9b241ca4f" xml:space="preserve">
+          <source>You may need to navigate to the login page in a web browser, right-click on the page and select “View Source” to find the names of the input boxes within the login page.</source>
+          <target state="new">You may need to navigate to the login page in a web browser, right-click on the page and select “View Source” to find the names of the input boxes within the login page.</target>
+        </trans-unit>
+        <trans-unit id="6f7cb02d-14d1-488a-80d1-13c3fc1ad310" xml:space="preserve">
+          <source>Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</source>
+          <target state="new">Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="f7d978ba-f423-4170-a158-ba980206b477" xml:space="preserve">
+          <source>If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</source>
+          <target state="new">If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</target>
+        </trans-unit>
+        <trans-unit id="79f94e1d-806f-4d16-a923-9dd95528d561" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="81d17770-f5c6-4740-9df0-34e97a99b774">&lt;linkText&gt;</bpt>Setup<ept id="81d17770-f5c6-4740-9df0-34e97a99b774">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="81d17770-f5c6-4740-9df0-34e97a99b774">&lt;linkText&gt;</bpt>Setup<ept id="81d17770-f5c6-4740-9df0-34e97a99b774">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="d54558c3-e001-46f9-aca8-242d68d1895d" xml:space="preserve">
+          <source>Click the Advanced…</source>
+          <target state="new">Click the Advanced…</target>
+        </trans-unit>
+        <trans-unit id="b7152f26-f5fe-4432-9b43-c2221e01abd2" xml:space="preserve">
+          <source>button to review advanced settings, including the ability to select a custom denial page file, to cache successful authentications to the website for a period of time using cookies and to select how to authenticate the primary credentials.</source>
+          <target state="new">button to review advanced settings, including the ability to select a custom denial page file, to cache successful authentications to the website for a period of time using cookies and to select how to authenticate the primary credentials.</target>
+        </trans-unit>
+        <trans-unit id="23685a47-1ac2-4166-9ade-dfbe5aa7072d" xml:space="preserve">
+          <source>Since the ADFS proxy server is not likely to be joined to the domain, you will likely use LDAP to connect to your domain controller for user import and pre-authentication.</source>
+          <target state="new">Since the ADFS proxy server is not likely to be joined to the domain, you will likely use LDAP to connect to your domain controller for user import and pre-authentication.</target>
+        </trans-unit>
+        <trans-unit id="88b355f6-655a-467a-8e75-c00630e9a4fb" xml:space="preserve">
+          <source>In the Advanced Form-Based Website dialog box, click the Primary Authentication tab and select “LDAP Bind” for the Pre-authentication Authentication type.</source>
+          <target state="new">In the Advanced Form-Based Website dialog box, click the Primary Authentication tab and select “LDAP Bind” for the Pre-authentication Authentication type.</target>
+        </trans-unit>
+        <trans-unit id="39224823-787a-4f94-bb8b-d8b240241516" xml:space="preserve">
+          <source>When complete, click the OK button to return to the Add Form-Based Website dialog box.</source>
+          <target state="new">When complete, click the OK button to return to the Add Form-Based Website dialog box.</target>
+        </trans-unit>
+        <trans-unit id="334bc7ed-3df6-435c-af4a-9eb3e81d123d" xml:space="preserve">
+          <source>See the help file for more information on the advanced settings.</source>
+          <target state="new">See the help file for more information on the advanced settings.</target>
+        </trans-unit>
+        <trans-unit id="b9e40a0c-9ec9-42bf-886d-c68bf953aed7" xml:space="preserve">
+          <source>Click the OK button to close the dialog box.</source>
+          <target state="new">Click the OK button to close the dialog box.</target>
+        </trans-unit>
+        <trans-unit id="00ee0873-0e69-4f59-ae52-05675c9b07f7" xml:space="preserve">
+          <source>Once the URL and page variables have been detected or entered, the website data will display in the Form-Based panel.</source>
+          <target state="new">Once the URL and page variables have been detected or entered, the website data will display in the Form-Based panel.</target>
+        </trans-unit>
+        <trans-unit id="4c460d5c-6e19-44a8-9882-3ca6bb37f6f5" xml:space="preserve">
+          <source>Click the Native Module tab and select the server, the website that the ADFS proxy is running under (e.g. “Default Web Site”) or the ADFS proxy application (e.g. “ls” under “adfs”) to enable the IIS plug-in at the desired level.</source>
+          <target state="new">Click the Native Module tab and select the server, the website that the ADFS proxy is running under (e.g. “Default Web Site”) or the ADFS proxy application (e.g. “ls” under “adfs”) to enable the IIS plug-in at the desired level.</target>
+        </trans-unit>
+        <trans-unit id="b1cb6e3d-fd0d-4b6d-b20c-baef63bbc244" xml:space="preserve">
+          <source>Click the Enable IIS authentication box at the top of the screen.</source>
+          <target state="new">Click the Enable IIS authentication box at the top of the screen.</target>
+        </trans-unit>
+        <trans-unit id="9069bd09-4f1e-4d2d-825e-f11aefb3836b" xml:space="preserve">
+          <source>The IIS authentication is now enabled.</source>
+          <target state="new">The IIS authentication is now enabled.</target>
+        </trans-unit>
+        <trans-unit id="d4a4c08c-c959-47ee-b3e7-f6c545e56d63" xml:space="preserve">
+          <source>However, in order to perform the pre-authentication to your Active Directory (AD) via LDAP you must configure the LDAP connection to the domain controller.</source>
+          <target state="new">However, in order to perform the pre-authentication to your Active Directory (AD) via LDAP you must configure the LDAP connection to the domain controller.</target>
+        </trans-unit>
+        <trans-unit id="aa50e94b-3bb5-4688-bd47-f7fb255cd7f7" xml:space="preserve">
+          <source>To do this, click the Directory Integration icon.</source>
+          <target state="new">To do this, click the Directory Integration icon.</target>
+        </trans-unit>
+        <trans-unit id="47c1c1ed-e11a-4daa-b4ab-afe515334be3" xml:space="preserve">
+          <source>On the Settings tab, select the Use specific LDAP configuration radio button.</source>
+          <target state="new">On the Settings tab, select the Use specific LDAP configuration radio button.</target>
+        </trans-unit>
+        <trans-unit id="9c34e56e-4ba4-4eb1-9ac6-7127dedf636d" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="c30f1063-bb84-4ed4-89ff-05aa4b85e40d">&lt;linkText&gt;</bpt>Setup<ept id="c30f1063-bb84-4ed4-89ff-05aa4b85e40d">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="c30f1063-bb84-4ed4-89ff-05aa4b85e40d">&lt;linkText&gt;</bpt>Setup<ept id="c30f1063-bb84-4ed4-89ff-05aa4b85e40d">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="73d13646-2f46-4990-afda-6a662d0ff225" xml:space="preserve">
+          <source>Click the Edit…</source>
+          <target state="new">Click the Edit…</target>
+        </trans-unit>
+        <trans-unit id="459dd228-022f-4e34-9dfc-1e9c255866ee" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="37a9e4f6-d496-43be-a5f0-34ede04cd910" xml:space="preserve">
+          <source>In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the AD domain controller.</source>
+          <target state="new">In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the AD domain controller.</target>
+        </trans-unit>
+        <trans-unit id="a62a34d3-4a3b-49f4-8179-52df9c156005" xml:space="preserve">
+          <source>Descriptions of the fields are included in the table below.</source>
+          <target state="new">Descriptions of the fields are included in the table below.</target>
+        </trans-unit>
+        <trans-unit id="4529d48b-10b8-4a9d-b066-f90489e7b395" xml:space="preserve">
+          <source>Note: This information is also included in the Azure Multi-Factor Authentication Server help file.</source>
+          <target state="new">Note: This information is also included in the Azure Multi-Factor Authentication Server help file.</target>
+        </trans-unit>
+        <trans-unit id="f22c03d3-ab08-4732-82e3-4c4d30c64711" xml:space="preserve">
+          <source>Test the LDAP connection by clicking the Test button.</source>
+          <target state="new">Test the LDAP connection by clicking the Test button.</target>
+        </trans-unit>
+        <trans-unit id="59b107e7-85dc-46ce-94b4-cf81de25b987" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="2f47b9d2-3050-4bfe-893b-4ebc3fdfb28b">&lt;linkText&gt;</bpt>Setup<ept id="2f47b9d2-3050-4bfe-893b-4ebc3fdfb28b">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="2f47b9d2-3050-4bfe-893b-4ebc3fdfb28b">&lt;linkText&gt;</bpt>Setup<ept id="2f47b9d2-3050-4bfe-893b-4ebc3fdfb28b">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="2557defb-76e4-44d0-92e5-c636c3e71bd1" xml:space="preserve">
+          <source>If the LDAP connection test was successful, click the OK button.</source>
+          <target state="new">If the LDAP connection test was successful, click the OK button.</target>
+        </trans-unit>
+        <trans-unit id="fe905234-3668-4249-85f7-81a7930a6f0d" xml:space="preserve">
+          <source>Next, click the Company Settings icon and select the Username Resolution tab.</source>
+          <target state="new">Next, click the Company Settings icon and select the Username Resolution tab.</target>
+        </trans-unit>
+        <trans-unit id="9be9ebdc-d956-4b01-b99e-f09b11c51603" xml:space="preserve">
+          <source>Select the Use LDAP unique identifier attribute for matching usernames radio button.</source>
+          <target state="new">Select the Use LDAP unique identifier attribute for matching usernames radio button.</target>
+        </trans-unit>
+        <trans-unit id="eb586bf9-ad84-4f5c-b5b2-082e7d1595f9" xml:space="preserve">
+          <source>If users will enter their username into the ADFS proxy login form in “domain\username” format, the Server needs to be able to strip the domain off of the username when it creates the LDAP query.</source>
+          <target state="new">If users will enter their username into the ADFS proxy login form in “domain\username” format, the Server needs to be able to strip the domain off of the username when it creates the LDAP query.</target>
+        </trans-unit>
+        <trans-unit id="345650b7-5535-4129-a440-b5bf0c27429f" xml:space="preserve">
+          <source>That can be done through a registry setting.</source>
+          <target state="new">That can be done through a registry setting.</target>
+        </trans-unit>
+        <trans-unit id="b9ceb729-e748-4e98-9d6f-f482828849b6" xml:space="preserve">
+          <source>Open the registry editor and go to HKEY<bpt id="67bf774e-a130-4aa5-aa76-0b517a1f3e0e">&lt;em&gt;</bpt>LOCAL<ept id="67bf774e-a130-4aa5-aa76-0b517a1f3e0e">&lt;/em&gt;</ept>MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor on a 64-bit server.</source>
+          <target state="new">Open the registry editor and go to HKEY<bpt id="67bf774e-a130-4aa5-aa76-0b517a1f3e0e">&lt;em&gt;</bpt>LOCAL<ept id="67bf774e-a130-4aa5-aa76-0b517a1f3e0e">&lt;/em&gt;</ept>MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor on a 64-bit server.</target>
+        </trans-unit>
+        <trans-unit id="c792329b-af74-4a4f-819f-a7127d4bc766" xml:space="preserve">
+          <source>If on a 32-bit server, take the “Wow6432Node” out of the path.</source>
+          <target state="new">If on a 32-bit server, take the “Wow6432Node” out of the path.</target>
+        </trans-unit>
+        <trans-unit id="b46ebc6a-d650-44a7-be6a-502f981153ae" xml:space="preserve">
+          <source>Create a new DWORD registry key called “UsernameCxz_stripPrefixDomain” and set the value to 1.</source>
+          <target state="new">Create a new DWORD registry key called “UsernameCxz_stripPrefixDomain” and set the value to 1.</target>
+        </trans-unit>
+        <trans-unit id="1d17ee1b-8987-410a-b598-43264468a0e0" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication is now securing the ADFS proxy.</source>
+          <target state="new">Azure Multi-Factor Authentication is now securing the ADFS proxy.</target>
+        </trans-unit>
+        <trans-unit id="46f3dfd3-00f9-4fe1-85d4-7be1ef7d2727" xml:space="preserve">
+          <source>Ensure that users have been imported from Active Directory into the Server.</source>
+          <target state="new">Ensure that users have been imported from Active Directory into the Server.</target>
+        </trans-unit>
+        <trans-unit id="d1af8fca-a1a7-4ba9-9cdb-006bbd371a2f" xml:space="preserve">
+          <source>See the Trusted IPs section below if you would like to whitelist internal IP addresses so that two-factor authentication is not required when logging into the website from those locations.</source>
+          <target state="new">See the Trusted IPs section below if you would like to whitelist internal IP addresses so that two-factor authentication is not required when logging into the website from those locations.</target>
+        </trans-unit>
+        <trans-unit id="420bc848-58e2-46ff-ad9c-b9cef20ed36b" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="94112a3e-a6fe-4e38-9cdc-e5c7fe09e0a7">&lt;linkText&gt;</bpt>Setup<ept id="94112a3e-a6fe-4e38-9cdc-e5c7fe09e0a7">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="94112a3e-a6fe-4e38-9cdc-e5c7fe09e0a7">&lt;linkText&gt;</bpt>Setup<ept id="94112a3e-a6fe-4e38-9cdc-e5c7fe09e0a7">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="d949aa17-3872-433d-896b-f5c5ac897bb1" xml:space="preserve">
+          <source>To secure AD FS when the AD FS proxy is not used, install the Azure Multi-Factor Authentication Server on the AD FS server and configure the Server per the following steps.</source>
+          <target state="new">To secure AD FS when the AD FS proxy is not used, install the Azure Multi-Factor Authentication Server on the AD FS server and configure the Server per the following steps.</target>
+        </trans-unit>
+        <trans-unit id="f613a96f-1018-4993-9839-25e9d339fcfc" xml:space="preserve">
+          <source>Within the Azure Multi-Factor Authentication Server click the IIS Authentication icon in the left menu.</source>
+          <target state="new">Within the Azure Multi-Factor Authentication Server click the IIS Authentication icon in the left menu.</target>
+        </trans-unit>
+        <trans-unit id="9652c542-9ccc-4f8f-a63c-52f8f5d5218c" xml:space="preserve">
+          <source>Click the HTTP tab.</source>
+          <target state="new">Click the HTTP tab.</target>
+        </trans-unit>
+        <trans-unit id="dd2b2459-9fa4-4a9e-90e4-c7dbfc5b928d" xml:space="preserve">
+          <source>Click the Add…</source>
+          <target state="new">Click the Add…</target>
+        </trans-unit>
+        <trans-unit id="376d1ea0-bd0f-49b3-83ff-c06da8dd5524" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="a1ef5b80-231d-44cb-b61d-e6b1599db2b9" xml:space="preserve">
+          <source>In the Add Base URL dialogue box, enter the URL for the ADFS website where HTTP authentication is performed (e.g. https://sso.domain.com/adfs/ls/auth/integrated) into the Base URL field and enter an Application name (optional).</source>
+          <target state="new">In the Add Base URL dialogue box, enter the URL for the ADFS website where HTTP authentication is performed (e.g. https://sso.domain.com/adfs/ls/auth/integrated) into the Base URL field and enter an Application name (optional).</target>
+        </trans-unit>
+        <trans-unit id="ed879a35-eb4e-48d8-a858-efaa37cfa73f" xml:space="preserve">
+          <source>The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</source>
+          <target state="new">The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</target>
+        </trans-unit>
+        <trans-unit id="38b59a73-ee53-4b86-95b3-da910e658cb7" xml:space="preserve">
+          <source>If desired, adjust the Idle timeout and Maximum session times.</source>
+          <target state="new">If desired, adjust the Idle timeout and Maximum session times.</target>
+        </trans-unit>
+        <trans-unit id="ecf96882-74d3-4f7e-b3f4-8123d6bf51be" xml:space="preserve">
+          <source>Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</source>
+          <target state="new">Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="40e42575-1d3a-494b-984f-a2587e40ef69" xml:space="preserve">
+          <source>If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</source>
+          <target state="new">If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</target>
+        </trans-unit>
+        <trans-unit id="85b563a5-8283-4d1a-b1dc-72d20fde16d5" xml:space="preserve">
+          <source>See the help file for additional information on this feature.</source>
+          <target state="new">See the help file for additional information on this feature.</target>
+        </trans-unit>
+        <trans-unit id="da60c965-0c13-4ad0-a42a-7e9ee98d4d1d" xml:space="preserve">
+          <source>Check the cookie cache box if desired.</source>
+          <target state="new">Check the cookie cache box if desired.</target>
+        </trans-unit>
+        <trans-unit id="ce2c432b-b87b-48ee-bd7f-405e91ed5f9c" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="5b776188-3ec3-4827-9749-07593b23bf5b">&lt;linkText&gt;</bpt>Setup<ept id="5b776188-3ec3-4827-9749-07593b23bf5b">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="5b776188-3ec3-4827-9749-07593b23bf5b">&lt;linkText&gt;</bpt>Setup<ept id="5b776188-3ec3-4827-9749-07593b23bf5b">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="69361cf4-7910-4576-b4a5-59cf5cf76b60" xml:space="preserve">
+          <source>Click the OK button.</source>
+          <target state="new">Click the OK button.</target>
+        </trans-unit>
+        <trans-unit id="74e6236b-c68c-475a-9be2-3a27a486f736" xml:space="preserve">
+          <source>Click the Native Module tab and select the server, the website that ADFS is running under (e.g. “Default Web Site”) or the ADFS application (e.g. “ls” under “adfs”) to enable the IIS plug-in at the desired level.</source>
+          <target state="new">Click the Native Module tab and select the server, the website that ADFS is running under (e.g. “Default Web Site”) or the ADFS application (e.g. “ls” under “adfs”) to enable the IIS plug-in at the desired level.</target>
+        </trans-unit>
+        <trans-unit id="25394782-5eae-4ffa-8c7e-920b8655d9f1" xml:space="preserve">
+          <source>Click the Enable IIS authentication box at the top of the screen.</source>
+          <target state="new">Click the Enable IIS authentication box at the top of the screen.</target>
+        </trans-unit>
+        <trans-unit id="0881bae7-ae48-4f59-92bc-38384c888c23" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication is now securing ADFS.</source>
+          <target state="new">Azure Multi-Factor Authentication is now securing ADFS.</target>
+        </trans-unit>
+        <trans-unit id="115a3868-f69b-4a02-87ab-9ddf5a292430" xml:space="preserve">
+          <source>Ensure that users have been imported from Active Directory into the Server.</source>
+          <target state="new">Ensure that users have been imported from Active Directory into the Server.</target>
+        </trans-unit>
+        <trans-unit id="cdf78246-0724-4587-9283-05f6337358f4" xml:space="preserve">
+          <source>See the Trusted IPs section below if you would like to whitelist internal IP addresses so that two- factor authentication is not required when logging into the website from those locations.</source>
+          <target state="new">See the Trusted IPs section below if you would like to whitelist internal IP addresses so that two- factor authentication is not required when logging into the website from those locations.</target>
+        </trans-unit>
+        <trans-unit id="d429de82-4eda-41de-a640-2609e4777f79" xml:space="preserve">
+          <source>The Trusted IPs allows users to bypass Azure Multi-Factor Authentication for website requests originating from specific IP addresses or subnets.</source>
+          <target state="new">The Trusted IPs allows users to bypass Azure Multi-Factor Authentication for website requests originating from specific IP addresses or subnets.</target>
+        </trans-unit>
+        <trans-unit id="48a93374-ffca-4b36-b4c9-96f7140370b9" xml:space="preserve">
+          <source>For example, you may want to exempt users from Azure Multi-Factor Authentication while logging in from the office.</source>
+          <target state="new">For example, you may want to exempt users from Azure Multi-Factor Authentication while logging in from the office.</target>
+        </trans-unit>
+        <trans-unit id="57da2390-2d2f-47d1-a1ce-ae50642c5ba5" xml:space="preserve">
+          <source>For this, you would specify the office subnet as an Trusted IPs entry.</source>
+          <target state="new">For this, you would specify the office subnet as an Trusted IPs entry.</target>
+        </trans-unit>
+        <trans-unit id="7bcdecfe-82ec-40e3-b123-05a445e7001d" xml:space="preserve">
+          <source>In the IIS Authentication section, click the Trusted IPs tab.</source>
+          <target state="new">In the IIS Authentication section, click the Trusted IPs tab.</target>
+        </trans-unit>
+        <trans-unit id="24f0dbe6-7b7e-4e3e-b0ba-065da82823f3" xml:space="preserve">
+          <source>Click the Add…</source>
+          <target state="new">Click the Add…</target>
+        </trans-unit>
+        <trans-unit id="206ca349-1769-4d80-9aaa-2adab2e5afd5" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="d8c59664-16cd-48af-ab22-183b377eb5ce" xml:space="preserve">
+          <source>When the Add Trusted IPs dialog box appears, select the Single IP, IP range or Subnet radio button.</source>
+          <target state="new">When the Add Trusted IPs dialog box appears, select the Single IP, IP range or Subnet radio button.</target>
+        </trans-unit>
+        <trans-unit id="51cac9e2-023b-48b5-bd96-4cde602953d4" xml:space="preserve">
+          <source>Enter the IP address, range of IP addresses or subnet that should be whitelisted.</source>
+          <target state="new">Enter the IP address, range of IP addresses or subnet that should be whitelisted.</target>
+        </trans-unit>
+        <trans-unit id="6aebfec2-c551-4fd1-9d24-0ec3af7c4a65" xml:space="preserve">
+          <source>If entering a subnet, select the appropriate Netmask and click the OK button.</source>
+          <target state="new">If entering a subnet, select the appropriate Netmask and click the OK button.</target>
+        </trans-unit>
+        <trans-unit id="20bf94f0-5c6c-469e-9e01-0f2c7a11d35f" xml:space="preserve">
+          <source>The trusted IP has now been added.</source>
+          <target state="new">The trusted IP has now been added.</target>
+        </trans-unit>
+        <trans-unit id="094af583-ed4c-468b-b5fa-a22685d25745" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="d60ef747-f9b7-4603-a8c6-722e42a096fe">&lt;linkText&gt;</bpt>Setup<ept id="d60ef747-f9b7-4603-a8c6-722e42a096fe">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="d60ef747-f9b7-4603-a8c6-722e42a096fe">&lt;linkText&gt;</bpt>Setup<ept id="d60ef747-f9b7-4603-a8c6-722e42a096fe">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

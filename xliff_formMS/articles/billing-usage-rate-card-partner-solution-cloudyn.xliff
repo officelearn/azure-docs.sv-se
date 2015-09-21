@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="93f8f343-a721-4f0d-aba1-b5e5587ed59c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="93f8f343-a721-4f0d-aba1-b5e5587ed59c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f5bd0e7c-5d12-4f6a-ad3a-35d10497f81f">
+        <trans-unit id="dca0d41f-a1ed-40d7-a249-482a8253081a" xml:space="preserve">
+          <source>Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers</source>
+          <target state="new">Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers</target>
+        </trans-unit>
+        <trans-unit id="4e6faacc-2aa3-4927-8748-261dada69e2f" xml:space="preserve">
+          <source>Provides a unique perspective from Microsoft Azure Billing partner Cloudyn, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloudyn customers that are interested in using/trying Cloudyn for Azure Services.</source>
+          <target state="new">Provides a unique perspective from Microsoft Azure Billing partner Cloudyn, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloudyn customers that are interested in using/trying Cloudyn for Azure Services.</target>
+        </trans-unit>
+        <trans-unit id="ee459311-cbfc-4ab0-a716-04bc8b2406cf" xml:space="preserve">
+          <source>Cloudyn, a Microsoft development partner and a leading provider of cloud management capabilities, was chosen for a private preview of the new Microsoft Azure Resource Usage and RateCard APIs.</source>
+          <target state="new">Cloudyn, a Microsoft development partner and a leading provider of cloud management capabilities, was chosen for a private preview of the new Microsoft Azure Resource Usage and RateCard APIs.</target>
+        </trans-unit>
+        <trans-unit id="62a81306-87f1-4033-86fe-fa7675617444" xml:space="preserve">
+          <source>The Usage API provides access to estimated Azure consumption data for a subscription.</source>
+          <target state="new">The Usage API provides access to estimated Azure consumption data for a subscription.</target>
+        </trans-unit>
+        <trans-unit id="f8b61b50-c5c4-4f11-8997-3113600c11ac" xml:space="preserve">
+          <source>The RateCard API provides complete pricing information of all Azure services, for non-Enterprise Agreement (EA) customers.</source>
+          <target state="new">The RateCard API provides complete pricing information of all Azure services, for non-Enterprise Agreement (EA) customers.</target>
+        </trans-unit>
+        <trans-unit id="742dfd55-95de-4e2c-97c1-267628bfd86b" xml:space="preserve">
+          <source>Integrated together, these APIs provide a complete information basis for input into IT Financial Management (ITFM) tools such as those provided by Cloudyn.</source>
+          <target state="new">Integrated together, these APIs provide a complete information basis for input into IT Financial Management (ITFM) tools such as those provided by Cloudyn.</target>
+        </trans-unit>
+        <trans-unit id="975d738c-cca6-4e02-8e63-c930bb7a336b" xml:space="preserve">
+          <source>The so-called “multiplication” of data from the Usage API with data from the RateCard API (usage [units] price[$unit] = Detailed Usage and Cost) creates the most granular, accurate and reliable billing information available for Azure today.</source>
+          <target state="new">The so-called “multiplication” of data from the Usage API with data from the RateCard API (usage [units] price[$unit] = Detailed Usage and Cost) creates the most granular, accurate and reliable billing information available for Azure today.</target>
+        </trans-unit>
+        <trans-unit id="73ea6bec-b5f2-468d-9bbb-9024fd0c9d28" xml:space="preserve">
+          <source><bpt id="e24872fb-4cc3-438f-96ba-b50976f21164">&lt;linkText&gt;</bpt>ITFM Overview<ept id="e24872fb-4cc3-438f-96ba-b50976f21164">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e24872fb-4cc3-438f-96ba-b50976f21164">&lt;linkText&gt;</bpt>ITFM Overview<ept id="e24872fb-4cc3-438f-96ba-b50976f21164">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05ad1b62-4810-44be-8156-39cc93de07db" xml:space="preserve">
+          <source>Consuming these APIs provides key information on customers’ usage and costs, allowing Cloudyn to analyze customer accounts in a simple, programmatic manner, and to perform various ITFM tasks for its customers.</source>
+          <target state="new">Consuming these APIs provides key information on customers’ usage and costs, allowing Cloudyn to analyze customer accounts in a simple, programmatic manner, and to perform various ITFM tasks for its customers.</target>
+        </trans-unit>
+        <trans-unit id="5f7ac683-5171-49dd-9055-1f75cb1f0c68" xml:space="preserve">
+          <source>The RateCard API requires several input parameters -- like region info, currency and locale -- but the most important one is OfferDurableID, which specifies the type of Azure offering the customer is using (Pay-as-you-Go, legacy 6 and 12-month commitment plans, MSDN offers, MPN offers, promotional offers and others).</source>
+          <target state="new">The RateCard API requires several input parameters -- like region info, currency and locale -- but the most important one is OfferDurableID, which specifies the type of Azure offering the customer is using (Pay-as-you-Go, legacy 6 and 12-month commitment plans, MSDN offers, MPN offers, promotional offers and others).</target>
+        </trans-unit>
+        <trans-unit id="11eaedea-837c-4732-b3b8-3a836fac9985" xml:space="preserve">
+          <source>The OfferDurableID can be found in the <bpt id="2ff88489-11c1-42ae-8e2a-2c061d99ca24">&lt;linkText&gt;</bpt>Azure Usage and Billing portal<ept id="2ff88489-11c1-42ae-8e2a-2c061d99ca24">&lt;/linkText&gt;</ept><bpt id="2ff88489-11c1-42ae-8e2a-2c061d99ca24">&lt;title&gt;</bpt><ept id="2ff88489-11c1-42ae-8e2a-2c061d99ca24">&lt;/title&gt;</ept>, under the "Offer ID" for the given subscription.</source>
+          <target state="new">The OfferDurableID can be found in the <bpt id="2ff88489-11c1-42ae-8e2a-2c061d99ca24">&lt;linkText&gt;</bpt>Azure Usage and Billing portal<ept id="2ff88489-11c1-42ae-8e2a-2c061d99ca24">&lt;/linkText&gt;</ept><bpt id="2ff88489-11c1-42ae-8e2a-2c061d99ca24">&lt;title&gt;</bpt><ept id="2ff88489-11c1-42ae-8e2a-2c061d99ca24">&lt;/title&gt;</ept>, under the "Offer ID" for the given subscription.</target>
+        </trans-unit>
+        <trans-unit id="bb3d893c-7a53-4ce8-b612-ca28b7d9fd7b" xml:space="preserve">
+          <source>Upon registration for <bpt id="1ce06f0b-953a-40c7-93e6-6a5b57d4105f">&lt;linkText&gt;</bpt>Cloudyn for Azure<ept id="1ce06f0b-953a-40c7-93e6-6a5b57d4105f">&lt;/linkText&gt;</ept><bpt id="1ce06f0b-953a-40c7-93e6-6a5b57d4105f">&lt;title&gt;</bpt><ept id="1ce06f0b-953a-40c7-93e6-6a5b57d4105f">&lt;/title&gt;</ept> services, customers can add their OfferDurableID code, which allows Cloudyn to pull their relevant pricing information through the RateCard API.</source>
+          <target state="new">Upon registration for <bpt id="1ce06f0b-953a-40c7-93e6-6a5b57d4105f">&lt;linkText&gt;</bpt>Cloudyn for Azure<ept id="1ce06f0b-953a-40c7-93e6-6a5b57d4105f">&lt;/linkText&gt;</ept><bpt id="1ce06f0b-953a-40c7-93e6-6a5b57d4105f">&lt;title&gt;</bpt><ept id="1ce06f0b-953a-40c7-93e6-6a5b57d4105f">&lt;/title&gt;</ept> services, customers can add their OfferDurableID code, which allows Cloudyn to pull their relevant pricing information through the RateCard API.</target>
+        </trans-unit>
+        <trans-unit id="0205c121-8790-48c7-8507-d2c168bd18e6" xml:space="preserve">
+          <source>Information on the different types of offers can be found one the <bpt id="e9dd9a2f-879d-4dfc-9f4f-c6816a512957">&lt;linkText&gt;</bpt>Microsoft Azure Offer Details<ept id="e9dd9a2f-879d-4dfc-9f4f-c6816a512957">&lt;/linkText&gt;</ept><bpt id="e9dd9a2f-879d-4dfc-9f4f-c6816a512957">&lt;title&gt;</bpt><ept id="e9dd9a2f-879d-4dfc-9f4f-c6816a512957">&lt;/title&gt;</ept> page.</source>
+          <target state="new">Information on the different types of offers can be found one the <bpt id="e9dd9a2f-879d-4dfc-9f4f-c6816a512957">&lt;linkText&gt;</bpt>Microsoft Azure Offer Details<ept id="e9dd9a2f-879d-4dfc-9f4f-c6816a512957">&lt;/linkText&gt;</ept><bpt id="e9dd9a2f-879d-4dfc-9f4f-c6816a512957">&lt;title&gt;</bpt><ept id="e9dd9a2f-879d-4dfc-9f4f-c6816a512957">&lt;/title&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="12427058-96f5-4360-a83d-75362a075a52" xml:space="preserve">
+          <source><bpt id="4e9198a3-7041-4615-bd43-2c3a3b0b6add">&lt;linkText&gt;</bpt>Cloudyn ITFM Engine Overview<ept id="4e9198a3-7041-4615-bd43-2c3a3b0b6add">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e9198a3-7041-4615-bd43-2c3a3b0b6add">&lt;linkText&gt;</bpt>Cloudyn ITFM Engine Overview<ept id="4e9198a3-7041-4615-bd43-2c3a3b0b6add">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b615a79-d699-4aab-8170-24a3e7c50144" xml:space="preserve">
+          <source>Cloudyn uses both the Usage and RateCard APIs, in addition to the Azure Performance API, to create additional layers of visualization, analytics, alerting, reporting, cost management and actionable recommendations, providing Azure customers a reliable enterprise cloud ITFM tool.</source>
+          <target state="new">Cloudyn uses both the Usage and RateCard APIs, in addition to the Azure Performance API, to create additional layers of visualization, analytics, alerting, reporting, cost management and actionable recommendations, providing Azure customers a reliable enterprise cloud ITFM tool.</target>
+        </trans-unit>
+        <trans-unit id="a9c1c045-6628-4ea3-9501-fff5921ac1e0" xml:space="preserve">
+          <source>Common Cloudyn ITFM use cases enabled by usage and RateCard APIs include:</source>
+          <target state="new">Common Cloudyn ITFM use cases enabled by usage and RateCard APIs include:</target>
+        </trans-unit>
+        <trans-unit id="0056f477-b518-4bea-ae8e-3531aefeefab" xml:space="preserve">
+          <source><bpt id="2eac342b-6bf3-455d-b295-1d1a1a21baf1">&lt;strong&gt;</bpt>Cost Analysis<ept id="2eac342b-6bf3-455d-b295-1d1a1a21baf1">&lt;/strong&gt;</ept> - Allows cloud costs to be broken down to any native identifying dimension (provider, service, account, region etc.).</source>
+          <target state="new"><bpt id="2eac342b-6bf3-455d-b295-1d1a1a21baf1">&lt;strong&gt;</bpt>Cost Analysis<ept id="2eac342b-6bf3-455d-b295-1d1a1a21baf1">&lt;/strong&gt;</ept> - Allows cloud costs to be broken down to any native identifying dimension (provider, service, account, region etc.).</target>
+        </trans-unit>
+        <trans-unit id="abd0d74c-e0f0-4d71-990b-f559a90d861d" xml:space="preserve">
+          <source>The Azure Usage and RateCard APIs make this an easy task, by providing the most granular breakdown of usage and cost data per account, which is then grouped and filtered by Cloudyn and presented to the user, in a graphic or tabular form.</source>
+          <target state="new">The Azure Usage and RateCard APIs make this an easy task, by providing the most granular breakdown of usage and cost data per account, which is then grouped and filtered by Cloudyn and presented to the user, in a graphic or tabular form.</target>
+        </trans-unit>
+        <trans-unit id="04453446-d97a-4d38-8410-9f1c51d9f502" xml:space="preserve">
+          <source><bpt id="68e72cdc-74db-4379-a19f-93706e8cb2a2">&lt;linkText&gt;</bpt>Cost Analysis Pie Chart<ept id="68e72cdc-74db-4379-a19f-93706e8cb2a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="68e72cdc-74db-4379-a19f-93706e8cb2a2">&lt;linkText&gt;</bpt>Cost Analysis Pie Chart<ept id="68e72cdc-74db-4379-a19f-93706e8cb2a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78d5d35b-26cb-4df1-ab8c-bb0a24f8f178" xml:space="preserve">
+          <source><bpt id="8346bff9-3a68-4b28-97c6-7f094a7d8257">&lt;strong&gt;</bpt>Cost Allocation 360<ept id="8346bff9-3a68-4b28-97c6-7f094a7d8257">&lt;/strong&gt;</ept> - Enables finance and IT managers to uncover the actual cost breakdown, drivers and trends of their cloud deployment.</source>
+          <target state="new"><bpt id="8346bff9-3a68-4b28-97c6-7f094a7d8257">&lt;strong&gt;</bpt>Cost Allocation 360<ept id="8346bff9-3a68-4b28-97c6-7f094a7d8257">&lt;/strong&gt;</ept> - Enables finance and IT managers to uncover the actual cost breakdown, drivers and trends of their cloud deployment.</target>
+        </trans-unit>
+        <trans-unit id="68b58b58-72c9-4fbe-9053-764700b0df45" xml:space="preserve">
+          <source>It further allows managers to easily associate deployment expenses with business units, departments, regions, and more, providing unprecedented insights into cloud costs, and facilitating enterprise chargebacks and showbacks.</source>
+          <target state="new">It further allows managers to easily associate deployment expenses with business units, departments, regions, and more, providing unprecedented insights into cloud costs, and facilitating enterprise chargebacks and showbacks.</target>
+        </trans-unit>
+        <trans-unit id="bc2bc3da-7cfc-4088-825d-646378f04e5d" xml:space="preserve">
+          <source>The Azure Usage and RateCard APIs serve as input to Cloudyn’s cost allocation engine, which complements the APIs by defining methods and business logic for allocating untagged or untaggable resources.</source>
+          <target state="new">The Azure Usage and RateCard APIs serve as input to Cloudyn’s cost allocation engine, which complements the APIs by defining methods and business logic for allocating untagged or untaggable resources.</target>
+        </trans-unit>
+        <trans-unit id="371154f3-9811-4716-994c-996ffa822a01" xml:space="preserve">
+          <source><bpt id="4848c978-7060-4351-86a3-99932d1ff42a">&lt;linkText&gt;</bpt>Cost Allocation 360 Chart<ept id="4848c978-7060-4351-86a3-99932d1ff42a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4848c978-7060-4351-86a3-99932d1ff42a">&lt;linkText&gt;</bpt>Cost Allocation 360 Chart<ept id="4848c978-7060-4351-86a3-99932d1ff42a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cb0aa9f-546b-428d-b474-ad9f52be611d" xml:space="preserve">
+          <source><bpt id="1536fb17-e92c-469e-a343-6d063d5ba803">&lt;strong&gt;</bpt>Cost-Effective Sizing<ept id="1536fb17-e92c-469e-a343-6d063d5ba803">&lt;/strong&gt;</ept> - Provides right-sizing recommendations for underutilized virtual machines, thus reducing the customer’s expenses on oversized or over-provisioned machines.</source>
+          <target state="new"><bpt id="1536fb17-e92c-469e-a343-6d063d5ba803">&lt;strong&gt;</bpt>Cost-Effective Sizing<ept id="1536fb17-e92c-469e-a343-6d063d5ba803">&lt;/strong&gt;</ept> - Provides right-sizing recommendations for underutilized virtual machines, thus reducing the customer’s expenses on oversized or over-provisioned machines.</target>
+        </trans-unit>
+        <trans-unit id="58387372-0766-478b-a63b-fe8738e39037" xml:space="preserve">
+          <source>It does so by examining virtual machine CPU and RAM metrics (via Performance API), hours of run-time (via Usage API) and cost (via RateCard API).</source>
+          <target state="new">It does so by examining virtual machine CPU and RAM metrics (via Performance API), hours of run-time (via Usage API) and cost (via RateCard API).</target>
+        </trans-unit>
+        <trans-unit id="6c4c116f-d7e8-4d7e-88e1-28a9b0776fed" xml:space="preserve">
+          <source>Cloudyn then provides right-sizing recommendations based on underutilized CPU or RAM resources (Performance), and calculates estimated savings by multiplying the price delta (RateCard) between the VMs by the actual time-utilization (Usage) of the underutilized machine.</source>
+          <target state="new">Cloudyn then provides right-sizing recommendations based on underutilized CPU or RAM resources (Performance), and calculates estimated savings by multiplying the price delta (RateCard) between the VMs by the actual time-utilization (Usage) of the underutilized machine.</target>
+        </trans-unit>
+        <trans-unit id="cd0be854-0e04-4be0-bc4d-780973a2d001" xml:space="preserve">
+          <source><bpt id="16c70647-78fe-4c81-88fe-05c3dd01fe45">&lt;linkText&gt;</bpt>Cost Effective Sizing<ept id="16c70647-78fe-4c81-88fe-05c3dd01fe45">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16c70647-78fe-4c81-88fe-05c3dd01fe45">&lt;linkText&gt;</bpt>Cost Effective Sizing<ept id="16c70647-78fe-4c81-88fe-05c3dd01fe45">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4041404-e540-4b37-9c48-a14a7ad8fc7c" xml:space="preserve">
+          <source><bpt id="b3ede905-69fc-47d9-b6d4-8413108584cb">&lt;strong&gt;</bpt>Cloud Porting Recommendations<ept id="b3ede905-69fc-47d9-b6d4-8413108584cb">&lt;/strong&gt;</ept> - Provides financial advice on cloud porting.</source>
+          <target state="new"><bpt id="b3ede905-69fc-47d9-b6d4-8413108584cb">&lt;strong&gt;</bpt>Cloud Porting Recommendations<ept id="b3ede905-69fc-47d9-b6d4-8413108584cb">&lt;/strong&gt;</ept> - Provides financial advice on cloud porting.</target>
+        </trans-unit>
+        <trans-unit id="7f14bd89-fcf2-4d77-9064-e9b1df2eabb7" xml:space="preserve">
+          <source>It examines a user's current costs of cloud resources which are deployed on major cloud vendors, and compares it to the cost of an equivalent deployment on Azure.</source>
+          <target state="new">It examines a user's current costs of cloud resources which are deployed on major cloud vendors, and compares it to the cost of an equivalent deployment on Azure.</target>
+        </trans-unit>
+        <trans-unit id="30911338-8854-4034-8d6c-cda989be4fc3" xml:space="preserve">
+          <source>It then provides granular, per-resource, financially-based porting recommendations to Azure.</source>
+          <target state="new">It then provides granular, per-resource, financially-based porting recommendations to Azure.</target>
+        </trans-unit>
+        <trans-unit id="7f31edf0-f465-4c0f-87f0-25b53dcc8fd4" xml:space="preserve">
+          <source>After assessing the equivalent deployment required on Azure (based on performance metrics and user preferences), Cloudyn uses the RateCard API to evaluate the cost of the equivalent deployment on Azure.</source>
+          <target state="new">After assessing the equivalent deployment required on Azure (based on performance metrics and user preferences), Cloudyn uses the RateCard API to evaluate the cost of the equivalent deployment on Azure.</target>
+        </trans-unit>
+        <trans-unit id="c5d2ecc8-6228-45cf-8d83-4a950162721a" xml:space="preserve">
+          <source><bpt id="463b9675-32f0-4671-abe9-d5f79cf1d166">&lt;strong&gt;</bpt>Performance Reports<ept id="463b9675-32f0-4671-abe9-d5f79cf1d166">&lt;/strong&gt;</ept> - Enabled by Azure’s performance API, these reports provide an array of features from CPU and RAM utilization to optimization recommendations.</source>
+          <target state="new"><bpt id="463b9675-32f0-4671-abe9-d5f79cf1d166">&lt;strong&gt;</bpt>Performance Reports<ept id="463b9675-32f0-4671-abe9-d5f79cf1d166">&lt;/strong&gt;</ept> - Enabled by Azure’s performance API, these reports provide an array of features from CPU and RAM utilization to optimization recommendations.</target>
+        </trans-unit>
+        <trans-unit id="cc342edb-4996-4f5b-98cd-bfb127e6c1d6" xml:space="preserve">
+          <source>Below is an instance utilization report example, presenting instance breakdown by average CPU utilization.</source>
+          <target state="new">Below is an instance utilization report example, presenting instance breakdown by average CPU utilization.</target>
+        </trans-unit>
+        <trans-unit id="524d48e2-986c-4bca-b055-a7ec53c4393a" xml:space="preserve">
+          <source><bpt id="3b0a2b47-05ff-4fc2-bc8f-c6a2f6696c87">&lt;linkText&gt;</bpt>Performance Reports<ept id="3b0a2b47-05ff-4fc2-bc8f-c6a2f6696c87">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b0a2b47-05ff-4fc2-bc8f-c6a2f6696c87">&lt;linkText&gt;</bpt>Performance Reports<ept id="3b0a2b47-05ff-4fc2-bc8f-c6a2f6696c87">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ff625f4-9f1e-42dd-995c-d8050b7c16c8" xml:space="preserve">
+          <source><bpt id="ebf4a50f-113c-499b-a8ba-48e2e4e6e3b1">&lt;strong&gt;</bpt>Category manager<ept id="ebf4a50f-113c-499b-a8ba-48e2e4e6e3b1">&lt;/strong&gt;</ept> - A powerful feature in Cloudyn that brings order to unorganized cloud resources.</source>
+          <target state="new"><bpt id="ebf4a50f-113c-499b-a8ba-48e2e4e6e3b1">&lt;strong&gt;</bpt>Category manager<ept id="ebf4a50f-113c-499b-a8ba-48e2e4e6e3b1">&lt;/strong&gt;</ept> - A powerful feature in Cloudyn that brings order to unorganized cloud resources.</target>
+        </trans-unit>
+        <trans-unit id="30a935ce-bf13-4933-8996-ac4306ab6d58" xml:space="preserve">
+          <source>It provides users the freedom to create their own unique categories (tags) for effective measuring and reporting that is in line with business practices.</source>
+          <target state="new">It provides users the freedom to create their own unique categories (tags) for effective measuring and reporting that is in line with business practices.</target>
+        </trans-unit>
+        <trans-unit id="a76954ec-707f-4fa8-90b7-3502d229008d" xml:space="preserve">
+          <source>Further, users can easily regulate and categorize inconsistent tagging (i.e. typos and other discrepancies) and automatically detect untagged resources for accurate cost attribution.</source>
+          <target state="new">Further, users can easily regulate and categorize inconsistent tagging (i.e. typos and other discrepancies) and automatically detect untagged resources for accurate cost attribution.</target>
+        </trans-unit>
+        <trans-unit id="0b968ae1-3112-46a5-9c77-c5d131e7a280" xml:space="preserve">
+          <source><bpt id="db86720a-31fe-4a9d-a56e-0a6f0efd9e2f">&lt;linkText&gt;</bpt>Category Manager<ept id="db86720a-31fe-4a9d-a56e-0a6f0efd9e2f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="db86720a-31fe-4a9d-a56e-0a6f0efd9e2f">&lt;linkText&gt;</bpt>Category Manager<ept id="db86720a-31fe-4a9d-a56e-0a6f0efd9e2f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2082f40c-383f-4b49-9bd9-b9c5e456469f" xml:space="preserve">
+          <source>Here's a short video which shows how an Azure customer can use Cloudyn for Azure and the Azure Billing APIs, to gain insights from their Azure consumption data.</source>
+          <target state="new">Here's a short video which shows how an Azure customer can use Cloudyn for Azure and the Azure Billing APIs, to gain insights from their Azure consumption data.</target>
+        </trans-unit>
+        <trans-unit id="c6d6e83d-5ca5-404f-ba36-2afe1f56a1bc" xml:space="preserve">
+          <source>Start a free <bpt id="f26bf16e-2481-4063-9a0b-1832c7c9ad03">&lt;linkText&gt;</bpt>Cloudyn for Azure<ept id="f26bf16e-2481-4063-9a0b-1832c7c9ad03">&lt;/linkText&gt;</ept><bpt id="f26bf16e-2481-4063-9a0b-1832c7c9ad03">&lt;title&gt;</bpt><ept id="f26bf16e-2481-4063-9a0b-1832c7c9ad03">&lt;/title&gt;</ept> trial to see how you can obtain cost transparency with customized reporting and analytics for your Microsoft Azure cloud deployment.</source>
+          <target state="new">Start a free <bpt id="f26bf16e-2481-4063-9a0b-1832c7c9ad03">&lt;linkText&gt;</bpt>Cloudyn for Azure<ept id="f26bf16e-2481-4063-9a0b-1832c7c9ad03">&lt;/linkText&gt;</ept><bpt id="f26bf16e-2481-4063-9a0b-1832c7c9ad03">&lt;title&gt;</bpt><ept id="f26bf16e-2481-4063-9a0b-1832c7c9ad03">&lt;/title&gt;</ept> trial to see how you can obtain cost transparency with customized reporting and analytics for your Microsoft Azure cloud deployment.</target>
+        </trans-unit>
+        <trans-unit id="058b9bd7-7b76-4aeb-9194-10f65a1d6b6e" xml:space="preserve">
+          <source>See <bpt id="cb830ef7-8018-479a-8df3-e56e8c5b1994">&lt;linkText&gt;</bpt>Gain insights into your Microsoft Azure resource consumption<ept id="cb830ef7-8018-479a-8df3-e56e8c5b1994">&lt;/linkText&gt;</ept><bpt id="cb830ef7-8018-479a-8df3-e56e8c5b1994">&lt;title&gt;</bpt><ept id="cb830ef7-8018-479a-8df3-e56e8c5b1994">&lt;/title&gt;</ept> for an overview of the Azure Resource Usage and RateCard APIs.</source>
+          <target state="new">See <bpt id="cb830ef7-8018-479a-8df3-e56e8c5b1994">&lt;linkText&gt;</bpt>Gain insights into your Microsoft Azure resource consumption<ept id="cb830ef7-8018-479a-8df3-e56e8c5b1994">&lt;/linkText&gt;</ept><bpt id="cb830ef7-8018-479a-8df3-e56e8c5b1994">&lt;title&gt;</bpt><ept id="cb830ef7-8018-479a-8df3-e56e8c5b1994">&lt;/title&gt;</ept> for an overview of the Azure Resource Usage and RateCard APIs.</target>
+        </trans-unit>
+        <trans-unit id="9287e49f-d639-4cf3-9ecc-6af467387421" xml:space="preserve">
+          <source>Check out the <bpt id="793a48e9-ad88-4445-98ce-7c911cf8f8d3">&lt;linkText&gt;</bpt>Azure Billing REST API Reference<ept id="793a48e9-ad88-4445-98ce-7c911cf8f8d3">&lt;/linkText&gt;</ept><bpt id="793a48e9-ad88-4445-98ce-7c911cf8f8d3">&lt;title&gt;</bpt><ept id="793a48e9-ad88-4445-98ce-7c911cf8f8d3">&lt;/title&gt;</ept> for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.</source>
+          <target state="new">Check out the <bpt id="793a48e9-ad88-4445-98ce-7c911cf8f8d3">&lt;linkText&gt;</bpt>Azure Billing REST API Reference<ept id="793a48e9-ad88-4445-98ce-7c911cf8f8d3">&lt;/linkText&gt;</ept><bpt id="793a48e9-ad88-4445-98ce-7c911cf8f8d3">&lt;title&gt;</bpt><ept id="793a48e9-ad88-4445-98ce-7c911cf8f8d3">&lt;/title&gt;</ept> for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="0c4e1bef-735d-455a-ac2c-24cc77604bb4" xml:space="preserve">
+          <source>If you would like to dive right into the sample code, check out our <bpt id="9c398092-a304-4333-a5c1-a3479030ba02">&lt;linkText&gt;</bpt>Microsoft Azure Billing API Code Samples on Github<ept id="9c398092-a304-4333-a5c1-a3479030ba02">&lt;/linkText&gt;</ept><bpt id="9c398092-a304-4333-a5c1-a3479030ba02">&lt;title&gt;</bpt><ept id="9c398092-a304-4333-a5c1-a3479030ba02">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you would like to dive right into the sample code, check out our <bpt id="9c398092-a304-4333-a5c1-a3479030ba02">&lt;linkText&gt;</bpt>Microsoft Azure Billing API Code Samples on Github<ept id="9c398092-a304-4333-a5c1-a3479030ba02">&lt;/linkText&gt;</ept><bpt id="9c398092-a304-4333-a5c1-a3479030ba02">&lt;title&gt;</bpt><ept id="9c398092-a304-4333-a5c1-a3479030ba02">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2759be5-7b94-45ec-9a57-39d73eebf8d4" xml:space="preserve">
+          <source>To learn more about Microsoft Azure Enterprise Agreement (EA) offers, please visit [Licensing Azure for the Enterprise] (http://azure.microsoft.com/pricing/enterprise-agreement/)</source>
+          <target state="new">To learn more about Microsoft Azure Enterprise Agreement (EA) offers, please visit [Licensing Azure for the Enterprise] (http://azure.microsoft.com/pricing/enterprise-agreement/)</target>
+        </trans-unit>
+        <trans-unit id="eadf1aae-d174-45e8-a632-76a65a1b3828" xml:space="preserve">
+          <source>See the <bpt id="e9a88212-2085-470c-bcad-e20215f81393">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="e9a88212-2085-470c-bcad-e20215f81393">&lt;/linkText&gt;</ept><bpt id="e9a88212-2085-470c-bcad-e20215f81393">&lt;title&gt;</bpt><ept id="e9a88212-2085-470c-bcad-e20215f81393">&lt;/title&gt;</ept> article to learn more about the Azure Resource Manager.</source>
+          <target state="new">See the <bpt id="e9a88212-2085-470c-bcad-e20215f81393">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="e9a88212-2085-470c-bcad-e20215f81393">&lt;/linkText&gt;</ept><bpt id="e9a88212-2085-470c-bcad-e20215f81393">&lt;title&gt;</bpt><ept id="e9a88212-2085-470c-bcad-e20215f81393">&lt;/title&gt;</ept> article to learn more about the Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="c258b574-33e2-45dd-9f17-bfb75e6f134a" xml:space="preserve">
+          <source>For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article <bpt id="a358e25d-6ef0-4d8a-8aa2-727d462ee177">&lt;linkText&gt;</bpt>Market Guide for IT Financial Management (ITFM) Tools<ept id="a358e25d-6ef0-4d8a-8aa2-727d462ee177">&lt;/linkText&gt;</ept><bpt id="a358e25d-6ef0-4d8a-8aa2-727d462ee177">&lt;title&gt;</bpt><ept id="a358e25d-6ef0-4d8a-8aa2-727d462ee177">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article <bpt id="a358e25d-6ef0-4d8a-8aa2-727d462ee177">&lt;linkText&gt;</bpt>Market Guide for IT Financial Management (ITFM) Tools<ept id="a358e25d-6ef0-4d8a-8aa2-727d462ee177">&lt;/linkText&gt;</ept><bpt id="a358e25d-6ef0-4d8a-8aa2-727d462ee177">&lt;title&gt;</bpt><ept id="a358e25d-6ef0-4d8a-8aa2-727d462ee177">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02ab79ed-97e3-45bb-a6e6-1f6084084533" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Overview.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Overview.png</target>
+        </trans-unit>
+        <trans-unit id="e0515b74-8202-4c99-9b09-eda87e7717ae" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Engine-Overview.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Engine-Overview.png</target>
+        </trans-unit>
+        <trans-unit id="135b7e60-f063-4d74-be02-e6a81fe2550a" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Analysis-Pie-Chart.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Analysis-Pie-Chart.png</target>
+        </trans-unit>
+        <trans-unit id="27815ceb-3304-45c7-b6fd-02e60642244a" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Allocation-360-Chart.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Allocation-360-Chart.png</target>
+        </trans-unit>
+        <trans-unit id="d4c9f86e-8873-42d1-be65-606018182d04" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Effective-Sizing.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Effective-Sizing.png</target>
+        </trans-unit>
+        <trans-unit id="753cbc68-00fd-462c-9c75-feb3c5f94ab4" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png</target>
+        </trans-unit>
+        <trans-unit id="73f0ea49-14fc-4602-bde8-ab9fa2d517f1" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png</target>
+        </trans-unit>
+      </group>
+      <group id="bdb677e0-51a5-4e2d-bf83-720eeba00ac7" />
+    </body>
+  </file>
+</xliff>

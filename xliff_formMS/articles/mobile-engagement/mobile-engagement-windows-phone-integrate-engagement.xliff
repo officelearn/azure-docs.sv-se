@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="72df4917-deea-4d13-afa7-d860c89cec61" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="72df4917-deea-4d13-afa7-d860c89cec61" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="49682d85-e59c-47d6-ba98-5d592880c1ed">
+        <trans-unit id="9c1e5a11-5155-4102-91b0-0eef12057d87" xml:space="preserve">
+          <source>Windows Phone Silverlight Engagement SDK Integration</source>
+          <target state="new">Windows Phone Silverlight Engagement SDK Integration</target>
+        </trans-unit>
+        <trans-unit id="a531a057-c3f3-4110-90f9-96e1824930bf" xml:space="preserve">
+          <source>How to Integrate Azure Mobile Engagement with Windows Phone Silverlight Apps</source>
+          <target state="new">How to Integrate Azure Mobile Engagement with Windows Phone Silverlight Apps</target>
+        </trans-unit>
+        <trans-unit id="f1748657-f129-49fa-b235-e9dccf45d4e7" xml:space="preserve">
+          <source>This procedure describes the simplest way to activate Azure Mobile Engagement's Analytics and Monitoring functions in your Windows Phone Silverlight application.</source>
+          <target state="new">This procedure describes the simplest way to activate Azure Mobile Engagement's Analytics and Monitoring functions in your Windows Phone Silverlight application.</target>
+        </trans-unit>
+        <trans-unit id="28bff943-c497-4610-a7b5-ddad7ad827af" xml:space="preserve">
+          <source>The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals.</source>
+          <target state="new">The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals.</target>
+        </trans-unit>
+        <trans-unit id="15a8e0e7-dcc3-4c31-a7c3-f7f53ca763f9" xml:space="preserve">
+          <source>The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see <bpt id="112bac51-99d3-485c-b925-09994125ff8e">&lt;linkText&gt;</bpt>How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app<ept id="112bac51-99d3-485c-b925-09994125ff8e">&lt;/linkText&gt;</ept><bpt id="112bac51-99d3-485c-b925-09994125ff8e">&lt;title&gt;</bpt><ept id="112bac51-99d3-485c-b925-09994125ff8e">&lt;/title&gt;</ept> below) since these statistics are application dependent.</source>
+          <target state="new">The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see <bpt id="112bac51-99d3-485c-b925-09994125ff8e">&lt;linkText&gt;</bpt>How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app<ept id="112bac51-99d3-485c-b925-09994125ff8e">&lt;/linkText&gt;</ept><bpt id="112bac51-99d3-485c-b925-09994125ff8e">&lt;title&gt;</bpt><ept id="112bac51-99d3-485c-b925-09994125ff8e">&lt;/title&gt;</ept> below) since these statistics are application dependent.</target>
+        </trans-unit>
+        <trans-unit id="91ff626a-545e-48e6-9a10-79011079b3b2" xml:space="preserve">
+          <source>The Mobile Engagement SDK for Windows Silverlight can only be integrated into applications targeting :</source>
+          <target state="new">The Mobile Engagement SDK for Windows Silverlight can only be integrated into applications targeting :</target>
+        </trans-unit>
+        <trans-unit id="ea29046f-9e7a-45b6-87e7-3d7a80b8e3ee" xml:space="preserve">
+          <source>Windows Phone 8.0</source>
+          <target state="new">Windows Phone 8.0</target>
+        </trans-unit>
+        <trans-unit id="2004d17f-09d6-4d60-8f2e-025713d48014" xml:space="preserve">
+          <source>Windows Phone 8.1 Silverlight</source>
+          <target state="new">Windows Phone 8.1 Silverlight</target>
+        </trans-unit>
+        <trans-unit id="20f32164-f95d-4750-9e48-aa21b09cb35a" xml:space="preserve">
+          <source>If you are targeting Windows Phone 8.1 (non-Silverlight) then refer to the <bpt id="d7dfcc2b-6e42-4504-a340-8ae00e88d3ea">&lt;linkText&gt;</bpt>Windows Universal integration procedure<ept id="d7dfcc2b-6e42-4504-a340-8ae00e88d3ea">&lt;/linkText&gt;</ept><bpt id="d7dfcc2b-6e42-4504-a340-8ae00e88d3ea">&lt;title&gt;</bpt><ept id="d7dfcc2b-6e42-4504-a340-8ae00e88d3ea">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are targeting Windows Phone 8.1 (non-Silverlight) then refer to the <bpt id="d7dfcc2b-6e42-4504-a340-8ae00e88d3ea">&lt;linkText&gt;</bpt>Windows Universal integration procedure<ept id="d7dfcc2b-6e42-4504-a340-8ae00e88d3ea">&lt;/linkText&gt;</ept><bpt id="d7dfcc2b-6e42-4504-a340-8ae00e88d3ea">&lt;title&gt;</bpt><ept id="d7dfcc2b-6e42-4504-a340-8ae00e88d3ea">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7a65dcc-c210-4526-9cab-bd5191dd188f" xml:space="preserve">
+          <source>The Mobile Engagement SDK for Windows Silverlight is available as a Nuget package called <bpt id="1ba8da25-9a3a-41d9-84db-0600dbc9948e">&lt;em&gt;</bpt>MicrosoftAzure.MobileEngagement<ept id="1ba8da25-9a3a-41d9-84db-0600dbc9948e">&lt;/em&gt;</ept>.</source>
+          <target state="new">The Mobile Engagement SDK for Windows Silverlight is available as a Nuget package called <bpt id="1ba8da25-9a3a-41d9-84db-0600dbc9948e">&lt;em&gt;</bpt>MicrosoftAzure.MobileEngagement<ept id="1ba8da25-9a3a-41d9-84db-0600dbc9948e">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="abea3c8f-eeab-463f-8935-4e367a799515" xml:space="preserve">
+          <source>You can install it from the Visual Studio Nuget Package Manager.</source>
+          <target state="new">You can install it from the Visual Studio Nuget Package Manager.</target>
+        </trans-unit>
+        <trans-unit id="44210bd0-dcda-4962-87d1-e210d453a893" xml:space="preserve">
+          <source>The Engagement SDK needs some capabilities of the Windows Phone Silverlight SDK in order to work properly.</source>
+          <target state="new">The Engagement SDK needs some capabilities of the Windows Phone Silverlight SDK in order to work properly.</target>
+        </trans-unit>
+        <trans-unit id="479b5bbe-b19a-4e6f-8975-6ead3f4ad39e" xml:space="preserve">
+          <source>Open your <bpt id="f3fcc9df-d65b-426a-91be-f12f510486d3">&lt;code&gt;</bpt>WMAppManifest.xml<ept id="f3fcc9df-d65b-426a-91be-f12f510486d3">&lt;/code&gt;</ept> file and be sure that the following capabilities are declared in the <bpt id="425417ee-46fd-4f8f-96c9-5a7c66f7a8a6">&lt;code&gt;</bpt>Capabilities<ept id="425417ee-46fd-4f8f-96c9-5a7c66f7a8a6">&lt;/code&gt;</ept> panel:</source>
+          <target state="new">Open your <bpt id="f3fcc9df-d65b-426a-91be-f12f510486d3">&lt;code&gt;</bpt>WMAppManifest.xml<ept id="f3fcc9df-d65b-426a-91be-f12f510486d3">&lt;/code&gt;</ept> file and be sure that the following capabilities are declared in the <bpt id="425417ee-46fd-4f8f-96c9-5a7c66f7a8a6">&lt;code&gt;</bpt>Capabilities<ept id="425417ee-46fd-4f8f-96c9-5a7c66f7a8a6">&lt;/code&gt;</ept> panel:</target>
+        </trans-unit>
+        <trans-unit id="761cb127-f63a-4417-9b9a-dc6f59eb9122" xml:space="preserve">
+          <source><bpt id="d1969fde-3d5f-4058-adfa-dafe44f9652c">&lt;code&gt;</bpt>ID_CAP_NETWORKING<ept id="d1969fde-3d5f-4058-adfa-dafe44f9652c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d1969fde-3d5f-4058-adfa-dafe44f9652c">&lt;code&gt;</bpt>ID_CAP_NETWORKING<ept id="d1969fde-3d5f-4058-adfa-dafe44f9652c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97440272-2c1e-44f6-80dd-3f6a3fb0cd80" xml:space="preserve">
+          <source><bpt id="7365d4c6-324f-4592-941a-7cb3a66f8f85">&lt;code&gt;</bpt>ID_CAP_IDENTITY_DEVICE<ept id="7365d4c6-324f-4592-941a-7cb3a66f8f85">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="7365d4c6-324f-4592-941a-7cb3a66f8f85">&lt;code&gt;</bpt>ID_CAP_IDENTITY_DEVICE<ept id="7365d4c6-324f-4592-941a-7cb3a66f8f85">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68323d2f-9133-47fc-9400-063a146d232e" xml:space="preserve">
+          <source>The Engagement configuration is centralized in the <bpt id="231f76e1-af55-4b87-b029-f3505748f0b9">&lt;code&gt;</bpt>Resources\EngagementConfiguration.xml<ept id="231f76e1-af55-4b87-b029-f3505748f0b9">&lt;/code&gt;</ept> file of your project.</source>
+          <target state="new">The Engagement configuration is centralized in the <bpt id="231f76e1-af55-4b87-b029-f3505748f0b9">&lt;code&gt;</bpt>Resources\EngagementConfiguration.xml<ept id="231f76e1-af55-4b87-b029-f3505748f0b9">&lt;/code&gt;</ept> file of your project.</target>
+        </trans-unit>
+        <trans-unit id="d8777638-9e38-48de-a7c5-1347f8da0da1" xml:space="preserve">
+          <source>Edit this file to specify :</source>
+          <target state="new">Edit this file to specify :</target>
+        </trans-unit>
+        <trans-unit id="183fa59e-3bfb-4630-b254-df294cb9cdfe" xml:space="preserve">
+          <source>Your application connection string between tags <bpt id="b0a0b854-3781-4ac7-9327-b8fca6146403">&lt;code&gt;</bpt>&lt;connectionString&gt;<ept id="b0a0b854-3781-4ac7-9327-b8fca6146403">&lt;/code&gt;</ept> and <bpt id="6878e45c-2c15-417c-977c-d1d96ea29332">&lt;code&gt;</bpt>&lt;\connectionString&gt;<ept id="6878e45c-2c15-417c-977c-d1d96ea29332">&lt;/code&gt;</ept>.</source>
+          <target state="new">Your application connection string between tags <bpt id="b0a0b854-3781-4ac7-9327-b8fca6146403">&lt;code&gt;</bpt>&lt;connectionString&gt;<ept id="b0a0b854-3781-4ac7-9327-b8fca6146403">&lt;/code&gt;</ept> and <bpt id="6878e45c-2c15-417c-977c-d1d96ea29332">&lt;code&gt;</bpt>&lt;\connectionString&gt;<ept id="6878e45c-2c15-417c-977c-d1d96ea29332">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53c47d49-063f-413f-b49d-f43a8a86e673" xml:space="preserve">
+          <source>If you want to specify it at runtime instead, you can call the following method before the Engagement agent initialization:</source>
+          <target state="new">If you want to specify it at runtime instead, you can call the following method before the Engagement agent initialization:</target>
+        </trans-unit>
+        <trans-unit id="439422d1-a0aa-4aec-ac21-66e29af4fcc8" xml:space="preserve">
+          <source>The connection string for your application is displayed on the Azure Management Portal.</source>
+          <target state="new">The connection string for your application is displayed on the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="e467ecdd-0351-4d3d-a49b-d748e8a5b377" xml:space="preserve">
+          <source>When you create a new project, a <bpt id="79e7b69f-ca07-42b1-b467-52fc5ec8efc7">&lt;code&gt;</bpt>App.xaml.cs<ept id="79e7b69f-ca07-42b1-b467-52fc5ec8efc7">&lt;/code&gt;</ept> file is generated.</source>
+          <target state="new">When you create a new project, a <bpt id="79e7b69f-ca07-42b1-b467-52fc5ec8efc7">&lt;code&gt;</bpt>App.xaml.cs<ept id="79e7b69f-ca07-42b1-b467-52fc5ec8efc7">&lt;/code&gt;</ept> file is generated.</target>
+        </trans-unit>
+        <trans-unit id="88044b08-7828-45a8-8a2f-ccca742a6f56" xml:space="preserve">
+          <source>This class inherits from <bpt id="bacee747-f2e2-455f-92eb-ab24c17c9333">&lt;code&gt;</bpt>Application<ept id="bacee747-f2e2-455f-92eb-ab24c17c9333">&lt;/code&gt;</ept> and contains many important methods.</source>
+          <target state="new">This class inherits from <bpt id="bacee747-f2e2-455f-92eb-ab24c17c9333">&lt;code&gt;</bpt>Application<ept id="bacee747-f2e2-455f-92eb-ab24c17c9333">&lt;/code&gt;</ept> and contains many important methods.</target>
+        </trans-unit>
+        <trans-unit id="5c992652-6013-468c-85af-bf299224c2f6" xml:space="preserve">
+          <source>It will also be used to initialize the Engagement SDK.</source>
+          <target state="new">It will also be used to initialize the Engagement SDK.</target>
+        </trans-unit>
+        <trans-unit id="11aa3fc8-7e50-418d-885f-07831d3e2ee6" xml:space="preserve">
+          <source>Modify the <bpt id="256d93f7-55a1-4906-ab05-e08266e40cc3">&lt;code&gt;</bpt>App.xaml.cs<ept id="256d93f7-55a1-4906-ab05-e08266e40cc3">&lt;/code&gt;</ept>:</source>
+          <target state="new">Modify the <bpt id="256d93f7-55a1-4906-ab05-e08266e40cc3">&lt;code&gt;</bpt>App.xaml.cs<ept id="256d93f7-55a1-4906-ab05-e08266e40cc3">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="3aa778c4-4426-412c-9dd7-570eb25574df" xml:space="preserve">
+          <source>Add to your <bpt id="2baef59a-4591-4305-ba33-542c1761702a">&lt;code&gt;</bpt>using<ept id="2baef59a-4591-4305-ba33-542c1761702a">&lt;/code&gt;</ept> statements :</source>
+          <target state="new">Add to your <bpt id="2baef59a-4591-4305-ba33-542c1761702a">&lt;code&gt;</bpt>using<ept id="2baef59a-4591-4305-ba33-542c1761702a">&lt;/code&gt;</ept> statements :</target>
+        </trans-unit>
+        <trans-unit id="6fdf5655-402a-4a85-9b15-977e59f2dcbc" xml:space="preserve">
+          <source>Insert <bpt id="f89ad8e5-e1ce-426c-abae-b68f04e131a0">&lt;code&gt;</bpt>EngagementAgent.Instance.Init<ept id="f89ad8e5-e1ce-426c-abae-b68f04e131a0">&lt;/code&gt;</ept> in the <bpt id="088e1e95-5e0c-4666-8a48-e20e53e45c84">&lt;code&gt;</bpt>Application_Launching<ept id="088e1e95-5e0c-4666-8a48-e20e53e45c84">&lt;/code&gt;</ept> method :</source>
+          <target state="new">Insert <bpt id="f89ad8e5-e1ce-426c-abae-b68f04e131a0">&lt;code&gt;</bpt>EngagementAgent.Instance.Init<ept id="f89ad8e5-e1ce-426c-abae-b68f04e131a0">&lt;/code&gt;</ept> in the <bpt id="088e1e95-5e0c-4666-8a48-e20e53e45c84">&lt;code&gt;</bpt>Application_Launching<ept id="088e1e95-5e0c-4666-8a48-e20e53e45c84">&lt;/code&gt;</ept> method :</target>
+        </trans-unit>
+        <trans-unit id="77a52eff-1815-4ad2-b12a-36fddd244185" xml:space="preserve">
+          <source>Insert <bpt id="dc3b1c47-a4fd-4b5e-801e-b69d1b23f33f">&lt;code&gt;</bpt>EngagementAgent.Instance.OnActivated<ept id="dc3b1c47-a4fd-4b5e-801e-b69d1b23f33f">&lt;/code&gt;</ept> in the <bpt id="c0c50269-fd51-43ad-b383-c1ea4273c637">&lt;code&gt;</bpt>Application_Activated<ept id="c0c50269-fd51-43ad-b383-c1ea4273c637">&lt;/code&gt;</ept> method :</source>
+          <target state="new">Insert <bpt id="dc3b1c47-a4fd-4b5e-801e-b69d1b23f33f">&lt;code&gt;</bpt>EngagementAgent.Instance.OnActivated<ept id="dc3b1c47-a4fd-4b5e-801e-b69d1b23f33f">&lt;/code&gt;</ept> in the <bpt id="c0c50269-fd51-43ad-b383-c1ea4273c637">&lt;code&gt;</bpt>Application_Activated<ept id="c0c50269-fd51-43ad-b383-c1ea4273c637">&lt;/code&gt;</ept> method :</target>
+        </trans-unit>
+        <trans-unit id="f32b1066-09df-45f6-a632-761c88665b8a" xml:space="preserve">
+          <source>We strongly discourage you to add the Engagement initialization in another place of your application.</source>
+          <target state="new">We strongly discourage you to add the Engagement initialization in another place of your application.</target>
+        </trans-unit>
+        <trans-unit id="4ba6af39-da35-498c-8fc1-cc7edfcde081" xml:space="preserve">
+          <source>However, be aware that the <bpt id="947bd397-5dcf-4010-bf74-e23cbf091de7">&lt;code&gt;</bpt>EngagementAgent.Instance.Init<ept id="947bd397-5dcf-4010-bf74-e23cbf091de7">&lt;/code&gt;</ept> method runs on a dedicated thread, and not on the UI thread.</source>
+          <target state="new">However, be aware that the <bpt id="947bd397-5dcf-4010-bf74-e23cbf091de7">&lt;code&gt;</bpt>EngagementAgent.Instance.Init<ept id="947bd397-5dcf-4010-bf74-e23cbf091de7">&lt;/code&gt;</ept> method runs on a dedicated thread, and not on the UI thread.</target>
+        </trans-unit>
+        <trans-unit id="a8d4e7fc-17ca-4f80-895e-3c4851245f1e" xml:space="preserve">
+          <source>In order to activate the report of all the logs required by Engagement to compute Users, Sessions, Activities, Crashes and Technical statistics, you can simply make all your <bpt id="4d1fb81b-8e60-46d0-b3c1-7e431bbc7ab1">&lt;code&gt;</bpt>PhoneApplicationPage<ept id="4d1fb81b-8e60-46d0-b3c1-7e431bbc7ab1">&lt;/code&gt;</ept> sub-classes inherit from the <bpt id="3d7641cc-f0cf-4994-a4f2-d0c17fe81057">&lt;code&gt;</bpt>EngagementPage<ept id="3d7641cc-f0cf-4994-a4f2-d0c17fe81057">&lt;/code&gt;</ept> classes.</source>
+          <target state="new">In order to activate the report of all the logs required by Engagement to compute Users, Sessions, Activities, Crashes and Technical statistics, you can simply make all your <bpt id="4d1fb81b-8e60-46d0-b3c1-7e431bbc7ab1">&lt;code&gt;</bpt>PhoneApplicationPage<ept id="4d1fb81b-8e60-46d0-b3c1-7e431bbc7ab1">&lt;/code&gt;</ept> sub-classes inherit from the <bpt id="3d7641cc-f0cf-4994-a4f2-d0c17fe81057">&lt;code&gt;</bpt>EngagementPage<ept id="3d7641cc-f0cf-4994-a4f2-d0c17fe81057">&lt;/code&gt;</ept> classes.</target>
+        </trans-unit>
+        <trans-unit id="826eb913-60e1-4cf1-9f11-8e33771d4764" xml:space="preserve">
+          <source>Here is an example of how to do this for a page of your application.</source>
+          <target state="new">Here is an example of how to do this for a page of your application.</target>
+        </trans-unit>
+        <trans-unit id="1cf6fa08-70ef-4173-94d0-3449c72cdf4e" xml:space="preserve">
+          <source>You can do the same thing for all pages of your application.</source>
+          <target state="new">You can do the same thing for all pages of your application.</target>
+        </trans-unit>
+        <trans-unit id="acdedcf2-ef4a-4ad0-beed-e8262c9b73e0" xml:space="preserve">
+          <source>Modify your page <bpt id="66af3a6b-fe7a-4317-a413-607cea17fdc9">&lt;code&gt;</bpt>.xaml.cs<ept id="66af3a6b-fe7a-4317-a413-607cea17fdc9">&lt;/code&gt;</ept> file :</source>
+          <target state="new">Modify your page <bpt id="66af3a6b-fe7a-4317-a413-607cea17fdc9">&lt;code&gt;</bpt>.xaml.cs<ept id="66af3a6b-fe7a-4317-a413-607cea17fdc9">&lt;/code&gt;</ept> file :</target>
+        </trans-unit>
+        <trans-unit id="a3c6face-b73b-437b-a19f-b8153e0ea8e8" xml:space="preserve">
+          <source>Add to your <bpt id="a5cc87b4-a541-49fe-a486-1f9711b6f818">&lt;code&gt;</bpt>using<ept id="a5cc87b4-a541-49fe-a486-1f9711b6f818">&lt;/code&gt;</ept> statements :</source>
+          <target state="new">Add to your <bpt id="a5cc87b4-a541-49fe-a486-1f9711b6f818">&lt;code&gt;</bpt>using<ept id="a5cc87b4-a541-49fe-a486-1f9711b6f818">&lt;/code&gt;</ept> statements :</target>
+        </trans-unit>
+        <trans-unit id="859d5aa7-4e66-4580-bd55-8e91b2a0d6b7" xml:space="preserve">
+          <source>Replace <bpt id="9054a5c7-a1b4-402a-805f-06a5384b607d">&lt;code&gt;</bpt>PhoneApplicationPage<ept id="9054a5c7-a1b4-402a-805f-06a5384b607d">&lt;/code&gt;</ept> with <bpt id="167a0a14-5bc9-42c7-9aeb-14e0fe1b2cdb">&lt;code&gt;</bpt>EngagementPage<ept id="167a0a14-5bc9-42c7-9aeb-14e0fe1b2cdb">&lt;/code&gt;</ept> :</source>
+          <target state="new">Replace <bpt id="9054a5c7-a1b4-402a-805f-06a5384b607d">&lt;code&gt;</bpt>PhoneApplicationPage<ept id="9054a5c7-a1b4-402a-805f-06a5384b607d">&lt;/code&gt;</ept> with <bpt id="167a0a14-5bc9-42c7-9aeb-14e0fe1b2cdb">&lt;code&gt;</bpt>EngagementPage<ept id="167a0a14-5bc9-42c7-9aeb-14e0fe1b2cdb">&lt;/code&gt;</ept> :</target>
+        </trans-unit>
+        <trans-unit id="d3936462-f00a-460d-8695-7127bf83532d" xml:space="preserve">
+          <source><bpt id="2cba4d22-75c0-42b8-9a21-589189e50787">&lt;strong&gt;</bpt>Without Engagement:<ept id="2cba4d22-75c0-42b8-9a21-589189e50787">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2cba4d22-75c0-42b8-9a21-589189e50787">&lt;strong&gt;</bpt>Without Engagement:<ept id="2cba4d22-75c0-42b8-9a21-589189e50787">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cab84e57-8722-4577-9814-0f604f6424f3" xml:space="preserve">
+          <source><bpt id="22e91c3f-21a0-4e8a-b6c0-0550f199d770">&lt;strong&gt;</bpt>With Engagement:<ept id="22e91c3f-21a0-4e8a-b6c0-0550f199d770">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="22e91c3f-21a0-4e8a-b6c0-0550f199d770">&lt;strong&gt;</bpt>With Engagement:<ept id="22e91c3f-21a0-4e8a-b6c0-0550f199d770">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7de23603-475f-424f-8604-606813fdd9b5" xml:space="preserve">
+          <source>If your page inherits from the <bpt id="0e1acbd9-377d-4a4c-b943-0a00d44933d5">&lt;code&gt;</bpt>OnNavigatedTo<ept id="0e1acbd9-377d-4a4c-b943-0a00d44933d5">&lt;/code&gt;</ept> method, be careful to let the <bpt id="a0e79f5c-fb5b-4d3f-92fc-39f402bab5b8">&lt;code&gt;</bpt>base.OnNavigatedTo(e)<ept id="a0e79f5c-fb5b-4d3f-92fc-39f402bab5b8">&lt;/code&gt;</ept> call.</source>
+          <target state="new">If your page inherits from the <bpt id="0e1acbd9-377d-4a4c-b943-0a00d44933d5">&lt;code&gt;</bpt>OnNavigatedTo<ept id="0e1acbd9-377d-4a4c-b943-0a00d44933d5">&lt;/code&gt;</ept> method, be careful to let the <bpt id="a0e79f5c-fb5b-4d3f-92fc-39f402bab5b8">&lt;code&gt;</bpt>base.OnNavigatedTo(e)<ept id="a0e79f5c-fb5b-4d3f-92fc-39f402bab5b8">&lt;/code&gt;</ept> call.</target>
+        </trans-unit>
+        <trans-unit id="d2af4f83-4dbe-4a50-b8c9-3344de7d6bb2" xml:space="preserve">
+          <source>Otherwise, the activity will not be reported.</source>
+          <target state="new">Otherwise, the activity will not be reported.</target>
+        </trans-unit>
+        <trans-unit id="28bba0fe-2d13-454a-b657-ea4f084dfc2e" xml:space="preserve">
+          <source>Indeed, the <bpt id="d3fc8d53-e212-4cf0-a6e0-6cc3e7b092d9">&lt;code&gt;</bpt>EngagementPage<ept id="d3fc8d53-e212-4cf0-a6e0-6cc3e7b092d9">&lt;/code&gt;</ept> is calling <bpt id="8dbe2a63-c590-4242-8764-85ad77a0def9">&lt;code&gt;</bpt>StartActivity<ept id="8dbe2a63-c590-4242-8764-85ad77a0def9">&lt;/code&gt;</ept> inside the <bpt id="eba523a8-157c-4ee5-b181-462fe5af4bdf">&lt;code&gt;</bpt>OnNavigatedTo<ept id="eba523a8-157c-4ee5-b181-462fe5af4bdf">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Indeed, the <bpt id="d3fc8d53-e212-4cf0-a6e0-6cc3e7b092d9">&lt;code&gt;</bpt>EngagementPage<ept id="d3fc8d53-e212-4cf0-a6e0-6cc3e7b092d9">&lt;/code&gt;</ept> is calling <bpt id="8dbe2a63-c590-4242-8764-85ad77a0def9">&lt;code&gt;</bpt>StartActivity<ept id="8dbe2a63-c590-4242-8764-85ad77a0def9">&lt;/code&gt;</ept> inside the <bpt id="eba523a8-157c-4ee5-b181-462fe5af4bdf">&lt;code&gt;</bpt>OnNavigatedTo<ept id="eba523a8-157c-4ee5-b181-462fe5af4bdf">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="ee3e0060-e635-4c4f-9419-bb6ce81f7180" xml:space="preserve">
+          <source>Modify your page <bpt id="bd8cd5f1-9033-4591-9899-60dfcbc3c264">&lt;code&gt;</bpt>.xaml<ept id="bd8cd5f1-9033-4591-9899-60dfcbc3c264">&lt;/code&gt;</ept> file :</source>
+          <target state="new">Modify your page <bpt id="bd8cd5f1-9033-4591-9899-60dfcbc3c264">&lt;code&gt;</bpt>.xaml<ept id="bd8cd5f1-9033-4591-9899-60dfcbc3c264">&lt;/code&gt;</ept> file :</target>
+        </trans-unit>
+        <trans-unit id="3a269876-1939-4a79-9784-e7b933edd2ef" xml:space="preserve">
+          <source>Add to your namespaces declarations :</source>
+          <target state="new">Add to your namespaces declarations :</target>
+        </trans-unit>
+        <trans-unit id="6454f9cc-fb14-49b5-a999-eee414ac12ec" xml:space="preserve">
+          <source>Replace <bpt id="12bcd2f4-2793-468c-b3b8-06828f58d0a4">&lt;code&gt;</bpt>phone:PhoneApplicationPage<ept id="12bcd2f4-2793-468c-b3b8-06828f58d0a4">&lt;/code&gt;</ept> with <bpt id="9c97c533-740b-4438-bbe8-87b48a50237f">&lt;code&gt;</bpt>engagement:EngagementPage<ept id="9c97c533-740b-4438-bbe8-87b48a50237f">&lt;/code&gt;</ept> :</source>
+          <target state="new">Replace <bpt id="12bcd2f4-2793-468c-b3b8-06828f58d0a4">&lt;code&gt;</bpt>phone:PhoneApplicationPage<ept id="12bcd2f4-2793-468c-b3b8-06828f58d0a4">&lt;/code&gt;</ept> with <bpt id="9c97c533-740b-4438-bbe8-87b48a50237f">&lt;code&gt;</bpt>engagement:EngagementPage<ept id="9c97c533-740b-4438-bbe8-87b48a50237f">&lt;/code&gt;</ept> :</target>
+        </trans-unit>
+        <trans-unit id="0a9ac779-7603-4502-955c-54dd246547d9" xml:space="preserve">
+          <source><bpt id="4c82ae57-b515-41d3-8a99-48bdc022ccb9">&lt;strong&gt;</bpt>Without Engagement:<ept id="4c82ae57-b515-41d3-8a99-48bdc022ccb9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4c82ae57-b515-41d3-8a99-48bdc022ccb9">&lt;strong&gt;</bpt>Without Engagement:<ept id="4c82ae57-b515-41d3-8a99-48bdc022ccb9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04f9e489-045c-4cc6-a917-fc483d59ecd1" xml:space="preserve">
+          <source><bpt id="39de709a-d235-43ec-961f-ee8a6b5572dc">&lt;strong&gt;</bpt>With Engagement:<ept id="39de709a-d235-43ec-961f-ee8a6b5572dc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="39de709a-d235-43ec-961f-ee8a6b5572dc">&lt;strong&gt;</bpt>With Engagement:<ept id="39de709a-d235-43ec-961f-ee8a6b5572dc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f6c8070-3a9e-49be-9678-a55657c646cf" xml:space="preserve">
+          <source>By default, the class name of the page is reported as the activity name, with no extra.</source>
+          <target state="new">By default, the class name of the page is reported as the activity name, with no extra.</target>
+        </trans-unit>
+        <trans-unit id="285821c2-9083-4502-a4a6-9a66995ac6be" xml:space="preserve">
+          <source>If the class uses the "Page" suffix, Engagement will also remove it.</source>
+          <target state="new">If the class uses the "Page" suffix, Engagement will also remove it.</target>
+        </trans-unit>
+        <trans-unit id="e38f80bf-7846-47ea-96f3-8c4ee4fe3b84" xml:space="preserve">
+          <source>If you want to override the default behavior for the name, simply add this to your code:</source>
+          <target state="new">If you want to override the default behavior for the name, simply add this to your code:</target>
+        </trans-unit>
+        <trans-unit id="094e5274-c049-47bb-85ff-827ff8ad134c" xml:space="preserve">
+          <source>If you want to report some extra information with your activity, you can add this to your code:</source>
+          <target state="new">If you want to report some extra information with your activity, you can add this to your code:</target>
+        </trans-unit>
+        <trans-unit id="a2f14456-27f9-4cef-9b3c-a94c16f3c890" xml:space="preserve">
+          <source>These methods are called from within the <bpt id="77d16cfd-ac0d-4c88-8077-847b245926c1">&lt;code&gt;</bpt>OnNavigatedTo<ept id="77d16cfd-ac0d-4c88-8077-847b245926c1">&lt;/code&gt;</ept> method of your page.</source>
+          <target state="new">These methods are called from within the <bpt id="77d16cfd-ac0d-4c88-8077-847b245926c1">&lt;code&gt;</bpt>OnNavigatedTo<ept id="77d16cfd-ac0d-4c88-8077-847b245926c1">&lt;/code&gt;</ept> method of your page.</target>
+        </trans-unit>
+        <trans-unit id="98193fb2-3a30-4660-a8d6-9f457170d310" xml:space="preserve">
+          <source>If you cannot or do not want to overload your <bpt id="24156f9d-db66-4aac-a7e5-d6e2bf1517ec">&lt;code&gt;</bpt>PhoneApplicationPage<ept id="24156f9d-db66-4aac-a7e5-d6e2bf1517ec">&lt;/code&gt;</ept> classes, you can instead start your activities by calling <bpt id="5eec7145-0a77-453d-88cc-625f77fb4403">&lt;code&gt;</bpt>EngagementAgent<ept id="5eec7145-0a77-453d-88cc-625f77fb4403">&lt;/code&gt;</ept> methods directly.</source>
+          <target state="new">If you cannot or do not want to overload your <bpt id="24156f9d-db66-4aac-a7e5-d6e2bf1517ec">&lt;code&gt;</bpt>PhoneApplicationPage<ept id="24156f9d-db66-4aac-a7e5-d6e2bf1517ec">&lt;/code&gt;</ept> classes, you can instead start your activities by calling <bpt id="5eec7145-0a77-453d-88cc-625f77fb4403">&lt;code&gt;</bpt>EngagementAgent<ept id="5eec7145-0a77-453d-88cc-625f77fb4403">&lt;/code&gt;</ept> methods directly.</target>
+        </trans-unit>
+        <trans-unit id="9ffec709-40a0-4392-9207-5b4177996f33" xml:space="preserve">
+          <source>We recommend to call <bpt id="f709268f-c04a-42f1-8d97-441fde15cd49">&lt;code&gt;</bpt>StartActivity<ept id="f709268f-c04a-42f1-8d97-441fde15cd49">&lt;/code&gt;</ept> inside your <bpt id="7f36d1c6-f7de-4c11-8711-19bddca154aa">&lt;code&gt;</bpt>OnNavigatedTo<ept id="7f36d1c6-f7de-4c11-8711-19bddca154aa">&lt;/code&gt;</ept> method of your PhoneApplicationPage.</source>
+          <target state="new">We recommend to call <bpt id="f709268f-c04a-42f1-8d97-441fde15cd49">&lt;code&gt;</bpt>StartActivity<ept id="f709268f-c04a-42f1-8d97-441fde15cd49">&lt;/code&gt;</ept> inside your <bpt id="7f36d1c6-f7de-4c11-8711-19bddca154aa">&lt;code&gt;</bpt>OnNavigatedTo<ept id="7f36d1c6-f7de-4c11-8711-19bddca154aa">&lt;/code&gt;</ept> method of your PhoneApplicationPage.</target>
+        </trans-unit>
+        <trans-unit id="11318b97-dbf4-4b8e-88d0-8fbfa1f8fb7e" xml:space="preserve">
+          <source>Ensure you end your session correctly.</source>
+          <target state="new">Ensure you end your session correctly.</target>
+        </trans-unit>
+        <trans-unit id="a8055403-5bdc-4f52-bffb-b9fe42d59b40" xml:space="preserve">
+          <source>The SDK automatically calls the <bpt id="e66b5d9f-755a-4d24-b312-01ad979ffcc1">&lt;code&gt;</bpt>EndActivity<ept id="e66b5d9f-755a-4d24-b312-01ad979ffcc1">&lt;/code&gt;</ept> method when the application is closed.</source>
+          <target state="new">The SDK automatically calls the <bpt id="e66b5d9f-755a-4d24-b312-01ad979ffcc1">&lt;code&gt;</bpt>EndActivity<ept id="e66b5d9f-755a-4d24-b312-01ad979ffcc1">&lt;/code&gt;</ept> method when the application is closed.</target>
+        </trans-unit>
+        <trans-unit id="884d7c3e-9d72-43b6-8d88-b4eb9b9f9300" xml:space="preserve">
+          <source>Thus, it is <bpt id="884cab30-cefd-45a7-961d-09cece196de9">&lt;strong&gt;</bpt>HIGHLY<ept id="884cab30-cefd-45a7-961d-09cece196de9">&lt;/strong&gt;</ept> recommended to call the <bpt id="b62d4bfd-109a-4133-846c-651ce423a2b8">&lt;code&gt;</bpt>StartActivity<ept id="b62d4bfd-109a-4133-846c-651ce423a2b8">&lt;/code&gt;</ept> method whenever the activity of the user change, and to <bpt id="f7ab4417-34a5-4ad2-96c1-4892721fc75e">&lt;strong&gt;</bpt>NEVER<ept id="f7ab4417-34a5-4ad2-96c1-4892721fc75e">&lt;/strong&gt;</ept> call the <bpt id="0a7be3f1-1b3e-4358-a69f-8d06a95a7e6e">&lt;code&gt;</bpt>EndActivity<ept id="0a7be3f1-1b3e-4358-a69f-8d06a95a7e6e">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Thus, it is <bpt id="884cab30-cefd-45a7-961d-09cece196de9">&lt;strong&gt;</bpt>HIGHLY<ept id="884cab30-cefd-45a7-961d-09cece196de9">&lt;/strong&gt;</ept> recommended to call the <bpt id="b62d4bfd-109a-4133-846c-651ce423a2b8">&lt;code&gt;</bpt>StartActivity<ept id="b62d4bfd-109a-4133-846c-651ce423a2b8">&lt;/code&gt;</ept> method whenever the activity of the user change, and to <bpt id="f7ab4417-34a5-4ad2-96c1-4892721fc75e">&lt;strong&gt;</bpt>NEVER<ept id="f7ab4417-34a5-4ad2-96c1-4892721fc75e">&lt;/strong&gt;</ept> call the <bpt id="0a7be3f1-1b3e-4358-a69f-8d06a95a7e6e">&lt;code&gt;</bpt>EndActivity<ept id="0a7be3f1-1b3e-4358-a69f-8d06a95a7e6e">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="177ab0c8-c520-4a22-9104-0459122e62e8" xml:space="preserve">
+          <source>This method sends a message to the Engagement server that the current user has left the application and this impacts all application logs.</source>
+          <target state="new">This method sends a message to the Engagement server that the current user has left the application and this impacts all application logs.</target>
+        </trans-unit>
+        <trans-unit id="33e675ef-d65c-4dba-8aa8-655bbd0159db" xml:space="preserve">
+          <source>Optionally, you may want to report application specific events, errors and jobs, to do so, use the others methods found in the <bpt id="4084ed47-6927-432d-84ed-c6af2d8e58e4">&lt;code&gt;</bpt>EngagementAgent<ept id="4084ed47-6927-432d-84ed-c6af2d8e58e4">&lt;/code&gt;</ept> class.</source>
+          <target state="new">Optionally, you may want to report application specific events, errors and jobs, to do so, use the others methods found in the <bpt id="4084ed47-6927-432d-84ed-c6af2d8e58e4">&lt;code&gt;</bpt>EngagementAgent<ept id="4084ed47-6927-432d-84ed-c6af2d8e58e4">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="5c7cfbb4-8e8c-45c5-aabb-2d9d1e44e851" xml:space="preserve">
+          <source>The Engagement API allows to use all of Engagement's advanced capabilities.</source>
+          <target state="new">The Engagement API allows to use all of Engagement's advanced capabilities.</target>
+        </trans-unit>
+        <trans-unit id="53b8abce-5fb1-418c-9156-15a0c4263271" xml:space="preserve">
+          <source>For further information, see <bpt id="a2ed48b2-2d5e-4d2a-b410-57fad0ea4686">&lt;linkText&gt;</bpt>How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app<ept id="a2ed48b2-2d5e-4d2a-b410-57fad0ea4686">&lt;/linkText&gt;</ept><bpt id="a2ed48b2-2d5e-4d2a-b410-57fad0ea4686">&lt;title&gt;</bpt><ept id="a2ed48b2-2d5e-4d2a-b410-57fad0ea4686">&lt;/title&gt;</ept>.</source>
+          <target state="new">For further information, see <bpt id="a2ed48b2-2d5e-4d2a-b410-57fad0ea4686">&lt;linkText&gt;</bpt>How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app<ept id="a2ed48b2-2d5e-4d2a-b410-57fad0ea4686">&lt;/linkText&gt;</ept><bpt id="a2ed48b2-2d5e-4d2a-b410-57fad0ea4686">&lt;title&gt;</bpt><ept id="a2ed48b2-2d5e-4d2a-b410-57fad0ea4686">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c258cf6e-d4f3-43bf-acdc-a9605d8f547a" xml:space="preserve">
+          <source>You can disable the automatic crash reporting feature of Engagement.</source>
+          <target state="new">You can disable the automatic crash reporting feature of Engagement.</target>
+        </trans-unit>
+        <trans-unit id="59b5eae6-d428-40cb-b3e5-c41200fa1aae" xml:space="preserve">
+          <source>Then, when an unhandled exception will occur, Engagement won't do anything.</source>
+          <target state="new">Then, when an unhandled exception will occur, Engagement won't do anything.</target>
+        </trans-unit>
+        <trans-unit id="2091f63f-8f1d-46fe-96d9-9057e7cb3204" xml:space="preserve">
+          <source>If you plan to disable this feature, be aware that when a unhandled crash will occur in your app, Engagement will not send the crash <bpt id="fee08744-767f-409c-bced-b250f8f24c76">&lt;strong&gt;</bpt>AND<ept id="fee08744-767f-409c-bced-b250f8f24c76">&lt;/strong&gt;</ept> it will not close the session and jobs.</source>
+          <target state="new">If you plan to disable this feature, be aware that when a unhandled crash will occur in your app, Engagement will not send the crash <bpt id="fee08744-767f-409c-bced-b250f8f24c76">&lt;strong&gt;</bpt>AND<ept id="fee08744-767f-409c-bced-b250f8f24c76">&lt;/strong&gt;</ept> it will not close the session and jobs.</target>
+        </trans-unit>
+        <trans-unit id="5f6baf43-3c41-4a76-941c-a2cdbebe3cbf" xml:space="preserve">
+          <source>To disable automatic crash reporting, just customize your configuration depending on the way you declared it :</source>
+          <target state="new">To disable automatic crash reporting, just customize your configuration depending on the way you declared it :</target>
+        </trans-unit>
+        <trans-unit id="49a92cb8-5e56-4fcb-b6d9-884c7fa87eb1" xml:space="preserve">
+          <source>Set report crash to <bpt id="548ed6a5-7f8d-42dc-993a-30e75056dc34">&lt;code&gt;</bpt>false<ept id="548ed6a5-7f8d-42dc-993a-30e75056dc34">&lt;/code&gt;</ept> between <bpt id="cd970e77-8c1b-484f-99de-fc94d5b6d5e3">&lt;code&gt;</bpt>&lt;reportCrash&gt;<ept id="cd970e77-8c1b-484f-99de-fc94d5b6d5e3">&lt;/code&gt;</ept> and <bpt id="16eba256-6f8a-40a1-ac2d-f24863c3e4ca">&lt;code&gt;</bpt>&lt;/reportCrash&gt;<ept id="16eba256-6f8a-40a1-ac2d-f24863c3e4ca">&lt;/code&gt;</ept> tags.</source>
+          <target state="new">Set report crash to <bpt id="548ed6a5-7f8d-42dc-993a-30e75056dc34">&lt;code&gt;</bpt>false<ept id="548ed6a5-7f8d-42dc-993a-30e75056dc34">&lt;/code&gt;</ept> between <bpt id="cd970e77-8c1b-484f-99de-fc94d5b6d5e3">&lt;code&gt;</bpt>&lt;reportCrash&gt;<ept id="cd970e77-8c1b-484f-99de-fc94d5b6d5e3">&lt;/code&gt;</ept> and <bpt id="16eba256-6f8a-40a1-ac2d-f24863c3e4ca">&lt;code&gt;</bpt>&lt;/reportCrash&gt;<ept id="16eba256-6f8a-40a1-ac2d-f24863c3e4ca">&lt;/code&gt;</ept> tags.</target>
+        </trans-unit>
+        <trans-unit id="76416966-74c0-468a-a245-97c30b333437" xml:space="preserve">
+          <source>Set report crash to false using your EngagementConfiguration object.</source>
+          <target state="new">Set report crash to false using your EngagementConfiguration object.</target>
+        </trans-unit>
+        <trans-unit id="588b1292-50ee-4a30-b8e8-3c7419421fab" xml:space="preserve">
+          <source>By default, the Engagement service reports logs in real time.</source>
+          <target state="new">By default, the Engagement service reports logs in real time.</target>
+        </trans-unit>
+        <trans-unit id="29f91519-c7c1-4341-8606-6344d3bda271" xml:space="preserve">
+          <source>If your application reports logs very frequently, it is better to buffer the logs and to report them all at once on a regular time base (this is called the “burst mode”).</source>
+          <target state="new">If your application reports logs very frequently, it is better to buffer the logs and to report them all at once on a regular time base (this is called the “burst mode”).</target>
+        </trans-unit>
+        <trans-unit id="208ddff6-688f-40a9-ac2b-eade8af91970" xml:space="preserve">
+          <source>To do so, call the method:</source>
+          <target state="new">To do so, call the method:</target>
+        </trans-unit>
+        <trans-unit id="1375cecc-173a-441e-a016-24296407b190" xml:space="preserve">
+          <source>The argument is a value in <bpt id="7aa456a0-8016-42f6-8577-34a40a5e3383">&lt;strong&gt;</bpt>milliseconds<ept id="7aa456a0-8016-42f6-8577-34a40a5e3383">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The argument is a value in <bpt id="7aa456a0-8016-42f6-8577-34a40a5e3383">&lt;strong&gt;</bpt>milliseconds<ept id="7aa456a0-8016-42f6-8577-34a40a5e3383">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8deab83f-5d64-43f5-9e58-9d06e213f257" xml:space="preserve">
+          <source>At any time, if you want to reactivate the real-time logging, just call the method without any parameter, or with the 0 value.</source>
+          <target state="new">At any time, if you want to reactivate the real-time logging, just call the method without any parameter, or with the 0 value.</target>
+        </trans-unit>
+        <trans-unit id="4a7715a7-b75d-4dd6-a2da-675a8647b45c" xml:space="preserve">
+          <source>The burst mode slightly increase the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration will be rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible).</source>
+          <target state="new">The burst mode slightly increase the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration will be rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible).</target>
+        </trans-unit>
+        <trans-unit id="36868da3-3449-4c84-b993-7198e1049117" xml:space="preserve">
+          <source>It is recommended to use a burst threshold no longer than 30000 (30s).</source>
+          <target state="new">It is recommended to use a burst threshold no longer than 30000 (30s).</target>
+        </trans-unit>
+        <trans-unit id="f7c8645c-6317-4c77-be20-5b96dbe20998" xml:space="preserve">
+          <source>You have to be aware that saved logs are limited to 300 items.</source>
+          <target state="new">You have to be aware that saved logs are limited to 300 items.</target>
+        </trans-unit>
+        <trans-unit id="1b3c5bfe-cdbd-48f0-98d2-59d44839ade1" xml:space="preserve">
+          <source>If sending is too long you can lose some logs.</source>
+          <target state="new">If sending is too long you can lose some logs.</target>
+        </trans-unit>
+        <trans-unit id="2f29f3fa-314f-4315-9f07-dfddee3ae863" xml:space="preserve">
+          <source>The burst threshold cannot be configured to a period lesser than one second.</source>
+          <target state="new">The burst threshold cannot be configured to a period lesser than one second.</target>
+        </trans-unit>
+        <trans-unit id="4d16521e-6b85-4ef3-9c4e-74616ef0edea" xml:space="preserve">
+          <source>If you try to do so, the SDK will show a trace with the error and will automatically reset to the default value, that is, zero seconds.</source>
+          <target state="new">If you try to do so, the SDK will show a trace with the error and will automatically reset to the default value, that is, zero seconds.</target>
+        </trans-unit>
+        <trans-unit id="e7cf91e9-adce-420c-a4aa-56f001294c43" xml:space="preserve">
+          <source>This will trigger the SDK to report the logs in real-time.</source>
+          <target state="new">This will trigger the SDK to report the logs in real-time.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

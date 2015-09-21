@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1be4f281-b233-4406-811a-93fd01d03577" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1be4f281-b233-4406-811a-93fd01d03577" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="98935fd7-90e3-4f80-9b48-72d78823af39">
+        <trans-unit id="3a2a94c7-2bff-42ed-ad5b-03eb47971106" xml:space="preserve">
+          <source>Send cross-platform notifications to a specific user in iOS</source>
+          <target state="new">Send cross-platform notifications to a specific user in iOS</target>
+        </trans-unit>
+        <trans-unit id="8b1bb7f8-e7ae-4b05-bd03-012477684c90" xml:space="preserve">
+          <source>Learn how to send push notifications to all devices of a specific user.</source>
+          <target state="new">Learn how to send push notifications to all devices of a specific user.</target>
+        </trans-unit>
+        <trans-unit id="8cf75c34-0689-4040-89fd-372c3d4d6be2" xml:space="preserve">
+          <source><bpt id="218b588d-ffa7-4844-bef0-4f98fc4801c9">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="218b588d-ffa7-4844-bef0-4f98fc4801c9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="218b588d-ffa7-4844-bef0-4f98fc4801c9">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="218b588d-ffa7-4844-bef0-4f98fc4801c9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79c99739-d3cd-4c37-9112-f00fbfcdaee1" xml:space="preserve">
+          <source>This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend.</source>
+          <target state="new">This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend.</target>
+        </trans-unit>
+        <trans-unit id="499b12a7-e050-45ca-9c52-8ca948e74951" xml:space="preserve">
+          <source>It introduced the concept of [templates], which gives client applications the freedom of specifying payload formats and variable placeholders at registration.</source>
+          <target state="new">It introduced the concept of [templates], which gives client applications the freedom of specifying payload formats and variable placeholders at registration.</target>
+        </trans-unit>
+        <trans-unit id="03811c07-307d-4797-9d40-d87d71c9a9a5" xml:space="preserve">
+          <source>Send then hits every platform with these placeholders, enabling cross-platform notifications.</source>
+          <target state="new">Send then hits every platform with these placeholders, enabling cross-platform notifications.</target>
+        </trans-unit>
+        <trans-unit id="c3fefc86-082b-4f8b-9254-c7118ce7f849" xml:space="preserve">
+          <source>To get push working with cross-platform clients, you will need to complete this tutorial for each platform you would like to enable.</source>
+          <target state="new">To get push working with cross-platform clients, you will need to complete this tutorial for each platform you would like to enable.</target>
+        </trans-unit>
+        <trans-unit id="943f4757-3b9e-47ec-bf13-127476adbc3c" xml:space="preserve">
+          <source>You will only need to do the <bpt id="4108eff9-c8a1-4d8f-ba76-7569ab586d78">&lt;linkText&gt;</bpt>mobile backend update<ept id="4108eff9-c8a1-4d8f-ba76-7569ab586d78">&lt;/linkText&gt;</ept><bpt id="4108eff9-c8a1-4d8f-ba76-7569ab586d78">&lt;title&gt;</bpt><ept id="4108eff9-c8a1-4d8f-ba76-7569ab586d78">&lt;/title&gt;</ept> once for clients that share the same mobile backend.</source>
+          <target state="new">You will only need to do the <bpt id="4108eff9-c8a1-4d8f-ba76-7569ab586d78">&lt;linkText&gt;</bpt>mobile backend update<ept id="4108eff9-c8a1-4d8f-ba76-7569ab586d78">&lt;/linkText&gt;</ept><bpt id="4108eff9-c8a1-4d8f-ba76-7569ab586d78">&lt;title&gt;</bpt><ept id="4108eff9-c8a1-4d8f-ba76-7569ab586d78">&lt;/title&gt;</ept> once for clients that share the same mobile backend.</target>
+        </trans-unit>
+        <trans-unit id="1f5e39f7-7ef9-4333-a8a8-b53126dfff09" xml:space="preserve">
+          <source>Before you start this tutorial, you must have already completed these App Service tutorials for each client platform you want working:</source>
+          <target state="new">Before you start this tutorial, you must have already completed these App Service tutorials for each client platform you want working:</target>
+        </trans-unit>
+        <trans-unit id="f7d87705-7c07-4e28-8096-49fb3b3deea9" xml:space="preserve">
+          <source>[Get started with authentication]&lt;br/&gt;Adds a login requirement to the TodoList sample app.</source>
+          <target state="new">[Get started with authentication]&lt;br/&gt;Adds a login requirement to the TodoList sample app.</target>
+        </trans-unit>
+        <trans-unit id="09b49b30-a077-4bd2-ac9f-66e524be30b6" xml:space="preserve">
+          <source>[Get started with push notifications]&lt;br/&gt;Configures the TodoList sample app for push notifications.</source>
+          <target state="new">[Get started with push notifications]&lt;br/&gt;Configures the TodoList sample app for push notifications.</target>
+        </trans-unit>
+        <trans-unit id="a0488fc8-adc3-4e2e-a991-cd114a534586" xml:space="preserve">
+          <source>Move the APNs registration snippets in <bpt id="1f890f12-ccae-4da9-956d-8d075796c0f4">&lt;strong&gt;</bpt>QSAppDelegate.m<ept id="1f890f12-ccae-4da9-956d-8d075796c0f4">&lt;/strong&gt;</ept>'s <bpt id="dbb81c13-b578-40c5-8c36-e7d91ef13bb3">&lt;strong&gt;</bpt>application:didFinishLaunchingWithOptions<ept id="dbb81c13-b578-40c5-8c36-e7d91ef13bb3">&lt;/strong&gt;</ept> to the call to <bpt id="ba742901-3f64-4624-934a-a796707c710c">&lt;strong&gt;</bpt>loginWithProvider<ept id="ba742901-3f64-4624-934a-a796707c710c">&lt;/strong&gt;</ept> in <bpt id="525ca78e-c94b-4f80-93bc-55694cea695a">&lt;strong&gt;</bpt>QSTodoListViewController.m<ept id="525ca78e-c94b-4f80-93bc-55694cea695a">&lt;/strong&gt;</ept> so it happens after authentication completes:</source>
+          <target state="new">Move the APNs registration snippets in <bpt id="1f890f12-ccae-4da9-956d-8d075796c0f4">&lt;strong&gt;</bpt>QSAppDelegate.m<ept id="1f890f12-ccae-4da9-956d-8d075796c0f4">&lt;/strong&gt;</ept>'s <bpt id="dbb81c13-b578-40c5-8c36-e7d91ef13bb3">&lt;strong&gt;</bpt>application:didFinishLaunchingWithOptions<ept id="dbb81c13-b578-40c5-8c36-e7d91ef13bb3">&lt;/strong&gt;</ept> to the call to <bpt id="ba742901-3f64-4624-934a-a796707c710c">&lt;strong&gt;</bpt>loginWithProvider<ept id="ba742901-3f64-4624-934a-a796707c710c">&lt;/strong&gt;</ept> in <bpt id="525ca78e-c94b-4f80-93bc-55694cea695a">&lt;strong&gt;</bpt>QSTodoListViewController.m<ept id="525ca78e-c94b-4f80-93bc-55694cea695a">&lt;/strong&gt;</ept> so it happens after authentication completes:</target>
+        </trans-unit>
+        <trans-unit id="72c6be4b-d4e4-4842-8728-9a70c2a55261" xml:space="preserve">
+          <source>Replace your <bpt id="9e1e6051-627c-40c3-8102-53c1d4c0d9d3">&lt;strong&gt;</bpt>registerDeviceToken<ept id="9e1e6051-627c-40c3-8102-53c1d4c0d9d3">&lt;/strong&gt;</ept> call in <bpt id="2e951b85-0217-4b00-8443-d974d918044b">&lt;strong&gt;</bpt>application:didRegisterForRemoteNotificationsWithDeviceToken<ept id="2e951b85-0217-4b00-8443-d974d918044b">&lt;/strong&gt;</ept> with the following to work with templates:</source>
+          <target state="new">Replace your <bpt id="9e1e6051-627c-40c3-8102-53c1d4c0d9d3">&lt;strong&gt;</bpt>registerDeviceToken<ept id="9e1e6051-627c-40c3-8102-53c1d4c0d9d3">&lt;/strong&gt;</ept> call in <bpt id="2e951b85-0217-4b00-8443-d974d918044b">&lt;strong&gt;</bpt>application:didRegisterForRemoteNotificationsWithDeviceToken<ept id="2e951b85-0217-4b00-8443-d974d918044b">&lt;/strong&gt;</ept> with the following to work with templates:</target>
+        </trans-unit>
+        <trans-unit id="f1a4c561-72f1-4be1-a8e4-81890879e95e" xml:space="preserve">
+          <source>In Visual Studio, update the <bpt id="f3acab71-cf9e-4606-b82d-c03638ad0fc0">&lt;code&gt;</bpt>PostTodoItem<ept id="f3acab71-cf9e-4606-b82d-c03638ad0fc0">&lt;/code&gt;</ept> method definition with the following code:  </source>
+          <target state="new">In Visual Studio, update the <bpt id="f3acab71-cf9e-4606-b82d-c03638ad0fc0">&lt;code&gt;</bpt>PostTodoItem<ept id="f3acab71-cf9e-4606-b82d-c03638ad0fc0">&lt;/code&gt;</ept> method definition with the following code:  </target>
+        </trans-unit>
+        <trans-unit id="9e209c1e-9479-4b20-8a8b-e261189d3607" xml:space="preserve">
+          <source>Re-publish your mobile backend project and run any of the client apps you have set up.</source>
+          <target state="new">Re-publish your mobile backend project and run any of the client apps you have set up.</target>
+        </trans-unit>
+        <trans-unit id="55e52169-d30e-4b2f-a7b9-19bca34f82ca" xml:space="preserve">
+          <source>On item insertion, the backend will send notifications to all client apps where the user is logged in.</source>
+          <target state="new">On item insertion, the backend will send notifications to all client apps where the user is logged in.</target>
+        </trans-unit>
+        <trans-unit id="1c833928-a8c9-4116-9f0e-1bbbc57b16a4" xml:space="preserve">
+          <source>app-service-mobile-dotnet-backend-ios-get-started-push-preview.md</source>
+          <target state="new">app-service-mobile-dotnet-backend-ios-get-started-push-preview.md</target>
+        </trans-unit>
+        <trans-unit id="a495e0dd-d3e2-47e1-b2a0-5e1136790ec4" xml:space="preserve">
+          <source>app-service-mobile-dotnet-backend-ios-get-started-push-preview.md</source>
+          <target state="new">app-service-mobile-dotnet-backend-ios-get-started-push-preview.md</target>
+        </trans-unit>
+        <trans-unit id="3dbe36ed-2de2-46e2-9cb6-694416699e32" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/dn530748.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/dn530748.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="e7240d09-b3dd-4969-9fa0-f11c57beb0d1" />
+    </body>
+  </file>
+</xliff>

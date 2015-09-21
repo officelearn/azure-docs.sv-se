@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="35897332-6abd-4947-8202-27ecc5d8931c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="35897332-6abd-4947-8202-27ecc5d8931c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7f0ebdb0-0364-4fe6-bf04-efdac693569c">
+        <trans-unit id="e2218cae-5710-45de-8d6a-7bb2efd6ea96" xml:space="preserve">
+          <source>Multi-shard querying</source>
+          <target state="new">Multi-shard querying</target>
+        </trans-unit>
+        <trans-unit id="efe41f6f-472b-4e9e-b8bb-c9f12f5fd072" xml:space="preserve">
+          <source>Run queries across shards using the elastic database client library.</source>
+          <target state="new">Run queries across shards using the elastic database client library.</target>
+        </trans-unit>
+        <trans-unit id="077038f1-ef3c-4699-acb4-0bf0b2b61719" xml:space="preserve">
+          <source><bpt id="522fa5f1-eaa3-4be1-a65f-6fbe2ebe89a8">&lt;strong&gt;</bpt>Multi-shard querying<ept id="522fa5f1-eaa3-4be1-a65f-6fbe2ebe89a8">&lt;/strong&gt;</ept> is used for tasks such as data collection/reporting that require running a query that stretches across several shards.</source>
+          <target state="new"><bpt id="522fa5f1-eaa3-4be1-a65f-6fbe2ebe89a8">&lt;strong&gt;</bpt>Multi-shard querying<ept id="522fa5f1-eaa3-4be1-a65f-6fbe2ebe89a8">&lt;/strong&gt;</ept> is used for tasks such as data collection/reporting that require running a query that stretches across several shards.</target>
+        </trans-unit>
+        <trans-unit id="586b6ef7-a834-4c43-bd96-89d76377072f" xml:space="preserve">
+          <source>(Contrast this to <bpt id="5dd46fb1-69ab-4ab4-bfe1-ed028c0883e1">&lt;linkText&gt;</bpt>data-dependent routing<ept id="5dd46fb1-69ab-4ab4-bfe1-ed028c0883e1">&lt;/linkText&gt;</ept><bpt id="5dd46fb1-69ab-4ab4-bfe1-ed028c0883e1">&lt;title&gt;</bpt><ept id="5dd46fb1-69ab-4ab4-bfe1-ed028c0883e1">&lt;/title&gt;</ept>, which performs all work on a single shard.)</source>
+          <target state="new">(Contrast this to <bpt id="5dd46fb1-69ab-4ab4-bfe1-ed028c0883e1">&lt;linkText&gt;</bpt>data-dependent routing<ept id="5dd46fb1-69ab-4ab4-bfe1-ed028c0883e1">&lt;/linkText&gt;</ept><bpt id="5dd46fb1-69ab-4ab4-bfe1-ed028c0883e1">&lt;title&gt;</bpt><ept id="5dd46fb1-69ab-4ab4-bfe1-ed028c0883e1">&lt;/title&gt;</ept>, which performs all work on a single shard.)</target>
+        </trans-unit>
+        <trans-unit id="237d9427-1f74-48ba-86b6-b3a2a4ad518d" xml:space="preserve">
+          <source>To use SQL Server Management Studio, see <bpt id="fb0782fc-6306-4736-bf1f-7122f7ff3e1c">&lt;linkText&gt;</bpt>Getting started with Elastic Database query<ept id="fb0782fc-6306-4736-bf1f-7122f7ff3e1c">&lt;/linkText&gt;</ept><bpt id="fb0782fc-6306-4736-bf1f-7122f7ff3e1c">&lt;title&gt;</bpt><ept id="fb0782fc-6306-4736-bf1f-7122f7ff3e1c">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use SQL Server Management Studio, see <bpt id="fb0782fc-6306-4736-bf1f-7122f7ff3e1c">&lt;linkText&gt;</bpt>Getting started with Elastic Database query<ept id="fb0782fc-6306-4736-bf1f-7122f7ff3e1c">&lt;/linkText&gt;</ept><bpt id="fb0782fc-6306-4736-bf1f-7122f7ff3e1c">&lt;title&gt;</bpt><ept id="fb0782fc-6306-4736-bf1f-7122f7ff3e1c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdf138fd-2a5d-4295-b130-ede5d0a776ae" xml:space="preserve">
+          <source>The elastic database client library introduces a new namespace called <bpt id="28b09d92-6b35-4d19-b715-218fc2a8b065">&lt;strong&gt;</bpt>Microsoft.Azure.SqlDatabase.ElasticScale.Query<ept id="28b09d92-6b35-4d19-b715-218fc2a8b065">&lt;/strong&gt;</ept> that provides the ability to query multiple shards using a single query and result.</source>
+          <target state="new">The elastic database client library introduces a new namespace called <bpt id="28b09d92-6b35-4d19-b715-218fc2a8b065">&lt;strong&gt;</bpt>Microsoft.Azure.SqlDatabase.ElasticScale.Query<ept id="28b09d92-6b35-4d19-b715-218fc2a8b065">&lt;/strong&gt;</ept> that provides the ability to query multiple shards using a single query and result.</target>
+        </trans-unit>
+        <trans-unit id="186452df-fb9a-4f30-8e5b-f3b33f8c3e3c" xml:space="preserve">
+          <source>It provides a querying abstraction over a collection of shards.</source>
+          <target state="new">It provides a querying abstraction over a collection of shards.</target>
+        </trans-unit>
+        <trans-unit id="67e263cd-d63f-4a1c-ae84-6204b1e4387d" xml:space="preserve">
+          <source>It also provides alternative execution policies, in particular partial results, to deal with failures when querying over many shards.</source>
+          <target state="new">It also provides alternative execution policies, in particular partial results, to deal with failures when querying over many shards.</target>
+        </trans-unit>
+        <trans-unit id="6337e938-9c27-402d-bc98-1d862565e7ec" xml:space="preserve">
+          <source>The main entry point into multi-shard querying is the <bpt id="63d1995d-4ba8-4239-9a0e-4eabc435f82e">&lt;strong&gt;</bpt>MultiShardConnection<ept id="63d1995d-4ba8-4239-9a0e-4eabc435f82e">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">The main entry point into multi-shard querying is the <bpt id="63d1995d-4ba8-4239-9a0e-4eabc435f82e">&lt;strong&gt;</bpt>MultiShardConnection<ept id="63d1995d-4ba8-4239-9a0e-4eabc435f82e">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="24b8c6fb-51e4-4674-9e1a-14141a672dba" xml:space="preserve">
+          <source>As with data-dependent routing, the API follows the familiar experience of the <bpt id="dcabc9c0-c231-4b5a-9048-181713e205f3">&lt;strong&gt;</bpt>[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)<ept id="dcabc9c0-c231-4b5a-9048-181713e205f3">&lt;/strong&gt;</ept> classes and methods.</source>
+          <target state="new">As with data-dependent routing, the API follows the familiar experience of the <bpt id="dcabc9c0-c231-4b5a-9048-181713e205f3">&lt;strong&gt;</bpt>[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)<ept id="dcabc9c0-c231-4b5a-9048-181713e205f3">&lt;/strong&gt;</ept> classes and methods.</target>
+        </trans-unit>
+        <trans-unit id="5b4a2c1e-7f29-4b6a-9f6b-3f4d39c0e24c" xml:space="preserve">
+          <source>With the <bpt id="bb15878a-4a09-4581-b999-712cd25c8878">&lt;strong&gt;</bpt>SqlClient<ept id="bb15878a-4a09-4581-b999-712cd25c8878">&lt;/strong&gt;</ept> library, the first step is to create a <bpt id="183f4625-3469-4e63-a741-2e5c24e0e73e">&lt;strong&gt;</bpt>SqlConnection<ept id="183f4625-3469-4e63-a741-2e5c24e0e73e">&lt;/strong&gt;</ept>, then create a <bpt id="272983fb-845f-4732-b264-f206cd61a7ca">&lt;strong&gt;</bpt>SqlCommand<ept id="272983fb-845f-4732-b264-f206cd61a7ca">&lt;/strong&gt;</ept> for the connection, then execute the command through one of the <bpt id="de1b4dd2-378d-47b2-9309-3ad1e9139413">&lt;strong&gt;</bpt>Execute<ept id="de1b4dd2-378d-47b2-9309-3ad1e9139413">&lt;/strong&gt;</ept> methods.</source>
+          <target state="new">With the <bpt id="bb15878a-4a09-4581-b999-712cd25c8878">&lt;strong&gt;</bpt>SqlClient<ept id="bb15878a-4a09-4581-b999-712cd25c8878">&lt;/strong&gt;</ept> library, the first step is to create a <bpt id="183f4625-3469-4e63-a741-2e5c24e0e73e">&lt;strong&gt;</bpt>SqlConnection<ept id="183f4625-3469-4e63-a741-2e5c24e0e73e">&lt;/strong&gt;</ept>, then create a <bpt id="272983fb-845f-4732-b264-f206cd61a7ca">&lt;strong&gt;</bpt>SqlCommand<ept id="272983fb-845f-4732-b264-f206cd61a7ca">&lt;/strong&gt;</ept> for the connection, then execute the command through one of the <bpt id="de1b4dd2-378d-47b2-9309-3ad1e9139413">&lt;strong&gt;</bpt>Execute<ept id="de1b4dd2-378d-47b2-9309-3ad1e9139413">&lt;/strong&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="129ff213-78b4-4ef9-9159-46c968bfa7c2" xml:space="preserve">
+          <source>Finally, <bpt id="321927ad-60e8-4d3b-801b-a335de4f7512">&lt;strong&gt;</bpt>SqlDataReader<ept id="321927ad-60e8-4d3b-801b-a335de4f7512">&lt;/strong&gt;</ept> iterates through the result sets returned from the command execution.</source>
+          <target state="new">Finally, <bpt id="321927ad-60e8-4d3b-801b-a335de4f7512">&lt;strong&gt;</bpt>SqlDataReader<ept id="321927ad-60e8-4d3b-801b-a335de4f7512">&lt;/strong&gt;</ept> iterates through the result sets returned from the command execution.</target>
+        </trans-unit>
+        <trans-unit id="d3d3782f-c245-472f-9ea4-a434ad767c51" xml:space="preserve">
+          <source>The experience with the multi-shard query APIs follows these steps:</source>
+          <target state="new">The experience with the multi-shard query APIs follows these steps:</target>
+        </trans-unit>
+        <trans-unit id="e035cd13-e12e-4899-9c4b-e7da97b5cd8e" xml:space="preserve">
+          <source>Create a <bpt id="0c218029-346c-4168-b73d-5cd3b3d1c586">&lt;strong&gt;</bpt>MultiShardConnection<ept id="0c218029-346c-4168-b73d-5cd3b3d1c586">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a <bpt id="0c218029-346c-4168-b73d-5cd3b3d1c586">&lt;strong&gt;</bpt>MultiShardConnection<ept id="0c218029-346c-4168-b73d-5cd3b3d1c586">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3d3a2e3-f194-4a30-8074-557a690f2fba" xml:space="preserve">
+          <source>Create a <bpt id="083bd732-2453-421d-aa86-83917b39a450">&lt;strong&gt;</bpt>MultiShardCommand<ept id="083bd732-2453-421d-aa86-83917b39a450">&lt;/strong&gt;</ept> for a <bpt id="00dd277c-6254-4ee9-9684-d6f166823220">&lt;strong&gt;</bpt>MultiShardConnection<ept id="00dd277c-6254-4ee9-9684-d6f166823220">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a <bpt id="083bd732-2453-421d-aa86-83917b39a450">&lt;strong&gt;</bpt>MultiShardCommand<ept id="083bd732-2453-421d-aa86-83917b39a450">&lt;/strong&gt;</ept> for a <bpt id="00dd277c-6254-4ee9-9684-d6f166823220">&lt;strong&gt;</bpt>MultiShardConnection<ept id="00dd277c-6254-4ee9-9684-d6f166823220">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56ce1b3e-b4a5-46db-9a78-b8bde21aa513" xml:space="preserve">
+          <source>Execute the command.</source>
+          <target state="new">Execute the command.</target>
+        </trans-unit>
+        <trans-unit id="509663ba-b418-49aa-b6b0-c0179cbd510e" xml:space="preserve">
+          <source>Consume the results through the <bpt id="365b5105-2061-47a7-9631-20bc92a22b61">&lt;strong&gt;</bpt>MultiShardDataReader<ept id="365b5105-2061-47a7-9631-20bc92a22b61">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Consume the results through the <bpt id="365b5105-2061-47a7-9631-20bc92a22b61">&lt;strong&gt;</bpt>MultiShardDataReader<ept id="365b5105-2061-47a7-9631-20bc92a22b61">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e5c7979-76bf-48a9-9423-777b205a4a9a" xml:space="preserve">
+          <source>A key difference is the construction of multi-shard connections.</source>
+          <target state="new">A key difference is the construction of multi-shard connections.</target>
+        </trans-unit>
+        <trans-unit id="cc99614d-7886-44b5-8e0d-6bc665ec69eb" xml:space="preserve">
+          <source>Where <bpt id="c692c52b-12ff-464a-b50d-8e44c151d2b9">&lt;strong&gt;</bpt>SqlConnection<ept id="c692c52b-12ff-464a-b50d-8e44c151d2b9">&lt;/strong&gt;</ept> operates on a single database, the <bpt id="ee8d4952-fff0-46a6-a8a1-0e9dd9c791c0">&lt;strong&gt;</bpt>MultiShardConnection<ept id="ee8d4952-fff0-46a6-a8a1-0e9dd9c791c0">&lt;/strong&gt;</ept> takes a <bpt id="75f63265-6547-4c98-9121-bb901d68488c">&lt;strong&gt;</bpt>*collection of shards*<ept id="75f63265-6547-4c98-9121-bb901d68488c">&lt;/strong&gt;</ept> as its input.</source>
+          <target state="new">Where <bpt id="c692c52b-12ff-464a-b50d-8e44c151d2b9">&lt;strong&gt;</bpt>SqlConnection<ept id="c692c52b-12ff-464a-b50d-8e44c151d2b9">&lt;/strong&gt;</ept> operates on a single database, the <bpt id="ee8d4952-fff0-46a6-a8a1-0e9dd9c791c0">&lt;strong&gt;</bpt>MultiShardConnection<ept id="ee8d4952-fff0-46a6-a8a1-0e9dd9c791c0">&lt;/strong&gt;</ept> takes a <bpt id="75f63265-6547-4c98-9121-bb901d68488c">&lt;strong&gt;</bpt>*collection of shards*<ept id="75f63265-6547-4c98-9121-bb901d68488c">&lt;/strong&gt;</ept> as its input.</target>
+        </trans-unit>
+        <trans-unit id="2e21c489-2203-4385-bca9-cc19c77bdbc3" xml:space="preserve">
+          <source>One can populate the collection of shards from a shard map.</source>
+          <target state="new">One can populate the collection of shards from a shard map.</target>
+        </trans-unit>
+        <trans-unit id="cf6e147c-8c52-4004-b611-0f440a8d6cac" xml:space="preserve">
+          <source>The query is then executed on the collection of shards using <bpt id="9fa1ae24-4ac6-4e95-922f-8b28a59f005e">&lt;strong&gt;</bpt>UNION ALL<ept id="9fa1ae24-4ac6-4e95-922f-8b28a59f005e">&lt;/strong&gt;</ept> semantics to assemble a single overall result.</source>
+          <target state="new">The query is then executed on the collection of shards using <bpt id="9fa1ae24-4ac6-4e95-922f-8b28a59f005e">&lt;strong&gt;</bpt>UNION ALL<ept id="9fa1ae24-4ac6-4e95-922f-8b28a59f005e">&lt;/strong&gt;</ept> semantics to assemble a single overall result.</target>
+        </trans-unit>
+        <trans-unit id="0f88f78a-8dce-42f8-a44d-403d00ae277a" xml:space="preserve">
+          <source>Optionally, the name of the shard where the row originates from can be added to the output using the <bpt id="07e33959-519a-466e-b7c7-488e29f1df65">&lt;strong&gt;</bpt>ExecutionOptions<ept id="07e33959-519a-466e-b7c7-488e29f1df65">&lt;/strong&gt;</ept> property on command.</source>
+          <target state="new">Optionally, the name of the shard where the row originates from can be added to the output using the <bpt id="07e33959-519a-466e-b7c7-488e29f1df65">&lt;strong&gt;</bpt>ExecutionOptions<ept id="07e33959-519a-466e-b7c7-488e29f1df65">&lt;/strong&gt;</ept> property on command.</target>
+        </trans-unit>
+        <trans-unit id="0218ff33-a239-41a0-b95e-e9686e8742a2" xml:space="preserve">
+          <source>The following code illustrates the usage of multi-shard querying using a given <bpt id="9660fb6b-0358-49f7-8423-09cd4991c447">&lt;strong&gt;</bpt>ShardMap<ept id="9660fb6b-0358-49f7-8423-09cd4991c447">&lt;/strong&gt;</ept> named <bpt id="ef5acd19-7709-4aea-b63f-1f681337cce0">&lt;em&gt;</bpt>myShardMap<ept id="ef5acd19-7709-4aea-b63f-1f681337cce0">&lt;/em&gt;</ept>.</source>
+          <target state="new">The following code illustrates the usage of multi-shard querying using a given <bpt id="9660fb6b-0358-49f7-8423-09cd4991c447">&lt;strong&gt;</bpt>ShardMap<ept id="9660fb6b-0358-49f7-8423-09cd4991c447">&lt;/strong&gt;</ept> named <bpt id="ef5acd19-7709-4aea-b63f-1f681337cce0">&lt;em&gt;</bpt>myShardMap<ept id="ef5acd19-7709-4aea-b63f-1f681337cce0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7cc96c77-e008-433a-b45c-8c39bfb58ff7" xml:space="preserve">
+          <source>Note the call to <bpt id="d45ed673-80f6-422e-b048-3d2491c6c598">&lt;strong&gt;</bpt>myShardMap.GetShards()<ept id="d45ed673-80f6-422e-b048-3d2491c6c598">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Note the call to <bpt id="d45ed673-80f6-422e-b048-3d2491c6c598">&lt;strong&gt;</bpt>myShardMap.GetShards()<ept id="d45ed673-80f6-422e-b048-3d2491c6c598">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fac4a8db-64f0-41c3-ac40-0d6f1905a399" xml:space="preserve">
+          <source>This method retrieves all shards from the shard map and provides an easy way to run a query across all relevant databases.</source>
+          <target state="new">This method retrieves all shards from the shard map and provides an easy way to run a query across all relevant databases.</target>
+        </trans-unit>
+        <trans-unit id="f42a1871-3ba0-4706-afa6-33e1c47f5c1f" xml:space="preserve">
+          <source>The collection of shards for a multi-shard query can be refined further by performing a LINQ query over the collection returned from the call to <bpt id="ac539d01-268a-47cd-a2c0-028f5786eb30">&lt;strong&gt;</bpt>myShardMap.GetShards()<ept id="ac539d01-268a-47cd-a2c0-028f5786eb30">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The collection of shards for a multi-shard query can be refined further by performing a LINQ query over the collection returned from the call to <bpt id="ac539d01-268a-47cd-a2c0-028f5786eb30">&lt;strong&gt;</bpt>myShardMap.GetShards()<ept id="ac539d01-268a-47cd-a2c0-028f5786eb30">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fafa38d-e3d1-472d-8174-3dc768d66aa7" xml:space="preserve">
+          <source>In combination with the partial results policy, the current capability in multi-shard querying has been designed to work well for tens up to hundreds of shards.</source>
+          <target state="new">In combination with the partial results policy, the current capability in multi-shard querying has been designed to work well for tens up to hundreds of shards.</target>
+        </trans-unit>
+        <trans-unit id="693147a1-8714-47ff-8e6b-d3aea9d52664" xml:space="preserve">
+          <source>A limitation with multi-shard querying is currently the lack of validation for shards and shardlets that are queried.</source>
+          <target state="new">A limitation with multi-shard querying is currently the lack of validation for shards and shardlets that are queried.</target>
+        </trans-unit>
+        <trans-unit id="34f8e86f-3ec1-4c4c-a985-2533a7866cba" xml:space="preserve">
+          <source>While data-dependent routing verifies that a given shard is part of the shard map at the time of querying, multi-shard queries do not perform this check.</source>
+          <target state="new">While data-dependent routing verifies that a given shard is part of the shard map at the time of querying, multi-shard queries do not perform this check.</target>
+        </trans-unit>
+        <trans-unit id="ac408567-3574-4c1e-8acd-4ca91b7a977b" xml:space="preserve">
+          <source>This can lead to multi-shard queries running on databases that have since been removed from the shard map.</source>
+          <target state="new">This can lead to multi-shard queries running on databases that have since been removed from the shard map.</target>
+        </trans-unit>
+        <trans-unit id="48816f78-2d8b-4781-914d-2c7ea0d56914" xml:space="preserve">
+          <source>Multi-shard queries do not verify whether shardlets on the queried database are participating in ongoing split-merge operations.</source>
+          <target state="new">Multi-shard queries do not verify whether shardlets on the queried database are participating in ongoing split-merge operations.</target>
+        </trans-unit>
+        <trans-unit id="3ebf390c-665f-4bfc-8109-fb568c32532d" xml:space="preserve">
+          <source>This can lead to inconsistencies where rows from the same shardlet show for multiple databases in the same multi-shard query.</source>
+          <target state="new">This can lead to inconsistencies where rows from the same shardlet show for multiple databases in the same multi-shard query.</target>
+        </trans-unit>
+        <trans-unit id="46522a7d-a313-4594-9250-004f123abfc0" xml:space="preserve">
+          <source>Be aware of these limitations and consider draining ongoing split-merge operations and changes to the shard map while performing multi-shard queries.</source>
+          <target state="new">Be aware of these limitations and consider draining ongoing split-merge operations and changes to the shard map while performing multi-shard queries.</target>
+        </trans-unit>
+        <trans-unit id="c976b4da-9f39-4e94-97a3-5db5c0d5f225" xml:space="preserve">
+          <source><bpt id="b270c24e-28d5-4955-871a-7faa21312cfa">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="b270c24e-28d5-4955-871a-7faa21312cfa">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b270c24e-28d5-4955-871a-7faa21312cfa">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="b270c24e-28d5-4955-871a-7faa21312cfa">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

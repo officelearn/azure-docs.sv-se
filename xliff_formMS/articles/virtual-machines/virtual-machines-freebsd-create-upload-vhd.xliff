@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bffeb3e7-7214-46bb-a701-5e39c0fca48a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bffeb3e7-7214-46bb-a701-5e39c0fca48a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="166143d6-6e47-4535-b50d-07541f9a1826">
+        <trans-unit id="a994f88d-ba0c-4c28-b4e8-5e6d22be218c" xml:space="preserve">
+          <source>Create and upload a FreeBSD VHD to Azure</source>
+          <target state="new">Create and upload a FreeBSD VHD to Azure</target>
+        </trans-unit>
+        <trans-unit id="44dcef62-601f-422d-9f32-5736e7b0e5ec" xml:space="preserve">
+          <source>Learn to create and upload an Azure virtual hard disk (VHD) that contains the FreeBSD operating system</source>
+          <target state="new">Learn to create and upload an Azure virtual hard disk (VHD) that contains the FreeBSD operating system</target>
+        </trans-unit>
+        <trans-unit id="0f0c3f95-3d5f-4b42-920e-074d31e16b4c" xml:space="preserve">
+          <source>This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system so you can use it as your own image to create a virtual machine (VM) in Azure.</source>
+          <target state="new">This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system so you can use it as your own image to create a virtual machine (VM) in Azure.</target>
+        </trans-unit>
+        <trans-unit id="e6afa7e0-2d73-41a2-825e-af6c107af130" xml:space="preserve">
+          <source>This article assumes that you have the following items:</source>
+          <target state="new">This article assumes that you have the following items:</target>
+        </trans-unit>
+        <trans-unit id="b4aadc28-dfab-4aff-8b6c-573e55940db3" xml:space="preserve">
+          <source><bpt id="48102d96-dd23-4323-9776-c20aee57eb20">&lt;strong&gt;</bpt>An Azure subscription<ept id="48102d96-dd23-4323-9776-c20aee57eb20">&lt;/strong&gt;</ept> - If you don't have one, you can create an account in just a couple of minutes.</source>
+          <target state="new"><bpt id="48102d96-dd23-4323-9776-c20aee57eb20">&lt;strong&gt;</bpt>An Azure subscription<ept id="48102d96-dd23-4323-9776-c20aee57eb20">&lt;/strong&gt;</ept> - If you don't have one, you can create an account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="d97d5226-68ca-4026-8a49-d327e11ebef5" xml:space="preserve">
+          <source>If you have an MSDN subscription, see <bpt id="7aeb59c9-7629-4ff0-b4e4-fe6015a01d60">&lt;linkText&gt;</bpt>Azure Benefit for MSDN Subscribers<ept id="7aeb59c9-7629-4ff0-b4e4-fe6015a01d60">&lt;/linkText&gt;</ept><bpt id="7aeb59c9-7629-4ff0-b4e4-fe6015a01d60">&lt;title&gt;</bpt><ept id="7aeb59c9-7629-4ff0-b4e4-fe6015a01d60">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have an MSDN subscription, see <bpt id="7aeb59c9-7629-4ff0-b4e4-fe6015a01d60">&lt;linkText&gt;</bpt>Azure Benefit for MSDN Subscribers<ept id="7aeb59c9-7629-4ff0-b4e4-fe6015a01d60">&lt;/linkText&gt;</ept><bpt id="7aeb59c9-7629-4ff0-b4e4-fe6015a01d60">&lt;title&gt;</bpt><ept id="7aeb59c9-7629-4ff0-b4e4-fe6015a01d60">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad08e1ce-64e2-4c7a-91d3-a2fe701be374" xml:space="preserve">
+          <source>Otherwise, see <bpt id="09b4c5f2-68f2-45a3-9bc7-a2e5c50d106f">&lt;linkText&gt;</bpt>create a free trial account<ept id="09b4c5f2-68f2-45a3-9bc7-a2e5c50d106f">&lt;/linkText&gt;</ept><bpt id="09b4c5f2-68f2-45a3-9bc7-a2e5c50d106f">&lt;title&gt;</bpt><ept id="09b4c5f2-68f2-45a3-9bc7-a2e5c50d106f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Otherwise, see <bpt id="09b4c5f2-68f2-45a3-9bc7-a2e5c50d106f">&lt;linkText&gt;</bpt>create a free trial account<ept id="09b4c5f2-68f2-45a3-9bc7-a2e5c50d106f">&lt;/linkText&gt;</ept><bpt id="09b4c5f2-68f2-45a3-9bc7-a2e5c50d106f">&lt;title&gt;</bpt><ept id="09b4c5f2-68f2-45a3-9bc7-a2e5c50d106f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="59595199-7d9d-41e1-9de3-dc40fb9921f8" xml:space="preserve">
+          <source><bpt id="61490de0-0555-4c0e-b50e-6e1c8321d57b">&lt;strong&gt;</bpt>Azure PowerShell tools<ept id="61490de0-0555-4c0e-b50e-6e1c8321d57b">&lt;/strong&gt;</ept> - You have the Microsoft Azure PowerShell module installed and configured to use your subscription.</source>
+          <target state="new"><bpt id="61490de0-0555-4c0e-b50e-6e1c8321d57b">&lt;strong&gt;</bpt>Azure PowerShell tools<ept id="61490de0-0555-4c0e-b50e-6e1c8321d57b">&lt;/strong&gt;</ept> - You have the Microsoft Azure PowerShell module installed and configured to use your subscription.</target>
+        </trans-unit>
+        <trans-unit id="b2ab08f3-9db0-4108-8834-a28451c888dd" xml:space="preserve">
+          <source>To download the module, see <bpt id="019c3463-7fa0-42cc-8d4c-33cc9570042f">&lt;linkText&gt;</bpt>Azure Downloads<ept id="019c3463-7fa0-42cc-8d4c-33cc9570042f">&lt;/linkText&gt;</ept><bpt id="019c3463-7fa0-42cc-8d4c-33cc9570042f">&lt;title&gt;</bpt><ept id="019c3463-7fa0-42cc-8d4c-33cc9570042f">&lt;/title&gt;</ept>.</source>
+          <target state="new">To download the module, see <bpt id="019c3463-7fa0-42cc-8d4c-33cc9570042f">&lt;linkText&gt;</bpt>Azure Downloads<ept id="019c3463-7fa0-42cc-8d4c-33cc9570042f">&lt;/linkText&gt;</ept><bpt id="019c3463-7fa0-42cc-8d4c-33cc9570042f">&lt;title&gt;</bpt><ept id="019c3463-7fa0-42cc-8d4c-33cc9570042f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31bb05c5-f17f-4a1c-998d-1df7d06d9c42" xml:space="preserve">
+          <source>A tutorial to install and configure the module is available here.</source>
+          <target state="new">A tutorial to install and configure the module is available here.</target>
+        </trans-unit>
+        <trans-unit id="8d596417-62fb-42c8-bd23-a5164c2d7396" xml:space="preserve">
+          <source>You'll use the <bpt id="45b7cab4-80d9-4ddf-8b5c-42ccaa6dd39d">&lt;linkText&gt;</bpt>Azure Downloads<ept id="45b7cab4-80d9-4ddf-8b5c-42ccaa6dd39d">&lt;/linkText&gt;</ept><bpt id="45b7cab4-80d9-4ddf-8b5c-42ccaa6dd39d">&lt;title&gt;</bpt><ept id="45b7cab4-80d9-4ddf-8b5c-42ccaa6dd39d">&lt;/title&gt;</ept> cmdlet to upload the VHD.</source>
+          <target state="new">You'll use the <bpt id="45b7cab4-80d9-4ddf-8b5c-42ccaa6dd39d">&lt;linkText&gt;</bpt>Azure Downloads<ept id="45b7cab4-80d9-4ddf-8b5c-42ccaa6dd39d">&lt;/linkText&gt;</ept><bpt id="45b7cab4-80d9-4ddf-8b5c-42ccaa6dd39d">&lt;title&gt;</bpt><ept id="45b7cab4-80d9-4ddf-8b5c-42ccaa6dd39d">&lt;/title&gt;</ept> cmdlet to upload the VHD.</target>
+        </trans-unit>
+        <trans-unit id="e2dec747-2cc8-4e95-8c17-3f3ac35a2327" xml:space="preserve">
+          <source><bpt id="c906655a-6b84-4ef3-a4a7-8eecc5230167">&lt;strong&gt;</bpt>FreeBSD operating system installed in a .vhd file<ept id="c906655a-6b84-4ef3-a4a7-8eecc5230167">&lt;/strong&gt;</ept>  - You have installed a supported FreeBSD operating system to a virtual hard disk.</source>
+          <target state="new"><bpt id="c906655a-6b84-4ef3-a4a7-8eecc5230167">&lt;strong&gt;</bpt>FreeBSD operating system installed in a .vhd file<ept id="c906655a-6b84-4ef3-a4a7-8eecc5230167">&lt;/strong&gt;</ept>  - You have installed a supported FreeBSD operating system to a virtual hard disk.</target>
+        </trans-unit>
+        <trans-unit id="5d23eeaa-07c2-4f66-afcd-dd37358ef923" xml:space="preserve">
+          <source>Multiple tools exist to create .vhd files, for example you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system.</source>
+          <target state="new">Multiple tools exist to create .vhd files, for example you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system.</target>
+        </trans-unit>
+        <trans-unit id="a5dd2f95-7ef4-41e5-8cd3-9a63397dbc4a" xml:space="preserve">
+          <source>For instructions, see <bpt id="fa5ef9f0-63ad-435c-9b9f-9fcc936e06e3">&lt;linkText&gt;</bpt>Install the Hyper-V Role and Configure a Virtual Machine<ept id="fa5ef9f0-63ad-435c-9b9f-9fcc936e06e3">&lt;/linkText&gt;</ept><bpt id="fa5ef9f0-63ad-435c-9b9f-9fcc936e06e3">&lt;title&gt;</bpt><ept id="fa5ef9f0-63ad-435c-9b9f-9fcc936e06e3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="fa5ef9f0-63ad-435c-9b9f-9fcc936e06e3">&lt;linkText&gt;</bpt>Install the Hyper-V Role and Configure a Virtual Machine<ept id="fa5ef9f0-63ad-435c-9b9f-9fcc936e06e3">&lt;/linkText&gt;</ept><bpt id="fa5ef9f0-63ad-435c-9b9f-9fcc936e06e3">&lt;title&gt;</bpt><ept id="fa5ef9f0-63ad-435c-9b9f-9fcc936e06e3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f216e33f-c895-47bc-ac86-306a8856c9dd" xml:space="preserve">
+          <source>The newer VHDX format is not supported in Azure.</source>
+          <target state="new">The newer VHDX format is not supported in Azure.</target>
+        </trans-unit>
+        <trans-unit id="0b018cab-7c36-4705-bd0b-c7db4d876d42" xml:space="preserve">
+          <source>You can convert the disk to VHD format using Hyper-V Manager or the cmdlet <bpt id="3b698ec1-7e6b-42af-a487-16daaf526bd1">&lt;linkText&gt;</bpt>convert-vhd<ept id="3b698ec1-7e6b-42af-a487-16daaf526bd1">&lt;/linkText&gt;</ept><bpt id="3b698ec1-7e6b-42af-a487-16daaf526bd1">&lt;title&gt;</bpt><ept id="3b698ec1-7e6b-42af-a487-16daaf526bd1">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can convert the disk to VHD format using Hyper-V Manager or the cmdlet <bpt id="3b698ec1-7e6b-42af-a487-16daaf526bd1">&lt;linkText&gt;</bpt>convert-vhd<ept id="3b698ec1-7e6b-42af-a487-16daaf526bd1">&lt;/linkText&gt;</ept><bpt id="3b698ec1-7e6b-42af-a487-16daaf526bd1">&lt;title&gt;</bpt><ept id="3b698ec1-7e6b-42af-a487-16daaf526bd1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77dd8aef-2236-45c8-9625-1133940637d6" xml:space="preserve">
+          <source>This task includes the following five steps.</source>
+          <target state="new">This task includes the following five steps.</target>
+        </trans-unit>
+        <trans-unit id="d3dbbe31-61b5-4eb3-98fa-6bd578ae4986" xml:space="preserve">
+          <source>As for FreeBSD installation on Hyper-v, a tutorial is available <bpt id="f0c8b814-3c68-4853-8f74-d60d08094e17">&lt;linkText&gt;</bpt>here<ept id="f0c8b814-3c68-4853-8f74-d60d08094e17">&lt;/linkText&gt;</ept><bpt id="f0c8b814-3c68-4853-8f74-d60d08094e17">&lt;title&gt;</bpt><ept id="f0c8b814-3c68-4853-8f74-d60d08094e17">&lt;/title&gt;</ept>.</source>
+          <target state="new">As for FreeBSD installation on Hyper-v, a tutorial is available <bpt id="f0c8b814-3c68-4853-8f74-d60d08094e17">&lt;linkText&gt;</bpt>here<ept id="f0c8b814-3c68-4853-8f74-d60d08094e17">&lt;/linkText&gt;</ept><bpt id="f0c8b814-3c68-4853-8f74-d60d08094e17">&lt;title&gt;</bpt><ept id="f0c8b814-3c68-4853-8f74-d60d08094e17">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bb1abea-0b4a-4df4-ad2a-4b5f075eb76d" xml:space="preserve">
+          <source>From the virtual machine that the FreeBSD operating system was installed to, complete the following procedures:</source>
+          <target state="new">From the virtual machine that the FreeBSD operating system was installed to, complete the following procedures:</target>
+        </trans-unit>
+        <trans-unit id="80a9970b-93b8-454b-a572-64b04af2dcb0" xml:space="preserve">
+          <source><bpt id="4e2f5020-468f-406a-a509-78194ff137bc">&lt;strong&gt;</bpt>Enable DHCP<ept id="4e2f5020-468f-406a-a509-78194ff137bc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4e2f5020-468f-406a-a509-78194ff137bc">&lt;strong&gt;</bpt>Enable DHCP<ept id="4e2f5020-468f-406a-a509-78194ff137bc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49836aeb-02d2-4bdc-8e51-21eb056c97b8" xml:space="preserve">
+          <source><bpt id="d66e0066-9f4a-4e18-8a8d-5568089496d9">&lt;strong&gt;</bpt>Enable SSH<ept id="d66e0066-9f4a-4e18-8a8d-5568089496d9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d66e0066-9f4a-4e18-8a8d-5568089496d9">&lt;strong&gt;</bpt>Enable SSH<ept id="d66e0066-9f4a-4e18-8a8d-5568089496d9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="716a1a31-517f-4336-9716-016b3a32ebd0" xml:space="preserve">
+          <source>SSH is enabled by default after installation from disc.</source>
+          <target state="new">SSH is enabled by default after installation from disc.</target>
+        </trans-unit>
+        <trans-unit id="76d6180d-2bae-48fa-bc70-ce5fedd41b3d" xml:space="preserve">
+          <source>If not or if you use FreeBSD VHD directly, type:</source>
+          <target state="new">If not or if you use FreeBSD VHD directly, type:</target>
+        </trans-unit>
+        <trans-unit id="7ed0bbef-a27b-4b78-a9cb-0c245f16f695" xml:space="preserve">
+          <source><bpt id="eef0bf45-d38b-4ded-90f5-3aecfe729dfa">&lt;strong&gt;</bpt>Setup serial console<ept id="eef0bf45-d38b-4ded-90f5-3aecfe729dfa">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="eef0bf45-d38b-4ded-90f5-3aecfe729dfa">&lt;strong&gt;</bpt>Setup serial console<ept id="eef0bf45-d38b-4ded-90f5-3aecfe729dfa">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b07ed0cb-5f8f-4944-bc94-34f9f5abeb44" xml:space="preserve">
+          <source><bpt id="360945ad-26a5-4c66-8b15-05dc4c1b5a28">&lt;strong&gt;</bpt>Install sudo<ept id="360945ad-26a5-4c66-8b15-05dc4c1b5a28">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="360945ad-26a5-4c66-8b15-05dc4c1b5a28">&lt;strong&gt;</bpt>Install sudo<ept id="360945ad-26a5-4c66-8b15-05dc4c1b5a28">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19f0223c-6037-4245-9ed8-3332a10c5224" xml:space="preserve">
+          <source>The root account is disabled in Azure and then you need to utilize sudo from an unprivileged user to run commands with elevated privileges.</source>
+          <target state="new">The root account is disabled in Azure and then you need to utilize sudo from an unprivileged user to run commands with elevated privileges.</target>
+        </trans-unit>
+        <trans-unit id="c707e080-326d-4d3c-9c91-2a3b266fa4d0" xml:space="preserve">
+          <source>Prerequisites for Azure Agent</source>
+          <target state="new">Prerequisites for Azure Agent</target>
+        </trans-unit>
+        <trans-unit id="e42a705b-d649-43ea-8466-9c2cbb7f9e00" xml:space="preserve">
+          <source>5.1 <bpt id="05caa082-52e8-474d-af43-168d8f142060">&lt;strong&gt;</bpt>Install python<ept id="05caa082-52e8-474d-af43-168d8f142060">&lt;/strong&gt;</ept></source>
+          <target state="new">5.1 <bpt id="05caa082-52e8-474d-af43-168d8f142060">&lt;strong&gt;</bpt>Install python<ept id="05caa082-52e8-474d-af43-168d8f142060">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6a38d6e-f436-4ce0-8d47-205e3338dfad" xml:space="preserve">
+          <source>5.2 <bpt id="6223588a-e058-4a77-beda-0beed29142db">&lt;strong&gt;</bpt>Install wget<ept id="6223588a-e058-4a77-beda-0beed29142db">&lt;/strong&gt;</ept></source>
+          <target state="new">5.2 <bpt id="6223588a-e058-4a77-beda-0beed29142db">&lt;strong&gt;</bpt>Install wget<ept id="6223588a-e058-4a77-beda-0beed29142db">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64bac0ca-b767-4b28-9755-032c6b48aab2" xml:space="preserve">
+          <source><bpt id="64c46b02-6e97-4716-af2f-01a686f637fc">&lt;strong&gt;</bpt>Install Azure Agent<ept id="64c46b02-6e97-4716-af2f-01a686f637fc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="64c46b02-6e97-4716-af2f-01a686f637fc">&lt;strong&gt;</bpt>Install Azure Agent<ept id="64c46b02-6e97-4716-af2f-01a686f637fc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7cca5be-4c9a-49d2-8352-d4e847d751be" xml:space="preserve">
+          <source>The latest release of the Azure Agent can always be found on <bpt id="0b3382be-84e7-466d-bd79-1f03c0589ee9">&lt;linkText&gt;</bpt>github<ept id="0b3382be-84e7-466d-bd79-1f03c0589ee9">&lt;/linkText&gt;</ept><bpt id="0b3382be-84e7-466d-bd79-1f03c0589ee9">&lt;title&gt;</bpt><ept id="0b3382be-84e7-466d-bd79-1f03c0589ee9">&lt;/title&gt;</ept>.</source>
+          <target state="new">The latest release of the Azure Agent can always be found on <bpt id="0b3382be-84e7-466d-bd79-1f03c0589ee9">&lt;linkText&gt;</bpt>github<ept id="0b3382be-84e7-466d-bd79-1f03c0589ee9">&lt;/linkText&gt;</ept><bpt id="0b3382be-84e7-466d-bd79-1f03c0589ee9">&lt;title&gt;</bpt><ept id="0b3382be-84e7-466d-bd79-1f03c0589ee9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe87ecae-9839-4f83-8250-192789e985a8" xml:space="preserve">
+          <source>Version 2.0.10 and later officially supports FreeBSD 10 and later releases.</source>
+          <target state="new">Version 2.0.10 and later officially supports FreeBSD 10 and later releases.</target>
+        </trans-unit>
+        <trans-unit id="7c50c856-ec0f-4b39-a151-566d3e681e26" xml:space="preserve">
+          <source><bpt id="16667bae-b8d5-4a53-a0b5-61485a998b57">&lt;strong&gt;</bpt>Important<ept id="16667bae-b8d5-4a53-a0b5-61485a998b57">&lt;/strong&gt;</ept>: After installation, please double check it is running.</source>
+          <target state="new"><bpt id="16667bae-b8d5-4a53-a0b5-61485a998b57">&lt;strong&gt;</bpt>Important<ept id="16667bae-b8d5-4a53-a0b5-61485a998b57">&lt;/strong&gt;</ept>: After installation, please double check it is running.</target>
+        </trans-unit>
+        <trans-unit id="b8feaf14-30a0-4ca0-80e0-f29e3d35e650" xml:space="preserve">
+          <source>Now you could <bpt id="5a020f6a-173e-4249-89a3-523ae1d5e6d3">&lt;strong&gt;</bpt>shut down<ept id="5a020f6a-173e-4249-89a3-523ae1d5e6d3">&lt;/strong&gt;</ept> your VM.</source>
+          <target state="new">Now you could <bpt id="5a020f6a-173e-4249-89a3-523ae1d5e6d3">&lt;strong&gt;</bpt>shut down<ept id="5a020f6a-173e-4249-89a3-523ae1d5e6d3">&lt;/strong&gt;</ept> your VM.</target>
+        </trans-unit>
+        <trans-unit id="5d744ce4-5aa4-4631-9699-563b06b5bfb0" xml:space="preserve">
+          <source>You also could execute step 7 before shut down but it is optional.</source>
+          <target state="new">You also could execute step 7 before shut down but it is optional.</target>
+        </trans-unit>
+        <trans-unit id="196b107a-eb8a-4409-8d1e-ee38380a13bd" xml:space="preserve">
+          <source>De-provision is optional.</source>
+          <target state="new">De-provision is optional.</target>
+        </trans-unit>
+        <trans-unit id="d46883ef-6691-4e9a-9259-8e59e55af5d5" xml:space="preserve">
+          <source>It is to clean the system and make it suitable for re-provisioning.</source>
+          <target state="new">It is to clean the system and make it suitable for re-provisioning.</target>
+        </trans-unit>
+        <trans-unit id="d4f764d5-bffd-436f-b83e-3a140dd09228" xml:space="preserve">
+          <source>Below command also deletes the last provisioned user account and associated data.</source>
+          <target state="new">Below command also deletes the last provisioned user account and associated data.</target>
+        </trans-unit>
+        <trans-unit id="1ff3f80e-c2bf-4a54-86ea-6b769eee1610" xml:space="preserve">
+          <source>You need a storage account in Azure to upload a .vhd file so it can be used in Azure to create a virtual machine.</source>
+          <target state="new">You need a storage account in Azure to upload a .vhd file so it can be used in Azure to create a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="9b81139b-c6ed-4f7b-84b6-a4316cb126c2" xml:space="preserve">
+          <source>You can use the Azure Management Portal to create a storage account.</source>
+          <target state="new">You can use the Azure Management Portal to create a storage account.</target>
+        </trans-unit>
+        <trans-unit id="09efe9dc-e035-4d6e-92a6-3ad8e825663b" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal.</source>
+          <target state="new">Sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="d043cc3a-e088-4563-a5f9-8f05bd9f1e38" xml:space="preserve">
+          <source>On the command bar, click <bpt id="db299311-6b7a-46ff-8c61-39dadb4de822">&lt;strong&gt;</bpt>New<ept id="db299311-6b7a-46ff-8c61-39dadb4de822">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the command bar, click <bpt id="db299311-6b7a-46ff-8c61-39dadb4de822">&lt;strong&gt;</bpt>New<ept id="db299311-6b7a-46ff-8c61-39dadb4de822">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1fb2242-13a2-447b-80fc-cbdaaf021597" xml:space="preserve">
+          <source>Click <bpt id="4b06e3a1-1e78-4485-9bb9-7b0f59796d1c">&lt;strong&gt;</bpt>Data Services<ept id="4b06e3a1-1e78-4485-9bb9-7b0f59796d1c">&lt;/strong&gt;</ept> &gt; <bpt id="7f2ec2d8-8fea-4ddd-b62c-2292b2d2edaa">&lt;strong&gt;</bpt>Storage<ept id="7f2ec2d8-8fea-4ddd-b62c-2292b2d2edaa">&lt;/strong&gt;</ept> &gt; <bpt id="805616b9-89af-4e07-a444-64a83d516029">&lt;strong&gt;</bpt>Quick Create<ept id="805616b9-89af-4e07-a444-64a83d516029">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="4b06e3a1-1e78-4485-9bb9-7b0f59796d1c">&lt;strong&gt;</bpt>Data Services<ept id="4b06e3a1-1e78-4485-9bb9-7b0f59796d1c">&lt;/strong&gt;</ept> &gt; <bpt id="7f2ec2d8-8fea-4ddd-b62c-2292b2d2edaa">&lt;strong&gt;</bpt>Storage<ept id="7f2ec2d8-8fea-4ddd-b62c-2292b2d2edaa">&lt;/strong&gt;</ept> &gt; <bpt id="805616b9-89af-4e07-a444-64a83d516029">&lt;strong&gt;</bpt>Quick Create<ept id="805616b9-89af-4e07-a444-64a83d516029">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0afe61b-a68e-417a-b7de-4b25e43a2aab" xml:space="preserve">
+          <source><bpt id="f0724304-d9d7-4c73-9f1c-5b621b112d0d">&lt;linkText&gt;</bpt>Quick create a storage account<ept id="f0724304-d9d7-4c73-9f1c-5b621b112d0d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0724304-d9d7-4c73-9f1c-5b621b112d0d">&lt;linkText&gt;</bpt>Quick create a storage account<ept id="f0724304-d9d7-4c73-9f1c-5b621b112d0d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4e709f3-e5b6-4134-bcf7-7179c104e85a" xml:space="preserve">
+          <source>Fill out the fields as follows:</source>
+          <target state="new">Fill out the fields as follows:</target>
+        </trans-unit>
+        <trans-unit id="05df3520-03f1-44ff-88ea-38b400485363" xml:space="preserve">
+          <source>Under <bpt id="bfbd53b0-f47c-41be-9fb2-1e6c67812280">&lt;strong&gt;</bpt>URL<ept id="bfbd53b0-f47c-41be-9fb2-1e6c67812280">&lt;/strong&gt;</ept>, type a subdomain name to use in the URL for the storage account.</source>
+          <target state="new">Under <bpt id="bfbd53b0-f47c-41be-9fb2-1e6c67812280">&lt;strong&gt;</bpt>URL<ept id="bfbd53b0-f47c-41be-9fb2-1e6c67812280">&lt;/strong&gt;</ept>, type a subdomain name to use in the URL for the storage account.</target>
+        </trans-unit>
+        <trans-unit id="f42d7e56-5abb-454d-9705-d56717591986" xml:space="preserve">
+          <source>The entry can contain from 3-24 lowercase letters and numbers.</source>
+          <target state="new">The entry can contain from 3-24 lowercase letters and numbers.</target>
+        </trans-unit>
+        <trans-unit id="ee0268da-d0cc-4f36-a51a-f6b06c75ffa2" xml:space="preserve">
+          <source>This name becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.</source>
+          <target state="new">This name becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.</target>
+        </trans-unit>
+        <trans-unit id="5c092d53-29bf-4b01-abdb-f650345ef5fb" xml:space="preserve">
+          <source>Choose the <bpt id="3225011f-2374-4ef7-bbfb-39a001412611">&lt;strong&gt;</bpt>location or affinity group<ept id="3225011f-2374-4ef7-bbfb-39a001412611">&lt;/strong&gt;</ept> for the storage account.</source>
+          <target state="new">Choose the <bpt id="3225011f-2374-4ef7-bbfb-39a001412611">&lt;strong&gt;</bpt>location or affinity group<ept id="3225011f-2374-4ef7-bbfb-39a001412611">&lt;/strong&gt;</ept> for the storage account.</target>
+        </trans-unit>
+        <trans-unit id="40199b8c-432d-419e-8d8a-e1bf7d701169" xml:space="preserve">
+          <source>An affinity group lets you place your cloud services and storage in the same data center.</source>
+          <target state="new">An affinity group lets you place your cloud services and storage in the same data center.</target>
+        </trans-unit>
+        <trans-unit id="7055336b-f4de-4299-b2c6-c6a51a26bdbf" xml:space="preserve">
+          <source>Decide whether to use <bpt id="d0b961db-c976-4e3d-a88b-1564c143938e">&lt;strong&gt;</bpt>geo-replication<ept id="d0b961db-c976-4e3d-a88b-1564c143938e">&lt;/strong&gt;</ept> for the storage account.</source>
+          <target state="new">Decide whether to use <bpt id="d0b961db-c976-4e3d-a88b-1564c143938e">&lt;strong&gt;</bpt>geo-replication<ept id="d0b961db-c976-4e3d-a88b-1564c143938e">&lt;/strong&gt;</ept> for the storage account.</target>
+        </trans-unit>
+        <trans-unit id="e94f0b2c-4d94-46c2-8be4-516a573ec278" xml:space="preserve">
+          <source>Geo-replication is turned on by default.</source>
+          <target state="new">Geo-replication is turned on by default.</target>
+        </trans-unit>
+        <trans-unit id="6e8574bc-7ef8-49a2-a1ca-4000e024b63f" xml:space="preserve">
+          <source>This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location.</source>
+          <target state="new">This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location.</target>
+        </trans-unit>
+        <trans-unit id="25107591-e1e1-4398-8e93-0a6e0dd8138b" xml:space="preserve">
+          <source>The secondary location is assigned automatically, and can't be changed.</source>
+          <target state="new">The secondary location is assigned automatically, and can't be changed.</target>
+        </trans-unit>
+        <trans-unit id="2b8b9b2c-469b-4fd4-9ee9-9d4777b9f914" xml:space="preserve">
+          <source>If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication.</source>
+          <target state="new">If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication.</target>
+        </trans-unit>
+        <trans-unit id="1c717c57-f4ab-47d5-9246-68ce71e718fb" xml:space="preserve">
+          <source>However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location.</source>
+          <target state="new">However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location.</target>
+        </trans-unit>
+        <trans-unit id="6fc2fbc3-e58c-4320-bfda-56f74619d15e" xml:space="preserve">
+          <source>Storage services without geo-replication are offered at a discount.</source>
+          <target state="new">Storage services without geo-replication are offered at a discount.</target>
+        </trans-unit>
+        <trans-unit id="d20777f4-6045-4014-b97d-9d95def76c63" xml:space="preserve">
+          <source>More details on managing geo-replication of Storage accounts can be found here: <bpt id="62432979-77d5-4c98-a854-203ef85821a2">&lt;linkText&gt;</bpt>Create, manage, or delete a storage account<ept id="62432979-77d5-4c98-a854-203ef85821a2">&lt;/linkText&gt;</ept><bpt id="62432979-77d5-4c98-a854-203ef85821a2">&lt;title&gt;</bpt><ept id="62432979-77d5-4c98-a854-203ef85821a2">&lt;/title&gt;</ept>.</source>
+          <target state="new">More details on managing geo-replication of Storage accounts can be found here: <bpt id="62432979-77d5-4c98-a854-203ef85821a2">&lt;linkText&gt;</bpt>Create, manage, or delete a storage account<ept id="62432979-77d5-4c98-a854-203ef85821a2">&lt;/linkText&gt;</ept><bpt id="62432979-77d5-4c98-a854-203ef85821a2">&lt;title&gt;</bpt><ept id="62432979-77d5-4c98-a854-203ef85821a2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1cc353d-d0c4-4aa0-8f5e-8fb26539de8a" xml:space="preserve">
+          <source><bpt id="d77aba09-36eb-4923-a0a4-a6247a9a83c5">&lt;linkText&gt;</bpt>Enter storage account details<ept id="d77aba09-36eb-4923-a0a4-a6247a9a83c5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d77aba09-36eb-4923-a0a4-a6247a9a83c5">&lt;linkText&gt;</bpt>Enter storage account details<ept id="d77aba09-36eb-4923-a0a4-a6247a9a83c5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55cc042d-c465-47f7-bc29-60852e0b71d3" xml:space="preserve">
+          <source>Click <bpt id="3521019e-a876-4e83-bbef-17ef288f3e3e">&lt;strong&gt;</bpt>Create Storage Account<ept id="3521019e-a876-4e83-bbef-17ef288f3e3e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3521019e-a876-4e83-bbef-17ef288f3e3e">&lt;strong&gt;</bpt>Create Storage Account<ept id="3521019e-a876-4e83-bbef-17ef288f3e3e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5a16c3c-ad50-4f95-ac98-a7a4564e28ae" xml:space="preserve">
+          <source>The account now appears under <bpt id="0a4e846c-2407-4213-96f1-cd64bcaef68c">&lt;strong&gt;</bpt>Storage<ept id="0a4e846c-2407-4213-96f1-cd64bcaef68c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The account now appears under <bpt id="0a4e846c-2407-4213-96f1-cd64bcaef68c">&lt;strong&gt;</bpt>Storage<ept id="0a4e846c-2407-4213-96f1-cd64bcaef68c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a582b9b5-8fd9-4b35-b3b1-4e329adc2e66" xml:space="preserve">
+          <source><bpt id="4d6c8f0a-0f7a-40d1-aaa6-3fbb670413f2">&lt;linkText&gt;</bpt>Storage account successfully created<ept id="4d6c8f0a-0f7a-40d1-aaa6-3fbb670413f2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d6c8f0a-0f7a-40d1-aaa6-3fbb670413f2">&lt;linkText&gt;</bpt>Storage account successfully created<ept id="4d6c8f0a-0f7a-40d1-aaa6-3fbb670413f2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d74f84e-eb01-43ba-a05e-76d2f4c2bccc" xml:space="preserve">
+          <source>Next, create a container for your uploaded VHDs.</source>
+          <target state="new">Next, create a container for your uploaded VHDs.</target>
+        </trans-unit>
+        <trans-unit id="6edabcf1-d94e-403e-904f-47ef63b155c2" xml:space="preserve">
+          <source>Click the storage account name and then click <bpt id="66c65bc9-5014-44a9-bdd2-da2fbc4b6a96">&lt;strong&gt;</bpt>Containers<ept id="66c65bc9-5014-44a9-bdd2-da2fbc4b6a96">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the storage account name and then click <bpt id="66c65bc9-5014-44a9-bdd2-da2fbc4b6a96">&lt;strong&gt;</bpt>Containers<ept id="66c65bc9-5014-44a9-bdd2-da2fbc4b6a96">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03467d77-060d-4fd3-b427-e1bd6df209b4" xml:space="preserve">
+          <source><bpt id="e1bb6889-3bb2-4d3c-88a9-6ab226b8ae98">&lt;linkText&gt;</bpt>Storage account detail<ept id="e1bb6889-3bb2-4d3c-88a9-6ab226b8ae98">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1bb6889-3bb2-4d3c-88a9-6ab226b8ae98">&lt;linkText&gt;</bpt>Storage account detail<ept id="e1bb6889-3bb2-4d3c-88a9-6ab226b8ae98">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f326b6a4-c62b-4fc9-999a-d808dfd9fe60" xml:space="preserve">
+          <source>Click <bpt id="fd11adc0-0f97-4c10-b663-1978ed9f8c41">&lt;strong&gt;</bpt>Create a Container<ept id="fd11adc0-0f97-4c10-b663-1978ed9f8c41">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fd11adc0-0f97-4c10-b663-1978ed9f8c41">&lt;strong&gt;</bpt>Create a Container<ept id="fd11adc0-0f97-4c10-b663-1978ed9f8c41">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbe25966-0b29-448a-a103-e88a2a214af9" xml:space="preserve">
+          <source><bpt id="112b1323-c453-4660-85ec-2fd031d706d3">&lt;linkText&gt;</bpt>Storage account detail<ept id="112b1323-c453-4660-85ec-2fd031d706d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="112b1323-c453-4660-85ec-2fd031d706d3">&lt;linkText&gt;</bpt>Storage account detail<ept id="112b1323-c453-4660-85ec-2fd031d706d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="842f34d6-dc85-41af-8dbf-97418bf708f0" xml:space="preserve">
+          <source>Type a <bpt id="18a78b30-2f82-4b07-be7a-cdb0771feb7e">&lt;strong&gt;</bpt>Name<ept id="18a78b30-2f82-4b07-be7a-cdb0771feb7e">&lt;/strong&gt;</ept> for your container and select the <bpt id="07e3d050-9a0e-44d1-ab16-c31c166e98e0">&lt;strong&gt;</bpt>Access<ept id="07e3d050-9a0e-44d1-ab16-c31c166e98e0">&lt;/strong&gt;</ept> policy.</source>
+          <target state="new">Type a <bpt id="18a78b30-2f82-4b07-be7a-cdb0771feb7e">&lt;strong&gt;</bpt>Name<ept id="18a78b30-2f82-4b07-be7a-cdb0771feb7e">&lt;/strong&gt;</ept> for your container and select the <bpt id="07e3d050-9a0e-44d1-ab16-c31c166e98e0">&lt;strong&gt;</bpt>Access<ept id="07e3d050-9a0e-44d1-ab16-c31c166e98e0">&lt;/strong&gt;</ept> policy.</target>
+        </trans-unit>
+        <trans-unit id="4ffc9ab9-985d-4c3e-a580-4aee3d1fc540" xml:space="preserve">
+          <source><bpt id="e85f9b00-bde9-4580-8b55-bb47675e05ed">&lt;linkText&gt;</bpt>Container name<ept id="e85f9b00-bde9-4580-8b55-bb47675e05ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e85f9b00-bde9-4580-8b55-bb47675e05ed">&lt;linkText&gt;</bpt>Container name<ept id="e85f9b00-bde9-4580-8b55-bb47675e05ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55d2cd07-74ef-4b23-9fb1-bd7d2bfa7643" xml:space="preserve">
+          <source>By default, the container is private and can be accessed only by the account owner.</source>
+          <target state="new">By default, the container is private and can be accessed only by the account owner.</target>
+        </trans-unit>
+        <trans-unit id="93827717-4bd5-4d3c-9774-f4f3d7c88538" xml:space="preserve">
+          <source>To allow public read access to the blobs in the container, but not the container properties and metadata, use the "Public Blob" option.</source>
+          <target state="new">To allow public read access to the blobs in the container, but not the container properties and metadata, use the "Public Blob" option.</target>
+        </trans-unit>
+        <trans-unit id="1516ec47-1f0d-4b14-b369-7cc2f40a17b8" xml:space="preserve">
+          <source>To allow full public read access for the container and blobs, use the "Public Container" option.</source>
+          <target state="new">To allow full public read access for the container and blobs, use the "Public Container" option.</target>
+        </trans-unit>
+        <trans-unit id="52308cbb-ec9f-4f42-8838-c267442f5c3b" xml:space="preserve">
+          <source>Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure.</source>
+          <target state="new">Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure.</target>
+        </trans-unit>
+        <trans-unit id="3ccc4f59-ce4c-4b2f-aa7c-9b422fe9e5c2" xml:space="preserve">
+          <source>You can use the Microsoft Azure Active Directory method or the certificate method to do this.</source>
+          <target state="new">You can use the Microsoft Azure Active Directory method or the certificate method to do this.</target>
+        </trans-unit>
+        <trans-unit id="12e5c500-6f96-48cc-9088-59cb7804ecd2" xml:space="preserve">
+          <source>Open the Azure PowerShell console.</source>
+          <target state="new">Open the Azure PowerShell console.</target>
+        </trans-unit>
+        <trans-unit id="837fb4d4-2f1a-4aa1-bae2-a469818e66ab" xml:space="preserve">
+          <source>Type the following command:  
+<bpt id="90fe85ee-9a30-40c7-b972-0c2cd8dab78a">&lt;code&gt;</bpt>Add-AzureAccount<ept id="90fe85ee-9a30-40c7-b972-0c2cd8dab78a">&lt;/code&gt;</ept></source>
+          <target state="new">Type the following command:  
+<bpt id="90fe85ee-9a30-40c7-b972-0c2cd8dab78a">&lt;code&gt;</bpt>Add-AzureAccount<ept id="90fe85ee-9a30-40c7-b972-0c2cd8dab78a">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0719943c-cf1a-4819-93ca-45cb47f5dee3" xml:space="preserve">
+          <source>This command opens a sign-in window so you can sign with your work or school account.</source>
+          <target state="new">This command opens a sign-in window so you can sign with your work or school account.</target>
+        </trans-unit>
+        <trans-unit id="c689ddcf-7d3e-4fde-aa0d-e85d0347e725" xml:space="preserve">
+          <source><bpt id="6caa7d12-18bd-4c3d-9bde-0c573656121c">&lt;linkText&gt;</bpt>PowerShell Window<ept id="6caa7d12-18bd-4c3d-9bde-0c573656121c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6caa7d12-18bd-4c3d-9bde-0c573656121c">&lt;linkText&gt;</bpt>PowerShell Window<ept id="6caa7d12-18bd-4c3d-9bde-0c573656121c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd66ce73-d991-4172-ab01-6ad553bdf883" xml:space="preserve">
+          <source>Azure authenticates and saves the credential information, and then closes the window.</source>
+          <target state="new">Azure authenticates and saves the credential information, and then closes the window.</target>
+        </trans-unit>
+        <trans-unit id="6b477d4f-51ea-4897-989c-bfea7d1a9bbd" xml:space="preserve">
+          <source>Open the Azure PowerShell console.</source>
+          <target state="new">Open the Azure PowerShell console.</target>
+        </trans-unit>
+        <trans-unit id="f5ba1c07-b7c7-46d7-a44b-d171b8646fb8" xml:space="preserve">
+          <source>Type: 
+<bpt id="085b5a53-1518-4d55-a1c1-9a28c3e57ea9">&lt;code&gt;</bpt>Get-AzurePublishSettingsFile<ept id="085b5a53-1518-4d55-a1c1-9a28c3e57ea9">&lt;/code&gt;</ept>.</source>
+          <target state="new">Type: 
+<bpt id="085b5a53-1518-4d55-a1c1-9a28c3e57ea9">&lt;code&gt;</bpt>Get-AzurePublishSettingsFile<ept id="085b5a53-1518-4d55-a1c1-9a28c3e57ea9">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4cdae3fb-207c-49ea-83cd-65bea4160892" xml:space="preserve">
+          <source>A browser window opens and prompts you to download a .publishsettings file.</source>
+          <target state="new">A browser window opens and prompts you to download a .publishsettings file.</target>
+        </trans-unit>
+        <trans-unit id="5d3bc0d9-5dc4-414a-9d42-16349551f454" xml:space="preserve">
+          <source>It contains information and a certificate for your Microsoft Azure subscription.</source>
+          <target state="new">It contains information and a certificate for your Microsoft Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="3bf88def-977c-4c98-af34-4f9f4ea99cbc" xml:space="preserve">
+          <source><bpt id="0a9d4a7e-25b3-4b84-a508-7a512f587ec4">&lt;linkText&gt;</bpt>Browser download page<ept id="0a9d4a7e-25b3-4b84-a508-7a512f587ec4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0a9d4a7e-25b3-4b84-a508-7a512f587ec4">&lt;linkText&gt;</bpt>Browser download page<ept id="0a9d4a7e-25b3-4b84-a508-7a512f587ec4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93c54f01-06ec-4d7b-88e5-e0a5dcbaa5da" xml:space="preserve">
+          <source>Save the .publishsettings file.</source>
+          <target state="new">Save the .publishsettings file.</target>
+        </trans-unit>
+        <trans-unit id="13081186-58fa-43b9-8e49-cebc28953c07" xml:space="preserve">
+          <source>Type: 
+<bpt id="2981388a-c8e8-4425-b9e3-d79ec53082da">&lt;code&gt;</bpt>Import-AzurePublishSettingsFile &lt;PathToFile&gt;<ept id="2981388a-c8e8-4425-b9e3-d79ec53082da">&lt;/code&gt;</ept></source>
+          <target state="new">Type: 
+<bpt id="2981388a-c8e8-4425-b9e3-d79ec53082da">&lt;code&gt;</bpt>Import-AzurePublishSettingsFile &lt;PathToFile&gt;<ept id="2981388a-c8e8-4425-b9e3-d79ec53082da">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ff64e54-e5a6-4cd4-8b51-95e5413cf101" xml:space="preserve">
+          <source>Where <bpt id="6b4b6fcc-5706-4a81-84e3-87e84573f046">&lt;code&gt;</bpt>&lt;PathToFile&gt;<ept id="6b4b6fcc-5706-4a81-84e3-87e84573f046">&lt;/code&gt;</ept> is the full path to the .publishsettings file. </source>
+          <target state="new">Where <bpt id="6b4b6fcc-5706-4a81-84e3-87e84573f046">&lt;code&gt;</bpt>&lt;PathToFile&gt;<ept id="6b4b6fcc-5706-4a81-84e3-87e84573f046">&lt;/code&gt;</ept> is the full path to the .publishsettings file. </target>
+        </trans-unit>
+        <trans-unit id="a23971a5-ce34-4a08-88a6-ddb456d63dc0" xml:space="preserve">
+          <source>For more information, see <bpt id="9fffe977-1fee-4faa-99d5-8bff1b35c43d">&lt;linkText&gt;</bpt>Get Started with Microsoft Azure Cmdlets<ept id="9fffe977-1fee-4faa-99d5-8bff1b35c43d">&lt;/linkText&gt;</ept><bpt id="9fffe977-1fee-4faa-99d5-8bff1b35c43d">&lt;title&gt;</bpt><ept id="9fffe977-1fee-4faa-99d5-8bff1b35c43d">&lt;/title&gt;</ept> </source>
+          <target state="new">For more information, see <bpt id="9fffe977-1fee-4faa-99d5-8bff1b35c43d">&lt;linkText&gt;</bpt>Get Started with Microsoft Azure Cmdlets<ept id="9fffe977-1fee-4faa-99d5-8bff1b35c43d">&lt;/linkText&gt;</ept><bpt id="9fffe977-1fee-4faa-99d5-8bff1b35c43d">&lt;title&gt;</bpt><ept id="9fffe977-1fee-4faa-99d5-8bff1b35c43d">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="b4f721c1-f6c9-4af1-ab79-2537495e5f24" xml:space="preserve">
+          <source>For more information on installing and configuring PowerShell, see <bpt id="b17d126b-7f10-4b79-a503-18a48d2676ba">&lt;linkText&gt;</bpt>How to install and configure Microsoft Azure PowerShell<ept id="b17d126b-7f10-4b79-a503-18a48d2676ba">&lt;/linkText&gt;</ept><bpt id="b17d126b-7f10-4b79-a503-18a48d2676ba">&lt;title&gt;</bpt><ept id="b17d126b-7f10-4b79-a503-18a48d2676ba">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on installing and configuring PowerShell, see <bpt id="b17d126b-7f10-4b79-a503-18a48d2676ba">&lt;linkText&gt;</bpt>How to install and configure Microsoft Azure PowerShell<ept id="b17d126b-7f10-4b79-a503-18a48d2676ba">&lt;/linkText&gt;</ept><bpt id="b17d126b-7f10-4b79-a503-18a48d2676ba">&lt;title&gt;</bpt><ept id="b17d126b-7f10-4b79-a503-18a48d2676ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d18507f-13ac-4c73-b7e1-7b6650ab4d6a" xml:space="preserve">
+          <source>When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage.</source>
+          <target state="new">When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage.</target>
+        </trans-unit>
+        <trans-unit id="dd9119f1-a97a-439f-8078-528c13c8bf1c" xml:space="preserve">
+          <source>In the following command examples, <bpt id="cbea6e03-8b32-4127-afa0-c3b4832842d8">&lt;strong&gt;</bpt>BlobStorageURL<ept id="cbea6e03-8b32-4127-afa0-c3b4832842d8">&lt;/strong&gt;</ept> is the URL for the storage account that you created in Step 2, <bpt id="1e282de5-8da7-465e-aa7f-d336aca8a91f">&lt;strong&gt;</bpt>YourImagesFolder<ept id="1e282de5-8da7-465e-aa7f-d336aca8a91f">&lt;/strong&gt;</ept> is the container within blob storage where you want to store your images.</source>
+          <target state="new">In the following command examples, <bpt id="cbea6e03-8b32-4127-afa0-c3b4832842d8">&lt;strong&gt;</bpt>BlobStorageURL<ept id="cbea6e03-8b32-4127-afa0-c3b4832842d8">&lt;/strong&gt;</ept> is the URL for the storage account that you created in Step 2, <bpt id="1e282de5-8da7-465e-aa7f-d336aca8a91f">&lt;strong&gt;</bpt>YourImagesFolder<ept id="1e282de5-8da7-465e-aa7f-d336aca8a91f">&lt;/strong&gt;</ept> is the container within blob storage where you want to store your images.</target>
+        </trans-unit>
+        <trans-unit id="c19d1004-de06-4ca7-809a-e31c2ab80eb1" xml:space="preserve">
+          <source><bpt id="64910800-26f0-4ce2-bde0-11bf3a980c45">&lt;strong&gt;</bpt>VHDName<ept id="64910800-26f0-4ce2-bde0-11bf3a980c45">&lt;/strong&gt;</ept> is the label that appears in the Management Portal to identify the virtual hard disk.</source>
+          <target state="new"><bpt id="64910800-26f0-4ce2-bde0-11bf3a980c45">&lt;strong&gt;</bpt>VHDName<ept id="64910800-26f0-4ce2-bde0-11bf3a980c45">&lt;/strong&gt;</ept> is the label that appears in the Management Portal to identify the virtual hard disk.</target>
+        </trans-unit>
+        <trans-unit id="87dd2821-4869-4671-bf0f-5d780f91b606" xml:space="preserve">
+          <source><bpt id="c21e9c80-80c7-44b7-b3b4-7e35c896ecfc">&lt;strong&gt;</bpt>PathToVHDFile<ept id="c21e9c80-80c7-44b7-b3b4-7e35c896ecfc">&lt;/strong&gt;</ept> is the full path and name of the .vhd file.</source>
+          <target state="new"><bpt id="c21e9c80-80c7-44b7-b3b4-7e35c896ecfc">&lt;strong&gt;</bpt>PathToVHDFile<ept id="c21e9c80-80c7-44b7-b3b4-7e35c896ecfc">&lt;/strong&gt;</ept> is the full path and name of the .vhd file.</target>
+        </trans-unit>
+        <trans-unit id="6f21fc49-3b24-44c7-8f6e-65938bcaf09e" xml:space="preserve">
+          <source>From the Azure PowerShell window you used in the previous step, type:</source>
+          <target state="new">From the Azure PowerShell window you used in the previous step, type:</target>
+        </trans-unit>
+        <trans-unit id="b7fa7f80-be7f-4c81-9c75-f945bb8ef8a8" xml:space="preserve">
+          <source>After you upload the .vhd, you can add it as an image to the list of custom images associated with your subscription and create a virtual machine with this custom image.</source>
+          <target state="new">After you upload the .vhd, you can add it as an image to the list of custom images associated with your subscription and create a virtual machine with this custom image.</target>
+        </trans-unit>
+        <trans-unit id="85d57fd4-e6f8-4b76-8226-3e882b78b860" xml:space="preserve">
+          <source>From the Azure PowerShell window you used in the previous step, type:</source>
+          <target state="new">From the Azure PowerShell window you used in the previous step, type:</target>
+        </trans-unit>
+        <trans-unit id="665ce969-15f9-47d8-8644-b5bcf2148d62" xml:space="preserve">
+          <source><bpt id="12f7f838-5355-4576-8afc-e7db1dea9e19">&lt;strong&gt;</bpt>Important<ept id="12f7f838-5355-4576-8afc-e7db1dea9e19">&lt;/strong&gt;</ept>: Please use Linux as OS type for now since current Azure PowerShell version only accepts “Linux” or “Windows” as a parameter.</source>
+          <target state="new"><bpt id="12f7f838-5355-4576-8afc-e7db1dea9e19">&lt;strong&gt;</bpt>Important<ept id="12f7f838-5355-4576-8afc-e7db1dea9e19">&lt;/strong&gt;</ept>: Please use Linux as OS type for now since current Azure PowerShell version only accepts “Linux” or “Windows” as a parameter.</target>
+        </trans-unit>
+        <trans-unit id="398fd2bb-e3de-4887-a797-76e2e5593dec" xml:space="preserve">
+          <source>After you complete the previous steps, the new image is listed when you choose the <bpt id="5dba78a6-051a-4618-913d-1ca7d7c7ef69">&lt;strong&gt;</bpt>Images<ept id="5dba78a6-051a-4618-913d-1ca7d7c7ef69">&lt;/strong&gt;</ept> tab on the Azure management portal.</source>
+          <target state="new">After you complete the previous steps, the new image is listed when you choose the <bpt id="5dba78a6-051a-4618-913d-1ca7d7c7ef69">&lt;strong&gt;</bpt>Images<ept id="5dba78a6-051a-4618-913d-1ca7d7c7ef69">&lt;/strong&gt;</ept> tab on the Azure management portal.</target>
+        </trans-unit>
+        <trans-unit id="098a6d50-0a0e-4712-9e51-6a903f239e88" xml:space="preserve">
+          <source><bpt id="ccf77eda-c886-45ea-9512-d8cc918174c6">&lt;linkText&gt;</bpt>add image<ept id="ccf77eda-c886-45ea-9512-d8cc918174c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ccf77eda-c886-45ea-9512-d8cc918174c6">&lt;linkText&gt;</bpt>add image<ept id="ccf77eda-c886-45ea-9512-d8cc918174c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b66437ea-ff1a-486b-8512-f4b628a4a5c2" xml:space="preserve">
+          <source>Create a virtual machine from gallery.</source>
+          <target state="new">Create a virtual machine from gallery.</target>
+        </trans-unit>
+        <trans-unit id="44e3e0e3-c390-4024-b7d3-faa3dc7ac69e" xml:space="preserve">
+          <source>This new image is now available under <bpt id="8a48f5cb-0818-4cb3-99de-087b876827ba">&lt;strong&gt;</bpt>My Images<ept id="8a48f5cb-0818-4cb3-99de-087b876827ba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This new image is now available under <bpt id="8a48f5cb-0818-4cb3-99de-087b876827ba">&lt;strong&gt;</bpt>My Images<ept id="8a48f5cb-0818-4cb3-99de-087b876827ba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c9f2664-8c89-48ce-a8ee-5c5e72c52336" xml:space="preserve">
+          <source>Select the new image and go through the prompts to set up a hostname, password/SSH key and etc.</source>
+          <target state="new">Select the new image and go through the prompts to set up a hostname, password/SSH key and etc.</target>
+        </trans-unit>
+        <trans-unit id="0afa69db-9d3a-4c55-bc4e-5140261c600a" xml:space="preserve">
+          <source><bpt id="dfff3c0f-7cb6-444a-9e93-b00f037d9e6a">&lt;linkText&gt;</bpt>custom image<ept id="dfff3c0f-7cb6-444a-9e93-b00f037d9e6a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dfff3c0f-7cb6-444a-9e93-b00f037d9e6a">&lt;linkText&gt;</bpt>custom image<ept id="dfff3c0f-7cb6-444a-9e93-b00f037d9e6a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0db75ff9-c513-4947-9b7a-bba8978b35f3" xml:space="preserve">
+          <source>Once provisioning has completed, you will see your FreeBSD VM running in Azure.</source>
+          <target state="new">Once provisioning has completed, you will see your FreeBSD VM running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="47ba06d6-38d8-4987-8b90-d0fffae02a49" xml:space="preserve">
+          <source><bpt id="ce039f59-c208-4bca-bbb5-1e536d65bb53">&lt;linkText&gt;</bpt>freebsd image in azure<ept id="ce039f59-c208-4bca-bbb5-1e536d65bb53">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce039f59-c208-4bca-bbb5-1e536d65bb53">&lt;linkText&gt;</bpt>freebsd image in azure<ept id="ce039f59-c208-4bca-bbb5-1e536d65bb53">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,1421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8ec3ecbb-c83a-4eff-8075-e75b070d64ef" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8ec3ecbb-c83a-4eff-8075-e75b070d64ef" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f2bdc3c6-c77d-4fd2-9524-1baa9c6dc270">
+        <trans-unit id="5bfaa9fd-17fd-4583-8b15-e3c2615bffd3" xml:space="preserve">
+          <source>Azure Government Image Gallery</source>
+          <target state="new">Azure Government Image Gallery</target>
+        </trans-unit>
+        <trans-unit id="cee617cf-85f2-4cd4-9269-3df2d4a39353" xml:space="preserve">
+          <source>This article provides an overview of the Azure Government Image Gallery and the images included</source>
+          <target state="new">This article provides an overview of the Azure Government Image Gallery and the images included</target>
+        </trans-unit>
+        <trans-unit id="4643a5e0-923b-4f88-a176-ae02aeae8acf" xml:space="preserve">
+          <source>&lt;p&gt; The Microsoft Azure Government image gallery is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.</source>
+          <target state="new">&lt;p&gt; The Microsoft Azure Government image gallery is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.</target>
+        </trans-unit>
+        <trans-unit id="f35447c5-38a6-40dd-9796-6fe80ffaf217" xml:space="preserve">
+          <source>The below provides a list of available images within the Azure Government image gallery.</source>
+          <target state="new">The below provides a list of available images within the Azure Government image gallery.</target>
+        </trans-unit>
+        <trans-unit id="21128e94-9a6d-4a87-86d1-b813e2268829" xml:space="preserve">
+          <source>Some of the prebuilt images do include pay as you go licensing for specific software.</source>
+          <target state="new">Some of the prebuilt images do include pay as you go licensing for specific software.</target>
+        </trans-unit>
+        <trans-unit id="1c2c2446-d763-4a8b-ae7f-8044156c55bc" xml:space="preserve">
+          <source>Please review &lt;a href="http://azure.microsoft.com/pricing/details/virtual-machines/"&gt;Virtual Machine Pricing&lt;/a&gt; page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.</source>
+          <target state="new">Please review &lt;a href="http://azure.microsoft.com/pricing/details/virtual-machines/"&gt;Virtual Machine Pricing&lt;/a&gt; page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.</target>
+        </trans-unit>
+        <trans-unit id="76630664-bb9d-44cf-a477-85f962eaf203" xml:space="preserve">
+          <source>Publisher</source>
+          <target state="new">Publisher</target>
+        </trans-unit>
+        <trans-unit id="39829e4a-889e-41d3-aa15-c9c080e563b8" xml:space="preserve">
+          <source>Image Name</source>
+          <target state="new">Image Name</target>
+        </trans-unit>
+        <trans-unit id="6dfedbab-0567-400f-8fd9-6df837c899e8" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="74db7f0c-fae3-43c1-9ece-6882a7cf0211" xml:space="preserve">
+          <source>Disk Size</source>
+          <target state="new">Disk Size</target>
+        </trans-unit>
+        <trans-unit id="7b1e70b1-d65b-41e0-a66b-1abcb59b56ac" xml:space="preserve">
+          <source>Barracuda Networks, Inc.</source>
+          <target state="new">Barracuda Networks, Inc.</target>
+        </trans-unit>
+        <trans-unit id="80f725c5-fb07-4732-abda-cc64b2571602" xml:space="preserve">
+          <source>Barracuda Web Application Firewall (WAF) 7.8 PatchLevel 4</source>
+          <target state="new">Barracuda Web Application Firewall (WAF) 7.8 PatchLevel 4</target>
+        </trans-unit>
+        <trans-unit id="97fcd655-c256-462f-8822-d72680292254" xml:space="preserve">
+          <source>Note: This appliance is administered via a web UI and TCP/8000 needs to be forwarded to do so.</source>
+          <target state="new">Note: This appliance is administered via a web UI and TCP/8000 needs to be forwarded to do so.</target>
+        </trans-unit>
+        <trans-unit id="3b16dced-a3d9-4d43-af91-40dce32f9d27" xml:space="preserve">
+          <source>See the deployment README https://cloudvm.cudasvc.com/azure/deployment-readme-waf.html for detai...</source>
+          <target state="new">See the deployment README https://cloudvm.cudasvc.com/azure/deployment-readme-waf.html for detai...</target>
+        </trans-unit>
+        <trans-unit id="e5cfb02a-7778-47b9-b336-f1c59fe3364b" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="c96553ca-9f05-49d5-85ef-f74a92f46709" xml:space="preserve">
+          <source>50 GB</source>
+          <target state="new">50 GB</target>
+        </trans-unit>
+        <trans-unit id="94e8559e-f1c4-4dc3-8234-00903d1f6fe8" xml:space="preserve">
+          <source>Barracuda Networks, Inc.</source>
+          <target state="new">Barracuda Networks, Inc.</target>
+        </trans-unit>
+        <trans-unit id="0d304b0d-e7f6-48e2-b240-9dd20c9929bf" xml:space="preserve">
+          <source>Barracuda NG Firewall 5.4.3-182 PatchLevel 4</source>
+          <target state="new">Barracuda NG Firewall 5.4.3-182 PatchLevel 4</target>
+        </trans-unit>
+        <trans-unit id="d1a92f58-634d-441a-8af7-bdb231958763" xml:space="preserve">
+          <source>Note: This appliance is managed via a client application and TCP/807 needs to be forwarded to do so.</source>
+          <target state="new">Note: This appliance is managed via a client application and TCP/807 needs to be forwarded to do so.</target>
+        </trans-unit>
+        <trans-unit id="a7c39d9b-d5ca-4ad0-a5f4-e12f91e23a95" xml:space="preserve">
+          <source>See the deployment README https://cloudvm.cudasvc.com/azure/deployment-readme-ng.html for ...</source>
+          <target state="new">See the deployment README https://cloudvm.cudasvc.com/azure/deployment-readme-ng.html for ...</target>
+        </trans-unit>
+        <trans-unit id="a0c73e02-704b-429a-b464-4be71515102b" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="ad8759fc-6bcb-4b62-942f-40513282ab34" xml:space="preserve">
+          <source>80 GB</source>
+          <target state="new">80 GB</target>
+        </trans-unit>
+        <trans-unit id="420577dc-598c-4667-8959-9ad3a983c1d8" xml:space="preserve">
+          <source>Bitnami</source>
+          <target state="new">Bitnami</target>
+        </trans-unit>
+        <trans-unit id="b34d63f8-863c-424e-b166-2cddcc35d7f1" xml:space="preserve">
+          <source>Drupal 7</source>
+          <target state="new">Drupal 7</target>
+        </trans-unit>
+        <trans-unit id="d6c9e3e7-4852-421f-9200-b2b57edf0c59" xml:space="preserve">
+          <source>Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure.</source>
+          <target state="new">Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="0b88640a-c237-4529-a290-84bd0ce76a9d" xml:space="preserve">
+          <source>Drupal is one of the most versatile open source content management systems on the market.</source>
+          <target state="new">Drupal is one of the most versatile open source content management systems on the market.</target>
+        </trans-unit>
+        <trans-unit id="cbaf5182-ceaf-4990-a9a7-0d8d4e8a7838" xml:space="preserve">
+          <source>Over ...</source>
+          <target state="new">Over ...</target>
+        </trans-unit>
+        <trans-unit id="646df87f-e761-450f-b3ce-fb0cbd34ee2a" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="c5e18bb6-9dc0-4e6c-a1de-87866cd2b362" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="2c97fc4e-54fe-48f7-a919-b65cb41c38d9" xml:space="preserve">
+          <source>Bitnami</source>
+          <target state="new">Bitnami</target>
+        </trans-unit>
+        <trans-unit id="accfaa14-9be0-40ed-8e5b-89e8d732573b" xml:space="preserve">
+          <source>Drupal 6</source>
+          <target state="new">Drupal 6</target>
+        </trans-unit>
+        <trans-unit id="36ffac9b-a226-4edc-b06b-205694041ad2" xml:space="preserve">
+          <source>Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure.</source>
+          <target state="new">Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="63e7c330-1602-40ae-b1c7-b86fb16776e5" xml:space="preserve">
+          <source>Drupal is one of the most versatile open source content management systems on the market.</source>
+          <target state="new">Drupal is one of the most versatile open source content management systems on the market.</target>
+        </trans-unit>
+        <trans-unit id="f2c6cda0-0986-40c6-8aad-b022aa9d360f" xml:space="preserve">
+          <source>Over ...</source>
+          <target state="new">Over ...</target>
+        </trans-unit>
+        <trans-unit id="7355dc97-4c87-4963-8783-75dd7790bc49" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="fd9dfc21-631f-4dbf-b3f5-307a3f22dc17" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="11dc90b1-0b38-4513-9071-9e55e32d0579" xml:space="preserve">
+          <source>Bitnami</source>
+          <target state="new">Bitnami</target>
+        </trans-unit>
+        <trans-unit id="79938cf2-da05-4747-8979-67ad92c9ef49" xml:space="preserve">
+          <source>Ruby Stack 2.0</source>
+          <target state="new">Ruby Stack 2.0</target>
+        </trans-unit>
+        <trans-unit id="a14d1372-d251-4a1c-bd8c-c76fbbb39862" xml:space="preserve">
+          <source>Bitnami RubyStack greatly simplifies the development and deployment of Ruby on Rails applications.</source>
+          <target state="new">Bitnami RubyStack greatly simplifies the development and deployment of Ruby on Rails applications.</target>
+        </trans-unit>
+        <trans-unit id="582fdb17-4efc-4463-83c0-11b0ffdd2804" xml:space="preserve">
+          <source>Ruby on Rails is a full-stack MVC framework for database-backed web applications that is optimized fo...</source>
+          <target state="new">Ruby on Rails is a full-stack MVC framework for database-backed web applications that is optimized fo...</target>
+        </trans-unit>
+        <trans-unit id="1cbab3ac-1b95-42a7-9672-ac859a178042" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="dc5ae31c-d0da-4691-b158-8ed7a6c7d6ec" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="4d16391e-8e86-4f63-8b90-28e0734f54a9" xml:space="preserve">
+          <source>Bitnami</source>
+          <target state="new">Bitnami</target>
+        </trans-unit>
+        <trans-unit id="21b1049d-31c1-4957-8764-5048ccf7a74e" xml:space="preserve">
+          <source>Nginx Stack 1.6</source>
+          <target state="new">Nginx Stack 1.6</target>
+        </trans-unit>
+        <trans-unit id="ff6316ee-f6b9-4689-b06f-b3e8893b0f39" xml:space="preserve">
+          <source>Bitnami Nginx Stack provides a complete, fully-integrated and ready to run PHP, MySQL and Nginx development environment.</source>
+          <target state="new">Bitnami Nginx Stack provides a complete, fully-integrated and ready to run PHP, MySQL and Nginx development environment.</target>
+        </trans-unit>
+        <trans-unit id="65b34986-36b5-4966-89dd-0af1404f9ee7" xml:space="preserve">
+          <source>In addition, it bundles phpMyAdmin, SQLite, ImageMagick, FastCGI, Memcache, GD,...</source>
+          <target state="new">In addition, it bundles phpMyAdmin, SQLite, ImageMagick, FastCGI, Memcache, GD,...</target>
+        </trans-unit>
+        <trans-unit id="bfe0ca11-197e-4f5e-9697-3e881f4b3aa7" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="bb97b258-dd3c-456d-8043-5cc5c62350b4" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="12317bdd-ab53-49f6-97c5-aecf86a8d1bb" xml:space="preserve">
+          <source>Bitnami</source>
+          <target state="new">Bitnami</target>
+        </trans-unit>
+        <trans-unit id="b63ce803-7aa9-4c54-91ca-ce93432ea12e" xml:space="preserve">
+          <source>Drupal 8</source>
+          <target state="new">Drupal 8</target>
+        </trans-unit>
+        <trans-unit id="e512fff1-c640-4bc3-b663-766dd2ac87dd" xml:space="preserve">
+          <source>Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure.</source>
+          <target state="new">Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="2cc84a90-e125-4d5f-9cbc-d4dec9a55fcc" xml:space="preserve">
+          <source>Drupal is one of the most versatile open source content management systems on the market.</source>
+          <target state="new">Drupal is one of the most versatile open source content management systems on the market.</target>
+        </trans-unit>
+        <trans-unit id="d677bc3d-32e0-464c-a48a-c79b3642c697" xml:space="preserve">
+          <source>Over ...</source>
+          <target state="new">Over ...</target>
+        </trans-unit>
+        <trans-unit id="9dd3630c-4cd0-4ce2-a73f-19108dfb0e16" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="eb47f0ee-b4f4-45b7-a687-f56e599156e0" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="f4c1e6f0-37a6-45f1-9fcc-42f7b8466bbc" xml:space="preserve">
+          <source>Bitnami</source>
+          <target state="new">Bitnami</target>
+        </trans-unit>
+        <trans-unit id="ad19f39b-3d0a-4e48-a080-df1332ef06f2" xml:space="preserve">
+          <source>Ruby Stack 2.1</source>
+          <target state="new">Ruby Stack 2.1</target>
+        </trans-unit>
+        <trans-unit id="405f7c45-c0b2-4b25-927e-077c6eb7f222" xml:space="preserve">
+          <source>Bitnami RubyStack greatly simplifies the development and deployment of Ruby on Rails applications.</source>
+          <target state="new">Bitnami RubyStack greatly simplifies the development and deployment of Ruby on Rails applications.</target>
+        </trans-unit>
+        <trans-unit id="9fb6d404-036b-4914-859f-13fd9710a332" xml:space="preserve">
+          <source>Ruby on Rails is a full-stack MVC framework for database-backed web applications that is optimized fo...</source>
+          <target state="new">Ruby on Rails is a full-stack MVC framework for database-backed web applications that is optimized fo...</target>
+        </trans-unit>
+        <trans-unit id="b37a836f-b0d6-4388-9848-52af66611919" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="cfd91edf-a779-4577-9a50-b045a2b7c2f0" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="aa8e74b8-42c3-4357-bcee-a0c040379ac4" xml:space="preserve">
+          <source>Bitnami</source>
+          <target state="new">Bitnami</target>
+        </trans-unit>
+        <trans-unit id="53f3c790-a978-4f96-837d-ad9f3068c097" xml:space="preserve">
+          <source>LAMP Stack 5.6</source>
+          <target state="new">LAMP Stack 5.6</target>
+        </trans-unit>
+        <trans-unit id="72552558-cb30-474e-aaf6-fd606f7be43d" xml:space="preserve">
+          <source>Bitnami LAMPStack greatly simplifies the development and deployment of PHP applications.</source>
+          <target state="new">Bitnami LAMPStack greatly simplifies the development and deployment of PHP applications.</target>
+        </trans-unit>
+        <trans-unit id="5e108034-2c90-43ce-8d6b-42fe425db0d2" xml:space="preserve">
+          <source>It includes ready-to-run versions of Apache, MySQL, PHP and phpMyAdmin and all of the other software required t...</source>
+          <target state="new">It includes ready-to-run versions of Apache, MySQL, PHP and phpMyAdmin and all of the other software required t...</target>
+        </trans-unit>
+        <trans-unit id="890b4bfa-81ec-43c6-9d46-13af086ef9d1" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="63c4fb15-9a5c-4662-ae7b-08ffff334946" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="96fdb8b9-040d-4f57-8753-4aa20625bb16" xml:space="preserve">
+          <source>Bitnami</source>
+          <target state="new">Bitnami</target>
+        </trans-unit>
+        <trans-unit id="b7f4a7bb-6c16-489e-a0fc-a3226ab927bb" xml:space="preserve">
+          <source>LAMP Stack 5.4</source>
+          <target state="new">LAMP Stack 5.4</target>
+        </trans-unit>
+        <trans-unit id="654f50a3-b200-4a60-ad49-7547ac8bec1b" xml:space="preserve">
+          <source>Bitnami LAMPStack greatly simplifies the development and deployment of PHP applications.</source>
+          <target state="new">Bitnami LAMPStack greatly simplifies the development and deployment of PHP applications.</target>
+        </trans-unit>
+        <trans-unit id="0d617653-720a-4dc0-adfe-06caaf34ebba" xml:space="preserve">
+          <source>It includes ready-to-run versions of Apache, MySQL, PHP and phpMyAdmin and all of the other software required t...</source>
+          <target state="new">It includes ready-to-run versions of Apache, MySQL, PHP and phpMyAdmin and all of the other software required t...</target>
+        </trans-unit>
+        <trans-unit id="d89fa1cc-4032-4f15-a3b0-5d34b9512190" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="99fd5fcd-c1f2-4082-ab8d-e9a539390ec2" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="c05bdcb3-2a11-4897-a2f8-20c8275e2eca" xml:space="preserve">
+          <source>CloudLink</source>
+          <target state="new">CloudLink</target>
+        </trans-unit>
+        <trans-unit id="79c88cc1-cc07-494c-b559-0d36c7cfb420" xml:space="preserve">
+          <source>CloudLink SecureVM</source>
+          <target state="new">CloudLink SecureVM</target>
+        </trans-unit>
+        <trans-unit id="84568acc-a77c-4577-8670-8819eefad172" xml:space="preserve">
+          <source>CloudLink® SecureVM provides VM volume encryption and pre-boot authorization with VM image integrity validation, allowing you to control when and where your VMs boot.</source>
+          <target state="new">CloudLink® SecureVM provides VM volume encryption and pre-boot authorization with VM image integrity validation, allowing you to control when and where your VMs boot.</target>
+        </trans-unit>
+        <trans-unit id="1ba8d875-815d-4cc4-bcaa-248794dc8403" xml:space="preserve">
+          <source>SecureVM unlocks native Windows B...</source>
+          <target state="new">SecureVM unlocks native Windows B...</target>
+        </trans-unit>
+        <trans-unit id="e00981cf-b5c5-401b-81dc-9e39c62a11d8" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="390a9c83-7af6-4296-87e1-e4abb890010a" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="6c7fe201-97ff-4c53-b2b5-4091758c4a8b" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="4ba05175-e810-455f-89d5-674f19eedddd" xml:space="preserve">
+          <source>Oracle Database 12c Standard Edition on Windows Server 2012</source>
+          <target state="new">Oracle Database 12c Standard Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="de54895d-4d65-4f5d-866a-213bf1355ba4" xml:space="preserve">
+          <source>Oracle Database http://www.oracle.com/database 12c Standard Edition (12.1.0.1.0) is an affordable, full-featured data management solution that is ideal for midsize companies.</source>
+          <target state="new">Oracle Database http://www.oracle.com/database 12c Standard Edition (12.1.0.1.0) is an affordable, full-featured data management solution that is ideal for midsize companies.</target>
+        </trans-unit>
+        <trans-unit id="73f832c3-8d8d-47c0-bbbe-ec7eb0a65a96" xml:space="preserve">
+          <source>Minimum recomme...</source>
+          <target state="new">Minimum recomme...</target>
+        </trans-unit>
+        <trans-unit id="8a12d92a-1c5c-47dc-aa26-0512d57a5af4" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="bf588d98-f7c6-4685-852a-c5bb9332adf1" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="35385376-b6af-4a56-9d46-1881fe4e3380" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="46826e93-0b87-4c47-a35a-ee11586f9e49" xml:space="preserve">
+          <source>JDK 7 on Windows Server 2012</source>
+          <target state="new">JDK 7 on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="807a4c58-1928-44d9-8134-1ca0c2101f8f" xml:space="preserve">
+          <source>Java Platform http://www.oracle.com/java, Standard Edition 7 (update 71) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java...</source>
+          <target state="new">Java Platform http://www.oracle.com/java, Standard Edition 7 (update 71) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java...</target>
+        </trans-unit>
+        <trans-unit id="9ebb0e04-8b7a-4379-8d9b-5fe89042f1f9" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="14e76395-2f47-478e-94de-7eee1c097fbc" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="9ccb58fd-9473-4abd-ba39-067ced9010ef" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="38cdbad0-cddf-4798-b356-0110ff27e20e" xml:space="preserve">
+          <source>JDK 8 on Windows Server 2012 R2</source>
+          <target state="new">JDK 8 on Windows Server 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="09f9cac1-1ced-4034-847b-3ef8734a9997" xml:space="preserve">
+          <source>Java Platform http://www.oracle.com/java, Standard Edition 8 (update 25) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java...</source>
+          <target state="new">Java Platform http://www.oracle.com/java, Standard Edition 8 (update 25) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java...</target>
+        </trans-unit>
+        <trans-unit id="41dd1a17-5c51-4048-8113-2458e0359c54" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="2356b2a4-abb1-45da-bf94-31bb4babf6c6" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="7bd4b0ff-cbb1-4dd4-a9f9-d861d5bd885e" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="d7674c1e-517c-4bdb-95d7-25be3665040b" xml:space="preserve">
+          <source>Oracle Database 11g R2 Enterprise Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle Database 11g R2 Enterprise Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="227a5af0-97cc-48d2-8250-d21ae7db7dea" xml:space="preserve">
+          <source>Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) provides comprehensive features to easily manage the most demanding transaction processing, business inte...</source>
+          <target state="new">Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) provides comprehensive features to easily manage the most demanding transaction processing, business inte...</target>
+        </trans-unit>
+        <trans-unit id="6bc6bb40-bc83-42e5-8814-80bc3b673ac9" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="c7ee508a-bcb7-4ba4-a768-c80825100e17" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="121000d5-72db-4976-8422-69375253dabc" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="15a7f8b5-cd0b-412d-8ae4-3423d6fa5a1b" xml:space="preserve">
+          <source>Oracle WebLogic Server 11g Standard Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle WebLogic Server 11g Standard Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="b95e17af-8fdc-4ae7-9ff7-0c35799a4bc1" xml:space="preserve">
+          <source>Oracle WebLogic Server http://www.oracle.com/weblogicserver 11g Standard Edition (10.3.6) is a leading Java application server for enterprises of all sizes, providing developers with the tool...</source>
+          <target state="new">Oracle WebLogic Server http://www.oracle.com/weblogicserver 11g Standard Edition (10.3.6) is a leading Java application server for enterprises of all sizes, providing developers with the tool...</target>
+        </trans-unit>
+        <trans-unit id="858e5793-9c73-4838-9d55-d2fe929b2315" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="c02a1ebb-2eda-44cb-b797-8e98ce62e34c" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="1f229727-0f20-4d36-8f46-39b5d8eca6e0" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="9eabcbd4-3252-464e-b61b-0cc95edc426b" xml:space="preserve">
+          <source>Oracle WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="98b9fe70-4b9c-49df-a4c2-ca4b94d41300" xml:space="preserve">
+          <source>Oracle WebLogic Server http://www.oracle.com/weblogicserver 11g Enterprise Edition (10.3.6) is a leading Java application server for modern data centers.</source>
+          <target state="new">Oracle WebLogic Server http://www.oracle.com/weblogicserver 11g Enterprise Edition (10.3.6) is a leading Java application server for modern data centers.</target>
+        </trans-unit>
+        <trans-unit id="dfc6da12-06d7-4eca-bf3a-4d54c0de3658" xml:space="preserve">
+          <source>It takes full advantage of the latest...</source>
+          <target state="new">It takes full advantage of the latest...</target>
+        </trans-unit>
+        <trans-unit id="a7d783b4-8331-464a-8b9c-9b9e990fd377" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="41b1101a-1c75-424d-b783-e03fba0fe4d4" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="2ce9d028-88ee-4682-adf7-cd5c6a4d70c4" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="439644b1-10b4-4b08-ba21-75071c46b8f0" xml:space="preserve">
+          <source>Oracle WebLogic Server 12c Standard Edition on Windows Server 2012</source>
+          <target state="new">Oracle WebLogic Server 12c Standard Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="06499217-7080-46f8-a763-e6e72e57e019" xml:space="preserve">
+          <source>Oracle WebLogic Server http://www.oracle.com/weblogicserver 12c Standard Edition (12.1.2.0) is a leading Java EE application server, delivering next-generation applications on a mission-criti...</source>
+          <target state="new">Oracle WebLogic Server http://www.oracle.com/weblogicserver 12c Standard Edition (12.1.2.0) is a leading Java EE application server, delivering next-generation applications on a mission-criti...</target>
+        </trans-unit>
+        <trans-unit id="e1b6a827-f7c5-491c-8537-7b958cc85e45" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="b1e33d2e-09a2-4473-ae6c-1e90f1ddbf8b" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="03221a1b-739c-450c-b850-eb8a9d836a3a" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="c5dda22d-32e6-418b-8a21-35716166d744" xml:space="preserve">
+          <source>Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012</source>
+          <target state="new">Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="593ba9ec-2ff2-422f-a725-cd223335954f" xml:space="preserve">
+          <source>Oracle WebLogic Server http://www.oracle.com/weblogicserver 12c Enterprise Edition (12.1.2.0) is a leading Java EE application server, delivering next-generation applications on a mission-cri...</source>
+          <target state="new">Oracle WebLogic Server http://www.oracle.com/weblogicserver 12c Enterprise Edition (12.1.2.0) is a leading Java EE application server, delivering next-generation applications on a mission-cri...</target>
+        </trans-unit>
+        <trans-unit id="16a0e81d-11dc-4b62-9337-00a01a6e6a3e" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="0e0acf7e-c12e-4914-8f3b-22560fba3277" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="95d0a7b6-63c7-4d4a-a99a-e6418dc6b2ed" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="c69d0f91-fd5b-445d-9d11-d5041ef4256a" xml:space="preserve">
+          <source>Oracle Database 12c and WebLogic Server 12c Standard Edition on Windows Server 2012</source>
+          <target state="new">Oracle Database 12c and WebLogic Server 12c Standard Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="b03fe58b-f5b6-47ba-ac6e-04d2b4d0b6be" xml:space="preserve">
+          <source>Oracle Database http://www.oracle.com/database 12c Standard Edition (12.1.0.1.0) is an affordable, full-featured data management solution that is ideal for midsize companies.</source>
+          <target state="new">Oracle Database http://www.oracle.com/database 12c Standard Edition (12.1.0.1.0) is an affordable, full-featured data management solution that is ideal for midsize companies.</target>
+        </trans-unit>
+        <trans-unit id="09ffcffb-5806-46ac-af40-8ca53b8fee66" xml:space="preserve">
+          <source>Oracle WebLogic...</source>
+          <target state="new">Oracle WebLogic...</target>
+        </trans-unit>
+        <trans-unit id="d5b1befa-adc0-4cad-a813-9cd673b633d0" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="eaf8e08f-53e3-4f69-89e7-c4fca62cbdf7" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="c7c49b83-067c-40f5-accc-625306665fb8" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="c2347c9a-38f2-4d7c-a62b-a3e762764383" xml:space="preserve">
+          <source>Oracle Database 12c and WebLogic Server 12c Enterprise Edition on Windows Server 2012</source>
+          <target state="new">Oracle Database 12c and WebLogic Server 12c Enterprise Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="bdc6d513-9b6b-45ee-9c28-7760c258fc65" xml:space="preserve">
+          <source>Oracle Database http://www.oracle.com/database 12c Enterprise Edition (12.1.0.1.0) is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a f...</source>
+          <target state="new">Oracle Database http://www.oracle.com/database 12c Enterprise Edition (12.1.0.1.0) is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a f...</target>
+        </trans-unit>
+        <trans-unit id="eb464df7-9671-40fd-9f9b-c51bb0ccdbba" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="9578d04e-4b3c-479e-a618-898421be75a5" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="a5c2adf6-2213-403e-a61d-61df7e5fe7aa" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="aba8b299-9a6b-413e-a006-bc3741715263" xml:space="preserve">
+          <source>JDK 6 on Windows Server 2012</source>
+          <target state="new">JDK 6 on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="08c246dc-1e5d-441f-90af-0dc0887b9eb2" xml:space="preserve">
+          <source>Java Platform http://www.oracle.com/java, Standard Edition 6 (update 85) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java...</source>
+          <target state="new">Java Platform http://www.oracle.com/java, Standard Edition 6 (update 85) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java...</target>
+        </trans-unit>
+        <trans-unit id="5cc3b95e-061a-4db9-a484-017fdc8ee54d" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="afb1b50d-3094-453f-a038-484ee8ddeccf" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="d465c461-f1f1-466d-8aeb-978b465294ff" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="c9966e46-889d-46eb-8c93-6fe3d1a8d563" xml:space="preserve">
+          <source>Oracle Database 12c Enterprise Edition on Windows Server 2012</source>
+          <target state="new">Oracle Database 12c Enterprise Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="de03f523-0bab-43e4-bcee-f339f94fa7a0" xml:space="preserve">
+          <source>Oracle Database http://www.oracle.com/database 12c Enterprise Edition (12.1.0.1.0) is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a f...</source>
+          <target state="new">Oracle Database http://www.oracle.com/database 12c Enterprise Edition (12.1.0.1.0) is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a f...</target>
+        </trans-unit>
+        <trans-unit id="5cd06b06-9d62-448f-81b8-d9cd71898fb3" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="f98a170c-a92d-4861-b0a1-c39c0bb4322a" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="144d20ed-73a8-41c2-90d2-a9f22ff55bcb" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="f39c4541-5805-4802-ba82-adaa5f822ba3" xml:space="preserve">
+          <source>Oracle Database 11g R2 and WebLogic Server 11g Standard Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle Database 11g R2 and WebLogic Server 11g Standard Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="473df724-f86c-4fae-93c9-2f896bbe50fb" xml:space="preserve">
+          <source>Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) is an affordable, full-featured data management solution that is ideal for midsize companies.</source>
+          <target state="new">Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) is an affordable, full-featured data management solution that is ideal for midsize companies.</target>
+        </trans-unit>
+        <trans-unit id="36f85084-e0a6-49ac-b603-b53d74f22857" xml:space="preserve">
+          <source>Oracle WebLo...</source>
+          <target state="new">Oracle WebLo...</target>
+        </trans-unit>
+        <trans-unit id="b1fcfc91-e037-4f41-b2b4-99c89a2dcec3" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="2df0c030-f119-4188-b796-bfebe9f3370d" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="7c7cc258-08f1-4ff3-8479-8d9120f28e40" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="f2d2c094-bdbd-481f-bcd6-e77bffd67a54" xml:space="preserve">
+          <source>Oracle Database 11g R2 and WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle Database 11g R2 and WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="7268c534-bdd8-4bd8-921c-37ce41413c2d" xml:space="preserve">
+          <source>Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) provides comprehensive features to easily manage the most demanding transaction processing, business inte...</source>
+          <target state="new">Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) provides comprehensive features to easily manage the most demanding transaction processing, business inte...</target>
+        </trans-unit>
+        <trans-unit id="df16fab5-2c2b-4d35-b332-b7cc0aec935e" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="a1b19230-a4bd-4fd4-94fd-1df31dcd877e" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="5d395594-a7ea-4945-9278-061ab0674f05" xml:space="preserve">
+          <source>Microsoft Open Technologies, Inc.</source>
+          <target state="new">Microsoft Open Technologies, Inc.</target>
+        </trans-unit>
+        <trans-unit id="d498188b-911f-4570-a891-940c6b7276ad" xml:space="preserve">
+          <source>Oracle Database 11g R2 Standard Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle Database 11g R2 Standard Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="f53742b0-5ecd-4325-b2b6-b6f27a2ad161" xml:space="preserve">
+          <source>Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) is an affordable, full-featured data management solution that is ideal for midsize companies.</source>
+          <target state="new">Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) is an affordable, full-featured data management solution that is ideal for midsize companies.</target>
+        </trans-unit>
+        <trans-unit id="d2230923-b4e7-4d9f-be35-feadbba40125" xml:space="preserve">
+          <source>Minimum recom...</source>
+          <target state="new">Minimum recom...</target>
+        </trans-unit>
+        <trans-unit id="5a47c819-5bd9-4462-96df-9051e5573c9c" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="e3831746-b086-4760-a30b-593b4f8f84a9" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="7a93857f-6bcd-4419-b25d-41e35b576dce" xml:space="preserve">
+          <source>Microsoft SQL Server Group</source>
+          <target state="new">Microsoft SQL Server Group</target>
+        </trans-unit>
+        <trans-unit id="90fc1925-085e-4367-b6e9-3cc272bd24ad" xml:space="preserve">
+          <source>SQL Server 2014 RTM Enterprise on Windows Server 2012 R2</source>
+          <target state="new">SQL Server 2014 RTM Enterprise on Windows Server 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="274835a4-122f-468d-9bd1-eacb5c92ab8d" xml:space="preserve">
+          <source>This image contains the full version of SQL Server.</source>
+          <target state="new">This image contains the full version of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="0fa3f06f-ea52-4b9d-8c5a-3a9f7994181a" xml:space="preserve">
+          <source>We recommend that you use a virtual machine size of A3 or higher.</source>
+          <target state="new">We recommend that you use a virtual machine size of A3 or higher.</target>
+        </trans-unit>
+        <trans-unit id="7a814fae-7f38-4c41-aca1-70b3d1323656" xml:space="preserve">
+          <source>This image has been pre-configured for Azure, including enabling CEIP whic...</source>
+          <target state="new">This image has been pre-configured for Azure, including enabling CEIP whic...</target>
+        </trans-unit>
+        <trans-unit id="639abea0-d1e0-4b40-a37e-03ad98899995" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="0745974b-f291-4bd4-a09a-bfc23dddf799" xml:space="preserve">
+          <source>127 GB</source>
+          <target state="new">127 GB</target>
+        </trans-unit>
+        <trans-unit id="8bdeca2b-702b-4f61-998b-285b1ffaca3d" xml:space="preserve">
+          <source>Microsoft SQL Server Group</source>
+          <target state="new">Microsoft SQL Server Group</target>
+        </trans-unit>
+        <trans-unit id="cabddd53-706a-4a3a-ad3e-f459d61f079f" xml:space="preserve">
+          <source>SQL Server 2012 SP2 Enterprise on Windows Server 2012</source>
+          <target state="new">SQL Server 2012 SP2 Enterprise on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="1760cc9e-8f4e-4a5b-8b97-3970395690a6" xml:space="preserve">
+          <source>This image contains the full version of SQL Server.</source>
+          <target state="new">This image contains the full version of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="3d570790-270e-410a-ad30-b28fd562fa3e" xml:space="preserve">
+          <source>Some SQL Server components require additional setup and configuration before use.</source>
+          <target state="new">Some SQL Server components require additional setup and configuration before use.</target>
+        </trans-unit>
+        <trans-unit id="3179875f-4a3b-4c1f-86c2-0d7ed3b9ec10" xml:space="preserve">
+          <source>We recommend that you use a virtual machine size of A3 or higher.</source>
+          <target state="new">We recommend that you use a virtual machine size of A3 or higher.</target>
+        </trans-unit>
+        <trans-unit id="2e536c8d-a412-491d-a4f3-7e8c87807b61" xml:space="preserve">
+          <source>...</source>
+          <target state="new">...</target>
+        </trans-unit>
+        <trans-unit id="b732d73b-b5e7-4d80-bde0-8a08a7caccd8" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="218545c5-ba7a-4ac9-a5cb-bf967c41e039" xml:space="preserve">
+          <source>127 GB</source>
+          <target state="new">127 GB</target>
+        </trans-unit>
+        <trans-unit id="c877e630-c2fa-47a8-812b-d2f2cdabb61a" xml:space="preserve">
+          <source>Microsoft SQL Server Group</source>
+          <target state="new">Microsoft SQL Server Group</target>
+        </trans-unit>
+        <trans-unit id="dae136d9-337d-42e5-a912-6741af263a40" xml:space="preserve">
+          <source>SQL Server 2014 RTM Enterprise on Windows Server 2012 R2</source>
+          <target state="new">SQL Server 2014 RTM Enterprise on Windows Server 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="9af60032-4bd1-404c-87a7-6f13f696f361" xml:space="preserve">
+          <source>This image contains the full version of SQL Server.</source>
+          <target state="new">This image contains the full version of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="93292483-9919-4ad7-b1af-46ae5ec3c4f6" xml:space="preserve">
+          <source>We recommend that you use a virtual machine size of A3 or higher.</source>
+          <target state="new">We recommend that you use a virtual machine size of A3 or higher.</target>
+        </trans-unit>
+        <trans-unit id="86de987c-ce54-4801-9356-d9f844013f8c" xml:space="preserve">
+          <source>This image has been pre-configured for Azure, including enabling CEIP whic...</source>
+          <target state="new">This image has been pre-configured for Azure, including enabling CEIP whic...</target>
+        </trans-unit>
+        <trans-unit id="4adc743e-d769-4a7a-9984-8e1b83f14107" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="3df111bf-352c-4c36-ac4a-cb487b7c079b" xml:space="preserve">
+          <source>127 GB</source>
+          <target state="new">127 GB</target>
+        </trans-unit>
+        <trans-unit id="8908786a-eade-42ec-89f9-9d28fb2acc1a" xml:space="preserve">
+          <source>Microsoft SQL Server Group</source>
+          <target state="new">Microsoft SQL Server Group</target>
+        </trans-unit>
+        <trans-unit id="d352ddde-dbe8-415b-a905-3fa41f7bd507" xml:space="preserve">
+          <source>SQL Server 2014 RTM Standard on Windows Server 2012 R2</source>
+          <target state="new">SQL Server 2014 RTM Standard on Windows Server 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="3f689f28-b296-42f2-88d4-0edc83872968" xml:space="preserve">
+          <source>This image contains the full version of SQL Server.</source>
+          <target state="new">This image contains the full version of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="d23e03d6-a6c3-4f2d-91e4-2eec0b7ce3c8" xml:space="preserve">
+          <source>We recommend that you use a virtual machine size of A2 or higher.</source>
+          <target state="new">We recommend that you use a virtual machine size of A2 or higher.</target>
+        </trans-unit>
+        <trans-unit id="5f7af9fd-5c48-443c-899c-f47dc304564c" xml:space="preserve">
+          <source>This image has been pre-configured for Azure, including enabling CEIP whic...</source>
+          <target state="new">This image has been pre-configured for Azure, including enabling CEIP whic...</target>
+        </trans-unit>
+        <trans-unit id="f2c5b136-d8ee-47dd-8ee4-7a2c0d5da0e4" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="a8a8b3b0-b50f-494c-91ef-deafafaef44f" xml:space="preserve">
+          <source>127 GB</source>
+          <target state="new">127 GB</target>
+        </trans-unit>
+        <trans-unit id="3acd8bdb-b45a-4400-a311-e77315c79577" xml:space="preserve">
+          <source>Microsoft SQL Server Group</source>
+          <target state="new">Microsoft SQL Server Group</target>
+        </trans-unit>
+        <trans-unit id="d43c7542-b61c-41f5-bb56-b0518c8640d6" xml:space="preserve">
+          <source>SQL Server 2012 SP2 Standard on Windows Server 2012</source>
+          <target state="new">SQL Server 2012 SP2 Standard on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="38a6ae47-94a8-4509-bc84-26493db9b04a" xml:space="preserve">
+          <source>Some SQL Server components require additional setup and configuration before use.</source>
+          <target state="new">Some SQL Server components require additional setup and configuration before use.</target>
+        </trans-unit>
+        <trans-unit id="561317a6-b94d-45b4-bea8-2c968b9ac037" xml:space="preserve">
+          <source>We recommend that you use a virtual machine size of A2 or higher.</source>
+          <target state="new">We recommend that you use a virtual machine size of A2 or higher.</target>
+        </trans-unit>
+        <trans-unit id="0c5c2343-8dc9-47e9-aaa6-4dbc89122e18" xml:space="preserve">
+          <source>This image has been pre-configured for Azure...</source>
+          <target state="new">This image has been pre-configured for Azure...</target>
+        </trans-unit>
+        <trans-unit id="21287892-3b10-420f-b35b-66ff3026f151" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="e783147c-7931-4cd5-89b6-bf3f73878ae6" xml:space="preserve">
+          <source>127 GB</source>
+          <target state="new">127 GB</target>
+        </trans-unit>
+        <trans-unit id="ef4b1b37-420d-43b5-8d83-c64b9e21edb5" xml:space="preserve">
+          <source>Microsoft SQL Server Group</source>
+          <target state="new">Microsoft SQL Server Group</target>
+        </trans-unit>
+        <trans-unit id="5ed9533e-84cb-45e4-a631-12ebed1bb6f2" xml:space="preserve">
+          <source>SQL Server 2014 RTM Standard on Windows Server 2012 R2</source>
+          <target state="new">SQL Server 2014 RTM Standard on Windows Server 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="9aa37df8-b55d-4a0b-9784-8c3b409c6e2a" xml:space="preserve">
+          <source>This image contains the full version of SQL Server.</source>
+          <target state="new">This image contains the full version of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="48b486fa-c173-4f81-a366-480c4da22a2d" xml:space="preserve">
+          <source>We recommend that you use a virtual machine size of A2 or higher.</source>
+          <target state="new">We recommend that you use a virtual machine size of A2 or higher.</target>
+        </trans-unit>
+        <trans-unit id="47cc9ee4-1046-4dae-9291-9bfc249f09cc" xml:space="preserve">
+          <source>This image has been pre-configured for Azure, including enabling CEIP whic...</source>
+          <target state="new">This image has been pre-configured for Azure, including enabling CEIP whic...</target>
+        </trans-unit>
+        <trans-unit id="9880e72d-55cf-4ee7-bbb8-066348974a8e" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="a93aa917-6299-4e68-ae49-850218bdee38" xml:space="preserve">
+          <source>127 GB</source>
+          <target state="new">127 GB</target>
+        </trans-unit>
+        <trans-unit id="6ad5c2d1-5d19-49c3-b0a7-66c777de8aca" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="822433eb-1863-4bec-af9c-0009b0007002" xml:space="preserve">
+          <source>Windows Server 2012 R2 Datacenter, June 2014</source>
+          <target state="new">Windows Server 2012 R2 Datacenter, June 2014</target>
+        </trans-unit>
+        <trans-unit id="a2f1fddf-cdd5-4eb5-a6b4-9f93d92e8bee" xml:space="preserve">
+          <source>At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure.</source>
+          <target state="new">At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="04531360-81e4-4c30-983a-51813e169928" xml:space="preserve">
+          <source>It offers enterprise-class performa...</source>
+          <target state="new">It offers enterprise-class performa...</target>
+        </trans-unit>
+        <trans-unit id="8c3ed9cf-5d0c-4d41-8738-589d8f6bc8d2" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="7ff0f769-65c7-408f-92fe-06b708f7b631" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="6fcaf942-08fe-46e0-8f50-432996f33bc3" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="a0661532-ab72-4be1-8252-f07cf6f08e0b" xml:space="preserve">
+          <source>Windows Server 2012 Datacenter, June 2014</source>
+          <target state="new">Windows Server 2012 Datacenter, June 2014</target>
+        </trans-unit>
+        <trans-unit id="18e12970-e49b-4ac3-be7c-d3e2e8eee470" xml:space="preserve">
+          <source>Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform.</source>
+          <target state="new">Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform.</target>
+        </trans-unit>
+        <trans-unit id="7b61b1a4-5b95-4599-b965-7bdccb53aa20" xml:space="preserve">
+          <source>It offers a scalable, dynamic and multi-tenant-a...</source>
+          <target state="new">It offers a scalable, dynamic and multi-tenant-a...</target>
+        </trans-unit>
+        <trans-unit id="245a12bc-2258-43b1-a5b6-a9b3bdd8e53c" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="1ce6735a-319b-4ed1-abca-db8bc9f33f04" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="c9aa9a06-88ea-4bc3-9175-e0543dbd355a" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="27190325-2018-4562-89f9-8dfdfdccf335" xml:space="preserve">
+          <source>Windows Server 2008 R2 SP1, June 2014</source>
+          <target state="new">Windows Server 2008 R2 SP1, June 2014</target>
+        </trans-unit>
+        <trans-unit id="358e96ce-2e7c-4a91-ab82-8e39fabe7933" xml:space="preserve">
+          <source>Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.</source>
+          <target state="new">Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.</target>
+        </trans-unit>
+        <trans-unit id="67e4595e-0302-4753-985c-653516bd0c3e" xml:space="preserve">
+          <source>It pro...</source>
+          <target state="new">It pro...</target>
+        </trans-unit>
+        <trans-unit id="ac096a96-71e5-4e86-94e1-7816fc40f6b8" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="0fdc682a-92a0-4e64-84a5-39f104160c41" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="ea9defc8-c818-43d4-bc6b-942af075cb9e" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="ecea7cfa-3b17-46e4-b5d6-3ed8eee7d3e9" xml:space="preserve">
+          <source>Windows Server 2008 R2 SP1, September 2014</source>
+          <target state="new">Windows Server 2008 R2 SP1, September 2014</target>
+        </trans-unit>
+        <trans-unit id="22c13bc2-9c77-4511-8941-951d337b890f" xml:space="preserve">
+          <source>Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.</source>
+          <target state="new">Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.</target>
+        </trans-unit>
+        <trans-unit id="ed40b7cc-0864-4583-b161-ed4603c43d4e" xml:space="preserve">
+          <source>It pro...</source>
+          <target state="new">It pro...</target>
+        </trans-unit>
+        <trans-unit id="f09a0d78-d479-4c2b-9ca5-f6a0a858c3bb" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="0b99761b-1715-48d7-872b-218248461e1d" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="50733516-0494-4f3d-9bd0-710f3397b973" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="fe0a905f-9887-4b9f-a020-d39e3402d210" xml:space="preserve">
+          <source>Windows Server 2008 R2 SP1, October 2014</source>
+          <target state="new">Windows Server 2008 R2 SP1, October 2014</target>
+        </trans-unit>
+        <trans-unit id="45b56c5c-717d-4e8d-a6b1-9004677317c8" xml:space="preserve">
+          <source>Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.</source>
+          <target state="new">Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.</target>
+        </trans-unit>
+        <trans-unit id="b7e339be-dc7b-4d80-84ef-cf495f1a76d2" xml:space="preserve">
+          <source>It pro...</source>
+          <target state="new">It pro...</target>
+        </trans-unit>
+        <trans-unit id="95ff560a-4655-46f2-ae33-8ffea8d3432c" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="3379a176-505c-4d99-b637-3f3fbba00111" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="190401fa-0d0d-4a1a-a064-73fa90281b35" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="44a34ac7-7760-4b4e-a372-f8b9a3e31b48" xml:space="preserve">
+          <source>Windows Server 2008 R2 SP1, November 2014</source>
+          <target state="new">Windows Server 2008 R2 SP1, November 2014</target>
+        </trans-unit>
+        <trans-unit id="f2c4f52b-e2bf-49c1-bd7a-d6b7681fc2f4" xml:space="preserve">
+          <source>Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.</source>
+          <target state="new">Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.</target>
+        </trans-unit>
+        <trans-unit id="54fb69d9-d14c-448f-9625-fcfb3c71deeb" xml:space="preserve">
+          <source>It pro...</source>
+          <target state="new">It pro...</target>
+        </trans-unit>
+        <trans-unit id="1b181e2f-81d1-461e-876a-387382a7a274" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="596bc0cb-c84b-4443-b112-c847b848441e" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="6a0f2fda-2cea-4e8f-ba26-c2ba65f4ffe2" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="b3d3bb3e-801d-4b88-8197-2049478ecddf" xml:space="preserve">
+          <source>Windows Server 2008 R2 SP1, April 2015</source>
+          <target state="new">Windows Server 2008 R2 SP1, April 2015</target>
+        </trans-unit>
+        <trans-unit id="6b90651f-dbad-476b-b682-b763a7dcd298" xml:space="preserve">
+          <source>Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.</source>
+          <target state="new">Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.</target>
+        </trans-unit>
+        <trans-unit id="05da053d-389e-4b1e-b57f-bcfe10a81717" xml:space="preserve">
+          <source>It pro...</source>
+          <target state="new">It pro...</target>
+        </trans-unit>
+        <trans-unit id="4d5b5a0b-e857-4f42-869f-7c72e0143e6a" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="672ecc0c-9bdd-4af5-bdff-a49d445a6c37" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="53973a2f-57bf-4d2d-abb2-e8e61d3bdeb0" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="9cea1b41-735e-46ad-805d-7e8fb3d59d43" xml:space="preserve">
+          <source>Windows Server 2012 Datacenter, September 2014</source>
+          <target state="new">Windows Server 2012 Datacenter, September 2014</target>
+        </trans-unit>
+        <trans-unit id="6c6ee11f-f3d9-44f5-ad02-6a42492f2646" xml:space="preserve">
+          <source>Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform.</source>
+          <target state="new">Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform.</target>
+        </trans-unit>
+        <trans-unit id="a92db925-be17-4103-93d5-cb3b913aa70a" xml:space="preserve">
+          <source>It offers a scalable, dynamic and multi-tenant-a...</source>
+          <target state="new">It offers a scalable, dynamic and multi-tenant-a...</target>
+        </trans-unit>
+        <trans-unit id="8d82fb6a-64a9-4beb-b45a-98a9f7dcc143" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="0352d6eb-cfb5-426a-b7ee-1c686ffe6b67" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="89556f79-0f83-47c7-a726-35cff1ba2ebe" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="0c79250c-5215-4e7d-8496-4a9ca605f045" xml:space="preserve">
+          <source>Windows Server 2012 Datacenter, November 2014</source>
+          <target state="new">Windows Server 2012 Datacenter, November 2014</target>
+        </trans-unit>
+        <trans-unit id="bde92d75-8f7e-4410-b6b4-3ebe78f94e0b" xml:space="preserve">
+          <source>Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform.</source>
+          <target state="new">Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform.</target>
+        </trans-unit>
+        <trans-unit id="9f8e3da8-5953-4a3e-9ded-805597b8a231" xml:space="preserve">
+          <source>It offers a scalable, dynamic and multi-tenant-a...</source>
+          <target state="new">It offers a scalable, dynamic and multi-tenant-a...</target>
+        </trans-unit>
+        <trans-unit id="c9048331-36ae-4883-85ec-9c51fa0d3cd6" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="3ac6ee2e-71e5-456b-bfc7-e3b515eb4c18" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="b99cc394-c09a-4a88-b588-ef4da3cfd08c" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="f467493f-e00c-47e8-9471-9d01533599a4" xml:space="preserve">
+          <source>Windows Server 2012 Datacenter, October 2014</source>
+          <target state="new">Windows Server 2012 Datacenter, October 2014</target>
+        </trans-unit>
+        <trans-unit id="c53ed24e-7eee-450b-9b36-f39a9613a904" xml:space="preserve">
+          <source>Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform.</source>
+          <target state="new">Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform.</target>
+        </trans-unit>
+        <trans-unit id="4c05ef32-3038-419e-9107-895e22bf9531" xml:space="preserve">
+          <source>It offers a scalable, dynamic and multi-tenant-a...</source>
+          <target state="new">It offers a scalable, dynamic and multi-tenant-a...</target>
+        </trans-unit>
+        <trans-unit id="fdc724fd-a49d-4755-a1f9-ddc94432135c" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="1b343c46-bf52-418a-a3d8-a67d5b20a09d" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="e042a6d5-5895-4b4d-9ca7-874ec515f25e" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="cf01d4cb-d768-4008-be8b-dcc4d97873af" xml:space="preserve">
+          <source>Windows Server 2012 R2 Datacenter, September 2014</source>
+          <target state="new">Windows Server 2012 R2 Datacenter, September 2014</target>
+        </trans-unit>
+        <trans-unit id="d713f3ca-52b7-4d36-93d0-d53a0100f2d0" xml:space="preserve">
+          <source>At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure.</source>
+          <target state="new">At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="bf9ee98c-1a4b-4dce-9751-dcd3230fdef6" xml:space="preserve">
+          <source>It offers enterprise-class performa...</source>
+          <target state="new">It offers enterprise-class performa...</target>
+        </trans-unit>
+        <trans-unit id="eda729a6-8f8e-41c2-abda-d22e88236bb0" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="880c8e20-e85c-4c42-8bc6-0ae607411d7f" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="701e2a73-aebd-40c0-87fc-427bba82068f" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="b8baddd2-d0e8-46c8-9ed4-3a55d4529a09" xml:space="preserve">
+          <source>Windows Server 2012 R2 Datacenter, October 2014</source>
+          <target state="new">Windows Server 2012 R2 Datacenter, October 2014</target>
+        </trans-unit>
+        <trans-unit id="3a389c2c-bcab-4d81-9961-2363050a662d" xml:space="preserve">
+          <source>At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure.</source>
+          <target state="new">At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="10e0f2a1-17bd-4d6b-89ff-b39f3a338808" xml:space="preserve">
+          <source>It offers enterprise-class performa...</source>
+          <target state="new">It offers enterprise-class performa...</target>
+        </trans-unit>
+        <trans-unit id="a52fcc8f-b4c6-4167-9252-0011a19f63f9" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="54576267-84ee-4096-902f-0c957cfb4fe1" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="a7715b84-74f4-4f3c-9878-955f33afff40" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="c7ef1518-4802-440c-adba-382762273939" xml:space="preserve">
+          <source>Windows Server 2012 R2 Datacenter, November 2014</source>
+          <target state="new">Windows Server 2012 R2 Datacenter, November 2014</target>
+        </trans-unit>
+        <trans-unit id="9d6593bc-b19e-4f41-ae4b-a0adb213c4d7" xml:space="preserve">
+          <source>At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure.</source>
+          <target state="new">At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="211dfac4-8697-4cd6-99cf-123298052e42" xml:space="preserve">
+          <source>It offers enterprise-class performa...</source>
+          <target state="new">It offers enterprise-class performa...</target>
+        </trans-unit>
+        <trans-unit id="3fc0f863-5d2f-4989-bf8a-fc1a492df1f1" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="53bafeef-afb6-485c-b479-4d05da9c2f2c" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="1e35de8c-ce2f-4ba6-ad5b-c5d5115d408a" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="d2d890ee-6c50-4488-a24c-bd8c5a095bc3" xml:space="preserve">
+          <source>Windows Server 2012 R2 Datacenter, April 2015</source>
+          <target state="new">Windows Server 2012 R2 Datacenter, April 2015</target>
+        </trans-unit>
+        <trans-unit id="cc7ad23d-58ff-4a6f-9cde-9002218d77a1" xml:space="preserve">
+          <source>At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure.</source>
+          <target state="new">At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="818a4c8b-e121-428d-b846-ffdf1452cf24" xml:space="preserve">
+          <source>It offers enterprise-class performa...</source>
+          <target state="new">It offers enterprise-class performa...</target>
+        </trans-unit>
+        <trans-unit id="91bafd2d-2960-4246-98d2-122422027c6f" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="ba470908-0b95-4476-9e15-a7f74bce2854" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="27a5aa1a-127a-459b-b23a-4783ba99c4b1" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="cb3c520f-fec3-4891-92bb-9585eedeed6d" xml:space="preserve">
+          <source>Windows Server Technical Preview</source>
+          <target state="new">Windows Server Technical Preview</target>
+        </trans-unit>
+        <trans-unit id="73bce848-edd0-49be-ac5c-61a53dd617c3" xml:space="preserve">
+          <source>At the heart of the Microsoft Cloud Platform, Windows Server brings the breadth and depth of Microsoft’s experience delivering global-scale cloud services to your datacenter infrastructure.</source>
+          <target state="new">At the heart of the Microsoft Cloud Platform, Windows Server brings the breadth and depth of Microsoft’s experience delivering global-scale cloud services to your datacenter infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="743e1551-a256-49b3-851a-a64c26ec7c06" xml:space="preserve">
+          <source>Windows S...</source>
+          <target state="new">Windows S...</target>
+        </trans-unit>
+        <trans-unit id="2eda586f-19b5-433e-8049-541c2d4c2c9d" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="66456ff0-9930-4c23-99ba-be552f61bc18" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="46df767a-955a-40b1-a35c-5c8d0f32e05f" xml:space="preserve">
+          <source>Microsoft Windows Server Group</source>
+          <target state="new">Microsoft Windows Server Group</target>
+        </trans-unit>
+        <trans-unit id="1179f7ea-5615-432c-9f22-0b6adb702068" xml:space="preserve">
+          <source>Windows Server 2012 Datacenter, April 2015</source>
+          <target state="new">Windows Server 2012 Datacenter, April 2015</target>
+        </trans-unit>
+        <trans-unit id="a0ea6503-ca50-4524-91b1-be857c7589f0" xml:space="preserve">
+          <source>Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform.</source>
+          <target state="new">Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform.</target>
+        </trans-unit>
+        <trans-unit id="bfaf2d8a-04ab-4a2a-879d-6434fd96d558" xml:space="preserve">
+          <source>It offers a scalable, dynamic and multi-tenant-a...</source>
+          <target state="new">It offers a scalable, dynamic and multi-tenant-a...</target>
+        </trans-unit>
+        <trans-unit id="b8264b80-b331-4c10-bca0-4987352213dc" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="307b1cb0-3e20-42a6-a09b-59255e1de17f" xml:space="preserve">
+          <source>128 GB</source>
+          <target state="new">128 GB</target>
+        </trans-unit>
+        <trans-unit id="62996906-ab33-42ee-a598-c926b773cce8" xml:space="preserve">
+          <source>Oracle</source>
+          <target state="new">Oracle</target>
+        </trans-unit>
+        <trans-unit id="641d5e9b-76ef-4afb-8d9c-e6a6226805b7" xml:space="preserve">
+          <source>Oracle WebLogic Server 12.1.2 on Oracle Linux 6.4.0.0.0</source>
+          <target state="new">Oracle WebLogic Server 12.1.2 on Oracle Linux 6.4.0.0.0</target>
+        </trans-unit>
+        <trans-unit id="62e56d79-a23c-4624-bb60-72e2ef14f2c3" xml:space="preserve">
+          <source>Oracle WebLogic Server 12c Enterprise Edition is a leading Java EE application server, delivering next-generation applications on a mission-critical cloud platform, with native cloud management, and i...</source>
+          <target state="new">Oracle WebLogic Server 12c Enterprise Edition is a leading Java EE application server, delivering next-generation applications on a mission-critical cloud platform, with native cloud management, and i...</target>
+        </trans-unit>
+        <trans-unit id="1c4db534-94d6-4daa-b539-540e6227a826" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="25806216-81e5-4488-9241-f06a368f9b1d" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="537b5099-f042-44c7-a630-40d9eb642853" xml:space="preserve">
+          <source>Oracle</source>
+          <target state="new">Oracle</target>
+        </trans-unit>
+        <trans-unit id="0cb19b22-defa-4eb1-879f-1f38ffcc70b5" xml:space="preserve">
+          <source>Oracle Linux 7.0.0.0.0</source>
+          <target state="new">Oracle Linux 7.0.0.0.0</target>
+        </trans-unit>
+        <trans-unit id="368866ef-00e2-4e75-8764-fde7ba9cb36c" xml:space="preserve">
+          <source>Oracle Linux 7.0.0.0 delivers extreme performance, advanced scalability, and reliability for enterprise applications and systems.</source>
+          <target state="new">Oracle Linux 7.0.0.0 delivers extreme performance, advanced scalability, and reliability for enterprise applications and systems.</target>
+        </trans-unit>
+        <trans-unit id="dc3a497c-d063-4325-9527-6eab600d7425" xml:space="preserve">
+          <source>Optimized for enterprise workloads, Oracle Linux is the only operating...</source>
+          <target state="new">Optimized for enterprise workloads, Oracle Linux is the only operating...</target>
+        </trans-unit>
+        <trans-unit id="e9b7bc59-76ff-45b8-a72c-3f661e4241fc" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="897e5490-05e8-4fa7-b961-e12d17cef403" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="4511614e-4ab6-4293-a717-9ec08c21fe02" xml:space="preserve">
+          <source>Oracle</source>
+          <target state="new">Oracle</target>
+        </trans-unit>
+        <trans-unit id="ba6945ba-50fb-4615-99ad-9729d222aca2" xml:space="preserve">
+          <source>Oracle Database 12.1.0.1 Enterprise Edition on Oracle Linux 6.4.0.0.0</source>
+          <target state="new">Oracle Database 12.1.0.1 Enterprise Edition on Oracle Linux 6.4.0.0.0</target>
+        </trans-unit>
+        <trans-unit id="fee1269c-5e19-4df9-8301-f81001832d93" xml:space="preserve">
+          <source>Oracle Database 12c Enterprise Edition is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a fast, scalable, reliable, and secure database platform...</source>
+          <target state="new">Oracle Database 12c Enterprise Edition is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a fast, scalable, reliable, and secure database platform...</target>
+        </trans-unit>
+        <trans-unit id="a8809049-aa53-4141-8139-490c0f8bb0c4" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="5977b56b-4d31-452e-971a-7ec935b91ad2" xml:space="preserve">
+          <source>40 GB</source>
+          <target state="new">40 GB</target>
+        </trans-unit>
+        <trans-unit id="2e7dc3b1-c526-43ff-843a-60bdf601674d" xml:space="preserve">
+          <source>Oracle</source>
+          <target state="new">Oracle</target>
+        </trans-unit>
+        <trans-unit id="2d0a3285-8bc9-48c0-a9d6-7aa0f622a73d" xml:space="preserve">
+          <source>Oracle Database 12.1.0.1 Standard Edition on Oracle Linux 6.4.0.0.0</source>
+          <target state="new">Oracle Database 12.1.0.1 Standard Edition on Oracle Linux 6.4.0.0.0</target>
+        </trans-unit>
+        <trans-unit id="4884c7f7-5df0-421b-9f85-b662457896c2" xml:space="preserve">
+          <source>Oracle Database 12c Standard Edition is an affordable, full-featured data management solution that is ideal for midsize companies.</source>
+          <target state="new">Oracle Database 12c Standard Edition is an affordable, full-featured data management solution that is ideal for midsize companies.</target>
+        </trans-unit>
+        <trans-unit id="03f55807-0d1e-42ef-a56f-3d495a125201" xml:space="preserve">
+          <source>More information can be found at http://www.oracle.com/database.</source>
+          <target state="new">More information can be found at http://www.oracle.com/database.</target>
+        </trans-unit>
+        <trans-unit id="f34f952d-7f09-45a4-8198-05f13fa843c1" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="ee4fa24d-b44e-4c36-bf32-a22ccd4a442f" xml:space="preserve">
+          <source>40 GB</source>
+          <target state="new">40 GB</target>
+        </trans-unit>
+        <trans-unit id="a19e6999-a915-43fb-80e7-c06db883f664" xml:space="preserve">
+          <source>SUSE</source>
+          <target state="new">SUSE</target>
+        </trans-unit>
+        <trans-unit id="55bfbb51-4c39-47ea-994b-6a2c478352ce" xml:space="preserve">
+          <source>SUSE Linux Enterprise Server 11 SP3</source>
+          <target state="new">SUSE Linux Enterprise Server 11 SP3</target>
+        </trans-unit>
+        <trans-unit id="179a075d-e986-4d9b-aa3e-6b2f79eefeea" xml:space="preserve">
+          <source>Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...</source>
+          <target state="new">Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...</target>
+        </trans-unit>
+        <trans-unit id="d84fe73c-8d39-4bcc-8eb6-51f9c7800e17" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="16dc61af-a0af-464c-8af4-dfe9f48fff31" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="71ae2e5a-0785-4f0c-96cf-9fbf9491d3c7" xml:space="preserve">
+          <source>SUSE</source>
+          <target state="new">SUSE</target>
+        </trans-unit>
+        <trans-unit id="dedfdf45-0a12-4e9d-ab07-974f4f6937f4" xml:space="preserve">
+          <source>SUSE Linux Enterprise Server 11 SP3 (Premium Image)</source>
+          <target state="new">SUSE Linux Enterprise Server 11 SP3 (Premium Image)</target>
+        </trans-unit>
+        <trans-unit id="e0f22fa3-754f-40b8-ab63-890eb4210b77" xml:space="preserve">
+          <source>Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...</source>
+          <target state="new">Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...</target>
+        </trans-unit>
+        <trans-unit id="7358b54d-201e-4902-84d4-8d34f3524c09" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="a01fd5a6-5664-426d-a92e-c26a54a92943" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="77a1ee47-bda6-4c3b-b9ae-f945b670cfc9" xml:space="preserve">
+          <source>SUSE</source>
+          <target state="new">SUSE</target>
+        </trans-unit>
+        <trans-unit id="eec7478f-eeca-479a-adb6-5c17f6d8ba6a" xml:space="preserve">
+          <source>SUSE Linux Enterprise Server 12 (Premium Image)</source>
+          <target state="new">SUSE Linux Enterprise Server 12 (Premium Image)</target>
+        </trans-unit>
+        <trans-unit id="e0d7c817-93fd-4df8-97db-c89ae9a45fdd" xml:space="preserve">
+          <source>Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...</source>
+          <target state="new">Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...</target>
+        </trans-unit>
+        <trans-unit id="19d461f8-d70c-4419-9fcc-a5e34b361f2b" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="9d2321f7-5fbb-4a1e-8a1a-38f528647d5b" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="d3e79238-ba54-4073-a734-7bc4912bb5a4" xml:space="preserve">
+          <source>SUSE</source>
+          <target state="new">SUSE</target>
+        </trans-unit>
+        <trans-unit id="55f7f308-da90-4cd1-b4d6-7723f2f7ff97" xml:space="preserve">
+          <source>SUSE Linux Enterprise Server 12</source>
+          <target state="new">SUSE Linux Enterprise Server 12</target>
+        </trans-unit>
+        <trans-unit id="665272df-2431-4d37-a6f3-b04ebba89183" xml:space="preserve">
+          <source>Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...</source>
+          <target state="new">Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...</target>
+        </trans-unit>
+        <trans-unit id="5537515e-c1e8-412e-a8a4-be83f5649b53" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="3822252d-2aa9-4235-b06c-0644d10f861e" xml:space="preserve">
+          <source>30 GB</source>
+          <target state="new">30 GB</target>
+        </trans-unit>
+        <trans-unit id="dbec32cf-6cb9-4d54-90bd-584950629dad" xml:space="preserve">
+          <source>The below resources should provide more information on deploying from the image gallery or creating your own VHD.</source>
+          <target state="new">The below resources should provide more information on deploying from the image gallery or creating your own VHD.</target>
+        </trans-unit>
+        <trans-unit id="17c8a03b-e350-4815-8858-767be1907b0c" xml:space="preserve">
+          <source>Please reference the &lt;a href="../azure-government-developer-guide"&gt;Azure Government Developer Guide&lt;/a&gt; to uncover an programmatic differences with endpoints when working with Azure Government.</source>
+          <target state="new">Please reference the &lt;a href="../azure-government-developer-guide"&gt;Azure Government Developer Guide&lt;/a&gt; to uncover an programmatic differences with endpoints when working with Azure Government.</target>
+        </trans-unit>
+        <trans-unit id="9a049b62-3827-40d8-ac96-cd5a8fbc6435" xml:space="preserve">
+          <source><bpt id="e7f5375e-7aa7-4c2a-881a-155bdd672a94">&lt;linkText&gt;</bpt>Deploying a Windows Virtual Machine<ept id="e7f5375e-7aa7-4c2a-881a-155bdd672a94">&lt;/linkText&gt;</ept><bpt id="e7f5375e-7aa7-4c2a-881a-155bdd672a94">&lt;title&gt;</bpt><ept id="e7f5375e-7aa7-4c2a-881a-155bdd672a94">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e7f5375e-7aa7-4c2a-881a-155bdd672a94">&lt;linkText&gt;</bpt>Deploying a Windows Virtual Machine<ept id="e7f5375e-7aa7-4c2a-881a-155bdd672a94">&lt;/linkText&gt;</ept><bpt id="e7f5375e-7aa7-4c2a-881a-155bdd672a94">&lt;title&gt;</bpt><ept id="e7f5375e-7aa7-4c2a-881a-155bdd672a94">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1b8faac-5822-4354-aef7-ac25a9fd4285" xml:space="preserve">
+          <source><bpt id="b0b179fa-0baa-4636-9059-d45331f14c88">&lt;linkText&gt;</bpt>Deploying a Linux Virtual Machine<ept id="b0b179fa-0baa-4636-9059-d45331f14c88">&lt;/linkText&gt;</ept><bpt id="b0b179fa-0baa-4636-9059-d45331f14c88">&lt;title&gt;</bpt><ept id="b0b179fa-0baa-4636-9059-d45331f14c88">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b0b179fa-0baa-4636-9059-d45331f14c88">&lt;linkText&gt;</bpt>Deploying a Linux Virtual Machine<ept id="b0b179fa-0baa-4636-9059-d45331f14c88">&lt;/linkText&gt;</ept><bpt id="b0b179fa-0baa-4636-9059-d45331f14c88">&lt;title&gt;</bpt><ept id="b0b179fa-0baa-4636-9059-d45331f14c88">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="070fa216-ff64-448e-8712-298a6967d6a6" xml:space="preserve">
+          <source><bpt id="ae72cc59-9fca-44e7-8a4e-d24aab41f630">&lt;linkText&gt;</bpt>Virtual Machine FAQ<ept id="ae72cc59-9fca-44e7-8a4e-d24aab41f630">&lt;/linkText&gt;</ept><bpt id="ae72cc59-9fca-44e7-8a4e-d24aab41f630">&lt;title&gt;</bpt><ept id="ae72cc59-9fca-44e7-8a4e-d24aab41f630">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ae72cc59-9fca-44e7-8a4e-d24aab41f630">&lt;linkText&gt;</bpt>Virtual Machine FAQ<ept id="ae72cc59-9fca-44e7-8a4e-d24aab41f630">&lt;/linkText&gt;</ept><bpt id="ae72cc59-9fca-44e7-8a4e-d24aab41f630">&lt;title&gt;</bpt><ept id="ae72cc59-9fca-44e7-8a4e-d24aab41f630">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d92d63d-1b3a-4473-8181-69d623a06244" xml:space="preserve">
+          <source><bpt id="8ebde519-98c1-4ea5-a480-6360e7a51e5b">&lt;linkText&gt;</bpt>Create and upload your own VHD<ept id="8ebde519-98c1-4ea5-a480-6360e7a51e5b">&lt;/linkText&gt;</ept><bpt id="8ebde519-98c1-4ea5-a480-6360e7a51e5b">&lt;title&gt;</bpt><ept id="8ebde519-98c1-4ea5-a480-6360e7a51e5b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8ebde519-98c1-4ea5-a480-6360e7a51e5b">&lt;linkText&gt;</bpt>Create and upload your own VHD<ept id="8ebde519-98c1-4ea5-a480-6360e7a51e5b">&lt;/linkText&gt;</ept><bpt id="8ebde519-98c1-4ea5-a480-6360e7a51e5b">&lt;title&gt;</bpt><ept id="8ebde519-98c1-4ea5-a480-6360e7a51e5b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9da588f-8ba1-43f4-854c-7a141713325f" xml:space="preserve">
+          <source><bpt id="b7ae2233-f650-4e49-9b8e-60a32b2507da">&lt;linkText&gt;</bpt>Capture Linux VM Image<ept id="b7ae2233-f650-4e49-9b8e-60a32b2507da">&lt;/linkText&gt;</ept><bpt id="b7ae2233-f650-4e49-9b8e-60a32b2507da">&lt;title&gt;</bpt><ept id="b7ae2233-f650-4e49-9b8e-60a32b2507da">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b7ae2233-f650-4e49-9b8e-60a32b2507da">&lt;linkText&gt;</bpt>Capture Linux VM Image<ept id="b7ae2233-f650-4e49-9b8e-60a32b2507da">&lt;/linkText&gt;</ept><bpt id="b7ae2233-f650-4e49-9b8e-60a32b2507da">&lt;title&gt;</bpt><ept id="b7ae2233-f650-4e49-9b8e-60a32b2507da">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62093d1d-72ed-4536-8d26-1ac815c2d56e" xml:space="preserve">
+          <source>./media/azure-government-developer-guide/publisherguide.png</source>
+          <target state="new">./media/azure-government-developer-guide/publisherguide.png</target>
+        </trans-unit>
+        <trans-unit id="94d47f09-2a7a-4fb3-ba33-8f93b8de7874" xml:space="preserve">
+          <source>./media/azure-government-overview/azure-gov-overview.jpg</source>
+          <target state="new">./media/azure-government-overview/azure-gov-overview.jpg</target>
+        </trans-unit>
+        <trans-unit id="2006fba7-f664-4b08-8535-f2e1c99879de" xml:space="preserve">
+          <source>virtual-machines/virtual-machines-windows-tutorial.md</source>
+          <target state="new">virtual-machines/virtual-machines-windows-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="191aec11-4323-4a3f-b753-96b10b6ebf9d" xml:space="preserve">
+          <source>app-service-web/web-sites-custom-domain-name.md</source>
+          <target state="new">app-service-web/web-sites-custom-domain-name.md</target>
+        </trans-unit>
+        <trans-unit id="f96fe8c5-fda5-461b-84b2-435d8f0cc75a" xml:space="preserve">
+          <source>storage-whatis-account.md</source>
+          <target state="new">storage-whatis-account.md</target>
+        </trans-unit>
+      </group>
+      <group id="a613db9d-3104-4ef6-91fb-f50f5e0b0eac" />
+    </body>
+  </file>
+</xliff>

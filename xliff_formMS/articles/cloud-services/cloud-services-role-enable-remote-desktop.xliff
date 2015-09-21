@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d6224fba-4d1d-4c85-8a2f-02a9c60dbceb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d6224fba-4d1d-4c85-8a2f-02a9c60dbceb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c65a942b-fea2-4ebf-b629-303d888ca31f">
+        <trans-unit id="90dd3f49-3e41-462a-bb36-9ec2f76b4d99" xml:space="preserve">
+          <source>Enable Remote Desktop Connection for a Role in Azure Cloud Services</source>
+          <target state="new">Enable Remote Desktop Connection for a Role in Azure Cloud Services</target>
+        </trans-unit>
+        <trans-unit id="b6932036-ea21-480e-a4d5-043733529441" xml:space="preserve">
+          <source>How to configure your azure cloud service application to allow remote desktop connections</source>
+          <target state="new">How to configure your azure cloud service application to allow remote desktop connections</target>
+        </trans-unit>
+        <trans-unit id="43a8f61d-c871-4330-9d31-e83703eaaf46" xml:space="preserve">
+          <source>Remote Desktop enables you to access the desktop of a role running in Azure.</source>
+          <target state="new">Remote Desktop enables you to access the desktop of a role running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="1641d5d0-61d2-4c14-893e-d2116127ec6c" xml:space="preserve">
+          <source>You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.</source>
+          <target state="new">You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.</target>
+        </trans-unit>
+        <trans-unit id="3e7707ee-45b8-4781-8130-f48cb46a820d" xml:space="preserve">
+          <source>You can enable a Remote Desktop connection in your role during development by including the Remote Desktop modules in your service definition or you can choose to enable Remote Desktop through the Remote Desktop Extension.</source>
+          <target state="new">You can enable a Remote Desktop connection in your role during development by including the Remote Desktop modules in your service definition or you can choose to enable Remote Desktop through the Remote Desktop Extension.</target>
+        </trans-unit>
+        <trans-unit id="1d11c0ca-b804-4b7e-b490-7f52befb786d" xml:space="preserve">
+          <source>The preferred approach is to use the Remote Desktop extension as you can enable Remote Desktop even after the application is deployed without having to redeploy your application.</source>
+          <target state="new">The preferred approach is to use the Remote Desktop extension as you can enable Remote Desktop even after the application is deployed without having to redeploy your application.</target>
+        </trans-unit>
+        <trans-unit id="90b820fd-875e-4ddf-ae95-12afef9c92bd" xml:space="preserve">
+          <source>The portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed.</source>
+          <target state="new">The portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed.</target>
+        </trans-unit>
+        <trans-unit id="e9d7678d-80c0-4f46-9059-e22e681a809a" xml:space="preserve">
+          <source>The <bpt id="1173280c-cc54-41f7-9a00-44068c7db886">&lt;strong&gt;</bpt>Configure<ept id="1173280c-cc54-41f7-9a00-44068c7db886">&lt;/strong&gt;</ept> page for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date.</source>
+          <target state="new">The <bpt id="1173280c-cc54-41f7-9a00-44068c7db886">&lt;strong&gt;</bpt>Configure<ept id="1173280c-cc54-41f7-9a00-44068c7db886">&lt;/strong&gt;</ept> page for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date.</target>
+        </trans-unit>
+        <trans-unit id="b0e10790-4b3e-40ed-a7a5-1d47a55a77ae" xml:space="preserve">
+          <source>Click <bpt id="5d441c47-98a3-4a81-8f25-ddbf25be2d81">&lt;strong&gt;</bpt>Cloud Services<ept id="5d441c47-98a3-4a81-8f25-ddbf25be2d81">&lt;/strong&gt;</ept>, click the name of the cloud service, and then click <bpt id="3cbe9e0f-ec95-4ce3-b6b3-fb56b6d69399">&lt;strong&gt;</bpt>Configure<ept id="3cbe9e0f-ec95-4ce3-b6b3-fb56b6d69399">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5d441c47-98a3-4a81-8f25-ddbf25be2d81">&lt;strong&gt;</bpt>Cloud Services<ept id="5d441c47-98a3-4a81-8f25-ddbf25be2d81">&lt;/strong&gt;</ept>, click the name of the cloud service, and then click <bpt id="3cbe9e0f-ec95-4ce3-b6b3-fb56b6d69399">&lt;strong&gt;</bpt>Configure<ept id="3cbe9e0f-ec95-4ce3-b6b3-fb56b6d69399">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69894226-2154-4bdd-8dab-569af761955f" xml:space="preserve">
+          <source>Click <bpt id="11f4a944-fc36-41fe-946b-597210c4f5bb">&lt;strong&gt;</bpt>Remote<ept id="11f4a944-fc36-41fe-946b-597210c4f5bb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="11f4a944-fc36-41fe-946b-597210c4f5bb">&lt;strong&gt;</bpt>Remote<ept id="11f4a944-fc36-41fe-946b-597210c4f5bb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09e6fdcf-cecd-49ea-bccc-9e3a9d9c4dd1" xml:space="preserve">
+          <source><bpt id="76497cea-70eb-4c7b-a8db-3ebf4e34a567">&lt;linkText&gt;</bpt>Cloud services remote<ept id="76497cea-70eb-4c7b-a8db-3ebf4e34a567">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="76497cea-70eb-4c7b-a8db-3ebf4e34a567">&lt;linkText&gt;</bpt>Cloud services remote<ept id="76497cea-70eb-4c7b-a8db-3ebf4e34a567">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91d9a039-b16d-4fae-a96a-27723b3b0e5a" xml:space="preserve">
+          <source>All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark).</source>
+          <target state="new">All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark).</target>
+        </trans-unit>
+        <trans-unit id="b07c797b-9dca-4370-9337-cf20c670690f" xml:space="preserve">
+          <source>To prevent a reboot, the certificate used to encrypt the password must be installed on the role.</source>
+          <target state="new">To prevent a reboot, the certificate used to encrypt the password must be installed on the role.</target>
+        </trans-unit>
+        <trans-unit id="a328376b-4194-466f-bd7e-4470e34f2b6b" xml:space="preserve">
+          <source>To prevent a restart, <bpt id="db3f4d82-4bc1-42e3-96bf-35f18b6f5647">&lt;linkText&gt;</bpt>upload a certificate for the cloud service<ept id="db3f4d82-4bc1-42e3-96bf-35f18b6f5647">&lt;/linkText&gt;</ept><bpt id="db3f4d82-4bc1-42e3-96bf-35f18b6f5647">&lt;title&gt;</bpt><ept id="db3f4d82-4bc1-42e3-96bf-35f18b6f5647">&lt;/title&gt;</ept> and then return to this dialog.</source>
+          <target state="new">To prevent a restart, <bpt id="db3f4d82-4bc1-42e3-96bf-35f18b6f5647">&lt;linkText&gt;</bpt>upload a certificate for the cloud service<ept id="db3f4d82-4bc1-42e3-96bf-35f18b6f5647">&lt;/linkText&gt;</ept><bpt id="db3f4d82-4bc1-42e3-96bf-35f18b6f5647">&lt;title&gt;</bpt><ept id="db3f4d82-4bc1-42e3-96bf-35f18b6f5647">&lt;/title&gt;</ept> and then return to this dialog.</target>
+        </trans-unit>
+        <trans-unit id="caeb39ab-d8c4-4b8b-8f5b-10cf8ad1a4ac" xml:space="preserve">
+          <source>In <bpt id="83dead72-6c92-4249-a5ff-3bb3353daaf2">&lt;strong&gt;</bpt>Roles<ept id="83dead72-6c92-4249-a5ff-3bb3353daaf2">&lt;/strong&gt;</ept>, select the role you want to update or select <bpt id="063f510c-8e53-434f-84db-848d126c8a35">&lt;strong&gt;</bpt>All<ept id="063f510c-8e53-434f-84db-848d126c8a35">&lt;/strong&gt;</ept> for all roles.</source>
+          <target state="new">In <bpt id="83dead72-6c92-4249-a5ff-3bb3353daaf2">&lt;strong&gt;</bpt>Roles<ept id="83dead72-6c92-4249-a5ff-3bb3353daaf2">&lt;/strong&gt;</ept>, select the role you want to update or select <bpt id="063f510c-8e53-434f-84db-848d126c8a35">&lt;strong&gt;</bpt>All<ept id="063f510c-8e53-434f-84db-848d126c8a35">&lt;/strong&gt;</ept> for all roles.</target>
+        </trans-unit>
+        <trans-unit id="1a245e04-b5f4-413d-a33a-1d5785eabd8c" xml:space="preserve">
+          <source>Make any of the following changes:</source>
+          <target state="new">Make any of the following changes:</target>
+        </trans-unit>
+        <trans-unit id="cb90960e-f80f-4523-845c-60d00f464b36" xml:space="preserve">
+          <source>To enable Remote Desktop, select the <bpt id="f809f23a-b399-40e5-811a-6a12492b9692">&lt;strong&gt;</bpt>Enable Remote Desktop<ept id="f809f23a-b399-40e5-811a-6a12492b9692">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">To enable Remote Desktop, select the <bpt id="f809f23a-b399-40e5-811a-6a12492b9692">&lt;strong&gt;</bpt>Enable Remote Desktop<ept id="f809f23a-b399-40e5-811a-6a12492b9692">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="94eb4ed9-4432-4e82-9dad-4fcbdf2fb0e0" xml:space="preserve">
+          <source>To disable Remote Desktop, clear the check box.</source>
+          <target state="new">To disable Remote Desktop, clear the check box.</target>
+        </trans-unit>
+        <trans-unit id="c071e036-e9ee-4f1c-8bf5-40aac4704799" xml:space="preserve">
+          <source>Create an account to use in Remote Desktop connections to the role instances.</source>
+          <target state="new">Create an account to use in Remote Desktop connections to the role instances.</target>
+        </trans-unit>
+        <trans-unit id="cdef81e8-58d6-401c-a864-9ba546d36102" xml:space="preserve">
+          <source>Update the password for the existing account.</source>
+          <target state="new">Update the password for the existing account.</target>
+        </trans-unit>
+        <trans-unit id="b1ba02db-cbf3-4257-b3b2-e8f19f5b3eb9" xml:space="preserve">
+          <source>Select an uploaded certificate to use for authentication (upload the certificate using <bpt id="28203908-102a-4893-bad7-70af9cea9ad1">&lt;strong&gt;</bpt>Upload<ept id="28203908-102a-4893-bad7-70af9cea9ad1">&lt;/strong&gt;</ept> on the <bpt id="33cc2bee-21e5-4d9b-ae18-cd7fbb3a0195">&lt;strong&gt;</bpt>Certificates<ept id="33cc2bee-21e5-4d9b-ae18-cd7fbb3a0195">&lt;/strong&gt;</ept> page) or create a new certificate.</source>
+          <target state="new">Select an uploaded certificate to use for authentication (upload the certificate using <bpt id="28203908-102a-4893-bad7-70af9cea9ad1">&lt;strong&gt;</bpt>Upload<ept id="28203908-102a-4893-bad7-70af9cea9ad1">&lt;/strong&gt;</ept> on the <bpt id="33cc2bee-21e5-4d9b-ae18-cd7fbb3a0195">&lt;strong&gt;</bpt>Certificates<ept id="33cc2bee-21e5-4d9b-ae18-cd7fbb3a0195">&lt;/strong&gt;</ept> page) or create a new certificate.</target>
+        </trans-unit>
+        <trans-unit id="11e9eb8f-08e3-46f0-9fd1-e77b4d471a93" xml:space="preserve">
+          <source>Change the expiration date for the Remote Desktop configuration.</source>
+          <target state="new">Change the expiration date for the Remote Desktop configuration.</target>
+        </trans-unit>
+        <trans-unit id="c635bc79-39ee-451a-8f07-e47c195ab6e8" xml:space="preserve">
+          <source>When you finish your configuration updates, click <bpt id="9da67135-8c44-483a-805f-a4a0ba1d09f9">&lt;strong&gt;</bpt>OK<ept id="9da67135-8c44-483a-805f-a4a0ba1d09f9">&lt;/strong&gt;</ept> (checkmark).</source>
+          <target state="new">When you finish your configuration updates, click <bpt id="9da67135-8c44-483a-805f-a4a0ba1d09f9">&lt;strong&gt;</bpt>OK<ept id="9da67135-8c44-483a-805f-a4a0ba1d09f9">&lt;/strong&gt;</ept> (checkmark).</target>
+        </trans-unit>
+        <trans-unit id="0a3d73af-415a-44de-ae30-354a432d61f8" xml:space="preserve">
+          <source>Once Remote Desktop is enabled on the roles you can remote into a role instance through various tools.</source>
+          <target state="new">Once Remote Desktop is enabled on the roles you can remote into a role instance through various tools.</target>
+        </trans-unit>
+        <trans-unit id="519b0b81-3c60-41e8-a393-e461d5eb0ba5" xml:space="preserve">
+          <source>To connect to a role instance from the portal:</source>
+          <target state="new">To connect to a role instance from the portal:</target>
+        </trans-unit>
+        <trans-unit id="66655d33-d4cb-4633-a3b1-a76e5f0f5e58" xml:space="preserve">
+          <source>Click <bpt id="a75d7b8c-38c0-47be-bce3-11fffefe9303">&lt;strong&gt;</bpt>Instances<ept id="a75d7b8c-38c0-47be-bce3-11fffefe9303">&lt;/strong&gt;</ept> to open the <bpt id="de647a97-6d53-4eee-bf6e-19afff8d4106">&lt;strong&gt;</bpt>Instances<ept id="de647a97-6d53-4eee-bf6e-19afff8d4106">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Click <bpt id="a75d7b8c-38c0-47be-bce3-11fffefe9303">&lt;strong&gt;</bpt>Instances<ept id="a75d7b8c-38c0-47be-bce3-11fffefe9303">&lt;/strong&gt;</ept> to open the <bpt id="de647a97-6d53-4eee-bf6e-19afff8d4106">&lt;strong&gt;</bpt>Instances<ept id="de647a97-6d53-4eee-bf6e-19afff8d4106">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="0f30f575-e814-4a6c-baf7-edc57f78a16a" xml:space="preserve">
+          <source>Select a role instance that has Remote Desktop configured.</source>
+          <target state="new">Select a role instance that has Remote Desktop configured.</target>
+        </trans-unit>
+        <trans-unit id="454e97ec-5e00-4e2f-ae97-ef3970923e7b" xml:space="preserve">
+          <source>Click <bpt id="b4813acf-bf53-4de8-9ccd-1595d2f71056">&lt;strong&gt;</bpt>Connect<ept id="b4813acf-bf53-4de8-9ccd-1595d2f71056">&lt;/strong&gt;</ept>, and follow the instructions to open the desktop.</source>
+          <target state="new">Click <bpt id="b4813acf-bf53-4de8-9ccd-1595d2f71056">&lt;strong&gt;</bpt>Connect<ept id="b4813acf-bf53-4de8-9ccd-1595d2f71056">&lt;/strong&gt;</ept>, and follow the instructions to open the desktop.</target>
+        </trans-unit>
+        <trans-unit id="1b07b638-dd79-4a1a-9202-6b32e2780d60" xml:space="preserve">
+          <source>Click <bpt id="73acd89d-e59a-443a-aae7-0cede3902064">&lt;strong&gt;</bpt>Open<ept id="73acd89d-e59a-443a-aae7-0cede3902064">&lt;/strong&gt;</ept> and then <bpt id="bf595de2-dcf5-4169-a531-287666af610f">&lt;strong&gt;</bpt>Connect<ept id="bf595de2-dcf5-4169-a531-287666af610f">&lt;/strong&gt;</ept> to start the Remote Desktop connection.</source>
+          <target state="new">Click <bpt id="73acd89d-e59a-443a-aae7-0cede3902064">&lt;strong&gt;</bpt>Open<ept id="73acd89d-e59a-443a-aae7-0cede3902064">&lt;/strong&gt;</ept> and then <bpt id="bf595de2-dcf5-4169-a531-287666af610f">&lt;strong&gt;</bpt>Connect<ept id="bf595de2-dcf5-4169-a531-287666af610f">&lt;/strong&gt;</ept> to start the Remote Desktop connection.</target>
+        </trans-unit>
+        <trans-unit id="e09af91c-1e37-405b-b1ef-03883eb94e10" xml:space="preserve">
+          <source>In Visual Studio, Server Explorer:</source>
+          <target state="new">In Visual Studio, Server Explorer:</target>
+        </trans-unit>
+        <trans-unit id="a0a07a45-e72f-45e4-8a7d-6de3e95d85ca" xml:space="preserve">
+          <source>Expand the <bpt id="6eed4273-8218-4892-a48f-da0b7db40306">&lt;strong&gt;</bpt>Azure\\Cloud Services\\[cloud service name]<ept id="6eed4273-8218-4892-a48f-da0b7db40306">&lt;/strong&gt;</ept> node.</source>
+          <target state="new">Expand the <bpt id="6eed4273-8218-4892-a48f-da0b7db40306">&lt;strong&gt;</bpt>Azure\\Cloud Services\\[cloud service name]<ept id="6eed4273-8218-4892-a48f-da0b7db40306">&lt;/strong&gt;</ept> node.</target>
+        </trans-unit>
+        <trans-unit id="2d709beb-a1b6-4c54-9033-18178b755bc4" xml:space="preserve">
+          <source>Expand either <bpt id="12e48483-2e0f-4f61-9ccb-425c5657120c">&lt;strong&gt;</bpt>Staging<ept id="12e48483-2e0f-4f61-9ccb-425c5657120c">&lt;/strong&gt;</ept> or <bpt id="35e4bf2f-6d37-4f35-9030-607e644fec42">&lt;strong&gt;</bpt>Production<ept id="35e4bf2f-6d37-4f35-9030-607e644fec42">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand either <bpt id="12e48483-2e0f-4f61-9ccb-425c5657120c">&lt;strong&gt;</bpt>Staging<ept id="12e48483-2e0f-4f61-9ccb-425c5657120c">&lt;/strong&gt;</ept> or <bpt id="35e4bf2f-6d37-4f35-9030-607e644fec42">&lt;strong&gt;</bpt>Production<ept id="35e4bf2f-6d37-4f35-9030-607e644fec42">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85fe0af1-125a-4282-9c58-18e709d0f2f9" xml:space="preserve">
+          <source>Expand the individual role.</source>
+          <target state="new">Expand the individual role.</target>
+        </trans-unit>
+        <trans-unit id="4cca2f5c-5c02-4c34-a878-27b96e4ccc9e" xml:space="preserve">
+          <source>Right-click one of the role instances, click <bpt id="2da524f4-1baa-4543-9f8c-21e04563be04">&lt;strong&gt;</bpt>Connect using Remote Desktop...<ept id="2da524f4-1baa-4543-9f8c-21e04563be04">&lt;/strong&gt;</ept>, and then enter the user name and password.</source>
+          <target state="new">Right-click one of the role instances, click <bpt id="2da524f4-1baa-4543-9f8c-21e04563be04">&lt;strong&gt;</bpt>Connect using Remote Desktop...<ept id="2da524f4-1baa-4543-9f8c-21e04563be04">&lt;/strong&gt;</ept>, and then enter the user name and password.</target>
+        </trans-unit>
+        <trans-unit id="6f4e1fbe-3ef3-49c6-897c-89a04c68efb3" xml:space="preserve">
+          <source><bpt id="286a7897-8477-41a5-9b9b-08eaba558a38">&lt;linkText&gt;</bpt>Server explorer remote desktop<ept id="286a7897-8477-41a5-9b9b-08eaba558a38">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="286a7897-8477-41a5-9b9b-08eaba558a38">&lt;linkText&gt;</bpt>Server explorer remote desktop<ept id="286a7897-8477-41a5-9b9b-08eaba558a38">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eeed7fe4-066b-4f51-bfae-5b26d59745df" xml:space="preserve">
+          <source>You can use the <bpt id="a402340d-0cd3-4948-b5d1-294d0901d881">&lt;linkText&gt;</bpt>Get-AzureRemoteDesktopFile<ept id="a402340d-0cd3-4948-b5d1-294d0901d881">&lt;/linkText&gt;</ept><bpt id="a402340d-0cd3-4948-b5d1-294d0901d881">&lt;title&gt;</bpt><ept id="a402340d-0cd3-4948-b5d1-294d0901d881">&lt;/title&gt;</ept> cmdlet to retrieve the RDP file.</source>
+          <target state="new">You can use the <bpt id="a402340d-0cd3-4948-b5d1-294d0901d881">&lt;linkText&gt;</bpt>Get-AzureRemoteDesktopFile<ept id="a402340d-0cd3-4948-b5d1-294d0901d881">&lt;/linkText&gt;</ept><bpt id="a402340d-0cd3-4948-b5d1-294d0901d881">&lt;title&gt;</bpt><ept id="a402340d-0cd3-4948-b5d1-294d0901d881">&lt;/title&gt;</ept> cmdlet to retrieve the RDP file.</target>
+        </trans-unit>
+        <trans-unit id="85e3d96f-9db9-4623-9e75-392b5e2e0190" xml:space="preserve">
+          <source>You can then use the RDP file with Remote Desktop Connection to access the cloud service.</source>
+          <target state="new">You can then use the RDP file with Remote Desktop Connection to access the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="6de09f36-1b58-4d62-adbe-70ceaa13285e" xml:space="preserve">
+          <source>You can use the <bpt id="9143771b-2f3a-4745-a832-d0c5f3a1c767">&lt;linkText&gt;</bpt>Download RDP File<ept id="9143771b-2f3a-4745-a832-d0c5f3a1c767">&lt;/linkText&gt;</ept><bpt id="9143771b-2f3a-4745-a832-d0c5f3a1c767">&lt;title&gt;</bpt><ept id="9143771b-2f3a-4745-a832-d0c5f3a1c767">&lt;/title&gt;</ept> REST operation to download the RDP file.</source>
+          <target state="new">You can use the <bpt id="9143771b-2f3a-4745-a832-d0c5f3a1c767">&lt;linkText&gt;</bpt>Download RDP File<ept id="9143771b-2f3a-4745-a832-d0c5f3a1c767">&lt;/linkText&gt;</ept><bpt id="9143771b-2f3a-4745-a832-d0c5f3a1c767">&lt;title&gt;</bpt><ept id="9143771b-2f3a-4745-a832-d0c5f3a1c767">&lt;/title&gt;</ept> REST operation to download the RDP file.</target>
+        </trans-unit>
+        <trans-unit id="b7377a67-1d6f-4c31-845a-60fff9ff159b" xml:space="preserve">
+          <source>This method allows you to enable Remote Desktop for the application during development.</source>
+          <target state="new">This method allows you to enable Remote Desktop for the application during development.</target>
+        </trans-unit>
+        <trans-unit id="954d1e58-db83-4f41-b047-03afb259972c" xml:space="preserve">
+          <source>This approach requires encrypted passwords be stored in your service configuration file and any updates to the remote desktop configuration would require a redeployment of the application.</source>
+          <target state="new">This approach requires encrypted passwords be stored in your service configuration file and any updates to the remote desktop configuration would require a redeployment of the application.</target>
+        </trans-unit>
+        <trans-unit id="3345619d-47f9-43cf-b206-76c55b73e62a" xml:space="preserve">
+          <source>If you want to avoid these downsides you should use the remote desktop extension based approach described above.</source>
+          <target state="new">If you want to avoid these downsides you should use the remote desktop extension based approach described above.</target>
+        </trans-unit>
+        <trans-unit id="eea58159-c276-40a1-9bef-e65fd1132d5e" xml:space="preserve">
+          <source>You can use Visual Studio to <bpt id="a8613a84-141e-40ec-b960-b82bcfc23cc1">&lt;linkText&gt;</bpt>enable a remote desktop connection<ept id="a8613a84-141e-40ec-b960-b82bcfc23cc1">&lt;/linkText&gt;</ept><bpt id="a8613a84-141e-40ec-b960-b82bcfc23cc1">&lt;title&gt;</bpt><ept id="a8613a84-141e-40ec-b960-b82bcfc23cc1">&lt;/title&gt;</ept> using the service definition file approach.</source>
+          <target state="new">You can use Visual Studio to <bpt id="a8613a84-141e-40ec-b960-b82bcfc23cc1">&lt;linkText&gt;</bpt>enable a remote desktop connection<ept id="a8613a84-141e-40ec-b960-b82bcfc23cc1">&lt;/linkText&gt;</ept><bpt id="a8613a84-141e-40ec-b960-b82bcfc23cc1">&lt;title&gt;</bpt><ept id="a8613a84-141e-40ec-b960-b82bcfc23cc1">&lt;/title&gt;</ept> using the service definition file approach.</target>
+        </trans-unit>
+        <trans-unit id="a5c70199-2e08-42d2-b2b3-32fedf0a5217" xml:space="preserve">
+          <source>The steps below describe the changes needed to the service model files to enable remote desktop.</source>
+          <target state="new">The steps below describe the changes needed to the service model files to enable remote desktop.</target>
+        </trans-unit>
+        <trans-unit id="7875b63c-6004-45b3-9a55-0108ba19cca5" xml:space="preserve">
+          <source>Visual Studio will automatically makes these changes when publishing.</source>
+          <target state="new">Visual Studio will automatically makes these changes when publishing.</target>
+        </trans-unit>
+        <trans-unit id="d675a14c-3241-4232-8c2e-a3f64f55a258" xml:space="preserve">
+          <source>Use the <bpt id="225d4d7f-366b-4d61-b42e-f144c9169607">&lt;strong&gt;</bpt>Imports<ept id="225d4d7f-366b-4d61-b42e-f144c9169607">&lt;/strong&gt;</ept> element to import the <bpt id="31870982-244c-4586-9ffe-de3ecb70c00a">&lt;strong&gt;</bpt>RemoteAccess<ept id="31870982-244c-4586-9ffe-de3ecb70c00a">&lt;/strong&gt;</ept> module and the <bpt id="90593ea8-573f-467b-b0ef-0f7d3932b638">&lt;strong&gt;</bpt>RemoteForwarder<ept id="90593ea8-573f-467b-b0ef-0f7d3932b638">&lt;/strong&gt;</ept> module to the <bpt id="8daa6eb6-e9fc-48dc-b2f6-a3a1d8776ec5">&lt;linkText&gt;</bpt>ServiceDefinition.csdef<ept id="8daa6eb6-e9fc-48dc-b2f6-a3a1d8776ec5">&lt;/linkText&gt;</ept><bpt id="8daa6eb6-e9fc-48dc-b2f6-a3a1d8776ec5">&lt;title&gt;</bpt><ept id="8daa6eb6-e9fc-48dc-b2f6-a3a1d8776ec5">&lt;/title&gt;</ept> file.</source>
+          <target state="new">Use the <bpt id="225d4d7f-366b-4d61-b42e-f144c9169607">&lt;strong&gt;</bpt>Imports<ept id="225d4d7f-366b-4d61-b42e-f144c9169607">&lt;/strong&gt;</ept> element to import the <bpt id="31870982-244c-4586-9ffe-de3ecb70c00a">&lt;strong&gt;</bpt>RemoteAccess<ept id="31870982-244c-4586-9ffe-de3ecb70c00a">&lt;/strong&gt;</ept> module and the <bpt id="90593ea8-573f-467b-b0ef-0f7d3932b638">&lt;strong&gt;</bpt>RemoteForwarder<ept id="90593ea8-573f-467b-b0ef-0f7d3932b638">&lt;/strong&gt;</ept> module to the <bpt id="8daa6eb6-e9fc-48dc-b2f6-a3a1d8776ec5">&lt;linkText&gt;</bpt>ServiceDefinition.csdef<ept id="8daa6eb6-e9fc-48dc-b2f6-a3a1d8776ec5">&lt;/linkText&gt;</ept><bpt id="8daa6eb6-e9fc-48dc-b2f6-a3a1d8776ec5">&lt;title&gt;</bpt><ept id="8daa6eb6-e9fc-48dc-b2f6-a3a1d8776ec5">&lt;/title&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="1cb25491-81f2-4d5d-98cd-bd50566d40f2" xml:space="preserve">
+          <source>The service definition file should be similar to the following example with the <bpt id="cdc45729-f248-4d01-adcb-d0f25b11ac1d">&lt;code&gt;</bpt>&lt;Imports&gt;<ept id="cdc45729-f248-4d01-adcb-d0f25b11ac1d">&lt;/code&gt;</ept> element added.</source>
+          <target state="new">The service definition file should be similar to the following example with the <bpt id="cdc45729-f248-4d01-adcb-d0f25b11ac1d">&lt;code&gt;</bpt>&lt;Imports&gt;<ept id="cdc45729-f248-4d01-adcb-d0f25b11ac1d">&lt;/code&gt;</ept> element added.</target>
+        </trans-unit>
+        <trans-unit id="d21de5b9-426d-4ba1-8181-98bc5bf4bb69" xml:space="preserve">
+          <source>The <bpt id="19534b12-df16-4247-9f1f-09135ca75af5">&lt;linkText&gt;</bpt>ServiceConfiguration.cscfg<ept id="19534b12-df16-4247-9f1f-09135ca75af5">&lt;/linkText&gt;</ept><bpt id="19534b12-df16-4247-9f1f-09135ca75af5">&lt;title&gt;</bpt><ept id="19534b12-df16-4247-9f1f-09135ca75af5">&lt;/title&gt;</ept> file should be similar to the following example, note the <bpt id="8e267d6b-3f1c-4ea4-824d-ddf630266ce2">&lt;code&gt;</bpt>&lt;ConfigurationSettings&gt;<ept id="8e267d6b-3f1c-4ea4-824d-ddf630266ce2">&lt;/code&gt;</ept> and <bpt id="f2063dcd-854a-47ab-9b65-5a484111553e">&lt;code&gt;</bpt>&lt;Certificates&gt;<ept id="f2063dcd-854a-47ab-9b65-5a484111553e">&lt;/code&gt;</ept> elements. The Certificate specified must be <bpt id="2e9c306f-e65e-4065-ba67-79bace0c7ead">&lt;linkText&gt;</bpt>uploaded to the cloud service<ept id="2e9c306f-e65e-4065-ba67-79bace0c7ead">&lt;/linkText&gt;</ept><bpt id="2e9c306f-e65e-4065-ba67-79bace0c7ead">&lt;title&gt;</bpt><ept id="2e9c306f-e65e-4065-ba67-79bace0c7ead">&lt;/title&gt;</ept>.</source>
+          <target state="new">The <bpt id="19534b12-df16-4247-9f1f-09135ca75af5">&lt;linkText&gt;</bpt>ServiceConfiguration.cscfg<ept id="19534b12-df16-4247-9f1f-09135ca75af5">&lt;/linkText&gt;</ept><bpt id="19534b12-df16-4247-9f1f-09135ca75af5">&lt;title&gt;</bpt><ept id="19534b12-df16-4247-9f1f-09135ca75af5">&lt;/title&gt;</ept> file should be similar to the following example, note the <bpt id="8e267d6b-3f1c-4ea4-824d-ddf630266ce2">&lt;code&gt;</bpt>&lt;ConfigurationSettings&gt;<ept id="8e267d6b-3f1c-4ea4-824d-ddf630266ce2">&lt;/code&gt;</ept> and <bpt id="f2063dcd-854a-47ab-9b65-5a484111553e">&lt;code&gt;</bpt>&lt;Certificates&gt;<ept id="f2063dcd-854a-47ab-9b65-5a484111553e">&lt;/code&gt;</ept> elements. The Certificate specified must be <bpt id="2e9c306f-e65e-4065-ba67-79bace0c7ead">&lt;linkText&gt;</bpt>uploaded to the cloud service<ept id="2e9c306f-e65e-4065-ba67-79bace0c7ead">&lt;/linkText&gt;</ept><bpt id="2e9c306f-e65e-4065-ba67-79bace0c7ead">&lt;title&gt;</bpt><ept id="2e9c306f-e65e-4065-ba67-79bace0c7ead">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="adc0f9a3-d8d4-4c13-96b3-35c65f95a842" xml:space="preserve">
+          <source><bpt id="3b2c5927-501d-4c6b-85f4-dba66b46ed9c">&lt;linkText&gt;</bpt>How to Configure Cloud Services<ept id="3b2c5927-501d-4c6b-85f4-dba66b46ed9c">&lt;/linkText&gt;</ept><bpt id="3b2c5927-501d-4c6b-85f4-dba66b46ed9c">&lt;title&gt;</bpt><ept id="3b2c5927-501d-4c6b-85f4-dba66b46ed9c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3b2c5927-501d-4c6b-85f4-dba66b46ed9c">&lt;linkText&gt;</bpt>How to Configure Cloud Services<ept id="3b2c5927-501d-4c6b-85f4-dba66b46ed9c">&lt;/linkText&gt;</ept><bpt id="3b2c5927-501d-4c6b-85f4-dba66b46ed9c">&lt;title&gt;</bpt><ept id="3b2c5927-501d-4c6b-85f4-dba66b46ed9c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

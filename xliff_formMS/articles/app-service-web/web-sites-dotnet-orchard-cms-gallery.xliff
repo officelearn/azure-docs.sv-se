@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="474b5d23-c0da-4e64-86a3-70be8fec05f7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="474b5d23-c0da-4e64-86a3-70be8fec05f7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e46452d2-4c13-4786-a0dd-995ab51d435d">
+        <trans-unit id="f0b76a05-164e-45d3-a23e-00fa491ef348" xml:space="preserve">
+          <source>Create an Orchard CMS web app from the Azure Marketplace</source>
+          <target state="new">Create an Orchard CMS web app from the Azure Marketplace</target>
+        </trans-unit>
+        <trans-unit id="6f64a714-76b3-40e9-965e-4e7777b3a0e1" xml:space="preserve">
+          <source>A tutorial that teaches you how to create a new web app in Azure. Also learn how to launch and manage your web app using the Azure Portal.</source>
+          <target state="new">A tutorial that teaches you how to create a new web app in Azure. Also learn how to launch and manage your web app using the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="21392e1b-ebb2-4adb-b3d0-db85cfa87c9b" xml:space="preserve">
+          <source>The Marketplace makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives.</source>
+          <target state="new">The Marketplace makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives.</target>
+        </trans-unit>
+        <trans-unit id="6788b9b2-4118-417c-bad9-492b4078ee58" xml:space="preserve">
+          <source>Web applications created from the Marketplace do not require installation of any software other than the browser used to connect to the <bpt id="b1e4dcea-9327-4afa-bbec-208151b14b4c">&lt;linkText&gt;</bpt>Azure preview portal<ept id="b1e4dcea-9327-4afa-bbec-208151b14b4c">&lt;/linkText&gt;</ept><bpt id="b1e4dcea-9327-4afa-bbec-208151b14b4c">&lt;title&gt;</bpt><ept id="b1e4dcea-9327-4afa-bbec-208151b14b4c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Web applications created from the Marketplace do not require installation of any software other than the browser used to connect to the <bpt id="b1e4dcea-9327-4afa-bbec-208151b14b4c">&lt;linkText&gt;</bpt>Azure preview portal<ept id="b1e4dcea-9327-4afa-bbec-208151b14b4c">&lt;/linkText&gt;</ept><bpt id="b1e4dcea-9327-4afa-bbec-208151b14b4c">&lt;title&gt;</bpt><ept id="b1e4dcea-9327-4afa-bbec-208151b14b4c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f21c42d-a36e-43f2-a67d-75026683d9b3" xml:space="preserve">
+          <source>For more information about the web applications in the Marketplace, see <bpt id="34f72582-4e19-4d8c-b490-8a41418d954b">&lt;linkText&gt;</bpt>Azure Marketplace<ept id="34f72582-4e19-4d8c-b490-8a41418d954b">&lt;/linkText&gt;</ept><bpt id="34f72582-4e19-4d8c-b490-8a41418d954b">&lt;title&gt;</bpt><ept id="34f72582-4e19-4d8c-b490-8a41418d954b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the web applications in the Marketplace, see <bpt id="34f72582-4e19-4d8c-b490-8a41418d954b">&lt;linkText&gt;</bpt>Azure Marketplace<ept id="34f72582-4e19-4d8c-b490-8a41418d954b">&lt;/linkText&gt;</ept><bpt id="34f72582-4e19-4d8c-b490-8a41418d954b">&lt;title&gt;</bpt><ept id="34f72582-4e19-4d8c-b490-8a41418d954b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4482f31-2555-4d98-8da8-69979da69397" xml:space="preserve">
+          <source>In this tutorial, you'll learn:</source>
+          <target state="new">In this tutorial, you'll learn:</target>
+        </trans-unit>
+        <trans-unit id="fb30fc82-2c6d-4c45-aecb-9e76ea14b3e4" xml:space="preserve">
+          <source>How to create a new web app from the Marketplace</source>
+          <target state="new">How to create a new web app from the Marketplace</target>
+        </trans-unit>
+        <trans-unit id="5c3259f6-84de-4a87-9bed-27b47fa05b16" xml:space="preserve">
+          <source>How to launch and manage your web app from the Azure Portal</source>
+          <target state="new">How to launch and manage your web app from the Azure Portal</target>
+        </trans-unit>
+        <trans-unit id="44d601e5-461f-4934-96cb-f1ac23e8e4f2" xml:space="preserve">
+          <source>You'll build an Orchard CMS web app that uses a default template.</source>
+          <target state="new">You'll build an Orchard CMS web app that uses a default template.</target>
+        </trans-unit>
+        <trans-unit id="35c62423-9239-4e6a-b1ef-02f3e005f6f6" xml:space="preserve">
+          <source><bpt id="4c7cc549-11b1-4c3d-86da-f6efc36d7138">&lt;linkText&gt;</bpt>Orchard<ept id="4c7cc549-11b1-4c3d-86da-f6efc36d7138">&lt;/linkText&gt;</ept><bpt id="4c7cc549-11b1-4c3d-86da-f6efc36d7138">&lt;title&gt;</bpt><ept id="4c7cc549-11b1-4c3d-86da-f6efc36d7138">&lt;/title&gt;</ept> is a free, open-source, .NET-based CMS application that allows you to create customized, content-driven web apps and websites.</source>
+          <target state="new"><bpt id="4c7cc549-11b1-4c3d-86da-f6efc36d7138">&lt;linkText&gt;</bpt>Orchard<ept id="4c7cc549-11b1-4c3d-86da-f6efc36d7138">&lt;/linkText&gt;</ept><bpt id="4c7cc549-11b1-4c3d-86da-f6efc36d7138">&lt;title&gt;</bpt><ept id="4c7cc549-11b1-4c3d-86da-f6efc36d7138">&lt;/title&gt;</ept> is a free, open-source, .NET-based CMS application that allows you to create customized, content-driven web apps and websites.</target>
+        </trans-unit>
+        <trans-unit id="02076b64-d488-43db-be24-1d3c119c9c91" xml:space="preserve">
+          <source>Orchard CMS includes an extensibility framework through which you can <bpt id="a8a3f863-44b6-4b91-98c1-56c57d67ee2a">&lt;linkText&gt;</bpt>download additional modules and themes<ept id="a8a3f863-44b6-4b91-98c1-56c57d67ee2a">&lt;/linkText&gt;</ept><bpt id="a8a3f863-44b6-4b91-98c1-56c57d67ee2a">&lt;title&gt;</bpt><ept id="a8a3f863-44b6-4b91-98c1-56c57d67ee2a">&lt;/title&gt;</ept> to customize your web app.</source>
+          <target state="new">Orchard CMS includes an extensibility framework through which you can <bpt id="a8a3f863-44b6-4b91-98c1-56c57d67ee2a">&lt;linkText&gt;</bpt>download additional modules and themes<ept id="a8a3f863-44b6-4b91-98c1-56c57d67ee2a">&lt;/linkText&gt;</ept><bpt id="a8a3f863-44b6-4b91-98c1-56c57d67ee2a">&lt;title&gt;</bpt><ept id="a8a3f863-44b6-4b91-98c1-56c57d67ee2a">&lt;/title&gt;</ept> to customize your web app.</target>
+        </trans-unit>
+        <trans-unit id="1006b811-604f-4695-be51-43b20d3388ef" xml:space="preserve">
+          <source>The following illustration shows the Orchard CMS web app in <bpt id="fe536f58-c180-48f7-a1a9-ed009193c52b">&lt;linkText&gt;</bpt>Azure App Service<ept id="fe536f58-c180-48f7-a1a9-ed009193c52b">&lt;/linkText&gt;</ept><bpt id="fe536f58-c180-48f7-a1a9-ed009193c52b">&lt;title&gt;</bpt><ept id="fe536f58-c180-48f7-a1a9-ed009193c52b">&lt;/title&gt;</ept> that you will create.</source>
+          <target state="new">The following illustration shows the Orchard CMS web app in <bpt id="fe536f58-c180-48f7-a1a9-ed009193c52b">&lt;linkText&gt;</bpt>Azure App Service<ept id="fe536f58-c180-48f7-a1a9-ed009193c52b">&lt;/linkText&gt;</ept><bpt id="fe536f58-c180-48f7-a1a9-ed009193c52b">&lt;title&gt;</bpt><ept id="fe536f58-c180-48f7-a1a9-ed009193c52b">&lt;/title&gt;</ept> that you will create.</target>
+        </trans-unit>
+        <trans-unit id="c710bf28-1d01-4f2e-8e03-e56d833f1b2c" xml:space="preserve">
+          <source><bpt id="35240661-ac59-49ad-90b2-1fd56ba244d1">&lt;linkText&gt;</bpt>Orchard blog<ept id="35240661-ac59-49ad-90b2-1fd56ba244d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35240661-ac59-49ad-90b2-1fd56ba244d1">&lt;linkText&gt;</bpt>Orchard blog<ept id="35240661-ac59-49ad-90b2-1fd56ba244d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b37d2b49-c2af-425a-be61-178551944e21" xml:space="preserve">
+          <source><bpt id="543a02ae-a304-44b1-bc41-910f69140efb">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="543a02ae-a304-44b1-bc41-910f69140efb">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="543a02ae-a304-44b1-bc41-910f69140efb">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="543a02ae-a304-44b1-bc41-910f69140efb">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd1efbd0-a058-409d-b4ec-b13d59ff4bfd" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="7d9c8514-4690-46b1-b22c-3eb78a187ad4">&lt;linkText&gt;</bpt>Try App Service<ept id="7d9c8514-4690-46b1-b22c-3eb78a187ad4">&lt;/linkText&gt;</ept><bpt id="7d9c8514-4690-46b1-b22c-3eb78a187ad4">&lt;title&gt;</bpt><ept id="7d9c8514-4690-46b1-b22c-3eb78a187ad4">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="7d9c8514-4690-46b1-b22c-3eb78a187ad4">&lt;linkText&gt;</bpt>Try App Service<ept id="7d9c8514-4690-46b1-b22c-3eb78a187ad4">&lt;/linkText&gt;</ept><bpt id="7d9c8514-4690-46b1-b22c-3eb78a187ad4">&lt;title&gt;</bpt><ept id="7d9c8514-4690-46b1-b22c-3eb78a187ad4">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="4aff4fdc-ca1e-43d8-aa42-8665aa4d03c1" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="cc15df4e-e2d8-4979-936e-8d53b7619a4e" xml:space="preserve">
+          <source>Login to the <bpt id="13f280a9-49f9-46b6-8547-5c4ed4d74c42">&lt;linkText&gt;</bpt>Azure preview portal<ept id="13f280a9-49f9-46b6-8547-5c4ed4d74c42">&lt;/linkText&gt;</ept><bpt id="13f280a9-49f9-46b6-8547-5c4ed4d74c42">&lt;title&gt;</bpt><ept id="13f280a9-49f9-46b6-8547-5c4ed4d74c42">&lt;/title&gt;</ept>.</source>
+          <target state="new">Login to the <bpt id="13f280a9-49f9-46b6-8547-5c4ed4d74c42">&lt;linkText&gt;</bpt>Azure preview portal<ept id="13f280a9-49f9-46b6-8547-5c4ed4d74c42">&lt;/linkText&gt;</ept><bpt id="13f280a9-49f9-46b6-8547-5c4ed4d74c42">&lt;title&gt;</bpt><ept id="13f280a9-49f9-46b6-8547-5c4ed4d74c42">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd9e6a8e-dd49-49e7-8ba2-f10f1152e164" xml:space="preserve">
+          <source>Click <bpt id="76828094-b5ac-4d02-82ce-14333222392f">&lt;strong&gt;</bpt>New<ept id="76828094-b5ac-4d02-82ce-14333222392f">&lt;/strong&gt;</ept> &gt; <bpt id="faf4acf8-f79b-491a-ab14-dc07875677e2">&lt;strong&gt;</bpt>Web + Mobile<ept id="faf4acf8-f79b-491a-ab14-dc07875677e2">&lt;/strong&gt;</ept> &gt; <bpt id="d0806dc6-873f-4950-8d08-7085d6230e08">&lt;strong&gt;</bpt>Azure Marketplace<ept id="d0806dc6-873f-4950-8d08-7085d6230e08">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="76828094-b5ac-4d02-82ce-14333222392f">&lt;strong&gt;</bpt>New<ept id="76828094-b5ac-4d02-82ce-14333222392f">&lt;/strong&gt;</ept> &gt; <bpt id="faf4acf8-f79b-491a-ab14-dc07875677e2">&lt;strong&gt;</bpt>Web + Mobile<ept id="faf4acf8-f79b-491a-ab14-dc07875677e2">&lt;/strong&gt;</ept> &gt; <bpt id="d0806dc6-873f-4950-8d08-7085d6230e08">&lt;strong&gt;</bpt>Azure Marketplace<ept id="d0806dc6-873f-4950-8d08-7085d6230e08">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bcecca3a-20b4-4d05-afb1-b3a4276e336f" xml:space="preserve">
+          <source><bpt id="8f196862-c456-48ce-a1b5-46114e7f2c4b">&lt;linkText&gt;</bpt>Create New<ept id="8f196862-c456-48ce-a1b5-46114e7f2c4b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8f196862-c456-48ce-a1b5-46114e7f2c4b">&lt;linkText&gt;</bpt>Create New<ept id="8f196862-c456-48ce-a1b5-46114e7f2c4b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e94bbbe-7f9b-40ea-b3a7-840e3f3f26ca" xml:space="preserve">
+          <source>Click <bpt id="059e2b2a-8118-474e-8fe2-e20ca6428302">&lt;strong&gt;</bpt>Web Apps<ept id="059e2b2a-8118-474e-8fe2-e20ca6428302">&lt;/strong&gt;</ept> &gt; <bpt id="81aea61c-9234-40c8-8607-7650aca57b2f">&lt;strong&gt;</bpt>Orchard CMS<ept id="81aea61c-9234-40c8-8607-7650aca57b2f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="059e2b2a-8118-474e-8fe2-e20ca6428302">&lt;strong&gt;</bpt>Web Apps<ept id="059e2b2a-8118-474e-8fe2-e20ca6428302">&lt;/strong&gt;</ept> &gt; <bpt id="81aea61c-9234-40c8-8607-7650aca57b2f">&lt;strong&gt;</bpt>Orchard CMS<ept id="81aea61c-9234-40c8-8607-7650aca57b2f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4594c7c-8766-4bf4-b592-f1fe165ba1aa" xml:space="preserve">
+          <source>In the next blade, click <bpt id="132a6105-68ba-4355-8ba6-4db0bf677967">&lt;strong&gt;</bpt>Create<ept id="132a6105-68ba-4355-8ba6-4db0bf677967">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the next blade, click <bpt id="132a6105-68ba-4355-8ba6-4db0bf677967">&lt;strong&gt;</bpt>Create<ept id="132a6105-68ba-4355-8ba6-4db0bf677967">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6bfcf461-95dc-4040-8645-11c1ad6b3383" xml:space="preserve">
+          <source><bpt id="cb59ec6a-2536-44de-9921-57a78dced1cb">&lt;linkText&gt;</bpt>Create From Marketplace<ept id="cb59ec6a-2536-44de-9921-57a78dced1cb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb59ec6a-2536-44de-9921-57a78dced1cb">&lt;linkText&gt;</bpt>Create From Marketplace<ept id="cb59ec6a-2536-44de-9921-57a78dced1cb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="550ea252-1ca4-422b-ac70-f4c2b028cbeb" xml:space="preserve">
+          <source>Configure the web app's URL, App Service plan, resource group, and location.</source>
+          <target state="new">Configure the web app's URL, App Service plan, resource group, and location.</target>
+        </trans-unit>
+        <trans-unit id="0ba0efd4-52ec-4169-b2f3-3139ca5ff2f4" xml:space="preserve">
+          <source>When you're done, click <bpt id="e5fea8f6-f753-41c1-aea6-d9394a250f5e">&lt;strong&gt;</bpt>Create<ept id="e5fea8f6-f753-41c1-aea6-d9394a250f5e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you're done, click <bpt id="e5fea8f6-f753-41c1-aea6-d9394a250f5e">&lt;strong&gt;</bpt>Create<ept id="e5fea8f6-f753-41c1-aea6-d9394a250f5e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3820e66c-51b7-47fd-9b42-d44f830e4aa5" xml:space="preserve">
+          <source><bpt id="6126e56d-0dc6-4c24-9769-103aff6ff024">&lt;linkText&gt;</bpt>Configure the app<ept id="6126e56d-0dc6-4c24-9769-103aff6ff024">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6126e56d-0dc6-4c24-9769-103aff6ff024">&lt;linkText&gt;</bpt>Configure the app<ept id="6126e56d-0dc6-4c24-9769-103aff6ff024">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3cf2c0d-6629-4543-9c80-2422a37ec06e" xml:space="preserve">
+          <source>Once your web app is created, the <bpt id="41a2d6bb-c01a-4595-baee-3abe43bbf173">&lt;strong&gt;</bpt>Notifications<ept id="41a2d6bb-c01a-4595-baee-3abe43bbf173">&lt;/strong&gt;</ept> button will show a green "SUCCESS" and your web app's blade will be displayed.</source>
+          <target state="new">Once your web app is created, the <bpt id="41a2d6bb-c01a-4595-baee-3abe43bbf173">&lt;strong&gt;</bpt>Notifications<ept id="41a2d6bb-c01a-4595-baee-3abe43bbf173">&lt;/strong&gt;</ept> button will show a green "SUCCESS" and your web app's blade will be displayed.</target>
+        </trans-unit>
+        <trans-unit id="2e97a714-6cc7-4fad-94a3-c4a780b80ba6" xml:space="preserve">
+          <source>In your web app's blade, click <bpt id="08612f89-4b47-46a0-942e-30fc032262e0">&lt;strong&gt;</bpt>Browse<ept id="08612f89-4b47-46a0-942e-30fc032262e0">&lt;/strong&gt;</ept> to open your web app's welcome page.</source>
+          <target state="new">In your web app's blade, click <bpt id="08612f89-4b47-46a0-942e-30fc032262e0">&lt;strong&gt;</bpt>Browse<ept id="08612f89-4b47-46a0-942e-30fc032262e0">&lt;/strong&gt;</ept> to open your web app's welcome page.</target>
+        </trans-unit>
+        <trans-unit id="ef5cf450-00a0-4637-a692-50e4cb8d717b" xml:space="preserve">
+          <source><bpt id="e838d5ac-27d6-4683-b02f-43d6c1cfaace">&lt;linkText&gt;</bpt>browse button<ept id="e838d5ac-27d6-4683-b02f-43d6c1cfaace">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e838d5ac-27d6-4683-b02f-43d6c1cfaace">&lt;linkText&gt;</bpt>browse button<ept id="e838d5ac-27d6-4683-b02f-43d6c1cfaace">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e0d8e8b-d61e-4619-b3b7-914a46b6f332" xml:space="preserve">
+          <source>Enter the configuration information required by Orchard, and then click <bpt id="5fe4cf39-6029-45df-966f-ec2257f9162b">&lt;strong&gt;</bpt>Finish Setup<ept id="5fe4cf39-6029-45df-966f-ec2257f9162b">&lt;/strong&gt;</ept> to complete the configuration and open the web app's home page.</source>
+          <target state="new">Enter the configuration information required by Orchard, and then click <bpt id="5fe4cf39-6029-45df-966f-ec2257f9162b">&lt;strong&gt;</bpt>Finish Setup<ept id="5fe4cf39-6029-45df-966f-ec2257f9162b">&lt;/strong&gt;</ept> to complete the configuration and open the web app's home page.</target>
+        </trans-unit>
+        <trans-unit id="340e54dc-c9ed-45f9-aaad-bdd84b923c62" xml:space="preserve">
+          <source><bpt id="7a872268-03f3-40db-ab2e-ec7ca3f4ad2e">&lt;linkText&gt;</bpt>login to Orchard<ept id="7a872268-03f3-40db-ab2e-ec7ca3f4ad2e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7a872268-03f3-40db-ab2e-ec7ca3f4ad2e">&lt;linkText&gt;</bpt>login to Orchard<ept id="7a872268-03f3-40db-ab2e-ec7ca3f4ad2e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e023bb8-afba-4378-acd2-86ff9f8993cf" xml:space="preserve">
+          <source>You'll have a new Orchard web app that looks similar to the screenshot below.</source>
+          <target state="new">You'll have a new Orchard web app that looks similar to the screenshot below.</target>
+        </trans-unit>
+        <trans-unit id="47962158-dd8d-4ce0-96e6-f6555233d93f" xml:space="preserve">
+          <source><bpt id="597be4ce-0a56-4fea-9060-ddfa8bb9c236">&lt;linkText&gt;</bpt>your Orchard web app<ept id="597be4ce-0a56-4fea-9060-ddfa8bb9c236">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="597be4ce-0a56-4fea-9060-ddfa8bb9c236">&lt;linkText&gt;</bpt>your Orchard web app<ept id="597be4ce-0a56-4fea-9060-ddfa8bb9c236">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="693e5cf6-ef35-46a3-9c5a-af2ae95e2bd6" xml:space="preserve">
+          <source>Follow the details in the <bpt id="c87b450f-5483-4f65-b72f-0ecffca095b5">&lt;linkText&gt;</bpt>Orchard Documentation<ept id="c87b450f-5483-4f65-b72f-0ecffca095b5">&lt;/linkText&gt;</ept><bpt id="c87b450f-5483-4f65-b72f-0ecffca095b5">&lt;title&gt;</bpt><ept id="c87b450f-5483-4f65-b72f-0ecffca095b5">&lt;/title&gt;</ept> to learn more about Orchard and configure your new web app.</source>
+          <target state="new">Follow the details in the <bpt id="c87b450f-5483-4f65-b72f-0ecffca095b5">&lt;linkText&gt;</bpt>Orchard Documentation<ept id="c87b450f-5483-4f65-b72f-0ecffca095b5">&lt;/linkText&gt;</ept><bpt id="c87b450f-5483-4f65-b72f-0ecffca095b5">&lt;title&gt;</bpt><ept id="c87b450f-5483-4f65-b72f-0ecffca095b5">&lt;/title&gt;</ept> to learn more about Orchard and configure your new web app.</target>
+        </trans-unit>
+        <trans-unit id="2c9b41bc-4497-490e-967b-37d3025899b9" xml:space="preserve">
+          <source><bpt id="abfecb45-f344-47ee-b874-b7f3d93910db">&lt;linkText&gt;</bpt>Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service<ept id="abfecb45-f344-47ee-b874-b7f3d93910db">&lt;/linkText&gt;</ept><bpt id="abfecb45-f344-47ee-b874-b7f3d93910db">&lt;title&gt;</bpt><ept id="abfecb45-f344-47ee-b874-b7f3d93910db">&lt;/title&gt;</ept>-- Learn how to create a new web app in Azure App Service from Visual Studio.</source>
+          <target state="new"><bpt id="abfecb45-f344-47ee-b874-b7f3d93910db">&lt;linkText&gt;</bpt>Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service<ept id="abfecb45-f344-47ee-b874-b7f3d93910db">&lt;/linkText&gt;</ept><bpt id="abfecb45-f344-47ee-b874-b7f3d93910db">&lt;title&gt;</bpt><ept id="abfecb45-f344-47ee-b874-b7f3d93910db">&lt;/title&gt;</ept>-- Learn how to create a new web app in Azure App Service from Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="c187d33c-4cc8-40a9-b75a-278392687789" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="c3d8e126-b686-4821-b14e-dbe547f94ea4">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="c3d8e126-b686-4821-b14e-dbe547f94ea4">&lt;/linkText&gt;</ept><bpt id="c3d8e126-b686-4821-b14e-dbe547f94ea4">&lt;title&gt;</bpt><ept id="c3d8e126-b686-4821-b14e-dbe547f94ea4">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="c3d8e126-b686-4821-b14e-dbe547f94ea4">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="c3d8e126-b686-4821-b14e-dbe547f94ea4">&lt;/linkText&gt;</ept><bpt id="c3d8e126-b686-4821-b14e-dbe547f94ea4">&lt;title&gt;</bpt><ept id="c3d8e126-b686-4821-b14e-dbe547f94ea4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a632d6c5-6f6f-47bb-bf4e-7a9248963581" xml:space="preserve">
+          <source>For a guide to the change of the portal to the preview portal see: <bpt id="7b1ac73a-03ff-43a7-ad25-88a8c802b887">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="7b1ac73a-03ff-43a7-ad25-88a8c802b887">&lt;/linkText&gt;</ept><bpt id="7b1ac73a-03ff-43a7-ad25-88a8c802b887">&lt;title&gt;</bpt><ept id="7b1ac73a-03ff-43a7-ad25-88a8c802b887">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the portal to the preview portal see: <bpt id="7b1ac73a-03ff-43a7-ad25-88a8c802b887">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="7b1ac73a-03ff-43a7-ad25-88a8c802b887">&lt;/linkText&gt;</ept><bpt id="7b1ac73a-03ff-43a7-ad25-88a8c802b887">&lt;title&gt;</bpt><ept id="7b1ac73a-03ff-43a7-ad25-88a8c802b887">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="029d8c52-7032-46c3-9244-6798921fd9de" xml:space="preserve">
+          <source>./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png</source>
+          <target state="new">./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png</target>
+        </trans-unit>
+        <trans-unit id="420c917b-b2fa-4a62-bf47-04dcf63edcf9" xml:space="preserve">
+          <source>./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png</source>
+          <target state="new">./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png</target>
+        </trans-unit>
+        <trans-unit id="6133fec3-3592-4cec-a0d9-18a87b801ff7" xml:space="preserve">
+          <source>./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png</source>
+          <target state="new">./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png</target>
+        </trans-unit>
+        <trans-unit id="6bdbdbac-f9a7-4cba-a6ac-16ec0fdd2b10" xml:space="preserve">
+          <source>./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-04.png</source>
+          <target state="new">./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-04.png</target>
+        </trans-unit>
+        <trans-unit id="86fcebea-49ab-41c6-a003-5c601d518504" xml:space="preserve">
+          <source>./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-05.png</source>
+          <target state="new">./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-05.png</target>
+        </trans-unit>
+        <trans-unit id="5a86309e-3c10-43b7-ae78-0d9e6ef73401" xml:space="preserve">
+          <source>./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-07.png</source>
+          <target state="new">./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-07.png</target>
+        </trans-unit>
+        <trans-unit id="d6a7e8a4-e668-4bcc-b4a5-f6bc1fc5fd0d" xml:space="preserve">
+          <source>./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-12.png</source>
+          <target state="new">./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-12.png</target>
+        </trans-unit>
+        <trans-unit id="0031fd4e-6e79-4294-b1f0-33efb88410eb" xml:space="preserve">
+          <source>./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png</source>
+          <target state="new">./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png</target>
+        </trans-unit>
+      </group>
+      <group id="c927dd20-59b6-4ff3-a437-0dff5b8c8ef8" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8f832cba-27b6-46ec-b248-3d76f2046ad3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8f832cba-27b6-46ec-b248-3d76f2046ad3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a5a615fb-aea0-4f3a-91a1-203eea0ff3db">
+        <trans-unit id="ef48cd14-721a-4513-88fd-8f7602a5cd14" xml:space="preserve">
+          <source>Windows Authentication and Azure Multi-Factor Authentication Server</source>
+          <target state="new">Windows Authentication and Azure Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="8c961cd9-b53c-4914-83ff-afca9a5cbb14" xml:space="preserve">
+          <source>This is the Azure Multi-factor authentication page that will assist in deploying Windows Authentication and Azure Multi-Factor Authentication Server.</source>
+          <target state="new">This is the Azure Multi-factor authentication page that will assist in deploying Windows Authentication and Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="b6e412a4-4398-4286-b921-272a310731ef" xml:space="preserve">
+          <source>The Windows Authentication section allows the administrator to enable and configure Windows authentication for one or more applications.</source>
+          <target state="new">The Windows Authentication section allows the administrator to enable and configure Windows authentication for one or more applications.</target>
+        </trans-unit>
+        <trans-unit id="d70699a8-6f98-422d-b805-f58468da6e58" xml:space="preserve">
+          <source>The following is a list of things to keep in mind prior to setting up Windows Authentication.</source>
+          <target state="new">The following is a list of things to keep in mind prior to setting up Windows Authentication.</target>
+        </trans-unit>
+        <trans-unit id="f7a18b0d-1001-4cca-b90c-fe02e90bc264" xml:space="preserve">
+          <source>reboot is needed before the Azure Multi-Factor Authentication for Terminal Services will be in effect.</source>
+          <target state="new">reboot is needed before the Azure Multi-Factor Authentication for Terminal Services will be in effect.</target>
+        </trans-unit>
+        <trans-unit id="b2dbbff2-37df-4b27-92b4-110fd13e380e" xml:space="preserve">
+          <source>If ‘Require Azure Multi-Factor Authentication user match’ is checked and you are not in the user list, you will not be able to log into the machine after reboot.</source>
+          <target state="new">If ‘Require Azure Multi-Factor Authentication user match’ is checked and you are not in the user list, you will not be able to log into the machine after reboot.</target>
+        </trans-unit>
+        <trans-unit id="daef90c0-c318-4ee9-bcbf-106de5c06974" xml:space="preserve">
+          <source>Trusted IPs is dependent on whether the application can provide the client IP with the authentication.</source>
+          <target state="new">Trusted IPs is dependent on whether the application can provide the client IP with the authentication.</target>
+        </trans-unit>
+        <trans-unit id="a0ecc3c1-61c1-4dca-9a63-c8cfa09ab1d1" xml:space="preserve">
+          <source>Currently only Terminal Services is supported.</source>
+          <target state="new">Currently only Terminal Services is supported.</target>
+        </trans-unit>
+        <trans-unit id="28684fd3-06b3-4c0f-b3ba-3cf4386a1088" xml:space="preserve">
+          <source>This feature is not supported to secure Terminal Services on Windows Server 2012 R2.</source>
+          <target state="new">This feature is not supported to secure Terminal Services on Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="1af1c994-d680-4b84-9621-a9f314ec2722" xml:space="preserve">
+          <source>In the Azure Multi-Factor Authentication Server click the Windows Authentication icon.</source>
+          <target state="new">In the Azure Multi-Factor Authentication Server click the Windows Authentication icon.</target>
+        </trans-unit>
+        <trans-unit id="98674713-4fc5-4bd2-8b25-1f92c70d7cf3" xml:space="preserve">
+          <source><bpt id="04fbabce-b533-476a-8b7c-6438bb8c26c9">&lt;linkText&gt;</bpt>Windows Authentication<ept id="04fbabce-b533-476a-8b7c-6438bb8c26c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="04fbabce-b533-476a-8b7c-6438bb8c26c9">&lt;linkText&gt;</bpt>Windows Authentication<ept id="04fbabce-b533-476a-8b7c-6438bb8c26c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e4fdb3c-89a7-4957-8c26-448e0ce8dce4" xml:space="preserve">
+          <source>Check the Enable Windows authentication checkbox.</source>
+          <target state="new">Check the Enable Windows authentication checkbox.</target>
+        </trans-unit>
+        <trans-unit id="096ff114-04b2-4f40-9709-1402b60dab6c" xml:space="preserve">
+          <source>By default, this box is unchecked.</source>
+          <target state="new">By default, this box is unchecked.</target>
+        </trans-unit>
+        <trans-unit id="b07bf6cf-4907-4fb4-bc5d-f6806605a4dc" xml:space="preserve">
+          <source>The Applications tab allows the administrator to configure one or more applications for Windows Authentication.</source>
+          <target state="new">The Applications tab allows the administrator to configure one or more applications for Windows Authentication.</target>
+        </trans-unit>
+        <trans-unit id="4f413013-71da-4ee6-b263-c1b0b3984335" xml:space="preserve">
+          <source>Select a server or application – specify whether the server/application is enabled.</source>
+          <target state="new">Select a server or application – specify whether the server/application is enabled.</target>
+        </trans-unit>
+        <trans-unit id="65c330d5-32bf-4624-b497-e35dc5283edd" xml:space="preserve">
+          <source>Click OK.</source>
+          <target state="new">Click OK.</target>
+        </trans-unit>
+        <trans-unit id="75887a31-aba2-4041-b66e-0c86d4a582b9" xml:space="preserve">
+          <source>Click Add…</source>
+          <target state="new">Click Add…</target>
+        </trans-unit>
+        <trans-unit id="256e828a-98b7-4802-8150-07437f032af9" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="f133408b-b217-477f-9bbd-056a7a3d49d4" xml:space="preserve">
+          <source>The Trusted IPs tab allows you to skip Azure Multi-Factor Authentication for Windows sessions originating from specific IPs.</source>
+          <target state="new">The Trusted IPs tab allows you to skip Azure Multi-Factor Authentication for Windows sessions originating from specific IPs.</target>
+        </trans-unit>
+        <trans-unit id="1f67882e-9ae2-4327-aa68-524190827098" xml:space="preserve">
+          <source>For example, if employees use the application from the office and from home, you may decide you don't want their phones ringing for Azure Multi-Factor Authentication while at the office.</source>
+          <target state="new">For example, if employees use the application from the office and from home, you may decide you don't want their phones ringing for Azure Multi-Factor Authentication while at the office.</target>
+        </trans-unit>
+        <trans-unit id="001b5733-e0b5-4942-8a2a-2d0fa1b874ca" xml:space="preserve">
+          <source>For this, you would specify the office subnet as Trusted IPs entry.</source>
+          <target state="new">For this, you would specify the office subnet as Trusted IPs entry.</target>
+        </trans-unit>
+        <trans-unit id="b834d521-8cd2-44c2-840e-7b7b3016badb" xml:space="preserve">
+          <source>Click Add…</source>
+          <target state="new">Click Add…</target>
+        </trans-unit>
+        <trans-unit id="aeabd86a-da66-472d-bef9-82fd0175671d" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="d340af0c-c039-4440-8564-c26ba01dd01e" xml:space="preserve">
+          <source>Select Single IP if you would like to skip a single IP address.</source>
+          <target state="new">Select Single IP if you would like to skip a single IP address.</target>
+        </trans-unit>
+        <trans-unit id="aab168e6-bf06-440d-a4f5-c1f123735cdd" xml:space="preserve">
+          <source>Select IP Range if you would like to skip an entire IP range.</source>
+          <target state="new">Select IP Range if you would like to skip an entire IP range.</target>
+        </trans-unit>
+        <trans-unit id="1a72815c-5cb1-4dd8-ac14-c9f5f4ad33ef" xml:space="preserve">
+          <source>Example 10.63.193.1-10.63.193.100.</source>
+          <target state="new">Example 10.63.193.1-10.63.193.100.</target>
+        </trans-unit>
+        <trans-unit id="d36c0818-2397-47c7-af19-475efec9340f" xml:space="preserve">
+          <source>Select Subnet if you would like to specify a range of IPs using subnet notation.</source>
+          <target state="new">Select Subnet if you would like to specify a range of IPs using subnet notation.</target>
+        </trans-unit>
+        <trans-unit id="34febb5e-2de7-45c0-b664-5ac44249cb51" xml:space="preserve">
+          <source>Enter the subnet's starting IP and pick the appropriate netmask from the drop-down list.</source>
+          <target state="new">Enter the subnet's starting IP and pick the appropriate netmask from the drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="78449a4f-af88-40d2-88b8-a527634f073d" xml:space="preserve">
+          <source>Click the OK button.</source>
+          <target state="new">Click the OK button.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="39c1d79e-69e1-4f02-a414-1c9474076af0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="39c1d79e-69e1-4f02-a414-1c9474076af0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5a1bd356-87e6-4c08-b38f-8636ca0496f0">
+        <trans-unit id="944bc084-b671-44fb-b756-fc08848095ee" xml:space="preserve">
+          <source>Schedules in Azure Automation | Microsoft Azure</source>
+          <target state="new">Schedules in Azure Automation | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="dee56e80-d648-4e32-a77e-02ba1d6e83c1" xml:space="preserve">
+          <source>Automation schedules are used to schedule runbooks in Azure Automation to start automatically.  This article describes how to create schedules.</source>
+          <target state="new">Automation schedules are used to schedule runbooks in Azure Automation to start automatically.  This article describes how to create schedules.</target>
+        </trans-unit>
+        <trans-unit id="026c7b19-1755-4fdb-aa34-d862656269b4" xml:space="preserve">
+          <source>Automation Schedules are used to schedule runbooks to run automatically.</source>
+          <target state="new">Automation Schedules are used to schedule runbooks to run automatically.</target>
+        </trans-unit>
+        <trans-unit id="2d9f55ea-be4f-4433-8125-257f2ca6a760" xml:space="preserve">
+          <source>This could be either a single date and time for the runbook to run once.</source>
+          <target state="new">This could be either a single date and time for the runbook to run once.</target>
+        </trans-unit>
+        <trans-unit id="262bee4e-2343-4b78-bdf2-e7f1d6e07eb5" xml:space="preserve">
+          <source>Or it could be a recurring schedule to start the runbook multiple times.</source>
+          <target state="new">Or it could be a recurring schedule to start the runbook multiple times.</target>
+        </trans-unit>
+        <trans-unit id="d23d3e23-999d-405f-9500-f2e8b77c13a9" xml:space="preserve">
+          <source>Schedules are typically not accessed from runbooks.</source>
+          <target state="new">Schedules are typically not accessed from runbooks.</target>
+        </trans-unit>
+        <trans-unit id="b1ba0347-c06d-4674-ae56-d3de2f3edc2a" xml:space="preserve">
+          <source>The cmdlets in the following table are used to create and manage variables with Windows PowerShell in Azure Automation.</source>
+          <target state="new">The cmdlets in the following table are used to create and manage variables with Windows PowerShell in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="e9fade57-a757-4eff-94d3-2fd3ca57483d" xml:space="preserve">
+          <source>They ship as part of the <bpt id="804cf8ae-4c0f-4c4f-a9fd-3b9fdbc5722a">&lt;linkText&gt;</bpt>Azure PowerShell module<ept id="804cf8ae-4c0f-4c4f-a9fd-3b9fdbc5722a">&lt;/linkText&gt;</ept><bpt id="804cf8ae-4c0f-4c4f-a9fd-3b9fdbc5722a">&lt;title&gt;</bpt><ept id="804cf8ae-4c0f-4c4f-a9fd-3b9fdbc5722a">&lt;/title&gt;</ept>.</source>
+          <target state="new">They ship as part of the <bpt id="804cf8ae-4c0f-4c4f-a9fd-3b9fdbc5722a">&lt;linkText&gt;</bpt>Azure PowerShell module<ept id="804cf8ae-4c0f-4c4f-a9fd-3b9fdbc5722a">&lt;/linkText&gt;</ept><bpt id="804cf8ae-4c0f-4c4f-a9fd-3b9fdbc5722a">&lt;title&gt;</bpt><ept id="804cf8ae-4c0f-4c4f-a9fd-3b9fdbc5722a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f252de48-86d1-492e-9ada-9d72660ea8ce" xml:space="preserve">
+          <source>Cmdlets</source>
+          <target state="new">Cmdlets</target>
+        </trans-unit>
+        <trans-unit id="21ee2274-5a7c-4b7c-848a-b25499fef01d" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="399bf8a7-88ea-407a-a5d3-5199f3b4c153" xml:space="preserve">
+          <source><bpt id="92f6ce27-aa4c-4f36-abf2-8b2f12097457">&lt;linkText&gt;</bpt>Get-AzureAutomationSchedule<ept id="92f6ce27-aa4c-4f36-abf2-8b2f12097457">&lt;/linkText&gt;</ept><bpt id="92f6ce27-aa4c-4f36-abf2-8b2f12097457">&lt;title&gt;</bpt><ept id="92f6ce27-aa4c-4f36-abf2-8b2f12097457">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="92f6ce27-aa4c-4f36-abf2-8b2f12097457">&lt;linkText&gt;</bpt>Get-AzureAutomationSchedule<ept id="92f6ce27-aa4c-4f36-abf2-8b2f12097457">&lt;/linkText&gt;</ept><bpt id="92f6ce27-aa4c-4f36-abf2-8b2f12097457">&lt;title&gt;</bpt><ept id="92f6ce27-aa4c-4f36-abf2-8b2f12097457">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0051cfb1-80f7-4fce-8ebe-2db8d54005b3" xml:space="preserve">
+          <source>Retrieves a schedule.</source>
+          <target state="new">Retrieves a schedule.</target>
+        </trans-unit>
+        <trans-unit id="672c2425-676e-479b-9226-6dd51fa32d39" xml:space="preserve">
+          <source><bpt id="dfdd4751-59aa-4128-9022-ceefaeb42eb9">&lt;linkText&gt;</bpt>New-AzureAutomationSchedule<ept id="dfdd4751-59aa-4128-9022-ceefaeb42eb9">&lt;/linkText&gt;</ept><bpt id="dfdd4751-59aa-4128-9022-ceefaeb42eb9">&lt;title&gt;</bpt><ept id="dfdd4751-59aa-4128-9022-ceefaeb42eb9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dfdd4751-59aa-4128-9022-ceefaeb42eb9">&lt;linkText&gt;</bpt>New-AzureAutomationSchedule<ept id="dfdd4751-59aa-4128-9022-ceefaeb42eb9">&lt;/linkText&gt;</ept><bpt id="dfdd4751-59aa-4128-9022-ceefaeb42eb9">&lt;title&gt;</bpt><ept id="dfdd4751-59aa-4128-9022-ceefaeb42eb9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b395bd99-ca4a-41fc-b749-6646d02434e7" xml:space="preserve">
+          <source>Creates a new schedule.</source>
+          <target state="new">Creates a new schedule.</target>
+        </trans-unit>
+        <trans-unit id="344538d9-d18f-4293-8b29-23f034b9d3bd" xml:space="preserve">
+          <source><bpt id="67381013-4a76-47b0-be33-60d368ed8f2c">&lt;linkText&gt;</bpt>Remove-AzureAutomationSchedule<ept id="67381013-4a76-47b0-be33-60d368ed8f2c">&lt;/linkText&gt;</ept><bpt id="67381013-4a76-47b0-be33-60d368ed8f2c">&lt;title&gt;</bpt><ept id="67381013-4a76-47b0-be33-60d368ed8f2c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="67381013-4a76-47b0-be33-60d368ed8f2c">&lt;linkText&gt;</bpt>Remove-AzureAutomationSchedule<ept id="67381013-4a76-47b0-be33-60d368ed8f2c">&lt;/linkText&gt;</ept><bpt id="67381013-4a76-47b0-be33-60d368ed8f2c">&lt;title&gt;</bpt><ept id="67381013-4a76-47b0-be33-60d368ed8f2c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77371de6-7a6d-443c-b696-f8fc01090a74" xml:space="preserve">
+          <source>Removes a schedule.</source>
+          <target state="new">Removes a schedule.</target>
+        </trans-unit>
+        <trans-unit id="c76546a0-0dd3-471d-a8f7-4ec673863492" xml:space="preserve">
+          <source><bpt id="677fe156-30db-49a4-81ec-6f19ba48e153">&lt;linkText&gt;</bpt>Set-AzureAutomationSchedule<ept id="677fe156-30db-49a4-81ec-6f19ba48e153">&lt;/linkText&gt;</ept><bpt id="677fe156-30db-49a4-81ec-6f19ba48e153">&lt;title&gt;</bpt><ept id="677fe156-30db-49a4-81ec-6f19ba48e153">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="677fe156-30db-49a4-81ec-6f19ba48e153">&lt;linkText&gt;</bpt>Set-AzureAutomationSchedule<ept id="677fe156-30db-49a4-81ec-6f19ba48e153">&lt;/linkText&gt;</ept><bpt id="677fe156-30db-49a4-81ec-6f19ba48e153">&lt;title&gt;</bpt><ept id="677fe156-30db-49a4-81ec-6f19ba48e153">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5afbebee-0915-4eb6-8cdd-7c27bbc48b98" xml:space="preserve">
+          <source>Sets the properties for an existing schedule.</source>
+          <target state="new">Sets the properties for an existing schedule.</target>
+        </trans-unit>
+        <trans-unit id="7d3099db-9d8a-4374-80a0-d78e70f3e660" xml:space="preserve">
+          <source><bpt id="78b04efb-0091-4248-9161-ef4fa8322d24">&lt;linkText&gt;</bpt>Get-AzureAutomationScheduledRunbook<ept id="78b04efb-0091-4248-9161-ef4fa8322d24">&lt;/linkText&gt;</ept><bpt id="78b04efb-0091-4248-9161-ef4fa8322d24">&lt;title&gt;</bpt><ept id="78b04efb-0091-4248-9161-ef4fa8322d24">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="78b04efb-0091-4248-9161-ef4fa8322d24">&lt;linkText&gt;</bpt>Get-AzureAutomationScheduledRunbook<ept id="78b04efb-0091-4248-9161-ef4fa8322d24">&lt;/linkText&gt;</ept><bpt id="78b04efb-0091-4248-9161-ef4fa8322d24">&lt;title&gt;</bpt><ept id="78b04efb-0091-4248-9161-ef4fa8322d24">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afa8d4c8-5487-4a37-a307-27d585ce5865" xml:space="preserve">
+          <source>Retrieves scheduled runbooks.</source>
+          <target state="new">Retrieves scheduled runbooks.</target>
+        </trans-unit>
+        <trans-unit id="7c0d212e-a57e-4084-ad4c-a423e0a4be44" xml:space="preserve">
+          <source><bpt id="8fe0c6ef-2dd2-427f-98b9-f41c5f7afba4">&lt;linkText&gt;</bpt>Register-AzureAutomationScheduledRunbook<ept id="8fe0c6ef-2dd2-427f-98b9-f41c5f7afba4">&lt;/linkText&gt;</ept><bpt id="8fe0c6ef-2dd2-427f-98b9-f41c5f7afba4">&lt;title&gt;</bpt><ept id="8fe0c6ef-2dd2-427f-98b9-f41c5f7afba4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8fe0c6ef-2dd2-427f-98b9-f41c5f7afba4">&lt;linkText&gt;</bpt>Register-AzureAutomationScheduledRunbook<ept id="8fe0c6ef-2dd2-427f-98b9-f41c5f7afba4">&lt;/linkText&gt;</ept><bpt id="8fe0c6ef-2dd2-427f-98b9-f41c5f7afba4">&lt;title&gt;</bpt><ept id="8fe0c6ef-2dd2-427f-98b9-f41c5f7afba4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdeb46de-3c51-40bb-8372-3b11f548e5c1" xml:space="preserve">
+          <source>Associates a runbook with a schedule.</source>
+          <target state="new">Associates a runbook with a schedule.</target>
+        </trans-unit>
+        <trans-unit id="59cadc0b-da0d-4d7d-86a0-c892e63a6fed" xml:space="preserve">
+          <source><bpt id="cbfdba3e-9f7e-4e77-9d95-6861a87933c2">&lt;linkText&gt;</bpt>Unregister-AzureAutomationScheduledRunbook<ept id="cbfdba3e-9f7e-4e77-9d95-6861a87933c2">&lt;/linkText&gt;</ept><bpt id="cbfdba3e-9f7e-4e77-9d95-6861a87933c2">&lt;title&gt;</bpt><ept id="cbfdba3e-9f7e-4e77-9d95-6861a87933c2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cbfdba3e-9f7e-4e77-9d95-6861a87933c2">&lt;linkText&gt;</bpt>Unregister-AzureAutomationScheduledRunbook<ept id="cbfdba3e-9f7e-4e77-9d95-6861a87933c2">&lt;/linkText&gt;</ept><bpt id="cbfdba3e-9f7e-4e77-9d95-6861a87933c2">&lt;title&gt;</bpt><ept id="cbfdba3e-9f7e-4e77-9d95-6861a87933c2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9230f1a-ecdd-439e-b7f5-3d5ede52b2e1" xml:space="preserve">
+          <source>Dissociates a runbook from a schedule.</source>
+          <target state="new">Dissociates a runbook from a schedule.</target>
+        </trans-unit>
+        <trans-unit id="62efacee-3010-4f0d-a030-8811ab53290b" xml:space="preserve">
+          <source>From your automation account, click <bpt id="53c7b377-984a-4cef-ab65-faa85df541ac">&lt;strong&gt;</bpt>Assets<ept id="53c7b377-984a-4cef-ab65-faa85df541ac">&lt;/strong&gt;</ept> at the top of the window.</source>
+          <target state="new">From your automation account, click <bpt id="53c7b377-984a-4cef-ab65-faa85df541ac">&lt;strong&gt;</bpt>Assets<ept id="53c7b377-984a-4cef-ab65-faa85df541ac">&lt;/strong&gt;</ept> at the top of the window.</target>
+        </trans-unit>
+        <trans-unit id="cadfb34c-7a93-4f42-b1d2-cff836e3f641" xml:space="preserve">
+          <source>At the bottom of the window, click <bpt id="914f07c3-9e65-43d2-a066-9a00bbfad70f">&lt;strong&gt;</bpt>Add Setting<ept id="914f07c3-9e65-43d2-a066-9a00bbfad70f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the window, click <bpt id="914f07c3-9e65-43d2-a066-9a00bbfad70f">&lt;strong&gt;</bpt>Add Setting<ept id="914f07c3-9e65-43d2-a066-9a00bbfad70f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80425dfd-1192-4d8f-b953-9054f78a0bf7" xml:space="preserve">
+          <source>Click <bpt id="71c493e6-589f-4ad4-8a92-1ffcc2360cd4">&lt;strong&gt;</bpt>Add Schedule<ept id="71c493e6-589f-4ad4-8a92-1ffcc2360cd4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="71c493e6-589f-4ad4-8a92-1ffcc2360cd4">&lt;strong&gt;</bpt>Add Schedule<ept id="71c493e6-589f-4ad4-8a92-1ffcc2360cd4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98a1da4c-4477-4864-b64e-f64e6def1fb9" xml:space="preserve">
+          <source>Complete the wizard and click the checkbox to save the new variable.</source>
+          <target state="new">Complete the wizard and click the checkbox to save the new variable.</target>
+        </trans-unit>
+        <trans-unit id="2170bbb7-f2b1-4560-a7ef-e004a5c0bf25" xml:space="preserve">
+          <source>From your automation account, click the <bpt id="7f75ac8b-a01d-4d64-86ca-20eae47b3c33">&lt;strong&gt;</bpt>Assets<ept id="7f75ac8b-a01d-4d64-86ca-20eae47b3c33">&lt;/strong&gt;</ept> part to open the <bpt id="a9d0c9db-6b36-4b3d-8971-090def3f6c01">&lt;strong&gt;</bpt>Assets<ept id="a9d0c9db-6b36-4b3d-8971-090def3f6c01">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">From your automation account, click the <bpt id="7f75ac8b-a01d-4d64-86ca-20eae47b3c33">&lt;strong&gt;</bpt>Assets<ept id="7f75ac8b-a01d-4d64-86ca-20eae47b3c33">&lt;/strong&gt;</ept> part to open the <bpt id="a9d0c9db-6b36-4b3d-8971-090def3f6c01">&lt;strong&gt;</bpt>Assets<ept id="a9d0c9db-6b36-4b3d-8971-090def3f6c01">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="16d2aa3b-2207-4364-b172-47320caf1920" xml:space="preserve">
+          <source>Click the <bpt id="56dff523-c6d8-4d39-b92d-b514aec005f6">&lt;strong&gt;</bpt>Schedules<ept id="56dff523-c6d8-4d39-b92d-b514aec005f6">&lt;/strong&gt;</ept> part to open the <bpt id="85377812-35b9-46af-be89-ff556c04d622">&lt;strong&gt;</bpt>Schedules<ept id="85377812-35b9-46af-be89-ff556c04d622">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click the <bpt id="56dff523-c6d8-4d39-b92d-b514aec005f6">&lt;strong&gt;</bpt>Schedules<ept id="56dff523-c6d8-4d39-b92d-b514aec005f6">&lt;/strong&gt;</ept> part to open the <bpt id="85377812-35b9-46af-be89-ff556c04d622">&lt;strong&gt;</bpt>Schedules<ept id="85377812-35b9-46af-be89-ff556c04d622">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="3151b6ce-b1ed-42ab-9987-437ba9889f70" xml:space="preserve">
+          <source>Click <bpt id="a079f330-bdb0-4009-a6b6-fde993101979">&lt;strong&gt;</bpt>Add a Schedule<ept id="a079f330-bdb0-4009-a6b6-fde993101979">&lt;/strong&gt;</ept> at the top of the blade.</source>
+          <target state="new">Click <bpt id="a079f330-bdb0-4009-a6b6-fde993101979">&lt;strong&gt;</bpt>Add a Schedule<ept id="a079f330-bdb0-4009-a6b6-fde993101979">&lt;/strong&gt;</ept> at the top of the blade.</target>
+        </trans-unit>
+        <trans-unit id="7d84b753-5e0c-498a-9e25-34a73b2c08b2" xml:space="preserve">
+          <source>Complete the form and click <bpt id="8a878248-aa3d-4f62-abae-de5a245b2cb4">&lt;strong&gt;</bpt>Create<ept id="8a878248-aa3d-4f62-abae-de5a245b2cb4">&lt;/strong&gt;</ept> to save the new schedule.</source>
+          <target state="new">Complete the form and click <bpt id="8a878248-aa3d-4f62-abae-de5a245b2cb4">&lt;strong&gt;</bpt>Create<ept id="8a878248-aa3d-4f62-abae-de5a245b2cb4">&lt;/strong&gt;</ept> to save the new schedule.</target>
+        </trans-unit>
+        <trans-unit id="132c0408-3692-4868-a00d-40e6f4f94784" xml:space="preserve">
+          <source>The <bpt id="da272679-dbee-4537-8c5d-e3adfe71a193">&lt;linkText&gt;</bpt>New-AzureAutomationSchedule<ept id="da272679-dbee-4537-8c5d-e3adfe71a193">&lt;/linkText&gt;</ept><bpt id="da272679-dbee-4537-8c5d-e3adfe71a193">&lt;title&gt;</bpt><ept id="da272679-dbee-4537-8c5d-e3adfe71a193">&lt;/title&gt;</ept> cmdlet creates a new schedule and sets the value for an existing schedule.</source>
+          <target state="new">The <bpt id="da272679-dbee-4537-8c5d-e3adfe71a193">&lt;linkText&gt;</bpt>New-AzureAutomationSchedule<ept id="da272679-dbee-4537-8c5d-e3adfe71a193">&lt;/linkText&gt;</ept><bpt id="da272679-dbee-4537-8c5d-e3adfe71a193">&lt;title&gt;</bpt><ept id="da272679-dbee-4537-8c5d-e3adfe71a193">&lt;/title&gt;</ept> cmdlet creates a new schedule and sets the value for an existing schedule.</target>
+        </trans-unit>
+        <trans-unit id="7aeb61d9-7ad9-4870-9bf6-8b6f7e7bbb9f" xml:space="preserve">
+          <source>The following sample Windows PowerShell commands create a new schedule called My Daily Schedule that starts on tomorrow at noon and fires every day one year:</source>
+          <target state="new">The following sample Windows PowerShell commands create a new schedule called My Daily Schedule that starts on tomorrow at noon and fires every day one year:</target>
+        </trans-unit>
+        <trans-unit id="515cb17c-e240-4fbc-90f7-b0efec34e74f" xml:space="preserve">
+          <source><bpt id="2cf4cdae-6ee2-4661-b0c3-7cc656b9865f">&lt;linkText&gt;</bpt>Scheduling a runbook in Azure Automation<ept id="2cf4cdae-6ee2-4661-b0c3-7cc656b9865f">&lt;/linkText&gt;</ept><bpt id="2cf4cdae-6ee2-4661-b0c3-7cc656b9865f">&lt;title&gt;</bpt><ept id="2cf4cdae-6ee2-4661-b0c3-7cc656b9865f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2cf4cdae-6ee2-4661-b0c3-7cc656b9865f">&lt;linkText&gt;</bpt>Scheduling a runbook in Azure Automation<ept id="2cf4cdae-6ee2-4661-b0c3-7cc656b9865f">&lt;/linkText&gt;</ept><bpt id="2cf4cdae-6ee2-4661-b0c3-7cc656b9865f">&lt;title&gt;</bpt><ept id="2cf4cdae-6ee2-4661-b0c3-7cc656b9865f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

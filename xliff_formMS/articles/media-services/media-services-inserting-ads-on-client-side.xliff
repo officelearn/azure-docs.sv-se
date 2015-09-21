@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="43f2f452-18c0-410c-a902-76ab67fbd234" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="43f2f452-18c0-410c-a902-76ab67fbd234" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="10c32628-7b03-491e-8512-0a8e1f74603c">
+        <trans-unit id="ada03e07-9d0a-4c14-9b73-89c223b573eb" xml:space="preserve">
+          <source>Inserting Ads on the Client Side</source>
+          <target state="new">Inserting Ads on the Client Side</target>
+        </trans-unit>
+        <trans-unit id="ea5d9c32-82c5-43ef-8436-6a760afc035b" xml:space="preserve">
+          <source>This topic shows how to insert ads on the client side.</source>
+          <target state="new">This topic shows how to insert ads on the client side.</target>
+        </trans-unit>
+        <trans-unit id="bd27df99-3119-44c5-b723-7fc8b25dd0dd" xml:space="preserve">
+          <source>This topic contains information on how to insert various types of ads on the client side.</source>
+          <target state="new">This topic contains information on how to insert various types of ads on the client side.</target>
+        </trans-unit>
+        <trans-unit id="2c7c45e1-c9a9-44e8-a28a-2ecbe684b09a" xml:space="preserve">
+          <source>For information about closed captioning and ad support in Live streaming videos, see <bpt id="100dc6ff-bb50-423c-8603-fcaf988d0bdd">&lt;linkText&gt;</bpt>Supported Closed Captioning and Ad Insertion Standards<ept id="100dc6ff-bb50-423c-8603-fcaf988d0bdd">&lt;/linkText&gt;</ept><bpt id="100dc6ff-bb50-423c-8603-fcaf988d0bdd">&lt;title&gt;</bpt><ept id="100dc6ff-bb50-423c-8603-fcaf988d0bdd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about closed captioning and ad support in Live streaming videos, see <bpt id="100dc6ff-bb50-423c-8603-fcaf988d0bdd">&lt;linkText&gt;</bpt>Supported Closed Captioning and Ad Insertion Standards<ept id="100dc6ff-bb50-423c-8603-fcaf988d0bdd">&lt;/linkText&gt;</ept><bpt id="100dc6ff-bb50-423c-8603-fcaf988d0bdd">&lt;title&gt;</bpt><ept id="100dc6ff-bb50-423c-8603-fcaf988d0bdd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35a37cac-534e-4d16-b2bd-fa1909d04e2a" xml:space="preserve">
+          <source>Azure Media Services provides support for ad insertion through the Windows Media Platform: Player Frameworks.</source>
+          <target state="new">Azure Media Services provides support for ad insertion through the Windows Media Platform: Player Frameworks.</target>
+        </trans-unit>
+        <trans-unit id="760d5dc2-ee3e-49ee-ad5e-992cd8a2ea2f" xml:space="preserve">
+          <source>Player frameworks with ad support are available for Windows 8, Silverlight, Windows Phone 8, and iOS devices.</source>
+          <target state="new">Player frameworks with ad support are available for Windows 8, Silverlight, Windows Phone 8, and iOS devices.</target>
+        </trans-unit>
+        <trans-unit id="133c962e-8f05-48ff-840e-2a3e96211599" xml:space="preserve">
+          <source>Each player framework contains sample code that shows you how to implement a player application.There are three different kinds of ads you can insert into your media:list.</source>
+          <target state="new">Each player framework contains sample code that shows you how to implement a player application.There are three different kinds of ads you can insert into your media:list.</target>
+        </trans-unit>
+        <trans-unit id="538545c3-1a5e-452c-8524-3a4a4650e2b6" xml:space="preserve">
+          <source><bpt id="c3a0e720-5dbe-420a-b7e4-38750572bf1e">&lt;strong&gt;</bpt>Linear<ept id="c3a0e720-5dbe-420a-b7e4-38750572bf1e">&lt;/strong&gt;</ept> – full frame ads that pause the main video.</source>
+          <target state="new"><bpt id="c3a0e720-5dbe-420a-b7e4-38750572bf1e">&lt;strong&gt;</bpt>Linear<ept id="c3a0e720-5dbe-420a-b7e4-38750572bf1e">&lt;/strong&gt;</ept> – full frame ads that pause the main video.</target>
+        </trans-unit>
+        <trans-unit id="39799e73-96de-4e3b-8b03-174bee69cd31" xml:space="preserve">
+          <source><bpt id="2d47150b-d263-4cef-b599-d2a0641a0381">&lt;strong&gt;</bpt>Nonlinear<ept id="2d47150b-d263-4cef-b599-d2a0641a0381">&lt;/strong&gt;</ept> – overlay ads that are displayed as the main video is playing, usually a logo or other static image placed within the player.</source>
+          <target state="new"><bpt id="2d47150b-d263-4cef-b599-d2a0641a0381">&lt;strong&gt;</bpt>Nonlinear<ept id="2d47150b-d263-4cef-b599-d2a0641a0381">&lt;/strong&gt;</ept> – overlay ads that are displayed as the main video is playing, usually a logo or other static image placed within the player.</target>
+        </trans-unit>
+        <trans-unit id="00e308ba-e3ca-4da0-ac7a-581f5999fa1d" xml:space="preserve">
+          <source><bpt id="a69d6aee-fb17-4696-b2c5-fdba58704eda">&lt;strong&gt;</bpt>Companion<ept id="a69d6aee-fb17-4696-b2c5-fdba58704eda">&lt;/strong&gt;</ept> – ads that are displayed outside of the player.</source>
+          <target state="new"><bpt id="a69d6aee-fb17-4696-b2c5-fdba58704eda">&lt;strong&gt;</bpt>Companion<ept id="a69d6aee-fb17-4696-b2c5-fdba58704eda">&lt;/strong&gt;</ept> – ads that are displayed outside of the player.</target>
+        </trans-unit>
+        <trans-unit id="ba11c19d-a95d-4c73-b50f-dfdefbd3345a" xml:space="preserve">
+          <source>Ads can be placed at any point in the main video’s time line.</source>
+          <target state="new">Ads can be placed at any point in the main video’s time line.</target>
+        </trans-unit>
+        <trans-unit id="6e92a5c0-343e-41a7-996c-28930bbb87d6" xml:space="preserve">
+          <source>You must tell the player when to play the ad and which ads to play.</source>
+          <target state="new">You must tell the player when to play the ad and which ads to play.</target>
+        </trans-unit>
+        <trans-unit id="45c473a0-481d-4130-8e37-49fcafdf8453" xml:space="preserve">
+          <source>This is done using a set of standard XML-based files: Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST), and Digital Video Player Ad Interface Definition (VPAID).</source>
+          <target state="new">This is done using a set of standard XML-based files: Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST), and Digital Video Player Ad Interface Definition (VPAID).</target>
+        </trans-unit>
+        <trans-unit id="4f1f4197-a173-43e3-a14e-10d194522262" xml:space="preserve">
+          <source>VAST files specify what ads to display.</source>
+          <target state="new">VAST files specify what ads to display.</target>
+        </trans-unit>
+        <trans-unit id="4afc43e9-447d-4449-97a8-70dc5e8f3147" xml:space="preserve">
+          <source>VMAP files specify when to play various ads and contain VAST XML.</source>
+          <target state="new">VMAP files specify when to play various ads and contain VAST XML.</target>
+        </trans-unit>
+        <trans-unit id="2528f844-9324-4926-8595-21d340d24224" xml:space="preserve">
+          <source>MAST files are another way to sequence ads which also can contain VAST XML.</source>
+          <target state="new">MAST files are another way to sequence ads which also can contain VAST XML.</target>
+        </trans-unit>
+        <trans-unit id="8ef172f5-7d32-41d1-a04c-309c0e8c3d69" xml:space="preserve">
+          <source>VPAID files define an interface between the video player and the ad or ad server.</source>
+          <target state="new">VPAID files define an interface between the video player and the ad or ad server.</target>
+        </trans-unit>
+        <trans-unit id="cc004c14-4f9b-4779-b678-1f9f1b076009" xml:space="preserve">
+          <source>Each player framework works differently and each will be covered in its own topic.</source>
+          <target state="new">Each player framework works differently and each will be covered in its own topic.</target>
+        </trans-unit>
+        <trans-unit id="917a5dc5-6c54-438e-9389-d6548ca0d400" xml:space="preserve">
+          <source>This topic will describe the basic mechanisms used to insert ads.Video player applications request ads from an ad server.</source>
+          <target state="new">This topic will describe the basic mechanisms used to insert ads.Video player applications request ads from an ad server.</target>
+        </trans-unit>
+        <trans-unit id="36e902fd-486e-41c3-b474-541e40640dcd" xml:space="preserve">
+          <source>The ad server can respond in a number of ways:</source>
+          <target state="new">The ad server can respond in a number of ways:</target>
+        </trans-unit>
+        <trans-unit id="0769271d-f71a-441c-80de-9b79f7453b2f" xml:space="preserve">
+          <source>Return a VAST file</source>
+          <target state="new">Return a VAST file</target>
+        </trans-unit>
+        <trans-unit id="7aaddbe4-011b-4d40-8d05-85ead785b646" xml:space="preserve">
+          <source>Return a VMAP file (with embedded VAST)</source>
+          <target state="new">Return a VMAP file (with embedded VAST)</target>
+        </trans-unit>
+        <trans-unit id="b681863e-608e-4c69-93bd-f60ab842ee8e" xml:space="preserve">
+          <source>Return a MAST file (with embedded VAST)</source>
+          <target state="new">Return a MAST file (with embedded VAST)</target>
+        </trans-unit>
+        <trans-unit id="1cc279d1-0e8f-4a9e-89e1-f9d1c59fedb3" xml:space="preserve">
+          <source>Return a VAST file with VPAID ads</source>
+          <target state="new">Return a VAST file with VPAID ads</target>
+        </trans-unit>
+        <trans-unit id="e6ba0d2f-2dee-4e41-aa6a-2f4f29a0ea4d" xml:space="preserve">
+          <source>A VAST file specifies what ad or ads to display.</source>
+          <target state="new">A VAST file specifies what ad or ads to display.</target>
+        </trans-unit>
+        <trans-unit id="3a2f07d2-179b-4232-86b6-818e12f5ec5d" xml:space="preserve">
+          <source>The following XML is an example of a VAST file for a linear ad:</source>
+          <target state="new">The following XML is an example of a VAST file for a linear ad:</target>
+        </trans-unit>
+        <trans-unit id="609b435c-f077-47c6-9c6c-89e6ef0f69fe" xml:space="preserve">
+          <source>The linear ad is described by the <bpt id="71552e8f-d01f-47e4-a804-0132c31b8abe">&lt;strong&gt;</bpt>&lt;Linear&gt;<ept id="71552e8f-d01f-47e4-a804-0132c31b8abe">&lt;/strong&gt;</ept> element. It specifies the duration of the ad, tracking events, click through, click tracking, and a number of <bpt id="2b8b183a-f8c9-4bde-b1bb-655875c83a26">&lt;strong&gt;</bpt>&lt;MediaFile&gt;<ept id="2b8b183a-f8c9-4bde-b1bb-655875c83a26">&lt;/strong&gt;</ept> elements. Tracking events are specified within the <bpt id="1998a330-b282-48ac-b65a-052d91c5c49e">&lt;strong&gt;</bpt>&lt;TrackingEvents&gt;<ept id="1998a330-b282-48ac-b65a-052d91c5c49e">&lt;/strong&gt;</ept> element and allow an ad server to track various events that occur while viewing the ad. In this case the start, midpoint, complete, and expand events are tracked. The start event occurs when the ad is displayed. The midpoint event occurs when at least 50% of the ad’s timeline has been viewed. The complete event occurs when the ad has run to the end. The Expand event occurs when the user expands the video player to full screen. Clickthroughs are specified with a <bpt id="b28fbf50-3791-4f4d-91ce-b94b71c0cec7">&lt;strong&gt;</bpt>&lt;ClickThrough&gt;<ept id="b28fbf50-3791-4f4d-91ce-b94b71c0cec7">&lt;/strong&gt;</ept> element within a <bpt id="0c8bd2b3-97a5-4e03-8e92-169d9c0fb200">&lt;strong&gt;</bpt>&lt;VideoClicks&gt;<ept id="0c8bd2b3-97a5-4e03-8e92-169d9c0fb200">&lt;/strong&gt;</ept> element and specifies a URI to a resource to display when the user clicks on the ad. ClickTracking is specified in a <bpt id="c7544c79-ef25-41c7-a4a4-c8fb82a2580d">&lt;strong&gt;</bpt>&lt;ClickTracking&gt;<ept id="c7544c79-ef25-41c7-a4a4-c8fb82a2580d">&lt;/strong&gt;</ept> element, also within the <bpt id="8287059b-069a-43d9-851a-0b545af2dced">&lt;strong&gt;</bpt>&lt;VideoClicks&gt;<ept id="8287059b-069a-43d9-851a-0b545af2dced">&lt;/strong&gt;</ept> element and specifies a tracking resource for the player to request when the user clicks on the ad.The <bpt id="8b340f6d-21f8-4843-882c-c7f84e3f97e3">&lt;strong&gt;</bpt>&lt;MediaFile&gt;<ept id="8b340f6d-21f8-4843-882c-c7f84e3f97e3">&lt;/strong&gt;</ept> elements specify information about a specific encoding of an ad. When there is more than one <bpt id="ed8f402b-c68b-43f5-9fea-2c02279ff3f1">&lt;strong&gt;</bpt>&lt;MediaFile&gt;<ept id="ed8f402b-c68b-43f5-9fea-2c02279ff3f1">&lt;/strong&gt;</ept> element, the video player can choose the best encoding for the platform. </source>
+          <target state="new">The linear ad is described by the <bpt id="71552e8f-d01f-47e4-a804-0132c31b8abe">&lt;strong&gt;</bpt>&lt;Linear&gt;<ept id="71552e8f-d01f-47e4-a804-0132c31b8abe">&lt;/strong&gt;</ept> element. It specifies the duration of the ad, tracking events, click through, click tracking, and a number of <bpt id="2b8b183a-f8c9-4bde-b1bb-655875c83a26">&lt;strong&gt;</bpt>&lt;MediaFile&gt;<ept id="2b8b183a-f8c9-4bde-b1bb-655875c83a26">&lt;/strong&gt;</ept> elements. Tracking events are specified within the <bpt id="1998a330-b282-48ac-b65a-052d91c5c49e">&lt;strong&gt;</bpt>&lt;TrackingEvents&gt;<ept id="1998a330-b282-48ac-b65a-052d91c5c49e">&lt;/strong&gt;</ept> element and allow an ad server to track various events that occur while viewing the ad. In this case the start, midpoint, complete, and expand events are tracked. The start event occurs when the ad is displayed. The midpoint event occurs when at least 50% of the ad’s timeline has been viewed. The complete event occurs when the ad has run to the end. The Expand event occurs when the user expands the video player to full screen. Clickthroughs are specified with a <bpt id="b28fbf50-3791-4f4d-91ce-b94b71c0cec7">&lt;strong&gt;</bpt>&lt;ClickThrough&gt;<ept id="b28fbf50-3791-4f4d-91ce-b94b71c0cec7">&lt;/strong&gt;</ept> element within a <bpt id="0c8bd2b3-97a5-4e03-8e92-169d9c0fb200">&lt;strong&gt;</bpt>&lt;VideoClicks&gt;<ept id="0c8bd2b3-97a5-4e03-8e92-169d9c0fb200">&lt;/strong&gt;</ept> element and specifies a URI to a resource to display when the user clicks on the ad. ClickTracking is specified in a <bpt id="c7544c79-ef25-41c7-a4a4-c8fb82a2580d">&lt;strong&gt;</bpt>&lt;ClickTracking&gt;<ept id="c7544c79-ef25-41c7-a4a4-c8fb82a2580d">&lt;/strong&gt;</ept> element, also within the <bpt id="8287059b-069a-43d9-851a-0b545af2dced">&lt;strong&gt;</bpt>&lt;VideoClicks&gt;<ept id="8287059b-069a-43d9-851a-0b545af2dced">&lt;/strong&gt;</ept> element and specifies a tracking resource for the player to request when the user clicks on the ad.The <bpt id="8b340f6d-21f8-4843-882c-c7f84e3f97e3">&lt;strong&gt;</bpt>&lt;MediaFile&gt;<ept id="8b340f6d-21f8-4843-882c-c7f84e3f97e3">&lt;/strong&gt;</ept> elements specify information about a specific encoding of an ad. When there is more than one <bpt id="ed8f402b-c68b-43f5-9fea-2c02279ff3f1">&lt;strong&gt;</bpt>&lt;MediaFile&gt;<ept id="ed8f402b-c68b-43f5-9fea-2c02279ff3f1">&lt;/strong&gt;</ept> element, the video player can choose the best encoding for the platform. </target>
+        </trans-unit>
+        <trans-unit id="5cca3d1e-a5d1-472e-bf40-28a7c32dcbfb" xml:space="preserve">
+          <source>Linear ads can be displayed in a specified order. To do this, add additional &lt;Ad&gt; elements to the VAST file and specify the order using the sequence attribute. The following example illustrates this:</source>
+          <target state="new">Linear ads can be displayed in a specified order. To do this, add additional &lt;Ad&gt; elements to the VAST file and specify the order using the sequence attribute. The following example illustrates this:</target>
+        </trans-unit>
+        <trans-unit id="951d9488-7ad5-4497-bbb1-1c8c6955f423" xml:space="preserve">
+          <source>Nonlinear ads are specified in a &lt;Creative&gt; element as well. The following example shows a &lt;Creative&gt; element that describes a nonlinear ad.</source>
+          <target state="new">Nonlinear ads are specified in a &lt;Creative&gt; element as well. The following example shows a &lt;Creative&gt; element that describes a nonlinear ad.</target>
+        </trans-unit>
+        <trans-unit id="d8f87ed3-7b44-4c2a-a353-059f05f2d89e" xml:space="preserve">
+          <source>The <bpt id="8fd3f9d4-9fd2-4f50-af01-0f66d1aa2586">&lt;strong&gt;</bpt>&lt;NonLinearAds&gt;<ept id="8fd3f9d4-9fd2-4f50-af01-0f66d1aa2586">&lt;/strong&gt;</ept> element can contain one or more <bpt id="f8a5b407-6ff8-416a-adc9-4eefb9213ae6">&lt;strong&gt;</bpt>&lt;NonLinear&gt;<ept id="f8a5b407-6ff8-416a-adc9-4eefb9213ae6">&lt;/strong&gt;</ept> elements, each of which can describe a nonlinear ad. The <bpt id="158c320a-3956-49ae-ae19-6f7c89fbbe8f">&lt;strong&gt;</bpt>&lt;NonLinear&gt;<ept id="158c320a-3956-49ae-ae19-6f7c89fbbe8f">&lt;/strong&gt;</ept> element specifies the resource for the nonlinear ad. The resource can be a <bpt id="db08a9a5-e06a-4caa-bd12-5278f70c7ddc">&lt;strong&gt;</bpt>&lt;StaticResouce&gt;<ept id="db08a9a5-e06a-4caa-bd12-5278f70c7ddc">&lt;/strong&gt;</ept>, an <bpt id="6bdaefdc-6ac4-4d08-9d66-a5876dad2997">&lt;strong&gt;</bpt>&lt;IFrameResource&gt;<ept id="6bdaefdc-6ac4-4d08-9d66-a5876dad2997">&lt;/strong&gt;</ept>, or an <bpt id="42fc26d8-995e-4942-8c7a-83b036893e85">&lt;strong&gt;</bpt>&lt;HTMLResouce&gt;<ept id="42fc26d8-995e-4942-8c7a-83b036893e85">&lt;/strong&gt;</ept>.<bpt id="2dfa99da-db65-4981-8b40-763165575e59">&lt;strong&gt;</bpt>&lt;StaticResource&gt;<ept id="2dfa99da-db65-4981-8b40-763165575e59">&lt;/strong&gt;</ept> describes a non-HTML resource and defines a creativeType attribute that specifies how the resource is displayed:</source>
+          <target state="new">The <bpt id="8fd3f9d4-9fd2-4f50-af01-0f66d1aa2586">&lt;strong&gt;</bpt>&lt;NonLinearAds&gt;<ept id="8fd3f9d4-9fd2-4f50-af01-0f66d1aa2586">&lt;/strong&gt;</ept> element can contain one or more <bpt id="f8a5b407-6ff8-416a-adc9-4eefb9213ae6">&lt;strong&gt;</bpt>&lt;NonLinear&gt;<ept id="f8a5b407-6ff8-416a-adc9-4eefb9213ae6">&lt;/strong&gt;</ept> elements, each of which can describe a nonlinear ad. The <bpt id="158c320a-3956-49ae-ae19-6f7c89fbbe8f">&lt;strong&gt;</bpt>&lt;NonLinear&gt;<ept id="158c320a-3956-49ae-ae19-6f7c89fbbe8f">&lt;/strong&gt;</ept> element specifies the resource for the nonlinear ad. The resource can be a <bpt id="db08a9a5-e06a-4caa-bd12-5278f70c7ddc">&lt;strong&gt;</bpt>&lt;StaticResouce&gt;<ept id="db08a9a5-e06a-4caa-bd12-5278f70c7ddc">&lt;/strong&gt;</ept>, an <bpt id="6bdaefdc-6ac4-4d08-9d66-a5876dad2997">&lt;strong&gt;</bpt>&lt;IFrameResource&gt;<ept id="6bdaefdc-6ac4-4d08-9d66-a5876dad2997">&lt;/strong&gt;</ept>, or an <bpt id="42fc26d8-995e-4942-8c7a-83b036893e85">&lt;strong&gt;</bpt>&lt;HTMLResouce&gt;<ept id="42fc26d8-995e-4942-8c7a-83b036893e85">&lt;/strong&gt;</ept>.<bpt id="2dfa99da-db65-4981-8b40-763165575e59">&lt;strong&gt;</bpt>&lt;StaticResource&gt;<ept id="2dfa99da-db65-4981-8b40-763165575e59">&lt;/strong&gt;</ept> describes a non-HTML resource and defines a creativeType attribute that specifies how the resource is displayed:</target>
+        </trans-unit>
+        <trans-unit id="54156f46-e9a3-458d-b799-e2bbf04c0405" xml:space="preserve">
+          <source>Image/gif, image/jpeg, image/png – the resource is displayed in an HTML <bpt id="0f4a9e80-d8fb-4f2f-ba55-cb0472b8c06c">&lt;strong&gt;</bpt>&lt;img&gt;<ept id="0f4a9e80-d8fb-4f2f-ba55-cb0472b8c06c">&lt;/strong&gt;</ept> tag.</source>
+          <target state="new">Image/gif, image/jpeg, image/png – the resource is displayed in an HTML <bpt id="0f4a9e80-d8fb-4f2f-ba55-cb0472b8c06c">&lt;strong&gt;</bpt>&lt;img&gt;<ept id="0f4a9e80-d8fb-4f2f-ba55-cb0472b8c06c">&lt;/strong&gt;</ept> tag.</target>
+        </trans-unit>
+        <trans-unit id="2effd480-6714-41ba-8818-44d583600459" xml:space="preserve">
+          <source>Application/x-javascript – the resource is displayed in an HTML &lt;<bpt id="aa419382-b05b-46f2-8d7c-3db6e4a22d00">&lt;strong&gt;</bpt>script<ept id="aa419382-b05b-46f2-8d7c-3db6e4a22d00">&lt;/strong&gt;</ept>&gt; tag.</source>
+          <target state="new">Application/x-javascript – the resource is displayed in an HTML &lt;<bpt id="aa419382-b05b-46f2-8d7c-3db6e4a22d00">&lt;strong&gt;</bpt>script<ept id="aa419382-b05b-46f2-8d7c-3db6e4a22d00">&lt;/strong&gt;</ept>&gt; tag.</target>
+        </trans-unit>
+        <trans-unit id="269d1d0b-b7e2-4696-826c-ca0f10e0d322" xml:space="preserve">
+          <source>Application/x-shockwave-flash – the resource is displayed in a Flash player.</source>
+          <target state="new">Application/x-shockwave-flash – the resource is displayed in a Flash player.</target>
+        </trans-unit>
+        <trans-unit id="52a8bb5f-c15a-476e-b2e3-3c7732490740" xml:space="preserve">
+          <source><bpt id="b13024e9-e9a1-424a-89ef-859399d34794">&lt;strong&gt;</bpt>&lt;IFrameResource&gt;<ept id="b13024e9-e9a1-424a-89ef-859399d34794">&lt;/strong&gt;</ept> describes an HTML resource that can be displayed in an IFrame. <bpt id="665bbd28-a1cc-4f4e-90a3-99eebc4e40b0">&lt;strong&gt;</bpt>&lt;HTMLResource&gt;<ept id="665bbd28-a1cc-4f4e-90a3-99eebc4e40b0">&lt;/strong&gt;</ept> describes a piece of HTML code that can be inserted into a web page. <bpt id="b8a82dd5-07b5-4f13-ab90-005a5a0f5f08">&lt;strong&gt;</bpt>&lt;TrackingEvents&gt;<ept id="b8a82dd5-07b5-4f13-ab90-005a5a0f5f08">&lt;/strong&gt;</ept> specify tracking events and the URI to request when the event occurs. In this sample the acceptInvitation and collapse events are tracked. For more information on the <bpt id="d01c5872-ba69-441f-9cab-daf7d6eaec39">&lt;strong&gt;</bpt>&lt;NonLinearAds&gt;<ept id="d01c5872-ba69-441f-9cab-daf7d6eaec39">&lt;/strong&gt;</ept> element and its children, see IAB.NET/VAST. Note that the <bpt id="4a255870-7b67-45ec-912a-5dfcef13dda4">&lt;strong&gt;</bpt>&lt;TrackingEvents&gt;<ept id="4a255870-7b67-45ec-912a-5dfcef13dda4">&lt;/strong&gt;</ept> element is located within the<bpt id="9ce43f40-d7ce-408b-b5b6-89b6da1fc576">&lt;em&gt;</bpt>* &lt;NonLinearAds&gt;<ept id="9ce43f40-d7ce-408b-b5b6-89b6da1fc576">&lt;/em&gt;</ept>* element rather than the <bpt id="ac2b6fef-14dc-4fe8-b966-df6295beed93">&lt;strong&gt;</bpt>&lt;NonLinear&gt;<ept id="ac2b6fef-14dc-4fe8-b966-df6295beed93">&lt;/strong&gt;</ept> element.</source>
+          <target state="new"><bpt id="b13024e9-e9a1-424a-89ef-859399d34794">&lt;strong&gt;</bpt>&lt;IFrameResource&gt;<ept id="b13024e9-e9a1-424a-89ef-859399d34794">&lt;/strong&gt;</ept> describes an HTML resource that can be displayed in an IFrame. <bpt id="665bbd28-a1cc-4f4e-90a3-99eebc4e40b0">&lt;strong&gt;</bpt>&lt;HTMLResource&gt;<ept id="665bbd28-a1cc-4f4e-90a3-99eebc4e40b0">&lt;/strong&gt;</ept> describes a piece of HTML code that can be inserted into a web page. <bpt id="b8a82dd5-07b5-4f13-ab90-005a5a0f5f08">&lt;strong&gt;</bpt>&lt;TrackingEvents&gt;<ept id="b8a82dd5-07b5-4f13-ab90-005a5a0f5f08">&lt;/strong&gt;</ept> specify tracking events and the URI to request when the event occurs. In this sample the acceptInvitation and collapse events are tracked. For more information on the <bpt id="d01c5872-ba69-441f-9cab-daf7d6eaec39">&lt;strong&gt;</bpt>&lt;NonLinearAds&gt;<ept id="d01c5872-ba69-441f-9cab-daf7d6eaec39">&lt;/strong&gt;</ept> element and its children, see IAB.NET/VAST. Note that the <bpt id="4a255870-7b67-45ec-912a-5dfcef13dda4">&lt;strong&gt;</bpt>&lt;TrackingEvents&gt;<ept id="4a255870-7b67-45ec-912a-5dfcef13dda4">&lt;/strong&gt;</ept> element is located within the<bpt id="9ce43f40-d7ce-408b-b5b6-89b6da1fc576">&lt;em&gt;</bpt>* &lt;NonLinearAds&gt;<ept id="9ce43f40-d7ce-408b-b5b6-89b6da1fc576">&lt;/em&gt;</ept>* element rather than the <bpt id="ac2b6fef-14dc-4fe8-b966-df6295beed93">&lt;strong&gt;</bpt>&lt;NonLinear&gt;<ept id="ac2b6fef-14dc-4fe8-b966-df6295beed93">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="1bad0ab5-00ae-4ac0-80e8-570fcf1693d5" xml:space="preserve">
+          <source>Companion ads are defined within a &lt;CompanionAds&gt; element. The &lt;CompanionAds&gt; element can contain one or more &lt;Companion&gt; elements. Each &lt;Companion&gt; element describes a companion ad and can contain a &lt;StaticResource&gt;, &lt;IFrameResource&gt;, or &lt;HTMLResource&gt; which are specified in the same way as in a nonlinear ad. A VAST file can contain multiple companion ads and the player application can choose the most appropriate ad to display. For more information about VAST, see <bpt id="22ffe73c-88b1-49b3-b020-87c9d3f84d6e">&lt;linkText&gt;</bpt>VAST 3.0<ept id="22ffe73c-88b1-49b3-b020-87c9d3f84d6e">&lt;/linkText&gt;</ept><bpt id="22ffe73c-88b1-49b3-b020-87c9d3f84d6e">&lt;title&gt;</bpt><ept id="22ffe73c-88b1-49b3-b020-87c9d3f84d6e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Companion ads are defined within a &lt;CompanionAds&gt; element. The &lt;CompanionAds&gt; element can contain one or more &lt;Companion&gt; elements. Each &lt;Companion&gt; element describes a companion ad and can contain a &lt;StaticResource&gt;, &lt;IFrameResource&gt;, or &lt;HTMLResource&gt; which are specified in the same way as in a nonlinear ad. A VAST file can contain multiple companion ads and the player application can choose the most appropriate ad to display. For more information about VAST, see <bpt id="22ffe73c-88b1-49b3-b020-87c9d3f84d6e">&lt;linkText&gt;</bpt>VAST 3.0<ept id="22ffe73c-88b1-49b3-b020-87c9d3f84d6e">&lt;/linkText&gt;</ept><bpt id="22ffe73c-88b1-49b3-b020-87c9d3f84d6e">&lt;title&gt;</bpt><ept id="22ffe73c-88b1-49b3-b020-87c9d3f84d6e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84c1b958-e344-4c56-a86b-d6061c35521e" xml:space="preserve">
+          <source>A VMAP file allows you to specify when ad breaks occur, how long each break is, how many ads can be displayed within a break, and what types of ads may be displayed during a break.</source>
+          <target state="new">A VMAP file allows you to specify when ad breaks occur, how long each break is, how many ads can be displayed within a break, and what types of ads may be displayed during a break.</target>
+        </trans-unit>
+        <trans-unit id="0b763e4e-5622-4dbc-a7b1-398d82890f3c" xml:space="preserve">
+          <source>The following in an example VMAP file that defines a single ad break:</source>
+          <target state="new">The following in an example VMAP file that defines a single ad break:</target>
+        </trans-unit>
+        <trans-unit id="e249eec9-6ff7-49c3-8410-6008f891f70b" xml:space="preserve">
+          <source>A VMAP file begins with a &lt;VMAP&gt; element that contains one or more &lt;AdBreak&gt; elements, each defining an ad break. Each ad break specifies a break type, break ID, and time offset. The breakType attribute specifies the type of ad that can be played during the break: linear, nonlinear, or display. Display ads map to VAST companion ads. More than one ad type can be specified in a comma (no spaces) separated list. The breakID is an optional identifier for the ad. The timeOffset specifies when the ad should be displayed. It can be specified in one of the following ways:</source>
+          <target state="new">A VMAP file begins with a &lt;VMAP&gt; element that contains one or more &lt;AdBreak&gt; elements, each defining an ad break. Each ad break specifies a break type, break ID, and time offset. The breakType attribute specifies the type of ad that can be played during the break: linear, nonlinear, or display. Display ads map to VAST companion ads. More than one ad type can be specified in a comma (no spaces) separated list. The breakID is an optional identifier for the ad. The timeOffset specifies when the ad should be displayed. It can be specified in one of the following ways:</target>
+        </trans-unit>
+        <trans-unit id="e1bb6ee7-172f-4592-8b59-5b60491370a1" xml:space="preserve">
+          <source>Time – in hh:mm:ss or hh:mm:ss.mmm format where .mmm is milliseconds.</source>
+          <target state="new">Time – in hh:mm:ss or hh:mm:ss.mmm format where .mmm is milliseconds.</target>
+        </trans-unit>
+        <trans-unit id="a0caf36a-509b-4c81-b2ac-a942748d0435" xml:space="preserve">
+          <source>The value of this attribute specifies the time from the beginning of the video timeline to the beginning of the ad break.</source>
+          <target state="new">The value of this attribute specifies the time from the beginning of the video timeline to the beginning of the ad break.</target>
+        </trans-unit>
+        <trans-unit id="bd1c1c95-fbcb-4211-9e1b-ea162b441787" xml:space="preserve">
+          <source>Percentage – in n% format where n is the percentage of the video timeline to play before playing the ad</source>
+          <target state="new">Percentage – in n% format where n is the percentage of the video timeline to play before playing the ad</target>
+        </trans-unit>
+        <trans-unit id="e99ab125-6dcf-4dfd-931e-fb9087bfb496" xml:space="preserve">
+          <source>Start/End – specifies that an ad should be displayed before or after the video has been displayed</source>
+          <target state="new">Start/End – specifies that an ad should be displayed before or after the video has been displayed</target>
+        </trans-unit>
+        <trans-unit id="93d3e948-0bcc-4378-830c-16ab4d343003" xml:space="preserve">
+          <source>Position – specifies the order of ad breaks when the timing of the ad breaks is unknown, such as in live streaming.</source>
+          <target state="new">Position – specifies the order of ad breaks when the timing of the ad breaks is unknown, such as in live streaming.</target>
+        </trans-unit>
+        <trans-unit id="7fc55f07-9ded-47f6-8aef-22dbda372793" xml:space="preserve">
+          <source>The order of each ad break is specified in the #n format where n is an integer 1 or greater.</source>
+          <target state="new">The order of each ad break is specified in the #n format where n is an integer 1 or greater.</target>
+        </trans-unit>
+        <trans-unit id="b1a9a82b-8669-4f7c-99bc-63f76fcdbd58" xml:space="preserve">
+          <source>1 signifies the ad should be played at the first opportunity, 2 signifies the ad should be played at the second opportunity and so on.</source>
+          <target state="new">1 signifies the ad should be played at the first opportunity, 2 signifies the ad should be played at the second opportunity and so on.</target>
+        </trans-unit>
+        <trans-unit id="38a26612-4953-4105-9ffd-0b17ec4de776" xml:space="preserve">
+          <source>Within the &lt;<bpt id="6cd630d1-f1be-498d-863b-a06fcf43c780">&lt;strong&gt;</bpt>AdBreak<ept id="6cd630d1-f1be-498d-863b-a06fcf43c780">&lt;/strong&gt;</ept>&gt; element there can be one &lt;<bpt id="285d2b94-7150-4bdf-a99d-7bc062741a8b">&lt;strong&gt;</bpt>AdSource<ept id="285d2b94-7150-4bdf-a99d-7bc062741a8b">&lt;/strong&gt;</ept>&gt; element. The &lt;<bpt id="1808e8b7-2edf-4b32-a3f8-e2b694acb665">&lt;strong&gt;</bpt>AdSource<ept id="1808e8b7-2edf-4b32-a3f8-e2b694acb665">&lt;/strong&gt;</ept>&gt; element contains the following attributes:</source>
+          <target state="new">Within the &lt;<bpt id="6cd630d1-f1be-498d-863b-a06fcf43c780">&lt;strong&gt;</bpt>AdBreak<ept id="6cd630d1-f1be-498d-863b-a06fcf43c780">&lt;/strong&gt;</ept>&gt; element there can be one &lt;<bpt id="285d2b94-7150-4bdf-a99d-7bc062741a8b">&lt;strong&gt;</bpt>AdSource<ept id="285d2b94-7150-4bdf-a99d-7bc062741a8b">&lt;/strong&gt;</ept>&gt; element. The &lt;<bpt id="1808e8b7-2edf-4b32-a3f8-e2b694acb665">&lt;strong&gt;</bpt>AdSource<ept id="1808e8b7-2edf-4b32-a3f8-e2b694acb665">&lt;/strong&gt;</ept>&gt; element contains the following attributes:</target>
+        </trans-unit>
+        <trans-unit id="84dbb4e4-0dfd-42e3-823b-3d8cc4a8ea6d" xml:space="preserve">
+          <source>Id – specifies an identifier for the ad source</source>
+          <target state="new">Id – specifies an identifier for the ad source</target>
+        </trans-unit>
+        <trans-unit id="4c4b0c50-d1e4-4f79-a5c6-cdd7ff4f469e" xml:space="preserve">
+          <source>allowMultipleAds – a Boolean value that specifies whether multiple ads can be displayed during the ad break</source>
+          <target state="new">allowMultipleAds – a Boolean value that specifies whether multiple ads can be displayed during the ad break</target>
+        </trans-unit>
+        <trans-unit id="96b42753-2189-443d-97c9-be251e4ccb13" xml:space="preserve">
+          <source>followRedirects – an optional Boolean value that specifies if the video player should honor redirects within an ad response</source>
+          <target state="new">followRedirects – an optional Boolean value that specifies if the video player should honor redirects within an ad response</target>
+        </trans-unit>
+        <trans-unit id="6aef25bd-d4bb-4f66-bb64-d3be53cfffb5" xml:space="preserve">
+          <source>The &lt;<bpt id="02ba1aeb-db73-43f4-8ad4-d7864b9a305c">&lt;strong&gt;</bpt>AdSource<ept id="02ba1aeb-db73-43f4-8ad4-d7864b9a305c">&lt;/strong&gt;</ept>&gt; element provides the player an inline ad response or a reference to an ad response. It can contain one of the following elements:</source>
+          <target state="new">The &lt;<bpt id="02ba1aeb-db73-43f4-8ad4-d7864b9a305c">&lt;strong&gt;</bpt>AdSource<ept id="02ba1aeb-db73-43f4-8ad4-d7864b9a305c">&lt;/strong&gt;</ept>&gt; element provides the player an inline ad response or a reference to an ad response. It can contain one of the following elements:</target>
+        </trans-unit>
+        <trans-unit id="869d89a8-22db-408b-9bc6-c16ee4741eb8" xml:space="preserve">
+          <source>&lt;VASTAdData&gt; indicates a VAST ad response is embedded within the VMAP file</source>
+          <target state="new">&lt;VASTAdData&gt; indicates a VAST ad response is embedded within the VMAP file</target>
+        </trans-unit>
+        <trans-unit id="3a754885-e4fa-4efd-b300-2bc9032a0430" xml:space="preserve">
+          <source>&lt;AdTagURI&gt; a URI that references an ad response from another system</source>
+          <target state="new">&lt;AdTagURI&gt; a URI that references an ad response from another system</target>
+        </trans-unit>
+        <trans-unit id="7ef1eb6c-03fe-4411-955b-7088d823bcb6" xml:space="preserve">
+          <source>&lt;CustomAdData&gt; -an arbitrary string that respresents a non-VAST response</source>
+          <target state="new">&lt;CustomAdData&gt; -an arbitrary string that respresents a non-VAST response</target>
+        </trans-unit>
+        <trans-unit id="23a31cda-5688-4ebf-9ef9-df228aed7ac9" xml:space="preserve">
+          <source>In this example an in-line ad response is specified with a &lt;VASTAdData&gt; element that contains a VAST ad response. For more information about the other elements, see <bpt id="6360e622-e8a2-4de5-93a5-1eef65ef2934">&lt;linkText&gt;</bpt>VMAP<ept id="6360e622-e8a2-4de5-93a5-1eef65ef2934">&lt;/linkText&gt;</ept><bpt id="6360e622-e8a2-4de5-93a5-1eef65ef2934">&lt;title&gt;</bpt><ept id="6360e622-e8a2-4de5-93a5-1eef65ef2934">&lt;/title&gt;</ept>.</source>
+          <target state="new">In this example an in-line ad response is specified with a &lt;VASTAdData&gt; element that contains a VAST ad response. For more information about the other elements, see <bpt id="6360e622-e8a2-4de5-93a5-1eef65ef2934">&lt;linkText&gt;</bpt>VMAP<ept id="6360e622-e8a2-4de5-93a5-1eef65ef2934">&lt;/linkText&gt;</ept><bpt id="6360e622-e8a2-4de5-93a5-1eef65ef2934">&lt;title&gt;</bpt><ept id="6360e622-e8a2-4de5-93a5-1eef65ef2934">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb729e08-1375-4452-9f3b-fa33b43a6684" xml:space="preserve">
+          <source>The &lt;<bpt id="13078a72-5f34-47bd-9225-033fec764f58">&lt;strong&gt;</bpt>AdBreak<ept id="13078a72-5f34-47bd-9225-033fec764f58">&lt;/strong&gt;</ept>&gt; element can also contain one &lt;<bpt id="f2237216-442b-4812-80d9-a53dcdad8c86">&lt;strong&gt;</bpt>TrackingEvents<ept id="f2237216-442b-4812-80d9-a53dcdad8c86">&lt;/strong&gt;</ept>&gt; element. The &lt;<bpt id="57f5f950-a648-48fb-92b3-e6d8543b1b64">&lt;strong&gt;</bpt>TrackingEvents<ept id="57f5f950-a648-48fb-92b3-e6d8543b1b64">&lt;/strong&gt;</ept>&gt; element allows you to track the start or end of an ad break or whether an error occurred during the ad break. The &lt;<bpt id="e869f569-a490-4892-aa4b-d9dab3eb73a6">&lt;strong&gt;</bpt>TrackingEvents<ept id="e869f569-a490-4892-aa4b-d9dab3eb73a6">&lt;/strong&gt;</ept>&gt; element contains one or more &lt;<bpt id="4f3d0f46-5d85-476a-9005-8bef664536cb">&lt;strong&gt;</bpt>Tracking<ept id="4f3d0f46-5d85-476a-9005-8bef664536cb">&lt;/strong&gt;</ept>&gt; elements, each of which specifies a tracking event and a tracking URI. The possible tracking events are:</source>
+          <target state="new">The &lt;<bpt id="13078a72-5f34-47bd-9225-033fec764f58">&lt;strong&gt;</bpt>AdBreak<ept id="13078a72-5f34-47bd-9225-033fec764f58">&lt;/strong&gt;</ept>&gt; element can also contain one &lt;<bpt id="f2237216-442b-4812-80d9-a53dcdad8c86">&lt;strong&gt;</bpt>TrackingEvents<ept id="f2237216-442b-4812-80d9-a53dcdad8c86">&lt;/strong&gt;</ept>&gt; element. The &lt;<bpt id="57f5f950-a648-48fb-92b3-e6d8543b1b64">&lt;strong&gt;</bpt>TrackingEvents<ept id="57f5f950-a648-48fb-92b3-e6d8543b1b64">&lt;/strong&gt;</ept>&gt; element allows you to track the start or end of an ad break or whether an error occurred during the ad break. The &lt;<bpt id="e869f569-a490-4892-aa4b-d9dab3eb73a6">&lt;strong&gt;</bpt>TrackingEvents<ept id="e869f569-a490-4892-aa4b-d9dab3eb73a6">&lt;/strong&gt;</ept>&gt; element contains one or more &lt;<bpt id="4f3d0f46-5d85-476a-9005-8bef664536cb">&lt;strong&gt;</bpt>Tracking<ept id="4f3d0f46-5d85-476a-9005-8bef664536cb">&lt;/strong&gt;</ept>&gt; elements, each of which specifies a tracking event and a tracking URI. The possible tracking events are:</target>
+        </trans-unit>
+        <trans-unit id="ec054b40-a6df-43d6-b307-ca90d61b5a1d" xml:space="preserve">
+          <source>breakStart – tracks the beginning of an ad break</source>
+          <target state="new">breakStart – tracks the beginning of an ad break</target>
+        </trans-unit>
+        <trans-unit id="89d7c8aa-8f85-4e69-bea1-25cb7097bb1e" xml:space="preserve">
+          <source>breakEnd – track the completion of an ad break</source>
+          <target state="new">breakEnd – track the completion of an ad break</target>
+        </trans-unit>
+        <trans-unit id="cfe48954-4369-42ef-804b-cafbacfef336" xml:space="preserve">
+          <source>error – tracks an error that occurred during the ad break</source>
+          <target state="new">error – tracks an error that occurred during the ad break</target>
+        </trans-unit>
+        <trans-unit id="b74c2a13-a2bb-4fdd-aec6-1437b633e2a2" xml:space="preserve">
+          <source>The following example shows a VMAP file that specifies tracking events</source>
+          <target state="new">The following example shows a VMAP file that specifies tracking events</target>
+        </trans-unit>
+        <trans-unit id="9bbbbb49-492d-47ac-8a06-6942473ad02a" xml:space="preserve">
+          <source>For more information on the &lt;<bpt id="22e56cc5-3a8e-45b1-b43e-02a9342937ad">&lt;strong&gt;</bpt>TrackingEvents<ept id="22e56cc5-3a8e-45b1-b43e-02a9342937ad">&lt;/strong&gt;</ept>&gt; element and its children, see http://iab.org/VMAP.pdf</source>
+          <target state="new">For more information on the &lt;<bpt id="22e56cc5-3a8e-45b1-b43e-02a9342937ad">&lt;strong&gt;</bpt>TrackingEvents<ept id="22e56cc5-3a8e-45b1-b43e-02a9342937ad">&lt;/strong&gt;</ept>&gt; element and its children, see http://iab.org/VMAP.pdf</target>
+        </trans-unit>
+        <trans-unit id="e383bbbb-589c-4817-9f13-584091638d1f" xml:space="preserve">
+          <source>A MAST file allows you to specify triggers that define when an ad is displayed.</source>
+          <target state="new">A MAST file allows you to specify triggers that define when an ad is displayed.</target>
+        </trans-unit>
+        <trans-unit id="d5edf37b-0aa4-4670-b0e8-ca84dba6d392" xml:space="preserve">
+          <source>The following is an example MAST file that contains triggers for a pre roll ad, a mid-roll ad, and a post-roll ad.</source>
+          <target state="new">The following is an example MAST file that contains triggers for a pre roll ad, a mid-roll ad, and a post-roll ad.</target>
+        </trans-unit>
+        <trans-unit id="cf46ae95-41cf-45cd-8dfb-391e1cc7d527" xml:space="preserve">
+          <source>A MAST file begins with a <bpt id="f9a10aa1-d4c2-4bb0-931a-db1da4c3b88b">&lt;strong&gt;</bpt>&lt;MAST&gt;<ept id="f9a10aa1-d4c2-4bb0-931a-db1da4c3b88b">&lt;/strong&gt;</ept> element that contains one <bpt id="d7a2a8f2-5d29-45a0-a460-9f22b2f3fc40">&lt;strong&gt;</bpt>&lt;triggers&gt;<ept id="d7a2a8f2-5d29-45a0-a460-9f22b2f3fc40">&lt;/strong&gt;</ept> element. The &lt;triggers&gt; element contains one or more <bpt id="aa2dbca2-376f-434a-84ef-92bc9e62fa38">&lt;strong&gt;</bpt>&lt;trigger&gt;<ept id="aa2dbca2-376f-434a-84ef-92bc9e62fa38">&lt;/strong&gt;</ept> elements that define when an ad should be played. </source>
+          <target state="new">A MAST file begins with a <bpt id="f9a10aa1-d4c2-4bb0-931a-db1da4c3b88b">&lt;strong&gt;</bpt>&lt;MAST&gt;<ept id="f9a10aa1-d4c2-4bb0-931a-db1da4c3b88b">&lt;/strong&gt;</ept> element that contains one <bpt id="d7a2a8f2-5d29-45a0-a460-9f22b2f3fc40">&lt;strong&gt;</bpt>&lt;triggers&gt;<ept id="d7a2a8f2-5d29-45a0-a460-9f22b2f3fc40">&lt;/strong&gt;</ept> element. The &lt;triggers&gt; element contains one or more <bpt id="aa2dbca2-376f-434a-84ef-92bc9e62fa38">&lt;strong&gt;</bpt>&lt;trigger&gt;<ept id="aa2dbca2-376f-434a-84ef-92bc9e62fa38">&lt;/strong&gt;</ept> elements that define when an ad should be played. </target>
+        </trans-unit>
+        <trans-unit id="918e1f2f-14ef-4390-9744-69835d8266be" xml:space="preserve">
+          <source>The <bpt id="3644ff99-a6f1-48e3-b168-8cae8212fefb">&lt;strong&gt;</bpt>&lt;trigger&gt;<ept id="3644ff99-a6f1-48e3-b168-8cae8212fefb">&lt;/strong&gt;</ept> element contains a <bpt id="171bb8c2-a645-4301-ba06-848424e4ecfa">&lt;strong&gt;</bpt>&lt;startConditions&gt;<ept id="171bb8c2-a645-4301-ba06-848424e4ecfa">&lt;/strong&gt;</ept> element which specify when an ad should begin to play. The <bpt id="24539a58-7dd3-4374-892d-df023afde1fe">&lt;strong&gt;</bpt>&lt;startConditions&gt;<ept id="24539a58-7dd3-4374-892d-df023afde1fe">&lt;/strong&gt;</ept> element contains one or more &lt;condition&gt; elements. When each &lt;condition&gt; evaluates to true a trigger is initiated or revoked depending upon whether the &lt;condition&gt; is contained within a <bpt id="6e666b36-21fc-415f-b011-a8abb674c888">&lt;strong&gt;</bpt>&lt;startConditions<ept id="6e666b36-21fc-415f-b011-a8abb674c888">&lt;/strong&gt;</ept>&gt; or <bpt id="2cec95a7-c941-42b3-87f6-792a9087b9ba">&lt;strong&gt;</bpt>&lt;endConditions&gt;<ept id="2cec95a7-c941-42b3-87f6-792a9087b9ba">&lt;/strong&gt;</ept> element respectively. When multiple &lt;condition&gt; elements are present, they are treated as an implicit OR, any condition evaluating to true will cause the trigger to initiate. &lt;condition&gt; elements can be nested. When child &lt;condition&gt; elements are preset, they are treated as an implicit AND, all conditions must evaluate to true for the trigger to initiate. The &lt;condition&gt; element contains the following attributes that define the condition: </source>
+          <target state="new">The <bpt id="3644ff99-a6f1-48e3-b168-8cae8212fefb">&lt;strong&gt;</bpt>&lt;trigger&gt;<ept id="3644ff99-a6f1-48e3-b168-8cae8212fefb">&lt;/strong&gt;</ept> element contains a <bpt id="171bb8c2-a645-4301-ba06-848424e4ecfa">&lt;strong&gt;</bpt>&lt;startConditions&gt;<ept id="171bb8c2-a645-4301-ba06-848424e4ecfa">&lt;/strong&gt;</ept> element which specify when an ad should begin to play. The <bpt id="24539a58-7dd3-4374-892d-df023afde1fe">&lt;strong&gt;</bpt>&lt;startConditions&gt;<ept id="24539a58-7dd3-4374-892d-df023afde1fe">&lt;/strong&gt;</ept> element contains one or more &lt;condition&gt; elements. When each &lt;condition&gt; evaluates to true a trigger is initiated or revoked depending upon whether the &lt;condition&gt; is contained within a <bpt id="6e666b36-21fc-415f-b011-a8abb674c888">&lt;strong&gt;</bpt>&lt;startConditions<ept id="6e666b36-21fc-415f-b011-a8abb674c888">&lt;/strong&gt;</ept>&gt; or <bpt id="2cec95a7-c941-42b3-87f6-792a9087b9ba">&lt;strong&gt;</bpt>&lt;endConditions&gt;<ept id="2cec95a7-c941-42b3-87f6-792a9087b9ba">&lt;/strong&gt;</ept> element respectively. When multiple &lt;condition&gt; elements are present, they are treated as an implicit OR, any condition evaluating to true will cause the trigger to initiate. &lt;condition&gt; elements can be nested. When child &lt;condition&gt; elements are preset, they are treated as an implicit AND, all conditions must evaluate to true for the trigger to initiate. The &lt;condition&gt; element contains the following attributes that define the condition: </target>
+        </trans-unit>
+        <trans-unit id="b026bb7e-5836-43a3-816c-6b62371bf6e6" xml:space="preserve">
+          <source><bpt id="47e45d99-1b4d-4984-849d-950ea116dbb0">&lt;strong&gt;</bpt>type<ept id="47e45d99-1b4d-4984-849d-950ea116dbb0">&lt;/strong&gt;</ept> – specifies the type of condition, event or property</source>
+          <target state="new"><bpt id="47e45d99-1b4d-4984-849d-950ea116dbb0">&lt;strong&gt;</bpt>type<ept id="47e45d99-1b4d-4984-849d-950ea116dbb0">&lt;/strong&gt;</ept> – specifies the type of condition, event or property</target>
+        </trans-unit>
+        <trans-unit id="357bf485-d00e-46ab-a87c-d149978e9cc5" xml:space="preserve">
+          <source><bpt id="99bf7f6e-4c4a-486f-9205-410b80c0d8a6">&lt;strong&gt;</bpt>name<ept id="99bf7f6e-4c4a-486f-9205-410b80c0d8a6">&lt;/strong&gt;</ept> – the name of the property or event to be used during evaluation</source>
+          <target state="new"><bpt id="99bf7f6e-4c4a-486f-9205-410b80c0d8a6">&lt;strong&gt;</bpt>name<ept id="99bf7f6e-4c4a-486f-9205-410b80c0d8a6">&lt;/strong&gt;</ept> – the name of the property or event to be used during evaluation</target>
+        </trans-unit>
+        <trans-unit id="b3ea2015-82a4-4cab-b1d2-459bf76da33e" xml:space="preserve">
+          <source><bpt id="dd8d7d6d-513b-4779-beaa-3228860d637b">&lt;strong&gt;</bpt>value<ept id="dd8d7d6d-513b-4779-beaa-3228860d637b">&lt;/strong&gt;</ept> – the value that a property will be evaluated against</source>
+          <target state="new"><bpt id="dd8d7d6d-513b-4779-beaa-3228860d637b">&lt;strong&gt;</bpt>value<ept id="dd8d7d6d-513b-4779-beaa-3228860d637b">&lt;/strong&gt;</ept> – the value that a property will be evaluated against</target>
+        </trans-unit>
+        <trans-unit id="e75d62b8-a670-463a-af53-b8527adcc2a4" xml:space="preserve">
+          <source><bpt id="8aac1369-843e-464c-8e92-cc7b0692722b">&lt;strong&gt;</bpt>operator<ept id="8aac1369-843e-464c-8e92-cc7b0692722b">&lt;/strong&gt;</ept> – the operation to use during evaluation: EQ (equal), NEQ (not equal), GTR (greater), GEQ (greater or equal), LT (Less than), LEQ (less than or equal), MOD (modulo)</source>
+          <target state="new"><bpt id="8aac1369-843e-464c-8e92-cc7b0692722b">&lt;strong&gt;</bpt>operator<ept id="8aac1369-843e-464c-8e92-cc7b0692722b">&lt;/strong&gt;</ept> – the operation to use during evaluation: EQ (equal), NEQ (not equal), GTR (greater), GEQ (greater or equal), LT (Less than), LEQ (less than or equal), MOD (modulo)</target>
+        </trans-unit>
+        <trans-unit id="086e4410-1e4d-41ff-94b4-5b249a3e608a" xml:space="preserve">
+          <source><bpt id="270463f8-6bd3-4752-82a4-aea0c923592b">&lt;strong&gt;</bpt>&lt;endConditions&gt;<ept id="270463f8-6bd3-4752-82a4-aea0c923592b">&lt;/strong&gt;</ept> also contain &lt;condition&gt; elements. When a condition evaluates to true the trigger is reset.The &lt;trigger&gt; element also contains a &lt;sources&gt; element that contains one or more &lt;source&gt; elements. The &lt;source&gt; elements define the URI to the ad response and the type of ad response. In this example a URI is given to a VAST response. </source>
+          <target state="new"><bpt id="270463f8-6bd3-4752-82a4-aea0c923592b">&lt;strong&gt;</bpt>&lt;endConditions&gt;<ept id="270463f8-6bd3-4752-82a4-aea0c923592b">&lt;/strong&gt;</ept> also contain &lt;condition&gt; elements. When a condition evaluates to true the trigger is reset.The &lt;trigger&gt; element also contains a &lt;sources&gt; element that contains one or more &lt;source&gt; elements. The &lt;source&gt; elements define the URI to the ad response and the type of ad response. In this example a URI is given to a VAST response. </target>
+        </trans-unit>
+        <trans-unit id="bec963d5-f028-496b-9361-804087ec35a3" xml:space="preserve">
+          <source>VPAID is an API for enabling executable ad units to communicate with a video player.</source>
+          <target state="new">VPAID is an API for enabling executable ad units to communicate with a video player.</target>
+        </trans-unit>
+        <trans-unit id="1a7d0fdc-6928-48c5-952c-2ecd33231b8f" xml:space="preserve">
+          <source>This allows highly interactive ad experiences.</source>
+          <target state="new">This allows highly interactive ad experiences.</target>
+        </trans-unit>
+        <trans-unit id="f1fea345-b94e-4670-a9a1-748b904a210c" xml:space="preserve">
+          <source>The user can interact with the ad and the ad can respond to actions taken by the viewer.</source>
+          <target state="new">The user can interact with the ad and the ad can respond to actions taken by the viewer.</target>
+        </trans-unit>
+        <trans-unit id="fc53f671-346f-4786-9165-545363fbf19f" xml:space="preserve">
+          <source>For example an ad may display buttons that allow the user to view more information or a longer version of the ad.</source>
+          <target state="new">For example an ad may display buttons that allow the user to view more information or a longer version of the ad.</target>
+        </trans-unit>
+        <trans-unit id="a8ac117f-ec08-433e-9f6e-2f1d4a525447" xml:space="preserve">
+          <source>The video player must support the VPAID API and the executable ad must implement the API.</source>
+          <target state="new">The video player must support the VPAID API and the executable ad must implement the API.</target>
+        </trans-unit>
+        <trans-unit id="9adc9674-5a14-4303-a225-aaf7edcf05ec" xml:space="preserve">
+          <source>When a player requests an ad from an ad server the server may respond with a VAST response that contains a VPAID ad.</source>
+          <target state="new">When a player requests an ad from an ad server the server may respond with a VAST response that contains a VPAID ad.</target>
+        </trans-unit>
+        <trans-unit id="4b34c7de-36d1-4102-8221-22c57ddd1e61" xml:space="preserve">
+          <source>An executable ad is created in code that must be executed in a runtime environment such as Adobe Flash™ or JavaScript that can be executed in a web browser. When an ad server returns a VAST response containing a VPAID ad, the value of the apiFramework attribute in the &lt;MediaFile&gt; element must be “VPAID”. This attribute specifies that the contained ad is a VPAID executable ad. The type attribute must be set to the MIME type of the executable, such as “application/x-shockwave-flash” or “application/x-javascript”. The following XML snippet shows the &lt;MediaFile&gt; element from a VAST response containing a VPAID executable ad. </source>
+          <target state="new">An executable ad is created in code that must be executed in a runtime environment such as Adobe Flash™ or JavaScript that can be executed in a web browser. When an ad server returns a VAST response containing a VPAID ad, the value of the apiFramework attribute in the &lt;MediaFile&gt; element must be “VPAID”. This attribute specifies that the contained ad is a VPAID executable ad. The type attribute must be set to the MIME type of the executable, such as “application/x-shockwave-flash” or “application/x-javascript”. The following XML snippet shows the &lt;MediaFile&gt; element from a VAST response containing a VPAID executable ad. </target>
+        </trans-unit>
+        <trans-unit id="ca389dfc-becc-4e61-b3ef-0f89185e1e68" xml:space="preserve">
+          <source>An executable ad can be initialized using the &lt;AdParameters&gt; element within the &lt;Linear&gt; or &lt;NonLinear&gt; elements in a VAST response. For more information on the &lt;AdParameters&gt; element, see <bpt id="6a915fb2-18a5-4d75-befe-edaf1cea928d">&lt;linkText&gt;</bpt>VAST 3.0<ept id="6a915fb2-18a5-4d75-befe-edaf1cea928d">&lt;/linkText&gt;</ept><bpt id="6a915fb2-18a5-4d75-befe-edaf1cea928d">&lt;title&gt;</bpt><ept id="6a915fb2-18a5-4d75-befe-edaf1cea928d">&lt;/title&gt;</ept>. For more information about the VPAID API, see [VPAID 2.0](http://www.iab.net/media/file/VPAID<bpt id="51c961e2-575e-4b10-aad5-a7fd10000682">&lt;em&gt;</bpt>2.0<ept id="51c961e2-575e-4b10-aad5-a7fd10000682">&lt;/em&gt;</ept>Final_04-10-2012.pdf).</source>
+          <target state="new">An executable ad can be initialized using the &lt;AdParameters&gt; element within the &lt;Linear&gt; or &lt;NonLinear&gt; elements in a VAST response. For more information on the &lt;AdParameters&gt; element, see <bpt id="6a915fb2-18a5-4d75-befe-edaf1cea928d">&lt;linkText&gt;</bpt>VAST 3.0<ept id="6a915fb2-18a5-4d75-befe-edaf1cea928d">&lt;/linkText&gt;</ept><bpt id="6a915fb2-18a5-4d75-befe-edaf1cea928d">&lt;title&gt;</bpt><ept id="6a915fb2-18a5-4d75-befe-edaf1cea928d">&lt;/title&gt;</ept>. For more information about the VPAID API, see [VPAID 2.0](http://www.iab.net/media/file/VPAID<bpt id="51c961e2-575e-4b10-aad5-a7fd10000682">&lt;em&gt;</bpt>2.0<ept id="51c961e2-575e-4b10-aad5-a7fd10000682">&lt;/em&gt;</ept>Final_04-10-2012.pdf).</target>
+        </trans-unit>
+        <trans-unit id="ec99535b-0666-4dd5-840d-df0ee79bbbbd" xml:space="preserve">
+          <source>The Microsoft Media Platform: Player Framework for Windows 8 and Windows Phone 8 contains a collection of sample applications that show you how to implement a video player application using the framework.</source>
+          <target state="new">The Microsoft Media Platform: Player Framework for Windows 8 and Windows Phone 8 contains a collection of sample applications that show you how to implement a video player application using the framework.</target>
+        </trans-unit>
+        <trans-unit id="02a77329-f322-4972-8206-01781149d07d" xml:space="preserve">
+          <source>You can download the Player Framework and the samples from <bpt id="fd1473c5-0b66-424b-88e9-0ec06e559a0d">&lt;linkText&gt;</bpt>Player Framework for Windows 8 and Windows Phone 8<ept id="fd1473c5-0b66-424b-88e9-0ec06e559a0d">&lt;/linkText&gt;</ept><bpt id="fd1473c5-0b66-424b-88e9-0ec06e559a0d">&lt;title&gt;</bpt><ept id="fd1473c5-0b66-424b-88e9-0ec06e559a0d">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can download the Player Framework and the samples from <bpt id="fd1473c5-0b66-424b-88e9-0ec06e559a0d">&lt;linkText&gt;</bpt>Player Framework for Windows 8 and Windows Phone 8<ept id="fd1473c5-0b66-424b-88e9-0ec06e559a0d">&lt;/linkText&gt;</ept><bpt id="fd1473c5-0b66-424b-88e9-0ec06e559a0d">&lt;title&gt;</bpt><ept id="fd1473c5-0b66-424b-88e9-0ec06e559a0d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd7e5a5e-5027-4858-98c4-99e7b1e11322" xml:space="preserve">
+          <source>When you open the Microsoft.PlayerFramework.Xaml.Samples solution you will see a number of folders within the project.</source>
+          <target state="new">When you open the Microsoft.PlayerFramework.Xaml.Samples solution you will see a number of folders within the project.</target>
+        </trans-unit>
+        <trans-unit id="f0289aef-79ce-45d6-97d7-e98539e06dcc" xml:space="preserve">
+          <source>The Advertising folder contains the sample code relevant to creating a video player with ad support.</source>
+          <target state="new">The Advertising folder contains the sample code relevant to creating a video player with ad support.</target>
+        </trans-unit>
+        <trans-unit id="7e6e64c1-aac8-4649-89a0-a260871e2d35" xml:space="preserve">
+          <source>Inside the Advertising folder is a number of XAML/cs files each of which show how to insert ads in a different way.</source>
+          <target state="new">Inside the Advertising folder is a number of XAML/cs files each of which show how to insert ads in a different way.</target>
+        </trans-unit>
+        <trans-unit id="4aab20d3-cba0-40e0-8f91-031d54ce233e" xml:space="preserve">
+          <source>The following list describes each:</source>
+          <target state="new">The following list describes each:</target>
+        </trans-unit>
+        <trans-unit id="566d2c19-48e7-4d82-9271-835c718c789e" xml:space="preserve">
+          <source>AdPodPage.xaml Shows how to display an ad pod.</source>
+          <target state="new">AdPodPage.xaml Shows how to display an ad pod.</target>
+        </trans-unit>
+        <trans-unit id="ec764368-b7b3-4148-9bf3-0a5bd03cbf4c" xml:space="preserve">
+          <source>AdSchedulingPage.xaml Shows how to schedule ads.</source>
+          <target state="new">AdSchedulingPage.xaml Shows how to schedule ads.</target>
+        </trans-unit>
+        <trans-unit id="369eb899-c3b1-4a12-b825-a9c5a24daea1" xml:space="preserve">
+          <source>FreeWheelPage.xaml Shows how to use the FreeWheel plugin to schedule ads.</source>
+          <target state="new">FreeWheelPage.xaml Shows how to use the FreeWheel plugin to schedule ads.</target>
+        </trans-unit>
+        <trans-unit id="9817cd63-0413-4422-a0ea-b85c3f5eaa47" xml:space="preserve">
+          <source>MastPage.xaml Shows how to schedule ads with a MAST file.</source>
+          <target state="new">MastPage.xaml Shows how to schedule ads with a MAST file.</target>
+        </trans-unit>
+        <trans-unit id="ec301c43-9d65-453b-95f5-e7622671da59" xml:space="preserve">
+          <source>ProgrammaticAdPage.xaml Shows how to programmatically schedule ads into a video.</source>
+          <target state="new">ProgrammaticAdPage.xaml Shows how to programmatically schedule ads into a video.</target>
+        </trans-unit>
+        <trans-unit id="3b7857c7-7371-4f3e-ba52-f0da37af6f56" xml:space="preserve">
+          <source>ScheduleClipPage.xaml Shows how to schedule an ad without a VAST file.</source>
+          <target state="new">ScheduleClipPage.xaml Shows how to schedule an ad without a VAST file.</target>
+        </trans-unit>
+        <trans-unit id="e9627230-39cf-401e-99d0-35e19eea828c" xml:space="preserve">
+          <source>VastLinearCompanionPage.xaml Shows how to insert a linear and companion ad.</source>
+          <target state="new">VastLinearCompanionPage.xaml Shows how to insert a linear and companion ad.</target>
+        </trans-unit>
+        <trans-unit id="c6ac8c79-a13b-4538-9fa2-c8429a11232a" xml:space="preserve">
+          <source>VastNonLinearPage.xaml Shows how to insert a non-linear ad.</source>
+          <target state="new">VastNonLinearPage.xaml Shows how to insert a non-linear ad.</target>
+        </trans-unit>
+        <trans-unit id="51781eec-752f-4221-9394-23ef3636580a" xml:space="preserve">
+          <source>VmapPage.xaml Shows how to specify ads with a VMAP file.</source>
+          <target state="new">VmapPage.xaml Shows how to specify ads with a VMAP file.</target>
+        </trans-unit>
+        <trans-unit id="c16d4f3e-4fbf-4393-ba40-f46e1b5c3d68" xml:space="preserve">
+          <source>Each of these samples uses the MediaPlayer class defined by the player framework.</source>
+          <target state="new">Each of these samples uses the MediaPlayer class defined by the player framework.</target>
+        </trans-unit>
+        <trans-unit id="197eb5a6-6fec-46a4-8feb-14c9b6589830" xml:space="preserve">
+          <source>Most samples use plugins that add support for various ad response formats.</source>
+          <target state="new">Most samples use plugins that add support for various ad response formats.</target>
+        </trans-unit>
+        <trans-unit id="2ead9745-0518-488a-a500-4e66d9c62b31" xml:space="preserve">
+          <source>The ProgrammaticAdPage sample programmatically interacts with a MediaPlayer instance.</source>
+          <target state="new">The ProgrammaticAdPage sample programmatically interacts with a MediaPlayer instance.</target>
+        </trans-unit>
+        <trans-unit id="1c1fce06-aa56-4092-b5e6-6b96f48822d1" xml:space="preserve">
+          <source>This sample uses the AdSchedulerPlugin to define when to display an ad. In this example a mid-roll advertisement is scheduled to be played after 5 seconds. The ad pod (a group of ads to display in order) is specified in a VAST file returned from an ad server. The URI to the VAST file is specified in the &lt;RemoteAdSource&gt; element.</source>
+          <target state="new">This sample uses the AdSchedulerPlugin to define when to display an ad. In this example a mid-roll advertisement is scheduled to be played after 5 seconds. The ad pod (a group of ads to display in order) is specified in a VAST file returned from an ad server. The URI to the VAST file is specified in the &lt;RemoteAdSource&gt; element.</target>
+        </trans-unit>
+        <trans-unit id="14fc92b8-8ed3-47c7-969d-51988c01974c" xml:space="preserve">
+          <source>For more information about the AdSchedulerPlugin, see <bpt id="cae58c0c-b225-43ef-99b2-a88c505213d9">&lt;linkText&gt;</bpt>Advertising in the Player Framework on Windows 8 and Windows Phone 8<ept id="cae58c0c-b225-43ef-99b2-a88c505213d9">&lt;/linkText&gt;</ept><bpt id="cae58c0c-b225-43ef-99b2-a88c505213d9">&lt;title&gt;</bpt><ept id="cae58c0c-b225-43ef-99b2-a88c505213d9">&lt;/title&gt;</ept></source>
+          <target state="new">For more information about the AdSchedulerPlugin, see <bpt id="cae58c0c-b225-43ef-99b2-a88c505213d9">&lt;linkText&gt;</bpt>Advertising in the Player Framework on Windows 8 and Windows Phone 8<ept id="cae58c0c-b225-43ef-99b2-a88c505213d9">&lt;/linkText&gt;</ept><bpt id="cae58c0c-b225-43ef-99b2-a88c505213d9">&lt;title&gt;</bpt><ept id="cae58c0c-b225-43ef-99b2-a88c505213d9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="472f9bf8-d021-44e9-a847-e7eadc22d8ea" xml:space="preserve">
+          <source>This sample also uses the AdSchedulerPlugin. It schedules three ads, a pre-roll ad, a mid-roll ad, and a post-roll ad. The URI to the VAST for each ad is specified in a &lt;RemoteAdSource&gt; element.</source>
+          <target state="new">This sample also uses the AdSchedulerPlugin. It schedules three ads, a pre-roll ad, a mid-roll ad, and a post-roll ad. The URI to the VAST for each ad is specified in a &lt;RemoteAdSource&gt; element.</target>
+        </trans-unit>
+        <trans-unit id="b4c034bd-702c-4e58-8377-77459fc59654" xml:space="preserve">
+          <source>This sample uses the FreeWheelPlugin which specifies a Source attribute that specifies a URI that points to a SmartXML file that specifies ad content as well as ad scheduling information.</source>
+          <target state="new">This sample uses the FreeWheelPlugin which specifies a Source attribute that specifies a URI that points to a SmartXML file that specifies ad content as well as ad scheduling information.</target>
+        </trans-unit>
+        <trans-unit id="22e99d31-8c7e-4b7d-af34-9fdba08f2f30" xml:space="preserve">
+          <source>This sample uses the MastSchedulerPlugin that allows you to use a MAST file.</source>
+          <target state="new">This sample uses the MastSchedulerPlugin that allows you to use a MAST file.</target>
+        </trans-unit>
+        <trans-unit id="667c56f7-30c2-43bf-93f1-dd1a03c77b10" xml:space="preserve">
+          <source>The Source attribute specifies the location of the MAST file.</source>
+          <target state="new">The Source attribute specifies the location of the MAST file.</target>
+        </trans-unit>
+        <trans-unit id="d8a17929-4fd3-4152-8472-a3271c7f0a91" xml:space="preserve">
+          <source>This sample programmatically interacts with the MediaPlayer.</source>
+          <target state="new">This sample programmatically interacts with the MediaPlayer.</target>
+        </trans-unit>
+        <trans-unit id="8d32819b-f98f-4b92-8769-2f26a2f1659e" xml:space="preserve">
+          <source>The ProgrammaticAdPage.xaml file instantiates the MediaPlayer:</source>
+          <target state="new">The ProgrammaticAdPage.xaml file instantiates the MediaPlayer:</target>
+        </trans-unit>
+        <trans-unit id="f01e7a76-ae84-4e71-bd80-39b50022d734" xml:space="preserve">
+          <source>The ProgrammaticAdPage.xaml.cs file creates an AdHandlerPlugin, adds a TimelineMarker to specify when an ad should be displayed, and then adds a handler for the MarkerReached event which loads a RemoteAdSource specifying a URI to a VAST file, and then plays the ad.</source>
+          <target state="new">The ProgrammaticAdPage.xaml.cs file creates an AdHandlerPlugin, adds a TimelineMarker to specify when an ad should be displayed, and then adds a handler for the MarkerReached event which loads a RemoteAdSource specifying a URI to a VAST file, and then plays the ad.</target>
+        </trans-unit>
+        <trans-unit id="c0f3d71c-d730-4815-8acf-badc0d767b5b" xml:space="preserve">
+          <source>This sample uses the AdSchedulerPlugin to schedule a mid-roll ad by specifying a .wmv file that contains the ad.</source>
+          <target state="new">This sample uses the AdSchedulerPlugin to schedule a mid-roll ad by specifying a .wmv file that contains the ad.</target>
+        </trans-unit>
+        <trans-unit id="ddffc5c0-3f70-4aa0-8fb8-24ec076ed6c9" xml:space="preserve">
+          <source>This sample illustrates how to use the AdSchedulerPlugin to schedule a mid-roll linear ad with an companion ad. The &lt;RemoteAdSource&gt; element specifies the location of the VAST file.</source>
+          <target state="new">This sample illustrates how to use the AdSchedulerPlugin to schedule a mid-roll linear ad with an companion ad. The &lt;RemoteAdSource&gt; element specifies the location of the VAST file.</target>
+        </trans-unit>
+        <trans-unit id="40e8edbe-7554-4f26-ac79-137b67e3d732" xml:space="preserve">
+          <source>This sample uses the AdSchedulerPlugin to schedule a linear and a non-linear ad. The VAST file location is specified with the &lt;RemoteAdSource&gt; element.</source>
+          <target state="new">This sample uses the AdSchedulerPlugin to schedule a linear and a non-linear ad. The VAST file location is specified with the &lt;RemoteAdSource&gt; element.</target>
+        </trans-unit>
+        <trans-unit id="af666662-ccab-4c83-9e18-6b16186a607f" xml:space="preserve">
+          <source>This samples uses the VmapSchedulerPlugin to schedule ads using a VMAP file. The URI to the VMAP file is specified in the Source attribute of the &lt;VmapSchedulerPlugin&gt; element.</source>
+          <target state="new">This samples uses the VmapSchedulerPlugin to schedule ads using a VMAP file. The URI to the VMAP file is specified in the Source attribute of the &lt;VmapSchedulerPlugin&gt; element.</target>
+        </trans-unit>
+        <trans-unit id="07d1ee8a-d5a3-4200-8530-71cd06cc77bf" xml:space="preserve">
+          <source>The Microsoft Media Platform: Player Framework for iOS contains a collection of sample applications that show you how to implement a video player application using the framework.</source>
+          <target state="new">The Microsoft Media Platform: Player Framework for iOS contains a collection of sample applications that show you how to implement a video player application using the framework.</target>
+        </trans-unit>
+        <trans-unit id="2e85229d-072c-45e1-91cd-9e6b2f72def9" xml:space="preserve">
+          <source>You can download the Player Framework and the samples from <bpt id="1c09bea6-d3f7-4d07-9bb2-c8bff657d9b0">&lt;linkText&gt;</bpt>Azure Media Player Framework<ept id="1c09bea6-d3f7-4d07-9bb2-c8bff657d9b0">&lt;/linkText&gt;</ept><bpt id="1c09bea6-d3f7-4d07-9bb2-c8bff657d9b0">&lt;title&gt;</bpt><ept id="1c09bea6-d3f7-4d07-9bb2-c8bff657d9b0">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can download the Player Framework and the samples from <bpt id="1c09bea6-d3f7-4d07-9bb2-c8bff657d9b0">&lt;linkText&gt;</bpt>Azure Media Player Framework<ept id="1c09bea6-d3f7-4d07-9bb2-c8bff657d9b0">&lt;/linkText&gt;</ept><bpt id="1c09bea6-d3f7-4d07-9bb2-c8bff657d9b0">&lt;title&gt;</bpt><ept id="1c09bea6-d3f7-4d07-9bb2-c8bff657d9b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cffb31eb-43b4-45e3-b55f-6735dd0f0fa6" xml:space="preserve">
+          <source>The github page has a link to a Wiki that contains additional information on the player framework and an introduction to the player sample: <bpt id="aa5e8b36-9073-4e1a-b29f-ae34b830a075">&lt;linkText&gt;</bpt>Azure Media Player Wiki<ept id="aa5e8b36-9073-4e1a-b29f-ae34b830a075">&lt;/linkText&gt;</ept><bpt id="aa5e8b36-9073-4e1a-b29f-ae34b830a075">&lt;title&gt;</bpt><ept id="aa5e8b36-9073-4e1a-b29f-ae34b830a075">&lt;/title&gt;</ept>.</source>
+          <target state="new">The github page has a link to a Wiki that contains additional information on the player framework and an introduction to the player sample: <bpt id="aa5e8b36-9073-4e1a-b29f-ae34b830a075">&lt;linkText&gt;</bpt>Azure Media Player Wiki<ept id="aa5e8b36-9073-4e1a-b29f-ae34b830a075">&lt;/linkText&gt;</ept><bpt id="aa5e8b36-9073-4e1a-b29f-ae34b830a075">&lt;title&gt;</bpt><ept id="aa5e8b36-9073-4e1a-b29f-ae34b830a075">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8abdee3-9ffd-4474-a101-4cc58e3948f7" xml:space="preserve">
+          <source>The following example shows how to schedule ads using a VMAP file.</source>
+          <target state="new">The following example shows how to schedule ads using a VMAP file.</target>
+        </trans-unit>
+        <trans-unit id="83cd9515-3569-46ff-bfed-2e3f1d1ce155" xml:space="preserve">
+          <source>The following sample shows how to schedule a late binding VAST ad.</source>
+          <target state="new">The following sample shows how to schedule a late binding VAST ad.</target>
+        </trans-unit>
+        <trans-unit id="8ea0584f-6d72-4964-8406-82f422d05e9f" xml:space="preserve">
+          <source>   The following sample shows how to schedule an early binding VAST ad.
+    //Example:4 Schedule an early binding VAST ad
+    //Download the VAST file
+    if (![framework.adResolver downloadManifest:&amp;manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
+    {
+        [self logFrameworkError];
+    }
+    else
+    {
+        adLinearTime.startTime = 7;
+        adLinearTime.duration = 0;</source>
+          <target state="new">   The following sample shows how to schedule an early binding VAST ad.
+    //Example:4 Schedule an early binding VAST ad
+    //Download the VAST file
+    if (![framework.adResolver downloadManifest:&amp;manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
+    {
+        [self logFrameworkError];
+    }
+    else
+    {
+        adLinearTime.startTime = 7;
+        adLinearTime.duration = 0;</target>
+        </trans-unit>
+        <trans-unit id="e52a2b4c-eed0-46d6-ba58-485d4c2733ab" xml:space="preserve">
+          <source>The following sample shows how to insert an ad using Rough Cut Editing (RCE)</source>
+          <target state="new">The following sample shows how to insert an ad using Rough Cut Editing (RCE)</target>
+        </trans-unit>
+        <trans-unit id="4ab56127-92b5-4ec3-ad3d-7603d8357453" xml:space="preserve">
+          <source>The following example shows how to schedule an ad pod.</source>
+          <target state="new">The following example shows how to schedule an ad pod.</target>
+        </trans-unit>
+        <trans-unit id="ab7f120c-b767-4ed5-a167-f43a0fe134f7" xml:space="preserve">
+          <source>The following example shows how to schedule a non-sticky mid-roll ad.</source>
+          <target state="new">The following example shows how to schedule a non-sticky mid-roll ad.</target>
+        </trans-unit>
+        <trans-unit id="bc24d1d5-d069-4ddb-9a7d-dce1fed452f9" xml:space="preserve">
+          <source>A non-sticky ad is only played once regardless of any seeking the viewer performs.</source>
+          <target state="new">A non-sticky ad is only played once regardless of any seeking the viewer performs.</target>
+        </trans-unit>
+        <trans-unit id="7f5893a1-58b8-4061-b09e-c66ddb88485f" xml:space="preserve">
+          <source>The following example shows how to schedule a sticky mid-roll ad.</source>
+          <target state="new">The following example shows how to schedule a sticky mid-roll ad.</target>
+        </trans-unit>
+        <trans-unit id="bda42901-0b27-4d6a-bc18-7dd73c698b34" xml:space="preserve">
+          <source>A sticky ad will be displayed each time the specified point on the video timeline is reached.</source>
+          <target state="new">A sticky ad will be displayed each time the specified point on the video timeline is reached.</target>
+        </trans-unit>
+        <trans-unit id="25607764-a050-4ac6-ab5e-5f56c15672fd" xml:space="preserve">
+          <source>The following sample shows how to schedule a post-roll ad.</source>
+          <target state="new">The following sample shows how to schedule a post-roll ad.</target>
+        </trans-unit>
+        <trans-unit id="bc36f505-c85c-4cdf-8f0d-53f0a8abadc9" xml:space="preserve">
+          <source>The following sample shows how to schedule a pre-roll ad.</source>
+          <target state="new">The following sample shows how to schedule a pre-roll ad.</target>
+        </trans-unit>
+        <trans-unit id="8030e4fe-6ab3-4d22-ba0f-a3e2ec7327b2" xml:space="preserve">
+          <source>The following sample shows how to schedule a mid-roll overlay ad.</source>
+          <target state="new">The following sample shows how to schedule a mid-roll overlay ad.</target>
+        </trans-unit>
+        <trans-unit id="6b7aa8c9-3871-4276-b4c7-20820b4c00b4" xml:space="preserve">
+          <source><bpt id="60b85a98-44da-4001-99ab-d22f6a8a9e1a">&lt;linkText&gt;</bpt>Develop video player applications<ept id="60b85a98-44da-4001-99ab-d22f6a8a9e1a">&lt;/linkText&gt;</ept><bpt id="60b85a98-44da-4001-99ab-d22f6a8a9e1a">&lt;title&gt;</bpt><ept id="60b85a98-44da-4001-99ab-d22f6a8a9e1a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="60b85a98-44da-4001-99ab-d22f6a8a9e1a">&lt;linkText&gt;</bpt>Develop video player applications<ept id="60b85a98-44da-4001-99ab-d22f6a8a9e1a">&lt;/linkText&gt;</ept><bpt id="60b85a98-44da-4001-99ab-d22f6a8a9e1a">&lt;title&gt;</bpt><ept id="60b85a98-44da-4001-99ab-d22f6a8a9e1a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

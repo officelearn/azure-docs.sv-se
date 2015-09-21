@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="89803aa3-15ad-40a6-85fe-9233faac372f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="89803aa3-15ad-40a6-85fe-9233faac372f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2cfa4e41-3cc0-4fa0-b0fa-7e7bf04cc0b5">
+        <trans-unit id="600634f8-b4cb-44bd-9495-1395a6afdb4e" xml:space="preserve">
+          <source>Step 4: Train and evaluate the predictive analytic models | Microsoft Azure</source>
+          <target state="new">Step 4: Train and evaluate the predictive analytic models | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="94c614bc-9379-40b8-9530-008a77c922e9" xml:space="preserve">
+          <source>Step 4 of the Develop a predictive solution walkthrough: Train, score, and evaluate multiple models in Azure Machine Learning Studio.</source>
+          <target state="new">Step 4 of the Develop a predictive solution walkthrough: Train, score, and evaluate multiple models in Azure Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="136556b2-c839-4a92-8546-9d7eb1875c39" xml:space="preserve">
+          <source>This is the fourth step of the walkthrough, <bpt id="91188357-c0c6-413e-bb4b-f54df21d52d7">&lt;linkText&gt;</bpt>Developing a Predictive Solution with Azure ML<ept id="91188357-c0c6-413e-bb4b-f54df21d52d7">&lt;/linkText&gt;</ept><bpt id="91188357-c0c6-413e-bb4b-f54df21d52d7">&lt;title&gt;</bpt><ept id="91188357-c0c6-413e-bb4b-f54df21d52d7">&lt;/title&gt;</ept></source>
+          <target state="new">This is the fourth step of the walkthrough, <bpt id="91188357-c0c6-413e-bb4b-f54df21d52d7">&lt;linkText&gt;</bpt>Developing a Predictive Solution with Azure ML<ept id="91188357-c0c6-413e-bb4b-f54df21d52d7">&lt;/linkText&gt;</ept><bpt id="91188357-c0c6-413e-bb4b-f54df21d52d7">&lt;title&gt;</bpt><ept id="91188357-c0c6-413e-bb4b-f54df21d52d7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c0fc74d-a6b8-4cc6-ac82-6ac958790836" xml:space="preserve">
+          <source><bpt id="b856489c-1cd6-4ce7-a960-db66bae32b31">&lt;linkText&gt;</bpt>Create a Machine Learning workspace<ept id="b856489c-1cd6-4ce7-a960-db66bae32b31">&lt;/linkText&gt;</ept><bpt id="b856489c-1cd6-4ce7-a960-db66bae32b31">&lt;title&gt;</bpt><ept id="b856489c-1cd6-4ce7-a960-db66bae32b31">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b856489c-1cd6-4ce7-a960-db66bae32b31">&lt;linkText&gt;</bpt>Create a Machine Learning workspace<ept id="b856489c-1cd6-4ce7-a960-db66bae32b31">&lt;/linkText&gt;</ept><bpt id="b856489c-1cd6-4ce7-a960-db66bae32b31">&lt;title&gt;</bpt><ept id="b856489c-1cd6-4ce7-a960-db66bae32b31">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68d6f3f4-05bd-493e-9ab2-1002ab2a8801" xml:space="preserve">
+          <source><bpt id="c2a248b2-97a5-475d-a4bd-51815e4743cf">&lt;linkText&gt;</bpt>Upload existing data<ept id="c2a248b2-97a5-475d-a4bd-51815e4743cf">&lt;/linkText&gt;</ept><bpt id="c2a248b2-97a5-475d-a4bd-51815e4743cf">&lt;title&gt;</bpt><ept id="c2a248b2-97a5-475d-a4bd-51815e4743cf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c2a248b2-97a5-475d-a4bd-51815e4743cf">&lt;linkText&gt;</bpt>Upload existing data<ept id="c2a248b2-97a5-475d-a4bd-51815e4743cf">&lt;/linkText&gt;</ept><bpt id="c2a248b2-97a5-475d-a4bd-51815e4743cf">&lt;title&gt;</bpt><ept id="c2a248b2-97a5-475d-a4bd-51815e4743cf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39d09991-5292-4da3-8ab7-c561ea29828f" xml:space="preserve">
+          <source><bpt id="7773b7ea-ec6d-4dc6-866c-d2ec43ce2e34">&lt;linkText&gt;</bpt>Create a new experiment<ept id="7773b7ea-ec6d-4dc6-866c-d2ec43ce2e34">&lt;/linkText&gt;</ept><bpt id="7773b7ea-ec6d-4dc6-866c-d2ec43ce2e34">&lt;title&gt;</bpt><ept id="7773b7ea-ec6d-4dc6-866c-d2ec43ce2e34">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7773b7ea-ec6d-4dc6-866c-d2ec43ce2e34">&lt;linkText&gt;</bpt>Create a new experiment<ept id="7773b7ea-ec6d-4dc6-866c-d2ec43ce2e34">&lt;/linkText&gt;</ept><bpt id="7773b7ea-ec6d-4dc6-866c-d2ec43ce2e34">&lt;title&gt;</bpt><ept id="7773b7ea-ec6d-4dc6-866c-d2ec43ce2e34">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd6df8d6-62ea-46b3-90a5-0def0b99c108" xml:space="preserve">
+          <source><bpt id="84159a0f-11d4-487f-8519-efe737a1e6de">&lt;strong&gt;</bpt>Train and evaluate the models<ept id="84159a0f-11d4-487f-8519-efe737a1e6de">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="84159a0f-11d4-487f-8519-efe737a1e6de">&lt;strong&gt;</bpt>Train and evaluate the models<ept id="84159a0f-11d4-487f-8519-efe737a1e6de">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa14a8c1-20f1-47a9-9427-cf580cf6dc3b" xml:space="preserve">
+          <source><bpt id="72597c0b-2a81-4854-8ab7-d1cd314f5162">&lt;linkText&gt;</bpt>Publish the web service<ept id="72597c0b-2a81-4854-8ab7-d1cd314f5162">&lt;/linkText&gt;</ept><bpt id="72597c0b-2a81-4854-8ab7-d1cd314f5162">&lt;title&gt;</bpt><ept id="72597c0b-2a81-4854-8ab7-d1cd314f5162">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="72597c0b-2a81-4854-8ab7-d1cd314f5162">&lt;linkText&gt;</bpt>Publish the web service<ept id="72597c0b-2a81-4854-8ab7-d1cd314f5162">&lt;/linkText&gt;</ept><bpt id="72597c0b-2a81-4854-8ab7-d1cd314f5162">&lt;title&gt;</bpt><ept id="72597c0b-2a81-4854-8ab7-d1cd314f5162">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55cd0254-97ef-47d2-9da8-2877cb849786" xml:space="preserve">
+          <source><bpt id="43aba3c8-c4a4-4692-8282-3c7836557587">&lt;linkText&gt;</bpt>Access the web service<ept id="43aba3c8-c4a4-4692-8282-3c7836557587">&lt;/linkText&gt;</ept><bpt id="43aba3c8-c4a4-4692-8282-3c7836557587">&lt;title&gt;</bpt><ept id="43aba3c8-c4a4-4692-8282-3c7836557587">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="43aba3c8-c4a4-4692-8282-3c7836557587">&lt;linkText&gt;</bpt>Access the web service<ept id="43aba3c8-c4a4-4692-8282-3c7836557587">&lt;/linkText&gt;</ept><bpt id="43aba3c8-c4a4-4692-8282-3c7836557587">&lt;title&gt;</bpt><ept id="43aba3c8-c4a4-4692-8282-3c7836557587">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2fecf87-ebd4-4c7c-8da8-1e21e2afd628" xml:space="preserve">
+          <source>In this experiment we want to try different algorithms for our predictive model.</source>
+          <target state="new">In this experiment we want to try different algorithms for our predictive model.</target>
+        </trans-unit>
+        <trans-unit id="83ea52b0-8b39-4a07-b202-44d5b06accc3" xml:space="preserve">
+          <source>We'll create two different types of models and then compare their scoring results to decide which algorithm we want to use in our final experiment.</source>
+          <target state="new">We'll create two different types of models and then compare their scoring results to decide which algorithm we want to use in our final experiment.</target>
+        </trans-unit>
+        <trans-unit id="e8b3d558-1ccb-42fc-b82d-e27964be16f9" xml:space="preserve">
+          <source>There are a number of models we could choose from.</source>
+          <target state="new">There are a number of models we could choose from.</target>
+        </trans-unit>
+        <trans-unit id="fcc7d92e-42fb-4ec9-835f-8cca6f2b999e" xml:space="preserve">
+          <source>To see the models available, expand the <bpt id="9eb6b556-be38-4f22-8610-ffdc83f56302">&lt;strong&gt;</bpt>Machine Learning<ept id="9eb6b556-be38-4f22-8610-ffdc83f56302">&lt;/strong&gt;</ept> node in the module palette, and then expand <bpt id="40a24366-39e7-4675-a903-4dab0b3de3c3">&lt;strong&gt;</bpt>Initialize Model<ept id="40a24366-39e7-4675-a903-4dab0b3de3c3">&lt;/strong&gt;</ept> and the nodes beneath it.</source>
+          <target state="new">To see the models available, expand the <bpt id="9eb6b556-be38-4f22-8610-ffdc83f56302">&lt;strong&gt;</bpt>Machine Learning<ept id="9eb6b556-be38-4f22-8610-ffdc83f56302">&lt;/strong&gt;</ept> node in the module palette, and then expand <bpt id="40a24366-39e7-4675-a903-4dab0b3de3c3">&lt;strong&gt;</bpt>Initialize Model<ept id="40a24366-39e7-4675-a903-4dab0b3de3c3">&lt;/strong&gt;</ept> and the nodes beneath it.</target>
+        </trans-unit>
+        <trans-unit id="71626080-8ee9-470f-9cc9-5626a571c514" xml:space="preserve">
+          <source>For the purposes of this experiment, we'll select the Support Vector Machine (SVM) and the Two-Class Boosted Decision Trees modules.</source>
+          <target state="new">For the purposes of this experiment, we'll select the Support Vector Machine (SVM) and the Two-Class Boosted Decision Trees modules.</target>
+        </trans-unit>
+        <trans-unit id="40f69069-1ebf-4c2a-8c35-8c4b8604425a" xml:space="preserve">
+          <source>We'll use the appropriate modules to initialize the learning algorithms and use <bpt id="c3cb118f-98dc-4569-81c4-aa7087bdb7ca">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="c3cb118f-98dc-4569-81c4-aa7087bdb7ca">&lt;/linkText&gt;</ept><bpt id="c3cb118f-98dc-4569-81c4-aa7087bdb7ca">&lt;title&gt;</bpt><ept id="c3cb118f-98dc-4569-81c4-aa7087bdb7ca">&lt;/title&gt;</ept> modules to train the models.</source>
+          <target state="new">We'll use the appropriate modules to initialize the learning algorithms and use <bpt id="c3cb118f-98dc-4569-81c4-aa7087bdb7ca">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="c3cb118f-98dc-4569-81c4-aa7087bdb7ca">&lt;/linkText&gt;</ept><bpt id="c3cb118f-98dc-4569-81c4-aa7087bdb7ca">&lt;title&gt;</bpt><ept id="c3cb118f-98dc-4569-81c4-aa7087bdb7ca">&lt;/title&gt;</ept> modules to train the models.</target>
+        </trans-unit>
+        <trans-unit id="edd9b3c1-35d9-4c62-b85b-d1823ed9f0cb" xml:space="preserve">
+          <source>First, let's set up the boosted decision tree model:  </source>
+          <target state="new">First, let's set up the boosted decision tree model:  </target>
+        </trans-unit>
+        <trans-unit id="e22a0191-6b7c-4fb4-afd5-70739005bfad" xml:space="preserve">
+          <source>Find the <bpt id="576c4ea3-8cae-418d-af01-57a9ad7eaab3">&lt;linkText&gt;</bpt>Two-Class Boosted Decision Tree[two-class-boosted-decision-tree]<ept id="576c4ea3-8cae-418d-af01-57a9ad7eaab3">&lt;/linkText&gt;</ept><bpt id="576c4ea3-8cae-418d-af01-57a9ad7eaab3">&lt;title&gt;</bpt><ept id="576c4ea3-8cae-418d-af01-57a9ad7eaab3">&lt;/title&gt;</ept> module in the module palette and drag it onto the canvas.</source>
+          <target state="new">Find the <bpt id="576c4ea3-8cae-418d-af01-57a9ad7eaab3">&lt;linkText&gt;</bpt>Two-Class Boosted Decision Tree[two-class-boosted-decision-tree]<ept id="576c4ea3-8cae-418d-af01-57a9ad7eaab3">&lt;/linkText&gt;</ept><bpt id="576c4ea3-8cae-418d-af01-57a9ad7eaab3">&lt;title&gt;</bpt><ept id="576c4ea3-8cae-418d-af01-57a9ad7eaab3">&lt;/title&gt;</ept> module in the module palette and drag it onto the canvas.</target>
+        </trans-unit>
+        <trans-unit id="98fc4b33-6022-4b86-9175-3087d50856a7" xml:space="preserve">
+          <source>Find the <bpt id="278ad55a-0c1d-4ce3-b179-0d4be859b43e">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="278ad55a-0c1d-4ce3-b179-0d4be859b43e">&lt;/linkText&gt;</ept><bpt id="278ad55a-0c1d-4ce3-b179-0d4be859b43e">&lt;title&gt;</bpt><ept id="278ad55a-0c1d-4ce3-b179-0d4be859b43e">&lt;/title&gt;</ept> module, drag it onto the canvas, and then connect the output of the boosted decision tree module to the left input port ("Untrained model") of the <bpt id="dff59c23-d82b-4eb3-9ba0-3b1783d09da7">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="dff59c23-d82b-4eb3-9ba0-3b1783d09da7">&lt;/linkText&gt;</ept><bpt id="dff59c23-d82b-4eb3-9ba0-3b1783d09da7">&lt;title&gt;</bpt><ept id="dff59c23-d82b-4eb3-9ba0-3b1783d09da7">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Find the <bpt id="278ad55a-0c1d-4ce3-b179-0d4be859b43e">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="278ad55a-0c1d-4ce3-b179-0d4be859b43e">&lt;/linkText&gt;</ept><bpt id="278ad55a-0c1d-4ce3-b179-0d4be859b43e">&lt;title&gt;</bpt><ept id="278ad55a-0c1d-4ce3-b179-0d4be859b43e">&lt;/title&gt;</ept> module, drag it onto the canvas, and then connect the output of the boosted decision tree module to the left input port ("Untrained model") of the <bpt id="dff59c23-d82b-4eb3-9ba0-3b1783d09da7">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="dff59c23-d82b-4eb3-9ba0-3b1783d09da7">&lt;/linkText&gt;</ept><bpt id="dff59c23-d82b-4eb3-9ba0-3b1783d09da7">&lt;title&gt;</bpt><ept id="dff59c23-d82b-4eb3-9ba0-3b1783d09da7">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="92cfb919-4291-410a-acf2-d2633e052686" xml:space="preserve">
+          <source>Connect the left output ("Result Dataset") of the left <bpt id="3046339b-9645-4251-8c0b-eb33cb67bab3">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="3046339b-9645-4251-8c0b-eb33cb67bab3">&lt;/linkText&gt;</ept><bpt id="3046339b-9645-4251-8c0b-eb33cb67bab3">&lt;title&gt;</bpt><ept id="3046339b-9645-4251-8c0b-eb33cb67bab3">&lt;/title&gt;</ept> module to the right input port ("Dataset") of the <bpt id="952145a4-f65e-4597-a09d-9e0ee5dc3490">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="952145a4-f65e-4597-a09d-9e0ee5dc3490">&lt;/linkText&gt;</ept><bpt id="952145a4-f65e-4597-a09d-9e0ee5dc3490">&lt;title&gt;</bpt><ept id="952145a4-f65e-4597-a09d-9e0ee5dc3490">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Connect the left output ("Result Dataset") of the left <bpt id="3046339b-9645-4251-8c0b-eb33cb67bab3">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="3046339b-9645-4251-8c0b-eb33cb67bab3">&lt;/linkText&gt;</ept><bpt id="3046339b-9645-4251-8c0b-eb33cb67bab3">&lt;title&gt;</bpt><ept id="3046339b-9645-4251-8c0b-eb33cb67bab3">&lt;/title&gt;</ept> module to the right input port ("Dataset") of the <bpt id="952145a4-f65e-4597-a09d-9e0ee5dc3490">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="952145a4-f65e-4597-a09d-9e0ee5dc3490">&lt;/linkText&gt;</ept><bpt id="952145a4-f65e-4597-a09d-9e0ee5dc3490">&lt;title&gt;</bpt><ept id="952145a4-f65e-4597-a09d-9e0ee5dc3490">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="c8cc93d6-908a-4f6c-ae8a-af7a9746a25e" xml:space="preserve">
+          <source>We don't need two of the inputs and one of the outputs of the <bpt id="fb1158ec-fb70-46ab-b7b2-318a45a7ac4b">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="fb1158ec-fb70-46ab-b7b2-318a45a7ac4b">&lt;/linkText&gt;</ept><bpt id="fb1158ec-fb70-46ab-b7b2-318a45a7ac4b">&lt;title&gt;</bpt><ept id="fb1158ec-fb70-46ab-b7b2-318a45a7ac4b">&lt;/title&gt;</ept> module for this experiment, so we'll just leave them unattached.</source>
+          <target state="new">We don't need two of the inputs and one of the outputs of the <bpt id="fb1158ec-fb70-46ab-b7b2-318a45a7ac4b">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="fb1158ec-fb70-46ab-b7b2-318a45a7ac4b">&lt;/linkText&gt;</ept><bpt id="fb1158ec-fb70-46ab-b7b2-318a45a7ac4b">&lt;title&gt;</bpt><ept id="fb1158ec-fb70-46ab-b7b2-318a45a7ac4b">&lt;/title&gt;</ept> module for this experiment, so we'll just leave them unattached.</target>
+        </trans-unit>
+        <trans-unit id="2d337a4a-4f19-4212-8d8a-61caad5753fb" xml:space="preserve">
+          <source>This is not uncommon for some modules.</source>
+          <target state="new">This is not uncommon for some modules.</target>
+        </trans-unit>
+        <trans-unit id="c09cc43a-cbfa-4639-b64e-c25d7cf1949a" xml:space="preserve">
+          <source>Select the <bpt id="d85a9901-4691-4649-af47-bd4874019937">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="d85a9901-4691-4649-af47-bd4874019937">&lt;/linkText&gt;</ept><bpt id="d85a9901-4691-4649-af47-bd4874019937">&lt;title&gt;</bpt><ept id="d85a9901-4691-4649-af47-bd4874019937">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Select the <bpt id="d85a9901-4691-4649-af47-bd4874019937">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="d85a9901-4691-4649-af47-bd4874019937">&lt;/linkText&gt;</ept><bpt id="d85a9901-4691-4649-af47-bd4874019937">&lt;title&gt;</bpt><ept id="d85a9901-4691-4649-af47-bd4874019937">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="1478c5e4-fc1d-4646-986d-cfa8f57667b8" xml:space="preserve">
+          <source>In the <bpt id="b6695483-dfef-499e-95a9-0b2391dcdbab">&lt;strong&gt;</bpt>Properties<ept id="b6695483-dfef-499e-95a9-0b2391dcdbab">&lt;/strong&gt;</ept> pane, click <bpt id="41ceaaf6-cc4a-4c7d-b890-e2de250cc4ef">&lt;strong&gt;</bpt>Launch column selector<ept id="41ceaaf6-cc4a-4c7d-b890-e2de250cc4ef">&lt;/strong&gt;</ept>, select <bpt id="db953315-21a9-4642-a3d5-c00d9458d13e">&lt;strong&gt;</bpt>Include<ept id="db953315-21a9-4642-a3d5-c00d9458d13e">&lt;/strong&gt;</ept> in the first dropdown, select <bpt id="7d0f8910-1a9d-42af-88c2-7e88bfc52160">&lt;strong&gt;</bpt>column indices<ept id="7d0f8910-1a9d-42af-88c2-7e88bfc52160">&lt;/strong&gt;</ept> in the second dropdown, and enter "21" in the text field (you can also select <bpt id="957883ea-a1fe-43d5-97f1-5e4a9fc10d32">&lt;strong&gt;</bpt>column names<ept id="957883ea-a1fe-43d5-97f1-5e4a9fc10d32">&lt;/strong&gt;</ept> and enter "Credit Risk").</source>
+          <target state="new">In the <bpt id="b6695483-dfef-499e-95a9-0b2391dcdbab">&lt;strong&gt;</bpt>Properties<ept id="b6695483-dfef-499e-95a9-0b2391dcdbab">&lt;/strong&gt;</ept> pane, click <bpt id="41ceaaf6-cc4a-4c7d-b890-e2de250cc4ef">&lt;strong&gt;</bpt>Launch column selector<ept id="41ceaaf6-cc4a-4c7d-b890-e2de250cc4ef">&lt;/strong&gt;</ept>, select <bpt id="db953315-21a9-4642-a3d5-c00d9458d13e">&lt;strong&gt;</bpt>Include<ept id="db953315-21a9-4642-a3d5-c00d9458d13e">&lt;/strong&gt;</ept> in the first dropdown, select <bpt id="7d0f8910-1a9d-42af-88c2-7e88bfc52160">&lt;strong&gt;</bpt>column indices<ept id="7d0f8910-1a9d-42af-88c2-7e88bfc52160">&lt;/strong&gt;</ept> in the second dropdown, and enter "21" in the text field (you can also select <bpt id="957883ea-a1fe-43d5-97f1-5e4a9fc10d32">&lt;strong&gt;</bpt>column names<ept id="957883ea-a1fe-43d5-97f1-5e4a9fc10d32">&lt;/strong&gt;</ept> and enter "Credit Risk").</target>
+        </trans-unit>
+        <trans-unit id="45d19417-6092-4a47-a0ea-a7ca931eb99f" xml:space="preserve">
+          <source>This identifies column 21, the credit risk value, as the column for the model to predict.</source>
+          <target state="new">This identifies column 21, the credit risk value, as the column for the model to predict.</target>
+        </trans-unit>
+        <trans-unit id="5b18d02b-2ad7-4536-ac34-7347ec4c0aa3" xml:space="preserve">
+          <source>This portion of the experiment now looks something like this:  </source>
+          <target state="new">This portion of the experiment now looks something like this:  </target>
+        </trans-unit>
+        <trans-unit id="d43d51ec-9200-432e-a640-e75c50b7ec61" xml:space="preserve">
+          <source><bpt id="812960a5-71e8-4425-ab67-f136258fb11c">&lt;linkText&gt;</bpt>Training a model<ept id="812960a5-71e8-4425-ab67-f136258fb11c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="812960a5-71e8-4425-ab67-f136258fb11c">&lt;linkText&gt;</bpt>Training a model<ept id="812960a5-71e8-4425-ab67-f136258fb11c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87a68787-7a19-4755-83d8-96d41f64f66d" xml:space="preserve">
+          <source>Next, we'll set up the SVM model.</source>
+          <target state="new">Next, we'll set up the SVM model.</target>
+        </trans-unit>
+        <trans-unit id="f2421784-b294-46dc-9d38-eb92cf96ba35" xml:space="preserve">
+          <source>Boosted decision trees work well with features of any type.</source>
+          <target state="new">Boosted decision trees work well with features of any type.</target>
+        </trans-unit>
+        <trans-unit id="c35e98f8-4197-4acc-afbf-f5388ae5f667" xml:space="preserve">
+          <source>However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all numeric features have the same scale.</source>
+          <target state="new">However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all numeric features have the same scale.</target>
+        </trans-unit>
+        <trans-unit id="d7c7dcc5-a70d-40fe-9698-dac33582e60b" xml:space="preserve">
+          <source>To convert all numeric features to the same scale, we use the <bpt id="b6c6948f-b64b-4f0b-b972-488fa69cad8e">&lt;linkText&gt;</bpt>Normalize Data[normalize-data]<ept id="b6c6948f-b64b-4f0b-b972-488fa69cad8e">&lt;/linkText&gt;</ept><bpt id="b6c6948f-b64b-4f0b-b972-488fa69cad8e">&lt;title&gt;</bpt><ept id="b6c6948f-b64b-4f0b-b972-488fa69cad8e">&lt;/title&gt;</ept> module with a Tanh transformation, which transforms features into the [0,1] range.</source>
+          <target state="new">To convert all numeric features to the same scale, we use the <bpt id="b6c6948f-b64b-4f0b-b972-488fa69cad8e">&lt;linkText&gt;</bpt>Normalize Data[normalize-data]<ept id="b6c6948f-b64b-4f0b-b972-488fa69cad8e">&lt;/linkText&gt;</ept><bpt id="b6c6948f-b64b-4f0b-b972-488fa69cad8e">&lt;title&gt;</bpt><ept id="b6c6948f-b64b-4f0b-b972-488fa69cad8e">&lt;/title&gt;</ept> module with a Tanh transformation, which transforms features into the [0,1] range.</target>
+        </trans-unit>
+        <trans-unit id="067f2a03-2a4c-45e0-8246-37df97227a27" xml:space="preserve">
+          <source>Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don't need to manually transform string features.</source>
+          <target state="new">Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don't need to manually transform string features.</target>
+        </trans-unit>
+        <trans-unit id="aadbfd7f-dc33-45e9-b51e-364b4694fdb1" xml:space="preserve">
+          <source>Also, we don't want to transform the Credit Risk column (column 21) - it's numeric, but it's the value we're training the model to predict, so we need to leave it alone.</source>
+          <target state="new">Also, we don't want to transform the Credit Risk column (column 21) - it's numeric, but it's the value we're training the model to predict, so we need to leave it alone.</target>
+        </trans-unit>
+        <trans-unit id="5b54170e-4fcf-4d7a-a176-7414200d24ff" xml:space="preserve">
+          <source>Find the <bpt id="0dfc2b04-f26e-4e64-89af-3999e644da8e">&lt;linkText&gt;</bpt>Two-Class Support Vector Machine[two-class-support-vector-machine]<ept id="0dfc2b04-f26e-4e64-89af-3999e644da8e">&lt;/linkText&gt;</ept><bpt id="0dfc2b04-f26e-4e64-89af-3999e644da8e">&lt;title&gt;</bpt><ept id="0dfc2b04-f26e-4e64-89af-3999e644da8e">&lt;/title&gt;</ept> module in the module palette and drag it onto the canvas.</source>
+          <target state="new">Find the <bpt id="0dfc2b04-f26e-4e64-89af-3999e644da8e">&lt;linkText&gt;</bpt>Two-Class Support Vector Machine[two-class-support-vector-machine]<ept id="0dfc2b04-f26e-4e64-89af-3999e644da8e">&lt;/linkText&gt;</ept><bpt id="0dfc2b04-f26e-4e64-89af-3999e644da8e">&lt;title&gt;</bpt><ept id="0dfc2b04-f26e-4e64-89af-3999e644da8e">&lt;/title&gt;</ept> module in the module palette and drag it onto the canvas.</target>
+        </trans-unit>
+        <trans-unit id="d915452c-84be-469e-8cfa-64c36385b49e" xml:space="preserve">
+          <source>Right-click the <bpt id="1d783b86-7b42-4295-827b-b678b8f14c65">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="1d783b86-7b42-4295-827b-b678b8f14c65">&lt;/linkText&gt;</ept><bpt id="1d783b86-7b42-4295-827b-b678b8f14c65">&lt;title&gt;</bpt><ept id="1d783b86-7b42-4295-827b-b678b8f14c65">&lt;/title&gt;</ept> module, select <bpt id="c3576d37-5ba0-448d-a875-459e69b66c03">&lt;strong&gt;</bpt>Copy<ept id="c3576d37-5ba0-448d-a875-459e69b66c03">&lt;/strong&gt;</ept>, and then right-click the canvas and select <bpt id="a3eb0fbb-9d89-4700-8b7d-e5120fd0ce31">&lt;strong&gt;</bpt>Paste<ept id="a3eb0fbb-9d89-4700-8b7d-e5120fd0ce31">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the <bpt id="1d783b86-7b42-4295-827b-b678b8f14c65">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="1d783b86-7b42-4295-827b-b678b8f14c65">&lt;/linkText&gt;</ept><bpt id="1d783b86-7b42-4295-827b-b678b8f14c65">&lt;title&gt;</bpt><ept id="1d783b86-7b42-4295-827b-b678b8f14c65">&lt;/title&gt;</ept> module, select <bpt id="c3576d37-5ba0-448d-a875-459e69b66c03">&lt;strong&gt;</bpt>Copy<ept id="c3576d37-5ba0-448d-a875-459e69b66c03">&lt;/strong&gt;</ept>, and then right-click the canvas and select <bpt id="a3eb0fbb-9d89-4700-8b7d-e5120fd0ce31">&lt;strong&gt;</bpt>Paste<ept id="a3eb0fbb-9d89-4700-8b7d-e5120fd0ce31">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a307a0f7-3d51-49d7-a47d-f4ba8d114959" xml:space="preserve">
+          <source>Note that the copy of the <bpt id="8d35247d-a90e-41ba-9abb-0a06bb0bf3f4">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="8d35247d-a90e-41ba-9abb-0a06bb0bf3f4">&lt;/linkText&gt;</ept><bpt id="8d35247d-a90e-41ba-9abb-0a06bb0bf3f4">&lt;title&gt;</bpt><ept id="8d35247d-a90e-41ba-9abb-0a06bb0bf3f4">&lt;/title&gt;</ept> module has the same column selection as the original.</source>
+          <target state="new">Note that the copy of the <bpt id="8d35247d-a90e-41ba-9abb-0a06bb0bf3f4">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="8d35247d-a90e-41ba-9abb-0a06bb0bf3f4">&lt;/linkText&gt;</ept><bpt id="8d35247d-a90e-41ba-9abb-0a06bb0bf3f4">&lt;title&gt;</bpt><ept id="8d35247d-a90e-41ba-9abb-0a06bb0bf3f4">&lt;/title&gt;</ept> module has the same column selection as the original.</target>
+        </trans-unit>
+        <trans-unit id="15eda4b2-eca3-4413-8819-e11908205819" xml:space="preserve">
+          <source>Connect the output of the SVM module to the left input port ("Untrained model") of the <bpt id="468637b6-6fc2-491e-873c-b56e66311ba5">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="468637b6-6fc2-491e-873c-b56e66311ba5">&lt;/linkText&gt;</ept><bpt id="468637b6-6fc2-491e-873c-b56e66311ba5">&lt;title&gt;</bpt><ept id="468637b6-6fc2-491e-873c-b56e66311ba5">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Connect the output of the SVM module to the left input port ("Untrained model") of the <bpt id="468637b6-6fc2-491e-873c-b56e66311ba5">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="468637b6-6fc2-491e-873c-b56e66311ba5">&lt;/linkText&gt;</ept><bpt id="468637b6-6fc2-491e-873c-b56e66311ba5">&lt;title&gt;</bpt><ept id="468637b6-6fc2-491e-873c-b56e66311ba5">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="6e2ad599-7d9c-40f2-908a-be0e53e84a79" xml:space="preserve">
+          <source>Find the <bpt id="c65f458a-7789-4a29-badf-013503773fb9">&lt;linkText&gt;</bpt>Normalize Data[normalize-data]<ept id="c65f458a-7789-4a29-badf-013503773fb9">&lt;/linkText&gt;</ept><bpt id="c65f458a-7789-4a29-badf-013503773fb9">&lt;title&gt;</bpt><ept id="c65f458a-7789-4a29-badf-013503773fb9">&lt;/title&gt;</ept> module and drag it onto the canvas.</source>
+          <target state="new">Find the <bpt id="c65f458a-7789-4a29-badf-013503773fb9">&lt;linkText&gt;</bpt>Normalize Data[normalize-data]<ept id="c65f458a-7789-4a29-badf-013503773fb9">&lt;/linkText&gt;</ept><bpt id="c65f458a-7789-4a29-badf-013503773fb9">&lt;title&gt;</bpt><ept id="c65f458a-7789-4a29-badf-013503773fb9">&lt;/title&gt;</ept> module and drag it onto the canvas.</target>
+        </trans-unit>
+        <trans-unit id="d065702d-7da3-4374-bd21-35f275b7df33" xml:space="preserve">
+          <source>Connect the input of this transform module to the output of the left <bpt id="b6f44e83-8910-41e7-a8c2-a7b8d706d7e9">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="b6f44e83-8910-41e7-a8c2-a7b8d706d7e9">&lt;/linkText&gt;</ept><bpt id="b6f44e83-8910-41e7-a8c2-a7b8d706d7e9">&lt;title&gt;</bpt><ept id="b6f44e83-8910-41e7-a8c2-a7b8d706d7e9">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Connect the input of this transform module to the output of the left <bpt id="b6f44e83-8910-41e7-a8c2-a7b8d706d7e9">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="b6f44e83-8910-41e7-a8c2-a7b8d706d7e9">&lt;/linkText&gt;</ept><bpt id="b6f44e83-8910-41e7-a8c2-a7b8d706d7e9">&lt;title&gt;</bpt><ept id="b6f44e83-8910-41e7-a8c2-a7b8d706d7e9">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="e87d3ac4-a69e-4282-a5bb-0bac1915e6b8" xml:space="preserve">
+          <source>Connect the left output port ("Transformed Dataset") of the transform module to the right input port ("Dataset") of the <bpt id="8c2e806f-12a6-49db-b144-66f586c8d315">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="8c2e806f-12a6-49db-b144-66f586c8d315">&lt;/linkText&gt;</ept><bpt id="8c2e806f-12a6-49db-b144-66f586c8d315">&lt;title&gt;</bpt><ept id="8c2e806f-12a6-49db-b144-66f586c8d315">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Connect the left output port ("Transformed Dataset") of the transform module to the right input port ("Dataset") of the <bpt id="8c2e806f-12a6-49db-b144-66f586c8d315">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="8c2e806f-12a6-49db-b144-66f586c8d315">&lt;/linkText&gt;</ept><bpt id="8c2e806f-12a6-49db-b144-66f586c8d315">&lt;title&gt;</bpt><ept id="8c2e806f-12a6-49db-b144-66f586c8d315">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="643afde5-5a88-4e09-b4a2-9f4be7869599" xml:space="preserve">
+          <source>In the <bpt id="a81ff286-ff86-49b5-830b-899ae2b9a826">&lt;strong&gt;</bpt>Properties<ept id="a81ff286-ff86-49b5-830b-899ae2b9a826">&lt;/strong&gt;</ept> pane for the transform module, select <bpt id="7f0698f2-8de9-4184-9524-0e4c502fa606">&lt;strong&gt;</bpt>Tanh<ept id="7f0698f2-8de9-4184-9524-0e4c502fa606">&lt;/strong&gt;</ept> for the <bpt id="bd2dfd65-cd59-4142-a2ed-c0fbeb9b7cc1">&lt;strong&gt;</bpt>Transformation method<ept id="bd2dfd65-cd59-4142-a2ed-c0fbeb9b7cc1">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">In the <bpt id="a81ff286-ff86-49b5-830b-899ae2b9a826">&lt;strong&gt;</bpt>Properties<ept id="a81ff286-ff86-49b5-830b-899ae2b9a826">&lt;/strong&gt;</ept> pane for the transform module, select <bpt id="7f0698f2-8de9-4184-9524-0e4c502fa606">&lt;strong&gt;</bpt>Tanh<ept id="7f0698f2-8de9-4184-9524-0e4c502fa606">&lt;/strong&gt;</ept> for the <bpt id="bd2dfd65-cd59-4142-a2ed-c0fbeb9b7cc1">&lt;strong&gt;</bpt>Transformation method<ept id="bd2dfd65-cd59-4142-a2ed-c0fbeb9b7cc1">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="c22fe117-8c4c-41ea-8ad6-8c0a198f697a" xml:space="preserve">
+          <source>Click <bpt id="5f553e0d-338a-49a3-a6f5-ac3fd67677dc">&lt;strong&gt;</bpt>Launch column selector<ept id="5f553e0d-338a-49a3-a6f5-ac3fd67677dc">&lt;/strong&gt;</ept>, select "No columns" for <bpt id="672e5806-d185-4ed9-8d39-25b3eb83c269">&lt;strong&gt;</bpt>Begin With<ept id="672e5806-d185-4ed9-8d39-25b3eb83c269">&lt;/strong&gt;</ept>, select <bpt id="548955d2-f4f4-4fb5-b810-61d22f9c86e2">&lt;strong&gt;</bpt>Include<ept id="548955d2-f4f4-4fb5-b810-61d22f9c86e2">&lt;/strong&gt;</ept> in the first dropdown, select <bpt id="1dfae3c6-90e4-4d1f-aaae-59a0f8ac5732">&lt;strong&gt;</bpt>column type<ept id="1dfae3c6-90e4-4d1f-aaae-59a0f8ac5732">&lt;/strong&gt;</ept> in the second dropdown, and select <bpt id="7d314518-2f33-45ef-bf43-c0ef8a6f5b6f">&lt;strong&gt;</bpt>Numeric<ept id="7d314518-2f33-45ef-bf43-c0ef8a6f5b6f">&lt;/strong&gt;</ept> in the third dropdown.</source>
+          <target state="new">Click <bpt id="5f553e0d-338a-49a3-a6f5-ac3fd67677dc">&lt;strong&gt;</bpt>Launch column selector<ept id="5f553e0d-338a-49a3-a6f5-ac3fd67677dc">&lt;/strong&gt;</ept>, select "No columns" for <bpt id="672e5806-d185-4ed9-8d39-25b3eb83c269">&lt;strong&gt;</bpt>Begin With<ept id="672e5806-d185-4ed9-8d39-25b3eb83c269">&lt;/strong&gt;</ept>, select <bpt id="548955d2-f4f4-4fb5-b810-61d22f9c86e2">&lt;strong&gt;</bpt>Include<ept id="548955d2-f4f4-4fb5-b810-61d22f9c86e2">&lt;/strong&gt;</ept> in the first dropdown, select <bpt id="1dfae3c6-90e4-4d1f-aaae-59a0f8ac5732">&lt;strong&gt;</bpt>column type<ept id="1dfae3c6-90e4-4d1f-aaae-59a0f8ac5732">&lt;/strong&gt;</ept> in the second dropdown, and select <bpt id="7d314518-2f33-45ef-bf43-c0ef8a6f5b6f">&lt;strong&gt;</bpt>Numeric<ept id="7d314518-2f33-45ef-bf43-c0ef8a6f5b6f">&lt;/strong&gt;</ept> in the third dropdown.</target>
+        </trans-unit>
+        <trans-unit id="7634a2f6-addb-4f43-89e0-74be0b7a8021" xml:space="preserve">
+          <source>This specifies that all the numeric columns (and only numeric) will be transformed.</source>
+          <target state="new">This specifies that all the numeric columns (and only numeric) will be transformed.</target>
+        </trans-unit>
+        <trans-unit id="e77ecdfb-238c-4ae0-a215-9028088c9da8" xml:space="preserve">
+          <source>Click the plus sign (+), which creates a new row of dropdowns.</source>
+          <target state="new">Click the plus sign (+), which creates a new row of dropdowns.</target>
+        </trans-unit>
+        <trans-unit id="c1ae9e5b-e09f-44c3-b29c-e97fa4dd2ca7" xml:space="preserve">
+          <source>Select <bpt id="39e6113f-8ada-41b3-a6b8-cbb8d80ab332">&lt;strong&gt;</bpt>Exclude<ept id="39e6113f-8ada-41b3-a6b8-cbb8d80ab332">&lt;/strong&gt;</ept> in the first dropdown, select <bpt id="2ff4bcf7-eb83-41e0-adba-b22fedf4a6b0">&lt;strong&gt;</bpt>column indices<ept id="2ff4bcf7-eb83-41e0-adba-b22fedf4a6b0">&lt;/strong&gt;</ept> in the second dropdown, and enter "21" in the text field.</source>
+          <target state="new">Select <bpt id="39e6113f-8ada-41b3-a6b8-cbb8d80ab332">&lt;strong&gt;</bpt>Exclude<ept id="39e6113f-8ada-41b3-a6b8-cbb8d80ab332">&lt;/strong&gt;</ept> in the first dropdown, select <bpt id="2ff4bcf7-eb83-41e0-adba-b22fedf4a6b0">&lt;strong&gt;</bpt>column indices<ept id="2ff4bcf7-eb83-41e0-adba-b22fedf4a6b0">&lt;/strong&gt;</ept> in the second dropdown, and enter "21" in the text field.</target>
+        </trans-unit>
+        <trans-unit id="1fbb2eae-a8e3-49f2-a18e-cdeaeef378c9" xml:space="preserve">
+          <source>This specifies that column 21 (the Credit Risk column) will be ignored.</source>
+          <target state="new">This specifies that column 21 (the Credit Risk column) will be ignored.</target>
+        </trans-unit>
+        <trans-unit id="80b05b42-9c5a-407e-bb4c-bd90b46f4fdb" xml:space="preserve">
+          <source>Click <bpt id="61d7a8da-81ed-408f-afa6-b9904aee6b6c">&lt;strong&gt;</bpt>OK<ept id="61d7a8da-81ed-408f-afa6-b9904aee6b6c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="61d7a8da-81ed-408f-afa6-b9904aee6b6c">&lt;strong&gt;</bpt>OK<ept id="61d7a8da-81ed-408f-afa6-b9904aee6b6c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae938630-cb8c-401d-9c8c-69a43be86f53" xml:space="preserve">
+          <source>The <bpt id="672245f4-f44b-488c-a255-724c2e3428c2">&lt;linkText&gt;</bpt>Normalize Data[normalize-data]<ept id="672245f4-f44b-488c-a255-724c2e3428c2">&lt;/linkText&gt;</ept><bpt id="672245f4-f44b-488c-a255-724c2e3428c2">&lt;title&gt;</bpt><ept id="672245f4-f44b-488c-a255-724c2e3428c2">&lt;/title&gt;</ept> module is now set to perform a Tanh transformation on all numeric columns except for the Credit Risk column.</source>
+          <target state="new">The <bpt id="672245f4-f44b-488c-a255-724c2e3428c2">&lt;linkText&gt;</bpt>Normalize Data[normalize-data]<ept id="672245f4-f44b-488c-a255-724c2e3428c2">&lt;/linkText&gt;</ept><bpt id="672245f4-f44b-488c-a255-724c2e3428c2">&lt;title&gt;</bpt><ept id="672245f4-f44b-488c-a255-724c2e3428c2">&lt;/title&gt;</ept> module is now set to perform a Tanh transformation on all numeric columns except for the Credit Risk column.</target>
+        </trans-unit>
+        <trans-unit id="518c6ef5-1d68-42b8-8e84-277502bd4bd8" xml:space="preserve">
+          <source>This portion of our experiment should now look something like this:  </source>
+          <target state="new">This portion of our experiment should now look something like this:  </target>
+        </trans-unit>
+        <trans-unit id="3bb05e30-9a0e-4876-b300-41e6d58839b4" xml:space="preserve">
+          <source><bpt id="0fc094bf-ab6c-4dd4-896e-3b05c1217a24">&lt;linkText&gt;</bpt>Training the second model<ept id="0fc094bf-ab6c-4dd4-896e-3b05c1217a24">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="0fc094bf-ab6c-4dd4-896e-3b05c1217a24">&lt;linkText&gt;</bpt>Training the second model<ept id="0fc094bf-ab6c-4dd4-896e-3b05c1217a24">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="9fc1f086-5b59-447c-b826-e58e3278ebdd" xml:space="preserve">
+          <source>We'll use the scoring data that was separated out by the <bpt id="2d3a6812-2f80-4d8e-824f-8a9bf8a7dfdd">&lt;strong&gt;</bpt>Split<ept id="2d3a6812-2f80-4d8e-824f-8a9bf8a7dfdd">&lt;/strong&gt;</ept> module to score our trained models.</source>
+          <target state="new">We'll use the scoring data that was separated out by the <bpt id="2d3a6812-2f80-4d8e-824f-8a9bf8a7dfdd">&lt;strong&gt;</bpt>Split<ept id="2d3a6812-2f80-4d8e-824f-8a9bf8a7dfdd">&lt;/strong&gt;</ept> module to score our trained models.</target>
+        </trans-unit>
+        <trans-unit id="e9e8ab57-520b-48c9-b85d-279c5325fb9f" xml:space="preserve">
+          <source>We can then compare the results of the two models to see which generated better results.</source>
+          <target state="new">We can then compare the results of the two models to see which generated better results.</target>
+        </trans-unit>
+        <trans-unit id="fa82d88a-97c7-48fd-8465-abbe02ce645e" xml:space="preserve">
+          <source>Find the <bpt id="889ea1bf-eba7-4f89-9c3f-38e15b1a07ae">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="889ea1bf-eba7-4f89-9c3f-38e15b1a07ae">&lt;/linkText&gt;</ept><bpt id="889ea1bf-eba7-4f89-9c3f-38e15b1a07ae">&lt;title&gt;</bpt><ept id="889ea1bf-eba7-4f89-9c3f-38e15b1a07ae">&lt;/title&gt;</ept> module and drag it onto the canvas.</source>
+          <target state="new">Find the <bpt id="889ea1bf-eba7-4f89-9c3f-38e15b1a07ae">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="889ea1bf-eba7-4f89-9c3f-38e15b1a07ae">&lt;/linkText&gt;</ept><bpt id="889ea1bf-eba7-4f89-9c3f-38e15b1a07ae">&lt;title&gt;</bpt><ept id="889ea1bf-eba7-4f89-9c3f-38e15b1a07ae">&lt;/title&gt;</ept> module and drag it onto the canvas.</target>
+        </trans-unit>
+        <trans-unit id="ea2185f1-134f-4b6c-a84e-43aa6c91b896" xml:space="preserve">
+          <source>Connect the left input port of this module to the boosted decision tree model (that is, connect it to the output port of the <bpt id="5a5cb532-edad-483d-bed9-f782183d1d06">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="5a5cb532-edad-483d-bed9-f782183d1d06">&lt;/linkText&gt;</ept><bpt id="5a5cb532-edad-483d-bed9-f782183d1d06">&lt;title&gt;</bpt><ept id="5a5cb532-edad-483d-bed9-f782183d1d06">&lt;/title&gt;</ept> module that's connected to the <bpt id="b2ac05ae-f077-4d84-a2fd-4ee03f7238b7">&lt;linkText&gt;</bpt>Two-Class Boosted Decision Tree[two-class-boosted-decision-tree]<ept id="b2ac05ae-f077-4d84-a2fd-4ee03f7238b7">&lt;/linkText&gt;</ept><bpt id="b2ac05ae-f077-4d84-a2fd-4ee03f7238b7">&lt;title&gt;</bpt><ept id="b2ac05ae-f077-4d84-a2fd-4ee03f7238b7">&lt;/title&gt;</ept> module).</source>
+          <target state="new">Connect the left input port of this module to the boosted decision tree model (that is, connect it to the output port of the <bpt id="5a5cb532-edad-483d-bed9-f782183d1d06">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="5a5cb532-edad-483d-bed9-f782183d1d06">&lt;/linkText&gt;</ept><bpt id="5a5cb532-edad-483d-bed9-f782183d1d06">&lt;title&gt;</bpt><ept id="5a5cb532-edad-483d-bed9-f782183d1d06">&lt;/title&gt;</ept> module that's connected to the <bpt id="b2ac05ae-f077-4d84-a2fd-4ee03f7238b7">&lt;linkText&gt;</bpt>Two-Class Boosted Decision Tree[two-class-boosted-decision-tree]<ept id="b2ac05ae-f077-4d84-a2fd-4ee03f7238b7">&lt;/linkText&gt;</ept><bpt id="b2ac05ae-f077-4d84-a2fd-4ee03f7238b7">&lt;title&gt;</bpt><ept id="b2ac05ae-f077-4d84-a2fd-4ee03f7238b7">&lt;/title&gt;</ept> module).</target>
+        </trans-unit>
+        <trans-unit id="907ae0c8-edee-4572-b5ab-a65014d0b58f" xml:space="preserve">
+          <source>Connect the right input port of the <bpt id="3f716279-77bf-455e-8129-ca29c93f28d8">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="3f716279-77bf-455e-8129-ca29c93f28d8">&lt;/linkText&gt;</ept><bpt id="3f716279-77bf-455e-8129-ca29c93f28d8">&lt;title&gt;</bpt><ept id="3f716279-77bf-455e-8129-ca29c93f28d8">&lt;/title&gt;</ept> module to the output of the right <bpt id="e3cc955c-344b-43a6-9175-b5c05e74b486">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="e3cc955c-344b-43a6-9175-b5c05e74b486">&lt;/linkText&gt;</ept><bpt id="e3cc955c-344b-43a6-9175-b5c05e74b486">&lt;title&gt;</bpt><ept id="e3cc955c-344b-43a6-9175-b5c05e74b486">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Connect the right input port of the <bpt id="3f716279-77bf-455e-8129-ca29c93f28d8">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="3f716279-77bf-455e-8129-ca29c93f28d8">&lt;/linkText&gt;</ept><bpt id="3f716279-77bf-455e-8129-ca29c93f28d8">&lt;title&gt;</bpt><ept id="3f716279-77bf-455e-8129-ca29c93f28d8">&lt;/title&gt;</ept> module to the output of the right <bpt id="e3cc955c-344b-43a6-9175-b5c05e74b486">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="e3cc955c-344b-43a6-9175-b5c05e74b486">&lt;/linkText&gt;</ept><bpt id="e3cc955c-344b-43a6-9175-b5c05e74b486">&lt;title&gt;</bpt><ept id="e3cc955c-344b-43a6-9175-b5c05e74b486">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="ce9fee10-f0d3-4891-95b6-5ec148c96ffb" xml:space="preserve">
+          <source>Copy and paste the <bpt id="073d66fc-78ae-46ee-a29c-091f9e84dfa7">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="073d66fc-78ae-46ee-a29c-091f9e84dfa7">&lt;/linkText&gt;</ept><bpt id="073d66fc-78ae-46ee-a29c-091f9e84dfa7">&lt;title&gt;</bpt><ept id="073d66fc-78ae-46ee-a29c-091f9e84dfa7">&lt;/title&gt;</ept> module to create a second copy, or drag a new module onto the canvas.</source>
+          <target state="new">Copy and paste the <bpt id="073d66fc-78ae-46ee-a29c-091f9e84dfa7">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="073d66fc-78ae-46ee-a29c-091f9e84dfa7">&lt;/linkText&gt;</ept><bpt id="073d66fc-78ae-46ee-a29c-091f9e84dfa7">&lt;title&gt;</bpt><ept id="073d66fc-78ae-46ee-a29c-091f9e84dfa7">&lt;/title&gt;</ept> module to create a second copy, or drag a new module onto the canvas.</target>
+        </trans-unit>
+        <trans-unit id="0085284a-6ac1-4ab0-934f-731bcdcf42ec" xml:space="preserve">
+          <source>Connect the left input port of this module to the SVM model (that is, connect to the output port of the <bpt id="a512e337-4ed1-4dbf-9698-885187cb7a4b">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="a512e337-4ed1-4dbf-9698-885187cb7a4b">&lt;/linkText&gt;</ept><bpt id="a512e337-4ed1-4dbf-9698-885187cb7a4b">&lt;title&gt;</bpt><ept id="a512e337-4ed1-4dbf-9698-885187cb7a4b">&lt;/title&gt;</ept> module that's connected to the <bpt id="ce866ea6-3b5d-41f2-9808-2f885bbe9083">&lt;linkText&gt;</bpt>Two-Class Support Vector Machine[two-class-support-vector-machine]<ept id="ce866ea6-3b5d-41f2-9808-2f885bbe9083">&lt;/linkText&gt;</ept><bpt id="ce866ea6-3b5d-41f2-9808-2f885bbe9083">&lt;title&gt;</bpt><ept id="ce866ea6-3b5d-41f2-9808-2f885bbe9083">&lt;/title&gt;</ept> module).</source>
+          <target state="new">Connect the left input port of this module to the SVM model (that is, connect to the output port of the <bpt id="a512e337-4ed1-4dbf-9698-885187cb7a4b">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="a512e337-4ed1-4dbf-9698-885187cb7a4b">&lt;/linkText&gt;</ept><bpt id="a512e337-4ed1-4dbf-9698-885187cb7a4b">&lt;title&gt;</bpt><ept id="a512e337-4ed1-4dbf-9698-885187cb7a4b">&lt;/title&gt;</ept> module that's connected to the <bpt id="ce866ea6-3b5d-41f2-9808-2f885bbe9083">&lt;linkText&gt;</bpt>Two-Class Support Vector Machine[two-class-support-vector-machine]<ept id="ce866ea6-3b5d-41f2-9808-2f885bbe9083">&lt;/linkText&gt;</ept><bpt id="ce866ea6-3b5d-41f2-9808-2f885bbe9083">&lt;title&gt;</bpt><ept id="ce866ea6-3b5d-41f2-9808-2f885bbe9083">&lt;/title&gt;</ept> module).</target>
+        </trans-unit>
+        <trans-unit id="7c98bc2d-be41-4563-9679-a0b01323fc36" xml:space="preserve">
+          <source>For the SVM model, we have to do the same transformation to the test data as we did to the training data.</source>
+          <target state="new">For the SVM model, we have to do the same transformation to the test data as we did to the training data.</target>
+        </trans-unit>
+        <trans-unit id="ecb6ac9d-d721-4b7e-ad78-f2d5c05b84fd" xml:space="preserve">
+          <source>So copy and paste the <bpt id="334c256e-bc0b-4738-8c0b-1575ad69fbc6">&lt;linkText&gt;</bpt>Normalize Data[normalize-data]<ept id="334c256e-bc0b-4738-8c0b-1575ad69fbc6">&lt;/linkText&gt;</ept><bpt id="334c256e-bc0b-4738-8c0b-1575ad69fbc6">&lt;title&gt;</bpt><ept id="334c256e-bc0b-4738-8c0b-1575ad69fbc6">&lt;/title&gt;</ept> module to create a second copy and connect it to the output of the right <bpt id="7621b1a4-3330-4ce2-a97a-47599a3b2d03">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="7621b1a4-3330-4ce2-a97a-47599a3b2d03">&lt;/linkText&gt;</ept><bpt id="7621b1a4-3330-4ce2-a97a-47599a3b2d03">&lt;title&gt;</bpt><ept id="7621b1a4-3330-4ce2-a97a-47599a3b2d03">&lt;/title&gt;</ept> module.</source>
+          <target state="new">So copy and paste the <bpt id="334c256e-bc0b-4738-8c0b-1575ad69fbc6">&lt;linkText&gt;</bpt>Normalize Data[normalize-data]<ept id="334c256e-bc0b-4738-8c0b-1575ad69fbc6">&lt;/linkText&gt;</ept><bpt id="334c256e-bc0b-4738-8c0b-1575ad69fbc6">&lt;title&gt;</bpt><ept id="334c256e-bc0b-4738-8c0b-1575ad69fbc6">&lt;/title&gt;</ept> module to create a second copy and connect it to the output of the right <bpt id="7621b1a4-3330-4ce2-a97a-47599a3b2d03">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="7621b1a4-3330-4ce2-a97a-47599a3b2d03">&lt;/linkText&gt;</ept><bpt id="7621b1a4-3330-4ce2-a97a-47599a3b2d03">&lt;title&gt;</bpt><ept id="7621b1a4-3330-4ce2-a97a-47599a3b2d03">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="b9699a81-c3cc-468a-a114-01613dfbe5cd" xml:space="preserve">
+          <source>Connect the right input port of the <bpt id="6544f152-98da-4fb1-9090-b89e75a2c660">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="6544f152-98da-4fb1-9090-b89e75a2c660">&lt;/linkText&gt;</ept><bpt id="6544f152-98da-4fb1-9090-b89e75a2c660">&lt;title&gt;</bpt><ept id="6544f152-98da-4fb1-9090-b89e75a2c660">&lt;/title&gt;</ept> module to the output of the <bpt id="a812d0d2-8ac0-42de-bbd0-ba7e2a868461">&lt;linkText&gt;</bpt>Normalize Data[normalize-data]<ept id="a812d0d2-8ac0-42de-bbd0-ba7e2a868461">&lt;/linkText&gt;</ept><bpt id="a812d0d2-8ac0-42de-bbd0-ba7e2a868461">&lt;title&gt;</bpt><ept id="a812d0d2-8ac0-42de-bbd0-ba7e2a868461">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Connect the right input port of the <bpt id="6544f152-98da-4fb1-9090-b89e75a2c660">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="6544f152-98da-4fb1-9090-b89e75a2c660">&lt;/linkText&gt;</ept><bpt id="6544f152-98da-4fb1-9090-b89e75a2c660">&lt;title&gt;</bpt><ept id="6544f152-98da-4fb1-9090-b89e75a2c660">&lt;/title&gt;</ept> module to the output of the <bpt id="a812d0d2-8ac0-42de-bbd0-ba7e2a868461">&lt;linkText&gt;</bpt>Normalize Data[normalize-data]<ept id="a812d0d2-8ac0-42de-bbd0-ba7e2a868461">&lt;/linkText&gt;</ept><bpt id="a812d0d2-8ac0-42de-bbd0-ba7e2a868461">&lt;title&gt;</bpt><ept id="a812d0d2-8ac0-42de-bbd0-ba7e2a868461">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="da6d8f9a-0fae-4876-a58f-481b088c9cd0" xml:space="preserve">
+          <source>To evaluate the two scoring results we'll use the <bpt id="339eb4be-36ae-470d-a9db-d723c5c29618">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="339eb4be-36ae-470d-a9db-d723c5c29618">&lt;/linkText&gt;</ept><bpt id="339eb4be-36ae-470d-a9db-d723c5c29618">&lt;title&gt;</bpt><ept id="339eb4be-36ae-470d-a9db-d723c5c29618">&lt;/title&gt;</ept> module.</source>
+          <target state="new">To evaluate the two scoring results we'll use the <bpt id="339eb4be-36ae-470d-a9db-d723c5c29618">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="339eb4be-36ae-470d-a9db-d723c5c29618">&lt;/linkText&gt;</ept><bpt id="339eb4be-36ae-470d-a9db-d723c5c29618">&lt;title&gt;</bpt><ept id="339eb4be-36ae-470d-a9db-d723c5c29618">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="5950fa38-5a45-4044-a764-6e60aa55c90a" xml:space="preserve">
+          <source>Find the <bpt id="3e3cd5a3-5357-4310-a5eb-7df486244f3f">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="3e3cd5a3-5357-4310-a5eb-7df486244f3f">&lt;/linkText&gt;</ept><bpt id="3e3cd5a3-5357-4310-a5eb-7df486244f3f">&lt;title&gt;</bpt><ept id="3e3cd5a3-5357-4310-a5eb-7df486244f3f">&lt;/title&gt;</ept> module and drag it onto the canvas.</source>
+          <target state="new">Find the <bpt id="3e3cd5a3-5357-4310-a5eb-7df486244f3f">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="3e3cd5a3-5357-4310-a5eb-7df486244f3f">&lt;/linkText&gt;</ept><bpt id="3e3cd5a3-5357-4310-a5eb-7df486244f3f">&lt;title&gt;</bpt><ept id="3e3cd5a3-5357-4310-a5eb-7df486244f3f">&lt;/title&gt;</ept> module and drag it onto the canvas.</target>
+        </trans-unit>
+        <trans-unit id="208afbf9-d0fc-4876-8782-79d0bc26f08f" xml:space="preserve">
+          <source>Connect the left input port to the output port of the <bpt id="c850865a-ab12-4336-8051-81e243bc9977">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="c850865a-ab12-4336-8051-81e243bc9977">&lt;/linkText&gt;</ept><bpt id="c850865a-ab12-4336-8051-81e243bc9977">&lt;title&gt;</bpt><ept id="c850865a-ab12-4336-8051-81e243bc9977">&lt;/title&gt;</ept> module associated with the boosted decision tree model.</source>
+          <target state="new">Connect the left input port to the output port of the <bpt id="c850865a-ab12-4336-8051-81e243bc9977">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="c850865a-ab12-4336-8051-81e243bc9977">&lt;/linkText&gt;</ept><bpt id="c850865a-ab12-4336-8051-81e243bc9977">&lt;title&gt;</bpt><ept id="c850865a-ab12-4336-8051-81e243bc9977">&lt;/title&gt;</ept> module associated with the boosted decision tree model.</target>
+        </trans-unit>
+        <trans-unit id="4b22e379-993f-4c1e-99a0-7020cc1d5c73" xml:space="preserve">
+          <source>Connect the right input port to the other <bpt id="5caafbdd-6b64-4f08-85f1-4311115482f5">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="5caafbdd-6b64-4f08-85f1-4311115482f5">&lt;/linkText&gt;</ept><bpt id="5caafbdd-6b64-4f08-85f1-4311115482f5">&lt;title&gt;</bpt><ept id="5caafbdd-6b64-4f08-85f1-4311115482f5">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Connect the right input port to the other <bpt id="5caafbdd-6b64-4f08-85f1-4311115482f5">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="5caafbdd-6b64-4f08-85f1-4311115482f5">&lt;/linkText&gt;</ept><bpt id="5caafbdd-6b64-4f08-85f1-4311115482f5">&lt;title&gt;</bpt><ept id="5caafbdd-6b64-4f08-85f1-4311115482f5">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="1d4cb0e4-c4f9-4088-b8f3-f854aec21916" xml:space="preserve">
+          <source>The experiment should now look something like this:  </source>
+          <target state="new">The experiment should now look something like this:  </target>
+        </trans-unit>
+        <trans-unit id="c2952424-7cd9-45b6-965b-cefe45821b91" xml:space="preserve">
+          <source><bpt id="e071829c-a337-421d-9ab4-a921c4f6721e">&lt;linkText&gt;</bpt>Evaluating both models<ept id="e071829c-a337-421d-9ab4-a921c4f6721e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e071829c-a337-421d-9ab4-a921c4f6721e">&lt;linkText&gt;</bpt>Evaluating both models<ept id="e071829c-a337-421d-9ab4-a921c4f6721e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="293462e4-89f0-4e09-9b2e-dfcfe732404b" xml:space="preserve">
+          <source>Click the <bpt id="d6db2d6f-d9e8-42a6-b604-b6ed25adf592">&lt;strong&gt;</bpt>RUN<ept id="d6db2d6f-d9e8-42a6-b604-b6ed25adf592">&lt;/strong&gt;</ept> button below the canvas to run the experiment.</source>
+          <target state="new">Click the <bpt id="d6db2d6f-d9e8-42a6-b604-b6ed25adf592">&lt;strong&gt;</bpt>RUN<ept id="d6db2d6f-d9e8-42a6-b604-b6ed25adf592">&lt;/strong&gt;</ept> button below the canvas to run the experiment.</target>
+        </trans-unit>
+        <trans-unit id="fbd096a4-98d5-4ca1-9131-90d6e1c08f07" xml:space="preserve">
+          <source>It may take a few minutes.</source>
+          <target state="new">It may take a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="eac7ff9b-542e-47d3-bfbd-a344a174ad72" xml:space="preserve">
+          <source>You'll see a spinning indicator on each module to indicate that it's running, and then a green check mark when the module is finished.</source>
+          <target state="new">You'll see a spinning indicator on each module to indicate that it's running, and then a green check mark when the module is finished.</target>
+        </trans-unit>
+        <trans-unit id="a0bcfe9e-d857-49c1-ad87-cb75d9632b27" xml:space="preserve">
+          <source>When all the modules have a check mark, the experiment has finished running.</source>
+          <target state="new">When all the modules have a check mark, the experiment has finished running.</target>
+        </trans-unit>
+        <trans-unit id="0c778a21-2150-4b1d-b9bb-4d8933076dec" xml:space="preserve">
+          <source>To check the results, click the output port of the <bpt id="14223481-c3b1-4b68-a7bc-23cbfc60d5e9">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="14223481-c3b1-4b68-a7bc-23cbfc60d5e9">&lt;/linkText&gt;</ept><bpt id="14223481-c3b1-4b68-a7bc-23cbfc60d5e9">&lt;title&gt;</bpt><ept id="14223481-c3b1-4b68-a7bc-23cbfc60d5e9">&lt;/title&gt;</ept> module and select <bpt id="65ee4b6e-6617-4e73-9284-b82ca1162fb9">&lt;strong&gt;</bpt>View Results<ept id="65ee4b6e-6617-4e73-9284-b82ca1162fb9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To check the results, click the output port of the <bpt id="14223481-c3b1-4b68-a7bc-23cbfc60d5e9">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="14223481-c3b1-4b68-a7bc-23cbfc60d5e9">&lt;/linkText&gt;</ept><bpt id="14223481-c3b1-4b68-a7bc-23cbfc60d5e9">&lt;title&gt;</bpt><ept id="14223481-c3b1-4b68-a7bc-23cbfc60d5e9">&lt;/title&gt;</ept> module and select <bpt id="65ee4b6e-6617-4e73-9284-b82ca1162fb9">&lt;strong&gt;</bpt>View Results<ept id="65ee4b6e-6617-4e73-9284-b82ca1162fb9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e20227f2-d833-4081-bffb-52097c0c6769" xml:space="preserve">
+          <source>The <bpt id="44a1f0d2-ffd7-4035-a6fa-7efff52c5751">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="44a1f0d2-ffd7-4035-a6fa-7efff52c5751">&lt;/linkText&gt;</ept><bpt id="44a1f0d2-ffd7-4035-a6fa-7efff52c5751">&lt;title&gt;</bpt><ept id="44a1f0d2-ffd7-4035-a6fa-7efff52c5751">&lt;/title&gt;</ept> module produces a pair of curves and metrics that allow you to compare the results of the two scored models.</source>
+          <target state="new">The <bpt id="44a1f0d2-ffd7-4035-a6fa-7efff52c5751">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="44a1f0d2-ffd7-4035-a6fa-7efff52c5751">&lt;/linkText&gt;</ept><bpt id="44a1f0d2-ffd7-4035-a6fa-7efff52c5751">&lt;title&gt;</bpt><ept id="44a1f0d2-ffd7-4035-a6fa-7efff52c5751">&lt;/title&gt;</ept> module produces a pair of curves and metrics that allow you to compare the results of the two scored models.</target>
+        </trans-unit>
+        <trans-unit id="19c8366f-a239-46b1-81e7-1e1f34f5cbfa" xml:space="preserve">
+          <source>You can view the results as Receiver Operator Characteristic (ROC) curves, Precision/Recall curves, or Lift curves.</source>
+          <target state="new">You can view the results as Receiver Operator Characteristic (ROC) curves, Precision/Recall curves, or Lift curves.</target>
+        </trans-unit>
+        <trans-unit id="578850d5-d757-495b-9b28-8cb1b5bd3cc9" xml:space="preserve">
+          <source>Additional data displayed includes a confusion matrix, cumulative values for the area under the curve (AUC), and other metrics.</source>
+          <target state="new">Additional data displayed includes a confusion matrix, cumulative values for the area under the curve (AUC), and other metrics.</target>
+        </trans-unit>
+        <trans-unit id="4a9a1f04-c528-42e9-877f-5e7c87022470" xml:space="preserve">
+          <source>You can change the threshold value by moving the slider left or right and see how it affects the set of metrics.</source>
+          <target state="new">You can change the threshold value by moving the slider left or right and see how it affects the set of metrics.</target>
+        </trans-unit>
+        <trans-unit id="75d3db91-ca29-4e23-85d6-9f8e6c91ae70" xml:space="preserve">
+          <source>Click <bpt id="1b7a5330-5227-4373-9b24-d50206627335">&lt;strong&gt;</bpt>Scored dataset<ept id="1b7a5330-5227-4373-9b24-d50206627335">&lt;/strong&gt;</ept> or <bpt id="0b92eb27-1edc-4f5c-b3e3-ebd59430413b">&lt;strong&gt;</bpt>Scored dataset to compare<ept id="0b92eb27-1edc-4f5c-b3e3-ebd59430413b">&lt;/strong&gt;</ept> to highlight the associated curve and to display the associated metrics below.</source>
+          <target state="new">Click <bpt id="1b7a5330-5227-4373-9b24-d50206627335">&lt;strong&gt;</bpt>Scored dataset<ept id="1b7a5330-5227-4373-9b24-d50206627335">&lt;/strong&gt;</ept> or <bpt id="0b92eb27-1edc-4f5c-b3e3-ebd59430413b">&lt;strong&gt;</bpt>Scored dataset to compare<ept id="0b92eb27-1edc-4f5c-b3e3-ebd59430413b">&lt;/strong&gt;</ept> to highlight the associated curve and to display the associated metrics below.</target>
+        </trans-unit>
+        <trans-unit id="dda033bf-9837-449f-ae8f-27e4e5b0ad3c" xml:space="preserve">
+          <source>In the legend for the curves, "Scored dataset" corresponds to the left input port of the <bpt id="f39c905a-b38d-4d53-b98d-c23122b51be9">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="f39c905a-b38d-4d53-b98d-c23122b51be9">&lt;/linkText&gt;</ept><bpt id="f39c905a-b38d-4d53-b98d-c23122b51be9">&lt;title&gt;</bpt><ept id="f39c905a-b38d-4d53-b98d-c23122b51be9">&lt;/title&gt;</ept> module - in our case, this is the boosted decision tree model.</source>
+          <target state="new">In the legend for the curves, "Scored dataset" corresponds to the left input port of the <bpt id="f39c905a-b38d-4d53-b98d-c23122b51be9">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="f39c905a-b38d-4d53-b98d-c23122b51be9">&lt;/linkText&gt;</ept><bpt id="f39c905a-b38d-4d53-b98d-c23122b51be9">&lt;title&gt;</bpt><ept id="f39c905a-b38d-4d53-b98d-c23122b51be9">&lt;/title&gt;</ept> module - in our case, this is the boosted decision tree model.</target>
+        </trans-unit>
+        <trans-unit id="e5f063dc-12d7-4921-bd6e-5e946fae4bc2" xml:space="preserve">
+          <source>"Scored dataset to compare" corresponds to the right input port - the SVM model in our case.</source>
+          <target state="new">"Scored dataset to compare" corresponds to the right input port - the SVM model in our case.</target>
+        </trans-unit>
+        <trans-unit id="35cbd25a-2dcc-4c1e-8e60-e35fe01667ce" xml:space="preserve">
+          <source>When you click one of these labels you will highlight the curve for that model and display the corresponding metrics below.</source>
+          <target state="new">When you click one of these labels you will highlight the curve for that model and display the corresponding metrics below.</target>
+        </trans-unit>
+        <trans-unit id="c4f41b18-75b2-4dd8-91e4-6313e4b77961" xml:space="preserve">
+          <source><bpt id="82a2a8a0-18d1-48c1-b7e2-46e1517cb338">&lt;linkText&gt;</bpt>ROC curves for models<ept id="82a2a8a0-18d1-48c1-b7e2-46e1517cb338">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="82a2a8a0-18d1-48c1-b7e2-46e1517cb338">&lt;linkText&gt;</bpt>ROC curves for models<ept id="82a2a8a0-18d1-48c1-b7e2-46e1517cb338">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51d7fa4d-a21e-4102-8948-1e035e95045e" xml:space="preserve">
+          <source>By examining these values you can decide which model is closest to giving you the results you're looking for.</source>
+          <target state="new">By examining these values you can decide which model is closest to giving you the results you're looking for.</target>
+        </trans-unit>
+        <trans-unit id="587c004a-8258-40da-8394-a1afe0507462" xml:space="preserve">
+          <source>You can go back and iterate on your experiment by changing values in the different models.</source>
+          <target state="new">You can go back and iterate on your experiment by changing values in the different models.</target>
+        </trans-unit>
+        <trans-unit id="ac57e58e-a28b-4177-b1cb-a9070f205411" xml:space="preserve">
+          <source>Each time you run the experiment a record of that iteration is kept in the Run History.</source>
+          <target state="new">Each time you run the experiment a record of that iteration is kept in the Run History.</target>
+        </trans-unit>
+        <trans-unit id="a277a517-a644-49ce-9182-4a679b4cd5b1" xml:space="preserve">
+          <source>You can view these iterations, and return to any of them, by clicking <bpt id="4fc0c626-7dcf-4b67-a0c9-3097309db91f">&lt;strong&gt;</bpt>VIEW RUN HISTORY<ept id="4fc0c626-7dcf-4b67-a0c9-3097309db91f">&lt;/strong&gt;</ept> below the canvas.</source>
+          <target state="new">You can view these iterations, and return to any of them, by clicking <bpt id="4fc0c626-7dcf-4b67-a0c9-3097309db91f">&lt;strong&gt;</bpt>VIEW RUN HISTORY<ept id="4fc0c626-7dcf-4b67-a0c9-3097309db91f">&lt;/strong&gt;</ept> below the canvas.</target>
+        </trans-unit>
+        <trans-unit id="1f4dc0a3-8897-48ee-8c68-1c5eb5262f83" xml:space="preserve">
+          <source>You can also click <bpt id="030e1a7b-c85a-4669-b3e0-7f76e6c0acf0">&lt;strong&gt;</bpt>Prior Run<ept id="030e1a7b-c85a-4669-b3e0-7f76e6c0acf0">&lt;/strong&gt;</ept> in the <bpt id="042edea7-f9df-4aee-bcc7-dfe9fd5ce8a2">&lt;strong&gt;</bpt>Properties<ept id="042edea7-f9df-4aee-bcc7-dfe9fd5ce8a2">&lt;/strong&gt;</ept> pane to return to the iteration immediately preceding the one you have open.</source>
+          <target state="new">You can also click <bpt id="030e1a7b-c85a-4669-b3e0-7f76e6c0acf0">&lt;strong&gt;</bpt>Prior Run<ept id="030e1a7b-c85a-4669-b3e0-7f76e6c0acf0">&lt;/strong&gt;</ept> in the <bpt id="042edea7-f9df-4aee-bcc7-dfe9fd5ce8a2">&lt;strong&gt;</bpt>Properties<ept id="042edea7-f9df-4aee-bcc7-dfe9fd5ce8a2">&lt;/strong&gt;</ept> pane to return to the iteration immediately preceding the one you have open.</target>
+        </trans-unit>
+        <trans-unit id="89fe319d-654f-48db-9eda-e63ced1a3644" xml:space="preserve">
+          <source>For more information, see <bpt id="41fd632c-d0e5-487b-993a-9b5827058583">&lt;linkText&gt;</bpt>Manage experiment iterations in Azure Machine Learning Studio<ept id="41fd632c-d0e5-487b-993a-9b5827058583">&lt;/linkText&gt;</ept><bpt id="41fd632c-d0e5-487b-993a-9b5827058583">&lt;title&gt;</bpt><ept id="41fd632c-d0e5-487b-993a-9b5827058583">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="41fd632c-d0e5-487b-993a-9b5827058583">&lt;linkText&gt;</bpt>Manage experiment iterations in Azure Machine Learning Studio<ept id="41fd632c-d0e5-487b-993a-9b5827058583">&lt;/linkText&gt;</ept><bpt id="41fd632c-d0e5-487b-993a-9b5827058583">&lt;title&gt;</bpt><ept id="41fd632c-d0e5-487b-993a-9b5827058583">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09231af5-f451-4ed5-b94b-4e361ad2a06f" xml:space="preserve">
+          <source>You can also make a copy of any iteration of your experiment by clicking <bpt id="783f43f0-a27a-415b-bfae-4d694a280226">&lt;strong&gt;</bpt>SAVE AS<ept id="783f43f0-a27a-415b-bfae-4d694a280226">&lt;/strong&gt;</ept> below the canvas.</source>
+          <target state="new">You can also make a copy of any iteration of your experiment by clicking <bpt id="783f43f0-a27a-415b-bfae-4d694a280226">&lt;strong&gt;</bpt>SAVE AS<ept id="783f43f0-a27a-415b-bfae-4d694a280226">&lt;/strong&gt;</ept> below the canvas.</target>
+        </trans-unit>
+        <trans-unit id="3813fbe6-7e1a-4b38-9dd5-14e666fc4824" xml:space="preserve">
+          <source>This makes a duplicate of the experiment, creating a new Run History to track your iterations of this version.</source>
+          <target state="new">This makes a duplicate of the experiment, creating a new Run History to track your iterations of this version.</target>
+        </trans-unit>
+        <trans-unit id="cc0f25bf-837b-498d-891e-20f1cb612f19" xml:space="preserve">
+          <source>The new copy is displayed in the <bpt id="791b2e30-3af9-4daa-9454-b8599e3d005d">&lt;strong&gt;</bpt>EXPERIMENTS<ept id="791b2e30-3af9-4daa-9454-b8599e3d005d">&lt;/strong&gt;</ept> list alongside the original.</source>
+          <target state="new">The new copy is displayed in the <bpt id="791b2e30-3af9-4daa-9454-b8599e3d005d">&lt;strong&gt;</bpt>EXPERIMENTS<ept id="791b2e30-3af9-4daa-9454-b8599e3d005d">&lt;/strong&gt;</ept> list alongside the original.</target>
+        </trans-unit>
+        <trans-unit id="5bfa87fd-2b74-46d6-ba61-a2e3cb619f4d" xml:space="preserve">
+          <source>This can be helpful if you want to start a new branch of experiment iterations.</source>
+          <target state="new">This can be helpful if you want to start a new branch of experiment iterations.</target>
+        </trans-unit>
+        <trans-unit id="430a88a3-c5e5-4faa-982e-eaf7b44e42fa" xml:space="preserve">
+          <source>As an additional help to track the changes you make to module parameters, you can add comments to any module on the experiment canvas.</source>
+          <target state="new">As an additional help to track the changes you make to module parameters, you can add comments to any module on the experiment canvas.</target>
+        </trans-unit>
+        <trans-unit id="871c4bc7-568d-4543-bc67-264fad26b000" xml:space="preserve">
+          <source>Just double-click the module or right-click and select <bpt id="a2bb1fec-a142-4f1b-b255-41049b072b9c">&lt;strong&gt;</bpt>Edit Comment<ept id="a2bb1fec-a142-4f1b-b255-41049b072b9c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Just double-click the module or right-click and select <bpt id="a2bb1fec-a142-4f1b-b255-41049b072b9c">&lt;strong&gt;</bpt>Edit Comment<ept id="a2bb1fec-a142-4f1b-b255-41049b072b9c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40c2cf56-6d03-4d5f-9340-351c7a605fba" xml:space="preserve">
+          <source>These comments are saved with the experiment iterations and can help you annotate your work.</source>
+          <target state="new">These comments are saved with the experiment iterations and can help you annotate your work.</target>
+        </trans-unit>
+        <trans-unit id="804dafba-b2e9-4cf4-87a0-cff787f1594b" xml:space="preserve">
+          <source><bpt id="a759016f-f616-4b14-a6ff-c8552b2dbfe9">&lt;strong&gt;</bpt>Next: [Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)<ept id="a759016f-f616-4b14-a6ff-c8552b2dbfe9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a759016f-f616-4b14-a6ff-c8552b2dbfe9">&lt;strong&gt;</bpt>Next: [Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)<ept id="a759016f-f616-4b14-a6ff-c8552b2dbfe9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a25d0e1-f508-4b9b-9639-c80527f1c956" xml:space="preserve">
+          <source>./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png</source>
+          <target state="new">./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png</target>
+        </trans-unit>
+        <trans-unit id="c148e7b3-c596-4c27-8e24-069b77004151" xml:space="preserve">
+          <source>./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png</source>
+          <target state="new">./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png</target>
+        </trans-unit>
+        <trans-unit id="c96f0154-6a3d-4159-a551-e2d5f38fd31d" xml:space="preserve">
+          <source>./media/machine-learning-walkthrough-4-train-and-evaluate-models/train3.png</source>
+          <target state="new">./media/machine-learning-walkthrough-4-train-and-evaluate-models/train3.png</target>
+        </trans-unit>
+        <trans-unit id="2c352d5f-32a1-4cfb-b908-3bf9cfe50060" xml:space="preserve">
+          <source>./media/machine-learning-walkthrough-4-train-and-evaluate-models/train4.png</source>
+          <target state="new">./media/machine-learning-walkthrough-4-train-and-evaluate-models/train4.png</target>
+        </trans-unit>
+        <trans-unit id="a5a6697a-dda6-497c-9107-0a07192f6a32" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/</target>
+        </trans-unit>
+        <trans-unit id="8b114900-ae73-4c02-9ca8-83c11d836047" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</target>
+        </trans-unit>
+        <trans-unit id="42b043b5-a0de-43c1-8c0a-44aafbe6accc" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/</target>
+        </trans-unit>
+        <trans-unit id="9f0bee15-de93-49de-ab0e-6b021f91ba26" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/</target>
+        </trans-unit>
+        <trans-unit id="71e4a15f-bb69-44d0-8c10-24268b21fe54" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/</target>
+        </trans-unit>
+        <trans-unit id="ef227532-9ca7-433f-bd9b-ca3a11357ed6" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/</target>
+        </trans-unit>
+        <trans-unit id="3eee60e8-79eb-4780-94f8-5fd3aa9dd509" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/</target>
+        </trans-unit>
+      </group>
+      <group id="45e3a5db-4c46-49d0-bc90-787412355c7c" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,850 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6d86c464-06e0-4b3a-a2c3-6cf6075e5224" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6d86c464-06e0-4b3a-a2c3-6cf6075e5224" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fe235588-753c-41f0-baa4-feb2f34dd0ec">
+        <trans-unit id="1174cb88-5cae-4ae8-a7ea-34db09619fe1" xml:space="preserve">
+          <source>Simulated hybrid cloud test environment | Microsoft Azure</source>
+          <target state="new">Simulated hybrid cloud test environment | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7080b491-88ea-4a21-a79e-504a9ce291f0" xml:space="preserve">
+          <source>Create a simulated hybrid cloud environment for IT pro or development testing, using two Azure virtual networks and a VNet-to-VNet connection.</source>
+          <target state="new">Create a simulated hybrid cloud environment for IT pro or development testing, using two Azure virtual networks and a VNet-to-VNet connection.</target>
+        </trans-unit>
+        <trans-unit id="e75d6b7c-43a0-4c51-88d6-9487f83a7932" xml:space="preserve">
+          <source>This topic steps you through creating a simulated hybrid cloud environment with Microsoft Azure for testing using two separate Azure virtual networks.</source>
+          <target state="new">This topic steps you through creating a simulated hybrid cloud environment with Microsoft Azure for testing using two separate Azure virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="1e191d42-91d5-4ac9-8b63-c18c0e15e143" xml:space="preserve">
+          <source>Use this configuration as an alternative to 
+<bpt id="aca674c4-469b-44cd-b92f-040b15b2287b">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="aca674c4-469b-44cd-b92f-040b15b2287b">&lt;/linkText&gt;</ept><bpt id="aca674c4-469b-44cd-b92f-040b15b2287b">&lt;title&gt;</bpt><ept id="aca674c4-469b-44cd-b92f-040b15b2287b">&lt;/title&gt;</ept> when you do not have a direct Internet connection and an available public IP address.</source>
+          <target state="new">Use this configuration as an alternative to 
+<bpt id="aca674c4-469b-44cd-b92f-040b15b2287b">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="aca674c4-469b-44cd-b92f-040b15b2287b">&lt;/linkText&gt;</ept><bpt id="aca674c4-469b-44cd-b92f-040b15b2287b">&lt;title&gt;</bpt><ept id="aca674c4-469b-44cd-b92f-040b15b2287b">&lt;/title&gt;</ept> when you do not have a direct Internet connection and an available public IP address.</target>
+        </trans-unit>
+        <trans-unit id="aa70323d-dd7c-4589-a8cb-1411c7ab8c8c" xml:space="preserve">
+          <source>Here is the resulting configuration.</source>
+          <target state="new">Here is the resulting configuration.</target>
+        </trans-unit>
+        <trans-unit id="f962c4e9-6933-4ded-8a9c-d73f70c09e7f" xml:space="preserve">
+          <source><bpt id="65eee8a5-49c9-4d88-a105-9aa0290434b9">&lt;linkText&gt;</bpt><ept id="65eee8a5-49c9-4d88-a105-9aa0290434b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="65eee8a5-49c9-4d88-a105-9aa0290434b9">&lt;linkText&gt;</bpt><ept id="65eee8a5-49c9-4d88-a105-9aa0290434b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83c04543-54b9-4e97-8ed7-2d9213f02046" xml:space="preserve">
+          <source>This simulates a hybrid cloud production environment.</source>
+          <target state="new">This simulates a hybrid cloud production environment.</target>
+        </trans-unit>
+        <trans-unit id="b87f5de1-7316-4c46-8f8f-233f3b7cb0d9" xml:space="preserve">
+          <source>It consists of:</source>
+          <target state="new">It consists of:</target>
+        </trans-unit>
+        <trans-unit id="e38abfcc-68d2-4cb5-96a3-8f3a2f664c02" xml:space="preserve">
+          <source>A simulated and simplified on-premises network hosted in an Azure virtual network (the TestLab virtual network).</source>
+          <target state="new">A simulated and simplified on-premises network hosted in an Azure virtual network (the TestLab virtual network).</target>
+        </trans-unit>
+        <trans-unit id="62cf0383-4b8c-4ece-b230-449cba2f7f5f" xml:space="preserve">
+          <source>A simulated cross-premises virtual network hosted in Azure (TestVNET).</source>
+          <target state="new">A simulated cross-premises virtual network hosted in Azure (TestVNET).</target>
+        </trans-unit>
+        <trans-unit id="ba98a5aa-acdd-4f64-8922-6c6636853a92" xml:space="preserve">
+          <source>A VNet-to-VNet connection between the two virtual networks.</source>
+          <target state="new">A VNet-to-VNet connection between the two virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="1ec70f31-f6d5-4608-beab-e9453a00f5b7" xml:space="preserve">
+          <source>A secondary domain controller in the TestVNET virtual network.</source>
+          <target state="new">A secondary domain controller in the TestVNET virtual network.</target>
+        </trans-unit>
+        <trans-unit id="e5b74cf1-56e1-49cd-8d27-0b9f0b4feff9" xml:space="preserve">
+          <source>This provides a basis and common starting point from which you can:</source>
+          <target state="new">This provides a basis and common starting point from which you can:</target>
+        </trans-unit>
+        <trans-unit id="32151cae-3e70-48fb-8799-ea8bfdb96cb8" xml:space="preserve">
+          <source>Develop and test applications in a simulated hybrid cloud environment.</source>
+          <target state="new">Develop and test applications in a simulated hybrid cloud environment.</target>
+        </trans-unit>
+        <trans-unit id="da3adc53-e565-4298-a9c9-bd4852906a5f" xml:space="preserve">
+          <source>Create test configurations of computers, some within the TestLab virtual network and some within the TestVNET virtual network, to simulate hybrid cloud-based IT workloads.</source>
+          <target state="new">Create test configurations of computers, some within the TestLab virtual network and some within the TestVNET virtual network, to simulate hybrid cloud-based IT workloads.</target>
+        </trans-unit>
+        <trans-unit id="b5b48b97-5283-4206-8b00-2136c7dcd358" xml:space="preserve">
+          <source>There are four major phases to setting up this hybrid cloud test environment:</source>
+          <target state="new">There are four major phases to setting up this hybrid cloud test environment:</target>
+        </trans-unit>
+        <trans-unit id="b1230239-4a5d-4e2b-9ff7-0c7d3fea830d" xml:space="preserve">
+          <source>Configure the TestLab virtual network.</source>
+          <target state="new">Configure the TestLab virtual network.</target>
+        </trans-unit>
+        <trans-unit id="051de22b-560a-46e8-9e17-e0294bdf0ba8" xml:space="preserve">
+          <source>Create the cross-premises virtual network.</source>
+          <target state="new">Create the cross-premises virtual network.</target>
+        </trans-unit>
+        <trans-unit id="b0ce0bdb-05c9-424e-b4d7-27f80a8a8aed" xml:space="preserve">
+          <source>Create the VNet-to-VNet VPN connection.</source>
+          <target state="new">Create the VNet-to-VNet VPN connection.</target>
+        </trans-unit>
+        <trans-unit id="26ed7584-3fdd-4b51-b11f-85debe7569be" xml:space="preserve">
+          <source>Configure DC2.</source>
+          <target state="new">Configure DC2.</target>
+        </trans-unit>
+        <trans-unit id="e22961ed-bb30-4598-a359-261176f73334" xml:space="preserve">
+          <source>If you don't already have an Azure subscription, you can sign up for a free trial at <bpt id="2d87bb95-bd3b-45fb-9a82-28d411c3dc49">&lt;linkText&gt;</bpt>Try Azure<ept id="2d87bb95-bd3b-45fb-9a82-28d411c3dc49">&lt;/linkText&gt;</ept><bpt id="2d87bb95-bd3b-45fb-9a82-28d411c3dc49">&lt;title&gt;</bpt><ept id="2d87bb95-bd3b-45fb-9a82-28d411c3dc49">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't already have an Azure subscription, you can sign up for a free trial at <bpt id="2d87bb95-bd3b-45fb-9a82-28d411c3dc49">&lt;linkText&gt;</bpt>Try Azure<ept id="2d87bb95-bd3b-45fb-9a82-28d411c3dc49">&lt;/linkText&gt;</ept><bpt id="2d87bb95-bd3b-45fb-9a82-28d411c3dc49">&lt;title&gt;</bpt><ept id="2d87bb95-bd3b-45fb-9a82-28d411c3dc49">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cde03578-2e36-4e93-99fc-55532012198e" xml:space="preserve">
+          <source>If you have an MSDN Subscription, see <bpt id="5116f229-a4dc-4175-890b-b83151b92fcc">&lt;linkText&gt;</bpt>Azure benefit for MSDN subscribers<ept id="5116f229-a4dc-4175-890b-b83151b92fcc">&lt;/linkText&gt;</ept><bpt id="5116f229-a4dc-4175-890b-b83151b92fcc">&lt;title&gt;</bpt><ept id="5116f229-a4dc-4175-890b-b83151b92fcc">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have an MSDN Subscription, see <bpt id="5116f229-a4dc-4175-890b-b83151b92fcc">&lt;linkText&gt;</bpt>Azure benefit for MSDN subscribers<ept id="5116f229-a4dc-4175-890b-b83151b92fcc">&lt;/linkText&gt;</ept><bpt id="5116f229-a4dc-4175-890b-b83151b92fcc">&lt;title&gt;</bpt><ept id="5116f229-a4dc-4175-890b-b83151b92fcc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="145d7d93-1e86-45e9-a49b-79d49153a0da" xml:space="preserve">
+          <source>Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running.</source>
+          <target state="new">Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running.</target>
+        </trans-unit>
+        <trans-unit id="37d4e7cb-6858-476c-a01d-0e0933aed3b4" xml:space="preserve">
+          <source>This cost is billed against your free trial, MSDN subscription, or paid subscription.</source>
+          <target state="new">This cost is billed against your free trial, MSDN subscription, or paid subscription.</target>
+        </trans-unit>
+        <trans-unit id="ba5afb2a-5b21-4c87-9483-4117e4590512" xml:space="preserve">
+          <source>To reduce the costs of running this test environment when you are not using it, see <bpt id="4a1c1edd-2d46-4a95-adaf-97bf1b92f97f">&lt;linkText&gt;</bpt>Minimizing the ongoing costs of this environment<ept id="4a1c1edd-2d46-4a95-adaf-97bf1b92f97f">&lt;/linkText&gt;</ept><bpt id="4a1c1edd-2d46-4a95-adaf-97bf1b92f97f">&lt;title&gt;</bpt><ept id="4a1c1edd-2d46-4a95-adaf-97bf1b92f97f">&lt;/title&gt;</ept> in this topic for more information.</source>
+          <target state="new">To reduce the costs of running this test environment when you are not using it, see <bpt id="4a1c1edd-2d46-4a95-adaf-97bf1b92f97f">&lt;linkText&gt;</bpt>Minimizing the ongoing costs of this environment<ept id="4a1c1edd-2d46-4a95-adaf-97bf1b92f97f">&lt;/linkText&gt;</ept><bpt id="4a1c1edd-2d46-4a95-adaf-97bf1b92f97f">&lt;title&gt;</bpt><ept id="4a1c1edd-2d46-4a95-adaf-97bf1b92f97f">&lt;/title&gt;</ept> in this topic for more information.</target>
+        </trans-unit>
+        <trans-unit id="9c2198ed-9b09-4c75-be97-ed56eabe86d3" xml:space="preserve">
+          <source>Use the instructions in the <bpt id="74c8fb7d-a562-4d24-923e-af6ddfb96877">&lt;linkText&gt;</bpt>Base Configuration Test Environment<ept id="74c8fb7d-a562-4d24-923e-af6ddfb96877">&lt;/linkText&gt;</ept><bpt id="74c8fb7d-a562-4d24-923e-af6ddfb96877">&lt;title&gt;</bpt><ept id="74c8fb7d-a562-4d24-923e-af6ddfb96877">&lt;/title&gt;</ept> to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab.</source>
+          <target state="new">Use the instructions in the <bpt id="74c8fb7d-a562-4d24-923e-af6ddfb96877">&lt;linkText&gt;</bpt>Base Configuration Test Environment<ept id="74c8fb7d-a562-4d24-923e-af6ddfb96877">&lt;/linkText&gt;</ept><bpt id="74c8fb7d-a562-4d24-923e-af6ddfb96877">&lt;title&gt;</bpt><ept id="74c8fb7d-a562-4d24-923e-af6ddfb96877">&lt;/title&gt;</ept> to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab.</target>
+        </trans-unit>
+        <trans-unit id="5d72f135-b383-426d-8d8e-08b787b1ceef" xml:space="preserve">
+          <source>From the Azure Management Portal on your local computer, connect to DC1 with the CORP\User1 credentials.</source>
+          <target state="new">From the Azure Management Portal on your local computer, connect to DC1 with the CORP\User1 credentials.</target>
+        </trans-unit>
+        <trans-unit id="8c0d0d74-f1ee-48c7-9e69-955dc7441289" xml:space="preserve">
+          <source>To configure the CORP domain so that computers and users use their local domain controller for authentication, run these commands from an administrator-level Windows PowerShell command prompt.</source>
+          <target state="new">To configure the CORP domain so that computers and users use their local domain controller for authentication, run these commands from an administrator-level Windows PowerShell command prompt.</target>
+        </trans-unit>
+        <trans-unit id="8c1d705b-4925-4405-904f-845cec7ff5d9" xml:space="preserve">
+          <source>This is your current configuration.</source>
+          <target state="new">This is your current configuration.</target>
+        </trans-unit>
+        <trans-unit id="c9ac2869-75e2-47e7-95f3-2a99b44d3465" xml:space="preserve">
+          <source><bpt id="0a4816f8-8eb8-4d4e-bfe5-0928d9063327">&lt;linkText&gt;</bpt><ept id="0a4816f8-8eb8-4d4e-bfe5-0928d9063327">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0a4816f8-8eb8-4d4e-bfe5-0928d9063327">&lt;linkText&gt;</bpt><ept id="0a4816f8-8eb8-4d4e-bfe5-0928d9063327">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fed42cc-58fe-4a37-8d28-6cd4c50b86a0" xml:space="preserve">
+          <source>First, create a new virtual network named TestVNET.</source>
+          <target state="new">First, create a new virtual network named TestVNET.</target>
+        </trans-unit>
+        <trans-unit id="24c3b743-7439-4c95-a336-5e7bf621c592" xml:space="preserve">
+          <source>In the task bar of the Azure Management Portal, click <bpt id="07b2be31-e7fa-43f9-a58b-15190e081038">&lt;strong&gt;</bpt>New &gt; Network Services &gt; Virtual Network &gt; Custom Create<ept id="07b2be31-e7fa-43f9-a58b-15190e081038">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar of the Azure Management Portal, click <bpt id="07b2be31-e7fa-43f9-a58b-15190e081038">&lt;strong&gt;</bpt>New &gt; Network Services &gt; Virtual Network &gt; Custom Create<ept id="07b2be31-e7fa-43f9-a58b-15190e081038">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58fc6633-5715-465d-9ec6-a7701bd300d6" xml:space="preserve">
+          <source>On the Virtual Network Details page, type <bpt id="58cb8890-7337-4b2e-a954-6281fc3d9e6f">&lt;strong&gt;</bpt>TestVNET<ept id="58cb8890-7337-4b2e-a954-6281fc3d9e6f">&lt;/strong&gt;</ept> in <bpt id="f34070b8-9e7c-4380-8726-c95588a53b8f">&lt;strong&gt;</bpt>Name<ept id="f34070b8-9e7c-4380-8726-c95588a53b8f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Virtual Network Details page, type <bpt id="58cb8890-7337-4b2e-a954-6281fc3d9e6f">&lt;strong&gt;</bpt>TestVNET<ept id="58cb8890-7337-4b2e-a954-6281fc3d9e6f">&lt;/strong&gt;</ept> in <bpt id="f34070b8-9e7c-4380-8726-c95588a53b8f">&lt;strong&gt;</bpt>Name<ept id="f34070b8-9e7c-4380-8726-c95588a53b8f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ccb3dc4-0702-4f93-9180-febe00571393" xml:space="preserve">
+          <source>In <bpt id="415332dd-4408-4ebb-94b9-754d7d2fbec3">&lt;strong&gt;</bpt>Location<ept id="415332dd-4408-4ebb-94b9-754d7d2fbec3">&lt;/strong&gt;</ept>, select the appropriate location.</source>
+          <target state="new">In <bpt id="415332dd-4408-4ebb-94b9-754d7d2fbec3">&lt;strong&gt;</bpt>Location<ept id="415332dd-4408-4ebb-94b9-754d7d2fbec3">&lt;/strong&gt;</ept>, select the appropriate location.</target>
+        </trans-unit>
+        <trans-unit id="1e331b11-6e4a-4ca6-8f1a-bdec0065f4ea" xml:space="preserve">
+          <source>Click the Next arrow.</source>
+          <target state="new">Click the Next arrow.</target>
+        </trans-unit>
+        <trans-unit id="ba736041-f555-42bb-a3b3-a11c96474635" xml:space="preserve">
+          <source>On the DNS Servers and VPN Connectivity page, in <bpt id="070ad8f4-cf5d-4654-8683-659cc44e78d8">&lt;strong&gt;</bpt>DNS Servers<ept id="070ad8f4-cf5d-4654-8683-659cc44e78d8">&lt;/strong&gt;</ept>, type <bpt id="b9ece521-29c8-4e46-8464-48c391915d2c">&lt;strong&gt;</bpt>DC1<ept id="b9ece521-29c8-4e46-8464-48c391915d2c">&lt;/strong&gt;</ept> in <bpt id="20fd9371-47d7-4ea0-8ec7-bf784a008db3">&lt;strong&gt;</bpt>Select or enter name<ept id="20fd9371-47d7-4ea0-8ec7-bf784a008db3">&lt;/strong&gt;</ept>, and then click the Next arrow.</source>
+          <target state="new">On the DNS Servers and VPN Connectivity page, in <bpt id="070ad8f4-cf5d-4654-8683-659cc44e78d8">&lt;strong&gt;</bpt>DNS Servers<ept id="070ad8f4-cf5d-4654-8683-659cc44e78d8">&lt;/strong&gt;</ept>, type <bpt id="b9ece521-29c8-4e46-8464-48c391915d2c">&lt;strong&gt;</bpt>DC1<ept id="b9ece521-29c8-4e46-8464-48c391915d2c">&lt;/strong&gt;</ept> in <bpt id="20fd9371-47d7-4ea0-8ec7-bf784a008db3">&lt;strong&gt;</bpt>Select or enter name<ept id="20fd9371-47d7-4ea0-8ec7-bf784a008db3">&lt;/strong&gt;</ept>, and then click the Next arrow.</target>
+        </trans-unit>
+        <trans-unit id="4eb3afff-2398-4185-8360-99d479b1ad90" xml:space="preserve">
+          <source>On the Virtual Network Address Spaces page:</source>
+          <target state="new">On the Virtual Network Address Spaces page:</target>
+        </trans-unit>
+        <trans-unit id="7f983f54-363c-4e41-b329-dcfa4dc29af9" xml:space="preserve">
+          <source>In <bpt id="a04c086b-4e90-4f51-870d-e79940d9fba7">&lt;strong&gt;</bpt>Address Space<ept id="a04c086b-4e90-4f51-870d-e79940d9fba7">&lt;/strong&gt;</ept>, in <bpt id="ed3e062c-eaae-4da4-9847-7e125acdf9e8">&lt;strong&gt;</bpt>Starting IP<ept id="ed3e062c-eaae-4da4-9847-7e125acdf9e8">&lt;/strong&gt;</ept>, select or type <bpt id="8f7ce0ec-55d4-499c-9017-6f2e40d83314">&lt;strong&gt;</bpt>192.168.0.0<ept id="8f7ce0ec-55d4-499c-9017-6f2e40d83314">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="a04c086b-4e90-4f51-870d-e79940d9fba7">&lt;strong&gt;</bpt>Address Space<ept id="a04c086b-4e90-4f51-870d-e79940d9fba7">&lt;/strong&gt;</ept>, in <bpt id="ed3e062c-eaae-4da4-9847-7e125acdf9e8">&lt;strong&gt;</bpt>Starting IP<ept id="ed3e062c-eaae-4da4-9847-7e125acdf9e8">&lt;/strong&gt;</ept>, select or type <bpt id="8f7ce0ec-55d4-499c-9017-6f2e40d83314">&lt;strong&gt;</bpt>192.168.0.0<ept id="8f7ce0ec-55d4-499c-9017-6f2e40d83314">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11859d3e-dfbd-4d0c-8032-a37acec57aeb" xml:space="preserve">
+          <source>In <bpt id="1daba1a3-366f-41a3-9ec7-0a075773ad26">&lt;strong&gt;</bpt>Subnets<ept id="1daba1a3-366f-41a3-9ec7-0a075773ad26">&lt;/strong&gt;</ept>, click <bpt id="c63d5b06-d2b6-4160-a93f-a453c4f6f594">&lt;strong&gt;</bpt>Subnet-1<ept id="c63d5b06-d2b6-4160-a93f-a453c4f6f594">&lt;/strong&gt;</ept> and replace the name with <bpt id="72cdb98b-92af-43d7-9947-6ba796b41ee5">&lt;strong&gt;</bpt>TestSubnet<ept id="72cdb98b-92af-43d7-9947-6ba796b41ee5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="1daba1a3-366f-41a3-9ec7-0a075773ad26">&lt;strong&gt;</bpt>Subnets<ept id="1daba1a3-366f-41a3-9ec7-0a075773ad26">&lt;/strong&gt;</ept>, click <bpt id="c63d5b06-d2b6-4160-a93f-a453c4f6f594">&lt;strong&gt;</bpt>Subnet-1<ept id="c63d5b06-d2b6-4160-a93f-a453c4f6f594">&lt;/strong&gt;</ept> and replace the name with <bpt id="72cdb98b-92af-43d7-9947-6ba796b41ee5">&lt;strong&gt;</bpt>TestSubnet<ept id="72cdb98b-92af-43d7-9947-6ba796b41ee5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d96a5853-eeb1-440d-91f0-75b11fc2468b" xml:space="preserve">
+          <source>In the <bpt id="abef2f7e-7c17-4929-8b2e-4ae72fc46d28">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="abef2f7e-7c17-4929-8b2e-4ae72fc46d28">&lt;/strong&gt;</ept> column for the TestSubnet, click <bpt id="e1b1623e-eaf0-433c-bd0a-1a2caeec2346">&lt;strong&gt;</bpt>/24 (256)<ept id="e1b1623e-eaf0-433c-bd0a-1a2caeec2346">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="abef2f7e-7c17-4929-8b2e-4ae72fc46d28">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="abef2f7e-7c17-4929-8b2e-4ae72fc46d28">&lt;/strong&gt;</ept> column for the TestSubnet, click <bpt id="e1b1623e-eaf0-433c-bd0a-1a2caeec2346">&lt;strong&gt;</bpt>/24 (256)<ept id="e1b1623e-eaf0-433c-bd0a-1a2caeec2346">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f2fcf061-8334-4d5e-8771-eeb77182fc57" xml:space="preserve">
+          <source>Click the Complete icon.</source>
+          <target state="new">Click the Complete icon.</target>
+        </trans-unit>
+        <trans-unit id="d532e09c-71b2-4d91-971d-388ddb3f7a55" xml:space="preserve">
+          <source>Wait until the virtual network is created before continuing.</source>
+          <target state="new">Wait until the virtual network is created before continuing.</target>
+        </trans-unit>
+        <trans-unit id="2baf2032-98eb-4c08-b7dd-d49fb5a58a44" xml:space="preserve">
+          <source>Next, use the instructions in <bpt id="bddde993-ab7b-4bd4-9dd3-9508e332a9c8">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell to install Azure PowerShell on your local computer<ept id="bddde993-ab7b-4bd4-9dd3-9508e332a9c8">&lt;/linkText&gt;</ept><bpt id="bddde993-ab7b-4bd4-9dd3-9508e332a9c8">&lt;title&gt;</bpt><ept id="bddde993-ab7b-4bd4-9dd3-9508e332a9c8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Next, use the instructions in <bpt id="bddde993-ab7b-4bd4-9dd3-9508e332a9c8">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell to install Azure PowerShell on your local computer<ept id="bddde993-ab7b-4bd4-9dd3-9508e332a9c8">&lt;/linkText&gt;</ept><bpt id="bddde993-ab7b-4bd4-9dd3-9508e332a9c8">&lt;title&gt;</bpt><ept id="bddde993-ab7b-4bd4-9dd3-9508e332a9c8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1aba1c90-21dd-4c6f-a9b0-f1130c758320" xml:space="preserve">
+          <source>Next, create a new cloud service for the TestVNET virtual network.</source>
+          <target state="new">Next, create a new cloud service for the TestVNET virtual network.</target>
+        </trans-unit>
+        <trans-unit id="35e76326-e913-43f8-9ba8-e9f0d55ea804" xml:space="preserve">
+          <source>You must pick a unique name.</source>
+          <target state="new">You must pick a unique name.</target>
+        </trans-unit>
+        <trans-unit id="584a3291-4aee-4534-8333-abc949646892" xml:space="preserve">
+          <source>For example, you could name it <bpt id="5223ce32-b526-40cb-9f99-6cad71d64105">&lt;strong&gt;</bpt>TestVNET-*<ept id="5223ce32-b526-40cb-9f99-6cad71d64105">&lt;/strong&gt;</ept>UniqueSequence<bpt id="4c19ac0f-7a8a-4663-973d-879eb467df6a">&lt;em&gt;</bpt>, in which *UniqueSequence<ept id="4c19ac0f-7a8a-4663-973d-879eb467df6a">&lt;/em&gt;</ept> is an abbreviation of your organization.</source>
+          <target state="new">For example, you could name it <bpt id="5223ce32-b526-40cb-9f99-6cad71d64105">&lt;strong&gt;</bpt>TestVNET-*<ept id="5223ce32-b526-40cb-9f99-6cad71d64105">&lt;/strong&gt;</ept>UniqueSequence<bpt id="4c19ac0f-7a8a-4663-973d-879eb467df6a">&lt;em&gt;</bpt>, in which *UniqueSequence<ept id="4c19ac0f-7a8a-4663-973d-879eb467df6a">&lt;/em&gt;</ept> is an abbreviation of your organization.</target>
+        </trans-unit>
+        <trans-unit id="dfc2ec46-5853-4139-9769-66d80452d8dd" xml:space="preserve">
+          <source>For example, if your organization is named Tailspin Toys, you could name the cloud service <bpt id="48c60b30-84dc-4075-bb85-f9087f6416b9">&lt;strong&gt;</bpt>TestVNET-Tailspin<ept id="48c60b30-84dc-4075-bb85-f9087f6416b9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, if your organization is named Tailspin Toys, you could name the cloud service <bpt id="48c60b30-84dc-4075-bb85-f9087f6416b9">&lt;strong&gt;</bpt>TestVNET-Tailspin<ept id="48c60b30-84dc-4075-bb85-f9087f6416b9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5194acc-3d98-471f-a1c8-7011caa19e05" xml:space="preserve">
+          <source>You can test for the uniqueness of the name with this Azure PowerShell command on your local computer.</source>
+          <target state="new">You can test for the uniqueness of the name with this Azure PowerShell command on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="a3f5ec0a-b187-4988-bcb4-a6f859e45f2c" xml:space="preserve">
+          <source>If this command returns "False", your proposed name is unique.</source>
+          <target state="new">If this command returns "False", your proposed name is unique.</target>
+        </trans-unit>
+        <trans-unit id="5dda0980-d761-456a-89c0-9fccbff04e7d" xml:space="preserve">
+          <source>Create the cloud service with this command.</source>
+          <target state="new">Create the cloud service with this command.</target>
+        </trans-unit>
+        <trans-unit id="832f9eae-7ee6-45ff-a536-faec9a0499a8" xml:space="preserve">
+          <source>This is your current configuration.</source>
+          <target state="new">This is your current configuration.</target>
+        </trans-unit>
+        <trans-unit id="e48e4264-e7ba-4936-a051-09ecb3889c62" xml:space="preserve">
+          <source><bpt id="aa998eae-b452-4b78-84b1-feef0eccfbc3">&lt;linkText&gt;</bpt><ept id="aa998eae-b452-4b78-84b1-feef0eccfbc3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa998eae-b452-4b78-84b1-feef0eccfbc3">&lt;linkText&gt;</bpt><ept id="aa998eae-b452-4b78-84b1-feef0eccfbc3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9e2fa26-c8f4-4bdd-bea7-193f63adfcd2" xml:space="preserve">
+          <source>First, you create local networks that represent the address space of each virtual network.</source>
+          <target state="new">First, you create local networks that represent the address space of each virtual network.</target>
+        </trans-unit>
+        <trans-unit id="712e626b-ca17-4b24-8c48-2147698aef38" xml:space="preserve">
+          <source>From the Azure Management Portal on your local computer, click <bpt id="4f0d78ca-c629-496c-b94e-2d5dc195ba45">&lt;strong&gt;</bpt>New &gt; Network Services &gt; Virtual Network &gt; Add Local Network<ept id="4f0d78ca-c629-496c-b94e-2d5dc195ba45">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure Management Portal on your local computer, click <bpt id="4f0d78ca-c629-496c-b94e-2d5dc195ba45">&lt;strong&gt;</bpt>New &gt; Network Services &gt; Virtual Network &gt; Add Local Network<ept id="4f0d78ca-c629-496c-b94e-2d5dc195ba45">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78dd0c85-07d5-4b48-96d7-f269c4de319b" xml:space="preserve">
+          <source>On the Specify your local network details page, type <bpt id="bca3d5c8-0eb2-4178-9cf9-718c6d9f98f6">&lt;strong&gt;</bpt>TestLabLNet<ept id="bca3d5c8-0eb2-4178-9cf9-718c6d9f98f6">&lt;/strong&gt;</ept> in <bpt id="c4180171-d305-4ee8-bdfa-a6453e5362d2">&lt;strong&gt;</bpt>Name<ept id="c4180171-d305-4ee8-bdfa-a6453e5362d2">&lt;/strong&gt;</ept>, type <bpt id="beca38fa-e3b1-4252-ada4-523aa5e35bb8">&lt;strong&gt;</bpt>131.107.0.1<ept id="beca38fa-e3b1-4252-ada4-523aa5e35bb8">&lt;/strong&gt;</ept> in <bpt id="ddd04806-224e-43eb-abac-c91ffcb09d20">&lt;strong&gt;</bpt>VPN Device IP Address<ept id="ddd04806-224e-43eb-abac-c91ffcb09d20">&lt;/strong&gt;</ept>, and then click the right arrow.</source>
+          <target state="new">On the Specify your local network details page, type <bpt id="bca3d5c8-0eb2-4178-9cf9-718c6d9f98f6">&lt;strong&gt;</bpt>TestLabLNet<ept id="bca3d5c8-0eb2-4178-9cf9-718c6d9f98f6">&lt;/strong&gt;</ept> in <bpt id="c4180171-d305-4ee8-bdfa-a6453e5362d2">&lt;strong&gt;</bpt>Name<ept id="c4180171-d305-4ee8-bdfa-a6453e5362d2">&lt;/strong&gt;</ept>, type <bpt id="beca38fa-e3b1-4252-ada4-523aa5e35bb8">&lt;strong&gt;</bpt>131.107.0.1<ept id="beca38fa-e3b1-4252-ada4-523aa5e35bb8">&lt;/strong&gt;</ept> in <bpt id="ddd04806-224e-43eb-abac-c91ffcb09d20">&lt;strong&gt;</bpt>VPN Device IP Address<ept id="ddd04806-224e-43eb-abac-c91ffcb09d20">&lt;/strong&gt;</ept>, and then click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="56e2db7c-6a58-4e49-bd73-333b2f0d4508" xml:space="preserve">
+          <source>On the Specify the address space page, in <bpt id="4cef78f6-4613-4818-b876-c684a925df5b">&lt;strong&gt;</bpt>Starting I<ept id="4cef78f6-4613-4818-b876-c684a925df5b">&lt;/strong&gt;</ept>P, type <bpt id="78f9424d-8868-4253-9ee4-2dc896de47d5">&lt;strong&gt;</bpt>10.0.0.0<ept id="78f9424d-8868-4253-9ee4-2dc896de47d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Specify the address space page, in <bpt id="4cef78f6-4613-4818-b876-c684a925df5b">&lt;strong&gt;</bpt>Starting I<ept id="4cef78f6-4613-4818-b876-c684a925df5b">&lt;/strong&gt;</ept>P, type <bpt id="78f9424d-8868-4253-9ee4-2dc896de47d5">&lt;strong&gt;</bpt>10.0.0.0<ept id="78f9424d-8868-4253-9ee4-2dc896de47d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5569351c-cbe0-4b4f-b208-7b80d460ef23" xml:space="preserve">
+          <source>In <bpt id="48b3886a-f4d9-481f-8e28-56b873b3459d">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="48b3886a-f4d9-481f-8e28-56b873b3459d">&lt;/strong&gt;</ept>, select <bpt id="f5af087b-db22-4d62-8bf3-56bb0e74169e">&lt;strong&gt;</bpt>/24 (256)<ept id="f5af087b-db22-4d62-8bf3-56bb0e74169e">&lt;/strong&gt;</ept>, and then click the check mark.</source>
+          <target state="new">In <bpt id="48b3886a-f4d9-481f-8e28-56b873b3459d">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="48b3886a-f4d9-481f-8e28-56b873b3459d">&lt;/strong&gt;</ept>, select <bpt id="f5af087b-db22-4d62-8bf3-56bb0e74169e">&lt;strong&gt;</bpt>/24 (256)<ept id="f5af087b-db22-4d62-8bf3-56bb0e74169e">&lt;/strong&gt;</ept>, and then click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="56d2eee5-61e7-4ea4-a8d6-6ba727948f38" xml:space="preserve">
+          <source>Click <bpt id="34221d94-574c-46b0-bdf7-a03af51c1ccd">&lt;strong&gt;</bpt>New &gt; Network Services &gt; Virtual Network &gt; Add Local Network<ept id="34221d94-574c-46b0-bdf7-a03af51c1ccd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="34221d94-574c-46b0-bdf7-a03af51c1ccd">&lt;strong&gt;</bpt>New &gt; Network Services &gt; Virtual Network &gt; Add Local Network<ept id="34221d94-574c-46b0-bdf7-a03af51c1ccd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc957ae8-b081-4721-84c0-52628be36074" xml:space="preserve">
+          <source>On the Specify your local network details page, type <bpt id="486c31eb-38b8-4e8f-bf3d-a3d2120bea2b">&lt;strong&gt;</bpt>TestVNETLNet<ept id="486c31eb-38b8-4e8f-bf3d-a3d2120bea2b">&lt;/strong&gt;</ept> in <bpt id="94f9eb7c-d32b-4a3f-9df9-164f9b0c851f">&lt;strong&gt;</bpt>Name<ept id="94f9eb7c-d32b-4a3f-9df9-164f9b0c851f">&lt;/strong&gt;</ept>, type <bpt id="d2205e22-0e43-4ef2-989e-14ff690c9bd8">&lt;strong&gt;</bpt>131.107.0.2<ept id="d2205e22-0e43-4ef2-989e-14ff690c9bd8">&lt;/strong&gt;</ept> in <bpt id="bf2c8bbe-68d8-49a4-8881-9662b2100bc4">&lt;strong&gt;</bpt>VPN Device IP Address<ept id="bf2c8bbe-68d8-49a4-8881-9662b2100bc4">&lt;/strong&gt;</ept>, and then click the right arrow.</source>
+          <target state="new">On the Specify your local network details page, type <bpt id="486c31eb-38b8-4e8f-bf3d-a3d2120bea2b">&lt;strong&gt;</bpt>TestVNETLNet<ept id="486c31eb-38b8-4e8f-bf3d-a3d2120bea2b">&lt;/strong&gt;</ept> in <bpt id="94f9eb7c-d32b-4a3f-9df9-164f9b0c851f">&lt;strong&gt;</bpt>Name<ept id="94f9eb7c-d32b-4a3f-9df9-164f9b0c851f">&lt;/strong&gt;</ept>, type <bpt id="d2205e22-0e43-4ef2-989e-14ff690c9bd8">&lt;strong&gt;</bpt>131.107.0.2<ept id="d2205e22-0e43-4ef2-989e-14ff690c9bd8">&lt;/strong&gt;</ept> in <bpt id="bf2c8bbe-68d8-49a4-8881-9662b2100bc4">&lt;strong&gt;</bpt>VPN Device IP Address<ept id="bf2c8bbe-68d8-49a4-8881-9662b2100bc4">&lt;/strong&gt;</ept>, and then click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="1106460b-ee4f-44a0-9cb7-3a815344057a" xml:space="preserve">
+          <source>On the Specify the address space page, in <bpt id="cb8dd038-56c1-4ff2-a89e-e15806f98f3f">&lt;strong&gt;</bpt>Starting IP<ept id="cb8dd038-56c1-4ff2-a89e-e15806f98f3f">&lt;/strong&gt;</ept>, type <bpt id="812f28bc-d726-4d11-af98-8694de10f0de">&lt;strong&gt;</bpt>192.168.0.0<ept id="812f28bc-d726-4d11-af98-8694de10f0de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Specify the address space page, in <bpt id="cb8dd038-56c1-4ff2-a89e-e15806f98f3f">&lt;strong&gt;</bpt>Starting IP<ept id="cb8dd038-56c1-4ff2-a89e-e15806f98f3f">&lt;/strong&gt;</ept>, type <bpt id="812f28bc-d726-4d11-af98-8694de10f0de">&lt;strong&gt;</bpt>192.168.0.0<ept id="812f28bc-d726-4d11-af98-8694de10f0de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5c6fab5-78fe-4f6a-b212-7cb5259d4627" xml:space="preserve">
+          <source>In <bpt id="0681e660-ec0b-4a41-bdcf-6026f92a58a0">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="0681e660-ec0b-4a41-bdcf-6026f92a58a0">&lt;/strong&gt;</ept>, select <bpt id="3c3cfed7-8718-4669-92d5-1049304ef3b5">&lt;strong&gt;</bpt>/24 (256)<ept id="3c3cfed7-8718-4669-92d5-1049304ef3b5">&lt;/strong&gt;</ept>, and then click the check mark.</source>
+          <target state="new">In <bpt id="0681e660-ec0b-4a41-bdcf-6026f92a58a0">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="0681e660-ec0b-4a41-bdcf-6026f92a58a0">&lt;/strong&gt;</ept>, select <bpt id="3c3cfed7-8718-4669-92d5-1049304ef3b5">&lt;strong&gt;</bpt>/24 (256)<ept id="3c3cfed7-8718-4669-92d5-1049304ef3b5">&lt;/strong&gt;</ept>, and then click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="e1d24e07-c623-4631-8ef9-85e9631351ec" xml:space="preserve">
+          <source>Note that the VPN device IP addresses of 131.107.0.1 and 131.107.0.2 are just temporary placeholder values until you configure gateways for the two virtual networks.</source>
+          <target state="new">Note that the VPN device IP addresses of 131.107.0.1 and 131.107.0.2 are just temporary placeholder values until you configure gateways for the two virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="e393f9da-e944-45c3-987c-099d212be3d4" xml:space="preserve">
+          <source>Next, you configure each virtual network to use a site-to-site VPN connection and the local network corresponding to the other virtual network.</source>
+          <target state="new">Next, you configure each virtual network to use a site-to-site VPN connection and the local network corresponding to the other virtual network.</target>
+        </trans-unit>
+        <trans-unit id="16d47356-b433-4947-8200-412b92d55840" xml:space="preserve">
+          <source>From the Azure Management Portal on your local computer, click <bpt id="e691ee8c-e75d-461c-b76f-aa7a483efdff">&lt;strong&gt;</bpt>Networks<ept id="e691ee8c-e75d-461c-b76f-aa7a483efdff">&lt;/strong&gt;</ept> in the left pane, and then verify that the <bpt id="7844d6fb-0781-4ea0-8cef-327e9557b100">&lt;strong&gt;</bpt>Status<ept id="7844d6fb-0781-4ea0-8cef-327e9557b100">&lt;/strong&gt;</ept> column for <bpt id="cc80a8cd-917e-4f98-be81-4340e2ae3c46">&lt;strong&gt;</bpt>TestLab<ept id="cc80a8cd-917e-4f98-be81-4340e2ae3c46">&lt;/strong&gt;</ept> is set to <bpt id="c93ba2b6-9130-4c35-90f8-6ca74bc93f4b">&lt;strong&gt;</bpt>Created<ept id="c93ba2b6-9130-4c35-90f8-6ca74bc93f4b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure Management Portal on your local computer, click <bpt id="e691ee8c-e75d-461c-b76f-aa7a483efdff">&lt;strong&gt;</bpt>Networks<ept id="e691ee8c-e75d-461c-b76f-aa7a483efdff">&lt;/strong&gt;</ept> in the left pane, and then verify that the <bpt id="7844d6fb-0781-4ea0-8cef-327e9557b100">&lt;strong&gt;</bpt>Status<ept id="7844d6fb-0781-4ea0-8cef-327e9557b100">&lt;/strong&gt;</ept> column for <bpt id="cc80a8cd-917e-4f98-be81-4340e2ae3c46">&lt;strong&gt;</bpt>TestLab<ept id="cc80a8cd-917e-4f98-be81-4340e2ae3c46">&lt;/strong&gt;</ept> is set to <bpt id="c93ba2b6-9130-4c35-90f8-6ca74bc93f4b">&lt;strong&gt;</bpt>Created<ept id="c93ba2b6-9130-4c35-90f8-6ca74bc93f4b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2037e85f-c3d1-4f37-818c-d20ace15f371" xml:space="preserve">
+          <source>Click <bpt id="2c5bc07a-eb87-4677-812d-5b32e9284f8e">&lt;strong&gt;</bpt>TestLab<ept id="2c5bc07a-eb87-4677-812d-5b32e9284f8e">&lt;/strong&gt;</ept>, and then click <bpt id="8d164418-e3dd-4c4b-8185-4253a2e1d5b4">&lt;strong&gt;</bpt>Configure<ept id="8d164418-e3dd-4c4b-8185-4253a2e1d5b4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="2c5bc07a-eb87-4677-812d-5b32e9284f8e">&lt;strong&gt;</bpt>TestLab<ept id="2c5bc07a-eb87-4677-812d-5b32e9284f8e">&lt;/strong&gt;</ept>, and then click <bpt id="8d164418-e3dd-4c4b-8185-4253a2e1d5b4">&lt;strong&gt;</bpt>Configure<ept id="8d164418-e3dd-4c4b-8185-4253a2e1d5b4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fabfd747-cab6-446c-b92b-8e6a1a6a9611" xml:space="preserve">
+          <source>On the TestLab page, in the <bpt id="88e79591-6806-4733-a46f-3c93aac82e79">&lt;strong&gt;</bpt>Site-to-Site Connectivity<ept id="88e79591-6806-4733-a46f-3c93aac82e79">&lt;/strong&gt;</ept> section, click <bpt id="03069625-8eee-42b6-a286-ad523283633a">&lt;strong&gt;</bpt>Connect to the local network<ept id="03069625-8eee-42b6-a286-ad523283633a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the TestLab page, in the <bpt id="88e79591-6806-4733-a46f-3c93aac82e79">&lt;strong&gt;</bpt>Site-to-Site Connectivity<ept id="88e79591-6806-4733-a46f-3c93aac82e79">&lt;/strong&gt;</ept> section, click <bpt id="03069625-8eee-42b6-a286-ad523283633a">&lt;strong&gt;</bpt>Connect to the local network<ept id="03069625-8eee-42b6-a286-ad523283633a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17b2e934-cfbe-47a3-9265-97f8984584e4" xml:space="preserve">
+          <source>In <bpt id="72c264f2-0fd5-49f9-8ff5-c9528f8dde09">&lt;strong&gt;</bpt>Local Network<ept id="72c264f2-0fd5-49f9-8ff5-c9528f8dde09">&lt;/strong&gt;</ept>, select <bpt id="30ee9908-eadc-4ea9-877c-df0b29ba1908">&lt;strong&gt;</bpt>TestVNETLNet<ept id="30ee9908-eadc-4ea9-877c-df0b29ba1908">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="72c264f2-0fd5-49f9-8ff5-c9528f8dde09">&lt;strong&gt;</bpt>Local Network<ept id="72c264f2-0fd5-49f9-8ff5-c9528f8dde09">&lt;/strong&gt;</ept>, select <bpt id="30ee9908-eadc-4ea9-877c-df0b29ba1908">&lt;strong&gt;</bpt>TestVNETLNet<ept id="30ee9908-eadc-4ea9-877c-df0b29ba1908">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c89d6e1-db93-411f-af68-6bb0b767d32f" xml:space="preserve">
+          <source>Click <bpt id="e7be6db5-437b-45fe-a3a3-38b56a7a880a">&lt;strong&gt;</bpt>Save<ept id="e7be6db5-437b-45fe-a3a3-38b56a7a880a">&lt;/strong&gt;</ept> in the task bar.</source>
+          <target state="new">Click <bpt id="e7be6db5-437b-45fe-a3a3-38b56a7a880a">&lt;strong&gt;</bpt>Save<ept id="e7be6db5-437b-45fe-a3a3-38b56a7a880a">&lt;/strong&gt;</ept> in the task bar.</target>
+        </trans-unit>
+        <trans-unit id="495c64a9-f90c-4ca6-a553-a10b88c017d4" xml:space="preserve">
+          <source>In some cases, you might need to click <bpt id="f8d282f9-7a88-49f8-9ddb-5eb60c809b54">&lt;strong&gt;</bpt>Add Gateway Subnet<ept id="f8d282f9-7a88-49f8-9ddb-5eb60c809b54">&lt;/strong&gt;</ept> to create a subnet used by the Azure VPN gateway.</source>
+          <target state="new">In some cases, you might need to click <bpt id="f8d282f9-7a88-49f8-9ddb-5eb60c809b54">&lt;strong&gt;</bpt>Add Gateway Subnet<ept id="f8d282f9-7a88-49f8-9ddb-5eb60c809b54">&lt;/strong&gt;</ept> to create a subnet used by the Azure VPN gateway.</target>
+        </trans-unit>
+        <trans-unit id="01bc8ffb-58c0-47fc-bb0d-5bb02f0c4617" xml:space="preserve">
+          <source>Click <bpt id="76162737-6f4c-49af-8807-da3c32283882">&lt;strong&gt;</bpt>Networks<ept id="76162737-6f4c-49af-8807-da3c32283882">&lt;/strong&gt;</ept> in the left pane, and then verify that the <bpt id="d2112f74-93e4-417e-a076-6366e17ccc80">&lt;strong&gt;</bpt>Status<ept id="d2112f74-93e4-417e-a076-6366e17ccc80">&lt;/strong&gt;</ept> column for TestVNET is set to <bpt id="60470727-f73a-4ce9-aae5-ccfbb617b3d8">&lt;strong&gt;</bpt>Created<ept id="60470727-f73a-4ce9-aae5-ccfbb617b3d8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="76162737-6f4c-49af-8807-da3c32283882">&lt;strong&gt;</bpt>Networks<ept id="76162737-6f4c-49af-8807-da3c32283882">&lt;/strong&gt;</ept> in the left pane, and then verify that the <bpt id="d2112f74-93e4-417e-a076-6366e17ccc80">&lt;strong&gt;</bpt>Status<ept id="d2112f74-93e4-417e-a076-6366e17ccc80">&lt;/strong&gt;</ept> column for TestVNET is set to <bpt id="60470727-f73a-4ce9-aae5-ccfbb617b3d8">&lt;strong&gt;</bpt>Created<ept id="60470727-f73a-4ce9-aae5-ccfbb617b3d8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d55db37-f433-42b1-8f49-b20e8c7f3f2c" xml:space="preserve">
+          <source>Click <bpt id="bd3d2dac-dcd0-4f23-b303-2b3d94be805e">&lt;strong&gt;</bpt>TestVNET<ept id="bd3d2dac-dcd0-4f23-b303-2b3d94be805e">&lt;/strong&gt;</ept>, and then click <bpt id="fc546cd7-9ef3-4150-860f-9cb8fcb10c15">&lt;strong&gt;</bpt>Configure<ept id="fc546cd7-9ef3-4150-860f-9cb8fcb10c15">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="bd3d2dac-dcd0-4f23-b303-2b3d94be805e">&lt;strong&gt;</bpt>TestVNET<ept id="bd3d2dac-dcd0-4f23-b303-2b3d94be805e">&lt;/strong&gt;</ept>, and then click <bpt id="fc546cd7-9ef3-4150-860f-9cb8fcb10c15">&lt;strong&gt;</bpt>Configure<ept id="fc546cd7-9ef3-4150-860f-9cb8fcb10c15">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfd09b8c-d9a1-42e3-b95d-751fda6a9fcd" xml:space="preserve">
+          <source>On the TestVNET page, in the <bpt id="a83767b1-995f-45a2-adae-b40ee5570a5f">&lt;strong&gt;</bpt>Site-to-Site Connectivity<ept id="a83767b1-995f-45a2-adae-b40ee5570a5f">&lt;/strong&gt;</ept> section, click <bpt id="1af5c3db-13b8-41f5-bc5b-3ae535d095a8">&lt;strong&gt;</bpt>Connect to the local network<ept id="1af5c3db-13b8-41f5-bc5b-3ae535d095a8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the TestVNET page, in the <bpt id="a83767b1-995f-45a2-adae-b40ee5570a5f">&lt;strong&gt;</bpt>Site-to-Site Connectivity<ept id="a83767b1-995f-45a2-adae-b40ee5570a5f">&lt;/strong&gt;</ept> section, click <bpt id="1af5c3db-13b8-41f5-bc5b-3ae535d095a8">&lt;strong&gt;</bpt>Connect to the local network<ept id="1af5c3db-13b8-41f5-bc5b-3ae535d095a8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2534145-3c8d-4ba3-994d-1931f13910c1" xml:space="preserve">
+          <source>In <bpt id="5e7aada3-aa64-4a40-a7da-e86b349c112f">&lt;strong&gt;</bpt>Local Network<ept id="5e7aada3-aa64-4a40-a7da-e86b349c112f">&lt;/strong&gt;</ept>, select <bpt id="0e4eddaf-ce16-4d76-af19-c7442c982996">&lt;strong&gt;</bpt>TestLabLNet<ept id="0e4eddaf-ce16-4d76-af19-c7442c982996">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="5e7aada3-aa64-4a40-a7da-e86b349c112f">&lt;strong&gt;</bpt>Local Network<ept id="5e7aada3-aa64-4a40-a7da-e86b349c112f">&lt;/strong&gt;</ept>, select <bpt id="0e4eddaf-ce16-4d76-af19-c7442c982996">&lt;strong&gt;</bpt>TestLabLNet<ept id="0e4eddaf-ce16-4d76-af19-c7442c982996">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8806b54-b1ce-49dd-b61e-8da62b085a7e" xml:space="preserve">
+          <source>Click <bpt id="dc6e1b2e-862a-4298-b77e-a306f75fcc60">&lt;strong&gt;</bpt>Save<ept id="dc6e1b2e-862a-4298-b77e-a306f75fcc60">&lt;/strong&gt;</ept> in the task bar.</source>
+          <target state="new">Click <bpt id="dc6e1b2e-862a-4298-b77e-a306f75fcc60">&lt;strong&gt;</bpt>Save<ept id="dc6e1b2e-862a-4298-b77e-a306f75fcc60">&lt;/strong&gt;</ept> in the task bar.</target>
+        </trans-unit>
+        <trans-unit id="07f177fc-9bb0-4fe2-842f-1f734fd4d533" xml:space="preserve">
+          <source>In some cases, you might need to click <bpt id="56e03211-d4f0-4a30-b19b-1e355f337d83">&lt;strong&gt;</bpt>Add Gateway Subnet<ept id="56e03211-d4f0-4a30-b19b-1e355f337d83">&lt;/strong&gt;</ept> to create a subnet used by the Azure VPN gateway.</source>
+          <target state="new">In some cases, you might need to click <bpt id="56e03211-d4f0-4a30-b19b-1e355f337d83">&lt;strong&gt;</bpt>Add Gateway Subnet<ept id="56e03211-d4f0-4a30-b19b-1e355f337d83">&lt;/strong&gt;</ept> to create a subnet used by the Azure VPN gateway.</target>
+        </trans-unit>
+        <trans-unit id="341bbeaa-635a-4bc9-b08a-6e7919c98d1d" xml:space="preserve">
+          <source>Next, you create virtual network gateways for the two virtual networks.</source>
+          <target state="new">Next, you create virtual network gateways for the two virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="799470a9-96b4-4a4f-8926-2df5d391966b" xml:space="preserve">
+          <source>From the Azure Management Portal, on the <bpt id="047abdfd-51e9-43e6-9028-c668a01b659b">&lt;strong&gt;</bpt>Networks<ept id="047abdfd-51e9-43e6-9028-c668a01b659b">&lt;/strong&gt;</ept> page, click <bpt id="01b694a4-e4e2-4d0d-b133-4d828f30a078">&lt;strong&gt;</bpt>TestLab<ept id="01b694a4-e4e2-4d0d-b133-4d828f30a078">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure Management Portal, on the <bpt id="047abdfd-51e9-43e6-9028-c668a01b659b">&lt;strong&gt;</bpt>Networks<ept id="047abdfd-51e9-43e6-9028-c668a01b659b">&lt;/strong&gt;</ept> page, click <bpt id="01b694a4-e4e2-4d0d-b133-4d828f30a078">&lt;strong&gt;</bpt>TestLab<ept id="01b694a4-e4e2-4d0d-b133-4d828f30a078">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d8d4a14-d58c-4d62-af49-af1cfc4832eb" xml:space="preserve">
+          <source>On the Dashboard page, you should see a status of <bpt id="2fddce34-9488-4c8f-8287-55623ea0a52c">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="2fddce34-9488-4c8f-8287-55623ea0a52c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Dashboard page, you should see a status of <bpt id="2fddce34-9488-4c8f-8287-55623ea0a52c">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="2fddce34-9488-4c8f-8287-55623ea0a52c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="176c829b-4ec5-4b9d-8176-62cff84b69e2" xml:space="preserve">
+          <source>In the task bar, click <bpt id="2448f389-67d0-4c6f-a5d9-3b10a60adcbb">&lt;strong&gt;</bpt>Create Gateway<ept id="2448f389-67d0-4c6f-a5d9-3b10a60adcbb">&lt;/strong&gt;</ept>, and then click <bpt id="bd499ca9-0d50-4596-a211-53c0c805d9e6">&lt;strong&gt;</bpt>Dynamic Routing<ept id="bd499ca9-0d50-4596-a211-53c0c805d9e6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar, click <bpt id="2448f389-67d0-4c6f-a5d9-3b10a60adcbb">&lt;strong&gt;</bpt>Create Gateway<ept id="2448f389-67d0-4c6f-a5d9-3b10a60adcbb">&lt;/strong&gt;</ept>, and then click <bpt id="bd499ca9-0d50-4596-a211-53c0c805d9e6">&lt;strong&gt;</bpt>Dynamic Routing<ept id="bd499ca9-0d50-4596-a211-53c0c805d9e6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75e42eef-d1e0-4712-b29a-6772c9bb61a3" xml:space="preserve">
+          <source>Click <bpt id="f4ddd250-6910-41e7-9e7c-3869e9578208">&lt;strong&gt;</bpt>Yes<ept id="f4ddd250-6910-41e7-9e7c-3869e9578208">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">Click <bpt id="f4ddd250-6910-41e7-9e7c-3869e9578208">&lt;strong&gt;</bpt>Yes<ept id="f4ddd250-6910-41e7-9e7c-3869e9578208">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="3c430a03-33f7-47ca-ae5f-8f77f5b236a6" xml:space="preserve">
+          <source>Wait until the gateway is complete and its status changes to <bpt id="db474d0f-12c1-4ad5-87df-b53eea352094">&lt;strong&gt;</bpt>Connecting<ept id="db474d0f-12c1-4ad5-87df-b53eea352094">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Wait until the gateway is complete and its status changes to <bpt id="db474d0f-12c1-4ad5-87df-b53eea352094">&lt;strong&gt;</bpt>Connecting<ept id="db474d0f-12c1-4ad5-87df-b53eea352094">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36e19d8a-58e8-47a3-8751-2f37ba53d7d5" xml:space="preserve">
+          <source>This could take a few minutes.</source>
+          <target state="new">This could take a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="8819394b-df7d-4d43-8ae6-c34e1e4172c8" xml:space="preserve">
+          <source>From the Dashboard page, note the <bpt id="af7c2cf8-c283-4328-8fbf-6ef79feb35e8">&lt;strong&gt;</bpt>Gateway IP Address<ept id="af7c2cf8-c283-4328-8fbf-6ef79feb35e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Dashboard page, note the <bpt id="af7c2cf8-c283-4328-8fbf-6ef79feb35e8">&lt;strong&gt;</bpt>Gateway IP Address<ept id="af7c2cf8-c283-4328-8fbf-6ef79feb35e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f77468ea-60a0-46f2-bd9c-6f72df3b4af4" xml:space="preserve">
+          <source>This is the public IP address of the Azure VPN gateway for the TestLab virtual network.</source>
+          <target state="new">This is the public IP address of the Azure VPN gateway for the TestLab virtual network.</target>
+        </trans-unit>
+        <trans-unit id="a5751ae6-5346-4e94-a298-cf04b9a8353a" xml:space="preserve">
+          <source>Record this IP address, as you will need this to configure the VNet-to-VNet connection.</source>
+          <target state="new">Record this IP address, as you will need this to configure the VNet-to-VNet connection.</target>
+        </trans-unit>
+        <trans-unit id="534406f4-1f02-4c9e-90df-0ee92bdf1106" xml:space="preserve">
+          <source>In the task bar, click <bpt id="baf728b0-76d1-4a68-9634-7234a30c0ea1">&lt;strong&gt;</bpt>Manage Key<ept id="baf728b0-76d1-4a68-9634-7234a30c0ea1">&lt;/strong&gt;</ept>, and the click the copy icon next to the key to copy it to your clipboard.</source>
+          <target state="new">In the task bar, click <bpt id="baf728b0-76d1-4a68-9634-7234a30c0ea1">&lt;strong&gt;</bpt>Manage Key<ept id="baf728b0-76d1-4a68-9634-7234a30c0ea1">&lt;/strong&gt;</ept>, and the click the copy icon next to the key to copy it to your clipboard.</target>
+        </trans-unit>
+        <trans-unit id="00d44ce7-3ccb-4539-93cb-bdb8999a8911" xml:space="preserve">
+          <source>Paste this key into a document and save it.</source>
+          <target state="new">Paste this key into a document and save it.</target>
+        </trans-unit>
+        <trans-unit id="8a3f3bfd-7da8-404b-b45a-8356d86694c2" xml:space="preserve">
+          <source>You need this key value to configure the VNet-to-VNet connection.</source>
+          <target state="new">You need this key value to configure the VNet-to-VNet connection.</target>
+        </trans-unit>
+        <trans-unit id="2d598aa0-baa9-4f5d-810d-c78832fa61b0" xml:space="preserve">
+          <source>On the Networks page, click <bpt id="f463f13d-0043-42a9-9cbe-d1b718041c3e">&lt;strong&gt;</bpt>TestVNET<ept id="f463f13d-0043-42a9-9cbe-d1b718041c3e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Networks page, click <bpt id="f463f13d-0043-42a9-9cbe-d1b718041c3e">&lt;strong&gt;</bpt>TestVNET<ept id="f463f13d-0043-42a9-9cbe-d1b718041c3e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d72c055-776d-462b-8cd0-42a2a87a22a6" xml:space="preserve">
+          <source>On the Dashboard page, you should see a status of <bpt id="6e361b82-71d7-446d-8fc4-1df2c19dfe73">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="6e361b82-71d7-446d-8fc4-1df2c19dfe73">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Dashboard page, you should see a status of <bpt id="6e361b82-71d7-446d-8fc4-1df2c19dfe73">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="6e361b82-71d7-446d-8fc4-1df2c19dfe73">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6db07888-1754-41b8-83f1-a52853227462" xml:space="preserve">
+          <source>In the task bar, click <bpt id="8b878ecf-dcb6-4b24-b4fa-521324e5f5c1">&lt;strong&gt;</bpt>Create Gateway<ept id="8b878ecf-dcb6-4b24-b4fa-521324e5f5c1">&lt;/strong&gt;</ept>, and then click <bpt id="483f7db9-a529-411e-a87d-f2ae39868707">&lt;strong&gt;</bpt>Dynamic Routing<ept id="483f7db9-a529-411e-a87d-f2ae39868707">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar, click <bpt id="8b878ecf-dcb6-4b24-b4fa-521324e5f5c1">&lt;strong&gt;</bpt>Create Gateway<ept id="8b878ecf-dcb6-4b24-b4fa-521324e5f5c1">&lt;/strong&gt;</ept>, and then click <bpt id="483f7db9-a529-411e-a87d-f2ae39868707">&lt;strong&gt;</bpt>Dynamic Routing<ept id="483f7db9-a529-411e-a87d-f2ae39868707">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b4a9645-d844-4504-a1fa-8cc15fc43c43" xml:space="preserve">
+          <source>Click <bpt id="8d5d9f9a-15ac-4b65-9d20-784797d60461">&lt;strong&gt;</bpt>Yes<ept id="8d5d9f9a-15ac-4b65-9d20-784797d60461">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">Click <bpt id="8d5d9f9a-15ac-4b65-9d20-784797d60461">&lt;strong&gt;</bpt>Yes<ept id="8d5d9f9a-15ac-4b65-9d20-784797d60461">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="91418d0e-4761-41ef-b697-9d667e97d7ca" xml:space="preserve">
+          <source>Wait until the gateway is complete and its status changes to <bpt id="37c71dfe-ca99-4d89-8658-e29b76591571">&lt;strong&gt;</bpt>Connecting<ept id="37c71dfe-ca99-4d89-8658-e29b76591571">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Wait until the gateway is complete and its status changes to <bpt id="37c71dfe-ca99-4d89-8658-e29b76591571">&lt;strong&gt;</bpt>Connecting<ept id="37c71dfe-ca99-4d89-8658-e29b76591571">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2721deca-7b7c-4ab8-9da2-835dd018d61c" xml:space="preserve">
+          <source>This could take a few minutes.</source>
+          <target state="new">This could take a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="6e665d64-f0fc-4db4-8631-9fec63a753b2" xml:space="preserve">
+          <source>From the Dashboard page, note the <bpt id="c6a37965-10b3-4498-ae3c-bf4de495a5ec">&lt;strong&gt;</bpt>Gateway IP Address<ept id="c6a37965-10b3-4498-ae3c-bf4de495a5ec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Dashboard page, note the <bpt id="c6a37965-10b3-4498-ae3c-bf4de495a5ec">&lt;strong&gt;</bpt>Gateway IP Address<ept id="c6a37965-10b3-4498-ae3c-bf4de495a5ec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d51ffa9-d7b7-4b43-acc5-5d8813ffe60f" xml:space="preserve">
+          <source>This is the public IP address of the Azure VPN gateway for the TestVNET virtual network.</source>
+          <target state="new">This is the public IP address of the Azure VPN gateway for the TestVNET virtual network.</target>
+        </trans-unit>
+        <trans-unit id="994280d7-1271-43fd-9c7c-194874670216" xml:space="preserve">
+          <source>Record this IP address, as you will need this to configure the VNet-to-VNet connection.</source>
+          <target state="new">Record this IP address, as you will need this to configure the VNet-to-VNet connection.</target>
+        </trans-unit>
+        <trans-unit id="743b4cbe-d2fa-402a-85bb-fac124ce2dbd" xml:space="preserve">
+          <source>Next, you configure the TestLabLNet and TestVNETLNet local networks with the public IP addresses obtained from creating the virtual network gateways.</source>
+          <target state="new">Next, you configure the TestLabLNet and TestVNETLNet local networks with the public IP addresses obtained from creating the virtual network gateways.</target>
+        </trans-unit>
+        <trans-unit id="a3fc4ad4-b016-4517-8a4b-2585e241fbba" xml:space="preserve">
+          <source>From the Azure Management Portal, on the Networks page, click <bpt id="ced1fdf8-1040-42c2-aa51-3c2696a2e87c">&lt;strong&gt;</bpt>Local Networks<ept id="ced1fdf8-1040-42c2-aa51-3c2696a2e87c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure Management Portal, on the Networks page, click <bpt id="ced1fdf8-1040-42c2-aa51-3c2696a2e87c">&lt;strong&gt;</bpt>Local Networks<ept id="ced1fdf8-1040-42c2-aa51-3c2696a2e87c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34e557ca-4db8-4677-8753-546d20678a94" xml:space="preserve">
+          <source>Click <bpt id="de24783b-ee43-4668-b8c1-e6a5afd3d840">&lt;strong&gt;</bpt>TestLabLNet<ept id="de24783b-ee43-4668-b8c1-e6a5afd3d840">&lt;/strong&gt;</ept>, and then click <bpt id="dc2cacbd-5f6f-4153-8870-0ab649599be5">&lt;strong&gt;</bpt>Edit<ept id="dc2cacbd-5f6f-4153-8870-0ab649599be5">&lt;/strong&gt;</ept> in the task bar.</source>
+          <target state="new">Click <bpt id="de24783b-ee43-4668-b8c1-e6a5afd3d840">&lt;strong&gt;</bpt>TestLabLNet<ept id="de24783b-ee43-4668-b8c1-e6a5afd3d840">&lt;/strong&gt;</ept>, and then click <bpt id="dc2cacbd-5f6f-4153-8870-0ab649599be5">&lt;strong&gt;</bpt>Edit<ept id="dc2cacbd-5f6f-4153-8870-0ab649599be5">&lt;/strong&gt;</ept> in the task bar.</target>
+        </trans-unit>
+        <trans-unit id="60a837d9-b50c-47a4-b481-22de57116f0f" xml:space="preserve">
+          <source>On the Specify your local network details page, type the IP address of the virtual network gateway for the TestLab virtual network (from step 3 in the previous procedure) in <bpt id="d262fb04-7dd8-4da0-aac2-9be29bad1d6c">&lt;strong&gt;</bpt>VPN Device IP Address (Optional)<ept id="d262fb04-7dd8-4da0-aac2-9be29bad1d6c">&lt;/strong&gt;</ept>, and then click the right arrow.</source>
+          <target state="new">On the Specify your local network details page, type the IP address of the virtual network gateway for the TestLab virtual network (from step 3 in the previous procedure) in <bpt id="d262fb04-7dd8-4da0-aac2-9be29bad1d6c">&lt;strong&gt;</bpt>VPN Device IP Address (Optional)<ept id="d262fb04-7dd8-4da0-aac2-9be29bad1d6c">&lt;/strong&gt;</ept>, and then click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="f7f3b79a-8bee-4f27-b9c8-d8a4ab08d729" xml:space="preserve">
+          <source>On the Specify the address space page, click the check mark.</source>
+          <target state="new">On the Specify the address space page, click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="65ff6c59-b0d0-46f7-a595-31f70ce855c2" xml:space="preserve">
+          <source>On the Local Networks page, click <bpt id="b3fb8c00-0c02-49fb-8630-a0026606a015">&lt;strong&gt;</bpt>TestVNETLNet<ept id="b3fb8c00-0c02-49fb-8630-a0026606a015">&lt;/strong&gt;</ept>, and then click <bpt id="e5b89aa1-2f51-41c0-936f-ededf816f99f">&lt;strong&gt;</bpt>Edit<ept id="e5b89aa1-2f51-41c0-936f-ededf816f99f">&lt;/strong&gt;</ept> in the task bar.</source>
+          <target state="new">On the Local Networks page, click <bpt id="b3fb8c00-0c02-49fb-8630-a0026606a015">&lt;strong&gt;</bpt>TestVNETLNet<ept id="b3fb8c00-0c02-49fb-8630-a0026606a015">&lt;/strong&gt;</ept>, and then click <bpt id="e5b89aa1-2f51-41c0-936f-ededf816f99f">&lt;strong&gt;</bpt>Edit<ept id="e5b89aa1-2f51-41c0-936f-ededf816f99f">&lt;/strong&gt;</ept> in the task bar.</target>
+        </trans-unit>
+        <trans-unit id="0a133f8f-e677-4c53-bd48-58d4d55e8137" xml:space="preserve">
+          <source>On the Specify your local network details page, type the IP address of the virtual network gateway for the TestVNET virtual network (from step 7 in the previous procedure) in <bpt id="038e4cff-a0e1-4db5-ba29-57a71da53728">&lt;strong&gt;</bpt>VPN Device IP Address (Optional)<ept id="038e4cff-a0e1-4db5-ba29-57a71da53728">&lt;/strong&gt;</ept>, and then click the right arrow.</source>
+          <target state="new">On the Specify your local network details page, type the IP address of the virtual network gateway for the TestVNET virtual network (from step 7 in the previous procedure) in <bpt id="038e4cff-a0e1-4db5-ba29-57a71da53728">&lt;strong&gt;</bpt>VPN Device IP Address (Optional)<ept id="038e4cff-a0e1-4db5-ba29-57a71da53728">&lt;/strong&gt;</ept>, and then click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="d2fb7e31-1f26-4435-a388-c2afd098c805" xml:space="preserve">
+          <source>On the Specify the address space page, click the check mark.</source>
+          <target state="new">On the Specify the address space page, click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="3fc5bddf-f9c0-4f9a-97e1-6df922ac98b2" xml:space="preserve">
+          <source>Next, you will configure the pre-shared key for both gateways to use the same value, which is the key value determined by the Azure Management Portal for the TestLab virtual network.</source>
+          <target state="new">Next, you will configure the pre-shared key for both gateways to use the same value, which is the key value determined by the Azure Management Portal for the TestLab virtual network.</target>
+        </trans-unit>
+        <trans-unit id="d8cda197-6b4d-4823-8ea9-d39c53871d22" xml:space="preserve">
+          <source>Run these commands from an Azure PowerShell command prompt on your local computer, filling in the value of the TestLab pre-shared key.</source>
+          <target state="new">Run these commands from an Azure PowerShell command prompt on your local computer, filling in the value of the TestLab pre-shared key.</target>
+        </trans-unit>
+        <trans-unit id="846f6fbd-fae4-4d1c-90a6-7f426277514f" xml:space="preserve">
+          <source>Next, on the Network page of the Azure Management Portal on your local computer, click the <bpt id="61759877-520b-41e1-8fa6-e83ab8b45f12">&lt;strong&gt;</bpt>TestLab<ept id="61759877-520b-41e1-8fa6-e83ab8b45f12">&lt;/strong&gt;</ept> virtual network, click <bpt id="ef387410-18cf-4014-bfd1-35aec352611f">&lt;strong&gt;</bpt>Dashboard<ept id="ef387410-18cf-4014-bfd1-35aec352611f">&lt;/strong&gt;</ept>, and then click <bpt id="8f093419-99df-4d5c-a004-fee7a50b6c05">&lt;strong&gt;</bpt>Connect<ept id="8f093419-99df-4d5c-a004-fee7a50b6c05">&lt;/strong&gt;</ept> in the task bar.</source>
+          <target state="new">Next, on the Network page of the Azure Management Portal on your local computer, click the <bpt id="61759877-520b-41e1-8fa6-e83ab8b45f12">&lt;strong&gt;</bpt>TestLab<ept id="61759877-520b-41e1-8fa6-e83ab8b45f12">&lt;/strong&gt;</ept> virtual network, click <bpt id="ef387410-18cf-4014-bfd1-35aec352611f">&lt;strong&gt;</bpt>Dashboard<ept id="ef387410-18cf-4014-bfd1-35aec352611f">&lt;/strong&gt;</ept>, and then click <bpt id="8f093419-99df-4d5c-a004-fee7a50b6c05">&lt;strong&gt;</bpt>Connect<ept id="8f093419-99df-4d5c-a004-fee7a50b6c05">&lt;/strong&gt;</ept> in the task bar.</target>
+        </trans-unit>
+        <trans-unit id="8879ad9f-2cea-4fd2-aa01-dd5dbd3292a7" xml:space="preserve">
+          <source>Wait until the TestLab virtual network shows a connected state.</source>
+          <target state="new">Wait until the TestLab virtual network shows a connected state.</target>
+        </trans-unit>
+        <trans-unit id="8e74dbb5-b6e0-414d-8af1-ca9c00814754" xml:space="preserve">
+          <source>This is your current configuration.</source>
+          <target state="new">This is your current configuration.</target>
+        </trans-unit>
+        <trans-unit id="a555b903-4b65-47eb-96bd-580a1e0e51c9" xml:space="preserve">
+          <source><bpt id="66590076-6bbc-4ae9-84cc-630db1e2ba14">&lt;linkText&gt;</bpt><ept id="66590076-6bbc-4ae9-84cc-630db1e2ba14">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="66590076-6bbc-4ae9-84cc-630db1e2ba14">&lt;linkText&gt;</bpt><ept id="66590076-6bbc-4ae9-84cc-630db1e2ba14">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="145ce793-6893-4d1c-a499-fce3f388fb37" xml:space="preserve">
+          <source>First, create an Azure Virtual Machine for DC2.</source>
+          <target state="new">First, create an Azure Virtual Machine for DC2.</target>
+        </trans-unit>
+        <trans-unit id="2bf76fc5-9e11-41ce-bc0d-9299a710fd5f" xml:space="preserve">
+          <source>Run these commands at the Azure PowerShell command prompt on your local computer.</source>
+          <target state="new">Run these commands at the Azure PowerShell command prompt on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="eb90d8a7-fc55-463f-98ed-749b5b478552" xml:space="preserve">
+          <source>Next, log on to the new DC2 virtual machine.</source>
+          <target state="new">Next, log on to the new DC2 virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="d38b3e6e-6fa2-49d9-9bfc-deef07fc7cb4" xml:space="preserve">
+          <source>In the left pane of the Azure Management Portal, click <bpt id="a81b10ee-f8bd-49df-b33d-6c4bf8b9efe3">&lt;strong&gt;</bpt>Virtual Machines<ept id="a81b10ee-f8bd-49df-b33d-6c4bf8b9efe3">&lt;/strong&gt;</ept>, and then click <bpt id="5d8a6fd3-b7dd-4201-b8ee-807b77588c18">&lt;strong&gt;</bpt>Running<ept id="5d8a6fd3-b7dd-4201-b8ee-807b77588c18">&lt;/strong&gt;</ept> in the <bpt id="984c67ad-554a-4989-9648-7f98f8b38db3">&lt;strong&gt;</bpt>Status<ept id="984c67ad-554a-4989-9648-7f98f8b38db3">&lt;/strong&gt;</ept> column for DC2.</source>
+          <target state="new">In the left pane of the Azure Management Portal, click <bpt id="a81b10ee-f8bd-49df-b33d-6c4bf8b9efe3">&lt;strong&gt;</bpt>Virtual Machines<ept id="a81b10ee-f8bd-49df-b33d-6c4bf8b9efe3">&lt;/strong&gt;</ept>, and then click <bpt id="5d8a6fd3-b7dd-4201-b8ee-807b77588c18">&lt;strong&gt;</bpt>Running<ept id="5d8a6fd3-b7dd-4201-b8ee-807b77588c18">&lt;/strong&gt;</ept> in the <bpt id="984c67ad-554a-4989-9648-7f98f8b38db3">&lt;strong&gt;</bpt>Status<ept id="984c67ad-554a-4989-9648-7f98f8b38db3">&lt;/strong&gt;</ept> column for DC2.</target>
+        </trans-unit>
+        <trans-unit id="7e49c6a3-6b64-4c99-9d1d-ada54f688adb" xml:space="preserve">
+          <source>In the task bar, click <bpt id="afc4ea62-e877-4106-a214-a0918e9a1663">&lt;strong&gt;</bpt>Connect<ept id="afc4ea62-e877-4106-a214-a0918e9a1663">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar, click <bpt id="afc4ea62-e877-4106-a214-a0918e9a1663">&lt;strong&gt;</bpt>Connect<ept id="afc4ea62-e877-4106-a214-a0918e9a1663">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb5168ef-8993-44d5-8f06-73cc689f4277" xml:space="preserve">
+          <source>When prompted to open DC2.rdp, click <bpt id="20433ddd-faa1-4c76-9eeb-2cce16d9a340">&lt;strong&gt;</bpt>Open<ept id="20433ddd-faa1-4c76-9eeb-2cce16d9a340">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted to open DC2.rdp, click <bpt id="20433ddd-faa1-4c76-9eeb-2cce16d9a340">&lt;strong&gt;</bpt>Open<ept id="20433ddd-faa1-4c76-9eeb-2cce16d9a340">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="409ddd1e-2a2f-452c-af18-8cfd2e0a61b3" xml:space="preserve">
+          <source>When prompted with a Remote Desktop Connection message box, click <bpt id="1ca23e46-60e8-454a-ba53-91402aba6b9a">&lt;strong&gt;</bpt>Connect<ept id="1ca23e46-60e8-454a-ba53-91402aba6b9a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted with a Remote Desktop Connection message box, click <bpt id="1ca23e46-60e8-454a-ba53-91402aba6b9a">&lt;strong&gt;</bpt>Connect<ept id="1ca23e46-60e8-454a-ba53-91402aba6b9a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00d0a7e4-d198-4a97-b9a4-aca78801163e" xml:space="preserve">
+          <source>When prompted for credentials, use these:</source>
+          <target state="new">When prompted for credentials, use these:</target>
+        </trans-unit>
+        <trans-unit id="fb40b4e1-feff-4f85-802d-72ffbe94552d" xml:space="preserve">
+          <source>Name: <bpt id="6afa110f-3a44-46a7-a83a-7c226b999d93">&lt;strong&gt;</bpt>DC2\\<ept id="6afa110f-3a44-46a7-a83a-7c226b999d93">&lt;/strong&gt;</ept>[Local administrator account name]</source>
+          <target state="new">Name: <bpt id="6afa110f-3a44-46a7-a83a-7c226b999d93">&lt;strong&gt;</bpt>DC2\\<ept id="6afa110f-3a44-46a7-a83a-7c226b999d93">&lt;/strong&gt;</ept>[Local administrator account name]</target>
+        </trans-unit>
+        <trans-unit id="0b368f9c-4dda-4d22-a5bc-a102df04f851" xml:space="preserve">
+          <source>Password: [Local administrator account password]</source>
+          <target state="new">Password: [Local administrator account password]</target>
+        </trans-unit>
+        <trans-unit id="fa979b22-5416-49d1-9b15-0ab50e631ee9" xml:space="preserve">
+          <source>When prompted with a Remote Desktop Connection message box referring to certificates, click <bpt id="7f299efd-2545-43f9-9750-b3b5df8044b7">&lt;strong&gt;</bpt>Yes<ept id="7f299efd-2545-43f9-9750-b3b5df8044b7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted with a Remote Desktop Connection message box referring to certificates, click <bpt id="7f299efd-2545-43f9-9750-b3b5df8044b7">&lt;strong&gt;</bpt>Yes<ept id="7f299efd-2545-43f9-9750-b3b5df8044b7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1be4d137-8095-41d7-950f-a8643dbf20d9" xml:space="preserve">
+          <source>Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing.</source>
+          <target state="new">Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing.</target>
+        </trans-unit>
+        <trans-unit id="7a7b9207-451f-4de1-a46d-ab9de0b8fed7" xml:space="preserve">
+          <source>From an administrator-level Windows PowerShell command prompt on DC2, run these commands.</source>
+          <target state="new">From an administrator-level Windows PowerShell command prompt on DC2, run these commands.</target>
+        </trans-unit>
+        <trans-unit id="7804d1cd-4066-4c90-a59b-fad5ff8a8dfc" xml:space="preserve">
+          <source>The ping command should result in four successful replies from IP address 10.0.0.4.</source>
+          <target state="new">The ping command should result in four successful replies from IP address 10.0.0.4.</target>
+        </trans-unit>
+        <trans-unit id="9338fbe5-05e7-44bf-b63a-3c5b9d6c2ace" xml:space="preserve">
+          <source>This is a test of traffic across the Vnet-to-Vnet connection.</source>
+          <target state="new">This is a test of traffic across the Vnet-to-Vnet connection.</target>
+        </trans-unit>
+        <trans-unit id="2889bc98-649c-42ad-8df4-30911ff3aedc" xml:space="preserve">
+          <source>Next, add the extra data disk as a new volume with the drive letter F:.</source>
+          <target state="new">Next, add the extra data disk as a new volume with the drive letter F:.</target>
+        </trans-unit>
+        <trans-unit id="8f92a52b-d201-4282-bf4f-3c279aad5d54" xml:space="preserve">
+          <source>In the left pane of Server Manager, click <bpt id="9c8265fb-37cf-4800-a956-61893c25732b">&lt;strong&gt;</bpt>File and Storage Services<ept id="9c8265fb-37cf-4800-a956-61893c25732b">&lt;/strong&gt;</ept>, and then click <bpt id="105b51a1-76e6-466c-8e70-c04cc7e1bc33">&lt;strong&gt;</bpt>Disks<ept id="105b51a1-76e6-466c-8e70-c04cc7e1bc33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane of Server Manager, click <bpt id="9c8265fb-37cf-4800-a956-61893c25732b">&lt;strong&gt;</bpt>File and Storage Services<ept id="9c8265fb-37cf-4800-a956-61893c25732b">&lt;/strong&gt;</ept>, and then click <bpt id="105b51a1-76e6-466c-8e70-c04cc7e1bc33">&lt;strong&gt;</bpt>Disks<ept id="105b51a1-76e6-466c-8e70-c04cc7e1bc33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5aa02bb-917d-43f8-a038-c5394f0b86c2" xml:space="preserve">
+          <source>In the contents pane, in the <bpt id="9c8925d0-0ce1-4b2a-948d-28a2f91b2df3">&lt;strong&gt;</bpt>Disks<ept id="9c8925d0-0ce1-4b2a-948d-28a2f91b2df3">&lt;/strong&gt;</ept> group, click <bpt id="aead1feb-7c26-411a-abb8-be95af6b0eec">&lt;strong&gt;</bpt>disk 2<ept id="aead1feb-7c26-411a-abb8-be95af6b0eec">&lt;/strong&gt;</ept> (with the <bpt id="2bc75f97-4a5c-45e5-80b9-b04fd7540b14">&lt;strong&gt;</bpt>Partition<ept id="2bc75f97-4a5c-45e5-80b9-b04fd7540b14">&lt;/strong&gt;</ept> set to <bpt id="d045c5d2-af22-47e8-9683-6ee377f0a2e6">&lt;strong&gt;</bpt>Unknown<ept id="d045c5d2-af22-47e8-9683-6ee377f0a2e6">&lt;/strong&gt;</ept>).</source>
+          <target state="new">In the contents pane, in the <bpt id="9c8925d0-0ce1-4b2a-948d-28a2f91b2df3">&lt;strong&gt;</bpt>Disks<ept id="9c8925d0-0ce1-4b2a-948d-28a2f91b2df3">&lt;/strong&gt;</ept> group, click <bpt id="aead1feb-7c26-411a-abb8-be95af6b0eec">&lt;strong&gt;</bpt>disk 2<ept id="aead1feb-7c26-411a-abb8-be95af6b0eec">&lt;/strong&gt;</ept> (with the <bpt id="2bc75f97-4a5c-45e5-80b9-b04fd7540b14">&lt;strong&gt;</bpt>Partition<ept id="2bc75f97-4a5c-45e5-80b9-b04fd7540b14">&lt;/strong&gt;</ept> set to <bpt id="d045c5d2-af22-47e8-9683-6ee377f0a2e6">&lt;strong&gt;</bpt>Unknown<ept id="d045c5d2-af22-47e8-9683-6ee377f0a2e6">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="9c1d6051-1198-4eb8-b333-f981259cd41a" xml:space="preserve">
+          <source>Click <bpt id="82e8a6e8-1740-4d1d-8dcc-3892c07e283c">&lt;strong&gt;</bpt>Tasks<ept id="82e8a6e8-1740-4d1d-8dcc-3892c07e283c">&lt;/strong&gt;</ept>, and then click <bpt id="60d0bb3e-7f29-446f-b5a2-379b1a19c42e">&lt;strong&gt;</bpt>New Volume<ept id="60d0bb3e-7f29-446f-b5a2-379b1a19c42e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="82e8a6e8-1740-4d1d-8dcc-3892c07e283c">&lt;strong&gt;</bpt>Tasks<ept id="82e8a6e8-1740-4d1d-8dcc-3892c07e283c">&lt;/strong&gt;</ept>, and then click <bpt id="60d0bb3e-7f29-446f-b5a2-379b1a19c42e">&lt;strong&gt;</bpt>New Volume<ept id="60d0bb3e-7f29-446f-b5a2-379b1a19c42e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bada085-c62c-43ea-9489-293b81938ab0" xml:space="preserve">
+          <source>On the Before you begin page of the New Volume Wizard, click <bpt id="efc2a425-af5d-487d-9a7c-cac0f99c8722">&lt;strong&gt;</bpt>Next<ept id="efc2a425-af5d-487d-9a7c-cac0f99c8722">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Before you begin page of the New Volume Wizard, click <bpt id="efc2a425-af5d-487d-9a7c-cac0f99c8722">&lt;strong&gt;</bpt>Next<ept id="efc2a425-af5d-487d-9a7c-cac0f99c8722">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c67732b1-08d7-4657-9a06-a9756b153187" xml:space="preserve">
+          <source>On the Select the server and disk page, click <bpt id="64aefaf0-d64c-4519-983a-c5501751dea8">&lt;strong&gt;</bpt>Disk 2<ept id="64aefaf0-d64c-4519-983a-c5501751dea8">&lt;/strong&gt;</ept>, and then click <bpt id="fe29c897-87ff-4edf-abbf-1f2ff24ed25a">&lt;strong&gt;</bpt>Next<ept id="fe29c897-87ff-4edf-abbf-1f2ff24ed25a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select the server and disk page, click <bpt id="64aefaf0-d64c-4519-983a-c5501751dea8">&lt;strong&gt;</bpt>Disk 2<ept id="64aefaf0-d64c-4519-983a-c5501751dea8">&lt;/strong&gt;</ept>, and then click <bpt id="fe29c897-87ff-4edf-abbf-1f2ff24ed25a">&lt;strong&gt;</bpt>Next<ept id="fe29c897-87ff-4edf-abbf-1f2ff24ed25a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f65545fe-bf59-4660-a3d3-3d3037dfe9a1" xml:space="preserve">
+          <source>When prompted, click <bpt id="fea162d1-bb92-4e5e-9855-e95e0dc75d1d">&lt;strong&gt;</bpt>OK<ept id="fea162d1-bb92-4e5e-9855-e95e0dc75d1d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted, click <bpt id="fea162d1-bb92-4e5e-9855-e95e0dc75d1d">&lt;strong&gt;</bpt>OK<ept id="fea162d1-bb92-4e5e-9855-e95e0dc75d1d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6ee4c7e-e0a2-494d-bcdd-347f2941ce75" xml:space="preserve">
+          <source>On the Specify the size of the volume page, click <bpt id="bc443795-ef49-4c2a-942e-1a03fa4c9f6d">&lt;strong&gt;</bpt>Next<ept id="bc443795-ef49-4c2a-942e-1a03fa4c9f6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Specify the size of the volume page, click <bpt id="bc443795-ef49-4c2a-942e-1a03fa4c9f6d">&lt;strong&gt;</bpt>Next<ept id="bc443795-ef49-4c2a-942e-1a03fa4c9f6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a7e4d15-a0c1-4c23-861d-bba9698f632c" xml:space="preserve">
+          <source>On the Assign to a drive letter or folder page, click <bpt id="6e9d0b86-6c16-40de-aac5-70d0b5cb483b">&lt;strong&gt;</bpt>Next<ept id="6e9d0b86-6c16-40de-aac5-70d0b5cb483b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Assign to a drive letter or folder page, click <bpt id="6e9d0b86-6c16-40de-aac5-70d0b5cb483b">&lt;strong&gt;</bpt>Next<ept id="6e9d0b86-6c16-40de-aac5-70d0b5cb483b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4b0503e-ef5c-4a96-b886-3d18710bb4cd" xml:space="preserve">
+          <source>On the Select file system settings page, click <bpt id="96e18a1a-1c8c-43b1-be87-312680349065">&lt;strong&gt;</bpt>Next<ept id="96e18a1a-1c8c-43b1-be87-312680349065">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select file system settings page, click <bpt id="96e18a1a-1c8c-43b1-be87-312680349065">&lt;strong&gt;</bpt>Next<ept id="96e18a1a-1c8c-43b1-be87-312680349065">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbdc9f86-9cde-497c-981e-7115f3a69f00" xml:space="preserve">
+          <source>On the Confirm selections page, click <bpt id="375bd6a0-6779-4a2a-bf8f-f601ff2ad8c3">&lt;strong&gt;</bpt>Create<ept id="375bd6a0-6779-4a2a-bf8f-f601ff2ad8c3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Confirm selections page, click <bpt id="375bd6a0-6779-4a2a-bf8f-f601ff2ad8c3">&lt;strong&gt;</bpt>Create<ept id="375bd6a0-6779-4a2a-bf8f-f601ff2ad8c3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17b13529-e0b3-41b7-8f70-68bb88617f43" xml:space="preserve">
+          <source>When complete, click <bpt id="d765c2b5-9935-4698-8470-c4bf957bd607">&lt;strong&gt;</bpt>Close<ept id="d765c2b5-9935-4698-8470-c4bf957bd607">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When complete, click <bpt id="d765c2b5-9935-4698-8470-c4bf957bd607">&lt;strong&gt;</bpt>Close<ept id="d765c2b5-9935-4698-8470-c4bf957bd607">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="509350a3-f39c-4490-b10d-25d2afabdc9c" xml:space="preserve">
+          <source>Next, configure DC2 as a replica domain controller for the corp.contoso.com domain.</source>
+          <target state="new">Next, configure DC2 as a replica domain controller for the corp.contoso.com domain.</target>
+        </trans-unit>
+        <trans-unit id="c878e8e6-8245-42ff-906d-b34b72639038" xml:space="preserve">
+          <source>Run these commands from the Windows PowerShell command prompt on DC2.</source>
+          <target state="new">Run these commands from the Windows PowerShell command prompt on DC2.</target>
+        </trans-unit>
+        <trans-unit id="23ecdaa6-4867-4038-8c4c-bbe57446deef" xml:space="preserve">
+          <source>Note that you are prompted to supply both the CORP\User1 password and a Directory Services Restore Mode (DSRM) password, and to restart DC2.</source>
+          <target state="new">Note that you are prompted to supply both the CORP\User1 password and a Directory Services Restore Mode (DSRM) password, and to restart DC2.</target>
+        </trans-unit>
+        <trans-unit id="0b048888-1f5c-446e-aca6-cf14360b4517" xml:space="preserve">
+          <source>Now that the TestVNET virtual network has its own DNS server (DC2), you must configure the TestVNET virtual network to use this DNS server.</source>
+          <target state="new">Now that the TestVNET virtual network has its own DNS server (DC2), you must configure the TestVNET virtual network to use this DNS server.</target>
+        </trans-unit>
+        <trans-unit id="361ec6d8-6845-47d7-a3ef-114981f0fad3" xml:space="preserve">
+          <source>In the left pane of the Azure Management Portal, click <bpt id="31207862-82e8-459a-a92d-31e25d932a41">&lt;strong&gt;</bpt>Networks<ept id="31207862-82e8-459a-a92d-31e25d932a41">&lt;/strong&gt;</ept>, and then click <bpt id="02b593aa-40f8-49ed-845a-0ad59ea045c5">&lt;strong&gt;</bpt>TestVNET<ept id="02b593aa-40f8-49ed-845a-0ad59ea045c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane of the Azure Management Portal, click <bpt id="31207862-82e8-459a-a92d-31e25d932a41">&lt;strong&gt;</bpt>Networks<ept id="31207862-82e8-459a-a92d-31e25d932a41">&lt;/strong&gt;</ept>, and then click <bpt id="02b593aa-40f8-49ed-845a-0ad59ea045c5">&lt;strong&gt;</bpt>TestVNET<ept id="02b593aa-40f8-49ed-845a-0ad59ea045c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e41aee9a-56e8-441d-af47-aef35a2f2114" xml:space="preserve">
+          <source>Click <bpt id="3e80d5ac-21ea-4e58-84db-ab15832fb2e1">&lt;strong&gt;</bpt>Configure<ept id="3e80d5ac-21ea-4e58-84db-ab15832fb2e1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3e80d5ac-21ea-4e58-84db-ab15832fb2e1">&lt;strong&gt;</bpt>Configure<ept id="3e80d5ac-21ea-4e58-84db-ab15832fb2e1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00e7c8c6-6fe6-4da7-ae58-1fcb04c2553c" xml:space="preserve">
+          <source>In <bpt id="fab3d2a2-25b4-46a5-841a-4d1ab1acdb08">&lt;strong&gt;</bpt>DNS Servers<ept id="fab3d2a2-25b4-46a5-841a-4d1ab1acdb08">&lt;/strong&gt;</ept>, remove the 10.0.0.4 entry.</source>
+          <target state="new">In <bpt id="fab3d2a2-25b4-46a5-841a-4d1ab1acdb08">&lt;strong&gt;</bpt>DNS Servers<ept id="fab3d2a2-25b4-46a5-841a-4d1ab1acdb08">&lt;/strong&gt;</ept>, remove the 10.0.0.4 entry.</target>
+        </trans-unit>
+        <trans-unit id="6b2e6d84-21f2-4776-8cf0-49987aed4ede" xml:space="preserve">
+          <source>In <bpt id="da97a865-f94a-4710-afdc-6fefbe02c4c3">&lt;strong&gt;</bpt>DNS Servers<ept id="da97a865-f94a-4710-afdc-6fefbe02c4c3">&lt;/strong&gt;</ept>, add an entry with <bpt id="880f2de7-5e9a-47fe-abbf-70d36532683e">&lt;strong&gt;</bpt>DC2<ept id="880f2de7-5e9a-47fe-abbf-70d36532683e">&lt;/strong&gt;</ept> as the name and <bpt id="45321430-01c9-4cf8-9276-e4c1821c90c5">&lt;strong&gt;</bpt>192.168.0.4<ept id="45321430-01c9-4cf8-9276-e4c1821c90c5">&lt;/strong&gt;</ept> as the IP address.</source>
+          <target state="new">In <bpt id="da97a865-f94a-4710-afdc-6fefbe02c4c3">&lt;strong&gt;</bpt>DNS Servers<ept id="da97a865-f94a-4710-afdc-6fefbe02c4c3">&lt;/strong&gt;</ept>, add an entry with <bpt id="880f2de7-5e9a-47fe-abbf-70d36532683e">&lt;strong&gt;</bpt>DC2<ept id="880f2de7-5e9a-47fe-abbf-70d36532683e">&lt;/strong&gt;</ept> as the name and <bpt id="45321430-01c9-4cf8-9276-e4c1821c90c5">&lt;strong&gt;</bpt>192.168.0.4<ept id="45321430-01c9-4cf8-9276-e4c1821c90c5">&lt;/strong&gt;</ept> as the IP address.</target>
+        </trans-unit>
+        <trans-unit id="be3a2d60-eb9c-4d06-9f8b-5eaa065d8af7" xml:space="preserve">
+          <source>In the command bar at the bottom, click <bpt id="244b3ab6-6988-4417-aa79-c394003a8de0">&lt;strong&gt;</bpt>Save<ept id="244b3ab6-6988-4417-aa79-c394003a8de0">&lt;/strong&gt;</ept>, and then click <bpt id="5e2a1860-a688-4935-805c-deb8a5130e73">&lt;strong&gt;</bpt>Yes<ept id="5e2a1860-a688-4935-805c-deb8a5130e73">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">In the command bar at the bottom, click <bpt id="244b3ab6-6988-4417-aa79-c394003a8de0">&lt;strong&gt;</bpt>Save<ept id="244b3ab6-6988-4417-aa79-c394003a8de0">&lt;/strong&gt;</ept>, and then click <bpt id="5e2a1860-a688-4935-805c-deb8a5130e73">&lt;strong&gt;</bpt>Yes<ept id="5e2a1860-a688-4935-805c-deb8a5130e73">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="29539c9c-e45a-4a4b-b19f-07243852fd9b" xml:space="preserve">
+          <source>Wait until the update to the TestVNet network is complete.</source>
+          <target state="new">Wait until the update to the TestVNet network is complete.</target>
+        </trans-unit>
+        <trans-unit id="d8c9aef8-6aab-4eee-b633-0a6f8af7f5f2" xml:space="preserve">
+          <source>This is your current configuration.</source>
+          <target state="new">This is your current configuration.</target>
+        </trans-unit>
+        <trans-unit id="a3449d7e-e15b-4358-8d0a-fac75b0d2f61" xml:space="preserve">
+          <source><bpt id="0e182b7f-ccc7-45c2-ad76-b3d5fdf8d69d">&lt;linkText&gt;</bpt><ept id="0e182b7f-ccc7-45c2-ad76-b3d5fdf8d69d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e182b7f-ccc7-45c2-ad76-b3d5fdf8d69d">&lt;linkText&gt;</bpt><ept id="0e182b7f-ccc7-45c2-ad76-b3d5fdf8d69d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34fc72f7-307a-4955-9e18-a564533109c0" xml:space="preserve">
+          <source>Your simulated hybrid cloud environment is now ready for testing.</source>
+          <target state="new">Your simulated hybrid cloud environment is now ready for testing.</target>
+        </trans-unit>
+        <trans-unit id="0cca310a-955a-4c38-8967-d6c1d4c27d99" xml:space="preserve">
+          <source>You can also build these configurations in this test environment:</source>
+          <target state="new">You can also build these configurations in this test environment:</target>
+        </trans-unit>
+        <trans-unit id="d643c899-fef5-4319-981c-cf44991cf898" xml:space="preserve">
+          <source><bpt id="cf3083c3-3990-4a0c-9602-0acb71a44fb8">&lt;linkText&gt;</bpt>SharePoint intranet farm<ept id="cf3083c3-3990-4a0c-9602-0acb71a44fb8">&lt;/linkText&gt;</ept><bpt id="cf3083c3-3990-4a0c-9602-0acb71a44fb8">&lt;title&gt;</bpt><ept id="cf3083c3-3990-4a0c-9602-0acb71a44fb8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cf3083c3-3990-4a0c-9602-0acb71a44fb8">&lt;linkText&gt;</bpt>SharePoint intranet farm<ept id="cf3083c3-3990-4a0c-9602-0acb71a44fb8">&lt;/linkText&gt;</ept><bpt id="cf3083c3-3990-4a0c-9602-0acb71a44fb8">&lt;title&gt;</bpt><ept id="cf3083c3-3990-4a0c-9602-0acb71a44fb8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15981cf6-28bb-47f7-9de2-aa3c7fed7627" xml:space="preserve">
+          <source><bpt id="11775e31-c452-48f0-8a53-9fb887a490a0">&lt;linkText&gt;</bpt>Web-based LOB application<ept id="11775e31-c452-48f0-8a53-9fb887a490a0">&lt;/linkText&gt;</ept><bpt id="11775e31-c452-48f0-8a53-9fb887a490a0">&lt;title&gt;</bpt><ept id="11775e31-c452-48f0-8a53-9fb887a490a0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="11775e31-c452-48f0-8a53-9fb887a490a0">&lt;linkText&gt;</bpt>Web-based LOB application<ept id="11775e31-c452-48f0-8a53-9fb887a490a0">&lt;/linkText&gt;</ept><bpt id="11775e31-c452-48f0-8a53-9fb887a490a0">&lt;title&gt;</bpt><ept id="11775e31-c452-48f0-8a53-9fb887a490a0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0eee7ec3-1209-44cc-b18b-dee55c992f90" xml:space="preserve">
+          <source><bpt id="9983ee06-2034-49fe-82bb-0798dd788e99">&lt;linkText&gt;</bpt>Office 365 Directory Synchronization (DirSync) server<ept id="9983ee06-2034-49fe-82bb-0798dd788e99">&lt;/linkText&gt;</ept><bpt id="9983ee06-2034-49fe-82bb-0798dd788e99">&lt;title&gt;</bpt><ept id="9983ee06-2034-49fe-82bb-0798dd788e99">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9983ee06-2034-49fe-82bb-0798dd788e99">&lt;linkText&gt;</bpt>Office 365 Directory Synchronization (DirSync) server<ept id="9983ee06-2034-49fe-82bb-0798dd788e99">&lt;/linkText&gt;</ept><bpt id="9983ee06-2034-49fe-82bb-0798dd788e99">&lt;title&gt;</bpt><ept id="9983ee06-2034-49fe-82bb-0798dd788e99">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a102bbd-4028-4623-8e7a-5c030ceb376c" xml:space="preserve">
+          <source><bpt id="31b6f1fd-e45b-44aa-abde-0ae188ccc4cd">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="31b6f1fd-e45b-44aa-abde-0ae188ccc4cd">&lt;/linkText&gt;</ept><bpt id="31b6f1fd-e45b-44aa-abde-0ae188ccc4cd">&lt;title&gt;</bpt><ept id="31b6f1fd-e45b-44aa-abde-0ae188ccc4cd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="31b6f1fd-e45b-44aa-abde-0ae188ccc4cd">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="31b6f1fd-e45b-44aa-abde-0ae188ccc4cd">&lt;/linkText&gt;</ept><bpt id="31b6f1fd-e45b-44aa-abde-0ae188ccc4cd">&lt;title&gt;</bpt><ept id="31b6f1fd-e45b-44aa-abde-0ae188ccc4cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55926891-5d17-49d1-8e29-29a8de3b0b1e" xml:space="preserve">
+          <source><bpt id="5dc8fd37-e2f6-4ab4-8943-28775285395b">&lt;linkText&gt;</bpt>Configure a VNet to VNet Connection<ept id="5dc8fd37-e2f6-4ab4-8943-28775285395b">&lt;/linkText&gt;</ept><bpt id="5dc8fd37-e2f6-4ab4-8943-28775285395b">&lt;title&gt;</bpt><ept id="5dc8fd37-e2f6-4ab4-8943-28775285395b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5dc8fd37-e2f6-4ab4-8943-28775285395b">&lt;linkText&gt;</bpt>Configure a VNet to VNet Connection<ept id="5dc8fd37-e2f6-4ab4-8943-28775285395b">&lt;/linkText&gt;</ept><bpt id="5dc8fd37-e2f6-4ab4-8943-28775285395b">&lt;title&gt;</bpt><ept id="5dc8fd37-e2f6-4ab4-8943-28775285395b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6dc30232-87ea-4ecc-b9ed-6f5bec642716" xml:space="preserve">
+          <source><bpt id="fd4970bc-aa66-4664-993f-fb76cdfcf263">&lt;linkText&gt;</bpt>Base Configuration Test Environment<ept id="fd4970bc-aa66-4664-993f-fb76cdfcf263">&lt;/linkText&gt;</ept><bpt id="fd4970bc-aa66-4664-993f-fb76cdfcf263">&lt;title&gt;</bpt><ept id="fd4970bc-aa66-4664-993f-fb76cdfcf263">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fd4970bc-aa66-4664-993f-fb76cdfcf263">&lt;linkText&gt;</bpt>Base Configuration Test Environment<ept id="fd4970bc-aa66-4664-993f-fb76cdfcf263">&lt;/linkText&gt;</ept><bpt id="fd4970bc-aa66-4664-993f-fb76cdfcf263">&lt;title&gt;</bpt><ept id="fd4970bc-aa66-4664-993f-fb76cdfcf263">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d64d72b0-0176-4172-975a-83779794d18b" xml:space="preserve">
+          <source><bpt id="6a93602e-4dd6-44ae-aa4a-2c30f6d32058">&lt;linkText&gt;</bpt>Azure hybrid cloud test environments<ept id="6a93602e-4dd6-44ae-aa4a-2c30f6d32058">&lt;/linkText&gt;</ept><bpt id="6a93602e-4dd6-44ae-aa4a-2c30f6d32058">&lt;title&gt;</bpt><ept id="6a93602e-4dd6-44ae-aa4a-2c30f6d32058">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6a93602e-4dd6-44ae-aa4a-2c30f6d32058">&lt;linkText&gt;</bpt>Azure hybrid cloud test environments<ept id="6a93602e-4dd6-44ae-aa4a-2c30f6d32058">&lt;/linkText&gt;</ept><bpt id="6a93602e-4dd6-44ae-aa4a-2c30f6d32058">&lt;title&gt;</bpt><ept id="6a93602e-4dd6-44ae-aa4a-2c30f6d32058">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ddc313e4-ed26-428f-86e4-c2dd775ea17e" xml:space="preserve">
+          <source><bpt id="57a2cedc-9639-4de6-9db8-44269b836c8c">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="57a2cedc-9639-4de6-9db8-44269b836c8c">&lt;/linkText&gt;</ept><bpt id="57a2cedc-9639-4de6-9db8-44269b836c8c">&lt;title&gt;</bpt><ept id="57a2cedc-9639-4de6-9db8-44269b836c8c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="57a2cedc-9639-4de6-9db8-44269b836c8c">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="57a2cedc-9639-4de6-9db8-44269b836c8c">&lt;/linkText&gt;</ept><bpt id="57a2cedc-9639-4de6-9db8-44269b836c8c">&lt;title&gt;</bpt><ept id="57a2cedc-9639-4de6-9db8-44269b836c8c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5191a53e-37d7-401c-82a8-1af34549e79e" xml:space="preserve">
+          <source>To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them.</source>
+          <target state="new">To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them.</target>
+        </trans-unit>
+        <trans-unit id="30f25313-f35b-425a-8af7-8b37d43368f2" xml:space="preserve">
+          <source>For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the TestLab and Test_VNET virtual networks at the end of each business day.</source>
+          <target state="new">For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the TestLab and Test_VNET virtual networks at the end of each business day.</target>
+        </trans-unit>
+        <trans-unit id="cdc203a0-bc55-43eb-8f2c-757efd361ec0" xml:space="preserve">
+          <source>For more information, see <bpt id="54528236-12fb-4c93-87b8-55caada59263">&lt;linkText&gt;</bpt>Get started with Azure Automation<ept id="54528236-12fb-4c93-87b8-55caada59263">&lt;/linkText&gt;</ept><bpt id="54528236-12fb-4c93-87b8-55caada59263">&lt;title&gt;</bpt><ept id="54528236-12fb-4c93-87b8-55caada59263">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="54528236-12fb-4c93-87b8-55caada59263">&lt;linkText&gt;</bpt>Get started with Azure Automation<ept id="54528236-12fb-4c93-87b8-55caada59263">&lt;/linkText&gt;</ept><bpt id="54528236-12fb-4c93-87b8-55caada59263">&lt;title&gt;</bpt><ept id="54528236-12fb-4c93-87b8-55caada59263">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80d43352-92c6-4703-885c-c50ad86b17cc" xml:space="preserve">
+          <source>When you start the virtual machines on the Corpnet subnet again, start DC1 first.</source>
+          <target state="new">When you start the virtual machines on the Corpnet subnet again, start DC1 first.</target>
+        </trans-unit>
+        <trans-unit id="d2742bd6-1493-42e8-bf16-789aabb5839d" xml:space="preserve">
+          <source>An Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost.</source>
+          <target state="new">An Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost.</target>
+        </trans-unit>
+        <trans-unit id="378a956e-8726-4124-91a0-f6645c622ff1" xml:space="preserve">
+          <source>For the details, see <bpt id="b3fb1a66-781d-42df-af3c-3f8965756ff4">&lt;linkText&gt;</bpt>Pricing - Virtual Network<ept id="b3fb1a66-781d-42df-af3c-3f8965756ff4">&lt;/linkText&gt;</ept><bpt id="b3fb1a66-781d-42df-af3c-3f8965756ff4">&lt;title&gt;</bpt><ept id="b3fb1a66-781d-42df-af3c-3f8965756ff4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the details, see <bpt id="b3fb1a66-781d-42df-af3c-3f8965756ff4">&lt;linkText&gt;</bpt>Pricing - Virtual Network<ept id="b3fb1a66-781d-42df-af3c-3f8965756ff4">&lt;/linkText&gt;</ept><bpt id="b3fb1a66-781d-42df-af3c-3f8965756ff4">&lt;title&gt;</bpt><ept id="b3fb1a66-781d-42df-af3c-3f8965756ff4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e897ce60-b5ec-4b92-aa45-c817743031bc" xml:space="preserve">
+          <source>To minimize the costs of the two VPN gateways (one for TestLab and one for TestVNET), create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateways with these steps.</source>
+          <target state="new">To minimize the costs of the two VPN gateways (one for TestLab and one for TestVNET), create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateways with these steps.</target>
+        </trans-unit>
+        <trans-unit id="50afd7ed-167b-471f-9055-ace049d75f93" xml:space="preserve">
+          <source>From the Azure Management Portal on your local computer, click <bpt id="56f31c15-67fe-448b-8d57-da0c6e6d303f">&lt;strong&gt;</bpt>Networks<ept id="56f31c15-67fe-448b-8d57-da0c6e6d303f">&lt;/strong&gt;</ept> in the left pane, click <bpt id="1b8fab7f-b496-4304-a6d8-3336526b2d10">&lt;strong&gt;</bpt>TestLab<ept id="1b8fab7f-b496-4304-a6d8-3336526b2d10">&lt;/strong&gt;</ept>, and then click <bpt id="89e99bdb-99a0-4114-b25f-60b70de491c7">&lt;strong&gt;</bpt>Dashboard<ept id="89e99bdb-99a0-4114-b25f-60b70de491c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure Management Portal on your local computer, click <bpt id="56f31c15-67fe-448b-8d57-da0c6e6d303f">&lt;strong&gt;</bpt>Networks<ept id="56f31c15-67fe-448b-8d57-da0c6e6d303f">&lt;/strong&gt;</ept> in the left pane, click <bpt id="1b8fab7f-b496-4304-a6d8-3336526b2d10">&lt;strong&gt;</bpt>TestLab<ept id="1b8fab7f-b496-4304-a6d8-3336526b2d10">&lt;/strong&gt;</ept>, and then click <bpt id="89e99bdb-99a0-4114-b25f-60b70de491c7">&lt;strong&gt;</bpt>Dashboard<ept id="89e99bdb-99a0-4114-b25f-60b70de491c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="258c3bf5-f847-45f0-8218-f9e418f0fd4a" xml:space="preserve">
+          <source>In the task bar, click <bpt id="3f77a731-d407-438c-903b-e56209611d1f">&lt;strong&gt;</bpt>Delete Gateway<ept id="3f77a731-d407-438c-903b-e56209611d1f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar, click <bpt id="3f77a731-d407-438c-903b-e56209611d1f">&lt;strong&gt;</bpt>Delete Gateway<ept id="3f77a731-d407-438c-903b-e56209611d1f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e552446-e199-45f3-95c2-f6b13ec54dff" xml:space="preserve">
+          <source>Click <bpt id="20e05a37-8796-4b88-ae31-0bfb36460da4">&lt;strong&gt;</bpt>Yes<ept id="20e05a37-8796-4b88-ae31-0bfb36460da4">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">Click <bpt id="20e05a37-8796-4b88-ae31-0bfb36460da4">&lt;strong&gt;</bpt>Yes<ept id="20e05a37-8796-4b88-ae31-0bfb36460da4">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="aef853e1-94a6-4d4c-b2de-83fd9e08a421" xml:space="preserve">
+          <source>Wait until the gateway is deleted and its status changes to <bpt id="941402ee-602f-418b-8540-098188b47f94">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="941402ee-602f-418b-8540-098188b47f94">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Wait until the gateway is deleted and its status changes to <bpt id="941402ee-602f-418b-8540-098188b47f94">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="941402ee-602f-418b-8540-098188b47f94">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="812c13a4-fcbf-4bb8-950e-d091e16730c7" xml:space="preserve">
+          <source>Click <bpt id="46c48e30-b9ae-408d-99cd-5b20418cd778">&lt;strong&gt;</bpt>Networks<ept id="46c48e30-b9ae-408d-99cd-5b20418cd778">&lt;/strong&gt;</ept> in the left pane, click <bpt id="86877412-adee-4987-93fc-cd5d0806e32f">&lt;strong&gt;</bpt>TestVNET<ept id="86877412-adee-4987-93fc-cd5d0806e32f">&lt;/strong&gt;</ept>, and then click <bpt id="65065897-2f09-44d5-b370-b1f16e81c7c0">&lt;strong&gt;</bpt>Dashboard<ept id="65065897-2f09-44d5-b370-b1f16e81c7c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="46c48e30-b9ae-408d-99cd-5b20418cd778">&lt;strong&gt;</bpt>Networks<ept id="46c48e30-b9ae-408d-99cd-5b20418cd778">&lt;/strong&gt;</ept> in the left pane, click <bpt id="86877412-adee-4987-93fc-cd5d0806e32f">&lt;strong&gt;</bpt>TestVNET<ept id="86877412-adee-4987-93fc-cd5d0806e32f">&lt;/strong&gt;</ept>, and then click <bpt id="65065897-2f09-44d5-b370-b1f16e81c7c0">&lt;strong&gt;</bpt>Dashboard<ept id="65065897-2f09-44d5-b370-b1f16e81c7c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="523a3001-74be-40da-93a9-fe456dfbb36a" xml:space="preserve">
+          <source>In the task bar, click <bpt id="4939232c-7a31-4d91-ba84-8c865e7cfdbd">&lt;strong&gt;</bpt>Delete Gateway<ept id="4939232c-7a31-4d91-ba84-8c865e7cfdbd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar, click <bpt id="4939232c-7a31-4d91-ba84-8c865e7cfdbd">&lt;strong&gt;</bpt>Delete Gateway<ept id="4939232c-7a31-4d91-ba84-8c865e7cfdbd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c947b21-a51c-484a-8646-a89e5d65f60e" xml:space="preserve">
+          <source>Click <bpt id="3e02eac7-fd3b-400c-802d-787c515b225e">&lt;strong&gt;</bpt>Yes<ept id="3e02eac7-fd3b-400c-802d-787c515b225e">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">Click <bpt id="3e02eac7-fd3b-400c-802d-787c515b225e">&lt;strong&gt;</bpt>Yes<ept id="3e02eac7-fd3b-400c-802d-787c515b225e">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="04f0b450-b6e3-466a-879e-11d6818ec2fb" xml:space="preserve">
+          <source>Wait until the gateway is deleted and its status changes to <bpt id="eff9ac5d-8500-465e-9b82-5ae84a52f180">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="eff9ac5d-8500-465e-9b82-5ae84a52f180">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Wait until the gateway is deleted and its status changes to <bpt id="eff9ac5d-8500-465e-9b82-5ae84a52f180">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="eff9ac5d-8500-465e-9b82-5ae84a52f180">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e33a539b-5f1f-46d0-9aa7-11d793288716" xml:space="preserve">
+          <source>If you delete the gateways and you want to restore this test environment, you must first create new gateways.</source>
+          <target state="new">If you delete the gateways and you want to restore this test environment, you must first create new gateways.</target>
+        </trans-unit>
+        <trans-unit id="ca2c63a2-f862-4076-95bb-2005a8ecdbb5" xml:space="preserve">
+          <source>From the Azure Management Portal on your local computer, click <bpt id="b245c295-6cf5-4bd1-84c7-8f1be9a3998d">&lt;strong&gt;</bpt>Networks<ept id="b245c295-6cf5-4bd1-84c7-8f1be9a3998d">&lt;/strong&gt;</ept> in the left pane, and then click <bpt id="7a153c03-1906-4e60-8171-47b1e70eb6fb">&lt;strong&gt;</bpt>TestLab<ept id="7a153c03-1906-4e60-8171-47b1e70eb6fb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure Management Portal on your local computer, click <bpt id="b245c295-6cf5-4bd1-84c7-8f1be9a3998d">&lt;strong&gt;</bpt>Networks<ept id="b245c295-6cf5-4bd1-84c7-8f1be9a3998d">&lt;/strong&gt;</ept> in the left pane, and then click <bpt id="7a153c03-1906-4e60-8171-47b1e70eb6fb">&lt;strong&gt;</bpt>TestLab<ept id="7a153c03-1906-4e60-8171-47b1e70eb6fb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="144ddc4a-e736-4196-b840-ec3d8af7aac8" xml:space="preserve">
+          <source>On the Dashboard page, you should see a status of <bpt id="8643ea93-116c-49f4-93df-ebab953d5228">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="8643ea93-116c-49f4-93df-ebab953d5228">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Dashboard page, you should see a status of <bpt id="8643ea93-116c-49f4-93df-ebab953d5228">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="8643ea93-116c-49f4-93df-ebab953d5228">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ab05192-de6d-446c-aac9-72490f3a3143" xml:space="preserve">
+          <source>In the task bar, click <bpt id="778d3c7b-62cb-4b4b-9dc7-538eb59d72fa">&lt;strong&gt;</bpt>Create Gateway<ept id="778d3c7b-62cb-4b4b-9dc7-538eb59d72fa">&lt;/strong&gt;</ept>, and then click <bpt id="06d1e9cc-8233-4699-9335-ffa7e40d65da">&lt;strong&gt;</bpt>Dynamic Routing<ept id="06d1e9cc-8233-4699-9335-ffa7e40d65da">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar, click <bpt id="778d3c7b-62cb-4b4b-9dc7-538eb59d72fa">&lt;strong&gt;</bpt>Create Gateway<ept id="778d3c7b-62cb-4b4b-9dc7-538eb59d72fa">&lt;/strong&gt;</ept>, and then click <bpt id="06d1e9cc-8233-4699-9335-ffa7e40d65da">&lt;strong&gt;</bpt>Dynamic Routing<ept id="06d1e9cc-8233-4699-9335-ffa7e40d65da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d468da42-7613-4097-a4e6-5d577a41a8f7" xml:space="preserve">
+          <source>Click <bpt id="ab2f81e7-95d0-4ee3-be2e-9052c5184fd5">&lt;strong&gt;</bpt>Yes<ept id="ab2f81e7-95d0-4ee3-be2e-9052c5184fd5">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">Click <bpt id="ab2f81e7-95d0-4ee3-be2e-9052c5184fd5">&lt;strong&gt;</bpt>Yes<ept id="ab2f81e7-95d0-4ee3-be2e-9052c5184fd5">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="1e4d47e1-b38d-445e-b244-e97151a84565" xml:space="preserve">
+          <source>Wait until the gateway is complete and its status changes to <bpt id="472e8cb4-7b0b-4fb2-a409-f2d15a66da71">&lt;strong&gt;</bpt>Connecting<ept id="472e8cb4-7b0b-4fb2-a409-f2d15a66da71">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Wait until the gateway is complete and its status changes to <bpt id="472e8cb4-7b0b-4fb2-a409-f2d15a66da71">&lt;strong&gt;</bpt>Connecting<ept id="472e8cb4-7b0b-4fb2-a409-f2d15a66da71">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e40d1009-0e7d-4484-a686-4bbdda0ca859" xml:space="preserve">
+          <source>This could take a few minutes.</source>
+          <target state="new">This could take a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="11a0cdd9-9030-457a-80e2-222d501cb19b" xml:space="preserve">
+          <source>From the Dashboard page, note the <bpt id="8e6f522f-011a-4904-a874-05788836aa32">&lt;strong&gt;</bpt>Gateway IP Address<ept id="8e6f522f-011a-4904-a874-05788836aa32">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Dashboard page, note the <bpt id="8e6f522f-011a-4904-a874-05788836aa32">&lt;strong&gt;</bpt>Gateway IP Address<ept id="8e6f522f-011a-4904-a874-05788836aa32">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1a46733-6f26-481a-ad1d-af34883e6d59" xml:space="preserve">
+          <source>This is the new public IP address of the Azure VPN gateway for the TestLab virtual network.</source>
+          <target state="new">This is the new public IP address of the Azure VPN gateway for the TestLab virtual network.</target>
+        </trans-unit>
+        <trans-unit id="2067bb82-7318-41aa-9809-7c47bb76c245" xml:space="preserve">
+          <source>You need this IP address to re-configure the TestLabLNet local network.</source>
+          <target state="new">You need this IP address to re-configure the TestLabLNet local network.</target>
+        </trans-unit>
+        <trans-unit id="92fc9bf7-b7bd-483a-b3aa-e0d93bf27518" xml:space="preserve">
+          <source>In the task bar, click <bpt id="459bc3e3-2469-45e5-92e6-962a65c368df">&lt;strong&gt;</bpt>Manage Key<ept id="459bc3e3-2469-45e5-92e6-962a65c368df">&lt;/strong&gt;</ept>, and then click the copy icon next to the key to copy it to your clipboard.</source>
+          <target state="new">In the task bar, click <bpt id="459bc3e3-2469-45e5-92e6-962a65c368df">&lt;strong&gt;</bpt>Manage Key<ept id="459bc3e3-2469-45e5-92e6-962a65c368df">&lt;/strong&gt;</ept>, and then click the copy icon next to the key to copy it to your clipboard.</target>
+        </trans-unit>
+        <trans-unit id="a3c0fe93-cfcc-4244-8c03-5682f54ba7d6" xml:space="preserve">
+          <source>Paste this key value into a document and save it.</source>
+          <target state="new">Paste this key value into a document and save it.</target>
+        </trans-unit>
+        <trans-unit id="31cc3e77-3cce-4263-8707-5761c0445615" xml:space="preserve">
+          <source>You need this key value to re-configure the VPN gateway for the TestVNET virtual network.</source>
+          <target state="new">You need this key value to re-configure the VPN gateway for the TestVNET virtual network.</target>
+        </trans-unit>
+        <trans-unit id="52aff4ad-a50d-44ac-8740-ced7fa43cbce" xml:space="preserve">
+          <source>From the Azure Management Portal on your local computer, click <bpt id="2f346166-dad9-42a1-b099-7edc059c29b5">&lt;strong&gt;</bpt>Networks<ept id="2f346166-dad9-42a1-b099-7edc059c29b5">&lt;/strong&gt;</ept> in the left pane, and then click <bpt id="4d2d741a-b505-4d95-a49c-1feb1640f306">&lt;strong&gt;</bpt>TestVNET<ept id="4d2d741a-b505-4d95-a49c-1feb1640f306">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure Management Portal on your local computer, click <bpt id="2f346166-dad9-42a1-b099-7edc059c29b5">&lt;strong&gt;</bpt>Networks<ept id="2f346166-dad9-42a1-b099-7edc059c29b5">&lt;/strong&gt;</ept> in the left pane, and then click <bpt id="4d2d741a-b505-4d95-a49c-1feb1640f306">&lt;strong&gt;</bpt>TestVNET<ept id="4d2d741a-b505-4d95-a49c-1feb1640f306">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d9b482b-8c3e-4a36-a3e9-c0ee649c25bd" xml:space="preserve">
+          <source>On the Dashboard page, you should see a status of <bpt id="980335d6-5642-4e52-9e02-34b1f9c55761">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="980335d6-5642-4e52-9e02-34b1f9c55761">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Dashboard page, you should see a status of <bpt id="980335d6-5642-4e52-9e02-34b1f9c55761">&lt;strong&gt;</bpt>The Gateway Was Not Created<ept id="980335d6-5642-4e52-9e02-34b1f9c55761">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bde1bd8d-a495-47b6-9884-b7de1a469e69" xml:space="preserve">
+          <source>In the task bar, click <bpt id="f563697c-16d3-4ffc-b2a6-8a959d7adce6">&lt;strong&gt;</bpt>Create Gateway<ept id="f563697c-16d3-4ffc-b2a6-8a959d7adce6">&lt;/strong&gt;</ept>, and then click <bpt id="724ca5f9-58cd-4ed5-97a1-cae6db76cf51">&lt;strong&gt;</bpt>Dynamic Routing<ept id="724ca5f9-58cd-4ed5-97a1-cae6db76cf51">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar, click <bpt id="f563697c-16d3-4ffc-b2a6-8a959d7adce6">&lt;strong&gt;</bpt>Create Gateway<ept id="f563697c-16d3-4ffc-b2a6-8a959d7adce6">&lt;/strong&gt;</ept>, and then click <bpt id="724ca5f9-58cd-4ed5-97a1-cae6db76cf51">&lt;strong&gt;</bpt>Dynamic Routing<ept id="724ca5f9-58cd-4ed5-97a1-cae6db76cf51">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1655fe04-d329-47ca-958d-f39da604d760" xml:space="preserve">
+          <source>Click <bpt id="3b363b6c-0b40-4198-a61f-78e997fa24cb">&lt;strong&gt;</bpt>Yes<ept id="3b363b6c-0b40-4198-a61f-78e997fa24cb">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">Click <bpt id="3b363b6c-0b40-4198-a61f-78e997fa24cb">&lt;strong&gt;</bpt>Yes<ept id="3b363b6c-0b40-4198-a61f-78e997fa24cb">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="ed25011a-52df-4db1-a78e-122683004a81" xml:space="preserve">
+          <source>Wait until the gateway is complete and its status changes to Connecting.</source>
+          <target state="new">Wait until the gateway is complete and its status changes to Connecting.</target>
+        </trans-unit>
+        <trans-unit id="0fb2ee49-6203-458f-9df1-662cdaa372d2" xml:space="preserve">
+          <source>This could take a few minutes.</source>
+          <target state="new">This could take a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="7f67b5eb-cf5c-423b-bfe8-e54ead30f752" xml:space="preserve">
+          <source>From the Dashboard page, note the <bpt id="13edbfad-ec29-4fd5-a03d-b208087017ae">&lt;strong&gt;</bpt>Gateway IP Address<ept id="13edbfad-ec29-4fd5-a03d-b208087017ae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Dashboard page, note the <bpt id="13edbfad-ec29-4fd5-a03d-b208087017ae">&lt;strong&gt;</bpt>Gateway IP Address<ept id="13edbfad-ec29-4fd5-a03d-b208087017ae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f09743d-74b8-4a7c-838f-b02d80711e05" xml:space="preserve">
+          <source>This is the new public IP address of the Azure VPN gateway for the TestVNET virtual network.</source>
+          <target state="new">This is the new public IP address of the Azure VPN gateway for the TestVNET virtual network.</target>
+        </trans-unit>
+        <trans-unit id="9afc12e5-932f-45fe-a4f3-24bfd0da7945" xml:space="preserve">
+          <source>You need this IP address to re-configure the TestVNETLNet local network.</source>
+          <target state="new">You need this IP address to re-configure the TestVNETLNet local network.</target>
+        </trans-unit>
+        <trans-unit id="49212f1a-618c-4611-83bb-a22bf1fc2118" xml:space="preserve">
+          <source>Next, you configure the TestLabLNet and TestVNETLNet local networks with the new public IP addresses obtained from creating the virtual network gateways.</source>
+          <target state="new">Next, you configure the TestLabLNet and TestVNETLNet local networks with the new public IP addresses obtained from creating the virtual network gateways.</target>
+        </trans-unit>
+        <trans-unit id="233de84e-07c5-47e1-87c4-6f50e7bfd804" xml:space="preserve">
+          <source>From the Azure Management Portal, on the Networks page, click <bpt id="1c2db1d8-21b7-48d9-b1a6-06fcaa0d0f62">&lt;strong&gt;</bpt>Local Networks<ept id="1c2db1d8-21b7-48d9-b1a6-06fcaa0d0f62">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure Management Portal, on the Networks page, click <bpt id="1c2db1d8-21b7-48d9-b1a6-06fcaa0d0f62">&lt;strong&gt;</bpt>Local Networks<ept id="1c2db1d8-21b7-48d9-b1a6-06fcaa0d0f62">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4429ab8-3ffb-455c-b06f-0b0e884b7156" xml:space="preserve">
+          <source>Click <bpt id="374e5eff-592d-4138-b608-a7185aa3be1e">&lt;strong&gt;</bpt>TestLabLNet<ept id="374e5eff-592d-4138-b608-a7185aa3be1e">&lt;/strong&gt;</ept>, and then click <bpt id="87135c0e-9fee-4b07-b3f2-56f68efa8251">&lt;strong&gt;</bpt>Edit<ept id="87135c0e-9fee-4b07-b3f2-56f68efa8251">&lt;/strong&gt;</ept> in the task bar.</source>
+          <target state="new">Click <bpt id="374e5eff-592d-4138-b608-a7185aa3be1e">&lt;strong&gt;</bpt>TestLabLNet<ept id="374e5eff-592d-4138-b608-a7185aa3be1e">&lt;/strong&gt;</ept>, and then click <bpt id="87135c0e-9fee-4b07-b3f2-56f68efa8251">&lt;strong&gt;</bpt>Edit<ept id="87135c0e-9fee-4b07-b3f2-56f68efa8251">&lt;/strong&gt;</ept> in the task bar.</target>
+        </trans-unit>
+        <trans-unit id="47a5f983-4bd1-4fe0-a620-1fb5e2647eb9" xml:space="preserve">
+          <source>On the Specify your local network details page, type the IP address of the virtual network gateway for the TestLab virtual network (from step 3 in the previous procedure) in <bpt id="2104868a-4c92-4625-ad55-646a293b2893">&lt;strong&gt;</bpt>VPN Device IP Address (Optional)<ept id="2104868a-4c92-4625-ad55-646a293b2893">&lt;/strong&gt;</ept>, and then click the right arrow.</source>
+          <target state="new">On the Specify your local network details page, type the IP address of the virtual network gateway for the TestLab virtual network (from step 3 in the previous procedure) in <bpt id="2104868a-4c92-4625-ad55-646a293b2893">&lt;strong&gt;</bpt>VPN Device IP Address (Optional)<ept id="2104868a-4c92-4625-ad55-646a293b2893">&lt;/strong&gt;</ept>, and then click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="1f6a072e-eec9-401f-a7bf-603588640c03" xml:space="preserve">
+          <source>On the Specify the address space page, click the check mark.</source>
+          <target state="new">On the Specify the address space page, click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="64d03eee-5476-41fb-a97e-d4439ee8dff6" xml:space="preserve">
+          <source>On the Local Networks page, click <bpt id="31a3eabd-ca8d-4074-bea0-f2579c492b03">&lt;strong&gt;</bpt>TestVNETLNet<ept id="31a3eabd-ca8d-4074-bea0-f2579c492b03">&lt;/strong&gt;</ept>, and then click <bpt id="75c6c317-70a6-4d88-a74a-80d7f4942b34">&lt;strong&gt;</bpt>Edit<ept id="75c6c317-70a6-4d88-a74a-80d7f4942b34">&lt;/strong&gt;</ept> in the task bar.</source>
+          <target state="new">On the Local Networks page, click <bpt id="31a3eabd-ca8d-4074-bea0-f2579c492b03">&lt;strong&gt;</bpt>TestVNETLNet<ept id="31a3eabd-ca8d-4074-bea0-f2579c492b03">&lt;/strong&gt;</ept>, and then click <bpt id="75c6c317-70a6-4d88-a74a-80d7f4942b34">&lt;strong&gt;</bpt>Edit<ept id="75c6c317-70a6-4d88-a74a-80d7f4942b34">&lt;/strong&gt;</ept> in the task bar.</target>
+        </trans-unit>
+        <trans-unit id="a9f8457f-5be4-41a1-988f-bfbda615ee53" xml:space="preserve">
+          <source>On the Specify your local network details page, type the IP address of the virtual network gateway for the TestVNET virtual network (from step 7 in the previous procedure) in <bpt id="20987fc2-d4df-498a-a486-3c240d1b0d40">&lt;strong&gt;</bpt>VPN Device IP Address (Optional)<ept id="20987fc2-d4df-498a-a486-3c240d1b0d40">&lt;/strong&gt;</ept>, and then click the right arrow.</source>
+          <target state="new">On the Specify your local network details page, type the IP address of the virtual network gateway for the TestVNET virtual network (from step 7 in the previous procedure) in <bpt id="20987fc2-d4df-498a-a486-3c240d1b0d40">&lt;strong&gt;</bpt>VPN Device IP Address (Optional)<ept id="20987fc2-d4df-498a-a486-3c240d1b0d40">&lt;/strong&gt;</ept>, and then click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="412193a3-444c-49e4-887a-9d5b8dfd25b4" xml:space="preserve">
+          <source>On the Specify the address space page, click the check mark.</source>
+          <target state="new">On the Specify the address space page, click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="e5ebf31a-a255-4098-a675-7cb0cf19c4e9" xml:space="preserve">
+          <source>Next, you configure the pre-shared key for both gateways to use the same value, which is the key value determined by the Azure Management Portal for the TestLab virtual network.</source>
+          <target state="new">Next, you configure the pre-shared key for both gateways to use the same value, which is the key value determined by the Azure Management Portal for the TestLab virtual network.</target>
+        </trans-unit>
+        <trans-unit id="f0f06aa9-373a-4122-a66e-6f53b455a51a" xml:space="preserve">
+          <source>Run these commands from an Azure PowerShell command prompt on your local computer, filling in the value of the TestLab pre-shared key.</source>
+          <target state="new">Run these commands from an Azure PowerShell command prompt on your local computer, filling in the value of the TestLab pre-shared key.</target>
+        </trans-unit>
+        <trans-unit id="58cbb717-3bc5-4464-aba4-7dfce071104c" xml:space="preserve">
+          <source>Next, on the Network page of the Azure Management Portal, click the <bpt id="326f6eb1-ded8-49f0-ab20-2965e8c6aef3">&lt;strong&gt;</bpt>TestLab<ept id="326f6eb1-ded8-49f0-ab20-2965e8c6aef3">&lt;/strong&gt;</ept> virtual network, and then click <bpt id="983a9d1d-6fe2-4320-99a0-e0c79bcc1859">&lt;strong&gt;</bpt>Connect<ept id="983a9d1d-6fe2-4320-99a0-e0c79bcc1859">&lt;/strong&gt;</ept> in the task bar.</source>
+          <target state="new">Next, on the Network page of the Azure Management Portal, click the <bpt id="326f6eb1-ded8-49f0-ab20-2965e8c6aef3">&lt;strong&gt;</bpt>TestLab<ept id="326f6eb1-ded8-49f0-ab20-2965e8c6aef3">&lt;/strong&gt;</ept> virtual network, and then click <bpt id="983a9d1d-6fe2-4320-99a0-e0c79bcc1859">&lt;strong&gt;</bpt>Connect<ept id="983a9d1d-6fe2-4320-99a0-e0c79bcc1859">&lt;/strong&gt;</ept> in the task bar.</target>
+        </trans-unit>
+        <trans-unit id="6115872e-09ac-473f-9152-67f90d4728e3" xml:space="preserve">
+          <source>Wait until the TestLab virtual network shows a connected state to the TestVNET local network.</source>
+          <target state="new">Wait until the TestLab virtual network shows a connected state to the TestVNET local network.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

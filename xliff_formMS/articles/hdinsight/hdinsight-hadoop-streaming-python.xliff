@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="60f5cc71-155c-49b0-b931-8e45e7b64e8d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="60f5cc71-155c-49b0-b931-8e45e7b64e8d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7d4f249a-5d42-4b61-b745-c0708ac1dcc8">
+        <trans-unit id="e7215ea1-b942-4a37-92fc-722bafe89191" xml:space="preserve">
+          <source>Develop Python MapReduce jobs with HDInsight | Microsoft Azure</source>
+          <target state="new">Develop Python MapReduce jobs with HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ee797f10-ee70-4529-ae18-1e1d96892915" xml:space="preserve">
+          <source>Learn how to create and run Python MapReduce jobs on Linux-based HDInsight clusters.</source>
+          <target state="new">Learn how to create and run Python MapReduce jobs on Linux-based HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="a9bad071-da7d-4b94-b26a-63851531d51a" xml:space="preserve">
+          <source>Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java.</source>
+          <target state="new">Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java.</target>
+        </trans-unit>
+        <trans-unit id="4b98e6b3-2a92-4c2a-b087-4d8b2baaff97" xml:space="preserve">
+          <source>In this article, you will learn how to use Python to perform MapReduce operations.</source>
+          <target state="new">In this article, you will learn how to use Python to perform MapReduce operations.</target>
+        </trans-unit>
+        <trans-unit id="8253172c-c879-48cf-a74d-52bdcfe0f7f6" xml:space="preserve">
+          <source>While the Python code in this document can be used with a Windows-based HDInsight cluster, the steps in this document are specific to Linux-based clusters.</source>
+          <target state="new">While the Python code in this document can be used with a Windows-based HDInsight cluster, the steps in this document are specific to Linux-based clusters.</target>
+        </trans-unit>
+        <trans-unit id="3b9c5fc4-7aaa-462a-855b-d0929ea700b4" xml:space="preserve">
+          <source>This article is based on information and examples published by Michael Noll at [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Writing an Hadoop MapReduce Program in Python).</source>
+          <target state="new">This article is based on information and examples published by Michael Noll at [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Writing an Hadoop MapReduce Program in Python).</target>
+        </trans-unit>
+        <trans-unit id="6a6c5583-30f5-4003-8f97-08e568596baa" xml:space="preserve">
+          <source>To complete the steps in this article, you will need the following:</source>
+          <target state="new">To complete the steps in this article, you will need the following:</target>
+        </trans-unit>
+        <trans-unit id="d675a057-64cf-40df-ba82-6d74ea1c88f7" xml:space="preserve">
+          <source>A Linux-based Hadoop on HDInsight cluster</source>
+          <target state="new">A Linux-based Hadoop on HDInsight cluster</target>
+        </trans-unit>
+        <trans-unit id="5cb31ea0-2b78-4070-b7d0-ecf96cb93d3b" xml:space="preserve">
+          <source>A text editor</source>
+          <target state="new">A text editor</target>
+        </trans-unit>
+        <trans-unit id="b95dce49-942c-4d51-841d-2ec2a52822dc" xml:space="preserve">
+          <source>For Windows clients, PuTTY and PSCP.</source>
+          <target state="new">For Windows clients, PuTTY and PSCP.</target>
+        </trans-unit>
+        <trans-unit id="124ddcab-8b0d-4b0b-8cb0-09c278f6c282" xml:space="preserve">
+          <source>These utilities are available from the &lt;a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank"&gt;PuTTY Download Page&lt;/a&gt;.</source>
+          <target state="new">These utilities are available from the &lt;a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank"&gt;PuTTY Download Page&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="788d3766-4d49-4605-8fef-fafc9e8ccf93" xml:space="preserve">
+          <source>For this example, you will implement a basic word count by using a mapper and reducer.</source>
+          <target state="new">For this example, you will implement a basic word count by using a mapper and reducer.</target>
+        </trans-unit>
+        <trans-unit id="af0c2d9b-6b57-4436-9a62-18b3a473ab78" xml:space="preserve">
+          <source>The mapper breaks sentences into individual words, and the reducer aggregates the words and counts to produce the output.</source>
+          <target state="new">The mapper breaks sentences into individual words, and the reducer aggregates the words and counts to produce the output.</target>
+        </trans-unit>
+        <trans-unit id="0bae0927-dd87-40ca-8580-9860f987a75b" xml:space="preserve">
+          <source>The following flowchart illustrates what happens during the map and reduce phases.</source>
+          <target state="new">The following flowchart illustrates what happens during the map and reduce phases.</target>
+        </trans-unit>
+        <trans-unit id="1bcc8e4e-f858-42bd-bb02-3140b7804511" xml:space="preserve">
+          <source><bpt id="d3eb3c28-201b-4694-b0ae-6f379d545876">&lt;linkText&gt;</bpt>illustration of map reduce<ept id="d3eb3c28-201b-4694-b0ae-6f379d545876">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d3eb3c28-201b-4694-b0ae-6f379d545876">&lt;linkText&gt;</bpt>illustration of map reduce<ept id="d3eb3c28-201b-4694-b0ae-6f379d545876">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ddc564c2-bc96-43c3-833b-166d4562a534" xml:space="preserve">
+          <source>Python is a general-purpose, high-level programming language that allows you to express concepts in fewer lines of code than many other languages.</source>
+          <target state="new">Python is a general-purpose, high-level programming language that allows you to express concepts in fewer lines of code than many other languages.</target>
+        </trans-unit>
+        <trans-unit id="ef793e80-8345-4472-93b6-a914a5dda04f" xml:space="preserve">
+          <source>It has recently became popular with data scientists as a prototyping language because its interpreted nature, dynamic typing, and elegant syntax make it suitable for rapid application development.</source>
+          <target state="new">It has recently became popular with data scientists as a prototyping language because its interpreted nature, dynamic typing, and elegant syntax make it suitable for rapid application development.</target>
+        </trans-unit>
+        <trans-unit id="ccfd1b9f-c9fe-4213-bed2-99be2422477b" xml:space="preserve">
+          <source>Python is installed on all HDInsight clusters.</source>
+          <target state="new">Python is installed on all HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="20343167-a4d7-480a-b2dc-1a8b4b1bc60f" xml:space="preserve">
+          <source>Hadoop allows you to specify a file that contains the map and reduce logic that is used by a job.</source>
+          <target state="new">Hadoop allows you to specify a file that contains the map and reduce logic that is used by a job.</target>
+        </trans-unit>
+        <trans-unit id="aa27e2d3-8e9f-420b-84f6-baaa9ab12a12" xml:space="preserve">
+          <source>The specific requirements for the map and reduce logic are:</source>
+          <target state="new">The specific requirements for the map and reduce logic are:</target>
+        </trans-unit>
+        <trans-unit id="a2c8eaf4-5851-4064-8a19-8ffec02f3ac7" xml:space="preserve">
+          <source><bpt id="dcc2848f-7c14-4004-86c0-85955ec01636">&lt;strong&gt;</bpt>Input<ept id="dcc2848f-7c14-4004-86c0-85955ec01636">&lt;/strong&gt;</ept>: The map and reduce components must read input data from STDIN.</source>
+          <target state="new"><bpt id="dcc2848f-7c14-4004-86c0-85955ec01636">&lt;strong&gt;</bpt>Input<ept id="dcc2848f-7c14-4004-86c0-85955ec01636">&lt;/strong&gt;</ept>: The map and reduce components must read input data from STDIN.</target>
+        </trans-unit>
+        <trans-unit id="6e5be247-f202-4dd8-862f-ebb6fc6518d2" xml:space="preserve">
+          <source><bpt id="de1252d0-3c8c-43d3-bbf4-387262082209">&lt;strong&gt;</bpt>Output<ept id="de1252d0-3c8c-43d3-bbf4-387262082209">&lt;/strong&gt;</ept>: The map and reduce components must write output data to STDOUT.</source>
+          <target state="new"><bpt id="de1252d0-3c8c-43d3-bbf4-387262082209">&lt;strong&gt;</bpt>Output<ept id="de1252d0-3c8c-43d3-bbf4-387262082209">&lt;/strong&gt;</ept>: The map and reduce components must write output data to STDOUT.</target>
+        </trans-unit>
+        <trans-unit id="03215b4d-f4f0-453e-bbc9-bcafc029557a" xml:space="preserve">
+          <source><bpt id="cba2bc9e-537d-4d56-9516-fbd29f21bac4">&lt;strong&gt;</bpt>Data format<ept id="cba2bc9e-537d-4d56-9516-fbd29f21bac4">&lt;/strong&gt;</ept>: The data consumed and produced must be a key/value pair, separated by a tab character.</source>
+          <target state="new"><bpt id="cba2bc9e-537d-4d56-9516-fbd29f21bac4">&lt;strong&gt;</bpt>Data format<ept id="cba2bc9e-537d-4d56-9516-fbd29f21bac4">&lt;/strong&gt;</ept>: The data consumed and produced must be a key/value pair, separated by a tab character.</target>
+        </trans-unit>
+        <trans-unit id="c69b5eba-cf47-4820-95d0-e70e6d3c5d67" xml:space="preserve">
+          <source>Python can easily handle these requirements by using the <bpt id="ff62760c-aea3-4d26-8724-515c28fd970e">&lt;strong&gt;</bpt>sys<ept id="ff62760c-aea3-4d26-8724-515c28fd970e">&lt;/strong&gt;</ept> module to read from STDIN and using <bpt id="4937b976-b8d5-4c3b-92be-68f590ecd8bf">&lt;strong&gt;</bpt>print<ept id="4937b976-b8d5-4c3b-92be-68f590ecd8bf">&lt;/strong&gt;</ept> to print to STDOUT.</source>
+          <target state="new">Python can easily handle these requirements by using the <bpt id="ff62760c-aea3-4d26-8724-515c28fd970e">&lt;strong&gt;</bpt>sys<ept id="ff62760c-aea3-4d26-8724-515c28fd970e">&lt;/strong&gt;</ept> module to read from STDIN and using <bpt id="4937b976-b8d5-4c3b-92be-68f590ecd8bf">&lt;strong&gt;</bpt>print<ept id="4937b976-b8d5-4c3b-92be-68f590ecd8bf">&lt;/strong&gt;</ept> to print to STDOUT.</target>
+        </trans-unit>
+        <trans-unit id="e8d0b4e1-5c37-4c07-84ca-4694a63f6e84" xml:space="preserve">
+          <source>The remaining task is simply formatting the data with a tab (<bpt id="f56d3f54-96d9-49d7-a9c1-d9ce92198117">&lt;code&gt;</bpt>\t<ept id="f56d3f54-96d9-49d7-a9c1-d9ce92198117">&lt;/code&gt;</ept>) character between the key and value.</source>
+          <target state="new">The remaining task is simply formatting the data with a tab (<bpt id="f56d3f54-96d9-49d7-a9c1-d9ce92198117">&lt;code&gt;</bpt>\t<ept id="f56d3f54-96d9-49d7-a9c1-d9ce92198117">&lt;/code&gt;</ept>) character between the key and value.</target>
+        </trans-unit>
+        <trans-unit id="34de6ed0-2ecd-46cf-b5d9-4a69e37b0794" xml:space="preserve">
+          <source>The mapper and reducer are text files, in this case <bpt id="98e7280f-b500-4975-a845-8b77b5d8223d">&lt;strong&gt;</bpt>mapper.py<ept id="98e7280f-b500-4975-a845-8b77b5d8223d">&lt;/strong&gt;</ept> and <bpt id="a7d452df-3fba-4d88-a737-a61be06ae18d">&lt;strong&gt;</bpt>reducer.py<ept id="a7d452df-3fba-4d88-a737-a61be06ae18d">&lt;/strong&gt;</ept> (to make it clear which does what).</source>
+          <target state="new">The mapper and reducer are text files, in this case <bpt id="98e7280f-b500-4975-a845-8b77b5d8223d">&lt;strong&gt;</bpt>mapper.py<ept id="98e7280f-b500-4975-a845-8b77b5d8223d">&lt;/strong&gt;</ept> and <bpt id="a7d452df-3fba-4d88-a737-a61be06ae18d">&lt;strong&gt;</bpt>reducer.py<ept id="a7d452df-3fba-4d88-a737-a61be06ae18d">&lt;/strong&gt;</ept> (to make it clear which does what).</target>
+        </trans-unit>
+        <trans-unit id="2c2f0e17-e498-4320-9ea9-1509fb47c1d8" xml:space="preserve">
+          <source>You can create these by using the editor of your choice.</source>
+          <target state="new">You can create these by using the editor of your choice.</target>
+        </trans-unit>
+        <trans-unit id="5d6306e3-5488-4c40-bca9-be2d77c925b4" xml:space="preserve">
+          <source>Create a new file named <bpt id="a71e5ecb-dda6-422c-a3b5-0306682e0466">&lt;strong&gt;</bpt>mapper.py<ept id="a71e5ecb-dda6-422c-a3b5-0306682e0466">&lt;/strong&gt;</ept> and use the following code as the content:</source>
+          <target state="new">Create a new file named <bpt id="a71e5ecb-dda6-422c-a3b5-0306682e0466">&lt;strong&gt;</bpt>mapper.py<ept id="a71e5ecb-dda6-422c-a3b5-0306682e0466">&lt;/strong&gt;</ept> and use the following code as the content:</target>
+        </trans-unit>
+        <trans-unit id="e277de8d-e571-4a07-a0c8-84874fa6e036" xml:space="preserve">
+          <source>Take a moment to read through the code so you can understand what it does.</source>
+          <target state="new">Take a moment to read through the code so you can understand what it does.</target>
+        </trans-unit>
+        <trans-unit id="820f315b-bf9e-437c-84bd-bd654f716a0a" xml:space="preserve">
+          <source>Create a new file named <bpt id="b465f948-d0a5-4fe5-9c3f-701953e106f2">&lt;strong&gt;</bpt>reducer.py<ept id="b465f948-d0a5-4fe5-9c3f-701953e106f2">&lt;/strong&gt;</ept> and use the following code as the content:</source>
+          <target state="new">Create a new file named <bpt id="b465f948-d0a5-4fe5-9c3f-701953e106f2">&lt;strong&gt;</bpt>reducer.py<ept id="b465f948-d0a5-4fe5-9c3f-701953e106f2">&lt;/strong&gt;</ept> and use the following code as the content:</target>
+        </trans-unit>
+        <trans-unit id="96b686cc-ee2f-42ba-bcad-c1555a1fe906" xml:space="preserve">
+          <source>Both <bpt id="504666e2-ed95-4555-921f-fff15ba7f5f1">&lt;strong&gt;</bpt>mapper.py<ept id="504666e2-ed95-4555-921f-fff15ba7f5f1">&lt;/strong&gt;</ept> and <bpt id="df821841-8d64-42a1-82b8-43dfeebd11ee">&lt;strong&gt;</bpt>reducer.py<ept id="df821841-8d64-42a1-82b8-43dfeebd11ee">&lt;/strong&gt;</ept> must be on the head node of the cluster before we can run them.</source>
+          <target state="new">Both <bpt id="504666e2-ed95-4555-921f-fff15ba7f5f1">&lt;strong&gt;</bpt>mapper.py<ept id="504666e2-ed95-4555-921f-fff15ba7f5f1">&lt;/strong&gt;</ept> and <bpt id="df821841-8d64-42a1-82b8-43dfeebd11ee">&lt;strong&gt;</bpt>reducer.py<ept id="df821841-8d64-42a1-82b8-43dfeebd11ee">&lt;/strong&gt;</ept> must be on the head node of the cluster before we can run them.</target>
+        </trans-unit>
+        <trans-unit id="0c118384-0f00-4c15-beb5-8518ca78886e" xml:space="preserve">
+          <source>The easiest way to upload them is to use <bpt id="54b779ab-eb34-47c3-829a-39969532d5db">&lt;strong&gt;</bpt>scp<ept id="54b779ab-eb34-47c3-829a-39969532d5db">&lt;/strong&gt;</ept> (<bpt id="93c99e2e-a17f-4f10-a2f1-ca42f9d76623">&lt;strong&gt;</bpt>pscp<ept id="93c99e2e-a17f-4f10-a2f1-ca42f9d76623">&lt;/strong&gt;</ept> if you are using a Windows client).</source>
+          <target state="new">The easiest way to upload them is to use <bpt id="54b779ab-eb34-47c3-829a-39969532d5db">&lt;strong&gt;</bpt>scp<ept id="54b779ab-eb34-47c3-829a-39969532d5db">&lt;/strong&gt;</ept> (<bpt id="93c99e2e-a17f-4f10-a2f1-ca42f9d76623">&lt;strong&gt;</bpt>pscp<ept id="93c99e2e-a17f-4f10-a2f1-ca42f9d76623">&lt;/strong&gt;</ept> if you are using a Windows client).</target>
+        </trans-unit>
+        <trans-unit id="ed1175b5-8bda-429b-92b5-184f7672c5d2" xml:space="preserve">
+          <source>From the client, in the same directory as <bpt id="3e5c3272-1f05-4c22-bf02-469f37182089">&lt;strong&gt;</bpt>mapper.py<ept id="3e5c3272-1f05-4c22-bf02-469f37182089">&lt;/strong&gt;</ept> and <bpt id="8e077eec-6db5-41c6-bb3a-104b539d3123">&lt;strong&gt;</bpt>reducer.py<ept id="8e077eec-6db5-41c6-bb3a-104b539d3123">&lt;/strong&gt;</ept>, use the following command.</source>
+          <target state="new">From the client, in the same directory as <bpt id="3e5c3272-1f05-4c22-bf02-469f37182089">&lt;strong&gt;</bpt>mapper.py<ept id="3e5c3272-1f05-4c22-bf02-469f37182089">&lt;/strong&gt;</ept> and <bpt id="8e077eec-6db5-41c6-bb3a-104b539d3123">&lt;strong&gt;</bpt>reducer.py<ept id="8e077eec-6db5-41c6-bb3a-104b539d3123">&lt;/strong&gt;</ept>, use the following command.</target>
+        </trans-unit>
+        <trans-unit id="3de38734-6c95-4e86-9d40-766016af8121" xml:space="preserve">
+          <source>Replace <bpt id="0af60d0b-8d82-4897-b6ec-84bda8c0341b">&lt;strong&gt;</bpt>username<ept id="0af60d0b-8d82-4897-b6ec-84bda8c0341b">&lt;/strong&gt;</ept> with an SSH user, and <bpt id="b0fc3018-ac39-4eb8-9a9d-37c8d48167fd">&lt;strong&gt;</bpt>clustername<ept id="b0fc3018-ac39-4eb8-9a9d-37c8d48167fd">&lt;/strong&gt;</ept> with the name of your cluster.</source>
+          <target state="new">Replace <bpt id="0af60d0b-8d82-4897-b6ec-84bda8c0341b">&lt;strong&gt;</bpt>username<ept id="0af60d0b-8d82-4897-b6ec-84bda8c0341b">&lt;/strong&gt;</ept> with an SSH user, and <bpt id="b0fc3018-ac39-4eb8-9a9d-37c8d48167fd">&lt;strong&gt;</bpt>clustername<ept id="b0fc3018-ac39-4eb8-9a9d-37c8d48167fd">&lt;/strong&gt;</ept> with the name of your cluster.</target>
+        </trans-unit>
+        <trans-unit id="cf5d1e46-3d93-4c1f-94c1-54f04e4f92f8" xml:space="preserve">
+          <source>This copies the files from the local system to the head node.</source>
+          <target state="new">This copies the files from the local system to the head node.</target>
+        </trans-unit>
+        <trans-unit id="a7436a1a-a804-487a-8aae-ddfc4fabf4cb" xml:space="preserve">
+          <source>If you used a password to secure your SSH account, you will be prompted for the password.</source>
+          <target state="new">If you used a password to secure your SSH account, you will be prompted for the password.</target>
+        </trans-unit>
+        <trans-unit id="7d573c02-67e2-4f54-89c1-4d508cbe78f8" xml:space="preserve">
+          <source>If you used an SSH key, you may have to use the <bpt id="ed2201d4-ad61-4c32-8216-341db0d7cc00">&lt;code&gt;</bpt>-i<ept id="ed2201d4-ad61-4c32-8216-341db0d7cc00">&lt;/code&gt;</ept> parameter and the path to the private key, for example, <bpt id="5b5953fe-1f4d-44c2-8a04-2b9b49926013">&lt;code&gt;</bpt>scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:<ept id="5b5953fe-1f4d-44c2-8a04-2b9b49926013">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you used an SSH key, you may have to use the <bpt id="ed2201d4-ad61-4c32-8216-341db0d7cc00">&lt;code&gt;</bpt>-i<ept id="ed2201d4-ad61-4c32-8216-341db0d7cc00">&lt;/code&gt;</ept> parameter and the path to the private key, for example, <bpt id="5b5953fe-1f4d-44c2-8a04-2b9b49926013">&lt;code&gt;</bpt>scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:<ept id="5b5953fe-1f4d-44c2-8a04-2b9b49926013">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed7a138e-41c0-4941-9f5c-20660d9bc1cd" xml:space="preserve">
+          <source>Connect to the cluster by using SSH:</source>
+          <target state="new">Connect to the cluster by using SSH:</target>
+        </trans-unit>
+        <trans-unit id="d04391b6-458c-441b-b92a-0fb821186d12" xml:space="preserve">
+          <source>If you used a password to secure your SSH account, you will be prompted for the password.</source>
+          <target state="new">If you used a password to secure your SSH account, you will be prompted for the password.</target>
+        </trans-unit>
+        <trans-unit id="495b07ad-ea73-48e7-a4fc-6b05b31aab2f" xml:space="preserve">
+          <source>If you used an SSH key, you may have to use the <bpt id="1653b108-5168-46e1-ab80-7e9e86dc9293">&lt;code&gt;</bpt>-i<ept id="1653b108-5168-46e1-ab80-7e9e86dc9293">&lt;/code&gt;</ept> parameter and the path to the private key, for example, <bpt id="f4266147-3e00-4d1a-9203-c38898176c12">&lt;code&gt;</bpt>ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net<ept id="f4266147-3e00-4d1a-9203-c38898176c12">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you used an SSH key, you may have to use the <bpt id="1653b108-5168-46e1-ab80-7e9e86dc9293">&lt;code&gt;</bpt>-i<ept id="1653b108-5168-46e1-ab80-7e9e86dc9293">&lt;/code&gt;</ept> parameter and the path to the private key, for example, <bpt id="f4266147-3e00-4d1a-9203-c38898176c12">&lt;code&gt;</bpt>ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net<ept id="f4266147-3e00-4d1a-9203-c38898176c12">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36f08b8a-9354-41a5-855d-53e3854bd81b" xml:space="preserve">
+          <source>Use the following command to start the MapReduce job.</source>
+          <target state="new">Use the following command to start the MapReduce job.</target>
+        </trans-unit>
+        <trans-unit id="7ee956d9-5fee-460f-8464-bbbf6300a1a3" xml:space="preserve">
+          <source>This command has the following parts:</source>
+          <target state="new">This command has the following parts:</target>
+        </trans-unit>
+        <trans-unit id="40bf1aef-d8da-44e9-bde1-d4d43ff678e4" xml:space="preserve">
+          <source><bpt id="bd031f32-6bbd-416a-a894-25772dd879f0">&lt;strong&gt;</bpt>hadoop-streaming.jar<ept id="bd031f32-6bbd-416a-a894-25772dd879f0">&lt;/strong&gt;</ept>: Used when performing streaming MapReduce operations.</source>
+          <target state="new"><bpt id="bd031f32-6bbd-416a-a894-25772dd879f0">&lt;strong&gt;</bpt>hadoop-streaming.jar<ept id="bd031f32-6bbd-416a-a894-25772dd879f0">&lt;/strong&gt;</ept>: Used when performing streaming MapReduce operations.</target>
+        </trans-unit>
+        <trans-unit id="818c1570-d3c7-46cf-b663-3261833266eb" xml:space="preserve">
+          <source>It interfaces Hadoop with the external MapReduce code you provide.</source>
+          <target state="new">It interfaces Hadoop with the external MapReduce code you provide.</target>
+        </trans-unit>
+        <trans-unit id="16eb92eb-80e1-46e0-bb3d-3aff3f438ab0" xml:space="preserve">
+          <source><bpt id="34617ef0-7832-4240-ac1d-689e9c70aa1b">&lt;strong&gt;</bpt>-files<ept id="34617ef0-7832-4240-ac1d-689e9c70aa1b">&lt;/strong&gt;</ept>: Tells Hadoop that the specified files are needed for this MapReduce job, and they should be copied to all the worker nodes.</source>
+          <target state="new"><bpt id="34617ef0-7832-4240-ac1d-689e9c70aa1b">&lt;strong&gt;</bpt>-files<ept id="34617ef0-7832-4240-ac1d-689e9c70aa1b">&lt;/strong&gt;</ept>: Tells Hadoop that the specified files are needed for this MapReduce job, and they should be copied to all the worker nodes.</target>
+        </trans-unit>
+        <trans-unit id="6959e0f8-22f1-4446-9b50-1705433992eb" xml:space="preserve">
+          <source><bpt id="c95fb7cf-fc44-49f5-bd49-902b9f6b3951">&lt;strong&gt;</bpt>-mapper<ept id="c95fb7cf-fc44-49f5-bd49-902b9f6b3951">&lt;/strong&gt;</ept>: Tells Hadoop which file to use as the mapper.</source>
+          <target state="new"><bpt id="c95fb7cf-fc44-49f5-bd49-902b9f6b3951">&lt;strong&gt;</bpt>-mapper<ept id="c95fb7cf-fc44-49f5-bd49-902b9f6b3951">&lt;/strong&gt;</ept>: Tells Hadoop which file to use as the mapper.</target>
+        </trans-unit>
+        <trans-unit id="a8f6269b-78d5-4102-a0a1-b8cad35d5e2d" xml:space="preserve">
+          <source><bpt id="e99b6d7b-0315-426d-94b3-72db2d521973">&lt;strong&gt;</bpt>-reducer<ept id="e99b6d7b-0315-426d-94b3-72db2d521973">&lt;/strong&gt;</ept>: Tells Hadoop which file to use as the reducer.</source>
+          <target state="new"><bpt id="e99b6d7b-0315-426d-94b3-72db2d521973">&lt;strong&gt;</bpt>-reducer<ept id="e99b6d7b-0315-426d-94b3-72db2d521973">&lt;/strong&gt;</ept>: Tells Hadoop which file to use as the reducer.</target>
+        </trans-unit>
+        <trans-unit id="89d02712-81ac-47d8-8fe5-9eefe0ea36ed" xml:space="preserve">
+          <source><bpt id="8c7b2ff8-5434-4d87-89a8-46de538e8559">&lt;strong&gt;</bpt>-input<ept id="8c7b2ff8-5434-4d87-89a8-46de538e8559">&lt;/strong&gt;</ept>: The input file that we should count words from.</source>
+          <target state="new"><bpt id="8c7b2ff8-5434-4d87-89a8-46de538e8559">&lt;strong&gt;</bpt>-input<ept id="8c7b2ff8-5434-4d87-89a8-46de538e8559">&lt;/strong&gt;</ept>: The input file that we should count words from.</target>
+        </trans-unit>
+        <trans-unit id="7bb1cb7d-cc6f-41cd-891f-19071d6d2aca" xml:space="preserve">
+          <source><bpt id="1f3ffe1c-d676-428e-bea7-bcefa2a1f61d">&lt;strong&gt;</bpt>-output<ept id="1f3ffe1c-d676-428e-bea7-bcefa2a1f61d">&lt;/strong&gt;</ept>: The directory that the output will be written to.</source>
+          <target state="new"><bpt id="1f3ffe1c-d676-428e-bea7-bcefa2a1f61d">&lt;strong&gt;</bpt>-output<ept id="1f3ffe1c-d676-428e-bea7-bcefa2a1f61d">&lt;/strong&gt;</ept>: The directory that the output will be written to.</target>
+        </trans-unit>
+        <trans-unit id="09f27ea9-c173-4c57-8267-fdd0f31ad40a" xml:space="preserve">
+          <source>This directory will be created by the job.</source>
+          <target state="new">This directory will be created by the job.</target>
+        </trans-unit>
+        <trans-unit id="02074158-9c3b-4a25-8c46-92da1cd38dce" xml:space="preserve">
+          <source>You should see a bunch of <bpt id="d4e0fe1c-a485-4b17-b96d-9ed7a1c07068">&lt;strong&gt;</bpt>INFO<ept id="d4e0fe1c-a485-4b17-b96d-9ed7a1c07068">&lt;/strong&gt;</ept> statements as the job starts, and finally see the <bpt id="88006b8c-6864-4a0b-8153-993a1b4eacc5">&lt;strong&gt;</bpt>map<ept id="88006b8c-6864-4a0b-8153-993a1b4eacc5">&lt;/strong&gt;</ept> and <bpt id="a14ad0d5-e281-47c2-9ea6-6e3e3b0a5704">&lt;strong&gt;</bpt>reduce<ept id="a14ad0d5-e281-47c2-9ea6-6e3e3b0a5704">&lt;/strong&gt;</ept> operation displayed as percentages.</source>
+          <target state="new">You should see a bunch of <bpt id="d4e0fe1c-a485-4b17-b96d-9ed7a1c07068">&lt;strong&gt;</bpt>INFO<ept id="d4e0fe1c-a485-4b17-b96d-9ed7a1c07068">&lt;/strong&gt;</ept> statements as the job starts, and finally see the <bpt id="88006b8c-6864-4a0b-8153-993a1b4eacc5">&lt;strong&gt;</bpt>map<ept id="88006b8c-6864-4a0b-8153-993a1b4eacc5">&lt;/strong&gt;</ept> and <bpt id="a14ad0d5-e281-47c2-9ea6-6e3e3b0a5704">&lt;strong&gt;</bpt>reduce<ept id="a14ad0d5-e281-47c2-9ea6-6e3e3b0a5704">&lt;/strong&gt;</ept> operation displayed as percentages.</target>
+        </trans-unit>
+        <trans-unit id="4d069e5d-6e95-40b0-bb9a-4ab27ed41aba" xml:space="preserve">
+          <source>You will receive status information about the job when it completes.</source>
+          <target state="new">You will receive status information about the job when it completes.</target>
+        </trans-unit>
+        <trans-unit id="b78922db-04a2-4636-9b45-56d94e272dcf" xml:space="preserve">
+          <source>When the job is complete, use the following command to view the output:</source>
+          <target state="new">When the job is complete, use the following command to view the output:</target>
+        </trans-unit>
+        <trans-unit id="34b2f8b7-caeb-4601-8f4d-815e76afccf1" xml:space="preserve">
+          <source>This should display a list of words and how many times the word occurred.</source>
+          <target state="new">This should display a list of words and how many times the word occurred.</target>
+        </trans-unit>
+        <trans-unit id="fdae6c15-eb8d-4cf5-a1b8-fb18bae0012f" xml:space="preserve">
+          <source>The following is an sample of the output data:</source>
+          <target state="new">The following is an sample of the output data:</target>
+        </trans-unit>
+        <trans-unit id="0bd6c704-0c25-4262-85a8-163e35a6b1ab" xml:space="preserve">
+          <source>Now that you have learned how to use streaming MapRedcue jobs with HDInsight, use the following links to explore other ways to work with Azure HDInsight.</source>
+          <target state="new">Now that you have learned how to use streaming MapRedcue jobs with HDInsight, use the following links to explore other ways to work with Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="64d0bb5f-4026-4146-b6d0-c03dc885686a" xml:space="preserve">
+          <source><bpt id="b9b45906-c857-4ffe-a780-dffe627c2cfd">&lt;linkText&gt;</bpt>Use Hive with HDInsight<ept id="b9b45906-c857-4ffe-a780-dffe627c2cfd">&lt;/linkText&gt;</ept><bpt id="b9b45906-c857-4ffe-a780-dffe627c2cfd">&lt;title&gt;</bpt><ept id="b9b45906-c857-4ffe-a780-dffe627c2cfd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b9b45906-c857-4ffe-a780-dffe627c2cfd">&lt;linkText&gt;</bpt>Use Hive with HDInsight<ept id="b9b45906-c857-4ffe-a780-dffe627c2cfd">&lt;/linkText&gt;</ept><bpt id="b9b45906-c857-4ffe-a780-dffe627c2cfd">&lt;title&gt;</bpt><ept id="b9b45906-c857-4ffe-a780-dffe627c2cfd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26dc30bc-925d-4fb8-bdac-0e937d055c77" xml:space="preserve">
+          <source><bpt id="ff9743d7-2622-41f1-9cc9-8b42713adb31">&lt;linkText&gt;</bpt>Use Pig with HDInsight<ept id="ff9743d7-2622-41f1-9cc9-8b42713adb31">&lt;/linkText&gt;</ept><bpt id="ff9743d7-2622-41f1-9cc9-8b42713adb31">&lt;title&gt;</bpt><ept id="ff9743d7-2622-41f1-9cc9-8b42713adb31">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ff9743d7-2622-41f1-9cc9-8b42713adb31">&lt;linkText&gt;</bpt>Use Pig with HDInsight<ept id="ff9743d7-2622-41f1-9cc9-8b42713adb31">&lt;/linkText&gt;</ept><bpt id="ff9743d7-2622-41f1-9cc9-8b42713adb31">&lt;title&gt;</bpt><ept id="ff9743d7-2622-41f1-9cc9-8b42713adb31">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e782bb45-add5-4e10-b5cd-9a2759e38031" xml:space="preserve">
+          <source><bpt id="091ab38a-37d3-44db-a159-4d6865b02c89">&lt;linkText&gt;</bpt>Use MapReduce jobs with HDInsight<ept id="091ab38a-37d3-44db-a159-4d6865b02c89">&lt;/linkText&gt;</ept><bpt id="091ab38a-37d3-44db-a159-4d6865b02c89">&lt;title&gt;</bpt><ept id="091ab38a-37d3-44db-a159-4d6865b02c89">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="091ab38a-37d3-44db-a159-4d6865b02c89">&lt;linkText&gt;</bpt>Use MapReduce jobs with HDInsight<ept id="091ab38a-37d3-44db-a159-4d6865b02c89">&lt;/linkText&gt;</ept><bpt id="091ab38a-37d3-44db-a159-4d6865b02c89">&lt;title&gt;</bpt><ept id="091ab38a-37d3-44db-a159-4d6865b02c89">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

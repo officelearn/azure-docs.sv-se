@@ -1,0 +1,972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="84496ddc-8262-45ce-b721-22facdd5721c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="84496ddc-8262-45ce-b721-22facdd5721c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1cfbe388-a77b-4efe-8ab8-57573b49ce73">
+        <trans-unit id="623e5e4b-6d3a-45f5-abeb-5e0170021cc3" xml:space="preserve">
+          <source>What are the StorSimple components? | Microsoft Azure</source>
+          <target state="new">What are the StorSimple components? | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7c9900d8-9083-4519-8971-522c3e82bff1" xml:space="preserve">
+          <source>Describes the StorSimple device, virtual device, services, and management technologies, and defines key terms used in the solution.</source>
+          <target state="new">Describes the StorSimple device, virtual device, services, and management technologies, and defines key terms used in the solution.</target>
+        </trans-unit>
+        <trans-unit id="305bbb4c-14a1-4cfc-b5d6-057e5e1905d4" xml:space="preserve">
+          <source>Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage.</source>
+          <target state="new">Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage.</target>
+        </trans-unit>
+        <trans-unit id="1cd435fb-2756-499b-8695-49e928a51b5e" xml:space="preserve">
+          <source>StorSimple is designed to reduce storage costs, simplify storage management, improve disaster recovery capability and efficiency, and provide data mobility.</source>
+          <target state="new">StorSimple is designed to reduce storage costs, simplify storage management, improve disaster recovery capability and efficiency, and provide data mobility.</target>
+        </trans-unit>
+        <trans-unit id="0b6c9b52-7c11-43e3-b9c9-837a25e638d8" xml:space="preserve">
+          <source>The following sections describe the Microsoft Azure StorSimple components, and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection.</source>
+          <target state="new">The following sections describe the Microsoft Azure StorSimple components, and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection.</target>
+        </trans-unit>
+        <trans-unit id="e94d80fb-d188-4f51-9e31-758568d05453" xml:space="preserve">
+          <source>The last section provides definitions of some of the important terminology related to StorSimple components and their management.</source>
+          <target state="new">The last section provides definitions of some of the important terminology related to StorSimple components and their management.</target>
+        </trans-unit>
+        <trans-unit id="3f121a10-bdf7-404a-9664-ea1916d804df" xml:space="preserve">
+          <source>The StorSimple deployment information published on the Microsoft Azure website applies to the StorSimple 8000 series devices only.</source>
+          <target state="new">The StorSimple deployment information published on the Microsoft Azure website applies to the StorSimple 8000 series devices only.</target>
+        </trans-unit>
+        <trans-unit id="6b1da4f0-4df4-4661-aa58-5f18c429f002" xml:space="preserve">
+          <source>For information about the 7000 series device, go to: <bpt id="5cde9aac-e0ec-4329-aafc-19daa07eb786">&lt;linkText&gt;</bpt>StorSimple Help<ept id="5cde9aac-e0ec-4329-aafc-19daa07eb786">&lt;/linkText&gt;</ept><bpt id="5cde9aac-e0ec-4329-aafc-19daa07eb786">&lt;title&gt;</bpt><ept id="5cde9aac-e0ec-4329-aafc-19daa07eb786">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the 7000 series device, go to: <bpt id="5cde9aac-e0ec-4329-aafc-19daa07eb786">&lt;linkText&gt;</bpt>StorSimple Help<ept id="5cde9aac-e0ec-4329-aafc-19daa07eb786">&lt;/linkText&gt;</ept><bpt id="5cde9aac-e0ec-4329-aafc-19daa07eb786">&lt;title&gt;</bpt><ept id="5cde9aac-e0ec-4329-aafc-19daa07eb786">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d5e4b26-f51f-4c3c-bfe1-e5f2e1c6afa2" xml:space="preserve">
+          <source>The Microsoft Azure StorSimple device is an on-premises hybrid storage array that provides primary storage and iSCSI access to data stored on it.</source>
+          <target state="new">The Microsoft Azure StorSimple device is an on-premises hybrid storage array that provides primary storage and iSCSI access to data stored on it.</target>
+        </trans-unit>
+        <trans-unit id="19fb7981-cbc8-4d00-a222-d82b34dc41ce" xml:space="preserve">
+          <source>It manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the Microsoft Azure StorSimple solution.</source>
+          <target state="new">It manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the Microsoft Azure StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="c29ed0c4-a150-4cf6-9d04-49d669836f0e" xml:space="preserve">
+          <source>The StorSimple device includes solid state drives (SSDs) and hard disk drives (HDDs), as well as support for clustering and automatic failover.</source>
+          <target state="new">The StorSimple device includes solid state drives (SSDs) and hard disk drives (HDDs), as well as support for clustering and automatic failover.</target>
+        </trans-unit>
+        <trans-unit id="96a71431-8c1f-4f83-822e-c941e55ecc73" xml:space="preserve">
+          <source>It contains a shared processor, shared storage, and two mirrored controllers.</source>
+          <target state="new">It contains a shared processor, shared storage, and two mirrored controllers.</target>
+        </trans-unit>
+        <trans-unit id="56c48c1d-d52f-42a9-9bdd-0d7d4ebe8df9" xml:space="preserve">
+          <source>Each controller provides the following:</source>
+          <target state="new">Each controller provides the following:</target>
+        </trans-unit>
+        <trans-unit id="4fec34a6-2fe9-4178-9766-6aabd6f7cc88" xml:space="preserve">
+          <source>Connection to a host computer</source>
+          <target state="new">Connection to a host computer</target>
+        </trans-unit>
+        <trans-unit id="6b05a7c3-25dc-4a66-ad72-74305a5f2904" xml:space="preserve">
+          <source>Up to six network ports to connect to the local area network (LAN)</source>
+          <target state="new">Up to six network ports to connect to the local area network (LAN)</target>
+        </trans-unit>
+        <trans-unit id="455e6017-9b73-4511-a9fe-fa8d04baa46b" xml:space="preserve">
+          <source>Hardware monitoring</source>
+          <target state="new">Hardware monitoring</target>
+        </trans-unit>
+        <trans-unit id="701b540b-8014-4bd6-a158-92f04e69a5a5" xml:space="preserve">
+          <source>Non-volatile random access memory (NVRAM), which retains information even if power is interrupted</source>
+          <target state="new">Non-volatile random access memory (NVRAM), which retains information even if power is interrupted</target>
+        </trans-unit>
+        <trans-unit id="6ae9ed09-1d93-4656-bbd3-3a8ec592f4b0" xml:space="preserve">
+          <source>Cluster-aware updating to manage software updates on servers in a failover cluster so that the updates have minimal or no effect on service availability</source>
+          <target state="new">Cluster-aware updating to manage software updates on servers in a failover cluster so that the updates have minimal or no effect on service availability</target>
+        </trans-unit>
+        <trans-unit id="3a8475b8-11b3-4880-aad8-678e8025a748" xml:space="preserve">
+          <source>Cluster service, which functions like a back-end cluster, providing high availability and minimizing any adverse effects that might occur if an HDD or SSD fails or is taken offline</source>
+          <target state="new">Cluster service, which functions like a back-end cluster, providing high availability and minimizing any adverse effects that might occur if an HDD or SSD fails or is taken offline</target>
+        </trans-unit>
+        <trans-unit id="7c5508cc-1b77-4ac6-ad8a-7d4ac24cc5e5" xml:space="preserve">
+          <source>Only one controller is active at any point in time.</source>
+          <target state="new">Only one controller is active at any point in time.</target>
+        </trans-unit>
+        <trans-unit id="b3f52229-8296-4aae-8c4e-8bfd289d4b42" xml:space="preserve">
+          <source>If the active controller fails, the second controller becomes active automatically.</source>
+          <target state="new">If the active controller fails, the second controller becomes active automatically.</target>
+        </trans-unit>
+        <trans-unit id="487e357f-8034-46d7-a3e4-cabffb862da8" xml:space="preserve">
+          <source>For more information, see <bpt id="518c1138-a9fe-480c-8c80-ec8d4c0ce89f">&lt;linkText&gt;</bpt>StorSimple hardware components and status<ept id="518c1138-a9fe-480c-8c80-ec8d4c0ce89f">&lt;/linkText&gt;</ept><bpt id="518c1138-a9fe-480c-8c80-ec8d4c0ce89f">&lt;title&gt;</bpt><ept id="518c1138-a9fe-480c-8c80-ec8d4c0ce89f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="518c1138-a9fe-480c-8c80-ec8d4c0ce89f">&lt;linkText&gt;</bpt>StorSimple hardware components and status<ept id="518c1138-a9fe-480c-8c80-ec8d4c0ce89f">&lt;/linkText&gt;</ept><bpt id="518c1138-a9fe-480c-8c80-ec8d4c0ce89f">&lt;title&gt;</bpt><ept id="518c1138-a9fe-480c-8c80-ec8d4c0ce89f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b17e1ae2-390a-43e6-be97-418ea1a3f876" xml:space="preserve">
+          <source>You can use StorSimple to create a virtual device that replicates the architecture and capabilities of the actual hybrid storage device.</source>
+          <target state="new">You can use StorSimple to create a virtual device that replicates the architecture and capabilities of the actual hybrid storage device.</target>
+        </trans-unit>
+        <trans-unit id="65bccbfb-14d9-4fb2-a174-c74d8226e5a8" xml:space="preserve">
+          <source>The StorSimple virtual device (also known as the StorSimple Virtual Appliance) runs on a single node in an Azure virtual machine.</source>
+          <target state="new">The StorSimple virtual device (also known as the StorSimple Virtual Appliance) runs on a single node in an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="713d5f1d-65cd-4c59-ba07-d0f81caf7acb" xml:space="preserve">
+          <source>(A virtual device can only be created on an Azure virtual machine.</source>
+          <target state="new">(A virtual device can only be created on an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="760f3046-7c1d-4e46-8379-ff34e2bf04e9" xml:space="preserve">
+          <source>You cannot create one on a StorSimple device or an on-premises server.)</source>
+          <target state="new">You cannot create one on a StorSimple device or an on-premises server.)</target>
+        </trans-unit>
+        <trans-unit id="9cc56955-f8f0-4567-8808-4703f218f44e" xml:space="preserve">
+          <source>A StorSimple virtual device differs from a physical StorSimple device as follows:</source>
+          <target state="new">A StorSimple virtual device differs from a physical StorSimple device as follows:</target>
+        </trans-unit>
+        <trans-unit id="6f3a32e4-61b9-4040-a8c2-950da7a4da63" xml:space="preserve">
+          <source>The virtual device has only one interface, whereas the physical device has six network interfaces.</source>
+          <target state="new">The virtual device has only one interface, whereas the physical device has six network interfaces.</target>
+        </trans-unit>
+        <trans-unit id="9849b5c1-d386-47ec-801c-2959c0d56c54" xml:space="preserve">
+          <source>You register the virtual device during device configuration, rather than as a separate task.</source>
+          <target state="new">You register the virtual device during device configuration, rather than as a separate task.</target>
+        </trans-unit>
+        <trans-unit id="6a0ae344-ffdf-489e-9aa9-dc9b89355f9a" xml:space="preserve">
+          <source>You cannot regenerate the service data encryption key from a virtual device.</source>
+          <target state="new">You cannot regenerate the service data encryption key from a virtual device.</target>
+        </trans-unit>
+        <trans-unit id="99ad4bed-68a6-44ec-9847-938361a28e64" xml:space="preserve">
+          <source>During key rollover, you regenerate the key on the physical device, and then update the virtual device with the new key.</source>
+          <target state="new">During key rollover, you regenerate the key on the physical device, and then update the virtual device with the new key.</target>
+        </trans-unit>
+        <trans-unit id="9b69541d-2d42-49b5-9920-71cb5e89ee15" xml:space="preserve">
+          <source>If you need to apply updates to the virtual device, you will experience some down time.</source>
+          <target state="new">If you need to apply updates to the virtual device, you will experience some down time.</target>
+        </trans-unit>
+        <trans-unit id="2b5c3913-9623-49ba-bbfb-b7707dedc522" xml:space="preserve">
+          <source>This does not occur with a physical StorSimple device.</source>
+          <target state="new">This does not occur with a physical StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="d1e2d299-7956-4f0f-914a-09f96dc45f1c" xml:space="preserve">
+          <source>We recommend that you use the StorSimple virtual device for disaster recovery scenarios in which a physical device is not available, such as cloud development an test scenarios.</source>
+          <target state="new">We recommend that you use the StorSimple virtual device for disaster recovery scenarios in which a physical device is not available, such as cloud development an test scenarios.</target>
+        </trans-unit>
+        <trans-unit id="5be321a9-4ca3-4b40-9682-6731d2011059" xml:space="preserve">
+          <source>For more information, see <bpt id="d639a77d-eb51-4931-b27a-06616472e0f4">&lt;linkText&gt;</bpt>StorSimple virtual device<ept id="d639a77d-eb51-4931-b27a-06616472e0f4">&lt;/linkText&gt;</ept><bpt id="d639a77d-eb51-4931-b27a-06616472e0f4">&lt;title&gt;</bpt><ept id="d639a77d-eb51-4931-b27a-06616472e0f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d639a77d-eb51-4931-b27a-06616472e0f4">&lt;linkText&gt;</bpt>StorSimple virtual device<ept id="d639a77d-eb51-4931-b27a-06616472e0f4">&lt;/linkText&gt;</ept><bpt id="d639a77d-eb51-4931-b27a-06616472e0f4">&lt;title&gt;</bpt><ept id="d639a77d-eb51-4931-b27a-06616472e0f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c6205c5-adc9-474e-9e7a-462f67010e66" xml:space="preserve">
+          <source>In addition to the dedicated StorSimple device and virtual device, Microsoft Azure StorSimple uses the following software technologies to provide quick access to data and reduce storage consumption:</source>
+          <target state="new">In addition to the dedicated StorSimple device and virtual device, Microsoft Azure StorSimple uses the following software technologies to provide quick access to data and reduce storage consumption:</target>
+        </trans-unit>
+        <trans-unit id="d8cc64f4-d185-464a-bdcb-0744c69a5b4e" xml:space="preserve">
+          <source>Automatic storage tiering </source>
+          <target state="new">Automatic storage tiering </target>
+        </trans-unit>
+        <trans-unit id="47760383-6fc0-4130-bf6c-3e43c393193a" xml:space="preserve">
+          <source>Thin provisioning </source>
+          <target state="new">Thin provisioning </target>
+        </trans-unit>
+        <trans-unit id="f89beb38-547d-4075-949e-904081d84dbf" xml:space="preserve">
+          <source>Deduplication and compression </source>
+          <target state="new">Deduplication and compression </target>
+        </trans-unit>
+        <trans-unit id="eb0a8e88-bef2-4299-96ce-f3f055518c48" xml:space="preserve">
+          <source>Microsoft Azure StorSimple automatically arranges data in logical tiers based on current usage, age, and relationship to other data.</source>
+          <target state="new">Microsoft Azure StorSimple automatically arranges data in logical tiers based on current usage, age, and relationship to other data.</target>
+        </trans-unit>
+        <trans-unit id="acf44084-8ab4-4a2b-afd3-84b31ead66f3" xml:space="preserve">
+          <source>Data that is most active is stored locally, while less active and inactive data is automatically migrated to the cloud.</source>
+          <target state="new">Data that is most active is stored locally, while less active and inactive data is automatically migrated to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="fd4a927f-ab24-4afd-8a51-65460c8d4287" xml:space="preserve">
+          <source>The following diagram illustrates this storage approach.</source>
+          <target state="new">The following diagram illustrates this storage approach.</target>
+        </trans-unit>
+        <trans-unit id="320fca42-3aca-4bfe-b430-a87f9736ce2e" xml:space="preserve">
+          <source><bpt id="c46a3f74-e367-48b5-835f-b61f9afa0357">&lt;linkText&gt;</bpt>StorSimple storage tiers<ept id="c46a3f74-e367-48b5-835f-b61f9afa0357">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c46a3f74-e367-48b5-835f-b61f9afa0357">&lt;linkText&gt;</bpt>StorSimple storage tiers<ept id="c46a3f74-e367-48b5-835f-b61f9afa0357">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ac0e243-dec3-40c3-adba-f30231f192ee" xml:space="preserve">
+          <source>To enable quick access, StorSimple stores very active data (hot data) on SSDs in the StorSimple device.</source>
+          <target state="new">To enable quick access, StorSimple stores very active data (hot data) on SSDs in the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="f55af354-23fe-47b9-b1bf-6077a1d53d70" xml:space="preserve">
+          <source>It stores data that is used occasionally (warm data) on HDDs in the device or on servers at the datacenter.</source>
+          <target state="new">It stores data that is used occasionally (warm data) on HDDs in the device or on servers at the datacenter.</target>
+        </trans-unit>
+        <trans-unit id="618074b6-6aeb-48aa-b261-ee1a435bb27b" xml:space="preserve">
+          <source>It moves inactive data, backup data, and data retained for archival or compliance purposes to the cloud.</source>
+          <target state="new">It moves inactive data, backup data, and data retained for archival or compliance purposes to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="8a9c156d-817e-4520-b495-cc695a923cb7" xml:space="preserve">
+          <source>StorSimple adjusts and rearranges data and storage assignments as usage patterns change.</source>
+          <target state="new">StorSimple adjusts and rearranges data and storage assignments as usage patterns change.</target>
+        </trans-unit>
+        <trans-unit id="4a0cb135-9d5c-4f41-a1eb-2fc23f37911b" xml:space="preserve">
+          <source>For example, some information might become less active over time.</source>
+          <target state="new">For example, some information might become less active over time.</target>
+        </trans-unit>
+        <trans-unit id="55783ff5-2298-4197-b7ab-73bab80aec63" xml:space="preserve">
+          <source>As it becomes progressively less active, it is migrated from SSD to HDD and then to the cloud.</source>
+          <target state="new">As it becomes progressively less active, it is migrated from SSD to HDD and then to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="375e8ac2-257d-475e-9e08-88b935c1cb3f" xml:space="preserve">
+          <source>If that same data becomes active again, it is migrated back to the storage device.</source>
+          <target state="new">If that same data becomes active again, it is migrated back to the storage device.</target>
+        </trans-unit>
+        <trans-unit id="18ac4c3a-bbe3-4aad-9950-d3ee3b67750f" xml:space="preserve">
+          <source>The storage tiering process occurs as follows:</source>
+          <target state="new">The storage tiering process occurs as follows:</target>
+        </trans-unit>
+        <trans-unit id="526f6499-cd6e-4a04-a2a1-e7522fbc6a16" xml:space="preserve">
+          <source>A system administrator sets up a Microsoft Azure cloud storage account.</source>
+          <target state="new">A system administrator sets up a Microsoft Azure cloud storage account.</target>
+        </trans-unit>
+        <trans-unit id="08ae2470-10a7-40ec-93a3-f2c5f8a05991" xml:space="preserve">
+          <source>The administrator uses the serial console and the StorSimple Manager service (running in the Azure Management Portal) to configure the device and file server, creating volumes and data protection policies.</source>
+          <target state="new">The administrator uses the serial console and the StorSimple Manager service (running in the Azure Management Portal) to configure the device and file server, creating volumes and data protection policies.</target>
+        </trans-unit>
+        <trans-unit id="7c6f3f19-34ce-4023-9fc9-35b5a392ffee" xml:space="preserve">
+          <source>The on-premises file server uses the Internet Small Computer System Interface (iSCSI) to access the StorSimple device.</source>
+          <target state="new">The on-premises file server uses the Internet Small Computer System Interface (iSCSI) to access the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="013e32cc-7d7e-487e-af2f-654203eedc4f" xml:space="preserve">
+          <source>Initially, StorSimple stores data on the fast SSD tier of the device.</source>
+          <target state="new">Initially, StorSimple stores data on the fast SSD tier of the device.</target>
+        </trans-unit>
+        <trans-unit id="b18b0759-242a-4eff-982f-6a59215d93c5" xml:space="preserve">
+          <source>As the SSD tier approaches capacity, StorSimple deduplicates and compresses the oldest data blocks, and moves them to the HDD tier.</source>
+          <target state="new">As the SSD tier approaches capacity, StorSimple deduplicates and compresses the oldest data blocks, and moves them to the HDD tier.</target>
+        </trans-unit>
+        <trans-unit id="7f29665b-5339-408f-a0fc-a9b8bebdd811" xml:space="preserve">
+          <source>As the HDD tier approaches capacity, StorSimple encrypts the oldest data blocks and sends them securely to the Microsoft Azure storage account via HTTPS.</source>
+          <target state="new">As the HDD tier approaches capacity, StorSimple encrypts the oldest data blocks and sends them securely to the Microsoft Azure storage account via HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="e142da5f-e27c-43d9-819e-d40ef9bf7edb" xml:space="preserve">
+          <source>Microsoft Azure creates multiple replicas of the data in its datacenter and in a remote datacenter, ensuring that the data can be recovered if a disaster occurs.</source>
+          <target state="new">Microsoft Azure creates multiple replicas of the data in its datacenter and in a remote datacenter, ensuring that the data can be recovered if a disaster occurs.</target>
+        </trans-unit>
+        <trans-unit id="64b66bb5-f041-4ff7-bb10-33741aba530f" xml:space="preserve">
+          <source>When the file server requests data stored in the cloud, StorSimple returns it seamlessly and stores a copy on the SSD tier of the StorSimple device.</source>
+          <target state="new">When the file server requests data stored in the cloud, StorSimple returns it seamlessly and stores a copy on the SSD tier of the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="215daee2-ba8b-484d-bd1a-4cd9f19307f9" xml:space="preserve">
+          <source>Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources.</source>
+          <target state="new">Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources.</target>
+        </trans-unit>
+        <trans-unit id="236208a7-105b-4012-821e-2c2747cec941" xml:space="preserve">
+          <source>Instead of reserving sufficient storage in advance,  StorSimple uses thin provisioning to allocate just enough space to meet current requirements.</source>
+          <target state="new">Instead of reserving sufficient storage in advance,  StorSimple uses thin provisioning to allocate just enough space to meet current requirements.</target>
+        </trans-unit>
+        <trans-unit id="d2a57183-de03-426b-a290-e6ab68a00355" xml:space="preserve">
+          <source>The elastic nature of cloud storage facilitates this approach because  StorSimple can increase or decrease cloud storage to meet changing demands.</source>
+          <target state="new">The elastic nature of cloud storage facilitates this approach because  StorSimple can increase or decrease cloud storage to meet changing demands.</target>
+        </trans-unit>
+        <trans-unit id="2a2d5d3a-4e5a-4044-9532-400b674ea622" xml:space="preserve">
+          <source>Microsoft Azure StorSimple uses deduplication and data compression to further reduce storage requirements.</source>
+          <target state="new">Microsoft Azure StorSimple uses deduplication and data compression to further reduce storage requirements.</target>
+        </trans-unit>
+        <trans-unit id="080f530d-b216-47bf-935d-24f00fbdc73c" xml:space="preserve">
+          <source>Deduplication reduces the overall amount of data stored by eliminating redundancy in the stored data set.</source>
+          <target state="new">Deduplication reduces the overall amount of data stored by eliminating redundancy in the stored data set.</target>
+        </trans-unit>
+        <trans-unit id="d25b40df-2a5c-46d4-bee3-c55a0776a9dc" xml:space="preserve">
+          <source>As information changes, StorSimple ignores the unchanged data and captures only the changes.</source>
+          <target state="new">As information changes, StorSimple ignores the unchanged data and captures only the changes.</target>
+        </trans-unit>
+        <trans-unit id="665e659c-4e90-4306-b64a-3da6041e45f6" xml:space="preserve">
+          <source>In addition, StorSimple reduces the amount of stored data by identifying and removing unnecessary information.</source>
+          <target state="new">In addition, StorSimple reduces the amount of stored data by identifying and removing unnecessary information.</target>
+        </trans-unit>
+        <trans-unit id="bf30d628-32c8-4c15-b4d9-869d2621ad63" xml:space="preserve">
+          <source>Windows PowerShell for StorSimple provides a command-line interface that you can use to create and manage the Microsoft Azure StorSimple service and set up and monitor StorSimple devices.</source>
+          <target state="new">Windows PowerShell for StorSimple provides a command-line interface that you can use to create and manage the Microsoft Azure StorSimple service and set up and monitor StorSimple devices.</target>
+        </trans-unit>
+        <trans-unit id="020ea5db-a03d-4e39-9993-7aa950494e13" xml:space="preserve">
+          <source>It is a Windows PowerShell–based, command-line interface that includes dedicated cmdlets for managing your StorSimple device.</source>
+          <target state="new">It is a Windows PowerShell–based, command-line interface that includes dedicated cmdlets for managing your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="92555243-ae63-44f1-863c-6f1d129694c0" xml:space="preserve">
+          <source>Windows PowerShell for StorSimple has features that allow you to:</source>
+          <target state="new">Windows PowerShell for StorSimple has features that allow you to:</target>
+        </trans-unit>
+        <trans-unit id="d2618497-8aa3-4e4c-bbd2-4857e56feb98" xml:space="preserve">
+          <source>Register a device.</source>
+          <target state="new">Register a device.</target>
+        </trans-unit>
+        <trans-unit id="86ba5a0f-0ce5-4de7-9e66-36f63efbc941" xml:space="preserve">
+          <source>Configure the network interface on a device.</source>
+          <target state="new">Configure the network interface on a device.</target>
+        </trans-unit>
+        <trans-unit id="9fb2c941-2833-4420-8531-4c2a734ccc1e" xml:space="preserve">
+          <source>Install certain types of updates.</source>
+          <target state="new">Install certain types of updates.</target>
+        </trans-unit>
+        <trans-unit id="c51eaf34-f4b0-48b6-8b05-16536f1b8731" xml:space="preserve">
+          <source>Troubleshoot your device by accessing the support session.</source>
+          <target state="new">Troubleshoot your device by accessing the support session.</target>
+        </trans-unit>
+        <trans-unit id="eebe08fd-bae0-4d4f-84ab-939e1f268591" xml:space="preserve">
+          <source>Change the device state.</source>
+          <target state="new">Change the device state.</target>
+        </trans-unit>
+        <trans-unit id="562e6a37-8ad9-4f5f-aff1-bad9aa46789f" xml:space="preserve">
+          <source>You can access Windows PowerShell for StorSimple from a serial console (on a host computer connected directly to the device) or remotely by using Windows PowerShell remoting.</source>
+          <target state="new">You can access Windows PowerShell for StorSimple from a serial console (on a host computer connected directly to the device) or remotely by using Windows PowerShell remoting.</target>
+        </trans-unit>
+        <trans-unit id="6676751a-48e1-47f4-af6b-8b583d41236e" xml:space="preserve">
+          <source>Note that some Windows PowerShell for StorSimple tasks, such as initial device registration, can only be done on the serial console.</source>
+          <target state="new">Note that some Windows PowerShell for StorSimple tasks, such as initial device registration, can only be done on the serial console.</target>
+        </trans-unit>
+        <trans-unit id="1fe54521-d8d4-4ada-a83d-60355c52451e" xml:space="preserve">
+          <source>For more information, see <bpt id="5a163e4e-4880-4073-b2fb-c7469c734495">&lt;linkText&gt;</bpt>Use Windows PowerShell for StorSimple to administer your device<ept id="5a163e4e-4880-4073-b2fb-c7469c734495">&lt;/linkText&gt;</ept><bpt id="5a163e4e-4880-4073-b2fb-c7469c734495">&lt;title&gt;</bpt><ept id="5a163e4e-4880-4073-b2fb-c7469c734495">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="5a163e4e-4880-4073-b2fb-c7469c734495">&lt;linkText&gt;</bpt>Use Windows PowerShell for StorSimple to administer your device<ept id="5a163e4e-4880-4073-b2fb-c7469c734495">&lt;/linkText&gt;</ept><bpt id="5a163e4e-4880-4073-b2fb-c7469c734495">&lt;title&gt;</bpt><ept id="5a163e4e-4880-4073-b2fb-c7469c734495">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2675b931-f7ce-40da-afc9-7c000d3bb795" xml:space="preserve">
+          <source>The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line.</source>
+          <target state="new">The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line.</target>
+        </trans-unit>
+        <trans-unit id="77f4988d-143c-4636-87d2-6591f0f240b9" xml:space="preserve">
+          <source>For more information about the Azure PowerShell cmdlets for StorSimple, go to the <bpt id="2773a904-9b60-4305-8843-acf67c5689d4">&lt;linkText&gt;</bpt>cmdlet reference<ept id="2773a904-9b60-4305-8843-acf67c5689d4">&lt;/linkText&gt;</ept><bpt id="2773a904-9b60-4305-8843-acf67c5689d4">&lt;title&gt;</bpt><ept id="2773a904-9b60-4305-8843-acf67c5689d4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the Azure PowerShell cmdlets for StorSimple, go to the <bpt id="2773a904-9b60-4305-8843-acf67c5689d4">&lt;linkText&gt;</bpt>cmdlet reference<ept id="2773a904-9b60-4305-8843-acf67c5689d4">&lt;/linkText&gt;</ept><bpt id="2773a904-9b60-4305-8843-acf67c5689d4">&lt;title&gt;</bpt><ept id="2773a904-9b60-4305-8843-acf67c5689d4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1139aff0-acd0-4772-b1bd-a46c8f51313a" xml:space="preserve">
+          <source>Microsoft Azure StorSimple provides a web-based user interface (the StorSimple Manager service) that enables you to centrally manage datacenter and cloud storage.</source>
+          <target state="new">Microsoft Azure StorSimple provides a web-based user interface (the StorSimple Manager service) that enables you to centrally manage datacenter and cloud storage.</target>
+        </trans-unit>
+        <trans-unit id="7c8fdddf-b246-4fbf-aaef-83663d0642c0" xml:space="preserve">
+          <source>You can use the StorSimple Manager service to perform the following tasks:</source>
+          <target state="new">You can use the StorSimple Manager service to perform the following tasks:</target>
+        </trans-unit>
+        <trans-unit id="63635f56-0ce1-4e7d-aea1-5025d240b7e0" xml:space="preserve">
+          <source>Configure system settings for StorSimple devices.</source>
+          <target state="new">Configure system settings for StorSimple devices.</target>
+        </trans-unit>
+        <trans-unit id="327006ac-93e5-410e-ad0f-c871c6db2ece" xml:space="preserve">
+          <source>Configure and manage security settings for StorSimple devices.</source>
+          <target state="new">Configure and manage security settings for StorSimple devices.</target>
+        </trans-unit>
+        <trans-unit id="2ec9cd21-a25c-427d-aa68-20df9ccd8390" xml:space="preserve">
+          <source>Configure cloud credentials and properties.</source>
+          <target state="new">Configure cloud credentials and properties.</target>
+        </trans-unit>
+        <trans-unit id="d9a59a9c-8014-4734-abee-a2b03244ba5e" xml:space="preserve">
+          <source>Configure and manage volumes on a server.</source>
+          <target state="new">Configure and manage volumes on a server.</target>
+        </trans-unit>
+        <trans-unit id="887a1d5b-a6a6-4d43-8baf-360a5fd6bb35" xml:space="preserve">
+          <source>Configure volume groups.</source>
+          <target state="new">Configure volume groups.</target>
+        </trans-unit>
+        <trans-unit id="5dbccb80-a776-4c39-a440-60762333029a" xml:space="preserve">
+          <source>Back up and restore data.</source>
+          <target state="new">Back up and restore data.</target>
+        </trans-unit>
+        <trans-unit id="f7db1642-49ad-4a44-937f-611bb7d77932" xml:space="preserve">
+          <source>Monitor performance.</source>
+          <target state="new">Monitor performance.</target>
+        </trans-unit>
+        <trans-unit id="35aa00d7-c936-4478-a3b3-f6bf21fd3879" xml:space="preserve">
+          <source>Review system settings and identify possible problems.</source>
+          <target state="new">Review system settings and identify possible problems.</target>
+        </trans-unit>
+        <trans-unit id="22829822-6242-45de-9887-87a7e4a1019d" xml:space="preserve">
+          <source>You can use the StorSimple Manager service to perform all administration tasks except those that require system down time, such as initial setup and installation of updates.</source>
+          <target state="new">You can use the StorSimple Manager service to perform all administration tasks except those that require system down time, such as initial setup and installation of updates.</target>
+        </trans-unit>
+        <trans-unit id="db2f98df-de52-4abd-87a4-96801d54ad38" xml:space="preserve">
+          <source>For more information, see <bpt id="8d73916a-370a-42c8-a269-8ad5e6e50a7d">&lt;linkText&gt;</bpt>Use StorSimple Manager service to administer your StorSimple device<ept id="8d73916a-370a-42c8-a269-8ad5e6e50a7d">&lt;/linkText&gt;</ept><bpt id="8d73916a-370a-42c8-a269-8ad5e6e50a7d">&lt;title&gt;</bpt><ept id="8d73916a-370a-42c8-a269-8ad5e6e50a7d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="8d73916a-370a-42c8-a269-8ad5e6e50a7d">&lt;linkText&gt;</bpt>Use StorSimple Manager service to administer your StorSimple device<ept id="8d73916a-370a-42c8-a269-8ad5e6e50a7d">&lt;/linkText&gt;</ept><bpt id="8d73916a-370a-42c8-a269-8ad5e6e50a7d">&lt;title&gt;</bpt><ept id="8d73916a-370a-42c8-a269-8ad5e6e50a7d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67b80cb2-b5e8-4986-a1c3-afbb2f1f3ff5" xml:space="preserve">
+          <source>StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that you can use to create consistent, point-in-time backup copies of local and cloud data.</source>
+          <target state="new">StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that you can use to create consistent, point-in-time backup copies of local and cloud data.</target>
+        </trans-unit>
+        <trans-unit id="50b83a82-ea5a-4832-a011-e0f9d4fe633a" xml:space="preserve">
+          <source>The snap-in runs on a Windows Server–based host.</source>
+          <target state="new">The snap-in runs on a Windows Server–based host.</target>
+        </trans-unit>
+        <trans-unit id="95cec0bd-29c8-44dd-8037-e92ecd421437" xml:space="preserve">
+          <source>You can use StorSimple Snapshot Manager to:</source>
+          <target state="new">You can use StorSimple Snapshot Manager to:</target>
+        </trans-unit>
+        <trans-unit id="584d51ba-5a4b-4460-9596-6ccd16321118" xml:space="preserve">
+          <source>Configure, back up, and delete volumes.</source>
+          <target state="new">Configure, back up, and delete volumes.</target>
+        </trans-unit>
+        <trans-unit id="c4224fa3-7cc0-4c3e-81a4-07ac17f1bf3c" xml:space="preserve">
+          <source>Configure volume groups to ensure that backed up data is application-consistent.</source>
+          <target state="new">Configure volume groups to ensure that backed up data is application-consistent.</target>
+        </trans-unit>
+        <trans-unit id="fa2da24e-b875-4323-abff-318012491712" xml:space="preserve">
+          <source>Manage backup policies so that data is backed up on a predetermined schedule and stored in a designated location (locally or in the cloud).</source>
+          <target state="new">Manage backup policies so that data is backed up on a predetermined schedule and stored in a designated location (locally or in the cloud).</target>
+        </trans-unit>
+        <trans-unit id="c1aa96bd-c10b-45e2-b2ad-cc57759123b5" xml:space="preserve">
+          <source>Restore volumes and individual files.</source>
+          <target state="new">Restore volumes and individual files.</target>
+        </trans-unit>
+        <trans-unit id="7ef40e1a-fc54-41a9-a609-309f96d2b45c" xml:space="preserve">
+          <source>Backups are captured as snapshots, which record only the changes since the last snapshot was taken and require far less storage space than full backups.</source>
+          <target state="new">Backups are captured as snapshots, which record only the changes since the last snapshot was taken and require far less storage space than full backups.</target>
+        </trans-unit>
+        <trans-unit id="efce5321-d00b-406e-8ecd-ce2fa2819cd0" xml:space="preserve">
+          <source>You can create backup schedules or take immediate backups as needed.</source>
+          <target state="new">You can create backup schedules or take immediate backups as needed.</target>
+        </trans-unit>
+        <trans-unit id="ba12d9f3-d9de-4a6c-80b1-24db8b694a90" xml:space="preserve">
+          <source>Additionally, you can use StorSimple Snapshot Manager to establish retention policies that control how many snapshots will be saved.</source>
+          <target state="new">Additionally, you can use StorSimple Snapshot Manager to establish retention policies that control how many snapshots will be saved.</target>
+        </trans-unit>
+        <trans-unit id="2382018e-558c-4a63-a5b0-b2abf3d3458d" xml:space="preserve">
+          <source>If you subsequently need to restore data from a backup, StorSimple Snapshot Manager lets you select from the catalog of local or cloud snapshots.</source>
+          <target state="new">If you subsequently need to restore data from a backup, StorSimple Snapshot Manager lets you select from the catalog of local or cloud snapshots.</target>
+        </trans-unit>
+        <trans-unit id="29bd0352-12d6-45dc-a10d-e910f02dacc8" xml:space="preserve">
+          <source>If a disaster occurs or if you need to restore data for another reason, StorSimple Snapshot Manager restores it incrementally as it is needed.</source>
+          <target state="new">If a disaster occurs or if you need to restore data for another reason, StorSimple Snapshot Manager restores it incrementally as it is needed.</target>
+        </trans-unit>
+        <trans-unit id="04dfc130-4296-412e-88e7-fabbc8c7fb7d" xml:space="preserve">
+          <source>Data restoration does not require that you shut down the entire system while you restore a file, replace equipment, or move operations to another site.</source>
+          <target state="new">Data restoration does not require that you shut down the entire system while you restore a file, replace equipment, or move operations to another site.</target>
+        </trans-unit>
+        <trans-unit id="33f6ff96-ac52-460c-a3c9-23506885c16c" xml:space="preserve">
+          <source>For more information, see <bpt id="15c4a678-4bd9-4ce3-b61c-2f0f30cd2867">&lt;linkText&gt;</bpt>What is StorSimple Snapshot Manager?<ept id="15c4a678-4bd9-4ce3-b61c-2f0f30cd2867">&lt;/linkText&gt;</ept><bpt id="15c4a678-4bd9-4ce3-b61c-2f0f30cd2867">&lt;title&gt;</bpt><ept id="15c4a678-4bd9-4ce3-b61c-2f0f30cd2867">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="15c4a678-4bd9-4ce3-b61c-2f0f30cd2867">&lt;linkText&gt;</bpt>What is StorSimple Snapshot Manager?<ept id="15c4a678-4bd9-4ce3-b61c-2f0f30cd2867">&lt;/linkText&gt;</ept><bpt id="15c4a678-4bd9-4ce3-b61c-2f0f30cd2867">&lt;title&gt;</bpt><ept id="15c4a678-4bd9-4ce3-b61c-2f0f30cd2867">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21f49f3b-4ca5-42a1-87c6-d8eda4a063cb" xml:space="preserve">
+          <source>Microsoft Azure StorSimple includes the StorSimple Adapter for SharePoint, an optional component that transparently extends StorSimple storage and data protection features to SharePoint server farms.</source>
+          <target state="new">Microsoft Azure StorSimple includes the StorSimple Adapter for SharePoint, an optional component that transparently extends StorSimple storage and data protection features to SharePoint server farms.</target>
+        </trans-unit>
+        <trans-unit id="9df23a36-1542-4a23-a1ad-aa28de8e337a" xml:space="preserve">
+          <source>The adapter works with a Remote Blob Storage (RBS) provider and the SQL Server RBS feature, allowing you to move BLOBs to a server backed up by the Microsoft Azure StorSimple system.</source>
+          <target state="new">The adapter works with a Remote Blob Storage (RBS) provider and the SQL Server RBS feature, allowing you to move BLOBs to a server backed up by the Microsoft Azure StorSimple system.</target>
+        </trans-unit>
+        <trans-unit id="c5c460f4-2218-4dbc-912f-b0e3849fb56a" xml:space="preserve">
+          <source>Microsoft Azure StorSimple then stores the BLOB data locally or in the cloud, based on usage.</source>
+          <target state="new">Microsoft Azure StorSimple then stores the BLOB data locally or in the cloud, based on usage.</target>
+        </trans-unit>
+        <trans-unit id="0fd344ee-ac79-403b-bf1d-2b342021c250" xml:space="preserve">
+          <source>The StorSimple Adapter for SharePoint is managed from within the SharePoint Central Administration portal.</source>
+          <target state="new">The StorSimple Adapter for SharePoint is managed from within the SharePoint Central Administration portal.</target>
+        </trans-unit>
+        <trans-unit id="a5b0218a-c2af-4f34-914b-645984134fd4" xml:space="preserve">
+          <source>Consequently, SharePoint management remains centralized, and all storage appears to be in the SharePoint farm.</source>
+          <target state="new">Consequently, SharePoint management remains centralized, and all storage appears to be in the SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="3c621847-98fc-421d-8ddc-b82691906e1e" xml:space="preserve">
+          <source>For more information, see <bpt id="66645ec4-0ac8-4f04-9632-74ac10870450">&lt;linkText&gt;</bpt>StorSimple Adapter for SharePoint<ept id="66645ec4-0ac8-4f04-9632-74ac10870450">&lt;/linkText&gt;</ept><bpt id="66645ec4-0ac8-4f04-9632-74ac10870450">&lt;title&gt;</bpt><ept id="66645ec4-0ac8-4f04-9632-74ac10870450">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="66645ec4-0ac8-4f04-9632-74ac10870450">&lt;linkText&gt;</bpt>StorSimple Adapter for SharePoint<ept id="66645ec4-0ac8-4f04-9632-74ac10870450">&lt;/linkText&gt;</ept><bpt id="66645ec4-0ac8-4f04-9632-74ac10870450">&lt;title&gt;</bpt><ept id="66645ec4-0ac8-4f04-9632-74ac10870450">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="810f83a3-8755-4817-b6c0-0b4e12fd9626" xml:space="preserve">
+          <source>Before deploying your Microsoft Azure StorSimple solution, we recommend that you review the following terms and definitions.</source>
+          <target state="new">Before deploying your Microsoft Azure StorSimple solution, we recommend that you review the following terms and definitions.</target>
+        </trans-unit>
+        <trans-unit id="45c03692-66f3-47e2-ade5-ea68718ae610" xml:space="preserve">
+          <source>Term (Acronym or abbreviation)</source>
+          <target state="new">Term (Acronym or abbreviation)</target>
+        </trans-unit>
+        <trans-unit id="ba653735-e388-4d87-97de-959b2bd142be" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="4ea4a914-e3da-45e3-bc7b-b3bd091f89ee" xml:space="preserve">
+          <source>access control record (ACR)</source>
+          <target state="new">access control record (ACR)</target>
+        </trans-unit>
+        <trans-unit id="b8d7a4b7-91ad-427b-83c8-1f3057964945" xml:space="preserve">
+          <source>A record associated with a volume on your Microsoft Azure StorSimple device that determines which hosts can connect to it.</source>
+          <target state="new">A record associated with a volume on your Microsoft Azure StorSimple device that determines which hosts can connect to it.</target>
+        </trans-unit>
+        <trans-unit id="724da399-7b40-4c8a-a92e-48d3c3fc0552" xml:space="preserve">
+          <source>The determination is based on the iSCSI Qualified Name (IQN) of the hosts (contained in the ACR) that are connecting to your StorSimple device.</source>
+          <target state="new">The determination is based on the iSCSI Qualified Name (IQN) of the hosts (contained in the ACR) that are connecting to your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="cc277c6c-157c-447f-a6db-6c2801321a92" xml:space="preserve">
+          <source>AES-256</source>
+          <target state="new">AES-256</target>
+        </trans-unit>
+        <trans-unit id="6caffe6b-9a45-4394-98fc-e23aa96fb09e" xml:space="preserve">
+          <source>A 256-bit Advanced Encryption Standard (AES) algorithm for encrypting data as it moves to and from the cloud.</source>
+          <target state="new">A 256-bit Advanced Encryption Standard (AES) algorithm for encrypting data as it moves to and from the cloud.</target>
+        </trans-unit>
+        <trans-unit id="ede2c967-5807-4a79-a74e-70005a24e64b" xml:space="preserve">
+          <source>allocation unit size (AUS)</source>
+          <target state="new">allocation unit size (AUS)</target>
+        </trans-unit>
+        <trans-unit id="e9dfab9a-a38a-48d1-8a45-13d1e7b6e120" xml:space="preserve">
+          <source>The smallest amount of disk space that can be allocated to hold a file in your Windows file systems. If a file size is not an even multiple of the cluster size, extra space must be used to hold the file (up to the next multiple of the cluster size) resulting in lost space and fragmentation of the hard disk. &lt;br&gt;The recommended AUS for Azure StorSimple volumes is 64 KB because it works well with the deduplication algorithms.</source>
+          <target state="new">The smallest amount of disk space that can be allocated to hold a file in your Windows file systems. If a file size is not an even multiple of the cluster size, extra space must be used to hold the file (up to the next multiple of the cluster size) resulting in lost space and fragmentation of the hard disk. &lt;br&gt;The recommended AUS for Azure StorSimple volumes is 64 KB because it works well with the deduplication algorithms.</target>
+        </trans-unit>
+        <trans-unit id="f2519443-71f5-4c77-aac5-f90cdbeb09c1" xml:space="preserve">
+          <source>automated storage tiering</source>
+          <target state="new">automated storage tiering</target>
+        </trans-unit>
+        <trans-unit id="ead5d5a2-25ec-4fc8-b08b-0ce82b0e06b3" xml:space="preserve">
+          <source>Automatically moving less active data from SSDs to HDDs and then to a tier in the cloud, and then enabling management of all storage from a central user interface.</source>
+          <target state="new">Automatically moving less active data from SSDs to HDDs and then to a tier in the cloud, and then enabling management of all storage from a central user interface.</target>
+        </trans-unit>
+        <trans-unit id="1ac72e97-384b-4993-a534-51e4da265e4e" xml:space="preserve">
+          <source>backup catalog</source>
+          <target state="new">backup catalog</target>
+        </trans-unit>
+        <trans-unit id="6ba46153-30d4-4c1e-a257-443cac2b0c3a" xml:space="preserve">
+          <source>A collection of backups, usually related by the application type that was used.</source>
+          <target state="new">A collection of backups, usually related by the application type that was used.</target>
+        </trans-unit>
+        <trans-unit id="e27e1208-ef63-48c8-b457-365f8957beca" xml:space="preserve">
+          <source>This collection is displayed in the Backup Catalog page of the StorSimple Manager service UI.</source>
+          <target state="new">This collection is displayed in the Backup Catalog page of the StorSimple Manager service UI.</target>
+        </trans-unit>
+        <trans-unit id="9a7dac6c-6515-414c-b8b7-5cdb2dd23201" xml:space="preserve">
+          <source>backup catalog file</source>
+          <target state="new">backup catalog file</target>
+        </trans-unit>
+        <trans-unit id="22af6760-c9e2-4d42-a19b-51fb74438520" xml:space="preserve">
+          <source>A file containing a list of available snapshots currently stored in the backup database of StorSimple Snapshot Manager.</source>
+          <target state="new">A file containing a list of available snapshots currently stored in the backup database of StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="df30d0d1-1276-428c-ae9a-e174aa87656a" xml:space="preserve">
+          <source>backup policy</source>
+          <target state="new">backup policy</target>
+        </trans-unit>
+        <trans-unit id="d2a17d36-2af5-4944-9162-3a5747ba99e6" xml:space="preserve">
+          <source>A selection of volumes, type of backup, and a timetable that allows you to create backups on a predefined schedule.</source>
+          <target state="new">A selection of volumes, type of backup, and a timetable that allows you to create backups on a predefined schedule.</target>
+        </trans-unit>
+        <trans-unit id="77f09fc8-e906-4644-beff-3c33988f11d3" xml:space="preserve">
+          <source>binary large objects (BLOBs)</source>
+          <target state="new">binary large objects (BLOBs)</target>
+        </trans-unit>
+        <trans-unit id="b98106b9-9605-4dca-a1f7-e834edfa7b42" xml:space="preserve">
+          <source>A collection of binary data stored as a single entity in a database management system.</source>
+          <target state="new">A collection of binary data stored as a single entity in a database management system.</target>
+        </trans-unit>
+        <trans-unit id="5e38fe78-fe2e-4acf-bdf3-c324a31ba4ef" xml:space="preserve">
+          <source>BLOBs are typically images, audio, or other multimedia objects, although sometimes binary executable code is stored as a BLOB.</source>
+          <target state="new">BLOBs are typically images, audio, or other multimedia objects, although sometimes binary executable code is stored as a BLOB.</target>
+        </trans-unit>
+        <trans-unit id="d8012424-d67a-4f26-a718-e95a82ef60f7" xml:space="preserve">
+          <source>Challenge Handshake Authentication Protocol (CHAP)</source>
+          <target state="new">Challenge Handshake Authentication Protocol (CHAP)</target>
+        </trans-unit>
+        <trans-unit id="ea538a6a-7f13-49af-bcf8-b2fb1955b2f5" xml:space="preserve">
+          <source>A protocol used to authenticate the peer of a connection, based on the peer sharing a password or secret.</source>
+          <target state="new">A protocol used to authenticate the peer of a connection, based on the peer sharing a password or secret.</target>
+        </trans-unit>
+        <trans-unit id="8cf9852b-cd4b-4aa1-bf60-84fc132fd7ab" xml:space="preserve">
+          <source>CHAP can be one-way or mutual.</source>
+          <target state="new">CHAP can be one-way or mutual.</target>
+        </trans-unit>
+        <trans-unit id="28a1d9ec-0c0b-4677-83a2-c5c4a2414368" xml:space="preserve">
+          <source>With one-way CHAP, the target authenticates an initiator.</source>
+          <target state="new">With one-way CHAP, the target authenticates an initiator.</target>
+        </trans-unit>
+        <trans-unit id="8525fd81-fe93-4de8-9159-b7dd6fea6dbd" xml:space="preserve">
+          <source>Mutual CHAP requires that the target authenticate the initiator and that the initiator authenticates the target.</source>
+          <target state="new">Mutual CHAP requires that the target authenticate the initiator and that the initiator authenticates the target.</target>
+        </trans-unit>
+        <trans-unit id="ed5d9e37-a47e-47b1-a6fa-49daeb03d238" xml:space="preserve">
+          <source>clone</source>
+          <target state="new">clone</target>
+        </trans-unit>
+        <trans-unit id="6798493f-8218-4278-93d2-356e10371f85" xml:space="preserve">
+          <source>A duplicate copy of a volume.</source>
+          <target state="new">A duplicate copy of a volume.</target>
+        </trans-unit>
+        <trans-unit id="6ebce7bb-2ac2-4143-890c-e966f30e7307" xml:space="preserve">
+          <source>Cloud as a Tier (CaaT)</source>
+          <target state="new">Cloud as a Tier (CaaT)</target>
+        </trans-unit>
+        <trans-unit id="b9ff3de8-33d0-4270-8f33-aa7d724cc2fc" xml:space="preserve">
+          <source>Cloud storage integrated as a tier within the storage architecture so that all storage appears to be part of one enterprise storage network.</source>
+          <target state="new">Cloud storage integrated as a tier within the storage architecture so that all storage appears to be part of one enterprise storage network.</target>
+        </trans-unit>
+        <trans-unit id="1667b212-cb5b-426b-beee-7f2f08f15d2e" xml:space="preserve">
+          <source>cloud service provider (CSP)</source>
+          <target state="new">cloud service provider (CSP)</target>
+        </trans-unit>
+        <trans-unit id="7348f09b-55a9-42b1-98d4-10d9dde8a7d0" xml:space="preserve">
+          <source>A provider of cloud computing services.</source>
+          <target state="new">A provider of cloud computing services.</target>
+        </trans-unit>
+        <trans-unit id="dcf4f13e-06a6-4a34-92a3-a7f76ecef356" xml:space="preserve">
+          <source>cloud snapshot</source>
+          <target state="new">cloud snapshot</target>
+        </trans-unit>
+        <trans-unit id="d97fd4e6-8e7b-4f9d-a504-6d27a07a9321" xml:space="preserve">
+          <source>A point-in-time copy of volume data that is stored in the cloud.</source>
+          <target state="new">A point-in-time copy of volume data that is stored in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="f4794f39-35f5-4991-b10d-24e28a88b726" xml:space="preserve">
+          <source>A cloud snapshot is equivalent to a snapshot replicated on a different, off-site storage system.</source>
+          <target state="new">A cloud snapshot is equivalent to a snapshot replicated on a different, off-site storage system.</target>
+        </trans-unit>
+        <trans-unit id="3889eee6-9fa6-41e6-9c17-749812bda11e" xml:space="preserve">
+          <source>Cloud snapshots are particularly useful in disaster recovery scenarios.</source>
+          <target state="new">Cloud snapshots are particularly useful in disaster recovery scenarios.</target>
+        </trans-unit>
+        <trans-unit id="57d1b71b-e8c9-4a9a-8e56-cd4a49ed0315" xml:space="preserve">
+          <source>cloud storage encryption key</source>
+          <target state="new">cloud storage encryption key</target>
+        </trans-unit>
+        <trans-unit id="e16b3fbb-2290-4d7e-9f8a-4740a071a2c8" xml:space="preserve">
+          <source>A password or a key used by your StorSimple device to access the encrypted data sent by your device to the cloud.</source>
+          <target state="new">A password or a key used by your StorSimple device to access the encrypted data sent by your device to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="40928b46-ba4d-4035-a1fb-589cf0c025bc" xml:space="preserve">
+          <source>cluster-aware updating</source>
+          <target state="new">cluster-aware updating</target>
+        </trans-unit>
+        <trans-unit id="8b740721-92c0-45ef-9a57-dd0769fb3dae" xml:space="preserve">
+          <source>Managing software updates on servers in a failover cluster so that the updates have minimal or no effect on service availability.</source>
+          <target state="new">Managing software updates on servers in a failover cluster so that the updates have minimal or no effect on service availability.</target>
+        </trans-unit>
+        <trans-unit id="95f884f5-bef8-4c57-a844-db3e4b08767a" xml:space="preserve">
+          <source>datapath</source>
+          <target state="new">datapath</target>
+        </trans-unit>
+        <trans-unit id="aa1b07f2-4d5e-42de-92eb-7033a75234b3" xml:space="preserve">
+          <source>A collection of functional units that perform inter-connected data processing operations.</source>
+          <target state="new">A collection of functional units that perform inter-connected data processing operations.</target>
+        </trans-unit>
+        <trans-unit id="078a7699-4769-47ba-9678-06d7009528da" xml:space="preserve">
+          <source>deactivate</source>
+          <target state="new">deactivate</target>
+        </trans-unit>
+        <trans-unit id="842ad760-8472-42f1-a251-fb9d0fc5305f" xml:space="preserve">
+          <source>A permanent action that breaks the connection between the StorSimple device and the associated cloud service.</source>
+          <target state="new">A permanent action that breaks the connection between the StorSimple device and the associated cloud service.</target>
+        </trans-unit>
+        <trans-unit id="119f043d-4ef9-4d47-834e-3ce62ee8e658" xml:space="preserve">
+          <source>Cloud snapshots of the device remain after this process and can be cloned or used for disaster recovery.</source>
+          <target state="new">Cloud snapshots of the device remain after this process and can be cloned or used for disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="6d7cfb48-f59d-4a15-886d-0e537aaf9a19" xml:space="preserve">
+          <source>disk mirroring</source>
+          <target state="new">disk mirroring</target>
+        </trans-unit>
+        <trans-unit id="a843a166-dbd0-4a15-8617-b4ec8c5a7866" xml:space="preserve">
+          <source>Replication of logical disk volumes on separate hard drives in real time to ensure continuous availability.</source>
+          <target state="new">Replication of logical disk volumes on separate hard drives in real time to ensure continuous availability.</target>
+        </trans-unit>
+        <trans-unit id="6bcf091f-9e36-4898-b644-94e307d09b21" xml:space="preserve">
+          <source>dynamic disk mirroring</source>
+          <target state="new">dynamic disk mirroring</target>
+        </trans-unit>
+        <trans-unit id="eaee05d1-c1d0-45de-88f4-55f59a0f4e49" xml:space="preserve">
+          <source>Replication of logical disk volumes on dynamic disks.</source>
+          <target state="new">Replication of logical disk volumes on dynamic disks.</target>
+        </trans-unit>
+        <trans-unit id="31ea6c9d-4776-4490-90f6-42065516aeb5" xml:space="preserve">
+          <source>dynamic disks</source>
+          <target state="new">dynamic disks</target>
+        </trans-unit>
+        <trans-unit id="eec12bdb-582e-41a0-b85d-81629e1fdb71" xml:space="preserve">
+          <source>A disk volume format that uses the Logical Disk Manager (LDM) to store and manage data across multiple physical disks.</source>
+          <target state="new">A disk volume format that uses the Logical Disk Manager (LDM) to store and manage data across multiple physical disks.</target>
+        </trans-unit>
+        <trans-unit id="61d850b3-57a1-4008-8113-bfdb63fb6bf8" xml:space="preserve">
+          <source>Dynamic disks can be enlarged to provide more free space.</source>
+          <target state="new">Dynamic disks can be enlarged to provide more free space.</target>
+        </trans-unit>
+        <trans-unit id="27f68d83-b63b-409d-bf21-de9deef56764" xml:space="preserve">
+          <source>Extended Bunch of Disks (EBOD) enclosure</source>
+          <target state="new">Extended Bunch of Disks (EBOD) enclosure</target>
+        </trans-unit>
+        <trans-unit id="445784f5-1d91-4029-8d55-9a3fd18de5ac" xml:space="preserve">
+          <source>A secondary enclosure of your Microsoft Azure StorSimple device that contains extra hard drive disks for additional storage.</source>
+          <target state="new">A secondary enclosure of your Microsoft Azure StorSimple device that contains extra hard drive disks for additional storage.</target>
+        </trans-unit>
+        <trans-unit id="5dbbcf3a-62b2-441b-a075-4a4f380b7959" xml:space="preserve">
+          <source>fat provisioning</source>
+          <target state="new">fat provisioning</target>
+        </trans-unit>
+        <trans-unit id="3d1472b8-62bf-494d-8721-e0afe8385a97" xml:space="preserve">
+          <source>A conventional storage provisioning in which storage space is allocated based on anticipated needs (and is usually beyond the current need).</source>
+          <target state="new">A conventional storage provisioning in which storage space is allocated based on anticipated needs (and is usually beyond the current need).</target>
+        </trans-unit>
+        <trans-unit id="91c74fb8-3d76-46af-90fb-d42e505c94c1" xml:space="preserve">
+          <source>See also <bpt id="aa2c76fc-bbae-4eb4-9f3d-3e015ddca156">&lt;em&gt;</bpt>thin provisioning<ept id="aa2c76fc-bbae-4eb4-9f3d-3e015ddca156">&lt;/em&gt;</ept>.</source>
+          <target state="new">See also <bpt id="aa2c76fc-bbae-4eb4-9f3d-3e015ddca156">&lt;em&gt;</bpt>thin provisioning<ept id="aa2c76fc-bbae-4eb4-9f3d-3e015ddca156">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="683d743a-e29f-479d-84e1-0f56687fd1d5" xml:space="preserve">
+          <source>hard disk drive (HDD)</source>
+          <target state="new">hard disk drive (HDD)</target>
+        </trans-unit>
+        <trans-unit id="65bb107b-dc10-4dfa-aa44-f33cd1b50c9a" xml:space="preserve">
+          <source>A drive that uses rotating platters to store data.</source>
+          <target state="new">A drive that uses rotating platters to store data.</target>
+        </trans-unit>
+        <trans-unit id="19985af1-77f0-4c08-a2ce-043bd6bae6d6" xml:space="preserve">
+          <source>hybrid cloud storage</source>
+          <target state="new">hybrid cloud storage</target>
+        </trans-unit>
+        <trans-unit id="24f7408c-62bc-4a52-8bb7-7a987ab0b855" xml:space="preserve">
+          <source>A storage architecture that uses local and off-site resources, including cloud storage.</source>
+          <target state="new">A storage architecture that uses local and off-site resources, including cloud storage.</target>
+        </trans-unit>
+        <trans-unit id="f74e8711-6a29-4784-b661-71a15f55315d" xml:space="preserve">
+          <source>Internet Small Computer System Interface (iSCSI)</source>
+          <target state="new">Internet Small Computer System Interface (iSCSI)</target>
+        </trans-unit>
+        <trans-unit id="44858ad5-da9f-42ee-9b62-218b8a121425" xml:space="preserve">
+          <source>An Internet Protocol (IP)–based storage networking standard for linking data storage equipment or facilities.</source>
+          <target state="new">An Internet Protocol (IP)–based storage networking standard for linking data storage equipment or facilities.</target>
+        </trans-unit>
+        <trans-unit id="0890b681-d6ad-4df4-bfcb-93c3e53ebb34" xml:space="preserve">
+          <source>iSCSI initiator</source>
+          <target state="new">iSCSI initiator</target>
+        </trans-unit>
+        <trans-unit id="9d15b1ab-30ec-4185-b8b8-7cf39e0f789b" xml:space="preserve">
+          <source>A software component that enables a host computer running Windows to connect to an external iSCSI-based storage network.</source>
+          <target state="new">A software component that enables a host computer running Windows to connect to an external iSCSI-based storage network.</target>
+        </trans-unit>
+        <trans-unit id="4ca2b951-2d5b-4fe9-ba5e-2412c3108de6" xml:space="preserve">
+          <source>iSCSI Qualified Name (IQN)</source>
+          <target state="new">iSCSI Qualified Name (IQN)</target>
+        </trans-unit>
+        <trans-unit id="0a1354c1-13e0-44c6-a5bc-a2297c1efda9" xml:space="preserve">
+          <source>A unique name that identifies an iSCSI target or initiator.</source>
+          <target state="new">A unique name that identifies an iSCSI target or initiator.</target>
+        </trans-unit>
+        <trans-unit id="2f7519f2-21b8-41e8-846f-2c8afd49313f" xml:space="preserve">
+          <source>iSCSI target</source>
+          <target state="new">iSCSI target</target>
+        </trans-unit>
+        <trans-unit id="a7a7401a-6f8f-4ef3-9a7a-0e37fc4b7222" xml:space="preserve">
+          <source>A software component that provides centralized iSCSI disk subsystems in storage area networks.</source>
+          <target state="new">A software component that provides centralized iSCSI disk subsystems in storage area networks.</target>
+        </trans-unit>
+        <trans-unit id="98b1bd4c-ba6c-4332-9c2f-68ed0cc4880d" xml:space="preserve">
+          <source>live archiving</source>
+          <target state="new">live archiving</target>
+        </trans-unit>
+        <trans-unit id="f15c81a1-abc3-4ee4-87d1-632fe514b6b6" xml:space="preserve">
+          <source>A storage approach in which archival data is accessible all the time (it is not stored off-site on tape, for example).</source>
+          <target state="new">A storage approach in which archival data is accessible all the time (it is not stored off-site on tape, for example).</target>
+        </trans-unit>
+        <trans-unit id="1440e1aa-77ff-439e-9c1a-9e5e0fe9988c" xml:space="preserve">
+          <source>Microsoft Azure StorSimple uses live archiving.</source>
+          <target state="new">Microsoft Azure StorSimple uses live archiving.</target>
+        </trans-unit>
+        <trans-unit id="5db1e40f-bc52-4051-91fc-41ca42f848cd" xml:space="preserve">
+          <source>local snapshot</source>
+          <target state="new">local snapshot</target>
+        </trans-unit>
+        <trans-unit id="65206662-cfe2-414c-9705-7de1d9f3b4c5" xml:space="preserve">
+          <source>A point-in-time copy of volume data that is stored on the Microsoft Azure StorSimple device.</source>
+          <target state="new">A point-in-time copy of volume data that is stored on the Microsoft Azure StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="cc2934b6-8a43-486c-871f-a1e23ea173dd" xml:space="preserve">
+          <source>Microsoft Azure StorSimple</source>
+          <target state="new">Microsoft Azure StorSimple</target>
+        </trans-unit>
+        <trans-unit id="88a49088-b158-4c60-b067-3dd30955dbc1" xml:space="preserve">
+          <source>A powerful solution consisting of a datacenter storage appliance and software that enables IT organizations to leverage cloud storage as though it were datacenter storage, and simplify data protection and data management while reducing costs.</source>
+          <target state="new">A powerful solution consisting of a datacenter storage appliance and software that enables IT organizations to leverage cloud storage as though it were datacenter storage, and simplify data protection and data management while reducing costs.</target>
+        </trans-unit>
+        <trans-unit id="5fc1d56b-955a-4700-92bb-98fc1f4f64ca" xml:space="preserve">
+          <source>This solution consolidates primary storage, archive, backup, and disaster recovery (DR) through seamless integration with the cloud.</source>
+          <target state="new">This solution consolidates primary storage, archive, backup, and disaster recovery (DR) through seamless integration with the cloud.</target>
+        </trans-unit>
+        <trans-unit id="b419544a-b1ce-49c2-94ea-d44fcb4ce2d6" xml:space="preserve">
+          <source>By combining SAN storage and cloud data management on an enterprise-class platform, StorSimple devices enable speed, simplicity, and reliability for all storage-related needs.</source>
+          <target state="new">By combining SAN storage and cloud data management on an enterprise-class platform, StorSimple devices enable speed, simplicity, and reliability for all storage-related needs.</target>
+        </trans-unit>
+        <trans-unit id="74726fbb-d54d-4600-bcb6-ae368a128f1e" xml:space="preserve">
+          <source>Power and Cooling Module (PCM)</source>
+          <target state="new">Power and Cooling Module (PCM)</target>
+        </trans-unit>
+        <trans-unit id="a4413df1-7b6c-4125-8b8b-02e14b301e89" xml:space="preserve">
+          <source>Hardware components of your StorSimple device consisting of the power supplies and the cooling fan, hence the name Power and Cooling module.</source>
+          <target state="new">Hardware components of your StorSimple device consisting of the power supplies and the cooling fan, hence the name Power and Cooling module.</target>
+        </trans-unit>
+        <trans-unit id="a3a32932-ef2c-40a5-b26b-e9a84ef0b74f" xml:space="preserve">
+          <source>The primary enclosure of the device has two 764W PCMs whereas the EBOD enclosure has two 580W PCMs.</source>
+          <target state="new">The primary enclosure of the device has two 764W PCMs whereas the EBOD enclosure has two 580W PCMs.</target>
+        </trans-unit>
+        <trans-unit id="d593a096-84bd-41d6-b866-d6fdca9dcfd9" xml:space="preserve">
+          <source>primary enclosure</source>
+          <target state="new">primary enclosure</target>
+        </trans-unit>
+        <trans-unit id="efd0a034-451c-4bb7-b5a8-352faaf733eb" xml:space="preserve">
+          <source>Main enclosure of your StorSimple device that contains the application platform controllers.</source>
+          <target state="new">Main enclosure of your StorSimple device that contains the application platform controllers.</target>
+        </trans-unit>
+        <trans-unit id="47a9228c-77ef-4584-bc57-a5ba9b939484" xml:space="preserve">
+          <source>recovery time objective (RTO)</source>
+          <target state="new">recovery time objective (RTO)</target>
+        </trans-unit>
+        <trans-unit id="428f857d-e48f-4cb1-a39a-b76c751ca337" xml:space="preserve">
+          <source>The maximum amount of time that should be expended before a business process or system is fully restored after a disaster.</source>
+          <target state="new">The maximum amount of time that should be expended before a business process or system is fully restored after a disaster.</target>
+        </trans-unit>
+        <trans-unit id="1c6d140b-97ac-4a4b-b58e-d646605592d9" xml:space="preserve">
+          <source>serial attached SCSI (SAS)</source>
+          <target state="new">serial attached SCSI (SAS)</target>
+        </trans-unit>
+        <trans-unit id="f679cfc3-6445-49f5-908b-9b0af136dfd6" xml:space="preserve">
+          <source>A type of hard disk drive (HDD).</source>
+          <target state="new">A type of hard disk drive (HDD).</target>
+        </trans-unit>
+        <trans-unit id="28ecc6fe-b936-478f-a397-ca74e03ead78" xml:space="preserve">
+          <source>service data encryption key</source>
+          <target state="new">service data encryption key</target>
+        </trans-unit>
+        <trans-unit id="ecb833ea-87c4-4019-b367-03c5056daae3" xml:space="preserve">
+          <source>A key made available to any new StorSimple device that registers with the StorSimple Manager service.</source>
+          <target state="new">A key made available to any new StorSimple device that registers with the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="ef87dd74-bb0f-44c3-b89e-dce651cbc439" xml:space="preserve">
+          <source>The configuration data transferred between the StorSimple Manager service and the device is encrypted using a public key and can then be decrypted only on the device using a private key.</source>
+          <target state="new">The configuration data transferred between the StorSimple Manager service and the device is encrypted using a public key and can then be decrypted only on the device using a private key.</target>
+        </trans-unit>
+        <trans-unit id="3e36ed1b-0bb6-4ca0-89fb-9748dc65304c" xml:space="preserve">
+          <source>Service data encryption key allows the service to obtain this private key for decryption.</source>
+          <target state="new">Service data encryption key allows the service to obtain this private key for decryption.</target>
+        </trans-unit>
+        <trans-unit id="c722cbde-5bda-41b7-a776-fe21ae02e997" xml:space="preserve">
+          <source>service registration key</source>
+          <target state="new">service registration key</target>
+        </trans-unit>
+        <trans-unit id="fc0f8c9d-3908-4dd3-a56d-ea9de33f5589" xml:space="preserve">
+          <source>A key that helps register the StorSimple device with the StorSimple Manager service so that it appears in the Management Portal for further management actions.</source>
+          <target state="new">A key that helps register the StorSimple device with the StorSimple Manager service so that it appears in the Management Portal for further management actions.</target>
+        </trans-unit>
+        <trans-unit id="d457c607-4ee9-4a21-825d-1e43ebf18f5a" xml:space="preserve">
+          <source>Small Computer System Interface (SCSI)</source>
+          <target state="new">Small Computer System Interface (SCSI)</target>
+        </trans-unit>
+        <trans-unit id="896448a0-b42b-415e-9906-9c233dee7317" xml:space="preserve">
+          <source>A set of standards for physically connecting computers and passing data between them.</source>
+          <target state="new">A set of standards for physically connecting computers and passing data between them.</target>
+        </trans-unit>
+        <trans-unit id="0def7c37-2a82-409f-996d-e0448edd406a" xml:space="preserve">
+          <source>solid state drive (SSD)</source>
+          <target state="new">solid state drive (SSD)</target>
+        </trans-unit>
+        <trans-unit id="49ff2c6f-dfef-47d8-af40-24e5a339038a" xml:space="preserve">
+          <source>A disk that contains no moving parts; for example, a flash drive.</source>
+          <target state="new">A disk that contains no moving parts; for example, a flash drive.</target>
+        </trans-unit>
+        <trans-unit id="1e70d622-609c-4e17-a132-3f5ff3cb3562" xml:space="preserve">
+          <source>storage account</source>
+          <target state="new">storage account</target>
+        </trans-unit>
+        <trans-unit id="af8d8614-4f8a-4648-b236-02ed0c61f29f" xml:space="preserve">
+          <source>A set of access credentials linked to your storage account for a given cloud service provider.</source>
+          <target state="new">A set of access credentials linked to your storage account for a given cloud service provider.</target>
+        </trans-unit>
+        <trans-unit id="7d2e95a6-4ea3-4ee0-a5cd-4deff72b8980" xml:space="preserve">
+          <source>StorSimple Adapter for SharePoint</source>
+          <target state="new">StorSimple Adapter for SharePoint</target>
+        </trans-unit>
+        <trans-unit id="0de26aa9-a35d-4af6-9311-8f9f83006892" xml:space="preserve">
+          <source>A Microsoft Azure StorSimple component that transparently extends StorSimple storage and data protection to SharePoint server farms.</source>
+          <target state="new">A Microsoft Azure StorSimple component that transparently extends StorSimple storage and data protection to SharePoint server farms.</target>
+        </trans-unit>
+        <trans-unit id="9b8a6f84-882c-4c77-bed4-f796c602f70d" xml:space="preserve">
+          <source>StorSimple Manager service</source>
+          <target state="new">StorSimple Manager service</target>
+        </trans-unit>
+        <trans-unit id="39b44e5e-b23f-46c7-99d4-e7a35698a4cc" xml:space="preserve">
+          <source>An extension of the Azure Management Portal that allows you to manage your Azure StorSimple on-premises and virtual devices.</source>
+          <target state="new">An extension of the Azure Management Portal that allows you to manage your Azure StorSimple on-premises and virtual devices.</target>
+        </trans-unit>
+        <trans-unit id="9a73b523-95e1-4262-ae84-037bf7c048d3" xml:space="preserve">
+          <source>StorSimple Snapshot Manager</source>
+          <target state="new">StorSimple Snapshot Manager</target>
+        </trans-unit>
+        <trans-unit id="ddfa735f-aa2c-4e52-a989-8706b6141a60" xml:space="preserve">
+          <source>A Microsoft Management Console (MMC) snap-in for managing backup and restore operations in Microsoft Azure StorSimple.</source>
+          <target state="new">A Microsoft Management Console (MMC) snap-in for managing backup and restore operations in Microsoft Azure StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="38e69db1-c707-47ef-b0a3-1ff331df4921" xml:space="preserve">
+          <source>take backup</source>
+          <target state="new">take backup</target>
+        </trans-unit>
+        <trans-unit id="b1bead69-77f5-4753-96ce-0327c175eab2" xml:space="preserve">
+          <source>A feature that allows the user to take an interactive backup of a volume.</source>
+          <target state="new">A feature that allows the user to take an interactive backup of a volume.</target>
+        </trans-unit>
+        <trans-unit id="fe055c95-fac5-4e5c-bd84-5074674d1ca1" xml:space="preserve">
+          <source>It is an alternate way of taking a manual backup of a volume as opposed to taking an automated backup via a defined policy.</source>
+          <target state="new">It is an alternate way of taking a manual backup of a volume as opposed to taking an automated backup via a defined policy.</target>
+        </trans-unit>
+        <trans-unit id="2371dd4a-fdde-4cc1-98f2-9adc85ab9002" xml:space="preserve">
+          <source>thin provisioning</source>
+          <target state="new">thin provisioning</target>
+        </trans-unit>
+        <trans-unit id="aeb4879a-921b-4b51-824b-d93aef1d3654" xml:space="preserve">
+          <source>A method of optimizing the efficiency with which the available storage space is used in storage systems.</source>
+          <target state="new">A method of optimizing the efficiency with which the available storage space is used in storage systems.</target>
+        </trans-unit>
+        <trans-unit id="73e46c25-b5e0-4420-992b-3dcf5aebfb5b" xml:space="preserve">
+          <source>In thin provisioning, the storage is allocated amongst multiple users based on the minimum space required by each user at any given time.</source>
+          <target state="new">In thin provisioning, the storage is allocated amongst multiple users based on the minimum space required by each user at any given time.</target>
+        </trans-unit>
+        <trans-unit id="925c1b06-6717-4760-b454-7f1736cdb510" xml:space="preserve">
+          <source>See also <bpt id="85819bfd-b680-4093-921a-f2b2a3e982f4">&lt;em&gt;</bpt>fat provisioning<ept id="85819bfd-b680-4093-921a-f2b2a3e982f4">&lt;/em&gt;</ept>.</source>
+          <target state="new">See also <bpt id="85819bfd-b680-4093-921a-f2b2a3e982f4">&lt;em&gt;</bpt>fat provisioning<ept id="85819bfd-b680-4093-921a-f2b2a3e982f4">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6db2c08f-1545-4f76-98c4-615fe86b9f71" xml:space="preserve">
+          <source>volume</source>
+          <target state="new">volume</target>
+        </trans-unit>
+        <trans-unit id="c20bc229-feee-4ff5-8f56-ab09ecbefc1f" xml:space="preserve">
+          <source>Logical storage areas presented in the form of drives.</source>
+          <target state="new">Logical storage areas presented in the form of drives.</target>
+        </trans-unit>
+        <trans-unit id="e131c38a-788f-437b-9181-4404dfb858fb" xml:space="preserve">
+          <source>StorSimple volumes correspond to the volumes mounted by the host, including those discovered through the use of iSCSI and a StorSimple device.</source>
+          <target state="new">StorSimple volumes correspond to the volumes mounted by the host, including those discovered through the use of iSCSI and a StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="a1254edf-5fa3-4866-beaf-6cf643f3ee3e" xml:space="preserve">
+          <source>volume container</source>
+          <target state="new">volume container</target>
+        </trans-unit>
+        <trans-unit id="8f78e547-ce8c-4159-93de-7eb6b51b5fe0" xml:space="preserve">
+          <source>A grouping of volumes and the settings that apply to them.</source>
+          <target state="new">A grouping of volumes and the settings that apply to them.</target>
+        </trans-unit>
+        <trans-unit id="01e9637d-1b61-49d5-8bde-f66ab87b8748" xml:space="preserve">
+          <source>All volumes in your StorSimple device are grouped into volume containers.</source>
+          <target state="new">All volumes in your StorSimple device are grouped into volume containers.</target>
+        </trans-unit>
+        <trans-unit id="705d30b3-d6c3-4c56-81d8-104cc93978c4" xml:space="preserve">
+          <source>Volume container settings include storage accounts, encryption settings for data sent to cloud with associated encryption keys, and bandwidth consumed for operations involving the cloud.</source>
+          <target state="new">Volume container settings include storage accounts, encryption settings for data sent to cloud with associated encryption keys, and bandwidth consumed for operations involving the cloud.</target>
+        </trans-unit>
+        <trans-unit id="0829326e-7835-4648-a14d-11af53e6a8ca" xml:space="preserve">
+          <source>volume group</source>
+          <target state="new">volume group</target>
+        </trans-unit>
+        <trans-unit id="b7ce3e6a-14b8-49e4-a10d-4e9b06f1b3af" xml:space="preserve">
+          <source>In StorSimple Snapshot Manager, a volume group is a collection of volumes configured to facilitate backup processing.</source>
+          <target state="new">In StorSimple Snapshot Manager, a volume group is a collection of volumes configured to facilitate backup processing.</target>
+        </trans-unit>
+        <trans-unit id="b0fa6a11-f202-40cd-9fc9-8223a0b2705a" xml:space="preserve">
+          <source>Volume Shadow Copy Service (VSS)</source>
+          <target state="new">Volume Shadow Copy Service (VSS)</target>
+        </trans-unit>
+        <trans-unit id="8bc2b65e-ebb5-4480-896f-f6e4e3110f73" xml:space="preserve">
+          <source>A Windows Server operating system service that facilitates application consistency by communicating with VSS-aware applications to coordinate the creation of incremental snapshots.</source>
+          <target state="new">A Windows Server operating system service that facilitates application consistency by communicating with VSS-aware applications to coordinate the creation of incremental snapshots.</target>
+        </trans-unit>
+        <trans-unit id="f8da4088-b101-4cd3-aa85-7e35bd9ed437" xml:space="preserve">
+          <source>VSS ensures that the applications are temporarily inactive when snapshots are taken.</source>
+          <target state="new">VSS ensures that the applications are temporarily inactive when snapshots are taken.</target>
+        </trans-unit>
+        <trans-unit id="5e256709-7d04-4746-869d-eb9cafd1b19d" xml:space="preserve">
+          <source>Windows PowerShell for StorSimple</source>
+          <target state="new">Windows PowerShell for StorSimple</target>
+        </trans-unit>
+        <trans-unit id="56fde8c4-fbe0-44ef-9b08-686698e2f532" xml:space="preserve">
+          <source>A Windows PowerShell–based command-line interface used to operate and manage your StorSimple device.</source>
+          <target state="new">A Windows PowerShell–based command-line interface used to operate and manage your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="99c776b2-f952-4e92-8eec-8e035738fb99" xml:space="preserve">
+          <source>While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing a StorSimple device.</source>
+          <target state="new">While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing a StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="0305fa33-1dfb-455f-9fe4-ebfb1a696f7e" xml:space="preserve">
+          <source>Learn about <bpt id="bd0de2bb-2bce-448e-a273-e11f27f284cd">&lt;linkText&gt;</bpt>StorSimple security<ept id="bd0de2bb-2bce-448e-a273-e11f27f284cd">&lt;/linkText&gt;</ept><bpt id="bd0de2bb-2bce-448e-a273-e11f27f284cd">&lt;title&gt;</bpt><ept id="bd0de2bb-2bce-448e-a273-e11f27f284cd">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn about <bpt id="bd0de2bb-2bce-448e-a273-e11f27f284cd">&lt;linkText&gt;</bpt>StorSimple security<ept id="bd0de2bb-2bce-448e-a273-e11f27f284cd">&lt;/linkText&gt;</ept><bpt id="bd0de2bb-2bce-448e-a273-e11f27f284cd">&lt;title&gt;</bpt><ept id="bd0de2bb-2bce-448e-a273-e11f27f284cd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

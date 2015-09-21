@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d6ead998-c3db-497a-8442-b4630c316b5d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d6ead998-c3db-497a-8442-b4630c316b5d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3b0f381a-8f8c-4f47-b4a5-9795c5c2a382">
+        <trans-unit id="29ab5654-c439-492b-9e75-ebce71df0654" xml:space="preserve">
+          <source>Learn Hadoop in HDInsight with the Sample Gallery | Microsoft Azure</source>
+          <target state="new">Learn Hadoop in HDInsight with the Sample Gallery | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8a5dacb5-25f7-49bd-b073-0fa284a5300b" xml:space="preserve">
+          <source>Quickly learn Hadoop by running sample applications from the HDInsight Getting Started Gallery. Use sample data or supply your own.</source>
+          <target state="new">Quickly learn Hadoop by running sample applications from the HDInsight Getting Started Gallery. Use sample data or supply your own.</target>
+        </trans-unit>
+        <trans-unit id="947388d3-d3e9-4a90-9bfa-c7c276921a93" xml:space="preserve">
+          <source>The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoop by running sample applications in HDInsight.</source>
+          <target state="new">The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoop by running sample applications in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="d64b563a-db76-47f7-b491-67f3678d7dc3" xml:space="preserve">
+          <source>Some of the samples come with sample data.</source>
+          <target state="new">Some of the samples come with sample data.</target>
+        </trans-unit>
+        <trans-unit id="35885a50-4f17-41f3-b463-d477fc97f04a" xml:space="preserve">
+          <source>You can supply your own data for the remaining samples.</source>
+          <target state="new">You can supply your own data for the remaining samples.</target>
+        </trans-unit>
+        <trans-unit id="034463f3-4b69-4c10-b89d-2aa57727d39b" xml:space="preserve">
+          <source>Currently, there are the following six samples (with more coming):</source>
+          <target state="new">Currently, there are the following six samples (with more coming):</target>
+        </trans-unit>
+        <trans-unit id="345384a2-fbea-4b15-94c6-f318509ee6c8" xml:space="preserve">
+          <source>Solutions with your Azure data</source>
+          <target state="new">Solutions with your Azure data</target>
+        </trans-unit>
+        <trans-unit id="ed28fedb-c68f-4012-bb4f-2cf59388b1b8" xml:space="preserve">
+          <source>Microsoft Azure website log analysis</source>
+          <target state="new">Microsoft Azure website log analysis</target>
+        </trans-unit>
+        <trans-unit id="32ff807f-9370-405e-97fc-64432f93bcb9" xml:space="preserve">
+          <source>Microsoft Azure storage analytics</source>
+          <target state="new">Microsoft Azure storage analytics</target>
+        </trans-unit>
+        <trans-unit id="79e6b54b-471f-4833-88a0-606e5a7f1142" xml:space="preserve">
+          <source>Solutions with sample data</source>
+          <target state="new">Solutions with sample data</target>
+        </trans-unit>
+        <trans-unit id="f099ddc0-0904-4fbf-b07f-d3a01c8b29fd" xml:space="preserve">
+          <source>Sensor data analysis</source>
+          <target state="new">Sensor data analysis</target>
+        </trans-unit>
+        <trans-unit id="45c0300d-1ae2-492b-8f86-9eec9e0237cb" xml:space="preserve">
+          <source>Twitter trend analysis</source>
+          <target state="new">Twitter trend analysis</target>
+        </trans-unit>
+        <trans-unit id="f06914f6-4b72-4c92-869d-4a5ceb2ed657" xml:space="preserve">
+          <source>Website log analysis</source>
+          <target state="new">Website log analysis</target>
+        </trans-unit>
+        <trans-unit id="6a265101-1878-4bf0-83b4-abef0649bf6a" xml:space="preserve">
+          <source>Mahout movie recommendation</source>
+          <target state="new">Mahout movie recommendation</target>
+        </trans-unit>
+        <trans-unit id="527eeed9-bb94-4f45-8f60-f76e6d8802bc" xml:space="preserve">
+          <source><bpt id="b32db616-c82b-45e7-a9ff-423199f3b3bc">&lt;token href="../../includes/hdinsight-azure-preview-portal.md"&gt;</bpt><ept id="b32db616-c82b-45e7-a9ff-423199f3b3bc">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b32db616-c82b-45e7-a9ff-423199f3b3bc">&lt;token href="../../includes/hdinsight-azure-preview-portal.md"&gt;</bpt><ept id="b32db616-c82b-45e7-a9ff-423199f3b3bc">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f49439d-4348-44b9-805f-3d1b02ce65fc" xml:space="preserve">
+          <source><bpt id="a7e0a677-602b-4c61-9ec2-5690cf265ce4">&lt;linkText&gt;</bpt>Learn Hadoop by using the HDInsight Getting Started Gallery<ept id="a7e0a677-602b-4c61-9ec2-5690cf265ce4">&lt;/linkText&gt;</ept><bpt id="a7e0a677-602b-4c61-9ec2-5690cf265ce4">&lt;title&gt;</bpt><ept id="a7e0a677-602b-4c61-9ec2-5690cf265ce4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a7e0a677-602b-4c61-9ec2-5690cf265ce4">&lt;linkText&gt;</bpt>Learn Hadoop by using the HDInsight Getting Started Gallery<ept id="a7e0a677-602b-4c61-9ec2-5690cf265ce4">&lt;/linkText&gt;</ept><bpt id="a7e0a677-602b-4c61-9ec2-5690cf265ce4">&lt;title&gt;</bpt><ept id="a7e0a677-602b-4c61-9ec2-5690cf265ce4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16ae1592-d527-4312-bd42-8c80c0e5be04" xml:space="preserve">
+          <source><bpt id="873dc3a8-edb7-4d38-8a48-a0bd4a8646a6">&lt;linkText&gt;</bpt>HDInsight Hadoop, Storm, and HBase Getting Started Gallery solutions including sample data.<ept id="873dc3a8-edb7-4d38-8a48-a0bd4a8646a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="873dc3a8-edb7-4d38-8a48-a0bd4a8646a6">&lt;linkText&gt;</bpt>HDInsight Hadoop, Storm, and HBase Getting Started Gallery solutions including sample data.<ept id="873dc3a8-edb7-4d38-8a48-a0bd4a8646a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a869261-721b-4276-91aa-2b8a8cedd110" xml:space="preserve">
+          <source>The following video clip shows how to run the Twitter trend analysis sample:</source>
+          <target state="new">The following video clip shows how to run the Twitter trend analysis sample:</target>
+        </trans-unit>
+        <trans-unit id="7627bca5-6b1b-41b2-a8ce-c6d7fafac662" xml:space="preserve">
+          <source>&lt;center&gt;&lt;a href="https://www.youtube.com/embed/7ePbHot1SN4"&gt;https://www.youtube.com/embed/7ePbHot1SN4&gt;&lt;/a&gt;&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;&lt;a href="https://www.youtube.com/embed/7ePbHot1SN4"&gt;https://www.youtube.com/embed/7ePbHot1SN4&gt;&lt;/a&gt;&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="f417a7cb-dfb3-4d83-9448-c171def996c2" xml:space="preserve">
+          <source>The Dashboard can be access by browsing to http://&lt;YourHDInsightClusterName&gt;.azurehdinsight.net/ or from the Azure preview portal.</source>
+          <target state="new">The Dashboard can be access by browsing to http://&lt;YourHDInsightClusterName&gt;.azurehdinsight.net/ or from the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="ed7e6768-0e1e-4486-ba91-07dcb58d9de9" xml:space="preserve">
+          <source><bpt id="8e565726-a755-4919-b258-9cea50e9a280">&lt;strong&gt;</bpt>To run a sample from the Getting Started Gallery<ept id="8e565726-a755-4919-b258-9cea50e9a280">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8e565726-a755-4919-b258-9cea50e9a280">&lt;strong&gt;</bpt>To run a sample from the Getting Started Gallery<ept id="8e565726-a755-4919-b258-9cea50e9a280">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c0083df-0718-4d14-a1a5-d1f5550eb297" xml:space="preserve">
+          <source>Sign in to the <bpt id="26869ee0-a936-43bb-a033-60dbf72c0bc5">&lt;linkText&gt;</bpt>Azure preview portal[azure.portal]<ept id="26869ee0-a936-43bb-a033-60dbf72c0bc5">&lt;/linkText&gt;</ept><bpt id="26869ee0-a936-43bb-a033-60dbf72c0bc5">&lt;title&gt;</bpt><ept id="26869ee0-a936-43bb-a033-60dbf72c0bc5">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="26869ee0-a936-43bb-a033-60dbf72c0bc5">&lt;linkText&gt;</bpt>Azure preview portal[azure.portal]<ept id="26869ee0-a936-43bb-a033-60dbf72c0bc5">&lt;/linkText&gt;</ept><bpt id="26869ee0-a936-43bb-a033-60dbf72c0bc5">&lt;title&gt;</bpt><ept id="26869ee0-a936-43bb-a033-60dbf72c0bc5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edbd8c96-6152-4c0b-8878-21ba9e6b0f8c" xml:space="preserve">
+          <source>Click <bpt id="091be525-a672-46bc-b414-81dc3e355f0a">&lt;strong&gt;</bpt>Browse All<ept id="091be525-a672-46bc-b414-81dc3e355f0a">&lt;/strong&gt;</ept> from the left menu, click <bpt id="1425eb2e-d318-4008-8f37-5da9a88b0e5f">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="1425eb2e-d318-4008-8f37-5da9a88b0e5f">&lt;/strong&gt;</ept>, click your cluster name.</source>
+          <target state="new">Click <bpt id="091be525-a672-46bc-b414-81dc3e355f0a">&lt;strong&gt;</bpt>Browse All<ept id="091be525-a672-46bc-b414-81dc3e355f0a">&lt;/strong&gt;</ept> from the left menu, click <bpt id="1425eb2e-d318-4008-8f37-5da9a88b0e5f">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="1425eb2e-d318-4008-8f37-5da9a88b0e5f">&lt;/strong&gt;</ept>, click your cluster name.</target>
+        </trans-unit>
+        <trans-unit id="2f412ae4-0410-4d29-bd69-5ad615e99e87" xml:space="preserve">
+          <source>Click <bpt id="933bf842-10af-48e7-923d-f1a8617877f6">&lt;strong&gt;</bpt>Dashboard<ept id="933bf842-10af-48e7-923d-f1a8617877f6">&lt;/strong&gt;</ept> from the top menu.</source>
+          <target state="new">Click <bpt id="933bf842-10af-48e7-923d-f1a8617877f6">&lt;strong&gt;</bpt>Dashboard<ept id="933bf842-10af-48e7-923d-f1a8617877f6">&lt;/strong&gt;</ept> from the top menu.</target>
+        </trans-unit>
+        <trans-unit id="60a2d21f-be3b-4cf3-8d59-420d2ee6ea52" xml:space="preserve">
+          <source>Enter the HTTP user (it is also called cluster user) username and password.</source>
+          <target state="new">Enter the HTTP user (it is also called cluster user) username and password.</target>
+        </trans-unit>
+        <trans-unit id="f0698580-0072-47d8-bcd0-b2d4d898c4dc" xml:space="preserve">
+          <source>Click <bpt id="63d74a5a-9880-4d3f-8832-6931c33d3225">&lt;strong&gt;</bpt>Getting Started Gallery<ept id="63d74a5a-9880-4d3f-8832-6931c33d3225">&lt;/strong&gt;</ept> at the top of the page.</source>
+          <target state="new">Click <bpt id="63d74a5a-9880-4d3f-8832-6931c33d3225">&lt;strong&gt;</bpt>Getting Started Gallery<ept id="63d74a5a-9880-4d3f-8832-6931c33d3225">&lt;/strong&gt;</ept> at the top of the page.</target>
+        </trans-unit>
+        <trans-unit id="ccdbb002-f8f6-4da5-b4ea-09a967eae66b" xml:space="preserve">
+          <source>Click one of the samples.</source>
+          <target state="new">Click one of the samples.</target>
+        </trans-unit>
+        <trans-unit id="6daf76e7-b2bc-4221-a488-b6cf9540534e" xml:space="preserve">
+          <source>Each sample gives detailed steps for running it.</source>
+          <target state="new">Each sample gives detailed steps for running it.</target>
+        </trans-unit>
+        <trans-unit id="36c33796-728b-4d28-8bcf-d0be9c79d3bf" xml:space="preserve">
+          <source>The following image shows the Twitter trend analysis sample:</source>
+          <target state="new">The following image shows the Twitter trend analysis sample:</target>
+        </trans-unit>
+        <trans-unit id="c9a53684-7727-4325-88ad-62a2c9146558" xml:space="preserve">
+          <source><bpt id="e8906798-5da9-456a-83ee-d232a64211fc">&lt;linkText&gt;</bpt>HDInsight Twitter trend analysis sample<ept id="e8906798-5da9-456a-83ee-d232a64211fc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e8906798-5da9-456a-83ee-d232a64211fc">&lt;linkText&gt;</bpt>HDInsight Twitter trend analysis sample<ept id="e8906798-5da9-456a-83ee-d232a64211fc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c358f306-eb6a-4f65-b268-ea11f3c61943" xml:space="preserve">
+          <source>Other ways to learn about HDInsight include:</source>
+          <target state="new">Other ways to learn about HDInsight include:</target>
+        </trans-unit>
+        <trans-unit id="683d00ff-cec8-4cb6-b258-c19a94e4fdd6" xml:space="preserve">
+          <source><bpt id="0c4d37ef-6963-4a48-bd40-f2204d9a3e58">&lt;linkText&gt;</bpt>HDInsight learning map[hdinsight.learn.map]<ept id="0c4d37ef-6963-4a48-bd40-f2204d9a3e58">&lt;/linkText&gt;</ept><bpt id="0c4d37ef-6963-4a48-bd40-f2204d9a3e58">&lt;title&gt;</bpt><ept id="0c4d37ef-6963-4a48-bd40-f2204d9a3e58">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0c4d37ef-6963-4a48-bd40-f2204d9a3e58">&lt;linkText&gt;</bpt>HDInsight learning map[hdinsight.learn.map]<ept id="0c4d37ef-6963-4a48-bd40-f2204d9a3e58">&lt;/linkText&gt;</ept><bpt id="0c4d37ef-6963-4a48-bd40-f2204d9a3e58">&lt;title&gt;</bpt><ept id="0c4d37ef-6963-4a48-bd40-f2204d9a3e58">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ca21fb9-3281-4e65-a6e9-6c03382e0cbe" xml:space="preserve">
+          <source><bpt id="95d97a2a-a7fa-4be2-aa88-b450b4b64990">&lt;linkText&gt;</bpt>HDInsight infographic[hdinsight.infographic]<ept id="95d97a2a-a7fa-4be2-aa88-b450b4b64990">&lt;/linkText&gt;</ept><bpt id="95d97a2a-a7fa-4be2-aa88-b450b4b64990">&lt;title&gt;</bpt><ept id="95d97a2a-a7fa-4be2-aa88-b450b4b64990">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="95d97a2a-a7fa-4be2-aa88-b450b4b64990">&lt;linkText&gt;</bpt>HDInsight infographic[hdinsight.infographic]<ept id="95d97a2a-a7fa-4be2-aa88-b450b4b64990">&lt;/linkText&gt;</ept><bpt id="95d97a2a-a7fa-4be2-aa88-b450b4b64990">&lt;title&gt;</bpt><ept id="95d97a2a-a7fa-4be2-aa88-b450b4b64990">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44548e8b-edf3-4d00-a385-ac6688fcdaa2" xml:space="preserve">
+          <source>./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Getting-Started-Gallery.png</source>
+          <target state="new">./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Getting-Started-Gallery.png</target>
+        </trans-unit>
+        <trans-unit id="3d1685c0-e447-4076-b522-23618ff7f09d" xml:space="preserve">
+          <source>./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png</source>
+          <target state="new">./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png</target>
+        </trans-unit>
+        <trans-unit id="36360e62-6df0-4fe1-a0f5-aa1d66485b12" xml:space="preserve">
+          <source>hdinsight-learn-map.md</source>
+          <target state="new">hdinsight-learn-map.md</target>
+        </trans-unit>
+        <trans-unit id="953db812-9043-4c1e-8a3e-a19af9e7cbf4" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?linkid=523960</source>
+          <target state="new">http://go.microsoft.com/fwlink/?linkid=523960</target>
+        </trans-unit>
+        <trans-unit id="ab18275c-ad7b-45a3-948d-55408ef71b4a" xml:space="preserve">
+          <source>https://portal.azure.com</source>
+          <target state="new">https://portal.azure.com</target>
+        </trans-unit>
+      </group>
+      <group id="25dd0466-9d62-4bca-a10e-6d78ffa7915d" />
+    </body>
+  </file>
+</xliff>

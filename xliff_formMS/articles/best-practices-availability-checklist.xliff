@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e76c4c9d-7cf7-4bd0-aad1-56a312ebdf75" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e76c4c9d-7cf7-4bd0-aad1-56a312ebdf75" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="44e6c5ab-29cc-47af-a356-95687e8b1012">
+        <trans-unit id="11b85099-505a-4a55-9e5c-8626f36500bf" xml:space="preserve">
+          <source>Availability checklist | Microsoft Azure</source>
+          <target state="new">Availability checklist | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="71ff8e8a-de70-4c44-b471-5a3d582e4ea5" xml:space="preserve">
+          <source>Checklist that provides guidance for availability concerns during design.</source>
+          <target state="new">Checklist that provides guidance for availability concerns during design.</target>
+        </trans-unit>
+        <trans-unit id="acee904c-de1f-4fb7-ac62-06cd15a49a7a" xml:space="preserve">
+          <source><bpt id="577412fc-63a3-4a0e-9f72-b3b3e302a42b">&lt;linkText&gt;</bpt><ept id="577412fc-63a3-4a0e-9f72-b3b3e302a42b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="577412fc-63a3-4a0e-9f72-b3b3e302a42b">&lt;linkText&gt;</bpt><ept id="577412fc-63a3-4a0e-9f72-b3b3e302a42b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48b81a78-7a69-43fc-9dc4-2cbe413fc8f3" xml:space="preserve">
+          <source><bpt id="a398398a-9e6a-492c-9572-0b131d5e9ca9">&lt;strong&gt;</bpt>Avoid any single point of failure.<ept id="a398398a-9e6a-492c-9572-0b131d5e9ca9">&lt;/strong&gt;</ept> All components, services, resources, and compute instances should be deployed as multiple instances to prevent a single point of failure from affecting availability.</source>
+          <target state="new"><bpt id="a398398a-9e6a-492c-9572-0b131d5e9ca9">&lt;strong&gt;</bpt>Avoid any single point of failure.<ept id="a398398a-9e6a-492c-9572-0b131d5e9ca9">&lt;/strong&gt;</ept> All components, services, resources, and compute instances should be deployed as multiple instances to prevent a single point of failure from affecting availability.</target>
+        </trans-unit>
+        <trans-unit id="8295b451-cc9f-48c5-9a08-c9e90107ede3" xml:space="preserve">
+          <source>This includes authentication mechanisms.</source>
+          <target state="new">This includes authentication mechanisms.</target>
+        </trans-unit>
+        <trans-unit id="8c3ff6d6-6c77-457e-ba74-8165be2fae4b" xml:space="preserve">
+          <source>Design the application to be configurable to use multiple instances, and to automatically detect failures and redirect requests to non-failed instances where the platform does not do this automatically.</source>
+          <target state="new">Design the application to be configurable to use multiple instances, and to automatically detect failures and redirect requests to non-failed instances where the platform does not do this automatically.</target>
+        </trans-unit>
+        <trans-unit id="bd65ab70-9fb8-490b-bd27-f2d49c27f53e" xml:space="preserve">
+          <source><bpt id="0a260a8c-fadd-4cc6-bfc8-dd0001333966">&lt;strong&gt;</bpt>Decompose workload per different SLA.<ept id="0a260a8c-fadd-4cc6-bfc8-dd0001333966">&lt;/strong&gt;</ept> If a service is composed of critical and less-critical workload, manage them differently and specify the service features and number of instances to meet their availability requirements.</source>
+          <target state="new"><bpt id="0a260a8c-fadd-4cc6-bfc8-dd0001333966">&lt;strong&gt;</bpt>Decompose workload per different SLA.<ept id="0a260a8c-fadd-4cc6-bfc8-dd0001333966">&lt;/strong&gt;</ept> If a service is composed of critical and less-critical workload, manage them differently and specify the service features and number of instances to meet their availability requirements.</target>
+        </trans-unit>
+        <trans-unit id="03f2b5a2-adbf-4cc0-83d1-8ac10729fde5" xml:space="preserve">
+          <source><bpt id="43d7ec5c-1f6a-4994-98c3-f0f938ae0b67">&lt;strong&gt;</bpt>Minimize and understand service dependencies.<ept id="43d7ec5c-1f6a-4994-98c3-f0f938ae0b67">&lt;/strong&gt;</ept> Minimize the number of different services used where possible, and ensure you understand all of the feature and service dependencies that exist in the system.</source>
+          <target state="new"><bpt id="43d7ec5c-1f6a-4994-98c3-f0f938ae0b67">&lt;strong&gt;</bpt>Minimize and understand service dependencies.<ept id="43d7ec5c-1f6a-4994-98c3-f0f938ae0b67">&lt;/strong&gt;</ept> Minimize the number of different services used where possible, and ensure you understand all of the feature and service dependencies that exist in the system.</target>
+        </trans-unit>
+        <trans-unit id="735f841a-12d6-43cc-a990-9fb00c614d21" xml:space="preserve">
+          <source>This includes the nature of these dependencies, and the impact of failure or reduced performance in each one on the overall application.</source>
+          <target state="new">This includes the nature of these dependencies, and the impact of failure or reduced performance in each one on the overall application.</target>
+        </trans-unit>
+        <trans-unit id="f854677c-8900-45ae-bc98-a0defc61c7b0" xml:space="preserve">
+          <source>Microsoft guarantees at least 99.9% availability for most services, but this means that every additional service an application relies on potentially reduces the overall availability SLA of your system by 0.1%.</source>
+          <target state="new">Microsoft guarantees at least 99.9% availability for most services, but this means that every additional service an application relies on potentially reduces the overall availability SLA of your system by 0.1%.</target>
+        </trans-unit>
+        <trans-unit id="4167517b-705f-4a80-9ac4-6a1973980c68" xml:space="preserve">
+          <source><bpt id="22ea4b8e-e28f-4e3a-a499-c504e13a393d">&lt;strong&gt;</bpt>Design tasks and messages to be idempotent where possible<ept id="22ea4b8e-e28f-4e3a-a499-c504e13a393d">&lt;/strong&gt;</ept> so that duplicated requests will not cause problems.</source>
+          <target state="new"><bpt id="22ea4b8e-e28f-4e3a-a499-c504e13a393d">&lt;strong&gt;</bpt>Design tasks and messages to be idempotent where possible<ept id="22ea4b8e-e28f-4e3a-a499-c504e13a393d">&lt;/strong&gt;</ept> so that duplicated requests will not cause problems.</target>
+        </trans-unit>
+        <trans-unit id="38d281d4-2ba1-43e1-a690-603a7c1769fe" xml:space="preserve">
+          <source>For example, a service can act as a consumer that handles messages sent as requests by other parts of the system that act as producers.</source>
+          <target state="new">For example, a service can act as a consumer that handles messages sent as requests by other parts of the system that act as producers.</target>
+        </trans-unit>
+        <trans-unit id="9eddb7aa-c848-43c5-878f-facab48461b8" xml:space="preserve">
+          <source>If the consumer fails after processing the message, but before acknowledging that it has been processed, a producer might submit a repeat request which could be handled by another instance of the consumer.</source>
+          <target state="new">If the consumer fails after processing the message, but before acknowledging that it has been processed, a producer might submit a repeat request which could be handled by another instance of the consumer.</target>
+        </trans-unit>
+        <trans-unit id="5181d912-986f-48e6-9267-1e36ade6de8d" xml:space="preserve">
+          <source>For this reason, consumers and the operations they carry out should be idempotent so that repeating a previously executed operation does not render the results invalid.</source>
+          <target state="new">For this reason, consumers and the operations they carry out should be idempotent so that repeating a previously executed operation does not render the results invalid.</target>
+        </trans-unit>
+        <trans-unit id="795d759a-a660-42d1-9f53-d4d66ca1c95d" xml:space="preserve">
+          <source>This may mean detecting duplicated messages, or ensuring consistency by using an optimistic approach to handling conflicts.</source>
+          <target state="new">This may mean detecting duplicated messages, or ensuring consistency by using an optimistic approach to handling conflicts.</target>
+        </trans-unit>
+        <trans-unit id="8f09bb89-434d-406c-a3b7-f9c5ac11f4a1" xml:space="preserve">
+          <source><bpt id="43aef9e5-3756-41a5-a02f-c20964604371">&lt;strong&gt;</bpt>Use a message broker that implements high availability for critical transactions.<ept id="43aef9e5-3756-41a5-a02f-c20964604371">&lt;/strong&gt;</ept> Many scenarios for initiating tasks or accessing remote services use messaging to pass instructions between the application and the target service.</source>
+          <target state="new"><bpt id="43aef9e5-3756-41a5-a02f-c20964604371">&lt;strong&gt;</bpt>Use a message broker that implements high availability for critical transactions.<ept id="43aef9e5-3756-41a5-a02f-c20964604371">&lt;/strong&gt;</ept> Many scenarios for initiating tasks or accessing remote services use messaging to pass instructions between the application and the target service.</target>
+        </trans-unit>
+        <trans-unit id="ae85d34b-ce87-431f-b162-b7c2a25aeb6e" xml:space="preserve">
+          <source>For best performance, the application should be able to send the message and then return to process more requests without needing to wait for a reply.</source>
+          <target state="new">For best performance, the application should be able to send the message and then return to process more requests without needing to wait for a reply.</target>
+        </trans-unit>
+        <trans-unit id="00f2e541-4afd-4a81-be32-74625954c821" xml:space="preserve">
+          <source>To guarantee delivery of messages, the messaging system should provide high availability.</source>
+          <target state="new">To guarantee delivery of messages, the messaging system should provide high availability.</target>
+        </trans-unit>
+        <trans-unit id="5fee93c3-90bb-4823-9468-19ab312ac028" xml:space="preserve">
+          <source>Service Bus Message Queues implement <bpt id="3689485c-f359-4422-bdd5-911577876988">&lt;em&gt;</bpt>at least once<ept id="3689485c-f359-4422-bdd5-911577876988">&lt;/em&gt;</ept> semantics, whereby each message posted to a queue will not be lost, although duplicate copies may be delivered under certain circumstances.</source>
+          <target state="new">Service Bus Message Queues implement <bpt id="3689485c-f359-4422-bdd5-911577876988">&lt;em&gt;</bpt>at least once<ept id="3689485c-f359-4422-bdd5-911577876988">&lt;/em&gt;</ept> semantics, whereby each message posted to a queue will not be lost, although duplicate copies may be delivered under certain circumstances.</target>
+        </trans-unit>
+        <trans-unit id="b592f1fd-439d-49c6-ac5f-e9f015976045" xml:space="preserve">
+          <source>If message processing is idempotent (see the previous item) then repeated delivery should not be a problem.</source>
+          <target state="new">If message processing is idempotent (see the previous item) then repeated delivery should not be a problem.</target>
+        </trans-unit>
+        <trans-unit id="f81449aa-9ebf-4fe2-9bcb-779f2abc0b3b" xml:space="preserve">
+          <source><bpt id="248f3a1d-62c8-452c-80b2-844327d64790">&lt;strong&gt;</bpt>Design applications to gracefully degrade<ept id="248f3a1d-62c8-452c-80b2-844327d64790">&lt;/strong&gt;</ept> when reaching resource limits, and take appropriate action to minimize the impact for the user.</source>
+          <target state="new"><bpt id="248f3a1d-62c8-452c-80b2-844327d64790">&lt;strong&gt;</bpt>Design applications to gracefully degrade<ept id="248f3a1d-62c8-452c-80b2-844327d64790">&lt;/strong&gt;</ept> when reaching resource limits, and take appropriate action to minimize the impact for the user.</target>
+        </trans-unit>
+        <trans-unit id="0c95a0d0-3604-4fe1-af60-520013dea1ec" xml:space="preserve">
+          <source>In some cases, the load on the application may exceed the capacity of one or more parts, causing reduced availability and failed connections.</source>
+          <target state="new">In some cases, the load on the application may exceed the capacity of one or more parts, causing reduced availability and failed connections.</target>
+        </trans-unit>
+        <trans-unit id="60f6df79-458d-4253-868a-59fef5ee4af5" xml:space="preserve">
+          <source>Scaling can help to alleviate this, but it may reach a limit imposed by factors such as resource availability or cost.</source>
+          <target state="new">Scaling can help to alleviate this, but it may reach a limit imposed by factors such as resource availability or cost.</target>
+        </trans-unit>
+        <trans-unit id="82d7893c-63eb-4838-ae36-863d7d0fc279" xml:space="preserve">
+          <source>Design the application so that, in this situation, it can automatically degrade gracefully.</source>
+          <target state="new">Design the application so that, in this situation, it can automatically degrade gracefully.</target>
+        </trans-unit>
+        <trans-unit id="c0084235-06b0-467a-a9b8-06d8ef2260e7" xml:space="preserve">
+          <source>For example, in an ecommerce system, if the order-processing subsystem is under strain (or has even failed completely), that part of the system can be temporarily disabled while allowing other functionality (such as browsing the product catalog) to continue.</source>
+          <target state="new">For example, in an ecommerce system, if the order-processing subsystem is under strain (or has even failed completely), that part of the system can be temporarily disabled while allowing other functionality (such as browsing the product catalog) to continue.</target>
+        </trans-unit>
+        <trans-unit id="6cea6d68-f41f-4c57-946e-53670e8bc242" xml:space="preserve">
+          <source>It might be appropriate to postpone requests to a failing subsystem, for example still enabling customers to submit orders but saving them to a queue or other safe storage mechanism for later processing when the orders subsystem is available again.</source>
+          <target state="new">It might be appropriate to postpone requests to a failing subsystem, for example still enabling customers to submit orders but saving them to a queue or other safe storage mechanism for later processing when the orders subsystem is available again.</target>
+        </trans-unit>
+        <trans-unit id="ae6355b2-483a-4ab3-a20e-965478364c7d" xml:space="preserve">
+          <source><bpt id="04cfe089-674d-4867-bb90-2595357c85f0">&lt;strong&gt;</bpt>Gracefully handle rapid burst events.<ept id="04cfe089-674d-4867-bb90-2595357c85f0">&lt;/strong&gt;</ept> Most applications need to handle varying workloads over time, such as peaks first thing in the morning in a business application or when a new product is released in an ecommerce site.</source>
+          <target state="new"><bpt id="04cfe089-674d-4867-bb90-2595357c85f0">&lt;strong&gt;</bpt>Gracefully handle rapid burst events.<ept id="04cfe089-674d-4867-bb90-2595357c85f0">&lt;/strong&gt;</ept> Most applications need to handle varying workloads over time, such as peaks first thing in the morning in a business application or when a new product is released in an ecommerce site.</target>
+        </trans-unit>
+        <trans-unit id="9fc283a0-b9c9-44e5-bde6-2134235b1fc9" xml:space="preserve">
+          <source>Auto-scaling can help to handle the load, but it may take some time for additional instances to come online and handle requests.</source>
+          <target state="new">Auto-scaling can help to handle the load, but it may take some time for additional instances to come online and handle requests.</target>
+        </trans-unit>
+        <trans-unit id="adf984bf-1599-4131-9158-8475266a3754" xml:space="preserve">
+          <source>Prevent sudden and unexpected bursts of activity from overwhelming the application by designing it to queue requests to the services it uses and to degrade gracefully when queues are near to full capacity.</source>
+          <target state="new">Prevent sudden and unexpected bursts of activity from overwhelming the application by designing it to queue requests to the services it uses and to degrade gracefully when queues are near to full capacity.</target>
+        </trans-unit>
+        <trans-unit id="7913d696-0484-4c0a-8c1b-a47b97d2a03a" xml:space="preserve">
+          <source>Ensure that there is sufficient performance and capacity available under non-burst conditions to drain the queues and handle outstanding requests.</source>
+          <target state="new">Ensure that there is sufficient performance and capacity available under non-burst conditions to drain the queues and handle outstanding requests.</target>
+        </trans-unit>
+        <trans-unit id="b1e23e59-a981-47ba-9089-0e729646c6f9" xml:space="preserve">
+          <source>For more information, see the <bpt id="19063028-fc6e-484a-8826-dc746bd4b34c">&lt;linkText&gt;</bpt>Queue-Based Load Leveling Pattern<ept id="19063028-fc6e-484a-8826-dc746bd4b34c">&lt;/linkText&gt;</ept><bpt id="19063028-fc6e-484a-8826-dc746bd4b34c">&lt;title&gt;</bpt><ept id="19063028-fc6e-484a-8826-dc746bd4b34c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="19063028-fc6e-484a-8826-dc746bd4b34c">&lt;linkText&gt;</bpt>Queue-Based Load Leveling Pattern<ept id="19063028-fc6e-484a-8826-dc746bd4b34c">&lt;/linkText&gt;</ept><bpt id="19063028-fc6e-484a-8826-dc746bd4b34c">&lt;title&gt;</bpt><ept id="19063028-fc6e-484a-8826-dc746bd4b34c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a93187e2-db88-4b52-a5bb-82654509610b" xml:space="preserve">
+          <source><bpt id="97fbfbb1-fea9-41fa-b449-524eb2c77596">&lt;strong&gt;</bpt>Deploy multiple instances of roles for each service.<ept id="97fbfbb1-fea9-41fa-b449-524eb2c77596">&lt;/strong&gt;</ept> Microsoft makes availability guarantees for services that you create and deploy, but these guarantees are only valid if you deploy at least two instances of each role in the service.</source>
+          <target state="new"><bpt id="97fbfbb1-fea9-41fa-b449-524eb2c77596">&lt;strong&gt;</bpt>Deploy multiple instances of roles for each service.<ept id="97fbfbb1-fea9-41fa-b449-524eb2c77596">&lt;/strong&gt;</ept> Microsoft makes availability guarantees for services that you create and deploy, but these guarantees are only valid if you deploy at least two instances of each role in the service.</target>
+        </trans-unit>
+        <trans-unit id="003bfd41-8840-46e0-b3b8-741a3de81fb5" xml:space="preserve">
+          <source>This enables one role to be unavailable while the other remains active.</source>
+          <target state="new">This enables one role to be unavailable while the other remains active.</target>
+        </trans-unit>
+        <trans-unit id="aa030999-1603-43cd-91d7-24c6b0cb089d" xml:space="preserve">
+          <source>This is especially important if you need to deploy updates to a live system without interrupting clients' activities; instances can be taken down and upgraded individually while the others continue online.</source>
+          <target state="new">This is especially important if you need to deploy updates to a live system without interrupting clients' activities; instances can be taken down and upgraded individually while the others continue online.</target>
+        </trans-unit>
+        <trans-unit id="feb2f5b9-adb6-4f11-b1c1-a3846d4b576a" xml:space="preserve">
+          <source><bpt id="a42128b8-6664-437b-848a-2257a919c149">&lt;strong&gt;</bpt>Host applications in multiple datacenters.<ept id="a42128b8-6664-437b-848a-2257a919c149">&lt;/strong&gt;</ept> Although extremely unlikely, it is possible for an entire datacenter to go offline through an event such as a natural disaster or trunk Internet failure.</source>
+          <target state="new"><bpt id="a42128b8-6664-437b-848a-2257a919c149">&lt;strong&gt;</bpt>Host applications in multiple datacenters.<ept id="a42128b8-6664-437b-848a-2257a919c149">&lt;/strong&gt;</ept> Although extremely unlikely, it is possible for an entire datacenter to go offline through an event such as a natural disaster or trunk Internet failure.</target>
+        </trans-unit>
+        <trans-unit id="d5c9c8c7-a2b3-409b-ab72-724c70bcf598" xml:space="preserve">
+          <source>Vital business applications should be hosted in more than one datacenter to provide maximum availability.</source>
+          <target state="new">Vital business applications should be hosted in more than one datacenter to provide maximum availability.</target>
+        </trans-unit>
+        <trans-unit id="e721c1cd-3b78-49c9-9ce9-3196f2e5e787" xml:space="preserve">
+          <source>This has an added advantage in that it can reduce latency for local users, and provides additional opportunities for flexibility when updating applications.</source>
+          <target state="new">This has an added advantage in that it can reduce latency for local users, and provides additional opportunities for flexibility when updating applications.</target>
+        </trans-unit>
+        <trans-unit id="7a64a1f7-1c25-4d90-b73c-7c8e588c176c" xml:space="preserve">
+          <source><bpt id="7829c9fd-7875-41af-9d47-0f258bf09671">&lt;strong&gt;</bpt>Automate and test deployment and maintenance tasks.<ept id="7829c9fd-7875-41af-9d47-0f258bf09671">&lt;/strong&gt;</ept> Distributed applications consist of multiple parts that must work together.</source>
+          <target state="new"><bpt id="7829c9fd-7875-41af-9d47-0f258bf09671">&lt;strong&gt;</bpt>Automate and test deployment and maintenance tasks.<ept id="7829c9fd-7875-41af-9d47-0f258bf09671">&lt;/strong&gt;</ept> Distributed applications consist of multiple parts that must work together.</target>
+        </trans-unit>
+        <trans-unit id="111e6c20-aa1c-4e70-9374-18295d979771" xml:space="preserve">
+          <source>Deployment should therefore be automated using tested and proven mechanisms such as scripts and deployment applications that update and validate configuration, and automate the deployment process.</source>
+          <target state="new">Deployment should therefore be automated using tested and proven mechanisms such as scripts and deployment applications that update and validate configuration, and automate the deployment process.</target>
+        </trans-unit>
+        <trans-unit id="ccd1b487-f9f3-4c43-87c4-ecd37515dcb7" xml:space="preserve">
+          <source>Automated techniques should also be used to perform updates of all or parts of applications.</source>
+          <target state="new">Automated techniques should also be used to perform updates of all or parts of applications.</target>
+        </trans-unit>
+        <trans-unit id="ac675e5d-c51b-49df-a8eb-4b3786c1984f" xml:space="preserve">
+          <source>It is vital to test all of these processes fully to ensure that errors do not cause additional downtime.</source>
+          <target state="new">It is vital to test all of these processes fully to ensure that errors do not cause additional downtime.</target>
+        </trans-unit>
+        <trans-unit id="a49b5b60-3dce-47e4-abea-f344ccf9efbc" xml:space="preserve">
+          <source>All deployment tools must have suitable security restrictions to protect the deployed application; define and enforce deployment policies carefully and minimize the need for human intervention.</source>
+          <target state="new">All deployment tools must have suitable security restrictions to protect the deployed application; define and enforce deployment policies carefully and minimize the need for human intervention.</target>
+        </trans-unit>
+        <trans-unit id="a3bff849-56cc-4a45-abea-be1067bfcfdf" xml:space="preserve">
+          <source><bpt id="b8d08346-687f-46b0-aeb7-cadfdc9c48ee">&lt;strong&gt;</bpt>Consider using staging and production features of the platform<ept id="b8d08346-687f-46b0-aeb7-cadfdc9c48ee">&lt;/strong&gt;</ept> where these are available.</source>
+          <target state="new"><bpt id="b8d08346-687f-46b0-aeb7-cadfdc9c48ee">&lt;strong&gt;</bpt>Consider using staging and production features of the platform<ept id="b8d08346-687f-46b0-aeb7-cadfdc9c48ee">&lt;/strong&gt;</ept> where these are available.</target>
+        </trans-unit>
+        <trans-unit id="45b3d8b4-fc89-44c8-aa0a-036823502335" xml:space="preserve">
+          <source>For example, using Azure Cloud Services staging and production environments allows applications to be switched from one to another instantly through a virtual IP address swap (VIP Swap).</source>
+          <target state="new">For example, using Azure Cloud Services staging and production environments allows applications to be switched from one to another instantly through a virtual IP address swap (VIP Swap).</target>
+        </trans-unit>
+        <trans-unit id="6c3b81f2-4e77-4f71-800b-1db0f1e3b91d" xml:space="preserve">
+          <source>However, if you prefer to stage on-premises, or deploy different versions of the application concurrently and gradually migrate users, you may not be able to use a VIP Swap operation.</source>
+          <target state="new">However, if you prefer to stage on-premises, or deploy different versions of the application concurrently and gradually migrate users, you may not be able to use a VIP Swap operation.</target>
+        </trans-unit>
+        <trans-unit id="3a1c4ceb-51c8-4cbd-a63a-66f44b4e94e4" xml:space="preserve">
+          <source><bpt id="3541f6c0-c45a-4932-913a-d79e7b41a963">&lt;strong&gt;</bpt>Apply configuration changes without recycling<ept id="3541f6c0-c45a-4932-913a-d79e7b41a963">&lt;/strong&gt;</ept> the instance when possible.</source>
+          <target state="new"><bpt id="3541f6c0-c45a-4932-913a-d79e7b41a963">&lt;strong&gt;</bpt>Apply configuration changes without recycling<ept id="3541f6c0-c45a-4932-913a-d79e7b41a963">&lt;/strong&gt;</ept> the instance when possible.</target>
+        </trans-unit>
+        <trans-unit id="ab136f9c-2c78-490b-a263-c727e1032803" xml:space="preserve">
+          <source>In many cases, the configuration settings for an Azure application or service can be changed without requiring the role to be restarted.</source>
+          <target state="new">In many cases, the configuration settings for an Azure application or service can be changed without requiring the role to be restarted.</target>
+        </trans-unit>
+        <trans-unit id="450d3b10-2ecd-4cb5-9800-b4b05c0d7f8b" xml:space="preserve">
+          <source>Role expose events that can be handled to detect configuration changes and apply them to components within the application.</source>
+          <target state="new">Role expose events that can be handled to detect configuration changes and apply them to components within the application.</target>
+        </trans-unit>
+        <trans-unit id="90326a8c-89fb-439e-a8d1-efefb7d8c862" xml:space="preserve">
+          <source>However, some changes to the core platform settings will require a role to be restarted.</source>
+          <target state="new">However, some changes to the core platform settings will require a role to be restarted.</target>
+        </trans-unit>
+        <trans-unit id="db674038-d36f-44fa-8a0d-6ad26fec589d" xml:space="preserve">
+          <source>When building components and services, maximize availability and minimize downtime by designing them to accept changes to configuration settings without requiring the application as a whole to be restarted.</source>
+          <target state="new">When building components and services, maximize availability and minimize downtime by designing them to accept changes to configuration settings without requiring the application as a whole to be restarted.</target>
+        </trans-unit>
+        <trans-unit id="543d7313-7786-4080-b077-1445807579bc" xml:space="preserve">
+          <source><bpt id="71c15c7a-9b42-4ed4-9b27-f0e93030fc88">&lt;strong&gt;</bpt>Use upgrade domains for zero downtime during updates.<ept id="71c15c7a-9b42-4ed4-9b27-f0e93030fc88">&lt;/strong&gt;</ept> Azure compute units such as web and worker roles are allocated to upgrade domains.</source>
+          <target state="new"><bpt id="71c15c7a-9b42-4ed4-9b27-f0e93030fc88">&lt;strong&gt;</bpt>Use upgrade domains for zero downtime during updates.<ept id="71c15c7a-9b42-4ed4-9b27-f0e93030fc88">&lt;/strong&gt;</ept> Azure compute units such as web and worker roles are allocated to upgrade domains.</target>
+        </trans-unit>
+        <trans-unit id="0fa209c4-3546-47be-9b73-3086e3a48b41" xml:space="preserve">
+          <source>Upgrade domains group role instances together so that, when a rolling update takes place, each role in the upgrade domain is stopped, updated, and restarted in turn in order to minimize the impact on availability of the application.</source>
+          <target state="new">Upgrade domains group role instances together so that, when a rolling update takes place, each role in the upgrade domain is stopped, updated, and restarted in turn in order to minimize the impact on availability of the application.</target>
+        </trans-unit>
+        <trans-unit id="10255e44-67e0-4080-b8ec-8012e872134f" xml:space="preserve">
+          <source>You can specify how many upgrade domains should be created for a service when the service is deployed.</source>
+          <target state="new">You can specify how many upgrade domains should be created for a service when the service is deployed.</target>
+        </trans-unit>
+        <trans-unit id="d1909b61-2c39-474c-ad22-6630fe37a737" xml:space="preserve">
+          <source>Roles are also distributed across fault domains, each of which is reasonably independent from other fault domains in terms of server rack, power, and cooling provision, in order to minimize the chance of a failure affecting all role instances.</source>
+          <target state="new">Roles are also distributed across fault domains, each of which is reasonably independent from other fault domains in terms of server rack, power, and cooling provision, in order to minimize the chance of a failure affecting all role instances.</target>
+        </trans-unit>
+        <trans-unit id="67881f99-be27-4be5-8596-ba8d28b3b356" xml:space="preserve">
+          <source>This distribution occurs automatically and you cannot control it.</source>
+          <target state="new">This distribution occurs automatically and you cannot control it.</target>
+        </trans-unit>
+        <trans-unit id="871617c6-93f5-4cce-9695-c4fdd0cc2871" xml:space="preserve">
+          <source><bpt id="b68db934-a7c2-448a-9d72-0ec0e19eb315">&lt;strong&gt;</bpt>Configure availability sets for Azure virtual machines.<ept id="b68db934-a7c2-448a-9d72-0ec0e19eb315">&lt;/strong&gt;</ept> Placing two or more virtual machines in the same availability set guarantees that these virtual machines will not be deployed to the same fault domain.</source>
+          <target state="new"><bpt id="b68db934-a7c2-448a-9d72-0ec0e19eb315">&lt;strong&gt;</bpt>Configure availability sets for Azure virtual machines.<ept id="b68db934-a7c2-448a-9d72-0ec0e19eb315">&lt;/strong&gt;</ept> Placing two or more virtual machines in the same availability set guarantees that these virtual machines will not be deployed to the same fault domain.</target>
+        </trans-unit>
+        <trans-unit id="f2545b07-dd27-45c1-8f27-d8a26519e205" xml:space="preserve">
+          <source>To maximize availability, you should create multiple instances of each critical virtual machine used by your system and place these instances in the same availability set.</source>
+          <target state="new">To maximize availability, you should create multiple instances of each critical virtual machine used by your system and place these instances in the same availability set.</target>
+        </trans-unit>
+        <trans-unit id="1ec7fb52-a25e-4cbc-b520-da5344a5969c" xml:space="preserve">
+          <source>If you are running multiple virtual machines that serve different purposes, create an availability set for each virtual machine and add instances of each virtual machine to each availability set.</source>
+          <target state="new">If you are running multiple virtual machines that serve different purposes, create an availability set for each virtual machine and add instances of each virtual machine to each availability set.</target>
+        </trans-unit>
+        <trans-unit id="834c2e35-9f2e-4520-b324-5e802dbc10cc" xml:space="preserve">
+          <source>For example, if you have created separate virtual machines to act as a web server and a reporting server, create an availability set for the web server and another availability set for the reporting server.</source>
+          <target state="new">For example, if you have created separate virtual machines to act as a web server and a reporting server, create an availability set for the web server and another availability set for the reporting server.</target>
+        </trans-unit>
+        <trans-unit id="3d6cad13-a8cd-4c00-818a-0230b6765221" xml:space="preserve">
+          <source>Add instances of the web server virtual machine to the web server availability set, and add instances of the reporting server virtual machine to the reporting server availability set.</source>
+          <target state="new">Add instances of the web server virtual machine to the web server availability set, and add instances of the reporting server virtual machine to the reporting server availability set.</target>
+        </trans-unit>
+        <trans-unit id="89dd3346-029d-47d9-8d56-a1a5f36218cd" xml:space="preserve">
+          <source><bpt id="88be693e-660a-4b76-891b-0ca3dde7dca5">&lt;strong&gt;</bpt>Take advantage of data replication<ept id="88be693e-660a-4b76-891b-0ca3dde7dca5">&lt;/strong&gt;</ept> through both local and geographical redundancy.</source>
+          <target state="new"><bpt id="88be693e-660a-4b76-891b-0ca3dde7dca5">&lt;strong&gt;</bpt>Take advantage of data replication<ept id="88be693e-660a-4b76-891b-0ca3dde7dca5">&lt;/strong&gt;</ept> through both local and geographical redundancy.</target>
+        </trans-unit>
+        <trans-unit id="4e3533a6-4e6b-4cc3-b1ab-d5d27553f0e1" xml:space="preserve">
+          <source>Data in Azure storage is automatically replicated to protect against loss in case of infrastructure failure, and some factors of this replication can be configured.</source>
+          <target state="new">Data in Azure storage is automatically replicated to protect against loss in case of infrastructure failure, and some factors of this replication can be configured.</target>
+        </trans-unit>
+        <trans-unit id="2ae6f320-3a19-47e1-954b-34d2f59d257a" xml:space="preserve">
+          <source>For example, read-only copies of data may be replicated in more than one geographical region (referred to as read-access globally redundant storage or RA-GRS).</source>
+          <target state="new">For example, read-only copies of data may be replicated in more than one geographical region (referred to as read-access globally redundant storage or RA-GRS).</target>
+        </trans-unit>
+        <trans-unit id="86f5f8a1-ed57-449a-a044-975a936f444c" xml:space="preserve">
+          <source>Note that using RA-GRS incurs additional charges, see the <bpt id="638ab549-92a3-4897-8caa-1e02fce707cc">&lt;linkText&gt;</bpt>Azure Storage Pricing<ept id="638ab549-92a3-4897-8caa-1e02fce707cc">&lt;/linkText&gt;</ept><bpt id="638ab549-92a3-4897-8caa-1e02fce707cc">&lt;title&gt;</bpt><ept id="638ab549-92a3-4897-8caa-1e02fce707cc">&lt;/title&gt;</ept> page on the Microsoft website for details.</source>
+          <target state="new">Note that using RA-GRS incurs additional charges, see the <bpt id="638ab549-92a3-4897-8caa-1e02fce707cc">&lt;linkText&gt;</bpt>Azure Storage Pricing<ept id="638ab549-92a3-4897-8caa-1e02fce707cc">&lt;/linkText&gt;</ept><bpt id="638ab549-92a3-4897-8caa-1e02fce707cc">&lt;title&gt;</bpt><ept id="638ab549-92a3-4897-8caa-1e02fce707cc">&lt;/title&gt;</ept> page on the Microsoft website for details.</target>
+        </trans-unit>
+        <trans-unit id="c04dc5d6-4443-4f03-a20b-4b3ced6eef3f" xml:space="preserve">
+          <source><bpt id="0ccf87df-a469-4d13-b2c4-2a02211e429c">&lt;strong&gt;</bpt>Use optimistic concurrency and eventual consistency<ept id="0ccf87df-a469-4d13-b2c4-2a02211e429c">&lt;/strong&gt;</ept> where possible.</source>
+          <target state="new"><bpt id="0ccf87df-a469-4d13-b2c4-2a02211e429c">&lt;strong&gt;</bpt>Use optimistic concurrency and eventual consistency<ept id="0ccf87df-a469-4d13-b2c4-2a02211e429c">&lt;/strong&gt;</ept> where possible.</target>
+        </trans-unit>
+        <trans-unit id="b679b2bb-4f8d-48c1-bb71-f8f622722c71" xml:space="preserve">
+          <source>Transactions that block access to resources through locking (pessimistic concurrency) can cause poor performance and considerably reduce availability.</source>
+          <target state="new">Transactions that block access to resources through locking (pessimistic concurrency) can cause poor performance and considerably reduce availability.</target>
+        </trans-unit>
+        <trans-unit id="d99bc3c8-31bf-4ba2-9d5c-0b0b6573b1b3" xml:space="preserve">
+          <source>These problems can become especially acute in distributed systems.</source>
+          <target state="new">These problems can become especially acute in distributed systems.</target>
+        </trans-unit>
+        <trans-unit id="3e1ba721-b33f-496d-b3b4-0b5418b480e4" xml:space="preserve">
+          <source>In many cases, careful design and techniques such as partitioning can minimize the chances of conflicting updates occurring.</source>
+          <target state="new">In many cases, careful design and techniques such as partitioning can minimize the chances of conflicting updates occurring.</target>
+        </trans-unit>
+        <trans-unit id="f6b2a0e9-14b6-491c-9bfa-108357bd5408" xml:space="preserve">
+          <source>Where data is replicated, or is read from a separately updated store, the data will only be eventually consistent but the advantages usually far outweigh the impact on availability of using transactions to ensure immediate consistency.</source>
+          <target state="new">Where data is replicated, or is read from a separately updated store, the data will only be eventually consistent but the advantages usually far outweigh the impact on availability of using transactions to ensure immediate consistency.</target>
+        </trans-unit>
+        <trans-unit id="3d9431ef-8c86-4903-8041-b8f4153025c0" xml:space="preserve">
+          <source><bpt id="72ee49f8-7907-4a0b-b1d5-3227f084f1dd">&lt;strong&gt;</bpt>Use periodic backup and point in time restore<ept id="72ee49f8-7907-4a0b-b1d5-3227f084f1dd">&lt;/strong&gt;</ept>, and ensure it meets the Recovery Point Objective (RPO).</source>
+          <target state="new"><bpt id="72ee49f8-7907-4a0b-b1d5-3227f084f1dd">&lt;strong&gt;</bpt>Use periodic backup and point in time restore<ept id="72ee49f8-7907-4a0b-b1d5-3227f084f1dd">&lt;/strong&gt;</ept>, and ensure it meets the Recovery Point Objective (RPO).</target>
+        </trans-unit>
+        <trans-unit id="ec58296b-c4a1-4faa-90ab-48fbe172bad2" xml:space="preserve">
+          <source>Regularly and automatically back up data that is not preserved elsewhere, and verify you can reliably restore both the data and the application itself should a failure occur.</source>
+          <target state="new">Regularly and automatically back up data that is not preserved elsewhere, and verify you can reliably restore both the data and the application itself should a failure occur.</target>
+        </trans-unit>
+        <trans-unit id="723eee76-4049-4109-88f9-5d33b10a9f4e" xml:space="preserve">
+          <source>Data replication is not a backup feature because errors and inconsistencies introduced through failure, error, or malicious operations will be replicated across all stores.</source>
+          <target state="new">Data replication is not a backup feature because errors and inconsistencies introduced through failure, error, or malicious operations will be replicated across all stores.</target>
+        </trans-unit>
+        <trans-unit id="d0a47465-0411-450e-bd06-834be18613fa" xml:space="preserve">
+          <source>The backup process must be secure to protect the data in transit and in storage.</source>
+          <target state="new">The backup process must be secure to protect the data in transit and in storage.</target>
+        </trans-unit>
+        <trans-unit id="7700e419-e7f6-43cf-bdf6-7680657b0176" xml:space="preserve">
+          <source>Databases or parts of a data store can usually be recovered to a previous point in time by using transaction logs.</source>
+          <target state="new">Databases or parts of a data store can usually be recovered to a previous point in time by using transaction logs.</target>
+        </trans-unit>
+        <trans-unit id="7a5c4efc-057b-4321-8b33-12ffbedb7b8e" xml:space="preserve">
+          <source>Microsoft Azure provides a backup facility for data stored in Microsoft Azure SQL Database.</source>
+          <target state="new">Microsoft Azure provides a backup facility for data stored in Microsoft Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="0650fe0d-9928-4619-9804-c1ccb997b110" xml:space="preserve">
+          <source>The data is exported to a backup package on Microsoft Azure blob storage, and can be downloaded to a secure on-premises location for storage.</source>
+          <target state="new">The data is exported to a backup package on Microsoft Azure blob storage, and can be downloaded to a secure on-premises location for storage.</target>
+        </trans-unit>
+        <trans-unit id="2a2b86a2-602d-4ba8-9913-254cf4562c6c" xml:space="preserve">
+          <source><bpt id="d9ae1eb0-0da0-413e-b7cd-deb312cc475d">&lt;strong&gt;</bpt>Enable the high availability option to maintain a secondary copy of a Redis cache.<ept id="d9ae1eb0-0da0-413e-b7cd-deb312cc475d">&lt;/strong&gt;</ept> When using Redis Cache, choose the Standard option to maintain a secondary copy of the contents.</source>
+          <target state="new"><bpt id="d9ae1eb0-0da0-413e-b7cd-deb312cc475d">&lt;strong&gt;</bpt>Enable the high availability option to maintain a secondary copy of a Redis cache.<ept id="d9ae1eb0-0da0-413e-b7cd-deb312cc475d">&lt;/strong&gt;</ept> When using Redis Cache, choose the Standard option to maintain a secondary copy of the contents.</target>
+        </trans-unit>
+        <trans-unit id="4e9f8acd-af8b-4986-8a02-fda832e4cd3d" xml:space="preserve">
+          <source>For more information, see the page <bpt id="6dde1c9d-2632-4664-933a-426376437067">&lt;linkText&gt;</bpt>Create a cache in Azure Redis Cache<ept id="6dde1c9d-2632-4664-933a-426376437067">&lt;/linkText&gt;</ept><bpt id="6dde1c9d-2632-4664-933a-426376437067">&lt;title&gt;</bpt><ept id="6dde1c9d-2632-4664-933a-426376437067">&lt;/title&gt;</ept> on the Microsoft website.</source>
+          <target state="new">For more information, see the page <bpt id="6dde1c9d-2632-4664-933a-426376437067">&lt;linkText&gt;</bpt>Create a cache in Azure Redis Cache<ept id="6dde1c9d-2632-4664-933a-426376437067">&lt;/linkText&gt;</ept><bpt id="6dde1c9d-2632-4664-933a-426376437067">&lt;title&gt;</bpt><ept id="6dde1c9d-2632-4664-933a-426376437067">&lt;/title&gt;</ept> on the Microsoft website.</target>
+        </trans-unit>
+        <trans-unit id="898164d2-4ac7-45f7-82c0-6949c73d37f4" xml:space="preserve">
+          <source><bpt id="d8d56a94-136b-4d59-837e-f23f8891dbf3">&lt;strong&gt;</bpt>Introduce the concept of a timeout.<ept id="d8d56a94-136b-4d59-837e-f23f8891dbf3">&lt;/strong&gt;</ept> Services and resources may become unavailable, causing requests to fail.</source>
+          <target state="new"><bpt id="d8d56a94-136b-4d59-837e-f23f8891dbf3">&lt;strong&gt;</bpt>Introduce the concept of a timeout.<ept id="d8d56a94-136b-4d59-837e-f23f8891dbf3">&lt;/strong&gt;</ept> Services and resources may become unavailable, causing requests to fail.</target>
+        </trans-unit>
+        <trans-unit id="786d6c1f-74b8-4ea4-ab29-3616ba31a1bc" xml:space="preserve">
+          <source>Ensure that the timeouts you apply are appropriate for each service or resource as well as the client that is accessing them (in some cases, it may be appropriate to allow a longer timeout for a particular instance of a client, depending on the context and other actions that the client is performing).</source>
+          <target state="new">Ensure that the timeouts you apply are appropriate for each service or resource as well as the client that is accessing them (in some cases, it may be appropriate to allow a longer timeout for a particular instance of a client, depending on the context and other actions that the client is performing).</target>
+        </trans-unit>
+        <trans-unit id="31533dbf-c73b-4b90-b2ec-aa9bceacf6b8" xml:space="preserve">
+          <source>Very short timeouts may cause excessive retry operations for services and resources that have considerable latency, but very long timeouts can cause blocking if a large number of requests are queued waiting for a service or resource to respond.</source>
+          <target state="new">Very short timeouts may cause excessive retry operations for services and resources that have considerable latency, but very long timeouts can cause blocking if a large number of requests are queued waiting for a service or resource to respond.</target>
+        </trans-unit>
+        <trans-unit id="2d04888a-9be8-4424-909b-cd086a9d300c" xml:space="preserve">
+          <source><bpt id="1aae94f0-678b-4678-a945-249e18f8007f">&lt;strong&gt;</bpt>Retry failed operations caused by transient faults.<ept id="1aae94f0-678b-4678-a945-249e18f8007f">&lt;/strong&gt;</ept> Design a retry strategy for access to all services and resources where they do not inherently support automatic connection retry.</source>
+          <target state="new"><bpt id="1aae94f0-678b-4678-a945-249e18f8007f">&lt;strong&gt;</bpt>Retry failed operations caused by transient faults.<ept id="1aae94f0-678b-4678-a945-249e18f8007f">&lt;/strong&gt;</ept> Design a retry strategy for access to all services and resources where they do not inherently support automatic connection retry.</target>
+        </trans-unit>
+        <trans-unit id="daaa4c29-33a2-4f87-b032-9ce6c38c983f" xml:space="preserve">
+          <source>Use a strategy that includes an increasing delay between retries as the number of failures increases to prevent overloading of the resource and to allow it to gracefully recover and handle queued requests.</source>
+          <target state="new">Use a strategy that includes an increasing delay between retries as the number of failures increases to prevent overloading of the resource and to allow it to gracefully recover and handle queued requests.</target>
+        </trans-unit>
+        <trans-unit id="72a7c416-2b49-4c48-9c34-8e10ed192aff" xml:space="preserve">
+          <source>Continual retries with very short delays are likely to exacerbate the problem.</source>
+          <target state="new">Continual retries with very short delays are likely to exacerbate the problem.</target>
+        </trans-unit>
+        <trans-unit id="d3b44d83-a935-462d-8b4b-9029dc2fdcb4" xml:space="preserve">
+          <source><bpt id="c6157ede-6104-4a5a-8f4c-8c46c5b88da0">&lt;strong&gt;</bpt>Stop sending requests to avoid cascading failures<ept id="c6157ede-6104-4a5a-8f4c-8c46c5b88da0">&lt;/strong&gt;</ept> when remote services are unavailable.</source>
+          <target state="new"><bpt id="c6157ede-6104-4a5a-8f4c-8c46c5b88da0">&lt;strong&gt;</bpt>Stop sending requests to avoid cascading failures<ept id="c6157ede-6104-4a5a-8f4c-8c46c5b88da0">&lt;/strong&gt;</ept> when remote services are unavailable.</target>
+        </trans-unit>
+        <trans-unit id="1f9406eb-e9f8-44ac-9185-9d284229484f" xml:space="preserve">
+          <source>There may be situations where transient or other faults, ranging in severity from a partial loss of connectivity to the complete failure of a service, take much longer than expected to return to normal.</source>
+          <target state="new">There may be situations where transient or other faults, ranging in severity from a partial loss of connectivity to the complete failure of a service, take much longer than expected to return to normal.</target>
+        </trans-unit>
+        <trans-unit id="1e88a1c7-c17d-41e7-811e-da8edafc8e2c" xml:space="preserve">
+          <source>Additionally, if a service is very busy, failure in one part of the system may lead to cascading failures, and result in many operations becoming blocked while holding onto critical system resources such as memory, threads, and database connections.</source>
+          <target state="new">Additionally, if a service is very busy, failure in one part of the system may lead to cascading failures, and result in many operations becoming blocked while holding onto critical system resources such as memory, threads, and database connections.</target>
+        </trans-unit>
+        <trans-unit id="1800f853-907e-45a3-8ea7-51a0559909c1" xml:space="preserve">
+          <source>Instead of continually retrying an operation that is unlikely to succeed, the application should quickly accept that the operation has failed, and gracefully handle this failure.</source>
+          <target state="new">Instead of continually retrying an operation that is unlikely to succeed, the application should quickly accept that the operation has failed, and gracefully handle this failure.</target>
+        </trans-unit>
+        <trans-unit id="58dde788-3679-4943-9216-bde34167aa6a" xml:space="preserve">
+          <source>You can use the Circuit Breaker pattern to reject requests for specific operations for defined periods.</source>
+          <target state="new">You can use the Circuit Breaker pattern to reject requests for specific operations for defined periods.</target>
+        </trans-unit>
+        <trans-unit id="83c58b50-0d31-4fdb-9666-1839e768879a" xml:space="preserve">
+          <source>The <bpt id="18da0a04-0288-4ab2-985a-4253a115c57e">&lt;linkText&gt;</bpt>Circuit Breaker Pattern<ept id="18da0a04-0288-4ab2-985a-4253a115c57e">&lt;/linkText&gt;</ept><bpt id="18da0a04-0288-4ab2-985a-4253a115c57e">&lt;title&gt;</bpt><ept id="18da0a04-0288-4ab2-985a-4253a115c57e">&lt;/title&gt;</ept> page on the Microsoft website provides more details.</source>
+          <target state="new">The <bpt id="18da0a04-0288-4ab2-985a-4253a115c57e">&lt;linkText&gt;</bpt>Circuit Breaker Pattern<ept id="18da0a04-0288-4ab2-985a-4253a115c57e">&lt;/linkText&gt;</ept><bpt id="18da0a04-0288-4ab2-985a-4253a115c57e">&lt;title&gt;</bpt><ept id="18da0a04-0288-4ab2-985a-4253a115c57e">&lt;/title&gt;</ept> page on the Microsoft website provides more details.</target>
+        </trans-unit>
+        <trans-unit id="7c67c175-35f8-47d8-904f-571efbbb4a50" xml:space="preserve">
+          <source><bpt id="b6b610bc-cdf5-4f0b-820a-6e6d0a61b04d">&lt;strong&gt;</bpt>Compose or fall back to multiple components<ept id="b6b610bc-cdf5-4f0b-820a-6e6d0a61b04d">&lt;/strong&gt;</ept> to mitigate the impact of a specific service being offline or unavailable.</source>
+          <target state="new"><bpt id="b6b610bc-cdf5-4f0b-820a-6e6d0a61b04d">&lt;strong&gt;</bpt>Compose or fall back to multiple components<ept id="b6b610bc-cdf5-4f0b-820a-6e6d0a61b04d">&lt;/strong&gt;</ept> to mitigate the impact of a specific service being offline or unavailable.</target>
+        </trans-unit>
+        <trans-unit id="87565c37-b6c0-49cd-9012-4ee62d4e2f40" xml:space="preserve">
+          <source>Design applications to take advantage of multiple instances without affecting operation and existing connections where possible.</source>
+          <target state="new">Design applications to take advantage of multiple instances without affecting operation and existing connections where possible.</target>
+        </trans-unit>
+        <trans-unit id="b591aa36-cb5f-4bf4-8e06-29be36495c73" xml:space="preserve">
+          <source>Use multiple instances and distribute requests between them, and detect and avoid sending requests to failed instances, in order to maximize availability.</source>
+          <target state="new">Use multiple instances and distribute requests between them, and detect and avoid sending requests to failed instances, in order to maximize availability.</target>
+        </trans-unit>
+        <trans-unit id="7e0f270a-04cb-4b78-93d8-dfa9a692c5aa" xml:space="preserve">
+          <source><bpt id="e212e003-a986-43e9-97e7-aa28555d9f75">&lt;strong&gt;</bpt>Fall back to a different service or workflow<ept id="e212e003-a986-43e9-97e7-aa28555d9f75">&lt;/strong&gt;</ept> where possible.</source>
+          <target state="new"><bpt id="e212e003-a986-43e9-97e7-aa28555d9f75">&lt;strong&gt;</bpt>Fall back to a different service or workflow<ept id="e212e003-a986-43e9-97e7-aa28555d9f75">&lt;/strong&gt;</ept> where possible.</target>
+        </trans-unit>
+        <trans-unit id="f7e826a3-68b8-4a9e-b4b1-d7d055b2896f" xml:space="preserve">
+          <source>For example, if writing to SQL Database fails, temporarily store data in blob storage, and provide a facility to replay the writes in blob storage to SQL Database when the service becomes available.</source>
+          <target state="new">For example, if writing to SQL Database fails, temporarily store data in blob storage, and provide a facility to replay the writes in blob storage to SQL Database when the service becomes available.</target>
+        </trans-unit>
+        <trans-unit id="b9d06a2a-f050-4b6e-a3d3-e055925109b1" xml:space="preserve">
+          <source>In some cases, a failed operation may have an alternative action that allows the application to continue to work even when a component or service fails.</source>
+          <target state="new">In some cases, a failed operation may have an alternative action that allows the application to continue to work even when a component or service fails.</target>
+        </trans-unit>
+        <trans-unit id="e34e1815-6fb8-444d-8609-da989b160888" xml:space="preserve">
+          <source>If possible, detect failures and redirect requests to other services that can offer a suitable alternative functionality, or to back up or reduce functionality instances that can maintain core operations while the primary service is offline.</source>
+          <target state="new">If possible, detect failures and redirect requests to other services that can offer a suitable alternative functionality, or to back up or reduce functionality instances that can maintain core operations while the primary service is offline.</target>
+        </trans-unit>
+        <trans-unit id="6f6f1cd3-7f1f-4305-88fc-f833f4ad93ee" xml:space="preserve">
+          <source><bpt id="63a97398-8103-4846-86b7-cfd441f07d2b">&lt;strong&gt;</bpt>Provide rich instrumentation for likely failures and failure events<ept id="63a97398-8103-4846-86b7-cfd441f07d2b">&lt;/strong&gt;</ept> to report the situation to operations staff.</source>
+          <target state="new"><bpt id="63a97398-8103-4846-86b7-cfd441f07d2b">&lt;strong&gt;</bpt>Provide rich instrumentation for likely failures and failure events<ept id="63a97398-8103-4846-86b7-cfd441f07d2b">&lt;/strong&gt;</ept> to report the situation to operations staff.</target>
+        </trans-unit>
+        <trans-unit id="c747391e-f298-4960-80f8-0d422816fcc4" xml:space="preserve">
+          <source>For failures that are likely but have not yet occurred, provide sufficient data to enable operations staff to determine the cause, mitigate the situation, and ensure that the system remains available.</source>
+          <target state="new">For failures that are likely but have not yet occurred, provide sufficient data to enable operations staff to determine the cause, mitigate the situation, and ensure that the system remains available.</target>
+        </trans-unit>
+        <trans-unit id="8c168ae0-4a91-4196-a9fe-6f3f4c0780d4" xml:space="preserve">
+          <source>For failures that have already occurred, the application should return a suitable error message to the user but attempt to continue running, albeit with reduced functionality.</source>
+          <target state="new">For failures that have already occurred, the application should return a suitable error message to the user but attempt to continue running, albeit with reduced functionality.</target>
+        </trans-unit>
+        <trans-unit id="706e81fe-3e55-415f-81c0-5a87c5441433" xml:space="preserve">
+          <source>In all cases, the monitoring system should capture comprehensive details to enable operations staff to effect a quick recovery, and if necessary, for designers and developers to modify the system to prevent the situation from arising again.</source>
+          <target state="new">In all cases, the monitoring system should capture comprehensive details to enable operations staff to effect a quick recovery, and if necessary, for designers and developers to modify the system to prevent the situation from arising again.</target>
+        </trans-unit>
+        <trans-unit id="83d1619c-7510-4083-b5c8-df2ec5b7e8c6" xml:space="preserve">
+          <source><bpt id="d13d908a-8631-4e07-9902-6831de233e04">&lt;strong&gt;</bpt>Monitor system health by implementing checking functions.<ept id="d13d908a-8631-4e07-9902-6831de233e04">&lt;/strong&gt;</ept> The health and performance of an application can degrade over time without being noticeable until it fails.</source>
+          <target state="new"><bpt id="d13d908a-8631-4e07-9902-6831de233e04">&lt;strong&gt;</bpt>Monitor system health by implementing checking functions.<ept id="d13d908a-8631-4e07-9902-6831de233e04">&lt;/strong&gt;</ept> The health and performance of an application can degrade over time without being noticeable until it fails.</target>
+        </trans-unit>
+        <trans-unit id="f3c01cf7-e45a-4609-8521-4f5cb1159e88" xml:space="preserve">
+          <source>One way to guard against this is to implement probes or check functions that are executed regularly from outside the application.</source>
+          <target state="new">One way to guard against this is to implement probes or check functions that are executed regularly from outside the application.</target>
+        </trans-unit>
+        <trans-unit id="221a0533-d1ab-4cac-a0dc-d9c5ed9a58ee" xml:space="preserve">
+          <source>These checks can be as simple as measuring response time for the application as a whole, for individual parts of the application, for individual services that the application uses, or for individual components.</source>
+          <target state="new">These checks can be as simple as measuring response time for the application as a whole, for individual parts of the application, for individual services that the application uses, or for individual components.</target>
+        </trans-unit>
+        <trans-unit id="cd936580-bfe1-4b03-ad5f-97d6d0471de5" xml:space="preserve">
+          <source>Check functions can execute processes to ensure they produce valid results, measure latency and check availability, and extract information from the system.</source>
+          <target state="new">Check functions can execute processes to ensure they produce valid results, measure latency and check availability, and extract information from the system.</target>
+        </trans-unit>
+        <trans-unit id="53b5284b-d5d3-4cab-bdeb-0a233cbdb165" xml:space="preserve">
+          <source><bpt id="a5d8fe0e-1f15-48a3-91cf-a0c4e96ba358">&lt;strong&gt;</bpt>Regularly test all failover and fallback systems<ept id="a5d8fe0e-1f15-48a3-91cf-a0c4e96ba358">&lt;/strong&gt;</ept> to ensure they are available and operate as expected.</source>
+          <target state="new"><bpt id="a5d8fe0e-1f15-48a3-91cf-a0c4e96ba358">&lt;strong&gt;</bpt>Regularly test all failover and fallback systems<ept id="a5d8fe0e-1f15-48a3-91cf-a0c4e96ba358">&lt;/strong&gt;</ept> to ensure they are available and operate as expected.</target>
+        </trans-unit>
+        <trans-unit id="6b9bf17d-097b-4998-869a-a23a8bd9c37f" xml:space="preserve">
+          <source>Changes to systems and operations may affect failover and fallback functions, but the impact may not be detected until the main system fails or becomes overloaded.</source>
+          <target state="new">Changes to systems and operations may affect failover and fallback functions, but the impact may not be detected until the main system fails or becomes overloaded.</target>
+        </trans-unit>
+        <trans-unit id="1d4e09ce-653d-41fd-8858-10f53139ee2f" xml:space="preserve">
+          <source>It is good practice to test it before it is required to compensate for a live problem at runtime.</source>
+          <target state="new">It is good practice to test it before it is required to compensate for a live problem at runtime.</target>
+        </trans-unit>
+        <trans-unit id="dcd45809-d671-4fd1-93dd-db64e6124cac" xml:space="preserve">
+          <source><bpt id="ebacaa02-fc23-48bf-9b6a-119e8a8b989c">&lt;strong&gt;</bpt>Test the monitoring systems.<ept id="ebacaa02-fc23-48bf-9b6a-119e8a8b989c">&lt;/strong&gt;</ept> Automated failover and fallback systems, and manual visualization of system health and performance by using dashboards all depend on monitoring and instrumentation functioning correctly.</source>
+          <target state="new"><bpt id="ebacaa02-fc23-48bf-9b6a-119e8a8b989c">&lt;strong&gt;</bpt>Test the monitoring systems.<ept id="ebacaa02-fc23-48bf-9b6a-119e8a8b989c">&lt;/strong&gt;</ept> Automated failover and fallback systems, and manual visualization of system health and performance by using dashboards all depend on monitoring and instrumentation functioning correctly.</target>
+        </trans-unit>
+        <trans-unit id="7ab479e1-e1f1-4250-97e7-9b205bdb3bbd" xml:space="preserve">
+          <source>If these elements fail, miss critical information, or report inaccurate data then an operator might not realize that the system is unhealthy or failing.</source>
+          <target state="new">If these elements fail, miss critical information, or report inaccurate data then an operator might not realize that the system is unhealthy or failing.</target>
+        </trans-unit>
+        <trans-unit id="bd0892dd-3bbf-49ed-bf60-f9c04ed6e7f3" xml:space="preserve">
+          <source><bpt id="b3320e53-4243-45fa-8648-88725d70e322">&lt;strong&gt;</bpt>Track the progress of long running workflows<ept id="b3320e53-4243-45fa-8648-88725d70e322">&lt;/strong&gt;</ept> and retry on failure.</source>
+          <target state="new"><bpt id="b3320e53-4243-45fa-8648-88725d70e322">&lt;strong&gt;</bpt>Track the progress of long running workflows<ept id="b3320e53-4243-45fa-8648-88725d70e322">&lt;/strong&gt;</ept> and retry on failure.</target>
+        </trans-unit>
+        <trans-unit id="d86c4cec-9329-46dc-9578-9fdc49943082" xml:space="preserve">
+          <source>Long running workflows are often composed of multiple steps.</source>
+          <target state="new">Long running workflows are often composed of multiple steps.</target>
+        </trans-unit>
+        <trans-unit id="ce685c97-d7da-464a-a161-d03bc134defa" xml:space="preserve">
+          <source>When designing these types of workflows ensure that each step is independent and can be retried to minimize the chance that the entire workflow will need to be rolled back or that multiple compensating transactions need to be executed.</source>
+          <target state="new">When designing these types of workflows ensure that each step is independent and can be retried to minimize the chance that the entire workflow will need to be rolled back or that multiple compensating transactions need to be executed.</target>
+        </trans-unit>
+        <trans-unit id="07050b29-3876-439b-9495-7b9e8f6a7b02" xml:space="preserve">
+          <source>Monitor and manage the progress of long-running workflows by implementing a pattern such as Scheduler Agent Supervisor.</source>
+          <target state="new">Monitor and manage the progress of long-running workflows by implementing a pattern such as Scheduler Agent Supervisor.</target>
+        </trans-unit>
+        <trans-unit id="0ab7c35f-878f-44b9-afda-3d8a55270724" xml:space="preserve">
+          <source>For more information, see the <bpt id="bdcb75b9-58e5-4155-a032-55e555c594f3">&lt;linkText&gt;</bpt>Scheduler Agent Supervisor Pattern<ept id="bdcb75b9-58e5-4155-a032-55e555c594f3">&lt;/linkText&gt;</ept><bpt id="bdcb75b9-58e5-4155-a032-55e555c594f3">&lt;title&gt;</bpt><ept id="bdcb75b9-58e5-4155-a032-55e555c594f3">&lt;/title&gt;</ept> page on the Microsoft website.</source>
+          <target state="new">For more information, see the <bpt id="bdcb75b9-58e5-4155-a032-55e555c594f3">&lt;linkText&gt;</bpt>Scheduler Agent Supervisor Pattern<ept id="bdcb75b9-58e5-4155-a032-55e555c594f3">&lt;/linkText&gt;</ept><bpt id="bdcb75b9-58e5-4155-a032-55e555c594f3">&lt;title&gt;</bpt><ept id="bdcb75b9-58e5-4155-a032-55e555c594f3">&lt;/title&gt;</ept> page on the Microsoft website.</target>
+        </trans-unit>
+        <trans-unit id="c986f85f-92e2-4f56-baca-271a27ced8dd" xml:space="preserve">
+          <source><bpt id="e6d47cc8-d013-40a2-a4c3-a34c62976d33">&lt;strong&gt;</bpt>Plan for disaster recovery.<ept id="e6d47cc8-d013-40a2-a4c3-a34c62976d33">&lt;/strong&gt;</ept> Ensure there is a documented, agreed, and fully tested plan for recovery from any type of failure that may render part or all of the main system unavailable.</source>
+          <target state="new"><bpt id="e6d47cc8-d013-40a2-a4c3-a34c62976d33">&lt;strong&gt;</bpt>Plan for disaster recovery.<ept id="e6d47cc8-d013-40a2-a4c3-a34c62976d33">&lt;/strong&gt;</ept> Ensure there is a documented, agreed, and fully tested plan for recovery from any type of failure that may render part or all of the main system unavailable.</target>
+        </trans-unit>
+        <trans-unit id="77249b4d-23cf-4550-96b3-5a8f89945643" xml:space="preserve">
+          <source>Test the procedures regularly and ensure that all operations staff are familiar with the process.</source>
+          <target state="new">Test the procedures regularly and ensure that all operations staff are familiar with the process.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

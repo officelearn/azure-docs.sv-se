@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="44ab046a-16b9-4d49-947a-002268198485" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="44ab046a-16b9-4d49-947a-002268198485" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a511de86-7c1d-4ecc-a13c-3342129b4f4a">
+        <trans-unit id="cb75113a-a7aa-4672-a4b8-98a4063cd874" xml:space="preserve">
+          <source>Create a virtual machine running Windows in Azure</source>
+          <target state="new">Create a virtual machine running Windows in Azure</target>
+        </trans-unit>
+        <trans-unit id="c79f2ec2-5a84-4298-b7d7-dd9a6165d230" xml:space="preserve">
+          <source>Create a Windows virtual machine in the Azure portal.</source>
+          <target state="new">Create a Windows virtual machine in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="538b0580-32f9-42ad-b574-4450c91c8325" xml:space="preserve">
+          <source>This tutorial shows you how easy it is to create an Azure virtual machine (VM) in the Azure portal.</source>
+          <target state="new">This tutorial shows you how easy it is to create an Azure virtual machine (VM) in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="20b6f38f-d2cf-4000-a9a5-581e0b3925eb" xml:space="preserve">
+          <source>We'll use a Windows Server image as an example, but that's just one of the many images Azure offers.</source>
+          <target state="new">We'll use a Windows Server image as an example, but that's just one of the many images Azure offers.</target>
+        </trans-unit>
+        <trans-unit id="6ddb3179-7882-4e2b-a9d2-3832d5eec401" xml:space="preserve">
+          <source>Note that your image choices depend on your subscription.</source>
+          <target state="new">Note that your image choices depend on your subscription.</target>
+        </trans-unit>
+        <trans-unit id="3aa7e45b-35a6-4a1b-835a-aa31f97e37ce" xml:space="preserve">
+          <source>For example, desktop images may be available to MSDN subscribers.</source>
+          <target state="new">For example, desktop images may be available to MSDN subscribers.</target>
+        </trans-unit>
+        <trans-unit id="2c81afff-1707-45c0-8483-00c571e66aa7" xml:space="preserve">
+          <source>You can also create VMs using <bpt id="34fba2d2-dd73-4570-af65-7fe19d3c37ab">&lt;linkText&gt;</bpt>your own images<ept id="34fba2d2-dd73-4570-af65-7fe19d3c37ab">&lt;/linkText&gt;</ept><bpt id="34fba2d2-dd73-4570-af65-7fe19d3c37ab">&lt;title&gt;</bpt><ept id="34fba2d2-dd73-4570-af65-7fe19d3c37ab">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also create VMs using <bpt id="34fba2d2-dd73-4570-af65-7fe19d3c37ab">&lt;linkText&gt;</bpt>your own images<ept id="34fba2d2-dd73-4570-af65-7fe19d3c37ab">&lt;/linkText&gt;</ept><bpt id="34fba2d2-dd73-4570-af65-7fe19d3c37ab">&lt;title&gt;</bpt><ept id="34fba2d2-dd73-4570-af65-7fe19d3c37ab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca2a5831-bff1-4d6b-b28d-7704e75561da" xml:space="preserve">
+          <source>To learn about this and other methods, see <bpt id="040043c0-58e6-4dc5-a77e-b4f32b57ff02">&lt;linkText&gt;</bpt>Different ways to create a Windows virtual machine<ept id="040043c0-58e6-4dc5-a77e-b4f32b57ff02">&lt;/linkText&gt;</ept><bpt id="040043c0-58e6-4dc5-a77e-b4f32b57ff02">&lt;title&gt;</bpt><ept id="040043c0-58e6-4dc5-a77e-b4f32b57ff02">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn about this and other methods, see <bpt id="040043c0-58e6-4dc5-a77e-b4f32b57ff02">&lt;linkText&gt;</bpt>Different ways to create a Windows virtual machine<ept id="040043c0-58e6-4dc5-a77e-b4f32b57ff02">&lt;/linkText&gt;</ept><bpt id="040043c0-58e6-4dc5-a77e-b4f32b57ff02">&lt;title&gt;</bpt><ept id="040043c0-58e6-4dc5-a77e-b4f32b57ff02">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7ec5e35-155b-47e6-a4fa-aeb22fd14352" xml:space="preserve">
+          <source><bpt id="eb7999b4-ddd9-4cff-8cc3-8e91f920c5f5">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="eb7999b4-ddd9-4cff-8cc3-8e91f920c5f5">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="eb7999b4-ddd9-4cff-8cc3-8e91f920c5f5">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="eb7999b4-ddd9-4cff-8cc3-8e91f920c5f5">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfadea04-154c-4154-a0c9-eca6e7eed9c6" xml:space="preserve">
+          <source>Here's a walkthrough of this tutorial.</source>
+          <target state="new">Here's a walkthrough of this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="8435a963-4f00-4b72-809d-f69a44c44bf0" xml:space="preserve">
+          <source>[AZURE.VIDEO creating-a-windows-vm-on-microsoft-azure-classic-portal]</source>
+          <target state="new">[AZURE.VIDEO creating-a-windows-vm-on-microsoft-azure-classic-portal]</target>
+        </trans-unit>
+        <trans-unit id="248f1b66-ff0d-4df7-9ea2-7c26ecfed19d" xml:space="preserve">
+          <source>This section shows you how to use the <bpt id="1454ade5-edc6-4129-ad0d-a9079fe2aebc">&lt;strong&gt;</bpt>From Gallery<ept id="1454ade5-edc6-4129-ad0d-a9079fe2aebc">&lt;/strong&gt;</ept> option in the Azure portal to create the virtual machine.</source>
+          <target state="new">This section shows you how to use the <bpt id="1454ade5-edc6-4129-ad0d-a9079fe2aebc">&lt;strong&gt;</bpt>From Gallery<ept id="1454ade5-edc6-4129-ad0d-a9079fe2aebc">&lt;/strong&gt;</ept> option in the Azure portal to create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="78c4e42a-1c27-410c-9936-249cbd735487" xml:space="preserve">
+          <source>This option provides more configuration choices than the <bpt id="66719e78-2234-4438-abe8-da3c37a56b32">&lt;strong&gt;</bpt>Quick Create<ept id="66719e78-2234-4438-abe8-da3c37a56b32">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">This option provides more configuration choices than the <bpt id="66719e78-2234-4438-abe8-da3c37a56b32">&lt;strong&gt;</bpt>Quick Create<ept id="66719e78-2234-4438-abe8-da3c37a56b32">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="ec2faf80-405c-420e-b418-44f79e93e80e" xml:space="preserve">
+          <source>For example, if you want to join a virtual machine to a virtual network, you'll need to use the <bpt id="6440af69-03b7-4ba2-9b1c-82aba9796432">&lt;strong&gt;</bpt>From Gallery<ept id="6440af69-03b7-4ba2-9b1c-82aba9796432">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">For example, if you want to join a virtual machine to a virtual network, you'll need to use the <bpt id="6440af69-03b7-4ba2-9b1c-82aba9796432">&lt;strong&gt;</bpt>From Gallery<ept id="6440af69-03b7-4ba2-9b1c-82aba9796432">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="d82b0596-e4cf-4d45-874d-3d321ca0ac98" xml:space="preserve">
+          <source>You can also try the richer, customizable <bpt id="02fe663e-399b-4694-a1c4-11cd7bf39155">&lt;linkText&gt;</bpt>Azure preview portal<ept id="02fe663e-399b-4694-a1c4-11cd7bf39155">&lt;/linkText&gt;</ept><bpt id="02fe663e-399b-4694-a1c4-11cd7bf39155">&lt;title&gt;</bpt><ept id="02fe663e-399b-4694-a1c4-11cd7bf39155">&lt;/title&gt;</ept> to create a virtual machine, use enhanced monitoring and diagnostics, use Premium storage, and more.</source>
+          <target state="new">You can also try the richer, customizable <bpt id="02fe663e-399b-4694-a1c4-11cd7bf39155">&lt;linkText&gt;</bpt>Azure preview portal<ept id="02fe663e-399b-4694-a1c4-11cd7bf39155">&lt;/linkText&gt;</ept><bpt id="02fe663e-399b-4694-a1c4-11cd7bf39155">&lt;title&gt;</bpt><ept id="02fe663e-399b-4694-a1c4-11cd7bf39155">&lt;/title&gt;</ept> to create a virtual machine, use enhanced monitoring and diagnostics, use Premium storage, and more.</target>
+        </trans-unit>
+        <trans-unit id="fda6b39e-85bc-4b37-99f2-3ea462eb18d8" xml:space="preserve">
+          <source>The available options for configuring a virtual machine in the two portals overlap substantially but aren't identical.</source>
+          <target state="new">The available options for configuring a virtual machine in the two portals overlap substantially but aren't identical.</target>
+        </trans-unit>
+        <trans-unit id="24fc30ab-6b7b-4ccd-8763-19a7251f7c2a" xml:space="preserve">
+          <source>For example, use the preview portal to configure a virtual machine with Premium storage.</source>
+          <target state="new">For example, use the preview portal to configure a virtual machine with Premium storage.</target>
+        </trans-unit>
+        <trans-unit id="f0b3490d-7e31-4386-95f5-e05a4a93e7b9" xml:space="preserve">
+          <source><bpt id="0b977d82-1089-41a1-bbc1-671ac87b51e2">&lt;token href="../../includes/virtual-machines-create-windowsvm.md"&gt;</bpt><ept id="0b977d82-1089-41a1-bbc1-671ac87b51e2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0b977d82-1089-41a1-bbc1-671ac87b51e2">&lt;token href="../../includes/virtual-machines-create-windowsvm.md"&gt;</bpt><ept id="0b977d82-1089-41a1-bbc1-671ac87b51e2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56fa6217-b9f5-4b96-9ffb-63949d0bc326" xml:space="preserve">
+          <source>Log on to the virtual machine.</source>
+          <target state="new">Log on to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c078cabc-4fc5-45d8-9b65-637563aa1657" xml:space="preserve">
+          <source>For instructions, see <bpt id="92250649-c782-4403-a0de-f8add5f3f70a">&lt;linkText&gt;</bpt>How to log on to a virtual machine running Windows Server<ept id="92250649-c782-4403-a0de-f8add5f3f70a">&lt;/linkText&gt;</ept><bpt id="92250649-c782-4403-a0de-f8add5f3f70a">&lt;title&gt;</bpt><ept id="92250649-c782-4403-a0de-f8add5f3f70a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="92250649-c782-4403-a0de-f8add5f3f70a">&lt;linkText&gt;</bpt>How to log on to a virtual machine running Windows Server<ept id="92250649-c782-4403-a0de-f8add5f3f70a">&lt;/linkText&gt;</ept><bpt id="92250649-c782-4403-a0de-f8add5f3f70a">&lt;title&gt;</bpt><ept id="92250649-c782-4403-a0de-f8add5f3f70a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0e8b2d8-bd30-40e0-9ab6-cd6053f450d8" xml:space="preserve">
+          <source>Attach a disk to store data.</source>
+          <target state="new">Attach a disk to store data.</target>
+        </trans-unit>
+        <trans-unit id="a79bd4cf-cf91-467c-b7a8-27ce297a7457" xml:space="preserve">
+          <source>You can attach both empty disks and disks that contain data.</source>
+          <target state="new">You can attach both empty disks and disks that contain data.</target>
+        </trans-unit>
+        <trans-unit id="50fc33c9-6acd-433a-8429-9a437b7a95b9" xml:space="preserve">
+          <source>For instructions, see the <bpt id="14a605a6-50de-4bdf-8c26-64c45f9c140f">&lt;linkText&gt;</bpt>Attach a data disk tutorial<ept id="14a605a6-50de-4bdf-8c26-64c45f9c140f">&lt;/linkText&gt;</ept><bpt id="14a605a6-50de-4bdf-8c26-64c45f9c140f">&lt;title&gt;</bpt><ept id="14a605a6-50de-4bdf-8c26-64c45f9c140f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see the <bpt id="14a605a6-50de-4bdf-8c26-64c45f9c140f">&lt;linkText&gt;</bpt>Attach a data disk tutorial<ept id="14a605a6-50de-4bdf-8c26-64c45f9c140f">&lt;/linkText&gt;</ept><bpt id="14a605a6-50de-4bdf-8c26-64c45f9c140f">&lt;title&gt;</bpt><ept id="14a605a6-50de-4bdf-8c26-64c45f9c140f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="820ee8ad-efb4-42c1-b89c-1e32f6922f21" xml:space="preserve">
+          <source>To learn more about what you can configure for a virtual machine and when you can do it, see <bpt id="88c226e7-f6f0-4583-8092-311071c00ea6">&lt;linkText&gt;</bpt>About Azure VM configuration settings<ept id="88c226e7-f6f0-4583-8092-311071c00ea6">&lt;/linkText&gt;</ept><bpt id="88c226e7-f6f0-4583-8092-311071c00ea6">&lt;title&gt;</bpt><ept id="88c226e7-f6f0-4583-8092-311071c00ea6">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about what you can configure for a virtual machine and when you can do it, see <bpt id="88c226e7-f6f0-4583-8092-311071c00ea6">&lt;linkText&gt;</bpt>About Azure VM configuration settings<ept id="88c226e7-f6f0-4583-8092-311071c00ea6">&lt;/linkText&gt;</ept><bpt id="88c226e7-f6f0-4583-8092-311071c00ea6">&lt;title&gt;</bpt><ept id="88c226e7-f6f0-4583-8092-311071c00ea6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

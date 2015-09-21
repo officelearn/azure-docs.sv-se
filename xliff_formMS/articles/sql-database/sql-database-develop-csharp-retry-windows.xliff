@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5bb6f174-7815-47b7-96bb-23dde8498a44" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5bb6f174-7815-47b7-96bb-23dde8498a44" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d49e0fae-0d96-498c-958a-ccc3d917c194">
+        <trans-unit id="8a84f425-575a-4acd-955b-e5f0b2fcd4a0" xml:space="preserve">
+          <source>Code sample: Retry logic in C# for connecting to SQL Database | Microsoft Azure</source>
+          <target state="new">Code sample: Retry logic in C# for connecting to SQL Database | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1c5ba92a-d67c-4396-b13b-e4c9d6852a7b" xml:space="preserve">
+          <source>C# sample includes robust retry logic for interacting with Azure SQL Database.</source>
+          <target state="new">C# sample includes robust retry logic for interacting with Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="65e7016d-1fe0-4356-ac4c-6188029753ca" xml:space="preserve">
+          <source><bpt id="6d942352-628d-4d7a-87b5-8e54a863eb21">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="6d942352-628d-4d7a-87b5-8e54a863eb21">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6d942352-628d-4d7a-87b5-8e54a863eb21">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="6d942352-628d-4d7a-87b5-8e54a863eb21">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d4b8e6c-f86f-490a-8de3-3f51cb45822f" xml:space="preserve">
+          <source>This topic provides a C# code sample that demonstrates custom retry logic.</source>
+          <target state="new">This topic provides a C# code sample that demonstrates custom retry logic.</target>
+        </trans-unit>
+        <trans-unit id="83757cd1-a75b-4822-a96d-9d4f489ce6f2" xml:space="preserve">
+          <source>The retry logic is designed to gracefully process temporary errors or <bpt id="51ba2705-0b0e-4cf1-932e-a588063f6819">&lt;em&gt;</bpt>transient faults<ept id="51ba2705-0b0e-4cf1-932e-a588063f6819">&lt;/em&gt;</ept> that tend to go away if the program waits a few seconds and retries.</source>
+          <target state="new">The retry logic is designed to gracefully process temporary errors or <bpt id="51ba2705-0b0e-4cf1-932e-a588063f6819">&lt;em&gt;</bpt>transient faults<ept id="51ba2705-0b0e-4cf1-932e-a588063f6819">&lt;/em&gt;</ept> that tend to go away if the program waits a few seconds and retries.</target>
+        </trans-unit>
+        <trans-unit id="095df1d7-b6c5-46f5-a5c8-f06be0e9fe54" xml:space="preserve">
+          <source>ADO.NET classes that you use to connect to your local Microsoft SQL Server can also connect to Azure SQL Database.</source>
+          <target state="new">ADO.NET classes that you use to connect to your local Microsoft SQL Server can also connect to Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="f7ff5305-cd50-40aa-acde-fbe477dfd493" xml:space="preserve">
+          <source>However, by themselves the ADO.NET classes cannot provide all the robustness and reliability necessary in production use.</source>
+          <target state="new">However, by themselves the ADO.NET classes cannot provide all the robustness and reliability necessary in production use.</target>
+        </trans-unit>
+        <trans-unit id="6db53e91-10dd-42bf-8c1e-3fe068ccd8b4" xml:space="preserve">
+          <source>Your client program can encounter transient faults from which it should silently and gracefully recover on its own.</source>
+          <target state="new">Your client program can encounter transient faults from which it should silently and gracefully recover on its own.</target>
+        </trans-unit>
+        <trans-unit id="1b28eecc-b1ff-4c74-9cff-40f2a3e1dc50" xml:space="preserve">
+          <source>A couple examples of transient faults:</source>
+          <target state="new">A couple examples of transient faults:</target>
+        </trans-unit>
+        <trans-unit id="c2271dde-8b30-41bb-88b7-1e8cd02a20ef" xml:space="preserve">
+          <source>A connection over the Internet is subject to brief network outages, after which the connection can be recreated.</source>
+          <target state="new">A connection over the Internet is subject to brief network outages, after which the connection can be recreated.</target>
+        </trans-unit>
+        <trans-unit id="3351af6b-870f-42ef-b5f2-38b3315026ab" xml:space="preserve">
+          <source>Cloud computing involves load balancing which can briefly block attempts to connect or query.</source>
+          <target state="new">Cloud computing involves load balancing which can briefly block attempts to connect or query.</target>
+        </trans-unit>
+        <trans-unit id="724f3e93-ffa7-4e1d-9f8e-3b8c983a4817" xml:space="preserve">
+          <source>Your program must distinguish between transient errors versus persistent errors.</source>
+          <target state="new">Your program must distinguish between transient errors versus persistent errors.</target>
+        </trans-unit>
+        <trans-unit id="8db8e221-eec7-4720-ac5f-690ef1cadb8d" xml:space="preserve">
+          <source>If you program has a misspelling of the target database name, the "No such database found" error will persist and will reoccur every time you rerun the program.</source>
+          <target state="new">If you program has a misspelling of the target database name, the "No such database found" error will persist and will reoccur every time you rerun the program.</target>
+        </trans-unit>
+        <trans-unit id="8748e488-9802-4c28-93f9-af9469c54cc9" xml:space="preserve">
+          <source>The list of error numbers that are categorized as transient faults is available at:</source>
+          <target state="new">The list of error numbers that are categorized as transient faults is available at:</target>
+        </trans-unit>
+        <trans-unit id="58c9ef65-d2b4-4d0b-916d-049b84133746" xml:space="preserve">
+          <source>[Error messages for SQL Database client programs](sql-database-develop-error-messages.md#bkmk<bpt id="03a1af8f-aacf-45de-b07d-50daf518caa8">&lt;em&gt;</bpt>connection<ept id="03a1af8f-aacf-45de-b07d-50daf518caa8">&lt;/em&gt;</ept>errors)</source>
+          <target state="new">[Error messages for SQL Database client programs](sql-database-develop-error-messages.md#bkmk<bpt id="03a1af8f-aacf-45de-b07d-50daf518caa8">&lt;em&gt;</bpt>connection<ept id="03a1af8f-aacf-45de-b07d-50daf518caa8">&lt;/em&gt;</ept>errors)</target>
+        </trans-unit>
+        <trans-unit id="b4dc068e-82d3-4ef7-8ce9-4b0fdea41cb3" xml:space="preserve">
+          <source>See the section about <bpt id="32aea1d1-de72-4585-b272-9ab78e52d324">&lt;em&gt;</bpt>Transient Errors, Connection-Loss Errors<ept id="32aea1d1-de72-4585-b272-9ab78e52d324">&lt;/em&gt;</ept>.</source>
+          <target state="new">See the section about <bpt id="32aea1d1-de72-4585-b272-9ab78e52d324">&lt;em&gt;</bpt>Transient Errors, Connection-Loss Errors<ept id="32aea1d1-de72-4585-b272-9ab78e52d324">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd52c807-79d7-42c8-b3fe-366cf5d6133c" xml:space="preserve">
+          <source>The C# code sample in the present topic contains custom detection and retry logic to handle transient errors.</source>
+          <target state="new">The C# code sample in the present topic contains custom detection and retry logic to handle transient errors.</target>
+        </trans-unit>
+        <trans-unit id="91daf4f9-d710-4af8-bc7e-d501b0be1f7f" xml:space="preserve">
+          <source>The code sample follows a few basic guidelines or recommendations that apply regardless of which technology you use to interact with Azure SQL Database.</source>
+          <target state="new">The code sample follows a few basic guidelines or recommendations that apply regardless of which technology you use to interact with Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="fdc1bebb-f48a-460f-bd10-b6bacbb8310d" xml:space="preserve">
+          <source>You can see the general recommendations at:</source>
+          <target state="new">You can see the general recommendations at:</target>
+        </trans-unit>
+        <trans-unit id="24eea03f-5fad-4bde-804c-bb2c4b2943b4" xml:space="preserve">
+          <source><bpt id="03643124-bed1-481e-98cc-bdc55e85382c">&lt;linkText&gt;</bpt>Connecting to SQL Database: Links, Best Practices and Design Guidelines<ept id="03643124-bed1-481e-98cc-bdc55e85382c">&lt;/linkText&gt;</ept><bpt id="03643124-bed1-481e-98cc-bdc55e85382c">&lt;title&gt;</bpt><ept id="03643124-bed1-481e-98cc-bdc55e85382c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="03643124-bed1-481e-98cc-bdc55e85382c">&lt;linkText&gt;</bpt>Connecting to SQL Database: Links, Best Practices and Design Guidelines<ept id="03643124-bed1-481e-98cc-bdc55e85382c">&lt;/linkText&gt;</ept><bpt id="03643124-bed1-481e-98cc-bdc55e85382c">&lt;title&gt;</bpt><ept id="03643124-bed1-481e-98cc-bdc55e85382c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8ad65dc-6004-4ed3-a844-6789bd86903e" xml:space="preserve">
+          <source>The C# code sample consists of the two .cs files whose content is pasted into the sections that follow.</source>
+          <target state="new">The C# code sample consists of the two .cs files whose content is pasted into the sections that follow.</target>
+        </trans-unit>
+        <trans-unit id="9a3d50f2-67a8-4ada-850a-ddc606b9708e" xml:space="preserve">
+          <source>Their file names are:</source>
+          <target state="new">Their file names are:</target>
+        </trans-unit>
+        <trans-unit id="e3d2f0ef-b07f-4be9-855c-60952e72ce27" xml:space="preserve">
+          <source><bpt id="3e717f8c-9933-4ab8-abb7-c26351a844b4">&lt;code&gt;</bpt>Program.cs<ept id="3e717f8c-9933-4ab8-abb7-c26351a844b4">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3e717f8c-9933-4ab8-abb7-c26351a844b4">&lt;code&gt;</bpt>Program.cs<ept id="3e717f8c-9933-4ab8-abb7-c26351a844b4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71981456-dae5-41c2-a0d5-60f7282a6683" xml:space="preserve">
+          <source><bpt id="e92d6de2-3e22-4ccc-9e18-604f6b2353ae">&lt;code&gt;</bpt>Custom_SqlDatabaseTransientErrorDetectionStrategy.cs<ept id="e92d6de2-3e22-4ccc-9e18-604f6b2353ae">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e92d6de2-3e22-4ccc-9e18-604f6b2353ae">&lt;code&gt;</bpt>Custom_SqlDatabaseTransientErrorDetectionStrategy.cs<ept id="e92d6de2-3e22-4ccc-9e18-604f6b2353ae">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4eb8082c-33e1-435c-aed7-e4ad9128350b" xml:space="preserve">
+          <source>You can compile the sample with the following steps:</source>
+          <target state="new">You can compile the sample with the following steps:</target>
+        </trans-unit>
+        <trans-unit id="c4e20b1f-e455-4594-99b9-119687651b21" xml:space="preserve">
+          <source>In Visual Studio, create a new project from the C# Console Application template.</source>
+          <target state="new">In Visual Studio, create a new project from the C# Console Application template.</target>
+        </trans-unit>
+        <trans-unit id="e1ce3902-85b0-47fc-abe6-260f1bf586a3" xml:space="preserve">
+          <source>Right-click your project, and then add the .cs for which source code is provided in this topic.</source>
+          <target state="new">Right-click your project, and then add the .cs for which source code is provided in this topic.</target>
+        </trans-unit>
+        <trans-unit id="5d3e8828-73b6-4190-932b-af14cd6515b8" xml:space="preserve">
+          <source>In a <bpt id="8cd7fc64-438c-4c53-9bc2-1489531cb26d">&lt;code&gt;</bpt>cmd.exe<ept id="8cd7fc64-438c-4c53-9bc2-1489531cb26d">&lt;/code&gt;</ept> command window, run the program as shown next.</source>
+          <target state="new">In a <bpt id="8cd7fc64-438c-4c53-9bc2-1489531cb26d">&lt;code&gt;</bpt>cmd.exe<ept id="8cd7fc64-438c-4c53-9bc2-1489531cb26d">&lt;/code&gt;</ept> command window, run the program as shown next.</target>
+        </trans-unit>
+        <trans-unit id="df7f51ff-f145-4285-91db-0e5e924289d3" xml:space="preserve">
+          <source>Actual output from a run is also shown.</source>
+          <target state="new">Actual output from a run is also shown.</target>
+        </trans-unit>
+        <trans-unit id="f04e7cc6-2ccb-4d0b-99f5-a88662f00682" xml:space="preserve">
+          <source>ConsoleApplication1.exe
+    database<bpt id="876e1f7a-05bd-42e7-8965-73a656a9ab01">&lt;em&gt;</bpt>firewall<ept id="876e1f7a-05bd-42e7-8965-73a656a9ab01">&lt;/em&gt;</ept>rules<bpt id="918d7035-d7a7-42eb-b481-cd242c800cc9">&lt;em&gt;</bpt>table   245575913
+    filestream<ept id="918d7035-d7a7-42eb-b481-cd242c800cc9">&lt;/em&gt;</ept>tombstone<bpt id="6941317b-69e6-4342-a57f-0a603306202e">&lt;em&gt;</bpt>2073058421 2073058421
+    filetable<ept id="6941317b-69e6-4342-a57f-0a603306202e">&lt;/em&gt;</ept>updates_2105058535    2105058535</source>
+          <target state="new">ConsoleApplication1.exe
+    database<bpt id="876e1f7a-05bd-42e7-8965-73a656a9ab01">&lt;em&gt;</bpt>firewall<ept id="876e1f7a-05bd-42e7-8965-73a656a9ab01">&lt;/em&gt;</ept>rules<bpt id="918d7035-d7a7-42eb-b481-cd242c800cc9">&lt;em&gt;</bpt>table   245575913
+    filestream<ept id="918d7035-d7a7-42eb-b481-cd242c800cc9">&lt;/em&gt;</ept>tombstone<bpt id="6941317b-69e6-4342-a57f-0a603306202e">&lt;em&gt;</bpt>2073058421 2073058421
+    filetable<ept id="6941317b-69e6-4342-a57f-0a603306202e">&lt;/em&gt;</ept>updates_2105058535    2105058535</target>
+        </trans-unit>
+        <trans-unit id="d1434dbc-da99-4f27-84d7-4ac996d3187c" xml:space="preserve">
+          <source>&gt;</source>
+          <target state="new">&gt;</target>
+        </trans-unit>
+        <trans-unit id="f684c199-b67c-470b-aa00-3da5a189358f" xml:space="preserve">
+          <source>The C# source code for the .cs files are in the following sections.</source>
+          <target state="new">The C# source code for the .cs files are in the following sections.</target>
+        </trans-unit>
+        <trans-unit id="8ed19ebf-e0c9-4656-b1d7-da5312271002" xml:space="preserve">
+          <source>The demo program is designed so that:</source>
+          <target state="new">The demo program is designed so that:</target>
+        </trans-unit>
+        <trans-unit id="b78ced4d-0de2-4cab-9c4c-3f74e5fdd710" xml:space="preserve">
+          <source>A transient fault during an attempt to connect leads to a retry.</source>
+          <target state="new">A transient fault during an attempt to connect leads to a retry.</target>
+        </trans-unit>
+        <trans-unit id="048fa63a-fcea-4f65-acf0-e85a9f67ff84" xml:space="preserve">
+          <source>A transient error during a query command causes the program to discard the connection and create a new connection, before retrying the query command.</source>
+          <target state="new">A transient error during a query command causes the program to discard the connection and create a new connection, before retrying the query command.</target>
+        </trans-unit>
+        <trans-unit id="f74c902e-a9a8-41f2-9067-1dd7cd95e347" xml:space="preserve">
+          <source>Microsoft neither recommends nor dis-recommends this design choice.</source>
+          <target state="new">Microsoft neither recommends nor dis-recommends this design choice.</target>
+        </trans-unit>
+        <trans-unit id="067ce195-b6a1-45fc-a5d1-745a234f9bcb" xml:space="preserve">
+          <source>The demo program illustrates some of the design flexibility that is available to you.</source>
+          <target state="new">The demo program illustrates some of the design flexibility that is available to you.</target>
+        </trans-unit>
+        <trans-unit id="b9c2826a-524c-4323-8061-cb3119760af8" xml:space="preserve">
+          <source>The long length of the <bpt id="7420eb98-2759-41a9-b105-9e5da3c5577a">&lt;code&gt;</bpt>Program.cs<ept id="7420eb98-2759-41a9-b105-9e5da3c5577a">&lt;/code&gt;</ept> file is due mostly to the logic that catches exceptions.</source>
+          <target state="new">The long length of the <bpt id="7420eb98-2759-41a9-b105-9e5da3c5577a">&lt;code&gt;</bpt>Program.cs<ept id="7420eb98-2759-41a9-b105-9e5da3c5577a">&lt;/code&gt;</ept> file is due mostly to the logic that catches exceptions.</target>
+        </trans-unit>
+        <trans-unit id="9a27e82e-a539-49ac-8bf4-70a936d936f4" xml:space="preserve">
+          <source>A [shorter version](#shorter<bpt id="9010f9dd-f869-40e2-b1e9-4e5c798991e2">&lt;em&gt;</bpt>program<ept id="9010f9dd-f869-40e2-b1e9-4e5c798991e2">&lt;/em&gt;</ept>cs) of this <bpt id="2556d0ef-f040-46dc-9c99-875a72e28585">&lt;code&gt;</bpt>Program.cs<ept id="2556d0ef-f040-46dc-9c99-875a72e28585">&lt;/code&gt;</ept> file is presented at the end in this topic, with all the retry logic and <bpt id="ea6aa024-2749-4a42-a40b-c0178ffbe3db">&lt;code&gt;</bpt>Exception<ept id="ea6aa024-2749-4a42-a40b-c0178ffbe3db">&lt;/code&gt;</ept> handling removed.</source>
+          <target state="new">A [shorter version](#shorter<bpt id="9010f9dd-f869-40e2-b1e9-4e5c798991e2">&lt;em&gt;</bpt>program<ept id="9010f9dd-f869-40e2-b1e9-4e5c798991e2">&lt;/em&gt;</ept>cs) of this <bpt id="2556d0ef-f040-46dc-9c99-875a72e28585">&lt;code&gt;</bpt>Program.cs<ept id="2556d0ef-f040-46dc-9c99-875a72e28585">&lt;/code&gt;</ept> file is presented at the end in this topic, with all the retry logic and <bpt id="ea6aa024-2749-4a42-a40b-c0178ffbe3db">&lt;code&gt;</bpt>Exception<ept id="ea6aa024-2749-4a42-a40b-c0178ffbe3db">&lt;/code&gt;</ept> handling removed.</target>
+        </trans-unit>
+        <trans-unit id="fa179a13-62b5-4cad-9c61-ef88cc5d3009" xml:space="preserve">
+          <source>The <bpt id="b0decf70-039a-48ec-893c-949a0ef4ef61">&lt;code&gt;</bpt>Main<ept id="b0decf70-039a-48ec-893c-949a0ef4ef61">&lt;/code&gt;</ept> method is in <bpt id="a1706fce-49a4-4062-9803-025c7a9cc6b8">&lt;code&gt;</bpt>Program.cs<ept id="a1706fce-49a4-4062-9803-025c7a9cc6b8">&lt;/code&gt;</ept>.</source>
+          <target state="new">The <bpt id="b0decf70-039a-48ec-893c-949a0ef4ef61">&lt;code&gt;</bpt>Main<ept id="b0decf70-039a-48ec-893c-949a0ef4ef61">&lt;/code&gt;</ept> method is in <bpt id="a1706fce-49a4-4062-9803-025c7a9cc6b8">&lt;code&gt;</bpt>Program.cs<ept id="a1706fce-49a4-4062-9803-025c7a9cc6b8">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8128dff7-4a35-4b20-bed6-2f24851073ab" xml:space="preserve">
+          <source>The call stack runs as follows:</source>
+          <target state="new">The call stack runs as follows:</target>
+        </trans-unit>
+        <trans-unit id="5bfa99f4-a5a3-440b-b013-e634ab072674" xml:space="preserve">
+          <source><bpt id="d37d0612-c119-467d-8f89-5642ffc91671">&lt;code&gt;</bpt>Main<ept id="d37d0612-c119-467d-8f89-5642ffc91671">&lt;/code&gt;</ept> calls <bpt id="e0c7bb1d-56b3-49c5-8b5a-a796cd305747">&lt;code&gt;</bpt>ConnectAndQuery<ept id="e0c7bb1d-56b3-49c5-8b5a-a796cd305747">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="d37d0612-c119-467d-8f89-5642ffc91671">&lt;code&gt;</bpt>Main<ept id="d37d0612-c119-467d-8f89-5642ffc91671">&lt;/code&gt;</ept> calls <bpt id="e0c7bb1d-56b3-49c5-8b5a-a796cd305747">&lt;code&gt;</bpt>ConnectAndQuery<ept id="e0c7bb1d-56b3-49c5-8b5a-a796cd305747">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="823ac983-a346-4e11-823d-636f3dc2d4fa" xml:space="preserve">
+          <source><bpt id="2a59187d-5a20-4306-9a0d-97ad0cd63a80">&lt;code&gt;</bpt>ConnectAndQuery<ept id="2a59187d-5a20-4306-9a0d-97ad0cd63a80">&lt;/code&gt;</ept> calls <bpt id="d8f61633-2ae7-4b2b-81fb-81d053b45943">&lt;code&gt;</bpt>EstablishConnection<ept id="d8f61633-2ae7-4b2b-81fb-81d053b45943">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="2a59187d-5a20-4306-9a0d-97ad0cd63a80">&lt;code&gt;</bpt>ConnectAndQuery<ept id="2a59187d-5a20-4306-9a0d-97ad0cd63a80">&lt;/code&gt;</ept> calls <bpt id="d8f61633-2ae7-4b2b-81fb-81d053b45943">&lt;code&gt;</bpt>EstablishConnection<ept id="d8f61633-2ae7-4b2b-81fb-81d053b45943">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7ba8f13-e699-48bb-a61b-2060cc6ff342" xml:space="preserve">
+          <source><bpt id="2ccd15e0-6b17-40b4-82f2-7dec8591456e">&lt;code&gt;</bpt>EstablishConnection<ept id="2ccd15e0-6b17-40b4-82f2-7dec8591456e">&lt;/code&gt;</ept> calls <bpt id="46825302-69bd-447f-a5ad-30dd177fc16f">&lt;code&gt;</bpt>IssueQueryCommand<ept id="46825302-69bd-447f-a5ad-30dd177fc16f">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="2ccd15e0-6b17-40b4-82f2-7dec8591456e">&lt;code&gt;</bpt>EstablishConnection<ept id="2ccd15e0-6b17-40b4-82f2-7dec8591456e">&lt;/code&gt;</ept> calls <bpt id="46825302-69bd-447f-a5ad-30dd177fc16f">&lt;code&gt;</bpt>IssueQueryCommand<ept id="46825302-69bd-447f-a5ad-30dd177fc16f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44ebae47-df9c-4e10-bd49-f102b03cd3b4" xml:space="preserve">
+          <source>[<bpt id="7c1e655e-edf3-4005-8f24-f4e275f4ca3b">&lt;code&gt;</bpt>SqlDatabaseTransientErrorDetectionStrategy<ept id="7c1e655e-edf3-4005-8f24-f4e275f4ca3b">&lt;/code&gt;</ept>](http://msdn.microsoft.com/library/microsoft.practices.enterpriselibrary.transientfaulthandling.sqldatabasetransienterrordetectionstrategy.aspx) is a class in the Enterprise Library (EntLib) API.</source>
+          <target state="new">[<bpt id="7c1e655e-edf3-4005-8f24-f4e275f4ca3b">&lt;code&gt;</bpt>SqlDatabaseTransientErrorDetectionStrategy<ept id="7c1e655e-edf3-4005-8f24-f4e275f4ca3b">&lt;/code&gt;</ept>](http://msdn.microsoft.com/library/microsoft.practices.enterpriselibrary.transientfaulthandling.sqldatabasetransienterrordetectionstrategy.aspx) is a class in the Enterprise Library (EntLib) API.</target>
+        </trans-unit>
+        <trans-unit id="ad394808-f784-4d21-b7ef-9214cc07b23a" xml:space="preserve">
+          <source>The present code sample uses the following custom class that borrows the idea of the EntLib class.</source>
+          <target state="new">The present code sample uses the following custom class that borrows the idea of the EntLib class.</target>
+        </trans-unit>
+        <trans-unit id="99c2a5bd-dfeb-4320-9efa-ecc0c290b25d" xml:space="preserve">
+          <source>&lt;a id="shorter<bpt id="852bfab7-1999-43bd-bc96-d44c8e5585d8">&lt;em&gt;</bpt>program<ept id="852bfab7-1999-43bd-bc96-d44c8e5585d8">&lt;/em&gt;</ept>cs" name="shorter<bpt id="087d2875-3590-4feb-bfef-48f26bc849ea">&lt;em&gt;</bpt>program<ept id="087d2875-3590-4feb-bfef-48f26bc849ea">&lt;/em&gt;</ept>cs"&gt;&lt;/a&gt;</source>
+          <target state="new">&lt;a id="shorter<bpt id="852bfab7-1999-43bd-bc96-d44c8e5585d8">&lt;em&gt;</bpt>program<ept id="852bfab7-1999-43bd-bc96-d44c8e5585d8">&lt;/em&gt;</ept>cs" name="shorter<bpt id="087d2875-3590-4feb-bfef-48f26bc849ea">&lt;em&gt;</bpt>program<ept id="087d2875-3590-4feb-bfef-48f26bc849ea">&lt;/em&gt;</ept>cs"&gt;&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="bfccc847-c0d3-4e7e-ac1b-e8a0264745c6" xml:space="preserve">
+          <source>&amp;nbsp;</source>
+          <target state="new">&amp;nbsp;</target>
+        </trans-unit>
+        <trans-unit id="3da189e9-5a93-479c-aaad-3197e4e82f81" xml:space="preserve">
+          <source>The source code in this section is a shortened repeat of the longer <bpt id="95a98b24-4d8b-4c9d-983d-0cdb89b6a4b6">&lt;code&gt;</bpt>Program.cs<ept id="95a98b24-4d8b-4c9d-983d-0cdb89b6a4b6">&lt;/code&gt;</ept> file presented earlier.</source>
+          <target state="new">The source code in this section is a shortened repeat of the longer <bpt id="95a98b24-4d8b-4c9d-983d-0cdb89b6a4b6">&lt;code&gt;</bpt>Program.cs<ept id="95a98b24-4d8b-4c9d-983d-0cdb89b6a4b6">&lt;/code&gt;</ept> file presented earlier.</target>
+        </trans-unit>
+        <trans-unit id="06d87ca9-6732-4948-8760-ffd2f4f9e93c" xml:space="preserve">
+          <source>All the retry logic and all the exception handling has been removed.</source>
+          <target state="new">All the retry logic and all the exception handling has been removed.</target>
+        </trans-unit>
+        <trans-unit id="135974ec-b65b-4ace-8926-a1b724db8105" xml:space="preserve">
+          <source>The short version makes it easier to see the ADO.NET calls, knowing that these usually work.</source>
+          <target state="new">The short version makes it easier to see the ADO.NET calls, knowing that these usually work.</target>
+        </trans-unit>
+        <trans-unit id="241972ed-57ed-4e6f-9a77-584f740af769" xml:space="preserve">
+          <source>Usually no transient faults occur and no exception is thrown.</source>
+          <target state="new">Usually no transient faults occur and no exception is thrown.</target>
+        </trans-unit>
+        <trans-unit id="0fdaea01-919e-433b-9270-f7a1a811c304" xml:space="preserve">
+          <source>And usually a skydiver does not need a backup parachute.</source>
+          <target state="new">And usually a skydiver does not need a backup parachute.</target>
+        </trans-unit>
+        <trans-unit id="39dc1b4e-21d1-44c9-82d2-e448d40a6e11" xml:space="preserve">
+          <source><bpt id="26ee9708-f652-43e0-80ec-9bea60ba2765">&lt;linkText&gt;</bpt>Client quick-start code samples to SQL Database<ept id="26ee9708-f652-43e0-80ec-9bea60ba2765">&lt;/linkText&gt;</ept><bpt id="26ee9708-f652-43e0-80ec-9bea60ba2765">&lt;title&gt;</bpt><ept id="26ee9708-f652-43e0-80ec-9bea60ba2765">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="26ee9708-f652-43e0-80ec-9bea60ba2765">&lt;linkText&gt;</bpt>Client quick-start code samples to SQL Database<ept id="26ee9708-f652-43e0-80ec-9bea60ba2765">&lt;/linkText&gt;</ept><bpt id="26ee9708-f652-43e0-80ec-9bea60ba2765">&lt;title&gt;</bpt><ept id="26ee9708-f652-43e0-80ec-9bea60ba2765">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

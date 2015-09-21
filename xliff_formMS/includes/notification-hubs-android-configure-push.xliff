@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ebc9475c-870a-4d05-a395-34fd80bde955" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ebc9475c-870a-4d05-a395-34fd80bde955" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="969d2677-78d7-4459-8935-67910b1bb375">
+        <trans-unit id="a1b15c09-5423-48b8-b597-fbb2ff2fddf2" xml:space="preserve">
+          <source>Log on to the <bpt id="e8120d69-32c2-4167-8652-1ea136bffc18">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="e8120d69-32c2-4167-8652-1ea136bffc18">&lt;/linkText&gt;</ept><bpt id="e8120d69-32c2-4167-8652-1ea136bffc18">&lt;title&gt;</bpt><ept id="e8120d69-32c2-4167-8652-1ea136bffc18">&lt;/title&gt;</ept>, and then click <bpt id="48098f9e-7c9a-4451-8dd6-53188e768a0a">&lt;strong&gt;</bpt>+NEW<ept id="48098f9e-7c9a-4451-8dd6-53188e768a0a">&lt;/strong&gt;</ept> at the bottom of the screen.</source>
+          <target state="new">Log on to the <bpt id="e8120d69-32c2-4167-8652-1ea136bffc18">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="e8120d69-32c2-4167-8652-1ea136bffc18">&lt;/linkText&gt;</ept><bpt id="e8120d69-32c2-4167-8652-1ea136bffc18">&lt;title&gt;</bpt><ept id="e8120d69-32c2-4167-8652-1ea136bffc18">&lt;/title&gt;</ept>, and then click <bpt id="48098f9e-7c9a-4451-8dd6-53188e768a0a">&lt;strong&gt;</bpt>+NEW<ept id="48098f9e-7c9a-4451-8dd6-53188e768a0a">&lt;/strong&gt;</ept> at the bottom of the screen.</target>
+        </trans-unit>
+        <trans-unit id="33094adf-9c66-47b8-87b5-02cfa772cb6f" xml:space="preserve">
+          <source>Click on <bpt id="9333ab88-50ab-47af-a055-6c27d0b41c4d">&lt;strong&gt;</bpt>App Services<ept id="9333ab88-50ab-47af-a055-6c27d0b41c4d">&lt;/strong&gt;</ept>, then <bpt id="02c23865-f2fd-45e1-9c93-496abecf5c13">&lt;strong&gt;</bpt>Service Bus<ept id="02c23865-f2fd-45e1-9c93-496abecf5c13">&lt;/strong&gt;</ept>, then <bpt id="254d41aa-69c0-4cd5-a473-2100c952d297">&lt;strong&gt;</bpt>Notification Hub<ept id="254d41aa-69c0-4cd5-a473-2100c952d297">&lt;/strong&gt;</ept>, then <bpt id="f7c4ec38-0def-479d-9e3d-3f2b15a53887">&lt;strong&gt;</bpt>Quick Create<ept id="f7c4ec38-0def-479d-9e3d-3f2b15a53887">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click on <bpt id="9333ab88-50ab-47af-a055-6c27d0b41c4d">&lt;strong&gt;</bpt>App Services<ept id="9333ab88-50ab-47af-a055-6c27d0b41c4d">&lt;/strong&gt;</ept>, then <bpt id="02c23865-f2fd-45e1-9c93-496abecf5c13">&lt;strong&gt;</bpt>Service Bus<ept id="02c23865-f2fd-45e1-9c93-496abecf5c13">&lt;/strong&gt;</ept>, then <bpt id="254d41aa-69c0-4cd5-a473-2100c952d297">&lt;strong&gt;</bpt>Notification Hub<ept id="254d41aa-69c0-4cd5-a473-2100c952d297">&lt;/strong&gt;</ept>, then <bpt id="f7c4ec38-0def-479d-9e3d-3f2b15a53887">&lt;strong&gt;</bpt>Quick Create<ept id="f7c4ec38-0def-479d-9e3d-3f2b15a53887">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21940e21-fcc3-4f46-afd8-b0cad0c364de" xml:space="preserve">
+          <source>Type a name for your notification hub, select your desired region, and then click <bpt id="e02390f5-0ff9-44c8-bbe2-4924d2fc471f">&lt;strong&gt;</bpt>Create a new Notification Hub<ept id="e02390f5-0ff9-44c8-bbe2-4924d2fc471f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type a name for your notification hub, select your desired region, and then click <bpt id="e02390f5-0ff9-44c8-bbe2-4924d2fc471f">&lt;strong&gt;</bpt>Create a new Notification Hub<ept id="e02390f5-0ff9-44c8-bbe2-4924d2fc471f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7155d122-f3ae-46ae-8579-0578f3fb275a" xml:space="preserve">
+          <source><bpt id="ef17fb28-1676-4ca6-99a8-a37b1ced8c85">&lt;linkText&gt;</bpt>Set notification hub properties<ept id="ef17fb28-1676-4ca6-99a8-a37b1ced8c85">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef17fb28-1676-4ca6-99a8-a37b1ced8c85">&lt;linkText&gt;</bpt>Set notification hub properties<ept id="ef17fb28-1676-4ca6-99a8-a37b1ced8c85">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21597f4e-0c24-423d-8c4e-084a2d3e0579" xml:space="preserve">
+          <source>Under <bpt id="1b25a03a-ba3d-49bb-995c-db8084f231a2">&lt;strong&gt;</bpt>Service Bus<ept id="1b25a03a-ba3d-49bb-995c-db8084f231a2">&lt;/strong&gt;</ept>, click the namespace you just created (usually <bpt id="458191bd-f345-403c-90db-2a61277cd1a0">&lt;strong&gt;</bpt>*notification hub name*-ns<ept id="458191bd-f345-403c-90db-2a61277cd1a0">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Under <bpt id="1b25a03a-ba3d-49bb-995c-db8084f231a2">&lt;strong&gt;</bpt>Service Bus<ept id="1b25a03a-ba3d-49bb-995c-db8084f231a2">&lt;/strong&gt;</ept>, click the namespace you just created (usually <bpt id="458191bd-f345-403c-90db-2a61277cd1a0">&lt;strong&gt;</bpt>*notification hub name*-ns<ept id="458191bd-f345-403c-90db-2a61277cd1a0">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="109bcfe9-b586-4b79-82af-18046a1bc548" xml:space="preserve">
+          <source>On your namespace, click the <bpt id="3e779125-aab9-436d-afa6-c771d3b3b22b">&lt;strong&gt;</bpt>Notification Hubs<ept id="3e779125-aab9-436d-afa6-c771d3b3b22b">&lt;/strong&gt;</ept> tab for your at the top, and then click on the notification hub you just created.</source>
+          <target state="new">On your namespace, click the <bpt id="3e779125-aab9-436d-afa6-c771d3b3b22b">&lt;strong&gt;</bpt>Notification Hubs<ept id="3e779125-aab9-436d-afa6-c771d3b3b22b">&lt;/strong&gt;</ept> tab for your at the top, and then click on the notification hub you just created.</target>
+        </trans-unit>
+        <trans-unit id="ef0a8042-fdaa-46b4-9766-144443fc1143" xml:space="preserve">
+          <source>Click the <bpt id="442c6729-cc8b-402e-b41c-16e3689dfaf1">&lt;strong&gt;</bpt>Configure<ept id="442c6729-cc8b-402e-b41c-16e3689dfaf1">&lt;/strong&gt;</ept> tab at the top, enter the <bpt id="710d98db-3fae-4d48-98a1-398ea890f82c">&lt;strong&gt;</bpt>API Key<ept id="710d98db-3fae-4d48-98a1-398ea890f82c">&lt;/strong&gt;</ept> value you obtained in the previous section, and then click <bpt id="3fe76f63-e896-4806-9844-71a1d5aab0a3">&lt;strong&gt;</bpt>Save<ept id="3fe76f63-e896-4806-9844-71a1d5aab0a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="442c6729-cc8b-402e-b41c-16e3689dfaf1">&lt;strong&gt;</bpt>Configure<ept id="442c6729-cc8b-402e-b41c-16e3689dfaf1">&lt;/strong&gt;</ept> tab at the top, enter the <bpt id="710d98db-3fae-4d48-98a1-398ea890f82c">&lt;strong&gt;</bpt>API Key<ept id="710d98db-3fae-4d48-98a1-398ea890f82c">&lt;/strong&gt;</ept> value you obtained in the previous section, and then click <bpt id="3fe76f63-e896-4806-9844-71a1d5aab0a3">&lt;strong&gt;</bpt>Save<ept id="3fe76f63-e896-4806-9844-71a1d5aab0a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e3b4d78-d5e0-4f2e-bf9c-9f06ba64c7e9" xml:space="preserve">
+          <source><bpt id="49c9d95e-2932-4680-b482-2fb56a2e762f">&lt;linkText&gt;</bpt>Set the GCM API key in the Configure tab<ept id="49c9d95e-2932-4680-b482-2fb56a2e762f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="49c9d95e-2932-4680-b482-2fb56a2e762f">&lt;linkText&gt;</bpt>Set the GCM API key in the Configure tab<ept id="49c9d95e-2932-4680-b482-2fb56a2e762f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="faf74fd5-67e1-4a49-9a91-a8c39ef7e48e" xml:space="preserve">
+          <source>Select the <bpt id="6bc6a1b8-9238-4759-98cb-50dad9c88030">&lt;strong&gt;</bpt>Dashboard<ept id="6bc6a1b8-9238-4759-98cb-50dad9c88030">&lt;/strong&gt;</ept> tab at the top, then click <bpt id="a2efff93-2ebf-4b1f-8a14-f90e06ae1736">&lt;strong&gt;</bpt>View Connection String<ept id="a2efff93-2ebf-4b1f-8a14-f90e06ae1736">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="6bc6a1b8-9238-4759-98cb-50dad9c88030">&lt;strong&gt;</bpt>Dashboard<ept id="6bc6a1b8-9238-4759-98cb-50dad9c88030">&lt;/strong&gt;</ept> tab at the top, then click <bpt id="a2efff93-2ebf-4b1f-8a14-f90e06ae1736">&lt;strong&gt;</bpt>View Connection String<ept id="a2efff93-2ebf-4b1f-8a14-f90e06ae1736">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="611f8b67-c238-4066-9a9c-8fd26b487a90" xml:space="preserve">
+          <source>Take note of the two connection strings.</source>
+          <target state="new">Take note of the two connection strings.</target>
+        </trans-unit>
+        <trans-unit id="778553ad-4b73-4575-9104-26034c479b2e" xml:space="preserve">
+          <source>Your notification hub is now configured to work with GCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.</source>
+          <target state="new">Your notification hub is now configured to work with GCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

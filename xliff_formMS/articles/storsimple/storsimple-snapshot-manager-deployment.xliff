@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e6a54dd2-691c-43ad-a34b-f891b84f7904" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e6a54dd2-691c-43ad-a34b-f891b84f7904" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9dd74a01-a82a-43dd-b5c6-00352d4da46e">
+        <trans-unit id="45738eb4-fc44-43e8-b6e0-b30ca83a72cf" xml:space="preserve">
+          <source>Deploy StorSimple Snapshot Manager | Microsoft Azure</source>
+          <target state="new">Deploy StorSimple Snapshot Manager | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ed9675b1-f34e-4741-be47-a16bb3fd499a" xml:space="preserve">
+          <source>Learn how to download and install the StorSimple Snapshot Manager, an MMC snap-in for managing StorSimple data protection and backup features.</source>
+          <target state="new">Learn how to download and install the StorSimple Snapshot Manager, an MMC snap-in for managing StorSimple data protection and backup features.</target>
+        </trans-unit>
+        <trans-unit id="9705dcc2-e522-48eb-be91-ccb928ddcb05" xml:space="preserve">
+          <source>The StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that simplifies data protection and backup management in a Microsoft Azure StorSimple environment.</source>
+          <target state="new">The StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that simplifies data protection and backup management in a Microsoft Azure StorSimple environment.</target>
+        </trans-unit>
+        <trans-unit id="7cbf813c-e114-405d-8d69-ab4332d1aa07" xml:space="preserve">
+          <source>With StorSimple Snapshot Manager, you can manage Microsoft Azure StorSimple on-premises and cloud storage as if it were a fully integrated storage system, thus simplifying backup and restore processes and reducing costs.</source>
+          <target state="new">With StorSimple Snapshot Manager, you can manage Microsoft Azure StorSimple on-premises and cloud storage as if it were a fully integrated storage system, thus simplifying backup and restore processes and reducing costs.</target>
+        </trans-unit>
+        <trans-unit id="a72394c0-494e-4195-b625-17c6938cbdbc" xml:space="preserve">
+          <source>This tutorial describes configuration requirements, as well as procedures for installing, removing, and upgrading StorSimple Snapshot Manager.</source>
+          <target state="new">This tutorial describes configuration requirements, as well as procedures for installing, removing, and upgrading StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="b422e4c5-ac1a-40a4-a5b6-2cd02f2145d2" xml:space="preserve">
+          <source>StorSimple Snapshot Manager can be installed on computers that are running the Windows Server® 2008 R2 SP1, Windows Server 2012, or Windows Server 2012 R2 operating system.</source>
+          <target state="new">StorSimple Snapshot Manager can be installed on computers that are running the Windows Server® 2008 R2 SP1, Windows Server 2012, or Windows Server 2012 R2 operating system.</target>
+        </trans-unit>
+        <trans-unit id="2dabbd5a-1c16-46bf-980f-13d67feca7b6" xml:space="preserve">
+          <source>On servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0.</source>
+          <target state="new">On servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0.</target>
+        </trans-unit>
+        <trans-unit id="5ca0a239-1e74-4369-890b-3fc16c6cddc8" xml:space="preserve">
+          <source>Before you install or upgrade the StorSimple Snapshot Manager snap-in for the Microsoft Management Console (MMC), make sure that the Microsoft Azure StorSimple device and host server are configured correctly.</source>
+          <target state="new">Before you install or upgrade the StorSimple Snapshot Manager snap-in for the Microsoft Management Console (MMC), make sure that the Microsoft Azure StorSimple device and host server are configured correctly.</target>
+        </trans-unit>
+        <trans-unit id="9b9d6b0e-8eae-48c7-bfe8-a4be5ba30485" xml:space="preserve">
+          <source>The following steps provide a high-level overview of configuration tasks that you must complete before you install the StorSimple Snapshot Manager.</source>
+          <target state="new">The following steps provide a high-level overview of configuration tasks that you must complete before you install the StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="7649dfec-b679-4e1d-bf98-ad542adad96b" xml:space="preserve">
+          <source>For complete Microsoft Azure StorSimple configuration and setup information, including system requirements and step-by-step instructions, see <bpt id="42157fad-a115-4e89-959b-eb4ce3edc12e">&lt;linkText&gt;</bpt>Deploy your on-premises StorSimple device<ept id="42157fad-a115-4e89-959b-eb4ce3edc12e">&lt;/linkText&gt;</ept><bpt id="42157fad-a115-4e89-959b-eb4ce3edc12e">&lt;title&gt;</bpt><ept id="42157fad-a115-4e89-959b-eb4ce3edc12e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For complete Microsoft Azure StorSimple configuration and setup information, including system requirements and step-by-step instructions, see <bpt id="42157fad-a115-4e89-959b-eb4ce3edc12e">&lt;linkText&gt;</bpt>Deploy your on-premises StorSimple device<ept id="42157fad-a115-4e89-959b-eb4ce3edc12e">&lt;/linkText&gt;</ept><bpt id="42157fad-a115-4e89-959b-eb4ce3edc12e">&lt;title&gt;</bpt><ept id="42157fad-a115-4e89-959b-eb4ce3edc12e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5009086c-417f-401b-b27f-e75801597dce" xml:space="preserve">
+          <source>Before you begin, review the <bpt id="99796def-8e17-4da0-accd-302b7174b6ae">&lt;linkText&gt;</bpt>Deployment configuration checklist<ept id="99796def-8e17-4da0-accd-302b7174b6ae">&lt;/linkText&gt;</ept><bpt id="99796def-8e17-4da0-accd-302b7174b6ae">&lt;title&gt;</bpt><ept id="99796def-8e17-4da0-accd-302b7174b6ae">&lt;/title&gt;</ept> and
+and <bpt id="f34f3d95-4f4f-47da-b65b-f4461e4fcdbe">&lt;linkText&gt;</bpt>Deployment prerequisites<ept id="f34f3d95-4f4f-47da-b65b-f4461e4fcdbe">&lt;/linkText&gt;</ept><bpt id="f34f3d95-4f4f-47da-b65b-f4461e4fcdbe">&lt;title&gt;</bpt><ept id="f34f3d95-4f4f-47da-b65b-f4461e4fcdbe">&lt;/title&gt;</ept> in <bpt id="8ad246b6-d6fb-407c-84b9-8ce5ba74dfe9">&lt;linkText&gt;</bpt>Deploy your on-premises StorSimple device<ept id="8ad246b6-d6fb-407c-84b9-8ce5ba74dfe9">&lt;/linkText&gt;</ept><bpt id="8ad246b6-d6fb-407c-84b9-8ce5ba74dfe9">&lt;title&gt;</bpt><ept id="8ad246b6-d6fb-407c-84b9-8ce5ba74dfe9">&lt;/title&gt;</ept>.
+&lt;br&gt;</source>
+          <target state="new">Before you begin, review the <bpt id="99796def-8e17-4da0-accd-302b7174b6ae">&lt;linkText&gt;</bpt>Deployment configuration checklist<ept id="99796def-8e17-4da0-accd-302b7174b6ae">&lt;/linkText&gt;</ept><bpt id="99796def-8e17-4da0-accd-302b7174b6ae">&lt;title&gt;</bpt><ept id="99796def-8e17-4da0-accd-302b7174b6ae">&lt;/title&gt;</ept> and
+and <bpt id="f34f3d95-4f4f-47da-b65b-f4461e4fcdbe">&lt;linkText&gt;</bpt>Deployment prerequisites<ept id="f34f3d95-4f4f-47da-b65b-f4461e4fcdbe">&lt;/linkText&gt;</ept><bpt id="f34f3d95-4f4f-47da-b65b-f4461e4fcdbe">&lt;title&gt;</bpt><ept id="f34f3d95-4f4f-47da-b65b-f4461e4fcdbe">&lt;/title&gt;</ept> in <bpt id="8ad246b6-d6fb-407c-84b9-8ce5ba74dfe9">&lt;linkText&gt;</bpt>Deploy your on-premises StorSimple device<ept id="8ad246b6-d6fb-407c-84b9-8ce5ba74dfe9">&lt;/linkText&gt;</ept><bpt id="8ad246b6-d6fb-407c-84b9-8ce5ba74dfe9">&lt;title&gt;</bpt><ept id="8ad246b6-d6fb-407c-84b9-8ce5ba74dfe9">&lt;/title&gt;</ept>.
+&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="749929f1-91ea-4584-90b6-4a923e5d21a9" xml:space="preserve">
+          <source>Unpack, mount, and connect the Microsoft Azure StorSimple device as described in <bpt id="21d90297-d812-4008-8863-b49c68b863f1">&lt;linkText&gt;</bpt>Install your StorSimple 8100 device<ept id="21d90297-d812-4008-8863-b49c68b863f1">&lt;/linkText&gt;</ept><bpt id="21d90297-d812-4008-8863-b49c68b863f1">&lt;title&gt;</bpt><ept id="21d90297-d812-4008-8863-b49c68b863f1">&lt;/title&gt;</ept> or <bpt id="484cc1be-8c82-4546-9cd3-03ab85e98db8">&lt;linkText&gt;</bpt>Install your StorSimple 8600 device<ept id="484cc1be-8c82-4546-9cd3-03ab85e98db8">&lt;/linkText&gt;</ept><bpt id="484cc1be-8c82-4546-9cd3-03ab85e98db8">&lt;title&gt;</bpt><ept id="484cc1be-8c82-4546-9cd3-03ab85e98db8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Unpack, mount, and connect the Microsoft Azure StorSimple device as described in <bpt id="21d90297-d812-4008-8863-b49c68b863f1">&lt;linkText&gt;</bpt>Install your StorSimple 8100 device<ept id="21d90297-d812-4008-8863-b49c68b863f1">&lt;/linkText&gt;</ept><bpt id="21d90297-d812-4008-8863-b49c68b863f1">&lt;title&gt;</bpt><ept id="21d90297-d812-4008-8863-b49c68b863f1">&lt;/title&gt;</ept> or <bpt id="484cc1be-8c82-4546-9cd3-03ab85e98db8">&lt;linkText&gt;</bpt>Install your StorSimple 8600 device<ept id="484cc1be-8c82-4546-9cd3-03ab85e98db8">&lt;/linkText&gt;</ept><bpt id="484cc1be-8c82-4546-9cd3-03ab85e98db8">&lt;title&gt;</bpt><ept id="484cc1be-8c82-4546-9cd3-03ab85e98db8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1dd9ea85-59c9-4710-a96f-6f0dcf0627cf" xml:space="preserve">
+          <source>Make sure that your host computer is running one of the following operating systems:</source>
+          <target state="new">Make sure that your host computer is running one of the following operating systems:</target>
+        </trans-unit>
+        <trans-unit id="96028de9-47f3-48ed-af81-b8146550cb9a" xml:space="preserve">
+          <source>Windows Server 2008 R2 (on servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0)</source>
+          <target state="new">Windows Server 2008 R2 (on servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0)</target>
+        </trans-unit>
+        <trans-unit id="dcb4e1a1-e6dc-43e3-bceb-40cfeb02da34" xml:space="preserve">
+          <source>Windows Server 2012</source>
+          <target state="new">Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="e30b998e-e589-461b-9802-736f542d717d" xml:space="preserve">
+          <source>Windows Server 2012 R2</source>
+          <target state="new">Windows Server 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="4e6bd4c0-fd7c-42bf-8b5c-8d20348e9934" xml:space="preserve">
+          <source>For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine.</source>
+          <target state="new">For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="21875146-9268-4145-8672-9534e3caccda" xml:space="preserve">
+          <source>Make sure that you meet all the Microsoft Azure StorSimple configuration requirements.</source>
+          <target state="new">Make sure that you meet all the Microsoft Azure StorSimple configuration requirements.</target>
+        </trans-unit>
+        <trans-unit id="4fb2999a-4785-49ab-95ee-b90d4a7027f5" xml:space="preserve">
+          <source>For details, go to <bpt id="9749bb4e-2e55-4676-91f3-b5c725f8f838">&lt;linkText&gt;</bpt>Deployment prerequisites<ept id="9749bb4e-2e55-4676-91f3-b5c725f8f838">&lt;/linkText&gt;</ept><bpt id="9749bb4e-2e55-4676-91f3-b5c725f8f838">&lt;title&gt;</bpt><ept id="9749bb4e-2e55-4676-91f3-b5c725f8f838">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, go to <bpt id="9749bb4e-2e55-4676-91f3-b5c725f8f838">&lt;linkText&gt;</bpt>Deployment prerequisites<ept id="9749bb4e-2e55-4676-91f3-b5c725f8f838">&lt;/linkText&gt;</ept><bpt id="9749bb4e-2e55-4676-91f3-b5c725f8f838">&lt;title&gt;</bpt><ept id="9749bb4e-2e55-4676-91f3-b5c725f8f838">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac429d01-c388-4755-8e37-7f3751bac3e0" xml:space="preserve">
+          <source>Connect the device to the host and perform the initial configuration.</source>
+          <target state="new">Connect the device to the host and perform the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="3155baa2-ec6a-4e7d-9971-ad7183e94d46" xml:space="preserve">
+          <source>For details, go to <bpt id="3944041f-2e67-4a56-9a04-d9edad8ef347">&lt;linkText&gt;</bpt>Deployment steps<ept id="3944041f-2e67-4a56-9a04-d9edad8ef347">&lt;/linkText&gt;</ept><bpt id="3944041f-2e67-4a56-9a04-d9edad8ef347">&lt;title&gt;</bpt><ept id="3944041f-2e67-4a56-9a04-d9edad8ef347">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, go to <bpt id="3944041f-2e67-4a56-9a04-d9edad8ef347">&lt;linkText&gt;</bpt>Deployment steps<ept id="3944041f-2e67-4a56-9a04-d9edad8ef347">&lt;/linkText&gt;</ept><bpt id="3944041f-2e67-4a56-9a04-d9edad8ef347">&lt;title&gt;</bpt><ept id="3944041f-2e67-4a56-9a04-d9edad8ef347">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="afd87bd0-8ebd-40d4-b671-ac9417387f1f" xml:space="preserve">
+          <source>Create volumes on the device, assign them to the host, and verify that the host can mount and use them.</source>
+          <target state="new">Create volumes on the device, assign them to the host, and verify that the host can mount and use them.</target>
+        </trans-unit>
+        <trans-unit id="5822e4b4-63ca-45fc-aff8-61125da91c9e" xml:space="preserve">
+          <source>StorSimple Snapshot Manager supports the following types of volumes:</source>
+          <target state="new">StorSimple Snapshot Manager supports the following types of volumes:</target>
+        </trans-unit>
+        <trans-unit id="7c3c1009-1c4c-473d-b968-49df6411eaba" xml:space="preserve">
+          <source>Basic volumes</source>
+          <target state="new">Basic volumes</target>
+        </trans-unit>
+        <trans-unit id="81eec3da-5d98-42d2-a9d0-82f15592c18e" xml:space="preserve">
+          <source>Simple volumes</source>
+          <target state="new">Simple volumes</target>
+        </trans-unit>
+        <trans-unit id="48d4c393-f58f-4a50-a556-593f99ffd251" xml:space="preserve">
+          <source>Dynamic volumes</source>
+          <target state="new">Dynamic volumes</target>
+        </trans-unit>
+        <trans-unit id="3f308df3-fc08-4090-a628-4f952ffca45c" xml:space="preserve">
+          <source>Mirrored dynamic volumes (RAID 1)</source>
+          <target state="new">Mirrored dynamic volumes (RAID 1)</target>
+        </trans-unit>
+        <trans-unit id="bea72b56-5d8e-4bb6-b817-5205f65e24b9" xml:space="preserve">
+          <source>Cluster-shared volumes</source>
+          <target state="new">Cluster-shared volumes</target>
+        </trans-unit>
+        <trans-unit id="7c766f7d-7e4c-4cff-a9ca-b04628433d4e" xml:space="preserve">
+          <source>For information about creating volumes on the StorSimple device or StorSimple virtual device, go to <bpt id="cb4df270-64dd-495b-8c78-35e9a0ef20aa">&lt;linkText&gt;</bpt>Step 6: Create a volume<ept id="cb4df270-64dd-495b-8c78-35e9a0ef20aa">&lt;/linkText&gt;</ept><bpt id="cb4df270-64dd-495b-8c78-35e9a0ef20aa">&lt;title&gt;</bpt><ept id="cb4df270-64dd-495b-8c78-35e9a0ef20aa">&lt;/title&gt;</ept>, in <bpt id="3e5203ef-7568-4ab8-8d31-b4be37254cf3">&lt;linkText&gt;</bpt>Deploy your on-premises StorSimple device<ept id="3e5203ef-7568-4ab8-8d31-b4be37254cf3">&lt;/linkText&gt;</ept><bpt id="3e5203ef-7568-4ab8-8d31-b4be37254cf3">&lt;title&gt;</bpt><ept id="3e5203ef-7568-4ab8-8d31-b4be37254cf3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about creating volumes on the StorSimple device or StorSimple virtual device, go to <bpt id="cb4df270-64dd-495b-8c78-35e9a0ef20aa">&lt;linkText&gt;</bpt>Step 6: Create a volume<ept id="cb4df270-64dd-495b-8c78-35e9a0ef20aa">&lt;/linkText&gt;</ept><bpt id="cb4df270-64dd-495b-8c78-35e9a0ef20aa">&lt;title&gt;</bpt><ept id="cb4df270-64dd-495b-8c78-35e9a0ef20aa">&lt;/title&gt;</ept>, in <bpt id="3e5203ef-7568-4ab8-8d31-b4be37254cf3">&lt;linkText&gt;</bpt>Deploy your on-premises StorSimple device<ept id="3e5203ef-7568-4ab8-8d31-b4be37254cf3">&lt;/linkText&gt;</ept><bpt id="3e5203ef-7568-4ab8-8d31-b4be37254cf3">&lt;title&gt;</bpt><ept id="3e5203ef-7568-4ab8-8d31-b4be37254cf3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f4bfa17-e722-4793-8679-a65525903110" xml:space="preserve">
+          <source>Before installing StorSimple Snapshot Manager, make sure that the volumes you created on the StorSimple device or StorSimple virtual device are mounted, initialized, and formatted as described in <bpt id="6e44d695-403a-406d-a4d6-df74c7e6bb66">&lt;linkText&gt;</bpt>Configure prerequisites<ept id="6e44d695-403a-406d-a4d6-df74c7e6bb66">&lt;/linkText&gt;</ept><bpt id="6e44d695-403a-406d-a4d6-df74c7e6bb66">&lt;title&gt;</bpt><ept id="6e44d695-403a-406d-a4d6-df74c7e6bb66">&lt;/title&gt;</ept>.</source>
+          <target state="new">Before installing StorSimple Snapshot Manager, make sure that the volumes you created on the StorSimple device or StorSimple virtual device are mounted, initialized, and formatted as described in <bpt id="6e44d695-403a-406d-a4d6-df74c7e6bb66">&lt;linkText&gt;</bpt>Configure prerequisites<ept id="6e44d695-403a-406d-a4d6-df74c7e6bb66">&lt;/linkText&gt;</ept><bpt id="6e44d695-403a-406d-a4d6-df74c7e6bb66">&lt;title&gt;</bpt><ept id="6e44d695-403a-406d-a4d6-df74c7e6bb66">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fdcfb29-8bbc-46b3-8aed-78458d78fcb1" xml:space="preserve">
+          <source>For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine.</source>
+          <target state="new">For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="2fe4e72e-d376-4edc-aca4-8f2ab2732144" xml:space="preserve">
+          <source>The host must be running Windows 2008 R2, Windows Server 2012, or Windows Server 2012 R2.</source>
+          <target state="new">The host must be running Windows 2008 R2, Windows Server 2012, or Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="9516bc14-4572-4aaf-8ee5-38312d35a239" xml:space="preserve">
+          <source>If your server is running Windows Server 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0.</source>
+          <target state="new">If your server is running Windows Server 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0.</target>
+        </trans-unit>
+        <trans-unit id="cfdacef7-9ea6-4154-b95b-0b236aee0289" xml:space="preserve">
+          <source>You must configure an iSCSI connection from the host to the StorSimple device before you can connect the device to StorSimple Snapshot Manager.</source>
+          <target state="new">You must configure an iSCSI connection from the host to the StorSimple device before you can connect the device to StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="eeccdb00-b558-4e05-989f-70f79104d75a" xml:space="preserve">
+          <source>Follow these steps to complete a fresh installation of StorSimple Snapshot Manager.</source>
+          <target state="new">Follow these steps to complete a fresh installation of StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="996fcbb6-7c18-4f63-9d03-dfc239ac4938" xml:space="preserve">
+          <source>If you are installing an upgrade, go to <bpt id="a9bcf779-cc1c-4082-8299-e4c82e18655b">&lt;linkText&gt;</bpt>Upgrade or reinstall StorSimple Snapshot Manager<ept id="a9bcf779-cc1c-4082-8299-e4c82e18655b">&lt;/linkText&gt;</ept><bpt id="a9bcf779-cc1c-4082-8299-e4c82e18655b">&lt;title&gt;</bpt><ept id="a9bcf779-cc1c-4082-8299-e4c82e18655b">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are installing an upgrade, go to <bpt id="a9bcf779-cc1c-4082-8299-e4c82e18655b">&lt;linkText&gt;</bpt>Upgrade or reinstall StorSimple Snapshot Manager<ept id="a9bcf779-cc1c-4082-8299-e4c82e18655b">&lt;/linkText&gt;</ept><bpt id="a9bcf779-cc1c-4082-8299-e4c82e18655b">&lt;title&gt;</bpt><ept id="a9bcf779-cc1c-4082-8299-e4c82e18655b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="428a36ac-f26f-4060-8548-4083bda49420" xml:space="preserve">
+          <source>Step 1: Install StorSimple Snapshot Manager </source>
+          <target state="new">Step 1: Install StorSimple Snapshot Manager </target>
+        </trans-unit>
+        <trans-unit id="a071849a-b440-459d-ad8b-e10b71002e6b" xml:space="preserve">
+          <source>Step 2: Connect StorSimple Snapshot Manager to a device </source>
+          <target state="new">Step 2: Connect StorSimple Snapshot Manager to a device </target>
+        </trans-unit>
+        <trans-unit id="46ac21a5-23b3-4b3d-87be-576c92a550aa" xml:space="preserve">
+          <source>Step 3: Verify the connection to the device </source>
+          <target state="new">Step 3: Verify the connection to the device </target>
+        </trans-unit>
+        <trans-unit id="456cb05b-1acc-44e8-be00-0d9e9a520f20" xml:space="preserve">
+          <source>Use the following steps to install StorSimple Snapshot Manager.</source>
+          <target state="new">Use the following steps to install StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="c1d21a26-c4a5-416e-b333-7d945d1ad3a0" xml:space="preserve">
+          <source>Download the StorSimple Snapshot Manager software (go to <bpt id="d5a24346-b0e9-4c92-a899-d0b728899c62">&lt;linkText&gt;</bpt>StorSimple Snapshot Manager<ept id="d5a24346-b0e9-4c92-a899-d0b728899c62">&lt;/linkText&gt;</ept><bpt id="d5a24346-b0e9-4c92-a899-d0b728899c62">&lt;title&gt;</bpt><ept id="d5a24346-b0e9-4c92-a899-d0b728899c62">&lt;/title&gt;</ept> in the Microsoft Download Center) and save it locally on the host.</source>
+          <target state="new">Download the StorSimple Snapshot Manager software (go to <bpt id="d5a24346-b0e9-4c92-a899-d0b728899c62">&lt;linkText&gt;</bpt>StorSimple Snapshot Manager<ept id="d5a24346-b0e9-4c92-a899-d0b728899c62">&lt;/linkText&gt;</ept><bpt id="d5a24346-b0e9-4c92-a899-d0b728899c62">&lt;title&gt;</bpt><ept id="d5a24346-b0e9-4c92-a899-d0b728899c62">&lt;/title&gt;</ept> in the Microsoft Download Center) and save it locally on the host.</target>
+        </trans-unit>
+        <trans-unit id="8029907b-d4d6-479c-b2f3-ee3b1a00b9b7" xml:space="preserve">
+          <source>In File Explorer, right-click the compressed folder, and then click <bpt id="b79533e3-36da-4d3f-a37f-d370524363e7">&lt;strong&gt;</bpt>Extract all<ept id="b79533e3-36da-4d3f-a37f-d370524363e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In File Explorer, right-click the compressed folder, and then click <bpt id="b79533e3-36da-4d3f-a37f-d370524363e7">&lt;strong&gt;</bpt>Extract all<ept id="b79533e3-36da-4d3f-a37f-d370524363e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8944e5b6-17a3-4f34-bba5-b2d0c4ba70e5" xml:space="preserve">
+          <source>In the <bpt id="bd051d86-c513-451c-a07e-24f7b07ecbdf">&lt;strong&gt;</bpt>Extract Compressed (Zipped) Folders<ept id="bd051d86-c513-451c-a07e-24f7b07ecbdf">&lt;/strong&gt;</ept> window, in the <bpt id="7eb0f5d8-c26f-4d27-b564-8fb4483d4131">&lt;strong&gt;</bpt>Select a destination and extract files<ept id="7eb0f5d8-c26f-4d27-b564-8fb4483d4131">&lt;/strong&gt;</ept> box, type or browse to the path where you would like to file to be extracted.</source>
+          <target state="new">In the <bpt id="bd051d86-c513-451c-a07e-24f7b07ecbdf">&lt;strong&gt;</bpt>Extract Compressed (Zipped) Folders<ept id="bd051d86-c513-451c-a07e-24f7b07ecbdf">&lt;/strong&gt;</ept> window, in the <bpt id="7eb0f5d8-c26f-4d27-b564-8fb4483d4131">&lt;strong&gt;</bpt>Select a destination and extract files<ept id="7eb0f5d8-c26f-4d27-b564-8fb4483d4131">&lt;/strong&gt;</ept> box, type or browse to the path where you would like to file to be extracted.</target>
+        </trans-unit>
+        <trans-unit id="c4d69f26-0ac6-4176-ba58-8f54fd38d1e8" xml:space="preserve">
+          <source>You must install StorSimple Snapshot Manager on the C: drive.</source>
+          <target state="new">You must install StorSimple Snapshot Manager on the C: drive.</target>
+        </trans-unit>
+        <trans-unit id="14b88a07-f8a3-479c-bf23-7efc2af00a2e" xml:space="preserve">
+          <source>Select the <bpt id="d4803b2f-1757-4e85-a2b5-4c9b67f493da">&lt;strong&gt;</bpt>Show extracted files when complete<ept id="d4803b2f-1757-4e85-a2b5-4c9b67f493da">&lt;/strong&gt;</ept> check box, and then click <bpt id="4b860c7b-bf84-4af4-a329-11a1211f2775">&lt;strong&gt;</bpt>Extract<ept id="4b860c7b-bf84-4af4-a329-11a1211f2775">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="d4803b2f-1757-4e85-a2b5-4c9b67f493da">&lt;strong&gt;</bpt>Show extracted files when complete<ept id="d4803b2f-1757-4e85-a2b5-4c9b67f493da">&lt;/strong&gt;</ept> check box, and then click <bpt id="4b860c7b-bf84-4af4-a329-11a1211f2775">&lt;strong&gt;</bpt>Extract<ept id="4b860c7b-bf84-4af4-a329-11a1211f2775">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aec9003b-908a-4d7a-95a1-641b55a0549b" xml:space="preserve">
+          <source><bpt id="7c200110-c17a-4c89-9ff7-aa0350bbf9a1">&lt;linkText&gt;</bpt>Extract files dialog box<ept id="7c200110-c17a-4c89-9ff7-aa0350bbf9a1">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="7c200110-c17a-4c89-9ff7-aa0350bbf9a1">&lt;linkText&gt;</bpt>Extract files dialog box<ept id="7c200110-c17a-4c89-9ff7-aa0350bbf9a1">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a540dab6-cebf-47ca-9651-8705e33e1514" xml:space="preserve">
+          <source>When the extraction is finished, the destination folder opens.</source>
+          <target state="new">When the extraction is finished, the destination folder opens.</target>
+        </trans-unit>
+        <trans-unit id="c58fad23-7f69-4f43-bc42-9eb802e5cbba" xml:space="preserve">
+          <source>Double-click the application setup icon that appears in the destination folder.</source>
+          <target state="new">Double-click the application setup icon that appears in the destination folder.</target>
+        </trans-unit>
+        <trans-unit id="2e891209-969d-42e9-b59e-8555d0c5c2e6" xml:space="preserve">
+          <source>When the <bpt id="c22eed40-eea2-4f0c-9aca-3d886e1f9ea7">&lt;strong&gt;</bpt>Setup Successful<ept id="c22eed40-eea2-4f0c-9aca-3d886e1f9ea7">&lt;/strong&gt;</ept> message appears, click <bpt id="7fd05e07-f215-4209-93c7-7b8296dd5e48">&lt;strong&gt;</bpt>Close<ept id="7fd05e07-f215-4209-93c7-7b8296dd5e48">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the <bpt id="c22eed40-eea2-4f0c-9aca-3d886e1f9ea7">&lt;strong&gt;</bpt>Setup Successful<ept id="c22eed40-eea2-4f0c-9aca-3d886e1f9ea7">&lt;/strong&gt;</ept> message appears, click <bpt id="7fd05e07-f215-4209-93c7-7b8296dd5e48">&lt;strong&gt;</bpt>Close<ept id="7fd05e07-f215-4209-93c7-7b8296dd5e48">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8128991-f783-4a75-9bb4-b94b794fb69e" xml:space="preserve">
+          <source>You should see the StorSimple Snapshot Manager icon on your desktop.</source>
+          <target state="new">You should see the StorSimple Snapshot Manager icon on your desktop.</target>
+        </trans-unit>
+        <trans-unit id="8ea231a3-39dd-4662-bede-868884d0fea8" xml:space="preserve">
+          <source><bpt id="174964db-8f5d-49d1-a464-4bab9ed6a4e7">&lt;linkText&gt;</bpt>desktop icon<ept id="174964db-8f5d-49d1-a464-4bab9ed6a4e7">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="174964db-8f5d-49d1-a464-4bab9ed6a4e7">&lt;linkText&gt;</bpt>desktop icon<ept id="174964db-8f5d-49d1-a464-4bab9ed6a4e7">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="cec465e9-c337-4ef9-80b7-87b87c11eb6a" xml:space="preserve">
+          <source>Use the following steps to connect StorSimple Snapshot Manager to a StorSimple device.</source>
+          <target state="new">Use the following steps to connect StorSimple Snapshot Manager to a StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="07368322-868e-4887-b0ad-27640f76e7d1" xml:space="preserve">
+          <source>Click the StorSimple Snapshot Manager icon on your desktop.</source>
+          <target state="new">Click the StorSimple Snapshot Manager icon on your desktop.</target>
+        </trans-unit>
+        <trans-unit id="ea69baee-2ba7-4174-baf6-e34758aee250" xml:space="preserve">
+          <source>The StorSimple Snapshot Manager window appears.</source>
+          <target state="new">The StorSimple Snapshot Manager window appears.</target>
+        </trans-unit>
+        <trans-unit id="7b7cb4ee-1483-4029-8f31-02d839d4ed7f" xml:space="preserve">
+          <source>The window contains a <bpt id="1fa4b479-4fb4-4c4b-a396-32e5537a776a">&lt;strong&gt;</bpt>Scope<ept id="1fa4b479-4fb4-4c4b-a396-32e5537a776a">&lt;/strong&gt;</ept> pane, a <bpt id="8d2fccac-3e13-4fbd-876e-138f2cad9754">&lt;strong&gt;</bpt>Results<ept id="8d2fccac-3e13-4fbd-876e-138f2cad9754">&lt;/strong&gt;</ept> pane, and an <bpt id="9871e7db-1957-41d2-8866-d37d91c39200">&lt;strong&gt;</bpt>Actions<ept id="9871e7db-1957-41d2-8866-d37d91c39200">&lt;/strong&gt;</ept> pane.</source>
+          <target state="new">The window contains a <bpt id="1fa4b479-4fb4-4c4b-a396-32e5537a776a">&lt;strong&gt;</bpt>Scope<ept id="1fa4b479-4fb4-4c4b-a396-32e5537a776a">&lt;/strong&gt;</ept> pane, a <bpt id="8d2fccac-3e13-4fbd-876e-138f2cad9754">&lt;strong&gt;</bpt>Results<ept id="8d2fccac-3e13-4fbd-876e-138f2cad9754">&lt;/strong&gt;</ept> pane, and an <bpt id="9871e7db-1957-41d2-8866-d37d91c39200">&lt;strong&gt;</bpt>Actions<ept id="9871e7db-1957-41d2-8866-d37d91c39200">&lt;/strong&gt;</ept> pane.</target>
+        </trans-unit>
+        <trans-unit id="e916981c-4364-4ec7-b733-c2093cf2b41a" xml:space="preserve">
+          <source><bpt id="9ebf057f-3862-4183-bd32-f8dc0f27f2f3">&lt;linkText&gt;</bpt>StorSimple Snapshot Manager user interface<ept id="9ebf057f-3862-4183-bd32-f8dc0f27f2f3">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="9ebf057f-3862-4183-bd32-f8dc0f27f2f3">&lt;linkText&gt;</bpt>StorSimple Snapshot Manager user interface<ept id="9ebf057f-3862-4183-bd32-f8dc0f27f2f3">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="632c3f42-b514-47f3-8e09-924945ecf0a0" xml:space="preserve">
+          <source>The <bpt id="b5cd67f0-1704-42c3-9881-5eb094acd4ec">&lt;strong&gt;</bpt>Scope<ept id="b5cd67f0-1704-42c3-9881-5eb094acd4ec">&lt;/strong&gt;</ept> pane (the left pane) contains a list of nodes organized in a tree structure.</source>
+          <target state="new">The <bpt id="b5cd67f0-1704-42c3-9881-5eb094acd4ec">&lt;strong&gt;</bpt>Scope<ept id="b5cd67f0-1704-42c3-9881-5eb094acd4ec">&lt;/strong&gt;</ept> pane (the left pane) contains a list of nodes organized in a tree structure.</target>
+        </trans-unit>
+        <trans-unit id="76e6e9ff-5790-490c-94bd-8d999de8d219" xml:space="preserve">
+          <source>You can expand some nodes to select a view or specific data related to that node.</source>
+          <target state="new">You can expand some nodes to select a view or specific data related to that node.</target>
+        </trans-unit>
+        <trans-unit id="12383226-5f4f-4092-a343-738538af0c08" xml:space="preserve">
+          <source>Click the arrow icon to expand or collapse a node.</source>
+          <target state="new">Click the arrow icon to expand or collapse a node.</target>
+        </trans-unit>
+        <trans-unit id="0ea27600-36c8-475b-856d-84fa35321e91" xml:space="preserve">
+          <source>Right-click an item in the <bpt id="e2d8cdd7-23f2-441b-8442-8eb533cfcb4e">&lt;strong&gt;</bpt>Scope<ept id="e2d8cdd7-23f2-441b-8442-8eb533cfcb4e">&lt;/strong&gt;</ept> pane to see a list of available actions for that item.</source>
+          <target state="new">Right-click an item in the <bpt id="e2d8cdd7-23f2-441b-8442-8eb533cfcb4e">&lt;strong&gt;</bpt>Scope<ept id="e2d8cdd7-23f2-441b-8442-8eb533cfcb4e">&lt;/strong&gt;</ept> pane to see a list of available actions for that item.</target>
+        </trans-unit>
+        <trans-unit id="a5a6c9fd-35dc-436b-81ad-edc441da2746" xml:space="preserve">
+          <source>The <bpt id="e94d7324-55cd-452b-b8a8-612a04727e5f">&lt;strong&gt;</bpt>Results<ept id="e94d7324-55cd-452b-b8a8-612a04727e5f">&lt;/strong&gt;</ept> pane (the center pane) contains detailed status information about the node, view, or data that you selected in the <bpt id="e5257072-ebd9-4233-b8c4-5568c8880fc0">&lt;strong&gt;</bpt>Scope<ept id="e5257072-ebd9-4233-b8c4-5568c8880fc0">&lt;/strong&gt;</ept> pane.</source>
+          <target state="new">The <bpt id="e94d7324-55cd-452b-b8a8-612a04727e5f">&lt;strong&gt;</bpt>Results<ept id="e94d7324-55cd-452b-b8a8-612a04727e5f">&lt;/strong&gt;</ept> pane (the center pane) contains detailed status information about the node, view, or data that you selected in the <bpt id="e5257072-ebd9-4233-b8c4-5568c8880fc0">&lt;strong&gt;</bpt>Scope<ept id="e5257072-ebd9-4233-b8c4-5568c8880fc0">&lt;/strong&gt;</ept> pane.</target>
+        </trans-unit>
+        <trans-unit id="671e89bd-f270-4282-b29d-54a2ee0f72eb" xml:space="preserve">
+          <source>The <bpt id="5199735b-247f-43b9-8d98-05e74bbba09d">&lt;strong&gt;</bpt>Actions<ept id="5199735b-247f-43b9-8d98-05e74bbba09d">&lt;/strong&gt;</ept> pane lists the operations that you can perform on the node, view, or data that you selected in the <bpt id="a6014568-3f71-4a48-8158-13cd60fbf1aa">&lt;strong&gt;</bpt>Scope<ept id="a6014568-3f71-4a48-8158-13cd60fbf1aa">&lt;/strong&gt;</ept> pane.</source>
+          <target state="new">The <bpt id="5199735b-247f-43b9-8d98-05e74bbba09d">&lt;strong&gt;</bpt>Actions<ept id="5199735b-247f-43b9-8d98-05e74bbba09d">&lt;/strong&gt;</ept> pane lists the operations that you can perform on the node, view, or data that you selected in the <bpt id="a6014568-3f71-4a48-8158-13cd60fbf1aa">&lt;strong&gt;</bpt>Scope<ept id="a6014568-3f71-4a48-8158-13cd60fbf1aa">&lt;/strong&gt;</ept> pane.</target>
+        </trans-unit>
+        <trans-unit id="be81958f-5b24-4a01-a552-38c7f808b16f" xml:space="preserve">
+          <source>For a complete description of the StorSimple Snapshot Manager user interface, see <bpt id="fdbbc3f6-5f1b-4038-9bbf-78a7dcf5fd4f">&lt;linkText&gt;</bpt>StorSimple Snapshot Manager user interface<ept id="fdbbc3f6-5f1b-4038-9bbf-78a7dcf5fd4f">&lt;/linkText&gt;</ept><bpt id="fdbbc3f6-5f1b-4038-9bbf-78a7dcf5fd4f">&lt;title&gt;</bpt><ept id="fdbbc3f6-5f1b-4038-9bbf-78a7dcf5fd4f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a complete description of the StorSimple Snapshot Manager user interface, see <bpt id="fdbbc3f6-5f1b-4038-9bbf-78a7dcf5fd4f">&lt;linkText&gt;</bpt>StorSimple Snapshot Manager user interface<ept id="fdbbc3f6-5f1b-4038-9bbf-78a7dcf5fd4f">&lt;/linkText&gt;</ept><bpt id="fdbbc3f6-5f1b-4038-9bbf-78a7dcf5fd4f">&lt;title&gt;</bpt><ept id="fdbbc3f6-5f1b-4038-9bbf-78a7dcf5fd4f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="240bfea2-c728-4749-925d-8ddd89ce2068" xml:space="preserve">
+          <source>In the <bpt id="a215cf3a-a493-4b24-8426-db00dc05aa8a">&lt;strong&gt;</bpt>Scope<ept id="a215cf3a-a493-4b24-8426-db00dc05aa8a">&lt;/strong&gt;</ept> pane, right-click the <bpt id="a8f1c1ed-e36c-4d66-be5e-1412f5575e93">&lt;strong&gt;</bpt>Devices<ept id="a8f1c1ed-e36c-4d66-be5e-1412f5575e93">&lt;/strong&gt;</ept> node, and then click <bpt id="a2228025-6730-4abb-a336-e5edae4ab7de">&lt;strong&gt;</bpt>Configure a device<ept id="a2228025-6730-4abb-a336-e5edae4ab7de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a215cf3a-a493-4b24-8426-db00dc05aa8a">&lt;strong&gt;</bpt>Scope<ept id="a215cf3a-a493-4b24-8426-db00dc05aa8a">&lt;/strong&gt;</ept> pane, right-click the <bpt id="a8f1c1ed-e36c-4d66-be5e-1412f5575e93">&lt;strong&gt;</bpt>Devices<ept id="a8f1c1ed-e36c-4d66-be5e-1412f5575e93">&lt;/strong&gt;</ept> node, and then click <bpt id="a2228025-6730-4abb-a336-e5edae4ab7de">&lt;strong&gt;</bpt>Configure a device<ept id="a2228025-6730-4abb-a336-e5edae4ab7de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b197a6c-6ab6-4d9e-beb1-f61dc63a2e47" xml:space="preserve">
+          <source>The <bpt id="2a332b5f-08c7-4f93-9b4d-b18031769a51">&lt;strong&gt;</bpt>Configure a Device<ept id="2a332b5f-08c7-4f93-9b4d-b18031769a51">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="2a332b5f-08c7-4f93-9b4d-b18031769a51">&lt;strong&gt;</bpt>Configure a Device<ept id="2a332b5f-08c7-4f93-9b4d-b18031769a51">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="7833b6ee-6a74-4630-9bdd-9aedc543355f" xml:space="preserve">
+          <source><bpt id="32c184de-8cc4-453f-9cc3-1d98ecb9c5be">&lt;linkText&gt;</bpt>Configure a device<ept id="32c184de-8cc4-453f-9cc3-1d98ecb9c5be">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="32c184de-8cc4-453f-9cc3-1d98ecb9c5be">&lt;linkText&gt;</bpt>Configure a device<ept id="32c184de-8cc4-453f-9cc3-1d98ecb9c5be">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="136f8ea3-fbf5-42f4-9cdc-5ae5e8c1b08d" xml:space="preserve">
+          <source>In the <bpt id="33e50d35-cf58-4165-be19-35d2ecb1d81a">&lt;strong&gt;</bpt>Device<ept id="33e50d35-cf58-4165-be19-35d2ecb1d81a">&lt;/strong&gt;</ept> list box, select the IP address of the Microsoft Azure StorSimple device or virtual device.</source>
+          <target state="new">In the <bpt id="33e50d35-cf58-4165-be19-35d2ecb1d81a">&lt;strong&gt;</bpt>Device<ept id="33e50d35-cf58-4165-be19-35d2ecb1d81a">&lt;/strong&gt;</ept> list box, select the IP address of the Microsoft Azure StorSimple device or virtual device.</target>
+        </trans-unit>
+        <trans-unit id="ba3158ec-8295-4b4b-a9b1-b7dc7df146d2" xml:space="preserve">
+          <source>In the <bpt id="8bd55fbb-abb8-4d38-a04c-e8e9c0741314">&lt;strong&gt;</bpt>Password<ept id="8bd55fbb-abb8-4d38-a04c-e8e9c0741314">&lt;/strong&gt;</ept> text box, type the StorSimple Snapshot Manager password that you created for the device in the Microsoft Azure Management Portal.</source>
+          <target state="new">In the <bpt id="8bd55fbb-abb8-4d38-a04c-e8e9c0741314">&lt;strong&gt;</bpt>Password<ept id="8bd55fbb-abb8-4d38-a04c-e8e9c0741314">&lt;/strong&gt;</ept> text box, type the StorSimple Snapshot Manager password that you created for the device in the Microsoft Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="004fcf6f-5431-4740-983f-8688f2f9d98a" xml:space="preserve">
+          <source>Click <bpt id="e4165fc5-aca8-4b63-a5ea-655b1644cfa7">&lt;strong&gt;</bpt>OK<ept id="e4165fc5-aca8-4b63-a5ea-655b1644cfa7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e4165fc5-aca8-4b63-a5ea-655b1644cfa7">&lt;strong&gt;</bpt>OK<ept id="e4165fc5-aca8-4b63-a5ea-655b1644cfa7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2947d597-7510-4a51-8cc8-a664cbcf5d8e" xml:space="preserve">
+          <source>StorSimple Snapshot Manager searches for the device that you identified.</source>
+          <target state="new">StorSimple Snapshot Manager searches for the device that you identified.</target>
+        </trans-unit>
+        <trans-unit id="04b7c9c0-3a1c-44fd-9266-ba99ff60c5be" xml:space="preserve">
+          <source>If the device is available, StorSimple Snapshot Manager adds a connection.</source>
+          <target state="new">If the device is available, StorSimple Snapshot Manager adds a connection.</target>
+        </trans-unit>
+        <trans-unit id="e83eb9bf-6eeb-44ea-a26a-88fe01059fd8" xml:space="preserve">
+          <source>You can <bpt id="8e4fd9ac-b58a-4236-895e-8311cb3f05bd">&lt;linkText&gt;</bpt>verify the connection to the device<ept id="8e4fd9ac-b58a-4236-895e-8311cb3f05bd">&lt;/linkText&gt;</ept><bpt id="8e4fd9ac-b58a-4236-895e-8311cb3f05bd">&lt;title&gt;</bpt><ept id="8e4fd9ac-b58a-4236-895e-8311cb3f05bd">&lt;/title&gt;</ept> to confirm that the connection was added successfully.</source>
+          <target state="new">You can <bpt id="8e4fd9ac-b58a-4236-895e-8311cb3f05bd">&lt;linkText&gt;</bpt>verify the connection to the device<ept id="8e4fd9ac-b58a-4236-895e-8311cb3f05bd">&lt;/linkText&gt;</ept><bpt id="8e4fd9ac-b58a-4236-895e-8311cb3f05bd">&lt;title&gt;</bpt><ept id="8e4fd9ac-b58a-4236-895e-8311cb3f05bd">&lt;/title&gt;</ept> to confirm that the connection was added successfully.</target>
+        </trans-unit>
+        <trans-unit id="71e46b0b-572d-4e14-a2dd-f5e6a0d84b4a" xml:space="preserve">
+          <source>If the device is unavailable for any reason, StorSimple Snapshot Manager returns an error message.</source>
+          <target state="new">If the device is unavailable for any reason, StorSimple Snapshot Manager returns an error message.</target>
+        </trans-unit>
+        <trans-unit id="50fd9010-eb1e-4be1-a9c4-e86089b00729" xml:space="preserve">
+          <source>Click <bpt id="fee1ded9-d798-4f7e-aec9-496450737f31">&lt;strong&gt;</bpt>OK<ept id="fee1ded9-d798-4f7e-aec9-496450737f31">&lt;/strong&gt;</ept> to close the error message, and then click <bpt id="97c0e0b3-98b8-43c2-bd5d-2e48df7f22fb">&lt;strong&gt;</bpt>Cancel<ept id="97c0e0b3-98b8-43c2-bd5d-2e48df7f22fb">&lt;/strong&gt;</ept> to close the <bpt id="368600d7-e7cb-4cb1-a11b-0336030a50cf">&lt;strong&gt;</bpt>Configure a Device<ept id="368600d7-e7cb-4cb1-a11b-0336030a50cf">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">Click <bpt id="fee1ded9-d798-4f7e-aec9-496450737f31">&lt;strong&gt;</bpt>OK<ept id="fee1ded9-d798-4f7e-aec9-496450737f31">&lt;/strong&gt;</ept> to close the error message, and then click <bpt id="97c0e0b3-98b8-43c2-bd5d-2e48df7f22fb">&lt;strong&gt;</bpt>Cancel<ept id="97c0e0b3-98b8-43c2-bd5d-2e48df7f22fb">&lt;/strong&gt;</ept> to close the <bpt id="368600d7-e7cb-4cb1-a11b-0336030a50cf">&lt;strong&gt;</bpt>Configure a Device<ept id="368600d7-e7cb-4cb1-a11b-0336030a50cf">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="12eebae1-60bc-4b88-8008-83458914e8b2" xml:space="preserve">
+          <source>When it connects to a device, StorSimple Snapshot Manager imports each volume group configured for that device, provided that the volume group has associated backups.</source>
+          <target state="new">When it connects to a device, StorSimple Snapshot Manager imports each volume group configured for that device, provided that the volume group has associated backups.</target>
+        </trans-unit>
+        <trans-unit id="516c8b3b-99c5-459b-834e-a2de987a9765" xml:space="preserve">
+          <source>Volume groups that do not have associated backups are not imported.</source>
+          <target state="new">Volume groups that do not have associated backups are not imported.</target>
+        </trans-unit>
+        <trans-unit id="462490da-a350-45c1-8ad8-b9a766af7c3d" xml:space="preserve">
+          <source>Additionally, backup policies that were created for a volume group are not imported.</source>
+          <target state="new">Additionally, backup policies that were created for a volume group are not imported.</target>
+        </trans-unit>
+        <trans-unit id="cbae3c95-2c50-4231-8863-dd492b3645d6" xml:space="preserve">
+          <source>To see the imported groups, right-click the top-most <bpt id="334ba600-2d3b-4afd-975d-457e0d713010">&lt;strong&gt;</bpt>Volume Groups<ept id="334ba600-2d3b-4afd-975d-457e0d713010">&lt;/strong&gt;</ept> node in the <bpt id="0d3bff10-707e-4c49-8a35-705e06217b0d">&lt;strong&gt;</bpt>Scope<ept id="0d3bff10-707e-4c49-8a35-705e06217b0d">&lt;/strong&gt;</ept> pane, and click <bpt id="35b79fb5-4a55-44db-90b7-8c58bb4f21d0">&lt;strong&gt;</bpt>Toggle imported groups<ept id="35b79fb5-4a55-44db-90b7-8c58bb4f21d0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To see the imported groups, right-click the top-most <bpt id="334ba600-2d3b-4afd-975d-457e0d713010">&lt;strong&gt;</bpt>Volume Groups<ept id="334ba600-2d3b-4afd-975d-457e0d713010">&lt;/strong&gt;</ept> node in the <bpt id="0d3bff10-707e-4c49-8a35-705e06217b0d">&lt;strong&gt;</bpt>Scope<ept id="0d3bff10-707e-4c49-8a35-705e06217b0d">&lt;/strong&gt;</ept> pane, and click <bpt id="35b79fb5-4a55-44db-90b7-8c58bb4f21d0">&lt;strong&gt;</bpt>Toggle imported groups<ept id="35b79fb5-4a55-44db-90b7-8c58bb4f21d0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f5e058c-550b-40de-9557-14f13056368a" xml:space="preserve">
+          <source>Use the following steps to verify that StorSimple Snapshot Manager is connected to the StorSimple device.</source>
+          <target state="new">Use the following steps to verify that StorSimple Snapshot Manager is connected to the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="03ea06a5-99c9-41f7-9584-e2dcd4e1c9fe" xml:space="preserve">
+          <source>In the <bpt id="9d4c69b0-8c7d-45e1-89b8-de641ddda449">&lt;strong&gt;</bpt>Scope<ept id="9d4c69b0-8c7d-45e1-89b8-de641ddda449">&lt;/strong&gt;</ept> pane, click the <bpt id="3fbf5cec-d09f-4120-90d0-d50eb0391f8c">&lt;strong&gt;</bpt>Devices<ept id="3fbf5cec-d09f-4120-90d0-d50eb0391f8c">&lt;/strong&gt;</ept> node.</source>
+          <target state="new">In the <bpt id="9d4c69b0-8c7d-45e1-89b8-de641ddda449">&lt;strong&gt;</bpt>Scope<ept id="9d4c69b0-8c7d-45e1-89b8-de641ddda449">&lt;/strong&gt;</ept> pane, click the <bpt id="3fbf5cec-d09f-4120-90d0-d50eb0391f8c">&lt;strong&gt;</bpt>Devices<ept id="3fbf5cec-d09f-4120-90d0-d50eb0391f8c">&lt;/strong&gt;</ept> node.</target>
+        </trans-unit>
+        <trans-unit id="f6413a44-bee7-4d44-ba8e-0288a935b219" xml:space="preserve">
+          <source><bpt id="28eb21a6-e8ef-4ecc-8da0-7efab0dda600">&lt;linkText&gt;</bpt>StorSimple Snapshot Manager device status<ept id="28eb21a6-e8ef-4ecc-8da0-7efab0dda600">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="28eb21a6-e8ef-4ecc-8da0-7efab0dda600">&lt;linkText&gt;</bpt>StorSimple Snapshot Manager device status<ept id="28eb21a6-e8ef-4ecc-8da0-7efab0dda600">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c1346c8d-e36d-411f-91d7-a5a8288ab0da" xml:space="preserve">
+          <source>Check the <bpt id="b818fa47-9856-43a8-ae67-c7c3512f4a99">&lt;strong&gt;</bpt>Results<ept id="b818fa47-9856-43a8-ae67-c7c3512f4a99">&lt;/strong&gt;</ept> pane: </source>
+          <target state="new">Check the <bpt id="b818fa47-9856-43a8-ae67-c7c3512f4a99">&lt;strong&gt;</bpt>Results<ept id="b818fa47-9856-43a8-ae67-c7c3512f4a99">&lt;/strong&gt;</ept> pane: </target>
+        </trans-unit>
+        <trans-unit id="a0c12b93-add9-48aa-813e-21133739b448" xml:space="preserve">
+          <source>If a green indicator appears on the device icon and <bpt id="312a9884-9f6e-4794-a57f-f634f895b278">&lt;strong&gt;</bpt>Available<ept id="312a9884-9f6e-4794-a57f-f634f895b278">&lt;/strong&gt;</ept> appears in the <bpt id="0103e08b-a0f2-44f3-9cbd-ee5bb984954f">&lt;strong&gt;</bpt>Status<ept id="0103e08b-a0f2-44f3-9cbd-ee5bb984954f">&lt;/strong&gt;</ept> column, then the device is connected.</source>
+          <target state="new">If a green indicator appears on the device icon and <bpt id="312a9884-9f6e-4794-a57f-f634f895b278">&lt;strong&gt;</bpt>Available<ept id="312a9884-9f6e-4794-a57f-f634f895b278">&lt;/strong&gt;</ept> appears in the <bpt id="0103e08b-a0f2-44f3-9cbd-ee5bb984954f">&lt;strong&gt;</bpt>Status<ept id="0103e08b-a0f2-44f3-9cbd-ee5bb984954f">&lt;/strong&gt;</ept> column, then the device is connected.</target>
+        </trans-unit>
+        <trans-unit id="9555bd6c-bc90-4d1c-afc0-e7182b09ca6b" xml:space="preserve">
+          <source>If a red indicator appears on the device icon and Unavailable appears in the <bpt id="86531269-e311-46fe-a5e6-ac38e555c20c">&lt;strong&gt;</bpt>Status<ept id="86531269-e311-46fe-a5e6-ac38e555c20c">&lt;/strong&gt;</ept> column, then the device is not connected.</source>
+          <target state="new">If a red indicator appears on the device icon and Unavailable appears in the <bpt id="86531269-e311-46fe-a5e6-ac38e555c20c">&lt;strong&gt;</bpt>Status<ept id="86531269-e311-46fe-a5e6-ac38e555c20c">&lt;/strong&gt;</ept> column, then the device is not connected.</target>
+        </trans-unit>
+        <trans-unit id="6493751a-e82b-46a1-82df-f8ca64030c25" xml:space="preserve">
+          <source>If <bpt id="bc5f9aa6-2a23-42b3-910e-390518c8cbd3">&lt;strong&gt;</bpt>Refreshing<ept id="bc5f9aa6-2a23-42b3-910e-390518c8cbd3">&lt;/strong&gt;</ept> appears in the <bpt id="d71214f9-7e86-4e8b-aa41-df7af644175b">&lt;strong&gt;</bpt>Status<ept id="d71214f9-7e86-4e8b-aa41-df7af644175b">&lt;/strong&gt;</ept> column, then StorSimple Snapshot Manager is retrieving volume groups and associated backups for a connected device.</source>
+          <target state="new">If <bpt id="bc5f9aa6-2a23-42b3-910e-390518c8cbd3">&lt;strong&gt;</bpt>Refreshing<ept id="bc5f9aa6-2a23-42b3-910e-390518c8cbd3">&lt;/strong&gt;</ept> appears in the <bpt id="d71214f9-7e86-4e8b-aa41-df7af644175b">&lt;strong&gt;</bpt>Status<ept id="d71214f9-7e86-4e8b-aa41-df7af644175b">&lt;/strong&gt;</ept> column, then StorSimple Snapshot Manager is retrieving volume groups and associated backups for a connected device.</target>
+        </trans-unit>
+        <trans-unit id="a93490c1-2b89-4de1-b165-9518dec1b668" xml:space="preserve">
+          <source>You should uninstall StorSimple Snapshot Manager completely before you upgrade or reinstall the software.</source>
+          <target state="new">You should uninstall StorSimple Snapshot Manager completely before you upgrade or reinstall the software.</target>
+        </trans-unit>
+        <trans-unit id="b98e9582-21c8-4eae-bf68-03b87e2cd801" xml:space="preserve">
+          <source>Before reinstalling StorSimple Snapshot Manager, back up the existing StorSimple Snapshot Manager database on the host computer.</source>
+          <target state="new">Before reinstalling StorSimple Snapshot Manager, back up the existing StorSimple Snapshot Manager database on the host computer.</target>
+        </trans-unit>
+        <trans-unit id="f3b9b4f4-0797-4201-8dd0-febfbe53690e" xml:space="preserve">
+          <source>This saves the backup policies and configuration information so that you can easily restore this data from backup.</source>
+          <target state="new">This saves the backup policies and configuration information so that you can easily restore this data from backup.</target>
+        </trans-unit>
+        <trans-unit id="b5134a3e-c876-4454-80d0-3216e2a57150" xml:space="preserve">
+          <source>Follow these steps if you are upgrading or reinstalling StorSimple Snapshot Manager:</source>
+          <target state="new">Follow these steps if you are upgrading or reinstalling StorSimple Snapshot Manager:</target>
+        </trans-unit>
+        <trans-unit id="9b9229be-8cf5-4c3a-a0d4-087777ac9a26" xml:space="preserve">
+          <source>Step 1: Uninstall StorSimple Snapshot Manager </source>
+          <target state="new">Step 1: Uninstall StorSimple Snapshot Manager </target>
+        </trans-unit>
+        <trans-unit id="603afe7b-ecb4-4edf-a150-73b5ae68cffb" xml:space="preserve">
+          <source>Step 2: Back up the StorSimple Snapshot Manager database </source>
+          <target state="new">Step 2: Back up the StorSimple Snapshot Manager database </target>
+        </trans-unit>
+        <trans-unit id="ed1585d4-062d-4ce0-a32b-e4e4d89a9411" xml:space="preserve">
+          <source>Step 3: Reinstall StorSimple Snapshot Manager and restore the database </source>
+          <target state="new">Step 3: Reinstall StorSimple Snapshot Manager and restore the database </target>
+        </trans-unit>
+        <trans-unit id="a83ed9cc-2e18-469c-9cf7-ae427ad43e02" xml:space="preserve">
+          <source>Use the following steps to uninstall StorSimple Snapshot Manager.</source>
+          <target state="new">Use the following steps to uninstall StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="5b869cda-ab30-4bca-939e-97e19bb30d84" xml:space="preserve">
+          <source>On the host computer, open the <bpt id="c35dcaa5-3cda-44b4-8041-77653f2ecc90">&lt;strong&gt;</bpt>Control Panel<ept id="c35dcaa5-3cda-44b4-8041-77653f2ecc90">&lt;/strong&gt;</ept>, click <bpt id="b920504a-75f5-4ace-9a54-7a18129735bb">&lt;strong&gt;</bpt>Programs<ept id="b920504a-75f5-4ace-9a54-7a18129735bb">&lt;/strong&gt;</ept>, and then click <bpt id="05febf22-9e3e-4546-9c6d-bbd077de0901">&lt;strong&gt;</bpt>Programs and Features<ept id="05febf22-9e3e-4546-9c6d-bbd077de0901">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the host computer, open the <bpt id="c35dcaa5-3cda-44b4-8041-77653f2ecc90">&lt;strong&gt;</bpt>Control Panel<ept id="c35dcaa5-3cda-44b4-8041-77653f2ecc90">&lt;/strong&gt;</ept>, click <bpt id="b920504a-75f5-4ace-9a54-7a18129735bb">&lt;strong&gt;</bpt>Programs<ept id="b920504a-75f5-4ace-9a54-7a18129735bb">&lt;/strong&gt;</ept>, and then click <bpt id="05febf22-9e3e-4546-9c6d-bbd077de0901">&lt;strong&gt;</bpt>Programs and Features<ept id="05febf22-9e3e-4546-9c6d-bbd077de0901">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81286b34-79bf-42a1-9ab9-2b82f120c420" xml:space="preserve">
+          <source>In the left pane, click <bpt id="1c6ff9ca-4159-4d43-9cb8-49841857557a">&lt;strong&gt;</bpt>Uninstall or change a program<ept id="1c6ff9ca-4159-4d43-9cb8-49841857557a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, click <bpt id="1c6ff9ca-4159-4d43-9cb8-49841857557a">&lt;strong&gt;</bpt>Uninstall or change a program<ept id="1c6ff9ca-4159-4d43-9cb8-49841857557a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1ccdd5e-50be-4bc4-a8d0-d8eb3a70ce72" xml:space="preserve">
+          <source>Right-click <bpt id="ceec4675-69d8-46dc-8e89-04d9d3ce83e3">&lt;strong&gt;</bpt>StorSimple Snapshot Manager<ept id="ceec4675-69d8-46dc-8e89-04d9d3ce83e3">&lt;/strong&gt;</ept>, and then click <bpt id="be495921-d04a-4dfc-87c7-b415f9ad6bab">&lt;strong&gt;</bpt>Uninstall<ept id="be495921-d04a-4dfc-87c7-b415f9ad6bab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="ceec4675-69d8-46dc-8e89-04d9d3ce83e3">&lt;strong&gt;</bpt>StorSimple Snapshot Manager<ept id="ceec4675-69d8-46dc-8e89-04d9d3ce83e3">&lt;/strong&gt;</ept>, and then click <bpt id="be495921-d04a-4dfc-87c7-b415f9ad6bab">&lt;strong&gt;</bpt>Uninstall<ept id="be495921-d04a-4dfc-87c7-b415f9ad6bab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cada5ed8-45aa-4eec-8078-7d127710620a" xml:space="preserve">
+          <source>This starts the StorSimple Snapshot Manager Setup program.</source>
+          <target state="new">This starts the StorSimple Snapshot Manager Setup program.</target>
+        </trans-unit>
+        <trans-unit id="8bd2c924-2c59-4c61-ac90-5a7468e84943" xml:space="preserve">
+          <source>Click <bpt id="1b5bc3a1-7b76-459a-831c-486210165a6e">&lt;strong&gt;</bpt>Modify Setup<ept id="1b5bc3a1-7b76-459a-831c-486210165a6e">&lt;/strong&gt;</ept>, and then click <bpt id="4f9872f7-f222-4037-a1f9-443eccbafbe6">&lt;strong&gt;</bpt>Uninstall<ept id="4f9872f7-f222-4037-a1f9-443eccbafbe6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1b5bc3a1-7b76-459a-831c-486210165a6e">&lt;strong&gt;</bpt>Modify Setup<ept id="1b5bc3a1-7b76-459a-831c-486210165a6e">&lt;/strong&gt;</ept>, and then click <bpt id="4f9872f7-f222-4037-a1f9-443eccbafbe6">&lt;strong&gt;</bpt>Uninstall<ept id="4f9872f7-f222-4037-a1f9-443eccbafbe6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e5c2305-7ca6-4a2b-b1b0-b412f6914d10" xml:space="preserve">
+          <source>If there are any MMC processes running in the background, such as StorSimple Snapshot Manager or Disk Management, the uninstall will fail and you will receive a message to close all instances of MMC before you attempt to uninstall the program.</source>
+          <target state="new">If there are any MMC processes running in the background, such as StorSimple Snapshot Manager or Disk Management, the uninstall will fail and you will receive a message to close all instances of MMC before you attempt to uninstall the program.</target>
+        </trans-unit>
+        <trans-unit id="c3cd62f2-0ead-4393-b875-8aef3f4b53d8" xml:space="preserve">
+          <source>Select <bpt id="9e245e3d-8ff2-43e6-9255-4522b779f555">&lt;strong&gt;</bpt>Automatically close applications and attempt to restart them after setup is complete<ept id="9e245e3d-8ff2-43e6-9255-4522b779f555">&lt;/strong&gt;</ept>, and then click <bpt id="82b50776-3108-4d5c-8680-09bf4b660152">&lt;strong&gt;</bpt>OK<ept id="82b50776-3108-4d5c-8680-09bf4b660152">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="9e245e3d-8ff2-43e6-9255-4522b779f555">&lt;strong&gt;</bpt>Automatically close applications and attempt to restart them after setup is complete<ept id="9e245e3d-8ff2-43e6-9255-4522b779f555">&lt;/strong&gt;</ept>, and then click <bpt id="82b50776-3108-4d5c-8680-09bf4b660152">&lt;strong&gt;</bpt>OK<ept id="82b50776-3108-4d5c-8680-09bf4b660152">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69a399bc-01fa-4238-8e63-5821ef832915" xml:space="preserve">
+          <source>When the uninstall process is finished, a <bpt id="9efe3106-e88f-4e0e-a48e-7884ec174732">&lt;strong&gt;</bpt>Setup Successful<ept id="9efe3106-e88f-4e0e-a48e-7884ec174732">&lt;/strong&gt;</ept> message appears.</source>
+          <target state="new">When the uninstall process is finished, a <bpt id="9efe3106-e88f-4e0e-a48e-7884ec174732">&lt;strong&gt;</bpt>Setup Successful<ept id="9efe3106-e88f-4e0e-a48e-7884ec174732">&lt;/strong&gt;</ept> message appears.</target>
+        </trans-unit>
+        <trans-unit id="b8d4cb3b-5174-48fa-97c7-012d77c0a7f0" xml:space="preserve">
+          <source>Click <bpt id="15a39e94-0634-4374-b603-abf54112d44d">&lt;strong&gt;</bpt>Close<ept id="15a39e94-0634-4374-b603-abf54112d44d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="15a39e94-0634-4374-b603-abf54112d44d">&lt;strong&gt;</bpt>Close<ept id="15a39e94-0634-4374-b603-abf54112d44d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5cf8dc9c-7e2b-4e8d-8481-f83819c37cda" xml:space="preserve">
+          <source>Use the following steps to create and save a copy of the StorSimple Snapshot Manager database.</source>
+          <target state="new">Use the following steps to create and save a copy of the StorSimple Snapshot Manager database.</target>
+        </trans-unit>
+        <trans-unit id="e07f5006-43b7-4d75-b95a-cd66bdf6638d" xml:space="preserve">
+          <source>Stop the Microsoft StorSimple Management Service:</source>
+          <target state="new">Stop the Microsoft StorSimple Management Service:</target>
+        </trans-unit>
+        <trans-unit id="1eaded43-1fc8-45af-85bc-9ea3a63b57a8" xml:space="preserve">
+          <source>Start Server Manager.</source>
+          <target state="new">Start Server Manager.</target>
+        </trans-unit>
+        <trans-unit id="577fd6f8-811f-405f-afbc-af1969f0dc4b" xml:space="preserve">
+          <source>On the Server Manager Dashboard, on the <bpt id="64aa105a-3b74-4bbd-ae31-f5eaeb4daa4f">&lt;strong&gt;</bpt>Tools<ept id="64aa105a-3b74-4bbd-ae31-f5eaeb4daa4f">&lt;/strong&gt;</ept> menu, select <bpt id="cd40765c-7490-400b-8d19-5fb753cff1f4">&lt;strong&gt;</bpt>Services<ept id="cd40765c-7490-400b-8d19-5fb753cff1f4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Server Manager Dashboard, on the <bpt id="64aa105a-3b74-4bbd-ae31-f5eaeb4daa4f">&lt;strong&gt;</bpt>Tools<ept id="64aa105a-3b74-4bbd-ae31-f5eaeb4daa4f">&lt;/strong&gt;</ept> menu, select <bpt id="cd40765c-7490-400b-8d19-5fb753cff1f4">&lt;strong&gt;</bpt>Services<ept id="cd40765c-7490-400b-8d19-5fb753cff1f4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1789532e-9537-4e66-ae52-8ef47cb33c07" xml:space="preserve">
+          <source>On the <bpt id="8ecfbceb-88b9-4f8a-ae60-d97bb37cd52d">&lt;strong&gt;</bpt>Services<ept id="8ecfbceb-88b9-4f8a-ae60-d97bb37cd52d">&lt;/strong&gt;</ept> page, select <bpt id="7e74910e-77d1-42ff-8709-c74ba68efa98">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="7e74910e-77d1-42ff-8709-c74ba68efa98">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="8ecfbceb-88b9-4f8a-ae60-d97bb37cd52d">&lt;strong&gt;</bpt>Services<ept id="8ecfbceb-88b9-4f8a-ae60-d97bb37cd52d">&lt;/strong&gt;</ept> page, select <bpt id="7e74910e-77d1-42ff-8709-c74ba68efa98">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="7e74910e-77d1-42ff-8709-c74ba68efa98">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b01907a-98ca-4fa3-a1cb-a6676455d90c" xml:space="preserve">
+          <source>In the right pane, under <bpt id="5e990b7d-00e8-45f8-86e9-e57ffbc76ab6">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="5e990b7d-00e8-45f8-86e9-e57ffbc76ab6">&lt;/strong&gt;</ept>, click <bpt id="f4614b90-31ea-4862-9e3d-adef41af8318">&lt;strong&gt;</bpt>Stop the service<ept id="f4614b90-31ea-4862-9e3d-adef41af8318">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the right pane, under <bpt id="5e990b7d-00e8-45f8-86e9-e57ffbc76ab6">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="5e990b7d-00e8-45f8-86e9-e57ffbc76ab6">&lt;/strong&gt;</ept>, click <bpt id="f4614b90-31ea-4862-9e3d-adef41af8318">&lt;strong&gt;</bpt>Stop the service<ept id="f4614b90-31ea-4862-9e3d-adef41af8318">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6d32852-c1f8-4648-ab1b-5f37e6c2ce0a" xml:space="preserve">
+          <source><bpt id="b8e14a49-ec85-42ec-a76e-0ececb68453a">&lt;linkText&gt;</bpt>Stop the StorSimple Manager service<ept id="b8e14a49-ec85-42ec-a76e-0ececb68453a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8e14a49-ec85-42ec-a76e-0ececb68453a">&lt;linkText&gt;</bpt>Stop the StorSimple Manager service<ept id="b8e14a49-ec85-42ec-a76e-0ececb68453a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44b33de3-9b79-416b-90e1-19003a85b9ae" xml:space="preserve">
+          <source>Browse to C:\ProgramData\Microsoft\StorSimple\BACatalog.</source>
+          <target state="new">Browse to C:\ProgramData\Microsoft\StorSimple\BACatalog.</target>
+        </trans-unit>
+        <trans-unit id="003ac74a-77a8-4c38-aa2e-079aa18178b4" xml:space="preserve">
+          <source>ProgramData is a hidden folder.</source>
+          <target state="new">ProgramData is a hidden folder.</target>
+        </trans-unit>
+        <trans-unit id="2ebb7041-9b93-4539-976c-8bea64e0c318" xml:space="preserve">
+          <source>Find the catalog XML file, copy the file, and store the copy in a safe location or in the cloud.</source>
+          <target state="new">Find the catalog XML file, copy the file, and store the copy in a safe location or in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="9e3ec6d5-997a-44df-b6e7-1be475ad7b8b" xml:space="preserve">
+          <source><bpt id="8ccb51da-ceb4-4df7-ac75-c82fae1bbcaf">&lt;linkText&gt;</bpt>StorSimple backup catalog file<ept id="8ccb51da-ceb4-4df7-ac75-c82fae1bbcaf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8ccb51da-ceb4-4df7-ac75-c82fae1bbcaf">&lt;linkText&gt;</bpt>StorSimple backup catalog file<ept id="8ccb51da-ceb4-4df7-ac75-c82fae1bbcaf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bba976e9-94d7-44bd-8b54-c0ba043dcf0d" xml:space="preserve">
+          <source>Restart the Microsoft StorSimple Management Service: </source>
+          <target state="new">Restart the Microsoft StorSimple Management Service: </target>
+        </trans-unit>
+        <trans-unit id="6f58545f-d09f-401a-9ad6-dc69def08192" xml:space="preserve">
+          <source>On the Server Manager Dashboard, on the <bpt id="67734fe3-fdd4-4f87-bdc9-e5c085cb96e4">&lt;strong&gt;</bpt>Tools<ept id="67734fe3-fdd4-4f87-bdc9-e5c085cb96e4">&lt;/strong&gt;</ept> menu, select <bpt id="4479afdb-48b0-4595-b122-3a6872c7a04c">&lt;strong&gt;</bpt>Services<ept id="4479afdb-48b0-4595-b122-3a6872c7a04c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Server Manager Dashboard, on the <bpt id="67734fe3-fdd4-4f87-bdc9-e5c085cb96e4">&lt;strong&gt;</bpt>Tools<ept id="67734fe3-fdd4-4f87-bdc9-e5c085cb96e4">&lt;/strong&gt;</ept> menu, select <bpt id="4479afdb-48b0-4595-b122-3a6872c7a04c">&lt;strong&gt;</bpt>Services<ept id="4479afdb-48b0-4595-b122-3a6872c7a04c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0158299-4366-4e38-b8d3-d69be5f6a927" xml:space="preserve">
+          <source>On the <bpt id="6e8f2417-e347-47ad-9cb0-94a8b36c4b24">&lt;strong&gt;</bpt>Services<ept id="6e8f2417-e347-47ad-9cb0-94a8b36c4b24">&lt;/strong&gt;</ept> page, select the <bpt id="4dcf7a11-751c-4228-b552-892ee7d7fe42">&lt;strong&gt;</bpt>Microsoft StorSimple Management Servic<ept id="4dcf7a11-751c-4228-b552-892ee7d7fe42">&lt;/strong&gt;</ept>e.</source>
+          <target state="new">On the <bpt id="6e8f2417-e347-47ad-9cb0-94a8b36c4b24">&lt;strong&gt;</bpt>Services<ept id="6e8f2417-e347-47ad-9cb0-94a8b36c4b24">&lt;/strong&gt;</ept> page, select the <bpt id="4dcf7a11-751c-4228-b552-892ee7d7fe42">&lt;strong&gt;</bpt>Microsoft StorSimple Management Servic<ept id="4dcf7a11-751c-4228-b552-892ee7d7fe42">&lt;/strong&gt;</ept>e.</target>
+        </trans-unit>
+        <trans-unit id="e61e3c01-710e-4407-9675-cb4de60850d2" xml:space="preserve">
+          <source>In the right pane, under <bpt id="117538a6-2fb4-485d-8406-fe66e8a42a66">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="117538a6-2fb4-485d-8406-fe66e8a42a66">&lt;/strong&gt;</ept>, click <bpt id="ede87ce4-51b6-44f7-94fe-6e289fe042f0">&lt;strong&gt;</bpt>Restart the service<ept id="ede87ce4-51b6-44f7-94fe-6e289fe042f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the right pane, under <bpt id="117538a6-2fb4-485d-8406-fe66e8a42a66">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="117538a6-2fb4-485d-8406-fe66e8a42a66">&lt;/strong&gt;</ept>, click <bpt id="ede87ce4-51b6-44f7-94fe-6e289fe042f0">&lt;strong&gt;</bpt>Restart the service<ept id="ede87ce4-51b6-44f7-94fe-6e289fe042f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1349e2f4-29d6-4189-bc0e-bbb9dfb6658d" xml:space="preserve">
+          <source>To reinstall StorSimple Snapshot Manager, follow the steps in <bpt id="8ace9d74-ce5f-4639-b0a1-65869e3143ce">&lt;linkText&gt;</bpt>Install a new StorSimple Snapshot Manager<ept id="8ace9d74-ce5f-4639-b0a1-65869e3143ce">&lt;/linkText&gt;</ept><bpt id="8ace9d74-ce5f-4639-b0a1-65869e3143ce">&lt;title&gt;</bpt><ept id="8ace9d74-ce5f-4639-b0a1-65869e3143ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">To reinstall StorSimple Snapshot Manager, follow the steps in <bpt id="8ace9d74-ce5f-4639-b0a1-65869e3143ce">&lt;linkText&gt;</bpt>Install a new StorSimple Snapshot Manager<ept id="8ace9d74-ce5f-4639-b0a1-65869e3143ce">&lt;/linkText&gt;</ept><bpt id="8ace9d74-ce5f-4639-b0a1-65869e3143ce">&lt;title&gt;</bpt><ept id="8ace9d74-ce5f-4639-b0a1-65869e3143ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b7a5f21-0634-474c-90aa-7499c575d85b" xml:space="preserve">
+          <source>Then, use the following procedure to restore the StorSimple Snapshot Manager database.</source>
+          <target state="new">Then, use the following procedure to restore the StorSimple Snapshot Manager database.</target>
+        </trans-unit>
+        <trans-unit id="55677485-a4a1-40fc-b2a3-ddef03e9f9ec" xml:space="preserve">
+          <source>Stop the Microsoft StorSimple Management Service:</source>
+          <target state="new">Stop the Microsoft StorSimple Management Service:</target>
+        </trans-unit>
+        <trans-unit id="2d592526-3904-4c53-8edd-c42c731b2948" xml:space="preserve">
+          <source>Start Server Manager.</source>
+          <target state="new">Start Server Manager.</target>
+        </trans-unit>
+        <trans-unit id="3d1abff8-68f3-4857-a591-ebbd0a46162f" xml:space="preserve">
+          <source>On the Server Manager Dashboard, on the <bpt id="3ecdc469-5f91-4cce-9aca-13f315731a4f">&lt;strong&gt;</bpt>Tools<ept id="3ecdc469-5f91-4cce-9aca-13f315731a4f">&lt;/strong&gt;</ept> menu, select <bpt id="a58b19c5-98fd-4e7b-996a-4ab52ed194d7">&lt;strong&gt;</bpt>Services<ept id="a58b19c5-98fd-4e7b-996a-4ab52ed194d7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Server Manager Dashboard, on the <bpt id="3ecdc469-5f91-4cce-9aca-13f315731a4f">&lt;strong&gt;</bpt>Tools<ept id="3ecdc469-5f91-4cce-9aca-13f315731a4f">&lt;/strong&gt;</ept> menu, select <bpt id="a58b19c5-98fd-4e7b-996a-4ab52ed194d7">&lt;strong&gt;</bpt>Services<ept id="a58b19c5-98fd-4e7b-996a-4ab52ed194d7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62fbd559-0032-4ab6-ae13-b70179cde705" xml:space="preserve">
+          <source>On the <bpt id="74a1b6cf-42f1-4cdc-adde-e510c1bba54a">&lt;strong&gt;</bpt>Services<ept id="74a1b6cf-42f1-4cdc-adde-e510c1bba54a">&lt;/strong&gt;</ept> page, select <bpt id="b873ad62-0287-426a-85c8-f5a0394ca3e1">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="b873ad62-0287-426a-85c8-f5a0394ca3e1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="74a1b6cf-42f1-4cdc-adde-e510c1bba54a">&lt;strong&gt;</bpt>Services<ept id="74a1b6cf-42f1-4cdc-adde-e510c1bba54a">&lt;/strong&gt;</ept> page, select <bpt id="b873ad62-0287-426a-85c8-f5a0394ca3e1">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="b873ad62-0287-426a-85c8-f5a0394ca3e1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a07ddc61-2175-4045-ac2d-d7cf7305a147" xml:space="preserve">
+          <source>In the right pane, under <bpt id="54226781-6773-4f25-8bb4-13010da7e945">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="54226781-6773-4f25-8bb4-13010da7e945">&lt;/strong&gt;</ept>, click <bpt id="a0bca9bb-8ad6-4811-ba8f-b290bae528f6">&lt;strong&gt;</bpt>Stop the service<ept id="a0bca9bb-8ad6-4811-ba8f-b290bae528f6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the right pane, under <bpt id="54226781-6773-4f25-8bb4-13010da7e945">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="54226781-6773-4f25-8bb4-13010da7e945">&lt;/strong&gt;</ept>, click <bpt id="a0bca9bb-8ad6-4811-ba8f-b290bae528f6">&lt;strong&gt;</bpt>Stop the service<ept id="a0bca9bb-8ad6-4811-ba8f-b290bae528f6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ce65349-1253-4feb-9649-060f7b99866e" xml:space="preserve">
+          <source>Browse to C:\ProgramData\Microsoft\StorSimple\BACatalog.</source>
+          <target state="new">Browse to C:\ProgramData\Microsoft\StorSimple\BACatalog.</target>
+        </trans-unit>
+        <trans-unit id="0319609a-3261-482a-bce8-e5f350dfd884" xml:space="preserve">
+          <source>ProgramData is a hidden folder.</source>
+          <target state="new">ProgramData is a hidden folder.</target>
+        </trans-unit>
+        <trans-unit id="daa36931-0e83-4c89-84de-005bb208b17d" xml:space="preserve">
+          <source>Delete the catalog XML file, and replace it with the version that you saved earlier.</source>
+          <target state="new">Delete the catalog XML file, and replace it with the version that you saved earlier.</target>
+        </trans-unit>
+        <trans-unit id="33a4c370-8441-4c04-9a20-0defc6d3ef9d" xml:space="preserve">
+          <source>Restart the Microsoft StorSimple Management Service: </source>
+          <target state="new">Restart the Microsoft StorSimple Management Service: </target>
+        </trans-unit>
+        <trans-unit id="fa021335-c505-48b6-a3b2-ec4ee4f73bcf" xml:space="preserve">
+          <source>On the Server Manager Dashboard, on the <bpt id="374d2e17-62cb-47d0-b66f-3ed4aa87e8a3">&lt;strong&gt;</bpt>Tools<ept id="374d2e17-62cb-47d0-b66f-3ed4aa87e8a3">&lt;/strong&gt;</ept> menu, select <bpt id="2e780630-f4b1-4296-8290-8e2b4cb97d99">&lt;strong&gt;</bpt>Services<ept id="2e780630-f4b1-4296-8290-8e2b4cb97d99">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Server Manager Dashboard, on the <bpt id="374d2e17-62cb-47d0-b66f-3ed4aa87e8a3">&lt;strong&gt;</bpt>Tools<ept id="374d2e17-62cb-47d0-b66f-3ed4aa87e8a3">&lt;/strong&gt;</ept> menu, select <bpt id="2e780630-f4b1-4296-8290-8e2b4cb97d99">&lt;strong&gt;</bpt>Services<ept id="2e780630-f4b1-4296-8290-8e2b4cb97d99">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fabb28d3-1d5d-4458-ad3c-67fc0f1df7f8" xml:space="preserve">
+          <source>On the <bpt id="bfe835f1-e06f-4a23-b3f5-4585d6ac931f">&lt;strong&gt;</bpt>Services<ept id="bfe835f1-e06f-4a23-b3f5-4585d6ac931f">&lt;/strong&gt;</ept> page, select <bpt id="700cdb84-f103-4b06-ad86-b338c3505983">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="700cdb84-f103-4b06-ad86-b338c3505983">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="bfe835f1-e06f-4a23-b3f5-4585d6ac931f">&lt;strong&gt;</bpt>Services<ept id="bfe835f1-e06f-4a23-b3f5-4585d6ac931f">&lt;/strong&gt;</ept> page, select <bpt id="700cdb84-f103-4b06-ad86-b338c3505983">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="700cdb84-f103-4b06-ad86-b338c3505983">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ba76617-f08d-4937-b934-a988f3e01f87" xml:space="preserve">
+          <source>In the right pane, under <bpt id="c08f00be-7c4b-4265-b620-c1044e455ce9">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="c08f00be-7c4b-4265-b620-c1044e455ce9">&lt;/strong&gt;</ept>, click <bpt id="b243921e-ba0d-4a91-b88d-ecd1653f2515">&lt;strong&gt;</bpt>Restart the service<ept id="b243921e-ba0d-4a91-b88d-ecd1653f2515">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the right pane, under <bpt id="c08f00be-7c4b-4265-b620-c1044e455ce9">&lt;strong&gt;</bpt>Microsoft StorSimple Management Service<ept id="c08f00be-7c4b-4265-b620-c1044e455ce9">&lt;/strong&gt;</ept>, click <bpt id="b243921e-ba0d-4a91-b88d-ecd1653f2515">&lt;strong&gt;</bpt>Restart the service<ept id="b243921e-ba0d-4a91-b88d-ecd1653f2515">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e386d526-c5c4-458e-b169-dae6b94f2529" xml:space="preserve">
+          <source>To learn more about StorSimple Snapshot Manager, go to <bpt id="2f925204-19a9-45d6-85af-3e8d84504a37">&lt;linkText&gt;</bpt>What is StorSimple Snapshot Manager?<ept id="2f925204-19a9-45d6-85af-3e8d84504a37">&lt;/linkText&gt;</ept><bpt id="2f925204-19a9-45d6-85af-3e8d84504a37">&lt;title&gt;</bpt><ept id="2f925204-19a9-45d6-85af-3e8d84504a37">&lt;/title&gt;</ept></source>
+          <target state="new">To learn more about StorSimple Snapshot Manager, go to <bpt id="2f925204-19a9-45d6-85af-3e8d84504a37">&lt;linkText&gt;</bpt>What is StorSimple Snapshot Manager?<ept id="2f925204-19a9-45d6-85af-3e8d84504a37">&lt;/linkText&gt;</ept><bpt id="2f925204-19a9-45d6-85af-3e8d84504a37">&lt;title&gt;</bpt><ept id="2f925204-19a9-45d6-85af-3e8d84504a37">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48b58729-1c8e-41f8-b93a-4effd3bc9c75" xml:space="preserve">
+          <source>To learn more about the StorSimple Snapshot Manager user interface, go to <bpt id="1a4fe5a5-e483-40a7-a67d-078fc6d89543">&lt;linkText&gt;</bpt>StorSimple Snapshot Manager user interface<ept id="1a4fe5a5-e483-40a7-a67d-078fc6d89543">&lt;/linkText&gt;</ept><bpt id="1a4fe5a5-e483-40a7-a67d-078fc6d89543">&lt;title&gt;</bpt><ept id="1a4fe5a5-e483-40a7-a67d-078fc6d89543">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about the StorSimple Snapshot Manager user interface, go to <bpt id="1a4fe5a5-e483-40a7-a67d-078fc6d89543">&lt;linkText&gt;</bpt>StorSimple Snapshot Manager user interface<ept id="1a4fe5a5-e483-40a7-a67d-078fc6d89543">&lt;/linkText&gt;</ept><bpt id="1a4fe5a5-e483-40a7-a67d-078fc6d89543">&lt;title&gt;</bpt><ept id="1a4fe5a5-e483-40a7-a67d-078fc6d89543">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8165bdd5-3e38-4288-8c53-39c64eefbbdd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8165bdd5-3e38-4288-8c53-39c64eefbbdd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8750caaf-14d5-4b50-b848-e335fad20b1e">
+        <trans-unit id="5bad8ede-c80d-4d41-88d8-36b272a32929" xml:space="preserve">
+          <source>Using Emulator Express to run and debug a cloud service on a local machine | Microsoft Azure</source>
+          <target state="new">Using Emulator Express to run and debug a cloud service on a local machine | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="83b35026-c4eb-4956-bc54-6bc07d7c9f39" xml:space="preserve">
+          <source>Using Emulator Express to run and debug a cloud service on a local machine</source>
+          <target state="new">Using Emulator Express to run and debug a cloud service on a local machine</target>
+        </trans-unit>
+        <trans-unit id="45e41a2c-383b-464c-a48d-dd8cb68fdbb7" xml:space="preserve">
+          <source>By using Emulator Express, you can test and debug a cloud service without running Visual Studio as an administrator.</source>
+          <target state="new">By using Emulator Express, you can test and debug a cloud service without running Visual Studio as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="d273133d-56b0-4537-b339-12cb8db0e695" xml:space="preserve">
+          <source>You can set your project settings to use either Emulator Express or the full emulator, depending on the requirements of your cloud service.</source>
+          <target state="new">You can set your project settings to use either Emulator Express or the full emulator, depending on the requirements of your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="ef7b6db8-9854-4601-9c78-4ebdd5696ff3" xml:space="preserve">
+          <source>For more information about the full emulator, see <bpt id="e909534a-b6c5-4e12-81c1-2474d390b9e3">&lt;linkText&gt;</bpt>Run an Azure Application in the Compute Emulator<ept id="e909534a-b6c5-4e12-81c1-2474d390b9e3">&lt;/linkText&gt;</ept><bpt id="e909534a-b6c5-4e12-81c1-2474d390b9e3">&lt;title&gt;</bpt><ept id="e909534a-b6c5-4e12-81c1-2474d390b9e3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the full emulator, see <bpt id="e909534a-b6c5-4e12-81c1-2474d390b9e3">&lt;linkText&gt;</bpt>Run an Azure Application in the Compute Emulator<ept id="e909534a-b6c5-4e12-81c1-2474d390b9e3">&lt;/linkText&gt;</ept><bpt id="e909534a-b6c5-4e12-81c1-2474d390b9e3">&lt;title&gt;</bpt><ept id="e909534a-b6c5-4e12-81c1-2474d390b9e3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b2fdde8-eff9-4de2-a064-51df5f91c29c" xml:space="preserve">
+          <source>Emulator Express was first included in Azure SDK 2.1, and as of Azure SDK 2.3, it is the default emulator.</source>
+          <target state="new">Emulator Express was first included in Azure SDK 2.1, and as of Azure SDK 2.3, it is the default emulator.</target>
+        </trans-unit>
+        <trans-unit id="222fed29-fe26-498b-b4af-066496277b89" xml:space="preserve">
+          <source>When you create a new project in Azure SDK 2.3 or later, Emulator Express is already selected.</source>
+          <target state="new">When you create a new project in Azure SDK 2.3 or later, Emulator Express is already selected.</target>
+        </trans-unit>
+        <trans-unit id="337963b0-acd1-47f0-be62-209b70287625" xml:space="preserve">
+          <source>For existing projects that were created with an earlier version of the SDK, follow these steps to select Emulator Express.</source>
+          <target state="new">For existing projects that were created with an earlier version of the SDK, follow these steps to select Emulator Express.</target>
+        </trans-unit>
+        <trans-unit id="562ed76f-1c08-423d-9ffb-960f990a8c21" xml:space="preserve">
+          <source>On the shortcut menu for the Azure project, choose <bpt id="0cbda2d0-b9d6-49e1-98f5-f6e85a636f57">&lt;strong&gt;</bpt>Properties<ept id="0cbda2d0-b9d6-49e1-98f5-f6e85a636f57">&lt;/strong&gt;</ept>, and then choose the <bpt id="5492a435-093b-4d37-b8e5-ff9131661947">&lt;strong&gt;</bpt>Web<ept id="5492a435-093b-4d37-b8e5-ff9131661947">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the shortcut menu for the Azure project, choose <bpt id="0cbda2d0-b9d6-49e1-98f5-f6e85a636f57">&lt;strong&gt;</bpt>Properties<ept id="0cbda2d0-b9d6-49e1-98f5-f6e85a636f57">&lt;/strong&gt;</ept>, and then choose the <bpt id="5492a435-093b-4d37-b8e5-ff9131661947">&lt;strong&gt;</bpt>Web<ept id="5492a435-093b-4d37-b8e5-ff9131661947">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="a54d1d9a-67ec-416d-ba22-b9e10838ecd3" xml:space="preserve">
+          <source>Under <bpt id="44d23375-48b8-4d3e-ad51-1f043962a7ec">&lt;strong&gt;</bpt>Local Development Server<ept id="44d23375-48b8-4d3e-ad51-1f043962a7ec">&lt;/strong&gt;</ept>, choose the <bpt id="f8941b0e-019f-4698-8859-de51920b27f2">&lt;strong&gt;</bpt>Use IIS Express option<ept id="f8941b0e-019f-4698-8859-de51920b27f2">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Under <bpt id="44d23375-48b8-4d3e-ad51-1f043962a7ec">&lt;strong&gt;</bpt>Local Development Server<ept id="44d23375-48b8-4d3e-ad51-1f043962a7ec">&lt;/strong&gt;</ept>, choose the <bpt id="f8941b0e-019f-4698-8859-de51920b27f2">&lt;strong&gt;</bpt>Use IIS Express option<ept id="f8941b0e-019f-4698-8859-de51920b27f2">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="f1e8255e-2db1-49a4-80f0-57b8921797c1" xml:space="preserve">
+          <source>Emulator Express isn't compatible with IIS Web Server.</source>
+          <target state="new">Emulator Express isn't compatible with IIS Web Server.</target>
+        </trans-unit>
+        <trans-unit id="03712382-930f-4013-a25e-d4f0eba9ddaa" xml:space="preserve">
+          <source>Under <bpt id="07361bd0-403c-45d5-80f9-b90afa2d431d">&lt;strong&gt;</bpt>Emulator<ept id="07361bd0-403c-45d5-80f9-b90afa2d431d">&lt;/strong&gt;</ept>, choose the <bpt id="0d3e1991-447b-419d-bc44-d6b34cc8b2a7">&lt;strong&gt;</bpt>Use Emulator Express<ept id="0d3e1991-447b-419d-bc44-d6b34cc8b2a7">&lt;/strong&gt;</ept> option button.</source>
+          <target state="new">Under <bpt id="07361bd0-403c-45d5-80f9-b90afa2d431d">&lt;strong&gt;</bpt>Emulator<ept id="07361bd0-403c-45d5-80f9-b90afa2d431d">&lt;/strong&gt;</ept>, choose the <bpt id="0d3e1991-447b-419d-bc44-d6b34cc8b2a7">&lt;strong&gt;</bpt>Use Emulator Express<ept id="0d3e1991-447b-419d-bc44-d6b34cc8b2a7">&lt;/strong&gt;</ept> option button.</target>
+        </trans-unit>
+        <trans-unit id="97274baa-e329-49f8-9455-d14aae90eaed" xml:space="preserve">
+          <source><bpt id="65fd07ee-e7e5-404c-ae32-098eb2c0670e">&lt;linkText&gt;</bpt>Emulator Express<ept id="65fd07ee-e7e5-404c-ae32-098eb2c0670e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="65fd07ee-e7e5-404c-ae32-098eb2c0670e">&lt;linkText&gt;</bpt>Emulator Express<ept id="65fd07ee-e7e5-404c-ae32-098eb2c0670e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="faaf94d1-723f-4daf-a7c4-d729a74314bb" xml:space="preserve">
+          <source>At a command prompt, you can launch the express version of the Azure Compute Emulator, csrun.exe, by using the /useemulatorexpress option.</source>
+          <target state="new">At a command prompt, you can launch the express version of the Azure Compute Emulator, csrun.exe, by using the /useemulatorexpress option.</target>
+        </trans-unit>
+        <trans-unit id="9dece852-04d4-4b8a-839b-6f40dde52852" xml:space="preserve">
+          <source>Before you use Emulator Express, you should be aware of some limitations:</source>
+          <target state="new">Before you use Emulator Express, you should be aware of some limitations:</target>
+        </trans-unit>
+        <trans-unit id="d2aa4ef5-011d-4b12-baf6-dede85ac9cb2" xml:space="preserve">
+          <source>Emulator Express isn't compatible with IIS Web Server.</source>
+          <target state="new">Emulator Express isn't compatible with IIS Web Server.</target>
+        </trans-unit>
+        <trans-unit id="01466ee0-0988-49dc-baf7-248c53be2353" xml:space="preserve">
+          <source>Your cloud service can contain multiple roles, but each role is limited to one instance.</source>
+          <target state="new">Your cloud service can contain multiple roles, but each role is limited to one instance.</target>
+        </trans-unit>
+        <trans-unit id="494e08ed-4c18-4f40-b58f-bebff89c7310" xml:space="preserve">
+          <source>You can't access port numbers below 1000.</source>
+          <target state="new">You can't access port numbers below 1000.</target>
+        </trans-unit>
+        <trans-unit id="b08c4ac1-5ece-4991-a6c1-161839fdb6a6" xml:space="preserve">
+          <source>For example, if you use an authentication provider that normally uses a port below 1000, you might need to change this value to a port number that's above 1000.</source>
+          <target state="new">For example, if you use an authentication provider that normally uses a port below 1000, you might need to change this value to a port number that's above 1000.</target>
+        </trans-unit>
+        <trans-unit id="ca3e4c8e-5972-4290-a1a5-5960b8b4b594" xml:space="preserve">
+          <source>Any limitations that apply to the Azure Compute Emulator also apply to Emulator Express.</source>
+          <target state="new">Any limitations that apply to the Azure Compute Emulator also apply to Emulator Express.</target>
+        </trans-unit>
+        <trans-unit id="c8d84435-ec24-413b-bf0a-94f611d2a6e2" xml:space="preserve">
+          <source>For example, you can't have more than 50 role instances per deployment.</source>
+          <target state="new">For example, you can't have more than 50 role instances per deployment.</target>
+        </trans-unit>
+        <trans-unit id="f5854123-c62e-427c-82d5-fa34362606a8" xml:space="preserve">
+          <source>See <bpt id="d41e8761-9087-44c4-afcc-ec02771153ee">&lt;linkText&gt;</bpt>Run an Azure Application in the Compute Emulator<ept id="d41e8761-9087-44c4-afcc-ec02771153ee">&lt;/linkText&gt;</ept><bpt id="d41e8761-9087-44c4-afcc-ec02771153ee">&lt;title&gt;</bpt><ept id="d41e8761-9087-44c4-afcc-ec02771153ee">&lt;/title&gt;</ept></source>
+          <target state="new">See <bpt id="d41e8761-9087-44c4-afcc-ec02771153ee">&lt;linkText&gt;</bpt>Run an Azure Application in the Compute Emulator<ept id="d41e8761-9087-44c4-afcc-ec02771153ee">&lt;/linkText&gt;</ept><bpt id="d41e8761-9087-44c4-afcc-ec02771153ee">&lt;title&gt;</bpt><ept id="d41e8761-9087-44c4-afcc-ec02771153ee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bcf5e9a-46ad-4891-afa5-05a625d84b91" xml:space="preserve">
+          <source><bpt id="4b15551f-d0a6-43a2-a22c-16f3d5522bd2">&lt;linkText&gt;</bpt>Debugging Cloud Services<ept id="4b15551f-d0a6-43a2-a22c-16f3d5522bd2">&lt;/linkText&gt;</ept><bpt id="4b15551f-d0a6-43a2-a22c-16f3d5522bd2">&lt;title&gt;</bpt><ept id="4b15551f-d0a6-43a2-a22c-16f3d5522bd2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4b15551f-d0a6-43a2-a22c-16f3d5522bd2">&lt;linkText&gt;</bpt>Debugging Cloud Services<ept id="4b15551f-d0a6-43a2-a22c-16f3d5522bd2">&lt;/linkText&gt;</ept><bpt id="4b15551f-d0a6-43a2-a22c-16f3d5522bd2">&lt;title&gt;</bpt><ept id="4b15551f-d0a6-43a2-a22c-16f3d5522bd2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

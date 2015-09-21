@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bcecf490-a07c-49d6-b1a7-ee89aa4684d4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bcecf490-a07c-49d6-b1a7-ee89aa4684d4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b4ec4c2f-9f7f-42df-a1a8-7d3fc73f1893">
+        <trans-unit id="dd3c2518-4e94-4c0b-9fcf-e589ed31bee0" xml:space="preserve">
+          <source>The metadata that enables a Web API project to be deployed as an API app is contained in an <bpt id="9e6af1cb-1239-4260-b79e-ab45b368bc10">&lt;em&gt;</bpt>apiapp.json<ept id="9e6af1cb-1239-4260-b79e-ab45b368bc10">&lt;/em&gt;</ept> file and a <bpt id="1da0d448-2218-446e-92ab-d16e1e4df0dd">&lt;em&gt;</bpt>Metadata<ept id="1da0d448-2218-446e-92ab-d16e1e4df0dd">&lt;/em&gt;</ept> folder.</source>
+          <target state="new">The metadata that enables a Web API project to be deployed as an API app is contained in an <bpt id="9e6af1cb-1239-4260-b79e-ab45b368bc10">&lt;em&gt;</bpt>apiapp.json<ept id="9e6af1cb-1239-4260-b79e-ab45b368bc10">&lt;/em&gt;</ept> file and a <bpt id="1da0d448-2218-446e-92ab-d16e1e4df0dd">&lt;em&gt;</bpt>Metadata<ept id="1da0d448-2218-446e-92ab-d16e1e4df0dd">&lt;/em&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="e677a0a7-6e8e-45ab-aaee-d7c767792439" xml:space="preserve">
+          <source><bpt id="835aa496-5be8-4db7-ab00-838f95dc9faf">&lt;linkText&gt;</bpt><ept id="835aa496-5be8-4db7-ab00-838f95dc9faf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="835aa496-5be8-4db7-ab00-838f95dc9faf">&lt;linkText&gt;</bpt><ept id="835aa496-5be8-4db7-ab00-838f95dc9faf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f14aab7f-66bb-46a4-b58f-7b75f3942e74" xml:space="preserve">
+          <source>The default contents of the <bpt id="eefe27a5-d2f8-401c-8c39-f63747f1c6c5">&lt;em&gt;</bpt>apiapp.json<ept id="eefe27a5-d2f8-401c-8c39-f63747f1c6c5">&lt;/em&gt;</ept> file resemble the following example:</source>
+          <target state="new">The default contents of the <bpt id="eefe27a5-d2f8-401c-8c39-f63747f1c6c5">&lt;em&gt;</bpt>apiapp.json<ept id="eefe27a5-d2f8-401c-8c39-f63747f1c6c5">&lt;/em&gt;</ept> file resemble the following example:</target>
+        </trans-unit>
+        <trans-unit id="5dba7efa-b87d-4639-9378-7fbf54a74b28" xml:space="preserve">
+          <source>Notice the <bpt id="79e5ac88-89b4-409b-9655-315244752ac6">&lt;code&gt;</bpt>apiDefinition<ept id="79e5ac88-89b4-409b-9655-315244752ac6">&lt;/code&gt;</ept> endpoint <bpt id="f1a71363-2467-4114-b2e6-956b702f8b94">&lt;code&gt;</bpt>/swagger/docs/v1<ept id="f1a71363-2467-4114-b2e6-956b702f8b94">&lt;/code&gt;</ept>:  by default, API app projects use the <bpt id="5b16640e-37bb-4cfb-bc42-fba5536d532f">&lt;linkText&gt;</bpt>Swashbuckle<ept id="5b16640e-37bb-4cfb-bc42-fba5536d532f">&lt;/linkText&gt;</ept><bpt id="5b16640e-37bb-4cfb-bc42-fba5536d532f">&lt;title&gt;</bpt><ept id="5b16640e-37bb-4cfb-bc42-fba5536d532f">&lt;/title&gt;</ept> NuGet package to provide automatic <bpt id="29f94d4b-d4e1-4314-8f1c-a62d88ccea38">&lt;linkText&gt;</bpt>Swagger<ept id="29f94d4b-d4e1-4314-8f1c-a62d88ccea38">&lt;/linkText&gt;</ept><bpt id="29f94d4b-d4e1-4314-8f1c-a62d88ccea38">&lt;title&gt;</bpt><ept id="29f94d4b-d4e1-4314-8f1c-a62d88ccea38">&lt;/title&gt;</ept> metadata generation.</source>
+          <target state="new">Notice the <bpt id="79e5ac88-89b4-409b-9655-315244752ac6">&lt;code&gt;</bpt>apiDefinition<ept id="79e5ac88-89b4-409b-9655-315244752ac6">&lt;/code&gt;</ept> endpoint <bpt id="f1a71363-2467-4114-b2e6-956b702f8b94">&lt;code&gt;</bpt>/swagger/docs/v1<ept id="f1a71363-2467-4114-b2e6-956b702f8b94">&lt;/code&gt;</ept>:  by default, API app projects use the <bpt id="5b16640e-37bb-4cfb-bc42-fba5536d532f">&lt;linkText&gt;</bpt>Swashbuckle<ept id="5b16640e-37bb-4cfb-bc42-fba5536d532f">&lt;/linkText&gt;</ept><bpt id="5b16640e-37bb-4cfb-bc42-fba5536d532f">&lt;title&gt;</bpt><ept id="5b16640e-37bb-4cfb-bc42-fba5536d532f">&lt;/title&gt;</ept> NuGet package to provide automatic <bpt id="29f94d4b-d4e1-4314-8f1c-a62d88ccea38">&lt;linkText&gt;</bpt>Swagger<ept id="29f94d4b-d4e1-4314-8f1c-a62d88ccea38">&lt;/linkText&gt;</ept><bpt id="29f94d4b-d4e1-4314-8f1c-a62d88ccea38">&lt;title&gt;</bpt><ept id="29f94d4b-d4e1-4314-8f1c-a62d88ccea38">&lt;/title&gt;</ept> metadata generation.</target>
+        </trans-unit>
+        <trans-unit id="ba9f5133-c116-4f6b-af88-a2b2d571328c" xml:space="preserve">
+          <source>For this tutorial you can accept the defaults.</source>
+          <target state="new">For this tutorial you can accept the defaults.</target>
+        </trans-unit>
+        <trans-unit id="e012645a-b1bd-4b39-9f53-b1daf058176a" xml:space="preserve">
+          <source>The <bpt id="05537c5a-9c24-4a7e-aa85-f9d2641e9fd9">&lt;linkText&gt;</bpt>API app metadata<ept id="05537c5a-9c24-4a7e-aa85-f9d2641e9fd9">&lt;/linkText&gt;</ept><bpt id="05537c5a-9c24-4a7e-aa85-f9d2641e9fd9">&lt;title&gt;</bpt><ept id="05537c5a-9c24-4a7e-aa85-f9d2641e9fd9">&lt;/title&gt;</ept> section later in the tutorial explains how to customize this metadata.</source>
+          <target state="new">The <bpt id="05537c5a-9c24-4a7e-aa85-f9d2641e9fd9">&lt;linkText&gt;</bpt>API app metadata<ept id="05537c5a-9c24-4a7e-aa85-f9d2641e9fd9">&lt;/linkText&gt;</ept><bpt id="05537c5a-9c24-4a7e-aa85-f9d2641e9fd9">&lt;title&gt;</bpt><ept id="05537c5a-9c24-4a7e-aa85-f9d2641e9fd9">&lt;/title&gt;</ept> section later in the tutorial explains how to customize this metadata.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

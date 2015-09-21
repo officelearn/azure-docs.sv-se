@@ -1,0 +1,1004 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7aab942e-9723-478a-827d-3ecd26632d77" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7aab942e-9723-478a-827d-3ecd26632d77" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="09bab02f-fc2d-486d-94ee-f7b19baedc35">
+        <trans-unit id="6f86762a-f177-497d-9047-ff6e0e3ed669" xml:space="preserve">
+          <source>How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler</source>
+          <target state="new">How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler</target>
+        </trans-unit>
+        <trans-unit id="eca487f0-3075-47b0-a0c8-581e8dedadeb" xml:space="preserve">
+          <source>At the heart of an Azure Scheduler job is the <bpt id="8e50565b-9bdf-4d96-a282-9fdd03e3d9a8">&lt;em&gt;</bpt>schedule<ept id="8e50565b-9bdf-4d96-a282-9fdd03e3d9a8">&lt;/em&gt;</ept>.</source>
+          <target state="new">At the heart of an Azure Scheduler job is the <bpt id="8e50565b-9bdf-4d96-a282-9fdd03e3d9a8">&lt;em&gt;</bpt>schedule<ept id="8e50565b-9bdf-4d96-a282-9fdd03e3d9a8">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de3b88d6-b8fd-41f7-82a9-8c7103fed349" xml:space="preserve">
+          <source>The schedule determines when and how the Scheduler executes the job.</source>
+          <target state="new">The schedule determines when and how the Scheduler executes the job.</target>
+        </trans-unit>
+        <trans-unit id="4588f324-52c3-4f12-91a2-db63d4b11ab7" xml:space="preserve">
+          <source>Azure Scheduler allows you to specify different one-time and recurring schedules for a job.</source>
+          <target state="new">Azure Scheduler allows you to specify different one-time and recurring schedules for a job.</target>
+        </trans-unit>
+        <trans-unit id="077b0534-873c-4cf7-a7f4-6c050c63dc9b" xml:space="preserve">
+          <source><bpt id="f4da8d18-2123-407d-973b-d8cd3a4e04db">&lt;em&gt;</bpt>One-time<ept id="f4da8d18-2123-407d-973b-d8cd3a4e04db">&lt;/em&gt;</ept> schedules fire once at a specified time – effectively, they are <bpt id="1e7a4862-4148-4338-b0f5-256cab0d3eca">&lt;em&gt;</bpt>recurring<ept id="1e7a4862-4148-4338-b0f5-256cab0d3eca">&lt;/em&gt;</ept> schedules that execute only once.</source>
+          <target state="new"><bpt id="f4da8d18-2123-407d-973b-d8cd3a4e04db">&lt;em&gt;</bpt>One-time<ept id="f4da8d18-2123-407d-973b-d8cd3a4e04db">&lt;/em&gt;</ept> schedules fire once at a specified time – effectively, they are <bpt id="1e7a4862-4148-4338-b0f5-256cab0d3eca">&lt;em&gt;</bpt>recurring<ept id="1e7a4862-4148-4338-b0f5-256cab0d3eca">&lt;/em&gt;</ept> schedules that execute only once.</target>
+        </trans-unit>
+        <trans-unit id="ec04338a-0900-4953-84b5-24ccccab1905" xml:space="preserve">
+          <source>Recurring schedules fire on a predetermined frequency.</source>
+          <target state="new">Recurring schedules fire on a predetermined frequency.</target>
+        </trans-unit>
+        <trans-unit id="a2deff0c-9d71-49af-bde7-53091b7f8188" xml:space="preserve">
+          <source>With this flexibility, Azure Scheduler lets you support a wide variety of business scenarios:</source>
+          <target state="new">With this flexibility, Azure Scheduler lets you support a wide variety of business scenarios:</target>
+        </trans-unit>
+        <trans-unit id="c2d9615f-e2d1-4b3a-adb6-c6ca14ab5fe3" xml:space="preserve">
+          <source>Periodic data cleanup –  e.g., every day, delete all tweets older than 3 months</source>
+          <target state="new">Periodic data cleanup –  e.g., every day, delete all tweets older than 3 months</target>
+        </trans-unit>
+        <trans-unit id="276f84a8-7691-4860-9161-24dbed4e6721" xml:space="preserve">
+          <source>Archival – e.g., every month, push invoice history to backup service</source>
+          <target state="new">Archival – e.g., every month, push invoice history to backup service</target>
+        </trans-unit>
+        <trans-unit id="c9c4eba0-84fc-4b7b-9644-93405f1cc6a2" xml:space="preserve">
+          <source>Requests for external data – e.g., every 15 minutes, pull new ski weather report from NOAA</source>
+          <target state="new">Requests for external data – e.g., every 15 minutes, pull new ski weather report from NOAA</target>
+        </trans-unit>
+        <trans-unit id="88152ef2-2a3b-4c96-a7b8-5ec60b9621f1" xml:space="preserve">
+          <source>Image processing – e.g. every weekday, during off-peak hours, use cloud computing to compress images uploaded that day</source>
+          <target state="new">Image processing – e.g. every weekday, during off-peak hours, use cloud computing to compress images uploaded that day</target>
+        </trans-unit>
+        <trans-unit id="7b2c0d12-d087-4006-a6e9-3ddee7b41d34" xml:space="preserve">
+          <source>In this article, we walk through example jobs that you can create with Azure Scheduler.</source>
+          <target state="new">In this article, we walk through example jobs that you can create with Azure Scheduler.</target>
+        </trans-unit>
+        <trans-unit id="c0b7ac6c-dae4-4777-8ac3-617880f68eaf" xml:space="preserve">
+          <source>We provide the JSON data that describes each schedule.</source>
+          <target state="new">We provide the JSON data that describes each schedule.</target>
+        </trans-unit>
+        <trans-unit id="7749f7dd-5f48-4309-9d04-9490477adb58" xml:space="preserve">
+          <source>If you use the <bpt id="1dacd9e4-88b9-4714-8dcd-c1c3e82bd316">&lt;linkText&gt;</bpt>Scheduler REST API<ept id="1dacd9e4-88b9-4714-8dcd-c1c3e82bd316">&lt;/linkText&gt;</ept><bpt id="1dacd9e4-88b9-4714-8dcd-c1c3e82bd316">&lt;title&gt;</bpt><ept id="1dacd9e4-88b9-4714-8dcd-c1c3e82bd316">&lt;/title&gt;</ept>, you can use this same JSON for <bpt id="c087c841-05f5-4ae2-9108-daa70a143042">&lt;linkText&gt;</bpt>creating an Azure Scheduler job<ept id="c087c841-05f5-4ae2-9108-daa70a143042">&lt;/linkText&gt;</ept><bpt id="c087c841-05f5-4ae2-9108-daa70a143042">&lt;title&gt;</bpt><ept id="c087c841-05f5-4ae2-9108-daa70a143042">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you use the <bpt id="1dacd9e4-88b9-4714-8dcd-c1c3e82bd316">&lt;linkText&gt;</bpt>Scheduler REST API<ept id="1dacd9e4-88b9-4714-8dcd-c1c3e82bd316">&lt;/linkText&gt;</ept><bpt id="1dacd9e4-88b9-4714-8dcd-c1c3e82bd316">&lt;title&gt;</bpt><ept id="1dacd9e4-88b9-4714-8dcd-c1c3e82bd316">&lt;/title&gt;</ept>, you can use this same JSON for <bpt id="c087c841-05f5-4ae2-9108-daa70a143042">&lt;linkText&gt;</bpt>creating an Azure Scheduler job<ept id="c087c841-05f5-4ae2-9108-daa70a143042">&lt;/linkText&gt;</ept><bpt id="c087c841-05f5-4ae2-9108-daa70a143042">&lt;title&gt;</bpt><ept id="c087c841-05f5-4ae2-9108-daa70a143042">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="702b77d4-1222-40e8-a2f9-39257b4e49ed" xml:space="preserve">
+          <source>The many examples in this topic illustrate the breadth of scenarios that Azure Scheduler supports.</source>
+          <target state="new">The many examples in this topic illustrate the breadth of scenarios that Azure Scheduler supports.</target>
+        </trans-unit>
+        <trans-unit id="15ba442f-edd5-4091-aa30-9738a92aec87" xml:space="preserve">
+          <source>Broadly, these examples illustrate how to create schedules for many behavior patterns, including the ones below:</source>
+          <target state="new">Broadly, these examples illustrate how to create schedules for many behavior patterns, including the ones below:</target>
+        </trans-unit>
+        <trans-unit id="c22e5c26-d89a-4759-96f2-6c2ebf24966c" xml:space="preserve">
+          <source>Run once at a particular date and time</source>
+          <target state="new">Run once at a particular date and time</target>
+        </trans-unit>
+        <trans-unit id="ceef0dd0-c433-4a70-abb5-e0ad0c4537fe" xml:space="preserve">
+          <source>Run and recur a number of explicit times</source>
+          <target state="new">Run and recur a number of explicit times</target>
+        </trans-unit>
+        <trans-unit id="11888cc9-caeb-46e4-a62c-e6b4204b7073" xml:space="preserve">
+          <source>Run immediately and recur </source>
+          <target state="new">Run immediately and recur </target>
+        </trans-unit>
+        <trans-unit id="a75e7d65-38dc-4ccd-91b7-65381fc44cfb" xml:space="preserve">
+          <source>Run and recur every <bpt id="9e7ac43c-d623-4ea4-b8c3-3b8f21463a3c">&lt;em&gt;</bpt>n<ept id="9e7ac43c-d623-4ea4-b8c3-3b8f21463a3c">&lt;/em&gt;</ept> minutes, hours, days, weeks, or months, starting at a particular time</source>
+          <target state="new">Run and recur every <bpt id="9e7ac43c-d623-4ea4-b8c3-3b8f21463a3c">&lt;em&gt;</bpt>n<ept id="9e7ac43c-d623-4ea4-b8c3-3b8f21463a3c">&lt;/em&gt;</ept> minutes, hours, days, weeks, or months, starting at a particular time</target>
+        </trans-unit>
+        <trans-unit id="76cac807-e83a-4bf3-a52c-2c67bb3eac19" xml:space="preserve">
+          <source>Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month</source>
+          <target state="new">Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month</target>
+        </trans-unit>
+        <trans-unit id="8777ad0d-aefd-44f5-a18a-ef281a504343" xml:space="preserve">
+          <source>Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day</source>
+          <target state="new">Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day</target>
+        </trans-unit>
+        <trans-unit id="53de7bf1-6365-4801-9c82-ca0fa33b955e" xml:space="preserve">
+          <source>Dates in Azure Scheduler jobs follow the <bpt id="851882ec-de4e-4453-b28f-789c9b774036">&lt;linkText&gt;</bpt>ISO-8601 specification<ept id="851882ec-de4e-4453-b28f-789c9b774036">&lt;/linkText&gt;</ept><bpt id="851882ec-de4e-4453-b28f-789c9b774036">&lt;title&gt;</bpt><ept id="851882ec-de4e-4453-b28f-789c9b774036">&lt;/title&gt;</ept> and include only the date.</source>
+          <target state="new">Dates in Azure Scheduler jobs follow the <bpt id="851882ec-de4e-4453-b28f-789c9b774036">&lt;linkText&gt;</bpt>ISO-8601 specification<ept id="851882ec-de4e-4453-b28f-789c9b774036">&lt;/linkText&gt;</ept><bpt id="851882ec-de4e-4453-b28f-789c9b774036">&lt;title&gt;</bpt><ept id="851882ec-de4e-4453-b28f-789c9b774036">&lt;/title&gt;</ept> and include only the date.</target>
+        </trans-unit>
+        <trans-unit id="872477a7-8d67-4f95-b0c1-35c30fdd7fbc" xml:space="preserve">
+          <source>Date-Time references in Azure Scheduler jobs follow the <bpt id="d50f534e-f6b5-49f5-a4c9-a346c8c07f96">&lt;linkText&gt;</bpt>ISO-8601 specification<ept id="d50f534e-f6b5-49f5-a4c9-a346c8c07f96">&lt;/linkText&gt;</ept><bpt id="d50f534e-f6b5-49f5-a4c9-a346c8c07f96">&lt;title&gt;</bpt><ept id="d50f534e-f6b5-49f5-a4c9-a346c8c07f96">&lt;/title&gt;</ept> and include both date and time parts.</source>
+          <target state="new">Date-Time references in Azure Scheduler jobs follow the <bpt id="d50f534e-f6b5-49f5-a4c9-a346c8c07f96">&lt;linkText&gt;</bpt>ISO-8601 specification<ept id="d50f534e-f6b5-49f5-a4c9-a346c8c07f96">&lt;/linkText&gt;</ept><bpt id="d50f534e-f6b5-49f5-a4c9-a346c8c07f96">&lt;title&gt;</bpt><ept id="d50f534e-f6b5-49f5-a4c9-a346c8c07f96">&lt;/title&gt;</ept> and include both date and time parts.</target>
+        </trans-unit>
+        <trans-unit id="98c09a59-d3c3-4dc7-a69d-a04b20019f91" xml:space="preserve">
+          <source>A Date-Time that does not specify a UTC offset is assumed to be UTC.</source>
+          <target state="new">A Date-Time that does not specify a UTC offset is assumed to be UTC.</target>
+        </trans-unit>
+        <trans-unit id="bc471ce7-a32c-4998-af4d-d1ef3c0f8a00" xml:space="preserve">
+          <source>To create a simple schedule using the JSON examples in this article and the Azure Scheduler REST API, <bpt id="1eb8f18e-79b9-41e7-88d0-4cbf399a005a">&lt;linkText&gt;</bpt>first create a cloud service<ept id="1eb8f18e-79b9-41e7-88d0-4cbf399a005a">&lt;/linkText&gt;</ept><bpt id="1eb8f18e-79b9-41e7-88d0-4cbf399a005a">&lt;title&gt;</bpt><ept id="1eb8f18e-79b9-41e7-88d0-4cbf399a005a">&lt;/title&gt;</ept>, <bpt id="f484fd8f-4d0a-4670-b64b-b8bcbbbb56a0">&lt;linkText&gt;</bpt>then create a job collection<ept id="f484fd8f-4d0a-4670-b64b-b8bcbbbb56a0">&lt;/linkText&gt;</ept><bpt id="f484fd8f-4d0a-4670-b64b-b8bcbbbb56a0">&lt;title&gt;</bpt><ept id="f484fd8f-4d0a-4670-b64b-b8bcbbbb56a0">&lt;/title&gt;</ept>, and <bpt id="8fc26864-76c2-4562-8778-45d5ba140add">&lt;linkText&gt;</bpt>finally create a job<ept id="8fc26864-76c2-4562-8778-45d5ba140add">&lt;/linkText&gt;</ept><bpt id="8fc26864-76c2-4562-8778-45d5ba140add">&lt;title&gt;</bpt><ept id="8fc26864-76c2-4562-8778-45d5ba140add">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a simple schedule using the JSON examples in this article and the Azure Scheduler REST API, <bpt id="1eb8f18e-79b9-41e7-88d0-4cbf399a005a">&lt;linkText&gt;</bpt>first create a cloud service<ept id="1eb8f18e-79b9-41e7-88d0-4cbf399a005a">&lt;/linkText&gt;</ept><bpt id="1eb8f18e-79b9-41e7-88d0-4cbf399a005a">&lt;title&gt;</bpt><ept id="1eb8f18e-79b9-41e7-88d0-4cbf399a005a">&lt;/title&gt;</ept>, <bpt id="f484fd8f-4d0a-4670-b64b-b8bcbbbb56a0">&lt;linkText&gt;</bpt>then create a job collection<ept id="f484fd8f-4d0a-4670-b64b-b8bcbbbb56a0">&lt;/linkText&gt;</ept><bpt id="f484fd8f-4d0a-4670-b64b-b8bcbbbb56a0">&lt;title&gt;</bpt><ept id="f484fd8f-4d0a-4670-b64b-b8bcbbbb56a0">&lt;/title&gt;</ept>, and <bpt id="8fc26864-76c2-4562-8778-45d5ba140add">&lt;linkText&gt;</bpt>finally create a job<ept id="8fc26864-76c2-4562-8778-45d5ba140add">&lt;/linkText&gt;</ept><bpt id="8fc26864-76c2-4562-8778-45d5ba140add">&lt;title&gt;</bpt><ept id="8fc26864-76c2-4562-8778-45d5ba140add">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8aefe3a-ff09-4575-a9a9-8c27c37dbdfb" xml:space="preserve">
+          <source>When you create a job, you can specify scheduling and recurrence using JSON like the one excerpted below:</source>
+          <target state="new">When you create a job, you can specify scheduling and recurrence using JSON like the one excerpted below:</target>
+        </trans-unit>
+        <trans-unit id="24001b20-696e-492b-85c8-3e8e702b4f0d" xml:space="preserve">
+          <source>The following table provides a high-level overview of the major elements related to recurrence and scheduling in a job: </source>
+          <target state="new">The following table provides a high-level overview of the major elements related to recurrence and scheduling in a job: </target>
+        </trans-unit>
+        <trans-unit id="050b580f-e19f-45b1-a1e9-2ff4b88bacff" xml:space="preserve">
+          <source><bpt id="cc59a70a-d820-4e58-b787-5fa01e9c0fb3">&lt;strong&gt;</bpt>JSON name<ept id="cc59a70a-d820-4e58-b787-5fa01e9c0fb3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cc59a70a-d820-4e58-b787-5fa01e9c0fb3">&lt;strong&gt;</bpt>JSON name<ept id="cc59a70a-d820-4e58-b787-5fa01e9c0fb3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17a1e085-b47f-4377-98e2-930b8e61e88a" xml:space="preserve">
+          <source><bpt id="cb794b5d-1db4-4d30-8eca-97c42cb03223">&lt;strong&gt;</bpt>Description<ept id="cb794b5d-1db4-4d30-8eca-97c42cb03223">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cb794b5d-1db4-4d30-8eca-97c42cb03223">&lt;strong&gt;</bpt>Description<ept id="cb794b5d-1db4-4d30-8eca-97c42cb03223">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25f142ce-5f78-4aa5-bfd0-fac185869465" xml:space="preserve">
+          <source><bpt id="b1392aab-97ff-4432-9c40-f4637e0442fe">&lt;strong&gt;</bpt>_startTime_<ept id="b1392aab-97ff-4432-9c40-f4637e0442fe">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b1392aab-97ff-4432-9c40-f4637e0442fe">&lt;strong&gt;</bpt>_startTime_<ept id="b1392aab-97ff-4432-9c40-f4637e0442fe">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8983a535-02c5-40a4-ac81-2a6566ae5130" xml:space="preserve">
+          <source><bpt id="915cfb55-f60b-404e-8141-0a4ec635933a">&lt;em&gt;</bpt>startTime<ept id="915cfb55-f60b-404e-8141-0a4ec635933a">&lt;/em&gt;</ept> is a Date-Time.</source>
+          <target state="new"><bpt id="915cfb55-f60b-404e-8141-0a4ec635933a">&lt;em&gt;</bpt>startTime<ept id="915cfb55-f60b-404e-8141-0a4ec635933a">&lt;/em&gt;</ept> is a Date-Time.</target>
+        </trans-unit>
+        <trans-unit id="4f12c66a-df95-4139-8e9c-0bad19e711a8" xml:space="preserve">
+          <source>For simple schedules, <bpt id="12358ecd-8470-4098-84b2-0792d11b582e">&lt;em&gt;</bpt>startTime<ept id="12358ecd-8470-4098-84b2-0792d11b582e">&lt;/em&gt;</ept> is the first occurrence and for complex schedules, the job will start no sooner than <bpt id="5bad4d71-be30-4ffc-ac75-4e7ea5b7518e">&lt;em&gt;</bpt>startTime<ept id="5bad4d71-be30-4ffc-ac75-4e7ea5b7518e">&lt;/em&gt;</ept>.</source>
+          <target state="new">For simple schedules, <bpt id="12358ecd-8470-4098-84b2-0792d11b582e">&lt;em&gt;</bpt>startTime<ept id="12358ecd-8470-4098-84b2-0792d11b582e">&lt;/em&gt;</ept> is the first occurrence and for complex schedules, the job will start no sooner than <bpt id="5bad4d71-be30-4ffc-ac75-4e7ea5b7518e">&lt;em&gt;</bpt>startTime<ept id="5bad4d71-be30-4ffc-ac75-4e7ea5b7518e">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="486714fe-9acb-4bbe-b839-a9c46a7f75ed" xml:space="preserve">
+          <source><bpt id="a9056674-6c20-4a63-bb0d-d1df6a422af1">&lt;strong&gt;</bpt>_recurrence_<ept id="a9056674-6c20-4a63-bb0d-d1df6a422af1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a9056674-6c20-4a63-bb0d-d1df6a422af1">&lt;strong&gt;</bpt>_recurrence_<ept id="a9056674-6c20-4a63-bb0d-d1df6a422af1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e53ee21-b8be-4661-8381-28e44b295430" xml:space="preserve">
+          <source>The <bpt id="2ec4c1e8-1c7f-4bf1-8efd-c9e0eb50ea54">&lt;em&gt;</bpt>recurrence<ept id="2ec4c1e8-1c7f-4bf1-8efd-c9e0eb50ea54">&lt;/em&gt;</ept> object specifies recurrence rules for the job and the recurrence the job will execute with.</source>
+          <target state="new">The <bpt id="2ec4c1e8-1c7f-4bf1-8efd-c9e0eb50ea54">&lt;em&gt;</bpt>recurrence<ept id="2ec4c1e8-1c7f-4bf1-8efd-c9e0eb50ea54">&lt;/em&gt;</ept> object specifies recurrence rules for the job and the recurrence the job will execute with.</target>
+        </trans-unit>
+        <trans-unit id="5a92445f-5911-49e0-b45f-6abd6b8a7fb5" xml:space="preserve">
+          <source>The recurrence object supports the elements <bpt id="b198d413-cf53-40bf-8b9c-704105e987cc">&lt;em&gt;</bpt>frequency, interval, endTime, count,<ept id="b198d413-cf53-40bf-8b9c-704105e987cc">&lt;/em&gt;</ept> and <bpt id="e2cd51d8-5bfa-45c6-8718-41520017d651">&lt;em&gt;</bpt>schedule<ept id="e2cd51d8-5bfa-45c6-8718-41520017d651">&lt;/em&gt;</ept>.</source>
+          <target state="new">The recurrence object supports the elements <bpt id="b198d413-cf53-40bf-8b9c-704105e987cc">&lt;em&gt;</bpt>frequency, interval, endTime, count,<ept id="b198d413-cf53-40bf-8b9c-704105e987cc">&lt;/em&gt;</ept> and <bpt id="e2cd51d8-5bfa-45c6-8718-41520017d651">&lt;em&gt;</bpt>schedule<ept id="e2cd51d8-5bfa-45c6-8718-41520017d651">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9981cab7-4bae-4414-9c2b-1e011ebb2b32" xml:space="preserve">
+          <source>If <bpt id="3c76f526-b969-4815-9c81-f1014efb3bdc">&lt;em&gt;</bpt>recurrence<ept id="3c76f526-b969-4815-9c81-f1014efb3bdc">&lt;/em&gt;</ept> is defined, <bpt id="d73d2724-5d6b-444b-a4c5-5147a4738fbd">&lt;em&gt;</bpt>frequency<ept id="d73d2724-5d6b-444b-a4c5-5147a4738fbd">&lt;/em&gt;</ept> is required; the other elements of <bpt id="459a041b-f2cc-4eb8-9afd-9c44ee8652ab">&lt;em&gt;</bpt>recurrence<ept id="459a041b-f2cc-4eb8-9afd-9c44ee8652ab">&lt;/em&gt;</ept> are optional.</source>
+          <target state="new">If <bpt id="3c76f526-b969-4815-9c81-f1014efb3bdc">&lt;em&gt;</bpt>recurrence<ept id="3c76f526-b969-4815-9c81-f1014efb3bdc">&lt;/em&gt;</ept> is defined, <bpt id="d73d2724-5d6b-444b-a4c5-5147a4738fbd">&lt;em&gt;</bpt>frequency<ept id="d73d2724-5d6b-444b-a4c5-5147a4738fbd">&lt;/em&gt;</ept> is required; the other elements of <bpt id="459a041b-f2cc-4eb8-9afd-9c44ee8652ab">&lt;em&gt;</bpt>recurrence<ept id="459a041b-f2cc-4eb8-9afd-9c44ee8652ab">&lt;/em&gt;</ept> are optional.</target>
+        </trans-unit>
+        <trans-unit id="0695f4b4-4eaf-4cda-a334-18f188c18d9b" xml:space="preserve">
+          <source><bpt id="bc8532f6-d050-4fad-b2fd-f4b51d649514">&lt;strong&gt;</bpt>_frequency_<ept id="bc8532f6-d050-4fad-b2fd-f4b51d649514">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bc8532f6-d050-4fad-b2fd-f4b51d649514">&lt;strong&gt;</bpt>_frequency_<ept id="bc8532f6-d050-4fad-b2fd-f4b51d649514">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e76e194-2ecd-4d0d-a613-ce0b5b29cb20" xml:space="preserve">
+          <source>The <bpt id="2a669d89-14cf-4760-a6b7-194595546a95">&lt;em&gt;</bpt>frequency<ept id="2a669d89-14cf-4760-a6b7-194595546a95">&lt;/em&gt;</ept> string representing the frequency unit at which the job recurs.</source>
+          <target state="new">The <bpt id="2a669d89-14cf-4760-a6b7-194595546a95">&lt;em&gt;</bpt>frequency<ept id="2a669d89-14cf-4760-a6b7-194595546a95">&lt;/em&gt;</ept> string representing the frequency unit at which the job recurs.</target>
+        </trans-unit>
+        <trans-unit id="db50a8f2-a0a6-4e1e-9117-f841b3f30f4c" xml:space="preserve">
+          <source>Supported values are <bpt id="e7ecc7d5-770b-415d-8fd5-5da39c9913f3">&lt;em&gt;</bpt>"minute", "hour", "day", "week",<ept id="e7ecc7d5-770b-415d-8fd5-5da39c9913f3">&lt;/em&gt;</ept> or <bpt id="03640563-cd52-474a-8e64-096070f72752">&lt;em&gt;</bpt>"month."<ept id="03640563-cd52-474a-8e64-096070f72752">&lt;/em&gt;</ept></source>
+          <target state="new">Supported values are <bpt id="e7ecc7d5-770b-415d-8fd5-5da39c9913f3">&lt;em&gt;</bpt>"minute", "hour", "day", "week",<ept id="e7ecc7d5-770b-415d-8fd5-5da39c9913f3">&lt;/em&gt;</ept> or <bpt id="03640563-cd52-474a-8e64-096070f72752">&lt;em&gt;</bpt>"month."<ept id="03640563-cd52-474a-8e64-096070f72752">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ec3e7ad-a011-4c07-a083-aa96bf88c1e7" xml:space="preserve">
+          <source><bpt id="0cc08c8d-c0ba-4e68-92ce-f52e8c8904d3">&lt;strong&gt;</bpt>_interval_<ept id="0cc08c8d-c0ba-4e68-92ce-f52e8c8904d3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0cc08c8d-c0ba-4e68-92ce-f52e8c8904d3">&lt;strong&gt;</bpt>_interval_<ept id="0cc08c8d-c0ba-4e68-92ce-f52e8c8904d3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="075319e8-d745-4f6d-9ded-9fd1793ae9bc" xml:space="preserve">
+          <source>The <bpt id="69286ea5-1efc-478d-a33a-6a14e2756ab3">&lt;em&gt;</bpt>interval<ept id="69286ea5-1efc-478d-a33a-6a14e2756ab3">&lt;/em&gt;</ept> is a positive integer and denotes the interval for the <bpt id="f8ae50f8-8d39-4be5-83ec-e2f6f90825d2">&lt;em&gt;</bpt>frequency<ept id="f8ae50f8-8d39-4be5-83ec-e2f6f90825d2">&lt;/em&gt;</ept> that determines how often the job will run. For example, if <bpt id="953c89d8-6224-4b8c-a822-a581c9e8eb3d">&lt;em&gt;</bpt>interval<ept id="953c89d8-6224-4b8c-a822-a581c9e8eb3d">&lt;/em&gt;</ept> is 3 and <bpt id="bcbbc31f-58d0-4b8d-9928-7d5129cd02fd">&lt;em&gt;</bpt>frequency<ept id="bcbbc31f-58d0-4b8d-9928-7d5129cd02fd">&lt;/em&gt;</ept> is "week", the job recurs every 3 weeks. Azure Scheduler supports a maximum <bpt id="d091dd77-4492-464d-adf8-cdb530eff31f">&lt;em&gt;</bpt>interval<ept id="d091dd77-4492-464d-adf8-cdb530eff31f">&lt;/em&gt;</ept> of 18 months for monthly frequency, 78 weeks for weekly frequency, or 548 days for daily frequency. For hour and minute frequency, the supported range is 1 &lt;= <bpt id="607d3054-68ba-4362-8a0a-174ea273358d">&lt;em&gt;</bpt>interval<ept id="607d3054-68ba-4362-8a0a-174ea273358d">&lt;/em&gt;</ept> &lt;= 1000.</source>
+          <target state="new">The <bpt id="69286ea5-1efc-478d-a33a-6a14e2756ab3">&lt;em&gt;</bpt>interval<ept id="69286ea5-1efc-478d-a33a-6a14e2756ab3">&lt;/em&gt;</ept> is a positive integer and denotes the interval for the <bpt id="f8ae50f8-8d39-4be5-83ec-e2f6f90825d2">&lt;em&gt;</bpt>frequency<ept id="f8ae50f8-8d39-4be5-83ec-e2f6f90825d2">&lt;/em&gt;</ept> that determines how often the job will run. For example, if <bpt id="953c89d8-6224-4b8c-a822-a581c9e8eb3d">&lt;em&gt;</bpt>interval<ept id="953c89d8-6224-4b8c-a822-a581c9e8eb3d">&lt;/em&gt;</ept> is 3 and <bpt id="bcbbc31f-58d0-4b8d-9928-7d5129cd02fd">&lt;em&gt;</bpt>frequency<ept id="bcbbc31f-58d0-4b8d-9928-7d5129cd02fd">&lt;/em&gt;</ept> is "week", the job recurs every 3 weeks. Azure Scheduler supports a maximum <bpt id="d091dd77-4492-464d-adf8-cdb530eff31f">&lt;em&gt;</bpt>interval<ept id="d091dd77-4492-464d-adf8-cdb530eff31f">&lt;/em&gt;</ept> of 18 months for monthly frequency, 78 weeks for weekly frequency, or 548 days for daily frequency. For hour and minute frequency, the supported range is 1 &lt;= <bpt id="607d3054-68ba-4362-8a0a-174ea273358d">&lt;em&gt;</bpt>interval<ept id="607d3054-68ba-4362-8a0a-174ea273358d">&lt;/em&gt;</ept> &lt;= 1000.</target>
+        </trans-unit>
+        <trans-unit id="bf6d6745-debe-49a3-89cb-b1d5e804e34b" xml:space="preserve">
+          <source><bpt id="a4dd2c91-c62e-4635-a089-2cfe318febee">&lt;strong&gt;</bpt>_endTime_<ept id="a4dd2c91-c62e-4635-a089-2cfe318febee">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a4dd2c91-c62e-4635-a089-2cfe318febee">&lt;strong&gt;</bpt>_endTime_<ept id="a4dd2c91-c62e-4635-a089-2cfe318febee">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42ce8b73-7acf-4695-ba0f-2e5366903d4f" xml:space="preserve">
+          <source>The <bpt id="163efab0-c531-4025-91c9-875da0caa24f">&lt;em&gt;</bpt>endTime<ept id="163efab0-c531-4025-91c9-875da0caa24f">&lt;/em&gt;</ept> string specifies the date-time past which the job should not execute.</source>
+          <target state="new">The <bpt id="163efab0-c531-4025-91c9-875da0caa24f">&lt;em&gt;</bpt>endTime<ept id="163efab0-c531-4025-91c9-875da0caa24f">&lt;/em&gt;</ept> string specifies the date-time past which the job should not execute.</target>
+        </trans-unit>
+        <trans-unit id="33473591-1f57-4b50-8046-852557c5e450" xml:space="preserve">
+          <source>It is not valid to have an <bpt id="7625dedf-80c1-411b-bce1-77c850680e2b">&lt;em&gt;</bpt>endTime<ept id="7625dedf-80c1-411b-bce1-77c850680e2b">&lt;/em&gt;</ept> in the past.</source>
+          <target state="new">It is not valid to have an <bpt id="7625dedf-80c1-411b-bce1-77c850680e2b">&lt;em&gt;</bpt>endTime<ept id="7625dedf-80c1-411b-bce1-77c850680e2b">&lt;/em&gt;</ept> in the past.</target>
+        </trans-unit>
+        <trans-unit id="36b8ba7a-6096-45a2-b82c-eaa0c6ecdcfa" xml:space="preserve">
+          <source>If no <bpt id="cba106c7-8b1e-4407-afab-30a01012cde7">&lt;em&gt;</bpt>endTime<ept id="cba106c7-8b1e-4407-afab-30a01012cde7">&lt;/em&gt;</ept> or count is specified, the job runs infinitely.</source>
+          <target state="new">If no <bpt id="cba106c7-8b1e-4407-afab-30a01012cde7">&lt;em&gt;</bpt>endTime<ept id="cba106c7-8b1e-4407-afab-30a01012cde7">&lt;/em&gt;</ept> or count is specified, the job runs infinitely.</target>
+        </trans-unit>
+        <trans-unit id="67f11985-66fe-48df-9370-98ab6c92f690" xml:space="preserve">
+          <source>Both <bpt id="221f6152-dee2-4262-a525-84eb6e013b27">&lt;em&gt;</bpt>endTime<ept id="221f6152-dee2-4262-a525-84eb6e013b27">&lt;/em&gt;</ept> and <bpt id="ac18f28f-15ff-4b42-8d3d-85b6f75b3260">&lt;em&gt;</bpt>count<ept id="ac18f28f-15ff-4b42-8d3d-85b6f75b3260">&lt;/em&gt;</ept> cannot be included for the same job.</source>
+          <target state="new">Both <bpt id="221f6152-dee2-4262-a525-84eb6e013b27">&lt;em&gt;</bpt>endTime<ept id="221f6152-dee2-4262-a525-84eb6e013b27">&lt;/em&gt;</ept> and <bpt id="ac18f28f-15ff-4b42-8d3d-85b6f75b3260">&lt;em&gt;</bpt>count<ept id="ac18f28f-15ff-4b42-8d3d-85b6f75b3260">&lt;/em&gt;</ept> cannot be included for the same job.</target>
+        </trans-unit>
+        <trans-unit id="dfc11adf-eab1-47a3-be2a-65548dafb7eb" xml:space="preserve">
+          <source><bpt id="6fc3d138-9944-4131-a839-ecab62452cd6">&lt;strong&gt;</bpt>_count_<ept id="6fc3d138-9944-4131-a839-ecab62452cd6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6fc3d138-9944-4131-a839-ecab62452cd6">&lt;strong&gt;</bpt>_count_<ept id="6fc3d138-9944-4131-a839-ecab62452cd6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ac4ccf8-b995-427a-b07e-8597f49b31e5" xml:space="preserve">
+          <source>&lt;p&gt;The <bpt id="2c4f8c2f-55b6-4404-b76b-788526fae4c4">&lt;em&gt;</bpt>count<ept id="2c4f8c2f-55b6-4404-b76b-788526fae4c4">&lt;/em&gt;</ept> is a positive integer (greater than zero) that specifies the number of times this job should run before completing.&lt;/p&gt;&lt;p&gt;The <bpt id="d98eab03-0ae1-477e-9a5e-eb579d49d2a8">&lt;em&gt;</bpt>count<ept id="d98eab03-0ae1-477e-9a5e-eb579d49d2a8">&lt;/em&gt;</ept> represents the number of times the job runs before being determined as completed. For example, for a job that is executed daily with <bpt id="91753c74-69cb-4bc9-bd28-2c4ea4b19ab7">&lt;em&gt;</bpt>count<ept id="91753c74-69cb-4bc9-bd28-2c4ea4b19ab7">&lt;/em&gt;</ept> 5 and start date of Monday, the job completes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.&lt;/p&gt;&lt;p&gt;If no <bpt id="5e384c99-15fa-404d-801d-cae959d12938">&lt;em&gt;</bpt>endTime<ept id="5e384c99-15fa-404d-801d-cae959d12938">&lt;/em&gt;</ept> or <bpt id="8f82c694-ddf3-46bb-8a4b-083f2f6697af">&lt;em&gt;</bpt>count<ept id="8f82c694-ddf3-46bb-8a4b-083f2f6697af">&lt;/em&gt;</ept> is specified, the job runs infinitely. Both <bpt id="9694ae50-8025-4c39-b0f0-61a4a9f7f5b8">&lt;em&gt;</bpt>endTime<ept id="9694ae50-8025-4c39-b0f0-61a4a9f7f5b8">&lt;/em&gt;</ept> and <bpt id="a90c106f-a64f-4a85-a423-9f8671ccc954">&lt;em&gt;</bpt>count<ept id="a90c106f-a64f-4a85-a423-9f8671ccc954">&lt;/em&gt;</ept> cannot be included for the same job.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;The <bpt id="2c4f8c2f-55b6-4404-b76b-788526fae4c4">&lt;em&gt;</bpt>count<ept id="2c4f8c2f-55b6-4404-b76b-788526fae4c4">&lt;/em&gt;</ept> is a positive integer (greater than zero) that specifies the number of times this job should run before completing.&lt;/p&gt;&lt;p&gt;The <bpt id="d98eab03-0ae1-477e-9a5e-eb579d49d2a8">&lt;em&gt;</bpt>count<ept id="d98eab03-0ae1-477e-9a5e-eb579d49d2a8">&lt;/em&gt;</ept> represents the number of times the job runs before being determined as completed. For example, for a job that is executed daily with <bpt id="91753c74-69cb-4bc9-bd28-2c4ea4b19ab7">&lt;em&gt;</bpt>count<ept id="91753c74-69cb-4bc9-bd28-2c4ea4b19ab7">&lt;/em&gt;</ept> 5 and start date of Monday, the job completes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.&lt;/p&gt;&lt;p&gt;If no <bpt id="5e384c99-15fa-404d-801d-cae959d12938">&lt;em&gt;</bpt>endTime<ept id="5e384c99-15fa-404d-801d-cae959d12938">&lt;/em&gt;</ept> or <bpt id="8f82c694-ddf3-46bb-8a4b-083f2f6697af">&lt;em&gt;</bpt>count<ept id="8f82c694-ddf3-46bb-8a4b-083f2f6697af">&lt;/em&gt;</ept> is specified, the job runs infinitely. Both <bpt id="9694ae50-8025-4c39-b0f0-61a4a9f7f5b8">&lt;em&gt;</bpt>endTime<ept id="9694ae50-8025-4c39-b0f0-61a4a9f7f5b8">&lt;/em&gt;</ept> and <bpt id="a90c106f-a64f-4a85-a423-9f8671ccc954">&lt;em&gt;</bpt>count<ept id="a90c106f-a64f-4a85-a423-9f8671ccc954">&lt;/em&gt;</ept> cannot be included for the same job.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="80b05b6e-7c9c-4b64-a115-733a77d3ebc4" xml:space="preserve">
+          <source><bpt id="b83e3307-3b81-4387-a91d-b91c951a96d9">&lt;strong&gt;</bpt>_schedule_<ept id="b83e3307-3b81-4387-a91d-b91c951a96d9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b83e3307-3b81-4387-a91d-b91c951a96d9">&lt;strong&gt;</bpt>_schedule_<ept id="b83e3307-3b81-4387-a91d-b91c951a96d9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a74c499-4fcc-47d6-8884-3d7674299def" xml:space="preserve">
+          <source>A job with a specified frequency alters its recurrence based on a recurrence schedule.</source>
+          <target state="new">A job with a specified frequency alters its recurrence based on a recurrence schedule.</target>
+        </trans-unit>
+        <trans-unit id="1b77d7b5-fb08-4e5e-aee3-d1e351e1cfe6" xml:space="preserve">
+          <source>A <bpt id="842bab85-f059-47dd-be0f-552789d9ebe9">&lt;em&gt;</bpt>schedule<ept id="842bab85-f059-47dd-be0f-552789d9ebe9">&lt;/em&gt;</ept> contains modifications based on minutes, hours, week days, month days, and week number.</source>
+          <target state="new">A <bpt id="842bab85-f059-47dd-be0f-552789d9ebe9">&lt;em&gt;</bpt>schedule<ept id="842bab85-f059-47dd-be0f-552789d9ebe9">&lt;/em&gt;</ept> contains modifications based on minutes, hours, week days, month days, and week number.</target>
+        </trans-unit>
+        <trans-unit id="cf5aaf5a-54bb-4f79-8fc7-51a0e26ac6b8" xml:space="preserve">
+          <source>After this overview, let’s discuss each of these elements in detail.</source>
+          <target state="new">After this overview, let’s discuss each of these elements in detail.</target>
+        </trans-unit>
+        <trans-unit id="f3109b74-47ce-48ae-9fcd-7a0902e4779a" xml:space="preserve">
+          <source><bpt id="9e5dbdac-12f6-44c9-afd9-64bbf2d352d1">&lt;strong&gt;</bpt>JSON name<ept id="9e5dbdac-12f6-44c9-afd9-64bbf2d352d1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9e5dbdac-12f6-44c9-afd9-64bbf2d352d1">&lt;strong&gt;</bpt>JSON name<ept id="9e5dbdac-12f6-44c9-afd9-64bbf2d352d1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b85b8e33-b304-4c17-b13f-ba0fdc8c3a79" xml:space="preserve">
+          <source><bpt id="10fe1e03-092c-4427-b8be-0c0a51340a07">&lt;strong&gt;</bpt>Value type<ept id="10fe1e03-092c-4427-b8be-0c0a51340a07">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="10fe1e03-092c-4427-b8be-0c0a51340a07">&lt;strong&gt;</bpt>Value type<ept id="10fe1e03-092c-4427-b8be-0c0a51340a07">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5fc62e5f-0e3d-4866-b4f3-ff49282f580d" xml:space="preserve">
+          <source><bpt id="7fb30667-d1b8-44d3-8f3c-644ccaed026b">&lt;strong&gt;</bpt>Required?<ept id="7fb30667-d1b8-44d3-8f3c-644ccaed026b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7fb30667-d1b8-44d3-8f3c-644ccaed026b">&lt;strong&gt;</bpt>Required?<ept id="7fb30667-d1b8-44d3-8f3c-644ccaed026b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd161a0a-41b1-4f84-b5fc-abfb81909488" xml:space="preserve">
+          <source><bpt id="6334279d-fede-4d1e-a359-02fcd6b4deaf">&lt;strong&gt;</bpt>Default value<ept id="6334279d-fede-4d1e-a359-02fcd6b4deaf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6334279d-fede-4d1e-a359-02fcd6b4deaf">&lt;strong&gt;</bpt>Default value<ept id="6334279d-fede-4d1e-a359-02fcd6b4deaf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f284fea7-202d-44ee-b09a-53791dc69cc8" xml:space="preserve">
+          <source><bpt id="ebc0f430-3dce-4646-bedb-ad446f6c6c65">&lt;strong&gt;</bpt>Valid values<ept id="ebc0f430-3dce-4646-bedb-ad446f6c6c65">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ebc0f430-3dce-4646-bedb-ad446f6c6c65">&lt;strong&gt;</bpt>Valid values<ept id="ebc0f430-3dce-4646-bedb-ad446f6c6c65">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f24e544-0f43-475f-ba35-2d78071e2133" xml:space="preserve">
+          <source><bpt id="7df7bd4e-6bae-4a6f-b464-60edf79f5843">&lt;strong&gt;</bpt>Example<ept id="7df7bd4e-6bae-4a6f-b464-60edf79f5843">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7df7bd4e-6bae-4a6f-b464-60edf79f5843">&lt;strong&gt;</bpt>Example<ept id="7df7bd4e-6bae-4a6f-b464-60edf79f5843">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4106782c-efcf-4e19-a3a4-e945d52fafb0" xml:space="preserve">
+          <source><bpt id="281dbb2d-e11e-4f5f-b641-241f91125151">&lt;strong&gt;</bpt>_startTime_<ept id="281dbb2d-e11e-4f5f-b641-241f91125151">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="281dbb2d-e11e-4f5f-b641-241f91125151">&lt;strong&gt;</bpt>_startTime_<ept id="281dbb2d-e11e-4f5f-b641-241f91125151">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0487ed0-8e34-4159-a85c-ccf2e0c5897a" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="605dcc8a-51f6-4200-8fe1-0d7823bfb903" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="c2cd31f9-b1ae-4c84-b6b2-c68a8d25f2eb" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="57176c4a-5298-4916-8945-b340892e6cae" xml:space="preserve">
+          <source>ISO-8601 Date-Times</source>
+          <target state="new">ISO-8601 Date-Times</target>
+        </trans-unit>
+        <trans-unit id="027d2e7e-9370-48f8-b659-898d14810edf" xml:space="preserve">
+          <source>&lt;code&gt;"startTime" : "2013-01-09T09:30:00-08:00"&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;"startTime" : "2013-01-09T09:30:00-08:00"&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="6894849c-cadc-4072-92a2-cba84bdc27c0" xml:space="preserve">
+          <source><bpt id="11a0fa36-2b57-4f9b-b7a0-6145a314374b">&lt;strong&gt;</bpt>_recurrence_<ept id="11a0fa36-2b57-4f9b-b7a0-6145a314374b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="11a0fa36-2b57-4f9b-b7a0-6145a314374b">&lt;strong&gt;</bpt>_recurrence_<ept id="11a0fa36-2b57-4f9b-b7a0-6145a314374b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9dfdd4f8-5b23-4277-9a8c-baaaf50cd4d0" xml:space="preserve">
+          <source>Object</source>
+          <target state="new">Object</target>
+        </trans-unit>
+        <trans-unit id="2ab93d02-7c32-4cdc-aa44-36172e644335" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="0f6e3b3e-241b-4648-9908-53eeaa0521ff" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="8e726332-a5e1-499f-a188-49f2db3d9bf5" xml:space="preserve">
+          <source>Recurrence object</source>
+          <target state="new">Recurrence object</target>
+        </trans-unit>
+        <trans-unit id="1f59607e-9315-4ef9-a23d-c27d2b04c08a" xml:space="preserve">
+          <source>&lt;code&gt;"recurrence" : { "frequency" : "monthly", "interval" : 1 }&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;"recurrence" : { "frequency" : "monthly", "interval" : 1 }&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="fd40de8f-e4c1-4fcd-bdd5-a4d649ffc86f" xml:space="preserve">
+          <source><bpt id="a4c59bed-cee3-4017-b391-2a4502cd0bbe">&lt;strong&gt;</bpt>_frequency_<ept id="a4c59bed-cee3-4017-b391-2a4502cd0bbe">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a4c59bed-cee3-4017-b391-2a4502cd0bbe">&lt;strong&gt;</bpt>_frequency_<ept id="a4c59bed-cee3-4017-b391-2a4502cd0bbe">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6651b037-8b94-4941-8ced-644c16bc18b8" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="3985027c-d665-4b6c-8686-f70a3d4cdbb6" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="bc79faff-c241-4738-99b9-fd124cd5ac4f" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="89e89496-d280-45db-acb4-f443828228d9" xml:space="preserve">
+          <source>"minute", "hour", "day", "week", "month"</source>
+          <target state="new">"minute", "hour", "day", "week", "month"</target>
+        </trans-unit>
+        <trans-unit id="78fd99e8-c041-461e-bf04-fdb0f09f642b" xml:space="preserve">
+          <source>&lt;code&gt;"frequency" : "hour"&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;"frequency" : "hour"&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="40f8c1e6-5a11-45ea-99e7-1b1af46318bd" xml:space="preserve">
+          <source><bpt id="ae635615-95f2-4396-854e-92a5dc2a9fc5">&lt;strong&gt;</bpt>_interval_<ept id="ae635615-95f2-4396-854e-92a5dc2a9fc5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ae635615-95f2-4396-854e-92a5dc2a9fc5">&lt;strong&gt;</bpt>_interval_<ept id="ae635615-95f2-4396-854e-92a5dc2a9fc5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c37619bc-4584-4282-a176-4129c7b3b9d8" xml:space="preserve">
+          <source>Number</source>
+          <target state="new">Number</target>
+        </trans-unit>
+        <trans-unit id="652653e6-6e54-4032-9edf-ffe410962482" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="4c798626-74da-4c15-add7-2f957c9014b3" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="b5332501-d6f0-4102-ba29-f5f018baddd9" xml:space="preserve">
+          <source>1 to 1000.</source>
+          <target state="new">1 to 1000.</target>
+        </trans-unit>
+        <trans-unit id="4b21960b-5088-4873-aa2b-97e6da3c3a59" xml:space="preserve">
+          <source>&lt;code&gt;"interval":10&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;"interval":10&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="e5c543d5-4ba5-4086-ac8d-70e393503ebe" xml:space="preserve">
+          <source><bpt id="52f41106-0baa-401c-8bfb-7bb396b0104c">&lt;strong&gt;</bpt>_endTime_<ept id="52f41106-0baa-401c-8bfb-7bb396b0104c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="52f41106-0baa-401c-8bfb-7bb396b0104c">&lt;strong&gt;</bpt>_endTime_<ept id="52f41106-0baa-401c-8bfb-7bb396b0104c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f350956-1a03-4edc-a45a-a5a938a9981f" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="d5f31682-d192-4e87-91e0-0abbc184fd39" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="f5f35b7e-241f-4dcc-939a-a74f326c09ed" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="12ee0262-017a-4a42-85fd-a2a4cbe2359b" xml:space="preserve">
+          <source>Date-Time value representing a time in the future</source>
+          <target state="new">Date-Time value representing a time in the future</target>
+        </trans-unit>
+        <trans-unit id="e92e58ea-28c9-40f9-b36d-e74f4795b8f9" xml:space="preserve">
+          <source>&lt;code&gt;"endTime" : "2013-02-09T09:30:00-08:00"&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;"endTime" : "2013-02-09T09:30:00-08:00"&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="99a85ba1-c7ef-415b-ad36-292a69fbb5d1" xml:space="preserve">
+          <source><bpt id="696c2023-fd65-4416-87a8-de6103096c20">&lt;strong&gt;</bpt>_count_<ept id="696c2023-fd65-4416-87a8-de6103096c20">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="696c2023-fd65-4416-87a8-de6103096c20">&lt;strong&gt;</bpt>_count_<ept id="696c2023-fd65-4416-87a8-de6103096c20">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51a583b0-f1e0-4021-8e1c-d7a942e4bb35" xml:space="preserve">
+          <source>Number</source>
+          <target state="new">Number</target>
+        </trans-unit>
+        <trans-unit id="ff620787-a679-4e73-b774-ddf3999b2a41" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="98b72c1d-eda8-49d5-aceb-ea5f56560c85" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="e88fa16f-2a45-4081-a0dc-9af7c9aa9393" xml:space="preserve">
+          <source>&gt;= 1</source>
+          <target state="new">&gt;= 1</target>
+        </trans-unit>
+        <trans-unit id="5c2aaf5e-fada-4de2-afcc-017f778efea4" xml:space="preserve">
+          <source>&lt;code&gt;"count": 5&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;"count": 5&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="11644e65-f6bb-4bd3-86b3-c85598db262c" xml:space="preserve">
+          <source><bpt id="69516de1-1afc-4ea8-9d94-d9dd235b2f0a">&lt;strong&gt;</bpt>_schedule_<ept id="69516de1-1afc-4ea8-9d94-d9dd235b2f0a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="69516de1-1afc-4ea8-9d94-d9dd235b2f0a">&lt;strong&gt;</bpt>_schedule_<ept id="69516de1-1afc-4ea8-9d94-d9dd235b2f0a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e053f5db-6e35-49e1-88ec-d9ab30e742da" xml:space="preserve">
+          <source>Object</source>
+          <target state="new">Object</target>
+        </trans-unit>
+        <trans-unit id="b4e89f5d-df3c-4ebc-967e-80609863e4b7" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="65726c75-5751-49ab-b186-2862a0c361b4" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="2a60a992-5dd1-45fb-ab99-6df7b3147960" xml:space="preserve">
+          <source>Schedule object</source>
+          <target state="new">Schedule object</target>
+        </trans-unit>
+        <trans-unit id="0fa630f0-1311-40c6-b861-961ad19eea96" xml:space="preserve">
+          <source>&lt;code&gt;"schedule" : { "minute" : [30], "hour" : [8,17] }&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;"schedule" : { "minute" : [30], "hour" : [8,17] }&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="88e4e56b-24f5-42c4-88a1-ebf1d516ee37" xml:space="preserve">
+          <source>The following table captures how <bpt id="9d1d857c-cf62-4f25-b8ae-a94d03ef39d9">&lt;em&gt;</bpt>startTime<ept id="9d1d857c-cf62-4f25-b8ae-a94d03ef39d9">&lt;/em&gt;</ept> controls how a job is run.</source>
+          <target state="new">The following table captures how <bpt id="9d1d857c-cf62-4f25-b8ae-a94d03ef39d9">&lt;em&gt;</bpt>startTime<ept id="9d1d857c-cf62-4f25-b8ae-a94d03ef39d9">&lt;/em&gt;</ept> controls how a job is run.</target>
+        </trans-unit>
+        <trans-unit id="df3b3250-4932-456d-b75e-e46261c5564e" xml:space="preserve">
+          <source><bpt id="e71ae802-33c9-43c1-bb90-b96c9df48534">&lt;strong&gt;</bpt>startTime value<ept id="e71ae802-33c9-43c1-bb90-b96c9df48534">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e71ae802-33c9-43c1-bb90-b96c9df48534">&lt;strong&gt;</bpt>startTime value<ept id="e71ae802-33c9-43c1-bb90-b96c9df48534">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e748b263-b31e-4bdf-9658-8b2990558be2" xml:space="preserve">
+          <source><bpt id="79e9111f-3b96-4a47-b50a-66c4e5c915c3">&lt;strong&gt;</bpt>No recurrence<ept id="79e9111f-3b96-4a47-b50a-66c4e5c915c3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="79e9111f-3b96-4a47-b50a-66c4e5c915c3">&lt;strong&gt;</bpt>No recurrence<ept id="79e9111f-3b96-4a47-b50a-66c4e5c915c3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bdbd554-4064-46d7-b7bf-9b655ebb72f6" xml:space="preserve">
+          <source>**Recurrence.</source>
+          <target state="new">**Recurrence.</target>
+        </trans-unit>
+        <trans-unit id="461f35e1-2251-4e3f-8b43-0f2be10b2611" xml:space="preserve">
+          <source>No schedule**</source>
+          <target state="new">No schedule**</target>
+        </trans-unit>
+        <trans-unit id="354ececd-d603-4369-821c-7e821c4c663e" xml:space="preserve">
+          <source><bpt id="95fbfb93-19e5-4d90-a000-1f241b2ed5f9">&lt;strong&gt;</bpt>Recurrence with schedule<ept id="95fbfb93-19e5-4d90-a000-1f241b2ed5f9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="95fbfb93-19e5-4d90-a000-1f241b2ed5f9">&lt;strong&gt;</bpt>Recurrence with schedule<ept id="95fbfb93-19e5-4d90-a000-1f241b2ed5f9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29aafc0c-e28f-4928-b36f-4e9f411f656e" xml:space="preserve">
+          <source><bpt id="b1982084-0799-46bb-980c-6dec9d92db78">&lt;strong&gt;</bpt>No start time<ept id="b1982084-0799-46bb-980c-6dec9d92db78">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b1982084-0799-46bb-980c-6dec9d92db78">&lt;strong&gt;</bpt>No start time<ept id="b1982084-0799-46bb-980c-6dec9d92db78">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="feee53c8-717e-45d2-a5ec-5088a83e9503" xml:space="preserve">
+          <source>Run once immediately</source>
+          <target state="new">Run once immediately</target>
+        </trans-unit>
+        <trans-unit id="59162a09-d540-47af-ae95-705d9965dfd4" xml:space="preserve">
+          <source>Run once immediately.</source>
+          <target state="new">Run once immediately.</target>
+        </trans-unit>
+        <trans-unit id="f951cefe-c463-4b37-96fd-76c47664d943" xml:space="preserve">
+          <source>Run subsequent executions based on calculating from last execution time</source>
+          <target state="new">Run subsequent executions based on calculating from last execution time</target>
+        </trans-unit>
+        <trans-unit id="4c71b91f-4848-4e50-a91d-bc493d56470c" xml:space="preserve">
+          <source>&lt;p&gt;Run once immediately&lt;/p&gt;&lt;p&gt;Run subsequent executions based on recurrence schedule&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Run once immediately&lt;/p&gt;&lt;p&gt;Run subsequent executions based on recurrence schedule&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="bd992424-d8a4-4509-9791-eb685547eb64" xml:space="preserve">
+          <source><bpt id="172274f8-a668-46bc-aacf-1853c580605b">&lt;strong&gt;</bpt>Start time in past<ept id="172274f8-a668-46bc-aacf-1853c580605b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="172274f8-a668-46bc-aacf-1853c580605b">&lt;strong&gt;</bpt>Start time in past<ept id="172274f8-a668-46bc-aacf-1853c580605b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ff37eed-5c6b-4fc8-9c36-b6f3325d52e7" xml:space="preserve">
+          <source>Run once immediately</source>
+          <target state="new">Run once immediately</target>
+        </trans-unit>
+        <trans-unit id="042b213e-ca5d-4fb7-989a-374c1fe0ee3f" xml:space="preserve">
+          <source>&lt;p&gt;Calculate first future execution time after start time, and run at that time&lt;/p&gt;&lt;p&gt;Run subsequent executions based oncalculating from last execution time&lt;/p&gt;&lt;p&gt;See example after this table for a further explanation&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Calculate first future execution time after start time, and run at that time&lt;/p&gt;&lt;p&gt;Run subsequent executions based oncalculating from last execution time&lt;/p&gt;&lt;p&gt;See example after this table for a further explanation&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="a5bd9694-1596-4e65-8832-fa2f787716ec" xml:space="preserve">
+          <source>&lt;p&gt;Job starts <bpt id="85b4538c-cbc9-4e90-b72b-e6866fe7e152">&lt;em&gt;</bpt>no sooner than<ept id="85b4538c-cbc9-4e90-b72b-e6866fe7e152">&lt;/em&gt;</ept> the specified start time. The first occurrence is based on the schedule calculated from the start time&lt;/p&gt;&lt;p&gt;Run subsequent executions based on recurrence schedule&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Job starts <bpt id="85b4538c-cbc9-4e90-b72b-e6866fe7e152">&lt;em&gt;</bpt>no sooner than<ept id="85b4538c-cbc9-4e90-b72b-e6866fe7e152">&lt;/em&gt;</ept> the specified start time. The first occurrence is based on the schedule calculated from the start time&lt;/p&gt;&lt;p&gt;Run subsequent executions based on recurrence schedule&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="6a4334c3-1b65-469d-aeb7-4db20b9d9b9c" xml:space="preserve">
+          <source><bpt id="faa488e6-ada2-47f7-87a6-a35daede9503">&lt;strong&gt;</bpt>Start time in future or at present<ept id="faa488e6-ada2-47f7-87a6-a35daede9503">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="faa488e6-ada2-47f7-87a6-a35daede9503">&lt;strong&gt;</bpt>Start time in future or at present<ept id="faa488e6-ada2-47f7-87a6-a35daede9503">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13476118-a541-4992-8bf1-e116e81f77fa" xml:space="preserve">
+          <source>Run once at specified start time</source>
+          <target state="new">Run once at specified start time</target>
+        </trans-unit>
+        <trans-unit id="56519391-228e-4697-a631-0c266ade3952" xml:space="preserve">
+          <source>&lt;p&gt;Run once at specified start time&lt;/p&gt;&lt;p&gt;Run subsequent executions based on calculating from last execution time&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Run once at specified start time&lt;/p&gt;&lt;p&gt;Run subsequent executions based on calculating from last execution time&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="77c0f3b2-3d5a-460e-a84b-4449952a663a" xml:space="preserve">
+          <source>&lt;p&gt;Job starts <bpt id="cb7d5f7e-d130-43dd-bf7b-1a83a5c66560">&lt;em&gt;</bpt>no sooner than<ept id="cb7d5f7e-d130-43dd-bf7b-1a83a5c66560">&lt;/em&gt;</ept> the specified start time. The first occurrence is based on the schedule calculated from the start time&lt;/p&gt;&lt;p&gt;Run subsequent executions based on recurrence schedule&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Job starts <bpt id="cb7d5f7e-d130-43dd-bf7b-1a83a5c66560">&lt;em&gt;</bpt>no sooner than<ept id="cb7d5f7e-d130-43dd-bf7b-1a83a5c66560">&lt;/em&gt;</ept> the specified start time. The first occurrence is based on the schedule calculated from the start time&lt;/p&gt;&lt;p&gt;Run subsequent executions based on recurrence schedule&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="6bf273c5-8d4b-4d9e-904b-df5369bb5f9b" xml:space="preserve">
+          <source>Let's see an example of what happens where <bpt id="2c21f696-d120-488c-a81f-f5464b0d22c8">&lt;em&gt;</bpt>startTime<ept id="2c21f696-d120-488c-a81f-f5464b0d22c8">&lt;/em&gt;</ept> is in the past, with <bpt id="babf6734-6351-4a42-aa78-4db799fdcb51">&lt;em&gt;</bpt>recurrence<ept id="babf6734-6351-4a42-aa78-4db799fdcb51">&lt;/em&gt;</ept> but no <bpt id="8b05b40b-64fc-49b6-b6d7-13bfc4cd0ccc">&lt;em&gt;</bpt>schedule<ept id="8b05b40b-64fc-49b6-b6d7-13bfc4cd0ccc">&lt;/em&gt;</ept>.</source>
+          <target state="new">Let's see an example of what happens where <bpt id="2c21f696-d120-488c-a81f-f5464b0d22c8">&lt;em&gt;</bpt>startTime<ept id="2c21f696-d120-488c-a81f-f5464b0d22c8">&lt;/em&gt;</ept> is in the past, with <bpt id="babf6734-6351-4a42-aa78-4db799fdcb51">&lt;em&gt;</bpt>recurrence<ept id="babf6734-6351-4a42-aa78-4db799fdcb51">&lt;/em&gt;</ept> but no <bpt id="8b05b40b-64fc-49b6-b6d7-13bfc4cd0ccc">&lt;em&gt;</bpt>schedule<ept id="8b05b40b-64fc-49b6-b6d7-13bfc4cd0ccc">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73278230-c2d8-4375-a46f-7b0805b57d7b" xml:space="preserve">
+          <source>Assume that the current time is 2015-04-08 13:00, <bpt id="0da3e69a-4f36-4851-8c97-c0bb7670956d">&lt;em&gt;</bpt>startTime<ept id="0da3e69a-4f36-4851-8c97-c0bb7670956d">&lt;/em&gt;</ept> is 2015-04-07 14:00, and <bpt id="c0343ab0-5358-401c-9234-8da3d4e2ee1c">&lt;em&gt;</bpt>recurrence<ept id="c0343ab0-5358-401c-9234-8da3d4e2ee1c">&lt;/em&gt;</ept> is every 2 days (defined with <bpt id="e3339c11-79c3-49ad-9448-37ecaa03e4ae">&lt;em&gt;</bpt>frequency<ept id="e3339c11-79c3-49ad-9448-37ecaa03e4ae">&lt;/em&gt;</ept>: day and <bpt id="3572d929-5ea9-40ac-93de-69d3ad85a997">&lt;em&gt;</bpt>interval<ept id="3572d929-5ea9-40ac-93de-69d3ad85a997">&lt;/em&gt;</ept>: 2.)</source>
+          <target state="new">Assume that the current time is 2015-04-08 13:00, <bpt id="0da3e69a-4f36-4851-8c97-c0bb7670956d">&lt;em&gt;</bpt>startTime<ept id="0da3e69a-4f36-4851-8c97-c0bb7670956d">&lt;/em&gt;</ept> is 2015-04-07 14:00, and <bpt id="c0343ab0-5358-401c-9234-8da3d4e2ee1c">&lt;em&gt;</bpt>recurrence<ept id="c0343ab0-5358-401c-9234-8da3d4e2ee1c">&lt;/em&gt;</ept> is every 2 days (defined with <bpt id="e3339c11-79c3-49ad-9448-37ecaa03e4ae">&lt;em&gt;</bpt>frequency<ept id="e3339c11-79c3-49ad-9448-37ecaa03e4ae">&lt;/em&gt;</ept>: day and <bpt id="3572d929-5ea9-40ac-93de-69d3ad85a997">&lt;em&gt;</bpt>interval<ept id="3572d929-5ea9-40ac-93de-69d3ad85a997">&lt;/em&gt;</ept>: 2.)</target>
+        </trans-unit>
+        <trans-unit id="9ea9db97-8108-472e-8f52-160e362561c3" xml:space="preserve">
+          <source>Note that the <bpt id="ee178e10-e6a4-4147-8134-56646cef0887">&lt;em&gt;</bpt>startTime<ept id="ee178e10-e6a4-4147-8134-56646cef0887">&lt;/em&gt;</ept> is in the past, and occurs before the current time</source>
+          <target state="new">Note that the <bpt id="ee178e10-e6a4-4147-8134-56646cef0887">&lt;em&gt;</bpt>startTime<ept id="ee178e10-e6a4-4147-8134-56646cef0887">&lt;/em&gt;</ept> is in the past, and occurs before the current time</target>
+        </trans-unit>
+        <trans-unit id="ffbc0f5c-7f30-46ef-8e02-b12d20e04654" xml:space="preserve">
+          <source>Under these conditions, the <bpt id="9d9dc972-c668-488e-a792-e0329da4600d">&lt;em&gt;</bpt>first execution<ept id="9d9dc972-c668-488e-a792-e0329da4600d">&lt;/em&gt;</ept> will be 2015-04-09 at 14:00\.</source>
+          <target state="new">Under these conditions, the <bpt id="9d9dc972-c668-488e-a792-e0329da4600d">&lt;em&gt;</bpt>first execution<ept id="9d9dc972-c668-488e-a792-e0329da4600d">&lt;/em&gt;</ept> will be 2015-04-09 at 14:00\.</target>
+        </trans-unit>
+        <trans-unit id="457c207e-0c5a-4970-980f-05ec3684fc63" xml:space="preserve">
+          <source>The Scheduler engine calculates execution occurrences from the start time.</source>
+          <target state="new">The Scheduler engine calculates execution occurrences from the start time.</target>
+        </trans-unit>
+        <trans-unit id="7d437ce6-b273-4317-b299-3ac010085f3c" xml:space="preserve">
+          <source>Any instances in the past are discarded.</source>
+          <target state="new">Any instances in the past are discarded.</target>
+        </trans-unit>
+        <trans-unit id="9af0ebd7-4125-4724-9d0e-f34af5eb111f" xml:space="preserve">
+          <source>The engine uses the next instance that occurs in the future.</source>
+          <target state="new">The engine uses the next instance that occurs in the future.</target>
+        </trans-unit>
+        <trans-unit id="14ba2257-5246-4986-bb80-bc90cf49c2fb" xml:space="preserve">
+          <source>So in this case, <bpt id="36f5cc81-769c-4382-96ef-4619d25b17ff">&lt;em&gt;</bpt>startTime<ept id="36f5cc81-769c-4382-96ef-4619d25b17ff">&lt;/em&gt;</ept> is 2015-04-07 at 2:00pm, so the next instance is 2 days from that time, which is 2015-04-09 at 2:00pm.</source>
+          <target state="new">So in this case, <bpt id="36f5cc81-769c-4382-96ef-4619d25b17ff">&lt;em&gt;</bpt>startTime<ept id="36f5cc81-769c-4382-96ef-4619d25b17ff">&lt;/em&gt;</ept> is 2015-04-07 at 2:00pm, so the next instance is 2 days from that time, which is 2015-04-09 at 2:00pm.</target>
+        </trans-unit>
+        <trans-unit id="fab4d32b-4956-4189-af32-fb4170409be0" xml:space="preserve">
+          <source>Note that the first execution would be the same even if the startTime 2015-04-05 14:00 or 2015-04-01 14:00\.</source>
+          <target state="new">Note that the first execution would be the same even if the startTime 2015-04-05 14:00 or 2015-04-01 14:00\.</target>
+        </trans-unit>
+        <trans-unit id="7a9859f3-d21d-4b6a-b526-83bb9e624e88" xml:space="preserve">
+          <source>After the first execution, subsequent executions are calculated using the scheduled – so they'd be at 2015-04-11 at 2:00pm, then 2015-04-13 at 2:00pm, then 2015-04-15 at 2:00pm, etc.</source>
+          <target state="new">After the first execution, subsequent executions are calculated using the scheduled – so they'd be at 2015-04-11 at 2:00pm, then 2015-04-13 at 2:00pm, then 2015-04-15 at 2:00pm, etc.</target>
+        </trans-unit>
+        <trans-unit id="4e8dbbab-a1c2-4316-b1f8-4373ea73fe22" xml:space="preserve">
+          <source>Finally, when a job has a schedule, if hours and/or minutes aren’t set in the schedule, they default to the hours and/or minutes of the first execution, respectively.</source>
+          <target state="new">Finally, when a job has a schedule, if hours and/or minutes aren’t set in the schedule, they default to the hours and/or minutes of the first execution, respectively.</target>
+        </trans-unit>
+        <trans-unit id="d93a57b6-97fb-489e-8104-c01794a7a68f" xml:space="preserve">
+          <source>On one hand, a <bpt id="4d2057b0-8798-4fcb-b2d3-5168a33eca9e">&lt;em&gt;</bpt>schedule<ept id="4d2057b0-8798-4fcb-b2d3-5168a33eca9e">&lt;/em&gt;</ept> can <bpt id="64285144-7357-46d9-8e9a-a78a78d67bf4">&lt;em&gt;</bpt>limit<ept id="64285144-7357-46d9-8e9a-a78a78d67bf4">&lt;/em&gt;</ept> the number of job executions.</source>
+          <target state="new">On one hand, a <bpt id="4d2057b0-8798-4fcb-b2d3-5168a33eca9e">&lt;em&gt;</bpt>schedule<ept id="4d2057b0-8798-4fcb-b2d3-5168a33eca9e">&lt;/em&gt;</ept> can <bpt id="64285144-7357-46d9-8e9a-a78a78d67bf4">&lt;em&gt;</bpt>limit<ept id="64285144-7357-46d9-8e9a-a78a78d67bf4">&lt;/em&gt;</ept> the number of job executions.</target>
+        </trans-unit>
+        <trans-unit id="ccbfb688-464f-4050-89bf-0c153609c29f" xml:space="preserve">
+          <source>For example, if a job with a "month" frequency has a <bpt id="b6b43ae7-2a0e-490e-a6f1-4d8af2770d3e">&lt;em&gt;</bpt>schedule<ept id="b6b43ae7-2a0e-490e-a6f1-4d8af2770d3e">&lt;/em&gt;</ept> that runs on only day 31, the job runs in only those months that have a 31&lt;sup&gt;st&lt;/sup&gt; day.</source>
+          <target state="new">For example, if a job with a "month" frequency has a <bpt id="b6b43ae7-2a0e-490e-a6f1-4d8af2770d3e">&lt;em&gt;</bpt>schedule<ept id="b6b43ae7-2a0e-490e-a6f1-4d8af2770d3e">&lt;/em&gt;</ept> that runs on only day 31, the job runs in only those months that have a 31&lt;sup&gt;st&lt;/sup&gt; day.</target>
+        </trans-unit>
+        <trans-unit id="5b370c27-dc5f-456d-acdd-8e8a789433ba" xml:space="preserve">
+          <source>On the other hand, a <bpt id="ad97265f-bf5d-4beb-ac98-ae7b65247a6a">&lt;em&gt;</bpt>schedule<ept id="ad97265f-bf5d-4beb-ac98-ae7b65247a6a">&lt;/em&gt;</ept> can also <bpt id="652cc254-ee9d-4586-9b34-103d1a9e8b86">&lt;em&gt;</bpt>expand<ept id="652cc254-ee9d-4586-9b34-103d1a9e8b86">&lt;/em&gt;</ept> the number of job executions.</source>
+          <target state="new">On the other hand, a <bpt id="ad97265f-bf5d-4beb-ac98-ae7b65247a6a">&lt;em&gt;</bpt>schedule<ept id="ad97265f-bf5d-4beb-ac98-ae7b65247a6a">&lt;/em&gt;</ept> can also <bpt id="652cc254-ee9d-4586-9b34-103d1a9e8b86">&lt;em&gt;</bpt>expand<ept id="652cc254-ee9d-4586-9b34-103d1a9e8b86">&lt;/em&gt;</ept> the number of job executions.</target>
+        </trans-unit>
+        <trans-unit id="1ddb0903-6a28-46b3-8c19-63c1f68df726" xml:space="preserve">
+          <source>For example, if a job with a "month" frequency has a <bpt id="7d1b035f-8eb7-4265-8f55-1d32857be0f1">&lt;em&gt;</bpt>schedule<ept id="7d1b035f-8eb7-4265-8f55-1d32857be0f1">&lt;/em&gt;</ept> that runs on month days 1 and 2, the job runs on the 1&lt;sup&gt;st&lt;/sup&gt; and 2&lt;sup&gt;nd&lt;/sup&gt; days of the month instead of just once a month.</source>
+          <target state="new">For example, if a job with a "month" frequency has a <bpt id="7d1b035f-8eb7-4265-8f55-1d32857be0f1">&lt;em&gt;</bpt>schedule<ept id="7d1b035f-8eb7-4265-8f55-1d32857be0f1">&lt;/em&gt;</ept> that runs on month days 1 and 2, the job runs on the 1&lt;sup&gt;st&lt;/sup&gt; and 2&lt;sup&gt;nd&lt;/sup&gt; days of the month instead of just once a month.</target>
+        </trans-unit>
+        <trans-unit id="261c00a7-e08a-43a7-832e-d7bc4c2615ef" xml:space="preserve">
+          <source>If multiple schedule elements are specified, the order of evaluation is from the largest to smallest – week number, month day, week day, hour, and minute.</source>
+          <target state="new">If multiple schedule elements are specified, the order of evaluation is from the largest to smallest – week number, month day, week day, hour, and minute.</target>
+        </trans-unit>
+        <trans-unit id="08f0207b-e291-4e33-a21d-17adc641e783" xml:space="preserve">
+          <source>The following table describes <bpt id="339a1b8b-1a80-4a58-92bc-6190ed1f6844">&lt;em&gt;</bpt>schedule<ept id="339a1b8b-1a80-4a58-92bc-6190ed1f6844">&lt;/em&gt;</ept> elements in detail.</source>
+          <target state="new">The following table describes <bpt id="339a1b8b-1a80-4a58-92bc-6190ed1f6844">&lt;em&gt;</bpt>schedule<ept id="339a1b8b-1a80-4a58-92bc-6190ed1f6844">&lt;/em&gt;</ept> elements in detail.</target>
+        </trans-unit>
+        <trans-unit id="4ab4e398-f00e-4f1b-8316-e348cbda9761" xml:space="preserve">
+          <source><bpt id="f04ddf02-25f5-4d18-aeb7-9af21ad80beb">&lt;strong&gt;</bpt>JSON name<ept id="f04ddf02-25f5-4d18-aeb7-9af21ad80beb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f04ddf02-25f5-4d18-aeb7-9af21ad80beb">&lt;strong&gt;</bpt>JSON name<ept id="f04ddf02-25f5-4d18-aeb7-9af21ad80beb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34b63d6c-55ea-4f3f-8f11-dc6e501e64fc" xml:space="preserve">
+          <source><bpt id="8746cc80-6501-4d7f-a028-267b876830d1">&lt;strong&gt;</bpt>Description<ept id="8746cc80-6501-4d7f-a028-267b876830d1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8746cc80-6501-4d7f-a028-267b876830d1">&lt;strong&gt;</bpt>Description<ept id="8746cc80-6501-4d7f-a028-267b876830d1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c313eeab-2320-47c1-8c76-ea8a84016581" xml:space="preserve">
+          <source><bpt id="d8173756-ba22-40a4-bfae-99e622d3205e">&lt;strong&gt;</bpt>Valid Values<ept id="d8173756-ba22-40a4-bfae-99e622d3205e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d8173756-ba22-40a4-bfae-99e622d3205e">&lt;strong&gt;</bpt>Valid Values<ept id="d8173756-ba22-40a4-bfae-99e622d3205e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77f6f733-79ab-4f69-9574-678185202afd" xml:space="preserve">
+          <source><bpt id="917e4332-c670-489b-a33b-daed3dac7b8e">&lt;strong&gt;</bpt>minutes<ept id="917e4332-c670-489b-a33b-daed3dac7b8e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="917e4332-c670-489b-a33b-daed3dac7b8e">&lt;strong&gt;</bpt>minutes<ept id="917e4332-c670-489b-a33b-daed3dac7b8e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a664c90f-6791-4821-89ad-629ed0862026" xml:space="preserve">
+          <source>Minutes of the hour at which the job will run</source>
+          <target state="new">Minutes of the hour at which the job will run</target>
+        </trans-unit>
+        <trans-unit id="ca5e7d8f-7785-429a-b0b9-88efa7cffd7a" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Integer, or&lt;/li&gt;&lt;li&gt;Array of integers&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Integer, or&lt;/li&gt;&lt;li&gt;Array of integers&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="ccf50281-45e2-4d94-b1e7-fd2abdfe37b4" xml:space="preserve">
+          <source><bpt id="b9ccda61-c0d8-407c-8c0f-a98b2d662d65">&lt;strong&gt;</bpt>hours<ept id="b9ccda61-c0d8-407c-8c0f-a98b2d662d65">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b9ccda61-c0d8-407c-8c0f-a98b2d662d65">&lt;strong&gt;</bpt>hours<ept id="b9ccda61-c0d8-407c-8c0f-a98b2d662d65">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf050252-aad8-4fd7-bf81-af84e2357b5e" xml:space="preserve">
+          <source>Hours of the day at which the job will run</source>
+          <target state="new">Hours of the day at which the job will run</target>
+        </trans-unit>
+        <trans-unit id="06f3ed3d-541d-4584-9795-1198b041f8ba" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Integer, or&lt;/li&gt;&lt;li&gt;Array of integers&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Integer, or&lt;/li&gt;&lt;li&gt;Array of integers&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="0eed9017-8c2e-42e8-9f4b-819d36086aec" xml:space="preserve">
+          <source><bpt id="684cdf1d-5ceb-49bb-bf34-f092262b50a8">&lt;strong&gt;</bpt>weekDays<ept id="684cdf1d-5ceb-49bb-bf34-f092262b50a8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="684cdf1d-5ceb-49bb-bf34-f092262b50a8">&lt;strong&gt;</bpt>weekDays<ept id="684cdf1d-5ceb-49bb-bf34-f092262b50a8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80b362e3-9d03-443d-b160-8971f9cb9e3f" xml:space="preserve">
+          <source>Days of the week the job will run.</source>
+          <target state="new">Days of the week the job will run.</target>
+        </trans-unit>
+        <trans-unit id="329b08da-10ca-41e2-ba4b-38964e6dec7a" xml:space="preserve">
+          <source>Can only be specified with a weekly frequency.</source>
+          <target state="new">Can only be specified with a weekly frequency.</target>
+        </trans-unit>
+        <trans-unit id="fa8d5b92-7dc9-41be-887e-ad0f1195557a" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", or "Sunday"&lt;/li&gt;&lt;li&gt;Array of any of the above values (max array size 7)&lt;/li&gt;&lt;/ul&gt;<bpt id="6e5f58b1-6734-49b9-b702-45d99a512ce2">&lt;em&gt;</bpt>Not<ept id="6e5f58b1-6734-49b9-b702-45d99a512ce2">&lt;/em&gt;</ept> case-sensitive</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", or "Sunday"&lt;/li&gt;&lt;li&gt;Array of any of the above values (max array size 7)&lt;/li&gt;&lt;/ul&gt;<bpt id="6e5f58b1-6734-49b9-b702-45d99a512ce2">&lt;em&gt;</bpt>Not<ept id="6e5f58b1-6734-49b9-b702-45d99a512ce2">&lt;/em&gt;</ept> case-sensitive</target>
+        </trans-unit>
+        <trans-unit id="ee5f8d04-e989-47ca-80a2-98733919306a" xml:space="preserve">
+          <source><bpt id="f382c640-5886-4022-a1fb-4f423b4675dd">&lt;strong&gt;</bpt>monthlyOccurrences<ept id="f382c640-5886-4022-a1fb-4f423b4675dd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f382c640-5886-4022-a1fb-4f423b4675dd">&lt;strong&gt;</bpt>monthlyOccurrences<ept id="f382c640-5886-4022-a1fb-4f423b4675dd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="369dee12-a833-4d27-8433-e0a1d8d6e11a" xml:space="preserve">
+          <source>Determines which days of the month the job will run.</source>
+          <target state="new">Determines which days of the month the job will run.</target>
+        </trans-unit>
+        <trans-unit id="7f5dcab4-ff48-45b2-b229-116e888a0fb0" xml:space="preserve">
+          <source>Can only be specified with a monthly frequency.</source>
+          <target state="new">Can only be specified with a monthly frequency.</target>
+        </trans-unit>
+        <trans-unit id="d020f7b2-4814-4f4c-aeaa-0f6a936287f0" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Array of monthlyOccurence objects:&lt;/li&gt;&lt;/ul&gt; &lt;pre&gt;{ "day": <bpt id="03250fb2-c31a-4526-8e37-76179976634f">&lt;em&gt;</bpt>day<ept id="03250fb2-c31a-4526-8e37-76179976634f">&lt;/em&gt;</ept>,&lt;br /&gt;  "occurrence": <bpt id="d58f5fa9-47e5-4233-9a57-b5fbb4fdffae">&lt;em&gt;</bpt>occurence<ept id="d58f5fa9-47e5-4233-9a57-b5fbb4fdffae">&lt;/em&gt;</ept>&lt;br /&gt;}&lt;/pre&gt;&lt;p&gt; <bpt id="014a997a-e477-42bd-8f0e-de5da6c05e2c">&lt;em&gt;</bpt>day<ept id="014a997a-e477-42bd-8f0e-de5da6c05e2c">&lt;/em&gt;</ept> is the day of the week the job will run, e.g. {Sunday} is every Sunday of the month. Required.&lt;/p&gt;&lt;p&gt;Occurrence is <bpt id="9211aeb1-f592-4620-bbf0-cef88d042940">&lt;em&gt;</bpt>occurrence<ept id="9211aeb1-f592-4620-bbf0-cef88d042940">&lt;/em&gt;</ept> of the day during the month, e.g. {Sunday, -1} is the last Sunday of the month. Optional.&lt;/p&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Array of monthlyOccurence objects:&lt;/li&gt;&lt;/ul&gt; &lt;pre&gt;{ "day": <bpt id="03250fb2-c31a-4526-8e37-76179976634f">&lt;em&gt;</bpt>day<ept id="03250fb2-c31a-4526-8e37-76179976634f">&lt;/em&gt;</ept>,&lt;br /&gt;  "occurrence": <bpt id="d58f5fa9-47e5-4233-9a57-b5fbb4fdffae">&lt;em&gt;</bpt>occurence<ept id="d58f5fa9-47e5-4233-9a57-b5fbb4fdffae">&lt;/em&gt;</ept>&lt;br /&gt;}&lt;/pre&gt;&lt;p&gt; <bpt id="014a997a-e477-42bd-8f0e-de5da6c05e2c">&lt;em&gt;</bpt>day<ept id="014a997a-e477-42bd-8f0e-de5da6c05e2c">&lt;/em&gt;</ept> is the day of the week the job will run, e.g. {Sunday} is every Sunday of the month. Required.&lt;/p&gt;&lt;p&gt;Occurrence is <bpt id="9211aeb1-f592-4620-bbf0-cef88d042940">&lt;em&gt;</bpt>occurrence<ept id="9211aeb1-f592-4620-bbf0-cef88d042940">&lt;/em&gt;</ept> of the day during the month, e.g. {Sunday, -1} is the last Sunday of the month. Optional.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="3afe09c3-4433-4c4b-9160-8a5271de3bd5" xml:space="preserve">
+          <source><bpt id="f5b17168-4f3d-4331-a12e-7a677215b571">&lt;strong&gt;</bpt>monthDays<ept id="f5b17168-4f3d-4331-a12e-7a677215b571">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f5b17168-4f3d-4331-a12e-7a677215b571">&lt;strong&gt;</bpt>monthDays<ept id="f5b17168-4f3d-4331-a12e-7a677215b571">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="637f0872-ead5-40e0-a5b4-1d55dfa35577" xml:space="preserve">
+          <source>Day of the month the job will run.</source>
+          <target state="new">Day of the month the job will run.</target>
+        </trans-unit>
+        <trans-unit id="128144fa-676c-402a-a0ca-019ad08c1bbb" xml:space="preserve">
+          <source>Can only be specified with a monthly frequency.</source>
+          <target state="new">Can only be specified with a monthly frequency.</target>
+        </trans-unit>
+        <trans-unit id="2bd15f59-180c-4358-8839-c0ebad11aabd" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Any value &lt;= -1 and &gt;= -31.&lt;/li&gt;&lt;li&gt;Any value &gt;= 1 and &lt;= 31.&lt;/li&gt;&lt;li&gt;An array of above values&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Any value &lt;= -1 and &gt;= -31.&lt;/li&gt;&lt;li&gt;Any value &gt;= 1 and &lt;= 31.&lt;/li&gt;&lt;li&gt;An array of above values&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="a97de759-133b-45e7-96f4-cffd33320a02" xml:space="preserve">
+          <source>The following are various examples of recurrence schedules – focusing on the schedule object and its sub-elements.</source>
+          <target state="new">The following are various examples of recurrence schedules – focusing on the schedule object and its sub-elements.</target>
+        </trans-unit>
+        <trans-unit id="951c312d-da80-4b2d-ad2d-02a8bd8bb7a2" xml:space="preserve">
+          <source>The schedules below all assume that the <bpt id="0746c3f9-d635-4183-a296-9a0e5055b882">&lt;em&gt;</bpt>interval<ept id="0746c3f9-d635-4183-a296-9a0e5055b882">&lt;/em&gt;</ept> is set to 1\.</source>
+          <target state="new">The schedules below all assume that the <bpt id="0746c3f9-d635-4183-a296-9a0e5055b882">&lt;em&gt;</bpt>interval<ept id="0746c3f9-d635-4183-a296-9a0e5055b882">&lt;/em&gt;</ept> is set to 1\.</target>
+        </trans-unit>
+        <trans-unit id="57991721-94f5-446c-9ede-4026381c34c6" xml:space="preserve">
+          <source>Also, one must assume the right frequency in accordance to what is in the <bpt id="2b5905fb-2870-4100-a0f0-2c9101f2dbc4">&lt;em&gt;</bpt>schedule<ept id="2b5905fb-2870-4100-a0f0-2c9101f2dbc4">&lt;/em&gt;</ept> – e.g., one can't use frequency "day" and have a "monthDays" modification in the schedule.</source>
+          <target state="new">Also, one must assume the right frequency in accordance to what is in the <bpt id="2b5905fb-2870-4100-a0f0-2c9101f2dbc4">&lt;em&gt;</bpt>schedule<ept id="2b5905fb-2870-4100-a0f0-2c9101f2dbc4">&lt;/em&gt;</ept> – e.g., one can't use frequency "day" and have a "monthDays" modification in the schedule.</target>
+        </trans-unit>
+        <trans-unit id="e137b79c-3b5f-4e23-97cd-e6026082c4b4" xml:space="preserve">
+          <source>Such restrictions are described above.</source>
+          <target state="new">Such restrictions are described above.</target>
+        </trans-unit>
+        <trans-unit id="2016a4c5-6956-456a-80b0-e29ea1e9337a" xml:space="preserve">
+          <source><bpt id="a2ea7e79-447a-4441-8b6f-ff1e87dcbc89">&lt;strong&gt;</bpt>Example<ept id="a2ea7e79-447a-4441-8b6f-ff1e87dcbc89">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a2ea7e79-447a-4441-8b6f-ff1e87dcbc89">&lt;strong&gt;</bpt>Example<ept id="a2ea7e79-447a-4441-8b6f-ff1e87dcbc89">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b347b61d-5673-4171-b1c3-235f923bfbde" xml:space="preserve">
+          <source><bpt id="cc12cd3b-d969-42e5-9615-a5115053cf13">&lt;strong&gt;</bpt>Description<ept id="cc12cd3b-d969-42e5-9615-a5115053cf13">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cc12cd3b-d969-42e5-9615-a5115053cf13">&lt;strong&gt;</bpt>Description<ept id="cc12cd3b-d969-42e5-9615-a5115053cf13">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4beb82b-5be5-4940-b6d5-023afac1c12e" xml:space="preserve">
+          <source>&lt;code&gt;{"hours":[5]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"hours":[5]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="4922249d-efd7-4c11-9627-2c00ab436f91" xml:space="preserve">
+          <source>Run at 5AM Every Day.</source>
+          <target state="new">Run at 5AM Every Day.</target>
+        </trans-unit>
+        <trans-unit id="d1c62ec0-236d-443e-9e8f-c13a521fd2c4" xml:space="preserve">
+          <source>Azure Scheduler matches up each value in "hours" with each value in "minutes", one by one, to create a list of all the times at which the job is to be run.</source>
+          <target state="new">Azure Scheduler matches up each value in "hours" with each value in "minutes", one by one, to create a list of all the times at which the job is to be run.</target>
+        </trans-unit>
+        <trans-unit id="601caf96-f554-41bc-a239-5c849f802b92" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[15],"hours":[5]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[15],"hours":[5]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="3529e3c9-90eb-4ccc-8555-93ab8de6facc" xml:space="preserve">
+          <source>Run at 5:15AM Every Day</source>
+          <target state="new">Run at 5:15AM Every Day</target>
+        </trans-unit>
+        <trans-unit id="0682f8a3-3271-4133-82d4-fce004c6d8b8" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[15],"hours":[5,17]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[15],"hours":[5,17]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="7ab85ff1-a679-48e0-b708-e46abd7b21d1" xml:space="preserve">
+          <source>Run at 5:15 AM and 5:15 PM Every Day</source>
+          <target state="new">Run at 5:15 AM and 5:15 PM Every Day</target>
+        </trans-unit>
+        <trans-unit id="7b9410d3-4e68-4edb-89f6-d77ecc710e6e" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[15,45],"hours":[5,17]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[15,45],"hours":[5,17]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="f981c63e-827a-4be5-bb0f-0025724ac494" xml:space="preserve">
+          <source>Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM Every Day</source>
+          <target state="new">Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM Every Day</target>
+        </trans-unit>
+        <trans-unit id="97c7a19c-b3ca-452e-a03b-24c65d548b71" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[0,15,30,45]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[0,15,30,45]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="ea6e9883-0b8b-4761-ba1a-294c351c2e1b" xml:space="preserve">
+          <source>Run Every 15 Minutes</source>
+          <target state="new">Run Every 15 Minutes</target>
+        </trans-unit>
+        <trans-unit id="a856e7eb-b488-4cf6-9cc0-6042ae899d32" xml:space="preserve">
+          <source>&lt;code&gt;{hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="26b0ef6b-3699-4726-a8af-2dc31aabaedd" xml:space="preserve">
+          <source>Run Every Hour.</source>
+          <target state="new">Run Every Hour.</target>
+        </trans-unit>
+        <trans-unit id="1c31dcb0-1f3a-4b7c-84a9-a7eca055d940" xml:space="preserve">
+          <source>This job runs every hour.</source>
+          <target state="new">This job runs every hour.</target>
+        </trans-unit>
+        <trans-unit id="b7d3290a-e8db-4584-9d3b-5ec805caa92d" xml:space="preserve">
+          <source>The minute is controlled by the <bpt id="ccf4b164-98fd-4356-a869-6969f69b5a5c">&lt;em&gt;</bpt>startTime<ept id="ccf4b164-98fd-4356-a869-6969f69b5a5c">&lt;/em&gt;</ept>, if one is specified, or if none is specified, by the creation time.</source>
+          <target state="new">The minute is controlled by the <bpt id="ccf4b164-98fd-4356-a869-6969f69b5a5c">&lt;em&gt;</bpt>startTime<ept id="ccf4b164-98fd-4356-a869-6969f69b5a5c">&lt;/em&gt;</ept>, if one is specified, or if none is specified, by the creation time.</target>
+        </trans-unit>
+        <trans-unit id="128b88b1-27b0-48b2-a2f6-815adfae6018" xml:space="preserve">
+          <source>For example, if the start time or creation time (whichever applies) is 12:25 PM, the job will be run at 00:25, 01:25, 02:25, …, 23:25.</source>
+          <target state="new">For example, if the start time or creation time (whichever applies) is 12:25 PM, the job will be run at 00:25, 01:25, 02:25, …, 23:25.</target>
+        </trans-unit>
+        <trans-unit id="ce19f89b-1863-46c6-ae2b-99f19881e2c6" xml:space="preserve">
+          <source>The schedule is equivalent to having a job with <bpt id="4c9c2e0d-f4e2-4fde-8acf-0ee9c83ad253">&lt;em&gt;</bpt>frequency<ept id="4c9c2e0d-f4e2-4fde-8acf-0ee9c83ad253">&lt;/em&gt;</ept> of "hour", an <bpt id="18f0ef26-929c-44a3-83db-57ff292878a2">&lt;em&gt;</bpt>interval<ept id="18f0ef26-929c-44a3-83db-57ff292878a2">&lt;/em&gt;</ept> of 1, and no <bpt id="83656fb5-db1f-4bb4-a333-d3e99d3259d1">&lt;em&gt;</bpt>schedule<ept id="83656fb5-db1f-4bb4-a333-d3e99d3259d1">&lt;/em&gt;</ept>.</source>
+          <target state="new">The schedule is equivalent to having a job with <bpt id="4c9c2e0d-f4e2-4fde-8acf-0ee9c83ad253">&lt;em&gt;</bpt>frequency<ept id="4c9c2e0d-f4e2-4fde-8acf-0ee9c83ad253">&lt;/em&gt;</ept> of "hour", an <bpt id="18f0ef26-929c-44a3-83db-57ff292878a2">&lt;em&gt;</bpt>interval<ept id="18f0ef26-929c-44a3-83db-57ff292878a2">&lt;/em&gt;</ept> of 1, and no <bpt id="83656fb5-db1f-4bb4-a333-d3e99d3259d1">&lt;em&gt;</bpt>schedule<ept id="83656fb5-db1f-4bb4-a333-d3e99d3259d1">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3d7c26d-668a-4034-92be-1fbd0c5ad73d" xml:space="preserve">
+          <source>The difference is that this schedule could be used with different <bpt id="15e869c4-d497-4da7-9e07-dd76f385b3e0">&lt;em&gt;</bpt>frequency<ept id="15e869c4-d497-4da7-9e07-dd76f385b3e0">&lt;/em&gt;</ept> and <bpt id="9e20ae5b-30cc-4f56-a949-39eade0124a1">&lt;em&gt;</bpt>interval<ept id="9e20ae5b-30cc-4f56-a949-39eade0124a1">&lt;/em&gt;</ept> to create other jobs too.</source>
+          <target state="new">The difference is that this schedule could be used with different <bpt id="15e869c4-d497-4da7-9e07-dd76f385b3e0">&lt;em&gt;</bpt>frequency<ept id="15e869c4-d497-4da7-9e07-dd76f385b3e0">&lt;/em&gt;</ept> and <bpt id="9e20ae5b-30cc-4f56-a949-39eade0124a1">&lt;em&gt;</bpt>interval<ept id="9e20ae5b-30cc-4f56-a949-39eade0124a1">&lt;/em&gt;</ept> to create other jobs too.</target>
+        </trans-unit>
+        <trans-unit id="cc21d680-8b77-48ee-816a-989e5aa7906a" xml:space="preserve">
+          <source>For example, if the <bpt id="daa9e382-a53d-4ecc-95b2-0ac90b9b0774">&lt;em&gt;</bpt>frequency<ept id="daa9e382-a53d-4ecc-95b2-0ac90b9b0774">&lt;/em&gt;</ept> were "month", the schedule would run only once a month instead of every day if <bpt id="34d45ede-23e3-4cfa-8b27-9ea14560d264">&lt;em&gt;</bpt>frequency<ept id="34d45ede-23e3-4cfa-8b27-9ea14560d264">&lt;/em&gt;</ept> were "day"</source>
+          <target state="new">For example, if the <bpt id="daa9e382-a53d-4ecc-95b2-0ac90b9b0774">&lt;em&gt;</bpt>frequency<ept id="daa9e382-a53d-4ecc-95b2-0ac90b9b0774">&lt;/em&gt;</ept> were "month", the schedule would run only once a month instead of every day if <bpt id="34d45ede-23e3-4cfa-8b27-9ea14560d264">&lt;em&gt;</bpt>frequency<ept id="34d45ede-23e3-4cfa-8b27-9ea14560d264">&lt;/em&gt;</ept> were "day"</target>
+        </trans-unit>
+        <trans-unit id="2a1e1b99-e7f5-47d5-b059-565ce44f6dc0" xml:space="preserve">
+          <source>&lt;code&gt;{minutes:[0]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{minutes:[0]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="5b4758ff-92b3-4266-b583-5634de0132ec" xml:space="preserve">
+          <source>Run Every Hour on the Hour.</source>
+          <target state="new">Run Every Hour on the Hour.</target>
+        </trans-unit>
+        <trans-unit id="c10270c3-f239-4636-8e86-377c7d796bab" xml:space="preserve">
+          <source>This job also runs every hour, but on the hour (e.g. 12AM, 1AM, 2AM, etc.)</source>
+          <target state="new">This job also runs every hour, but on the hour (e.g. 12AM, 1AM, 2AM, etc.)</target>
+        </trans-unit>
+        <trans-unit id="be0842ea-10ed-40d0-b8a8-7108c38c13b2" xml:space="preserve">
+          <source>This is equivalent to a job with frequency of "hour", a startTime with zero minutes, and no schedule if the frequency were "day", but if the frequency were "week" or "month," the schedule would execute only one day a week or one day a month, respectively.</source>
+          <target state="new">This is equivalent to a job with frequency of "hour", a startTime with zero minutes, and no schedule if the frequency were "day", but if the frequency were "week" or "month," the schedule would execute only one day a week or one day a month, respectively.</target>
+        </trans-unit>
+        <trans-unit id="1be56aea-00b2-4dcb-aef6-253fd380d749" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[15]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[15]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="e55ab5c6-bf55-4e6e-9556-2dfa1d38b00a" xml:space="preserve">
+          <source>Run at 15 Minutes Past Hour Every Hour.</source>
+          <target state="new">Run at 15 Minutes Past Hour Every Hour.</target>
+        </trans-unit>
+        <trans-unit id="fa57e915-4dc0-4bb2-ab88-802a00f50339" xml:space="preserve">
+          <source>Runs every hour, starting at 00:15AM, 1:15AM, 2:15AM, etc. and ending at 10:15PM and 11:15PM.</source>
+          <target state="new">Runs every hour, starting at 00:15AM, 1:15AM, 2:15AM, etc. and ending at 10:15PM and 11:15PM.</target>
+        </trans-unit>
+        <trans-unit id="6672d134-4a70-40fd-b221-89f87091a6c5" xml:space="preserve">
+          <source>&lt;code&gt;{"hours":[17],"weekDays":["saturday"]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"hours":[17],"weekDays":["saturday"]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="9669391a-7723-4c2d-8a99-e1ae36891acf" xml:space="preserve">
+          <source>Run at 5PM on Saturdays Every Week</source>
+          <target state="new">Run at 5PM on Saturdays Every Week</target>
+        </trans-unit>
+        <trans-unit id="9a485edd-fce7-40ca-93c9-ea0e478b1266" xml:space="preserve">
+          <source>&lt;code&gt;{hours":[17],"weekDays":["monday","wednesday","friday"]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{hours":[17],"weekDays":["monday","wednesday","friday"]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="3e079955-c4bf-45c3-b18a-97561be01402" xml:space="preserve">
+          <source>Run at 5PM on Monday, Wednesday, and Friday Every Week</source>
+          <target state="new">Run at 5PM on Monday, Wednesday, and Friday Every Week</target>
+        </trans-unit>
+        <trans-unit id="4a193bb3-cdf1-4f4c-b34a-f1a1bd099a6a" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[15,45],"hours":[17],"weekDays":["monday","wednesday","friday"]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[15,45],"hours":[17],"weekDays":["monday","wednesday","friday"]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="1597bc43-c521-4a7a-bb4f-b1fc30a3ec16" xml:space="preserve">
+          <source>Run at 5:15PM and 5:45PM on Monday, Wednesday, and Friday Every Week</source>
+          <target state="new">Run at 5:15PM and 5:45PM on Monday, Wednesday, and Friday Every Week</target>
+        </trans-unit>
+        <trans-unit id="21aeec07-4614-46fe-bc69-a29618a517dc" xml:space="preserve">
+          <source>&lt;code&gt;{"hours":[5,17],"weekDays":["monday","wednesday","friday"]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"hours":[5,17],"weekDays":["monday","wednesday","friday"]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="d9c90e87-d6e0-4376-960a-9bc40398e246" xml:space="preserve">
+          <source>Run at 5AM and 5PM on Monday, Wednesday, and Friday Every Week</source>
+          <target state="new">Run at 5AM and 5PM on Monday, Wednesday, and Friday Every Week</target>
+        </trans-unit>
+        <trans-unit id="630c892d-fd13-4194-8585-894bf968a7fd" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[15,45],"hours":[5,17],"weekDays":["monday","wednesday","friday"]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[15,45],"hours":[5,17],"weekDays":["monday","wednesday","friday"]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="c3b448c7-ae9c-4f70-a092-a50e05b71a9f" xml:space="preserve">
+          <source>Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on Monday, Wednesday, and Friday Every Week</source>
+          <target state="new">Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on Monday, Wednesday, and Friday Every Week</target>
+        </trans-unit>
+        <trans-unit id="f5060f20-1750-4ef3-a712-5fa46cfac1ad" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[0,15,30,45], "weekDays":["monday","tuesday","wednesday","thursday","friday"]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[0,15,30,45], "weekDays":["monday","tuesday","wednesday","thursday","friday"]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="2dd9373b-785d-4179-8e19-8c0b300ef487" xml:space="preserve">
+          <source>Run Every 15 Minutes on Weekdays</source>
+          <target state="new">Run Every 15 Minutes on Weekdays</target>
+        </trans-unit>
+        <trans-unit id="1d46b23e-0f5b-40e6-8be9-cbccd7c14f3a" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday","tuesday","wednesday","thursday","friday"]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday","tuesday","wednesday","thursday","friday"]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="7cf20354-20b4-4883-a66c-8ddfa3bbf266" xml:space="preserve">
+          <source>Run Every 15 Minutes on Weekdays between 9AM and 4:45PM</source>
+          <target state="new">Run Every 15 Minutes on Weekdays between 9AM and 4:45PM</target>
+        </trans-unit>
+        <trans-unit id="d2f8b617-84ac-4c72-a15e-678087978617" xml:space="preserve">
+          <source>&lt;code&gt;{"weekDays":["sunday"]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"weekDays":["sunday"]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="8eca8cf9-49f3-4b3d-a4f4-64d265e94c1e" xml:space="preserve">
+          <source>Run on Sundays at Start Time</source>
+          <target state="new">Run on Sundays at Start Time</target>
+        </trans-unit>
+        <trans-unit id="e544f8b0-0750-4513-89f1-a03f1e3dc6c4" xml:space="preserve">
+          <source>&lt;code&gt;{"weekDays":["tuesday", "thursday"]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"weekDays":["tuesday", "thursday"]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="41c0a489-4581-4bf5-b86c-399514acd9f5" xml:space="preserve">
+          <source>Run on Tuesdays and Thursdays at Start Time</source>
+          <target state="new">Run on Tuesdays and Thursdays at Start Time</target>
+        </trans-unit>
+        <trans-unit id="fa0efaeb-0477-416f-95bb-c1d763c05340" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[0],"hours":[6],"monthDays":[28]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[0],"hours":[6],"monthDays":[28]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="051d2399-25c0-4c57-b081-8178f05d7364" xml:space="preserve">
+          <source>Run at 6AM on the 28th Day of Every Month (assuming frequency of month)</source>
+          <target state="new">Run at 6AM on the 28th Day of Every Month (assuming frequency of month)</target>
+        </trans-unit>
+        <trans-unit id="9322516f-b1f4-41c2-93b5-2c7005ff37f3" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[0],"hours":[6],"monthDays":[-1]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[0],"hours":[6],"monthDays":[-1]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="0fb98b43-5534-409d-8554-ee3b15c0d582" xml:space="preserve">
+          <source>Run at 6AM on the Last Day of the Month.</source>
+          <target state="new">Run at 6AM on the Last Day of the Month.</target>
+        </trans-unit>
+        <trans-unit id="d218f37c-80d5-49f5-9373-5eddf1082d75" xml:space="preserve">
+          <source>If you'd like to run a job on the last day of a month, use -1 instead of day 28, 29, 30, or 31.</source>
+          <target state="new">If you'd like to run a job on the last day of a month, use -1 instead of day 28, 29, 30, or 31.</target>
+        </trans-unit>
+        <trans-unit id="a2ee754c-b1e2-48f9-b881-5b9fe5c64f33" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[0],"hours":[6],"monthDays":[1,-1]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[0],"hours":[6],"monthDays":[1,-1]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="17a0f4ab-8293-4d14-a28e-ac981f9784a6" xml:space="preserve">
+          <source>Run at 6AM on the First and Last Day of Every Month</source>
+          <target state="new">Run at 6AM on the First and Last Day of Every Month</target>
+        </trans-unit>
+        <trans-unit id="74e64f3b-d5aa-43aa-9826-7f7fbf37e1c1" xml:space="preserve">
+          <source>&lt;code&gt;{monthDays":[1,-1]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{monthDays":[1,-1]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="65181545-8b08-4222-85eb-21fc237d55b9" xml:space="preserve">
+          <source>Run on the First and Last Day of Every Month at Start Time</source>
+          <target state="new">Run on the First and Last Day of Every Month at Start Time</target>
+        </trans-unit>
+        <trans-unit id="47669a0b-9c19-4b83-b379-e5750c7a522f" xml:space="preserve">
+          <source>&lt;code&gt;{monthDays":[1,14]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{monthDays":[1,14]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="e3688667-3960-494c-8049-0810836abcd6" xml:space="preserve">
+          <source>Run on the First and Fourteenth Day of Every Month at Start Time</source>
+          <target state="new">Run on the First and Fourteenth Day of Every Month at Start Time</target>
+        </trans-unit>
+        <trans-unit id="fa2359dd-d8ab-4bfe-aca4-167260bdb321" xml:space="preserve">
+          <source>&lt;code&gt;{monthDays":[2]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{monthDays":[2]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="1d693c5b-9fa8-44a5-bb15-7682f43efa51" xml:space="preserve">
+          <source>Run on the Second Day of the Month at Start Time</source>
+          <target state="new">Run on the Second Day of the Month at Start Time</target>
+        </trans-unit>
+        <trans-unit id="877afe67-1ca6-4f50-b6d5-a00949db04a9" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday","occurrence":1}]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday","occurrence":1}]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="dc993904-3f05-4bbf-8ad6-3cb75ec4e21b" xml:space="preserve">
+          <source>Run on First Friday of Every Month at 5AM</source>
+          <target state="new">Run on First Friday of Every Month at 5AM</target>
+        </trans-unit>
+        <trans-unit id="9e9c144e-1edb-45cd-abdc-35cc6328a68c" xml:space="preserve">
+          <source>&lt;code&gt;{"monthlyOccurrences":[{"day":"friday","occurrence":1}]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"monthlyOccurrences":[{"day":"friday","occurrence":1}]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="3be6bc2d-f864-4ed7-8bba-71185f7e656c" xml:space="preserve">
+          <source>: Run on First Friday of Every Month at Start Time</source>
+          <target state="new">: Run on First Friday of Every Month at Start Time</target>
+        </trans-unit>
+        <trans-unit id="b2f1c86a-4949-48ed-a4ce-ff42201c1a3c" xml:space="preserve">
+          <source>&lt;code&gt;{"monthlyOccurrences":[{"day":"friday","occurrence":-3}]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"monthlyOccurrences":[{"day":"friday","occurrence":-3}]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="e3a89677-0076-4f50-bc18-3875cf492d0f" xml:space="preserve">
+          <source>Run on Third Friday from End of Month, Every Month, at Start Time</source>
+          <target state="new">Run on Third Friday from End of Month, Every Month, at Start Time</target>
+        </trans-unit>
+        <trans-unit id="710b4310-8b9d-435b-b1d2-8784710f6cf3" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[15],"hours":[5],"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[15],"hours":[5],"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="05bdf37b-6d8d-4690-b1da-2a94e6a983c6" xml:space="preserve">
+          <source>Run on First and Last Friday of Every Month at 5:15AM</source>
+          <target state="new">Run on First and Last Friday of Every Month at 5:15AM</target>
+        </trans-unit>
+        <trans-unit id="d2ce5daa-553b-4f62-ad98-3312c462365a" xml:space="preserve">
+          <source>&lt;code&gt;{"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="e8193440-b350-481b-a01c-97bf02105351" xml:space="preserve">
+          <source>Run on First and Last Friday of Every Month at Start Time</source>
+          <target state="new">Run on First and Last Friday of Every Month at Start Time</target>
+        </trans-unit>
+        <trans-unit id="c591506f-ba88-434f-920f-0297aa4ce8f4" xml:space="preserve">
+          <source>&lt;code&gt;{"monthlyOccurrences":[{"day":"friday","occurrence":5}]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"monthlyOccurrences":[{"day":"friday","occurrence":5}]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="2c922719-95f1-455d-b800-bd75c9bb11f3" xml:space="preserve">
+          <source>Run on Fifth Friday of Every Month at Start Time.</source>
+          <target state="new">Run on Fifth Friday of Every Month at Start Time.</target>
+        </trans-unit>
+        <trans-unit id="89521075-4d1f-4c36-af8e-83a0495c2912" xml:space="preserve">
+          <source>If there is no fifth Friday in a month, this does not run, since it's scheduled to run on only fifth Fridays.</source>
+          <target state="new">If there is no fifth Friday in a month, this does not run, since it's scheduled to run on only fifth Fridays.</target>
+        </trans-unit>
+        <trans-unit id="bebe458a-e88f-4154-a92b-5347fa553c90" xml:space="preserve">
+          <source>You may consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month.</source>
+          <target state="new">You may consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month.</target>
+        </trans-unit>
+        <trans-unit id="82177e72-705c-4ca0-b6e1-f6b1fa181f54" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[0,15,30,45],"monthlyOccurrences":[{"day":"friday","occurrence":-1}]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[0,15,30,45],"monthlyOccurrences":[{"day":"friday","occurrence":-1}]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="0d62106c-9d61-4724-9ae0-8ad1744ccb0f" xml:space="preserve">
+          <source>Run Every 15 Minutes on Last Friday of the Month</source>
+          <target state="new">Run Every 15 Minutes on Last Friday of the Month</target>
+        </trans-unit>
+        <trans-unit id="7c9bc17a-0fcd-4adb-b8f9-ac2e518c66fb" xml:space="preserve">
+          <source>&lt;code&gt;{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}&lt;/code&gt;</source>
+          <target state="new">&lt;code&gt;{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}&lt;/code&gt;</target>
+        </trans-unit>
+        <trans-unit id="2cb46c05-07eb-4d67-99b3-7e56b4190843" xml:space="preserve">
+          <source>Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month</source>
+          <target state="new">Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month</target>
+        </trans-unit>
+        <trans-unit id="a439b988-13c3-466a-9f6e-74af88165e5e" xml:space="preserve">
+          <source> <bpt id="6ea6cabb-9098-41ef-9889-3b270afd6662">&lt;linkText&gt;</bpt>What is Scheduler?<ept id="6ea6cabb-9098-41ef-9889-3b270afd6662">&lt;/linkText&gt;</ept><bpt id="6ea6cabb-9098-41ef-9889-3b270afd6662">&lt;title&gt;</bpt><ept id="6ea6cabb-9098-41ef-9889-3b270afd6662">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="6ea6cabb-9098-41ef-9889-3b270afd6662">&lt;linkText&gt;</bpt>What is Scheduler?<ept id="6ea6cabb-9098-41ef-9889-3b270afd6662">&lt;/linkText&gt;</ept><bpt id="6ea6cabb-9098-41ef-9889-3b270afd6662">&lt;title&gt;</bpt><ept id="6ea6cabb-9098-41ef-9889-3b270afd6662">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="690caaf5-181c-49b4-ae1d-acaedb952b4f" xml:space="preserve">
+          <source> <bpt id="bfce8d79-c517-4c67-b66e-a54d2d22567d">&lt;linkText&gt;</bpt>Scheduler Concepts, Terminology, and Entity Hierarchy<ept id="bfce8d79-c517-4c67-b66e-a54d2d22567d">&lt;/linkText&gt;</ept><bpt id="bfce8d79-c517-4c67-b66e-a54d2d22567d">&lt;title&gt;</bpt><ept id="bfce8d79-c517-4c67-b66e-a54d2d22567d">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="bfce8d79-c517-4c67-b66e-a54d2d22567d">&lt;linkText&gt;</bpt>Scheduler Concepts, Terminology, and Entity Hierarchy<ept id="bfce8d79-c517-4c67-b66e-a54d2d22567d">&lt;/linkText&gt;</ept><bpt id="bfce8d79-c517-4c67-b66e-a54d2d22567d">&lt;title&gt;</bpt><ept id="bfce8d79-c517-4c67-b66e-a54d2d22567d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39b81b55-8de1-47c8-978f-9a72f15b659b" xml:space="preserve">
+          <source> <bpt id="47498070-24c5-4ee8-9b2d-abdcf24d1795">&lt;linkText&gt;</bpt>Get Started Using Scheduler in the Management Portal<ept id="47498070-24c5-4ee8-9b2d-abdcf24d1795">&lt;/linkText&gt;</ept><bpt id="47498070-24c5-4ee8-9b2d-abdcf24d1795">&lt;title&gt;</bpt><ept id="47498070-24c5-4ee8-9b2d-abdcf24d1795">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="47498070-24c5-4ee8-9b2d-abdcf24d1795">&lt;linkText&gt;</bpt>Get Started Using Scheduler in the Management Portal<ept id="47498070-24c5-4ee8-9b2d-abdcf24d1795">&lt;/linkText&gt;</ept><bpt id="47498070-24c5-4ee8-9b2d-abdcf24d1795">&lt;title&gt;</bpt><ept id="47498070-24c5-4ee8-9b2d-abdcf24d1795">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9749ff1b-ed49-467b-89d0-3bc76862d553" xml:space="preserve">
+          <source> <bpt id="4b05fb75-9c41-4e31-b3b1-7cc9ff28acf6">&lt;linkText&gt;</bpt>Plans and Billing in Azure Scheduler<ept id="4b05fb75-9c41-4e31-b3b1-7cc9ff28acf6">&lt;/linkText&gt;</ept><bpt id="4b05fb75-9c41-4e31-b3b1-7cc9ff28acf6">&lt;title&gt;</bpt><ept id="4b05fb75-9c41-4e31-b3b1-7cc9ff28acf6">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="4b05fb75-9c41-4e31-b3b1-7cc9ff28acf6">&lt;linkText&gt;</bpt>Plans and Billing in Azure Scheduler<ept id="4b05fb75-9c41-4e31-b3b1-7cc9ff28acf6">&lt;/linkText&gt;</ept><bpt id="4b05fb75-9c41-4e31-b3b1-7cc9ff28acf6">&lt;title&gt;</bpt><ept id="4b05fb75-9c41-4e31-b3b1-7cc9ff28acf6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fa4fcf8-c2cc-4ed9-8c7e-90e8526e60b1" xml:space="preserve">
+          <source> <bpt id="934c7cdd-f4bc-4df9-8519-0f5464354483">&lt;linkText&gt;</bpt>Scheduler REST API Reference<ept id="934c7cdd-f4bc-4df9-8519-0f5464354483">&lt;/linkText&gt;</ept><bpt id="934c7cdd-f4bc-4df9-8519-0f5464354483">&lt;title&gt;</bpt><ept id="934c7cdd-f4bc-4df9-8519-0f5464354483">&lt;/title&gt;</ept>   </source>
+          <target state="new"> <bpt id="934c7cdd-f4bc-4df9-8519-0f5464354483">&lt;linkText&gt;</bpt>Scheduler REST API Reference<ept id="934c7cdd-f4bc-4df9-8519-0f5464354483">&lt;/linkText&gt;</ept><bpt id="934c7cdd-f4bc-4df9-8519-0f5464354483">&lt;title&gt;</bpt><ept id="934c7cdd-f4bc-4df9-8519-0f5464354483">&lt;/title&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="f815b227-faef-4e16-afa4-71c2158d1bf5" xml:space="preserve">
+          <source> <bpt id="38103830-82a6-4724-b6f5-ec78ee2ab658">&lt;linkText&gt;</bpt>Scheduler PowerShell Cmdlets Reference<ept id="38103830-82a6-4724-b6f5-ec78ee2ab658">&lt;/linkText&gt;</ept><bpt id="38103830-82a6-4724-b6f5-ec78ee2ab658">&lt;title&gt;</bpt><ept id="38103830-82a6-4724-b6f5-ec78ee2ab658">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="38103830-82a6-4724-b6f5-ec78ee2ab658">&lt;linkText&gt;</bpt>Scheduler PowerShell Cmdlets Reference<ept id="38103830-82a6-4724-b6f5-ec78ee2ab658">&lt;/linkText&gt;</ept><bpt id="38103830-82a6-4724-b6f5-ec78ee2ab658">&lt;title&gt;</bpt><ept id="38103830-82a6-4724-b6f5-ec78ee2ab658">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e13f12f-bff6-4a1e-b877-96a47133967f" xml:space="preserve">
+          <source> <bpt id="3ca02be1-4451-4ce5-8379-9d0de4538b5e">&lt;linkText&gt;</bpt>Scheduler High-Availability and Reliability<ept id="3ca02be1-4451-4ce5-8379-9d0de4538b5e">&lt;/linkText&gt;</ept><bpt id="3ca02be1-4451-4ce5-8379-9d0de4538b5e">&lt;title&gt;</bpt><ept id="3ca02be1-4451-4ce5-8379-9d0de4538b5e">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="3ca02be1-4451-4ce5-8379-9d0de4538b5e">&lt;linkText&gt;</bpt>Scheduler High-Availability and Reliability<ept id="3ca02be1-4451-4ce5-8379-9d0de4538b5e">&lt;/linkText&gt;</ept><bpt id="3ca02be1-4451-4ce5-8379-9d0de4538b5e">&lt;title&gt;</bpt><ept id="3ca02be1-4451-4ce5-8379-9d0de4538b5e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ed00530-4f1a-46ed-8b54-df1be34068e1" xml:space="preserve">
+          <source> <bpt id="e202bf07-5a78-4bab-bda5-19f1e83d3e94">&lt;linkText&gt;</bpt>Scheduler Limits, Defaults, and Error Codes<ept id="e202bf07-5a78-4bab-bda5-19f1e83d3e94">&lt;/linkText&gt;</ept><bpt id="e202bf07-5a78-4bab-bda5-19f1e83d3e94">&lt;title&gt;</bpt><ept id="e202bf07-5a78-4bab-bda5-19f1e83d3e94">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="e202bf07-5a78-4bab-bda5-19f1e83d3e94">&lt;linkText&gt;</bpt>Scheduler Limits, Defaults, and Error Codes<ept id="e202bf07-5a78-4bab-bda5-19f1e83d3e94">&lt;/linkText&gt;</ept><bpt id="e202bf07-5a78-4bab-bda5-19f1e83d3e94">&lt;title&gt;</bpt><ept id="e202bf07-5a78-4bab-bda5-19f1e83d3e94">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af303992-ed34-4af8-9979-ba65f996b367" xml:space="preserve">
+          <source> <bpt id="70790452-e9d4-438a-a8d7-72801ac8a424">&lt;linkText&gt;</bpt>Scheduler Outbound Authentication<ept id="70790452-e9d4-438a-a8d7-72801ac8a424">&lt;/linkText&gt;</ept><bpt id="70790452-e9d4-438a-a8d7-72801ac8a424">&lt;title&gt;</bpt><ept id="70790452-e9d4-438a-a8d7-72801ac8a424">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="70790452-e9d4-438a-a8d7-72801ac8a424">&lt;linkText&gt;</bpt>Scheduler Outbound Authentication<ept id="70790452-e9d4-438a-a8d7-72801ac8a424">&lt;/linkText&gt;</ept><bpt id="70790452-e9d4-438a-a8d7-72801ac8a424">&lt;title&gt;</bpt><ept id="70790452-e9d4-438a-a8d7-72801ac8a424">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

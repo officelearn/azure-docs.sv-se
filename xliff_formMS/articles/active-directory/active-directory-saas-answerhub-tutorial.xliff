@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2f36e003-6ca5-4a22-b321-ee7c3e9b05b6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2f36e003-6ca5-4a22-b321-ee7c3e9b05b6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="359192d2-cd55-4202-9c0c-275ef945ecca">
+        <trans-unit id="ac5417e2-af16-4c9f-a4d0-429359c39798" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with AnswerHub | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with AnswerHub | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="46ae945a-89f5-4a13-a1ae-ec9af100d471" xml:space="preserve">
+          <source>Learn how to use AnswerHub with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use AnswerHub with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="2a6e47f0-2626-49ec-b482-00206715d7b1" xml:space="preserve">
+          <source>For feedback, click <bpt id="4ce12ab8-5a3d-4d2b-85ae-f4531f63e6f6">&lt;linkText&gt;</bpt>here<ept id="4ce12ab8-5a3d-4d2b-85ae-f4531f63e6f6">&lt;/linkText&gt;</ept><bpt id="4ce12ab8-5a3d-4d2b-85ae-f4531f63e6f6">&lt;title&gt;</bpt><ept id="4ce12ab8-5a3d-4d2b-85ae-f4531f63e6f6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="4ce12ab8-5a3d-4d2b-85ae-f4531f63e6f6">&lt;linkText&gt;</bpt>here<ept id="4ce12ab8-5a3d-4d2b-85ae-f4531f63e6f6">&lt;/linkText&gt;</ept><bpt id="4ce12ab8-5a3d-4d2b-85ae-f4531f63e6f6">&lt;title&gt;</bpt><ept id="4ce12ab8-5a3d-4d2b-85ae-f4531f63e6f6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="833e81c3-a57b-4c87-b7b1-3987706c5f3d" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and AnswerHub.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and AnswerHub.</target>
+        </trans-unit>
+        <trans-unit id="1e2a1450-5c0e-4e68-bc50-2bcc2239a87a" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="1e0f74fb-1eba-42bd-8fef-c0aa0e69b6c3" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="52bc87ec-e613-4a59-ab95-6745ad0c20c0" xml:space="preserve">
+          <source>An AnswerHub single sign-on enabled subscription</source>
+          <target state="new">An AnswerHub single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="a61f2f28-d3d0-4c85-91ee-f52ffe8ba1bb" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to AnswerHub will be able to single sign into the application at your AnswerHub company site (service provider initiated sign on), or using the <bpt id="5a9a0622-9eec-48ee-8be4-d281274459a7">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="5a9a0622-9eec-48ee-8be4-d281274459a7">&lt;/linkText&gt;</ept><bpt id="5a9a0622-9eec-48ee-8be4-d281274459a7">&lt;title&gt;</bpt><ept id="5a9a0622-9eec-48ee-8be4-d281274459a7">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to AnswerHub will be able to single sign into the application at your AnswerHub company site (service provider initiated sign on), or using the <bpt id="5a9a0622-9eec-48ee-8be4-d281274459a7">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="5a9a0622-9eec-48ee-8be4-d281274459a7">&lt;/linkText&gt;</ept><bpt id="5a9a0622-9eec-48ee-8be4-d281274459a7">&lt;title&gt;</bpt><ept id="5a9a0622-9eec-48ee-8be4-d281274459a7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1c8fa37-cc41-43e2-a952-88394d12a9b4" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="22f65e72-a8e4-412f-a726-53913e904e62" xml:space="preserve">
+          <source>Enabling the application integration for AnswerHub</source>
+          <target state="new">Enabling the application integration for AnswerHub</target>
+        </trans-unit>
+        <trans-unit id="ae9f05c6-f9d8-4be9-8879-b688bca9d9bc" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="34c75008-876a-4226-a958-0b9714f11a31" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="20b7c225-55ff-4e38-ad45-e141ba8689fe" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="377bebd0-388a-4767-9a5d-0a9591f6ef06" xml:space="preserve">
+          <source><bpt id="3afa3f0f-da85-484f-ace4-b8d2d301dff0">&lt;linkText&gt;</bpt>Scenario<ept id="3afa3f0f-da85-484f-ace4-b8d2d301dff0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3afa3f0f-da85-484f-ace4-b8d2d301dff0">&lt;linkText&gt;</bpt>Scenario<ept id="3afa3f0f-da85-484f-ace4-b8d2d301dff0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="015f0e9c-cd57-4172-ae4b-0a954279315e" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for AnswerHub.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for AnswerHub.</target>
+        </trans-unit>
+        <trans-unit id="14e102d6-bc39-4416-a4c2-e9af2d39424b" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="c62405bd-1b5f-4e4a-9d34-a4cbda874eee">&lt;strong&gt;</bpt>Active Directory<ept id="c62405bd-1b5f-4e4a-9d34-a4cbda874eee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="c62405bd-1b5f-4e4a-9d34-a4cbda874eee">&lt;strong&gt;</bpt>Active Directory<ept id="c62405bd-1b5f-4e4a-9d34-a4cbda874eee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9019752-8c5a-4333-8da3-98669a0a4190" xml:space="preserve">
+          <source><bpt id="71327920-4c48-46d2-ae56-418b2a7b1878">&lt;linkText&gt;</bpt>Active Directory<ept id="71327920-4c48-46d2-ae56-418b2a7b1878">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="71327920-4c48-46d2-ae56-418b2a7b1878">&lt;linkText&gt;</bpt>Active Directory<ept id="71327920-4c48-46d2-ae56-418b2a7b1878">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="185a2300-0993-4879-9af8-d63a9e512850" xml:space="preserve">
+          <source>From the <bpt id="6ca44115-d8bc-43fa-9fe5-efeff0c978a8">&lt;strong&gt;</bpt>Directory<ept id="6ca44115-d8bc-43fa-9fe5-efeff0c978a8">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="6ca44115-d8bc-43fa-9fe5-efeff0c978a8">&lt;strong&gt;</bpt>Directory<ept id="6ca44115-d8bc-43fa-9fe5-efeff0c978a8">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="fe7da9dc-1881-4a39-935f-283c821c2633" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="364737aa-68b3-4313-b83d-3b733ca10775">&lt;strong&gt;</bpt>Applications<ept id="364737aa-68b3-4313-b83d-3b733ca10775">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="364737aa-68b3-4313-b83d-3b733ca10775">&lt;strong&gt;</bpt>Applications<ept id="364737aa-68b3-4313-b83d-3b733ca10775">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="da441ec5-4436-4a5e-9657-7a6568841962" xml:space="preserve">
+          <source><bpt id="50cbe9c1-86ea-419d-8cc3-e206741f4495">&lt;linkText&gt;</bpt>Applications<ept id="50cbe9c1-86ea-419d-8cc3-e206741f4495">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="50cbe9c1-86ea-419d-8cc3-e206741f4495">&lt;linkText&gt;</bpt>Applications<ept id="50cbe9c1-86ea-419d-8cc3-e206741f4495">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="207d50ea-0eb5-40b8-9af9-70884a02438e" xml:space="preserve">
+          <source>Click <bpt id="69e1a402-c8b4-4268-94fb-1361c1ec7c4c">&lt;strong&gt;</bpt>Add<ept id="69e1a402-c8b4-4268-94fb-1361c1ec7c4c">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="69e1a402-c8b4-4268-94fb-1361c1ec7c4c">&lt;strong&gt;</bpt>Add<ept id="69e1a402-c8b4-4268-94fb-1361c1ec7c4c">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="8930b821-5eef-4e86-a5d7-cf75147069d8" xml:space="preserve">
+          <source><bpt id="bb2736a1-61f8-4e80-b95f-67bc0af4dcb7">&lt;linkText&gt;</bpt>Add application<ept id="bb2736a1-61f8-4e80-b95f-67bc0af4dcb7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb2736a1-61f8-4e80-b95f-67bc0af4dcb7">&lt;linkText&gt;</bpt>Add application<ept id="bb2736a1-61f8-4e80-b95f-67bc0af4dcb7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c66c832a-c1cc-43a7-90f2-d6c48253251e" xml:space="preserve">
+          <source>On the <bpt id="d668a31e-5470-4515-baa9-2528b27cb3d6">&lt;strong&gt;</bpt>What do you want to do<ept id="d668a31e-5470-4515-baa9-2528b27cb3d6">&lt;/strong&gt;</ept> dialog, click <bpt id="c7473f79-21a0-4bdd-be4d-41090c8c39cf">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="c7473f79-21a0-4bdd-be4d-41090c8c39cf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d668a31e-5470-4515-baa9-2528b27cb3d6">&lt;strong&gt;</bpt>What do you want to do<ept id="d668a31e-5470-4515-baa9-2528b27cb3d6">&lt;/strong&gt;</ept> dialog, click <bpt id="c7473f79-21a0-4bdd-be4d-41090c8c39cf">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="c7473f79-21a0-4bdd-be4d-41090c8c39cf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2599a2a4-f9bb-4e53-ab47-7e10cb19c873" xml:space="preserve">
+          <source><bpt id="e1973bf3-63f2-4fb5-9a21-67898843a56f">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="e1973bf3-63f2-4fb5-9a21-67898843a56f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1973bf3-63f2-4fb5-9a21-67898843a56f">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="e1973bf3-63f2-4fb5-9a21-67898843a56f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95d15cd9-06a4-40d8-9cad-a2fd554c8cf0" xml:space="preserve">
+          <source>In the <bpt id="90c57ae1-d409-44fa-9eec-4fc91ef91086">&lt;strong&gt;</bpt>search box<ept id="90c57ae1-d409-44fa-9eec-4fc91ef91086">&lt;/strong&gt;</ept>, type <bpt id="93d209b1-8c6c-459d-bd76-6b8f5d2cf5d2">&lt;strong&gt;</bpt>AnswerHub<ept id="93d209b1-8c6c-459d-bd76-6b8f5d2cf5d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="90c57ae1-d409-44fa-9eec-4fc91ef91086">&lt;strong&gt;</bpt>search box<ept id="90c57ae1-d409-44fa-9eec-4fc91ef91086">&lt;/strong&gt;</ept>, type <bpt id="93d209b1-8c6c-459d-bd76-6b8f5d2cf5d2">&lt;strong&gt;</bpt>AnswerHub<ept id="93d209b1-8c6c-459d-bd76-6b8f5d2cf5d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52f85aef-c88a-42c4-b244-d7dd981b126a" xml:space="preserve">
+          <source><bpt id="0c671924-1dd3-4d0b-bd7c-1f6ca03fbd2a">&lt;linkText&gt;</bpt>Application Gallery<ept id="0c671924-1dd3-4d0b-bd7c-1f6ca03fbd2a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c671924-1dd3-4d0b-bd7c-1f6ca03fbd2a">&lt;linkText&gt;</bpt>Application Gallery<ept id="0c671924-1dd3-4d0b-bd7c-1f6ca03fbd2a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed93f5c9-a58b-4577-931b-6aa61255180f" xml:space="preserve">
+          <source>In the results pane, select <bpt id="420ad675-a13f-4105-90c2-c9aed232edaa">&lt;strong&gt;</bpt>AnswerHub<ept id="420ad675-a13f-4105-90c2-c9aed232edaa">&lt;/strong&gt;</ept>, and then click <bpt id="354797a3-66cd-4880-8288-9b33f82cf61b">&lt;strong&gt;</bpt>Complete<ept id="354797a3-66cd-4880-8288-9b33f82cf61b">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="420ad675-a13f-4105-90c2-c9aed232edaa">&lt;strong&gt;</bpt>AnswerHub<ept id="420ad675-a13f-4105-90c2-c9aed232edaa">&lt;/strong&gt;</ept>, and then click <bpt id="354797a3-66cd-4880-8288-9b33f82cf61b">&lt;strong&gt;</bpt>Complete<ept id="354797a3-66cd-4880-8288-9b33f82cf61b">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="302216b9-6ef2-49c2-be2f-468a2cd3cbc2" xml:space="preserve">
+          <source><bpt id="29112030-1ce8-46c0-b144-d8ad5209f021">&lt;linkText&gt;</bpt>AnswerHub<ept id="29112030-1ce8-46c0-b144-d8ad5209f021">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29112030-1ce8-46c0-b144-d8ad5209f021">&lt;linkText&gt;</bpt>AnswerHub<ept id="29112030-1ce8-46c0-b144-d8ad5209f021">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6070c458-d884-4bc5-8598-67bec187f6b9" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to AnswerHub with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to AnswerHub with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="f0f423d1-1163-48ed-a7d2-98fd8bf03b80" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="dc678d8f-78df-4f3b-aa6e-cc257e0763be" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="36ce957b-e1d9-4393-9975-bd48a41da49d">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="36ce957b-e1d9-4393-9975-bd48a41da49d">&lt;/linkText&gt;</ept><bpt id="36ce957b-e1d9-4393-9975-bd48a41da49d">&lt;title&gt;</bpt><ept id="36ce957b-e1d9-4393-9975-bd48a41da49d">&lt;/title&gt;</ept></source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="36ce957b-e1d9-4393-9975-bd48a41da49d">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="36ce957b-e1d9-4393-9975-bd48a41da49d">&lt;/linkText&gt;</ept><bpt id="36ce957b-e1d9-4393-9975-bd48a41da49d">&lt;title&gt;</bpt><ept id="36ce957b-e1d9-4393-9975-bd48a41da49d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1879213d-b5a8-408d-ac63-82772edbc1db" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="51751722-8ae8-4def-8fd9-8e1d80a43d59">&lt;strong&gt;</bpt>AnswerHub<ept id="51751722-8ae8-4def-8fd9-8e1d80a43d59">&lt;/strong&gt;</ept> application integration page, click <bpt id="bc2083a9-7830-491f-bbde-71cc12c167c9">&lt;strong&gt;</bpt>Configure single sign-on<ept id="bc2083a9-7830-491f-bbde-71cc12c167c9">&lt;/strong&gt;</ept> to open the <bpt id="578a2e94-6d2f-4cc4-8f2d-8df59f056d79">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="578a2e94-6d2f-4cc4-8f2d-8df59f056d79">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="51751722-8ae8-4def-8fd9-8e1d80a43d59">&lt;strong&gt;</bpt>AnswerHub<ept id="51751722-8ae8-4def-8fd9-8e1d80a43d59">&lt;/strong&gt;</ept> application integration page, click <bpt id="bc2083a9-7830-491f-bbde-71cc12c167c9">&lt;strong&gt;</bpt>Configure single sign-on<ept id="bc2083a9-7830-491f-bbde-71cc12c167c9">&lt;/strong&gt;</ept> to open the <bpt id="578a2e94-6d2f-4cc4-8f2d-8df59f056d79">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="578a2e94-6d2f-4cc4-8f2d-8df59f056d79">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="3d91065a-bae1-4e3c-85dc-c61cf579364e" xml:space="preserve">
+          <source><bpt id="1bc8dc11-4fac-435e-a1f4-ad71f621d931">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="1bc8dc11-4fac-435e-a1f4-ad71f621d931">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1bc8dc11-4fac-435e-a1f4-ad71f621d931">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="1bc8dc11-4fac-435e-a1f4-ad71f621d931">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00fec6f8-e781-4835-b53e-b373c3d14b7f" xml:space="preserve">
+          <source>On the <bpt id="7c73249a-80c3-45fa-af8f-e4fa228c39cf">&lt;strong&gt;</bpt>How would you like users to sign on to AnswerHub<ept id="7c73249a-80c3-45fa-af8f-e4fa228c39cf">&lt;/strong&gt;</ept> page, select <bpt id="f4046d7c-731a-4111-bd9d-f1dc93c25dd9">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="f4046d7c-731a-4111-bd9d-f1dc93c25dd9">&lt;/strong&gt;</ept>, and then click <bpt id="0e69b294-97f1-42a2-841b-cb4c5f8d629b">&lt;strong&gt;</bpt>Next<ept id="0e69b294-97f1-42a2-841b-cb4c5f8d629b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7c73249a-80c3-45fa-af8f-e4fa228c39cf">&lt;strong&gt;</bpt>How would you like users to sign on to AnswerHub<ept id="7c73249a-80c3-45fa-af8f-e4fa228c39cf">&lt;/strong&gt;</ept> page, select <bpt id="f4046d7c-731a-4111-bd9d-f1dc93c25dd9">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="f4046d7c-731a-4111-bd9d-f1dc93c25dd9">&lt;/strong&gt;</ept>, and then click <bpt id="0e69b294-97f1-42a2-841b-cb4c5f8d629b">&lt;strong&gt;</bpt>Next<ept id="0e69b294-97f1-42a2-841b-cb4c5f8d629b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49abe96e-99a2-438a-a485-671f59609a16" xml:space="preserve">
+          <source><bpt id="b15b96e4-9e29-4dba-beeb-83b3847482ab">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="b15b96e4-9e29-4dba-beeb-83b3847482ab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b15b96e4-9e29-4dba-beeb-83b3847482ab">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="b15b96e4-9e29-4dba-beeb-83b3847482ab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1bb42a2-f84f-4cab-852c-851401beaf53" xml:space="preserve">
+          <source>On the <bpt id="58880a85-7726-404d-8cc7-cb6c69304d92">&lt;strong&gt;</bpt>Configure App URL<ept id="58880a85-7726-404d-8cc7-cb6c69304d92">&lt;/strong&gt;</ept> page, in the <bpt id="6628f703-4c94-4049-a7ec-e3a81f0fddb4">&lt;strong&gt;</bpt>AnswerHub Sign In URL<ept id="6628f703-4c94-4049-a7ec-e3a81f0fddb4">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="fca11956-3ffc-4ee0-86b1-7fc1cac89fb9">&lt;em&gt;</bpt>https://company.answerhub.com<ept id="fca11956-3ffc-4ee0-86b1-7fc1cac89fb9">&lt;/em&gt;</ept>", and then click <bpt id="a10f93f4-0f2d-47ec-bca2-c2b28f03fc0c">&lt;strong&gt;</bpt>Next<ept id="a10f93f4-0f2d-47ec-bca2-c2b28f03fc0c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="58880a85-7726-404d-8cc7-cb6c69304d92">&lt;strong&gt;</bpt>Configure App URL<ept id="58880a85-7726-404d-8cc7-cb6c69304d92">&lt;/strong&gt;</ept> page, in the <bpt id="6628f703-4c94-4049-a7ec-e3a81f0fddb4">&lt;strong&gt;</bpt>AnswerHub Sign In URL<ept id="6628f703-4c94-4049-a7ec-e3a81f0fddb4">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="fca11956-3ffc-4ee0-86b1-7fc1cac89fb9">&lt;em&gt;</bpt>https://company.answerhub.com<ept id="fca11956-3ffc-4ee0-86b1-7fc1cac89fb9">&lt;/em&gt;</ept>", and then click <bpt id="a10f93f4-0f2d-47ec-bca2-c2b28f03fc0c">&lt;strong&gt;</bpt>Next<ept id="a10f93f4-0f2d-47ec-bca2-c2b28f03fc0c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16589f63-6bc7-490b-b9dd-c6424de82ade" xml:space="preserve">
+          <source><bpt id="c9e540dc-f307-486e-8e7c-f0306c12f58b">&lt;linkText&gt;</bpt>Configure App URL<ept id="c9e540dc-f307-486e-8e7c-f0306c12f58b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9e540dc-f307-486e-8e7c-f0306c12f58b">&lt;linkText&gt;</bpt>Configure App URL<ept id="c9e540dc-f307-486e-8e7c-f0306c12f58b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="868bbb0e-8de2-418c-b801-9a63602054c8" xml:space="preserve">
+          <source>On the <bpt id="7f597c45-b1d7-499d-b7a3-68d01a08277c">&lt;strong&gt;</bpt>Configure single sign-on at AnswerHub<ept id="7f597c45-b1d7-499d-b7a3-68d01a08277c">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="12d3420f-2b43-42b2-813b-dc41e3b39c2f">&lt;strong&gt;</bpt>Download certificate<ept id="12d3420f-2b43-42b2-813b-dc41e3b39c2f">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</source>
+          <target state="new">On the <bpt id="7f597c45-b1d7-499d-b7a3-68d01a08277c">&lt;strong&gt;</bpt>Configure single sign-on at AnswerHub<ept id="7f597c45-b1d7-499d-b7a3-68d01a08277c">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="12d3420f-2b43-42b2-813b-dc41e3b39c2f">&lt;strong&gt;</bpt>Download certificate<ept id="12d3420f-2b43-42b2-813b-dc41e3b39c2f">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="a1455975-b3f3-43ef-a643-b98f2eab8e3f" xml:space="preserve">
+          <source><bpt id="08db7ec6-983a-408c-87a1-bc55c3609cab">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="08db7ec6-983a-408c-87a1-bc55c3609cab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="08db7ec6-983a-408c-87a1-bc55c3609cab">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="08db7ec6-983a-408c-87a1-bc55c3609cab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f793ade8-2d9e-4199-ab37-7eec408c6a59" xml:space="preserve">
+          <source>In a different web browser window, log into your AnswerHub company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your AnswerHub company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="c895bb5b-bb18-4a42-b024-90bea3119202" xml:space="preserve">
+          <source>Go to <bpt id="700bc0e2-837a-47a1-ac34-94da30554061">&lt;strong&gt;</bpt>Administration<ept id="700bc0e2-837a-47a1-ac34-94da30554061">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="700bc0e2-837a-47a1-ac34-94da30554061">&lt;strong&gt;</bpt>Administration<ept id="700bc0e2-837a-47a1-ac34-94da30554061">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11630305-9cb4-451d-8274-5aa88ecd740b" xml:space="preserve">
+          <source>Click the <bpt id="b92327f3-6d13-4059-a6f5-5d4b19ac8923">&lt;strong&gt;</bpt>User and Group<ept id="b92327f3-6d13-4059-a6f5-5d4b19ac8923">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="b92327f3-6d13-4059-a6f5-5d4b19ac8923">&lt;strong&gt;</bpt>User and Group<ept id="b92327f3-6d13-4059-a6f5-5d4b19ac8923">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="c95ef34e-7868-4efa-8782-c11ae8ad65dc" xml:space="preserve">
+          <source>In the navigation pane on the left side, in the <bpt id="4e5657ce-2722-455a-a519-53b3be334c94">&lt;strong&gt;</bpt>Social Settings<ept id="4e5657ce-2722-455a-a519-53b3be334c94">&lt;/strong&gt;</ept> section, click <bpt id="c8a78db8-3482-4008-92dc-c818fef539e7">&lt;strong&gt;</bpt>SAML Setup<ept id="c8a78db8-3482-4008-92dc-c818fef539e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the navigation pane on the left side, in the <bpt id="4e5657ce-2722-455a-a519-53b3be334c94">&lt;strong&gt;</bpt>Social Settings<ept id="4e5657ce-2722-455a-a519-53b3be334c94">&lt;/strong&gt;</ept> section, click <bpt id="c8a78db8-3482-4008-92dc-c818fef539e7">&lt;strong&gt;</bpt>SAML Setup<ept id="c8a78db8-3482-4008-92dc-c818fef539e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f15960b8-c78b-4819-9893-69095248957e" xml:space="preserve">
+          <source>Click <bpt id="f76bd601-96b9-4334-a4a4-1c7133800ea3">&lt;strong&gt;</bpt>IDP Config<ept id="f76bd601-96b9-4334-a4a4-1c7133800ea3">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click <bpt id="f76bd601-96b9-4334-a4a4-1c7133800ea3">&lt;strong&gt;</bpt>IDP Config<ept id="f76bd601-96b9-4334-a4a4-1c7133800ea3">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2ba3a338-f215-43b5-a924-781dba9fa859" xml:space="preserve">
+          <source>On the <bpt id="ca234af3-bd26-48b2-a2b0-dea7852ea657">&lt;strong&gt;</bpt>IDP Config<ept id="ca234af3-bd26-48b2-a2b0-dea7852ea657">&lt;/strong&gt;</ept> tab, perform the following steps:</source>
+          <target state="new">On the <bpt id="ca234af3-bd26-48b2-a2b0-dea7852ea657">&lt;strong&gt;</bpt>IDP Config<ept id="ca234af3-bd26-48b2-a2b0-dea7852ea657">&lt;/strong&gt;</ept> tab, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="67a8da11-52c9-40dc-afb6-1be70dc11919" xml:space="preserve">
+          <source><bpt id="70050319-35f9-4aa8-8ce6-e1a3fdfdc7ba">&lt;linkText&gt;</bpt>SAML Setup<ept id="70050319-35f9-4aa8-8ce6-e1a3fdfdc7ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="70050319-35f9-4aa8-8ce6-e1a3fdfdc7ba">&lt;linkText&gt;</bpt>SAML Setup<ept id="70050319-35f9-4aa8-8ce6-e1a3fdfdc7ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6014e9ed-bf83-4f8d-9d77-82ed2ec88282" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="46c77d1e-d96d-436b-ad9f-76f5a9a29fa0">&lt;strong&gt;</bpt>Configure single sign-on at AnswerHub<ept id="46c77d1e-d96d-436b-ad9f-76f5a9a29fa0">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="c63269b0-661d-4812-8d32-22a3257910b3">&lt;strong&gt;</bpt>Remote Login URL<ept id="c63269b0-661d-4812-8d32-22a3257910b3">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="2f7a1745-d037-4bf4-a23c-9a9789bb9952">&lt;strong&gt;</bpt>IDP Login URL<ept id="2f7a1745-d037-4bf4-a23c-9a9789bb9952">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="46c77d1e-d96d-436b-ad9f-76f5a9a29fa0">&lt;strong&gt;</bpt>Configure single sign-on at AnswerHub<ept id="46c77d1e-d96d-436b-ad9f-76f5a9a29fa0">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="c63269b0-661d-4812-8d32-22a3257910b3">&lt;strong&gt;</bpt>Remote Login URL<ept id="c63269b0-661d-4812-8d32-22a3257910b3">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="2f7a1745-d037-4bf4-a23c-9a9789bb9952">&lt;strong&gt;</bpt>IDP Login URL<ept id="2f7a1745-d037-4bf4-a23c-9a9789bb9952">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="e97500ea-fae1-486e-8b4f-48cf6df373c6" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="267f2852-06fe-4276-8c8f-cb1cc06fc08e">&lt;strong&gt;</bpt>Configure single sign-on at AnswerHub<ept id="267f2852-06fe-4276-8c8f-cb1cc06fc08e">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="d93267eb-fe9e-49f1-a7d9-9638e5e56608">&lt;strong&gt;</bpt>Remote Logout URL<ept id="d93267eb-fe9e-49f1-a7d9-9638e5e56608">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="1206dd2a-d3cd-4ab3-a609-6a37237ec740">&lt;strong&gt;</bpt>IDP Logout URL<ept id="1206dd2a-d3cd-4ab3-a609-6a37237ec740">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="267f2852-06fe-4276-8c8f-cb1cc06fc08e">&lt;strong&gt;</bpt>Configure single sign-on at AnswerHub<ept id="267f2852-06fe-4276-8c8f-cb1cc06fc08e">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="d93267eb-fe9e-49f1-a7d9-9638e5e56608">&lt;strong&gt;</bpt>Remote Logout URL<ept id="d93267eb-fe9e-49f1-a7d9-9638e5e56608">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="1206dd2a-d3cd-4ab3-a609-6a37237ec740">&lt;strong&gt;</bpt>IDP Logout URL<ept id="1206dd2a-d3cd-4ab3-a609-6a37237ec740">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="f60290d0-a818-468b-9ef0-a61bb6f561e4" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="6c97b4b4-43e2-42a7-8966-14423756b352">&lt;strong&gt;</bpt>Configure single sign-on at AnswerHub<ept id="6c97b4b4-43e2-42a7-8966-14423756b352">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="a5bde5bb-8289-43fa-8d0e-425e1e1424b0">&lt;strong&gt;</bpt>Name Identifier Format<ept id="a5bde5bb-8289-43fa-8d0e-425e1e1424b0">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="25402624-fcfb-473f-823d-0d4a41e48314">&lt;strong&gt;</bpt>IDP Name Identifier Format<ept id="25402624-fcfb-473f-823d-0d4a41e48314">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="6c97b4b4-43e2-42a7-8966-14423756b352">&lt;strong&gt;</bpt>Configure single sign-on at AnswerHub<ept id="6c97b4b4-43e2-42a7-8966-14423756b352">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="a5bde5bb-8289-43fa-8d0e-425e1e1424b0">&lt;strong&gt;</bpt>Name Identifier Format<ept id="a5bde5bb-8289-43fa-8d0e-425e1e1424b0">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="25402624-fcfb-473f-823d-0d4a41e48314">&lt;strong&gt;</bpt>IDP Name Identifier Format<ept id="25402624-fcfb-473f-823d-0d4a41e48314">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="8e72b1ed-b5df-40bd-a762-17274e80ad56" xml:space="preserve">
+          <source>Click <bpt id="c05c25cf-ed35-488d-8001-6afaf19f3063">&lt;strong&gt;</bpt>Keys and Certificates<ept id="c05c25cf-ed35-488d-8001-6afaf19f3063">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c05c25cf-ed35-488d-8001-6afaf19f3063">&lt;strong&gt;</bpt>Keys and Certificates<ept id="c05c25cf-ed35-488d-8001-6afaf19f3063">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5ba76f5-faea-41d0-af7c-ee978c4dc54d" xml:space="preserve">
+          <source>On the Keys and Certificates tab, perform the following steps:</source>
+          <target state="new">On the Keys and Certificates tab, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="46324edd-230d-4bdd-b025-d056962029e9" xml:space="preserve">
+          <source><bpt id="1ac7d280-800d-47ce-a606-ac5e4c1b971b">&lt;linkText&gt;</bpt>Keys and Certificates<ept id="1ac7d280-800d-47ce-a606-ac5e4c1b971b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ac7d280-800d-47ce-a606-ac5e4c1b971b">&lt;linkText&gt;</bpt>Keys and Certificates<ept id="1ac7d280-800d-47ce-a606-ac5e4c1b971b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d62d409f-6c54-4d97-92f0-671b049e73d5" xml:space="preserve">
+          <source>Create a <bpt id="1ac7fadf-3e16-4389-af2c-41676fb6b0d8">&lt;strong&gt;</bpt>base-64 encoded<ept id="1ac7fadf-3e16-4389-af2c-41676fb6b0d8">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="1ac7fadf-3e16-4389-af2c-41676fb6b0d8">&lt;strong&gt;</bpt>base-64 encoded<ept id="1ac7fadf-3e16-4389-af2c-41676fb6b0d8">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="1c1ef26e-90f8-4da7-8a4a-f97f2f01baf3" xml:space="preserve">
+          <source>For more details, see <bpt id="9be7cee1-0a4b-4199-8962-31d37b329772">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="9be7cee1-0a4b-4199-8962-31d37b329772">&lt;/linkText&gt;</ept><bpt id="9be7cee1-0a4b-4199-8962-31d37b329772">&lt;title&gt;</bpt><ept id="9be7cee1-0a4b-4199-8962-31d37b329772">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="9be7cee1-0a4b-4199-8962-31d37b329772">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="9be7cee1-0a4b-4199-8962-31d37b329772">&lt;/linkText&gt;</ept><bpt id="9be7cee1-0a4b-4199-8962-31d37b329772">&lt;title&gt;</bpt><ept id="9be7cee1-0a4b-4199-8962-31d37b329772">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36c04cf3-e4e4-4eec-b4fb-07b9008e57c3" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="713670a3-8f23-4412-afd1-deaa5e2e8518">&lt;strong&gt;</bpt>IDP Public Key (x509 Format)<ept id="713670a3-8f23-4412-afd1-deaa5e2e8518">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="713670a3-8f23-4412-afd1-deaa5e2e8518">&lt;strong&gt;</bpt>IDP Public Key (x509 Format)<ept id="713670a3-8f23-4412-afd1-deaa5e2e8518">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="13340e3f-dc6b-452c-9eec-fd70e9e3dd1e" xml:space="preserve">
+          <source>Click <bpt id="ee4ab459-901e-485b-b13d-51182c6fdb76">&lt;strong&gt;</bpt>Save<ept id="ee4ab459-901e-485b-b13d-51182c6fdb76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ee4ab459-901e-485b-b13d-51182c6fdb76">&lt;strong&gt;</bpt>Save<ept id="ee4ab459-901e-485b-b13d-51182c6fdb76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd9000af-4519-4459-ab9e-1cdecc261740" xml:space="preserve">
+          <source>On the <bpt id="5caf218d-45c1-4207-bcf1-2d6678455b17">&lt;strong&gt;</bpt>IDP Config<ept id="5caf218d-45c1-4207-bcf1-2d6678455b17">&lt;/strong&gt;</ept> tab, click <bpt id="34276774-1b45-4d55-aff1-c6634d24a773">&lt;strong&gt;</bpt>Save<ept id="34276774-1b45-4d55-aff1-c6634d24a773">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5caf218d-45c1-4207-bcf1-2d6678455b17">&lt;strong&gt;</bpt>IDP Config<ept id="5caf218d-45c1-4207-bcf1-2d6678455b17">&lt;/strong&gt;</ept> tab, click <bpt id="34276774-1b45-4d55-aff1-c6634d24a773">&lt;strong&gt;</bpt>Save<ept id="34276774-1b45-4d55-aff1-c6634d24a773">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e56eb84-fc3b-4e3e-b12c-905452e969d4" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="037ee92c-7395-4c92-b0d8-32323ee6bfe6">&lt;strong&gt;</bpt>Complete<ept id="037ee92c-7395-4c92-b0d8-32323ee6bfe6">&lt;/strong&gt;</ept> to close the <bpt id="da4e12e8-2231-4ef4-8436-9fd82892d920">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="da4e12e8-2231-4ef4-8436-9fd82892d920">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="037ee92c-7395-4c92-b0d8-32323ee6bfe6">&lt;strong&gt;</bpt>Complete<ept id="037ee92c-7395-4c92-b0d8-32323ee6bfe6">&lt;/strong&gt;</ept> to close the <bpt id="da4e12e8-2231-4ef4-8436-9fd82892d920">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="da4e12e8-2231-4ef4-8436-9fd82892d920">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="8ccbed65-4497-4e2f-b9ba-018f3101e09f" xml:space="preserve">
+          <source><bpt id="ef741d63-5989-4dc8-ba7c-1c28a63926a9">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="ef741d63-5989-4dc8-ba7c-1c28a63926a9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef741d63-5989-4dc8-ba7c-1c28a63926a9">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="ef741d63-5989-4dc8-ba7c-1c28a63926a9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc3838ba-18a3-4b3d-9707-226ebbb1f921" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into AnswerHub, they must be provisioned into AnswerHub.</source>
+          <target state="new">In order to enable Azure AD users to log into AnswerHub, they must be provisioned into AnswerHub.</target>
+        </trans-unit>
+        <trans-unit id="898aa359-0347-4317-96a3-02887eb845fe" xml:space="preserve">
+          <source>In the case of AnswerHub, provisioning is a manual task.</source>
+          <target state="new">In the case of AnswerHub, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="a68442b5-10fc-4dcc-9899-7ac715848577" xml:space="preserve">
+          <source>Log in to your <bpt id="3e56e5f4-910e-406a-8a7c-3a0af5b761f1">&lt;strong&gt;</bpt>AnswerHub<ept id="3e56e5f4-910e-406a-8a7c-3a0af5b761f1">&lt;/strong&gt;</ept> company site as administrator.</source>
+          <target state="new">Log in to your <bpt id="3e56e5f4-910e-406a-8a7c-3a0af5b761f1">&lt;strong&gt;</bpt>AnswerHub<ept id="3e56e5f4-910e-406a-8a7c-3a0af5b761f1">&lt;/strong&gt;</ept> company site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="b64bfb1f-f92f-40d6-9a78-6a62123a6c7a" xml:space="preserve">
+          <source>Go to <bpt id="ff4415fb-926f-4e09-bd12-35e253d9bae0">&lt;strong&gt;</bpt>Administration<ept id="ff4415fb-926f-4e09-bd12-35e253d9bae0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="ff4415fb-926f-4e09-bd12-35e253d9bae0">&lt;strong&gt;</bpt>Administration<ept id="ff4415fb-926f-4e09-bd12-35e253d9bae0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e165e332-0dec-4b2b-892d-99f25b2a88c7" xml:space="preserve">
+          <source>Click the <bpt id="0a887c19-eff8-4ce6-a997-44902706a32f">&lt;strong&gt;</bpt>Users &amp; Groups<ept id="0a887c19-eff8-4ce6-a997-44902706a32f">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="0a887c19-eff8-4ce6-a997-44902706a32f">&lt;strong&gt;</bpt>Users &amp; Groups<ept id="0a887c19-eff8-4ce6-a997-44902706a32f">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="b2e995fd-92ad-4258-9b47-78d424d26a16" xml:space="preserve">
+          <source>In the navigation pane on the left side, in the <bpt id="0c434d54-93aa-4568-972a-3331423ec0ce">&lt;strong&gt;</bpt>Manage Users<ept id="0c434d54-93aa-4568-972a-3331423ec0ce">&lt;/strong&gt;</ept> section, click <bpt id="8da7fd9d-3e07-4eec-8673-e403037b8618">&lt;strong&gt;</bpt>Create or import users<ept id="8da7fd9d-3e07-4eec-8673-e403037b8618">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the navigation pane on the left side, in the <bpt id="0c434d54-93aa-4568-972a-3331423ec0ce">&lt;strong&gt;</bpt>Manage Users<ept id="0c434d54-93aa-4568-972a-3331423ec0ce">&lt;/strong&gt;</ept> section, click <bpt id="8da7fd9d-3e07-4eec-8673-e403037b8618">&lt;strong&gt;</bpt>Create or import users<ept id="8da7fd9d-3e07-4eec-8673-e403037b8618">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89f55bcb-208b-40d1-bf33-26712e9a15bf" xml:space="preserve">
+          <source><bpt id="fc3370f5-9abf-47c3-a1ab-cc45d5efc31e">&lt;linkText&gt;</bpt>Users &amp; Groups<ept id="fc3370f5-9abf-47c3-a1ab-cc45d5efc31e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fc3370f5-9abf-47c3-a1ab-cc45d5efc31e">&lt;linkText&gt;</bpt>Users &amp; Groups<ept id="fc3370f5-9abf-47c3-a1ab-cc45d5efc31e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12f00572-7c6c-4787-bdbe-73770c7824d2" xml:space="preserve">
+          <source>Type the <bpt id="3bc8ad83-a484-42ef-ad25-c197ae16c4f9">&lt;strong&gt;</bpt>Email address<ept id="3bc8ad83-a484-42ef-ad25-c197ae16c4f9">&lt;/strong&gt;</ept>, <bpt id="b1559f35-519c-4b14-a1be-0edb155885a4">&lt;strong&gt;</bpt>Username<ept id="b1559f35-519c-4b14-a1be-0edb155885a4">&lt;/strong&gt;</ept> and <bpt id="c0789176-5f97-4d20-9f68-87e14c8d2e97">&lt;strong&gt;</bpt>Password<ept id="c0789176-5f97-4d20-9f68-87e14c8d2e97">&lt;/strong&gt;</ept> of a valid Azure Active Directory account you want to provision into the related textboxes, and then click <bpt id="f711b5b7-bb82-4ac1-8eaa-7b1ebae7888c">&lt;strong&gt;</bpt>Save<ept id="f711b5b7-bb82-4ac1-8eaa-7b1ebae7888c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type the <bpt id="3bc8ad83-a484-42ef-ad25-c197ae16c4f9">&lt;strong&gt;</bpt>Email address<ept id="3bc8ad83-a484-42ef-ad25-c197ae16c4f9">&lt;/strong&gt;</ept>, <bpt id="b1559f35-519c-4b14-a1be-0edb155885a4">&lt;strong&gt;</bpt>Username<ept id="b1559f35-519c-4b14-a1be-0edb155885a4">&lt;/strong&gt;</ept> and <bpt id="c0789176-5f97-4d20-9f68-87e14c8d2e97">&lt;strong&gt;</bpt>Password<ept id="c0789176-5f97-4d20-9f68-87e14c8d2e97">&lt;/strong&gt;</ept> of a valid Azure Active Directory account you want to provision into the related textboxes, and then click <bpt id="f711b5b7-bb82-4ac1-8eaa-7b1ebae7888c">&lt;strong&gt;</bpt>Save<ept id="f711b5b7-bb82-4ac1-8eaa-7b1ebae7888c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc2fd106-39e9-4a4f-bf17-898d77e977c7" xml:space="preserve">
+          <source>You can use any other AnswerHub user account creation tools or APIs provided by AnswerHub to provision AAD user accounts.</source>
+          <target state="new">You can use any other AnswerHub user account creation tools or APIs provided by AnswerHub to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="7bb58666-eb97-49e2-887e-765ba81b3a98" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="472cebac-34d4-431c-b5ad-6d98526b252d" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="77f1cb66-46c9-4187-95a3-6b5579d89ed1" xml:space="preserve">
+          <source>On the <bpt id="93815dde-a55b-4997-bf8f-ebe2139d132f">&lt;strong&gt;</bpt>AnswerHub **application integration page, click **Assign users<ept id="93815dde-a55b-4997-bf8f-ebe2139d132f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="93815dde-a55b-4997-bf8f-ebe2139d132f">&lt;strong&gt;</bpt>AnswerHub **application integration page, click **Assign users<ept id="93815dde-a55b-4997-bf8f-ebe2139d132f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a9dcb21-4af4-4e79-a0e7-57ca9393d0c0" xml:space="preserve">
+          <source><bpt id="8fa683b6-3a95-481d-b56f-cc2fc1d35519">&lt;linkText&gt;</bpt>Assign users<ept id="8fa683b6-3a95-481d-b56f-cc2fc1d35519">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8fa683b6-3a95-481d-b56f-cc2fc1d35519">&lt;linkText&gt;</bpt>Assign users<ept id="8fa683b6-3a95-481d-b56f-cc2fc1d35519">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9cb5f84-c14e-4883-8439-1f3179d23d2e" xml:space="preserve">
+          <source>Select your test user, click <bpt id="a95b6ec5-5a2b-4c5b-ba96-d643242c17d3">&lt;strong&gt;</bpt>Assign<ept id="a95b6ec5-5a2b-4c5b-ba96-d643242c17d3">&lt;/strong&gt;</ept>, and then click <bpt id="9a8140f5-1f4e-4fea-9173-07d38ad8548e">&lt;strong&gt;</bpt>Yes<ept id="9a8140f5-1f4e-4fea-9173-07d38ad8548e">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="a95b6ec5-5a2b-4c5b-ba96-d643242c17d3">&lt;strong&gt;</bpt>Assign<ept id="a95b6ec5-5a2b-4c5b-ba96-d643242c17d3">&lt;/strong&gt;</ept>, and then click <bpt id="9a8140f5-1f4e-4fea-9173-07d38ad8548e">&lt;strong&gt;</bpt>Yes<ept id="9a8140f5-1f4e-4fea-9173-07d38ad8548e">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="106c1ddf-7cab-464d-9ecc-fb71261d32d4" xml:space="preserve">
+          <source><bpt id="ae639e28-6b6e-44e1-bfb7-6ea277d532e5">&lt;linkText&gt;</bpt>Yes<ept id="ae639e28-6b6e-44e1-bfb7-6ea277d532e5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae639e28-6b6e-44e1-bfb7-6ea277d532e5">&lt;linkText&gt;</bpt>Yes<ept id="ae639e28-6b6e-44e1-bfb7-6ea277d532e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28bdb2f0-7720-4fdf-8622-bbaf4b0631cb" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="e2e5fe6d-0d00-46dc-afda-fe474be84dc3" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="be5c2794-8276-4d0d-952e-7beb873ed6fa">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="be5c2794-8276-4d0d-952e-7beb873ed6fa">&lt;/linkText&gt;</ept><bpt id="be5c2794-8276-4d0d-952e-7beb873ed6fa">&lt;title&gt;</bpt><ept id="be5c2794-8276-4d0d-952e-7beb873ed6fa">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="be5c2794-8276-4d0d-952e-7beb873ed6fa">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="be5c2794-8276-4d0d-952e-7beb873ed6fa">&lt;/linkText&gt;</ept><bpt id="be5c2794-8276-4d0d-952e-7beb873ed6fa">&lt;title&gt;</bpt><ept id="be5c2794-8276-4d0d-952e-7beb873ed6fa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

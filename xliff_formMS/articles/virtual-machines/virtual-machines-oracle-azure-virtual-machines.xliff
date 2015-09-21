@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="25518a6a-4cb2-446e-a061-5f0cdfe8b92a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="25518a6a-4cb2-446e-a061-5f0cdfe8b92a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cf64765a-c92c-437b-a9ad-3f2dc9463338">
+        <trans-unit id="dd43c371-33ea-4e05-80d8-ee287ea443e3" xml:space="preserve">
+          <source>Oracle software hosted on Azure virtual machines</source>
+          <target state="new">Oracle software hosted on Azure virtual machines</target>
+        </trans-unit>
+        <trans-unit id="8c3eab18-7ea6-4a1f-959c-0b6b74200f47" xml:space="preserve">
+          <source>Get to the key topics that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines.</source>
+          <target state="new">Get to the key topics that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="f6bbd952-1899-4ab3-8941-34c00723a4c9" xml:space="preserve">
+          <source>Set up your first or next dev/test or production Oracle database running on a virtual machine in Azure infrastructure services.</source>
+          <target state="new">Set up your first or next dev/test or production Oracle database running on a virtual machine in Azure infrastructure services.</target>
+        </trans-unit>
+        <trans-unit id="5f1f765f-14ed-4757-a0d5-81e79ef098d0" xml:space="preserve">
+          <source>Take advantage of ease of configuration and the ability to quickly expand the Oracle database workload to include new capacity.</source>
+          <target state="new">Take advantage of ease of configuration and the ability to quickly expand the Oracle database workload to include new capacity.</target>
+        </trans-unit>
+        <trans-unit id="77865859-b4b8-4776-baad-e85b01bb81b8" xml:space="preserve">
+          <source>See <bpt id="e19123f6-d49d-414b-9cfc-c04c06008d57">&lt;linkText&gt;</bpt>List of Oracle virtual machine images<ept id="e19123f6-d49d-414b-9cfc-c04c06008d57">&lt;/linkText&gt;</ept><bpt id="e19123f6-d49d-414b-9cfc-c04c06008d57">&lt;title&gt;</bpt><ept id="e19123f6-d49d-414b-9cfc-c04c06008d57">&lt;/title&gt;</ept> for the latest set of Windows-based and Linux-based virtual machine images.</source>
+          <target state="new">See <bpt id="e19123f6-d49d-414b-9cfc-c04c06008d57">&lt;linkText&gt;</bpt>List of Oracle virtual machine images<ept id="e19123f6-d49d-414b-9cfc-c04c06008d57">&lt;/linkText&gt;</ept><bpt id="e19123f6-d49d-414b-9cfc-c04c06008d57">&lt;title&gt;</bpt><ept id="e19123f6-d49d-414b-9cfc-c04c06008d57">&lt;/title&gt;</ept> for the latest set of Windows-based and Linux-based virtual machine images.</target>
+        </trans-unit>
+        <trans-unit id="0ed75f7d-0fed-4c97-997a-6ba7fbbf137f" xml:space="preserve">
+          <source>See <bpt id="ecf4fc33-683d-4f12-887e-db9b0c76a8d8">&lt;linkText&gt;</bpt>Miscellaneous considerations for Oracle virtual machine images<ept id="ecf4fc33-683d-4f12-887e-db9b0c76a8d8">&lt;/linkText&gt;</ept><bpt id="ecf4fc33-683d-4f12-887e-db9b0c76a8d8">&lt;title&gt;</bpt><ept id="ecf4fc33-683d-4f12-887e-db9b0c76a8d8">&lt;/title&gt;</ept> to understand limitations for Oracle software on Windows Server-based Azure virtual machines.</source>
+          <target state="new">See <bpt id="ecf4fc33-683d-4f12-887e-db9b0c76a8d8">&lt;linkText&gt;</bpt>Miscellaneous considerations for Oracle virtual machine images<ept id="ecf4fc33-683d-4f12-887e-db9b0c76a8d8">&lt;/linkText&gt;</ept><bpt id="ecf4fc33-683d-4f12-887e-db9b0c76a8d8">&lt;title&gt;</bpt><ept id="ecf4fc33-683d-4f12-887e-db9b0c76a8d8">&lt;/title&gt;</ept> to understand limitations for Oracle software on Windows Server-based Azure virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="dc83af2c-16bb-43b3-a36a-c8424b478b25" xml:space="preserve">
+          <source><bpt id="39a0eedd-b219-4b55-84d2-a591faa7c4ba">&lt;linkText&gt;</bpt>Creating an Oracle database virtual machine in Azure<ept id="39a0eedd-b219-4b55-84d2-a591faa7c4ba">&lt;/linkText&gt;</ept><bpt id="39a0eedd-b219-4b55-84d2-a591faa7c4ba">&lt;title&gt;</bpt><ept id="39a0eedd-b219-4b55-84d2-a591faa7c4ba">&lt;/title&gt;</ept> steps you through virtual machine creation, database creation, and configuration of popular options.</source>
+          <target state="new"><bpt id="39a0eedd-b219-4b55-84d2-a591faa7c4ba">&lt;linkText&gt;</bpt>Creating an Oracle database virtual machine in Azure<ept id="39a0eedd-b219-4b55-84d2-a591faa7c4ba">&lt;/linkText&gt;</ept><bpt id="39a0eedd-b219-4b55-84d2-a591faa7c4ba">&lt;title&gt;</bpt><ept id="39a0eedd-b219-4b55-84d2-a591faa7c4ba">&lt;/title&gt;</ept> steps you through virtual machine creation, database creation, and configuration of popular options.</target>
+        </trans-unit>
+        <trans-unit id="95eb8a18-901a-49be-b19b-db33c6858381" xml:space="preserve">
+          <source><bpt id="4baca546-dcaa-4ef0-b160-ce87fd925072">&lt;linkText&gt;</bpt>Creating an Oracle WebLogic Server 12c virtual machine in Azure<ept id="4baca546-dcaa-4ef0-b160-ce87fd925072">&lt;/linkText&gt;</ept><bpt id="4baca546-dcaa-4ef0-b160-ce87fd925072">&lt;title&gt;</bpt><ept id="4baca546-dcaa-4ef0-b160-ce87fd925072">&lt;/title&gt;</ept> steps you through the creation of an Azure virtual machine based on the Oracle WebLogic Server 12c image running on Windows Server 2012.</source>
+          <target state="new"><bpt id="4baca546-dcaa-4ef0-b160-ce87fd925072">&lt;linkText&gt;</bpt>Creating an Oracle WebLogic Server 12c virtual machine in Azure<ept id="4baca546-dcaa-4ef0-b160-ce87fd925072">&lt;/linkText&gt;</ept><bpt id="4baca546-dcaa-4ef0-b160-ce87fd925072">&lt;title&gt;</bpt><ept id="4baca546-dcaa-4ef0-b160-ce87fd925072">&lt;/title&gt;</ept> steps you through the creation of an Azure virtual machine based on the Oracle WebLogic Server 12c image running on Windows Server 2012.</target>
+        </trans-unit>
+        <trans-unit id="620b88ab-a73a-42e3-8035-44631a7ffa9d" xml:space="preserve">
+          <source><bpt id="8cb839c8-8c19-4b0e-8eb7-088a5420d317">&lt;linkText&gt;</bpt>Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure<ept id="8cb839c8-8c19-4b0e-8eb7-088a5420d317">&lt;/linkText&gt;</ept><bpt id="8cb839c8-8c19-4b0e-8eb7-088a5420d317">&lt;title&gt;</bpt><ept id="8cb839c8-8c19-4b0e-8eb7-088a5420d317">&lt;/title&gt;</ept> steps you through virtual machine and database creation and configuration.</source>
+          <target state="new"><bpt id="8cb839c8-8c19-4b0e-8eb7-088a5420d317">&lt;linkText&gt;</bpt>Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure<ept id="8cb839c8-8c19-4b0e-8eb7-088a5420d317">&lt;/linkText&gt;</ept><bpt id="8cb839c8-8c19-4b0e-8eb7-088a5420d317">&lt;title&gt;</bpt><ept id="8cb839c8-8c19-4b0e-8eb7-088a5420d317">&lt;/title&gt;</ept> steps you through virtual machine and database creation and configuration.</target>
+        </trans-unit>
+        <trans-unit id="a8714308-dbcc-44f4-9566-b61a4f0c4a39" xml:space="preserve">
+          <source><bpt id="c6ed58a6-94b2-47a7-ac03-8ca18e051866">&lt;linkText&gt;</bpt>Creating an Oracle WebLogic Server 12c cluster in Azure<ept id="c6ed58a6-94b2-47a7-ac03-8ca18e051866">&lt;/linkText&gt;</ept><bpt id="c6ed58a6-94b2-47a7-ac03-8ca18e051866">&lt;title&gt;</bpt><ept id="c6ed58a6-94b2-47a7-ac03-8ca18e051866">&lt;/title&gt;</ept> steps you through cluster creation and application deployment.</source>
+          <target state="new"><bpt id="c6ed58a6-94b2-47a7-ac03-8ca18e051866">&lt;linkText&gt;</bpt>Creating an Oracle WebLogic Server 12c cluster in Azure<ept id="c6ed58a6-94b2-47a7-ac03-8ca18e051866">&lt;/linkText&gt;</ept><bpt id="c6ed58a6-94b2-47a7-ac03-8ca18e051866">&lt;title&gt;</bpt><ept id="c6ed58a6-94b2-47a7-ac03-8ca18e051866">&lt;/title&gt;</ept> steps you through cluster creation and application deployment.</target>
+        </trans-unit>
+        <trans-unit id="a8435a2e-4b28-4e4c-8869-cb256c113fe7" xml:space="preserve">
+          <source><bpt id="2a038dc6-5ccb-4a2e-a6ce-06a3eb19406c">&lt;linkText&gt;</bpt>Creating an Oracle WebLogic Server 11g virtual machine in Azure<ept id="2a038dc6-5ccb-4a2e-a6ce-06a3eb19406c">&lt;/linkText&gt;</ept><bpt id="2a038dc6-5ccb-4a2e-a6ce-06a3eb19406c">&lt;title&gt;</bpt><ept id="2a038dc6-5ccb-4a2e-a6ce-06a3eb19406c">&lt;/title&gt;</ept> steps you through virtual machine creation, configuration, and application installation.</source>
+          <target state="new"><bpt id="2a038dc6-5ccb-4a2e-a6ce-06a3eb19406c">&lt;linkText&gt;</bpt>Creating an Oracle WebLogic Server 11g virtual machine in Azure<ept id="2a038dc6-5ccb-4a2e-a6ce-06a3eb19406c">&lt;/linkText&gt;</ept><bpt id="2a038dc6-5ccb-4a2e-a6ce-06a3eb19406c">&lt;title&gt;</bpt><ept id="2a038dc6-5ccb-4a2e-a6ce-06a3eb19406c">&lt;/title&gt;</ept> steps you through virtual machine creation, configuration, and application installation.</target>
+        </trans-unit>
+        <trans-unit id="555f9550-0655-4dc7-a53e-b529384f5bee" xml:space="preserve">
+          <source><bpt id="76c578b1-28c1-4e96-bfd9-88445d11dc8a">&lt;linkText&gt;</bpt>Prepare an Oracle Linux virtual machine for Azure<ept id="76c578b1-28c1-4e96-bfd9-88445d11dc8a">&lt;/linkText&gt;</ept><bpt id="76c578b1-28c1-4e96-bfd9-88445d11dc8a">&lt;title&gt;</bpt><ept id="76c578b1-28c1-4e96-bfd9-88445d11dc8a">&lt;/title&gt;</ept> steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.</source>
+          <target state="new"><bpt id="76c578b1-28c1-4e96-bfd9-88445d11dc8a">&lt;linkText&gt;</bpt>Prepare an Oracle Linux virtual machine for Azure<ept id="76c578b1-28c1-4e96-bfd9-88445d11dc8a">&lt;/linkText&gt;</ept><bpt id="76c578b1-28c1-4e96-bfd9-88445d11dc8a">&lt;title&gt;</bpt><ept id="76c578b1-28c1-4e96-bfd9-88445d11dc8a">&lt;/title&gt;</ept> steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.</target>
+        </trans-unit>
+        <trans-unit id="5d653c97-3223-455a-92e5-1e315c79c442" xml:space="preserve">
+          <source><bpt id="afc90b55-2f20-4afe-b099-109581584aca">&lt;linkText&gt;</bpt>Configuring Oracle Data Guard for Azure<ept id="afc90b55-2f20-4afe-b099-109581584aca">&lt;/linkText&gt;</ept><bpt id="afc90b55-2f20-4afe-b099-109581584aca">&lt;title&gt;</bpt><ept id="afc90b55-2f20-4afe-b099-109581584aca">&lt;/title&gt;</ept> steps you through configuration of the standby environment and the listener.</source>
+          <target state="new"><bpt id="afc90b55-2f20-4afe-b099-109581584aca">&lt;linkText&gt;</bpt>Configuring Oracle Data Guard for Azure<ept id="afc90b55-2f20-4afe-b099-109581584aca">&lt;/linkText&gt;</ept><bpt id="afc90b55-2f20-4afe-b099-109581584aca">&lt;title&gt;</bpt><ept id="afc90b55-2f20-4afe-b099-109581584aca">&lt;/title&gt;</ept> steps you through configuration of the standby environment and the listener.</target>
+        </trans-unit>
+        <trans-unit id="8ca021a6-6a32-48ce-9df0-087408946cc6" xml:space="preserve">
+          <source><bpt id="27f36fc4-ff1c-4b6c-8956-732066e67476">&lt;linkText&gt;</bpt>Configuring Oracle GoldenGate for Azure<ept id="27f36fc4-ff1c-4b6c-8956-732066e67476">&lt;/linkText&gt;</ept><bpt id="27f36fc4-ff1c-4b6c-8956-732066e67476">&lt;title&gt;</bpt><ept id="27f36fc4-ff1c-4b6c-8956-732066e67476">&lt;/title&gt;</ept> steps you through database and replication setup.</source>
+          <target state="new"><bpt id="27f36fc4-ff1c-4b6c-8956-732066e67476">&lt;linkText&gt;</bpt>Configuring Oracle GoldenGate for Azure<ept id="27f36fc4-ff1c-4b6c-8956-732066e67476">&lt;/linkText&gt;</ept><bpt id="27f36fc4-ff1c-4b6c-8956-732066e67476">&lt;title&gt;</bpt><ept id="27f36fc4-ff1c-4b6c-8956-732066e67476">&lt;/title&gt;</ept> steps you through database and replication setup.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

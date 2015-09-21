@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8089d96f-07c1-4456-a6ab-9db7da345fe5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8089d96f-07c1-4456-a6ab-9db7da345fe5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a12fb991-5301-4d26-9d25-f571d6d74f71">
+        <trans-unit id="59be24e5-2143-4ec7-ac74-7339fc458ed9" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with SimpleNexus | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with SimpleNexus | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9b2c5a8b-3d9b-4fd7-889f-3dc9e1ff2bbf" xml:space="preserve">
+          <source>Learn how to use SimpleNexus with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use SimpleNexus with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="338aa929-9029-4fbc-8eb6-6bb2099c1a74" xml:space="preserve">
+          <source>For feedback, click <bpt id="e15b97fc-0cd7-4f02-aa55-d3e8230a3d1f">&lt;linkText&gt;</bpt>here<ept id="e15b97fc-0cd7-4f02-aa55-d3e8230a3d1f">&lt;/linkText&gt;</ept><bpt id="e15b97fc-0cd7-4f02-aa55-d3e8230a3d1f">&lt;title&gt;</bpt><ept id="e15b97fc-0cd7-4f02-aa55-d3e8230a3d1f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="e15b97fc-0cd7-4f02-aa55-d3e8230a3d1f">&lt;linkText&gt;</bpt>here<ept id="e15b97fc-0cd7-4f02-aa55-d3e8230a3d1f">&lt;/linkText&gt;</ept><bpt id="e15b97fc-0cd7-4f02-aa55-d3e8230a3d1f">&lt;title&gt;</bpt><ept id="e15b97fc-0cd7-4f02-aa55-d3e8230a3d1f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb94b6ca-cb2b-4a20-a087-99e54b7208e7" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and SimpleNexus.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and SimpleNexus.</target>
+        </trans-unit>
+        <trans-unit id="6627ad1d-981e-4fa9-a9b6-b506fdcc21e3" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="be9e8a86-29b4-4d0f-a6cc-e1eceafc6693" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="f1ea84b6-d3bb-4f93-9db0-f4d50c6deb3d" xml:space="preserve">
+          <source>A SimpleNexus single sign-on enabled subscription</source>
+          <target state="new">A SimpleNexus single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="a2fd3c87-4ce9-41be-a9f4-a927a46baf62" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to SimpleNexus will be able to single sign into the application at your SimpleNexus company site (service provider initiated sign on), or using the <bpt id="d27df470-86b9-43a1-9770-80a5ebded8b3">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="d27df470-86b9-43a1-9770-80a5ebded8b3">&lt;/linkText&gt;</ept><bpt id="d27df470-86b9-43a1-9770-80a5ebded8b3">&lt;title&gt;</bpt><ept id="d27df470-86b9-43a1-9770-80a5ebded8b3">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to SimpleNexus will be able to single sign into the application at your SimpleNexus company site (service provider initiated sign on), or using the <bpt id="d27df470-86b9-43a1-9770-80a5ebded8b3">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="d27df470-86b9-43a1-9770-80a5ebded8b3">&lt;/linkText&gt;</ept><bpt id="d27df470-86b9-43a1-9770-80a5ebded8b3">&lt;title&gt;</bpt><ept id="d27df470-86b9-43a1-9770-80a5ebded8b3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2386af30-309f-4a38-a389-7ba53540d7ac" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="dc21a3ae-d181-4d72-9d07-9693e14e0b8c" xml:space="preserve">
+          <source>Enabling the application integration for SimpleNexus</source>
+          <target state="new">Enabling the application integration for SimpleNexus</target>
+        </trans-unit>
+        <trans-unit id="0770752c-27b4-4870-835a-b73311497e5f" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="790ba086-1d65-4b74-9cb3-c1e31a808128" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="339d1d63-0206-492c-ab70-57925b082fbc" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="07fd6097-1003-4544-8a8e-48bdd7d28636" xml:space="preserve">
+          <source><bpt id="ca08de92-2a52-4505-9861-5e5f27db8465">&lt;linkText&gt;</bpt>Scenario<ept id="ca08de92-2a52-4505-9861-5e5f27db8465">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ca08de92-2a52-4505-9861-5e5f27db8465">&lt;linkText&gt;</bpt>Scenario<ept id="ca08de92-2a52-4505-9861-5e5f27db8465">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e46390b6-c455-4874-bf30-6caf164ddf46" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for SimpleNexus.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for SimpleNexus.</target>
+        </trans-unit>
+        <trans-unit id="1537e388-b627-4758-9264-0363006ee958" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="a2286e41-c3d6-4413-b759-992fb3a5b25a">&lt;strong&gt;</bpt>Active Directory<ept id="a2286e41-c3d6-4413-b759-992fb3a5b25a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="a2286e41-c3d6-4413-b759-992fb3a5b25a">&lt;strong&gt;</bpt>Active Directory<ept id="a2286e41-c3d6-4413-b759-992fb3a5b25a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9350b651-37ea-48c3-a809-8579e971bc2e" xml:space="preserve">
+          <source><bpt id="645629db-8687-4798-adaa-76e259fac35e">&lt;linkText&gt;</bpt>Active Directory<ept id="645629db-8687-4798-adaa-76e259fac35e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="645629db-8687-4798-adaa-76e259fac35e">&lt;linkText&gt;</bpt>Active Directory<ept id="645629db-8687-4798-adaa-76e259fac35e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7cc90b5-1ca5-4df6-8c16-041db8f60695" xml:space="preserve">
+          <source>From the <bpt id="466b37e2-2892-4316-b88b-cb080d74cfba">&lt;strong&gt;</bpt>Directory<ept id="466b37e2-2892-4316-b88b-cb080d74cfba">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="466b37e2-2892-4316-b88b-cb080d74cfba">&lt;strong&gt;</bpt>Directory<ept id="466b37e2-2892-4316-b88b-cb080d74cfba">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="f493042d-4db6-4cf8-a7ae-3fd86775500a" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="041a775f-090e-47f4-8ee5-2d0115f585ac">&lt;strong&gt;</bpt>Applications<ept id="041a775f-090e-47f4-8ee5-2d0115f585ac">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="041a775f-090e-47f4-8ee5-2d0115f585ac">&lt;strong&gt;</bpt>Applications<ept id="041a775f-090e-47f4-8ee5-2d0115f585ac">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="33dd9ec8-3a2f-4f98-968b-b39ed3e73be2" xml:space="preserve">
+          <source><bpt id="5ed4ad1b-16fe-4692-839a-9e87067f392f">&lt;linkText&gt;</bpt>Applications<ept id="5ed4ad1b-16fe-4692-839a-9e87067f392f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5ed4ad1b-16fe-4692-839a-9e87067f392f">&lt;linkText&gt;</bpt>Applications<ept id="5ed4ad1b-16fe-4692-839a-9e87067f392f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0f644fb-cc03-4d2c-9d47-2de440ce80d9" xml:space="preserve">
+          <source>Click <bpt id="fb1cff87-84b3-468a-8d76-d6b6edd35154">&lt;strong&gt;</bpt>Add<ept id="fb1cff87-84b3-468a-8d76-d6b6edd35154">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="fb1cff87-84b3-468a-8d76-d6b6edd35154">&lt;strong&gt;</bpt>Add<ept id="fb1cff87-84b3-468a-8d76-d6b6edd35154">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="40da0f53-ab47-41f7-8171-bc81d5736436" xml:space="preserve">
+          <source><bpt id="bb747777-52bb-4e89-9d0e-c0bc9f408774">&lt;linkText&gt;</bpt>Add application<ept id="bb747777-52bb-4e89-9d0e-c0bc9f408774">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb747777-52bb-4e89-9d0e-c0bc9f408774">&lt;linkText&gt;</bpt>Add application<ept id="bb747777-52bb-4e89-9d0e-c0bc9f408774">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29ccd643-ce1b-4cb1-8be4-c0dffd0bb8c7" xml:space="preserve">
+          <source>On the <bpt id="7871c5b2-cb5e-478c-af54-6ab92ac31664">&lt;strong&gt;</bpt>What do you want to do<ept id="7871c5b2-cb5e-478c-af54-6ab92ac31664">&lt;/strong&gt;</ept> dialog, click <bpt id="0fe2e743-4b86-482e-886e-e5a73bfcb602">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="0fe2e743-4b86-482e-886e-e5a73bfcb602">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7871c5b2-cb5e-478c-af54-6ab92ac31664">&lt;strong&gt;</bpt>What do you want to do<ept id="7871c5b2-cb5e-478c-af54-6ab92ac31664">&lt;/strong&gt;</ept> dialog, click <bpt id="0fe2e743-4b86-482e-886e-e5a73bfcb602">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="0fe2e743-4b86-482e-886e-e5a73bfcb602">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3dbf8e34-85ec-4f5f-b405-e8c28b712df9" xml:space="preserve">
+          <source><bpt id="a35cc01b-feb5-42d6-9ff6-5c4171252d36">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="a35cc01b-feb5-42d6-9ff6-5c4171252d36">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a35cc01b-feb5-42d6-9ff6-5c4171252d36">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="a35cc01b-feb5-42d6-9ff6-5c4171252d36">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55804b59-c322-4ff0-a6a8-7954357180e2" xml:space="preserve">
+          <source>In the <bpt id="4298a7ea-a18e-47bb-b915-40494f77e1e7">&lt;strong&gt;</bpt>search box<ept id="4298a7ea-a18e-47bb-b915-40494f77e1e7">&lt;/strong&gt;</ept>, type <bpt id="575753ba-b20b-4cc6-93e7-62202c1ba19b">&lt;strong&gt;</bpt>simple nexus<ept id="575753ba-b20b-4cc6-93e7-62202c1ba19b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4298a7ea-a18e-47bb-b915-40494f77e1e7">&lt;strong&gt;</bpt>search box<ept id="4298a7ea-a18e-47bb-b915-40494f77e1e7">&lt;/strong&gt;</ept>, type <bpt id="575753ba-b20b-4cc6-93e7-62202c1ba19b">&lt;strong&gt;</bpt>simple nexus<ept id="575753ba-b20b-4cc6-93e7-62202c1ba19b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="615a6eef-2a93-4cc2-a25c-88b49838925e" xml:space="preserve">
+          <source><bpt id="adfded71-e98f-469f-9bc3-5b1ae191091b">&lt;linkText&gt;</bpt>Application Gallery<ept id="adfded71-e98f-469f-9bc3-5b1ae191091b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="adfded71-e98f-469f-9bc3-5b1ae191091b">&lt;linkText&gt;</bpt>Application Gallery<ept id="adfded71-e98f-469f-9bc3-5b1ae191091b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3af8ec85-7940-4aab-bc80-a0c3fd67f740" xml:space="preserve">
+          <source>In the results pane, select <bpt id="7f31abad-3d55-4fa2-a5a3-0d74a30bae0a">&lt;strong&gt;</bpt>SimpleNexus<ept id="7f31abad-3d55-4fa2-a5a3-0d74a30bae0a">&lt;/strong&gt;</ept>, and then click <bpt id="d092c6c0-e9ca-484c-9e8b-c49777b2a053">&lt;strong&gt;</bpt>Complete<ept id="d092c6c0-e9ca-484c-9e8b-c49777b2a053">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="7f31abad-3d55-4fa2-a5a3-0d74a30bae0a">&lt;strong&gt;</bpt>SimpleNexus<ept id="7f31abad-3d55-4fa2-a5a3-0d74a30bae0a">&lt;/strong&gt;</ept>, and then click <bpt id="d092c6c0-e9ca-484c-9e8b-c49777b2a053">&lt;strong&gt;</bpt>Complete<ept id="d092c6c0-e9ca-484c-9e8b-c49777b2a053">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="988d076e-df80-4f31-afc2-79d0b0d17409" xml:space="preserve">
+          <source><bpt id="954f3771-6425-4c74-878a-de81ba03b798">&lt;linkText&gt;</bpt>Simple Nexus<ept id="954f3771-6425-4c74-878a-de81ba03b798">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="954f3771-6425-4c74-878a-de81ba03b798">&lt;linkText&gt;</bpt>Simple Nexus<ept id="954f3771-6425-4c74-878a-de81ba03b798">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19f24331-239d-4fc3-b9b5-30ed2b077ed0" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to SimpleNexus with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to SimpleNexus with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="1db66426-85af-40cb-aaa8-4bbcb136a29f" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="eac07aa4-d686-417f-ab2d-700fc09aa94a">&lt;strong&gt;</bpt>SimpleNexus<ept id="eac07aa4-d686-417f-ab2d-700fc09aa94a">&lt;/strong&gt;</ept> application integration page, click <bpt id="33a7d29f-3c88-463e-8340-e3dbcc739e17">&lt;strong&gt;</bpt>Configure single sign-on<ept id="33a7d29f-3c88-463e-8340-e3dbcc739e17">&lt;/strong&gt;</ept> to open the <bpt id="b4f894ba-e346-4c56-8cb8-700906c721e2">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="b4f894ba-e346-4c56-8cb8-700906c721e2">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="eac07aa4-d686-417f-ab2d-700fc09aa94a">&lt;strong&gt;</bpt>SimpleNexus<ept id="eac07aa4-d686-417f-ab2d-700fc09aa94a">&lt;/strong&gt;</ept> application integration page, click <bpt id="33a7d29f-3c88-463e-8340-e3dbcc739e17">&lt;strong&gt;</bpt>Configure single sign-on<ept id="33a7d29f-3c88-463e-8340-e3dbcc739e17">&lt;/strong&gt;</ept> to open the <bpt id="b4f894ba-e346-4c56-8cb8-700906c721e2">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="b4f894ba-e346-4c56-8cb8-700906c721e2">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="5d1c346f-9aca-4d90-88f3-f9f975a0eb75" xml:space="preserve">
+          <source><bpt id="f3f9603e-25df-4240-a8c3-34299c8ae982">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f3f9603e-25df-4240-a8c3-34299c8ae982">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f3f9603e-25df-4240-a8c3-34299c8ae982">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f3f9603e-25df-4240-a8c3-34299c8ae982">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b02cfcf0-2a13-43a3-b088-2e0e5b7d247b" xml:space="preserve">
+          <source>On the <bpt id="f489db9a-84c9-4361-9678-972a78e4b0f6">&lt;strong&gt;</bpt>How would you like users to sign on to SimpleNexus<ept id="f489db9a-84c9-4361-9678-972a78e4b0f6">&lt;/strong&gt;</ept> page, select <bpt id="23323a5a-04e8-4acb-a9d6-cff48fdacd21">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="23323a5a-04e8-4acb-a9d6-cff48fdacd21">&lt;/strong&gt;</ept>, and then click <bpt id="32a60fba-c01a-48f0-a868-f0641a3c26b5">&lt;strong&gt;</bpt>Next<ept id="32a60fba-c01a-48f0-a868-f0641a3c26b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f489db9a-84c9-4361-9678-972a78e4b0f6">&lt;strong&gt;</bpt>How would you like users to sign on to SimpleNexus<ept id="f489db9a-84c9-4361-9678-972a78e4b0f6">&lt;/strong&gt;</ept> page, select <bpt id="23323a5a-04e8-4acb-a9d6-cff48fdacd21">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="23323a5a-04e8-4acb-a9d6-cff48fdacd21">&lt;/strong&gt;</ept>, and then click <bpt id="32a60fba-c01a-48f0-a868-f0641a3c26b5">&lt;strong&gt;</bpt>Next<ept id="32a60fba-c01a-48f0-a868-f0641a3c26b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0b1e00f-02f4-43b5-b138-b031f27a1f39" xml:space="preserve">
+          <source><bpt id="0fc2e837-5202-4d92-8b04-fb32e74e2bde">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="0fc2e837-5202-4d92-8b04-fb32e74e2bde">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0fc2e837-5202-4d92-8b04-fb32e74e2bde">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="0fc2e837-5202-4d92-8b04-fb32e74e2bde">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dff7ed16-c077-431e-b95e-a1ea2be95a08" xml:space="preserve">
+          <source>On the <bpt id="8582af0e-d2e3-44eb-99bf-1bd0c459ed14">&lt;strong&gt;</bpt>Configure App URL<ept id="8582af0e-d2e3-44eb-99bf-1bd0c459ed14">&lt;/strong&gt;</ept> page, in the <bpt id="4a361a50-67e8-4dee-9ccc-6f0cb506b929">&lt;strong&gt;</bpt>SimpleNexus Sign In URL<ept id="4a361a50-67e8-4dee-9ccc-6f0cb506b929">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="0acc8e13-1a3d-487c-8bac-1d222126c8ec">&lt;em&gt;</bpt>https://simplenexus.com/CompanyName\_login<ept id="0acc8e13-1a3d-487c-8bac-1d222126c8ec">&lt;/em&gt;</ept>", and then click <bpt id="3f950b8e-f6df-4269-97ae-865fbc51493d">&lt;strong&gt;</bpt>Next<ept id="3f950b8e-f6df-4269-97ae-865fbc51493d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="8582af0e-d2e3-44eb-99bf-1bd0c459ed14">&lt;strong&gt;</bpt>Configure App URL<ept id="8582af0e-d2e3-44eb-99bf-1bd0c459ed14">&lt;/strong&gt;</ept> page, in the <bpt id="4a361a50-67e8-4dee-9ccc-6f0cb506b929">&lt;strong&gt;</bpt>SimpleNexus Sign In URL<ept id="4a361a50-67e8-4dee-9ccc-6f0cb506b929">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="0acc8e13-1a3d-487c-8bac-1d222126c8ec">&lt;em&gt;</bpt>https://simplenexus.com/CompanyName\_login<ept id="0acc8e13-1a3d-487c-8bac-1d222126c8ec">&lt;/em&gt;</ept>", and then click <bpt id="3f950b8e-f6df-4269-97ae-865fbc51493d">&lt;strong&gt;</bpt>Next<ept id="3f950b8e-f6df-4269-97ae-865fbc51493d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01e72169-b787-4562-9b9d-42f8c655a976" xml:space="preserve">
+          <source><bpt id="6f3d61af-fb8e-4967-9c05-c155e7d2b765">&lt;linkText&gt;</bpt>Configure App URL<ept id="6f3d61af-fb8e-4967-9c05-c155e7d2b765">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f3d61af-fb8e-4967-9c05-c155e7d2b765">&lt;linkText&gt;</bpt>Configure App URL<ept id="6f3d61af-fb8e-4967-9c05-c155e7d2b765">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67cfe7c7-fada-4e79-9bdb-4e4a3a3312af" xml:space="preserve">
+          <source>On the <bpt id="7b3a42bb-85ec-4783-8e9a-8d492871e9f4">&lt;strong&gt;</bpt>Configure single sign-on at SimpleNexus<ept id="7b3a42bb-85ec-4783-8e9a-8d492871e9f4">&lt;/strong&gt;</ept> page, click <bpt id="34a2e9fd-23ca-459b-8dd9-b09c5d60faf3">&lt;strong&gt;</bpt>Download metadata<ept id="34a2e9fd-23ca-459b-8dd9-b09c5d60faf3">&lt;/strong&gt;</ept>, and then forward the metadata file to the SimpleNexus support team.</source>
+          <target state="new">On the <bpt id="7b3a42bb-85ec-4783-8e9a-8d492871e9f4">&lt;strong&gt;</bpt>Configure single sign-on at SimpleNexus<ept id="7b3a42bb-85ec-4783-8e9a-8d492871e9f4">&lt;/strong&gt;</ept> page, click <bpt id="34a2e9fd-23ca-459b-8dd9-b09c5d60faf3">&lt;strong&gt;</bpt>Download metadata<ept id="34a2e9fd-23ca-459b-8dd9-b09c5d60faf3">&lt;/strong&gt;</ept>, and then forward the metadata file to the SimpleNexus support team.</target>
+        </trans-unit>
+        <trans-unit id="fd44c9c4-4660-42f5-b2e6-e9f731bda620" xml:space="preserve">
+          <source><bpt id="ecf3fc67-4d17-4977-a995-7d6cdb31f6da">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="ecf3fc67-4d17-4977-a995-7d6cdb31f6da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ecf3fc67-4d17-4977-a995-7d6cdb31f6da">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="ecf3fc67-4d17-4977-a995-7d6cdb31f6da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3080f4c-a2d9-4f4b-81a4-6e473c9a6c03" xml:space="preserve">
+          <source>Single sign-on needs to be enabled by the SimpleNexus support team.</source>
+          <target state="new">Single sign-on needs to be enabled by the SimpleNexus support team.</target>
+        </trans-unit>
+        <trans-unit id="2b88f659-a3b5-4526-b8cf-56f6611c7a11" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="bdfaed52-1d64-4afd-8a5a-32d6ae886651">&lt;strong&gt;</bpt>Complete<ept id="bdfaed52-1d64-4afd-8a5a-32d6ae886651">&lt;/strong&gt;</ept> to close the <bpt id="bc3befe9-4176-4d6b-8e1a-4727ce7707fc">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="bc3befe9-4176-4d6b-8e1a-4727ce7707fc">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="bdfaed52-1d64-4afd-8a5a-32d6ae886651">&lt;strong&gt;</bpt>Complete<ept id="bdfaed52-1d64-4afd-8a5a-32d6ae886651">&lt;/strong&gt;</ept> to close the <bpt id="bc3befe9-4176-4d6b-8e1a-4727ce7707fc">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="bc3befe9-4176-4d6b-8e1a-4727ce7707fc">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="d8077bf6-0a00-463d-9650-ed58550d37b3" xml:space="preserve">
+          <source><bpt id="3da2bcc0-712e-4690-be2e-d4872f31c4c4">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="3da2bcc0-712e-4690-be2e-d4872f31c4c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3da2bcc0-712e-4690-be2e-d4872f31c4c4">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="3da2bcc0-712e-4690-be2e-d4872f31c4c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a39c495-3a73-4a28-a9e7-08e9f72bf321" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into SimpleNexus, they must be provisioned into SimpleNexus.</source>
+          <target state="new">In order to enable Azure AD users to log into SimpleNexus, they must be provisioned into SimpleNexus.</target>
+        </trans-unit>
+        <trans-unit id="6aedc365-c2ca-4759-a499-a46664a0bed4" xml:space="preserve">
+          <source>In the case of SimpleNexus, provisioning is a manual task performed by the tenant administrator.</source>
+          <target state="new">In the case of SimpleNexus, provisioning is a manual task performed by the tenant administrator.</target>
+        </trans-unit>
+        <trans-unit id="5f12c97b-f72d-482d-9524-d68dc2b56882" xml:space="preserve">
+          <source>You can use any other SimpleNexus user account creation tools or APIs provided by SimpleNexus to provision AAD user accounts.</source>
+          <target state="new">You can use any other SimpleNexus user account creation tools or APIs provided by SimpleNexus to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="546b8dfb-8a04-445e-96e2-9336f01bebcc" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="e66d9f7b-e604-4c01-9538-7ace222abd8e" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="58324b34-fbdd-4532-882c-85c9b1dae0b9" xml:space="preserve">
+          <source>On the <bpt id="b198503d-b368-4dc0-afc2-eb748348c45d">&lt;strong&gt;</bpt>SimpleNexus **application integration page, click **Assign users<ept id="b198503d-b368-4dc0-afc2-eb748348c45d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b198503d-b368-4dc0-afc2-eb748348c45d">&lt;strong&gt;</bpt>SimpleNexus **application integration page, click **Assign users<ept id="b198503d-b368-4dc0-afc2-eb748348c45d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a367c962-e350-481c-8a34-1b697f8363ba" xml:space="preserve">
+          <source><bpt id="c7dc29df-174e-44f6-a5ec-7e470efd41a5">&lt;linkText&gt;</bpt>Assign Users<ept id="c7dc29df-174e-44f6-a5ec-7e470efd41a5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c7dc29df-174e-44f6-a5ec-7e470efd41a5">&lt;linkText&gt;</bpt>Assign Users<ept id="c7dc29df-174e-44f6-a5ec-7e470efd41a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad5f49c8-6a3a-450b-adc2-56431bcc2d9a" xml:space="preserve">
+          <source>Select your test user, click <bpt id="bd9f491e-2002-48ce-a012-97060e5d60b3">&lt;strong&gt;</bpt>Assign<ept id="bd9f491e-2002-48ce-a012-97060e5d60b3">&lt;/strong&gt;</ept>, and then click <bpt id="d7a8d07d-0de9-42bd-aeb6-a8aa9bb1f66a">&lt;strong&gt;</bpt>Yes<ept id="d7a8d07d-0de9-42bd-aeb6-a8aa9bb1f66a">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="bd9f491e-2002-48ce-a012-97060e5d60b3">&lt;strong&gt;</bpt>Assign<ept id="bd9f491e-2002-48ce-a012-97060e5d60b3">&lt;/strong&gt;</ept>, and then click <bpt id="d7a8d07d-0de9-42bd-aeb6-a8aa9bb1f66a">&lt;strong&gt;</bpt>Yes<ept id="d7a8d07d-0de9-42bd-aeb6-a8aa9bb1f66a">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="5933bfd5-3b6e-455e-9860-54265fc8fc87" xml:space="preserve">
+          <source><bpt id="3e467fa9-ecce-4219-b695-168f10682a81">&lt;linkText&gt;</bpt>Yes<ept id="3e467fa9-ecce-4219-b695-168f10682a81">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e467fa9-ecce-4219-b695-168f10682a81">&lt;linkText&gt;</bpt>Yes<ept id="3e467fa9-ecce-4219-b695-168f10682a81">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="adbb5ed2-130b-4645-998d-08cb63a96c8c" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="c6bac4aa-8a08-42b9-a7b6-a504bc98b6e0" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="9a9f40b5-5068-452e-b1d7-07d45f64506a">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="9a9f40b5-5068-452e-b1d7-07d45f64506a">&lt;/linkText&gt;</ept><bpt id="9a9f40b5-5068-452e-b1d7-07d45f64506a">&lt;title&gt;</bpt><ept id="9a9f40b5-5068-452e-b1d7-07d45f64506a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="9a9f40b5-5068-452e-b1d7-07d45f64506a">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="9a9f40b5-5068-452e-b1d7-07d45f64506a">&lt;/linkText&gt;</ept><bpt id="9a9f40b5-5068-452e-b1d7-07d45f64506a">&lt;title&gt;</bpt><ept id="9a9f40b5-5068-452e-b1d7-07d45f64506a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

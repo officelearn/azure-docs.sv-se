@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0cef3af5-b304-4d5e-b1ff-17d4ad09c64c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0cef3af5-b304-4d5e-b1ff-17d4ad09c64c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="17542a18-04df-43cb-b5c8-e907032f4ba0">
+        <trans-unit id="bc5f91c9-7161-43ec-a80b-b2d7518b42e2" xml:space="preserve">
+          <source>Information about automobiles by make and model, including the price, features such as the number of cylinders and MPG, as well as an insurance risk score.&lt;p&gt; &lt;/p&gt;The risk score is initially associated with auto price and then adjusted for actual risk in a process known to actuaries as symboling.</source>
+          <target state="new">Information about automobiles by make and model, including the price, features such as the number of cylinders and MPG, as well as an insurance risk score.&lt;p&gt; &lt;/p&gt;The risk score is initially associated with auto price and then adjusted for actual risk in a process known to actuaries as symboling.</target>
+        </trans-unit>
+        <trans-unit id="d3f55639-dec8-4d6e-b49a-0d932d67e9a4" xml:space="preserve">
+          <source>A value of +3 indicates that the auto is risky, and a value of -3 that it is probably pretty safe.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Predict the risk score by features, using regression or multivariate classification.</source>
+          <target state="new">A value of +3 indicates that the auto is risky, and a value of -3 that it is probably pretty safe.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Predict the risk score by features, using regression or multivariate classification.</target>
+        </trans-unit>
+        <trans-unit id="fc080f68-13d3-40d5-a3af-4c51cc41fc26" xml:space="preserve">
+          <source>&lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Schlimmer, J.C. (1987).</source>
+          <target state="new">&lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Schlimmer, J.C. (1987).</target>
+        </trans-unit>
+        <trans-unit id="d717e51a-50ca-4626-ac8c-2b68800fe761" xml:space="preserve">
+          <source>UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;.</source>
+          <target state="new">UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="bd80101b-69c9-468c-9262-e1339c41f242" xml:space="preserve">
+          <source>Irvine, CA: University of California, School of Information and Computer Science</source>
+          <target state="new">Irvine, CA: University of California, School of Information and Computer Science</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

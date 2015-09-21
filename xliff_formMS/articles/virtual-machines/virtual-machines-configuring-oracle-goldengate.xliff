@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9aaf8b18-aaf3-44f9-a55b-5168e8c75abe" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9aaf8b18-aaf3-44f9-a55b-5168e8c75abe" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="10e50f61-4fb3-4914-928b-046cd9a871d5">
+        <trans-unit id="a3d13986-c3de-4da0-bce9-c31f19c987d0" xml:space="preserve">
+          <source>Configuring Oracle GoldenGate for Azure</source>
+          <target state="new">Configuring Oracle GoldenGate for Azure</target>
+        </trans-unit>
+        <trans-unit id="6f359992-a858-49b0-a2e2-ae287e6a0ce9" xml:space="preserve">
+          <source>Step through a tutorial for setting up and implementing Oracle GoldenGate on Azure Virtual Machines for high availability and disaster recovery.</source>
+          <target state="new">Step through a tutorial for setting up and implementing Oracle GoldenGate on Azure Virtual Machines for high availability and disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="5353c0ba-9518-4ef2-a730-e745e692912c" xml:space="preserve">
+          <source>This tutorial demonstrates how to setup Oracle GoldenGate for Azure Virtual Machines environment for high availability and disaster recovery.</source>
+          <target state="new">This tutorial demonstrates how to setup Oracle GoldenGate for Azure Virtual Machines environment for high availability and disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="1fce1d1a-dea1-4911-ad88-b81f6eb538a5" xml:space="preserve">
+          <source>The tutorial focuses on [bi-directional replication](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu<bpt id="a29ede98-17c9-4fed-9b56-7136a9254f00">&lt;em&gt;</bpt>about<ept id="a29ede98-17c9-4fed-9b56-7136a9254f00">&lt;/em&gt;</ept>gg.htm) for non-RAC Oracle databases and requires that both sites are active.</source>
+          <target state="new">The tutorial focuses on [bi-directional replication](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu<bpt id="a29ede98-17c9-4fed-9b56-7136a9254f00">&lt;em&gt;</bpt>about<ept id="a29ede98-17c9-4fed-9b56-7136a9254f00">&lt;/em&gt;</ept>gg.htm) for non-RAC Oracle databases and requires that both sites are active.</target>
+        </trans-unit>
+        <trans-unit id="390ee221-7c99-49bf-b11d-182209f50070" xml:space="preserve">
+          <source>Oracle GoldenGate supports data distribution and data integration.</source>
+          <target state="new">Oracle GoldenGate supports data distribution and data integration.</target>
+        </trans-unit>
+        <trans-unit id="cde5c5ed-e28a-4eba-8fab-6e104711719f" xml:space="preserve">
+          <source>It enables you to set up a data distribution and data synchronization solution through the Oracle-Oracle replication configuration, and provides a flexible high availability solution.</source>
+          <target state="new">It enables you to set up a data distribution and data synchronization solution through the Oracle-Oracle replication configuration, and provides a flexible high availability solution.</target>
+        </trans-unit>
+        <trans-unit id="c1c9eba9-333a-4882-811d-c05c12245918" xml:space="preserve">
+          <source>Oracle GoldenGate supplements Oracle Data Guard with its replication capabilities to enable enterprise-wide information distribution and zero-downtime upgrades and migrations.</source>
+          <target state="new">Oracle GoldenGate supplements Oracle Data Guard with its replication capabilities to enable enterprise-wide information distribution and zero-downtime upgrades and migrations.</target>
+        </trans-unit>
+        <trans-unit id="c38c41d0-6ff0-494b-bcd0-deb5678cf79d" xml:space="preserve">
+          <source>For detailed information, see <bpt id="4cff2b93-991b-4f98-badd-14e8af8b7148">&lt;linkText&gt;</bpt>Using Oracle GoldenGate with Oracle Data Guard<ept id="4cff2b93-991b-4f98-badd-14e8af8b7148">&lt;/linkText&gt;</ept><bpt id="4cff2b93-991b-4f98-badd-14e8af8b7148">&lt;title&gt;</bpt><ept id="4cff2b93-991b-4f98-badd-14e8af8b7148">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed information, see <bpt id="4cff2b93-991b-4f98-badd-14e8af8b7148">&lt;linkText&gt;</bpt>Using Oracle GoldenGate with Oracle Data Guard<ept id="4cff2b93-991b-4f98-badd-14e8af8b7148">&lt;/linkText&gt;</ept><bpt id="4cff2b93-991b-4f98-badd-14e8af8b7148">&lt;title&gt;</bpt><ept id="4cff2b93-991b-4f98-badd-14e8af8b7148">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65b44ebc-734c-4079-8e87-5fe02a8e70f5" xml:space="preserve">
+          <source>Oracle GoldenGate contains the following main components: Extract, Data pump, Replicat, Trails or extract files, Checkpoints, Manager and Collector.</source>
+          <target state="new">Oracle GoldenGate contains the following main components: Extract, Data pump, Replicat, Trails or extract files, Checkpoints, Manager and Collector.</target>
+        </trans-unit>
+        <trans-unit id="296b9b45-1955-4b16-8c80-3efb964f7569" xml:space="preserve">
+          <source>To have bi-directional replication between two sites, you need to create and start all components on both sites.</source>
+          <target state="new">To have bi-directional replication between two sites, you need to create and start all components on both sites.</target>
+        </trans-unit>
+        <trans-unit id="e936b834-0285-4621-8000-f4a32c8f06c9" xml:space="preserve">
+          <source>For detailed information on Oracle GoldenGate architecture, see <bpt id="1c00136f-632d-43bb-a9ef-867a51365367">&lt;linkText&gt;</bpt>Oracle GoldenGate Guide<ept id="1c00136f-632d-43bb-a9ef-867a51365367">&lt;/linkText&gt;</ept><bpt id="1c00136f-632d-43bb-a9ef-867a51365367">&lt;title&gt;</bpt><ept id="1c00136f-632d-43bb-a9ef-867a51365367">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed information on Oracle GoldenGate architecture, see <bpt id="1c00136f-632d-43bb-a9ef-867a51365367">&lt;linkText&gt;</bpt>Oracle GoldenGate Guide<ept id="1c00136f-632d-43bb-a9ef-867a51365367">&lt;/linkText&gt;</ept><bpt id="1c00136f-632d-43bb-a9ef-867a51365367">&lt;title&gt;</bpt><ept id="1c00136f-632d-43bb-a9ef-867a51365367">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78a74166-3933-495d-b69f-9cbbd86aa25e" xml:space="preserve">
+          <source>This tutorial assumes that you already have theoretical and practical knowledge on Oracle Database High Availability and Disaster Recovery concepts as well as <bpt id="487d604c-e183-4390-a273-22ca3116b331">&lt;linkText&gt;</bpt>Oracle GoldenGate<ept id="487d604c-e183-4390-a273-22ca3116b331">&lt;/linkText&gt;</ept><bpt id="487d604c-e183-4390-a273-22ca3116b331">&lt;title&gt;</bpt><ept id="487d604c-e183-4390-a273-22ca3116b331">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial assumes that you already have theoretical and practical knowledge on Oracle Database High Availability and Disaster Recovery concepts as well as <bpt id="487d604c-e183-4390-a273-22ca3116b331">&lt;linkText&gt;</bpt>Oracle GoldenGate<ept id="487d604c-e183-4390-a273-22ca3116b331">&lt;/linkText&gt;</ept><bpt id="487d604c-e183-4390-a273-22ca3116b331">&lt;title&gt;</bpt><ept id="487d604c-e183-4390-a273-22ca3116b331">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09611025-47ef-4514-b733-b30202ddbac2" xml:space="preserve">
+          <source>For more information, see the <bpt id="aa6404d2-a906-40d7-9a06-cd0599e2e1d9">&lt;linkText&gt;</bpt>Oracle web site<ept id="aa6404d2-a906-40d7-9a06-cd0599e2e1d9">&lt;/linkText&gt;</ept><bpt id="aa6404d2-a906-40d7-9a06-cd0599e2e1d9">&lt;title&gt;</bpt><ept id="aa6404d2-a906-40d7-9a06-cd0599e2e1d9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="aa6404d2-a906-40d7-9a06-cd0599e2e1d9">&lt;linkText&gt;</bpt>Oracle web site<ept id="aa6404d2-a906-40d7-9a06-cd0599e2e1d9">&lt;/linkText&gt;</ept><bpt id="aa6404d2-a906-40d7-9a06-cd0599e2e1d9">&lt;title&gt;</bpt><ept id="aa6404d2-a906-40d7-9a06-cd0599e2e1d9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5cdf3e35-2a12-4335-b945-676b8d68bd90" xml:space="preserve">
+          <source>In addition, the tutorial assumes that you have already implemented the following prerequisites:</source>
+          <target state="new">In addition, the tutorial assumes that you have already implemented the following prerequisites:</target>
+        </trans-unit>
+        <trans-unit id="189537ba-9150-4cae-9db3-f728be5ec189" xml:space="preserve">
+          <source>You’ve already reviewed the High Availability and Disaster Recovery Considerations section in the <bpt id="bf07881a-0246-4234-8a2a-a42608d5f0fe">&lt;linkText&gt;</bpt>Oracle Virtual Machine images - Miscellaneous Considerations<ept id="bf07881a-0246-4234-8a2a-a42608d5f0fe">&lt;/linkText&gt;</ept><bpt id="bf07881a-0246-4234-8a2a-a42608d5f0fe">&lt;title&gt;</bpt><ept id="bf07881a-0246-4234-8a2a-a42608d5f0fe">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">You’ve already reviewed the High Availability and Disaster Recovery Considerations section in the <bpt id="bf07881a-0246-4234-8a2a-a42608d5f0fe">&lt;linkText&gt;</bpt>Oracle Virtual Machine images - Miscellaneous Considerations<ept id="bf07881a-0246-4234-8a2a-a42608d5f0fe">&lt;/linkText&gt;</ept><bpt id="bf07881a-0246-4234-8a2a-a42608d5f0fe">&lt;title&gt;</bpt><ept id="bf07881a-0246-4234-8a2a-a42608d5f0fe">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="6d038882-145b-4f07-aa80-53fa4acb6e48" xml:space="preserve">
+          <source>Note that Azure supports standalone Oracle Database instances but not Oracle Real Application Clusters (Oracle RAC) currently.</source>
+          <target state="new">Note that Azure supports standalone Oracle Database instances but not Oracle Real Application Clusters (Oracle RAC) currently.</target>
+        </trans-unit>
+        <trans-unit id="2b058226-3329-4c0a-8f45-aeb0b24b4b90" xml:space="preserve">
+          <source>You’ve downloaded the Oracle GoldenGate software from the <bpt id="21fade0b-554e-4f3e-acbd-481597e87fd0">&lt;linkText&gt;</bpt>Oracle Downloads<ept id="21fade0b-554e-4f3e-acbd-481597e87fd0">&lt;/linkText&gt;</ept><bpt id="21fade0b-554e-4f3e-acbd-481597e87fd0">&lt;title&gt;</bpt><ept id="21fade0b-554e-4f3e-acbd-481597e87fd0">&lt;/title&gt;</ept> web site.</source>
+          <target state="new">You’ve downloaded the Oracle GoldenGate software from the <bpt id="21fade0b-554e-4f3e-acbd-481597e87fd0">&lt;linkText&gt;</bpt>Oracle Downloads<ept id="21fade0b-554e-4f3e-acbd-481597e87fd0">&lt;/linkText&gt;</ept><bpt id="21fade0b-554e-4f3e-acbd-481597e87fd0">&lt;title&gt;</bpt><ept id="21fade0b-554e-4f3e-acbd-481597e87fd0">&lt;/title&gt;</ept> web site.</target>
+        </trans-unit>
+        <trans-unit id="7de38c89-ee2b-4b12-b447-cd1ceca79805" xml:space="preserve">
+          <source>You’ve selected the Product Pack Oracle Fusion Middleware – Data Integration.</source>
+          <target state="new">You’ve selected the Product Pack Oracle Fusion Middleware – Data Integration.</target>
+        </trans-unit>
+        <trans-unit id="b50a5a0c-bd81-4dd8-884a-aa723104f392" xml:space="preserve">
+          <source>Then, you’ve selected Oracle GoldenGate on Oracle v11.2.1 Media Pack for Microsoft Windows x64 (64-bit) for an Oracle 11g database.</source>
+          <target state="new">Then, you’ve selected Oracle GoldenGate on Oracle v11.2.1 Media Pack for Microsoft Windows x64 (64-bit) for an Oracle 11g database.</target>
+        </trans-unit>
+        <trans-unit id="c6f3bae5-bf7c-46b1-9ee7-0569ce43e9cc" xml:space="preserve">
+          <source>Next, download Oracle GoldenGate V11.2.1.0.3 for Oracle 11g 64bit on Windows 2008 (64bit).</source>
+          <target state="new">Next, download Oracle GoldenGate V11.2.1.0.3 for Oracle 11g 64bit on Windows 2008 (64bit).</target>
+        </trans-unit>
+        <trans-unit id="93ef35dc-f530-4e34-b24f-4e74946c2095" xml:space="preserve">
+          <source>You have created two Virtual Machines (VMs) in Azure using the platform provided Oracle Enterprise Edition image on Windows Server.</source>
+          <target state="new">You have created two Virtual Machines (VMs) in Azure using the platform provided Oracle Enterprise Edition image on Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="9b4fe195-cb5b-4448-9c3c-ba8433321a43" xml:space="preserve">
+          <source>For information, see <bpt id="35f6e35d-1602-4610-bd75-62197fa5e598">&lt;linkText&gt;</bpt>Creating an Oracle Database 12c Virtual Machine in Azure<ept id="35f6e35d-1602-4610-bd75-62197fa5e598">&lt;/linkText&gt;</ept><bpt id="35f6e35d-1602-4610-bd75-62197fa5e598">&lt;title&gt;</bpt><ept id="35f6e35d-1602-4610-bd75-62197fa5e598">&lt;/title&gt;</ept> and <bpt id="5d34cd0f-c580-4442-a7d8-41a306da0068">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="5d34cd0f-c580-4442-a7d8-41a306da0068">&lt;/linkText&gt;</ept><bpt id="5d34cd0f-c580-4442-a7d8-41a306da0068">&lt;title&gt;</bpt><ept id="5d34cd0f-c580-4442-a7d8-41a306da0068">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information, see <bpt id="35f6e35d-1602-4610-bd75-62197fa5e598">&lt;linkText&gt;</bpt>Creating an Oracle Database 12c Virtual Machine in Azure<ept id="35f6e35d-1602-4610-bd75-62197fa5e598">&lt;/linkText&gt;</ept><bpt id="35f6e35d-1602-4610-bd75-62197fa5e598">&lt;title&gt;</bpt><ept id="35f6e35d-1602-4610-bd75-62197fa5e598">&lt;/title&gt;</ept> and <bpt id="5d34cd0f-c580-4442-a7d8-41a306da0068">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="5d34cd0f-c580-4442-a7d8-41a306da0068">&lt;/linkText&gt;</ept><bpt id="5d34cd0f-c580-4442-a7d8-41a306da0068">&lt;title&gt;</bpt><ept id="5d34cd0f-c580-4442-a7d8-41a306da0068">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfbac28f-98cb-4d02-9186-c1aee3fc8a06" xml:space="preserve">
+          <source>Make sure that the Virtual Machines are in the <bpt id="fc49c9ea-8ba6-4e0a-b73f-531f87dc58ec">&lt;linkText&gt;</bpt>same cloud service<ept id="fc49c9ea-8ba6-4e0a-b73f-531f87dc58ec">&lt;/linkText&gt;</ept><bpt id="fc49c9ea-8ba6-4e0a-b73f-531f87dc58ec">&lt;title&gt;</bpt><ept id="fc49c9ea-8ba6-4e0a-b73f-531f87dc58ec">&lt;/title&gt;</ept> and in the same <bpt id="3d93f1c7-5d4b-4b29-a630-41cef95794cd">&lt;linkText&gt;</bpt>Virtual Network<ept id="3d93f1c7-5d4b-4b29-a630-41cef95794cd">&lt;/linkText&gt;</ept><bpt id="3d93f1c7-5d4b-4b29-a630-41cef95794cd">&lt;title&gt;</bpt><ept id="3d93f1c7-5d4b-4b29-a630-41cef95794cd">&lt;/title&gt;</ept> to ensure they can access each other over the persistent private IP address.</source>
+          <target state="new">Make sure that the Virtual Machines are in the <bpt id="fc49c9ea-8ba6-4e0a-b73f-531f87dc58ec">&lt;linkText&gt;</bpt>same cloud service<ept id="fc49c9ea-8ba6-4e0a-b73f-531f87dc58ec">&lt;/linkText&gt;</ept><bpt id="fc49c9ea-8ba6-4e0a-b73f-531f87dc58ec">&lt;title&gt;</bpt><ept id="fc49c9ea-8ba6-4e0a-b73f-531f87dc58ec">&lt;/title&gt;</ept> and in the same <bpt id="3d93f1c7-5d4b-4b29-a630-41cef95794cd">&lt;linkText&gt;</bpt>Virtual Network<ept id="3d93f1c7-5d4b-4b29-a630-41cef95794cd">&lt;/linkText&gt;</ept><bpt id="3d93f1c7-5d4b-4b29-a630-41cef95794cd">&lt;title&gt;</bpt><ept id="3d93f1c7-5d4b-4b29-a630-41cef95794cd">&lt;/title&gt;</ept> to ensure they can access each other over the persistent private IP address.</target>
+        </trans-unit>
+        <trans-unit id="e781dde1-1a13-4fc4-b5d9-d747cd4e5590" xml:space="preserve">
+          <source>You’ve set the Virtual Machine names as “MachineGG1” for Site A and “MachineGG2” for Site B at the Azure Portal.</source>
+          <target state="new">You’ve set the Virtual Machine names as “MachineGG1” for Site A and “MachineGG2” for Site B at the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="f11e8094-7fb1-4f9e-827e-c29ef0e23cfd" xml:space="preserve">
+          <source>You’ve created test databases “TestGG1” on Site A and “TestGG2” on Site B.</source>
+          <target state="new">You’ve created test databases “TestGG1” on Site A and “TestGG2” on Site B.</target>
+        </trans-unit>
+        <trans-unit id="ac3d37d5-a9b4-498a-9cd0-ff9018c6ee51" xml:space="preserve">
+          <source>You log on to your Windows server as a member of the Administrators group or a member of the <bpt id="2c51463a-7887-46ee-be75-23ec5a86d311">&lt;strong&gt;</bpt>ORA_DBA<ept id="2c51463a-7887-46ee-be75-23ec5a86d311">&lt;/strong&gt;</ept> group.</source>
+          <target state="new">You log on to your Windows server as a member of the Administrators group or a member of the <bpt id="2c51463a-7887-46ee-be75-23ec5a86d311">&lt;strong&gt;</bpt>ORA_DBA<ept id="2c51463a-7887-46ee-be75-23ec5a86d311">&lt;/strong&gt;</ept> group.</target>
+        </trans-unit>
+        <trans-unit id="4c00db0e-14cb-4573-8c62-9bdbc1173ede" xml:space="preserve">
+          <source>In this tutorial, you will:</source>
+          <target state="new">In this tutorial, you will:</target>
+        </trans-unit>
+        <trans-unit id="281da50f-9695-4abc-a5e4-7a5dbf822cab" xml:space="preserve">
+          <source>Setup database on Site A and Site B  </source>
+          <target state="new">Setup database on Site A and Site B  </target>
+        </trans-unit>
+        <trans-unit id="7342bad7-653e-4fb3-872a-4fca02b0bfb1" xml:space="preserve">
+          <source>Perform initial data load</source>
+          <target state="new">Perform initial data load</target>
+        </trans-unit>
+        <trans-unit id="a191e681-e0ac-4655-b8c2-c8d4d5acbf49" xml:space="preserve">
+          <source>Prepare Site A and Site B for database replication</source>
+          <target state="new">Prepare Site A and Site B for database replication</target>
+        </trans-unit>
+        <trans-unit id="01332663-575c-40f8-b3c5-0bbdef6b52da" xml:space="preserve">
+          <source>Create all necessary objects to support DDL Replication</source>
+          <target state="new">Create all necessary objects to support DDL Replication</target>
+        </trans-unit>
+        <trans-unit id="554c03ac-fd86-4417-9443-50d243a05bb9" xml:space="preserve">
+          <source>Configure GoldenGate Manager on Site A and Site B</source>
+          <target state="new">Configure GoldenGate Manager on Site A and Site B</target>
+        </trans-unit>
+        <trans-unit id="2e8f583a-ad21-4e6b-b145-05754ef1a28a" xml:space="preserve">
+          <source>Create Extract Group and Data Pump processes on Site A and Site B</source>
+          <target state="new">Create Extract Group and Data Pump processes on Site A and Site B</target>
+        </trans-unit>
+        <trans-unit id="d86e4d84-6053-4639-8346-f153ae625e10" xml:space="preserve">
+          <source>Create Extract and Data Pump processes on Site A</source>
+          <target state="new">Create Extract and Data Pump processes on Site A</target>
+        </trans-unit>
+        <trans-unit id="868ccd9f-8cc5-4dcf-8e02-f14a1be59c20" xml:space="preserve">
+          <source>Create a GoldenGate checkpoint table on Site B</source>
+          <target state="new">Create a GoldenGate checkpoint table on Site B</target>
+        </trans-unit>
+        <trans-unit id="4626a792-2139-42e7-b7e1-b99686f35f19" xml:space="preserve">
+          <source>Add REPLICAT on Site B</source>
+          <target state="new">Add REPLICAT on Site B</target>
+        </trans-unit>
+        <trans-unit id="495daf80-c3a8-4bb3-905e-c58950673054" xml:space="preserve">
+          <source>Create Extract and Data Pump processes on Site B</source>
+          <target state="new">Create Extract and Data Pump processes on Site B</target>
+        </trans-unit>
+        <trans-unit id="471fdf22-c7d1-4d5a-a02d-db98699024ab" xml:space="preserve">
+          <source>Create a GoldenGate checkpoint table on Site A</source>
+          <target state="new">Create a GoldenGate checkpoint table on Site A</target>
+        </trans-unit>
+        <trans-unit id="119be6e6-bdd2-4090-8349-e0504d26b0cb" xml:space="preserve">
+          <source>Add REPLICAT on Site A</source>
+          <target state="new">Add REPLICAT on Site A</target>
+        </trans-unit>
+        <trans-unit id="e3cb894f-5aa5-4a4a-835a-1f5c11bb01d1" xml:space="preserve">
+          <source>Add trandata on Site A and Site B</source>
+          <target state="new">Add trandata on Site A and Site B</target>
+        </trans-unit>
+        <trans-unit id="7bb91228-2d8f-40db-b70d-b131176301b5" xml:space="preserve">
+          <source>Start Extract and Data Pump processes on Site A</source>
+          <target state="new">Start Extract and Data Pump processes on Site A</target>
+        </trans-unit>
+        <trans-unit id="3271ca1f-6da9-4a0e-b1b3-496e229911fb" xml:space="preserve">
+          <source>Start Extract and Data Pump processes on Site B</source>
+          <target state="new">Start Extract and Data Pump processes on Site B</target>
+        </trans-unit>
+        <trans-unit id="65f32431-47e2-42b6-8312-5536c4768906" xml:space="preserve">
+          <source>Start REPLICAT process on Site A</source>
+          <target state="new">Start REPLICAT process on Site A</target>
+        </trans-unit>
+        <trans-unit id="27dbc944-ace0-421d-aaf6-11106ca6e564" xml:space="preserve">
+          <source>Start REPLICAT process on Site B</source>
+          <target state="new">Start REPLICAT process on Site B</target>
+        </trans-unit>
+        <trans-unit id="f7d6db20-dacb-4741-b208-880af1ffd9f8" xml:space="preserve">
+          <source>Verify the bi-directional replication process</source>
+          <target state="new">Verify the bi-directional replication process</target>
+        </trans-unit>
+        <trans-unit id="a4b315f4-ba3f-4985-9944-72d816a77a4e" xml:space="preserve">
+          <source>This tutorial has been setup and tested against the following software configuration:</source>
+          <target state="new">This tutorial has been setup and tested against the following software configuration:</target>
+        </trans-unit>
+        <trans-unit id="eeced8aa-60c0-45dd-94c9-b5a2f57e231d" xml:space="preserve">
+          <source>|                        | <bpt id="8baa9256-581d-4514-88d7-a55cf82fcee6">&lt;strong&gt;</bpt>Site A Database<ept id="8baa9256-581d-4514-88d7-a55cf82fcee6">&lt;/strong&gt;</ept>              | <bpt id="1412f430-4e2c-4e46-8cd9-3e5471f2375b">&lt;strong&gt;</bpt>Site B Database<ept id="1412f430-4e2c-4e46-8cd9-3e5471f2375b">&lt;/strong&gt;</ept>              |
+|------------------------|----------------------------------|----------------------------------|
+| <bpt id="2bdec0fe-bc41-44be-a069-1b7c57d7b974">&lt;strong&gt;</bpt>Oracle Release<ept id="2bdec0fe-bc41-44be-a069-1b7c57d7b974">&lt;/strong&gt;</ept>     | Oracle11g Release 2 – (11.2.0.1) | Oracle11g Release 2 – (11.2.0.1) |
+| <bpt id="a7bdebd2-3a00-425b-a93a-6ebf3259e697">&lt;strong&gt;</bpt>Machine Name<ept id="a7bdebd2-3a00-425b-a93a-6ebf3259e697">&lt;/strong&gt;</ept>       | MachineGG1                       | MachineGG2                       |
+| <bpt id="e3956d39-5dba-40d9-8600-bb7ee7f9541b">&lt;strong&gt;</bpt>Operating System<ept id="e3956d39-5dba-40d9-8600-bb7ee7f9541b">&lt;/strong&gt;</ept>   | Windows 2008 R2                  | Windows 2008 R2                  |
+| <bpt id="07187fd5-709b-4ee0-a8dd-43b483e995b0">&lt;strong&gt;</bpt>Oracle SID<ept id="07187fd5-709b-4ee0-a8dd-43b483e995b0">&lt;/strong&gt;</ept>         | TESTGG1                          | TESTGG2                          |
+| <bpt id="b7c94b5c-a205-4408-a0ad-975ec2a9233c">&lt;strong&gt;</bpt>Replication Schema<ept id="b7c94b5c-a205-4408-a0ad-975ec2a9233c">&lt;/strong&gt;</ept> | SCOTT                            | SCOTT                            |</source>
+          <target state="new">|                        | <bpt id="8baa9256-581d-4514-88d7-a55cf82fcee6">&lt;strong&gt;</bpt>Site A Database<ept id="8baa9256-581d-4514-88d7-a55cf82fcee6">&lt;/strong&gt;</ept>              | <bpt id="1412f430-4e2c-4e46-8cd9-3e5471f2375b">&lt;strong&gt;</bpt>Site B Database<ept id="1412f430-4e2c-4e46-8cd9-3e5471f2375b">&lt;/strong&gt;</ept>              |
+|------------------------|----------------------------------|----------------------------------|
+| <bpt id="2bdec0fe-bc41-44be-a069-1b7c57d7b974">&lt;strong&gt;</bpt>Oracle Release<ept id="2bdec0fe-bc41-44be-a069-1b7c57d7b974">&lt;/strong&gt;</ept>     | Oracle11g Release 2 – (11.2.0.1) | Oracle11g Release 2 – (11.2.0.1) |
+| <bpt id="a7bdebd2-3a00-425b-a93a-6ebf3259e697">&lt;strong&gt;</bpt>Machine Name<ept id="a7bdebd2-3a00-425b-a93a-6ebf3259e697">&lt;/strong&gt;</ept>       | MachineGG1                       | MachineGG2                       |
+| <bpt id="e3956d39-5dba-40d9-8600-bb7ee7f9541b">&lt;strong&gt;</bpt>Operating System<ept id="e3956d39-5dba-40d9-8600-bb7ee7f9541b">&lt;/strong&gt;</ept>   | Windows 2008 R2                  | Windows 2008 R2                  |
+| <bpt id="07187fd5-709b-4ee0-a8dd-43b483e995b0">&lt;strong&gt;</bpt>Oracle SID<ept id="07187fd5-709b-4ee0-a8dd-43b483e995b0">&lt;/strong&gt;</ept>         | TESTGG1                          | TESTGG2                          |
+| <bpt id="b7c94b5c-a205-4408-a0ad-975ec2a9233c">&lt;strong&gt;</bpt>Replication Schema<ept id="b7c94b5c-a205-4408-a0ad-975ec2a9233c">&lt;/strong&gt;</ept> | SCOTT                            | SCOTT                            |</target>
+        </trans-unit>
+        <trans-unit id="35a4e26c-5a2b-4736-ab6b-eb33ddf81175" xml:space="preserve">
+          <source>For subsequent releases of Oracle Database and Oracle GoldenGate, there might be some additional changes that you need to implement.</source>
+          <target state="new">For subsequent releases of Oracle Database and Oracle GoldenGate, there might be some additional changes that you need to implement.</target>
+        </trans-unit>
+        <trans-unit id="c0c29854-d7e7-4d27-ac66-6b80e02ca35c" xml:space="preserve">
+          <source>For the most up-to-date version specific information, see <bpt id="746ce28e-4409-49b5-baab-fec1a90b7507">&lt;linkText&gt;</bpt>Oracle GoldenGate<ept id="746ce28e-4409-49b5-baab-fec1a90b7507">&lt;/linkText&gt;</ept><bpt id="746ce28e-4409-49b5-baab-fec1a90b7507">&lt;title&gt;</bpt><ept id="746ce28e-4409-49b5-baab-fec1a90b7507">&lt;/title&gt;</ept> and <bpt id="3d36c9df-860e-482e-bd4a-a37656fdcd9b">&lt;linkText&gt;</bpt>Oracle Database<ept id="3d36c9df-860e-482e-bd4a-a37656fdcd9b">&lt;/linkText&gt;</ept><bpt id="3d36c9df-860e-482e-bd4a-a37656fdcd9b">&lt;title&gt;</bpt><ept id="3d36c9df-860e-482e-bd4a-a37656fdcd9b">&lt;/title&gt;</ept> documentation at Oracle web site.</source>
+          <target state="new">For the most up-to-date version specific information, see <bpt id="746ce28e-4409-49b5-baab-fec1a90b7507">&lt;linkText&gt;</bpt>Oracle GoldenGate<ept id="746ce28e-4409-49b5-baab-fec1a90b7507">&lt;/linkText&gt;</ept><bpt id="746ce28e-4409-49b5-baab-fec1a90b7507">&lt;title&gt;</bpt><ept id="746ce28e-4409-49b5-baab-fec1a90b7507">&lt;/title&gt;</ept> and <bpt id="3d36c9df-860e-482e-bd4a-a37656fdcd9b">&lt;linkText&gt;</bpt>Oracle Database<ept id="3d36c9df-860e-482e-bd4a-a37656fdcd9b">&lt;/linkText&gt;</ept><bpt id="3d36c9df-860e-482e-bd4a-a37656fdcd9b">&lt;title&gt;</bpt><ept id="3d36c9df-860e-482e-bd4a-a37656fdcd9b">&lt;/title&gt;</ept> documentation at Oracle web site.</target>
+        </trans-unit>
+        <trans-unit id="0ba5985e-3835-4164-a3ed-fa69e9ed2ee5" xml:space="preserve">
+          <source>For example, for a release 11.2.0.4 source database and later, the capture of DDL is performed by the logmining server asynchronously and requires no special triggers, tables, or other database objects to be installed.</source>
+          <target state="new">For example, for a release 11.2.0.4 source database and later, the capture of DDL is performed by the logmining server asynchronously and requires no special triggers, tables, or other database objects to be installed.</target>
+        </trans-unit>
+        <trans-unit id="8c6b7630-a1d8-4de8-a319-0aed8b4e4d15" xml:space="preserve">
+          <source>Oracle GoldenGate upgrades can be performed without stopping user applications.</source>
+          <target state="new">Oracle GoldenGate upgrades can be performed without stopping user applications.</target>
+        </trans-unit>
+        <trans-unit id="37bde476-d23a-4563-8758-fcf35ed0e346" xml:space="preserve">
+          <source>The use of a DDL trigger and supporting objects is required when Extract is in integrated mode with an Oracle 11g source database that is earlier than version 11.2.0.4.</source>
+          <target state="new">The use of a DDL trigger and supporting objects is required when Extract is in integrated mode with an Oracle 11g source database that is earlier than version 11.2.0.4.</target>
+        </trans-unit>
+        <trans-unit id="a90601b3-efd3-4d5c-9d4a-edeacc16cb2f" xml:space="preserve">
+          <source>For detailed guidance, see <bpt id="9b104952-67ca-44f6-9f38-a89cc9ef877f">&lt;linkText&gt;</bpt>Installing and Configuring Oracle GoldenGate for Oracle Database<ept id="9b104952-67ca-44f6-9f38-a89cc9ef877f">&lt;/linkText&gt;</ept><bpt id="9b104952-67ca-44f6-9f38-a89cc9ef877f">&lt;title&gt;</bpt><ept id="9b104952-67ca-44f6-9f38-a89cc9ef877f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed guidance, see <bpt id="9b104952-67ca-44f6-9f38-a89cc9ef877f">&lt;linkText&gt;</bpt>Installing and Configuring Oracle GoldenGate for Oracle Database<ept id="9b104952-67ca-44f6-9f38-a89cc9ef877f">&lt;/linkText&gt;</ept><bpt id="9b104952-67ca-44f6-9f38-a89cc9ef877f">&lt;title&gt;</bpt><ept id="9b104952-67ca-44f6-9f38-a89cc9ef877f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc1afb8c-fefd-43e0-a36e-e20263c8740d" xml:space="preserve">
+          <source>This section explains how to perform the database prerequisites on both Site A and Site B. You must perform all the steps of this section on both sites: Site A and Site B.</source>
+          <target state="new">This section explains how to perform the database prerequisites on both Site A and Site B. You must perform all the steps of this section on both sites: Site A and Site B.</target>
+        </trans-unit>
+        <trans-unit id="4068c92d-5ee0-410d-a2f2-f7d4c1957ab1" xml:space="preserve">
+          <source>First, remote desktop to Site A and Site B via the Management Portal.</source>
+          <target state="new">First, remote desktop to Site A and Site B via the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="c268ea93-24f1-4e95-a232-6610ae174927" xml:space="preserve">
+          <source>Open up a Windows command prompt and create a home directory for Oracle GoldenGate setup files:</source>
+          <target state="new">Open up a Windows command prompt and create a home directory for Oracle GoldenGate setup files:</target>
+        </trans-unit>
+        <trans-unit id="86d457cd-b7bc-46ae-9d39-a2f2d586c14d" xml:space="preserve">
+          <source>Then, unzip and install the Oracle GoldenGate software in this folder.</source>
+          <target state="new">Then, unzip and install the Oracle GoldenGate software in this folder.</target>
+        </trans-unit>
+        <trans-unit id="b8b8a0d9-1775-4e0b-bf5c-8899b82d59fa" xml:space="preserve">
+          <source>After this step, you can initiate the GoldenGate Software Command Interpreter (GGSCI) by executing the following command:</source>
+          <target state="new">After this step, you can initiate the GoldenGate Software Command Interpreter (GGSCI) by executing the following command:</target>
+        </trans-unit>
+        <trans-unit id="b69e220a-df7f-46e2-8653-2196257d9350" xml:space="preserve">
+          <source>You can use <bpt id="ba158a70-fb96-4aa7-ad2b-406bea600833">&lt;linkText&gt;</bpt>GGSCI<ept id="ba158a70-fb96-4aa7-ad2b-406bea600833">&lt;/linkText&gt;</ept><bpt id="ba158a70-fb96-4aa7-ad2b-406bea600833">&lt;title&gt;</bpt><ept id="ba158a70-fb96-4aa7-ad2b-406bea600833">&lt;/title&gt;</ept> to run several commands that configure, control, and monitor Oracle GoldenGate.</source>
+          <target state="new">You can use <bpt id="ba158a70-fb96-4aa7-ad2b-406bea600833">&lt;linkText&gt;</bpt>GGSCI<ept id="ba158a70-fb96-4aa7-ad2b-406bea600833">&lt;/linkText&gt;</ept><bpt id="ba158a70-fb96-4aa7-ad2b-406bea600833">&lt;title&gt;</bpt><ept id="ba158a70-fb96-4aa7-ad2b-406bea600833">&lt;/title&gt;</ept> to run several commands that configure, control, and monitor Oracle GoldenGate.</target>
+        </trans-unit>
+        <trans-unit id="a14d10f8-82f1-43a6-b4fc-c97d056ce21f" xml:space="preserve">
+          <source>Next, run the following command to create all sub-folders from the installation package:</source>
+          <target state="new">Next, run the following command to create all sub-folders from the installation package:</target>
+        </trans-unit>
+        <trans-unit id="5db45fff-7c35-4ddc-9b48-ea26e6bb5e9e" xml:space="preserve">
+          <source>Run the following command to exit the GGSCI command prompt:</source>
+          <target state="new">Run the following command to exit the GGSCI command prompt:</target>
+        </trans-unit>
+        <trans-unit id="78b9ab63-fc2f-46cc-bcf8-0d88751cb295" xml:space="preserve">
+          <source>Then, you need to create a database user, which will be used by the Oracle GoldenGate Manager, Extract and Replication processes.</source>
+          <target state="new">Then, you need to create a database user, which will be used by the Oracle GoldenGate Manager, Extract and Replication processes.</target>
+        </trans-unit>
+        <trans-unit id="8ac78805-aff1-47b5-a5b1-0dc62d000c4d" xml:space="preserve">
+          <source>Note that you can create individual users for each process or configure only one common user.</source>
+          <target state="new">Note that you can create individual users for each process or configure only one common user.</target>
+        </trans-unit>
+        <trans-unit id="6c2d11b5-fa74-4d0b-bf55-96d3815c9e29" xml:space="preserve">
+          <source>In this tutorial, we create one user, which is called as ggate.</source>
+          <target state="new">In this tutorial, we create one user, which is called as ggate.</target>
+        </trans-unit>
+        <trans-unit id="6cce0a2b-1dff-41d6-a0af-c4cf10c7e593" xml:space="preserve">
+          <source>Then, we grant that user the necessary privileges.</source>
+          <target state="new">Then, we grant that user the necessary privileges.</target>
+        </trans-unit>
+        <trans-unit id="eefc6b19-dd6c-4366-b92d-613fd2cc8164" xml:space="preserve">
+          <source>Note that you must perform the following operations on Site A and Site B.</source>
+          <target state="new">Note that you must perform the following operations on Site A and Site B.</target>
+        </trans-unit>
+        <trans-unit id="2ef0eff0-903f-445b-86f2-8d2c45f17811" xml:space="preserve">
+          <source>Open up SQL\*Plus command window on Site A and Site B with database administrator privileges using <bpt id="9b7a74a3-9987-4082-b4c3-7ff89cf9d2ff">&lt;strong&gt;</bpt>SYSDBA<ept id="9b7a74a3-9987-4082-b4c3-7ff89cf9d2ff">&lt;/strong&gt;</ept>, such as:</source>
+          <target state="new">Open up SQL\*Plus command window on Site A and Site B with database administrator privileges using <bpt id="9b7a74a3-9987-4082-b4c3-7ff89cf9d2ff">&lt;strong&gt;</bpt>SYSDBA<ept id="9b7a74a3-9987-4082-b4c3-7ff89cf9d2ff">&lt;/strong&gt;</ept>, such as:</target>
+        </trans-unit>
+        <trans-unit id="34cee4cb-e158-4217-ab64-f41945a68683" xml:space="preserve">
+          <source>And run:</source>
+          <target state="new">And run:</target>
+        </trans-unit>
+        <trans-unit id="a12772d2-5b36-4210-998a-83e9a6b2d3e9" xml:space="preserve">
+          <source>Next, locate the INIT\&lt;DatabaseSID\&gt;.ORA file in the %ORACLE\_HOME%\\database folder on Site A and Site B and append the following database parameters to INITTEST.ora:</source>
+          <target state="new">Next, locate the INIT\&lt;DatabaseSID\&gt;.ORA file in the %ORACLE\_HOME%\\database folder on Site A and Site B and append the following database parameters to INITTEST.ora:</target>
+        </trans-unit>
+        <trans-unit id="ab8634da-0c05-4b4f-8645-cb17052885df" xml:space="preserve">
+          <source>For a full list of all Oracle GoldenGate GGSCI commands, see <bpt id="c485ab41-968a-494d-bdf3-568a72075e03">&lt;linkText&gt;</bpt>Reference for Oracle GoldenGate for Windows<ept id="c485ab41-968a-494d-bdf3-568a72075e03">&lt;/linkText&gt;</ept><bpt id="c485ab41-968a-494d-bdf3-568a72075e03">&lt;title&gt;</bpt><ept id="c485ab41-968a-494d-bdf3-568a72075e03">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a full list of all Oracle GoldenGate GGSCI commands, see <bpt id="c485ab41-968a-494d-bdf3-568a72075e03">&lt;linkText&gt;</bpt>Reference for Oracle GoldenGate for Windows<ept id="c485ab41-968a-494d-bdf3-568a72075e03">&lt;/linkText&gt;</ept><bpt id="c485ab41-968a-494d-bdf3-568a72075e03">&lt;title&gt;</bpt><ept id="c485ab41-968a-494d-bdf3-568a72075e03">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43e5df40-331e-4c56-b20e-b08a705f2000" xml:space="preserve">
+          <source>You can perform the initial data load in the database by following several methods.</source>
+          <target state="new">You can perform the initial data load in the database by following several methods.</target>
+        </trans-unit>
+        <trans-unit id="44b0eeb2-f76b-4850-ae9e-744d82f40b2c" xml:space="preserve">
+          <source>For example, you can use the <bpt id="8ff4b56c-c43c-4246-9bd1-9fdbddb91d92">&lt;linkText&gt;</bpt>Oracle GoldenGate Direct Load<ept id="8ff4b56c-c43c-4246-9bd1-9fdbddb91d92">&lt;/linkText&gt;</ept><bpt id="8ff4b56c-c43c-4246-9bd1-9fdbddb91d92">&lt;title&gt;</bpt><ept id="8ff4b56c-c43c-4246-9bd1-9fdbddb91d92">&lt;/title&gt;</ept> or regular Export and Import utilities to export table data from Site A to Site B.</source>
+          <target state="new">For example, you can use the <bpt id="8ff4b56c-c43c-4246-9bd1-9fdbddb91d92">&lt;linkText&gt;</bpt>Oracle GoldenGate Direct Load<ept id="8ff4b56c-c43c-4246-9bd1-9fdbddb91d92">&lt;/linkText&gt;</ept><bpt id="8ff4b56c-c43c-4246-9bd1-9fdbddb91d92">&lt;title&gt;</bpt><ept id="8ff4b56c-c43c-4246-9bd1-9fdbddb91d92">&lt;/title&gt;</ept> or regular Export and Import utilities to export table data from Site A to Site B.</target>
+        </trans-unit>
+        <trans-unit id="d6cbe61f-b64d-47f4-8946-03e2c9130dd9" xml:space="preserve">
+          <source>To demonstrate the Oracle GoldenGate replication process, this tutorial demonstrates creating a table on both Site A and site B by using the following commands.</source>
+          <target state="new">To demonstrate the Oracle GoldenGate replication process, this tutorial demonstrates creating a table on both Site A and site B by using the following commands.</target>
+        </trans-unit>
+        <trans-unit id="1abd664b-9687-44ea-b74c-dec95d8ec66b" xml:space="preserve">
+          <source>First, open up SQL\*Plus command window and run the following command to create an inventory table on Site A and Site B databases:</source>
+          <target state="new">First, open up SQL\*Plus command window and run the following command to create an inventory table on Site A and Site B databases:</target>
+        </trans-unit>
+        <trans-unit id="f995d81b-4f62-488b-81e8-b87675f5dfef" xml:space="preserve">
+          <source>Next, add a constraint to the newly created table on Site A and Site B databases:</source>
+          <target state="new">Next, add a constraint to the newly created table on Site A and Site B databases:</target>
+        </trans-unit>
+        <trans-unit id="7bf98d23-cbd2-41c6-8524-2093b083752a" xml:space="preserve">
+          <source>Then, grant all privileges on the new inventory table to the user ggate on Site A and Site B:</source>
+          <target state="new">Then, grant all privileges on the new inventory table to the user ggate on Site A and Site B:</target>
+        </trans-unit>
+        <trans-unit id="3bb92cd1-9d40-4f8c-823a-c37a3d6e437a" xml:space="preserve">
+          <source>Next, create and enable a database trigger, INVENTORY<bpt id="37b050c6-bad5-4483-9d59-8f002fccbe69">&lt;em&gt;</bpt>CDR<ept id="37b050c6-bad5-4483-9d59-8f002fccbe69">&lt;/em&gt;</ept>TRG, on the newly created table to make sure that all transactions to the new table are recorded if the user is not ggate.</source>
+          <target state="new">Next, create and enable a database trigger, INVENTORY<bpt id="37b050c6-bad5-4483-9d59-8f002fccbe69">&lt;em&gt;</bpt>CDR<ept id="37b050c6-bad5-4483-9d59-8f002fccbe69">&lt;/em&gt;</ept>TRG, on the newly created table to make sure that all transactions to the new table are recorded if the user is not ggate.</target>
+        </trans-unit>
+        <trans-unit id="bf7d0c1e-7419-445c-b4ab-f7b71c098a52" xml:space="preserve">
+          <source>Perform this operation on Site A and Site B.</source>
+          <target state="new">Perform this operation on Site A and Site B.</target>
+        </trans-unit>
+        <trans-unit id="5f4b4b97-fb17-4ed8-a544-96c0ca24f676" xml:space="preserve">
+          <source>This section explains how to prepare Site A and Site B for database replication.</source>
+          <target state="new">This section explains how to prepare Site A and Site B for database replication.</target>
+        </trans-unit>
+        <trans-unit id="9ec60633-3d8a-4e7c-8652-56d57b4fa3bd" xml:space="preserve">
+          <source>You must perform all the steps of this section on both sites: Site A and Site B.</source>
+          <target state="new">You must perform all the steps of this section on both sites: Site A and Site B.</target>
+        </trans-unit>
+        <trans-unit id="11641227-41ec-4c16-9b3c-e788fb08daed" xml:space="preserve">
+          <source>First, remote desktop to Site A and Site B via the Azure Portal.</source>
+          <target state="new">First, remote desktop to Site A and Site B via the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="3e38495c-7370-493f-8b84-877b589933ad" xml:space="preserve">
+          <source>Switch the database to archivelog mode using the SQL*Plus command window:</source>
+          <target state="new">Switch the database to archivelog mode using the SQL*Plus command window:</target>
+        </trans-unit>
+        <trans-unit id="03edc451-3307-4b56-abbf-cb1a2218e2f9" xml:space="preserve">
+          <source>Then, enable minimal <bpt id="1d65bcc8-5f5e-406d-8f63-35615a4eb693">&lt;linkText&gt;</bpt>supplemental logging<ept id="1d65bcc8-5f5e-406d-8f63-35615a4eb693">&lt;/linkText&gt;</ept><bpt id="1d65bcc8-5f5e-406d-8f63-35615a4eb693">&lt;title&gt;</bpt><ept id="1d65bcc8-5f5e-406d-8f63-35615a4eb693">&lt;/title&gt;</ept> as follows:</source>
+          <target state="new">Then, enable minimal <bpt id="1d65bcc8-5f5e-406d-8f63-35615a4eb693">&lt;linkText&gt;</bpt>supplemental logging<ept id="1d65bcc8-5f5e-406d-8f63-35615a4eb693">&lt;/linkText&gt;</ept><bpt id="1d65bcc8-5f5e-406d-8f63-35615a4eb693">&lt;title&gt;</bpt><ept id="1d65bcc8-5f5e-406d-8f63-35615a4eb693">&lt;/title&gt;</ept> as follows:</target>
+        </trans-unit>
+        <trans-unit id="b9188bd8-830f-4c82-97e8-b59033c8a9bd" xml:space="preserve">
+          <source>Next, prepare the database to support DDL (data definition language) replication:</source>
+          <target state="new">Next, prepare the database to support DDL (data definition language) replication:</target>
+        </trans-unit>
+        <trans-unit id="f95824bd-e60f-4e42-90ad-61f983507ad0" xml:space="preserve">
+          <source>Then, shutdown and restart the database:</source>
+          <target state="new">Then, shutdown and restart the database:</target>
+        </trans-unit>
+        <trans-unit id="73aa36f9-285c-41e5-a038-e2e5ad02038f" xml:space="preserve">
+          <source>This section lists the scripts that you need to use to create all necessary objects to support DDL Replication.</source>
+          <target state="new">This section lists the scripts that you need to use to create all necessary objects to support DDL Replication.</target>
+        </trans-unit>
+        <trans-unit id="83bd1612-e33b-42c6-846e-d3c6e49f1525" xml:space="preserve">
+          <source>You need to run the scripts specified in this section on both Site A and Site B.</source>
+          <target state="new">You need to run the scripts specified in this section on both Site A and Site B.</target>
+        </trans-unit>
+        <trans-unit id="a6c61e6f-5f5f-4337-b237-d4d99b6be737" xml:space="preserve">
+          <source>Open up a Windows command prompt and navigate to the Oracle GoldenGate folder, such as C:\\OracleGG.</source>
+          <target state="new">Open up a Windows command prompt and navigate to the Oracle GoldenGate folder, such as C:\\OracleGG.</target>
+        </trans-unit>
+        <trans-unit id="7f8f3088-1464-49c9-895d-d7bdd9a37d33" xml:space="preserve">
+          <source>Start SQL\*Plus command prompt with database administrator privileges, such as using <bpt id="1bfc133e-7017-43c8-b91a-d70da9a4a7e9">&lt;strong&gt;</bpt>SYSDBA<ept id="1bfc133e-7017-43c8-b91a-d70da9a4a7e9">&lt;/strong&gt;</ept> on Site A and Site B.</source>
+          <target state="new">Start SQL\*Plus command prompt with database administrator privileges, such as using <bpt id="1bfc133e-7017-43c8-b91a-d70da9a4a7e9">&lt;strong&gt;</bpt>SYSDBA<ept id="1bfc133e-7017-43c8-b91a-d70da9a4a7e9">&lt;/strong&gt;</ept> on Site A and Site B.</target>
+        </trans-unit>
+        <trans-unit id="3e728c84-b093-4dbd-8231-49c424db41a9" xml:space="preserve">
+          <source>Then, run the following scripts:</source>
+          <target state="new">Then, run the following scripts:</target>
+        </trans-unit>
+        <trans-unit id="5b18b2e1-bcd9-4636-b7a4-9c81391b6dbb" xml:space="preserve">
+          <source>Oracle GoldenGate tool requires a table level login for DDL (data definition language) support.</source>
+          <target state="new">Oracle GoldenGate tool requires a table level login for DDL (data definition language) support.</target>
+        </trans-unit>
+        <trans-unit id="5cb442a7-070b-4df7-a713-60e6aa9a13aa" xml:space="preserve">
+          <source>That’s why, enable supplemental logging at the table level by using the ADD TRANDATA command.</source>
+          <target state="new">That’s why, enable supplemental logging at the table level by using the ADD TRANDATA command.</target>
+        </trans-unit>
+        <trans-unit id="9ac11500-e166-42fd-ad68-f6a2ef6ebff9" xml:space="preserve">
+          <source>Open up Oracle GoldenGate Command interpreter window, login to database, and then run the ADD TRANDATA command:</source>
+          <target state="new">Open up Oracle GoldenGate Command interpreter window, login to database, and then run the ADD TRANDATA command:</target>
+        </trans-unit>
+        <trans-unit id="4b93a0f1-581f-43ac-8442-494a489fac76" xml:space="preserve">
+          <source>The Oracle GoldenGate Manager performs a number of functions like starting the other GoldenGate processes, trail log file management and reporting.</source>
+          <target state="new">The Oracle GoldenGate Manager performs a number of functions like starting the other GoldenGate processes, trail log file management and reporting.</target>
+        </trans-unit>
+        <trans-unit id="83c9db38-fd49-410c-a270-6d8d3b895c10" xml:space="preserve">
+          <source>You need to configure the Oracle GoldenGate Manager process on both Site A and Site B. To do this, perform the following steps on Site A and Site B.</source>
+          <target state="new">You need to configure the Oracle GoldenGate Manager process on both Site A and Site B. To do this, perform the following steps on Site A and Site B.</target>
+        </trans-unit>
+        <trans-unit id="43d565bc-8655-4b3f-837b-02b35c6670a2" xml:space="preserve">
+          <source>Open Windows command window and initiate the Oracle GoldenGate command interpreter:</source>
+          <target state="new">Open Windows command window and initiate the Oracle GoldenGate command interpreter:</target>
+        </trans-unit>
+        <trans-unit id="c19a277b-fe0c-4291-b205-87b9557daf69" xml:space="preserve">
+          <source>Logs the GGSCI session into a database so that you can execute commands that affect the database:</source>
+          <target state="new">Logs the GGSCI session into a database so that you can execute commands that affect the database:</target>
+        </trans-unit>
+        <trans-unit id="0f759ab4-6a4c-4102-a99c-d9830d2e36b1" xml:space="preserve">
+          <source>Display the status and lag (where relevant) for all Manager, Extract, and Replicat processes on a system:</source>
+          <target state="new">Display the status and lag (where relevant) for all Manager, Extract, and Replicat processes on a system:</target>
+        </trans-unit>
+        <trans-unit id="5df4d0d7-d01a-4fe2-a051-1b2d0e39d898" xml:space="preserve">
+          <source>Open the parameter file using the EDIT PARAMS command and then append the following information:</source>
+          <target state="new">Open the parameter file using the EDIT PARAMS command and then append the following information:</target>
+        </trans-unit>
+        <trans-unit id="1f4db3d0-29cd-4f3a-a043-44505c68c959" xml:space="preserve">
+          <source>Display the status and lag (where relevant) for all Manager, Extract, and Replicat processes on a system:</source>
+          <target state="new">Display the status and lag (where relevant) for all Manager, Extract, and Replicat processes on a system:</target>
+        </trans-unit>
+        <trans-unit id="ade29567-315e-4c75-b14e-1db9de8e14f3" xml:space="preserve">
+          <source>Logs the GGSCI session into a database so that you can execute commands that affect the database:</source>
+          <target state="new">Logs the GGSCI session into a database so that you can execute commands that affect the database:</target>
+        </trans-unit>
+        <trans-unit id="e126efb3-db9e-4c48-a028-d91985ce33bb" xml:space="preserve">
+          <source>Start the manager process:</source>
+          <target state="new">Start the manager process:</target>
+        </trans-unit>
+        <trans-unit id="410b40fb-5001-46cc-ba8a-44b362660613" xml:space="preserve">
+          <source>You need to create the Extract and Data Pump processes on Site A and Site B. 
+Remote desktop to Site A and Site B via the Management Portal.</source>
+          <target state="new">You need to create the Extract and Data Pump processes on Site A and Site B. 
+Remote desktop to Site A and Site B via the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="ffe1bd65-3d09-4c83-a9e2-31785ba1f1a1" xml:space="preserve">
+          <source>Open up GGSCI command interpreter window.</source>
+          <target state="new">Open up GGSCI command interpreter window.</target>
+        </trans-unit>
+        <trans-unit id="b8829929-0afa-4dd0-a613-acc68870e77d" xml:space="preserve">
+          <source>Run the following commands on Site A:</source>
+          <target state="new">Run the following commands on Site A:</target>
+        </trans-unit>
+        <trans-unit id="d98573c0-2447-481f-87c2-b24858752dac" xml:space="preserve">
+          <source>Open the parameter file using the EDIT PARAMS command and then append the following information:
+    GGSCI (MachineGG1) 18&gt; edit params ext1
+    EXTRACT ext1
+     USERID ggate, PASSWORD ggate
+     EXTTRAIL C:\OracleGG\dirdat\aa
+     TRANLOGOPTIONS EXCLUDEUSER ggate
+     TABLE scott.inventory,
+     GETBEFORECOLS (
+     ON UPDATE KEYINCLUDING (prod<bpt id="622a8a63-526b-47cd-b4e5-b2ceb2237eb5">&lt;em&gt;</bpt>category,qty<ept id="622a8a63-526b-47cd-b4e5-b2ceb2237eb5">&lt;/em&gt;</ept>in<bpt id="c1a9a7c4-fe85-44e5-9398-45a64bf141e6">&lt;em&gt;</bpt>stock, last<ept id="c1a9a7c4-fe85-44e5-9398-45a64bf141e6">&lt;/em&gt;</ept>dml),
+     ON DELETE KEYINCLUDING (prod<bpt id="f533ef06-e1fe-43ca-ab7c-729f96ed206e">&lt;em&gt;</bpt>category,qty<ept id="f533ef06-e1fe-43ca-ab7c-729f96ed206e">&lt;/em&gt;</ept>in<bpt id="c4696101-9a63-4a88-9199-a4e1cbf56b94">&lt;em&gt;</bpt>stock, last<ept id="c4696101-9a63-4a88-9199-a4e1cbf56b94">&lt;/em&gt;</ept>dml));</source>
+          <target state="new">Open the parameter file using the EDIT PARAMS command and then append the following information:
+    GGSCI (MachineGG1) 18&gt; edit params ext1
+    EXTRACT ext1
+     USERID ggate, PASSWORD ggate
+     EXTTRAIL C:\OracleGG\dirdat\aa
+     TRANLOGOPTIONS EXCLUDEUSER ggate
+     TABLE scott.inventory,
+     GETBEFORECOLS (
+     ON UPDATE KEYINCLUDING (prod<bpt id="622a8a63-526b-47cd-b4e5-b2ceb2237eb5">&lt;em&gt;</bpt>category,qty<ept id="622a8a63-526b-47cd-b4e5-b2ceb2237eb5">&lt;/em&gt;</ept>in<bpt id="c1a9a7c4-fe85-44e5-9398-45a64bf141e6">&lt;em&gt;</bpt>stock, last<ept id="c1a9a7c4-fe85-44e5-9398-45a64bf141e6">&lt;/em&gt;</ept>dml),
+     ON DELETE KEYINCLUDING (prod<bpt id="f533ef06-e1fe-43ca-ab7c-729f96ed206e">&lt;em&gt;</bpt>category,qty<ept id="f533ef06-e1fe-43ca-ab7c-729f96ed206e">&lt;/em&gt;</ept>in<bpt id="c4696101-9a63-4a88-9199-a4e1cbf56b94">&lt;em&gt;</bpt>stock, last<ept id="c4696101-9a63-4a88-9199-a4e1cbf56b94">&lt;/em&gt;</ept>dml));</target>
+        </trans-unit>
+        <trans-unit id="cc54c885-a01f-43c4-a6b4-3d4761957005" xml:space="preserve">
+          <source>Open the parameter file using the EDIT PARAMS command and then append the following information:</source>
+          <target state="new">Open the parameter file using the EDIT PARAMS command and then append the following information:</target>
+        </trans-unit>
+        <trans-unit id="e56b2ceb-95d9-4f69-90f0-bb567da27429" xml:space="preserve">
+          <source>Next, you need to add a checkpoint table on Site B. To do this, you need to open up a GoldenGate command interpreter window and run:</source>
+          <target state="new">Next, you need to add a checkpoint table on Site B. To do this, you need to open up a GoldenGate command interpreter window and run:</target>
+        </trans-unit>
+        <trans-unit id="d84ad62d-ea51-4799-b693-b6ae81c6d2fa" xml:space="preserve">
+          <source>And then, add the checkpoint table to the database, where ggate is the owner:</source>
+          <target state="new">And then, add the checkpoint table to the database, where ggate is the owner:</target>
+        </trans-unit>
+        <trans-unit id="f1da01f1-86e2-4b2d-8e5a-e83f80f86934" xml:space="preserve">
+          <source>Add the name of the check point table to the GLOBALS file on the target server, which is Site B in this step.</source>
+          <target state="new">Add the name of the check point table to the GLOBALS file on the target server, which is Site B in this step.</target>
+        </trans-unit>
+        <trans-unit id="d6c2937b-d013-402e-83ed-e94e18b4e154" xml:space="preserve">
+          <source>Edit the GLOBALS file on Site B:</source>
+          <target state="new">Edit the GLOBALS file on Site B:</target>
+        </trans-unit>
+        <trans-unit id="dedb2307-4a71-4869-93b5-3813df927162" xml:space="preserve">
+          <source>Then, append the CHECKPOINTTABLE parameter to the existing GLOBALS file:</source>
+          <target state="new">Then, append the CHECKPOINTTABLE parameter to the existing GLOBALS file:</target>
+        </trans-unit>
+        <trans-unit id="ef9ec6d2-02a7-466e-a3e6-ed4aab38c9ee" xml:space="preserve">
+          <source>As a final step, save and close the GLOBALS parameter file.</source>
+          <target state="new">As a final step, save and close the GLOBALS parameter file.</target>
+        </trans-unit>
+        <trans-unit id="a55a818c-956f-474e-8062-3da3c163fbe2" xml:space="preserve">
+          <source>This section describes how to add a REPLICAT process “REP2” on Site B.</source>
+          <target state="new">This section describes how to add a REPLICAT process “REP2” on Site B.</target>
+        </trans-unit>
+        <trans-unit id="ef005905-72fc-47de-a41c-d51d0c1ddad7" xml:space="preserve">
+          <source>Use ADD REPLICAT command to create a Replicat group on Site B:</source>
+          <target state="new">Use ADD REPLICAT command to create a Replicat group on Site B:</target>
+        </trans-unit>
+        <trans-unit id="a2bac394-585e-4baa-857a-c2a367624915" xml:space="preserve">
+          <source>Open the parameter file using the EDIT PARAMS command and then append the following information:</source>
+          <target state="new">Open the parameter file using the EDIT PARAMS command and then append the following information:</target>
+        </trans-unit>
+        <trans-unit id="848cb356-4849-436f-ac5d-5ce1a236fa58" xml:space="preserve">
+          <source>This section describes how to create a new extract process “EXT2” and a new data pump process “DPUMP2” on Site B:</source>
+          <target state="new">This section describes how to create a new extract process “EXT2” and a new data pump process “DPUMP2” on Site B:</target>
+        </trans-unit>
+        <trans-unit id="19b78ccd-d83c-4e37-8455-36d74f9e8497" xml:space="preserve">
+          <source>Open the parameter file using the EDIT PARAMS command and then append the following information:</source>
+          <target state="new">Open the parameter file using the EDIT PARAMS command and then append the following information:</target>
+        </trans-unit>
+        <trans-unit id="b9fbd1c0-992d-49e4-849d-2c0017851f76" xml:space="preserve">
+          <source>Open the parameter file using the EDIT PARAMS command and then append the following information:</source>
+          <target state="new">Open the parameter file using the EDIT PARAMS command and then append the following information:</target>
+        </trans-unit>
+        <trans-unit id="5cdac339-5ff5-4485-b8cf-1d0e7459b3eb" xml:space="preserve">
+          <source>Open up Oracle GoldenGate command interpreter window and create a checkpoint table:</source>
+          <target state="new">Open up Oracle GoldenGate command interpreter window and create a checkpoint table:</target>
+        </trans-unit>
+        <trans-unit id="8b515858-36ef-4a18-93dc-5f3a6392911f" xml:space="preserve">
+          <source>You also need to add the name of the check point table to the GLOBALS file on Site A. </source>
+          <target state="new">You also need to add the name of the check point table to the GLOBALS file on Site A. </target>
+        </trans-unit>
+        <trans-unit id="38470c16-7a07-4462-9bca-c518114096b9" xml:space="preserve">
+          <source>Open up Oracle GoldenGate command interpreter window and edit the GLOBALS file on Site A:</source>
+          <target state="new">Open up Oracle GoldenGate command interpreter window and edit the GLOBALS file on Site A:</target>
+        </trans-unit>
+        <trans-unit id="31f82406-5419-456c-8e87-8b291b46ccdf" xml:space="preserve">
+          <source>Save and close the GLOBALS parameter file.</source>
+          <target state="new">Save and close the GLOBALS parameter file.</target>
+        </trans-unit>
+        <trans-unit id="e781bf21-2639-48b7-a239-1dd7bd11e094" xml:space="preserve">
+          <source>This section describes how to add a REPLICAT process “REP1” on Site A. </source>
+          <target state="new">This section describes how to add a REPLICAT process “REP1” on Site A. </target>
+        </trans-unit>
+        <trans-unit id="b7fac84d-d75c-4550-a546-0cfa3eb115bf" xml:space="preserve">
+          <source>The following command creates a Replicat group rep1 with the name of a trail, and the associated checkpointtable.</source>
+          <target state="new">The following command creates a Replicat group rep1 with the name of a trail, and the associated checkpointtable.</target>
+        </trans-unit>
+        <trans-unit id="7b602eee-10c7-4498-a13d-76e4ebcdbb3f" xml:space="preserve">
+          <source>Open the parameter file using the EDIT PARAMS command and then append the following information:</source>
+          <target state="new">Open the parameter file using the EDIT PARAMS command and then append the following information:</target>
+        </trans-unit>
+        <trans-unit id="ab1e46cb-d704-428d-a58e-09c6e558763e" xml:space="preserve">
+          <source>Enable supplemental logging at the table level by using the ADD TRANDATA command.</source>
+          <target state="new">Enable supplemental logging at the table level by using the ADD TRANDATA command.</target>
+        </trans-unit>
+        <trans-unit id="5f103f99-1f1e-4895-841f-79f7eea51a8a" xml:space="preserve">
+          <source>Open up Oracle GoldenGate Command interpreter window, login to database, and then run the ADD TRANDATA command.</source>
+          <target state="new">Open up Oracle GoldenGate Command interpreter window, login to database, and then run the ADD TRANDATA command.</target>
+        </trans-unit>
+        <trans-unit id="afc26594-b493-4a74-b6d4-24a36c5d3845" xml:space="preserve">
+          <source>Remote desktop to MachineGG1, open up Oracle GoldenGate command interpreter, and run:</source>
+          <target state="new">Remote desktop to MachineGG1, open up Oracle GoldenGate command interpreter, and run:</target>
+        </trans-unit>
+        <trans-unit id="4b9a25a9-57b7-4590-886f-3f522fa6c9dc" xml:space="preserve">
+          <source>Remote desktop to MachineGG2, open up Oracle GoldenGate command interpreter, and run:</source>
+          <target state="new">Remote desktop to MachineGG2, open up Oracle GoldenGate command interpreter, and run:</target>
+        </trans-unit>
+        <trans-unit id="d936b83c-057e-4a53-a559-aebb40359dff" xml:space="preserve">
+          <source>Display information about the state of table-level supplemental logging:</source>
+          <target state="new">Display information about the state of table-level supplemental logging:</target>
+        </trans-unit>
+        <trans-unit id="4366a1e7-8267-480e-8424-b6e148848e6c" xml:space="preserve">
+          <source>Enable supplemental logging at the table level by using the ADD TRANDATA command.</source>
+          <target state="new">Enable supplemental logging at the table level by using the ADD TRANDATA command.</target>
+        </trans-unit>
+        <trans-unit id="a6eeca62-0571-4ab7-8fce-d32d651b7af5" xml:space="preserve">
+          <source>Open up Oracle GoldenGate Command interpreter window, login to database, and then run the ADD TRANDATA command.</source>
+          <target state="new">Open up Oracle GoldenGate Command interpreter window, login to database, and then run the ADD TRANDATA command.</target>
+        </trans-unit>
+        <trans-unit id="ddd52bfc-796a-43fe-aa8b-d3e0f6ced046" xml:space="preserve">
+          <source>Remote desktop to MachineGG1, open up Oracle GoldenGate command interpreter, and run:</source>
+          <target state="new">Remote desktop to MachineGG1, open up Oracle GoldenGate command interpreter, and run:</target>
+        </trans-unit>
+        <trans-unit id="048db195-d1b8-42aa-987f-c01b26b053c8" xml:space="preserve">
+          <source>Remote desktop to MachineGG2, open up Oracle GoldenGate command interpreter, and run:</source>
+          <target state="new">Remote desktop to MachineGG2, open up Oracle GoldenGate command interpreter, and run:</target>
+        </trans-unit>
+        <trans-unit id="29ae8233-b1fa-44c9-b09f-b3195331fa29" xml:space="preserve">
+          <source>Start the Extract process ext1 on Site A:</source>
+          <target state="new">Start the Extract process ext1 on Site A:</target>
+        </trans-unit>
+        <trans-unit id="ee58e728-bb24-407e-81bc-76c5403a1080" xml:space="preserve">
+          <source>Start the data pump process dpump1 on Site A:</source>
+          <target state="new">Start the data pump process dpump1 on Site A:</target>
+        </trans-unit>
+        <trans-unit id="df4f9de4-b2a3-46ee-bf1c-b7edd21905d1" xml:space="preserve">
+          <source>Display the status and lag (where relevant) for all Manager, Extract, and Replicat processes on a system:</source>
+          <target state="new">Display the status and lag (where relevant) for all Manager, Extract, and Replicat processes on a system:</target>
+        </trans-unit>
+        <trans-unit id="def31c16-6478-4b91-8b62-83f5ef5d2c79" xml:space="preserve">
+          <source>Start the Extract process ext2 on Site B:</source>
+          <target state="new">Start the Extract process ext2 on Site B:</target>
+        </trans-unit>
+        <trans-unit id="db84d092-358e-4dd6-87d3-56f823a67454" xml:space="preserve">
+          <source>Start the data pump process dpump2 on Site B:</source>
+          <target state="new">Start the data pump process dpump2 on Site B:</target>
+        </trans-unit>
+        <trans-unit id="ed537994-3cf7-497f-86f5-bda3da763231" xml:space="preserve">
+          <source>Display the status and lag (where relevant) for all Manager, Extract, and Replicat processes on a system:</source>
+          <target state="new">Display the status and lag (where relevant) for all Manager, Extract, and Replicat processes on a system:</target>
+        </trans-unit>
+        <trans-unit id="7a5b314e-a7c6-421e-8818-c44fce315915" xml:space="preserve">
+          <source>This section describes how to start the REPLICAT process “REP1” on Site A. </source>
+          <target state="new">This section describes how to start the REPLICAT process “REP1” on Site A. </target>
+        </trans-unit>
+        <trans-unit id="3b93867d-b7b2-4b10-b7f9-9e6d6c7ef7fa" xml:space="preserve">
+          <source>Start the Replicat process on Site A:</source>
+          <target state="new">Start the Replicat process on Site A:</target>
+        </trans-unit>
+        <trans-unit id="6b3a29a3-4cbe-448d-8cb6-8049b3b728eb" xml:space="preserve">
+          <source>Display the status of a Replicat group:</source>
+          <target state="new">Display the status of a Replicat group:</target>
+        </trans-unit>
+        <trans-unit id="2eaf1e4e-0d65-4e9b-8a5a-25910865ef97" xml:space="preserve">
+          <source>This section describes how to start the REPLICAT process “REP2” on Site B. </source>
+          <target state="new">This section describes how to start the REPLICAT process “REP2” on Site B. </target>
+        </trans-unit>
+        <trans-unit id="aac2b169-1e37-4b9b-9ccd-9ad88f24fafe" xml:space="preserve">
+          <source>Start the Replicat process on Site B:</source>
+          <target state="new">Start the Replicat process on Site B:</target>
+        </trans-unit>
+        <trans-unit id="8f526d5a-efaf-41c3-96aa-de1271a3d344" xml:space="preserve">
+          <source>Display the status of a Replicat group:</source>
+          <target state="new">Display the status of a Replicat group:</target>
+        </trans-unit>
+        <trans-unit id="adfe0170-6b7c-48af-9199-224f6748b0f3" xml:space="preserve">
+          <source>To verify the Oracle GoldenGate configuration, insert a row into the database at Site A. 
+Remote Desktop to Site A. Open up SQL*Plus command window and run:
+    SQL&gt; select name from v$database;</source>
+          <target state="new">To verify the Oracle GoldenGate configuration, insert a row into the database at Site A. 
+Remote Desktop to Site A. Open up SQL*Plus command window and run:
+    SQL&gt; select name from v$database;</target>
+        </trans-unit>
+        <trans-unit id="2ebbc51a-615e-4ceb-9ca6-0d38988b5875" xml:space="preserve">
+          <source>Then, check if that row is replicated on Site B. To do this, remote desktop to Site B. Open up SQL Plus window and run:</source>
+          <target state="new">Then, check if that row is replicated on Site B. To do this, remote desktop to Site B. Open up SQL Plus window and run:</target>
+        </trans-unit>
+        <trans-unit id="4c38d20c-8534-434b-95ce-f9f28428df50" xml:space="preserve">
+          <source>Insert a new record at Site B:</source>
+          <target state="new">Insert a new record at Site B:</target>
+        </trans-unit>
+        <trans-unit id="70b20da9-c3b1-4e44-a562-8ab806ee4356" xml:space="preserve">
+          <source>Remote desktop to Site A and check if the replication has taken place:</source>
+          <target state="new">Remote desktop to Site A and check if the replication has taken place:</target>
+        </trans-unit>
+        <trans-unit id="9ee21e45-d415-47a3-b3ce-4199ac39f601" xml:space="preserve">
+          <source><bpt id="16bff381-3195-4af1-9b7b-6a108ae02e24">&lt;linkText&gt;</bpt>Oracle Virtual Machine images for Azure<ept id="16bff381-3195-4af1-9b7b-6a108ae02e24">&lt;/linkText&gt;</ept><bpt id="16bff381-3195-4af1-9b7b-6a108ae02e24">&lt;title&gt;</bpt><ept id="16bff381-3195-4af1-9b7b-6a108ae02e24">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="16bff381-3195-4af1-9b7b-6a108ae02e24">&lt;linkText&gt;</bpt>Oracle Virtual Machine images for Azure<ept id="16bff381-3195-4af1-9b7b-6a108ae02e24">&lt;/linkText&gt;</ept><bpt id="16bff381-3195-4af1-9b7b-6a108ae02e24">&lt;title&gt;</bpt><ept id="16bff381-3195-4af1-9b7b-6a108ae02e24">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

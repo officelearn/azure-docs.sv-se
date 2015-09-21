@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4bfd2834-78c0-4571-949a-60d5f3ff8441" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4bfd2834-78c0-4571-949a-60d5f3ff8441" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2df54d98-a9e9-4e75-880e-1ceca1c34861">
+        <trans-unit id="2435559b-2c31-4119-b337-17c179b84428" xml:space="preserve">
+          <source>In Visual Studio, open the project that you modified when you completed the tutorial <bpt id="1c32a89c-65af-42a5-bc2b-baf0a75c9d19">&lt;strong&gt;</bpt>Get started with data<ept id="1c32a89c-65af-42a5-bc2b-baf0a75c9d19">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, open the project that you modified when you completed the tutorial <bpt id="1c32a89c-65af-42a5-bc2b-baf0a75c9d19">&lt;strong&gt;</bpt>Get started with data<ept id="1c32a89c-65af-42a5-bc2b-baf0a75c9d19">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4c64ab8-f84d-46f6-9778-d8bd366c4dbe" xml:space="preserve">
+          <source>Press the <bpt id="56e8eed0-97dd-44bc-b3a3-568533a80c0a">&lt;strong&gt;</bpt>F5<ept id="56e8eed0-97dd-44bc-b3a3-568533a80c0a">&lt;/strong&gt;</ept> key to run the app, then type text in <bpt id="556669d6-859c-4902-8fa6-c94969fd76de">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="556669d6-859c-4902-8fa6-c94969fd76de">&lt;/strong&gt;</ept> and click <bpt id="4bfb82ce-c665-4c02-9c9a-3008469d2418">&lt;strong&gt;</bpt>Save<ept id="4bfb82ce-c665-4c02-9c9a-3008469d2418">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Press the <bpt id="56e8eed0-97dd-44bc-b3a3-568533a80c0a">&lt;strong&gt;</bpt>F5<ept id="56e8eed0-97dd-44bc-b3a3-568533a80c0a">&lt;/strong&gt;</ept> key to run the app, then type text in <bpt id="556669d6-859c-4902-8fa6-c94969fd76de">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="556669d6-859c-4902-8fa6-c94969fd76de">&lt;/strong&gt;</ept> and click <bpt id="4bfb82ce-c665-4c02-9c9a-3008469d2418">&lt;strong&gt;</bpt>Save<ept id="4bfb82ce-c665-4c02-9c9a-3008469d2418">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90974c39-74ca-4bd5-9041-f4ad71fde7b0" xml:space="preserve">
+          <source>Repeat the previous step at least three times, so that you have more than three items stored in the TodoItem table.</source>
+          <target state="new">Repeat the previous step at least three times, so that you have more than three items stored in the TodoItem table.</target>
+        </trans-unit>
+        <trans-unit id="5b337a87-54d0-4cd1-9a0b-415a5c08ce7f" xml:space="preserve">
+          <source>In the default.js file, replace the <bpt id="b7402881-4520-49b2-b36c-ea9609d7353a">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="b7402881-4520-49b2-b36c-ea9609d7353a">&lt;/strong&gt;</ept> method with the following code:</source>
+          <target state="new">In the default.js file, replace the <bpt id="b7402881-4520-49b2-b36c-ea9609d7353a">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="b7402881-4520-49b2-b36c-ea9609d7353a">&lt;/strong&gt;</ept> method with the following code:</target>
+        </trans-unit>
+        <trans-unit id="6afe7840-0ca1-48de-99d3-2322af89bb4e" xml:space="preserve">
+          <source>This query, when executed during data binding, returns the top three items that are not marked as completed.</source>
+          <target state="new">This query, when executed during data binding, returns the top three items that are not marked as completed.</target>
+        </trans-unit>
+        <trans-unit id="3748f3a5-5f77-49ba-a06c-cb27653abadd" xml:space="preserve">
+          <source>Press the <bpt id="4ee157c2-681f-4b3b-9054-18dce33867ca">&lt;strong&gt;</bpt>F5<ept id="4ee157c2-681f-4b3b-9054-18dce33867ca">&lt;/strong&gt;</ept> key to run the app.</source>
+          <target state="new">Press the <bpt id="4ee157c2-681f-4b3b-9054-18dce33867ca">&lt;strong&gt;</bpt>F5<ept id="4ee157c2-681f-4b3b-9054-18dce33867ca">&lt;/strong&gt;</ept> key to run the app.</target>
+        </trans-unit>
+        <trans-unit id="bcac21ea-acac-4c91-90bb-e7965c790700" xml:space="preserve">
+          <source>Notice that only the first three results from the TodoItem table are displayed.</source>
+          <target state="new">Notice that only the first three results from the TodoItem table are displayed.</target>
+        </trans-unit>
+        <trans-unit id="18e507cb-da51-48c4-8f4f-a5dbaf2e0a07" xml:space="preserve">
+          <source>(Optional) View the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or [Fiddler].</source>
+          <target state="new">(Optional) View the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or [Fiddler].</target>
+        </trans-unit>
+        <trans-unit id="ca1586d5-e948-4eb4-94c8-d75eb18de747" xml:space="preserve">
+          <source>Notice that the <bpt id="e1ab6fe5-5407-4cb9-b034-89c4d0bb0199">&lt;strong&gt;</bpt>take(3)<ept id="e1ab6fe5-5407-4cb9-b034-89c4d0bb0199">&lt;/strong&gt;</ept> method was translated into the query option <bpt id="a55e3ea3-bcb9-40ce-ae18-928114bd8550">&lt;strong&gt;</bpt>$top=3<ept id="a55e3ea3-bcb9-40ce-ae18-928114bd8550">&lt;/strong&gt;</ept> in the query URI.</source>
+          <target state="new">Notice that the <bpt id="e1ab6fe5-5407-4cb9-b034-89c4d0bb0199">&lt;strong&gt;</bpt>take(3)<ept id="e1ab6fe5-5407-4cb9-b034-89c4d0bb0199">&lt;/strong&gt;</ept> method was translated into the query option <bpt id="a55e3ea3-bcb9-40ce-ae18-928114bd8550">&lt;strong&gt;</bpt>$top=3<ept id="a55e3ea3-bcb9-40ce-ae18-928114bd8550">&lt;/strong&gt;</ept> in the query URI.</target>
+        </trans-unit>
+        <trans-unit id="f13f6600-63fe-42a4-8ee3-b8a45d256b4c" xml:space="preserve">
+          <source>Update the <bpt id="c50603a0-5db0-4325-984f-25954ff9c91c">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="c50603a0-5db0-4325-984f-25954ff9c91c">&lt;/strong&gt;</ept> method once more with the following code:</source>
+          <target state="new">Update the <bpt id="c50603a0-5db0-4325-984f-25954ff9c91c">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="c50603a0-5db0-4325-984f-25954ff9c91c">&lt;/strong&gt;</ept> method once more with the following code:</target>
+        </trans-unit>
+        <trans-unit id="1ebe5a79-e39b-4872-b49a-89951739405c" xml:space="preserve">
+          <source>This query skips the first three results and returns the next three after that.</source>
+          <target state="new">This query skips the first three results and returns the next three after that.</target>
+        </trans-unit>
+        <trans-unit id="82501e7f-1bba-4214-9ef6-c879832a1922" xml:space="preserve">
+          <source>This is effectively the second "page" of data, where the page size is three items.</source>
+          <target state="new">This is effectively the second "page" of data, where the page size is three items.</target>
+        </trans-unit>
+        <trans-unit id="c3fc1c76-2563-4a26-a23e-d42d87bd1961" xml:space="preserve">
+          <source>This tutorial uses a simplified scenario by passing hard-coded paging values to the <bpt id="1aaf4be8-f41e-4c8e-b153-af7f314f911e">&lt;strong&gt;</bpt>Take<ept id="1aaf4be8-f41e-4c8e-b153-af7f314f911e">&lt;/strong&gt;</ept> and <bpt id="767414bf-0b8b-4ad0-859e-42a4a92351e4">&lt;strong&gt;</bpt>Skip<ept id="767414bf-0b8b-4ad0-859e-42a4a92351e4">&lt;/strong&gt;</ept> methods.</source>
+          <target state="new">This tutorial uses a simplified scenario by passing hard-coded paging values to the <bpt id="1aaf4be8-f41e-4c8e-b153-af7f314f911e">&lt;strong&gt;</bpt>Take<ept id="1aaf4be8-f41e-4c8e-b153-af7f314f911e">&lt;/strong&gt;</ept> and <bpt id="767414bf-0b8b-4ad0-859e-42a4a92351e4">&lt;strong&gt;</bpt>Skip<ept id="767414bf-0b8b-4ad0-859e-42a4a92351e4">&lt;/strong&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="504248a0-55b8-4aaa-aafc-87bc466a7370" xml:space="preserve">
+          <source>In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.</source>
+          <target state="new">In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.</target>
+        </trans-unit>
+        <trans-unit id="87eb93be-31e7-43c2-9a9f-1cbcd10eb11d" xml:space="preserve">
+          <source>You can also call the  <bpt id="110d9561-1407-4259-8dca-a8899ef3a7f8">&lt;strong&gt;</bpt>includeTotalCount<ept id="110d9561-1407-4259-8dca-a8899ef3a7f8">&lt;/strong&gt;</ept> method to get the total count of items available on the server, along with the paged data.</source>
+          <target state="new">You can also call the  <bpt id="110d9561-1407-4259-8dca-a8899ef3a7f8">&lt;strong&gt;</bpt>includeTotalCount<ept id="110d9561-1407-4259-8dca-a8899ef3a7f8">&lt;/strong&gt;</ept> method to get the total count of items available on the server, along with the paged data.</target>
+        </trans-unit>
+        <trans-unit id="0342ed19-cfd8-4273-ba44-152ffd4b54a3" xml:space="preserve">
+          <source>(Optional) Again view the URI of the request sent to the mobile service.</source>
+          <target state="new">(Optional) Again view the URI of the request sent to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="ac89eefa-ffa6-4a81-b12f-a2f23b039ea1" xml:space="preserve">
+          <source>Notice that the <bpt id="8ab9b618-e6e4-4925-b8df-68529a511bc6">&lt;strong&gt;</bpt>skip(3)<ept id="8ab9b618-e6e4-4925-b8df-68529a511bc6">&lt;/strong&gt;</ept> method was translated into the query option <bpt id="804faf6b-dde8-48f2-aeb0-0b0387c8eb89">&lt;strong&gt;</bpt>$skip=3<ept id="804faf6b-dde8-48f2-aeb0-0b0387c8eb89">&lt;/strong&gt;</ept> in the query URI.</source>
+          <target state="new">Notice that the <bpt id="8ab9b618-e6e4-4925-b8df-68529a511bc6">&lt;strong&gt;</bpt>skip(3)<ept id="8ab9b618-e6e4-4925-b8df-68529a511bc6">&lt;/strong&gt;</ept> method was translated into the query option <bpt id="804faf6b-dde8-48f2-aeb0-0b0387c8eb89">&lt;strong&gt;</bpt>$skip=3<ept id="804faf6b-dde8-48f2-aeb0-0b0387c8eb89">&lt;/strong&gt;</ept> in the query URI.</target>
+        </trans-unit>
+        <trans-unit id="26c707ab-4a18-4f66-b3cd-a07e7dc45fc6" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=262412</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=262412</target>
+        </trans-unit>
+      </group>
+      <group id="8a350bb8-5d9e-4027-9301-0e558acf16bd" />
+    </body>
+  </file>
+</xliff>

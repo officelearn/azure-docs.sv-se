@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e5270eb5-f2fc-4d05-b6d2-230248d03597" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e5270eb5-f2fc-4d05-b6d2-230248d03597" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="40be81ff-aa04-4955-a90d-bb91907023a2">
+        <trans-unit id="c9e041f2-bfe3-47d1-8ffa-9c4e9875cca2" xml:space="preserve">
+          <source>How to configure an availability set for virtual machines</source>
+          <target state="new">How to configure an availability set for virtual machines</target>
+        </trans-unit>
+        <trans-unit id="904d0bab-1172-4bec-a768-6f9c3ef10341" xml:space="preserve">
+          <source>Gives the steps to configure an availability set for a new or existing virtual machine in Azure using the Azure portal and Azure PowerShell commands</source>
+          <target state="new">Gives the steps to configure an availability set for a new or existing virtual machine in Azure using the Azure portal and Azure PowerShell commands</target>
+        </trans-unit>
+        <trans-unit id="c7de5074-e8ae-4d72-ba05-b5115f5a3ac2" xml:space="preserve">
+          <source>An availability set helps keep your virtual machines available during downtime, such as during maintenance.</source>
+          <target state="new">An availability set helps keep your virtual machines available during downtime, such as during maintenance.</target>
+        </trans-unit>
+        <trans-unit id="84e3542d-e167-4ab2-8b47-2b920d171597" xml:space="preserve">
+          <source>Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs.</source>
+          <target state="new">Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs.</target>
+        </trans-unit>
+        <trans-unit id="9c0d8a92-96ef-4519-9d59-023aa7ca79d8" xml:space="preserve">
+          <source>For details about how this works, see <bpt id="028500d2-5d9b-4385-97f6-0f5382886be3">&lt;linkText&gt;</bpt>Manage the availability of virtual machines<ept id="028500d2-5d9b-4385-97f6-0f5382886be3">&lt;/linkText&gt;</ept><bpt id="028500d2-5d9b-4385-97f6-0f5382886be3">&lt;title&gt;</bpt><ept id="028500d2-5d9b-4385-97f6-0f5382886be3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about how this works, see <bpt id="028500d2-5d9b-4385-97f6-0f5382886be3">&lt;linkText&gt;</bpt>Manage the availability of virtual machines<ept id="028500d2-5d9b-4385-97f6-0f5382886be3">&lt;/linkText&gt;</ept><bpt id="028500d2-5d9b-4385-97f6-0f5382886be3">&lt;title&gt;</bpt><ept id="028500d2-5d9b-4385-97f6-0f5382886be3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7573eec0-04af-4115-a672-8fff7fc21a6b" xml:space="preserve">
+          <source>It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently.</source>
+          <target state="new">It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently.</target>
+        </trans-unit>
+        <trans-unit id="16a8a975-a0a5-4429-a89d-807132570d06" xml:space="preserve">
+          <source>For details about load-balanced endpoints, see <bpt id="12f9ec4c-34e9-4d2b-990d-e31d3ab5cc6d">&lt;linkText&gt;</bpt>Load balancing for Azure infrastructure services<ept id="12f9ec4c-34e9-4d2b-990d-e31d3ab5cc6d">&lt;/linkText&gt;</ept><bpt id="12f9ec4c-34e9-4d2b-990d-e31d3ab5cc6d">&lt;title&gt;</bpt><ept id="12f9ec4c-34e9-4d2b-990d-e31d3ab5cc6d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about load-balanced endpoints, see <bpt id="12f9ec4c-34e9-4d2b-990d-e31d3ab5cc6d">&lt;linkText&gt;</bpt>Load balancing for Azure infrastructure services<ept id="12f9ec4c-34e9-4d2b-990d-e31d3ab5cc6d">&lt;/linkText&gt;</ept><bpt id="12f9ec4c-34e9-4d2b-990d-e31d3ab5cc6d">&lt;title&gt;</bpt><ept id="12f9ec4c-34e9-4d2b-990d-e31d3ab5cc6d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="713a936c-3c80-418b-a239-8bcee6c2d67a" xml:space="preserve">
+          <source>You can put virtual machines into an availability set by using one of two options:</source>
+          <target state="new">You can put virtual machines into an availability set by using one of two options:</target>
+        </trans-unit>
+        <trans-unit id="342aab8c-2ab9-4171-a082-cf2ca98c3506" xml:space="preserve">
+          <source><bpt id="6cf0900e-f32b-49dc-ba71-3ca20cbc76cb">&lt;linkText&gt;</bpt>Option 1: Create a virtual machine and an availability set at the same time<ept id="6cf0900e-f32b-49dc-ba71-3ca20cbc76cb">&lt;/linkText&gt;</ept><bpt id="6cf0900e-f32b-49dc-ba71-3ca20cbc76cb">&lt;title&gt;</bpt><ept id="6cf0900e-f32b-49dc-ba71-3ca20cbc76cb">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="6cf0900e-f32b-49dc-ba71-3ca20cbc76cb">&lt;linkText&gt;</bpt>Option 1: Create a virtual machine and an availability set at the same time<ept id="6cf0900e-f32b-49dc-ba71-3ca20cbc76cb">&lt;/linkText&gt;</ept><bpt id="6cf0900e-f32b-49dc-ba71-3ca20cbc76cb">&lt;title&gt;</bpt><ept id="6cf0900e-f32b-49dc-ba71-3ca20cbc76cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75516527-8115-485a-82df-7e69f6957b12" xml:space="preserve">
+          <source>Then, add new virtual machines to the set when you create those virtual machines.</source>
+          <target state="new">Then, add new virtual machines to the set when you create those virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="82a5a1fc-88f2-48c2-8b84-5dd205c80fe6" xml:space="preserve">
+          <source><bpt id="bad3d81f-cbb4-486c-abd7-3ccc3f619306">&lt;linkText&gt;</bpt>Option 2: Add an existing virtual machine to an availability set<ept id="bad3d81f-cbb4-486c-abd7-3ccc3f619306">&lt;/linkText&gt;</ept><bpt id="bad3d81f-cbb4-486c-abd7-3ccc3f619306">&lt;title&gt;</bpt><ept id="bad3d81f-cbb4-486c-abd7-3ccc3f619306">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="bad3d81f-cbb4-486c-abd7-3ccc3f619306">&lt;linkText&gt;</bpt>Option 2: Add an existing virtual machine to an availability set<ept id="bad3d81f-cbb4-486c-abd7-3ccc3f619306">&lt;/linkText&gt;</ept><bpt id="bad3d81f-cbb4-486c-abd7-3ccc3f619306">&lt;title&gt;</bpt><ept id="bad3d81f-cbb4-486c-abd7-3ccc3f619306">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b151245-bfc8-43da-b3f6-9a3bd86fcd53" xml:space="preserve">
+          <source>Virtual machines that you want to put in the same availability set must belong to the same cloud service.</source>
+          <target state="new">Virtual machines that you want to put in the same availability set must belong to the same cloud service.</target>
+        </trans-unit>
+        <trans-unit id="5d593801-f4db-4b62-8949-b8baf15f717e" xml:space="preserve">
+          <source>You can use either the Azure portal or Azure PowerShell commands to do this.</source>
+          <target state="new">You can use either the Azure portal or Azure PowerShell commands to do this.</target>
+        </trans-unit>
+        <trans-unit id="a0c43157-036e-4be3-8aa0-277730ff8c45" xml:space="preserve">
+          <source>To use the portal:</source>
+          <target state="new">To use the portal:</target>
+        </trans-unit>
+        <trans-unit id="3bb848f1-c953-4118-afb2-55a9ededf3a1" xml:space="preserve">
+          <source>If you haven't already done so, sign in to the <bpt id="1c9add3c-9602-4835-96a1-92de075224e4">&lt;linkText&gt;</bpt>portal<ept id="1c9add3c-9602-4835-96a1-92de075224e4">&lt;/linkText&gt;</ept><bpt id="1c9add3c-9602-4835-96a1-92de075224e4">&lt;title&gt;</bpt><ept id="1c9add3c-9602-4835-96a1-92de075224e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you haven't already done so, sign in to the <bpt id="1c9add3c-9602-4835-96a1-92de075224e4">&lt;linkText&gt;</bpt>portal<ept id="1c9add3c-9602-4835-96a1-92de075224e4">&lt;/linkText&gt;</ept><bpt id="1c9add3c-9602-4835-96a1-92de075224e4">&lt;title&gt;</bpt><ept id="1c9add3c-9602-4835-96a1-92de075224e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="581dec68-49eb-4387-a109-fac2bda3a26e" xml:space="preserve">
+          <source>On the command bar, click <bpt id="f61a4683-07c0-44c3-80db-2499055560de">&lt;strong&gt;</bpt>New<ept id="f61a4683-07c0-44c3-80db-2499055560de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the command bar, click <bpt id="f61a4683-07c0-44c3-80db-2499055560de">&lt;strong&gt;</bpt>New<ept id="f61a4683-07c0-44c3-80db-2499055560de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01cc6984-3b91-4a5d-869b-9439f1015c90" xml:space="preserve">
+          <source>Click <bpt id="93509c59-c460-4752-8f0c-92408622599f">&lt;strong&gt;</bpt>Virtual Machine<ept id="93509c59-c460-4752-8f0c-92408622599f">&lt;/strong&gt;</ept>, and then click <bpt id="f913626c-4fc5-444b-98b4-1abdccf08f8c">&lt;strong&gt;</bpt>From Gallery<ept id="f913626c-4fc5-444b-98b4-1abdccf08f8c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="93509c59-c460-4752-8f0c-92408622599f">&lt;strong&gt;</bpt>Virtual Machine<ept id="93509c59-c460-4752-8f0c-92408622599f">&lt;/strong&gt;</ept>, and then click <bpt id="f913626c-4fc5-444b-98b4-1abdccf08f8c">&lt;strong&gt;</bpt>From Gallery<ept id="f913626c-4fc5-444b-98b4-1abdccf08f8c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9c9a0f6-d972-485e-ab6f-e5b324a38aa2" xml:space="preserve">
+          <source>Use the first two screens to select an image, a user name and password, and so on.</source>
+          <target state="new">Use the first two screens to select an image, a user name and password, and so on.</target>
+        </trans-unit>
+        <trans-unit id="4745b52a-c1b5-44de-ae93-c2914dc1afef" xml:space="preserve">
+          <source>For more details, see <bpt id="f5bdefba-1e65-4bc0-82f4-9f8dc82e04b9">&lt;linkText&gt;</bpt>Create a virtual machine running Windows<ept id="f5bdefba-1e65-4bc0-82f4-9f8dc82e04b9">&lt;/linkText&gt;</ept><bpt id="f5bdefba-1e65-4bc0-82f4-9f8dc82e04b9">&lt;title&gt;</bpt><ept id="f5bdefba-1e65-4bc0-82f4-9f8dc82e04b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="f5bdefba-1e65-4bc0-82f4-9f8dc82e04b9">&lt;linkText&gt;</bpt>Create a virtual machine running Windows<ept id="f5bdefba-1e65-4bc0-82f4-9f8dc82e04b9">&lt;/linkText&gt;</ept><bpt id="f5bdefba-1e65-4bc0-82f4-9f8dc82e04b9">&lt;title&gt;</bpt><ept id="f5bdefba-1e65-4bc0-82f4-9f8dc82e04b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a7e3b7d-a97d-4697-a935-d9557b1bd55e" xml:space="preserve">
+          <source>In the third screen, you can configure resources for networking, storage, and availability.</source>
+          <target state="new">In the third screen, you can configure resources for networking, storage, and availability.</target>
+        </trans-unit>
+        <trans-unit id="163baac0-6697-4896-babf-5ff51e51903d" xml:space="preserve">
+          <source>Do the following:</source>
+          <target state="new">Do the following:</target>
+        </trans-unit>
+        <trans-unit id="7e53f17d-bae2-4984-b5fc-5a12e2a72f1d" xml:space="preserve">
+          <source>Choose the appropriate cloud service.</source>
+          <target state="new">Choose the appropriate cloud service.</target>
+        </trans-unit>
+        <trans-unit id="c5e70f24-44da-4856-abaa-3c0bb86cc882" xml:space="preserve">
+          <source>Leave it set to <bpt id="fa507d0a-4fdb-4ddb-bc65-32dea0f755f7">&lt;strong&gt;</bpt>Create a new cloud service<ept id="fa507d0a-4fdb-4ddb-bc65-32dea0f755f7">&lt;/strong&gt;</ept> (unless you are adding this new virtual machine to an existing virtual machine cloud service).</source>
+          <target state="new">Leave it set to <bpt id="fa507d0a-4fdb-4ddb-bc65-32dea0f755f7">&lt;strong&gt;</bpt>Create a new cloud service<ept id="fa507d0a-4fdb-4ddb-bc65-32dea0f755f7">&lt;/strong&gt;</ept> (unless you are adding this new virtual machine to an existing virtual machine cloud service).</target>
+        </trans-unit>
+        <trans-unit id="05738ad4-e84f-454a-859a-4f0a3b3d75a9" xml:space="preserve">
+          <source>Then, under <bpt id="83cfd376-c32f-4cce-b31d-1067b09cf40d">&lt;strong&gt;</bpt>Cloud Service DNS Name<ept id="83cfd376-c32f-4cce-b31d-1067b09cf40d">&lt;/strong&gt;</ept>, type a name.</source>
+          <target state="new">Then, under <bpt id="83cfd376-c32f-4cce-b31d-1067b09cf40d">&lt;strong&gt;</bpt>Cloud Service DNS Name<ept id="83cfd376-c32f-4cce-b31d-1067b09cf40d">&lt;/strong&gt;</ept>, type a name.</target>
+        </trans-unit>
+        <trans-unit id="4ad7f6cf-7f74-4f80-a708-b5e1a22ac11a" xml:space="preserve">
+          <source>The DNS name becomes part of the URI that's used to contact the virtual machine.</source>
+          <target state="new">The DNS name becomes part of the URI that's used to contact the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="88bebb55-30bf-4af2-9040-69dc5c57d131" xml:space="preserve">
+          <source>The cloud service acts as a communications and isolation group.</source>
+          <target state="new">The cloud service acts as a communications and isolation group.</target>
+        </trans-unit>
+        <trans-unit id="4ead6823-524f-4e6d-9b36-ce100a9f35a9" xml:space="preserve">
+          <source>All virtual machines in the same cloud service can communicate with each other, can be set up for load balancing, and can be placed in the same availability set.</source>
+          <target state="new">All virtual machines in the same cloud service can communicate with each other, can be set up for load balancing, and can be placed in the same availability set.</target>
+        </trans-unit>
+        <trans-unit id="2a9ed603-017b-450d-9ead-174b99a95dfc" xml:space="preserve">
+          <source>Under <bpt id="cade8766-947d-472d-9583-4b7c3913c12e">&lt;strong&gt;</bpt>Region/Affinity Group/Virtual Network<ept id="cade8766-947d-472d-9583-4b7c3913c12e">&lt;/strong&gt;</ept>, specify a virtual network if you plan to use one.</source>
+          <target state="new">Under <bpt id="cade8766-947d-472d-9583-4b7c3913c12e">&lt;strong&gt;</bpt>Region/Affinity Group/Virtual Network<ept id="cade8766-947d-472d-9583-4b7c3913c12e">&lt;/strong&gt;</ept>, specify a virtual network if you plan to use one.</target>
+        </trans-unit>
+        <trans-unit id="7eda520b-ce1a-4106-be8e-b3060c49c299" xml:space="preserve">
+          <source><bpt id="b5d1ca1d-fafd-4511-b36a-41db8250bf00">&lt;strong&gt;</bpt>Important<ept id="b5d1ca1d-fafd-4511-b36a-41db8250bf00">&lt;/strong&gt;</ept>: If you want a virtual machine to use a virtual network, you must join the virtual machine to the virtual network when you create the virtual machine.</source>
+          <target state="new"><bpt id="b5d1ca1d-fafd-4511-b36a-41db8250bf00">&lt;strong&gt;</bpt>Important<ept id="b5d1ca1d-fafd-4511-b36a-41db8250bf00">&lt;/strong&gt;</ept>: If you want a virtual machine to use a virtual network, you must join the virtual machine to the virtual network when you create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f8d83448-6534-4a24-9aab-207765a877c4" xml:space="preserve">
+          <source>You can't join the virtual machine to a virtual network after you create the virtual machine.</source>
+          <target state="new">You can't join the virtual machine to a virtual network after you create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="445e0bba-9225-4bc3-a6e4-cf80a68f4689" xml:space="preserve">
+          <source>For more information, see <bpt id="2ebfa4fb-c864-4984-8e4a-c96655064785">&lt;linkText&gt;</bpt>Virtual Network Overview<ept id="2ebfa4fb-c864-4984-8e4a-c96655064785">&lt;/linkText&gt;</ept><bpt id="2ebfa4fb-c864-4984-8e4a-c96655064785">&lt;title&gt;</bpt><ept id="2ebfa4fb-c864-4984-8e4a-c96655064785">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="2ebfa4fb-c864-4984-8e4a-c96655064785">&lt;linkText&gt;</bpt>Virtual Network Overview<ept id="2ebfa4fb-c864-4984-8e4a-c96655064785">&lt;/linkText&gt;</ept><bpt id="2ebfa4fb-c864-4984-8e4a-c96655064785">&lt;title&gt;</bpt><ept id="2ebfa4fb-c864-4984-8e4a-c96655064785">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f11a93b6-ed08-44a3-b559-4dd7621bc088" xml:space="preserve">
+          <source>Create the availability set.</source>
+          <target state="new">Create the availability set.</target>
+        </trans-unit>
+        <trans-unit id="5e8b12f3-0260-4692-b111-44d5e405d1d7" xml:space="preserve">
+          <source>Under <bpt id="70519407-3c3e-413c-9b77-34f4866c4f39">&lt;strong&gt;</bpt>Availability Set<ept id="70519407-3c3e-413c-9b77-34f4866c4f39">&lt;/strong&gt;</ept>, leave it set to <bpt id="c4052bf0-19dc-4ea9-9653-07bf62f293a2">&lt;strong&gt;</bpt>Create an availability set<ept id="c4052bf0-19dc-4ea9-9653-07bf62f293a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="70519407-3c3e-413c-9b77-34f4866c4f39">&lt;strong&gt;</bpt>Availability Set<ept id="70519407-3c3e-413c-9b77-34f4866c4f39">&lt;/strong&gt;</ept>, leave it set to <bpt id="c4052bf0-19dc-4ea9-9653-07bf62f293a2">&lt;strong&gt;</bpt>Create an availability set<ept id="c4052bf0-19dc-4ea9-9653-07bf62f293a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="435073e5-83ac-4959-a3c6-4b000a45db11" xml:space="preserve">
+          <source>Then, type a name for the set.</source>
+          <target state="new">Then, type a name for the set.</target>
+        </trans-unit>
+        <trans-unit id="ca3b3be3-de06-4697-b8c6-7ae1d2a05b46" xml:space="preserve">
+          <source>Create the default endpoints and add more endpoints if needed.</source>
+          <target state="new">Create the default endpoints and add more endpoints if needed.</target>
+        </trans-unit>
+        <trans-unit id="cbfd013e-de1c-44ec-bd0b-157a155ae689" xml:space="preserve">
+          <source>You also can add endpoints later.</source>
+          <target state="new">You also can add endpoints later.</target>
+        </trans-unit>
+        <trans-unit id="0a40b3fa-e7ce-4a4d-b6b7-47f498eba92d" xml:space="preserve">
+          <source><bpt id="765de861-5db4-4ec1-b519-f2791a75902a">&lt;linkText&gt;</bpt>Create an availability set for a new virtual machine<ept id="765de861-5db4-4ec1-b519-f2791a75902a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="765de861-5db4-4ec1-b519-f2791a75902a">&lt;linkText&gt;</bpt>Create an availability set for a new virtual machine<ept id="765de861-5db4-4ec1-b519-f2791a75902a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eaa5c7f6-fe0f-43ab-9ed2-e015bc87e48d" xml:space="preserve">
+          <source>On the fourth screen, click the extensions that you want to install.</source>
+          <target state="new">On the fourth screen, click the extensions that you want to install.</target>
+        </trans-unit>
+        <trans-unit id="7f55c6f5-9687-4e26-b8a4-a46f3ba47c0a" xml:space="preserve">
+          <source>Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords.</source>
+          <target state="new">Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords.</target>
+        </trans-unit>
+        <trans-unit id="885fecf7-fd03-4fa6-b599-4a4322a3ac75" xml:space="preserve">
+          <source>For details, see <bpt id="51a30f48-13cb-4ede-bbeb-caf3264f2c5a">&lt;linkText&gt;</bpt>Azure VM Agent and VM Extensions<ept id="51a30f48-13cb-4ede-bbeb-caf3264f2c5a">&lt;/linkText&gt;</ept><bpt id="51a30f48-13cb-4ede-bbeb-caf3264f2c5a">&lt;title&gt;</bpt><ept id="51a30f48-13cb-4ede-bbeb-caf3264f2c5a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="51a30f48-13cb-4ede-bbeb-caf3264f2c5a">&lt;linkText&gt;</bpt>Azure VM Agent and VM Extensions<ept id="51a30f48-13cb-4ede-bbeb-caf3264f2c5a">&lt;/linkText&gt;</ept><bpt id="51a30f48-13cb-4ede-bbeb-caf3264f2c5a">&lt;title&gt;</bpt><ept id="51a30f48-13cb-4ede-bbeb-caf3264f2c5a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c179a545-5aa3-46c7-8e15-8555f92e7f00" xml:space="preserve">
+          <source>Click the arrow to create the virtual machine and the availability set.</source>
+          <target state="new">Click the arrow to create the virtual machine and the availability set.</target>
+        </trans-unit>
+        <trans-unit id="87f7df52-f186-4cf0-9b5d-89afdbf6020d" xml:space="preserve">
+          <source>From the dashboard of the new virtual machine, you can click <bpt id="e3d4658b-c55b-4716-abd3-30b61e0fadea">&lt;strong&gt;</bpt>Configure<ept id="e3d4658b-c55b-4716-abd3-30b61e0fadea">&lt;/strong&gt;</ept> to see that the virtual machine belongs to the new availability set.</source>
+          <target state="new">From the dashboard of the new virtual machine, you can click <bpt id="e3d4658b-c55b-4716-abd3-30b61e0fadea">&lt;strong&gt;</bpt>Configure<ept id="e3d4658b-c55b-4716-abd3-30b61e0fadea">&lt;/strong&gt;</ept> to see that the virtual machine belongs to the new availability set.</target>
+        </trans-unit>
+        <trans-unit id="4827daac-a532-40d3-b4e3-44e599687e18" xml:space="preserve">
+          <source>To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see the following:</source>
+          <target state="new">To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see the following:</target>
+        </trans-unit>
+        <trans-unit id="b5ac052c-379a-4373-841f-e5eb1f0db11f" xml:space="preserve">
+          <source><bpt id="3f921d97-441e-48f9-8437-7e69665dca70">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Windows-based virtual machines<ept id="3f921d97-441e-48f9-8437-7e69665dca70">&lt;/linkText&gt;</ept><bpt id="3f921d97-441e-48f9-8437-7e69665dca70">&lt;title&gt;</bpt><ept id="3f921d97-441e-48f9-8437-7e69665dca70">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3f921d97-441e-48f9-8437-7e69665dca70">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Windows-based virtual machines<ept id="3f921d97-441e-48f9-8437-7e69665dca70">&lt;/linkText&gt;</ept><bpt id="3f921d97-441e-48f9-8437-7e69665dca70">&lt;title&gt;</bpt><ept id="3f921d97-441e-48f9-8437-7e69665dca70">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="152fcf59-44a1-4cc7-b21a-55098cb55186" xml:space="preserve">
+          <source><bpt id="07a76dd2-bc4d-4c31-a096-e23a4634da57">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Linux-based virtual machines<ept id="07a76dd2-bc4d-4c31-a096-e23a4634da57">&lt;/linkText&gt;</ept><bpt id="07a76dd2-bc4d-4c31-a096-e23a4634da57">&lt;title&gt;</bpt><ept id="07a76dd2-bc4d-4c31-a096-e23a4634da57">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="07a76dd2-bc4d-4c31-a096-e23a4634da57">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Linux-based virtual machines<ept id="07a76dd2-bc4d-4c31-a096-e23a4634da57">&lt;/linkText&gt;</ept><bpt id="07a76dd2-bc4d-4c31-a096-e23a4634da57">&lt;title&gt;</bpt><ept id="07a76dd2-bc4d-4c31-a096-e23a4634da57">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="263982a8-5899-48c4-8c84-98f6b2fc4ef0" xml:space="preserve">
+          <source>In the portal, you can add existing virtual machines to an existing availability set
+ or create a new one for them.</source>
+          <target state="new">In the portal, you can add existing virtual machines to an existing availability set
+ or create a new one for them.</target>
+        </trans-unit>
+        <trans-unit id="e0b8e908-f982-4346-9edf-a505042c7c49" xml:space="preserve">
+          <source>(Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.)</source>
+          <target state="new">(Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.)</target>
+        </trans-unit>
+        <trans-unit id="34dd7c45-c056-4541-b77e-91161d04aee6" xml:space="preserve">
+          <source>The steps are almost the same.</source>
+          <target state="new">The steps are almost the same.</target>
+        </trans-unit>
+        <trans-unit id="5f29575c-7f79-4128-86a2-fc6b9c89c2a6" xml:space="preserve">
+          <source>With Azure PowerShell, you can add the virtual machine to an existing availability set.</source>
+          <target state="new">With Azure PowerShell, you can add the virtual machine to an existing availability set.</target>
+        </trans-unit>
+        <trans-unit id="df5f9584-a93c-4e21-bda1-acedebc24103" xml:space="preserve">
+          <source>If you have not already done so, sign in to the <bpt id="5256a5e4-c50b-40b3-b500-a336ce9636e0">&lt;linkText&gt;</bpt>portal<ept id="5256a5e4-c50b-40b3-b500-a336ce9636e0">&lt;/linkText&gt;</ept><bpt id="5256a5e4-c50b-40b3-b500-a336ce9636e0">&lt;title&gt;</bpt><ept id="5256a5e4-c50b-40b3-b500-a336ce9636e0">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have not already done so, sign in to the <bpt id="5256a5e4-c50b-40b3-b500-a336ce9636e0">&lt;linkText&gt;</bpt>portal<ept id="5256a5e4-c50b-40b3-b500-a336ce9636e0">&lt;/linkText&gt;</ept><bpt id="5256a5e4-c50b-40b3-b500-a336ce9636e0">&lt;title&gt;</bpt><ept id="5256a5e4-c50b-40b3-b500-a336ce9636e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7da734bc-a746-4db6-8184-f0999373843a" xml:space="preserve">
+          <source>On the command bar, click <bpt id="cfa4a695-e7b0-49e7-a96a-2e642446015d">&lt;strong&gt;</bpt>Virtual Machines<ept id="cfa4a695-e7b0-49e7-a96a-2e642446015d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the command bar, click <bpt id="cfa4a695-e7b0-49e7-a96a-2e642446015d">&lt;strong&gt;</bpt>Virtual Machines<ept id="cfa4a695-e7b0-49e7-a96a-2e642446015d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57df944a-4a83-490a-be17-d669d70b8af7" xml:space="preserve">
+          <source>From the list of virtual machines, select the name of the virtual machines that you want to add to the set.</source>
+          <target state="new">From the list of virtual machines, select the name of the virtual machines that you want to add to the set.</target>
+        </trans-unit>
+        <trans-unit id="c71e35b9-b1ca-4b36-9dea-f363b6d5037c" xml:space="preserve">
+          <source>From the tabs below the virtual machine name, click <bpt id="1151d069-b19f-485b-8542-597a0d736729">&lt;strong&gt;</bpt>Configure<ept id="1151d069-b19f-485b-8542-597a0d736729">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the tabs below the virtual machine name, click <bpt id="1151d069-b19f-485b-8542-597a0d736729">&lt;strong&gt;</bpt>Configure<ept id="1151d069-b19f-485b-8542-597a0d736729">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2633d438-6c4b-4d92-9602-5326e4cd79f3" xml:space="preserve">
+          <source>In the Settings section, find <bpt id="a5024f9d-59ed-4cfe-8b15-ccc6352ab55d">&lt;strong&gt;</bpt>Availability Set<ept id="a5024f9d-59ed-4cfe-8b15-ccc6352ab55d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Settings section, find <bpt id="a5024f9d-59ed-4cfe-8b15-ccc6352ab55d">&lt;strong&gt;</bpt>Availability Set<ept id="a5024f9d-59ed-4cfe-8b15-ccc6352ab55d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6b6abbc-0ad2-4a9a-a18d-d7fd04ac1b7f" xml:space="preserve">
+          <source>Do one of the following:</source>
+          <target state="new">Do one of the following:</target>
+        </trans-unit>
+        <trans-unit id="f8a11cf5-ad55-405b-abb1-8753cc88dffd" xml:space="preserve">
+          <source>A.</source>
+          <target state="new">A.</target>
+        </trans-unit>
+        <trans-unit id="dac2d5cb-cd14-4e96-a9fb-d309b472b366" xml:space="preserve">
+          <source>Select <bpt id="a93bef0b-1652-47e7-8bfb-3e8ca4e4040e">&lt;strong&gt;</bpt>Create an availability set<ept id="a93bef0b-1652-47e7-8bfb-3e8ca4e4040e">&lt;/strong&gt;</ept>, and then type a name for the set.</source>
+          <target state="new">Select <bpt id="a93bef0b-1652-47e7-8bfb-3e8ca4e4040e">&lt;strong&gt;</bpt>Create an availability set<ept id="a93bef0b-1652-47e7-8bfb-3e8ca4e4040e">&lt;/strong&gt;</ept>, and then type a name for the set.</target>
+        </trans-unit>
+        <trans-unit id="bdc9f24d-f926-491c-97ad-7bda58ba5301" xml:space="preserve">
+          <source>B.</source>
+          <target state="new">B.</target>
+        </trans-unit>
+        <trans-unit id="59faeb86-c0eb-4aaf-8055-95bd49aa1fc2" xml:space="preserve">
+          <source>Select <bpt id="0c9a28cd-a97e-47d1-a707-52577a8bb38e">&lt;strong&gt;</bpt>Select an availability set<ept id="0c9a28cd-a97e-47d1-a707-52577a8bb38e">&lt;/strong&gt;</ept>, and then select a set from the list.</source>
+          <target state="new">Select <bpt id="0c9a28cd-a97e-47d1-a707-52577a8bb38e">&lt;strong&gt;</bpt>Select an availability set<ept id="0c9a28cd-a97e-47d1-a707-52577a8bb38e">&lt;/strong&gt;</ept>, and then select a set from the list.</target>
+        </trans-unit>
+        <trans-unit id="658431ed-716c-4d36-b49f-3a2e5bae6c4f" xml:space="preserve">
+          <source><bpt id="40ffdb3b-b754-4634-aa25-09ae76931b9c">&lt;linkText&gt;</bpt>Create an availability set for an existing virtual machine<ept id="40ffdb3b-b754-4634-aa25-09ae76931b9c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40ffdb3b-b754-4634-aa25-09ae76931b9c">&lt;linkText&gt;</bpt>Create an availability set for an existing virtual machine<ept id="40ffdb3b-b754-4634-aa25-09ae76931b9c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d2a8f47-e3f0-4bb8-995b-c7c8fb7e600c" xml:space="preserve">
+          <source>Click <bpt id="b080e0ce-a317-46e4-82a5-c4ebc7304cff">&lt;strong&gt;</bpt>Save<ept id="b080e0ce-a317-46e4-82a5-c4ebc7304cff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b080e0ce-a317-46e4-82a5-c4ebc7304cff">&lt;strong&gt;</bpt>Save<ept id="b080e0ce-a317-46e4-82a5-c4ebc7304cff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4840eb5a-c2a2-4778-a113-37a060e84be2" xml:space="preserve">
+          <source>To use Azure PowerShell commands, open an administrator-level Azure PowerShell session and run the following command. For the placeholders (such as &amp;lt;VmCloudServiceName&amp;gt;), replace everything within the quotes, including the &lt; and &gt; characters, with the correct names.</source>
+          <target state="new">To use Azure PowerShell commands, open an administrator-level Azure PowerShell session and run the following command. For the placeholders (such as &amp;lt;VmCloudServiceName&amp;gt;), replace everything within the quotes, including the &lt; and &gt; characters, with the correct names.</target>
+        </trans-unit>
+        <trans-unit id="2b213afc-49fc-4a4e-9705-78db19dc41fb" xml:space="preserve">
+          <source>The virtual machine might have to be restarted to finish adding it to the availability set.</source>
+          <target state="new">The virtual machine might have to be restarted to finish adding it to the availability set.</target>
+        </trans-unit>
+        <trans-unit id="681ff4f5-3488-4a66-ab59-b98b52620653" xml:space="preserve">
+          <source>[About Azure virtual machine configuration settings]</source>
+          <target state="new">[About Azure virtual machine configuration settings]</target>
+        </trans-unit>
+        <trans-unit id="e3ff3f8e-000a-4657-bfeb-2e990cc0ac8b" xml:space="preserve">
+          <source>#createset</source>
+          <target state="new">#createset</target>
+        </trans-unit>
+        <trans-unit id="54064cc6-f0bf-4efb-95e6-51b6926362ba" xml:space="preserve">
+          <source>#addmachine</source>
+          <target state="new">#addmachine</target>
+        </trans-unit>
+        <trans-unit id="e2324125-d7f3-4315-8b23-4a59ed9c0579" xml:space="preserve">
+          <source>virtual-machines-load-balance.md</source>
+          <target state="new">virtual-machines-load-balance.md</target>
+        </trans-unit>
+        <trans-unit id="f39bf61c-5df6-41a2-ac85-d919031a1548" xml:space="preserve">
+          <source>virtual-machines-manage-availability.md</source>
+          <target state="new">virtual-machines-manage-availability.md</target>
+        </trans-unit>
+        <trans-unit id="eefb42e5-1ece-4942-9fde-08ecaf147523" xml:space="preserve">
+          <source>virtual-machines-windows-tutorial.md</source>
+          <target state="new">virtual-machines-windows-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="79963664-44da-4bb4-84d3-d96f7e9af8cc" xml:space="preserve">
+          <source>virtual-networks-overview.md</source>
+          <target state="new">virtual-networks-overview.md</target>
+        </trans-unit>
+        <trans-unit id="b8a685d9-3717-4554-bb00-ec02981af701" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn763935.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn763935.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="d2138eb5-8212-4da3-b9e1-0573e26fdcaf" />
+    </body>
+  </file>
+</xliff>

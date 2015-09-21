@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="57ae4d94-c09c-434d-8856-2bbc693a7ebc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="57ae4d94-c09c-434d-8856-2bbc693a7ebc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0c020593-13e1-4591-83f3-b1d2519a6a15">
+        <trans-unit id="25609fab-db9e-48da-99bd-2e85ff2afe55" xml:space="preserve">
+          <source>How to Set Up Computer for Media Services Development with .NET</source>
+          <target state="new">How to Set Up Computer for Media Services Development with .NET</target>
+        </trans-unit>
+        <trans-unit id="0d04ddec-61d4-458d-9b32-e48d534d60f2" xml:space="preserve">
+          <source>Learn about the prerequisites for Media Services using the Media Services SDK for .NET. Also learn how to create a Visual Studio app.</source>
+          <target state="new">Learn about the prerequisites for Media Services using the Media Services SDK for .NET. Also learn how to create a Visual Studio app.</target>
+        </trans-unit>
+        <trans-unit id="876cd282-8545-48a0-9ccb-3ea06284fb31" xml:space="preserve">
+          <source><bpt id="570107ad-0f36-4368-812a-2ec57a4e2a20">&lt;token href="../../includes/media-services-selector-setup.md"&gt;</bpt><ept id="570107ad-0f36-4368-812a-2ec57a4e2a20">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="570107ad-0f36-4368-812a-2ec57a4e2a20">&lt;token href="../../includes/media-services-selector-setup.md"&gt;</bpt><ept id="570107ad-0f36-4368-812a-2ec57a4e2a20">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33f745ca-3aee-46a8-bd42-ef96273ce28e" xml:space="preserve">
+          <source>This topic discusses how to start developing Media Services applications using .NET.</source>
+          <target state="new">This topic discusses how to start developing Media Services applications using .NET.</target>
+        </trans-unit>
+        <trans-unit id="43c57c1f-8267-47db-9e66-1c5e906e59c5" xml:space="preserve">
+          <source>The <bpt id="261a8d98-c5f0-4459-9e99-fc884a1240dd">&lt;strong&gt;</bpt>Azure Media Services .NET SDK<ept id="261a8d98-c5f0-4459-9e99-fc884a1240dd">&lt;/strong&gt;</ept> library enables you to program against Media Services using .NET.</source>
+          <target state="new">The <bpt id="261a8d98-c5f0-4459-9e99-fc884a1240dd">&lt;strong&gt;</bpt>Azure Media Services .NET SDK<ept id="261a8d98-c5f0-4459-9e99-fc884a1240dd">&lt;/strong&gt;</ept> library enables you to program against Media Services using .NET.</target>
+        </trans-unit>
+        <trans-unit id="2be4082a-d905-4b1c-8643-57deb4bd6af5" xml:space="preserve">
+          <source>To make it even easier to develop with .NET, the <bpt id="6605a2ee-24bc-439b-a077-3887425310f0">&lt;strong&gt;</bpt>Azure Media Services .NET SDK Extensions<ept id="6605a2ee-24bc-439b-a077-3887425310f0">&lt;/strong&gt;</ept> library is provided.</source>
+          <target state="new">To make it even easier to develop with .NET, the <bpt id="6605a2ee-24bc-439b-a077-3887425310f0">&lt;strong&gt;</bpt>Azure Media Services .NET SDK Extensions<ept id="6605a2ee-24bc-439b-a077-3887425310f0">&lt;/strong&gt;</ept> library is provided.</target>
+        </trans-unit>
+        <trans-unit id="40303833-f0cd-4722-b658-d913c03e488e" xml:space="preserve">
+          <source>This library contains a set of extension methods and helper functions that will simplify your .NET code.</source>
+          <target state="new">This library contains a set of extension methods and helper functions that will simplify your .NET code.</target>
+        </trans-unit>
+        <trans-unit id="69a2516d-e26a-403c-af81-0a692288c75b" xml:space="preserve">
+          <source>Both libraries are available through <bpt id="ff94e60d-dbb1-4938-ab8f-8f5bdf4e5bf7">&lt;strong&gt;</bpt>NuGet<ept id="ff94e60d-dbb1-4938-ab8f-8f5bdf4e5bf7">&lt;/strong&gt;</ept> and <bpt id="db8e0e1b-7f79-4418-a44b-33544e62808c">&lt;strong&gt;</bpt>GitHub<ept id="db8e0e1b-7f79-4418-a44b-33544e62808c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Both libraries are available through <bpt id="ff94e60d-dbb1-4938-ab8f-8f5bdf4e5bf7">&lt;strong&gt;</bpt>NuGet<ept id="ff94e60d-dbb1-4938-ab8f-8f5bdf4e5bf7">&lt;/strong&gt;</ept> and <bpt id="db8e0e1b-7f79-4418-a44b-33544e62808c">&lt;strong&gt;</bpt>GitHub<ept id="db8e0e1b-7f79-4418-a44b-33544e62808c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c3bd45ea-fc64-4480-9459-c5bac8fe8958" xml:space="preserve">
+          <source>A Media Services account in a new or existing Azure subscription.</source>
+          <target state="new">A Media Services account in a new or existing Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="020e855a-d838-4518-9553-432c8268794b" xml:space="preserve">
+          <source>See the topic <bpt id="69c800e5-d132-4a16-ae26-8e70c304cfa8">&lt;linkText&gt;</bpt>How to Create a Media Services Account<ept id="69c800e5-d132-4a16-ae26-8e70c304cfa8">&lt;/linkText&gt;</ept><bpt id="69c800e5-d132-4a16-ae26-8e70c304cfa8">&lt;title&gt;</bpt><ept id="69c800e5-d132-4a16-ae26-8e70c304cfa8">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the topic <bpt id="69c800e5-d132-4a16-ae26-8e70c304cfa8">&lt;linkText&gt;</bpt>How to Create a Media Services Account<ept id="69c800e5-d132-4a16-ae26-8e70c304cfa8">&lt;/linkText&gt;</ept><bpt id="69c800e5-d132-4a16-ae26-8e70c304cfa8">&lt;title&gt;</bpt><ept id="69c800e5-d132-4a16-ae26-8e70c304cfa8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7337e1e-5602-4945-993d-ae797f035f29" xml:space="preserve">
+          <source>Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.</source>
+          <target state="new">Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.</target>
+        </trans-unit>
+        <trans-unit id="f0ee3b95-3683-4189-bfb4-b5796a252467" xml:space="preserve">
+          <source>.NET Framework 4.5.</source>
+          <target state="new">.NET Framework 4.5.</target>
+        </trans-unit>
+        <trans-unit id="2fe90859-8a50-4c3e-b097-ba30f714f42b" xml:space="preserve">
+          <source>Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).</source>
+          <target state="new">Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).</target>
+        </trans-unit>
+        <trans-unit id="8be641db-d2d4-4dd2-adda-b895b528a0b2" xml:space="preserve">
+          <source>This section shows you how to create a project in Visual Studio and set it up for Media Services development.</source>
+          <target state="new">This section shows you how to create a project in Visual Studio and set it up for Media Services development.</target>
+        </trans-unit>
+        <trans-unit id="23f7fba6-c03e-4a7a-ab56-854a7779682b" xml:space="preserve">
+          <source>In this case the project is a C# Windows console application, but the same setup steps shown here apply to other types of projects you can create for Media Services applications (for example, a Windows Forms application or an ASP.NET Web application).</source>
+          <target state="new">In this case the project is a C# Windows console application, but the same setup steps shown here apply to other types of projects you can create for Media Services applications (for example, a Windows Forms application or an ASP.NET Web application).</target>
+        </trans-unit>
+        <trans-unit id="e4d75a6c-8c5c-40ef-95df-d240e12d5d9c" xml:space="preserve">
+          <source>This section shows how to use <bpt id="3ad98746-34e9-4adb-bd8a-d8b3ffa76596">&lt;strong&gt;</bpt>NuGet<ept id="3ad98746-34e9-4adb-bd8a-d8b3ffa76596">&lt;/strong&gt;</ept> to add Media Services .NET SDK and other dependent libraries.</source>
+          <target state="new">This section shows how to use <bpt id="3ad98746-34e9-4adb-bd8a-d8b3ffa76596">&lt;strong&gt;</bpt>NuGet<ept id="3ad98746-34e9-4adb-bd8a-d8b3ffa76596">&lt;/strong&gt;</ept> to add Media Services .NET SDK and other dependent libraries.</target>
+        </trans-unit>
+        <trans-unit id="82a13ee6-76af-4eea-8441-6cb4f8bf6548" xml:space="preserve">
+          <source>Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (<bpt id="9f21b927-860e-4ad3-8c2c-ef9deee7ae3a">&lt;linkText&gt;</bpt>github.com/Azure/azure-sdk-for-media-services<ept id="9f21b927-860e-4ad3-8c2c-ef9deee7ae3a">&lt;/linkText&gt;</ept><bpt id="9f21b927-860e-4ad3-8c2c-ef9deee7ae3a">&lt;title&gt;</bpt><ept id="9f21b927-860e-4ad3-8c2c-ef9deee7ae3a">&lt;/title&gt;</ept> and <bpt id="9524cc37-3828-4f88-864f-eaf7eac979bc">&lt;linkText&gt;</bpt>github.com/Azure/azure-sdk-for-media-services-extensions<ept id="9524cc37-3828-4f88-864f-eaf7eac979bc">&lt;/linkText&gt;</ept><bpt id="9524cc37-3828-4f88-864f-eaf7eac979bc">&lt;title&gt;</bpt><ept id="9524cc37-3828-4f88-864f-eaf7eac979bc">&lt;/title&gt;</ept>), build the solution, and add the references to the client project.</source>
+          <target state="new">Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (<bpt id="9f21b927-860e-4ad3-8c2c-ef9deee7ae3a">&lt;linkText&gt;</bpt>github.com/Azure/azure-sdk-for-media-services<ept id="9f21b927-860e-4ad3-8c2c-ef9deee7ae3a">&lt;/linkText&gt;</ept><bpt id="9f21b927-860e-4ad3-8c2c-ef9deee7ae3a">&lt;title&gt;</bpt><ept id="9f21b927-860e-4ad3-8c2c-ef9deee7ae3a">&lt;/title&gt;</ept> and <bpt id="9524cc37-3828-4f88-864f-eaf7eac979bc">&lt;linkText&gt;</bpt>github.com/Azure/azure-sdk-for-media-services-extensions<ept id="9524cc37-3828-4f88-864f-eaf7eac979bc">&lt;/linkText&gt;</ept><bpt id="9524cc37-3828-4f88-864f-eaf7eac979bc">&lt;title&gt;</bpt><ept id="9524cc37-3828-4f88-864f-eaf7eac979bc">&lt;/title&gt;</ept>), build the solution, and add the references to the client project.</target>
+        </trans-unit>
+        <trans-unit id="56a17cf1-07b5-4151-a46f-870fa7dfa186" xml:space="preserve">
+          <source>Note that all the necessary dependencies get downloaded and extracted automatically.</source>
+          <target state="new">Note that all the necessary dependencies get downloaded and extracted automatically.</target>
+        </trans-unit>
+        <trans-unit id="eba2522e-46e4-4c02-b18b-70fa4f4e3944" xml:space="preserve">
+          <source>Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012 or Visual Studio 2010 SP1.</source>
+          <target state="new">Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012 or Visual Studio 2010 SP1.</target>
+        </trans-unit>
+        <trans-unit id="fbc4dc4c-4804-49bd-b40b-d29760a92522" xml:space="preserve">
+          <source>Enter the <bpt id="1d5536b2-8a02-40c1-8d88-ead885bbe525">&lt;strong&gt;</bpt>Name<ept id="1d5536b2-8a02-40c1-8d88-ead885bbe525">&lt;/strong&gt;</ept>, <bpt id="ad6ecb1e-191c-4b74-be59-35842c2024ec">&lt;strong&gt;</bpt>Location<ept id="ad6ecb1e-191c-4b74-be59-35842c2024ec">&lt;/strong&gt;</ept>, and <bpt id="225504b4-5869-4638-a2ee-8c6838c58f54">&lt;strong&gt;</bpt>Solution name<ept id="225504b4-5869-4638-a2ee-8c6838c58f54">&lt;/strong&gt;</ept>, and then click OK.</source>
+          <target state="new">Enter the <bpt id="1d5536b2-8a02-40c1-8d88-ead885bbe525">&lt;strong&gt;</bpt>Name<ept id="1d5536b2-8a02-40c1-8d88-ead885bbe525">&lt;/strong&gt;</ept>, <bpt id="ad6ecb1e-191c-4b74-be59-35842c2024ec">&lt;strong&gt;</bpt>Location<ept id="ad6ecb1e-191c-4b74-be59-35842c2024ec">&lt;/strong&gt;</ept>, and <bpt id="225504b4-5869-4638-a2ee-8c6838c58f54">&lt;strong&gt;</bpt>Solution name<ept id="225504b4-5869-4638-a2ee-8c6838c58f54">&lt;/strong&gt;</ept>, and then click OK.</target>
+        </trans-unit>
+        <trans-unit id="a9b0d627-8b55-43a3-9481-62afa84a61cb" xml:space="preserve">
+          <source>Build the solution.</source>
+          <target state="new">Build the solution.</target>
+        </trans-unit>
+        <trans-unit id="bc04f82d-803d-4451-9a3f-9bffeaab2070" xml:space="preserve">
+          <source>Use <bpt id="322aa81b-32b0-4b8b-a9d9-98030ffc97f7">&lt;strong&gt;</bpt>NuGet<ept id="322aa81b-32b0-4b8b-a9d9-98030ffc97f7">&lt;/strong&gt;</ept> to install and add <bpt id="62ca5d78-0e1d-4865-ab9d-e00bf3e0b7bd">&lt;strong&gt;</bpt>Azure Media Services .NET SDK Extensions<ept id="62ca5d78-0e1d-4865-ab9d-e00bf3e0b7bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Use <bpt id="322aa81b-32b0-4b8b-a9d9-98030ffc97f7">&lt;strong&gt;</bpt>NuGet<ept id="322aa81b-32b0-4b8b-a9d9-98030ffc97f7">&lt;/strong&gt;</ept> to install and add <bpt id="62ca5d78-0e1d-4865-ab9d-e00bf3e0b7bd">&lt;strong&gt;</bpt>Azure Media Services .NET SDK Extensions<ept id="62ca5d78-0e1d-4865-ab9d-e00bf3e0b7bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad4c75c2-697d-4519-a8f2-3d3eef665571" xml:space="preserve">
+          <source>Installing this package, also installs <bpt id="4a4d9542-fad5-4b25-b1fd-6237b7c04aba">&lt;strong&gt;</bpt>Media Services .NET SDK<ept id="4a4d9542-fad5-4b25-b1fd-6237b7c04aba">&lt;/strong&gt;</ept> and adds all other required dependencies.</source>
+          <target state="new">Installing this package, also installs <bpt id="4a4d9542-fad5-4b25-b1fd-6237b7c04aba">&lt;strong&gt;</bpt>Media Services .NET SDK<ept id="4a4d9542-fad5-4b25-b1fd-6237b7c04aba">&lt;/strong&gt;</ept> and adds all other required dependencies.</target>
+        </trans-unit>
+        <trans-unit id="2375a6c1-5fc7-4dde-8ad3-09cd015ca2f6" xml:space="preserve">
+          <source>Ensure that you have the newest version of NuGet installed.</source>
+          <target state="new">Ensure that you have the newest version of NuGet installed.</target>
+        </trans-unit>
+        <trans-unit id="ff1a8e57-502e-4f5b-9721-bcf348970aa8" xml:space="preserve">
+          <source>For more information and installation instructions, see <bpt id="ad74e881-5d17-4008-a28d-6cd51d5ef832">&lt;linkText&gt;</bpt>NuGet<ept id="ad74e881-5d17-4008-a28d-6cd51d5ef832">&lt;/linkText&gt;</ept><bpt id="ad74e881-5d17-4008-a28d-6cd51d5ef832">&lt;title&gt;</bpt><ept id="ad74e881-5d17-4008-a28d-6cd51d5ef832">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information and installation instructions, see <bpt id="ad74e881-5d17-4008-a28d-6cd51d5ef832">&lt;linkText&gt;</bpt>NuGet<ept id="ad74e881-5d17-4008-a28d-6cd51d5ef832">&lt;/linkText&gt;</ept><bpt id="ad74e881-5d17-4008-a28d-6cd51d5ef832">&lt;title&gt;</bpt><ept id="ad74e881-5d17-4008-a28d-6cd51d5ef832">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1bac8eb2-1140-4287-8d52-3ee751cf0f00" xml:space="preserve">
+          <source>In Solution Explorer, right-click the name of the project and choose Manage NuGet packages ….</source>
+          <target state="new">In Solution Explorer, right-click the name of the project and choose Manage NuGet packages ….</target>
+        </trans-unit>
+        <trans-unit id="56958f47-d828-44eb-8644-7c8b0bb823fc" xml:space="preserve">
+          <source>The Manage NuGet Packages dialog box appears.</source>
+          <target state="new">The Manage NuGet Packages dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="51cade71-918f-4268-b3bf-5cfaa29d318f" xml:space="preserve">
+          <source>In the Online gallery, search for Azure MediaServices Extensions, choose Azure Media Services .NET SDK Extensions, and then click the Install button.</source>
+          <target state="new">In the Online gallery, search for Azure MediaServices Extensions, choose Azure Media Services .NET SDK Extensions, and then click the Install button.</target>
+        </trans-unit>
+        <trans-unit id="e520a33a-c320-48f4-8fc3-17ab9335a576" xml:space="preserve">
+          <source>The project is modified and references to the Media Services .NET SDK Extensions,  Media Services .NET SDK, and other dependent assemblies are added.</source>
+          <target state="new">The project is modified and references to the Media Services .NET SDK Extensions,  Media Services .NET SDK, and other dependent assemblies are added.</target>
+        </trans-unit>
+        <trans-unit id="b65b53ce-43b5-4293-a28d-165377d1060f" xml:space="preserve">
+          <source>To promote a cleaner development environment, consider enabling NuGet Package Restore.</source>
+          <target state="new">To promote a cleaner development environment, consider enabling NuGet Package Restore.</target>
+        </trans-unit>
+        <trans-unit id="ad2f705d-e529-408c-9f22-8b9c35b07e1d" xml:space="preserve">
+          <source>For more information, see <bpt id="579c7d25-50d9-4128-885e-e9120a483493">&lt;linkText&gt;</bpt>NuGet Package Restore"<ept id="579c7d25-50d9-4128-885e-e9120a483493">&lt;/linkText&gt;</ept><bpt id="579c7d25-50d9-4128-885e-e9120a483493">&lt;title&gt;</bpt><ept id="579c7d25-50d9-4128-885e-e9120a483493">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="579c7d25-50d9-4128-885e-e9120a483493">&lt;linkText&gt;</bpt>NuGet Package Restore"<ept id="579c7d25-50d9-4128-885e-e9120a483493">&lt;/linkText&gt;</ept><bpt id="579c7d25-50d9-4128-885e-e9120a483493">&lt;title&gt;</bpt><ept id="579c7d25-50d9-4128-885e-e9120a483493">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="309e7d06-7ba3-4cfc-8b50-c35d1c97d1bb" xml:space="preserve">
+          <source>Add a reference to <bpt id="e249caf0-49b0-4cf1-9ec7-33ca74f21184">&lt;strong&gt;</bpt>System.Configuratio<ept id="e249caf0-49b0-4cf1-9ec7-33ca74f21184">&lt;/strong&gt;</ept>n assembly.</source>
+          <target state="new">Add a reference to <bpt id="e249caf0-49b0-4cf1-9ec7-33ca74f21184">&lt;strong&gt;</bpt>System.Configuratio<ept id="e249caf0-49b0-4cf1-9ec7-33ca74f21184">&lt;/strong&gt;</ept>n assembly.</target>
+        </trans-unit>
+        <trans-unit id="0dc2f405-68aa-4d3b-a066-bfb22b21bff9" xml:space="preserve">
+          <source>This assembly contains the System.Configuration.<bpt id="a686a886-1610-4b4b-928b-0a86f1d29201">&lt;strong&gt;</bpt>ConfigurationManager<ept id="a686a886-1610-4b4b-928b-0a86f1d29201">&lt;/strong&gt;</ept> class that is used to access configuration files (for example, App.config).</source>
+          <target state="new">This assembly contains the System.Configuration.<bpt id="a686a886-1610-4b4b-928b-0a86f1d29201">&lt;strong&gt;</bpt>ConfigurationManager<ept id="a686a886-1610-4b4b-928b-0a86f1d29201">&lt;/strong&gt;</ept> class that is used to access configuration files (for example, App.config).</target>
+        </trans-unit>
+        <trans-unit id="8baf84cd-f293-4fcc-862b-40aca85a3754" xml:space="preserve">
+          <source>To add references using the Manage References dialog, do the following: </source>
+          <target state="new">To add references using the Manage References dialog, do the following: </target>
+        </trans-unit>
+        <trans-unit id="033ead3e-aa99-4fe3-8619-471c2ffb0f99" xml:space="preserve">
+          <source>In Solution Explorer, right-click the project name.</source>
+          <target state="new">In Solution Explorer, right-click the project name.</target>
+        </trans-unit>
+        <trans-unit id="f53b7eab-0682-43db-a433-f372e0be5b35" xml:space="preserve">
+          <source>Then, select Add and References.</source>
+          <target state="new">Then, select Add and References.</target>
+        </trans-unit>
+        <trans-unit id="685ae1af-3b5e-49b3-aea7-cfdc4d0e688c" xml:space="preserve">
+          <source>The Manage References dialog appears.</source>
+          <target state="new">The Manage References dialog appears.</target>
+        </trans-unit>
+        <trans-unit id="f5e5c96b-0e12-4ce5-8deb-d4ca7131bafe" xml:space="preserve">
+          <source>Under .NET framework assemblies, find and select the System.Configuration assembly.</source>
+          <target state="new">Under .NET framework assemblies, find and select the System.Configuration assembly.</target>
+        </trans-unit>
+        <trans-unit id="e60fd83d-d35e-489d-b8b2-77286380c0fc" xml:space="preserve">
+          <source>Press OK.</source>
+          <target state="new">Press OK.</target>
+        </trans-unit>
+        <trans-unit id="23beba8f-26f7-486d-ada5-8568485c0c6d" xml:space="preserve">
+          <source>Open the App.config file (add the file to your project if it was not added by default) and add an <bpt id="cc5b1a2d-90cb-417a-b42a-c4bad4f5ca83">&lt;em&gt;</bpt>appSettings<ept id="cc5b1a2d-90cb-417a-b42a-c4bad4f5ca83">&lt;/em&gt;</ept> section to the file.</source>
+          <target state="new">Open the App.config file (add the file to your project if it was not added by default) and add an <bpt id="cc5b1a2d-90cb-417a-b42a-c4bad4f5ca83">&lt;em&gt;</bpt>appSettings<ept id="cc5b1a2d-90cb-417a-b42a-c4bad4f5ca83">&lt;/em&gt;</ept> section to the file.</target>
+        </trans-unit>
+        <trans-unit id="2491286f-55c6-4ea1-b73c-1cf658122a09" xml:space="preserve">
+          <source>Set the values for your Azure Media Services account name and account key, as shown in the following example.</source>
+          <target state="new">Set the values for your Azure Media Services account name and account key, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="c9841fb4-8699-4024-b483-53952f291b62" xml:space="preserve">
+          <source>To obtain the <bpt id="1ee8e140-3129-4ee3-b9e8-36f163459127">&lt;strong&gt;</bpt>account name<ept id="1ee8e140-3129-4ee3-b9e8-36f163459127">&lt;/strong&gt;</ept> and <bpt id="291f276d-1b98-48a4-b5cd-ea1c7a1862f8">&lt;strong&gt;</bpt>account key<ept id="291f276d-1b98-48a4-b5cd-ea1c7a1862f8">&lt;/strong&gt;</ept> information, open the <bpt id="da1d5ca4-fbb0-46d0-b157-7d3b63bf7b1b">&lt;strong&gt;</bpt>Azure Management Portal<ept id="da1d5ca4-fbb0-46d0-b157-7d3b63bf7b1b">&lt;/strong&gt;</ept>, select your media services account and click the <bpt id="fdfc7f86-2b86-4b8a-a4c8-f62a4113a310">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="fdfc7f86-2b86-4b8a-a4c8-f62a4113a310">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">To obtain the <bpt id="1ee8e140-3129-4ee3-b9e8-36f163459127">&lt;strong&gt;</bpt>account name<ept id="1ee8e140-3129-4ee3-b9e8-36f163459127">&lt;/strong&gt;</ept> and <bpt id="291f276d-1b98-48a4-b5cd-ea1c7a1862f8">&lt;strong&gt;</bpt>account key<ept id="291f276d-1b98-48a4-b5cd-ea1c7a1862f8">&lt;/strong&gt;</ept> information, open the <bpt id="da1d5ca4-fbb0-46d0-b157-7d3b63bf7b1b">&lt;strong&gt;</bpt>Azure Management Portal<ept id="da1d5ca4-fbb0-46d0-b157-7d3b63bf7b1b">&lt;/strong&gt;</ept>, select your media services account and click the <bpt id="fdfc7f86-2b86-4b8a-a4c8-f62a4113a310">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="fdfc7f86-2b86-4b8a-a4c8-f62a4113a310">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="ad78c681-c947-4928-9a36-d68b280906cd" xml:space="preserve">
+          <source>
+&amp;lt;configuration&amp;gt;
+    &amp;lt;appSettings&amp;gt;
+    &amp;lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&amp;gt;
+        &amp;lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&amp;gt;
+    &amp;lt;/appSettings&amp;gt;
+&amp;lt;/configuration&amp;gt;
+</source>
+          <target state="new">
+&amp;lt;configuration&amp;gt;
+    &amp;lt;appSettings&amp;gt;
+    &amp;lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&amp;gt;
+        &amp;lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&amp;gt;
+    &amp;lt;/appSettings&amp;gt;
+&amp;lt;/configuration&amp;gt;
+</target>
+        </trans-unit>
+        <trans-unit id="4d98998b-2af8-4670-b865-e2afc1444b07" xml:space="preserve">
+          <source>Overwrite the existing using statements at the beginning of the Program.cs file with the following code.</source>
+          <target state="new">Overwrite the existing using statements at the beginning of the Program.cs file with the following code.</target>
+        </trans-unit>
+        <trans-unit id="38144dc6-faf5-418b-ab8b-4a37754745ff" xml:space="preserve">
+          <source>At this point, you are ready to start developing a Media Services application.</source>
+          <target state="new">At this point, you are ready to start developing a Media Services application.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

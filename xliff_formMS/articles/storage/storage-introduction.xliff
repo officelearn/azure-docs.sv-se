@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="65687f42-3dec-41fa-9290-259276d79b98" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="65687f42-3dec-41fa-9290-259276d79b98" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="09d3452e-8762-4982-a6b6-31a0a5611b7a">
+        <trans-unit id="055e0b43-56ce-45d4-b596-1cd31219c506" xml:space="preserve">
+          <source>Introduction to Storage | Microsoft Azure</source>
+          <target state="new">Introduction to Storage | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8ef77272-8619-4f38-ba60-024d2289ce56" xml:space="preserve">
+          <source>An overview of Microsoft Azure Storage.</source>
+          <target state="new">An overview of Microsoft Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="b077fde3-4c5c-434f-85d0-0c3a74ff98cb" xml:space="preserve">
+          <source>This article provides an extended introduction to Microsoft Azure Storage for developers, IT Pros, and business decision makers.</source>
+          <target state="new">This article provides an extended introduction to Microsoft Azure Storage for developers, IT Pros, and business decision makers.</target>
+        </trans-unit>
+        <trans-unit id="207051b3-2b2b-49ae-be49-d0d38ee20755" xml:space="preserve">
+          <source>By reading it, you'll learn about:</source>
+          <target state="new">By reading it, you'll learn about:</target>
+        </trans-unit>
+        <trans-unit id="12d9162a-451e-4a39-b78e-6e832a41a6fa" xml:space="preserve">
+          <source>What Azure Storage is, and how you can take advantage of it in your cloud, mobile, server, and desktop applications</source>
+          <target state="new">What Azure Storage is, and how you can take advantage of it in your cloud, mobile, server, and desktop applications</target>
+        </trans-unit>
+        <trans-unit id="eb712d83-0578-42e9-86ac-d3cd3d70d784" xml:space="preserve">
+          <source>What kinds of data you can store with the Azure Storage services: Blob, Table, Queue, and File storage</source>
+          <target state="new">What kinds of data you can store with the Azure Storage services: Blob, Table, Queue, and File storage</target>
+        </trans-unit>
+        <trans-unit id="3d397450-0b10-4d20-b394-ef236c1e034b" xml:space="preserve">
+          <source>How access to your data in Azure Storage is managed</source>
+          <target state="new">How access to your data in Azure Storage is managed</target>
+        </trans-unit>
+        <trans-unit id="828bc389-2ee8-49fb-993f-6d3bf1cca1a7" xml:space="preserve">
+          <source>How your Azure Storage data is protected via redundancy and replication </source>
+          <target state="new">How your Azure Storage data is protected via redundancy and replication </target>
+        </trans-unit>
+        <trans-unit id="378d22c7-3dbf-4a20-beb7-96175f4fe156" xml:space="preserve">
+          <source>Where to go next to build your first Azure Storage application</source>
+          <target state="new">Where to go next to build your first Azure Storage application</target>
+        </trans-unit>
+        <trans-unit id="df13e1d9-f0f2-4f33-9f76-085136d433d8" xml:space="preserve">
+          <source>To get started with Azure Storage quickly, see <bpt id="7e63ec19-2d26-4dd3-ae32-4071f1a2d965">&lt;linkText&gt;</bpt>Get started with Azure Blobs, Tables, and Queues in 5 minutes<ept id="7e63ec19-2d26-4dd3-ae32-4071f1a2d965">&lt;/linkText&gt;</ept><bpt id="7e63ec19-2d26-4dd3-ae32-4071f1a2d965">&lt;title&gt;</bpt><ept id="7e63ec19-2d26-4dd3-ae32-4071f1a2d965">&lt;/title&gt;</ept></source>
+          <target state="new">To get started with Azure Storage quickly, see <bpt id="7e63ec19-2d26-4dd3-ae32-4071f1a2d965">&lt;linkText&gt;</bpt>Get started with Azure Blobs, Tables, and Queues in 5 minutes<ept id="7e63ec19-2d26-4dd3-ae32-4071f1a2d965">&lt;/linkText&gt;</ept><bpt id="7e63ec19-2d26-4dd3-ae32-4071f1a2d965">&lt;title&gt;</bpt><ept id="7e63ec19-2d26-4dd3-ae32-4071f1a2d965">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b94b69df-5718-474d-9d6f-23d0e2eff0d1" xml:space="preserve">
+          <source>If you are looking for a quick high-level overview of Storage please take a look here or for a product specific overview see Azure Blobs; Azure Tables; Azure Queues, and Azure Files.</source>
+          <target state="new">If you are looking for a quick high-level overview of Storage please take a look here or for a product specific overview see Azure Blobs; Azure Tables; Azure Queues, and Azure Files.</target>
+        </trans-unit>
+        <trans-unit id="defb2caa-6ffe-4e8f-9490-23096b0a1858" xml:space="preserve">
+          <source>Cloud computing enables new scenarios for applications requiring scalable, durable, and highly available storage for their data – which is exactly why Microsoft developed Azure Storage.</source>
+          <target state="new">Cloud computing enables new scenarios for applications requiring scalable, durable, and highly available storage for their data – which is exactly why Microsoft developed Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="89ceb325-d4dd-4506-8a8b-a54d40880d8b" xml:space="preserve">
+          <source>In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines, a further testament to its robustness.</source>
+          <target state="new">In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines, a further testament to its robustness.</target>
+        </trans-unit>
+        <trans-unit id="c14167b6-7552-420f-80f9-23f7512c7f7c" xml:space="preserve">
+          <source>Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications.</source>
+          <target state="new">Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications.</target>
+        </trans-unit>
+        <trans-unit id="979f6c0d-b525-42b3-8b0d-ebfa14848ec3" xml:space="preserve">
+          <source>Or you can store the small amounts of data required for a small business website.</source>
+          <target state="new">Or you can store the small amounts of data required for a small business website.</target>
+        </trans-unit>
+        <trans-unit id="c346a70e-41c5-411f-9b00-f63475098c97" xml:space="preserve">
+          <source>Wherever your needs fall, you pay only for the data you’re storing.</source>
+          <target state="new">Wherever your needs fall, you pay only for the data you’re storing.</target>
+        </trans-unit>
+        <trans-unit id="a32b2798-1ce9-4d15-b12a-3da1916d61fc" xml:space="preserve">
+          <source>Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.</source>
+          <target state="new">Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.</target>
+        </trans-unit>
+        <trans-unit id="de6ec90c-c800-428c-82a7-d1f4eee2e18a" xml:space="preserve">
+          <source>Azure Storage is elastic, so you can design applications for a large global audience, and scale those applications as needed - both in terms of the amount of data stored and the number of requests made against it.</source>
+          <target state="new">Azure Storage is elastic, so you can design applications for a large global audience, and scale those applications as needed - both in terms of the amount of data stored and the number of requests made against it.</target>
+        </trans-unit>
+        <trans-unit id="81fe9cf7-5416-41a8-864f-db680359e8cf" xml:space="preserve">
+          <source>You pay only for what you use, and only when you use it.</source>
+          <target state="new">You pay only for what you use, and only when you use it.</target>
+        </trans-unit>
+        <trans-unit id="93ba9c60-e3ec-4640-b6c2-9e0a29fa3923" xml:space="preserve">
+          <source>Azure Storage uses an auto-partitioning system that automatically load-balances your data based on traffic.</source>
+          <target state="new">Azure Storage uses an auto-partitioning system that automatically load-balances your data based on traffic.</target>
+        </trans-unit>
+        <trans-unit id="70718fe7-16d9-42ed-a49f-f4b7d5b53fa6" xml:space="preserve">
+          <source>This means that as the demands on your application grow, Azure Storage automatically allocates the appropriate resources to meet them.</source>
+          <target state="new">This means that as the demands on your application grow, Azure Storage automatically allocates the appropriate resources to meet them.</target>
+        </trans-unit>
+        <trans-unit id="e41594ee-01ec-4b84-ae47-50d3fdbbe114" xml:space="preserve">
+          <source>Azure Storage is accessible from anywhere in the world, from any type of application, whether it’s running in the cloud, on the desktop, on an on-premises server, or on a mobile or tablet device.</source>
+          <target state="new">Azure Storage is accessible from anywhere in the world, from any type of application, whether it’s running in the cloud, on the desktop, on an on-premises server, or on a mobile or tablet device.</target>
+        </trans-unit>
+        <trans-unit id="2329bc59-0d17-4945-99b8-cab66e7b7d3a" xml:space="preserve">
+          <source>You can use Azure Storage in mobile scenarios where the application stores a subset of data on the device and synchronizes it with a full set of data stored in the cloud.</source>
+          <target state="new">You can use Azure Storage in mobile scenarios where the application stores a subset of data on the device and synchronizes it with a full set of data stored in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="90652567-6e94-4acc-a2d5-bc70b9a8c285" xml:space="preserve">
+          <source>Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, and C++) for convenient development.</source>
+          <target state="new">Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, and C++) for convenient development.</target>
+        </trans-unit>
+        <trans-unit id="670c721b-26de-4fb0-98e1-a4f1e0a8ecd6" xml:space="preserve">
+          <source>Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS.</source>
+          <target state="new">Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="2d8e28de-c7b4-4706-a9eb-5fc728a0962e" xml:space="preserve">
+          <source>Azure Premium Storage is now available in preview.</source>
+          <target state="new">Azure Premium Storage is now available in preview.</target>
+        </trans-unit>
+        <trans-unit id="a1aab275-a445-4e31-b888-14c6459714b8" xml:space="preserve">
+          <source>Azure Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines.</source>
+          <target state="new">Azure Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="dfc4854e-042e-4d3e-b6f4-f433454bebba" xml:space="preserve">
+          <source>With Azure Premium Storage, you can attach multiple persistent data disks to a virtual machine and configure them to meet your performance requirements.</source>
+          <target state="new">With Azure Premium Storage, you can attach multiple persistent data disks to a virtual machine and configure them to meet your performance requirements.</target>
+        </trans-unit>
+        <trans-unit id="40049ecf-17ed-49d2-8a26-93163423e03c" xml:space="preserve">
+          <source>Each data disk is backed by an SSD disk in Azure Premium Storage for maximum I/O performance.</source>
+          <target state="new">Each data disk is backed by an SSD disk in Azure Premium Storage for maximum I/O performance.</target>
+        </trans-unit>
+        <trans-unit id="6500fd30-56b0-4828-9f58-b1f5d314ca66" xml:space="preserve">
+          <source>See <bpt id="0c513214-2d01-4dd6-a28a-ef85002b9a40">&lt;linkText&gt;</bpt>Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads<ept id="0c513214-2d01-4dd6-a28a-ef85002b9a40">&lt;/linkText&gt;</ept><bpt id="0c513214-2d01-4dd6-a28a-ef85002b9a40">&lt;title&gt;</bpt><ept id="0c513214-2d01-4dd6-a28a-ef85002b9a40">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See <bpt id="0c513214-2d01-4dd6-a28a-ef85002b9a40">&lt;linkText&gt;</bpt>Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads<ept id="0c513214-2d01-4dd6-a28a-ef85002b9a40">&lt;/linkText&gt;</ept><bpt id="0c513214-2d01-4dd6-a28a-ef85002b9a40">&lt;title&gt;</bpt><ept id="0c513214-2d01-4dd6-a28a-ef85002b9a40">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="94530a09-bb8a-479b-a39d-8b162126d405" xml:space="preserve">
+          <source>An Azure storage account is a secure account that gives you access to services in Azure Storage.</source>
+          <target state="new">An Azure storage account is a secure account that gives you access to services in Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="d9b0e8f6-669c-4696-9799-ad9e96eb32dd" xml:space="preserve">
+          <source>Your storage account provides the unique namespace for your storage resources.</source>
+          <target state="new">Your storage account provides the unique namespace for your storage resources.</target>
+        </trans-unit>
+        <trans-unit id="2f7b458a-4962-4f13-ba8f-e434c5f6112b" xml:space="preserve">
+          <source>There are two types of storage accounts:</source>
+          <target state="new">There are two types of storage accounts:</target>
+        </trans-unit>
+        <trans-unit id="cc16807f-a7b8-4cde-b983-d79c5dadcd45" xml:space="preserve">
+          <source>A standard storage account includes Blob, Table, Queue, and File storage.</source>
+          <target state="new">A standard storage account includes Blob, Table, Queue, and File storage.</target>
+        </trans-unit>
+        <trans-unit id="9be5bc5f-d873-43cc-8c55-5e821a25e3f0" xml:space="preserve">
+          <source>A premium storage account currently supports Azure Virtual Machine disks only.</source>
+          <target state="new">A premium storage account currently supports Azure Virtual Machine disks only.</target>
+        </trans-unit>
+        <trans-unit id="e89ea6d3-6085-4854-b783-98bef3c7e8ed" xml:space="preserve">
+          <source>Azure Premium Storage is available by request via the <bpt id="56cf4e38-9361-4e0a-a1cb-8b347bfdc818">&lt;linkText&gt;</bpt>Azure Preview page<ept id="56cf4e38-9361-4e0a-a1cb-8b347bfdc818">&lt;/linkText&gt;</ept><bpt id="56cf4e38-9361-4e0a-a1cb-8b347bfdc818">&lt;title&gt;</bpt><ept id="56cf4e38-9361-4e0a-a1cb-8b347bfdc818">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure Premium Storage is available by request via the <bpt id="56cf4e38-9361-4e0a-a1cb-8b347bfdc818">&lt;linkText&gt;</bpt>Azure Preview page<ept id="56cf4e38-9361-4e0a-a1cb-8b347bfdc818">&lt;/linkText&gt;</ept><bpt id="56cf4e38-9361-4e0a-a1cb-8b347bfdc818">&lt;title&gt;</bpt><ept id="56cf4e38-9361-4e0a-a1cb-8b347bfdc818">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35589a78-8c36-4fc4-89cf-23390f08f654" xml:space="preserve">
+          <source>Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services.</source>
+          <target state="new">Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services.</target>
+        </trans-unit>
+        <trans-unit id="17f346d5-8378-4a4a-b850-bda01eaeed8a" xml:space="preserve">
+          <source><bpt id="367a5e38-85ef-4f7a-934e-b139ef631e64">&lt;linkText&gt;</bpt>You can create up to 100 uniquely named storage accounts with a single subscription.<ept id="367a5e38-85ef-4f7a-934e-b139ef631e64">&lt;/linkText&gt;</ept><bpt id="367a5e38-85ef-4f7a-934e-b139ef631e64">&lt;title&gt;</bpt><ept id="367a5e38-85ef-4f7a-934e-b139ef631e64">&lt;/title&gt;</ept> See <bpt id="16c23d06-974c-4e70-81ce-70963422eb3e">&lt;linkText&gt;</bpt>Storage Pricing Details<ept id="16c23d06-974c-4e70-81ce-70963422eb3e">&lt;/linkText&gt;</ept><bpt id="16c23d06-974c-4e70-81ce-70963422eb3e">&lt;title&gt;</bpt><ept id="16c23d06-974c-4e70-81ce-70963422eb3e">&lt;/title&gt;</ept> for information on volume pricing.</source>
+          <target state="new"><bpt id="367a5e38-85ef-4f7a-934e-b139ef631e64">&lt;linkText&gt;</bpt>You can create up to 100 uniquely named storage accounts with a single subscription.<ept id="367a5e38-85ef-4f7a-934e-b139ef631e64">&lt;/linkText&gt;</ept><bpt id="367a5e38-85ef-4f7a-934e-b139ef631e64">&lt;title&gt;</bpt><ept id="367a5e38-85ef-4f7a-934e-b139ef631e64">&lt;/title&gt;</ept> See <bpt id="16c23d06-974c-4e70-81ce-70963422eb3e">&lt;linkText&gt;</bpt>Storage Pricing Details<ept id="16c23d06-974c-4e70-81ce-70963422eb3e">&lt;/linkText&gt;</ept><bpt id="16c23d06-974c-4e70-81ce-70963422eb3e">&lt;title&gt;</bpt><ept id="16c23d06-974c-4e70-81ce-70963422eb3e">&lt;/title&gt;</ept> for information on volume pricing.</target>
+        </trans-unit>
+        <trans-unit id="d1ab2726-59cd-4c8a-91ed-78752d38eb5f" xml:space="preserve">
+          <source>You can get started with Azure with a <bpt id="63870ee8-c7dc-4ca8-ba6d-57a110750a88">&lt;linkText&gt;</bpt>free trial<ept id="63870ee8-c7dc-4ca8-ba6d-57a110750a88">&lt;/linkText&gt;</ept><bpt id="63870ee8-c7dc-4ca8-ba6d-57a110750a88">&lt;title&gt;</bpt><ept id="63870ee8-c7dc-4ca8-ba6d-57a110750a88">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get started with Azure with a <bpt id="63870ee8-c7dc-4ca8-ba6d-57a110750a88">&lt;linkText&gt;</bpt>free trial<ept id="63870ee8-c7dc-4ca8-ba6d-57a110750a88">&lt;/linkText&gt;</ept><bpt id="63870ee8-c7dc-4ca8-ba6d-57a110750a88">&lt;title&gt;</bpt><ept id="63870ee8-c7dc-4ca8-ba6d-57a110750a88">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7414f158-45d6-4c22-9a5c-746fcb3eb493" xml:space="preserve">
+          <source>Once you decide to purchase a plan, you can choose from a variety of <bpt id="39ef823f-5d35-4e86-a56c-347c3c247007">&lt;linkText&gt;</bpt>purchase options<ept id="39ef823f-5d35-4e86-a56c-347c3c247007">&lt;/linkText&gt;</ept><bpt id="39ef823f-5d35-4e86-a56c-347c3c247007">&lt;title&gt;</bpt><ept id="39ef823f-5d35-4e86-a56c-347c3c247007">&lt;/title&gt;</ept>.</source>
+          <target state="new">Once you decide to purchase a plan, you can choose from a variety of <bpt id="39ef823f-5d35-4e86-a56c-347c3c247007">&lt;linkText&gt;</bpt>purchase options<ept id="39ef823f-5d35-4e86-a56c-347c3c247007">&lt;/linkText&gt;</ept><bpt id="39ef823f-5d35-4e86-a56c-347c3c247007">&lt;title&gt;</bpt><ept id="39ef823f-5d35-4e86-a56c-347c3c247007">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc1e2977-ba9b-426c-a3ce-c376ac514fca" xml:space="preserve">
+          <source>If you’re an <bpt id="b0a1d3bc-6383-4ea0-82c2-6e14e0fed34d">&lt;linkText&gt;</bpt>MSDN subscriber<ept id="b0a1d3bc-6383-4ea0-82c2-6e14e0fed34d">&lt;/linkText&gt;</ept><bpt id="b0a1d3bc-6383-4ea0-82c2-6e14e0fed34d">&lt;title&gt;</bpt><ept id="b0a1d3bc-6383-4ea0-82c2-6e14e0fed34d">&lt;/title&gt;</ept>, you get free monthly credits that you can use with Azure services, including Azure Storage.</source>
+          <target state="new">If you’re an <bpt id="b0a1d3bc-6383-4ea0-82c2-6e14e0fed34d">&lt;linkText&gt;</bpt>MSDN subscriber<ept id="b0a1d3bc-6383-4ea0-82c2-6e14e0fed34d">&lt;/linkText&gt;</ept><bpt id="b0a1d3bc-6383-4ea0-82c2-6e14e0fed34d">&lt;title&gt;</bpt><ept id="b0a1d3bc-6383-4ea0-82c2-6e14e0fed34d">&lt;/title&gt;</ept>, you get free monthly credits that you can use with Azure services, including Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="93abcd6b-fae9-455e-9074-8fc40217d732" xml:space="preserve">
+          <source>A standard storage account gives you access to Blob storage, Table storage, Queue storage, and File storage:</source>
+          <target state="new">A standard storage account gives you access to Blob storage, Table storage, Queue storage, and File storage:</target>
+        </trans-unit>
+        <trans-unit id="194dd007-d391-4bd1-9ec6-0abec664a833" xml:space="preserve">
+          <source><bpt id="f32ca397-0e23-4c76-bd86-71c4c81df30e">&lt;strong&gt;</bpt>Blob storage<ept id="f32ca397-0e23-4c76-bd86-71c4c81df30e">&lt;/strong&gt;</ept> stores file data.</source>
+          <target state="new"><bpt id="f32ca397-0e23-4c76-bd86-71c4c81df30e">&lt;strong&gt;</bpt>Blob storage<ept id="f32ca397-0e23-4c76-bd86-71c4c81df30e">&lt;/strong&gt;</ept> stores file data.</target>
+        </trans-unit>
+        <trans-unit id="15a1f34e-c116-4d01-ade3-72ff6bbb3041" xml:space="preserve">
+          <source>A blob can be any type of text or binary data, such as a document, media file, or application installer.</source>
+          <target state="new">A blob can be any type of text or binary data, such as a document, media file, or application installer.</target>
+        </trans-unit>
+        <trans-unit id="df2f0829-cb8c-4913-a407-c25c666caed0" xml:space="preserve">
+          <source><bpt id="44cc9daa-8a50-44e5-967c-3c35ee75512e">&lt;strong&gt;</bpt>Table storage<ept id="44cc9daa-8a50-44e5-967c-3c35ee75512e">&lt;/strong&gt;</ept> stores structured datasets.</source>
+          <target state="new"><bpt id="44cc9daa-8a50-44e5-967c-3c35ee75512e">&lt;strong&gt;</bpt>Table storage<ept id="44cc9daa-8a50-44e5-967c-3c35ee75512e">&lt;/strong&gt;</ept> stores structured datasets.</target>
+        </trans-unit>
+        <trans-unit id="f2f1aeba-6bea-4823-8dfd-528cc44f6bcd" xml:space="preserve">
+          <source>Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.</source>
+          <target state="new">Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.</target>
+        </trans-unit>
+        <trans-unit id="7325a7d0-804a-483e-bed0-34cd636c3343" xml:space="preserve">
+          <source><bpt id="9f38cc4e-afb5-4671-8592-59cec9f1f397">&lt;strong&gt;</bpt>Queue storage<ept id="9f38cc4e-afb5-4671-8592-59cec9f1f397">&lt;/strong&gt;</ept> provides reliable messaging for workflow processing and for communication between components of cloud services.</source>
+          <target state="new"><bpt id="9f38cc4e-afb5-4671-8592-59cec9f1f397">&lt;strong&gt;</bpt>Queue storage<ept id="9f38cc4e-afb5-4671-8592-59cec9f1f397">&lt;/strong&gt;</ept> provides reliable messaging for workflow processing and for communication between components of cloud services.</target>
+        </trans-unit>
+        <trans-unit id="c56c9ca1-5c20-49a4-85dd-2e6115439ecc" xml:space="preserve">
+          <source><bpt id="bb92d205-a49f-4fdd-9d7d-ed61c0110f3a">&lt;strong&gt;</bpt>File storage (Preview)<ept id="bb92d205-a49f-4fdd-9d7d-ed61c0110f3a">&lt;/strong&gt;</ept> offers shared storage for legacy applications using the standard SMB 2.1 protocol.</source>
+          <target state="new"><bpt id="bb92d205-a49f-4fdd-9d7d-ed61c0110f3a">&lt;strong&gt;</bpt>File storage (Preview)<ept id="bb92d205-a49f-4fdd-9d7d-ed61c0110f3a">&lt;/strong&gt;</ept> offers shared storage for legacy applications using the standard SMB 2.1 protocol.</target>
+        </trans-unit>
+        <trans-unit id="7ff140e2-ee4c-4669-bcc8-dbcb2a39ed8d" xml:space="preserve">
+          <source>Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File service REST API.</source>
+          <target state="new">Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File service REST API.</target>
+        </trans-unit>
+        <trans-unit id="c0b30880-0243-44fe-99f8-49bde951b709" xml:space="preserve">
+          <source>File storage is available by request via the <bpt id="d19a3644-2c42-44b3-b0e3-170ac0fd2b9c">&lt;linkText&gt;</bpt>Azure Preview page<ept id="d19a3644-2c42-44b3-b0e3-170ac0fd2b9c">&lt;/linkText&gt;</ept><bpt id="d19a3644-2c42-44b3-b0e3-170ac0fd2b9c">&lt;title&gt;</bpt><ept id="d19a3644-2c42-44b3-b0e3-170ac0fd2b9c">&lt;/title&gt;</ept>.</source>
+          <target state="new">File storage is available by request via the <bpt id="d19a3644-2c42-44b3-b0e3-170ac0fd2b9c">&lt;linkText&gt;</bpt>Azure Preview page<ept id="d19a3644-2c42-44b3-b0e3-170ac0fd2b9c">&lt;/linkText&gt;</ept><bpt id="d19a3644-2c42-44b3-b0e3-170ac0fd2b9c">&lt;title&gt;</bpt><ept id="d19a3644-2c42-44b3-b0e3-170ac0fd2b9c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="125437e8-c760-44f4-b5bd-adbf9033b3a3" xml:space="preserve">
+          <source>Each standard storage account can contain up to 500 TB of combined blob, queue, table, and file data.</source>
+          <target state="new">Each standard storage account can contain up to 500 TB of combined blob, queue, table, and file data.</target>
+        </trans-unit>
+        <trans-unit id="52b9a26d-61a5-417d-b395-d201d490422a" xml:space="preserve">
+          <source>See the <bpt id="7aa84c9b-d17d-4654-90d0-6dc90422d130">&lt;linkText&gt;</bpt>Azure Storage Scalability and Performance Targets<ept id="7aa84c9b-d17d-4654-90d0-6dc90422d130">&lt;/linkText&gt;</ept><bpt id="7aa84c9b-d17d-4654-90d0-6dc90422d130">&lt;title&gt;</bpt><ept id="7aa84c9b-d17d-4654-90d0-6dc90422d130">&lt;/title&gt;</ept> for details about standard storage account capacity.</source>
+          <target state="new">See the <bpt id="7aa84c9b-d17d-4654-90d0-6dc90422d130">&lt;linkText&gt;</bpt>Azure Storage Scalability and Performance Targets<ept id="7aa84c9b-d17d-4654-90d0-6dc90422d130">&lt;/linkText&gt;</ept><bpt id="7aa84c9b-d17d-4654-90d0-6dc90422d130">&lt;title&gt;</bpt><ept id="7aa84c9b-d17d-4654-90d0-6dc90422d130">&lt;/title&gt;</ept> for details about standard storage account capacity.</target>
+        </trans-unit>
+        <trans-unit id="ad5a8c2a-2d6e-4445-8e66-06f89dd2103c" xml:space="preserve">
+          <source>The image below shows the relationships between the Azure storage resources in a standard storage account:</source>
+          <target state="new">The image below shows the relationships between the Azure storage resources in a standard storage account:</target>
+        </trans-unit>
+        <trans-unit id="8196f254-e06f-4b16-8e2e-7f182b88acc6" xml:space="preserve">
+          <source><bpt id="8df38d4e-dfbc-4bc7-baa5-e4e72da3ca58">&lt;linkText&gt;</bpt>Azure Storage Resources<ept id="8df38d4e-dfbc-4bc7-baa5-e4e72da3ca58">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8df38d4e-dfbc-4bc7-baa5-e4e72da3ca58">&lt;linkText&gt;</bpt>Azure Storage Resources<ept id="8df38d4e-dfbc-4bc7-baa5-e4e72da3ca58">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98221b00-ef81-4ae5-ab4c-7c6e9a246780" xml:space="preserve">
+          <source>To learn how to create a standard storage account, see <bpt id="d6eb2420-875a-403e-a428-83735c56de36">&lt;linkText&gt;</bpt>Create, manage, or delete a storage account<ept id="d6eb2420-875a-403e-a428-83735c56de36">&lt;/linkText&gt;</ept><bpt id="d6eb2420-875a-403e-a428-83735c56de36">&lt;title&gt;</bpt><ept id="d6eb2420-875a-403e-a428-83735c56de36">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">To learn how to create a standard storage account, see <bpt id="d6eb2420-875a-403e-a428-83735c56de36">&lt;linkText&gt;</bpt>Create, manage, or delete a storage account<ept id="d6eb2420-875a-403e-a428-83735c56de36">&lt;/linkText&gt;</ept><bpt id="d6eb2420-875a-403e-a428-83735c56de36">&lt;title&gt;</bpt><ept id="d6eb2420-875a-403e-a428-83735c56de36">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="fdbb3a70-56f8-41cb-bd2d-6e50c9d7a2e9" xml:space="preserve">
+          <source>Azure Premium Storage currently supports Azure Virtual Machine disks only.</source>
+          <target state="new">Azure Premium Storage currently supports Azure Virtual Machine disks only.</target>
+        </trans-unit>
+        <trans-unit id="30195053-c674-4807-a202-07e42fe2bc74" xml:space="preserve">
+          <source>Azure Premium Storage is available by request through the <bpt id="abb4d88d-f750-4d51-86a1-a0c6a4b14766">&lt;linkText&gt;</bpt>Azure Preview page<ept id="abb4d88d-f750-4d51-86a1-a0c6a4b14766">&lt;/linkText&gt;</ept><bpt id="abb4d88d-f750-4d51-86a1-a0c6a4b14766">&lt;title&gt;</bpt><ept id="abb4d88d-f750-4d51-86a1-a0c6a4b14766">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure Premium Storage is available by request through the <bpt id="abb4d88d-f750-4d51-86a1-a0c6a4b14766">&lt;linkText&gt;</bpt>Azure Preview page<ept id="abb4d88d-f750-4d51-86a1-a0c6a4b14766">&lt;/linkText&gt;</ept><bpt id="abb4d88d-f750-4d51-86a1-a0c6a4b14766">&lt;title&gt;</bpt><ept id="abb4d88d-f750-4d51-86a1-a0c6a4b14766">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09cf6cbc-563c-4b42-bf63-b52c8cead950" xml:space="preserve">
+          <source>For an in-depth overview of Azure Premium Storage, see <bpt id="0215be9a-b61e-4b8a-ab24-208412afeeb8">&lt;linkText&gt;</bpt>Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads<ept id="0215be9a-b61e-4b8a-ab24-208412afeeb8">&lt;/linkText&gt;</ept><bpt id="0215be9a-b61e-4b8a-ab24-208412afeeb8">&lt;title&gt;</bpt><ept id="0215be9a-b61e-4b8a-ab24-208412afeeb8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an in-depth overview of Azure Premium Storage, see <bpt id="0215be9a-b61e-4b8a-ab24-208412afeeb8">&lt;linkText&gt;</bpt>Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads<ept id="0215be9a-b61e-4b8a-ab24-208412afeeb8">&lt;/linkText&gt;</ept><bpt id="0215be9a-b61e-4b8a-ab24-208412afeeb8">&lt;title&gt;</bpt><ept id="0215be9a-b61e-4b8a-ab24-208412afeeb8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a887e35-77a1-4f9a-9af9-042760cbd7c7" xml:space="preserve">
+          <source>For users with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution.</source>
+          <target state="new">For users with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution.</target>
+        </trans-unit>
+        <trans-unit id="a75b06f9-6fc1-4180-913f-a33fb7c22f28" xml:space="preserve">
+          <source>You can use Blob storage to store content such as:</source>
+          <target state="new">You can use Blob storage to store content such as:</target>
+        </trans-unit>
+        <trans-unit id="137d22c6-2204-4efc-91b2-215eeaad8ed2" xml:space="preserve">
+          <source>Documents </source>
+          <target state="new">Documents </target>
+        </trans-unit>
+        <trans-unit id="778ffcd1-2cd4-45af-b493-71ffefbfd406" xml:space="preserve">
+          <source>Social data such as photos, videos, music, and blogs</source>
+          <target state="new">Social data such as photos, videos, music, and blogs</target>
+        </trans-unit>
+        <trans-unit id="65105ab2-def8-4877-b972-454521b6fa87" xml:space="preserve">
+          <source>Backups of files, computers, databases, and devices</source>
+          <target state="new">Backups of files, computers, databases, and devices</target>
+        </trans-unit>
+        <trans-unit id="6c7fcb6f-a751-4ed4-b88b-4ebaf892900c" xml:space="preserve">
+          <source>Images and text for web applications</source>
+          <target state="new">Images and text for web applications</target>
+        </trans-unit>
+        <trans-unit id="e07b71da-2ff3-429a-9f82-f80a9dcc6e18" xml:space="preserve">
+          <source>Configuration data for cloud applications</source>
+          <target state="new">Configuration data for cloud applications</target>
+        </trans-unit>
+        <trans-unit id="d42fb25a-c691-4a4b-82be-d81655ff2a10" xml:space="preserve">
+          <source>Big data, such as logs and other large datasets</source>
+          <target state="new">Big data, such as logs and other large datasets</target>
+        </trans-unit>
+        <trans-unit id="8cc9a6fa-1666-4870-8558-74709f1367c8" xml:space="preserve">
+          <source>Every blob is organized into a container.</source>
+          <target state="new">Every blob is organized into a container.</target>
+        </trans-unit>
+        <trans-unit id="2829b464-a545-434d-aacc-d3cc60d793a3" xml:space="preserve">
+          <source>Containers also provide a useful way to assign security policies to groups of objects.</source>
+          <target state="new">Containers also provide a useful way to assign security policies to groups of objects.</target>
+        </trans-unit>
+        <trans-unit id="6e73b94f-5f59-46e0-8584-27f4dd50d776" xml:space="preserve">
+          <source>A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 500 TB capacity limit of the storage account.</source>
+          <target state="new">A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 500 TB capacity limit of the storage account.</target>
+        </trans-unit>
+        <trans-unit id="19d36e20-5ab3-4560-8b33-05cb8b9823a1" xml:space="preserve">
+          <source>Blob storage offers three types of blobs, block blobs, append blobs, and page blobs (disks).</source>
+          <target state="new">Blob storage offers three types of blobs, block blobs, append blobs, and page blobs (disks).</target>
+        </trans-unit>
+        <trans-unit id="0637e899-2561-45d2-9206-5eb90f1e3c08" xml:space="preserve">
+          <source>Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. Append blobs are similar to block blobs, but are optimized for append operations.</source>
+          <target state="new">Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. Append blobs are similar to block blobs, but are optimized for append operations.</target>
+        </trans-unit>
+        <trans-unit id="df09f5ac-2144-4664-9e0b-b2b48f4d8184" xml:space="preserve">
+          <source>An append blob can be updated only by adding a new block to the end.</source>
+          <target state="new">An append blob can be updated only by adding a new block to the end.</target>
+        </trans-unit>
+        <trans-unit id="d312b227-cbc9-4e77-a79d-2e16a6d90ae6" xml:space="preserve">
+          <source>Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob.</source>
+          <target state="new">Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob.</target>
+        </trans-unit>
+        <trans-unit id="70392937-8c3d-4dad-bdf6-03e5f75e0aa6" xml:space="preserve">
+          <source>Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size.</source>
+          <target state="new">Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size.</target>
+        </trans-unit>
+        <trans-unit id="2180a7e8-cb80-4427-a262-2d15b8cf7172" xml:space="preserve">
+          <source>An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.</source>
+          <target state="new">An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.</target>
+        </trans-unit>
+        <trans-unit id="a1b461ac-9a56-44e4-a620-9fd8d444885a" xml:space="preserve">
+          <source>For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center using the <bpt id="282b50f3-6c05-43b0-a300-954c26001cf7">&lt;linkText&gt;</bpt>Azure Import/Export Service<ept id="282b50f3-6c05-43b0-a300-954c26001cf7">&lt;/linkText&gt;</ept><bpt id="282b50f3-6c05-43b0-a300-954c26001cf7">&lt;title&gt;</bpt><ept id="282b50f3-6c05-43b0-a300-954c26001cf7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center using the <bpt id="282b50f3-6c05-43b0-a300-954c26001cf7">&lt;linkText&gt;</bpt>Azure Import/Export Service<ept id="282b50f3-6c05-43b0-a300-954c26001cf7">&lt;/linkText&gt;</ept><bpt id="282b50f3-6c05-43b0-a300-954c26001cf7">&lt;title&gt;</bpt><ept id="282b50f3-6c05-43b0-a300-954c26001cf7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fee00eb7-0b01-4f8a-b673-d57ba9a0c73e" xml:space="preserve">
+          <source>You can also copy blob data within your storage account or across storage accounts.</source>
+          <target state="new">You can also copy blob data within your storage account or across storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="36a2cb9e-3ab6-4c4c-aa8e-8ec0b5c7177d" xml:space="preserve">
+          <source>Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required.</source>
+          <target state="new">Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required.</target>
+        </trans-unit>
+        <trans-unit id="7ad2fd1c-0158-4fc0-b89b-5762548a4042" xml:space="preserve">
+          <source>Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand.</source>
+          <target state="new">Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand.</target>
+        </trans-unit>
+        <trans-unit id="99f504dd-c175-444e-a134-3a8f771519ba" xml:space="preserve">
+          <source>Table storage is Microsoft’s NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases.</source>
+          <target state="new">Table storage is Microsoft’s NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases.</target>
+        </trans-unit>
+        <trans-unit id="04563056-b904-4ead-a0d3-b85e2e101644" xml:space="preserve">
+          <source>With a schemaless data store, it's easy to adapt your data as the needs of your application evolve.</source>
+          <target state="new">With a schemaless data store, it's easy to adapt your data as the needs of your application evolve.</target>
+        </trans-unit>
+        <trans-unit id="36040dcb-7b35-4e27-99d8-e41ac9a1a8a1" xml:space="preserve">
+          <source>Table storage is easy to use, so developers can create applications quickly.</source>
+          <target state="new">Table storage is easy to use, so developers can create applications quickly.</target>
+        </trans-unit>
+        <trans-unit id="4e378094-8f33-4079-8f29-c8d0e2f21012" xml:space="preserve">
+          <source>Access to data is fast and cost-effective for all kinds of applications.</source>
+          <target state="new">Access to data is fast and cost-effective for all kinds of applications.</target>
+        </trans-unit>
+        <trans-unit id="b9e5b652-8b53-471a-bffd-11dc366e9b82" xml:space="preserve">
+          <source>Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.</source>
+          <target state="new">Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.</target>
+        </trans-unit>
+        <trans-unit id="f94b747a-ab24-48c2-be0b-bbf6f9584861" xml:space="preserve">
+          <source>Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name.</source>
+          <target state="new">Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name.</target>
+        </trans-unit>
+        <trans-unit id="1886dab5-9297-4ed1-81e2-950b50ee2161" xml:space="preserve">
+          <source>The property name can be used for filtering and specifying selection criteria.</source>
+          <target state="new">The property name can be used for filtering and specifying selection criteria.</target>
+        </trans-unit>
+        <trans-unit id="7e12d7d9-ab6b-48df-a731-337a1f183117" xml:space="preserve">
+          <source>A collection of properties and their values comprise an entity.</source>
+          <target state="new">A collection of properties and their values comprise an entity.</target>
+        </trans-unit>
+        <trans-unit id="b3ba10d3-55de-45a9-9a3b-7959a06eccf6" xml:space="preserve">
+          <source>Since Table storage is schemaless, two entities in the same table can contain different collections of properties, and those properties can be of different types.</source>
+          <target state="new">Since Table storage is schemaless, two entities in the same table can contain different collections of properties, and those properties can be of different types.</target>
+        </trans-unit>
+        <trans-unit id="e6367622-d4c3-45a6-a961-1f050e7f0314" xml:space="preserve">
+          <source>You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires.</source>
+          <target state="new">You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires.</target>
+        </trans-unit>
+        <trans-unit id="9d1b7221-aba7-4017-a081-48c7c78e3ae5" xml:space="preserve">
+          <source>You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.</source>
+          <target state="new">You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.</target>
+        </trans-unit>
+        <trans-unit id="67aa6c7f-31a5-46e9-b40c-998ce371625a" xml:space="preserve">
+          <source>Like Blobs and Queues, developers can manage and access Table Storage using standard REST protocols, however Table Storage also supports a subset of the OData protocol, simplifying advanced querying capabilities and enabling both JSON and AtomPub (XML based) formats.</source>
+          <target state="new">Like Blobs and Queues, developers can manage and access Table Storage using standard REST protocols, however Table Storage also supports a subset of the OData protocol, simplifying advanced querying capabilities and enabling both JSON and AtomPub (XML based) formats.</target>
+        </trans-unit>
+        <trans-unit id="a42a2ce9-fbb4-4b25-9869-94ddd536fa5f" xml:space="preserve">
+          <source>For today's Internet-based applications, NoSQL databases like Table storage offer a popular alternative to traditional relational databases.</source>
+          <target state="new">For today's Internet-based applications, NoSQL databases like Table storage offer a popular alternative to traditional relational databases.</target>
+        </trans-unit>
+        <trans-unit id="b0f37be6-3f27-4b38-b53c-59bfb5c7c9b0" xml:space="preserve">
+          <source>In designing applications for scale, application components are often decoupled, so that they can scale independently.</source>
+          <target state="new">In designing applications for scale, application components are often decoupled, so that they can scale independently.</target>
+        </trans-unit>
+        <trans-unit id="05c62f36-1212-4403-823a-342590fd0e21" xml:space="preserve">
+          <source>Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device.</source>
+          <target state="new">Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device.</target>
+        </trans-unit>
+        <trans-unit id="b1dfd647-e60b-47b1-9f26-436afc2a3a93" xml:space="preserve">
+          <source>Queue storage also supports managing asynchronous tasks and building process workflows.</source>
+          <target state="new">Queue storage also supports managing asynchronous tasks and building process workflows.</target>
+        </trans-unit>
+        <trans-unit id="63febccf-02cc-45c8-a53a-032a49133902" xml:space="preserve">
+          <source>A storage account can contain any number of queues.</source>
+          <target state="new">A storage account can contain any number of queues.</target>
+        </trans-unit>
+        <trans-unit id="d295f356-6be1-48e5-a894-a8770a00b72a" xml:space="preserve">
+          <source>A queue can contain any number of messages, up to the capacity limit of the storage account.</source>
+          <target state="new">A queue can contain any number of messages, up to the capacity limit of the storage account.</target>
+        </trans-unit>
+        <trans-unit id="9077cac5-be31-456c-8f9a-599aa1741973" xml:space="preserve">
+          <source>Individual messages may be up to 64 KB in size.</source>
+          <target state="new">Individual messages may be up to 64 KB in size.</target>
+        </trans-unit>
+        <trans-unit id="497797af-2aa4-4ae3-ac2d-448d15790933" xml:space="preserve">
+          <source>Azure File storage offers cloud-based SMB 2.1 file shares, so that you can migrate legacy applications that rely on file shares to Azure quickly and without costly rewrites.</source>
+          <target state="new">Azure File storage offers cloud-based SMB 2.1 file shares, so that you can migrate legacy applications that rely on file shares to Azure quickly and without costly rewrites.</target>
+        </trans-unit>
+        <trans-unit id="8e8eb3d7-1967-47fd-9bdc-2826efb08eef" xml:space="preserve">
+          <source>With Azure File storage, applications running in Azure virtual machines or cloud services can mount a file share in the cloud, just as a desktop application mounts a typical SMB share.</source>
+          <target state="new">With Azure File storage, applications running in Azure virtual machines or cloud services can mount a file share in the cloud, just as a desktop application mounts a typical SMB share.</target>
+        </trans-unit>
+        <trans-unit id="4a690363-d7cb-4d97-ac91-6dd3eeb402b3" xml:space="preserve">
+          <source>Any number of application components can then mount and access the File storage share simultaneously.</source>
+          <target state="new">Any number of application components can then mount and access the File storage share simultaneously.</target>
+        </trans-unit>
+        <trans-unit id="a78c8c73-6f13-424c-9bb4-cd91c882ae83" xml:space="preserve">
+          <source>Since a File storage share is a standard SMB 2.1 file share, applications running in Azure can access data in the share via file sytem I/O APIs.</source>
+          <target state="new">Since a File storage share is a standard SMB 2.1 file share, applications running in Azure can access data in the share via file sytem I/O APIs.</target>
+        </trans-unit>
+        <trans-unit id="1411ec7b-2682-401d-9116-a89878d8adec" xml:space="preserve">
+          <source>Developers can therefore leverage their existing code and skills to migrate existing applications.</source>
+          <target state="new">Developers can therefore leverage their existing code and skills to migrate existing applications.</target>
+        </trans-unit>
+        <trans-unit id="b2826f6f-941c-4181-b3b8-80bfeba92cdb" xml:space="preserve">
+          <source>IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.</source>
+          <target state="new">IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.</target>
+        </trans-unit>
+        <trans-unit id="aa40a848-d4f9-4399-8e61-9eeeed885efd" xml:space="preserve">
+          <source>Like the other Azure storage services, File storage exposes a REST API for accessing data in a share.</source>
+          <target state="new">Like the other Azure storage services, File storage exposes a REST API for accessing data in a share.</target>
+        </trans-unit>
+        <trans-unit id="f5988111-6f29-40d4-b443-5bf1e71b41e8" xml:space="preserve">
+          <source>On-premise applications can call the File storage REST API to access data in a file share.</source>
+          <target state="new">On-premise applications can call the File storage REST API to access data in a file share.</target>
+        </trans-unit>
+        <trans-unit id="2ba5950c-eb70-48cc-be43-65e68ce9af01" xml:space="preserve">
+          <source>This way, an enterprise can choose to migrate some legacy applications to Azure and continue running others from within their own organization.</source>
+          <target state="new">This way, an enterprise can choose to migrate some legacy applications to Azure and continue running others from within their own organization.</target>
+        </trans-unit>
+        <trans-unit id="a623a110-50d1-4635-ba2b-ed01350667e8" xml:space="preserve">
+          <source>Note that mounting a file share is only possible for applications running in Azure; an on-premise application may only access the file share via the REST API.</source>
+          <target state="new">Note that mounting a file share is only possible for applications running in Azure; an on-premise application may only access the file share via the REST API.</target>
+        </trans-unit>
+        <trans-unit id="ef4b9d22-fac3-4a78-8afd-e98bbb3c2f86" xml:space="preserve">
+          <source>Distributed applications can also use File storage to store and share useful application data and development and testing tools.</source>
+          <target state="new">Distributed applications can also use File storage to store and share useful application data and development and testing tools.</target>
+        </trans-unit>
+        <trans-unit id="a373bb98-bf72-4ed0-89f5-474c20dc77de" xml:space="preserve">
+          <source>For example, an application may store configuration files and diagnostic data such as logs, metrics, and crash dumps in a File storage share so that they are available to multiple virtual machines or roles.</source>
+          <target state="new">For example, an application may store configuration files and diagnostic data such as logs, metrics, and crash dumps in a File storage share so that they are available to multiple virtual machines or roles.</target>
+        </trans-unit>
+        <trans-unit id="e8e40540-d4f7-42d4-8d48-059d72e649bb" xml:space="preserve">
+          <source>Developers and administrators can store utilities that they need to build or manage an application in a File storage share that is available to all components, rather than installing them on every virtual machine or role instance.</source>
+          <target state="new">Developers and administrators can store utilities that they need to build or manage an application in a File storage share that is available to all components, rather than installing them on every virtual machine or role instance.</target>
+        </trans-unit>
+        <trans-unit id="6661d612-c181-4846-967d-0f44caebafdd" xml:space="preserve">
+          <source>By default, only the storage account owner can access resources in the storage account.</source>
+          <target state="new">By default, only the storage account owner can access resources in the storage account.</target>
+        </trans-unit>
+        <trans-unit id="76bd2a77-078d-44b3-a4d2-680d802fd632" xml:space="preserve">
+          <source>For the security of your data, every request made against resources in your account must be authenticated.</source>
+          <target state="new">For the security of your data, every request made against resources in your account must be authenticated.</target>
+        </trans-unit>
+        <trans-unit id="e7cdaaae-33c1-4571-abc4-fc6f2e29f89e" xml:space="preserve">
+          <source>Authentication relies on a Shared Key model.</source>
+          <target state="new">Authentication relies on a Shared Key model.</target>
+        </trans-unit>
+        <trans-unit id="da170b58-42d8-424f-8868-d091b08b2fcc" xml:space="preserve">
+          <source>Blobs can also be configured to support anonymous authentication.</source>
+          <target state="new">Blobs can also be configured to support anonymous authentication.</target>
+        </trans-unit>
+        <trans-unit id="c1164d52-9cd7-458d-8dab-25f6c45d117e" xml:space="preserve">
+          <source>Your storage account is assigned two private access keys on creation that are used for authentication.</source>
+          <target state="new">Your storage account is assigned two private access keys on creation that are used for authentication.</target>
+        </trans-unit>
+        <trans-unit id="e0f86f53-f784-40e6-95f8-55e603ccefd4" xml:space="preserve">
+          <source>Having two keys ensures that your application remains available when you regularly regenerate the keys as a common security key management practice.</source>
+          <target state="new">Having two keys ensures that your application remains available when you regularly regenerate the keys as a common security key management practice.</target>
+        </trans-unit>
+        <trans-unit id="ea88ade3-1cbc-4876-a44a-d571875194fd" xml:space="preserve">
+          <source>If you do need to allow users controlled access to your storage resources, then you can create a <bpt id="6cf7a656-4c08-4e06-a9d6-34a62d4dbc5c">&lt;linkText&gt;</bpt>shared access signature<ept id="6cf7a656-4c08-4e06-a9d6-34a62d4dbc5c">&lt;/linkText&gt;</ept><bpt id="6cf7a656-4c08-4e06-a9d6-34a62d4dbc5c">&lt;title&gt;</bpt><ept id="6cf7a656-4c08-4e06-a9d6-34a62d4dbc5c">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do need to allow users controlled access to your storage resources, then you can create a <bpt id="6cf7a656-4c08-4e06-a9d6-34a62d4dbc5c">&lt;linkText&gt;</bpt>shared access signature<ept id="6cf7a656-4c08-4e06-a9d6-34a62d4dbc5c">&lt;/linkText&gt;</ept><bpt id="6cf7a656-4c08-4e06-a9d6-34a62d4dbc5c">&lt;title&gt;</bpt><ept id="6cf7a656-4c08-4e06-a9d6-34a62d4dbc5c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9efd283-d302-4f25-bc5a-bcadc0ce1bd2" xml:space="preserve">
+          <source>A shared access signature is a token that can be appended to a URL that enables delegated access to a container, blob, table, or queue.</source>
+          <target state="new">A shared access signature is a token that can be appended to a URL that enables delegated access to a container, blob, table, or queue.</target>
+        </trans-unit>
+        <trans-unit id="609dcc0d-d885-495f-9b9c-7faf7a5089cf" xml:space="preserve">
+          <source>Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid.</source>
+          <target state="new">Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid.</target>
+        </trans-unit>
+        <trans-unit id="af8d186a-7197-4fee-a980-72959277030c" xml:space="preserve">
+          <source>Note that Azure File storage does not currently support shared access signatures.</source>
+          <target state="new">Note that Azure File storage does not currently support shared access signatures.</target>
+        </trans-unit>
+        <trans-unit id="62d7c2df-8b94-4a67-8b85-7fc9addfba25" xml:space="preserve">
+          <source>Finally, you can specify that a container and its blobs, or a specific blob, are available for public access.</source>
+          <target state="new">Finally, you can specify that a container and its blobs, or a specific blob, are available for public access.</target>
+        </trans-unit>
+        <trans-unit id="ec0d25db-2048-470f-abc4-46ad4e28991b" xml:space="preserve">
+          <source>When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.</source>
+          <target state="new">When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.</target>
+        </trans-unit>
+        <trans-unit id="20a2ee8d-03a8-4048-84ae-d62b3785565f" xml:space="preserve">
+          <source>Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.</source>
+          <target state="new">Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.</target>
+        </trans-unit>
+        <trans-unit id="2bed2496-1268-45c1-85dc-b089dd3f90bf" xml:space="preserve">
+          <source>To decrease network latency for a global audience, you can cache blob data used by websites with the Azure CDN.</source>
+          <target state="new">To decrease network latency for a global audience, you can cache blob data used by websites with the Azure CDN.</target>
+        </trans-unit>
+        <trans-unit id="6e277c13-b7eb-4956-8f7e-c63e0c9444dc" xml:space="preserve">
+          <source>See <bpt id="ec0d55bb-b121-4a4a-9d3b-e137581c0b47">&lt;linkText&gt;</bpt>Manage Access to Azure Storage Resources<ept id="ec0d55bb-b121-4a4a-9d3b-e137581c0b47">&lt;/linkText&gt;</ept><bpt id="ec0d55bb-b121-4a4a-9d3b-e137581c0b47">&lt;title&gt;</bpt><ept id="ec0d55bb-b121-4a4a-9d3b-e137581c0b47">&lt;/title&gt;</ept> and <bpt id="364cc4b7-2184-4710-ac4c-b6cf483c95a0">&lt;linkText&gt;</bpt>Authentication for the Azure Storage Services<ept id="364cc4b7-2184-4710-ac4c-b6cf483c95a0">&lt;/linkText&gt;</ept><bpt id="364cc4b7-2184-4710-ac4c-b6cf483c95a0">&lt;title&gt;</bpt><ept id="364cc4b7-2184-4710-ac4c-b6cf483c95a0">&lt;/title&gt;</ept> for more information on secure access to your storage account.</source>
+          <target state="new">See <bpt id="ec0d55bb-b121-4a4a-9d3b-e137581c0b47">&lt;linkText&gt;</bpt>Manage Access to Azure Storage Resources<ept id="ec0d55bb-b121-4a4a-9d3b-e137581c0b47">&lt;/linkText&gt;</ept><bpt id="ec0d55bb-b121-4a4a-9d3b-e137581c0b47">&lt;title&gt;</bpt><ept id="ec0d55bb-b121-4a4a-9d3b-e137581c0b47">&lt;/title&gt;</ept> and <bpt id="364cc4b7-2184-4710-ac4c-b6cf483c95a0">&lt;linkText&gt;</bpt>Authentication for the Azure Storage Services<ept id="364cc4b7-2184-4710-ac4c-b6cf483c95a0">&lt;/linkText&gt;</ept><bpt id="364cc4b7-2184-4710-ac4c-b6cf483c95a0">&lt;title&gt;</bpt><ept id="364cc4b7-2184-4710-ac4c-b6cf483c95a0">&lt;/title&gt;</ept> for more information on secure access to your storage account.</target>
+        </trans-unit>
+        <trans-unit id="34f491af-1b35-4d52-af7c-f1ff562fbdf3" xml:space="preserve">
+          <source><bpt id="26770fe0-2447-4282-b7da-2c8a0e13bf60">&lt;token href="../../includes/storage-replication-options-include.md"&gt;</bpt><ept id="26770fe0-2447-4282-b7da-2c8a0e13bf60">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="26770fe0-2447-4282-b7da-2c8a0e13bf60">&lt;token href="../../includes/storage-replication-options-include.md"&gt;</bpt><ept id="26770fe0-2447-4282-b7da-2c8a0e13bf60">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b47bf238-04a6-4dd5-8ac4-0d0e3be9f5d8" xml:space="preserve">
+          <source>Customers are charged for Azure Storage based on four factors: the storage capacity used, the replication option selected, the number of requests made against the service, and data egress.</source>
+          <target state="new">Customers are charged for Azure Storage based on four factors: the storage capacity used, the replication option selected, the number of requests made against the service, and data egress.</target>
+        </trans-unit>
+        <trans-unit id="d8d1b074-b0bb-46ad-829b-4b5057ddde47" xml:space="preserve">
+          <source>Storage capacity refers to how much of your storage account allotment you are using to store data.</source>
+          <target state="new">Storage capacity refers to how much of your storage account allotment you are using to store data.</target>
+        </trans-unit>
+        <trans-unit id="b55bab64-60f4-4958-9aeb-d6574acf2911" xml:space="preserve">
+          <source>The cost of simply storing your data is determined by how much data you are storing, and how it is replicated.</source>
+          <target state="new">The cost of simply storing your data is determined by how much data you are storing, and how it is replicated.</target>
+        </trans-unit>
+        <trans-unit id="ffc7a1f3-6b25-473a-b34a-44805298da2a" xml:space="preserve">
+          <source>Every read and write operation against Azure Storage also makes a request against the service.</source>
+          <target state="new">Every read and write operation against Azure Storage also makes a request against the service.</target>
+        </trans-unit>
+        <trans-unit id="e7409c6f-9fca-46a2-8f8d-2379b83d366b" xml:space="preserve">
+          <source>Data egress refers to data transferred out of a Microsoft Azure region.</source>
+          <target state="new">Data egress refers to data transferred out of a Microsoft Azure region.</target>
+        </trans-unit>
+        <trans-unit id="0e012e51-87b3-4c35-b6d3-1b49bf452023" xml:space="preserve">
+          <source>When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress.</source>
+          <target state="new">When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress.</target>
+        </trans-unit>
+        <trans-unit id="7401ccb9-4391-4660-8452-49ff21bb761b" xml:space="preserve">
+          <source>(For Microsoft Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate process and data egress charges.)</source>
+          <target state="new">(For Microsoft Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate process and data egress charges.)</target>
+        </trans-unit>
+        <trans-unit id="501f739c-5fda-47cc-a471-41775a37de72" xml:space="preserve">
+          <source>The <bpt id="bd6f1026-e5b8-4ebc-bce5-1fabdb03770e">&lt;linkText&gt;</bpt>Storage Pricing Details<ept id="bd6f1026-e5b8-4ebc-bce5-1fabdb03770e">&lt;/linkText&gt;</ept><bpt id="bd6f1026-e5b8-4ebc-bce5-1fabdb03770e">&lt;title&gt;</bpt><ept id="bd6f1026-e5b8-4ebc-bce5-1fabdb03770e">&lt;/title&gt;</ept> page provides detailed pricing information for storage capacity, replication, and transactions.</source>
+          <target state="new">The <bpt id="bd6f1026-e5b8-4ebc-bce5-1fabdb03770e">&lt;linkText&gt;</bpt>Storage Pricing Details<ept id="bd6f1026-e5b8-4ebc-bce5-1fabdb03770e">&lt;/linkText&gt;</ept><bpt id="bd6f1026-e5b8-4ebc-bce5-1fabdb03770e">&lt;title&gt;</bpt><ept id="bd6f1026-e5b8-4ebc-bce5-1fabdb03770e">&lt;/title&gt;</ept> page provides detailed pricing information for storage capacity, replication, and transactions.</target>
+        </trans-unit>
+        <trans-unit id="f748e945-b20d-475d-9053-8c49a58df221" xml:space="preserve">
+          <source>The <bpt id="59bfcfeb-caab-4dba-96bd-55ed5ae9bb3c">&lt;linkText&gt;</bpt>Data Transfers Pricing Details<ept id="59bfcfeb-caab-4dba-96bd-55ed5ae9bb3c">&lt;/linkText&gt;</ept><bpt id="59bfcfeb-caab-4dba-96bd-55ed5ae9bb3c">&lt;title&gt;</bpt><ept id="59bfcfeb-caab-4dba-96bd-55ed5ae9bb3c">&lt;/title&gt;</ept> provides detailed pricing information for data egress.</source>
+          <target state="new">The <bpt id="59bfcfeb-caab-4dba-96bd-55ed5ae9bb3c">&lt;linkText&gt;</bpt>Data Transfers Pricing Details<ept id="59bfcfeb-caab-4dba-96bd-55ed5ae9bb3c">&lt;/linkText&gt;</ept><bpt id="59bfcfeb-caab-4dba-96bd-55ed5ae9bb3c">&lt;title&gt;</bpt><ept id="59bfcfeb-caab-4dba-96bd-55ed5ae9bb3c">&lt;/title&gt;</ept> provides detailed pricing information for data egress.</target>
+        </trans-unit>
+        <trans-unit id="c11363bc-8707-46e2-a53c-ff30101c6129" xml:space="preserve">
+          <source>You can use the <bpt id="1cb6c5f6-60b3-418f-a82d-be593df4d8af">&lt;linkText&gt;</bpt>Azure Storage Pricing Calculator<ept id="1cb6c5f6-60b3-418f-a82d-be593df4d8af">&lt;/linkText&gt;</ept><bpt id="1cb6c5f6-60b3-418f-a82d-be593df4d8af">&lt;title&gt;</bpt><ept id="1cb6c5f6-60b3-418f-a82d-be593df4d8af">&lt;/title&gt;</ept> to help estimate your costs.</source>
+          <target state="new">You can use the <bpt id="1cb6c5f6-60b3-418f-a82d-be593df4d8af">&lt;linkText&gt;</bpt>Azure Storage Pricing Calculator<ept id="1cb6c5f6-60b3-418f-a82d-be593df4d8af">&lt;/linkText&gt;</ept><bpt id="1cb6c5f6-60b3-418f-a82d-be593df4d8af">&lt;title&gt;</bpt><ept id="1cb6c5f6-60b3-418f-a82d-be593df4d8af">&lt;/title&gt;</ept> to help estimate your costs.</target>
+        </trans-unit>
+        <trans-unit id="d3cef711-b593-48b0-ab07-e10f97842b9f" xml:space="preserve">
+          <source>Azure Storage exposes storage resources via a <bpt id="b359e81d-9001-4d4a-99f0-a6a507e50959">&lt;linkText&gt;</bpt>REST API<ept id="b359e81d-9001-4d4a-99f0-a6a507e50959">&lt;/linkText&gt;</ept><bpt id="b359e81d-9001-4d4a-99f0-a6a507e50959">&lt;title&gt;</bpt><ept id="b359e81d-9001-4d4a-99f0-a6a507e50959">&lt;/title&gt;</ept> that can be called by any language that can make HTTP/HTTPS requests.</source>
+          <target state="new">Azure Storage exposes storage resources via a <bpt id="b359e81d-9001-4d4a-99f0-a6a507e50959">&lt;linkText&gt;</bpt>REST API<ept id="b359e81d-9001-4d4a-99f0-a6a507e50959">&lt;/linkText&gt;</ept><bpt id="b359e81d-9001-4d4a-99f0-a6a507e50959">&lt;title&gt;</bpt><ept id="b359e81d-9001-4d4a-99f0-a6a507e50959">&lt;/title&gt;</ept> that can be called by any language that can make HTTP/HTTPS requests.</target>
+        </trans-unit>
+        <trans-unit id="930c6593-7af7-441a-8bdc-ef171660d2d6" xml:space="preserve">
+          <source>Additionally, Azure Storage offers programming libraries for several popular languages.</source>
+          <target state="new">Additionally, Azure Storage offers programming libraries for several popular languages.</target>
+        </trans-unit>
+        <trans-unit id="5f97f591-e20e-44d1-884f-7364e7683d85" xml:space="preserve">
+          <source>These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth.</source>
+          <target state="new">These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth.</target>
+        </trans-unit>
+        <trans-unit id="825bffa5-503f-40ed-b42a-9051d84c294f" xml:space="preserve">
+          <source>Libraries are currently available for the following languages and platforms, with others in the pipeline:</source>
+          <target state="new">Libraries are currently available for the following languages and platforms, with others in the pipeline:</target>
+        </trans-unit>
+        <trans-unit id="f99683cd-e965-418d-8aa5-44307803db88" xml:space="preserve">
+          <source><bpt id="1febb69e-ea3a-4538-9d58-fa1ce89971c2">&lt;linkText&gt;</bpt>.NET<ept id="1febb69e-ea3a-4538-9d58-fa1ce89971c2">&lt;/linkText&gt;</ept><bpt id="1febb69e-ea3a-4538-9d58-fa1ce89971c2">&lt;title&gt;</bpt><ept id="1febb69e-ea3a-4538-9d58-fa1ce89971c2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1febb69e-ea3a-4538-9d58-fa1ce89971c2">&lt;linkText&gt;</bpt>.NET<ept id="1febb69e-ea3a-4538-9d58-fa1ce89971c2">&lt;/linkText&gt;</ept><bpt id="1febb69e-ea3a-4538-9d58-fa1ce89971c2">&lt;title&gt;</bpt><ept id="1febb69e-ea3a-4538-9d58-fa1ce89971c2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c07fb206-52ab-4431-a03b-7e6b7edbcf60" xml:space="preserve">
+          <source><bpt id="00ad56a3-99ae-47c7-adbb-a1904f19c19b">&lt;linkText&gt;</bpt>Native code<ept id="00ad56a3-99ae-47c7-adbb-a1904f19c19b">&lt;/linkText&gt;</ept><bpt id="00ad56a3-99ae-47c7-adbb-a1904f19c19b">&lt;title&gt;</bpt><ept id="00ad56a3-99ae-47c7-adbb-a1904f19c19b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="00ad56a3-99ae-47c7-adbb-a1904f19c19b">&lt;linkText&gt;</bpt>Native code<ept id="00ad56a3-99ae-47c7-adbb-a1904f19c19b">&lt;/linkText&gt;</ept><bpt id="00ad56a3-99ae-47c7-adbb-a1904f19c19b">&lt;title&gt;</bpt><ept id="00ad56a3-99ae-47c7-adbb-a1904f19c19b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3d0eb15-ebb0-457e-b891-103c545c5826" xml:space="preserve">
+          <source><bpt id="920fffdf-55c5-48c4-820b-cad3bab9dbb0">&lt;linkText&gt;</bpt>Java/Android<ept id="920fffdf-55c5-48c4-820b-cad3bab9dbb0">&lt;/linkText&gt;</ept><bpt id="920fffdf-55c5-48c4-820b-cad3bab9dbb0">&lt;title&gt;</bpt><ept id="920fffdf-55c5-48c4-820b-cad3bab9dbb0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="920fffdf-55c5-48c4-820b-cad3bab9dbb0">&lt;linkText&gt;</bpt>Java/Android<ept id="920fffdf-55c5-48c4-820b-cad3bab9dbb0">&lt;/linkText&gt;</ept><bpt id="920fffdf-55c5-48c4-820b-cad3bab9dbb0">&lt;title&gt;</bpt><ept id="920fffdf-55c5-48c4-820b-cad3bab9dbb0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="093febfa-2349-4a14-a6ec-27b4fdf3026f" xml:space="preserve">
+          <source><bpt id="23d946fb-6a61-43a3-8ea8-02d81dffbec9">&lt;linkText&gt;</bpt>Node.js<ept id="23d946fb-6a61-43a3-8ea8-02d81dffbec9">&lt;/linkText&gt;</ept><bpt id="23d946fb-6a61-43a3-8ea8-02d81dffbec9">&lt;title&gt;</bpt><ept id="23d946fb-6a61-43a3-8ea8-02d81dffbec9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="23d946fb-6a61-43a3-8ea8-02d81dffbec9">&lt;linkText&gt;</bpt>Node.js<ept id="23d946fb-6a61-43a3-8ea8-02d81dffbec9">&lt;/linkText&gt;</ept><bpt id="23d946fb-6a61-43a3-8ea8-02d81dffbec9">&lt;title&gt;</bpt><ept id="23d946fb-6a61-43a3-8ea8-02d81dffbec9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="880d39c0-7b2e-4ab3-85e8-c1c1eab78175" xml:space="preserve">
+          <source><bpt id="0ac4c5e5-4441-49ea-829c-9a14658713c6">&lt;linkText&gt;</bpt>PHP<ept id="0ac4c5e5-4441-49ea-829c-9a14658713c6">&lt;/linkText&gt;</ept><bpt id="0ac4c5e5-4441-49ea-829c-9a14658713c6">&lt;title&gt;</bpt><ept id="0ac4c5e5-4441-49ea-829c-9a14658713c6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0ac4c5e5-4441-49ea-829c-9a14658713c6">&lt;linkText&gt;</bpt>PHP<ept id="0ac4c5e5-4441-49ea-829c-9a14658713c6">&lt;/linkText&gt;</ept><bpt id="0ac4c5e5-4441-49ea-829c-9a14658713c6">&lt;title&gt;</bpt><ept id="0ac4c5e5-4441-49ea-829c-9a14658713c6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9dc051a-1d52-4bca-ba08-41c0b47d577f" xml:space="preserve">
+          <source><bpt id="a2188c25-5b7a-4f35-a7fc-33f553858c6c">&lt;linkText&gt;</bpt>Ruby<ept id="a2188c25-5b7a-4f35-a7fc-33f553858c6c">&lt;/linkText&gt;</ept><bpt id="a2188c25-5b7a-4f35-a7fc-33f553858c6c">&lt;title&gt;</bpt><ept id="a2188c25-5b7a-4f35-a7fc-33f553858c6c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a2188c25-5b7a-4f35-a7fc-33f553858c6c">&lt;linkText&gt;</bpt>Ruby<ept id="a2188c25-5b7a-4f35-a7fc-33f553858c6c">&lt;/linkText&gt;</ept><bpt id="a2188c25-5b7a-4f35-a7fc-33f553858c6c">&lt;title&gt;</bpt><ept id="a2188c25-5b7a-4f35-a7fc-33f553858c6c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="475f3aa8-e3e1-4783-85a3-97d9054520fe" xml:space="preserve">
+          <source><bpt id="fd8e33d8-0fc4-4d26-988f-df3638ad1de3">&lt;linkText&gt;</bpt>Python<ept id="fd8e33d8-0fc4-4d26-988f-df3638ad1de3">&lt;/linkText&gt;</ept><bpt id="fd8e33d8-0fc4-4d26-988f-df3638ad1de3">&lt;title&gt;</bpt><ept id="fd8e33d8-0fc4-4d26-988f-df3638ad1de3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fd8e33d8-0fc4-4d26-988f-df3638ad1de3">&lt;linkText&gt;</bpt>Python<ept id="fd8e33d8-0fc4-4d26-988f-df3638ad1de3">&lt;/linkText&gt;</ept><bpt id="fd8e33d8-0fc4-4d26-988f-df3638ad1de3">&lt;title&gt;</bpt><ept id="fd8e33d8-0fc4-4d26-988f-df3638ad1de3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4225afa8-e0a4-4449-8557-22aa125368ed" xml:space="preserve">
+          <source><bpt id="7fcb15bb-b2fa-40f0-b897-bb75741c96bb">&lt;linkText&gt;</bpt>PowerShell<ept id="7fcb15bb-b2fa-40f0-b897-bb75741c96bb">&lt;/linkText&gt;</ept><bpt id="7fcb15bb-b2fa-40f0-b897-bb75741c96bb">&lt;title&gt;</bpt><ept id="7fcb15bb-b2fa-40f0-b897-bb75741c96bb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7fcb15bb-b2fa-40f0-b897-bb75741c96bb">&lt;linkText&gt;</bpt>PowerShell<ept id="7fcb15bb-b2fa-40f0-b897-bb75741c96bb">&lt;/linkText&gt;</ept><bpt id="7fcb15bb-b2fa-40f0-b897-bb75741c96bb">&lt;title&gt;</bpt><ept id="7fcb15bb-b2fa-40f0-b897-bb75741c96bb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e7780d5-d6bf-4a07-a96a-97a8861dda9c" xml:space="preserve">
+          <source>To get started with Azure Storage, explore these resources:</source>
+          <target state="new">To get started with Azure Storage, explore these resources:</target>
+        </trans-unit>
+        <trans-unit id="3a87ef82-03f8-4cad-a7b9-227a6c3bd769" xml:space="preserve">
+          <source><bpt id="c0a5a487-a649-4e41-af99-e866f16fafaa">&lt;linkText&gt;</bpt>Azure Storage NuGet Package - Client Libraries for .NET, Windows Phone, and Windows Runtime<ept id="c0a5a487-a649-4e41-af99-e866f16fafaa">&lt;/linkText&gt;</ept><bpt id="c0a5a487-a649-4e41-af99-e866f16fafaa">&lt;title&gt;</bpt><ept id="c0a5a487-a649-4e41-af99-e866f16fafaa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c0a5a487-a649-4e41-af99-e866f16fafaa">&lt;linkText&gt;</bpt>Azure Storage NuGet Package - Client Libraries for .NET, Windows Phone, and Windows Runtime<ept id="c0a5a487-a649-4e41-af99-e866f16fafaa">&lt;/linkText&gt;</ept><bpt id="c0a5a487-a649-4e41-af99-e866f16fafaa">&lt;title&gt;</bpt><ept id="c0a5a487-a649-4e41-af99-e866f16fafaa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7bc593e-85e7-4f4d-91db-4798e358ae47" xml:space="preserve">
+          <source><bpt id="c586e4a9-9e11-4b6e-813e-ccc4444f94fd">&lt;linkText&gt;</bpt>Azure SDKs and Tools<ept id="c586e4a9-9e11-4b6e-813e-ccc4444f94fd">&lt;/linkText&gt;</ept><bpt id="c586e4a9-9e11-4b6e-813e-ccc4444f94fd">&lt;title&gt;</bpt><ept id="c586e4a9-9e11-4b6e-813e-ccc4444f94fd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c586e4a9-9e11-4b6e-813e-ccc4444f94fd">&lt;linkText&gt;</bpt>Azure SDKs and Tools<ept id="c586e4a9-9e11-4b6e-813e-ccc4444f94fd">&lt;/linkText&gt;</ept><bpt id="c586e4a9-9e11-4b6e-813e-ccc4444f94fd">&lt;title&gt;</bpt><ept id="c586e4a9-9e11-4b6e-813e-ccc4444f94fd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="557b4bc1-3c83-4cbe-968b-770d838a7360" xml:space="preserve">
+          <source><bpt id="ff3b65aa-9de3-494c-9d34-dce7b3f5d80f">&lt;linkText&gt;</bpt>Azure Storage Emulator<ept id="ff3b65aa-9de3-494c-9d34-dce7b3f5d80f">&lt;/linkText&gt;</ept><bpt id="ff3b65aa-9de3-494c-9d34-dce7b3f5d80f">&lt;title&gt;</bpt><ept id="ff3b65aa-9de3-494c-9d34-dce7b3f5d80f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ff3b65aa-9de3-494c-9d34-dce7b3f5d80f">&lt;linkText&gt;</bpt>Azure Storage Emulator<ept id="ff3b65aa-9de3-494c-9d34-dce7b3f5d80f">&lt;/linkText&gt;</ept><bpt id="ff3b65aa-9de3-494c-9d34-dce7b3f5d80f">&lt;title&gt;</bpt><ept id="ff3b65aa-9de3-494c-9d34-dce7b3f5d80f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f8ae04a-7bf8-4f2a-8055-4fb245ed8909" xml:space="preserve">
+          <source><bpt id="036aeaf5-778e-4bde-8cef-a33cc2ed2e94">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="036aeaf5-778e-4bde-8cef-a33cc2ed2e94">&lt;/linkText&gt;</ept><bpt id="036aeaf5-778e-4bde-8cef-a33cc2ed2e94">&lt;title&gt;</bpt><ept id="036aeaf5-778e-4bde-8cef-a33cc2ed2e94">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="036aeaf5-778e-4bde-8cef-a33cc2ed2e94">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="036aeaf5-778e-4bde-8cef-a33cc2ed2e94">&lt;/linkText&gt;</ept><bpt id="036aeaf5-778e-4bde-8cef-a33cc2ed2e94">&lt;title&gt;</bpt><ept id="036aeaf5-778e-4bde-8cef-a33cc2ed2e94">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aba49ab2-b552-44c1-ba32-f96a88aee008" xml:space="preserve">
+          <source><bpt id="75d6f1f3-8895-4e10-aca3-ead5a429190a">&lt;linkText&gt;</bpt>Microsoft Azure Storage Libraries for .NET<ept id="75d6f1f3-8895-4e10-aca3-ead5a429190a">&lt;/linkText&gt;</ept><bpt id="75d6f1f3-8895-4e10-aca3-ead5a429190a">&lt;title&gt;</bpt><ept id="75d6f1f3-8895-4e10-aca3-ead5a429190a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="75d6f1f3-8895-4e10-aca3-ead5a429190a">&lt;linkText&gt;</bpt>Microsoft Azure Storage Libraries for .NET<ept id="75d6f1f3-8895-4e10-aca3-ead5a429190a">&lt;/linkText&gt;</ept><bpt id="75d6f1f3-8895-4e10-aca3-ead5a429190a">&lt;title&gt;</bpt><ept id="75d6f1f3-8895-4e10-aca3-ead5a429190a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15e4cb89-4978-4c62-b006-fca86d97a90e" xml:space="preserve">
+          <source><bpt id="13197492-9611-4f31-9a58-3dd9da76182a">&lt;linkText&gt;</bpt>Azure Storage Documentation<ept id="13197492-9611-4f31-9a58-3dd9da76182a">&lt;/linkText&gt;</ept><bpt id="13197492-9611-4f31-9a58-3dd9da76182a">&lt;title&gt;</bpt><ept id="13197492-9611-4f31-9a58-3dd9da76182a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="13197492-9611-4f31-9a58-3dd9da76182a">&lt;linkText&gt;</bpt>Azure Storage Documentation<ept id="13197492-9611-4f31-9a58-3dd9da76182a">&lt;/linkText&gt;</ept><bpt id="13197492-9611-4f31-9a58-3dd9da76182a">&lt;title&gt;</bpt><ept id="13197492-9611-4f31-9a58-3dd9da76182a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54caa3f3-3bde-47a2-98e2-b93798624f28" xml:space="preserve">
+          <source><bpt id="6dc472a2-f7dc-4ebf-916f-26fcec04d470">&lt;linkText&gt;</bpt>Azure Storage Services REST API Reference<ept id="6dc472a2-f7dc-4ebf-916f-26fcec04d470">&lt;/linkText&gt;</ept><bpt id="6dc472a2-f7dc-4ebf-916f-26fcec04d470">&lt;title&gt;</bpt><ept id="6dc472a2-f7dc-4ebf-916f-26fcec04d470">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6dc472a2-f7dc-4ebf-916f-26fcec04d470">&lt;linkText&gt;</bpt>Azure Storage Services REST API Reference<ept id="6dc472a2-f7dc-4ebf-916f-26fcec04d470">&lt;/linkText&gt;</ept><bpt id="6dc472a2-f7dc-4ebf-916f-26fcec04d470">&lt;title&gt;</bpt><ept id="6dc472a2-f7dc-4ebf-916f-26fcec04d470">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e990477-fd86-48b5-bd14-6feab616d8bc" xml:space="preserve">
+          <source><bpt id="226ad480-869f-4d28-afd8-fb14903ddc0e">&lt;linkText&gt;</bpt>AzCopy Command-Line Tool Reference<ept id="226ad480-869f-4d28-afd8-fb14903ddc0e">&lt;/linkText&gt;</ept><bpt id="226ad480-869f-4d28-afd8-fb14903ddc0e">&lt;title&gt;</bpt><ept id="226ad480-869f-4d28-afd8-fb14903ddc0e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="226ad480-869f-4d28-afd8-fb14903ddc0e">&lt;linkText&gt;</bpt>AzCopy Command-Line Tool Reference<ept id="226ad480-869f-4d28-afd8-fb14903ddc0e">&lt;/linkText&gt;</ept><bpt id="226ad480-869f-4d28-afd8-fb14903ddc0e">&lt;title&gt;</bpt><ept id="226ad480-869f-4d28-afd8-fb14903ddc0e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c77894a-d410-439f-b394-a2badb0fded4" xml:space="preserve">
+          <source><bpt id="10d3607a-6853-44f9-8c8b-7da6893f3819">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Storage<ept id="10d3607a-6853-44f9-8c8b-7da6893f3819">&lt;/linkText&gt;</ept><bpt id="10d3607a-6853-44f9-8c8b-7da6893f3819">&lt;title&gt;</bpt><ept id="10d3607a-6853-44f9-8c8b-7da6893f3819">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="10d3607a-6853-44f9-8c8b-7da6893f3819">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Storage<ept id="10d3607a-6853-44f9-8c8b-7da6893f3819">&lt;/linkText&gt;</ept><bpt id="10d3607a-6853-44f9-8c8b-7da6893f3819">&lt;title&gt;</bpt><ept id="10d3607a-6853-44f9-8c8b-7da6893f3819">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a73a644-f875-495d-b52e-98d38cab610e" xml:space="preserve">
+          <source><bpt id="3021063b-fd80-41d9-acc8-533d8147cd69">&lt;linkText&gt;</bpt>Azure Storage Cmdlets for Service Management<ept id="3021063b-fd80-41d9-acc8-533d8147cd69">&lt;/linkText&gt;</ept><bpt id="3021063b-fd80-41d9-acc8-533d8147cd69">&lt;title&gt;</bpt><ept id="3021063b-fd80-41d9-acc8-533d8147cd69">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3021063b-fd80-41d9-acc8-533d8147cd69">&lt;linkText&gt;</bpt>Azure Storage Cmdlets for Service Management<ept id="3021063b-fd80-41d9-acc8-533d8147cd69">&lt;/linkText&gt;</ept><bpt id="3021063b-fd80-41d9-acc8-533d8147cd69">&lt;title&gt;</bpt><ept id="3021063b-fd80-41d9-acc8-533d8147cd69">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3dc3663-7698-4daf-8bcd-644b783e1bd0" xml:space="preserve">
+          <source><bpt id="0b236d9e-5c78-48ae-bf04-5d163743aa2d">&lt;linkText&gt;</bpt>Azure Storage Cmdlets for Azure Resource Manager<ept id="0b236d9e-5c78-48ae-bf04-5d163743aa2d">&lt;/linkText&gt;</ept><bpt id="0b236d9e-5c78-48ae-bf04-5d163743aa2d">&lt;title&gt;</bpt><ept id="0b236d9e-5c78-48ae-bf04-5d163743aa2d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0b236d9e-5c78-48ae-bf04-5d163743aa2d">&lt;linkText&gt;</bpt>Azure Storage Cmdlets for Azure Resource Manager<ept id="0b236d9e-5c78-48ae-bf04-5d163743aa2d">&lt;/linkText&gt;</ept><bpt id="0b236d9e-5c78-48ae-bf04-5d163743aa2d">&lt;title&gt;</bpt><ept id="0b236d9e-5c78-48ae-bf04-5d163743aa2d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4eed11c-4068-4997-9301-e83e5f1ee17b" xml:space="preserve">
+          <source>[.NET Client Library Reference](http://msdn.microsoft.com/library/azure/wa<bpt id="10c04a5e-9871-4b67-b14f-20e82fbac0d5">&lt;em&gt;</bpt>storage<ept id="10c04a5e-9871-4b67-b14f-20e82fbac0d5">&lt;/em&gt;</ept>30<bpt id="ec7ac739-db20-48ac-a003-b25bfb3c73dc">&lt;em&gt;</bpt>reference<ept id="ec7ac739-db20-48ac-a003-b25bfb3c73dc">&lt;/em&gt;</ept>home.aspx)</source>
+          <target state="new">[.NET Client Library Reference](http://msdn.microsoft.com/library/azure/wa<bpt id="10c04a5e-9871-4b67-b14f-20e82fbac0d5">&lt;em&gt;</bpt>storage<ept id="10c04a5e-9871-4b67-b14f-20e82fbac0d5">&lt;/em&gt;</ept>30<bpt id="ec7ac739-db20-48ac-a003-b25bfb3c73dc">&lt;em&gt;</bpt>reference<ept id="ec7ac739-db20-48ac-a003-b25bfb3c73dc">&lt;/em&gt;</ept>home.aspx)</target>
+        </trans-unit>
+        <trans-unit id="2669f7ae-5b4b-481c-b657-dd65d17707e9" xml:space="preserve">
+          <source><bpt id="d705b648-be2a-4834-bf3a-1fad4a3df701">&lt;linkText&gt;</bpt>How to use Blob Storage from .NET<ept id="d705b648-be2a-4834-bf3a-1fad4a3df701">&lt;/linkText&gt;</ept><bpt id="d705b648-be2a-4834-bf3a-1fad4a3df701">&lt;title&gt;</bpt><ept id="d705b648-be2a-4834-bf3a-1fad4a3df701">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d705b648-be2a-4834-bf3a-1fad4a3df701">&lt;linkText&gt;</bpt>How to use Blob Storage from .NET<ept id="d705b648-be2a-4834-bf3a-1fad4a3df701">&lt;/linkText&gt;</ept><bpt id="d705b648-be2a-4834-bf3a-1fad4a3df701">&lt;title&gt;</bpt><ept id="d705b648-be2a-4834-bf3a-1fad4a3df701">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ed093af-808b-4e73-8470-b80a21e41858" xml:space="preserve">
+          <source><bpt id="ec380e07-3fba-4e90-8cfe-60c62605d81c">&lt;linkText&gt;</bpt>How to use Table Storage from .NET<ept id="ec380e07-3fba-4e90-8cfe-60c62605d81c">&lt;/linkText&gt;</ept><bpt id="ec380e07-3fba-4e90-8cfe-60c62605d81c">&lt;title&gt;</bpt><ept id="ec380e07-3fba-4e90-8cfe-60c62605d81c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ec380e07-3fba-4e90-8cfe-60c62605d81c">&lt;linkText&gt;</bpt>How to use Table Storage from .NET<ept id="ec380e07-3fba-4e90-8cfe-60c62605d81c">&lt;/linkText&gt;</ept><bpt id="ec380e07-3fba-4e90-8cfe-60c62605d81c">&lt;title&gt;</bpt><ept id="ec380e07-3fba-4e90-8cfe-60c62605d81c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a171a336-54a0-42ff-8db2-159fc761a337" xml:space="preserve">
+          <source><bpt id="3e67fb91-aa3b-4acc-be46-26dc128cb0c3">&lt;linkText&gt;</bpt>How to use Queue Storage from .NET<ept id="3e67fb91-aa3b-4acc-be46-26dc128cb0c3">&lt;/linkText&gt;</ept><bpt id="3e67fb91-aa3b-4acc-be46-26dc128cb0c3">&lt;title&gt;</bpt><ept id="3e67fb91-aa3b-4acc-be46-26dc128cb0c3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3e67fb91-aa3b-4acc-be46-26dc128cb0c3">&lt;linkText&gt;</bpt>How to use Queue Storage from .NET<ept id="3e67fb91-aa3b-4acc-be46-26dc128cb0c3">&lt;/linkText&gt;</ept><bpt id="3e67fb91-aa3b-4acc-be46-26dc128cb0c3">&lt;title&gt;</bpt><ept id="3e67fb91-aa3b-4acc-be46-26dc128cb0c3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="809b15fa-7922-4455-926c-61f49523860f" xml:space="preserve">
+          <source><bpt id="928fe1c6-cebc-45cb-83ab-087b41f4c5ae">&lt;linkText&gt;</bpt>How to use File storage with PowerShell and .NET<ept id="928fe1c6-cebc-45cb-83ab-087b41f4c5ae">&lt;/linkText&gt;</ept><bpt id="928fe1c6-cebc-45cb-83ab-087b41f4c5ae">&lt;title&gt;</bpt><ept id="928fe1c6-cebc-45cb-83ab-087b41f4c5ae">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="928fe1c6-cebc-45cb-83ab-087b41f4c5ae">&lt;linkText&gt;</bpt>How to use File storage with PowerShell and .NET<ept id="928fe1c6-cebc-45cb-83ab-087b41f4c5ae">&lt;/linkText&gt;</ept><bpt id="928fe1c6-cebc-45cb-83ab-087b41f4c5ae">&lt;title&gt;</bpt><ept id="928fe1c6-cebc-45cb-83ab-087b41f4c5ae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="478f44fa-6f77-4caa-b79d-8a12e597f826" xml:space="preserve">
+          <source><bpt id="21b604d9-e727-4bdd-a7b1-c1d24087d9b8">&lt;linkText&gt;</bpt>Java Client Library Reference<ept id="21b604d9-e727-4bdd-a7b1-c1d24087d9b8">&lt;/linkText&gt;</ept><bpt id="21b604d9-e727-4bdd-a7b1-c1d24087d9b8">&lt;title&gt;</bpt><ept id="21b604d9-e727-4bdd-a7b1-c1d24087d9b8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="21b604d9-e727-4bdd-a7b1-c1d24087d9b8">&lt;linkText&gt;</bpt>Java Client Library Reference<ept id="21b604d9-e727-4bdd-a7b1-c1d24087d9b8">&lt;/linkText&gt;</ept><bpt id="21b604d9-e727-4bdd-a7b1-c1d24087d9b8">&lt;title&gt;</bpt><ept id="21b604d9-e727-4bdd-a7b1-c1d24087d9b8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31261f2d-d59d-430a-a21e-63d3877e43db" xml:space="preserve">
+          <source><bpt id="d899c504-2c69-4706-8d4b-c6c7c634a95d">&lt;linkText&gt;</bpt>How to use Blob Storage from Java/Android<ept id="d899c504-2c69-4706-8d4b-c6c7c634a95d">&lt;/linkText&gt;</ept><bpt id="d899c504-2c69-4706-8d4b-c6c7c634a95d">&lt;title&gt;</bpt><ept id="d899c504-2c69-4706-8d4b-c6c7c634a95d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d899c504-2c69-4706-8d4b-c6c7c634a95d">&lt;linkText&gt;</bpt>How to use Blob Storage from Java/Android<ept id="d899c504-2c69-4706-8d4b-c6c7c634a95d">&lt;/linkText&gt;</ept><bpt id="d899c504-2c69-4706-8d4b-c6c7c634a95d">&lt;title&gt;</bpt><ept id="d899c504-2c69-4706-8d4b-c6c7c634a95d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2225484a-f633-46c6-9546-9758a2b4f994" xml:space="preserve">
+          <source><bpt id="b17d4b7e-44c3-4358-bbe7-24885f9e20eb">&lt;linkText&gt;</bpt>How to use Table Storage from Java/Android<ept id="b17d4b7e-44c3-4358-bbe7-24885f9e20eb">&lt;/linkText&gt;</ept><bpt id="b17d4b7e-44c3-4358-bbe7-24885f9e20eb">&lt;title&gt;</bpt><ept id="b17d4b7e-44c3-4358-bbe7-24885f9e20eb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b17d4b7e-44c3-4358-bbe7-24885f9e20eb">&lt;linkText&gt;</bpt>How to use Table Storage from Java/Android<ept id="b17d4b7e-44c3-4358-bbe7-24885f9e20eb">&lt;/linkText&gt;</ept><bpt id="b17d4b7e-44c3-4358-bbe7-24885f9e20eb">&lt;title&gt;</bpt><ept id="b17d4b7e-44c3-4358-bbe7-24885f9e20eb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c362c8ba-ede1-4640-a5be-90d1679798da" xml:space="preserve">
+          <source><bpt id="1175ccca-df03-44dc-a10b-7b36c22d7618">&lt;linkText&gt;</bpt>How to use Queue Storage from Java/Android<ept id="1175ccca-df03-44dc-a10b-7b36c22d7618">&lt;/linkText&gt;</ept><bpt id="1175ccca-df03-44dc-a10b-7b36c22d7618">&lt;title&gt;</bpt><ept id="1175ccca-df03-44dc-a10b-7b36c22d7618">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1175ccca-df03-44dc-a10b-7b36c22d7618">&lt;linkText&gt;</bpt>How to use Queue Storage from Java/Android<ept id="1175ccca-df03-44dc-a10b-7b36c22d7618">&lt;/linkText&gt;</ept><bpt id="1175ccca-df03-44dc-a10b-7b36c22d7618">&lt;title&gt;</bpt><ept id="1175ccca-df03-44dc-a10b-7b36c22d7618">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20a1df22-2cea-4dac-ab68-ac727df0b505" xml:space="preserve">
+          <source><bpt id="82f123c8-2309-4c5d-ac09-f1fd8ef0ae12">&lt;linkText&gt;</bpt>How to use Blob Storage from Node.js<ept id="82f123c8-2309-4c5d-ac09-f1fd8ef0ae12">&lt;/linkText&gt;</ept><bpt id="82f123c8-2309-4c5d-ac09-f1fd8ef0ae12">&lt;title&gt;</bpt><ept id="82f123c8-2309-4c5d-ac09-f1fd8ef0ae12">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="82f123c8-2309-4c5d-ac09-f1fd8ef0ae12">&lt;linkText&gt;</bpt>How to use Blob Storage from Node.js<ept id="82f123c8-2309-4c5d-ac09-f1fd8ef0ae12">&lt;/linkText&gt;</ept><bpt id="82f123c8-2309-4c5d-ac09-f1fd8ef0ae12">&lt;title&gt;</bpt><ept id="82f123c8-2309-4c5d-ac09-f1fd8ef0ae12">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f67f331-bc60-4522-933a-4b495f6c744a" xml:space="preserve">
+          <source><bpt id="f9affd0a-1ea6-4eb0-b1f1-e483fe4df018">&lt;linkText&gt;</bpt>How to use Table Storage from Node.js<ept id="f9affd0a-1ea6-4eb0-b1f1-e483fe4df018">&lt;/linkText&gt;</ept><bpt id="f9affd0a-1ea6-4eb0-b1f1-e483fe4df018">&lt;title&gt;</bpt><ept id="f9affd0a-1ea6-4eb0-b1f1-e483fe4df018">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f9affd0a-1ea6-4eb0-b1f1-e483fe4df018">&lt;linkText&gt;</bpt>How to use Table Storage from Node.js<ept id="f9affd0a-1ea6-4eb0-b1f1-e483fe4df018">&lt;/linkText&gt;</ept><bpt id="f9affd0a-1ea6-4eb0-b1f1-e483fe4df018">&lt;title&gt;</bpt><ept id="f9affd0a-1ea6-4eb0-b1f1-e483fe4df018">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3c200a7-b84c-48d1-82a0-09c313f42ee2" xml:space="preserve">
+          <source><bpt id="fb8d26e1-7522-4aa9-b305-bdde91dcd638">&lt;linkText&gt;</bpt>How to use Queue Storage from Node.js<ept id="fb8d26e1-7522-4aa9-b305-bdde91dcd638">&lt;/linkText&gt;</ept><bpt id="fb8d26e1-7522-4aa9-b305-bdde91dcd638">&lt;title&gt;</bpt><ept id="fb8d26e1-7522-4aa9-b305-bdde91dcd638">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fb8d26e1-7522-4aa9-b305-bdde91dcd638">&lt;linkText&gt;</bpt>How to use Queue Storage from Node.js<ept id="fb8d26e1-7522-4aa9-b305-bdde91dcd638">&lt;/linkText&gt;</ept><bpt id="fb8d26e1-7522-4aa9-b305-bdde91dcd638">&lt;title&gt;</bpt><ept id="fb8d26e1-7522-4aa9-b305-bdde91dcd638">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0305ab0d-bdfc-43e5-b2fc-cda25350b26b" xml:space="preserve">
+          <source><bpt id="1bdb6de8-40b4-4fb2-9bc9-b84f5b93dfbb">&lt;linkText&gt;</bpt>How to use Blob Storage from PHP<ept id="1bdb6de8-40b4-4fb2-9bc9-b84f5b93dfbb">&lt;/linkText&gt;</ept><bpt id="1bdb6de8-40b4-4fb2-9bc9-b84f5b93dfbb">&lt;title&gt;</bpt><ept id="1bdb6de8-40b4-4fb2-9bc9-b84f5b93dfbb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1bdb6de8-40b4-4fb2-9bc9-b84f5b93dfbb">&lt;linkText&gt;</bpt>How to use Blob Storage from PHP<ept id="1bdb6de8-40b4-4fb2-9bc9-b84f5b93dfbb">&lt;/linkText&gt;</ept><bpt id="1bdb6de8-40b4-4fb2-9bc9-b84f5b93dfbb">&lt;title&gt;</bpt><ept id="1bdb6de8-40b4-4fb2-9bc9-b84f5b93dfbb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c3f3359-5557-4e62-9f28-bdb1f5073420" xml:space="preserve">
+          <source><bpt id="4f6f2010-3ced-4845-8554-6b68cad95dc5">&lt;linkText&gt;</bpt>How to use Table Storage from PHP<ept id="4f6f2010-3ced-4845-8554-6b68cad95dc5">&lt;/linkText&gt;</ept><bpt id="4f6f2010-3ced-4845-8554-6b68cad95dc5">&lt;title&gt;</bpt><ept id="4f6f2010-3ced-4845-8554-6b68cad95dc5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4f6f2010-3ced-4845-8554-6b68cad95dc5">&lt;linkText&gt;</bpt>How to use Table Storage from PHP<ept id="4f6f2010-3ced-4845-8554-6b68cad95dc5">&lt;/linkText&gt;</ept><bpt id="4f6f2010-3ced-4845-8554-6b68cad95dc5">&lt;title&gt;</bpt><ept id="4f6f2010-3ced-4845-8554-6b68cad95dc5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c26cb2cf-c614-4209-b6cc-9c89c4bb35a5" xml:space="preserve">
+          <source><bpt id="f218fa62-d584-40cb-8bf5-65887fdf51e7">&lt;linkText&gt;</bpt>How to use Queue Storage from PHP<ept id="f218fa62-d584-40cb-8bf5-65887fdf51e7">&lt;/linkText&gt;</ept><bpt id="f218fa62-d584-40cb-8bf5-65887fdf51e7">&lt;title&gt;</bpt><ept id="f218fa62-d584-40cb-8bf5-65887fdf51e7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f218fa62-d584-40cb-8bf5-65887fdf51e7">&lt;linkText&gt;</bpt>How to use Queue Storage from PHP<ept id="f218fa62-d584-40cb-8bf5-65887fdf51e7">&lt;/linkText&gt;</ept><bpt id="f218fa62-d584-40cb-8bf5-65887fdf51e7">&lt;title&gt;</bpt><ept id="f218fa62-d584-40cb-8bf5-65887fdf51e7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3dfd441-6b77-40d3-8661-74cf034121b4" xml:space="preserve">
+          <source><bpt id="48369742-fc7b-4fcd-91dd-e7c8e337b306">&lt;linkText&gt;</bpt>How to use Blob Storage from Ruby<ept id="48369742-fc7b-4fcd-91dd-e7c8e337b306">&lt;/linkText&gt;</ept><bpt id="48369742-fc7b-4fcd-91dd-e7c8e337b306">&lt;title&gt;</bpt><ept id="48369742-fc7b-4fcd-91dd-e7c8e337b306">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="48369742-fc7b-4fcd-91dd-e7c8e337b306">&lt;linkText&gt;</bpt>How to use Blob Storage from Ruby<ept id="48369742-fc7b-4fcd-91dd-e7c8e337b306">&lt;/linkText&gt;</ept><bpt id="48369742-fc7b-4fcd-91dd-e7c8e337b306">&lt;title&gt;</bpt><ept id="48369742-fc7b-4fcd-91dd-e7c8e337b306">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e9435ef-b020-4735-b958-550ac6c74bba" xml:space="preserve">
+          <source><bpt id="fad8a90a-b1ea-4e71-a2c1-5c7413f069ab">&lt;linkText&gt;</bpt>How to use Table Storage from Ruby<ept id="fad8a90a-b1ea-4e71-a2c1-5c7413f069ab">&lt;/linkText&gt;</ept><bpt id="fad8a90a-b1ea-4e71-a2c1-5c7413f069ab">&lt;title&gt;</bpt><ept id="fad8a90a-b1ea-4e71-a2c1-5c7413f069ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fad8a90a-b1ea-4e71-a2c1-5c7413f069ab">&lt;linkText&gt;</bpt>How to use Table Storage from Ruby<ept id="fad8a90a-b1ea-4e71-a2c1-5c7413f069ab">&lt;/linkText&gt;</ept><bpt id="fad8a90a-b1ea-4e71-a2c1-5c7413f069ab">&lt;title&gt;</bpt><ept id="fad8a90a-b1ea-4e71-a2c1-5c7413f069ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e17c2745-eb16-4086-99fa-c9384375f855" xml:space="preserve">
+          <source><bpt id="bb34d686-bf07-43ec-9c4c-6ffa7f12e2f2">&lt;linkText&gt;</bpt>How to use Queue Storage from Ruby<ept id="bb34d686-bf07-43ec-9c4c-6ffa7f12e2f2">&lt;/linkText&gt;</ept><bpt id="bb34d686-bf07-43ec-9c4c-6ffa7f12e2f2">&lt;title&gt;</bpt><ept id="bb34d686-bf07-43ec-9c4c-6ffa7f12e2f2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bb34d686-bf07-43ec-9c4c-6ffa7f12e2f2">&lt;linkText&gt;</bpt>How to use Queue Storage from Ruby<ept id="bb34d686-bf07-43ec-9c4c-6ffa7f12e2f2">&lt;/linkText&gt;</ept><bpt id="bb34d686-bf07-43ec-9c4c-6ffa7f12e2f2">&lt;title&gt;</bpt><ept id="bb34d686-bf07-43ec-9c4c-6ffa7f12e2f2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="935840f1-7b70-4aba-bc6b-9851627d3e1d" xml:space="preserve">
+          <source><bpt id="6963dfeb-7169-4811-b196-a76d400bbf5e">&lt;linkText&gt;</bpt>How to use Blob Storage from Python<ept id="6963dfeb-7169-4811-b196-a76d400bbf5e">&lt;/linkText&gt;</ept><bpt id="6963dfeb-7169-4811-b196-a76d400bbf5e">&lt;title&gt;</bpt><ept id="6963dfeb-7169-4811-b196-a76d400bbf5e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6963dfeb-7169-4811-b196-a76d400bbf5e">&lt;linkText&gt;</bpt>How to use Blob Storage from Python<ept id="6963dfeb-7169-4811-b196-a76d400bbf5e">&lt;/linkText&gt;</ept><bpt id="6963dfeb-7169-4811-b196-a76d400bbf5e">&lt;title&gt;</bpt><ept id="6963dfeb-7169-4811-b196-a76d400bbf5e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da6fcbd8-fd87-4474-9c28-03cfc38480d4" xml:space="preserve">
+          <source><bpt id="2cbfab46-4411-493f-adc1-42a0884dab87">&lt;linkText&gt;</bpt>How to use Table Storage from Python<ept id="2cbfab46-4411-493f-adc1-42a0884dab87">&lt;/linkText&gt;</ept><bpt id="2cbfab46-4411-493f-adc1-42a0884dab87">&lt;title&gt;</bpt><ept id="2cbfab46-4411-493f-adc1-42a0884dab87">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2cbfab46-4411-493f-adc1-42a0884dab87">&lt;linkText&gt;</bpt>How to use Table Storage from Python<ept id="2cbfab46-4411-493f-adc1-42a0884dab87">&lt;/linkText&gt;</ept><bpt id="2cbfab46-4411-493f-adc1-42a0884dab87">&lt;title&gt;</bpt><ept id="2cbfab46-4411-493f-adc1-42a0884dab87">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78ad261c-91be-4d0e-a87e-4ecac745631d" xml:space="preserve">
+          <source><bpt id="32fe4446-676d-4dc1-8881-b5142d5afce1">&lt;linkText&gt;</bpt>How to use Queue Storage from Python<ept id="32fe4446-676d-4dc1-8881-b5142d5afce1">&lt;/linkText&gt;</ept><bpt id="32fe4446-676d-4dc1-8881-b5142d5afce1">&lt;title&gt;</bpt><ept id="32fe4446-676d-4dc1-8881-b5142d5afce1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="32fe4446-676d-4dc1-8881-b5142d5afce1">&lt;linkText&gt;</bpt>How to use Queue Storage from Python<ept id="32fe4446-676d-4dc1-8881-b5142d5afce1">&lt;/linkText&gt;</ept><bpt id="32fe4446-676d-4dc1-8881-b5142d5afce1">&lt;title&gt;</bpt><ept id="32fe4446-676d-4dc1-8881-b5142d5afce1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

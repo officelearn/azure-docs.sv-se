@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b0ea32f5-a074-49fa-8766-806dafc4861c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b0ea32f5-a074-49fa-8766-806dafc4861c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8bc0405c-218a-4c42-91ee-e74f48bf6362">
+        <trans-unit id="775c3a67-7561-4b0d-a8d0-53f48ad2c742" xml:space="preserve">
+          <source>How to use Table storage from Java | Microsoft Azure</source>
+          <target state="new">How to use Table storage from Java | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="cebdbbe0-bea7-4509-897c-667ac8696ee9" xml:space="preserve">
+          <source>Learn how to use the table storage service in Azure. Code samples are written in Java code.</source>
+          <target state="new">Learn how to use the table storage service in Azure. Code samples are written in Java code.</target>
+        </trans-unit>
+        <trans-unit id="d2c0100f-de85-451d-8e4e-e74acbc62eeb" xml:space="preserve">
+          <source><bpt id="b791fe72-58ad-482e-9272-11c6f1adc47d">&lt;token href="../../includes/storage-selector-table-include.md"&gt;</bpt><ept id="b791fe72-58ad-482e-9272-11c6f1adc47d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b791fe72-58ad-482e-9272-11c6f1adc47d">&lt;token href="../../includes/storage-selector-table-include.md"&gt;</bpt><ept id="b791fe72-58ad-482e-9272-11c6f1adc47d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20a1aa79-8f6c-4561-b8a2-7a05cc3df79b" xml:space="preserve">
+          <source>This guide will show you how to perform common scenarios using the Azure Table storage service.</source>
+          <target state="new">This guide will show you how to perform common scenarios using the Azure Table storage service.</target>
+        </trans-unit>
+        <trans-unit id="f261d530-2605-47ca-9fbd-a293d6869de2" xml:space="preserve">
+          <source>The samples are written in Java and use the <bpt id="5ad92dee-7494-4980-ade6-56d99a901a0b">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="5ad92dee-7494-4980-ade6-56d99a901a0b">&lt;/linkText&gt;</ept><bpt id="5ad92dee-7494-4980-ade6-56d99a901a0b">&lt;title&gt;</bpt><ept id="5ad92dee-7494-4980-ade6-56d99a901a0b">&lt;/title&gt;</ept>.</source>
+          <target state="new">The samples are written in Java and use the <bpt id="5ad92dee-7494-4980-ade6-56d99a901a0b">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="5ad92dee-7494-4980-ade6-56d99a901a0b">&lt;/linkText&gt;</ept><bpt id="5ad92dee-7494-4980-ade6-56d99a901a0b">&lt;title&gt;</bpt><ept id="5ad92dee-7494-4980-ade6-56d99a901a0b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ad48bf7-62e3-4084-b0f7-c269c06cb3e9" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="90d2285d-b394-4ea3-a3f7-425bae22bb52">&lt;strong&gt;</bpt>creating<ept id="90d2285d-b394-4ea3-a3f7-425bae22bb52">&lt;/strong&gt;</ept>, <bpt id="e83b4bfd-6961-42be-8073-97084ced683f">&lt;strong&gt;</bpt>listing<ept id="e83b4bfd-6961-42be-8073-97084ced683f">&lt;/strong&gt;</ept>, and <bpt id="a90f5315-31e1-4f37-b00e-c0115fe09fd7">&lt;strong&gt;</bpt>deleting<ept id="a90f5315-31e1-4f37-b00e-c0115fe09fd7">&lt;/strong&gt;</ept> tables, as well as <bpt id="0f254712-4faf-4d5a-91b1-17d56687f604">&lt;strong&gt;</bpt>inserting<ept id="0f254712-4faf-4d5a-91b1-17d56687f604">&lt;/strong&gt;</ept>, <bpt id="8aadaf79-2c43-4945-912c-658e6b26432e">&lt;strong&gt;</bpt>querying<ept id="8aadaf79-2c43-4945-912c-658e6b26432e">&lt;/strong&gt;</ept>, <bpt id="60d2f16a-fed5-4371-ac65-5d447d5d9640">&lt;strong&gt;</bpt>modifying<ept id="60d2f16a-fed5-4371-ac65-5d447d5d9640">&lt;/strong&gt;</ept>, and <bpt id="77c163c0-c6c2-4df7-8d30-346579e8c5fe">&lt;strong&gt;</bpt>deleting<ept id="77c163c0-c6c2-4df7-8d30-346579e8c5fe">&lt;/strong&gt;</ept> entities in a table.</source>
+          <target state="new">The scenarios covered include <bpt id="90d2285d-b394-4ea3-a3f7-425bae22bb52">&lt;strong&gt;</bpt>creating<ept id="90d2285d-b394-4ea3-a3f7-425bae22bb52">&lt;/strong&gt;</ept>, <bpt id="e83b4bfd-6961-42be-8073-97084ced683f">&lt;strong&gt;</bpt>listing<ept id="e83b4bfd-6961-42be-8073-97084ced683f">&lt;/strong&gt;</ept>, and <bpt id="a90f5315-31e1-4f37-b00e-c0115fe09fd7">&lt;strong&gt;</bpt>deleting<ept id="a90f5315-31e1-4f37-b00e-c0115fe09fd7">&lt;/strong&gt;</ept> tables, as well as <bpt id="0f254712-4faf-4d5a-91b1-17d56687f604">&lt;strong&gt;</bpt>inserting<ept id="0f254712-4faf-4d5a-91b1-17d56687f604">&lt;/strong&gt;</ept>, <bpt id="8aadaf79-2c43-4945-912c-658e6b26432e">&lt;strong&gt;</bpt>querying<ept id="8aadaf79-2c43-4945-912c-658e6b26432e">&lt;/strong&gt;</ept>, <bpt id="60d2f16a-fed5-4371-ac65-5d447d5d9640">&lt;strong&gt;</bpt>modifying<ept id="60d2f16a-fed5-4371-ac65-5d447d5d9640">&lt;/strong&gt;</ept>, and <bpt id="77c163c0-c6c2-4df7-8d30-346579e8c5fe">&lt;strong&gt;</bpt>deleting<ept id="77c163c0-c6c2-4df7-8d30-346579e8c5fe">&lt;/strong&gt;</ept> entities in a table.</target>
+        </trans-unit>
+        <trans-unit id="2151c857-a575-4d20-9547-88e991278dee" xml:space="preserve">
+          <source>For more information on tables, see the <bpt id="4e938bb1-945a-468b-b842-85e6c631cce3">&lt;linkText&gt;</bpt>Next steps<ept id="4e938bb1-945a-468b-b842-85e6c631cce3">&lt;/linkText&gt;</ept><bpt id="4e938bb1-945a-468b-b842-85e6c631cce3">&lt;title&gt;</bpt><ept id="4e938bb1-945a-468b-b842-85e6c631cce3">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information on tables, see the <bpt id="4e938bb1-945a-468b-b842-85e6c631cce3">&lt;linkText&gt;</bpt>Next steps<ept id="4e938bb1-945a-468b-b842-85e6c631cce3">&lt;/linkText&gt;</ept><bpt id="4e938bb1-945a-468b-b842-85e6c631cce3">&lt;title&gt;</bpt><ept id="4e938bb1-945a-468b-b842-85e6c631cce3">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="ccb59ebf-1121-44f0-8b26-628f36b1a43c" xml:space="preserve">
+          <source>Note: An SDK is available for developers who are using Azure Storage on Android devices.</source>
+          <target state="new">Note: An SDK is available for developers who are using Azure Storage on Android devices.</target>
+        </trans-unit>
+        <trans-unit id="7e674eda-0896-48f5-91e9-3873bb1cc05b" xml:space="preserve">
+          <source>For more information, see the <bpt id="f4322d49-1482-48d2-ba1d-3dc3ea713e7f">&lt;linkText&gt;</bpt>Azure Storage SDK for Android<ept id="f4322d49-1482-48d2-ba1d-3dc3ea713e7f">&lt;/linkText&gt;</ept><bpt id="f4322d49-1482-48d2-ba1d-3dc3ea713e7f">&lt;title&gt;</bpt><ept id="f4322d49-1482-48d2-ba1d-3dc3ea713e7f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="f4322d49-1482-48d2-ba1d-3dc3ea713e7f">&lt;linkText&gt;</bpt>Azure Storage SDK for Android<ept id="f4322d49-1482-48d2-ba1d-3dc3ea713e7f">&lt;/linkText&gt;</ept><bpt id="f4322d49-1482-48d2-ba1d-3dc3ea713e7f">&lt;title&gt;</bpt><ept id="f4322d49-1482-48d2-ba1d-3dc3ea713e7f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="76434503-e665-41fb-b71d-9254af82c517" xml:space="preserve">
+          <source><bpt id="97f3dc22-6fba-470e-bdab-14e93c15360f">&lt;token href="../../includes/storage-table-concepts-include.md"&gt;</bpt><ept id="97f3dc22-6fba-470e-bdab-14e93c15360f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="97f3dc22-6fba-470e-bdab-14e93c15360f">&lt;token href="../../includes/storage-table-concepts-include.md"&gt;</bpt><ept id="97f3dc22-6fba-470e-bdab-14e93c15360f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6573364-57b5-45c3-b79f-0e0492d3b6f5" xml:space="preserve">
+          <source><bpt id="1035fcb7-bf78-4695-a40f-d3a8dcc44bc3">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="1035fcb7-bf78-4695-a40f-d3a8dcc44bc3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1035fcb7-bf78-4695-a40f-d3a8dcc44bc3">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="1035fcb7-bf78-4695-a40f-d3a8dcc44bc3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfdbfd96-944c-4994-84bb-ac1982d3fe61" xml:space="preserve">
+          <source>In this guide, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.</source>
+          <target state="new">In this guide, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.</target>
+        </trans-unit>
+        <trans-unit id="f885332d-7950-4353-a18d-d42a3844c4e5" xml:space="preserve">
+          <source>To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription.</source>
+          <target state="new">To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="99cddb91-9bde-4903-9320-bf0ba4c98244" xml:space="preserve">
+          <source>Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the <bpt id="d2f3d0c3-7668-45cc-b525-c7223c0f920e">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="d2f3d0c3-7668-45cc-b525-c7223c0f920e">&lt;/linkText&gt;</ept><bpt id="d2f3d0c3-7668-45cc-b525-c7223c0f920e">&lt;title&gt;</bpt><ept id="d2f3d0c3-7668-45cc-b525-c7223c0f920e">&lt;/title&gt;</ept> repository on GitHub.</source>
+          <target state="new">Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the <bpt id="d2f3d0c3-7668-45cc-b525-c7223c0f920e">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="d2f3d0c3-7668-45cc-b525-c7223c0f920e">&lt;/linkText&gt;</ept><bpt id="d2f3d0c3-7668-45cc-b525-c7223c0f920e">&lt;title&gt;</bpt><ept id="d2f3d0c3-7668-45cc-b525-c7223c0f920e">&lt;/title&gt;</ept> repository on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="a0404895-b4f7-4e1f-a779-54975347ce06" xml:space="preserve">
+          <source>If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository.</source>
+          <target state="new">If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository.</target>
+        </trans-unit>
+        <trans-unit id="edfcd2b8-4122-4792-b05a-7c21ff390804" xml:space="preserve">
+          <source>Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.</source>
+          <target state="new">Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.</target>
+        </trans-unit>
+        <trans-unit id="691b613f-65b2-4db9-b919-f11f85be17ac" xml:space="preserve">
+          <source>Add the following import statements to the top of the Java file where you want to use Microsoft Azure storage APIs to access tables:</source>
+          <target state="new">Add the following import statements to the top of the Java file where you want to use Microsoft Azure storage APIs to access tables:</target>
+        </trans-unit>
+        <trans-unit id="f7dd4a74-fa08-4ac6-8477-dc2eda8b5227" xml:space="preserve">
+          <source>An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services.</source>
+          <target state="new">An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services.</target>
+        </trans-unit>
+        <trans-unit id="d7cfde5e-fb2d-47c2-8e73-3819984f347b" xml:space="preserve">
+          <source>When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the <bpt id="972f84a4-4fd2-4eb0-8b2d-4015f5bc76fe">&lt;em&gt;</bpt>AccountName<ept id="972f84a4-4fd2-4eb0-8b2d-4015f5bc76fe">&lt;/em&gt;</ept> and <bpt id="a93d8d86-262f-4503-9941-ef5882703cab">&lt;em&gt;</bpt>AccountKey<ept id="a93d8d86-262f-4503-9941-ef5882703cab">&lt;/em&gt;</ept> values.</source>
+          <target state="new">When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the <bpt id="972f84a4-4fd2-4eb0-8b2d-4015f5bc76fe">&lt;em&gt;</bpt>AccountName<ept id="972f84a4-4fd2-4eb0-8b2d-4015f5bc76fe">&lt;/em&gt;</ept> and <bpt id="a93d8d86-262f-4503-9941-ef5882703cab">&lt;em&gt;</bpt>AccountKey<ept id="a93d8d86-262f-4503-9941-ef5882703cab">&lt;/em&gt;</ept> values.</target>
+        </trans-unit>
+        <trans-unit id="2d1ccd80-e6ab-4675-ac03-96f099b6da6b" xml:space="preserve">
+          <source>This example shows how you can declare a static field to hold the connection string:</source>
+          <target state="new">This example shows how you can declare a static field to hold the connection string:</target>
+        </trans-unit>
+        <trans-unit id="4260bb69-934d-4ded-9441-adb4b4f9af46" xml:space="preserve">
+          <source>In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, <bpt id="2fb38c09-bafb-44b5-a03a-e37dd68cdd0a">&lt;em&gt;</bpt>ServiceConfiguration.cscfg<ept id="2fb38c09-bafb-44b5-a03a-e37dd68cdd0a">&lt;/em&gt;</ept>, and can be accessed with a call to the <bpt id="094e9f38-a5a1-4dee-9e4d-a7de9a726b22">&lt;strong&gt;</bpt>RoleEnvironment.getConfigurationSettings<ept id="094e9f38-a5a1-4dee-9e4d-a7de9a726b22">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, <bpt id="2fb38c09-bafb-44b5-a03a-e37dd68cdd0a">&lt;em&gt;</bpt>ServiceConfiguration.cscfg<ept id="2fb38c09-bafb-44b5-a03a-e37dd68cdd0a">&lt;/em&gt;</ept>, and can be accessed with a call to the <bpt id="094e9f38-a5a1-4dee-9e4d-a7de9a726b22">&lt;strong&gt;</bpt>RoleEnvironment.getConfigurationSettings<ept id="094e9f38-a5a1-4dee-9e4d-a7de9a726b22">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="c2f2661f-886d-44ba-a6a4-84d3fbe62aad" xml:space="preserve">
+          <source>Here's an example of getting the connection string from a <bpt id="48c34f3a-a5e9-4353-8fee-d06b712a938e">&lt;strong&gt;</bpt>Setting<ept id="48c34f3a-a5e9-4353-8fee-d06b712a938e">&lt;/strong&gt;</ept> element named <bpt id="052e7fb6-fc77-4ec2-9da4-a8f8b64af84a">&lt;em&gt;</bpt>StorageConnectionString<ept id="052e7fb6-fc77-4ec2-9da4-a8f8b64af84a">&lt;/em&gt;</ept> in the service configuration file:</source>
+          <target state="new">Here's an example of getting the connection string from a <bpt id="48c34f3a-a5e9-4353-8fee-d06b712a938e">&lt;strong&gt;</bpt>Setting<ept id="48c34f3a-a5e9-4353-8fee-d06b712a938e">&lt;/strong&gt;</ept> element named <bpt id="052e7fb6-fc77-4ec2-9da4-a8f8b64af84a">&lt;em&gt;</bpt>StorageConnectionString<ept id="052e7fb6-fc77-4ec2-9da4-a8f8b64af84a">&lt;/em&gt;</ept> in the service configuration file:</target>
+        </trans-unit>
+        <trans-unit id="246fdba9-ee95-4770-94e0-72890635fa31" xml:space="preserve">
+          <source>The following samples assume that you have used one of these two methods to get the storage connection string.</source>
+          <target state="new">The following samples assume that you have used one of these two methods to get the storage connection string.</target>
+        </trans-unit>
+        <trans-unit id="2524c26c-a963-406f-aacd-b7a34fba14b9" xml:space="preserve">
+          <source>A <bpt id="1fa909ab-78fe-44fc-ac58-24cfdfe75020">&lt;strong&gt;</bpt>CloudTableClient<ept id="1fa909ab-78fe-44fc-ac58-24cfdfe75020">&lt;/strong&gt;</ept> object lets you get reference objects for tables
+and entities.</source>
+          <target state="new">A <bpt id="1fa909ab-78fe-44fc-ac58-24cfdfe75020">&lt;strong&gt;</bpt>CloudTableClient<ept id="1fa909ab-78fe-44fc-ac58-24cfdfe75020">&lt;/strong&gt;</ept> object lets you get reference objects for tables
+and entities.</target>
+        </trans-unit>
+        <trans-unit id="f9011348-aeb2-4b19-8000-b486091d124f" xml:space="preserve">
+          <source>The following code creates a <bpt id="d6c415e0-84f0-4f01-8164-e5c9351a7416">&lt;strong&gt;</bpt>CloudTableClient<ept id="d6c415e0-84f0-4f01-8164-e5c9351a7416">&lt;/strong&gt;</ept> object
+and uses it to create a new <bpt id="d326a8a1-9efd-421c-b95f-36d0710b3f9b">&lt;strong&gt;</bpt>CloudTable<ept id="d326a8a1-9efd-421c-b95f-36d0710b3f9b">&lt;/strong&gt;</ept> object which represents a table named "people".</source>
+          <target state="new">The following code creates a <bpt id="d6c415e0-84f0-4f01-8164-e5c9351a7416">&lt;strong&gt;</bpt>CloudTableClient<ept id="d6c415e0-84f0-4f01-8164-e5c9351a7416">&lt;/strong&gt;</ept> object
+and uses it to create a new <bpt id="d326a8a1-9efd-421c-b95f-36d0710b3f9b">&lt;strong&gt;</bpt>CloudTable<ept id="d326a8a1-9efd-421c-b95f-36d0710b3f9b">&lt;/strong&gt;</ept> object which represents a table named "people".</target>
+        </trans-unit>
+        <trans-unit id="50d67bc9-7be8-4ffa-929f-39fb096140b7" xml:space="preserve">
+          <source>(Note: There are additional ways to create <bpt id="a04d2b3e-d7c9-4608-8ec0-7118baeceae9">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="a04d2b3e-d7c9-4608-8ec0-7118baeceae9">&lt;/strong&gt;</ept> objects; for more information, see <bpt id="b69c2bbc-0db7-4b8a-a779-ad62f63e4c86">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="b69c2bbc-0db7-4b8a-a779-ad62f63e4c86">&lt;/strong&gt;</ept> in the [Azure Storage Client SDK Reference].)</source>
+          <target state="new">(Note: There are additional ways to create <bpt id="a04d2b3e-d7c9-4608-8ec0-7118baeceae9">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="a04d2b3e-d7c9-4608-8ec0-7118baeceae9">&lt;/strong&gt;</ept> objects; for more information, see <bpt id="b69c2bbc-0db7-4b8a-a779-ad62f63e4c86">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="b69c2bbc-0db7-4b8a-a779-ad62f63e4c86">&lt;/strong&gt;</ept> in the [Azure Storage Client SDK Reference].)</target>
+        </trans-unit>
+        <trans-unit id="14342579-2af0-4542-83ec-5178af4ec3bd" xml:space="preserve">
+          <source>To get a list of tables, call the <bpt id="687b0e8e-edca-49dc-9d45-3554105d9076">&lt;strong&gt;</bpt>CloudTableClient.listTables()<ept id="687b0e8e-edca-49dc-9d45-3554105d9076">&lt;/strong&gt;</ept> method to retrieve an iterable list of table names.</source>
+          <target state="new">To get a list of tables, call the <bpt id="687b0e8e-edca-49dc-9d45-3554105d9076">&lt;strong&gt;</bpt>CloudTableClient.listTables()<ept id="687b0e8e-edca-49dc-9d45-3554105d9076">&lt;/strong&gt;</ept> method to retrieve an iterable list of table names.</target>
+        </trans-unit>
+        <trans-unit id="762b2581-3dc5-4abb-960b-77a1f26c1a36" xml:space="preserve">
+          <source>Entities map to Java objects using a custom class implementing <bpt id="a113699a-ea97-4f97-b3e9-64b22f9bc499">&lt;strong&gt;</bpt>TableEntity<ept id="a113699a-ea97-4f97-b3e9-64b22f9bc499">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Entities map to Java objects using a custom class implementing <bpt id="a113699a-ea97-4f97-b3e9-64b22f9bc499">&lt;strong&gt;</bpt>TableEntity<ept id="a113699a-ea97-4f97-b3e9-64b22f9bc499">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c36d8ba-49dc-46c0-921a-2b700d23c6dc" xml:space="preserve">
+          <source>For convenience, the <bpt id="8fcec843-5198-4eab-b4ab-8dc80690e419">&lt;strong&gt;</bpt>TableServiceEntity<ept id="8fcec843-5198-4eab-b4ab-8dc80690e419">&lt;/strong&gt;</ept> class implements <bpt id="9c05b1be-f632-4068-94a9-a85b04b5484c">&lt;strong&gt;</bpt>TableEntity<ept id="9c05b1be-f632-4068-94a9-a85b04b5484c">&lt;/strong&gt;</ept> and uses reflection to map properties to getter and setter methods named for the properties.</source>
+          <target state="new">For convenience, the <bpt id="8fcec843-5198-4eab-b4ab-8dc80690e419">&lt;strong&gt;</bpt>TableServiceEntity<ept id="8fcec843-5198-4eab-b4ab-8dc80690e419">&lt;/strong&gt;</ept> class implements <bpt id="9c05b1be-f632-4068-94a9-a85b04b5484c">&lt;strong&gt;</bpt>TableEntity<ept id="9c05b1be-f632-4068-94a9-a85b04b5484c">&lt;/strong&gt;</ept> and uses reflection to map properties to getter and setter methods named for the properties.</target>
+        </trans-unit>
+        <trans-unit id="dec1c99d-e62c-4f46-8d06-f5b356735d3a" xml:space="preserve">
+          <source>To add an entity to a table, first create a class that defines the properties of your entity.</source>
+          <target state="new">To add an entity to a table, first create a class that defines the properties of your entity.</target>
+        </trans-unit>
+        <trans-unit id="2841a7f0-82b1-4f03-830b-f5c6b5de78c4" xml:space="preserve">
+          <source>The following code defines an entity class which uses the customer's first name as the row key, and last name as the partition key.</source>
+          <target state="new">The following code defines an entity class which uses the customer's first name as the row key, and last name as the partition key.</target>
+        </trans-unit>
+        <trans-unit id="4009563c-2514-4b50-9ff1-05cff85d10e5" xml:space="preserve">
+          <source>Together, an entity's partition and row key uniquely identify the entity in the table.</source>
+          <target state="new">Together, an entity's partition and row key uniquely identify the entity in the table.</target>
+        </trans-unit>
+        <trans-unit id="75f7086e-8495-4ed9-8bf8-0b0dc82748fc" xml:space="preserve">
+          <source>Entities with the same partition key can be queried faster than those with different partition keys.</source>
+          <target state="new">Entities with the same partition key can be queried faster than those with different partition keys.</target>
+        </trans-unit>
+        <trans-unit id="3e9e1ee9-0e83-458c-917d-d8a9b35ce8c8" xml:space="preserve">
+          <source>Table operations involving entities require a <bpt id="ddc93067-8ca5-4fec-b37f-9b1a555887b8">&lt;strong&gt;</bpt>TableOperation<ept id="ddc93067-8ca5-4fec-b37f-9b1a555887b8">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">Table operations involving entities require a <bpt id="ddc93067-8ca5-4fec-b37f-9b1a555887b8">&lt;strong&gt;</bpt>TableOperation<ept id="ddc93067-8ca5-4fec-b37f-9b1a555887b8">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="2484dfce-940b-4308-af50-bf4317d82e91" xml:space="preserve">
+          <source>This object defines the operation to be performed on an entity, which can be executed with a <bpt id="0e39028c-c840-48fc-bc21-fe8c4aab3ca6">&lt;strong&gt;</bpt>CloudTable<ept id="0e39028c-c840-48fc-bc21-fe8c4aab3ca6">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">This object defines the operation to be performed on an entity, which can be executed with a <bpt id="0e39028c-c840-48fc-bc21-fe8c4aab3ca6">&lt;strong&gt;</bpt>CloudTable<ept id="0e39028c-c840-48fc-bc21-fe8c4aab3ca6">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="5b885d1d-9cf6-40aa-a06d-753e44f2e697" xml:space="preserve">
+          <source>The following code creates a new instance of the <bpt id="e9992b0c-76a5-4999-b9cb-6c1d1c4df5de">&lt;strong&gt;</bpt>CustomerEntity<ept id="e9992b0c-76a5-4999-b9cb-6c1d1c4df5de">&lt;/strong&gt;</ept> class with some customer data to be stored.</source>
+          <target state="new">The following code creates a new instance of the <bpt id="e9992b0c-76a5-4999-b9cb-6c1d1c4df5de">&lt;strong&gt;</bpt>CustomerEntity<ept id="e9992b0c-76a5-4999-b9cb-6c1d1c4df5de">&lt;/strong&gt;</ept> class with some customer data to be stored.</target>
+        </trans-unit>
+        <trans-unit id="60ef0b69-5474-462e-9206-75c74ff94715" xml:space="preserve">
+          <source>The code next calls <bpt id="a986f1ec-a888-4153-b9ec-06ade5b8b52d">&lt;strong&gt;</bpt>TableOperation.insertOrReplace<ept id="a986f1ec-a888-4153-b9ec-06ade5b8b52d">&lt;/strong&gt;</ept> to create a <bpt id="5466296b-a5b6-4d67-86e5-545dbcece8f2">&lt;strong&gt;</bpt>TableOperation<ept id="5466296b-a5b6-4d67-86e5-545dbcece8f2">&lt;/strong&gt;</ept> object to insert an entity into a table, and associates the new <bpt id="c99b2666-4e9c-4dc1-b999-d11b5968f254">&lt;strong&gt;</bpt>CustomerEntity<ept id="c99b2666-4e9c-4dc1-b999-d11b5968f254">&lt;/strong&gt;</ept> with it.</source>
+          <target state="new">The code next calls <bpt id="a986f1ec-a888-4153-b9ec-06ade5b8b52d">&lt;strong&gt;</bpt>TableOperation.insertOrReplace<ept id="a986f1ec-a888-4153-b9ec-06ade5b8b52d">&lt;/strong&gt;</ept> to create a <bpt id="5466296b-a5b6-4d67-86e5-545dbcece8f2">&lt;strong&gt;</bpt>TableOperation<ept id="5466296b-a5b6-4d67-86e5-545dbcece8f2">&lt;/strong&gt;</ept> object to insert an entity into a table, and associates the new <bpt id="c99b2666-4e9c-4dc1-b999-d11b5968f254">&lt;strong&gt;</bpt>CustomerEntity<ept id="c99b2666-4e9c-4dc1-b999-d11b5968f254">&lt;/strong&gt;</ept> with it.</target>
+        </trans-unit>
+        <trans-unit id="9f30628f-4aea-4d22-817c-0639ec3643ac" xml:space="preserve">
+          <source>Finally, the code calls the <bpt id="6209112c-c0dd-4f62-9ec4-1aee65d4b13b">&lt;strong&gt;</bpt>execute<ept id="6209112c-c0dd-4f62-9ec4-1aee65d4b13b">&lt;/strong&gt;</ept> method on the <bpt id="187fab84-571c-46e0-8caa-e3b718ff9097">&lt;strong&gt;</bpt>CloudTable<ept id="187fab84-571c-46e0-8caa-e3b718ff9097">&lt;/strong&gt;</ept> object, specifying the "people" table and the new <bpt id="a06eaac2-b79b-41c1-9837-5d9436dd0d43">&lt;strong&gt;</bpt>TableOperation<ept id="a06eaac2-b79b-41c1-9837-5d9436dd0d43">&lt;/strong&gt;</ept>, which then sends a request to the storage service to insert the new customer entity into the "people" table, or replace the entity if it already exists.</source>
+          <target state="new">Finally, the code calls the <bpt id="6209112c-c0dd-4f62-9ec4-1aee65d4b13b">&lt;strong&gt;</bpt>execute<ept id="6209112c-c0dd-4f62-9ec4-1aee65d4b13b">&lt;/strong&gt;</ept> method on the <bpt id="187fab84-571c-46e0-8caa-e3b718ff9097">&lt;strong&gt;</bpt>CloudTable<ept id="187fab84-571c-46e0-8caa-e3b718ff9097">&lt;/strong&gt;</ept> object, specifying the "people" table and the new <bpt id="a06eaac2-b79b-41c1-9837-5d9436dd0d43">&lt;strong&gt;</bpt>TableOperation<ept id="a06eaac2-b79b-41c1-9837-5d9436dd0d43">&lt;/strong&gt;</ept>, which then sends a request to the storage service to insert the new customer entity into the "people" table, or replace the entity if it already exists.</target>
+        </trans-unit>
+        <trans-unit id="8fe7a907-4181-4f9a-b24d-80623fd9723a" xml:space="preserve">
+          <source>You can insert a batch of entities to the table service in one write operation.</source>
+          <target state="new">You can insert a batch of entities to the table service in one write operation.</target>
+        </trans-unit>
+        <trans-unit id="171770d0-4c3b-457d-a105-e6efd9ac75e0" xml:space="preserve">
+          <source>The following code creates a <bpt id="daa1702c-e87d-4375-a73d-5da5cb329a82">&lt;strong&gt;</bpt>TableBatchOperation<ept id="daa1702c-e87d-4375-a73d-5da5cb329a82">&lt;/strong&gt;</ept> object, then adds three insert operations to it.</source>
+          <target state="new">The following code creates a <bpt id="daa1702c-e87d-4375-a73d-5da5cb329a82">&lt;strong&gt;</bpt>TableBatchOperation<ept id="daa1702c-e87d-4375-a73d-5da5cb329a82">&lt;/strong&gt;</ept> object, then adds three insert operations to it.</target>
+        </trans-unit>
+        <trans-unit id="175babb5-95b9-4ad2-ad19-05a42479802f" xml:space="preserve">
+          <source>Each insert operation is added by creating a new entity object, setting its values, and then calling the <bpt id="1b3e5381-ac42-4f32-a8a9-b9969865b674">&lt;strong&gt;</bpt>insert<ept id="1b3e5381-ac42-4f32-a8a9-b9969865b674">&lt;/strong&gt;</ept> method on the <bpt id="b9699e50-dfc7-4521-9f27-20aa04ab3bf4">&lt;strong&gt;</bpt>TableBatchOperation<ept id="b9699e50-dfc7-4521-9f27-20aa04ab3bf4">&lt;/strong&gt;</ept> object to associate the entity with a new insert operation.</source>
+          <target state="new">Each insert operation is added by creating a new entity object, setting its values, and then calling the <bpt id="1b3e5381-ac42-4f32-a8a9-b9969865b674">&lt;strong&gt;</bpt>insert<ept id="1b3e5381-ac42-4f32-a8a9-b9969865b674">&lt;/strong&gt;</ept> method on the <bpt id="b9699e50-dfc7-4521-9f27-20aa04ab3bf4">&lt;strong&gt;</bpt>TableBatchOperation<ept id="b9699e50-dfc7-4521-9f27-20aa04ab3bf4">&lt;/strong&gt;</ept> object to associate the entity with a new insert operation.</target>
+        </trans-unit>
+        <trans-unit id="af091694-d1ef-4859-b6a9-802d799a2d3a" xml:space="preserve">
+          <source>Then the code calls <bpt id="a96f7338-6f62-4230-9d5f-e2ec0df2b08e">&lt;strong&gt;</bpt>execute<ept id="a96f7338-6f62-4230-9d5f-e2ec0df2b08e">&lt;/strong&gt;</ept> on the <bpt id="27921905-bf8d-4e08-918d-076432b83e5a">&lt;strong&gt;</bpt>CloudTable<ept id="27921905-bf8d-4e08-918d-076432b83e5a">&lt;/strong&gt;</ept> object, specifying the "people" table and the <bpt id="ffc3e3d9-0570-4d6d-a4eb-0a690f44a276">&lt;strong&gt;</bpt>TableBatchOperation<ept id="ffc3e3d9-0570-4d6d-a4eb-0a690f44a276">&lt;/strong&gt;</ept> object, which sends the batch of table operations to the storage service in a single request.</source>
+          <target state="new">Then the code calls <bpt id="a96f7338-6f62-4230-9d5f-e2ec0df2b08e">&lt;strong&gt;</bpt>execute<ept id="a96f7338-6f62-4230-9d5f-e2ec0df2b08e">&lt;/strong&gt;</ept> on the <bpt id="27921905-bf8d-4e08-918d-076432b83e5a">&lt;strong&gt;</bpt>CloudTable<ept id="27921905-bf8d-4e08-918d-076432b83e5a">&lt;/strong&gt;</ept> object, specifying the "people" table and the <bpt id="ffc3e3d9-0570-4d6d-a4eb-0a690f44a276">&lt;strong&gt;</bpt>TableBatchOperation<ept id="ffc3e3d9-0570-4d6d-a4eb-0a690f44a276">&lt;/strong&gt;</ept> object, which sends the batch of table operations to the storage service in a single request.</target>
+        </trans-unit>
+        <trans-unit id="8d4f9c7b-f537-40df-bca5-c5fb388a04af" xml:space="preserve">
+          <source>Some things to note on batch operations:</source>
+          <target state="new">Some things to note on batch operations:</target>
+        </trans-unit>
+        <trans-unit id="21ef2a56-e37d-4b70-8a31-33f944a62d04" xml:space="preserve">
+          <source>You can perform up to 100 insert, delete, merge, replace, insert or merge, and insert or replace operations in any combination in a single batch.</source>
+          <target state="new">You can perform up to 100 insert, delete, merge, replace, insert or merge, and insert or replace operations in any combination in a single batch.</target>
+        </trans-unit>
+        <trans-unit id="63c0fb6e-4a15-477b-8ed1-8a3829e2a752" xml:space="preserve">
+          <source>A batch operation can have a retrieve operation, if it is the only operation in the batch.</source>
+          <target state="new">A batch operation can have a retrieve operation, if it is the only operation in the batch.</target>
+        </trans-unit>
+        <trans-unit id="a25eade6-49f8-4292-bdbf-75c27a83739c" xml:space="preserve">
+          <source>All entities in a single batch operation must have the same partition key.</source>
+          <target state="new">All entities in a single batch operation must have the same partition key.</target>
+        </trans-unit>
+        <trans-unit id="3ad23886-988a-4d3e-bae9-ab542d9516c4" xml:space="preserve">
+          <source>A batch operation is limited to a 4MB data payload.</source>
+          <target state="new">A batch operation is limited to a 4MB data payload.</target>
+        </trans-unit>
+        <trans-unit id="fe52b186-70c1-42c1-b697-11b14734c447" xml:space="preserve">
+          <source>To query a table for entities in a partition, you can use a <bpt id="5bb2bbc8-a646-436e-b227-4a4cc0723261">&lt;strong&gt;</bpt>TableQuery<ept id="5bb2bbc8-a646-436e-b227-4a4cc0723261">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To query a table for entities in a partition, you can use a <bpt id="5bb2bbc8-a646-436e-b227-4a4cc0723261">&lt;strong&gt;</bpt>TableQuery<ept id="5bb2bbc8-a646-436e-b227-4a4cc0723261">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92c0ed65-b6cb-4eb3-aaea-bdb8668b2ab7" xml:space="preserve">
+          <source>Call <bpt id="7360df0c-2db8-4c7e-a12a-8ef782246833">&lt;strong&gt;</bpt>TableQuery.from<ept id="7360df0c-2db8-4c7e-a12a-8ef782246833">&lt;/strong&gt;</ept> to create a query on a particular table that returns a specified result type.</source>
+          <target state="new">Call <bpt id="7360df0c-2db8-4c7e-a12a-8ef782246833">&lt;strong&gt;</bpt>TableQuery.from<ept id="7360df0c-2db8-4c7e-a12a-8ef782246833">&lt;/strong&gt;</ept> to create a query on a particular table that returns a specified result type.</target>
+        </trans-unit>
+        <trans-unit id="8c47950b-db47-4dea-bb2b-d44fee073ff9" xml:space="preserve">
+          <source>The following code specifies a filter for entities where 'Smith' is the partition key.</source>
+          <target state="new">The following code specifies a filter for entities where 'Smith' is the partition key.</target>
+        </trans-unit>
+        <trans-unit id="6d489a2a-a027-43d3-a632-52bc6c903ddb" xml:space="preserve">
+          <source><bpt id="2888c8d8-8c2d-4257-a26b-5450a00de35b">&lt;strong&gt;</bpt>TableQuery.generateFilterCondition<ept id="2888c8d8-8c2d-4257-a26b-5450a00de35b">&lt;/strong&gt;</ept> is a helper method to create filters for queries.</source>
+          <target state="new"><bpt id="2888c8d8-8c2d-4257-a26b-5450a00de35b">&lt;strong&gt;</bpt>TableQuery.generateFilterCondition<ept id="2888c8d8-8c2d-4257-a26b-5450a00de35b">&lt;/strong&gt;</ept> is a helper method to create filters for queries.</target>
+        </trans-unit>
+        <trans-unit id="2258cff7-68ef-4666-be16-8f8a6198b353" xml:space="preserve">
+          <source>Call <bpt id="0536a8df-c7ff-4cea-9058-3ac85721ed7a">&lt;strong&gt;</bpt>where<ept id="0536a8df-c7ff-4cea-9058-3ac85721ed7a">&lt;/strong&gt;</ept> on the reference returned by the <bpt id="727f314b-9bb2-4d96-8c3b-a74aac894528">&lt;strong&gt;</bpt>TableQuery.from<ept id="727f314b-9bb2-4d96-8c3b-a74aac894528">&lt;/strong&gt;</ept> method to apply the filter to the query.</source>
+          <target state="new">Call <bpt id="0536a8df-c7ff-4cea-9058-3ac85721ed7a">&lt;strong&gt;</bpt>where<ept id="0536a8df-c7ff-4cea-9058-3ac85721ed7a">&lt;/strong&gt;</ept> on the reference returned by the <bpt id="727f314b-9bb2-4d96-8c3b-a74aac894528">&lt;strong&gt;</bpt>TableQuery.from<ept id="727f314b-9bb2-4d96-8c3b-a74aac894528">&lt;/strong&gt;</ept> method to apply the filter to the query.</target>
+        </trans-unit>
+        <trans-unit id="a722e460-9180-4bd4-b218-be8cfb43ba5c" xml:space="preserve">
+          <source>When the query is executed with a call to <bpt id="6e16309e-f3b9-42b0-9a5c-7bbfc538db57">&lt;strong&gt;</bpt>execute<ept id="6e16309e-f3b9-42b0-9a5c-7bbfc538db57">&lt;/strong&gt;</ept> on the <bpt id="bf67823a-b78f-4e7d-9a3c-c193ef2f67eb">&lt;strong&gt;</bpt>CloudTable<ept id="bf67823a-b78f-4e7d-9a3c-c193ef2f67eb">&lt;/strong&gt;</ept> object, it returns an <bpt id="64be90b3-ef16-4ea6-9afd-f0240b2c2269">&lt;strong&gt;</bpt>Iterator<ept id="64be90b3-ef16-4ea6-9afd-f0240b2c2269">&lt;/strong&gt;</ept> with the <bpt id="42e50ff9-bf61-41bb-bb4d-645fec2b638d">&lt;strong&gt;</bpt>CustomerEntity<ept id="42e50ff9-bf61-41bb-bb4d-645fec2b638d">&lt;/strong&gt;</ept> result type specified.</source>
+          <target state="new">When the query is executed with a call to <bpt id="6e16309e-f3b9-42b0-9a5c-7bbfc538db57">&lt;strong&gt;</bpt>execute<ept id="6e16309e-f3b9-42b0-9a5c-7bbfc538db57">&lt;/strong&gt;</ept> on the <bpt id="bf67823a-b78f-4e7d-9a3c-c193ef2f67eb">&lt;strong&gt;</bpt>CloudTable<ept id="bf67823a-b78f-4e7d-9a3c-c193ef2f67eb">&lt;/strong&gt;</ept> object, it returns an <bpt id="64be90b3-ef16-4ea6-9afd-f0240b2c2269">&lt;strong&gt;</bpt>Iterator<ept id="64be90b3-ef16-4ea6-9afd-f0240b2c2269">&lt;/strong&gt;</ept> with the <bpt id="42e50ff9-bf61-41bb-bb4d-645fec2b638d">&lt;strong&gt;</bpt>CustomerEntity<ept id="42e50ff9-bf61-41bb-bb4d-645fec2b638d">&lt;/strong&gt;</ept> result type specified.</target>
+        </trans-unit>
+        <trans-unit id="185b6526-d98a-4f70-b182-d1183695be01" xml:space="preserve">
+          <source>You can then use the <bpt id="70135d83-687b-403b-846f-19f161101635">&lt;strong&gt;</bpt>Iterator<ept id="70135d83-687b-403b-846f-19f161101635">&lt;/strong&gt;</ept> returned in a for each loop to consume the results.</source>
+          <target state="new">You can then use the <bpt id="70135d83-687b-403b-846f-19f161101635">&lt;strong&gt;</bpt>Iterator<ept id="70135d83-687b-403b-846f-19f161101635">&lt;/strong&gt;</ept> returned in a for each loop to consume the results.</target>
+        </trans-unit>
+        <trans-unit id="bcd596a1-c4c6-4761-a474-09ac85c15cbf" xml:space="preserve">
+          <source>This code prints the fields of each entity in the query results to the console.</source>
+          <target state="new">This code prints the fields of each entity in the query results to the console.</target>
+        </trans-unit>
+        <trans-unit id="08e2b8b4-fc28-4e7e-a64a-03822e03f06f" xml:space="preserve">
+          <source>If you don't want to query all the entities in a partition, you can specify a range by using comparison operators in a filter.</source>
+          <target state="new">If you don't want to query all the entities in a partition, you can specify a range by using comparison operators in a filter.</target>
+        </trans-unit>
+        <trans-unit id="22914fe0-a21d-4d1b-9fb6-b89fb9344e45" xml:space="preserve">
+          <source>The following code combines two filters to get all entities in partition "Smith" where the row key (first name) starts with a letter up to 'E' in the alphabet.</source>
+          <target state="new">The following code combines two filters to get all entities in partition "Smith" where the row key (first name) starts with a letter up to 'E' in the alphabet.</target>
+        </trans-unit>
+        <trans-unit id="8d27c2a1-a756-4100-8eb1-8262ae0e0f87" xml:space="preserve">
+          <source>Then it prints the query results.</source>
+          <target state="new">Then it prints the query results.</target>
+        </trans-unit>
+        <trans-unit id="1260bbde-ee17-42a4-87ab-0ee4dacd9df9" xml:space="preserve">
+          <source>If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise Smith); Jeff Smith is not included.</source>
+          <target state="new">If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise Smith); Jeff Smith is not included.</target>
+        </trans-unit>
+        <trans-unit id="40982b5b-f8f1-48c6-859d-0d80f175a9af" xml:space="preserve">
+          <source>You can write a query to retrieve a single, specific entity.</source>
+          <target state="new">You can write a query to retrieve a single, specific entity.</target>
+        </trans-unit>
+        <trans-unit id="0775aaad-67ef-4449-93d8-368bccb117ae" xml:space="preserve">
+          <source>The following code calls <bpt id="80372325-a2bf-4107-a42a-1c16ae839b4b">&lt;strong&gt;</bpt>TableOperation.retrieve<ept id="80372325-a2bf-4107-a42a-1c16ae839b4b">&lt;/strong&gt;</ept> with partition key and row key parameters to specify the customer "Jeff Smith", instead of creating a <bpt id="6008e07a-1f23-4bdd-95c7-72d15e4ee09d">&lt;strong&gt;</bpt>TableQuery<ept id="6008e07a-1f23-4bdd-95c7-72d15e4ee09d">&lt;/strong&gt;</ept> and using filters to do the same thing.</source>
+          <target state="new">The following code calls <bpt id="80372325-a2bf-4107-a42a-1c16ae839b4b">&lt;strong&gt;</bpt>TableOperation.retrieve<ept id="80372325-a2bf-4107-a42a-1c16ae839b4b">&lt;/strong&gt;</ept> with partition key and row key parameters to specify the customer "Jeff Smith", instead of creating a <bpt id="6008e07a-1f23-4bdd-95c7-72d15e4ee09d">&lt;strong&gt;</bpt>TableQuery<ept id="6008e07a-1f23-4bdd-95c7-72d15e4ee09d">&lt;/strong&gt;</ept> and using filters to do the same thing.</target>
+        </trans-unit>
+        <trans-unit id="15fc31cc-1826-4b6e-bec3-ba5512e06705" xml:space="preserve">
+          <source>When executed, the retrieve operation returns just one entity, rather than a collection.</source>
+          <target state="new">When executed, the retrieve operation returns just one entity, rather than a collection.</target>
+        </trans-unit>
+        <trans-unit id="3e519ddc-a3a6-42d7-b694-2e25bf0554a4" xml:space="preserve">
+          <source>The <bpt id="163f112e-e3fc-46b0-b5bc-bc81fa90e692">&lt;strong&gt;</bpt>getResultAsType<ept id="163f112e-e3fc-46b0-b5bc-bc81fa90e692">&lt;/strong&gt;</ept> method casts the result to the type of the assignment target, a <bpt id="9ac61bc6-895c-4f42-981e-f002ccc04918">&lt;strong&gt;</bpt>CustomerEntity<ept id="9ac61bc6-895c-4f42-981e-f002ccc04918">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">The <bpt id="163f112e-e3fc-46b0-b5bc-bc81fa90e692">&lt;strong&gt;</bpt>getResultAsType<ept id="163f112e-e3fc-46b0-b5bc-bc81fa90e692">&lt;/strong&gt;</ept> method casts the result to the type of the assignment target, a <bpt id="9ac61bc6-895c-4f42-981e-f002ccc04918">&lt;strong&gt;</bpt>CustomerEntity<ept id="9ac61bc6-895c-4f42-981e-f002ccc04918">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="21f96bb6-8a6d-4c36-a7fd-49222756647f" xml:space="preserve">
+          <source>If this type is not compatible with the type specified for the query, an exception will be thrown.</source>
+          <target state="new">If this type is not compatible with the type specified for the query, an exception will be thrown.</target>
+        </trans-unit>
+        <trans-unit id="48235429-3f21-4cda-bc49-0c5adf49aa56" xml:space="preserve">
+          <source>A null value is returned if no entity has an exact partition and row key match.</source>
+          <target state="new">A null value is returned if no entity has an exact partition and row key match.</target>
+        </trans-unit>
+        <trans-unit id="289d29a8-11eb-4668-a16d-c6eb6172d924" xml:space="preserve">
+          <source>Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.</source>
+          <target state="new">Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.</target>
+        </trans-unit>
+        <trans-unit id="eb01fb2a-84ad-41a0-8ba6-7f5fa79a406b" xml:space="preserve">
+          <source>To modify an entity, retrieve it from the table service, make changes to the entity object, and save the changes back to the table service with a replace or merge operation.</source>
+          <target state="new">To modify an entity, retrieve it from the table service, make changes to the entity object, and save the changes back to the table service with a replace or merge operation.</target>
+        </trans-unit>
+        <trans-unit id="406b473c-abc1-418e-a9e6-b691c2eb13fc" xml:space="preserve">
+          <source>The following code changes an existing customer's phone number.</source>
+          <target state="new">The following code changes an existing customer's phone number.</target>
+        </trans-unit>
+        <trans-unit id="19dae84a-88c6-4e11-b40b-a779b99d5633" xml:space="preserve">
+          <source>Instead of calling <bpt id="8a05d250-2300-4ae4-b394-6c6619990d5a">&lt;strong&gt;</bpt>TableOperation.insert<ept id="8a05d250-2300-4ae4-b394-6c6619990d5a">&lt;/strong&gt;</ept> like we did to insert, this code calls <bpt id="05206e31-43cf-443e-8bb6-8fc4bb37b5e9">&lt;strong&gt;</bpt>TableOperation.replace<ept id="05206e31-43cf-443e-8bb6-8fc4bb37b5e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Instead of calling <bpt id="8a05d250-2300-4ae4-b394-6c6619990d5a">&lt;strong&gt;</bpt>TableOperation.insert<ept id="8a05d250-2300-4ae4-b394-6c6619990d5a">&lt;/strong&gt;</ept> like we did to insert, this code calls <bpt id="05206e31-43cf-443e-8bb6-8fc4bb37b5e9">&lt;strong&gt;</bpt>TableOperation.replace<ept id="05206e31-43cf-443e-8bb6-8fc4bb37b5e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="000ec1df-f96f-41d6-8832-b7dfd2a7dd95" xml:space="preserve">
+          <source>The <bpt id="f5521296-1b56-418e-958e-fd4b00d47df7">&lt;strong&gt;</bpt>CloudTable.execute<ept id="f5521296-1b56-418e-958e-fd4b00d47df7">&lt;/strong&gt;</ept> method calls the table service, and the entity is replaced, unless another application changed it in the time since this application retrieved it.</source>
+          <target state="new">The <bpt id="f5521296-1b56-418e-958e-fd4b00d47df7">&lt;strong&gt;</bpt>CloudTable.execute<ept id="f5521296-1b56-418e-958e-fd4b00d47df7">&lt;/strong&gt;</ept> method calls the table service, and the entity is replaced, unless another application changed it in the time since this application retrieved it.</target>
+        </trans-unit>
+        <trans-unit id="140a94b9-262c-4d2f-9e65-f6cf9e14c9ca" xml:space="preserve">
+          <source>When that happens, an exception is thrown, and the entity must be retrieved, modified, and saved again.</source>
+          <target state="new">When that happens, an exception is thrown, and the entity must be retrieved, modified, and saved again.</target>
+        </trans-unit>
+        <trans-unit id="8387aae0-4624-42a4-a42d-c0d9b4dc49b4" xml:space="preserve">
+          <source>This optimistic concurrency retry pattern is common in a distributed storage system.</source>
+          <target state="new">This optimistic concurrency retry pattern is common in a distributed storage system.</target>
+        </trans-unit>
+        <trans-unit id="b5822f45-8566-43cc-89d6-c591a4e5a6df" xml:space="preserve">
+          <source>A query to a table can retrieve just a few properties from an entity.</source>
+          <target state="new">A query to a table can retrieve just a few properties from an entity.</target>
+        </trans-unit>
+        <trans-unit id="c375404d-8eaf-4968-92ec-1939e6bb54f5" xml:space="preserve">
+          <source>This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities.</source>
+          <target state="new">This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities.</target>
+        </trans-unit>
+        <trans-unit id="063b1549-d17f-4664-8750-989d185bcdd2" xml:space="preserve">
+          <source>The query in the following code uses the <bpt id="4afed12b-308b-41bf-bf00-b8af62adacf0">&lt;strong&gt;</bpt>select<ept id="4afed12b-308b-41bf-bf00-b8af62adacf0">&lt;/strong&gt;</ept> method to return only the email addresses of entities in the table.</source>
+          <target state="new">The query in the following code uses the <bpt id="4afed12b-308b-41bf-bf00-b8af62adacf0">&lt;strong&gt;</bpt>select<ept id="4afed12b-308b-41bf-bf00-b8af62adacf0">&lt;/strong&gt;</ept> method to return only the email addresses of entities in the table.</target>
+        </trans-unit>
+        <trans-unit id="e4773095-8554-4ddc-b59a-dca75d661b21" xml:space="preserve">
+          <source>The results are projected into a collection of <bpt id="bd58dbe8-05d4-40c0-b8f9-9aeba0756683">&lt;strong&gt;</bpt>String<ept id="bd58dbe8-05d4-40c0-b8f9-9aeba0756683">&lt;/strong&gt;</ept> with the help of an <bpt id="fc714101-7479-44e7-8e7c-97215c88d364">&lt;strong&gt;</bpt>EntityResolver<ept id="fc714101-7479-44e7-8e7c-97215c88d364">&lt;/strong&gt;</ept>, which does the type conversion on the entities returned from the server.</source>
+          <target state="new">The results are projected into a collection of <bpt id="bd58dbe8-05d4-40c0-b8f9-9aeba0756683">&lt;strong&gt;</bpt>String<ept id="bd58dbe8-05d4-40c0-b8f9-9aeba0756683">&lt;/strong&gt;</ept> with the help of an <bpt id="fc714101-7479-44e7-8e7c-97215c88d364">&lt;strong&gt;</bpt>EntityResolver<ept id="fc714101-7479-44e7-8e7c-97215c88d364">&lt;/strong&gt;</ept>, which does the type conversion on the entities returned from the server.</target>
+        </trans-unit>
+        <trans-unit id="b170ae19-224f-4046-98ba-8424e44e5843" xml:space="preserve">
+          <source>You can learn more about projection in this <bpt id="60a82397-2e0d-4b0c-9580-ea7dbc943b2b">&lt;linkText&gt;</bpt>blog post<ept id="60a82397-2e0d-4b0c-9580-ea7dbc943b2b">&lt;/linkText&gt;</ept><bpt id="60a82397-2e0d-4b0c-9580-ea7dbc943b2b">&lt;title&gt;</bpt><ept id="60a82397-2e0d-4b0c-9580-ea7dbc943b2b">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn more about projection in this <bpt id="60a82397-2e0d-4b0c-9580-ea7dbc943b2b">&lt;linkText&gt;</bpt>blog post<ept id="60a82397-2e0d-4b0c-9580-ea7dbc943b2b">&lt;/linkText&gt;</ept><bpt id="60a82397-2e0d-4b0c-9580-ea7dbc943b2b">&lt;title&gt;</bpt><ept id="60a82397-2e0d-4b0c-9580-ea7dbc943b2b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cbd3ad17-3439-411c-a3f7-471b8a03c9ea" xml:space="preserve">
+          <source>Note that projection is not supported on the local storage emulator, so this code runs only when using an account on the table service.</source>
+          <target state="new">Note that projection is not supported on the local storage emulator, so this code runs only when using an account on the table service.</target>
+        </trans-unit>
+        <trans-unit id="ec54089f-6a5c-412e-b2b5-ba3afb125817" xml:space="preserve">
+          <source>Often you want to add an entity to a table without knowing if it already exists in the table.</source>
+          <target state="new">Often you want to add an entity to a table without knowing if it already exists in the table.</target>
+        </trans-unit>
+        <trans-unit id="21ce3a8e-7436-445f-a8a3-ada492c189c9" xml:space="preserve">
+          <source>An insert-or-replace operation allows you to make a single request which will insert the entity if it does not exist or replace the existing one if it does.</source>
+          <target state="new">An insert-or-replace operation allows you to make a single request which will insert the entity if it does not exist or replace the existing one if it does.</target>
+        </trans-unit>
+        <trans-unit id="f77a55ca-fadc-4c72-9357-0f1b235302d4" xml:space="preserve">
+          <source>Building on prior examples, the following code inserts or replaces the entity for "Walter Harp".</source>
+          <target state="new">Building on prior examples, the following code inserts or replaces the entity for "Walter Harp".</target>
+        </trans-unit>
+        <trans-unit id="b54edabe-bb60-4c62-8620-3f30081f7ca5" xml:space="preserve">
+          <source>After creating a new entity, this code calls the <bpt id="592e05be-53cf-4292-a465-f205f6e4016a">&lt;strong&gt;</bpt>TableOperation.insertOrReplace<ept id="592e05be-53cf-4292-a465-f205f6e4016a">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">After creating a new entity, this code calls the <bpt id="592e05be-53cf-4292-a465-f205f6e4016a">&lt;strong&gt;</bpt>TableOperation.insertOrReplace<ept id="592e05be-53cf-4292-a465-f205f6e4016a">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="75ba95be-8083-4eb1-bb76-9e063875833f" xml:space="preserve">
+          <source>This code then calls <bpt id="fc6c7381-0e33-4908-af0f-a32c9cde7e84">&lt;strong&gt;</bpt>execute<ept id="fc6c7381-0e33-4908-af0f-a32c9cde7e84">&lt;/strong&gt;</ept> on the <bpt id="dd968c11-0ceb-428c-be9f-e5f74edc354f">&lt;strong&gt;</bpt>CloudTable<ept id="dd968c11-0ceb-428c-be9f-e5f74edc354f">&lt;/strong&gt;</ept> object with the table and the insert or replace table operation as the parameters.</source>
+          <target state="new">This code then calls <bpt id="fc6c7381-0e33-4908-af0f-a32c9cde7e84">&lt;strong&gt;</bpt>execute<ept id="fc6c7381-0e33-4908-af0f-a32c9cde7e84">&lt;/strong&gt;</ept> on the <bpt id="dd968c11-0ceb-428c-be9f-e5f74edc354f">&lt;strong&gt;</bpt>CloudTable<ept id="dd968c11-0ceb-428c-be9f-e5f74edc354f">&lt;/strong&gt;</ept> object with the table and the insert or replace table operation as the parameters.</target>
+        </trans-unit>
+        <trans-unit id="88e1d142-2152-46dd-991e-e90c8e0b3a5b" xml:space="preserve">
+          <source>To update only part of an entity, the <bpt id="061fb84d-623a-4791-b837-c2af987dba07">&lt;strong&gt;</bpt>TableOperation.insertOrMerge<ept id="061fb84d-623a-4791-b837-c2af987dba07">&lt;/strong&gt;</ept> method can be used instead.</source>
+          <target state="new">To update only part of an entity, the <bpt id="061fb84d-623a-4791-b837-c2af987dba07">&lt;strong&gt;</bpt>TableOperation.insertOrMerge<ept id="061fb84d-623a-4791-b837-c2af987dba07">&lt;/strong&gt;</ept> method can be used instead.</target>
+        </trans-unit>
+        <trans-unit id="7554733d-2193-4718-9106-ac4653c90cf3" xml:space="preserve">
+          <source>Note that insert-or-replace is not supported on the local storage emulator, so this code runs only when using an account on the table service.</source>
+          <target state="new">Note that insert-or-replace is not supported on the local storage emulator, so this code runs only when using an account on the table service.</target>
+        </trans-unit>
+        <trans-unit id="f95421a4-cc47-4edf-a5c4-e637bce59a41" xml:space="preserve">
+          <source>You can learn more about insert-or-replace and insert-or-merge in this <bpt id="d982e681-f12b-4859-8e65-2eced32b539a">&lt;linkText&gt;</bpt>blog post<ept id="d982e681-f12b-4859-8e65-2eced32b539a">&lt;/linkText&gt;</ept><bpt id="d982e681-f12b-4859-8e65-2eced32b539a">&lt;title&gt;</bpt><ept id="d982e681-f12b-4859-8e65-2eced32b539a">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn more about insert-or-replace and insert-or-merge in this <bpt id="d982e681-f12b-4859-8e65-2eced32b539a">&lt;linkText&gt;</bpt>blog post<ept id="d982e681-f12b-4859-8e65-2eced32b539a">&lt;/linkText&gt;</ept><bpt id="d982e681-f12b-4859-8e65-2eced32b539a">&lt;title&gt;</bpt><ept id="d982e681-f12b-4859-8e65-2eced32b539a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9dfaf55c-d2c7-49eb-a674-929c004690e1" xml:space="preserve">
+          <source>You can easily delete an entity after you have retrieved it.</source>
+          <target state="new">You can easily delete an entity after you have retrieved it.</target>
+        </trans-unit>
+        <trans-unit id="2b3d9af2-99c1-4642-8e65-25649a75f7a8" xml:space="preserve">
+          <source>Once the entity is retrieved, call <bpt id="44462f07-d1e4-4d0b-936f-c1aed331af97">&lt;strong&gt;</bpt>TableOperation.delete<ept id="44462f07-d1e4-4d0b-936f-c1aed331af97">&lt;/strong&gt;</ept> with the entity to delete.</source>
+          <target state="new">Once the entity is retrieved, call <bpt id="44462f07-d1e4-4d0b-936f-c1aed331af97">&lt;strong&gt;</bpt>TableOperation.delete<ept id="44462f07-d1e4-4d0b-936f-c1aed331af97">&lt;/strong&gt;</ept> with the entity to delete.</target>
+        </trans-unit>
+        <trans-unit id="86c63481-39de-4377-bbb3-df507c844812" xml:space="preserve">
+          <source>Then call <bpt id="643540b5-35f3-4c84-967f-ccb28fbf68f9">&lt;strong&gt;</bpt>execute<ept id="643540b5-35f3-4c84-967f-ccb28fbf68f9">&lt;/strong&gt;</ept> on the <bpt id="b7d14aa3-9e71-49ae-9a15-20cc4e758936">&lt;strong&gt;</bpt>CloudTable<ept id="b7d14aa3-9e71-49ae-9a15-20cc4e758936">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">Then call <bpt id="643540b5-35f3-4c84-967f-ccb28fbf68f9">&lt;strong&gt;</bpt>execute<ept id="643540b5-35f3-4c84-967f-ccb28fbf68f9">&lt;/strong&gt;</ept> on the <bpt id="b7d14aa3-9e71-49ae-9a15-20cc4e758936">&lt;strong&gt;</bpt>CloudTable<ept id="b7d14aa3-9e71-49ae-9a15-20cc4e758936">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="80a114f4-98d9-49c5-9672-1653ed8b988e" xml:space="preserve">
+          <source>The following code retrieves and deletes a customer entity.</source>
+          <target state="new">The following code retrieves and deletes a customer entity.</target>
+        </trans-unit>
+        <trans-unit id="f58faf88-9ad8-4a1c-9a97-81fc475e071d" xml:space="preserve">
+          <source>Finally, the following code deletes a table from a storage account.</source>
+          <target state="new">Finally, the following code deletes a table from a storage account.</target>
+        </trans-unit>
+        <trans-unit id="30f05620-a1fb-4e1f-a622-428532a5fcdd" xml:space="preserve">
+          <source>A table which has been deleted will be unavailable to be recreated for a period of time following the deletion, usually less than forty seconds.</source>
+          <target state="new">A table which has been deleted will be unavailable to be recreated for a period of time following the deletion, usually less than forty seconds.</target>
+        </trans-unit>
+        <trans-unit id="63fd13a7-fef8-4f2c-a177-b151f27eab60" xml:space="preserve">
+          <source>Now that you've learned the basics of table storage, follow these links to learn how to do more complex storage tasks.</source>
+          <target state="new">Now that you've learned the basics of table storage, follow these links to learn how to do more complex storage tasks.</target>
+        </trans-unit>
+        <trans-unit id="1b6d2268-4fa6-4f1a-8ac6-70bad514e0c1" xml:space="preserve">
+          <source><bpt id="cd15c914-bce1-4c9f-b65f-bf853d09ad11">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="cd15c914-bce1-4c9f-b65f-bf853d09ad11">&lt;/linkText&gt;</ept><bpt id="cd15c914-bce1-4c9f-b65f-bf853d09ad11">&lt;title&gt;</bpt><ept id="cd15c914-bce1-4c9f-b65f-bf853d09ad11">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cd15c914-bce1-4c9f-b65f-bf853d09ad11">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="cd15c914-bce1-4c9f-b65f-bf853d09ad11">&lt;/linkText&gt;</ept><bpt id="cd15c914-bce1-4c9f-b65f-bf853d09ad11">&lt;title&gt;</bpt><ept id="cd15c914-bce1-4c9f-b65f-bf853d09ad11">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c45fa833-deba-4c09-87f2-10d1d8bbf5c2" xml:space="preserve">
+          <source><bpt id="c0b1339c-3575-4266-8c4b-d694cc1a47bb">&lt;linkText&gt;</bpt>Azure Storage Client SDK Reference<ept id="c0b1339c-3575-4266-8c4b-d694cc1a47bb">&lt;/linkText&gt;</ept><bpt id="c0b1339c-3575-4266-8c4b-d694cc1a47bb">&lt;title&gt;</bpt><ept id="c0b1339c-3575-4266-8c4b-d694cc1a47bb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c0b1339c-3575-4266-8c4b-d694cc1a47bb">&lt;linkText&gt;</bpt>Azure Storage Client SDK Reference<ept id="c0b1339c-3575-4266-8c4b-d694cc1a47bb">&lt;/linkText&gt;</ept><bpt id="c0b1339c-3575-4266-8c4b-d694cc1a47bb">&lt;title&gt;</bpt><ept id="c0b1339c-3575-4266-8c4b-d694cc1a47bb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef41bc98-5d21-462c-9f11-5e81ea0ec9f0" xml:space="preserve">
+          <source><bpt id="08f258b7-bb3e-48e6-8455-99139c67a1b3">&lt;linkText&gt;</bpt>Azure Storage REST API<ept id="08f258b7-bb3e-48e6-8455-99139c67a1b3">&lt;/linkText&gt;</ept><bpt id="08f258b7-bb3e-48e6-8455-99139c67a1b3">&lt;title&gt;</bpt><ept id="08f258b7-bb3e-48e6-8455-99139c67a1b3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="08f258b7-bb3e-48e6-8455-99139c67a1b3">&lt;linkText&gt;</bpt>Azure Storage REST API<ept id="08f258b7-bb3e-48e6-8455-99139c67a1b3">&lt;/linkText&gt;</ept><bpt id="08f258b7-bb3e-48e6-8455-99139c67a1b3">&lt;title&gt;</bpt><ept id="08f258b7-bb3e-48e6-8455-99139c67a1b3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32e8c0f3-dcc6-44b9-bdf5-abcd522d43ef" xml:space="preserve">
+          <source><bpt id="9850c887-cbdf-4902-88fc-985e14480f00">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="9850c887-cbdf-4902-88fc-985e14480f00">&lt;/linkText&gt;</ept><bpt id="9850c887-cbdf-4902-88fc-985e14480f00">&lt;title&gt;</bpt><ept id="9850c887-cbdf-4902-88fc-985e14480f00">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9850c887-cbdf-4902-88fc-985e14480f00">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="9850c887-cbdf-4902-88fc-985e14480f00">&lt;/linkText&gt;</ept><bpt id="9850c887-cbdf-4902-88fc-985e14480f00">&lt;title&gt;</bpt><ept id="9850c887-cbdf-4902-88fc-985e14480f00">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e16ccda0-52d2-4a57-8df1-848681e34df1" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525671</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525671</target>
+        </trans-unit>
+        <trans-unit id="c3b5206a-224c-4daf-a23a-8d1a024f9518" xml:space="preserve">
+          <source>https://github.com/azure/azure-storage-java</source>
+          <target state="new">https://github.com/azure/azure-storage-java</target>
+        </trans-unit>
+        <trans-unit id="bc47462d-cc00-4f91-965f-31a4caf06536" xml:space="preserve">
+          <source>https://github.com/azure/azure-storage-android</source>
+          <target state="new">https://github.com/azure/azure-storage-android</target>
+        </trans-unit>
+        <trans-unit id="8aa84760-64a6-42f1-a7ce-ae43fe9caedc" xml:space="preserve">
+          <source>http://dl.windowsazure.com/storage/javadoc/</source>
+          <target state="new">http://dl.windowsazure.com/storage/javadoc/</target>
+        </trans-unit>
+        <trans-unit id="c3a2707a-2367-44b4-924e-fc4364437add" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/gg433040.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/gg433040.aspx</target>
+        </trans-unit>
+        <trans-unit id="77dd1b05-02bf-4043-91f4-92092dce2e04" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/windowsazurestorage/</source>
+          <target state="new">http://blogs.msdn.com/b/windowsazurestorage/</target>
+        </trans-unit>
+        <trans-unit id="b123bab9-175f-4961-a57f-70dab8084b2f" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx</source>
+          <target state="new">http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="310b7349-9208-4449-aeb8-a28b0394d644" />
+    </body>
+  </file>
+</xliff>

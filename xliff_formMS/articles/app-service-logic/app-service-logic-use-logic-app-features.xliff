@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="69ade519-68e1-4357-bd1a-a92548b1c1b2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="69ade519-68e1-4357-bd1a-a92548b1c1b2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6bf20b5d-b979-4c5b-bf89-8b1b6cb68601">
+        <trans-unit id="86b09531-cbff-4b78-a4dd-61fe39f598c3" xml:space="preserve">
+          <source>Use Logic App features</source>
+          <target state="new">Use Logic App features</target>
+        </trans-unit>
+        <trans-unit id="ca745e54-62a3-4ad3-89d2-dbc09a16decb" xml:space="preserve">
+          <source>Learn how to use the advanced features of logic apps.</source>
+          <target state="new">Learn how to use the advanced features of logic apps.</target>
+        </trans-unit>
+        <trans-unit id="21147aab-403e-41a2-af71-65deb6ddef5b" xml:space="preserve">
+          <source>In the <bpt id="97837d14-0bfc-4b0c-9fac-2ad889388467">&lt;linkText&gt;</bpt>previous topic[create a new logic app]<ept id="97837d14-0bfc-4b0c-9fac-2ad889388467">&lt;/linkText&gt;</ept><bpt id="97837d14-0bfc-4b0c-9fac-2ad889388467">&lt;title&gt;</bpt><ept id="97837d14-0bfc-4b0c-9fac-2ad889388467">&lt;/title&gt;</ept>, you created your first logic app.</source>
+          <target state="new">In the <bpt id="97837d14-0bfc-4b0c-9fac-2ad889388467">&lt;linkText&gt;</bpt>previous topic[create a new logic app]<ept id="97837d14-0bfc-4b0c-9fac-2ad889388467">&lt;/linkText&gt;</ept><bpt id="97837d14-0bfc-4b0c-9fac-2ad889388467">&lt;title&gt;</bpt><ept id="97837d14-0bfc-4b0c-9fac-2ad889388467">&lt;/title&gt;</ept>, you created your first logic app.</target>
+        </trans-unit>
+        <trans-unit id="4f8b5fec-28dd-4696-a0d7-de0697e664ae" xml:space="preserve">
+          <source>Now we will show you how to build a more complete process using App Services Logic Apps.</source>
+          <target state="new">Now we will show you how to build a more complete process using App Services Logic Apps.</target>
+        </trans-unit>
+        <trans-unit id="25b285ea-c716-4df1-a597-6c49a29ad7ca" xml:space="preserve">
+          <source>This topic introduces the following new Logic Apps concepts:</source>
+          <target state="new">This topic introduces the following new Logic Apps concepts:</target>
+        </trans-unit>
+        <trans-unit id="2e93b499-20fb-49bb-b1f8-94b6fedeaf1d" xml:space="preserve">
+          <source>Conditional logic, which executes an action only when a certain condition is met.</source>
+          <target state="new">Conditional logic, which executes an action only when a certain condition is met.</target>
+        </trans-unit>
+        <trans-unit id="cd5124f6-9833-40f7-852f-6f0a3ae92322" xml:space="preserve">
+          <source>Repeating actions.</source>
+          <target state="new">Repeating actions.</target>
+        </trans-unit>
+        <trans-unit id="379e6cb0-a58f-409f-ba91-9b508ed6039e" xml:space="preserve">
+          <source>Code view to edit an existing logic app.</source>
+          <target state="new">Code view to edit an existing logic app.</target>
+        </trans-unit>
+        <trans-unit id="ae059767-e1fc-4fc1-8db8-9c5cb35241be" xml:space="preserve">
+          <source>Options for starting a workflow.</source>
+          <target state="new">Options for starting a workflow.</target>
+        </trans-unit>
+        <trans-unit id="94b839fc-a9d4-40e0-af8c-74477d8ce2f9" xml:space="preserve">
+          <source>Before you complete this topic, you should complete the steps in [Create a new logic app].</source>
+          <target state="new">Before you complete this topic, you should complete the steps in [Create a new logic app].</target>
+        </trans-unit>
+        <trans-unit id="26cfa024-5286-4346-848c-963f5425139a" xml:space="preserve">
+          <source>In the [Azure portal], browse to your logic app and click <bpt id="ef8b830c-605f-440c-9d80-cb914d35b93c">&lt;strong&gt;</bpt>Triggers and Actions<ept id="ef8b830c-605f-440c-9d80-cb914d35b93c">&lt;/strong&gt;</ept> in the summary to edit the logic app definition.</source>
+          <target state="new">In the [Azure portal], browse to your logic app and click <bpt id="ef8b830c-605f-440c-9d80-cb914d35b93c">&lt;strong&gt;</bpt>Triggers and Actions<ept id="ef8b830c-605f-440c-9d80-cb914d35b93c">&lt;/strong&gt;</ept> in the summary to edit the logic app definition.</target>
+        </trans-unit>
+        <trans-unit id="e7703714-7a25-47d6-975c-a48f460e4a2e" xml:space="preserve">
+          <source>You may find the follow documents useful:</source>
+          <target state="new">You may find the follow documents useful:</target>
+        </trans-unit>
+        <trans-unit id="e8849a26-1a9b-471d-9510-3f3f72e1a8ac" xml:space="preserve">
+          <source><bpt id="05d2d8e5-9bcf-430c-98ff-d3f1cfd43763">&lt;linkText&gt;</bpt>Management and runtime REST APIs<ept id="05d2d8e5-9bcf-430c-98ff-d3f1cfd43763">&lt;/linkText&gt;</ept><bpt id="05d2d8e5-9bcf-430c-98ff-d3f1cfd43763">&lt;title&gt;</bpt><ept id="05d2d8e5-9bcf-430c-98ff-d3f1cfd43763">&lt;/title&gt;</ept> - including how to invoke Logic apps directly</source>
+          <target state="new"><bpt id="05d2d8e5-9bcf-430c-98ff-d3f1cfd43763">&lt;linkText&gt;</bpt>Management and runtime REST APIs<ept id="05d2d8e5-9bcf-430c-98ff-d3f1cfd43763">&lt;/linkText&gt;</ept><bpt id="05d2d8e5-9bcf-430c-98ff-d3f1cfd43763">&lt;title&gt;</bpt><ept id="05d2d8e5-9bcf-430c-98ff-d3f1cfd43763">&lt;/title&gt;</ept> - including how to invoke Logic apps directly</target>
+        </trans-unit>
+        <trans-unit id="bda757d9-45b6-4cd0-9c89-922cabaaa416" xml:space="preserve">
+          <source><bpt id="4a10dc7e-ae66-43c8-bb7a-69bbf4640bdd">&lt;linkText&gt;</bpt>Language reference<ept id="4a10dc7e-ae66-43c8-bb7a-69bbf4640bdd">&lt;/linkText&gt;</ept><bpt id="4a10dc7e-ae66-43c8-bb7a-69bbf4640bdd">&lt;title&gt;</bpt><ept id="4a10dc7e-ae66-43c8-bb7a-69bbf4640bdd">&lt;/title&gt;</ept> - a comprehensive list of all supported functions/expressions</source>
+          <target state="new"><bpt id="4a10dc7e-ae66-43c8-bb7a-69bbf4640bdd">&lt;linkText&gt;</bpt>Language reference<ept id="4a10dc7e-ae66-43c8-bb7a-69bbf4640bdd">&lt;/linkText&gt;</ept><bpt id="4a10dc7e-ae66-43c8-bb7a-69bbf4640bdd">&lt;title&gt;</bpt><ept id="4a10dc7e-ae66-43c8-bb7a-69bbf4640bdd">&lt;/title&gt;</ept> - a comprehensive list of all supported functions/expressions</target>
+        </trans-unit>
+        <trans-unit id="3fbc0483-9207-4444-9239-6727175389db" xml:space="preserve">
+          <source><bpt id="fca6feee-81b3-4259-90e0-afc98b005d7a">&lt;linkText&gt;</bpt>Trigger and action types<ept id="fca6feee-81b3-4259-90e0-afc98b005d7a">&lt;/linkText&gt;</ept><bpt id="fca6feee-81b3-4259-90e0-afc98b005d7a">&lt;title&gt;</bpt><ept id="fca6feee-81b3-4259-90e0-afc98b005d7a">&lt;/title&gt;</ept> - the different types of actions and the inputs they take</source>
+          <target state="new"><bpt id="fca6feee-81b3-4259-90e0-afc98b005d7a">&lt;linkText&gt;</bpt>Trigger and action types<ept id="fca6feee-81b3-4259-90e0-afc98b005d7a">&lt;/linkText&gt;</ept><bpt id="fca6feee-81b3-4259-90e0-afc98b005d7a">&lt;title&gt;</bpt><ept id="fca6feee-81b3-4259-90e0-afc98b005d7a">&lt;/title&gt;</ept> - the different types of actions and the inputs they take</target>
+        </trans-unit>
+        <trans-unit id="045bf82f-025b-4f0e-8271-39c738c41e01" xml:space="preserve">
+          <source><bpt id="b296d77e-7950-44da-b966-6a7ff2e64aed">&lt;linkText&gt;</bpt>Overview of App Service<ept id="b296d77e-7950-44da-b966-6a7ff2e64aed">&lt;/linkText&gt;</ept><bpt id="b296d77e-7950-44da-b966-6a7ff2e64aed">&lt;title&gt;</bpt><ept id="b296d77e-7950-44da-b966-6a7ff2e64aed">&lt;/title&gt;</ept> - description of what components to choose when to build a solution</source>
+          <target state="new"><bpt id="b296d77e-7950-44da-b966-6a7ff2e64aed">&lt;linkText&gt;</bpt>Overview of App Service<ept id="b296d77e-7950-44da-b966-6a7ff2e64aed">&lt;/linkText&gt;</ept><bpt id="b296d77e-7950-44da-b966-6a7ff2e64aed">&lt;title&gt;</bpt><ept id="b296d77e-7950-44da-b966-6a7ff2e64aed">&lt;/title&gt;</ept> - description of what components to choose when to build a solution</target>
+        </trans-unit>
+        <trans-unit id="65a6c2c8-da2d-4450-9997-37ffbed35b8f" xml:space="preserve">
+          <source>Although the original flow works, there are some areas that could be improved.</source>
+          <target state="new">Although the original flow works, there are some areas that could be improved.</target>
+        </trans-unit>
+        <trans-unit id="5b1e34b8-62c4-4607-8325-0b5b0c99b8a9" xml:space="preserve">
+          <source>First, the action only sends you the top tweet returned.</source>
+          <target state="new">First, the action only sends you the top tweet returned.</target>
+        </trans-unit>
+        <trans-unit id="5998ffb7-9ca8-415a-80e6-29bec72437ba" xml:space="preserve">
+          <source>Logically, you would want to receive all of the tweets with the keyword.</source>
+          <target state="new">Logically, you would want to receive all of the tweets with the keyword.</target>
+        </trans-unit>
+        <trans-unit id="21c9a2a7-0f02-46aa-ba1b-6012fc281ca7" xml:space="preserve">
+          <source>To repeat an action for a list of items, such as the returned tweets, you must use the <bpt id="bbe1db18-3965-47c6-a55d-8b241efb73f7">&lt;code&gt;</bpt>repeat<ept id="bbe1db18-3965-47c6-a55d-8b241efb73f7">&lt;/code&gt;</ept> property.</source>
+          <target state="new">To repeat an action for a list of items, such as the returned tweets, you must use the <bpt id="bbe1db18-3965-47c6-a55d-8b241efb73f7">&lt;code&gt;</bpt>repeat<ept id="bbe1db18-3965-47c6-a55d-8b241efb73f7">&lt;/code&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="2ad102c2-97ad-44c0-b5b6-0db4bb7d33d6" xml:space="preserve">
+          <source>Repeat takes a list of items and executes the action for each item in that list.</source>
+          <target state="new">Repeat takes a list of items and executes the action for each item in that list.</target>
+        </trans-unit>
+        <trans-unit id="9db27109-21c0-4e1c-8eba-cad759f9f1a9" xml:space="preserve">
+          <source>The following steps update the existing action to use repeats, which makes more sense for a list of tweets.</source>
+          <target state="new">The following steps update the existing action to use repeats, which makes more sense for a list of tweets.</target>
+        </trans-unit>
+        <trans-unit id="294ef7d1-c29c-4d5e-bc10-b833a98f6422" xml:space="preserve">
+          <source>Return to the workflow you created and click the <bpt id="b54cdd93-a3d6-4e00-93ca-8c97560456c8">&lt;strong&gt;</bpt>Definition<ept id="b54cdd93-a3d6-4e00-93ca-8c97560456c8">&lt;/strong&gt;</ept> link in the <bpt id="0da8d009-d419-47b0-bccc-5ab19fef5e82">&lt;strong&gt;</bpt>Essentials<ept id="0da8d009-d419-47b0-bccc-5ab19fef5e82">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Return to the workflow you created and click the <bpt id="b54cdd93-a3d6-4e00-93ca-8c97560456c8">&lt;strong&gt;</bpt>Definition<ept id="b54cdd93-a3d6-4e00-93ca-8c97560456c8">&lt;/strong&gt;</ept> link in the <bpt id="0da8d009-d419-47b0-bccc-5ab19fef5e82">&lt;strong&gt;</bpt>Essentials<ept id="0da8d009-d419-47b0-bccc-5ab19fef5e82">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4bb199e-f157-409e-99ca-523c4e2a10f0" xml:space="preserve">
+          <source>To edit the <bpt id="7a35e814-8936-4475-8240-29e479b4011b">&lt;strong&gt;</bpt>Dropbox connector<ept id="7a35e814-8936-4475-8240-29e479b4011b">&lt;/strong&gt;</ept> action, click the pencil icon.</source>
+          <target state="new">To edit the <bpt id="7a35e814-8936-4475-8240-29e479b4011b">&lt;strong&gt;</bpt>Dropbox connector<ept id="7a35e814-8936-4475-8240-29e479b4011b">&lt;/strong&gt;</ept> action, click the pencil icon.</target>
+        </trans-unit>
+        <trans-unit id="5fe2b014-66f2-4458-8c3f-69df4edbc8c0" xml:space="preserve">
+          <source>Click on the gear icon, and select <bpt id="6f39a761-8171-418e-90f8-9760865cfc11">&lt;strong&gt;</bpt>Repeat over a list<ept id="6f39a761-8171-418e-90f8-9760865cfc11">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click on the gear icon, and select <bpt id="6f39a761-8171-418e-90f8-9760865cfc11">&lt;strong&gt;</bpt>Repeat over a list<ept id="6f39a761-8171-418e-90f8-9760865cfc11">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cddc1585-63e6-4f51-8336-e0f97ad2440b" xml:space="preserve">
+          <source>Next to the <bpt id="5d8484f8-e2b6-47cb-8e6f-00ff60421bb1">&lt;strong&gt;</bpt>Repeat<ept id="5d8484f8-e2b6-47cb-8e6f-00ff60421bb1">&lt;/strong&gt;</ept> box click the <bpt id="1483ffe4-4a74-41d2-a00a-39d48334e53f">&lt;code&gt;</bpt>...<ept id="1483ffe4-4a74-41d2-a00a-39d48334e53f">&lt;/code&gt;</ept> and select <bpt id="f167ca74-6dc6-4e4e-9e8c-a34f322314a1">&lt;strong&gt;</bpt>Body<ept id="f167ca74-6dc6-4e4e-9e8c-a34f322314a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Next to the <bpt id="5d8484f8-e2b6-47cb-8e6f-00ff60421bb1">&lt;strong&gt;</bpt>Repeat<ept id="5d8484f8-e2b6-47cb-8e6f-00ff60421bb1">&lt;/strong&gt;</ept> box click the <bpt id="1483ffe4-4a74-41d2-a00a-39d48334e53f">&lt;code&gt;</bpt>...<ept id="1483ffe4-4a74-41d2-a00a-39d48334e53f">&lt;/code&gt;</ept> and select <bpt id="f167ca74-6dc6-4e4e-9e8c-a34f322314a1">&lt;strong&gt;</bpt>Body<ept id="f167ca74-6dc6-4e4e-9e8c-a34f322314a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1dbcfd6e-264b-4388-a41b-c250e0e52510" xml:space="preserve">
+          <source>This will input:</source>
+          <target state="new">This will input:</target>
+        </trans-unit>
+        <trans-unit id="6248b1bc-31e5-414b-a0bc-921dec20355e" xml:space="preserve">
+          <source>Into the text box.</source>
+          <target state="new">Into the text box.</target>
+        </trans-unit>
+        <trans-unit id="c3bdd485-10ea-4d54-a63a-b924c79d948d" xml:space="preserve">
+          <source>This function outputs a list of tweets.</source>
+          <target state="new">This function outputs a list of tweets.</target>
+        </trans-unit>
+        <trans-unit id="793aba56-2012-42bf-9969-6e2835a69551" xml:space="preserve">
+          <source>Select all of the text in the <bpt id="819e857f-5544-4e02-bd5d-0ed586064a06">&lt;strong&gt;</bpt>Content<ept id="819e857f-5544-4e02-bd5d-0ed586064a06">&lt;/strong&gt;</ept> text box and delete it.</source>
+          <target state="new">Select all of the text in the <bpt id="819e857f-5544-4e02-bd5d-0ed586064a06">&lt;strong&gt;</bpt>Content<ept id="819e857f-5544-4e02-bd5d-0ed586064a06">&lt;/strong&gt;</ept> text box and delete it.</target>
+        </trans-unit>
+        <trans-unit id="f87e8027-be22-410d-9a87-2b03c9ee1966" xml:space="preserve">
+          <source>Then, click the <bpt id="7a18ba67-ff7d-47c9-82f0-651f36a8bf07">&lt;code&gt;</bpt>...<ept id="7a18ba67-ff7d-47c9-82f0-651f36a8bf07">&lt;/code&gt;</ept> and select <bpt id="261c5d3b-c8e2-47c9-aed4-7f97ff5787fc">&lt;strong&gt;</bpt>Tweet Text<ept id="261c5d3b-c8e2-47c9-aed4-7f97ff5787fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, click the <bpt id="7a18ba67-ff7d-47c9-82f0-651f36a8bf07">&lt;code&gt;</bpt>...<ept id="7a18ba67-ff7d-47c9-82f0-651f36a8bf07">&lt;/code&gt;</ept> and select <bpt id="261c5d3b-c8e2-47c9-aed4-7f97ff5787fc">&lt;strong&gt;</bpt>Tweet Text<ept id="261c5d3b-c8e2-47c9-aed4-7f97ff5787fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d09aa9f-b4d1-4bee-8c8a-10d399a9e610" xml:space="preserve">
+          <source>This will insert the <bpt id="1ad7cd4b-57de-4ffd-bbc6-311257db8cbd">&lt;strong&gt;</bpt>repeatItem()<ept id="1ad7cd4b-57de-4ffd-bbc6-311257db8cbd">&lt;/strong&gt;</ept> function, which returns each element in the list.</source>
+          <target state="new">This will insert the <bpt id="1ad7cd4b-57de-4ffd-bbc6-311257db8cbd">&lt;strong&gt;</bpt>repeatItem()<ept id="1ad7cd4b-57de-4ffd-bbc6-311257db8cbd">&lt;/strong&gt;</ept> function, which returns each element in the list.</target>
+        </trans-unit>
+        <trans-unit id="d9b72dae-14df-4891-a59d-6c6faf94b6e2" xml:space="preserve">
+          <source>Finally, note that the outputs of repeating actions are special.</source>
+          <target state="new">Finally, note that the outputs of repeating actions are special.</target>
+        </trans-unit>
+        <trans-unit id="20bbc126-08c6-4ed1-9883-8bd9b786b6f5" xml:space="preserve">
+          <source>If you wanted to reference the results of the Dropbox operation, for example, you could <bpt id="d411a4ec-e1ad-481a-b16f-eaa954b0427a">&lt;em&gt;</bpt>not<ept id="d411a4ec-e1ad-481a-b16f-eaa954b0427a">&lt;/em&gt;</ept> do the normal <bpt id="237f5732-21c8-4240-a989-b7df4d6afac5">&lt;code&gt;</bpt>@actions('dropboxconnector').outputs.body<ept id="237f5732-21c8-4240-a989-b7df4d6afac5">&lt;/code&gt;</ept>, you would instead do: <bpt id="6baa5b33-04b1-4d12-805e-3ddc3393a5d4">&lt;code&gt;</bpt>@actions('dropboxconnector').outputs.repeatItems<ept id="6baa5b33-04b1-4d12-805e-3ddc3393a5d4">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you wanted to reference the results of the Dropbox operation, for example, you could <bpt id="d411a4ec-e1ad-481a-b16f-eaa954b0427a">&lt;em&gt;</bpt>not<ept id="d411a4ec-e1ad-481a-b16f-eaa954b0427a">&lt;/em&gt;</ept> do the normal <bpt id="237f5732-21c8-4240-a989-b7df4d6afac5">&lt;code&gt;</bpt>@actions('dropboxconnector').outputs.body<ept id="237f5732-21c8-4240-a989-b7df4d6afac5">&lt;/code&gt;</ept>, you would instead do: <bpt id="6baa5b33-04b1-4d12-805e-3ddc3393a5d4">&lt;code&gt;</bpt>@actions('dropboxconnector').outputs.repeatItems<ept id="6baa5b33-04b1-4d12-805e-3ddc3393a5d4">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e473ed5f-1001-4c7b-8649-cf0e6e4b44c9" xml:space="preserve">
+          <source>This returns a list of all of the times that the operation ran, along with the outputs of each.</source>
+          <target state="new">This returns a list of all of the times that the operation ran, along with the outputs of each.</target>
+        </trans-unit>
+        <trans-unit id="2b91519b-c14e-47a9-bfbc-efa30cd9be40" xml:space="preserve">
+          <source>For example, <bpt id="ec9b452e-9b87-456a-ab19-37d785ae9d42">&lt;code&gt;</bpt>@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath<ept id="ec9b452e-9b87-456a-ab19-37d785ae9d42">&lt;/code&gt;</ept> will return the path of the first file uploaded.</source>
+          <target state="new">For example, <bpt id="ec9b452e-9b87-456a-ab19-37d785ae9d42">&lt;code&gt;</bpt>@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath<ept id="ec9b452e-9b87-456a-ab19-37d785ae9d42">&lt;/code&gt;</ept> will return the path of the first file uploaded.</target>
+        </trans-unit>
+        <trans-unit id="f1abfd26-f0e1-4729-8ac8-34a94e1721d2" xml:space="preserve">
+          <source>This logic app still results in a lot of files being uploaded to Dropbox.</source>
+          <target state="new">This logic app still results in a lot of files being uploaded to Dropbox.</target>
+        </trans-unit>
+        <trans-unit id="75583c3a-4b67-414b-bab8-ad3e238094aa" xml:space="preserve">
+          <source>The following steps add additional logic to make sure that you only receive a file when the tweet has a certain number of retweets.</source>
+          <target state="new">The following steps add additional logic to make sure that you only receive a file when the tweet has a certain number of retweets.</target>
+        </trans-unit>
+        <trans-unit id="11b5616a-d9d9-48aa-a6c5-be8c0995c4da" xml:space="preserve">
+          <source>Click the gear icon at the top of the action and select <bpt id="3120472a-86fd-4e45-9c45-a174d207432a">&lt;strong&gt;</bpt>Add a condition to be met<ept id="3120472a-86fd-4e45-9c45-a174d207432a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the gear icon at the top of the action and select <bpt id="3120472a-86fd-4e45-9c45-a174d207432a">&lt;strong&gt;</bpt>Add a condition to be met<ept id="3120472a-86fd-4e45-9c45-a174d207432a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b444e6a-a4d3-42ee-b506-c257d9a3aa77" xml:space="preserve">
+          <source>In the text box, type the following:</source>
+          <target state="new">In the text box, type the following:</target>
+        </trans-unit>
+        <trans-unit id="669f2b41-ae63-4728-9437-c1abf09f96cf" xml:space="preserve">
+          <source>The function <bpt id="b4cfb863-ec1e-4029-8268-d70d2f514e7e">&lt;strong&gt;</bpt>greater<ept id="b4cfb863-ec1e-4029-8268-d70d2f514e7e">&lt;/strong&gt;</ept> compares two values and only allows the action to be executed when the first value is greater than the second value.</source>
+          <target state="new">The function <bpt id="b4cfb863-ec1e-4029-8268-d70d2f514e7e">&lt;strong&gt;</bpt>greater<ept id="b4cfb863-ec1e-4029-8268-d70d2f514e7e">&lt;/strong&gt;</ept> compares two values and only allows the action to be executed when the first value is greater than the second value.</target>
+        </trans-unit>
+        <trans-unit id="007257bf-c7ee-480e-9838-751e831e99d6" xml:space="preserve">
+          <source>You access a given property as a dot (.)</source>
+          <target state="new">You access a given property as a dot (.)</target>
+        </trans-unit>
+        <trans-unit id="f18e18ee-bffe-4ab4-a3da-2a4153ad5a31" xml:space="preserve">
+          <source>followed by the property name, such as <bpt id="0141aa16-1d62-46d4-9e3b-e18cd0df841b">&lt;code&gt;</bpt>.Retweet_Count<ept id="0141aa16-1d62-46d4-9e3b-e18cd0df841b">&lt;/code&gt;</ept> above.</source>
+          <target state="new">followed by the property name, such as <bpt id="0141aa16-1d62-46d4-9e3b-e18cd0df841b">&lt;code&gt;</bpt>.Retweet_Count<ept id="0141aa16-1d62-46d4-9e3b-e18cd0df841b">&lt;/code&gt;</ept> above.</target>
+        </trans-unit>
+        <trans-unit id="7e88222c-f851-4059-b9db-1ef737503782" xml:space="preserve">
+          <source>Click the check mark to save the Dropbox action.</source>
+          <target state="new">Click the check mark to save the Dropbox action.</target>
+        </trans-unit>
+        <trans-unit id="bd58635d-0c19-4238-8be9-9d1c61e21e71" xml:space="preserve">
+          <source>In addition to the designer, you can directly edit the code that defines a logic app, as follows.</source>
+          <target state="new">In addition to the designer, you can directly edit the code that defines a logic app, as follows.</target>
+        </trans-unit>
+        <trans-unit id="ace5920b-c236-46b9-8f5e-773466105c33" xml:space="preserve">
+          <source>Click on the <bpt id="f1cf8348-30b2-47a5-9df5-16eb3c5c90ed">&lt;strong&gt;</bpt>Code view<ept id="f1cf8348-30b2-47a5-9df5-16eb3c5c90ed">&lt;/strong&gt;</ept> button in the command bar.</source>
+          <target state="new">Click on the <bpt id="f1cf8348-30b2-47a5-9df5-16eb3c5c90ed">&lt;strong&gt;</bpt>Code view<ept id="f1cf8348-30b2-47a5-9df5-16eb3c5c90ed">&lt;/strong&gt;</ept> button in the command bar.</target>
+        </trans-unit>
+        <trans-unit id="8c7d118e-9629-4b1c-95a3-e4049cd182fc" xml:space="preserve">
+          <source>This opens a full editor that shows the definition you just edited.</source>
+          <target state="new">This opens a full editor that shows the definition you just edited.</target>
+        </trans-unit>
+        <trans-unit id="d40149ed-f225-42a8-941b-1b507f1a7813" xml:space="preserve">
+          <source><bpt id="8cdc7dd2-e145-4ea4-ad40-68b5b8618cf9">&lt;linkText&gt;</bpt>Code view<ept id="8cdc7dd2-e145-4ea4-ad40-68b5b8618cf9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8cdc7dd2-e145-4ea4-ad40-68b5b8618cf9">&lt;linkText&gt;</bpt>Code view<ept id="8cdc7dd2-e145-4ea4-ad40-68b5b8618cf9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98e6742f-3a7c-463b-97f1-ba576bac7a70" xml:space="preserve">
+          <source>By using the text editor, you can copy and paste any number of actions within the same logic app or between logic apps.</source>
+          <target state="new">By using the text editor, you can copy and paste any number of actions within the same logic app or between logic apps.</target>
+        </trans-unit>
+        <trans-unit id="71a36268-bbdd-4b12-8ead-08a893d2a62e" xml:space="preserve">
+          <source>You can also easily add or remove entire sections from the definition, and you can also share definitions with others.</source>
+          <target state="new">You can also easily add or remove entire sections from the definition, and you can also share definitions with others.</target>
+        </trans-unit>
+        <trans-unit id="af18843e-099c-489c-b2a2-c424f32f74b3" xml:space="preserve">
+          <source>After you make your changes in code view, simply click <bpt id="beb410a6-2b98-4cca-8902-8b1a4204c308">&lt;strong&gt;</bpt>Save<ept id="beb410a6-2b98-4cca-8902-8b1a4204c308">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After you make your changes in code view, simply click <bpt id="beb410a6-2b98-4cca-8902-8b1a4204c308">&lt;strong&gt;</bpt>Save<ept id="beb410a6-2b98-4cca-8902-8b1a4204c308">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="080e2647-fb32-4987-ad19-646e3336111c" xml:space="preserve">
+          <source>There are some capabilities of Logic Apps that can only be used in the code view.</source>
+          <target state="new">There are some capabilities of Logic Apps that can only be used in the code view.</target>
+        </trans-unit>
+        <trans-unit id="6ba5ea4e-7336-4383-83bd-97277758d010" xml:space="preserve">
+          <source>One example of these is parameters.</source>
+          <target state="new">One example of these is parameters.</target>
+        </trans-unit>
+        <trans-unit id="2d3674a4-3966-4f94-9a97-a20d354120fd" xml:space="preserve">
+          <source>Parameters make it easy to re-use values throughout your logic app.</source>
+          <target state="new">Parameters make it easy to re-use values throughout your logic app.</target>
+        </trans-unit>
+        <trans-unit id="1df3ddb2-1978-4927-bd7b-546e21a2c572" xml:space="preserve">
+          <source>For example, if you have an email address that you want use in several actions, you should define it as a parameter.</source>
+          <target state="new">For example, if you have an email address that you want use in several actions, you should define it as a parameter.</target>
+        </trans-unit>
+        <trans-unit id="c7fd53d0-c0e8-414d-9d89-bcaf2452060d" xml:space="preserve">
+          <source>The following updates your existing logic app to use parameters for the query term.</source>
+          <target state="new">The following updates your existing logic app to use parameters for the query term.</target>
+        </trans-unit>
+        <trans-unit id="ecdc32f6-4628-40d7-a815-f56ff2b3f14f" xml:space="preserve">
+          <source>In the code view, locate the <bpt id="b5c5a4fd-ce98-409c-920a-ad526dfdea7b">&lt;code&gt;</bpt>parameters : {}<ept id="b5c5a4fd-ce98-409c-920a-ad526dfdea7b">&lt;/code&gt;</ept> object and insert the following topic object:</source>
+          <target state="new">In the code view, locate the <bpt id="b5c5a4fd-ce98-409c-920a-ad526dfdea7b">&lt;code&gt;</bpt>parameters : {}<ept id="b5c5a4fd-ce98-409c-920a-ad526dfdea7b">&lt;/code&gt;</ept> object and insert the following topic object:</target>
+        </trans-unit>
+        <trans-unit id="8509b9d8-d7bb-4bef-b9d6-c3dce71e8e91" xml:space="preserve">
+          <source>Scroll to the <bpt id="bc347751-5892-4fa3-85ef-413378319863">&lt;code&gt;</bpt>twitterconnector<ept id="bc347751-5892-4fa3-85ef-413378319863">&lt;/code&gt;</ept> action, locate the query value and replace it with <bpt id="b3096334-cf50-40a8-ad99-6a0a52ec8afd">&lt;code&gt;</bpt>#@{parameters('topic')}<ept id="b3096334-cf50-40a8-ad99-6a0a52ec8afd">&lt;/code&gt;</ept>.</source>
+          <target state="new">Scroll to the <bpt id="bc347751-5892-4fa3-85ef-413378319863">&lt;code&gt;</bpt>twitterconnector<ept id="bc347751-5892-4fa3-85ef-413378319863">&lt;/code&gt;</ept> action, locate the query value and replace it with <bpt id="b3096334-cf50-40a8-ad99-6a0a52ec8afd">&lt;code&gt;</bpt>#@{parameters('topic')}<ept id="b3096334-cf50-40a8-ad99-6a0a52ec8afd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="103cc59f-3dbe-4a68-baa7-3ad76db44ba3" xml:space="preserve">
+          <source>You could also use the  <bpt id="aaaaba70-6637-4426-a049-2e4f35793a7c">&lt;strong&gt;</bpt>concat<ept id="aaaaba70-6637-4426-a049-2e4f35793a7c">&lt;/strong&gt;</ept> function to join together two or more strings, for example: <bpt id="77e8481e-d3a3-4d61-b684-c82b8a3bed56">&lt;code&gt;</bpt>@concat('#',parameters('topic'))<ept id="77e8481e-d3a3-4d61-b684-c82b8a3bed56">&lt;/code&gt;</ept> is identical to the above.</source>
+          <target state="new">You could also use the  <bpt id="aaaaba70-6637-4426-a049-2e4f35793a7c">&lt;strong&gt;</bpt>concat<ept id="aaaaba70-6637-4426-a049-2e4f35793a7c">&lt;/strong&gt;</ept> function to join together two or more strings, for example: <bpt id="77e8481e-d3a3-4d61-b684-c82b8a3bed56">&lt;code&gt;</bpt>@concat('#',parameters('topic'))<ept id="77e8481e-d3a3-4d61-b684-c82b8a3bed56">&lt;/code&gt;</ept> is identical to the above.</target>
+        </trans-unit>
+        <trans-unit id="a954f203-6f9c-49c1-86fa-24d557be543a" xml:space="preserve">
+          <source>Finally, go to the <bpt id="6818d229-134b-4c83-a56f-028ca0ca0613">&lt;code&gt;</bpt>dropboxconnector<ept id="6818d229-134b-4c83-a56f-028ca0ca0613">&lt;/code&gt;</ept> action and add the topic parameter, as follows:</source>
+          <target state="new">Finally, go to the <bpt id="6818d229-134b-4c83-a56f-028ca0ca0613">&lt;code&gt;</bpt>dropboxconnector<ept id="6818d229-134b-4c83-a56f-028ca0ca0613">&lt;/code&gt;</ept> action and add the topic parameter, as follows:</target>
+        </trans-unit>
+        <trans-unit id="79f0f1ed-27de-44bc-9b6f-97d5f61513ac" xml:space="preserve">
+          <source>Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our <bpt id="68624e56-f737-4407-b8c0-c79758325255">&lt;linkText&gt;</bpt>REST API documentation<ept id="68624e56-f737-4407-b8c0-c79758325255">&lt;/linkText&gt;</ept><bpt id="68624e56-f737-4407-b8c0-c79758325255">&lt;title&gt;</bpt><ept id="68624e56-f737-4407-b8c0-c79758325255">&lt;/title&gt;</ept>.</source>
+          <target state="new">Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our <bpt id="68624e56-f737-4407-b8c0-c79758325255">&lt;linkText&gt;</bpt>REST API documentation<ept id="68624e56-f737-4407-b8c0-c79758325255">&lt;/linkText&gt;</ept><bpt id="68624e56-f737-4407-b8c0-c79758325255">&lt;title&gt;</bpt><ept id="68624e56-f737-4407-b8c0-c79758325255">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c399bdd2-4e6a-4294-bbed-83281f72f807" xml:space="preserve">
+          <source>Now, when you click <bpt id="04f09341-744e-45c4-8ad7-fc0dab5b7c58">&lt;strong&gt;</bpt>Save<ept id="04f09341-744e-45c4-8ad7-fc0dab5b7c58">&lt;/strong&gt;</ept>, every hour you will get any new tweets that have more than 5 retweets delivered to a folder called <bpt id="fb242b03-8599-46e9-a64e-01d95602fcea">&lt;strong&gt;</bpt>tweets<ept id="fb242b03-8599-46e9-a64e-01d95602fcea">&lt;/strong&gt;</ept> in your Dropbox.</source>
+          <target state="new">Now, when you click <bpt id="04f09341-744e-45c4-8ad7-fc0dab5b7c58">&lt;strong&gt;</bpt>Save<ept id="04f09341-744e-45c4-8ad7-fc0dab5b7c58">&lt;/strong&gt;</ept>, every hour you will get any new tweets that have more than 5 retweets delivered to a folder called <bpt id="fb242b03-8599-46e9-a64e-01d95602fcea">&lt;strong&gt;</bpt>tweets<ept id="fb242b03-8599-46e9-a64e-01d95602fcea">&lt;/strong&gt;</ept> in your Dropbox.</target>
+        </trans-unit>
+        <trans-unit id="c165115e-717d-4402-81ab-9da32e838a0e" xml:space="preserve">
+          <source>To learn more about Logic App definitions, see <bpt id="9a61ba2d-e609-448f-a38e-164df1c69489">&lt;linkText&gt;</bpt>author Logic App definitions<ept id="9a61ba2d-e609-448f-a38e-164df1c69489">&lt;/linkText&gt;</ept><bpt id="9a61ba2d-e609-448f-a38e-164df1c69489">&lt;title&gt;</bpt><ept id="9a61ba2d-e609-448f-a38e-164df1c69489">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Logic App definitions, see <bpt id="9a61ba2d-e609-448f-a38e-164df1c69489">&lt;linkText&gt;</bpt>author Logic App definitions<ept id="9a61ba2d-e609-448f-a38e-164df1c69489">&lt;/linkText&gt;</ept><bpt id="9a61ba2d-e609-448f-a38e-164df1c69489">&lt;title&gt;</bpt><ept id="9a61ba2d-e609-448f-a38e-164df1c69489">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1ee64b7-9006-4c6a-8c6a-2a65e510a2b4" xml:space="preserve">
+          <source>There are several different options for starting the workflow defined in you logic app.</source>
+          <target state="new">There are several different options for starting the workflow defined in you logic app.</target>
+        </trans-unit>
+        <trans-unit id="42279079-cf22-4989-b8ae-cf2fd20dfa32" xml:space="preserve">
+          <source>A workflow can always be started on-demand in the [Azure portal].</source>
+          <target state="new">A workflow can always be started on-demand in the [Azure portal].</target>
+        </trans-unit>
+        <trans-unit id="7eccd41f-6b1c-4940-a4a6-3c01637e03d4" xml:space="preserve">
+          <source>A recurrence trigger run at an interval that you specify.</source>
+          <target state="new">A recurrence trigger run at an interval that you specify.</target>
+        </trans-unit>
+        <trans-unit id="9754c116-7b98-4c8b-bee1-1d2a320eb73e" xml:space="preserve">
+          <source>When the trigger has conditional logic, the trigger determines whether or not the workflow needs to run.</source>
+          <target state="new">When the trigger has conditional logic, the trigger determines whether or not the workflow needs to run.</target>
+        </trans-unit>
+        <trans-unit id="5f3e66d8-dca1-443e-9089-431f9eae98b0" xml:space="preserve">
+          <source>A trigger indicates it should run by returning a <bpt id="0dcb9cad-d380-49a2-8a55-9ddde52346ff">&lt;code&gt;</bpt>200<ept id="0dcb9cad-d380-49a2-8a55-9ddde52346ff">&lt;/code&gt;</ept> status code.</source>
+          <target state="new">A trigger indicates it should run by returning a <bpt id="0dcb9cad-d380-49a2-8a55-9ddde52346ff">&lt;code&gt;</bpt>200<ept id="0dcb9cad-d380-49a2-8a55-9ddde52346ff">&lt;/code&gt;</ept> status code.</target>
+        </trans-unit>
+        <trans-unit id="18bf956c-f1b0-4659-9eae-4bff1e9a21c8" xml:space="preserve">
+          <source>When is does not need to run, it returns <bpt id="52386c28-04ec-4aaa-b66e-92bfab79fa9d">&lt;code&gt;</bpt>202<ept id="52386c28-04ec-4aaa-b66e-92bfab79fa9d">&lt;/code&gt;</ept> status code.</source>
+          <target state="new">When is does not need to run, it returns <bpt id="52386c28-04ec-4aaa-b66e-92bfab79fa9d">&lt;code&gt;</bpt>202<ept id="52386c28-04ec-4aaa-b66e-92bfab79fa9d">&lt;/code&gt;</ept> status code.</target>
+        </trans-unit>
+        <trans-unit id="51211cba-3a8f-4f21-9ed6-1a1f0922d159" xml:space="preserve">
+          <source>Services can call a logic app endpoint to start a workflow.</source>
+          <target state="new">Services can call a logic app endpoint to start a workflow.</target>
+        </trans-unit>
+        <trans-unit id="00ad71f0-ba45-451f-8e35-0494dba056bf" xml:space="preserve">
+          <source>You can find the endpoint to access by navigating to the <bpt id="62cbd21d-6471-44ce-a003-6a69a8485300">&lt;strong&gt;</bpt>Properties<ept id="62cbd21d-6471-44ce-a003-6a69a8485300">&lt;/strong&gt;</ept> blade from the <bpt id="1ce54d36-809d-491d-bb6e-1bd15b97fd69">&lt;strong&gt;</bpt>Settings<ept id="1ce54d36-809d-491d-bb6e-1bd15b97fd69">&lt;/strong&gt;</ept> command bar button in your logic app.</source>
+          <target state="new">You can find the endpoint to access by navigating to the <bpt id="62cbd21d-6471-44ce-a003-6a69a8485300">&lt;strong&gt;</bpt>Properties<ept id="62cbd21d-6471-44ce-a003-6a69a8485300">&lt;/strong&gt;</ept> blade from the <bpt id="1ce54d36-809d-491d-bb6e-1bd15b97fd69">&lt;strong&gt;</bpt>Settings<ept id="1ce54d36-809d-491d-bb6e-1bd15b97fd69">&lt;/strong&gt;</ept> command bar button in your logic app.</target>
+        </trans-unit>
+        <trans-unit id="9802bb52-b63f-41c3-8818-3c5e39929ee8" xml:space="preserve">
+          <source>You can use this callback to invoke a logic app from inside your custom application.</source>
+          <target state="new">You can use this callback to invoke a logic app from inside your custom application.</target>
+        </trans-unit>
+        <trans-unit id="7cfb1585-7eaa-4f29-9781-e9262435cb2c" xml:space="preserve">
+          <source>You need to use <bpt id="d70e7e71-c502-4708-b0a1-4863632b5590">&lt;strong&gt;</bpt>Basic<ept id="d70e7e71-c502-4708-b0a1-4863632b5590">&lt;/strong&gt;</ept> authentication.</source>
+          <target state="new">You need to use <bpt id="d70e7e71-c502-4708-b0a1-4863632b5590">&lt;strong&gt;</bpt>Basic<ept id="d70e7e71-c502-4708-b0a1-4863632b5590">&lt;/strong&gt;</ept> authentication.</target>
+        </trans-unit>
+        <trans-unit id="ecac258f-7569-4062-88bc-7a956bd482a5" xml:space="preserve">
+          <source>The username of <bpt id="a3ea1828-b112-4130-8e61-3d6f80fc97af">&lt;code&gt;</bpt>default<ept id="a3ea1828-b112-4130-8e61-3d6f80fc97af">&lt;/code&gt;</ept> is created for you, and the password is the <bpt id="684dce70-34be-46e6-aaa4-d9503223aafe">&lt;strong&gt;</bpt>Primary Access Key<ept id="684dce70-34be-46e6-aaa4-d9503223aafe">&lt;/strong&gt;</ept> field on the <bpt id="b4690d64-9266-483a-9659-df2dc8149709">&lt;strong&gt;</bpt>Properties<ept id="b4690d64-9266-483a-9659-df2dc8149709">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">The username of <bpt id="a3ea1828-b112-4130-8e61-3d6f80fc97af">&lt;code&gt;</bpt>default<ept id="a3ea1828-b112-4130-8e61-3d6f80fc97af">&lt;/code&gt;</ept> is created for you, and the password is the <bpt id="684dce70-34be-46e6-aaa4-d9503223aafe">&lt;strong&gt;</bpt>Primary Access Key<ept id="684dce70-34be-46e6-aaa4-d9503223aafe">&lt;/strong&gt;</ept> field on the <bpt id="b4690d64-9266-483a-9659-df2dc8149709">&lt;strong&gt;</bpt>Properties<ept id="b4690d64-9266-483a-9659-df2dc8149709">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="1425f218-3e08-4654-9a77-c1b10aef3387" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="90d1c0e1-c566-4a1e-8973-e948a20db5d5" xml:space="preserve">
+          <source>You can pass outputs to the workflow and reference them in the workflow.</source>
+          <target state="new">You can pass outputs to the workflow and reference them in the workflow.</target>
+        </trans-unit>
+        <trans-unit id="ed49cd2d-82c0-4c44-b6f6-fb234034fa6c" xml:space="preserve">
+          <source>For example, with the above trigger, if you include <bpt id="1fbb433f-c212-46f5-bf32-f8a7f16f4dca">&lt;code&gt;</bpt>@triggers().outputs.property<ept id="1fbb433f-c212-46f5-bf32-f8a7f16f4dca">&lt;/code&gt;</ept> you will get <bpt id="9c35a0bf-ccdc-4a24-a143-a1e9415ae5cc">&lt;code&gt;</bpt>value<ept id="9c35a0bf-ccdc-4a24-a143-a1e9415ae5cc">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, with the above trigger, if you include <bpt id="1fbb433f-c212-46f5-bf32-f8a7f16f4dca">&lt;code&gt;</bpt>@triggers().outputs.property<ept id="1fbb433f-c212-46f5-bf32-f8a7f16f4dca">&lt;/code&gt;</ept> you will get <bpt id="9c35a0bf-ccdc-4a24-a143-a1e9415ae5cc">&lt;code&gt;</bpt>value<ept id="9c35a0bf-ccdc-4a24-a143-a1e9415ae5cc">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9eb2e19-1fb3-4d8d-bd21-d4d7701a7ba8" xml:space="preserve">
+          <source>For more information, see <bpt id="a16a930b-9360-4479-9665-4cf55669fc7b">&lt;linkText&gt;</bpt>the REST documentation<ept id="a16a930b-9360-4479-9665-4cf55669fc7b">&lt;/linkText&gt;</ept><bpt id="a16a930b-9360-4479-9665-4cf55669fc7b">&lt;title&gt;</bpt><ept id="a16a930b-9360-4479-9665-4cf55669fc7b">&lt;/title&gt;</ept>. </source>
+          <target state="new">For more information, see <bpt id="a16a930b-9360-4479-9665-4cf55669fc7b">&lt;linkText&gt;</bpt>the REST documentation<ept id="a16a930b-9360-4479-9665-4cf55669fc7b">&lt;/linkText&gt;</ept><bpt id="a16a930b-9360-4479-9665-4cf55669fc7b">&lt;title&gt;</bpt><ept id="a16a930b-9360-4479-9665-4cf55669fc7b">&lt;/title&gt;</ept>. </target>
+        </trans-unit>
+        <trans-unit id="a9f69cfc-a375-475d-99b0-3f407335a54b" xml:space="preserve">
+          <source>You can define a logic app that does not have a trigger.</source>
+          <target state="new">You can define a logic app that does not have a trigger.</target>
+        </trans-unit>
+        <trans-unit id="3c31efe1-9f29-4acd-a950-2eb2c28bb3c8" xml:space="preserve">
+          <source>In this case the workflow must be started on-demand.</source>
+          <target state="new">In this case the workflow must be started on-demand.</target>
+        </trans-unit>
+        <trans-unit id="7aadeae6-4451-4266-aff7-e80eb85b56ad" xml:space="preserve">
+          <source>This kind of logic app is best suited for a process that only needs to run intermittently.</source>
+          <target state="new">This kind of logic app is best suited for a process that only needs to run intermittently.</target>
+        </trans-unit>
+        <trans-unit id="cc10b09e-99b5-4331-af5b-fe600f8d19a4" xml:space="preserve">
+          <source>To create a logic app without a trigger, check the <bpt id="be8d6b50-fc02-4a6d-8ac8-63d4134c9f6d">&lt;strong&gt;</bpt>Run this logic manually<ept id="be8d6b50-fc02-4a6d-8ac8-63d4134c9f6d">&lt;/strong&gt;</ept> in the <bpt id="03016b0a-8ce5-420c-bc60-618e84023d4a">&lt;strong&gt;</bpt>Start logic<ept id="03016b0a-8ce5-420c-bc60-618e84023d4a">&lt;/strong&gt;</ept> box in the designer.</source>
+          <target state="new">To create a logic app without a trigger, check the <bpt id="be8d6b50-fc02-4a6d-8ac8-63d4134c9f6d">&lt;strong&gt;</bpt>Run this logic manually<ept id="be8d6b50-fc02-4a6d-8ac8-63d4134c9f6d">&lt;/strong&gt;</ept> in the <bpt id="03016b0a-8ce5-420c-bc60-618e84023d4a">&lt;strong&gt;</bpt>Start logic<ept id="03016b0a-8ce5-420c-bc60-618e84023d4a">&lt;/strong&gt;</ept> box in the designer.</target>
+        </trans-unit>
+        <trans-unit id="f2663645-7838-48bd-9c63-b865d79a96c3" xml:space="preserve">
+          <source>To start logic app on-demand, click the <bpt id="02fe6420-5802-4cdd-aaa2-a1eec0a2c5de">&lt;strong&gt;</bpt>Run now<ept id="02fe6420-5802-4cdd-aaa2-a1eec0a2c5de">&lt;/strong&gt;</ept> button on the command bar.</source>
+          <target state="new">To start logic app on-demand, click the <bpt id="02fe6420-5802-4cdd-aaa2-a1eec0a2c5de">&lt;strong&gt;</bpt>Run now<ept id="02fe6420-5802-4cdd-aaa2-a1eec0a2c5de">&lt;/strong&gt;</ept> button on the command bar.</target>
+        </trans-unit>
+        <trans-unit id="d8615b40-7949-4955-bc3a-bc418777fecb" xml:space="preserve">
+          <source>app-service-logic-create-a-logic-app.md</source>
+          <target state="new">app-service-logic-create-a-logic-app.md</target>
+        </trans-unit>
+        <trans-unit id="c5149dec-64d0-4229-8555-fc23a8dd7b2b" xml:space="preserve">
+          <source>https://portal.azure.com</source>
+          <target state="new">https://portal.azure.com</target>
+        </trans-unit>
+      </group>
+      <group id="d6f5076a-a5f6-4cac-b535-f853b41697dc" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="60f5f8af-ac3c-48e8-a299-5933f03bcf4d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="60f5f8af-ac3c-48e8-a299-5933f03bcf4d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e7808fc1-5fa9-40b3-bc62-1eb51de36a0f">
+        <trans-unit id="343c35ba-01e5-4995-8ee9-e3fb43231724" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with PolicyStat | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with PolicyStat | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="88cdcedc-1b2c-4b9c-b317-6edaa4fe97c8" xml:space="preserve">
+          <source>Learn how to use PolicyStat with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use PolicyStat with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="2456ad09-467e-4cf0-b54c-0eedee197dbf" xml:space="preserve">
+          <source>For feedback, click <bpt id="eb55181a-bdbd-4f8c-8b0a-fafd5784b568">&lt;linkText&gt;</bpt>here<ept id="eb55181a-bdbd-4f8c-8b0a-fafd5784b568">&lt;/linkText&gt;</ept><bpt id="eb55181a-bdbd-4f8c-8b0a-fafd5784b568">&lt;title&gt;</bpt><ept id="eb55181a-bdbd-4f8c-8b0a-fafd5784b568">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="eb55181a-bdbd-4f8c-8b0a-fafd5784b568">&lt;linkText&gt;</bpt>here<ept id="eb55181a-bdbd-4f8c-8b0a-fafd5784b568">&lt;/linkText&gt;</ept><bpt id="eb55181a-bdbd-4f8c-8b0a-fafd5784b568">&lt;title&gt;</bpt><ept id="eb55181a-bdbd-4f8c-8b0a-fafd5784b568">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f354b1d5-cf18-44a3-bbf6-e5118eeec30c" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and PolicyStat.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and PolicyStat.</target>
+        </trans-unit>
+        <trans-unit id="62448f06-46c4-47f4-9bc3-e5e228c12edb" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="3e4c4633-c9d3-4765-86bb-223d094f7d4c" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="f62144c8-3b8c-407f-9f71-a23be6fc4aeb" xml:space="preserve">
+          <source>A PolicyStat tenant</source>
+          <target state="new">A PolicyStat tenant</target>
+        </trans-unit>
+        <trans-unit id="30493629-387c-4fa8-a910-0bd8dd01f15d" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to PolicyStat will be able to single sign into the application at your PolicyStat company site (service provider initiated sign on), or using the <bpt id="0f119743-f93d-4d50-a6c1-7bbb1318ac7b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="0f119743-f93d-4d50-a6c1-7bbb1318ac7b">&lt;/linkText&gt;</ept><bpt id="0f119743-f93d-4d50-a6c1-7bbb1318ac7b">&lt;title&gt;</bpt><ept id="0f119743-f93d-4d50-a6c1-7bbb1318ac7b">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to PolicyStat will be able to single sign into the application at your PolicyStat company site (service provider initiated sign on), or using the <bpt id="0f119743-f93d-4d50-a6c1-7bbb1318ac7b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="0f119743-f93d-4d50-a6c1-7bbb1318ac7b">&lt;/linkText&gt;</ept><bpt id="0f119743-f93d-4d50-a6c1-7bbb1318ac7b">&lt;title&gt;</bpt><ept id="0f119743-f93d-4d50-a6c1-7bbb1318ac7b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5f94eda-838c-4c35-b93a-85bcbc8a90ab" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="1227a4a9-2adf-4ba9-9fd0-ac133684c4e8" xml:space="preserve">
+          <source>Enabling the application integration for PolicyStat</source>
+          <target state="new">Enabling the application integration for PolicyStat</target>
+        </trans-unit>
+        <trans-unit id="6a14ef2b-9309-4044-b0c1-78935045b1a9" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="54d0de5a-3437-4de0-ac39-f49cf2cfaaa1" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="c62d9521-10f0-4a70-9214-f78430601844" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="f492754c-e3b1-4296-a75e-52192dc3d75a" xml:space="preserve">
+          <source><bpt id="1d70a0c2-5318-431f-9b77-8bfef6d95308">&lt;linkText&gt;</bpt>Scenario<ept id="1d70a0c2-5318-431f-9b77-8bfef6d95308">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1d70a0c2-5318-431f-9b77-8bfef6d95308">&lt;linkText&gt;</bpt>Scenario<ept id="1d70a0c2-5318-431f-9b77-8bfef6d95308">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0f81f93-210a-435a-82e2-e9df30786b0f" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for PolicyStat.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for PolicyStat.</target>
+        </trans-unit>
+        <trans-unit id="8db4e0f6-54b9-4c97-8acf-147369a4d02e" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="7e508b82-37c7-4bfb-a7ee-e3fd88e7517e">&lt;strong&gt;</bpt>Active Directory<ept id="7e508b82-37c7-4bfb-a7ee-e3fd88e7517e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="7e508b82-37c7-4bfb-a7ee-e3fd88e7517e">&lt;strong&gt;</bpt>Active Directory<ept id="7e508b82-37c7-4bfb-a7ee-e3fd88e7517e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d80de0e-a15a-44ff-a096-ccf5fc77839f" xml:space="preserve">
+          <source><bpt id="2249c748-39a4-497f-9eb1-84c1a32860f1">&lt;linkText&gt;</bpt>Active Directory<ept id="2249c748-39a4-497f-9eb1-84c1a32860f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2249c748-39a4-497f-9eb1-84c1a32860f1">&lt;linkText&gt;</bpt>Active Directory<ept id="2249c748-39a4-497f-9eb1-84c1a32860f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee11a9ef-e1d9-479f-b7fb-10d7c18f2841" xml:space="preserve">
+          <source>From the <bpt id="c9cc7609-9748-47f8-9d58-2a5d6f7f7412">&lt;strong&gt;</bpt>Directory<ept id="c9cc7609-9748-47f8-9d58-2a5d6f7f7412">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="c9cc7609-9748-47f8-9d58-2a5d6f7f7412">&lt;strong&gt;</bpt>Directory<ept id="c9cc7609-9748-47f8-9d58-2a5d6f7f7412">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="cad08f17-2b54-4d5a-8a7f-3f512fc41aff" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="0c8674fe-0ecd-4eab-8b36-9ca4e53fabe8">&lt;strong&gt;</bpt>Applications<ept id="0c8674fe-0ecd-4eab-8b36-9ca4e53fabe8">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="0c8674fe-0ecd-4eab-8b36-9ca4e53fabe8">&lt;strong&gt;</bpt>Applications<ept id="0c8674fe-0ecd-4eab-8b36-9ca4e53fabe8">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="da9697c2-4360-4571-806d-4d858805e04f" xml:space="preserve">
+          <source><bpt id="755c157f-b6d4-4bca-8a96-c1aa22da312e">&lt;linkText&gt;</bpt>Applications<ept id="755c157f-b6d4-4bca-8a96-c1aa22da312e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="755c157f-b6d4-4bca-8a96-c1aa22da312e">&lt;linkText&gt;</bpt>Applications<ept id="755c157f-b6d4-4bca-8a96-c1aa22da312e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="364499b6-a9e1-44ec-9c69-23258f1cae21" xml:space="preserve">
+          <source>Click <bpt id="1f6880b4-8021-4da3-9295-38652a363a98">&lt;strong&gt;</bpt>Add<ept id="1f6880b4-8021-4da3-9295-38652a363a98">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="1f6880b4-8021-4da3-9295-38652a363a98">&lt;strong&gt;</bpt>Add<ept id="1f6880b4-8021-4da3-9295-38652a363a98">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="fddeff82-ce8e-4d32-9773-4fcf1d2bcb4d" xml:space="preserve">
+          <source><bpt id="c03691f1-7dfa-4110-a3bb-25a759e4d9f0">&lt;linkText&gt;</bpt>Add application<ept id="c03691f1-7dfa-4110-a3bb-25a759e4d9f0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c03691f1-7dfa-4110-a3bb-25a759e4d9f0">&lt;linkText&gt;</bpt>Add application<ept id="c03691f1-7dfa-4110-a3bb-25a759e4d9f0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9fe5842-023d-454a-a6ee-0c6777cab856" xml:space="preserve">
+          <source>On the <bpt id="e6f37aec-de1f-40a4-9e04-0e0cee439d37">&lt;strong&gt;</bpt>What do you want to do<ept id="e6f37aec-de1f-40a4-9e04-0e0cee439d37">&lt;/strong&gt;</ept> dialog, click <bpt id="de494724-9680-4b86-926f-91ce0493885b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="de494724-9680-4b86-926f-91ce0493885b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e6f37aec-de1f-40a4-9e04-0e0cee439d37">&lt;strong&gt;</bpt>What do you want to do<ept id="e6f37aec-de1f-40a4-9e04-0e0cee439d37">&lt;/strong&gt;</ept> dialog, click <bpt id="de494724-9680-4b86-926f-91ce0493885b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="de494724-9680-4b86-926f-91ce0493885b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5c63bcf-b793-4fc6-80bc-0f5c0577741c" xml:space="preserve">
+          <source><bpt id="6ce67f6d-57f4-45b5-a169-6f8b6e0670ce">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="6ce67f6d-57f4-45b5-a169-6f8b6e0670ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ce67f6d-57f4-45b5-a169-6f8b6e0670ce">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="6ce67f6d-57f4-45b5-a169-6f8b6e0670ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7140515-c657-4286-9bb6-c69bfbd5472c" xml:space="preserve">
+          <source>In the <bpt id="4c846e55-f06f-47f6-98db-20ee1738272d">&lt;strong&gt;</bpt>search box<ept id="4c846e55-f06f-47f6-98db-20ee1738272d">&lt;/strong&gt;</ept>, type <bpt id="a114ce16-6798-4075-bf5b-ea72a3b3f90a">&lt;strong&gt;</bpt>PolicyStat<ept id="a114ce16-6798-4075-bf5b-ea72a3b3f90a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4c846e55-f06f-47f6-98db-20ee1738272d">&lt;strong&gt;</bpt>search box<ept id="4c846e55-f06f-47f6-98db-20ee1738272d">&lt;/strong&gt;</ept>, type <bpt id="a114ce16-6798-4075-bf5b-ea72a3b3f90a">&lt;strong&gt;</bpt>PolicyStat<ept id="a114ce16-6798-4075-bf5b-ea72a3b3f90a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55810869-e3da-434d-a28b-5c62989676c4" xml:space="preserve">
+          <source><bpt id="56393fc4-4224-4104-a4f9-040e5b241663">&lt;linkText&gt;</bpt>Application Gallery<ept id="56393fc4-4224-4104-a4f9-040e5b241663">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="56393fc4-4224-4104-a4f9-040e5b241663">&lt;linkText&gt;</bpt>Application Gallery<ept id="56393fc4-4224-4104-a4f9-040e5b241663">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1681bef0-8b3e-4ac7-8e9a-97b605694e45" xml:space="preserve">
+          <source>In the results pane, select <bpt id="ef28344d-1b4e-46a7-8e5b-0ed7aa6d8f47">&lt;strong&gt;</bpt>PolicyStat<ept id="ef28344d-1b4e-46a7-8e5b-0ed7aa6d8f47">&lt;/strong&gt;</ept>, and then click <bpt id="94933a34-be41-4025-a91a-e3ae2e7c674c">&lt;strong&gt;</bpt>Complete<ept id="94933a34-be41-4025-a91a-e3ae2e7c674c">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="ef28344d-1b4e-46a7-8e5b-0ed7aa6d8f47">&lt;strong&gt;</bpt>PolicyStat<ept id="ef28344d-1b4e-46a7-8e5b-0ed7aa6d8f47">&lt;/strong&gt;</ept>, and then click <bpt id="94933a34-be41-4025-a91a-e3ae2e7c674c">&lt;strong&gt;</bpt>Complete<ept id="94933a34-be41-4025-a91a-e3ae2e7c674c">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="278a1292-8403-48ea-891b-5a7683ebdd2b" xml:space="preserve">
+          <source><bpt id="ed189788-91ad-4713-9a1f-30dc536d7575">&lt;linkText&gt;</bpt>PolicyStat<ept id="ed189788-91ad-4713-9a1f-30dc536d7575">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ed189788-91ad-4713-9a1f-30dc536d7575">&lt;linkText&gt;</bpt>PolicyStat<ept id="ed189788-91ad-4713-9a1f-30dc536d7575">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d8b8fc0-f865-4b49-ae7b-d17105691f7f" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to PolicyStat with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to PolicyStat with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="79390da2-6b4f-44c5-b5da-210e426c1468" xml:space="preserve">
+          <source>Your PolicyStat application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your <bpt id="3e326de2-5611-4c27-955e-a462038841bb">&lt;strong&gt;</bpt>saml token attributes<ept id="3e326de2-5611-4c27-955e-a462038841bb">&lt;/strong&gt;</ept> configuration.</source>
+          <target state="new">Your PolicyStat application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your <bpt id="3e326de2-5611-4c27-955e-a462038841bb">&lt;strong&gt;</bpt>saml token attributes<ept id="3e326de2-5611-4c27-955e-a462038841bb">&lt;/strong&gt;</ept> configuration.</target>
+        </trans-unit>
+        <trans-unit id="ab4c485c-5171-4f19-8f7c-cf1c39446cd2" xml:space="preserve">
+          <source>The following screenshot shows an example for this.</source>
+          <target state="new">The following screenshot shows an example for this.</target>
+        </trans-unit>
+        <trans-unit id="e6fd6e2b-98bb-4604-821d-59f7fb4e64f5" xml:space="preserve">
+          <source><bpt id="7d2ff163-d205-4b5e-9f81-2fa769d3b016">&lt;linkText&gt;</bpt>Attributes<ept id="7d2ff163-d205-4b5e-9f81-2fa769d3b016">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7d2ff163-d205-4b5e-9f81-2fa769d3b016">&lt;linkText&gt;</bpt>Attributes<ept id="7d2ff163-d205-4b5e-9f81-2fa769d3b016">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55c81042-9068-4a0b-b44f-cfdf7ed72168" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="819a3188-5942-4260-962f-3cd0eaed88c9">&lt;strong&gt;</bpt>PolicyStat<ept id="819a3188-5942-4260-962f-3cd0eaed88c9">&lt;/strong&gt;</ept> application integration page, click <bpt id="5098012a-652d-4dd2-ba9b-da7d3123f925">&lt;strong&gt;</bpt>Configure single sign-on<ept id="5098012a-652d-4dd2-ba9b-da7d3123f925">&lt;/strong&gt;</ept> to open the <bpt id="e8dc813a-2a51-47bd-87d2-98fb9423118c">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="e8dc813a-2a51-47bd-87d2-98fb9423118c">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="819a3188-5942-4260-962f-3cd0eaed88c9">&lt;strong&gt;</bpt>PolicyStat<ept id="819a3188-5942-4260-962f-3cd0eaed88c9">&lt;/strong&gt;</ept> application integration page, click <bpt id="5098012a-652d-4dd2-ba9b-da7d3123f925">&lt;strong&gt;</bpt>Configure single sign-on<ept id="5098012a-652d-4dd2-ba9b-da7d3123f925">&lt;/strong&gt;</ept> to open the <bpt id="e8dc813a-2a51-47bd-87d2-98fb9423118c">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="e8dc813a-2a51-47bd-87d2-98fb9423118c">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="909c8326-7f5c-435f-9024-65c39d3072db" xml:space="preserve">
+          <source><bpt id="d1146cc5-0206-475b-b323-0657de752a99">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="d1146cc5-0206-475b-b323-0657de752a99">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d1146cc5-0206-475b-b323-0657de752a99">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="d1146cc5-0206-475b-b323-0657de752a99">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e038940f-9e85-449b-995c-9ab4710a2ce2" xml:space="preserve">
+          <source>On the <bpt id="74fc1f89-3d03-4fb5-a02d-5e0ea27c3887">&lt;strong&gt;</bpt>How would you like users to sign on to PolicyStat<ept id="74fc1f89-3d03-4fb5-a02d-5e0ea27c3887">&lt;/strong&gt;</ept> page, select <bpt id="5f458fc7-cec3-4350-827c-6f94b29d003c">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="5f458fc7-cec3-4350-827c-6f94b29d003c">&lt;/strong&gt;</ept>, and then click <bpt id="7432c723-b3ab-4c40-8bd5-6bc760ca51d7">&lt;strong&gt;</bpt>Next<ept id="7432c723-b3ab-4c40-8bd5-6bc760ca51d7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="74fc1f89-3d03-4fb5-a02d-5e0ea27c3887">&lt;strong&gt;</bpt>How would you like users to sign on to PolicyStat<ept id="74fc1f89-3d03-4fb5-a02d-5e0ea27c3887">&lt;/strong&gt;</ept> page, select <bpt id="5f458fc7-cec3-4350-827c-6f94b29d003c">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="5f458fc7-cec3-4350-827c-6f94b29d003c">&lt;/strong&gt;</ept>, and then click <bpt id="7432c723-b3ab-4c40-8bd5-6bc760ca51d7">&lt;strong&gt;</bpt>Next<ept id="7432c723-b3ab-4c40-8bd5-6bc760ca51d7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b43a768c-060f-468b-b4ac-8294ee19a917" xml:space="preserve">
+          <source><bpt id="d20df7a0-dbe2-4757-9aec-553238b9905c">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="d20df7a0-dbe2-4757-9aec-553238b9905c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d20df7a0-dbe2-4757-9aec-553238b9905c">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="d20df7a0-dbe2-4757-9aec-553238b9905c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="451a1ef9-36ca-4ceb-aad7-6bf410dcca47" xml:space="preserve">
+          <source>On the <bpt id="5118cbfa-9b17-4f61-a6ef-bce65e4162b2">&lt;strong&gt;</bpt>Configure App Settings<ept id="5118cbfa-9b17-4f61-a6ef-bce65e4162b2">&lt;/strong&gt;</ept> page, in the <bpt id="1bda3ac0-dcb7-497f-9464-369db4cb6852">&lt;strong&gt;</bpt>Sign On URL<ept id="1bda3ac0-dcb7-497f-9464-369db4cb6852">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign-on to your URL PolicyStat application (e.g.: <bpt id="f58ad003-6e4b-4510-952f-668f1bcd3552">&lt;em&gt;</bpt>“https://demo-azure.policystat.com”<ept id="f58ad003-6e4b-4510-952f-668f1bcd3552">&lt;/em&gt;</ept>), and then click <bpt id="9848e495-136d-475b-8e43-e666dbb8940f">&lt;strong&gt;</bpt>Next<ept id="9848e495-136d-475b-8e43-e666dbb8940f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5118cbfa-9b17-4f61-a6ef-bce65e4162b2">&lt;strong&gt;</bpt>Configure App Settings<ept id="5118cbfa-9b17-4f61-a6ef-bce65e4162b2">&lt;/strong&gt;</ept> page, in the <bpt id="1bda3ac0-dcb7-497f-9464-369db4cb6852">&lt;strong&gt;</bpt>Sign On URL<ept id="1bda3ac0-dcb7-497f-9464-369db4cb6852">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign-on to your URL PolicyStat application (e.g.: <bpt id="f58ad003-6e4b-4510-952f-668f1bcd3552">&lt;em&gt;</bpt>“https://demo-azure.policystat.com”<ept id="f58ad003-6e4b-4510-952f-668f1bcd3552">&lt;/em&gt;</ept>), and then click <bpt id="9848e495-136d-475b-8e43-e666dbb8940f">&lt;strong&gt;</bpt>Next<ept id="9848e495-136d-475b-8e43-e666dbb8940f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66abc6fc-3c1b-4048-a1cb-ba3fa4997979" xml:space="preserve">
+          <source><bpt id="a04b8c70-0a38-42eb-9152-713511b97180">&lt;linkText&gt;</bpt>Configure App Settings<ept id="a04b8c70-0a38-42eb-9152-713511b97180">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a04b8c70-0a38-42eb-9152-713511b97180">&lt;linkText&gt;</bpt>Configure App Settings<ept id="a04b8c70-0a38-42eb-9152-713511b97180">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9acc2e7-96ca-40aa-b26d-9e58b46b3a4b" xml:space="preserve">
+          <source>On the <bpt id="cbfe267a-a24c-4a5a-85fe-a45cd77d6aa9">&lt;strong&gt;</bpt>Configure single sign-on at PolicyStat<ept id="cbfe267a-a24c-4a5a-85fe-a45cd77d6aa9">&lt;/strong&gt;</ept> page, click <bpt id="c1bb5e0d-bf53-4a8b-a7e5-67e729f9b195">&lt;strong&gt;</bpt>Download metadata<ept id="c1bb5e0d-bf53-4a8b-a7e5-67e729f9b195">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</source>
+          <target state="new">On the <bpt id="cbfe267a-a24c-4a5a-85fe-a45cd77d6aa9">&lt;strong&gt;</bpt>Configure single sign-on at PolicyStat<ept id="cbfe267a-a24c-4a5a-85fe-a45cd77d6aa9">&lt;/strong&gt;</ept> page, click <bpt id="c1bb5e0d-bf53-4a8b-a7e5-67e729f9b195">&lt;strong&gt;</bpt>Download metadata<ept id="c1bb5e0d-bf53-4a8b-a7e5-67e729f9b195">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="caabd522-3446-49f7-8124-e74b6a3db6a1" xml:space="preserve">
+          <source><bpt id="2c96da03-c8c7-47ba-9a53-387720b8e262">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2c96da03-c8c7-47ba-9a53-387720b8e262">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c96da03-c8c7-47ba-9a53-387720b8e262">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2c96da03-c8c7-47ba-9a53-387720b8e262">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61c27a8d-a644-433f-9be4-f61700aba6dc" xml:space="preserve">
+          <source>In a different web browser window, log into your PolicyStat company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your PolicyStat company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="5f9ee713-f1ee-436c-8d90-2c361c5680e6" xml:space="preserve">
+          <source>Click the <bpt id="b89a8eeb-5c40-4c53-97f2-88c8833f4960">&lt;strong&gt;</bpt>Admin<ept id="b89a8eeb-5c40-4c53-97f2-88c8833f4960">&lt;/strong&gt;</ept> tab, and then click <bpt id="a4e6d57b-e9a5-4290-bb3c-1a6de446308d">&lt;strong&gt;</bpt>Single Sign-On Configuration<ept id="a4e6d57b-e9a5-4290-bb3c-1a6de446308d">&lt;/strong&gt;</ept> in left navigation pane.</source>
+          <target state="new">Click the <bpt id="b89a8eeb-5c40-4c53-97f2-88c8833f4960">&lt;strong&gt;</bpt>Admin<ept id="b89a8eeb-5c40-4c53-97f2-88c8833f4960">&lt;/strong&gt;</ept> tab, and then click <bpt id="a4e6d57b-e9a5-4290-bb3c-1a6de446308d">&lt;strong&gt;</bpt>Single Sign-On Configuration<ept id="a4e6d57b-e9a5-4290-bb3c-1a6de446308d">&lt;/strong&gt;</ept> in left navigation pane.</target>
+        </trans-unit>
+        <trans-unit id="761da317-2cc5-4fe3-83ed-d4c2e192ba19" xml:space="preserve">
+          <source><bpt id="4b0ce7c0-f2e9-43b7-a0b2-4a55cec5197f">&lt;linkText&gt;</bpt>Administrator Menu<ept id="4b0ce7c0-f2e9-43b7-a0b2-4a55cec5197f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b0ce7c0-f2e9-43b7-a0b2-4a55cec5197f">&lt;linkText&gt;</bpt>Administrator Menu<ept id="4b0ce7c0-f2e9-43b7-a0b2-4a55cec5197f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd52ebe4-5365-418d-9615-e04ac066399b" xml:space="preserve">
+          <source>In the <bpt id="8c195ea8-6b87-49dc-8d50-530865e72dd3">&lt;strong&gt;</bpt>Setup<ept id="8c195ea8-6b87-49dc-8d50-530865e72dd3">&lt;/strong&gt;</ept> section, select <bpt id="e4dc97fe-2d59-4798-81f0-3da806bc5d80">&lt;strong&gt;</bpt>Enable Single Sign-on Integration<ept id="e4dc97fe-2d59-4798-81f0-3da806bc5d80">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="8c195ea8-6b87-49dc-8d50-530865e72dd3">&lt;strong&gt;</bpt>Setup<ept id="8c195ea8-6b87-49dc-8d50-530865e72dd3">&lt;/strong&gt;</ept> section, select <bpt id="e4dc97fe-2d59-4798-81f0-3da806bc5d80">&lt;strong&gt;</bpt>Enable Single Sign-on Integration<ept id="e4dc97fe-2d59-4798-81f0-3da806bc5d80">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b2ed36c-ef41-4adc-aa79-9cb85cd85262" xml:space="preserve">
+          <source><bpt id="94e9e06f-be0e-4663-b8c1-e746bc5c241d">&lt;linkText&gt;</bpt>Single Sign-On Configuration<ept id="94e9e06f-be0e-4663-b8c1-e746bc5c241d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="94e9e06f-be0e-4663-b8c1-e746bc5c241d">&lt;linkText&gt;</bpt>Single Sign-On Configuration<ept id="94e9e06f-be0e-4663-b8c1-e746bc5c241d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e85827f3-9447-485a-82aa-d995cdc82e24" xml:space="preserve">
+          <source>Click <bpt id="a8417ab7-bd44-4a10-b1ff-51953da30977">&lt;strong&gt;</bpt>Configure Attributes<ept id="a8417ab7-bd44-4a10-b1ff-51953da30977">&lt;/strong&gt;</ept>, and then, in the <bpt id="e2198c8a-3b23-418f-8363-f34eb33c0e2d">&lt;strong&gt;</bpt>Configure Attributes<ept id="e2198c8a-3b23-418f-8363-f34eb33c0e2d">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">Click <bpt id="a8417ab7-bd44-4a10-b1ff-51953da30977">&lt;strong&gt;</bpt>Configure Attributes<ept id="a8417ab7-bd44-4a10-b1ff-51953da30977">&lt;/strong&gt;</ept>, and then, in the <bpt id="e2198c8a-3b23-418f-8363-f34eb33c0e2d">&lt;strong&gt;</bpt>Configure Attributes<ept id="e2198c8a-3b23-418f-8363-f34eb33c0e2d">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="b290b94a-5c7b-4e5f-8bba-7b2ea722a3b5" xml:space="preserve">
+          <source><bpt id="2278b1da-cccb-4466-ae78-49e578d12a70">&lt;linkText&gt;</bpt>Single Sign-On Configuration<ept id="2278b1da-cccb-4466-ae78-49e578d12a70">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2278b1da-cccb-4466-ae78-49e578d12a70">&lt;linkText&gt;</bpt>Single Sign-On Configuration<ept id="2278b1da-cccb-4466-ae78-49e578d12a70">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9317dcd-17a7-4659-a470-9de7e3e94588" xml:space="preserve">
+          <source>In the <bpt id="b83171a9-a8ce-4384-834c-74b4bfa5b3aa">&lt;strong&gt;</bpt>Username Attribute<ept id="b83171a9-a8ce-4384-834c-74b4bfa5b3aa">&lt;/strong&gt;</ept> textbox, type <bpt id="f833ee8d-351b-4e85-9b78-6c3082843b15">&lt;strong&gt;</bpt>uid<ept id="f833ee8d-351b-4e85-9b78-6c3082843b15">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b83171a9-a8ce-4384-834c-74b4bfa5b3aa">&lt;strong&gt;</bpt>Username Attribute<ept id="b83171a9-a8ce-4384-834c-74b4bfa5b3aa">&lt;/strong&gt;</ept> textbox, type <bpt id="f833ee8d-351b-4e85-9b78-6c3082843b15">&lt;strong&gt;</bpt>uid<ept id="f833ee8d-351b-4e85-9b78-6c3082843b15">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a18586f9-4d50-4042-b3a3-4d64809552ef" xml:space="preserve">
+          <source>In the <bpt id="3698a74f-9dea-4c29-8121-bd85872079dd">&lt;strong&gt;</bpt>First Name Attribute<ept id="3698a74f-9dea-4c29-8121-bd85872079dd">&lt;/strong&gt;</ept> textbox, type <bpt id="cd576620-8c28-4b01-9504-8cfb9d6998fb">&lt;strong&gt;</bpt>firstname<ept id="cd576620-8c28-4b01-9504-8cfb9d6998fb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="3698a74f-9dea-4c29-8121-bd85872079dd">&lt;strong&gt;</bpt>First Name Attribute<ept id="3698a74f-9dea-4c29-8121-bd85872079dd">&lt;/strong&gt;</ept> textbox, type <bpt id="cd576620-8c28-4b01-9504-8cfb9d6998fb">&lt;strong&gt;</bpt>firstname<ept id="cd576620-8c28-4b01-9504-8cfb9d6998fb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a2b795a-7a9a-4849-bc07-581d3dc01e80" xml:space="preserve">
+          <source>In the <bpt id="3b4dc9f7-c6f5-42f3-ae77-6ebd165aa5df">&lt;strong&gt;</bpt>Last Name Attribute<ept id="3b4dc9f7-c6f5-42f3-ae77-6ebd165aa5df">&lt;/strong&gt;</ept> textbox, type <bpt id="60338ea5-cec2-417d-b77c-c5ffcf32334b">&lt;strong&gt;</bpt>lastname<ept id="60338ea5-cec2-417d-b77c-c5ffcf32334b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="3b4dc9f7-c6f5-42f3-ae77-6ebd165aa5df">&lt;strong&gt;</bpt>Last Name Attribute<ept id="3b4dc9f7-c6f5-42f3-ae77-6ebd165aa5df">&lt;/strong&gt;</ept> textbox, type <bpt id="60338ea5-cec2-417d-b77c-c5ffcf32334b">&lt;strong&gt;</bpt>lastname<ept id="60338ea5-cec2-417d-b77c-c5ffcf32334b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e237abce-f49f-4e09-a3b9-38ae786248fc" xml:space="preserve">
+          <source>In the <bpt id="ef0b4c36-f644-49dd-9d0c-2925c0d01dcf">&lt;strong&gt;</bpt>Email Attribute<ept id="ef0b4c36-f644-49dd-9d0c-2925c0d01dcf">&lt;/strong&gt;</ept> textbox, type <bpt id="72370f60-a380-4dfb-af9b-e957d6224ec2">&lt;strong&gt;</bpt>emailaddress<ept id="72370f60-a380-4dfb-af9b-e957d6224ec2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ef0b4c36-f644-49dd-9d0c-2925c0d01dcf">&lt;strong&gt;</bpt>Email Attribute<ept id="ef0b4c36-f644-49dd-9d0c-2925c0d01dcf">&lt;/strong&gt;</ept> textbox, type <bpt id="72370f60-a380-4dfb-af9b-e957d6224ec2">&lt;strong&gt;</bpt>emailaddress<ept id="72370f60-a380-4dfb-af9b-e957d6224ec2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9a1a326-1bca-4a0f-a874-2b87ef766459" xml:space="preserve">
+          <source>Click <bpt id="b24c9340-eb5a-47d9-94e5-58737801c35b">&lt;strong&gt;</bpt>Save Changes<ept id="b24c9340-eb5a-47d9-94e5-58737801c35b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b24c9340-eb5a-47d9-94e5-58737801c35b">&lt;strong&gt;</bpt>Save Changes<ept id="b24c9340-eb5a-47d9-94e5-58737801c35b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec3e7392-f49e-4848-abf4-2cc25330c40b" xml:space="preserve">
+          <source>Click <bpt id="e779ebeb-8c92-4045-ace6-2211445f06dc">&lt;strong&gt;</bpt>Your IDP Metadata<ept id="e779ebeb-8c92-4045-ace6-2211445f06dc">&lt;/strong&gt;</ept>, and then, in the <bpt id="5751be46-e119-4fb2-819b-392ea0921a89">&lt;strong&gt;</bpt>Your IDP Metadata<ept id="5751be46-e119-4fb2-819b-392ea0921a89">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">Click <bpt id="e779ebeb-8c92-4045-ace6-2211445f06dc">&lt;strong&gt;</bpt>Your IDP Metadata<ept id="e779ebeb-8c92-4045-ace6-2211445f06dc">&lt;/strong&gt;</ept>, and then, in the <bpt id="5751be46-e119-4fb2-819b-392ea0921a89">&lt;strong&gt;</bpt>Your IDP Metadata<ept id="5751be46-e119-4fb2-819b-392ea0921a89">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="288c90e2-8a4c-44de-9516-8dda9257316d" xml:space="preserve">
+          <source><bpt id="e0d10633-8dc7-4c0d-acfe-6f9b02a08f59">&lt;linkText&gt;</bpt>Single Sign-On Configuration<ept id="e0d10633-8dc7-4c0d-acfe-6f9b02a08f59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e0d10633-8dc7-4c0d-acfe-6f9b02a08f59">&lt;linkText&gt;</bpt>Single Sign-On Configuration<ept id="e0d10633-8dc7-4c0d-acfe-6f9b02a08f59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="646c01bf-9de6-441e-8bce-748eb2c96bb7" xml:space="preserve">
+          <source>Open your downloaded metadata file, copy the content, and then paste it into the <bpt id="5bbdc3ee-bcb4-4df4-bba7-9a0f08b80256">&lt;strong&gt;</bpt>Your Identity Provider Metadata<ept id="5bbdc3ee-bcb4-4df4-bba7-9a0f08b80256">&lt;/strong&gt;</ept> textbox</source>
+          <target state="new">Open your downloaded metadata file, copy the content, and then paste it into the <bpt id="5bbdc3ee-bcb4-4df4-bba7-9a0f08b80256">&lt;strong&gt;</bpt>Your Identity Provider Metadata<ept id="5bbdc3ee-bcb4-4df4-bba7-9a0f08b80256">&lt;/strong&gt;</ept> textbox</target>
+        </trans-unit>
+        <trans-unit id="5b09b122-cafe-455c-8565-553507d9bb20" xml:space="preserve">
+          <source>Click <bpt id="90d9a18d-8c5d-4ddd-a4f2-c7f08a0e596e">&lt;strong&gt;</bpt>Save Changes<ept id="90d9a18d-8c5d-4ddd-a4f2-c7f08a0e596e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="90d9a18d-8c5d-4ddd-a4f2-c7f08a0e596e">&lt;strong&gt;</bpt>Save Changes<ept id="90d9a18d-8c5d-4ddd-a4f2-c7f08a0e596e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e07299fe-a6fa-414f-999d-a729995bffab" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="b7cd55b5-239d-45e3-adac-0af4cb72fc7a">&lt;strong&gt;</bpt>Complete<ept id="b7cd55b5-239d-45e3-adac-0af4cb72fc7a">&lt;/strong&gt;</ept> to close the <bpt id="41f3dc43-43ca-43e4-8a13-9d48e66bae58">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="41f3dc43-43ca-43e4-8a13-9d48e66bae58">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="b7cd55b5-239d-45e3-adac-0af4cb72fc7a">&lt;strong&gt;</bpt>Complete<ept id="b7cd55b5-239d-45e3-adac-0af4cb72fc7a">&lt;/strong&gt;</ept> to close the <bpt id="41f3dc43-43ca-43e4-8a13-9d48e66bae58">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="41f3dc43-43ca-43e4-8a13-9d48e66bae58">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="790a48a0-7bbc-4bf9-9df0-b7693a5ab5de" xml:space="preserve">
+          <source><bpt id="92996ffe-e097-4f1a-af56-098910da2d35">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="92996ffe-e097-4f1a-af56-098910da2d35">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="92996ffe-e097-4f1a-af56-098910da2d35">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="92996ffe-e097-4f1a-af56-098910da2d35">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff9d97f0-3e13-4913-9320-189dceadd16f" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="9b9df707-eb42-4a7d-bf8c-58149c8a9c4e">&lt;strong&gt;</bpt>Attributes<ept id="9b9df707-eb42-4a7d-bf8c-58149c8a9c4e">&lt;/strong&gt;</ept> to open the <bpt id="e4ad0bc1-03aa-41bd-a974-b6600771db1f">&lt;strong&gt;</bpt>SAML Token Attributes<ept id="e4ad0bc1-03aa-41bd-a974-b6600771db1f">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">In the menu on the top, click <bpt id="9b9df707-eb42-4a7d-bf8c-58149c8a9c4e">&lt;strong&gt;</bpt>Attributes<ept id="9b9df707-eb42-4a7d-bf8c-58149c8a9c4e">&lt;/strong&gt;</ept> to open the <bpt id="e4ad0bc1-03aa-41bd-a974-b6600771db1f">&lt;strong&gt;</bpt>SAML Token Attributes<ept id="e4ad0bc1-03aa-41bd-a974-b6600771db1f">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="6141e8d9-9d15-4055-8b2a-329fe05e96a6" xml:space="preserve">
+          <source><bpt id="0f7292f4-6c46-4ad8-a1e0-10247eb8383f">&lt;linkText&gt;</bpt>Attributes<ept id="0f7292f4-6c46-4ad8-a1e0-10247eb8383f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f7292f4-6c46-4ad8-a1e0-10247eb8383f">&lt;linkText&gt;</bpt>Attributes<ept id="0f7292f4-6c46-4ad8-a1e0-10247eb8383f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55cf5a5d-e3bf-4614-bc05-8de2fb2a9417" xml:space="preserve">
+          <source>To add the required attribute mappings, perform the following steps:</source>
+          <target state="new">To add the required attribute mappings, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="0b6e4299-fb7a-4361-8b61-d3af1e870db3" xml:space="preserve">
+          <source><bpt id="d9c9932f-9a53-4cdb-98ee-fe674478d093">&lt;linkText&gt;</bpt>Attributes<ept id="d9c9932f-9a53-4cdb-98ee-fe674478d093">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d9c9932f-9a53-4cdb-98ee-fe674478d093">&lt;linkText&gt;</bpt>Attributes<ept id="d9c9932f-9a53-4cdb-98ee-fe674478d093">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1594da51-02b3-4676-a647-0d12fd86d9e8" xml:space="preserve">
+          <source>Click <bpt id="b2f0b618-ef90-4f65-9ccf-e38d79f4cc41">&lt;strong&gt;</bpt>add user attribute<ept id="b2f0b618-ef90-4f65-9ccf-e38d79f4cc41">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b2f0b618-ef90-4f65-9ccf-e38d79f4cc41">&lt;strong&gt;</bpt>add user attribute<ept id="b2f0b618-ef90-4f65-9ccf-e38d79f4cc41">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a49c03f-f8f4-462b-b056-1220c87d9e0a" xml:space="preserve">
+          <source>In the <bpt id="00d901e6-cf62-4377-b15b-de05f12c0e28">&lt;strong&gt;</bpt>Attribute Name<ept id="00d901e6-cf62-4377-b15b-de05f12c0e28">&lt;/strong&gt;</ept> textbox, type <bpt id="755b0e8b-94ae-4d0e-a053-910ac38810ef">&lt;strong&gt;</bpt>uid<ept id="755b0e8b-94ae-4d0e-a053-910ac38810ef">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="00d901e6-cf62-4377-b15b-de05f12c0e28">&lt;strong&gt;</bpt>Attribute Name<ept id="00d901e6-cf62-4377-b15b-de05f12c0e28">&lt;/strong&gt;</ept> textbox, type <bpt id="755b0e8b-94ae-4d0e-a053-910ac38810ef">&lt;strong&gt;</bpt>uid<ept id="755b0e8b-94ae-4d0e-a053-910ac38810ef">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74568efe-73ed-4d34-bb31-7f9713ec23f0" xml:space="preserve">
+          <source>In the <bpt id="66ed54b9-951e-46d9-8289-11ec37ba4e05">&lt;strong&gt;</bpt>Attribute Value<ept id="66ed54b9-951e-46d9-8289-11ec37ba4e05">&lt;/strong&gt;</ept> textbox, select <bpt id="eea8d026-38f0-453a-b812-22fd120a9974">&lt;strong&gt;</bpt>ExtractMailPrefix()<ept id="eea8d026-38f0-453a-b812-22fd120a9974">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="66ed54b9-951e-46d9-8289-11ec37ba4e05">&lt;strong&gt;</bpt>Attribute Value<ept id="66ed54b9-951e-46d9-8289-11ec37ba4e05">&lt;/strong&gt;</ept> textbox, select <bpt id="eea8d026-38f0-453a-b812-22fd120a9974">&lt;strong&gt;</bpt>ExtractMailPrefix()<ept id="eea8d026-38f0-453a-b812-22fd120a9974">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="588e568b-d313-4935-a603-8a072d54a5f4" xml:space="preserve">
+          <source>From the <bpt id="2a3cd78a-9970-40d4-a94d-dfb32ed87cde">&lt;strong&gt;</bpt>Mail<ept id="2a3cd78a-9970-40d4-a94d-dfb32ed87cde">&lt;/strong&gt;</ept> list, select <bpt id="0f9eb123-f8ce-47ac-bd11-5b2579591696">&lt;strong&gt;</bpt>User.mail<ept id="0f9eb123-f8ce-47ac-bd11-5b2579591696">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="2a3cd78a-9970-40d4-a94d-dfb32ed87cde">&lt;strong&gt;</bpt>Mail<ept id="2a3cd78a-9970-40d4-a94d-dfb32ed87cde">&lt;/strong&gt;</ept> list, select <bpt id="0f9eb123-f8ce-47ac-bd11-5b2579591696">&lt;strong&gt;</bpt>User.mail<ept id="0f9eb123-f8ce-47ac-bd11-5b2579591696">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a3630dd-ef7f-4596-9a68-80744714a8c6" xml:space="preserve">
+          <source>Click <bpt id="04ecb6ae-68ec-4849-8eba-d10ef26f58d4">&lt;strong&gt;</bpt>Complete<ept id="04ecb6ae-68ec-4849-8eba-d10ef26f58d4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="04ecb6ae-68ec-4849-8eba-d10ef26f58d4">&lt;strong&gt;</bpt>Complete<ept id="04ecb6ae-68ec-4849-8eba-d10ef26f58d4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8138855e-b764-4104-9cea-a8d72afee329" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into PolicyStat, they must be provisioned into PolicyStat.</source>
+          <target state="new">In order to enable Azure AD users to log into PolicyStat, they must be provisioned into PolicyStat.</target>
+        </trans-unit>
+        <trans-unit id="6ebdaa2f-a58b-4ba9-9771-799ebda1c430" xml:space="preserve">
+          <source>PolicyStat supports just in time user provisioning.</source>
+          <target state="new">PolicyStat supports just in time user provisioning.</target>
+        </trans-unit>
+        <trans-unit id="b4a68cdd-829c-4c95-9c44-0f6a71d9eef7" xml:space="preserve">
+          <source>This means, you do not need to add the users manually to PolicyStat.</source>
+          <target state="new">This means, you do not need to add the users manually to PolicyStat.</target>
+        </trans-unit>
+        <trans-unit id="a8762b65-b9fe-40fc-986c-f9d805242507" xml:space="preserve">
+          <source>The users will get added automatically on their first login through single sign on.</source>
+          <target state="new">The users will get added automatically on their first login through single sign on.</target>
+        </trans-unit>
+        <trans-unit id="f788a297-9c50-41bb-8617-bcd339e6c9ad" xml:space="preserve">
+          <source>You can use any other PolicyStat user account creation tools or APIs provided by PolicyStat to provision AAD user accounts.</source>
+          <target state="new">You can use any other PolicyStat user account creation tools or APIs provided by PolicyStat to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="60f6388c-e343-4f5b-b57e-0eb22770de56" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="38cc7be5-602a-492c-89ff-3e511163edb1" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="ca68013d-80c8-4db6-882e-24e0d5e232a6" xml:space="preserve">
+          <source>On the <bpt id="0f9a0279-f901-4bdf-9e3f-fec7f16dc2c2">&lt;strong&gt;</bpt>PolicyStat **application integration page, click **Assign users<ept id="0f9a0279-f901-4bdf-9e3f-fec7f16dc2c2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="0f9a0279-f901-4bdf-9e3f-fec7f16dc2c2">&lt;strong&gt;</bpt>PolicyStat **application integration page, click **Assign users<ept id="0f9a0279-f901-4bdf-9e3f-fec7f16dc2c2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f3b226b-9671-4075-b834-a08c8071d519" xml:space="preserve">
+          <source><bpt id="fea37ed9-0218-4fda-99b8-fc5c7a5b71d3">&lt;linkText&gt;</bpt>Assign Users<ept id="fea37ed9-0218-4fda-99b8-fc5c7a5b71d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fea37ed9-0218-4fda-99b8-fc5c7a5b71d3">&lt;linkText&gt;</bpt>Assign Users<ept id="fea37ed9-0218-4fda-99b8-fc5c7a5b71d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b12f3404-a7f2-4b72-9aba-035da775c6a9" xml:space="preserve">
+          <source>Select your test user, click <bpt id="42ab38b3-e18e-4436-9d39-164d6472b42e">&lt;strong&gt;</bpt>Assign<ept id="42ab38b3-e18e-4436-9d39-164d6472b42e">&lt;/strong&gt;</ept>, and then click <bpt id="8f7552b9-b6a1-411a-8bc5-c366c3ac9ced">&lt;strong&gt;</bpt>Yes<ept id="8f7552b9-b6a1-411a-8bc5-c366c3ac9ced">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="42ab38b3-e18e-4436-9d39-164d6472b42e">&lt;strong&gt;</bpt>Assign<ept id="42ab38b3-e18e-4436-9d39-164d6472b42e">&lt;/strong&gt;</ept>, and then click <bpt id="8f7552b9-b6a1-411a-8bc5-c366c3ac9ced">&lt;strong&gt;</bpt>Yes<ept id="8f7552b9-b6a1-411a-8bc5-c366c3ac9ced">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="6a2dd711-6d6a-4e22-8a23-94d90511c764" xml:space="preserve">
+          <source><bpt id="1cb4c473-1ddd-48a3-8d9d-0218e28ba961">&lt;linkText&gt;</bpt>Yes<ept id="1cb4c473-1ddd-48a3-8d9d-0218e28ba961">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1cb4c473-1ddd-48a3-8d9d-0218e28ba961">&lt;linkText&gt;</bpt>Yes<ept id="1cb4c473-1ddd-48a3-8d9d-0218e28ba961">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93c88dc9-4c57-4b50-8bf6-7d2f410aa362" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="8be11e27-2055-4053-9399-3ef5a08edc19" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="24d9d3c3-2031-4a49-8ef1-1fbc4651134f">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="24d9d3c3-2031-4a49-8ef1-1fbc4651134f">&lt;/linkText&gt;</ept><bpt id="24d9d3c3-2031-4a49-8ef1-1fbc4651134f">&lt;title&gt;</bpt><ept id="24d9d3c3-2031-4a49-8ef1-1fbc4651134f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="24d9d3c3-2031-4a49-8ef1-1fbc4651134f">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="24d9d3c3-2031-4a49-8ef1-1fbc4651134f">&lt;/linkText&gt;</ept><bpt id="24d9d3c3-2031-4a49-8ef1-1fbc4651134f">&lt;title&gt;</bpt><ept id="24d9d3c3-2031-4a49-8ef1-1fbc4651134f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

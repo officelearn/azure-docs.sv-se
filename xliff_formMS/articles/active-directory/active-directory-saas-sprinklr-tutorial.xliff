@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="171df86c-b943-43be-aa0c-898748b89f4c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="171df86c-b943-43be-aa0c-898748b89f4c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9f4d394d-e217-4c22-80a8-56bad45fa115">
+        <trans-unit id="9b716eff-97ef-4308-bd0d-158230383c65" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Sprinklr | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Sprinklr | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e0a3c96d-3f4b-4904-b2f3-23fdc760f0ce" xml:space="preserve">
+          <source>Learn how to use Sprinklr with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Sprinklr with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="edf12dd0-4e97-4f58-b1cc-0095a575d331" xml:space="preserve">
+          <source>For feedback, click <bpt id="aafc3e64-1888-4044-ab94-8c8ad12e109c">&lt;linkText&gt;</bpt>here<ept id="aafc3e64-1888-4044-ab94-8c8ad12e109c">&lt;/linkText&gt;</ept><bpt id="aafc3e64-1888-4044-ab94-8c8ad12e109c">&lt;title&gt;</bpt><ept id="aafc3e64-1888-4044-ab94-8c8ad12e109c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="aafc3e64-1888-4044-ab94-8c8ad12e109c">&lt;linkText&gt;</bpt>here<ept id="aafc3e64-1888-4044-ab94-8c8ad12e109c">&lt;/linkText&gt;</ept><bpt id="aafc3e64-1888-4044-ab94-8c8ad12e109c">&lt;title&gt;</bpt><ept id="aafc3e64-1888-4044-ab94-8c8ad12e109c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c3201f8-1586-4bfd-8d28-0bb85ff0408e" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Sprinklr.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Sprinklr.</target>
+        </trans-unit>
+        <trans-unit id="5c846838-7e06-4a9b-8de7-698086ab5769" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="b8f3826f-eabe-4a8f-b4cc-b4ebcdb68d89" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="1cf402e0-6ec1-454e-82f8-aaa17d086bab" xml:space="preserve">
+          <source>A Sprinklr tenant</source>
+          <target state="new">A Sprinklr tenant</target>
+        </trans-unit>
+        <trans-unit id="d31c12b1-92ce-48f0-bc4f-76828352cbba" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Sprinklr will be able to single sign into the application at your Sprinklr company site (service provider initiated sign on), or using the <bpt id="1b2a1aaa-19db-4f39-ae4d-b3e2c7fbe80d">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="1b2a1aaa-19db-4f39-ae4d-b3e2c7fbe80d">&lt;/linkText&gt;</ept><bpt id="1b2a1aaa-19db-4f39-ae4d-b3e2c7fbe80d">&lt;title&gt;</bpt><ept id="1b2a1aaa-19db-4f39-ae4d-b3e2c7fbe80d">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Sprinklr will be able to single sign into the application at your Sprinklr company site (service provider initiated sign on), or using the <bpt id="1b2a1aaa-19db-4f39-ae4d-b3e2c7fbe80d">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="1b2a1aaa-19db-4f39-ae4d-b3e2c7fbe80d">&lt;/linkText&gt;</ept><bpt id="1b2a1aaa-19db-4f39-ae4d-b3e2c7fbe80d">&lt;title&gt;</bpt><ept id="1b2a1aaa-19db-4f39-ae4d-b3e2c7fbe80d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69798d8e-e976-41e3-a728-9fc0b2ca66ee" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="44927b87-ceeb-4798-b2e9-8ab8f3e63304" xml:space="preserve">
+          <source>Enabling the application integration for Sprinklr</source>
+          <target state="new">Enabling the application integration for Sprinklr</target>
+        </trans-unit>
+        <trans-unit id="0af7de46-3302-4f0f-838b-9c19eb8f7314" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="86e332fc-e81c-483d-b28b-ca9a6f1ae42a" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="5a4cff19-353b-483f-a794-392cb1eecf94" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="222e17b5-79bb-4986-9595-2087c7191ba2" xml:space="preserve">
+          <source><bpt id="07e5e462-0200-4435-8a42-6c1b4eba9d92">&lt;linkText&gt;</bpt>Scenario<ept id="07e5e462-0200-4435-8a42-6c1b4eba9d92">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="07e5e462-0200-4435-8a42-6c1b4eba9d92">&lt;linkText&gt;</bpt>Scenario<ept id="07e5e462-0200-4435-8a42-6c1b4eba9d92">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2d78ebf-1f73-48d7-a320-29afcd7888ef" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Sprinklr.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Sprinklr.</target>
+        </trans-unit>
+        <trans-unit id="c27b1dbb-1ecd-40d9-b707-b365e1571384" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="6d0e9cfb-f539-41ab-9c46-1ed2519d90ae">&lt;strong&gt;</bpt>Active Directory<ept id="6d0e9cfb-f539-41ab-9c46-1ed2519d90ae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="6d0e9cfb-f539-41ab-9c46-1ed2519d90ae">&lt;strong&gt;</bpt>Active Directory<ept id="6d0e9cfb-f539-41ab-9c46-1ed2519d90ae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da908f77-c0c7-408c-8724-a0b7fb84467a" xml:space="preserve">
+          <source><bpt id="de4fde2d-7e3d-460c-a337-7c1e291bb510">&lt;linkText&gt;</bpt>Active Directory<ept id="de4fde2d-7e3d-460c-a337-7c1e291bb510">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="de4fde2d-7e3d-460c-a337-7c1e291bb510">&lt;linkText&gt;</bpt>Active Directory<ept id="de4fde2d-7e3d-460c-a337-7c1e291bb510">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bda8afe9-0336-426c-9581-cda53b0cc36d" xml:space="preserve">
+          <source>From the <bpt id="f9ab8029-5ce4-452a-a01a-e61c21ed6711">&lt;strong&gt;</bpt>Directory<ept id="f9ab8029-5ce4-452a-a01a-e61c21ed6711">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="f9ab8029-5ce4-452a-a01a-e61c21ed6711">&lt;strong&gt;</bpt>Directory<ept id="f9ab8029-5ce4-452a-a01a-e61c21ed6711">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="ccc76269-cba1-4c05-80ac-0c45128d381d" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="90309981-a968-4791-a27d-688ad327e140">&lt;strong&gt;</bpt>Applications<ept id="90309981-a968-4791-a27d-688ad327e140">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="90309981-a968-4791-a27d-688ad327e140">&lt;strong&gt;</bpt>Applications<ept id="90309981-a968-4791-a27d-688ad327e140">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="9f4012b6-02ae-43cf-a56d-06fe1d12b235" xml:space="preserve">
+          <source><bpt id="7f66758b-75ed-473b-8af6-b1a51e342c3b">&lt;linkText&gt;</bpt>Applications<ept id="7f66758b-75ed-473b-8af6-b1a51e342c3b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f66758b-75ed-473b-8af6-b1a51e342c3b">&lt;linkText&gt;</bpt>Applications<ept id="7f66758b-75ed-473b-8af6-b1a51e342c3b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d7419c7-ab6c-41a2-9ea6-92da393fa83a" xml:space="preserve">
+          <source>Click <bpt id="f4f8e68b-a010-483e-aeac-d7e4da53e5ac">&lt;strong&gt;</bpt>Add<ept id="f4f8e68b-a010-483e-aeac-d7e4da53e5ac">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="f4f8e68b-a010-483e-aeac-d7e4da53e5ac">&lt;strong&gt;</bpt>Add<ept id="f4f8e68b-a010-483e-aeac-d7e4da53e5ac">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="87aff8b4-dcb1-4a67-a435-af9749569ec7" xml:space="preserve">
+          <source><bpt id="cad0b29a-8447-41eb-8280-a3f7ae9a4ef1">&lt;linkText&gt;</bpt>Add application<ept id="cad0b29a-8447-41eb-8280-a3f7ae9a4ef1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cad0b29a-8447-41eb-8280-a3f7ae9a4ef1">&lt;linkText&gt;</bpt>Add application<ept id="cad0b29a-8447-41eb-8280-a3f7ae9a4ef1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc1bf4d7-22bc-4f37-83b5-b578bbf26d7e" xml:space="preserve">
+          <source>On the <bpt id="96d38c56-f0d1-4628-b58c-efaedc0a4053">&lt;strong&gt;</bpt>What do you want to do<ept id="96d38c56-f0d1-4628-b58c-efaedc0a4053">&lt;/strong&gt;</ept> dialog, click <bpt id="369a8462-1a85-4663-b93e-7b6c62caeaa8">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="369a8462-1a85-4663-b93e-7b6c62caeaa8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="96d38c56-f0d1-4628-b58c-efaedc0a4053">&lt;strong&gt;</bpt>What do you want to do<ept id="96d38c56-f0d1-4628-b58c-efaedc0a4053">&lt;/strong&gt;</ept> dialog, click <bpt id="369a8462-1a85-4663-b93e-7b6c62caeaa8">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="369a8462-1a85-4663-b93e-7b6c62caeaa8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72db318b-5dc4-44d5-8879-a0a094090578" xml:space="preserve">
+          <source><bpt id="62d2652e-28dd-448e-b968-bd250940aae9">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="62d2652e-28dd-448e-b968-bd250940aae9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62d2652e-28dd-448e-b968-bd250940aae9">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="62d2652e-28dd-448e-b968-bd250940aae9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="832cf860-c22c-4f4e-a1f4-e1c96bd1c792" xml:space="preserve">
+          <source>In the <bpt id="42ea8995-cb55-454f-9de9-24c29c8643a2">&lt;strong&gt;</bpt>search box<ept id="42ea8995-cb55-454f-9de9-24c29c8643a2">&lt;/strong&gt;</ept>, type <bpt id="26512547-5284-4c96-a520-1814dc0f0a4e">&lt;strong&gt;</bpt>Sprinklr<ept id="26512547-5284-4c96-a520-1814dc0f0a4e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="42ea8995-cb55-454f-9de9-24c29c8643a2">&lt;strong&gt;</bpt>search box<ept id="42ea8995-cb55-454f-9de9-24c29c8643a2">&lt;/strong&gt;</ept>, type <bpt id="26512547-5284-4c96-a520-1814dc0f0a4e">&lt;strong&gt;</bpt>Sprinklr<ept id="26512547-5284-4c96-a520-1814dc0f0a4e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec1cf772-291b-4024-aed8-5adea85ab46c" xml:space="preserve">
+          <source><bpt id="dc0f4762-2c83-46eb-a77a-e9150584fbbb">&lt;linkText&gt;</bpt>Application Gallery<ept id="dc0f4762-2c83-46eb-a77a-e9150584fbbb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dc0f4762-2c83-46eb-a77a-e9150584fbbb">&lt;linkText&gt;</bpt>Application Gallery<ept id="dc0f4762-2c83-46eb-a77a-e9150584fbbb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19822aca-5b00-46b4-9f75-cb3fefa03e99" xml:space="preserve">
+          <source>In the results pane, select <bpt id="bff270a3-3606-481c-b36a-bc79073408f1">&lt;strong&gt;</bpt>Sprinklr<ept id="bff270a3-3606-481c-b36a-bc79073408f1">&lt;/strong&gt;</ept>, and then click <bpt id="198f977e-398c-4bc9-93cd-a9c2ee5e0e1b">&lt;strong&gt;</bpt>Complete<ept id="198f977e-398c-4bc9-93cd-a9c2ee5e0e1b">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="bff270a3-3606-481c-b36a-bc79073408f1">&lt;strong&gt;</bpt>Sprinklr<ept id="bff270a3-3606-481c-b36a-bc79073408f1">&lt;/strong&gt;</ept>, and then click <bpt id="198f977e-398c-4bc9-93cd-a9c2ee5e0e1b">&lt;strong&gt;</bpt>Complete<ept id="198f977e-398c-4bc9-93cd-a9c2ee5e0e1b">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="cef484ae-cb82-45d0-9296-1362c984ad84" xml:space="preserve">
+          <source><bpt id="9b92d574-56cf-42ac-90db-96349d562a72">&lt;linkText&gt;</bpt>Sprinklr<ept id="9b92d574-56cf-42ac-90db-96349d562a72">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b92d574-56cf-42ac-90db-96349d562a72">&lt;linkText&gt;</bpt>Sprinklr<ept id="9b92d574-56cf-42ac-90db-96349d562a72">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36683413-5ab0-4e6c-885e-7eb8f77b0833" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Sprinklr with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Sprinklr with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="5bee0a31-1f6f-498e-888e-641bb233df3d" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="2e0a4d11-f0ca-4145-a0ec-126ccfa0ea06" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="a69a47d2-31a2-4ca1-bcc9-e8234bcc7c35">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="a69a47d2-31a2-4ca1-bcc9-e8234bcc7c35">&lt;/linkText&gt;</ept><bpt id="a69a47d2-31a2-4ca1-bcc9-e8234bcc7c35">&lt;title&gt;</bpt><ept id="a69a47d2-31a2-4ca1-bcc9-e8234bcc7c35">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="a69a47d2-31a2-4ca1-bcc9-e8234bcc7c35">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="a69a47d2-31a2-4ca1-bcc9-e8234bcc7c35">&lt;/linkText&gt;</ept><bpt id="a69a47d2-31a2-4ca1-bcc9-e8234bcc7c35">&lt;title&gt;</bpt><ept id="a69a47d2-31a2-4ca1-bcc9-e8234bcc7c35">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df4c9659-3056-4227-af8e-7d117959fd7f" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="85e57380-54b6-42b5-a0d8-32f738393341">&lt;strong&gt;</bpt>Sprinklr<ept id="85e57380-54b6-42b5-a0d8-32f738393341">&lt;/strong&gt;</ept> application integration page, click <bpt id="4aea8ea4-432a-4fb2-bfd7-4094bdfc469a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="4aea8ea4-432a-4fb2-bfd7-4094bdfc469a">&lt;/strong&gt;</ept> to open the <bpt id="f97fcd5e-9eea-4afd-aa53-7ee9c2671c00">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="f97fcd5e-9eea-4afd-aa53-7ee9c2671c00">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="85e57380-54b6-42b5-a0d8-32f738393341">&lt;strong&gt;</bpt>Sprinklr<ept id="85e57380-54b6-42b5-a0d8-32f738393341">&lt;/strong&gt;</ept> application integration page, click <bpt id="4aea8ea4-432a-4fb2-bfd7-4094bdfc469a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="4aea8ea4-432a-4fb2-bfd7-4094bdfc469a">&lt;/strong&gt;</ept> to open the <bpt id="f97fcd5e-9eea-4afd-aa53-7ee9c2671c00">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="f97fcd5e-9eea-4afd-aa53-7ee9c2671c00">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="2dec2665-97da-40ed-a0dd-8a29be61404b" xml:space="preserve">
+          <source><bpt id="3a355460-d230-4360-a5af-4acab66409ed">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="3a355460-d230-4360-a5af-4acab66409ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a355460-d230-4360-a5af-4acab66409ed">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="3a355460-d230-4360-a5af-4acab66409ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="541de257-6d65-411d-b1b1-273ab500c2c6" xml:space="preserve">
+          <source>On the <bpt id="0b1f2877-ffbe-413c-b785-aeae576bf5a0">&lt;strong&gt;</bpt>How would you like users to sign on to Sprinklr<ept id="0b1f2877-ffbe-413c-b785-aeae576bf5a0">&lt;/strong&gt;</ept> page, select <bpt id="9cbf693f-d8ab-4a60-8d1a-d2a3bcc10380">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="9cbf693f-d8ab-4a60-8d1a-d2a3bcc10380">&lt;/strong&gt;</ept>, and then click <bpt id="9d8e4ffc-af5c-425d-b3db-d943fa97207e">&lt;strong&gt;</bpt>Next<ept id="9d8e4ffc-af5c-425d-b3db-d943fa97207e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="0b1f2877-ffbe-413c-b785-aeae576bf5a0">&lt;strong&gt;</bpt>How would you like users to sign on to Sprinklr<ept id="0b1f2877-ffbe-413c-b785-aeae576bf5a0">&lt;/strong&gt;</ept> page, select <bpt id="9cbf693f-d8ab-4a60-8d1a-d2a3bcc10380">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="9cbf693f-d8ab-4a60-8d1a-d2a3bcc10380">&lt;/strong&gt;</ept>, and then click <bpt id="9d8e4ffc-af5c-425d-b3db-d943fa97207e">&lt;strong&gt;</bpt>Next<ept id="9d8e4ffc-af5c-425d-b3db-d943fa97207e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2fcc4179-93d6-4ac8-80f5-7305390f7840" xml:space="preserve">
+          <source><bpt id="09e533f1-c8f2-406f-b818-730f7e9ad18a">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="09e533f1-c8f2-406f-b818-730f7e9ad18a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09e533f1-c8f2-406f-b818-730f7e9ad18a">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="09e533f1-c8f2-406f-b818-730f7e9ad18a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a103b4d1-cca0-46a2-8417-f441532bf871" xml:space="preserve">
+          <source>On the <bpt id="84c5df87-2410-47f3-8397-b47fcc31f004">&lt;strong&gt;</bpt>Configure App URL<ept id="84c5df87-2410-47f3-8397-b47fcc31f004">&lt;/strong&gt;</ept> page, in the <bpt id="fc22c9ee-120d-48de-8c13-6016444d803e">&lt;strong&gt;</bpt>Sprinklr Sign In URL<ept id="fc22c9ee-120d-48de-8c13-6016444d803e">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="ea6a77bd-adcb-41ec-944d-775f42a10af7">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.sprinklr.com<ept id="ea6a77bd-adcb-41ec-944d-775f42a10af7">&lt;/em&gt;</ept>", and then click <bpt id="b38e4cb5-b6bd-41d0-a5cd-479c5282cfa4">&lt;strong&gt;</bpt>Next<ept id="b38e4cb5-b6bd-41d0-a5cd-479c5282cfa4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="84c5df87-2410-47f3-8397-b47fcc31f004">&lt;strong&gt;</bpt>Configure App URL<ept id="84c5df87-2410-47f3-8397-b47fcc31f004">&lt;/strong&gt;</ept> page, in the <bpt id="fc22c9ee-120d-48de-8c13-6016444d803e">&lt;strong&gt;</bpt>Sprinklr Sign In URL<ept id="fc22c9ee-120d-48de-8c13-6016444d803e">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="ea6a77bd-adcb-41ec-944d-775f42a10af7">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.sprinklr.com<ept id="ea6a77bd-adcb-41ec-944d-775f42a10af7">&lt;/em&gt;</ept>", and then click <bpt id="b38e4cb5-b6bd-41d0-a5cd-479c5282cfa4">&lt;strong&gt;</bpt>Next<ept id="b38e4cb5-b6bd-41d0-a5cd-479c5282cfa4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aaf14693-a032-4c6f-b618-2412f5e95f9a" xml:space="preserve">
+          <source><bpt id="0576f8ad-ebf6-4f0a-a27b-10bd9e5bac29">&lt;linkText&gt;</bpt>Configure App URL<ept id="0576f8ad-ebf6-4f0a-a27b-10bd9e5bac29">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0576f8ad-ebf6-4f0a-a27b-10bd9e5bac29">&lt;linkText&gt;</bpt>Configure App URL<ept id="0576f8ad-ebf6-4f0a-a27b-10bd9e5bac29">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18cfd812-a225-43d2-818b-c5b69c8a4649" xml:space="preserve">
+          <source>On the <bpt id="ccdf8ed0-c061-41a9-837f-e1b6b74367ec">&lt;strong&gt;</bpt>Configure single sign-on at Sprinklr<ept id="ccdf8ed0-c061-41a9-837f-e1b6b74367ec">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="41a2ce03-8f0a-45f9-9465-eee054011665">&lt;strong&gt;</bpt>Download certificate<ept id="41a2ce03-8f0a-45f9-9465-eee054011665">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="ccdf8ed0-c061-41a9-837f-e1b6b74367ec">&lt;strong&gt;</bpt>Configure single sign-on at Sprinklr<ept id="ccdf8ed0-c061-41a9-837f-e1b6b74367ec">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="41a2ce03-8f0a-45f9-9465-eee054011665">&lt;strong&gt;</bpt>Download certificate<ept id="41a2ce03-8f0a-45f9-9465-eee054011665">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="ef5f86ab-d872-4bba-b10b-9b8d6a98ed45" xml:space="preserve">
+          <source><bpt id="1f195f7c-74ae-4e52-996a-77e859da42a1">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="1f195f7c-74ae-4e52-996a-77e859da42a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1f195f7c-74ae-4e52-996a-77e859da42a1">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="1f195f7c-74ae-4e52-996a-77e859da42a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c5deafc-bf58-4e06-bd64-1a0f029b9e95" xml:space="preserve">
+          <source>In a different web browser window, log into your Sprinklr company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Sprinklr company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="b0ab82bb-80a3-4513-a038-afd9d40f40fc" xml:space="preserve">
+          <source>Go to <bpt id="70bf1428-f4b8-4ea3-9ac5-aa557b6f0e6a">&lt;strong&gt;</bpt>Administration \&gt; Settings<ept id="70bf1428-f4b8-4ea3-9ac5-aa557b6f0e6a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="70bf1428-f4b8-4ea3-9ac5-aa557b6f0e6a">&lt;strong&gt;</bpt>Administration \&gt; Settings<ept id="70bf1428-f4b8-4ea3-9ac5-aa557b6f0e6a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="173eada9-4918-4932-846b-25e67fd4552c" xml:space="preserve">
+          <source><bpt id="4c97ac4d-f6f3-4c5d-8a68-b9700babf2c8">&lt;linkText&gt;</bpt>Administration<ept id="4c97ac4d-f6f3-4c5d-8a68-b9700babf2c8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4c97ac4d-f6f3-4c5d-8a68-b9700babf2c8">&lt;linkText&gt;</bpt>Administration<ept id="4c97ac4d-f6f3-4c5d-8a68-b9700babf2c8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c777e0ca-b1a4-4ea2-a107-c8cc49ef56c6" xml:space="preserve">
+          <source>Go to <bpt id="1381b477-dbbb-48b7-9b15-e2de0b229765">&lt;strong&gt;</bpt>Manage Partner \&gt; Single Sign<ept id="1381b477-dbbb-48b7-9b15-e2de0b229765">&lt;/strong&gt;</ept> on from the left pane.</source>
+          <target state="new">Go to <bpt id="1381b477-dbbb-48b7-9b15-e2de0b229765">&lt;strong&gt;</bpt>Manage Partner \&gt; Single Sign<ept id="1381b477-dbbb-48b7-9b15-e2de0b229765">&lt;/strong&gt;</ept> on from the left pane.</target>
+        </trans-unit>
+        <trans-unit id="3b5a5363-2dc1-4113-8204-552677e54eb7" xml:space="preserve">
+          <source><bpt id="da35d482-75ee-495d-93e5-387e16eece31">&lt;linkText&gt;</bpt>Manage Partner<ept id="da35d482-75ee-495d-93e5-387e16eece31">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da35d482-75ee-495d-93e5-387e16eece31">&lt;linkText&gt;</bpt>Manage Partner<ept id="da35d482-75ee-495d-93e5-387e16eece31">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c053ee5f-6dfd-4cd9-a11d-b9772be0c9a6" xml:space="preserve">
+          <source>Click <bpt id="740f9a82-353b-418a-959c-d7d3f7cb3d99">&lt;strong&gt;</bpt>+Add Single Sign Ons<ept id="740f9a82-353b-418a-959c-d7d3f7cb3d99">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="740f9a82-353b-418a-959c-d7d3f7cb3d99">&lt;strong&gt;</bpt>+Add Single Sign Ons<ept id="740f9a82-353b-418a-959c-d7d3f7cb3d99">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2258e99-b477-44ce-8128-b2ecbb8e48a9" xml:space="preserve">
+          <source><bpt id="528a3735-8937-480d-9f2c-98bfd29e8aa0">&lt;linkText&gt;</bpt>Single Sign-Ons<ept id="528a3735-8937-480d-9f2c-98bfd29e8aa0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="528a3735-8937-480d-9f2c-98bfd29e8aa0">&lt;linkText&gt;</bpt>Single Sign-Ons<ept id="528a3735-8937-480d-9f2c-98bfd29e8aa0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa39cf8f-5151-49f7-8ead-52948d811f54" xml:space="preserve">
+          <source>On the <bpt id="d9fb69d5-e23c-4bef-9b37-417b9f719a9c">&lt;strong&gt;</bpt>Single Sign on<ept id="d9fb69d5-e23c-4bef-9b37-417b9f719a9c">&lt;/strong&gt;</ept> page, perform the following steps:</source>
+          <target state="new">On the <bpt id="d9fb69d5-e23c-4bef-9b37-417b9f719a9c">&lt;strong&gt;</bpt>Single Sign on<ept id="d9fb69d5-e23c-4bef-9b37-417b9f719a9c">&lt;/strong&gt;</ept> page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="46d1dd53-bc77-4113-b16c-bbcf566e6678" xml:space="preserve">
+          <source><bpt id="d426c4d4-aa9a-4054-909b-789825cafd4c">&lt;linkText&gt;</bpt>Single Sign-Ons<ept id="d426c4d4-aa9a-4054-909b-789825cafd4c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d426c4d4-aa9a-4054-909b-789825cafd4c">&lt;linkText&gt;</bpt>Single Sign-Ons<ept id="d426c4d4-aa9a-4054-909b-789825cafd4c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1962c52-3e10-4430-a302-f79af58dbb6b" xml:space="preserve">
+          <source>In the <bpt id="deeffdec-b891-4ee6-b9d8-0a1086c7a777">&lt;strong&gt;</bpt>Name<ept id="deeffdec-b891-4ee6-b9d8-0a1086c7a777">&lt;/strong&gt;</ept> textbox, type a name for your configuration (e.g.: <bpt id="733237ac-0eba-4ba4-a4de-81051c355888">&lt;em&gt;</bpt>WAADSSOTest<ept id="733237ac-0eba-4ba4-a4de-81051c355888">&lt;/em&gt;</ept>).</source>
+          <target state="new">In the <bpt id="deeffdec-b891-4ee6-b9d8-0a1086c7a777">&lt;strong&gt;</bpt>Name<ept id="deeffdec-b891-4ee6-b9d8-0a1086c7a777">&lt;/strong&gt;</ept> textbox, type a name for your configuration (e.g.: <bpt id="733237ac-0eba-4ba4-a4de-81051c355888">&lt;em&gt;</bpt>WAADSSOTest<ept id="733237ac-0eba-4ba4-a4de-81051c355888">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="59d1b7a1-e107-499f-8ea7-47fe8d6acf1c" xml:space="preserve">
+          <source>Select <bpt id="89810b2e-e148-442f-9165-3be177fe1f00">&lt;strong&gt;</bpt>Enabled<ept id="89810b2e-e148-442f-9165-3be177fe1f00">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="89810b2e-e148-442f-9165-3be177fe1f00">&lt;strong&gt;</bpt>Enabled<ept id="89810b2e-e148-442f-9165-3be177fe1f00">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="caa6ffc1-3ef4-4b50-9bae-1e9c15b3985a" xml:space="preserve">
+          <source>Select <bpt id="1794d3f9-869e-4698-aaaa-a86248c001b4">&lt;strong&gt;</bpt>Use new SSO Certificate<ept id="1794d3f9-869e-4698-aaaa-a86248c001b4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="1794d3f9-869e-4698-aaaa-a86248c001b4">&lt;strong&gt;</bpt>Use new SSO Certificate<ept id="1794d3f9-869e-4698-aaaa-a86248c001b4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad8d02d2-21b2-4e75-ab93-5d736ba45ded" xml:space="preserve">
+          <source>Create a <bpt id="a56fb2ee-008d-4dca-86c3-c4be510c6ac9">&lt;strong&gt;</bpt>base-64 encoded<ept id="a56fb2ee-008d-4dca-86c3-c4be510c6ac9">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="a56fb2ee-008d-4dca-86c3-c4be510c6ac9">&lt;strong&gt;</bpt>base-64 encoded<ept id="a56fb2ee-008d-4dca-86c3-c4be510c6ac9">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="9a436d2f-b98a-460a-928b-75653acd62f1" xml:space="preserve">
+          <source>For more details, see <bpt id="94913767-1157-402f-be9a-611daacdf458">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="94913767-1157-402f-be9a-611daacdf458">&lt;/linkText&gt;</ept><bpt id="94913767-1157-402f-be9a-611daacdf458">&lt;title&gt;</bpt><ept id="94913767-1157-402f-be9a-611daacdf458">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="94913767-1157-402f-be9a-611daacdf458">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="94913767-1157-402f-be9a-611daacdf458">&lt;/linkText&gt;</ept><bpt id="94913767-1157-402f-be9a-611daacdf458">&lt;title&gt;</bpt><ept id="94913767-1157-402f-be9a-611daacdf458">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30d28bd9-b9a6-4470-adcd-cc2475e48592" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="9df9082b-1f65-40d7-8a7a-15c298d2d828">&lt;strong&gt;</bpt>Identity Provider Certificate<ept id="9df9082b-1f65-40d7-8a7a-15c298d2d828">&lt;/strong&gt;</ept> textbox,</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="9df9082b-1f65-40d7-8a7a-15c298d2d828">&lt;strong&gt;</bpt>Identity Provider Certificate<ept id="9df9082b-1f65-40d7-8a7a-15c298d2d828">&lt;/strong&gt;</ept> textbox,</target>
+        </trans-unit>
+        <trans-unit id="0e91248e-f872-4ff1-8396-f7a8d1411d94" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="30364c94-7901-4662-b2b9-b24cc6fa7160">&lt;strong&gt;</bpt>Configure single sign-on at Sprinklr<ept id="30364c94-7901-4662-b2b9-b24cc6fa7160">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="aca11b1b-2bc6-40aa-954f-7ef1928c94de">&lt;strong&gt;</bpt>Identity Provider ID<ept id="aca11b1b-2bc6-40aa-954f-7ef1928c94de">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="963bf69f-06ef-4b6c-bd50-fc4b0cdfc78d">&lt;strong&gt;</bpt>Entity Id<ept id="963bf69f-06ef-4b6c-bd50-fc4b0cdfc78d">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="30364c94-7901-4662-b2b9-b24cc6fa7160">&lt;strong&gt;</bpt>Configure single sign-on at Sprinklr<ept id="30364c94-7901-4662-b2b9-b24cc6fa7160">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="aca11b1b-2bc6-40aa-954f-7ef1928c94de">&lt;strong&gt;</bpt>Identity Provider ID<ept id="aca11b1b-2bc6-40aa-954f-7ef1928c94de">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="963bf69f-06ef-4b6c-bd50-fc4b0cdfc78d">&lt;strong&gt;</bpt>Entity Id<ept id="963bf69f-06ef-4b6c-bd50-fc4b0cdfc78d">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="66570dca-da05-4d4b-aa85-ba1a0b84d1d6" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="6be82a3d-5cf3-405f-93db-259b5fdd9f36">&lt;strong&gt;</bpt>Configure single sign-on at Sprinklr<ept id="6be82a3d-5cf3-405f-93db-259b5fdd9f36">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="5d356c53-7fb7-4a95-8ecc-89e86b23079b">&lt;strong&gt;</bpt>Remote Login URL<ept id="5d356c53-7fb7-4a95-8ecc-89e86b23079b">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="3459a4ed-982d-4857-810c-129fee251714">&lt;strong&gt;</bpt>Identity Provider Login URL<ept id="3459a4ed-982d-4857-810c-129fee251714">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="6be82a3d-5cf3-405f-93db-259b5fdd9f36">&lt;strong&gt;</bpt>Configure single sign-on at Sprinklr<ept id="6be82a3d-5cf3-405f-93db-259b5fdd9f36">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="5d356c53-7fb7-4a95-8ecc-89e86b23079b">&lt;strong&gt;</bpt>Remote Login URL<ept id="5d356c53-7fb7-4a95-8ecc-89e86b23079b">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="3459a4ed-982d-4857-810c-129fee251714">&lt;strong&gt;</bpt>Identity Provider Login URL<ept id="3459a4ed-982d-4857-810c-129fee251714">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="d7b65c94-a086-4565-b6d2-6ac47fe3f783" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="d599a24d-493d-4c41-9335-ae70d06894ca">&lt;strong&gt;</bpt>Configure single sign-on at Sprinklr<ept id="d599a24d-493d-4c41-9335-ae70d06894ca">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="8349a5e6-40af-433e-8284-1d6bffa74a0e">&lt;strong&gt;</bpt>Remote Logout URL<ept id="8349a5e6-40af-433e-8284-1d6bffa74a0e">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="c01c0a44-032b-4be2-aad0-7bc604818a98">&lt;strong&gt;</bpt>Identity Provider Logout URL<ept id="c01c0a44-032b-4be2-aad0-7bc604818a98">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="d599a24d-493d-4c41-9335-ae70d06894ca">&lt;strong&gt;</bpt>Configure single sign-on at Sprinklr<ept id="d599a24d-493d-4c41-9335-ae70d06894ca">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="8349a5e6-40af-433e-8284-1d6bffa74a0e">&lt;strong&gt;</bpt>Remote Logout URL<ept id="8349a5e6-40af-433e-8284-1d6bffa74a0e">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="c01c0a44-032b-4be2-aad0-7bc604818a98">&lt;strong&gt;</bpt>Identity Provider Logout URL<ept id="c01c0a44-032b-4be2-aad0-7bc604818a98">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="056d0003-294d-4a05-aa96-245a33292da1" xml:space="preserve">
+          <source>As <bpt id="1a714a74-d578-4f33-9d71-987b6ddeaf7a">&lt;strong&gt;</bpt>SAML User ID Type<ept id="1a714a74-d578-4f33-9d71-987b6ddeaf7a">&lt;/strong&gt;</ept>, select <bpt id="c04051fd-1f2a-4234-8c35-1fb7a059ac6d">&lt;strong&gt;</bpt>Assertion contains User”s sprinklr.com username<ept id="c04051fd-1f2a-4234-8c35-1fb7a059ac6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="1a714a74-d578-4f33-9d71-987b6ddeaf7a">&lt;strong&gt;</bpt>SAML User ID Type<ept id="1a714a74-d578-4f33-9d71-987b6ddeaf7a">&lt;/strong&gt;</ept>, select <bpt id="c04051fd-1f2a-4234-8c35-1fb7a059ac6d">&lt;strong&gt;</bpt>Assertion contains User”s sprinklr.com username<ept id="c04051fd-1f2a-4234-8c35-1fb7a059ac6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07482add-e9eb-46e2-890e-d8d45c36e2f4" xml:space="preserve">
+          <source>As <bpt id="25f7f6b2-4714-4b18-abb7-723b3b63655b">&lt;strong&gt;</bpt>SAML User ID Location<ept id="25f7f6b2-4714-4b18-abb7-723b3b63655b">&lt;/strong&gt;</ept>, select <bpt id="b0b2bad7-24c2-48c0-bcde-ff7526252e61">&lt;strong&gt;</bpt>User ID is in the Name Identifier element of the Subject statement<ept id="b0b2bad7-24c2-48c0-bcde-ff7526252e61">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="25f7f6b2-4714-4b18-abb7-723b3b63655b">&lt;strong&gt;</bpt>SAML User ID Location<ept id="25f7f6b2-4714-4b18-abb7-723b3b63655b">&lt;/strong&gt;</ept>, select <bpt id="b0b2bad7-24c2-48c0-bcde-ff7526252e61">&lt;strong&gt;</bpt>User ID is in the Name Identifier element of the Subject statement<ept id="b0b2bad7-24c2-48c0-bcde-ff7526252e61">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb2acae5-c556-4faf-8f08-d6315a913c55" xml:space="preserve">
+          <source>Close <bpt id="f1b3169a-748e-4f82-a6fa-953afd02a931">&lt;strong&gt;</bpt>Save<ept id="f1b3169a-748e-4f82-a6fa-953afd02a931">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Close <bpt id="f1b3169a-748e-4f82-a6fa-953afd02a931">&lt;strong&gt;</bpt>Save<ept id="f1b3169a-748e-4f82-a6fa-953afd02a931">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="797554fc-f93d-420b-8c43-f44c7c28357f" xml:space="preserve">
+          <source><bpt id="d46a20d8-11d3-43d1-b3ac-8c1d733fab29">&lt;linkText&gt;</bpt>SAML<ept id="d46a20d8-11d3-43d1-b3ac-8c1d733fab29">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d46a20d8-11d3-43d1-b3ac-8c1d733fab29">&lt;linkText&gt;</bpt>SAML<ept id="d46a20d8-11d3-43d1-b3ac-8c1d733fab29">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac850ab0-cd99-49ac-8f82-420ab9b483a9" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="42678811-c4fc-4be7-b82b-c3e8141c27c0">&lt;strong&gt;</bpt>Complete<ept id="42678811-c4fc-4be7-b82b-c3e8141c27c0">&lt;/strong&gt;</ept> to close the <bpt id="282a86d8-51b9-42a0-b727-fe6f1d503460">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="282a86d8-51b9-42a0-b727-fe6f1d503460">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="42678811-c4fc-4be7-b82b-c3e8141c27c0">&lt;strong&gt;</bpt>Complete<ept id="42678811-c4fc-4be7-b82b-c3e8141c27c0">&lt;/strong&gt;</ept> to close the <bpt id="282a86d8-51b9-42a0-b727-fe6f1d503460">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="282a86d8-51b9-42a0-b727-fe6f1d503460">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="71a8cdbd-d962-463f-86cf-2a2388b734ce" xml:space="preserve">
+          <source><bpt id="9b5a3bbd-0a6b-4245-a8df-649ac3c2f7ee">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="9b5a3bbd-0a6b-4245-a8df-649ac3c2f7ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b5a3bbd-0a6b-4245-a8df-649ac3c2f7ee">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="9b5a3bbd-0a6b-4245-a8df-649ac3c2f7ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="394cef97-e496-4bd9-a59c-b257c669c911" xml:space="preserve">
+          <source>For AAD users to be able to sign in, they must be provisioned for access inside the Sprinklr application.</source>
+          <target state="new">For AAD users to be able to sign in, they must be provisioned for access inside the Sprinklr application.</target>
+        </trans-unit>
+        <trans-unit id="a6e6831e-a62e-4582-8a9b-0a01e870f962" xml:space="preserve">
+          <source>This section describes how to create AAD user accounts inside Sprinklr.</source>
+          <target state="new">This section describes how to create AAD user accounts inside Sprinklr.</target>
+        </trans-unit>
+        <trans-unit id="da1e5c31-6622-4faf-a771-d4972e34e271" xml:space="preserve">
+          <source>Log into your Sprinklr company site as an administrator.</source>
+          <target state="new">Log into your Sprinklr company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="83bf22d0-de43-407a-9d50-6ccbaabc6b90" xml:space="preserve">
+          <source>Go to <bpt id="7944c1a3-6657-458c-acc1-15f02c46ae04">&lt;strong&gt;</bpt>Administration \&gt; Settings<ept id="7944c1a3-6657-458c-acc1-15f02c46ae04">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="7944c1a3-6657-458c-acc1-15f02c46ae04">&lt;strong&gt;</bpt>Administration \&gt; Settings<ept id="7944c1a3-6657-458c-acc1-15f02c46ae04">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ecfee16-8496-43d1-bcbb-9b8876c31b20" xml:space="preserve">
+          <source><bpt id="4100b379-0605-4a7a-8055-8712ab7c1fcf">&lt;linkText&gt;</bpt>Administration<ept id="4100b379-0605-4a7a-8055-8712ab7c1fcf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4100b379-0605-4a7a-8055-8712ab7c1fcf">&lt;linkText&gt;</bpt>Administration<ept id="4100b379-0605-4a7a-8055-8712ab7c1fcf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39adf3ce-edd1-4e30-b4d7-bd544aa72665" xml:space="preserve">
+          <source>Go to <bpt id="f99b98c2-1100-45f9-b81f-b857f419767b">&lt;strong&gt;</bpt>Manage Client \&gt; Users<ept id="f99b98c2-1100-45f9-b81f-b857f419767b">&lt;/strong&gt;</ept> from the left pane.</source>
+          <target state="new">Go to <bpt id="f99b98c2-1100-45f9-b81f-b857f419767b">&lt;strong&gt;</bpt>Manage Client \&gt; Users<ept id="f99b98c2-1100-45f9-b81f-b857f419767b">&lt;/strong&gt;</ept> from the left pane.</target>
+        </trans-unit>
+        <trans-unit id="0a0fb0bb-5e7a-4b7b-ac5f-88cf3336ab3b" xml:space="preserve">
+          <source><bpt id="171d9732-77a1-4ec1-9671-140f6c2342a1">&lt;linkText&gt;</bpt>Settings<ept id="171d9732-77a1-4ec1-9671-140f6c2342a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="171d9732-77a1-4ec1-9671-140f6c2342a1">&lt;linkText&gt;</bpt>Settings<ept id="171d9732-77a1-4ec1-9671-140f6c2342a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="529d4678-6d2c-42be-a609-78e4f17fee2c" xml:space="preserve">
+          <source>Click <bpt id="c962af96-8a23-4132-81d9-141d4cca3ffe">&lt;strong&gt;</bpt>Add User<ept id="c962af96-8a23-4132-81d9-141d4cca3ffe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c962af96-8a23-4132-81d9-141d4cca3ffe">&lt;strong&gt;</bpt>Add User<ept id="c962af96-8a23-4132-81d9-141d4cca3ffe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da5e521d-b34e-480c-b7e5-0ec0aa2e18a3" xml:space="preserve">
+          <source><bpt id="1ca98bf0-fac2-4ee0-bda5-ceb1d61369cf">&lt;linkText&gt;</bpt>Settings<ept id="1ca98bf0-fac2-4ee0-bda5-ceb1d61369cf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ca98bf0-fac2-4ee0-bda5-ceb1d61369cf">&lt;linkText&gt;</bpt>Settings<ept id="1ca98bf0-fac2-4ee0-bda5-ceb1d61369cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1078d602-7a0e-4e8a-9231-098fbccbb4ec" xml:space="preserve">
+          <source>On the <bpt id="55e73443-6933-496e-89ab-591e334b4b33">&lt;strong&gt;</bpt>Edit user<ept id="55e73443-6933-496e-89ab-591e334b4b33">&lt;/strong&gt;</ept> dialog, perform the following steps:</source>
+          <target state="new">On the <bpt id="55e73443-6933-496e-89ab-591e334b4b33">&lt;strong&gt;</bpt>Edit user<ept id="55e73443-6933-496e-89ab-591e334b4b33">&lt;/strong&gt;</ept> dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="bf08e410-054c-4bf3-b116-f6acc91ca5bc" xml:space="preserve">
+          <source><bpt id="218704b5-e141-4dde-83e3-7e0317011b48">&lt;linkText&gt;</bpt>Edit user<ept id="218704b5-e141-4dde-83e3-7e0317011b48">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="218704b5-e141-4dde-83e3-7e0317011b48">&lt;linkText&gt;</bpt>Edit user<ept id="218704b5-e141-4dde-83e3-7e0317011b48">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f485ec9-cb5a-4855-b845-c2c5db3bcfbf" xml:space="preserve">
+          <source>In the <bpt id="58019e78-7632-472b-a2b0-21c7cbd401fc">&lt;strong&gt;</bpt>Email<ept id="58019e78-7632-472b-a2b0-21c7cbd401fc">&lt;/strong&gt;</ept>, <bpt id="3e7aa9b7-442e-4b5f-bff8-a22189af11f8">&lt;strong&gt;</bpt>First Name<ept id="3e7aa9b7-442e-4b5f-bff8-a22189af11f8">&lt;/strong&gt;</ept> and <bpt id="b2927f90-955a-4db7-8ab2-50bd132e71b0">&lt;strong&gt;</bpt>Last Name<ept id="b2927f90-955a-4db7-8ab2-50bd132e71b0">&lt;/strong&gt;</ept> textboxes, type the information of an Azure AD user account you want to provision.</source>
+          <target state="new">In the <bpt id="58019e78-7632-472b-a2b0-21c7cbd401fc">&lt;strong&gt;</bpt>Email<ept id="58019e78-7632-472b-a2b0-21c7cbd401fc">&lt;/strong&gt;</ept>, <bpt id="3e7aa9b7-442e-4b5f-bff8-a22189af11f8">&lt;strong&gt;</bpt>First Name<ept id="3e7aa9b7-442e-4b5f-bff8-a22189af11f8">&lt;/strong&gt;</ept> and <bpt id="b2927f90-955a-4db7-8ab2-50bd132e71b0">&lt;strong&gt;</bpt>Last Name<ept id="b2927f90-955a-4db7-8ab2-50bd132e71b0">&lt;/strong&gt;</ept> textboxes, type the information of an Azure AD user account you want to provision.</target>
+        </trans-unit>
+        <trans-unit id="0c4e2756-7a55-4ead-bd57-2d55366246b0" xml:space="preserve">
+          <source>Select <bpt id="675ba968-e7fd-42dd-a11c-428bbc28b55e">&lt;strong&gt;</bpt>Password Disabled<ept id="675ba968-e7fd-42dd-a11c-428bbc28b55e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="675ba968-e7fd-42dd-a11c-428bbc28b55e">&lt;strong&gt;</bpt>Password Disabled<ept id="675ba968-e7fd-42dd-a11c-428bbc28b55e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0a359c8-2660-402b-91d4-b9bbd1dfcd0b" xml:space="preserve">
+          <source>Select a <bpt id="90654d6e-2574-439a-a45a-c884ace2ec05">&lt;strong&gt;</bpt>Language<ept id="90654d6e-2574-439a-a45a-c884ace2ec05">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select a <bpt id="90654d6e-2574-439a-a45a-c884ace2ec05">&lt;strong&gt;</bpt>Language<ept id="90654d6e-2574-439a-a45a-c884ace2ec05">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0636b143-9868-4143-8fd2-e474431a0078" xml:space="preserve">
+          <source>Select a <bpt id="441ae7d8-faa1-4c9f-9f34-fdc23fc7b6cc">&lt;strong&gt;</bpt>User Type<ept id="441ae7d8-faa1-4c9f-9f34-fdc23fc7b6cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select a <bpt id="441ae7d8-faa1-4c9f-9f34-fdc23fc7b6cc">&lt;strong&gt;</bpt>User Type<ept id="441ae7d8-faa1-4c9f-9f34-fdc23fc7b6cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73bdf587-ab66-42f7-b57b-b53e7855a630" xml:space="preserve">
+          <source>Click <bpt id="3c15d6c0-7959-42c7-9217-0bd80fdc9d10">&lt;strong&gt;</bpt>Update<ept id="3c15d6c0-7959-42c7-9217-0bd80fdc9d10">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3c15d6c0-7959-42c7-9217-0bd80fdc9d10">&lt;strong&gt;</bpt>Update<ept id="3c15d6c0-7959-42c7-9217-0bd80fdc9d10">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82a8a44d-f181-4971-984d-0ec9c0b07245" xml:space="preserve">
+          <source><bpt id="050356fe-7c82-443a-b5fc-09f741cb6329">&lt;strong&gt;</bpt>Password Disabled<ept id="050356fe-7c82-443a-b5fc-09f741cb6329">&lt;/strong&gt;</ept> must be selected to enable a user to log in via an Identity provider.</source>
+          <target state="new"><bpt id="050356fe-7c82-443a-b5fc-09f741cb6329">&lt;strong&gt;</bpt>Password Disabled<ept id="050356fe-7c82-443a-b5fc-09f741cb6329">&lt;/strong&gt;</ept> must be selected to enable a user to log in via an Identity provider.</target>
+        </trans-unit>
+        <trans-unit id="b8e9484a-de1b-42a6-8ab7-7b77f46b7ae2" xml:space="preserve">
+          <source>Go to <bpt id="d49a28e6-5ba5-4faa-b36f-b6a946f64ad3">&lt;strong&gt;</bpt>Role<ept id="d49a28e6-5ba5-4faa-b36f-b6a946f64ad3">&lt;/strong&gt;</ept>, and then perform the following steps:</source>
+          <target state="new">Go to <bpt id="d49a28e6-5ba5-4faa-b36f-b6a946f64ad3">&lt;strong&gt;</bpt>Role<ept id="d49a28e6-5ba5-4faa-b36f-b6a946f64ad3">&lt;/strong&gt;</ept>, and then perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="1efe720b-d91c-4709-8d30-35790fc5836d" xml:space="preserve">
+          <source><bpt id="e8b5d5d1-3b27-4c5a-96d1-cbede7538f73">&lt;linkText&gt;</bpt>Partner Roles<ept id="e8b5d5d1-3b27-4c5a-96d1-cbede7538f73">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e8b5d5d1-3b27-4c5a-96d1-cbede7538f73">&lt;linkText&gt;</bpt>Partner Roles<ept id="e8b5d5d1-3b27-4c5a-96d1-cbede7538f73">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b185d89-30b6-42fc-ba03-8aef7520b636" xml:space="preserve">
+          <source>From the <bpt id="ade6c92e-067f-436d-bdb6-9204c45bf4f1">&lt;strong&gt;</bpt>Global<ept id="ade6c92e-067f-436d-bdb6-9204c45bf4f1">&lt;/strong&gt;</ept> list, select <bpt id="a03f74e6-66a9-4c90-84c1-176b91f70945">&lt;strong&gt;</bpt>ALL\_Permissions<ept id="a03f74e6-66a9-4c90-84c1-176b91f70945">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="ade6c92e-067f-436d-bdb6-9204c45bf4f1">&lt;strong&gt;</bpt>Global<ept id="ade6c92e-067f-436d-bdb6-9204c45bf4f1">&lt;/strong&gt;</ept> list, select <bpt id="a03f74e6-66a9-4c90-84c1-176b91f70945">&lt;strong&gt;</bpt>ALL\_Permissions<ept id="a03f74e6-66a9-4c90-84c1-176b91f70945">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f50205b-127c-4f77-a56a-3c040eb2e099" xml:space="preserve">
+          <source>Click <bpt id="3bf4943b-5a3c-45d3-8138-fdbb30c52705">&lt;strong&gt;</bpt>Update<ept id="3bf4943b-5a3c-45d3-8138-fdbb30c52705">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3bf4943b-5a3c-45d3-8138-fdbb30c52705">&lt;strong&gt;</bpt>Update<ept id="3bf4943b-5a3c-45d3-8138-fdbb30c52705">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b334b22d-17aa-4b4f-9f3a-36f507d592ab" xml:space="preserve">
+          <source>You can use any other Sprinklr user account creation tools or APIs provided by Sprinklr to provision Azure AD user accounts.</source>
+          <target state="new">You can use any other Sprinklr user account creation tools or APIs provided by Sprinklr to provision Azure AD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="54883246-c083-4029-93b0-5421b4e7d670" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="fe95cda2-0ba3-44fe-aed2-6831187b8933" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="094bebf4-a293-433a-ae1b-91ed45b2b674" xml:space="preserve">
+          <source>On the <bpt id="5f008863-992c-48d6-b616-1a80a3ca732c">&lt;strong&gt;</bpt>Sprinklr **application integration page, click **Assign users<ept id="5f008863-992c-48d6-b616-1a80a3ca732c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5f008863-992c-48d6-b616-1a80a3ca732c">&lt;strong&gt;</bpt>Sprinklr **application integration page, click **Assign users<ept id="5f008863-992c-48d6-b616-1a80a3ca732c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67049ef0-93dd-4907-ba2a-eec88dd7f1d1" xml:space="preserve">
+          <source><bpt id="19494dbf-d454-4ec6-a470-dafc53845e40">&lt;linkText&gt;</bpt>Assign users<ept id="19494dbf-d454-4ec6-a470-dafc53845e40">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="19494dbf-d454-4ec6-a470-dafc53845e40">&lt;linkText&gt;</bpt>Assign users<ept id="19494dbf-d454-4ec6-a470-dafc53845e40">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d0a80d6-045c-4c41-b4c3-16dff237af94" xml:space="preserve">
+          <source>Select your test user, click <bpt id="f110b5b4-f21f-4de6-aba5-03c3383a019c">&lt;strong&gt;</bpt>Assign<ept id="f110b5b4-f21f-4de6-aba5-03c3383a019c">&lt;/strong&gt;</ept>, and then click <bpt id="dfe5241c-f8b1-4960-9324-1889a0d74be5">&lt;strong&gt;</bpt>Yes<ept id="dfe5241c-f8b1-4960-9324-1889a0d74be5">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="f110b5b4-f21f-4de6-aba5-03c3383a019c">&lt;strong&gt;</bpt>Assign<ept id="f110b5b4-f21f-4de6-aba5-03c3383a019c">&lt;/strong&gt;</ept>, and then click <bpt id="dfe5241c-f8b1-4960-9324-1889a0d74be5">&lt;strong&gt;</bpt>Yes<ept id="dfe5241c-f8b1-4960-9324-1889a0d74be5">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="88499646-6d8d-4d40-9e80-13f2da2bb29c" xml:space="preserve">
+          <source><bpt id="5e887e01-3659-41f3-b604-2e04a870b0b1">&lt;linkText&gt;</bpt>Yes<ept id="5e887e01-3659-41f3-b604-2e04a870b0b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5e887e01-3659-41f3-b604-2e04a870b0b1">&lt;linkText&gt;</bpt>Yes<ept id="5e887e01-3659-41f3-b604-2e04a870b0b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b747a734-a719-492d-90e7-5e94891cc10f" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="f5b5ea14-9055-4aac-848e-c71eec70920f" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="bc43d367-1d5d-4521-a459-7f449656c925">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="bc43d367-1d5d-4521-a459-7f449656c925">&lt;/linkText&gt;</ept><bpt id="bc43d367-1d5d-4521-a459-7f449656c925">&lt;title&gt;</bpt><ept id="bc43d367-1d5d-4521-a459-7f449656c925">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="bc43d367-1d5d-4521-a459-7f449656c925">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="bc43d367-1d5d-4521-a459-7f449656c925">&lt;/linkText&gt;</ept><bpt id="bc43d367-1d5d-4521-a459-7f449656c925">&lt;title&gt;</bpt><ept id="bc43d367-1d5d-4521-a459-7f449656c925">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

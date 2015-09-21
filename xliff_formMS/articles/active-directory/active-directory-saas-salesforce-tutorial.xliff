@@ -1,0 +1,589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9fb312fb-64ab-4877-abc5-e9b7691d7ba5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9fb312fb-64ab-4877-abc5-e9b7691d7ba5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ac80e3a0-a7db-4698-884e-dd3516aa550b">
+        <trans-unit id="a17e91a9-2922-49aa-be3d-3848c0bf2d75" xml:space="preserve">
+          <source>Tutorial: Integrating Salesforce with Azure Active Directory | Microsoft Azure</source>
+          <target state="new">Tutorial: Integrating Salesforce with Azure Active Directory | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c96b2242-a49b-4d94-a6dd-013923efc1e8" xml:space="preserve">
+          <source>Learn how to use Salesforce with Azure Active Directory to enable single sign-on, automated provisioning, and more!</source>
+          <target state="new">Learn how to use Salesforce with Azure Active Directory to enable single sign-on, automated provisioning, and more!</target>
+        </trans-unit>
+        <trans-unit id="ec3453a5-e1a7-4f40-a962-029dec5dd2cb" xml:space="preserve">
+          <source>This tutorial will show you how to connect your Salesforce environment to your Azure Active Directory.</source>
+          <target state="new">This tutorial will show you how to connect your Salesforce environment to your Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="76643f71-6bee-4b8a-86df-5f94bddb7c14" xml:space="preserve">
+          <source>You will learn how to configure single sign-on to Salesforce, how to enable automated user provisioning, and how to assign users to have access to Salesforce.</source>
+          <target state="new">You will learn how to configure single sign-on to Salesforce, how to enable automated user provisioning, and how to assign users to have access to Salesforce.</target>
+        </trans-unit>
+        <trans-unit id="87110e41-c759-4699-9fa3-56724cae98a3" xml:space="preserve">
+          <source>To access Azure Active Directory through the <bpt id="1d5e9a6b-4224-4b73-9050-62e152fa6ea9">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1d5e9a6b-4224-4b73-9050-62e152fa6ea9">&lt;/linkText&gt;</ept><bpt id="1d5e9a6b-4224-4b73-9050-62e152fa6ea9">&lt;title&gt;</bpt><ept id="1d5e9a6b-4224-4b73-9050-62e152fa6ea9">&lt;/title&gt;</ept>, you must first have a valid Azure subscription.</source>
+          <target state="new">To access Azure Active Directory through the <bpt id="1d5e9a6b-4224-4b73-9050-62e152fa6ea9">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1d5e9a6b-4224-4b73-9050-62e152fa6ea9">&lt;/linkText&gt;</ept><bpt id="1d5e9a6b-4224-4b73-9050-62e152fa6ea9">&lt;title&gt;</bpt><ept id="1d5e9a6b-4224-4b73-9050-62e152fa6ea9">&lt;/title&gt;</ept>, you must first have a valid Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="a5d6b42c-c0fb-4380-a1be-f596900624d4" xml:space="preserve">
+          <source>You must have a valid tenant in <bpt id="c476d75f-4e6a-4b8d-898d-24a18ea230c9">&lt;linkText&gt;</bpt>Salesforce.com<ept id="c476d75f-4e6a-4b8d-898d-24a18ea230c9">&lt;/linkText&gt;</ept><bpt id="c476d75f-4e6a-4b8d-898d-24a18ea230c9">&lt;title&gt;</bpt><ept id="c476d75f-4e6a-4b8d-898d-24a18ea230c9">&lt;/title&gt;</ept>.</source>
+          <target state="new">You must have a valid tenant in <bpt id="c476d75f-4e6a-4b8d-898d-24a18ea230c9">&lt;linkText&gt;</bpt>Salesforce.com<ept id="c476d75f-4e6a-4b8d-898d-24a18ea230c9">&lt;/linkText&gt;</ept><bpt id="c476d75f-4e6a-4b8d-898d-24a18ea230c9">&lt;title&gt;</bpt><ept id="c476d75f-4e6a-4b8d-898d-24a18ea230c9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5a5a165-e526-48b3-a7fc-c5673ed931be" xml:space="preserve">
+          <source>If you are using a Salesforce.com <bpt id="52a12ff4-e1d5-447f-bc99-07499e0f6d2e">&lt;strong&gt;</bpt>trial<ept id="52a12ff4-e1d5-447f-bc99-07499e0f6d2e">&lt;/strong&gt;</ept> account, then you will be unable to configure automated user provisioning.</source>
+          <target state="new">If you are using a Salesforce.com <bpt id="52a12ff4-e1d5-447f-bc99-07499e0f6d2e">&lt;strong&gt;</bpt>trial<ept id="52a12ff4-e1d5-447f-bc99-07499e0f6d2e">&lt;/strong&gt;</ept> account, then you will be unable to configure automated user provisioning.</target>
+        </trans-unit>
+        <trans-unit id="5cc8e60e-8cc5-4f51-9acb-d12d8e8bf964" xml:space="preserve">
+          <source>Trial accounts do not have the necessary API access enabled until they are purchased.</source>
+          <target state="new">Trial accounts do not have the necessary API access enabled until they are purchased.</target>
+        </trans-unit>
+        <trans-unit id="27d8f2a3-453a-4c18-9294-50dca5858ebc" xml:space="preserve">
+          <source>You can get around this limitation by using a <bpt id="2b33a960-8b5d-4b15-b997-8116f54a1e8e">&lt;linkText&gt;</bpt>free developer account<ept id="2b33a960-8b5d-4b15-b997-8116f54a1e8e">&lt;/linkText&gt;</ept><bpt id="2b33a960-8b5d-4b15-b997-8116f54a1e8e">&lt;title&gt;</bpt><ept id="2b33a960-8b5d-4b15-b997-8116f54a1e8e">&lt;/title&gt;</ept> to complete this tutorial.</source>
+          <target state="new">You can get around this limitation by using a <bpt id="2b33a960-8b5d-4b15-b997-8116f54a1e8e">&lt;linkText&gt;</bpt>free developer account<ept id="2b33a960-8b5d-4b15-b997-8116f54a1e8e">&lt;/linkText&gt;</ept><bpt id="2b33a960-8b5d-4b15-b997-8116f54a1e8e">&lt;title&gt;</bpt><ept id="2b33a960-8b5d-4b15-b997-8116f54a1e8e">&lt;/title&gt;</ept> to complete this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="fd1000de-cbcd-4d1c-83d4-10c88faece28" xml:space="preserve">
+          <source>If you are using a Salesforce Sandbox environment, please see the <bpt id="3b463a88-e4f8-4183-bc23-43787c89c149">&lt;linkText&gt;</bpt>Salesforce Sandbox integration tutorial<ept id="3b463a88-e4f8-4183-bc23-43787c89c149">&lt;/linkText&gt;</ept><bpt id="3b463a88-e4f8-4183-bc23-43787c89c149">&lt;title&gt;</bpt><ept id="3b463a88-e4f8-4183-bc23-43787c89c149">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are using a Salesforce Sandbox environment, please see the <bpt id="3b463a88-e4f8-4183-bc23-43787c89c149">&lt;linkText&gt;</bpt>Salesforce Sandbox integration tutorial<ept id="3b463a88-e4f8-4183-bc23-43787c89c149">&lt;/linkText&gt;</ept><bpt id="3b463a88-e4f8-4183-bc23-43787c89c149">&lt;title&gt;</bpt><ept id="3b463a88-e4f8-4183-bc23-43787c89c149">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="742bc0f0-d284-42d4-97b8-dd2c5f243192" xml:space="preserve">
+          <source>You may follow this tutorial using the videos below.</source>
+          <target state="new">You may follow this tutorial using the videos below.</target>
+        </trans-unit>
+        <trans-unit id="2e41fb08-0518-4c00-b3d8-29b8f7b11825" xml:space="preserve">
+          <source><bpt id="05c9dc77-6317-4353-80e8-c05b57193f91">&lt;strong&gt;</bpt>Video Tutorial Part One: How to Enable Single Sign-On<ept id="05c9dc77-6317-4353-80e8-c05b57193f91">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="05c9dc77-6317-4353-80e8-c05b57193f91">&lt;strong&gt;</bpt>Video Tutorial Part One: How to Enable Single Sign-On<ept id="05c9dc77-6317-4353-80e8-c05b57193f91">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56c7c89e-3668-4929-b7c1-7474909b8090" xml:space="preserve">
+          <source><bpt id="56226fa2-8bc7-480a-a4d1-a85c0e07d352">&lt;strong&gt;</bpt>Video Tutorial Part Two: How to Automate User Provisioning<ept id="56226fa2-8bc7-480a-a4d1-a85c0e07d352">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="56226fa2-8bc7-480a-a4d1-a85c0e07d352">&lt;strong&gt;</bpt>Video Tutorial Part Two: How to Automate User Provisioning<ept id="56226fa2-8bc7-480a-a4d1-a85c0e07d352">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03503270-5238-4b13-96b7-471cbdae8e3e" xml:space="preserve">
+          <source>In the <bpt id="c6a099af-c934-412d-8418-fcda41ef50cc">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="c6a099af-c934-412d-8418-fcda41ef50cc">&lt;/linkText&gt;</ept><bpt id="c6a099af-c934-412d-8418-fcda41ef50cc">&lt;title&gt;</bpt><ept id="c6a099af-c934-412d-8418-fcda41ef50cc">&lt;/title&gt;</ept>, on the left navigation pane, click <bpt id="4bd15859-1c31-4c78-82dc-1575ff964795">&lt;strong&gt;</bpt>Active Directory<ept id="4bd15859-1c31-4c78-82dc-1575ff964795">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c6a099af-c934-412d-8418-fcda41ef50cc">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="c6a099af-c934-412d-8418-fcda41ef50cc">&lt;/linkText&gt;</ept><bpt id="c6a099af-c934-412d-8418-fcda41ef50cc">&lt;title&gt;</bpt><ept id="c6a099af-c934-412d-8418-fcda41ef50cc">&lt;/title&gt;</ept>, on the left navigation pane, click <bpt id="4bd15859-1c31-4c78-82dc-1575ff964795">&lt;strong&gt;</bpt>Active Directory<ept id="4bd15859-1c31-4c78-82dc-1575ff964795">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6bf4c928-3645-49e0-b1f1-518bd6dae6d9" xml:space="preserve">
+          <source><bpt id="f66586a6-f979-401a-89ca-f946ab568e80">&lt;linkText&gt;</bpt>Select Active Directory from the left navigation pane.<ept id="f66586a6-f979-401a-89ca-f946ab568e80">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f66586a6-f979-401a-89ca-f946ab568e80">&lt;linkText&gt;</bpt>Select Active Directory from the left navigation pane.<ept id="f66586a6-f979-401a-89ca-f946ab568e80">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b96d9d4-d14b-44b7-aa0d-3c5cde74f8c9" xml:space="preserve">
+          <source>From the <bpt id="2d4b24b3-72e8-43e8-a6d5-b44983da0792">&lt;strong&gt;</bpt>Directory<ept id="2d4b24b3-72e8-43e8-a6d5-b44983da0792">&lt;/strong&gt;</ept> list, select the directory that you would like to add Salesforce to.</source>
+          <target state="new">From the <bpt id="2d4b24b3-72e8-43e8-a6d5-b44983da0792">&lt;strong&gt;</bpt>Directory<ept id="2d4b24b3-72e8-43e8-a6d5-b44983da0792">&lt;/strong&gt;</ept> list, select the directory that you would like to add Salesforce to.</target>
+        </trans-unit>
+        <trans-unit id="95d72064-0d40-421c-833a-e75aebc4d82a" xml:space="preserve">
+          <source>Click on <bpt id="4b713f3b-a366-4e0b-85bd-1aefd0b14031">&lt;strong&gt;</bpt>Applications<ept id="4b713f3b-a366-4e0b-85bd-1aefd0b14031">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">Click on <bpt id="4b713f3b-a366-4e0b-85bd-1aefd0b14031">&lt;strong&gt;</bpt>Applications<ept id="4b713f3b-a366-4e0b-85bd-1aefd0b14031">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="615e7890-553e-4e0f-b555-dfd1bce64268" xml:space="preserve">
+          <source><bpt id="75365d01-3119-453a-a561-74834c6a1899">&lt;linkText&gt;</bpt>Click on Applications.<ept id="75365d01-3119-453a-a561-74834c6a1899">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="75365d01-3119-453a-a561-74834c6a1899">&lt;linkText&gt;</bpt>Click on Applications.<ept id="75365d01-3119-453a-a561-74834c6a1899">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f6a8c81-a79f-4b54-8631-7fa68d293a2d" xml:space="preserve">
+          <source>Click <bpt id="7224643d-357d-40e8-9c9d-629eba0592f3">&lt;strong&gt;</bpt>Add<ept id="7224643d-357d-40e8-9c9d-629eba0592f3">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="7224643d-357d-40e8-9c9d-629eba0592f3">&lt;strong&gt;</bpt>Add<ept id="7224643d-357d-40e8-9c9d-629eba0592f3">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="f67857f0-ac37-4dfe-813e-53fe141a5d9b" xml:space="preserve">
+          <source><bpt id="5ed50bcc-310f-4d28-8b64-ef72afec4a64">&lt;linkText&gt;</bpt>Click Add to add a new application.<ept id="5ed50bcc-310f-4d28-8b64-ef72afec4a64">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5ed50bcc-310f-4d28-8b64-ef72afec4a64">&lt;linkText&gt;</bpt>Click Add to add a new application.<ept id="5ed50bcc-310f-4d28-8b64-ef72afec4a64">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55885ffd-b607-4ec8-8d62-e3cc54447fa9" xml:space="preserve">
+          <source>On the <bpt id="078ec87b-f37b-4c5b-98da-a36a69762d89">&lt;strong&gt;</bpt>What do you want to do<ept id="078ec87b-f37b-4c5b-98da-a36a69762d89">&lt;/strong&gt;</ept> dialog, click <bpt id="d51856e1-865e-4f39-9d01-5d8c764b35ff">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="d51856e1-865e-4f39-9d01-5d8c764b35ff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="078ec87b-f37b-4c5b-98da-a36a69762d89">&lt;strong&gt;</bpt>What do you want to do<ept id="078ec87b-f37b-4c5b-98da-a36a69762d89">&lt;/strong&gt;</ept> dialog, click <bpt id="d51856e1-865e-4f39-9d01-5d8c764b35ff">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="d51856e1-865e-4f39-9d01-5d8c764b35ff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c949e1e-b7a4-4b70-b61b-a75fc84c73ee" xml:space="preserve">
+          <source><bpt id="b17540e6-85b7-4ef6-97d8-e83bf165d1c4">&lt;linkText&gt;</bpt>Click Add an application from the gallery.<ept id="b17540e6-85b7-4ef6-97d8-e83bf165d1c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b17540e6-85b7-4ef6-97d8-e83bf165d1c4">&lt;linkText&gt;</bpt>Click Add an application from the gallery.<ept id="b17540e6-85b7-4ef6-97d8-e83bf165d1c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9078cab9-c449-459d-b89e-57e5ef518291" xml:space="preserve">
+          <source>In the <bpt id="233ca331-46d2-4668-a7dc-50075970445c">&lt;strong&gt;</bpt>search box<ept id="233ca331-46d2-4668-a7dc-50075970445c">&lt;/strong&gt;</ept>, type <bpt id="b3b54a64-b3ff-4344-9801-4156d479bfa8">&lt;strong&gt;</bpt>Salesforce<ept id="b3b54a64-b3ff-4344-9801-4156d479bfa8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="233ca331-46d2-4668-a7dc-50075970445c">&lt;strong&gt;</bpt>search box<ept id="233ca331-46d2-4668-a7dc-50075970445c">&lt;/strong&gt;</ept>, type <bpt id="b3b54a64-b3ff-4344-9801-4156d479bfa8">&lt;strong&gt;</bpt>Salesforce<ept id="b3b54a64-b3ff-4344-9801-4156d479bfa8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfbd9383-ffad-4b46-b99b-9cdcab15d67c" xml:space="preserve">
+          <source>Then select <bpt id="ea5d2d82-fe12-4d5d-b3b7-e85acf562faa">&lt;strong&gt;</bpt>Salesforce<ept id="ea5d2d82-fe12-4d5d-b3b7-e85acf562faa">&lt;/strong&gt;</ept> from the results, and click <bpt id="043276c4-d7b4-44c1-abdd-fe9ede4523c2">&lt;strong&gt;</bpt>Complete<ept id="043276c4-d7b4-44c1-abdd-fe9ede4523c2">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">Then select <bpt id="ea5d2d82-fe12-4d5d-b3b7-e85acf562faa">&lt;strong&gt;</bpt>Salesforce<ept id="ea5d2d82-fe12-4d5d-b3b7-e85acf562faa">&lt;/strong&gt;</ept> from the results, and click <bpt id="043276c4-d7b4-44c1-abdd-fe9ede4523c2">&lt;strong&gt;</bpt>Complete<ept id="043276c4-d7b4-44c1-abdd-fe9ede4523c2">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="bcccb6f2-fb9c-4aff-b038-98b32b929e60" xml:space="preserve">
+          <source><bpt id="a01de0b6-ba45-4643-90ec-e5413c0fd38e">&lt;linkText&gt;</bpt>Add Salesforce.<ept id="a01de0b6-ba45-4643-90ec-e5413c0fd38e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a01de0b6-ba45-4643-90ec-e5413c0fd38e">&lt;linkText&gt;</bpt>Add Salesforce.<ept id="a01de0b6-ba45-4643-90ec-e5413c0fd38e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b21ad27e-36e2-4d6a-b0b8-b7a30b2cd4a7" xml:space="preserve">
+          <source>You should now see the Quick Start page for Salesforce:</source>
+          <target state="new">You should now see the Quick Start page for Salesforce:</target>
+        </trans-unit>
+        <trans-unit id="6843c716-b8e3-412e-be86-ec5dd27d8be4" xml:space="preserve">
+          <source><bpt id="1003d8e3-3cbc-4b15-b7f5-6a602aac2a79">&lt;linkText&gt;</bpt>Salesforce's Quick Start page in Azure AD<ept id="1003d8e3-3cbc-4b15-b7f5-6a602aac2a79">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1003d8e3-3cbc-4b15-b7f5-6a602aac2a79">&lt;linkText&gt;</bpt>Salesforce's Quick Start page in Azure AD<ept id="1003d8e3-3cbc-4b15-b7f5-6a602aac2a79">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86aa98f8-471f-43f2-8c18-a8c2bb41cbd4" xml:space="preserve">
+          <source>Before you can configure single sign-on, you must set up and deploy a custom domain for your Salesforce environment. For instructions on how to do that, see [Set Up a Domain Name](https://help.salesforce.com/HTViewHelpDoc?id=domain<bpt id="dc529c85-081e-432e-843d-d36386d04081">&lt;em&gt;</bpt>name<ept id="dc529c85-081e-432e-843d-d36386d04081">&lt;/em&gt;</ept>setup.htm&amp;language=en_US).</source>
+          <target state="new">Before you can configure single sign-on, you must set up and deploy a custom domain for your Salesforce environment. For instructions on how to do that, see [Set Up a Domain Name](https://help.salesforce.com/HTViewHelpDoc?id=domain<bpt id="dc529c85-081e-432e-843d-d36386d04081">&lt;em&gt;</bpt>name<ept id="dc529c85-081e-432e-843d-d36386d04081">&lt;/em&gt;</ept>setup.htm&amp;language=en_US).</target>
+        </trans-unit>
+        <trans-unit id="26bf9551-eec9-4320-b680-a4e3154eff14" xml:space="preserve">
+          <source>On Salesforce's Quick Start page in Azure AD, click the <bpt id="fe568195-a929-4c13-85d0-f87ec277b4b9">&lt;strong&gt;</bpt>Configure single sign-on<ept id="fe568195-a929-4c13-85d0-f87ec277b4b9">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">On Salesforce's Quick Start page in Azure AD, click the <bpt id="fe568195-a929-4c13-85d0-f87ec277b4b9">&lt;strong&gt;</bpt>Configure single sign-on<ept id="fe568195-a929-4c13-85d0-f87ec277b4b9">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="92ea1499-0906-4cea-b40d-756a09f18a88" xml:space="preserve">
+          <source><bpt id="86d3ed67-73ad-47b1-8fa1-c0dab3d2c922">&lt;linkText&gt;</bpt>The configure single sign-on button<ept id="86d3ed67-73ad-47b1-8fa1-c0dab3d2c922">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="86d3ed67-73ad-47b1-8fa1-c0dab3d2c922">&lt;linkText&gt;</bpt>The configure single sign-on button<ept id="86d3ed67-73ad-47b1-8fa1-c0dab3d2c922">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f29cf91-f9b8-43b1-906e-f052903ee0a9" xml:space="preserve">
+          <source>A dialog will open and you'll see a screen that asks "How would you like users to sign on to Salesforce?"</source>
+          <target state="new">A dialog will open and you'll see a screen that asks "How would you like users to sign on to Salesforce?"</target>
+        </trans-unit>
+        <trans-unit id="53479de0-4a9e-4fba-86a2-7937a3043b71" xml:space="preserve">
+          <source>Select <bpt id="6d083590-ee16-4eab-b329-06213f983a11">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="6d083590-ee16-4eab-b329-06213f983a11">&lt;/strong&gt;</ept>, and then click <bpt id="9be60d20-387d-4ec7-b37c-0c474b4001aa">&lt;strong&gt;</bpt>Next<ept id="9be60d20-387d-4ec7-b37c-0c474b4001aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="6d083590-ee16-4eab-b329-06213f983a11">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="6d083590-ee16-4eab-b329-06213f983a11">&lt;/strong&gt;</ept>, and then click <bpt id="9be60d20-387d-4ec7-b37c-0c474b4001aa">&lt;strong&gt;</bpt>Next<ept id="9be60d20-387d-4ec7-b37c-0c474b4001aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37cf38cd-68ea-4a04-afe6-4f9ae40c11e6" xml:space="preserve">
+          <source><bpt id="af70e614-98a2-4814-9430-74750eb1d8d6">&lt;linkText&gt;</bpt>Select Azure AD Single Sign-On<ept id="af70e614-98a2-4814-9430-74750eb1d8d6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af70e614-98a2-4814-9430-74750eb1d8d6">&lt;linkText&gt;</bpt>Select Azure AD Single Sign-On<ept id="af70e614-98a2-4814-9430-74750eb1d8d6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b35669a6-211d-4c28-875b-b983a09a3f12" xml:space="preserve">
+          <source>To learn more about about the different single sign-on options, <bpt id="3acb24c9-55ff-4737-9b6d-9370c20f1c56">&lt;linkText&gt;</bpt>click here<ept id="3acb24c9-55ff-4737-9b6d-9370c20f1c56">&lt;/linkText&gt;</ept><bpt id="3acb24c9-55ff-4737-9b6d-9370c20f1c56">&lt;title&gt;</bpt><ept id="3acb24c9-55ff-4737-9b6d-9370c20f1c56">&lt;/title&gt;</ept></source>
+          <target state="new">To learn more about about the different single sign-on options, <bpt id="3acb24c9-55ff-4737-9b6d-9370c20f1c56">&lt;linkText&gt;</bpt>click here<ept id="3acb24c9-55ff-4737-9b6d-9370c20f1c56">&lt;/linkText&gt;</ept><bpt id="3acb24c9-55ff-4737-9b6d-9370c20f1c56">&lt;title&gt;</bpt><ept id="3acb24c9-55ff-4737-9b6d-9370c20f1c56">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7ebbacb-cda3-4c14-b767-bf539615b59c" xml:space="preserve">
+          <source>On the <bpt id="a1ccbfb1-8c9e-4504-bca5-abe476e4e762">&lt;strong&gt;</bpt>Configure App Settings<ept id="a1ccbfb1-8c9e-4504-bca5-abe476e4e762">&lt;/strong&gt;</ept> page, fill out the <bpt id="f77f63df-49cf-4801-a857-9a15de85cda4">&lt;strong&gt;</bpt>Sign On URL<ept id="f77f63df-49cf-4801-a857-9a15de85cda4">&lt;/strong&gt;</ept> by typing in your Salesforce domain URL using the following format:</source>
+          <target state="new">On the <bpt id="a1ccbfb1-8c9e-4504-bca5-abe476e4e762">&lt;strong&gt;</bpt>Configure App Settings<ept id="a1ccbfb1-8c9e-4504-bca5-abe476e4e762">&lt;/strong&gt;</ept> page, fill out the <bpt id="f77f63df-49cf-4801-a857-9a15de85cda4">&lt;strong&gt;</bpt>Sign On URL<ept id="f77f63df-49cf-4801-a857-9a15de85cda4">&lt;/strong&gt;</ept> by typing in your Salesforce domain URL using the following format:</target>
+        </trans-unit>
+        <trans-unit id="eaa2f3f9-f5b7-4fa3-80e8-8f3f4b56362a" xml:space="preserve">
+          <source>Enterprise account: <bpt id="ccca2266-fef2-4c3f-a309-5985e4653a80">&lt;code&gt;</bpt>https://&lt;domain&gt;.my.salesforce.com<ept id="ccca2266-fef2-4c3f-a309-5985e4653a80">&lt;/code&gt;</ept></source>
+          <target state="new">Enterprise account: <bpt id="ccca2266-fef2-4c3f-a309-5985e4653a80">&lt;code&gt;</bpt>https://&lt;domain&gt;.my.salesforce.com<ept id="ccca2266-fef2-4c3f-a309-5985e4653a80">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47fc4444-71fb-4aba-8391-330ffcb47b3e" xml:space="preserve">
+          <source>Developer account: <bpt id="a5c0e99b-cb81-43c6-8d1c-9f37f0432ace">&lt;code&gt;</bpt>https://&lt;domain&gt;-dev-ed.my.salesforce.com<ept id="a5c0e99b-cb81-43c6-8d1c-9f37f0432ace">&lt;/code&gt;</ept> </source>
+          <target state="new">Developer account: <bpt id="a5c0e99b-cb81-43c6-8d1c-9f37f0432ace">&lt;code&gt;</bpt>https://&lt;domain&gt;-dev-ed.my.salesforce.com<ept id="a5c0e99b-cb81-43c6-8d1c-9f37f0432ace">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="15b01595-f5a3-4ce6-931a-bc75529e8260" xml:space="preserve">
+          <source><bpt id="4d952fce-abb3-4fa5-8408-73662ad62f69">&lt;linkText&gt;</bpt>Type in your Sign On URL<ept id="4d952fce-abb3-4fa5-8408-73662ad62f69">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d952fce-abb3-4fa5-8408-73662ad62f69">&lt;linkText&gt;</bpt>Type in your Sign On URL<ept id="4d952fce-abb3-4fa5-8408-73662ad62f69">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="266d527e-88db-4794-8672-9f5c1cc0f634" xml:space="preserve">
+          <source>On the <bpt id="e0ee03f1-3963-4ac3-b489-8f8f7f6e3132">&lt;strong&gt;</bpt>Configure single sign-on at Salesforce<ept id="e0ee03f1-3963-4ac3-b489-8f8f7f6e3132">&lt;/strong&gt;</ept> page, click on <bpt id="99c858d5-ab71-4adc-adf6-0fd4c0afbb5a">&lt;strong&gt;</bpt>Download certificate<ept id="99c858d5-ab71-4adc-adf6-0fd4c0afbb5a">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</source>
+          <target state="new">On the <bpt id="e0ee03f1-3963-4ac3-b489-8f8f7f6e3132">&lt;strong&gt;</bpt>Configure single sign-on at Salesforce<ept id="e0ee03f1-3963-4ac3-b489-8f8f7f6e3132">&lt;/strong&gt;</ept> page, click on <bpt id="99c858d5-ab71-4adc-adf6-0fd4c0afbb5a">&lt;strong&gt;</bpt>Download certificate<ept id="99c858d5-ab71-4adc-adf6-0fd4c0afbb5a">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="75c7bbed-0ce8-44fb-9284-24803bd65c31" xml:space="preserve">
+          <source><bpt id="d6594dc8-ed77-4c8d-a1b0-f6c9b6d3684f">&lt;linkText&gt;</bpt>Download certificate<ept id="d6594dc8-ed77-4c8d-a1b0-f6c9b6d3684f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d6594dc8-ed77-4c8d-a1b0-f6c9b6d3684f">&lt;linkText&gt;</bpt>Download certificate<ept id="d6594dc8-ed77-4c8d-a1b0-f6c9b6d3684f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d68add2e-15a4-4603-b03f-25ef5e860cfb" xml:space="preserve">
+          <source>Open a new tab in your browser and log in to your Salesforce administrator account.</source>
+          <target state="new">Open a new tab in your browser and log in to your Salesforce administrator account.</target>
+        </trans-unit>
+        <trans-unit id="60c4cd00-e41c-447e-bce9-e8eb01deba94" xml:space="preserve">
+          <source>Under the <bpt id="a15d6a1f-6910-453f-afdb-e1267a5154eb">&lt;strong&gt;</bpt>Administrator<ept id="a15d6a1f-6910-453f-afdb-e1267a5154eb">&lt;/strong&gt;</ept> navigation pane, click <bpt id="009a7fae-3104-4889-b7ca-a38149ddb926">&lt;strong&gt;</bpt>Security Controls<ept id="009a7fae-3104-4889-b7ca-a38149ddb926">&lt;/strong&gt;</ept> to expand the related section.</source>
+          <target state="new">Under the <bpt id="a15d6a1f-6910-453f-afdb-e1267a5154eb">&lt;strong&gt;</bpt>Administrator<ept id="a15d6a1f-6910-453f-afdb-e1267a5154eb">&lt;/strong&gt;</ept> navigation pane, click <bpt id="009a7fae-3104-4889-b7ca-a38149ddb926">&lt;strong&gt;</bpt>Security Controls<ept id="009a7fae-3104-4889-b7ca-a38149ddb926">&lt;/strong&gt;</ept> to expand the related section.</target>
+        </trans-unit>
+        <trans-unit id="78138ec2-68a3-47ff-a156-3cccb6315386" xml:space="preserve">
+          <source>Then click on <bpt id="22a6cb6c-5478-4687-99fc-4d8411d3479c">&lt;strong&gt;</bpt>Single Sign-On Settings<ept id="22a6cb6c-5478-4687-99fc-4d8411d3479c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click on <bpt id="22a6cb6c-5478-4687-99fc-4d8411d3479c">&lt;strong&gt;</bpt>Single Sign-On Settings<ept id="22a6cb6c-5478-4687-99fc-4d8411d3479c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19016817-e6d2-498c-9b72-528ec610ad08" xml:space="preserve">
+          <source><bpt id="95cf8497-8214-44a4-b0cb-3e48f45c73a5">&lt;linkText&gt;</bpt>Click on Single Sign-On Settings under Security Controls<ept id="95cf8497-8214-44a4-b0cb-3e48f45c73a5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="95cf8497-8214-44a4-b0cb-3e48f45c73a5">&lt;linkText&gt;</bpt>Click on Single Sign-On Settings under Security Controls<ept id="95cf8497-8214-44a4-b0cb-3e48f45c73a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f132388b-311e-43c6-8361-ceae25dc5e5f" xml:space="preserve">
+          <source>On the <bpt id="8173aa58-5826-4089-ab5c-d85685503567">&lt;strong&gt;</bpt>Single Sign-On Settings<ept id="8173aa58-5826-4089-ab5c-d85685503567">&lt;/strong&gt;</ept> page, click the <bpt id="0b472a51-d029-4997-8233-5190e6230699">&lt;strong&gt;</bpt>Edit<ept id="0b472a51-d029-4997-8233-5190e6230699">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">On the <bpt id="8173aa58-5826-4089-ab5c-d85685503567">&lt;strong&gt;</bpt>Single Sign-On Settings<ept id="8173aa58-5826-4089-ab5c-d85685503567">&lt;/strong&gt;</ept> page, click the <bpt id="0b472a51-d029-4997-8233-5190e6230699">&lt;strong&gt;</bpt>Edit<ept id="0b472a51-d029-4997-8233-5190e6230699">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="607cb247-7e8e-4c9e-b360-26fe744213b6" xml:space="preserve">
+          <source><bpt id="a63ccfff-a121-4ce0-beef-896633c1146e">&lt;linkText&gt;</bpt>Click the Edit button<ept id="a63ccfff-a121-4ce0-beef-896633c1146e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a63ccfff-a121-4ce0-beef-896633c1146e">&lt;linkText&gt;</bpt>Click the Edit button<ept id="a63ccfff-a121-4ce0-beef-896633c1146e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3a80299-e249-4b38-bde5-1d6990c8fbbb" xml:space="preserve">
+          <source>If you are unable to enable Single Sign-On settings for your Salesforce account, you may need to contact Salesforce's support in order to have the feature enabled for you.</source>
+          <target state="new">If you are unable to enable Single Sign-On settings for your Salesforce account, you may need to contact Salesforce's support in order to have the feature enabled for you.</target>
+        </trans-unit>
+        <trans-unit id="b4f0defa-066e-4430-adb3-8728875956cf" xml:space="preserve">
+          <source>Select <bpt id="280dd91e-4d67-4382-b2a0-0dbc640b63a2">&lt;strong&gt;</bpt>SAML Enabled<ept id="280dd91e-4d67-4382-b2a0-0dbc640b63a2">&lt;/strong&gt;</ept>, and then click <bpt id="e7db1f96-0f9b-493c-bcb5-2a4adb5e1091">&lt;strong&gt;</bpt>Save<ept id="e7db1f96-0f9b-493c-bcb5-2a4adb5e1091">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="280dd91e-4d67-4382-b2a0-0dbc640b63a2">&lt;strong&gt;</bpt>SAML Enabled<ept id="280dd91e-4d67-4382-b2a0-0dbc640b63a2">&lt;/strong&gt;</ept>, and then click <bpt id="e7db1f96-0f9b-493c-bcb5-2a4adb5e1091">&lt;strong&gt;</bpt>Save<ept id="e7db1f96-0f9b-493c-bcb5-2a4adb5e1091">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20e6a998-47dd-424b-a5b5-70425b51bd6f" xml:space="preserve">
+          <source><bpt id="b788bf00-1c34-47cd-b3f9-10be5361874e">&lt;linkText&gt;</bpt>Select SAML Enabled<ept id="b788bf00-1c34-47cd-b3f9-10be5361874e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b788bf00-1c34-47cd-b3f9-10be5361874e">&lt;linkText&gt;</bpt>Select SAML Enabled<ept id="b788bf00-1c34-47cd-b3f9-10be5361874e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9022a17c-2411-4b13-a270-a0802d60f85a" xml:space="preserve">
+          <source>To configure your SAML single sign-on settings, click <bpt id="3550035f-d408-4eaa-9190-78c7305f7298">&lt;strong&gt;</bpt>New<ept id="3550035f-d408-4eaa-9190-78c7305f7298">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To configure your SAML single sign-on settings, click <bpt id="3550035f-d408-4eaa-9190-78c7305f7298">&lt;strong&gt;</bpt>New<ept id="3550035f-d408-4eaa-9190-78c7305f7298">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23d20168-f2e6-4b97-a21a-55a3184bbd3b" xml:space="preserve">
+          <source><bpt id="ed49e3f1-51e3-464d-a3db-4b48f123a5c3">&lt;linkText&gt;</bpt>Select SAML Enabled<ept id="ed49e3f1-51e3-464d-a3db-4b48f123a5c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ed49e3f1-51e3-464d-a3db-4b48f123a5c3">&lt;linkText&gt;</bpt>Select SAML Enabled<ept id="ed49e3f1-51e3-464d-a3db-4b48f123a5c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8844941-819d-4b55-8ec5-7141d35faa59" xml:space="preserve">
+          <source>On the <bpt id="e05a780c-bd7f-4790-9a1b-5d02531e820f">&lt;strong&gt;</bpt>SAML Single Sign-On Setting Edit<ept id="e05a780c-bd7f-4790-9a1b-5d02531e820f">&lt;/strong&gt;</ept> page, make the following configurations:</source>
+          <target state="new">On the <bpt id="e05a780c-bd7f-4790-9a1b-5d02531e820f">&lt;strong&gt;</bpt>SAML Single Sign-On Setting Edit<ept id="e05a780c-bd7f-4790-9a1b-5d02531e820f">&lt;/strong&gt;</ept> page, make the following configurations:</target>
+        </trans-unit>
+        <trans-unit id="cd8cfb6f-0525-4598-b4e5-c7b1b259388d" xml:space="preserve">
+          <source><bpt id="675e2d5f-5672-4465-8f0b-db1335770d61">&lt;linkText&gt;</bpt>Screenshot of the configurations that you should make<ept id="675e2d5f-5672-4465-8f0b-db1335770d61">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="675e2d5f-5672-4465-8f0b-db1335770d61">&lt;linkText&gt;</bpt>Screenshot of the configurations that you should make<ept id="675e2d5f-5672-4465-8f0b-db1335770d61">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcf926f8-fc3b-4579-a9e3-11e3bbab57d6" xml:space="preserve">
+          <source>For the <bpt id="212225f3-cf13-4091-9a27-9f820861dcc7">&lt;strong&gt;</bpt>Name<ept id="212225f3-cf13-4091-9a27-9f820861dcc7">&lt;/strong&gt;</ept> field, type in a friendly name for this configuration.</source>
+          <target state="new">For the <bpt id="212225f3-cf13-4091-9a27-9f820861dcc7">&lt;strong&gt;</bpt>Name<ept id="212225f3-cf13-4091-9a27-9f820861dcc7">&lt;/strong&gt;</ept> field, type in a friendly name for this configuration.</target>
+        </trans-unit>
+        <trans-unit id="146a78f9-0e38-480a-93bf-ffa2c0f9f2dd" xml:space="preserve">
+          <source>Providing a value for <bpt id="a1c5723f-23ab-4289-b11f-f8fab000eb11">&lt;strong&gt;</bpt>Name<ept id="a1c5723f-23ab-4289-b11f-f8fab000eb11">&lt;/strong&gt;</ept> automatically populate the <bpt id="04ab2387-505e-4088-a1c1-765863b1f717">&lt;strong&gt;</bpt>API Name<ept id="04ab2387-505e-4088-a1c1-765863b1f717">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Providing a value for <bpt id="a1c5723f-23ab-4289-b11f-f8fab000eb11">&lt;strong&gt;</bpt>Name<ept id="a1c5723f-23ab-4289-b11f-f8fab000eb11">&lt;/strong&gt;</ept> automatically populate the <bpt id="04ab2387-505e-4088-a1c1-765863b1f717">&lt;strong&gt;</bpt>API Name<ept id="04ab2387-505e-4088-a1c1-765863b1f717">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="9e3193d1-2faf-4c2c-933c-7514ca5d4279" xml:space="preserve">
+          <source>In Azure AD, copy the <bpt id="814071db-fdd9-45ac-bd93-5a9101cceea7">&lt;strong&gt;</bpt>Issuer URL<ept id="814071db-fdd9-45ac-bd93-5a9101cceea7">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="1ff0a0f8-e6f4-431d-8aab-f07deda9bdd3">&lt;strong&gt;</bpt>Issuer<ept id="1ff0a0f8-e6f4-431d-8aab-f07deda9bdd3">&lt;/strong&gt;</ept> field in Salesforce.</source>
+          <target state="new">In Azure AD, copy the <bpt id="814071db-fdd9-45ac-bd93-5a9101cceea7">&lt;strong&gt;</bpt>Issuer URL<ept id="814071db-fdd9-45ac-bd93-5a9101cceea7">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="1ff0a0f8-e6f4-431d-8aab-f07deda9bdd3">&lt;strong&gt;</bpt>Issuer<ept id="1ff0a0f8-e6f4-431d-8aab-f07deda9bdd3">&lt;/strong&gt;</ept> field in Salesforce.</target>
+        </trans-unit>
+        <trans-unit id="5563a586-4d14-4377-b004-ba5ceea6fd7d" xml:space="preserve">
+          <source>In the <bpt id="72e05b50-4f94-44f5-a48b-49c35b73d7a2">&lt;strong&gt;</bpt>Entity Id textbox<ept id="72e05b50-4f94-44f5-a48b-49c35b73d7a2">&lt;/strong&gt;</ept>, type your Salesforce domain name using the following pattern:</source>
+          <target state="new">In the <bpt id="72e05b50-4f94-44f5-a48b-49c35b73d7a2">&lt;strong&gt;</bpt>Entity Id textbox<ept id="72e05b50-4f94-44f5-a48b-49c35b73d7a2">&lt;/strong&gt;</ept>, type your Salesforce domain name using the following pattern:</target>
+        </trans-unit>
+        <trans-unit id="95a47001-c90e-4035-80e6-3368ec4aa66b" xml:space="preserve">
+          <source>Enterprise account: <bpt id="9f73e087-9360-4425-8450-c97d5af9c676">&lt;code&gt;</bpt>https://&lt;domain&gt;.my.salesforce.com<ept id="9f73e087-9360-4425-8450-c97d5af9c676">&lt;/code&gt;</ept></source>
+          <target state="new">Enterprise account: <bpt id="9f73e087-9360-4425-8450-c97d5af9c676">&lt;code&gt;</bpt>https://&lt;domain&gt;.my.salesforce.com<ept id="9f73e087-9360-4425-8450-c97d5af9c676">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2a52e9f-2eaf-4d20-b1db-bf72f574b72d" xml:space="preserve">
+          <source>Developer account: <bpt id="52e7eec8-6e4f-4771-a072-b5d81f447590">&lt;code&gt;</bpt>https://&lt;domain&gt;-dev-ed.my.salesforce.com<ept id="52e7eec8-6e4f-4771-a072-b5d81f447590">&lt;/code&gt;</ept></source>
+          <target state="new">Developer account: <bpt id="52e7eec8-6e4f-4771-a072-b5d81f447590">&lt;code&gt;</bpt>https://&lt;domain&gt;-dev-ed.my.salesforce.com<ept id="52e7eec8-6e4f-4771-a072-b5d81f447590">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3ee733b-e39a-4915-9e31-65e7ed7c50f1" xml:space="preserve">
+          <source>Click <bpt id="5c6fd3cc-a75e-4511-aa70-5e420172be54">&lt;strong&gt;</bpt>Browse<ept id="5c6fd3cc-a75e-4511-aa70-5e420172be54">&lt;/strong&gt;</ept> or <bpt id="df063902-0c3f-474c-85ba-b47eb07557d2">&lt;strong&gt;</bpt>Choose File<ept id="df063902-0c3f-474c-85ba-b47eb07557d2">&lt;/strong&gt;</ept> to open the <bpt id="583d8d43-5206-4ec4-8117-4da73de1c3f8">&lt;strong&gt;</bpt>Choose File to Upload<ept id="583d8d43-5206-4ec4-8117-4da73de1c3f8">&lt;/strong&gt;</ept> dialog, select your Salesforce certificate, and then click <bpt id="d0b4774b-91c3-48dc-a98c-40c6a4dd408e">&lt;strong&gt;</bpt>Open<ept id="d0b4774b-91c3-48dc-a98c-40c6a4dd408e">&lt;/strong&gt;</ept> to upload the certificate.</source>
+          <target state="new">Click <bpt id="5c6fd3cc-a75e-4511-aa70-5e420172be54">&lt;strong&gt;</bpt>Browse<ept id="5c6fd3cc-a75e-4511-aa70-5e420172be54">&lt;/strong&gt;</ept> or <bpt id="df063902-0c3f-474c-85ba-b47eb07557d2">&lt;strong&gt;</bpt>Choose File<ept id="df063902-0c3f-474c-85ba-b47eb07557d2">&lt;/strong&gt;</ept> to open the <bpt id="583d8d43-5206-4ec4-8117-4da73de1c3f8">&lt;strong&gt;</bpt>Choose File to Upload<ept id="583d8d43-5206-4ec4-8117-4da73de1c3f8">&lt;/strong&gt;</ept> dialog, select your Salesforce certificate, and then click <bpt id="d0b4774b-91c3-48dc-a98c-40c6a4dd408e">&lt;strong&gt;</bpt>Open<ept id="d0b4774b-91c3-48dc-a98c-40c6a4dd408e">&lt;/strong&gt;</ept> to upload the certificate.</target>
+        </trans-unit>
+        <trans-unit id="50bd706b-ca3c-4541-b9ae-75cb15778901" xml:space="preserve">
+          <source>For <bpt id="0e0a1f6d-b120-42ec-a3fb-54c07430d558">&lt;strong&gt;</bpt>SAML Identity Type<ept id="0e0a1f6d-b120-42ec-a3fb-54c07430d558">&lt;/strong&gt;</ept>, select <bpt id="87a4085a-afb4-45bc-9068-cd0ccb75db8c">&lt;strong&gt;</bpt>Assertion contains User's salesforce.com username<ept id="87a4085a-afb4-45bc-9068-cd0ccb75db8c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="0e0a1f6d-b120-42ec-a3fb-54c07430d558">&lt;strong&gt;</bpt>SAML Identity Type<ept id="0e0a1f6d-b120-42ec-a3fb-54c07430d558">&lt;/strong&gt;</ept>, select <bpt id="87a4085a-afb4-45bc-9068-cd0ccb75db8c">&lt;strong&gt;</bpt>Assertion contains User's salesforce.com username<ept id="87a4085a-afb4-45bc-9068-cd0ccb75db8c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ca79e7c-3077-4420-9796-878f21bdc5aa" xml:space="preserve">
+          <source>For <bpt id="767f7c64-1658-4f72-b297-b45fbe6b6092">&lt;strong&gt;</bpt>SAML Identity Location<ept id="767f7c64-1658-4f72-b297-b45fbe6b6092">&lt;/strong&gt;</ept>, select <bpt id="7339f139-fc7a-4a2e-a23c-8ac6931a9038">&lt;strong&gt;</bpt>Identity is in the NameIdentifier element of the Subject statement<ept id="7339f139-fc7a-4a2e-a23c-8ac6931a9038">&lt;/strong&gt;</ept></source>
+          <target state="new">For <bpt id="767f7c64-1658-4f72-b297-b45fbe6b6092">&lt;strong&gt;</bpt>SAML Identity Location<ept id="767f7c64-1658-4f72-b297-b45fbe6b6092">&lt;/strong&gt;</ept>, select <bpt id="7339f139-fc7a-4a2e-a23c-8ac6931a9038">&lt;strong&gt;</bpt>Identity is in the NameIdentifier element of the Subject statement<ept id="7339f139-fc7a-4a2e-a23c-8ac6931a9038">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60f04134-9ee7-445a-9657-b964550d3f7d" xml:space="preserve">
+          <source>In Azure AD, copy the <bpt id="68e0e7c6-af81-4447-89d0-5f41fe2f836d">&lt;strong&gt;</bpt>Remote Login URL<ept id="68e0e7c6-af81-4447-89d0-5f41fe2f836d">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="d6492e90-418a-491c-ba5d-c1385c52b03e">&lt;strong&gt;</bpt>Identity Provider Login URL<ept id="d6492e90-418a-491c-ba5d-c1385c52b03e">&lt;/strong&gt;</ept> field in Salesforce.</source>
+          <target state="new">In Azure AD, copy the <bpt id="68e0e7c6-af81-4447-89d0-5f41fe2f836d">&lt;strong&gt;</bpt>Remote Login URL<ept id="68e0e7c6-af81-4447-89d0-5f41fe2f836d">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="d6492e90-418a-491c-ba5d-c1385c52b03e">&lt;strong&gt;</bpt>Identity Provider Login URL<ept id="d6492e90-418a-491c-ba5d-c1385c52b03e">&lt;/strong&gt;</ept> field in Salesforce.</target>
+        </trans-unit>
+        <trans-unit id="21e98877-a7b3-47ae-b1a6-e5f4b71c6526" xml:space="preserve">
+          <source>For <bpt id="254c0fe8-ebba-46d7-bcaa-be2362542213">&lt;strong&gt;</bpt>Service Provider Initiated Request Binding<ept id="254c0fe8-ebba-46d7-bcaa-be2362542213">&lt;/strong&gt;</ept>, select <bpt id="573c507f-eaf6-40ca-b709-a44e164520c2">&lt;strong&gt;</bpt>HTTP Redirect<ept id="573c507f-eaf6-40ca-b709-a44e164520c2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="254c0fe8-ebba-46d7-bcaa-be2362542213">&lt;strong&gt;</bpt>Service Provider Initiated Request Binding<ept id="254c0fe8-ebba-46d7-bcaa-be2362542213">&lt;/strong&gt;</ept>, select <bpt id="573c507f-eaf6-40ca-b709-a44e164520c2">&lt;strong&gt;</bpt>HTTP Redirect<ept id="573c507f-eaf6-40ca-b709-a44e164520c2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00fa69e2-0131-4d27-b450-12ca8e4ca5ba" xml:space="preserve">
+          <source>Finally, click <bpt id="848c74b9-f666-47f6-aee0-e1f2bb367fd6">&lt;strong&gt;</bpt>Save<ept id="848c74b9-f666-47f6-aee0-e1f2bb367fd6">&lt;/strong&gt;</ept> to apply your SAML single sign-on settings.</source>
+          <target state="new">Finally, click <bpt id="848c74b9-f666-47f6-aee0-e1f2bb367fd6">&lt;strong&gt;</bpt>Save<ept id="848c74b9-f666-47f6-aee0-e1f2bb367fd6">&lt;/strong&gt;</ept> to apply your SAML single sign-on settings.</target>
+        </trans-unit>
+        <trans-unit id="583d7fba-9d60-49a4-b32e-9f86655615f6" xml:space="preserve">
+          <source>On the left navigation pane in Salesforce, click <bpt id="25dcd2a4-4447-4f3a-b8d7-b110ae5ea11e">&lt;strong&gt;</bpt>Domain Management<ept id="25dcd2a4-4447-4f3a-b8d7-b110ae5ea11e">&lt;/strong&gt;</ept> to expand the related section, and then click <bpt id="9e589fb8-f4a2-4260-a2d6-83d0ac34517a">&lt;strong&gt;</bpt>My Domain<ept id="9e589fb8-f4a2-4260-a2d6-83d0ac34517a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left navigation pane in Salesforce, click <bpt id="25dcd2a4-4447-4f3a-b8d7-b110ae5ea11e">&lt;strong&gt;</bpt>Domain Management<ept id="25dcd2a4-4447-4f3a-b8d7-b110ae5ea11e">&lt;/strong&gt;</ept> to expand the related section, and then click <bpt id="9e589fb8-f4a2-4260-a2d6-83d0ac34517a">&lt;strong&gt;</bpt>My Domain<ept id="9e589fb8-f4a2-4260-a2d6-83d0ac34517a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d41134f8-db5a-4382-afeb-c221997401e6" xml:space="preserve">
+          <source><bpt id="a2092f5f-a628-48e9-8197-1cd0b66ce67d">&lt;linkText&gt;</bpt>Click on My Domain<ept id="a2092f5f-a628-48e9-8197-1cd0b66ce67d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2092f5f-a628-48e9-8197-1cd0b66ce67d">&lt;linkText&gt;</bpt>Click on My Domain<ept id="a2092f5f-a628-48e9-8197-1cd0b66ce67d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bbf6e90-95a1-4632-adae-9d7266ffd944" xml:space="preserve">
+          <source>Scroll down to the <bpt id="6129f3ee-9f0f-4eda-9a98-8149d9154ef6">&lt;strong&gt;</bpt>Authentication Configuration<ept id="6129f3ee-9f0f-4eda-9a98-8149d9154ef6">&lt;/strong&gt;</ept> section, and click the <bpt id="789fddae-8022-47d7-a998-869ca86ec2a7">&lt;strong&gt;</bpt>Edit<ept id="789fddae-8022-47d7-a998-869ca86ec2a7">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Scroll down to the <bpt id="6129f3ee-9f0f-4eda-9a98-8149d9154ef6">&lt;strong&gt;</bpt>Authentication Configuration<ept id="6129f3ee-9f0f-4eda-9a98-8149d9154ef6">&lt;/strong&gt;</ept> section, and click the <bpt id="789fddae-8022-47d7-a998-869ca86ec2a7">&lt;strong&gt;</bpt>Edit<ept id="789fddae-8022-47d7-a998-869ca86ec2a7">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="81a7bc80-1768-4bde-8d2e-9b204cc1fae0" xml:space="preserve">
+          <source><bpt id="b0f38550-dee3-401d-a662-ca66efa070c6">&lt;linkText&gt;</bpt>Click the Edit button<ept id="b0f38550-dee3-401d-a662-ca66efa070c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b0f38550-dee3-401d-a662-ca66efa070c6">&lt;linkText&gt;</bpt>Click the Edit button<ept id="b0f38550-dee3-401d-a662-ca66efa070c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8435a452-d1a3-44ea-bcf2-8802eb05bf7f" xml:space="preserve">
+          <source>In the <bpt id="dbe168be-b77e-46dc-933b-f62079b963a4">&lt;strong&gt;</bpt>Authentication Service<ept id="dbe168be-b77e-46dc-933b-f62079b963a4">&lt;/strong&gt;</ept> section, select the friendly name of your SAML SSO configuration, and then click <bpt id="4e53bca8-f252-4045-bc28-471dbb030473">&lt;strong&gt;</bpt>Save<ept id="4e53bca8-f252-4045-bc28-471dbb030473">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="dbe168be-b77e-46dc-933b-f62079b963a4">&lt;strong&gt;</bpt>Authentication Service<ept id="dbe168be-b77e-46dc-933b-f62079b963a4">&lt;/strong&gt;</ept> section, select the friendly name of your SAML SSO configuration, and then click <bpt id="4e53bca8-f252-4045-bc28-471dbb030473">&lt;strong&gt;</bpt>Save<ept id="4e53bca8-f252-4045-bc28-471dbb030473">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5f4ab04-98e5-4a0c-b8d9-5f5daeadb98c" xml:space="preserve">
+          <source><bpt id="0ec2edc7-c5f5-4df1-80bd-054fc9788dc5">&lt;linkText&gt;</bpt>Select your SSO configuration<ept id="0ec2edc7-c5f5-4df1-80bd-054fc9788dc5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ec2edc7-c5f5-4df1-80bd-054fc9788dc5">&lt;linkText&gt;</bpt>Select your SSO configuration<ept id="0ec2edc7-c5f5-4df1-80bd-054fc9788dc5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5d2c389-9151-468f-80a9-abfa19808b58" xml:space="preserve">
+          <source>If more than one authentication service is selected, then when users attempt to initiate single sign-on to your Salesforce environment, they will be prompted to select which authentication service they would like to sign in with.</source>
+          <target state="new">If more than one authentication service is selected, then when users attempt to initiate single sign-on to your Salesforce environment, they will be prompted to select which authentication service they would like to sign in with.</target>
+        </trans-unit>
+        <trans-unit id="2bfb16d3-cd00-4ecd-bace-f0dface3b3c2" xml:space="preserve">
+          <source>If you don’t want this to happen, then you should <bpt id="d5baf5aa-4ce3-4af1-ba35-e03303a0bc50">&lt;strong&gt;</bpt>leave all other authentication services unchecked<ept id="d5baf5aa-4ce3-4af1-ba35-e03303a0bc50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you don’t want this to happen, then you should <bpt id="d5baf5aa-4ce3-4af1-ba35-e03303a0bc50">&lt;strong&gt;</bpt>leave all other authentication services unchecked<ept id="d5baf5aa-4ce3-4af1-ba35-e03303a0bc50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82ef2598-e5ff-4af8-af76-c11a84984786" xml:space="preserve">
+          <source>In Azure AD, select the single sign-on configuration confirmation checkbox to enable the certificate that you uploaded to Salesforce.</source>
+          <target state="new">In Azure AD, select the single sign-on configuration confirmation checkbox to enable the certificate that you uploaded to Salesforce.</target>
+        </trans-unit>
+        <trans-unit id="ce6cb3b7-8155-42f1-8c11-9ece3751a5a2" xml:space="preserve">
+          <source>Then click <bpt id="8cb75784-f793-4924-9ffa-dd7e3793be08">&lt;strong&gt;</bpt>Next<ept id="8cb75784-f793-4924-9ffa-dd7e3793be08">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="8cb75784-f793-4924-9ffa-dd7e3793be08">&lt;strong&gt;</bpt>Next<ept id="8cb75784-f793-4924-9ffa-dd7e3793be08">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32686403-c1fb-454f-a9aa-a4ebbd81bf31" xml:space="preserve">
+          <source><bpt id="bf9fa603-ca03-418d-99c3-f42f3c3c276c">&lt;linkText&gt;</bpt>Check the confirmation checkbox<ept id="bf9fa603-ca03-418d-99c3-f42f3c3c276c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bf9fa603-ca03-418d-99c3-f42f3c3c276c">&lt;linkText&gt;</bpt>Check the confirmation checkbox<ept id="bf9fa603-ca03-418d-99c3-f42f3c3c276c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d43d8e23-5fbb-4151-aad7-7f686745faf6" xml:space="preserve">
+          <source>On the final page of the dialog, type in an email address if you would like to receive email notifications for errors and warnings related to the maintenance of this single sign-on configuration.</source>
+          <target state="new">On the final page of the dialog, type in an email address if you would like to receive email notifications for errors and warnings related to the maintenance of this single sign-on configuration.</target>
+        </trans-unit>
+        <trans-unit id="50321e90-ce61-49a6-a74e-740e6b3e678e" xml:space="preserve">
+          <source><bpt id="c0b5324a-9f5c-4118-a1dc-438fab13f562">&lt;linkText&gt;</bpt>Type in your email address.<ept id="c0b5324a-9f5c-4118-a1dc-438fab13f562">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c0b5324a-9f5c-4118-a1dc-438fab13f562">&lt;linkText&gt;</bpt>Type in your email address.<ept id="c0b5324a-9f5c-4118-a1dc-438fab13f562">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f70e4c8-7014-45a9-a013-379cb84f360c" xml:space="preserve">
+          <source>Click <bpt id="e965fe6b-b309-4db2-8557-263da529fe6b">&lt;strong&gt;</bpt>Complete<ept id="e965fe6b-b309-4db2-8557-263da529fe6b">&lt;/strong&gt;</ept> to close the dialog.</source>
+          <target state="new">Click <bpt id="e965fe6b-b309-4db2-8557-263da529fe6b">&lt;strong&gt;</bpt>Complete<ept id="e965fe6b-b309-4db2-8557-263da529fe6b">&lt;/strong&gt;</ept> to close the dialog.</target>
+        </trans-unit>
+        <trans-unit id="90f50773-dfce-4293-8867-99bc87ab0728" xml:space="preserve">
+          <source>To test your configuration, see the section below titled <bpt id="76592fdf-4204-4885-b2c8-00e4e975b4c3">&lt;linkText&gt;</bpt>Assign Users to Salesforce<ept id="76592fdf-4204-4885-b2c8-00e4e975b4c3">&lt;/linkText&gt;</ept><bpt id="76592fdf-4204-4885-b2c8-00e4e975b4c3">&lt;title&gt;</bpt><ept id="76592fdf-4204-4885-b2c8-00e4e975b4c3">&lt;/title&gt;</ept>.</source>
+          <target state="new">To test your configuration, see the section below titled <bpt id="76592fdf-4204-4885-b2c8-00e4e975b4c3">&lt;linkText&gt;</bpt>Assign Users to Salesforce<ept id="76592fdf-4204-4885-b2c8-00e4e975b4c3">&lt;/linkText&gt;</ept><bpt id="76592fdf-4204-4885-b2c8-00e4e975b4c3">&lt;title&gt;</bpt><ept id="76592fdf-4204-4885-b2c8-00e4e975b4c3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="340811b4-c26a-4833-89c5-b76708b53a91" xml:space="preserve">
+          <source>In the Azure AD Quick Start page for Salesforce, click on the <bpt id="cfa0d93f-ecd8-48bb-9d85-0c51fd85f178">&lt;strong&gt;</bpt>Configure user provisioning<ept id="cfa0d93f-ecd8-48bb-9d85-0c51fd85f178">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the Azure AD Quick Start page for Salesforce, click on the <bpt id="cfa0d93f-ecd8-48bb-9d85-0c51fd85f178">&lt;strong&gt;</bpt>Configure user provisioning<ept id="cfa0d93f-ecd8-48bb-9d85-0c51fd85f178">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="b703dcbe-567b-4798-adb0-6b385d9549a6" xml:space="preserve">
+          <source><bpt id="02cab9cd-8670-4e66-97be-2208b435a9b6">&lt;linkText&gt;</bpt>Click the Configure User Provisioning button<ept id="02cab9cd-8670-4e66-97be-2208b435a9b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="02cab9cd-8670-4e66-97be-2208b435a9b6">&lt;linkText&gt;</bpt>Click the Configure User Provisioning button<ept id="02cab9cd-8670-4e66-97be-2208b435a9b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8405cc40-b1b1-460f-b453-4a6f774a0301" xml:space="preserve">
+          <source>In the <bpt id="fdbef121-6126-4adc-9415-e055f7b3166d">&lt;strong&gt;</bpt>Configure user provisioning<ept id="fdbef121-6126-4adc-9415-e055f7b3166d">&lt;/strong&gt;</ept> dialog, type in your Salesforce admin username and password.</source>
+          <target state="new">In the <bpt id="fdbef121-6126-4adc-9415-e055f7b3166d">&lt;strong&gt;</bpt>Configure user provisioning<ept id="fdbef121-6126-4adc-9415-e055f7b3166d">&lt;/strong&gt;</ept> dialog, type in your Salesforce admin username and password.</target>
+        </trans-unit>
+        <trans-unit id="0cdf1d6c-4869-4282-b238-70273210bdf3" xml:space="preserve">
+          <source><bpt id="8afe7ec2-c89b-4c5f-8ff1-a2787911b456">&lt;linkText&gt;</bpt>Type in your admin username or password<ept id="8afe7ec2-c89b-4c5f-8ff1-a2787911b456">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8afe7ec2-c89b-4c5f-8ff1-a2787911b456">&lt;linkText&gt;</bpt>Type in your admin username or password<ept id="8afe7ec2-c89b-4c5f-8ff1-a2787911b456">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b279092-8980-4d32-8f69-8588f19d5776" xml:space="preserve">
+          <source>If you are configuring a production environment, the best practice is to create a new admin account in Salesforce specifically for this step.</source>
+          <target state="new">If you are configuring a production environment, the best practice is to create a new admin account in Salesforce specifically for this step.</target>
+        </trans-unit>
+        <trans-unit id="14e3dd5c-f892-4f76-8b89-2687ff045a5d" xml:space="preserve">
+          <source>This account must have the <bpt id="3bd4e7c8-bfac-46d1-abe5-4fe64f89d0de">&lt;strong&gt;</bpt>System Administrator<ept id="3bd4e7c8-bfac-46d1-abe5-4fe64f89d0de">&lt;/strong&gt;</ept> profile assigned to it in Salesforce.</source>
+          <target state="new">This account must have the <bpt id="3bd4e7c8-bfac-46d1-abe5-4fe64f89d0de">&lt;strong&gt;</bpt>System Administrator<ept id="3bd4e7c8-bfac-46d1-abe5-4fe64f89d0de">&lt;/strong&gt;</ept> profile assigned to it in Salesforce.</target>
+        </trans-unit>
+        <trans-unit id="44cb190e-38c8-4276-b7c1-580628a595cc" xml:space="preserve">
+          <source>To get your Salesforce security token, open a new tab and sign into the same Salesforce admin account.</source>
+          <target state="new">To get your Salesforce security token, open a new tab and sign into the same Salesforce admin account.</target>
+        </trans-unit>
+        <trans-unit id="f363e7a4-ca91-4249-a8fd-4c27f77df107" xml:space="preserve">
+          <source>On the top right corner of the page, click on your name, and then click on <bpt id="b23fa547-26bc-476d-ac62-e6ec8c64f635">&lt;strong&gt;</bpt>My Settings<ept id="b23fa547-26bc-476d-ac62-e6ec8c64f635">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the top right corner of the page, click on your name, and then click on <bpt id="b23fa547-26bc-476d-ac62-e6ec8c64f635">&lt;strong&gt;</bpt>My Settings<ept id="b23fa547-26bc-476d-ac62-e6ec8c64f635">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02e663da-0a84-4b9c-b331-d4f65b4a864c" xml:space="preserve">
+          <source><bpt id="3c402b46-f352-4d8b-b159-103f152a05ea">&lt;linkText&gt;</bpt>Click on your name, then click on My Settings<ept id="3c402b46-f352-4d8b-b159-103f152a05ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3c402b46-f352-4d8b-b159-103f152a05ea">&lt;linkText&gt;</bpt>Click on your name, then click on My Settings<ept id="3c402b46-f352-4d8b-b159-103f152a05ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45dce204-1df6-4125-b3a3-c3b317616092" xml:space="preserve">
+          <source>On the left navigation pane, click on <bpt id="769e1b78-db92-4fd3-91bd-b46b8e786109">&lt;strong&gt;</bpt>Personal<ept id="769e1b78-db92-4fd3-91bd-b46b8e786109">&lt;/strong&gt;</ept> to expand the related section, and then click on <bpt id="fa1d17cd-55cf-4890-8cfe-e10c7e307802">&lt;strong&gt;</bpt>Reset My Security Token<ept id="fa1d17cd-55cf-4890-8cfe-e10c7e307802">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left navigation pane, click on <bpt id="769e1b78-db92-4fd3-91bd-b46b8e786109">&lt;strong&gt;</bpt>Personal<ept id="769e1b78-db92-4fd3-91bd-b46b8e786109">&lt;/strong&gt;</ept> to expand the related section, and then click on <bpt id="fa1d17cd-55cf-4890-8cfe-e10c7e307802">&lt;strong&gt;</bpt>Reset My Security Token<ept id="fa1d17cd-55cf-4890-8cfe-e10c7e307802">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03a39f42-d483-4470-b18d-b7a16908436c" xml:space="preserve">
+          <source><bpt id="099dd1c3-8ddd-43db-9233-e0ecac022ec8">&lt;linkText&gt;</bpt>Click on your name, then click on My Settings<ept id="099dd1c3-8ddd-43db-9233-e0ecac022ec8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="099dd1c3-8ddd-43db-9233-e0ecac022ec8">&lt;linkText&gt;</bpt>Click on your name, then click on My Settings<ept id="099dd1c3-8ddd-43db-9233-e0ecac022ec8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b3ef5c7-2245-44b1-a4f4-220e14b9c761" xml:space="preserve">
+          <source>On the <bpt id="959f871d-7c36-4c50-9355-e655962609c8">&lt;strong&gt;</bpt>Reset My Security Token<ept id="959f871d-7c36-4c50-9355-e655962609c8">&lt;/strong&gt;</ept> page, click on the <bpt id="d5d5bc85-1677-439e-94db-2bacdd9bfb15">&lt;strong&gt;</bpt>Reset Security Token<ept id="d5d5bc85-1677-439e-94db-2bacdd9bfb15">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">On the <bpt id="959f871d-7c36-4c50-9355-e655962609c8">&lt;strong&gt;</bpt>Reset My Security Token<ept id="959f871d-7c36-4c50-9355-e655962609c8">&lt;/strong&gt;</ept> page, click on the <bpt id="d5d5bc85-1677-439e-94db-2bacdd9bfb15">&lt;strong&gt;</bpt>Reset Security Token<ept id="d5d5bc85-1677-439e-94db-2bacdd9bfb15">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="75fa3b02-c0e9-40b7-b978-51b643f28ab3" xml:space="preserve">
+          <source><bpt id="9c1f1459-de5b-42cc-bcf4-f946af161631">&lt;linkText&gt;</bpt>Read the warnings.<ept id="9c1f1459-de5b-42cc-bcf4-f946af161631">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9c1f1459-de5b-42cc-bcf4-f946af161631">&lt;linkText&gt;</bpt>Read the warnings.<ept id="9c1f1459-de5b-42cc-bcf4-f946af161631">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ec3d09f-7a91-487b-af4a-558aa8aaff0a" xml:space="preserve">
+          <source>Check the email inbox associated with this admin account.</source>
+          <target state="new">Check the email inbox associated with this admin account.</target>
+        </trans-unit>
+        <trans-unit id="73d0555d-fb87-435c-8942-73b6860e3fd1" xml:space="preserve">
+          <source>Look for an email from Salesforce.com that contains the new security token.</source>
+          <target state="new">Look for an email from Salesforce.com that contains the new security token.</target>
+        </trans-unit>
+        <trans-unit id="3d66f415-5fa8-4724-8e6e-0749cf101f3d" xml:space="preserve">
+          <source>Copy the token, go to your Azure AD window, and paste it into the <bpt id="34fab0dd-0e1f-43f3-945d-0037b22d6241">&lt;strong&gt;</bpt>User Security Token<ept id="34fab0dd-0e1f-43f3-945d-0037b22d6241">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Copy the token, go to your Azure AD window, and paste it into the <bpt id="34fab0dd-0e1f-43f3-945d-0037b22d6241">&lt;strong&gt;</bpt>User Security Token<ept id="34fab0dd-0e1f-43f3-945d-0037b22d6241">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="a80a20b8-7436-40a8-bcaf-439bfb3f9fa4" xml:space="preserve">
+          <source>Then click <bpt id="cd23cc7a-b3fb-44ec-9e4d-7bdf7f198197">&lt;strong&gt;</bpt>Next<ept id="cd23cc7a-b3fb-44ec-9e4d-7bdf7f198197">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="cd23cc7a-b3fb-44ec-9e4d-7bdf7f198197">&lt;strong&gt;</bpt>Next<ept id="cd23cc7a-b3fb-44ec-9e4d-7bdf7f198197">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a5652e3-808a-4a74-911f-65ee447fd0a4" xml:space="preserve">
+          <source><bpt id="3760da4b-d5ac-4b4d-a707-09701cb364ae">&lt;linkText&gt;</bpt>Paste in the security token<ept id="3760da4b-d5ac-4b4d-a707-09701cb364ae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3760da4b-d5ac-4b4d-a707-09701cb364ae">&lt;linkText&gt;</bpt>Paste in the security token<ept id="3760da4b-d5ac-4b4d-a707-09701cb364ae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d37cb2a2-c5c9-4b07-9ecb-a7da7077e0e9" xml:space="preserve">
+          <source>On the confirmation page, you can choose to receive email notifications for when provisioning failures occur.</source>
+          <target state="new">On the confirmation page, you can choose to receive email notifications for when provisioning failures occur.</target>
+        </trans-unit>
+        <trans-unit id="7b665f66-f8e2-4719-a036-b31d9a325b5c" xml:space="preserve">
+          <source>Click <bpt id="342feafe-2f17-41d9-9b52-8a1f4b82aef2">&lt;strong&gt;</bpt>Complete<ept id="342feafe-2f17-41d9-9b52-8a1f4b82aef2">&lt;/strong&gt;</ept> to close the dialog.</source>
+          <target state="new">Click <bpt id="342feafe-2f17-41d9-9b52-8a1f4b82aef2">&lt;strong&gt;</bpt>Complete<ept id="342feafe-2f17-41d9-9b52-8a1f4b82aef2">&lt;/strong&gt;</ept> to close the dialog.</target>
+        </trans-unit>
+        <trans-unit id="3e30f90c-ca3d-4c0b-b09b-e88fd3bf77c2" xml:space="preserve">
+          <source><bpt id="6417780f-4b48-42a4-8dc1-dcbccdd5ac86">&lt;linkText&gt;</bpt>Type in your email address to receive notifications<ept id="6417780f-4b48-42a4-8dc1-dcbccdd5ac86">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6417780f-4b48-42a4-8dc1-dcbccdd5ac86">&lt;linkText&gt;</bpt>Type in your email address to receive notifications<ept id="6417780f-4b48-42a4-8dc1-dcbccdd5ac86">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e94b658-831f-487d-ab13-5a16f6d68be4" xml:space="preserve">
+          <source>To test your configuration, start by creating a new test account in the directory.</source>
+          <target state="new">To test your configuration, start by creating a new test account in the directory.</target>
+        </trans-unit>
+        <trans-unit id="c5012e93-1719-419d-ac8b-0719c3481d02" xml:space="preserve">
+          <source>On the Salesforce Quick Start page, click on the <bpt id="cf987479-4fe4-4102-be66-0db1cb1a840b">&lt;strong&gt;</bpt>Assign Users<ept id="cf987479-4fe4-4102-be66-0db1cb1a840b">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">On the Salesforce Quick Start page, click on the <bpt id="cf987479-4fe4-4102-be66-0db1cb1a840b">&lt;strong&gt;</bpt>Assign Users<ept id="cf987479-4fe4-4102-be66-0db1cb1a840b">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="8e75309f-654e-47b6-a8dc-08744bfa23a1" xml:space="preserve">
+          <source><bpt id="8467589b-2d9e-4798-9ff0-3c7022160ada">&lt;linkText&gt;</bpt>Click on Assign Users<ept id="8467589b-2d9e-4798-9ff0-3c7022160ada">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8467589b-2d9e-4798-9ff0-3c7022160ada">&lt;linkText&gt;</bpt>Click on Assign Users<ept id="8467589b-2d9e-4798-9ff0-3c7022160ada">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f27b459a-4e47-4163-9ec9-b3f0b3a13577" xml:space="preserve">
+          <source>Select your test user, and click the <bpt id="9fdc99ea-4c84-4659-b74f-91a2d4b46148">&lt;strong&gt;</bpt>Assign<ept id="9fdc99ea-4c84-4659-b74f-91a2d4b46148">&lt;/strong&gt;</ept> button at the bottom of the screen:</source>
+          <target state="new">Select your test user, and click the <bpt id="9fdc99ea-4c84-4659-b74f-91a2d4b46148">&lt;strong&gt;</bpt>Assign<ept id="9fdc99ea-4c84-4659-b74f-91a2d4b46148">&lt;/strong&gt;</ept> button at the bottom of the screen:</target>
+        </trans-unit>
+        <trans-unit id="4e421334-7cd9-4f88-9119-572e2f2ba8ae" xml:space="preserve">
+          <source>If you haven't enable automated user provisioning, then you'll see the following prompt to confirm:</source>
+          <target state="new">If you haven't enable automated user provisioning, then you'll see the following prompt to confirm:</target>
+        </trans-unit>
+        <trans-unit id="10cd6a97-1cbb-40f9-8ef1-7b61c5a02114" xml:space="preserve">
+          <source><bpt id="50da9fc5-9f2b-4aa0-b4e9-037235cd0f86">&lt;linkText&gt;</bpt>Confirm the assignment.<ept id="50da9fc5-9f2b-4aa0-b4e9-037235cd0f86">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="50da9fc5-9f2b-4aa0-b4e9-037235cd0f86">&lt;linkText&gt;</bpt>Confirm the assignment.<ept id="50da9fc5-9f2b-4aa0-b4e9-037235cd0f86">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d7f6785-1f43-4394-90de-980fd72fd199" xml:space="preserve">
+          <source>If you have enabled automated user provisioning, then you'll see a prompt to define what type of Salesforce profile the user should have.</source>
+          <target state="new">If you have enabled automated user provisioning, then you'll see a prompt to define what type of Salesforce profile the user should have.</target>
+        </trans-unit>
+        <trans-unit id="16396066-feb6-46af-bad9-72c2c392e32e" xml:space="preserve">
+          <source>Newly provisioned users should appear in your Salesforce environment after a few minutes.</source>
+          <target state="new">Newly provisioned users should appear in your Salesforce environment after a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="41c558ff-4583-47c5-80c9-e3d07e278c5b" xml:space="preserve">
+          <source><bpt id="f824b1df-fe35-4d32-afc3-f73bf9863f04">&lt;linkText&gt;</bpt>Confirm the assignment.<ept id="f824b1df-fe35-4d32-afc3-f73bf9863f04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f824b1df-fe35-4d32-afc3-f73bf9863f04">&lt;linkText&gt;</bpt>Confirm the assignment.<ept id="f824b1df-fe35-4d32-afc3-f73bf9863f04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06967941-2d8c-4cac-8401-eed0b6a7739b" xml:space="preserve">
+          <source>If you are provisioning to a Salesforce <bpt id="6718d423-3e98-435d-9015-196fb71fabbb">&lt;strong&gt;</bpt>developer<ept id="6718d423-3e98-435d-9015-196fb71fabbb">&lt;/strong&gt;</ept> environment, you will have a very limited number of licenses available for each profile.</source>
+          <target state="new">If you are provisioning to a Salesforce <bpt id="6718d423-3e98-435d-9015-196fb71fabbb">&lt;strong&gt;</bpt>developer<ept id="6718d423-3e98-435d-9015-196fb71fabbb">&lt;/strong&gt;</ept> environment, you will have a very limited number of licenses available for each profile.</target>
+        </trans-unit>
+        <trans-unit id="be5a62eb-50a8-4e29-9e26-95ab0778a7d6" xml:space="preserve">
+          <source>Therefore, it's best to provision users to the <bpt id="cf6d2fa3-1097-4660-bbab-edf02189de9a">&lt;strong&gt;</bpt>Chatter Free User<ept id="cf6d2fa3-1097-4660-bbab-edf02189de9a">&lt;/strong&gt;</ept> profile, which has 4,999 licenses available.</source>
+          <target state="new">Therefore, it's best to provision users to the <bpt id="cf6d2fa3-1097-4660-bbab-edf02189de9a">&lt;strong&gt;</bpt>Chatter Free User<ept id="cf6d2fa3-1097-4660-bbab-edf02189de9a">&lt;/strong&gt;</ept> profile, which has 4,999 licenses available.</target>
+        </trans-unit>
+        <trans-unit id="5a068c23-b573-4607-9f9c-0f9e9e0089fb" xml:space="preserve">
+          <source>To test your single sign-on settings, open the Access Panel at <bpt id="e384262a-6ff3-48a8-879e-4a349e1dfeaa">&lt;linkText&gt;</bpt>https://myapps.microsoft.com<ept id="e384262a-6ff3-48a8-879e-4a349e1dfeaa">&lt;/linkText&gt;</ept><bpt id="e384262a-6ff3-48a8-879e-4a349e1dfeaa">&lt;title&gt;</bpt><ept id="e384262a-6ff3-48a8-879e-4a349e1dfeaa">&lt;/title&gt;</ept>, then sign into the test account, and click on <bpt id="5f05a53c-8e17-4360-b06f-a2efe2601045">&lt;strong&gt;</bpt>Salesforce<ept id="5f05a53c-8e17-4360-b06f-a2efe2601045">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To test your single sign-on settings, open the Access Panel at <bpt id="e384262a-6ff3-48a8-879e-4a349e1dfeaa">&lt;linkText&gt;</bpt>https://myapps.microsoft.com<ept id="e384262a-6ff3-48a8-879e-4a349e1dfeaa">&lt;/linkText&gt;</ept><bpt id="e384262a-6ff3-48a8-879e-4a349e1dfeaa">&lt;title&gt;</bpt><ept id="e384262a-6ff3-48a8-879e-4a349e1dfeaa">&lt;/title&gt;</ept>, then sign into the test account, and click on <bpt id="5f05a53c-8e17-4360-b06f-a2efe2601045">&lt;strong&gt;</bpt>Salesforce<ept id="5f05a53c-8e17-4360-b06f-a2efe2601045">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d024e8b8-5a32-4e49-8d0c-c17e37b8dbf9" xml:space="preserve">
+          <source><bpt id="75927752-a9ed-4076-b113-10b930d13740">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="75927752-a9ed-4076-b113-10b930d13740">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="75927752-a9ed-4076-b113-10b930d13740">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="75927752-a9ed-4076-b113-10b930d13740">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21005f9e-89d6-42b1-b830-97d745c3421c" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png</target>
+        </trans-unit>
+        <trans-unit id="ae4d4a75-cf0e-4571-b6e4-3559ae23857c" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/applications-tab.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/applications-tab.png</target>
+        </trans-unit>
+        <trans-unit id="b0d63616-da7a-4caa-b48f-bf96001f8296" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/add-app.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/add-app.png</target>
+        </trans-unit>
+        <trans-unit id="b3110d81-7c6d-463e-a1ec-002e0e1ed1a6" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/add-app-gallery.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/add-app-gallery.png</target>
+        </trans-unit>
+        <trans-unit id="789caf16-313e-4c98-b6da-bde28c91c802" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/add-salesforce.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/add-salesforce.png</target>
+        </trans-unit>
+        <trans-unit id="87023576-7a48-472c-bbf9-bf867efc26dd" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/salesforce-added.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/salesforce-added.png</target>
+        </trans-unit>
+        <trans-unit id="9bc5d64d-da6e-4f8d-b2af-3f010802e1e3" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/config-sso.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/config-sso.png</target>
+        </trans-unit>
+        <trans-unit id="59ff6ddf-da5a-4d84-88e3-eaa09c6f283f" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/select-azure-ad-sso.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/select-azure-ad-sso.png</target>
+        </trans-unit>
+        <trans-unit id="2755a5c5-5fe3-4041-8570-ff86e3cb90af" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/config-app-settings.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/config-app-settings.png</target>
+        </trans-unit>
+        <trans-unit id="785456a4-8874-4716-8f5c-ee80aa0a4c8a" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/download-certificate.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/download-certificate.png</target>
+        </trans-unit>
+        <trans-unit id="b357a5d4-b1ea-4a56-9e21-565a999ec252" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png</target>
+        </trans-unit>
+        <trans-unit id="62451f2c-6688-4d12-b4ba-1c08bc8b2189" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png</target>
+        </trans-unit>
+        <trans-unit id="0cb4530a-6771-457d-a1ac-5fd24da66a9e" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png</target>
+        </trans-unit>
+        <trans-unit id="a05161a6-50a3-447b-a05f-f827499a8eee" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png</target>
+        </trans-unit>
+        <trans-unit id="bfc58161-aad8-428e-9807-294145d3eb69" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png</target>
+        </trans-unit>
+        <trans-unit id="b83b5c7e-7432-4c84-b637-651554f1f263" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png</target>
+        </trans-unit>
+        <trans-unit id="109ab96d-4da5-4f63-ab5a-544dcf2caad6" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png</target>
+        </trans-unit>
+        <trans-unit id="0354919d-8b6a-433f-a692-2e11736380f2" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png</target>
+        </trans-unit>
+        <trans-unit id="7fc09b77-bf2e-4f24-8627-c17a1ff0deb9" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sso-confirm.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sso-confirm.png</target>
+        </trans-unit>
+        <trans-unit id="710d2a5c-a97a-4325-ac5b-974b59c254f8" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sso-notification.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sso-notification.png</target>
+        </trans-unit>
+        <trans-unit id="e7094297-dda8-462a-8313-2fa89e482758" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/config-prov.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/config-prov.png</target>
+        </trans-unit>
+        <trans-unit id="00107c5c-c737-4f6d-93c4-3677e742ac88" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/config-prov-dialog.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/config-prov-dialog.png</target>
+        </trans-unit>
+        <trans-unit id="b691a15f-53dd-4bdd-b50c-2b938d602777" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-my-settings.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-my-settings.png</target>
+        </trans-unit>
+        <trans-unit id="e57226ca-44e2-47dd-9c47-b169bc5d99a9" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-personal-reset.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-personal-reset.png</target>
+        </trans-unit>
+        <trans-unit id="22935cd5-cf1f-43c3-809e-35a6816c2e64" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/sf-reset-token.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/sf-reset-token.png</target>
+        </trans-unit>
+        <trans-unit id="d556b95e-447f-4d2e-8265-373be82f6ba0" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/got-the-token.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/got-the-token.png</target>
+        </trans-unit>
+        <trans-unit id="62a62b18-5929-4375-af5b-bb2003b02102" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/prov-confirm.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/prov-confirm.png</target>
+        </trans-unit>
+        <trans-unit id="648620f8-7cdf-4b63-ac3f-e35fe425f80d" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/assign-users.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/assign-users.png</target>
+        </trans-unit>
+        <trans-unit id="184e96cf-05e8-4077-8058-8a0eb1c3d1c0" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/assign-confirm.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/assign-confirm.png</target>
+        </trans-unit>
+        <trans-unit id="b3150dcc-117a-4852-802f-0570047ba2f6" xml:space="preserve">
+          <source>./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png</source>
+          <target state="new">./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png</target>
+        </trans-unit>
+      </group>
+      <group id="5a5031a1-7f97-4614-baf1-237ea3e1e98b" />
+    </body>
+  </file>
+</xliff>

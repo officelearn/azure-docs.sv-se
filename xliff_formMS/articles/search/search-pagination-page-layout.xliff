@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="442b7e35-8930-4283-9f3d-431964cd94d8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="442b7e35-8930-4283-9f3d-431964cd94d8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2cdd8c83-e92b-461e-96f5-de3f37ab83dc">
+        <trans-unit id="106127e9-4871-43fb-b9bb-9cecaf102345" xml:space="preserve">
+          <source>How to page search results in Azure Search</source>
+          <target state="new">How to page search results in Azure Search</target>
+        </trans-unit>
+        <trans-unit id="ead4a3c4-b407-44c2-bcc0-632cdaf984af" xml:space="preserve">
+          <source>Pagination in Azure Search</source>
+          <target state="new">Pagination in Azure Search</target>
+        </trans-unit>
+        <trans-unit id="cc4cf3b6-8943-4c88-a029-a5c02d821d59" xml:space="preserve">
+          <source>This article provides guidance on how to use the Azure Search Service REST API to implement standard elements of a search results page, such as total counts, document retrieval, sort orders, and navigation.</source>
+          <target state="new">This article provides guidance on how to use the Azure Search Service REST API to implement standard elements of a search results page, such as total counts, document retrieval, sort orders, and navigation.</target>
+        </trans-unit>
+        <trans-unit id="15b2250a-b123-4841-86fc-1ae9a3e3aad1" xml:space="preserve">
+          <source>In every case mentioned below, page-related options that contribute data or information to your search results page are specified through the <bpt id="36c960a4-3f75-4da1-b664-d1ef3e11d771">&lt;linkText&gt;</bpt>Search Document<ept id="36c960a4-3f75-4da1-b664-d1ef3e11d771">&lt;/linkText&gt;</ept><bpt id="36c960a4-3f75-4da1-b664-d1ef3e11d771">&lt;title&gt;</bpt><ept id="36c960a4-3f75-4da1-b664-d1ef3e11d771">&lt;/title&gt;</ept> requests sent to your Azure Search Service.</source>
+          <target state="new">In every case mentioned below, page-related options that contribute data or information to your search results page are specified through the <bpt id="36c960a4-3f75-4da1-b664-d1ef3e11d771">&lt;linkText&gt;</bpt>Search Document<ept id="36c960a4-3f75-4da1-b664-d1ef3e11d771">&lt;/linkText&gt;</ept><bpt id="36c960a4-3f75-4da1-b664-d1ef3e11d771">&lt;title&gt;</bpt><ept id="36c960a4-3f75-4da1-b664-d1ef3e11d771">&lt;/title&gt;</ept> requests sent to your Azure Search Service.</target>
+        </trans-unit>
+        <trans-unit id="a49a742a-2f08-4e77-8300-fe2463cb09cc" xml:space="preserve">
+          <source>Requests include a GET command, path, and query parameters that inform the service what is being requested, and how to formulate the response.</source>
+          <target state="new">Requests include a GET command, path, and query parameters that inform the service what is being requested, and how to formulate the response.</target>
+        </trans-unit>
+        <trans-unit id="fd74f00a-06f7-4599-9301-1f096f135668" xml:space="preserve">
+          <source>A valid request includes a number of elements, such as a service URL and path, HTTP verb, <bpt id="38def766-68a7-4ae6-9ff3-004041bfeeed">&lt;code&gt;</bpt>api-version<ept id="38def766-68a7-4ae6-9ff3-004041bfeeed">&lt;/code&gt;</ept>, and so on.</source>
+          <target state="new">A valid request includes a number of elements, such as a service URL and path, HTTP verb, <bpt id="38def766-68a7-4ae6-9ff3-004041bfeeed">&lt;code&gt;</bpt>api-version<ept id="38def766-68a7-4ae6-9ff3-004041bfeeed">&lt;/code&gt;</ept>, and so on.</target>
+        </trans-unit>
+        <trans-unit id="60a15945-22be-48a2-a840-7219f9d04661" xml:space="preserve">
+          <source>For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination.</source>
+          <target state="new">For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination.</target>
+        </trans-unit>
+        <trans-unit id="afcacc40-3d9b-43a7-aee9-53c94eb33a5d" xml:space="preserve">
+          <source>Please see the <bpt id="b600c5a5-43ef-4b69-bd24-4eced5d0ddc9">&lt;linkText&gt;</bpt>Azure Search Service REST API<ept id="b600c5a5-43ef-4b69-bd24-4eced5d0ddc9">&lt;/linkText&gt;</ept><bpt id="b600c5a5-43ef-4b69-bd24-4eced5d0ddc9">&lt;title&gt;</bpt><ept id="b600c5a5-43ef-4b69-bd24-4eced5d0ddc9">&lt;/title&gt;</ept> documentation for details about request syntax.</source>
+          <target state="new">Please see the <bpt id="b600c5a5-43ef-4b69-bd24-4eced5d0ddc9">&lt;linkText&gt;</bpt>Azure Search Service REST API<ept id="b600c5a5-43ef-4b69-bd24-4eced5d0ddc9">&lt;/linkText&gt;</ept><bpt id="b600c5a5-43ef-4b69-bd24-4eced5d0ddc9">&lt;title&gt;</bpt><ept id="b600c5a5-43ef-4b69-bd24-4eced5d0ddc9">&lt;/title&gt;</ept> documentation for details about request syntax.</target>
+        </trans-unit>
+        <trans-unit id="d9af1d23-b4a7-412e-b076-7b888f70254d" xml:space="preserve">
+          <source>Showing the total number of results returned from a query, and then returning those results in smaller chunks, is fundamental to virtually all search pages.</source>
+          <target state="new">Showing the total number of results returned from a query, and then returning those results in smaller chunks, is fundamental to virtually all search pages.</target>
+        </trans-unit>
+        <trans-unit id="a42d1b13-35e0-41f1-b707-5683118cc713" xml:space="preserve">
+          <source><bpt id="80cf0190-1dc9-43c0-a221-eca7d66436a8">&lt;linkText&gt;</bpt><ept id="80cf0190-1dc9-43c0-a221-eca7d66436a8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="80cf0190-1dc9-43c0-a221-eca7d66436a8">&lt;linkText&gt;</bpt><ept id="80cf0190-1dc9-43c0-a221-eca7d66436a8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1d62e3b-b3be-4073-a6f4-c97ffa411778" xml:space="preserve">
+          <source>In Azure Search, you use the <bpt id="9c94118c-48f5-45b5-a5aa-c445b86f821e">&lt;code&gt;</bpt>$count<ept id="9c94118c-48f5-45b5-a5aa-c445b86f821e">&lt;/code&gt;</ept>, <bpt id="7d17ed7e-db13-4e7e-99b5-08a647b4a81b">&lt;code&gt;</bpt>$top<ept id="7d17ed7e-db13-4e7e-99b5-08a647b4a81b">&lt;/code&gt;</ept>, and <bpt id="6e735350-f741-4ac2-924d-2afd59a66b79">&lt;code&gt;</bpt>$skip<ept id="6e735350-f741-4ac2-924d-2afd59a66b79">&lt;/code&gt;</ept> parameters to return these values.</source>
+          <target state="new">In Azure Search, you use the <bpt id="9c94118c-48f5-45b5-a5aa-c445b86f821e">&lt;code&gt;</bpt>$count<ept id="9c94118c-48f5-45b5-a5aa-c445b86f821e">&lt;/code&gt;</ept>, <bpt id="7d17ed7e-db13-4e7e-99b5-08a647b4a81b">&lt;code&gt;</bpt>$top<ept id="7d17ed7e-db13-4e7e-99b5-08a647b4a81b">&lt;/code&gt;</ept>, and <bpt id="6e735350-f741-4ac2-924d-2afd59a66b79">&lt;code&gt;</bpt>$skip<ept id="6e735350-f741-4ac2-924d-2afd59a66b79">&lt;/code&gt;</ept> parameters to return these values.</target>
+        </trans-unit>
+        <trans-unit id="810b8c8d-a381-43f0-996a-bee0046df2f6" xml:space="preserve">
+          <source>The following example shows a sample request for total hits, returned as <bpt id="02d84c11-7658-4762-8e2e-ce85a9d09377">&lt;code&gt;</bpt>@OData.count<ept id="02d84c11-7658-4762-8e2e-ce85a9d09377">&lt;/code&gt;</ept>:</source>
+          <target state="new">The following example shows a sample request for total hits, returned as <bpt id="02d84c11-7658-4762-8e2e-ce85a9d09377">&lt;code&gt;</bpt>@OData.count<ept id="02d84c11-7658-4762-8e2e-ce85a9d09377">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="79cc0481-1be1-4103-a2b7-e13b93cbb292" xml:space="preserve">
+          <source>Retrieve documents in groups of 15, and also show the total hits, starting at the first page:</source>
+          <target state="new">Retrieve documents in groups of 15, and also show the total hits, starting at the first page:</target>
+        </trans-unit>
+        <trans-unit id="d029e5f0-3e9c-4c3b-8333-103589eb9868" xml:space="preserve">
+          <source>Paginating results requires both <bpt id="a2400c3d-9ce5-425c-8574-8d63f40358e8">&lt;code&gt;</bpt>$top<ept id="a2400c3d-9ce5-425c-8574-8d63f40358e8">&lt;/code&gt;</ept> and <bpt id="d6155d17-6856-4bf7-a1cf-90021fc2465c">&lt;code&gt;</bpt>$skip<ept id="d6155d17-6856-4bf7-a1cf-90021fc2465c">&lt;/code&gt;</ept>, where <bpt id="fd898b5d-c5e9-4474-806d-ad555b6cb9e2">&lt;code&gt;</bpt>$top<ept id="fd898b5d-c5e9-4474-806d-ad555b6cb9e2">&lt;/code&gt;</ept> specifies how many items to return in a batch, and <bpt id="081f4c3a-3ff7-4940-8e91-88f409507c98">&lt;code&gt;</bpt>$skip<ept id="081f4c3a-3ff7-4940-8e91-88f409507c98">&lt;/code&gt;</ept> specifies how many items to skip.</source>
+          <target state="new">Paginating results requires both <bpt id="a2400c3d-9ce5-425c-8574-8d63f40358e8">&lt;code&gt;</bpt>$top<ept id="a2400c3d-9ce5-425c-8574-8d63f40358e8">&lt;/code&gt;</ept> and <bpt id="d6155d17-6856-4bf7-a1cf-90021fc2465c">&lt;code&gt;</bpt>$skip<ept id="d6155d17-6856-4bf7-a1cf-90021fc2465c">&lt;/code&gt;</ept>, where <bpt id="fd898b5d-c5e9-4474-806d-ad555b6cb9e2">&lt;code&gt;</bpt>$top<ept id="fd898b5d-c5e9-4474-806d-ad555b6cb9e2">&lt;/code&gt;</ept> specifies how many items to return in a batch, and <bpt id="081f4c3a-3ff7-4940-8e91-88f409507c98">&lt;code&gt;</bpt>$skip<ept id="081f4c3a-3ff7-4940-8e91-88f409507c98">&lt;/code&gt;</ept> specifies how many items to skip.</target>
+        </trans-unit>
+        <trans-unit id="cc615ff6-d691-4536-8929-3e23b726287e" xml:space="preserve">
+          <source>In the following example, each page shows the next 15 items, indicated by the incremental jumps in the <bpt id="6984d14b-4965-4761-a792-2148c8cf4fc2">&lt;code&gt;</bpt>$skip<ept id="6984d14b-4965-4761-a792-2148c8cf4fc2">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">In the following example, each page shows the next 15 items, indicated by the incremental jumps in the <bpt id="6984d14b-4965-4761-a792-2148c8cf4fc2">&lt;code&gt;</bpt>$skip<ept id="6984d14b-4965-4761-a792-2148c8cf4fc2">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="fe6db6bb-eee2-4e22-ad2f-518b0d1139a9" xml:space="preserve">
+          <source>On a search results page, you might want to show a thumbnail image, a subset of fields, and a link to a full product page.</source>
+          <target state="new">On a search results page, you might want to show a thumbnail image, a subset of fields, and a link to a full product page.</target>
+        </trans-unit>
+        <trans-unit id="102a5634-e694-4f44-b588-fc8faa6ef210" xml:space="preserve">
+          <source> <bpt id="43064bcb-03f5-4b0b-83af-3625becebd66">&lt;linkText&gt;</bpt><ept id="43064bcb-03f5-4b0b-83af-3625becebd66">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="43064bcb-03f5-4b0b-83af-3625becebd66">&lt;linkText&gt;</bpt><ept id="43064bcb-03f5-4b0b-83af-3625becebd66">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5ccfcc3-ac93-4941-8da7-dd3e6095a3cd" xml:space="preserve">
+          <source>In Azure Search, you would use <bpt id="a6d2b4ca-c8f7-48c4-8423-c4c737544c45">&lt;code&gt;</bpt>$select<ept id="a6d2b4ca-c8f7-48c4-8423-c4c737544c45">&lt;/code&gt;</ept> and a lookup command to implement this experience.</source>
+          <target state="new">In Azure Search, you would use <bpt id="a6d2b4ca-c8f7-48c4-8423-c4c737544c45">&lt;code&gt;</bpt>$select<ept id="a6d2b4ca-c8f7-48c4-8423-c4c737544c45">&lt;/code&gt;</ept> and a lookup command to implement this experience.</target>
+        </trans-unit>
+        <trans-unit id="88701a84-311d-4646-931d-6ff5163cab12" xml:space="preserve">
+          <source>To return a subset of fields for a tiled layout:</source>
+          <target state="new">To return a subset of fields for a tiled layout:</target>
+        </trans-unit>
+        <trans-unit id="5ca76d2f-48c1-4109-8f90-125b14a362f7" xml:space="preserve">
+          <source>Images and media files are not directly searchable and should be stored in another storage platform, such as Azure Blob storage, to reduce costs.</source>
+          <target state="new">Images and media files are not directly searchable and should be stored in another storage platform, such as Azure Blob storage, to reduce costs.</target>
+        </trans-unit>
+        <trans-unit id="bfc504b7-0952-40bf-9e80-090fbb775adf" xml:space="preserve">
+          <source>In the index and documents, define a field that stores the URL address of the external content.</source>
+          <target state="new">In the index and documents, define a field that stores the URL address of the external content.</target>
+        </trans-unit>
+        <trans-unit id="ae9675c1-86ef-4719-9c93-6d208e9ed52c" xml:space="preserve">
+          <source>You can then use the field as an image reference.</source>
+          <target state="new">You can then use the field as an image reference.</target>
+        </trans-unit>
+        <trans-unit id="0d1b313d-c1a0-4686-ad1b-861bf18a9f97" xml:space="preserve">
+          <source>The URL to the image should be in the document.</source>
+          <target state="new">The URL to the image should be in the document.</target>
+        </trans-unit>
+        <trans-unit id="c0c24323-0f6e-4987-b77f-d949fee090b5" xml:space="preserve">
+          <source>To retrieve a product description page for an <bpt id="14eb3ff5-0f9b-46e2-ad28-d978b5f7d232">&lt;strong&gt;</bpt>onClick<ept id="14eb3ff5-0f9b-46e2-ad28-d978b5f7d232">&lt;/strong&gt;</ept> event, use <bpt id="1b84d9db-6f7e-4645-99db-204ff282c809">&lt;linkText&gt;</bpt>Lookup Document<ept id="1b84d9db-6f7e-4645-99db-204ff282c809">&lt;/linkText&gt;</ept><bpt id="1b84d9db-6f7e-4645-99db-204ff282c809">&lt;title&gt;</bpt><ept id="1b84d9db-6f7e-4645-99db-204ff282c809">&lt;/title&gt;</ept> to pass in the key of the document to retrieve.</source>
+          <target state="new">To retrieve a product description page for an <bpt id="14eb3ff5-0f9b-46e2-ad28-d978b5f7d232">&lt;strong&gt;</bpt>onClick<ept id="14eb3ff5-0f9b-46e2-ad28-d978b5f7d232">&lt;/strong&gt;</ept> event, use <bpt id="1b84d9db-6f7e-4645-99db-204ff282c809">&lt;linkText&gt;</bpt>Lookup Document<ept id="1b84d9db-6f7e-4645-99db-204ff282c809">&lt;/linkText&gt;</ept><bpt id="1b84d9db-6f7e-4645-99db-204ff282c809">&lt;title&gt;</bpt><ept id="1b84d9db-6f7e-4645-99db-204ff282c809">&lt;/title&gt;</ept> to pass in the key of the document to retrieve.</target>
+        </trans-unit>
+        <trans-unit id="935819ea-0c4d-43b3-a261-ce5d02ab41a8" xml:space="preserve">
+          <source>The data type of the key is <bpt id="ca6e0328-a82d-4935-afa2-2b4061d5c7de">&lt;code&gt;</bpt>Edm.String<ept id="ca6e0328-a82d-4935-afa2-2b4061d5c7de">&lt;/code&gt;</ept>.</source>
+          <target state="new">The data type of the key is <bpt id="ca6e0328-a82d-4935-afa2-2b4061d5c7de">&lt;code&gt;</bpt>Edm.String<ept id="ca6e0328-a82d-4935-afa2-2b4061d5c7de">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca1388f5-14fe-4cec-9093-f70d5a0b1b33" xml:space="preserve">
+          <source>In this example, it is <bpt id="f1724758-d083-4a06-a875-9acebd1c41e0">&lt;em&gt;</bpt>246810<ept id="f1724758-d083-4a06-a875-9acebd1c41e0">&lt;/em&gt;</ept>.</source>
+          <target state="new">In this example, it is <bpt id="f1724758-d083-4a06-a875-9acebd1c41e0">&lt;em&gt;</bpt>246810<ept id="f1724758-d083-4a06-a875-9acebd1c41e0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d460f06-57cf-430e-9b20-178de8d6dc1a" xml:space="preserve">
+          <source>Sort orders often default to relevance, but it's common to make alternative sort orders readily available so that customers can quickly reshuffle existing results into a different rank order.</source>
+          <target state="new">Sort orders often default to relevance, but it's common to make alternative sort orders readily available so that customers can quickly reshuffle existing results into a different rank order.</target>
+        </trans-unit>
+        <trans-unit id="3ccbcf63-fea1-4c1b-985e-49d55dce9b44" xml:space="preserve">
+          <source> <bpt id="21818ead-b2fe-43e7-b8ee-d424c3294dcc">&lt;linkText&gt;</bpt><ept id="21818ead-b2fe-43e7-b8ee-d424c3294dcc">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="21818ead-b2fe-43e7-b8ee-d424c3294dcc">&lt;linkText&gt;</bpt><ept id="21818ead-b2fe-43e7-b8ee-d424c3294dcc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22b4f90b-80cb-4789-add7-52838d5e8338" xml:space="preserve">
+          <source>In Azure Search, sorting is based on the <bpt id="7cfe9de9-082b-49bb-abaa-3cedef457ccd">&lt;code&gt;</bpt>$orderby<ept id="7cfe9de9-082b-49bb-abaa-3cedef457ccd">&lt;/code&gt;</ept> expression, for all fields that are indexed as <bpt id="a66cc134-2d13-4da8-aff5-62fe17336c60">&lt;code&gt;</bpt>"Sortable": true.<ept id="a66cc134-2d13-4da8-aff5-62fe17336c60">&lt;/code&gt;</ept></source>
+          <target state="new">In Azure Search, sorting is based on the <bpt id="7cfe9de9-082b-49bb-abaa-3cedef457ccd">&lt;code&gt;</bpt>$orderby<ept id="7cfe9de9-082b-49bb-abaa-3cedef457ccd">&lt;/code&gt;</ept> expression, for all fields that are indexed as <bpt id="a66cc134-2d13-4da8-aff5-62fe17336c60">&lt;code&gt;</bpt>"Sortable": true.<ept id="a66cc134-2d13-4da8-aff5-62fe17336c60">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="735dc61d-383a-493f-ade4-85bb1344cb8b" xml:space="preserve">
+          <source>Relevance is strongly associated with scoring profiles.</source>
+          <target state="new">Relevance is strongly associated with scoring profiles.</target>
+        </trans-unit>
+        <trans-unit id="b39b884e-ef1a-4409-aed1-b6d82fafe4eb" xml:space="preserve">
+          <source>You can use the default scoring, which relies on text analysis and statistics to rank order all results, with higher scores going to documents with more or stronger matches on a search term.</source>
+          <target state="new">You can use the default scoring, which relies on text analysis and statistics to rank order all results, with higher scores going to documents with more or stronger matches on a search term.</target>
+        </trans-unit>
+        <trans-unit id="4fb9ef6c-6fb3-4635-b74d-d46eeb42335c" xml:space="preserve">
+          <source>Alternative sort orders are typically associated with <bpt id="ad104392-53e0-4b36-9245-f2e5d2f5701a">&lt;strong&gt;</bpt>onClick<ept id="ad104392-53e0-4b36-9245-f2e5d2f5701a">&lt;/strong&gt;</ept> events that call back to a method that builds the sort order.</source>
+          <target state="new">Alternative sort orders are typically associated with <bpt id="ad104392-53e0-4b36-9245-f2e5d2f5701a">&lt;strong&gt;</bpt>onClick<ept id="ad104392-53e0-4b36-9245-f2e5d2f5701a">&lt;/strong&gt;</ept> events that call back to a method that builds the sort order.</target>
+        </trans-unit>
+        <trans-unit id="8be58123-c4b0-4a5c-a342-c557c99f58c7" xml:space="preserve">
+          <source>For example, given this page element:</source>
+          <target state="new">For example, given this page element:</target>
+        </trans-unit>
+        <trans-unit id="89895454-6dbd-4202-9d40-a51f21ce1101" xml:space="preserve">
+          <source> <bpt id="12814e62-6c33-4120-85d9-92aa6f380ad6">&lt;linkText&gt;</bpt><ept id="12814e62-6c33-4120-85d9-92aa6f380ad6">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="12814e62-6c33-4120-85d9-92aa6f380ad6">&lt;linkText&gt;</bpt><ept id="12814e62-6c33-4120-85d9-92aa6f380ad6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1de6f89-0885-4e5a-ab0a-96c62a80fb96" xml:space="preserve">
+          <source>You would create a method that accepts the selected sort option as input, and returns an ordered list for the criteria associated with that option.</source>
+          <target state="new">You would create a method that accepts the selected sort option as input, and returns an ordered list for the criteria associated with that option.</target>
+        </trans-unit>
+        <trans-unit id="85ac22a7-a5a6-4fd1-bc7d-cb000b432b7c" xml:space="preserve">
+          <source> <bpt id="92d390c6-7650-4563-b139-3ee3f95423fb">&lt;linkText&gt;</bpt><ept id="92d390c6-7650-4563-b139-3ee3f95423fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="92d390c6-7650-4563-b139-3ee3f95423fb">&lt;linkText&gt;</bpt><ept id="92d390c6-7650-4563-b139-3ee3f95423fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e889742-00e4-4049-9fbc-18f35d72b639" xml:space="preserve">
+          <source>While the default scoring is sufficient for many scenarios, we recommend basing relevance on a custom scoring profile instead.</source>
+          <target state="new">While the default scoring is sufficient for many scenarios, we recommend basing relevance on a custom scoring profile instead.</target>
+        </trans-unit>
+        <trans-unit id="65ac521e-a30c-40d7-b509-fc30103e443f" xml:space="preserve">
+          <source>A custom scoring profile gives you a way to boost items that are more beneficial to your business.</source>
+          <target state="new">A custom scoring profile gives you a way to boost items that are more beneficial to your business.</target>
+        </trans-unit>
+        <trans-unit id="e7dc3b2c-f3d7-484b-a288-ecf57bb7a4fe" xml:space="preserve">
+          <source>See <bpt id="ff8abed4-829c-4219-ac87-d18211a38c55">&lt;linkText&gt;</bpt>Add a scoring profile<ept id="ff8abed4-829c-4219-ac87-d18211a38c55">&lt;/linkText&gt;</ept><bpt id="ff8abed4-829c-4219-ac87-d18211a38c55">&lt;title&gt;</bpt><ept id="ff8abed4-829c-4219-ac87-d18211a38c55">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="ff8abed4-829c-4219-ac87-d18211a38c55">&lt;linkText&gt;</bpt>Add a scoring profile<ept id="ff8abed4-829c-4219-ac87-d18211a38c55">&lt;/linkText&gt;</ept><bpt id="ff8abed4-829c-4219-ac87-d18211a38c55">&lt;title&gt;</bpt><ept id="ff8abed4-829c-4219-ac87-d18211a38c55">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="c2ffaa7e-cc64-45d2-86bd-320bbb461b5a" xml:space="preserve">
+          <source>Search navigation is common on a results page, often located at the side or top of a page.</source>
+          <target state="new">Search navigation is common on a results page, often located at the side or top of a page.</target>
+        </trans-unit>
+        <trans-unit id="1f358b19-ddcb-46ae-8680-6d2ae4ea1942" xml:space="preserve">
+          <source>In Azure Search, faceted navigation provides self-directed search based on predefined filters.</source>
+          <target state="new">In Azure Search, faceted navigation provides self-directed search based on predefined filters.</target>
+        </trans-unit>
+        <trans-unit id="3d191bcb-45cc-4969-9993-499211ecc5d6" xml:space="preserve">
+          <source>See <bpt id="eee644cd-58d1-429a-b4ef-92ee46444de6">&lt;linkText&gt;</bpt>Faceted navigation in Azure Search<ept id="eee644cd-58d1-429a-b4ef-92ee46444de6">&lt;/linkText&gt;</ept><bpt id="eee644cd-58d1-429a-b4ef-92ee46444de6">&lt;title&gt;</bpt><ept id="eee644cd-58d1-429a-b4ef-92ee46444de6">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="eee644cd-58d1-429a-b4ef-92ee46444de6">&lt;linkText&gt;</bpt>Faceted navigation in Azure Search<ept id="eee644cd-58d1-429a-b4ef-92ee46444de6">&lt;/linkText&gt;</ept><bpt id="eee644cd-58d1-429a-b4ef-92ee46444de6">&lt;title&gt;</bpt><ept id="eee644cd-58d1-429a-b4ef-92ee46444de6">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="9822dd32-7d96-478a-b0bb-288949824899" xml:space="preserve">
+          <source>If your solution design included dedicated search pages for specific types of content (for example, an online retail application that has departments listed at the top of the page), you can insert a filter expression alongside an <bpt id="fe90d14b-93e1-4d49-bba7-ac136565b6af">&lt;strong&gt;</bpt>onClick<ept id="fe90d14b-93e1-4d49-bba7-ac136565b6af">&lt;/strong&gt;</ept> event to open a page in a prefiltered state.</source>
+          <target state="new">If your solution design included dedicated search pages for specific types of content (for example, an online retail application that has departments listed at the top of the page), you can insert a filter expression alongside an <bpt id="fe90d14b-93e1-4d49-bba7-ac136565b6af">&lt;strong&gt;</bpt>onClick<ept id="fe90d14b-93e1-4d49-bba7-ac136565b6af">&lt;/strong&gt;</ept> event to open a page in a prefiltered state.</target>
+        </trans-unit>
+        <trans-unit id="8086dd6c-12f1-4e29-8049-051a9e6b2a51" xml:space="preserve">
+          <source>You can send a filter with or without a search expression.</source>
+          <target state="new">You can send a filter with or without a search expression.</target>
+        </trans-unit>
+        <trans-unit id="a60a5bcb-c26e-4af4-8bc0-d9542ca6725a" xml:space="preserve">
+          <source>For example, the following request will filter on brand name, returning only those documents that match it.</source>
+          <target state="new">For example, the following request will filter on brand name, returning only those documents that match it.</target>
+        </trans-unit>
+        <trans-unit id="e8ba9815-5ce4-4e09-9730-d14620ec3d6c" xml:space="preserve">
+          <source>See <bpt id="be34c2d0-03d1-4a4c-a788-98e406d96438">&lt;linkText&gt;</bpt>Search Documents (Azure Search API)<ept id="be34c2d0-03d1-4a4c-a788-98e406d96438">&lt;/linkText&gt;</ept><bpt id="be34c2d0-03d1-4a4c-a788-98e406d96438">&lt;title&gt;</bpt><ept id="be34c2d0-03d1-4a4c-a788-98e406d96438">&lt;/title&gt;</ept> for more information about <bpt id="7418a1bb-ca7c-45b6-96ab-0958885b6563">&lt;code&gt;</bpt>$filter<ept id="7418a1bb-ca7c-45b6-96ab-0958885b6563">&lt;/code&gt;</ept> expressions.</source>
+          <target state="new">See <bpt id="be34c2d0-03d1-4a4c-a788-98e406d96438">&lt;linkText&gt;</bpt>Search Documents (Azure Search API)<ept id="be34c2d0-03d1-4a4c-a788-98e406d96438">&lt;/linkText&gt;</ept><bpt id="be34c2d0-03d1-4a4c-a788-98e406d96438">&lt;title&gt;</bpt><ept id="be34c2d0-03d1-4a4c-a788-98e406d96438">&lt;/title&gt;</ept> for more information about <bpt id="7418a1bb-ca7c-45b6-96ab-0958885b6563">&lt;code&gt;</bpt>$filter<ept id="7418a1bb-ca7c-45b6-96ab-0958885b6563">&lt;/code&gt;</ept> expressions.</target>
+        </trans-unit>
+        <trans-unit id="2109bb62-106f-4f2e-af25-8d28b6280c06" xml:space="preserve">
+          <source><bpt id="9eaf777c-18c0-4736-8f0b-577b74090068">&lt;linkText&gt;</bpt>Azure Search Service REST API<ept id="9eaf777c-18c0-4736-8f0b-577b74090068">&lt;/linkText&gt;</ept><bpt id="9eaf777c-18c0-4736-8f0b-577b74090068">&lt;title&gt;</bpt><ept id="9eaf777c-18c0-4736-8f0b-577b74090068">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9eaf777c-18c0-4736-8f0b-577b74090068">&lt;linkText&gt;</bpt>Azure Search Service REST API<ept id="9eaf777c-18c0-4736-8f0b-577b74090068">&lt;/linkText&gt;</ept><bpt id="9eaf777c-18c0-4736-8f0b-577b74090068">&lt;title&gt;</bpt><ept id="9eaf777c-18c0-4736-8f0b-577b74090068">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a4f60c5-339b-43a3-bc74-5d03f4b5b0d4" xml:space="preserve">
+          <source><bpt id="0eec794e-ec83-46ad-b357-b680f979e518">&lt;linkText&gt;</bpt>Index Operations<ept id="0eec794e-ec83-46ad-b357-b680f979e518">&lt;/linkText&gt;</ept><bpt id="0eec794e-ec83-46ad-b357-b680f979e518">&lt;title&gt;</bpt><ept id="0eec794e-ec83-46ad-b357-b680f979e518">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0eec794e-ec83-46ad-b357-b680f979e518">&lt;linkText&gt;</bpt>Index Operations<ept id="0eec794e-ec83-46ad-b357-b680f979e518">&lt;/linkText&gt;</ept><bpt id="0eec794e-ec83-46ad-b357-b680f979e518">&lt;title&gt;</bpt><ept id="0eec794e-ec83-46ad-b357-b680f979e518">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="592eca4c-656f-4a6e-a920-20a5e5b04bd6" xml:space="preserve">
+          <source><bpt id="8f6cdfc9-eef6-4c4a-8228-d95c50e3a2f3">&lt;linkText&gt;</bpt>Document Operations<ept id="8f6cdfc9-eef6-4c4a-8228-d95c50e3a2f3">&lt;/linkText&gt;</ept><bpt id="8f6cdfc9-eef6-4c4a-8228-d95c50e3a2f3">&lt;title&gt;</bpt><ept id="8f6cdfc9-eef6-4c4a-8228-d95c50e3a2f3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8f6cdfc9-eef6-4c4a-8228-d95c50e3a2f3">&lt;linkText&gt;</bpt>Document Operations<ept id="8f6cdfc9-eef6-4c4a-8228-d95c50e3a2f3">&lt;/linkText&gt;</ept><bpt id="8f6cdfc9-eef6-4c4a-8228-d95c50e3a2f3">&lt;title&gt;</bpt><ept id="8f6cdfc9-eef6-4c4a-8228-d95c50e3a2f3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99d09fcf-22b7-4c0b-9bbe-1683f8cf097d" xml:space="preserve">
+          <source><bpt id="78169690-a291-40a3-b551-fe847724838a">&lt;linkText&gt;</bpt>Video and tutorials about Azure Search<ept id="78169690-a291-40a3-b551-fe847724838a">&lt;/linkText&gt;</ept><bpt id="78169690-a291-40a3-b551-fe847724838a">&lt;title&gt;</bpt><ept id="78169690-a291-40a3-b551-fe847724838a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="78169690-a291-40a3-b551-fe847724838a">&lt;linkText&gt;</bpt>Video and tutorials about Azure Search<ept id="78169690-a291-40a3-b551-fe847724838a">&lt;/linkText&gt;</ept><bpt id="78169690-a291-40a3-b551-fe847724838a">&lt;title&gt;</bpt><ept id="78169690-a291-40a3-b551-fe847724838a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f1362f8-8d4d-4e8e-b026-e512b0c5f59b" xml:space="preserve">
+          <source><bpt id="26f639dc-8568-47e8-9061-9c5fca4651bd">&lt;linkText&gt;</bpt>Faceted Navigation in Azure Search<ept id="26f639dc-8568-47e8-9061-9c5fca4651bd">&lt;/linkText&gt;</ept><bpt id="26f639dc-8568-47e8-9061-9c5fca4651bd">&lt;title&gt;</bpt><ept id="26f639dc-8568-47e8-9061-9c5fca4651bd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="26f639dc-8568-47e8-9061-9c5fca4651bd">&lt;linkText&gt;</bpt>Faceted Navigation in Azure Search<ept id="26f639dc-8568-47e8-9061-9c5fca4651bd">&lt;/linkText&gt;</ept><bpt id="26f639dc-8568-47e8-9061-9c5fca4651bd">&lt;title&gt;</bpt><ept id="26f639dc-8568-47e8-9061-9c5fca4651bd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7b7ed05-4807-4612-9bfd-5f3b9f36597a" xml:space="preserve">
+          <source>./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG</source>
+          <target state="new">./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG</target>
+        </trans-unit>
+        <trans-unit id="e70ff4b0-0fd2-47e0-bb50-85cc10952a89" xml:space="preserve">
+          <source>./media/search-pagination-page-layout/Pages-2-Tiled.PNG</source>
+          <target state="new">./media/search-pagination-page-layout/Pages-2-Tiled.PNG</target>
+        </trans-unit>
+        <trans-unit id="a8a075b1-1143-4ee8-b74d-d3b9f408c990" xml:space="preserve">
+          <source>./media/search-pagination-page-layout/Pages-3-SortBy.png</source>
+          <target state="new">./media/search-pagination-page-layout/Pages-3-SortBy.png</target>
+        </trans-unit>
+        <trans-unit id="84513329-92f8-423f-8a6f-15116fd18d85" xml:space="preserve">
+          <source>./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png</source>
+          <target state="new">./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png</target>
+        </trans-unit>
+        <trans-unit id="f68285e1-c660-436d-afd1-133dc2eb8c5b" xml:space="preserve">
+          <source>./media/search-pagination-page-layout/Pages-5-BuildSort.png</source>
+          <target state="new">./media/search-pagination-page-layout/Pages-5-BuildSort.png</target>
+        </trans-unit>
+      </group>
+      <group id="1da37744-7b25-4376-a763-902f54b8efcd" />
+    </body>
+  </file>
+</xliff>

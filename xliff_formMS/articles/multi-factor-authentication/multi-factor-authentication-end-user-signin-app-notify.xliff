@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="63747de9-c85c-445b-ae11-71e04a973637" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="63747de9-c85c-445b-ae11-71e04a973637" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="153b35a1-bfd8-48a4-acd9-384424c037a5">
+        <trans-unit id="eb74d322-f8c6-4a16-889e-397a0a11834a" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="Signing in to the mobile app using notification with Azure Multi-Factor Authentication" 
+    description="This page will describe how a user can signin using mobile app notification with Azure MFA." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="Signing in to the mobile app using notification with Azure Multi-Factor Authentication" 
+    description="This page will describe how a user can signin using mobile app notification with Azure MFA." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="309aace0-70c9-4f0d-9c14-fc03c628f54e" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2015" 
+    ms.author="billmath"/&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2015" 
+    ms.author="billmath"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="06b9ffac-7e01-4e7e-aa35-8dfc03d4efcc" xml:space="preserve">
+          <source>The following information will describe the experience of using multi-factor authentication with your mobile app when you are sent a notification.</source>
+          <target state="new">The following information will describe the experience of using multi-factor authentication with your mobile app when you are sent a notification.</target>
+        </trans-unit>
+        <trans-unit id="21ec47c4-9488-4e9e-b774-89e653928c3a" xml:space="preserve">
+          <source>&lt;ol&gt;</source>
+          <target state="new">&lt;ol&gt;</target>
+        </trans-unit>
+        <trans-unit id="5403b089-6b23-44a6-9b95-eb8817986fd4" xml:space="preserve">
+          <source>&lt;li&gt;Sign in to an application or service such as Office 365 using your user name and password.&lt;/li&gt;
+&lt;li&gt;Microsoft will send a notification.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Sign in to an application or service such as Office 365 using your user name and password.&lt;/li&gt;
+&lt;li&gt;Microsoft will send a notification.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="24a49bea-222e-48ea-92c5-bbea86e57d0b" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="c9960e14-fb0b-4f91-8132-645d153a5062">&lt;linkText&gt;</bpt>Setup<ept id="c9960e14-fb0b-4f91-8132-645d153a5062">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="c9960e14-fb0b-4f91-8132-645d153a5062">&lt;linkText&gt;</bpt>Setup<ept id="c9960e14-fb0b-4f91-8132-645d153a5062">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="d91e4186-11e5-41d9-b620-1e1622048473" xml:space="preserve">
+          <source>&lt;li&gt;Answer the phone and hit the verify key.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Answer the phone and hit the verify key.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="5c51ab64-2a0c-42a0-b86e-f0464de5787f" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="d429b54d-40cf-4666-8f26-07529e476f2d">&lt;linkText&gt;</bpt>Setup<ept id="d429b54d-40cf-4666-8f26-07529e476f2d">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="d429b54d-40cf-4666-8f26-07529e476f2d">&lt;linkText&gt;</bpt>Setup<ept id="d429b54d-40cf-4666-8f26-07529e476f2d">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="e93a2ecc-7c5e-45b8-a820-fce91a3cf274" xml:space="preserve">
+          <source>&lt;li&gt;You should now be signed in.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;You should now be signed in.&lt;/li&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

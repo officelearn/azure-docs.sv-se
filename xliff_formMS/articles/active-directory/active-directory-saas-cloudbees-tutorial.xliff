@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4097bffd-f73b-4a41-92e1-ab8140e79cf2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4097bffd-f73b-4a41-92e1-ab8140e79cf2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f342b243-b5e5-48f3-94e3-4c7657fa3dd6">
+        <trans-unit id="05303353-e39a-4903-a899-f9997090b70a" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with CloudBees | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with CloudBees | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f50409a0-2ed0-4db2-a4c9-8d325f8e1b62" xml:space="preserve">
+          <source>Learn how to use CloudBees with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use CloudBees with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="585947d2-90e5-45ea-9023-5dcf2ec567a6" xml:space="preserve">
+          <source>For feedback, click <bpt id="051a094f-d680-45b9-b482-c88e5f4c19e9">&lt;linkText&gt;</bpt>here<ept id="051a094f-d680-45b9-b482-c88e5f4c19e9">&lt;/linkText&gt;</ept><bpt id="051a094f-d680-45b9-b482-c88e5f4c19e9">&lt;title&gt;</bpt><ept id="051a094f-d680-45b9-b482-c88e5f4c19e9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="051a094f-d680-45b9-b482-c88e5f4c19e9">&lt;linkText&gt;</bpt>here<ept id="051a094f-d680-45b9-b482-c88e5f4c19e9">&lt;/linkText&gt;</ept><bpt id="051a094f-d680-45b9-b482-c88e5f4c19e9">&lt;title&gt;</bpt><ept id="051a094f-d680-45b9-b482-c88e5f4c19e9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03fcc1c8-d36d-41ec-ac4b-894065457894" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and CloudBees.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and CloudBees.</target>
+        </trans-unit>
+        <trans-unit id="82765691-7ac2-46e9-a0ba-4bc4a43527d2" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="495934a2-9d91-468f-b598-7833eada3d53" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="d7657df3-ac3a-4d78-9f37-de06b62bd82e" xml:space="preserve">
+          <source>A CloudBees tenant</source>
+          <target state="new">A CloudBees tenant</target>
+        </trans-unit>
+        <trans-unit id="5af6172a-913e-4232-9ba6-f9fb9af685da" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to CloudBees will be able to single sign into the application at your CloudBees company site (service provider initiated sign on), or using the <bpt id="e8f1229b-e4ad-488b-9d3c-ee1605fe96f1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="e8f1229b-e4ad-488b-9d3c-ee1605fe96f1">&lt;/linkText&gt;</ept><bpt id="e8f1229b-e4ad-488b-9d3c-ee1605fe96f1">&lt;title&gt;</bpt><ept id="e8f1229b-e4ad-488b-9d3c-ee1605fe96f1">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to CloudBees will be able to single sign into the application at your CloudBees company site (service provider initiated sign on), or using the <bpt id="e8f1229b-e4ad-488b-9d3c-ee1605fe96f1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="e8f1229b-e4ad-488b-9d3c-ee1605fe96f1">&lt;/linkText&gt;</ept><bpt id="e8f1229b-e4ad-488b-9d3c-ee1605fe96f1">&lt;title&gt;</bpt><ept id="e8f1229b-e4ad-488b-9d3c-ee1605fe96f1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e216e634-172e-4f38-a56e-49b13b8b9531" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="89a78923-863c-4a90-98a9-e0ef1db223dd" xml:space="preserve">
+          <source>Enabling the application integration for CloudBees</source>
+          <target state="new">Enabling the application integration for CloudBees</target>
+        </trans-unit>
+        <trans-unit id="2ac554da-819e-4292-a35b-cda0f9740a1e" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="0d3e6bb2-adc1-46e1-a24c-dc49877377a8" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="9c130e1c-032f-46cf-866f-57e9b56a2e24" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="a3b0dfc7-a84d-4527-9e4d-5feb94860def" xml:space="preserve">
+          <source><bpt id="9e31d55a-dbb5-4883-8f8e-3034882219c1">&lt;linkText&gt;</bpt>Scenario<ept id="9e31d55a-dbb5-4883-8f8e-3034882219c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9e31d55a-dbb5-4883-8f8e-3034882219c1">&lt;linkText&gt;</bpt>Scenario<ept id="9e31d55a-dbb5-4883-8f8e-3034882219c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d4d17e3-f5c5-4e6c-91cf-95c43a27822b" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for CloudBees.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for CloudBees.</target>
+        </trans-unit>
+        <trans-unit id="fc2c71e1-0d7f-4483-abac-467992e71413" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="88b7dbbf-63a5-4e64-9426-5280c7a17b00">&lt;strong&gt;</bpt>Active Directory<ept id="88b7dbbf-63a5-4e64-9426-5280c7a17b00">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="88b7dbbf-63a5-4e64-9426-5280c7a17b00">&lt;strong&gt;</bpt>Active Directory<ept id="88b7dbbf-63a5-4e64-9426-5280c7a17b00">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ccbc331-c784-4aa3-bda4-1e0af7b98fab" xml:space="preserve">
+          <source><bpt id="35709215-a7e8-4641-8df3-ff48f3998e1c">&lt;linkText&gt;</bpt>Active Directory<ept id="35709215-a7e8-4641-8df3-ff48f3998e1c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35709215-a7e8-4641-8df3-ff48f3998e1c">&lt;linkText&gt;</bpt>Active Directory<ept id="35709215-a7e8-4641-8df3-ff48f3998e1c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fc70268-9bca-4f82-a153-286de62cadaa" xml:space="preserve">
+          <source>From the <bpt id="1cb1cc2a-c2cd-4a67-89ed-75a6721c8cc1">&lt;strong&gt;</bpt>Directory<ept id="1cb1cc2a-c2cd-4a67-89ed-75a6721c8cc1">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="1cb1cc2a-c2cd-4a67-89ed-75a6721c8cc1">&lt;strong&gt;</bpt>Directory<ept id="1cb1cc2a-c2cd-4a67-89ed-75a6721c8cc1">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="5d7e9118-cd12-46c4-b2f4-a455eeb9481e" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="30586e85-5ce9-47dc-9e80-24ddc593d4ae">&lt;strong&gt;</bpt>Applications<ept id="30586e85-5ce9-47dc-9e80-24ddc593d4ae">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="30586e85-5ce9-47dc-9e80-24ddc593d4ae">&lt;strong&gt;</bpt>Applications<ept id="30586e85-5ce9-47dc-9e80-24ddc593d4ae">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="8a8c139a-4d05-415a-bb98-20add5b2a980" xml:space="preserve">
+          <source><bpt id="d2d35e92-97c1-4a5e-a2d5-d0e0c491514f">&lt;linkText&gt;</bpt>Applications<ept id="d2d35e92-97c1-4a5e-a2d5-d0e0c491514f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d2d35e92-97c1-4a5e-a2d5-d0e0c491514f">&lt;linkText&gt;</bpt>Applications<ept id="d2d35e92-97c1-4a5e-a2d5-d0e0c491514f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="648235b5-4c0d-49fd-bb8b-058b62b0c34a" xml:space="preserve">
+          <source>Click <bpt id="b9936c92-9e49-4ace-89d3-efffb494f69e">&lt;strong&gt;</bpt>Add<ept id="b9936c92-9e49-4ace-89d3-efffb494f69e">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="b9936c92-9e49-4ace-89d3-efffb494f69e">&lt;strong&gt;</bpt>Add<ept id="b9936c92-9e49-4ace-89d3-efffb494f69e">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="41db3c95-2166-4834-afaa-5a17d60548c8" xml:space="preserve">
+          <source><bpt id="3bb3bf81-7ea5-42f2-bccf-e902b3cfc146">&lt;linkText&gt;</bpt>Add application<ept id="3bb3bf81-7ea5-42f2-bccf-e902b3cfc146">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3bb3bf81-7ea5-42f2-bccf-e902b3cfc146">&lt;linkText&gt;</bpt>Add application<ept id="3bb3bf81-7ea5-42f2-bccf-e902b3cfc146">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb6df01e-097e-436b-b31d-0f7f5fec4bf3" xml:space="preserve">
+          <source>On the <bpt id="a06d8a12-15b4-4641-a7bf-eae0fe8e4985">&lt;strong&gt;</bpt>What do you want to do<ept id="a06d8a12-15b4-4641-a7bf-eae0fe8e4985">&lt;/strong&gt;</ept> dialog, click <bpt id="02abd8a5-3e9d-42fc-9da5-a46ab9bdfbd0">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="02abd8a5-3e9d-42fc-9da5-a46ab9bdfbd0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="a06d8a12-15b4-4641-a7bf-eae0fe8e4985">&lt;strong&gt;</bpt>What do you want to do<ept id="a06d8a12-15b4-4641-a7bf-eae0fe8e4985">&lt;/strong&gt;</ept> dialog, click <bpt id="02abd8a5-3e9d-42fc-9da5-a46ab9bdfbd0">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="02abd8a5-3e9d-42fc-9da5-a46ab9bdfbd0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d578d7f7-4553-487e-b14c-41d7eddd6c1f" xml:space="preserve">
+          <source><bpt id="04416668-6867-435f-9c2d-48175e11fa85">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="04416668-6867-435f-9c2d-48175e11fa85">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="04416668-6867-435f-9c2d-48175e11fa85">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="04416668-6867-435f-9c2d-48175e11fa85">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4cfef650-a7f1-4725-93ab-173af21bad7a" xml:space="preserve">
+          <source>In the <bpt id="671f4fdb-28d0-4e85-afc2-e1393ed8d347">&lt;strong&gt;</bpt>search box<ept id="671f4fdb-28d0-4e85-afc2-e1393ed8d347">&lt;/strong&gt;</ept>, type <bpt id="ce062872-18fc-4bdb-a674-2ef7fd6478a8">&lt;strong&gt;</bpt>CloudBees<ept id="ce062872-18fc-4bdb-a674-2ef7fd6478a8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="671f4fdb-28d0-4e85-afc2-e1393ed8d347">&lt;strong&gt;</bpt>search box<ept id="671f4fdb-28d0-4e85-afc2-e1393ed8d347">&lt;/strong&gt;</ept>, type <bpt id="ce062872-18fc-4bdb-a674-2ef7fd6478a8">&lt;strong&gt;</bpt>CloudBees<ept id="ce062872-18fc-4bdb-a674-2ef7fd6478a8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8cfb58b-bb04-4f69-9f3b-5b5e8b37d621" xml:space="preserve">
+          <source><bpt id="cff51b0a-7a47-4090-8bd7-10ec14ed9fe4">&lt;linkText&gt;</bpt>Application Gallery<ept id="cff51b0a-7a47-4090-8bd7-10ec14ed9fe4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cff51b0a-7a47-4090-8bd7-10ec14ed9fe4">&lt;linkText&gt;</bpt>Application Gallery<ept id="cff51b0a-7a47-4090-8bd7-10ec14ed9fe4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2bc7c992-3962-455e-abf7-75ba2d9e308f" xml:space="preserve">
+          <source>In the results pane, select <bpt id="c58c2036-24fa-440a-9934-90d03bb49b3e">&lt;strong&gt;</bpt>CloudBees<ept id="c58c2036-24fa-440a-9934-90d03bb49b3e">&lt;/strong&gt;</ept>, and then click <bpt id="848b23c4-c56c-43fe-9e9f-45380451aec6">&lt;strong&gt;</bpt>Complete<ept id="848b23c4-c56c-43fe-9e9f-45380451aec6">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="c58c2036-24fa-440a-9934-90d03bb49b3e">&lt;strong&gt;</bpt>CloudBees<ept id="c58c2036-24fa-440a-9934-90d03bb49b3e">&lt;/strong&gt;</ept>, and then click <bpt id="848b23c4-c56c-43fe-9e9f-45380451aec6">&lt;strong&gt;</bpt>Complete<ept id="848b23c4-c56c-43fe-9e9f-45380451aec6">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="ffae2d2e-4079-44da-a2ef-e0b4a122ed49" xml:space="preserve">
+          <source><bpt id="ff15c4af-7f51-4569-9af0-9797e7baacb7">&lt;linkText&gt;</bpt>Cloudbees<ept id="ff15c4af-7f51-4569-9af0-9797e7baacb7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff15c4af-7f51-4569-9af0-9797e7baacb7">&lt;linkText&gt;</bpt>Cloudbees<ept id="ff15c4af-7f51-4569-9af0-9797e7baacb7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0221795-34ff-47ed-8d2e-a86a1404d68c" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to CloudBees with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to CloudBees with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="2b780780-d7aa-4bac-b5fc-d6637c43c196" xml:space="preserve">
+          <source>Configuring single sign-on for CloudBees requires you to retrieve a thumbprint value from a certificate.</source>
+          <target state="new">Configuring single sign-on for CloudBees requires you to retrieve a thumbprint value from a certificate.</target>
+        </trans-unit>
+        <trans-unit id="64c7ea22-ea3e-41d5-a212-ff8baa602f69" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="46477fc2-0983-45e1-9ffc-100030457845">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="46477fc2-0983-45e1-9ffc-100030457845">&lt;/linkText&gt;</ept><bpt id="46477fc2-0983-45e1-9ffc-100030457845">&lt;title&gt;</bpt><ept id="46477fc2-0983-45e1-9ffc-100030457845">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="46477fc2-0983-45e1-9ffc-100030457845">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="46477fc2-0983-45e1-9ffc-100030457845">&lt;/linkText&gt;</ept><bpt id="46477fc2-0983-45e1-9ffc-100030457845">&lt;title&gt;</bpt><ept id="46477fc2-0983-45e1-9ffc-100030457845">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6a0b15a-5e8c-4ce2-bb1d-1554fcfbbaa8" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="b21e305d-7f6a-4fa1-b2cb-2e105e5021ba">&lt;strong&gt;</bpt>CloudBees<ept id="b21e305d-7f6a-4fa1-b2cb-2e105e5021ba">&lt;/strong&gt;</ept> application integration page, click <bpt id="288d62ee-8caa-4094-96db-d6e1eac7a058">&lt;strong&gt;</bpt>Configure single sign-on<ept id="288d62ee-8caa-4094-96db-d6e1eac7a058">&lt;/strong&gt;</ept> to open the <bpt id="1d73b41d-fdaa-4cb1-991f-7ac916c46d0d">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="1d73b41d-fdaa-4cb1-991f-7ac916c46d0d">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="b21e305d-7f6a-4fa1-b2cb-2e105e5021ba">&lt;strong&gt;</bpt>CloudBees<ept id="b21e305d-7f6a-4fa1-b2cb-2e105e5021ba">&lt;/strong&gt;</ept> application integration page, click <bpt id="288d62ee-8caa-4094-96db-d6e1eac7a058">&lt;strong&gt;</bpt>Configure single sign-on<ept id="288d62ee-8caa-4094-96db-d6e1eac7a058">&lt;/strong&gt;</ept> to open the <bpt id="1d73b41d-fdaa-4cb1-991f-7ac916c46d0d">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="1d73b41d-fdaa-4cb1-991f-7ac916c46d0d">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="bf835b7c-c9a1-434b-b4e2-e1650fe4077a" xml:space="preserve">
+          <source><bpt id="b7e89d4b-1230-4e37-acff-5ced8741301d">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="b7e89d4b-1230-4e37-acff-5ced8741301d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7e89d4b-1230-4e37-acff-5ced8741301d">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="b7e89d4b-1230-4e37-acff-5ced8741301d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a77a7153-7937-47ef-b200-c261f33fdaba" xml:space="preserve">
+          <source>On the <bpt id="4ccd466d-44f5-4736-8666-382626cb4391">&lt;strong&gt;</bpt>How would you like users to sign on to CloudBees<ept id="4ccd466d-44f5-4736-8666-382626cb4391">&lt;/strong&gt;</ept> page, select <bpt id="c14c5aa0-d281-41cd-aafc-8bbe11dc86aa">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="c14c5aa0-d281-41cd-aafc-8bbe11dc86aa">&lt;/strong&gt;</ept>, and then click <bpt id="9b9cdb24-86b5-453f-813e-b853d67892e9">&lt;strong&gt;</bpt>Next<ept id="9b9cdb24-86b5-453f-813e-b853d67892e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="4ccd466d-44f5-4736-8666-382626cb4391">&lt;strong&gt;</bpt>How would you like users to sign on to CloudBees<ept id="4ccd466d-44f5-4736-8666-382626cb4391">&lt;/strong&gt;</ept> page, select <bpt id="c14c5aa0-d281-41cd-aafc-8bbe11dc86aa">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="c14c5aa0-d281-41cd-aafc-8bbe11dc86aa">&lt;/strong&gt;</ept>, and then click <bpt id="9b9cdb24-86b5-453f-813e-b853d67892e9">&lt;strong&gt;</bpt>Next<ept id="9b9cdb24-86b5-453f-813e-b853d67892e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4998284c-9557-483f-bf27-3fc4704db854" xml:space="preserve">
+          <source><bpt id="6a1dbdf5-e3fe-4632-b294-4d8ae37b3b39">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="6a1dbdf5-e3fe-4632-b294-4d8ae37b3b39">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6a1dbdf5-e3fe-4632-b294-4d8ae37b3b39">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="6a1dbdf5-e3fe-4632-b294-4d8ae37b3b39">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aced9bea-ed72-44b1-b6bf-13acb3ef9b24" xml:space="preserve">
+          <source>On the <bpt id="e268c44c-1c08-4214-8ddc-8efa94b0f9f4">&lt;strong&gt;</bpt>Configure App URL<ept id="e268c44c-1c08-4214-8ddc-8efa94b0f9f4">&lt;/strong&gt;</ept> page, in the <bpt id="9506acae-0f29-47e9-b52c-8d3f707a4548">&lt;strong&gt;</bpt>CloudBees Sign On URL<ept id="9506acae-0f29-47e9-b52c-8d3f707a4548">&lt;/strong&gt;</ept> textbox, type your URL used by your user to sign in to CoudBees (e.g.: <bpt id="e0d88f6d-880b-42f5-a0d9-0a15a0e42d6e">&lt;em&gt;</bpt>https://grandcentral.cloudbees.com/login<ept id="e0d88f6d-880b-42f5-a0d9-0a15a0e42d6e">&lt;/em&gt;</ept>", and then click <bpt id="efdc3ff0-318c-4b53-b275-10509e19d094">&lt;strong&gt;</bpt>Next<ept id="efdc3ff0-318c-4b53-b275-10509e19d094">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e268c44c-1c08-4214-8ddc-8efa94b0f9f4">&lt;strong&gt;</bpt>Configure App URL<ept id="e268c44c-1c08-4214-8ddc-8efa94b0f9f4">&lt;/strong&gt;</ept> page, in the <bpt id="9506acae-0f29-47e9-b52c-8d3f707a4548">&lt;strong&gt;</bpt>CloudBees Sign On URL<ept id="9506acae-0f29-47e9-b52c-8d3f707a4548">&lt;/strong&gt;</ept> textbox, type your URL used by your user to sign in to CoudBees (e.g.: <bpt id="e0d88f6d-880b-42f5-a0d9-0a15a0e42d6e">&lt;em&gt;</bpt>https://grandcentral.cloudbees.com/login<ept id="e0d88f6d-880b-42f5-a0d9-0a15a0e42d6e">&lt;/em&gt;</ept>", and then click <bpt id="efdc3ff0-318c-4b53-b275-10509e19d094">&lt;strong&gt;</bpt>Next<ept id="efdc3ff0-318c-4b53-b275-10509e19d094">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2abc434c-b2bc-4c27-b2ac-fe6193424d57" xml:space="preserve">
+          <source><bpt id="10fc565f-730a-4e80-8d0f-54ed7f596653">&lt;linkText&gt;</bpt>Configure App URL<ept id="10fc565f-730a-4e80-8d0f-54ed7f596653">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10fc565f-730a-4e80-8d0f-54ed7f596653">&lt;linkText&gt;</bpt>Configure App URL<ept id="10fc565f-730a-4e80-8d0f-54ed7f596653">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29b53552-dfc1-4bce-b1ae-deb5f9d3f3dc" xml:space="preserve">
+          <source>On the <bpt id="8ae6995a-6ed9-468b-9422-38227893379d">&lt;strong&gt;</bpt>Configure single sign-on at CloudBees<ept id="8ae6995a-6ed9-468b-9422-38227893379d">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="2ffc34aa-b559-499d-8880-7188e8fdcebf">&lt;strong&gt;</bpt>Download certificate<ept id="2ffc34aa-b559-499d-8880-7188e8fdcebf">&lt;/strong&gt;</ept>, and then save the certificate locally on your computer.</source>
+          <target state="new">On the <bpt id="8ae6995a-6ed9-468b-9422-38227893379d">&lt;strong&gt;</bpt>Configure single sign-on at CloudBees<ept id="8ae6995a-6ed9-468b-9422-38227893379d">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="2ffc34aa-b559-499d-8880-7188e8fdcebf">&lt;strong&gt;</bpt>Download certificate<ept id="2ffc34aa-b559-499d-8880-7188e8fdcebf">&lt;/strong&gt;</ept>, and then save the certificate locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="d50f252d-bccd-462b-9910-a51c13d97a2e" xml:space="preserve">
+          <source><bpt id="425f2489-a92f-4d94-bad4-52569011d8b8">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="425f2489-a92f-4d94-bad4-52569011d8b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="425f2489-a92f-4d94-bad4-52569011d8b8">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="425f2489-a92f-4d94-bad4-52569011d8b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="548e299e-cef6-4f1c-b39a-5699db2caf53" xml:space="preserve">
+          <source>In a different web browser window, log into your CloudBees company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your CloudBees company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="ec9db5cc-efbc-48a8-aab0-2a7981e89938" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="8427192c-8c0c-4b84-b9b2-025a580fd731">&lt;strong&gt;</bpt>Settings<ept id="8427192c-8c0c-4b84-b9b2-025a580fd731">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="8427192c-8c0c-4b84-b9b2-025a580fd731">&lt;strong&gt;</bpt>Settings<ept id="8427192c-8c0c-4b84-b9b2-025a580fd731">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f56cb80-0bb3-4412-a0b1-4ba63fe7e2c9" xml:space="preserve">
+          <source><bpt id="e858b11b-f941-4146-bc72-426b92f1bc9e">&lt;linkText&gt;</bpt>Settings<ept id="e858b11b-f941-4146-bc72-426b92f1bc9e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e858b11b-f941-4146-bc72-426b92f1bc9e">&lt;linkText&gt;</bpt>Settings<ept id="e858b11b-f941-4146-bc72-426b92f1bc9e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e17e25d-12b0-4b01-a51e-c6c597c72d33" xml:space="preserve">
+          <source>Click the <bpt id="e5d9c882-4f94-47ab-b221-0cfbd4b3d785">&lt;strong&gt;</bpt>SSO integration<ept id="e5d9c882-4f94-47ab-b221-0cfbd4b3d785">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="e5d9c882-4f94-47ab-b221-0cfbd4b3d785">&lt;strong&gt;</bpt>SSO integration<ept id="e5d9c882-4f94-47ab-b221-0cfbd4b3d785">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="5baa76d3-7a04-4cdc-a62c-61b4e82bdce0" xml:space="preserve">
+          <source>In the <bpt id="5f47f77e-3bab-495e-a8a7-e47de068072f">&lt;strong&gt;</bpt>Set Up SAML 2.0 Single Sign On<ept id="5f47f77e-3bab-495e-a8a7-e47de068072f">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="5f47f77e-3bab-495e-a8a7-e47de068072f">&lt;strong&gt;</bpt>Set Up SAML 2.0 Single Sign On<ept id="5f47f77e-3bab-495e-a8a7-e47de068072f">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="a8e342e2-d9a0-456c-a6c1-743753eaed23" xml:space="preserve">
+          <source><bpt id="9b44068b-bb46-4e7e-bff3-694c574e8bf0">&lt;linkText&gt;</bpt>Setup Single Sign-On<ept id="9b44068b-bb46-4e7e-bff3-694c574e8bf0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b44068b-bb46-4e7e-bff3-694c574e8bf0">&lt;linkText&gt;</bpt>Setup Single Sign-On<ept id="9b44068b-bb46-4e7e-bff3-694c574e8bf0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7e4eb4d-cba9-42d0-8c63-486742588fab" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="00ef6d35-677a-44ac-b36e-0d05dcfb1f5c">&lt;strong&gt;</bpt>Configure single sign-on at CloudBees<ept id="00ef6d35-677a-44ac-b36e-0d05dcfb1f5c">&lt;/strong&gt;</ept> page, copy the <bpt id="46165853-59df-4602-bb08-7a751ca03f8c">&lt;strong&gt;</bpt>Remote Login URL<ept id="46165853-59df-4602-bb08-7a751ca03f8c">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="58f36948-d9d9-4eba-bd90-0db540270e6f">&lt;strong&gt;</bpt>Remote login URL<ept id="58f36948-d9d9-4eba-bd90-0db540270e6f">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="00ef6d35-677a-44ac-b36e-0d05dcfb1f5c">&lt;strong&gt;</bpt>Configure single sign-on at CloudBees<ept id="00ef6d35-677a-44ac-b36e-0d05dcfb1f5c">&lt;/strong&gt;</ept> page, copy the <bpt id="46165853-59df-4602-bb08-7a751ca03f8c">&lt;strong&gt;</bpt>Remote Login URL<ept id="46165853-59df-4602-bb08-7a751ca03f8c">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="58f36948-d9d9-4eba-bd90-0db540270e6f">&lt;strong&gt;</bpt>Remote login URL<ept id="58f36948-d9d9-4eba-bd90-0db540270e6f">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="8892946d-5c23-45f5-8cb8-99de66b044d9" xml:space="preserve">
+          <source>Copy the <bpt id="baf3ffb0-7d89-4804-973a-eaaa861d3189">&lt;strong&gt;</bpt>Thumbprint<ept id="baf3ffb0-7d89-4804-973a-eaaa861d3189">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="4011f62a-d445-49d7-9798-8113dffd0775">&lt;strong&gt;</bpt>Existing certificate fingerprint<ept id="4011f62a-d445-49d7-9798-8113dffd0775">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Copy the <bpt id="baf3ffb0-7d89-4804-973a-eaaa861d3189">&lt;strong&gt;</bpt>Thumbprint<ept id="baf3ffb0-7d89-4804-973a-eaaa861d3189">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="4011f62a-d445-49d7-9798-8113dffd0775">&lt;strong&gt;</bpt>Existing certificate fingerprint<ept id="4011f62a-d445-49d7-9798-8113dffd0775">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="f0a8a906-5a44-4e7a-88fb-b4dce1f8a28e" xml:space="preserve">
+          <source>For more details, see <bpt id="c4b0eb15-1d01-45c2-a07b-92c3dfe046e8">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="c4b0eb15-1d01-45c2-a07b-92c3dfe046e8">&lt;/linkText&gt;</ept><bpt id="c4b0eb15-1d01-45c2-a07b-92c3dfe046e8">&lt;title&gt;</bpt><ept id="c4b0eb15-1d01-45c2-a07b-92c3dfe046e8">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="c4b0eb15-1d01-45c2-a07b-92c3dfe046e8">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="c4b0eb15-1d01-45c2-a07b-92c3dfe046e8">&lt;/linkText&gt;</ept><bpt id="c4b0eb15-1d01-45c2-a07b-92c3dfe046e8">&lt;title&gt;</bpt><ept id="c4b0eb15-1d01-45c2-a07b-92c3dfe046e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f4ae057-9f79-4700-976d-c74f54d1160f" xml:space="preserve">
+          <source>In the <bpt id="8d1713e9-db7c-4e5c-b5a6-0fc855e47ac6">&lt;strong&gt;</bpt>Authentication domains<ept id="8d1713e9-db7c-4e5c-b5a6-0fc855e47ac6">&lt;/strong&gt;</ept> textbox, type your company’s domain.</source>
+          <target state="new">In the <bpt id="8d1713e9-db7c-4e5c-b5a6-0fc855e47ac6">&lt;strong&gt;</bpt>Authentication domains<ept id="8d1713e9-db7c-4e5c-b5a6-0fc855e47ac6">&lt;/strong&gt;</ept> textbox, type your company’s domain.</target>
+        </trans-unit>
+        <trans-unit id="cec7a3f1-98c7-45e0-a1d9-2be74f81c307" xml:space="preserve">
+          <source>Click <bpt id="254930bf-a685-4e55-9039-526d82c7138c">&lt;strong&gt;</bpt>Save<ept id="254930bf-a685-4e55-9039-526d82c7138c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="254930bf-a685-4e55-9039-526d82c7138c">&lt;strong&gt;</bpt>Save<ept id="254930bf-a685-4e55-9039-526d82c7138c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad724456-f129-4639-a6e0-105ebcd62523" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="9b8b86f1-171b-4b5f-86f9-8430dc729abd">&lt;strong&gt;</bpt>Complete<ept id="9b8b86f1-171b-4b5f-86f9-8430dc729abd">&lt;/strong&gt;</ept> to close the <bpt id="91e4e9b5-3beb-4e54-b768-370b5dd5ee2f">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="91e4e9b5-3beb-4e54-b768-370b5dd5ee2f">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="9b8b86f1-171b-4b5f-86f9-8430dc729abd">&lt;strong&gt;</bpt>Complete<ept id="9b8b86f1-171b-4b5f-86f9-8430dc729abd">&lt;/strong&gt;</ept> to close the <bpt id="91e4e9b5-3beb-4e54-b768-370b5dd5ee2f">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="91e4e9b5-3beb-4e54-b768-370b5dd5ee2f">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="255bdc2e-b1c4-4432-8615-b55a146457bd" xml:space="preserve">
+          <source><bpt id="2ab64b29-e3b4-4a20-b6c4-9a1718102fe0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2ab64b29-e3b4-4a20-b6c4-9a1718102fe0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ab64b29-e3b4-4a20-b6c4-9a1718102fe0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2ab64b29-e3b4-4a20-b6c4-9a1718102fe0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96e9873e-6b57-4fd7-9335-e08388b29f6f" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into <bpt id="25b28d3f-3bc3-4a40-b946-48557b1e8424">&lt;strong&gt;</bpt>CloudBees<ept id="25b28d3f-3bc3-4a40-b946-48557b1e8424">&lt;/strong&gt;</ept>, they must be provisioned into <bpt id="b97dd4bc-a67e-4fe2-9641-7e64d5ee7354">&lt;strong&gt;</bpt>CloudBees<ept id="b97dd4bc-a67e-4fe2-9641-7e64d5ee7354">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In order to enable Azure AD users to log into <bpt id="25b28d3f-3bc3-4a40-b946-48557b1e8424">&lt;strong&gt;</bpt>CloudBees<ept id="25b28d3f-3bc3-4a40-b946-48557b1e8424">&lt;/strong&gt;</ept>, they must be provisioned into <bpt id="b97dd4bc-a67e-4fe2-9641-7e64d5ee7354">&lt;strong&gt;</bpt>CloudBees<ept id="b97dd4bc-a67e-4fe2-9641-7e64d5ee7354">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f75c7899-ce07-497c-b5b8-13911d784a58" xml:space="preserve">
+          <source>In the case of <bpt id="af1f2e47-d336-45d8-994f-f90a9b61fb7c">&lt;strong&gt;</bpt>CloudBees<ept id="af1f2e47-d336-45d8-994f-f90a9b61fb7c">&lt;/strong&gt;</ept>, provisioning is a manual task.</source>
+          <target state="new">In the case of <bpt id="af1f2e47-d336-45d8-994f-f90a9b61fb7c">&lt;strong&gt;</bpt>CloudBees<ept id="af1f2e47-d336-45d8-994f-f90a9b61fb7c">&lt;/strong&gt;</ept>, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="978f762c-5c24-4475-9098-98504fb47eb6" xml:space="preserve">
+          <source>Log in to your <bpt id="177638b5-ffe4-4bd5-a4a6-96a6ccab3547">&lt;strong&gt;</bpt>CloudBees<ept id="177638b5-ffe4-4bd5-a4a6-96a6ccab3547">&lt;/strong&gt;</ept> company site as an administrator.</source>
+          <target state="new">Log in to your <bpt id="177638b5-ffe4-4bd5-a4a6-96a6ccab3547">&lt;strong&gt;</bpt>CloudBees<ept id="177638b5-ffe4-4bd5-a4a6-96a6ccab3547">&lt;/strong&gt;</ept> company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="1bc52ffc-7c69-497e-bb44-0364f2b6857e" xml:space="preserve">
+          <source>Go to <bpt id="a8fba9bb-6617-42ef-a49f-5f9260049790">&lt;strong&gt;</bpt>Edit Users<ept id="a8fba9bb-6617-42ef-a49f-5f9260049790">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="a8fba9bb-6617-42ef-a49f-5f9260049790">&lt;strong&gt;</bpt>Edit Users<ept id="a8fba9bb-6617-42ef-a49f-5f9260049790">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f29cf27-d639-4c39-97a3-1c9ccd1db014" xml:space="preserve">
+          <source><bpt id="2d181d7b-a5ae-42f7-9aaf-c3d3efcd4f95">&lt;linkText&gt;</bpt>Users<ept id="2d181d7b-a5ae-42f7-9aaf-c3d3efcd4f95">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2d181d7b-a5ae-42f7-9aaf-c3d3efcd4f95">&lt;linkText&gt;</bpt>Users<ept id="2d181d7b-a5ae-42f7-9aaf-c3d3efcd4f95">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12d8952e-3564-477a-b11c-8d4ede94d311" xml:space="preserve">
+          <source>Click <bpt id="fdaaf29f-5eca-4952-a431-646098cc83c2">&lt;strong&gt;</bpt>Add<ept id="fdaaf29f-5eca-4952-a431-646098cc83c2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fdaaf29f-5eca-4952-a431-646098cc83c2">&lt;strong&gt;</bpt>Add<ept id="fdaaf29f-5eca-4952-a431-646098cc83c2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95886fcc-ccef-4bc0-89f5-ca9c0c44fb21" xml:space="preserve">
+          <source><bpt id="9d275182-e988-408b-ba5b-074c190bb186">&lt;linkText&gt;</bpt>Add<ept id="9d275182-e988-408b-ba5b-074c190bb186">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9d275182-e988-408b-ba5b-074c190bb186">&lt;linkText&gt;</bpt>Add<ept id="9d275182-e988-408b-ba5b-074c190bb186">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e674ed0-6490-424b-bf8e-d4bcd27d3300" xml:space="preserve">
+          <source>In the <bpt id="cecaf0be-6585-4b70-aa52-d681460ea95d">&lt;strong&gt;</bpt>Add User<ept id="cecaf0be-6585-4b70-aa52-d681460ea95d">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="cecaf0be-6585-4b70-aa52-d681460ea95d">&lt;strong&gt;</bpt>Add User<ept id="cecaf0be-6585-4b70-aa52-d681460ea95d">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="f1ed2784-6bc5-4a73-80fa-fce097d7c0f6" xml:space="preserve">
+          <source><bpt id="540cebcf-843a-471a-b3dc-4c5ed1fa765f">&lt;linkText&gt;</bpt>Add User<ept id="540cebcf-843a-471a-b3dc-4c5ed1fa765f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="540cebcf-843a-471a-b3dc-4c5ed1fa765f">&lt;linkText&gt;</bpt>Add User<ept id="540cebcf-843a-471a-b3dc-4c5ed1fa765f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad3fee96-038a-4fe7-ab11-53a3349f87bc" xml:space="preserve">
+          <source>Type the <bpt id="5110b087-d99c-41e5-a96d-f612cdce74b1">&lt;strong&gt;</bpt>Email<ept id="5110b087-d99c-41e5-a96d-f612cdce74b1">&lt;/strong&gt;</ept>, <bpt id="f09297ca-84e1-4db2-949a-b3c87db52f94">&lt;strong&gt;</bpt>First Name<ept id="f09297ca-84e1-4db2-949a-b3c87db52f94">&lt;/strong&gt;</ept>, <bpt id="738c9f0a-9721-4b62-a8c6-3edcaf92e271">&lt;strong&gt;</bpt>Last Name<ept id="738c9f0a-9721-4b62-a8c6-3edcaf92e271">&lt;/strong&gt;</ept> and other attributes of a valid Azure Active Directory account you want to provision into the related textboxes.</source>
+          <target state="new">Type the <bpt id="5110b087-d99c-41e5-a96d-f612cdce74b1">&lt;strong&gt;</bpt>Email<ept id="5110b087-d99c-41e5-a96d-f612cdce74b1">&lt;/strong&gt;</ept>, <bpt id="f09297ca-84e1-4db2-949a-b3c87db52f94">&lt;strong&gt;</bpt>First Name<ept id="f09297ca-84e1-4db2-949a-b3c87db52f94">&lt;/strong&gt;</ept>, <bpt id="738c9f0a-9721-4b62-a8c6-3edcaf92e271">&lt;strong&gt;</bpt>Last Name<ept id="738c9f0a-9721-4b62-a8c6-3edcaf92e271">&lt;/strong&gt;</ept> and other attributes of a valid Azure Active Directory account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="d67a6dd1-8526-4c23-a8a5-038aa5848123" xml:space="preserve">
+          <source>Click <bpt id="150ec39b-cfe2-43ce-9e2e-971ecd032323">&lt;strong&gt;</bpt>Add User<ept id="150ec39b-cfe2-43ce-9e2e-971ecd032323">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="150ec39b-cfe2-43ce-9e2e-971ecd032323">&lt;strong&gt;</bpt>Add User<ept id="150ec39b-cfe2-43ce-9e2e-971ecd032323">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b58156c1-089e-4e44-8218-056904fd2e9f" xml:space="preserve">
+          <source>An email with login instructions will be send to the owner of the account.</source>
+          <target state="new">An email with login instructions will be send to the owner of the account.</target>
+        </trans-unit>
+        <trans-unit id="36cce0f3-5268-4227-82ce-f448adc6da1f" xml:space="preserve">
+          <source>You can use any other CloudBees user account creation tools or APIs provided by CloudBees to provision AAD user accounts.</source>
+          <target state="new">You can use any other CloudBees user account creation tools or APIs provided by CloudBees to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="babaa36e-2089-49a3-abb3-ba49a6eb5f8e" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="e9782c29-7a18-4b27-a6cc-3e73c93d43d2" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="791ccc2d-0514-47be-8a7a-ff596380a092" xml:space="preserve">
+          <source>On the <bpt id="6c78f0c0-32dd-46be-9d2f-a618bf57a220">&lt;strong&gt;</bpt>CloudBees<ept id="6c78f0c0-32dd-46be-9d2f-a618bf57a220">&lt;/strong&gt;</ept> application integration page, click <bpt id="298c31ea-948c-416b-9649-e4ef79d70f81">&lt;strong&gt;</bpt>Assign users<ept id="298c31ea-948c-416b-9649-e4ef79d70f81">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6c78f0c0-32dd-46be-9d2f-a618bf57a220">&lt;strong&gt;</bpt>CloudBees<ept id="6c78f0c0-32dd-46be-9d2f-a618bf57a220">&lt;/strong&gt;</ept> application integration page, click <bpt id="298c31ea-948c-416b-9649-e4ef79d70f81">&lt;strong&gt;</bpt>Assign users<ept id="298c31ea-948c-416b-9649-e4ef79d70f81">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95571a3f-31a6-4232-b440-78198770ea85" xml:space="preserve">
+          <source><bpt id="97adb26a-1df0-4d40-b1d5-4dd70b653514">&lt;linkText&gt;</bpt>Assign Users<ept id="97adb26a-1df0-4d40-b1d5-4dd70b653514">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="97adb26a-1df0-4d40-b1d5-4dd70b653514">&lt;linkText&gt;</bpt>Assign Users<ept id="97adb26a-1df0-4d40-b1d5-4dd70b653514">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8a879f6-2b85-4508-afd5-659e93cf8c0a" xml:space="preserve">
+          <source>Select your test user, click <bpt id="b8c0191d-7701-4c0b-9a29-32f75c86dfc8">&lt;strong&gt;</bpt>Assign<ept id="b8c0191d-7701-4c0b-9a29-32f75c86dfc8">&lt;/strong&gt;</ept>, and then click <bpt id="73ac718c-baf1-472c-9402-b6358bc27676">&lt;strong&gt;</bpt>Yes<ept id="73ac718c-baf1-472c-9402-b6358bc27676">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="b8c0191d-7701-4c0b-9a29-32f75c86dfc8">&lt;strong&gt;</bpt>Assign<ept id="b8c0191d-7701-4c0b-9a29-32f75c86dfc8">&lt;/strong&gt;</ept>, and then click <bpt id="73ac718c-baf1-472c-9402-b6358bc27676">&lt;strong&gt;</bpt>Yes<ept id="73ac718c-baf1-472c-9402-b6358bc27676">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="ff1674e9-dd5d-4f5b-ae71-084dfcb7559a" xml:space="preserve">
+          <source><bpt id="42049e7a-63f3-46d1-b62d-e3d75149a7c8">&lt;linkText&gt;</bpt>Yes<ept id="42049e7a-63f3-46d1-b62d-e3d75149a7c8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="42049e7a-63f3-46d1-b62d-e3d75149a7c8">&lt;linkText&gt;</bpt>Yes<ept id="42049e7a-63f3-46d1-b62d-e3d75149a7c8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50a18ea0-d00c-4aaf-b1e4-ea392635e949" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="a0fc5572-cee8-4a79-a3fe-45b2d78de977" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="24566464-3e1e-4f53-9442-a98f37da5fde">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="24566464-3e1e-4f53-9442-a98f37da5fde">&lt;/linkText&gt;</ept><bpt id="24566464-3e1e-4f53-9442-a98f37da5fde">&lt;title&gt;</bpt><ept id="24566464-3e1e-4f53-9442-a98f37da5fde">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="24566464-3e1e-4f53-9442-a98f37da5fde">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="24566464-3e1e-4f53-9442-a98f37da5fde">&lt;/linkText&gt;</ept><bpt id="24566464-3e1e-4f53-9442-a98f37da5fde">&lt;title&gt;</bpt><ept id="24566464-3e1e-4f53-9442-a98f37da5fde">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

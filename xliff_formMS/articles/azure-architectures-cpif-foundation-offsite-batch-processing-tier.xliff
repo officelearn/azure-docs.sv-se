@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="85731297-53a8-4ca3-9681-91eb901a70c7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="85731297-53a8-4ca3-9681-91eb901a70c7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="46600358-b465-4838-aab4-fc25c968f17c">
+        <trans-unit id="edfee077-3af6-420a-a98d-4cbce2ed18c8" xml:space="preserve">
+          <source>Offsite Batch Processing Tier (Azure Architecture Patterns)</source>
+          <target state="new">Offsite Batch Processing Tier (Azure Architecture Patterns)</target>
+        </trans-unit>
+        <trans-unit id="58f6037e-1c18-45f9-9288-0c36be67cbc2" xml:space="preserve">
+          <source>The Offsite Batch Processing Tier pattern is part of the Infrastructure area, which is described extensively in the CPIF Architecture document.</source>
+          <target state="new">The Offsite Batch Processing Tier pattern is part of the Infrastructure area, which is described extensively in the CPIF Architecture document.</target>
+        </trans-unit>
+        <trans-unit id="365f4b8b-a5ea-4490-a1d8-509dda74f776" xml:space="preserve">
+          <source>The <bpt id="0880cc7e-10da-4f5d-be70-acff1f4268c6">&lt;linkText&gt;</bpt>Cloud Platform Integration Framework (CPIF)<ept id="0880cc7e-10da-4f5d-be70-acff1f4268c6">&lt;/linkText&gt;</ept><bpt id="0880cc7e-10da-4f5d-be70-acff1f4268c6">&lt;title&gt;</bpt><ept id="0880cc7e-10da-4f5d-be70-acff1f4268c6">&lt;/title&gt;</ept> provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution.</source>
+          <target state="new">The <bpt id="0880cc7e-10da-4f5d-be70-acff1f4268c6">&lt;linkText&gt;</bpt>Cloud Platform Integration Framework (CPIF)<ept id="0880cc7e-10da-4f5d-be70-acff1f4268c6">&lt;/linkText&gt;</ept><bpt id="0880cc7e-10da-4f5d-be70-acff1f4268c6">&lt;title&gt;</bpt><ept id="0880cc7e-10da-4f5d-be70-acff1f4268c6">&lt;/title&gt;</ept> provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution.</target>
+        </trans-unit>
+        <trans-unit id="d65562f9-94da-465c-ae67-8b075e69f273" xml:space="preserve">
+          <source>CPIF describes how organizations, customers and partners should design and deploy Cloud-targeted workloads utilizing the hybrid cloud platform and management capabilities of Azure, System Center and Windows Server.</source>
+          <target state="new">CPIF describes how organizations, customers and partners should design and deploy Cloud-targeted workloads utilizing the hybrid cloud platform and management capabilities of Azure, System Center and Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="661d5801-b03d-4b62-af26-b529499fd004" xml:space="preserve">
+          <source>The <bpt id="edd0534a-1658-4049-8222-e1b1c6449c5c">&lt;strong&gt;</bpt>Offsite Batch Processing Tier<ept id="edd0534a-1658-4049-8222-e1b1c6449c5c">&lt;/strong&gt;</ept> pattern is part of the <bpt id="11e5be84-1fec-4b97-9a75-816d657e08fb">&lt;strong&gt;</bpt>Infrastructure<ept id="11e5be84-1fec-4b97-9a75-816d657e08fb">&lt;/strong&gt;</ept> area, which is described extensively in the CPIF Architecture document.</source>
+          <target state="new">The <bpt id="edd0534a-1658-4049-8222-e1b1c6449c5c">&lt;strong&gt;</bpt>Offsite Batch Processing Tier<ept id="edd0534a-1658-4049-8222-e1b1c6449c5c">&lt;/strong&gt;</ept> pattern is part of the <bpt id="11e5be84-1fec-4b97-9a75-816d657e08fb">&lt;strong&gt;</bpt>Infrastructure<ept id="11e5be84-1fec-4b97-9a75-816d657e08fb">&lt;/strong&gt;</ept> area, which is described extensively in the CPIF Architecture document.</target>
+        </trans-unit>
+        <trans-unit id="d6746a3a-1da5-4296-a190-1ae8d9821337" xml:space="preserve">
+          <source>The Offsite Batch Processing Tier design pattern details the Azure features and services required to deliver backend data processing that is both fault tolerant and scalable.</source>
+          <target state="new">The Offsite Batch Processing Tier design pattern details the Azure features and services required to deliver backend data processing that is both fault tolerant and scalable.</target>
+        </trans-unit>
+        <trans-unit id="4a72a326-eb4d-45c7-98d1-681376fa78c8" xml:space="preserve">
+          <source>These services are realized as worker roles in cloud services on Azure, which currently can be deployed to any Azure data center.</source>
+          <target state="new">These services are realized as worker roles in cloud services on Azure, which currently can be deployed to any Azure data center.</target>
+        </trans-unit>
+        <trans-unit id="fb559590-2dfc-41d8-86c2-3f2f6b27f970" xml:space="preserve">
+          <source>Batch processing workloads are unique in that they typically provide little or no user interface.</source>
+          <target state="new">Batch processing workloads are unique in that they typically provide little or no user interface.</target>
+        </trans-unit>
+        <trans-unit id="894d378a-fa3c-48d1-9bf7-74a0419c9cef" xml:space="preserve">
+          <source>An example of this type of workload on premises would be a Windows Service running on Windows Server.</source>
+          <target state="new">An example of this type of workload on premises would be a Windows Service running on Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="3ddb612e-3963-498c-ae21-171239ef3608" xml:space="preserve">
+          <source>When considering this type of workload in a cloud environment, it would be wasteful to deploy an entire server to run a workload, when what is really required is compute, storage and network connectivity.</source>
+          <target state="new">When considering this type of workload in a cloud environment, it would be wasteful to deploy an entire server to run a workload, when what is really required is compute, storage and network connectivity.</target>
+        </trans-unit>
+        <trans-unit id="f1ff6dac-1072-430e-bc53-e324c4b02bde" xml:space="preserve">
+          <source>The worker role is the implementation of this on Azure.</source>
+          <target state="new">The worker role is the implementation of this on Azure.</target>
+        </trans-unit>
+        <trans-unit id="32aa895e-7bf0-4cb6-bdfe-620f7fa9abb1" xml:space="preserve">
+          <source>By definition, a batch processing job that is run in Azure is a workload that connects to a resource, provides some business logic (computing) and provides some output.</source>
+          <target state="new">By definition, a batch processing job that is run in Azure is a workload that connects to a resource, provides some business logic (computing) and provides some output.</target>
+        </trans-unit>
+        <trans-unit id="404640c3-1e21-48df-88fd-a85f2ebafab3" xml:space="preserve">
+          <source>The input and output resources are defined by the user and can range from flat files, blobs in Azure blob storage, a NoSQL database, or relational databases.</source>
+          <target state="new">The input and output resources are defined by the user and can range from flat files, blobs in Azure blob storage, a NoSQL database, or relational databases.</target>
+        </trans-unit>
+        <trans-unit id="abd89ce5-b7a2-472c-8da8-2070c6e5f7ba" xml:space="preserve">
+          <source>The business logic is implemented in an Azure worker role, typically by defining the required business logic in a .NET library.</source>
+          <target state="new">The business logic is implemented in an Azure worker role, typically by defining the required business logic in a .NET library.</target>
+        </trans-unit>
+        <trans-unit id="a0368a73-bd90-48b7-b0d3-36032c8c4b42" xml:space="preserve">
+          <source>While deployment of a worker role to Azure is a simple operation, deploying a worker role that is fault tolerant and scalable requires a design which takes into consideration how the service is executed and maintained within Azure.</source>
+          <target state="new">While deployment of a worker role to Azure is a simple operation, deploying a worker role that is fault tolerant and scalable requires a design which takes into consideration how the service is executed and maintained within Azure.</target>
+        </trans-unit>
+        <trans-unit id="a87fb89d-9b54-4e75-8064-cc8dbb57214a" xml:space="preserve">
+          <source>This pattern will detail the design which considers these requirements and describes how these can be implemented.</source>
+          <target state="new">This pattern will detail the design which considers these requirements and describes how these can be implemented.</target>
+        </trans-unit>
+        <trans-unit id="34598d2a-7e9f-4f87-9acb-fcd1fe039db1" xml:space="preserve">
+          <source>This document describes a pattern for offsite batch processing utilizing worker role instances contained within a cloud service in Azure.</source>
+          <target state="new">This document describes a pattern for offsite batch processing utilizing worker role instances contained within a cloud service in Azure.</target>
+        </trans-unit>
+        <trans-unit id="6014c45a-bc43-4b44-8c70-a242a21c5050" xml:space="preserve">
+          <source>The critical components to this design are shown below.</source>
+          <target state="new">The critical components to this design are shown below.</target>
+        </trans-unit>
+        <trans-unit id="97d1141e-511b-48f6-aff9-74dcdfdcd8e7" xml:space="preserve">
+          <source>This diagram illustrates the minimum required instances to achieve fault tolerance.</source>
+          <target state="new">This diagram illustrates the minimum required instances to achieve fault tolerance.</target>
+        </trans-unit>
+        <trans-unit id="0953eb6b-61bc-42d8-bacc-ad151ad01a5e" xml:space="preserve">
+          <source>Additional instances can be deployed to increase performance of the service.</source>
+          <target state="new">Additional instances can be deployed to increase performance of the service.</target>
+        </trans-unit>
+        <trans-unit id="482585c0-fed8-422c-9fda-a39e0974470b" xml:space="preserve">
+          <source>Additionally, auto scaling can be enabled to assisting in scaling the instances by time or additional server metrics.</source>
+          <target state="new">Additionally, auto scaling can be enabled to assisting in scaling the instances by time or additional server metrics.</target>
+        </trans-unit>
+        <trans-unit id="303da3a9-fe93-43c8-b881-c38976d53817" xml:space="preserve">
+          <source><bpt id="67f687f6-fa98-41ca-826c-b18d32b9f1a6">&lt;linkText&gt;</bpt>Batch Processing Tier (pdf)<ept id="67f687f6-fa98-41ca-826c-b18d32b9f1a6">&lt;/linkText&gt;</ept><bpt id="67f687f6-fa98-41ca-826c-b18d32b9f1a6">&lt;title&gt;</bpt><ept id="67f687f6-fa98-41ca-826c-b18d32b9f1a6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="67f687f6-fa98-41ca-826c-b18d32b9f1a6">&lt;linkText&gt;</bpt>Batch Processing Tier (pdf)<ept id="67f687f6-fa98-41ca-826c-b18d32b9f1a6">&lt;/linkText&gt;</ept><bpt id="67f687f6-fa98-41ca-826c-b18d32b9f1a6">&lt;title&gt;</bpt><ept id="67f687f6-fa98-41ca-826c-b18d32b9f1a6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c467ce03-3ae1-48ed-a7c5-11e7f6550260" xml:space="preserve">
+          <source><bpt id="c40280e8-e7fe-4f8d-94ad-197dc968ec6e">&lt;linkText&gt;</bpt>CPIF Architecture<ept id="c40280e8-e7fe-4f8d-94ad-197dc968ec6e">&lt;/linkText&gt;</ept><bpt id="c40280e8-e7fe-4f8d-94ad-197dc968ec6e">&lt;title&gt;</bpt><ept id="c40280e8-e7fe-4f8d-94ad-197dc968ec6e">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="c40280e8-e7fe-4f8d-94ad-197dc968ec6e">&lt;linkText&gt;</bpt>CPIF Architecture<ept id="c40280e8-e7fe-4f8d-94ad-197dc968ec6e">&lt;/linkText&gt;</ept><bpt id="c40280e8-e7fe-4f8d-94ad-197dc968ec6e">&lt;title&gt;</bpt><ept id="c40280e8-e7fe-4f8d-94ad-197dc968ec6e">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="40b03f7f-e004-435a-b215-f77f628a2388" xml:space="preserve">
+          <source><bpt id="0eb4ef88-0323-469c-bc66-ca4b04c9109d">&lt;linkText&gt;</bpt>Global Load Balanced Web Tier<ept id="0eb4ef88-0323-469c-bc66-ca4b04c9109d">&lt;/linkText&gt;</ept><bpt id="0eb4ef88-0323-469c-bc66-ca4b04c9109d">&lt;title&gt;</bpt><ept id="0eb4ef88-0323-469c-bc66-ca4b04c9109d">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="0eb4ef88-0323-469c-bc66-ca4b04c9109d">&lt;linkText&gt;</bpt>Global Load Balanced Web Tier<ept id="0eb4ef88-0323-469c-bc66-ca4b04c9109d">&lt;/linkText&gt;</ept><bpt id="0eb4ef88-0323-469c-bc66-ca4b04c9109d">&lt;title&gt;</bpt><ept id="0eb4ef88-0323-469c-bc66-ca4b04c9109d">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="28b541ae-4384-4eb8-bbb8-4feaeb9c5e20" xml:space="preserve">
+          <source><bpt id="8a82afc7-bb70-460b-8656-cde24eea4df5">&lt;linkText&gt;</bpt>Load Balanced Data Tier<ept id="8a82afc7-bb70-460b-8656-cde24eea4df5">&lt;/linkText&gt;</ept><bpt id="8a82afc7-bb70-460b-8656-cde24eea4df5">&lt;title&gt;</bpt><ept id="8a82afc7-bb70-460b-8656-cde24eea4df5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8a82afc7-bb70-460b-8656-cde24eea4df5">&lt;linkText&gt;</bpt>Load Balanced Data Tier<ept id="8a82afc7-bb70-460b-8656-cde24eea4df5">&lt;/linkText&gt;</ept><bpt id="8a82afc7-bb70-460b-8656-cde24eea4df5">&lt;title&gt;</bpt><ept id="8a82afc7-bb70-460b-8656-cde24eea4df5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd16a5bb-debb-447c-8dab-3d20c22b536b" xml:space="preserve">
+          <source><bpt id="ee1e2a34-0d99-4150-bdd5-b485ad01684e">&lt;linkText&gt;</bpt>Hybrid Networking<ept id="ee1e2a34-0d99-4150-bdd5-b485ad01684e">&lt;/linkText&gt;</ept><bpt id="ee1e2a34-0d99-4150-bdd5-b485ad01684e">&lt;title&gt;</bpt><ept id="ee1e2a34-0d99-4150-bdd5-b485ad01684e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ee1e2a34-0d99-4150-bdd5-b485ad01684e">&lt;linkText&gt;</bpt>Hybrid Networking<ept id="ee1e2a34-0d99-4150-bdd5-b485ad01684e">&lt;/linkText&gt;</ept><bpt id="ee1e2a34-0d99-4150-bdd5-b485ad01684e">&lt;title&gt;</bpt><ept id="ee1e2a34-0d99-4150-bdd5-b485ad01684e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="469001fd-b003-45b5-8716-1d9321dbebe9" xml:space="preserve">
+          <source><bpt id="29ae019a-32ce-46d5-9e36-4ba7f29cbd3f">&lt;linkText&gt;</bpt>Azure Search Tier<ept id="29ae019a-32ce-46d5-9e36-4ba7f29cbd3f">&lt;/linkText&gt;</ept><bpt id="29ae019a-32ce-46d5-9e36-4ba7f29cbd3f">&lt;title&gt;</bpt><ept id="29ae019a-32ce-46d5-9e36-4ba7f29cbd3f">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="29ae019a-32ce-46d5-9e36-4ba7f29cbd3f">&lt;linkText&gt;</bpt>Azure Search Tier<ept id="29ae019a-32ce-46d5-9e36-4ba7f29cbd3f">&lt;/linkText&gt;</ept><bpt id="29ae019a-32ce-46d5-9e36-4ba7f29cbd3f">&lt;title&gt;</bpt><ept id="29ae019a-32ce-46d5-9e36-4ba7f29cbd3f">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

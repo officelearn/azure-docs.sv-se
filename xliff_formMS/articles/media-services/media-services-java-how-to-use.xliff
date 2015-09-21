@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9ee11f30-f4b3-49c1-ac5c-413b41ed90e1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9ee11f30-f4b3-49c1-ac5c-413b41ed90e1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1b44d9e9-a302-460d-999c-7f8b4e168c57">
+        <trans-unit id="f0bac9b0-f198-4093-b434-bdf6cebe17cd" xml:space="preserve">
+          <source>How to use Media Services with Java</source>
+          <target state="new">How to use Media Services with Java</target>
+        </trans-unit>
+        <trans-unit id="53d20aeb-6708-4766-9f14-8cc07f2fbc87" xml:space="preserve">
+          <source>Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources.</source>
+          <target state="new">Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources.</target>
+        </trans-unit>
+        <trans-unit id="c948033a-5c33-491d-ac27-f8e4defad087" xml:space="preserve">
+          <source>To set up your Media Services account, use the Azure Management Portal.</source>
+          <target state="new">To set up your Media Services account, use the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="60753435-e61a-47a4-a4c7-fa42b479279f" xml:space="preserve">
+          <source>See the topic <bpt id="1d76e9e4-b922-401f-bb27-dc2eb28ddc8d">&lt;linkText&gt;</bpt>How to Create a Media Services Account<ept id="1d76e9e4-b922-401f-bb27-dc2eb28ddc8d">&lt;/linkText&gt;</ept><bpt id="1d76e9e4-b922-401f-bb27-dc2eb28ddc8d">&lt;title&gt;</bpt><ept id="1d76e9e4-b922-401f-bb27-dc2eb28ddc8d">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the topic <bpt id="1d76e9e4-b922-401f-bb27-dc2eb28ddc8d">&lt;linkText&gt;</bpt>How to Create a Media Services Account<ept id="1d76e9e4-b922-401f-bb27-dc2eb28ddc8d">&lt;/linkText&gt;</ept><bpt id="1d76e9e4-b922-401f-bb27-dc2eb28ddc8d">&lt;title&gt;</bpt><ept id="1d76e9e4-b922-401f-bb27-dc2eb28ddc8d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4eab1d0e-198b-4f8f-922d-37f3eb82306e" xml:space="preserve">
+          <source>After creating your account in the Management Portal, you are ready to set up your computer for Media Services development.</source>
+          <target state="new">After creating your account in the Management Portal, you are ready to set up your computer for Media Services development.</target>
+        </trans-unit>
+        <trans-unit id="427b42ab-6fe6-4b39-8387-887e828f16b5" xml:space="preserve">
+          <source>This section contains general prerequisites for Media Services development using the Media Services SDK for Java.</source>
+          <target state="new">This section contains general prerequisites for Media Services development using the Media Services SDK for Java.</target>
+        </trans-unit>
+        <trans-unit id="83cd82e1-ddf0-4deb-84be-143064a13953" xml:space="preserve">
+          <source>A Media Services account in a new or existing Azure subscription.</source>
+          <target state="new">A Media Services account in a new or existing Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="e1f48831-f721-4690-b484-ab0d6e952689" xml:space="preserve">
+          <source>See the topic <bpt id="58b18352-b4ac-420b-aff0-85554a87e815">&lt;linkText&gt;</bpt>How to Create a Media Services Account<ept id="58b18352-b4ac-420b-aff0-85554a87e815">&lt;/linkText&gt;</ept><bpt id="58b18352-b4ac-420b-aff0-85554a87e815">&lt;title&gt;</bpt><ept id="58b18352-b4ac-420b-aff0-85554a87e815">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the topic <bpt id="58b18352-b4ac-420b-aff0-85554a87e815">&lt;linkText&gt;</bpt>How to Create a Media Services Account<ept id="58b18352-b4ac-420b-aff0-85554a87e815">&lt;/linkText&gt;</ept><bpt id="58b18352-b4ac-420b-aff0-85554a87e815">&lt;title&gt;</bpt><ept id="58b18352-b4ac-420b-aff0-85554a87e815">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="59dc1ff2-eaab-4274-9a2c-dcb1a07d9408" xml:space="preserve">
+          <source>The Azure Libraries for Java, which you can install from the <bpt id="b97b7580-53a0-4fd8-913e-74dd15b672c8">&lt;linkText&gt;</bpt>Azure Java Developer Center<ept id="b97b7580-53a0-4fd8-913e-74dd15b672c8">&lt;/linkText&gt;</ept><bpt id="b97b7580-53a0-4fd8-913e-74dd15b672c8">&lt;title&gt;</bpt><ept id="b97b7580-53a0-4fd8-913e-74dd15b672c8">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Azure Libraries for Java, which you can install from the <bpt id="b97b7580-53a0-4fd8-913e-74dd15b672c8">&lt;linkText&gt;</bpt>Azure Java Developer Center<ept id="b97b7580-53a0-4fd8-913e-74dd15b672c8">&lt;/linkText&gt;</ept><bpt id="b97b7580-53a0-4fd8-913e-74dd15b672c8">&lt;title&gt;</bpt><ept id="b97b7580-53a0-4fd8-913e-74dd15b672c8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24c173cc-3ece-41ee-bbd1-3ae7cae48077" xml:space="preserve">
+          <source>The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and download the output files of the transformed asset.</source>
+          <target state="new">The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and download the output files of the transformed asset.</target>
+        </trans-unit>
+        <trans-unit id="53da6215-8e29-4e95-8e62-1f72fdde3d9f" xml:space="preserve">
+          <source>You'll need to set up a media services account before using this code.</source>
+          <target state="new">You'll need to set up a media services account before using this code.</target>
+        </trans-unit>
+        <trans-unit id="5bfb2d5c-0f3f-4776-bfa7-e6406cae2ffb" xml:space="preserve">
+          <source>For information about setting up an account, see <bpt id="f5e51155-6bf4-4f73-8c25-7da0fd4b4ab5">&lt;linkText&gt;</bpt>How to Create a Media Services Account<ept id="f5e51155-6bf4-4f73-8c25-7da0fd4b4ab5">&lt;/linkText&gt;</ept><bpt id="f5e51155-6bf4-4f73-8c25-7da0fd4b4ab5">&lt;title&gt;</bpt><ept id="f5e51155-6bf4-4f73-8c25-7da0fd4b4ab5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about setting up an account, see <bpt id="f5e51155-6bf4-4f73-8c25-7da0fd4b4ab5">&lt;linkText&gt;</bpt>How to Create a Media Services Account<ept id="f5e51155-6bf4-4f73-8c25-7da0fd4b4ab5">&lt;/linkText&gt;</ept><bpt id="f5e51155-6bf4-4f73-8c25-7da0fd4b4ab5">&lt;title&gt;</bpt><ept id="f5e51155-6bf4-4f73-8c25-7da0fd4b4ab5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0dc698a7-107f-4141-88f2-ce926e11db49" xml:space="preserve">
+          <source>Substitute your values for the <bpt id="644bf34c-7e78-4a54-b8a1-d3b9a26df863">&lt;code&gt;</bpt>clientId<ept id="644bf34c-7e78-4a54-b8a1-d3b9a26df863">&lt;/code&gt;</ept> and <bpt id="18edb360-7cb4-469f-98e2-4b6a09668f3b">&lt;code&gt;</bpt>clientSecret<ept id="18edb360-7cb4-469f-98e2-4b6a09668f3b">&lt;/code&gt;</ept> variables.</source>
+          <target state="new">Substitute your values for the <bpt id="644bf34c-7e78-4a54-b8a1-d3b9a26df863">&lt;code&gt;</bpt>clientId<ept id="644bf34c-7e78-4a54-b8a1-d3b9a26df863">&lt;/code&gt;</ept> and <bpt id="18edb360-7cb4-469f-98e2-4b6a09668f3b">&lt;code&gt;</bpt>clientSecret<ept id="18edb360-7cb4-469f-98e2-4b6a09668f3b">&lt;/code&gt;</ept> variables.</target>
+        </trans-unit>
+        <trans-unit id="98bca727-192b-4e1f-9b84-c6f9265418a6" xml:space="preserve">
+          <source>The code also relies on a locally stored file, <bpt id="2d7d0da0-8d05-4f9d-9b40-a3985487d965">&lt;code&gt;</bpt>c:/media/MPEG4-H264.mp4<ept id="2d7d0da0-8d05-4f9d-9b40-a3985487d965">&lt;/code&gt;</ept>.</source>
+          <target state="new">The code also relies on a locally stored file, <bpt id="2d7d0da0-8d05-4f9d-9b40-a3985487d965">&lt;code&gt;</bpt>c:/media/MPEG4-H264.mp4<ept id="2d7d0da0-8d05-4f9d-9b40-a3985487d965">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61861d4a-e1b1-4add-a876-d129dc512e31" xml:space="preserve">
+          <source>You'll need to provide your own file to use.</source>
+          <target state="new">You'll need to provide your own file to use.</target>
+        </trans-unit>
+        <trans-unit id="9998a79c-e662-4b63-86f4-a23928c8c7d6" xml:space="preserve">
+          <source>The code also requires an output folder, <bpt id="f717ccb2-bb31-486e-a301-b59efff96548">&lt;code&gt;</bpt>c:/output<ept id="f717ccb2-bb31-486e-a301-b59efff96548">&lt;/code&gt;</ept>, which is where the output files will be downloaded.</source>
+          <target state="new">The code also requires an output folder, <bpt id="f717ccb2-bb31-486e-a301-b59efff96548">&lt;code&gt;</bpt>c:/output<ept id="f717ccb2-bb31-486e-a301-b59efff96548">&lt;/code&gt;</ept>, which is where the output files will be downloaded.</target>
+        </trans-unit>
+        <trans-unit id="f42bac5f-8f23-42d6-adb1-26157f8d7402" xml:space="preserve">
+          <source>The assets that you create are stored in Azure storage.</source>
+          <target state="new">The assets that you create are stored in Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="fd2ed017-04b6-477b-829b-5e80c262df48" xml:space="preserve">
+          <source>However, use only the Azure media services APIs (not Azure storage APIs) to add, update, or delete assets.</source>
+          <target state="new">However, use only the Azure media services APIs (not Azure storage APIs) to add, update, or delete assets.</target>
+        </trans-unit>
+        <trans-unit id="9b3165f8-8331-4643-89d1-fac4d726604c" xml:space="preserve">
+          <source>The code above used a media processor by accessing it via a specific media processor name (and if there was more than one version, it would use the latest version).</source>
+          <target state="new">The code above used a media processor by accessing it via a specific media processor name (and if there was more than one version, it would use the latest version).</target>
+        </trans-unit>
+        <trans-unit id="285d15c4-8b18-454e-82b2-28ccb752ab62" xml:space="preserve">
+          <source>To determine which media processors are available, you could use the following code.</source>
+          <target state="new">To determine which media processors are available, you could use the following code.</target>
+        </trans-unit>
+        <trans-unit id="e40be893-6431-4a67-8b20-ced15b004f81" xml:space="preserve">
+          <source>Alternatively, the following code shows how to retrieve the ID of a media processor by name.</source>
+          <target state="new">Alternatively, the following code shows how to retrieve the ID of a media processor by name.</target>
+        </trans-unit>
+        <trans-unit id="83b0c7b1-4260-4c92-825f-3d528302d811" xml:space="preserve">
+          <source>Should you need to cancel a job that hasn't finished processing, the following code shows how to cancel a job by job ID.</source>
+          <target state="new">Should you need to cancel a job that hasn't finished processing, the following code shows how to cancel a job by job ID.</target>
+        </trans-unit>
+        <trans-unit id="fe360bce-2148-4f4b-8339-d43e729f003e" xml:space="preserve">
+          <source>For Media Services Javadoc documentation, see <bpt id="b1cef449-d2df-449e-bcc9-f779541c023f">&lt;linkText&gt;</bpt>Azure Libraries for Java documentation<ept id="b1cef449-d2df-449e-bcc9-f779541c023f">&lt;/linkText&gt;</ept><bpt id="b1cef449-d2df-449e-bcc9-f779541c023f">&lt;title&gt;</bpt><ept id="b1cef449-d2df-449e-bcc9-f779541c023f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Media Services Javadoc documentation, see <bpt id="b1cef449-d2df-449e-bcc9-f779541c023f">&lt;linkText&gt;</bpt>Azure Libraries for Java documentation<ept id="b1cef449-d2df-449e-bcc9-f779541c023f">&lt;/linkText&gt;</ept><bpt id="b1cef449-d2df-449e-bcc9-f779541c023f">&lt;title&gt;</bpt><ept id="b1cef449-d2df-449e-bcc9-f779541c023f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3b03d65-3d82-4e2b-a27d-42bd694aed60" xml:space="preserve">
+          <source>http://azure.microsoft.com/develop/java/</source>
+          <target state="new">http://azure.microsoft.com/develop/java/</target>
+        </trans-unit>
+        <trans-unit id="8f022dfd-5df0-4a48-9023-2b04639c91f9" xml:space="preserve">
+          <source>http://dl.windowsazure.com/javadoc/</source>
+          <target state="new">http://dl.windowsazure.com/javadoc/</target>
+        </trans-unit>
+        <trans-unit id="1a371a91-ac3f-4fea-9351-885f45656380" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/dn223283.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/dn223283.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="1f3f8bbe-c48c-4845-bb91-ea3d052cd45e" />
+    </body>
+  </file>
+</xliff>

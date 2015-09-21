@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="819afabc-6686-4907-a368-8d467e51781a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="819afabc-6686-4907-a368-8d467e51781a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3c00ea02-f16f-423a-af92-be88e41c753e">
+        <trans-unit id="6581319f-cc0d-48a1-873d-590373edbf97" xml:space="preserve">
+          <source>LDAP Authentication and Azure Multi-Factor Authentication Server</source>
+          <target state="new">LDAP Authentication and Azure Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="aec5dfb0-6734-4120-8128-3e39cb6976a0" xml:space="preserve">
+          <source>This is the Azure Multi-factor authentication page that will assist in deploying LDAP Authentication and Azure Multi-Factor Authentication Server.</source>
+          <target state="new">This is the Azure Multi-factor authentication page that will assist in deploying LDAP Authentication and Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="3639371a-d44f-4ffa-a33d-8ee14361f8e4" xml:space="preserve">
+          <source>By default, the Azure Multi-Factor Authentication Server is configured to import or synchronize users from Active Directory.</source>
+          <target state="new">By default, the Azure Multi-Factor Authentication Server is configured to import or synchronize users from Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="d365248e-abe8-4b2e-8cf2-0580f492e40a" xml:space="preserve">
+          <source>However, it can be configured to bind to different LDAP directories, such as an ADAM directory, or specific Active Directory domain controller.</source>
+          <target state="new">However, it can be configured to bind to different LDAP directories, such as an ADAM directory, or specific Active Directory domain controller.</target>
+        </trans-unit>
+        <trans-unit id="055c5e71-b0c9-4068-894c-d65118cd4bff" xml:space="preserve">
+          <source>When configured to connect to a directory via LDAP, the Azure Multi-Factor Authentication Server can be configured to act as an LDAP proxy to perform authentications.</source>
+          <target state="new">When configured to connect to a directory via LDAP, the Azure Multi-Factor Authentication Server can be configured to act as an LDAP proxy to perform authentications.</target>
+        </trans-unit>
+        <trans-unit id="a3c7ea71-0fab-4da2-81b4-a4b88e9c6bc5" xml:space="preserve">
+          <source>It also allows for the use of LDAP bind as a RADIUS target, for pre-authentication of users when using IIS Authentication, or for primary authentication in the Azure Multi-Factor Authentication User Portal.</source>
+          <target state="new">It also allows for the use of LDAP bind as a RADIUS target, for pre-authentication of users when using IIS Authentication, or for primary authentication in the Azure Multi-Factor Authentication User Portal.</target>
+        </trans-unit>
+        <trans-unit id="c8883176-8c2a-4597-8da5-7ff5c6b24740" xml:space="preserve">
+          <source>When using Azure Multi-Factor Authentication as an LDAP proxy, the Azure Multi-Factor Authentication Server is inserted between the LDAP client (e.g. VPN appliance, application) and the LDAP directory server in order to add multi-factor authentication.</source>
+          <target state="new">When using Azure Multi-Factor Authentication as an LDAP proxy, the Azure Multi-Factor Authentication Server is inserted between the LDAP client (e.g. VPN appliance, application) and the LDAP directory server in order to add multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="70e3a8ce-92d3-430a-8a33-5d5da879dbcf" xml:space="preserve">
+          <source>For Azure Multi-Factor Authentication to function, the Azure Multi-Factor Authentication Server must be configured to communicate with both the client servers and the LDAP directory.</source>
+          <target state="new">For Azure Multi-Factor Authentication to function, the Azure Multi-Factor Authentication Server must be configured to communicate with both the client servers and the LDAP directory.</target>
+        </trans-unit>
+        <trans-unit id="7a140d65-8d14-4b38-a51a-08428d973ec2" xml:space="preserve">
+          <source>In this configuration, the Azure Multi-Factor Authentication Server accepts LDAP requests from client servers and applications and forwards them to the target LDAP directory server to validate the primary credentials.</source>
+          <target state="new">In this configuration, the Azure Multi-Factor Authentication Server accepts LDAP requests from client servers and applications and forwards them to the target LDAP directory server to validate the primary credentials.</target>
+        </trans-unit>
+        <trans-unit id="394d8d82-62dd-44a8-a00c-f171a8ede5ff" xml:space="preserve">
+          <source>If the response from the LDAP directory shows that they primary credentials are valid, Azure Multi-Factor Authentication performs second-factor authentication and sends a response back to the LDAP client.</source>
+          <target state="new">If the response from the LDAP directory shows that they primary credentials are valid, Azure Multi-Factor Authentication performs second-factor authentication and sends a response back to the LDAP client.</target>
+        </trans-unit>
+        <trans-unit id="d1535a41-3273-4375-bab8-ccfef6d100b4" xml:space="preserve">
+          <source>The entire authentication will succeed only if both the authentication to the LDAP server and the multi-factor authentication succeed.</source>
+          <target state="new">The entire authentication will succeed only if both the authentication to the LDAP server and the multi-factor authentication succeed.</target>
+        </trans-unit>
+        <trans-unit id="057fdf88-4790-4315-bcfb-252e32a5a619" xml:space="preserve">
+          <source>To configure LDAP authentication, install the Azure Multi-Factor Authentication Server on a Windows server.</source>
+          <target state="new">To configure LDAP authentication, install the Azure Multi-Factor Authentication Server on a Windows server.</target>
+        </trans-unit>
+        <trans-unit id="b833217a-c437-413f-a526-ca808ce6f293" xml:space="preserve">
+          <source>Use the following procedure:</source>
+          <target state="new">Use the following procedure:</target>
+        </trans-unit>
+        <trans-unit id="5f6f79ad-a5b5-45b6-90ad-96e0798ffe68" xml:space="preserve">
+          <source>Within the Azure Multi-Factor Authentication Server click the LDAP Authentication icon in the left menu.</source>
+          <target state="new">Within the Azure Multi-Factor Authentication Server click the LDAP Authentication icon in the left menu.</target>
+        </trans-unit>
+        <trans-unit id="107cdae6-f006-4fe2-a7be-a7bb2d7eb8db" xml:space="preserve">
+          <source>Check the Enable LDAP Authentication checkbox.<bpt id="4ba90116-e165-423e-ba6a-ea35583f5f91">&lt;linkText&gt;</bpt>LDAP Authentication<ept id="4ba90116-e165-423e-ba6a-ea35583f5f91">&lt;/linkText&gt;</ept> </source>
+          <target state="new">Check the Enable LDAP Authentication checkbox.<bpt id="4ba90116-e165-423e-ba6a-ea35583f5f91">&lt;linkText&gt;</bpt>LDAP Authentication<ept id="4ba90116-e165-423e-ba6a-ea35583f5f91">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="955ab00f-4015-44eb-8cb3-2fa74ee818b7" xml:space="preserve">
+          <source>On the Clients tab change the TCP port and SSL port if the Azure Multi-Factor Authentication LDAP service should bind to non-standard ports to listen for LDAP requests from the clients that will be configured.</source>
+          <target state="new">On the Clients tab change the TCP port and SSL port if the Azure Multi-Factor Authentication LDAP service should bind to non-standard ports to listen for LDAP requests from the clients that will be configured.</target>
+        </trans-unit>
+        <trans-unit id="b9aeb3a7-adc3-45a4-b733-9f77de6ccea5" xml:space="preserve">
+          <source>If you plan to use LDAPS from the client to the Azure Multi-Factor Authentication Server, an SSL certificate must be installed on the server that the Server is running on.</source>
+          <target state="new">If you plan to use LDAPS from the client to the Azure Multi-Factor Authentication Server, an SSL certificate must be installed on the server that the Server is running on.</target>
+        </trans-unit>
+        <trans-unit id="589f525a-b431-404e-87db-92de2f7fc929" xml:space="preserve">
+          <source>Click the Browse…</source>
+          <target state="new">Click the Browse…</target>
+        </trans-unit>
+        <trans-unit id="0a27c1fb-d2be-4d53-ab5a-cda2ffce20a7" xml:space="preserve">
+          <source>button next to the SSL certificate box and select the installed certificate that will be used for the secure connection.</source>
+          <target state="new">button next to the SSL certificate box and select the installed certificate that will be used for the secure connection.</target>
+        </trans-unit>
+        <trans-unit id="c8360df9-62fa-449d-a548-7ccf5ced73cb" xml:space="preserve">
+          <source>Click Add…</source>
+          <target state="new">Click Add…</target>
+        </trans-unit>
+        <trans-unit id="aa1e765a-e4e3-459c-b86e-6690808f877f" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="ec6bdaec-0ec9-436e-acb3-71d7bcfe2040" xml:space="preserve">
+          <source>In the Add LDAP Client dialog box, enter the IP address of the appliance, server or application that will authenticate to the Server and an Application name (optional).</source>
+          <target state="new">In the Add LDAP Client dialog box, enter the IP address of the appliance, server or application that will authenticate to the Server and an Application name (optional).</target>
+        </trans-unit>
+        <trans-unit id="85489f18-8023-477d-b1a1-2077b0a1f8db" xml:space="preserve">
+          <source>The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</source>
+          <target state="new">The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</target>
+        </trans-unit>
+        <trans-unit id="4763aa67-67a8-439c-bf62-0c7b2b3bc99b" xml:space="preserve">
+          <source>Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to mutli-factor authentication.</source>
+          <target state="new">Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to mutli-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="c45a4928-3281-47e8-9d37-2055b15578d8" xml:space="preserve">
+          <source>If a significant number of users have not yet been imported into the Server and/or will be exempt from mutli-factor authentication, leave the box unchecked.</source>
+          <target state="new">If a significant number of users have not yet been imported into the Server and/or will be exempt from mutli-factor authentication, leave the box unchecked.</target>
+        </trans-unit>
+        <trans-unit id="d2bbd794-6863-4d88-8649-2e2f82b7e073" xml:space="preserve">
+          <source>See the help file for additional information on this feature.</source>
+          <target state="new">See the help file for additional information on this feature.</target>
+        </trans-unit>
+        <trans-unit id="1c76c7dc-74fe-454c-94d0-0dc513024183" xml:space="preserve">
+          <source>You may repeat steps 5 through 7 to add additional LDAP clients.</source>
+          <target state="new">You may repeat steps 5 through 7 to add additional LDAP clients.</target>
+        </trans-unit>
+        <trans-unit id="f7c0a577-72e6-4902-8178-c5c532d86342" xml:space="preserve">
+          <source>When the Azure Multi-Factor Authentication is configured to receive LDAP authentications, it must proxy those authentications to the LDAP directory.</source>
+          <target state="new">When the Azure Multi-Factor Authentication is configured to receive LDAP authentications, it must proxy those authentications to the LDAP directory.</target>
+        </trans-unit>
+        <trans-unit id="8f2eb731-c20e-4a45-afab-e8cd66ddd4d9" xml:space="preserve">
+          <source>Therefore, the Target tab only displays a single, grayed out option to use an LDAP target.</source>
+          <target state="new">Therefore, the Target tab only displays a single, grayed out option to use an LDAP target.</target>
+        </trans-unit>
+        <trans-unit id="99c8f4fb-656a-4037-ad5f-0cc625bef4b8" xml:space="preserve">
+          <source>To configure the LDAP directory connection, click the Directory Integration icon.</source>
+          <target state="new">To configure the LDAP directory connection, click the Directory Integration icon.</target>
+        </trans-unit>
+        <trans-unit id="aecda8d9-1fce-4a23-bf03-209927e990be" xml:space="preserve">
+          <source>On the Settings tab, select the Use specific LDAP configuration radio button.</source>
+          <target state="new">On the Settings tab, select the Use specific LDAP configuration radio button.</target>
+        </trans-unit>
+        <trans-unit id="20db8986-f354-4be5-8e5c-825c8b56b619" xml:space="preserve">
+          <source>Click the Edit…</source>
+          <target state="new">Click the Edit…</target>
+        </trans-unit>
+        <trans-unit id="ec0a6ea4-9520-46a2-ba9c-876b5adc44ef" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="3e43ffff-db30-42d4-8b91-c03bce30c025" xml:space="preserve">
+          <source>In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the LDAP directory.</source>
+          <target state="new">In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the LDAP directory.</target>
+        </trans-unit>
+        <trans-unit id="668bd2cc-a106-43cb-9b25-af75c039247c" xml:space="preserve">
+          <source>Descriptions of the fields are included in the table below.</source>
+          <target state="new">Descriptions of the fields are included in the table below.</target>
+        </trans-unit>
+        <trans-unit id="aa634f23-d7b6-41ce-8d12-940554c45fab" xml:space="preserve">
+          <source>Note: This information is also included in the Azure Multi-Factor Authentication Server help file.<bpt id="1151c985-bd23-4324-8274-bdf1ee510432">&lt;linkText&gt;</bpt>Directory Integration<ept id="1151c985-bd23-4324-8274-bdf1ee510432">&lt;/linkText&gt;</ept></source>
+          <target state="new">Note: This information is also included in the Azure Multi-Factor Authentication Server help file.<bpt id="1151c985-bd23-4324-8274-bdf1ee510432">&lt;linkText&gt;</bpt>Directory Integration<ept id="1151c985-bd23-4324-8274-bdf1ee510432">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c611d69-e287-4588-b8ac-7248788d5bd0" xml:space="preserve">
+          <source>Test the LDAP connection by clicking the Test button.</source>
+          <target state="new">Test the LDAP connection by clicking the Test button.</target>
+        </trans-unit>
+        <trans-unit id="cef8583a-3482-474c-b97f-5e017cd5d553" xml:space="preserve">
+          <source>If the LDAP connection test was successful, click the OK button.</source>
+          <target state="new">If the LDAP connection test was successful, click the OK button.</target>
+        </trans-unit>
+        <trans-unit id="ca3f998e-8cb3-4474-8222-965454e2b023" xml:space="preserve">
+          <source>Click the Filters tab.</source>
+          <target state="new">Click the Filters tab.</target>
+        </trans-unit>
+        <trans-unit id="21649a34-9528-48af-9ee2-ea548a465ae7" xml:space="preserve">
+          <source>The Server is pre-configured to load containers, security groups and users from Active Directory.</source>
+          <target state="new">The Server is pre-configured to load containers, security groups and users from Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="16f021f3-6d64-4cc2-ad9a-6eecf7a834b6" xml:space="preserve">
+          <source>If binding to a different LDAP directory, you will likely need to edit the filters displayed.</source>
+          <target state="new">If binding to a different LDAP directory, you will likely need to edit the filters displayed.</target>
+        </trans-unit>
+        <trans-unit id="fec3fc34-4afe-4e58-9f23-edd7d63edeac" xml:space="preserve">
+          <source>Click the Help link for more information on filters.</source>
+          <target state="new">Click the Help link for more information on filters.</target>
+        </trans-unit>
+        <trans-unit id="d9add5b5-3bf1-4494-a7d4-1df271e98576" xml:space="preserve">
+          <source>Click Attributes tab.</source>
+          <target state="new">Click Attributes tab.</target>
+        </trans-unit>
+        <trans-unit id="355ee1e3-63be-432e-83f7-e0cb75a955f4" xml:space="preserve">
+          <source>The Server is pre-configured to map attributes from Active Directory.</source>
+          <target state="new">The Server is pre-configured to map attributes from Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="64c4d3e1-07eb-429d-87d8-1483f879add4" xml:space="preserve">
+          <source>If binding to a different LDAP directory or to change the pre-configured attribute mappings, click the Edit…</source>
+          <target state="new">If binding to a different LDAP directory or to change the pre-configured attribute mappings, click the Edit…</target>
+        </trans-unit>
+        <trans-unit id="4d1881fe-7425-40c1-bd9d-f7a59238a6db" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="c54566ac-991a-4085-a9dd-09415a9c51cc" xml:space="preserve">
+          <source>In the Edit Attributes dialog box, modify the LDAP attribute mappings for your directory.</source>
+          <target state="new">In the Edit Attributes dialog box, modify the LDAP attribute mappings for your directory.</target>
+        </trans-unit>
+        <trans-unit id="6fc17514-5aeb-4ed4-a936-21b8cde9511e" xml:space="preserve">
+          <source>Attribute names can be typed in or selected by clicking the …</source>
+          <target state="new">Attribute names can be typed in or selected by clicking the …</target>
+        </trans-unit>
+        <trans-unit id="dbaffcda-f230-4c2c-b995-aa8b379582dd" xml:space="preserve">
+          <source>button next to each field.</source>
+          <target state="new">button next to each field.</target>
+        </trans-unit>
+        <trans-unit id="63fdb385-c01a-41c8-9b51-b213da976964" xml:space="preserve">
+          <source>Click the Help link for more information on attributes.</source>
+          <target state="new">Click the Help link for more information on attributes.</target>
+        </trans-unit>
+        <trans-unit id="ef84c336-7501-43a0-beb2-961c6408065a" xml:space="preserve">
+          <source>Click the OK button.</source>
+          <target state="new">Click the OK button.</target>
+        </trans-unit>
+        <trans-unit id="7d8b889d-188e-4ddf-9a41-3316c9aacb6f" xml:space="preserve">
+          <source>Click the Company Settings icon and select the Username Resolution tab.</source>
+          <target state="new">Click the Company Settings icon and select the Username Resolution tab.</target>
+        </trans-unit>
+        <trans-unit id="4c55f5c6-ae3a-42a1-94ec-6c12704bb3e2" xml:space="preserve">
+          <source>22.If connecting to Active Directory from a domain-joined server, you should be able to leave the Use Windows security identifiers (SIDs) for matching usernames radio button selected.</source>
+          <target state="new">22.If connecting to Active Directory from a domain-joined server, you should be able to leave the Use Windows security identifiers (SIDs) for matching usernames radio button selected.</target>
+        </trans-unit>
+        <trans-unit id="bb8ff91e-da02-480a-b254-e634748ec434" xml:space="preserve">
+          <source>Otherwise, select the Use LDAP unique identifier attribute for matching usernames radio button.</source>
+          <target state="new">Otherwise, select the Use LDAP unique identifier attribute for matching usernames radio button.</target>
+        </trans-unit>
+        <trans-unit id="85c9fa9f-57a1-4b1d-bda0-34c1e31a672a" xml:space="preserve">
+          <source>When selected, the Azure Multi-Factor Authentication Server will attempt to resolve each username to a unique identifier in the LDAP directory.</source>
+          <target state="new">When selected, the Azure Multi-Factor Authentication Server will attempt to resolve each username to a unique identifier in the LDAP directory.</target>
+        </trans-unit>
+        <trans-unit id="d3b70991-a81b-415d-b45b-6718296f5990" xml:space="preserve">
+          <source>An LDAP search will be performed on the Username attributes defined in the Directory Integration -&gt; Attributes tab.</source>
+          <target state="new">An LDAP search will be performed on the Username attributes defined in the Directory Integration -&gt; Attributes tab.</target>
+        </trans-unit>
+        <trans-unit id="2aa2747a-23ea-4858-9b19-40870fbc9972" xml:space="preserve">
+          <source>When a user authenticates, the username will be resolved to the unique identifier in the LDAP directory and the unique identifier will be used for matching the user in the Azure Multi-Factor Authentication data file.</source>
+          <target state="new">When a user authenticates, the username will be resolved to the unique identifier in the LDAP directory and the unique identifier will be used for matching the user in the Azure Multi-Factor Authentication data file.</target>
+        </trans-unit>
+        <trans-unit id="cd793a67-b97f-45a6-a3db-f7e3b9ea7a6a" xml:space="preserve">
+          <source>This allows for case-insensitive comparisons, as well as long and short username formats This completes the Azure Multi-Factor Authentication Server configuration.</source>
+          <target state="new">This allows for case-insensitive comparisons, as well as long and short username formats This completes the Azure Multi-Factor Authentication Server configuration.</target>
+        </trans-unit>
+        <trans-unit id="04f58eba-0f05-4f21-9989-67e4cc526238" xml:space="preserve">
+          <source>The Server is now listening on the configured ports for LDAP access requests from the configured clients, and set to proxy those requests to the LDAP directory for authentication.</source>
+          <target state="new">The Server is now listening on the configured ports for LDAP access requests from the configured clients, and set to proxy those requests to the LDAP directory for authentication.</target>
+        </trans-unit>
+        <trans-unit id="c70f9a2e-3d71-488e-8584-6ca095ca312c" xml:space="preserve">
+          <source>To configure the LDAP client, use the guidelines:</source>
+          <target state="new">To configure the LDAP client, use the guidelines:</target>
+        </trans-unit>
+        <trans-unit id="f6ae6064-18ca-4a01-9e3a-3eda4c33a961" xml:space="preserve">
+          <source>Configure your appliance, server or application to authenticate via LDAP to the Azure Multi-Factor Authentication Server as though it were your LDAP directory.</source>
+          <target state="new">Configure your appliance, server or application to authenticate via LDAP to the Azure Multi-Factor Authentication Server as though it were your LDAP directory.</target>
+        </trans-unit>
+        <trans-unit id="8a2fefd2-3104-4c99-a393-cbdc4ea9c496" xml:space="preserve">
+          <source>You should use the same settings that you would normally use to connect directly to your LDAP directory, except for the server name or IP address which will be that of the Azure Multi-Factor Authentication Server.</source>
+          <target state="new">You should use the same settings that you would normally use to connect directly to your LDAP directory, except for the server name or IP address which will be that of the Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="6d9bac32-85d4-48a9-808b-f1ec931bf1c1" xml:space="preserve">
+          <source>Configure the LDAP timeout to 30-60 seconds so that there is time to validate the user’s credentials with the LDAP directory, perform the second-factor authentication, receive their response and then respond to the LDAP access request.</source>
+          <target state="new">Configure the LDAP timeout to 30-60 seconds so that there is time to validate the user’s credentials with the LDAP directory, perform the second-factor authentication, receive their response and then respond to the LDAP access request.</target>
+        </trans-unit>
+        <trans-unit id="2af5e0e4-7af1-48a5-b64a-1075d60ad6bd" xml:space="preserve">
+          <source>If using LDAPS, the appliance or server making the LDAP queries must trust the SSL certificate installed on the Azure Multi-Factor Authentication Server.</source>
+          <target state="new">If using LDAPS, the appliance or server making the LDAP queries must trust the SSL certificate installed on the Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

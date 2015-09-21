@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6bb66a10-f462-4c6f-bd63-e508fa11600b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6bb66a10-f462-4c6f-bd63-e508fa11600b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2a2a93ab-7155-414e-8de4-c97e23492d1f">
+        <trans-unit id="8c64fc39-800a-4abb-a575-46c4f0caf3aa" xml:space="preserve">
+          <source>Azure SQL Database - client library</source>
+          <target state="new">Azure SQL Database - client library</target>
+        </trans-unit>
+        <trans-unit id="6140276c-f161-4ac7-ab61-18a53c7b6e09" xml:space="preserve">
+          <source>Build scalable .NET database apps</source>
+          <target state="new">Build scalable .NET database apps</target>
+        </trans-unit>
+        <trans-unit id="6a23d9d8-c3b8-4afb-94b0-a3664be4651a" xml:space="preserve">
+          <source>The <bpt id="57df715d-9327-4a6d-8bfd-6d7b63d39f6e">&lt;strong&gt;</bpt>Elastic Database client library<ept id="57df715d-9327-4a6d-8bfd-6d7b63d39f6e">&lt;/strong&gt;</ept> helps you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases hosted on Microsoft Azure.</source>
+          <target state="new">The <bpt id="57df715d-9327-4a6d-8bfd-6d7b63d39f6e">&lt;strong&gt;</bpt>Elastic Database client library<ept id="57df715d-9327-4a6d-8bfd-6d7b63d39f6e">&lt;/strong&gt;</ept> helps you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases hosted on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="0a8048fa-5529-45b5-8c88-2cd83f032ffa" xml:space="preserve">
+          <source>Such designs are commonly used for Software as a Service (SaaS) applications, which are typically single tenant architectures--where each tenant is provisioned with a database.</source>
+          <target state="new">Such designs are commonly used for Software as a Service (SaaS) applications, which are typically single tenant architectures--where each tenant is provisioned with a database.</target>
+        </trans-unit>
+        <trans-unit id="8806639c-4b3f-456d-9586-711799609128" xml:space="preserve">
+          <source>Building and managing such an application is a goal of the library.</source>
+          <target state="new">Building and managing such an application is a goal of the library.</target>
+        </trans-unit>
+        <trans-unit id="2397788a-f1f2-42df-aefa-9d49d6b92dea" xml:space="preserve">
+          <source>The client library is a .NET Framework library that can be installed into any application project using <bpt id="e8192e26-a72a-48d0-b167-0285381c6a32">&lt;linkText&gt;</bpt>Visual Studio<ept id="e8192e26-a72a-48d0-b167-0285381c6a32">&lt;/linkText&gt;</ept><bpt id="e8192e26-a72a-48d0-b167-0285381c6a32">&lt;title&gt;</bpt><ept id="e8192e26-a72a-48d0-b167-0285381c6a32">&lt;/title&gt;</ept> and <bpt id="31af70a9-fe6e-457c-bc91-6724918c41ad">&lt;linkText&gt;</bpt>Nuget<ept id="31af70a9-fe6e-457c-bc91-6724918c41ad">&lt;/linkText&gt;</ept><bpt id="31af70a9-fe6e-457c-bc91-6724918c41ad">&lt;title&gt;</bpt><ept id="31af70a9-fe6e-457c-bc91-6724918c41ad">&lt;/title&gt;</ept>.</source>
+          <target state="new">The client library is a .NET Framework library that can be installed into any application project using <bpt id="e8192e26-a72a-48d0-b167-0285381c6a32">&lt;linkText&gt;</bpt>Visual Studio<ept id="e8192e26-a72a-48d0-b167-0285381c6a32">&lt;/linkText&gt;</ept><bpt id="e8192e26-a72a-48d0-b167-0285381c6a32">&lt;title&gt;</bpt><ept id="e8192e26-a72a-48d0-b167-0285381c6a32">&lt;/title&gt;</ept> and <bpt id="31af70a9-fe6e-457c-bc91-6724918c41ad">&lt;linkText&gt;</bpt>Nuget<ept id="31af70a9-fe6e-457c-bc91-6724918c41ad">&lt;/linkText&gt;</ept><bpt id="31af70a9-fe6e-457c-bc91-6724918c41ad">&lt;title&gt;</bpt><ept id="31af70a9-fe6e-457c-bc91-6724918c41ad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d093a1ec-d715-44a4-8d6c-77f04f265959" xml:space="preserve">
+          <source>The client library is part of Elastic Database tools which is specifically an <bpt id="11659c0f-ca68-4ae8-9e6d-54d31a51c2b2">&lt;linkText&gt;</bpt>Elastic Database feature<ept id="11659c0f-ca68-4ae8-9e6d-54d31a51c2b2">&lt;/linkText&gt;</ept><bpt id="11659c0f-ca68-4ae8-9e6d-54d31a51c2b2">&lt;title&gt;</bpt><ept id="11659c0f-ca68-4ae8-9e6d-54d31a51c2b2">&lt;/title&gt;</ept>.</source>
+          <target state="new">The client library is part of Elastic Database tools which is specifically an <bpt id="11659c0f-ca68-4ae8-9e6d-54d31a51c2b2">&lt;linkText&gt;</bpt>Elastic Database feature<ept id="11659c0f-ca68-4ae8-9e6d-54d31a51c2b2">&lt;/linkText&gt;</ept><bpt id="11659c0f-ca68-4ae8-9e6d-54d31a51c2b2">&lt;title&gt;</bpt><ept id="11659c0f-ca68-4ae8-9e6d-54d31a51c2b2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4f558b7-b3d4-42a5-b11e-6914ebc7d1a4" xml:space="preserve">
+          <source>Developing, scaling and managing scaled-out applications using <bpt id="424f4b1b-daf0-4a06-a418-525b8171d4f4">&lt;em&gt;</bpt>sharding<ept id="424f4b1b-daf0-4a06-a418-525b8171d4f4">&lt;/em&gt;</ept> (discussed below) presents challenges for both the developer as well as the administrator.</source>
+          <target state="new">Developing, scaling and managing scaled-out applications using <bpt id="424f4b1b-daf0-4a06-a418-525b8171d4f4">&lt;em&gt;</bpt>sharding<ept id="424f4b1b-daf0-4a06-a418-525b8171d4f4">&lt;/em&gt;</ept> (discussed below) presents challenges for both the developer as well as the administrator.</target>
+        </trans-unit>
+        <trans-unit id="d8ce3307-5faa-4b25-aecc-4cd783994c39" xml:space="preserve">
+          <source>The client library make life easier for both these roles.</source>
+          <target state="new">The client library make life easier for both these roles.</target>
+        </trans-unit>
+        <trans-unit id="36d1a39a-2829-4196-974e-7238623dc22f" xml:space="preserve">
+          <source>The figure below outline the main capabilities delivered by the Elastic Database client library.</source>
+          <target state="new">The figure below outline the main capabilities delivered by the Elastic Database client library.</target>
+        </trans-unit>
+        <trans-unit id="26a0f2b3-bc0f-4c4a-ba24-7ad5381d6dc5" xml:space="preserve">
+          <source>The figure illustrates an environment with many databases, and each database corresponds to a shard.</source>
+          <target state="new">The figure illustrates an environment with many databases, and each database corresponds to a shard.</target>
+        </trans-unit>
+        <trans-unit id="e2a45fe6-a14d-4339-8aeb-a87a56b2f9ca" xml:space="preserve">
+          <source>In this example, many customers are co-located in the same database using a range map, although the same applies if there is a database per customer (tenant).</source>
+          <target state="new">In this example, many customers are co-located in the same database using a range map, although the same applies if there is a database per customer (tenant).</target>
+        </trans-unit>
+        <trans-unit id="b42c7027-6c07-4d8a-9338-0d99663697bf" xml:space="preserve">
+          <source>The tools make developing sharded Azure SQL Database applications easier through the following specific capabilities:</source>
+          <target state="new">The tools make developing sharded Azure SQL Database applications easier through the following specific capabilities:</target>
+        </trans-unit>
+        <trans-unit id="712e6319-4240-4ebc-912f-6d5f5eddc5b6" xml:space="preserve">
+          <source>For definitions of terms used here, see <bpt id="87066385-6114-497f-b492-8e5a776bd9c7">&lt;linkText&gt;</bpt>Elastic database tools glossary<ept id="87066385-6114-497f-b492-8e5a776bd9c7">&lt;/linkText&gt;</ept><bpt id="87066385-6114-497f-b492-8e5a776bd9c7">&lt;title&gt;</bpt><ept id="87066385-6114-497f-b492-8e5a776bd9c7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For definitions of terms used here, see <bpt id="87066385-6114-497f-b492-8e5a776bd9c7">&lt;linkText&gt;</bpt>Elastic database tools glossary<ept id="87066385-6114-497f-b492-8e5a776bd9c7">&lt;/linkText&gt;</ept><bpt id="87066385-6114-497f-b492-8e5a776bd9c7">&lt;title&gt;</bpt><ept id="87066385-6114-497f-b492-8e5a776bd9c7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40fc528b-0d41-4bb6-9247-ce768875938b" xml:space="preserve">
+          <source><bpt id="db0631ca-ce4f-4b47-8666-b89f46bcc1d2">&lt;linkText&gt;</bpt>Elastic scale capabilities<ept id="db0631ca-ce4f-4b47-8666-b89f46bcc1d2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="db0631ca-ce4f-4b47-8666-b89f46bcc1d2">&lt;linkText&gt;</bpt>Elastic scale capabilities<ept id="db0631ca-ce4f-4b47-8666-b89f46bcc1d2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfbdacec-a028-467e-8bf6-556b065a48b1" xml:space="preserve">
+          <source><bpt id="8c595bbd-2c50-4abc-93ee-8b8375c823aa">&lt;strong&gt;</bpt>Shard Map Management<ept id="8c595bbd-2c50-4abc-93ee-8b8375c823aa">&lt;/strong&gt;</ept>: To manage an collection of shards, a speical database called the "shard map manager" is created.</source>
+          <target state="new"><bpt id="8c595bbd-2c50-4abc-93ee-8b8375c823aa">&lt;strong&gt;</bpt>Shard Map Management<ept id="8c595bbd-2c50-4abc-93ee-8b8375c823aa">&lt;/strong&gt;</ept>: To manage an collection of shards, a speical database called the "shard map manager" is created.</target>
+        </trans-unit>
+        <trans-unit id="abb7710e-0e6e-48fe-bd4f-b5e1af6725ca" xml:space="preserve">
+          <source>Shard map management is the ability for an application to manage various metadata about its shards.</source>
+          <target state="new">Shard map management is the ability for an application to manage various metadata about its shards.</target>
+        </trans-unit>
+        <trans-unit id="7ffede48-2606-4c03-a698-009f4eca95c5" xml:space="preserve">
+          <source>Developers can use this functionality to register databases as shards, describe mappings of individual sharding keys or key ranges to those databases, and maintain this metadata as the number and composition of databases evolves to reflect capacity changes.</source>
+          <target state="new">Developers can use this functionality to register databases as shards, describe mappings of individual sharding keys or key ranges to those databases, and maintain this metadata as the number and composition of databases evolves to reflect capacity changes.</target>
+        </trans-unit>
+        <trans-unit id="0b5a0f7c-0bf3-43d3-8684-fd8d077e02e1" xml:space="preserve">
+          <source>Without the elastic database client library, you would need to spend a lot of time writing the management code when implementing sharding.</source>
+          <target state="new">Without the elastic database client library, you would need to spend a lot of time writing the management code when implementing sharding.</target>
+        </trans-unit>
+        <trans-unit id="26801008-55ad-4ee9-b925-511a5c4262df" xml:space="preserve">
+          <source>For details, see <bpt id="39c76681-bbad-4bf8-a056-b7277854a0bd">&lt;linkText&gt;</bpt>Shard map management<ept id="39c76681-bbad-4bf8-a056-b7277854a0bd">&lt;/linkText&gt;</ept><bpt id="39c76681-bbad-4bf8-a056-b7277854a0bd">&lt;title&gt;</bpt><ept id="39c76681-bbad-4bf8-a056-b7277854a0bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="39c76681-bbad-4bf8-a056-b7277854a0bd">&lt;linkText&gt;</bpt>Shard map management<ept id="39c76681-bbad-4bf8-a056-b7277854a0bd">&lt;/linkText&gt;</ept><bpt id="39c76681-bbad-4bf8-a056-b7277854a0bd">&lt;title&gt;</bpt><ept id="39c76681-bbad-4bf8-a056-b7277854a0bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b07d442a-19cd-45a2-8167-021de8e52c90" xml:space="preserve">
+          <source><bpt id="1fde5a1a-34f9-48df-95a4-9d90cf054924">&lt;strong&gt;</bpt>Data dependent routing<ept id="1fde5a1a-34f9-48df-95a4-9d90cf054924">&lt;/strong&gt;</ept>: Imagine a request coming into the application.</source>
+          <target state="new"><bpt id="1fde5a1a-34f9-48df-95a4-9d90cf054924">&lt;strong&gt;</bpt>Data dependent routing<ept id="1fde5a1a-34f9-48df-95a4-9d90cf054924">&lt;/strong&gt;</ept>: Imagine a request coming into the application.</target>
+        </trans-unit>
+        <trans-unit id="e2bd3ef9-f9bc-42de-9bd7-af68bd91cf2c" xml:space="preserve">
+          <source>Based on the sharding key value of the request, the application needs to determine the correct database that holds the data for this key value, and then open a connection to it to process the request.</source>
+          <target state="new">Based on the sharding key value of the request, the application needs to determine the correct database that holds the data for this key value, and then open a connection to it to process the request.</target>
+        </trans-unit>
+        <trans-unit id="4abf8d10-9445-40f1-b684-5aa090e467ce" xml:space="preserve">
+          <source>Data dependent routing provides the ability to open connections with a single easy call into the shard map of the application.</source>
+          <target state="new">Data dependent routing provides the ability to open connections with a single easy call into the shard map of the application.</target>
+        </trans-unit>
+        <trans-unit id="1c3969b9-b457-41fb-8a21-446177fafb63" xml:space="preserve">
+          <source>Data dependent routing was another area of infrastructure code that is now covered by functionality in the elastic database client library.</source>
+          <target state="new">Data dependent routing was another area of infrastructure code that is now covered by functionality in the elastic database client library.</target>
+        </trans-unit>
+        <trans-unit id="b4d0edb5-452a-474a-ae82-2552515f941c" xml:space="preserve">
+          <source>For details, see <bpt id="d7bc8e3f-eb12-4bde-8e22-35bed4a0acbe">&lt;linkText&gt;</bpt>Data dependent routing<ept id="d7bc8e3f-eb12-4bde-8e22-35bed4a0acbe">&lt;/linkText&gt;</ept><bpt id="d7bc8e3f-eb12-4bde-8e22-35bed4a0acbe">&lt;title&gt;</bpt><ept id="d7bc8e3f-eb12-4bde-8e22-35bed4a0acbe">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="d7bc8e3f-eb12-4bde-8e22-35bed4a0acbe">&lt;linkText&gt;</bpt>Data dependent routing<ept id="d7bc8e3f-eb12-4bde-8e22-35bed4a0acbe">&lt;/linkText&gt;</ept><bpt id="d7bc8e3f-eb12-4bde-8e22-35bed4a0acbe">&lt;title&gt;</bpt><ept id="d7bc8e3f-eb12-4bde-8e22-35bed4a0acbe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c702aeb2-d3e4-4eca-99d9-ebe8745ee464" xml:space="preserve">
+          <source><bpt id="8ae0a769-50a4-447c-9acd-9f3b2479ced1">&lt;strong&gt;</bpt>Multi-shard queries (MSQ)<ept id="8ae0a769-50a4-447c-9acd-9f3b2479ced1">&lt;/strong&gt;</ept>: Multi-shard querying works when a request involves several (or all) shards.</source>
+          <target state="new"><bpt id="8ae0a769-50a4-447c-9acd-9f3b2479ced1">&lt;strong&gt;</bpt>Multi-shard queries (MSQ)<ept id="8ae0a769-50a4-447c-9acd-9f3b2479ced1">&lt;/strong&gt;</ept>: Multi-shard querying works when a request involves several (or all) shards.</target>
+        </trans-unit>
+        <trans-unit id="dd1ab73f-9ea5-4404-be56-0fd0ebcb0fde" xml:space="preserve">
+          <source>A multi-shard query executes the same T-SQL code on all shards or a set of shards.</source>
+          <target state="new">A multi-shard query executes the same T-SQL code on all shards or a set of shards.</target>
+        </trans-unit>
+        <trans-unit id="4e5ad164-664c-4c20-a0ce-d9003c4d8124" xml:space="preserve">
+          <source>The results from the participating shards are merged into an overall result set using UNION ALL semantics.</source>
+          <target state="new">The results from the participating shards are merged into an overall result set using UNION ALL semantics.</target>
+        </trans-unit>
+        <trans-unit id="e9b0af35-5e5b-472f-8834-5fd1c53cc629" xml:space="preserve">
+          <source>The functionality as exposed through the client library handles many tasks, including: connection management, thread management, fault handling and intermediate results processing.</source>
+          <target state="new">The functionality as exposed through the client library handles many tasks, including: connection management, thread management, fault handling and intermediate results processing.</target>
+        </trans-unit>
+        <trans-unit id="e2eededd-32aa-4a69-a565-453c3e0faf96" xml:space="preserve">
+          <source>MSQ can query up to hundreds of shards.</source>
+          <target state="new">MSQ can query up to hundreds of shards.</target>
+        </trans-unit>
+        <trans-unit id="3699b8e1-8ac8-4f0c-b488-20f258046e67" xml:space="preserve">
+          <source>For details, see <bpt id="f26db55d-f78e-4de7-86f1-e2567c3032e9">&lt;linkText&gt;</bpt>Multi-shard querying<ept id="f26db55d-f78e-4de7-86f1-e2567c3032e9">&lt;/linkText&gt;</ept><bpt id="f26db55d-f78e-4de7-86f1-e2567c3032e9">&lt;title&gt;</bpt><ept id="f26db55d-f78e-4de7-86f1-e2567c3032e9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="f26db55d-f78e-4de7-86f1-e2567c3032e9">&lt;linkText&gt;</bpt>Multi-shard querying<ept id="f26db55d-f78e-4de7-86f1-e2567c3032e9">&lt;/linkText&gt;</ept><bpt id="f26db55d-f78e-4de7-86f1-e2567c3032e9">&lt;title&gt;</bpt><ept id="f26db55d-f78e-4de7-86f1-e2567c3032e9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5a4d3e0-ad9e-46f5-8f57-87b15c7f6690" xml:space="preserve">
+          <source>In general, customers using elastic database tools can expect to get full T-SQL functionality when submitting shard-local operations as opposed to cross-shard operations that have their own semantics.</source>
+          <target state="new">In general, customers using elastic database tools can expect to get full T-SQL functionality when submitting shard-local operations as opposed to cross-shard operations that have their own semantics.</target>
+        </trans-unit>
+        <trans-unit id="e5ba3311-4e81-42a3-bbce-3540bf69bd4b" xml:space="preserve">
+          <source>Try the <bpt id="3327d69a-1271-41be-807b-b6101a9e61bc">&lt;linkText&gt;</bpt>sample app<ept id="3327d69a-1271-41be-807b-b6101a9e61bc">&lt;/linkText&gt;</ept><bpt id="3327d69a-1271-41be-807b-b6101a9e61bc">&lt;title&gt;</bpt><ept id="3327d69a-1271-41be-807b-b6101a9e61bc">&lt;/title&gt;</ept> which demonstrates the client functions.</source>
+          <target state="new">Try the <bpt id="3327d69a-1271-41be-807b-b6101a9e61bc">&lt;linkText&gt;</bpt>sample app<ept id="3327d69a-1271-41be-807b-b6101a9e61bc">&lt;/linkText&gt;</ept><bpt id="3327d69a-1271-41be-807b-b6101a9e61bc">&lt;title&gt;</bpt><ept id="3327d69a-1271-41be-807b-b6101a9e61bc">&lt;/title&gt;</ept> which demonstrates the client functions.</target>
+        </trans-unit>
+        <trans-unit id="4856bfb7-20a2-4dc2-8e32-e9c9bdf7e10b" xml:space="preserve">
+          <source>To install the library, go to <bpt id="a3bc9f48-afae-4990-b1a2-96cf4536d4ba">&lt;linkText&gt;</bpt>Elastic Database Client Library<ept id="a3bc9f48-afae-4990-b1a2-96cf4536d4ba">&lt;/linkText&gt;</ept><bpt id="a3bc9f48-afae-4990-b1a2-96cf4536d4ba">&lt;title&gt;</bpt><ept id="a3bc9f48-afae-4990-b1a2-96cf4536d4ba">&lt;/title&gt;</ept>.</source>
+          <target state="new">To install the library, go to <bpt id="a3bc9f48-afae-4990-b1a2-96cf4536d4ba">&lt;linkText&gt;</bpt>Elastic Database Client Library<ept id="a3bc9f48-afae-4990-b1a2-96cf4536d4ba">&lt;/linkText&gt;</ept><bpt id="a3bc9f48-afae-4990-b1a2-96cf4536d4ba">&lt;title&gt;</bpt><ept id="a3bc9f48-afae-4990-b1a2-96cf4536d4ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eeb27031-8b81-4e05-8ec8-083f56153df6" xml:space="preserve">
+          <source>For instructions on using the split-merge tool, see the <bpt id="efb0976c-c27d-4971-80ab-519721f321b7">&lt;linkText&gt;</bpt>split-merge tool overview<ept id="efb0976c-c27d-4971-80ab-519721f321b7">&lt;/linkText&gt;</ept><bpt id="efb0976c-c27d-4971-80ab-519721f321b7">&lt;title&gt;</bpt><ept id="efb0976c-c27d-4971-80ab-519721f321b7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on using the split-merge tool, see the <bpt id="efb0976c-c27d-4971-80ab-519721f321b7">&lt;linkText&gt;</bpt>split-merge tool overview<ept id="efb0976c-c27d-4971-80ab-519721f321b7">&lt;/linkText&gt;</ept><bpt id="efb0976c-c27d-4971-80ab-519721f321b7">&lt;title&gt;</bpt><ept id="efb0976c-c27d-4971-80ab-519721f321b7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc03e188-495b-46e8-b379-504c07725753" xml:space="preserve">
+          <source><bpt id="c7800d36-b954-4dc1-86b7-f854ceedcebc">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="c7800d36-b954-4dc1-86b7-f854ceedcebc">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c7800d36-b954-4dc1-86b7-f854ceedcebc">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="c7800d36-b954-4dc1-86b7-f854ceedcebc">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="197f6e81-b74a-4885-b2dc-c90c8dffb2ae" xml:space="preserve">
+          <source>./media/sql-database-elastic-database-client-library/glossary.png</source>
+          <target state="new">./media/sql-database-elastic-database-client-library/glossary.png</target>
+        </trans-unit>
+      </group>
+      <group id="e11192c5-470b-45ab-9fd4-b214ffb215ed" />
+    </body>
+  </file>
+</xliff>

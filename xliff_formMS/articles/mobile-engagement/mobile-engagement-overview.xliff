@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cc5517d1-6b44-4789-b845-742e1c45319a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cc5517d1-6b44-4789-b845-742e1c45319a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4c0ec550-f51e-4877-a07f-05bc018f8108">
+        <trans-unit id="5c5f55b2-2770-414b-9526-e33a509404af" xml:space="preserve">
+          <source>Mobile Engagement Overview</source>
+          <target state="new">Mobile Engagement Overview</target>
+        </trans-unit>
+        <trans-unit id="a08e019d-6435-4c55-84d2-3758db0dc6c2" xml:space="preserve">
+          <source>Overview of Azure Mobile Engagement</source>
+          <target state="new">Overview of Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="6e69af77-438f-44eb-8d92-73eeeb840404" xml:space="preserve">
+          <source>Azure Mobile Engagement is a SaaS-delivered, data-driven user engagement platform that enables real-time fine-grain user segmentation, app user analytics, and contextually-aware smart push notifications and in-app messaging across all connected devices.</source>
+          <target state="new">Azure Mobile Engagement is a SaaS-delivered, data-driven user engagement platform that enables real-time fine-grain user segmentation, app user analytics, and contextually-aware smart push notifications and in-app messaging across all connected devices.</target>
+        </trans-unit>
+        <trans-unit id="86e8a3a5-c617-4dd7-941a-f3f7d7a2580f" xml:space="preserve">
+          <source>With Azure Mobile Engagement, app publishers and marketing professionals can create cutting-edge interactions.</source>
+          <target state="new">With Azure Mobile Engagement, app publishers and marketing professionals can create cutting-edge interactions.</target>
+        </trans-unit>
+        <trans-unit id="f01768ca-da5e-4f17-8eda-e77e51b5f232" xml:space="preserve">
+          <source>Trigger engagement scenarios according to app user behavior and demographics by combining Big Data collection with real time processing.</source>
+          <target state="new">Trigger engagement scenarios according to app user behavior and demographics by combining Big Data collection with real time processing.</target>
+        </trans-unit>
+        <trans-unit id="cc926ccb-7a78-4a1c-b567-8c607dba94d4" xml:space="preserve">
+          <source>Azure Mobile Engagement can answer nearly any question relevant to your particular business needs.</source>
+          <target state="new">Azure Mobile Engagement can answer nearly any question relevant to your particular business needs.</target>
+        </trans-unit>
+        <trans-unit id="04745627-a5b6-4464-ae30-2b49a8d7b75c" xml:space="preserve">
+          <source>For example, you can create custom dashboards to measure KPIs, rapidly find and fix usage bottlenecks in the user path, track retention and stickiness, and by that determine what campaigns are driving the highest ROI.</source>
+          <target state="new">For example, you can create custom dashboards to measure KPIs, rapidly find and fix usage bottlenecks in the user path, track retention and stickiness, and by that determine what campaigns are driving the highest ROI.</target>
+        </trans-unit>
+        <trans-unit id="0dabdf7e-2981-45cc-b52e-25f4e06d6052" xml:space="preserve">
+          <source>Azure Mobile Engagement’s 360° user path view, allows you to easily and continually enhance and optimize the user experience – driving higher retention rates and increased app usage.</source>
+          <target state="new">Azure Mobile Engagement’s 360° user path view, allows you to easily and continually enhance and optimize the user experience – driving higher retention rates and increased app usage.</target>
+        </trans-unit>
+        <trans-unit id="10131271-7ce8-44a1-a3ca-55b5bc1953dd" xml:space="preserve">
+          <source>Azure Mobile Engagement works flawlessly with native push notifications gateways such as Google’s GCM, Apple’s APNS or Microsoft MPNS, but it goes beyond and gives you the power to create targeted campaigns , by providing intelligent customer segments and in-app messaging capabilities.</source>
+          <target state="new">Azure Mobile Engagement works flawlessly with native push notifications gateways such as Google’s GCM, Apple’s APNS or Microsoft MPNS, but it goes beyond and gives you the power to create targeted campaigns , by providing intelligent customer segments and in-app messaging capabilities.</target>
+        </trans-unit>
+        <trans-unit id="38d694fa-5c6c-4191-90f5-c1ea581672d0" xml:space="preserve">
+          <source>This benefits app developers by reaching their customers in a highly effective and non-intrusive manner.</source>
+          <target state="new">This benefits app developers by reaching their customers in a highly effective and non-intrusive manner.</target>
+        </trans-unit>
+        <trans-unit id="64126129-b769-477d-9f2b-58e00ad24950" xml:space="preserve">
+          <source>By providing open APIs and ease of integration you can leverage existing data from CRM, CMS and other business related systems.</source>
+          <target state="new">By providing open APIs and ease of integration you can leverage existing data from CRM, CMS and other business related systems.</target>
+        </trans-unit>
+        <trans-unit id="52406c69-91d5-41d0-a6ba-de5612cd8154" xml:space="preserve">
+          <source>This allows you to further improve your audience targeting and protect your investments.</source>
+          <target state="new">This allows you to further improve your audience targeting and protect your investments.</target>
+        </trans-unit>
+        <trans-unit id="449f0ddf-6422-4488-bcfd-177377a82164" xml:space="preserve">
+          <source>Microsoft has a longstanding commitment to privacy, which is an integral part of our product and service lifecycle.</source>
+          <target state="new">Microsoft has a longstanding commitment to privacy, which is an integral part of our product and service lifecycle.</target>
+        </trans-unit>
+        <trans-unit id="596d3ec6-b8ce-447c-9863-ec4f358b05ea" xml:space="preserve">
+          <source>We work to be transparent in our privacy practices, offering customers meaningful privacy choices, and manage responsibly of the data we store.</source>
+          <target state="new">We work to be transparent in our privacy practices, offering customers meaningful privacy choices, and manage responsibly of the data we store.</target>
+        </trans-unit>
+        <trans-unit id="e1364c0e-eb72-478d-a7b3-34e938131252" xml:space="preserve">
+          <source>As with all Azure services, Mobile Engagement does not share or sell information derived from customers’ property.</source>
+          <target state="new">As with all Azure services, Mobile Engagement does not share or sell information derived from customers’ property.</target>
+        </trans-unit>
+        <trans-unit id="7fadc191-b6e3-49ed-9ffb-715c030a9a2a" xml:space="preserve">
+          <source>Azure Mobile Engagement is a globally deployable solution, allowing for regional or country specific data privacy laws to be upheld.</source>
+          <target state="new">Azure Mobile Engagement is a globally deployable solution, allowing for regional or country specific data privacy laws to be upheld.</target>
+        </trans-unit>
+        <trans-unit id="dba7ac24-f124-4f4c-ac55-07631846b7e6" xml:space="preserve">
+          <source><bpt id="6afb7200-b99b-4f45-af36-fa6cf3b3d67a">&lt;linkText&gt;</bpt>Getting Started (Marketers)<ept id="6afb7200-b99b-4f45-af36-fa6cf3b3d67a">&lt;/linkText&gt;</ept><bpt id="6afb7200-b99b-4f45-af36-fa6cf3b3d67a">&lt;title&gt;</bpt><ept id="6afb7200-b99b-4f45-af36-fa6cf3b3d67a">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="6afb7200-b99b-4f45-af36-fa6cf3b3d67a">&lt;linkText&gt;</bpt>Getting Started (Marketers)<ept id="6afb7200-b99b-4f45-af36-fa6cf3b3d67a">&lt;/linkText&gt;</ept><bpt id="6afb7200-b99b-4f45-af36-fa6cf3b3d67a">&lt;title&gt;</bpt><ept id="6afb7200-b99b-4f45-af36-fa6cf3b3d67a">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="9de8aea5-66c6-41e1-b587-276612ceeaf6" xml:space="preserve">
+          <source><bpt id="81820a93-f0ef-441a-abfd-a30cb981cd00">&lt;linkText&gt;</bpt>Getting Started (Developers)<ept id="81820a93-f0ef-441a-abfd-a30cb981cd00">&lt;/linkText&gt;</ept><bpt id="81820a93-f0ef-441a-abfd-a30cb981cd00">&lt;title&gt;</bpt><ept id="81820a93-f0ef-441a-abfd-a30cb981cd00">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="81820a93-f0ef-441a-abfd-a30cb981cd00">&lt;linkText&gt;</bpt>Getting Started (Developers)<ept id="81820a93-f0ef-441a-abfd-a30cb981cd00">&lt;/linkText&gt;</ept><bpt id="81820a93-f0ef-441a-abfd-a30cb981cd00">&lt;title&gt;</bpt><ept id="81820a93-f0ef-441a-abfd-a30cb981cd00">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

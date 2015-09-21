@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0c8d5997-316a-417b-8b0c-8f4f29bef23e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0c8d5997-316a-417b-8b0c-8f4f29bef23e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bcf23107-2344-4895-bf68-960fcf74af7d">
+        <trans-unit id="0044f466-dffb-451d-adc3-40cdce83e092" xml:space="preserve">
+          <source>Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection.</source>
+          <target state="new">Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection.</target>
+        </trans-unit>
+        <trans-unit id="7739448e-a5e7-4096-ae28-a247314fce81" xml:space="preserve">
+          <source>If you don't already have the [Mobile Services Android SDK], download it now and expand the compressed files.</source>
+          <target state="new">If you don't already have the [Mobile Services Android SDK], download it now and expand the compressed files.</target>
+        </trans-unit>
+        <trans-unit id="01b1f417-2da1-4eb9-90fa-efe9adafc1ac" xml:space="preserve">
+          <source>Copy the <bpt id="173b5541-d368-4166-8a49-b701e5c57a59">&lt;code&gt;</bpt>.jar<ept id="173b5541-d368-4166-8a49-b701e5c57a59">&lt;/code&gt;</ept> files from the <bpt id="a2f0ff7d-4a7a-4af9-ad9a-76836f893c06">&lt;code&gt;</bpt>mobileservices<ept id="a2f0ff7d-4a7a-4af9-ad9a-76836f893c06">&lt;/code&gt;</ept> folder of the SDK into the <bpt id="22647cbb-41a7-4b26-9f50-f18475b3e5d9">&lt;code&gt;</bpt>libs<ept id="22647cbb-41a7-4b26-9f50-f18475b3e5d9">&lt;/code&gt;</ept> folder of the GetStartedWithData project.</source>
+          <target state="new">Copy the <bpt id="173b5541-d368-4166-8a49-b701e5c57a59">&lt;code&gt;</bpt>.jar<ept id="173b5541-d368-4166-8a49-b701e5c57a59">&lt;/code&gt;</ept> files from the <bpt id="a2f0ff7d-4a7a-4af9-ad9a-76836f893c06">&lt;code&gt;</bpt>mobileservices<ept id="a2f0ff7d-4a7a-4af9-ad9a-76836f893c06">&lt;/code&gt;</ept> folder of the SDK into the <bpt id="22647cbb-41a7-4b26-9f50-f18475b3e5d9">&lt;code&gt;</bpt>libs<ept id="22647cbb-41a7-4b26-9f50-f18475b3e5d9">&lt;/code&gt;</ept> folder of the GetStartedWithData project.</target>
+        </trans-unit>
+        <trans-unit id="ccbbbf71-3f31-4752-93a1-7836e6bb1323" xml:space="preserve">
+          <source>In Package Explorer in Eclipse, right-click the <bpt id="118d070d-6b52-4d10-b67d-b58ac58c0306">&lt;code&gt;</bpt>libs<ept id="118d070d-6b52-4d10-b67d-b58ac58c0306">&lt;/code&gt;</ept> folder, click <bpt id="b86bf0db-2ddc-4900-9f07-90be1579b8c7">&lt;strong&gt;</bpt>Refresh<ept id="b86bf0db-2ddc-4900-9f07-90be1579b8c7">&lt;/strong&gt;</ept>, and the copied jar files will appear</source>
+          <target state="new">In Package Explorer in Eclipse, right-click the <bpt id="118d070d-6b52-4d10-b67d-b58ac58c0306">&lt;code&gt;</bpt>libs<ept id="118d070d-6b52-4d10-b67d-b58ac58c0306">&lt;/code&gt;</ept> folder, click <bpt id="b86bf0db-2ddc-4900-9f07-90be1579b8c7">&lt;strong&gt;</bpt>Refresh<ept id="b86bf0db-2ddc-4900-9f07-90be1579b8c7">&lt;/strong&gt;</ept>, and the copied jar files will appear</target>
+        </trans-unit>
+        <trans-unit id="87cf4500-a1d7-487d-bde1-1e44546ef0da" xml:space="preserve">
+          <source>This adds the Mobile Services SDK reference to the workspace.</source>
+          <target state="new">This adds the Mobile Services SDK reference to the workspace.</target>
+        </trans-unit>
+        <trans-unit id="d06465d0-a53c-4470-80ed-c4c4f2995a82" xml:space="preserve">
+          <source>Open the AndroidManifest.xml file and add the following line, which enables the app to access Mobile Services in Azure.</source>
+          <target state="new">Open the AndroidManifest.xml file and add the following line, which enables the app to access Mobile Services in Azure.</target>
+        </trans-unit>
+        <trans-unit id="82d083cf-4fe0-453f-a8c7-c56f02bd6c43" xml:space="preserve">
+          <source>From Package Explorer, Open the TodoActivity.java file located in the com.example.getstartedwithdata package, and uncomment the following lines of code: </source>
+          <target state="new">From Package Explorer, Open the TodoActivity.java file located in the com.example.getstartedwithdata package, and uncomment the following lines of code: </target>
+        </trans-unit>
+        <trans-unit id="76ff3edf-6314-4b18-a48b-b8c7982f050e" xml:space="preserve">
+          <source>Comment out the following lines:</source>
+          <target state="new">Comment out the following lines:</target>
+        </trans-unit>
+        <trans-unit id="47be7b33-a82c-4f04-b031-5cc9d54c77b0" xml:space="preserve">
+          <source>We will remove the in-memory list currently used by the app, so we can replace it with a mobile service.</source>
+          <target state="new">We will remove the in-memory list currently used by the app, so we can replace it with a mobile service.</target>
+        </trans-unit>
+        <trans-unit id="df69810d-2f2d-441a-9df6-63b4ad875d0d" xml:space="preserve">
+          <source>In the <bpt id="29cac72e-eb0e-41e8-a277-75c19165664c">&lt;strong&gt;</bpt>ToDoActivity<ept id="29cac72e-eb0e-41e8-a277-75c19165664c">&lt;/strong&gt;</ept> class, comment out the following line of code, which defines the existing <bpt id="3a404002-2dbf-48e8-8aff-0a058222ab65">&lt;strong&gt;</bpt>toDoItemList<ept id="3a404002-2dbf-48e8-8aff-0a058222ab65">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">In the <bpt id="29cac72e-eb0e-41e8-a277-75c19165664c">&lt;strong&gt;</bpt>ToDoActivity<ept id="29cac72e-eb0e-41e8-a277-75c19165664c">&lt;/strong&gt;</ept> class, comment out the following line of code, which defines the existing <bpt id="3a404002-2dbf-48e8-8aff-0a058222ab65">&lt;strong&gt;</bpt>toDoItemList<ept id="3a404002-2dbf-48e8-8aff-0a058222ab65">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="99492cf8-bd3d-4b41-b086-1373805dfdf2" xml:space="preserve">
+          <source>Save the file, and the project will indicate build errors.</source>
+          <target state="new">Save the file, and the project will indicate build errors.</target>
+        </trans-unit>
+        <trans-unit id="736fe759-fb66-4e7e-ad7b-9fb3f45258f6" xml:space="preserve">
+          <source>Search for the three remaining locations where the <bpt id="af7c640f-2500-4437-b399-4d086e1e1221">&lt;code&gt;</bpt>toDoItemList<ept id="af7c640f-2500-4437-b399-4d086e1e1221">&lt;/code&gt;</ept> variable is used and comment out the sections indicated.</source>
+          <target state="new">Search for the three remaining locations where the <bpt id="af7c640f-2500-4437-b399-4d086e1e1221">&lt;code&gt;</bpt>toDoItemList<ept id="af7c640f-2500-4437-b399-4d086e1e1221">&lt;/code&gt;</ept> variable is used and comment out the sections indicated.</target>
+        </trans-unit>
+        <trans-unit id="431de821-1497-42fb-b4a1-e72e0e734674" xml:space="preserve">
+          <source>This fully removes the in-memory list.</source>
+          <target state="new">This fully removes the in-memory list.</target>
+        </trans-unit>
+        <trans-unit id="00374c43-7982-46c7-846a-9d51e2548fae" xml:space="preserve">
+          <source>We now add our mobile service.</source>
+          <target state="new">We now add our mobile service.</target>
+        </trans-unit>
+        <trans-unit id="fd3972a0-7c8a-4e02-8b6b-5a7c5313298e" xml:space="preserve">
+          <source>Uncomment the following lines of code:</source>
+          <target state="new">Uncomment the following lines of code:</target>
+        </trans-unit>
+        <trans-unit id="212b3c98-0d3a-40f3-9c76-cdf044be3b30" xml:space="preserve">
+          <source>Find the <bpt id="b9a13f87-1c0b-438c-a522-f24843a1a68f">&lt;em&gt;</bpt>ProgressFilter<ept id="b9a13f87-1c0b-438c-a522-f24843a1a68f">&lt;/em&gt;</ept> class at the bottom of the file and uncomment it.</source>
+          <target state="new">Find the <bpt id="b9a13f87-1c0b-438c-a522-f24843a1a68f">&lt;em&gt;</bpt>ProgressFilter<ept id="b9a13f87-1c0b-438c-a522-f24843a1a68f">&lt;/em&gt;</ept> class at the bottom of the file and uncomment it.</target>
+        </trans-unit>
+        <trans-unit id="8871fddb-6f9c-48d8-a11c-c1f778810f3d" xml:space="preserve">
+          <source>This class displays a 'loading' indicator while <bpt id="49b95f8e-364d-4ffe-a995-c9c414dae80c">&lt;em&gt;</bpt>MobileServiceClient<ept id="49b95f8e-364d-4ffe-a995-c9c414dae80c">&lt;/em&gt;</ept> is running network operations.</source>
+          <target state="new">This class displays a 'loading' indicator while <bpt id="49b95f8e-364d-4ffe-a995-c9c414dae80c">&lt;em&gt;</bpt>MobileServiceClient<ept id="49b95f8e-364d-4ffe-a995-c9c414dae80c">&lt;/em&gt;</ept> is running network operations.</target>
+        </trans-unit>
+        <trans-unit id="d44f2508-f84a-4e08-a08b-0b0815f9f4ab" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="001fb0d5-7622-4a81-bf63-9b6dd249a0be">&lt;strong&gt;</bpt>Mobile Services<ept id="001fb0d5-7622-4a81-bf63-9b6dd249a0be">&lt;/strong&gt;</ept>, and then click the mobile service you just created.</source>
+          <target state="new">In the Management Portal, click <bpt id="001fb0d5-7622-4a81-bf63-9b6dd249a0be">&lt;strong&gt;</bpt>Mobile Services<ept id="001fb0d5-7622-4a81-bf63-9b6dd249a0be">&lt;/strong&gt;</ept>, and then click the mobile service you just created.</target>
+        </trans-unit>
+        <trans-unit id="c9deb1d9-be2f-4a54-af8b-7c0cf283a851" xml:space="preserve">
+          <source>Click the <bpt id="9b7cb4b4-2447-4472-ac3b-77891ed0b7e0">&lt;strong&gt;</bpt>Dashboard<ept id="9b7cb4b4-2447-4472-ac3b-77891ed0b7e0">&lt;/strong&gt;</ept> tab and make a note of the <bpt id="a75a0811-f9b5-4985-bc86-5412721b090c">&lt;strong&gt;</bpt>Site URL<ept id="a75a0811-f9b5-4985-bc86-5412721b090c">&lt;/strong&gt;</ept>, then click <bpt id="cd7a763b-1fd6-4f40-b4de-fac44a2af0c7">&lt;strong&gt;</bpt>Manage keys<ept id="cd7a763b-1fd6-4f40-b4de-fac44a2af0c7">&lt;/strong&gt;</ept> and make a note of the <bpt id="aa56fee1-8281-41b0-b603-2e3a57e41874">&lt;strong&gt;</bpt>Application key<ept id="aa56fee1-8281-41b0-b603-2e3a57e41874">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="9b7cb4b4-2447-4472-ac3b-77891ed0b7e0">&lt;strong&gt;</bpt>Dashboard<ept id="9b7cb4b4-2447-4472-ac3b-77891ed0b7e0">&lt;/strong&gt;</ept> tab and make a note of the <bpt id="a75a0811-f9b5-4985-bc86-5412721b090c">&lt;strong&gt;</bpt>Site URL<ept id="a75a0811-f9b5-4985-bc86-5412721b090c">&lt;/strong&gt;</ept>, then click <bpt id="cd7a763b-1fd6-4f40-b4de-fac44a2af0c7">&lt;strong&gt;</bpt>Manage keys<ept id="cd7a763b-1fd6-4f40-b4de-fac44a2af0c7">&lt;/strong&gt;</ept> and make a note of the <bpt id="aa56fee1-8281-41b0-b603-2e3a57e41874">&lt;strong&gt;</bpt>Application key<ept id="aa56fee1-8281-41b0-b603-2e3a57e41874">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d222c7ca-5542-431d-8215-483356e89d27" xml:space="preserve">
+          <source><bpt id="71811804-4299-401a-a5ca-dd95f4ff2237">&lt;linkText&gt;</bpt><ept id="71811804-4299-401a-a5ca-dd95f4ff2237">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="71811804-4299-401a-a5ca-dd95f4ff2237">&lt;linkText&gt;</bpt><ept id="71811804-4299-401a-a5ca-dd95f4ff2237">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93fcc612-4e07-40dd-a921-99e20d0661c4" xml:space="preserve">
+          <source>You will need these values when accessing the mobile service from your app code.</source>
+          <target state="new">You will need these values when accessing the mobile service from your app code.</target>
+        </trans-unit>
+        <trans-unit id="e70de75c-8957-4ce6-8ca4-36fb89b0b683" xml:space="preserve">
+          <source>In the <bpt id="27172420-375d-4906-8922-9b1630408172">&lt;strong&gt;</bpt>onCreate<ept id="27172420-375d-4906-8922-9b1630408172">&lt;/strong&gt;</ept> method, uncomment the following lines of code that define the <bpt id="6970d80e-671f-48c5-80f2-ade6e03e1df3">&lt;strong&gt;</bpt>MobileServiceClient<ept id="6970d80e-671f-48c5-80f2-ade6e03e1df3">&lt;/strong&gt;</ept> variable:</source>
+          <target state="new">In the <bpt id="27172420-375d-4906-8922-9b1630408172">&lt;strong&gt;</bpt>onCreate<ept id="27172420-375d-4906-8922-9b1630408172">&lt;/strong&gt;</ept> method, uncomment the following lines of code that define the <bpt id="6970d80e-671f-48c5-80f2-ade6e03e1df3">&lt;strong&gt;</bpt>MobileServiceClient<ept id="6970d80e-671f-48c5-80f2-ade6e03e1df3">&lt;/strong&gt;</ept> variable:</target>
+        </trans-unit>
+        <trans-unit id="bb8c01e0-2371-45e3-8ea8-4797e9cef171" xml:space="preserve">
+          <source>This creates a new instance of <bpt id="873ce509-a4a3-4edc-8af6-4f7b03f4932b">&lt;em&gt;</bpt>MobileServiceClient<ept id="873ce509-a4a3-4edc-8af6-4f7b03f4932b">&lt;/em&gt;</ept> that is used to access your mobile service.</source>
+          <target state="new">This creates a new instance of <bpt id="873ce509-a4a3-4edc-8af6-4f7b03f4932b">&lt;em&gt;</bpt>MobileServiceClient<ept id="873ce509-a4a3-4edc-8af6-4f7b03f4932b">&lt;/em&gt;</ept> that is used to access your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="dbb1e076-fb65-4cbf-9146-8eed87850fc5" xml:space="preserve">
+          <source>It also creates the <bpt id="f9d5c851-b153-455e-811f-f237febd4a36">&lt;em&gt;</bpt>MobileServiceTable<ept id="f9d5c851-b153-455e-811f-f237febd4a36">&lt;/em&gt;</ept> instance that is used to proxy data storage in the mobile service.</source>
+          <target state="new">It also creates the <bpt id="f9d5c851-b153-455e-811f-f237febd4a36">&lt;em&gt;</bpt>MobileServiceTable<ept id="f9d5c851-b153-455e-811f-f237febd4a36">&lt;/em&gt;</ept> instance that is used to proxy data storage in the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="20ddd682-fed1-4a0c-9e24-77bbbda622bd" xml:space="preserve">
+          <source>In the code above, replace <bpt id="0397ec54-6dfe-444f-9523-ef893af880f6">&lt;code&gt;</bpt>MobileServiceUrl<ept id="0397ec54-6dfe-444f-9523-ef893af880f6">&lt;/code&gt;</ept> and <bpt id="c2cbda27-2417-4f9f-bae5-f8b9a77a0429">&lt;code&gt;</bpt>AppKey<ept id="c2cbda27-2417-4f9f-bae5-f8b9a77a0429">&lt;/code&gt;</ept> with the URL and application key from your mobile service, in that order.</source>
+          <target state="new">In the code above, replace <bpt id="0397ec54-6dfe-444f-9523-ef893af880f6">&lt;code&gt;</bpt>MobileServiceUrl<ept id="0397ec54-6dfe-444f-9523-ef893af880f6">&lt;/code&gt;</ept> and <bpt id="c2cbda27-2417-4f9f-bae5-f8b9a77a0429">&lt;code&gt;</bpt>AppKey<ept id="c2cbda27-2417-4f9f-bae5-f8b9a77a0429">&lt;/code&gt;</ept> with the URL and application key from your mobile service, in that order.</target>
+        </trans-unit>
+        <trans-unit id="e82efe96-4ea5-4029-94f1-5f296fadbed6" xml:space="preserve">
+          <source>Uncommment these lines of the <bpt id="0024dbec-a045-4b9f-8e4d-29d6ebc0587d">&lt;strong&gt;</bpt>checkItem<ept id="0024dbec-a045-4b9f-8e4d-29d6ebc0587d">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Uncommment these lines of the <bpt id="0024dbec-a045-4b9f-8e4d-29d6ebc0587d">&lt;strong&gt;</bpt>checkItem<ept id="0024dbec-a045-4b9f-8e4d-29d6ebc0587d">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="10f8c73f-9054-4135-a4ea-3ce8b5964344" xml:space="preserve">
+          <source>This sends an item update to the mobile service and removes checked items from the adapter.</source>
+          <target state="new">This sends an item update to the mobile service and removes checked items from the adapter.</target>
+        </trans-unit>
+        <trans-unit id="f990ee6f-60f3-4677-a6b1-a90edd891953" xml:space="preserve">
+          <source>Uncommment these lines of the <bpt id="36f98ede-51bd-41f5-8110-131fd8c3f355">&lt;strong&gt;</bpt>addItem<ept id="36f98ede-51bd-41f5-8110-131fd8c3f355">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Uncommment these lines of the <bpt id="36f98ede-51bd-41f5-8110-131fd8c3f355">&lt;strong&gt;</bpt>addItem<ept id="36f98ede-51bd-41f5-8110-131fd8c3f355">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="6fa8f94f-51bf-4265-8209-c54da1f70e7f" xml:space="preserve">
+          <source>This code creates a new item and inserts it into the table in the remote mobile service.</source>
+          <target state="new">This code creates a new item and inserts it into the table in the remote mobile service.</target>
+        </trans-unit>
+        <trans-unit id="39ba2f8f-4649-4a7b-a18f-4a073748849d" xml:space="preserve">
+          <source>Uncommment these lines of the <bpt id="cc4051fd-e63e-4193-bbb6-70926279cf8a">&lt;strong&gt;</bpt>refreshItemsFromTable<ept id="cc4051fd-e63e-4193-bbb6-70926279cf8a">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Uncommment these lines of the <bpt id="cc4051fd-e63e-4193-bbb6-70926279cf8a">&lt;strong&gt;</bpt>refreshItemsFromTable<ept id="cc4051fd-e63e-4193-bbb6-70926279cf8a">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="2352bb30-4d8b-4ab7-a14e-16d52e5cb3ad" xml:space="preserve">
+          <source>This queries the mobile service and returns all items that are not marked as complete.</source>
+          <target state="new">This queries the mobile service and returns all items that are not marked as complete.</target>
+        </trans-unit>
+        <trans-unit id="67f225a4-14a4-485d-99bd-83528d21d78c" xml:space="preserve">
+          <source>Items are added to the adapter for binding.</source>
+          <target state="new">Items are added to the adapter for binding.</target>
+        </trans-unit>
+        <trans-unit id="c539dd9b-a8a6-4205-add6-d82f3f4d52c1" xml:space="preserve">
+          <source>http://aka.ms/Iajk6q</source>
+          <target state="new">http://aka.ms/Iajk6q</target>
+        </trans-unit>
+      </group>
+      <group id="99baedd6-9f72-46f8-9b85-b7115c3a655c" />
+    </body>
+  </file>
+</xliff>

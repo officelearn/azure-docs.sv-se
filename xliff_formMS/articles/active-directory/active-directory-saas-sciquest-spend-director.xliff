@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0f7ea898-284e-459b-a0dc-1ae1c351d3b6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0f7ea898-284e-459b-a0dc-1ae1c351d3b6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ff594e56-ae2f-4f1a-a821-9a250ccc9dd8">
+        <trans-unit id="a5054517-eb31-4c46-8c04-5649ebee8ad0" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with SciQuest Spend Director</source>
+          <target state="new">Tutorial: Azure Active Directory integration with SciQuest Spend Director</target>
+        </trans-unit>
+        <trans-unit id="4bd089a5-c873-41ee-b033-52b4112eebaa" xml:space="preserve">
+          <source>Learn how to configure single sign-on between Azure Active Directory and SciQuest Spend Director.</source>
+          <target state="new">Learn how to configure single sign-on between Azure Active Directory and SciQuest Spend Director.</target>
+        </trans-unit>
+        <trans-unit id="808c2811-2aff-4ff4-bd38-0e04abe3ef4d" xml:space="preserve">
+          <source>The objective of this tutorial is to show you how to integrate SciQuest Spend Director with Azure Active Directory (Azure AD).&lt;br&gt;Integrating SciQuest Spend Director with Azure AD provides you with the following benefits: </source>
+          <target state="new">The objective of this tutorial is to show you how to integrate SciQuest Spend Director with Azure Active Directory (Azure AD).&lt;br&gt;Integrating SciQuest Spend Director with Azure AD provides you with the following benefits: </target>
+        </trans-unit>
+        <trans-unit id="f161e3f4-d646-4b77-8c3d-9e3dfae1e67f" xml:space="preserve">
+          <source>You can control in Azure AD who has access to SciQuest Spend Director </source>
+          <target state="new">You can control in Azure AD who has access to SciQuest Spend Director </target>
+        </trans-unit>
+        <trans-unit id="1a7610d0-0e8c-41bd-bbb1-557a2fe4d35a" xml:space="preserve">
+          <source>You can enable your users to automatically get signed-on to SciQuest Spend Director (Single Sign-On) with their Azure AD accounts</source>
+          <target state="new">You can enable your users to automatically get signed-on to SciQuest Spend Director (Single Sign-On) with their Azure AD accounts</target>
+        </trans-unit>
+        <trans-unit id="883651a5-6037-45df-a2fb-1b3293eb10e7" xml:space="preserve">
+          <source>You can manage your accounts in one central location - the Azure Active Directory Portal</source>
+          <target state="new">You can manage your accounts in one central location - the Azure Active Directory Portal</target>
+        </trans-unit>
+        <trans-unit id="35c49b31-4ba5-4020-8a97-d454d20cf483" xml:space="preserve">
+          <source>If you want to know more details about SaaS app integration with Azure AD, see <bpt id="3cfafc81-e204-423d-be1f-e2768e6da498">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory<ept id="3cfafc81-e204-423d-be1f-e2768e6da498">&lt;/linkText&gt;</ept><bpt id="3cfafc81-e204-423d-be1f-e2768e6da498">&lt;title&gt;</bpt><ept id="3cfafc81-e204-423d-be1f-e2768e6da498">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to know more details about SaaS app integration with Azure AD, see <bpt id="3cfafc81-e204-423d-be1f-e2768e6da498">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory<ept id="3cfafc81-e204-423d-be1f-e2768e6da498">&lt;/linkText&gt;</ept><bpt id="3cfafc81-e204-423d-be1f-e2768e6da498">&lt;title&gt;</bpt><ept id="3cfafc81-e204-423d-be1f-e2768e6da498">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa1f78e9-8b8a-4125-b827-67b22167b3a0" xml:space="preserve">
+          <source>To configure Azure AD integration with SciQuest Spend Director, you need the following items:</source>
+          <target state="new">To configure Azure AD integration with SciQuest Spend Director, you need the following items:</target>
+        </trans-unit>
+        <trans-unit id="dc5ccbdd-8f11-4bc0-b27a-53557316a562" xml:space="preserve">
+          <source>An Azure AD subscription</source>
+          <target state="new">An Azure AD subscription</target>
+        </trans-unit>
+        <trans-unit id="307db74c-0d06-46d3-a3fb-4a1c2b16a404" xml:space="preserve">
+          <source>A SciQuest Spend Director single-sign on enabled subscription</source>
+          <target state="new">A SciQuest Spend Director single-sign on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="4992c5a2-4ee7-4d85-86ff-b4fdfa3ad65f" xml:space="preserve">
+          <source>To test the steps in this tutorial, we do not recommend using a production environment.</source>
+          <target state="new">To test the steps in this tutorial, we do not recommend using a production environment.</target>
+        </trans-unit>
+        <trans-unit id="2276427c-527c-453a-81c2-96dc954de553" xml:space="preserve">
+          <source>To test the steps in this tutorial, you should follow these recommendations:</source>
+          <target state="new">To test the steps in this tutorial, you should follow these recommendations:</target>
+        </trans-unit>
+        <trans-unit id="7f89460c-fac6-4072-ad3b-84aac49f4419" xml:space="preserve">
+          <source>You should not use your production environment, unless this is necessary.</source>
+          <target state="new">You should not use your production environment, unless this is necessary.</target>
+        </trans-unit>
+        <trans-unit id="4491190e-f6a4-4669-aeed-ea6d88445452" xml:space="preserve">
+          <source>If you don't have an Azure AD trial environment, you can get a one-month trial <bpt id="2c480b96-3d85-4f3a-9bfd-7fa797a50ae6">&lt;linkText&gt;</bpt>here<ept id="2c480b96-3d85-4f3a-9bfd-7fa797a50ae6">&lt;/linkText&gt;</ept><bpt id="2c480b96-3d85-4f3a-9bfd-7fa797a50ae6">&lt;title&gt;</bpt><ept id="2c480b96-3d85-4f3a-9bfd-7fa797a50ae6">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have an Azure AD trial environment, you can get a one-month trial <bpt id="2c480b96-3d85-4f3a-9bfd-7fa797a50ae6">&lt;linkText&gt;</bpt>here<ept id="2c480b96-3d85-4f3a-9bfd-7fa797a50ae6">&lt;/linkText&gt;</ept><bpt id="2c480b96-3d85-4f3a-9bfd-7fa797a50ae6">&lt;title&gt;</bpt><ept id="2c480b96-3d85-4f3a-9bfd-7fa797a50ae6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4fcc1e4-71b2-473a-abb3-5cb50f8df198" xml:space="preserve">
+          <source>The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. &lt;br&gt;
+The scenario outlined in this tutorial consists of two main building blocks:</source>
+          <target state="new">The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. &lt;br&gt;
+The scenario outlined in this tutorial consists of two main building blocks:</target>
+        </trans-unit>
+        <trans-unit id="a05865ce-9832-4503-b564-933e2d53d08b" xml:space="preserve">
+          <source>Adding SciQuest Spend Director from the gallery </source>
+          <target state="new">Adding SciQuest Spend Director from the gallery </target>
+        </trans-unit>
+        <trans-unit id="0f8ae7ea-965e-4a40-bfdf-4ab25f726b2f" xml:space="preserve">
+          <source>Configuring and testing Azure AD single sign-on</source>
+          <target state="new">Configuring and testing Azure AD single sign-on</target>
+        </trans-unit>
+        <trans-unit id="5377babf-40e7-4f7f-abfd-e7e654a33f44" xml:space="preserve">
+          <source>To configure the integration of SciQuest Spend Director into Azure AD, you need to add SciQuest Spend Director from the gallery to your list of managed SaaS apps.</source>
+          <target state="new">To configure the integration of SciQuest Spend Director into Azure AD, you need to add SciQuest Spend Director from the gallery to your list of managed SaaS apps.</target>
+        </trans-unit>
+        <trans-unit id="a567ecb4-11da-4b57-878c-840cf2f69930" xml:space="preserve">
+          <source><bpt id="e88977c9-928b-419c-a222-6601ca2e22ca">&lt;strong&gt;</bpt>To add SciQuest Spend Director from the gallery, perform the following steps:<ept id="e88977c9-928b-419c-a222-6601ca2e22ca">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e88977c9-928b-419c-a222-6601ca2e22ca">&lt;strong&gt;</bpt>To add SciQuest Spend Director from the gallery, perform the following steps:<ept id="e88977c9-928b-419c-a222-6601ca2e22ca">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3bfec69-7669-4f34-9a23-569d6ab036a9" xml:space="preserve">
+          <source>In the <bpt id="c2f8d0ee-9e75-4e49-9df6-36ec0e32b076">&lt;strong&gt;</bpt>Azure Management Portal<ept id="c2f8d0ee-9e75-4e49-9df6-36ec0e32b076">&lt;/strong&gt;</ept>, on the left navigation pane, click <bpt id="a1619d96-a3fa-4f5c-8a08-3b8314c1ce0b">&lt;strong&gt;</bpt>Active Directory<ept id="a1619d96-a3fa-4f5c-8a08-3b8314c1ce0b">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;
+<bpt id="0ccf0839-5907-4454-a068-9caa1e556d20">&lt;linkText&gt;</bpt>Active Directory<ept id="0ccf0839-5907-4454-a068-9caa1e556d20">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the <bpt id="c2f8d0ee-9e75-4e49-9df6-36ec0e32b076">&lt;strong&gt;</bpt>Azure Management Portal<ept id="c2f8d0ee-9e75-4e49-9df6-36ec0e32b076">&lt;/strong&gt;</ept>, on the left navigation pane, click <bpt id="a1619d96-a3fa-4f5c-8a08-3b8314c1ce0b">&lt;strong&gt;</bpt>Active Directory<ept id="a1619d96-a3fa-4f5c-8a08-3b8314c1ce0b">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;
+<bpt id="0ccf0839-5907-4454-a068-9caa1e556d20">&lt;linkText&gt;</bpt>Active Directory<ept id="0ccf0839-5907-4454-a068-9caa1e556d20">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad5a7c69-fa56-4e65-b8c4-f59013026d52" xml:space="preserve">
+          <source>From the <bpt id="a5ff8481-baaa-42a2-8846-7b501a3ed521">&lt;strong&gt;</bpt>Directory<ept id="a5ff8481-baaa-42a2-8846-7b501a3ed521">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="a5ff8481-baaa-42a2-8846-7b501a3ed521">&lt;strong&gt;</bpt>Directory<ept id="a5ff8481-baaa-42a2-8846-7b501a3ed521">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="f70bfa91-c26b-450e-b3b1-63b595f65f1f" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="3cb181eb-5760-4a6a-9abd-6fda710ed4c8">&lt;strong&gt;</bpt>Applications<ept id="3cb181eb-5760-4a6a-9abd-6fda710ed4c8">&lt;/strong&gt;</ept> in the top menu.&lt;br&gt;&lt;br&gt;
+<bpt id="667134b9-71b6-4ad2-9d7a-e819bdd3fa50">&lt;linkText&gt;</bpt>Applications<ept id="667134b9-71b6-4ad2-9d7a-e819bdd3fa50">&lt;/linkText&gt;</ept></source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="3cb181eb-5760-4a6a-9abd-6fda710ed4c8">&lt;strong&gt;</bpt>Applications<ept id="3cb181eb-5760-4a6a-9abd-6fda710ed4c8">&lt;/strong&gt;</ept> in the top menu.&lt;br&gt;&lt;br&gt;
+<bpt id="667134b9-71b6-4ad2-9d7a-e819bdd3fa50">&lt;linkText&gt;</bpt>Applications<ept id="667134b9-71b6-4ad2-9d7a-e819bdd3fa50">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fb8f762-a9f2-4f31-b657-fc7ee5d7e6bc" xml:space="preserve">
+          <source>Click <bpt id="204edd42-e255-47ca-9b51-b3bfeb7c9e7e">&lt;strong&gt;</bpt>Add<ept id="204edd42-e255-47ca-9b51-b3bfeb7c9e7e">&lt;/strong&gt;</ept> at the bottom of the page.&lt;br&gt;&lt;br&gt;
+<bpt id="f01f247f-f71c-4133-856e-2a1ca41fade5">&lt;linkText&gt;</bpt>Applications<ept id="f01f247f-f71c-4133-856e-2a1ca41fade5">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click <bpt id="204edd42-e255-47ca-9b51-b3bfeb7c9e7e">&lt;strong&gt;</bpt>Add<ept id="204edd42-e255-47ca-9b51-b3bfeb7c9e7e">&lt;/strong&gt;</ept> at the bottom of the page.&lt;br&gt;&lt;br&gt;
+<bpt id="f01f247f-f71c-4133-856e-2a1ca41fade5">&lt;linkText&gt;</bpt>Applications<ept id="f01f247f-f71c-4133-856e-2a1ca41fade5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69eb471a-42c5-4f2e-80d7-c597635207c0" xml:space="preserve">
+          <source>On the <bpt id="de1c2a0b-02b4-4c29-a5fc-409173f22362">&lt;strong&gt;</bpt>What do you want to do<ept id="de1c2a0b-02b4-4c29-a5fc-409173f22362">&lt;/strong&gt;</ept> dialog, click <bpt id="d279af03-4ebc-4d29-a6f2-171cf70de5bd">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="d279af03-4ebc-4d29-a6f2-171cf70de5bd">&lt;/strong&gt;</ept>.&lt;br&gt;&lt;br&gt;
+<bpt id="e25a5fbd-4ee4-4b8b-a4b1-116ef1eb8bc1">&lt;linkText&gt;</bpt>Applications<ept id="e25a5fbd-4ee4-4b8b-a4b1-116ef1eb8bc1">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="de1c2a0b-02b4-4c29-a5fc-409173f22362">&lt;strong&gt;</bpt>What do you want to do<ept id="de1c2a0b-02b4-4c29-a5fc-409173f22362">&lt;/strong&gt;</ept> dialog, click <bpt id="d279af03-4ebc-4d29-a6f2-171cf70de5bd">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="d279af03-4ebc-4d29-a6f2-171cf70de5bd">&lt;/strong&gt;</ept>.&lt;br&gt;&lt;br&gt;
+<bpt id="e25a5fbd-4ee4-4b8b-a4b1-116ef1eb8bc1">&lt;linkText&gt;</bpt>Applications<ept id="e25a5fbd-4ee4-4b8b-a4b1-116ef1eb8bc1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b59b341-1083-470b-ac8f-4fc7b336b702" xml:space="preserve">
+          <source>In the search box, type <bpt id="51f8a4da-96db-4cf0-9a5a-ba374ce6bfcb">&lt;strong&gt;</bpt>sciQuest spend director<ept id="51f8a4da-96db-4cf0-9a5a-ba374ce6bfcb">&lt;/strong&gt;</ept>.&lt;br&gt;
+<bpt id="5a5c6e04-1f77-46b9-bc8b-9be5b8b92364">&lt;linkText&gt;</bpt>Applications<ept id="5a5c6e04-1f77-46b9-bc8b-9be5b8b92364">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the search box, type <bpt id="51f8a4da-96db-4cf0-9a5a-ba374ce6bfcb">&lt;strong&gt;</bpt>sciQuest spend director<ept id="51f8a4da-96db-4cf0-9a5a-ba374ce6bfcb">&lt;/strong&gt;</ept>.&lt;br&gt;
+<bpt id="5a5c6e04-1f77-46b9-bc8b-9be5b8b92364">&lt;linkText&gt;</bpt>Applications<ept id="5a5c6e04-1f77-46b9-bc8b-9be5b8b92364">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d600146-8dcb-4910-a302-bce39c20fe39" xml:space="preserve">
+          <source>In the results pane, select <bpt id="82b2232a-dff5-43e2-a821-ea22427ea010">&lt;strong&gt;</bpt>SciQuest Spend Director<ept id="82b2232a-dff5-43e2-a821-ea22427ea010">&lt;/strong&gt;</ept>, and then click <bpt id="295d0a68-3708-4009-86a5-49237b5bd640">&lt;strong&gt;</bpt>Complete<ept id="295d0a68-3708-4009-86a5-49237b5bd640">&lt;/strong&gt;</ept> to add the application.&lt;br&gt;
+<bpt id="653c205e-eead-41cf-9e72-5381249fdd42">&lt;linkText&gt;</bpt>Applications<ept id="653c205e-eead-41cf-9e72-5381249fdd42">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the results pane, select <bpt id="82b2232a-dff5-43e2-a821-ea22427ea010">&lt;strong&gt;</bpt>SciQuest Spend Director<ept id="82b2232a-dff5-43e2-a821-ea22427ea010">&lt;/strong&gt;</ept>, and then click <bpt id="295d0a68-3708-4009-86a5-49237b5bd640">&lt;strong&gt;</bpt>Complete<ept id="295d0a68-3708-4009-86a5-49237b5bd640">&lt;/strong&gt;</ept> to add the application.&lt;br&gt;
+<bpt id="653c205e-eead-41cf-9e72-5381249fdd42">&lt;linkText&gt;</bpt>Applications<ept id="653c205e-eead-41cf-9e72-5381249fdd42">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3150d0d-9a31-4bed-8f4b-e3f71476a5ef" xml:space="preserve">
+          <source>The objective of this section is to show you how to configure and test Azure AD single sign-on with SciQuest Spend Director based on a test user called "Britta Simon".</source>
+          <target state="new">The objective of this section is to show you how to configure and test Azure AD single sign-on with SciQuest Spend Director based on a test user called "Britta Simon".</target>
+        </trans-unit>
+        <trans-unit id="54660ac8-f398-4ca7-a9c2-f225a71f50d7" xml:space="preserve">
+          <source>For single sign-on to work, Azure AD needs to know what the counterpart user in SciQuest Spend Director to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in SciQuest Spend Director needs to be established.&lt;br&gt;
+This link relationship is established by assigning the value of the <bpt id="b0ef96a0-1669-48a9-bc45-fd9d7f7120b3">&lt;strong&gt;</bpt>user name<ept id="b0ef96a0-1669-48a9-bc45-fd9d7f7120b3">&lt;/strong&gt;</ept> in Azure AD as the value of the <bpt id="9dd9653c-ba7c-40f7-8a53-a56b2a8a6fd9">&lt;strong&gt;</bpt>Username<ept id="9dd9653c-ba7c-40f7-8a53-a56b2a8a6fd9">&lt;/strong&gt;</ept> in SciQuest Spend Director.</source>
+          <target state="new">For single sign-on to work, Azure AD needs to know what the counterpart user in SciQuest Spend Director to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in SciQuest Spend Director needs to be established.&lt;br&gt;
+This link relationship is established by assigning the value of the <bpt id="b0ef96a0-1669-48a9-bc45-fd9d7f7120b3">&lt;strong&gt;</bpt>user name<ept id="b0ef96a0-1669-48a9-bc45-fd9d7f7120b3">&lt;/strong&gt;</ept> in Azure AD as the value of the <bpt id="9dd9653c-ba7c-40f7-8a53-a56b2a8a6fd9">&lt;strong&gt;</bpt>Username<ept id="9dd9653c-ba7c-40f7-8a53-a56b2a8a6fd9">&lt;/strong&gt;</ept> in SciQuest Spend Director.</target>
+        </trans-unit>
+        <trans-unit id="e4475a90-90ee-4aaa-b4b7-6bb26374041f" xml:space="preserve">
+          <source>To configure and test Azure AD single sign-on with SciQuest Spend Director, you need to complete the following building blocks:</source>
+          <target state="new">To configure and test Azure AD single sign-on with SciQuest Spend Director, you need to complete the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="1953261a-b82c-4b1b-9f4f-a517ebe355b9" xml:space="preserve">
+          <source><bpt id="13e33aae-dcf3-45d2-81a7-4affd604c810">&lt;strong&gt;</bpt>[Configuring Azure AD Single Single Sign-On](#configuring-azure-ad-single-single-sign-on)<ept id="13e33aae-dcf3-45d2-81a7-4affd604c810">&lt;/strong&gt;</ept> - to enable your users to use this feature.</source>
+          <target state="new"><bpt id="13e33aae-dcf3-45d2-81a7-4affd604c810">&lt;strong&gt;</bpt>[Configuring Azure AD Single Single Sign-On](#configuring-azure-ad-single-single-sign-on)<ept id="13e33aae-dcf3-45d2-81a7-4affd604c810">&lt;/strong&gt;</ept> - to enable your users to use this feature.</target>
+        </trans-unit>
+        <trans-unit id="5e20f570-ef35-4af7-8c08-8cdcff9016ec" xml:space="preserve">
+          <source><bpt id="735bef4f-4136-4ec8-9897-604864264ccc">&lt;strong&gt;</bpt>[Creating an Azure AD test user](#creating-an-azure-ad-test-user)<ept id="735bef4f-4136-4ec8-9897-604864264ccc">&lt;/strong&gt;</ept> - to test Azure AD single sign-on with Britta Simon.</source>
+          <target state="new"><bpt id="735bef4f-4136-4ec8-9897-604864264ccc">&lt;strong&gt;</bpt>[Creating an Azure AD test user](#creating-an-azure-ad-test-user)<ept id="735bef4f-4136-4ec8-9897-604864264ccc">&lt;/strong&gt;</ept> - to test Azure AD single sign-on with Britta Simon.</target>
+        </trans-unit>
+        <trans-unit id="88ec05f7-23d7-4e80-a3f3-de9e2cab66fd" xml:space="preserve">
+          <source><bpt id="c67309f2-8225-4d04-a915-3cf6e28f0744">&lt;strong&gt;</bpt>[Creating a SciQuest Spend Director test user](#creating-a-halogen-software-test-user)<ept id="c67309f2-8225-4d04-a915-3cf6e28f0744">&lt;/strong&gt;</ept> - to have a counterpart of Britta Simon in SciQuest Spend Director that is linked to the Azure AD representation of her.</source>
+          <target state="new"><bpt id="c67309f2-8225-4d04-a915-3cf6e28f0744">&lt;strong&gt;</bpt>[Creating a SciQuest Spend Director test user](#creating-a-halogen-software-test-user)<ept id="c67309f2-8225-4d04-a915-3cf6e28f0744">&lt;/strong&gt;</ept> - to have a counterpart of Britta Simon in SciQuest Spend Director that is linked to the Azure AD representation of her.</target>
+        </trans-unit>
+        <trans-unit id="ece8d91d-4720-41e0-9b01-e15c202778b1" xml:space="preserve">
+          <source><bpt id="f7047f2d-157c-4350-a88d-2f867331c345">&lt;strong&gt;</bpt>[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)<ept id="f7047f2d-157c-4350-a88d-2f867331c345">&lt;/strong&gt;</ept> - to enable Britta Simon to use Azure AD single sign-on.</source>
+          <target state="new"><bpt id="f7047f2d-157c-4350-a88d-2f867331c345">&lt;strong&gt;</bpt>[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)<ept id="f7047f2d-157c-4350-a88d-2f867331c345">&lt;/strong&gt;</ept> - to enable Britta Simon to use Azure AD single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="bfa63219-7d75-4fd9-bbe2-04bf7e55e0fc" xml:space="preserve">
+          <source><bpt id="ca77f0ee-6cb3-47db-bbb5-ecf718f231ad">&lt;strong&gt;</bpt>[Testing Single Sign-On](#testing-single-sign-on)<ept id="ca77f0ee-6cb3-47db-bbb5-ecf718f231ad">&lt;/strong&gt;</ept> - to verify whether the configuration works.</source>
+          <target state="new"><bpt id="ca77f0ee-6cb3-47db-bbb5-ecf718f231ad">&lt;strong&gt;</bpt>[Testing Single Sign-On](#testing-single-sign-on)<ept id="ca77f0ee-6cb3-47db-bbb5-ecf718f231ad">&lt;/strong&gt;</ept> - to verify whether the configuration works.</target>
+        </trans-unit>
+        <trans-unit id="38366d70-4b8a-494b-90e8-4c544508a836" xml:space="preserve">
+          <source>The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your SciQuest Spend Director application.&lt;br&gt;</source>
+          <target state="new">The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your SciQuest Spend Director application.&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="9bb92304-9f39-4ec2-beb7-976a65c246fc" xml:space="preserve">
+          <source><bpt id="06ef8b21-e252-4030-a8e8-cb10820f0554">&lt;strong&gt;</bpt>To configure Azure AD single sign-on with SciQuest Spend Director, perform the following steps:<ept id="06ef8b21-e252-4030-a8e8-cb10820f0554">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="06ef8b21-e252-4030-a8e8-cb10820f0554">&lt;strong&gt;</bpt>To configure Azure AD single sign-on with SciQuest Spend Director, perform the following steps:<ept id="06ef8b21-e252-4030-a8e8-cb10820f0554">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e71c8ab-f5a4-4b44-8660-4241d4994c8a" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="6afa4d8d-af95-417e-a34e-3f71e64d2cbf">&lt;strong&gt;</bpt>SciQuest Spend Director<ept id="6afa4d8d-af95-417e-a34e-3f71e64d2cbf">&lt;/strong&gt;</ept> application integration page, click <bpt id="2399d48a-5d74-416a-b7a1-d856d9dd5cfe">&lt;strong&gt;</bpt>Configure single sign-on<ept id="2399d48a-5d74-416a-b7a1-d856d9dd5cfe">&lt;/strong&gt;</ept> to open the <bpt id="4ae8772a-a1c1-4b59-83a7-db6354b42819">&lt;strong&gt;</bpt>Configure Single Sign-On<ept id="4ae8772a-a1c1-4b59-83a7-db6354b42819">&lt;/strong&gt;</ept>  dialog.&lt;br&gt;&lt;br&gt;
+<bpt id="e188205a-330c-419b-bd25-3679d495e377">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="e188205a-330c-419b-bd25-3679d495e377">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the Azure AD portal, on the <bpt id="6afa4d8d-af95-417e-a34e-3f71e64d2cbf">&lt;strong&gt;</bpt>SciQuest Spend Director<ept id="6afa4d8d-af95-417e-a34e-3f71e64d2cbf">&lt;/strong&gt;</ept> application integration page, click <bpt id="2399d48a-5d74-416a-b7a1-d856d9dd5cfe">&lt;strong&gt;</bpt>Configure single sign-on<ept id="2399d48a-5d74-416a-b7a1-d856d9dd5cfe">&lt;/strong&gt;</ept> to open the <bpt id="4ae8772a-a1c1-4b59-83a7-db6354b42819">&lt;strong&gt;</bpt>Configure Single Sign-On<ept id="4ae8772a-a1c1-4b59-83a7-db6354b42819">&lt;/strong&gt;</ept>  dialog.&lt;br&gt;&lt;br&gt;
+<bpt id="e188205a-330c-419b-bd25-3679d495e377">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="e188205a-330c-419b-bd25-3679d495e377">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4af4d7f5-a5b1-47f7-8622-a8b5bbb500a3" xml:space="preserve">
+          <source>On the <bpt id="5b45a064-65a1-4703-8d86-1b5734f57060">&lt;strong&gt;</bpt>How would you like users to sign on to SciQuest Spend Director<ept id="5b45a064-65a1-4703-8d86-1b5734f57060">&lt;/strong&gt;</ept> page, select <bpt id="2e4d616f-a9d6-442d-b83c-0b505e4c702d">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="2e4d616f-a9d6-442d-b83c-0b505e4c702d">&lt;/strong&gt;</ept>, and then click <bpt id="83dddf63-234d-4fd6-8a31-8d22c6f074d8">&lt;strong&gt;</bpt>Next<ept id="83dddf63-234d-4fd6-8a31-8d22c6f074d8">&lt;/strong&gt;</ept>.&lt;br&gt;&lt;br&gt;
+<bpt id="5140a06b-88a0-4922-8992-98f9ddadbe7a">&lt;linkText&gt;</bpt>Azure AD Single Sign-On<ept id="5140a06b-88a0-4922-8992-98f9ddadbe7a">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="5b45a064-65a1-4703-8d86-1b5734f57060">&lt;strong&gt;</bpt>How would you like users to sign on to SciQuest Spend Director<ept id="5b45a064-65a1-4703-8d86-1b5734f57060">&lt;/strong&gt;</ept> page, select <bpt id="2e4d616f-a9d6-442d-b83c-0b505e4c702d">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="2e4d616f-a9d6-442d-b83c-0b505e4c702d">&lt;/strong&gt;</ept>, and then click <bpt id="83dddf63-234d-4fd6-8a31-8d22c6f074d8">&lt;strong&gt;</bpt>Next<ept id="83dddf63-234d-4fd6-8a31-8d22c6f074d8">&lt;/strong&gt;</ept>.&lt;br&gt;&lt;br&gt;
+<bpt id="5140a06b-88a0-4922-8992-98f9ddadbe7a">&lt;linkText&gt;</bpt>Azure AD Single Sign-On<ept id="5140a06b-88a0-4922-8992-98f9ddadbe7a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8710b036-a049-4909-8213-eae53b0fd361" xml:space="preserve">
+          <source>On the <bpt id="4cc384e5-2ea3-43ef-9e88-f6cb2e2de2c1">&lt;strong&gt;</bpt>Configure App Settings<ept id="4cc384e5-2ea3-43ef-9e88-f6cb2e2de2c1">&lt;/strong&gt;</ept> dialog page, perform the following steps: &lt;br&gt;&lt;br&gt;<bpt id="ca9b8c44-3881-4cfd-8ce7-25f76b766c8e">&lt;linkText&gt;</bpt>Configure App Settings<ept id="ca9b8c44-3881-4cfd-8ce7-25f76b766c8e">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="4cc384e5-2ea3-43ef-9e88-f6cb2e2de2c1">&lt;strong&gt;</bpt>Configure App Settings<ept id="4cc384e5-2ea3-43ef-9e88-f6cb2e2de2c1">&lt;/strong&gt;</ept> dialog page, perform the following steps: &lt;br&gt;&lt;br&gt;<bpt id="ca9b8c44-3881-4cfd-8ce7-25f76b766c8e">&lt;linkText&gt;</bpt>Configure App Settings<ept id="ca9b8c44-3881-4cfd-8ce7-25f76b766c8e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="461b78ed-fa52-4325-b894-ad83b02eea06" xml:space="preserve">
+          <source>3.1.</source>
+          <target state="new">3.1.</target>
+        </trans-unit>
+        <trans-unit id="cabc1ddc-a171-458d-83e5-e7d2cd590ef7" xml:space="preserve">
+          <source>In the <bpt id="ea5d919a-208e-4478-bcaa-b2cfc83ec4c1">&lt;strong&gt;</bpt>Sign On URL<ept id="ea5d919a-208e-4478-bcaa-b2cfc83ec4c1">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign on to your SciQuest Spend Director application using the following pattern: <bpt id="29dcb6c2-a384-43d4-aab3-fdb8d35971f6">&lt;em&gt;</bpt>https://.<ept id="29dcb6c2-a384-43d4-aab3-fdb8d35971f6">&lt;/em&gt;</ept>sciquest.com/.**</source>
+          <target state="new">In the <bpt id="ea5d919a-208e-4478-bcaa-b2cfc83ec4c1">&lt;strong&gt;</bpt>Sign On URL<ept id="ea5d919a-208e-4478-bcaa-b2cfc83ec4c1">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign on to your SciQuest Spend Director application using the following pattern: <bpt id="29dcb6c2-a384-43d4-aab3-fdb8d35971f6">&lt;em&gt;</bpt>https://.<ept id="29dcb6c2-a384-43d4-aab3-fdb8d35971f6">&lt;/em&gt;</ept>sciquest.com/.**</target>
+        </trans-unit>
+        <trans-unit id="e5eb2933-74ea-4ed2-9c36-dfc17409f33f" xml:space="preserve">
+          <source>3.2.</source>
+          <target state="new">3.2.</target>
+        </trans-unit>
+        <trans-unit id="10796392-131f-495f-afe1-331fccde8378" xml:space="preserve">
+          <source>In the <bpt id="f4d56e86-c7b5-4928-957c-3b08f460b8c8">&lt;strong&gt;</bpt>Reply URL<ept id="f4d56e86-c7b5-4928-957c-3b08f460b8c8">&lt;/strong&gt;</ept> textbox, type the same value you have typed into the <bpt id="e8b98e47-9e5d-4822-b299-6114049cf9de">&lt;strong&gt;</bpt>Sign On URL<ept id="e8b98e47-9e5d-4822-b299-6114049cf9de">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the <bpt id="f4d56e86-c7b5-4928-957c-3b08f460b8c8">&lt;strong&gt;</bpt>Reply URL<ept id="f4d56e86-c7b5-4928-957c-3b08f460b8c8">&lt;/strong&gt;</ept> textbox, type the same value you have typed into the <bpt id="e8b98e47-9e5d-4822-b299-6114049cf9de">&lt;strong&gt;</bpt>Sign On URL<ept id="e8b98e47-9e5d-4822-b299-6114049cf9de">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="47df69c6-01ae-40c3-af34-89d98437e930" xml:space="preserve">
+          <source>3.3.</source>
+          <target state="new">3.3.</target>
+        </trans-unit>
+        <trans-unit id="bc39f347-33af-469d-a148-8883086fb50c" xml:space="preserve">
+          <source>Click <bpt id="747e09d3-6e63-46ce-adf8-5015311b8a06">&lt;strong&gt;</bpt>Next<ept id="747e09d3-6e63-46ce-adf8-5015311b8a06">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="747e09d3-6e63-46ce-adf8-5015311b8a06">&lt;strong&gt;</bpt>Next<ept id="747e09d3-6e63-46ce-adf8-5015311b8a06">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31180161-67cd-4836-8d1e-a7b3412abc3f" xml:space="preserve">
+          <source>On the <bpt id="f696356c-9112-4e4d-8a3e-917bbf8e9b2b">&lt;strong&gt;</bpt>Configure single sign-on at SciQuest Spend Director<ept id="f696356c-9112-4e4d-8a3e-917bbf8e9b2b">&lt;/strong&gt;</ept> page, click <bpt id="06c17250-dd3c-49d1-b751-1697189046b0">&lt;strong&gt;</bpt>Download metadata<ept id="06c17250-dd3c-49d1-b751-1697189046b0">&lt;/strong&gt;</ept>, and then save the metadata file locally on your computer.&lt;br&gt;&lt;br&gt;<bpt id="5a6529b3-2708-4144-96c3-2f8992ad9a3a">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="5a6529b3-2708-4144-96c3-2f8992ad9a3a">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="f696356c-9112-4e4d-8a3e-917bbf8e9b2b">&lt;strong&gt;</bpt>Configure single sign-on at SciQuest Spend Director<ept id="f696356c-9112-4e4d-8a3e-917bbf8e9b2b">&lt;/strong&gt;</ept> page, click <bpt id="06c17250-dd3c-49d1-b751-1697189046b0">&lt;strong&gt;</bpt>Download metadata<ept id="06c17250-dd3c-49d1-b751-1697189046b0">&lt;/strong&gt;</ept>, and then save the metadata file locally on your computer.&lt;br&gt;&lt;br&gt;<bpt id="5a6529b3-2708-4144-96c3-2f8992ad9a3a">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="5a6529b3-2708-4144-96c3-2f8992ad9a3a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="061cf2c8-6665-41e8-9a01-6bd62b941a19" xml:space="preserve">
+          <source>Contact SciQuest support to enable this authentication method using the above downloaded metadata.</source>
+          <target state="new">Contact SciQuest support to enable this authentication method using the above downloaded metadata.</target>
+        </trans-unit>
+        <trans-unit id="b9838339-3263-4b03-881c-ddaf07103ba8" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="77291c64-2c20-47c5-a066-0de6b67f1c07">&lt;strong&gt;</bpt>Complete<ept id="77291c64-2c20-47c5-a066-0de6b67f1c07">&lt;/strong&gt;</ept> to close the <bpt id="6c481992-e141-4f53-80e8-ce56a1dde113">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="6c481992-e141-4f53-80e8-ce56a1dde113">&lt;/strong&gt;</ept> dialog. &lt;br&gt;&lt;br&gt;<bpt id="33086233-da87-49d1-a155-039ea4b93654">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="33086233-da87-49d1-a155-039ea4b93654">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="77291c64-2c20-47c5-a066-0de6b67f1c07">&lt;strong&gt;</bpt>Complete<ept id="77291c64-2c20-47c5-a066-0de6b67f1c07">&lt;/strong&gt;</ept> to close the <bpt id="6c481992-e141-4f53-80e8-ce56a1dde113">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="6c481992-e141-4f53-80e8-ce56a1dde113">&lt;/strong&gt;</ept> dialog. &lt;br&gt;&lt;br&gt;<bpt id="33086233-da87-49d1-a155-039ea4b93654">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="33086233-da87-49d1-a155-039ea4b93654">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f936869-6a3f-4261-bfe1-6f18ae4e95f4" xml:space="preserve">
+          <source>On the <bpt id="8e2f3d63-b67a-4f62-bba6-da91188129f3">&lt;strong&gt;</bpt>Single sign-on confirmation<ept id="8e2f3d63-b67a-4f62-bba6-da91188129f3">&lt;/strong&gt;</ept> page, click <bpt id="24e2497e-c32c-44ca-a971-caf4115d3420">&lt;strong&gt;</bpt>Complete<ept id="24e2497e-c32c-44ca-a971-caf4115d3420">&lt;/strong&gt;</ept>.  &lt;br&gt;&lt;br&gt;<bpt id="35dea2ba-4a2c-4e0e-ab10-1adddeb461ca">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="35dea2ba-4a2c-4e0e-ab10-1adddeb461ca">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="8e2f3d63-b67a-4f62-bba6-da91188129f3">&lt;strong&gt;</bpt>Single sign-on confirmation<ept id="8e2f3d63-b67a-4f62-bba6-da91188129f3">&lt;/strong&gt;</ept> page, click <bpt id="24e2497e-c32c-44ca-a971-caf4115d3420">&lt;strong&gt;</bpt>Complete<ept id="24e2497e-c32c-44ca-a971-caf4115d3420">&lt;/strong&gt;</ept>.  &lt;br&gt;&lt;br&gt;<bpt id="35dea2ba-4a2c-4e0e-ab10-1adddeb461ca">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="35dea2ba-4a2c-4e0e-ab10-1adddeb461ca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b42091b3-055b-47ac-9758-8996c6596652" xml:space="preserve">
+          <source>The objective of this section is to create a test user in the Azure portal called Britta Simon.</source>
+          <target state="new">The objective of this section is to create a test user in the Azure portal called Britta Simon.</target>
+        </trans-unit>
+        <trans-unit id="4757dd03-a107-49d7-afd9-98b28ec743bf" xml:space="preserve">
+          <source><bpt id="eb573fda-048d-4b12-b450-f9d6177d032c">&lt;strong&gt;</bpt>To create a test user in Azure AD, perform the following steps:<ept id="eb573fda-048d-4b12-b450-f9d6177d032c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="eb573fda-048d-4b12-b450-f9d6177d032c">&lt;strong&gt;</bpt>To create a test user in Azure AD, perform the following steps:<ept id="eb573fda-048d-4b12-b450-f9d6177d032c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4d6ae99-35ee-4279-b848-5944d5582094" xml:space="preserve">
+          <source>In the <bpt id="e9e5affe-5b7e-410d-9429-08b64305d30e">&lt;strong&gt;</bpt>Azure Management Portal<ept id="e9e5affe-5b7e-410d-9429-08b64305d30e">&lt;/strong&gt;</ept>, on the left navigation pane, click <bpt id="9a2b7910-aa4a-44a2-9732-0b98449c6a4a">&lt;strong&gt;</bpt>Active Directory<ept id="9a2b7910-aa4a-44a2-9732-0b98449c6a4a">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="e4ed5693-5d53-49a9-a73e-68003ae8bb38">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="e4ed5693-5d53-49a9-a73e-68003ae8bb38">&lt;/linkText&gt;</ept> </source>
+          <target state="new">In the <bpt id="e9e5affe-5b7e-410d-9429-08b64305d30e">&lt;strong&gt;</bpt>Azure Management Portal<ept id="e9e5affe-5b7e-410d-9429-08b64305d30e">&lt;/strong&gt;</ept>, on the left navigation pane, click <bpt id="9a2b7910-aa4a-44a2-9732-0b98449c6a4a">&lt;strong&gt;</bpt>Active Directory<ept id="9a2b7910-aa4a-44a2-9732-0b98449c6a4a">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="e4ed5693-5d53-49a9-a73e-68003ae8bb38">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="e4ed5693-5d53-49a9-a73e-68003ae8bb38">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="ca5c9961-92b3-4f7a-8292-a004bcc7b98f" xml:space="preserve">
+          <source>From the <bpt id="670d3086-084b-4950-8501-344233e65b99">&lt;strong&gt;</bpt>Directory<ept id="670d3086-084b-4950-8501-344233e65b99">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="670d3086-084b-4950-8501-344233e65b99">&lt;strong&gt;</bpt>Directory<ept id="670d3086-084b-4950-8501-344233e65b99">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="f85e8383-5f89-4802-9733-ba56dd2e0d1c" xml:space="preserve">
+          <source>To display the list of users, in the menu on the top, click <bpt id="2471a314-f188-4a1e-aaf6-f4bfab224242">&lt;strong&gt;</bpt>Users<ept id="2471a314-f188-4a1e-aaf6-f4bfab224242">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="417dafa1-aea3-493c-8ba7-ebf4b46fa97b">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="417dafa1-aea3-493c-8ba7-ebf4b46fa97b">&lt;/linkText&gt;</ept> </source>
+          <target state="new">To display the list of users, in the menu on the top, click <bpt id="2471a314-f188-4a1e-aaf6-f4bfab224242">&lt;strong&gt;</bpt>Users<ept id="2471a314-f188-4a1e-aaf6-f4bfab224242">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="417dafa1-aea3-493c-8ba7-ebf4b46fa97b">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="417dafa1-aea3-493c-8ba7-ebf4b46fa97b">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="605b871c-8d11-4f6f-a02f-242b50c4682b" xml:space="preserve">
+          <source>To open the <bpt id="da7f9cd6-089b-492a-9cf2-171f66f468a6">&lt;strong&gt;</bpt>Add User<ept id="da7f9cd6-089b-492a-9cf2-171f66f468a6">&lt;/strong&gt;</ept> dialog, in the toolbar on the bottom, click <bpt id="653c0b9e-0df6-4b82-8a0b-b5d0d327abdb">&lt;strong&gt;</bpt>Add User<ept id="653c0b9e-0df6-4b82-8a0b-b5d0d327abdb">&lt;/strong&gt;</ept>. 
+&lt;br&gt;&lt;br&gt;<bpt id="2d859bd3-dd87-40ab-b13b-1e6d5911c4ff">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="2d859bd3-dd87-40ab-b13b-1e6d5911c4ff">&lt;/linkText&gt;</ept> </source>
+          <target state="new">To open the <bpt id="da7f9cd6-089b-492a-9cf2-171f66f468a6">&lt;strong&gt;</bpt>Add User<ept id="da7f9cd6-089b-492a-9cf2-171f66f468a6">&lt;/strong&gt;</ept> dialog, in the toolbar on the bottom, click <bpt id="653c0b9e-0df6-4b82-8a0b-b5d0d327abdb">&lt;strong&gt;</bpt>Add User<ept id="653c0b9e-0df6-4b82-8a0b-b5d0d327abdb">&lt;/strong&gt;</ept>. 
+&lt;br&gt;&lt;br&gt;<bpt id="2d859bd3-dd87-40ab-b13b-1e6d5911c4ff">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="2d859bd3-dd87-40ab-b13b-1e6d5911c4ff">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="b36dc40f-2ab2-48dd-859a-92f14abd61af" xml:space="preserve">
+          <source>On the <bpt id="81d07856-330d-4ea1-b16c-6a53fe2768f0">&lt;strong&gt;</bpt>Tell us about this user<ept id="81d07856-330d-4ea1-b16c-6a53fe2768f0">&lt;/strong&gt;</ept> dialog page, perform the following steps:
+&lt;br&gt;&lt;br&gt;<bpt id="83eaf5a2-9dd7-49a6-aadc-b0f23e4ddf13">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="83eaf5a2-9dd7-49a6-aadc-b0f23e4ddf13">&lt;/linkText&gt;</ept> </source>
+          <target state="new">On the <bpt id="81d07856-330d-4ea1-b16c-6a53fe2768f0">&lt;strong&gt;</bpt>Tell us about this user<ept id="81d07856-330d-4ea1-b16c-6a53fe2768f0">&lt;/strong&gt;</ept> dialog page, perform the following steps:
+&lt;br&gt;&lt;br&gt;<bpt id="83eaf5a2-9dd7-49a6-aadc-b0f23e4ddf13">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="83eaf5a2-9dd7-49a6-aadc-b0f23e4ddf13">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="1d64b4a5-527d-4dd9-ad3f-5bfff7fec125" xml:space="preserve">
+          <source>As <bpt id="0ddcc261-1400-47b3-be66-c22b8785c13b">&lt;strong&gt;</bpt>Type Of User<ept id="0ddcc261-1400-47b3-be66-c22b8785c13b">&lt;/strong&gt;</ept>, select <bpt id="f419a62b-e826-4861-ad17-363dc1f21a47">&lt;strong&gt;</bpt>New user in your organization<ept id="f419a62b-e826-4861-ad17-363dc1f21a47">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="0ddcc261-1400-47b3-be66-c22b8785c13b">&lt;strong&gt;</bpt>Type Of User<ept id="0ddcc261-1400-47b3-be66-c22b8785c13b">&lt;/strong&gt;</ept>, select <bpt id="f419a62b-e826-4861-ad17-363dc1f21a47">&lt;strong&gt;</bpt>New user in your organization<ept id="f419a62b-e826-4861-ad17-363dc1f21a47">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9a20fc0-9b88-4612-869f-afcbb7947c71" xml:space="preserve">
+          <source>In the User Name <bpt id="6c0b6fb1-28a6-42c3-b3c5-baee959bcecf">&lt;strong&gt;</bpt>textbox<ept id="6c0b6fb1-28a6-42c3-b3c5-baee959bcecf">&lt;/strong&gt;</ept>, type <bpt id="07b31803-7972-4ece-ae37-e6fd11770f37">&lt;strong&gt;</bpt>BrittaSimon<ept id="07b31803-7972-4ece-ae37-e6fd11770f37">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the User Name <bpt id="6c0b6fb1-28a6-42c3-b3c5-baee959bcecf">&lt;strong&gt;</bpt>textbox<ept id="6c0b6fb1-28a6-42c3-b3c5-baee959bcecf">&lt;/strong&gt;</ept>, type <bpt id="07b31803-7972-4ece-ae37-e6fd11770f37">&lt;strong&gt;</bpt>BrittaSimon<ept id="07b31803-7972-4ece-ae37-e6fd11770f37">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3ac1e1b-dde9-4c0d-9b9a-058c4b76fc70" xml:space="preserve">
+          <source>Click Next.</source>
+          <target state="new">Click Next.</target>
+        </trans-unit>
+        <trans-unit id="7bd7854d-87a6-430c-bf98-761acd4a1f42" xml:space="preserve">
+          <source>On the <bpt id="39739e97-7061-4344-96aa-949e3b5071b6">&lt;strong&gt;</bpt>User Profile<ept id="39739e97-7061-4344-96aa-949e3b5071b6">&lt;/strong&gt;</ept> dialog page, perform the following steps: 
+&lt;br&gt;&lt;br&gt;<bpt id="bbaf6344-48f7-43d6-8a67-3140d9a2b6d3">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="bbaf6344-48f7-43d6-8a67-3140d9a2b6d3">&lt;/linkText&gt;</ept> </source>
+          <target state="new">On the <bpt id="39739e97-7061-4344-96aa-949e3b5071b6">&lt;strong&gt;</bpt>User Profile<ept id="39739e97-7061-4344-96aa-949e3b5071b6">&lt;/strong&gt;</ept> dialog page, perform the following steps: 
+&lt;br&gt;&lt;br&gt;<bpt id="bbaf6344-48f7-43d6-8a67-3140d9a2b6d3">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="bbaf6344-48f7-43d6-8a67-3140d9a2b6d3">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="b6e28626-1fd4-4bdb-8a15-94d3931d9377" xml:space="preserve">
+          <source>In the <bpt id="dd661bb6-425f-4fbb-b96f-069d595760e3">&lt;strong&gt;</bpt>First Name<ept id="dd661bb6-425f-4fbb-b96f-069d595760e3">&lt;/strong&gt;</ept> textbox, type <bpt id="63ce02dd-eaaf-42e8-b58e-b88fb2156178">&lt;strong&gt;</bpt>Britta<ept id="63ce02dd-eaaf-42e8-b58e-b88fb2156178">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="dd661bb6-425f-4fbb-b96f-069d595760e3">&lt;strong&gt;</bpt>First Name<ept id="dd661bb6-425f-4fbb-b96f-069d595760e3">&lt;/strong&gt;</ept> textbox, type <bpt id="63ce02dd-eaaf-42e8-b58e-b88fb2156178">&lt;strong&gt;</bpt>Britta<ept id="63ce02dd-eaaf-42e8-b58e-b88fb2156178">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="075e04de-96ed-40fb-af25-a308f7942603" xml:space="preserve">
+          <source>In the <bpt id="d0d9a44d-ca4f-418b-ba2d-345a8291b78c">&lt;strong&gt;</bpt>Last Name<ept id="d0d9a44d-ca4f-418b-ba2d-345a8291b78c">&lt;/strong&gt;</ept> txtbox, type, <bpt id="65f95ef1-1274-4bee-a044-995aaffe6ef7">&lt;strong&gt;</bpt>Simon<ept id="65f95ef1-1274-4bee-a044-995aaffe6ef7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d0d9a44d-ca4f-418b-ba2d-345a8291b78c">&lt;strong&gt;</bpt>Last Name<ept id="d0d9a44d-ca4f-418b-ba2d-345a8291b78c">&lt;/strong&gt;</ept> txtbox, type, <bpt id="65f95ef1-1274-4bee-a044-995aaffe6ef7">&lt;strong&gt;</bpt>Simon<ept id="65f95ef1-1274-4bee-a044-995aaffe6ef7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67c2a134-12b5-4d52-86b1-18559d581c26" xml:space="preserve">
+          <source>In the <bpt id="be4b7f03-df9d-4cd0-8a83-e206b8f6e9b7">&lt;strong&gt;</bpt>Display Name<ept id="be4b7f03-df9d-4cd0-8a83-e206b8f6e9b7">&lt;/strong&gt;</ept> textbox, type <bpt id="792d5a76-dae4-4670-a5a6-7fd18fca2bfb">&lt;strong&gt;</bpt>Britta Simon<ept id="792d5a76-dae4-4670-a5a6-7fd18fca2bfb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="be4b7f03-df9d-4cd0-8a83-e206b8f6e9b7">&lt;strong&gt;</bpt>Display Name<ept id="be4b7f03-df9d-4cd0-8a83-e206b8f6e9b7">&lt;/strong&gt;</ept> textbox, type <bpt id="792d5a76-dae4-4670-a5a6-7fd18fca2bfb">&lt;strong&gt;</bpt>Britta Simon<ept id="792d5a76-dae4-4670-a5a6-7fd18fca2bfb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c88bc229-e3c5-4d7f-aab7-1b2113e5ce23" xml:space="preserve">
+          <source>In the <bpt id="85ce6518-8599-4a84-9e95-db1ea31e760a">&lt;strong&gt;</bpt>Role<ept id="85ce6518-8599-4a84-9e95-db1ea31e760a">&lt;/strong&gt;</ept> list, select <bpt id="668a3c5b-a5bb-466f-94b1-cabb5f36a38b">&lt;strong&gt;</bpt>User<ept id="668a3c5b-a5bb-466f-94b1-cabb5f36a38b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="85ce6518-8599-4a84-9e95-db1ea31e760a">&lt;strong&gt;</bpt>Role<ept id="85ce6518-8599-4a84-9e95-db1ea31e760a">&lt;/strong&gt;</ept> list, select <bpt id="668a3c5b-a5bb-466f-94b1-cabb5f36a38b">&lt;strong&gt;</bpt>User<ept id="668a3c5b-a5bb-466f-94b1-cabb5f36a38b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4c801f4-1ce5-45f2-96c2-fc8a4bc63d60" xml:space="preserve">
+          <source>Click <bpt id="b0df8797-8b0f-4c13-bc72-c07bd6b201d9">&lt;strong&gt;</bpt>Next<ept id="b0df8797-8b0f-4c13-bc72-c07bd6b201d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b0df8797-8b0f-4c13-bc72-c07bd6b201d9">&lt;strong&gt;</bpt>Next<ept id="b0df8797-8b0f-4c13-bc72-c07bd6b201d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1b7c574-adc8-4be3-834d-0874aa1fe3f4" xml:space="preserve">
+          <source>On the <bpt id="94028610-1156-4c20-961a-66639b961cb7">&lt;strong&gt;</bpt>Get temporary password<ept id="94028610-1156-4c20-961a-66639b961cb7">&lt;/strong&gt;</ept> dialog page, click <bpt id="ea9e8339-7b6c-43b5-be73-5bf1466ae4bc">&lt;strong&gt;</bpt>create<ept id="ea9e8339-7b6c-43b5-be73-5bf1466ae4bc">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="50835217-9a02-4502-a52f-6ba0bc07d3f6">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="50835217-9a02-4502-a52f-6ba0bc07d3f6">&lt;/linkText&gt;</ept>  </source>
+          <target state="new">On the <bpt id="94028610-1156-4c20-961a-66639b961cb7">&lt;strong&gt;</bpt>Get temporary password<ept id="94028610-1156-4c20-961a-66639b961cb7">&lt;/strong&gt;</ept> dialog page, click <bpt id="ea9e8339-7b6c-43b5-be73-5bf1466ae4bc">&lt;strong&gt;</bpt>create<ept id="ea9e8339-7b6c-43b5-be73-5bf1466ae4bc">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="50835217-9a02-4502-a52f-6ba0bc07d3f6">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="50835217-9a02-4502-a52f-6ba0bc07d3f6">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="773332bd-58e7-48ba-b799-d2d4d41b1705" xml:space="preserve">
+          <source>On the <bpt id="3c20321a-f5da-4615-a953-230defc72bfa">&lt;strong&gt;</bpt>Get temporary password<ept id="3c20321a-f5da-4615-a953-230defc72bfa">&lt;/strong&gt;</ept> dialog page, perform the following steps:
+&lt;br&gt;&lt;br&gt;<bpt id="528f52ef-22c8-4ecf-b544-54d37330cbae">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="528f52ef-22c8-4ecf-b544-54d37330cbae">&lt;/linkText&gt;</ept>   </source>
+          <target state="new">On the <bpt id="3c20321a-f5da-4615-a953-230defc72bfa">&lt;strong&gt;</bpt>Get temporary password<ept id="3c20321a-f5da-4615-a953-230defc72bfa">&lt;/strong&gt;</ept> dialog page, perform the following steps:
+&lt;br&gt;&lt;br&gt;<bpt id="528f52ef-22c8-4ecf-b544-54d37330cbae">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="528f52ef-22c8-4ecf-b544-54d37330cbae">&lt;/linkText&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="54651023-c8a8-4c95-9147-f5617ced57c0" xml:space="preserve">
+          <source>Write down the value of the <bpt id="e97949ad-23fc-4d5e-88d8-a053375a457c">&lt;strong&gt;</bpt>New Password<ept id="e97949ad-23fc-4d5e-88d8-a053375a457c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Write down the value of the <bpt id="e97949ad-23fc-4d5e-88d8-a053375a457c">&lt;strong&gt;</bpt>New Password<ept id="e97949ad-23fc-4d5e-88d8-a053375a457c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="163239ef-ef9f-46c3-9766-fc3ff8a229fe" xml:space="preserve">
+          <source>Click <bpt id="3dbe42e8-0fad-40ea-82f5-72c859744bbb">&lt;strong&gt;</bpt>Complete<ept id="3dbe42e8-0fad-40ea-82f5-72c859744bbb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3dbe42e8-0fad-40ea-82f5-72c859744bbb">&lt;strong&gt;</bpt>Complete<ept id="3dbe42e8-0fad-40ea-82f5-72c859744bbb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a3d1a2d-6bf3-484d-b199-8238df61d0b4" xml:space="preserve">
+          <source>The objective of this section is to create a user called Britta Simon in SciQuest Spend Director.</source>
+          <target state="new">The objective of this section is to create a user called Britta Simon in SciQuest Spend Director.</target>
+        </trans-unit>
+        <trans-unit id="d32f0a06-48f3-471f-9184-b1a774a8db5b" xml:space="preserve">
+          <source>You need to contact your SciQuest Spend Director support team and provide them with the details about your test account to get it created.</source>
+          <target state="new">You need to contact your SciQuest Spend Director support team and provide them with the details about your test account to get it created.</target>
+        </trans-unit>
+        <trans-unit id="8f861623-7973-44bd-88eb-e0fd98d81f47" xml:space="preserve">
+          <source>Alternatively, you can also leverage just-in-time provisioning, a single sign-on feature that is supported by SciQuest Spend Director. &lt;br&gt;
+If just-in-time provisioning is enabled, users are automatically created by SciQuest Spend Director during a single sign-on attempt if they don't exist. This feature eliminates the need to manually create single sign-on counterpart users.</source>
+          <target state="new">Alternatively, you can also leverage just-in-time provisioning, a single sign-on feature that is supported by SciQuest Spend Director. &lt;br&gt;
+If just-in-time provisioning is enabled, users are automatically created by SciQuest Spend Director during a single sign-on attempt if they don't exist. This feature eliminates the need to manually create single sign-on counterpart users.</target>
+        </trans-unit>
+        <trans-unit id="6d5a39cd-2f83-41c1-8af2-0d76aef06957" xml:space="preserve">
+          <source>To get just-in-time provisioning enabled, you need to contact your your SciQuest Spend Director support team.</source>
+          <target state="new">To get just-in-time provisioning enabled, you need to contact your your SciQuest Spend Director support team.</target>
+        </trans-unit>
+        <trans-unit id="f14af23e-e064-43f7-9643-cc2c484d7e76" xml:space="preserve">
+          <source>The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to SciQuest Spend Director.
+&lt;br&gt;&lt;br&gt;<bpt id="0fc4754c-0da9-48d8-a8c8-5694a2ca2f2d">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="0fc4754c-0da9-48d8-a8c8-5694a2ca2f2d">&lt;/linkText&gt;</ept></source>
+          <target state="new">The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to SciQuest Spend Director.
+&lt;br&gt;&lt;br&gt;<bpt id="0fc4754c-0da9-48d8-a8c8-5694a2ca2f2d">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="0fc4754c-0da9-48d8-a8c8-5694a2ca2f2d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c2b358e-cce6-42bd-9f0f-61051401f404" xml:space="preserve">
+          <source><bpt id="e394df3c-8673-4762-adce-8b5b7ee170b2">&lt;strong&gt;</bpt>To assign Britta Simon to SciQuest Spend Director, perform the following steps:<ept id="e394df3c-8673-4762-adce-8b5b7ee170b2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e394df3c-8673-4762-adce-8b5b7ee170b2">&lt;strong&gt;</bpt>To assign Britta Simon to SciQuest Spend Director, perform the following steps:<ept id="e394df3c-8673-4762-adce-8b5b7ee170b2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a81e1b5d-e4b9-4f4a-a91b-b9a90401ff14" xml:space="preserve">
+          <source>On the Azure portal, to open the applications view, in the directory view, click <bpt id="dcfa013c-3e79-4d41-ab00-0c314a7d87f8">&lt;strong&gt;</bpt>Applications<ept id="dcfa013c-3e79-4d41-ab00-0c314a7d87f8">&lt;/strong&gt;</ept> in the top menu.&lt;br&gt;
+&lt;br&gt;&lt;br&gt;<bpt id="bb9d6bbd-b1e2-4d84-b46f-2077b9560ca7">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="bb9d6bbd-b1e2-4d84-b46f-2077b9560ca7">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the Azure portal, to open the applications view, in the directory view, click <bpt id="dcfa013c-3e79-4d41-ab00-0c314a7d87f8">&lt;strong&gt;</bpt>Applications<ept id="dcfa013c-3e79-4d41-ab00-0c314a7d87f8">&lt;/strong&gt;</ept> in the top menu.&lt;br&gt;
+&lt;br&gt;&lt;br&gt;<bpt id="bb9d6bbd-b1e2-4d84-b46f-2077b9560ca7">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="bb9d6bbd-b1e2-4d84-b46f-2077b9560ca7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9f25f7a-610c-4ae4-8add-ba65ed0bf75f" xml:space="preserve">
+          <source>In the applications list, select <bpt id="863d7e69-2370-439d-b5bb-376cfeb5a6c8">&lt;strong&gt;</bpt>SciQuest Spend Director<ept id="863d7e69-2370-439d-b5bb-376cfeb5a6c8">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="2c21b054-1a82-40d0-98a2-c05ae4f20286">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="2c21b054-1a82-40d0-98a2-c05ae4f20286">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the applications list, select <bpt id="863d7e69-2370-439d-b5bb-376cfeb5a6c8">&lt;strong&gt;</bpt>SciQuest Spend Director<ept id="863d7e69-2370-439d-b5bb-376cfeb5a6c8">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="2c21b054-1a82-40d0-98a2-c05ae4f20286">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="2c21b054-1a82-40d0-98a2-c05ae4f20286">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81ce2b1b-67e8-4f80-bc53-beae4b8c8fd6" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="84c546d5-a05c-4c91-ab85-4bbe3701b363">&lt;strong&gt;</bpt>Users<ept id="84c546d5-a05c-4c91-ab85-4bbe3701b363">&lt;/strong&gt;</ept>.&lt;br&gt;
+&lt;br&gt;&lt;br&gt;<bpt id="812b2a64-5725-492a-85d3-174696cd4f93">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="812b2a64-5725-492a-85d3-174696cd4f93">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the menu on the top, click <bpt id="84c546d5-a05c-4c91-ab85-4bbe3701b363">&lt;strong&gt;</bpt>Users<ept id="84c546d5-a05c-4c91-ab85-4bbe3701b363">&lt;/strong&gt;</ept>.&lt;br&gt;
+&lt;br&gt;&lt;br&gt;<bpt id="812b2a64-5725-492a-85d3-174696cd4f93">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="812b2a64-5725-492a-85d3-174696cd4f93">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="218b64de-965a-474f-af4a-c4fc44b1b960" xml:space="preserve">
+          <source>In the Users list, select <bpt id="3c4faa5d-e05c-4836-a842-5f9f03265455">&lt;strong&gt;</bpt>Britta Simon<ept id="3c4faa5d-e05c-4836-a842-5f9f03265455">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="7e99991b-090d-401c-aa1a-173f532a0848">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="7e99991b-090d-401c-aa1a-173f532a0848">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the Users list, select <bpt id="3c4faa5d-e05c-4836-a842-5f9f03265455">&lt;strong&gt;</bpt>Britta Simon<ept id="3c4faa5d-e05c-4836-a842-5f9f03265455">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="7e99991b-090d-401c-aa1a-173f532a0848">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="7e99991b-090d-401c-aa1a-173f532a0848">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c112bcca-410f-4aad-8416-a5960156ea76" xml:space="preserve">
+          <source>In the toolbar on the bottom, click <bpt id="94e3b3b8-ce85-4ce9-8968-31d651d5e9ca">&lt;strong&gt;</bpt>Assign<ept id="94e3b3b8-ce85-4ce9-8968-31d651d5e9ca">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="229fa13b-9e32-4324-8fd1-7ac8229a6ab6">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="229fa13b-9e32-4324-8fd1-7ac8229a6ab6">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the toolbar on the bottom, click <bpt id="94e3b3b8-ce85-4ce9-8968-31d651d5e9ca">&lt;strong&gt;</bpt>Assign<ept id="94e3b3b8-ce85-4ce9-8968-31d651d5e9ca">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="229fa13b-9e32-4324-8fd1-7ac8229a6ab6">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="229fa13b-9e32-4324-8fd1-7ac8229a6ab6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49cd9cae-2840-4427-9a07-ef563fc7fd7b" xml:space="preserve">
+          <source>The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.&lt;br&gt;
+When you click the SciQuest Spend Director tile in the Access Panel, you should get automatically signed-on to your SciQuest Spend Director application.</source>
+          <target state="new">The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.&lt;br&gt;
+When you click the SciQuest Spend Director tile in the Access Panel, you should get automatically signed-on to your SciQuest Spend Director application.</target>
+        </trans-unit>
+        <trans-unit id="25150564-d6e1-41a9-8fff-953282e4d386" xml:space="preserve">
+          <source><bpt id="79c7a0f5-909c-4938-9563-46ad4c51b732">&lt;linkText&gt;</bpt>List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory<ept id="79c7a0f5-909c-4938-9563-46ad4c51b732">&lt;/linkText&gt;</ept><bpt id="79c7a0f5-909c-4938-9563-46ad4c51b732">&lt;title&gt;</bpt><ept id="79c7a0f5-909c-4938-9563-46ad4c51b732">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="79c7a0f5-909c-4938-9563-46ad4c51b732">&lt;linkText&gt;</bpt>List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory<ept id="79c7a0f5-909c-4938-9563-46ad4c51b732">&lt;/linkText&gt;</ept><bpt id="79c7a0f5-909c-4938-9563-46ad4c51b732">&lt;title&gt;</bpt><ept id="79c7a0f5-909c-4938-9563-46ad4c51b732">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="588ddef4-b5d9-45ef-be60-b0bf59f429d9" xml:space="preserve">
+          <source><bpt id="cdfc6c69-935c-4cb7-a7cb-fc3a3b5941a8">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="cdfc6c69-935c-4cb7-a7cb-fc3a3b5941a8">&lt;/linkText&gt;</ept><bpt id="cdfc6c69-935c-4cb7-a7cb-fc3a3b5941a8">&lt;title&gt;</bpt><ept id="cdfc6c69-935c-4cb7-a7cb-fc3a3b5941a8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cdfc6c69-935c-4cb7-a7cb-fc3a3b5941a8">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="cdfc6c69-935c-4cb7-a7cb-fc3a3b5941a8">&lt;/linkText&gt;</ept><bpt id="cdfc6c69-935c-4cb7-a7cb-fc3a3b5941a8">&lt;title&gt;</bpt><ept id="cdfc6c69-935c-4cb7-a7cb-fc3a3b5941a8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b17d2aba-b8b7-4c30-b2e3-083ce3f29a65" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_01.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_01.png</target>
+        </trans-unit>
+        <trans-unit id="cd74da58-8a06-462c-ba5a-fb44a1829c8d" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_02.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_02.png</target>
+        </trans-unit>
+        <trans-unit id="3c5ce905-f933-4167-96d8-0169e57f8bf3" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_03.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_03.png</target>
+        </trans-unit>
+        <trans-unit id="c05d8806-46c3-418d-964c-6f6a7445f5fa" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_04.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_04.png</target>
+        </trans-unit>
+        <trans-unit id="1c2227d0-1446-4615-ba0e-ab11237da5e4" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_01.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_01.png</target>
+        </trans-unit>
+        <trans-unit id="b5dd74ba-8712-4d53-986e-45b2e29caad8" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_05.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_05.png</target>
+        </trans-unit>
+        <trans-unit id="70b0b082-818b-4642-a1e0-fc2e476f4f2d" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_06.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_06.png</target>
+        </trans-unit>
+        <trans-unit id="e8c24a4e-8de1-40c3-b408-6d8db020b697" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_07.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_07.png</target>
+        </trans-unit>
+        <trans-unit id="63070b9f-912d-44ed-9435-876af166a161" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_08.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_08.png</target>
+        </trans-unit>
+        <trans-unit id="4d6cc881-efc2-4203-a847-2dbc06843455" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_03.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_03.png</target>
+        </trans-unit>
+        <trans-unit id="da426ab5-c18d-48aa-b6e2-dc93a7d66c42" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_04.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_04.png</target>
+        </trans-unit>
+        <trans-unit id="266d6990-f8cc-46c0-83b2-e899dc2d79ef" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_09.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_09.png</target>
+        </trans-unit>
+        <trans-unit id="df08f47e-c497-44dc-a21b-221ce419c044" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_10.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_10.png</target>
+        </trans-unit>
+        <trans-unit id="36459442-9e49-4be3-9605-674fe2ee5c9d" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_11.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_11.png</target>
+        </trans-unit>
+        <trans-unit id="979ba3a3-9df3-46fc-bff5-02c4f07dff48" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_12.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_12.png</target>
+        </trans-unit>
+        <trans-unit id="55276d82-38d8-41aa-85d5-9f04ab85589c" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_13.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_13.png</target>
+        </trans-unit>
+        <trans-unit id="2c944254-3aee-4fd9-9546-238f6bbe0447" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_14.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_14.png</target>
+        </trans-unit>
+        <trans-unit id="d7b594a6-64e3-42ef-a63b-b08bdc0870ef" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_15.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_15.png</target>
+        </trans-unit>
+        <trans-unit id="737cc5e1-6291-45e2-b3c7-06738273ff1f" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_16.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_16.png</target>
+        </trans-unit>
+        <trans-unit id="98c6f0f2-595e-4ff0-9044-42bb402652b7" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_17.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_17.png</target>
+        </trans-unit>
+        <trans-unit id="dcbf76b7-4b69-4a3d-9731-371d8d0583ac" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_06.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_06.png</target>
+        </trans-unit>
+        <trans-unit id="5ff0fa06-f0f5-4170-ae2d-076490edc30c" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png</target>
+        </trans-unit>
+        <trans-unit id="a62ae0e8-1f81-4e05-9820-2cf1719835ce" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png</target>
+        </trans-unit>
+        <trans-unit id="a861ab55-5496-4efd-b498-2345744f13f1" xml:space="preserve">
+          <source>./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png</source>
+          <target state="new">./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png</target>
+        </trans-unit>
+      </group>
+      <group id="cb43a85e-09db-4b3d-a878-3bf00314650d" />
+    </body>
+  </file>
+</xliff>

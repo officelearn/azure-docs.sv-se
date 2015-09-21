@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="20681000-f80c-4d9e-b85c-a131bf29d60e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="20681000-f80c-4d9e-b85c-a131bf29d60e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4743bf1a-cd1e-480f-872f-509f0f038dc8">
+        <trans-unit id="5665222c-9567-4a7d-9286-60626d913101" xml:space="preserve">
+          <source>Manage Azure Traffic Manager profiles | Microsoft Azure</source>
+          <target state="new">Manage Azure Traffic Manager profiles | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d2ab1fc1-7acf-4c46-9ff9-a1a3a290ee77" xml:space="preserve">
+          <source>This article will help you create, disable, enable, delete, and view the history of a Azure Traffic Manager profile.</source>
+          <target state="new">This article will help you create, disable, enable, delete, and view the history of a Azure Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="ca1f09c8-3bd4-4aad-91b8-0e303dbdc22b" xml:space="preserve">
+          <source>You use a Traffic Manager profile to specify the cloud services or website endpoints that will be monitored by Traffic Manager, and what traffic routing  method you want to use to distribute connections to those endpoints.</source>
+          <target state="new">You use a Traffic Manager profile to specify the cloud services or website endpoints that will be monitored by Traffic Manager, and what traffic routing  method you want to use to distribute connections to those endpoints.</target>
+        </trans-unit>
+        <trans-unit id="f73e571e-1356-4c32-ad32-b0860478469d" xml:space="preserve">
+          <source>You can quickly create a Traffic Manager profile by using Quick Create in the Azure portal.</source>
+          <target state="new">You can quickly create a Traffic Manager profile by using Quick Create in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="17080cfc-7be8-4dcf-9395-9b43ff10a98a" xml:space="preserve">
+          <source>Quick Create allows you to create profiles with basic configuration settings.</source>
+          <target state="new">Quick Create allows you to create profiles with basic configuration settings.</target>
+        </trans-unit>
+        <trans-unit id="68a71775-48fd-4cff-9dd1-1e7be43d63cd" xml:space="preserve">
+          <source>However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover traffic routing method, or monitoring settings.</source>
+          <target state="new">However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover traffic routing method, or monitoring settings.</target>
+        </trans-unit>
+        <trans-unit id="471662a6-3d3a-4529-86db-c99bb8e224ec" xml:space="preserve">
+          <source>After creating your profile, you can configure these settings in the Azure portal.</source>
+          <target state="new">After creating your profile, you can configure these settings in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="38d1a7d1-0f93-41af-a352-2d025fc773a0" xml:space="preserve">
+          <source>Traffic Manager supports up to 200 endpoints per profile.</source>
+          <target state="new">Traffic Manager supports up to 200 endpoints per profile.</target>
+        </trans-unit>
+        <trans-unit id="30222f11-b584-4bfc-b60b-2663a0788874" xml:space="preserve">
+          <source>However, most usage scenarios require only a small number of endpoints.</source>
+          <target state="new">However, most usage scenarios require only a small number of endpoints.</target>
+        </trans-unit>
+        <trans-unit id="c1d1e412-ee5d-4c15-bf94-7cb374c37864" xml:space="preserve">
+          <source><bpt id="185ca20b-8d19-47d4-805d-b742f1facba7">&lt;strong&gt;</bpt>Deploy your cloud services and websites to your production environment.<ept id="185ca20b-8d19-47d4-805d-b742f1facba7">&lt;/strong&gt;</ept> For more information about cloud services, see <bpt id="431a46a6-0b84-454a-b6b4-abce154e5143">&lt;linkText&gt;</bpt>Cloud Services<ept id="431a46a6-0b84-454a-b6b4-abce154e5143">&lt;/linkText&gt;</ept><bpt id="431a46a6-0b84-454a-b6b4-abce154e5143">&lt;title&gt;</bpt><ept id="431a46a6-0b84-454a-b6b4-abce154e5143">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="185ca20b-8d19-47d4-805d-b742f1facba7">&lt;strong&gt;</bpt>Deploy your cloud services and websites to your production environment.<ept id="185ca20b-8d19-47d4-805d-b742f1facba7">&lt;/strong&gt;</ept> For more information about cloud services, see <bpt id="431a46a6-0b84-454a-b6b4-abce154e5143">&lt;linkText&gt;</bpt>Cloud Services<ept id="431a46a6-0b84-454a-b6b4-abce154e5143">&lt;/linkText&gt;</ept><bpt id="431a46a6-0b84-454a-b6b4-abce154e5143">&lt;title&gt;</bpt><ept id="431a46a6-0b84-454a-b6b4-abce154e5143">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9810f60-22a9-446d-9b75-9b249bc62773" xml:space="preserve">
+          <source>For information about cloud services, see <bpt id="e9905307-8791-4913-86c9-9556ef41263b">&lt;linkText&gt;</bpt>Best practices<ept id="e9905307-8791-4913-86c9-9556ef41263b">&lt;/linkText&gt;</ept><bpt id="e9905307-8791-4913-86c9-9556ef41263b">&lt;title&gt;</bpt><ept id="e9905307-8791-4913-86c9-9556ef41263b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about cloud services, see <bpt id="e9905307-8791-4913-86c9-9556ef41263b">&lt;linkText&gt;</bpt>Best practices<ept id="e9905307-8791-4913-86c9-9556ef41263b">&lt;/linkText&gt;</ept><bpt id="e9905307-8791-4913-86c9-9556ef41263b">&lt;title&gt;</bpt><ept id="e9905307-8791-4913-86c9-9556ef41263b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="483459e8-bc5f-44da-a44d-194882bf81c2" xml:space="preserve">
+          <source>For more information about websites, see <bpt id="a75685af-a054-4925-a5a4-6b1d87e06d25">&lt;linkText&gt;</bpt>Websites<ept id="a75685af-a054-4925-a5a4-6b1d87e06d25">&lt;/linkText&gt;</ept><bpt id="a75685af-a054-4925-a5a4-6b1d87e06d25">&lt;title&gt;</bpt><ept id="a75685af-a054-4925-a5a4-6b1d87e06d25">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about websites, see <bpt id="a75685af-a054-4925-a5a4-6b1d87e06d25">&lt;linkText&gt;</bpt>Websites<ept id="a75685af-a054-4925-a5a4-6b1d87e06d25">&lt;/linkText&gt;</ept><bpt id="a75685af-a054-4925-a5a4-6b1d87e06d25">&lt;title&gt;</bpt><ept id="a75685af-a054-4925-a5a4-6b1d87e06d25">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6455576-5fe6-4f3e-bb87-436d9feb7afc" xml:space="preserve">
+          <source><bpt id="b4b5b1c0-a8f1-40ab-9db5-f073b31f8c74">&lt;strong&gt;</bpt>Log in to the Azure portal.<ept id="b4b5b1c0-a8f1-40ab-9db5-f073b31f8c74">&lt;/strong&gt;</ept> To create a new Traffic Manager profile, click <bpt id="9e1eb8c4-1df8-4e09-b21c-cd6caaa9c4e1">&lt;strong&gt;</bpt>New<ept id="9e1eb8c4-1df8-4e09-b21c-cd6caaa9c4e1">&lt;/strong&gt;</ept> on the lower left of the portal, click <bpt id="049cdb6a-5507-447b-880b-9f1eb8c17208">&lt;strong&gt;</bpt>Network Services &gt; Traffic Manager<ept id="049cdb6a-5507-447b-880b-9f1eb8c17208">&lt;/strong&gt;</ept>, and then click <bpt id="2f078047-3191-4810-86ba-e9cf6cbb5fec">&lt;strong&gt;</bpt>Quick Create<ept id="2f078047-3191-4810-86ba-e9cf6cbb5fec">&lt;/strong&gt;</ept> to begin configuring your profile.</source>
+          <target state="new"><bpt id="b4b5b1c0-a8f1-40ab-9db5-f073b31f8c74">&lt;strong&gt;</bpt>Log in to the Azure portal.<ept id="b4b5b1c0-a8f1-40ab-9db5-f073b31f8c74">&lt;/strong&gt;</ept> To create a new Traffic Manager profile, click <bpt id="9e1eb8c4-1df8-4e09-b21c-cd6caaa9c4e1">&lt;strong&gt;</bpt>New<ept id="9e1eb8c4-1df8-4e09-b21c-cd6caaa9c4e1">&lt;/strong&gt;</ept> on the lower left of the portal, click <bpt id="049cdb6a-5507-447b-880b-9f1eb8c17208">&lt;strong&gt;</bpt>Network Services &gt; Traffic Manager<ept id="049cdb6a-5507-447b-880b-9f1eb8c17208">&lt;/strong&gt;</ept>, and then click <bpt id="2f078047-3191-4810-86ba-e9cf6cbb5fec">&lt;strong&gt;</bpt>Quick Create<ept id="2f078047-3191-4810-86ba-e9cf6cbb5fec">&lt;/strong&gt;</ept> to begin configuring your profile.</target>
+        </trans-unit>
+        <trans-unit id="f3b4ce6a-c8e6-4a9e-9b82-cd43e3911b2e" xml:space="preserve">
+          <source><bpt id="d15eb43a-b826-4a9d-8473-2205bbfc36ba">&lt;strong&gt;</bpt>Configure the DNS prefix.<ept id="d15eb43a-b826-4a9d-8473-2205bbfc36ba">&lt;/strong&gt;</ept> Give your traffic manager profile a unique DNS prefix name.</source>
+          <target state="new"><bpt id="d15eb43a-b826-4a9d-8473-2205bbfc36ba">&lt;strong&gt;</bpt>Configure the DNS prefix.<ept id="d15eb43a-b826-4a9d-8473-2205bbfc36ba">&lt;/strong&gt;</ept> Give your traffic manager profile a unique DNS prefix name.</target>
+        </trans-unit>
+        <trans-unit id="4957ac8a-a09f-4ba8-b245-ea88e1603021" xml:space="preserve">
+          <source>You can specify only the prefix for a Traffic Manager domain name.</source>
+          <target state="new">You can specify only the prefix for a Traffic Manager domain name.</target>
+        </trans-unit>
+        <trans-unit id="7b6d2dc4-6969-41e0-a9fb-86fce3e81720" xml:space="preserve">
+          <source><bpt id="793d00e3-32ce-4fc7-ad71-60447b8305f5">&lt;strong&gt;</bpt>Select the subscription.<ept id="793d00e3-32ce-4fc7-ad71-60447b8305f5">&lt;/strong&gt;</ept> Select the appropriate Azure subscription.</source>
+          <target state="new"><bpt id="793d00e3-32ce-4fc7-ad71-60447b8305f5">&lt;strong&gt;</bpt>Select the subscription.<ept id="793d00e3-32ce-4fc7-ad71-60447b8305f5">&lt;/strong&gt;</ept> Select the appropriate Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="c4c2cd2c-0489-4b5b-a00f-6123f802421f" xml:space="preserve">
+          <source>Each profile is associated with a single subscription.</source>
+          <target state="new">Each profile is associated with a single subscription.</target>
+        </trans-unit>
+        <trans-unit id="f56142f8-d1fc-4eca-9471-cf7f567a5553" xml:space="preserve">
+          <source>If you only have one subscription, this option does not appear.</source>
+          <target state="new">If you only have one subscription, this option does not appear.</target>
+        </trans-unit>
+        <trans-unit id="95079ef4-9704-4598-958c-9b1f71bd794c" xml:space="preserve">
+          <source><bpt id="13329ac0-b191-4407-9067-b28358e590f3">&lt;strong&gt;</bpt>Select the traffic routing method.<ept id="13329ac0-b191-4407-9067-b28358e590f3">&lt;/strong&gt;</ept> Select the traffic routing method in <bpt id="5517a3d2-04fe-4e8a-ad04-676fa645478e">&lt;strong&gt;</bpt>traffic routing Policy<ept id="5517a3d2-04fe-4e8a-ad04-676fa645478e">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="13329ac0-b191-4407-9067-b28358e590f3">&lt;strong&gt;</bpt>Select the traffic routing method.<ept id="13329ac0-b191-4407-9067-b28358e590f3">&lt;/strong&gt;</ept> Select the traffic routing method in <bpt id="5517a3d2-04fe-4e8a-ad04-676fa645478e">&lt;strong&gt;</bpt>traffic routing Policy<ept id="5517a3d2-04fe-4e8a-ad04-676fa645478e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4616a529-0d14-41cc-8fd3-2f90ade25f80" xml:space="preserve">
+          <source>For more information about traffic routing methods, see <bpt id="354a3db9-8171-4de7-a54b-ade95e37c5a7">&lt;linkText&gt;</bpt>About Traffic Manager traffic routing methods<ept id="354a3db9-8171-4de7-a54b-ade95e37c5a7">&lt;/linkText&gt;</ept><bpt id="354a3db9-8171-4de7-a54b-ade95e37c5a7">&lt;title&gt;</bpt><ept id="354a3db9-8171-4de7-a54b-ade95e37c5a7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about traffic routing methods, see <bpt id="354a3db9-8171-4de7-a54b-ade95e37c5a7">&lt;linkText&gt;</bpt>About Traffic Manager traffic routing methods<ept id="354a3db9-8171-4de7-a54b-ade95e37c5a7">&lt;/linkText&gt;</ept><bpt id="354a3db9-8171-4de7-a54b-ade95e37c5a7">&lt;title&gt;</bpt><ept id="354a3db9-8171-4de7-a54b-ade95e37c5a7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4881a9f9-72f1-4404-91ce-9f4db80ab6b3" xml:space="preserve">
+          <source><bpt id="96993b40-6fb0-415f-a9cc-ada0e9e9c2b2">&lt;strong&gt;</bpt>Click “Create” to create your new profile<ept id="96993b40-6fb0-415f-a9cc-ada0e9e9c2b2">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="96993b40-6fb0-415f-a9cc-ada0e9e9c2b2">&lt;strong&gt;</bpt>Click “Create” to create your new profile<ept id="96993b40-6fb0-415f-a9cc-ada0e9e9c2b2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b07e758e-6b12-4069-b4d2-539080f905fd" xml:space="preserve">
+          <source>When the profile configuration is completed, you can locate your profile in the Traffic Manager pane in the Azure portal.</source>
+          <target state="new">When the profile configuration is completed, you can locate your profile in the Traffic Manager pane in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="e4e040e1-54ea-4410-b205-decab237baaa" xml:space="preserve">
+          <source><bpt id="92cc50c6-7d13-4cbd-a086-190e3bf173ec">&lt;strong&gt;</bpt>Configure endpoints, monitoring, and additional settings in the Azure portal.<ept id="92cc50c6-7d13-4cbd-a086-190e3bf173ec">&lt;/strong&gt;</ept> Because you can only configure basic settings by using Quick Create, it is necessary to configure additional settings, such as the list of endpoints and the endpoint failover order, in order to complete your desired configuration.</source>
+          <target state="new"><bpt id="92cc50c6-7d13-4cbd-a086-190e3bf173ec">&lt;strong&gt;</bpt>Configure endpoints, monitoring, and additional settings in the Azure portal.<ept id="92cc50c6-7d13-4cbd-a086-190e3bf173ec">&lt;/strong&gt;</ept> Because you can only configure basic settings by using Quick Create, it is necessary to configure additional settings, such as the list of endpoints and the endpoint failover order, in order to complete your desired configuration.</target>
+        </trans-unit>
+        <trans-unit id="d8730181-df5b-4941-a7e0-e673c287d337" xml:space="preserve">
+          <source>You can disable an existing Traffic Manager profile so that it will not refer user requests to its configured endpoints.</source>
+          <target state="new">You can disable an existing Traffic Manager profile so that it will not refer user requests to its configured endpoints.</target>
+        </trans-unit>
+        <trans-unit id="9f7efc37-6318-4f46-a747-404714c1380a" xml:space="preserve">
+          <source>When you disable a Traffic Manager profile, the profile itself and the information contained in the profile will remain intact and can be edited in the Traffic Manager interface.</source>
+          <target state="new">When you disable a Traffic Manager profile, the profile itself and the information contained in the profile will remain intact and can be edited in the Traffic Manager interface.</target>
+        </trans-unit>
+        <trans-unit id="bdce3e1e-ad18-4611-b309-a6baa8f3b7fb" xml:space="preserve">
+          <source>When you want to re-enable the profile, you can easily do so in the Azure portal and referrals will resume.</source>
+          <target state="new">When you want to re-enable the profile, you can easily do so in the Azure portal and referrals will resume.</target>
+        </trans-unit>
+        <trans-unit id="b4c6ccc9-ec67-4831-93af-5869b03dad48" xml:space="preserve">
+          <source>When you create a Traffic Manager profile in the Azure portal, it’s automatically enabled.</source>
+          <target state="new">When you create a Traffic Manager profile in the Azure portal, it’s automatically enabled.</target>
+        </trans-unit>
+        <trans-unit id="34879f03-94c8-4319-9243-3e2f61489071" xml:space="preserve">
+          <source>If you decide a profile will no longer be necessary, you can delete it.</source>
+          <target state="new">If you decide a profile will no longer be necessary, you can delete it.</target>
+        </trans-unit>
+        <trans-unit id="da9dc658-9931-4f0c-b095-425dc0bc4a07" xml:space="preserve">
+          <source>Modify the DNS resource record on your Internet DNS server to use the appropriate record type and pointer to either another name or the IP address of a specific location on the Internet.</source>
+          <target state="new">Modify the DNS resource record on your Internet DNS server to use the appropriate record type and pointer to either another name or the IP address of a specific location on the Internet.</target>
+        </trans-unit>
+        <trans-unit id="6fea0be4-c26d-439c-b26c-423ca2e46b7c" xml:space="preserve">
+          <source>In other words, change the DNS resource record on your Internet DNS server so that it no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.</source>
+          <target state="new">In other words, change the DNS resource record on your Internet DNS server so that it no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="fa7f3e6e-dd55-458c-807f-f6c3acb1017d" xml:space="preserve">
+          <source>Traffic will stop being directed to the endpoints through the Traffic Manager profile settings.</source>
+          <target state="new">Traffic will stop being directed to the endpoints through the Traffic Manager profile settings.</target>
+        </trans-unit>
+        <trans-unit id="876c5664-d868-485c-b9ab-20c5faeaafc3" xml:space="preserve">
+          <source>Select the profile that you want to disable.</source>
+          <target state="new">Select the profile that you want to disable.</target>
+        </trans-unit>
+        <trans-unit id="38eb424f-64a8-4861-9493-fff66a18f1c2" xml:space="preserve">
+          <source>To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile name.</source>
+          <target state="new">To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile name.</target>
+        </trans-unit>
+        <trans-unit id="a0a9f8c8-1afb-4046-b782-c6a02ee7393a" xml:space="preserve">
+          <source>Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</source>
+          <target state="new">Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="38691dbb-99a7-4df6-b84e-d7d45f13be35" xml:space="preserve">
+          <source>After selecting the profile, click <bpt id="139214bf-2347-4a20-8ab2-7e932be4359e">&lt;strong&gt;</bpt>Disable<ept id="139214bf-2347-4a20-8ab2-7e932be4359e">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">After selecting the profile, click <bpt id="139214bf-2347-4a20-8ab2-7e932be4359e">&lt;strong&gt;</bpt>Disable<ept id="139214bf-2347-4a20-8ab2-7e932be4359e">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="e4983255-dd26-417a-928d-7aa2e26fc8bd" xml:space="preserve">
+          <source>Select the profile that you want to enable.</source>
+          <target state="new">Select the profile that you want to enable.</target>
+        </trans-unit>
+        <trans-unit id="5d9ab1c8-ad2e-4a20-ad96-23e63e2ae066" xml:space="preserve">
+          <source>To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile name.</source>
+          <target state="new">To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile name.</target>
+        </trans-unit>
+        <trans-unit id="75500156-30d7-4320-9713-0b1975c21cb7" xml:space="preserve">
+          <source>Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</source>
+          <target state="new">Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="df162e2d-6d79-4607-9375-91a8c7455713" xml:space="preserve">
+          <source>After selecting the profile, click <bpt id="03282161-c297-4410-8f8d-abdb3d4641e4">&lt;strong&gt;</bpt>Enable<ept id="03282161-c297-4410-8f8d-abdb3d4641e4">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">After selecting the profile, click <bpt id="03282161-c297-4410-8f8d-abdb3d4641e4">&lt;strong&gt;</bpt>Enable<ept id="03282161-c297-4410-8f8d-abdb3d4641e4">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="fb39b5c0-f094-4585-921f-55c744011f85" xml:space="preserve">
+          <source>Modify the DNS resource record on your Internet DNS server to use the CNAME record type, which maps your company domain name to the domain name of your Traffic Manager profile.</source>
+          <target state="new">Modify the DNS resource record on your Internet DNS server to use the CNAME record type, which maps your company domain name to the domain name of your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="03dd15bd-cff9-4ecb-91a3-ae9cf0d2b021" xml:space="preserve">
+          <source>For more information, see <bpt id="b049e80b-04c8-4346-966c-b659aac5c663">&lt;linkText&gt;</bpt>Point a company Internet domain to a Traffic Manager domain<ept id="b049e80b-04c8-4346-966c-b659aac5c663">&lt;/linkText&gt;</ept><bpt id="b049e80b-04c8-4346-966c-b659aac5c663">&lt;title&gt;</bpt><ept id="b049e80b-04c8-4346-966c-b659aac5c663">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b049e80b-04c8-4346-966c-b659aac5c663">&lt;linkText&gt;</bpt>Point a company Internet domain to a Traffic Manager domain<ept id="b049e80b-04c8-4346-966c-b659aac5c663">&lt;/linkText&gt;</ept><bpt id="b049e80b-04c8-4346-966c-b659aac5c663">&lt;title&gt;</bpt><ept id="b049e80b-04c8-4346-966c-b659aac5c663">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4dae2ea1-32b3-4c80-8a82-b4440bcf09bb" xml:space="preserve">
+          <source>Traffic will start being directed to the endpoints again.</source>
+          <target state="new">Traffic will start being directed to the endpoints again.</target>
+        </trans-unit>
+        <trans-unit id="ca217c28-adb9-46c7-9651-20de1eddfb45" xml:space="preserve">
+          <source>Ensure that the DNS resource record on your Internet DNS server no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.</source>
+          <target state="new">Ensure that the DNS resource record on your Internet DNS server no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="cbd1bd46-3812-4eab-b385-8d1aa477ac7b" xml:space="preserve">
+          <source>Select the profile that you want to delete.</source>
+          <target state="new">Select the profile that you want to delete.</target>
+        </trans-unit>
+        <trans-unit id="ebc7bee7-8633-48fc-801f-a53d28f068da" xml:space="preserve">
+          <source>To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile.</source>
+          <target state="new">To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile.</target>
+        </trans-unit>
+        <trans-unit id="6078811d-4f53-42ff-91f5-d1395c721590" xml:space="preserve">
+          <source>Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</source>
+          <target state="new">Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="b4f7cf9b-1bf4-4b0b-9ee3-7ed26b1b4f63" xml:space="preserve">
+          <source>After selecting the profile, click <bpt id="891ee37e-c6b5-45ee-bbc0-432ae6c85f6d">&lt;strong&gt;</bpt>Delete<ept id="891ee37e-c6b5-45ee-bbc0-432ae6c85f6d">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">After selecting the profile, click <bpt id="891ee37e-c6b5-45ee-bbc0-432ae6c85f6d">&lt;strong&gt;</bpt>Delete<ept id="891ee37e-c6b5-45ee-bbc0-432ae6c85f6d">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="c3daa218-da4a-445e-b299-8c66122a1ed3" xml:space="preserve">
+          <source>You can view the change history for your Traffic Manager profile in the Azure portal in Management Services.</source>
+          <target state="new">You can view the change history for your Traffic Manager profile in the Azure portal in Management Services.</target>
+        </trans-unit>
+        <trans-unit id="f7a311b2-dc4b-45e9-a938-0a9ad8f1e88e" xml:space="preserve">
+          <source>In the left pane of the Azure portal, click <bpt id="4dd9cb0c-2f82-489e-b077-c929126f5fdb">&lt;strong&gt;</bpt>Management Services<ept id="4dd9cb0c-2f82-489e-b077-c929126f5fdb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane of the Azure portal, click <bpt id="4dd9cb0c-2f82-489e-b077-c929126f5fdb">&lt;strong&gt;</bpt>Management Services<ept id="4dd9cb0c-2f82-489e-b077-c929126f5fdb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a576212e-38e1-4c31-bc1e-19eff8c0e37c" xml:space="preserve">
+          <source>On the Management Services page, click <bpt id="1850c6f1-a987-4390-ba34-3e89c5088202">&lt;strong&gt;</bpt>Operation Logs<ept id="1850c6f1-a987-4390-ba34-3e89c5088202">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Management Services page, click <bpt id="1850c6f1-a987-4390-ba34-3e89c5088202">&lt;strong&gt;</bpt>Operation Logs<ept id="1850c6f1-a987-4390-ba34-3e89c5088202">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a32cb46f-36ef-43cf-87fa-5f3f8e37a2c0" xml:space="preserve">
+          <source>On the Operation Logs page, you can filter to view the change history for your Traffic Manager profile.</source>
+          <target state="new">On the Operation Logs page, you can filter to view the change history for your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="ae76846e-7ec6-48ee-9a2e-7b61abee063e" xml:space="preserve">
+          <source>After selecting your filtering options, click the checkmark to view the results.</source>
+          <target state="new">After selecting your filtering options, click the checkmark to view the results.</target>
+        </trans-unit>
+        <trans-unit id="1fdbe7e9-0998-4ad8-9a51-f8f28996cb3f" xml:space="preserve">
+          <source>To view profile changes for all of your profiles, select your subscription and time range and then select <bpt id="3e050c49-a054-4f34-a946-a4e54c74b4df">&lt;strong&gt;</bpt>Traffic Manager<ept id="3e050c49-a054-4f34-a946-a4e54c74b4df">&lt;/strong&gt;</ept> from the <bpt id="959c2aff-7a95-47c0-829e-f89017c08b99">&lt;strong&gt;</bpt>Type<ept id="959c2aff-7a95-47c0-829e-f89017c08b99">&lt;/strong&gt;</ept> shortcut menu.</source>
+          <target state="new">To view profile changes for all of your profiles, select your subscription and time range and then select <bpt id="3e050c49-a054-4f34-a946-a4e54c74b4df">&lt;strong&gt;</bpt>Traffic Manager<ept id="3e050c49-a054-4f34-a946-a4e54c74b4df">&lt;/strong&gt;</ept> from the <bpt id="959c2aff-7a95-47c0-829e-f89017c08b99">&lt;strong&gt;</bpt>Type<ept id="959c2aff-7a95-47c0-829e-f89017c08b99">&lt;/strong&gt;</ept> shortcut menu.</target>
+        </trans-unit>
+        <trans-unit id="0233f246-f762-4f61-8897-ccc532acf35c" xml:space="preserve">
+          <source>To filter by profile name, type the name of the profile in the <bpt id="e757ebe0-270a-449b-952f-30fb5523ca38">&lt;strong&gt;</bpt>Service Name<ept id="e757ebe0-270a-449b-952f-30fb5523ca38">&lt;/strong&gt;</ept> field or select it from the shortcut menu.</source>
+          <target state="new">To filter by profile name, type the name of the profile in the <bpt id="e757ebe0-270a-449b-952f-30fb5523ca38">&lt;strong&gt;</bpt>Service Name<ept id="e757ebe0-270a-449b-952f-30fb5523ca38">&lt;/strong&gt;</ept> field or select it from the shortcut menu.</target>
+        </trans-unit>
+        <trans-unit id="67fc99c7-6181-460a-a242-235124af9428" xml:space="preserve">
+          <source>To view details for each individual change, select the row with the change that you want to view, and then click <bpt id="9ae089d5-eb43-4d2d-b506-875c96148c10">&lt;strong&gt;</bpt>Details<ept id="9ae089d5-eb43-4d2d-b506-875c96148c10">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">To view details for each individual change, select the row with the change that you want to view, and then click <bpt id="9ae089d5-eb43-4d2d-b506-875c96148c10">&lt;strong&gt;</bpt>Details<ept id="9ae089d5-eb43-4d2d-b506-875c96148c10">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="8f08d475-a11b-42f5-a5e7-4d49aa238836" xml:space="preserve">
+          <source>In the <bpt id="850a9a64-b038-4a64-8fe2-0298028d9c1f">&lt;strong&gt;</bpt>Operation Details<ept id="850a9a64-b038-4a64-8fe2-0298028d9c1f">&lt;/strong&gt;</ept> window, you can view the XML representation of the API object that was created or updated as part of the operation and copy the XML code to the clipboard.</source>
+          <target state="new">In the <bpt id="850a9a64-b038-4a64-8fe2-0298028d9c1f">&lt;strong&gt;</bpt>Operation Details<ept id="850a9a64-b038-4a64-8fe2-0298028d9c1f">&lt;/strong&gt;</ept> window, you can view the XML representation of the API object that was created or updated as part of the operation and copy the XML code to the clipboard.</target>
+        </trans-unit>
+        <trans-unit id="8a8c223f-f851-45a7-9a47-286f33e53a25" xml:space="preserve">
+          <source><bpt id="26742187-f2e3-4f86-9122-c4a631d9e37f">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="26742187-f2e3-4f86-9122-c4a631d9e37f">&lt;/linkText&gt;</ept><bpt id="26742187-f2e3-4f86-9122-c4a631d9e37f">&lt;title&gt;</bpt><ept id="26742187-f2e3-4f86-9122-c4a631d9e37f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="26742187-f2e3-4f86-9122-c4a631d9e37f">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="26742187-f2e3-4f86-9122-c4a631d9e37f">&lt;/linkText&gt;</ept><bpt id="26742187-f2e3-4f86-9122-c4a631d9e37f">&lt;title&gt;</bpt><ept id="26742187-f2e3-4f86-9122-c4a631d9e37f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e418abf8-eed6-4a80-a656-aceb044ae94f" xml:space="preserve">
+          <source><bpt id="6d4117a2-9b35-4794-ae8f-177b37fea513">&lt;linkText&gt;</bpt>Manage endpoints in Traffic Manager<ept id="6d4117a2-9b35-4794-ae8f-177b37fea513">&lt;/linkText&gt;</ept><bpt id="6d4117a2-9b35-4794-ae8f-177b37fea513">&lt;title&gt;</bpt><ept id="6d4117a2-9b35-4794-ae8f-177b37fea513">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6d4117a2-9b35-4794-ae8f-177b37fea513">&lt;linkText&gt;</bpt>Manage endpoints in Traffic Manager<ept id="6d4117a2-9b35-4794-ae8f-177b37fea513">&lt;/linkText&gt;</ept><bpt id="6d4117a2-9b35-4794-ae8f-177b37fea513">&lt;title&gt;</bpt><ept id="6d4117a2-9b35-4794-ae8f-177b37fea513">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa11784c-4646-4519-8700-f9bb8acc998c" xml:space="preserve">
+          <source><bpt id="d20ec3c0-679b-4cbf-8858-c99f21594abe">&lt;linkText&gt;</bpt>About Traffic Manager monitoring<ept id="d20ec3c0-679b-4cbf-8858-c99f21594abe">&lt;/linkText&gt;</ept><bpt id="d20ec3c0-679b-4cbf-8858-c99f21594abe">&lt;title&gt;</bpt><ept id="d20ec3c0-679b-4cbf-8858-c99f21594abe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d20ec3c0-679b-4cbf-8858-c99f21594abe">&lt;linkText&gt;</bpt>About Traffic Manager monitoring<ept id="d20ec3c0-679b-4cbf-8858-c99f21594abe">&lt;/linkText&gt;</ept><bpt id="d20ec3c0-679b-4cbf-8858-c99f21594abe">&lt;title&gt;</bpt><ept id="d20ec3c0-679b-4cbf-8858-c99f21594abe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99ab0b0b-21c9-404a-914c-055cfbb3d15c" xml:space="preserve">
+          <source><bpt id="ed2505c3-6a87-4703-a48d-a1f43e54530f">&lt;linkText&gt;</bpt>Traffic Manager - Disable, enable or delete a profile<ept id="ed2505c3-6a87-4703-a48d-a1f43e54530f">&lt;/linkText&gt;</ept><bpt id="ed2505c3-6a87-4703-a48d-a1f43e54530f">&lt;title&gt;</bpt><ept id="ed2505c3-6a87-4703-a48d-a1f43e54530f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ed2505c3-6a87-4703-a48d-a1f43e54530f">&lt;linkText&gt;</bpt>Traffic Manager - Disable, enable or delete a profile<ept id="ed2505c3-6a87-4703-a48d-a1f43e54530f">&lt;/linkText&gt;</ept><bpt id="ed2505c3-6a87-4703-a48d-a1f43e54530f">&lt;title&gt;</bpt><ept id="ed2505c3-6a87-4703-a48d-a1f43e54530f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf44c11d-c033-4983-b04f-3175579d145b" xml:space="preserve">
+          <source><bpt id="c66518c3-2387-4640-9a0c-bbe7f91bbbd6">&lt;linkText&gt;</bpt>Traffic Manager - Disable or enable an endpoint<ept id="c66518c3-2387-4640-9a0c-bbe7f91bbbd6">&lt;/linkText&gt;</ept><bpt id="c66518c3-2387-4640-9a0c-bbe7f91bbbd6">&lt;title&gt;</bpt><ept id="c66518c3-2387-4640-9a0c-bbe7f91bbbd6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c66518c3-2387-4640-9a0c-bbe7f91bbbd6">&lt;linkText&gt;</bpt>Traffic Manager - Disable or enable an endpoint<ept id="c66518c3-2387-4640-9a0c-bbe7f91bbbd6">&lt;/linkText&gt;</ept><bpt id="c66518c3-2387-4640-9a0c-bbe7f91bbbd6">&lt;title&gt;</bpt><ept id="c66518c3-2387-4640-9a0c-bbe7f91bbbd6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66feec6e-74be-44bd-afe9-ee2c3ed9aa5d" xml:space="preserve">
+          <source><bpt id="d89ddb1e-173c-406c-af56-d6788afa83e7">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="d89ddb1e-173c-406c-af56-d6788afa83e7">&lt;/linkText&gt;</ept><bpt id="d89ddb1e-173c-406c-af56-d6788afa83e7">&lt;title&gt;</bpt><ept id="d89ddb1e-173c-406c-af56-d6788afa83e7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d89ddb1e-173c-406c-af56-d6788afa83e7">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="d89ddb1e-173c-406c-af56-d6788afa83e7">&lt;/linkText&gt;</ept><bpt id="d89ddb1e-173c-406c-af56-d6788afa83e7">&lt;title&gt;</bpt><ept id="d89ddb1e-173c-406c-af56-d6788afa83e7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef66edbe-208d-4e96-8f84-9be2c0048bb1" xml:space="preserve">
+          <source><bpt id="384507b9-7059-4a77-af5e-a2e6ec6130ab">&lt;linkText&gt;</bpt>Cloud services<ept id="384507b9-7059-4a77-af5e-a2e6ec6130ab">&lt;/linkText&gt;</ept><bpt id="384507b9-7059-4a77-af5e-a2e6ec6130ab">&lt;title&gt;</bpt><ept id="384507b9-7059-4a77-af5e-a2e6ec6130ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="384507b9-7059-4a77-af5e-a2e6ec6130ab">&lt;linkText&gt;</bpt>Cloud services<ept id="384507b9-7059-4a77-af5e-a2e6ec6130ab">&lt;/linkText&gt;</ept><bpt id="384507b9-7059-4a77-af5e-a2e6ec6130ab">&lt;title&gt;</bpt><ept id="384507b9-7059-4a77-af5e-a2e6ec6130ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1793e30f-46f5-46be-96fb-634d5d198707" xml:space="preserve">
+          <source><bpt id="5d4ebf25-5d7f-4a1e-ab17-07886545d59d">&lt;linkText&gt;</bpt>Websites<ept id="5d4ebf25-5d7f-4a1e-ab17-07886545d59d">&lt;/linkText&gt;</ept><bpt id="5d4ebf25-5d7f-4a1e-ab17-07886545d59d">&lt;title&gt;</bpt><ept id="5d4ebf25-5d7f-4a1e-ab17-07886545d59d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5d4ebf25-5d7f-4a1e-ab17-07886545d59d">&lt;linkText&gt;</bpt>Websites<ept id="5d4ebf25-5d7f-4a1e-ab17-07886545d59d">&lt;/linkText&gt;</ept><bpt id="5d4ebf25-5d7f-4a1e-ab17-07886545d59d">&lt;title&gt;</bpt><ept id="5d4ebf25-5d7f-4a1e-ab17-07886545d59d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

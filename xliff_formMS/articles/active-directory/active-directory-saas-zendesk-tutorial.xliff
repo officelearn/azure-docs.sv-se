@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="79e82be8-1c7a-47ef-87df-1c8766419d04" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="79e82be8-1c7a-47ef-87df-1c8766419d04" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="02041430-21e1-4b42-948b-a83d63870728">
+        <trans-unit id="661a4e79-3e7d-47a2-831a-861effcb1a14" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Zendesk | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Zendesk | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3e1ebc86-8f0d-4640-b1ee-0625517f2d19" xml:space="preserve">
+          <source>Learn how to use Zendesk with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Zendesk with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="36d4c3bf-03da-40b2-aa13-8830dac31917" xml:space="preserve">
+          <source>For feedback, click <bpt id="9f9659b7-28f7-42b5-9051-1c4d69195a96">&lt;linkText&gt;</bpt>here<ept id="9f9659b7-28f7-42b5-9051-1c4d69195a96">&lt;/linkText&gt;</ept><bpt id="9f9659b7-28f7-42b5-9051-1c4d69195a96">&lt;title&gt;</bpt><ept id="9f9659b7-28f7-42b5-9051-1c4d69195a96">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="9f9659b7-28f7-42b5-9051-1c4d69195a96">&lt;linkText&gt;</bpt>here<ept id="9f9659b7-28f7-42b5-9051-1c4d69195a96">&lt;/linkText&gt;</ept><bpt id="9f9659b7-28f7-42b5-9051-1c4d69195a96">&lt;title&gt;</bpt><ept id="9f9659b7-28f7-42b5-9051-1c4d69195a96">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95ca56d1-31e8-48f2-aaae-8c144e6b515b" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Zendesk.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Zendesk.</target>
+        </trans-unit>
+        <trans-unit id="f633ac18-da1f-443f-afda-dad974aa4229" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="2b2b2aff-065b-4bc7-91f5-b474855deb5e" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="44d1f9d5-57e7-4d39-a5dd-1c447d3d9831" xml:space="preserve">
+          <source>A Zendesk tenant</source>
+          <target state="new">A Zendesk tenant</target>
+        </trans-unit>
+        <trans-unit id="26ba95a2-e949-4b28-8f4a-9b2845a1e9d0" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Zendesk will be able to single sign into the application at your Zendesk company site (service provider initiated sign on), or using the <bpt id="ca10c474-26ef-425d-b713-5807b859daf3">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="ca10c474-26ef-425d-b713-5807b859daf3">&lt;/linkText&gt;</ept><bpt id="ca10c474-26ef-425d-b713-5807b859daf3">&lt;title&gt;</bpt><ept id="ca10c474-26ef-425d-b713-5807b859daf3">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Zendesk will be able to single sign into the application at your Zendesk company site (service provider initiated sign on), or using the <bpt id="ca10c474-26ef-425d-b713-5807b859daf3">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="ca10c474-26ef-425d-b713-5807b859daf3">&lt;/linkText&gt;</ept><bpt id="ca10c474-26ef-425d-b713-5807b859daf3">&lt;title&gt;</bpt><ept id="ca10c474-26ef-425d-b713-5807b859daf3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d9db8da-ab01-48df-8ddc-3d62c91ac4a0" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="24a72292-dc5f-491e-879f-5989a48794db" xml:space="preserve">
+          <source>Enabling the application integration for Zendesk</source>
+          <target state="new">Enabling the application integration for Zendesk</target>
+        </trans-unit>
+        <trans-unit id="ad8ff8f3-748a-4d57-9ca7-12c8e6a57b36" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="1eb4c04b-f94d-4725-8076-292c6230683d" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="3d48fbe1-ee97-4a16-989c-ac372e220b31" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="48b89e1c-f8d7-4aa1-915c-0117f6e0fd83" xml:space="preserve">
+          <source><bpt id="93c2d0b2-9642-4136-951c-c8f9d5b34981">&lt;linkText&gt;</bpt>Scenario<ept id="93c2d0b2-9642-4136-951c-c8f9d5b34981">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93c2d0b2-9642-4136-951c-c8f9d5b34981">&lt;linkText&gt;</bpt>Scenario<ept id="93c2d0b2-9642-4136-951c-c8f9d5b34981">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8cce099c-3c83-49b8-9947-96ed4502cd06" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Zendesk.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Zendesk.</target>
+        </trans-unit>
+        <trans-unit id="1885d596-7141-4315-9912-f5c2f63ade27" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="c133672d-85fe-4372-957a-e1662bfbc0f0">&lt;strong&gt;</bpt>Active Directory<ept id="c133672d-85fe-4372-957a-e1662bfbc0f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="c133672d-85fe-4372-957a-e1662bfbc0f0">&lt;strong&gt;</bpt>Active Directory<ept id="c133672d-85fe-4372-957a-e1662bfbc0f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d3d1705-4158-460e-92ba-1cab96554889" xml:space="preserve">
+          <source><bpt id="a212a793-77d8-481d-bbaa-7808b98b9c25">&lt;linkText&gt;</bpt>Active Directory<ept id="a212a793-77d8-481d-bbaa-7808b98b9c25">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a212a793-77d8-481d-bbaa-7808b98b9c25">&lt;linkText&gt;</bpt>Active Directory<ept id="a212a793-77d8-481d-bbaa-7808b98b9c25">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fbe22f9-973a-4c4e-96ca-895e73b7adeb" xml:space="preserve">
+          <source>From the <bpt id="13085d2d-a0ed-464a-9940-8c00c26bfd2d">&lt;strong&gt;</bpt>Directory<ept id="13085d2d-a0ed-464a-9940-8c00c26bfd2d">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="13085d2d-a0ed-464a-9940-8c00c26bfd2d">&lt;strong&gt;</bpt>Directory<ept id="13085d2d-a0ed-464a-9940-8c00c26bfd2d">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="e5cfbcee-2d42-4792-b263-2011af2e4227" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="ed857f6b-26ec-4ba1-a4bd-bf5545cb423a">&lt;strong&gt;</bpt>Applications<ept id="ed857f6b-26ec-4ba1-a4bd-bf5545cb423a">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="ed857f6b-26ec-4ba1-a4bd-bf5545cb423a">&lt;strong&gt;</bpt>Applications<ept id="ed857f6b-26ec-4ba1-a4bd-bf5545cb423a">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="413e5e05-20ad-4d83-8278-cfde1599b946" xml:space="preserve">
+          <source><bpt id="fd8394ca-e160-4ad4-8fa0-263e12b8c561">&lt;linkText&gt;</bpt>Applications<ept id="fd8394ca-e160-4ad4-8fa0-263e12b8c561">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd8394ca-e160-4ad4-8fa0-263e12b8c561">&lt;linkText&gt;</bpt>Applications<ept id="fd8394ca-e160-4ad4-8fa0-263e12b8c561">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="752acebf-d9b1-4426-9f46-8cf8f0c8b149" xml:space="preserve">
+          <source>Click <bpt id="92a9bc1c-d4c8-4644-83f9-3b75becd1e4c">&lt;strong&gt;</bpt>Add<ept id="92a9bc1c-d4c8-4644-83f9-3b75becd1e4c">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="92a9bc1c-d4c8-4644-83f9-3b75becd1e4c">&lt;strong&gt;</bpt>Add<ept id="92a9bc1c-d4c8-4644-83f9-3b75becd1e4c">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="b3f14e42-d6ad-42cb-af49-77146c783b65" xml:space="preserve">
+          <source><bpt id="3a080c7c-e517-4dfd-a531-d497fa0c036d">&lt;linkText&gt;</bpt>Add application<ept id="3a080c7c-e517-4dfd-a531-d497fa0c036d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a080c7c-e517-4dfd-a531-d497fa0c036d">&lt;linkText&gt;</bpt>Add application<ept id="3a080c7c-e517-4dfd-a531-d497fa0c036d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ef06ee3-e9b7-4db1-b81a-54aa1ede6f29" xml:space="preserve">
+          <source>On the <bpt id="e4df3741-e733-4321-afdd-3efd332545fd">&lt;strong&gt;</bpt>What do you want to do<ept id="e4df3741-e733-4321-afdd-3efd332545fd">&lt;/strong&gt;</ept> dialog, click <bpt id="a2b4ee3b-4270-436f-a134-5d168e29d556">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="a2b4ee3b-4270-436f-a134-5d168e29d556">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e4df3741-e733-4321-afdd-3efd332545fd">&lt;strong&gt;</bpt>What do you want to do<ept id="e4df3741-e733-4321-afdd-3efd332545fd">&lt;/strong&gt;</ept> dialog, click <bpt id="a2b4ee3b-4270-436f-a134-5d168e29d556">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="a2b4ee3b-4270-436f-a134-5d168e29d556">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d29b47ff-4930-40c3-bbc4-62866aa46b4d" xml:space="preserve">
+          <source><bpt id="ce8b9050-62f8-41cd-b365-e66296f40dd6">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="ce8b9050-62f8-41cd-b365-e66296f40dd6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce8b9050-62f8-41cd-b365-e66296f40dd6">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="ce8b9050-62f8-41cd-b365-e66296f40dd6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9608e71-8507-4424-b9aa-2c0aefd4d447" xml:space="preserve">
+          <source>In the <bpt id="2f6c8e50-8e09-4044-afa3-393be4179d37">&lt;strong&gt;</bpt>search box<ept id="2f6c8e50-8e09-4044-afa3-393be4179d37">&lt;/strong&gt;</ept>, type <bpt id="9184c0a6-0673-4e45-8569-24f8368b4a35">&lt;strong&gt;</bpt>Zendesk<ept id="9184c0a6-0673-4e45-8569-24f8368b4a35">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2f6c8e50-8e09-4044-afa3-393be4179d37">&lt;strong&gt;</bpt>search box<ept id="2f6c8e50-8e09-4044-afa3-393be4179d37">&lt;/strong&gt;</ept>, type <bpt id="9184c0a6-0673-4e45-8569-24f8368b4a35">&lt;strong&gt;</bpt>Zendesk<ept id="9184c0a6-0673-4e45-8569-24f8368b4a35">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61d92341-6866-4dd4-949a-2e5d52223977" xml:space="preserve">
+          <source><bpt id="73563eb7-94d1-4f9c-8518-812bb39794be">&lt;linkText&gt;</bpt>Application Gallery<ept id="73563eb7-94d1-4f9c-8518-812bb39794be">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73563eb7-94d1-4f9c-8518-812bb39794be">&lt;linkText&gt;</bpt>Application Gallery<ept id="73563eb7-94d1-4f9c-8518-812bb39794be">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df4fddd2-1125-483f-a230-bb23a5340590" xml:space="preserve">
+          <source>In the results pane, select <bpt id="1c981aff-352e-4a1f-858f-bc5eb09031dd">&lt;strong&gt;</bpt>Zendesk<ept id="1c981aff-352e-4a1f-858f-bc5eb09031dd">&lt;/strong&gt;</ept>, and then click <bpt id="2edb7a95-05c7-427d-aa4b-d950b2d9dc03">&lt;strong&gt;</bpt>Complete<ept id="2edb7a95-05c7-427d-aa4b-d950b2d9dc03">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="1c981aff-352e-4a1f-858f-bc5eb09031dd">&lt;strong&gt;</bpt>Zendesk<ept id="1c981aff-352e-4a1f-858f-bc5eb09031dd">&lt;/strong&gt;</ept>, and then click <bpt id="2edb7a95-05c7-427d-aa4b-d950b2d9dc03">&lt;strong&gt;</bpt>Complete<ept id="2edb7a95-05c7-427d-aa4b-d950b2d9dc03">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="4d0b66df-3dd7-40f6-a1ac-308b8315949f" xml:space="preserve">
+          <source><bpt id="66413121-24b6-4164-bbbc-7e61086c8906">&lt;linkText&gt;</bpt>Zendesk<ept id="66413121-24b6-4164-bbbc-7e61086c8906">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="66413121-24b6-4164-bbbc-7e61086c8906">&lt;linkText&gt;</bpt>Zendesk<ept id="66413121-24b6-4164-bbbc-7e61086c8906">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c06539c2-fb81-4e60-b24b-57e6a0d78cf5" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Zendesk with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Zendesk with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="f8e67b55-bf2c-45ea-a83e-50410d84e56c" xml:space="preserve">
+          <source>Configuring single sign-on for Zendesk requires you to retrieve a thumbprint value from a certificate.</source>
+          <target state="new">Configuring single sign-on for Zendesk requires you to retrieve a thumbprint value from a certificate.</target>
+        </trans-unit>
+        <trans-unit id="93d54ff9-9da4-43ce-8f18-344fb53c101f" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="59a11f9c-4871-4ecc-ab23-d85d6d7cbd72">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="59a11f9c-4871-4ecc-ab23-d85d6d7cbd72">&lt;/linkText&gt;</ept><bpt id="59a11f9c-4871-4ecc-ab23-d85d6d7cbd72">&lt;title&gt;</bpt><ept id="59a11f9c-4871-4ecc-ab23-d85d6d7cbd72">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="59a11f9c-4871-4ecc-ab23-d85d6d7cbd72">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="59a11f9c-4871-4ecc-ab23-d85d6d7cbd72">&lt;/linkText&gt;</ept><bpt id="59a11f9c-4871-4ecc-ab23-d85d6d7cbd72">&lt;title&gt;</bpt><ept id="59a11f9c-4871-4ecc-ab23-d85d6d7cbd72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36884637-be6e-4e23-9ea6-089f67eabcb4" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="e6ddbdfa-c604-47b8-8897-d5ddad6c9308">&lt;strong&gt;</bpt>Zendesk<ept id="e6ddbdfa-c604-47b8-8897-d5ddad6c9308">&lt;/strong&gt;</ept> application integration page, click <bpt id="47dc0e07-4b48-414e-a94a-097f2b891fc9">&lt;strong&gt;</bpt>Configure single sign-on<ept id="47dc0e07-4b48-414e-a94a-097f2b891fc9">&lt;/strong&gt;</ept> to open the <bpt id="ceee99f7-abfa-4509-8dfe-9750ab8e381e">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="ceee99f7-abfa-4509-8dfe-9750ab8e381e">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="e6ddbdfa-c604-47b8-8897-d5ddad6c9308">&lt;strong&gt;</bpt>Zendesk<ept id="e6ddbdfa-c604-47b8-8897-d5ddad6c9308">&lt;/strong&gt;</ept> application integration page, click <bpt id="47dc0e07-4b48-414e-a94a-097f2b891fc9">&lt;strong&gt;</bpt>Configure single sign-on<ept id="47dc0e07-4b48-414e-a94a-097f2b891fc9">&lt;/strong&gt;</ept> to open the <bpt id="ceee99f7-abfa-4509-8dfe-9750ab8e381e">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="ceee99f7-abfa-4509-8dfe-9750ab8e381e">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="56e0c245-33a6-4c11-9bcb-d45fa5445e63" xml:space="preserve">
+          <source><bpt id="498beb26-eabf-4e65-8855-94760fbafc2f">&lt;linkText&gt;</bpt>Single sign-on<ept id="498beb26-eabf-4e65-8855-94760fbafc2f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="498beb26-eabf-4e65-8855-94760fbafc2f">&lt;linkText&gt;</bpt>Single sign-on<ept id="498beb26-eabf-4e65-8855-94760fbafc2f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d97c7eb3-505e-404e-9405-cb51e21a6bd3" xml:space="preserve">
+          <source>On the <bpt id="d20b637d-f046-45da-ab05-a9b8edd0f4de">&lt;strong&gt;</bpt>How would you like users to sign on to Zendesk<ept id="d20b637d-f046-45da-ab05-a9b8edd0f4de">&lt;/strong&gt;</ept> page, select <bpt id="ba91fc80-6042-4292-86ca-edc40f92d72e">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="ba91fc80-6042-4292-86ca-edc40f92d72e">&lt;/strong&gt;</ept>, and then click <bpt id="a8feb1d3-332b-4dc7-92b1-0d9fd2a38c2a">&lt;strong&gt;</bpt>Next<ept id="a8feb1d3-332b-4dc7-92b1-0d9fd2a38c2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d20b637d-f046-45da-ab05-a9b8edd0f4de">&lt;strong&gt;</bpt>How would you like users to sign on to Zendesk<ept id="d20b637d-f046-45da-ab05-a9b8edd0f4de">&lt;/strong&gt;</ept> page, select <bpt id="ba91fc80-6042-4292-86ca-edc40f92d72e">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="ba91fc80-6042-4292-86ca-edc40f92d72e">&lt;/strong&gt;</ept>, and then click <bpt id="a8feb1d3-332b-4dc7-92b1-0d9fd2a38c2a">&lt;strong&gt;</bpt>Next<ept id="a8feb1d3-332b-4dc7-92b1-0d9fd2a38c2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba1ccb19-03ef-4e60-bb80-6078293fd3da" xml:space="preserve">
+          <source><bpt id="caebf416-75cb-4213-986c-115f0ee5309a">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="caebf416-75cb-4213-986c-115f0ee5309a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="caebf416-75cb-4213-986c-115f0ee5309a">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="caebf416-75cb-4213-986c-115f0ee5309a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bae6381-4499-4f65-9539-98377c739ea6" xml:space="preserve">
+          <source>On the <bpt id="addb55c6-c914-449e-915c-0c26d324e1f7">&lt;strong&gt;</bpt>Configure App URL<ept id="addb55c6-c914-449e-915c-0c26d324e1f7">&lt;/strong&gt;</ept> page, in the <bpt id="171d52bb-75bc-49ee-bb21-c28ebef9d1d8">&lt;strong&gt;</bpt>Zendesk Sign In URL<ept id="171d52bb-75bc-49ee-bb21-c28ebef9d1d8">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="12979acb-65ed-4dcb-9a78-7e99fefb4fb9">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.zendesk.com<ept id="12979acb-65ed-4dcb-9a78-7e99fefb4fb9">&lt;/em&gt;</ept>", and then click <bpt id="92581ad4-fbff-4aaa-85a5-016629d1a38f">&lt;strong&gt;</bpt>Next<ept id="92581ad4-fbff-4aaa-85a5-016629d1a38f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="addb55c6-c914-449e-915c-0c26d324e1f7">&lt;strong&gt;</bpt>Configure App URL<ept id="addb55c6-c914-449e-915c-0c26d324e1f7">&lt;/strong&gt;</ept> page, in the <bpt id="171d52bb-75bc-49ee-bb21-c28ebef9d1d8">&lt;strong&gt;</bpt>Zendesk Sign In URL<ept id="171d52bb-75bc-49ee-bb21-c28ebef9d1d8">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="12979acb-65ed-4dcb-9a78-7e99fefb4fb9">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.zendesk.com<ept id="12979acb-65ed-4dcb-9a78-7e99fefb4fb9">&lt;/em&gt;</ept>", and then click <bpt id="92581ad4-fbff-4aaa-85a5-016629d1a38f">&lt;strong&gt;</bpt>Next<ept id="92581ad4-fbff-4aaa-85a5-016629d1a38f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c4c4b21-eb7c-43af-be2c-b606ee90fae8" xml:space="preserve">
+          <source><bpt id="46aaff40-8b23-4eb3-a4c6-2032fe7d301f">&lt;linkText&gt;</bpt>Configure app URL<ept id="46aaff40-8b23-4eb3-a4c6-2032fe7d301f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46aaff40-8b23-4eb3-a4c6-2032fe7d301f">&lt;linkText&gt;</bpt>Configure app URL<ept id="46aaff40-8b23-4eb3-a4c6-2032fe7d301f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac15cec0-0b74-47b5-affb-ab0ac9873b07" xml:space="preserve">
+          <source>On the <bpt id="257732f5-aad1-446a-93ec-2e2edd91b4df">&lt;strong&gt;</bpt>Configure single sign-on at Zendesk<ept id="257732f5-aad1-446a-93ec-2e2edd91b4df">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="62464aac-cd8d-4d82-83fc-e40be722dec2">&lt;strong&gt;</bpt>Download certificate<ept id="62464aac-cd8d-4d82-83fc-e40be722dec2">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="d3e2fd4e-628a-4da4-a089-617436b27afb">&lt;strong&gt;</bpt>c:\\zendesk.cer<ept id="d3e2fd4e-628a-4da4-a089-617436b27afb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="257732f5-aad1-446a-93ec-2e2edd91b4df">&lt;strong&gt;</bpt>Configure single sign-on at Zendesk<ept id="257732f5-aad1-446a-93ec-2e2edd91b4df">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="62464aac-cd8d-4d82-83fc-e40be722dec2">&lt;strong&gt;</bpt>Download certificate<ept id="62464aac-cd8d-4d82-83fc-e40be722dec2">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="d3e2fd4e-628a-4da4-a089-617436b27afb">&lt;strong&gt;</bpt>c:\\zendesk.cer<ept id="d3e2fd4e-628a-4da4-a089-617436b27afb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4812edb-d875-4f49-9666-eb0fa3b0037a" xml:space="preserve">
+          <source><bpt id="57bad5e5-107c-45ec-9667-be6994e8cb7b">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="57bad5e5-107c-45ec-9667-be6994e8cb7b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="57bad5e5-107c-45ec-9667-be6994e8cb7b">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="57bad5e5-107c-45ec-9667-be6994e8cb7b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="959a2d0a-e1d7-45bd-ab3c-5247774c1cd1" xml:space="preserve">
+          <source>In a different web browser window, log into your Zendesk company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Zendesk company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="c492172a-c402-4336-b0b6-2c2c5d5b6db4" xml:space="preserve">
+          <source>Click <bpt id="9592de2b-41ac-4bd1-b982-f62dd9c8177f">&lt;strong&gt;</bpt>Admin<ept id="9592de2b-41ac-4bd1-b982-f62dd9c8177f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9592de2b-41ac-4bd1-b982-f62dd9c8177f">&lt;strong&gt;</bpt>Admin<ept id="9592de2b-41ac-4bd1-b982-f62dd9c8177f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c420d19-7aff-4846-8406-8eca84402d16" xml:space="preserve">
+          <source>In the left navigation pane, click <bpt id="432ee03a-2720-4c58-a7cf-9f3f177f3fa1">&lt;strong&gt;</bpt>Settings<ept id="432ee03a-2720-4c58-a7cf-9f3f177f3fa1">&lt;/strong&gt;</ept>, and then click <bpt id="49b5d72f-1581-42d4-8455-52d48ec4f226">&lt;strong&gt;</bpt>Security<ept id="49b5d72f-1581-42d4-8455-52d48ec4f226">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left navigation pane, click <bpt id="432ee03a-2720-4c58-a7cf-9f3f177f3fa1">&lt;strong&gt;</bpt>Settings<ept id="432ee03a-2720-4c58-a7cf-9f3f177f3fa1">&lt;/strong&gt;</ept>, and then click <bpt id="49b5d72f-1581-42d4-8455-52d48ec4f226">&lt;strong&gt;</bpt>Security<ept id="49b5d72f-1581-42d4-8455-52d48ec4f226">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a889b97-217e-4204-939f-e30bf31425bb" xml:space="preserve">
+          <source><bpt id="2bc8fc64-99af-4cb3-ab47-37ae5ce086a5">&lt;linkText&gt;</bpt>Security<ept id="2bc8fc64-99af-4cb3-ab47-37ae5ce086a5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2bc8fc64-99af-4cb3-ab47-37ae5ce086a5">&lt;linkText&gt;</bpt>Security<ept id="2bc8fc64-99af-4cb3-ab47-37ae5ce086a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86245427-a544-450b-9ae1-a9a94ed3910c" xml:space="preserve">
+          <source>On the <bpt id="2c1662a1-17e9-4026-a88a-682a8a76c9d9">&lt;strong&gt;</bpt>Security<ept id="2c1662a1-17e9-4026-a88a-682a8a76c9d9">&lt;/strong&gt;</ept> page, select the <bpt id="33b4e144-9b3b-4634-9dff-ddda280399d5">&lt;strong&gt;</bpt>Admin &amp; Agents<ept id="33b4e144-9b3b-4634-9dff-ddda280399d5">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the <bpt id="2c1662a1-17e9-4026-a88a-682a8a76c9d9">&lt;strong&gt;</bpt>Security<ept id="2c1662a1-17e9-4026-a88a-682a8a76c9d9">&lt;/strong&gt;</ept> page, select the <bpt id="33b4e144-9b3b-4634-9dff-ddda280399d5">&lt;strong&gt;</bpt>Admin &amp; Agents<ept id="33b4e144-9b3b-4634-9dff-ddda280399d5">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="89a1e3cb-5b4c-4601-9250-10151e48a346" xml:space="preserve">
+          <source>Select <bpt id="bd789c78-540d-4636-acb4-ae8aa1f56abd">&lt;strong&gt;</bpt>Single sign-on (SSO) and SAML<ept id="bd789c78-540d-4636-acb4-ae8aa1f56abd">&lt;/strong&gt;</ept>, and then select <bpt id="c7034835-4944-49d7-8c51-d4377175cdcb">&lt;strong&gt;</bpt>SAML<ept id="c7034835-4944-49d7-8c51-d4377175cdcb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="bd789c78-540d-4636-acb4-ae8aa1f56abd">&lt;strong&gt;</bpt>Single sign-on (SSO) and SAML<ept id="bd789c78-540d-4636-acb4-ae8aa1f56abd">&lt;/strong&gt;</ept>, and then select <bpt id="c7034835-4944-49d7-8c51-d4377175cdcb">&lt;strong&gt;</bpt>SAML<ept id="c7034835-4944-49d7-8c51-d4377175cdcb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1c1af28-0bf5-46c5-8324-75ddd45162e3" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="242f9bd4-7a5a-4a5a-b987-8393f72db506">&lt;strong&gt;</bpt>Configure single sign-on at Zendesk<ept id="242f9bd4-7a5a-4a5a-b987-8393f72db506">&lt;/strong&gt;</ept> page, copy the <bpt id="837150e2-8f49-41cb-9570-288a40eda979">&lt;strong&gt;</bpt>SAML SSO URL<ept id="837150e2-8f49-41cb-9570-288a40eda979">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="eb961e94-85c1-4a03-9fd6-eed46e609c08">&lt;strong&gt;</bpt>SAML SSO URL<ept id="eb961e94-85c1-4a03-9fd6-eed46e609c08">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="242f9bd4-7a5a-4a5a-b987-8393f72db506">&lt;strong&gt;</bpt>Configure single sign-on at Zendesk<ept id="242f9bd4-7a5a-4a5a-b987-8393f72db506">&lt;/strong&gt;</ept> page, copy the <bpt id="837150e2-8f49-41cb-9570-288a40eda979">&lt;strong&gt;</bpt>SAML SSO URL<ept id="837150e2-8f49-41cb-9570-288a40eda979">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="eb961e94-85c1-4a03-9fd6-eed46e609c08">&lt;strong&gt;</bpt>SAML SSO URL<ept id="eb961e94-85c1-4a03-9fd6-eed46e609c08">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="f7f1ce0e-5206-4933-88c6-acb037b8410c" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="461cd638-735e-4660-9947-e8b68eefe655">&lt;strong&gt;</bpt>Configure single sign-on at Zendesk<ept id="461cd638-735e-4660-9947-e8b68eefe655">&lt;/strong&gt;</ept> page, copy the <bpt id="bd11e407-312d-455a-ad84-a5ae2e6afd49">&lt;strong&gt;</bpt>Remote Logout URL<ept id="bd11e407-312d-455a-ad84-a5ae2e6afd49">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="c67ae373-aa23-47f4-9cea-ae9ed4356dd5">&lt;strong&gt;</bpt>Remote Logout URL<ept id="c67ae373-aa23-47f4-9cea-ae9ed4356dd5">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="461cd638-735e-4660-9947-e8b68eefe655">&lt;strong&gt;</bpt>Configure single sign-on at Zendesk<ept id="461cd638-735e-4660-9947-e8b68eefe655">&lt;/strong&gt;</ept> page, copy the <bpt id="bd11e407-312d-455a-ad84-a5ae2e6afd49">&lt;strong&gt;</bpt>Remote Logout URL<ept id="bd11e407-312d-455a-ad84-a5ae2e6afd49">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="c67ae373-aa23-47f4-9cea-ae9ed4356dd5">&lt;strong&gt;</bpt>Remote Logout URL<ept id="c67ae373-aa23-47f4-9cea-ae9ed4356dd5">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="f17e0e66-6dfd-4091-8447-7609648d8acb" xml:space="preserve">
+          <source><bpt id="64fd972c-e3c0-4c23-abee-da87f262c75b">&lt;linkText&gt;</bpt>Single sign-on<ept id="64fd972c-e3c0-4c23-abee-da87f262c75b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="64fd972c-e3c0-4c23-abee-da87f262c75b">&lt;linkText&gt;</bpt>Single sign-on<ept id="64fd972c-e3c0-4c23-abee-da87f262c75b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37d48b02-ed17-4d9d-a329-e1c4ce64b29b" xml:space="preserve">
+          <source>Copy the <bpt id="f2de7532-f29e-453f-8758-bd6e91dc9ae2">&lt;strong&gt;</bpt>Thumbprint<ept id="f2de7532-f29e-453f-8758-bd6e91dc9ae2">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="b3a2a30e-1a3f-4198-a55c-336c40f1bd3d">&lt;strong&gt;</bpt>Certificate Fingerprint<ept id="b3a2a30e-1a3f-4198-a55c-336c40f1bd3d">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Copy the <bpt id="f2de7532-f29e-453f-8758-bd6e91dc9ae2">&lt;strong&gt;</bpt>Thumbprint<ept id="f2de7532-f29e-453f-8758-bd6e91dc9ae2">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="b3a2a30e-1a3f-4198-a55c-336c40f1bd3d">&lt;strong&gt;</bpt>Certificate Fingerprint<ept id="b3a2a30e-1a3f-4198-a55c-336c40f1bd3d">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="f37579fb-05bd-4dd2-8405-a0030b606c70" xml:space="preserve">
+          <source>For more details, see <bpt id="ffa3f2d7-fecb-4a90-b6fb-0e8680a2646c">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="ffa3f2d7-fecb-4a90-b6fb-0e8680a2646c">&lt;/linkText&gt;</ept><bpt id="ffa3f2d7-fecb-4a90-b6fb-0e8680a2646c">&lt;title&gt;</bpt><ept id="ffa3f2d7-fecb-4a90-b6fb-0e8680a2646c">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="ffa3f2d7-fecb-4a90-b6fb-0e8680a2646c">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="ffa3f2d7-fecb-4a90-b6fb-0e8680a2646c">&lt;/linkText&gt;</ept><bpt id="ffa3f2d7-fecb-4a90-b6fb-0e8680a2646c">&lt;title&gt;</bpt><ept id="ffa3f2d7-fecb-4a90-b6fb-0e8680a2646c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d17d1793-9d52-4b47-ae5d-07370f20c680" xml:space="preserve">
+          <source>Click <bpt id="e90c6af3-fd85-4162-a9e3-be4888797604">&lt;strong&gt;</bpt>Save<ept id="e90c6af3-fd85-4162-a9e3-be4888797604">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e90c6af3-fd85-4162-a9e3-be4888797604">&lt;strong&gt;</bpt>Save<ept id="e90c6af3-fd85-4162-a9e3-be4888797604">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7ebeb62-f0e0-4b9c-b61c-9668f5fd8eb9" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="87de6141-6408-4fd3-8af7-d576575e2d27">&lt;strong&gt;</bpt>Complete<ept id="87de6141-6408-4fd3-8af7-d576575e2d27">&lt;/strong&gt;</ept> to close the <bpt id="78feb6b5-1699-4791-a755-6746943f719f">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="78feb6b5-1699-4791-a755-6746943f719f">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="87de6141-6408-4fd3-8af7-d576575e2d27">&lt;strong&gt;</bpt>Complete<ept id="87de6141-6408-4fd3-8af7-d576575e2d27">&lt;/strong&gt;</ept> to close the <bpt id="78feb6b5-1699-4791-a755-6746943f719f">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="78feb6b5-1699-4791-a755-6746943f719f">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="d41606e3-09ae-42f9-8101-4e44918f0f6c" xml:space="preserve">
+          <source><bpt id="66aa1ece-c625-4540-9729-69d95b89590b">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="66aa1ece-c625-4540-9729-69d95b89590b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="66aa1ece-c625-4540-9729-69d95b89590b">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="66aa1ece-c625-4540-9729-69d95b89590b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a606f786-3ccf-4b7b-9491-81c90b369003" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into <bpt id="b372740d-5170-48b9-901e-a00fc0d0aabc">&lt;strong&gt;</bpt>Zendesk<ept id="b372740d-5170-48b9-901e-a00fc0d0aabc">&lt;/strong&gt;</ept>, they must be provisioned into <bpt id="51049928-c8a3-44ae-af93-4ac6ae47395f">&lt;strong&gt;</bpt>Zendesk<ept id="51049928-c8a3-44ae-af93-4ac6ae47395f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In order to enable Azure AD users to log into <bpt id="b372740d-5170-48b9-901e-a00fc0d0aabc">&lt;strong&gt;</bpt>Zendesk<ept id="b372740d-5170-48b9-901e-a00fc0d0aabc">&lt;/strong&gt;</ept>, they must be provisioned into <bpt id="51049928-c8a3-44ae-af93-4ac6ae47395f">&lt;strong&gt;</bpt>Zendesk<ept id="51049928-c8a3-44ae-af93-4ac6ae47395f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8d07931-f0e1-4c61-9518-96c134ec5ea6" xml:space="preserve">
+          <source>In the case of <bpt id="f91616cb-43f2-40dc-81df-45f38862d3f8">&lt;strong&gt;</bpt>Zendesk<ept id="f91616cb-43f2-40dc-81df-45f38862d3f8">&lt;/strong&gt;</ept>, provisioning is a manual task.</source>
+          <target state="new">In the case of <bpt id="f91616cb-43f2-40dc-81df-45f38862d3f8">&lt;strong&gt;</bpt>Zendesk<ept id="f91616cb-43f2-40dc-81df-45f38862d3f8">&lt;/strong&gt;</ept>, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="81398165-b972-4147-8359-18610289ae65" xml:space="preserve">
+          <source>Log in to your <bpt id="e3700a1d-19b3-44ea-b34e-19d69494a8c3">&lt;strong&gt;</bpt>Zendesk<ept id="e3700a1d-19b3-44ea-b34e-19d69494a8c3">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="e3700a1d-19b3-44ea-b34e-19d69494a8c3">&lt;strong&gt;</bpt>Zendesk<ept id="e3700a1d-19b3-44ea-b34e-19d69494a8c3">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="077564a2-8b7a-418f-9539-a8a2ae5eadf6" xml:space="preserve">
+          <source>Select the <bpt id="b4af3473-0261-4a51-81ba-350e577a59ae">&lt;strong&gt;</bpt>Customer List<ept id="b4af3473-0261-4a51-81ba-350e577a59ae">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the <bpt id="b4af3473-0261-4a51-81ba-350e577a59ae">&lt;strong&gt;</bpt>Customer List<ept id="b4af3473-0261-4a51-81ba-350e577a59ae">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="75b7d154-2e4c-4cb4-aad1-de3f26f82f64" xml:space="preserve">
+          <source>Select the <bpt id="e25ce72a-5972-4f98-a252-4a88f629a394">&lt;strong&gt;</bpt>User<ept id="e25ce72a-5972-4f98-a252-4a88f629a394">&lt;/strong&gt;</ept> tab, and click <bpt id="374994c4-5183-476c-bdc9-c912434ccbe7">&lt;strong&gt;</bpt>Add<ept id="374994c4-5183-476c-bdc9-c912434ccbe7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="e25ce72a-5972-4f98-a252-4a88f629a394">&lt;strong&gt;</bpt>User<ept id="e25ce72a-5972-4f98-a252-4a88f629a394">&lt;/strong&gt;</ept> tab, and click <bpt id="374994c4-5183-476c-bdc9-c912434ccbe7">&lt;strong&gt;</bpt>Add<ept id="374994c4-5183-476c-bdc9-c912434ccbe7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f01f5b2e-2788-4e2b-b13c-a62fb2498fdc" xml:space="preserve">
+          <source><bpt id="d02e08a1-8d69-4f0f-9e26-817b63599313">&lt;linkText&gt;</bpt>Add user<ept id="d02e08a1-8d69-4f0f-9e26-817b63599313">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d02e08a1-8d69-4f0f-9e26-817b63599313">&lt;linkText&gt;</bpt>Add user<ept id="d02e08a1-8d69-4f0f-9e26-817b63599313">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f90f6ad-fa68-48e6-8f44-792cf55485b6" xml:space="preserve">
+          <source>Type the email address of an existing Azure AD account you want to provision, and then click <bpt id="da76f488-0682-4f99-8d96-e68a70306528">&lt;strong&gt;</bpt>Save<ept id="da76f488-0682-4f99-8d96-e68a70306528">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type the email address of an existing Azure AD account you want to provision, and then click <bpt id="da76f488-0682-4f99-8d96-e68a70306528">&lt;strong&gt;</bpt>Save<ept id="da76f488-0682-4f99-8d96-e68a70306528">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e715daf-ce40-4be2-bb5d-8f56a0b2e2b7" xml:space="preserve">
+          <source><bpt id="bfd74a27-71ca-42b3-8e81-ae8c6a9522a2">&lt;linkText&gt;</bpt>New user<ept id="bfd74a27-71ca-42b3-8e81-ae8c6a9522a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bfd74a27-71ca-42b3-8e81-ae8c6a9522a2">&lt;linkText&gt;</bpt>New user<ept id="bfd74a27-71ca-42b3-8e81-ae8c6a9522a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e5e517b-da3c-4eab-997e-7f81884dbe6e" xml:space="preserve">
+          <source>You can use any other Zendesk user account creation tools or APIs provided by Zendesk to provision AAD user accounts.</source>
+          <target state="new">You can use any other Zendesk user account creation tools or APIs provided by Zendesk to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="4aa631f4-7af4-436a-8466-186399f43044" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="34038d68-f55a-423c-8ab5-9ba1ee931e01" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="f60df443-5cd0-4e70-b1ad-c29e3966b7cc" xml:space="preserve">
+          <source>On the <bpt id="a1df10b2-2c49-4a1c-a0b7-34c792455290">&lt;strong&gt;</bpt>Zendesk **application integration page, click **Assign users<ept id="a1df10b2-2c49-4a1c-a0b7-34c792455290">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="a1df10b2-2c49-4a1c-a0b7-34c792455290">&lt;strong&gt;</bpt>Zendesk **application integration page, click **Assign users<ept id="a1df10b2-2c49-4a1c-a0b7-34c792455290">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c8bd8c5-5304-4211-9c69-bc4923e7e452" xml:space="preserve">
+          <source><bpt id="1040c8b1-64bd-479d-b163-c0c366b3003b">&lt;linkText&gt;</bpt>Assign users<ept id="1040c8b1-64bd-479d-b163-c0c366b3003b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1040c8b1-64bd-479d-b163-c0c366b3003b">&lt;linkText&gt;</bpt>Assign users<ept id="1040c8b1-64bd-479d-b163-c0c366b3003b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95ea98ff-9839-4e6d-b535-a714e68a23d1" xml:space="preserve">
+          <source>Select your test user, click <bpt id="e89e0e06-8927-4a44-8528-6b5f17aa89b0">&lt;strong&gt;</bpt>Assign<ept id="e89e0e06-8927-4a44-8528-6b5f17aa89b0">&lt;/strong&gt;</ept>, and then click <bpt id="57ff988c-b045-428b-82ca-8a146752ec49">&lt;strong&gt;</bpt>Yes<ept id="57ff988c-b045-428b-82ca-8a146752ec49">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="e89e0e06-8927-4a44-8528-6b5f17aa89b0">&lt;strong&gt;</bpt>Assign<ept id="e89e0e06-8927-4a44-8528-6b5f17aa89b0">&lt;/strong&gt;</ept>, and then click <bpt id="57ff988c-b045-428b-82ca-8a146752ec49">&lt;strong&gt;</bpt>Yes<ept id="57ff988c-b045-428b-82ca-8a146752ec49">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="347e90dd-b4f5-4d44-9a41-eafefdaf1b34" xml:space="preserve">
+          <source><bpt id="f7b2e305-32cd-496b-b751-a2d5adacc5b1">&lt;linkText&gt;</bpt>Yes<ept id="f7b2e305-32cd-496b-b751-a2d5adacc5b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f7b2e305-32cd-496b-b751-a2d5adacc5b1">&lt;linkText&gt;</bpt>Yes<ept id="f7b2e305-32cd-496b-b751-a2d5adacc5b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23d5a362-7c4e-41e2-8f1a-7e19c1757eaf" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="c61aea50-267f-4823-8ee8-e5bd477af7f3" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="462cdafb-07b9-4eae-a537-cc3370fd23fb">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="462cdafb-07b9-4eae-a537-cc3370fd23fb">&lt;/linkText&gt;</ept><bpt id="462cdafb-07b9-4eae-a537-cc3370fd23fb">&lt;title&gt;</bpt><ept id="462cdafb-07b9-4eae-a537-cc3370fd23fb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="462cdafb-07b9-4eae-a537-cc3370fd23fb">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="462cdafb-07b9-4eae-a537-cc3370fd23fb">&lt;/linkText&gt;</ept><bpt id="462cdafb-07b9-4eae-a537-cc3370fd23fb">&lt;title&gt;</bpt><ept id="462cdafb-07b9-4eae-a537-cc3370fd23fb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6fa26e27-6e27-4496-9dd5-7713230c6273" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6fa26e27-6e27-4496-9dd5-7713230c6273" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="dc95c6a9-367b-4097-9174-d377e478bf09">
+        <trans-unit id="6d4794f0-e9ee-4349-b77a-668a3724b58f" xml:space="preserve">
+          <source>Reliable Actors Distributed Computation pattern</source>
+          <target state="new">Reliable Actors Distributed Computation pattern</target>
+        </trans-unit>
+        <trans-unit id="41841c3b-f4eb-4571-b538-14939c954582" xml:space="preserve">
+          <source>Service Fabric Reliable Actors are a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation.</source>
+          <target state="new">Service Fabric Reliable Actors are a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation.</target>
+        </trans-unit>
+        <trans-unit id="9dae5913-ea37-4905-926e-9a9e3705df6c" xml:space="preserve">
+          <source>We owe this one in part to watching a real life customer whip out a financial calculation in Service Fabric Reliable Actors in an absurdly small amount of time—a Monte Carlo simulation for risk calculation to be exact.</source>
+          <target state="new">We owe this one in part to watching a real life customer whip out a financial calculation in Service Fabric Reliable Actors in an absurdly small amount of time—a Monte Carlo simulation for risk calculation to be exact.</target>
+        </trans-unit>
+        <trans-unit id="202acbaa-cc16-4ef5-8e48-a7b80a1e97bf" xml:space="preserve">
+          <source>At first, especially to those who do not have domain specific knowledge, Azure Service Fabric's handling of this kind of workload, as opposed to say more traditional approaches such as Map/Reduce or MPI, may not be obvious.</source>
+          <target state="new">At first, especially to those who do not have domain specific knowledge, Azure Service Fabric's handling of this kind of workload, as opposed to say more traditional approaches such as Map/Reduce or MPI, may not be obvious.</target>
+        </trans-unit>
+        <trans-unit id="c1164248-31a9-46d8-a0ac-9fe7cdcf96ce" xml:space="preserve">
+          <source>But it turns out that Azure Service Fabric is a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation as the following diagram depicts:</source>
+          <target state="new">But it turns out that Azure Service Fabric is a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation as the following diagram depicts:</target>
+        </trans-unit>
+        <trans-unit id="9aa15230-a486-421f-ba5d-e181cfd14fd6" xml:space="preserve">
+          <source><bpt id="fd97a0bb-502d-4803-bb70-cdc28be3ad39">&lt;linkText&gt;</bpt><ept id="fd97a0bb-502d-4803-bb70-cdc28be3ad39">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd97a0bb-502d-4803-bb70-cdc28be3ad39">&lt;linkText&gt;</bpt><ept id="fd97a0bb-502d-4803-bb70-cdc28be3ad39">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b101e8a-9f20-493b-a639-5e5e0508ec05" xml:space="preserve">
+          <source>In the following example, we simply calculate Pi using a Monte Carlo Simulation.</source>
+          <target state="new">In the following example, we simply calculate Pi using a Monte Carlo Simulation.</target>
+        </trans-unit>
+        <trans-unit id="c645a4de-44c6-4749-a55a-7096b0aa0253" xml:space="preserve">
+          <source>We have the following actors:</source>
+          <target state="new">We have the following actors:</target>
+        </trans-unit>
+        <trans-unit id="5b1b9c33-d1af-48ed-aea7-076967bb5da9" xml:space="preserve">
+          <source>Processor responsible for calculating Pi using PoolTask Actors.</source>
+          <target state="new">Processor responsible for calculating Pi using PoolTask Actors.</target>
+        </trans-unit>
+        <trans-unit id="e1c5932c-fb34-4d41-a1dd-e28d575b82ac" xml:space="preserve">
+          <source>PoolTask responsible for Monte Carlo simulation and sending results to Aggregator.</source>
+          <target state="new">PoolTask responsible for Monte Carlo simulation and sending results to Aggregator.</target>
+        </trans-unit>
+        <trans-unit id="cb8b1051-24ea-4650-87fd-2bd430035d95" xml:space="preserve">
+          <source>Aggregator responsible for, well, aggregating results and sending them to Finaliser.</source>
+          <target state="new">Aggregator responsible for, well, aggregating results and sending them to Finaliser.</target>
+        </trans-unit>
+        <trans-unit id="dc4346d1-d4e6-4b83-b4e4-0fc1c3c787ed" xml:space="preserve">
+          <source>Finaliser responsible for calculating the final result and printing on screen.</source>
+          <target state="new">Finaliser responsible for calculating the final result and printing on screen.</target>
+        </trans-unit>
+        <trans-unit id="8356f6c4-1f2c-4dae-9c82-4537efc80c33" xml:space="preserve">
+          <source>A common way of aggregating results in Azure Service Fabric is to use timers.</source>
+          <target state="new">A common way of aggregating results in Azure Service Fabric is to use timers.</target>
+        </trans-unit>
+        <trans-unit id="edf54b49-872e-4e51-9702-73c0d70a1b06" xml:space="preserve">
+          <source>We are using stateless actors for two main reasons: the runtime will decide how many aggregators are needed dynamically, therefore giving us scale on demand; and it will instantiate these actors “locally” – in other words in the same silo of the calling actor, reducing network hops.</source>
+          <target state="new">We are using stateless actors for two main reasons: the runtime will decide how many aggregators are needed dynamically, therefore giving us scale on demand; and it will instantiate these actors “locally” – in other words in the same silo of the calling actor, reducing network hops.</target>
+        </trans-unit>
+        <trans-unit id="6bcb91f5-0363-4c14-9b01-51c8f7308858" xml:space="preserve">
+          <source>Here is how the Aggregator and Finaliser look:</source>
+          <target state="new">Here is how the Aggregator and Finaliser look:</target>
+        </trans-unit>
+        <trans-unit id="ab41dcf1-abf2-426b-b8db-ab6f66eeb109" xml:space="preserve">
+          <source>At this point, it should be clear how we could potentially enhance the Leaderboard example with an aggregator for scale and performance.</source>
+          <target state="new">At this point, it should be clear how we could potentially enhance the Leaderboard example with an aggregator for scale and performance.</target>
+        </trans-unit>
+        <trans-unit id="411c8f42-36fa-47f6-9b01-26d113129319" xml:space="preserve">
+          <source>We are by no means asserting that Azure Service Fabric is a drop-in replacement for other distributed computation of big data frameworks or high performance computing.</source>
+          <target state="new">We are by no means asserting that Azure Service Fabric is a drop-in replacement for other distributed computation of big data frameworks or high performance computing.</target>
+        </trans-unit>
+        <trans-unit id="566c5c6f-44af-4a2a-a94f-ed982519e50c" xml:space="preserve">
+          <source>There are some things it is just built to handle better than others.</source>
+          <target state="new">There are some things it is just built to handle better than others.</target>
+        </trans-unit>
+        <trans-unit id="e2af98d0-d95f-488f-a1ce-6406b9453668" xml:space="preserve">
+          <source>However one can model workflows and distributed parallel computation in Azure Service Fabric while still getting the simplicity benefits it provides.</source>
+          <target state="new">However one can model workflows and distributed parallel computation in Azure Service Fabric while still getting the simplicity benefits it provides.</target>
+        </trans-unit>
+        <trans-unit id="a3631a0f-450e-4161-ba5b-b4cb02792f01" xml:space="preserve">
+          <source><bpt id="c370c789-8e30-47a3-9b20-307fd15fd069">&lt;linkText&gt;</bpt>Pattern: Smart Cache<ept id="c370c789-8e30-47a3-9b20-307fd15fd069">&lt;/linkText&gt;</ept><bpt id="c370c789-8e30-47a3-9b20-307fd15fd069">&lt;title&gt;</bpt><ept id="c370c789-8e30-47a3-9b20-307fd15fd069">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c370c789-8e30-47a3-9b20-307fd15fd069">&lt;linkText&gt;</bpt>Pattern: Smart Cache<ept id="c370c789-8e30-47a3-9b20-307fd15fd069">&lt;/linkText&gt;</ept><bpt id="c370c789-8e30-47a3-9b20-307fd15fd069">&lt;title&gt;</bpt><ept id="c370c789-8e30-47a3-9b20-307fd15fd069">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68e87ed1-a76f-4893-9f34-a369fca3be62" xml:space="preserve">
+          <source><bpt id="42ca169f-acf4-4b5f-ba23-768c910dacdc">&lt;linkText&gt;</bpt>Pattern: Distributed Networks and Graphs<ept id="42ca169f-acf4-4b5f-ba23-768c910dacdc">&lt;/linkText&gt;</ept><bpt id="42ca169f-acf4-4b5f-ba23-768c910dacdc">&lt;title&gt;</bpt><ept id="42ca169f-acf4-4b5f-ba23-768c910dacdc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="42ca169f-acf4-4b5f-ba23-768c910dacdc">&lt;linkText&gt;</bpt>Pattern: Distributed Networks and Graphs<ept id="42ca169f-acf4-4b5f-ba23-768c910dacdc">&lt;/linkText&gt;</ept><bpt id="42ca169f-acf4-4b5f-ba23-768c910dacdc">&lt;title&gt;</bpt><ept id="42ca169f-acf4-4b5f-ba23-768c910dacdc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b81559a4-5fcf-40e5-9191-8018f3369215" xml:space="preserve">
+          <source><bpt id="9588a85e-bfea-43df-95ae-f6b7674bf1dd">&lt;linkText&gt;</bpt>Pattern: Resource Governance<ept id="9588a85e-bfea-43df-95ae-f6b7674bf1dd">&lt;/linkText&gt;</ept><bpt id="9588a85e-bfea-43df-95ae-f6b7674bf1dd">&lt;title&gt;</bpt><ept id="9588a85e-bfea-43df-95ae-f6b7674bf1dd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9588a85e-bfea-43df-95ae-f6b7674bf1dd">&lt;linkText&gt;</bpt>Pattern: Resource Governance<ept id="9588a85e-bfea-43df-95ae-f6b7674bf1dd">&lt;/linkText&gt;</ept><bpt id="9588a85e-bfea-43df-95ae-f6b7674bf1dd">&lt;title&gt;</bpt><ept id="9588a85e-bfea-43df-95ae-f6b7674bf1dd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="545f552a-6b05-4d5e-937e-4daefda122f5" xml:space="preserve">
+          <source><bpt id="9d9b78a4-e34f-4cb4-874f-77e2fb1c47e0">&lt;linkText&gt;</bpt>Pattern: Stateful Service Composition<ept id="9d9b78a4-e34f-4cb4-874f-77e2fb1c47e0">&lt;/linkText&gt;</ept><bpt id="9d9b78a4-e34f-4cb4-874f-77e2fb1c47e0">&lt;title&gt;</bpt><ept id="9d9b78a4-e34f-4cb4-874f-77e2fb1c47e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9d9b78a4-e34f-4cb4-874f-77e2fb1c47e0">&lt;linkText&gt;</bpt>Pattern: Stateful Service Composition<ept id="9d9b78a4-e34f-4cb4-874f-77e2fb1c47e0">&lt;/linkText&gt;</ept><bpt id="9d9b78a4-e34f-4cb4-874f-77e2fb1c47e0">&lt;title&gt;</bpt><ept id="9d9b78a4-e34f-4cb4-874f-77e2fb1c47e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a7ad297-df18-4ec7-b933-b70145aafebb" xml:space="preserve">
+          <source><bpt id="fcb88031-8318-4dba-9ae7-b20129f1cc54">&lt;linkText&gt;</bpt>Pattern: Internet of Things<ept id="fcb88031-8318-4dba-9ae7-b20129f1cc54">&lt;/linkText&gt;</ept><bpt id="fcb88031-8318-4dba-9ae7-b20129f1cc54">&lt;title&gt;</bpt><ept id="fcb88031-8318-4dba-9ae7-b20129f1cc54">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fcb88031-8318-4dba-9ae7-b20129f1cc54">&lt;linkText&gt;</bpt>Pattern: Internet of Things<ept id="fcb88031-8318-4dba-9ae7-b20129f1cc54">&lt;/linkText&gt;</ept><bpt id="fcb88031-8318-4dba-9ae7-b20129f1cc54">&lt;title&gt;</bpt><ept id="fcb88031-8318-4dba-9ae7-b20129f1cc54">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8562ce4d-db61-4f67-b277-e09793a9139e" xml:space="preserve">
+          <source><bpt id="c3095fe8-d238-4b01-adf7-7d64b838c60a">&lt;linkText&gt;</bpt>Some Anti-patterns<ept id="c3095fe8-d238-4b01-adf7-7d64b838c60a">&lt;/linkText&gt;</ept><bpt id="c3095fe8-d238-4b01-adf7-7d64b838c60a">&lt;title&gt;</bpt><ept id="c3095fe8-d238-4b01-adf7-7d64b838c60a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c3095fe8-d238-4b01-adf7-7d64b838c60a">&lt;linkText&gt;</bpt>Some Anti-patterns<ept id="c3095fe8-d238-4b01-adf7-7d64b838c60a">&lt;/linkText&gt;</ept><bpt id="c3095fe8-d238-4b01-adf7-7d64b838c60a">&lt;title&gt;</bpt><ept id="c3095fe8-d238-4b01-adf7-7d64b838c60a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d30e422-b279-4fb5-a615-5c6d3ee55f9a" xml:space="preserve">
+          <source><bpt id="dd8de502-814e-4deb-861a-57d73afdb406">&lt;linkText&gt;</bpt>Introduction to Service Fabric Actors<ept id="dd8de502-814e-4deb-861a-57d73afdb406">&lt;/linkText&gt;</ept><bpt id="dd8de502-814e-4deb-861a-57d73afdb406">&lt;title&gt;</bpt><ept id="dd8de502-814e-4deb-861a-57d73afdb406">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dd8de502-814e-4deb-861a-57d73afdb406">&lt;linkText&gt;</bpt>Introduction to Service Fabric Actors<ept id="dd8de502-814e-4deb-861a-57d73afdb406">&lt;/linkText&gt;</ept><bpt id="dd8de502-814e-4deb-861a-57d73afdb406">&lt;title&gt;</bpt><ept id="dd8de502-814e-4deb-861a-57d73afdb406">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64e98275-0a05-428a-9932-4b2c043c4bd4" xml:space="preserve">
+          <source>./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png</source>
+          <target state="new">./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png</target>
+        </trans-unit>
+      </group>
+      <group id="62dd4e7b-4768-48de-bf08-7a806253d465" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c6fd7a5b-62a6-4148-b5f9-4a22e618f998" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c6fd7a5b-62a6-4148-b5f9-4a22e618f998" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e4cf22e2-c37b-429e-bd29-758573de7cfc">
+        <trans-unit id="7afa58b3-0cc9-46f3-a8d5-f7331ee88543" xml:space="preserve">
+          <source>Log on to the [Azure Management Portal], click <bpt id="866077d5-a87e-4033-bfe3-25d10fa40f2a">&lt;strong&gt;</bpt>Mobile Services<ept id="866077d5-a87e-4033-bfe3-25d10fa40f2a">&lt;/strong&gt;</ept>, and then click your mobile service.</source>
+          <target state="new">Log on to the [Azure Management Portal], click <bpt id="866077d5-a87e-4033-bfe3-25d10fa40f2a">&lt;strong&gt;</bpt>Mobile Services<ept id="866077d5-a87e-4033-bfe3-25d10fa40f2a">&lt;/strong&gt;</ept>, and then click your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="38feaf9f-0345-4bf9-9b38-57728728048f" xml:space="preserve">
+          <source>Click the <bpt id="920d5c91-5faf-478c-91ad-c0964990bd79">&lt;strong&gt;</bpt>Push<ept id="920d5c91-5faf-478c-91ad-c0964990bd79">&lt;/strong&gt;</ept> tab, select <bpt id="a0eb2e8f-c0d9-435b-9436-4671119b87fd">&lt;strong&gt;</bpt>Only Authenticated Users<ept id="a0eb2e8f-c0d9-435b-9436-4671119b87fd">&lt;/strong&gt;</ept> for <bpt id="0774ab14-4773-4f97-a7be-057204eee7a2">&lt;strong&gt;</bpt>Permissions<ept id="0774ab14-4773-4f97-a7be-057204eee7a2">&lt;/strong&gt;</ept>, click <bpt id="add1bc9b-6c54-4277-940d-4ce36ccb5d5d">&lt;strong&gt;</bpt>Save<ept id="add1bc9b-6c54-4277-940d-4ce36ccb5d5d">&lt;/strong&gt;</ept>, and then click <bpt id="4823cc96-0d5a-4da4-a323-739e06db8d93">&lt;strong&gt;</bpt>Edit Script<ept id="4823cc96-0d5a-4da4-a323-739e06db8d93">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="920d5c91-5faf-478c-91ad-c0964990bd79">&lt;strong&gt;</bpt>Push<ept id="920d5c91-5faf-478c-91ad-c0964990bd79">&lt;/strong&gt;</ept> tab, select <bpt id="a0eb2e8f-c0d9-435b-9436-4671119b87fd">&lt;strong&gt;</bpt>Only Authenticated Users<ept id="a0eb2e8f-c0d9-435b-9436-4671119b87fd">&lt;/strong&gt;</ept> for <bpt id="0774ab14-4773-4f97-a7be-057204eee7a2">&lt;strong&gt;</bpt>Permissions<ept id="0774ab14-4773-4f97-a7be-057204eee7a2">&lt;/strong&gt;</ept>, click <bpt id="add1bc9b-6c54-4277-940d-4ce36ccb5d5d">&lt;strong&gt;</bpt>Save<ept id="add1bc9b-6c54-4277-940d-4ce36ccb5d5d">&lt;/strong&gt;</ept>, and then click <bpt id="4823cc96-0d5a-4da4-a323-739e06db8d93">&lt;strong&gt;</bpt>Edit Script<ept id="4823cc96-0d5a-4da4-a323-739e06db8d93">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3edb91ea-0e0e-43d5-928c-64837d4d2c00" xml:space="preserve">
+          <source>This allows you to customize the push notification registration callback function.</source>
+          <target state="new">This allows you to customize the push notification registration callback function.</target>
+        </trans-unit>
+        <trans-unit id="aca852f0-78ee-4ee6-94c8-60a2d7240c2f" xml:space="preserve">
+          <source>If you use Git to edit your source code, this same registration function is found in <bpt id="64893b6f-5472-400d-9f6d-148051743173">&lt;code&gt;</bpt>.\service\extensions\push.js<ept id="64893b6f-5472-400d-9f6d-148051743173">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you use Git to edit your source code, this same registration function is found in <bpt id="64893b6f-5472-400d-9f6d-148051743173">&lt;code&gt;</bpt>.\service\extensions\push.js<ept id="64893b6f-5472-400d-9f6d-148051743173">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3b4ea1d-a30f-4379-8d45-5a709ec44915" xml:space="preserve">
+          <source>Replace the existing <bpt id="323e4c2e-0aef-4f7d-a901-59c73a31d6d7">&lt;strong&gt;</bpt>register<ept id="323e4c2e-0aef-4f7d-a901-59c73a31d6d7">&lt;/strong&gt;</ept> function with the following code and then click <bpt id="0d332bd6-16c0-428f-937a-39e829b05fab">&lt;strong&gt;</bpt>Save<ept id="0d332bd6-16c0-428f-937a-39e829b05fab">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Replace the existing <bpt id="323e4c2e-0aef-4f7d-a901-59c73a31d6d7">&lt;strong&gt;</bpt>register<ept id="323e4c2e-0aef-4f7d-a901-59c73a31d6d7">&lt;/strong&gt;</ept> function with the following code and then click <bpt id="0d332bd6-16c0-428f-937a-39e829b05fab">&lt;strong&gt;</bpt>Save<ept id="0d332bd6-16c0-428f-937a-39e829b05fab">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="366f1620-09ac-4b09-9989-861b55e44f34" xml:space="preserve">
+          <source>This adds a tag to the registration that is the ID of the logged-in user.</source>
+          <target state="new">This adds a tag to the registration that is the ID of the logged-in user.</target>
+        </trans-unit>
+        <trans-unit id="aa5f3fb0-8fa0-4e68-86ad-93851f721386" xml:space="preserve">
+          <source>The supplied tags are validated to prevent a user from registering for another user's ID.</source>
+          <target state="new">The supplied tags are validated to prevent a user from registering for another user's ID.</target>
+        </trans-unit>
+        <trans-unit id="9c9e28ea-c9c7-43b1-8e6a-08004dfd79ed" xml:space="preserve">
+          <source>When a notification is sent to this user, it is received on this and any other device registered by the user.</source>
+          <target state="new">When a notification is sent to this user, it is received on this and any other device registered by the user.</target>
+        </trans-unit>
+        <trans-unit id="79b48224-9073-41b3-ba5c-22b32ba263ed" xml:space="preserve">
+          <source>Click the back arrow, click the <bpt id="858a3d1a-2503-4d1f-a24b-ac5490491ace">&lt;strong&gt;</bpt>Data<ept id="858a3d1a-2503-4d1f-a24b-ac5490491ace">&lt;/strong&gt;</ept> tab, click <bpt id="734e6dc9-632c-4564-85f2-df6a8243858e">&lt;strong&gt;</bpt>TodoItem<ept id="734e6dc9-632c-4564-85f2-df6a8243858e">&lt;/strong&gt;</ept>, click <bpt id="c819b4e1-45d1-4337-98ba-0cf53b32f37e">&lt;strong&gt;</bpt>Script<ept id="c819b4e1-45d1-4337-98ba-0cf53b32f37e">&lt;/strong&gt;</ept>, and then select <bpt id="f2b15050-98c3-434d-9360-a2f931345cf5">&lt;strong&gt;</bpt>Insert<ept id="f2b15050-98c3-434d-9360-a2f931345cf5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the back arrow, click the <bpt id="858a3d1a-2503-4d1f-a24b-ac5490491ace">&lt;strong&gt;</bpt>Data<ept id="858a3d1a-2503-4d1f-a24b-ac5490491ace">&lt;/strong&gt;</ept> tab, click <bpt id="734e6dc9-632c-4564-85f2-df6a8243858e">&lt;strong&gt;</bpt>TodoItem<ept id="734e6dc9-632c-4564-85f2-df6a8243858e">&lt;/strong&gt;</ept>, click <bpt id="c819b4e1-45d1-4337-98ba-0cf53b32f37e">&lt;strong&gt;</bpt>Script<ept id="c819b4e1-45d1-4337-98ba-0cf53b32f37e">&lt;/strong&gt;</ept>, and then select <bpt id="f2b15050-98c3-434d-9360-a2f931345cf5">&lt;strong&gt;</bpt>Insert<ept id="f2b15050-98c3-434d-9360-a2f931345cf5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

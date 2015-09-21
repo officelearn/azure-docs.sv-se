@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ca3ca981-8984-400f-ad51-45462cf34982" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ca3ca981-8984-400f-ad51-45462cf34982" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e70bbac4-dd5d-4757-a5e6-18712f236b99">
+        <trans-unit id="e32ce7ac-8a1d-4cf9-8461-f21d196a4054" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with FM: Systems | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with FM: Systems | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="21db08d3-cdbe-4228-897f-e7e792748555" xml:space="preserve">
+          <source>Learn how to use FM: Systems with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use FM: Systems with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="d4434e2a-64f1-4322-be08-24c26d05ee2d" xml:space="preserve">
+          <source>For feedback, click <bpt id="87a0ae0c-75e2-44b0-9d41-fd09464c96bc">&lt;linkText&gt;</bpt>here<ept id="87a0ae0c-75e2-44b0-9d41-fd09464c96bc">&lt;/linkText&gt;</ept><bpt id="87a0ae0c-75e2-44b0-9d41-fd09464c96bc">&lt;title&gt;</bpt><ept id="87a0ae0c-75e2-44b0-9d41-fd09464c96bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="87a0ae0c-75e2-44b0-9d41-fd09464c96bc">&lt;linkText&gt;</bpt>here<ept id="87a0ae0c-75e2-44b0-9d41-fd09464c96bc">&lt;/linkText&gt;</ept><bpt id="87a0ae0c-75e2-44b0-9d41-fd09464c96bc">&lt;title&gt;</bpt><ept id="87a0ae0c-75e2-44b0-9d41-fd09464c96bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1422ac9d-6b4a-432c-859c-669b2600cc62" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and FM:Systems.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and FM:Systems.</target>
+        </trans-unit>
+        <trans-unit id="226046d2-542d-424c-9576-4de7cb172784" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="7c9015b8-8644-40f6-98df-edc20c333404" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="00e35676-2d46-41f5-8625-36ffcee7ed9d" xml:space="preserve">
+          <source>A FM:Systems single sign-on enabled subscription</source>
+          <target state="new">A FM:Systems single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="d43bd26b-7047-41bf-9e28-96a13028f876" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to FM:Systems will be able to single sign into the application at your FM:Systems company site (service provider initiated sign on), or using the <bpt id="7690c0f0-95af-402f-acba-58ff3c54592a">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="7690c0f0-95af-402f-acba-58ff3c54592a">&lt;/linkText&gt;</ept><bpt id="7690c0f0-95af-402f-acba-58ff3c54592a">&lt;title&gt;</bpt><ept id="7690c0f0-95af-402f-acba-58ff3c54592a">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to FM:Systems will be able to single sign into the application at your FM:Systems company site (service provider initiated sign on), or using the <bpt id="7690c0f0-95af-402f-acba-58ff3c54592a">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="7690c0f0-95af-402f-acba-58ff3c54592a">&lt;/linkText&gt;</ept><bpt id="7690c0f0-95af-402f-acba-58ff3c54592a">&lt;title&gt;</bpt><ept id="7690c0f0-95af-402f-acba-58ff3c54592a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd7a354d-937d-4c04-8dc4-361d0cd85402" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="a8a38f40-0393-46fd-a659-80726cc81fd2" xml:space="preserve">
+          <source>Enabling the application integration for FM:Systems</source>
+          <target state="new">Enabling the application integration for FM:Systems</target>
+        </trans-unit>
+        <trans-unit id="3355ad2f-1f58-4e08-8c1b-322365eb662e" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="cd1ca3dc-dee4-4498-98f1-dbc13dea242d" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="09300ae1-afba-41ba-a7a3-b12d936614ad" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="3be824a5-fc55-4316-8b40-dbef20b5d3c1" xml:space="preserve">
+          <source><bpt id="7acc9616-5d03-4e80-bf24-31400357daed">&lt;linkText&gt;</bpt>Scenario<ept id="7acc9616-5d03-4e80-bf24-31400357daed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7acc9616-5d03-4e80-bf24-31400357daed">&lt;linkText&gt;</bpt>Scenario<ept id="7acc9616-5d03-4e80-bf24-31400357daed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="909cead6-849d-4550-af21-15ad903c6cb8" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for FM:Systems.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for FM:Systems.</target>
+        </trans-unit>
+        <trans-unit id="81cb1e50-6ccb-42cb-89f9-dcb088b19b77" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="fa5bac9e-d746-4c9a-875a-3d59cc4071d1">&lt;strong&gt;</bpt>Active Directory<ept id="fa5bac9e-d746-4c9a-875a-3d59cc4071d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="fa5bac9e-d746-4c9a-875a-3d59cc4071d1">&lt;strong&gt;</bpt>Active Directory<ept id="fa5bac9e-d746-4c9a-875a-3d59cc4071d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ded7a96-62fe-42dc-8d6f-391c72ec6527" xml:space="preserve">
+          <source><bpt id="d564e137-a5db-4dc7-a4f6-7950adaf225f">&lt;linkText&gt;</bpt>Active Directory<ept id="d564e137-a5db-4dc7-a4f6-7950adaf225f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d564e137-a5db-4dc7-a4f6-7950adaf225f">&lt;linkText&gt;</bpt>Active Directory<ept id="d564e137-a5db-4dc7-a4f6-7950adaf225f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57f450c2-3190-4ea1-b664-28470ea703b9" xml:space="preserve">
+          <source>From the <bpt id="7a9dab8b-e74f-45ba-98b4-730e1a393382">&lt;strong&gt;</bpt>Directory<ept id="7a9dab8b-e74f-45ba-98b4-730e1a393382">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="7a9dab8b-e74f-45ba-98b4-730e1a393382">&lt;strong&gt;</bpt>Directory<ept id="7a9dab8b-e74f-45ba-98b4-730e1a393382">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="acfad47d-ef3e-4caf-a2f5-65c23fcf0c0f" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="f05a4595-0863-42d1-b14e-2bf427c87b52">&lt;strong&gt;</bpt>Applications<ept id="f05a4595-0863-42d1-b14e-2bf427c87b52">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="f05a4595-0863-42d1-b14e-2bf427c87b52">&lt;strong&gt;</bpt>Applications<ept id="f05a4595-0863-42d1-b14e-2bf427c87b52">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="c4ccf884-de0c-4319-a59a-b3f7d5742c40" xml:space="preserve">
+          <source><bpt id="720d0fa6-68ea-43db-acf1-aa92ac142d0c">&lt;linkText&gt;</bpt>Applications<ept id="720d0fa6-68ea-43db-acf1-aa92ac142d0c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="720d0fa6-68ea-43db-acf1-aa92ac142d0c">&lt;linkText&gt;</bpt>Applications<ept id="720d0fa6-68ea-43db-acf1-aa92ac142d0c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e93d077d-1411-4359-8c81-b35235223653" xml:space="preserve">
+          <source>Click <bpt id="d96c3d58-b3f6-4ce0-9809-244c46352195">&lt;strong&gt;</bpt>Add<ept id="d96c3d58-b3f6-4ce0-9809-244c46352195">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="d96c3d58-b3f6-4ce0-9809-244c46352195">&lt;strong&gt;</bpt>Add<ept id="d96c3d58-b3f6-4ce0-9809-244c46352195">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="578a80f9-2304-4ad0-b0d5-05b88b4cb0c9" xml:space="preserve">
+          <source><bpt id="ec4bd268-1177-4997-b1ad-92d8dd9c8635">&lt;linkText&gt;</bpt>Add application<ept id="ec4bd268-1177-4997-b1ad-92d8dd9c8635">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec4bd268-1177-4997-b1ad-92d8dd9c8635">&lt;linkText&gt;</bpt>Add application<ept id="ec4bd268-1177-4997-b1ad-92d8dd9c8635">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f79bd87-c5fc-4e04-bd2d-a84f674ef006" xml:space="preserve">
+          <source>On the <bpt id="06cdc2ab-b927-4048-a35f-a424b7811de4">&lt;strong&gt;</bpt>What do you want to do<ept id="06cdc2ab-b927-4048-a35f-a424b7811de4">&lt;/strong&gt;</ept> dialog, click <bpt id="942fde06-4090-4e0a-a6b0-bb0bcc4c7822">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="942fde06-4090-4e0a-a6b0-bb0bcc4c7822">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="06cdc2ab-b927-4048-a35f-a424b7811de4">&lt;strong&gt;</bpt>What do you want to do<ept id="06cdc2ab-b927-4048-a35f-a424b7811de4">&lt;/strong&gt;</ept> dialog, click <bpt id="942fde06-4090-4e0a-a6b0-bb0bcc4c7822">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="942fde06-4090-4e0a-a6b0-bb0bcc4c7822">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b7cee47-dcf8-4764-bbad-b0302121387a" xml:space="preserve">
+          <source><bpt id="a7312478-28d7-44ca-91cc-5b1ce2fc3ee7">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="a7312478-28d7-44ca-91cc-5b1ce2fc3ee7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a7312478-28d7-44ca-91cc-5b1ce2fc3ee7">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="a7312478-28d7-44ca-91cc-5b1ce2fc3ee7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="021b67ea-6ae1-4c53-83b5-50d2e8211583" xml:space="preserve">
+          <source>In the <bpt id="7c555e4a-ea82-421e-be80-bbfb82ec655d">&lt;strong&gt;</bpt>search box<ept id="7c555e4a-ea82-421e-be80-bbfb82ec655d">&lt;/strong&gt;</ept>, type <bpt id="b0b1c932-c9da-440a-a2c0-f9023eebe085">&lt;strong&gt;</bpt>FM:Systems<ept id="b0b1c932-c9da-440a-a2c0-f9023eebe085">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="7c555e4a-ea82-421e-be80-bbfb82ec655d">&lt;strong&gt;</bpt>search box<ept id="7c555e4a-ea82-421e-be80-bbfb82ec655d">&lt;/strong&gt;</ept>, type <bpt id="b0b1c932-c9da-440a-a2c0-f9023eebe085">&lt;strong&gt;</bpt>FM:Systems<ept id="b0b1c932-c9da-440a-a2c0-f9023eebe085">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22283d28-3260-431a-87f6-4e8b63fbe364" xml:space="preserve">
+          <source><bpt id="c26f358e-f607-4984-8a7e-a174674ae7a8">&lt;linkText&gt;</bpt>Application Gallery<ept id="c26f358e-f607-4984-8a7e-a174674ae7a8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c26f358e-f607-4984-8a7e-a174674ae7a8">&lt;linkText&gt;</bpt>Application Gallery<ept id="c26f358e-f607-4984-8a7e-a174674ae7a8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d8b8413-4d3b-496c-9f3e-715c6e126311" xml:space="preserve">
+          <source>In the results pane, select <bpt id="54ec3c17-5fdf-4849-830a-e17e306e3bb6">&lt;strong&gt;</bpt>FM:Systems<ept id="54ec3c17-5fdf-4849-830a-e17e306e3bb6">&lt;/strong&gt;</ept>, and then click <bpt id="02de1f95-e177-4d5d-a762-1a33c80c5d43">&lt;strong&gt;</bpt>Complete<ept id="02de1f95-e177-4d5d-a762-1a33c80c5d43">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="54ec3c17-5fdf-4849-830a-e17e306e3bb6">&lt;strong&gt;</bpt>FM:Systems<ept id="54ec3c17-5fdf-4849-830a-e17e306e3bb6">&lt;/strong&gt;</ept>, and then click <bpt id="02de1f95-e177-4d5d-a762-1a33c80c5d43">&lt;strong&gt;</bpt>Complete<ept id="02de1f95-e177-4d5d-a762-1a33c80c5d43">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="5ad8b660-9e6f-405e-ad9a-bcf4a164992e" xml:space="preserve">
+          <source><bpt id="6e939f23-c9ca-4ffe-b336-1c3fc4c6d1bd">&lt;linkText&gt;</bpt>FM: Systems<ept id="6e939f23-c9ca-4ffe-b336-1c3fc4c6d1bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e939f23-c9ca-4ffe-b336-1c3fc4c6d1bd">&lt;linkText&gt;</bpt>FM: Systems<ept id="6e939f23-c9ca-4ffe-b336-1c3fc4c6d1bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fe8eacc-9949-4716-a464-17f85d5ce183" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to FM:Systems with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to FM:Systems with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="06632531-1833-43ee-b27b-4ea0e66f7628" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="4aa3e6ba-6aed-405a-903d-6b7d82283b22">&lt;strong&gt;</bpt>FM:Systems<ept id="4aa3e6ba-6aed-405a-903d-6b7d82283b22">&lt;/strong&gt;</ept> application integration page, click <bpt id="f0e690df-892a-47af-91d4-814206587aef">&lt;strong&gt;</bpt>Configure single sign-on<ept id="f0e690df-892a-47af-91d4-814206587aef">&lt;/strong&gt;</ept> to open the <bpt id="1c415464-fb26-492d-bc03-78598419a884">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="1c415464-fb26-492d-bc03-78598419a884">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="4aa3e6ba-6aed-405a-903d-6b7d82283b22">&lt;strong&gt;</bpt>FM:Systems<ept id="4aa3e6ba-6aed-405a-903d-6b7d82283b22">&lt;/strong&gt;</ept> application integration page, click <bpt id="f0e690df-892a-47af-91d4-814206587aef">&lt;strong&gt;</bpt>Configure single sign-on<ept id="f0e690df-892a-47af-91d4-814206587aef">&lt;/strong&gt;</ept> to open the <bpt id="1c415464-fb26-492d-bc03-78598419a884">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="1c415464-fb26-492d-bc03-78598419a884">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="28b9bc37-d1be-4a0e-a99f-f53c5da21373" xml:space="preserve">
+          <source><bpt id="7a09583d-220b-449b-b233-2d6766fafaab">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="7a09583d-220b-449b-b233-2d6766fafaab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7a09583d-220b-449b-b233-2d6766fafaab">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="7a09583d-220b-449b-b233-2d6766fafaab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56bce9f8-b08e-4b61-bb05-df5696ff7ee0" xml:space="preserve">
+          <source>On the <bpt id="3755b825-8101-4c09-8a29-b14aeca76a95">&lt;strong&gt;</bpt>How would you like users to sign on to FM:Systems<ept id="3755b825-8101-4c09-8a29-b14aeca76a95">&lt;/strong&gt;</ept> page, select <bpt id="0578a1ea-03a8-4a1d-af14-b3748d02e45e">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0578a1ea-03a8-4a1d-af14-b3748d02e45e">&lt;/strong&gt;</ept>, and then click <bpt id="4835f36c-ddc9-45a8-b18c-eb2bc996a73b">&lt;strong&gt;</bpt>Next<ept id="4835f36c-ddc9-45a8-b18c-eb2bc996a73b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="3755b825-8101-4c09-8a29-b14aeca76a95">&lt;strong&gt;</bpt>How would you like users to sign on to FM:Systems<ept id="3755b825-8101-4c09-8a29-b14aeca76a95">&lt;/strong&gt;</ept> page, select <bpt id="0578a1ea-03a8-4a1d-af14-b3748d02e45e">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0578a1ea-03a8-4a1d-af14-b3748d02e45e">&lt;/strong&gt;</ept>, and then click <bpt id="4835f36c-ddc9-45a8-b18c-eb2bc996a73b">&lt;strong&gt;</bpt>Next<ept id="4835f36c-ddc9-45a8-b18c-eb2bc996a73b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="862a601d-7689-4bec-adb7-b2f8e657daa3" xml:space="preserve">
+          <source><bpt id="0ee04eb4-c466-482b-bc14-f969f81e6cbd">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="0ee04eb4-c466-482b-bc14-f969f81e6cbd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ee04eb4-c466-482b-bc14-f969f81e6cbd">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="0ee04eb4-c466-482b-bc14-f969f81e6cbd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96f1b37b-4f0a-4fea-beaf-5d86ab6cc576" xml:space="preserve">
+          <source>On the <bpt id="a5af395a-b9a4-4738-b01b-76290df6c296">&lt;strong&gt;</bpt>Configure App URL<ept id="a5af395a-b9a4-4738-b01b-76290df6c296">&lt;/strong&gt;</ept> page, perform the following steps:</source>
+          <target state="new">On the <bpt id="a5af395a-b9a4-4738-b01b-76290df6c296">&lt;strong&gt;</bpt>Configure App URL<ept id="a5af395a-b9a4-4738-b01b-76290df6c296">&lt;/strong&gt;</ept> page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="27799d20-f329-462b-b67c-4078b7358f6f" xml:space="preserve">
+          <source><bpt id="09ca4dba-32ed-4c8b-9aca-aa884ecac873">&lt;linkText&gt;</bpt>Configure App URL<ept id="09ca4dba-32ed-4c8b-9aca-aa884ecac873">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09ca4dba-32ed-4c8b-9aca-aa884ecac873">&lt;linkText&gt;</bpt>Configure App URL<ept id="09ca4dba-32ed-4c8b-9aca-aa884ecac873">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0c05df6-3093-4332-a881-90ecd6a30983" xml:space="preserve">
+          <source>In the <bpt id="62793aec-2211-4c99-9c50-d5320f0d4d59">&lt;strong&gt;</bpt>FM:Systems Sign On URL<ept id="62793aec-2211-4c99-9c50-d5320f0d4d59">&lt;/strong&gt;</ept> textbox, type your FM:Systems <bpt id="6c37407b-00f0-4c86-92e3-1b0e475ba1fd">&lt;strong&gt;</bpt>Reply URL<ept id="6c37407b-00f0-4c86-92e3-1b0e475ba1fd">&lt;/strong&gt;</ept> (e.g.: <bpt id="d7ffa317-7da8-41eb-9759-81f6829c4ae2">&lt;em&gt;</bpt>https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx<ept id="d7ffa317-7da8-41eb-9759-81f6829c4ae2">&lt;/em&gt;</ept>).</source>
+          <target state="new">In the <bpt id="62793aec-2211-4c99-9c50-d5320f0d4d59">&lt;strong&gt;</bpt>FM:Systems Sign On URL<ept id="62793aec-2211-4c99-9c50-d5320f0d4d59">&lt;/strong&gt;</ept> textbox, type your FM:Systems <bpt id="6c37407b-00f0-4c86-92e3-1b0e475ba1fd">&lt;strong&gt;</bpt>Reply URL<ept id="6c37407b-00f0-4c86-92e3-1b0e475ba1fd">&lt;/strong&gt;</ept> (e.g.: <bpt id="d7ffa317-7da8-41eb-9759-81f6829c4ae2">&lt;em&gt;</bpt>https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx<ept id="d7ffa317-7da8-41eb-9759-81f6829c4ae2">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="c1eed62e-461d-445c-8e7d-1a2f34f9fae7" xml:space="preserve">
+          <source>You can get this value from your FM: Systems support team.</source>
+          <target state="new">You can get this value from your FM: Systems support team.</target>
+        </trans-unit>
+        <trans-unit id="e9abeb25-b95b-4403-88ae-e661808e6d09" xml:space="preserve">
+          <source>Click <bpt id="8b4f267d-b1ae-4fd0-8bac-c8be4ff9c270">&lt;strong&gt;</bpt>Next<ept id="8b4f267d-b1ae-4fd0-8bac-c8be4ff9c270">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="8b4f267d-b1ae-4fd0-8bac-c8be4ff9c270">&lt;strong&gt;</bpt>Next<ept id="8b4f267d-b1ae-4fd0-8bac-c8be4ff9c270">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14225a1e-3b29-4928-a7ed-78a4f1f87c53" xml:space="preserve">
+          <source>On the <bpt id="1d1e8db2-2017-4d10-aa4d-88db16a1f5a3">&lt;strong&gt;</bpt>Configure single sign-on at FM:Systems<ept id="1d1e8db2-2017-4d10-aa4d-88db16a1f5a3">&lt;/strong&gt;</ept> page, to download your metadata, click <bpt id="d0891392-96d8-4d46-b728-02af502a5392">&lt;strong&gt;</bpt>Download metadata<ept id="d0891392-96d8-4d46-b728-02af502a5392">&lt;/strong&gt;</ept>, and then save the metadata on your computer.</source>
+          <target state="new">On the <bpt id="1d1e8db2-2017-4d10-aa4d-88db16a1f5a3">&lt;strong&gt;</bpt>Configure single sign-on at FM:Systems<ept id="1d1e8db2-2017-4d10-aa4d-88db16a1f5a3">&lt;/strong&gt;</ept> page, to download your metadata, click <bpt id="d0891392-96d8-4d46-b728-02af502a5392">&lt;strong&gt;</bpt>Download metadata<ept id="d0891392-96d8-4d46-b728-02af502a5392">&lt;/strong&gt;</ept>, and then save the metadata on your computer.</target>
+        </trans-unit>
+        <trans-unit id="0bffc43e-64fe-4137-87b6-40922b5d02a3" xml:space="preserve">
+          <source><bpt id="3a8b5f67-9c38-4b25-baaf-3af5fb530250">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="3a8b5f67-9c38-4b25-baaf-3af5fb530250">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a8b5f67-9c38-4b25-baaf-3af5fb530250">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="3a8b5f67-9c38-4b25-baaf-3af5fb530250">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c938dcd3-1762-4f75-84d5-2867eeca1933" xml:space="preserve">
+          <source>Submit the downloaded metadata file to your FM: Systems support team.</source>
+          <target state="new">Submit the downloaded metadata file to your FM: Systems support team.</target>
+        </trans-unit>
+        <trans-unit id="688ff602-b2d7-43dd-b041-eaf8aa5ea448" xml:space="preserve">
+          <source>Your FM: Systems support team has to do the actual SSO configuration.</source>
+          <target state="new">Your FM: Systems support team has to do the actual SSO configuration.</target>
+        </trans-unit>
+        <trans-unit id="494285e8-27ea-4cda-803d-bb804b5e96bc" xml:space="preserve">
+          <source>You will get a notification when SSO has been enabled for your subscription.</source>
+          <target state="new">You will get a notification when SSO has been enabled for your subscription.</target>
+        </trans-unit>
+        <trans-unit id="28a98459-62b9-4b5e-9af1-8fa2b61a7fbc" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="d755e2e9-e598-4df7-94db-bb08f3896a86">&lt;strong&gt;</bpt>Complete<ept id="d755e2e9-e598-4df7-94db-bb08f3896a86">&lt;/strong&gt;</ept> to close the <bpt id="3136fe71-9576-4c65-be56-8cbdea1ca1d7">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="3136fe71-9576-4c65-be56-8cbdea1ca1d7">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="d755e2e9-e598-4df7-94db-bb08f3896a86">&lt;strong&gt;</bpt>Complete<ept id="d755e2e9-e598-4df7-94db-bb08f3896a86">&lt;/strong&gt;</ept> to close the <bpt id="3136fe71-9576-4c65-be56-8cbdea1ca1d7">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="3136fe71-9576-4c65-be56-8cbdea1ca1d7">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="09ef274b-a58f-471c-b946-2396b0a143d0" xml:space="preserve">
+          <source><bpt id="f675c969-e1c8-4c0b-b8fd-a7db82e2f54c">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f675c969-e1c8-4c0b-b8fd-a7db82e2f54c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f675c969-e1c8-4c0b-b8fd-a7db82e2f54c">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f675c969-e1c8-4c0b-b8fd-a7db82e2f54c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2308072a-84cb-4bc5-a382-bd47d5efbc31" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into FM:Systems, they must be provisioned into FM:Systems.</source>
+          <target state="new">In order to enable Azure AD users to log into FM:Systems, they must be provisioned into FM:Systems.</target>
+        </trans-unit>
+        <trans-unit id="27b104bd-050e-4f75-81db-d485f6b835a0" xml:space="preserve">
+          <source>In the case of FM:Systems, provisioning is a manual task.</source>
+          <target state="new">In the case of FM:Systems, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="69242eb9-1009-4bdd-9d7b-bbd0671df305" xml:space="preserve">
+          <source>In a web browser window, log into your FM:Systems company site as an administrator.</source>
+          <target state="new">In a web browser window, log into your FM:Systems company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="b30e81e9-a882-4444-9f92-62757dcfc3a1" xml:space="preserve">
+          <source>Go to <bpt id="23ba6870-ab1a-4a8a-b971-aa9f5ff8df9e">&lt;strong&gt;</bpt>System Administration \&gt; Manage Security \&gt; Users \&gt; User list<ept id="23ba6870-ab1a-4a8a-b971-aa9f5ff8df9e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="23ba6870-ab1a-4a8a-b971-aa9f5ff8df9e">&lt;strong&gt;</bpt>System Administration \&gt; Manage Security \&gt; Users \&gt; User list<ept id="23ba6870-ab1a-4a8a-b971-aa9f5ff8df9e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0dfbe3fe-67c9-4d58-b0b7-d5053fadad07" xml:space="preserve">
+          <source><bpt id="6367f8dc-9c43-4ff4-ab17-771e692da705">&lt;linkText&gt;</bpt>System Administration<ept id="6367f8dc-9c43-4ff4-ab17-771e692da705">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6367f8dc-9c43-4ff4-ab17-771e692da705">&lt;linkText&gt;</bpt>System Administration<ept id="6367f8dc-9c43-4ff4-ab17-771e692da705">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6cd08fe4-631e-41b7-839c-8afc61f00739" xml:space="preserve">
+          <source>Click <bpt id="d2a23f77-9503-4e62-8341-4da993c327bb">&lt;strong&gt;</bpt>Create new user<ept id="d2a23f77-9503-4e62-8341-4da993c327bb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d2a23f77-9503-4e62-8341-4da993c327bb">&lt;strong&gt;</bpt>Create new user<ept id="d2a23f77-9503-4e62-8341-4da993c327bb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e141c61c-68ae-45fd-85e6-f0067a607f02" xml:space="preserve">
+          <source><bpt id="9c5f5bb8-fe02-4965-8b7b-f0f03d1ac0ff">&lt;linkText&gt;</bpt>Create New User<ept id="9c5f5bb8-fe02-4965-8b7b-f0f03d1ac0ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9c5f5bb8-fe02-4965-8b7b-f0f03d1ac0ff">&lt;linkText&gt;</bpt>Create New User<ept id="9c5f5bb8-fe02-4965-8b7b-f0f03d1ac0ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="695f172d-4e54-40c7-a816-0f964d62718a" xml:space="preserve">
+          <source>In the <bpt id="658243e2-113a-4f65-a99b-c7877a5e50d3">&lt;strong&gt;</bpt>Create User<ept id="658243e2-113a-4f65-a99b-c7877a5e50d3">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="658243e2-113a-4f65-a99b-c7877a5e50d3">&lt;strong&gt;</bpt>Create User<ept id="658243e2-113a-4f65-a99b-c7877a5e50d3">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="e39e929c-225f-412a-b615-82497ec42b9a" xml:space="preserve">
+          <source><bpt id="bf1c602f-0d69-4185-a880-3f4eee47a96a">&lt;linkText&gt;</bpt>Create User<ept id="bf1c602f-0d69-4185-a880-3f4eee47a96a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bf1c602f-0d69-4185-a880-3f4eee47a96a">&lt;linkText&gt;</bpt>Create User<ept id="bf1c602f-0d69-4185-a880-3f4eee47a96a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44bfbd01-ff56-4248-98a7-5d251822466c" xml:space="preserve">
+          <source>Type the user name, the password and its confirmation, the email address and the employee ID of a valid Azure Active Directory account you want to provision into the related textboxes.</source>
+          <target state="new">Type the user name, the password and its confirmation, the email address and the employee ID of a valid Azure Active Directory account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="196656dd-0f48-4cb7-9a62-bc91b697ce4c" xml:space="preserve">
+          <source>Click <bpt id="983463ad-148b-41df-b76a-40d904859ef7">&lt;strong&gt;</bpt>Next<ept id="983463ad-148b-41df-b76a-40d904859ef7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="983463ad-148b-41df-b76a-40d904859ef7">&lt;strong&gt;</bpt>Next<ept id="983463ad-148b-41df-b76a-40d904859ef7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eaf9007c-f067-4a39-ac71-f065e8c3bd6f" xml:space="preserve">
+          <source>You can use any other FM:Systems user account creation tools or APIs provided by FM:Systems to provision AAD user accounts.</source>
+          <target state="new">You can use any other FM:Systems user account creation tools or APIs provided by FM:Systems to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="5c3c0bbd-7751-492b-83d6-5df78ce4ed3c" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="5b6cb488-5a64-4451-9e36-f07825ccf05c" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="c3b6fbb0-d7ee-4fdc-8127-04dcf8d3b706" xml:space="preserve">
+          <source>On the <bpt id="f5015175-0f6e-48d5-9017-a5f696fc39f3">&lt;strong&gt;</bpt>FM:Systems **application integration page, click **Assign users<ept id="f5015175-0f6e-48d5-9017-a5f696fc39f3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f5015175-0f6e-48d5-9017-a5f696fc39f3">&lt;strong&gt;</bpt>FM:Systems **application integration page, click **Assign users<ept id="f5015175-0f6e-48d5-9017-a5f696fc39f3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c38c8a5f-e8cd-4205-8b02-07970753eb69" xml:space="preserve">
+          <source><bpt id="bba2195b-2c34-4ec9-ab20-55e4774b70e8">&lt;linkText&gt;</bpt>Assign Users<ept id="bba2195b-2c34-4ec9-ab20-55e4774b70e8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bba2195b-2c34-4ec9-ab20-55e4774b70e8">&lt;linkText&gt;</bpt>Assign Users<ept id="bba2195b-2c34-4ec9-ab20-55e4774b70e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a4fafab-5d11-42c9-95cf-fe22c95552dc" xml:space="preserve">
+          <source>Select your test user, click <bpt id="87de90fc-27d5-47ed-8a35-b87648ca6a7f">&lt;strong&gt;</bpt>Assign<ept id="87de90fc-27d5-47ed-8a35-b87648ca6a7f">&lt;/strong&gt;</ept>, and then click <bpt id="68f65bb5-8f84-4492-87b1-64ca386a1fda">&lt;strong&gt;</bpt>Yes<ept id="68f65bb5-8f84-4492-87b1-64ca386a1fda">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="87de90fc-27d5-47ed-8a35-b87648ca6a7f">&lt;strong&gt;</bpt>Assign<ept id="87de90fc-27d5-47ed-8a35-b87648ca6a7f">&lt;/strong&gt;</ept>, and then click <bpt id="68f65bb5-8f84-4492-87b1-64ca386a1fda">&lt;strong&gt;</bpt>Yes<ept id="68f65bb5-8f84-4492-87b1-64ca386a1fda">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="970ff173-aae5-41e3-a815-26f487e8a0f2" xml:space="preserve">
+          <source><bpt id="0fa229b2-3435-4bfc-b1e2-abcef3172057">&lt;linkText&gt;</bpt>Yes<ept id="0fa229b2-3435-4bfc-b1e2-abcef3172057">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0fa229b2-3435-4bfc-b1e2-abcef3172057">&lt;linkText&gt;</bpt>Yes<ept id="0fa229b2-3435-4bfc-b1e2-abcef3172057">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="890f3b3a-e232-4e81-b320-8e5852508cfe" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="a0c7b168-ca32-4f12-aec0-e71d59ff8329" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="8b8334ba-fff0-45f6-9eaa-4c0db0942d06">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="8b8334ba-fff0-45f6-9eaa-4c0db0942d06">&lt;/linkText&gt;</ept><bpt id="8b8334ba-fff0-45f6-9eaa-4c0db0942d06">&lt;title&gt;</bpt><ept id="8b8334ba-fff0-45f6-9eaa-4c0db0942d06">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="8b8334ba-fff0-45f6-9eaa-4c0db0942d06">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="8b8334ba-fff0-45f6-9eaa-4c0db0942d06">&lt;/linkText&gt;</ept><bpt id="8b8334ba-fff0-45f6-9eaa-4c0db0942d06">&lt;title&gt;</bpt><ept id="8b8334ba-fff0-45f6-9eaa-4c0db0942d06">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d34511c5-8179-4fba-a6d3-8e10c013d627" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d34511c5-8179-4fba-a6d3-8e10c013d627" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c07be29d-b7c8-4f7a-a939-3f62bbb943b4">
+        <trans-unit id="825d2a53-041c-4201-9e56-148b87c3e279" xml:space="preserve">
+          <source>How to configure Twitter authentication for your App Services application</source>
+          <target state="new">How to configure Twitter authentication for your App Services application</target>
+        </trans-unit>
+        <trans-unit id="e12c8aaa-3565-4a8f-b840-b9b6b457f8a3" xml:space="preserve">
+          <source>Learn how to configure Twitter authentication for your App Services application.</source>
+          <target state="new">Learn how to configure Twitter authentication for your App Services application.</target>
+        </trans-unit>
+        <trans-unit id="fbe34270-08c8-4639-ab05-30792552a55e" xml:space="preserve">
+          <source><bpt id="42ac744c-166b-4d2d-a063-10852c234eb1">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="42ac744c-166b-4d2d-a063-10852c234eb1">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="42ac744c-166b-4d2d-a063-10852c234eb1">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="42ac744c-166b-4d2d-a063-10852c234eb1">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40c6fa39-f6ae-4eb3-b5c3-00011a5a18c6" xml:space="preserve">
+          <source>This topic shows you how to configure Azure Mobile Apps to use Twitter as an authentication provider.</source>
+          <target state="new">This topic shows you how to configure Azure Mobile Apps to use Twitter as an authentication provider.</target>
+        </trans-unit>
+        <trans-unit id="fa8da1cd-472d-44af-b872-87cad8f925e0" xml:space="preserve">
+          <source>To complete the procedure in this topic, you must have a Twitter account that has a verified email address.</source>
+          <target state="new">To complete the procedure in this topic, you must have a Twitter account that has a verified email address.</target>
+        </trans-unit>
+        <trans-unit id="ae36948a-1510-4e70-83aa-cd11b299a1dd" xml:space="preserve">
+          <source>To create a new Twitter account, go to &lt;a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank"&gt;twitter.com&lt;/a&gt;.</source>
+          <target state="new">To create a new Twitter account, go to &lt;a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank"&gt;twitter.com&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="a20fc56d-58c7-42cf-9385-7bd544354e62" xml:space="preserve">
+          <source>Log on to the [Azure Management Portal], and navigate to your Mobile App.</source>
+          <target state="new">Log on to the [Azure Management Portal], and navigate to your Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="2b659adf-d7be-4141-abfc-a7466b59acd3" xml:space="preserve">
+          <source>Copy your <bpt id="83869777-9c89-4098-a276-cfc2efc09683">&lt;strong&gt;</bpt>URL<ept id="83869777-9c89-4098-a276-cfc2efc09683">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy your <bpt id="83869777-9c89-4098-a276-cfc2efc09683">&lt;strong&gt;</bpt>URL<ept id="83869777-9c89-4098-a276-cfc2efc09683">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc9f326f-ac60-43d1-97b9-e9a67708088c" xml:space="preserve">
+          <source>You will use this to configure your Twitter app.</source>
+          <target state="new">You will use this to configure your Twitter app.</target>
+        </trans-unit>
+        <trans-unit id="bea34558-c5e6-44f9-9405-74d9cb1ffea3" xml:space="preserve">
+          <source>Click <bpt id="e5d90fa5-2405-40fe-bbe8-70560888dd2b">&lt;strong&gt;</bpt>Settings<ept id="e5d90fa5-2405-40fe-bbe8-70560888dd2b">&lt;/strong&gt;</ept>, <bpt id="cfefd97f-8e94-4983-953c-91b657199ca5">&lt;strong&gt;</bpt>User authentication<ept id="cfefd97f-8e94-4983-953c-91b657199ca5">&lt;/strong&gt;</ept>, and then click <bpt id="de1e6746-748c-4ace-81e5-ea94ee488efb">&lt;strong&gt;</bpt>Twitter<ept id="de1e6746-748c-4ace-81e5-ea94ee488efb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e5d90fa5-2405-40fe-bbe8-70560888dd2b">&lt;strong&gt;</bpt>Settings<ept id="e5d90fa5-2405-40fe-bbe8-70560888dd2b">&lt;/strong&gt;</ept>, <bpt id="cfefd97f-8e94-4983-953c-91b657199ca5">&lt;strong&gt;</bpt>User authentication<ept id="cfefd97f-8e94-4983-953c-91b657199ca5">&lt;/strong&gt;</ept>, and then click <bpt id="de1e6746-748c-4ace-81e5-ea94ee488efb">&lt;strong&gt;</bpt>Twitter<ept id="de1e6746-748c-4ace-81e5-ea94ee488efb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99e61367-7c1b-4828-8fe2-3def1064bd91" xml:space="preserve">
+          <source>Copy the <bpt id="e5b9b971-6b98-48b5-9805-979ff12131bf">&lt;strong&gt;</bpt>Callback URL<ept id="e5b9b971-6b98-48b5-9805-979ff12131bf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy the <bpt id="e5b9b971-6b98-48b5-9805-979ff12131bf">&lt;strong&gt;</bpt>Callback URL<ept id="e5b9b971-6b98-48b5-9805-979ff12131bf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58d9fd51-140c-4658-9300-66429977259f" xml:space="preserve">
+          <source>You will use this to configure your Twitter app.</source>
+          <target state="new">You will use this to configure your Twitter app.</target>
+        </trans-unit>
+        <trans-unit id="22ae39e7-5b74-4e71-a4da-bb1d5d2287ef" xml:space="preserve">
+          <source>Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click <bpt id="c309832f-a210-4c0d-988d-3ec5dd482a0f">&lt;strong&gt;</bpt>Create New App<ept id="c309832f-a210-4c0d-988d-3ec5dd482a0f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click <bpt id="c309832f-a210-4c0d-988d-3ec5dd482a0f">&lt;strong&gt;</bpt>Create New App<ept id="c309832f-a210-4c0d-988d-3ec5dd482a0f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c287845-09f3-4ef4-8d9a-d69ef0fe1647" xml:space="preserve">
+          <source>Type in the <bpt id="32d1f082-5921-4f9a-8cac-d2bdb4c2ddd4">&lt;strong&gt;</bpt>Name<ept id="32d1f082-5921-4f9a-8cac-d2bdb4c2ddd4">&lt;/strong&gt;</ept> and a <bpt id="5d6748df-63b9-4f1b-9e5a-a80c0aad5ec0">&lt;strong&gt;</bpt>Description<ept id="5d6748df-63b9-4f1b-9e5a-a80c0aad5ec0">&lt;/strong&gt;</ept> for your new app.</source>
+          <target state="new">Type in the <bpt id="32d1f082-5921-4f9a-8cac-d2bdb4c2ddd4">&lt;strong&gt;</bpt>Name<ept id="32d1f082-5921-4f9a-8cac-d2bdb4c2ddd4">&lt;/strong&gt;</ept> and a <bpt id="5d6748df-63b9-4f1b-9e5a-a80c0aad5ec0">&lt;strong&gt;</bpt>Description<ept id="5d6748df-63b9-4f1b-9e5a-a80c0aad5ec0">&lt;/strong&gt;</ept> for your new app.</target>
+        </trans-unit>
+        <trans-unit id="a88b88fe-8dba-4512-8186-2ac9fcf105ca" xml:space="preserve">
+          <source>Paste in your <bpt id="df55b774-4c62-4125-beb7-fa96e0d386b7">&lt;strong&gt;</bpt>Mobile App URL<ept id="df55b774-4c62-4125-beb7-fa96e0d386b7">&lt;/strong&gt;</ept> for the <bpt id="ffd975b6-56f6-4462-83c5-3d7de831433d">&lt;strong&gt;</bpt>Website<ept id="ffd975b6-56f6-4462-83c5-3d7de831433d">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">Paste in your <bpt id="df55b774-4c62-4125-beb7-fa96e0d386b7">&lt;strong&gt;</bpt>Mobile App URL<ept id="df55b774-4c62-4125-beb7-fa96e0d386b7">&lt;/strong&gt;</ept> for the <bpt id="ffd975b6-56f6-4462-83c5-3d7de831433d">&lt;strong&gt;</bpt>Website<ept id="ffd975b6-56f6-4462-83c5-3d7de831433d">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="c3eeb636-ce0c-4561-bedb-620de090412a" xml:space="preserve">
+          <source>Then, for the <bpt id="0b4f6459-63f3-4c93-9f6f-f3346ceb3ee7">&lt;strong&gt;</bpt>Callback URL<ept id="0b4f6459-63f3-4c93-9f6f-f3346ceb3ee7">&lt;/strong&gt;</ept>, paste the <bpt id="224e0604-d018-416b-8042-558efe61d72c">&lt;strong&gt;</bpt>Callback URL<ept id="224e0604-d018-416b-8042-558efe61d72c">&lt;/strong&gt;</ept> you copied earlier.</source>
+          <target state="new">Then, for the <bpt id="0b4f6459-63f3-4c93-9f6f-f3346ceb3ee7">&lt;strong&gt;</bpt>Callback URL<ept id="0b4f6459-63f3-4c93-9f6f-f3346ceb3ee7">&lt;/strong&gt;</ept>, paste the <bpt id="224e0604-d018-416b-8042-558efe61d72c">&lt;strong&gt;</bpt>Callback URL<ept id="224e0604-d018-416b-8042-558efe61d72c">&lt;/strong&gt;</ept> you copied earlier.</target>
+        </trans-unit>
+        <trans-unit id="3ebb1b67-94e5-4333-919a-33284596ad16" xml:space="preserve">
+          <source>This is your Mobile App gateway appended with the path, <bpt id="fe957025-e9d6-4989-97db-cef4898adbf2">&lt;em&gt;</bpt>/signin-twitter<ept id="fe957025-e9d6-4989-97db-cef4898adbf2">&lt;/em&gt;</ept>.</source>
+          <target state="new">This is your Mobile App gateway appended with the path, <bpt id="fe957025-e9d6-4989-97db-cef4898adbf2">&lt;em&gt;</bpt>/signin-twitter<ept id="fe957025-e9d6-4989-97db-cef4898adbf2">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84ef20ca-4303-41cb-9ebd-721c76261651" xml:space="preserve">
+          <source>For example, <bpt id="5c0acc07-a9fb-46d8-941f-c0fdcffb328b">&lt;code&gt;</bpt>https://contosogateway.azurewebsites.net/signin-twitter<ept id="5c0acc07-a9fb-46d8-941f-c0fdcffb328b">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="5c0acc07-a9fb-46d8-941f-c0fdcffb328b">&lt;code&gt;</bpt>https://contosogateway.azurewebsites.net/signin-twitter<ept id="5c0acc07-a9fb-46d8-941f-c0fdcffb328b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a697aee-f63d-4fe7-91f1-30a00f97ee26" xml:space="preserve">
+          <source>Make sure that you are using the HTTPS scheme.</source>
+          <target state="new">Make sure that you are using the HTTPS scheme.</target>
+        </trans-unit>
+        <trans-unit id="cb89edd6-367d-4a21-a4ed-ac795e4ecb07" xml:space="preserve">
+          <source><bpt id="40218ccf-4c9d-48d1-bc9f-af1b4944410c">&lt;linkText&gt;</bpt><ept id="40218ccf-4c9d-48d1-bc9f-af1b4944410c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40218ccf-4c9d-48d1-bc9f-af1b4944410c">&lt;linkText&gt;</bpt><ept id="40218ccf-4c9d-48d1-bc9f-af1b4944410c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97f037b8-4367-4632-acc1-4eeb3771384f" xml:space="preserve">
+          <source>At the bottom the page, read and accept the terms.</source>
+          <target state="new">At the bottom the page, read and accept the terms.</target>
+        </trans-unit>
+        <trans-unit id="2b2c17a0-f62a-4682-acd4-c9858bf8496a" xml:space="preserve">
+          <source>Then click <bpt id="0f56d044-e281-47ae-b30d-24e6256669f8">&lt;strong&gt;</bpt>Create your Twitter application<ept id="0f56d044-e281-47ae-b30d-24e6256669f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="0f56d044-e281-47ae-b30d-24e6256669f8">&lt;strong&gt;</bpt>Create your Twitter application<ept id="0f56d044-e281-47ae-b30d-24e6256669f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f92ad83-d76b-4596-b56c-ee9cfe586917" xml:space="preserve">
+          <source>This registers the app displays the application details.</source>
+          <target state="new">This registers the app displays the application details.</target>
+        </trans-unit>
+        <trans-unit id="bd187c48-6e7d-47fb-bbd0-feeea6d74073" xml:space="preserve">
+          <source>Click the <bpt id="7791e5fa-819b-429f-b9bd-9a51ae906f53">&lt;strong&gt;</bpt>Settings<ept id="7791e5fa-819b-429f-b9bd-9a51ae906f53">&lt;/strong&gt;</ept> tab, check <bpt id="27712c77-f07e-4a53-9678-9632e9e4aa6a">&lt;strong&gt;</bpt>Allow this application to be used to sign in with Twitter<ept id="27712c77-f07e-4a53-9678-9632e9e4aa6a">&lt;/strong&gt;</ept>, then click <bpt id="ad342aa6-680c-470d-a14a-632dbc9af706">&lt;strong&gt;</bpt>Update Settings<ept id="ad342aa6-680c-470d-a14a-632dbc9af706">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="7791e5fa-819b-429f-b9bd-9a51ae906f53">&lt;strong&gt;</bpt>Settings<ept id="7791e5fa-819b-429f-b9bd-9a51ae906f53">&lt;/strong&gt;</ept> tab, check <bpt id="27712c77-f07e-4a53-9678-9632e9e4aa6a">&lt;strong&gt;</bpt>Allow this application to be used to sign in with Twitter<ept id="27712c77-f07e-4a53-9678-9632e9e4aa6a">&lt;/strong&gt;</ept>, then click <bpt id="ad342aa6-680c-470d-a14a-632dbc9af706">&lt;strong&gt;</bpt>Update Settings<ept id="ad342aa6-680c-470d-a14a-632dbc9af706">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4bca3f5a-b265-4350-9a79-54d12e38e5e7" xml:space="preserve">
+          <source>Select the <bpt id="be9253b4-50e0-4101-ab74-ca4899ea7af8">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="be9253b4-50e0-4101-ab74-ca4899ea7af8">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the <bpt id="be9253b4-50e0-4101-ab74-ca4899ea7af8">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="be9253b4-50e0-4101-ab74-ca4899ea7af8">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="de17bbcd-d292-488c-873f-89339a2a35a8" xml:space="preserve">
+          <source>Make a note of the values of <bpt id="4ebf82f9-0408-4d85-b36c-f47256093ead">&lt;strong&gt;</bpt>Consumer Key (API Key)<ept id="4ebf82f9-0408-4d85-b36c-f47256093ead">&lt;/strong&gt;</ept> and <bpt id="e80006a6-2961-48f6-99fb-d6d0be0c862c">&lt;strong&gt;</bpt>Consumer secret (API Secret)<ept id="e80006a6-2961-48f6-99fb-d6d0be0c862c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Make a note of the values of <bpt id="4ebf82f9-0408-4d85-b36c-f47256093ead">&lt;strong&gt;</bpt>Consumer Key (API Key)<ept id="4ebf82f9-0408-4d85-b36c-f47256093ead">&lt;/strong&gt;</ept> and <bpt id="e80006a6-2961-48f6-99fb-d6d0be0c862c">&lt;strong&gt;</bpt>Consumer secret (API Secret)<ept id="e80006a6-2961-48f6-99fb-d6d0be0c862c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a50382db-61b5-44d7-8a92-89395ced41da" xml:space="preserve">
+          <source>The consumer secret is an important security credential.</source>
+          <target state="new">The consumer secret is an important security credential.</target>
+        </trans-unit>
+        <trans-unit id="15f5c4d2-1be4-4174-8e35-b62700a3b8b9" xml:space="preserve">
+          <source>Do not share this secret with anyone or distribute it with your app.</source>
+          <target state="new">Do not share this secret with anyone or distribute it with your app.</target>
+        </trans-unit>
+        <trans-unit id="c0b2bfc2-e914-4e1d-89f3-90268b19f1f5" xml:space="preserve">
+          <source>Back in the [Azure Management Portal] on the Twitter setting blade for your Mobile App, paste in the API Key and API Secret values which you obtained previously.</source>
+          <target state="new">Back in the [Azure Management Portal] on the Twitter setting blade for your Mobile App, paste in the API Key and API Secret values which you obtained previously.</target>
+        </trans-unit>
+        <trans-unit id="88973106-a1b1-46e7-af78-4f78c3a8aece" xml:space="preserve">
+          <source>Then click <bpt id="d26db8c8-7ea4-46d1-a15b-b0c627891325">&lt;strong&gt;</bpt>Save<ept id="d26db8c8-7ea4-46d1-a15b-b0c627891325">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="d26db8c8-7ea4-46d1-a15b-b0c627891325">&lt;strong&gt;</bpt>Save<ept id="d26db8c8-7ea4-46d1-a15b-b0c627891325">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="659f5299-5c00-4f3c-9a8b-80acbb00dad8" xml:space="preserve">
+          <source><bpt id="4c5af840-4c0c-4657-8752-0fac8b9951fc">&lt;linkText&gt;</bpt><ept id="4c5af840-4c0c-4657-8752-0fac8b9951fc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4c5af840-4c0c-4657-8752-0fac8b9951fc">&lt;linkText&gt;</bpt><ept id="4c5af840-4c0c-4657-8752-0fac8b9951fc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65303d3f-2f35-4847-8a98-1f55fa227037" xml:space="preserve">
+          <source>You are now ready to use Twitter for authentication in your app.</source>
+          <target state="new">You are now ready to use Twitter for authentication in your app.</target>
+        </trans-unit>
+        <trans-unit id="4f08b20e-66d1-4d68-a9d8-8c959f8680e1" xml:space="preserve">
+          <source><bpt id="0cd1b2ae-f7d2-48e4-bacf-ebedeee89dbd">&lt;token href="../../includes/app-service-mobile-related-content-get-started-users.md"&gt;</bpt><ept id="0cd1b2ae-f7d2-48e4-bacf-ebedeee89dbd">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0cd1b2ae-f7d2-48e4-bacf-ebedeee89dbd">&lt;token href="../../includes/app-service-mobile-related-content-get-started-users.md"&gt;</bpt><ept id="0cd1b2ae-f7d2-48e4-bacf-ebedeee89dbd">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8aeef89d-0d71-4d79-aec5-b729c76a864a" xml:space="preserve">
+          <source>./media/app-service-mobile-how-to-configure-twitter-authentication-preview/app-service-twitter-redirect.png</source>
+          <target state="new">./media/app-service-mobile-how-to-configure-twitter-authentication-preview/app-service-twitter-redirect.png</target>
+        </trans-unit>
+        <trans-unit id="76df1a0b-638c-4fb9-8f5f-603080386d0d" xml:space="preserve">
+          <source>./media/app-service-mobile-how-to-configure-twitter-authentication-preview/mobile-app-twitter-settings.png</source>
+          <target state="new">./media/app-service-mobile-how-to-configure-twitter-authentication-preview/mobile-app-twitter-settings.png</target>
+        </trans-unit>
+        <trans-unit id="2da81891-ca00-4d2c-ab5f-b30d2a071ce8" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=268300</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=268300</target>
+        </trans-unit>
+        <trans-unit id="3284eca0-acc0-47c0-9e45-df7a36ed6495" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="370243ba-99c5-490c-b9ae-4a607722c5be" xml:space="preserve">
+          <source>../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md</source>
+          <target state="new">../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md</target>
+        </trans-unit>
+      </group>
+      <group id="a670e3bd-cc4b-4dfb-8ee8-1dcdd4bb3e39" />
+    </body>
+  </file>
+</xliff>

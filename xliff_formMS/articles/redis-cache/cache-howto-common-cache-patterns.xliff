@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="36c53fce-e0d3-44ef-8fc0-8334b71af70a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="36c53fce-e0d3-44ef-8fc0-8334b71af70a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5e551b7a-ecd7-4465-8c9a-649930265483">
+        <trans-unit id="c2e5e8a8-9693-44aa-b989-f37c45e7ef8a" xml:space="preserve">
+          <source>Common cache patterns with Azure Redis Cache</source>
+          <target state="new">Common cache patterns with Azure Redis Cache</target>
+        </trans-unit>
+        <trans-unit id="b64fe8f8-5949-4218-80ab-f5698977a480" xml:space="preserve">
+          <source>Learn where and why to use Azure Redis Cache</source>
+          <target state="new">Learn where and why to use Azure Redis Cache</target>
+        </trans-unit>
+        <trans-unit id="0e023539-5ac3-4581-b897-d80a778f2191" xml:space="preserve">
+          <source>This page lists the most common benefits to using a cache.</source>
+          <target state="new">This page lists the most common benefits to using a cache.</target>
+        </trans-unit>
+        <trans-unit id="937cfd2d-85ce-4660-a455-8d06bd151116" xml:space="preserve">
+          <source>Using a cache can dramatically speed up data access over fetching from a data store.</source>
+          <target state="new">Using a cache can dramatically speed up data access over fetching from a data store.</target>
+        </trans-unit>
+        <trans-unit id="e7073e69-4c0b-46b1-b314-4be8d0556e50" xml:space="preserve">
+          <source>A cache provides high throughput and low-latency.</source>
+          <target state="new">A cache provides high throughput and low-latency.</target>
+        </trans-unit>
+        <trans-unit id="e64fddd8-aa20-46f5-bb66-bb544b10c2ee" xml:space="preserve">
+          <source>By fetching hot data from the cache, you not only speed up your app but you can reduce the data access load and increase its responsiveness for other queries.</source>
+          <target state="new">By fetching hot data from the cache, you not only speed up your app but you can reduce the data access load and increase its responsiveness for other queries.</target>
+        </trans-unit>
+        <trans-unit id="b4ea5698-b300-49ef-9057-74b882368e92" xml:space="preserve">
+          <source>Storing information in a cache helps save resources and increases scalability as the demands on the application increase.</source>
+          <target state="new">Storing information in a cache helps save resources and increases scalability as the demands on the application increase.</target>
+        </trans-unit>
+        <trans-unit id="0ade2ed6-d9bb-41a5-a26d-1cdbadc69b69" xml:space="preserve">
+          <source>Your app will be much more responsive to bursty loads when it can efficiently fetch data from a cache.</source>
+          <target state="new">Your app will be much more responsive to bursty loads when it can efficiently fetch data from a cache.</target>
+        </trans-unit>
+        <trans-unit id="58901ab1-f8ee-4517-8978-4dffb3a5560e" xml:space="preserve">
+          <source>While it’s considered a best practice is to avoid using session state, some applications can actually have a performance/reduced-complexity benefit from using session data, while other apps outright require session state.</source>
+          <target state="new">While it’s considered a best practice is to avoid using session state, some applications can actually have a performance/reduced-complexity benefit from using session data, while other apps outright require session state.</target>
+        </trans-unit>
+        <trans-unit id="9b70054a-98d1-4c12-99f0-c65987a0bdab" xml:space="preserve">
+          <source>The default in memory provider for session state does not allow scale out (running multiple instances of the web site).</source>
+          <target state="new">The default in memory provider for session state does not allow scale out (running multiple instances of the web site).</target>
+        </trans-unit>
+        <trans-unit id="1d51e922-0b20-4daa-b30d-df743ea9c4d4" xml:space="preserve">
+          <source>The ASP.NET SQL Server session state provider will allow multiple web sites to use session state, but it incurs a high latency cost compared to an in memory provider.</source>
+          <target state="new">The ASP.NET SQL Server session state provider will allow multiple web sites to use session state, but it incurs a high latency cost compared to an in memory provider.</target>
+        </trans-unit>
+        <trans-unit id="0be71377-b0a9-40d9-aab0-843034418819" xml:space="preserve">
+          <source>The Redis session state cache provider is a low latency alternative that is very easy to configure and set up.</source>
+          <target state="new">The Redis session state cache provider is a low latency alternative that is very easy to configure and set up.</target>
+        </trans-unit>
+        <trans-unit id="f6ab868f-6ccf-43f2-bd5f-d9fdf95df35f" xml:space="preserve">
+          <source>If your app uses only a limited amount of session state, you can use most of the cache for caching data and a small amount for session state.</source>
+          <target state="new">If your app uses only a limited amount of session state, you can use most of the cache for caching data and a small amount for session state.</target>
+        </trans-unit>
+        <trans-unit id="a3b95151-bfa8-479a-9230-3fd8be8262f9" xml:space="preserve">
+          <source>By storing data in a cache, the application may be able to survive system failures such as network latency, Web service problems, and hardware failures.</source>
+          <target state="new">By storing data in a cache, the application may be able to survive system failures such as network latency, Web service problems, and hardware failures.</target>
+        </trans-unit>
+        <trans-unit id="011c51fc-eec4-4655-b5de-637ba2f24aea" xml:space="preserve">
+          <source>It's often better to serve cached data until your web service or database recovers, than for your app to completely fail.</source>
+          <target state="new">It's often better to serve cached data until your web service or database recovers, than for your app to completely fail.</target>
+        </trans-unit>
+        <trans-unit id="dbd2f10a-4696-4146-90b0-cd448a9a678a" xml:space="preserve">
+          <source>To learn more about using the Azure Redis Cache:</source>
+          <target state="new">To learn more about using the Azure Redis Cache:</target>
+        </trans-unit>
+        <trans-unit id="924da1b5-40e7-4c42-9934-7bf33a22f000" xml:space="preserve">
+          <source><bpt id="b25c3bff-e544-41db-8dc1-ba5fcb2e8895">&lt;linkText&gt;</bpt>Redis Azure Cache docs <ept id="b25c3bff-e544-41db-8dc1-ba5fcb2e8895">&lt;/linkText&gt;</ept><bpt id="b25c3bff-e544-41db-8dc1-ba5fcb2e8895">&lt;title&gt;</bpt><ept id="b25c3bff-e544-41db-8dc1-ba5fcb2e8895">&lt;/title&gt;</ept>: This page provides many good links to using the Redis Azure cache.</source>
+          <target state="new"><bpt id="b25c3bff-e544-41db-8dc1-ba5fcb2e8895">&lt;linkText&gt;</bpt>Redis Azure Cache docs <ept id="b25c3bff-e544-41db-8dc1-ba5fcb2e8895">&lt;/linkText&gt;</ept><bpt id="b25c3bff-e544-41db-8dc1-ba5fcb2e8895">&lt;title&gt;</bpt><ept id="b25c3bff-e544-41db-8dc1-ba5fcb2e8895">&lt;/title&gt;</ept>: This page provides many good links to using the Redis Azure cache.</target>
+        </trans-unit>
+        <trans-unit id="bd4caa7c-bc6a-4e2f-b488-d8e3c0063014" xml:space="preserve">
+          <source><bpt id="c302ea5f-1069-420f-8633-af565afa6407">&lt;linkText&gt;</bpt>MVC movie app with Azure Redis Cache in 15 minutes<ept id="c302ea5f-1069-420f-8633-af565afa6407">&lt;/linkText&gt;</ept><bpt id="c302ea5f-1069-420f-8633-af565afa6407">&lt;title&gt;</bpt><ept id="c302ea5f-1069-420f-8633-af565afa6407">&lt;/title&gt;</ept>: The blog post provides a quick start to using the Azure Redis cache in an ASP.NET MVC app.</source>
+          <target state="new"><bpt id="c302ea5f-1069-420f-8633-af565afa6407">&lt;linkText&gt;</bpt>MVC movie app with Azure Redis Cache in 15 minutes<ept id="c302ea5f-1069-420f-8633-af565afa6407">&lt;/linkText&gt;</ept><bpt id="c302ea5f-1069-420f-8633-af565afa6407">&lt;title&gt;</bpt><ept id="c302ea5f-1069-420f-8633-af565afa6407">&lt;/title&gt;</ept>: The blog post provides a quick start to using the Azure Redis cache in an ASP.NET MVC app.</target>
+        </trans-unit>
+        <trans-unit id="195a36c4-66f6-4521-b09d-ea8461c01966" xml:space="preserve">
+          <source><bpt id="786035b8-f307-4116-9154-1e4d65de6efb">&lt;linkText&gt;</bpt>How to Use ASP.NET Session State with Azure Websites<ept id="786035b8-f307-4116-9154-1e4d65de6efb">&lt;/linkText&gt;</ept><bpt id="786035b8-f307-4116-9154-1e4d65de6efb">&lt;title&gt;</bpt><ept id="786035b8-f307-4116-9154-1e4d65de6efb">&lt;/title&gt;</ept>: This topic explains how to use the Azure Redis Cache Service for session state.</source>
+          <target state="new"><bpt id="786035b8-f307-4116-9154-1e4d65de6efb">&lt;linkText&gt;</bpt>How to Use ASP.NET Session State with Azure Websites<ept id="786035b8-f307-4116-9154-1e4d65de6efb">&lt;/linkText&gt;</ept><bpt id="786035b8-f307-4116-9154-1e4d65de6efb">&lt;title&gt;</bpt><ept id="786035b8-f307-4116-9154-1e4d65de6efb">&lt;/title&gt;</ept>: This topic explains how to use the Azure Redis Cache Service for session state.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

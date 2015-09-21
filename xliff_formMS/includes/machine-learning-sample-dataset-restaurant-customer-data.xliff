@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9d422821-6df6-4994-8b56-bace609d30b6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9d422821-6df6-4994-8b56-bace609d30b6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5f328861-5bce-404e-bdc6-ecb9d1a5aead">
+        <trans-unit id="1259f775-6ddb-4ae9-92db-f1e73711da9b" xml:space="preserve">
+          <source>A set of metadata about customers, including demographics and preferences.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Use this dataset, in combination with the other two restaurant data sets, to train and test a recommender system.</source>
+          <target state="new">A set of metadata about customers, including demographics and preferences.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Use this dataset, in combination with the other two restaurant data sets, to train and test a recommender system.</target>
+        </trans-unit>
+        <trans-unit id="22deb11a-d31c-4929-aa9a-0246a5c6fc15" xml:space="preserve">
+          <source>&lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Bache, K. and Lichman, M. (2013).</source>
+          <target state="new">&lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Bache, K. and Lichman, M. (2013).</target>
+        </trans-unit>
+        <trans-unit id="1fe90512-953b-4a30-a223-c0b09dc3b6d6" xml:space="preserve">
+          <source>UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;.</source>
+          <target state="new">UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="0ff088aa-46e1-40f5-aa7d-3b4bbc374484" xml:space="preserve">
+          <source>Irvine, CA: University of California, School of Information and Computer Science.</source>
+          <target state="new">Irvine, CA: University of California, School of Information and Computer Science.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

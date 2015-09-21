@@ -1,0 +1,784 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bced75fd-40d1-4495-9f8f-d68e1ac2b00e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bced75fd-40d1-4495-9f8f-d68e1ac2b00e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d37e1e8f-da38-4ab8-8d78-c2b9f0febc29">
+        <trans-unit id="5a018eda-70f3-4ca0-843e-235c3e7680e8" xml:space="preserve">
+          <source>Connect to on-premises SQL Server from an API app in Azure App Service using Hybrid Connections</source>
+          <target state="new">Connect to on-premises SQL Server from an API app in Azure App Service using Hybrid Connections</target>
+        </trans-unit>
+        <trans-unit id="6ccdd21f-5920-454d-a090-d0fc7edbc771" xml:space="preserve">
+          <source>Create an API app on Microsoft Azure and connect it to an on-premises SQL Server database</source>
+          <target state="new">Create an API app on Microsoft Azure and connect it to an on-premises SQL Server database</target>
+        </trans-unit>
+        <trans-unit id="b723e714-48d6-4242-a19e-946720f9cef3" xml:space="preserve">
+          <source>Hybrid Connections can connect <bpt id="7def473f-0846-41eb-9943-5dd680540879">&lt;linkText&gt;</bpt>Azure App Service<ept id="7def473f-0846-41eb-9943-5dd680540879">&lt;/linkText&gt;</ept><bpt id="7def473f-0846-41eb-9943-5dd680540879">&lt;title&gt;</bpt><ept id="7def473f-0846-41eb-9943-5dd680540879">&lt;/title&gt;</ept> API apps to on-premises resources that use a static TCP port.</source>
+          <target state="new">Hybrid Connections can connect <bpt id="7def473f-0846-41eb-9943-5dd680540879">&lt;linkText&gt;</bpt>Azure App Service<ept id="7def473f-0846-41eb-9943-5dd680540879">&lt;/linkText&gt;</ept><bpt id="7def473f-0846-41eb-9943-5dd680540879">&lt;title&gt;</bpt><ept id="7def473f-0846-41eb-9943-5dd680540879">&lt;/title&gt;</ept> API apps to on-premises resources that use a static TCP port.</target>
+        </trans-unit>
+        <trans-unit id="aab7a2a1-244f-426b-bc14-6d2aeadc278f" xml:space="preserve">
+          <source>Supported resources include Microsoft SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services.</source>
+          <target state="new">Supported resources include Microsoft SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services.</target>
+        </trans-unit>
+        <trans-unit id="45aa334a-45a4-41ab-8325-0d3e226463a4" xml:space="preserve">
+          <source>In this tutorial, you will learn how to create an App Service API app in the <bpt id="6a3e7175-1b6f-4543-ac8d-e9b4f7aac4e9">&lt;linkText&gt;</bpt>Azure preview<ept id="6a3e7175-1b6f-4543-ac8d-e9b4f7aac4e9">&lt;/linkText&gt;</ept><bpt id="6a3e7175-1b6f-4543-ac8d-e9b4f7aac4e9">&lt;title&gt;</bpt><ept id="6a3e7175-1b6f-4543-ac8d-e9b4f7aac4e9">&lt;/title&gt;</ept> that connects to a local on-premises SQL Server database using the new Hybrid Connection feature.</source>
+          <target state="new">In this tutorial, you will learn how to create an App Service API app in the <bpt id="6a3e7175-1b6f-4543-ac8d-e9b4f7aac4e9">&lt;linkText&gt;</bpt>Azure preview<ept id="6a3e7175-1b6f-4543-ac8d-e9b4f7aac4e9">&lt;/linkText&gt;</ept><bpt id="6a3e7175-1b6f-4543-ac8d-e9b4f7aac4e9">&lt;title&gt;</bpt><ept id="6a3e7175-1b6f-4543-ac8d-e9b4f7aac4e9">&lt;/title&gt;</ept> that connects to a local on-premises SQL Server database using the new Hybrid Connection feature.</target>
+        </trans-unit>
+        <trans-unit id="66e994f6-585b-43cb-8e8e-ca5c02501c8e" xml:space="preserve">
+          <source>The tutorial assumes no prior experience using Azure or SQL Server.</source>
+          <target state="new">The tutorial assumes no prior experience using Azure or SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="05db985e-802d-4951-885a-5a0d4b1144b7" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="65c2431f-83a8-452a-93de-131d9f24c7ae">&lt;linkText&gt;</bpt>Try App Service<ept id="65c2431f-83a8-452a-93de-131d9f24c7ae">&lt;/linkText&gt;</ept><bpt id="65c2431f-83a8-452a-93de-131d9f24c7ae">&lt;title&gt;</bpt><ept id="65c2431f-83a8-452a-93de-131d9f24c7ae">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="65c2431f-83a8-452a-93de-131d9f24c7ae">&lt;linkText&gt;</bpt>Try App Service<ept id="65c2431f-83a8-452a-93de-131d9f24c7ae">&lt;/linkText&gt;</ept><bpt id="65c2431f-83a8-452a-93de-131d9f24c7ae">&lt;title&gt;</bpt><ept id="65c2431f-83a8-452a-93de-131d9f24c7ae">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="612db136-da4b-44bc-9e5b-2be323b4a331" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="08468fdd-1534-46b8-9d9a-da705a8e72f9" xml:space="preserve">
+          <source>To complete this tutorial, you'll need the following products.</source>
+          <target state="new">To complete this tutorial, you'll need the following products.</target>
+        </trans-unit>
+        <trans-unit id="d50550c5-389c-4d20-9bf4-23425c863385" xml:space="preserve">
+          <source>All are available in free versions, so you can start developing Azure solutions entirely for free.</source>
+          <target state="new">All are available in free versions, so you can start developing Azure solutions entirely for free.</target>
+        </trans-unit>
+        <trans-unit id="bd366f70-f752-4131-a586-1e81d0c945fb" xml:space="preserve">
+          <source><bpt id="634b8381-c1ea-4fe7-9832-10a24054f281">&lt;strong&gt;</bpt>Azure subscription<ept id="634b8381-c1ea-4fe7-9832-10a24054f281">&lt;/strong&gt;</ept> - For a free subscription, see <bpt id="b7828381-a077-4cc3-b152-ed228046d5e4">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="b7828381-a077-4cc3-b152-ed228046d5e4">&lt;/linkText&gt;</ept><bpt id="b7828381-a077-4cc3-b152-ed228046d5e4">&lt;title&gt;</bpt><ept id="b7828381-a077-4cc3-b152-ed228046d5e4">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="634b8381-c1ea-4fe7-9832-10a24054f281">&lt;strong&gt;</bpt>Azure subscription<ept id="634b8381-c1ea-4fe7-9832-10a24054f281">&lt;/strong&gt;</ept> - For a free subscription, see <bpt id="b7828381-a077-4cc3-b152-ed228046d5e4">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="b7828381-a077-4cc3-b152-ed228046d5e4">&lt;/linkText&gt;</ept><bpt id="b7828381-a077-4cc3-b152-ed228046d5e4">&lt;title&gt;</bpt><ept id="b7828381-a077-4cc3-b152-ed228046d5e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9239799d-7402-4708-a546-8458cf9058cc" xml:space="preserve">
+          <source><bpt id="30688494-5603-4e0f-8729-bf39ee9b1e26">&lt;strong&gt;</bpt>Visual Studio<ept id="30688494-5603-4e0f-8729-bf39ee9b1e26">&lt;/strong&gt;</ept> - To download a free trial version of Visual Studio 2013 or Visual Studio 2015, see <bpt id="3f9b0b1c-b411-4961-bcc5-5ce1392a5a84">&lt;linkText&gt;</bpt>Visual Studio Downloads<ept id="3f9b0b1c-b411-4961-bcc5-5ce1392a5a84">&lt;/linkText&gt;</ept><bpt id="3f9b0b1c-b411-4961-bcc5-5ce1392a5a84">&lt;title&gt;</bpt><ept id="3f9b0b1c-b411-4961-bcc5-5ce1392a5a84">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="30688494-5603-4e0f-8729-bf39ee9b1e26">&lt;strong&gt;</bpt>Visual Studio<ept id="30688494-5603-4e0f-8729-bf39ee9b1e26">&lt;/strong&gt;</ept> - To download a free trial version of Visual Studio 2013 or Visual Studio 2015, see <bpt id="3f9b0b1c-b411-4961-bcc5-5ce1392a5a84">&lt;linkText&gt;</bpt>Visual Studio Downloads<ept id="3f9b0b1c-b411-4961-bcc5-5ce1392a5a84">&lt;/linkText&gt;</ept><bpt id="3f9b0b1c-b411-4961-bcc5-5ce1392a5a84">&lt;title&gt;</bpt><ept id="3f9b0b1c-b411-4961-bcc5-5ce1392a5a84">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29a41cea-9daf-48f5-a26a-47b027999832" xml:space="preserve">
+          <source>Install one of these before continuing.</source>
+          <target state="new">Install one of these before continuing.</target>
+        </trans-unit>
+        <trans-unit id="595bb85a-39ef-4d7e-821d-0f394482c03c" xml:space="preserve">
+          <source>(The screen shots in this tutorial were taken using Visual Studio 2013)</source>
+          <target state="new">(The screen shots in this tutorial were taken using Visual Studio 2013)</target>
+        </trans-unit>
+        <trans-unit id="eca186d1-f51a-44d5-890f-9a6bc801a2ae" xml:space="preserve">
+          <source><bpt id="7f99d92d-5387-4717-af92-94525ad36f61">&lt;strong&gt;</bpt>SQL Server 2014 Express with Tools<ept id="7f99d92d-5387-4717-af92-94525ad36f61">&lt;/strong&gt;</ept> - download Microsoft SQL Server Express for free at the <bpt id="617fd0d1-07cb-48f9-bb30-2ccebf742e3c">&lt;linkText&gt;</bpt>Microsoft Web Platform Database page<ept id="617fd0d1-07cb-48f9-bb30-2ccebf742e3c">&lt;/linkText&gt;</ept><bpt id="617fd0d1-07cb-48f9-bb30-2ccebf742e3c">&lt;title&gt;</bpt><ept id="617fd0d1-07cb-48f9-bb30-2ccebf742e3c">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="7f99d92d-5387-4717-af92-94525ad36f61">&lt;strong&gt;</bpt>SQL Server 2014 Express with Tools<ept id="7f99d92d-5387-4717-af92-94525ad36f61">&lt;/strong&gt;</ept> - download Microsoft SQL Server Express for free at the <bpt id="617fd0d1-07cb-48f9-bb30-2ccebf742e3c">&lt;linkText&gt;</bpt>Microsoft Web Platform Database page<ept id="617fd0d1-07cb-48f9-bb30-2ccebf742e3c">&lt;/linkText&gt;</ept><bpt id="617fd0d1-07cb-48f9-bb30-2ccebf742e3c">&lt;title&gt;</bpt><ept id="617fd0d1-07cb-48f9-bb30-2ccebf742e3c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6f7761a-35bc-4608-90aa-ea52d5f489a9" xml:space="preserve">
+          <source>Later in this tutorial, you'll see how to <bpt id="843b73c9-b128-4fc5-aac2-01da4dd7de25">&lt;linkText&gt;</bpt>install SQL Server<ept id="843b73c9-b128-4fc5-aac2-01da4dd7de25">&lt;/linkText&gt;</ept><bpt id="843b73c9-b128-4fc5-aac2-01da4dd7de25">&lt;title&gt;</bpt><ept id="843b73c9-b128-4fc5-aac2-01da4dd7de25">&lt;/title&gt;</ept> to ensure that it is properly configured.</source>
+          <target state="new">Later in this tutorial, you'll see how to <bpt id="843b73c9-b128-4fc5-aac2-01da4dd7de25">&lt;linkText&gt;</bpt>install SQL Server<ept id="843b73c9-b128-4fc5-aac2-01da4dd7de25">&lt;/linkText&gt;</ept><bpt id="843b73c9-b128-4fc5-aac2-01da4dd7de25">&lt;title&gt;</bpt><ept id="843b73c9-b128-4fc5-aac2-01da4dd7de25">&lt;/title&gt;</ept> to ensure that it is properly configured.</target>
+        </trans-unit>
+        <trans-unit id="ab4d4267-a5b4-4b7b-805b-8ba56b62c53c" xml:space="preserve">
+          <source><bpt id="be499d31-16bb-4d35-b7e1-290f89efdc24">&lt;strong&gt;</bpt>SQL Server Management Studio Express<ept id="be499d31-16bb-4d35-b7e1-290f89efdc24">&lt;/strong&gt;</ept> - This is included with the SQL Server 2014 Express with Tools download mentioned above, but if you need to install it separately, you can download and install it from the <bpt id="39dd52be-2126-4876-87fe-52af3e65ac60">&lt;linkText&gt;</bpt>SQL Server Express download page<ept id="39dd52be-2126-4876-87fe-52af3e65ac60">&lt;/linkText&gt;</ept><bpt id="39dd52be-2126-4876-87fe-52af3e65ac60">&lt;title&gt;</bpt><ept id="39dd52be-2126-4876-87fe-52af3e65ac60">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="be499d31-16bb-4d35-b7e1-290f89efdc24">&lt;strong&gt;</bpt>SQL Server Management Studio Express<ept id="be499d31-16bb-4d35-b7e1-290f89efdc24">&lt;/strong&gt;</ept> - This is included with the SQL Server 2014 Express with Tools download mentioned above, but if you need to install it separately, you can download and install it from the <bpt id="39dd52be-2126-4876-87fe-52af3e65ac60">&lt;linkText&gt;</bpt>SQL Server Express download page<ept id="39dd52be-2126-4876-87fe-52af3e65ac60">&lt;/linkText&gt;</ept><bpt id="39dd52be-2126-4876-87fe-52af3e65ac60">&lt;title&gt;</bpt><ept id="39dd52be-2126-4876-87fe-52af3e65ac60">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3bf9c867-269c-434e-8a73-286ad361d50c" xml:space="preserve">
+          <source>The tutorial assumes that you have an Azure subscription, that you have installed Visual Studio 2013, and that you have installed or enabled .NET Framework 3.5.</source>
+          <target state="new">The tutorial assumes that you have an Azure subscription, that you have installed Visual Studio 2013, and that you have installed or enabled .NET Framework 3.5.</target>
+        </trans-unit>
+        <trans-unit id="5d7d151e-0feb-456e-abbe-8fa57dc46640" xml:space="preserve">
+          <source>The tutorial shows you how to install SQL Server 2014 Express in a configuration that works well with the Azure Hybrid Connections feature (a default instance with a static TCP port).</source>
+          <target state="new">The tutorial shows you how to install SQL Server 2014 Express in a configuration that works well with the Azure Hybrid Connections feature (a default instance with a static TCP port).</target>
+        </trans-unit>
+        <trans-unit id="55998908-1891-4b74-ba6f-5638f565cd9d" xml:space="preserve">
+          <source>Before starting the tutorial, download (but, do not install) SQL Server 2014 Express with Tools from the location mentioned above if you do not have SQL Server installed.</source>
+          <target state="new">Before starting the tutorial, download (but, do not install) SQL Server 2014 Express with Tools from the location mentioned above if you do not have SQL Server installed.</target>
+        </trans-unit>
+        <trans-unit id="1c569464-a6d8-4c83-88c5-8a9a3be3f37c" xml:space="preserve">
+          <source>To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port.</source>
+          <target state="new">To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port.</target>
+        </trans-unit>
+        <trans-unit id="dcc55ec5-a56a-487e-ba7f-22c638e206e4" xml:space="preserve">
+          <source>Default instances on SQL Server use static port 1433, whereas named instances do not.</source>
+          <target state="new">Default instances on SQL Server use static port 1433, whereas named instances do not.</target>
+        </trans-unit>
+        <trans-unit id="11ba1760-bd10-4d62-a4aa-76c45a2b887a" xml:space="preserve">
+          <source>The computer on which you install the on-premises Hybrid Connection Manager agent:</source>
+          <target state="new">The computer on which you install the on-premises Hybrid Connection Manager agent:</target>
+        </trans-unit>
+        <trans-unit id="40678df2-2d66-478e-bbab-fd120fc03089" xml:space="preserve">
+          <source>Must have outbound connectivity to Azure over:</source>
+          <target state="new">Must have outbound connectivity to Azure over:</target>
+        </trans-unit>
+        <trans-unit id="df77ddd2-d34f-461b-b509-9d81dba00310" xml:space="preserve">
+          <source>Port</source>
+          <target state="new">Port</target>
+        </trans-unit>
+        <trans-unit id="b6aeafec-1f1a-4f69-8163-957da7254078" xml:space="preserve">
+          <source>Why</source>
+          <target state="new">Why</target>
+        </trans-unit>
+        <trans-unit id="e736a0bc-e1fb-4b27-a93f-acb147646ac3" xml:space="preserve">
+          <source>80</source>
+          <target state="new">80</target>
+        </trans-unit>
+        <trans-unit id="3be33320-b987-4f6d-a1ae-00d126daf454" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="3d49c20d-2512-4ad9-873d-1ac2e5851ee9" xml:space="preserve">
+          <source> for HTTP port for certificate validation and optionally for data connectivity.</source>
+          <target state="new"> for HTTP port for certificate validation and optionally for data connectivity.</target>
+        </trans-unit>
+        <trans-unit id="603fdce2-e074-4d95-b999-ec09b7f13e94" xml:space="preserve">
+          <source>443</source>
+          <target state="new">443</target>
+        </trans-unit>
+        <trans-unit id="65d9c21c-427d-4a0f-9177-04926f8038e8" xml:space="preserve">
+          <source>Optional</source>
+          <target state="new">Optional</target>
+        </trans-unit>
+        <trans-unit id="c7ecd3b7-4b0a-4669-a67b-3b123bf06429" xml:space="preserve">
+          <source> for data connectivity. If outbound connectivity to 443 is unavailable, TCP port 80 is used.</source>
+          <target state="new"> for data connectivity. If outbound connectivity to 443 is unavailable, TCP port 80 is used.</target>
+        </trans-unit>
+        <trans-unit id="c802139e-679d-4cea-89d6-fdb33dc64168" xml:space="preserve">
+          <source>5671 and 9352</source>
+          <target state="new">5671 and 9352</target>
+        </trans-unit>
+        <trans-unit id="e7a645c8-8d3c-4253-a93e-62d83f225f1a" xml:space="preserve">
+          <source>Recommended</source>
+          <target state="new">Recommended</target>
+        </trans-unit>
+        <trans-unit id="ec699d6a-f86e-46b0-a750-4bf59680087a" xml:space="preserve">
+          <source> but Optional for data connectivity. Note this mode usually yields higher throughput. If outbound connectivity to these ports is unavailable, TCP port 443 is used.</source>
+          <target state="new"> but Optional for data connectivity. Note this mode usually yields higher throughput. If outbound connectivity to these ports is unavailable, TCP port 443 is used.</target>
+        </trans-unit>
+        <trans-unit id="c87f66b1-f593-4991-a923-ae48e46da898" xml:space="preserve">
+          <source>Must be able to reach the <bpt id="bf4d6d24-0513-4130-b9e6-9051a182eee8">&lt;em&gt;</bpt>hostname<ept id="bf4d6d24-0513-4130-b9e6-9051a182eee8">&lt;/em&gt;</ept>:<bpt id="cf8a13c0-27fd-43f3-a918-32fdf8e0c64f">&lt;em&gt;</bpt>portnumber<ept id="cf8a13c0-27fd-43f3-a918-32fdf8e0c64f">&lt;/em&gt;</ept> of your on-premises resource.</source>
+          <target state="new">Must be able to reach the <bpt id="bf4d6d24-0513-4130-b9e6-9051a182eee8">&lt;em&gt;</bpt>hostname<ept id="bf4d6d24-0513-4130-b9e6-9051a182eee8">&lt;/em&gt;</ept>:<bpt id="cf8a13c0-27fd-43f3-a918-32fdf8e0c64f">&lt;em&gt;</bpt>portnumber<ept id="cf8a13c0-27fd-43f3-a918-32fdf8e0c64f">&lt;/em&gt;</ept> of your on-premises resource.</target>
+        </trans-unit>
+        <trans-unit id="3376accb-f778-414b-be4b-bbab41168746" xml:space="preserve">
+          <source>The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.</source>
+          <target state="new">The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.</target>
+        </trans-unit>
+        <trans-unit id="337a9391-8d14-4253-b8a6-29322be6c4c3" xml:space="preserve">
+          <source>If you already have SQL Server installed in a configuration and in an environment that meets the conditions described above, you can skip ahead and start with <bpt id="8983de24-751b-4645-8c0b-502e27709670">&lt;linkText&gt;</bpt>Create a SQL Server database on-premises<ept id="8983de24-751b-4645-8c0b-502e27709670">&lt;/linkText&gt;</ept><bpt id="8983de24-751b-4645-8c0b-502e27709670">&lt;title&gt;</bpt><ept id="8983de24-751b-4645-8c0b-502e27709670">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you already have SQL Server installed in a configuration and in an environment that meets the conditions described above, you can skip ahead and start with <bpt id="8983de24-751b-4645-8c0b-502e27709670">&lt;linkText&gt;</bpt>Create a SQL Server database on-premises<ept id="8983de24-751b-4645-8c0b-502e27709670">&lt;/linkText&gt;</ept><bpt id="8983de24-751b-4645-8c0b-502e27709670">&lt;title&gt;</bpt><ept id="8983de24-751b-4645-8c0b-502e27709670">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df5d21e2-062f-44c7-86d0-72553bc8ec32" xml:space="preserve">
+          <source><bpt id="6e459e4b-41b1-43af-a171-0d1d1c19beea">&lt;bookmark&gt;</bpt><ept id="6e459e4b-41b1-43af-a171-0d1d1c19beea">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="6e459e4b-41b1-43af-a171-0d1d1c19beea">&lt;bookmark&gt;</bpt><ept id="6e459e4b-41b1-43af-a171-0d1d1c19beea">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f94a5278-1d80-453a-9411-c04c5e0945d6" xml:space="preserve">
+          <source>This section shows you how to install SQL Server Express, enable TCP/IP, and create a database so that your API app will work with the <bpt id="60993618-f5d0-49d2-a465-dd2e85e99cb3">&lt;linkText&gt;</bpt>Azure preview portal<ept id="60993618-f5d0-49d2-a465-dd2e85e99cb3">&lt;/linkText&gt;</ept><bpt id="60993618-f5d0-49d2-a465-dd2e85e99cb3">&lt;title&gt;</bpt><ept id="60993618-f5d0-49d2-a465-dd2e85e99cb3">&lt;/title&gt;</ept>.</source>
+          <target state="new">This section shows you how to install SQL Server Express, enable TCP/IP, and create a database so that your API app will work with the <bpt id="60993618-f5d0-49d2-a465-dd2e85e99cb3">&lt;linkText&gt;</bpt>Azure preview portal<ept id="60993618-f5d0-49d2-a465-dd2e85e99cb3">&lt;/linkText&gt;</ept><bpt id="60993618-f5d0-49d2-a465-dd2e85e99cb3">&lt;title&gt;</bpt><ept id="60993618-f5d0-49d2-a465-dd2e85e99cb3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d07f425-fa29-4800-9dc0-8ca84cf18b4a" xml:space="preserve">
+          <source><bpt id="ca9a2cd1-c0c0-400b-b03b-90bd448ae5e1">&lt;bookmark&gt;</bpt><ept id="ca9a2cd1-c0c0-400b-b03b-90bd448ae5e1">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="ca9a2cd1-c0c0-400b-b03b-90bd448ae5e1">&lt;bookmark&gt;</bpt><ept id="ca9a2cd1-c0c0-400b-b03b-90bd448ae5e1">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41344d64-db1f-4df7-833b-9ad3bb973418" xml:space="preserve">
+          <source>To install SQL Server Express, download the either <bpt id="df47f49d-ba35-4694-b505-492ec4511666">&lt;strong&gt;</bpt>SQLEXPRWT_x64_ENU.exe<ept id="df47f49d-ba35-4694-b505-492ec4511666">&lt;/strong&gt;</ept> (64-bit version) or <bpt id="3503ab4c-e67b-4b6e-b247-895a349350e4">&lt;strong&gt;</bpt>SQLEXPR_x86_ENU.exe<ept id="3503ab4c-e67b-4b6e-b247-895a349350e4">&lt;/strong&gt;</ept> (32-bit version) file and extract it to the desired folder.</source>
+          <target state="new">To install SQL Server Express, download the either <bpt id="df47f49d-ba35-4694-b505-492ec4511666">&lt;strong&gt;</bpt>SQLEXPRWT_x64_ENU.exe<ept id="df47f49d-ba35-4694-b505-492ec4511666">&lt;/strong&gt;</ept> (64-bit version) or <bpt id="3503ab4c-e67b-4b6e-b247-895a349350e4">&lt;strong&gt;</bpt>SQLEXPR_x86_ENU.exe<ept id="3503ab4c-e67b-4b6e-b247-895a349350e4">&lt;/strong&gt;</ept> (32-bit version) file and extract it to the desired folder.</target>
+        </trans-unit>
+        <trans-unit id="308b1025-4f2e-4606-9a1a-076b63892147" xml:space="preserve">
+          <source>Once you have extracted the SQL Server Express installation files, run <bpt id="3385db11-b9d9-43e2-b5e0-974112a1640a">&lt;strong&gt;</bpt>setup.exe<ept id="3385db11-b9d9-43e2-b5e0-974112a1640a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you have extracted the SQL Server Express installation files, run <bpt id="3385db11-b9d9-43e2-b5e0-974112a1640a">&lt;strong&gt;</bpt>setup.exe<ept id="3385db11-b9d9-43e2-b5e0-974112a1640a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13b86f1e-0214-432e-a883-c70317a618ca" xml:space="preserve">
+          <source>When the <bpt id="feca0b06-ebe9-4ae7-87aa-f476c7d054de">&lt;strong&gt;</bpt>SQL Server Installation Center<ept id="feca0b06-ebe9-4ae7-87aa-f476c7d054de">&lt;/strong&gt;</ept> displays, choose <bpt id="02ca4922-8825-49a9-84d7-f0eb906ab115">&lt;strong&gt;</bpt>New SQL Server stand-alone installation or add features to an existing installation<ept id="02ca4922-8825-49a9-84d7-f0eb906ab115">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the <bpt id="feca0b06-ebe9-4ae7-87aa-f476c7d054de">&lt;strong&gt;</bpt>SQL Server Installation Center<ept id="feca0b06-ebe9-4ae7-87aa-f476c7d054de">&lt;/strong&gt;</ept> displays, choose <bpt id="02ca4922-8825-49a9-84d7-f0eb906ab115">&lt;strong&gt;</bpt>New SQL Server stand-alone installation or add features to an existing installation<ept id="02ca4922-8825-49a9-84d7-f0eb906ab115">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="628f6e3c-68ae-4bf1-bc3b-681aebf1133b" xml:space="preserve">
+          <source><bpt id="9f93242a-38f3-436c-a9de-cbcdd27e8b38">&lt;linkText&gt;</bpt>SQL Server Installation Center<ept id="9f93242a-38f3-436c-a9de-cbcdd27e8b38">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9f93242a-38f3-436c-a9de-cbcdd27e8b38">&lt;linkText&gt;</bpt>SQL Server Installation Center<ept id="9f93242a-38f3-436c-a9de-cbcdd27e8b38">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c552a5c9-2f6a-494d-a20e-41101e5f31f6" xml:space="preserve">
+          <source>Follow the instructions, accepting the default choices and settings, until you get to the <bpt id="c1f19583-78ee-4e38-a141-29559df0a836">&lt;strong&gt;</bpt>Instance Configuration<ept id="c1f19583-78ee-4e38-a141-29559df0a836">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Follow the instructions, accepting the default choices and settings, until you get to the <bpt id="c1f19583-78ee-4e38-a141-29559df0a836">&lt;strong&gt;</bpt>Instance Configuration<ept id="c1f19583-78ee-4e38-a141-29559df0a836">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="25aac31d-8c1b-4035-982c-45550bca6032" xml:space="preserve">
+          <source>On the <bpt id="de3187c7-93f8-4413-9f6f-517cd11860ef">&lt;strong&gt;</bpt>Instance Configuration<ept id="de3187c7-93f8-4413-9f6f-517cd11860ef">&lt;/strong&gt;</ept> page, choose <bpt id="f03cf4ea-781d-4944-abc7-a41ec71d639b">&lt;strong&gt;</bpt>Default instance<ept id="f03cf4ea-781d-4944-abc7-a41ec71d639b">&lt;/strong&gt;</ept>, and click <bpt id="35efdb68-8627-4bc5-86c9-fbddf38970a4">&lt;strong&gt;</bpt>Next<ept id="35efdb68-8627-4bc5-86c9-fbddf38970a4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="de3187c7-93f8-4413-9f6f-517cd11860ef">&lt;strong&gt;</bpt>Instance Configuration<ept id="de3187c7-93f8-4413-9f6f-517cd11860ef">&lt;/strong&gt;</ept> page, choose <bpt id="f03cf4ea-781d-4944-abc7-a41ec71d639b">&lt;strong&gt;</bpt>Default instance<ept id="f03cf4ea-781d-4944-abc7-a41ec71d639b">&lt;/strong&gt;</ept>, and click <bpt id="35efdb68-8627-4bc5-86c9-fbddf38970a4">&lt;strong&gt;</bpt>Next<ept id="35efdb68-8627-4bc5-86c9-fbddf38970a4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1f9efae-2bd5-4345-9fb4-cb07ed424392" xml:space="preserve">
+          <source><bpt id="e130774f-46f8-41d5-a91c-0a9307755ae6">&lt;linkText&gt;</bpt>Instance Configuration<ept id="e130774f-46f8-41d5-a91c-0a9307755ae6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e130774f-46f8-41d5-a91c-0a9307755ae6">&lt;linkText&gt;</bpt>Instance Configuration<ept id="e130774f-46f8-41d5-a91c-0a9307755ae6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ee8779e-6b81-4243-9917-0c768e04eca6" xml:space="preserve">
+          <source>The default instance of SQL Server listens for requests from SQL Server clients on static port 1433, which is what the Hybrid Connections feature requires.</source>
+          <target state="new">The default instance of SQL Server listens for requests from SQL Server clients on static port 1433, which is what the Hybrid Connections feature requires.</target>
+        </trans-unit>
+        <trans-unit id="51f858a3-b901-4fdd-9b28-6fabb65559c8" xml:space="preserve">
+          <source>Named instances use dynamic ports and UDP, which are not supported by Hybrid Connections.</source>
+          <target state="new">Named instances use dynamic ports and UDP, which are not supported by Hybrid Connections.</target>
+        </trans-unit>
+        <trans-unit id="1feb9e91-b289-40d1-b8bc-ed77552e8ee8" xml:space="preserve">
+          <source>Accept the defaults on the <bpt id="cc2a53ff-9b3f-479f-a129-5a8829e89b60">&lt;strong&gt;</bpt>Server Configuration<ept id="cc2a53ff-9b3f-479f-a129-5a8829e89b60">&lt;/strong&gt;</ept> page, and click <bpt id="14e54332-bc02-4a28-ae9e-0da67b52786d">&lt;strong&gt;</bpt>Next<ept id="14e54332-bc02-4a28-ae9e-0da67b52786d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Accept the defaults on the <bpt id="cc2a53ff-9b3f-479f-a129-5a8829e89b60">&lt;strong&gt;</bpt>Server Configuration<ept id="cc2a53ff-9b3f-479f-a129-5a8829e89b60">&lt;/strong&gt;</ept> page, and click <bpt id="14e54332-bc02-4a28-ae9e-0da67b52786d">&lt;strong&gt;</bpt>Next<ept id="14e54332-bc02-4a28-ae9e-0da67b52786d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9eba7ae4-cc30-4fe6-a9e4-22bd95352e9d" xml:space="preserve">
+          <source>On the <bpt id="0de58fc9-a86b-49e4-a8d2-3b53f2f73e86">&lt;strong&gt;</bpt>Database Engine Configuration<ept id="0de58fc9-a86b-49e4-a8d2-3b53f2f73e86">&lt;/strong&gt;</ept> page, under <bpt id="4225626f-721f-49b1-9e9e-69c44acaf02d">&lt;strong&gt;</bpt>Authentication Mode<ept id="4225626f-721f-49b1-9e9e-69c44acaf02d">&lt;/strong&gt;</ept>, choose <bpt id="13c819f0-548d-4a16-850c-7646f4992b8f">&lt;strong&gt;</bpt>Mixed Mode (SQL Server authentication and Windows authentication)<ept id="13c819f0-548d-4a16-850c-7646f4992b8f">&lt;/strong&gt;</ept>, and provide a password.</source>
+          <target state="new">On the <bpt id="0de58fc9-a86b-49e4-a8d2-3b53f2f73e86">&lt;strong&gt;</bpt>Database Engine Configuration<ept id="0de58fc9-a86b-49e4-a8d2-3b53f2f73e86">&lt;/strong&gt;</ept> page, under <bpt id="4225626f-721f-49b1-9e9e-69c44acaf02d">&lt;strong&gt;</bpt>Authentication Mode<ept id="4225626f-721f-49b1-9e9e-69c44acaf02d">&lt;/strong&gt;</ept>, choose <bpt id="13c819f0-548d-4a16-850c-7646f4992b8f">&lt;strong&gt;</bpt>Mixed Mode (SQL Server authentication and Windows authentication)<ept id="13c819f0-548d-4a16-850c-7646f4992b8f">&lt;/strong&gt;</ept>, and provide a password.</target>
+        </trans-unit>
+        <trans-unit id="c6ca4859-73ba-4114-87ad-fcfa7091e824" xml:space="preserve">
+          <source><bpt id="ccd9aebd-eff4-4676-8bf1-a8cd496f5551">&lt;linkText&gt;</bpt>Database Engine Configuration<ept id="ccd9aebd-eff4-4676-8bf1-a8cd496f5551">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ccd9aebd-eff4-4676-8bf1-a8cd496f5551">&lt;linkText&gt;</bpt>Database Engine Configuration<ept id="ccd9aebd-eff4-4676-8bf1-a8cd496f5551">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16ebf5a1-0a17-41b4-89a6-992bca048e1f" xml:space="preserve">
+          <source>In this tutorial, you will be using SQL Server authentication.</source>
+          <target state="new">In this tutorial, you will be using SQL Server authentication.</target>
+        </trans-unit>
+        <trans-unit id="69624eb0-67a9-4222-a642-7a5fafed8d9d" xml:space="preserve">
+          <source>Be sure to remember the password that you provide, because you will need it later.</source>
+          <target state="new">Be sure to remember the password that you provide, because you will need it later.</target>
+        </trans-unit>
+        <trans-unit id="fc0625fb-1001-42c7-b6ee-cb0676d8a693" xml:space="preserve">
+          <source>Step through the rest of the wizard - accepting the defaults as you go - to complete the installation.</source>
+          <target state="new">Step through the rest of the wizard - accepting the defaults as you go - to complete the installation.</target>
+        </trans-unit>
+        <trans-unit id="4bef5996-563d-4da0-b0c5-ed72907d7867" xml:space="preserve">
+          <source>Close the <bpt id="b2d61230-bdc4-4bad-a376-52c30a4cf72f">&lt;strong&gt;</bpt>SQL Server Installation Center<ept id="b2d61230-bdc4-4bad-a376-52c30a4cf72f">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Close the <bpt id="b2d61230-bdc4-4bad-a376-52c30a4cf72f">&lt;strong&gt;</bpt>SQL Server Installation Center<ept id="b2d61230-bdc4-4bad-a376-52c30a4cf72f">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="57e8c7f7-ad20-4e61-82c0-26817ca052cd" xml:space="preserve">
+          <source>To enable TCP/IP, you will use SQL Server Configuration Manager, which was installed when you installed SQL Server Express.</source>
+          <target state="new">To enable TCP/IP, you will use SQL Server Configuration Manager, which was installed when you installed SQL Server Express.</target>
+        </trans-unit>
+        <trans-unit id="1031ec16-741c-481c-a788-3fb0e5fa1382" xml:space="preserve">
+          <source>Follow the steps in <bpt id="9e832794-2607-4626-9416-91293ff10b5a">&lt;linkText&gt;</bpt>Enable TCP/IP Network Protocol for SQL Server<ept id="9e832794-2607-4626-9416-91293ff10b5a">&lt;/linkText&gt;</ept><bpt id="9e832794-2607-4626-9416-91293ff10b5a">&lt;title&gt;</bpt><ept id="9e832794-2607-4626-9416-91293ff10b5a">&lt;/title&gt;</ept> before continuing.</source>
+          <target state="new">Follow the steps in <bpt id="9e832794-2607-4626-9416-91293ff10b5a">&lt;linkText&gt;</bpt>Enable TCP/IP Network Protocol for SQL Server<ept id="9e832794-2607-4626-9416-91293ff10b5a">&lt;/linkText&gt;</ept><bpt id="9e832794-2607-4626-9416-91293ff10b5a">&lt;title&gt;</bpt><ept id="9e832794-2607-4626-9416-91293ff10b5a">&lt;/title&gt;</ept> before continuing.</target>
+        </trans-unit>
+        <trans-unit id="40e89507-597b-48b4-b184-52a1d8ff5cc1" xml:space="preserve">
+          <source><bpt id="f6bb6f58-b8eb-4c72-a195-8bef949fc815">&lt;bookmark&gt;</bpt><ept id="f6bb6f58-b8eb-4c72-a195-8bef949fc815">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="f6bb6f58-b8eb-4c72-a195-8bef949fc815">&lt;bookmark&gt;</bpt><ept id="f6bb6f58-b8eb-4c72-a195-8bef949fc815">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1464836e-43cd-4e48-8ec5-061300080a1e" xml:space="preserve">
+          <source>In <bpt id="11ebeb34-d2f2-492f-95d0-023ed35abd9f">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="11ebeb34-d2f2-492f-95d0-023ed35abd9f">&lt;/strong&gt;</ept>, connect to the SQL Server you just installed.</source>
+          <target state="new">In <bpt id="11ebeb34-d2f2-492f-95d0-023ed35abd9f">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="11ebeb34-d2f2-492f-95d0-023ed35abd9f">&lt;/strong&gt;</ept>, connect to the SQL Server you just installed.</target>
+        </trans-unit>
+        <trans-unit id="abea199d-22be-46e3-8638-7f134c74d2b6" xml:space="preserve">
+          <source>For <bpt id="65198e66-c9df-4375-b64f-a59ccae80908">&lt;strong&gt;</bpt>Server type<ept id="65198e66-c9df-4375-b64f-a59ccae80908">&lt;/strong&gt;</ept>, choose <bpt id="3dae9bf7-e61d-449e-b6cf-56b986fdbb09">&lt;strong&gt;</bpt>Database Engine<ept id="3dae9bf7-e61d-449e-b6cf-56b986fdbb09">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="65198e66-c9df-4375-b64f-a59ccae80908">&lt;strong&gt;</bpt>Server type<ept id="65198e66-c9df-4375-b64f-a59ccae80908">&lt;/strong&gt;</ept>, choose <bpt id="3dae9bf7-e61d-449e-b6cf-56b986fdbb09">&lt;strong&gt;</bpt>Database Engine<ept id="3dae9bf7-e61d-449e-b6cf-56b986fdbb09">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5a54335-65d0-4ccd-b907-4b888d80bed3" xml:space="preserve">
+          <source>For <bpt id="1b7ed22c-61c9-4b5a-b333-4d8d57e4161c">&lt;strong&gt;</bpt>Server name<ept id="1b7ed22c-61c9-4b5a-b333-4d8d57e4161c">&lt;/strong&gt;</ept>, you can use <bpt id="b26e85d0-ac27-4cde-9d01-75afdec1c839">&lt;strong&gt;</bpt>localhost<ept id="b26e85d0-ac27-4cde-9d01-75afdec1c839">&lt;/strong&gt;</ept> or the name of the computer that you are using.</source>
+          <target state="new">For <bpt id="1b7ed22c-61c9-4b5a-b333-4d8d57e4161c">&lt;strong&gt;</bpt>Server name<ept id="1b7ed22c-61c9-4b5a-b333-4d8d57e4161c">&lt;/strong&gt;</ept>, you can use <bpt id="b26e85d0-ac27-4cde-9d01-75afdec1c839">&lt;strong&gt;</bpt>localhost<ept id="b26e85d0-ac27-4cde-9d01-75afdec1c839">&lt;/strong&gt;</ept> or the name of the computer that you are using.</target>
+        </trans-unit>
+        <trans-unit id="3e239826-3fc7-48bc-a299-fc99ca6f1a25" xml:space="preserve">
+          <source>Choose <bpt id="80eaef10-9682-41d8-bf3a-ed4b05dc072b">&lt;strong&gt;</bpt>SQL Server authentication<ept id="80eaef10-9682-41d8-bf3a-ed4b05dc072b">&lt;/strong&gt;</ept>, and then log in with the <bpt id="e0261d83-f552-4b7b-bb0a-54fd74b4d6ca">&lt;code&gt;</bpt>sa<ept id="e0261d83-f552-4b7b-bb0a-54fd74b4d6ca">&lt;/code&gt;</ept> user name, and the password that you created earlier.</source>
+          <target state="new">Choose <bpt id="80eaef10-9682-41d8-bf3a-ed4b05dc072b">&lt;strong&gt;</bpt>SQL Server authentication<ept id="80eaef10-9682-41d8-bf3a-ed4b05dc072b">&lt;/strong&gt;</ept>, and then log in with the <bpt id="e0261d83-f552-4b7b-bb0a-54fd74b4d6ca">&lt;code&gt;</bpt>sa<ept id="e0261d83-f552-4b7b-bb0a-54fd74b4d6ca">&lt;/code&gt;</ept> user name, and the password that you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="79b27a24-0862-47e3-81e2-f2647eab0b7f" xml:space="preserve">
+          <source><bpt id="dd48bad0-7016-4e96-9d10-0abaf50e6f96">&lt;linkText&gt;</bpt>Connect to Server<ept id="dd48bad0-7016-4e96-9d10-0abaf50e6f96">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dd48bad0-7016-4e96-9d10-0abaf50e6f96">&lt;linkText&gt;</bpt>Connect to Server<ept id="dd48bad0-7016-4e96-9d10-0abaf50e6f96">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c355718a-74d1-4542-bd82-9135b1ca59f3" xml:space="preserve">
+          <source>If the <bpt id="b55dd9fe-9d01-426e-8946-ede29bc05289">&lt;strong&gt;</bpt>Connect to Server<ept id="b55dd9fe-9d01-426e-8946-ede29bc05289">&lt;/strong&gt;</ept> dialog does not appear automatically, navigate to <bpt id="baba8bfd-e444-477c-90d8-38fc79bcd18b">&lt;strong&gt;</bpt>Object Explorer<ept id="baba8bfd-e444-477c-90d8-38fc79bcd18b">&lt;/strong&gt;</ept> in the left pane, click <bpt id="87f83bb7-9dbb-41fd-a305-1a6b5e11155a">&lt;strong&gt;</bpt>Connect<ept id="87f83bb7-9dbb-41fd-a305-1a6b5e11155a">&lt;/strong&gt;</ept>, and then click <bpt id="af9ea789-e5b6-446a-9871-a77b7d1a3d38">&lt;strong&gt;</bpt>Database Engine<ept id="af9ea789-e5b6-446a-9871-a77b7d1a3d38">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the <bpt id="b55dd9fe-9d01-426e-8946-ede29bc05289">&lt;strong&gt;</bpt>Connect to Server<ept id="b55dd9fe-9d01-426e-8946-ede29bc05289">&lt;/strong&gt;</ept> dialog does not appear automatically, navigate to <bpt id="baba8bfd-e444-477c-90d8-38fc79bcd18b">&lt;strong&gt;</bpt>Object Explorer<ept id="baba8bfd-e444-477c-90d8-38fc79bcd18b">&lt;/strong&gt;</ept> in the left pane, click <bpt id="87f83bb7-9dbb-41fd-a305-1a6b5e11155a">&lt;strong&gt;</bpt>Connect<ept id="87f83bb7-9dbb-41fd-a305-1a6b5e11155a">&lt;/strong&gt;</ept>, and then click <bpt id="af9ea789-e5b6-446a-9871-a77b7d1a3d38">&lt;strong&gt;</bpt>Database Engine<ept id="af9ea789-e5b6-446a-9871-a77b7d1a3d38">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="004ac9ee-80cc-4cb7-977c-05915e9e84f2" xml:space="preserve">
+          <source>To create a new database by using SQL Server Management Studio, right-click <bpt id="6cc5c971-65a7-44c2-8c4c-3105bd6bbfb6">&lt;strong&gt;</bpt>Databases<ept id="6cc5c971-65a7-44c2-8c4c-3105bd6bbfb6">&lt;/strong&gt;</ept> in Object Explorer, and then click <bpt id="b0998f86-0965-43da-b997-7be73152ab6d">&lt;strong&gt;</bpt>New Database<ept id="b0998f86-0965-43da-b997-7be73152ab6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To create a new database by using SQL Server Management Studio, right-click <bpt id="6cc5c971-65a7-44c2-8c4c-3105bd6bbfb6">&lt;strong&gt;</bpt>Databases<ept id="6cc5c971-65a7-44c2-8c4c-3105bd6bbfb6">&lt;/strong&gt;</ept> in Object Explorer, and then click <bpt id="b0998f86-0965-43da-b997-7be73152ab6d">&lt;strong&gt;</bpt>New Database<ept id="b0998f86-0965-43da-b997-7be73152ab6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdb19696-fd75-40b4-853a-4eb3d5b66dea" xml:space="preserve">
+          <source><bpt id="942ee7c4-660d-4794-add3-a3326adf84e0">&lt;linkText&gt;</bpt>Create new database menu<ept id="942ee7c4-660d-4794-add3-a3326adf84e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="942ee7c4-660d-4794-add3-a3326adf84e0">&lt;linkText&gt;</bpt>Create new database menu<ept id="942ee7c4-660d-4794-add3-a3326adf84e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fd7673b-04f4-4a01-a047-445c3098507b" xml:space="preserve">
+          <source>In the <bpt id="47ef6cf4-ad3d-44a4-94b3-269af2b73039">&lt;strong&gt;</bpt>New Database<ept id="47ef6cf4-ad3d-44a4-94b3-269af2b73039">&lt;/strong&gt;</ept> dialog, enter <bpt id="b8780e2a-ff4e-49e8-821d-72903210dd41">&lt;code&gt;</bpt>LocalDatabase<ept id="b8780e2a-ff4e-49e8-821d-72903210dd41">&lt;/code&gt;</ept> for the database name, and then click <bpt id="40927320-62b4-4822-8ae2-7654d7daeee9">&lt;strong&gt;</bpt>OK<ept id="40927320-62b4-4822-8ae2-7654d7daeee9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="47ef6cf4-ad3d-44a4-94b3-269af2b73039">&lt;strong&gt;</bpt>New Database<ept id="47ef6cf4-ad3d-44a4-94b3-269af2b73039">&lt;/strong&gt;</ept> dialog, enter <bpt id="b8780e2a-ff4e-49e8-821d-72903210dd41">&lt;code&gt;</bpt>LocalDatabase<ept id="b8780e2a-ff4e-49e8-821d-72903210dd41">&lt;/code&gt;</ept> for the database name, and then click <bpt id="40927320-62b4-4822-8ae2-7654d7daeee9">&lt;strong&gt;</bpt>OK<ept id="40927320-62b4-4822-8ae2-7654d7daeee9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7395b5a3-2699-41b1-b16d-3e48081985bf" xml:space="preserve">
+          <source><bpt id="a6807bdf-57db-462f-9d26-15d496c3f959">&lt;linkText&gt;</bpt>Creating new database<ept id="a6807bdf-57db-462f-9d26-15d496c3f959">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6807bdf-57db-462f-9d26-15d496c3f959">&lt;linkText&gt;</bpt>Creating new database<ept id="a6807bdf-57db-462f-9d26-15d496c3f959">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c902507-2e9a-4162-952a-8c9cf4b85521" xml:space="preserve">
+          <source>In the <bpt id="af6117bb-1d17-4025-966e-d03a3c8f8396">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="af6117bb-1d17-4025-966e-d03a3c8f8396">&lt;/strong&gt;</ept> <bpt id="e37048f9-b9be-46ae-bfed-346e695c7e93">&lt;strong&gt;</bpt>Object Explorer<ept id="e37048f9-b9be-46ae-bfed-346e695c7e93">&lt;/strong&gt;</ept>, expand the <bpt id="b5f6556e-cb6a-4856-ad46-05a3611dafd6">&lt;code&gt;</bpt>LocalDatabase<ept id="b5f6556e-cb6a-4856-ad46-05a3611dafd6">&lt;/code&gt;</ept> entry.</source>
+          <target state="new">In the <bpt id="af6117bb-1d17-4025-966e-d03a3c8f8396">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="af6117bb-1d17-4025-966e-d03a3c8f8396">&lt;/strong&gt;</ept> <bpt id="e37048f9-b9be-46ae-bfed-346e695c7e93">&lt;strong&gt;</bpt>Object Explorer<ept id="e37048f9-b9be-46ae-bfed-346e695c7e93">&lt;/strong&gt;</ept>, expand the <bpt id="b5f6556e-cb6a-4856-ad46-05a3611dafd6">&lt;code&gt;</bpt>LocalDatabase<ept id="b5f6556e-cb6a-4856-ad46-05a3611dafd6">&lt;/code&gt;</ept> entry.</target>
+        </trans-unit>
+        <trans-unit id="500dc405-db5a-4ddc-a00d-e2fb0a9a50e7" xml:space="preserve">
+          <source><bpt id="255a6655-ab8c-4258-ac25-b2acbb948aae">&lt;linkText&gt;</bpt>Database expanded<ept id="255a6655-ab8c-4258-ac25-b2acbb948aae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="255a6655-ab8c-4258-ac25-b2acbb948aae">&lt;linkText&gt;</bpt>Database expanded<ept id="255a6655-ab8c-4258-ac25-b2acbb948aae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65960639-5239-4366-9972-a8f4bf137ef8" xml:space="preserve">
+          <source>Right-click <bpt id="a61ca0d6-23d1-4759-bce7-dd659a454ea0">&lt;strong&gt;</bpt>Tables<ept id="a61ca0d6-23d1-4759-bce7-dd659a454ea0">&lt;/strong&gt;</ept> and select the <bpt id="b0f33bba-9b73-4671-af64-b70059821ed5">&lt;strong&gt;</bpt>Table...<ept id="b0f33bba-9b73-4671-af64-b70059821ed5">&lt;/strong&gt;</ept> option from the context menu.</source>
+          <target state="new">Right-click <bpt id="a61ca0d6-23d1-4759-bce7-dd659a454ea0">&lt;strong&gt;</bpt>Tables<ept id="a61ca0d6-23d1-4759-bce7-dd659a454ea0">&lt;/strong&gt;</ept> and select the <bpt id="b0f33bba-9b73-4671-af64-b70059821ed5">&lt;strong&gt;</bpt>Table...<ept id="b0f33bba-9b73-4671-af64-b70059821ed5">&lt;/strong&gt;</ept> option from the context menu.</target>
+        </trans-unit>
+        <trans-unit id="e77a65eb-aef9-4b2b-a9a5-b66e3e9f586a" xml:space="preserve">
+          <source><bpt id="002475ea-1df4-4f6f-a11f-61fc45ac1ee7">&lt;linkText&gt;</bpt>New table menu<ept id="002475ea-1df4-4f6f-a11f-61fc45ac1ee7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="002475ea-1df4-4f6f-a11f-61fc45ac1ee7">&lt;linkText&gt;</bpt>New table menu<ept id="002475ea-1df4-4f6f-a11f-61fc45ac1ee7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96d93ed6-8be6-42cf-a1d8-ec487612ea9f" xml:space="preserve">
+          <source>When the table designer grid appears, enter the column information as shown in the following figure.</source>
+          <target state="new">When the table designer grid appears, enter the column information as shown in the following figure.</target>
+        </trans-unit>
+        <trans-unit id="ee64bebf-87bd-4c16-b82a-f1424422e6c2" xml:space="preserve">
+          <source><bpt id="418b2830-b013-46ac-a341-7511afc9da80">&lt;linkText&gt;</bpt>New table columns<ept id="418b2830-b013-46ac-a341-7511afc9da80">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="418b2830-b013-46ac-a341-7511afc9da80">&lt;linkText&gt;</bpt>New table columns<ept id="418b2830-b013-46ac-a341-7511afc9da80">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c76dd6e8-5772-4a8f-a925-dd6bf3f5f1a3" xml:space="preserve">
+          <source>Press <bpt id="2d76acc5-035a-4358-ad77-e727ae216ddd">&lt;strong&gt;</bpt>&amp;lt;Ctrl&gt;S<ept id="2d76acc5-035a-4358-ad77-e727ae216ddd">&lt;/strong&gt;</ept> to save the new table's definition.</source>
+          <target state="new">Press <bpt id="2d76acc5-035a-4358-ad77-e727ae216ddd">&lt;strong&gt;</bpt>&amp;lt;Ctrl&gt;S<ept id="2d76acc5-035a-4358-ad77-e727ae216ddd">&lt;/strong&gt;</ept> to save the new table's definition.</target>
+        </trans-unit>
+        <trans-unit id="dc582d4a-c6a5-4bd7-9f06-9db4361b70da" xml:space="preserve">
+          <source>You will be prompted to enter a table name.</source>
+          <target state="new">You will be prompted to enter a table name.</target>
+        </trans-unit>
+        <trans-unit id="c3d560af-1d2e-4f3b-bfd2-7ef3c8786ca1" xml:space="preserve">
+          <source>Enter <bpt id="5002303a-de24-491a-b99b-6ad1dfabf5ad">&lt;code&gt;</bpt>Speakers<ept id="5002303a-de24-491a-b99b-6ad1dfabf5ad">&lt;/code&gt;</ept> and press <bpt id="66f2cf43-32a9-495d-8c3f-03c7b05c41e4">&lt;strong&gt;</bpt>OK<ept id="66f2cf43-32a9-495d-8c3f-03c7b05c41e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter <bpt id="5002303a-de24-491a-b99b-6ad1dfabf5ad">&lt;code&gt;</bpt>Speakers<ept id="5002303a-de24-491a-b99b-6ad1dfabf5ad">&lt;/code&gt;</ept> and press <bpt id="66f2cf43-32a9-495d-8c3f-03c7b05c41e4">&lt;strong&gt;</bpt>OK<ept id="66f2cf43-32a9-495d-8c3f-03c7b05c41e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a5f989a-b3a7-4427-992d-df681f3cf803" xml:space="preserve">
+          <source><bpt id="335c8e6f-d4e5-4fdc-b5c9-7e6195c6284e">&lt;linkText&gt;</bpt>Save new table<ept id="335c8e6f-d4e5-4fdc-b5c9-7e6195c6284e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="335c8e6f-d4e5-4fdc-b5c9-7e6195c6284e">&lt;linkText&gt;</bpt>Save new table<ept id="335c8e6f-d4e5-4fdc-b5c9-7e6195c6284e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51f01328-c0dd-4a3b-afd8-1cbd91f94f35" xml:space="preserve">
+          <source>In <bpt id="8abc3925-086f-419b-beb5-93426ba65356">&lt;strong&gt;</bpt>Object Explorer<ept id="8abc3925-086f-419b-beb5-93426ba65356">&lt;/strong&gt;</ept>, right-click the newly created <bpt id="b7a57da6-872f-4194-b992-4c1783f6a655">&lt;code&gt;</bpt>Speakers<ept id="b7a57da6-872f-4194-b992-4c1783f6a655">&lt;/code&gt;</ept> table, and select <bpt id="a06d56d6-b3cf-47e9-abb3-39ea66535779">&lt;strong&gt;</bpt>Edit top 200 rows<ept id="a06d56d6-b3cf-47e9-abb3-39ea66535779">&lt;/strong&gt;</ept> from the context menu.</source>
+          <target state="new">In <bpt id="8abc3925-086f-419b-beb5-93426ba65356">&lt;strong&gt;</bpt>Object Explorer<ept id="8abc3925-086f-419b-beb5-93426ba65356">&lt;/strong&gt;</ept>, right-click the newly created <bpt id="b7a57da6-872f-4194-b992-4c1783f6a655">&lt;code&gt;</bpt>Speakers<ept id="b7a57da6-872f-4194-b992-4c1783f6a655">&lt;/code&gt;</ept> table, and select <bpt id="a06d56d6-b3cf-47e9-abb3-39ea66535779">&lt;strong&gt;</bpt>Edit top 200 rows<ept id="a06d56d6-b3cf-47e9-abb3-39ea66535779">&lt;/strong&gt;</ept> from the context menu.</target>
+        </trans-unit>
+        <trans-unit id="eaae8b2f-ff18-4529-9f71-84910b1bf9bf" xml:space="preserve">
+          <source><bpt id="a7bc7d4b-ba1e-436c-9137-d27b05138679">&lt;linkText&gt;</bpt>Edit top 200 rows<ept id="a7bc7d4b-ba1e-436c-9137-d27b05138679">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a7bc7d4b-ba1e-436c-9137-d27b05138679">&lt;linkText&gt;</bpt>Edit top 200 rows<ept id="a7bc7d4b-ba1e-436c-9137-d27b05138679">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9c20363-907f-4fa3-b29b-f9eede3913e2" xml:space="preserve">
+          <source>When the grid appears to enter/modify the table data, enter some test data as shown in the following figure.</source>
+          <target state="new">When the grid appears to enter/modify the table data, enter some test data as shown in the following figure.</target>
+        </trans-unit>
+        <trans-unit id="41a8b4c3-b46a-4368-8e40-14f487098ff2" xml:space="preserve">
+          <source><bpt id="f53fbb33-4e9b-4955-ac96-9aceb42bceb3">&lt;linkText&gt;</bpt>Test data<ept id="f53fbb33-4e9b-4955-ac96-9aceb42bceb3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f53fbb33-4e9b-4955-ac96-9aceb42bceb3">&lt;linkText&gt;</bpt>Test data<ept id="f53fbb33-4e9b-4955-ac96-9aceb42bceb3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fdb239d4-ecf2-4e98-9267-813e8e69152d" xml:space="preserve">
+          <source>This section walks you through creating the demo API app.</source>
+          <target state="new">This section walks you through creating the demo API app.</target>
+        </trans-unit>
+        <trans-unit id="61a9ab2b-86fe-4e74-97f6-25c35384b477" xml:space="preserve">
+          <source>Open Visual Studio 2013 and select <bpt id="5f51cfad-d248-4669-87ee-3a3a9608d389">&lt;strong&gt;</bpt>File &gt; New &gt; Project<ept id="5f51cfad-d248-4669-87ee-3a3a9608d389">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open Visual Studio 2013 and select <bpt id="5f51cfad-d248-4669-87ee-3a3a9608d389">&lt;strong&gt;</bpt>File &gt; New &gt; Project<ept id="5f51cfad-d248-4669-87ee-3a3a9608d389">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4a0ee76-b23f-41a8-a727-3800374b3cec" xml:space="preserve">
+          <source>Select the <bpt id="a8d3ca5b-27f7-4a93-99f2-d301330a5de0">&lt;strong&gt;</bpt>Visual C# &gt; Web &gt; ASP.NET Web Application<ept id="a8d3ca5b-27f7-4a93-99f2-d301330a5de0">&lt;/strong&gt;</ept> template, clear the <bpt id="255c9e70-0191-4c81-a7c9-53b13e7b35d6">&lt;strong&gt;</bpt>Add application insights to project<ept id="255c9e70-0191-4c81-a7c9-53b13e7b35d6">&lt;/strong&gt;</ept> option, name the project <bpt id="0144a634-678e-4af6-a50e-45a0a9f7232f">&lt;em&gt;</bpt>SpeakersList<ept id="0144a634-678e-4af6-a50e-45a0a9f7232f">&lt;/em&gt;</ept>, and then click <bpt id="94c8d605-4671-4d3d-9417-95ab0794eb97">&lt;strong&gt;</bpt>OK<ept id="94c8d605-4671-4d3d-9417-95ab0794eb97">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="a8d3ca5b-27f7-4a93-99f2-d301330a5de0">&lt;strong&gt;</bpt>Visual C# &gt; Web &gt; ASP.NET Web Application<ept id="a8d3ca5b-27f7-4a93-99f2-d301330a5de0">&lt;/strong&gt;</ept> template, clear the <bpt id="255c9e70-0191-4c81-a7c9-53b13e7b35d6">&lt;strong&gt;</bpt>Add application insights to project<ept id="255c9e70-0191-4c81-a7c9-53b13e7b35d6">&lt;/strong&gt;</ept> option, name the project <bpt id="0144a634-678e-4af6-a50e-45a0a9f7232f">&lt;em&gt;</bpt>SpeakersList<ept id="0144a634-678e-4af6-a50e-45a0a9f7232f">&lt;/em&gt;</ept>, and then click <bpt id="94c8d605-4671-4d3d-9417-95ab0794eb97">&lt;strong&gt;</bpt>OK<ept id="94c8d605-4671-4d3d-9417-95ab0794eb97">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa9103fe-a62f-4318-a047-9e29db5729de" xml:space="preserve">
+          <source><bpt id="1c1b1bda-46eb-4d45-9bbd-8515a8234f80">&lt;linkText&gt;</bpt><ept id="1c1b1bda-46eb-4d45-9bbd-8515a8234f80">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1c1b1bda-46eb-4d45-9bbd-8515a8234f80">&lt;linkText&gt;</bpt><ept id="1c1b1bda-46eb-4d45-9bbd-8515a8234f80">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52b79015-21f4-4210-9d75-6305574cfaf5" xml:space="preserve">
+          <source>On the <bpt id="fb0b3918-7706-4b82-959b-746591c0791f">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="fb0b3918-7706-4b82-959b-746591c0791f">&lt;/strong&gt;</ept> dialog, select the <bpt id="7f63a83e-866e-4b57-bf4b-a5c8d19aeb72">&lt;strong&gt;</bpt>Azure API App<ept id="7f63a83e-866e-4b57-bf4b-a5c8d19aeb72">&lt;/strong&gt;</ept> project template and then click <bpt id="9951028e-9b68-4dfc-8c24-8cbf4c5b8e04">&lt;strong&gt;</bpt>OK<ept id="9951028e-9b68-4dfc-8c24-8cbf4c5b8e04">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="fb0b3918-7706-4b82-959b-746591c0791f">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="fb0b3918-7706-4b82-959b-746591c0791f">&lt;/strong&gt;</ept> dialog, select the <bpt id="7f63a83e-866e-4b57-bf4b-a5c8d19aeb72">&lt;strong&gt;</bpt>Azure API App<ept id="7f63a83e-866e-4b57-bf4b-a5c8d19aeb72">&lt;/strong&gt;</ept> project template and then click <bpt id="9951028e-9b68-4dfc-8c24-8cbf4c5b8e04">&lt;strong&gt;</bpt>OK<ept id="9951028e-9b68-4dfc-8c24-8cbf4c5b8e04">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b5bcdcc-089d-4b46-9dd6-2451111c6506" xml:space="preserve">
+          <source><bpt id="042f3977-f842-4444-b8e9-b26fcb9a4f01">&lt;linkText&gt;</bpt><ept id="042f3977-f842-4444-b8e9-b26fcb9a4f01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="042f3977-f842-4444-b8e9-b26fcb9a4f01">&lt;linkText&gt;</bpt><ept id="042f3977-f842-4444-b8e9-b26fcb9a4f01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4044ee37-f3b2-484c-9536-0daaa9e02124" xml:space="preserve">
+          <source>In the <bpt id="bcb3ca45-1510-4279-9ec5-9e4bc101c8ec">&lt;strong&gt;</bpt>Solution Explorer<ept id="bcb3ca45-1510-4279-9ec5-9e4bc101c8ec">&lt;/strong&gt;</ept>, right-click the <bpt id="7c9bad3e-343e-4d7e-9198-6fa4b4c38e87">&lt;strong&gt;</bpt>Models<ept id="7c9bad3e-343e-4d7e-9198-6fa4b4c38e87">&lt;/strong&gt;</ept> folder, and then select the <bpt id="cd805443-211d-4ef3-81fa-f9868335aedf">&lt;strong&gt;</bpt>Add &gt; Class...<ept id="cd805443-211d-4ef3-81fa-f9868335aedf">&lt;/strong&gt;</ept> context menu option.</source>
+          <target state="new">In the <bpt id="bcb3ca45-1510-4279-9ec5-9e4bc101c8ec">&lt;strong&gt;</bpt>Solution Explorer<ept id="bcb3ca45-1510-4279-9ec5-9e4bc101c8ec">&lt;/strong&gt;</ept>, right-click the <bpt id="7c9bad3e-343e-4d7e-9198-6fa4b4c38e87">&lt;strong&gt;</bpt>Models<ept id="7c9bad3e-343e-4d7e-9198-6fa4b4c38e87">&lt;/strong&gt;</ept> folder, and then select the <bpt id="cd805443-211d-4ef3-81fa-f9868335aedf">&lt;strong&gt;</bpt>Add &gt; Class...<ept id="cd805443-211d-4ef3-81fa-f9868335aedf">&lt;/strong&gt;</ept> context menu option.</target>
+        </trans-unit>
+        <trans-unit id="c9c03641-61a9-405a-9112-91154eb4eb53" xml:space="preserve">
+          <source><bpt id="b21a52c9-bf85-47fc-b9ce-3d054ac48064">&lt;linkText&gt;</bpt><ept id="b21a52c9-bf85-47fc-b9ce-3d054ac48064">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="b21a52c9-bf85-47fc-b9ce-3d054ac48064">&lt;linkText&gt;</bpt><ept id="b21a52c9-bf85-47fc-b9ce-3d054ac48064">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="9d1908b0-bdfb-4eeb-975e-4c2aaa80ffef" xml:space="preserve">
+          <source>Name the new file <bpt id="e7f3833c-3ebe-4464-aca3-661a3280acde">&lt;em&gt;</bpt>Speaker.cs<ept id="e7f3833c-3ebe-4464-aca3-661a3280acde">&lt;/em&gt;</ept>, and then click <bpt id="03f06842-2d08-410f-8e77-57d917059e78">&lt;strong&gt;</bpt>Add<ept id="03f06842-2d08-410f-8e77-57d917059e78">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the new file <bpt id="e7f3833c-3ebe-4464-aca3-661a3280acde">&lt;em&gt;</bpt>Speaker.cs<ept id="e7f3833c-3ebe-4464-aca3-661a3280acde">&lt;/em&gt;</ept>, and then click <bpt id="03f06842-2d08-410f-8e77-57d917059e78">&lt;strong&gt;</bpt>Add<ept id="03f06842-2d08-410f-8e77-57d917059e78">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f4348a9-5f73-425b-964a-ff17a72a6168" xml:space="preserve">
+          <source><bpt id="80e41f21-6a50-437b-bbaf-9df582e7ba10">&lt;linkText&gt;</bpt><ept id="80e41f21-6a50-437b-bbaf-9df582e7ba10">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="80e41f21-6a50-437b-bbaf-9df582e7ba10">&lt;linkText&gt;</bpt><ept id="80e41f21-6a50-437b-bbaf-9df582e7ba10">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="43f1a100-7a57-475e-a8bb-ee61403e7c64" xml:space="preserve">
+          <source>Replace the entire contents of the <bpt id="44521d89-404c-4ae3-bc39-6d6a4440b019">&lt;code&gt;</bpt>Speaker.cs<ept id="44521d89-404c-4ae3-bc39-6d6a4440b019">&lt;/code&gt;</ept> file with the following code.</source>
+          <target state="new">Replace the entire contents of the <bpt id="44521d89-404c-4ae3-bc39-6d6a4440b019">&lt;code&gt;</bpt>Speaker.cs<ept id="44521d89-404c-4ae3-bc39-6d6a4440b019">&lt;/code&gt;</ept> file with the following code.</target>
+        </trans-unit>
+        <trans-unit id="b1f5c025-ee87-4e75-a38d-b9dbc9a540d5" xml:space="preserve">
+          <source>In the <bpt id="3aa7e8e0-e293-4799-868e-08af6a25aa40">&lt;strong&gt;</bpt>Solution Explorer<ept id="3aa7e8e0-e293-4799-868e-08af6a25aa40">&lt;/strong&gt;</ept>, right-click the <bpt id="42cebf5a-7265-4800-9bfc-9123c3cc8564">&lt;strong&gt;</bpt>Controllers<ept id="42cebf5a-7265-4800-9bfc-9123c3cc8564">&lt;/strong&gt;</ept> folder, and then select the <bpt id="ead615a9-8e50-4fba-827c-259b98ee022e">&lt;strong&gt;</bpt>Add &gt; Controller...<ept id="ead615a9-8e50-4fba-827c-259b98ee022e">&lt;/strong&gt;</ept> context menu option.</source>
+          <target state="new">In the <bpt id="3aa7e8e0-e293-4799-868e-08af6a25aa40">&lt;strong&gt;</bpt>Solution Explorer<ept id="3aa7e8e0-e293-4799-868e-08af6a25aa40">&lt;/strong&gt;</ept>, right-click the <bpt id="42cebf5a-7265-4800-9bfc-9123c3cc8564">&lt;strong&gt;</bpt>Controllers<ept id="42cebf5a-7265-4800-9bfc-9123c3cc8564">&lt;/strong&gt;</ept> folder, and then select the <bpt id="ead615a9-8e50-4fba-827c-259b98ee022e">&lt;strong&gt;</bpt>Add &gt; Controller...<ept id="ead615a9-8e50-4fba-827c-259b98ee022e">&lt;/strong&gt;</ept> context menu option.</target>
+        </trans-unit>
+        <trans-unit id="0e3c08ff-6989-43ad-b2da-f54b0455ab6e" xml:space="preserve">
+          <source><bpt id="d9e0b0e1-0db0-4f2b-ba24-fcbc52a70316">&lt;linkText&gt;</bpt><ept id="d9e0b0e1-0db0-4f2b-ba24-fcbc52a70316">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="d9e0b0e1-0db0-4f2b-ba24-fcbc52a70316">&lt;linkText&gt;</bpt><ept id="d9e0b0e1-0db0-4f2b-ba24-fcbc52a70316">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="7bc64044-86ff-4a03-acd1-ccc059a5837c" xml:space="preserve">
+          <source>In the <bpt id="c3cfa156-b6e3-44d2-b464-6cb5f53764c6">&lt;strong&gt;</bpt>Add Scaffold<ept id="c3cfa156-b6e3-44d2-b464-6cb5f53764c6">&lt;/strong&gt;</ept> dialog, select the <bpt id="1a565778-a58d-46ad-a8cf-7df0e4f78642">&lt;strong&gt;</bpt>Web API 2 Controller - Empty<ept id="1a565778-a58d-46ad-a8cf-7df0e4f78642">&lt;/strong&gt;</ept> option and click <bpt id="eb131b07-4419-4a51-abf7-18056bc6befa">&lt;strong&gt;</bpt>Add<ept id="eb131b07-4419-4a51-abf7-18056bc6befa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c3cfa156-b6e3-44d2-b464-6cb5f53764c6">&lt;strong&gt;</bpt>Add Scaffold<ept id="c3cfa156-b6e3-44d2-b464-6cb5f53764c6">&lt;/strong&gt;</ept> dialog, select the <bpt id="1a565778-a58d-46ad-a8cf-7df0e4f78642">&lt;strong&gt;</bpt>Web API 2 Controller - Empty<ept id="1a565778-a58d-46ad-a8cf-7df0e4f78642">&lt;/strong&gt;</ept> option and click <bpt id="eb131b07-4419-4a51-abf7-18056bc6befa">&lt;strong&gt;</bpt>Add<ept id="eb131b07-4419-4a51-abf7-18056bc6befa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5955dfd-7f91-42a3-8a7c-763d6271d5aa" xml:space="preserve">
+          <source><bpt id="4f0c7497-c9a2-4a12-829b-59324c9891e8">&lt;linkText&gt;</bpt><ept id="4f0c7497-c9a2-4a12-829b-59324c9891e8">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="4f0c7497-c9a2-4a12-829b-59324c9891e8">&lt;linkText&gt;</bpt><ept id="4f0c7497-c9a2-4a12-829b-59324c9891e8">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="77e34b11-4b3e-4206-b558-54cc2d66887d" xml:space="preserve">
+          <source>Name the controller <bpt id="74b7fe67-1f2f-4433-895c-1d7075503622">&lt;strong&gt;</bpt>SpeakersController<ept id="74b7fe67-1f2f-4433-895c-1d7075503622">&lt;/strong&gt;</ept> and click <bpt id="c0aeea7f-f3d7-4698-ae4a-a993b60eafb6">&lt;strong&gt;</bpt>Add<ept id="c0aeea7f-f3d7-4698-ae4a-a993b60eafb6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the controller <bpt id="74b7fe67-1f2f-4433-895c-1d7075503622">&lt;strong&gt;</bpt>SpeakersController<ept id="74b7fe67-1f2f-4433-895c-1d7075503622">&lt;/strong&gt;</ept> and click <bpt id="c0aeea7f-f3d7-4698-ae4a-a993b60eafb6">&lt;strong&gt;</bpt>Add<ept id="c0aeea7f-f3d7-4698-ae4a-a993b60eafb6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d88b4e65-a64f-43f9-a7e9-643a709f5290" xml:space="preserve">
+          <source><bpt id="3fda6e9a-479a-404b-9977-e3b4ecc448f5">&lt;linkText&gt;</bpt><ept id="3fda6e9a-479a-404b-9977-e3b4ecc448f5">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="3fda6e9a-479a-404b-9977-e3b4ecc448f5">&lt;linkText&gt;</bpt><ept id="3fda6e9a-479a-404b-9977-e3b4ecc448f5">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="94dd4413-f66a-4db8-9d7b-20b294690e53" xml:space="preserve">
+          <source>Replace the code in the <bpt id="bcf12b7c-cea0-42b9-a8a0-69f4ac98b32c">&lt;code&gt;</bpt>SpeakersController.cs<ept id="bcf12b7c-cea0-42b9-a8a0-69f4ac98b32c">&lt;/code&gt;</ept> file with the code below.</source>
+          <target state="new">Replace the code in the <bpt id="bcf12b7c-cea0-42b9-a8a0-69f4ac98b32c">&lt;code&gt;</bpt>SpeakersController.cs<ept id="bcf12b7c-cea0-42b9-a8a0-69f4ac98b32c">&lt;/code&gt;</ept> file with the code below.</target>
+        </trans-unit>
+        <trans-unit id="ef466585-7d42-4442-bce9-817cd5edaaab" xml:space="preserve">
+          <source>Make sure to specify your own values for the &amp;lt;serverName&gt; and &amp;lt;password&gt; placeholders in the <bpt id="e36b4d84-e509-4548-853e-b5f3375cc773">&lt;code&gt;</bpt>connectionString<ept id="e36b4d84-e509-4548-853e-b5f3375cc773">&lt;/code&gt;</ept>.</source>
+          <target state="new">Make sure to specify your own values for the &amp;lt;serverName&gt; and &amp;lt;password&gt; placeholders in the <bpt id="e36b4d84-e509-4548-853e-b5f3375cc773">&lt;code&gt;</bpt>connectionString<ept id="e36b4d84-e509-4548-853e-b5f3375cc773">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11620aff-361f-4b3f-9a8d-9fc39cf12c0b" xml:space="preserve">
+          <source>The &amp;lt;serverName&gt; value is the machine name on which the SQL Server is located, and the &amp;lt;password&gt; value is the one you set when you installed and configured SQL Server.</source>
+          <target state="new">The &amp;lt;serverName&gt; value is the machine name on which the SQL Server is located, and the &amp;lt;password&gt; value is the one you set when you installed and configured SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="ea008e84-89ea-4697-a94b-f6534a01d967" xml:space="preserve">
+          <source>The following code snippet includes password information.</source>
+          <target state="new">The following code snippet includes password information.</target>
+        </trans-unit>
+        <trans-unit id="9c39c163-b32a-493b-9f2b-0a80699beb34" xml:space="preserve">
+          <source>This was done to keep the demo simple.</source>
+          <target state="new">This was done to keep the demo simple.</target>
+        </trans-unit>
+        <trans-unit id="6d962269-02cc-41c3-8b05-48d59baff723" xml:space="preserve">
+          <source>In a real-world production environment, you should not store your credentials in code.</source>
+          <target state="new">In a real-world production environment, you should not store your credentials in code.</target>
+        </trans-unit>
+        <trans-unit id="f2b49d51-1109-41b3-bab1-6127de343ac7" xml:space="preserve">
+          <source>Instead, refer to the <bpt id="e7daa2ac-3adc-4e76-b381-07b5666b4f78">&lt;linkText&gt;</bpt>best practices for deploying passwords (and other sensitive data) to ASP.NET and Azure<ept id="e7daa2ac-3adc-4e76-b381-07b5666b4f78">&lt;/linkText&gt;</ept><bpt id="e7daa2ac-3adc-4e76-b381-07b5666b4f78">&lt;title&gt;</bpt><ept id="e7daa2ac-3adc-4e76-b381-07b5666b4f78">&lt;/title&gt;</ept>.</source>
+          <target state="new">Instead, refer to the <bpt id="e7daa2ac-3adc-4e76-b381-07b5666b4f78">&lt;linkText&gt;</bpt>best practices for deploying passwords (and other sensitive data) to ASP.NET and Azure<ept id="e7daa2ac-3adc-4e76-b381-07b5666b4f78">&lt;/linkText&gt;</ept><bpt id="e7daa2ac-3adc-4e76-b381-07b5666b4f78">&lt;title&gt;</bpt><ept id="e7daa2ac-3adc-4e76-b381-07b5666b4f78">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e29d14ab-b549-4e6b-9428-4ec4997c9d18" xml:space="preserve">
+          <source>Enabling the Swagger UI will allow you to easily test your API app without having to write client code to call it.</source>
+          <target state="new">Enabling the Swagger UI will allow you to easily test your API app without having to write client code to call it.</target>
+        </trans-unit>
+        <trans-unit id="3bc3fb4c-8445-4886-830b-0d48d655ce88" xml:space="preserve">
+          <source>Open the <bpt id="ed05a838-4e1f-4291-8e47-33380a138ea6">&lt;em&gt;</bpt>App_Start/SwaggerConfig.cs<ept id="ed05a838-4e1f-4291-8e47-33380a138ea6">&lt;/em&gt;</ept> file, and search for <bpt id="a32e5992-d118-4710-8605-1a519956a28f">&lt;strong&gt;</bpt>EnableSwaggerUI<ept id="a32e5992-d118-4710-8605-1a519956a28f">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Open the <bpt id="ed05a838-4e1f-4291-8e47-33380a138ea6">&lt;em&gt;</bpt>App_Start/SwaggerConfig.cs<ept id="ed05a838-4e1f-4291-8e47-33380a138ea6">&lt;/em&gt;</ept> file, and search for <bpt id="a32e5992-d118-4710-8605-1a519956a28f">&lt;strong&gt;</bpt>EnableSwaggerUI<ept id="a32e5992-d118-4710-8605-1a519956a28f">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="0fcad7db-9267-4cf1-9292-f3a61a35f660" xml:space="preserve">
+          <source><bpt id="2b026116-7db8-45a2-9721-89134008b387">&lt;linkText&gt;</bpt><ept id="2b026116-7db8-45a2-9721-89134008b387">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="2b026116-7db8-45a2-9721-89134008b387">&lt;linkText&gt;</bpt><ept id="2b026116-7db8-45a2-9721-89134008b387">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="3d63fb6a-0fa0-42cf-81d9-46221256ec25" xml:space="preserve">
+          <source>Uncomment the following lines of code:</source>
+          <target state="new">Uncomment the following lines of code:</target>
+        </trans-unit>
+        <trans-unit id="53a3f73f-0964-42ac-b0e3-8dc51bf85b20" xml:space="preserve">
+          <source>When you're done, verify that the file looks like the following image.</source>
+          <target state="new">When you're done, verify that the file looks like the following image.</target>
+        </trans-unit>
+        <trans-unit id="f5fa4e21-ae92-4857-bff2-6cd89939f687" xml:space="preserve">
+          <source><bpt id="4e413477-957a-4274-98f4-2693d9263b89">&lt;linkText&gt;</bpt><ept id="4e413477-957a-4274-98f4-2693d9263b89">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="4e413477-957a-4274-98f4-2693d9263b89">&lt;linkText&gt;</bpt><ept id="4e413477-957a-4274-98f4-2693d9263b89">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="8b4f8a39-f496-4a6a-abf8-fc5c9d4c9173" xml:space="preserve">
+          <source>To view the API test page, run the app locally via <bpt id="11a5672c-8165-4f25-a71e-2464aa569729">&lt;strong&gt;</bpt>&amp;lt;Ctrl&gt;F5<ept id="11a5672c-8165-4f25-a71e-2464aa569729">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To view the API test page, run the app locally via <bpt id="11a5672c-8165-4f25-a71e-2464aa569729">&lt;strong&gt;</bpt>&amp;lt;Ctrl&gt;F5<ept id="11a5672c-8165-4f25-a71e-2464aa569729">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6550944a-6bd7-4620-af8c-754bf37f13a5" xml:space="preserve">
+          <source>You should see an error similar to the following image.</source>
+          <target state="new">You should see an error similar to the following image.</target>
+        </trans-unit>
+        <trans-unit id="f3a10baf-e3f7-4944-8922-3de62add72e6" xml:space="preserve">
+          <source><bpt id="b1b68819-f3af-4ae4-be1a-b20f8834d983">&lt;linkText&gt;</bpt><ept id="b1b68819-f3af-4ae4-be1a-b20f8834d983">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="b1b68819-f3af-4ae4-be1a-b20f8834d983">&lt;linkText&gt;</bpt><ept id="b1b68819-f3af-4ae4-be1a-b20f8834d983">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="ef35f064-a587-4dc4-823f-5a031a9d0ed3" xml:space="preserve">
+          <source>In your browser's address bar, add <bpt id="2c73fd27-fea3-4332-80e2-4b7fd600e772">&lt;code&gt;</bpt>/swagger<ept id="2c73fd27-fea3-4332-80e2-4b7fd600e772">&lt;/code&gt;</ept> to the end of the URL, and then click <bpt id="1e610df1-0391-4c3f-8573-24b12de6ecf6">&lt;strong&gt;</bpt>&amp;lt;Enter&gt;<ept id="1e610df1-0391-4c3f-8573-24b12de6ecf6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In your browser's address bar, add <bpt id="2c73fd27-fea3-4332-80e2-4b7fd600e772">&lt;code&gt;</bpt>/swagger<ept id="2c73fd27-fea3-4332-80e2-4b7fd600e772">&lt;/code&gt;</ept> to the end of the URL, and then click <bpt id="1e610df1-0391-4c3f-8573-24b12de6ecf6">&lt;strong&gt;</bpt>&amp;lt;Enter&gt;<ept id="1e610df1-0391-4c3f-8573-24b12de6ecf6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54784139-866f-4c24-b280-59a0a0c72c24" xml:space="preserve">
+          <source>This will display the Swagger UI you enabled in the previous section.</source>
+          <target state="new">This will display the Swagger UI you enabled in the previous section.</target>
+        </trans-unit>
+        <trans-unit id="b0b6a892-26ba-44ed-b3df-7566fb06794f" xml:space="preserve">
+          <source><bpt id="86850b05-a160-47bd-aeda-2f1776488eef">&lt;linkText&gt;</bpt><ept id="86850b05-a160-47bd-aeda-2f1776488eef">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="86850b05-a160-47bd-aeda-2f1776488eef">&lt;linkText&gt;</bpt><ept id="86850b05-a160-47bd-aeda-2f1776488eef">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a4a67499-6406-457d-8d4b-b36693ef2c0b" xml:space="preserve">
+          <source>Click the <bpt id="de90331d-cd5b-4788-84f5-edba6c012445">&lt;strong&gt;</bpt>Speakers<ept id="de90331d-cd5b-4788-84f5-edba6c012445">&lt;/strong&gt;</ept> section to expand it.</source>
+          <target state="new">Click the <bpt id="de90331d-cd5b-4788-84f5-edba6c012445">&lt;strong&gt;</bpt>Speakers<ept id="de90331d-cd5b-4788-84f5-edba6c012445">&lt;/strong&gt;</ept> section to expand it.</target>
+        </trans-unit>
+        <trans-unit id="1b457eab-65f2-4692-8276-81c9a9d843db" xml:space="preserve">
+          <source>Click <bpt id="c89bd6e9-acdb-4894-8678-c6c4c85d8235">&lt;strong&gt;</bpt>GET /api/speakers<ept id="c89bd6e9-acdb-4894-8678-c6c4c85d8235">&lt;/strong&gt;</ept> to expand that section.</source>
+          <target state="new">Click <bpt id="c89bd6e9-acdb-4894-8678-c6c4c85d8235">&lt;strong&gt;</bpt>GET /api/speakers<ept id="c89bd6e9-acdb-4894-8678-c6c4c85d8235">&lt;/strong&gt;</ept> to expand that section.</target>
+        </trans-unit>
+        <trans-unit id="39563eb1-68ef-4c7e-b126-39448d116543" xml:space="preserve">
+          <source>Click <bpt id="9c20b278-ed79-4df2-ac0f-ce17db52e8da">&lt;strong&gt;</bpt>Try it out!<ept id="9c20b278-ed79-4df2-ac0f-ce17db52e8da">&lt;/strong&gt;</ept> to view the data you entered into the database earlier.</source>
+          <target state="new">Click <bpt id="9c20b278-ed79-4df2-ac0f-ce17db52e8da">&lt;strong&gt;</bpt>Try it out!<ept id="9c20b278-ed79-4df2-ac0f-ce17db52e8da">&lt;/strong&gt;</ept> to view the data you entered into the database earlier.</target>
+        </trans-unit>
+        <trans-unit id="5b9e22ff-1f52-49b7-b45e-44fb38768a09" xml:space="preserve">
+          <source><bpt id="5d539ecc-3447-42b2-8514-aae228805c6c">&lt;linkText&gt;</bpt><ept id="5d539ecc-3447-42b2-8514-aae228805c6c">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="5d539ecc-3447-42b2-8514-aae228805c6c">&lt;linkText&gt;</bpt><ept id="5d539ecc-3447-42b2-8514-aae228805c6c">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="fe5cfb5d-dddf-4455-8e4b-6ebd892d2010" xml:space="preserve">
+          <source>Now that you've tested the app locally, it's time to deploy the app to Azure.</source>
+          <target state="new">Now that you've tested the app locally, it's time to deploy the app to Azure.</target>
+        </trans-unit>
+        <trans-unit id="6d3efc2a-63e8-4cae-956f-977c93bd78bd" xml:space="preserve">
+          <source>In <bpt id="490a758b-1491-4044-9032-577bc754eb8a">&lt;strong&gt;</bpt>Solution Explorer<ept id="490a758b-1491-4044-9032-577bc754eb8a">&lt;/strong&gt;</ept>, right-click the project (not the solution) and click <bpt id="e746ca1d-7e19-4fdf-83c6-692691269f71">&lt;strong&gt;</bpt>Publish...<ept id="e746ca1d-7e19-4fdf-83c6-692691269f71">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="490a758b-1491-4044-9032-577bc754eb8a">&lt;strong&gt;</bpt>Solution Explorer<ept id="490a758b-1491-4044-9032-577bc754eb8a">&lt;/strong&gt;</ept>, right-click the project (not the solution) and click <bpt id="e746ca1d-7e19-4fdf-83c6-692691269f71">&lt;strong&gt;</bpt>Publish...<ept id="e746ca1d-7e19-4fdf-83c6-692691269f71">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb392eec-c2af-4a51-9d3f-839ded1c9c02" xml:space="preserve">
+          <source><bpt id="42c78c8f-2750-4fbf-b62a-32cab3b72191">&lt;linkText&gt;</bpt>Project publish menu option<ept id="42c78c8f-2750-4fbf-b62a-32cab3b72191">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="42c78c8f-2750-4fbf-b62a-32cab3b72191">&lt;linkText&gt;</bpt>Project publish menu option<ept id="42c78c8f-2750-4fbf-b62a-32cab3b72191">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a550ab9-78d4-4ff1-83d9-26f855530e8b" xml:space="preserve">
+          <source>Click the <bpt id="ac131478-d220-4670-818d-8a19fc5dee76">&lt;strong&gt;</bpt>Profile<ept id="ac131478-d220-4670-818d-8a19fc5dee76">&lt;/strong&gt;</ept> tab and click <bpt id="4d7213fb-d3f1-47ac-b38e-746c20f049df">&lt;strong&gt;</bpt>Microsoft Azure API Apps (Preview)<ept id="4d7213fb-d3f1-47ac-b38e-746c20f049df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="ac131478-d220-4670-818d-8a19fc5dee76">&lt;strong&gt;</bpt>Profile<ept id="ac131478-d220-4670-818d-8a19fc5dee76">&lt;/strong&gt;</ept> tab and click <bpt id="4d7213fb-d3f1-47ac-b38e-746c20f049df">&lt;strong&gt;</bpt>Microsoft Azure API Apps (Preview)<ept id="4d7213fb-d3f1-47ac-b38e-746c20f049df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9aec34e3-fb25-4016-864d-ec3418ca561a" xml:space="preserve">
+          <source><bpt id="6d18b859-d44a-4bf8-8b4b-6fd0e38ae0ba">&lt;linkText&gt;</bpt>Project publish menu option<ept id="6d18b859-d44a-4bf8-8b4b-6fd0e38ae0ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d18b859-d44a-4bf8-8b4b-6fd0e38ae0ba">&lt;linkText&gt;</bpt>Project publish menu option<ept id="6d18b859-d44a-4bf8-8b4b-6fd0e38ae0ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="401080ac-9ce2-49c1-bc3b-fc9134bbe937" xml:space="preserve">
+          <source>Click <bpt id="eb510d56-7b27-4ec7-b3f6-cb51352f537e">&lt;strong&gt;</bpt>New<ept id="eb510d56-7b27-4ec7-b3f6-cb51352f537e">&lt;/strong&gt;</ept> to provision a new API app in your Azure subscription.</source>
+          <target state="new">Click <bpt id="eb510d56-7b27-4ec7-b3f6-cb51352f537e">&lt;strong&gt;</bpt>New<ept id="eb510d56-7b27-4ec7-b3f6-cb51352f537e">&lt;/strong&gt;</ept> to provision a new API app in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="557831a9-5721-49aa-b9f0-4a6bc102a080" xml:space="preserve">
+          <source><bpt id="2e41386e-97bc-4d10-bc43-a48c6b7c9453">&lt;linkText&gt;</bpt>Select Existing API Services dialog<ept id="2e41386e-97bc-4d10-bc43-a48c6b7c9453">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e41386e-97bc-4d10-bc43-a48c6b7c9453">&lt;linkText&gt;</bpt>Select Existing API Services dialog<ept id="2e41386e-97bc-4d10-bc43-a48c6b7c9453">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="814e54ab-0d78-4c83-8755-1e95295fa853" xml:space="preserve">
+          <source>In the <bpt id="99c75026-f151-4363-90e3-f6ab383d517b">&lt;strong&gt;</bpt>Create an API App<ept id="99c75026-f151-4363-90e3-f6ab383d517b">&lt;/strong&gt;</ept> dialog, enter the following:</source>
+          <target state="new">In the <bpt id="99c75026-f151-4363-90e3-f6ab383d517b">&lt;strong&gt;</bpt>Create an API App<ept id="99c75026-f151-4363-90e3-f6ab383d517b">&lt;/strong&gt;</ept> dialog, enter the following:</target>
+        </trans-unit>
+        <trans-unit id="3ad76e9f-5fe9-4ee0-bf26-e58279130a96" xml:space="preserve">
+          <source>Under <bpt id="70ddc95c-e3d2-4fb3-a68f-d4ceeb6f8fd3">&lt;strong&gt;</bpt>API App Name<ept id="70ddc95c-e3d2-4fb3-a68f-d4ceeb6f8fd3">&lt;/strong&gt;</ept>, enter a name for the app.</source>
+          <target state="new">Under <bpt id="70ddc95c-e3d2-4fb3-a68f-d4ceeb6f8fd3">&lt;strong&gt;</bpt>API App Name<ept id="70ddc95c-e3d2-4fb3-a68f-d4ceeb6f8fd3">&lt;/strong&gt;</ept>, enter a name for the app.</target>
+        </trans-unit>
+        <trans-unit id="d421c595-fda8-4d48-b902-4bf64c8e073d" xml:space="preserve">
+          <source>If you have multiple Azure subscriptions, select the one you want to use.</source>
+          <target state="new">If you have multiple Azure subscriptions, select the one you want to use.</target>
+        </trans-unit>
+        <trans-unit id="58baeebb-98de-4bea-834b-28fb6baa367a" xml:space="preserve">
+          <source>Under <bpt id="dd76854b-1256-465d-b973-22ebc82e7731">&lt;strong&gt;</bpt>App Service Plan<ept id="dd76854b-1256-465d-b973-22ebc82e7731">&lt;/strong&gt;</ept>, select from your existing App Service plans, or select <bpt id="4ddd7aae-0eb5-4490-8117-610067b82558">&lt;strong&gt;</bpt>Create new App Service plan<ept id="4ddd7aae-0eb5-4490-8117-610067b82558">&lt;/strong&gt;</ept> and enter the name of a new plan.</source>
+          <target state="new">Under <bpt id="dd76854b-1256-465d-b973-22ebc82e7731">&lt;strong&gt;</bpt>App Service Plan<ept id="dd76854b-1256-465d-b973-22ebc82e7731">&lt;/strong&gt;</ept>, select from your existing App Service plans, or select <bpt id="4ddd7aae-0eb5-4490-8117-610067b82558">&lt;strong&gt;</bpt>Create new App Service plan<ept id="4ddd7aae-0eb5-4490-8117-610067b82558">&lt;/strong&gt;</ept> and enter the name of a new plan.</target>
+        </trans-unit>
+        <trans-unit id="953060c6-47f8-461b-9a2d-0477628025a9" xml:space="preserve">
+          <source>Under <bpt id="292aee09-32d7-451a-9140-ba6846f88856">&lt;strong&gt;</bpt>Resource Group<ept id="292aee09-32d7-451a-9140-ba6846f88856">&lt;/strong&gt;</ept>, select from your existing resource groups, or select <bpt id="c626e7d6-a5ed-4602-87c2-1f7498316d65">&lt;strong&gt;</bpt>Create new resource group<ept id="c626e7d6-a5ed-4602-87c2-1f7498316d65">&lt;/strong&gt;</ept> and enter a name.</source>
+          <target state="new">Under <bpt id="292aee09-32d7-451a-9140-ba6846f88856">&lt;strong&gt;</bpt>Resource Group<ept id="292aee09-32d7-451a-9140-ba6846f88856">&lt;/strong&gt;</ept>, select from your existing resource groups, or select <bpt id="c626e7d6-a5ed-4602-87c2-1f7498316d65">&lt;strong&gt;</bpt>Create new resource group<ept id="c626e7d6-a5ed-4602-87c2-1f7498316d65">&lt;/strong&gt;</ept> and enter a name.</target>
+        </trans-unit>
+        <trans-unit id="ab996354-5524-4b56-84ad-634cd059e464" xml:space="preserve">
+          <source>The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).</source>
+          <target state="new">The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).</target>
+        </trans-unit>
+        <trans-unit id="d4f5df5a-f49f-4cae-af47-5f2b2940269a" xml:space="preserve">
+          <source>Under <bpt id="a3984a86-d0d4-4f45-bb85-53ee24635bd9">&lt;strong&gt;</bpt>Access Level<ept id="a3984a86-d0d4-4f45-bb85-53ee24635bd9">&lt;/strong&gt;</ept>, select <bpt id="18f86129-d107-4114-99fa-43a9f8472128">&lt;strong&gt;</bpt>Available to Anyone<ept id="18f86129-d107-4114-99fa-43a9f8472128">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="a3984a86-d0d4-4f45-bb85-53ee24635bd9">&lt;strong&gt;</bpt>Access Level<ept id="a3984a86-d0d4-4f45-bb85-53ee24635bd9">&lt;/strong&gt;</ept>, select <bpt id="18f86129-d107-4114-99fa-43a9f8472128">&lt;strong&gt;</bpt>Available to Anyone<ept id="18f86129-d107-4114-99fa-43a9f8472128">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6134fa81-8301-4331-825e-bb9fbba8aac7" xml:space="preserve">
+          <source>This option will make your API completely public, which is fine for this tutorial.</source>
+          <target state="new">This option will make your API completely public, which is fine for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="281f919f-2fab-40b9-88f6-ff643dda6977" xml:space="preserve">
+          <source>You can restrict access later through the <bpt id="00196617-3c18-45d4-8234-fd56a1ba39e2">&lt;linkText&gt;</bpt>Azure preview portal<ept id="00196617-3c18-45d4-8234-fd56a1ba39e2">&lt;/linkText&gt;</ept><bpt id="00196617-3c18-45d4-8234-fd56a1ba39e2">&lt;title&gt;</bpt><ept id="00196617-3c18-45d4-8234-fd56a1ba39e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can restrict access later through the <bpt id="00196617-3c18-45d4-8234-fd56a1ba39e2">&lt;linkText&gt;</bpt>Azure preview portal<ept id="00196617-3c18-45d4-8234-fd56a1ba39e2">&lt;/linkText&gt;</ept><bpt id="00196617-3c18-45d4-8234-fd56a1ba39e2">&lt;title&gt;</bpt><ept id="00196617-3c18-45d4-8234-fd56a1ba39e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ced040f3-8e51-4d4d-99af-7d7e65c44aa0" xml:space="preserve">
+          <source>Select a region.</source>
+          <target state="new">Select a region.</target>
+        </trans-unit>
+        <trans-unit id="ff10fcb2-2acb-4db0-8e01-ecf256daff99" xml:space="preserve">
+          <source>Click <bpt id="34f1bf5e-76a9-4b4a-9d3e-8ffa0f8f7937">&lt;strong&gt;</bpt>OK<ept id="34f1bf5e-76a9-4b4a-9d3e-8ffa0f8f7937">&lt;/strong&gt;</ept> to create the API app in your subscription.</source>
+          <target state="new">Click <bpt id="34f1bf5e-76a9-4b4a-9d3e-8ffa0f8f7937">&lt;strong&gt;</bpt>OK<ept id="34f1bf5e-76a9-4b4a-9d3e-8ffa0f8f7937">&lt;/strong&gt;</ept> to create the API app in your subscription.</target>
+        </trans-unit>
+        <trans-unit id="0a65e708-0f0b-41e9-9428-2c102a33fb0f" xml:space="preserve">
+          <source><bpt id="c247190f-fc69-47b6-87e4-5436e956154c">&lt;linkText&gt;</bpt>Configure Microsoft Azure Web App dialog<ept id="c247190f-fc69-47b6-87e4-5436e956154c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c247190f-fc69-47b6-87e4-5436e956154c">&lt;linkText&gt;</bpt>Configure Microsoft Azure Web App dialog<ept id="c247190f-fc69-47b6-87e4-5436e956154c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="615068fd-53b7-46cc-9072-263aa3df4844" xml:space="preserve">
+          <source>The process can take a few minutes, so Visual Studio shows a dialog notifying you that the process has initiated.</source>
+          <target state="new">The process can take a few minutes, so Visual Studio shows a dialog notifying you that the process has initiated.</target>
+        </trans-unit>
+        <trans-unit id="56832339-a3d8-4413-bdef-8646210a81fa" xml:space="preserve">
+          <source>Click <bpt id="95e86009-6489-4a30-b1ac-d512cb1b2d55">&lt;strong&gt;</bpt>OK<ept id="95e86009-6489-4a30-b1ac-d512cb1b2d55">&lt;/strong&gt;</ept> to the confirmation dialog.</source>
+          <target state="new">Click <bpt id="95e86009-6489-4a30-b1ac-d512cb1b2d55">&lt;strong&gt;</bpt>OK<ept id="95e86009-6489-4a30-b1ac-d512cb1b2d55">&lt;/strong&gt;</ept> to the confirmation dialog.</target>
+        </trans-unit>
+        <trans-unit id="9d1e25ac-4266-4b3d-ab16-8c47f3d7ca3e" xml:space="preserve">
+          <source><bpt id="5507a768-8edd-452d-9c9f-c7175e20b345">&lt;linkText&gt;</bpt>API Service Creation Started confirmation message<ept id="5507a768-8edd-452d-9c9f-c7175e20b345">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5507a768-8edd-452d-9c9f-c7175e20b345">&lt;linkText&gt;</bpt>API Service Creation Started confirmation message<ept id="5507a768-8edd-452d-9c9f-c7175e20b345">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e8e7da6-c76a-418e-bbab-d5d10e3d41d6" xml:space="preserve">
+          <source>While the provisioning process is creating the resource group and API app in your Azure subscription, Visual Studio shows the progress in the <bpt id="d5633a3c-4a4c-4fe5-914c-a85e37a62281">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="d5633a3c-4a4c-4fe5-914c-a85e37a62281">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">While the provisioning process is creating the resource group and API app in your Azure subscription, Visual Studio shows the progress in the <bpt id="d5633a3c-4a4c-4fe5-914c-a85e37a62281">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="d5633a3c-4a4c-4fe5-914c-a85e37a62281">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="756158fe-7742-4fc6-91b9-a199bf15831a" xml:space="preserve">
+          <source><bpt id="3639fe68-051f-4f11-98f1-871f5b4eebf9">&lt;linkText&gt;</bpt>Status notification via the Azure App Service Activity window<ept id="3639fe68-051f-4f11-98f1-871f5b4eebf9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3639fe68-051f-4f11-98f1-871f5b4eebf9">&lt;linkText&gt;</bpt>Status notification via the Azure App Service Activity window<ept id="3639fe68-051f-4f11-98f1-871f5b4eebf9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="009b5c1f-c122-413c-afa4-c73902d46d96" xml:space="preserve">
+          <source>Once the API App is provisioned, right-click the project in <bpt id="331a20df-ff30-4c57-a59c-58d4679b1b34">&lt;strong&gt;</bpt>Solution Explorer<ept id="331a20df-ff30-4c57-a59c-58d4679b1b34">&lt;/strong&gt;</ept> and select <bpt id="1842fbf0-89fc-4f2e-ae01-68ed41328c59">&lt;strong&gt;</bpt>Publish<ept id="1842fbf0-89fc-4f2e-ae01-68ed41328c59">&lt;/strong&gt;</ept> to re-open the publish dialog.</source>
+          <target state="new">Once the API App is provisioned, right-click the project in <bpt id="331a20df-ff30-4c57-a59c-58d4679b1b34">&lt;strong&gt;</bpt>Solution Explorer<ept id="331a20df-ff30-4c57-a59c-58d4679b1b34">&lt;/strong&gt;</ept> and select <bpt id="1842fbf0-89fc-4f2e-ae01-68ed41328c59">&lt;strong&gt;</bpt>Publish<ept id="1842fbf0-89fc-4f2e-ae01-68ed41328c59">&lt;/strong&gt;</ept> to re-open the publish dialog.</target>
+        </trans-unit>
+        <trans-unit id="7deb08f9-d515-4735-8a3b-6e784528e735" xml:space="preserve">
+          <source>The publish profile created in the previous step should be pre-selected.</source>
+          <target state="new">The publish profile created in the previous step should be pre-selected.</target>
+        </trans-unit>
+        <trans-unit id="9008d21c-edd0-4ca0-ba36-db77680d0f55" xml:space="preserve">
+          <source>Click <bpt id="e4ee505f-ec57-48df-b731-8de3ba3a1d24">&lt;strong&gt;</bpt>Publish<ept id="e4ee505f-ec57-48df-b731-8de3ba3a1d24">&lt;/strong&gt;</ept> to begin the deployment process.</source>
+          <target state="new">Click <bpt id="e4ee505f-ec57-48df-b731-8de3ba3a1d24">&lt;strong&gt;</bpt>Publish<ept id="e4ee505f-ec57-48df-b731-8de3ba3a1d24">&lt;/strong&gt;</ept> to begin the deployment process.</target>
+        </trans-unit>
+        <trans-unit id="cfd7d888-f3f6-4712-b8dd-f1265e375ee0" xml:space="preserve">
+          <source><bpt id="7fc810dc-ec28-43ce-b16a-c56acaae8961">&lt;linkText&gt;</bpt>Deploying the API App<ept id="7fc810dc-ec28-43ce-b16a-c56acaae8961">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7fc810dc-ec28-43ce-b16a-c56acaae8961">&lt;linkText&gt;</bpt>Deploying the API App<ept id="7fc810dc-ec28-43ce-b16a-c56acaae8961">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f35b811b-ab25-434a-a246-f8f22d5dfe75" xml:space="preserve">
+          <source>The <bpt id="c97dcba7-e021-4768-b068-8fe29ed17222">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="c97dcba7-e021-4768-b068-8fe29ed17222">&lt;/strong&gt;</ept> window shows the deployment progress, and will indicate when the publish process has completed.</source>
+          <target state="new">The <bpt id="c97dcba7-e021-4768-b068-8fe29ed17222">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="c97dcba7-e021-4768-b068-8fe29ed17222">&lt;/strong&gt;</ept> window shows the deployment progress, and will indicate when the publish process has completed.</target>
+        </trans-unit>
+        <trans-unit id="391806d8-12e3-4254-beb0-a65f65ec0a27" xml:space="preserve">
+          <source>In your browser, navigate to the <bpt id="7ea78045-20f0-426d-bbd1-b322543f2bbf">&lt;linkText&gt;</bpt>Azure preview portal<ept id="7ea78045-20f0-426d-bbd1-b322543f2bbf">&lt;/linkText&gt;</ept><bpt id="7ea78045-20f0-426d-bbd1-b322543f2bbf">&lt;title&gt;</bpt><ept id="7ea78045-20f0-426d-bbd1-b322543f2bbf">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, navigate to the <bpt id="7ea78045-20f0-426d-bbd1-b322543f2bbf">&lt;linkText&gt;</bpt>Azure preview portal<ept id="7ea78045-20f0-426d-bbd1-b322543f2bbf">&lt;/linkText&gt;</ept><bpt id="7ea78045-20f0-426d-bbd1-b322543f2bbf">&lt;title&gt;</bpt><ept id="7ea78045-20f0-426d-bbd1-b322543f2bbf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6cd45bc0-01fc-4ab6-8bc2-dd62e2e35288" xml:space="preserve">
+          <source>Click the <bpt id="67d6b382-1edb-4744-b0a6-3879efae494a">&lt;strong&gt;</bpt>Browse All<ept id="67d6b382-1edb-4744-b0a6-3879efae494a">&lt;/strong&gt;</ept> option on the left.</source>
+          <target state="new">Click the <bpt id="67d6b382-1edb-4744-b0a6-3879efae494a">&lt;strong&gt;</bpt>Browse All<ept id="67d6b382-1edb-4744-b0a6-3879efae494a">&lt;/strong&gt;</ept> option on the left.</target>
+        </trans-unit>
+        <trans-unit id="bb72ef82-0c35-40af-ae48-30c54df5e21a" xml:space="preserve">
+          <source>In the <bpt id="fd423baa-0598-47e0-abd3-a3bfcb291b4b">&lt;strong&gt;</bpt>Browse<ept id="fd423baa-0598-47e0-abd3-a3bfcb291b4b">&lt;/strong&gt;</ept> blade, select <bpt id="2d1a0cd4-5abe-4bec-b697-43a007382f1a">&lt;strong&gt;</bpt>API Apps<ept id="2d1a0cd4-5abe-4bec-b697-43a007382f1a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="fd423baa-0598-47e0-abd3-a3bfcb291b4b">&lt;strong&gt;</bpt>Browse<ept id="fd423baa-0598-47e0-abd3-a3bfcb291b4b">&lt;/strong&gt;</ept> blade, select <bpt id="2d1a0cd4-5abe-4bec-b697-43a007382f1a">&lt;strong&gt;</bpt>API Apps<ept id="2d1a0cd4-5abe-4bec-b697-43a007382f1a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13285af0-3376-4060-8662-0d1baafe6e3d" xml:space="preserve">
+          <source>In the <bpt id="e0980157-eee1-47ca-9226-b80c6578804b">&lt;strong&gt;</bpt>API Apps<ept id="e0980157-eee1-47ca-9226-b80c6578804b">&lt;/strong&gt;</ept> blade, locate your API app and click it.</source>
+          <target state="new">In the <bpt id="e0980157-eee1-47ca-9226-b80c6578804b">&lt;strong&gt;</bpt>API Apps<ept id="e0980157-eee1-47ca-9226-b80c6578804b">&lt;/strong&gt;</ept> blade, locate your API app and click it.</target>
+        </trans-unit>
+        <trans-unit id="4710619a-0238-4a5d-b5f4-9cc85387ff4f" xml:space="preserve">
+          <source>In your APII app's blade, click the value under <bpt id="84979c1a-bb92-4e80-931e-6db1088dd172">&lt;strong&gt;</bpt>API app host<ept id="84979c1a-bb92-4e80-931e-6db1088dd172">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In your APII app's blade, click the value under <bpt id="84979c1a-bb92-4e80-931e-6db1088dd172">&lt;strong&gt;</bpt>API app host<ept id="84979c1a-bb92-4e80-931e-6db1088dd172">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f15c31c1-db59-4357-99c4-926be8270b6a" xml:space="preserve">
+          <source><bpt id="16f7989d-2f97-4a75-8253-a99084065d8d">&lt;linkText&gt;</bpt>API App blade<ept id="16f7989d-2f97-4a75-8253-a99084065d8d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16f7989d-2f97-4a75-8253-a99084065d8d">&lt;linkText&gt;</bpt>API App blade<ept id="16f7989d-2f97-4a75-8253-a99084065d8d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb72304e-2d90-40a2-a8cf-b2998e5b257c" xml:space="preserve">
+          <source>When the <bpt id="996a894c-2b2e-4cbd-930b-dcbd17fdb271">&lt;strong&gt;</bpt>API App Host<ept id="996a894c-2b2e-4cbd-930b-dcbd17fdb271">&lt;/strong&gt;</ept> blade appears, scroll down to the <bpt id="9d3e30f2-2703-4eb6-8071-2364e73c095b">&lt;strong&gt;</bpt>Networking<ept id="9d3e30f2-2703-4eb6-8071-2364e73c095b">&lt;/strong&gt;</ept> section and click <bpt id="37ed239f-c5c3-4269-a4d1-9bfda4d24a29">&lt;strong&gt;</bpt>Hybrid connections<ept id="37ed239f-c5c3-4269-a4d1-9bfda4d24a29">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the <bpt id="996a894c-2b2e-4cbd-930b-dcbd17fdb271">&lt;strong&gt;</bpt>API App Host<ept id="996a894c-2b2e-4cbd-930b-dcbd17fdb271">&lt;/strong&gt;</ept> blade appears, scroll down to the <bpt id="9d3e30f2-2703-4eb6-8071-2364e73c095b">&lt;strong&gt;</bpt>Networking<ept id="9d3e30f2-2703-4eb6-8071-2364e73c095b">&lt;/strong&gt;</ept> section and click <bpt id="37ed239f-c5c3-4269-a4d1-9bfda4d24a29">&lt;strong&gt;</bpt>Hybrid connections<ept id="37ed239f-c5c3-4269-a4d1-9bfda4d24a29">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a32ced78-be89-4a38-a7f2-73d847d11500" xml:space="preserve">
+          <source><bpt id="99e80743-04df-4b2a-bf2a-449291f7d55d">&lt;linkText&gt;</bpt>Hybrid connections<ept id="99e80743-04df-4b2a-bf2a-449291f7d55d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99e80743-04df-4b2a-bf2a-449291f7d55d">&lt;linkText&gt;</bpt>Hybrid connections<ept id="99e80743-04df-4b2a-bf2a-449291f7d55d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2417daa4-c38d-46d0-a956-6420fc5ff62e" xml:space="preserve">
+          <source>On the <bpt id="b1b1c752-ee8d-46e7-bb20-58214030ee1e">&lt;strong&gt;</bpt>Hybrid connections<ept id="b1b1c752-ee8d-46e7-bb20-58214030ee1e">&lt;/strong&gt;</ept> blade, click <bpt id="763d8fc0-578e-4495-b7fc-65cd30c19b61">&lt;strong&gt;</bpt>Add<ept id="763d8fc0-578e-4495-b7fc-65cd30c19b61">&lt;/strong&gt;</ept> &gt; <bpt id="12f5932d-9e2c-418a-9e0d-c35a51f52be1">&lt;strong&gt;</bpt>New hybrid connection<ept id="12f5932d-9e2c-418a-9e0d-c35a51f52be1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b1b1c752-ee8d-46e7-bb20-58214030ee1e">&lt;strong&gt;</bpt>Hybrid connections<ept id="b1b1c752-ee8d-46e7-bb20-58214030ee1e">&lt;/strong&gt;</ept> blade, click <bpt id="763d8fc0-578e-4495-b7fc-65cd30c19b61">&lt;strong&gt;</bpt>Add<ept id="763d8fc0-578e-4495-b7fc-65cd30c19b61">&lt;/strong&gt;</ept> &gt; <bpt id="12f5932d-9e2c-418a-9e0d-c35a51f52be1">&lt;strong&gt;</bpt>New hybrid connection<ept id="12f5932d-9e2c-418a-9e0d-c35a51f52be1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36a1f69b-4235-4d41-b29c-15cbb434c05a" xml:space="preserve">
+          <source>On the <bpt id="88d93076-bab9-4a3f-bd60-5e601b19647e">&lt;strong&gt;</bpt>Create hybrid connection blade<ept id="88d93076-bab9-4a3f-bd60-5e601b19647e">&lt;/strong&gt;</ept>:</source>
+          <target state="new">On the <bpt id="88d93076-bab9-4a3f-bd60-5e601b19647e">&lt;strong&gt;</bpt>Create hybrid connection blade<ept id="88d93076-bab9-4a3f-bd60-5e601b19647e">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="e12a9d27-4aff-4e44-8354-f325b890e544" xml:space="preserve">
+          <source>For <bpt id="679c5063-8125-4e5d-aace-d9c87f397d84">&lt;strong&gt;</bpt>Name<ept id="679c5063-8125-4e5d-aace-d9c87f397d84">&lt;/strong&gt;</ept>, provide a name for the connection.</source>
+          <target state="new">For <bpt id="679c5063-8125-4e5d-aace-d9c87f397d84">&lt;strong&gt;</bpt>Name<ept id="679c5063-8125-4e5d-aace-d9c87f397d84">&lt;/strong&gt;</ept>, provide a name for the connection.</target>
+        </trans-unit>
+        <trans-unit id="a45c9a00-5146-4ebf-afbf-fb720eaacf60" xml:space="preserve">
+          <source>For <bpt id="2030c20e-c8ad-466c-ab00-314182b8d445">&lt;strong&gt;</bpt>Hostname<ept id="2030c20e-c8ad-466c-ab00-314182b8d445">&lt;/strong&gt;</ept>, enter the computer name of your SQL Server host computer.</source>
+          <target state="new">For <bpt id="2030c20e-c8ad-466c-ab00-314182b8d445">&lt;strong&gt;</bpt>Hostname<ept id="2030c20e-c8ad-466c-ab00-314182b8d445">&lt;/strong&gt;</ept>, enter the computer name of your SQL Server host computer.</target>
+        </trans-unit>
+        <trans-unit id="60ff361e-6692-4e4f-959b-ebcfe657abe7" xml:space="preserve">
+          <source>For <bpt id="d124ed2e-2ba5-4b4e-8c94-4450124359cc">&lt;strong&gt;</bpt>Port<ept id="d124ed2e-2ba5-4b4e-8c94-4450124359cc">&lt;/strong&gt;</ept>, enter <bpt id="a66cf90d-4da1-4333-b68f-8cb13dbfeca1">&lt;code&gt;</bpt>1433<ept id="a66cf90d-4da1-4333-b68f-8cb13dbfeca1">&lt;/code&gt;</ept> (the default port for SQL Server).</source>
+          <target state="new">For <bpt id="d124ed2e-2ba5-4b4e-8c94-4450124359cc">&lt;strong&gt;</bpt>Port<ept id="d124ed2e-2ba5-4b4e-8c94-4450124359cc">&lt;/strong&gt;</ept>, enter <bpt id="a66cf90d-4da1-4333-b68f-8cb13dbfeca1">&lt;code&gt;</bpt>1433<ept id="a66cf90d-4da1-4333-b68f-8cb13dbfeca1">&lt;/code&gt;</ept> (the default port for SQL Server).</target>
+        </trans-unit>
+        <trans-unit id="3a364295-9baf-4227-908f-1f5f562ad4fa" xml:space="preserve">
+          <source>Click <bpt id="9c13271b-f72a-464a-b2ba-57267db7df2a">&lt;strong&gt;</bpt>Biz Talk Service<ept id="9c13271b-f72a-464a-b2ba-57267db7df2a">&lt;/strong&gt;</ept> and enter a name for the BizTalk service.</source>
+          <target state="new">Click <bpt id="9c13271b-f72a-464a-b2ba-57267db7df2a">&lt;strong&gt;</bpt>Biz Talk Service<ept id="9c13271b-f72a-464a-b2ba-57267db7df2a">&lt;/strong&gt;</ept> and enter a name for the BizTalk service.</target>
+        </trans-unit>
+        <trans-unit id="e7f61f3f-9372-444f-8864-b0225efb7541" xml:space="preserve">
+          <source><bpt id="c96b386b-2570-4e98-a658-b182a5b29437">&lt;linkText&gt;</bpt>Create a hybrid connection<ept id="c96b386b-2570-4e98-a658-b182a5b29437">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c96b386b-2570-4e98-a658-b182a5b29437">&lt;linkText&gt;</bpt>Create a hybrid connection<ept id="c96b386b-2570-4e98-a658-b182a5b29437">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41aff649-3396-4bba-8778-172694dd4edc" xml:space="preserve">
+          <source>Click <bpt id="cae85849-5c8e-4327-9a5b-370b585ad3f4">&lt;strong&gt;</bpt>OK<ept id="cae85849-5c8e-4327-9a5b-370b585ad3f4">&lt;/strong&gt;</ept> twice.</source>
+          <target state="new">Click <bpt id="cae85849-5c8e-4327-9a5b-370b585ad3f4">&lt;strong&gt;</bpt>OK<ept id="cae85849-5c8e-4327-9a5b-370b585ad3f4">&lt;/strong&gt;</ept> twice.</target>
+        </trans-unit>
+        <trans-unit id="894e7294-d479-42ec-8bd1-58cdd1fed9c3" xml:space="preserve">
+          <source>When the process completes, the <bpt id="ec5d5110-8f76-476b-b641-d74d24476352">&lt;strong&gt;</bpt>Notifications<ept id="ec5d5110-8f76-476b-b641-d74d24476352">&lt;/strong&gt;</ept> area will flash a green <bpt id="8b631c30-7a4c-4ae6-895a-10d8a1da1a24">&lt;strong&gt;</bpt>SUCCESS<ept id="8b631c30-7a4c-4ae6-895a-10d8a1da1a24">&lt;/strong&gt;</ept> and the <bpt id="73331e25-29f1-47d5-99bd-47727e14159a">&lt;strong&gt;</bpt>Hybrid connections<ept id="73331e25-29f1-47d5-99bd-47727e14159a">&lt;/strong&gt;</ept> blade will show the new hybrid connection with the status as <bpt id="a753d09d-6cd3-456a-99c9-b28569a4b22c">&lt;strong&gt;</bpt>Not connected<ept id="a753d09d-6cd3-456a-99c9-b28569a4b22c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the process completes, the <bpt id="ec5d5110-8f76-476b-b641-d74d24476352">&lt;strong&gt;</bpt>Notifications<ept id="ec5d5110-8f76-476b-b641-d74d24476352">&lt;/strong&gt;</ept> area will flash a green <bpt id="8b631c30-7a4c-4ae6-895a-10d8a1da1a24">&lt;strong&gt;</bpt>SUCCESS<ept id="8b631c30-7a4c-4ae6-895a-10d8a1da1a24">&lt;/strong&gt;</ept> and the <bpt id="73331e25-29f1-47d5-99bd-47727e14159a">&lt;strong&gt;</bpt>Hybrid connections<ept id="73331e25-29f1-47d5-99bd-47727e14159a">&lt;/strong&gt;</ept> blade will show the new hybrid connection with the status as <bpt id="a753d09d-6cd3-456a-99c9-b28569a4b22c">&lt;strong&gt;</bpt>Not connected<ept id="a753d09d-6cd3-456a-99c9-b28569a4b22c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04058ec4-d91f-429f-8e66-6adca2777624" xml:space="preserve">
+          <source><bpt id="09175a72-c3f1-4524-8c3f-f7508a27aaec">&lt;linkText&gt;</bpt>Hybrid connection created<ept id="09175a72-c3f1-4524-8c3f-f7508a27aaec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09175a72-c3f1-4524-8c3f-f7508a27aaec">&lt;linkText&gt;</bpt>Hybrid connection created<ept id="09175a72-c3f1-4524-8c3f-f7508a27aaec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3cff620-9782-4a61-a61b-ddc71705b20b" xml:space="preserve">
+          <source>At this point, you have completed an important part of the cloud hybrid connection infrastructure.</source>
+          <target state="new">At this point, you have completed an important part of the cloud hybrid connection infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="7f8750fc-2a87-43a5-b0ac-c75e5a9bd426" xml:space="preserve">
+          <source>Next, you will create a corresponding on-premises piece.</source>
+          <target state="new">Next, you will create a corresponding on-premises piece.</target>
+        </trans-unit>
+        <trans-unit id="af8c56df-b304-4336-aa47-c8078619f06a" xml:space="preserve">
+          <source><bpt id="3eccbe6b-4e42-45d4-8b23-85f364eeb30d">&lt;bookmark&gt;</bpt><ept id="3eccbe6b-4e42-45d4-8b23-85f364eeb30d">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="3eccbe6b-4e42-45d4-8b23-85f364eeb30d">&lt;bookmark&gt;</bpt><ept id="3eccbe6b-4e42-45d4-8b23-85f364eeb30d">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e44699df-3b0f-4653-9c58-bc7c41c63bfe" xml:space="preserve">
+          <source><bpt id="a348ddf5-9936-4b8c-9abf-b333386f9444">&lt;token href="../../includes/app-service-hybrid-connections-manager-install.md"&gt;</bpt><ept id="a348ddf5-9936-4b8c-9abf-b333386f9444">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a348ddf5-9936-4b8c-9abf-b333386f9444">&lt;token href="../../includes/app-service-hybrid-connections-manager-install.md"&gt;</bpt><ept id="a348ddf5-9936-4b8c-9abf-b333386f9444">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c64479d-cf8c-45e5-b857-13d879f63065" xml:space="preserve">
+          <source>Now that the hybrid connection infrastructure is complete, it's time to test the application.</source>
+          <target state="new">Now that the hybrid connection infrastructure is complete, it's time to test the application.</target>
+        </trans-unit>
+        <trans-unit id="8589c8fc-8182-467d-8838-aeb1a9b6a76c" xml:space="preserve">
+          <source><bpt id="d9b19a2f-c41a-44e9-9b7f-fc034bdf40f0">&lt;bookmark&gt;</bpt><ept id="d9b19a2f-c41a-44e9-9b7f-fc034bdf40f0">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="d9b19a2f-c41a-44e9-9b7f-fc034bdf40f0">&lt;bookmark&gt;</bpt><ept id="d9b19a2f-c41a-44e9-9b7f-fc034bdf40f0">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47a22d68-bf8e-46e7-a775-1ab82bc4879b" xml:space="preserve">
+          <source>In the Azure preview portal, return to the API app host blade, and click the value under <bpt id="74802f2d-3309-4f33-824d-b835b5b7c5c5">&lt;strong&gt;</bpt>URL<ept id="74802f2d-3309-4f33-824d-b835b5b7c5c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure preview portal, return to the API app host blade, and click the value under <bpt id="74802f2d-3309-4f33-824d-b835b5b7c5c5">&lt;strong&gt;</bpt>URL<ept id="74802f2d-3309-4f33-824d-b835b5b7c5c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd231f00-f877-48e5-8026-67a7a4d65184" xml:space="preserve">
+          <source>Once the API app's host page is displayed in your browser, append <bpt id="ce0963bf-85d6-4524-92e6-ea5d4141293c">&lt;code&gt;</bpt>/swagger<ept id="ce0963bf-85d6-4524-92e6-ea5d4141293c">&lt;/code&gt;</ept> to the URL in your browser's address bar and click <bpt id="78f32c2c-3397-4b07-82da-5e586e3d5167">&lt;strong&gt;</bpt>&amp;lt;Enter&gt;<ept id="78f32c2c-3397-4b07-82da-5e586e3d5167">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the API app's host page is displayed in your browser, append <bpt id="ce0963bf-85d6-4524-92e6-ea5d4141293c">&lt;code&gt;</bpt>/swagger<ept id="ce0963bf-85d6-4524-92e6-ea5d4141293c">&lt;/code&gt;</ept> to the URL in your browser's address bar and click <bpt id="78f32c2c-3397-4b07-82da-5e586e3d5167">&lt;strong&gt;</bpt>&amp;lt;Enter&gt;<ept id="78f32c2c-3397-4b07-82da-5e586e3d5167">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c30200d-9466-4a08-b8b2-453a43cd10f5" xml:space="preserve">
+          <source>Click the <bpt id="078e78f4-0de5-46b3-bc52-b043d17a48ad">&lt;strong&gt;</bpt>Speakers<ept id="078e78f4-0de5-46b3-bc52-b043d17a48ad">&lt;/strong&gt;</ept> section to expand it.</source>
+          <target state="new">Click the <bpt id="078e78f4-0de5-46b3-bc52-b043d17a48ad">&lt;strong&gt;</bpt>Speakers<ept id="078e78f4-0de5-46b3-bc52-b043d17a48ad">&lt;/strong&gt;</ept> section to expand it.</target>
+        </trans-unit>
+        <trans-unit id="a26e3a14-371d-4b0b-9c30-80ab5dd1d11f" xml:space="preserve">
+          <source>Click <bpt id="89dbd61a-4a04-4a5b-9065-ba99bf3b1424">&lt;strong&gt;</bpt>GET /api/speakers<ept id="89dbd61a-4a04-4a5b-9065-ba99bf3b1424">&lt;/strong&gt;</ept> to expand that section.</source>
+          <target state="new">Click <bpt id="89dbd61a-4a04-4a5b-9065-ba99bf3b1424">&lt;strong&gt;</bpt>GET /api/speakers<ept id="89dbd61a-4a04-4a5b-9065-ba99bf3b1424">&lt;/strong&gt;</ept> to expand that section.</target>
+        </trans-unit>
+        <trans-unit id="25eb1092-1798-43bb-a8b7-94d507a4ad21" xml:space="preserve">
+          <source>Click <bpt id="f8ad829e-b07f-4ea3-917e-6375a13e4c4f">&lt;strong&gt;</bpt>Try it out!<ept id="f8ad829e-b07f-4ea3-917e-6375a13e4c4f">&lt;/strong&gt;</ept> to view the data you entered into the database earlier.</source>
+          <target state="new">Click <bpt id="f8ad829e-b07f-4ea3-917e-6375a13e4c4f">&lt;strong&gt;</bpt>Try it out!<ept id="f8ad829e-b07f-4ea3-917e-6375a13e4c4f">&lt;/strong&gt;</ept> to view the data you entered into the database earlier.</target>
+        </trans-unit>
+        <trans-unit id="39bc9fbc-f2ae-42a2-9e98-4ec3986cf009" xml:space="preserve">
+          <source><bpt id="bf2de652-9656-494d-9597-a2aa4c04e837">&lt;linkText&gt;</bpt><ept id="bf2de652-9656-494d-9597-a2aa4c04e837">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="bf2de652-9656-494d-9597-a2aa4c04e837">&lt;linkText&gt;</bpt><ept id="bf2de652-9656-494d-9597-a2aa4c04e837">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="3a432b44-0c6f-46dd-a422-e10b4a330fbf" xml:space="preserve">
+          <source><bpt id="12c271a6-507f-4dd7-af20-d05582b31ac3">&lt;strong&gt;</bpt>Congratulations!<ept id="12c271a6-507f-4dd7-af20-d05582b31ac3">&lt;/strong&gt;</ept> You have created an API app that runs on Azure and uses a hybrid connection to connect to a local on-premises SQL Server database.</source>
+          <target state="new"><bpt id="12c271a6-507f-4dd7-af20-d05582b31ac3">&lt;strong&gt;</bpt>Congratulations!<ept id="12c271a6-507f-4dd7-af20-d05582b31ac3">&lt;/strong&gt;</ept> You have created an API app that runs on Azure and uses a hybrid connection to connect to a local on-premises SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="69c0ab0e-4889-4f4e-8897-399fde34db04" xml:space="preserve">
+          <source><bpt id="03abc9c3-eefb-4168-ad5f-0c9a9c2fc111">&lt;linkText&gt;</bpt>Hybrid Connections overview<ept id="03abc9c3-eefb-4168-ad5f-0c9a9c2fc111">&lt;/linkText&gt;</ept><bpt id="03abc9c3-eefb-4168-ad5f-0c9a9c2fc111">&lt;title&gt;</bpt><ept id="03abc9c3-eefb-4168-ad5f-0c9a9c2fc111">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="03abc9c3-eefb-4168-ad5f-0c9a9c2fc111">&lt;linkText&gt;</bpt>Hybrid Connections overview<ept id="03abc9c3-eefb-4168-ad5f-0c9a9c2fc111">&lt;/linkText&gt;</ept><bpt id="03abc9c3-eefb-4168-ad5f-0c9a9c2fc111">&lt;title&gt;</bpt><ept id="03abc9c3-eefb-4168-ad5f-0c9a9c2fc111">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc7219ac-2f22-4991-833d-067a4d77336c" xml:space="preserve">
+          <source><bpt id="ddb4ccd2-783b-44e5-bc5f-a7b913499e05">&lt;linkText&gt;</bpt>Josh Twist introduces hybrid connections (Channel 9 video)<ept id="ddb4ccd2-783b-44e5-bc5f-a7b913499e05">&lt;/linkText&gt;</ept><bpt id="ddb4ccd2-783b-44e5-bc5f-a7b913499e05">&lt;title&gt;</bpt><ept id="ddb4ccd2-783b-44e5-bc5f-a7b913499e05">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ddb4ccd2-783b-44e5-bc5f-a7b913499e05">&lt;linkText&gt;</bpt>Josh Twist introduces hybrid connections (Channel 9 video)<ept id="ddb4ccd2-783b-44e5-bc5f-a7b913499e05">&lt;/linkText&gt;</ept><bpt id="ddb4ccd2-783b-44e5-bc5f-a7b913499e05">&lt;title&gt;</bpt><ept id="ddb4ccd2-783b-44e5-bc5f-a7b913499e05">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1276f462-0997-4222-801c-2bf98f3f33c7" xml:space="preserve">
+          <source><bpt id="d3806216-d142-4e65-a515-b341b28dba1c">&lt;linkText&gt;</bpt>Hybrid Connections overview<ept id="d3806216-d142-4e65-a515-b341b28dba1c">&lt;/linkText&gt;</ept><bpt id="d3806216-d142-4e65-a515-b341b28dba1c">&lt;title&gt;</bpt><ept id="d3806216-d142-4e65-a515-b341b28dba1c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d3806216-d142-4e65-a515-b341b28dba1c">&lt;linkText&gt;</bpt>Hybrid Connections overview<ept id="d3806216-d142-4e65-a515-b341b28dba1c">&lt;/linkText&gt;</ept><bpt id="d3806216-d142-4e65-a515-b341b28dba1c">&lt;title&gt;</bpt><ept id="d3806216-d142-4e65-a515-b341b28dba1c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a58a77f8-4f84-430e-90cb-1e906386cf39" xml:space="preserve">
+          <source><bpt id="a68d582d-828e-49b9-b870-b7dc184f37e3">&lt;linkText&gt;</bpt>BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs<ept id="a68d582d-828e-49b9-b870-b7dc184f37e3">&lt;/linkText&gt;</ept><bpt id="a68d582d-828e-49b9-b870-b7dc184f37e3">&lt;title&gt;</bpt><ept id="a68d582d-828e-49b9-b870-b7dc184f37e3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a68d582d-828e-49b9-b870-b7dc184f37e3">&lt;linkText&gt;</bpt>BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs<ept id="a68d582d-828e-49b9-b870-b7dc184f37e3">&lt;/linkText&gt;</ept><bpt id="a68d582d-828e-49b9-b870-b7dc184f37e3">&lt;title&gt;</bpt><ept id="a68d582d-828e-49b9-b870-b7dc184f37e3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="072dd4b6-0d9f-4b1d-85ce-d355ac39e0b8" xml:space="preserve">
+          <source><bpt id="4db35363-ffac-428d-9038-e543cf529ef7">&lt;linkText&gt;</bpt>Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)<ept id="4db35363-ffac-428d-9038-e543cf529ef7">&lt;/linkText&gt;</ept><bpt id="4db35363-ffac-428d-9038-e543cf529ef7">&lt;title&gt;</bpt><ept id="4db35363-ffac-428d-9038-e543cf529ef7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4db35363-ffac-428d-9038-e543cf529ef7">&lt;linkText&gt;</bpt>Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)<ept id="4db35363-ffac-428d-9038-e543cf529ef7">&lt;/linkText&gt;</ept><bpt id="4db35363-ffac-428d-9038-e543cf529ef7">&lt;title&gt;</bpt><ept id="4db35363-ffac-428d-9038-e543cf529ef7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e082dde-a2e7-47e5-adcb-6374b2e214c0" xml:space="preserve">
+          <source><bpt id="31a4a2b2-4e1f-404a-a5e4-4208e7a3fa29">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections<ept id="31a4a2b2-4e1f-404a-a5e4-4208e7a3fa29">&lt;/linkText&gt;</ept><bpt id="31a4a2b2-4e1f-404a-a5e4-4208e7a3fa29">&lt;title&gt;</bpt><ept id="31a4a2b2-4e1f-404a-a5e4-4208e7a3fa29">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="31a4a2b2-4e1f-404a-a5e4-4208e7a3fa29">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections<ept id="31a4a2b2-4e1f-404a-a5e4-4208e7a3fa29">&lt;/linkText&gt;</ept><bpt id="31a4a2b2-4e1f-404a-a5e4-4208e7a3fa29">&lt;title&gt;</bpt><ept id="31a4a2b2-4e1f-404a-a5e4-4208e7a3fa29">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db7b6bca-44c9-43ef-a580-5ba273e95912" xml:space="preserve">
+          <source><bpt id="8ac98c70-eb28-43c8-b3f3-6ffa7ac6a892">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections (Channel 9 video)<ept id="8ac98c70-eb28-43c8-b3f3-6ffa7ac6a892">&lt;/linkText&gt;</ept><bpt id="8ac98c70-eb28-43c8-b3f3-6ffa7ac6a892">&lt;title&gt;</bpt><ept id="8ac98c70-eb28-43c8-b3f3-6ffa7ac6a892">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8ac98c70-eb28-43c8-b3f3-6ffa7ac6a892">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections (Channel 9 video)<ept id="8ac98c70-eb28-43c8-b3f3-6ffa7ac6a892">&lt;/linkText&gt;</ept><bpt id="8ac98c70-eb28-43c8-b3f3-6ffa7ac6a892">&lt;title&gt;</bpt><ept id="8ac98c70-eb28-43c8-b3f3-6ffa7ac6a892">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ad921d1-0b2d-4772-852e-34f22410cbbf" xml:space="preserve">
+          <source><bpt id="8cd43692-3cae-4010-8e45-cd409406c32d">&lt;linkText&gt;</bpt>ASP.NET Identity Overview<ept id="8cd43692-3cae-4010-8e45-cd409406c32d">&lt;/linkText&gt;</ept><bpt id="8cd43692-3cae-4010-8e45-cd409406c32d">&lt;title&gt;</bpt><ept id="8cd43692-3cae-4010-8e45-cd409406c32d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8cd43692-3cae-4010-8e45-cd409406c32d">&lt;linkText&gt;</bpt>ASP.NET Identity Overview<ept id="8cd43692-3cae-4010-8e45-cd409406c32d">&lt;/linkText&gt;</ept><bpt id="8cd43692-3cae-4010-8e45-cd409406c32d">&lt;title&gt;</bpt><ept id="8cd43692-3cae-4010-8e45-cd409406c32d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d0e5e33-211f-4a7d-bd1b-95aae1ab7cdc" xml:space="preserve">
+          <source><bpt id="c5f04c8c-56cf-4b39-90f5-95102993bf7a">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="c5f04c8c-56cf-4b39-90f5-95102993bf7a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c5f04c8c-56cf-4b39-90f5-95102993bf7a">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="c5f04c8c-56cf-4b39-90f5-95102993bf7a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

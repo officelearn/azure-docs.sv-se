@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7e09e788-db3d-481a-a81e-7a29e828b872" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7e09e788-db3d-481a-a81e-7a29e828b872" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4401fcb8-f83a-4a2c-bf47-7a1ec3bbda81">
+        <trans-unit id="1c6bbbae-e02a-451e-9d16-e680298fe47d" xml:space="preserve">
+          <source>Notification Hubs Localized Breaking News Tutorial</source>
+          <target state="new">Notification Hubs Localized Breaking News Tutorial</target>
+        </trans-unit>
+        <trans-unit id="27bb6ca7-32b7-41cf-b9e4-c9daac57efee" xml:space="preserve">
+          <source>Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications.</source>
+          <target state="new">Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications.</target>
+        </trans-unit>
+        <trans-unit id="9c448a86-af17-4ad8-ae05-8c6ec35f4746" xml:space="preserve">
+          <source>This topic shows you how to use the <bpt id="84b5f5f1-774e-4df4-a352-91fe2f04d438">&lt;strong&gt;</bpt>template<ept id="84b5f5f1-774e-4df4-a352-91fe2f04d438">&lt;/strong&gt;</ept> feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device.</source>
+          <target state="new">This topic shows you how to use the <bpt id="84b5f5f1-774e-4df4-a352-91fe2f04d438">&lt;strong&gt;</bpt>template<ept id="84b5f5f1-774e-4df4-a352-91fe2f04d438">&lt;/strong&gt;</ept> feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device.</target>
+        </trans-unit>
+        <trans-unit id="ff4a2183-0179-4827-aea9-4986a09b7fb1" xml:space="preserve">
+          <source>In this tutorial you start with the Windows Store app created in [Use Notification Hubs to send breaking news].</source>
+          <target state="new">In this tutorial you start with the Windows Store app created in [Use Notification Hubs to send breaking news].</target>
+        </trans-unit>
+        <trans-unit id="50b58adb-cb22-4995-9714-c45b860f1cf3" xml:space="preserve">
+          <source>When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.</source>
+          <target state="new">When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.</target>
+        </trans-unit>
+        <trans-unit id="9dd35d48-55da-45c7-84bc-48d0c7850c1b" xml:space="preserve">
+          <source>There are two parts to this scenario:</source>
+          <target state="new">There are two parts to this scenario:</target>
+        </trans-unit>
+        <trans-unit id="36a2f7cd-f4eb-4367-9213-2fee2402eb54" xml:space="preserve">
+          <source>the Windows Store app allows client devices to specify a language, and to subscribe to different breaking news categories;</source>
+          <target state="new">the Windows Store app allows client devices to specify a language, and to subscribe to different breaking news categories;</target>
+        </trans-unit>
+        <trans-unit id="6252c99a-b55e-4f92-8c57-b883cacbc4c6" xml:space="preserve">
+          <source>the back-end broadcasts the notifications, using the <bpt id="baf908c7-a35c-427c-90ae-1d44b8301985">&lt;strong&gt;</bpt>tag<ept id="baf908c7-a35c-427c-90ae-1d44b8301985">&lt;/strong&gt;</ept> and <bpt id="3f83cd80-88e3-4cc2-8fac-6e6cbd53f3df">&lt;strong&gt;</bpt>template<ept id="3f83cd80-88e3-4cc2-8fac-6e6cbd53f3df">&lt;/strong&gt;</ept> feautres of Azure Notification Hubs.</source>
+          <target state="new">the back-end broadcasts the notifications, using the <bpt id="baf908c7-a35c-427c-90ae-1d44b8301985">&lt;strong&gt;</bpt>tag<ept id="baf908c7-a35c-427c-90ae-1d44b8301985">&lt;/strong&gt;</ept> and <bpt id="3f83cd80-88e3-4cc2-8fac-6e6cbd53f3df">&lt;strong&gt;</bpt>template<ept id="3f83cd80-88e3-4cc2-8fac-6e6cbd53f3df">&lt;/strong&gt;</ept> feautres of Azure Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="18dcf7ec-a4e6-45d8-af5a-67cc340c59bd" xml:space="preserve">
+          <source>You must have already completed the [Use Notification Hubs to send breaking news] tutorial and have the code available, because this tutorial builds directly upon that code.</source>
+          <target state="new">You must have already completed the [Use Notification Hubs to send breaking news] tutorial and have the code available, because this tutorial builds directly upon that code.</target>
+        </trans-unit>
+        <trans-unit id="40b606c5-e89d-4c7a-830a-fbce0590c68b" xml:space="preserve">
+          <source>You also need Visual Studio 2012.</source>
+          <target state="new">You also need Visual Studio 2012.</target>
+        </trans-unit>
+        <trans-unit id="dbd7150f-b54a-4329-80e8-81f0db4fcfdb" xml:space="preserve">
+          <source>In [Use Notification Hubs to send breaking news] you built an app that used <bpt id="6201f23f-88fb-42d0-afea-ef94d5b03c9a">&lt;strong&gt;</bpt>tags<ept id="6201f23f-88fb-42d0-afea-ef94d5b03c9a">&lt;/strong&gt;</ept> to subscribe to notifications for different news categories.</source>
+          <target state="new">In [Use Notification Hubs to send breaking news] you built an app that used <bpt id="6201f23f-88fb-42d0-afea-ef94d5b03c9a">&lt;strong&gt;</bpt>tags<ept id="6201f23f-88fb-42d0-afea-ef94d5b03c9a">&lt;/strong&gt;</ept> to subscribe to notifications for different news categories.</target>
+        </trans-unit>
+        <trans-unit id="64dacb69-2f32-473a-8d22-ddca495457d3" xml:space="preserve">
+          <source>Many apps, however, target multiple markets and require localization.</source>
+          <target state="new">Many apps, however, target multiple markets and require localization.</target>
+        </trans-unit>
+        <trans-unit id="4849cf73-2447-4c50-82f7-5c2bee4743d1" xml:space="preserve">
+          <source>This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices.</source>
+          <target state="new">This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices.</target>
+        </trans-unit>
+        <trans-unit id="f418883e-51db-43ce-8d40-db223b78ba37" xml:space="preserve">
+          <source>In this topic we will show how to use the <bpt id="2efcd24f-e4bd-4bd6-ad82-739996b594ed">&lt;strong&gt;</bpt>template<ept id="2efcd24f-e4bd-4bd6-ad82-739996b594ed">&lt;/strong&gt;</ept> feature of Notification Hubs to easily deliver localized breaking news notifications.</source>
+          <target state="new">In this topic we will show how to use the <bpt id="2efcd24f-e4bd-4bd6-ad82-739996b594ed">&lt;strong&gt;</bpt>template<ept id="2efcd24f-e4bd-4bd6-ad82-739996b594ed">&lt;/strong&gt;</ept> feature of Notification Hubs to easily deliver localized breaking news notifications.</target>
+        </trans-unit>
+        <trans-unit id="53176373-4721-481c-84a4-0fce58943df6" xml:space="preserve">
+          <source>Note: one way to send localized notifications is to create multiple versions of each tag.</source>
+          <target state="new">Note: one way to send localized notifications is to create multiple versions of each tag.</target>
+        </trans-unit>
+        <trans-unit id="db4b06dd-3474-475f-b60b-70acf0a958ce" xml:space="preserve">
+          <source>For instance, to support English, French, and Mandarin, we would need three different tags for world news: "world<bpt id="60676452-e150-4017-9ef5-dac189c74dcb">&lt;em&gt;</bpt>en", "world<ept id="60676452-e150-4017-9ef5-dac189c74dcb">&lt;/em&gt;</ept>fr", and "world_ch".</source>
+          <target state="new">For instance, to support English, French, and Mandarin, we would need three different tags for world news: "world<bpt id="60676452-e150-4017-9ef5-dac189c74dcb">&lt;em&gt;</bpt>en", "world<ept id="60676452-e150-4017-9ef5-dac189c74dcb">&lt;/em&gt;</ept>fr", and "world_ch".</target>
+        </trans-unit>
+        <trans-unit id="08341912-ac8b-4b0d-8d71-c73cefa98fac" xml:space="preserve">
+          <source>We would then have to send a localized version of the world news to each of these tags.</source>
+          <target state="new">We would then have to send a localized version of the world news to each of these tags.</target>
+        </trans-unit>
+        <trans-unit id="e6e0f62c-dcac-4913-a238-9d8fa806c2f5" xml:space="preserve">
+          <source>In this topic we use templates to avoid the proliferation of tags and the requirement of sending multiple messages.</source>
+          <target state="new">In this topic we use templates to avoid the proliferation of tags and the requirement of sending multiple messages.</target>
+        </trans-unit>
+        <trans-unit id="ba176175-dfc5-4c1e-adae-3655cf5fb951" xml:space="preserve">
+          <source>At a high level, templates are a way to specify how a specific device should receive a notification.</source>
+          <target state="new">At a high level, templates are a way to specify how a specific device should receive a notification.</target>
+        </trans-unit>
+        <trans-unit id="6c432348-f89d-469a-8571-98a99e579d1e" xml:space="preserve">
+          <source>The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end.</source>
+          <target state="new">The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end.</target>
+        </trans-unit>
+        <trans-unit id="1b2778de-6de0-4255-b261-e27c91f5631b" xml:space="preserve">
+          <source>In our case, we will send a locale-agnostic message containing all supported languages:</source>
+          <target state="new">In our case, we will send a locale-agnostic message containing all supported languages:</target>
+        </trans-unit>
+        <trans-unit id="da76aa7c-00d5-4b07-8bcd-186df224e7b8" xml:space="preserve">
+          <source>Then we will ensure that devices register with a template that refers to the correct property.</source>
+          <target state="new">Then we will ensure that devices register with a template that refers to the correct property.</target>
+        </trans-unit>
+        <trans-unit id="7d8abbb2-4ae7-46ea-89d2-723e4625c05b" xml:space="preserve">
+          <source>For instance, a Windows Store app that wants to receive a simple toast message will register for the following template:</source>
+          <target state="new">For instance, a Windows Store app that wants to receive a simple toast message will register for the following template:</target>
+        </trans-unit>
+        <trans-unit id="ba132deb-fe50-4a2e-aa32-9d55380cd51d" xml:space="preserve">
+          <source>Templates are a very powerful feature you can learn more about in our [Notification Hubs Guidance] article.</source>
+          <target state="new">Templates are a very powerful feature you can learn more about in our [Notification Hubs Guidance] article.</target>
+        </trans-unit>
+        <trans-unit id="15a67af3-4fb2-44dd-8b8a-bf37448ee4a2" xml:space="preserve">
+          <source>A reference for the template expression language is in our [Notification Hubs How-To for Windows Store].</source>
+          <target state="new">A reference for the template expression language is in our [Notification Hubs How-To for Windows Store].</target>
+        </trans-unit>
+        <trans-unit id="4bd98f69-4367-4720-8505-1ff5db5b6c74" xml:space="preserve">
+          <source>We will now modify the Breaking News app that you created in the topic [Use Notification Hubs to send breaking news] to send localized breaking news using templates.</source>
+          <target state="new">We will now modify the Breaking News app that you created in the topic [Use Notification Hubs to send breaking news] to send localized breaking news using templates.</target>
+        </trans-unit>
+        <trans-unit id="f913f9bc-6e94-45d2-8922-4896c5db4e36" xml:space="preserve">
+          <source>In order to adapt your client apps to receive localized messages, you have to replace your <bpt id="d357754a-7ffe-4e13-a5ee-71e44dc29bcd">&lt;em&gt;</bpt>native<ept id="d357754a-7ffe-4e13-a5ee-71e44dc29bcd">&lt;/em&gt;</ept> registrations (i.e. registrations that do you specify a template) with template registrations.</source>
+          <target state="new">In order to adapt your client apps to receive localized messages, you have to replace your <bpt id="d357754a-7ffe-4e13-a5ee-71e44dc29bcd">&lt;em&gt;</bpt>native<ept id="d357754a-7ffe-4e13-a5ee-71e44dc29bcd">&lt;/em&gt;</ept> registrations (i.e. registrations that do you specify a template) with template registrations.</target>
+        </trans-unit>
+        <trans-unit id="b25fe2d5-c974-446d-a360-fba780e20c84" xml:space="preserve">
+          <source>In your Windows Store app:</source>
+          <target state="new">In your Windows Store app:</target>
+        </trans-unit>
+        <trans-unit id="8d5d23d0-4d18-443f-8d11-31556d95c6de" xml:space="preserve">
+          <source>Change your MainPage.xaml to include a locale combobox:</source>
+          <target state="new">Change your MainPage.xaml to include a locale combobox:</target>
+        </trans-unit>
+        <trans-unit id="a3033387-4489-45f7-809d-e3f92c62bdf6" xml:space="preserve">
+          <source>In your Notifications class, add a locale parameter to your  <bpt id="ca810fa1-bdaf-47c1-91ec-efaf7ede0d83">&lt;em&gt;</bpt>StoreCategoriesAndSubscribe<ept id="ca810fa1-bdaf-47c1-91ec-efaf7ede0d83">&lt;/em&gt;</ept> and <bpt id="e3d43113-de24-4a03-88de-59054392594b">&lt;em&gt;</bpt>SubscribeToCateories<ept id="e3d43113-de24-4a03-88de-59054392594b">&lt;/em&gt;</ept> methods.</source>
+          <target state="new">In your Notifications class, add a locale parameter to your  <bpt id="ca810fa1-bdaf-47c1-91ec-efaf7ede0d83">&lt;em&gt;</bpt>StoreCategoriesAndSubscribe<ept id="ca810fa1-bdaf-47c1-91ec-efaf7ede0d83">&lt;/em&gt;</ept> and <bpt id="e3d43113-de24-4a03-88de-59054392594b">&lt;em&gt;</bpt>SubscribeToCateories<ept id="e3d43113-de24-4a03-88de-59054392594b">&lt;/em&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="0d25894e-113e-488b-857c-17a4311e449e" xml:space="preserve">
+          <source>Note that instead of calling the <bpt id="08bda7ee-a777-4cb3-9445-ef653be84886">&lt;em&gt;</bpt>RegisterNativeAsync<ept id="08bda7ee-a777-4cb3-9445-ef653be84886">&lt;/em&gt;</ept> method we call <bpt id="39f4499b-2429-4bfe-8dad-314ee0cf7b48">&lt;em&gt;</bpt>RegisterTemplateAsync<ept id="39f4499b-2429-4bfe-8dad-314ee0cf7b48">&lt;/em&gt;</ept>: we are registering a specific notification format in which the template depends on the locale.</source>
+          <target state="new">Note that instead of calling the <bpt id="08bda7ee-a777-4cb3-9445-ef653be84886">&lt;em&gt;</bpt>RegisterNativeAsync<ept id="08bda7ee-a777-4cb3-9445-ef653be84886">&lt;/em&gt;</ept> method we call <bpt id="39f4499b-2429-4bfe-8dad-314ee0cf7b48">&lt;em&gt;</bpt>RegisterTemplateAsync<ept id="39f4499b-2429-4bfe-8dad-314ee0cf7b48">&lt;/em&gt;</ept>: we are registering a specific notification format in which the template depends on the locale.</target>
+        </trans-unit>
+        <trans-unit id="81e4bd6c-9261-40b2-b6d0-ee1cd6314f4f" xml:space="preserve">
+          <source>We also provide a name for the template ("newsTemplate"), because we might want to register more than one template (for instance one for toast notifications and one for tiles) and we need to name them in order to be able to update or delete them.</source>
+          <target state="new">We also provide a name for the template ("newsTemplate"), because we might want to register more than one template (for instance one for toast notifications and one for tiles) and we need to name them in order to be able to update or delete them.</target>
+        </trans-unit>
+        <trans-unit id="b05d9d57-ea7e-4806-a359-93ab14789a35" xml:space="preserve">
+          <source>Note that if a device registers multiple templates with the same tag, an incoming message targeting that tag will result in multiple notifications delivered to the device (one for each template).</source>
+          <target state="new">Note that if a device registers multiple templates with the same tag, an incoming message targeting that tag will result in multiple notifications delivered to the device (one for each template).</target>
+        </trans-unit>
+        <trans-unit id="39904256-cd38-4d04-bb27-4e95da193fe6" xml:space="preserve">
+          <source>This behavior is useful when the same logical message has to result in multiple visual notifications, for instance showing both a badge and a toast in a Windows Store application.</source>
+          <target state="new">This behavior is useful when the same logical message has to result in multiple visual notifications, for instance showing both a badge and a toast in a Windows Store application.</target>
+        </trans-unit>
+        <trans-unit id="4ea635bd-33f3-4550-8fc7-4b760e13dd5c" xml:space="preserve">
+          <source>Add the following method to retrieve the stored locale:</source>
+          <target state="new">Add the following method to retrieve the stored locale:</target>
+        </trans-unit>
+        <trans-unit id="829f2760-def8-44f5-84cd-4da94a480162" xml:space="preserve">
+          <source>In your MainPage.xaml.cs, update your button click handler by retrieving the current value of the Locale combobox and providing it to the call to the Notifications class, as shown:</source>
+          <target state="new">In your MainPage.xaml.cs, update your button click handler by retrieving the current value of the Locale combobox and providing it to the call to the Notifications class, as shown:</target>
+        </trans-unit>
+        <trans-unit id="ffa0140a-210f-4199-8324-51fa97c9ed8f" xml:space="preserve">
+          <source>Finally, in your App.xaml.cs file, make sure to update your call to the
+Notifications singleton in the <bpt id="a020f30a-06cb-4f9c-afd4-30cc0d935467">&lt;em&gt;</bpt>OnLaunched<ept id="a020f30a-06cb-4f9c-afd4-30cc0d935467">&lt;/em&gt;</ept> method:</source>
+          <target state="new">Finally, in your App.xaml.cs file, make sure to update your call to the
+Notifications singleton in the <bpt id="a020f30a-06cb-4f9c-afd4-30cc0d935467">&lt;em&gt;</bpt>OnLaunched<ept id="a020f30a-06cb-4f9c-afd4-30cc0d935467">&lt;/em&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="38594e90-4d78-4b23-b039-62ff1cabc713" xml:space="preserve">
+          <source><bpt id="51d053ce-cac1-4bc2-b424-76df9763983a">&lt;token href="../../includes/notification-hubs-localized-back-end.md"&gt;</bpt><ept id="51d053ce-cac1-4bc2-b424-76df9763983a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="51d053ce-cac1-4bc2-b424-76df9763983a">&lt;token href="../../includes/notification-hubs-localized-back-end.md"&gt;</bpt><ept id="51d053ce-cac1-4bc2-b424-76df9763983a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1cf54bbd-6dd4-4686-a680-7f601ca921e0" xml:space="preserve">
+          <source>For more information on using templates, see [Notify users with Notification Hubs: ASP.NET], [Notify users with Notification Hubs: Mobile Services] and also see [Notification Hubs Guidance].</source>
+          <target state="new">For more information on using templates, see [Notify users with Notification Hubs: ASP.NET], [Notify users with Notification Hubs: Mobile Services] and also see [Notification Hubs Guidance].</target>
+        </trans-unit>
+        <trans-unit id="325eceba-a586-4f7e-9133-f3950389a2c5" xml:space="preserve">
+          <source>A reference for the template expression language is [Notification Hubs How-To for Windows Store].</source>
+          <target state="new">A reference for the template expression language is [Notification Hubs How-To for Windows Store].</target>
+        </trans-unit>
+        <trans-unit id="e61fc907-7b62-49fb-9bdc-af090693fe0d" xml:space="preserve">
+          <source>#concepts</source>
+          <target state="new">#concepts</target>
+        </trans-unit>
+        <trans-unit id="759f2101-8e2d-4f66-b729-fa2919ed2414" xml:space="preserve">
+          <source>#ui</source>
+          <target state="new">#ui</target>
+        </trans-unit>
+        <trans-unit id="efbf2d0f-b7cf-4da3-b5c6-a7ac4a6e16dc" xml:space="preserve">
+          <source>#building-client</source>
+          <target state="new">#building-client</target>
+        </trans-unit>
+        <trans-unit id="90e61457-6dae-4891-ab93-f207ce9687ec" xml:space="preserve">
+          <source>#send</source>
+          <target state="new">#send</target>
+        </trans-unit>
+        <trans-unit id="79aca782-c5d2-4729-95df-976cb1f14fa5" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="7c40939a-a744-4c83-b1f5-b50d7db029d3" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started</source>
+          <target state="new">/develop/mobile/tutorials/get-started</target>
+        </trans-unit>
+        <trans-unit id="28b9a3d9-0377-4a10-953a-9a451c259e26" xml:space="preserve">
+          <source>/manage/services/notification-hubs/notify-users-aspnet</source>
+          <target state="new">/manage/services/notification-hubs/notify-users-aspnet</target>
+        </trans-unit>
+        <trans-unit id="953613fe-eafc-4803-86b2-554f2aa954f9" xml:space="preserve">
+          <source>/manage/services/notification-hubs/notify-users</source>
+          <target state="new">/manage/services/notification-hubs/notify-users</target>
+        </trans-unit>
+        <trans-unit id="78da80a2-a880-4ed1-b3a8-94021599e15c" xml:space="preserve">
+          <source>/manage/services/notification-hubs/breaking-news-dotnet</source>
+          <target state="new">/manage/services/notification-hubs/breaking-news-dotnet</target>
+        </trans-unit>
+        <trans-unit id="e2e363c3-4270-4a69-864c-4fabfddb0e95" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=266582</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=266582</target>
+        </trans-unit>
+        <trans-unit id="c5112446-3b96-49b3-bbd1-fdbc87db5ee1" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="e8ab34ab-330c-470e-9a2e-cdc136583438" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262253</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262253</target>
+        </trans-unit>
+        <trans-unit id="ab6f51c8-1d6f-4dc1-9fa9-92380fd85a2e" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started/#create-new-service</source>
+          <target state="new">/develop/mobile/tutorials/get-started/#create-new-service</target>
+        </trans-unit>
+        <trans-unit id="cd871119-c807-4128-92f3-a175a6550b82" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-data-dotnet</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-data-dotnet</target>
+        </trans-unit>
+        <trans-unit id="10955021-4fed-42d8-890b-b1a4dfbc1ba3" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-users-dotnet</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-users-dotnet</target>
+        </trans-unit>
+        <trans-unit id="40974741-5e80-4452-b9b3-ac25d4f6f205" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-push-dotnet</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-push-dotnet</target>
+        </trans-unit>
+        <trans-unit id="8e07c616-c9f6-4e62-8f02-40220fca9f1c" xml:space="preserve">
+          <source>/develop/mobile/tutorials/push-notifications-to-app-users-dotnet</source>
+          <target state="new">/develop/mobile/tutorials/push-notifications-to-app-users-dotnet</target>
+        </trans-unit>
+        <trans-unit id="b60b2d60-be1f-4e54-984d-31c89926f07d" xml:space="preserve">
+          <source>/develop/mobile/tutorials/authorize-users-in-scripts-dotnet</source>
+          <target state="new">/develop/mobile/tutorials/authorize-users-in-scripts-dotnet</target>
+        </trans-unit>
+        <trans-unit id="e7d3ce4f-4692-4757-838a-530f1c288d50" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-push-js</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-push-js</target>
+        </trans-unit>
+        <trans-unit id="ad27d3ab-f059-42b6-87f7-25776e943e32" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="6fd6f90c-19c0-45af-ac93-4c3e37256d1f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=260591</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=260591</target>
+        </trans-unit>
+        <trans-unit id="488d7cc4-c38e-4aec-9592-877a692d4050" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/jj927170.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/jj927170.aspx</target>
+        </trans-unit>
+        <trans-unit id="2804cadc-a686-4d9f-aae3-885eaa720e71" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/jj927168.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/jj927168.aspx</target>
+        </trans-unit>
+        <trans-unit id="a233ecca-a7cf-4ab4-a96a-b03998fd9685" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/jj927172.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/jj927172.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="b43bb9e5-c8a6-47dd-8e4e-d972960ba74a" />
+    </body>
+  </file>
+</xliff>

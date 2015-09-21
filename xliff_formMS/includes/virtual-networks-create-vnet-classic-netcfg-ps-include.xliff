@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fdda8cfc-2a52-4c53-9c3c-7c1063fd1237" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fdda8cfc-2a52-4c53-9c3c-7c1063fd1237" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="dfea5593-b088-4d16-a272-924fd24eb441">
+        <trans-unit id="ce7cfbde-d7ec-47a5-90cf-0360e2d8e926" xml:space="preserve">
+          <source>Azure uses an xml file to define all VNets available to a subscription.</source>
+          <target state="new">Azure uses an xml file to define all VNets available to a subscription.</target>
+        </trans-unit>
+        <trans-unit id="82403d6c-35d0-4c14-9deb-d7e5c5b17277" xml:space="preserve">
+          <source>You can download this file, and edit it to modify or delete existing VNets, and create new ones.</source>
+          <target state="new">You can download this file, and edit it to modify or delete existing VNets, and create new ones.</target>
+        </trans-unit>
+        <trans-unit id="ea341ecd-c718-45a2-8469-a758bd3cfd80" xml:space="preserve">
+          <source>In this document, you will learn how to download this file, referred to as network configuration (or netcgf) file, and edit it to create a new VNet.</source>
+          <target state="new">In this document, you will learn how to download this file, referred to as network configuration (or netcgf) file, and edit it to create a new VNet.</target>
+        </trans-unit>
+        <trans-unit id="19da4d34-3643-4df6-9be3-78bc1da8b73f" xml:space="preserve">
+          <source>Check the <bpt id="4ab0a10b-b76e-4c1d-8e73-e2d8d508d128">&lt;linkText&gt;</bpt>Azure virtual network configuration schema<ept id="4ab0a10b-b76e-4c1d-8e73-e2d8d508d128">&lt;/linkText&gt;</ept><bpt id="4ab0a10b-b76e-4c1d-8e73-e2d8d508d128">&lt;title&gt;</bpt><ept id="4ab0a10b-b76e-4c1d-8e73-e2d8d508d128">&lt;/title&gt;</ept> to learn more about the network configuration file.</source>
+          <target state="new">Check the <bpt id="4ab0a10b-b76e-4c1d-8e73-e2d8d508d128">&lt;linkText&gt;</bpt>Azure virtual network configuration schema<ept id="4ab0a10b-b76e-4c1d-8e73-e2d8d508d128">&lt;/linkText&gt;</ept><bpt id="4ab0a10b-b76e-4c1d-8e73-e2d8d508d128">&lt;title&gt;</bpt><ept id="4ab0a10b-b76e-4c1d-8e73-e2d8d508d128">&lt;/title&gt;</ept> to learn more about the network configuration file.</target>
+        </trans-unit>
+        <trans-unit id="5492d651-6a2e-4eb7-b674-b803f7fc672d" xml:space="preserve">
+          <source>To create a VNet using a netcfg file using PowerShell, follow the steps below.</source>
+          <target state="new">To create a VNet using a netcfg file using PowerShell, follow the steps below.</target>
+        </trans-unit>
+        <trans-unit id="f9cfae11-aa50-414d-8f7d-71db2dc280dd" xml:space="preserve">
+          <source>If you have never used Azure PowerShell, see <bpt id="385c7c53-f9a0-48e1-9c99-517e15c68393">&lt;linkText&gt;</bpt>How to Install and Configure Azure PowerShell<ept id="385c7c53-f9a0-48e1-9c99-517e15c68393">&lt;/linkText&gt;</ept><bpt id="385c7c53-f9a0-48e1-9c99-517e15c68393">&lt;title&gt;</bpt><ept id="385c7c53-f9a0-48e1-9c99-517e15c68393">&lt;/title&gt;</ept> and follow the instructions all the way to the end to sign into Azure and select your subscription.</source>
+          <target state="new">If you have never used Azure PowerShell, see <bpt id="385c7c53-f9a0-48e1-9c99-517e15c68393">&lt;linkText&gt;</bpt>How to Install and Configure Azure PowerShell<ept id="385c7c53-f9a0-48e1-9c99-517e15c68393">&lt;/linkText&gt;</ept><bpt id="385c7c53-f9a0-48e1-9c99-517e15c68393">&lt;title&gt;</bpt><ept id="385c7c53-f9a0-48e1-9c99-517e15c68393">&lt;/title&gt;</ept> and follow the instructions all the way to the end to sign into Azure and select your subscription.</target>
+        </trans-unit>
+        <trans-unit id="b5220c4c-62f3-47b0-babd-002541b2f622" xml:space="preserve">
+          <source>From the Azure PowerShell console, use the <bpt id="7ed76147-56d5-4c64-801b-66c54023faac">&lt;strong&gt;</bpt>Get-AzureVnetConfig<ept id="7ed76147-56d5-4c64-801b-66c54023faac">&lt;/strong&gt;</ept> cmdlet to download the network configuration file by running the command below.</source>
+          <target state="new">From the Azure PowerShell console, use the <bpt id="7ed76147-56d5-4c64-801b-66c54023faac">&lt;strong&gt;</bpt>Get-AzureVnetConfig<ept id="7ed76147-56d5-4c64-801b-66c54023faac">&lt;/strong&gt;</ept> cmdlet to download the network configuration file by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="22d411e4-21bf-4802-b7f9-86c0afd36f35" xml:space="preserve">
+          <source>Notice the output under the command.</source>
+          <target state="new">Notice the output under the command.</target>
+        </trans-unit>
+        <trans-unit id="26337978-690e-4a87-a69f-f0f920110a43" xml:space="preserve">
+          <source>Open the file you saved in step 2 above using any XML or text editor application, and look for the <bpt id="eca297c9-f599-4bc8-96f2-4d9913ec2ed0">&lt;strong&gt;</bpt>&lt;VirtualNetworkSites&gt;<ept id="eca297c9-f599-4bc8-96f2-4d9913ec2ed0">&lt;/strong&gt;</ept> element. If you have any networks already created, each network will be displayed as its own <bpt id="82958bf4-62cf-4a69-a14d-df11dcbdc9c3">&lt;strong&gt;</bpt>&lt;VirtualNetworkSite&gt;<ept id="82958bf4-62cf-4a69-a14d-df11dcbdc9c3">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">Open the file you saved in step 2 above using any XML or text editor application, and look for the <bpt id="eca297c9-f599-4bc8-96f2-4d9913ec2ed0">&lt;strong&gt;</bpt>&lt;VirtualNetworkSites&gt;<ept id="eca297c9-f599-4bc8-96f2-4d9913ec2ed0">&lt;/strong&gt;</ept> element. If you have any networks already created, each network will be displayed as its own <bpt id="82958bf4-62cf-4a69-a14d-df11dcbdc9c3">&lt;strong&gt;</bpt>&lt;VirtualNetworkSite&gt;<ept id="82958bf4-62cf-4a69-a14d-df11dcbdc9c3">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="caf6ffaf-5924-41b3-b5eb-366184f0f761" xml:space="preserve">
+          <source>To create the virtual network described in this scenario, add the following XML just under the <bpt id="faae4627-e468-49d5-b4a2-32151bf88fd5">&lt;strong&gt;</bpt>&lt;VirtualNetworkSites&gt;<ept id="faae4627-e468-49d5-b4a2-32151bf88fd5">&lt;/strong&gt;</ept> element:</source>
+          <target state="new">To create the virtual network described in this scenario, add the following XML just under the <bpt id="faae4627-e468-49d5-b4a2-32151bf88fd5">&lt;strong&gt;</bpt>&lt;VirtualNetworkSites&gt;<ept id="faae4627-e468-49d5-b4a2-32151bf88fd5">&lt;/strong&gt;</ept> element:</target>
+        </trans-unit>
+        <trans-unit id="aa36fdf5-0ca3-467c-9a2b-1fb66b15bf2f" xml:space="preserve">
+          <source>Save the network configuration file.</source>
+          <target state="new">Save the network configuration file.</target>
+        </trans-unit>
+        <trans-unit id="1ae6abdb-d39d-406e-b15c-76a01eefd438" xml:space="preserve">
+          <source>From the Azure PowerShell console, use the <bpt id="707ce817-e615-45c5-af70-e81c757088b8">&lt;strong&gt;</bpt>Set-AzureVnetConfig<ept id="707ce817-e615-45c5-af70-e81c757088b8">&lt;/strong&gt;</ept> cmdlet to upload the network configuration file by running the command below.</source>
+          <target state="new">From the Azure PowerShell console, use the <bpt id="707ce817-e615-45c5-af70-e81c757088b8">&lt;strong&gt;</bpt>Set-AzureVnetConfig<ept id="707ce817-e615-45c5-af70-e81c757088b8">&lt;/strong&gt;</ept> cmdlet to upload the network configuration file by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="60e84930-4805-4f33-bbbe-b3dc2d2520eb" xml:space="preserve">
+          <source>Notice the output under the command, you should see <bpt id="ec64b74d-dc77-455a-83be-8097664aa20d">&lt;strong&gt;</bpt>Succeeded<ept id="ec64b74d-dc77-455a-83be-8097664aa20d">&lt;/strong&gt;</ept> under <bpt id="b6092576-016d-42e9-bcf3-d7d8d8702e88">&lt;strong&gt;</bpt>OperationStatus<ept id="b6092576-016d-42e9-bcf3-d7d8d8702e88">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice the output under the command, you should see <bpt id="ec64b74d-dc77-455a-83be-8097664aa20d">&lt;strong&gt;</bpt>Succeeded<ept id="ec64b74d-dc77-455a-83be-8097664aa20d">&lt;/strong&gt;</ept> under <bpt id="b6092576-016d-42e9-bcf3-d7d8d8702e88">&lt;strong&gt;</bpt>OperationStatus<ept id="b6092576-016d-42e9-bcf3-d7d8d8702e88">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="996097a9-b871-4615-ab60-39c5aaa9c715" xml:space="preserve">
+          <source>If that is not the case, check the xml file for errors.</source>
+          <target state="new">If that is not the case, check the xml file for errors.</target>
+        </trans-unit>
+        <trans-unit id="03b62f30-2921-4d27-8195-fd5d05edd36a" xml:space="preserve">
+          <source>From the Azure PowerShell console, use the <bpt id="3c19a0c3-8150-465a-9e31-50bd566e3d02">&lt;strong&gt;</bpt>Get-AzureVnetSite<ept id="3c19a0c3-8150-465a-9e31-50bd566e3d02">&lt;/strong&gt;</ept> cmdlet to verify that the new network was added by running the command below.</source>
+          <target state="new">From the Azure PowerShell console, use the <bpt id="3c19a0c3-8150-465a-9e31-50bd566e3d02">&lt;strong&gt;</bpt>Get-AzureVnetSite<ept id="3c19a0c3-8150-465a-9e31-50bd566e3d02">&lt;/strong&gt;</ept> cmdlet to verify that the new network was added by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="1ab1791b-d497-4dd0-8862-57e6585ac49f" xml:space="preserve">
+          <source>Notice the output with the properties of your new VNet.</source>
+          <target state="new">Notice the output with the properties of your new VNet.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

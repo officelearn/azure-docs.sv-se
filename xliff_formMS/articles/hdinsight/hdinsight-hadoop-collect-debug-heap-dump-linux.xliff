@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5c36c858-e41d-4b62-9ab9-09290e6b6fd1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5c36c858-e41d-4b62-9ab9-09290e6b6fd1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="125e3a23-ffa6-4d0b-8f64-d08d34dce71a">
+        <trans-unit id="9f8baa9d-5774-491b-b80c-a8c592991397" xml:space="preserve">
+          <source>Enable heap dumps for Hadoop services on HDInsight | Microsoft Azure</source>
+          <target state="new">Enable heap dumps for Hadoop services on HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b2bdfe19-671d-4c9e-8018-8fa177ef1409" xml:space="preserve">
+          <source>Enable heap dumps for Hadoop services from Linux-based HDInsight clusters for debugging and analysis.</source>
+          <target state="new">Enable heap dumps for Hadoop services from Linux-based HDInsight clusters for debugging and analysis.</target>
+        </trans-unit>
+        <trans-unit id="59ec9c5c-b43a-4198-b0dc-d0a44a9aeaf0" xml:space="preserve">
+          <source><bpt id="a77aa386-c42b-46d2-965c-4b0fe2d6088f">&lt;token href="../../includes/hdinsight-selector-heap-dump.md"&gt;</bpt><ept id="a77aa386-c42b-46d2-965c-4b0fe2d6088f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a77aa386-c42b-46d2-965c-4b0fe2d6088f">&lt;token href="../../includes/hdinsight-selector-heap-dump.md"&gt;</bpt><ept id="a77aa386-c42b-46d2-965c-4b0fe2d6088f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd73e5e8-4f68-4181-a891-27731f4d10c5" xml:space="preserve">
+          <source>Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created.</source>
+          <target state="new">Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created.</target>
+        </trans-unit>
+        <trans-unit id="7fe70961-c156-439d-aca9-19e44f220b0f" xml:space="preserve">
+          <source>So they are very useful for diagnosing problems that occur at run-time.</source>
+          <target state="new">So they are very useful for diagnosing problems that occur at run-time.</target>
+        </trans-unit>
+        <trans-unit id="e9762a14-1679-4311-b851-530b79553690" xml:space="preserve">
+          <source>The information in this article only applies to Linux-based HDInsight.</source>
+          <target state="new">The information in this article only applies to Linux-based HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="f729dac5-5597-497d-8a0f-d4499e164203" xml:space="preserve">
+          <source>For information on Windows-based HDInsight, see <bpt id="6535752a-b886-411b-98b0-ab936d8f9b78">&lt;linkText&gt;</bpt>Enable heap dumps for Hadoop services on Windows-based HDInsight<ept id="6535752a-b886-411b-98b0-ab936d8f9b78">&lt;/linkText&gt;</ept><bpt id="6535752a-b886-411b-98b0-ab936d8f9b78">&lt;title&gt;</bpt><ept id="6535752a-b886-411b-98b0-ab936d8f9b78">&lt;/title&gt;</ept></source>
+          <target state="new">For information on Windows-based HDInsight, see <bpt id="6535752a-b886-411b-98b0-ab936d8f9b78">&lt;linkText&gt;</bpt>Enable heap dumps for Hadoop services on Windows-based HDInsight<ept id="6535752a-b886-411b-98b0-ab936d8f9b78">&lt;/linkText&gt;</ept><bpt id="6535752a-b886-411b-98b0-ab936d8f9b78">&lt;title&gt;</bpt><ept id="6535752a-b886-411b-98b0-ab936d8f9b78">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="271707c6-882b-42ea-8be4-aacc39a0596b" xml:space="preserve">
+          <source>You can enable heap dumps for the following services:</source>
+          <target state="new">You can enable heap dumps for the following services:</target>
+        </trans-unit>
+        <trans-unit id="957b3ef9-e1f5-47b2-9404-0412a20ac6f9" xml:space="preserve">
+          <source><bpt id="ff899738-5611-4473-9f02-c022eef8d358">&lt;strong&gt;</bpt>hcatalog<ept id="ff899738-5611-4473-9f02-c022eef8d358">&lt;/strong&gt;</ept> - tempelton</source>
+          <target state="new"><bpt id="ff899738-5611-4473-9f02-c022eef8d358">&lt;strong&gt;</bpt>hcatalog<ept id="ff899738-5611-4473-9f02-c022eef8d358">&lt;/strong&gt;</ept> - tempelton</target>
+        </trans-unit>
+        <trans-unit id="b578c9bd-5f59-4bb0-9b2c-f85ec0775657" xml:space="preserve">
+          <source><bpt id="b23c7d01-ea8e-4b93-abe6-5d835946e1bb">&lt;strong&gt;</bpt>hive<ept id="b23c7d01-ea8e-4b93-abe6-5d835946e1bb">&lt;/strong&gt;</ept> - hiveserver2, metastore, derbyserver</source>
+          <target state="new"><bpt id="b23c7d01-ea8e-4b93-abe6-5d835946e1bb">&lt;strong&gt;</bpt>hive<ept id="b23c7d01-ea8e-4b93-abe6-5d835946e1bb">&lt;/strong&gt;</ept> - hiveserver2, metastore, derbyserver</target>
+        </trans-unit>
+        <trans-unit id="6dcb98e7-bbb9-41e7-8a67-7d74005a870b" xml:space="preserve">
+          <source><bpt id="6136a751-6967-4d6d-9f3f-36f04383e640">&lt;strong&gt;</bpt>mapreduce<ept id="6136a751-6967-4d6d-9f3f-36f04383e640">&lt;/strong&gt;</ept> - jobhistoryserver</source>
+          <target state="new"><bpt id="6136a751-6967-4d6d-9f3f-36f04383e640">&lt;strong&gt;</bpt>mapreduce<ept id="6136a751-6967-4d6d-9f3f-36f04383e640">&lt;/strong&gt;</ept> - jobhistoryserver</target>
+        </trans-unit>
+        <trans-unit id="deee5781-f65e-4333-bbee-a1b5ba388753" xml:space="preserve">
+          <source><bpt id="a89f4c4c-a6b7-4ec5-a38c-d7f9c92b0b9a">&lt;strong&gt;</bpt>yarn<ept id="a89f4c4c-a6b7-4ec5-a38c-d7f9c92b0b9a">&lt;/strong&gt;</ept> - resourcemanager, nodemanager, timelineserver</source>
+          <target state="new"><bpt id="a89f4c4c-a6b7-4ec5-a38c-d7f9c92b0b9a">&lt;strong&gt;</bpt>yarn<ept id="a89f4c4c-a6b7-4ec5-a38c-d7f9c92b0b9a">&lt;/strong&gt;</ept> - resourcemanager, nodemanager, timelineserver</target>
+        </trans-unit>
+        <trans-unit id="c00670ae-8597-4932-b363-a970716ab894" xml:space="preserve">
+          <source><bpt id="99ff3c7b-ced5-4787-b290-4abf487c15e0">&lt;strong&gt;</bpt>hdfs<ept id="99ff3c7b-ced5-4787-b290-4abf487c15e0">&lt;/strong&gt;</ept> - datanode, secondarynamenode, namenode</source>
+          <target state="new"><bpt id="99ff3c7b-ced5-4787-b290-4abf487c15e0">&lt;strong&gt;</bpt>hdfs<ept id="99ff3c7b-ced5-4787-b290-4abf487c15e0">&lt;/strong&gt;</ept> - datanode, secondarynamenode, namenode</target>
+        </trans-unit>
+        <trans-unit id="546da2b7-cbde-4a45-a632-89ce2e3f5cef" xml:space="preserve">
+          <source>You can also enable heap dumps for the map and reduce processes ran by HDInsight.</source>
+          <target state="new">You can also enable heap dumps for the map and reduce processes ran by HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="3654571f-1aa5-4405-af10-bc0d9c9d04e5" xml:space="preserve">
+          <source>Heap dumps are enabled by passing options (sometimes known as opts, or parameters) to the JVM when a service is started.</source>
+          <target state="new">Heap dumps are enabled by passing options (sometimes known as opts, or parameters) to the JVM when a service is started.</target>
+        </trans-unit>
+        <trans-unit id="ec53b544-fe20-41fd-a2e8-956685f37ea6" xml:space="preserve">
+          <source>For most Hadoop services, this can be accomplished by modifying the shell script used to start the service.</source>
+          <target state="new">For most Hadoop services, this can be accomplished by modifying the shell script used to start the service.</target>
+        </trans-unit>
+        <trans-unit id="c5f89893-efbe-4f49-a7ce-644703eda908" xml:space="preserve">
+          <source>In each script, there is an export for <bpt id="0ea498e2-762c-4785-99f4-131e533528af">&lt;strong&gt;</bpt>\*\_OPTS<ept id="0ea498e2-762c-4785-99f4-131e533528af">&lt;/strong&gt;</ept>, which contains the options passed to the JVM.</source>
+          <target state="new">In each script, there is an export for <bpt id="0ea498e2-762c-4785-99f4-131e533528af">&lt;strong&gt;</bpt>\*\_OPTS<ept id="0ea498e2-762c-4785-99f4-131e533528af">&lt;/strong&gt;</ept>, which contains the options passed to the JVM.</target>
+        </trans-unit>
+        <trans-unit id="8f0bab5c-5765-4a1c-951d-65f8bba0859e" xml:space="preserve">
+          <source>For example, in the <bpt id="49b456c5-52fa-4eee-8491-830ca1cf4312">&lt;strong&gt;</bpt>hadoop-env.sh<ept id="49b456c5-52fa-4eee-8491-830ca1cf4312">&lt;/strong&gt;</ept> script, the line that begins with <bpt id="a55b79a6-6cf6-4e3b-ab9a-4761bfe769cb">&lt;code&gt;</bpt>export HADOOP_NAMENODE_OPTS=<ept id="a55b79a6-6cf6-4e3b-ab9a-4761bfe769cb">&lt;/code&gt;</ept> contains the options for the NameNode service.</source>
+          <target state="new">For example, in the <bpt id="49b456c5-52fa-4eee-8491-830ca1cf4312">&lt;strong&gt;</bpt>hadoop-env.sh<ept id="49b456c5-52fa-4eee-8491-830ca1cf4312">&lt;/strong&gt;</ept> script, the line that begins with <bpt id="a55b79a6-6cf6-4e3b-ab9a-4761bfe769cb">&lt;code&gt;</bpt>export HADOOP_NAMENODE_OPTS=<ept id="a55b79a6-6cf6-4e3b-ab9a-4761bfe769cb">&lt;/code&gt;</ept> contains the options for the NameNode service.</target>
+        </trans-unit>
+        <trans-unit id="3f676f2b-324d-4392-a3fb-95a2f4f36e15" xml:space="preserve">
+          <source>Map and reduce processes are slightly different, as these are a child process of the MapReduce service.</source>
+          <target state="new">Map and reduce processes are slightly different, as these are a child process of the MapReduce service.</target>
+        </trans-unit>
+        <trans-unit id="ef03f239-cd2b-4643-aa3e-f0194cf0b6bf" xml:space="preserve">
+          <source>Each map or reduce process runs in a child container, and there are two entries that contain the JVM options for these.</source>
+          <target state="new">Each map or reduce process runs in a child container, and there are two entries that contain the JVM options for these.</target>
+        </trans-unit>
+        <trans-unit id="9797f910-737b-4325-bdab-865b70ede4c8" xml:space="preserve">
+          <source>Both contained in <bpt id="123d12e5-e393-4456-bf22-1d673452f735">&lt;strong&gt;</bpt>mapred-site.xml<ept id="123d12e5-e393-4456-bf22-1d673452f735">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Both contained in <bpt id="123d12e5-e393-4456-bf22-1d673452f735">&lt;strong&gt;</bpt>mapred-site.xml<ept id="123d12e5-e393-4456-bf22-1d673452f735">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="b4ba31ff-8713-4de0-ab12-5a490719103f" xml:space="preserve">
+          <source><bpt id="60cba32c-e0d7-47cb-ac49-39a16a57fcce">&lt;strong&gt;</bpt>mapreduce.admin.map.child.java.opts<ept id="60cba32c-e0d7-47cb-ac49-39a16a57fcce">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="60cba32c-e0d7-47cb-ac49-39a16a57fcce">&lt;strong&gt;</bpt>mapreduce.admin.map.child.java.opts<ept id="60cba32c-e0d7-47cb-ac49-39a16a57fcce">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24c3a31c-3960-4a7f-a718-4fec10ed711c" xml:space="preserve">
+          <source><bpt id="950ee78f-a7d4-4292-a04d-e6b6ca5088e8">&lt;strong&gt;</bpt>mapreduce.admin.reduce.child.java.opts<ept id="950ee78f-a7d4-4292-a04d-e6b6ca5088e8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="950ee78f-a7d4-4292-a04d-e6b6ca5088e8">&lt;strong&gt;</bpt>mapreduce.admin.reduce.child.java.opts<ept id="950ee78f-a7d4-4292-a04d-e6b6ca5088e8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33783d50-8978-4c43-a07d-e9010b44de85" xml:space="preserve">
+          <source>We recommend using Ambari to modify both the scripts and mapred-site.xml settings, as Ambari will handle replicating changes across nodes in the cluster.</source>
+          <target state="new">We recommend using Ambari to modify both the scripts and mapred-site.xml settings, as Ambari will handle replicating changes across nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="5820aed6-2c68-4c6c-8b9c-0a8b0c6b4d66" xml:space="preserve">
+          <source>See the <bpt id="a03166d2-37f6-4e97-a9d5-66e6179a5441">&lt;linkText&gt;</bpt>Using Ambari<ept id="a03166d2-37f6-4e97-a9d5-66e6179a5441">&lt;/linkText&gt;</ept><bpt id="a03166d2-37f6-4e97-a9d5-66e6179a5441">&lt;title&gt;</bpt><ept id="a03166d2-37f6-4e97-a9d5-66e6179a5441">&lt;/title&gt;</ept> section for specific steps.</source>
+          <target state="new">See the <bpt id="a03166d2-37f6-4e97-a9d5-66e6179a5441">&lt;linkText&gt;</bpt>Using Ambari<ept id="a03166d2-37f6-4e97-a9d5-66e6179a5441">&lt;/linkText&gt;</ept><bpt id="a03166d2-37f6-4e97-a9d5-66e6179a5441">&lt;title&gt;</bpt><ept id="a03166d2-37f6-4e97-a9d5-66e6179a5441">&lt;/title&gt;</ept> section for specific steps.</target>
+        </trans-unit>
+        <trans-unit id="df2057ce-d8cb-4c08-a3a9-6fb5cece9e62" xml:space="preserve">
+          <source>The following option enables heap dumps when an OutOfMemoryError occurs:</source>
+          <target state="new">The following option enables heap dumps when an OutOfMemoryError occurs:</target>
+        </trans-unit>
+        <trans-unit id="074cfb37-b6f1-4a7f-96d0-9b3750096c11" xml:space="preserve">
+          <source>The <bpt id="79e5289a-df0b-4e2f-8f86-c5ddd9f244d6">&lt;strong&gt;</bpt>+<ept id="79e5289a-df0b-4e2f-8f86-c5ddd9f244d6">&lt;/strong&gt;</ept> indicates that this option is enabled.</source>
+          <target state="new">The <bpt id="79e5289a-df0b-4e2f-8f86-c5ddd9f244d6">&lt;strong&gt;</bpt>+<ept id="79e5289a-df0b-4e2f-8f86-c5ddd9f244d6">&lt;/strong&gt;</ept> indicates that this option is enabled.</target>
+        </trans-unit>
+        <trans-unit id="a7159e6d-4783-417a-a12a-3d1385a97191" xml:space="preserve">
+          <source>The default is disabled.</source>
+          <target state="new">The default is disabled.</target>
+        </trans-unit>
+        <trans-unit id="6fe75354-14bc-4d9c-9914-12dea0734af2" xml:space="preserve">
+          <source>Heap dumps are not enabled for Hadoop services on HDInsight by default, as the dump files can be large.</source>
+          <target state="new">Heap dumps are not enabled for Hadoop services on HDInsight by default, as the dump files can be large.</target>
+        </trans-unit>
+        <trans-unit id="59d8db58-170a-4135-af5e-e89e059d6e27" xml:space="preserve">
+          <source>If you do enable them for troubleshooting, remember to disable them once you have reproduced the problem and gathered the dump files.</source>
+          <target state="new">If you do enable them for troubleshooting, remember to disable them once you have reproduced the problem and gathered the dump files.</target>
+        </trans-unit>
+        <trans-unit id="d185569a-7794-4457-8f8b-e532f087dcf8" xml:space="preserve">
+          <source>The default location for the dump file is the current working directory.</source>
+          <target state="new">The default location for the dump file is the current working directory.</target>
+        </trans-unit>
+        <trans-unit id="b46ae2f1-522b-40d7-a498-18a9986a51a2" xml:space="preserve">
+          <source>You can control where the file is stored using the following option:</source>
+          <target state="new">You can control where the file is stored using the following option:</target>
+        </trans-unit>
+        <trans-unit id="3accec49-8698-4bad-9141-deac402a6192" xml:space="preserve">
+          <source>For example, using <bpt id="93e0bc5c-58b2-465f-91c8-a9985da166eb">&lt;code&gt;</bpt>-XX:HeapDumpPath=/tmp<ept id="93e0bc5c-58b2-465f-91c8-a9985da166eb">&lt;/code&gt;</ept> will cause the dumps to be stored in the /tmp directory.</source>
+          <target state="new">For example, using <bpt id="93e0bc5c-58b2-465f-91c8-a9985da166eb">&lt;code&gt;</bpt>-XX:HeapDumpPath=/tmp<ept id="93e0bc5c-58b2-465f-91c8-a9985da166eb">&lt;/code&gt;</ept> will cause the dumps to be stored in the /tmp directory.</target>
+        </trans-unit>
+        <trans-unit id="ccd8aa25-6466-4742-a95a-ef7e0e4160b1" xml:space="preserve">
+          <source>You can also trigger a script when an <bpt id="1617829e-8ffa-4078-9f57-b087b11cb485">&lt;strong&gt;</bpt>OutOfMemoryError<ept id="1617829e-8ffa-4078-9f57-b087b11cb485">&lt;/strong&gt;</ept> occurs.</source>
+          <target state="new">You can also trigger a script when an <bpt id="1617829e-8ffa-4078-9f57-b087b11cb485">&lt;strong&gt;</bpt>OutOfMemoryError<ept id="1617829e-8ffa-4078-9f57-b087b11cb485">&lt;/strong&gt;</ept> occurs.</target>
+        </trans-unit>
+        <trans-unit id="54620d5a-fb8f-488f-ac33-4daf0c9873d1" xml:space="preserve">
+          <source>For example, triggering a notification so you know that the error has occurred.</source>
+          <target state="new">For example, triggering a notification so you know that the error has occurred.</target>
+        </trans-unit>
+        <trans-unit id="c7610393-31f3-4bd7-bd7c-27215a77e6b6" xml:space="preserve">
+          <source>This is controlled using the following option:</source>
+          <target state="new">This is controlled using the following option:</target>
+        </trans-unit>
+        <trans-unit id="bb316d73-29bc-4d48-90a8-b724fd09c8f6" xml:space="preserve">
+          <source>Since Hadoop is a distributed system, any script used must be placed on all nodes in the cluster that the service runs on.</source>
+          <target state="new">Since Hadoop is a distributed system, any script used must be placed on all nodes in the cluster that the service runs on.</target>
+        </trans-unit>
+        <trans-unit id="5d56fc94-39a3-4c0b-abb8-76e8049942e9" xml:space="preserve">
+          <source>The script must also be in a location that is accessible by the account the service runs as, and must provide execute permissions.</source>
+          <target state="new">The script must also be in a location that is accessible by the account the service runs as, and must provide execute permissions.</target>
+        </trans-unit>
+        <trans-unit id="bb73e57a-c7d6-46eb-8ee9-3546c4faf5fc" xml:space="preserve">
+          <source>For example, you may wish to store scripts in <bpt id="47350c93-bd7d-4a73-820e-eb86fe7711b3">&lt;code&gt;</bpt>/usr/local/bin<ept id="47350c93-bd7d-4a73-820e-eb86fe7711b3">&lt;/code&gt;</ept> and use <bpt id="9fe93c80-1ae8-4a7a-8dbf-3e6a51892f29">&lt;code&gt;</bpt>chmod go+rx /usr/local/bin/filename.sh<ept id="9fe93c80-1ae8-4a7a-8dbf-3e6a51892f29">&lt;/code&gt;</ept> to grant read and execute permissions.</source>
+          <target state="new">For example, you may wish to store scripts in <bpt id="47350c93-bd7d-4a73-820e-eb86fe7711b3">&lt;code&gt;</bpt>/usr/local/bin<ept id="47350c93-bd7d-4a73-820e-eb86fe7711b3">&lt;/code&gt;</ept> and use <bpt id="9fe93c80-1ae8-4a7a-8dbf-3e6a51892f29">&lt;code&gt;</bpt>chmod go+rx /usr/local/bin/filename.sh<ept id="9fe93c80-1ae8-4a7a-8dbf-3e6a51892f29">&lt;/code&gt;</ept> to grant read and execute permissions.</target>
+        </trans-unit>
+        <trans-unit id="573d7eb8-cd5b-4f5d-a0b9-16705155bfa1" xml:space="preserve">
+          <source>To modify the configuration for a service, use the following steps:</source>
+          <target state="new">To modify the configuration for a service, use the following steps:</target>
+        </trans-unit>
+        <trans-unit id="a5edf233-972d-4094-a11b-7201d306cc55" xml:space="preserve">
+          <source>Open the Ambari web UI for your cluster.</source>
+          <target state="new">Open the Ambari web UI for your cluster.</target>
+        </trans-unit>
+        <trans-unit id="8d39514f-d3ff-4345-b5f5-6370659ffeb5" xml:space="preserve">
+          <source>The URL will be https://YOURCLUSTERNAME.azurehdinsight.net.</source>
+          <target state="new">The URL will be https://YOURCLUSTERNAME.azurehdinsight.net.</target>
+        </trans-unit>
+        <trans-unit id="e5354a5a-bda5-4808-bf0d-a399952472cd" xml:space="preserve">
+          <source>When prompted, authenticate to the site using the HTTP account name (default: admin,) and password for your cluster.</source>
+          <target state="new">When prompted, authenticate to the site using the HTTP account name (default: admin,) and password for your cluster.</target>
+        </trans-unit>
+        <trans-unit id="c58d201f-6f26-4fa5-8d44-637c131260a1" xml:space="preserve">
+          <source>You may be prompted a second time by Ambari for the user name and password.</source>
+          <target state="new">You may be prompted a second time by Ambari for the user name and password.</target>
+        </trans-unit>
+        <trans-unit id="ff722e89-5a32-49e2-a819-07dfd22f0435" xml:space="preserve">
+          <source>If so, just re-enter the same account name and password</source>
+          <target state="new">If so, just re-enter the same account name and password</target>
+        </trans-unit>
+        <trans-unit id="4c64f030-c223-4ed2-8ebc-268fd6000b3a" xml:space="preserve">
+          <source>Using the list of on the left, select the service area you want to modify.</source>
+          <target state="new">Using the list of on the left, select the service area you want to modify.</target>
+        </trans-unit>
+        <trans-unit id="8579cff5-bdd3-461f-ad3b-2c2b47c7550c" xml:space="preserve">
+          <source>For example, <bpt id="5c349e4c-6abc-4b5d-a2a4-0eb6792463c7">&lt;strong&gt;</bpt>HDFS<ept id="5c349e4c-6abc-4b5d-a2a4-0eb6792463c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="5c349e4c-6abc-4b5d-a2a4-0eb6792463c7">&lt;strong&gt;</bpt>HDFS<ept id="5c349e4c-6abc-4b5d-a2a4-0eb6792463c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a770457-4f6f-47d0-bb38-cac39bb69ac8" xml:space="preserve">
+          <source>In the center area, select the <bpt id="79a7105b-f336-44af-a7d2-2bfd9d78574a">&lt;strong&gt;</bpt>Configs<ept id="79a7105b-f336-44af-a7d2-2bfd9d78574a">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the center area, select the <bpt id="79a7105b-f336-44af-a7d2-2bfd9d78574a">&lt;strong&gt;</bpt>Configs<ept id="79a7105b-f336-44af-a7d2-2bfd9d78574a">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="ebad469b-c6a6-4a2e-8c2b-e1bf1f855bac" xml:space="preserve">
+          <source><bpt id="0e07949f-923c-4136-a1eb-ed2e743e0dea">&lt;linkText&gt;</bpt>Image of Ambari web with HDFS Configs tab selected<ept id="0e07949f-923c-4136-a1eb-ed2e743e0dea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e07949f-923c-4136-a1eb-ed2e743e0dea">&lt;linkText&gt;</bpt>Image of Ambari web with HDFS Configs tab selected<ept id="0e07949f-923c-4136-a1eb-ed2e743e0dea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="feedbb26-303a-4769-8ef4-a291fd991c0a" xml:space="preserve">
+          <source>Using the <bpt id="464f829f-841e-4cc6-b715-700dc9a6a700">&lt;strong&gt;</bpt>Filter...<ept id="464f829f-841e-4cc6-b715-700dc9a6a700">&lt;/strong&gt;</ept> entry, enter <bpt id="85616bfd-dc18-4b1a-9436-3fdbda314f44">&lt;strong&gt;</bpt>opts<ept id="85616bfd-dc18-4b1a-9436-3fdbda314f44">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Using the <bpt id="464f829f-841e-4cc6-b715-700dc9a6a700">&lt;strong&gt;</bpt>Filter...<ept id="464f829f-841e-4cc6-b715-700dc9a6a700">&lt;/strong&gt;</ept> entry, enter <bpt id="85616bfd-dc18-4b1a-9436-3fdbda314f44">&lt;strong&gt;</bpt>opts<ept id="85616bfd-dc18-4b1a-9436-3fdbda314f44">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d54630ca-c557-4aaa-bca6-5d2b1a4f5924" xml:space="preserve">
+          <source>This will filter the list of configuration items to only those containing this text, and is a quick way to find the shell script, or <bpt id="bc8acd4c-71b9-4ec8-8deb-ec46c99e28ea">&lt;strong&gt;</bpt>template<ept id="bc8acd4c-71b9-4ec8-8deb-ec46c99e28ea">&lt;/strong&gt;</ept> that can be used to set these options.</source>
+          <target state="new">This will filter the list of configuration items to only those containing this text, and is a quick way to find the shell script, or <bpt id="bc8acd4c-71b9-4ec8-8deb-ec46c99e28ea">&lt;strong&gt;</bpt>template<ept id="bc8acd4c-71b9-4ec8-8deb-ec46c99e28ea">&lt;/strong&gt;</ept> that can be used to set these options.</target>
+        </trans-unit>
+        <trans-unit id="673bcfda-544d-48da-9aa2-eafd39f7f944" xml:space="preserve">
+          <source><bpt id="751e0284-e374-4f5b-be34-81853b88afe4">&lt;linkText&gt;</bpt>Filtered list<ept id="751e0284-e374-4f5b-be34-81853b88afe4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="751e0284-e374-4f5b-be34-81853b88afe4">&lt;linkText&gt;</bpt>Filtered list<ept id="751e0284-e374-4f5b-be34-81853b88afe4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56ae05ec-33e8-4f85-8646-676114bdc1d4" xml:space="preserve">
+          <source>Find the <bpt id="d19ca007-4ef2-48ac-9f86-e5dc8da29b62">&lt;strong&gt;</bpt>\*\_OPTS<ept id="d19ca007-4ef2-48ac-9f86-e5dc8da29b62">&lt;/strong&gt;</ept> entry for the service you want to enable heap dumps for, and add the options you wish to enable.</source>
+          <target state="new">Find the <bpt id="d19ca007-4ef2-48ac-9f86-e5dc8da29b62">&lt;strong&gt;</bpt>\*\_OPTS<ept id="d19ca007-4ef2-48ac-9f86-e5dc8da29b62">&lt;/strong&gt;</ept> entry for the service you want to enable heap dumps for, and add the options you wish to enable.</target>
+        </trans-unit>
+        <trans-unit id="108ac332-e896-4399-9c98-88f338550b1c" xml:space="preserve">
+          <source>In the following image, I've added <bpt id="67a37f02-d2e2-4cd3-923c-a8768cdd6106">&lt;code&gt;</bpt>-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/<ept id="67a37f02-d2e2-4cd3-923c-a8768cdd6106">&lt;/code&gt;</ept> to the <bpt id="881733ca-aceb-47d6-98fe-5bd98a59c813">&lt;strong&gt;</bpt>HADOOP\_NAMENODE\_OPTS<ept id="881733ca-aceb-47d6-98fe-5bd98a59c813">&lt;/strong&gt;</ept> entry:</source>
+          <target state="new">In the following image, I've added <bpt id="67a37f02-d2e2-4cd3-923c-a8768cdd6106">&lt;code&gt;</bpt>-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/<ept id="67a37f02-d2e2-4cd3-923c-a8768cdd6106">&lt;/code&gt;</ept> to the <bpt id="881733ca-aceb-47d6-98fe-5bd98a59c813">&lt;strong&gt;</bpt>HADOOP\_NAMENODE\_OPTS<ept id="881733ca-aceb-47d6-98fe-5bd98a59c813">&lt;/strong&gt;</ept> entry:</target>
+        </trans-unit>
+        <trans-unit id="b3112967-c130-461b-a132-332eed7e9eed" xml:space="preserve">
+          <source><bpt id="84f4cc93-8282-4b3d-bd4b-6e57c80a4001">&lt;linkText&gt;</bpt>HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/<ept id="84f4cc93-8282-4b3d-bd4b-6e57c80a4001">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="84f4cc93-8282-4b3d-bd4b-6e57c80a4001">&lt;linkText&gt;</bpt>HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/<ept id="84f4cc93-8282-4b3d-bd4b-6e57c80a4001">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ca3ca7e-ba19-4f51-9d66-0dfdb53b18d1" xml:space="preserve">
+          <source>When enabling heap dumps for the map or reduce child process, you will instead look for the fields labled <bpt id="6d3cf78a-b5a9-43c2-855b-9f4cd3f8c103">&lt;strong&gt;</bpt>mapreduce.admin.map.child.java.opts<ept id="6d3cf78a-b5a9-43c2-855b-9f4cd3f8c103">&lt;/strong&gt;</ept> and <bpt id="569d1136-b277-48fe-ad04-6b2dada2118c">&lt;strong&gt;</bpt>mapreduce.admin.reduce.child.java.opts<ept id="569d1136-b277-48fe-ad04-6b2dada2118c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When enabling heap dumps for the map or reduce child process, you will instead look for the fields labled <bpt id="6d3cf78a-b5a9-43c2-855b-9f4cd3f8c103">&lt;strong&gt;</bpt>mapreduce.admin.map.child.java.opts<ept id="6d3cf78a-b5a9-43c2-855b-9f4cd3f8c103">&lt;/strong&gt;</ept> and <bpt id="569d1136-b277-48fe-ad04-6b2dada2118c">&lt;strong&gt;</bpt>mapreduce.admin.reduce.child.java.opts<ept id="569d1136-b277-48fe-ad04-6b2dada2118c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="170d05b1-e953-49d4-8e16-375c6a6424dc" xml:space="preserve">
+          <source>Use the <bpt id="a9539f9e-c8d6-4fa4-aa7f-4e39dea1c43d">&lt;strong&gt;</bpt>Save<ept id="a9539f9e-c8d6-4fa4-aa7f-4e39dea1c43d">&lt;/strong&gt;</ept> button to save the changes.</source>
+          <target state="new">Use the <bpt id="a9539f9e-c8d6-4fa4-aa7f-4e39dea1c43d">&lt;strong&gt;</bpt>Save<ept id="a9539f9e-c8d6-4fa4-aa7f-4e39dea1c43d">&lt;/strong&gt;</ept> button to save the changes.</target>
+        </trans-unit>
+        <trans-unit id="43bc4081-a136-4eaa-a218-cdafc3368ec5" xml:space="preserve">
+          <source>You will be allowed to enter a short note describing the changes.</source>
+          <target state="new">You will be allowed to enter a short note describing the changes.</target>
+        </trans-unit>
+        <trans-unit id="bc364217-288d-4047-bc9c-3a35a36642e6" xml:space="preserve">
+          <source>Once the changes have been applied, the <bpt id="34bf1c3c-92d9-4907-946a-a07cfa8fb2db">&lt;strong&gt;</bpt>Restart required<ept id="34bf1c3c-92d9-4907-946a-a07cfa8fb2db">&lt;/strong&gt;</ept> icon will appear beside one or more services.</source>
+          <target state="new">Once the changes have been applied, the <bpt id="34bf1c3c-92d9-4907-946a-a07cfa8fb2db">&lt;strong&gt;</bpt>Restart required<ept id="34bf1c3c-92d9-4907-946a-a07cfa8fb2db">&lt;/strong&gt;</ept> icon will appear beside one or more services.</target>
+        </trans-unit>
+        <trans-unit id="28815943-2e99-4b18-ae60-1767afd46a89" xml:space="preserve">
+          <source><bpt id="14be8608-0e45-4570-9d81-e850c4ac42a9">&lt;linkText&gt;</bpt>restart required icon and restart button<ept id="14be8608-0e45-4570-9d81-e850c4ac42a9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="14be8608-0e45-4570-9d81-e850c4ac42a9">&lt;linkText&gt;</bpt>restart required icon and restart button<ept id="14be8608-0e45-4570-9d81-e850c4ac42a9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b67e582-4ac6-4469-8cff-76ce92ef4f80" xml:space="preserve">
+          <source>Select each service that needs a restart, and use the <bpt id="a5835d8c-4b23-48cd-bf31-c7007e148a1e">&lt;strong&gt;</bpt>Service Actions<ept id="a5835d8c-4b23-48cd-bf31-c7007e148a1e">&lt;/strong&gt;</ept> button to <bpt id="e26e894b-d2d6-471e-8c75-ccad2bb2b558">&lt;strong&gt;</bpt>Turn On Maintenance Mode<ept id="e26e894b-d2d6-471e-8c75-ccad2bb2b558">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select each service that needs a restart, and use the <bpt id="a5835d8c-4b23-48cd-bf31-c7007e148a1e">&lt;strong&gt;</bpt>Service Actions<ept id="a5835d8c-4b23-48cd-bf31-c7007e148a1e">&lt;/strong&gt;</ept> button to <bpt id="e26e894b-d2d6-471e-8c75-ccad2bb2b558">&lt;strong&gt;</bpt>Turn On Maintenance Mode<ept id="e26e894b-d2d6-471e-8c75-ccad2bb2b558">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd933945-7c92-4981-9ea7-080b4366adec" xml:space="preserve">
+          <source>This prevents alerts from being generated from this service when you restart it.</source>
+          <target state="new">This prevents alerts from being generated from this service when you restart it.</target>
+        </trans-unit>
+        <trans-unit id="c9843528-0ddd-401c-8be0-4e94bfec4bda" xml:space="preserve">
+          <source><bpt id="4a3c4587-dfc0-495c-9393-37ad4b1713e8">&lt;linkText&gt;</bpt>Turn on maintenance mode menu<ept id="4a3c4587-dfc0-495c-9393-37ad4b1713e8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4a3c4587-dfc0-495c-9393-37ad4b1713e8">&lt;linkText&gt;</bpt>Turn on maintenance mode menu<ept id="4a3c4587-dfc0-495c-9393-37ad4b1713e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30032a8d-1744-4f73-b369-3bbee00bb380" xml:space="preserve">
+          <source>Once you have enabled maintenance mode, use the <bpt id="385e2c0a-c599-4a9a-b71b-e9d6942fc285">&lt;strong&gt;</bpt>Restart<ept id="385e2c0a-c599-4a9a-b71b-e9d6942fc285">&lt;/strong&gt;</ept> button for the service to <bpt id="6e9fb32b-b854-496a-9e86-d8481e29ae0e">&lt;strong&gt;</bpt>Restart All Effected<ept id="6e9fb32b-b854-496a-9e86-d8481e29ae0e">&lt;/strong&gt;</ept></source>
+          <target state="new">Once you have enabled maintenance mode, use the <bpt id="385e2c0a-c599-4a9a-b71b-e9d6942fc285">&lt;strong&gt;</bpt>Restart<ept id="385e2c0a-c599-4a9a-b71b-e9d6942fc285">&lt;/strong&gt;</ept> button for the service to <bpt id="6e9fb32b-b854-496a-9e86-d8481e29ae0e">&lt;strong&gt;</bpt>Restart All Effected<ept id="6e9fb32b-b854-496a-9e86-d8481e29ae0e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d67aaf4e-2e2e-47e4-9e0c-926be54ad780" xml:space="preserve">
+          <source><bpt id="4d9b5d95-8105-47cc-bcb1-ff6eb2b22761">&lt;linkText&gt;</bpt>Restart All Affected entry<ept id="4d9b5d95-8105-47cc-bcb1-ff6eb2b22761">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d9b5d95-8105-47cc-bcb1-ff6eb2b22761">&lt;linkText&gt;</bpt>Restart All Affected entry<ept id="4d9b5d95-8105-47cc-bcb1-ff6eb2b22761">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa7a5b95-8dbe-4029-9c29-3417381e5ace" xml:space="preserve">
+          <source>the entries for the <bpt id="b27ad189-17d8-46a2-9de3-e18deca1b026">&lt;strong&gt;</bpt>Restart<ept id="b27ad189-17d8-46a2-9de3-e18deca1b026">&lt;/strong&gt;</ept> button may be different for other services.</source>
+          <target state="new">the entries for the <bpt id="b27ad189-17d8-46a2-9de3-e18deca1b026">&lt;strong&gt;</bpt>Restart<ept id="b27ad189-17d8-46a2-9de3-e18deca1b026">&lt;/strong&gt;</ept> button may be different for other services.</target>
+        </trans-unit>
+        <trans-unit id="9c6f4051-654d-4a4b-a5ed-3778a959666a" xml:space="preserve">
+          <source>Once the services have been restarted, use the <bpt id="d981de37-a8f1-47b5-a56b-714fef8dd346">&lt;strong&gt;</bpt>Service Actions<ept id="d981de37-a8f1-47b5-a56b-714fef8dd346">&lt;/strong&gt;</ept> button to <bpt id="2f8d21f6-e9b1-4238-a668-621230d4607b">&lt;strong&gt;</bpt>Turn Off Maintenance Mode<ept id="2f8d21f6-e9b1-4238-a668-621230d4607b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the services have been restarted, use the <bpt id="d981de37-a8f1-47b5-a56b-714fef8dd346">&lt;strong&gt;</bpt>Service Actions<ept id="d981de37-a8f1-47b5-a56b-714fef8dd346">&lt;/strong&gt;</ept> button to <bpt id="2f8d21f6-e9b1-4238-a668-621230d4607b">&lt;strong&gt;</bpt>Turn Off Maintenance Mode<ept id="2f8d21f6-e9b1-4238-a668-621230d4607b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c3dd980d-3908-4221-a28f-3a4afcab618e" xml:space="preserve">
+          <source>This Ambari to resume monitoring for alerts for the service.</source>
+          <target state="new">This Ambari to resume monitoring for alerts for the service.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

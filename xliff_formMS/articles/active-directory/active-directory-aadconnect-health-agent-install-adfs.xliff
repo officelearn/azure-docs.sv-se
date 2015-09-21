@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a44e6e5a-d553-436b-9c3a-246e9b0ae3d0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a44e6e5a-d553-436b-9c3a-246e9b0ae3d0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="07dbb1d7-a300-4a2c-8283-b61f596f2ec0">
+        <trans-unit id="f3fd8970-b34c-406d-a869-b92da153dcec" xml:space="preserve">
+          <source>Azure AD Connect Health AD FS Agent installation | Microsoft Azure</source>
+          <target state="new">Azure AD Connect Health AD FS Agent installation | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="31c1559a-da84-4aaa-812b-8bcd0af09b63" xml:space="preserve">
+          <source>This is the Azure AD Connect Health page that describes the Active Directory Federation Services (AD FS) agent installation.</source>
+          <target state="new">This is the Azure AD Connect Health page that describes the Active Directory Federation Services (AD FS) agent installation.</target>
+        </trans-unit>
+        <trans-unit id="3657cf13-1a5e-4510-8e77-51edf82d6fbd" xml:space="preserve">
+          <source>This document will walk you through installing and configuring the Azure AD Connect Health Agent for AD FS on your servers.</source>
+          <target state="new">This document will walk you through installing and configuring the Azure AD Connect Health Agent for AD FS on your servers.</target>
+        </trans-unit>
+        <trans-unit id="8ad7498c-acab-4c9e-bac8-07b64949cfde" xml:space="preserve">
+          <source>Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers.</source>
+          <target state="new">Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers.</target>
+        </trans-unit>
+        <trans-unit id="e4b4619b-179d-4d86-b0a3-5c70b0be71a0" xml:space="preserve">
+          <source>Be sure to complete the requirements <bpt id="5f30ded6-1957-4af0-a3fc-7bb4bb8cefff">&lt;linkText&gt;</bpt>here<ept id="5f30ded6-1957-4af0-a3fc-7bb4bb8cefff">&lt;/linkText&gt;</ept><bpt id="5f30ded6-1957-4af0-a3fc-7bb4bb8cefff">&lt;title&gt;</bpt><ept id="5f30ded6-1957-4af0-a3fc-7bb4bb8cefff">&lt;/title&gt;</ept> prior to installing the agent.</source>
+          <target state="new">Be sure to complete the requirements <bpt id="5f30ded6-1957-4af0-a3fc-7bb4bb8cefff">&lt;linkText&gt;</bpt>here<ept id="5f30ded6-1957-4af0-a3fc-7bb4bb8cefff">&lt;/linkText&gt;</ept><bpt id="5f30ded6-1957-4af0-a3fc-7bb4bb8cefff">&lt;title&gt;</bpt><ept id="5f30ded6-1957-4af0-a3fc-7bb4bb8cefff">&lt;/title&gt;</ept> prior to installing the agent.</target>
+        </trans-unit>
+        <trans-unit id="6d8939f6-315b-4f77-91bc-a783701eca02" xml:space="preserve">
+          <source>You can download the agent <bpt id="9a7013f1-f58c-49dd-b259-70014997afb1">&lt;linkText&gt;</bpt>here<ept id="9a7013f1-f58c-49dd-b259-70014997afb1">&lt;/linkText&gt;</ept><bpt id="9a7013f1-f58c-49dd-b259-70014997afb1">&lt;title&gt;</bpt><ept id="9a7013f1-f58c-49dd-b259-70014997afb1">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can download the agent <bpt id="9a7013f1-f58c-49dd-b259-70014997afb1">&lt;linkText&gt;</bpt>here<ept id="9a7013f1-f58c-49dd-b259-70014997afb1">&lt;/linkText&gt;</ept><bpt id="9a7013f1-f58c-49dd-b259-70014997afb1">&lt;title&gt;</bpt><ept id="9a7013f1-f58c-49dd-b259-70014997afb1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="770f69b6-cdf0-4065-8c31-2aca4eee526f" xml:space="preserve">
+          <source>To start the agent installation, double-click on the .exe file that you downloaded.</source>
+          <target state="new">To start the agent installation, double-click on the .exe file that you downloaded.</target>
+        </trans-unit>
+        <trans-unit id="8dc2ada7-c408-4aec-b817-9757f7657ba0" xml:space="preserve">
+          <source>On the first screen, click Install.</source>
+          <target state="new">On the first screen, click Install.</target>
+        </trans-unit>
+        <trans-unit id="8bc3be5e-7744-4532-8426-e4cf803621d8" xml:space="preserve">
+          <source><bpt id="c1b55b72-1238-42b1-a8cc-008af13b709e">&lt;linkText&gt;</bpt>Verify Azure AD Connect Health<ept id="c1b55b72-1238-42b1-a8cc-008af13b709e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c1b55b72-1238-42b1-a8cc-008af13b709e">&lt;linkText&gt;</bpt>Verify Azure AD Connect Health<ept id="c1b55b72-1238-42b1-a8cc-008af13b709e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76cc7504-1036-4087-8015-1ecf069c1c73" xml:space="preserve">
+          <source>Once the installation is finished, click Configure Now.</source>
+          <target state="new">Once the installation is finished, click Configure Now.</target>
+        </trans-unit>
+        <trans-unit id="40755634-a8d0-4cce-8a15-6e46726fcece" xml:space="preserve">
+          <source><bpt id="0ea90c56-d34f-40de-b7af-70a93992119b">&lt;linkText&gt;</bpt>Verify Azure AD Connect Health<ept id="0ea90c56-d34f-40de-b7af-70a93992119b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ea90c56-d34f-40de-b7af-70a93992119b">&lt;linkText&gt;</bpt>Verify Azure AD Connect Health<ept id="0ea90c56-d34f-40de-b7af-70a93992119b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7680b067-bcfc-4611-8a7f-2be71832a390" xml:space="preserve">
+          <source>This will launch a command prompt followed by some PowerShell that will execute Register-AzureADConnectHealthADFSAgent.</source>
+          <target state="new">This will launch a command prompt followed by some PowerShell that will execute Register-AzureADConnectHealthADFSAgent.</target>
+        </trans-unit>
+        <trans-unit id="27c5c8aa-5c88-4148-93f5-6b9bf2aa0d49" xml:space="preserve">
+          <source>You will be prompted to sign in to Azure.</source>
+          <target state="new">You will be prompted to sign in to Azure.</target>
+        </trans-unit>
+        <trans-unit id="f54a54a3-bc35-48d8-9e92-fd30c4355850" xml:space="preserve">
+          <source>Go ahead and sign in.</source>
+          <target state="new">Go ahead and sign in.</target>
+        </trans-unit>
+        <trans-unit id="d99659ea-ca49-4d4c-ad00-121c3b1bf14b" xml:space="preserve">
+          <source><bpt id="7df4861c-b329-4feb-b95d-034c21d88de5">&lt;linkText&gt;</bpt>Verify Azure AD Connect Health<ept id="7df4861c-b329-4feb-b95d-034c21d88de5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7df4861c-b329-4feb-b95d-034c21d88de5">&lt;linkText&gt;</bpt>Verify Azure AD Connect Health<ept id="7df4861c-b329-4feb-b95d-034c21d88de5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b250161-f468-4b42-b7ff-89ff35f29546" xml:space="preserve">
+          <source>After signing in, PowerShell will continue.</source>
+          <target state="new">After signing in, PowerShell will continue.</target>
+        </trans-unit>
+        <trans-unit id="995cef5e-c9db-4500-8efb-ef1da94028a3" xml:space="preserve">
+          <source>Once it completes you can close PowerShell and the configuration is complete.</source>
+          <target state="new">Once it completes you can close PowerShell and the configuration is complete.</target>
+        </trans-unit>
+        <trans-unit id="a7af87c1-b41e-4546-9ef2-c2a32803701c" xml:space="preserve">
+          <source>At this point, the services should be started automatically and the agent will be now monitoring and gathering data.</source>
+          <target state="new">At this point, the services should be started automatically and the agent will be now monitoring and gathering data.</target>
+        </trans-unit>
+        <trans-unit id="85ffda45-d445-4a90-b562-eb642018c6ab" xml:space="preserve">
+          <source>Be aware that you will see warnings in the PowerShell window if you have not met all of the pre-requisites that were outlined in the previous sections.</source>
+          <target state="new">Be aware that you will see warnings in the PowerShell window if you have not met all of the pre-requisites that were outlined in the previous sections.</target>
+        </trans-unit>
+        <trans-unit id="6873860e-8410-48d9-8741-aa6cadcf04f8" xml:space="preserve">
+          <source>Be sure to complete the requirements <bpt id="b1acb6d2-7d5c-4a9f-bdf1-b72449c7bd19">&lt;linkText&gt;</bpt>here<ept id="b1acb6d2-7d5c-4a9f-bdf1-b72449c7bd19">&lt;/linkText&gt;</ept><bpt id="b1acb6d2-7d5c-4a9f-bdf1-b72449c7bd19">&lt;title&gt;</bpt><ept id="b1acb6d2-7d5c-4a9f-bdf1-b72449c7bd19">&lt;/title&gt;</ept> prior to installing the agent.</source>
+          <target state="new">Be sure to complete the requirements <bpt id="b1acb6d2-7d5c-4a9f-bdf1-b72449c7bd19">&lt;linkText&gt;</bpt>here<ept id="b1acb6d2-7d5c-4a9f-bdf1-b72449c7bd19">&lt;/linkText&gt;</ept><bpt id="b1acb6d2-7d5c-4a9f-bdf1-b72449c7bd19">&lt;title&gt;</bpt><ept id="b1acb6d2-7d5c-4a9f-bdf1-b72449c7bd19">&lt;/title&gt;</ept> prior to installing the agent.</target>
+        </trans-unit>
+        <trans-unit id="c5d82436-a10a-40ea-8b81-b3f7f664ea25" xml:space="preserve">
+          <source>The following screenshot below is an example of these errors.</source>
+          <target state="new">The following screenshot below is an example of these errors.</target>
+        </trans-unit>
+        <trans-unit id="75650a39-107e-4bf5-b8c4-69db11162141" xml:space="preserve">
+          <source><bpt id="d8fd3d8e-9793-460b-968c-1e7ac3bca122">&lt;linkText&gt;</bpt>Verify Azure AD Connect Health<ept id="d8fd3d8e-9793-460b-968c-1e7ac3bca122">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d8fd3d8e-9793-460b-968c-1e7ac3bca122">&lt;linkText&gt;</bpt>Verify Azure AD Connect Health<ept id="d8fd3d8e-9793-460b-968c-1e7ac3bca122">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6ddb03e-6bbd-4c89-bf96-60f7cbe451cb" xml:space="preserve">
+          <source>To verify the agent has been installed, open services and look for the following.</source>
+          <target state="new">To verify the agent has been installed, open services and look for the following.</target>
+        </trans-unit>
+        <trans-unit id="9fdb9e5a-1472-4c57-9bf2-433660649e00" xml:space="preserve">
+          <source>These services should be running if you completed the configuration.</source>
+          <target state="new">These services should be running if you completed the configuration.</target>
+        </trans-unit>
+        <trans-unit id="3cecb48c-674f-4690-8b32-30c4d46088b2" xml:space="preserve">
+          <source>Otherwise, they will not start until the configuration is complete.</source>
+          <target state="new">Otherwise, they will not start until the configuration is complete.</target>
+        </trans-unit>
+        <trans-unit id="59209d0e-a989-4415-8bd0-7b9c53d8b1fc" xml:space="preserve">
+          <source>Azure AD Connect Health AD FS Diagnostics Service</source>
+          <target state="new">Azure AD Connect Health AD FS Diagnostics Service</target>
+        </trans-unit>
+        <trans-unit id="250e95b2-5e46-49d4-97bd-b1ca98b7187e" xml:space="preserve">
+          <source>Azure AD Connect Health AD FS Insights Service</source>
+          <target state="new">Azure AD Connect Health AD FS Insights Service</target>
+        </trans-unit>
+        <trans-unit id="164a1524-ef31-4d4a-bf1c-6f090c2ebda1" xml:space="preserve">
+          <source>Azure AD Connect Health AD FS Monitoring Service</source>
+          <target state="new">Azure AD Connect Health AD FS Monitoring Service</target>
+        </trans-unit>
+        <trans-unit id="b5ab6aff-d138-43a8-abbf-e8375de2027a" xml:space="preserve">
+          <source><bpt id="e803684f-0e05-4328-ae74-c0bb1b785f3e">&lt;linkText&gt;</bpt>Verify Azure AD Connect Health<ept id="e803684f-0e05-4328-ae74-c0bb1b785f3e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e803684f-0e05-4328-ae74-c0bb1b785f3e">&lt;linkText&gt;</bpt>Verify Azure AD Connect Health<ept id="e803684f-0e05-4328-ae74-c0bb1b785f3e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99e9d982-2e5f-412b-a645-47db882a35ab" xml:space="preserve">
+          <source>For Windows Server 2008 R2 servers do the following:</source>
+          <target state="new">For Windows Server 2008 R2 servers do the following:</target>
+        </trans-unit>
+        <trans-unit id="49ab94e2-7ddc-4a69-8297-b70e5ea101d8" xml:space="preserve">
+          <source>Ensure that the server is running at Service Pack 1 or higher.</source>
+          <target state="new">Ensure that the server is running at Service Pack 1 or higher.</target>
+        </trans-unit>
+        <trans-unit id="e4b45cc6-5594-4fc9-9842-3933e8450a8d" xml:space="preserve">
+          <source>Turn off IE ESC for agent installation:</source>
+          <target state="new">Turn off IE ESC for agent installation:</target>
+        </trans-unit>
+        <trans-unit id="fbf1655b-6914-4747-8ee8-8345a7a48fea" xml:space="preserve">
+          <source>Install Windows PowerShell 4.0 on each of the servers prior to installing the AD Health agent.</source>
+          <target state="new">Install Windows PowerShell 4.0 on each of the servers prior to installing the AD Health agent.</target>
+        </trans-unit>
+        <trans-unit id="aab7f998-b04f-4411-b384-8f09e8929a5a" xml:space="preserve">
+          <source>To install Windows PowerShell 4.0:</source>
+          <target state="new">To install Windows PowerShell 4.0:</target>
+        </trans-unit>
+        <trans-unit id="ed19becc-bfb1-4532-95cf-70eaa4a7d407" xml:space="preserve">
+          <source>Install <bpt id="7c353a04-72a5-4f1a-acbb-633e15013a42">&lt;linkText&gt;</bpt>Microsoft .NET Framework 4.5<ept id="7c353a04-72a5-4f1a-acbb-633e15013a42">&lt;/linkText&gt;</ept><bpt id="7c353a04-72a5-4f1a-acbb-633e15013a42">&lt;title&gt;</bpt><ept id="7c353a04-72a5-4f1a-acbb-633e15013a42">&lt;/title&gt;</ept> using the following link to download the offline installer.</source>
+          <target state="new">Install <bpt id="7c353a04-72a5-4f1a-acbb-633e15013a42">&lt;linkText&gt;</bpt>Microsoft .NET Framework 4.5<ept id="7c353a04-72a5-4f1a-acbb-633e15013a42">&lt;/linkText&gt;</ept><bpt id="7c353a04-72a5-4f1a-acbb-633e15013a42">&lt;title&gt;</bpt><ept id="7c353a04-72a5-4f1a-acbb-633e15013a42">&lt;/title&gt;</ept> using the following link to download the offline installer.</target>
+        </trans-unit>
+        <trans-unit id="c535f11b-c075-4e07-8029-71a3554d4fc5" xml:space="preserve">
+          <source>Install PowerShell ISE (From Windows Features)</source>
+          <target state="new">Install PowerShell ISE (From Windows Features)</target>
+        </trans-unit>
+        <trans-unit id="9d0af000-dc05-41c0-b609-5d937d28e107" xml:space="preserve">
+          <source>Install the <bpt id="778d71b7-0da3-4fac-a70b-d2d84439d370">&lt;linkText&gt;</bpt>Windows Management Framework 4.0.<ept id="778d71b7-0da3-4fac-a70b-d2d84439d370">&lt;/linkText&gt;</ept><bpt id="778d71b7-0da3-4fac-a70b-d2d84439d370">&lt;title&gt;</bpt><ept id="778d71b7-0da3-4fac-a70b-d2d84439d370">&lt;/title&gt;</ept></source>
+          <target state="new">Install the <bpt id="778d71b7-0da3-4fac-a70b-d2d84439d370">&lt;linkText&gt;</bpt>Windows Management Framework 4.0.<ept id="778d71b7-0da3-4fac-a70b-d2d84439d370">&lt;/linkText&gt;</ept><bpt id="778d71b7-0da3-4fac-a70b-d2d84439d370">&lt;title&gt;</bpt><ept id="778d71b7-0da3-4fac-a70b-d2d84439d370">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44f2142f-49b4-415b-b054-acd82b233b91" xml:space="preserve">
+          <source>Install Internet Explorer version 10 or above on the server.</source>
+          <target state="new">Install Internet Explorer version 10 or above on the server.</target>
+        </trans-unit>
+        <trans-unit id="8bf9e45b-0b3c-47a5-a5e6-4c98778c0e3c" xml:space="preserve">
+          <source>This is required by the Health Service to authenticate you using your Azure Admin credentials.</source>
+          <target state="new">This is required by the Health Service to authenticate you using your Azure Admin credentials.</target>
+        </trans-unit>
+        <trans-unit id="d3a52f50-3d74-4eff-9c38-a53de199eccd" xml:space="preserve">
+          <source>For additional information on installing Windows PowerShell 4.0 on Windows Server 2008 R2 see the wiki article <bpt id="57e23173-1127-4c54-9e23-4c1b69c05b7a">&lt;linkText&gt;</bpt>here<ept id="57e23173-1127-4c54-9e23-4c1b69c05b7a">&lt;/linkText&gt;</ept><bpt id="57e23173-1127-4c54-9e23-4c1b69c05b7a">&lt;title&gt;</bpt><ept id="57e23173-1127-4c54-9e23-4c1b69c05b7a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information on installing Windows PowerShell 4.0 on Windows Server 2008 R2 see the wiki article <bpt id="57e23173-1127-4c54-9e23-4c1b69c05b7a">&lt;linkText&gt;</bpt>here<ept id="57e23173-1127-4c54-9e23-4c1b69c05b7a">&lt;/linkText&gt;</ept><bpt id="57e23173-1127-4c54-9e23-4c1b69c05b7a">&lt;title&gt;</bpt><ept id="57e23173-1127-4c54-9e23-4c1b69c05b7a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f08840d0-9836-4b9f-8386-9198d5e24b10" xml:space="preserve">
+          <source><bpt id="aa57ad95-02b1-47b3-9408-c99ebd273e89">&lt;linkText&gt;</bpt>Azure AD Connect Health<ept id="aa57ad95-02b1-47b3-9408-c99ebd273e89">&lt;/linkText&gt;</ept><bpt id="aa57ad95-02b1-47b3-9408-c99ebd273e89">&lt;title&gt;</bpt><ept id="aa57ad95-02b1-47b3-9408-c99ebd273e89">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aa57ad95-02b1-47b3-9408-c99ebd273e89">&lt;linkText&gt;</bpt>Azure AD Connect Health<ept id="aa57ad95-02b1-47b3-9408-c99ebd273e89">&lt;/linkText&gt;</ept><bpt id="aa57ad95-02b1-47b3-9408-c99ebd273e89">&lt;title&gt;</bpt><ept id="aa57ad95-02b1-47b3-9408-c99ebd273e89">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10f3c4fe-31ca-4f2b-9dbd-0fc9090aaa87" xml:space="preserve">
+          <source><bpt id="47241902-96fa-4dae-aea2-8b29bbfcb658">&lt;linkText&gt;</bpt>Azure AD Connect Health Operations<ept id="47241902-96fa-4dae-aea2-8b29bbfcb658">&lt;/linkText&gt;</ept><bpt id="47241902-96fa-4dae-aea2-8b29bbfcb658">&lt;title&gt;</bpt><ept id="47241902-96fa-4dae-aea2-8b29bbfcb658">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="47241902-96fa-4dae-aea2-8b29bbfcb658">&lt;linkText&gt;</bpt>Azure AD Connect Health Operations<ept id="47241902-96fa-4dae-aea2-8b29bbfcb658">&lt;/linkText&gt;</ept><bpt id="47241902-96fa-4dae-aea2-8b29bbfcb658">&lt;title&gt;</bpt><ept id="47241902-96fa-4dae-aea2-8b29bbfcb658">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53ab85d4-352e-4f34-8788-f80ca1ab0723" xml:space="preserve">
+          <source><bpt id="45014ebf-e3b3-4b1b-a8a9-84b0078d8651">&lt;linkText&gt;</bpt>Using Azure AD Connect Health with AD FS<ept id="45014ebf-e3b3-4b1b-a8a9-84b0078d8651">&lt;/linkText&gt;</ept><bpt id="45014ebf-e3b3-4b1b-a8a9-84b0078d8651">&lt;title&gt;</bpt><ept id="45014ebf-e3b3-4b1b-a8a9-84b0078d8651">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="45014ebf-e3b3-4b1b-a8a9-84b0078d8651">&lt;linkText&gt;</bpt>Using Azure AD Connect Health with AD FS<ept id="45014ebf-e3b3-4b1b-a8a9-84b0078d8651">&lt;/linkText&gt;</ept><bpt id="45014ebf-e3b3-4b1b-a8a9-84b0078d8651">&lt;title&gt;</bpt><ept id="45014ebf-e3b3-4b1b-a8a9-84b0078d8651">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03d51ab7-5f86-4232-b98c-ae55ea1b2deb" xml:space="preserve">
+          <source><bpt id="54ad3d98-6549-4db4-940c-e37b65097e50">&lt;linkText&gt;</bpt>Azure AD Connect Health FAQ<ept id="54ad3d98-6549-4db4-940c-e37b65097e50">&lt;/linkText&gt;</ept><bpt id="54ad3d98-6549-4db4-940c-e37b65097e50">&lt;title&gt;</bpt><ept id="54ad3d98-6549-4db4-940c-e37b65097e50">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="54ad3d98-6549-4db4-940c-e37b65097e50">&lt;linkText&gt;</bpt>Azure AD Connect Health FAQ<ept id="54ad3d98-6549-4db4-940c-e37b65097e50">&lt;/linkText&gt;</ept><bpt id="54ad3d98-6549-4db4-940c-e37b65097e50">&lt;title&gt;</bpt><ept id="54ad3d98-6549-4db4-940c-e37b65097e50">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

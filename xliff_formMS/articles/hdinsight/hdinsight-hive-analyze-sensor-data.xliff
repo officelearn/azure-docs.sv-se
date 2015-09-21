@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ece17656-ecfb-44e1-86da-45a7491904c2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ece17656-ecfb-44e1-86da-45a7491904c2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fda9fd1f-874f-4d72-b337-2f08878974ca">
+        <trans-unit id="1681e378-7f0d-4a57-b366-22c66202d564" xml:space="preserve">
+          <source>Analyze sensor data using Hive and Hadoop | Microsoft Azure</source>
+          <target state="new">Analyze sensor data using Hive and Hadoop | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="56b15307-53ef-442b-9612-007133001e4d" xml:space="preserve">
+          <source>Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel with PowerView.</source>
+          <target state="new">Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel with PowerView.</target>
+        </trans-unit>
+        <trans-unit id="910a1968-a017-4996-ae10-c5ac32e6b2f4" xml:space="preserve">
+          <source>Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel by using Power View.</source>
+          <target state="new">Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel by using Power View.</target>
+        </trans-unit>
+        <trans-unit id="23b26653-4967-49d0-8137-c992f6f7b7e3" xml:space="preserve">
+          <source>The steps in this document only work with Windows-based HDInsight clusters.</source>
+          <target state="new">The steps in this document only work with Windows-based HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="64b38528-0f2b-455c-ab7d-6a046b629857" xml:space="preserve">
+          <source>In this sample, you'll use Hive to process historical data produced by heating, ventilation, and air conditioning (HVAC) systems to identify systems that are not able to reliably maintain a set temperature.</source>
+          <target state="new">In this sample, you'll use Hive to process historical data produced by heating, ventilation, and air conditioning (HVAC) systems to identify systems that are not able to reliably maintain a set temperature.</target>
+        </trans-unit>
+        <trans-unit id="05fbf6aa-fb02-47b2-9655-375ae2fa6db1" xml:space="preserve">
+          <source>You will learn how to:</source>
+          <target state="new">You will learn how to:</target>
+        </trans-unit>
+        <trans-unit id="7c40e55b-a457-43fc-9695-bb57c062edbd" xml:space="preserve">
+          <source>Create HIVE tables to query data stored in comma separated value (CSV) files.</source>
+          <target state="new">Create HIVE tables to query data stored in comma separated value (CSV) files.</target>
+        </trans-unit>
+        <trans-unit id="a70900c9-fa64-44fb-8151-3272179e8197" xml:space="preserve">
+          <source>Create HIVE queries to analyze the data.</source>
+          <target state="new">Create HIVE queries to analyze the data.</target>
+        </trans-unit>
+        <trans-unit id="58ee0f7a-05ca-4eda-a60d-7cc08775f62d" xml:space="preserve">
+          <source>Use Microsoft Excel to connect to HDInsight (using open database connectivity (ODBC) to retrieve the analyzed data.</source>
+          <target state="new">Use Microsoft Excel to connect to HDInsight (using open database connectivity (ODBC) to retrieve the analyzed data.</target>
+        </trans-unit>
+        <trans-unit id="982a3d4c-3006-4d37-902a-538252a48143" xml:space="preserve">
+          <source>Use Power View to visualize the data.</source>
+          <target state="new">Use Power View to visualize the data.</target>
+        </trans-unit>
+        <trans-unit id="ac87f2b2-928f-4c8e-86b1-25b0fd525b43" xml:space="preserve">
+          <source><bpt id="a913d4cd-4cbf-4fb0-bc0f-47e2edec33ce">&lt;linkText&gt;</bpt>A diagram of the solution architecture<ept id="a913d4cd-4cbf-4fb0-bc0f-47e2edec33ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a913d4cd-4cbf-4fb0-bc0f-47e2edec33ce">&lt;linkText&gt;</bpt>A diagram of the solution architecture<ept id="a913d4cd-4cbf-4fb0-bc0f-47e2edec33ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0791c71-085e-4542-8ad3-b44fd6b68c49" xml:space="preserve">
+          <source>An HDInsight (Hadoop) cluster: See <bpt id="606ae007-0520-4f51-94e4-29ecd33dd914">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight<ept id="606ae007-0520-4f51-94e4-29ecd33dd914">&lt;/linkText&gt;</ept><bpt id="606ae007-0520-4f51-94e4-29ecd33dd914">&lt;title&gt;</bpt><ept id="606ae007-0520-4f51-94e4-29ecd33dd914">&lt;/title&gt;</ept> for information about creating a cluster.</source>
+          <target state="new">An HDInsight (Hadoop) cluster: See <bpt id="606ae007-0520-4f51-94e4-29ecd33dd914">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight<ept id="606ae007-0520-4f51-94e4-29ecd33dd914">&lt;/linkText&gt;</ept><bpt id="606ae007-0520-4f51-94e4-29ecd33dd914">&lt;title&gt;</bpt><ept id="606ae007-0520-4f51-94e4-29ecd33dd914">&lt;/title&gt;</ept> for information about creating a cluster.</target>
+        </trans-unit>
+        <trans-unit id="28661237-0bb2-4643-9bf6-8bb6e85a6ded" xml:space="preserve">
+          <source>Microsoft Excel 2013</source>
+          <target state="new">Microsoft Excel 2013</target>
+        </trans-unit>
+        <trans-unit id="32e131d3-96a9-4d16-9b98-6b80b469ea8d" xml:space="preserve">
+          <source>Microsoft Excel is used for data visualization with <bpt id="c529bec3-5a4b-45b7-93d2-863b6731dc18">&lt;linkText&gt;</bpt>Power View<ept id="c529bec3-5a4b-45b7-93d2-863b6731dc18">&lt;/linkText&gt;</ept><bpt id="c529bec3-5a4b-45b7-93d2-863b6731dc18">&lt;title&gt;</bpt><ept id="c529bec3-5a4b-45b7-93d2-863b6731dc18">&lt;/title&gt;</ept>.</source>
+          <target state="new">Microsoft Excel is used for data visualization with <bpt id="c529bec3-5a4b-45b7-93d2-863b6731dc18">&lt;linkText&gt;</bpt>Power View<ept id="c529bec3-5a4b-45b7-93d2-863b6731dc18">&lt;/linkText&gt;</ept><bpt id="c529bec3-5a4b-45b7-93d2-863b6731dc18">&lt;title&gt;</bpt><ept id="c529bec3-5a4b-45b7-93d2-863b6731dc18">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0c6d326-13e7-490c-ac4e-be742eb1cf60" xml:space="preserve">
+          <source><bpt id="a153a0ad-c50f-4bf6-a48f-06017f49edf6">&lt;linkText&gt;</bpt>Microsoft Hive ODBC Driver<ept id="a153a0ad-c50f-4bf6-a48f-06017f49edf6">&lt;/linkText&gt;</ept><bpt id="a153a0ad-c50f-4bf6-a48f-06017f49edf6">&lt;title&gt;</bpt><ept id="a153a0ad-c50f-4bf6-a48f-06017f49edf6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a153a0ad-c50f-4bf6-a48f-06017f49edf6">&lt;linkText&gt;</bpt>Microsoft Hive ODBC Driver<ept id="a153a0ad-c50f-4bf6-a48f-06017f49edf6">&lt;/linkText&gt;</ept><bpt id="a153a0ad-c50f-4bf6-a48f-06017f49edf6">&lt;title&gt;</bpt><ept id="a153a0ad-c50f-4bf6-a48f-06017f49edf6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d3e52fb-0226-41b0-ade4-40b441637cb2" xml:space="preserve">
+          <source>From your web browser, navigate to the following URL. Replace <bpt id="12bd4513-4df1-47ff-a958-2e7ccdd44b7c">&lt;code&gt;</bpt>&lt;clustername&gt;<ept id="12bd4513-4df1-47ff-a958-2e7ccdd44b7c">&lt;/code&gt;</ept> with the name of your HDInsight cluster.</source>
+          <target state="new">From your web browser, navigate to the following URL. Replace <bpt id="12bd4513-4df1-47ff-a958-2e7ccdd44b7c">&lt;code&gt;</bpt>&lt;clustername&gt;<ept id="12bd4513-4df1-47ff-a958-2e7ccdd44b7c">&lt;/code&gt;</ept> with the name of your HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="81fdc68e-5810-4ca3-99aa-50abeb2f79d5" xml:space="preserve">
+          <source>When prompted, authenticate by using the administrator user name and password you used when provisioning this cluster.</source>
+          <target state="new">When prompted, authenticate by using the administrator user name and password you used when provisioning this cluster.</target>
+        </trans-unit>
+        <trans-unit id="273f23e3-affb-4b00-b06a-a479814fb65b" xml:space="preserve">
+          <source>From the web page that opens, click the <bpt id="58f7efde-7192-4956-87a3-e4ce773895bc">&lt;strong&gt;</bpt>Getting Started Gallery<ept id="58f7efde-7192-4956-87a3-e4ce773895bc">&lt;/strong&gt;</ept> tab, and then under the <bpt id="2ee84298-cca2-4d0e-8c31-528d6e11fefe">&lt;strong&gt;</bpt>Solutions with Sample Data<ept id="2ee84298-cca2-4d0e-8c31-528d6e11fefe">&lt;/strong&gt;</ept> category, click the <bpt id="bdb03aed-23d6-47d9-b8e9-45c1cdc31ff9">&lt;strong&gt;</bpt>Sensor Data Analysis<ept id="bdb03aed-23d6-47d9-b8e9-45c1cdc31ff9">&lt;/strong&gt;</ept> sample.</source>
+          <target state="new">From the web page that opens, click the <bpt id="58f7efde-7192-4956-87a3-e4ce773895bc">&lt;strong&gt;</bpt>Getting Started Gallery<ept id="58f7efde-7192-4956-87a3-e4ce773895bc">&lt;/strong&gt;</ept> tab, and then under the <bpt id="2ee84298-cca2-4d0e-8c31-528d6e11fefe">&lt;strong&gt;</bpt>Solutions with Sample Data<ept id="2ee84298-cca2-4d0e-8c31-528d6e11fefe">&lt;/strong&gt;</ept> category, click the <bpt id="bdb03aed-23d6-47d9-b8e9-45c1cdc31ff9">&lt;strong&gt;</bpt>Sensor Data Analysis<ept id="bdb03aed-23d6-47d9-b8e9-45c1cdc31ff9">&lt;/strong&gt;</ept> sample.</target>
+        </trans-unit>
+        <trans-unit id="6d07632c-ef1d-4598-aca6-bc6d369a8076" xml:space="preserve">
+          <source>Follow the instructions provided on the web page to finish the sample.</source>
+          <target state="new">Follow the instructions provided on the web page to finish the sample.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

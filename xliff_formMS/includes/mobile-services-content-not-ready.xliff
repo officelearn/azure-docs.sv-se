@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="be8eaa66-a047-4687-bc75-c88eba25c907" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="be8eaa66-a047-4687-bc75-c88eba25c907" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="12014d00-6c1b-4c05-9c57-2451b19657a5">
+        <trans-unit id="cfa001a1-ddf8-47a7-9808-3270e187cad4" xml:space="preserve">
+          <source>It looks like we don't have this content ready right now, but we wanted to let you know about it.</source>
+          <target state="new">It looks like we don't have this content ready right now, but we wanted to let you know about it.</target>
+        </trans-unit>
+        <trans-unit id="c3f425d0-827d-48e8-a226-6b46155b36f9" xml:space="preserve">
+          <source>If you're particularly interested in this topic, let us know by tweeting <bpt id="f7075509-ede6-419a-80b6-c33c859f9236">&lt;linkText&gt;</bpt>@AzureMobile<ept id="f7075509-ede6-419a-80b6-c33c859f9236">&lt;/linkText&gt;</ept><bpt id="f7075509-ede6-419a-80b6-c33c859f9236">&lt;title&gt;</bpt><ept id="f7075509-ede6-419a-80b6-c33c859f9236">&lt;/title&gt;</ept>, or post in the <bpt id="f0a618f3-50d2-4631-98f7-ad578156cf31">&lt;linkText&gt;</bpt>Forums<ept id="f0a618f3-50d2-4631-98f7-ad578156cf31">&lt;/linkText&gt;</ept><bpt id="f0a618f3-50d2-4631-98f7-ad578156cf31">&lt;title&gt;</bpt><ept id="f0a618f3-50d2-4631-98f7-ad578156cf31">&lt;/title&gt;</ept>, <bpt id="6c639201-447b-40d1-b99f-37635e37555b">&lt;linkText&gt;</bpt>Feedback<ept id="6c639201-447b-40d1-b99f-37635e37555b">&lt;/linkText&gt;</ept><bpt id="6c639201-447b-40d1-b99f-37635e37555b">&lt;title&gt;</bpt><ept id="6c639201-447b-40d1-b99f-37635e37555b">&lt;/title&gt;</ept>, or in the Disqus thread for this topic.</source>
+          <target state="new">If you're particularly interested in this topic, let us know by tweeting <bpt id="f7075509-ede6-419a-80b6-c33c859f9236">&lt;linkText&gt;</bpt>@AzureMobile<ept id="f7075509-ede6-419a-80b6-c33c859f9236">&lt;/linkText&gt;</ept><bpt id="f7075509-ede6-419a-80b6-c33c859f9236">&lt;title&gt;</bpt><ept id="f7075509-ede6-419a-80b6-c33c859f9236">&lt;/title&gt;</ept>, or post in the <bpt id="f0a618f3-50d2-4631-98f7-ad578156cf31">&lt;linkText&gt;</bpt>Forums<ept id="f0a618f3-50d2-4631-98f7-ad578156cf31">&lt;/linkText&gt;</ept><bpt id="f0a618f3-50d2-4631-98f7-ad578156cf31">&lt;title&gt;</bpt><ept id="f0a618f3-50d2-4631-98f7-ad578156cf31">&lt;/title&gt;</ept>, <bpt id="6c639201-447b-40d1-b99f-37635e37555b">&lt;linkText&gt;</bpt>Feedback<ept id="6c639201-447b-40d1-b99f-37635e37555b">&lt;/linkText&gt;</ept><bpt id="6c639201-447b-40d1-b99f-37635e37555b">&lt;title&gt;</bpt><ept id="6c639201-447b-40d1-b99f-37635e37555b">&lt;/title&gt;</ept>, or in the Disqus thread for this topic.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

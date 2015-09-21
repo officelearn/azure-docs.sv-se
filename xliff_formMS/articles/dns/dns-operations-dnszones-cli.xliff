@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="19e6fd52-e4df-4137-9a0d-6e0eb0372316" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="19e6fd52-e4df-4137-9a0d-6e0eb0372316" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8a7e7c82-062e-4ff9-88ec-06053e3d2d47">
+        <trans-unit id="521cc01d-254e-4367-9db1-7100ab4c0a45" xml:space="preserve">
+          <source>Operations on DNS zones | Microsoft Azure</source>
+          <target state="new">Operations on DNS zones | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="edb4339b-cae9-454d-9b6b-bbdba8e7a55f" xml:space="preserve">
+          <source>You can manage DNS zones using Azure Powershell cmdlets or CLI. How to update, delete and create DNS zones on Azure DNS</source>
+          <target state="new">You can manage DNS zones using Azure Powershell cmdlets or CLI. How to update, delete and create DNS zones on Azure DNS</target>
+        </trans-unit>
+        <trans-unit id="c9a309c2-90e1-4e8c-b933-944a345fc587" xml:space="preserve">
+          <source>This guide will show how to manage your DNS zone.</source>
+          <target state="new">This guide will show how to manage your DNS zone.</target>
+        </trans-unit>
+        <trans-unit id="976e8e4a-6819-43f4-b2f8-a54aa5ad0224" xml:space="preserve">
+          <source>It will help understanding the sequence of operations to be done in order to administer your DNS zone.</source>
+          <target state="new">It will help understanding the sequence of operations to be done in order to administer your DNS zone.</target>
+        </trans-unit>
+        <trans-unit id="b126980a-730b-4240-80aa-67e58a670844" xml:space="preserve">
+          <source>To create a new DNS zone to host your domain, use the <bpt id="d202853b-c9cc-484f-840b-0b311b36569f">&lt;code&gt;</bpt>azure network dns zone create<ept id="d202853b-c9cc-484f-840b-0b311b36569f">&lt;/code&gt;</ept>:</source>
+          <target state="new">To create a new DNS zone to host your domain, use the <bpt id="d202853b-c9cc-484f-840b-0b311b36569f">&lt;code&gt;</bpt>azure network dns zone create<ept id="d202853b-c9cc-484f-840b-0b311b36569f">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="4b9005db-6cb3-46f9-bc97-dbc3df4c9bf9" xml:space="preserve">
+          <source>The operation creates a new DNS zone in Azure DNS.</source>
+          <target state="new">The operation creates a new DNS zone in Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="42705d11-51ef-4be8-9538-d8b2d91a12e2" xml:space="preserve">
+          <source>You can optionally specify an array of Azure Resource Manager tags, for more information see <bpt id="e5c6117c-b5fe-4ba2-82e6-a1c61ad36fa8">&lt;linkText&gt;</bpt>Etags and Tags<ept id="e5c6117c-b5fe-4ba2-82e6-a1c61ad36fa8">&lt;/linkText&gt;</ept><bpt id="e5c6117c-b5fe-4ba2-82e6-a1c61ad36fa8">&lt;title&gt;</bpt><ept id="e5c6117c-b5fe-4ba2-82e6-a1c61ad36fa8">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can optionally specify an array of Azure Resource Manager tags, for more information see <bpt id="e5c6117c-b5fe-4ba2-82e6-a1c61ad36fa8">&lt;linkText&gt;</bpt>Etags and Tags<ept id="e5c6117c-b5fe-4ba2-82e6-a1c61ad36fa8">&lt;/linkText&gt;</ept><bpt id="e5c6117c-b5fe-4ba2-82e6-a1c61ad36fa8">&lt;title&gt;</bpt><ept id="e5c6117c-b5fe-4ba2-82e6-a1c61ad36fa8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c11edecd-3c2c-4a7d-bbff-06db5c5c5508" xml:space="preserve">
+          <source>The name of the zone must be unique within the resource group, and the zone must not exist already, otherwise the operation will fail.</source>
+          <target state="new">The name of the zone must be unique within the resource group, and the zone must not exist already, otherwise the operation will fail.</target>
+        </trans-unit>
+        <trans-unit id="35b9d3cf-acc8-44d7-9728-27bca24ab758" xml:space="preserve">
+          <source>The same zone name can be re-used in a different resource group or a different Azure subscription.</source>
+          <target state="new">The same zone name can be re-used in a different resource group or a different Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="9c71e5d1-ff78-477d-8f43-4fd16220fd73" xml:space="preserve">
+          <source>Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain.</source>
+          <target state="new">Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain.</target>
+        </trans-unit>
+        <trans-unit id="c6b1f958-ab83-4731-a9f9-1af2bc857d37" xml:space="preserve">
+          <source>See <bpt id="0ab13689-7104-4357-a5d5-89ea1724a161">&lt;linkText&gt;</bpt>Delegate a Domain to Azure DNS<ept id="0ab13689-7104-4357-a5d5-89ea1724a161">&lt;/linkText&gt;</ept><bpt id="0ab13689-7104-4357-a5d5-89ea1724a161">&lt;title&gt;</bpt><ept id="0ab13689-7104-4357-a5d5-89ea1724a161">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="0ab13689-7104-4357-a5d5-89ea1724a161">&lt;linkText&gt;</bpt>Delegate a Domain to Azure DNS<ept id="0ab13689-7104-4357-a5d5-89ea1724a161">&lt;/linkText&gt;</ept><bpt id="0ab13689-7104-4357-a5d5-89ea1724a161">&lt;title&gt;</bpt><ept id="0ab13689-7104-4357-a5d5-89ea1724a161">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="a7d6540b-d2fe-4483-abb2-d3efb68635c6" xml:space="preserve">
+          <source>To retrieve a DNS zone, use the <bpt id="15840e58-2642-4e1a-9b20-7daafc23c041">&lt;code&gt;</bpt>azure network dns zone show<ept id="15840e58-2642-4e1a-9b20-7daafc23c041">&lt;/code&gt;</ept>:</source>
+          <target state="new">To retrieve a DNS zone, use the <bpt id="15840e58-2642-4e1a-9b20-7daafc23c041">&lt;code&gt;</bpt>azure network dns zone show<ept id="15840e58-2642-4e1a-9b20-7daafc23c041">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="8d89da29-6f33-40bd-a116-335cdaf30160" xml:space="preserve">
+          <source>The operation returns a DNS zone with its id, number of record sets and tags.</source>
+          <target state="new">The operation returns a DNS zone with its id, number of record sets and tags.</target>
+        </trans-unit>
+        <trans-unit id="8d2187db-b47d-4427-81c7-01d7ee325efc" xml:space="preserve">
+          <source>To retrieve DNS zones within a resource group, use <bpt id="6c6f158c-f24e-49f0-8e17-6175c05ced90">&lt;code&gt;</bpt>azure network dns zone list<ept id="6c6f158c-f24e-49f0-8e17-6175c05ced90">&lt;/code&gt;</ept>:</source>
+          <target state="new">To retrieve DNS zones within a resource group, use <bpt id="6c6f158c-f24e-49f0-8e17-6175c05ced90">&lt;code&gt;</bpt>azure network dns zone list<ept id="6c6f158c-f24e-49f0-8e17-6175c05ced90">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="3df2216d-b724-4947-a808-1132d4818f3b" xml:space="preserve">
+          <source>Changes to a DNS zone resource can be made using <bpt id="2b9e96f4-1ef1-452d-9748-e41d1f2ca6f9">&lt;code&gt;</bpt>azure network dns zone set<ept id="2b9e96f4-1ef1-452d-9748-e41d1f2ca6f9">&lt;/code&gt;</ept>.</source>
+          <target state="new">Changes to a DNS zone resource can be made using <bpt id="2b9e96f4-1ef1-452d-9748-e41d1f2ca6f9">&lt;code&gt;</bpt>azure network dns zone set<ept id="2b9e96f4-1ef1-452d-9748-e41d1f2ca6f9">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="309605b7-e0a7-45c9-829c-d7459791edad" xml:space="preserve">
+          <source>This does not update any of the DNS record sets within the zone (see <bpt id="ab5459f4-b132-4c66-ba26-ff3f6715453a">&lt;linkText&gt;</bpt>How to Manage DNS records<ept id="ab5459f4-b132-4c66-ba26-ff3f6715453a">&lt;/linkText&gt;</ept><bpt id="ab5459f4-b132-4c66-ba26-ff3f6715453a">&lt;title&gt;</bpt><ept id="ab5459f4-b132-4c66-ba26-ff3f6715453a">&lt;/title&gt;</ept>).</source>
+          <target state="new">This does not update any of the DNS record sets within the zone (see <bpt id="ab5459f4-b132-4c66-ba26-ff3f6715453a">&lt;linkText&gt;</bpt>How to Manage DNS records<ept id="ab5459f4-b132-4c66-ba26-ff3f6715453a">&lt;/linkText&gt;</ept><bpt id="ab5459f4-b132-4c66-ba26-ff3f6715453a">&lt;title&gt;</bpt><ept id="ab5459f4-b132-4c66-ba26-ff3f6715453a">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="d8367761-bc7c-4b0e-a5e7-52904b40aa40" xml:space="preserve">
+          <source>It is only used to update properties of the zone resource itself.</source>
+          <target state="new">It is only used to update properties of the zone resource itself.</target>
+        </trans-unit>
+        <trans-unit id="da0a6089-5108-4d1d-99cb-e2c4800a9cab" xml:space="preserve">
+          <source>This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource.</source>
+          <target state="new">This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource.</target>
+        </trans-unit>
+        <trans-unit id="0e851e13-6a48-4b1d-a78e-d448ee4cdd59" xml:space="preserve">
+          <source>See <bpt id="df2403d7-270a-472e-8994-2d5900266577">&lt;linkText&gt;</bpt>Etags and Tags<ept id="df2403d7-270a-472e-8994-2d5900266577">&lt;/linkText&gt;</ept><bpt id="df2403d7-270a-472e-8994-2d5900266577">&lt;title&gt;</bpt><ept id="df2403d7-270a-472e-8994-2d5900266577">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="df2403d7-270a-472e-8994-2d5900266577">&lt;linkText&gt;</bpt>Etags and Tags<ept id="df2403d7-270a-472e-8994-2d5900266577">&lt;/linkText&gt;</ept><bpt id="df2403d7-270a-472e-8994-2d5900266577">&lt;title&gt;</bpt><ept id="df2403d7-270a-472e-8994-2d5900266577">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="3aac01b3-6d89-4c7a-959e-05d789e1b545" xml:space="preserve">
+          <source>DNS zones can be deleted using the <bpt id="2e7acd75-b7fe-4cd6-bdfa-41552187ee6f">&lt;code&gt;</bpt>azure network dns zone delete<ept id="2e7acd75-b7fe-4cd6-bdfa-41552187ee6f">&lt;/code&gt;</ept>.</source>
+          <target state="new">DNS zones can be deleted using the <bpt id="2e7acd75-b7fe-4cd6-bdfa-41552187ee6f">&lt;code&gt;</bpt>azure network dns zone delete<ept id="2e7acd75-b7fe-4cd6-bdfa-41552187ee6f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20055aa0-b729-4a6f-af35-9839a9ee4dcd" xml:space="preserve">
+          <source>Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created.</source>
+          <target state="new">Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created.</target>
+        </trans-unit>
+        <trans-unit id="2b48f817-1330-4abb-9e9f-fa107d9095e7" xml:space="preserve">
+          <source>This operation has an optional ‘-q’ switch which suppresses the prompt to confirm you want to remove the DNS zone.</source>
+          <target state="new">This operation has an optional ‘-q’ switch which suppresses the prompt to confirm you want to remove the DNS zone.</target>
+        </trans-unit>
+        <trans-unit id="247d4375-4a66-4b31-892d-e3243f55ddb1" xml:space="preserve">
+          <source><bpt id="17f62b03-ac46-4ed7-8295-b930bda107a3">&lt;linkText&gt;</bpt>Manage DNS records<ept id="17f62b03-ac46-4ed7-8295-b930bda107a3">&lt;/linkText&gt;</ept><bpt id="17f62b03-ac46-4ed7-8295-b930bda107a3">&lt;title&gt;</bpt><ept id="17f62b03-ac46-4ed7-8295-b930bda107a3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="17f62b03-ac46-4ed7-8295-b930bda107a3">&lt;linkText&gt;</bpt>Manage DNS records<ept id="17f62b03-ac46-4ed7-8295-b930bda107a3">&lt;/linkText&gt;</ept><bpt id="17f62b03-ac46-4ed7-8295-b930bda107a3">&lt;title&gt;</bpt><ept id="17f62b03-ac46-4ed7-8295-b930bda107a3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71df8d57-68f1-41c3-96c4-5dff125dcdfe" xml:space="preserve">
+          <source><bpt id="f0a4a724-2260-430c-8b18-4ebbdfcd63f4">&lt;linkText&gt;</bpt>Automate operations using .NET SDK<ept id="f0a4a724-2260-430c-8b18-4ebbdfcd63f4">&lt;/linkText&gt;</ept><bpt id="f0a4a724-2260-430c-8b18-4ebbdfcd63f4">&lt;title&gt;</bpt><ept id="f0a4a724-2260-430c-8b18-4ebbdfcd63f4">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="f0a4a724-2260-430c-8b18-4ebbdfcd63f4">&lt;linkText&gt;</bpt>Automate operations using .NET SDK<ept id="f0a4a724-2260-430c-8b18-4ebbdfcd63f4">&lt;/linkText&gt;</ept><bpt id="f0a4a724-2260-430c-8b18-4ebbdfcd63f4">&lt;title&gt;</bpt><ept id="f0a4a724-2260-430c-8b18-4ebbdfcd63f4">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

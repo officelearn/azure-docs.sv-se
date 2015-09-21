@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="09f23926-2dc6-4602-a008-fe2689e8e084" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="09f23926-2dc6-4602-a008-fe2689e8e084" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b6e08fce-d7c7-467b-abc9-645f18dc7da3">
+        <trans-unit id="48e5a2f1-c5cb-4975-86d4-1487c2519d38" xml:space="preserve">
+          <source>Creating recovery plans</source>
+          <target state="new">Creating recovery plans</target>
+        </trans-unit>
+        <trans-unit id="cc0e9214-2fb0-4aa9-be59-52bab331062b" xml:space="preserve">
+          <source>Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter.</source>
+          <target state="new">Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter.</target>
+        </trans-unit>
+        <trans-unit id="4d39e7ca-54de-473f-b4f2-f74ec0d21429" xml:space="preserve">
+          <source>The Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution that protects your on-premises physical servers and virtual machines by orchestrating and automating replication and failover to Azure, or to a secondary on-premises datacenter.</source>
+          <target state="new">The Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution that protects your on-premises physical servers and virtual machines by orchestrating and automating replication and failover to Azure, or to a secondary on-premises datacenter.</target>
+        </trans-unit>
+        <trans-unit id="d93372c8-9745-496f-8b9d-f97bdc0afeac" xml:space="preserve">
+          <source>For an introduction to Site Recovery deployment scenarios read the <bpt id="6067e11f-0c8f-4844-822a-c9da4a73cde8">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="6067e11f-0c8f-4844-822a-c9da4a73cde8">&lt;/linkText&gt;</ept><bpt id="6067e11f-0c8f-4844-822a-c9da4a73cde8">&lt;title&gt;</bpt><ept id="6067e11f-0c8f-4844-822a-c9da4a73cde8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an introduction to Site Recovery deployment scenarios read the <bpt id="6067e11f-0c8f-4844-822a-c9da4a73cde8">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="6067e11f-0c8f-4844-822a-c9da4a73cde8">&lt;/linkText&gt;</ept><bpt id="6067e11f-0c8f-4844-822a-c9da4a73cde8">&lt;title&gt;</bpt><ept id="6067e11f-0c8f-4844-822a-c9da4a73cde8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad0492fa-2bd4-44b6-adc6-be2c339ab120" xml:space="preserve">
+          <source>The article provides information about creating and customizing recovery plans.</source>
+          <target state="new">The article provides information about creating and customizing recovery plans.</target>
+        </trans-unit>
+        <trans-unit id="0d4f4582-445a-44da-8848-bc48e5b41cb8" xml:space="preserve">
+          <source>If you have any questions after reading this article post them on the <bpt id="c9e0950f-ff12-4bf9-8102-56c4c5a687df">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="c9e0950f-ff12-4bf9-8102-56c4c5a687df">&lt;/linkText&gt;</ept><bpt id="c9e0950f-ff12-4bf9-8102-56c4c5a687df">&lt;title&gt;</bpt><ept id="c9e0950f-ff12-4bf9-8102-56c4c5a687df">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have any questions after reading this article post them on the <bpt id="c9e0950f-ff12-4bf9-8102-56c4c5a687df">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="c9e0950f-ff12-4bf9-8102-56c4c5a687df">&lt;/linkText&gt;</ept><bpt id="c9e0950f-ff12-4bf9-8102-56c4c5a687df">&lt;title&gt;</bpt><ept id="c9e0950f-ff12-4bf9-8102-56c4c5a687df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4830b3e7-7948-4ec1-8917-cb3a5b3bf1e9" xml:space="preserve">
+          <source>Recovery plans consist of one or more ordered groups that contain protected virtual machines or replication groups (for SAN replication).</source>
+          <target state="new">Recovery plans consist of one or more ordered groups that contain protected virtual machines or replication groups (for SAN replication).</target>
+        </trans-unit>
+        <trans-unit id="3436780d-9f9a-43db-8c59-793f13da1a55" xml:space="preserve">
+          <source>Machines fail over according to group they are in.</source>
+          <target state="new">Machines fail over according to group they are in.</target>
+        </trans-unit>
+        <trans-unit id="8c97f2b8-8124-4149-b65c-471183fadd78" xml:space="preserve">
+          <source>Virtual machines in a particular group fail over in parallel.</source>
+          <target state="new">Virtual machines in a particular group fail over in parallel.</target>
+        </trans-unit>
+        <trans-unit id="06e5e2cc-35f0-494e-be3c-90ea46901230" xml:space="preserve">
+          <source>Recovery plans do the following:</source>
+          <target state="new">Recovery plans do the following:</target>
+        </trans-unit>
+        <trans-unit id="a588d212-3ce5-441c-b096-a254bc8e0fca" xml:space="preserve">
+          <source>Define groups of machines that fail over and start up together.</source>
+          <target state="new">Define groups of machines that fail over and start up together.</target>
+        </trans-unit>
+        <trans-unit id="1a47b9b3-6fb3-427b-8cc1-241a781871c2" xml:space="preserve">
+          <source>Model dependencies between machines by grouping them together in a recovery plan group.</source>
+          <target state="new">Model dependencies between machines by grouping them together in a recovery plan group.</target>
+        </trans-unit>
+        <trans-unit id="0b683eba-59e7-4cee-acd8-5e2c4297ed5d" xml:space="preserve">
+          <source>For example if you want to fail over and bring up a specific application you would group the virtual machines for that application in the same recovery plan group.</source>
+          <target state="new">For example if you want to fail over and bring up a specific application you would group the virtual machines for that application in the same recovery plan group.</target>
+        </trans-unit>
+        <trans-unit id="cac70210-4a0c-4653-ae6f-dc4a951b1be0" xml:space="preserve">
+          <source>Automate and extend failover.</source>
+          <target state="new">Automate and extend failover.</target>
+        </trans-unit>
+        <trans-unit id="59ed8590-3d5c-4096-9543-bb76a53982bb" xml:space="preserve">
+          <source>You can run a test, planned, or unplanned failover on a recovery plan.</source>
+          <target state="new">You can run a test, planned, or unplanned failover on a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="3aa46e7c-021d-4ce7-afdb-2259f8a1f9fc" xml:space="preserve">
+          <source>You can customize recovery plans with scripts, Azure automation, and manual actions.</source>
+          <target state="new">You can customize recovery plans with scripts, Azure automation, and manual actions.</target>
+        </trans-unit>
+        <trans-unit id="9a9375e2-60a6-430d-920a-256a9c3413b2" xml:space="preserve">
+          <source>Recovery plans are displayed on the <bpt id="41c5b2bb-d555-4860-bd3a-717fc74bdadc">&lt;strong&gt;</bpt>Recovery Plans<ept id="41c5b2bb-d555-4860-bd3a-717fc74bdadc">&lt;/strong&gt;</ept> in the Site Recovery portal.</source>
+          <target state="new">Recovery plans are displayed on the <bpt id="41c5b2bb-d555-4860-bd3a-717fc74bdadc">&lt;strong&gt;</bpt>Recovery Plans<ept id="41c5b2bb-d555-4860-bd3a-717fc74bdadc">&lt;/strong&gt;</ept> in the Site Recovery portal.</target>
+        </trans-unit>
+        <trans-unit id="92c81914-9874-473e-8794-5ee85d9e8730" xml:space="preserve">
+          <source>The way in which you create a recovery plan depends on your Site Recovery deployment.</source>
+          <target state="new">The way in which you create a recovery plan depends on your Site Recovery deployment.</target>
+        </trans-unit>
+        <trans-unit id="f478aea3-2c4e-4fdd-825b-374a0a309df7" xml:space="preserve">
+          <source><bpt id="8f3e0851-29ee-4ace-9e09-c56b18942fd7">&lt;strong&gt;</bpt>Hyper-V replication (VMM)<ept id="8f3e0851-29ee-4ace-9e09-c56b18942fd7">&lt;/strong&gt;</ept>—If you’re replicating from a VMM site to a secondary on-premises site or to Azure using Hyper-V replication you add protected Hyper-V virtual machines from a VMM cloud to a recovery plan.</source>
+          <target state="new"><bpt id="8f3e0851-29ee-4ace-9e09-c56b18942fd7">&lt;strong&gt;</bpt>Hyper-V replication (VMM)<ept id="8f3e0851-29ee-4ace-9e09-c56b18942fd7">&lt;/strong&gt;</ept>—If you’re replicating from a VMM site to a secondary on-premises site or to Azure using Hyper-V replication you add protected Hyper-V virtual machines from a VMM cloud to a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="2607b630-f2fc-48a4-81f5-4dcce49326b5" xml:space="preserve">
+          <source><bpt id="85662974-af86-4191-87a4-eb6e5891ec26">&lt;strong&gt;</bpt>Hyper-V replication (Hyper-V site)<ept id="85662974-af86-4191-87a4-eb6e5891ec26">&lt;/strong&gt;</ept>—If you're replicating from a Hyper-V site (without a VMM server) to Azure you add protected Hyper-V virtual machines from a protection group to a recovery plan.</source>
+          <target state="new"><bpt id="85662974-af86-4191-87a4-eb6e5891ec26">&lt;strong&gt;</bpt>Hyper-V replication (Hyper-V site)<ept id="85662974-af86-4191-87a4-eb6e5891ec26">&lt;/strong&gt;</ept>—If you're replicating from a Hyper-V site (without a VMM server) to Azure you add protected Hyper-V virtual machines from a protection group to a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="fe7018eb-a051-49cb-ae60-1cc2866d04ee" xml:space="preserve">
+          <source><bpt id="c06a33ff-57eb-4d88-a660-bf16294dc42e">&lt;strong&gt;</bpt>SAN replication<ept id="c06a33ff-57eb-4d88-a660-bf16294dc42e">&lt;/strong&gt;</ept>—If you’re replicating to a secondary on-premises site using SAN replication you add a replication group that contains virtual machines to the recovery plan.</source>
+          <target state="new"><bpt id="c06a33ff-57eb-4d88-a660-bf16294dc42e">&lt;strong&gt;</bpt>SAN replication<ept id="c06a33ff-57eb-4d88-a660-bf16294dc42e">&lt;/strong&gt;</ept>—If you’re replicating to a secondary on-premises site using SAN replication you add a replication group that contains virtual machines to the recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="a81c5ccc-f58f-4688-b06a-76af0bc91f92" xml:space="preserve">
+          <source>You select a replication group rather than specific virtual machines because all virtual machines in a replication group must fail over together (failover occurs at the storage layer first.</source>
+          <target state="new">You select a replication group rather than specific virtual machines because all virtual machines in a replication group must fail over together (failover occurs at the storage layer first.</target>
+        </trans-unit>
+        <trans-unit id="3ec77af7-fcc8-4c5d-aaf2-86961b7e22cb" xml:space="preserve">
+          <source><bpt id="0f89b12c-bd13-4a8f-868c-1059daa3c003">&lt;strong&gt;</bpt>VMware replication<ept id="0f89b12c-bd13-4a8f-868c-1059daa3c003">&lt;/strong&gt;</ept>—If you're replicating VMware virtual machines to Azure you add replication groups that contain virtual machines to a recovery plan.</source>
+          <target state="new"><bpt id="0f89b12c-bd13-4a8f-868c-1059daa3c003">&lt;strong&gt;</bpt>VMware replication<ept id="0f89b12c-bd13-4a8f-868c-1059daa3c003">&lt;/strong&gt;</ept>—If you're replicating VMware virtual machines to Azure you add replication groups that contain virtual machines to a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="28111c03-3b14-4698-8aa1-d4aff229404e" xml:space="preserve">
+          <source>Create a recovery plan as follows:</source>
+          <target state="new">Create a recovery plan as follows:</target>
+        </trans-unit>
+        <trans-unit id="6682ac74-a0b9-4cda-8364-3538bbfad87d" xml:space="preserve">
+          <source>On the Recovery Plans tab, click Create Recovery Plan.</source>
+          <target state="new">On the Recovery Plans tab, click Create Recovery Plan.</target>
+        </trans-unit>
+        <trans-unit id="6bd56be1-0a26-4f51-b5ed-d86054d74bc0" xml:space="preserve">
+          <source>Specify a name for the recovery plan, and a source and target.</source>
+          <target state="new">Specify a name for the recovery plan, and a source and target.</target>
+        </trans-unit>
+        <trans-unit id="aec08275-686c-4427-921b-74240feaa3b3" xml:space="preserve">
+          <source>The source server must have virtual machines that are enabled for failover and recovery.</source>
+          <target state="new">The source server must have virtual machines that are enabled for failover and recovery.</target>
+        </trans-unit>
+        <trans-unit id="b7eba39f-ab83-4377-a7b1-d7322fb2a5cd" xml:space="preserve">
+          <source>If you're replicating from VMM to VMM select VMM in <bpt id="3a26a99c-282e-49a2-ab6a-5d0d127ac5d5">&lt;strong&gt;</bpt>Source Type<ept id="3a26a99c-282e-49a2-ab6a-5d0d127ac5d5">&lt;/strong&gt;</ept>, and the source and target VMM servers.</source>
+          <target state="new">If you're replicating from VMM to VMM select VMM in <bpt id="3a26a99c-282e-49a2-ab6a-5d0d127ac5d5">&lt;strong&gt;</bpt>Source Type<ept id="3a26a99c-282e-49a2-ab6a-5d0d127ac5d5">&lt;/strong&gt;</ept>, and the source and target VMM servers.</target>
+        </trans-unit>
+        <trans-unit id="8fba1bd2-ca6a-42cc-b254-a7097ba258bc" xml:space="preserve">
+          <source>Click <bpt id="cfcf4b01-e378-4025-8eed-a8958903cba7">&lt;strong&gt;</bpt>Hyper-V<ept id="cfcf4b01-e378-4025-8eed-a8958903cba7">&lt;/strong&gt;</ept> to see clouds that are configured to use Hyper-V Replica.</source>
+          <target state="new">Click <bpt id="cfcf4b01-e378-4025-8eed-a8958903cba7">&lt;strong&gt;</bpt>Hyper-V<ept id="cfcf4b01-e378-4025-8eed-a8958903cba7">&lt;/strong&gt;</ept> to see clouds that are configured to use Hyper-V Replica.</target>
+        </trans-unit>
+        <trans-unit id="054cb08a-8a05-407b-bb79-2ed5faf9848a" xml:space="preserve">
+          <source>If you're replicating from VMM to VMM using SAN select VMM in <bpt id="55018b24-2283-488c-8b12-440b3123517b">&lt;strong&gt;</bpt>Source Type<ept id="55018b24-2283-488c-8b12-440b3123517b">&lt;/strong&gt;</ept>, and the source and target VMM servers.</source>
+          <target state="new">If you're replicating from VMM to VMM using SAN select VMM in <bpt id="55018b24-2283-488c-8b12-440b3123517b">&lt;strong&gt;</bpt>Source Type<ept id="55018b24-2283-488c-8b12-440b3123517b">&lt;/strong&gt;</ept>, and the source and target VMM servers.</target>
+        </trans-unit>
+        <trans-unit id="da11dff7-2cb9-4d5d-b39a-245c52e25f60" xml:space="preserve">
+          <source>Click <bpt id="1e21f56e-ae92-40ba-b8a5-71b169e1ba0b">&lt;strong&gt;</bpt>SAN<ept id="1e21f56e-ae92-40ba-b8a5-71b169e1ba0b">&lt;/strong&gt;</ept> to see clouds that are configured for SAN replication.</source>
+          <target state="new">Click <bpt id="1e21f56e-ae92-40ba-b8a5-71b169e1ba0b">&lt;strong&gt;</bpt>SAN<ept id="1e21f56e-ae92-40ba-b8a5-71b169e1ba0b">&lt;/strong&gt;</ept> to see clouds that are configured for SAN replication.</target>
+        </trans-unit>
+        <trans-unit id="1f79b96b-9db4-438b-9046-fa5341781758" xml:space="preserve">
+          <source>If you're replicating from VMM to Azure select VMM in <bpt id="1f50e71f-9edc-4aa7-ab1c-ccf7065c875f">&lt;strong&gt;</bpt>Source Type<ept id="1f50e71f-9edc-4aa7-ab1c-ccf7065c875f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you're replicating from VMM to Azure select VMM in <bpt id="1f50e71f-9edc-4aa7-ab1c-ccf7065c875f">&lt;strong&gt;</bpt>Source Type<ept id="1f50e71f-9edc-4aa7-ab1c-ccf7065c875f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b7916fe-68ae-4ba2-9da6-edfdcab37fb9" xml:space="preserve">
+          <source>Select the source VMM server and <bpt id="d29d0ea2-2fdd-4d2b-bd2d-5ba346b86c0e">&lt;strong&gt;</bpt>Azure<ept id="d29d0ea2-2fdd-4d2b-bd2d-5ba346b86c0e">&lt;/strong&gt;</ept> as the target.</source>
+          <target state="new">Select the source VMM server and <bpt id="d29d0ea2-2fdd-4d2b-bd2d-5ba346b86c0e">&lt;strong&gt;</bpt>Azure<ept id="d29d0ea2-2fdd-4d2b-bd2d-5ba346b86c0e">&lt;/strong&gt;</ept> as the target.</target>
+        </trans-unit>
+        <trans-unit id="ecddfd66-51ee-4f2b-9ffa-83cc3f481af1" xml:space="preserve">
+          <source>If you're replicating from a Hyper-V site select Hyper-V site in Source Type.</source>
+          <target state="new">If you're replicating from a Hyper-V site select Hyper-V site in Source Type.</target>
+        </trans-unit>
+        <trans-unit id="59d7ed80-ba70-4f96-ac3e-1edce494be57" xml:space="preserve">
+          <source>Select the site as the source and <bpt id="91ade247-ed2f-4471-892f-207901e32d09">&lt;em&gt;</bpt>*Azure *<ept id="91ade247-ed2f-4471-892f-207901e32d09">&lt;/em&gt;</ept>as the target.</source>
+          <target state="new">Select the site as the source and <bpt id="91ade247-ed2f-4471-892f-207901e32d09">&lt;em&gt;</bpt>*Azure *<ept id="91ade247-ed2f-4471-892f-207901e32d09">&lt;/em&gt;</ept>as the target.</target>
+        </trans-unit>
+        <trans-unit id="f1491c14-27f1-47e1-8798-9dc9f7f1db8c" xml:space="preserve">
+          <source>If you're replicating from VMware or a physical on-premises server to Azure, select a configuration server as the source and <bpt id="f22ed6af-f333-4d4b-8ee6-82ee61e7ec64">&lt;strong&gt;</bpt>Azure<ept id="f22ed6af-f333-4d4b-8ee6-82ee61e7ec64">&lt;/strong&gt;</ept> as the target</source>
+          <target state="new">If you're replicating from VMware or a physical on-premises server to Azure, select a configuration server as the source and <bpt id="f22ed6af-f333-4d4b-8ee6-82ee61e7ec64">&lt;strong&gt;</bpt>Azure<ept id="f22ed6af-f333-4d4b-8ee6-82ee61e7ec64">&lt;/strong&gt;</ept> as the target</target>
+        </trans-unit>
+        <trans-unit id="d7d4d12f-a5e1-4d7e-91eb-0be559900e2c" xml:space="preserve">
+          <source>2.In <bpt id="1683fb83-b424-4f35-ad06-0051373500c8">&lt;strong&gt;</bpt>Select virtual machines<ept id="1683fb83-b424-4f35-ad06-0051373500c8">&lt;/strong&gt;</ept> select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan.</source>
+          <target state="new">2.In <bpt id="1683fb83-b424-4f35-ad06-0051373500c8">&lt;strong&gt;</bpt>Select virtual machines<ept id="1683fb83-b424-4f35-ad06-0051373500c8">&lt;/strong&gt;</ept> select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="ccfd825a-b8cf-4d57-aeae-05d993eea3b1" xml:space="preserve">
+          <source>After you've added protected virtual machines or replication groups to the default recovery plan group and created the plan you can customize it:</source>
+          <target state="new">After you've added protected virtual machines or replication groups to the default recovery plan group and created the plan you can customize it:</target>
+        </trans-unit>
+        <trans-unit id="a4ef04e2-2868-48c5-965e-91af80b877de" xml:space="preserve">
+          <source><bpt id="d7b33ffb-5e43-4b31-8ea8-1233da67c04f">&lt;strong&gt;</bpt>Add new groups<ept id="d7b33ffb-5e43-4b31-8ea8-1233da67c04f">&lt;/strong&gt;</ept>—You can add additional recovery plan groups.</source>
+          <target state="new"><bpt id="d7b33ffb-5e43-4b31-8ea8-1233da67c04f">&lt;strong&gt;</bpt>Add new groups<ept id="d7b33ffb-5e43-4b31-8ea8-1233da67c04f">&lt;/strong&gt;</ept>—You can add additional recovery plan groups.</target>
+        </trans-unit>
+        <trans-unit id="0627b000-e373-485f-aa6d-efe3fa5d2cbe" xml:space="preserve">
+          <source>Groups you add are numbered in the order in which you add them.</source>
+          <target state="new">Groups you add are numbered in the order in which you add them.</target>
+        </trans-unit>
+        <trans-unit id="f4fab82c-eed7-4cc0-87e3-4a19d6b543af" xml:space="preserve">
+          <source>You can add up to seven groups.</source>
+          <target state="new">You can add up to seven groups.</target>
+        </trans-unit>
+        <trans-unit id="d4702bb5-d746-4f34-bc56-ee3b96a87ab6" xml:space="preserve">
+          <source>You can add more machines or replication groups to these new groups.</source>
+          <target state="new">You can add more machines or replication groups to these new groups.</target>
+        </trans-unit>
+        <trans-unit id="708ee529-ac60-4e58-9cf6-c0495b1bbb52" xml:space="preserve">
+          <source>Note that a virtual machine or replication group can only be included in one recovery plan group.</source>
+          <target state="new">Note that a virtual machine or replication group can only be included in one recovery plan group.</target>
+        </trans-unit>
+        <trans-unit id="ec0a2c79-c4e7-49e5-b6e1-bd5e431bc6ee" xml:space="preserve">
+          <source><bpt id="78e6bdcc-2b93-4e63-8552-5384003625a4">&lt;em&gt;</bpt>*Add a script *<ept id="78e6bdcc-2b93-4e63-8552-5384003625a4">&lt;/em&gt;</ept>—You can add scripts that before or after a recovery plan group.</source>
+          <target state="new"><bpt id="78e6bdcc-2b93-4e63-8552-5384003625a4">&lt;em&gt;</bpt>*Add a script *<ept id="78e6bdcc-2b93-4e63-8552-5384003625a4">&lt;/em&gt;</ept>—You can add scripts that before or after a recovery plan group.</target>
+        </trans-unit>
+        <trans-unit id="f26bb5ad-11ad-4a17-ae97-da0618ff72a4" xml:space="preserve">
+          <source>When you add a script it adds a new set of actions for the group.</source>
+          <target state="new">When you add a script it adds a new set of actions for the group.</target>
+        </trans-unit>
+        <trans-unit id="ebfef6fd-862d-4563-b2e7-ec69dbc844bf" xml:space="preserve">
+          <source>For example a set of pre-steps for Group 1 will be created with the name: Group 1: Pre-steps.</source>
+          <target state="new">For example a set of pre-steps for Group 1 will be created with the name: Group 1: Pre-steps.</target>
+        </trans-unit>
+        <trans-unit id="66fed6ef-feb6-4d9d-888e-5a6a53157606" xml:space="preserve">
+          <source>All pre-steps will be listed inside this set.</source>
+          <target state="new">All pre-steps will be listed inside this set.</target>
+        </trans-unit>
+        <trans-unit id="44bf7b64-2fb4-4f9e-9e1a-a60218689a59" xml:space="preserve">
+          <source>Note that you can only add a script on the primary site if you have a VMM server deployed.</source>
+          <target state="new">Note that you can only add a script on the primary site if you have a VMM server deployed.</target>
+        </trans-unit>
+        <trans-unit id="5165992f-ac09-4a04-afad-5b39724242da" xml:space="preserve">
+          <source><bpt id="7bc3c169-d6f0-4732-b58e-7691fddcfcf2">&lt;strong&gt;</bpt>Add a manual action<ept id="7bc3c169-d6f0-4732-b58e-7691fddcfcf2">&lt;/strong&gt;</ept>—You can add manual actions that run before or after a recovery plan group.</source>
+          <target state="new"><bpt id="7bc3c169-d6f0-4732-b58e-7691fddcfcf2">&lt;strong&gt;</bpt>Add a manual action<ept id="7bc3c169-d6f0-4732-b58e-7691fddcfcf2">&lt;/strong&gt;</ept>—You can add manual actions that run before or after a recovery plan group.</target>
+        </trans-unit>
+        <trans-unit id="60272f41-76a0-4296-90dd-2adb959ddb8a" xml:space="preserve">
+          <source>When the recovery plan runs, it stops at the point at which you inserted the manual action, and a dialog box prompts you to specify that the manual action was completed.</source>
+          <target state="new">When the recovery plan runs, it stops at the point at which you inserted the manual action, and a dialog box prompts you to specify that the manual action was completed.</target>
+        </trans-unit>
+        <trans-unit id="bd80fce9-337c-4a7e-bb67-ad8ab30345fe" xml:space="preserve">
+          <source>You can add a script to your recovery plan:</source>
+          <target state="new">You can add a script to your recovery plan:</target>
+        </trans-unit>
+        <trans-unit id="01e7e1d6-412e-4d0e-91b0-8b4fa8dfe21e" xml:space="preserve">
+          <source>If you have a VMM source site you can create a script on the VMM server and include it in your recovery plan.</source>
+          <target state="new">If you have a VMM source site you can create a script on the VMM server and include it in your recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="41511ee3-5ac9-4b29-9cc6-b9859381703b" xml:space="preserve">
+          <source>If you're replicating to Azure you can integrate Azure automation runbooks into your recovery plan</source>
+          <target state="new">If you're replicating to Azure you can integrate Azure automation runbooks into your recovery plan</target>
+        </trans-unit>
+        <trans-unit id="8e31b1b4-5883-45da-b1b5-4effa20f247d" xml:space="preserve">
+          <source>Note the following before you start:</source>
+          <target state="new">Note the following before you start:</target>
+        </trans-unit>
+        <trans-unit id="b5a02067-7165-4d4c-a88a-b17bac6c3c1e" xml:space="preserve">
+          <source>Write scripts using Windows PowerShell.</source>
+          <target state="new">Write scripts using Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="545a2fc5-a28e-4fd2-8c14-452bb71347c4" xml:space="preserve">
+          <source>VMM cmdlets are delivered in a Windows PowerShell module.</source>
+          <target state="new">VMM cmdlets are delivered in a Windows PowerShell module.</target>
+        </trans-unit>
+        <trans-unit id="e91d4d87-27cc-440b-9667-b69b5b04713b" xml:space="preserve">
+          <source>The VMM Windows PowerShell module is installed when you install the VMM console.</source>
+          <target state="new">The VMM Windows PowerShell module is installed when you install the VMM console.</target>
+        </trans-unit>
+        <trans-unit id="817876d4-5490-473e-bf5d-cd032d46fcf4" xml:space="preserve">
+          <source>The VMM module can be loaded into your script using the following command in the script: Import-Module -Name virtualmachinemanager.</source>
+          <target state="new">The VMM module can be loaded into your script using the following command in the script: Import-Module -Name virtualmachinemanager.</target>
+        </trans-unit>
+        <trans-unit id="87339371-c1bb-4fd8-954e-692ef4cea0ba" xml:space="preserve">
+          <source><bpt id="1ebe2d06-d48a-43fd-8df3-d4686f92ffc7">&lt;linkText&gt;</bpt>Get more details<ept id="1ebe2d06-d48a-43fd-8df3-d4686f92ffc7">&lt;/linkText&gt;</ept><bpt id="1ebe2d06-d48a-43fd-8df3-d4686f92ffc7">&lt;title&gt;</bpt><ept id="1ebe2d06-d48a-43fd-8df3-d4686f92ffc7">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="1ebe2d06-d48a-43fd-8df3-d4686f92ffc7">&lt;linkText&gt;</bpt>Get more details<ept id="1ebe2d06-d48a-43fd-8df3-d4686f92ffc7">&lt;/linkText&gt;</ept><bpt id="1ebe2d06-d48a-43fd-8df3-d4686f92ffc7">&lt;title&gt;</bpt><ept id="1ebe2d06-d48a-43fd-8df3-d4686f92ffc7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a5f3dcf-cb8f-4e70-94ae-fce888854e15" xml:space="preserve">
+          <source>Ensure you have at least one library server in your VMM deployment.</source>
+          <target state="new">Ensure you have at least one library server in your VMM deployment.</target>
+        </trans-unit>
+        <trans-unit id="d5391d17-036b-45d6-afa0-cf1a9f6466f9" xml:space="preserve">
+          <source>By default the library share path for a VMM server is located locally on the VMM server with the folder name MSCVMMLibrary.</source>
+          <target state="new">By default the library share path for a VMM server is located locally on the VMM server with the folder name MSCVMMLibrary.</target>
+        </trans-unit>
+        <trans-unit id="57ada80a-12d4-4783-934f-48e077d8582d" xml:space="preserve">
+          <source>If your library share path is remote (or local but not shared with MSCVMMLibrary, configure the share as follows (using \\libserver2.contoso.com\share\ as an example):</source>
+          <target state="new">If your library share path is remote (or local but not shared with MSCVMMLibrary, configure the share as follows (using \\libserver2.contoso.com\share\ as an example):</target>
+        </trans-unit>
+        <trans-unit id="daf57022-f2ab-463f-b557-972bac0c325c" xml:space="preserve">
+          <source>Open the Registry Editor.</source>
+          <target state="new">Open the Registry Editor.</target>
+        </trans-unit>
+        <trans-unit id="815e0642-7571-4be5-a096-d78140837eab" xml:space="preserve">
+          <source>Navigate to HKEY<bpt id="89b0a7b4-0853-4443-af4e-818bec23501b">&lt;em&gt;</bpt>LOCAL<ept id="89b0a7b4-0853-4443-af4e-818bec23501b">&lt;/em&gt;</ept>MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.</source>
+          <target state="new">Navigate to HKEY<bpt id="89b0a7b4-0853-4443-af4e-818bec23501b">&lt;em&gt;</bpt>LOCAL<ept id="89b0a7b4-0853-4443-af4e-818bec23501b">&lt;/em&gt;</ept>MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.</target>
+        </trans-unit>
+        <trans-unit id="51ab635e-f084-4026-a2e4-ac2f1d5d33c3" xml:space="preserve">
+          <source>Edit the value ScriptLibraryPath.</source>
+          <target state="new">Edit the value ScriptLibraryPath.</target>
+        </trans-unit>
+        <trans-unit id="b8d28ae3-1902-4b92-a53e-fac3528c5154" xml:space="preserve">
+          <source>Place the value as \\libserver2.contoso.com\share\.</source>
+          <target state="new">Place the value as \\libserver2.contoso.com\share\.</target>
+        </trans-unit>
+        <trans-unit id="334e10ca-7c55-4064-9c6f-63f3b10ac1e5" xml:space="preserve">
+          <source>Specify the full FQDN.</source>
+          <target state="new">Specify the full FQDN.</target>
+        </trans-unit>
+        <trans-unit id="fd07626d-a275-4ef5-89bb-ba8f2baf53b8" xml:space="preserve">
+          <source>Provide permissions to the share location.</source>
+          <target state="new">Provide permissions to the share location.</target>
+        </trans-unit>
+        <trans-unit id="e6e816c3-eb97-41fa-8dd5-e5b6ad778183" xml:space="preserve">
+          <source>Scripts in a recovery plan run in the context of the VMM Service account.</source>
+          <target state="new">Scripts in a recovery plan run in the context of the VMM Service account.</target>
+        </trans-unit>
+        <trans-unit id="11c62a57-fe1b-4955-8a8d-ab2e1589a796" xml:space="preserve">
+          <source>Make sure this account has Read permissions on the remote share on which the script is located, and test the script to run at the VMM service account privilege level.</source>
+          <target state="new">Make sure this account has Read permissions on the remote share on which the script is located, and test the script to run at the VMM service account privilege level.</target>
+        </trans-unit>
+        <trans-unit id="e547242e-e090-4c12-a8e9-0b883d3dc52b" xml:space="preserve">
+          <source>Ensure that you test the script with a user account that has the same permissions as the VMM Service account, to ensure that stand-alone tested scripts run in the same way that they will in recovery plans.</source>
+          <target state="new">Ensure that you test the script with a user account that has the same permissions as the VMM Service account, to ensure that stand-alone tested scripts run in the same way that they will in recovery plans.</target>
+        </trans-unit>
+        <trans-unit id="8f50519f-8157-4214-b9fd-d826d0c1ce5d" xml:space="preserve">
+          <source>On the VMM server, set the execution policy to bypass as follows:</source>
+          <target state="new">On the VMM server, set the execution policy to bypass as follows:</target>
+        </trans-unit>
+        <trans-unit id="319a6705-0735-4c01-a816-00a3ea4a77f7" xml:space="preserve">
+          <source>Open the 64-bit Windows PowerShell console using elevated privileges.</source>
+          <target state="new">Open the 64-bit Windows PowerShell console using elevated privileges.</target>
+        </trans-unit>
+        <trans-unit id="c1abe106-d2b0-4bf7-a5a0-21b8d9fb0366" xml:space="preserve">
+          <source>Type: <bpt id="213bd8b4-e935-498c-a963-7c3effb0992c">&lt;strong&gt;</bpt>Set-executionpolicy bypass<ept id="213bd8b4-e935-498c-a963-7c3effb0992c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type: <bpt id="213bd8b4-e935-498c-a963-7c3effb0992c">&lt;strong&gt;</bpt>Set-executionpolicy bypass<ept id="213bd8b4-e935-498c-a963-7c3effb0992c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c254d7c-d32b-469c-8146-ffd59795a4a8" xml:space="preserve">
+          <source><bpt id="183ea550-9db1-4776-8b0e-08a52a2553b9">&lt;linkText&gt;</bpt>Get more details<ept id="183ea550-9db1-4776-8b0e-08a52a2553b9">&lt;/linkText&gt;</ept><bpt id="183ea550-9db1-4776-8b0e-08a52a2553b9">&lt;title&gt;</bpt><ept id="183ea550-9db1-4776-8b0e-08a52a2553b9">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="183ea550-9db1-4776-8b0e-08a52a2553b9">&lt;linkText&gt;</bpt>Get more details<ept id="183ea550-9db1-4776-8b0e-08a52a2553b9">&lt;/linkText&gt;</ept><bpt id="183ea550-9db1-4776-8b0e-08a52a2553b9">&lt;title&gt;</bpt><ept id="183ea550-9db1-4776-8b0e-08a52a2553b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08f7af16-c1fc-445d-b82a-c902143c245d" xml:space="preserve">
+          <source>Ensure that you use try-catch blocks, so that the exceptions are handled gracefully.</source>
+          <target state="new">Ensure that you use try-catch blocks, so that the exceptions are handled gracefully.</target>
+        </trans-unit>
+        <trans-unit id="cca4ea40-b83b-4a22-adca-cdd1a65c024b" xml:space="preserve">
+          <source>If there is an exception in the script it stops running and the task shows as failed.</source>
+          <target state="new">If there is an exception in the script it stops running and the task shows as failed.</target>
+        </trans-unit>
+        <trans-unit id="f9b15efe-22cc-4e46-a581-15d70d0243c4" xml:space="preserve">
+          <source>If an error does occur, any remaining part of the script won't run.</source>
+          <target state="new">If an error does occur, any remaining part of the script won't run.</target>
+        </trans-unit>
+        <trans-unit id="3803f036-f7f9-4c4c-b95d-8992f52e422a" xml:space="preserve">
+          <source>If this occurs when you are running an unplanned failover, the recovery plan will continue.</source>
+          <target state="new">If this occurs when you are running an unplanned failover, the recovery plan will continue.</target>
+        </trans-unit>
+        <trans-unit id="8de16fc7-c1fb-4eb9-9c0c-86a5deda86da" xml:space="preserve">
+          <source>If this occurs when you are running a planned failover, the recovery plan will stop.</source>
+          <target state="new">If this occurs when you are running a planned failover, the recovery plan will stop.</target>
+        </trans-unit>
+        <trans-unit id="af07cb5a-a6ed-4dca-8f6f-50f452d7ffb0" xml:space="preserve">
+          <source>If this occurs, fix the script, make sure it runs as expected, and then run the recovery plan again.</source>
+          <target state="new">If this occurs, fix the script, make sure it runs as expected, and then run the recovery plan again.</target>
+        </trans-unit>
+        <trans-unit id="37258f03-12da-44b7-b52d-3fc21d9cb708" xml:space="preserve">
+          <source>The Write-Host command doesn’t work in a recovery plan script, and the script will fail.</source>
+          <target state="new">The Write-Host command doesn’t work in a recovery plan script, and the script will fail.</target>
+        </trans-unit>
+        <trans-unit id="fe0ff19d-2446-49b5-9fda-0415519466fa" xml:space="preserve">
+          <source>If you want to create output, create a proxy script that in turn runs your main script, and ensure that all output is piped out using the &gt;&gt; command.</source>
+          <target state="new">If you want to create output, create a proxy script that in turn runs your main script, and ensure that all output is piped out using the &gt;&gt; command.</target>
+        </trans-unit>
+        <trans-unit id="61e43ec8-afb0-40f3-ab5a-27266120d49e" xml:space="preserve">
+          <source>The script times out if it does not return within 600 seconds.</source>
+          <target state="new">The script times out if it does not return within 600 seconds.</target>
+        </trans-unit>
+        <trans-unit id="5948b978-b17f-4739-bdc4-33ba112a384c" xml:space="preserve">
+          <source>If anything is written out to STDERR, the script will be classified as failed.</source>
+          <target state="new">If anything is written out to STDERR, the script will be classified as failed.</target>
+        </trans-unit>
+        <trans-unit id="85e28868-2722-41fd-b317-c271414fc99d" xml:space="preserve">
+          <source>This information will be displayed in the script execution details.</source>
+          <target state="new">This information will be displayed in the script execution details.</target>
+        </trans-unit>
+        <trans-unit id="4639f8b1-f238-4ed6-b9ea-79b0d3799747" xml:space="preserve">
+          <source>Create the script as follows:</source>
+          <target state="new">Create the script as follows:</target>
+        </trans-unit>
+        <trans-unit id="0a2aff17-5f90-42f3-8a82-5c572204dca3" xml:space="preserve">
+          <source>Create a new folder in the library share, for example \&lt;VMMServerName&gt;\MSSCVMMLibrary\RPScripts. Place it on the source and target VMM servers.</source>
+          <target state="new">Create a new folder in the library share, for example \&lt;VMMServerName&gt;\MSSCVMMLibrary\RPScripts. Place it on the source and target VMM servers.</target>
+        </trans-unit>
+        <trans-unit id="4d625687-3a8d-4d3f-a181-095ef9f39789" xml:space="preserve">
+          <source>Create the script (for example RPScript), and check it works as expected.</source>
+          <target state="new">Create the script (for example RPScript), and check it works as expected.</target>
+        </trans-unit>
+        <trans-unit id="b2536e63-f94a-4b93-bf98-83becba8b978" xml:space="preserve">
+          <source>Place the script in the location \&lt;VMMServerName&gt;\MSSCVMMLibrary on the source and target VMM servers.</source>
+          <target state="new">Place the script in the location \&lt;VMMServerName&gt;\MSSCVMMLibrary on the source and target VMM servers.</target>
+        </trans-unit>
+        <trans-unit id="5f590e3f-03c4-4950-8c02-c08254626c3b" xml:space="preserve">
+          <source>You can extend your recovery plan by running an Azure automation runbook as part of the plan.</source>
+          <target state="new">You can extend your recovery plan by running an Azure automation runbook as part of the plan.</target>
+        </trans-unit>
+        <trans-unit id="af119d71-b1ea-4e48-89b6-0958622ea250" xml:space="preserve">
+          <source><bpt id="e777d2a4-46ea-42a4-bd30-729df63b1e78">&lt;linkText&gt;</bpt>Read more<ept id="e777d2a4-46ea-42a4-bd30-729df63b1e78">&lt;/linkText&gt;</ept><bpt id="e777d2a4-46ea-42a4-bd30-729df63b1e78">&lt;title&gt;</bpt><ept id="e777d2a4-46ea-42a4-bd30-729df63b1e78">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="e777d2a4-46ea-42a4-bd30-729df63b1e78">&lt;linkText&gt;</bpt>Read more<ept id="e777d2a4-46ea-42a4-bd30-729df63b1e78">&lt;/linkText&gt;</ept><bpt id="e777d2a4-46ea-42a4-bd30-729df63b1e78">&lt;title&gt;</bpt><ept id="e777d2a4-46ea-42a4-bd30-729df63b1e78">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed842ac1-9411-40ab-aac0-acfa6b366a06" xml:space="preserve">
+          <source>Open the recovery plan you want to customize.</source>
+          <target state="new">Open the recovery plan you want to customize.</target>
+        </trans-unit>
+        <trans-unit id="0ea2590a-4785-4b28-ac49-5a06f7ef8513" xml:space="preserve">
+          <source>Click to add a virtual machines or new group.</source>
+          <target state="new">Click to add a virtual machines or new group.</target>
+        </trans-unit>
+        <trans-unit id="ee152b26-2445-4c03-95e0-4c80d7e3d42d" xml:space="preserve">
+          <source>To add a script or manual action click any item in the <bpt id="a0016356-2439-4416-9623-5f1fa7856bda">&lt;strong&gt;</bpt>Step<ept id="a0016356-2439-4416-9623-5f1fa7856bda">&lt;/strong&gt;</ept> list and then click <bpt id="b9cf4fa7-c31d-4ec0-9337-d6e8d00ed902">&lt;strong&gt;</bpt>Script<ept id="b9cf4fa7-c31d-4ec0-9337-d6e8d00ed902">&lt;/strong&gt;</ept> or <bpt id="d39aa4fc-538b-4cb4-9ca1-f4ed4079a6c3">&lt;strong&gt;</bpt>Manual Action<ept id="d39aa4fc-538b-4cb4-9ca1-f4ed4079a6c3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To add a script or manual action click any item in the <bpt id="a0016356-2439-4416-9623-5f1fa7856bda">&lt;strong&gt;</bpt>Step<ept id="a0016356-2439-4416-9623-5f1fa7856bda">&lt;/strong&gt;</ept> list and then click <bpt id="b9cf4fa7-c31d-4ec0-9337-d6e8d00ed902">&lt;strong&gt;</bpt>Script<ept id="b9cf4fa7-c31d-4ec0-9337-d6e8d00ed902">&lt;/strong&gt;</ept> or <bpt id="d39aa4fc-538b-4cb4-9ca1-f4ed4079a6c3">&lt;strong&gt;</bpt>Manual Action<ept id="d39aa4fc-538b-4cb4-9ca1-f4ed4079a6c3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ada1810-b580-4b17-bc81-a6767fd0ed69" xml:space="preserve">
+          <source>Specify whether to want to add the script or action before or after the selected item.</source>
+          <target state="new">Specify whether to want to add the script or action before or after the selected item.</target>
+        </trans-unit>
+        <trans-unit id="3cc8387f-c0b1-4861-8f31-acbb1a4aeecc" xml:space="preserve">
+          <source>Use the <bpt id="28946d7e-7c6c-4616-9df5-695222455d4a">&lt;strong&gt;</bpt>Move Up<ept id="28946d7e-7c6c-4616-9df5-695222455d4a">&lt;/strong&gt;</ept> and <bpt id="d8a41b4f-b98b-4f2c-9573-b70f2e88a012">&lt;strong&gt;</bpt>Move Down<ept id="d8a41b4f-b98b-4f2c-9573-b70f2e88a012">&lt;/strong&gt;</ept> command buttons to move the position of the script up or down.</source>
+          <target state="new">Use the <bpt id="28946d7e-7c6c-4616-9df5-695222455d4a">&lt;strong&gt;</bpt>Move Up<ept id="28946d7e-7c6c-4616-9df5-695222455d4a">&lt;/strong&gt;</ept> and <bpt id="d8a41b4f-b98b-4f2c-9573-b70f2e88a012">&lt;strong&gt;</bpt>Move Down<ept id="d8a41b4f-b98b-4f2c-9573-b70f2e88a012">&lt;/strong&gt;</ept> command buttons to move the position of the script up or down.</target>
+        </trans-unit>
+        <trans-unit id="9ab9d5c0-fa00-4887-a461-fd260f603372" xml:space="preserve">
+          <source>If you're adding a VMM script, select <bpt id="e414bc06-e05e-4937-bca7-b26cfd7dc399">&lt;strong&gt;</bpt>Failover to VMM script<ept id="e414bc06-e05e-4937-bca7-b26cfd7dc399">&lt;/strong&gt;</ept>, and in in <bpt id="81431f5a-5f0b-43c4-a94c-19e467ad4770">&lt;strong&gt;</bpt>Script Path<ept id="81431f5a-5f0b-43c4-a94c-19e467ad4770">&lt;/strong&gt;</ept> type the relative path to the share. So, for our example where the share is located at \\&lt;VMMServerName&gt;\MSSCVMMLibrary\RPScripts, specify the path: \RPScripts\RPScript.PS1.</source>
+          <target state="new">If you're adding a VMM script, select <bpt id="e414bc06-e05e-4937-bca7-b26cfd7dc399">&lt;strong&gt;</bpt>Failover to VMM script<ept id="e414bc06-e05e-4937-bca7-b26cfd7dc399">&lt;/strong&gt;</ept>, and in in <bpt id="81431f5a-5f0b-43c4-a94c-19e467ad4770">&lt;strong&gt;</bpt>Script Path<ept id="81431f5a-5f0b-43c4-a94c-19e467ad4770">&lt;/strong&gt;</ept> type the relative path to the share. So, for our example where the share is located at \\&lt;VMMServerName&gt;\MSSCVMMLibrary\RPScripts, specify the path: \RPScripts\RPScript.PS1.</target>
+        </trans-unit>
+        <trans-unit id="b70faa00-beb0-402e-a02d-63f53e724f64" xml:space="preserve">
+          <source>If you're adding an Azure automation run book, specify the <bpt id="c286a2e4-cb6f-479d-b437-6b8a65ea303c">&lt;strong&gt;</bpt>Azure Automation Account<ept id="c286a2e4-cb6f-479d-b437-6b8a65ea303c">&lt;/strong&gt;</ept> in which the runbook is located, and select the appropriate <bpt id="4b8bd8a0-f208-4ec8-b9a7-5759acb0a4a5">&lt;strong&gt;</bpt>Azure Runbook Script<ept id="4b8bd8a0-f208-4ec8-b9a7-5759acb0a4a5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you're adding an Azure automation run book, specify the <bpt id="c286a2e4-cb6f-479d-b437-6b8a65ea303c">&lt;strong&gt;</bpt>Azure Automation Account<ept id="c286a2e4-cb6f-479d-b437-6b8a65ea303c">&lt;/strong&gt;</ept> in which the runbook is located, and select the appropriate <bpt id="4b8bd8a0-f208-4ec8-b9a7-5759acb0a4a5">&lt;strong&gt;</bpt>Azure Runbook Script<ept id="4b8bd8a0-f208-4ec8-b9a7-5759acb0a4a5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce94a07a-af42-45cb-ac72-c82277874f55" xml:space="preserve">
+          <source>Do a failover of the recovery plan to ensure that the script works as expected.</source>
+          <target state="new">Do a failover of the recovery plan to ensure that the script works as expected.</target>
+        </trans-unit>
+        <trans-unit id="3514c96c-4a6c-4d3b-8c23-0c6b5d9e7673" xml:space="preserve">
+          <source>You can run different types of failovers recovery plan, including a test failover to check your environment, and a planned or unplanned failover.</source>
+          <target state="new">You can run different types of failovers recovery plan, including a test failover to check your environment, and a planned or unplanned failover.</target>
+        </trans-unit>
+        <trans-unit id="c70f6596-5ca5-4d6f-92ff-7e4e68d4b328" xml:space="preserve">
+          <source>Read more about failover and get instructions for running different types of failovers <bpt id="eb0997a4-ce57-49e7-a024-ac7256125798">&lt;linkText&gt;</bpt>here<ept id="eb0997a4-ce57-49e7-a024-ac7256125798">&lt;/linkText&gt;</ept><bpt id="eb0997a4-ce57-49e7-a024-ac7256125798">&lt;title&gt;</bpt><ept id="eb0997a4-ce57-49e7-a024-ac7256125798">&lt;/title&gt;</ept> about failover.</source>
+          <target state="new">Read more about failover and get instructions for running different types of failovers <bpt id="eb0997a4-ce57-49e7-a024-ac7256125798">&lt;linkText&gt;</bpt>here<ept id="eb0997a4-ce57-49e7-a024-ac7256125798">&lt;/linkText&gt;</ept><bpt id="eb0997a4-ce57-49e7-a024-ac7256125798">&lt;title&gt;</bpt><ept id="eb0997a4-ce57-49e7-a024-ac7256125798">&lt;/title&gt;</ept> about failover.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d4b84a7e-5107-4489-872b-7613dc2c56ed" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d4b84a7e-5107-4489-872b-7613dc2c56ed" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5e43a994-2b9b-4dd2-a145-98df68917f8d">
+        <trans-unit id="59edf3ca-519e-4d01-acd3-f043286814bd" xml:space="preserve">
+          <source>Navigate to <bpt id="0cd97ab5-666f-49eb-af15-7348ff00c58c">&lt;strong&gt;</bpt>Active Directory<ept id="0cd97ab5-666f-49eb-af15-7348ff00c58c">&lt;/strong&gt;</ept> in the [Azure Management Portal], then click your directory.</source>
+          <target state="new">Navigate to <bpt id="0cd97ab5-666f-49eb-af15-7348ff00c58c">&lt;strong&gt;</bpt>Active Directory<ept id="0cd97ab5-666f-49eb-af15-7348ff00c58c">&lt;/strong&gt;</ept> in the [Azure Management Portal], then click your directory.</target>
+        </trans-unit>
+        <trans-unit id="4c2599ad-5916-4fab-9c04-caf3fbe08cd3" xml:space="preserve">
+          <source><bpt id="057e62c7-9f2a-4bf8-ab67-b33f40bb0a2c">&lt;linkText&gt;</bpt><ept id="057e62c7-9f2a-4bf8-ab67-b33f40bb0a2c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="057e62c7-9f2a-4bf8-ab67-b33f40bb0a2c">&lt;linkText&gt;</bpt><ept id="057e62c7-9f2a-4bf8-ab67-b33f40bb0a2c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="350acd48-9ed0-4a48-b59d-f47493a1bdca" xml:space="preserve">
+          <source>Click the <bpt id="89dc7b34-6c03-4c98-84cd-68952dee38af">&lt;strong&gt;</bpt>Applications<ept id="89dc7b34-6c03-4c98-84cd-68952dee38af">&lt;/strong&gt;</ept> tab at the top, then click to <bpt id="a7301bf6-9e5d-4cf4-b76f-270376c2e1d1">&lt;strong&gt;</bpt>ADD<ept id="a7301bf6-9e5d-4cf4-b76f-270376c2e1d1">&lt;/strong&gt;</ept> an app.</source>
+          <target state="new">Click the <bpt id="89dc7b34-6c03-4c98-84cd-68952dee38af">&lt;strong&gt;</bpt>Applications<ept id="89dc7b34-6c03-4c98-84cd-68952dee38af">&lt;/strong&gt;</ept> tab at the top, then click to <bpt id="a7301bf6-9e5d-4cf4-b76f-270376c2e1d1">&lt;strong&gt;</bpt>ADD<ept id="a7301bf6-9e5d-4cf4-b76f-270376c2e1d1">&lt;/strong&gt;</ept> an app.</target>
+        </trans-unit>
+        <trans-unit id="db37812c-78b3-4d01-bdf1-f3c3cbe8a010" xml:space="preserve">
+          <source><bpt id="48d45197-a30d-46bb-9b00-e15c5a3fbb03">&lt;linkText&gt;</bpt><ept id="48d45197-a30d-46bb-9b00-e15c5a3fbb03">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48d45197-a30d-46bb-9b00-e15c5a3fbb03">&lt;linkText&gt;</bpt><ept id="48d45197-a30d-46bb-9b00-e15c5a3fbb03">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5baef22-fa66-49b8-9ea0-f5f7afa9cf7d" xml:space="preserve">
+          <source>Click <bpt id="55a4b7a6-4074-477f-bdc7-51bf2c4db679">&lt;strong&gt;</bpt>Add an application my organization is developing<ept id="55a4b7a6-4074-477f-bdc7-51bf2c4db679">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="55a4b7a6-4074-477f-bdc7-51bf2c4db679">&lt;strong&gt;</bpt>Add an application my organization is developing<ept id="55a4b7a6-4074-477f-bdc7-51bf2c4db679">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2136d8ce-82f7-4c1e-bcf6-5a5286fa1840" xml:space="preserve">
+          <source>In the Add Application Wizard, enter a <bpt id="cbb49268-1f01-4569-86ac-de5f4ad2112b">&lt;strong&gt;</bpt>Name<ept id="cbb49268-1f01-4569-86ac-de5f4ad2112b">&lt;/strong&gt;</ept> for your application and click the  <bpt id="5fb9f69b-6b65-4821-81c4-8e77a36ab8d1">&lt;strong&gt;</bpt>Native Client Application<ept id="5fb9f69b-6b65-4821-81c4-8e77a36ab8d1">&lt;/strong&gt;</ept> type.</source>
+          <target state="new">In the Add Application Wizard, enter a <bpt id="cbb49268-1f01-4569-86ac-de5f4ad2112b">&lt;strong&gt;</bpt>Name<ept id="cbb49268-1f01-4569-86ac-de5f4ad2112b">&lt;/strong&gt;</ept> for your application and click the  <bpt id="5fb9f69b-6b65-4821-81c4-8e77a36ab8d1">&lt;strong&gt;</bpt>Native Client Application<ept id="5fb9f69b-6b65-4821-81c4-8e77a36ab8d1">&lt;/strong&gt;</ept> type.</target>
+        </trans-unit>
+        <trans-unit id="c0e0c385-cadc-42fc-9256-e0e7d055374f" xml:space="preserve">
+          <source>Then click to continue.</source>
+          <target state="new">Then click to continue.</target>
+        </trans-unit>
+        <trans-unit id="98756d83-2895-4a6e-8605-f23a18adcb83" xml:space="preserve">
+          <source><bpt id="ab227414-166a-46ae-b700-33c170ddc534">&lt;linkText&gt;</bpt><ept id="ab227414-166a-46ae-b700-33c170ddc534">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ab227414-166a-46ae-b700-33c170ddc534">&lt;linkText&gt;</bpt><ept id="ab227414-166a-46ae-b700-33c170ddc534">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0caea43-bfbc-4f5c-9725-1eb568f360c5" xml:space="preserve">
+          <source>In the <bpt id="706f8d1d-5d73-4c94-a5b4-8b166c3bf55c">&lt;strong&gt;</bpt>Redirect URI<ept id="706f8d1d-5d73-4c94-a5b4-8b166c3bf55c">&lt;/strong&gt;</ept> box, enter the /login/done endpoint for your mobile service.</source>
+          <target state="new">In the <bpt id="706f8d1d-5d73-4c94-a5b4-8b166c3bf55c">&lt;strong&gt;</bpt>Redirect URI<ept id="706f8d1d-5d73-4c94-a5b4-8b166c3bf55c">&lt;/strong&gt;</ept> box, enter the /login/done endpoint for your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="c449fa0e-afbd-4b41-8ea4-aad2771c38a1" xml:space="preserve">
+          <source>This value should be similar to https://todolist.azure-mobile.net/login/done.</source>
+          <target state="new">This value should be similar to https://todolist.azure-mobile.net/login/done.</target>
+        </trans-unit>
+        <trans-unit id="e5e1b623-ab98-4ff4-819d-bd981f77844f" xml:space="preserve">
+          <source><bpt id="05e12957-0552-4169-92b3-874fe43b3782">&lt;linkText&gt;</bpt><ept id="05e12957-0552-4169-92b3-874fe43b3782">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="05e12957-0552-4169-92b3-874fe43b3782">&lt;linkText&gt;</bpt><ept id="05e12957-0552-4169-92b3-874fe43b3782">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b165356-2452-4660-a924-daf54493189f" xml:space="preserve">
+          <source>Click the <bpt id="5748316b-388e-4db0-9689-0f44d5a9b770">&lt;strong&gt;</bpt>Configure<ept id="5748316b-388e-4db0-9689-0f44d5a9b770">&lt;/strong&gt;</ept> tab for the native application and copy the <bpt id="b8c52df5-303b-4b3d-bba1-c2e13ab4aa29">&lt;strong&gt;</bpt>Client ID<ept id="b8c52df5-303b-4b3d-bba1-c2e13ab4aa29">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="5748316b-388e-4db0-9689-0f44d5a9b770">&lt;strong&gt;</bpt>Configure<ept id="5748316b-388e-4db0-9689-0f44d5a9b770">&lt;/strong&gt;</ept> tab for the native application and copy the <bpt id="b8c52df5-303b-4b3d-bba1-c2e13ab4aa29">&lt;strong&gt;</bpt>Client ID<ept id="b8c52df5-303b-4b3d-bba1-c2e13ab4aa29">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d287eed-c5e9-41cc-8fd7-d39e0cb8b5ff" xml:space="preserve">
+          <source>You will need this later.</source>
+          <target state="new">You will need this later.</target>
+        </trans-unit>
+        <trans-unit id="0235d44d-c8f8-4429-81ea-c11637d95245" xml:space="preserve">
+          <source><bpt id="0981a99f-da15-4703-9e6f-354703862e88">&lt;linkText&gt;</bpt><ept id="0981a99f-da15-4703-9e6f-354703862e88">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0981a99f-da15-4703-9e6f-354703862e88">&lt;linkText&gt;</bpt><ept id="0981a99f-da15-4703-9e6f-354703862e88">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="845f2cd6-6fbd-4439-9318-d385a735968a" xml:space="preserve">
+          <source>Scroll the page down to the <bpt id="8b206f73-99c2-43a8-a539-4b3beab21f86">&lt;strong&gt;</bpt>permissions to other applications<ept id="8b206f73-99c2-43a8-a539-4b3beab21f86">&lt;/strong&gt;</ept> section and click the <bpt id="91a306ff-62c6-4612-80d0-e6562f9c14c6">&lt;strong&gt;</bpt>Add application<ept id="91a306ff-62c6-4612-80d0-e6562f9c14c6">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Scroll the page down to the <bpt id="8b206f73-99c2-43a8-a539-4b3beab21f86">&lt;strong&gt;</bpt>permissions to other applications<ept id="8b206f73-99c2-43a8-a539-4b3beab21f86">&lt;/strong&gt;</ept> section and click the <bpt id="91a306ff-62c6-4612-80d0-e6562f9c14c6">&lt;strong&gt;</bpt>Add application<ept id="91a306ff-62c6-4612-80d0-e6562f9c14c6">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="b9decb8b-27f4-48ad-9e8b-aa3fc6f83675" xml:space="preserve">
+          <source>Choose <bpt id="999c3d69-8cf6-4e8c-9be7-81e019bc58f7">&lt;strong&gt;</bpt>Other<ept id="999c3d69-8cf6-4e8c-9be7-81e019bc58f7">&lt;/strong&gt;</ept> from the Show menu and search for todo.</source>
+          <target state="new">Choose <bpt id="999c3d69-8cf6-4e8c-9be7-81e019bc58f7">&lt;strong&gt;</bpt>Other<ept id="999c3d69-8cf6-4e8c-9be7-81e019bc58f7">&lt;/strong&gt;</ept> from the Show menu and search for todo.</target>
+        </trans-unit>
+        <trans-unit id="70f03f41-507b-4a49-96b5-6eae452879bc" xml:space="preserve">
+          <source>Click <bpt id="4d107d82-4cb8-42f4-ab97-e7acddc44a98">&lt;strong&gt;</bpt>TodoList<ept id="4d107d82-4cb8-42f4-ab97-e7acddc44a98">&lt;/strong&gt;</ept> to add it the mobile service you registered earlier and click the checkmark for done.</source>
+          <target state="new">Click <bpt id="4d107d82-4cb8-42f4-ab97-e7acddc44a98">&lt;strong&gt;</bpt>TodoList<ept id="4d107d82-4cb8-42f4-ab97-e7acddc44a98">&lt;/strong&gt;</ept> to add it the mobile service you registered earlier and click the checkmark for done.</target>
+        </trans-unit>
+        <trans-unit id="973db934-fd39-4cd1-ab92-d1f79c91b2bf" xml:space="preserve">
+          <source>Grant access to the mobile service application.</source>
+          <target state="new">Grant access to the mobile service application.</target>
+        </trans-unit>
+        <trans-unit id="13bcb330-a03a-4a52-807c-8183d8ae00e8" xml:space="preserve">
+          <source>Then click <bpt id="dc7eecaa-ef7a-4589-a70a-6a9472518422">&lt;strong&gt;</bpt>Save<ept id="dc7eecaa-ef7a-4589-a70a-6a9472518422">&lt;/strong&gt;</ept></source>
+          <target state="new">Then click <bpt id="dc7eecaa-ef7a-4589-a70a-6a9472518422">&lt;strong&gt;</bpt>Save<ept id="dc7eecaa-ef7a-4589-a70a-6a9472518422">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="354107c5-b690-473d-9eaf-8626a029f9b8" xml:space="preserve">
+          <source><bpt id="9ace0400-c74d-411d-a62b-c9cf00777e36">&lt;linkText&gt;</bpt><ept id="9ace0400-c74d-411d-a62b-c9cf00777e36">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ace0400-c74d-411d-a62b-c9cf00777e36">&lt;linkText&gt;</bpt><ept id="9ace0400-c74d-411d-a62b-c9cf00777e36">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c2000bb-f278-4054-a5be-0449eea9d88e" xml:space="preserve">
+          <source>Your mobile service is now configured in AAD to receive single sign-on logins from your app.</source>
+          <target state="new">Your mobile service is now configured in AAD to receive single sign-on logins from your app.</target>
+        </trans-unit>
+        <trans-unit id="66d8446a-ab58-4821-8f4e-3ce2348d7507" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="be9cd519-d2ef-4b77-a571-adec918162db" />
+    </body>
+  </file>
+</xliff>

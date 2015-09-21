@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1796084c-3eb2-480d-af28-2f68a21e1117" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1796084c-3eb2-480d-af28-2f68a21e1117" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ffa2a103-d4d7-4dcf-91f0-c1369d851928">
+        <trans-unit id="43209726-8592-48f4-a5bd-a9ae290129fa" xml:space="preserve">
+          <source>Data Movement Activities</source>
+          <target state="new">Data Movement Activities</target>
+        </trans-unit>
+        <trans-unit id="6f1fa0d6-0a73-44be-bf6e-df07c3e65615" xml:space="preserve">
+          <source>Learn about Data Factory entities that you can use in an Data Factory pipelines to move data.</source>
+          <target state="new">Learn about Data Factory entities that you can use in an Data Factory pipelines to move data.</target>
+        </trans-unit>
+        <trans-unit id="bef4ae39-3541-4f33-b505-f3ba5d019930" xml:space="preserve">
+          <source>Data factory has a <bpt id="aa92b05e-f391-4c1f-bb27-d72b03629ccd">&lt;linkText&gt;</bpt>globally available service<ept id="aa92b05e-f391-4c1f-bb27-d72b03629ccd">&lt;/linkText&gt;</ept><bpt id="aa92b05e-f391-4c1f-bb27-d72b03629ccd">&lt;title&gt;</bpt><ept id="aa92b05e-f391-4c1f-bb27-d72b03629ccd">&lt;/title&gt;</ept> to support data movement with <bpt id="6ffcabde-1770-4889-82ac-f8885a5cf23b">&lt;linkText&gt;</bpt>Copy activity<ept id="6ffcabde-1770-4889-82ac-f8885a5cf23b">&lt;/linkText&gt;</ept><bpt id="6ffcabde-1770-4889-82ac-f8885a5cf23b">&lt;title&gt;</bpt><ept id="6ffcabde-1770-4889-82ac-f8885a5cf23b">&lt;/title&gt;</ept> across a variety of data stores listed below.</source>
+          <target state="new">Data factory has a <bpt id="aa92b05e-f391-4c1f-bb27-d72b03629ccd">&lt;linkText&gt;</bpt>globally available service<ept id="aa92b05e-f391-4c1f-bb27-d72b03629ccd">&lt;/linkText&gt;</ept><bpt id="aa92b05e-f391-4c1f-bb27-d72b03629ccd">&lt;title&gt;</bpt><ept id="aa92b05e-f391-4c1f-bb27-d72b03629ccd">&lt;/title&gt;</ept> to support data movement with <bpt id="6ffcabde-1770-4889-82ac-f8885a5cf23b">&lt;linkText&gt;</bpt>Copy activity<ept id="6ffcabde-1770-4889-82ac-f8885a5cf23b">&lt;/linkText&gt;</ept><bpt id="6ffcabde-1770-4889-82ac-f8885a5cf23b">&lt;title&gt;</bpt><ept id="6ffcabde-1770-4889-82ac-f8885a5cf23b">&lt;/title&gt;</ept> across a variety of data stores listed below.</target>
+        </trans-unit>
+        <trans-unit id="bd199305-5324-4df9-a08f-21c6e6cf3c4a" xml:space="preserve">
+          <source>Data factory also has built-in support for <bpt id="35141fdf-1948-4924-b370-1da33538bb22">&lt;linkText&gt;</bpt>securely moving data between on-premises locations and cloud<ept id="35141fdf-1948-4924-b370-1da33538bb22">&lt;/linkText&gt;</ept><bpt id="35141fdf-1948-4924-b370-1da33538bb22">&lt;title&gt;</bpt><ept id="35141fdf-1948-4924-b370-1da33538bb22">&lt;/title&gt;</ept> using the data management gateway.</source>
+          <target state="new">Data factory also has built-in support for <bpt id="35141fdf-1948-4924-b370-1da33538bb22">&lt;linkText&gt;</bpt>securely moving data between on-premises locations and cloud<ept id="35141fdf-1948-4924-b370-1da33538bb22">&lt;/linkText&gt;</ept><bpt id="35141fdf-1948-4924-b370-1da33538bb22">&lt;title&gt;</bpt><ept id="35141fdf-1948-4924-b370-1da33538bb22">&lt;/title&gt;</ept> using the data management gateway.</target>
+        </trans-unit>
+        <trans-unit id="88487976-9417-40a2-b562-9c3243a40fa2" xml:space="preserve">
+          <source>Copy activity copies data from a <bpt id="a8867957-aaab-45ed-bf5a-1cda89a18617">&lt;strong&gt;</bpt>source<ept id="a8867957-aaab-45ed-bf5a-1cda89a18617">&lt;/strong&gt;</ept> data store to a <bpt id="48a32b1e-4c1d-41b6-a4e9-de90a77cea9b">&lt;strong&gt;</bpt>sink<ept id="48a32b1e-4c1d-41b6-a4e9-de90a77cea9b">&lt;/strong&gt;</ept> data store.</source>
+          <target state="new">Copy activity copies data from a <bpt id="a8867957-aaab-45ed-bf5a-1cda89a18617">&lt;strong&gt;</bpt>source<ept id="a8867957-aaab-45ed-bf5a-1cda89a18617">&lt;/strong&gt;</ept> data store to a <bpt id="48a32b1e-4c1d-41b6-a4e9-de90a77cea9b">&lt;strong&gt;</bpt>sink<ept id="48a32b1e-4c1d-41b6-a4e9-de90a77cea9b">&lt;/strong&gt;</ept> data store.</target>
+        </trans-unit>
+        <trans-unit id="9129a623-2953-4f3f-8e8a-4aef8cb7dd02" xml:space="preserve">
+          <source>Data factory supports the following data stores and source, sink combinations.</source>
+          <target state="new">Data factory supports the following data stores and source, sink combinations.</target>
+        </trans-unit>
+        <trans-unit id="85c3a0a3-4aaf-440d-aaa3-935bc2d4e2c4" xml:space="preserve">
+          <source>Click on a data store to learn how to copy data from/to that store.</source>
+          <target state="new">Click on a data store to learn how to copy data from/to that store.</target>
+        </trans-unit>
+        <trans-unit id="999fcdd4-b189-4605-8082-46eb48a5438e" xml:space="preserve">
+          <source><bpt id="15750611-9947-4407-8efb-540f2ef68af6">&lt;strong&gt;</bpt>Source<ept id="15750611-9947-4407-8efb-540f2ef68af6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="15750611-9947-4407-8efb-540f2ef68af6">&lt;strong&gt;</bpt>Source<ept id="15750611-9947-4407-8efb-540f2ef68af6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d8c2d79-4b45-4d9e-88b0-bc8492bed9e5" xml:space="preserve">
+          <source><bpt id="bd3e5c1f-292f-46f1-96bc-35ab6d99f138">&lt;strong&gt;</bpt>Sink<ept id="bd3e5c1f-292f-46f1-96bc-35ab6d99f138">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bd3e5c1f-292f-46f1-96bc-35ab6d99f138">&lt;strong&gt;</bpt>Sink<ept id="bd3e5c1f-292f-46f1-96bc-35ab6d99f138">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6c76fd4-5c2d-4566-8283-e52da3de9eeb" xml:space="preserve">
+          <source><bpt id="57d8df03-f5d6-4048-a5f0-0c7ff6e9580a">&lt;linkText&gt;</bpt>Azure Blob<ept id="57d8df03-f5d6-4048-a5f0-0c7ff6e9580a">&lt;/linkText&gt;</ept><bpt id="57d8df03-f5d6-4048-a5f0-0c7ff6e9580a">&lt;title&gt;</bpt><ept id="57d8df03-f5d6-4048-a5f0-0c7ff6e9580a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="57d8df03-f5d6-4048-a5f0-0c7ff6e9580a">&lt;linkText&gt;</bpt>Azure Blob<ept id="57d8df03-f5d6-4048-a5f0-0c7ff6e9580a">&lt;/linkText&gt;</ept><bpt id="57d8df03-f5d6-4048-a5f0-0c7ff6e9580a">&lt;title&gt;</bpt><ept id="57d8df03-f5d6-4048-a5f0-0c7ff6e9580a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb6b2a93-84f1-419a-88b3-0f7e53f67d28" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB, On-premises File System</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB, On-premises File System</target>
+        </trans-unit>
+        <trans-unit id="dbe2e7aa-63e3-4cc5-bfa3-16ff28758b21" xml:space="preserve">
+          <source><bpt id="5428cd05-7c7b-4591-b39f-2bb5eb456ec1">&lt;linkText&gt;</bpt>Azure Table<ept id="5428cd05-7c7b-4591-b39f-2bb5eb456ec1">&lt;/linkText&gt;</ept><bpt id="5428cd05-7c7b-4591-b39f-2bb5eb456ec1">&lt;title&gt;</bpt><ept id="5428cd05-7c7b-4591-b39f-2bb5eb456ec1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5428cd05-7c7b-4591-b39f-2bb5eb456ec1">&lt;linkText&gt;</bpt>Azure Table<ept id="5428cd05-7c7b-4591-b39f-2bb5eb456ec1">&lt;/linkText&gt;</ept><bpt id="5428cd05-7c7b-4591-b39f-2bb5eb456ec1">&lt;title&gt;</bpt><ept id="5428cd05-7c7b-4591-b39f-2bb5eb456ec1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ddb659a-d09d-427b-b298-0faa29a94150" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB</target>
+        </trans-unit>
+        <trans-unit id="b5dc6bcf-bc3d-4590-b5a0-79f0b9f94222" xml:space="preserve">
+          <source><bpt id="ffb0f217-f2c2-45bc-ac6e-4e5f89585d05">&lt;linkText&gt;</bpt>Azure SQL Database<ept id="ffb0f217-f2c2-45bc-ac6e-4e5f89585d05">&lt;/linkText&gt;</ept><bpt id="ffb0f217-f2c2-45bc-ac6e-4e5f89585d05">&lt;title&gt;</bpt><ept id="ffb0f217-f2c2-45bc-ac6e-4e5f89585d05">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ffb0f217-f2c2-45bc-ac6e-4e5f89585d05">&lt;linkText&gt;</bpt>Azure SQL Database<ept id="ffb0f217-f2c2-45bc-ac6e-4e5f89585d05">&lt;/linkText&gt;</ept><bpt id="ffb0f217-f2c2-45bc-ac6e-4e5f89585d05">&lt;title&gt;</bpt><ept id="ffb0f217-f2c2-45bc-ac6e-4e5f89585d05">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d8a8aefe-c56d-40eb-8eea-4e47f163cdc5" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB</target>
+        </trans-unit>
+        <trans-unit id="a663c373-87bb-47ea-8096-0b7184bf08a8" xml:space="preserve">
+          <source><bpt id="b26eb9d6-e3ee-4fb0-9d9c-8f4711e83722">&lt;linkText&gt;</bpt>Azure DocumentDB<ept id="b26eb9d6-e3ee-4fb0-9d9c-8f4711e83722">&lt;/linkText&gt;</ept><bpt id="b26eb9d6-e3ee-4fb0-9d9c-8f4711e83722">&lt;title&gt;</bpt><ept id="b26eb9d6-e3ee-4fb0-9d9c-8f4711e83722">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b26eb9d6-e3ee-4fb0-9d9c-8f4711e83722">&lt;linkText&gt;</bpt>Azure DocumentDB<ept id="b26eb9d6-e3ee-4fb0-9d9c-8f4711e83722">&lt;/linkText&gt;</ept><bpt id="b26eb9d6-e3ee-4fb0-9d9c-8f4711e83722">&lt;title&gt;</bpt><ept id="b26eb9d6-e3ee-4fb0-9d9c-8f4711e83722">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4737159c-61a0-44d4-a0b0-64253dbdb2c1" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database</target>
+        </trans-unit>
+        <trans-unit id="0e8acb73-4735-4cb4-a096-a3517ddf738a" xml:space="preserve">
+          <source><bpt id="23233997-3295-45d9-acf7-5991ef5c9bbc">&lt;linkText&gt;</bpt>SQL Server on IaaS<ept id="23233997-3295-45d9-acf7-5991ef5c9bbc">&lt;/linkText&gt;</ept><bpt id="23233997-3295-45d9-acf7-5991ef5c9bbc">&lt;title&gt;</bpt><ept id="23233997-3295-45d9-acf7-5991ef5c9bbc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="23233997-3295-45d9-acf7-5991ef5c9bbc">&lt;linkText&gt;</bpt>SQL Server on IaaS<ept id="23233997-3295-45d9-acf7-5991ef5c9bbc">&lt;/linkText&gt;</ept><bpt id="23233997-3295-45d9-acf7-5991ef5c9bbc">&lt;title&gt;</bpt><ept id="23233997-3295-45d9-acf7-5991ef5c9bbc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5627288b-6d07-4ae3-8777-187bf121b79c" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</target>
+        </trans-unit>
+        <trans-unit id="6b5d94a0-48d9-4951-9e85-20d330caa969" xml:space="preserve">
+          <source><bpt id="e66597e8-8ddd-43f7-9456-8e61c6158cef">&lt;linkText&gt;</bpt>On-premises File System<ept id="e66597e8-8ddd-43f7-9456-8e61c6158cef">&lt;/linkText&gt;</ept><bpt id="e66597e8-8ddd-43f7-9456-8e61c6158cef">&lt;title&gt;</bpt><ept id="e66597e8-8ddd-43f7-9456-8e61c6158cef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e66597e8-8ddd-43f7-9456-8e61c6158cef">&lt;linkText&gt;</bpt>On-premises File System<ept id="e66597e8-8ddd-43f7-9456-8e61c6158cef">&lt;/linkText&gt;</ept><bpt id="e66597e8-8ddd-43f7-9456-8e61c6158cef">&lt;title&gt;</bpt><ept id="e66597e8-8ddd-43f7-9456-8e61c6158cef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c008349-f90b-43eb-816b-d45559f0b652" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, On-premises File System</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, On-premises File System</target>
+        </trans-unit>
+        <trans-unit id="02b9f9d4-236a-46d2-b656-eec2080a097c" xml:space="preserve">
+          <source><bpt id="b3910427-ad61-4e77-9fae-f61ce9bb1101">&lt;linkText&gt;</bpt>On-premises SQL Server<ept id="b3910427-ad61-4e77-9fae-f61ce9bb1101">&lt;/linkText&gt;</ept><bpt id="b3910427-ad61-4e77-9fae-f61ce9bb1101">&lt;title&gt;</bpt><ept id="b3910427-ad61-4e77-9fae-f61ce9bb1101">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b3910427-ad61-4e77-9fae-f61ce9bb1101">&lt;linkText&gt;</bpt>On-premises SQL Server<ept id="b3910427-ad61-4e77-9fae-f61ce9bb1101">&lt;/linkText&gt;</ept><bpt id="b3910427-ad61-4e77-9fae-f61ce9bb1101">&lt;title&gt;</bpt><ept id="b3910427-ad61-4e77-9fae-f61ce9bb1101">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ddf7b806-8c2c-427e-bcdb-e5d593938232" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</target>
+        </trans-unit>
+        <trans-unit id="1197cac2-c25a-4b04-81fc-8b71a44891db" xml:space="preserve">
+          <source><bpt id="02a6dff9-5c71-476e-906d-41af555b7b72">&lt;linkText&gt;</bpt>On-premises Oracle Database<ept id="02a6dff9-5c71-476e-906d-41af555b7b72">&lt;/linkText&gt;</ept><bpt id="02a6dff9-5c71-476e-906d-41af555b7b72">&lt;title&gt;</bpt><ept id="02a6dff9-5c71-476e-906d-41af555b7b72">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="02a6dff9-5c71-476e-906d-41af555b7b72">&lt;linkText&gt;</bpt>On-premises Oracle Database<ept id="02a6dff9-5c71-476e-906d-41af555b7b72">&lt;/linkText&gt;</ept><bpt id="02a6dff9-5c71-476e-906d-41af555b7b72">&lt;title&gt;</bpt><ept id="02a6dff9-5c71-476e-906d-41af555b7b72">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01f51000-d2e3-4ac6-b6ec-acbd1586b029" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</target>
+        </trans-unit>
+        <trans-unit id="341e0c28-fa02-4115-b95b-2a8ce9895b60" xml:space="preserve">
+          <source><bpt id="6545e30f-e097-4d72-bb38-b20862e16498">&lt;linkText&gt;</bpt>On-premises MySQL Database<ept id="6545e30f-e097-4d72-bb38-b20862e16498">&lt;/linkText&gt;</ept><bpt id="6545e30f-e097-4d72-bb38-b20862e16498">&lt;title&gt;</bpt><ept id="6545e30f-e097-4d72-bb38-b20862e16498">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6545e30f-e097-4d72-bb38-b20862e16498">&lt;linkText&gt;</bpt>On-premises MySQL Database<ept id="6545e30f-e097-4d72-bb38-b20862e16498">&lt;/linkText&gt;</ept><bpt id="6545e30f-e097-4d72-bb38-b20862e16498">&lt;title&gt;</bpt><ept id="6545e30f-e097-4d72-bb38-b20862e16498">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4fbe136-cbad-45b3-bc1b-d995b30d9375" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</target>
+        </trans-unit>
+        <trans-unit id="ca878914-64fd-4192-b11b-8f13fc65f52c" xml:space="preserve">
+          <source><bpt id="11b27da4-acb1-4d69-b189-22846b47cee7">&lt;linkText&gt;</bpt>On-premises DB2 Database<ept id="11b27da4-acb1-4d69-b189-22846b47cee7">&lt;/linkText&gt;</ept><bpt id="11b27da4-acb1-4d69-b189-22846b47cee7">&lt;title&gt;</bpt><ept id="11b27da4-acb1-4d69-b189-22846b47cee7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="11b27da4-acb1-4d69-b189-22846b47cee7">&lt;linkText&gt;</bpt>On-premises DB2 Database<ept id="11b27da4-acb1-4d69-b189-22846b47cee7">&lt;/linkText&gt;</ept><bpt id="11b27da4-acb1-4d69-b189-22846b47cee7">&lt;title&gt;</bpt><ept id="11b27da4-acb1-4d69-b189-22846b47cee7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="176e1a2e-1516-448a-9b9d-0236c76a5beb" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</target>
+        </trans-unit>
+        <trans-unit id="2030a0a8-f3c1-4091-b576-2f03bce9e4c4" xml:space="preserve">
+          <source><bpt id="a3cc4f7b-94a3-413e-bd15-05aaf4a3922a">&lt;linkText&gt;</bpt>On-premises Teradata Database<ept id="a3cc4f7b-94a3-413e-bd15-05aaf4a3922a">&lt;/linkText&gt;</ept><bpt id="a3cc4f7b-94a3-413e-bd15-05aaf4a3922a">&lt;title&gt;</bpt><ept id="a3cc4f7b-94a3-413e-bd15-05aaf4a3922a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a3cc4f7b-94a3-413e-bd15-05aaf4a3922a">&lt;linkText&gt;</bpt>On-premises Teradata Database<ept id="a3cc4f7b-94a3-413e-bd15-05aaf4a3922a">&lt;/linkText&gt;</ept><bpt id="a3cc4f7b-94a3-413e-bd15-05aaf4a3922a">&lt;title&gt;</bpt><ept id="a3cc4f7b-94a3-413e-bd15-05aaf4a3922a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5e7c28c-5e56-477c-8b2c-8459c1ad4714" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</target>
+        </trans-unit>
+        <trans-unit id="cb4afbb0-6b1b-4d9a-a7dd-51a778b65353" xml:space="preserve">
+          <source><bpt id="f3861756-1a65-46c5-b50b-cd5920d1e4dc">&lt;linkText&gt;</bpt>On-premises Sybase Database<ept id="f3861756-1a65-46c5-b50b-cd5920d1e4dc">&lt;/linkText&gt;</ept><bpt id="f3861756-1a65-46c5-b50b-cd5920d1e4dc">&lt;title&gt;</bpt><ept id="f3861756-1a65-46c5-b50b-cd5920d1e4dc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f3861756-1a65-46c5-b50b-cd5920d1e4dc">&lt;linkText&gt;</bpt>On-premises Sybase Database<ept id="f3861756-1a65-46c5-b50b-cd5920d1e4dc">&lt;/linkText&gt;</ept><bpt id="f3861756-1a65-46c5-b50b-cd5920d1e4dc">&lt;title&gt;</bpt><ept id="f3861756-1a65-46c5-b50b-cd5920d1e4dc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bda238f-88df-4439-97b6-d63941e1266f" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</target>
+        </trans-unit>
+        <trans-unit id="92816ecb-4c3d-4038-b1bf-acfe085a1d62" xml:space="preserve">
+          <source><bpt id="bef76280-94f1-4994-b51b-a3f276dd25fe">&lt;linkText&gt;</bpt>On-premises PostgreSQL Database<ept id="bef76280-94f1-4994-b51b-a3f276dd25fe">&lt;/linkText&gt;</ept><bpt id="bef76280-94f1-4994-b51b-a3f276dd25fe">&lt;title&gt;</bpt><ept id="bef76280-94f1-4994-b51b-a3f276dd25fe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bef76280-94f1-4994-b51b-a3f276dd25fe">&lt;linkText&gt;</bpt>On-premises PostgreSQL Database<ept id="bef76280-94f1-4994-b51b-a3f276dd25fe">&lt;/linkText&gt;</ept><bpt id="bef76280-94f1-4994-b51b-a3f276dd25fe">&lt;title&gt;</bpt><ept id="bef76280-94f1-4994-b51b-a3f276dd25fe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f308a74-6130-49b0-b6ed-0412e1d7d7d5" xml:space="preserve">
+          <source>Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</source>
+          <target state="new">Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS</target>
+        </trans-unit>
+        <trans-unit id="8ba41d11-0de1-47b7-957d-74a5046fd264" xml:space="preserve">
+          <source>Copy activity takes one input dataset (<bpt id="d91d72e1-d57c-4611-83b0-6037499555d1">&lt;strong&gt;</bpt>source<ept id="d91d72e1-d57c-4611-83b0-6037499555d1">&lt;/strong&gt;</ept>) and copies data per activity configuration to one output dataset (<bpt id="1bec8c4c-c273-4bb5-aa47-39139b360c19">&lt;strong&gt;</bpt>sink<ept id="1bec8c4c-c273-4bb5-aa47-39139b360c19">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Copy activity takes one input dataset (<bpt id="d91d72e1-d57c-4611-83b0-6037499555d1">&lt;strong&gt;</bpt>source<ept id="d91d72e1-d57c-4611-83b0-6037499555d1">&lt;/strong&gt;</ept>) and copies data per activity configuration to one output dataset (<bpt id="1bec8c4c-c273-4bb5-aa47-39139b360c19">&lt;strong&gt;</bpt>sink<ept id="1bec8c4c-c273-4bb5-aa47-39139b360c19">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="823d0380-8bf7-4be1-bd87-db7e1b7eecd6" xml:space="preserve">
+          <source>Data copy is done in a batch fashion according to the schedule specified on the activity.</source>
+          <target state="new">Data copy is done in a batch fashion according to the schedule specified on the activity.</target>
+        </trans-unit>
+        <trans-unit id="2723ee69-e8fc-43db-885a-5dcb4380233b" xml:space="preserve">
+          <source>To learn about defining activities in general at a high level such as various JSON sections and properties available for all activities, see <bpt id="df1a43d7-2b66-453c-8e74-be6030161d87">&lt;linkText&gt;</bpt>Understanding Pipelines &amp; Activities<ept id="df1a43d7-2b66-453c-8e74-be6030161d87">&lt;/linkText&gt;</ept><bpt id="df1a43d7-2b66-453c-8e74-be6030161d87">&lt;title&gt;</bpt><ept id="df1a43d7-2b66-453c-8e74-be6030161d87">&lt;/title&gt;</ept> article.</source>
+          <target state="new">To learn about defining activities in general at a high level such as various JSON sections and properties available for all activities, see <bpt id="df1a43d7-2b66-453c-8e74-be6030161d87">&lt;linkText&gt;</bpt>Understanding Pipelines &amp; Activities<ept id="df1a43d7-2b66-453c-8e74-be6030161d87">&lt;/linkText&gt;</ept><bpt id="df1a43d7-2b66-453c-8e74-be6030161d87">&lt;title&gt;</bpt><ept id="df1a43d7-2b66-453c-8e74-be6030161d87">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="b8b9ee09-629c-4706-b155-6117520e1afc" xml:space="preserve">
+          <source>Copy activity provides the following capabilities:</source>
+          <target state="new">Copy activity provides the following capabilities:</target>
+        </trans-unit>
+        <trans-unit id="1280df36-3c02-432f-87af-bdc86caffeae" xml:space="preserve">
+          <source>The data movement service powering copy activity is available globally in the following regions and geographies.</source>
+          <target state="new">The data movement service powering copy activity is available globally in the following regions and geographies.</target>
+        </trans-unit>
+        <trans-unit id="d80bf401-c772-40c0-85b0-8053099e58d8" xml:space="preserve">
+          <source>The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.</source>
+          <target state="new">The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.</target>
+        </trans-unit>
+        <trans-unit id="6e18c5f2-cff6-4816-8f44-2b69859d690f" xml:space="preserve">
+          <source>Region</source>
+          <target state="new">Region</target>
+        </trans-unit>
+        <trans-unit id="949a3685-7816-4494-b478-50325acd7fae" xml:space="preserve">
+          <source>Geography</source>
+          <target state="new">Geography</target>
+        </trans-unit>
+        <trans-unit id="ba2ed69f-1d01-4120-880b-7871733a7941" xml:space="preserve">
+          <source>Central US</source>
+          <target state="new">Central US</target>
+        </trans-unit>
+        <trans-unit id="d09b44ab-9537-4417-8237-6121359ca270" xml:space="preserve">
+          <source>US</source>
+          <target state="new">US</target>
+        </trans-unit>
+        <trans-unit id="886a267c-068b-4c27-b460-d7384b607614" xml:space="preserve">
+          <source>East US</source>
+          <target state="new">East US</target>
+        </trans-unit>
+        <trans-unit id="22b122ae-6bfe-4da5-82f3-9f82e0f7baf3" xml:space="preserve">
+          <source>US</source>
+          <target state="new">US</target>
+        </trans-unit>
+        <trans-unit id="c53eec49-1e56-42ac-88c2-12cbd2ba4137" xml:space="preserve">
+          <source>East US2</source>
+          <target state="new">East US2</target>
+        </trans-unit>
+        <trans-unit id="b1cabc24-202a-42f7-95a8-050fbad90f1e" xml:space="preserve">
+          <source>US</source>
+          <target state="new">US</target>
+        </trans-unit>
+        <trans-unit id="0699618b-cc82-4a50-9888-ffbac704879e" xml:space="preserve">
+          <source>North Central US</source>
+          <target state="new">North Central US</target>
+        </trans-unit>
+        <trans-unit id="5cfb6043-7b4f-491b-8c5e-32dc54cdaca1" xml:space="preserve">
+          <source>US</source>
+          <target state="new">US</target>
+        </trans-unit>
+        <trans-unit id="5be0f76c-4c3a-42f6-9e0d-56875d3a76c2" xml:space="preserve">
+          <source>South Central US</source>
+          <target state="new">South Central US</target>
+        </trans-unit>
+        <trans-unit id="0db31668-7f8c-4cc0-b858-b1811fe2c258" xml:space="preserve">
+          <source>US</source>
+          <target state="new">US</target>
+        </trans-unit>
+        <trans-unit id="620802be-6e22-46f8-8485-4b574fb78957" xml:space="preserve">
+          <source>West US</source>
+          <target state="new">West US</target>
+        </trans-unit>
+        <trans-unit id="86e63f41-630b-4e49-aba0-a81161959520" xml:space="preserve">
+          <source>US</source>
+          <target state="new">US</target>
+        </trans-unit>
+        <trans-unit id="312fa1b9-4246-4112-8a2b-95cde8e53e93" xml:space="preserve">
+          <source>Brazil South</source>
+          <target state="new">Brazil South</target>
+        </trans-unit>
+        <trans-unit id="37d5f3a7-f9cc-4ad1-91c5-79d75a43668d" xml:space="preserve">
+          <source>LATAM</source>
+          <target state="new">LATAM</target>
+        </trans-unit>
+        <trans-unit id="449890eb-efeb-447b-8b9b-0928b2f708d6" xml:space="preserve">
+          <source>North Europe</source>
+          <target state="new">North Europe</target>
+        </trans-unit>
+        <trans-unit id="f72a0b38-897d-43a3-b6f0-94ddf789d108" xml:space="preserve">
+          <source>EMEA</source>
+          <target state="new">EMEA</target>
+        </trans-unit>
+        <trans-unit id="f0da0ca3-4544-4fe5-9b94-cffd7f7660f1" xml:space="preserve">
+          <source>West Europe</source>
+          <target state="new">West Europe</target>
+        </trans-unit>
+        <trans-unit id="1ffbcb19-0f27-4f03-ba17-993c708c173c" xml:space="preserve">
+          <source>EMEA</source>
+          <target state="new">EMEA</target>
+        </trans-unit>
+        <trans-unit id="3a0440dc-a026-4681-bcb0-a386d00093aa" xml:space="preserve">
+          <source>Southeast Asia</source>
+          <target state="new">Southeast Asia</target>
+        </trans-unit>
+        <trans-unit id="95efc6a0-ebf9-45a0-9674-f109fbc7d19a" xml:space="preserve">
+          <source>APAC</source>
+          <target state="new">APAC</target>
+        </trans-unit>
+        <trans-unit id="7c1de941-327a-40ee-a2ce-d594f52cc359" xml:space="preserve">
+          <source>Japan East</source>
+          <target state="new">Japan East</target>
+        </trans-unit>
+        <trans-unit id="55a3f136-49e7-4ab2-9f3f-5bf7d9696f1f" xml:space="preserve">
+          <source>APAC</source>
+          <target state="new">APAC</target>
+        </trans-unit>
+        <trans-unit id="28a96de5-ebd4-4195-800c-2104d9f65fc5" xml:space="preserve">
+          <source>One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud.</source>
+          <target state="new">One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud.</target>
+        </trans-unit>
+        <trans-unit id="c28eaadc-2b54-4606-bac3-8d8b30b7e4d3" xml:space="preserve">
+          <source>Data management gateway is an agent you can install on-premises to enable hybrid data pipelines.</source>
+          <target state="new">Data management gateway is an agent you can install on-premises to enable hybrid data pipelines.</target>
+        </trans-unit>
+        <trans-unit id="24ed14fb-a9a5-4b4f-99dc-f78a96e8d314" xml:space="preserve">
+          <source>The data gateway provides the following capabilities: </source>
+          <target state="new">The data gateway provides the following capabilities: </target>
+        </trans-unit>
+        <trans-unit id="379b3752-a9f5-449d-a423-eb5dcef9876b" xml:space="preserve">
+          <source>Manage access to on-premises data stores securely.</source>
+          <target state="new">Manage access to on-premises data stores securely.</target>
+        </trans-unit>
+        <trans-unit id="10de9ef2-2369-4728-850b-897c1e1d1b46" xml:space="preserve">
+          <source>Model on-premises data stores and cloud data stores within the same data factory and move data.</source>
+          <target state="new">Model on-premises data stores and cloud data stores within the same data factory and move data.</target>
+        </trans-unit>
+        <trans-unit id="fd65b1b7-eceb-4c72-b059-04e6459b9cbe" xml:space="preserve">
+          <source>Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud based dashboard.</source>
+          <target state="new">Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud based dashboard.</target>
+        </trans-unit>
+        <trans-unit id="f55683ec-e652-41d8-a7aa-89f9bebeb48f" xml:space="preserve">
+          <source>See <bpt id="8b7d0268-99aa-4323-8085-4c44c6249427">&lt;linkText&gt;</bpt>Move data between on-premises and cloud<ept id="8b7d0268-99aa-4323-8085-4c44c6249427">&lt;/linkText&gt;</ept><bpt id="8b7d0268-99aa-4323-8085-4c44c6249427">&lt;title&gt;</bpt><ept id="8b7d0268-99aa-4323-8085-4c44c6249427">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See <bpt id="8b7d0268-99aa-4323-8085-4c44c6249427">&lt;linkText&gt;</bpt>Move data between on-premises and cloud<ept id="8b7d0268-99aa-4323-8085-4c44c6249427">&lt;/linkText&gt;</ept><bpt id="8b7d0268-99aa-4323-8085-4c44c6249427">&lt;title&gt;</bpt><ept id="8b7d0268-99aa-4323-8085-4c44c6249427">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="f97db773-9ad1-4899-af87-3180da39648e" xml:space="preserve">
+          <source>Copy activity is designed to move large volumes of data in a reliable way, resistant to transient errors across a large variety of data sources.</source>
+          <target state="new">Copy activity is designed to move large volumes of data in a reliable way, resistant to transient errors across a large variety of data sources.</target>
+        </trans-unit>
+        <trans-unit id="f9482a0d-7757-40bc-807b-706968e453ec" xml:space="preserve">
+          <source>Data can be copied in a cost effective way with the option to enable compression over the wire.</source>
+          <target state="new">Data can be copied in a cost effective way with the option to enable compression over the wire.</target>
+        </trans-unit>
+        <trans-unit id="daf55d8c-7bf1-4d45-bf52-8590e15b0a29" xml:space="preserve">
+          <source>Different data stores have different native type systems.</source>
+          <target state="new">Different data stores have different native type systems.</target>
+        </trans-unit>
+        <trans-unit id="a6874000-cfbd-4637-a543-39df701a1520" xml:space="preserve">
+          <source>Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:</source>
+          <target state="new">Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:</target>
+        </trans-unit>
+        <trans-unit id="11ada4cb-3a81-4473-beda-8c8344113fe8" xml:space="preserve">
+          <source>Convert from native source types to .NET type</source>
+          <target state="new">Convert from native source types to .NET type</target>
+        </trans-unit>
+        <trans-unit id="478c8656-4d95-4228-b032-2da696e267f3" xml:space="preserve">
+          <source>Convert from .NET type to native sink type</source>
+          <target state="new">Convert from .NET type to native sink type</target>
+        </trans-unit>
+        <trans-unit id="16fc2a41-f438-48b7-b4e0-deb2e9d11586" xml:space="preserve">
+          <source>You can find the mapping for a given native type system to .NET for the data store in the respective data store connector articles.</source>
+          <target state="new">You can find the mapping for a given native type system to .NET for the data store in the respective data store connector articles.</target>
+        </trans-unit>
+        <trans-unit id="569fcc7c-6cde-47a9-a6e8-b656397dfeae" xml:space="preserve">
+          <source>You can use these mappings to determine appropriate types while creating your tables so that right conversions are performed during Copy activity.</source>
+          <target state="new">You can use these mappings to determine appropriate types while creating your tables so that right conversions are performed during Copy activity.</target>
+        </trans-unit>
+        <trans-unit id="8e6da1f6-63a3-4a1e-8091-458af8fba2fe" xml:space="preserve">
+          <source>For file based sources Copy activity supports variety of file format including binary, text and Avro formats.</source>
+          <target state="new">For file based sources Copy activity supports variety of file format including binary, text and Avro formats.</target>
+        </trans-unit>
+        <trans-unit id="1c2e124a-9c35-478d-99ff-71fb98f5690f" xml:space="preserve">
+          <source>Properties like name, description, input and output tables, various policies etc are available for all types of activities.</source>
+          <target state="new">Properties like name, description, input and output tables, various policies etc are available for all types of activities.</target>
+        </trans-unit>
+        <trans-unit id="77cf83e1-6099-476e-b61e-dfa346bf9163" xml:space="preserve">
+          <source>Properties available in the <bpt id="20772988-c003-49dd-b545-f0e8ecbdb95c">&lt;strong&gt;</bpt>typeProperties<ept id="20772988-c003-49dd-b545-f0e8ecbdb95c">&lt;/strong&gt;</ept> section of the activity on the other hand vary with each activity type.</source>
+          <target state="new">Properties available in the <bpt id="20772988-c003-49dd-b545-f0e8ecbdb95c">&lt;strong&gt;</bpt>typeProperties<ept id="20772988-c003-49dd-b545-f0e8ecbdb95c">&lt;/strong&gt;</ept> section of the activity on the other hand vary with each activity type.</target>
+        </trans-unit>
+        <trans-unit id="b8989230-355f-4a22-b98b-47146e152cc5" xml:space="preserve">
+          <source>In case of Copy activity the <bpt id="ceed3efc-d7ba-4f3d-b0ec-393df98def7a">&lt;strong&gt;</bpt>typeProperties<ept id="ceed3efc-d7ba-4f3d-b0ec-393df98def7a">&lt;/strong&gt;</ept> section varies depending on the types of sources and sinks.</source>
+          <target state="new">In case of Copy activity the <bpt id="ceed3efc-d7ba-4f3d-b0ec-393df98def7a">&lt;strong&gt;</bpt>typeProperties<ept id="ceed3efc-d7ba-4f3d-b0ec-393df98def7a">&lt;/strong&gt;</ept> section varies depending on the types of sources and sinks.</target>
+        </trans-unit>
+        <trans-unit id="64bd6704-0b40-4b26-b2a3-e409bff36580" xml:space="preserve">
+          <source>Each of the data store specific page listed above documents these properties specific to the data store type.</source>
+          <target state="new">Each of the data store specific page listed above documents these properties specific to the data store type.</target>
+        </trans-unit>
+        <trans-unit id="a44bd993-8d61-47dc-b292-9bdb65a01140" xml:space="preserve">
+          <source>We would really appreciate your feedback on this article.</source>
+          <target state="new">We would really appreciate your feedback on this article.</target>
+        </trans-unit>
+        <trans-unit id="30f0df73-f478-4ad4-bf5b-b7e6a96e2965" xml:space="preserve">
+          <source>Please take a few minutes to submit your feedback via <bpt id="178df31c-c183-45d0-a1fc-ad38fd9dc9dc">&lt;linkText&gt;</bpt>email<ept id="178df31c-c183-45d0-a1fc-ad38fd9dc9dc">&lt;/linkText&gt;</ept><bpt id="178df31c-c183-45d0-a1fc-ad38fd9dc9dc">&lt;title&gt;</bpt><ept id="178df31c-c183-45d0-a1fc-ad38fd9dc9dc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please take a few minutes to submit your feedback via <bpt id="178df31c-c183-45d0-a1fc-ad38fd9dc9dc">&lt;linkText&gt;</bpt>email<ept id="178df31c-c183-45d0-a1fc-ad38fd9dc9dc">&lt;/linkText&gt;</ept><bpt id="178df31c-c183-45d0-a1fc-ad38fd9dc9dc">&lt;title&gt;</bpt><ept id="178df31c-c183-45d0-a1fc-ad38fd9dc9dc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

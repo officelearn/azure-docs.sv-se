@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0d139fa5-791a-4119-a66a-98bbf2e9e776" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0d139fa5-791a-4119-a66a-98bbf2e9e776" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4234bbbd-f094-483d-91bf-a62af16045ca">
+        <trans-unit id="717665f5-1da4-4924-b569-a6efc7193810" xml:space="preserve">
+          <source>Release notes for Application Insights</source>
+          <target state="new">Release notes for Application Insights</target>
+        </trans-unit>
+        <trans-unit id="40481344-87cd-4d8c-a23a-6a44c45d0095" xml:space="preserve">
+          <source>The latest updates.</source>
+          <target state="new">The latest updates.</target>
+        </trans-unit>
+        <trans-unit id="484bd75a-4180-479f-8c98-15fee63d68f3" xml:space="preserve">
+          <source>Here are detailed release notes and update instructions for our SDKs:</source>
+          <target state="new">Here are detailed release notes and update instructions for our SDKs:</target>
+        </trans-unit>
+        <trans-unit id="54883402-ecbf-4e5f-82e2-47bfae5bda48" xml:space="preserve">
+          <source><bpt id="e9902c8a-a272-4c7b-b721-0da25176ad3a">&lt;linkText&gt;</bpt>.NET<ept id="e9902c8a-a272-4c7b-b721-0da25176ad3a">&lt;/linkText&gt;</ept><bpt id="e9902c8a-a272-4c7b-b721-0da25176ad3a">&lt;title&gt;</bpt><ept id="e9902c8a-a272-4c7b-b721-0da25176ad3a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e9902c8a-a272-4c7b-b721-0da25176ad3a">&lt;linkText&gt;</bpt>.NET<ept id="e9902c8a-a272-4c7b-b721-0da25176ad3a">&lt;/linkText&gt;</ept><bpt id="e9902c8a-a272-4c7b-b721-0da25176ad3a">&lt;title&gt;</bpt><ept id="e9902c8a-a272-4c7b-b721-0da25176ad3a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="489cf9de-c990-40b3-8736-e714a2483531" xml:space="preserve">
+          <source><bpt id="35bbe571-0091-4414-b31e-4bd509a85572">&lt;linkText&gt;</bpt>Android<ept id="35bbe571-0091-4414-b31e-4bd509a85572">&lt;/linkText&gt;</ept><bpt id="35bbe571-0091-4414-b31e-4bd509a85572">&lt;title&gt;</bpt><ept id="35bbe571-0091-4414-b31e-4bd509a85572">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="35bbe571-0091-4414-b31e-4bd509a85572">&lt;linkText&gt;</bpt>Android<ept id="35bbe571-0091-4414-b31e-4bd509a85572">&lt;/linkText&gt;</ept><bpt id="35bbe571-0091-4414-b31e-4bd509a85572">&lt;title&gt;</bpt><ept id="35bbe571-0091-4414-b31e-4bd509a85572">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1353b2b-3e9e-462a-9fa7-dc20a4abd79d" xml:space="preserve">
+          <source><bpt id="5145b716-6ed6-4e75-addb-6498a9cc6307">&lt;linkText&gt;</bpt>iOS<ept id="5145b716-6ed6-4e75-addb-6498a9cc6307">&lt;/linkText&gt;</ept><bpt id="5145b716-6ed6-4e75-addb-6498a9cc6307">&lt;title&gt;</bpt><ept id="5145b716-6ed6-4e75-addb-6498a9cc6307">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5145b716-6ed6-4e75-addb-6498a9cc6307">&lt;linkText&gt;</bpt>iOS<ept id="5145b716-6ed6-4e75-addb-6498a9cc6307">&lt;/linkText&gt;</ept><bpt id="5145b716-6ed6-4e75-addb-6498a9cc6307">&lt;title&gt;</bpt><ept id="5145b716-6ed6-4e75-addb-6498a9cc6307">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf20f0fa-a6c4-43e2-9314-b69dd9f55c08" xml:space="preserve">
+          <source><bpt id="bf77a175-a300-472e-ad1e-2f979eed37d3">&lt;linkText&gt;</bpt>Java<ept id="bf77a175-a300-472e-ad1e-2f979eed37d3">&lt;/linkText&gt;</ept><bpt id="bf77a175-a300-472e-ad1e-2f979eed37d3">&lt;title&gt;</bpt><ept id="bf77a175-a300-472e-ad1e-2f979eed37d3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bf77a175-a300-472e-ad1e-2f979eed37d3">&lt;linkText&gt;</bpt>Java<ept id="bf77a175-a300-472e-ad1e-2f979eed37d3">&lt;/linkText&gt;</ept><bpt id="bf77a175-a300-472e-ad1e-2f979eed37d3">&lt;title&gt;</bpt><ept id="bf77a175-a300-472e-ad1e-2f979eed37d3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abca4ba8-9890-4457-bc38-a40dc73ff49b" xml:space="preserve">
+          <source><bpt id="30c4de45-85b5-4141-95c0-016af7258baa">&lt;linkText&gt;</bpt>JavaScript<ept id="30c4de45-85b5-4141-95c0-016af7258baa">&lt;/linkText&gt;</ept><bpt id="30c4de45-85b5-4141-95c0-016af7258baa">&lt;title&gt;</bpt><ept id="30c4de45-85b5-4141-95c0-016af7258baa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="30c4de45-85b5-4141-95c0-016af7258baa">&lt;linkText&gt;</bpt>JavaScript<ept id="30c4de45-85b5-4141-95c0-016af7258baa">&lt;/linkText&gt;</ept><bpt id="30c4de45-85b5-4141-95c0-016af7258baa">&lt;title&gt;</bpt><ept id="30c4de45-85b5-4141-95c0-016af7258baa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3878dde5-292e-476d-9614-1c2e0135af10" xml:space="preserve">
+          <source><bpt id="58bfbeff-4bf5-45dd-aaae-4b7487530495">&lt;linkText&gt;</bpt>Windows Phone and Store C#|VB<ept id="58bfbeff-4bf5-45dd-aaae-4b7487530495">&lt;/linkText&gt;</ept><bpt id="58bfbeff-4bf5-45dd-aaae-4b7487530495">&lt;title&gt;</bpt><ept id="58bfbeff-4bf5-45dd-aaae-4b7487530495">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="58bfbeff-4bf5-45dd-aaae-4b7487530495">&lt;linkText&gt;</bpt>Windows Phone and Store C#|VB<ept id="58bfbeff-4bf5-45dd-aaae-4b7487530495">&lt;/linkText&gt;</ept><bpt id="58bfbeff-4bf5-45dd-aaae-4b7487530495">&lt;title&gt;</bpt><ept id="58bfbeff-4bf5-45dd-aaae-4b7487530495">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a04f70f1-e759-4618-9d5c-38b1fec18ff3" xml:space="preserve">
+          <source><bpt id="68c68153-ea93-4c80-ad26-21e251284bcd">&lt;linkText&gt;</bpt>Windows Phone and Store C++<ept id="68c68153-ea93-4c80-ad26-21e251284bcd">&lt;/linkText&gt;</ept><bpt id="68c68153-ea93-4c80-ad26-21e251284bcd">&lt;title&gt;</bpt><ept id="68c68153-ea93-4c80-ad26-21e251284bcd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="68c68153-ea93-4c80-ad26-21e251284bcd">&lt;linkText&gt;</bpt>Windows Phone and Store C++<ept id="68c68153-ea93-4c80-ad26-21e251284bcd">&lt;/linkText&gt;</ept><bpt id="68c68153-ea93-4c80-ad26-21e251284bcd">&lt;title&gt;</bpt><ept id="68c68153-ea93-4c80-ad26-21e251284bcd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8dc50093-77d2-4001-b94f-d663b9728c35" xml:space="preserve">
+          <source><bpt id="c3c1cf4c-ff3c-48c6-8688-c04a3b74f26a">&lt;linkText&gt;</bpt>Other platforms<ept id="c3c1cf4c-ff3c-48c6-8688-c04a3b74f26a">&lt;/linkText&gt;</ept><bpt id="c3c1cf4c-ff3c-48c6-8688-c04a3b74f26a">&lt;title&gt;</bpt><ept id="c3c1cf4c-ff3c-48c6-8688-c04a3b74f26a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c3c1cf4c-ff3c-48c6-8688-c04a3b74f26a">&lt;linkText&gt;</bpt>Other platforms<ept id="c3c1cf4c-ff3c-48c6-8688-c04a3b74f26a">&lt;/linkText&gt;</ept><bpt id="c3c1cf4c-ff3c-48c6-8688-c04a3b74f26a">&lt;title&gt;</bpt><ept id="c3c1cf4c-ff3c-48c6-8688-c04a3b74f26a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9f1affa-a991-45e1-9993-8a560baaa130" xml:space="preserve">
+          <source>Read also our <bpt id="59244ac5-c21c-49ab-9fca-9faa91edff90">&lt;linkText&gt;</bpt>Service Updates<ept id="59244ac5-c21c-49ab-9fca-9faa91edff90">&lt;/linkText&gt;</ept><bpt id="59244ac5-c21c-49ab-9fca-9faa91edff90">&lt;title&gt;</bpt><ept id="59244ac5-c21c-49ab-9fca-9faa91edff90">&lt;/title&gt;</ept> which summarize major improvements in the Application Insights service as a whole.</source>
+          <target state="new">Read also our <bpt id="59244ac5-c21c-49ab-9fca-9faa91edff90">&lt;linkText&gt;</bpt>Service Updates<ept id="59244ac5-c21c-49ab-9fca-9faa91edff90">&lt;/linkText&gt;</ept><bpt id="59244ac5-c21c-49ab-9fca-9faa91edff90">&lt;title&gt;</bpt><ept id="59244ac5-c21c-49ab-9fca-9faa91edff90">&lt;/title&gt;</ept> which summarize major improvements in the Application Insights service as a whole.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

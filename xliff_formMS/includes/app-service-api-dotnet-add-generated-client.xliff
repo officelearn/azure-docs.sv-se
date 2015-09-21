@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1e3696ae-d538-4e86-a625-46c39383f8b6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1e3696ae-d538-4e86-a625-46c39383f8b6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="506e837b-0fc9-4ea8-ae7d-3529f5d07f04">
+        <trans-unit id="ee513311-7b56-47c4-859b-155999f8d585" xml:space="preserve">
+          <source>In <bpt id="b0ec9e0a-b02b-4dfb-b605-c816fed370a6">&lt;strong&gt;</bpt>Solution Explorer<ept id="b0ec9e0a-b02b-4dfb-b605-c816fed370a6">&lt;/strong&gt;</ept>, right-click the project (not the solution) and select <bpt id="9e38472d-2a28-4008-ab81-d767e11c676c">&lt;strong&gt;</bpt>Add &gt; Azure API App Client<ept id="9e38472d-2a28-4008-ab81-d767e11c676c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="b0ec9e0a-b02b-4dfb-b605-c816fed370a6">&lt;strong&gt;</bpt>Solution Explorer<ept id="b0ec9e0a-b02b-4dfb-b605-c816fed370a6">&lt;/strong&gt;</ept>, right-click the project (not the solution) and select <bpt id="9e38472d-2a28-4008-ab81-d767e11c676c">&lt;strong&gt;</bpt>Add &gt; Azure API App Client<ept id="9e38472d-2a28-4008-ab81-d767e11c676c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c24aad7-91dd-40b6-b4e0-cd6693c4e5da" xml:space="preserve">
+          <source><bpt id="22bed822-6d70-432c-a980-cee9c0d3f839">&lt;linkText&gt;</bpt><ept id="22bed822-6d70-432c-a980-cee9c0d3f839">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22bed822-6d70-432c-a980-cee9c0d3f839">&lt;linkText&gt;</bpt><ept id="22bed822-6d70-432c-a980-cee9c0d3f839">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f47992ab-4dc5-495f-b9aa-6d4e8244b5eb" xml:space="preserve">
+          <source>In the <bpt id="3d7fd191-4512-4b73-a68f-97bc56549170">&lt;strong&gt;</bpt>Add Azure API App Client<ept id="3d7fd191-4512-4b73-a68f-97bc56549170">&lt;/strong&gt;</ept> dialog, click <bpt id="35741fda-12d9-4170-a7ba-13e2ae69ae76">&lt;strong&gt;</bpt>Download from Azure API App<ept id="35741fda-12d9-4170-a7ba-13e2ae69ae76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="3d7fd191-4512-4b73-a68f-97bc56549170">&lt;strong&gt;</bpt>Add Azure API App Client<ept id="3d7fd191-4512-4b73-a68f-97bc56549170">&lt;/strong&gt;</ept> dialog, click <bpt id="35741fda-12d9-4170-a7ba-13e2ae69ae76">&lt;strong&gt;</bpt>Download from Azure API App<ept id="35741fda-12d9-4170-a7ba-13e2ae69ae76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e724ce56-8343-4fb1-9df6-b5475ded1ca9" xml:space="preserve">
+          <source>From the drop-down list, select the API app that you want to call.</source>
+          <target state="new">From the drop-down list, select the API app that you want to call.</target>
+        </trans-unit>
+        <trans-unit id="650b13df-6741-41b6-a705-3a1939b9ba90" xml:space="preserve">
+          <source>Click <bpt id="1478cfe8-75fc-4a84-8fdb-966e149c361e">&lt;strong&gt;</bpt>OK<ept id="1478cfe8-75fc-4a84-8fdb-966e149c361e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1478cfe8-75fc-4a84-8fdb-966e149c361e">&lt;strong&gt;</bpt>OK<ept id="1478cfe8-75fc-4a84-8fdb-966e149c361e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f73c4e0-c5eb-489a-a086-9103c82e706f" xml:space="preserve">
+          <source><bpt id="8e990180-980f-483f-818b-9414c9f64955">&lt;linkText&gt;</bpt>Generation Screen<ept id="8e990180-980f-483f-818b-9414c9f64955">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8e990180-980f-483f-818b-9414c9f64955">&lt;linkText&gt;</bpt>Generation Screen<ept id="8e990180-980f-483f-818b-9414c9f64955">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2832ce1a-dcaa-4d22-a6a8-cdc8ab285889" xml:space="preserve">
+          <source>The wizard downloads the API metadata file and generates a typed interface for calling the API app.</source>
+          <target state="new">The wizard downloads the API metadata file and generates a typed interface for calling the API app.</target>
+        </trans-unit>
+        <trans-unit id="4007d382-fdeb-4657-b3d9-49b70ed6c8d1" xml:space="preserve">
+          <source><bpt id="adc2b8fd-c4e0-4040-803d-a6bc28f5a0b9">&lt;linkText&gt;</bpt>Generation Happening<ept id="adc2b8fd-c4e0-4040-803d-a6bc28f5a0b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="adc2b8fd-c4e0-4040-803d-a6bc28f5a0b9">&lt;linkText&gt;</bpt>Generation Happening<ept id="adc2b8fd-c4e0-4040-803d-a6bc28f5a0b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d8132dd-4192-4e53-a367-6d02e3d7f248" xml:space="preserve">
+          <source>Once code generation is complete, you see a new folder in <bpt id="99de1f0a-0a07-44c0-b7b1-a1c3f16c8aa0">&lt;strong&gt;</bpt>Solution Explorer<ept id="99de1f0a-0a07-44c0-b7b1-a1c3f16c8aa0">&lt;/strong&gt;</ept>, with the name of the API app.</source>
+          <target state="new">Once code generation is complete, you see a new folder in <bpt id="99de1f0a-0a07-44c0-b7b1-a1c3f16c8aa0">&lt;strong&gt;</bpt>Solution Explorer<ept id="99de1f0a-0a07-44c0-b7b1-a1c3f16c8aa0">&lt;/strong&gt;</ept>, with the name of the API app.</target>
+        </trans-unit>
+        <trans-unit id="47833d0e-e284-4f9e-ae23-7d31cfda00ea" xml:space="preserve">
+          <source>This folder contains the code that implements the client classes and data models.</source>
+          <target state="new">This folder contains the code that implements the client classes and data models.</target>
+        </trans-unit>
+        <trans-unit id="f72047fa-3104-437d-a0aa-8b6ac329be39" xml:space="preserve">
+          <source><bpt id="ef3ef229-ee3b-4614-b6ce-9089329d628b">&lt;linkText&gt;</bpt>Generation Complete<ept id="ef3ef229-ee3b-4614-b6ce-9089329d628b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef3ef229-ee3b-4614-b6ce-9089329d628b">&lt;linkText&gt;</bpt>Generation Complete<ept id="ef3ef229-ee3b-4614-b6ce-9089329d628b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

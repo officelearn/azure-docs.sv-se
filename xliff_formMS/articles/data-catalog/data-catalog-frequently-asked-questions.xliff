@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8d8f79ce-7f35-4ae0-878f-592879d80238" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8d8f79ce-7f35-4ae0-878f-592879d80238" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="57e84aba-b985-4a5b-a775-664b512b14e6">
+        <trans-unit id="0fd64f78-bd5a-4632-9057-9e656485d1cd" xml:space="preserve">
+          <source>Azure Data Catalog frequently asked questions</source>
+          <target state="new">Azure Data Catalog frequently asked questions</target>
+        </trans-unit>
+        <trans-unit id="972d95d0-35bc-4c18-813d-37f2dc523583" xml:space="preserve">
+          <source>Frequently asked questions about Azure Data Catalog preview, including capabilities for data source discovery, annotation, and management.</source>
+          <target state="new">Frequently asked questions about Azure Data Catalog preview, including capabilities for data source discovery, annotation, and management.</target>
+        </trans-unit>
+        <trans-unit id="4ea40792-c88c-48e8-860b-62ba3a8d7a85" xml:space="preserve">
+          <source>This article provides answers for frequently asked questions related to the Microsoft Azure Data Catalog service.</source>
+          <target state="new">This article provides answers for frequently asked questions related to the Microsoft Azure Data Catalog service.</target>
+        </trans-unit>
+        <trans-unit id="7883cc64-4ad5-4dea-a9a1-33e65c6b302a" xml:space="preserve">
+          <source>A: Microsoft Azure Data Catalog is a fully managed service hosted in the Microsoft Azure cloud that serves as a system of registration and system of discovery for enterprise data sources.</source>
+          <target state="new">A: Microsoft Azure Data Catalog is a fully managed service hosted in the Microsoft Azure cloud that serves as a system of registration and system of discovery for enterprise data sources.</target>
+        </trans-unit>
+        <trans-unit id="d3a0e37c-d598-4edb-81fc-d20403cd6b70" xml:space="preserve">
+          <source>Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources.</source>
+          <target state="new">Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources.</target>
+        </trans-unit>
+        <trans-unit id="ed041ec8-e605-4735-ab32-382f8cf75745" xml:space="preserve">
+          <source>Azure Data Catalog addresses the challenge of data source discovery and “dark data” by allowing users to discover and understand enterprise data sources.</source>
+          <target state="new">Azure Data Catalog addresses the challenge of data source discovery and “dark data” by allowing users to discover and understand enterprise data sources.</target>
+        </trans-unit>
+        <trans-unit id="2d6c0d02-9fb8-4829-82a0-88a18e6b7969" xml:space="preserve">
+          <source>Azure Data Catalog provides capabilities for technical and non-technical users, including:</source>
+          <target state="new">Azure Data Catalog provides capabilities for technical and non-technical users, including:</target>
+        </trans-unit>
+        <trans-unit id="6cb2a4a8-53f7-45f1-ba5d-64608e84a30e" xml:space="preserve">
+          <source>Data Developers, BI and Analytics Professionals: Who are responsible for producing data and analytics content for others to consume</source>
+          <target state="new">Data Developers, BI and Analytics Professionals: Who are responsible for producing data and analytics content for others to consume</target>
+        </trans-unit>
+        <trans-unit id="83a3ac6b-a4fa-4ed1-9733-b5c513262b7a" xml:space="preserve">
+          <source>Data Stewards: Those who have the knowledge about the data, what it means and how it is intended to be used and for which purpose</source>
+          <target state="new">Data Stewards: Those who have the knowledge about the data, what it means and how it is intended to be used and for which purpose</target>
+        </trans-unit>
+        <trans-unit id="d528f0e9-f2f0-43ce-aa33-a38b53a20a37" xml:space="preserve">
+          <source>Data Consumers: Those who need to be able to easily discover, understand and connect to data needed to do their job using the tool of their choice</source>
+          <target state="new">Data Consumers: Those who need to be able to easily discover, understand and connect to data needed to do their job using the tool of their choice</target>
+        </trans-unit>
+        <trans-unit id="a3558b2a-abf2-4057-bb80-5a46652d6e8f" xml:space="preserve">
+          <source>Central IT: Those who need to make hundreds of data sources discoverable for the business users, and who need to maintain oversight over how data is being used and by whom</source>
+          <target state="new">Central IT: Those who need to make hundreds of data sources discoverable for the business users, and who need to maintain oversight over how data is being used and by whom</target>
+        </trans-unit>
+        <trans-unit id="5a6be484-1294-4203-958f-9849bddf6b5f" xml:space="preserve">
+          <source>During preview, Azure Data Catalog services are available only in the following data centers:</source>
+          <target state="new">During preview, Azure Data Catalog services are available only in the following data centers:</target>
+        </trans-unit>
+        <trans-unit id="039e5214-1545-4b17-8ed9-489ceb9b5e2e" xml:space="preserve">
+          <source>US West</source>
+          <target state="new">US West</target>
+        </trans-unit>
+        <trans-unit id="5938909c-cb13-431d-a5b9-14d552ebd5a4" xml:space="preserve">
+          <source>US East</source>
+          <target state="new">US East</target>
+        </trans-unit>
+        <trans-unit id="1a56c253-8a23-47ed-8e66-a112395c07da" xml:space="preserve">
+          <source>Europe West</source>
+          <target state="new">Europe West</target>
+        </trans-unit>
+        <trans-unit id="82695582-3859-4bfc-a44c-e2c7a628a90c" xml:space="preserve">
+          <source>Australia East</source>
+          <target state="new">Australia East</target>
+        </trans-unit>
+        <trans-unit id="b2043ff4-3c02-4e1c-b02e-18761f126a43" xml:space="preserve">
+          <source>The Free Edition of Azure Data Catalog is limited to 5,000 registered data assets.</source>
+          <target state="new">The Free Edition of Azure Data Catalog is limited to 5,000 registered data assets.</target>
+        </trans-unit>
+        <trans-unit id="d9dfc98b-88f4-48b5-89b4-bf67c6784120" xml:space="preserve">
+          <source>The Standard Edition of Azure Data Catalog supports up to 100,000 registered data assets.</source>
+          <target state="new">The Standard Edition of Azure Data Catalog supports up to 100,000 registered data assets.</target>
+        </trans-unit>
+        <trans-unit id="7a88dfad-cfe1-4edb-bec0-ed43da46e165" xml:space="preserve">
+          <source>During preview, Azure Data Catalog currently supports the SQL Server relational (including Azure SQL DB) and SQL Server Analysis Services (multidimensional and tabular) databases as well as SQL Server Reporting Services (native mode only) and Oracle Database.</source>
+          <target state="new">During preview, Azure Data Catalog currently supports the SQL Server relational (including Azure SQL DB) and SQL Server Analysis Services (multidimensional and tabular) databases as well as SQL Server Reporting Services (native mode only) and Oracle Database.</target>
+        </trans-unit>
+        <trans-unit id="63d51738-f7f4-456c-ada5-b3b24e7fc0ed" xml:space="preserve">
+          <source>During preview, Azure Data Catalog supports the following asset types:</source>
+          <target state="new">During preview, Azure Data Catalog supports the following asset types:</target>
+        </trans-unit>
+        <trans-unit id="d44de4c7-326b-40e9-b912-ee19a5a3e725" xml:space="preserve">
+          <source>SQL Server Table</source>
+          <target state="new">SQL Server Table</target>
+        </trans-unit>
+        <trans-unit id="d7347bb9-5c1c-4505-802f-8c417eb1307f" xml:space="preserve">
+          <source>SQL Server View</source>
+          <target state="new">SQL Server View</target>
+        </trans-unit>
+        <trans-unit id="bca13df8-7a7b-4621-b9a1-856bcc36a6cd" xml:space="preserve">
+          <source>SQL Server Analysis Services Dimension</source>
+          <target state="new">SQL Server Analysis Services Dimension</target>
+        </trans-unit>
+        <trans-unit id="45c5a559-c655-4d8a-8827-f124cd3afadc" xml:space="preserve">
+          <source>SQL Server Analysis Services Measure</source>
+          <target state="new">SQL Server Analysis Services Measure</target>
+        </trans-unit>
+        <trans-unit id="e916e44f-4e45-4723-9ea0-e5bc8f8e7175" xml:space="preserve">
+          <source>SQL Server Analysis Services KPI</source>
+          <target state="new">SQL Server Analysis Services KPI</target>
+        </trans-unit>
+        <trans-unit id="cf909cca-dd47-4b2b-a7e2-ba8d410f0244" xml:space="preserve">
+          <source>SQL Server Analysis Services Table</source>
+          <target state="new">SQL Server Analysis Services Table</target>
+        </trans-unit>
+        <trans-unit id="bd1d6434-4752-4201-851f-f6b896879120" xml:space="preserve">
+          <source>SQL Server Reporting Services Report  </source>
+          <target state="new">SQL Server Reporting Services Report  </target>
+        </trans-unit>
+        <trans-unit id="9bc47613-8be3-4be8-aefb-4864017676f0" xml:space="preserve">
+          <source>Oracle Database Table</source>
+          <target state="new">Oracle Database Table</target>
+        </trans-unit>
+        <trans-unit id="4d1375ac-aefc-4b69-afc1-34fe5b51a2ff" xml:space="preserve">
+          <source>Oracle Database View</source>
+          <target state="new">Oracle Database View</target>
+        </trans-unit>
+        <trans-unit id="ef169388-1f11-4b89-aaa3-4ba890729790" xml:space="preserve">
+          <source>Azure Storage Blob</source>
+          <target state="new">Azure Storage Blob</target>
+        </trans-unit>
+        <trans-unit id="f7c508c8-c2a5-4f81-bcb8-ae03f9ae2e61" xml:space="preserve">
+          <source>Azure Storage Directory</source>
+          <target state="new">Azure Storage Directory</target>
+        </trans-unit>
+        <trans-unit id="1b305d14-0b4b-4569-b732-ccf82b7c8159" xml:space="preserve">
+          <source>HDFS File</source>
+          <target state="new">HDFS File</target>
+        </trans-unit>
+        <trans-unit id="aa5f75af-faa0-4e8d-9e94-7e60dc30d7ef" xml:space="preserve">
+          <source>HDSF Directory</source>
+          <target state="new">HDSF Directory</target>
+        </trans-unit>
+        <trans-unit id="d1605d6f-848e-4ea5-a4d4-04c59e95ab56" xml:space="preserve">
+          <source>Feature requests and other feedback can be submitted in the <bpt id="c1e531b3-4841-4122-8f70-3a9b3cffb42a">&lt;linkText&gt;</bpt>Azure Data Catalog forum<ept id="c1e531b3-4841-4122-8f70-3a9b3cffb42a">&lt;/linkText&gt;</ept><bpt id="c1e531b3-4841-4122-8f70-3a9b3cffb42a">&lt;title&gt;</bpt><ept id="c1e531b3-4841-4122-8f70-3a9b3cffb42a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Feature requests and other feedback can be submitted in the <bpt id="c1e531b3-4841-4122-8f70-3a9b3cffb42a">&lt;linkText&gt;</bpt>Azure Data Catalog forum<ept id="c1e531b3-4841-4122-8f70-3a9b3cffb42a">&lt;/linkText&gt;</ept><bpt id="c1e531b3-4841-4122-8f70-3a9b3cffb42a">&lt;title&gt;</bpt><ept id="c1e531b3-4841-4122-8f70-3a9b3cffb42a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0061286-8839-4d64-9883-0c1915281842" xml:space="preserve">
+          <source>The best place to get started is by following the instructions in Getting Started with Data Catalog.</source>
+          <target state="new">The best place to get started is by following the instructions in Getting Started with Data Catalog.</target>
+        </trans-unit>
+        <trans-unit id="2b59023e-9e3b-4817-894f-ab532b0d87d7" xml:space="preserve">
+          <source>This article is an end-to-end tour of the capabilities in the public preview.</source>
+          <target state="new">This article is an end-to-end tour of the capabilities in the public preview.</target>
+        </trans-unit>
+        <trans-unit id="77d8f6aa-0371-4ce6-90a8-21084bab9fa5" xml:space="preserve">
+          <source>To register your data in Azure Data Catalog, launch the Azure Data Catalog registration tool from the “Publish” area of the Azure Data Catalog portal.</source>
+          <target state="new">To register your data in Azure Data Catalog, launch the Azure Data Catalog registration tool from the “Publish” area of the Azure Data Catalog portal.</target>
+        </trans-unit>
+        <trans-unit id="fe3e8745-2a35-4580-9cb2-57cfa1242914" xml:space="preserve">
+          <source>In the Azure Data Catalog publishing application, log in using the same credentials you use to access the Azure Data Catalog portal, and then select the data source and the specific assets you wish to register.</source>
+          <target state="new">In the Azure Data Catalog publishing application, log in using the same credentials you use to access the Azure Data Catalog portal, and then select the data source and the specific assets you wish to register.</target>
+        </trans-unit>
+        <trans-unit id="6602c98b-62cb-45c4-960d-683868599b18" xml:space="preserve">
+          <source>The specific properties will differ from data source to data source, but in general the Azure Data Catalog publishing service will extract the following information:</source>
+          <target state="new">The specific properties will differ from data source to data source, but in general the Azure Data Catalog publishing service will extract the following information:</target>
+        </trans-unit>
+        <trans-unit id="490cef14-a935-4abe-9447-e30d13cee13a" xml:space="preserve">
+          <source>Asset Name</source>
+          <target state="new">Asset Name</target>
+        </trans-unit>
+        <trans-unit id="5888aa50-a156-4c51-b0f1-8750c1cbde1e" xml:space="preserve">
+          <source>Asset Type</source>
+          <target state="new">Asset Type</target>
+        </trans-unit>
+        <trans-unit id="9f8455cd-4169-4225-be16-532af83afb46" xml:space="preserve">
+          <source>Asset Description</source>
+          <target state="new">Asset Description</target>
+        </trans-unit>
+        <trans-unit id="df390ea8-512b-4170-8d5d-a02373b0c7f9" xml:space="preserve">
+          <source>Attribute/Column Names</source>
+          <target state="new">Attribute/Column Names</target>
+        </trans-unit>
+        <trans-unit id="9d1cab26-d347-441b-8f08-33497347c78e" xml:space="preserve">
+          <source>Attribute/Column Data Types</source>
+          <target state="new">Attribute/Column Data Types</target>
+        </trans-unit>
+        <trans-unit id="1c9b4d8d-d8ae-4507-9bb9-c48ce626cc4b" xml:space="preserve">
+          <source>Attribute/Column Description</source>
+          <target state="new">Attribute/Column Description</target>
+        </trans-unit>
+        <trans-unit id="9286e89d-df1c-43a2-85ac-b2784c7cc5a2" xml:space="preserve">
+          <source>Azure Data Catalog does not move or copy your data to the cloudAzure.</source>
+          <target state="new">Azure Data Catalog does not move or copy your data to the cloudAzure.</target>
+        </trans-unit>
+        <trans-unit id="e903c38c-9c05-431e-b3c9-35ed357dd3a4" xml:space="preserve">
+          <source>Registering assets from a data source will copy the assets’ metadata to Azure, but the data remains in the existing data source location.</source>
+          <target state="new">Registering assets from a data source will copy the assets’ metadata to Azure, but the data remains in the existing data source location.</target>
+        </trans-unit>
+        <trans-unit id="219787e7-dffe-4aef-9445-49d703f5367a" xml:space="preserve">
+          <source>The only exception to this rule is if a user chooses to upload preview records when registering assets.</source>
+          <target state="new">The only exception to this rule is if a user chooses to upload preview records when registering assets.</target>
+        </trans-unit>
+        <trans-unit id="e0e7d7e1-c381-418a-84c6-0b2d438e7ba6" xml:space="preserve">
+          <source>In this case, up to 20 records will be copied from each asset, and stored as a snapshot in <bpt id="29022bf5-eea6-42d4-a533-0f419f67ec33">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="29022bf5-eea6-42d4-a533-0f419f67ec33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this case, up to 20 records will be copied from each asset, and stored as a snapshot in <bpt id="29022bf5-eea6-42d4-a533-0f419f67ec33">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="29022bf5-eea6-42d4-a533-0f419f67ec33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b9f2802-a1f9-4071-89b5-362de1560eb3" xml:space="preserve">
+          <source>&lt;br/&gt;</source>
+          <target state="new">&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="fc18c1a7-995b-4529-be5a-dfe3bd823202" xml:space="preserve">
+          <source>For data sources such as SQL Server Analysis Services that have a first-class <bpt id="a37d3a7d-1af3-4878-8b49-a11a2b73cc93">&lt;strong&gt;</bpt>Description<ept id="a37d3a7d-1af3-4878-8b49-a11a2b73cc93">&lt;/strong&gt;</ept> property, the <bpt id="20708353-746f-4864-b85e-9a33f8ee13a8">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="20708353-746f-4864-b85e-9a33f8ee13a8">&lt;/strong&gt;</ept> publishing application will extract that property value.</source>
+          <target state="new">For data sources such as SQL Server Analysis Services that have a first-class <bpt id="a37d3a7d-1af3-4878-8b49-a11a2b73cc93">&lt;strong&gt;</bpt>Description<ept id="a37d3a7d-1af3-4878-8b49-a11a2b73cc93">&lt;/strong&gt;</ept> property, the <bpt id="20708353-746f-4864-b85e-9a33f8ee13a8">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="20708353-746f-4864-b85e-9a33f8ee13a8">&lt;/strong&gt;</ept> publishing application will extract that property value.</target>
+        </trans-unit>
+        <trans-unit id="df366366-82d1-42f9-8c67-dcb7b37ac8ee" xml:space="preserve">
+          <source>For SQL Server relational databases, which lack a first-class <bpt id="c747c057-12f9-4b8e-9e19-dbc387e80949">&lt;strong&gt;</bpt>Description<ept id="c747c057-12f9-4b8e-9e19-dbc387e80949">&lt;/strong&gt;</ept> property, the <bpt id="cf985360-c211-46c4-a0b5-a382a1e8e300">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="cf985360-c211-46c4-a0b5-a382a1e8e300">&lt;/strong&gt;</ept> publishing application will extract the value from the ms_description extended property for objects and columns.</source>
+          <target state="new">For SQL Server relational databases, which lack a first-class <bpt id="c747c057-12f9-4b8e-9e19-dbc387e80949">&lt;strong&gt;</bpt>Description<ept id="c747c057-12f9-4b8e-9e19-dbc387e80949">&lt;/strong&gt;</ept> property, the <bpt id="cf985360-c211-46c4-a0b5-a382a1e8e300">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="cf985360-c211-46c4-a0b5-a382a1e8e300">&lt;/strong&gt;</ept> publishing application will extract the value from the ms_description extended property for objects and columns.</target>
+        </trans-unit>
+        <trans-unit id="ad0319fa-a644-4b6c-8c0d-d11c679f720f" xml:space="preserve">
+          <source>For more information, see TechNet <bpt id="6c4ce564-0e22-482b-af30-ef9c88482818">&lt;linkText&gt;</bpt>Using Extended Properties on Database Objects<ept id="6c4ce564-0e22-482b-af30-ef9c88482818">&lt;/linkText&gt;</ept><bpt id="6c4ce564-0e22-482b-af30-ef9c88482818">&lt;title&gt;</bpt><ept id="6c4ce564-0e22-482b-af30-ef9c88482818">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see TechNet <bpt id="6c4ce564-0e22-482b-af30-ef9c88482818">&lt;linkText&gt;</bpt>Using Extended Properties on Database Objects<ept id="6c4ce564-0e22-482b-af30-ef9c88482818">&lt;/linkText&gt;</ept><bpt id="6c4ce564-0e22-482b-af30-ef9c88482818">&lt;title&gt;</bpt><ept id="6c4ce564-0e22-482b-af30-ef9c88482818">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78a61185-ebe3-4c42-8072-4b57e11071ca" xml:space="preserve">
+          <source>After you register assets with <bpt id="6ec72a22-c5e8-4da3-be2c-c27f79c0257e">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="6ec72a22-c5e8-4da3-be2c-c27f79c0257e">&lt;/strong&gt;</ept> there may be a period of 5-10 seconds before they appear in the <bpt id="ddce44e0-2919-4097-a864-092bb6bbbf6d">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="ddce44e0-2919-4097-a864-092bb6bbbf6d">&lt;/strong&gt;</ept> portal.</source>
+          <target state="new">After you register assets with <bpt id="6ec72a22-c5e8-4da3-be2c-c27f79c0257e">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="6ec72a22-c5e8-4da3-be2c-c27f79c0257e">&lt;/strong&gt;</ept> there may be a period of 5-10 seconds before they appear in the <bpt id="ddce44e0-2919-4097-a864-092bb6bbbf6d">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="ddce44e0-2919-4097-a864-092bb6bbbf6d">&lt;/strong&gt;</ept> portal.</target>
+        </trans-unit>
+        <trans-unit id="854a373c-9c2c-486e-8b44-76a1434fcc2a" xml:space="preserve">
+          <source>The simplest way to provide metadata for registered assets is to select the asset in the <bpt id="7e5d3aef-bf5c-4a65-b660-babe15e6810a">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="7e5d3aef-bf5c-4a65-b660-babe15e6810a">&lt;/strong&gt;</ept> portal and then enter the metadata values in the properties pane or schema pane for the selected object.</source>
+          <target state="new">The simplest way to provide metadata for registered assets is to select the asset in the <bpt id="7e5d3aef-bf5c-4a65-b660-babe15e6810a">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="7e5d3aef-bf5c-4a65-b660-babe15e6810a">&lt;/strong&gt;</ept> portal and then enter the metadata values in the properties pane or schema pane for the selected object.</target>
+        </trans-unit>
+        <trans-unit id="324bd8db-3db6-4380-a616-c1e9f52b0800" xml:space="preserve">
+          <source>You can also provide some metadata, such as experts and tags, during the registration process.</source>
+          <target state="new">You can also provide some metadata, such as experts and tags, during the registration process.</target>
+        </trans-unit>
+        <trans-unit id="0e5a5d8d-3cc1-42e3-967a-1c023cfc13ac" xml:space="preserve">
+          <source>The values provided in the <bpt id="304bb29d-c2dd-4ee4-a747-068fd40cc19d">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="304bb29d-c2dd-4ee4-a747-068fd40cc19d">&lt;/strong&gt;</ept> publishing service will apply to all assets being registered at that time.</source>
+          <target state="new">The values provided in the <bpt id="304bb29d-c2dd-4ee4-a747-068fd40cc19d">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="304bb29d-c2dd-4ee4-a747-068fd40cc19d">&lt;/strong&gt;</ept> publishing service will apply to all assets being registered at that time.</target>
+        </trans-unit>
+        <trans-unit id="343a0198-ed97-4657-9d89-5d678c275993" xml:space="preserve">
+          <source>To view the recently-registered objects in the portal for additional annotation, select the <bpt id="d2f3a9ba-7b6b-442d-a4b8-d7507f3805b7">&lt;strong&gt;</bpt>View Portal<ept id="d2f3a9ba-7b6b-442d-a4b8-d7507f3805b7">&lt;/strong&gt;</ept> button on the final screen of the <bpt id="f3ae70a1-df45-4800-a7da-050de13bda8d">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="f3ae70a1-df45-4800-a7da-050de13bda8d">&lt;/strong&gt;</ept> publishing application.</source>
+          <target state="new">To view the recently-registered objects in the portal for additional annotation, select the <bpt id="d2f3a9ba-7b6b-442d-a4b8-d7507f3805b7">&lt;strong&gt;</bpt>View Portal<ept id="d2f3a9ba-7b6b-442d-a4b8-d7507f3805b7">&lt;/strong&gt;</ept> button on the final screen of the <bpt id="f3ae70a1-df45-4800-a7da-050de13bda8d">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="f3ae70a1-df45-4800-a7da-050de13bda8d">&lt;/strong&gt;</ept> publishing application.</target>
+        </trans-unit>
+        <trans-unit id="d1fcbb68-357d-4731-90da-b1f4930ab07e" xml:space="preserve">
+          <source>You can delete an object from <bpt id="6bf3440b-47ab-4dee-9b61-c3beb84a7876">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="6bf3440b-47ab-4dee-9b61-c3beb84a7876">&lt;/strong&gt;</ept> by selecting the object in the portal, and then clicking the <bpt id="2821a78f-ebad-4074-8490-93057bad7925">&lt;strong&gt;</bpt>Delete<ept id="2821a78f-ebad-4074-8490-93057bad7925">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">You can delete an object from <bpt id="6bf3440b-47ab-4dee-9b61-c3beb84a7876">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="6bf3440b-47ab-4dee-9b61-c3beb84a7876">&lt;/strong&gt;</ept> by selecting the object in the portal, and then clicking the <bpt id="2821a78f-ebad-4074-8490-93057bad7925">&lt;strong&gt;</bpt>Delete<ept id="2821a78f-ebad-4074-8490-93057bad7925">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="5a8869ad-e093-4262-9e18-4c8aefe6773a" xml:space="preserve">
+          <source>This will remove the metadata for the object from <bpt id="ac5e0fab-98b7-485d-b197-b009aea7c231">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="ac5e0fab-98b7-485d-b197-b009aea7c231">&lt;/strong&gt;</ept> but will not affect the actual underlying data source.</source>
+          <target state="new">This will remove the metadata for the object from <bpt id="ac5e0fab-98b7-485d-b197-b009aea7c231">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="ac5e0fab-98b7-485d-b197-b009aea7c231">&lt;/strong&gt;</ept> but will not affect the actual underlying data source.</target>
+        </trans-unit>
+        <trans-unit id="5e36d772-0935-47ce-a8a8-eb9a3674cc01" xml:space="preserve">
+          <source>An expert is a person who has an informed perspective about a data object.</source>
+          <target state="new">An expert is a person who has an informed perspective about a data object.</target>
+        </trans-unit>
+        <trans-unit id="df650678-2b74-4f10-85af-d7a4f63c6e4c" xml:space="preserve">
+          <source>An object can have multiple experts.</source>
+          <target state="new">An object can have multiple experts.</target>
+        </trans-unit>
+        <trans-unit id="ddd42376-9aa0-49ed-8017-9c4dc98963e3" xml:space="preserve">
+          <source>An expert does not need to be the “owner” for an object; the expert is simply someone who knows how the data can and should be used.</source>
+          <target state="new">An expert does not need to be the “owner” for an object; the expert is simply someone who knows how the data can and should be used.</target>
+        </trans-unit>
+        <trans-unit id="2efff177-53ca-42d1-9181-3cbe3ac9ad7a" xml:space="preserve">
+          <source>During <bpt id="83627e8d-2c0d-4753-960c-41896c120bcf">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="83627e8d-2c0d-4753-960c-41896c120bcf">&lt;/strong&gt;</ept> preview, there is no explicit service level agreement.</source>
+          <target state="new">During <bpt id="83627e8d-2c0d-4753-960c-41896c120bcf">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="83627e8d-2c0d-4753-960c-41896c120bcf">&lt;/strong&gt;</ept> preview, there is no explicit service level agreement.</target>
+        </trans-unit>
+        <trans-unit id="a0dd128e-1d7d-42bc-82f7-c689b048fe4b" xml:space="preserve">
+          <source>Please use the <bpt id="91c1883d-e969-467b-843e-509f78c006d9">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="91c1883d-e969-467b-843e-509f78c006d9">&lt;/strong&gt;</ept> forum to report problems, share information, and ask questions. The forum can be found at http://go.microsoft.com/fwlink/?LinkID=616424&amp;clcid=0x409</source>
+          <target state="new">Please use the <bpt id="91c1883d-e969-467b-843e-509f78c006d9">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="91c1883d-e969-467b-843e-509f78c006d9">&lt;/strong&gt;</ept> forum to report problems, share information, and ask questions. The forum can be found at http://go.microsoft.com/fwlink/?LinkID=616424&amp;clcid=0x409</target>
+        </trans-unit>
+        <trans-unit id="a949c7ec-1073-4ef8-a7bd-88ea9ed9acb5" xml:space="preserve">
+          <source>We’re actively working on adding more data sources to <bpt id="0dc6e8d5-7d44-4a1d-9338-6f76a9961600">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="0dc6e8d5-7d44-4a1d-9338-6f76a9961600">&lt;/strong&gt;</ept>. If there is a data source that you would like to see supported, please suggest it (or voice your support if it has already been suggested) in the <bpt id="6801eefa-cd78-4714-8185-e60e0ae5670a">&lt;linkText&gt;</bpt>Azure Data Catalog forum<ept id="6801eefa-cd78-4714-8185-e60e0ae5670a">&lt;/linkText&gt;</ept><bpt id="6801eefa-cd78-4714-8185-e60e0ae5670a">&lt;title&gt;</bpt><ept id="6801eefa-cd78-4714-8185-e60e0ae5670a">&lt;/title&gt;</ept>.</source>
+          <target state="new">We’re actively working on adding more data sources to <bpt id="0dc6e8d5-7d44-4a1d-9338-6f76a9961600">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="0dc6e8d5-7d44-4a1d-9338-6f76a9961600">&lt;/strong&gt;</ept>. If there is a data source that you would like to see supported, please suggest it (or voice your support if it has already been suggested) in the <bpt id="6801eefa-cd78-4714-8185-e60e0ae5670a">&lt;linkText&gt;</bpt>Azure Data Catalog forum<ept id="6801eefa-cd78-4714-8185-e60e0ae5670a">&lt;/linkText&gt;</ept><bpt id="6801eefa-cd78-4714-8185-e60e0ae5670a">&lt;title&gt;</bpt><ept id="6801eefa-cd78-4714-8185-e60e0ae5670a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96c33137-abc7-44b6-87b3-33e84bf156eb" xml:space="preserve">
+          <source>You can think of <bpt id="f51a7223-8e49-4322-928f-fdf80dfbdca1">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="f51a7223-8e49-4322-928f-fdf80dfbdca1">&lt;/strong&gt;</ept> as an evolution of the Data Catalog.</source>
+          <target state="new">You can think of <bpt id="f51a7223-8e49-4322-928f-fdf80dfbdca1">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="f51a7223-8e49-4322-928f-fdf80dfbdca1">&lt;/strong&gt;</ept> as an evolution of the Data Catalog.</target>
+        </trans-unit>
+        <trans-unit id="ef69442d-f8ea-4274-b6be-e91f83207876" xml:space="preserve">
+          <source><bpt id="92b0d044-8271-4cfa-9f2b-e9c7bae9ad23">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="92b0d044-8271-4cfa-9f2b-e9c7bae9ad23">&lt;/strong&gt;</ept> delivers similar capabilities for data source publishing and discovery, but is focused on broader scenarios and not dependent on Office 365.</source>
+          <target state="new"><bpt id="92b0d044-8271-4cfa-9f2b-e9c7bae9ad23">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="92b0d044-8271-4cfa-9f2b-e9c7bae9ad23">&lt;/strong&gt;</ept> delivers similar capabilities for data source publishing and discovery, but is focused on broader scenarios and not dependent on Office 365.</target>
+        </trans-unit>
+        <trans-unit id="740425be-58c6-4809-9ba4-f2871faaa7d2" xml:space="preserve">
+          <source>Shortly after the Azure Data Catalog becomes generally available the two catalogs will merge into a single service.</source>
+          <target state="new">Shortly after the Azure Data Catalog becomes generally available the two catalogs will merge into a single service.</target>
+        </trans-unit>
+        <trans-unit id="cf90bf3f-fe37-4cd6-8ab9-60059a817b2c" xml:space="preserve">
+          <source>The user running the <bpt id="7c77106c-d0ff-47f0-9c2a-3ea3dc35d39e">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="7c77106c-d0ff-47f0-9c2a-3ea3dc35d39e">&lt;/strong&gt;</ept> registration tool needs permissions on the data source that will allow him to read the metadata from the source.</source>
+          <target state="new">The user running the <bpt id="7c77106c-d0ff-47f0-9c2a-3ea3dc35d39e">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="7c77106c-d0ff-47f0-9c2a-3ea3dc35d39e">&lt;/strong&gt;</ept> registration tool needs permissions on the data source that will allow him to read the metadata from the source.</target>
+        </trans-unit>
+        <trans-unit id="d750ce7c-0fd1-40f8-9b9b-c4af4c5c1d70" xml:space="preserve">
+          <source>If the user also selects to include a preview, then the user must also have permissions that allow him to read in the data from the objects being registered.</source>
+          <target state="new">If the user also selects to include a preview, then the user must also have permissions that allow him to read in the data from the objects being registered.</target>
+        </trans-unit>
+        <trans-unit id="5c47389d-54ca-4061-826f-05591dfca523" xml:space="preserve">
+          <source><bpt id="3379a1f0-a477-4f42-b147-89bfb6dbcbbf">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="3379a1f0-a477-4f42-b147-89bfb6dbcbbf">&lt;/strong&gt;</ept> is a cloud service that can work with both cloud and on-premises data sources, delivering a hybrid data source discovery solution.</source>
+          <target state="new"><bpt id="3379a1f0-a477-4f42-b147-89bfb6dbcbbf">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="3379a1f0-a477-4f42-b147-89bfb6dbcbbf">&lt;/strong&gt;</ept> is a cloud service that can work with both cloud and on-premises data sources, delivering a hybrid data source discovery solution.</target>
+        </trans-unit>
+        <trans-unit id="0b2be0e8-d95d-4f8d-a197-f2f501ce1575" xml:space="preserve">
+          <source>There are currently no plans for a version of the <bpt id="65657dbe-a3bf-4824-80d5-82fc408f8d9c">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="65657dbe-a3bf-4824-80d5-82fc408f8d9c">&lt;/strong&gt;</ept> service that will run on-premises.</source>
+          <target state="new">There are currently no plans for a version of the <bpt id="65657dbe-a3bf-4824-80d5-82fc408f8d9c">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="65657dbe-a3bf-4824-80d5-82fc408f8d9c">&lt;/strong&gt;</ept> service that will run on-premises.</target>
+        </trans-unit>
+        <trans-unit id="aff565bf-f427-4cea-bc3d-8824fcea04a5" xml:space="preserve">
+          <source>We’re actively working to expand the capabilities of <bpt id="50fda5a8-d773-4340-99dc-a28a3d796ab3">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="50fda5a8-d773-4340-99dc-a28a3d796ab3">&lt;/strong&gt;</ept>. If there is additional metadata that you would like to see extracted from the data source during registration, please suggest it (or vote for it if it has already been suggested) in the <bpt id="e0098d33-7276-4653-9346-0ea400c8b126">&lt;linkText&gt;</bpt>Azure Data Catalog forum<ept id="e0098d33-7276-4653-9346-0ea400c8b126">&lt;/linkText&gt;</ept><bpt id="e0098d33-7276-4653-9346-0ea400c8b126">&lt;title&gt;</bpt><ept id="e0098d33-7276-4653-9346-0ea400c8b126">&lt;/title&gt;</ept>. In the future we will allow third parties to add new data source types through an extensibility API.</source>
+          <target state="new">We’re actively working to expand the capabilities of <bpt id="50fda5a8-d773-4340-99dc-a28a3d796ab3">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="50fda5a8-d773-4340-99dc-a28a3d796ab3">&lt;/strong&gt;</ept>. If there is additional metadata that you would like to see extracted from the data source during registration, please suggest it (or vote for it if it has already been suggested) in the <bpt id="e0098d33-7276-4653-9346-0ea400c8b126">&lt;linkText&gt;</bpt>Azure Data Catalog forum<ept id="e0098d33-7276-4653-9346-0ea400c8b126">&lt;/linkText&gt;</ept><bpt id="e0098d33-7276-4653-9346-0ea400c8b126">&lt;title&gt;</bpt><ept id="e0098d33-7276-4653-9346-0ea400c8b126">&lt;/title&gt;</ept>. In the future we will allow third parties to add new data source types through an extensibility API.</target>
+        </trans-unit>
+        <trans-unit id="9605075a-d4d0-4c4d-afff-1a67d96b433f" xml:space="preserve">
+          <source>A: Select the data assets in the Azure Data Catalog, and click the “Take Ownership” button.</source>
+          <target state="new">A: Select the data assets in the Azure Data Catalog, and click the “Take Ownership” button.</target>
+        </trans-unit>
+        <trans-unit id="3daedaeb-084a-42e9-8a3f-e58b08f7a64f" xml:space="preserve">
+          <source>Owners of data assets in Azure Data Catalog can change the visibility settings, to either allow all Catalog users to discover the owned assets, or to restrict the visibility to specific users.</source>
+          <target state="new">Owners of data assets in Azure Data Catalog can change the visibility settings, to either allow all Catalog users to discover the owned assets, or to restrict the visibility to specific users.</target>
+        </trans-unit>
+        <trans-unit id="cdea4b7b-bf5f-4f58-a1e8-b2e736b0dab9" xml:space="preserve">
+          <source>A: To update the metadata for data assets that are already registered in the Catalog, simply re-register the data source that contains the assets.</source>
+          <target state="new">A: To update the metadata for data assets that are already registered in the Catalog, simply re-register the data source that contains the assets.</target>
+        </trans-unit>
+        <trans-unit id="1c6329f6-7f34-4265-87b4-b8f76f04d50f" xml:space="preserve">
+          <source>Any changes in the data source, such as columns being added or removed from tables or views, will be updated in the Catalog, but any annotations provided by users will be maintained.</source>
+          <target state="new">Any changes in the data source, such as columns being added or removed from tables or views, will be updated in the Catalog, but any annotations provided by users will be maintained.</target>
+        </trans-unit>
+        <trans-unit id="29979aa8-6018-4c08-a2bb-28b1a8abbbbf" xml:space="preserve">
+          <source>If you encounter problems or require assistance with the Azure Data Catalog preview, please post in the <bpt id="45aee744-6523-4915-a7ff-7df261b752d8">&lt;linkText&gt;</bpt>Azure Data Catalog forum<ept id="45aee744-6523-4915-a7ff-7df261b752d8">&lt;/linkText&gt;</ept><bpt id="45aee744-6523-4915-a7ff-7df261b752d8">&lt;title&gt;</bpt><ept id="45aee744-6523-4915-a7ff-7df261b752d8">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you encounter problems or require assistance with the Azure Data Catalog preview, please post in the <bpt id="45aee744-6523-4915-a7ff-7df261b752d8">&lt;linkText&gt;</bpt>Azure Data Catalog forum<ept id="45aee744-6523-4915-a7ff-7df261b752d8">&lt;/linkText&gt;</ept><bpt id="45aee744-6523-4915-a7ff-7df261b752d8">&lt;title&gt;</bpt><ept id="45aee744-6523-4915-a7ff-7df261b752d8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0798ac9-2a99-4478-ab6f-ab6ba4adad5e" xml:space="preserve">
+          <source>Head on over to the <bpt id="b4fd93af-4085-40fb-b9ff-ac09429f3970">&lt;linkText&gt;</bpt>Azure Data Catalog forum<ept id="b4fd93af-4085-40fb-b9ff-ac09429f3970">&lt;/linkText&gt;</ept><bpt id="b4fd93af-4085-40fb-b9ff-ac09429f3970">&lt;title&gt;</bpt><ept id="b4fd93af-4085-40fb-b9ff-ac09429f3970">&lt;/title&gt;</ept>. Questions asked there will find their way here.</source>
+          <target state="new">Head on over to the <bpt id="b4fd93af-4085-40fb-b9ff-ac09429f3970">&lt;linkText&gt;</bpt>Azure Data Catalog forum<ept id="b4fd93af-4085-40fb-b9ff-ac09429f3970">&lt;/linkText&gt;</ept><bpt id="b4fd93af-4085-40fb-b9ff-ac09429f3970">&lt;title&gt;</bpt><ept id="b4fd93af-4085-40fb-b9ff-ac09429f3970">&lt;/title&gt;</ept>. Questions asked there will find their way here.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

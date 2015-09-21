@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b1b002b0-364a-4fce-9aa4-60c2d513ab72" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b1b002b0-364a-4fce-9aa4-60c2d513ab72" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fd55c32c-b13e-4cee-b726-ab74b9badb1a">
+        <trans-unit id="6f4dc29d-f3fd-41ec-a472-114e75d4e10a" xml:space="preserve">
+          <source>Filters and Dynamic Manifests</source>
+          <target state="new">Filters and Dynamic Manifests</target>
+        </trans-unit>
+        <trans-unit id="7d402b2c-d89c-4bed-b56f-f529024ea119" xml:space="preserve">
+          <source>This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achive this selective streaming.</source>
+          <target state="new">This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achive this selective streaming.</target>
+        </trans-unit>
+        <trans-unit id="b29c8518-1688-49c1-8eea-54009707f9d5" xml:space="preserve">
+          <source>Starting with 2.11 release, Media Services enables you to define filters for your assets.</source>
+          <target state="new">Starting with 2.11 release, Media Services enables you to define filters for your assets.</target>
+        </trans-unit>
+        <trans-unit id="a6a08995-e66f-49ee-9a21-6345a68cd8ac" xml:space="preserve">
+          <source>These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset).</source>
+          <target state="new">These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset).</target>
+        </trans-unit>
+        <trans-unit id="c2eed5cb-08fa-4fcc-8b99-34c335486d42" xml:space="preserve">
+          <source>This filtering of your assets is achieved through <bpt id="94b18ce5-4d77-4395-9d1e-e09982831df1">&lt;strong&gt;</bpt>Dynamic Manifest<ept id="94b18ce5-4d77-4395-9d1e-e09982831df1">&lt;/strong&gt;</ept>s that are created upon your customer's request to stream a video based on specified filter(s).</source>
+          <target state="new">This filtering of your assets is achieved through <bpt id="94b18ce5-4d77-4395-9d1e-e09982831df1">&lt;strong&gt;</bpt>Dynamic Manifest<ept id="94b18ce5-4d77-4395-9d1e-e09982831df1">&lt;/strong&gt;</ept>s that are created upon your customer's request to stream a video based on specified filter(s).</target>
+        </trans-unit>
+        <trans-unit id="913790ef-eb3b-49ce-ad10-5ef5d5634ebe" xml:space="preserve">
+          <source>This topics discusses common scenarios in which using filters would be very beneficial to your customers and links to topics that demonstrate how to create filters programmatically (currently, you can create filters with REST APIs only).</source>
+          <target state="new">This topics discusses common scenarios in which using filters would be very beneficial to your customers and links to topics that demonstrate how to create filters programmatically (currently, you can create filters with REST APIs only).</target>
+        </trans-unit>
+        <trans-unit id="f966c503-5b7b-48a1-94f3-40efb4fb8e00" xml:space="preserve">
+          <source>When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions.</source>
+          <target state="new">When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions.</target>
+        </trans-unit>
+        <trans-unit id="7effd0a6-1165-47ec-b3d8-c1fcb63fca0f" xml:space="preserve">
+          <source>To achieve this goal do the following:</source>
+          <target state="new">To achieve this goal do the following:</target>
+        </trans-unit>
+        <trans-unit id="441e996c-9450-4a67-9c6b-b6e6ab21baaf" xml:space="preserve">
+          <source>encode your stream to multi-bitrate ([adaptive bitrate](http://en.wikipedia.org/wiki/Adaptive<bpt id="a32f8fb6-827f-444a-880d-aa518b34ac8a">&lt;em&gt;</bpt>bitrate<ept id="a32f8fb6-827f-444a-880d-aa518b34ac8a">&lt;/em&gt;</ept>streaming)) video stream (this will take care of quality and network conditions) and </source>
+          <target state="new">encode your stream to multi-bitrate ([adaptive bitrate](http://en.wikipedia.org/wiki/Adaptive<bpt id="a32f8fb6-827f-444a-880d-aa518b34ac8a">&lt;em&gt;</bpt>bitrate<ept id="a32f8fb6-827f-444a-880d-aa518b34ac8a">&lt;/em&gt;</ept>streaming)) video stream (this will take care of quality and network conditions) and </target>
+        </trans-unit>
+        <trans-unit id="ad5d5738-ee84-429e-aa28-fa1fca03a25a" xml:space="preserve">
+          <source>use Media Services <bpt id="44fb6983-5976-421b-931f-794a27e613b9">&lt;linkText&gt;</bpt>Dynamic Packaging<ept id="44fb6983-5976-421b-931f-794a27e613b9">&lt;/linkText&gt;</ept><bpt id="44fb6983-5976-421b-931f-794a27e613b9">&lt;title&gt;</bpt><ept id="44fb6983-5976-421b-931f-794a27e613b9">&lt;/title&gt;</ept> to dynamically re-package your stream into different protocols (this will take care of streaming on different devices).</source>
+          <target state="new">use Media Services <bpt id="44fb6983-5976-421b-931f-794a27e613b9">&lt;linkText&gt;</bpt>Dynamic Packaging<ept id="44fb6983-5976-421b-931f-794a27e613b9">&lt;/linkText&gt;</ept><bpt id="44fb6983-5976-421b-931f-794a27e613b9">&lt;title&gt;</bpt><ept id="44fb6983-5976-421b-931f-794a27e613b9">&lt;/title&gt;</ept> to dynamically re-package your stream into different protocols (this will take care of streaming on different devices).</target>
+        </trans-unit>
+        <trans-unit id="7517299d-9c90-44f6-9ad8-1953c5891b75" xml:space="preserve">
+          <source>Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</source>
+          <target state="new">Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</target>
+        </trans-unit>
+        <trans-unit id="792da2db-188d-46bc-810a-cdc844f597bf" xml:space="preserve">
+          <source>When you encode an asset for adaptive bitrate streaming, a <bpt id="6213fd30-3489-4ff1-869c-c94aaf9b5b96">&lt;strong&gt;</bpt>manifest<ept id="6213fd30-3489-4ff1-869c-c94aaf9b5b96">&lt;/strong&gt;</ept> (playlist) file is created (the file is text-based or XML-based).</source>
+          <target state="new">When you encode an asset for adaptive bitrate streaming, a <bpt id="6213fd30-3489-4ff1-869c-c94aaf9b5b96">&lt;strong&gt;</bpt>manifest<ept id="6213fd30-3489-4ff1-869c-c94aaf9b5b96">&lt;/strong&gt;</ept> (playlist) file is created (the file is text-based or XML-based).</target>
+        </trans-unit>
+        <trans-unit id="833b3310-de4e-4de0-a0c0-d3b8e115cfd0" xml:space="preserve">
+          <source>The <bpt id="3ef01d6f-619f-4567-9760-834339b66ebc">&lt;strong&gt;</bpt>manifest<ept id="3ef01d6f-619f-4567-9760-834339b66ebc">&lt;/strong&gt;</ept> file includes streaming metadata such as: track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), video codec (FourCC).</source>
+          <target state="new">The <bpt id="3ef01d6f-619f-4567-9760-834339b66ebc">&lt;strong&gt;</bpt>manifest<ept id="3ef01d6f-619f-4567-9760-834339b66ebc">&lt;/strong&gt;</ept> file includes streaming metadata such as: track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), video codec (FourCC).</target>
+        </trans-unit>
+        <trans-unit id="804107b3-9d2e-4b3a-8cf5-89bf97ff69f5" xml:space="preserve">
+          <source>It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments available and their location.</source>
+          <target state="new">It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments available and their location.</target>
+        </trans-unit>
+        <trans-unit id="cf4feb0f-368c-474f-9e47-9ff9ef775738" xml:space="preserve">
+          <source>Fragments (or segments) are the actual “chunks” of a video content.</source>
+          <target state="new">Fragments (or segments) are the actual “chunks” of a video content.</target>
+        </trans-unit>
+        <trans-unit id="2d7ea9e5-7e67-47ff-8e86-1016f592217a" xml:space="preserve">
+          <source>Here is an example of a manifest file: </source>
+          <target state="new">Here is an example of a manifest file: </target>
+        </trans-unit>
+        <trans-unit id="93c0c6a9-5295-4c82-90d4-7ae02e680f05" xml:space="preserve">
+          <source>There are <bpt id="53c0ff59-b29e-48c0-9821-ebdb410c9a31">&lt;linkText&gt;</bpt>scenarios<ept id="53c0ff59-b29e-48c0-9821-ebdb410c9a31">&lt;/linkText&gt;</ept><bpt id="53c0ff59-b29e-48c0-9821-ebdb410c9a31">&lt;title&gt;</bpt><ept id="53c0ff59-b29e-48c0-9821-ebdb410c9a31">&lt;/title&gt;</ept> when your client needs more flexibility than what's described in the default asset's manifest file.</source>
+          <target state="new">There are <bpt id="53c0ff59-b29e-48c0-9821-ebdb410c9a31">&lt;linkText&gt;</bpt>scenarios<ept id="53c0ff59-b29e-48c0-9821-ebdb410c9a31">&lt;/linkText&gt;</ept><bpt id="53c0ff59-b29e-48c0-9821-ebdb410c9a31">&lt;title&gt;</bpt><ept id="53c0ff59-b29e-48c0-9821-ebdb410c9a31">&lt;/title&gt;</ept> when your client needs more flexibility than what's described in the default asset's manifest file.</target>
+        </trans-unit>
+        <trans-unit id="d1a54fcb-504c-4974-a271-ed7ddd5bea1f" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="d992a83a-f5cd-4891-a3b2-164ca1c5f0f8" xml:space="preserve">
+          <source>Device specific: deliver only the specified renditions and\or specified language tracks that are supported by the device that is used to playback the content ("rendition filtering").</source>
+          <target state="new">Device specific: deliver only the specified renditions and\or specified language tracks that are supported by the device that is used to playback the content ("rendition filtering").</target>
+        </trans-unit>
+        <trans-unit id="72ed6400-82f1-4927-b89d-749f7bdddda9" xml:space="preserve">
+          <source>Reduce the manifest to show a sub-clip of a live event ("sub-clip filtering").</source>
+          <target state="new">Reduce the manifest to show a sub-clip of a live event ("sub-clip filtering").</target>
+        </trans-unit>
+        <trans-unit id="adc54369-56b7-4905-90c2-b811ab604839" xml:space="preserve">
+          <source>Trim the start of a video ("trimming a video").</source>
+          <target state="new">Trim the start of a video ("trimming a video").</target>
+        </trans-unit>
+        <trans-unit id="c52c21f0-3ce5-41cd-82c3-32b719ea93e3" xml:space="preserve">
+          <source>Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window") .</source>
+          <target state="new">Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window") .</target>
+        </trans-unit>
+        <trans-unit id="9c3f6aba-9873-4634-b19b-93bb4fdb47e2" xml:space="preserve">
+          <source>To achieve this flexibility, Media Services offers <bpt id="1a8e24a9-4fea-4daf-8d90-02c2d00552e4">&lt;strong&gt;</bpt>Dynamic Manifests<ept id="1a8e24a9-4fea-4daf-8d90-02c2d00552e4">&lt;/strong&gt;</ept> based on pre-defined <bpt id="91352b95-cddb-444a-a553-13db2c7a89fa">&lt;linkText&gt;</bpt>filters<ept id="91352b95-cddb-444a-a553-13db2c7a89fa">&lt;/linkText&gt;</ept><bpt id="91352b95-cddb-444a-a553-13db2c7a89fa">&lt;title&gt;</bpt><ept id="91352b95-cddb-444a-a553-13db2c7a89fa">&lt;/title&gt;</ept>.</source>
+          <target state="new">To achieve this flexibility, Media Services offers <bpt id="1a8e24a9-4fea-4daf-8d90-02c2d00552e4">&lt;strong&gt;</bpt>Dynamic Manifests<ept id="1a8e24a9-4fea-4daf-8d90-02c2d00552e4">&lt;/strong&gt;</ept> based on pre-defined <bpt id="91352b95-cddb-444a-a553-13db2c7a89fa">&lt;linkText&gt;</bpt>filters<ept id="91352b95-cddb-444a-a553-13db2c7a89fa">&lt;/linkText&gt;</ept><bpt id="91352b95-cddb-444a-a553-13db2c7a89fa">&lt;title&gt;</bpt><ept id="91352b95-cddb-444a-a553-13db2c7a89fa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fca154b1-6354-4f40-9db6-20ba39dd0d27" xml:space="preserve">
+          <source>Once you define the filters, your clients could use them to stream a specific rendition or sub-clips of your video.</source>
+          <target state="new">Once you define the filters, your clients could use them to stream a specific rendition or sub-clips of your video.</target>
+        </trans-unit>
+        <trans-unit id="b9471c7a-72ea-41b8-902e-395ecf4eaa65" xml:space="preserve">
+          <source>They would specify filter(s) in the streaming URL.</source>
+          <target state="new">They would specify filter(s) in the streaming URL.</target>
+        </trans-unit>
+        <trans-unit id="7312b664-93fc-4c7f-816f-5f4c70ad2aa1" xml:space="preserve">
+          <source>Filters could be applied to adaptive bitrate streaming protocols supported by <bpt id="811be684-d6aa-42fa-a057-367e30123349">&lt;linkText&gt;</bpt>Dynamic Packaging<ept id="811be684-d6aa-42fa-a057-367e30123349">&lt;/linkText&gt;</ept><bpt id="811be684-d6aa-42fa-a057-367e30123349">&lt;title&gt;</bpt><ept id="811be684-d6aa-42fa-a057-367e30123349">&lt;/title&gt;</ept>: HLS, MPEG-DASH, Smooth Streaming, and HDS.</source>
+          <target state="new">Filters could be applied to adaptive bitrate streaming protocols supported by <bpt id="811be684-d6aa-42fa-a057-367e30123349">&lt;linkText&gt;</bpt>Dynamic Packaging<ept id="811be684-d6aa-42fa-a057-367e30123349">&lt;/linkText&gt;</ept><bpt id="811be684-d6aa-42fa-a057-367e30123349">&lt;title&gt;</bpt><ept id="811be684-d6aa-42fa-a057-367e30123349">&lt;/title&gt;</ept>: HLS, MPEG-DASH, Smooth Streaming, and HDS.</target>
+        </trans-unit>
+        <trans-unit id="35e88559-a251-408c-a582-99e69932c351" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="bd3e3ab0-f311-4c9a-b2c9-2b136319ca36" xml:space="preserve">
+          <source>MPEG DASH URL with filter</source>
+          <target state="new">MPEG DASH URL with filter</target>
+        </trans-unit>
+        <trans-unit id="da653054-4bea-4e26-baa9-f45555b68118" xml:space="preserve">
+          <source>Smooth Streaming URL with filter</source>
+          <target state="new">Smooth Streaming URL with filter</target>
+        </trans-unit>
+        <trans-unit id="5ea63a51-923f-4c29-bfaf-616267965bc5" xml:space="preserve">
+          <source>For more information about how to deliver your content and build streaming URLs, see <bpt id="4058808c-58f0-4538-a0f7-8408380920aa">&lt;linkText&gt;</bpt>Delivering content overview<ept id="4058808c-58f0-4538-a0f7-8408380920aa">&lt;/linkText&gt;</ept><bpt id="4058808c-58f0-4538-a0f7-8408380920aa">&lt;title&gt;</bpt><ept id="4058808c-58f0-4538-a0f7-8408380920aa">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to deliver your content and build streaming URLs, see <bpt id="4058808c-58f0-4538-a0f7-8408380920aa">&lt;linkText&gt;</bpt>Delivering content overview<ept id="4058808c-58f0-4538-a0f7-8408380920aa">&lt;/linkText&gt;</ept><bpt id="4058808c-58f0-4538-a0f7-8408380920aa">&lt;title&gt;</bpt><ept id="4058808c-58f0-4538-a0f7-8408380920aa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6bf1ffe0-298a-4dd6-8524-87bbcd1e3730" xml:space="preserve">
+          <source>Note that Dynamic Manifests do not change the asset and the default manifest for that asset.</source>
+          <target state="new">Note that Dynamic Manifests do not change the asset and the default manifest for that asset.</target>
+        </trans-unit>
+        <trans-unit id="5bcd612d-9912-4601-ac05-916da6865ce4" xml:space="preserve">
+          <source>Your client can choose to request a stream with or without filters.</source>
+          <target state="new">Your client can choose to request a stream with or without filters.</target>
+        </trans-unit>
+        <trans-unit id="9a077074-17de-411c-a141-391c2c96fdb8" xml:space="preserve">
+          <source>There are two types of asset filters: </source>
+          <target state="new">There are two types of asset filters: </target>
+        </trans-unit>
+        <trans-unit id="87399509-0f5a-40ca-9252-4bb2f57d70ef" xml:space="preserve">
+          <source>Global filters (can be applied to any asset in the Azure Media Services account, have a lifetime of the account) and </source>
+          <target state="new">Global filters (can be applied to any asset in the Azure Media Services account, have a lifetime of the account) and </target>
+        </trans-unit>
+        <trans-unit id="733d957d-b06b-419b-b465-1ecd4a49d050" xml:space="preserve">
+          <source>Local filters (can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset).</source>
+          <target state="new">Local filters (can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset).</target>
+        </trans-unit>
+        <trans-unit id="e632f06e-0826-4f12-a4ae-6f8646413faf" xml:space="preserve">
+          <source>Global and local filter types have exactly the same properties.</source>
+          <target state="new">Global and local filter types have exactly the same properties.</target>
+        </trans-unit>
+        <trans-unit id="e470ed32-529f-49e6-9f81-7360be5a285e" xml:space="preserve">
+          <source>The main difference between the two is for which scenarios what type of a filer is more suitable.</source>
+          <target state="new">The main difference between the two is for which scenarios what type of a filer is more suitable.</target>
+        </trans-unit>
+        <trans-unit id="1a685196-8c18-4689-abb8-490ad0422549" xml:space="preserve">
+          <source>Global filters are generally suitable for device profiles (rendition filtering) where local filters could be used to trim a specific asset.</source>
+          <target state="new">Global filters are generally suitable for device profiles (rendition filtering) where local filters could be used to trim a specific asset.</target>
+        </trans-unit>
+        <trans-unit id="59984efc-b5dc-4505-9bfe-d5b3e689e671" xml:space="preserve">
+          <source>As was mentioned before, when delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions.</source>
+          <target state="new">As was mentioned before, when delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions.</target>
+        </trans-unit>
+        <trans-unit id="75f19bab-da30-4e23-b584-875ee206b26d" xml:space="preserve">
+          <source>In addition, your might have other requirements that involve filtering your assets and using of <bpt id="50a8ea11-d3d3-496c-a0ba-a4da2340e636">&lt;strong&gt;</bpt>Dynamic Manifest<ept id="50a8ea11-d3d3-496c-a0ba-a4da2340e636">&lt;/strong&gt;</ept>s.</source>
+          <target state="new">In addition, your might have other requirements that involve filtering your assets and using of <bpt id="50a8ea11-d3d3-496c-a0ba-a4da2340e636">&lt;strong&gt;</bpt>Dynamic Manifest<ept id="50a8ea11-d3d3-496c-a0ba-a4da2340e636">&lt;/strong&gt;</ept>s.</target>
+        </trans-unit>
+        <trans-unit id="e58b5274-e24a-4423-abaa-ff184f4563cd" xml:space="preserve">
+          <source>The following sections give a short overview of different filtering scenarios.</source>
+          <target state="new">The following sections give a short overview of different filtering scenarios.</target>
+        </trans-unit>
+        <trans-unit id="f82bd3c0-6a6b-4691-967d-f67381d023cb" xml:space="preserve">
+          <source>Specify only a subset of audio and video renditions that certain devices can handle (instead of all the renditions that are associated with the asset).</source>
+          <target state="new">Specify only a subset of audio and video renditions that certain devices can handle (instead of all the renditions that are associated with the asset).</target>
+        </trans-unit>
+        <trans-unit id="3ecd81d8-8e32-4b18-b3f5-ad74f15c8bbf" xml:space="preserve">
+          <source>Playing back only a section of a video (instead of playing the whole video).</source>
+          <target state="new">Playing back only a section of a video (instead of playing the whole video).</target>
+        </trans-unit>
+        <trans-unit id="03cabdee-374a-4e67-b7dd-70339f5db112" xml:space="preserve">
+          <source>Adjust DVR presentation window.</source>
+          <target state="new">Adjust DVR presentation window.</target>
+        </trans-unit>
+        <trans-unit id="d70dd90f-4065-43e5-b603-18fe6bbce29a" xml:space="preserve">
+          <source>You may choose to encode your asset to multiple encoding profiles (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) and multiple quality bitrates.</source>
+          <target state="new">You may choose to encode your asset to multiple encoding profiles (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) and multiple quality bitrates.</target>
+        </trans-unit>
+        <trans-unit id="c85828ff-4968-412e-8033-e43644ea1ce4" xml:space="preserve">
+          <source>However, not all client devices will support all your asset's profiles and bitrates.</source>
+          <target state="new">However, not all client devices will support all your asset's profiles and bitrates.</target>
+        </trans-unit>
+        <trans-unit id="6fb4cdd0-9ead-402b-b2f8-4d5f62975733" xml:space="preserve">
+          <source>For example, older Android devices only supports H.264 Baseline+AACL.</source>
+          <target state="new">For example, older Android devices only supports H.264 Baseline+AACL.</target>
+        </trans-unit>
+        <trans-unit id="896498c2-7252-4fef-99d2-ed5fcb523c3d" xml:space="preserve">
+          <source>Sending higher bitrates to a device which cannot get the benefits, wastes bandwidth and device computation.</source>
+          <target state="new">Sending higher bitrates to a device which cannot get the benefits, wastes bandwidth and device computation.</target>
+        </trans-unit>
+        <trans-unit id="6b93ae4b-7486-447f-8ca4-063dbb78474c" xml:space="preserve">
+          <source>Such device must decode all the given information, only to scale it down for display.</source>
+          <target state="new">Such device must decode all the given information, only to scale it down for display.</target>
+        </trans-unit>
+        <trans-unit id="739478e0-8d4f-4a7f-b21c-20a04ce105df" xml:space="preserve">
+          <source>With Dynamic Manifest, you can create device profiles such as mobile, console, HD/SD, etc. and include the tracks and qualities which you want to be a part of each profile.</source>
+          <target state="new">With Dynamic Manifest, you can create device profiles such as mobile, console, HD/SD, etc. and include the tracks and qualities which you want to be a part of each profile.</target>
+        </trans-unit>
+        <trans-unit id="0b4d4b76-072c-4ea5-a3f5-3631727e728e" xml:space="preserve">
+          <source><bpt id="570ba50d-515f-46fb-ba99-26f911833361">&lt;linkText&gt;</bpt>Rendition filtering example<ept id="570ba50d-515f-46fb-ba99-26f911833361">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="570ba50d-515f-46fb-ba99-26f911833361">&lt;linkText&gt;</bpt>Rendition filtering example<ept id="570ba50d-515f-46fb-ba99-26f911833361">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e54eb196-ebce-48ce-8084-4b11e3e5f4e2" xml:space="preserve">
+          <source>In the following example, Azure Media Encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p).</source>
+          <target state="new">In the following example, Azure Media Encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p).</target>
+        </trans-unit>
+        <trans-unit id="83af8f22-7ee6-4f63-b1cf-d46b673b91b0" xml:space="preserve">
+          <source>The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, Smooth, MPEG DASH, and HDS.</source>
+          <target state="new">The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, Smooth, MPEG DASH, and HDS.</target>
+        </trans-unit>
+        <trans-unit id="c314762a-215b-4525-b359-976646d68c5b" xml:space="preserve">
+          <source>At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).</source>
+          <target state="new">At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).</target>
+        </trans-unit>
+        <trans-unit id="44380c82-85ef-4b3a-99f9-9d382380f5d5" xml:space="preserve">
+          <source>In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown.</source>
+          <target state="new">In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown.</target>
+        </trans-unit>
+        <trans-unit id="2f66f64e-6d35-4d6f-8011-fea29ae5fd78" xml:space="preserve">
+          <source>The "ott" filter specifies to remove all bitrates below 1Mbps, which resulted in the bottom two quality levels being stripped off in the response.</source>
+          <target state="new">The "ott" filter specifies to remove all bitrates below 1Mbps, which resulted in the bottom two quality levels being stripped off in the response.</target>
+        </trans-unit>
+        <trans-unit id="6094c7bd-202f-4f60-a9be-a5e07e20646c" xml:space="preserve">
+          <source>In the bottom right,   the HLS manifest to which a filter named "mobile" was applied is shown.</source>
+          <target state="new">In the bottom right,   the HLS manifest to which a filter named "mobile" was applied is shown.</target>
+        </trans-unit>
+        <trans-unit id="bc39f98e-094d-4fe6-a24e-561fa57291a9" xml:space="preserve">
+          <source>The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.</source>
+          <target state="new">The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.</target>
+        </trans-unit>
+        <trans-unit id="d40d4961-6113-47d9-b4a1-3d6f7e27cb54" xml:space="preserve">
+          <source><bpt id="9b6a59c9-2378-41c3-bbff-666fc2fe07b1">&lt;linkText&gt;</bpt>Rendition filtering<ept id="9b6a59c9-2378-41c3-bbff-666fc2fe07b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b6a59c9-2378-41c3-bbff-666fc2fe07b1">&lt;linkText&gt;</bpt>Rendition filtering<ept id="9b6a59c9-2378-41c3-bbff-666fc2fe07b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d474cea8-466c-4d9c-9df3-bce501e38550" xml:space="preserve">
+          <source>Your assets might include multiple audio languages such as English, Spanish, French, etc. Usually, the Player SDK managers default audio track selection and available audio tracks per user selection.</source>
+          <target state="new">Your assets might include multiple audio languages such as English, Spanish, French, etc. Usually, the Player SDK managers default audio track selection and available audio tracks per user selection.</target>
+        </trans-unit>
+        <trans-unit id="00ac5ce4-b5f0-4960-a2a5-a929d6e52a5d" xml:space="preserve">
+          <source>It is challenging to develop such Player SDKs, it requires different implementations across device-specific player-frameworks.</source>
+          <target state="new">It is challenging to develop such Player SDKs, it requires different implementations across device-specific player-frameworks.</target>
+        </trans-unit>
+        <trans-unit id="3dc1dc58-c49d-4242-8e5f-286725e85adc" xml:space="preserve">
+          <source>Also, on some platforms, Player APIs are limited and do not include audio selection feature where users cannot select or change the default audio track.</source>
+          <target state="new">Also, on some platforms, Player APIs are limited and do not include audio selection feature where users cannot select or change the default audio track.</target>
+        </trans-unit>
+        <trans-unit id="c1bb92c3-9223-497e-a9cd-3d1dbeac81ee" xml:space="preserve">
+          <source>With asset filters, you can control the behavior by creating filters that only include desired audio languages.</source>
+          <target state="new">With asset filters, you can control the behavior by creating filters that only include desired audio languages.</target>
+        </trans-unit>
+        <trans-unit id="edbbbb07-7360-4a41-8a5b-cdef9b2e22ae" xml:space="preserve">
+          <source><bpt id="c24b8e5a-1ead-4de4-9f03-828bbc101b95">&lt;linkText&gt;</bpt>Language tracks filtering<ept id="c24b8e5a-1ead-4de4-9f03-828bbc101b95">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c24b8e5a-1ead-4de4-9f03-828bbc101b95">&lt;linkText&gt;</bpt>Language tracks filtering<ept id="c24b8e5a-1ead-4de4-9f03-828bbc101b95">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d5e7128-037d-4f38-9f58-4a9435a3bbea" xml:space="preserve">
+          <source>In most live streaming events, operators run some tests before the actual event.</source>
+          <target state="new">In most live streaming events, operators run some tests before the actual event.</target>
+        </trans-unit>
+        <trans-unit id="378b84c4-f6d1-4aaa-a2dd-cc22402178d4" xml:space="preserve">
+          <source>For example, they might include a slate like this before the start of the event: "Program will begin momentarily".</source>
+          <target state="new">For example, they might include a slate like this before the start of the event: "Program will begin momentarily".</target>
+        </trans-unit>
+        <trans-unit id="dc6733aa-6b6f-40fc-bf6d-0996d2cbe610" xml:space="preserve">
+          <source>If the program is archiving, the test and slate data are also archived and will be included in the presentation.</source>
+          <target state="new">If the program is archiving, the test and slate data are also archived and will be included in the presentation.</target>
+        </trans-unit>
+        <trans-unit id="a4100f4e-cc15-473c-bf2e-250316f62362" xml:space="preserve">
+          <source>However, this information should not be shown to the clients.</source>
+          <target state="new">However, this information should not be shown to the clients.</target>
+        </trans-unit>
+        <trans-unit id="8e7b6958-596e-4b0a-8168-28e977f2a444" xml:space="preserve">
+          <source>With Dynamic Manifest, you can create a start time filter and remove the unwanted data from the manifest.</source>
+          <target state="new">With Dynamic Manifest, you can create a start time filter and remove the unwanted data from the manifest.</target>
+        </trans-unit>
+        <trans-unit id="327cf052-f239-477d-9ec7-4082a522366c" xml:space="preserve">
+          <source><bpt id="3cf0aa45-4230-4c1f-b7b8-1877070c0873">&lt;linkText&gt;</bpt>Trimming start<ept id="3cf0aa45-4230-4c1f-b7b8-1877070c0873">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3cf0aa45-4230-4c1f-b7b8-1877070c0873">&lt;linkText&gt;</bpt>Trimming start<ept id="3cf0aa45-4230-4c1f-b7b8-1877070c0873">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16e67630-7ba8-4144-b318-de83976aaacf" xml:space="preserve">
+          <source>Many live events are long running and live archive might include multiple events.</source>
+          <target state="new">Many live events are long running and live archive might include multiple events.</target>
+        </trans-unit>
+        <trans-unit id="e71f1acb-45d1-48ae-a56d-08c516011c48" xml:space="preserve">
+          <source>After the live event ends broadcasters may want to break up the live archive into logical program start and stop sequences.</source>
+          <target state="new">After the live event ends broadcasters may want to break up the live archive into logical program start and stop sequences.</target>
+        </trans-unit>
+        <trans-unit id="aa60abf4-1c93-4ccc-aee3-cc229b7aac9b" xml:space="preserve">
+          <source>Then, publish these virtual programs separately without post processing the live archive and not creating separate assets (which will not get benefit of the existing cached fragments in the CDNs).</source>
+          <target state="new">Then, publish these virtual programs separately without post processing the live archive and not creating separate assets (which will not get benefit of the existing cached fragments in the CDNs).</target>
+        </trans-unit>
+        <trans-unit id="51e05193-e8fc-4992-bc8e-865a0568983c" xml:space="preserve">
+          <source>Examples of such virtual programs (sub-clips) are the quarters of a football or basketball game, the innings in baseball, or individual events of an afternoon of Olympics program.</source>
+          <target state="new">Examples of such virtual programs (sub-clips) are the quarters of a football or basketball game, the innings in baseball, or individual events of an afternoon of Olympics program.</target>
+        </trans-unit>
+        <trans-unit id="b84de160-98d0-4747-8828-95ad372d8a3e" xml:space="preserve">
+          <source>With Dynamic Manifest, you can create filters using start/end times and create virtual views over the top of your live archive.</source>
+          <target state="new">With Dynamic Manifest, you can create filters using start/end times and create virtual views over the top of your live archive.</target>
+        </trans-unit>
+        <trans-unit id="b2ac88df-d8ec-4a8f-b38e-27908a2d35e4" xml:space="preserve">
+          <source><bpt id="3a98d20f-edc3-4608-b2ee-0687f530823e">&lt;linkText&gt;</bpt>Subclip filter<ept id="3a98d20f-edc3-4608-b2ee-0687f530823e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a98d20f-edc3-4608-b2ee-0687f530823e">&lt;linkText&gt;</bpt>Subclip filter<ept id="3a98d20f-edc3-4608-b2ee-0687f530823e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="befa74b0-9990-4b82-b8ab-2002d4a76f14" xml:space="preserve">
+          <source>Filtered Asset:</source>
+          <target state="new">Filtered Asset:</target>
+        </trans-unit>
+        <trans-unit id="ead12e3f-ba99-404d-98af-66a3fa056d06" xml:space="preserve">
+          <source><bpt id="8fcb3261-73c2-4b78-bbfe-a237e888bccc">&lt;linkText&gt;</bpt>Skiing<ept id="8fcb3261-73c2-4b78-bbfe-a237e888bccc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8fcb3261-73c2-4b78-bbfe-a237e888bccc">&lt;linkText&gt;</bpt>Skiing<ept id="8fcb3261-73c2-4b78-bbfe-a237e888bccc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37a04f8d-a51d-4928-9603-e85bbbcf0e00" xml:space="preserve">
+          <source>Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours.</source>
+          <target state="new">Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours.</target>
+        </trans-unit>
+        <trans-unit id="b76bbb32-370f-465c-8b6a-4174159c16db" xml:space="preserve">
+          <source>Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media.</source>
+          <target state="new">Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media.</target>
+        </trans-unit>
+        <trans-unit id="7991950b-8436-4bf4-a5af-4f0690487d52" xml:space="preserve">
+          <source>There are many scenarios where broadcasters want to provide a limited DVR window which moves with the live edge and at the same time keep a bigger archiving window.</source>
+          <target state="new">There are many scenarios where broadcasters want to provide a limited DVR window which moves with the live edge and at the same time keep a bigger archiving window.</target>
+        </trans-unit>
+        <trans-unit id="e08dbaed-6e1b-4bee-a234-345876789082" xml:space="preserve">
+          <source>A broadcaster may want to use the data that is out of the DVR window to highlight clips, or he\she may want to provide different DVR windows for different devices.</source>
+          <target state="new">A broadcaster may want to use the data that is out of the DVR window to highlight clips, or he\she may want to provide different DVR windows for different devices.</target>
+        </trans-unit>
+        <trans-unit id="ad8e69b8-cc8f-45f3-97fd-296d418b9c08" xml:space="preserve">
+          <source>For example, most of the mobile devices don’t handle big DVR windows (you can have a 2 minute DVR window for mobile devices and 1 hour for desktop clients).</source>
+          <target state="new">For example, most of the mobile devices don’t handle big DVR windows (you can have a 2 minute DVR window for mobile devices and 1 hour for desktop clients).</target>
+        </trans-unit>
+        <trans-unit id="b29ca471-9c3b-480c-b9b1-c228ab006085" xml:space="preserve">
+          <source><bpt id="be801991-da9a-4359-8a67-481c861b2772">&lt;linkText&gt;</bpt>DVR window<ept id="be801991-da9a-4359-8a67-481c861b2772">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be801991-da9a-4359-8a67-481c861b2772">&lt;linkText&gt;</bpt>DVR window<ept id="be801991-da9a-4359-8a67-481c861b2772">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5d27fdd-95ec-4e68-a958-6de64008f25e" xml:space="preserve">
+          <source>Manifest filtering can be used to remove several seconds from the live edge of a live program.</source>
+          <target state="new">Manifest filtering can be used to remove several seconds from the live edge of a live program.</target>
+        </trans-unit>
+        <trans-unit id="33ef7a83-a5f6-4bf0-ad10-a287345a5116" xml:space="preserve">
+          <source>This allows broadcasters to watch the presentation on the preview publication point and create advertisement insertion points before the viewers receive the stream (usually backed-off by 30 seconds).</source>
+          <target state="new">This allows broadcasters to watch the presentation on the preview publication point and create advertisement insertion points before the viewers receive the stream (usually backed-off by 30 seconds).</target>
+        </trans-unit>
+        <trans-unit id="a4716b1c-8921-4ca3-8db9-294faed2466d" xml:space="preserve">
+          <source>Broadcasters can then push these advertisements to their client frameworks in time for them to received and process the information before the advertisement opportunity.</source>
+          <target state="new">Broadcasters can then push these advertisements to their client frameworks in time for them to received and process the information before the advertisement opportunity.</target>
+        </trans-unit>
+        <trans-unit id="d8b92c6e-75f4-4ae8-9151-d72d782a2418" xml:space="preserve">
+          <source>In addition to the advertisement support, LiveBackoff can be used for adjusting client live download position so that when clients drift and hit the live edge they can still get fragments from server instead of getting 404 or 412 HTTP errors.</source>
+          <target state="new">In addition to the advertisement support, LiveBackoff can be used for adjusting client live download position so that when clients drift and hit the live edge they can still get fragments from server instead of getting 404 or 412 HTTP errors.</target>
+        </trans-unit>
+        <trans-unit id="f5fa2f55-e290-40cd-9ef2-461ec8164292" xml:space="preserve">
+          <source><bpt id="ea6f97e4-cc50-4d85-97fd-448a2894a477">&lt;linkText&gt;</bpt>livebackoff_filter<ept id="ea6f97e4-cc50-4d85-97fd-448a2894a477">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea6f97e4-cc50-4d85-97fd-448a2894a477">&lt;linkText&gt;</bpt>livebackoff_filter<ept id="ea6f97e4-cc50-4d85-97fd-448a2894a477">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7721ba9-f9ad-4943-8ee1-7fda74a8e0fd" xml:space="preserve">
+          <source>You can combine multiple filtering rules in a single filter.</source>
+          <target state="new">You can combine multiple filtering rules in a single filter.</target>
+        </trans-unit>
+        <trans-unit id="93d1921e-07e2-4eba-b801-b35bf210c17e" xml:space="preserve">
+          <source>As an example you can define a range rule to remove slate from a live archive and also filter available bitrates.</source>
+          <target state="new">As an example you can define a range rule to remove slate from a live archive and also filter available bitrates.</target>
+        </trans-unit>
+        <trans-unit id="d36d3816-ead8-48e1-8e56-a19e04044e43" xml:space="preserve">
+          <source>For multiple filtering rules the end result is the composition (intersection only) of these rules.</source>
+          <target state="new">For multiple filtering rules the end result is the composition (intersection only) of these rules.</target>
+        </trans-unit>
+        <trans-unit id="4403c7c8-62a4-44d3-869d-3c2cb0791bb3" xml:space="preserve">
+          <source><bpt id="ea15258a-cd63-445c-bdc8-473a4888a392">&lt;linkText&gt;</bpt>multiple-rules<ept id="ea15258a-cd63-445c-bdc8-473a4888a392">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea15258a-cd63-445c-bdc8-473a4888a392">&lt;linkText&gt;</bpt>multiple-rules<ept id="ea15258a-cd63-445c-bdc8-473a4888a392">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2d5f960-1233-41a2-a4db-311810db6050" xml:space="preserve">
+          <source>The following topic discusses Media Services entities that are related to filters.</source>
+          <target state="new">The following topic discusses Media Services entities that are related to filters.</target>
+        </trans-unit>
+        <trans-unit id="66faa796-dffe-4333-b4a1-52d8bdab7513" xml:space="preserve">
+          <source>The topic also shows how to programmatically create filters.</source>
+          <target state="new">The topic also shows how to programmatically create filters.</target>
+        </trans-unit>
+        <trans-unit id="5e6f85cf-3142-486f-9bc1-e142135a5b83" xml:space="preserve">
+          <source><bpt id="f9a4ab85-d754-460e-b439-c512466dfa3a">&lt;linkText&gt;</bpt>Create filters with REST APIs<ept id="f9a4ab85-d754-460e-b439-c512466dfa3a">&lt;/linkText&gt;</ept><bpt id="f9a4ab85-d754-460e-b439-c512466dfa3a">&lt;title&gt;</bpt><ept id="f9a4ab85-d754-460e-b439-c512466dfa3a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="f9a4ab85-d754-460e-b439-c512466dfa3a">&lt;linkText&gt;</bpt>Create filters with REST APIs<ept id="f9a4ab85-d754-460e-b439-c512466dfa3a">&lt;/linkText&gt;</ept><bpt id="f9a4ab85-d754-460e-b439-c512466dfa3a">&lt;title&gt;</bpt><ept id="f9a4ab85-d754-460e-b439-c512466dfa3a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b95e9213-ec83-4210-bb12-4f0de1a9a3c6" xml:space="preserve">
+          <source>Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy.</source>
+          <target state="new">Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy.</target>
+        </trans-unit>
+        <trans-unit id="d1c86ff6-9d97-4ced-9155-ec19bddc8819" xml:space="preserve">
+          <source>You can use same filter name for local and global filters.</source>
+          <target state="new">You can use same filter name for local and global filters.</target>
+        </trans-unit>
+        <trans-unit id="d1c9e03c-2459-4249-b6d2-ee2e4efa60a2" xml:space="preserve">
+          <source>Note that local filter have higher precedence and will override global filters.</source>
+          <target state="new">Note that local filter have higher precedence and will override global filters.</target>
+        </trans-unit>
+        <trans-unit id="523b6ee8-9c98-4665-a3d0-b368443fcf0a" xml:space="preserve">
+          <source>If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules.</source>
+          <target state="new">If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules.</target>
+        </trans-unit>
+        <trans-unit id="dcb39bd9-bb8c-49b4-b7e7-88ecec5f101f" xml:space="preserve">
+          <source>If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures.</source>
+          <target state="new">If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures.</target>
+        </trans-unit>
+        <trans-unit id="e1cbba3c-68fc-444b-8812-f395b325a9eb" xml:space="preserve">
+          <source>It is recommend to clear the cache after updating the filter.</source>
+          <target state="new">It is recommend to clear the cache after updating the filter.</target>
+        </trans-unit>
+        <trans-unit id="53f09787-31d2-43ca-9cde-655da3ad67b6" xml:space="preserve">
+          <source>If this option is not possible, consider using a different filter.</source>
+          <target state="new">If this option is not possible, consider using a different filter.</target>
+        </trans-unit>
+        <trans-unit id="09f8dc9a-2e1d-4530-b8a2-78558508ce5b" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png</source>
+          <target state="new">./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png</target>
+        </trans-unit>
+        <trans-unit id="38f3ac78-7b0e-4832-b9ef-6c7c105e5cba" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png</source>
+          <target state="new">./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png</target>
+        </trans-unit>
+        <trans-unit id="fd3ad0f1-d459-4364-80ac-f02662c68657" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifests/media-services-rendered-subclip.png</source>
+          <target state="new">./media/media-services-dynamic-manifests/media-services-rendered-subclip.png</target>
+        </trans-unit>
+        <trans-unit id="e0ba8757-e70c-48cb-83e4-089b44888c0a" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifests/media-services-timeline-trim-event.png</source>
+          <target state="new">./media/media-services-dynamic-manifests/media-services-timeline-trim-event.png</target>
+        </trans-unit>
+        <trans-unit id="d199392b-d9dd-4ed8-8f4c-2c291a3afcfd" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifests/media-services-timeline-trim-subclip.png</source>
+          <target state="new">./media/media-services-dynamic-manifests/media-services-timeline-trim-subclip.png</target>
+        </trans-unit>
+        <trans-unit id="f1e44146-31ba-4b98-80c5-74edf40fb100" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifest-overview/media-services-multiple-rules-filters.png</source>
+          <target state="new">./media/media-services-dynamic-manifest-overview/media-services-multiple-rules-filters.png</target>
+        </trans-unit>
+        <trans-unit id="58e75801-26f0-4430-9d30-6eb018ae6e52" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifest-overview/media-services-subclips-filter.png</source>
+          <target state="new">./media/media-services-dynamic-manifest-overview/media-services-subclips-filter.png</target>
+        </trans-unit>
+        <trans-unit id="d70002dd-7fe5-4761-89bb-718b95227efa" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifests/media-services-timeline-trim-event.png</source>
+          <target state="new">./media/media-services-dynamic-manifests/media-services-timeline-trim-event.png</target>
+        </trans-unit>
+        <trans-unit id="e24d7f0a-c85a-4e89-b4ce-cc18456305ff" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifests/media-services-timeline-trim-subclip.png</source>
+          <target state="new">./media/media-services-dynamic-manifests/media-services-timeline-trim-subclip.png</target>
+        </trans-unit>
+        <trans-unit id="6dfc0df6-a8ad-4286-982d-72cf33cbe836" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifest-overview/media-services-trim-filter.png</source>
+          <target state="new">./media/media-services-dynamic-manifest-overview/media-services-trim-filter.png</target>
+        </trans-unit>
+        <trans-unit id="2445103b-7537-4566-b889-66cba8f88d1a" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifests/media-services-rendered-subclip.png</source>
+          <target state="new">./media/media-services-dynamic-manifests/media-services-rendered-subclip.png</target>
+        </trans-unit>
+        <trans-unit id="33f0f391-b139-4ab7-8939-88a2bd6a7662" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifest-overview/media-services-livebackoff-filter.png</source>
+          <target state="new">./media/media-services-dynamic-manifest-overview/media-services-livebackoff-filter.png</target>
+        </trans-unit>
+        <trans-unit id="3ca9529c-15c4-41bd-af79-e4d2ccca05e9" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifest-overview/media-services-language-filter.png</source>
+          <target state="new">./media/media-services-dynamic-manifest-overview/media-services-language-filter.png</target>
+        </trans-unit>
+        <trans-unit id="a5146849-51ed-40e9-a706-cc5bd56b4790" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png</source>
+          <target state="new">./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png</target>
+        </trans-unit>
+        <trans-unit id="068fbeb0-14de-4d4c-ac06-dacd4ee61f6a" xml:space="preserve">
+          <source>./media/media-services-dynamic-manifest-overview/media-services-skiing.png</source>
+          <target state="new">./media/media-services-dynamic-manifest-overview/media-services-skiing.png</target>
+        </trans-unit>
+      </group>
+      <group id="01186eff-7d68-441e-a407-3ef0770e7277" />
+    </body>
+  </file>
+</xliff>

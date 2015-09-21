@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="de1d4150-4f09-4304-bfdf-8e1708731450" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="de1d4150-4f09-4304-bfdf-8e1708731450" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="10db93e3-49a5-493e-b449-a89a470f146e">
+        <trans-unit id="c6e4c50f-9e10-4b14-b212-227815a13f48" xml:space="preserve">
+          <source>Introduction to ExpressRoute | Microsoft Azure</source>
+          <target state="new">Introduction to ExpressRoute | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="44764ce8-cfd5-400e-8315-905b9925ca7a" xml:space="preserve">
+          <source>This page provides an overview of the ExpressRoute service, including how an ExpressRoute connection works, working with exchange providers and network service providers, and ExpressRoute public, private, and Microsoft peering.</source>
+          <target state="new">This page provides an overview of the ExpressRoute service, including how an ExpressRoute connection works, working with exchange providers and network service providers, and ExpressRoute public, private, and Microsoft peering.</target>
+        </trans-unit>
+        <trans-unit id="dcaa2e50-8479-4471-8720-5ee190dbe678" xml:space="preserve">
+          <source>Microsoft Azure ExpressRoute lets you create private connections between Microsoft datacenters and the infrastructure that’s on your premises or in a co-location environment.</source>
+          <target state="new">Microsoft Azure ExpressRoute lets you create private connections between Microsoft datacenters and the infrastructure that’s on your premises or in a co-location environment.</target>
+        </trans-unit>
+        <trans-unit id="d4eec94a-0498-49dc-917b-beb0c6025f56" xml:space="preserve">
+          <source>With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365, at an ExpressRoute partner co-location facility.</source>
+          <target state="new">With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365, at an ExpressRoute partner co-location facility.</target>
+        </trans-unit>
+        <trans-unit id="bd2ee3d6-2941-48a7-bdd8-0271d878569f" xml:space="preserve">
+          <source>Or, you can directly connect from your existing WAN network by using, for example, an MPLS VPN provided by a network service provider.</source>
+          <target state="new">Or, you can directly connect from your existing WAN network by using, for example, an MPLS VPN provided by a network service provider.</target>
+        </trans-unit>
+        <trans-unit id="f998e26e-ee22-46e0-8f54-28e8e1dbf475" xml:space="preserve">
+          <source>ExpressRoute connections offer higher security, more reliability, faster speeds and lower latencies than typical connections over the Internet.</source>
+          <target state="new">ExpressRoute connections offer higher security, more reliability, faster speeds and lower latencies than typical connections over the Internet.</target>
+        </trans-unit>
+        <trans-unit id="f4c2dac3-9ff7-4058-a8ec-d5524ef78b0b" xml:space="preserve">
+          <source>In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits.</source>
+          <target state="new">In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits.</target>
+        </trans-unit>
+        <trans-unit id="a6e4521b-8c7d-43c4-8885-af684fdedb79" xml:space="preserve">
+          <source>If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.</source>
+          <target state="new">If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.</target>
+        </trans-unit>
+        <trans-unit id="8900bdf8-aeb7-4c6d-a764-98fe62b2ced2" xml:space="preserve">
+          <source>See the <bpt id="9cc625e0-fe75-4528-81d6-ce3848c2bc8e">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="9cc625e0-fe75-4528-81d6-ce3848c2bc8e">&lt;/linkText&gt;</ept><bpt id="9cc625e0-fe75-4528-81d6-ce3848c2bc8e">&lt;title&gt;</bpt><ept id="9cc625e0-fe75-4528-81d6-ce3848c2bc8e">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See the <bpt id="9cc625e0-fe75-4528-81d6-ce3848c2bc8e">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="9cc625e0-fe75-4528-81d6-ce3848c2bc8e">&lt;/linkText&gt;</ept><bpt id="9cc625e0-fe75-4528-81d6-ce3848c2bc8e">&lt;title&gt;</bpt><ept id="9cc625e0-fe75-4528-81d6-ce3848c2bc8e">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="1c249b2b-7634-411a-92fb-b3ae3118f453" xml:space="preserve">
+          <source>In order to connect your WAN to Microsoft cloud services, you must order a dedicated circuit and have it enabled through a connectivity provider.</source>
+          <target state="new">In order to connect your WAN to Microsoft cloud services, you must order a dedicated circuit and have it enabled through a connectivity provider.</target>
+        </trans-unit>
+        <trans-unit id="948f30aa-ffb6-470f-b83c-3a9101b772d2" xml:space="preserve">
+          <source>There are two connectivity provider types to choose from: direct layer 3 through an exchange provider (EXP), or layer 3 through a network service provider (NSP).</source>
+          <target state="new">There are two connectivity provider types to choose from: direct layer 3 through an exchange provider (EXP), or layer 3 through a network service provider (NSP).</target>
+        </trans-unit>
+        <trans-unit id="e03045ea-95e8-442e-8a1e-e87d91c18565" xml:space="preserve">
+          <source>You can choose to enable one, or both types of connectivity between your WAN and the Microsoft cloud.</source>
+          <target state="new">You can choose to enable one, or both types of connectivity between your WAN and the Microsoft cloud.</target>
+        </trans-unit>
+        <trans-unit id="5380b8a6-e9ce-4a34-a3fd-8517aae336df" xml:space="preserve">
+          <source>ExpressRoute providers are classified as Network Service Providers (NSPs) and Exchange providers (EXPs).</source>
+          <target state="new">ExpressRoute providers are classified as Network Service Providers (NSPs) and Exchange providers (EXPs).</target>
+        </trans-unit>
+        <trans-unit id="6d3edc80-d86b-4f2d-97d4-1fddf7c95e52" xml:space="preserve">
+          <source><bpt id="e5f162d9-3108-4c08-b536-1d16c9e48fd9">&lt;linkText&gt;</bpt><ept id="e5f162d9-3108-4c08-b536-1d16c9e48fd9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e5f162d9-3108-4c08-b536-1d16c9e48fd9">&lt;linkText&gt;</bpt><ept id="e5f162d9-3108-4c08-b536-1d16c9e48fd9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f1d2431-4124-4263-b4f2-1c9595f4824f" xml:space="preserve">
+          <source><bpt id="96e1784a-2665-4eac-8e6f-79310d1cb418">&lt;strong&gt;</bpt>Exchange Provider<ept id="96e1784a-2665-4eac-8e6f-79310d1cb418">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="96e1784a-2665-4eac-8e6f-79310d1cb418">&lt;strong&gt;</bpt>Exchange Provider<ept id="96e1784a-2665-4eac-8e6f-79310d1cb418">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d469dd0-9483-4865-a962-87d8ff06f683" xml:space="preserve">
+          <source><bpt id="9ab8ec48-d232-4dec-938d-f750f0768f0a">&lt;strong&gt;</bpt>Network Service Provider<ept id="9ab8ec48-d232-4dec-938d-f750f0768f0a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9ab8ec48-d232-4dec-938d-f750f0768f0a">&lt;strong&gt;</bpt>Network Service Provider<ept id="9ab8ec48-d232-4dec-938d-f750f0768f0a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c91186bf-f62d-49c0-bce0-17228b57cf89" xml:space="preserve">
+          <source><bpt id="3c43f87e-5686-424a-95ba-b2f68862acc3">&lt;strong&gt;</bpt>Typical Connectivity model<ept id="3c43f87e-5686-424a-95ba-b2f68862acc3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3c43f87e-5686-424a-95ba-b2f68862acc3">&lt;strong&gt;</bpt>Typical Connectivity model<ept id="3c43f87e-5686-424a-95ba-b2f68862acc3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f33990c-19a0-4453-993a-9337a07d90ee" xml:space="preserve">
+          <source>Point-to-point Ethernet links or Connectivity at a cloud exchange</source>
+          <target state="new">Point-to-point Ethernet links or Connectivity at a cloud exchange</target>
+        </trans-unit>
+        <trans-unit id="40fdfdc2-f4ca-41c4-b53a-d80fa2e3864a" xml:space="preserve">
+          <source>Any-to-any connectivity through a telco VPN</source>
+          <target state="new">Any-to-any connectivity through a telco VPN</target>
+        </trans-unit>
+        <trans-unit id="dd730269-1024-48ec-a39b-9d65bf71c182" xml:space="preserve">
+          <source><bpt id="4f5f3711-131a-4858-9302-14c41057bfe9">&lt;strong&gt;</bpt>Supported Bandwidths<ept id="4f5f3711-131a-4858-9302-14c41057bfe9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4f5f3711-131a-4858-9302-14c41057bfe9">&lt;strong&gt;</bpt>Supported Bandwidths<ept id="4f5f3711-131a-4858-9302-14c41057bfe9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="368b6a77-fa2d-4088-bfd9-af2a63c744fc" xml:space="preserve">
+          <source>200 Mbps, 500 Mbps, 1 Gbps and 10 Gbps</source>
+          <target state="new">200 Mbps, 500 Mbps, 1 Gbps and 10 Gbps</target>
+        </trans-unit>
+        <trans-unit id="1690d23f-978a-4077-b105-d259390b5c7e" xml:space="preserve">
+          <source>10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps</source>
+          <target state="new">10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps</target>
+        </trans-unit>
+        <trans-unit id="7c46ce8b-2bba-4107-9b19-f2df5b41f388" xml:space="preserve">
+          <source><bpt id="67aa3c7f-a698-4896-b613-8b616dc9fb56">&lt;strong&gt;</bpt>Connectivity Providers<ept id="67aa3c7f-a698-4896-b613-8b616dc9fb56">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="67aa3c7f-a698-4896-b613-8b616dc9fb56">&lt;strong&gt;</bpt>Connectivity Providers<ept id="67aa3c7f-a698-4896-b613-8b616dc9fb56">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e8e1c8a-1a66-44ad-8fe6-a77afc0b7da8" xml:space="preserve">
+          <source><bpt id="8f28bd8f-f11b-4699-bada-bd79b40e1992">&lt;linkText&gt;</bpt>Exchange Providers<ept id="8f28bd8f-f11b-4699-bada-bd79b40e1992">&lt;/linkText&gt;</ept><bpt id="8f28bd8f-f11b-4699-bada-bd79b40e1992">&lt;title&gt;</bpt><ept id="8f28bd8f-f11b-4699-bada-bd79b40e1992">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8f28bd8f-f11b-4699-bada-bd79b40e1992">&lt;linkText&gt;</bpt>Exchange Providers<ept id="8f28bd8f-f11b-4699-bada-bd79b40e1992">&lt;/linkText&gt;</ept><bpt id="8f28bd8f-f11b-4699-bada-bd79b40e1992">&lt;title&gt;</bpt><ept id="8f28bd8f-f11b-4699-bada-bd79b40e1992">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="357d68cf-53de-4c9c-9965-d7bd2047ecf0" xml:space="preserve">
+          <source><bpt id="5084e9eb-cd1b-4ee1-bf27-243811d43da8">&lt;linkText&gt;</bpt>Network Service Providers<ept id="5084e9eb-cd1b-4ee1-bf27-243811d43da8">&lt;/linkText&gt;</ept><bpt id="5084e9eb-cd1b-4ee1-bf27-243811d43da8">&lt;title&gt;</bpt><ept id="5084e9eb-cd1b-4ee1-bf27-243811d43da8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5084e9eb-cd1b-4ee1-bf27-243811d43da8">&lt;linkText&gt;</bpt>Network Service Providers<ept id="5084e9eb-cd1b-4ee1-bf27-243811d43da8">&lt;/linkText&gt;</ept><bpt id="5084e9eb-cd1b-4ee1-bf27-243811d43da8">&lt;title&gt;</bpt><ept id="5084e9eb-cd1b-4ee1-bf27-243811d43da8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1e9ce77-e744-4084-b961-aa51658fe9e0" xml:space="preserve">
+          <source><bpt id="2641e37b-a55f-45c5-ae31-24790b84cea4">&lt;strong&gt;</bpt>Routing<ept id="2641e37b-a55f-45c5-ae31-24790b84cea4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2641e37b-a55f-45c5-ae31-24790b84cea4">&lt;strong&gt;</bpt>Routing<ept id="2641e37b-a55f-45c5-ae31-24790b84cea4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a248f7e2-d298-4183-8934-08660c32c877" xml:space="preserve">
+          <source>BGP sessions directly with customer edge routers</source>
+          <target state="new">BGP sessions directly with customer edge routers</target>
+        </trans-unit>
+        <trans-unit id="2be3055b-91de-496f-9bc7-64e401c8c9c0" xml:space="preserve">
+          <source>BGP sessions with telco</source>
+          <target state="new">BGP sessions with telco</target>
+        </trans-unit>
+        <trans-unit id="c41220d0-740a-4bce-89b8-4691e04508b6" xml:space="preserve">
+          <source><bpt id="b4e171de-ed03-4c68-92d0-e2ca226a3d76">&lt;strong&gt;</bpt>Pricing<ept id="b4e171de-ed03-4c68-92d0-e2ca226a3d76">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b4e171de-ed03-4c68-92d0-e2ca226a3d76">&lt;strong&gt;</bpt>Pricing<ept id="b4e171de-ed03-4c68-92d0-e2ca226a3d76">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="890e9bd9-0550-4096-b316-fff35d40a62b" xml:space="preserve">
+          <source><bpt id="dfce3441-52b1-459a-82a2-f1cb27a83585">&lt;linkText&gt;</bpt>EXP pricing<ept id="dfce3441-52b1-459a-82a2-f1cb27a83585">&lt;/linkText&gt;</ept><bpt id="dfce3441-52b1-459a-82a2-f1cb27a83585">&lt;title&gt;</bpt><ept id="dfce3441-52b1-459a-82a2-f1cb27a83585">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dfce3441-52b1-459a-82a2-f1cb27a83585">&lt;linkText&gt;</bpt>EXP pricing<ept id="dfce3441-52b1-459a-82a2-f1cb27a83585">&lt;/linkText&gt;</ept><bpt id="dfce3441-52b1-459a-82a2-f1cb27a83585">&lt;title&gt;</bpt><ept id="dfce3441-52b1-459a-82a2-f1cb27a83585">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b42c412-9b8d-48f6-88c3-1e2145a251bc" xml:space="preserve">
+          <source><bpt id="3d26f426-3194-4c9e-84c7-cdf4cc9a3246">&lt;linkText&gt;</bpt>NSP pricing<ept id="3d26f426-3194-4c9e-84c7-cdf4cc9a3246">&lt;/linkText&gt;</ept><bpt id="3d26f426-3194-4c9e-84c7-cdf4cc9a3246">&lt;title&gt;</bpt><ept id="3d26f426-3194-4c9e-84c7-cdf4cc9a3246">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d26f426-3194-4c9e-84c7-cdf4cc9a3246">&lt;linkText&gt;</bpt>NSP pricing<ept id="3d26f426-3194-4c9e-84c7-cdf4cc9a3246">&lt;/linkText&gt;</ept><bpt id="3d26f426-3194-4c9e-84c7-cdf4cc9a3246">&lt;title&gt;</bpt><ept id="3d26f426-3194-4c9e-84c7-cdf4cc9a3246">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ea8f2b5-4da4-48aa-a9ee-6ba32dcdff0a" xml:space="preserve">
+          <source>We partner with cloud exchange service providers such as Equinix and TeleCity group, and also with point-to-point connectivity service providers such as Cole and Level 3, to offer connectivity between Azure and the customer’s premises.</source>
+          <target state="new">We partner with cloud exchange service providers such as Equinix and TeleCity group, and also with point-to-point connectivity service providers such as Cole and Level 3, to offer connectivity between Azure and the customer’s premises.</target>
+        </trans-unit>
+        <trans-unit id="1cd603bd-2237-4f4d-a6b1-96acd8147365" xml:space="preserve">
+          <source>We offer circuit bandwidths from 200 Mbps to 10 Gbps (200 Mbps, 500 Mbps, 1 Gbps and 10 Gbps).</source>
+          <target state="new">We offer circuit bandwidths from 200 Mbps to 10 Gbps (200 Mbps, 500 Mbps, 1 Gbps and 10 Gbps).</target>
+        </trans-unit>
+        <trans-unit id="078b047f-e6ec-4474-9d64-fe94a9da8632" xml:space="preserve">
+          <source>If you want a direct layer 3 connection through an exchange provider, you can do this one of 3 ways:</source>
+          <target state="new">If you want a direct layer 3 connection through an exchange provider, you can do this one of 3 ways:</target>
+        </trans-unit>
+        <trans-unit id="0d15153a-f4af-46b0-8a12-5a3a6f74a525" xml:space="preserve">
+          <source>You can be co-located with the cloud exchanges such as Equinix's Cloud Exchange or TeleCity's Cloud IX in the locations we offer services in.</source>
+          <target state="new">You can be co-located with the cloud exchanges such as Equinix's Cloud Exchange or TeleCity's Cloud IX in the locations we offer services in.</target>
+        </trans-unit>
+        <trans-unit id="dc3a4672-8ad8-41ab-9526-56edd63ace9f" xml:space="preserve">
+          <source>In such cases you will order redundant connectivity to the cloud exchange.</source>
+          <target state="new">In such cases you will order redundant connectivity to the cloud exchange.</target>
+        </trans-unit>
+        <trans-unit id="9a0b844a-78f0-4c4a-8809-84abfa65f5bc" xml:space="preserve">
+          <source>You can work with providers such as Level 3 to have Ethernet circuits setup between your data centers and Microsoft.</source>
+          <target state="new">You can work with providers such as Level 3 to have Ethernet circuits setup between your data centers and Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="b6a875ba-94bd-4bbf-87b1-26d2755717f7" xml:space="preserve">
+          <source>You can work with your local connectivity provider to acquire redundant connectivity to the closest exchange provider facility and connect to the cloud exchange.</source>
+          <target state="new">You can work with your local connectivity provider to acquire redundant connectivity to the closest exchange provider facility and connect to the cloud exchange.</target>
+        </trans-unit>
+        <trans-unit id="19db7764-397c-4bae-b056-8888dbc08c93" xml:space="preserve">
+          <source>We do require you to have redundant connectivity me meet the requirements for our SLA.</source>
+          <target state="new">We do require you to have redundant connectivity me meet the requirements for our SLA.</target>
+        </trans-unit>
+        <trans-unit id="f0341a5d-82d8-4c79-ae7d-f442a8a2f925" xml:space="preserve">
+          <source>We do not support direct connectivity to the Microsoft edge.</source>
+          <target state="new">We do not support direct connectivity to the Microsoft edge.</target>
+        </trans-unit>
+        <trans-unit id="e865658a-4b0b-4b77-8001-4dd96a2f4ff2" xml:space="preserve">
+          <source>Dedicated circuits will always be enabled through an Ethernet provider or the local cloud exchange.</source>
+          <target state="new">Dedicated circuits will always be enabled through an Ethernet provider or the local cloud exchange.</target>
+        </trans-unit>
+        <trans-unit id="a34cde34-eeb9-4893-8a26-95849ea1fe13" xml:space="preserve">
+          <source>While this sets up layer 2 connectivity between Microsoft and your network, we will not support extending the layer 2 domain.</source>
+          <target state="new">While this sets up layer 2 connectivity between Microsoft and your network, we will not support extending the layer 2 domain.</target>
+        </trans-unit>
+        <trans-unit id="03709cea-b6d7-4f55-b6e3-0ae88bae937e" xml:space="preserve">
+          <source>You must setup redundant routing sessions between your edge routers and the Microsoft edge routers to have layer 3 connectivity.</source>
+          <target state="new">You must setup redundant routing sessions between your edge routers and the Microsoft edge routers to have layer 3 connectivity.</target>
+        </trans-unit>
+        <trans-unit id="09753232-91c1-4a6f-a05c-71f08ff8c90a" xml:space="preserve">
+          <source>For more information about configuration and to see real-world examples, you can follow this step by step guidance: <bpt id="45b6dfa8-8df0-4f55-a348-bb5ec7063a72">&lt;linkText&gt;</bpt>Configure an ExpressRoute connection through an exchange provider<ept id="45b6dfa8-8df0-4f55-a348-bb5ec7063a72">&lt;/linkText&gt;</ept><bpt id="45b6dfa8-8df0-4f55-a348-bb5ec7063a72">&lt;title&gt;</bpt><ept id="45b6dfa8-8df0-4f55-a348-bb5ec7063a72">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about configuration and to see real-world examples, you can follow this step by step guidance: <bpt id="45b6dfa8-8df0-4f55-a348-bb5ec7063a72">&lt;linkText&gt;</bpt>Configure an ExpressRoute connection through an exchange provider<ept id="45b6dfa8-8df0-4f55-a348-bb5ec7063a72">&lt;/linkText&gt;</ept><bpt id="45b6dfa8-8df0-4f55-a348-bb5ec7063a72">&lt;title&gt;</bpt><ept id="45b6dfa8-8df0-4f55-a348-bb5ec7063a72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="637f306f-f940-4019-b33a-17c3e9eaaeee" xml:space="preserve">
+          <source>We partner with Telcos such as AT&amp;T, and British Telecom to offer connectivity between Azure and your WAN. We offer circuit bandwidths from 10 Mbps to 1 Gbps (10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps). </source>
+          <target state="new">We partner with Telcos such as AT&amp;T, and British Telecom to offer connectivity between Azure and your WAN. We offer circuit bandwidths from 10 Mbps to 1 Gbps (10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps). </target>
+        </trans-unit>
+        <trans-unit id="e263dc04-ac49-4bf8-a3db-f20fd9ae700d" xml:space="preserve">
+          <source>If you use VPN services from any of the network service providers we partner with, they can extend the networks into Azure without having to deploy any new hardware or making major configuration changes to your existing networks.</source>
+          <target state="new">If you use VPN services from any of the network service providers we partner with, they can extend the networks into Azure without having to deploy any new hardware or making major configuration changes to your existing networks.</target>
+        </trans-unit>
+        <trans-unit id="dd2cc961-3085-4fd7-8576-7d2ad0580070" xml:space="preserve">
+          <source>For more information about configuration and to see real-world examples, you can follow this step by step guidance: <bpt id="78c0ef45-773f-41f4-9bed-237dff754d4a">&lt;linkText&gt;</bpt>Configure an ExpressRoute connection through a network service provider<ept id="78c0ef45-773f-41f4-9bed-237dff754d4a">&lt;/linkText&gt;</ept><bpt id="78c0ef45-773f-41f4-9bed-237dff754d4a">&lt;title&gt;</bpt><ept id="78c0ef45-773f-41f4-9bed-237dff754d4a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about configuration and to see real-world examples, you can follow this step by step guidance: <bpt id="78c0ef45-773f-41f4-9bed-237dff754d4a">&lt;linkText&gt;</bpt>Configure an ExpressRoute connection through a network service provider<ept id="78c0ef45-773f-41f4-9bed-237dff754d4a">&lt;/linkText&gt;</ept><bpt id="78c0ef45-773f-41f4-9bed-237dff754d4a">&lt;title&gt;</bpt><ept id="78c0ef45-773f-41f4-9bed-237dff754d4a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="083975a8-5224-4daf-bd81-55b27f015e51" xml:space="preserve">
+          <source>The figure below provides a logical representation of connectivity between your WAN and Microsoft.</source>
+          <target state="new">The figure below provides a logical representation of connectivity between your WAN and Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="6c7bead2-e9c3-44f3-9d18-6f1838d8d32a" xml:space="preserve">
+          <source>You must order a <bpt id="405e18d1-691b-4648-9e48-a43f7f8caa2e">&lt;em&gt;</bpt>dedicated circuit<ept id="405e18d1-691b-4648-9e48-a43f7f8caa2e">&lt;/em&gt;</ept> to connect your WAN to Microsoft through a connectivity provider (NSP / EXP).</source>
+          <target state="new">You must order a <bpt id="405e18d1-691b-4648-9e48-a43f7f8caa2e">&lt;em&gt;</bpt>dedicated circuit<ept id="405e18d1-691b-4648-9e48-a43f7f8caa2e">&lt;/em&gt;</ept> to connect your WAN to Microsoft through a connectivity provider (NSP / EXP).</target>
+        </trans-unit>
+        <trans-unit id="fa010321-dc99-43d2-9ea0-22698735d0bc" xml:space="preserve">
+          <source>A dedicated circuit represents a logical connection between your WAN and Microsoft through the connectivity provider.</source>
+          <target state="new">A dedicated circuit represents a logical connection between your WAN and Microsoft through the connectivity provider.</target>
+        </trans-unit>
+        <trans-unit id="31ed7430-e77e-4048-9038-4e74fc3b23f9" xml:space="preserve">
+          <source>You may order many dedicated circuits, each of them can be in the same or different regions and can be connected to your WAN through different service providers.</source>
+          <target state="new">You may order many dedicated circuits, each of them can be in the same or different regions and can be connected to your WAN through different service providers.</target>
+        </trans-unit>
+        <trans-unit id="a6e66e2b-cc90-49c2-ba02-9120dad4010c" xml:space="preserve">
+          <source><bpt id="18e83ebd-9541-48d5-ba47-9aefdd820e19">&lt;linkText&gt;</bpt><ept id="18e83ebd-9541-48d5-ba47-9aefdd820e19">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="18e83ebd-9541-48d5-ba47-9aefdd820e19">&lt;linkText&gt;</bpt><ept id="18e83ebd-9541-48d5-ba47-9aefdd820e19">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea2954bc-b03a-4d71-a69e-ead96760b393" xml:space="preserve">
+          <source>A dedicated circuit will have multiple routing domains associated with it – public, private, and Microsoft.</source>
+          <target state="new">A dedicated circuit will have multiple routing domains associated with it – public, private, and Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="4dd3329b-3bdd-4c59-8bd8-bc819dc43b9d" xml:space="preserve">
+          <source>Each of the routing domains are configured identically on a pair of routers (in active-active or loadsharing configuration) for high availability.</source>
+          <target state="new">Each of the routing domains are configured identically on a pair of routers (in active-active or loadsharing configuration) for high availability.</target>
+        </trans-unit>
+        <trans-unit id="6c3eea80-a00b-417f-8f62-5975a7e5854c" xml:space="preserve">
+          <source><bpt id="7217e331-a31f-44c0-a957-7c807fd6f58b">&lt;linkText&gt;</bpt><ept id="7217e331-a31f-44c0-a957-7c807fd6f58b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7217e331-a31f-44c0-a957-7c807fd6f58b">&lt;linkText&gt;</bpt><ept id="7217e331-a31f-44c0-a957-7c807fd6f58b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2afb78a-1953-48ba-b68b-29bd2ae9573b" xml:space="preserve">
+          <source>Azure compute services, namely virtual machines (IaaS) and cloud services (PaaS) deployed within a virtual network can be connected through the private peering domain.</source>
+          <target state="new">Azure compute services, namely virtual machines (IaaS) and cloud services (PaaS) deployed within a virtual network can be connected through the private peering domain.</target>
+        </trans-unit>
+        <trans-unit id="05c4ef03-5d5d-41a7-8f6c-781d2ddd1e6f" xml:space="preserve">
+          <source>The private peering domain is considered to be a trusted extension of your core network into Microsoft Azure.</source>
+          <target state="new">The private peering domain is considered to be a trusted extension of your core network into Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="353200f9-95a0-4a6b-a5fc-f5d2335937d9" xml:space="preserve">
+          <source>You can setup bidirectional connectivity between your core network and Azure virtual networks (VNets).</source>
+          <target state="new">You can setup bidirectional connectivity between your core network and Azure virtual networks (VNets).</target>
+        </trans-unit>
+        <trans-unit id="094929f9-250d-427b-81db-9f0bd8cda179" xml:space="preserve">
+          <source>This will enable you to connect to virtual machines and cloud services directly on their private IP addresses.</source>
+          <target state="new">This will enable you to connect to virtual machines and cloud services directly on their private IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="fb873443-b4a7-4822-9bc1-5c1e43a269fb" xml:space="preserve">
+          <source>You can connect more than one virtual network to the private peering domain.</source>
+          <target state="new">You can connect more than one virtual network to the private peering domain.</target>
+        </trans-unit>
+        <trans-unit id="69b9ffc1-25cb-49d4-9c0d-7bde819effa2" xml:space="preserve">
+          <source>Review the <bpt id="2a156e47-5fdd-4ee2-a91c-0b07394d81cd">&lt;linkText&gt;</bpt>FAQ page<ept id="2a156e47-5fdd-4ee2-a91c-0b07394d81cd">&lt;/linkText&gt;</ept><bpt id="2a156e47-5fdd-4ee2-a91c-0b07394d81cd">&lt;title&gt;</bpt><ept id="2a156e47-5fdd-4ee2-a91c-0b07394d81cd">&lt;/title&gt;</ept> for information on limits and limitations.</source>
+          <target state="new">Review the <bpt id="2a156e47-5fdd-4ee2-a91c-0b07394d81cd">&lt;linkText&gt;</bpt>FAQ page<ept id="2a156e47-5fdd-4ee2-a91c-0b07394d81cd">&lt;/linkText&gt;</ept><bpt id="2a156e47-5fdd-4ee2-a91c-0b07394d81cd">&lt;title&gt;</bpt><ept id="2a156e47-5fdd-4ee2-a91c-0b07394d81cd">&lt;/title&gt;</ept> for information on limits and limitations.</target>
+        </trans-unit>
+        <trans-unit id="3bd698e7-2263-4aae-9376-47330646604a" xml:space="preserve">
+          <source>Services such as Azure Storage, SQL databases and Websites are offered on public IP addresses.</source>
+          <target state="new">Services such as Azure Storage, SQL databases and Websites are offered on public IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="d3fa4f0a-d27b-4494-86da-9ac9735afce6" xml:space="preserve">
+          <source>You can privately connect to services hosted on public IP addresses, including VIPs of your cloud services, through the public peering routing domain.</source>
+          <target state="new">You can privately connect to services hosted on public IP addresses, including VIPs of your cloud services, through the public peering routing domain.</target>
+        </trans-unit>
+        <trans-unit id="2c436571-86b2-4bb4-880e-2698df875aa6" xml:space="preserve">
+          <source>You can connect the public peering domain to your extranet and connect to all Azure services on their public IP addresses from your WAN without having to connect through the internet.</source>
+          <target state="new">You can connect the public peering domain to your extranet and connect to all Azure services on their public IP addresses from your WAN without having to connect through the internet.</target>
+        </trans-unit>
+        <trans-unit id="6359ba42-5cb6-43da-ae46-79a932739316" xml:space="preserve">
+          <source>Connectivity is always initiated from your WAN to Microsoft Azure services.</source>
+          <target state="new">Connectivity is always initiated from your WAN to Microsoft Azure services.</target>
+        </trans-unit>
+        <trans-unit id="e2c93e32-7823-47b4-bce3-13c1bb2231a4" xml:space="preserve">
+          <source>Microsoft Azure services will not be able to initiate connections into your network through this routing domain.</source>
+          <target state="new">Microsoft Azure services will not be able to initiate connections into your network through this routing domain.</target>
+        </trans-unit>
+        <trans-unit id="5c8c4bf2-06c9-4c3f-8f11-7cb95fccdcfe" xml:space="preserve">
+          <source>Once public peering is enabled, you will be able to connect to all Azure services.</source>
+          <target state="new">Once public peering is enabled, you will be able to connect to all Azure services.</target>
+        </trans-unit>
+        <trans-unit id="1171e881-3649-42c5-97e5-31acafbaf8ef" xml:space="preserve">
+          <source>We do not allow you to selectively pick services for which we advertise routes to.</source>
+          <target state="new">We do not allow you to selectively pick services for which we advertise routes to.</target>
+        </trans-unit>
+        <trans-unit id="783ea14c-4d6e-437f-88dc-a01732e5e6cd" xml:space="preserve">
+          <source>You can review the list of prefixes we advertise to you through this peering at <bpt id="57369c7d-b807-4b84-9f83-1e242d298b81">&lt;linkText&gt;</bpt>Microsoft Azure Datacenter IP Ranges<ept id="57369c7d-b807-4b84-9f83-1e242d298b81">&lt;/linkText&gt;</ept><bpt id="57369c7d-b807-4b84-9f83-1e242d298b81">&lt;title&gt;</bpt><ept id="57369c7d-b807-4b84-9f83-1e242d298b81">&lt;/title&gt;</ept> page.</source>
+          <target state="new">You can review the list of prefixes we advertise to you through this peering at <bpt id="57369c7d-b807-4b84-9f83-1e242d298b81">&lt;linkText&gt;</bpt>Microsoft Azure Datacenter IP Ranges<ept id="57369c7d-b807-4b84-9f83-1e242d298b81">&lt;/linkText&gt;</ept><bpt id="57369c7d-b807-4b84-9f83-1e242d298b81">&lt;title&gt;</bpt><ept id="57369c7d-b807-4b84-9f83-1e242d298b81">&lt;/title&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="91c79fbd-cf78-4f13-99bc-1698ab56ed05" xml:space="preserve">
+          <source>You can define custom route filters within your network to consume only the routes you need.</source>
+          <target state="new">You can define custom route filters within your network to consume only the routes you need.</target>
+        </trans-unit>
+        <trans-unit id="31e44428-eba2-4564-99a8-2b6feb8aac0b" xml:space="preserve">
+          <source>Review the <bpt id="7ee07beb-291a-49d3-8f4b-03b521f4b6fc">&lt;linkText&gt;</bpt>FAQ page<ept id="7ee07beb-291a-49d3-8f4b-03b521f4b6fc">&lt;/linkText&gt;</ept><bpt id="7ee07beb-291a-49d3-8f4b-03b521f4b6fc">&lt;title&gt;</bpt><ept id="7ee07beb-291a-49d3-8f4b-03b521f4b6fc">&lt;/title&gt;</ept> for more information on services supported through the public peering routing domain.</source>
+          <target state="new">Review the <bpt id="7ee07beb-291a-49d3-8f4b-03b521f4b6fc">&lt;linkText&gt;</bpt>FAQ page<ept id="7ee07beb-291a-49d3-8f4b-03b521f4b6fc">&lt;/linkText&gt;</ept><bpt id="7ee07beb-291a-49d3-8f4b-03b521f4b6fc">&lt;title&gt;</bpt><ept id="7ee07beb-291a-49d3-8f4b-03b521f4b6fc">&lt;/title&gt;</ept> for more information on services supported through the public peering routing domain.</target>
+        </trans-unit>
+        <trans-unit id="aa0af791-5ac1-48d4-9c8e-5aed2b5d810b" xml:space="preserve">
+          <source>Connectivity to all other Microsoft online services (such as Office 365 services) will be through the Microsoft peering.</source>
+          <target state="new">Connectivity to all other Microsoft online services (such as Office 365 services) will be through the Microsoft peering.</target>
+        </trans-unit>
+        <trans-unit id="e9e4aa81-67fe-4b25-a93e-97b36f3648a0" xml:space="preserve">
+          <source>We enable bidirectional connectivity between your WAN and Microsoft cloud services through the Microsoft peering routing domain.</source>
+          <target state="new">We enable bidirectional connectivity between your WAN and Microsoft cloud services through the Microsoft peering routing domain.</target>
+        </trans-unit>
+        <trans-unit id="47b2dede-749a-466b-9cb5-ed055ce412c1" xml:space="preserve">
+          <source>You must connect to Microsoft cloud services only over public IP addresses that are owned by you or your connectivity provider and must adhere to all the rules we define.</source>
+          <target state="new">You must connect to Microsoft cloud services only over public IP addresses that are owned by you or your connectivity provider and must adhere to all the rules we define.</target>
+        </trans-unit>
+        <trans-unit id="3b19e369-af1c-4274-aa4d-af25bb8320ae" xml:space="preserve">
+          <source>Review the <bpt id="2913f8b3-bcf5-411a-a67f-d214cfbaceb2">&lt;linkText&gt;</bpt>ExpressRoute prerequisites<ept id="2913f8b3-bcf5-411a-a67f-d214cfbaceb2">&lt;/linkText&gt;</ept><bpt id="2913f8b3-bcf5-411a-a67f-d214cfbaceb2">&lt;title&gt;</bpt><ept id="2913f8b3-bcf5-411a-a67f-d214cfbaceb2">&lt;/title&gt;</ept> page for more information.</source>
+          <target state="new">Review the <bpt id="2913f8b3-bcf5-411a-a67f-d214cfbaceb2">&lt;linkText&gt;</bpt>ExpressRoute prerequisites<ept id="2913f8b3-bcf5-411a-a67f-d214cfbaceb2">&lt;/linkText&gt;</ept><bpt id="2913f8b3-bcf5-411a-a67f-d214cfbaceb2">&lt;title&gt;</bpt><ept id="2913f8b3-bcf5-411a-a67f-d214cfbaceb2">&lt;/title&gt;</ept> page for more information.</target>
+        </trans-unit>
+        <trans-unit id="88eee01a-58d9-4118-93be-0da01c93c9c4" xml:space="preserve">
+          <source>Review the <bpt id="41cd3a5f-769c-48ec-bf32-a8f8a808c992">&lt;linkText&gt;</bpt>FAQ page<ept id="41cd3a5f-769c-48ec-bf32-a8f8a808c992">&lt;/linkText&gt;</ept><bpt id="41cd3a5f-769c-48ec-bf32-a8f8a808c992">&lt;title&gt;</bpt><ept id="41cd3a5f-769c-48ec-bf32-a8f8a808c992">&lt;/title&gt;</ept> for more information on services supported, costs and configuration details.</source>
+          <target state="new">Review the <bpt id="41cd3a5f-769c-48ec-bf32-a8f8a808c992">&lt;linkText&gt;</bpt>FAQ page<ept id="41cd3a5f-769c-48ec-bf32-a8f8a808c992">&lt;/linkText&gt;</ept><bpt id="41cd3a5f-769c-48ec-bf32-a8f8a808c992">&lt;title&gt;</bpt><ept id="41cd3a5f-769c-48ec-bf32-a8f8a808c992">&lt;/title&gt;</ept> for more information on services supported, costs and configuration details.</target>
+        </trans-unit>
+        <trans-unit id="d45e2fa5-bd4c-477f-9726-131abbb8f416" xml:space="preserve">
+          <source>Review the <bpt id="a4aa6d2f-01ee-4fd9-a91d-6b001edbbf58">&lt;linkText&gt;</bpt>ExpressRoute Locations<ept id="a4aa6d2f-01ee-4fd9-a91d-6b001edbbf58">&lt;/linkText&gt;</ept><bpt id="a4aa6d2f-01ee-4fd9-a91d-6b001edbbf58">&lt;title&gt;</bpt><ept id="a4aa6d2f-01ee-4fd9-a91d-6b001edbbf58">&lt;/title&gt;</ept> page for information on the list of connectivity providers offering Microsoft peering support.</source>
+          <target state="new">Review the <bpt id="a4aa6d2f-01ee-4fd9-a91d-6b001edbbf58">&lt;linkText&gt;</bpt>ExpressRoute Locations<ept id="a4aa6d2f-01ee-4fd9-a91d-6b001edbbf58">&lt;/linkText&gt;</ept><bpt id="a4aa6d2f-01ee-4fd9-a91d-6b001edbbf58">&lt;title&gt;</bpt><ept id="a4aa6d2f-01ee-4fd9-a91d-6b001edbbf58">&lt;/title&gt;</ept> page for information on the list of connectivity providers offering Microsoft peering support.</target>
+        </trans-unit>
+        <trans-unit id="3346583d-b592-4d1c-8e68-e7a49dfb93cc" xml:space="preserve">
+          <source>The table below compares the three routing domains.</source>
+          <target state="new">The table below compares the three routing domains.</target>
+        </trans-unit>
+        <trans-unit id="1e549fd4-302f-49fc-b519-4289d2e017d9" xml:space="preserve">
+          <source><bpt id="89524687-f2a4-48c3-8681-1391b451936a">&lt;strong&gt;</bpt>Private Peering<ept id="89524687-f2a4-48c3-8681-1391b451936a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="89524687-f2a4-48c3-8681-1391b451936a">&lt;strong&gt;</bpt>Private Peering<ept id="89524687-f2a4-48c3-8681-1391b451936a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f85afe44-b975-4979-b375-a298fd533862" xml:space="preserve">
+          <source><bpt id="04bb4788-59d4-4a88-8904-771821abbc5f">&lt;strong&gt;</bpt>Public Peering<ept id="04bb4788-59d4-4a88-8904-771821abbc5f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="04bb4788-59d4-4a88-8904-771821abbc5f">&lt;strong&gt;</bpt>Public Peering<ept id="04bb4788-59d4-4a88-8904-771821abbc5f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1977854a-184c-489a-8b30-c72c7fb5ee94" xml:space="preserve">
+          <source><bpt id="9754e201-ce1c-40d0-9886-60af315b009f">&lt;strong&gt;</bpt>Microsoft Peering<ept id="9754e201-ce1c-40d0-9886-60af315b009f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9754e201-ce1c-40d0-9886-60af315b009f">&lt;strong&gt;</bpt>Microsoft Peering<ept id="9754e201-ce1c-40d0-9886-60af315b009f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4df397c3-b9b4-4268-8330-eac6fdf932ca" xml:space="preserve">
+          <source>**Max.</source>
+          <target state="new">**Max.</target>
+        </trans-unit>
+        <trans-unit id="2c3ccf11-ca8b-40a2-b205-1ffa3d392806" xml:space="preserve">
+          <source># prefixes supported per peering**</source>
+          <target state="new"># prefixes supported per peering**</target>
+        </trans-unit>
+        <trans-unit id="a99f352a-7fff-40e6-9296-b84d851c77df" xml:space="preserve">
+          <source>4000 by default, 10,000 with ExpressRoute Premium</source>
+          <target state="new">4000 by default, 10,000 with ExpressRoute Premium</target>
+        </trans-unit>
+        <trans-unit id="e23c3c3c-1432-4486-98a9-8794cc4033a9" xml:space="preserve">
+          <source>4000 by default, 10,000 with ExpressRoute Premium</source>
+          <target state="new">4000 by default, 10,000 with ExpressRoute Premium</target>
+        </trans-unit>
+        <trans-unit id="93ad1b6d-f541-4d31-b047-0256467c4149" xml:space="preserve">
+          <source>200</source>
+          <target state="new">200</target>
+        </trans-unit>
+        <trans-unit id="0556ed34-aa10-4ea5-9998-9a70f5503aa8" xml:space="preserve">
+          <source><bpt id="88d3e20e-b13c-4a42-afb7-2689b0320a2f">&lt;strong&gt;</bpt>IP address ranges supported<ept id="88d3e20e-b13c-4a42-afb7-2689b0320a2f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="88d3e20e-b13c-4a42-afb7-2689b0320a2f">&lt;strong&gt;</bpt>IP address ranges supported<ept id="88d3e20e-b13c-4a42-afb7-2689b0320a2f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a0d1773-b42d-4335-a2ac-e71ed8fe783f" xml:space="preserve">
+          <source>Any valid IPv4 address within your WAN</source>
+          <target state="new">Any valid IPv4 address within your WAN</target>
+        </trans-unit>
+        <trans-unit id="5f6533fd-d61f-4e12-a4c8-65e29b036ab9" xml:space="preserve">
+          <source>Public IPv4 addresses owned by you or your connectivity provider</source>
+          <target state="new">Public IPv4 addresses owned by you or your connectivity provider</target>
+        </trans-unit>
+        <trans-unit id="2b649e36-4d9f-4054-9d37-6dca52824afb" xml:space="preserve">
+          <source>Public IPv4 addresses owned by you or your connectivity provider</source>
+          <target state="new">Public IPv4 addresses owned by you or your connectivity provider</target>
+        </trans-unit>
+        <trans-unit id="a2714409-0f8c-456b-b1ef-47d79ce744c6" xml:space="preserve">
+          <source><bpt id="6974268c-6222-49bf-9839-f1ef606af38d">&lt;strong&gt;</bpt>AS Number Requirements<ept id="6974268c-6222-49bf-9839-f1ef606af38d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6974268c-6222-49bf-9839-f1ef606af38d">&lt;strong&gt;</bpt>AS Number Requirements<ept id="6974268c-6222-49bf-9839-f1ef606af38d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5489d4d7-fd8b-4311-8d8c-bd546bedda2c" xml:space="preserve">
+          <source>Private and public AS numbers .</source>
+          <target state="new">Private and public AS numbers .</target>
+        </trans-unit>
+        <trans-unit id="b12cd2c7-1eb4-48f8-bfd1-d5b8c9a5a306" xml:space="preserve">
+          <source>Customer must own public AS number.</source>
+          <target state="new">Customer must own public AS number.</target>
+        </trans-unit>
+        <trans-unit id="6daaba5c-d738-412f-bac1-fa0488dd0f91" xml:space="preserve">
+          <source>Private and public AS numbers.</source>
+          <target state="new">Private and public AS numbers.</target>
+        </trans-unit>
+        <trans-unit id="806cf3af-d1c0-40b0-9db8-38226872396e" xml:space="preserve">
+          <source>Customer must own public AS number.</source>
+          <target state="new">Customer must own public AS number.</target>
+        </trans-unit>
+        <trans-unit id="cfc8b33e-05a5-4b9c-a61b-5d4ebf4eaabb" xml:space="preserve">
+          <source>Public AS numbers only.</source>
+          <target state="new">Public AS numbers only.</target>
+        </trans-unit>
+        <trans-unit id="9afbae62-7b87-4022-ac95-141be495e47f" xml:space="preserve">
+          <source>AS number must be validated against routing registries to validate ownership.</source>
+          <target state="new">AS number must be validated against routing registries to validate ownership.</target>
+        </trans-unit>
+        <trans-unit id="f26015f4-5184-4f1f-8588-ce0f3be1daaf" xml:space="preserve">
+          <source><bpt id="0f803d3f-7318-4e79-b2b7-d8fb008d1317">&lt;strong&gt;</bpt>Routing Interface IP addresses<ept id="0f803d3f-7318-4e79-b2b7-d8fb008d1317">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0f803d3f-7318-4e79-b2b7-d8fb008d1317">&lt;strong&gt;</bpt>Routing Interface IP addresses<ept id="0f803d3f-7318-4e79-b2b7-d8fb008d1317">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92ec8bfd-4c6e-4131-8f6c-2eaf990d15f6" xml:space="preserve">
+          <source>RFC1918 and public IP addresses</source>
+          <target state="new">RFC1918 and public IP addresses</target>
+        </trans-unit>
+        <trans-unit id="ee62f5c2-23b4-4ba1-92ba-8d105fec66f3" xml:space="preserve">
+          <source>Public IP addresses registered to customers / NSP in routing registries.</source>
+          <target state="new">Public IP addresses registered to customers / NSP in routing registries.</target>
+        </trans-unit>
+        <trans-unit id="a0e0eb2a-0927-4ccd-90f5-19af9ab1d177" xml:space="preserve">
+          <source>Public IP addresses registered to customers / NSP in routing registries.</source>
+          <target state="new">Public IP addresses registered to customers / NSP in routing registries.</target>
+        </trans-unit>
+        <trans-unit id="eee170d6-aff3-451a-a95f-004621f24a1d" xml:space="preserve">
+          <source><bpt id="383aed3a-c4d7-4cdd-8b44-62187d68810d">&lt;strong&gt;</bpt>MD5 Hash support<ept id="383aed3a-c4d7-4cdd-8b44-62187d68810d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="383aed3a-c4d7-4cdd-8b44-62187d68810d">&lt;strong&gt;</bpt>MD5 Hash support<ept id="383aed3a-c4d7-4cdd-8b44-62187d68810d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24f0e4ac-6006-4b6c-a804-a1ce4d699f46" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="74744d95-a861-456c-8331-8d54f8ef3635" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e3276da3-0df3-4839-b665-b170fa39883e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="f698959c-753a-400e-99a3-a662a0718ac0" xml:space="preserve">
+          <source>You can choose to enable one or more of the routing domains as part of their dedicated circuit.</source>
+          <target state="new">You can choose to enable one or more of the routing domains as part of their dedicated circuit.</target>
+        </trans-unit>
+        <trans-unit id="24d933ac-2de4-47e1-a01c-b079faf67d9f" xml:space="preserve">
+          <source>You can choose to have all the routing domains put on the same VPN (for NSP case) if they wish to ingest them into a single routing domain.</source>
+          <target state="new">You can choose to have all the routing domains put on the same VPN (for NSP case) if they wish to ingest them into a single routing domain.</target>
+        </trans-unit>
+        <trans-unit id="962387e2-b154-4b71-b5a8-3e39b99e27ed" xml:space="preserve">
+          <source>You can also put them on different routing domains similar to the diagram above.</source>
+          <target state="new">You can also put them on different routing domains similar to the diagram above.</target>
+        </trans-unit>
+        <trans-unit id="bb4679ce-832e-486b-81e7-4d59597eaa81" xml:space="preserve">
+          <source>The recommended configuration is that private peering is connected directly to the core network, and the public and Microsoft peering links connected to your extranet.</source>
+          <target state="new">The recommended configuration is that private peering is connected directly to the core network, and the public and Microsoft peering links connected to your extranet.</target>
+        </trans-unit>
+        <trans-unit id="8ef6346b-6f8c-4633-bbf7-86f9a9df9dfa" xml:space="preserve">
+          <source>If you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type).</source>
+          <target state="new">If you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type).</target>
+        </trans-unit>
+        <trans-unit id="6a18462c-6078-400a-9f24-e42213b07b3b" xml:space="preserve">
+          <source>The BGP session pairs provide a highly available link.</source>
+          <target state="new">The BGP session pairs provide a highly available link.</target>
+        </trans-unit>
+        <trans-unit id="da982d88-21db-482b-ad31-9a8201cd983a" xml:space="preserve">
+          <source>If you are connecting through EXPs, you will be responsible for configuring and managing routing (unless EXP offers to manage routing for you).</source>
+          <target state="new">If you are connecting through EXPs, you will be responsible for configuring and managing routing (unless EXP offers to manage routing for you).</target>
+        </trans-unit>
+        <trans-unit id="2516f918-8939-449d-ba6a-6ed90a02a662" xml:space="preserve">
+          <source>If you choose to connect through NSPs, you can rely on the NSP to manage routing for you.</source>
+          <target state="new">If you choose to connect through NSPs, you can rely on the NSP to manage routing for you.</target>
+        </trans-unit>
+        <trans-unit id="08cf5851-c170-4faa-9b8a-4789d52366f7" xml:space="preserve">
+          <source>You can learn more by reviewing the workflows for setting up ExpressRoute</source>
+          <target state="new">You can learn more by reviewing the workflows for setting up ExpressRoute</target>
+        </trans-unit>
+        <trans-unit id="29d57946-0899-4018-a41d-332f3936a44f" xml:space="preserve">
+          <source>Find a service provider.</source>
+          <target state="new">Find a service provider.</target>
+        </trans-unit>
+        <trans-unit id="3809bd63-6bd4-4f19-a80b-afa6a67b0871" xml:space="preserve">
+          <source>See <bpt id="d0998c20-cdbc-48f0-abce-d674fa251078">&lt;linkText&gt;</bpt>ExpressRoute Service Providers and Locations<ept id="d0998c20-cdbc-48f0-abce-d674fa251078">&lt;/linkText&gt;</ept><bpt id="d0998c20-cdbc-48f0-abce-d674fa251078">&lt;title&gt;</bpt><ept id="d0998c20-cdbc-48f0-abce-d674fa251078">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="d0998c20-cdbc-48f0-abce-d674fa251078">&lt;linkText&gt;</bpt>ExpressRoute Service Providers and Locations<ept id="d0998c20-cdbc-48f0-abce-d674fa251078">&lt;/linkText&gt;</ept><bpt id="d0998c20-cdbc-48f0-abce-d674fa251078">&lt;title&gt;</bpt><ept id="d0998c20-cdbc-48f0-abce-d674fa251078">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9fbf4754-67f3-4fc7-9cae-8477a284e628" xml:space="preserve">
+          <source>Configure your ExpressRoute connection.</source>
+          <target state="new">Configure your ExpressRoute connection.</target>
+        </trans-unit>
+        <trans-unit id="10a91cec-b2c6-4ce3-bd9e-863e715d45e4" xml:space="preserve">
+          <source>See <bpt id="725105c8-6a96-4128-9833-2c2a608a8536">&lt;linkText&gt;</bpt>Configure an ExpressRoute connection through a network service provider<ept id="725105c8-6a96-4128-9833-2c2a608a8536">&lt;/linkText&gt;</ept><bpt id="725105c8-6a96-4128-9833-2c2a608a8536">&lt;title&gt;</bpt><ept id="725105c8-6a96-4128-9833-2c2a608a8536">&lt;/title&gt;</ept> or <bpt id="533783c3-74b1-49af-b3ba-3c0bfbd5dd21">&lt;linkText&gt;</bpt>Configure an ExpressRoute connection through an exchange provider<ept id="533783c3-74b1-49af-b3ba-3c0bfbd5dd21">&lt;/linkText&gt;</ept><bpt id="533783c3-74b1-49af-b3ba-3c0bfbd5dd21">&lt;title&gt;</bpt><ept id="533783c3-74b1-49af-b3ba-3c0bfbd5dd21">&lt;/title&gt;</ept> for instructions.</source>
+          <target state="new">See <bpt id="725105c8-6a96-4128-9833-2c2a608a8536">&lt;linkText&gt;</bpt>Configure an ExpressRoute connection through a network service provider<ept id="725105c8-6a96-4128-9833-2c2a608a8536">&lt;/linkText&gt;</ept><bpt id="725105c8-6a96-4128-9833-2c2a608a8536">&lt;title&gt;</bpt><ept id="725105c8-6a96-4128-9833-2c2a608a8536">&lt;/title&gt;</ept> or <bpt id="533783c3-74b1-49af-b3ba-3c0bfbd5dd21">&lt;linkText&gt;</bpt>Configure an ExpressRoute connection through an exchange provider<ept id="533783c3-74b1-49af-b3ba-3c0bfbd5dd21">&lt;/linkText&gt;</ept><bpt id="533783c3-74b1-49af-b3ba-3c0bfbd5dd21">&lt;title&gt;</bpt><ept id="533783c3-74b1-49af-b3ba-3c0bfbd5dd21">&lt;/title&gt;</ept> for instructions.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

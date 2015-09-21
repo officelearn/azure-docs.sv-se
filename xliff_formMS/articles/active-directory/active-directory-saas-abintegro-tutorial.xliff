@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2e84c6dc-a338-4693-82a9-fed0328c77ee" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2e84c6dc-a338-4693-82a9-fed0328c77ee" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1a07541f-d4e3-4e08-a01c-2f1132780376">
+        <trans-unit id="330c8534-7359-4637-9404-1a96283d99d7" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Abintegro | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Abintegro | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f3abbab7-e705-426f-a472-23c155ff407b" xml:space="preserve">
+          <source>Learn how to use Abintegro with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Abintegro with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="2afc8c34-7d33-4913-a55b-162fde25646c" xml:space="preserve">
+          <source>For feedback, click <bpt id="80ff0d01-d520-40a7-9c54-3c5fba9b1f0d">&lt;linkText&gt;</bpt>here<ept id="80ff0d01-d520-40a7-9c54-3c5fba9b1f0d">&lt;/linkText&gt;</ept><bpt id="80ff0d01-d520-40a7-9c54-3c5fba9b1f0d">&lt;title&gt;</bpt><ept id="80ff0d01-d520-40a7-9c54-3c5fba9b1f0d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="80ff0d01-d520-40a7-9c54-3c5fba9b1f0d">&lt;linkText&gt;</bpt>here<ept id="80ff0d01-d520-40a7-9c54-3c5fba9b1f0d">&lt;/linkText&gt;</ept><bpt id="80ff0d01-d520-40a7-9c54-3c5fba9b1f0d">&lt;title&gt;</bpt><ept id="80ff0d01-d520-40a7-9c54-3c5fba9b1f0d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08e6c772-aa51-447f-801c-af20dc0d68c8" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Abintegro.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Abintegro.</target>
+        </trans-unit>
+        <trans-unit id="83c8b785-773e-4e42-a59f-9865f9b9c060" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="e5b72de8-489e-4369-a4f8-1c9c61025f50" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="309196eb-7269-4f66-ada6-f5f760b36359" xml:space="preserve">
+          <source>An Abintegro single sign-on enabled subscription</source>
+          <target state="new">An Abintegro single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="0b5980ad-300b-4db6-9027-b295cc02c00a" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Abintegro will be able to single sign into the application at your Abintegro company site (service provider initiated sign on), or using the <bpt id="fd20a6e7-b455-41f1-91b8-289752b57de7">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="fd20a6e7-b455-41f1-91b8-289752b57de7">&lt;/linkText&gt;</ept><bpt id="fd20a6e7-b455-41f1-91b8-289752b57de7">&lt;title&gt;</bpt><ept id="fd20a6e7-b455-41f1-91b8-289752b57de7">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Abintegro will be able to single sign into the application at your Abintegro company site (service provider initiated sign on), or using the <bpt id="fd20a6e7-b455-41f1-91b8-289752b57de7">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="fd20a6e7-b455-41f1-91b8-289752b57de7">&lt;/linkText&gt;</ept><bpt id="fd20a6e7-b455-41f1-91b8-289752b57de7">&lt;title&gt;</bpt><ept id="fd20a6e7-b455-41f1-91b8-289752b57de7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3dff06fc-1fca-490e-ab30-81e3b8838abd" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="25ab1a51-e089-4dcc-b0e2-01159fe7789b" xml:space="preserve">
+          <source>Enabling the application integration for Abintegro</source>
+          <target state="new">Enabling the application integration for Abintegro</target>
+        </trans-unit>
+        <trans-unit id="f021a5bf-113b-46d8-982f-dc1d7ab6e8c5" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="e72a0cfb-45a5-40cd-bd8e-382a7a982372" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="41c37fbd-62ee-4f81-934d-029e12dcb92e" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="7495a73e-65af-4c6e-9df1-7b0b52abe91e" xml:space="preserve">
+          <source><bpt id="6f35dda8-95b7-45b5-8055-f205d742868d">&lt;linkText&gt;</bpt>Scenario<ept id="6f35dda8-95b7-45b5-8055-f205d742868d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f35dda8-95b7-45b5-8055-f205d742868d">&lt;linkText&gt;</bpt>Scenario<ept id="6f35dda8-95b7-45b5-8055-f205d742868d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ccc46e7-67ef-432e-898c-9e935ea8a0ac" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Abintegro.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Abintegro.</target>
+        </trans-unit>
+        <trans-unit id="052cf76c-9896-4e21-98fa-00026a2ab40a" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="7de73af9-190c-46aa-acba-4e2f4d65f938">&lt;strong&gt;</bpt>Active Directory<ept id="7de73af9-190c-46aa-acba-4e2f4d65f938">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="7de73af9-190c-46aa-acba-4e2f4d65f938">&lt;strong&gt;</bpt>Active Directory<ept id="7de73af9-190c-46aa-acba-4e2f4d65f938">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b674c7a5-988a-48d5-8c6f-19f565343a19" xml:space="preserve">
+          <source><bpt id="6d6057f9-183b-4957-9dc9-92ba46d6975b">&lt;linkText&gt;</bpt>Active Directory<ept id="6d6057f9-183b-4957-9dc9-92ba46d6975b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d6057f9-183b-4957-9dc9-92ba46d6975b">&lt;linkText&gt;</bpt>Active Directory<ept id="6d6057f9-183b-4957-9dc9-92ba46d6975b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77118f2c-afd3-41fa-b23d-614ae7e6e7d1" xml:space="preserve">
+          <source>From the <bpt id="1575dbad-bb21-4ef6-9f08-6ad7cc6d9fdb">&lt;strong&gt;</bpt>Directory<ept id="1575dbad-bb21-4ef6-9f08-6ad7cc6d9fdb">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="1575dbad-bb21-4ef6-9f08-6ad7cc6d9fdb">&lt;strong&gt;</bpt>Directory<ept id="1575dbad-bb21-4ef6-9f08-6ad7cc6d9fdb">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="ce044438-1bcc-4e9e-8a94-3f75be5b9048" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="aa37e42c-16a8-4412-9894-a6aba3f73c2f">&lt;strong&gt;</bpt>Applications<ept id="aa37e42c-16a8-4412-9894-a6aba3f73c2f">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="aa37e42c-16a8-4412-9894-a6aba3f73c2f">&lt;strong&gt;</bpt>Applications<ept id="aa37e42c-16a8-4412-9894-a6aba3f73c2f">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="0a666cf9-e03e-4fb2-bce2-e5e85e623f21" xml:space="preserve">
+          <source><bpt id="ab2d5d28-201d-47aa-a35f-2b936e432900">&lt;linkText&gt;</bpt>Applications<ept id="ab2d5d28-201d-47aa-a35f-2b936e432900">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ab2d5d28-201d-47aa-a35f-2b936e432900">&lt;linkText&gt;</bpt>Applications<ept id="ab2d5d28-201d-47aa-a35f-2b936e432900">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a63690fd-44af-4bf8-bf63-ea43b39d1c5f" xml:space="preserve">
+          <source>Click <bpt id="2bbdb1a1-189f-4b8f-947a-c9086dc33425">&lt;strong&gt;</bpt>Add<ept id="2bbdb1a1-189f-4b8f-947a-c9086dc33425">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="2bbdb1a1-189f-4b8f-947a-c9086dc33425">&lt;strong&gt;</bpt>Add<ept id="2bbdb1a1-189f-4b8f-947a-c9086dc33425">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="d68abd83-d397-44a9-9614-d9c8c4dc2e30" xml:space="preserve">
+          <source><bpt id="a60fe05c-8e9f-44cd-8991-ce7e5d4d33e6">&lt;linkText&gt;</bpt>Add application<ept id="a60fe05c-8e9f-44cd-8991-ce7e5d4d33e6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a60fe05c-8e9f-44cd-8991-ce7e5d4d33e6">&lt;linkText&gt;</bpt>Add application<ept id="a60fe05c-8e9f-44cd-8991-ce7e5d4d33e6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1027684d-e52c-4304-9b0b-f9e85dc4066d" xml:space="preserve">
+          <source>On the <bpt id="280fa19f-3328-4993-a8e6-1fb4a04575c3">&lt;strong&gt;</bpt>What do you want to do<ept id="280fa19f-3328-4993-a8e6-1fb4a04575c3">&lt;/strong&gt;</ept> dialog, click <bpt id="14980b5c-2222-4ad6-afac-594ee0d00124">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="14980b5c-2222-4ad6-afac-594ee0d00124">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="280fa19f-3328-4993-a8e6-1fb4a04575c3">&lt;strong&gt;</bpt>What do you want to do<ept id="280fa19f-3328-4993-a8e6-1fb4a04575c3">&lt;/strong&gt;</ept> dialog, click <bpt id="14980b5c-2222-4ad6-afac-594ee0d00124">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="14980b5c-2222-4ad6-afac-594ee0d00124">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6dffeb6-2de8-41f4-8777-d8526d5d9f6c" xml:space="preserve">
+          <source><bpt id="c204bc90-ab9b-4bcf-a159-3d1f88dbabf2">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="c204bc90-ab9b-4bcf-a159-3d1f88dbabf2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c204bc90-ab9b-4bcf-a159-3d1f88dbabf2">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="c204bc90-ab9b-4bcf-a159-3d1f88dbabf2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1b87c88-2bab-4e07-9afe-a64776df1498" xml:space="preserve">
+          <source>In the <bpt id="3683ba96-c610-40ee-a0d9-f50ecb2826c0">&lt;strong&gt;</bpt>search box<ept id="3683ba96-c610-40ee-a0d9-f50ecb2826c0">&lt;/strong&gt;</ept>, type <bpt id="aa5c5606-9199-4599-b551-45c4b65ab64b">&lt;strong&gt;</bpt>abintegro<ept id="aa5c5606-9199-4599-b551-45c4b65ab64b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="3683ba96-c610-40ee-a0d9-f50ecb2826c0">&lt;strong&gt;</bpt>search box<ept id="3683ba96-c610-40ee-a0d9-f50ecb2826c0">&lt;/strong&gt;</ept>, type <bpt id="aa5c5606-9199-4599-b551-45c4b65ab64b">&lt;strong&gt;</bpt>abintegro<ept id="aa5c5606-9199-4599-b551-45c4b65ab64b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85eb3d1a-de79-418b-aa2b-37b14940ea89" xml:space="preserve">
+          <source><bpt id="11e9c91a-3b71-490f-8419-be95679905af">&lt;linkText&gt;</bpt>Application Gallery<ept id="11e9c91a-3b71-490f-8419-be95679905af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="11e9c91a-3b71-490f-8419-be95679905af">&lt;linkText&gt;</bpt>Application Gallery<ept id="11e9c91a-3b71-490f-8419-be95679905af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb1feebe-3f12-4f37-a2a0-1840df7685ee" xml:space="preserve">
+          <source>In the results pane, select <bpt id="fbb8a50a-60a5-4adb-93df-dec87563995d">&lt;strong&gt;</bpt>Abintegro<ept id="fbb8a50a-60a5-4adb-93df-dec87563995d">&lt;/strong&gt;</ept>, and then click <bpt id="3c59e0b1-4107-4cff-a34c-24e03c5278e4">&lt;strong&gt;</bpt>Complete<ept id="3c59e0b1-4107-4cff-a34c-24e03c5278e4">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="fbb8a50a-60a5-4adb-93df-dec87563995d">&lt;strong&gt;</bpt>Abintegro<ept id="fbb8a50a-60a5-4adb-93df-dec87563995d">&lt;/strong&gt;</ept>, and then click <bpt id="3c59e0b1-4107-4cff-a34c-24e03c5278e4">&lt;strong&gt;</bpt>Complete<ept id="3c59e0b1-4107-4cff-a34c-24e03c5278e4">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="728e3543-cb40-42c2-bb9c-2ab49b722732" xml:space="preserve">
+          <source><bpt id="916f46f9-8739-49ef-a900-13778cf18963">&lt;linkText&gt;</bpt>Abintegro<ept id="916f46f9-8739-49ef-a900-13778cf18963">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="916f46f9-8739-49ef-a900-13778cf18963">&lt;linkText&gt;</bpt>Abintegro<ept id="916f46f9-8739-49ef-a900-13778cf18963">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdd683b1-320e-487a-a3c6-bc379b8f640d" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Abintegro with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Abintegro with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="1ff9d182-6e34-401d-9f06-41ff8884f413" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="7cba7a2d-ee44-4c14-9b6e-b4b5dc94bc9a">&lt;strong&gt;</bpt>Abintegro<ept id="7cba7a2d-ee44-4c14-9b6e-b4b5dc94bc9a">&lt;/strong&gt;</ept> application integration page, click <bpt id="8db7ca66-47da-4df6-a317-9ead001d8abc">&lt;strong&gt;</bpt>Configure single sign-on<ept id="8db7ca66-47da-4df6-a317-9ead001d8abc">&lt;/strong&gt;</ept> to open the <bpt id="2b37dde7-877b-489b-a2cc-bc02fdfc3fe8">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="2b37dde7-877b-489b-a2cc-bc02fdfc3fe8">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="7cba7a2d-ee44-4c14-9b6e-b4b5dc94bc9a">&lt;strong&gt;</bpt>Abintegro<ept id="7cba7a2d-ee44-4c14-9b6e-b4b5dc94bc9a">&lt;/strong&gt;</ept> application integration page, click <bpt id="8db7ca66-47da-4df6-a317-9ead001d8abc">&lt;strong&gt;</bpt>Configure single sign-on<ept id="8db7ca66-47da-4df6-a317-9ead001d8abc">&lt;/strong&gt;</ept> to open the <bpt id="2b37dde7-877b-489b-a2cc-bc02fdfc3fe8">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="2b37dde7-877b-489b-a2cc-bc02fdfc3fe8">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="210ce0bc-fcb1-477e-a194-c40ae164fe58" xml:space="preserve">
+          <source><bpt id="4041d9cc-dfd2-4bc8-b6ba-de92afc3e135">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="4041d9cc-dfd2-4bc8-b6ba-de92afc3e135">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4041d9cc-dfd2-4bc8-b6ba-de92afc3e135">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="4041d9cc-dfd2-4bc8-b6ba-de92afc3e135">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f281854f-7846-46f2-a41b-d6902208ca52" xml:space="preserve">
+          <source>On the <bpt id="e0dc2ff3-3661-4df7-9b78-9e6727c81d72">&lt;strong&gt;</bpt>How would you like users to sign on to Abintegro<ept id="e0dc2ff3-3661-4df7-9b78-9e6727c81d72">&lt;/strong&gt;</ept> page, select <bpt id="191b0c36-47d2-4bfd-8639-99c7d043911f">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="191b0c36-47d2-4bfd-8639-99c7d043911f">&lt;/strong&gt;</ept>, and then click <bpt id="523a0654-730a-4bb2-aa3b-f7c1c8f704e0">&lt;strong&gt;</bpt>Next<ept id="523a0654-730a-4bb2-aa3b-f7c1c8f704e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e0dc2ff3-3661-4df7-9b78-9e6727c81d72">&lt;strong&gt;</bpt>How would you like users to sign on to Abintegro<ept id="e0dc2ff3-3661-4df7-9b78-9e6727c81d72">&lt;/strong&gt;</ept> page, select <bpt id="191b0c36-47d2-4bfd-8639-99c7d043911f">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="191b0c36-47d2-4bfd-8639-99c7d043911f">&lt;/strong&gt;</ept>, and then click <bpt id="523a0654-730a-4bb2-aa3b-f7c1c8f704e0">&lt;strong&gt;</bpt>Next<ept id="523a0654-730a-4bb2-aa3b-f7c1c8f704e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd37a260-6ffb-4618-ad8f-e316d9557d32" xml:space="preserve">
+          <source><bpt id="f07db587-e518-40ca-878a-ebe8db231166">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="f07db587-e518-40ca-878a-ebe8db231166">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f07db587-e518-40ca-878a-ebe8db231166">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="f07db587-e518-40ca-878a-ebe8db231166">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27dc665e-9f96-40ab-beb0-e7a2c61844ad" xml:space="preserve">
+          <source>On the <bpt id="8181b0d0-4ce7-4429-aecc-2f4bb8b3e347">&lt;strong&gt;</bpt>Configure App URL<ept id="8181b0d0-4ce7-4429-aecc-2f4bb8b3e347">&lt;/strong&gt;</ept> page, in the <bpt id="f812ac76-15dc-45b6-a8fc-8865cb5f8829">&lt;strong&gt;</bpt>Abintegro Sign On URL<ept id="f812ac76-15dc-45b6-a8fc-8865cb5f8829">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to Abintegro (e.g.: <bpt id="814c0b5f-312a-4875-953c-74786c7ac160">&lt;code&gt;</bpt>https://dev.abintegro.com/Shibboleth.sso/Login?entityID=&lt;Issuer&gt;&amp;target=https://dev.abintegro.com/secure/<ept id="814c0b5f-312a-4875-953c-74786c7ac160">&lt;/code&gt;</ept>), and then click <bpt id="17758fa0-1c0a-4df4-831e-b44acbeb9d79">&lt;strong&gt;</bpt>Next<ept id="17758fa0-1c0a-4df4-831e-b44acbeb9d79">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="8181b0d0-4ce7-4429-aecc-2f4bb8b3e347">&lt;strong&gt;</bpt>Configure App URL<ept id="8181b0d0-4ce7-4429-aecc-2f4bb8b3e347">&lt;/strong&gt;</ept> page, in the <bpt id="f812ac76-15dc-45b6-a8fc-8865cb5f8829">&lt;strong&gt;</bpt>Abintegro Sign On URL<ept id="f812ac76-15dc-45b6-a8fc-8865cb5f8829">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to Abintegro (e.g.: <bpt id="814c0b5f-312a-4875-953c-74786c7ac160">&lt;code&gt;</bpt>https://dev.abintegro.com/Shibboleth.sso/Login?entityID=&lt;Issuer&gt;&amp;target=https://dev.abintegro.com/secure/<ept id="814c0b5f-312a-4875-953c-74786c7ac160">&lt;/code&gt;</ept>), and then click <bpt id="17758fa0-1c0a-4df4-831e-b44acbeb9d79">&lt;strong&gt;</bpt>Next<ept id="17758fa0-1c0a-4df4-831e-b44acbeb9d79">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2aaef6c5-f408-4b65-bfdd-a930a4cbb67c" xml:space="preserve">
+          <source><bpt id="a0457f25-c06b-402e-a858-c6b887e0fb19">&lt;linkText&gt;</bpt>Configure App URL<ept id="a0457f25-c06b-402e-a858-c6b887e0fb19">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a0457f25-c06b-402e-a858-c6b887e0fb19">&lt;linkText&gt;</bpt>Configure App URL<ept id="a0457f25-c06b-402e-a858-c6b887e0fb19">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77e7ff98-54f2-44e6-a3e5-32b43e8e5132" xml:space="preserve">
+          <source>On the <bpt id="9c515e14-4ba5-4094-b716-3ee0648c9772">&lt;strong&gt;</bpt>Configure single sign-on at Abintegro<ept id="9c515e14-4ba5-4094-b716-3ee0648c9772">&lt;/strong&gt;</ept> page, click <bpt id="801376eb-5b21-47b4-828c-76a653566d5b">&lt;strong&gt;</bpt>Download metadata<ept id="801376eb-5b21-47b4-828c-76a653566d5b">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</source>
+          <target state="new">On the <bpt id="9c515e14-4ba5-4094-b716-3ee0648c9772">&lt;strong&gt;</bpt>Configure single sign-on at Abintegro<ept id="9c515e14-4ba5-4094-b716-3ee0648c9772">&lt;/strong&gt;</ept> page, click <bpt id="801376eb-5b21-47b4-828c-76a653566d5b">&lt;strong&gt;</bpt>Download metadata<ept id="801376eb-5b21-47b4-828c-76a653566d5b">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="4c472829-5af4-4993-9db7-063d7807d56d" xml:space="preserve">
+          <source><bpt id="1768f5b4-9d85-4d9a-837d-e6d7e4e475d2">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="1768f5b4-9d85-4d9a-837d-e6d7e4e475d2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1768f5b4-9d85-4d9a-837d-e6d7e4e475d2">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="1768f5b4-9d85-4d9a-837d-e6d7e4e475d2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d2e3619-16b4-4db9-9b8e-835c24f26649" xml:space="preserve">
+          <source>Send the metadatafile to the Abintegro support team.</source>
+          <target state="new">Send the metadatafile to the Abintegro support team.</target>
+        </trans-unit>
+        <trans-unit id="c97a8776-f60e-4763-a9a6-07ec18038c84" xml:space="preserve">
+          <source>The single sign-on configuration has to be performed by the Abintegro support team.</source>
+          <target state="new">The single sign-on configuration has to be performed by the Abintegro support team.</target>
+        </trans-unit>
+        <trans-unit id="249f8c37-5466-46ae-a6c6-ba3455f4561d" xml:space="preserve">
+          <source>You will get a notification as soon as the configuration has been completed.</source>
+          <target state="new">You will get a notification as soon as the configuration has been completed.</target>
+        </trans-unit>
+        <trans-unit id="99b9778f-ff31-4b7a-ac94-9421b4629270" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="8f5e6b4e-c0f5-45a4-a0c0-f96aadcfeed0">&lt;strong&gt;</bpt>Complete<ept id="8f5e6b4e-c0f5-45a4-a0c0-f96aadcfeed0">&lt;/strong&gt;</ept> to close the <bpt id="dad5043b-6ce0-4b36-85df-d4868af244a8">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="dad5043b-6ce0-4b36-85df-d4868af244a8">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="8f5e6b4e-c0f5-45a4-a0c0-f96aadcfeed0">&lt;strong&gt;</bpt>Complete<ept id="8f5e6b4e-c0f5-45a4-a0c0-f96aadcfeed0">&lt;/strong&gt;</ept> to close the <bpt id="dad5043b-6ce0-4b36-85df-d4868af244a8">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="dad5043b-6ce0-4b36-85df-d4868af244a8">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="5b9620a5-a8cc-49a8-b3fe-56f948524f32" xml:space="preserve">
+          <source><bpt id="ff436c42-7e48-4820-9206-00a7bc70904e">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="ff436c42-7e48-4820-9206-00a7bc70904e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff436c42-7e48-4820-9206-00a7bc70904e">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="ff436c42-7e48-4820-9206-00a7bc70904e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="adc254e4-0ca0-4e5a-b64d-21dc5a4a6dc0" xml:space="preserve">
+          <source>There is no action item for you to configure user provisioning to Abintegro.</source>
+          <target state="new">There is no action item for you to configure user provisioning to Abintegro.</target>
+        </trans-unit>
+        <trans-unit id="07ddc6f8-37b4-40ee-ac8e-8e50e7edbb99" xml:space="preserve">
+          <source>When an assigned user tries to log into Abintegro using the access panel, Abintegro checks whether the user exists.</source>
+          <target state="new">When an assigned user tries to log into Abintegro using the access panel, Abintegro checks whether the user exists.</target>
+        </trans-unit>
+        <trans-unit id="c2323885-ba8e-4e8b-a7f2-c8a31ede2174" xml:space="preserve">
+          <source>If there is no user account available yet, it is automatically created by Abintegro.</source>
+          <target state="new">If there is no user account available yet, it is automatically created by Abintegro.</target>
+        </trans-unit>
+        <trans-unit id="cd43aaee-c41f-4795-b912-9abf389c3291" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="7f9c32d3-2706-45cb-9384-a715c70d1320" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="317350bb-2cc8-4453-83c8-2e7695c3f7d2" xml:space="preserve">
+          <source>On the <bpt id="c8f42f7b-cb57-40ae-b51b-847fa69bcb76">&lt;strong&gt;</bpt>Abintegro **application integration page, click **Assign users<ept id="c8f42f7b-cb57-40ae-b51b-847fa69bcb76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c8f42f7b-cb57-40ae-b51b-847fa69bcb76">&lt;strong&gt;</bpt>Abintegro **application integration page, click **Assign users<ept id="c8f42f7b-cb57-40ae-b51b-847fa69bcb76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23060fe8-f497-4390-900a-08b930474623" xml:space="preserve">
+          <source><bpt id="d8527442-06a1-4ba0-a407-79056e24f566">&lt;linkText&gt;</bpt>Assign Users<ept id="d8527442-06a1-4ba0-a407-79056e24f566">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d8527442-06a1-4ba0-a407-79056e24f566">&lt;linkText&gt;</bpt>Assign Users<ept id="d8527442-06a1-4ba0-a407-79056e24f566">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8080a4d4-d250-4b79-b17c-7eaf016173fe" xml:space="preserve">
+          <source>Select your test user, click <bpt id="dc0ce230-2e8d-48d2-a6bd-3fe99b0255d1">&lt;strong&gt;</bpt>Assign<ept id="dc0ce230-2e8d-48d2-a6bd-3fe99b0255d1">&lt;/strong&gt;</ept>, and then click <bpt id="6414781f-5402-4be4-8cc2-c92aa8a65272">&lt;strong&gt;</bpt>Yes<ept id="6414781f-5402-4be4-8cc2-c92aa8a65272">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="dc0ce230-2e8d-48d2-a6bd-3fe99b0255d1">&lt;strong&gt;</bpt>Assign<ept id="dc0ce230-2e8d-48d2-a6bd-3fe99b0255d1">&lt;/strong&gt;</ept>, and then click <bpt id="6414781f-5402-4be4-8cc2-c92aa8a65272">&lt;strong&gt;</bpt>Yes<ept id="6414781f-5402-4be4-8cc2-c92aa8a65272">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="2f35c19e-6845-404f-9c83-c2b664f5516f" xml:space="preserve">
+          <source><bpt id="80ae3f42-9cb8-4367-ab91-1cca8a29ea41">&lt;linkText&gt;</bpt>Yes<ept id="80ae3f42-9cb8-4367-ab91-1cca8a29ea41">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="80ae3f42-9cb8-4367-ab91-1cca8a29ea41">&lt;linkText&gt;</bpt>Yes<ept id="80ae3f42-9cb8-4367-ab91-1cca8a29ea41">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="58463246-e8ce-487c-a6ff-6f283a700a8a" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="15a4430d-f430-4121-ac92-d47ff0257d10" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="a2e8f8eb-263c-444a-90b4-cca34d71dbe3">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="a2e8f8eb-263c-444a-90b4-cca34d71dbe3">&lt;/linkText&gt;</ept><bpt id="a2e8f8eb-263c-444a-90b4-cca34d71dbe3">&lt;title&gt;</bpt><ept id="a2e8f8eb-263c-444a-90b4-cca34d71dbe3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="a2e8f8eb-263c-444a-90b4-cca34d71dbe3">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="a2e8f8eb-263c-444a-90b4-cca34d71dbe3">&lt;/linkText&gt;</ept><bpt id="a2e8f8eb-263c-444a-90b4-cca34d71dbe3">&lt;title&gt;</bpt><ept id="a2e8f8eb-263c-444a-90b4-cca34d71dbe3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

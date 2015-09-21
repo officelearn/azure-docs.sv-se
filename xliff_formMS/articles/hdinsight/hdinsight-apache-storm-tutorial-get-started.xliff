@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cbe86aaa-1157-42e0-b433-a41bf7ab8a02" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cbe86aaa-1157-42e0-b433-a41bf7ab8a02" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6cbab99f-3929-48e8-be6f-a12809aed2ca">
+        <trans-unit id="8dd7e641-1d3d-4db9-bd9a-2aae52092605" xml:space="preserve">
+          <source>Apache Storm tutorial: Get started with Storm | Microsoft Azure</source>
+          <target state="new">Apache Storm tutorial: Get started with Storm | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1efb6d88-cd37-4b88-8746-c0f056f00d3c" xml:space="preserve">
+          <source>Get started with big data analytics using Apache Storm and the Storm Starter samples on HDInsight. Learn how to use Storm to process data real-time.</source>
+          <target state="new">Get started with big data analytics using Apache Storm and the Storm Starter samples on HDInsight. Learn how to use Storm to process data real-time.</target>
+        </trans-unit>
+        <trans-unit id="1f46b646-21bd-4952-994b-cf9cf24cb9f7" xml:space="preserve">
+          <source>Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data.</source>
+          <target state="new">Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data.</target>
+        </trans-unit>
+        <trans-unit id="d9883503-b53c-414f-affb-5c43d79326b9" xml:space="preserve">
+          <source>With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.</source>
+          <target state="new">With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.</target>
+        </trans-unit>
+        <trans-unit id="ecb6c131-412d-42e8-93bc-beea6a92ed7e" xml:space="preserve">
+          <source><bpt id="6fff46f1-b54d-42cb-a250-2bcde045f5d0">&lt;token href="../../includes/hdinsight-azure-preview-portal-nolink.md"&gt;</bpt><ept id="6fff46f1-b54d-42cb-a250-2bcde045f5d0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6fff46f1-b54d-42cb-a250-2bcde045f5d0">&lt;token href="../../includes/hdinsight-azure-preview-portal-nolink.md"&gt;</bpt><ept id="6fff46f1-b54d-42cb-a250-2bcde045f5d0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10663cdc-69a3-49b9-9d46-0ac17c760f25" xml:space="preserve">
+          <source>You must have the following to successfully complete this Apache Storm tutorial:</source>
+          <target state="new">You must have the following to successfully complete this Apache Storm tutorial:</target>
+        </trans-unit>
+        <trans-unit id="de45885e-dc87-4a77-90d0-cacbbdd34e1f" xml:space="preserve">
+          <source><bpt id="48743e9f-39d2-46e6-81e8-462603e10403">&lt;strong&gt;</bpt>An Azure subscription<ept id="48743e9f-39d2-46e6-81e8-462603e10403">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="48743e9f-39d2-46e6-81e8-462603e10403">&lt;strong&gt;</bpt>An Azure subscription<ept id="48743e9f-39d2-46e6-81e8-462603e10403">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2c44b96-a9d2-41b9-8b19-cdcd3dd9ab54" xml:space="preserve">
+          <source>See <bpt id="b7dc20cb-2f1f-4297-ba23-e0de4f29a463">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="b7dc20cb-2f1f-4297-ba23-e0de4f29a463">&lt;/linkText&gt;</ept><bpt id="b7dc20cb-2f1f-4297-ba23-e0de4f29a463">&lt;title&gt;</bpt><ept id="b7dc20cb-2f1f-4297-ba23-e0de4f29a463">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="b7dc20cb-2f1f-4297-ba23-e0de4f29a463">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="b7dc20cb-2f1f-4297-ba23-e0de4f29a463">&lt;/linkText&gt;</ept><bpt id="b7dc20cb-2f1f-4297-ba23-e0de4f29a463">&lt;title&gt;</bpt><ept id="b7dc20cb-2f1f-4297-ba23-e0de4f29a463">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="797f1909-14c0-4afb-a42c-0b80edc1d524" xml:space="preserve">
+          <source>Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster.</source>
+          <target state="new">Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster.</target>
+        </trans-unit>
+        <trans-unit id="f83b2a8b-928a-4e3c-8c0e-58698ea052d2" xml:space="preserve">
+          <source>Use the following steps to create an Azure Storage account for use with your cluster:</source>
+          <target state="new">Use the following steps to create an Azure Storage account for use with your cluster:</target>
+        </trans-unit>
+        <trans-unit id="3d5033c8-4376-41d5-9f4f-1b53d49c5447" xml:space="preserve">
+          <source>Sign in to the <bpt id="76103385-1386-409b-a23c-0e1870bb4dc8">&lt;linkText&gt;</bpt>Azure Preview Portal[preview-portal]<ept id="76103385-1386-409b-a23c-0e1870bb4dc8">&lt;/linkText&gt;</ept><bpt id="76103385-1386-409b-a23c-0e1870bb4dc8">&lt;title&gt;</bpt><ept id="76103385-1386-409b-a23c-0e1870bb4dc8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="76103385-1386-409b-a23c-0e1870bb4dc8">&lt;linkText&gt;</bpt>Azure Preview Portal[preview-portal]<ept id="76103385-1386-409b-a23c-0e1870bb4dc8">&lt;/linkText&gt;</ept><bpt id="76103385-1386-409b-a23c-0e1870bb4dc8">&lt;title&gt;</bpt><ept id="76103385-1386-409b-a23c-0e1870bb4dc8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3cd4ba5d-88ec-4d4a-b570-77660b923c44" xml:space="preserve">
+          <source>Select <bpt id="273a9e5b-42e3-4015-af14-2d736682cfec">&lt;strong&gt;</bpt>NEW<ept id="273a9e5b-42e3-4015-af14-2d736682cfec">&lt;/strong&gt;</ept>, select <bpt id="38daff5c-a50c-4b0e-988a-566b1902af39">&lt;strong&gt;</bpt>Data Analytics<ept id="38daff5c-a50c-4b0e-988a-566b1902af39">&lt;/strong&gt;</ept>, and then select <bpt id="f86bf89f-fda8-4f40-8ae7-eaa60da92095">&lt;strong&gt;</bpt>HDInsight<ept id="f86bf89f-fda8-4f40-8ae7-eaa60da92095">&lt;/strong&gt;</ept></source>
+          <target state="new">Select <bpt id="273a9e5b-42e3-4015-af14-2d736682cfec">&lt;strong&gt;</bpt>NEW<ept id="273a9e5b-42e3-4015-af14-2d736682cfec">&lt;/strong&gt;</ept>, select <bpt id="38daff5c-a50c-4b0e-988a-566b1902af39">&lt;strong&gt;</bpt>Data Analytics<ept id="38daff5c-a50c-4b0e-988a-566b1902af39">&lt;/strong&gt;</ept>, and then select <bpt id="f86bf89f-fda8-4f40-8ae7-eaa60da92095">&lt;strong&gt;</bpt>HDInsight<ept id="f86bf89f-fda8-4f40-8ae7-eaa60da92095">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4636ce3b-3cb7-4ec4-af2e-64c2dcc38463" xml:space="preserve">
+          <source><bpt id="1f9f9b70-43cf-4e0a-bbbe-c952f65fcb15">&lt;linkText&gt;</bpt>Creating a new cluster in the Azure Preview Portal<ept id="1f9f9b70-43cf-4e0a-bbbe-c952f65fcb15">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1f9f9b70-43cf-4e0a-bbbe-c952f65fcb15">&lt;linkText&gt;</bpt>Creating a new cluster in the Azure Preview Portal<ept id="1f9f9b70-43cf-4e0a-bbbe-c952f65fcb15">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f011de26-3e6b-4533-a065-153c95483d21" xml:space="preserve">
+          <source>Enter a <bpt id="aacb03e4-48c8-4159-8576-c78cd6c12637">&lt;strong&gt;</bpt>Cluster Name<ept id="aacb03e4-48c8-4159-8576-c78cd6c12637">&lt;/strong&gt;</ept>, then select <bpt id="ec9df960-f41b-4748-a27a-0d5a3eec465c">&lt;strong&gt;</bpt>Storm<ept id="ec9df960-f41b-4748-a27a-0d5a3eec465c">&lt;/strong&gt;</ept> for the <bpt id="6240ae1d-975c-480c-bb83-1381e87ef629">&lt;strong&gt;</bpt>Cluster Type<ept id="6240ae1d-975c-480c-bb83-1381e87ef629">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a <bpt id="aacb03e4-48c8-4159-8576-c78cd6c12637">&lt;strong&gt;</bpt>Cluster Name<ept id="aacb03e4-48c8-4159-8576-c78cd6c12637">&lt;/strong&gt;</ept>, then select <bpt id="ec9df960-f41b-4748-a27a-0d5a3eec465c">&lt;strong&gt;</bpt>Storm<ept id="ec9df960-f41b-4748-a27a-0d5a3eec465c">&lt;/strong&gt;</ept> for the <bpt id="6240ae1d-975c-480c-bb83-1381e87ef629">&lt;strong&gt;</bpt>Cluster Type<ept id="6240ae1d-975c-480c-bb83-1381e87ef629">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a56d5190-1d5f-44dc-8952-ad96d2f5057f" xml:space="preserve">
+          <source>A green check will appear beside the <bpt id="d68bb413-20ea-4275-bf2c-792c1bb4116a">&lt;strong&gt;</bpt>Cluster Name<ept id="d68bb413-20ea-4275-bf2c-792c1bb4116a">&lt;/strong&gt;</ept> if it is available.</source>
+          <target state="new">A green check will appear beside the <bpt id="d68bb413-20ea-4275-bf2c-792c1bb4116a">&lt;strong&gt;</bpt>Cluster Name<ept id="d68bb413-20ea-4275-bf2c-792c1bb4116a">&lt;/strong&gt;</ept> if it is available.</target>
+        </trans-unit>
+        <trans-unit id="2cdc5b50-f298-48c3-b720-c56a248b1417" xml:space="preserve">
+          <source><bpt id="92f0eabb-eb67-4da3-8b83-e6ec5490d882">&lt;linkText&gt;</bpt>Cluster name, cluster type, and OS Type<ept id="92f0eabb-eb67-4da3-8b83-e6ec5490d882">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="92f0eabb-eb67-4da3-8b83-e6ec5490d882">&lt;linkText&gt;</bpt>Cluster name, cluster type, and OS Type<ept id="92f0eabb-eb67-4da3-8b83-e6ec5490d882">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65ca24a3-4dae-41f7-9f24-ac965ec49624" xml:space="preserve">
+          <source>If you have more than one subscription, select the <bpt id="6a456381-fb70-44a4-9331-a6d18c5b0464">&lt;strong&gt;</bpt>Subscription<ept id="6a456381-fb70-44a4-9331-a6d18c5b0464">&lt;/strong&gt;</ept> entry to select the Azure subscription that will be used for the cluster.</source>
+          <target state="new">If you have more than one subscription, select the <bpt id="6a456381-fb70-44a4-9331-a6d18c5b0464">&lt;strong&gt;</bpt>Subscription<ept id="6a456381-fb70-44a4-9331-a6d18c5b0464">&lt;/strong&gt;</ept> entry to select the Azure subscription that will be used for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="31c02327-d6fd-464b-927a-9a259d945249" xml:space="preserve">
+          <source>For <bpt id="ef238244-69a0-48bb-9955-39efc731ee12">&lt;strong&gt;</bpt>Resource Group<ept id="ef238244-69a0-48bb-9955-39efc731ee12">&lt;/strong&gt;</ept>, you can select the entry to see a list of existing resource groups and then select the one to create the cluster in.</source>
+          <target state="new">For <bpt id="ef238244-69a0-48bb-9955-39efc731ee12">&lt;strong&gt;</bpt>Resource Group<ept id="ef238244-69a0-48bb-9955-39efc731ee12">&lt;/strong&gt;</ept>, you can select the entry to see a list of existing resource groups and then select the one to create the cluster in.</target>
+        </trans-unit>
+        <trans-unit id="123b0a36-4d5a-4f28-95f9-01b35c4e55c9" xml:space="preserve">
+          <source>Or you can select <bpt id="33717a76-396f-4aa7-9e2d-b8c8fc1978e8">&lt;strong&gt;</bpt>Create New<ept id="33717a76-396f-4aa7-9e2d-b8c8fc1978e8">&lt;/strong&gt;</ept> and then enter the name of the new resource group.</source>
+          <target state="new">Or you can select <bpt id="33717a76-396f-4aa7-9e2d-b8c8fc1978e8">&lt;strong&gt;</bpt>Create New<ept id="33717a76-396f-4aa7-9e2d-b8c8fc1978e8">&lt;/strong&gt;</ept> and then enter the name of the new resource group.</target>
+        </trans-unit>
+        <trans-unit id="d5d19103-d56c-4db3-98e4-f51e108fa05a" xml:space="preserve">
+          <source>A green check will appear to indicate if the new group name is available.</source>
+          <target state="new">A green check will appear to indicate if the new group name is available.</target>
+        </trans-unit>
+        <trans-unit id="f1a60375-3aff-4473-ab19-f58529059550" xml:space="preserve">
+          <source>This entry will default to one of your existing resource groups, if any are available.</source>
+          <target state="new">This entry will default to one of your existing resource groups, if any are available.</target>
+        </trans-unit>
+        <trans-unit id="41073d0f-bc0e-4055-9e57-6cf3ebc222f8" xml:space="preserve">
+          <source>Select <bpt id="33e76806-84e6-4ab4-aa45-76ee7cf593fd">&lt;strong&gt;</bpt>Credentials<ept id="33e76806-84e6-4ab4-aa45-76ee7cf593fd">&lt;/strong&gt;</ept>, then enter a <bpt id="26b2d7ef-de10-4802-8593-ce9978c09140">&lt;strong&gt;</bpt>Cluster Login Username<ept id="26b2d7ef-de10-4802-8593-ce9978c09140">&lt;/strong&gt;</ept> and <bpt id="a568b033-0719-469d-8638-93dcf1c75d3d">&lt;strong&gt;</bpt>Cluster Login Password<ept id="a568b033-0719-469d-8638-93dcf1c75d3d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="33e76806-84e6-4ab4-aa45-76ee7cf593fd">&lt;strong&gt;</bpt>Credentials<ept id="33e76806-84e6-4ab4-aa45-76ee7cf593fd">&lt;/strong&gt;</ept>, then enter a <bpt id="26b2d7ef-de10-4802-8593-ce9978c09140">&lt;strong&gt;</bpt>Cluster Login Username<ept id="26b2d7ef-de10-4802-8593-ce9978c09140">&lt;/strong&gt;</ept> and <bpt id="a568b033-0719-469d-8638-93dcf1c75d3d">&lt;strong&gt;</bpt>Cluster Login Password<ept id="a568b033-0719-469d-8638-93dcf1c75d3d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ee08d90-a84f-41f1-a8e6-4be2a6155475" xml:space="preserve">
+          <source>Finally, use the <bpt id="0ef2f6c4-9ce9-4ec2-b5b1-cf89973b58fb">&lt;strong&gt;</bpt>Select<ept id="0ef2f6c4-9ce9-4ec2-b5b1-cf89973b58fb">&lt;/strong&gt;</ept> button to set the credentials.</source>
+          <target state="new">Finally, use the <bpt id="0ef2f6c4-9ce9-4ec2-b5b1-cf89973b58fb">&lt;strong&gt;</bpt>Select<ept id="0ef2f6c4-9ce9-4ec2-b5b1-cf89973b58fb">&lt;/strong&gt;</ept> button to set the credentials.</target>
+        </trans-unit>
+        <trans-unit id="14ae8b8b-2872-48fe-93ae-9adfb9651da1" xml:space="preserve">
+          <source>Remote desktop will not be used in this document, so you can leave it disabled.</source>
+          <target state="new">Remote desktop will not be used in this document, so you can leave it disabled.</target>
+        </trans-unit>
+        <trans-unit id="109f4769-ba67-447a-ad3c-97968fdb07a6" xml:space="preserve">
+          <source><bpt id="5d6b92a9-ed87-4493-bc10-5bc06ae303b2">&lt;linkText&gt;</bpt>Cluster credentials blade<ept id="5d6b92a9-ed87-4493-bc10-5bc06ae303b2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5d6b92a9-ed87-4493-bc10-5bc06ae303b2">&lt;linkText&gt;</bpt>Cluster credentials blade<ept id="5d6b92a9-ed87-4493-bc10-5bc06ae303b2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="498d396b-37ea-4439-82f1-5c0ba7711ec2" xml:space="preserve">
+          <source>For <bpt id="c89c8be9-fedf-4113-a6b8-525c680654a8">&lt;strong&gt;</bpt>Data Source<ept id="c89c8be9-fedf-4113-a6b8-525c680654a8">&lt;/strong&gt;</ept>, you can select the entry to choose an existing data source, or create a new one.</source>
+          <target state="new">For <bpt id="c89c8be9-fedf-4113-a6b8-525c680654a8">&lt;strong&gt;</bpt>Data Source<ept id="c89c8be9-fedf-4113-a6b8-525c680654a8">&lt;/strong&gt;</ept>, you can select the entry to choose an existing data source, or create a new one.</target>
+        </trans-unit>
+        <trans-unit id="ad0893a8-9b6a-45df-a7f6-8c5d465c58c8" xml:space="preserve">
+          <source><bpt id="7fba45b1-4479-436f-92bf-64149e4197da">&lt;linkText&gt;</bpt>Data source blade<ept id="7fba45b1-4479-436f-92bf-64149e4197da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7fba45b1-4479-436f-92bf-64149e4197da">&lt;linkText&gt;</bpt>Data source blade<ept id="7fba45b1-4479-436f-92bf-64149e4197da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c78a2f96-63b6-4623-be2a-ed0afe4a544a" xml:space="preserve">
+          <source>Currently you can select an Azure Storage Account as the data source for an HDInsight cluster.</source>
+          <target state="new">Currently you can select an Azure Storage Account as the data source for an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="efd1413d-8b4e-47e8-94b6-d34390709b62" xml:space="preserve">
+          <source>Use the following to understand the entries on the <bpt id="5c165c5b-feeb-444d-9a14-8ae545b5a966">&lt;strong&gt;</bpt>Data Source<ept id="5c165c5b-feeb-444d-9a14-8ae545b5a966">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Use the following to understand the entries on the <bpt id="5c165c5b-feeb-444d-9a14-8ae545b5a966">&lt;strong&gt;</bpt>Data Source<ept id="5c165c5b-feeb-444d-9a14-8ae545b5a966">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="3ac6e47b-a529-4eaf-8423-68fafdbced64" xml:space="preserve">
+          <source><bpt id="92eed71b-91f9-46be-8dfa-df1ef22d2f39">&lt;strong&gt;</bpt>Selection Method<ept id="92eed71b-91f9-46be-8dfa-df1ef22d2f39">&lt;/strong&gt;</ept>: Set this to <bpt id="7a845220-f14a-4061-95e5-8b88fbc0dccd">&lt;strong&gt;</bpt>From all subscriptions<ept id="7a845220-f14a-4061-95e5-8b88fbc0dccd">&lt;/strong&gt;</ept> to enable browsing of storage accounts on your subscriptions.</source>
+          <target state="new"><bpt id="92eed71b-91f9-46be-8dfa-df1ef22d2f39">&lt;strong&gt;</bpt>Selection Method<ept id="92eed71b-91f9-46be-8dfa-df1ef22d2f39">&lt;/strong&gt;</ept>: Set this to <bpt id="7a845220-f14a-4061-95e5-8b88fbc0dccd">&lt;strong&gt;</bpt>From all subscriptions<ept id="7a845220-f14a-4061-95e5-8b88fbc0dccd">&lt;/strong&gt;</ept> to enable browsing of storage accounts on your subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="3940a65a-dbe8-48f9-9bb9-d12f1aa2e221" xml:space="preserve">
+          <source>Set to <bpt id="73e87487-13fa-46c2-8d54-0e95a7f348e4">&lt;strong&gt;</bpt>Access Key<ept id="73e87487-13fa-46c2-8d54-0e95a7f348e4">&lt;/strong&gt;</ept> if you want to enter the <bpt id="03c2af01-5827-4ce6-9ba5-96a153ba2b49">&lt;strong&gt;</bpt>Storage Name<ept id="03c2af01-5827-4ce6-9ba5-96a153ba2b49">&lt;/strong&gt;</ept> and <bpt id="27dc17f3-dd19-469a-986d-aeb605e0e221">&lt;strong&gt;</bpt>Access Key<ept id="27dc17f3-dd19-469a-986d-aeb605e0e221">&lt;/strong&gt;</ept> of an existing storage account.</source>
+          <target state="new">Set to <bpt id="73e87487-13fa-46c2-8d54-0e95a7f348e4">&lt;strong&gt;</bpt>Access Key<ept id="73e87487-13fa-46c2-8d54-0e95a7f348e4">&lt;/strong&gt;</ept> if you want to enter the <bpt id="03c2af01-5827-4ce6-9ba5-96a153ba2b49">&lt;strong&gt;</bpt>Storage Name<ept id="03c2af01-5827-4ce6-9ba5-96a153ba2b49">&lt;/strong&gt;</ept> and <bpt id="27dc17f3-dd19-469a-986d-aeb605e0e221">&lt;strong&gt;</bpt>Access Key<ept id="27dc17f3-dd19-469a-986d-aeb605e0e221">&lt;/strong&gt;</ept> of an existing storage account.</target>
+        </trans-unit>
+        <trans-unit id="3d3a10ab-0774-4a64-baf0-9a89a917fcba" xml:space="preserve">
+          <source><bpt id="dac02630-0a0c-46af-adf2-1eced0cc41d2">&lt;strong&gt;</bpt>Create New<ept id="dac02630-0a0c-46af-adf2-1eced0cc41d2">&lt;/strong&gt;</ept>: Use this to create a new storage account.</source>
+          <target state="new"><bpt id="dac02630-0a0c-46af-adf2-1eced0cc41d2">&lt;strong&gt;</bpt>Create New<ept id="dac02630-0a0c-46af-adf2-1eced0cc41d2">&lt;/strong&gt;</ept>: Use this to create a new storage account.</target>
+        </trans-unit>
+        <trans-unit id="cdf0df82-01f5-4e77-ab91-8ac3d6491970" xml:space="preserve">
+          <source>Use the field that appears to enter the name of the storage account.</source>
+          <target state="new">Use the field that appears to enter the name of the storage account.</target>
+        </trans-unit>
+        <trans-unit id="f505e4d4-37ad-4ae2-b8ca-b184a4873e5b" xml:space="preserve">
+          <source>A green check will appear if the name is available.</source>
+          <target state="new">A green check will appear if the name is available.</target>
+        </trans-unit>
+        <trans-unit id="fd09adf2-f2d1-4aea-8887-1bba04128d8b" xml:space="preserve">
+          <source><bpt id="92e587e9-03ca-4abc-ab20-4408b0f8cab4">&lt;strong&gt;</bpt>Choose Default Container<ept id="92e587e9-03ca-4abc-ab20-4408b0f8cab4">&lt;/strong&gt;</ept>: Use this to enter the name of the default container to use for the cluster.</source>
+          <target state="new"><bpt id="92e587e9-03ca-4abc-ab20-4408b0f8cab4">&lt;strong&gt;</bpt>Choose Default Container<ept id="92e587e9-03ca-4abc-ab20-4408b0f8cab4">&lt;/strong&gt;</ept>: Use this to enter the name of the default container to use for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="f70ea793-609c-42e8-98c9-f9e9581fae17" xml:space="preserve">
+          <source>While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.</source>
+          <target state="new">While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.</target>
+        </trans-unit>
+        <trans-unit id="a728e311-b898-4199-bbb4-09ecbedd006b" xml:space="preserve">
+          <source><bpt id="48118185-9c1d-4423-b673-b30cf14348f2">&lt;strong&gt;</bpt>Location<ept id="48118185-9c1d-4423-b673-b30cf14348f2">&lt;/strong&gt;</ept>: The geographic region that the storage account will be is in, or will be created in.</source>
+          <target state="new"><bpt id="48118185-9c1d-4423-b673-b30cf14348f2">&lt;strong&gt;</bpt>Location<ept id="48118185-9c1d-4423-b673-b30cf14348f2">&lt;/strong&gt;</ept>: The geographic region that the storage account will be is in, or will be created in.</target>
+        </trans-unit>
+        <trans-unit id="94f19278-e11a-4a7e-aba5-ea20059e4c60" xml:space="preserve">
+          <source>Selecting the location for the default data source will also set the location of the HDInsight cluster.</source>
+          <target state="new">Selecting the location for the default data source will also set the location of the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="ddd5f1f3-3ec5-47ff-a4d1-25849dbd5c23" xml:space="preserve">
+          <source>The cluster and default data source must be located in the same region.</source>
+          <target state="new">The cluster and default data source must be located in the same region.</target>
+        </trans-unit>
+        <trans-unit id="8a8bcd5c-5646-491e-af3b-c111bebb27c8" xml:space="preserve">
+          <source><bpt id="8570fdaf-7f79-4eff-8d4a-725f59f3d668">&lt;strong&gt;</bpt>Select<ept id="8570fdaf-7f79-4eff-8d4a-725f59f3d668">&lt;/strong&gt;</ept>: Use this to save the data source configuration.</source>
+          <target state="new"><bpt id="8570fdaf-7f79-4eff-8d4a-725f59f3d668">&lt;strong&gt;</bpt>Select<ept id="8570fdaf-7f79-4eff-8d4a-725f59f3d668">&lt;/strong&gt;</ept>: Use this to save the data source configuration.</target>
+        </trans-unit>
+        <trans-unit id="220df478-4ba7-4bb1-85e0-0b5bee0b5f0d" xml:space="preserve">
+          <source>Select <bpt id="7705b13c-0a4c-4712-b97f-76b85c2a6579">&lt;strong&gt;</bpt>Node Pricing Tiers<ept id="7705b13c-0a4c-4712-b97f-76b85c2a6579">&lt;/strong&gt;</ept> to display information about the nodes that will be created for this cluster.</source>
+          <target state="new">Select <bpt id="7705b13c-0a4c-4712-b97f-76b85c2a6579">&lt;strong&gt;</bpt>Node Pricing Tiers<ept id="7705b13c-0a4c-4712-b97f-76b85c2a6579">&lt;/strong&gt;</ept> to display information about the nodes that will be created for this cluster.</target>
+        </trans-unit>
+        <trans-unit id="48991ded-1cd8-47e5-82fb-2c4308e007a3" xml:space="preserve">
+          <source>By default, the number of worker nodes will be set to <bpt id="f48e3711-1576-452b-8eab-1de8888c92a4">&lt;strong&gt;</bpt>4<ept id="f48e3711-1576-452b-8eab-1de8888c92a4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">By default, the number of worker nodes will be set to <bpt id="f48e3711-1576-452b-8eab-1de8888c92a4">&lt;strong&gt;</bpt>4<ept id="f48e3711-1576-452b-8eab-1de8888c92a4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dad30717-18f9-4efa-a328-a256faf63453" xml:space="preserve">
+          <source>Set this to <bpt id="d1d8e8b1-0e75-4456-9217-c6ae896a594d">&lt;strong&gt;</bpt>1<ept id="d1d8e8b1-0e75-4456-9217-c6ae896a594d">&lt;/strong&gt;</ept>, as this will be sufficient for this tutorial and will reduce the cost of the cluster.</source>
+          <target state="new">Set this to <bpt id="d1d8e8b1-0e75-4456-9217-c6ae896a594d">&lt;strong&gt;</bpt>1<ept id="d1d8e8b1-0e75-4456-9217-c6ae896a594d">&lt;/strong&gt;</ept>, as this will be sufficient for this tutorial and will reduce the cost of the cluster.</target>
+        </trans-unit>
+        <trans-unit id="d2534b3e-dc58-4e32-b86f-895277e9d476" xml:space="preserve">
+          <source>The estimated cost of the cluster will be shown at the bottom of this blade.</source>
+          <target state="new">The estimated cost of the cluster will be shown at the bottom of this blade.</target>
+        </trans-unit>
+        <trans-unit id="adb0af70-94dc-42e9-9f45-022972124dde" xml:space="preserve">
+          <source><bpt id="ee5f50c3-ce29-4190-b9db-21b3b2052b31">&lt;linkText&gt;</bpt>Node pricing tiers blade<ept id="ee5f50c3-ce29-4190-b9db-21b3b2052b31">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ee5f50c3-ce29-4190-b9db-21b3b2052b31">&lt;linkText&gt;</bpt>Node pricing tiers blade<ept id="ee5f50c3-ce29-4190-b9db-21b3b2052b31">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="251e7ee5-6893-4bbf-9644-c5864f90c835" xml:space="preserve">
+          <source>Use the <bpt id="b9608d45-3408-4b81-a49b-f7c7b103b23c">&lt;strong&gt;</bpt>Select<ept id="b9608d45-3408-4b81-a49b-f7c7b103b23c">&lt;/strong&gt;</ept> button to save the <bpt id="bbef8590-39cb-4696-8c48-6354fddf2473">&lt;strong&gt;</bpt>Node Pricing Tiers<ept id="bbef8590-39cb-4696-8c48-6354fddf2473">&lt;/strong&gt;</ept> information.</source>
+          <target state="new">Use the <bpt id="b9608d45-3408-4b81-a49b-f7c7b103b23c">&lt;strong&gt;</bpt>Select<ept id="b9608d45-3408-4b81-a49b-f7c7b103b23c">&lt;/strong&gt;</ept> button to save the <bpt id="bbef8590-39cb-4696-8c48-6354fddf2473">&lt;strong&gt;</bpt>Node Pricing Tiers<ept id="bbef8590-39cb-4696-8c48-6354fddf2473">&lt;/strong&gt;</ept> information.</target>
+        </trans-unit>
+        <trans-unit id="f2dfcbe5-ab69-4f25-b670-6517b4436a51" xml:space="preserve">
+          <source>Select <bpt id="39948eb8-277c-43cd-98e5-189662095c15">&lt;strong&gt;</bpt>Optional Configuration<ept id="39948eb8-277c-43cd-98e5-189662095c15">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="39948eb8-277c-43cd-98e5-189662095c15">&lt;strong&gt;</bpt>Optional Configuration<ept id="39948eb8-277c-43cd-98e5-189662095c15">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dac6b155-2795-4aa9-8597-e8bf16f748d2" xml:space="preserve">
+          <source>This blade allows you to select the cluster version, as well as configure other optional settings such as joining a <bpt id="1a75a92f-c6c2-44cd-bd6e-8629998c5d9a">&lt;strong&gt;</bpt>Virtual Network<ept id="1a75a92f-c6c2-44cd-bd6e-8629998c5d9a">&lt;/strong&gt;</ept> or setting up an <bpt id="862e3703-c431-4571-8701-e1341429f270">&lt;strong&gt;</bpt>External Metastore<ept id="862e3703-c431-4571-8701-e1341429f270">&lt;/strong&gt;</ept> to hold data for Hive and Oozie.</source>
+          <target state="new">This blade allows you to select the cluster version, as well as configure other optional settings such as joining a <bpt id="1a75a92f-c6c2-44cd-bd6e-8629998c5d9a">&lt;strong&gt;</bpt>Virtual Network<ept id="1a75a92f-c6c2-44cd-bd6e-8629998c5d9a">&lt;/strong&gt;</ept> or setting up an <bpt id="862e3703-c431-4571-8701-e1341429f270">&lt;strong&gt;</bpt>External Metastore<ept id="862e3703-c431-4571-8701-e1341429f270">&lt;/strong&gt;</ept> to hold data for Hive and Oozie.</target>
+        </trans-unit>
+        <trans-unit id="b762b191-da24-403f-9833-9f9d619150af" xml:space="preserve">
+          <source><bpt id="7db81c4a-c3a5-4952-b016-ab78ed747e2a">&lt;linkText&gt;</bpt>Optional configuration blade<ept id="7db81c4a-c3a5-4952-b016-ab78ed747e2a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7db81c4a-c3a5-4952-b016-ab78ed747e2a">&lt;linkText&gt;</bpt>Optional configuration blade<ept id="7db81c4a-c3a5-4952-b016-ab78ed747e2a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07c33efd-6bb0-44d3-8aac-33fa0e7b98f0" xml:space="preserve">
+          <source>Ensure that <bpt id="1ae508ff-1e50-4091-ab67-a375ef52304b">&lt;strong&gt;</bpt>Pin to Startboard<ept id="1ae508ff-1e50-4091-ab67-a375ef52304b">&lt;/strong&gt;</ept> is selected, and then select <bpt id="6561c15d-14ea-45c7-8e2f-0115c28cc44f">&lt;strong&gt;</bpt>Create<ept id="6561c15d-14ea-45c7-8e2f-0115c28cc44f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Ensure that <bpt id="1ae508ff-1e50-4091-ab67-a375ef52304b">&lt;strong&gt;</bpt>Pin to Startboard<ept id="1ae508ff-1e50-4091-ab67-a375ef52304b">&lt;/strong&gt;</ept> is selected, and then select <bpt id="6561c15d-14ea-45c7-8e2f-0115c28cc44f">&lt;strong&gt;</bpt>Create<ept id="6561c15d-14ea-45c7-8e2f-0115c28cc44f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d7cac0b-ac0e-4190-8b44-4f59d7836e71" xml:space="preserve">
+          <source>This will create the cluster and add a tile for it to the Startboard of your Azure Portal.</source>
+          <target state="new">This will create the cluster and add a tile for it to the Startboard of your Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="72355044-f83b-4e19-9e43-feed081152ea" xml:space="preserve">
+          <source>The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.</source>
+          <target state="new">The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.</target>
+        </trans-unit>
+        <trans-unit id="07466373-205f-4425-9ce4-c52f738b36db" xml:space="preserve">
+          <source>| While provisioning | Provisioning complete |
+| ------------------ | --------------------- |
+| <bpt id="1fc9e397-043c-454a-b90b-d55d7e7cd3b3">&lt;linkText&gt;</bpt>Provisioning indicator on startboard<ept id="1fc9e397-043c-454a-b90b-d55d7e7cd3b3">&lt;/linkText&gt;</ept> | <bpt id="0afe62ef-2329-47f3-bf03-c4272719ed96">&lt;linkText&gt;</bpt>Provisioned cluster tile<ept id="0afe62ef-2329-47f3-bf03-c4272719ed96">&lt;/linkText&gt;</ept> |</source>
+          <target state="new">| While provisioning | Provisioning complete |
+| ------------------ | --------------------- |
+| <bpt id="1fc9e397-043c-454a-b90b-d55d7e7cd3b3">&lt;linkText&gt;</bpt>Provisioning indicator on startboard<ept id="1fc9e397-043c-454a-b90b-d55d7e7cd3b3">&lt;/linkText&gt;</ept> | <bpt id="0afe62ef-2329-47f3-bf03-c4272719ed96">&lt;linkText&gt;</bpt>Provisioned cluster tile<ept id="0afe62ef-2329-47f3-bf03-c4272719ed96">&lt;/linkText&gt;</ept> |</target>
+        </trans-unit>
+        <trans-unit id="3457c657-f268-4229-ba36-8de1d6929fc6" xml:space="preserve">
+          <source>It will take some time for the cluster to be created, usually around 15 minutes.</source>
+          <target state="new">It will take some time for the cluster to be created, usually around 15 minutes.</target>
+        </trans-unit>
+        <trans-unit id="4107b490-7e53-45fc-a209-c9350626c327" xml:space="preserve">
+          <source>Use the tile on the Startboard, or the <bpt id="7fa3e1f0-36e8-4c49-a4d6-e0555add444a">&lt;strong&gt;</bpt>Notifications<ept id="7fa3e1f0-36e8-4c49-a4d6-e0555add444a">&lt;/strong&gt;</ept> entry on the left of the page to check on the provisioning process.</source>
+          <target state="new">Use the tile on the Startboard, or the <bpt id="7fa3e1f0-36e8-4c49-a4d6-e0555add444a">&lt;strong&gt;</bpt>Notifications<ept id="7fa3e1f0-36e8-4c49-a4d6-e0555add444a">&lt;/strong&gt;</ept> entry on the left of the page to check on the provisioning process.</target>
+        </trans-unit>
+        <trans-unit id="5a75afbb-1521-4a4e-86cf-783a86e0dcd5" xml:space="preserve">
+          <source>This Apache Storm tutorial introduces you to big data analytics using the Storm Starter samples on GitHub.</source>
+          <target state="new">This Apache Storm tutorial introduces you to big data analytics using the Storm Starter samples on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="57714377-bc88-4c7b-8305-bf1f8ce9e608" xml:space="preserve">
+          <source>Each Storm on HDInsight cluster comes with the Storm Dashboard, which can be used to upload and run Storm topologies on the cluster.</source>
+          <target state="new">Each Storm on HDInsight cluster comes with the Storm Dashboard, which can be used to upload and run Storm topologies on the cluster.</target>
+        </trans-unit>
+        <trans-unit id="0163bddd-94c6-4c6e-b789-7ba544843092" xml:space="preserve">
+          <source>Each cluster also comes with sample topologies that can be run directly from the Storm Dashboard.</source>
+          <target state="new">Each cluster also comes with sample topologies that can be run directly from the Storm Dashboard.</target>
+        </trans-unit>
+        <trans-unit id="4280d2fe-e480-4c2c-96d4-aba9abb045ad" xml:space="preserve">
+          <source>The dashboard is located at <bpt id="e7071191-6aa5-4cac-9117-5c998cc680b3">&lt;strong&gt;</bpt>https://&amp;lt;clustername&gt;.azurehdinsight.net//<ept id="e7071191-6aa5-4cac-9117-5c998cc680b3">&lt;/strong&gt;</ept>, where <bpt id="59a32a75-5bab-4a24-a96c-991b5456afd0">&lt;strong&gt;</bpt>clustername<ept id="59a32a75-5bab-4a24-a96c-991b5456afd0">&lt;/strong&gt;</ept> is the name of the cluster.</source>
+          <target state="new">The dashboard is located at <bpt id="e7071191-6aa5-4cac-9117-5c998cc680b3">&lt;strong&gt;</bpt>https://&amp;lt;clustername&gt;.azurehdinsight.net//<ept id="e7071191-6aa5-4cac-9117-5c998cc680b3">&lt;/strong&gt;</ept>, where <bpt id="59a32a75-5bab-4a24-a96c-991b5456afd0">&lt;strong&gt;</bpt>clustername<ept id="59a32a75-5bab-4a24-a96c-991b5456afd0">&lt;/strong&gt;</ept> is the name of the cluster.</target>
+        </trans-unit>
+        <trans-unit id="c7202b08-477d-46eb-895f-b9d9dd87210a" xml:space="preserve">
+          <source>You can also find a link to the dashboard by selecting the cluster from the Startboard and selecting the <bpt id="3b1678ce-4487-4cc0-b0ca-e4a5c93cf5c9">&lt;strong&gt;</bpt>Dashboard<ept id="3b1678ce-4487-4cc0-b0ca-e4a5c93cf5c9">&lt;/strong&gt;</ept> link at the top of the blade.</source>
+          <target state="new">You can also find a link to the dashboard by selecting the cluster from the Startboard and selecting the <bpt id="3b1678ce-4487-4cc0-b0ca-e4a5c93cf5c9">&lt;strong&gt;</bpt>Dashboard<ept id="3b1678ce-4487-4cc0-b0ca-e4a5c93cf5c9">&lt;/strong&gt;</ept> link at the top of the blade.</target>
+        </trans-unit>
+        <trans-unit id="c7d7cfeb-6a15-495d-bf7a-cf78b0a773b9" xml:space="preserve">
+          <source><bpt id="982f3685-d1ff-4bde-95ba-c04a1e2ac099">&lt;linkText&gt;</bpt>Azure portal with Storm Dashboard link<ept id="982f3685-d1ff-4bde-95ba-c04a1e2ac099">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="982f3685-d1ff-4bde-95ba-c04a1e2ac099">&lt;linkText&gt;</bpt>Azure portal with Storm Dashboard link<ept id="982f3685-d1ff-4bde-95ba-c04a1e2ac099">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8092d1e-fd96-484e-9d45-e58e54e9748b" xml:space="preserve">
+          <source>When connecting to the dashboard, you will be prompted to enter a user name and password.</source>
+          <target state="new">When connecting to the dashboard, you will be prompted to enter a user name and password.</target>
+        </trans-unit>
+        <trans-unit id="2159f6ac-504b-4eee-8bdc-a9c4e8f34c7e" xml:space="preserve">
+          <source>This is the administrator name (<bpt id="8fb87eab-213f-46e1-9400-25cb4261cd9c">&lt;strong&gt;</bpt>admin<ept id="8fb87eab-213f-46e1-9400-25cb4261cd9c">&lt;/strong&gt;</ept>) and password used when you created the cluster.</source>
+          <target state="new">This is the administrator name (<bpt id="8fb87eab-213f-46e1-9400-25cb4261cd9c">&lt;strong&gt;</bpt>admin<ept id="8fb87eab-213f-46e1-9400-25cb4261cd9c">&lt;/strong&gt;</ept>) and password used when you created the cluster.</target>
+        </trans-unit>
+        <trans-unit id="c505bf54-a062-4ae4-9475-9aa9f70d7600" xml:space="preserve">
+          <source>Once the Storm Dashboard has loaded, you will see the <bpt id="b2f319f3-2d0b-45fe-84fd-be7e761c00c5">&lt;strong&gt;</bpt>Submit Topology<ept id="b2f319f3-2d0b-45fe-84fd-be7e761c00c5">&lt;/strong&gt;</ept> form.</source>
+          <target state="new">Once the Storm Dashboard has loaded, you will see the <bpt id="b2f319f3-2d0b-45fe-84fd-be7e761c00c5">&lt;strong&gt;</bpt>Submit Topology<ept id="b2f319f3-2d0b-45fe-84fd-be7e761c00c5">&lt;/strong&gt;</ept> form.</target>
+        </trans-unit>
+        <trans-unit id="3d5a56ea-3a4d-4eb1-a796-3a41efaea02f" xml:space="preserve">
+          <source><bpt id="59c63cc2-745d-4fb8-9d2e-a6d27b81cd99">&lt;linkText&gt;</bpt>Submit your Storm Starter topology with the Storm Dashboard.<ept id="59c63cc2-745d-4fb8-9d2e-a6d27b81cd99">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="59c63cc2-745d-4fb8-9d2e-a6d27b81cd99">&lt;linkText&gt;</bpt>Submit your Storm Starter topology with the Storm Dashboard.<ept id="59c63cc2-745d-4fb8-9d2e-a6d27b81cd99">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="296185c4-8a2b-4ea9-8bcc-7029957f5241" xml:space="preserve">
+          <source>The <bpt id="9ae2bdf1-f85c-4237-b889-f0c5586f978e">&lt;strong&gt;</bpt>Submit Topology<ept id="9ae2bdf1-f85c-4237-b889-f0c5586f978e">&lt;/strong&gt;</ept> form can be used to upload and run .jar files containing Storm topologies.</source>
+          <target state="new">The <bpt id="9ae2bdf1-f85c-4237-b889-f0c5586f978e">&lt;strong&gt;</bpt>Submit Topology<ept id="9ae2bdf1-f85c-4237-b889-f0c5586f978e">&lt;/strong&gt;</ept> form can be used to upload and run .jar files containing Storm topologies.</target>
+        </trans-unit>
+        <trans-unit id="f45ef964-fba9-4bad-9e62-c070f5774ea2" xml:space="preserve">
+          <source>It also includes several basic samples that are provided with the cluster.</source>
+          <target state="new">It also includes several basic samples that are provided with the cluster.</target>
+        </trans-unit>
+        <trans-unit id="c27132af-ef4f-46ad-b3fc-4a5f8c83c547" xml:space="preserve">
+          <source>The samples provided with the cluster include several variations of a word-counting topology.</source>
+          <target state="new">The samples provided with the cluster include several variations of a word-counting topology.</target>
+        </trans-unit>
+        <trans-unit id="2eff03fa-d06c-4215-8c42-b78d5a0b3ae3" xml:space="preserve">
+          <source>These samples include a <bpt id="af878d60-124f-4299-ad85-84d1c21d71df">&lt;strong&gt;</bpt>spout<ept id="af878d60-124f-4299-ad85-84d1c21d71df">&lt;/strong&gt;</ept> that randomly emits sentences, and <bpt id="d8899eca-69f6-427c-9143-ddcd01e23a7b">&lt;strong&gt;</bpt>bolts<ept id="d8899eca-69f6-427c-9143-ddcd01e23a7b">&lt;/strong&gt;</ept> that break each sentence into individual words, then count how many times each word has occurred.</source>
+          <target state="new">These samples include a <bpt id="af878d60-124f-4299-ad85-84d1c21d71df">&lt;strong&gt;</bpt>spout<ept id="af878d60-124f-4299-ad85-84d1c21d71df">&lt;/strong&gt;</ept> that randomly emits sentences, and <bpt id="d8899eca-69f6-427c-9143-ddcd01e23a7b">&lt;strong&gt;</bpt>bolts<ept id="d8899eca-69f6-427c-9143-ddcd01e23a7b">&lt;/strong&gt;</ept> that break each sentence into individual words, then count how many times each word has occurred.</target>
+        </trans-unit>
+        <trans-unit id="10271303-ab91-4406-9475-737dc64ab966" xml:space="preserve">
+          <source>These samples are from the <bpt id="801614d4-0ba7-4353-b1c4-7bb1c466f752">&lt;linkText&gt;</bpt>Storm Starter samples<ept id="801614d4-0ba7-4353-b1c4-7bb1c466f752">&lt;/linkText&gt;</ept><bpt id="801614d4-0ba7-4353-b1c4-7bb1c466f752">&lt;title&gt;</bpt><ept id="801614d4-0ba7-4353-b1c4-7bb1c466f752">&lt;/title&gt;</ept>, which are a part of Apache Storm.</source>
+          <target state="new">These samples are from the <bpt id="801614d4-0ba7-4353-b1c4-7bb1c466f752">&lt;linkText&gt;</bpt>Storm Starter samples<ept id="801614d4-0ba7-4353-b1c4-7bb1c466f752">&lt;/linkText&gt;</ept><bpt id="801614d4-0ba7-4353-b1c4-7bb1c466f752">&lt;title&gt;</bpt><ept id="801614d4-0ba7-4353-b1c4-7bb1c466f752">&lt;/title&gt;</ept>, which are a part of Apache Storm.</target>
+        </trans-unit>
+        <trans-unit id="ef1ca29c-0ad1-4011-a6be-a032bfce46a3" xml:space="preserve">
+          <source>Perform the following steps to run a Storm Starter sample:</source>
+          <target state="new">Perform the following steps to run a Storm Starter sample:</target>
+        </trans-unit>
+        <trans-unit id="1b6b5e4e-0e96-4801-a271-3e12c8825566" xml:space="preserve">
+          <source>Select <bpt id="fba6ff9f-2d2a-4540-a214-03454d679616">&lt;strong&gt;</bpt>StormStarter - WordCount<ept id="fba6ff9f-2d2a-4540-a214-03454d679616">&lt;/strong&gt;</ept> from the <bpt id="a70ba545-0bc9-47a5-9b24-b2e58bfee43d">&lt;strong&gt;</bpt>Jar File<ept id="a70ba545-0bc9-47a5-9b24-b2e58bfee43d">&lt;/strong&gt;</ept> drop-down.</source>
+          <target state="new">Select <bpt id="fba6ff9f-2d2a-4540-a214-03454d679616">&lt;strong&gt;</bpt>StormStarter - WordCount<ept id="fba6ff9f-2d2a-4540-a214-03454d679616">&lt;/strong&gt;</ept> from the <bpt id="a70ba545-0bc9-47a5-9b24-b2e58bfee43d">&lt;strong&gt;</bpt>Jar File<ept id="a70ba545-0bc9-47a5-9b24-b2e58bfee43d">&lt;/strong&gt;</ept> drop-down.</target>
+        </trans-unit>
+        <trans-unit id="f7206b98-7049-4bdf-ae7d-c94fa1617da8" xml:space="preserve">
+          <source>This should populate the <bpt id="4bd08e23-3dae-49a3-99fb-026d63d67cbe">&lt;strong&gt;</bpt>Class Name<ept id="4bd08e23-3dae-49a3-99fb-026d63d67cbe">&lt;/strong&gt;</ept> and <bpt id="74a25cb7-b2a8-48a2-93d2-957615909cd7">&lt;strong&gt;</bpt>Additional Parameters<ept id="74a25cb7-b2a8-48a2-93d2-957615909cd7">&lt;/strong&gt;</ept> fields with the parameters for this sample.</source>
+          <target state="new">This should populate the <bpt id="4bd08e23-3dae-49a3-99fb-026d63d67cbe">&lt;strong&gt;</bpt>Class Name<ept id="4bd08e23-3dae-49a3-99fb-026d63d67cbe">&lt;/strong&gt;</ept> and <bpt id="74a25cb7-b2a8-48a2-93d2-957615909cd7">&lt;strong&gt;</bpt>Additional Parameters<ept id="74a25cb7-b2a8-48a2-93d2-957615909cd7">&lt;/strong&gt;</ept> fields with the parameters for this sample.</target>
+        </trans-unit>
+        <trans-unit id="cde12c6b-95d2-4c0c-b1e6-ad7e68fe5674" xml:space="preserve">
+          <source><bpt id="2b57e392-e3a0-4b70-9577-d19869ef8aa1">&lt;linkText&gt;</bpt>Storm Starter WordCount selected on Storm Dashboard.<ept id="2b57e392-e3a0-4b70-9577-d19869ef8aa1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2b57e392-e3a0-4b70-9577-d19869ef8aa1">&lt;linkText&gt;</bpt>Storm Starter WordCount selected on Storm Dashboard.<ept id="2b57e392-e3a0-4b70-9577-d19869ef8aa1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20572fd0-ff5f-4e28-90e7-b05ded33f611" xml:space="preserve">
+          <source><bpt id="19f79e2f-004f-4526-bc26-5c6b5e8842dc">&lt;strong&gt;</bpt>Class Name<ept id="19f79e2f-004f-4526-bc26-5c6b5e8842dc">&lt;/strong&gt;</ept> - The class in the .jar file that submits the topology.</source>
+          <target state="new"><bpt id="19f79e2f-004f-4526-bc26-5c6b5e8842dc">&lt;strong&gt;</bpt>Class Name<ept id="19f79e2f-004f-4526-bc26-5c6b5e8842dc">&lt;/strong&gt;</ept> - The class in the .jar file that submits the topology.</target>
+        </trans-unit>
+        <trans-unit id="ff23cdac-fa64-40ae-b6f7-70043126020a" xml:space="preserve">
+          <source><bpt id="4bcc9049-e275-476c-a45b-eb90f79b50b3">&lt;strong&gt;</bpt>Additional Parameters<ept id="4bcc9049-e275-476c-a45b-eb90f79b50b3">&lt;/strong&gt;</ept> - Any parameters required by the topology.</source>
+          <target state="new"><bpt id="4bcc9049-e275-476c-a45b-eb90f79b50b3">&lt;strong&gt;</bpt>Additional Parameters<ept id="4bcc9049-e275-476c-a45b-eb90f79b50b3">&lt;/strong&gt;</ept> - Any parameters required by the topology.</target>
+        </trans-unit>
+        <trans-unit id="86779f6a-4ed5-48ca-89ac-02335560143e" xml:space="preserve">
+          <source>In this example, the field is used to provide a friendly name for the submitted topology.</source>
+          <target state="new">In this example, the field is used to provide a friendly name for the submitted topology.</target>
+        </trans-unit>
+        <trans-unit id="7bc37c85-9f9d-417c-a0a7-827941cd1b96" xml:space="preserve">
+          <source>Click the <bpt id="63ef978d-c6d9-47d9-894f-3d5232bae277">&lt;strong&gt;</bpt>Submit<ept id="63ef978d-c6d9-47d9-894f-3d5232bae277">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="63ef978d-c6d9-47d9-894f-3d5232bae277">&lt;strong&gt;</bpt>Submit<ept id="63ef978d-c6d9-47d9-894f-3d5232bae277">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="16892833-c90e-4afc-9813-88b1324ba2cc" xml:space="preserve">
+          <source>After a moment, the <bpt id="c48b1de7-137d-4b23-b3d0-0c3555642071">&lt;strong&gt;</bpt>Result<ept id="c48b1de7-137d-4b23-b3d0-0c3555642071">&lt;/strong&gt;</ept> field will display the command used to submit the job, as well as the results of the command.</source>
+          <target state="new">After a moment, the <bpt id="c48b1de7-137d-4b23-b3d0-0c3555642071">&lt;strong&gt;</bpt>Result<ept id="c48b1de7-137d-4b23-b3d0-0c3555642071">&lt;/strong&gt;</ept> field will display the command used to submit the job, as well as the results of the command.</target>
+        </trans-unit>
+        <trans-unit id="a02344d9-7c4c-484d-9f02-1412498d2e14" xml:space="preserve">
+          <source>The <bpt id="132db720-6a0b-49d9-8b54-2ab13e9bbd0a">&lt;strong&gt;</bpt>Error<ept id="132db720-6a0b-49d9-8b54-2ab13e9bbd0a">&lt;/strong&gt;</ept> field will display any errors that occur in submitting the topology.</source>
+          <target state="new">The <bpt id="132db720-6a0b-49d9-8b54-2ab13e9bbd0a">&lt;strong&gt;</bpt>Error<ept id="132db720-6a0b-49d9-8b54-2ab13e9bbd0a">&lt;/strong&gt;</ept> field will display any errors that occur in submitting the topology.</target>
+        </trans-unit>
+        <trans-unit id="12c4f788-c64d-4483-bbf2-77f5dc72ead6" xml:space="preserve">
+          <source><bpt id="32ba12d4-5fd5-4154-a42c-18985a0982eb">&lt;linkText&gt;</bpt>Submit button and results of Storm Starter WordCount.<ept id="32ba12d4-5fd5-4154-a42c-18985a0982eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="32ba12d4-5fd5-4154-a42c-18985a0982eb">&lt;linkText&gt;</bpt>Submit button and results of Storm Starter WordCount.<ept id="32ba12d4-5fd5-4154-a42c-18985a0982eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c712c841-56b8-4b51-9687-04ddabcfd814" xml:space="preserve">
+          <source>The results do not indicate that the topology has finished - <bpt id="280b0465-f25b-4d53-96b6-c2a4acf8fedb">&lt;strong&gt;</bpt>a Storm topology, once started, runs until you stop it.<ept id="280b0465-f25b-4d53-96b6-c2a4acf8fedb">&lt;/strong&gt;</ept> The word-count topology will generate random sentences, and keep a count of how many times it encounters each word, until you stop it.</source>
+          <target state="new">The results do not indicate that the topology has finished - <bpt id="280b0465-f25b-4d53-96b6-c2a4acf8fedb">&lt;strong&gt;</bpt>a Storm topology, once started, runs until you stop it.<ept id="280b0465-f25b-4d53-96b6-c2a4acf8fedb">&lt;/strong&gt;</ept> The word-count topology will generate random sentences, and keep a count of how many times it encounters each word, until you stop it.</target>
+        </trans-unit>
+        <trans-unit id="df472dfd-6c3b-46be-ac65-9bf896731058" xml:space="preserve">
+          <source>The Storm UI can be used to monitor the topology.</source>
+          <target state="new">The Storm UI can be used to monitor the topology.</target>
+        </trans-unit>
+        <trans-unit id="7f621ee6-0676-430a-ad05-e0a7b21adaa0" xml:space="preserve">
+          <source>Select <bpt id="3f57a38f-4baf-46fb-b098-f2f64b13c749">&lt;strong&gt;</bpt>Storm UI<ept id="3f57a38f-4baf-46fb-b098-f2f64b13c749">&lt;/strong&gt;</ept> from the top of the Storm Dashboard.</source>
+          <target state="new">Select <bpt id="3f57a38f-4baf-46fb-b098-f2f64b13c749">&lt;strong&gt;</bpt>Storm UI<ept id="3f57a38f-4baf-46fb-b098-f2f64b13c749">&lt;/strong&gt;</ept> from the top of the Storm Dashboard.</target>
+        </trans-unit>
+        <trans-unit id="c324018f-4d06-4759-87e5-311f40ec972b" xml:space="preserve">
+          <source>This will display summary information for the cluster and all running topologies.</source>
+          <target state="new">This will display summary information for the cluster and all running topologies.</target>
+        </trans-unit>
+        <trans-unit id="b4744975-7355-4743-9c73-9e3529ed7b2c" xml:space="preserve">
+          <source><bpt id="281521ff-edd8-4b21-b62d-41c7967659d1">&lt;linkText&gt;</bpt>Storm dashboard showing the Storm Starter WordCount topology summary.<ept id="281521ff-edd8-4b21-b62d-41c7967659d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="281521ff-edd8-4b21-b62d-41c7967659d1">&lt;linkText&gt;</bpt>Storm dashboard showing the Storm Starter WordCount topology summary.<ept id="281521ff-edd8-4b21-b62d-41c7967659d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f742988-4c7e-423d-9d56-fb6c277d6122" xml:space="preserve">
+          <source>From the page above, you can see the time the topology has been active, as well as the number of workers, executors, and tasks being used.</source>
+          <target state="new">From the page above, you can see the time the topology has been active, as well as the number of workers, executors, and tasks being used.</target>
+        </trans-unit>
+        <trans-unit id="6e2a0539-a678-40b6-aa53-7d776f9e7c2b" xml:space="preserve">
+          <source>The <bpt id="bc9b9cdc-e757-4bef-98f0-0abfb82c7f2a">&lt;strong&gt;</bpt>Name<ept id="bc9b9cdc-e757-4bef-98f0-0abfb82c7f2a">&lt;/strong&gt;</ept> column contains the friendly name supplied earlier via the <bpt id="2e4c61d4-45e0-46dc-bae0-b62e5232749b">&lt;strong&gt;</bpt>Additional Parameters<ept id="2e4c61d4-45e0-46dc-bae0-b62e5232749b">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">The <bpt id="bc9b9cdc-e757-4bef-98f0-0abfb82c7f2a">&lt;strong&gt;</bpt>Name<ept id="bc9b9cdc-e757-4bef-98f0-0abfb82c7f2a">&lt;/strong&gt;</ept> column contains the friendly name supplied earlier via the <bpt id="2e4c61d4-45e0-46dc-bae0-b62e5232749b">&lt;strong&gt;</bpt>Additional Parameters<ept id="2e4c61d4-45e0-46dc-bae0-b62e5232749b">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="3c78344a-8121-4f3d-a6e9-e49c9ab957a4" xml:space="preserve">
+          <source>Under <bpt id="2fe1b450-9186-44f4-9690-b5b543b9ce6c">&lt;strong&gt;</bpt>Topology summary<ept id="2fe1b450-9186-44f4-9690-b5b543b9ce6c">&lt;/strong&gt;</ept>, select the <bpt id="2928f40f-3f5b-43e5-9d6f-f62ffb511885">&lt;strong&gt;</bpt>wordcount<ept id="2928f40f-3f5b-43e5-9d6f-f62ffb511885">&lt;/strong&gt;</ept> entry in the <bpt id="677d95fc-46f0-4e61-acdf-2984a7d0414c">&lt;strong&gt;</bpt>Name<ept id="677d95fc-46f0-4e61-acdf-2984a7d0414c">&lt;/strong&gt;</ept> column.</source>
+          <target state="new">Under <bpt id="2fe1b450-9186-44f4-9690-b5b543b9ce6c">&lt;strong&gt;</bpt>Topology summary<ept id="2fe1b450-9186-44f4-9690-b5b543b9ce6c">&lt;/strong&gt;</ept>, select the <bpt id="2928f40f-3f5b-43e5-9d6f-f62ffb511885">&lt;strong&gt;</bpt>wordcount<ept id="2928f40f-3f5b-43e5-9d6f-f62ffb511885">&lt;/strong&gt;</ept> entry in the <bpt id="677d95fc-46f0-4e61-acdf-2984a7d0414c">&lt;strong&gt;</bpt>Name<ept id="677d95fc-46f0-4e61-acdf-2984a7d0414c">&lt;/strong&gt;</ept> column.</target>
+        </trans-unit>
+        <trans-unit id="72a03f71-fc4c-4b4f-ac8f-4477b8af930f" xml:space="preserve">
+          <source>This will display more information about the topology.</source>
+          <target state="new">This will display more information about the topology.</target>
+        </trans-unit>
+        <trans-unit id="7eace96d-eb5f-452e-bde8-9f3b81c2d5e6" xml:space="preserve">
+          <source><bpt id="2a00ae31-3a75-4dc1-816d-1c3de5935c6e">&lt;linkText&gt;</bpt>Storm Dashboard with Storm Starter WordCount topology information.<ept id="2a00ae31-3a75-4dc1-816d-1c3de5935c6e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a00ae31-3a75-4dc1-816d-1c3de5935c6e">&lt;linkText&gt;</bpt>Storm Dashboard with Storm Starter WordCount topology information.<ept id="2a00ae31-3a75-4dc1-816d-1c3de5935c6e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b611e76c-109c-43d8-852e-06cc621cef97" xml:space="preserve">
+          <source>This page provides the following information:</source>
+          <target state="new">This page provides the following information:</target>
+        </trans-unit>
+        <trans-unit id="cb17300b-f04b-4be8-abbb-0d35ee122112" xml:space="preserve">
+          <source><bpt id="4d113f60-f26c-4fa9-8405-f7f43c81782d">&lt;strong&gt;</bpt>Topology stats<ept id="4d113f60-f26c-4fa9-8405-f7f43c81782d">&lt;/strong&gt;</ept> - Basic information on the topology performance, organized into time windows.</source>
+          <target state="new"><bpt id="4d113f60-f26c-4fa9-8405-f7f43c81782d">&lt;strong&gt;</bpt>Topology stats<ept id="4d113f60-f26c-4fa9-8405-f7f43c81782d">&lt;/strong&gt;</ept> - Basic information on the topology performance, organized into time windows.</target>
+        </trans-unit>
+        <trans-unit id="9e3fce77-ab5e-49a0-8c6e-a077278c0da3" xml:space="preserve">
+          <source>Selecting a specific time window changes the time window for information displayed in other sections of the page.</source>
+          <target state="new">Selecting a specific time window changes the time window for information displayed in other sections of the page.</target>
+        </trans-unit>
+        <trans-unit id="3e600fca-6c59-43b3-8b67-42b1cd0435e7" xml:space="preserve">
+          <source><bpt id="6d95d4a2-4def-4a0b-a256-a03eb877f78c">&lt;strong&gt;</bpt>Spouts<ept id="6d95d4a2-4def-4a0b-a256-a03eb877f78c">&lt;/strong&gt;</ept> - Basic information about spouts, including the last error returned by each spout.</source>
+          <target state="new"><bpt id="6d95d4a2-4def-4a0b-a256-a03eb877f78c">&lt;strong&gt;</bpt>Spouts<ept id="6d95d4a2-4def-4a0b-a256-a03eb877f78c">&lt;/strong&gt;</ept> - Basic information about spouts, including the last error returned by each spout.</target>
+        </trans-unit>
+        <trans-unit id="643be9a6-148a-478e-bc7f-61bb966736b3" xml:space="preserve">
+          <source><bpt id="c54f6ed5-b289-49cf-8289-75fbe162d78d">&lt;strong&gt;</bpt>Bolts<ept id="c54f6ed5-b289-49cf-8289-75fbe162d78d">&lt;/strong&gt;</ept> - Basic information about bolts.</source>
+          <target state="new"><bpt id="c54f6ed5-b289-49cf-8289-75fbe162d78d">&lt;strong&gt;</bpt>Bolts<ept id="c54f6ed5-b289-49cf-8289-75fbe162d78d">&lt;/strong&gt;</ept> - Basic information about bolts.</target>
+        </trans-unit>
+        <trans-unit id="7cffb6e5-cf3c-4f8e-8195-a49c6a6f5fe1" xml:space="preserve">
+          <source><bpt id="7c75c1f2-ba3e-4fff-ba7e-4dc8fb773b54">&lt;strong&gt;</bpt>Topology configuration<ept id="7c75c1f2-ba3e-4fff-ba7e-4dc8fb773b54">&lt;/strong&gt;</ept> - Detailed information about the topology configuration.</source>
+          <target state="new"><bpt id="7c75c1f2-ba3e-4fff-ba7e-4dc8fb773b54">&lt;strong&gt;</bpt>Topology configuration<ept id="7c75c1f2-ba3e-4fff-ba7e-4dc8fb773b54">&lt;/strong&gt;</ept> - Detailed information about the topology configuration.</target>
+        </trans-unit>
+        <trans-unit id="73537e16-45de-4a78-ae93-a1015bbb5772" xml:space="preserve">
+          <source>This page also provides actions that can be taken on the topology:</source>
+          <target state="new">This page also provides actions that can be taken on the topology:</target>
+        </trans-unit>
+        <trans-unit id="64d5b7ae-2402-4555-8d46-29390a001237" xml:space="preserve">
+          <source><bpt id="e5778bea-e0b1-494a-ad03-37365aaeafca">&lt;strong&gt;</bpt>Activate<ept id="e5778bea-e0b1-494a-ad03-37365aaeafca">&lt;/strong&gt;</ept> - Resumes processing of a deactivated topology.</source>
+          <target state="new"><bpt id="e5778bea-e0b1-494a-ad03-37365aaeafca">&lt;strong&gt;</bpt>Activate<ept id="e5778bea-e0b1-494a-ad03-37365aaeafca">&lt;/strong&gt;</ept> - Resumes processing of a deactivated topology.</target>
+        </trans-unit>
+        <trans-unit id="80625f80-e571-4e25-bc96-9e8220b868d9" xml:space="preserve">
+          <source><bpt id="45d0b762-46bf-4676-92c1-9ef46b3c64b1">&lt;strong&gt;</bpt>Deactivate<ept id="45d0b762-46bf-4676-92c1-9ef46b3c64b1">&lt;/strong&gt;</ept> - Pauses a running topology.</source>
+          <target state="new"><bpt id="45d0b762-46bf-4676-92c1-9ef46b3c64b1">&lt;strong&gt;</bpt>Deactivate<ept id="45d0b762-46bf-4676-92c1-9ef46b3c64b1">&lt;/strong&gt;</ept> - Pauses a running topology.</target>
+        </trans-unit>
+        <trans-unit id="6ab16606-182c-457f-8c39-6ba131deff96" xml:space="preserve">
+          <source><bpt id="a060bd94-bae9-4695-8b08-3f3544a9473c">&lt;strong&gt;</bpt>Rebalance<ept id="a060bd94-bae9-4695-8b08-3f3544a9473c">&lt;/strong&gt;</ept> - Adjusts the parallelism of the topology.</source>
+          <target state="new"><bpt id="a060bd94-bae9-4695-8b08-3f3544a9473c">&lt;strong&gt;</bpt>Rebalance<ept id="a060bd94-bae9-4695-8b08-3f3544a9473c">&lt;/strong&gt;</ept> - Adjusts the parallelism of the topology.</target>
+        </trans-unit>
+        <trans-unit id="9f30f7ac-c15b-42a0-b536-62e02201f0bb" xml:space="preserve">
+          <source>You should rebalance running topologies after you have changed the number of nodes in the cluster.</source>
+          <target state="new">You should rebalance running topologies after you have changed the number of nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="e45da56a-5c27-48ed-8053-51554cff6a35" xml:space="preserve">
+          <source>This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster.</source>
+          <target state="new">This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="c4663ac7-b48c-43e9-a9e0-7f45b2b2bc72" xml:space="preserve">
+          <source>For more information, see <bpt id="8c6bd92e-b3a7-49f5-8a3c-f5a920fc5b15">&lt;linkText&gt;</bpt>Understanding the parallelism of a Storm topology<ept id="8c6bd92e-b3a7-49f5-8a3c-f5a920fc5b15">&lt;/linkText&gt;</ept><bpt id="8c6bd92e-b3a7-49f5-8a3c-f5a920fc5b15">&lt;title&gt;</bpt><ept id="8c6bd92e-b3a7-49f5-8a3c-f5a920fc5b15">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="8c6bd92e-b3a7-49f5-8a3c-f5a920fc5b15">&lt;linkText&gt;</bpt>Understanding the parallelism of a Storm topology<ept id="8c6bd92e-b3a7-49f5-8a3c-f5a920fc5b15">&lt;/linkText&gt;</ept><bpt id="8c6bd92e-b3a7-49f5-8a3c-f5a920fc5b15">&lt;title&gt;</bpt><ept id="8c6bd92e-b3a7-49f5-8a3c-f5a920fc5b15">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec79ff9b-4eb4-491a-9e70-0c69573edcf0" xml:space="preserve">
+          <source><bpt id="fbd196b4-400d-4684-b3a3-20933de10839">&lt;strong&gt;</bpt>Kill<ept id="fbd196b4-400d-4684-b3a3-20933de10839">&lt;/strong&gt;</ept> - Terminates a Storm topology after the specified timeout.</source>
+          <target state="new"><bpt id="fbd196b4-400d-4684-b3a3-20933de10839">&lt;strong&gt;</bpt>Kill<ept id="fbd196b4-400d-4684-b3a3-20933de10839">&lt;/strong&gt;</ept> - Terminates a Storm topology after the specified timeout.</target>
+        </trans-unit>
+        <trans-unit id="1ad88512-4232-4df7-8f10-3992b195e6cf" xml:space="preserve">
+          <source>From this page, select an entry from the <bpt id="43d6824d-e7fc-471c-a630-2678422aa711">&lt;strong&gt;</bpt>Spouts<ept id="43d6824d-e7fc-471c-a630-2678422aa711">&lt;/strong&gt;</ept> or <bpt id="3cec58ae-1b5f-4845-a185-d43f75605de5">&lt;strong&gt;</bpt>Bolts<ept id="3cec58ae-1b5f-4845-a185-d43f75605de5">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">From this page, select an entry from the <bpt id="43d6824d-e7fc-471c-a630-2678422aa711">&lt;strong&gt;</bpt>Spouts<ept id="43d6824d-e7fc-471c-a630-2678422aa711">&lt;/strong&gt;</ept> or <bpt id="3cec58ae-1b5f-4845-a185-d43f75605de5">&lt;strong&gt;</bpt>Bolts<ept id="3cec58ae-1b5f-4845-a185-d43f75605de5">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="ab24d2d6-30c9-418a-9810-1f2089549a59" xml:space="preserve">
+          <source>This will display information about the selected component.</source>
+          <target state="new">This will display information about the selected component.</target>
+        </trans-unit>
+        <trans-unit id="48de4fcb-cf74-4e7f-b15a-f7b8a691baf5" xml:space="preserve">
+          <source><bpt id="75c40900-06c4-4482-99bd-b3d1d8c78807">&lt;linkText&gt;</bpt>Storm Dachborad with information about selected components.<ept id="75c40900-06c4-4482-99bd-b3d1d8c78807">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="75c40900-06c4-4482-99bd-b3d1d8c78807">&lt;linkText&gt;</bpt>Storm Dachborad with information about selected components.<ept id="75c40900-06c4-4482-99bd-b3d1d8c78807">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2aa81d5b-383a-4c1b-94a9-588e987b76ad" xml:space="preserve">
+          <source>This page displays the following information:</source>
+          <target state="new">This page displays the following information:</target>
+        </trans-unit>
+        <trans-unit id="5045a7f2-a59b-4547-a1b8-18f03f9aab52" xml:space="preserve">
+          <source><bpt id="9494d9f6-d3b9-44f5-aec4-169def3400c1">&lt;strong&gt;</bpt>Spout/Bolt stats<ept id="9494d9f6-d3b9-44f5-aec4-169def3400c1">&lt;/strong&gt;</ept> - Basic information on the component performance, organized into time windows.</source>
+          <target state="new"><bpt id="9494d9f6-d3b9-44f5-aec4-169def3400c1">&lt;strong&gt;</bpt>Spout/Bolt stats<ept id="9494d9f6-d3b9-44f5-aec4-169def3400c1">&lt;/strong&gt;</ept> - Basic information on the component performance, organized into time windows.</target>
+        </trans-unit>
+        <trans-unit id="5faafa6b-1721-46fc-93ef-e008d17b56bf" xml:space="preserve">
+          <source>Selecting a specific time window changes the time window for information displayed in other sections of the page.</source>
+          <target state="new">Selecting a specific time window changes the time window for information displayed in other sections of the page.</target>
+        </trans-unit>
+        <trans-unit id="cec78560-d61a-4953-b17f-de6cad6d30ef" xml:space="preserve">
+          <source><bpt id="5ae29f96-a45b-4b9c-a704-0228bf408427">&lt;strong&gt;</bpt>Input stats<ept id="5ae29f96-a45b-4b9c-a704-0228bf408427">&lt;/strong&gt;</ept> (bolt only) - Information on components that produce data consumed by the bolt.</source>
+          <target state="new"><bpt id="5ae29f96-a45b-4b9c-a704-0228bf408427">&lt;strong&gt;</bpt>Input stats<ept id="5ae29f96-a45b-4b9c-a704-0228bf408427">&lt;/strong&gt;</ept> (bolt only) - Information on components that produce data consumed by the bolt.</target>
+        </trans-unit>
+        <trans-unit id="ce4133c0-a5b9-47a9-815f-0a02d770c976" xml:space="preserve">
+          <source><bpt id="731bb6c4-a1f0-4b64-91ba-47db6898ee84">&lt;strong&gt;</bpt>Output stats<ept id="731bb6c4-a1f0-4b64-91ba-47db6898ee84">&lt;/strong&gt;</ept> - Information on data emitted by this bolt.</source>
+          <target state="new"><bpt id="731bb6c4-a1f0-4b64-91ba-47db6898ee84">&lt;strong&gt;</bpt>Output stats<ept id="731bb6c4-a1f0-4b64-91ba-47db6898ee84">&lt;/strong&gt;</ept> - Information on data emitted by this bolt.</target>
+        </trans-unit>
+        <trans-unit id="91f69c5d-9335-4de5-97a5-bfaaedd422b2" xml:space="preserve">
+          <source><bpt id="5074419e-62e9-4f19-890d-938e885a9a56">&lt;strong&gt;</bpt>Executors<ept id="5074419e-62e9-4f19-890d-938e885a9a56">&lt;/strong&gt;</ept> - Information on instances of this component.</source>
+          <target state="new"><bpt id="5074419e-62e9-4f19-890d-938e885a9a56">&lt;strong&gt;</bpt>Executors<ept id="5074419e-62e9-4f19-890d-938e885a9a56">&lt;/strong&gt;</ept> - Information on instances of this component.</target>
+        </trans-unit>
+        <trans-unit id="93266850-da35-4139-891f-abf6d4e28405" xml:space="preserve">
+          <source><bpt id="69420043-df26-4a86-ace2-586e7be4c7d7">&lt;strong&gt;</bpt>Errors<ept id="69420043-df26-4a86-ace2-586e7be4c7d7">&lt;/strong&gt;</ept> - Errors produced by this component.</source>
+          <target state="new"><bpt id="69420043-df26-4a86-ace2-586e7be4c7d7">&lt;strong&gt;</bpt>Errors<ept id="69420043-df26-4a86-ace2-586e7be4c7d7">&lt;/strong&gt;</ept> - Errors produced by this component.</target>
+        </trans-unit>
+        <trans-unit id="c7658920-66c8-494e-83c8-040735832c95" xml:space="preserve">
+          <source>When viewing the details of a spout or bolt, select an entry from the <bpt id="e0ab321c-4d96-4b8d-b717-02b2f5028105">&lt;strong&gt;</bpt>Port<ept id="e0ab321c-4d96-4b8d-b717-02b2f5028105">&lt;/strong&gt;</ept> column in the <bpt id="4d2e9941-76aa-4e61-bc88-5ebe739cfd77">&lt;strong&gt;</bpt>Executors<ept id="4d2e9941-76aa-4e61-bc88-5ebe739cfd77">&lt;/strong&gt;</ept> section to view details for a specific instance of the component.</source>
+          <target state="new">When viewing the details of a spout or bolt, select an entry from the <bpt id="e0ab321c-4d96-4b8d-b717-02b2f5028105">&lt;strong&gt;</bpt>Port<ept id="e0ab321c-4d96-4b8d-b717-02b2f5028105">&lt;/strong&gt;</ept> column in the <bpt id="4d2e9941-76aa-4e61-bc88-5ebe739cfd77">&lt;strong&gt;</bpt>Executors<ept id="4d2e9941-76aa-4e61-bc88-5ebe739cfd77">&lt;/strong&gt;</ept> section to view details for a specific instance of the component.</target>
+        </trans-unit>
+        <trans-unit id="c44ba0b6-a289-440c-81ab-2f46123eb26f" xml:space="preserve">
+          <source>From this data you can see that the word <bpt id="1cf6f4e1-c536-4c59-9f38-297606347bfd">&lt;strong&gt;</bpt>seven<ept id="1cf6f4e1-c536-4c59-9f38-297606347bfd">&lt;/strong&gt;</ept> has occurred 1493957 times.</source>
+          <target state="new">From this data you can see that the word <bpt id="1cf6f4e1-c536-4c59-9f38-297606347bfd">&lt;strong&gt;</bpt>seven<ept id="1cf6f4e1-c536-4c59-9f38-297606347bfd">&lt;/strong&gt;</ept> has occurred 1493957 times.</target>
+        </trans-unit>
+        <trans-unit id="4f23b3b6-d4b2-4894-aa7b-567a53be184c" xml:space="preserve">
+          <source>That is how many times it has been encountered since this topology was started.</source>
+          <target state="new">That is how many times it has been encountered since this topology was started.</target>
+        </trans-unit>
+        <trans-unit id="97920921-04df-4b51-8b3e-1243d283126d" xml:space="preserve">
+          <source>Return to the <bpt id="c20d1395-5ce9-4cf0-be50-7dd8d7dd2138">&lt;strong&gt;</bpt>Topology summary<ept id="c20d1395-5ce9-4cf0-be50-7dd8d7dd2138">&lt;/strong&gt;</ept> page for the word-count topology, and then select the <bpt id="5ec1192f-06e0-4e97-8b7f-d79f0e70be51">&lt;strong&gt;</bpt>Kill<ept id="5ec1192f-06e0-4e97-8b7f-d79f0e70be51">&lt;/strong&gt;</ept> button from the <bpt id="b66249af-ae94-460e-aeb4-c77aa4ca8e5b">&lt;strong&gt;</bpt>Topology actions<ept id="b66249af-ae94-460e-aeb4-c77aa4ca8e5b">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Return to the <bpt id="c20d1395-5ce9-4cf0-be50-7dd8d7dd2138">&lt;strong&gt;</bpt>Topology summary<ept id="c20d1395-5ce9-4cf0-be50-7dd8d7dd2138">&lt;/strong&gt;</ept> page for the word-count topology, and then select the <bpt id="5ec1192f-06e0-4e97-8b7f-d79f0e70be51">&lt;strong&gt;</bpt>Kill<ept id="5ec1192f-06e0-4e97-8b7f-d79f0e70be51">&lt;/strong&gt;</ept> button from the <bpt id="b66249af-ae94-460e-aeb4-c77aa4ca8e5b">&lt;strong&gt;</bpt>Topology actions<ept id="b66249af-ae94-460e-aeb4-c77aa4ca8e5b">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="5234f205-feae-4943-8011-121f7a5a9e24" xml:space="preserve">
+          <source>When prompted, enter 10 for the seconds to wait before stopping the topology.</source>
+          <target state="new">When prompted, enter 10 for the seconds to wait before stopping the topology.</target>
+        </trans-unit>
+        <trans-unit id="3b113f2b-1c03-479b-8546-cccdd6a802e5" xml:space="preserve">
+          <source>After the timeout period, the topology will no longer appear when you visit the <bpt id="34799ce8-4a21-4b2a-bc01-18044a2a946c">&lt;strong&gt;</bpt>Storm UI<ept id="34799ce8-4a21-4b2a-bc01-18044a2a946c">&lt;/strong&gt;</ept> section of the dashboard.</source>
+          <target state="new">After the timeout period, the topology will no longer appear when you visit the <bpt id="34799ce8-4a21-4b2a-bc01-18044a2a946c">&lt;strong&gt;</bpt>Storm UI<ept id="34799ce8-4a21-4b2a-bc01-18044a2a946c">&lt;/strong&gt;</ept> section of the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="4cbb2d47-b583-495d-9458-7e83e1fc11d8" xml:space="preserve">
+          <source>In this Apache Storm tutorial, you used the Storm Starter to learn how to create a Storm on HDInsight cluster and use the Storm Dashboard to deploy, monitor, and manage Storm topologies.</source>
+          <target state="new">In this Apache Storm tutorial, you used the Storm Starter to learn how to create a Storm on HDInsight cluster and use the Storm Dashboard to deploy, monitor, and manage Storm topologies.</target>
+        </trans-unit>
+        <trans-unit id="dfcde17d-5e4e-4ee6-aee7-989e2bd91dea" xml:space="preserve">
+          <source><bpt id="1ba8e1c6-929c-4d13-b320-973ba9581eb6">&lt;strong&gt;</bpt>HDInsight Tools for Visual Studio<ept id="1ba8e1c6-929c-4d13-b320-973ba9581eb6">&lt;/strong&gt;</ept> - HDInsight Tools allows you to use Visual Studio to submit, monitor, and manage Storm topologies similar to the Storm Dashboard mentioned earlier.</source>
+          <target state="new"><bpt id="1ba8e1c6-929c-4d13-b320-973ba9581eb6">&lt;strong&gt;</bpt>HDInsight Tools for Visual Studio<ept id="1ba8e1c6-929c-4d13-b320-973ba9581eb6">&lt;/strong&gt;</ept> - HDInsight Tools allows you to use Visual Studio to submit, monitor, and manage Storm topologies similar to the Storm Dashboard mentioned earlier.</target>
+        </trans-unit>
+        <trans-unit id="e4af21d9-19d6-4aca-8e38-4c886ff3a9dd" xml:space="preserve">
+          <source>HDInsight Tools also provides the ability to create C# Storm topologies, and includes sample topologies that you can deploy and run on your cluster.</source>
+          <target state="new">HDInsight Tools also provides the ability to create C# Storm topologies, and includes sample topologies that you can deploy and run on your cluster.</target>
+        </trans-unit>
+        <trans-unit id="d598b3f1-0b5c-441a-8139-79fbbe724dd2" xml:space="preserve">
+          <source>For more information, see <bpt id="7b7d793b-b65d-4e7e-90b1-51d69124b6f0">&lt;linkText&gt;</bpt>Get Started using the HDInsight Tools for Visual Studio<ept id="7b7d793b-b65d-4e7e-90b1-51d69124b6f0">&lt;/linkText&gt;</ept><bpt id="7b7d793b-b65d-4e7e-90b1-51d69124b6f0">&lt;title&gt;</bpt><ept id="7b7d793b-b65d-4e7e-90b1-51d69124b6f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7b7d793b-b65d-4e7e-90b1-51d69124b6f0">&lt;linkText&gt;</bpt>Get Started using the HDInsight Tools for Visual Studio<ept id="7b7d793b-b65d-4e7e-90b1-51d69124b6f0">&lt;/linkText&gt;</ept><bpt id="7b7d793b-b65d-4e7e-90b1-51d69124b6f0">&lt;title&gt;</bpt><ept id="7b7d793b-b65d-4e7e-90b1-51d69124b6f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfae4c4e-7bff-4aa1-baa6-c3c5f4059063" xml:space="preserve">
+          <source><bpt id="a7bff426-ad7c-4da3-94c4-3acaa1472500">&lt;strong&gt;</bpt>Sample files<ept id="a7bff426-ad7c-4da3-94c4-3acaa1472500">&lt;/strong&gt;</ept> - The HDInsight Storm cluster provides several examples in the <bpt id="684f6b5e-7d63-4f59-ac3b-da2fa9d5ab48">&lt;strong&gt;</bpt>%STORM_HOME%\contrib<ept id="684f6b5e-7d63-4f59-ac3b-da2fa9d5ab48">&lt;/strong&gt;</ept> directory.</source>
+          <target state="new"><bpt id="a7bff426-ad7c-4da3-94c4-3acaa1472500">&lt;strong&gt;</bpt>Sample files<ept id="a7bff426-ad7c-4da3-94c4-3acaa1472500">&lt;/strong&gt;</ept> - The HDInsight Storm cluster provides several examples in the <bpt id="684f6b5e-7d63-4f59-ac3b-da2fa9d5ab48">&lt;strong&gt;</bpt>%STORM_HOME%\contrib<ept id="684f6b5e-7d63-4f59-ac3b-da2fa9d5ab48">&lt;/strong&gt;</ept> directory.</target>
+        </trans-unit>
+        <trans-unit id="3e0ed7ee-8be5-4349-8290-66053359f788" xml:space="preserve">
+          <source>Each example should contain the following:</source>
+          <target state="new">Each example should contain the following:</target>
+        </trans-unit>
+        <trans-unit id="eb26f90f-2352-4991-805b-cfe4c664f53e" xml:space="preserve">
+          <source>The source code - for example, storm-starter-0.9.1.2.1.5.0-2057-sources.jar</source>
+          <target state="new">The source code - for example, storm-starter-0.9.1.2.1.5.0-2057-sources.jar</target>
+        </trans-unit>
+        <trans-unit id="aa82b6f9-b959-4427-a12d-654ae9895945" xml:space="preserve">
+          <source>The Java docs - for example, storm-starter-0.9.1.2.1.5.0-2057-javadoc.jar</source>
+          <target state="new">The Java docs - for example, storm-starter-0.9.1.2.1.5.0-2057-javadoc.jar</target>
+        </trans-unit>
+        <trans-unit id="42686e8b-ee2f-490a-8a31-1d462d99fac1" xml:space="preserve">
+          <source>The example - for example, storm-starter-0.9.1.2.1.5.0-2057-jar-with-dependencies.jar</source>
+          <target state="new">The example - for example, storm-starter-0.9.1.2.1.5.0-2057-jar-with-dependencies.jar</target>
+        </trans-unit>
+        <trans-unit id="172f5319-d47b-4341-b1d2-97d30e5fc5c8" xml:space="preserve">
+          <source>Use the 'jar' command to extract the source code or Java docs.</source>
+          <target state="new">Use the 'jar' command to extract the source code or Java docs.</target>
+        </trans-unit>
+        <trans-unit id="6fe8c6e5-1098-4b62-b462-2dbf15bfd8a7" xml:space="preserve">
+          <source>For example, 'jar -xvf storm-starter-0.9.1.2.1.5.0.2057-javadoc.jar'.</source>
+          <target state="new">For example, 'jar -xvf storm-starter-0.9.1.2.1.5.0.2057-javadoc.jar'.</target>
+        </trans-unit>
+        <trans-unit id="23a76f11-3235-4602-ae5b-95edb622d23a" xml:space="preserve">
+          <source>Java docs consist of webpages.</source>
+          <target state="new">Java docs consist of webpages.</target>
+        </trans-unit>
+        <trans-unit id="d821ca49-2a7b-43f3-82b6-76e97d60a1ea" xml:space="preserve">
+          <source>Once extracted, use a browser to view the <bpt id="bddd103b-84c7-4f14-8dcd-b19930468fa2">&lt;strong&gt;</bpt>index.html<ept id="bddd103b-84c7-4f14-8dcd-b19930468fa2">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Once extracted, use a browser to view the <bpt id="bddd103b-84c7-4f14-8dcd-b19930468fa2">&lt;strong&gt;</bpt>index.html<ept id="bddd103b-84c7-4f14-8dcd-b19930468fa2">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="e071b026-fd47-4f56-b97e-f62d4e05f858" xml:space="preserve">
+          <source>To access these samples, you must enable Remote Desktop for the Storm on HDInsight cluster, and then copy the files from <bpt id="e8c51f7f-1320-4a43-894f-e063949187d9">&lt;strong&gt;</bpt>%STORM_HOME%\contrib<ept id="e8c51f7f-1320-4a43-894f-e063949187d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To access these samples, you must enable Remote Desktop for the Storm on HDInsight cluster, and then copy the files from <bpt id="e8c51f7f-1320-4a43-894f-e063949187d9">&lt;strong&gt;</bpt>%STORM_HOME%\contrib<ept id="e8c51f7f-1320-4a43-894f-e063949187d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="41977a66-9ba1-4f69-9447-c8a3addb6acc" xml:space="preserve">
+          <source>The following document contains a list of other examples that can be used with Storm on HDInsight:</source>
+          <target state="new">The following document contains a list of other examples that can be used with Storm on HDInsight:</target>
+        </trans-unit>
+        <trans-unit id="eabb1d01-5bed-4970-b198-d3d905f31b05" xml:space="preserve">
+          <source><bpt id="4a5baf52-61bc-4000-ba6a-73efbaaba7ca">&lt;linkText&gt;</bpt>Example topologies for Storm on HDInsight<ept id="4a5baf52-61bc-4000-ba6a-73efbaaba7ca">&lt;/linkText&gt;</ept><bpt id="4a5baf52-61bc-4000-ba6a-73efbaaba7ca">&lt;title&gt;</bpt><ept id="4a5baf52-61bc-4000-ba6a-73efbaaba7ca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4a5baf52-61bc-4000-ba6a-73efbaaba7ca">&lt;linkText&gt;</bpt>Example topologies for Storm on HDInsight<ept id="4a5baf52-61bc-4000-ba6a-73efbaaba7ca">&lt;/linkText&gt;</ept><bpt id="4a5baf52-61bc-4000-ba6a-73efbaaba7ca">&lt;title&gt;</bpt><ept id="4a5baf52-61bc-4000-ba6a-73efbaaba7ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7dc90b22-43b5-42d7-b660-512dad2b4248" xml:space="preserve">
+          <source>https://storm.incubator.apache.org</source>
+          <target state="new">https://storm.incubator.apache.org</target>
+        </trans-unit>
+        <trans-unit id="a6a63396-3f59-4bd5-a806-9ebe693a03b7" xml:space="preserve">
+          <source>http://storm.incubator.apache.org/documentation/Documentation.html</source>
+          <target state="new">http://storm.incubator.apache.org/documentation/Documentation.html</target>
+        </trans-unit>
+        <trans-unit id="5921b591-5fb4-40ab-83de-72f8555ab8c2" xml:space="preserve">
+          <source>https://github.com/apache/storm/tree/master/examples/storm-starter</source>
+          <target state="new">https://github.com/apache/storm/tree/master/examples/storm-starter</target>
+        </trans-unit>
+        <trans-unit id="6950232c-3cb7-4b2a-bf94-312eedaae511" xml:space="preserve">
+          <source>https://storm.incubator.apache.org/apidocs/</source>
+          <target state="new">https://storm.incubator.apache.org/apidocs/</target>
+        </trans-unit>
+        <trans-unit id="af8cf422-00ba-4996-b605-22db2c2d9238" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="f02781c1-7c06-4338-836d-fb00d0291261" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="e524c19c-5dd4-43e3-b620-38d3b074418b" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="b171ff85-d8fb-4c5f-94cb-1d4920f47f3c" />
+    </body>
+  </file>
+</xliff>

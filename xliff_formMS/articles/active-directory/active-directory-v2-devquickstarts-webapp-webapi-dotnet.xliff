@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cbcbaad2-01bb-4d55-b4cf-6ed903249e97" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cbcbaad2-01bb-4d55-b4cf-6ed903249e97" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="365d1766-f226-4912-844d-5ce82f6aa199">
+        <trans-unit id="d1431eae-9b86-4f92-a3ba-2f4b39b3e319" xml:space="preserve">
+          <source>App Model v2.0 | Microsoft Azure</source>
+          <target state="new">App Model v2.0 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="29a5f0fb-6cb8-4c03-b421-332a74d48832" xml:space="preserve">
+          <source>How to build a .NET MVC Web App that calls web services using personal Microsoft accounts and work or school accounts for sign-in.</source>
+          <target state="new">How to build a .NET MVC Web App that calls web services using personal Microsoft accounts and work or school accounts for sign-in.</target>
+        </trans-unit>
+        <trans-unit id="c2f84637-e5e2-41ef-9b25-056e5d82e2f0" xml:space="preserve">
+          <source>This information applies to the v2.0 endpoint public preview.</source>
+          <target state="new">This information applies to the v2.0 endpoint public preview.</target>
+        </trans-unit>
+        <trans-unit id="e03eff5e-3d9e-4f1d-b475-66a6506dd73c" xml:space="preserve">
+          <source>For instructions on how to integrate with the generally available Azure AD service, please refer to the <bpt id="bf2bbea7-2067-4f31-a524-7bfd2713f509">&lt;linkText&gt;</bpt>Azure Active Directory Developer Guide<ept id="bf2bbea7-2067-4f31-a524-7bfd2713f509">&lt;/linkText&gt;</ept><bpt id="bf2bbea7-2067-4f31-a524-7bfd2713f509">&lt;title&gt;</bpt><ept id="bf2bbea7-2067-4f31-a524-7bfd2713f509">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on how to integrate with the generally available Azure AD service, please refer to the <bpt id="bf2bbea7-2067-4f31-a524-7bfd2713f509">&lt;linkText&gt;</bpt>Azure Active Directory Developer Guide<ept id="bf2bbea7-2067-4f31-a524-7bfd2713f509">&lt;/linkText&gt;</ept><bpt id="bf2bbea7-2067-4f31-a524-7bfd2713f509">&lt;title&gt;</bpt><ept id="bf2bbea7-2067-4f31-a524-7bfd2713f509">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6bdaaaf8-936b-4a05-a40f-e7a84dfd029f" xml:space="preserve">
+          <source>With the v2.0 app model, you can quickly add authentication to your web apps and web APIs with support for both personal Microsoft accounts and work or school accounts.</source>
+          <target state="new">With the v2.0 app model, you can quickly add authentication to your web apps and web APIs with support for both personal Microsoft accounts and work or school accounts.</target>
+        </trans-unit>
+        <trans-unit id="5d49309e-6b12-4d6e-b78e-550cd3689c89" xml:space="preserve">
+          <source>Here, we'll build an MVC web app that:</source>
+          <target state="new">Here, we'll build an MVC web app that:</target>
+        </trans-unit>
+        <trans-unit id="4160fbcf-3678-45fd-ab44-b64d1589bde7" xml:space="preserve">
+          <source>Signs users in using OpenID Connect, with some help from Microsoft's OWIN middleware.</source>
+          <target state="new">Signs users in using OpenID Connect, with some help from Microsoft's OWIN middleware.</target>
+        </trans-unit>
+        <trans-unit id="636fcb58-7b2c-4bc5-9d44-ed135aef9434" xml:space="preserve">
+          <source>Gets OAuth 2.0 access tokens for a web API using ADAL.</source>
+          <target state="new">Gets OAuth 2.0 access tokens for a web API using ADAL.</target>
+        </trans-unit>
+        <trans-unit id="014b6f13-ac6d-4c5f-9ad0-52b9f6e685d8" xml:space="preserve">
+          <source>Creates, Reads, and Deletes items on a user's "To-Do List", which is hosted on the web api and secured by OAuth 2.0.</source>
+          <target state="new">Creates, Reads, and Deletes items on a user's "To-Do List", which is hosted on the web api and secured by OAuth 2.0.</target>
+        </trans-unit>
+        <trans-unit id="64212f70-ac07-48b3-b04f-6672a65c9df7" xml:space="preserve">
+          <source>This tutorial will focus primarily on getting and using access tokens in a web app, described in full <bpt id="3036be8b-e216-4d47-952d-326898446180">&lt;linkText&gt;</bpt>here<ept id="3036be8b-e216-4d47-952d-326898446180">&lt;/linkText&gt;</ept><bpt id="3036be8b-e216-4d47-952d-326898446180">&lt;title&gt;</bpt><ept id="3036be8b-e216-4d47-952d-326898446180">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial will focus primarily on getting and using access tokens in a web app, described in full <bpt id="3036be8b-e216-4d47-952d-326898446180">&lt;linkText&gt;</bpt>here<ept id="3036be8b-e216-4d47-952d-326898446180">&lt;/linkText&gt;</ept><bpt id="3036be8b-e216-4d47-952d-326898446180">&lt;title&gt;</bpt><ept id="3036be8b-e216-4d47-952d-326898446180">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a16c4a7-1cc0-4ec3-bc3c-6bf10be00b88" xml:space="preserve">
+          <source>As prerequisites, you may want to first learn how to <bpt id="c031a7ee-b17b-48ea-a099-aeeff3fed05d">&lt;linkText&gt;</bpt>add basic sign-in to a web app<ept id="c031a7ee-b17b-48ea-a099-aeeff3fed05d">&lt;/linkText&gt;</ept><bpt id="c031a7ee-b17b-48ea-a099-aeeff3fed05d">&lt;title&gt;</bpt><ept id="c031a7ee-b17b-48ea-a099-aeeff3fed05d">&lt;/title&gt;</ept> or how to <bpt id="b90a6557-6e86-4797-98f1-6113ba8533fc">&lt;linkText&gt;</bpt>properly secure a web API<ept id="b90a6557-6e86-4797-98f1-6113ba8533fc">&lt;/linkText&gt;</ept><bpt id="b90a6557-6e86-4797-98f1-6113ba8533fc">&lt;title&gt;</bpt><ept id="b90a6557-6e86-4797-98f1-6113ba8533fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">As prerequisites, you may want to first learn how to <bpt id="c031a7ee-b17b-48ea-a099-aeeff3fed05d">&lt;linkText&gt;</bpt>add basic sign-in to a web app<ept id="c031a7ee-b17b-48ea-a099-aeeff3fed05d">&lt;/linkText&gt;</ept><bpt id="c031a7ee-b17b-48ea-a099-aeeff3fed05d">&lt;title&gt;</bpt><ept id="c031a7ee-b17b-48ea-a099-aeeff3fed05d">&lt;/title&gt;</ept> or how to <bpt id="b90a6557-6e86-4797-98f1-6113ba8533fc">&lt;linkText&gt;</bpt>properly secure a web API<ept id="b90a6557-6e86-4797-98f1-6113ba8533fc">&lt;/linkText&gt;</ept><bpt id="b90a6557-6e86-4797-98f1-6113ba8533fc">&lt;title&gt;</bpt><ept id="b90a6557-6e86-4797-98f1-6113ba8533fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="839fe4d6-a9c0-475e-8e9d-57dc01bee0aa" xml:space="preserve">
+          <source>The basic steps to call the To-Do List Web API from the client are:</source>
+          <target state="new">The basic steps to call the To-Do List Web API from the client are:</target>
+        </trans-unit>
+        <trans-unit id="c5125c4c-524d-480b-8fb0-51c356546ca9" xml:space="preserve">
+          <source>Register an app</source>
+          <target state="new">Register an app</target>
+        </trans-unit>
+        <trans-unit id="bcb583c5-7c74-435b-8ff6-026d89787660" xml:space="preserve">
+          <source>Sign the user into the web app using OpenID Connect</source>
+          <target state="new">Sign the user into the web app using OpenID Connect</target>
+        </trans-unit>
+        <trans-unit id="61cc78a4-78b8-42b8-a6bd-21e1c9d534e1" xml:space="preserve">
+          <source>Use ADAL to get an access token upon user sign-in</source>
+          <target state="new">Use ADAL to get an access token upon user sign-in</target>
+        </trans-unit>
+        <trans-unit id="2bce3011-cfb1-406f-82b6-f3508dabc64b" xml:space="preserve">
+          <source>Call the To-Do List Web API with an access token.</source>
+          <target state="new">Call the To-Do List Web API with an access token.</target>
+        </trans-unit>
+        <trans-unit id="e5b71cbf-e71c-4f7b-97de-ade5f3ff517d" xml:space="preserve">
+          <source>The code for this tutorial is maintained <bpt id="5ea68a68-b739-4645-867c-5dafb818c3b0">&lt;linkText&gt;</bpt>on GitHub<ept id="5ea68a68-b739-4645-867c-5dafb818c3b0">&lt;/linkText&gt;</ept><bpt id="5ea68a68-b739-4645-867c-5dafb818c3b0">&lt;title&gt;</bpt><ept id="5ea68a68-b739-4645-867c-5dafb818c3b0">&lt;/title&gt;</ept>.</source>
+          <target state="new">The code for this tutorial is maintained <bpt id="5ea68a68-b739-4645-867c-5dafb818c3b0">&lt;linkText&gt;</bpt>on GitHub<ept id="5ea68a68-b739-4645-867c-5dafb818c3b0">&lt;/linkText&gt;</ept><bpt id="5ea68a68-b739-4645-867c-5dafb818c3b0">&lt;title&gt;</bpt><ept id="5ea68a68-b739-4645-867c-5dafb818c3b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7406616a-b206-4672-ac7a-1695b14b8008" xml:space="preserve">
+          <source>To follow along, you can <bpt id="ff514125-fa40-45b6-a354-be9f03a50b79">&lt;linkText&gt;</bpt>download the app's skeleton as a .zip<ept id="ff514125-fa40-45b6-a354-be9f03a50b79">&lt;/linkText&gt;</ept><bpt id="ff514125-fa40-45b6-a354-be9f03a50b79">&lt;title&gt;</bpt><ept id="ff514125-fa40-45b6-a354-be9f03a50b79">&lt;/title&gt;</ept> or clone the skeleton:</source>
+          <target state="new">To follow along, you can <bpt id="ff514125-fa40-45b6-a354-be9f03a50b79">&lt;linkText&gt;</bpt>download the app's skeleton as a .zip<ept id="ff514125-fa40-45b6-a354-be9f03a50b79">&lt;/linkText&gt;</ept><bpt id="ff514125-fa40-45b6-a354-be9f03a50b79">&lt;title&gt;</bpt><ept id="ff514125-fa40-45b6-a354-be9f03a50b79">&lt;/title&gt;</ept> or clone the skeleton:</target>
+        </trans-unit>
+        <trans-unit id="e515fcd9-0889-467a-85e2-90c873be4943" xml:space="preserve">
+          <source>PM&gt; Install-Package Microsoft.Owin.Security.OpenIdConnect -ProjectName TodoList-WebApp
+PM&gt; Install-Package Microsoft.Owin.Security.Cookies -ProjectName TodoList-WebApp
+PM&gt; Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp</source>
+          <target state="new">PM&gt; Install-Package Microsoft.Owin.Security.OpenIdConnect -ProjectName TodoList-WebApp
+PM&gt; Install-Package Microsoft.Owin.Security.Cookies -ProjectName TodoList-WebApp
+PM&gt; Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp</target>
+        </trans-unit>
+        <trans-unit id="2e60e994-3ad6-4825-b5e9-266932e07072" xml:space="preserve">
+          <source>In the <bpt id="c5a1ae1a-5f9a-4f01-82e2-4f8d6b4cbdfe">&lt;code&gt;</bpt>AuthorizationCodeReceived<ept id="c5a1ae1a-5f9a-4f01-82e2-4f8d6b4cbdfe">&lt;/code&gt;</ept> notification, we want to use <bpt id="0a77862a-9dac-4a6e-90c1-001762b8c1bd">&lt;linkText&gt;</bpt>OAuth 2.0 in tandem with OpenID Connect<ept id="0a77862a-9dac-4a6e-90c1-001762b8c1bd">&lt;/linkText&gt;</ept><bpt id="0a77862a-9dac-4a6e-90c1-001762b8c1bd">&lt;title&gt;</bpt><ept id="0a77862a-9dac-4a6e-90c1-001762b8c1bd">&lt;/title&gt;</ept> to redeem the authorization_code for an access token to the To-Do List Service.</source>
+          <target state="new">In the <bpt id="c5a1ae1a-5f9a-4f01-82e2-4f8d6b4cbdfe">&lt;code&gt;</bpt>AuthorizationCodeReceived<ept id="c5a1ae1a-5f9a-4f01-82e2-4f8d6b4cbdfe">&lt;/code&gt;</ept> notification, we want to use <bpt id="0a77862a-9dac-4a6e-90c1-001762b8c1bd">&lt;linkText&gt;</bpt>OAuth 2.0 in tandem with OpenID Connect<ept id="0a77862a-9dac-4a6e-90c1-001762b8c1bd">&lt;/linkText&gt;</ept><bpt id="0a77862a-9dac-4a6e-90c1-001762b8c1bd">&lt;title&gt;</bpt><ept id="0a77862a-9dac-4a6e-90c1-001762b8c1bd">&lt;/title&gt;</ept> to redeem the authorization_code for an access token to the To-Do List Service.</target>
+        </trans-unit>
+        <trans-unit id="20600c29-b0c4-4733-a2e3-6d6a87e2812c" xml:space="preserve">
+          <source>ADAL can make this process easy for you:</source>
+          <target state="new">ADAL can make this process easy for you:</target>
+        </trans-unit>
+        <trans-unit id="3e9a8a02-638f-44ee-97c0-3b48c906ecd4" xml:space="preserve">
+          <source>First, install the preview version of ADAL:</source>
+          <target state="new">First, install the preview version of ADAL:</target>
+        </trans-unit>
+        <trans-unit id="93957921-5381-4da2-b23c-5750773a702b" xml:space="preserve">
+          <source>In web apps, ADAL has an extensible token cache that can be used to store tokens.</source>
+          <target state="new">In web apps, ADAL has an extensible token cache that can be used to store tokens.</target>
+        </trans-unit>
+        <trans-unit id="1dc002c9-ca94-4fd3-bfdc-2565d151d3c7" xml:space="preserve">
+          <source>This sample implements the <bpt id="558f94e0-d508-4120-bf45-a69a0fbe3d6a">&lt;code&gt;</bpt>NaiveSessionCache<ept id="558f94e0-d508-4120-bf45-a69a0fbe3d6a">&lt;/code&gt;</ept> which uses http session storage to cache tokens.</source>
+          <target state="new">This sample implements the <bpt id="558f94e0-d508-4120-bf45-a69a0fbe3d6a">&lt;code&gt;</bpt>NaiveSessionCache<ept id="558f94e0-d508-4120-bf45-a69a0fbe3d6a">&lt;/code&gt;</ept> which uses http session storage to cache tokens.</target>
+        </trans-unit>
+        <trans-unit id="e2fcdbd8-1c09-42ab-a5b4-f349d9eeb9a5" xml:space="preserve">
+          <source>Now it's time to actually use the access_token you acquired in step 3.</source>
+          <target state="new">Now it's time to actually use the access_token you acquired in step 3.</target>
+        </trans-unit>
+        <trans-unit id="d5fdbfb9-02be-49bd-8696-bc1f1a5efef5" xml:space="preserve">
+          <source>Open the web app's <bpt id="f4ccf40f-64f8-43fd-932e-d4b4d9bef56e">&lt;code&gt;</bpt>Controllers\TodoListController.cs<ept id="f4ccf40f-64f8-43fd-932e-d4b4d9bef56e">&lt;/code&gt;</ept> file, which makes all the CRUD requests to the To-Do List API.</source>
+          <target state="new">Open the web app's <bpt id="f4ccf40f-64f8-43fd-932e-d4b4d9bef56e">&lt;code&gt;</bpt>Controllers\TodoListController.cs<ept id="f4ccf40f-64f8-43fd-932e-d4b4d9bef56e">&lt;/code&gt;</ept> file, which makes all the CRUD requests to the To-Do List API.</target>
+        </trans-unit>
+        <trans-unit id="cdd187b6-bb4a-497c-8d6e-986a945435e2" xml:space="preserve">
+          <source>You can use ADAL again here to fetch access_tokens from the ADAL cache.</source>
+          <target state="new">You can use ADAL again here to fetch access_tokens from the ADAL cache.</target>
+        </trans-unit>
+        <trans-unit id="a9cc3553-f0d7-4377-837f-d9b8a88fb93f" xml:space="preserve">
+          <source>First, add a <bpt id="ae2c98b5-acc0-46f7-8724-e3e85872c240">&lt;code&gt;</bpt>using<ept id="ae2c98b5-acc0-46f7-8724-e3e85872c240">&lt;/code&gt;</ept> statement for ADAL to this file.</source>
+          <target state="new">First, add a <bpt id="ae2c98b5-acc0-46f7-8724-e3e85872c240">&lt;code&gt;</bpt>using<ept id="ae2c98b5-acc0-46f7-8724-e3e85872c240">&lt;/code&gt;</ept> statement for ADAL to this file.</target>
+        </trans-unit>
+        <trans-unit id="debe9599-941a-4b1a-8cd9-3166581346c3" xml:space="preserve">
+          <source><bpt id="7dadca5d-b8cf-454f-a603-c2483d9a51fb">&lt;code&gt;</bpt>using Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory;<ept id="7dadca5d-b8cf-454f-a603-c2483d9a51fb">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="7dadca5d-b8cf-454f-a603-c2483d9a51fb">&lt;code&gt;</bpt>using Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory;<ept id="7dadca5d-b8cf-454f-a603-c2483d9a51fb">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c61b2302-920d-404c-af8d-ae8173b50add" xml:space="preserve">
+          <source>In the <bpt id="9c75668b-824b-4953-9c7d-16fdb9bc9622">&lt;code&gt;</bpt>Index<ept id="9c75668b-824b-4953-9c7d-16fdb9bc9622">&lt;/code&gt;</ept> action, use ADAL's <bpt id="f720ba6d-8c8d-4a71-bad3-cd0ef275480f">&lt;code&gt;</bpt>AcquireTokenSilentAsync<ept id="f720ba6d-8c8d-4a71-bad3-cd0ef275480f">&lt;/code&gt;</ept> method to get an access_token that can be used to read data from the To-Do List service:</source>
+          <target state="new">In the <bpt id="9c75668b-824b-4953-9c7d-16fdb9bc9622">&lt;code&gt;</bpt>Index<ept id="9c75668b-824b-4953-9c7d-16fdb9bc9622">&lt;/code&gt;</ept> action, use ADAL's <bpt id="f720ba6d-8c8d-4a71-bad3-cd0ef275480f">&lt;code&gt;</bpt>AcquireTokenSilentAsync<ept id="f720ba6d-8c8d-4a71-bad3-cd0ef275480f">&lt;/code&gt;</ept> method to get an access_token that can be used to read data from the To-Do List service:</target>
+        </trans-unit>
+        <trans-unit id="e3f404ff-f27b-4da7-ac19-48383d7b4d3a" xml:space="preserve">
+          <source>The sample then adds the resulting token to the HTTP GET request as the <bpt id="e9999c32-55c9-4ccb-b2e5-06760032aa7f">&lt;code&gt;</bpt>Authorization<ept id="e9999c32-55c9-4ccb-b2e5-06760032aa7f">&lt;/code&gt;</ept> header, which the To-Do List service uses to authenticate the request.</source>
+          <target state="new">The sample then adds the resulting token to the HTTP GET request as the <bpt id="e9999c32-55c9-4ccb-b2e5-06760032aa7f">&lt;code&gt;</bpt>Authorization<ept id="e9999c32-55c9-4ccb-b2e5-06760032aa7f">&lt;/code&gt;</ept> header, which the To-Do List service uses to authenticate the request.</target>
+        </trans-unit>
+        <trans-unit id="4a49b233-cc01-42aa-9717-4ec250cc03ea" xml:space="preserve">
+          <source>If the To-Do List service returns a <bpt id="a1400777-1004-4f54-ae9b-ff228a61f45f">&lt;code&gt;</bpt>401 Unauthorized<ept id="a1400777-1004-4f54-ae9b-ff228a61f45f">&lt;/code&gt;</ept> response, the access_tokens in ADAL have become invalid for some reason.</source>
+          <target state="new">If the To-Do List service returns a <bpt id="a1400777-1004-4f54-ae9b-ff228a61f45f">&lt;code&gt;</bpt>401 Unauthorized<ept id="a1400777-1004-4f54-ae9b-ff228a61f45f">&lt;/code&gt;</ept> response, the access_tokens in ADAL have become invalid for some reason.</target>
+        </trans-unit>
+        <trans-unit id="5a1ef8fd-ede1-4ba6-baac-f752c0d2a2e7" xml:space="preserve">
+          <source>In this case, you should drop any access_tokens from the ADAL cache and show the user a message that they may need to sign in again, which will restart the token acquisition flow.</source>
+          <target state="new">In this case, you should drop any access_tokens from the ADAL cache and show the user a message that they may need to sign in again, which will restart the token acquisition flow.</target>
+        </trans-unit>
+        <trans-unit id="1bad12bb-e706-4744-9286-1cb4c488b6a9" xml:space="preserve">
+          <source>Similarly, if ADAL is unable to return an access_token for any reason, you should instruct the user to sign in again.</source>
+          <target state="new">Similarly, if ADAL is unable to return an access_token for any reason, you should instruct the user to sign in again.</target>
+        </trans-unit>
+        <trans-unit id="4c765989-8c3c-4bea-88c4-5109581cf29b" xml:space="preserve">
+          <source>This is as simple as catching any <bpt id="75fd6060-d032-4e71-a231-c2a278ef9d72">&lt;code&gt;</bpt>AdalException<ept id="75fd6060-d032-4e71-a231-c2a278ef9d72">&lt;/code&gt;</ept>:</source>
+          <target state="new">This is as simple as catching any <bpt id="75fd6060-d032-4e71-a231-c2a278ef9d72">&lt;code&gt;</bpt>AdalException<ept id="75fd6060-d032-4e71-a231-c2a278ef9d72">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="cb282bf5-44eb-4c4d-93a5-e61cf5f73a2a" xml:space="preserve">
+          <source>The exact same <bpt id="439a0509-9a4c-47c6-983e-baac8d17c7ef">&lt;code&gt;</bpt>AcquireTokenSilentAsync<ept id="439a0509-9a4c-47c6-983e-baac8d17c7ef">&lt;/code&gt;</ept> call is implementd in the <bpt id="b3d11c25-4f05-45c0-91ce-86bbadc62c4a">&lt;code&gt;</bpt>Create<ept id="b3d11c25-4f05-45c0-91ce-86bbadc62c4a">&lt;/code&gt;</ept> and <bpt id="97a8ad30-2992-40ff-8dfb-961c1e7cbcab">&lt;code&gt;</bpt>Delete<ept id="97a8ad30-2992-40ff-8dfb-961c1e7cbcab">&lt;/code&gt;</ept> actions.</source>
+          <target state="new">The exact same <bpt id="439a0509-9a4c-47c6-983e-baac8d17c7ef">&lt;code&gt;</bpt>AcquireTokenSilentAsync<ept id="439a0509-9a4c-47c6-983e-baac8d17c7ef">&lt;/code&gt;</ept> call is implementd in the <bpt id="b3d11c25-4f05-45c0-91ce-86bbadc62c4a">&lt;code&gt;</bpt>Create<ept id="b3d11c25-4f05-45c0-91ce-86bbadc62c4a">&lt;/code&gt;</ept> and <bpt id="97a8ad30-2992-40ff-8dfb-961c1e7cbcab">&lt;code&gt;</bpt>Delete<ept id="97a8ad30-2992-40ff-8dfb-961c1e7cbcab">&lt;/code&gt;</ept> actions.</target>
+        </trans-unit>
+        <trans-unit id="d9866bde-41ea-49b0-a966-fb27dd26fb55" xml:space="preserve">
+          <source>In web apps, you can use this ADAL method to get access_tokens whenever you need them in your app.</source>
+          <target state="new">In web apps, you can use this ADAL method to get access_tokens whenever you need them in your app.</target>
+        </trans-unit>
+        <trans-unit id="b0218396-4b57-4b58-9b6e-ea5afa62e6ae" xml:space="preserve">
+          <source>ADAL will take care of acquiring, caching, and refreshing tokens for you.</source>
+          <target state="new">ADAL will take care of acquiring, caching, and refreshing tokens for you.</target>
+        </trans-unit>
+        <trans-unit id="439a3ba4-f689-4eae-bc3b-b9959646a134" xml:space="preserve">
+          <source>Finally, build and run your app!  Sign in with either a Microsoft Account or an Azure AD Account, and notice how the user's identity is reflected in the top navigation bar.  Add and delete some items from the user's To-Do List to see the OAuth 2.0 secured API calls in action.  You now have a web app &amp; web API, both secured using industry standard protocols, that can authenticate users with both their personal and work/school accounts.</source>
+          <target state="new">Finally, build and run your app!  Sign in with either a Microsoft Account or an Azure AD Account, and notice how the user's identity is reflected in the top navigation bar.  Add and delete some items from the user's To-Do List to see the OAuth 2.0 secured API calls in action.  You now have a web app &amp; web API, both secured using industry standard protocols, that can authenticate users with both their personal and work/school accounts.</target>
+        </trans-unit>
+        <trans-unit id="d6fb8041-1c98-40ab-ad10-b4b2039b5e38" xml:space="preserve">
+          <source>For reference, the completed sample (without your configuration values) <bpt id="587503e0-e97c-4e08-b8f7-7201c5a544df">&lt;linkText&gt;</bpt>is provided here<ept id="587503e0-e97c-4e08-b8f7-7201c5a544df">&lt;/linkText&gt;</ept><bpt id="587503e0-e97c-4e08-b8f7-7201c5a544df">&lt;title&gt;</bpt><ept id="587503e0-e97c-4e08-b8f7-7201c5a544df">&lt;/title&gt;</ept>.</source>
+          <target state="new">For reference, the completed sample (without your configuration values) <bpt id="587503e0-e97c-4e08-b8f7-7201c5a544df">&lt;linkText&gt;</bpt>is provided here<ept id="587503e0-e97c-4e08-b8f7-7201c5a544df">&lt;/linkText&gt;</ept><bpt id="587503e0-e97c-4e08-b8f7-7201c5a544df">&lt;title&gt;</bpt><ept id="587503e0-e97c-4e08-b8f7-7201c5a544df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1dcbc18-3d33-462f-a06f-2249f6f5a5aa" xml:space="preserve">
+          <source>For additional resources, check out:</source>
+          <target state="new">For additional resources, check out:</target>
+        </trans-unit>
+        <trans-unit id="c580cab4-12fa-4b6b-8bb4-3f6ff3cbdf36" xml:space="preserve">
+          <source><bpt id="37c2f86a-73ae-4fc0-8f18-dc30df9674bc">&lt;linkText&gt;</bpt>The App Model v2.0 Preview &gt;&gt;<ept id="37c2f86a-73ae-4fc0-8f18-dc30df9674bc">&lt;/linkText&gt;</ept><bpt id="37c2f86a-73ae-4fc0-8f18-dc30df9674bc">&lt;title&gt;</bpt><ept id="37c2f86a-73ae-4fc0-8f18-dc30df9674bc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="37c2f86a-73ae-4fc0-8f18-dc30df9674bc">&lt;linkText&gt;</bpt>The App Model v2.0 Preview &gt;&gt;<ept id="37c2f86a-73ae-4fc0-8f18-dc30df9674bc">&lt;/linkText&gt;</ept><bpt id="37c2f86a-73ae-4fc0-8f18-dc30df9674bc">&lt;title&gt;</bpt><ept id="37c2f86a-73ae-4fc0-8f18-dc30df9674bc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bbb1af5d-d08d-4850-a0d1-85b1382e8b28" xml:space="preserve">
+          <source><bpt id="3cb99f72-d872-4bab-969c-4cc320603228">&lt;linkText&gt;</bpt>StackOverflow "adal" tag &gt;&gt;<ept id="3cb99f72-d872-4bab-969c-4cc320603228">&lt;/linkText&gt;</ept><bpt id="3cb99f72-d872-4bab-969c-4cc320603228">&lt;title&gt;</bpt><ept id="3cb99f72-d872-4bab-969c-4cc320603228">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3cb99f72-d872-4bab-969c-4cc320603228">&lt;linkText&gt;</bpt>StackOverflow "adal" tag &gt;&gt;<ept id="3cb99f72-d872-4bab-969c-4cc320603228">&lt;/linkText&gt;</ept><bpt id="3cb99f72-d872-4bab-969c-4cc320603228">&lt;title&gt;</bpt><ept id="3cb99f72-d872-4bab-969c-4cc320603228">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

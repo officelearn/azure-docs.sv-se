@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3143dddf-b154-49d2-88e0-85b76c791b60" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3143dddf-b154-49d2-88e0-85b76c791b60" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7d48cc8b-895d-49c3-a473-f38ce88cb3c4">
+        <trans-unit id="377bea08-cb05-4f66-b3e1-8d2b4a921f94" xml:space="preserve">
+          <source>Manage the directory for your Office 365 subscription in Azure</source>
+          <target state="new">Manage the directory for your Office 365 subscription in Azure</target>
+        </trans-unit>
+        <trans-unit id="030dfc35-7cee-42ad-b04e-8b7f0517be71" xml:space="preserve">
+          <source>Managing an Office 365 subscriptions account directory using Azure Active Directory and the Management Portal</source>
+          <target state="new">Managing an Office 365 subscriptions account directory using Azure Active Directory and the Management Portal</target>
+        </trans-unit>
+        <trans-unit id="0abe982d-a9d2-499e-83e1-ee5eccddea36" xml:space="preserve">
+          <source>This article describes how to manage a directory that was created for an Office 365 subscription within the Azure Management Portal.</source>
+          <target state="new">This article describes how to manage a directory that was created for an Office 365 subscription within the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="ca0bc480-50d7-46b6-a1b9-b877621fdacb" xml:space="preserve">
+          <source>The steps to complete this differ depending on whether you already have a subscription for Azure.</source>
+          <target state="new">The steps to complete this differ depending on whether you already have a subscription for Azure.</target>
+        </trans-unit>
+        <trans-unit id="a37fd07f-d2ed-4742-97c3-4a8e8b928f39" xml:space="preserve">
+          <source>You must be either the Service Administrator or a co-administrator of an Azure subscription in order to sign in to the Azure Management Portal.</source>
+          <target state="new">You must be either the Service Administrator or a co-administrator of an Azure subscription in order to sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="23dfac26-a855-40a4-9555-cb194c90f499" xml:space="preserve">
+          <source>If you don’t yet have an Azure subscription, you just need to sign up by using the work or school account that you use to sign in to Office 365.</source>
+          <target state="new">If you don’t yet have an Azure subscription, you just need to sign up by using the work or school account that you use to sign in to Office 365.</target>
+        </trans-unit>
+        <trans-unit id="e5d27399-daa4-49f9-9950-50d1bb0f8a0e" xml:space="preserve">
+          <source><bpt id="c8a744bd-77dd-490e-94e9-8734a6d21fae">&lt;linkText&gt;</bpt><ept id="c8a744bd-77dd-490e-94e9-8734a6d21fae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c8a744bd-77dd-490e-94e9-8734a6d21fae">&lt;linkText&gt;</bpt><ept id="c8a744bd-77dd-490e-94e9-8734a6d21fae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="883264b0-308a-4f37-b8c3-5f69ca04b4c7" xml:space="preserve">
+          <source>A corresponding subscription for Azure will not be found, but you can click <bpt id="4ac8ad26-4ad8-4252-9067-b94d7987487e">&lt;strong&gt;</bpt>Sign up for Azure<ept id="4ac8ad26-4ad8-4252-9067-b94d7987487e">&lt;/strong&gt;</ept> and relevant information from the Office 365 account will be prepopulated in the sign-up form.</source>
+          <target state="new">A corresponding subscription for Azure will not be found, but you can click <bpt id="4ac8ad26-4ad8-4252-9067-b94d7987487e">&lt;strong&gt;</bpt>Sign up for Azure<ept id="4ac8ad26-4ad8-4252-9067-b94d7987487e">&lt;/strong&gt;</ept> and relevant information from the Office 365 account will be prepopulated in the sign-up form.</target>
+        </trans-unit>
+        <trans-unit id="dfb4a2a7-72d7-4684-9166-94c6176570de" xml:space="preserve">
+          <source>The same account will be assigned to the Service Administrator role by default.</source>
+          <target state="new">The same account will be assigned to the Service Administrator role by default.</target>
+        </trans-unit>
+        <trans-unit id="879a8ded-153a-45d7-895d-70fd604e9e77" xml:space="preserve">
+          <source><bpt id="0bda45dd-6c9e-4b06-a3d3-69fb573fb485">&lt;linkText&gt;</bpt><ept id="0bda45dd-6c9e-4b06-a3d3-69fb573fb485">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0bda45dd-6c9e-4b06-a3d3-69fb573fb485">&lt;linkText&gt;</bpt><ept id="0bda45dd-6c9e-4b06-a3d3-69fb573fb485">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe905bd3-5da0-419d-9c7e-a8c469b76434" xml:space="preserve">
+          <source>After you complete the Azure subscription, you can sign in to the Azure Management Portal and access Azure services.</source>
+          <target state="new">After you complete the Azure subscription, you can sign in to the Azure Management Portal and access Azure services.</target>
+        </trans-unit>
+        <trans-unit id="8108616b-fda6-4d91-8661-2e2051e6c9bf" xml:space="preserve">
+          <source>Click the Active Directory extension in order to manage the same directory that authenticates your Office 365 users.</source>
+          <target state="new">Click the Active Directory extension in order to manage the same directory that authenticates your Office 365 users.</target>
+        </trans-unit>
+        <trans-unit id="aad13ac6-28e6-41d2-b204-fffeecdd4746" xml:space="preserve">
+          <source>If you do already have an Azure subscription, the process to manage an additional directory is also straightforward.</source>
+          <target state="new">If you do already have an Azure subscription, the process to manage an additional directory is also straightforward.</target>
+        </trans-unit>
+        <trans-unit id="9c21d501-6c0e-44b6-9b3e-b8b56cfd7ee1" xml:space="preserve">
+          <source>The following diagram may help to illustrate the process.</source>
+          <target state="new">The following diagram may help to illustrate the process.</target>
+        </trans-unit>
+        <trans-unit id="1bd368a4-da46-47a5-ac87-b1f90f427c44" xml:space="preserve">
+          <source>In this example, Michael Smith has an Office 365 subscription for Contoso.com.</source>
+          <target state="new">In this example, Michael Smith has an Office 365 subscription for Contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="4aec6bdf-bc80-4232-b711-8a4a78825e6a" xml:space="preserve">
+          <source>He has an Azure subscription that he signed up for by using his Microsoft account, msmith@hotmail.com.</source>
+          <target state="new">He has an Azure subscription that he signed up for by using his Microsoft account, msmith@hotmail.com.</target>
+        </trans-unit>
+        <trans-unit id="79b0fb79-dd22-45c4-a277-4142155a3a99" xml:space="preserve">
+          <source>In this case, he manages two directories.</source>
+          <target state="new">In this case, he manages two directories.</target>
+        </trans-unit>
+        <trans-unit id="d8044fec-6ca9-496e-899b-8babe002d677" xml:space="preserve">
+          <source>Subscription</source>
+          <target state="new">Subscription</target>
+        </trans-unit>
+        <trans-unit id="5b4d52f1-b127-4f8f-8271-ca60fa88e77a" xml:space="preserve">
+          <source>Office 365</source>
+          <target state="new">Office 365</target>
+        </trans-unit>
+        <trans-unit id="122a1b6e-139e-4d35-a152-e248c452f6f3" xml:space="preserve">
+          <source>Azure</source>
+          <target state="new">Azure</target>
+        </trans-unit>
+        <trans-unit id="15cd940d-23af-4a42-b6e5-cc44c4a64a72" xml:space="preserve">
+          <source>Display name</source>
+          <target state="new">Display name</target>
+        </trans-unit>
+        <trans-unit id="2c375711-943c-43af-b7bb-845d0d47a40d" xml:space="preserve">
+          <source>Contoso</source>
+          <target state="new">Contoso</target>
+        </trans-unit>
+        <trans-unit id="bfdf0a4e-f2de-4c70-b8dc-cb23b0b1e890" xml:space="preserve">
+          <source>Default directory</source>
+          <target state="new">Default directory</target>
+        </trans-unit>
+        <trans-unit id="55f95621-d3ce-4606-a08e-5b50920f4b3d" xml:space="preserve">
+          <source>Domain name</source>
+          <target state="new">Domain name</target>
+        </trans-unit>
+        <trans-unit id="73e53904-eeaa-407a-a3f6-9132e517c9d3" xml:space="preserve">
+          <source>contoso.com</source>
+          <target state="new">contoso.com</target>
+        </trans-unit>
+        <trans-unit id="34ee75e8-6995-46b6-9973-8a29fb234f9c" xml:space="preserve">
+          <source>msmithhotmail.onmicrosoft.com</source>
+          <target state="new">msmithhotmail.onmicrosoft.com</target>
+        </trans-unit>
+        <trans-unit id="fac2525b-ad06-48a5-a131-89e1cde09940" xml:space="preserve">
+          <source>He wants to manage the user identities in the Contoso directory while he is signed in to Azure using his Microsoft account so he can enable Azure AD features such as multifactor authentication.</source>
+          <target state="new">He wants to manage the user identities in the Contoso directory while he is signed in to Azure using his Microsoft account so he can enable Azure AD features such as multifactor authentication.</target>
+        </trans-unit>
+        <trans-unit id="c88d3507-4eaa-4749-be9a-a60aba8d8627" xml:space="preserve">
+          <source><bpt id="43103e5b-0c1d-4bff-b33c-d9894bb80127">&lt;linkText&gt;</bpt><ept id="43103e5b-0c1d-4bff-b33c-d9894bb80127">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="43103e5b-0c1d-4bff-b33c-d9894bb80127">&lt;linkText&gt;</bpt><ept id="43103e5b-0c1d-4bff-b33c-d9894bb80127">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe9eebdc-6a02-4694-8b14-6f24bb27b36e" xml:space="preserve">
+          <source>In this case the two directories are independent of each other.</source>
+          <target state="new">In this case the two directories are independent of each other.</target>
+        </trans-unit>
+        <trans-unit id="147de6ab-864a-497d-abf5-f06631d7b3b6" xml:space="preserve">
+          <source>In order for Michael Smith to manage both directories while he is signed in to Azure as msmith@hotmail.com, he needs to complete the following steps:</source>
+          <target state="new">In order for Michael Smith to manage both directories while he is signed in to Azure as msmith@hotmail.com, he needs to complete the following steps:</target>
+        </trans-unit>
+        <trans-unit id="2e3afb71-8926-4be8-9bbf-c47b918a2253" xml:space="preserve">
+          <source>These steps can be completed only when a user is signed in with a Microsoft account.</source>
+          <target state="new">These steps can be completed only when a user is signed in with a Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="144e5756-a0ec-4f7f-a1e3-78d86f6ed3c1" xml:space="preserve">
+          <source>If the user is signed in with a work or school account, the option to <bpt id="b4682183-d2b1-4ba8-ad47-3fe27d3631d8">&lt;strong&gt;</bpt>Use existing directory<ept id="b4682183-d2b1-4ba8-ad47-3fe27d3631d8">&lt;/strong&gt;</ept> is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school).</source>
+          <target state="new">If the user is signed in with a work or school account, the option to <bpt id="b4682183-d2b1-4ba8-ad47-3fe27d3631d8">&lt;strong&gt;</bpt>Use existing directory<ept id="b4682183-d2b1-4ba8-ad47-3fe27d3631d8">&lt;/strong&gt;</ept> is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school).</target>
+        </trans-unit>
+        <trans-unit id="3ebab776-6cfe-4f48-a341-1d2d5eb4ad9d" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal as msmith@hotmail.com.</source>
+          <target state="new">Sign in to the Azure Management Portal as msmith@hotmail.com.</target>
+        </trans-unit>
+        <trans-unit id="b69af1a9-b25e-459b-9e25-a2992d6ed647" xml:space="preserve">
+          <source>Click <bpt id="76e2c9ab-af7e-4640-be78-78fc39e97ac1">&lt;strong&gt;</bpt>New<ept id="76e2c9ab-af7e-4640-be78-78fc39e97ac1">&lt;/strong&gt;</ept> &gt; <bpt id="ca715d2d-3325-4032-aab5-1245ab09d3e8">&lt;strong&gt;</bpt>App services<ept id="ca715d2d-3325-4032-aab5-1245ab09d3e8">&lt;/strong&gt;</ept> &gt; <bpt id="8c683f78-49ce-4f65-bf43-4e2b6c3ad0a4">&lt;strong&gt;</bpt>Active Directory<ept id="8c683f78-49ce-4f65-bf43-4e2b6c3ad0a4">&lt;/strong&gt;</ept> &gt; <bpt id="f598d4b2-41c9-4e6e-b50d-c0f1557b7854">&lt;strong&gt;</bpt>Directory<ept id="f598d4b2-41c9-4e6e-b50d-c0f1557b7854">&lt;/strong&gt;</ept> &gt; <bpt id="2c731529-3a4c-46f0-a0ad-39992d0a8454">&lt;strong&gt;</bpt>Custom Create<ept id="2c731529-3a4c-46f0-a0ad-39992d0a8454">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="76e2c9ab-af7e-4640-be78-78fc39e97ac1">&lt;strong&gt;</bpt>New<ept id="76e2c9ab-af7e-4640-be78-78fc39e97ac1">&lt;/strong&gt;</ept> &gt; <bpt id="ca715d2d-3325-4032-aab5-1245ab09d3e8">&lt;strong&gt;</bpt>App services<ept id="ca715d2d-3325-4032-aab5-1245ab09d3e8">&lt;/strong&gt;</ept> &gt; <bpt id="8c683f78-49ce-4f65-bf43-4e2b6c3ad0a4">&lt;strong&gt;</bpt>Active Directory<ept id="8c683f78-49ce-4f65-bf43-4e2b6c3ad0a4">&lt;/strong&gt;</ept> &gt; <bpt id="f598d4b2-41c9-4e6e-b50d-c0f1557b7854">&lt;strong&gt;</bpt>Directory<ept id="f598d4b2-41c9-4e6e-b50d-c0f1557b7854">&lt;/strong&gt;</ept> &gt; <bpt id="2c731529-3a4c-46f0-a0ad-39992d0a8454">&lt;strong&gt;</bpt>Custom Create<ept id="2c731529-3a4c-46f0-a0ad-39992d0a8454">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64497906-7fad-4f0a-b610-ed8006e1edcb" xml:space="preserve">
+          <source>Click Use existing directory and select the <bpt id="c3c05823-0439-437a-879b-b58a5ba57aa9">&lt;strong&gt;</bpt>I am ready to be signed out now<ept id="c3c05823-0439-437a-879b-b58a5ba57aa9">&lt;/strong&gt;</ept> checkbox.</source>
+          <target state="new">Click Use existing directory and select the <bpt id="c3c05823-0439-437a-879b-b58a5ba57aa9">&lt;strong&gt;</bpt>I am ready to be signed out now<ept id="c3c05823-0439-437a-879b-b58a5ba57aa9">&lt;/strong&gt;</ept> checkbox.</target>
+        </trans-unit>
+        <trans-unit id="df0b7fe5-14b1-41cb-89e2-98e44b009197" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal as global admin of Contoso.onmicrosoft.com (for example, msmith@contoso.com).</source>
+          <target state="new">Sign in to the Azure Management Portal as global admin of Contoso.onmicrosoft.com (for example, msmith@contoso.com).</target>
+        </trans-unit>
+        <trans-unit id="24a1c825-a91f-49c2-9c56-13fd7bbf15fb" xml:space="preserve">
+          <source>When prompted to <bpt id="d4b01a3f-21d4-4979-b5d6-9483d3897fb7">&lt;strong&gt;</bpt>Use the Contoso directory with Azure?<ept id="d4b01a3f-21d4-4979-b5d6-9483d3897fb7">&lt;/strong&gt;</ept>, click <bpt id="bddf97b3-ce76-4797-b0bd-e33500f10572">&lt;strong&gt;</bpt>Continue<ept id="bddf97b3-ce76-4797-b0bd-e33500f10572">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted to <bpt id="d4b01a3f-21d4-4979-b5d6-9483d3897fb7">&lt;strong&gt;</bpt>Use the Contoso directory with Azure?<ept id="d4b01a3f-21d4-4979-b5d6-9483d3897fb7">&lt;/strong&gt;</ept>, click <bpt id="bddf97b3-ce76-4797-b0bd-e33500f10572">&lt;strong&gt;</bpt>Continue<ept id="bddf97b3-ce76-4797-b0bd-e33500f10572">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ac6d378-389a-4680-8add-f7ca1cdbd744" xml:space="preserve">
+          <source>Click <bpt id="20aa0b37-dbb3-40fb-84fb-b7f4a46e419c">&lt;strong&gt;</bpt>Sign out now<ept id="20aa0b37-dbb3-40fb-84fb-b7f4a46e419c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="20aa0b37-dbb3-40fb-84fb-b7f4a46e419c">&lt;strong&gt;</bpt>Sign out now<ept id="20aa0b37-dbb3-40fb-84fb-b7f4a46e419c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9573a081-eb80-4b21-beb7-edbe2b1dc102" xml:space="preserve">
+          <source>Sign in to the Management Portal as msmith@hotmail.com.</source>
+          <target state="new">Sign in to the Management Portal as msmith@hotmail.com.</target>
+        </trans-unit>
+        <trans-unit id="01ce37df-f5a1-4d14-a8b9-46cc18dfcfab" xml:space="preserve">
+          <source>The Contoso directory and the Default directory appear in the Active Directory extension.</source>
+          <target state="new">The Contoso directory and the Default directory appear in the Active Directory extension.</target>
+        </trans-unit>
+        <trans-unit id="89a04130-5426-4348-a817-d692c00da68e" xml:space="preserve">
+          <source>After completing these steps, msmith@hotmail.com is a global administrator in the Contoso directory.</source>
+          <target state="new">After completing these steps, msmith@hotmail.com is a global administrator in the Contoso directory.</target>
+        </trans-unit>
+        <trans-unit id="bf105511-98e9-4931-a3dd-bbf9814245ee" xml:space="preserve">
+          <source>Now let’s suppose that John Doe needs to sign in to the Azure Management Portal and administer the websites and database resources that are associated with the Azure subscription of msmith@hotmail.com.</source>
+          <target state="new">Now let’s suppose that John Doe needs to sign in to the Azure Management Portal and administer the websites and database resources that are associated with the Azure subscription of msmith@hotmail.com.</target>
+        </trans-unit>
+        <trans-unit id="f685bd23-8126-4e14-901e-3202ff44821f" xml:space="preserve">
+          <source>To do that, Michael Smith needs to complete these additional steps:</source>
+          <target state="new">To do that, Michael Smith needs to complete these additional steps:</target>
+        </trans-unit>
+        <trans-unit id="f430f68b-ecb6-4431-832e-c9b763b08502" xml:space="preserve">
+          <source>Sign in to the Management Portal by using the Service Administrator account of the Azure subscription (in this example, msmith@hotmail.com).</source>
+          <target state="new">Sign in to the Management Portal by using the Service Administrator account of the Azure subscription (in this example, msmith@hotmail.com).</target>
+        </trans-unit>
+        <trans-unit id="faf622ca-321b-4a13-84d9-3a4e5a54d2b3" xml:space="preserve">
+          <source>Transfer the subscription to the Contoso directory: click <bpt id="4041cc57-01af-455d-a968-db6b1a1f1507">&lt;strong&gt;</bpt>Settings<ept id="4041cc57-01af-455d-a968-db6b1a1f1507">&lt;/strong&gt;</ept> &gt; <bpt id="ada9201f-0acf-4fed-bd50-5e82c136bfaa">&lt;strong&gt;</bpt>Subscriptions<ept id="ada9201f-0acf-4fed-bd50-5e82c136bfaa">&lt;/strong&gt;</ept> &gt; select the subscription &gt; <bpt id="550a2854-944a-49f0-9950-0f283f3afa5a">&lt;strong&gt;</bpt>Edit Directory<ept id="550a2854-944a-49f0-9950-0f283f3afa5a">&lt;/strong&gt;</ept> &gt; select <bpt id="fc98755b-a97f-4739-a102-862577439e6e">&lt;strong&gt;</bpt>Contoso (Contoso.com)<ept id="fc98755b-a97f-4739-a102-862577439e6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Transfer the subscription to the Contoso directory: click <bpt id="4041cc57-01af-455d-a968-db6b1a1f1507">&lt;strong&gt;</bpt>Settings<ept id="4041cc57-01af-455d-a968-db6b1a1f1507">&lt;/strong&gt;</ept> &gt; <bpt id="ada9201f-0acf-4fed-bd50-5e82c136bfaa">&lt;strong&gt;</bpt>Subscriptions<ept id="ada9201f-0acf-4fed-bd50-5e82c136bfaa">&lt;/strong&gt;</ept> &gt; select the subscription &gt; <bpt id="550a2854-944a-49f0-9950-0f283f3afa5a">&lt;strong&gt;</bpt>Edit Directory<ept id="550a2854-944a-49f0-9950-0f283f3afa5a">&lt;/strong&gt;</ept> &gt; select <bpt id="fc98755b-a97f-4739-a102-862577439e6e">&lt;strong&gt;</bpt>Contoso (Contoso.com)<ept id="fc98755b-a97f-4739-a102-862577439e6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="966c9f42-b82f-4251-a2f2-22cf572e0221" xml:space="preserve">
+          <source>As part of the transfer, any work or school accounts that are co-administrators of the subscription will be removed.</source>
+          <target state="new">As part of the transfer, any work or school accounts that are co-administrators of the subscription will be removed.</target>
+        </trans-unit>
+        <trans-unit id="07583b50-9e3c-4f2a-917b-980de49fc13e" xml:space="preserve">
+          <source>Add John Doe as co-administrator of the subscription: click <bpt id="76c4edf1-2045-411c-912c-2048fcf371f5">&lt;strong&gt;</bpt>Settings<ept id="76c4edf1-2045-411c-912c-2048fcf371f5">&lt;/strong&gt;</ept> &gt; <bpt id="18b8eed0-1a6d-43e7-a328-e0eb113c2eca">&lt;strong&gt;</bpt>Administrators<ept id="18b8eed0-1a6d-43e7-a328-e0eb113c2eca">&lt;/strong&gt;</ept> &gt; select the subscription &gt; <bpt id="9bd55f40-6070-4187-9310-65ed18d1c5e9">&lt;strong&gt;</bpt>Add<ept id="9bd55f40-6070-4187-9310-65ed18d1c5e9">&lt;/strong&gt;</ept> &gt; type <bpt id="609577ff-b1c1-40be-914c-000139f93b6e">&lt;strong&gt;</bpt>JohnDoe@Contoso.com<ept id="609577ff-b1c1-40be-914c-000139f93b6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add John Doe as co-administrator of the subscription: click <bpt id="76c4edf1-2045-411c-912c-2048fcf371f5">&lt;strong&gt;</bpt>Settings<ept id="76c4edf1-2045-411c-912c-2048fcf371f5">&lt;/strong&gt;</ept> &gt; <bpt id="18b8eed0-1a6d-43e7-a328-e0eb113c2eca">&lt;strong&gt;</bpt>Administrators<ept id="18b8eed0-1a6d-43e7-a328-e0eb113c2eca">&lt;/strong&gt;</ept> &gt; select the subscription &gt; <bpt id="9bd55f40-6070-4187-9310-65ed18d1c5e9">&lt;strong&gt;</bpt>Add<ept id="9bd55f40-6070-4187-9310-65ed18d1c5e9">&lt;/strong&gt;</ept> &gt; type <bpt id="609577ff-b1c1-40be-914c-000139f93b6e">&lt;strong&gt;</bpt>JohnDoe@Contoso.com<ept id="609577ff-b1c1-40be-914c-000139f93b6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="883a078f-0404-4727-9754-e14c02c7da58" xml:space="preserve">
+          <source>For more information about the relationship between subscriptions and directories, see <bpt id="c17d5133-811e-40c5-997e-2d9da08e8482">&lt;linkText&gt;</bpt>How a subscription is associated with a directory<ept id="c17d5133-811e-40c5-997e-2d9da08e8482">&lt;/linkText&gt;</ept><bpt id="c17d5133-811e-40c5-997e-2d9da08e8482">&lt;title&gt;</bpt><ept id="c17d5133-811e-40c5-997e-2d9da08e8482">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the relationship between subscriptions and directories, see <bpt id="c17d5133-811e-40c5-997e-2d9da08e8482">&lt;linkText&gt;</bpt>How a subscription is associated with a directory<ept id="c17d5133-811e-40c5-997e-2d9da08e8482">&lt;/linkText&gt;</ept><bpt id="c17d5133-811e-40c5-997e-2d9da08e8482">&lt;title&gt;</bpt><ept id="c17d5133-811e-40c5-997e-2d9da08e8482">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

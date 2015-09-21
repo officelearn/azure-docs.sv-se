@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="829013b3-46a0-40b7-b941-6c983fda6b61" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="829013b3-46a0-40b7-b941-6c983fda6b61" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f0bfcb95-2c8b-4ec6-aad1-ae30114d59b1">
+        <trans-unit id="899deb02-0404-49fb-9b6b-60bae7c3f42b" xml:space="preserve">
+          <source>In order to deploy applications to Azure, you need an account.</source>
+          <target state="new">In order to deploy applications to Azure, you need an account.</target>
+        </trans-unit>
+        <trans-unit id="90163cb1-f5e5-4b44-9dd6-d14967ef5097" xml:space="preserve">
+          <source>This article describes how to create a free trial account and how to enable Azure preview features, including BizTalk Services, HDInsight, and Azure Back, for the account.</source>
+          <target state="new">This article describes how to create a free trial account and how to enable Azure preview features, including BizTalk Services, HDInsight, and Azure Back, for the account.</target>
+        </trans-unit>
+        <trans-unit id="6fed6ca6-986d-4592-a21e-b37ea09aa42d" xml:space="preserve">
+          <source>Open a web browser and browse to &lt;http://azure.microsoft.com&gt;</source>
+          <target state="new">Open a web browser and browse to &lt;http://azure.microsoft.com&gt;</target>
+        </trans-unit>
+        <trans-unit id="8bca6f86-28c0-42c2-9240-07e22d701b34" xml:space="preserve">
+          <source>If you have an MSDN subscription, navigate to the <bpt id="2217531f-1b2f-4dfb-92b5-67aeab80ad4d">&lt;linkText&gt;</bpt>Azure Benefit for MSDN Subscribers<ept id="2217531f-1b2f-4dfb-92b5-67aeab80ad4d">&lt;/linkText&gt;</ept><bpt id="2217531f-1b2f-4dfb-92b5-67aeab80ad4d">&lt;title&gt;</bpt><ept id="2217531f-1b2f-4dfb-92b5-67aeab80ad4d">&lt;/title&gt;</ept> page and follow the steps to create an account by activating your MSDN subscriber benefits.</source>
+          <target state="new">If you have an MSDN subscription, navigate to the <bpt id="2217531f-1b2f-4dfb-92b5-67aeab80ad4d">&lt;linkText&gt;</bpt>Azure Benefit for MSDN Subscribers<ept id="2217531f-1b2f-4dfb-92b5-67aeab80ad4d">&lt;/linkText&gt;</ept><bpt id="2217531f-1b2f-4dfb-92b5-67aeab80ad4d">&lt;title&gt;</bpt><ept id="2217531f-1b2f-4dfb-92b5-67aeab80ad4d">&lt;/title&gt;</ept> page and follow the steps to create an account by activating your MSDN subscriber benefits.</target>
+        </trans-unit>
+        <trans-unit id="84ff3142-2832-44c3-ac3c-2cf8b6b87857" xml:space="preserve">
+          <source>Otherwise, navigate to the <bpt id="0468d0b1-f303-4584-b9ca-a557fede7ca1">&lt;linkText&gt;</bpt>create a free trial account<ept id="0468d0b1-f303-4584-b9ca-a557fede7ca1">&lt;/linkText&gt;</ept><bpt id="0468d0b1-f303-4584-b9ca-a557fede7ca1">&lt;title&gt;</bpt><ept id="0468d0b1-f303-4584-b9ca-a557fede7ca1">&lt;/title&gt;</ept> page and follow the steps to create a trial account.</source>
+          <target state="new">Otherwise, navigate to the <bpt id="0468d0b1-f303-4584-b9ca-a557fede7ca1">&lt;linkText&gt;</bpt>create a free trial account<ept id="0468d0b1-f303-4584-b9ca-a557fede7ca1">&lt;/linkText&gt;</ept><bpt id="0468d0b1-f303-4584-b9ca-a557fede7ca1">&lt;title&gt;</bpt><ept id="0468d0b1-f303-4584-b9ca-a557fede7ca1">&lt;/title&gt;</ept> page and follow the steps to create a trial account.</target>
+        </trans-unit>
+        <trans-unit id="31b0c96b-4306-4d99-99fa-f803f0a54bc3" xml:space="preserve">
+          <source>You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.</source>
+          <target state="new">You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.</target>
+        </trans-unit>
+        <trans-unit id="0f6b7318-307e-4d36-bea8-36a53a83fa49" xml:space="preserve">
+          <source>Navigate to &lt;https://account.windowsazure.com/&gt; and sign in with your Azure account.</source>
+          <target state="new">Navigate to &lt;https://account.windowsazure.com/&gt; and sign in with your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="5a92b31e-6436-4a9b-a071-27346de6b279" xml:space="preserve">
+          <source>Click <bpt id="85295f09-f9e0-4947-a1b9-4dbc296828ff">&lt;strong&gt;</bpt>preview features<ept id="85295f09-f9e0-4947-a1b9-4dbc296828ff">&lt;/strong&gt;</ept> to view the available previews.&lt;br /&gt;
+<bpt id="2cc6331d-3105-41bb-898a-b4340bc7cc7f">&lt;linkText&gt;</bpt>open preview features tab<ept id="2cc6331d-3105-41bb-898a-b4340bc7cc7f">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click <bpt id="85295f09-f9e0-4947-a1b9-4dbc296828ff">&lt;strong&gt;</bpt>preview features<ept id="85295f09-f9e0-4947-a1b9-4dbc296828ff">&lt;/strong&gt;</ept> to view the available previews.&lt;br /&gt;
+<bpt id="2cc6331d-3105-41bb-898a-b4340bc7cc7f">&lt;linkText&gt;</bpt>open preview features tab<ept id="2cc6331d-3105-41bb-898a-b4340bc7cc7f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bea89983-e6f4-4964-b921-81af078d478a" xml:space="preserve">
+          <source>Scroll down to the feature you want to enable and click <bpt id="ea3b84b0-3fbc-4828-9137-b7006252f89d">&lt;strong&gt;</bpt>try it now<ept id="ea3b84b0-3fbc-4828-9137-b7006252f89d">&lt;/strong&gt;</ept>.&lt;br /&gt;
+<bpt id="be8d8fce-4cf7-4b93-a150-b610edd6c460">&lt;linkText&gt;</bpt>select a preview feature<ept id="be8d8fce-4cf7-4b93-a150-b610edd6c460">&lt;/linkText&gt;</ept></source>
+          <target state="new">Scroll down to the feature you want to enable and click <bpt id="ea3b84b0-3fbc-4828-9137-b7006252f89d">&lt;strong&gt;</bpt>try it now<ept id="ea3b84b0-3fbc-4828-9137-b7006252f89d">&lt;/strong&gt;</ept>.&lt;br /&gt;
+<bpt id="be8d8fce-4cf7-4b93-a150-b610edd6c460">&lt;linkText&gt;</bpt>select a preview feature<ept id="be8d8fce-4cf7-4b93-a150-b610edd6c460">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f9634ef-ca31-4bb2-94a1-c4bb7a530dbf" xml:space="preserve">
+          <source>Select your subscription and click the check.&lt;br /&gt;
+<bpt id="2dacf04f-3c9b-4191-8bd4-2f6e40f0bd78">&lt;linkText&gt;</bpt>select subscription<ept id="2dacf04f-3c9b-4191-8bd4-2f6e40f0bd78">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select your subscription and click the check.&lt;br /&gt;
+<bpt id="2dacf04f-3c9b-4191-8bd4-2f6e40f0bd78">&lt;linkText&gt;</bpt>select subscription<ept id="2dacf04f-3c9b-4191-8bd4-2f6e40f0bd78">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2aef496a-90ac-4d7a-9c4e-d35db3e6f1c0" xml:space="preserve">
+          <source>./media/create-an-azure-account/antares-iaas-preview-01.png</source>
+          <target state="new">./media/create-an-azure-account/antares-iaas-preview-01.png</target>
+        </trans-unit>
+        <trans-unit id="010400aa-9a72-41d8-8325-bee1aabd0ccb" xml:space="preserve">
+          <source>./media/create-an-azure-account/antares-iaas-preview-05.png</source>
+          <target state="new">./media/create-an-azure-account/antares-iaas-preview-05.png</target>
+        </trans-unit>
+        <trans-unit id="ee100102-d098-4258-a353-4c70df2ac62c" xml:space="preserve">
+          <source>./media/create-an-azure-account/antares-iaas-preview-06.png</source>
+          <target state="new">./media/create-an-azure-account/antares-iaas-preview-06.png</target>
+        </trans-unit>
+      </group>
+      <group id="c8ba67fe-53cb-411d-b832-a7928e82dc05" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b5b4c05a-e300-437b-b02f-c60ab670c292" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b5b4c05a-e300-437b-b02f-c60ab670c292" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e4d05d1a-b768-4ddf-99c6-300275c13096">
+        <trans-unit id="1be0a75e-7d65-44ec-8d15-3af0c0b52702" xml:space="preserve">
+          <source>Reliable Actors Notes on Actor type serialization</source>
+          <target state="new">Reliable Actors Notes on Actor type serialization</target>
+        </trans-unit>
+        <trans-unit id="163ecb15-2ac1-4f7a-8100-a8f59ddd73dc" xml:space="preserve">
+          <source>Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actor state and interfaces</source>
+          <target state="new">Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actor state and interfaces</target>
+        </trans-unit>
+        <trans-unit id="8458c5aa-76f3-4ae6-b24b-eb92834f931f" xml:space="preserve">
+          <source>There are few important aspects that needs to be kept in mind while defining the Actor's interface(s) and State: types need to be Data Contract serializable.</source>
+          <target state="new">There are few important aspects that needs to be kept in mind while defining the Actor's interface(s) and State: types need to be Data Contract serializable.</target>
+        </trans-unit>
+        <trans-unit id="117253ac-b65e-4070-8db9-ed2feb5b7cee" xml:space="preserve">
+          <source>More information about Data Contracts can be found on <bpt id="406c13ac-78cc-4600-849b-473b24bb3c8c">&lt;linkText&gt;</bpt>MSDN<ept id="406c13ac-78cc-4600-849b-473b24bb3c8c">&lt;/linkText&gt;</ept><bpt id="406c13ac-78cc-4600-849b-473b24bb3c8c">&lt;title&gt;</bpt><ept id="406c13ac-78cc-4600-849b-473b24bb3c8c">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information about Data Contracts can be found on <bpt id="406c13ac-78cc-4600-849b-473b24bb3c8c">&lt;linkText&gt;</bpt>MSDN<ept id="406c13ac-78cc-4600-849b-473b24bb3c8c">&lt;/linkText&gt;</ept><bpt id="406c13ac-78cc-4600-849b-473b24bb3c8c">&lt;title&gt;</bpt><ept id="406c13ac-78cc-4600-849b-473b24bb3c8c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08ce1747-c242-4336-bd6e-c3179c9de7a2" xml:space="preserve">
+          <source>The arguments of all the methods and the result type of the task returned by each method defined in the <bpt id="1bcb0311-20b1-4648-9d35-3eccc084a4e4">&lt;linkText&gt;</bpt>actor interface<ept id="1bcb0311-20b1-4648-9d35-3eccc084a4e4">&lt;/linkText&gt;</ept><bpt id="1bcb0311-20b1-4648-9d35-3eccc084a4e4">&lt;title&gt;</bpt><ept id="1bcb0311-20b1-4648-9d35-3eccc084a4e4">&lt;/title&gt;</ept> need to be data contract serializable.</source>
+          <target state="new">The arguments of all the methods and the result type of the task returned by each method defined in the <bpt id="1bcb0311-20b1-4648-9d35-3eccc084a4e4">&lt;linkText&gt;</bpt>actor interface<ept id="1bcb0311-20b1-4648-9d35-3eccc084a4e4">&lt;/linkText&gt;</ept><bpt id="1bcb0311-20b1-4648-9d35-3eccc084a4e4">&lt;title&gt;</bpt><ept id="1bcb0311-20b1-4648-9d35-3eccc084a4e4">&lt;/title&gt;</ept> need to be data contract serializable.</target>
+        </trans-unit>
+        <trans-unit id="1b14a403-d857-4d6c-a357-04392c75e7ec" xml:space="preserve">
+          <source>This also applies to the arguments of methods defined in <bpt id="52393d7b-1c70-44f1-bc20-df8acbfd440f">&lt;linkText&gt;</bpt>actor event interfaces<ept id="52393d7b-1c70-44f1-bc20-df8acbfd440f">&lt;/linkText&gt;</ept><bpt id="52393d7b-1c70-44f1-bc20-df8acbfd440f">&lt;title&gt;</bpt><ept id="52393d7b-1c70-44f1-bc20-df8acbfd440f">&lt;/title&gt;</ept>.</source>
+          <target state="new">This also applies to the arguments of methods defined in <bpt id="52393d7b-1c70-44f1-bc20-df8acbfd440f">&lt;linkText&gt;</bpt>actor event interfaces<ept id="52393d7b-1c70-44f1-bc20-df8acbfd440f">&lt;/linkText&gt;</ept><bpt id="52393d7b-1c70-44f1-bc20-df8acbfd440f">&lt;title&gt;</bpt><ept id="52393d7b-1c70-44f1-bc20-df8acbfd440f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8788752a-12ea-47fd-9c92-fcf69743e85c" xml:space="preserve">
+          <source>(Actor event interface methods always return void).</source>
+          <target state="new">(Actor event interface methods always return void).</target>
+        </trans-unit>
+        <trans-unit id="23337562-d28d-4b7b-b1c9-281f65c03797" xml:space="preserve">
+          <source>For instance, if the <bpt id="d8b4ba2b-9cbc-468b-8d09-fd3adee46563">&lt;code&gt;</bpt>IVoiceMail<ept id="d8b4ba2b-9cbc-468b-8d09-fd3adee46563">&lt;/code&gt;</ept> interface defines a method as:</source>
+          <target state="new">For instance, if the <bpt id="d8b4ba2b-9cbc-468b-8d09-fd3adee46563">&lt;code&gt;</bpt>IVoiceMail<ept id="d8b4ba2b-9cbc-468b-8d09-fd3adee46563">&lt;/code&gt;</ept> interface defines a method as:</target>
+        </trans-unit>
+        <trans-unit id="6ebeac65-88a0-4577-a432-18e26d7e033e" xml:space="preserve">
+          <source><bpt id="8b4ed124-3dbb-498b-b52a-6c44fe930330">&lt;code&gt;</bpt>List&lt;T&gt;<ept id="8b4ed124-3dbb-498b-b52a-6c44fe930330">&lt;/code&gt;</ept> is a standard .NET type that is already Data Contract serializable. The <bpt id="0a050f46-d2b2-4dc9-925f-727ce9a5dfcd">&lt;code&gt;</bpt>Voicemail<ept id="0a050f46-d2b2-4dc9-925f-727ce9a5dfcd">&lt;/code&gt;</ept> type needs to be Data Contract serializable.</source>
+          <target state="new"><bpt id="8b4ed124-3dbb-498b-b52a-6c44fe930330">&lt;code&gt;</bpt>List&lt;T&gt;<ept id="8b4ed124-3dbb-498b-b52a-6c44fe930330">&lt;/code&gt;</ept> is a standard .NET type that is already Data Contract serializable. The <bpt id="0a050f46-d2b2-4dc9-925f-727ce9a5dfcd">&lt;code&gt;</bpt>Voicemail<ept id="0a050f46-d2b2-4dc9-925f-727ce9a5dfcd">&lt;/code&gt;</ept> type needs to be Data Contract serializable.</target>
+        </trans-unit>
+        <trans-unit id="f0cae9c9-21d1-4ab5-8958-db90c205a85c" xml:space="preserve">
+          <source>The actor state needs to be data contract serializable.</source>
+          <target state="new">The actor state needs to be data contract serializable.</target>
+        </trans-unit>
+        <trans-unit id="66d9ef34-d37b-42ee-bf46-67145285b085" xml:space="preserve">
+          <source>For instance if we have an Actor class definition that looks like:</source>
+          <target state="new">For instance if we have an Actor class definition that looks like:</target>
+        </trans-unit>
+        <trans-unit id="84173149-2191-455d-8c9c-065fb3b1a551" xml:space="preserve">
+          <source>The state class is going to be defined with the class and its members annotated with the DataContract and DataMember attributes respectively.</source>
+          <target state="new">The state class is going to be defined with the class and its members annotated with the DataContract and DataMember attributes respectively.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

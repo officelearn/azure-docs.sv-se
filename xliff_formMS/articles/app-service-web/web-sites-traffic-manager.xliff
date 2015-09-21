@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="286b53a2-4956-45e7-a42e-1ad936c6ada9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="286b53a2-4956-45e7-a42e-1ad936c6ada9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="999c9c9f-c3be-4c8e-a9dc-187c1afc0135">
+        <trans-unit id="0076041f-9a07-4695-9efa-fea5631b7ba0" xml:space="preserve">
+          <source>Controlling Azure web app traffic with Azure Traffic Manager</source>
+          <target state="new">Controlling Azure web app traffic with Azure Traffic Manager</target>
+        </trans-unit>
+        <trans-unit id="3593c20d-b3e5-4cd2-a73c-15085636746c" xml:space="preserve">
+          <source>This article provides summary information for  Azure Traffic Manager as it relates to Azure web apps.</source>
+          <target state="new">This article provides summary information for  Azure Traffic Manager as it relates to Azure web apps.</target>
+        </trans-unit>
+        <trans-unit id="22089be2-c8b4-4364-ab6b-57be678c12ee" xml:space="preserve">
+          <source>This article provides summary information for Microsoft Azure Traffic Manager as it relates to Azure App Service Web Apps.</source>
+          <target state="new">This article provides summary information for Microsoft Azure Traffic Manager as it relates to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="7e2f1971-17a9-41fd-a024-12055a456551" xml:space="preserve">
+          <source>More information about Azure Traffic Manager itself can be found by visiting the links at the end of this article.</source>
+          <target state="new">More information about Azure Traffic Manager itself can be found by visiting the links at the end of this article.</target>
+        </trans-unit>
+        <trans-unit id="53073312-70ee-4ef2-9421-7b4373025702" xml:space="preserve">
+          <source>You can use Azure Traffic Manager to control how requests from web clients are distributed to web apps in Azure App Service.</source>
+          <target state="new">You can use Azure Traffic Manager to control how requests from web clients are distributed to web apps in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="eab1b6ab-e4e2-4724-8ff3-50a8aa13a126" xml:space="preserve">
+          <source>When web app endpoints are added to a Azure Traffic Manager profile, Azure Traffic Manager keeps track of the status of your web apps (running, stopped or deleted) so that it can decide which of those endpoints should receive traffic.</source>
+          <target state="new">When web app endpoints are added to a Azure Traffic Manager profile, Azure Traffic Manager keeps track of the status of your web apps (running, stopped or deleted) so that it can decide which of those endpoints should receive traffic.</target>
+        </trans-unit>
+        <trans-unit id="25cac2f4-9c7f-44db-8bc4-3df4284e6167" xml:space="preserve">
+          <source>Azure Traffic Manager uses three different load balancing methods.</source>
+          <target state="new">Azure Traffic Manager uses three different load balancing methods.</target>
+        </trans-unit>
+        <trans-unit id="bfc3b442-0890-4a79-8380-6812e95e11a1" xml:space="preserve">
+          <source>These are described  in the following list as they pertain to Azure web apps.</source>
+          <target state="new">These are described  in the following list as they pertain to Azure web apps.</target>
+        </trans-unit>
+        <trans-unit id="9d40334f-4bb8-4447-912b-0b145f0e1d82" xml:space="preserve">
+          <source><bpt id="319f1fd2-02ae-4b41-aa45-445e150151ab">&lt;strong&gt;</bpt>Failover<ept id="319f1fd2-02ae-4b41-aa45-445e150151ab">&lt;/strong&gt;</ept>: If you have web app clones in different regions, you can use this method to configure one web app to service all web client traffic, and configure another web app in a different region to service that traffic in case the first web app becomes unavailable.</source>
+          <target state="new"><bpt id="319f1fd2-02ae-4b41-aa45-445e150151ab">&lt;strong&gt;</bpt>Failover<ept id="319f1fd2-02ae-4b41-aa45-445e150151ab">&lt;/strong&gt;</ept>: If you have web app clones in different regions, you can use this method to configure one web app to service all web client traffic, and configure another web app in a different region to service that traffic in case the first web app becomes unavailable.</target>
+        </trans-unit>
+        <trans-unit id="1706baa4-4112-47c1-a735-47146b849fc3" xml:space="preserve">
+          <source><bpt id="8ded326d-4d74-4868-a4ae-da50171e3d85">&lt;strong&gt;</bpt>Round Robin<ept id="8ded326d-4d74-4868-a4ae-da50171e3d85">&lt;/strong&gt;</ept>: If you have web app clones in different regions, you can use this method to distribute traffic equally across the web apps in different regions.</source>
+          <target state="new"><bpt id="8ded326d-4d74-4868-a4ae-da50171e3d85">&lt;strong&gt;</bpt>Round Robin<ept id="8ded326d-4d74-4868-a4ae-da50171e3d85">&lt;/strong&gt;</ept>: If you have web app clones in different regions, you can use this method to distribute traffic equally across the web apps in different regions.</target>
+        </trans-unit>
+        <trans-unit id="2d2b3817-1e0b-4ac8-ad54-2a9968bc9a00" xml:space="preserve">
+          <source><bpt id="8c2cb82c-6676-4a2b-a3d3-37cb0bc22680">&lt;strong&gt;</bpt>Performance<ept id="8c2cb82c-6676-4a2b-a3d3-37cb0bc22680">&lt;/strong&gt;</ept>: The Performance method distributes traffic based on the shortest round trip time to clients.</source>
+          <target state="new"><bpt id="8c2cb82c-6676-4a2b-a3d3-37cb0bc22680">&lt;strong&gt;</bpt>Performance<ept id="8c2cb82c-6676-4a2b-a3d3-37cb0bc22680">&lt;/strong&gt;</ept>: The Performance method distributes traffic based on the shortest round trip time to clients.</target>
+        </trans-unit>
+        <trans-unit id="c49f2e75-6b05-4bc1-8f6f-d2db43bfdb9d" xml:space="preserve">
+          <source>The Performance method can be used for web apps within the same region or in different regions.</source>
+          <target state="new">The Performance method can be used for web apps within the same region or in different regions.</target>
+        </trans-unit>
+        <trans-unit id="1d91f623-3fb7-4228-b9a4-6ffa3f7bb65c" xml:space="preserve">
+          <source>For detailed information about load balancing in Azure Traffic Manager, see <bpt id="3b10857b-1e2d-4f2b-a13f-e1df9f6a05c3">&lt;linkText&gt;</bpt>About Traffic Manager Load Balancing Methods<ept id="3b10857b-1e2d-4f2b-a13f-e1df9f6a05c3">&lt;/linkText&gt;</ept><bpt id="3b10857b-1e2d-4f2b-a13f-e1df9f6a05c3">&lt;title&gt;</bpt><ept id="3b10857b-1e2d-4f2b-a13f-e1df9f6a05c3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed information about load balancing in Azure Traffic Manager, see <bpt id="3b10857b-1e2d-4f2b-a13f-e1df9f6a05c3">&lt;linkText&gt;</bpt>About Traffic Manager Load Balancing Methods<ept id="3b10857b-1e2d-4f2b-a13f-e1df9f6a05c3">&lt;/linkText&gt;</ept><bpt id="3b10857b-1e2d-4f2b-a13f-e1df9f6a05c3">&lt;title&gt;</bpt><ept id="3b10857b-1e2d-4f2b-a13f-e1df9f6a05c3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb327d41-4830-4230-85e9-b20a903832fe" xml:space="preserve">
+          <source>To configure the control of web app traffic, you create a profile in Azure Traffic Manager that uses one of the three load balancing methods described previously, and then add the endpoints (in this case, web apps) for which you want to control traffic to the profile.</source>
+          <target state="new">To configure the control of web app traffic, you create a profile in Azure Traffic Manager that uses one of the three load balancing methods described previously, and then add the endpoints (in this case, web apps) for which you want to control traffic to the profile.</target>
+        </trans-unit>
+        <trans-unit id="936dc424-1aa7-458c-ba31-c8bbf41acbee" xml:space="preserve">
+          <source>Your web app status (running, stopped or deleted) is regularly communicated to the profile so that Azure Traffic Manager can direct traffic accordingly.</source>
+          <target state="new">Your web app status (running, stopped or deleted) is regularly communicated to the profile so that Azure Traffic Manager can direct traffic accordingly.</target>
+        </trans-unit>
+        <trans-unit id="8e266a17-1f49-4c79-8bbd-f1977528b99f" xml:space="preserve">
+          <source>When using Azure Traffic Manager with Azure, keep in mind the following points:</source>
+          <target state="new">When using Azure Traffic Manager with Azure, keep in mind the following points:</target>
+        </trans-unit>
+        <trans-unit id="533d1108-0970-45a4-abd0-64debeafd9d9" xml:space="preserve">
+          <source>For web app only deployments within the same region, Web Apps already provides failover and round-robin functionality without regard to web app mode.</source>
+          <target state="new">For web app only deployments within the same region, Web Apps already provides failover and round-robin functionality without regard to web app mode.</target>
+        </trans-unit>
+        <trans-unit id="b6214207-0758-440c-b85e-9ad06d9fc5dc" xml:space="preserve">
+          <source>For deployments in the same region that use Web Apps in conjunction with another Azure cloud service, you can combine both types of endpoints to enable hybrid scenarios.</source>
+          <target state="new">For deployments in the same region that use Web Apps in conjunction with another Azure cloud service, you can combine both types of endpoints to enable hybrid scenarios.</target>
+        </trans-unit>
+        <trans-unit id="b719a41c-30fa-4997-acf0-c006d12c9164" xml:space="preserve">
+          <source>You can only specify one web app endpoint per region in a profile.</source>
+          <target state="new">You can only specify one web app endpoint per region in a profile.</target>
+        </trans-unit>
+        <trans-unit id="2209dba3-144b-454f-870d-64a8891b958c" xml:space="preserve">
+          <source>When you select a web app as an endpoint for one region, the remaining web apps in that region become unavailable for selection for that profile.</source>
+          <target state="new">When you select a web app as an endpoint for one region, the remaining web apps in that region become unavailable for selection for that profile.</target>
+        </trans-unit>
+        <trans-unit id="7c71e00d-b07b-49f3-a483-8f842cc8ecf9" xml:space="preserve">
+          <source>The web app endpoints that you specify in a Azure Traffic Manager profile will appear under the <bpt id="f7096e14-6d15-4a59-9c44-9f1fe21e0582">&lt;strong&gt;</bpt>Domain Names<ept id="f7096e14-6d15-4a59-9c44-9f1fe21e0582">&lt;/strong&gt;</ept> section on the Configure page for the web app in the profile, but will not be configurable there.</source>
+          <target state="new">The web app endpoints that you specify in a Azure Traffic Manager profile will appear under the <bpt id="f7096e14-6d15-4a59-9c44-9f1fe21e0582">&lt;strong&gt;</bpt>Domain Names<ept id="f7096e14-6d15-4a59-9c44-9f1fe21e0582">&lt;/strong&gt;</ept> section on the Configure page for the web app in the profile, but will not be configurable there.</target>
+        </trans-unit>
+        <trans-unit id="641e9215-5236-4749-b516-714ac0755bf7" xml:space="preserve">
+          <source>After you add a web app to a profile, the <bpt id="8935524b-e6c0-4989-81bc-81494601b92f">&lt;strong&gt;</bpt>Site URL<ept id="8935524b-e6c0-4989-81bc-81494601b92f">&lt;/strong&gt;</ept> on the Dashboard of the web app's portal page will display the custom domain URL of the web app if you have set one up.</source>
+          <target state="new">After you add a web app to a profile, the <bpt id="8935524b-e6c0-4989-81bc-81494601b92f">&lt;strong&gt;</bpt>Site URL<ept id="8935524b-e6c0-4989-81bc-81494601b92f">&lt;/strong&gt;</ept> on the Dashboard of the web app's portal page will display the custom domain URL of the web app if you have set one up.</target>
+        </trans-unit>
+        <trans-unit id="6a64819e-d4d5-41be-ab79-53641366d4d9" xml:space="preserve">
+          <source>Otherwise, it will display the Traffic Manager profile URL (for example, <bpt id="5208678b-e7a2-4d4f-a511-2b0126f1d1ec">&lt;code&gt;</bpt>contoso.trafficmgr.com<ept id="5208678b-e7a2-4d4f-a511-2b0126f1d1ec">&lt;/code&gt;</ept>).</source>
+          <target state="new">Otherwise, it will display the Traffic Manager profile URL (for example, <bpt id="5208678b-e7a2-4d4f-a511-2b0126f1d1ec">&lt;code&gt;</bpt>contoso.trafficmgr.com<ept id="5208678b-e7a2-4d4f-a511-2b0126f1d1ec">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="dd420225-f890-458f-ad89-4b5dda4a55f6" xml:space="preserve">
+          <source>Both the direct domain name of the web app and the Traffic Manager URL will be visible on the web app's Configure page under the <bpt id="5b2ce595-8105-45dc-b0fe-cb6a5b49ab2c">&lt;strong&gt;</bpt>Domain Names<ept id="5b2ce595-8105-45dc-b0fe-cb6a5b49ab2c">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Both the direct domain name of the web app and the Traffic Manager URL will be visible on the web app's Configure page under the <bpt id="5b2ce595-8105-45dc-b0fe-cb6a5b49ab2c">&lt;strong&gt;</bpt>Domain Names<ept id="5b2ce595-8105-45dc-b0fe-cb6a5b49ab2c">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="9e151590-d738-4803-ae8e-8784d3f0dd28" xml:space="preserve">
+          <source>Your custom domain names will work as expected, but in addition to adding them to your web apps, you must also configure your DNS map to point to the Traffic Manager URL.</source>
+          <target state="new">Your custom domain names will work as expected, but in addition to adding them to your web apps, you must also configure your DNS map to point to the Traffic Manager URL.</target>
+        </trans-unit>
+        <trans-unit id="fd5a679a-e105-43bf-8d6a-75b02d1e7afd" xml:space="preserve">
+          <source>For information on how to set up a custom domain for a Azure web app,  see <bpt id="75490ecb-0d00-4c8a-bf66-35c09751da66">&lt;linkText&gt;</bpt>Configuring a custom domain name for an Azure web site<ept id="75490ecb-0d00-4c8a-bf66-35c09751da66">&lt;/linkText&gt;</ept><bpt id="75490ecb-0d00-4c8a-bf66-35c09751da66">&lt;title&gt;</bpt><ept id="75490ecb-0d00-4c8a-bf66-35c09751da66">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on how to set up a custom domain for a Azure web app,  see <bpt id="75490ecb-0d00-4c8a-bf66-35c09751da66">&lt;linkText&gt;</bpt>Configuring a custom domain name for an Azure web site<ept id="75490ecb-0d00-4c8a-bf66-35c09751da66">&lt;/linkText&gt;</ept><bpt id="75490ecb-0d00-4c8a-bf66-35c09751da66">&lt;title&gt;</bpt><ept id="75490ecb-0d00-4c8a-bf66-35c09751da66">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6725ed15-80cd-4959-96bc-62d785da13b9" xml:space="preserve">
+          <source>You can only add web apps that are in standard mode to a Azure Traffic Manager profile.</source>
+          <target state="new">You can only add web apps that are in standard mode to a Azure Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="f5aa295c-8ca0-4da4-a979-cd15ebced1fe" xml:space="preserve">
+          <source>For a conceptual and technical overview of Azure Traffic Manager, see <bpt id="0945510c-0717-4051-895e-fad405e9c54c">&lt;linkText&gt;</bpt>Traffic Manager Overview<ept id="0945510c-0717-4051-895e-fad405e9c54c">&lt;/linkText&gt;</ept><bpt id="0945510c-0717-4051-895e-fad405e9c54c">&lt;title&gt;</bpt><ept id="0945510c-0717-4051-895e-fad405e9c54c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a conceptual and technical overview of Azure Traffic Manager, see <bpt id="0945510c-0717-4051-895e-fad405e9c54c">&lt;linkText&gt;</bpt>Traffic Manager Overview<ept id="0945510c-0717-4051-895e-fad405e9c54c">&lt;/linkText&gt;</ept><bpt id="0945510c-0717-4051-895e-fad405e9c54c">&lt;title&gt;</bpt><ept id="0945510c-0717-4051-895e-fad405e9c54c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0eed12dd-a131-4dd4-850f-38d1116d4d86" xml:space="preserve">
+          <source>For detailed information about load balancing in Azure Traffic Manager, see <bpt id="dac8478a-e805-409c-834d-1763793ab74e">&lt;linkText&gt;</bpt>About Traffic Manager Load Balancing Methods<ept id="dac8478a-e805-409c-834d-1763793ab74e">&lt;/linkText&gt;</ept><bpt id="dac8478a-e805-409c-834d-1763793ab74e">&lt;title&gt;</bpt><ept id="dac8478a-e805-409c-834d-1763793ab74e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed information about load balancing in Azure Traffic Manager, see <bpt id="dac8478a-e805-409c-834d-1763793ab74e">&lt;linkText&gt;</bpt>About Traffic Manager Load Balancing Methods<ept id="dac8478a-e805-409c-834d-1763793ab74e">&lt;/linkText&gt;</ept><bpt id="dac8478a-e805-409c-834d-1763793ab74e">&lt;title&gt;</bpt><ept id="dac8478a-e805-409c-834d-1763793ab74e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f2f86ed0-f41e-4251-ad2a-b970cc2ffec6" xml:space="preserve">
+          <source>For more information about using Traffic Manager with Web Apps, see the blog posts 
+<bpt id="cb6c5eb0-1872-42d5-ad2b-670b65529b8f">&lt;linkText&gt;</bpt>Using Azure Traffic Manager with Azure Web Sites<ept id="cb6c5eb0-1872-42d5-ad2b-670b65529b8f">&lt;/linkText&gt;</ept><bpt id="cb6c5eb0-1872-42d5-ad2b-670b65529b8f">&lt;title&gt;</bpt><ept id="cb6c5eb0-1872-42d5-ad2b-670b65529b8f">&lt;/title&gt;</ept> and <bpt id="8a538274-bc0e-4504-82b6-12e644b0fce5">&lt;linkText&gt;</bpt>Azure Traffic Manager can now integrate with Azure Web Sites<ept id="8a538274-bc0e-4504-82b6-12e644b0fce5">&lt;/linkText&gt;</ept><bpt id="8a538274-bc0e-4504-82b6-12e644b0fce5">&lt;title&gt;</bpt><ept id="8a538274-bc0e-4504-82b6-12e644b0fce5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using Traffic Manager with Web Apps, see the blog posts 
+<bpt id="cb6c5eb0-1872-42d5-ad2b-670b65529b8f">&lt;linkText&gt;</bpt>Using Azure Traffic Manager with Azure Web Sites<ept id="cb6c5eb0-1872-42d5-ad2b-670b65529b8f">&lt;/linkText&gt;</ept><bpt id="cb6c5eb0-1872-42d5-ad2b-670b65529b8f">&lt;title&gt;</bpt><ept id="cb6c5eb0-1872-42d5-ad2b-670b65529b8f">&lt;/title&gt;</ept> and <bpt id="8a538274-bc0e-4504-82b6-12e644b0fce5">&lt;linkText&gt;</bpt>Azure Traffic Manager can now integrate with Azure Web Sites<ept id="8a538274-bc0e-4504-82b6-12e644b0fce5">&lt;/linkText&gt;</ept><bpt id="8a538274-bc0e-4504-82b6-12e644b0fce5">&lt;title&gt;</bpt><ept id="8a538274-bc0e-4504-82b6-12e644b0fce5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

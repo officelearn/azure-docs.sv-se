@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5e380f98-3f68-40cb-a479-008fbba35d17" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5e380f98-3f68-40cb-a479-008fbba35d17" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1c664f3e-c09f-4136-9519-31c8b0ed2e9e">
+        <trans-unit id="772c904b-5b91-4cc4-abd1-1199fe0fa327" xml:space="preserve">
+          <source>Operational Insights solutions</source>
+          <target state="new">Operational Insights solutions</target>
+        </trans-unit>
+        <trans-unit id="40582f4e-8d39-44a2-8b01-9bd88427d005" xml:space="preserve">
+          <source>Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data.</source>
+          <target state="new">Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data.</target>
+        </trans-unit>
+        <trans-unit id="6be1b3b6-4ac4-4b5f-b1f4-0e306324b518" xml:space="preserve">
+          <source><bpt id="9b640325-8249-4d68-a061-c9435698b601">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="9b640325-8249-4d68-a061-c9435698b601">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9b640325-8249-4d68-a061-c9435698b601">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="9b640325-8249-4d68-a061-c9435698b601">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f949e4d8-ed5f-4635-bd36-f5e79b0ae35d" xml:space="preserve">
+          <source>Solutions are a collection of <bpt id="243d6629-3d7a-46b5-a546-0a04946f5bd1">&lt;strong&gt;</bpt>logic<ept id="243d6629-3d7a-46b5-a546-0a04946f5bd1">&lt;/strong&gt;</ept>, <bpt id="356cd6c2-595d-425f-b205-202fc6da8bf7">&lt;strong&gt;</bpt>visualization<ept id="356cd6c2-595d-425f-b205-202fc6da8bf7">&lt;/strong&gt;</ept> and <bpt id="4a6336e6-a2e4-4be7-afdb-59862888dde1">&lt;strong&gt;</bpt>data acquisition rules<ept id="4a6336e6-a2e4-4be7-afdb-59862888dde1">&lt;/strong&gt;</ept> that address key customer challenges today.</source>
+          <target state="new">Solutions are a collection of <bpt id="243d6629-3d7a-46b5-a546-0a04946f5bd1">&lt;strong&gt;</bpt>logic<ept id="243d6629-3d7a-46b5-a546-0a04946f5bd1">&lt;/strong&gt;</ept>, <bpt id="356cd6c2-595d-425f-b205-202fc6da8bf7">&lt;strong&gt;</bpt>visualization<ept id="356cd6c2-595d-425f-b205-202fc6da8bf7">&lt;/strong&gt;</ept> and <bpt id="4a6336e6-a2e4-4be7-afdb-59862888dde1">&lt;strong&gt;</bpt>data acquisition rules<ept id="4a6336e6-a2e4-4be7-afdb-59862888dde1">&lt;/strong&gt;</ept> that address key customer challenges today.</target>
+        </trans-unit>
+        <trans-unit id="7240942c-bd0c-41d3-8064-5fe40a885212" xml:space="preserve">
+          <source>Solutions are powered by Operational Insights log search to bring you metrics pivoted around a particular problem area.</source>
+          <target state="new">Solutions are powered by Operational Insights log search to bring you metrics pivoted around a particular problem area.</target>
+        </trans-unit>
+        <trans-unit id="421f706a-b903-4a62-9060-460b4f6e7579" xml:space="preserve">
+          <source>They allow deeper insights to help investigate and resolve operational issues faster, collect and correlate various types of machine data and help you be proactive with activities such as capacity planning, patch status reporting and security auditing.</source>
+          <target state="new">They allow deeper insights to help investigate and resolve operational issues faster, collect and correlate various types of machine data and help you be proactive with activities such as capacity planning, patch status reporting and security auditing.</target>
+        </trans-unit>
+        <trans-unit id="01c46360-9948-443c-be6e-ba1468769647" xml:space="preserve">
+          <source>This guide walks you through the various solutions available and what they are used for.</source>
+          <target state="new">This guide walks you through the various solutions available and what they are used for.</target>
+        </trans-unit>
+        <trans-unit id="2a34f8bd-3ee0-48af-a3d1-4221e2ce3b4a" xml:space="preserve">
+          <source>For more information on <bpt id="10cccf93-8083-4476-bee1-a50d2d3bcbf7">&lt;em&gt;</bpt>adding<ept id="10cccf93-8083-4476-bee1-a50d2d3bcbf7">&lt;/em&gt;</ept> solutions, see <bpt id="795d0aab-d53f-48c8-ba78-1416325a3f3b">&lt;linkText&gt;</bpt>Adding solutions<ept id="795d0aab-d53f-48c8-ba78-1416325a3f3b">&lt;/linkText&gt;</ept><bpt id="795d0aab-d53f-48c8-ba78-1416325a3f3b">&lt;title&gt;</bpt><ept id="795d0aab-d53f-48c8-ba78-1416325a3f3b">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on <bpt id="10cccf93-8083-4476-bee1-a50d2d3bcbf7">&lt;em&gt;</bpt>adding<ept id="10cccf93-8083-4476-bee1-a50d2d3bcbf7">&lt;/em&gt;</ept> solutions, see <bpt id="795d0aab-d53f-48c8-ba78-1416325a3f3b">&lt;linkText&gt;</bpt>Adding solutions<ept id="795d0aab-d53f-48c8-ba78-1416325a3f3b">&lt;/linkText&gt;</ept><bpt id="795d0aab-d53f-48c8-ba78-1416325a3f3b">&lt;title&gt;</bpt><ept id="795d0aab-d53f-48c8-ba78-1416325a3f3b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d2912b6-e02a-49f2-8fca-d3526aad6a04" xml:space="preserve">
+          <source>SQL Assessment solution assesses the risk and health of your SQL Server environments on a regular interval.</source>
+          <target state="new">SQL Assessment solution assesses the risk and health of your SQL Server environments on a regular interval.</target>
+        </trans-unit>
+        <trans-unit id="ab68e29d-aa63-449a-a105-cccd5ad84aa7" xml:space="preserve">
+          <source>By default it will scan the SQL systems weekly, and information is presented as a monthly rollup.</source>
+          <target state="new">By default it will scan the SQL systems weekly, and information is presented as a monthly rollup.</target>
+        </trans-unit>
+        <trans-unit id="2783e9e9-6bcd-4679-a844-48fe1d8cfb33" xml:space="preserve">
+          <source>It provides a prioritized list of recommendations tailored to your deployments.</source>
+          <target state="new">It provides a prioritized list of recommendations tailored to your deployments.</target>
+        </trans-unit>
+        <trans-unit id="7f6cd8fd-c933-414b-9fe2-7304bf1d49f9" xml:space="preserve">
+          <source>These recommendations are categorized across six focus areas which allows you and your team to:</source>
+          <target state="new">These recommendations are categorized across six focus areas which allows you and your team to:</target>
+        </trans-unit>
+        <trans-unit id="7d8ee8d6-c3cb-4cfb-b3e8-bb9c57f4399e" xml:space="preserve">
+          <source><bpt id="ff0e61ff-d91b-4612-ba67-45554dd2cfec">&lt;strong&gt;</bpt>quickly<ept id="ff0e61ff-d91b-4612-ba67-45554dd2cfec">&lt;/strong&gt;</ept> understand the <bpt id="aded0571-2976-4ca2-b7cc-d8c7d67b3214">&lt;strong&gt;</bpt>risk and health<ept id="aded0571-2976-4ca2-b7cc-d8c7d67b3214">&lt;/strong&gt;</ept> of your environments</source>
+          <target state="new"><bpt id="ff0e61ff-d91b-4612-ba67-45554dd2cfec">&lt;strong&gt;</bpt>quickly<ept id="ff0e61ff-d91b-4612-ba67-45554dd2cfec">&lt;/strong&gt;</ept> understand the <bpt id="aded0571-2976-4ca2-b7cc-d8c7d67b3214">&lt;strong&gt;</bpt>risk and health<ept id="aded0571-2976-4ca2-b7cc-d8c7d67b3214">&lt;/strong&gt;</ept> of your environments</target>
+        </trans-unit>
+        <trans-unit id="6f597fb3-6e20-41b9-8350-e32a15b94816" xml:space="preserve">
+          <source>easily take <bpt id="50a7ac57-896d-417a-8efa-9ba23f609c08">&lt;strong&gt;</bpt>action<ept id="50a7ac57-896d-417a-8efa-9ba23f609c08">&lt;/strong&gt;</ept> to decrease risk and improve health</source>
+          <target state="new">easily take <bpt id="50a7ac57-896d-417a-8efa-9ba23f609c08">&lt;strong&gt;</bpt>action<ept id="50a7ac57-896d-417a-8efa-9ba23f609c08">&lt;/strong&gt;</ept> to decrease risk and improve health</target>
+        </trans-unit>
+        <trans-unit id="6e3ca16b-f84b-407c-a459-5f9e97fe1cb7" xml:space="preserve">
+          <source><bpt id="6905aac3-9e0a-49aa-9fd5-161674ed47a9">&lt;strong&gt;</bpt>prioritize<ept id="6905aac3-9e0a-49aa-9fd5-161674ed47a9">&lt;/strong&gt;</ept> your work and become more <bpt id="50c59cb4-a828-4aac-9555-38378b16c69b">&lt;strong&gt;</bpt>productive<ept id="50c59cb4-a828-4aac-9555-38378b16c69b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6905aac3-9e0a-49aa-9fd5-161674ed47a9">&lt;strong&gt;</bpt>prioritize<ept id="6905aac3-9e0a-49aa-9fd5-161674ed47a9">&lt;/strong&gt;</ept> your work and become more <bpt id="50c59cb4-a828-4aac-9555-38378b16c69b">&lt;strong&gt;</bpt>productive<ept id="50c59cb4-a828-4aac-9555-38378b16c69b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65845f53-f74e-429a-9954-8dfa3ae5c668" xml:space="preserve">
+          <source>SQL Assessment requires .NET 4 to run on each agent.</source>
+          <target state="new">SQL Assessment requires .NET 4 to run on each agent.</target>
+        </trans-unit>
+        <trans-unit id="46cb0ca3-7b2a-47f8-b7a3-f125be7cf169" xml:space="preserve">
+          <source>It supports the Standard, Developer and Enterprise editions of SQL Server, all currently supported versions.</source>
+          <target state="new">It supports the Standard, Developer and Enterprise editions of SQL Server, all currently supported versions.</target>
+        </trans-unit>
+        <trans-unit id="f2ddaac5-3c2a-4cf5-8e17-a0d5e5dbfc84" xml:space="preserve">
+          <source>See <bpt id="f2e35f18-de8b-4ed8-ad59-2125c2c8fe4b">&lt;linkText&gt;</bpt>Optimize your environment with Assessment solutions<ept id="f2e35f18-de8b-4ed8-ad59-2125c2c8fe4b">&lt;/linkText&gt;</ept><bpt id="f2e35f18-de8b-4ed8-ad59-2125c2c8fe4b">&lt;title&gt;</bpt><ept id="f2e35f18-de8b-4ed8-ad59-2125c2c8fe4b">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="f2e35f18-de8b-4ed8-ad59-2125c2c8fe4b">&lt;linkText&gt;</bpt>Optimize your environment with Assessment solutions<ept id="f2e35f18-de8b-4ed8-ad59-2125c2c8fe4b">&lt;/linkText&gt;</ept><bpt id="f2e35f18-de8b-4ed8-ad59-2125c2c8fe4b">&lt;title&gt;</bpt><ept id="f2e35f18-de8b-4ed8-ad59-2125c2c8fe4b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b57d732c-1cba-4a53-8893-ce4b4d580fae" xml:space="preserve">
+          <source>Configuration assessment provides you with detailed information about the current state of your server infrastructure.</source>
+          <target state="new">Configuration assessment provides you with detailed information about the current state of your server infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="8f1603bb-0aad-4701-a1f9-5aef8365ce96" xml:space="preserve">
+          <source>Unlike solutions, configuration assessment is available when you first start using Operational Insights with System Center Operations Manager.</source>
+          <target state="new">Unlike solutions, configuration assessment is available when you first start using Operational Insights with System Center Operations Manager.</target>
+        </trans-unit>
+        <trans-unit id="dcfb254c-b635-4425-a9c6-f60b66eb79c2" xml:space="preserve">
+          <source>It is not available if you only use Directly-connected agents.</source>
+          <target state="new">It is not available if you only use Directly-connected agents.</target>
+        </trans-unit>
+        <trans-unit id="5c92fa8b-f5a6-443c-8ebf-00405b845580" xml:space="preserve">
+          <source>Configuration data is gathered from monitored servers and then sent to the Operational Insights service in the cloud for processing.</source>
+          <target state="new">Configuration data is gathered from monitored servers and then sent to the Operational Insights service in the cloud for processing.</target>
+        </trans-unit>
+        <trans-unit id="3bb239de-eb8a-43e9-9464-caa0f1f919f0" xml:space="preserve">
+          <source>Logic is applied to the received data and the cloud service records the data.</source>
+          <target state="new">Logic is applied to the received data and the cloud service records the data.</target>
+        </trans-unit>
+        <trans-unit id="22caf0b2-de81-49f9-8c9e-1c96d9f53443" xml:space="preserve">
+          <source>Processed data for the servers is shown for the following areas:</source>
+          <target state="new">Processed data for the servers is shown for the following areas:</target>
+        </trans-unit>
+        <trans-unit id="ff72001a-5ffc-4588-b4ed-d56fec886ed5" xml:space="preserve">
+          <source><bpt id="c58bb3e5-f0f2-49c3-9741-4f974dcecc41">&lt;strong&gt;</bpt>Alerts:<ept id="c58bb3e5-f0f2-49c3-9741-4f974dcecc41">&lt;/strong&gt;</ept> Shows the configuration-related, proactive alerts that have been raised for your monitored servers.</source>
+          <target state="new"><bpt id="c58bb3e5-f0f2-49c3-9741-4f974dcecc41">&lt;strong&gt;</bpt>Alerts:<ept id="c58bb3e5-f0f2-49c3-9741-4f974dcecc41">&lt;/strong&gt;</ept> Shows the configuration-related, proactive alerts that have been raised for your monitored servers.</target>
+        </trans-unit>
+        <trans-unit id="0c4da128-0f5b-4094-9b1e-1ba34d6ea808" xml:space="preserve">
+          <source>These are produced by rules authored by Microsoft Customer and Support organization (CSS) with best practices from the field</source>
+          <target state="new">These are produced by rules authored by Microsoft Customer and Support organization (CSS) with best practices from the field</target>
+        </trans-unit>
+        <trans-unit id="c224e8c3-0750-4ff8-94fb-b1c502832348" xml:space="preserve">
+          <source><bpt id="3bc953f3-3be7-4ad6-94fc-86f3d1438cd9">&lt;strong&gt;</bpt>Knowledge Recommendations:<ept id="3bc953f3-3be7-4ad6-94fc-86f3d1438cd9">&lt;/strong&gt;</ept> Shows the Microsoft Knowledge Base articles that are recommended for workloads that are found in your infrastructure; these are automatically suggested based on your configuration thru the use of machine learning</source>
+          <target state="new"><bpt id="3bc953f3-3be7-4ad6-94fc-86f3d1438cd9">&lt;strong&gt;</bpt>Knowledge Recommendations:<ept id="3bc953f3-3be7-4ad6-94fc-86f3d1438cd9">&lt;/strong&gt;</ept> Shows the Microsoft Knowledge Base articles that are recommended for workloads that are found in your infrastructure; these are automatically suggested based on your configuration thru the use of machine learning</target>
+        </trans-unit>
+        <trans-unit id="a5cce111-d045-403c-8c77-58d4cba5095e" xml:space="preserve">
+          <source><bpt id="7e1353c6-2f4e-49ce-a024-ecd179d67bb1">&lt;strong&gt;</bpt>Servers and Workloads Analyzed:<ept id="7e1353c6-2f4e-49ce-a024-ecd179d67bb1">&lt;/strong&gt;</ept> Shows the servers and workloads that are being monitored by Operational Insights</source>
+          <target state="new"><bpt id="7e1353c6-2f4e-49ce-a024-ecd179d67bb1">&lt;strong&gt;</bpt>Servers and Workloads Analyzed:<ept id="7e1353c6-2f4e-49ce-a024-ecd179d67bb1">&lt;/strong&gt;</ept> Shows the servers and workloads that are being monitored by Operational Insights</target>
+        </trans-unit>
+        <trans-unit id="59345574-8a2d-4aaf-bf6e-ee3acf6973a7" xml:space="preserve">
+          <source><bpt id="3b98f981-7b9b-4a17-a4f0-1c1f7da0c5ff">&lt;strong&gt;</bpt>Current Snapshot:<ept id="3b98f981-7b9b-4a17-a4f0-1c1f7da0c5ff">&lt;/strong&gt;</ept> Shows the most recent information about servers that reported data to the Operational Insights service</source>
+          <target state="new"><bpt id="3b98f981-7b9b-4a17-a4f0-1c1f7da0c5ff">&lt;strong&gt;</bpt>Current Snapshot:<ept id="3b98f981-7b9b-4a17-a4f0-1c1f7da0c5ff">&lt;/strong&gt;</ept> Shows the most recent information about servers that reported data to the Operational Insights service</target>
+        </trans-unit>
+        <trans-unit id="065f4a13-7114-473e-96e1-e56fa61d5922" xml:space="preserve">
+          <source><bpt id="e33a4060-2691-44fc-a594-0b62a643a3ef">&lt;strong&gt;</bpt>Change History:<ept id="e33a4060-2691-44fc-a594-0b62a643a3ef">&lt;/strong&gt;</ept> Shows a list of configuration changes made to your monitored servers</source>
+          <target state="new"><bpt id="e33a4060-2691-44fc-a594-0b62a643a3ef">&lt;strong&gt;</bpt>Change History:<ept id="e33a4060-2691-44fc-a594-0b62a643a3ef">&lt;/strong&gt;</ept> Shows a list of configuration changes made to your monitored servers</target>
+        </trans-unit>
+        <trans-unit id="44a3c1f6-58e0-4660-9a95-d4ecbcdaa36f" xml:space="preserve">
+          <source>Configuration Assessment can only be enabled for computers managed by <bpt id="afbdcdc0-d952-4b5d-86fb-ee5192a39d85">&lt;strong&gt;</bpt>Operations Manager<ept id="afbdcdc0-d952-4b5d-86fb-ee5192a39d85">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configuration Assessment can only be enabled for computers managed by <bpt id="afbdcdc0-d952-4b5d-86fb-ee5192a39d85">&lt;strong&gt;</bpt>Operations Manager<ept id="afbdcdc0-d952-4b5d-86fb-ee5192a39d85">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f38eb07-1477-4075-976b-14ed8a6a6104" xml:space="preserve">
+          <source>For additional information, see <bpt id="257a41ee-a78b-408b-af3e-45e13134aa64">&lt;linkText&gt;</bpt>Connect Operations Manager<ept id="257a41ee-a78b-408b-af3e-45e13134aa64">&lt;/linkText&gt;</ept><bpt id="257a41ee-a78b-408b-af3e-45e13134aa64">&lt;title&gt;</bpt><ept id="257a41ee-a78b-408b-af3e-45e13134aa64">&lt;/title&gt;</ept></source>
+          <target state="new">For additional information, see <bpt id="257a41ee-a78b-408b-af3e-45e13134aa64">&lt;linkText&gt;</bpt>Connect Operations Manager<ept id="257a41ee-a78b-408b-af3e-45e13134aa64">&lt;/linkText&gt;</ept><bpt id="257a41ee-a78b-408b-af3e-45e13134aa64">&lt;title&gt;</bpt><ept id="257a41ee-a78b-408b-af3e-45e13134aa64">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f34b3afb-9acc-4303-b796-aaffa8b493e5" xml:space="preserve">
+          <source>If insufficient protection is found, servers with active threats and servers with insufficient protection are shown in the <bpt id="63d20cc9-f9a2-4472-a1b8-5e779433fa3f">&lt;strong&gt;</bpt>Malware<ept id="63d20cc9-f9a2-4472-a1b8-5e779433fa3f">&lt;/strong&gt;</ept>  page.</source>
+          <target state="new">If insufficient protection is found, servers with active threats and servers with insufficient protection are shown in the <bpt id="63d20cc9-f9a2-4472-a1b8-5e779433fa3f">&lt;strong&gt;</bpt>Malware<ept id="63d20cc9-f9a2-4472-a1b8-5e779433fa3f">&lt;/strong&gt;</ept>  page.</target>
+        </trans-unit>
+        <trans-unit id="e96eb153-d974-4dd7-9e1c-de5fe0a1571c" xml:space="preserve">
+          <source>By using the information on the <bpt id="fa11894a-7da5-40e3-b984-ddfead914432">&lt;strong&gt;</bpt>Malware<ept id="fa11894a-7da5-40e3-b984-ddfead914432">&lt;/strong&gt;</ept> page, you can develop a plan to apply protection to the servers that need it.</source>
+          <target state="new">By using the information on the <bpt id="fa11894a-7da5-40e3-b984-ddfead914432">&lt;strong&gt;</bpt>Malware<ept id="fa11894a-7da5-40e3-b984-ddfead914432">&lt;/strong&gt;</ept> page, you can develop a plan to apply protection to the servers that need it.</target>
+        </trans-unit>
+        <trans-unit id="18699506-e666-4718-b8c2-177508bd1fbc" xml:space="preserve">
+          <source>Malware Assessment currently only supports Windows Defender and System Center Endpoint Protection (SCEP) real-time clients.</source>
+          <target state="new">Malware Assessment currently only supports Windows Defender and System Center Endpoint Protection (SCEP) real-time clients.</target>
+        </trans-unit>
+        <trans-unit id="01e2ac1e-6ba6-4e2c-8058-9be1694c596f" xml:space="preserve">
+          <source>If none of these clients is found, it uses data from the Malicious Software Removal Tool and mark the server as not having real-time protection.</source>
+          <target state="new">If none of these clients is found, it uses data from the Malicious Software Removal Tool and mark the server as not having real-time protection.</target>
+        </trans-unit>
+        <trans-unit id="b0fd5b7a-f7bf-4386-b6c9-89215f47153e" xml:space="preserve">
+          <source>You can read more <bpt id="37160a4e-8214-4e6e-b964-16e005c8ffda">&lt;linkText&gt;</bpt>here<ept id="37160a4e-8214-4e6e-b964-16e005c8ffda">&lt;/linkText&gt;</ept><bpt id="37160a4e-8214-4e6e-b964-16e005c8ffda">&lt;title&gt;</bpt><ept id="37160a4e-8214-4e6e-b964-16e005c8ffda">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can read more <bpt id="37160a4e-8214-4e6e-b964-16e005c8ffda">&lt;linkText&gt;</bpt>here<ept id="37160a4e-8214-4e6e-b964-16e005c8ffda">&lt;/linkText&gt;</ept><bpt id="37160a4e-8214-4e6e-b964-16e005c8ffda">&lt;title&gt;</bpt><ept id="37160a4e-8214-4e6e-b964-16e005c8ffda">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87329491-253b-4d43-b565-4c831062cd9d" xml:space="preserve">
+          <source>We are also tracking <bpt id="e152b322-d43c-4bbc-95c6-584985eb7a29">&lt;linkText&gt;</bpt>an issue with Windows 7 and Windows Server 2008 R2 machines<ept id="e152b322-d43c-4bbc-95c6-584985eb7a29">&lt;/linkText&gt;</ept><bpt id="e152b322-d43c-4bbc-95c6-584985eb7a29">&lt;title&gt;</bpt><ept id="e152b322-d43c-4bbc-95c6-584985eb7a29">&lt;/title&gt;</ept></source>
+          <target state="new">We are also tracking <bpt id="e152b322-d43c-4bbc-95c6-584985eb7a29">&lt;linkText&gt;</bpt>an issue with Windows 7 and Windows Server 2008 R2 machines<ept id="e152b322-d43c-4bbc-95c6-584985eb7a29">&lt;/linkText&gt;</ept><bpt id="e152b322-d43c-4bbc-95c6-584985eb7a29">&lt;title&gt;</bpt><ept id="e152b322-d43c-4bbc-95c6-584985eb7a29">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83dc7da3-7279-4f66-9a0c-d70db54fc7eb" xml:space="preserve">
+          <source>With the Alert Management solution, you can view your <bpt id="f36a7fc7-1cce-4b9c-8394-479f860cbd6b">&lt;strong&gt;</bpt>Operations Manager<ept id="f36a7fc7-1cce-4b9c-8394-479f860cbd6b">&lt;/strong&gt;</ept> Alerts across all your servers.</source>
+          <target state="new">With the Alert Management solution, you can view your <bpt id="f36a7fc7-1cce-4b9c-8394-479f860cbd6b">&lt;strong&gt;</bpt>Operations Manager<ept id="f36a7fc7-1cce-4b9c-8394-479f860cbd6b">&lt;/strong&gt;</ept> Alerts across all your servers.</target>
+        </trans-unit>
+        <trans-unit id="8d7caafc-f87e-4a11-adfc-aeafb84f0cae" xml:space="preserve">
+          <source>This tool can help you to easily triage alerts, and identify root causes in your environment in a very fast and fluid way.</source>
+          <target state="new">This tool can help you to easily triage alerts, and identify root causes in your environment in a very fast and fluid way.</target>
+        </trans-unit>
+        <trans-unit id="0f09adff-d66c-4dcd-858f-39e57940047f" xml:space="preserve">
+          <source>You can get insights into key scenarios, including:</source>
+          <target state="new">You can get insights into key scenarios, including:</target>
+        </trans-unit>
+        <trans-unit id="0adf60b3-8dcb-40c1-8398-68515c66e188" xml:space="preserve">
+          <source>How many alerts have been raised within a specified time frame?</source>
+          <target state="new">How many alerts have been raised within a specified time frame?</target>
+        </trans-unit>
+        <trans-unit id="3692467f-3f08-4b96-b4d5-7720e71a27cb" xml:space="preserve">
+          <source>Top sources with the most number of active alerts raised within a specified time frame.</source>
+          <target state="new">Top sources with the most number of active alerts raised within a specified time frame.</target>
+        </trans-unit>
+        <trans-unit id="faf06a8c-73ee-45e7-a81b-f6ea1e326b37" xml:space="preserve">
+          <source>Top active critical and warning alerts that are raised within a specified time frame.</source>
+          <target state="new">Top active critical and warning alerts that are raised within a specified time frame.</target>
+        </trans-unit>
+        <trans-unit id="ce2fab9d-9c9d-426d-ac11-2150881a4307" xml:space="preserve">
+          <source>Ability to search through all alerts and view every alert in detail</source>
+          <target state="new">Ability to search through all alerts and view every alert in detail</target>
+        </trans-unit>
+        <trans-unit id="e88ce76c-33ec-4524-a95f-6d29f4a5278c" xml:space="preserve">
+          <source>Alert Management can only be enabled when Operational Insights is used in conjunction with <bpt id="baef18fe-213c-47b8-885a-f38c5726b3d4">&lt;strong&gt;</bpt>System Center Operations Manager<ept id="baef18fe-213c-47b8-885a-f38c5726b3d4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Alert Management can only be enabled when Operational Insights is used in conjunction with <bpt id="baef18fe-213c-47b8-885a-f38c5726b3d4">&lt;strong&gt;</bpt>System Center Operations Manager<ept id="baef18fe-213c-47b8-885a-f38c5726b3d4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11177888-de39-4a4d-925f-d0666d94d6d9" xml:space="preserve">
+          <source>This does not send any data from agents, but simply synchronizes Operations Manager alerts to the cloud to allow you to triage them in Operational Insights and use log search.</source>
+          <target state="new">This does not send any data from agents, but simply synchronizes Operations Manager alerts to the cloud to allow you to triage them in Operational Insights and use log search.</target>
+        </trans-unit>
+        <trans-unit id="cd28d82a-b233-4471-b0a9-00587380028f" xml:space="preserve">
+          <source>For additional information, see <bpt id="5eb4895c-f501-42e9-b58e-c0d6adee0a25">&lt;linkText&gt;</bpt>Connect Operations Manager<ept id="5eb4895c-f501-42e9-b58e-c0d6adee0a25">&lt;/linkText&gt;</ept><bpt id="5eb4895c-f501-42e9-b58e-c0d6adee0a25">&lt;title&gt;</bpt><ept id="5eb4895c-f501-42e9-b58e-c0d6adee0a25">&lt;/title&gt;</ept></source>
+          <target state="new">For additional information, see <bpt id="5eb4895c-f501-42e9-b58e-c0d6adee0a25">&lt;linkText&gt;</bpt>Connect Operations Manager<ept id="5eb4895c-f501-42e9-b58e-c0d6adee0a25">&lt;/linkText&gt;</ept><bpt id="5eb4895c-f501-42e9-b58e-c0d6adee0a25">&lt;title&gt;</bpt><ept id="5eb4895c-f501-42e9-b58e-c0d6adee0a25">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="067dcff9-3c10-4760-b1c5-7eb52d51887b" xml:space="preserve">
+          <source>You can use the Capacity Management solution in Microsoft Azure Operational Insights to help you understand the capacity of your server infrastructure.</source>
+          <target state="new">You can use the Capacity Management solution in Microsoft Azure Operational Insights to help you understand the capacity of your server infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="4ff82a65-01a5-4e4c-b62b-bd0109a19fba" xml:space="preserve">
+          <source>The solution reads performance counters on the monitored server and sends usage data to the Operational Insights service in the cloud for processing.</source>
+          <target state="new">The solution reads performance counters on the monitored server and sends usage data to the Operational Insights service in the cloud for processing.</target>
+        </trans-unit>
+        <trans-unit id="1b483fc7-826f-4233-af7b-c0e0ec4657ef" xml:space="preserve">
+          <source>Logic is applied to the usage data, and the cloud service records the data.</source>
+          <target state="new">Logic is applied to the usage data, and the cloud service records the data.</target>
+        </trans-unit>
+        <trans-unit id="24d93185-b5bd-4087-bfcb-12ceafc74264" xml:space="preserve">
+          <source>Over time, usage patterns are identified and capacity is projected, based on current consumption.</source>
+          <target state="new">Over time, usage patterns are identified and capacity is projected, based on current consumption.</target>
+        </trans-unit>
+        <trans-unit id="3f4f7bf6-5b5e-4908-b1ea-a27ebdb5412e" xml:space="preserve">
+          <source>For example, a projection might identify when additional processor cores or additional memory will be needed for an individual server.</source>
+          <target state="new">For example, a projection might identify when additional processor cores or additional memory will be needed for an individual server.</target>
+        </trans-unit>
+        <trans-unit id="1815e3f4-9e64-402f-a1a0-4c94f98e7fc1" xml:space="preserve">
+          <source>In this example, the projection might indicate that in 30 days the server will need additional memory.</source>
+          <target state="new">In this example, the projection might indicate that in 30 days the server will need additional memory.</target>
+        </trans-unit>
+        <trans-unit id="8340b09e-4303-4c0a-a18e-f6aaf53e3e7b" xml:space="preserve">
+          <source>This can help you plan for a memory upgrade during the server’s next maintenance window, which might occur once every two weeks.</source>
+          <target state="new">This can help you plan for a memory upgrade during the server’s next maintenance window, which might occur once every two weeks.</target>
+        </trans-unit>
+        <trans-unit id="39f799a5-1bcb-4944-89c2-3cc458133f89" xml:space="preserve">
+          <source>Capacity management can only be enabled when Operational Insights is used in conjunction with <bpt id="a05a67af-f90d-41fd-beae-a514e9b46cbd">&lt;strong&gt;</bpt>System Center Operations Manager<ept id="a05a67af-f90d-41fd-beae-a514e9b46cbd">&lt;/strong&gt;</ept>, and you must also enable the Operations Manager connector with Virtual Machine Manager (VMM).</source>
+          <target state="new">Capacity management can only be enabled when Operational Insights is used in conjunction with <bpt id="a05a67af-f90d-41fd-beae-a514e9b46cbd">&lt;strong&gt;</bpt>System Center Operations Manager<ept id="a05a67af-f90d-41fd-beae-a514e9b46cbd">&lt;/strong&gt;</ept>, and you must also enable the Operations Manager connector with Virtual Machine Manager (VMM).</target>
+        </trans-unit>
+        <trans-unit id="6775ad70-ce7b-442b-966d-4abc619cf658" xml:space="preserve">
+          <source>For additional information about connecting the systems, see <bpt id="0ee0dc6a-d706-4533-8573-57576e7e8efb">&lt;linkText&gt;</bpt>How to connect VMM with Operations Manager<ept id="0ee0dc6a-d706-4533-8573-57576e7e8efb">&lt;/linkText&gt;</ept><bpt id="0ee0dc6a-d706-4533-8573-57576e7e8efb">&lt;title&gt;</bpt><ept id="0ee0dc6a-d706-4533-8573-57576e7e8efb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information about connecting the systems, see <bpt id="0ee0dc6a-d706-4533-8573-57576e7e8efb">&lt;linkText&gt;</bpt>How to connect VMM with Operations Manager<ept id="0ee0dc6a-d706-4533-8573-57576e7e8efb">&lt;/linkText&gt;</ept><bpt id="0ee0dc6a-d706-4533-8573-57576e7e8efb">&lt;title&gt;</bpt><ept id="0ee0dc6a-d706-4533-8573-57576e7e8efb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2294f943-cde2-4280-91aa-db16e5f4dca5" xml:space="preserve">
+          <source>For more information on using the Capacity Management solution, see:</source>
+          <target state="new">For more information on using the Capacity Management solution, see:</target>
+        </trans-unit>
+        <trans-unit id="964985e7-0b5d-44fe-8061-6b8a703991ec" xml:space="preserve">
+          <source><bpt id="b97ee5ed-2954-4fb3-acfb-fd136ffc46b0">&lt;linkText&gt;</bpt>How to use the Compute page<ept id="b97ee5ed-2954-4fb3-acfb-fd136ffc46b0">&lt;/linkText&gt;</ept><bpt id="b97ee5ed-2954-4fb3-acfb-fd136ffc46b0">&lt;title&gt;</bpt><ept id="b97ee5ed-2954-4fb3-acfb-fd136ffc46b0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b97ee5ed-2954-4fb3-acfb-fd136ffc46b0">&lt;linkText&gt;</bpt>How to use the Compute page<ept id="b97ee5ed-2954-4fb3-acfb-fd136ffc46b0">&lt;/linkText&gt;</ept><bpt id="b97ee5ed-2954-4fb3-acfb-fd136ffc46b0">&lt;title&gt;</bpt><ept id="b97ee5ed-2954-4fb3-acfb-fd136ffc46b0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2352e80d-d6e9-4a23-a00a-fa074455084c" xml:space="preserve">
+          <source><bpt id="edbac0ba-bda5-4391-81e5-db31a5f2f0d3">&lt;linkText&gt;</bpt>How to use the Direct Attached Storage page<ept id="edbac0ba-bda5-4391-81e5-db31a5f2f0d3">&lt;/linkText&gt;</ept><bpt id="edbac0ba-bda5-4391-81e5-db31a5f2f0d3">&lt;title&gt;</bpt><ept id="edbac0ba-bda5-4391-81e5-db31a5f2f0d3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="edbac0ba-bda5-4391-81e5-db31a5f2f0d3">&lt;linkText&gt;</bpt>How to use the Direct Attached Storage page<ept id="edbac0ba-bda5-4391-81e5-db31a5f2f0d3">&lt;/linkText&gt;</ept><bpt id="edbac0ba-bda5-4391-81e5-db31a5f2f0d3">&lt;title&gt;</bpt><ept id="edbac0ba-bda5-4391-81e5-db31a5f2f0d3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de2e8276-6aaf-42cc-a7cc-064c7d56750e" xml:space="preserve">
+          <source>You can use the Configuration Change Tracking solution to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.</source>
+          <target state="new">You can use the Configuration Change Tracking solution to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.</target>
+        </trans-unit>
+        <trans-unit id="8565ea8f-8973-4c2a-836f-0e31a6653dc2" xml:space="preserve">
+          <source>By using the information on the Change Tracking page, you can easily see the changes that were made in your server infrastructure.</source>
+          <target state="new">By using the information on the Change Tracking page, you can easily see the changes that were made in your server infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="a73f87f8-c1fa-498d-8c2a-d143d9090f11" xml:space="preserve">
+          <source>You can view changes to your infrastructure and then drill-into details for the following categories:</source>
+          <target state="new">You can view changes to your infrastructure and then drill-into details for the following categories:</target>
+        </trans-unit>
+        <trans-unit id="6f8cc963-46b3-4cac-8993-b54571ef7ce6" xml:space="preserve">
+          <source>Changes by configuration type for software and windows services</source>
+          <target state="new">Changes by configuration type for software and windows services</target>
+        </trans-unit>
+        <trans-unit id="84b27dee-9e41-4bb4-9145-6d598e46693f" xml:space="preserve">
+          <source>Software changes to applications and updates for individual servers</source>
+          <target state="new">Software changes to applications and updates for individual servers</target>
+        </trans-unit>
+        <trans-unit id="d55f4853-0fa4-488d-a789-ab1c62994c0a" xml:space="preserve">
+          <source>Total number of software changes for each application</source>
+          <target state="new">Total number of software changes for each application</target>
+        </trans-unit>
+        <trans-unit id="f4f2b83a-971c-4f24-b1bd-578988b88ec5" xml:space="preserve">
+          <source>Windows service changes for individual servers</source>
+          <target state="new">Windows service changes for individual servers</target>
+        </trans-unit>
+        <trans-unit id="1fa83397-d25d-4c5f-b6be-64787b643616" xml:space="preserve">
+          <source>You can use the System Updates solution in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure.</source>
+          <target state="new">You can use the System Updates solution in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="f4959c34-e1d6-46b7-bad5-56e0c959a7b3" xml:space="preserve">
+          <source>If missing updates are found, they are shown on the <bpt id="347c0593-d746-478b-881e-6708eadf1fb4">&lt;strong&gt;</bpt>Updates<ept id="347c0593-d746-478b-881e-6708eadf1fb4">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">If missing updates are found, they are shown on the <bpt id="347c0593-d746-478b-881e-6708eadf1fb4">&lt;strong&gt;</bpt>Updates<ept id="347c0593-d746-478b-881e-6708eadf1fb4">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="733f5de9-97ae-48f8-bb61-e362ef00332c" xml:space="preserve">
+          <source>You can use the <bpt id="ac1d3f23-5388-4522-8510-0a8a5a9a11e2">&lt;strong&gt;</bpt>Updates<ept id="ac1d3f23-5388-4522-8510-0a8a5a9a11e2">&lt;/strong&gt;</ept> page to work with missing updates and develop a plan to apply them to the servers that need them.</source>
+          <target state="new">You can use the <bpt id="ac1d3f23-5388-4522-8510-0a8a5a9a11e2">&lt;strong&gt;</bpt>Updates<ept id="ac1d3f23-5388-4522-8510-0a8a5a9a11e2">&lt;/strong&gt;</ept> page to work with missing updates and develop a plan to apply them to the servers that need them.</target>
+        </trans-unit>
+        <trans-unit id="9c453a85-2bfc-4493-af99-20a23e50b122" xml:space="preserve">
+          <source>The Updates page details the following categories:</source>
+          <target state="new">The Updates page details the following categories:</target>
+        </trans-unit>
+        <trans-unit id="f2980b10-e705-4817-a3fe-3ceba7e31e29" xml:space="preserve">
+          <source>Servers that are missing security updates</source>
+          <target state="new">Servers that are missing security updates</target>
+        </trans-unit>
+        <trans-unit id="835aca34-fc68-49cb-a89f-837a72d40d24" xml:space="preserve">
+          <source>Servers that haven't been updated recently</source>
+          <target state="new">Servers that haven't been updated recently</target>
+        </trans-unit>
+        <trans-unit id="9fe9f62a-016d-4113-8562-3f92f60bf79a" xml:space="preserve">
+          <source>Updates that should be applied to specific servers</source>
+          <target state="new">Updates that should be applied to specific servers</target>
+        </trans-unit>
+        <trans-unit id="e4905a2f-0068-48ba-81e8-bdb4a8e81dc0" xml:space="preserve">
+          <source>Type of updates that are missing</source>
+          <target state="new">Type of updates that are missing</target>
+        </trans-unit>
+        <trans-unit id="554100aa-cb8f-4a7a-aa51-e1b37bdcc1e2" xml:space="preserve">
+          <source>You can click any tile or item to view its details in the <bpt id="4d7a198c-1ade-4133-8d6a-97b6f760c36f">&lt;strong&gt;</bpt>Search<ept id="4d7a198c-1ade-4133-8d6a-97b6f760c36f">&lt;/strong&gt;</ept> page to get more information about the missing update.</source>
+          <target state="new">You can click any tile or item to view its details in the <bpt id="4d7a198c-1ade-4133-8d6a-97b6f760c36f">&lt;strong&gt;</bpt>Search<ept id="4d7a198c-1ade-4133-8d6a-97b6f760c36f">&lt;/strong&gt;</ept> page to get more information about the missing update.</target>
+        </trans-unit>
+        <trans-unit id="67e53f3f-5ca1-4acb-8364-57927333bbcb" xml:space="preserve">
+          <source>Search results include:</source>
+          <target state="new">Search results include:</target>
+        </trans-unit>
+        <trans-unit id="b48038b0-4757-4b95-9c04-65ac18841dbc" xml:space="preserve">
+          <source>Server</source>
+          <target state="new">Server</target>
+        </trans-unit>
+        <trans-unit id="9918cfa3-4687-41de-bd94-a5e354571117" xml:space="preserve">
+          <source>Update title</source>
+          <target state="new">Update title</target>
+        </trans-unit>
+        <trans-unit id="40f9b62f-9300-41ac-8384-142775b7c559" xml:space="preserve">
+          <source>Knowledge Base ID</source>
+          <target state="new">Knowledge Base ID</target>
+        </trans-unit>
+        <trans-unit id="cb9021e7-3324-4d82-b6e5-6aa22fcbd391" xml:space="preserve">
+          <source>Product the update is for</source>
+          <target state="new">Product the update is for</target>
+        </trans-unit>
+        <trans-unit id="4dba0cbe-475a-4e4f-9af3-aedbbf3063b7" xml:space="preserve">
+          <source>Update severity</source>
+          <target state="new">Update severity</target>
+        </trans-unit>
+        <trans-unit id="2e73119a-8aba-4901-bee8-945d63297647" xml:space="preserve">
+          <source>Publication date</source>
+          <target state="new">Publication date</target>
+        </trans-unit>
+        <trans-unit id="b40f3a78-fef0-4b10-b171-79f03c5ad91c" xml:space="preserve">
+          <source>Server search results include:</source>
+          <target state="new">Server search results include:</target>
+        </trans-unit>
+        <trans-unit id="bef4c524-9b0d-4fbc-8c66-02272bc8cffe" xml:space="preserve">
+          <source>Server name</source>
+          <target state="new">Server name</target>
+        </trans-unit>
+        <trans-unit id="01669231-0916-49c5-816c-f9ecfffa4615" xml:space="preserve">
+          <source>Operating system version name</source>
+          <target state="new">Operating system version name</target>
+        </trans-unit>
+        <trans-unit id="0cdb6e4b-6462-4803-850e-93fb7c908015" xml:space="preserve">
+          <source>Automatic update enabling method</source>
+          <target state="new">Automatic update enabling method</target>
+        </trans-unit>
+        <trans-unit id="18532461-4ce6-42ae-90cc-6247374cedea" xml:space="preserve">
+          <source>Days since last update</source>
+          <target state="new">Days since last update</target>
+        </trans-unit>
+        <trans-unit id="cba7a406-31c7-4292-9c6a-c34b73cb3c1a" xml:space="preserve">
+          <source>Windows Update agent version</source>
+          <target state="new">Windows Update agent version</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

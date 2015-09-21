@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="64474c7b-5fdb-4cb8-ab1b-97f822cfcefd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="64474c7b-5fdb-4cb8-ab1b-97f822cfcefd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b1262e18-be22-4005-84b4-75a3b9bf5352">
+        <trans-unit id="a8b44ff5-d1e3-4255-9419-7686f2578aeb" xml:space="preserve">
+          <source>Troubleshoot a deployed StorSimple device | Microsoft Azure</source>
+          <target state="new">Troubleshoot a deployed StorSimple device | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ffc20dee-c5b9-4abd-9856-1eb26e404f65" xml:space="preserve">
+          <source>Describes how to diagnose and fix errors that occur on a StorSimple device that is currently deployed and operational.</source>
+          <target state="new">Describes how to diagnose and fix errors that occur on a StorSimple device that is currently deployed and operational.</target>
+        </trans-unit>
+        <trans-unit id="e0c62bde-b516-423a-908b-d17705a7aeb5" xml:space="preserve">
+          <source>This article provides helpful troubleshooting guidance for resolving configuration issues that you might encounter after your StorSimple device is deployed and operational.</source>
+          <target state="new">This article provides helpful troubleshooting guidance for resolving configuration issues that you might encounter after your StorSimple device is deployed and operational.</target>
+        </trans-unit>
+        <trans-unit id="881c3133-c35a-4a0f-b57c-c6ea7ce0663a" xml:space="preserve">
+          <source>It describes common issues, possible causes, and recommended steps to help you resolve problems that you might experience when you run Microsoft Azure StorSimple.</source>
+          <target state="new">It describes common issues, possible causes, and recommended steps to help you resolve problems that you might experience when you run Microsoft Azure StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="cba6232f-e60b-4c1d-8952-01065dfa071a" xml:space="preserve">
+          <source>This information applies to both the StorSimple on-premises physical device and the StorSimple virtual device.</source>
+          <target state="new">This information applies to both the StorSimple on-premises physical device and the StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="74677729-580b-4a5b-b20e-7560e4eb97e7" xml:space="preserve">
+          <source>At the end of this article you can find a list of error codes that you might encounter during Microsoft Azure StorSimple operation, as well as steps you can take to resolve the errors.</source>
+          <target state="new">At the end of this article you can find a list of error codes that you might encounter during Microsoft Azure StorSimple operation, as well as steps you can take to resolve the errors.</target>
+        </trans-unit>
+        <trans-unit id="90ca6cb0-4708-421b-8b67-9cbe238bd8b2" xml:space="preserve">
+          <source>You use the setup wizard (<bpt id="8ec6622f-bd30-4f61-85c4-0f358d5eb53f">&lt;linkText&gt;</bpt>Invoke-HcsSetupWizard[1]<ept id="8ec6622f-bd30-4f61-85c4-0f358d5eb53f">&lt;/linkText&gt;</ept><bpt id="8ec6622f-bd30-4f61-85c4-0f358d5eb53f">&lt;title&gt;</bpt><ept id="8ec6622f-bd30-4f61-85c4-0f358d5eb53f">&lt;/title&gt;</ept>) to check the device configuration and take corrective action if necessary.</source>
+          <target state="new">You use the setup wizard (<bpt id="8ec6622f-bd30-4f61-85c4-0f358d5eb53f">&lt;linkText&gt;</bpt>Invoke-HcsSetupWizard[1]<ept id="8ec6622f-bd30-4f61-85c4-0f358d5eb53f">&lt;/linkText&gt;</ept><bpt id="8ec6622f-bd30-4f61-85c4-0f358d5eb53f">&lt;title&gt;</bpt><ept id="8ec6622f-bd30-4f61-85c4-0f358d5eb53f">&lt;/title&gt;</ept>) to check the device configuration and take corrective action if necessary.</target>
+        </trans-unit>
+        <trans-unit id="1e5d0102-ec4e-4ab3-a634-afa82c226a79" xml:space="preserve">
+          <source>When you run the setup wizard on a previously configured and operational device, the process flow is different.</source>
+          <target state="new">When you run the setup wizard on a previously configured and operational device, the process flow is different.</target>
+        </trans-unit>
+        <trans-unit id="0eaa75f1-6e4e-47ef-80b0-0b240869ba6d" xml:space="preserve">
+          <source>You can change only the following entries:</source>
+          <target state="new">You can change only the following entries:</target>
+        </trans-unit>
+        <trans-unit id="af8dcaed-8cc8-4738-b323-ecc5344740ac" xml:space="preserve">
+          <source>IP address, subnet mask, and gateway</source>
+          <target state="new">IP address, subnet mask, and gateway</target>
+        </trans-unit>
+        <trans-unit id="88d75f8f-3fe1-44e5-9514-2b5becfd35ff" xml:space="preserve">
+          <source>Primary DNS server</source>
+          <target state="new">Primary DNS server</target>
+        </trans-unit>
+        <trans-unit id="5952104f-f276-4cdd-ac1d-05156f838ad4" xml:space="preserve">
+          <source>Primary NTP server</source>
+          <target state="new">Primary NTP server</target>
+        </trans-unit>
+        <trans-unit id="a56859b6-d4c9-43a3-89e7-3fef35b8b4f9" xml:space="preserve">
+          <source>Optional web proxy configuration</source>
+          <target state="new">Optional web proxy configuration</target>
+        </trans-unit>
+        <trans-unit id="76283642-5009-4eab-84c7-5fd4405001f7" xml:space="preserve">
+          <source>The setup wizard does not perform the operations related to password collection and device registration.</source>
+          <target state="new">The setup wizard does not perform the operations related to password collection and device registration.</target>
+        </trans-unit>
+        <trans-unit id="d128b6ae-ee5c-4a9b-a577-cb1ce71a71c4" xml:space="preserve">
+          <source>The following table describes the errors that you might encounter when you run the setup wizard on an operational device, possible causes for the errors, and recommended actions to resolve them.</source>
+          <target state="new">The following table describes the errors that you might encounter when you run the setup wizard on an operational device, possible causes for the errors, and recommended actions to resolve them.</target>
+        </trans-unit>
+        <trans-unit id="d91e852f-dfdd-46e7-ac48-e371d38aa89c" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="c59974aa-eb2a-49a6-b4ea-20883527d4ce" xml:space="preserve">
+          <source>Error message or condition</source>
+          <target state="new">Error message or condition</target>
+        </trans-unit>
+        <trans-unit id="2a463a92-4ecf-40b7-a4c8-87866cf1ba31" xml:space="preserve">
+          <source>Possible causes</source>
+          <target state="new">Possible causes</target>
+        </trans-unit>
+        <trans-unit id="3299e6ff-9d4c-4cb8-bd7c-7f51a52c718f" xml:space="preserve">
+          <source>Recommended action</source>
+          <target state="new">Recommended action</target>
+        </trans-unit>
+        <trans-unit id="5abbc528-61d1-41d4-8e75-5d5e5b8ad19b" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="cd874c75-bd60-4121-accc-efd4a6785825" xml:space="preserve">
+          <source>Error 350032: This device has already been deactivated.</source>
+          <target state="new">Error 350032: This device has already been deactivated.</target>
+        </trans-unit>
+        <trans-unit id="711b3aa6-c1b7-4be3-bf7f-168da87e8f4e" xml:space="preserve">
+          <source>You will see this error if you run the setup wizard on a device that is deactivated.</source>
+          <target state="new">You will see this error if you run the setup wizard on a device that is deactivated.</target>
+        </trans-unit>
+        <trans-unit id="fcde450e-3ad0-4c70-afa2-ac57803222f7" xml:space="preserve">
+          <source><bpt id="115bc28e-81f6-42f9-b0b8-2f77b5f9dd40">&lt;linkText&gt;</bpt>Contact Microsoft Support<ept id="115bc28e-81f6-42f9-b0b8-2f77b5f9dd40">&lt;/linkText&gt;</ept><bpt id="115bc28e-81f6-42f9-b0b8-2f77b5f9dd40">&lt;title&gt;</bpt><ept id="115bc28e-81f6-42f9-b0b8-2f77b5f9dd40">&lt;/title&gt;</ept> for next steps.</source>
+          <target state="new"><bpt id="115bc28e-81f6-42f9-b0b8-2f77b5f9dd40">&lt;linkText&gt;</bpt>Contact Microsoft Support<ept id="115bc28e-81f6-42f9-b0b8-2f77b5f9dd40">&lt;/linkText&gt;</ept><bpt id="115bc28e-81f6-42f9-b0b8-2f77b5f9dd40">&lt;title&gt;</bpt><ept id="115bc28e-81f6-42f9-b0b8-2f77b5f9dd40">&lt;/title&gt;</ept> for next steps.</target>
+        </trans-unit>
+        <trans-unit id="ce15e387-5451-4ca1-954a-d72d88c9f716" xml:space="preserve">
+          <source>A deactivated device cannot be put in service.</source>
+          <target state="new">A deactivated device cannot be put in service.</target>
+        </trans-unit>
+        <trans-unit id="a168d7aa-45bc-4b50-a168-d50f836ba2e3" xml:space="preserve">
+          <source>A factory reset may be required before the device can be activated again.</source>
+          <target state="new">A factory reset may be required before the device can be activated again.</target>
+        </trans-unit>
+        <trans-unit id="a9d3f280-0c70-4762-af1b-a9f8942896ee" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="bf9bc6db-595e-47c0-85a8-ece3e3ec1504" xml:space="preserve">
+          <source>Invoke-HcsSetupWizard : ERROR<bpt id="50b70423-4300-4888-b60a-6e912fdab862">&lt;em&gt;</bpt>INVALID<ept id="50b70423-4300-4888-b60a-6e912fdab862">&lt;/em&gt;</ept>FUNCTION(Exception from HRESULT: 0x80070001)</source>
+          <target state="new">Invoke-HcsSetupWizard : ERROR<bpt id="50b70423-4300-4888-b60a-6e912fdab862">&lt;em&gt;</bpt>INVALID<ept id="50b70423-4300-4888-b60a-6e912fdab862">&lt;/em&gt;</ept>FUNCTION(Exception from HRESULT: 0x80070001)</target>
+        </trans-unit>
+        <trans-unit id="c8b4d253-92fb-46f4-a49a-0b1ffb6104d8" xml:space="preserve">
+          <source>The DNS server update is failing.</source>
+          <target state="new">The DNS server update is failing.</target>
+        </trans-unit>
+        <trans-unit id="4348e98c-4719-4cb5-ac0c-adf1f233b738" xml:space="preserve">
+          <source>DNS settings are global settings and are applied across all the enabled network interfaces.</source>
+          <target state="new">DNS settings are global settings and are applied across all the enabled network interfaces.</target>
+        </trans-unit>
+        <trans-unit id="a10602b4-04f1-4fa6-967b-e6024a406f5b" xml:space="preserve">
+          <source>Enable the interface and apply the DNS settings again.</source>
+          <target state="new">Enable the interface and apply the DNS settings again.</target>
+        </trans-unit>
+        <trans-unit id="f0f4a92b-bfa2-4a51-a576-8f76742ab22e" xml:space="preserve">
+          <source>This may disrupt the network for other enabled interfaces because these settings are global.</source>
+          <target state="new">This may disrupt the network for other enabled interfaces because these settings are global.</target>
+        </trans-unit>
+        <trans-unit id="25880ab3-17d8-4be4-89e3-b6aa93e1d302" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="44958995-3c85-408a-b39a-24336c56a653" xml:space="preserve">
+          <source>The device appears to be online in the StorSimple Manager service portal, but when you try to complete the minimum setup and save the configuration, the operation fails.</source>
+          <target state="new">The device appears to be online in the StorSimple Manager service portal, but when you try to complete the minimum setup and save the configuration, the operation fails.</target>
+        </trans-unit>
+        <trans-unit id="83a63f60-9608-464d-9374-21703c846463" xml:space="preserve">
+          <source>During initial setup, the web proxy was not configured, even though there was an actual proxy server in place.</source>
+          <target state="new">During initial setup, the web proxy was not configured, even though there was an actual proxy server in place.</target>
+        </trans-unit>
+        <trans-unit id="cf7f99de-3519-4cbd-89b1-def459b8ba43" xml:space="preserve">
+          <source>Use the <bpt id="2096b2f1-5f60-4fcb-a2ef-35872db8df52">&lt;linkText&gt;</bpt>Test-HcsmConnection cmdlet[2]<ept id="2096b2f1-5f60-4fcb-a2ef-35872db8df52">&lt;/linkText&gt;</ept><bpt id="2096b2f1-5f60-4fcb-a2ef-35872db8df52">&lt;title&gt;</bpt><ept id="2096b2f1-5f60-4fcb-a2ef-35872db8df52">&lt;/title&gt;</ept> to locate the error.</source>
+          <target state="new">Use the <bpt id="2096b2f1-5f60-4fcb-a2ef-35872db8df52">&lt;linkText&gt;</bpt>Test-HcsmConnection cmdlet[2]<ept id="2096b2f1-5f60-4fcb-a2ef-35872db8df52">&lt;/linkText&gt;</ept><bpt id="2096b2f1-5f60-4fcb-a2ef-35872db8df52">&lt;title&gt;</bpt><ept id="2096b2f1-5f60-4fcb-a2ef-35872db8df52">&lt;/title&gt;</ept> to locate the error.</target>
+        </trans-unit>
+        <trans-unit id="1b836f6c-764d-44a6-b2d2-445b164ffea5" xml:space="preserve">
+          <source><bpt id="63ba9655-9c31-4e27-b481-3124f925d288">&lt;linkText&gt;</bpt>Contact Microsoft Support<ept id="63ba9655-9c31-4e27-b481-3124f925d288">&lt;/linkText&gt;</ept><bpt id="63ba9655-9c31-4e27-b481-3124f925d288">&lt;title&gt;</bpt><ept id="63ba9655-9c31-4e27-b481-3124f925d288">&lt;/title&gt;</ept> if you are unable to correct the problem.</source>
+          <target state="new"><bpt id="63ba9655-9c31-4e27-b481-3124f925d288">&lt;linkText&gt;</bpt>Contact Microsoft Support<ept id="63ba9655-9c31-4e27-b481-3124f925d288">&lt;/linkText&gt;</ept><bpt id="63ba9655-9c31-4e27-b481-3124f925d288">&lt;title&gt;</bpt><ept id="63ba9655-9c31-4e27-b481-3124f925d288">&lt;/title&gt;</ept> if you are unable to correct the problem.</target>
+        </trans-unit>
+        <trans-unit id="4e03cc01-58d1-4c73-9453-d9eccbb69a74" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="7c62c747-6872-4580-9f58-02278647b950" xml:space="preserve">
+          <source>Invoke-HcsSetupWizard: Value does not fall within the expected range.</source>
+          <target state="new">Invoke-HcsSetupWizard: Value does not fall within the expected range.</target>
+        </trans-unit>
+        <trans-unit id="98af0738-1064-43d5-962a-a1aac50ff0a0" xml:space="preserve">
+          <source>An incorrect subnet mask produces this error.</source>
+          <target state="new">An incorrect subnet mask produces this error.</target>
+        </trans-unit>
+        <trans-unit id="d6a65411-210d-490a-b202-284e1f677426" xml:space="preserve">
+          <source>Possible causes are: &lt;ul&gt;&lt;li&gt; The subnet mask is missing or empty.&lt;/li&gt;&lt;li&gt;The Ipv6 prefix format is incorrect.&lt;/li&gt;&lt;li&gt;The interface is cloud-enabled, but the gateway is missing or incorrect.&lt;/li&gt;&lt;/ul&gt;Note that DATA 0 is automatically cloud-enabled if configured through the setup wizard.</source>
+          <target state="new">Possible causes are: &lt;ul&gt;&lt;li&gt; The subnet mask is missing or empty.&lt;/li&gt;&lt;li&gt;The Ipv6 prefix format is incorrect.&lt;/li&gt;&lt;li&gt;The interface is cloud-enabled, but the gateway is missing or incorrect.&lt;/li&gt;&lt;/ul&gt;Note that DATA 0 is automatically cloud-enabled if configured through the setup wizard.</target>
+        </trans-unit>
+        <trans-unit id="ac836c82-7ff0-473e-8996-a51b80f8a232" xml:space="preserve">
+          <source>To determine the problem, use subnet 0.0.0.0 or 256.256.256.256, and then look at the output.</source>
+          <target state="new">To determine the problem, use subnet 0.0.0.0 or 256.256.256.256, and then look at the output.</target>
+        </trans-unit>
+        <trans-unit id="b9383e04-10a9-4068-8405-33a99dac770a" xml:space="preserve">
+          <source>Enter correct values for the subnet mask, gateway, and Ipv6 prefix, as needed.</source>
+          <target state="new">Enter correct values for the subnet mask, gateway, and Ipv6 prefix, as needed.</target>
+        </trans-unit>
+        <trans-unit id="0be5517f-b1ba-4b1e-bdf3-44f3627b4b71" xml:space="preserve">
+          <source>Errors are listed in numeric order.</source>
+          <target state="new">Errors are listed in numeric order.</target>
+        </trans-unit>
+        <trans-unit id="1db60d0f-fb50-496d-a276-a0f81b127c5a" xml:space="preserve">
+          <source>Error Number</source>
+          <target state="new">Error Number</target>
+        </trans-unit>
+        <trans-unit id="6cb9afdc-c117-478c-ba16-9df317cd4100" xml:space="preserve">
+          <source>Error text or description</source>
+          <target state="new">Error text or description</target>
+        </trans-unit>
+        <trans-unit id="270fdfc0-be20-41a3-af0f-a187430a1977" xml:space="preserve">
+          <source>Recommended user action</source>
+          <target state="new">Recommended user action</target>
+        </trans-unit>
+        <trans-unit id="b6fda8a1-a3e8-446c-bc05-1c64b9cab7ac" xml:space="preserve">
+          <source>10502</source>
+          <target state="new">10502</target>
+        </trans-unit>
+        <trans-unit id="3a8838d0-7463-4de2-aaaf-84d40bc2f719" xml:space="preserve">
+          <source>An error was encountered while accessing your storage account.</source>
+          <target state="new">An error was encountered while accessing your storage account.</target>
+        </trans-unit>
+        <trans-unit id="452f13b4-feb0-4f3b-97a6-b1776ab46742" xml:space="preserve">
+          <source>Wait for a few minutes and then try again.</source>
+          <target state="new">Wait for a few minutes and then try again.</target>
+        </trans-unit>
+        <trans-unit id="2751589b-35ec-4b51-a344-954f6541be4d" xml:space="preserve">
+          <source>If the error persists, please Contact Microsoft Support for next steps.</source>
+          <target state="new">If the error persists, please Contact Microsoft Support for next steps.</target>
+        </trans-unit>
+        <trans-unit id="07a4d638-dc4b-4b10-af7e-901cca263517" xml:space="preserve">
+          <source>40017</source>
+          <target state="new">40017</target>
+        </trans-unit>
+        <trans-unit id="d22a6c46-cf2f-44c4-a796-59eb8f246af8" xml:space="preserve">
+          <source>Unable to resolve a disk in a backup set.</source>
+          <target state="new">Unable to resolve a disk in a backup set.</target>
+        </trans-unit>
+        <trans-unit id="22c95b2e-fcfb-4bbc-81ee-f4f6b9186df5" xml:space="preserve">
+          <source>If the error persists, please Contact Microsoft Support for next steps.</source>
+          <target state="new">If the error persists, please Contact Microsoft Support for next steps.</target>
+        </trans-unit>
+        <trans-unit id="84f7fcd9-adcd-4f34-bd85-fb2b851e594a" xml:space="preserve">
+          <source>40018</source>
+          <target state="new">40018</target>
+        </trans-unit>
+        <trans-unit id="6595196b-3fff-4371-a509-744d10e76abd" xml:space="preserve">
+          <source>Unable to resolve any of the disks in  backup set.</source>
+          <target state="new">Unable to resolve any of the disks in  backup set.</target>
+        </trans-unit>
+        <trans-unit id="fcdf4bb0-5be4-443e-af89-40cb87fb0c8d" xml:space="preserve">
+          <source>If the error persists, please Contact Microsoft Support for next steps.</source>
+          <target state="new">If the error persists, please Contact Microsoft Support for next steps.</target>
+        </trans-unit>
+        <trans-unit id="282fd933-c0f4-4bf6-a299-a5151fe199a4" xml:space="preserve">
+          <source>390061</source>
+          <target state="new">390061</target>
+        </trans-unit>
+        <trans-unit id="721986cc-b848-4acd-bb3c-718b93f283fa" xml:space="preserve">
+          <source>The system is busy or unavailable.</source>
+          <target state="new">The system is busy or unavailable.</target>
+        </trans-unit>
+        <trans-unit id="3c0cc76f-01f8-4b26-878f-968e91f90223" xml:space="preserve">
+          <source>Wait for a few minutes and then try again.</source>
+          <target state="new">Wait for a few minutes and then try again.</target>
+        </trans-unit>
+        <trans-unit id="1849e191-69f3-42f3-936f-6c068bc296fa" xml:space="preserve">
+          <source>If the error persists, please Contact Microsoft Support for next steps.</source>
+          <target state="new">If the error persists, please Contact Microsoft Support for next steps.</target>
+        </trans-unit>
+        <trans-unit id="efd32c1f-ec1d-4483-92ae-d7af3006d499" xml:space="preserve">
+          <source>390143</source>
+          <target state="new">390143</target>
+        </trans-unit>
+        <trans-unit id="e45e4479-2b19-4a18-aaf4-4748b9aee672" xml:space="preserve">
+          <source>An error has occurred with error code 390143.</source>
+          <target state="new">An error has occurred with error code 390143.</target>
+        </trans-unit>
+        <trans-unit id="e362dec5-0b20-4c9f-8143-6a01667c6b68" xml:space="preserve">
+          <source>(Unknown error.)</source>
+          <target state="new">(Unknown error.)</target>
+        </trans-unit>
+        <trans-unit id="f1429e23-eef6-4183-8eae-166d1a44f132" xml:space="preserve">
+          <source>If the error persists, please contact Microsoft Support for next steps.</source>
+          <target state="new">If the error persists, please contact Microsoft Support for next steps.</target>
+        </trans-unit>
+        <trans-unit id="8ea83910-c8ce-4b5a-9171-8ae4910b08e6" xml:space="preserve">
+          <source>If you are unable to resolve the problem, <bpt id="110f5ab3-d927-4292-886b-b2ab26641009">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="110f5ab3-d927-4292-886b-b2ab26641009">&lt;/linkText&gt;</ept><bpt id="110f5ab3-d927-4292-886b-b2ab26641009">&lt;title&gt;</bpt><ept id="110f5ab3-d927-4292-886b-b2ab26641009">&lt;/title&gt;</ept> for assistance.</source>
+          <target state="new">If you are unable to resolve the problem, <bpt id="110f5ab3-d927-4292-886b-b2ab26641009">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="110f5ab3-d927-4292-886b-b2ab26641009">&lt;/linkText&gt;</ept><bpt id="110f5ab3-d927-4292-886b-b2ab26641009">&lt;title&gt;</bpt><ept id="110f5ab3-d927-4292-886b-b2ab26641009">&lt;/title&gt;</ept> for assistance.</target>
+        </trans-unit>
+        <trans-unit id="11fe14d7-ad1e-46aa-865c-9d5e20c1f1f8" xml:space="preserve">
+          <source>https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx</source>
+          <target state="new">https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx</target>
+        </trans-unit>
+        <trans-unit id="6882f86f-31f3-4d35-8343-5eefed1e44dd" xml:space="preserve">
+          <source>https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx</source>
+          <target state="new">https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx</target>
+        </trans-unit>
+      </group>
+      <group id="44f995c6-ae53-456a-a1bc-39c876f9c6aa" />
+    </body>
+  </file>
+</xliff>

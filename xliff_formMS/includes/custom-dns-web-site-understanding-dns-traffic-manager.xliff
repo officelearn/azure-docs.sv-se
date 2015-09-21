@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="00c49de8-30f7-40ff-ab5c-0b70b61a5b7c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="00c49de8-30f7-40ff-ab5c-0b70b61a5b7c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3ef526e1-280a-4a8a-8147-1d0024eb2571">
+        <trans-unit id="51d098df-648f-4d2a-a55b-27a7fef703b9" xml:space="preserve">
+          <source>The Domain Name System (DNS) is used to locate things on the internet.</source>
+          <target state="new">The Domain Name System (DNS) is used to locate things on the internet.</target>
+        </trans-unit>
+        <trans-unit id="23b5d000-074d-4112-83c6-3d98fe486fcd" xml:space="preserve">
+          <source>For example, when you enter an address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address.</source>
+          <target state="new">For example, when you enter an address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address.</target>
+        </trans-unit>
+        <trans-unit id="63dfbe33-23a2-4c2e-9d6b-aa1819e983d6" xml:space="preserve">
+          <source>The IP address is sort of like a street address, but it's not very human friendly.</source>
+          <target state="new">The IP address is sort of like a street address, but it's not very human friendly.</target>
+        </trans-unit>
+        <trans-unit id="802d9cd9-0c97-42da-8b7a-1bcdb2b1f86e" xml:space="preserve">
+          <source>For example, it is much easier to remember a DNS name like <bpt id="5e6e3070-bfe6-4229-bb84-2479b4e45bdd">&lt;strong&gt;</bpt>contoso.com<ept id="5e6e3070-bfe6-4229-bb84-2479b4e45bdd">&lt;/strong&gt;</ept> than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.</source>
+          <target state="new">For example, it is much easier to remember a DNS name like <bpt id="5e6e3070-bfe6-4229-bb84-2479b4e45bdd">&lt;strong&gt;</bpt>contoso.com<ept id="5e6e3070-bfe6-4229-bb84-2479b4e45bdd">&lt;/strong&gt;</ept> than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.</target>
+        </trans-unit>
+        <trans-unit id="b86e9aee-bc28-4e15-8b21-3844c7789b59" xml:space="preserve">
+          <source>The DNS system is based on <bpt id="71d67e6d-35af-4e61-9be5-dcccde97490b">&lt;em&gt;</bpt>records<ept id="71d67e6d-35af-4e61-9be5-dcccde97490b">&lt;/em&gt;</ept>.</source>
+          <target state="new">The DNS system is based on <bpt id="71d67e6d-35af-4e61-9be5-dcccde97490b">&lt;em&gt;</bpt>records<ept id="71d67e6d-35af-4e61-9be5-dcccde97490b">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="473a6221-4abe-474f-af6c-c5aaf0c53c9b" xml:space="preserve">
+          <source>Records associate a specific <bpt id="cb15ea00-e568-4a8f-b9a0-d804651988fa">&lt;em&gt;</bpt>name<ept id="cb15ea00-e568-4a8f-b9a0-d804651988fa">&lt;/em&gt;</ept>, such as <bpt id="ff02ab85-b836-4830-9087-e1caf29c3ad8">&lt;strong&gt;</bpt>contoso.com<ept id="ff02ab85-b836-4830-9087-e1caf29c3ad8">&lt;/strong&gt;</ept>, with either an IP address or another DNS name.</source>
+          <target state="new">Records associate a specific <bpt id="cb15ea00-e568-4a8f-b9a0-d804651988fa">&lt;em&gt;</bpt>name<ept id="cb15ea00-e568-4a8f-b9a0-d804651988fa">&lt;/em&gt;</ept>, such as <bpt id="ff02ab85-b836-4830-9087-e1caf29c3ad8">&lt;strong&gt;</bpt>contoso.com<ept id="ff02ab85-b836-4830-9087-e1caf29c3ad8">&lt;/strong&gt;</ept>, with either an IP address or another DNS name.</target>
+        </trans-unit>
+        <trans-unit id="a2e8587e-5af9-4bdb-a9b0-ba8793188bdf" xml:space="preserve">
+          <source>When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address.</source>
+          <target state="new">When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address.</target>
+        </trans-unit>
+        <trans-unit id="0507bbb1-6e3c-4e18-9bbe-668daaabc5cb" xml:space="preserve">
+          <source>If the value it points to is an IP address, the browser will use that value.</source>
+          <target state="new">If the value it points to is an IP address, the browser will use that value.</target>
+        </trans-unit>
+        <trans-unit id="29617eb4-7040-4ebe-ad3f-0fb95d31204f" xml:space="preserve">
+          <source>If it points to another DNS name, then the application has to do resolution again.</source>
+          <target state="new">If it points to another DNS name, then the application has to do resolution again.</target>
+        </trans-unit>
+        <trans-unit id="444a8fd4-bfb9-47ab-83f0-1050f0995c56" xml:space="preserve">
+          <source>Ultimately, all name resolution will end in an IP address.</source>
+          <target state="new">Ultimately, all name resolution will end in an IP address.</target>
+        </trans-unit>
+        <trans-unit id="40531f20-ea97-43a1-8407-46fbcbe06c67" xml:space="preserve">
+          <source>When you create an Azure Website, a DNS name is automatically assigned to the site.</source>
+          <target state="new">When you create an Azure Website, a DNS name is automatically assigned to the site.</target>
+        </trans-unit>
+        <trans-unit id="84befbef-d1b3-42a8-8865-1944246394b6" xml:space="preserve">
+          <source>This name takes the form of <bpt id="524bbb35-19b0-4679-a776-1dec1f2f4659">&lt;strong&gt;</bpt>&amp;lt;yoursitename&amp;gt;.azurewebsites.net<ept id="524bbb35-19b0-4679-a776-1dec1f2f4659">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This name takes the form of <bpt id="524bbb35-19b0-4679-a776-1dec1f2f4659">&lt;strong&gt;</bpt>&amp;lt;yoursitename&amp;gt;.azurewebsites.net<ept id="524bbb35-19b0-4679-a776-1dec1f2f4659">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8bc3035-9bfc-4ca4-9cae-3da39197cf21" xml:space="preserve">
+          <source>When you add your website as an Azure Traffic Manager endpoint, your website is then accessible through the <bpt id="5941c306-4e21-41e4-ba78-063201083dfd">&lt;strong&gt;</bpt>&amp;lt;yourtrafficmanagerprofile&amp;gt;.trafficmanager.net<ept id="5941c306-4e21-41e4-ba78-063201083dfd">&lt;/strong&gt;</ept> domain.</source>
+          <target state="new">When you add your website as an Azure Traffic Manager endpoint, your website is then accessible through the <bpt id="5941c306-4e21-41e4-ba78-063201083dfd">&lt;strong&gt;</bpt>&amp;lt;yourtrafficmanagerprofile&amp;gt;.trafficmanager.net<ept id="5941c306-4e21-41e4-ba78-063201083dfd">&lt;/strong&gt;</ept> domain.</target>
+        </trans-unit>
+        <trans-unit id="ca656c8a-f153-40fb-b7fa-d618ac517fc4" xml:space="preserve">
+          <source>When your website is configured as a Traffic Manager endpoint, you will use the <bpt id="7597d439-2c64-427d-9d14-0ec9667952a3">&lt;strong&gt;</bpt>.trafficmanager.net<ept id="7597d439-2c64-427d-9d14-0ec9667952a3">&lt;/strong&gt;</ept> address when creating DNS records.</source>
+          <target state="new">When your website is configured as a Traffic Manager endpoint, you will use the <bpt id="7597d439-2c64-427d-9d14-0ec9667952a3">&lt;strong&gt;</bpt>.trafficmanager.net<ept id="7597d439-2c64-427d-9d14-0ec9667952a3">&lt;/strong&gt;</ept> address when creating DNS records.</target>
+        </trans-unit>
+        <trans-unit id="2485423d-1e94-47ce-be45-97f6be0a0cd8" xml:space="preserve">
+          <source>You can only use CNAME records with Traffic Manager</source>
+          <target state="new">You can only use CNAME records with Traffic Manager</target>
+        </trans-unit>
+        <trans-unit id="c22a83c7-02a3-4276-a598-574558c86ebd" xml:space="preserve">
+          <source>There are also multiple types of records, each with their own functions and limitations, but for websites configured to as Traffic Manager endpoints, we only care about one; <bpt id="eab39431-9ad7-44d5-8351-801119d6dd21">&lt;em&gt;</bpt>CNAME<ept id="eab39431-9ad7-44d5-8351-801119d6dd21">&lt;/em&gt;</ept> records.</source>
+          <target state="new">There are also multiple types of records, each with their own functions and limitations, but for websites configured to as Traffic Manager endpoints, we only care about one; <bpt id="eab39431-9ad7-44d5-8351-801119d6dd21">&lt;em&gt;</bpt>CNAME<ept id="eab39431-9ad7-44d5-8351-801119d6dd21">&lt;/em&gt;</ept> records.</target>
+        </trans-unit>
+        <trans-unit id="064a59eb-eff2-4b52-9ed6-1247e3a01b58" xml:space="preserve">
+          <source>A CNAME record maps a <bpt id="e1efa882-ded1-49ce-89cf-587938ccc600">&lt;em&gt;</bpt>specific<ept id="e1efa882-ded1-49ce-89cf-587938ccc600">&lt;/em&gt;</ept> DNS name, such as <bpt id="19d1420b-64f5-42c3-b2bd-00fbf4cc9426">&lt;strong&gt;</bpt>mail.contoso.com<ept id="19d1420b-64f5-42c3-b2bd-00fbf4cc9426">&lt;/strong&gt;</ept> or <bpt id="56f39466-19eb-49b2-adca-8073f714967a">&lt;strong&gt;</bpt>www.contoso.com<ept id="56f39466-19eb-49b2-adca-8073f714967a">&lt;/strong&gt;</ept>, to another (canonical) domain name.</source>
+          <target state="new">A CNAME record maps a <bpt id="e1efa882-ded1-49ce-89cf-587938ccc600">&lt;em&gt;</bpt>specific<ept id="e1efa882-ded1-49ce-89cf-587938ccc600">&lt;/em&gt;</ept> DNS name, such as <bpt id="19d1420b-64f5-42c3-b2bd-00fbf4cc9426">&lt;strong&gt;</bpt>mail.contoso.com<ept id="19d1420b-64f5-42c3-b2bd-00fbf4cc9426">&lt;/strong&gt;</ept> or <bpt id="56f39466-19eb-49b2-adca-8073f714967a">&lt;strong&gt;</bpt>www.contoso.com<ept id="56f39466-19eb-49b2-adca-8073f714967a">&lt;/strong&gt;</ept>, to another (canonical) domain name.</target>
+        </trans-unit>
+        <trans-unit id="f5e6a172-6d7e-44d5-868d-5912bda8511e" xml:space="preserve">
+          <source>In the case of Azure Websites using Traffic Manager, the canonical domain name is the <bpt id="28fd2268-5e21-4674-a70e-b1fbcc92e3a4">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmanager.net<ept id="28fd2268-5e21-4674-a70e-b1fbcc92e3a4">&lt;/strong&gt;</ept> domain name of your Traffic Manager profile.</source>
+          <target state="new">In the case of Azure Websites using Traffic Manager, the canonical domain name is the <bpt id="28fd2268-5e21-4674-a70e-b1fbcc92e3a4">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmanager.net<ept id="28fd2268-5e21-4674-a70e-b1fbcc92e3a4">&lt;/strong&gt;</ept> domain name of your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="3b4c4c24-49e4-40dc-bbf0-6a82366d6b4d" xml:space="preserve">
+          <source>Once created, the CNAME creates an alias for the <bpt id="c57a779d-e6b2-4ec1-ac5e-3273fd95c389">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmanager.net<ept id="c57a779d-e6b2-4ec1-ac5e-3273fd95c389">&lt;/strong&gt;</ept> domain name.</source>
+          <target state="new">Once created, the CNAME creates an alias for the <bpt id="c57a779d-e6b2-4ec1-ac5e-3273fd95c389">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmanager.net<ept id="c57a779d-e6b2-4ec1-ac5e-3273fd95c389">&lt;/strong&gt;</ept> domain name.</target>
+        </trans-unit>
+        <trans-unit id="ff651ff1-5fe7-48d7-8c11-038154bb659f" xml:space="preserve">
+          <source>The CNAME entry will resolve to the IP address of your <bpt id="35900126-6535-430d-a49c-9cef6e27ab77">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmanager.net<ept id="35900126-6535-430d-a49c-9cef6e27ab77">&lt;/strong&gt;</ept> domain name automatically, so if the IP address of the website changes, you do not have to take any action.</source>
+          <target state="new">The CNAME entry will resolve to the IP address of your <bpt id="35900126-6535-430d-a49c-9cef6e27ab77">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmanager.net<ept id="35900126-6535-430d-a49c-9cef6e27ab77">&lt;/strong&gt;</ept> domain name automatically, so if the IP address of the website changes, you do not have to take any action.</target>
+        </trans-unit>
+        <trans-unit id="462d9ff1-adad-4e91-8fce-a960756fd9d4" xml:space="preserve">
+          <source>Once traffic arrives at Traffic Manager, it then routes the traffic to your website, using the load balancing method it is configured for.</source>
+          <target state="new">Once traffic arrives at Traffic Manager, it then routes the traffic to your website, using the load balancing method it is configured for.</target>
+        </trans-unit>
+        <trans-unit id="cf31e49f-7876-48cf-a699-0720390f8593" xml:space="preserve">
+          <source>This is completely transparent to visitors to your website.</source>
+          <target state="new">This is completely transparent to visitors to your website.</target>
+        </trans-unit>
+        <trans-unit id="af9fd4bb-d8c6-4296-94f3-e2c4a119388e" xml:space="preserve">
+          <source>They will only see the custom domain name in their browser.</source>
+          <target state="new">They will only see the custom domain name in their browser.</target>
+        </trans-unit>
+        <trans-unit id="a71cb37c-427a-4485-8c01-3d0cb7d7f848" xml:space="preserve">
+          <source>Some domain registrars only allow you to map subdomains when using a CNAME record, such as <bpt id="35a5ec53-dd33-4ffb-a7c5-5e136f5ed017">&lt;strong&gt;</bpt>www.contoso.com<ept id="35a5ec53-dd33-4ffb-a7c5-5e136f5ed017">&lt;/strong&gt;</ept>, and not root names, such as <bpt id="1baecb96-7d76-45ab-be3e-ef3c2457f2a0">&lt;strong&gt;</bpt>contoso.com<ept id="1baecb96-7d76-45ab-be3e-ef3c2457f2a0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Some domain registrars only allow you to map subdomains when using a CNAME record, such as <bpt id="35a5ec53-dd33-4ffb-a7c5-5e136f5ed017">&lt;strong&gt;</bpt>www.contoso.com<ept id="35a5ec53-dd33-4ffb-a7c5-5e136f5ed017">&lt;/strong&gt;</ept>, and not root names, such as <bpt id="1baecb96-7d76-45ab-be3e-ef3c2457f2a0">&lt;strong&gt;</bpt>contoso.com<ept id="1baecb96-7d76-45ab-be3e-ef3c2457f2a0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2372284-065b-4d68-aaef-93aa3e042d89" xml:space="preserve">
+          <source>For more information on CNAME records, see the documentation provided by your registrar, &lt;a href="http://en.wikipedia.org/wiki/CNAME_record"&gt;the Wikipedia entry on CNAME record&lt;/a&gt;, or the &lt;a href="http://tools.ietf.org/html/rfc1035"&gt;IETF Domain Names - Implementation and Specification&lt;/a&gt; document.</source>
+          <target state="new">For more information on CNAME records, see the documentation provided by your registrar, &lt;a href="http://en.wikipedia.org/wiki/CNAME_record"&gt;the Wikipedia entry on CNAME record&lt;/a&gt;, or the &lt;a href="http://tools.ietf.org/html/rfc1035"&gt;IETF Domain Names - Implementation and Specification&lt;/a&gt; document.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

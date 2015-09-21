@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="94186132-c6e7-40cf-9983-8a40087e10b1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="94186132-c6e7-40cf-9983-8a40087e10b1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0426aede-2bb2-40c9-aa65-cf5dce377276">
+        <trans-unit id="e623850a-a804-4aa2-8924-dcc0edaf6059" xml:space="preserve">
+          <source>Use StorSimple Snapshot Manager to view and manage backup jobs | Microsoft Azure</source>
+          <target state="new">Use StorSimple Snapshot Manager to view and manage backup jobs | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d1a02347-c53c-472a-8044-1c516c7ebfd0" xml:space="preserve">
+          <source>Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage scheduled, currently running, and completed backup jobs.</source>
+          <target state="new">Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage scheduled, currently running, and completed backup jobs.</target>
+        </trans-unit>
+        <trans-unit id="0a120694-9f07-4af7-a12a-5bacf6391d5a" xml:space="preserve">
+          <source>The <bpt id="0444afe0-4ee8-496e-abb2-bf36cdfc4e17">&lt;strong&gt;</bpt>Jobs<ept id="0444afe0-4ee8-496e-abb2-bf36cdfc4e17">&lt;/strong&gt;</ept> node in the <bpt id="bd892492-d16e-4758-b092-1210344eef2f">&lt;strong&gt;</bpt>Scope<ept id="bd892492-d16e-4758-b092-1210344eef2f">&lt;/strong&gt;</ept> pane shows the <bpt id="bc33db5e-d935-4e28-a64d-863e98842222">&lt;strong&gt;</bpt>Scheduled<ept id="bc33db5e-d935-4e28-a64d-863e98842222">&lt;/strong&gt;</ept>, <bpt id="24e6f423-35d4-45d2-89d6-43d454c17981">&lt;strong&gt;</bpt>Last 24 hours<ept id="24e6f423-35d4-45d2-89d6-43d454c17981">&lt;/strong&gt;</ept>, and <bpt id="c314fd0b-edae-47cd-b443-fdfa3d5cdccf">&lt;strong&gt;</bpt>Running<ept id="c314fd0b-edae-47cd-b443-fdfa3d5cdccf">&lt;/strong&gt;</ept> backup tasks that you initiated interactively or by a configured policy.</source>
+          <target state="new">The <bpt id="0444afe0-4ee8-496e-abb2-bf36cdfc4e17">&lt;strong&gt;</bpt>Jobs<ept id="0444afe0-4ee8-496e-abb2-bf36cdfc4e17">&lt;/strong&gt;</ept> node in the <bpt id="bd892492-d16e-4758-b092-1210344eef2f">&lt;strong&gt;</bpt>Scope<ept id="bd892492-d16e-4758-b092-1210344eef2f">&lt;/strong&gt;</ept> pane shows the <bpt id="bc33db5e-d935-4e28-a64d-863e98842222">&lt;strong&gt;</bpt>Scheduled<ept id="bc33db5e-d935-4e28-a64d-863e98842222">&lt;/strong&gt;</ept>, <bpt id="24e6f423-35d4-45d2-89d6-43d454c17981">&lt;strong&gt;</bpt>Last 24 hours<ept id="24e6f423-35d4-45d2-89d6-43d454c17981">&lt;/strong&gt;</ept>, and <bpt id="c314fd0b-edae-47cd-b443-fdfa3d5cdccf">&lt;strong&gt;</bpt>Running<ept id="c314fd0b-edae-47cd-b443-fdfa3d5cdccf">&lt;/strong&gt;</ept> backup tasks that you initiated interactively or by a configured policy.</target>
+        </trans-unit>
+        <trans-unit id="880a34e3-3e9b-4982-9eee-b825a4e98b8f" xml:space="preserve">
+          <source>This tutorial explains how you can use the <bpt id="b916d90c-eeac-44fe-ae8c-628a2857eb5b">&lt;strong&gt;</bpt>Jobs<ept id="b916d90c-eeac-44fe-ae8c-628a2857eb5b">&lt;/strong&gt;</ept> node to display information about scheduled, recent, and currently running backup jobs.</source>
+          <target state="new">This tutorial explains how you can use the <bpt id="b916d90c-eeac-44fe-ae8c-628a2857eb5b">&lt;strong&gt;</bpt>Jobs<ept id="b916d90c-eeac-44fe-ae8c-628a2857eb5b">&lt;/strong&gt;</ept> node to display information about scheduled, recent, and currently running backup jobs.</target>
+        </trans-unit>
+        <trans-unit id="ebee0fc6-9763-4da2-bc74-80ddf84bbe21" xml:space="preserve">
+          <source>(The list of jobs and corresponding information appears in the <bpt id="8c777d8a-bbd6-4349-8f62-d4b9927f2d28">&lt;strong&gt;</bpt>Results<ept id="8c777d8a-bbd6-4349-8f62-d4b9927f2d28">&lt;/strong&gt;</ept> pane.)</source>
+          <target state="new">(The list of jobs and corresponding information appears in the <bpt id="8c777d8a-bbd6-4349-8f62-d4b9927f2d28">&lt;strong&gt;</bpt>Results<ept id="8c777d8a-bbd6-4349-8f62-d4b9927f2d28">&lt;/strong&gt;</ept> pane.)</target>
+        </trans-unit>
+        <trans-unit id="abfe665d-95bc-427a-97d1-140477bcd431" xml:space="preserve">
+          <source>Additionally, you can right-click a listed job and see a context menu that lists available actions.</source>
+          <target state="new">Additionally, you can right-click a listed job and see a context menu that lists available actions.</target>
+        </trans-unit>
+        <trans-unit id="18b65cb9-d0d9-4ba4-a9bd-f0b6adae4236" xml:space="preserve">
+          <source>Use the following procedure to view scheduled backup jobs.</source>
+          <target state="new">Use the following procedure to view scheduled backup jobs.</target>
+        </trans-unit>
+        <trans-unit id="8bdf6308-4a84-45db-820f-fa3dd17e9ea2" xml:space="preserve">
+          <source>Click the desktop icon to start StorSimple Snapshot Manager.</source>
+          <target state="new">Click the desktop icon to start StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="b0ea492d-7d60-47b9-bb4d-b3e9bc5054df" xml:space="preserve">
+          <source>In the <bpt id="c8566f9d-1c53-41aa-99c6-1e69c5912112">&lt;strong&gt;</bpt>Scope<ept id="c8566f9d-1c53-41aa-99c6-1e69c5912112">&lt;/strong&gt;</ept> pane, expand the <bpt id="70e07b31-1663-43c0-b73b-ddb543740409">&lt;strong&gt;</bpt>Jobs<ept id="70e07b31-1663-43c0-b73b-ddb543740409">&lt;/strong&gt;</ept> node, and click <bpt id="1c8b3afd-8665-49a4-a7ce-f64984241b03">&lt;strong&gt;</bpt>Scheduled<ept id="1c8b3afd-8665-49a4-a7ce-f64984241b03">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c8566f9d-1c53-41aa-99c6-1e69c5912112">&lt;strong&gt;</bpt>Scope<ept id="c8566f9d-1c53-41aa-99c6-1e69c5912112">&lt;/strong&gt;</ept> pane, expand the <bpt id="70e07b31-1663-43c0-b73b-ddb543740409">&lt;strong&gt;</bpt>Jobs<ept id="70e07b31-1663-43c0-b73b-ddb543740409">&lt;/strong&gt;</ept> node, and click <bpt id="1c8b3afd-8665-49a4-a7ce-f64984241b03">&lt;strong&gt;</bpt>Scheduled<ept id="1c8b3afd-8665-49a4-a7ce-f64984241b03">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc07fa90-2caf-4466-98d6-dab25baaf01c" xml:space="preserve">
+          <source>The following information appears in the <bpt id="b4db9358-6763-4d45-a329-eb305ed86e44">&lt;strong&gt;</bpt>Results<ept id="b4db9358-6763-4d45-a329-eb305ed86e44">&lt;/strong&gt;</ept> pane:</source>
+          <target state="new">The following information appears in the <bpt id="b4db9358-6763-4d45-a329-eb305ed86e44">&lt;strong&gt;</bpt>Results<ept id="b4db9358-6763-4d45-a329-eb305ed86e44">&lt;/strong&gt;</ept> pane:</target>
+        </trans-unit>
+        <trans-unit id="4ee97b49-8cf5-4d8f-a812-3188fd0038a2" xml:space="preserve">
+          <source><bpt id="431e9942-8f4d-4199-9bf1-8f51c427b09c">&lt;strong&gt;</bpt>Name<ept id="431e9942-8f4d-4199-9bf1-8f51c427b09c">&lt;/strong&gt;</ept> – the name of the scheduled snapshot</source>
+          <target state="new"><bpt id="431e9942-8f4d-4199-9bf1-8f51c427b09c">&lt;strong&gt;</bpt>Name<ept id="431e9942-8f4d-4199-9bf1-8f51c427b09c">&lt;/strong&gt;</ept> – the name of the scheduled snapshot</target>
+        </trans-unit>
+        <trans-unit id="7f3dceb2-7d51-4b7e-b279-b2f30488fce0" xml:space="preserve">
+          <source><bpt id="998ea5d6-8f0a-4080-bfdc-d3499cd4caae">&lt;strong&gt;</bpt>Next Run<ept id="998ea5d6-8f0a-4080-bfdc-d3499cd4caae">&lt;/strong&gt;</ept> – the date and time of the next scheduled snapshot</source>
+          <target state="new"><bpt id="998ea5d6-8f0a-4080-bfdc-d3499cd4caae">&lt;strong&gt;</bpt>Next Run<ept id="998ea5d6-8f0a-4080-bfdc-d3499cd4caae">&lt;/strong&gt;</ept> – the date and time of the next scheduled snapshot</target>
+        </trans-unit>
+        <trans-unit id="d2b71339-1528-4374-adda-89804beaa100" xml:space="preserve">
+          <source><bpt id="614b7c77-7fb7-4009-ad6c-0cdb70391cfc">&lt;strong&gt;</bpt>Last Run<ept id="614b7c77-7fb7-4009-ad6c-0cdb70391cfc">&lt;/strong&gt;</ept> – the date and time of the most recent scheduled snapshot</source>
+          <target state="new"><bpt id="614b7c77-7fb7-4009-ad6c-0cdb70391cfc">&lt;strong&gt;</bpt>Last Run<ept id="614b7c77-7fb7-4009-ad6c-0cdb70391cfc">&lt;/strong&gt;</ept> – the date and time of the most recent scheduled snapshot</target>
+        </trans-unit>
+        <trans-unit id="58e5c68e-c72a-4c5f-ba86-41d203f70f82" xml:space="preserve">
+          <source>For one-time only snapshots, the <bpt id="aef177f8-802c-4e26-ab34-ea3be821e92b">&lt;strong&gt;</bpt>Next Run<ept id="aef177f8-802c-4e26-ab34-ea3be821e92b">&lt;/strong&gt;</ept> and <bpt id="36841a97-7025-4f01-94d8-0c6602ecf025">&lt;strong&gt;</bpt>Last Run<ept id="36841a97-7025-4f01-94d8-0c6602ecf025">&lt;/strong&gt;</ept> will be the same.</source>
+          <target state="new">For one-time only snapshots, the <bpt id="aef177f8-802c-4e26-ab34-ea3be821e92b">&lt;strong&gt;</bpt>Next Run<ept id="aef177f8-802c-4e26-ab34-ea3be821e92b">&lt;/strong&gt;</ept> and <bpt id="36841a97-7025-4f01-94d8-0c6602ecf025">&lt;strong&gt;</bpt>Last Run<ept id="36841a97-7025-4f01-94d8-0c6602ecf025">&lt;/strong&gt;</ept> will be the same.</target>
+        </trans-unit>
+        <trans-unit id="2b217b7f-e8d8-4f52-b10a-67134c185fe8" xml:space="preserve">
+          <source><bpt id="6c6b3d17-5a13-44ad-a572-14d6bc893175">&lt;linkText&gt;</bpt>Scheduled backup jobs<ept id="6c6b3d17-5a13-44ad-a572-14d6bc893175">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="6c6b3d17-5a13-44ad-a572-14d6bc893175">&lt;linkText&gt;</bpt>Scheduled backup jobs<ept id="6c6b3d17-5a13-44ad-a572-14d6bc893175">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f8ef0333-5d35-420c-972c-d600f4264e38" xml:space="preserve">
+          <source>To perform additional actions on a specific job, right-click the job name in the <bpt id="e9fa5375-a6eb-4c78-865a-49a6dfaa79aa">&lt;strong&gt;</bpt>Results<ept id="e9fa5375-a6eb-4c78-865a-49a6dfaa79aa">&lt;/strong&gt;</ept> pane and select from the menu options.</source>
+          <target state="new">To perform additional actions on a specific job, right-click the job name in the <bpt id="e9fa5375-a6eb-4c78-865a-49a6dfaa79aa">&lt;strong&gt;</bpt>Results<ept id="e9fa5375-a6eb-4c78-865a-49a6dfaa79aa">&lt;/strong&gt;</ept> pane and select from the menu options.</target>
+        </trans-unit>
+        <trans-unit id="da3a946b-e3b3-4b41-8be8-1c222f7d3cd6" xml:space="preserve">
+          <source>Use the following procedure to view backup and restore jobs that were completed in the last 24 hours.</source>
+          <target state="new">Use the following procedure to view backup and restore jobs that were completed in the last 24 hours.</target>
+        </trans-unit>
+        <trans-unit id="f5d7de4c-c6b2-41ae-a9b0-6231f9f6d8a8" xml:space="preserve">
+          <source>Click the desktop icon to start StorSimple Snapshot Manager.</source>
+          <target state="new">Click the desktop icon to start StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="25afc42f-c77a-495e-b372-2540a02e698b" xml:space="preserve">
+          <source>In the <bpt id="e9d88d6f-74ca-41a3-8ae2-d113439dd088">&lt;strong&gt;</bpt>Scope<ept id="e9d88d6f-74ca-41a3-8ae2-d113439dd088">&lt;/strong&gt;</ept> pane, expand the <bpt id="b3a68549-cb17-4bb0-bad7-32b5e6e67064">&lt;strong&gt;</bpt>Jobs<ept id="b3a68549-cb17-4bb0-bad7-32b5e6e67064">&lt;/strong&gt;</ept> node, and click <bpt id="546aeeab-648b-4673-a6d2-c43b7063c0dc">&lt;strong&gt;</bpt>Last 24 hours<ept id="546aeeab-648b-4673-a6d2-c43b7063c0dc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="e9d88d6f-74ca-41a3-8ae2-d113439dd088">&lt;strong&gt;</bpt>Scope<ept id="e9d88d6f-74ca-41a3-8ae2-d113439dd088">&lt;/strong&gt;</ept> pane, expand the <bpt id="b3a68549-cb17-4bb0-bad7-32b5e6e67064">&lt;strong&gt;</bpt>Jobs<ept id="b3a68549-cb17-4bb0-bad7-32b5e6e67064">&lt;/strong&gt;</ept> node, and click <bpt id="546aeeab-648b-4673-a6d2-c43b7063c0dc">&lt;strong&gt;</bpt>Last 24 hours<ept id="546aeeab-648b-4673-a6d2-c43b7063c0dc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99030954-bb2c-4d24-b1fb-a34541cee69d" xml:space="preserve">
+          <source>The <bpt id="f0075f6e-f0d2-4ad1-bfec-120b15154313">&lt;strong&gt;</bpt>Results<ept id="f0075f6e-f0d2-4ad1-bfec-120b15154313">&lt;/strong&gt;</ept> pane shows backup jobs for the last 24 hours (to a maximum of 64 jobs).</source>
+          <target state="new">The <bpt id="f0075f6e-f0d2-4ad1-bfec-120b15154313">&lt;strong&gt;</bpt>Results<ept id="f0075f6e-f0d2-4ad1-bfec-120b15154313">&lt;/strong&gt;</ept> pane shows backup jobs for the last 24 hours (to a maximum of 64 jobs).</target>
+        </trans-unit>
+        <trans-unit id="22aa2cd8-c1f9-430f-829e-a9ef413b5478" xml:space="preserve">
+          <source>The following information appears in the <bpt id="e0d62b81-0703-49e3-ba43-0b66564d8b24">&lt;strong&gt;</bpt>Results<ept id="e0d62b81-0703-49e3-ba43-0b66564d8b24">&lt;/strong&gt;</ept> pane, depending on the <bpt id="1dc4d9da-5506-4ab7-8cfe-ffd9bbca438b">&lt;strong&gt;</bpt>View<ept id="1dc4d9da-5506-4ab7-8cfe-ffd9bbca438b">&lt;/strong&gt;</ept> options you specify:</source>
+          <target state="new">The following information appears in the <bpt id="e0d62b81-0703-49e3-ba43-0b66564d8b24">&lt;strong&gt;</bpt>Results<ept id="e0d62b81-0703-49e3-ba43-0b66564d8b24">&lt;/strong&gt;</ept> pane, depending on the <bpt id="1dc4d9da-5506-4ab7-8cfe-ffd9bbca438b">&lt;strong&gt;</bpt>View<ept id="1dc4d9da-5506-4ab7-8cfe-ffd9bbca438b">&lt;/strong&gt;</ept> options you specify:</target>
+        </trans-unit>
+        <trans-unit id="bf84cffd-fbb2-4cc7-a45d-502e3c8a7976" xml:space="preserve">
+          <source><bpt id="02ae3f3f-1f94-4c88-bddf-8e463f51ee9e">&lt;strong&gt;</bpt>Name<ept id="02ae3f3f-1f94-4c88-bddf-8e463f51ee9e">&lt;/strong&gt;</ept> – the name of the scheduled snapshot.</source>
+          <target state="new"><bpt id="02ae3f3f-1f94-4c88-bddf-8e463f51ee9e">&lt;strong&gt;</bpt>Name<ept id="02ae3f3f-1f94-4c88-bddf-8e463f51ee9e">&lt;/strong&gt;</ept> – the name of the scheduled snapshot.</target>
+        </trans-unit>
+        <trans-unit id="8a59bc01-03a3-44ea-baf0-527efc034537" xml:space="preserve">
+          <source><bpt id="c95e635b-356d-426d-8c6c-3ea2f077487a">&lt;strong&gt;</bpt>Started<ept id="c95e635b-356d-426d-8c6c-3ea2f077487a">&lt;/strong&gt;</ept> – the date and time when the snapshot began.</source>
+          <target state="new"><bpt id="c95e635b-356d-426d-8c6c-3ea2f077487a">&lt;strong&gt;</bpt>Started<ept id="c95e635b-356d-426d-8c6c-3ea2f077487a">&lt;/strong&gt;</ept> – the date and time when the snapshot began.</target>
+        </trans-unit>
+        <trans-unit id="f8215b97-3576-4269-8319-fdc5509cabe9" xml:space="preserve">
+          <source><bpt id="71368831-001b-4bd8-9aca-99f739afcb58">&lt;strong&gt;</bpt>Stopped<ept id="71368831-001b-4bd8-9aca-99f739afcb58">&lt;/strong&gt;</ept> – the date and time when the snapshot finished or was terminated.</source>
+          <target state="new"><bpt id="71368831-001b-4bd8-9aca-99f739afcb58">&lt;strong&gt;</bpt>Stopped<ept id="71368831-001b-4bd8-9aca-99f739afcb58">&lt;/strong&gt;</ept> – the date and time when the snapshot finished or was terminated.</target>
+        </trans-unit>
+        <trans-unit id="7bb27e74-2c74-4639-b2a0-1fcdee224538" xml:space="preserve">
+          <source><bpt id="23ab91b9-2e99-4344-a3a2-ff8cdc9c1199">&lt;strong&gt;</bpt>Elapsed<ept id="23ab91b9-2e99-4344-a3a2-ff8cdc9c1199">&lt;/strong&gt;</ept> – the amount of time between the <bpt id="d59c0c45-5067-44b1-9f19-189bd61ddcb7">&lt;strong&gt;</bpt>Started<ept id="d59c0c45-5067-44b1-9f19-189bd61ddcb7">&lt;/strong&gt;</ept> and <bpt id="e835b1c8-34bc-4ded-a6df-4b2f7de35c30">&lt;strong&gt;</bpt>Stopped<ept id="e835b1c8-34bc-4ded-a6df-4b2f7de35c30">&lt;/strong&gt;</ept> times.</source>
+          <target state="new"><bpt id="23ab91b9-2e99-4344-a3a2-ff8cdc9c1199">&lt;strong&gt;</bpt>Elapsed<ept id="23ab91b9-2e99-4344-a3a2-ff8cdc9c1199">&lt;/strong&gt;</ept> – the amount of time between the <bpt id="d59c0c45-5067-44b1-9f19-189bd61ddcb7">&lt;strong&gt;</bpt>Started<ept id="d59c0c45-5067-44b1-9f19-189bd61ddcb7">&lt;/strong&gt;</ept> and <bpt id="e835b1c8-34bc-4ded-a6df-4b2f7de35c30">&lt;strong&gt;</bpt>Stopped<ept id="e835b1c8-34bc-4ded-a6df-4b2f7de35c30">&lt;/strong&gt;</ept> times.</target>
+        </trans-unit>
+        <trans-unit id="827da8ad-bb22-400e-bdd4-0028ad1bff0f" xml:space="preserve">
+          <source><bpt id="d333585c-7942-4d74-87c9-d136612665be">&lt;strong&gt;</bpt>Status<ept id="d333585c-7942-4d74-87c9-d136612665be">&lt;/strong&gt;</ept> – the state of the recently completed job.</source>
+          <target state="new"><bpt id="d333585c-7942-4d74-87c9-d136612665be">&lt;strong&gt;</bpt>Status<ept id="d333585c-7942-4d74-87c9-d136612665be">&lt;/strong&gt;</ept> – the state of the recently completed job.</target>
+        </trans-unit>
+        <trans-unit id="21f20b8a-fcb2-40ca-b617-55c028c7d0ac" xml:space="preserve">
+          <source><bpt id="2ab835c0-4056-447d-9041-406b379d1119">&lt;strong&gt;</bpt>Success<ept id="2ab835c0-4056-447d-9041-406b379d1119">&lt;/strong&gt;</ept> indicates that the backup was created successfully.</source>
+          <target state="new"><bpt id="2ab835c0-4056-447d-9041-406b379d1119">&lt;strong&gt;</bpt>Success<ept id="2ab835c0-4056-447d-9041-406b379d1119">&lt;/strong&gt;</ept> indicates that the backup was created successfully.</target>
+        </trans-unit>
+        <trans-unit id="05cf284e-2642-449d-b40d-2a26e864322a" xml:space="preserve">
+          <source><bpt id="8110543c-85be-4555-b8ac-e3de535d8a7f">&lt;strong&gt;</bpt>Failed<ept id="8110543c-85be-4555-b8ac-e3de535d8a7f">&lt;/strong&gt;</ept> indicates that the job did not run successfully.</source>
+          <target state="new"><bpt id="8110543c-85be-4555-b8ac-e3de535d8a7f">&lt;strong&gt;</bpt>Failed<ept id="8110543c-85be-4555-b8ac-e3de535d8a7f">&lt;/strong&gt;</ept> indicates that the job did not run successfully.</target>
+        </trans-unit>
+        <trans-unit id="cf291bd3-b121-4f73-9f66-db733a99e26d" xml:space="preserve">
+          <source><bpt id="e4b96e85-6abd-42bd-95d6-90896858d462">&lt;strong&gt;</bpt>Information<ept id="e4b96e85-6abd-42bd-95d6-90896858d462">&lt;/strong&gt;</ept> – the reason for the failure.</source>
+          <target state="new"><bpt id="e4b96e85-6abd-42bd-95d6-90896858d462">&lt;strong&gt;</bpt>Information<ept id="e4b96e85-6abd-42bd-95d6-90896858d462">&lt;/strong&gt;</ept> – the reason for the failure.</target>
+        </trans-unit>
+        <trans-unit id="23e9d648-94bf-4431-a0a4-b03ae7f3b89c" xml:space="preserve">
+          <source><bpt id="a5072e52-f940-4e85-8007-cf31befb2aed">&lt;strong&gt;</bpt>Bytes processed (MB)<ept id="a5072e52-f940-4e85-8007-cf31befb2aed">&lt;/strong&gt;</ept> – the amount of data from the volume group that was processed (in MBs).</source>
+          <target state="new"><bpt id="a5072e52-f940-4e85-8007-cf31befb2aed">&lt;strong&gt;</bpt>Bytes processed (MB)<ept id="a5072e52-f940-4e85-8007-cf31befb2aed">&lt;/strong&gt;</ept> – the amount of data from the volume group that was processed (in MBs).</target>
+        </trans-unit>
+        <trans-unit id="52459353-1c97-47a7-ba72-fe913cf68705" xml:space="preserve">
+          <source><bpt id="0d170ada-df82-46dd-9335-93545bfe08ad">&lt;linkText&gt;</bpt>Jobs that ran in the last 24 hours<ept id="0d170ada-df82-46dd-9335-93545bfe08ad">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="0d170ada-df82-46dd-9335-93545bfe08ad">&lt;linkText&gt;</bpt>Jobs that ran in the last 24 hours<ept id="0d170ada-df82-46dd-9335-93545bfe08ad">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="0be10680-ef35-4245-81a3-ea78de40393b" xml:space="preserve">
+          <source>To perform additional actions on a specific job, right-click the job name in the <bpt id="711ee325-22d1-419f-b688-45de1a1014e1">&lt;strong&gt;</bpt>Results<ept id="711ee325-22d1-419f-b688-45de1a1014e1">&lt;/strong&gt;</ept> pane and select from the menu options.</source>
+          <target state="new">To perform additional actions on a specific job, right-click the job name in the <bpt id="711ee325-22d1-419f-b688-45de1a1014e1">&lt;strong&gt;</bpt>Results<ept id="711ee325-22d1-419f-b688-45de1a1014e1">&lt;/strong&gt;</ept> pane and select from the menu options.</target>
+        </trans-unit>
+        <trans-unit id="b6361fa7-e572-4ba0-a9ac-957f59ce2eef" xml:space="preserve">
+          <source><bpt id="2c65d411-ce2f-476a-af7d-74cc55451e0d">&lt;linkText&gt;</bpt>Delete a job<ept id="2c65d411-ce2f-476a-af7d-74cc55451e0d">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="2c65d411-ce2f-476a-af7d-74cc55451e0d">&lt;linkText&gt;</bpt>Delete a job<ept id="2c65d411-ce2f-476a-af7d-74cc55451e0d">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d916aac2-366b-49c4-92a3-4515b36f1569" xml:space="preserve">
+          <source>Use the following procedure to view jobs that are currently running.</source>
+          <target state="new">Use the following procedure to view jobs that are currently running.</target>
+        </trans-unit>
+        <trans-unit id="2b3984db-1f91-4162-b6f9-2592f44f3be4" xml:space="preserve">
+          <source>Click the desktop icon to start StorSimple Snapshot Manager.</source>
+          <target state="new">Click the desktop icon to start StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="ace43a69-228d-484e-a207-f7a08d1bd1a1" xml:space="preserve">
+          <source>In the <bpt id="c1100d3e-f130-43e8-86a3-249e80928f7b">&lt;strong&gt;</bpt>Scope<ept id="c1100d3e-f130-43e8-86a3-249e80928f7b">&lt;/strong&gt;</ept> pane, expand the <bpt id="50fdd15b-9981-404e-b58d-9ab0c5666054">&lt;strong&gt;</bpt>Jobs<ept id="50fdd15b-9981-404e-b58d-9ab0c5666054">&lt;/strong&gt;</ept> node, and click <bpt id="c3cf3339-6384-4aaa-820a-6200cb4c9a08">&lt;strong&gt;</bpt>Running<ept id="c3cf3339-6384-4aaa-820a-6200cb4c9a08">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c1100d3e-f130-43e8-86a3-249e80928f7b">&lt;strong&gt;</bpt>Scope<ept id="c1100d3e-f130-43e8-86a3-249e80928f7b">&lt;/strong&gt;</ept> pane, expand the <bpt id="50fdd15b-9981-404e-b58d-9ab0c5666054">&lt;strong&gt;</bpt>Jobs<ept id="50fdd15b-9981-404e-b58d-9ab0c5666054">&lt;/strong&gt;</ept> node, and click <bpt id="c3cf3339-6384-4aaa-820a-6200cb4c9a08">&lt;strong&gt;</bpt>Running<ept id="c3cf3339-6384-4aaa-820a-6200cb4c9a08">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eaaf5e3f-4c11-4e69-a859-bb3272e4d11f" xml:space="preserve">
+          <source>Depending on the <bpt id="658ff45c-8e91-4c8f-bf3c-1a2d84bfaf3a">&lt;strong&gt;</bpt>View<ept id="658ff45c-8e91-4c8f-bf3c-1a2d84bfaf3a">&lt;/strong&gt;</ept> options you specify, the following information appears in the <bpt id="da224827-91ac-43ce-ae03-9745449bc8e1">&lt;strong&gt;</bpt>Results<ept id="da224827-91ac-43ce-ae03-9745449bc8e1">&lt;/strong&gt;</ept> pane:</source>
+          <target state="new">Depending on the <bpt id="658ff45c-8e91-4c8f-bf3c-1a2d84bfaf3a">&lt;strong&gt;</bpt>View<ept id="658ff45c-8e91-4c8f-bf3c-1a2d84bfaf3a">&lt;/strong&gt;</ept> options you specify, the following information appears in the <bpt id="da224827-91ac-43ce-ae03-9745449bc8e1">&lt;strong&gt;</bpt>Results<ept id="da224827-91ac-43ce-ae03-9745449bc8e1">&lt;/strong&gt;</ept> pane:</target>
+        </trans-unit>
+        <trans-unit id="93a96540-5f9e-40ac-bc60-2a8c2bb0b9bd" xml:space="preserve">
+          <source><bpt id="58a0676a-8aee-4180-95b8-7b77e6348768">&lt;strong&gt;</bpt>Name<ept id="58a0676a-8aee-4180-95b8-7b77e6348768">&lt;/strong&gt;</ept> – the name of the scheduled snapshot.</source>
+          <target state="new"><bpt id="58a0676a-8aee-4180-95b8-7b77e6348768">&lt;strong&gt;</bpt>Name<ept id="58a0676a-8aee-4180-95b8-7b77e6348768">&lt;/strong&gt;</ept> – the name of the scheduled snapshot.</target>
+        </trans-unit>
+        <trans-unit id="9b5d6053-1783-4c76-bd91-fe2e07c747aa" xml:space="preserve">
+          <source><bpt id="66a4dd0d-c478-4b7b-9b9c-4727b4909592">&lt;strong&gt;</bpt>Started<ept id="66a4dd0d-c478-4b7b-9b9c-4727b4909592">&lt;/strong&gt;</ept> – the date and time when the snapshot began.</source>
+          <target state="new"><bpt id="66a4dd0d-c478-4b7b-9b9c-4727b4909592">&lt;strong&gt;</bpt>Started<ept id="66a4dd0d-c478-4b7b-9b9c-4727b4909592">&lt;/strong&gt;</ept> – the date and time when the snapshot began.</target>
+        </trans-unit>
+        <trans-unit id="6889d52f-10de-46f9-a7cb-417b482d9d9d" xml:space="preserve">
+          <source><bpt id="fcc1b9af-a08a-41fc-896e-f937700b1611">&lt;strong&gt;</bpt>Checkpoint<ept id="fcc1b9af-a08a-41fc-896e-f937700b1611">&lt;/strong&gt;</ept> – the current action of the backup.</source>
+          <target state="new"><bpt id="fcc1b9af-a08a-41fc-896e-f937700b1611">&lt;strong&gt;</bpt>Checkpoint<ept id="fcc1b9af-a08a-41fc-896e-f937700b1611">&lt;/strong&gt;</ept> – the current action of the backup.</target>
+        </trans-unit>
+        <trans-unit id="4ceca5f9-4e5a-412c-9b35-0dc07a0cd3b0" xml:space="preserve">
+          <source><bpt id="18f6e9ef-5593-45dd-93d7-c96cba9e5825">&lt;strong&gt;</bpt>Status<ept id="18f6e9ef-5593-45dd-93d7-c96cba9e5825">&lt;/strong&gt;</ept> – the percentage of completion.</source>
+          <target state="new"><bpt id="18f6e9ef-5593-45dd-93d7-c96cba9e5825">&lt;strong&gt;</bpt>Status<ept id="18f6e9ef-5593-45dd-93d7-c96cba9e5825">&lt;/strong&gt;</ept> – the percentage of completion.</target>
+        </trans-unit>
+        <trans-unit id="8b7932e0-db45-4875-b281-300f012fcce2" xml:space="preserve">
+          <source><bpt id="f97852d2-1127-4cfc-8590-f35ce39a4a40">&lt;strong&gt;</bpt>Elapsed<ept id="f97852d2-1127-4cfc-8590-f35ce39a4a40">&lt;/strong&gt;</ept> – the amount of time that has passed since the backup began.</source>
+          <target state="new"><bpt id="f97852d2-1127-4cfc-8590-f35ce39a4a40">&lt;strong&gt;</bpt>Elapsed<ept id="f97852d2-1127-4cfc-8590-f35ce39a4a40">&lt;/strong&gt;</ept> – the amount of time that has passed since the backup began.</target>
+        </trans-unit>
+        <trans-unit id="c6b3c09b-8b22-4827-a4a1-be98dc3852a2" xml:space="preserve">
+          <source><bpt id="d4a2f352-4284-49d7-9bcc-831605207aad">&lt;strong&gt;</bpt>Average throughput (MB)<ept id="d4a2f352-4284-49d7-9bcc-831605207aad">&lt;/strong&gt;</ept> – the median amount of data delivered, expressed in megabytes (MBs).</source>
+          <target state="new"><bpt id="d4a2f352-4284-49d7-9bcc-831605207aad">&lt;strong&gt;</bpt>Average throughput (MB)<ept id="d4a2f352-4284-49d7-9bcc-831605207aad">&lt;/strong&gt;</ept> – the median amount of data delivered, expressed in megabytes (MBs).</target>
+        </trans-unit>
+        <trans-unit id="021a97d3-cb6a-404a-9860-40aaf0014853" xml:space="preserve">
+          <source><bpt id="c4c2c5ac-d07a-4b74-8a9e-7ff41d33f509">&lt;strong&gt;</bpt>Bytes processed (MB)<ept id="c4c2c5ac-d07a-4b74-8a9e-7ff41d33f509">&lt;/strong&gt;</ept> – the amount of data from the volume group that was processed (in MBs).</source>
+          <target state="new"><bpt id="c4c2c5ac-d07a-4b74-8a9e-7ff41d33f509">&lt;strong&gt;</bpt>Bytes processed (MB)<ept id="c4c2c5ac-d07a-4b74-8a9e-7ff41d33f509">&lt;/strong&gt;</ept> – the amount of data from the volume group that was processed (in MBs).</target>
+        </trans-unit>
+        <trans-unit id="11603509-3c4e-4156-8922-257a07de3fdc" xml:space="preserve">
+          <source><bpt id="df38ad70-e1aa-4074-8cd9-c85d5015529e">&lt;strong&gt;</bpt>Bytes written (MB)<ept id="df38ad70-e1aa-4074-8cd9-c85d5015529e">&lt;/strong&gt;</ept> – the amount of data that was written to the backup (in MBs).</source>
+          <target state="new"><bpt id="df38ad70-e1aa-4074-8cd9-c85d5015529e">&lt;strong&gt;</bpt>Bytes written (MB)<ept id="df38ad70-e1aa-4074-8cd9-c85d5015529e">&lt;/strong&gt;</ept> – the amount of data that was written to the backup (in MBs).</target>
+        </trans-unit>
+        <trans-unit id="740d740b-e46e-4462-970a-b21e69aac50f" xml:space="preserve">
+          <source><bpt id="da0d1a99-776d-414d-95c3-e7220676b67c">&lt;linkText&gt;</bpt>Jobs currently running<ept id="da0d1a99-776d-414d-95c3-e7220676b67c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da0d1a99-776d-414d-95c3-e7220676b67c">&lt;linkText&gt;</bpt>Jobs currently running<ept id="da0d1a99-776d-414d-95c3-e7220676b67c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f6fccc9-fdde-41c9-921d-a8aa30f99fe6" xml:space="preserve">
+          <source>To perform additional actions on a specific job, right-click the job name in the <bpt id="b39f5286-80ae-42ec-bcb1-baecf21f59ce">&lt;strong&gt;</bpt>Results<ept id="b39f5286-80ae-42ec-bcb1-baecf21f59ce">&lt;/strong&gt;</ept> pane and select from the menu options.</source>
+          <target state="new">To perform additional actions on a specific job, right-click the job name in the <bpt id="b39f5286-80ae-42ec-bcb1-baecf21f59ce">&lt;strong&gt;</bpt>Results<ept id="b39f5286-80ae-42ec-bcb1-baecf21f59ce">&lt;/strong&gt;</ept> pane and select from the menu options.</target>
+        </trans-unit>
+        <trans-unit id="022a8274-5e87-4e0e-af66-c451621007b7" xml:space="preserve">
+          <source><bpt id="d0a1d9c9-e8a8-4009-b854-d5a8b48034cb">&lt;linkText&gt;</bpt>Use StorSimple Snapshot Manager to manage the backup catalog<ept id="d0a1d9c9-e8a8-4009-b854-d5a8b48034cb">&lt;/linkText&gt;</ept><bpt id="d0a1d9c9-e8a8-4009-b854-d5a8b48034cb">&lt;title&gt;</bpt><ept id="d0a1d9c9-e8a8-4009-b854-d5a8b48034cb">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d0a1d9c9-e8a8-4009-b854-d5a8b48034cb">&lt;linkText&gt;</bpt>Use StorSimple Snapshot Manager to manage the backup catalog<ept id="d0a1d9c9-e8a8-4009-b854-d5a8b48034cb">&lt;/linkText&gt;</ept><bpt id="d0a1d9c9-e8a8-4009-b854-d5a8b48034cb">&lt;title&gt;</bpt><ept id="d0a1d9c9-e8a8-4009-b854-d5a8b48034cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

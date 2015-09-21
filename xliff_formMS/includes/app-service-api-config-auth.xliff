@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b3ccb2d3-b7b0-411a-89e2-7cdbfd503515" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b3ccb2d3-b7b0-411a-89e2-7cdbfd503515" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3430405e-fa6d-46ba-b1a3-f52864c558ff">
+        <trans-unit id="c7dbe008-d96e-432e-93d9-c54369058b5a" xml:space="preserve">
+          <source>Navigate to the <bpt id="1d60e743-8452-43f8-b5d0-fb0a7c925c26">&lt;strong&gt;</bpt>API App<ept id="1d60e743-8452-43f8-b5d0-fb0a7c925c26">&lt;/strong&gt;</ept> blade for the API app that you want to protect.</source>
+          <target state="new">Navigate to the <bpt id="1d60e743-8452-43f8-b5d0-fb0a7c925c26">&lt;strong&gt;</bpt>API App<ept id="1d60e743-8452-43f8-b5d0-fb0a7c925c26">&lt;/strong&gt;</ept> blade for the API app that you want to protect.</target>
+        </trans-unit>
+        <trans-unit id="717e2a65-36ae-485f-b8c3-8982cfe0f1d5" xml:space="preserve">
+          <source>In the <bpt id="6dcc4e9e-7521-4a66-8fe2-bdcf61f00ea0">&lt;strong&gt;</bpt>API App<ept id="6dcc4e9e-7521-4a66-8fe2-bdcf61f00ea0">&lt;/strong&gt;</ept> blade, click <bpt id="e4fdf8f7-86f3-4d36-a1b5-c4c6c88bd0d3">&lt;strong&gt;</bpt>Settings<ept id="e4fdf8f7-86f3-4d36-a1b5-c4c6c88bd0d3">&lt;/strong&gt;</ept>, and then click <bpt id="f039032a-44ba-4e7e-aca3-e4e6fbc766ce">&lt;strong&gt;</bpt>Application settings<ept id="f039032a-44ba-4e7e-aca3-e4e6fbc766ce">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="6dcc4e9e-7521-4a66-8fe2-bdcf61f00ea0">&lt;strong&gt;</bpt>API App<ept id="6dcc4e9e-7521-4a66-8fe2-bdcf61f00ea0">&lt;/strong&gt;</ept> blade, click <bpt id="e4fdf8f7-86f3-4d36-a1b5-c4c6c88bd0d3">&lt;strong&gt;</bpt>Settings<ept id="e4fdf8f7-86f3-4d36-a1b5-c4c6c88bd0d3">&lt;/strong&gt;</ept>, and then click <bpt id="f039032a-44ba-4e7e-aca3-e4e6fbc766ce">&lt;strong&gt;</bpt>Application settings<ept id="f039032a-44ba-4e7e-aca3-e4e6fbc766ce">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d68908ea-6641-45e1-928b-81658782c060" xml:space="preserve">
+          <source><bpt id="d7378ffb-35f4-4ed0-94da-28c7e4b8d78e">&lt;linkText&gt;</bpt>Click Settings<ept id="d7378ffb-35f4-4ed0-94da-28c7e4b8d78e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d7378ffb-35f4-4ed0-94da-28c7e4b8d78e">&lt;linkText&gt;</bpt>Click Settings<ept id="d7378ffb-35f4-4ed0-94da-28c7e4b8d78e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c7a4ba8-e720-41ef-aab4-d1d9f62c07b0" xml:space="preserve">
+          <source><bpt id="7b3eee40-4155-4880-b782-32ea456b063c">&lt;linkText&gt;</bpt>Click Application settings<ept id="7b3eee40-4155-4880-b782-32ea456b063c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7b3eee40-4155-4880-b782-32ea456b063c">&lt;linkText&gt;</bpt>Click Application settings<ept id="7b3eee40-4155-4880-b782-32ea456b063c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ecfd498-0df0-4371-8b38-564f3b1952c0" xml:space="preserve">
+          <source>In the <bpt id="a8b5b53e-c99e-498d-9a91-bee84c07fbf3">&lt;strong&gt;</bpt>Application Settings<ept id="a8b5b53e-c99e-498d-9a91-bee84c07fbf3">&lt;/strong&gt;</ept> blade, change <bpt id="87dfb241-0417-402e-b1f1-99ae2188ae0a">&lt;strong&gt;</bpt>Access Level<ept id="87dfb241-0417-402e-b1f1-99ae2188ae0a">&lt;/strong&gt;</ept> to <bpt id="a284be01-16b7-49d8-99c2-f2f620d9f40e">&lt;strong&gt;</bpt>Public (authenticated)<ept id="a284be01-16b7-49d8-99c2-f2f620d9f40e">&lt;/strong&gt;</ept>, and then click <bpt id="0cf28c20-ca36-4d9c-8df3-65e916b02f97">&lt;strong&gt;</bpt>Save<ept id="0cf28c20-ca36-4d9c-8df3-65e916b02f97">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a8b5b53e-c99e-498d-9a91-bee84c07fbf3">&lt;strong&gt;</bpt>Application Settings<ept id="a8b5b53e-c99e-498d-9a91-bee84c07fbf3">&lt;/strong&gt;</ept> blade, change <bpt id="87dfb241-0417-402e-b1f1-99ae2188ae0a">&lt;strong&gt;</bpt>Access Level<ept id="87dfb241-0417-402e-b1f1-99ae2188ae0a">&lt;/strong&gt;</ept> to <bpt id="a284be01-16b7-49d8-99c2-f2f620d9f40e">&lt;strong&gt;</bpt>Public (authenticated)<ept id="a284be01-16b7-49d8-99c2-f2f620d9f40e">&lt;/strong&gt;</ept>, and then click <bpt id="0cf28c20-ca36-4d9c-8df3-65e916b02f97">&lt;strong&gt;</bpt>Save<ept id="0cf28c20-ca36-4d9c-8df3-65e916b02f97">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66168498-443b-46eb-b96b-b3789ac0902e" xml:space="preserve">
+          <source><bpt id="5e045b43-f84b-4bae-b5b4-daf182c64183">&lt;linkText&gt;</bpt>Click Basic settings<ept id="5e045b43-f84b-4bae-b5b4-daf182c64183">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5e045b43-f84b-4bae-b5b4-daf182c64183">&lt;linkText&gt;</bpt>Click Basic settings<ept id="5e045b43-f84b-4bae-b5b4-daf182c64183">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

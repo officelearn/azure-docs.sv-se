@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5dcaea3e-815e-496c-80d9-a51962b688d4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5dcaea3e-815e-496c-80d9-a51962b688d4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="70b7a1b5-a0c0-4657-b807-0d94a9fcee83">
+        <trans-unit id="7a525c80-415f-4216-bb38-87ecde05d74e" xml:space="preserve">
+          <source>Create a virtual network with a site-to-site VPN connection using the Azure portal | Microsoft Azure</source>
+          <target state="new">Create a virtual network with a site-to-site VPN connection using the Azure portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9ee089df-7001-4556-8941-4db05f23a12b" xml:space="preserve">
+          <source>Create a virtual network with a site-to-site VPN connection for cross-premises and hybrid configurations.</source>
+          <target state="new">Create a virtual network with a site-to-site VPN connection for cross-premises and hybrid configurations.</target>
+        </trans-unit>
+        <trans-unit id="871f645f-b94f-498e-8385-17312029569e" xml:space="preserve">
+          <source>This article will walk you through creating a classic virtual network and a site-to-site VPN connection to your on-premises network.</source>
+          <target state="new">This article will walk you through creating a classic virtual network and a site-to-site VPN connection to your on-premises network.</target>
+        </trans-unit>
+        <trans-unit id="9d88b3d3-ed48-4ced-a824-84e9daa89676" xml:space="preserve">
+          <source>Azure currently has two deployment models: the classic deployment model, and the Azure Resource Manager deployment model.</source>
+          <target state="new">Azure currently has two deployment models: the classic deployment model, and the Azure Resource Manager deployment model.</target>
+        </trans-unit>
+        <trans-unit id="8d0b996d-e769-4173-8d7a-4eb293d656be" xml:space="preserve">
+          <source>The configuration steps differ, depending on the model that was used to deploy your virtual network.</source>
+          <target state="new">The configuration steps differ, depending on the model that was used to deploy your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="324e745b-b1f3-4cc6-adc2-637c93065ee5" xml:space="preserve">
+          <source>These instructions apply to the classic deployment model.</source>
+          <target state="new">These instructions apply to the classic deployment model.</target>
+        </trans-unit>
+        <trans-unit id="2fbd7ba2-a14e-4304-87bc-e5636f71184b" xml:space="preserve">
+          <source>If you want to create a site-to-site VPN gateway connection using the Azure Resource Manager model, see <bpt id="06700c77-557c-4dda-863c-7fdad06e2448">&lt;linkText&gt;</bpt>Create a site-to-site VPN connection using Azure Resource Manager and PowerShell<ept id="06700c77-557c-4dda-863c-7fdad06e2448">&lt;/linkText&gt;</ept><bpt id="06700c77-557c-4dda-863c-7fdad06e2448">&lt;title&gt;</bpt><ept id="06700c77-557c-4dda-863c-7fdad06e2448">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to create a site-to-site VPN gateway connection using the Azure Resource Manager model, see <bpt id="06700c77-557c-4dda-863c-7fdad06e2448">&lt;linkText&gt;</bpt>Create a site-to-site VPN connection using Azure Resource Manager and PowerShell<ept id="06700c77-557c-4dda-863c-7fdad06e2448">&lt;/linkText&gt;</ept><bpt id="06700c77-557c-4dda-863c-7fdad06e2448">&lt;title&gt;</bpt><ept id="06700c77-557c-4dda-863c-7fdad06e2448">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f596dc5a-01ac-40bd-86bc-8cdfa71d52d8" xml:space="preserve">
+          <source>Verify that the VPN device that you want to use meets the requirements necessary to create a cross-premises virtual network connection.</source>
+          <target state="new">Verify that the VPN device that you want to use meets the requirements necessary to create a cross-premises virtual network connection.</target>
+        </trans-unit>
+        <trans-unit id="8f852e01-4335-4042-b5d4-a85d38aafec7" xml:space="preserve">
+          <source>See <bpt id="9b28b4ce-b8cc-4de6-8426-cbcdca05de5b">&lt;linkText&gt;</bpt>About VPN devices for virtual network connections<ept id="9b28b4ce-b8cc-4de6-8426-cbcdca05de5b">&lt;/linkText&gt;</ept><bpt id="9b28b4ce-b8cc-4de6-8426-cbcdca05de5b">&lt;title&gt;</bpt><ept id="9b28b4ce-b8cc-4de6-8426-cbcdca05de5b">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="9b28b4ce-b8cc-4de6-8426-cbcdca05de5b">&lt;linkText&gt;</bpt>About VPN devices for virtual network connections<ept id="9b28b4ce-b8cc-4de6-8426-cbcdca05de5b">&lt;/linkText&gt;</ept><bpt id="9b28b4ce-b8cc-4de6-8426-cbcdca05de5b">&lt;title&gt;</bpt><ept id="9b28b4ce-b8cc-4de6-8426-cbcdca05de5b">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="b192b4cd-6e0d-4535-a043-dbf4aecc8572" xml:space="preserve">
+          <source>Obtain an externally facing IPv4 IP for your VPN device.</source>
+          <target state="new">Obtain an externally facing IPv4 IP for your VPN device.</target>
+        </trans-unit>
+        <trans-unit id="9d00cc48-8be0-4d04-b57b-bf3d3dfbdfea" xml:space="preserve">
+          <source>This IP address is required for a site-to-site configuration and is used for your VPN device, which cannot be located behind a NAT.</source>
+          <target state="new">This IP address is required for a site-to-site configuration and is used for your VPN device, which cannot be located behind a NAT.</target>
+        </trans-unit>
+        <trans-unit id="a696559c-2608-4735-88b1-a0a48e2529c1" xml:space="preserve">
+          <source>If you aren't familiar with configuring your VPN device or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.</source>
+          <target state="new">If you aren't familiar with configuring your VPN device or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.</target>
+        </trans-unit>
+        <trans-unit id="3f795720-504f-4569-8b3f-8ce954010646" xml:space="preserve">
+          <source>Log in to the <bpt id="83842061-0946-4f99-a79a-b3321f669692">&lt;strong&gt;</bpt>Azure portal<ept id="83842061-0946-4f99-a79a-b3321f669692">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="83842061-0946-4f99-a79a-b3321f669692">&lt;strong&gt;</bpt>Azure portal<ept id="83842061-0946-4f99-a79a-b3321f669692">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8705abc6-3e46-445e-8e5e-3a13800c1a47" xml:space="preserve">
+          <source>In the lower left corner of the screen, click <bpt id="ee740e40-d376-4a1b-8104-32271646b54e">&lt;strong&gt;</bpt>New<ept id="ee740e40-d376-4a1b-8104-32271646b54e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the lower left corner of the screen, click <bpt id="ee740e40-d376-4a1b-8104-32271646b54e">&lt;strong&gt;</bpt>New<ept id="ee740e40-d376-4a1b-8104-32271646b54e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfe4d1a2-2330-44f0-a3e1-3ac9de3257a4" xml:space="preserve">
+          <source>In the navigation pane, click <bpt id="1b6f64fd-161f-455c-b67a-db9ac3828a23">&lt;strong&gt;</bpt>Network Services<ept id="1b6f64fd-161f-455c-b67a-db9ac3828a23">&lt;/strong&gt;</ept>, and then click <bpt id="8ed54678-efdb-4677-b77b-5847fd1ecb78">&lt;strong&gt;</bpt>Virtual Network<ept id="8ed54678-efdb-4677-b77b-5847fd1ecb78">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the navigation pane, click <bpt id="1b6f64fd-161f-455c-b67a-db9ac3828a23">&lt;strong&gt;</bpt>Network Services<ept id="1b6f64fd-161f-455c-b67a-db9ac3828a23">&lt;/strong&gt;</ept>, and then click <bpt id="8ed54678-efdb-4677-b77b-5847fd1ecb78">&lt;strong&gt;</bpt>Virtual Network<ept id="8ed54678-efdb-4677-b77b-5847fd1ecb78">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40dcbb41-a3a1-483a-a2c7-c18d4fa20670" xml:space="preserve">
+          <source>Click <bpt id="c9ab515a-9844-48dd-864c-2c75f5f3aca7">&lt;strong&gt;</bpt>Custom Create<ept id="c9ab515a-9844-48dd-864c-2c75f5f3aca7">&lt;/strong&gt;</ept> to begin the configuration wizard.</source>
+          <target state="new">Click <bpt id="c9ab515a-9844-48dd-864c-2c75f5f3aca7">&lt;strong&gt;</bpt>Custom Create<ept id="c9ab515a-9844-48dd-864c-2c75f5f3aca7">&lt;/strong&gt;</ept> to begin the configuration wizard.</target>
+        </trans-unit>
+        <trans-unit id="b75976e2-6246-4f58-90bf-fafc01befb50" xml:space="preserve">
+          <source>Fill out the information on the following pages to create your VNet.</source>
+          <target state="new">Fill out the information on the following pages to create your VNet.</target>
+        </trans-unit>
+        <trans-unit id="4cd0c646-7f5f-45d7-88b4-13b88e3dc613" xml:space="preserve">
+          <source>Enter the following information.</source>
+          <target state="new">Enter the following information.</target>
+        </trans-unit>
+        <trans-unit id="391bacb4-4d2a-4387-b13d-4ef012acd15f" xml:space="preserve">
+          <source><bpt id="0f1c40f7-3fe9-4563-a824-9df4e4152812">&lt;strong&gt;</bpt>Name<ept id="0f1c40f7-3fe9-4563-a824-9df4e4152812">&lt;/strong&gt;</ept>: Name your virtual network.</source>
+          <target state="new"><bpt id="0f1c40f7-3fe9-4563-a824-9df4e4152812">&lt;strong&gt;</bpt>Name<ept id="0f1c40f7-3fe9-4563-a824-9df4e4152812">&lt;/strong&gt;</ept>: Name your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="d68efa06-d858-4259-a892-2ad4745ee361" xml:space="preserve">
+          <source>For example, <bpt id="c24f194d-87c2-41d5-a827-b8028fa56227">&lt;em&gt;</bpt>EastUSVNet<ept id="c24f194d-87c2-41d5-a827-b8028fa56227">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="c24f194d-87c2-41d5-a827-b8028fa56227">&lt;em&gt;</bpt>EastUSVNet<ept id="c24f194d-87c2-41d5-a827-b8028fa56227">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c938a493-4aee-4e28-93a5-6b18f7fd59f9" xml:space="preserve">
+          <source>You'll use this virtual network name when you deploy your VMs and PaaS instances, so you may not want to make the name too complicated.</source>
+          <target state="new">You'll use this virtual network name when you deploy your VMs and PaaS instances, so you may not want to make the name too complicated.</target>
+        </trans-unit>
+        <trans-unit id="1a383ec2-497d-42c6-8bb5-0823d4a4bf25" xml:space="preserve">
+          <source><bpt id="02a75831-4390-4e15-aa97-fb702b5ad758">&lt;strong&gt;</bpt>Location<ept id="02a75831-4390-4e15-aa97-fb702b5ad758">&lt;/strong&gt;</ept>: The location is directly related to the physical location (region) where you want your resources (VMs) to reside.</source>
+          <target state="new"><bpt id="02a75831-4390-4e15-aa97-fb702b5ad758">&lt;strong&gt;</bpt>Location<ept id="02a75831-4390-4e15-aa97-fb702b5ad758">&lt;/strong&gt;</ept>: The location is directly related to the physical location (region) where you want your resources (VMs) to reside.</target>
+        </trans-unit>
+        <trans-unit id="2a67bc5b-1704-4747-9050-2132817ea4f9" xml:space="preserve">
+          <source>For example, if you want the VMs that you deploy to this virtual network to be physically located in <bpt id="4f8bf8f7-175b-432d-9815-e2373e06733f">&lt;em&gt;</bpt>East US<ept id="4f8bf8f7-175b-432d-9815-e2373e06733f">&lt;/em&gt;</ept>, select that location.</source>
+          <target state="new">For example, if you want the VMs that you deploy to this virtual network to be physically located in <bpt id="4f8bf8f7-175b-432d-9815-e2373e06733f">&lt;em&gt;</bpt>East US<ept id="4f8bf8f7-175b-432d-9815-e2373e06733f">&lt;/em&gt;</ept>, select that location.</target>
+        </trans-unit>
+        <trans-unit id="159000bd-b996-4f78-9166-7eacb2c09e6c" xml:space="preserve">
+          <source>You can't change the region associated with your virtual network after you create it.</source>
+          <target state="new">You can't change the region associated with your virtual network after you create it.</target>
+        </trans-unit>
+        <trans-unit id="bd778a9e-e2d5-4e0a-82be-2b6d730e6e45" xml:space="preserve">
+          <source>Enter the following information, and then click the next arrow on the lower right.</source>
+          <target state="new">Enter the following information, and then click the next arrow on the lower right.</target>
+        </trans-unit>
+        <trans-unit id="1f454eb8-53d9-44c0-af0d-1c57703b9b95" xml:space="preserve">
+          <source><bpt id="09ce6ab1-babc-4c75-9c1f-adcd3da3d6bb">&lt;strong&gt;</bpt>DNS Servers<ept id="09ce6ab1-babc-4c75-9c1f-adcd3da3d6bb">&lt;/strong&gt;</ept>: Enter the DNS server name and IP address, or select a previously registered DNS server from the shortcut menu.</source>
+          <target state="new"><bpt id="09ce6ab1-babc-4c75-9c1f-adcd3da3d6bb">&lt;strong&gt;</bpt>DNS Servers<ept id="09ce6ab1-babc-4c75-9c1f-adcd3da3d6bb">&lt;/strong&gt;</ept>: Enter the DNS server name and IP address, or select a previously registered DNS server from the shortcut menu.</target>
+        </trans-unit>
+        <trans-unit id="5096ee94-0e82-4a98-b5dd-437d2079dc60" xml:space="preserve">
+          <source>This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network.</source>
+          <target state="new">This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network.</target>
+        </trans-unit>
+        <trans-unit id="fa17293e-29ee-45ff-accd-b46e5d7a8d33" xml:space="preserve">
+          <source><bpt id="e2c5dc32-9791-41a9-8fb7-439d1c9dd0ac">&lt;strong&gt;</bpt>Configure Site-To-Site VPN<ept id="e2c5dc32-9791-41a9-8fb7-439d1c9dd0ac">&lt;/strong&gt;</ept>: Select the checkbox for <bpt id="11b821f6-2d2a-410a-bdee-cdaf6409fbed">&lt;strong&gt;</bpt>Configure a site-to-site VPN<ept id="11b821f6-2d2a-410a-bdee-cdaf6409fbed">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="e2c5dc32-9791-41a9-8fb7-439d1c9dd0ac">&lt;strong&gt;</bpt>Configure Site-To-Site VPN<ept id="e2c5dc32-9791-41a9-8fb7-439d1c9dd0ac">&lt;/strong&gt;</ept>: Select the checkbox for <bpt id="11b821f6-2d2a-410a-bdee-cdaf6409fbed">&lt;strong&gt;</bpt>Configure a site-to-site VPN<ept id="11b821f6-2d2a-410a-bdee-cdaf6409fbed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd66033b-87e3-4bac-a0b5-e725241949e1" xml:space="preserve">
+          <source><bpt id="5f1e6821-3c2b-4154-900a-ddf12a2e299e">&lt;strong&gt;</bpt>Local Network<ept id="5f1e6821-3c2b-4154-900a-ddf12a2e299e">&lt;/strong&gt;</ept>: A local network represents your physical on-premises location.</source>
+          <target state="new"><bpt id="5f1e6821-3c2b-4154-900a-ddf12a2e299e">&lt;strong&gt;</bpt>Local Network<ept id="5f1e6821-3c2b-4154-900a-ddf12a2e299e">&lt;/strong&gt;</ept>: A local network represents your physical on-premises location.</target>
+        </trans-unit>
+        <trans-unit id="34eeb802-005e-488d-9b2b-14faf6f33e76" xml:space="preserve">
+          <source>You can select a local network that you've previously created, or you can create a new local network.</source>
+          <target state="new">You can select a local network that you've previously created, or you can create a new local network.</target>
+        </trans-unit>
+        <trans-unit id="bb7eb7ff-34d6-44c2-87b6-690d2a8008fa" xml:space="preserve">
+          <source>However, if you do select to use a local network that you previously created, you'll want to go to the <bpt id="4f6d9b65-f10d-46b9-ab26-c67d5b024c94">&lt;strong&gt;</bpt>Local Networks<ept id="4f6d9b65-f10d-46b9-ab26-c67d5b024c94">&lt;/strong&gt;</ept> configuration page and make sure that the VPN Device IP address (public facing IPv4 address) for the VPN device you are using for this connection is accurate.</source>
+          <target state="new">However, if you do select to use a local network that you previously created, you'll want to go to the <bpt id="4f6d9b65-f10d-46b9-ab26-c67d5b024c94">&lt;strong&gt;</bpt>Local Networks<ept id="4f6d9b65-f10d-46b9-ab26-c67d5b024c94">&lt;/strong&gt;</ept> configuration page and make sure that the VPN Device IP address (public facing IPv4 address) for the VPN device you are using for this connection is accurate.</target>
+        </trans-unit>
+        <trans-unit id="f1ec4b3a-b7b8-4a97-aee5-c58332d442f3" xml:space="preserve">
+          <source>If you're creating a new local network, you'll see the <bpt id="59bb2ddd-d36f-4cb6-9a1c-a8582ed3b391">&lt;strong&gt;</bpt>Site-To-Site Connectivity<ept id="59bb2ddd-d36f-4cb6-9a1c-a8582ed3b391">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">If you're creating a new local network, you'll see the <bpt id="59bb2ddd-d36f-4cb6-9a1c-a8582ed3b391">&lt;strong&gt;</bpt>Site-To-Site Connectivity<ept id="59bb2ddd-d36f-4cb6-9a1c-a8582ed3b391">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="61ad1a29-bfc0-4a20-bb8f-4bc5d7ac41fe" xml:space="preserve">
+          <source>If you want to use a local network that you previously created, this page will not appear in the wizard and you can move on to the next section.</source>
+          <target state="new">If you want to use a local network that you previously created, this page will not appear in the wizard and you can move on to the next section.</target>
+        </trans-unit>
+        <trans-unit id="686f5f0c-372d-4bfc-ba22-06705927a1b2" xml:space="preserve">
+          <source>Enter the following information and then click the next arrow.</source>
+          <target state="new">Enter the following information and then click the next arrow.</target>
+        </trans-unit>
+        <trans-unit id="104416d1-ae5e-413d-9abd-11844a88c4bd" xml:space="preserve">
+          <source><bpt id="a11531cc-0f50-4aaa-998d-76838efc6020">&lt;strong&gt;</bpt>Name<ept id="a11531cc-0f50-4aaa-998d-76838efc6020">&lt;/strong&gt;</ept>: The name you want to call your local (on-premises) network site.</source>
+          <target state="new"><bpt id="a11531cc-0f50-4aaa-998d-76838efc6020">&lt;strong&gt;</bpt>Name<ept id="a11531cc-0f50-4aaa-998d-76838efc6020">&lt;/strong&gt;</ept>: The name you want to call your local (on-premises) network site.</target>
+        </trans-unit>
+        <trans-unit id="90740b21-079a-4217-b61c-46de470a38cb" xml:space="preserve">
+          <source><bpt id="ba1bcc52-aef4-43e7-a3b8-9953e9d50f69">&lt;strong&gt;</bpt>VPN Device IP Address<ept id="ba1bcc52-aef4-43e7-a3b8-9953e9d50f69">&lt;/strong&gt;</ept>: This is public facing IPv4 address of your on-premises VPN device that you'll use to connect to Azure.</source>
+          <target state="new"><bpt id="ba1bcc52-aef4-43e7-a3b8-9953e9d50f69">&lt;strong&gt;</bpt>VPN Device IP Address<ept id="ba1bcc52-aef4-43e7-a3b8-9953e9d50f69">&lt;/strong&gt;</ept>: This is public facing IPv4 address of your on-premises VPN device that you'll use to connect to Azure.</target>
+        </trans-unit>
+        <trans-unit id="3acd0c2f-a938-4974-be52-2f419fedf4b3" xml:space="preserve">
+          <source>The VPN device cannot be located behind a NAT.</source>
+          <target state="new">The VPN device cannot be located behind a NAT.</target>
+        </trans-unit>
+        <trans-unit id="eb69a8ec-6d92-4d13-a084-ec5463e767e3" xml:space="preserve">
+          <source><bpt id="05fab2e4-1262-4e01-8e0f-46bd6f09a761">&lt;strong&gt;</bpt>Address Space<ept id="05fab2e4-1262-4e01-8e0f-46bd6f09a761">&lt;/strong&gt;</ept>: Include Starting IP and CIDR (Address Count).</source>
+          <target state="new"><bpt id="05fab2e4-1262-4e01-8e0f-46bd6f09a761">&lt;strong&gt;</bpt>Address Space<ept id="05fab2e4-1262-4e01-8e0f-46bd6f09a761">&lt;/strong&gt;</ept>: Include Starting IP and CIDR (Address Count).</target>
+        </trans-unit>
+        <trans-unit id="991920f9-1c04-4921-b5d6-f4e26f276f88" xml:space="preserve">
+          <source>This is where you specify the address range(s) that you want sent through the virtual network gateway to your local on-premises location.</source>
+          <target state="new">This is where you specify the address range(s) that you want sent through the virtual network gateway to your local on-premises location.</target>
+        </trans-unit>
+        <trans-unit id="6432bd64-fe57-471d-95ef-77b9c141f8fc" xml:space="preserve">
+          <source>If a destination IP address falls within the ranges that you specify here, it will be routed through the virtual network gateway.</source>
+          <target state="new">If a destination IP address falls within the ranges that you specify here, it will be routed through the virtual network gateway.</target>
+        </trans-unit>
+        <trans-unit id="5da31ad1-cddb-4b13-8de0-f9b5f9ce6c4a" xml:space="preserve">
+          <source><bpt id="51ac9643-c1a2-4cb8-92bb-674fea69e93f">&lt;strong&gt;</bpt>Add address space<ept id="51ac9643-c1a2-4cb8-92bb-674fea69e93f">&lt;/strong&gt;</ept>: If you have multiple address ranges that you want sent through the virtual network gateway, this is where you specify each additional address range.</source>
+          <target state="new"><bpt id="51ac9643-c1a2-4cb8-92bb-674fea69e93f">&lt;strong&gt;</bpt>Add address space<ept id="51ac9643-c1a2-4cb8-92bb-674fea69e93f">&lt;/strong&gt;</ept>: If you have multiple address ranges that you want sent through the virtual network gateway, this is where you specify each additional address range.</target>
+        </trans-unit>
+        <trans-unit id="d085ba0f-5ccc-4a3e-b57c-c789246a03eb" xml:space="preserve">
+          <source>You can add or remove ranges later on the <bpt id="8c53565f-5692-48d2-a0e7-9f2d2bf16167">&lt;strong&gt;</bpt>Local Network<ept id="8c53565f-5692-48d2-a0e7-9f2d2bf16167">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">You can add or remove ranges later on the <bpt id="8c53565f-5692-48d2-a0e7-9f2d2bf16167">&lt;strong&gt;</bpt>Local Network<ept id="8c53565f-5692-48d2-a0e7-9f2d2bf16167">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="76023c03-4624-4dba-97cd-23d89217eec8" xml:space="preserve">
+          <source>Specify the address range that you want to use for your virtual network.</source>
+          <target state="new">Specify the address range that you want to use for your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="34483f04-cd02-4387-9c39-fc7da75c5350" xml:space="preserve">
+          <source>These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network.</source>
+          <target state="new">These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network.</target>
+        </trans-unit>
+        <trans-unit id="2bb38835-f5f7-443d-9a43-2457944ba493" xml:space="preserve">
+          <source>It's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network.</source>
+          <target state="new">It's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network.</target>
+        </trans-unit>
+        <trans-unit id="dc77a6d0-c520-495c-9464-58ab92ab932a" xml:space="preserve">
+          <source>You'll need to coordinate with your network administrator.</source>
+          <target state="new">You'll need to coordinate with your network administrator.</target>
+        </trans-unit>
+        <trans-unit id="2ab2c9db-f503-4696-a904-6f42e095feed" xml:space="preserve">
+          <source>Your network administrator may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.</source>
+          <target state="new">Your network administrator may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="11f9abf3-20f0-4d28-86c4-e51e6b883270" xml:space="preserve">
+          <source>Enter the following information, and then click the checkmark on the lower right to configure your network.</source>
+          <target state="new">Enter the following information, and then click the checkmark on the lower right to configure your network.</target>
+        </trans-unit>
+        <trans-unit id="66344f58-c3e1-422e-9b47-fbd3859ff9db" xml:space="preserve">
+          <source><bpt id="f1a0f7a2-e31a-4a06-8dda-e7a5f05c7ab4">&lt;strong&gt;</bpt>Address Space<ept id="f1a0f7a2-e31a-4a06-8dda-e7a5f05c7ab4">&lt;/strong&gt;</ept>: Include Starting IP and Address Count.</source>
+          <target state="new"><bpt id="f1a0f7a2-e31a-4a06-8dda-e7a5f05c7ab4">&lt;strong&gt;</bpt>Address Space<ept id="f1a0f7a2-e31a-4a06-8dda-e7a5f05c7ab4">&lt;/strong&gt;</ept>: Include Starting IP and Address Count.</target>
+        </trans-unit>
+        <trans-unit id="3d63f975-6f41-4c34-a3f8-af7dfa7172a6" xml:space="preserve">
+          <source>Verify that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network.</source>
+          <target state="new">Verify that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network.</target>
+        </trans-unit>
+        <trans-unit id="595647d0-1d5c-4025-8202-5cf59e1f35e1" xml:space="preserve">
+          <source><bpt id="19d91e98-57be-4dfb-9efc-0ea0024ad24a">&lt;strong&gt;</bpt>Add subnet<ept id="19d91e98-57be-4dfb-9efc-0ea0024ad24a">&lt;/strong&gt;</ept>: Include Starting IP and Address Count.</source>
+          <target state="new"><bpt id="19d91e98-57be-4dfb-9efc-0ea0024ad24a">&lt;strong&gt;</bpt>Add subnet<ept id="19d91e98-57be-4dfb-9efc-0ea0024ad24a">&lt;/strong&gt;</ept>: Include Starting IP and Address Count.</target>
+        </trans-unit>
+        <trans-unit id="17eeeeda-40b4-4924-9193-1e7d867ee455" xml:space="preserve">
+          <source>Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS.</source>
+          <target state="new">Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS.</target>
+        </trans-unit>
+        <trans-unit id="d5a1ebb4-703b-408c-a978-b805503e2421" xml:space="preserve">
+          <source>Or you might want to have your VMs in a subnet that is separate from your other role instances.</source>
+          <target state="new">Or you might want to have your VMs in a subnet that is separate from your other role instances.</target>
+        </trans-unit>
+        <trans-unit id="d043402f-9f94-4d34-8ed8-7c3565be3e34" xml:space="preserve">
+          <source><bpt id="5c3e63fd-fabd-4ccb-866f-16e58dbd19df">&lt;strong&gt;</bpt>Add gateway subnet<ept id="5c3e63fd-fabd-4ccb-866f-16e58dbd19df">&lt;/strong&gt;</ept>: Click to add the gateway subnet.</source>
+          <target state="new"><bpt id="5c3e63fd-fabd-4ccb-866f-16e58dbd19df">&lt;strong&gt;</bpt>Add gateway subnet<ept id="5c3e63fd-fabd-4ccb-866f-16e58dbd19df">&lt;/strong&gt;</ept>: Click to add the gateway subnet.</target>
+        </trans-unit>
+        <trans-unit id="680e30df-158c-4ec3-a3bc-eb68ad78903d" xml:space="preserve">
+          <source>The gateway subnet is used only for the virtual network gateway and is required for this configuration.</source>
+          <target state="new">The gateway subnet is used only for the virtual network gateway and is required for this configuration.</target>
+        </trans-unit>
+        <trans-unit id="aa643513-61fc-4883-a938-e5f639d518fa" xml:space="preserve">
+          <source>Click the checkmark on the bottom of the page and your virtual network will begin to create.</source>
+          <target state="new">Click the checkmark on the bottom of the page and your virtual network will begin to create.</target>
+        </trans-unit>
+        <trans-unit id="918f342b-ee2b-4657-bda0-cce90b97da60" xml:space="preserve">
+          <source>When it completes, you will see <bpt id="1b23334e-9590-412e-81ff-d626ce11c24c">&lt;strong&gt;</bpt>Created<ept id="1b23334e-9590-412e-81ff-d626ce11c24c">&lt;/strong&gt;</ept> listed under <bpt id="50246936-c442-424b-a795-d72507455422">&lt;strong&gt;</bpt>Status<ept id="50246936-c442-424b-a795-d72507455422">&lt;/strong&gt;</ept> on the <bpt id="a762b565-2d93-4174-81a3-d7ba0b971e58">&lt;strong&gt;</bpt>Networks<ept id="a762b565-2d93-4174-81a3-d7ba0b971e58">&lt;/strong&gt;</ept> page in the Azure portal.</source>
+          <target state="new">When it completes, you will see <bpt id="1b23334e-9590-412e-81ff-d626ce11c24c">&lt;strong&gt;</bpt>Created<ept id="1b23334e-9590-412e-81ff-d626ce11c24c">&lt;/strong&gt;</ept> listed under <bpt id="50246936-c442-424b-a795-d72507455422">&lt;strong&gt;</bpt>Status<ept id="50246936-c442-424b-a795-d72507455422">&lt;/strong&gt;</ept> on the <bpt id="a762b565-2d93-4174-81a3-d7ba0b971e58">&lt;strong&gt;</bpt>Networks<ept id="a762b565-2d93-4174-81a3-d7ba0b971e58">&lt;/strong&gt;</ept> page in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="d914bc10-d3f0-4b74-aea0-3b17e98f73c1" xml:space="preserve">
+          <source>After the VNet has been created, you can then configure your virtual network gateway.</source>
+          <target state="new">After the VNet has been created, you can then configure your virtual network gateway.</target>
+        </trans-unit>
+        <trans-unit id="3cae1a2e-ca66-410c-a01c-7cd0f6742491" xml:space="preserve">
+          <source>Next, you'll configure the virtual network gateway in order to create a secure site-to-site connection.</source>
+          <target state="new">Next, you'll configure the virtual network gateway in order to create a secure site-to-site connection.</target>
+        </trans-unit>
+        <trans-unit id="24a0ed7c-ba8c-441e-b0d7-6cdf6caf4704" xml:space="preserve">
+          <source>See <bpt id="32e51e2e-2bc1-4b02-a9f1-9053b7bd08de">&lt;linkText&gt;</bpt>Configure a virtual network gateway in the Azure portal<ept id="32e51e2e-2bc1-4b02-a9f1-9053b7bd08de">&lt;/linkText&gt;</ept><bpt id="32e51e2e-2bc1-4b02-a9f1-9053b7bd08de">&lt;title&gt;</bpt><ept id="32e51e2e-2bc1-4b02-a9f1-9053b7bd08de">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="32e51e2e-2bc1-4b02-a9f1-9053b7bd08de">&lt;linkText&gt;</bpt>Configure a virtual network gateway in the Azure portal<ept id="32e51e2e-2bc1-4b02-a9f1-9053b7bd08de">&lt;/linkText&gt;</ept><bpt id="32e51e2e-2bc1-4b02-a9f1-9053b7bd08de">&lt;title&gt;</bpt><ept id="32e51e2e-2bc1-4b02-a9f1-9053b7bd08de">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73d263b0-60a8-46bd-89e5-2f9de477e173" xml:space="preserve">
+          <source>You can learn more about virtual network cross-premises connectivity in this article: <bpt id="dd853461-3de7-4e33-82cf-0aef5fe657e2">&lt;linkText&gt;</bpt>About secure cross-premises connectivity for virtual networks<ept id="dd853461-3de7-4e33-82cf-0aef5fe657e2">&lt;/linkText&gt;</ept><bpt id="dd853461-3de7-4e33-82cf-0aef5fe657e2">&lt;title&gt;</bpt><ept id="dd853461-3de7-4e33-82cf-0aef5fe657e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn more about virtual network cross-premises connectivity in this article: <bpt id="dd853461-3de7-4e33-82cf-0aef5fe657e2">&lt;linkText&gt;</bpt>About secure cross-premises connectivity for virtual networks<ept id="dd853461-3de7-4e33-82cf-0aef5fe657e2">&lt;/linkText&gt;</ept><bpt id="dd853461-3de7-4e33-82cf-0aef5fe657e2">&lt;title&gt;</bpt><ept id="dd853461-3de7-4e33-82cf-0aef5fe657e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="331f31c6-d847-473e-acf2-049a1ace9bbb" xml:space="preserve">
+          <source>If you want to configure a point-to-site VPN connection, see <bpt id="727ba75e-88c4-4ca2-9ff0-94ef18474469">&lt;linkText&gt;</bpt>Configure a Point-to-Site VPN connection<ept id="727ba75e-88c4-4ca2-9ff0-94ef18474469">&lt;/linkText&gt;</ept><bpt id="727ba75e-88c4-4ca2-9ff0-94ef18474469">&lt;title&gt;</bpt><ept id="727ba75e-88c4-4ca2-9ff0-94ef18474469">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to configure a point-to-site VPN connection, see <bpt id="727ba75e-88c4-4ca2-9ff0-94ef18474469">&lt;linkText&gt;</bpt>Configure a Point-to-Site VPN connection<ept id="727ba75e-88c4-4ca2-9ff0-94ef18474469">&lt;/linkText&gt;</ept><bpt id="727ba75e-88c4-4ca2-9ff0-94ef18474469">&lt;title&gt;</bpt><ept id="727ba75e-88c4-4ca2-9ff0-94ef18474469">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f57780bf-6082-4066-bf1a-5681477f9ef8" xml:space="preserve">
+          <source>You can add virtual machines to your virtual network.</source>
+          <target state="new">You can add virtual machines to your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="b567f0a2-efbe-469d-8c95-a3586a99a965" xml:space="preserve">
+          <source>See <bpt id="3eb13ed3-bfd4-4c90-acbb-b6d0a3973249">&lt;linkText&gt;</bpt>How to create a custom virtual machine<ept id="3eb13ed3-bfd4-4c90-acbb-b6d0a3973249">&lt;/linkText&gt;</ept><bpt id="3eb13ed3-bfd4-4c90-acbb-b6d0a3973249">&lt;title&gt;</bpt><ept id="3eb13ed3-bfd4-4c90-acbb-b6d0a3973249">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="3eb13ed3-bfd4-4c90-acbb-b6d0a3973249">&lt;linkText&gt;</bpt>How to create a custom virtual machine<ept id="3eb13ed3-bfd4-4c90-acbb-b6d0a3973249">&lt;/linkText&gt;</ept><bpt id="3eb13ed3-bfd4-4c90-acbb-b6d0a3973249">&lt;title&gt;</bpt><ept id="3eb13ed3-bfd4-4c90-acbb-b6d0a3973249">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02ba292c-909e-44ad-b115-56fedf5cff16" xml:space="preserve">
+          <source>If you want to configure a VNet connection using RRAS, see <bpt id="e5afe26b-35ea-49f7-a6ad-d7cf3955f1b9">&lt;linkText&gt;</bpt>Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)<ept id="e5afe26b-35ea-49f7-a6ad-d7cf3955f1b9">&lt;/linkText&gt;</ept><bpt id="e5afe26b-35ea-49f7-a6ad-d7cf3955f1b9">&lt;title&gt;</bpt><ept id="e5afe26b-35ea-49f7-a6ad-d7cf3955f1b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to configure a VNet connection using RRAS, see <bpt id="e5afe26b-35ea-49f7-a6ad-d7cf3955f1b9">&lt;linkText&gt;</bpt>Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)<ept id="e5afe26b-35ea-49f7-a6ad-d7cf3955f1b9">&lt;/linkText&gt;</ept><bpt id="e5afe26b-35ea-49f7-a6ad-d7cf3955f1b9">&lt;title&gt;</bpt><ept id="e5afe26b-35ea-49f7-a6ad-d7cf3955f1b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f767c16d-e81d-451a-baf4-bad3279caba8" xml:space="preserve">
+          <source>If you want to configure a connection between your classic virtual network and a virtual network created using the Azure Resource Manager mode, see <bpt id="028c76f2-93a8-4250-8456-a9e5ad7a9e3d">&lt;linkText&gt;</bpt>Connecting classic VNets to Azure Resource Manager VNets<ept id="028c76f2-93a8-4250-8456-a9e5ad7a9e3d">&lt;/linkText&gt;</ept><bpt id="028c76f2-93a8-4250-8456-a9e5ad7a9e3d">&lt;title&gt;</bpt><ept id="028c76f2-93a8-4250-8456-a9e5ad7a9e3d">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to configure a connection between your classic virtual network and a virtual network created using the Azure Resource Manager mode, see <bpt id="028c76f2-93a8-4250-8456-a9e5ad7a9e3d">&lt;linkText&gt;</bpt>Connecting classic VNets to Azure Resource Manager VNets<ept id="028c76f2-93a8-4250-8456-a9e5ad7a9e3d">&lt;/linkText&gt;</ept><bpt id="028c76f2-93a8-4250-8456-a9e5ad7a9e3d">&lt;title&gt;</bpt><ept id="028c76f2-93a8-4250-8456-a9e5ad7a9e3d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="59a19bc1-aba8-4d6b-aeb5-932c668274a3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="59a19bc1-aba8-4d6b-aeb5-932c668274a3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4431b6e0-9a73-43e8-9576-0d4a2f4a2cd7">
+        <trans-unit id="9b74973d-0710-414d-813e-f7a6c1db33c7" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="User Profile data in Azure RemoteApp"
+    description="Learn how user data is stored and accessed in Azure RemoteApp"
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" /&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="User Profile data in Azure RemoteApp"
+    description="Learn how user data is stored and accessed in Azure RemoteApp"
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="d3b34138-10fc-4e77-a5e0-0352536d8f34" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" /&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="97faacdb-7b4b-42e8-8617-4533d4e96099" xml:space="preserve">
+          <source>Azure RemoteApp saves user identity and customizations across devices and sessions.</source>
+          <target state="new">Azure RemoteApp saves user identity and customizations across devices and sessions.</target>
+        </trans-unit>
+        <trans-unit id="1353190b-4a7e-48b7-89ff-a4b8ea05d530" xml:space="preserve">
+          <source>This user data is stored in a per-user per-collection disk, known as a user profile disk (UPD).</source>
+          <target state="new">This user data is stored in a per-user per-collection disk, known as a user profile disk (UPD).</target>
+        </trans-unit>
+        <trans-unit id="e0013ddb-18fb-4b92-b0f5-a46d1f3695af" xml:space="preserve">
+          <source>The disk follows the user and ensures the user has a consistent experience, regardless of where they sign in.</source>
+          <target state="new">The disk follows the user and ensures the user has a consistent experience, regardless of where they sign in.</target>
+        </trans-unit>
+        <trans-unit id="ae1db13f-a680-42c6-bfeb-faa01efeb97d" xml:space="preserve">
+          <source>saves</source>
+          <target state="new">saves</target>
+        </trans-unit>
+        <trans-unit id="6b57a026-721b-4745-931b-0792210d426e" xml:space="preserve">
+          <source>User profile disks are completely transparent to the user — users save documents to their Documents folder (on what appears to be a local drive) and change their app settings as usual.</source>
+          <target state="new">User profile disks are completely transparent to the user — users save documents to their Documents folder (on what appears to be a local drive) and change their app settings as usual.</target>
+        </trans-unit>
+        <trans-unit id="865c6371-361e-4a1a-8e14-cddd5b74b3cc" xml:space="preserve">
+          <source>At the same time, all personal settings persist when connecting to Azure RemoteApp from any device.</source>
+          <target state="new">At the same time, all personal settings persist when connecting to Azure RemoteApp from any device.</target>
+        </trans-unit>
+        <trans-unit id="4a34d957-d168-4be8-9683-fc1217693b9a" xml:space="preserve">
+          <source>All the user sees is their data in the same place.</source>
+          <target state="new">All the user sees is their data in the same place.</target>
+        </trans-unit>
+        <trans-unit id="00bf7d06-9676-43c9-9d69-30c4f30204e0" xml:space="preserve">
+          <source>Each UPD has 50GB of persistent storage and contains both user data and application settings.</source>
+          <target state="new">Each UPD has 50GB of persistent storage and contains both user data and application settings.</target>
+        </trans-unit>
+        <trans-unit id="ec865c65-b687-45fe-bbc2-8690fd893af1" xml:space="preserve">
+          <source>Read on for specifics on user profile data.</source>
+          <target state="new">Read on for specifics on user profile data.</target>
+        </trans-unit>
+        <trans-unit id="c7d4ec40-aa66-41b4-95fe-9eccfe7adf91" xml:space="preserve">
+          <source>If you need to access the data for one of your users (for disaster recovery or if the user leaves the company), contact <bpt id="5fa7e762-c031-41b0-ae71-ffdd1221b160">&lt;linkText&gt;</bpt>Azure RemoteApp<ept id="5fa7e762-c031-41b0-ae71-ffdd1221b160">&lt;/linkText&gt;</ept><bpt id="5fa7e762-c031-41b0-ae71-ffdd1221b160">&lt;title&gt;</bpt><ept id="5fa7e762-c031-41b0-ae71-ffdd1221b160">&lt;/title&gt;</ept> and provide the subscription information for the collection and the user identity.</source>
+          <target state="new">If you need to access the data for one of your users (for disaster recovery or if the user leaves the company), contact <bpt id="5fa7e762-c031-41b0-ae71-ffdd1221b160">&lt;linkText&gt;</bpt>Azure RemoteApp<ept id="5fa7e762-c031-41b0-ae71-ffdd1221b160">&lt;/linkText&gt;</ept><bpt id="5fa7e762-c031-41b0-ae71-ffdd1221b160">&lt;title&gt;</bpt><ept id="5fa7e762-c031-41b0-ae71-ffdd1221b160">&lt;/title&gt;</ept> and provide the subscription information for the collection and the user identity.</target>
+        </trans-unit>
+        <trans-unit id="7c4eb0d4-6712-42e7-b584-bba30ee1c423" xml:space="preserve">
+          <source>The Azure RemoteApp team will provide you a URL where you can access the data - from there you can browse the location and retrieve any documents or files you need.</source>
+          <target state="new">The Azure RemoteApp team will provide you a URL where you can access the data - from there you can browse the location and retrieve any documents or files you need.</target>
+        </trans-unit>
+        <trans-unit id="7340f996-b100-4b71-a557-46fb37c666b5" xml:space="preserve">
+          <source>Yes, we save a backup of the user data per geographic location.</source>
+          <target state="new">Yes, we save a backup of the user data per geographic location.</target>
+        </trans-unit>
+        <trans-unit id="99465ecf-7bf4-42f1-b950-75144f4beb0d" xml:space="preserve">
+          <source>The data is read-only and can be accessed in the same way as the regular data would be (contact Azure RemoteApp to get), if the primary data center is down.</source>
+          <target state="new">The data is read-only and can be accessed in the same way as the regular data would be (contact Azure RemoteApp to get), if the primary data center is down.</target>
+        </trans-unit>
+        <trans-unit id="3d1ce635-77a0-41f8-a48f-2aefb0f71197" xml:space="preserve">
+          <source>Each user will have their own directory on the server that maps to their UPD: c:\Users\username.</source>
+          <target state="new">Each user will have their own directory on the server that maps to their UPD: c:\Users\username.</target>
+        </trans-unit>
+        <trans-unit id="f0ae6163-9dde-4a86-8b9c-8a0a2064c461" xml:space="preserve">
+          <source>Azure RemoteApp saves the Outlook state (mailboxes, PSTs) between sessions. To enable this, we need the PST to be stored in the user profile data (c:\users\&lt;username&gt;). This is the default location for the data, so as long as you do not change the location, the data will persist between sessions.</source>
+          <target state="new">Azure RemoteApp saves the Outlook state (mailboxes, PSTs) between sessions. To enable this, we need the PST to be stored in the user profile data (c:\users\&lt;username&gt;). This is the default location for the data, so as long as you do not change the location, the data will persist between sessions.</target>
+        </trans-unit>
+        <trans-unit id="efca4dc5-79db-4ded-bd7d-3228965215be" xml:space="preserve">
+          <source>We also recommend that you use "cached" mode in Outlook and use "server/online" mode for searching.</source>
+          <target state="new">We also recommend that you use "cached" mode in Outlook and use "server/online" mode for searching.</target>
+        </trans-unit>
+        <trans-unit id="6930f1e8-c35a-4052-80f6-f65eb6d625e1" xml:space="preserve">
+          <source>Yes, Azure RemoteApp supports using shared data solutions - particularly OneDrive for Business and Dropbox.</source>
+          <target state="new">Yes, Azure RemoteApp supports using shared data solutions - particularly OneDrive for Business and Dropbox.</target>
+        </trans-unit>
+        <trans-unit id="eedb75e3-8888-40d1-bc60-575322c3d734" xml:space="preserve">
+          <source>Note, however, that OneDrive Consumer (the personal version) and Box are not supported.</source>
+          <target state="new">Note, however, that OneDrive Consumer (the personal version) and Box are not supported.</target>
+        </trans-unit>
+        <trans-unit id="33e166c4-cedd-49d5-a852-685029b9c38f" xml:space="preserve">
+          <source>You can configure Azure RemoteApp to let users access local devices by setting up <bpt id="3894f067-c64d-4e93-8560-14a1e486ec35">&lt;linkText&gt;</bpt>redirection<ept id="3894f067-c64d-4e93-8560-14a1e486ec35">&lt;/linkText&gt;</ept><bpt id="3894f067-c64d-4e93-8560-14a1e486ec35">&lt;title&gt;</bpt><ept id="3894f067-c64d-4e93-8560-14a1e486ec35">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can configure Azure RemoteApp to let users access local devices by setting up <bpt id="3894f067-c64d-4e93-8560-14a1e486ec35">&lt;linkText&gt;</bpt>redirection<ept id="3894f067-c64d-4e93-8560-14a1e486ec35">&lt;/linkText&gt;</ept><bpt id="3894f067-c64d-4e93-8560-14a1e486ec35">&lt;title&gt;</bpt><ept id="3894f067-c64d-4e93-8560-14a1e486ec35">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74df1173-ef3e-4a9a-ad4d-c80a52d843b9" xml:space="preserve">
+          <source>Local devices will then be able to access the data on the UPD.</source>
+          <target state="new">Local devices will then be able to access the data on the UPD.</target>
+        </trans-unit>
+        <trans-unit id="9dbd4262-608b-412e-99f5-6c3dfc240eaa" xml:space="preserve">
+          <source>No, because the UPD is not persistent.</source>
+          <target state="new">No, because the UPD is not persistent.</target>
+        </trans-unit>
+        <trans-unit id="df204c91-a2c4-4d3b-bd74-6e138adb0b1c" xml:space="preserve">
+          <source>A UPD is only available when the user is actively connected to Azure RemoteApp.</source>
+          <target state="new">A UPD is only available when the user is actively connected to Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="1e5eceea-9550-484d-b2a2-43ac5fdeb561" xml:space="preserve">
+          <source>No, when you delete a user, we do not automatically delete the UPD - instead, we store the data until you delete the collection.</source>
+          <target state="new">No, when you delete a user, we do not automatically delete the UPD - instead, we store the data until you delete the collection.</target>
+        </trans-unit>
+        <trans-unit id="72be1c12-96cf-459e-b96c-1360a2559fdb" xml:space="preserve">
+          <source>90 days after you delete the collection, we delete all UPDs.</source>
+          <target state="new">90 days after you delete the collection, we delete all UPDs.</target>
+        </trans-unit>
+        <trans-unit id="d4545af1-d719-4124-9bcd-f818b2e23353" xml:space="preserve">
+          <source>If you need to delete a UPD from a collection, contact Azure RemoteApp - we can delete UPD from our side.</source>
+          <target state="new">If you need to delete a UPD from a collection, contact Azure RemoteApp - we can delete UPD from our side.</target>
+        </trans-unit>
+        <trans-unit id="3a813d6c-5269-4797-bbad-e7444f57e332" xml:space="preserve">
+          <source>Yes, if you contact <bpt id="98af9116-a506-4c19-a598-b0a6749c029a">&lt;linkText&gt;</bpt>Azure RemoteApp<ept id="98af9116-a506-4c19-a598-b0a6749c029a">&lt;/linkText&gt;</ept><bpt id="98af9116-a506-4c19-a598-b0a6749c029a">&lt;title&gt;</bpt><ept id="98af9116-a506-4c19-a598-b0a6749c029a">&lt;/title&gt;</ept>, we can set you up with a URL to access the data.</source>
+          <target state="new">Yes, if you contact <bpt id="98af9116-a506-4c19-a598-b0a6749c029a">&lt;linkText&gt;</bpt>Azure RemoteApp<ept id="98af9116-a506-4c19-a598-b0a6749c029a">&lt;/linkText&gt;</ept><bpt id="98af9116-a506-4c19-a598-b0a6749c029a">&lt;title&gt;</bpt><ept id="98af9116-a506-4c19-a598-b0a6749c029a">&lt;/title&gt;</ept>, we can set you up with a URL to access the data.</target>
+        </trans-unit>
+        <trans-unit id="c4e5ca73-3fb7-4734-a9bb-30fa04666e32" xml:space="preserve">
+          <source>You'll have about 10 hours to download any data or files from the UPD before the access expires.</source>
+          <target state="new">You'll have about 10 hours to download any data or files from the UPD before the access expires.</target>
+        </trans-unit>
+        <trans-unit id="6c691d4f-0fa1-46ec-976d-848b41bff205" xml:space="preserve">
+          <source>Right now we do not provide offline access to UPDs, beyond the 10 hour access window described above.</source>
+          <target state="new">Right now we do not provide offline access to UPDs, beyond the 10 hour access window described above.</target>
+        </trans-unit>
+        <trans-unit id="e139ca00-2b22-4421-9248-983abbd24a0b" xml:space="preserve">
+          <source>This means that we do not currently have a way to provide you with access for long enough to complete more complicated tasks, like running anti-virus software on the UPDs or accessing data for an audit.</source>
+          <target state="new">This means that we do not currently have a way to provide you with access for long enough to complete more complicated tasks, like running anti-virus software on the UPDs or accessing data for an audit.</target>
+        </trans-unit>
+        <trans-unit id="5d75a938-14ac-49b6-b13e-7eda90a3396f" xml:space="preserve">
+          <source>Yes, you can ask Azure RemoteApp to disable UPDs for a subscription, but you cannot do that yourself.</source>
+          <target state="new">Yes, you can ask Azure RemoteApp to disable UPDs for a subscription, but you cannot do that yourself.</target>
+        </trans-unit>
+        <trans-unit id="b23878cb-01e1-443c-b8d1-587a9a607ee0" xml:space="preserve">
+          <source>This means that UPDs will be disabled for all collections in the subscription.</source>
+          <target state="new">This means that UPDs will be disabled for all collections in the subscription.</target>
+        </trans-unit>
+        <trans-unit id="8d7de225-eb3f-4263-b75a-7342779b82da" xml:space="preserve">
+          <source>Yes, but you'll need to set that up in the template image before you create the collection.</source>
+          <target state="new">Yes, but you'll need to set that up in the template image before you create the collection.</target>
+        </trans-unit>
+        <trans-unit id="1358e5d1-b1ab-4e8a-98a6-dc8a99fde61e" xml:space="preserve">
+          <source>Use the following steps to block access to the system drive:</source>
+          <target state="new">Use the following steps to block access to the system drive:</target>
+        </trans-unit>
+        <trans-unit id="99579111-f085-4fcf-914f-c3d4056dec36" xml:space="preserve">
+          <source>Run <bpt id="29cb3f75-2b27-41bd-a966-bfcac5bc3c3a">&lt;strong&gt;</bpt>gpedit.msc<ept id="29cb3f75-2b27-41bd-a966-bfcac5bc3c3a">&lt;/strong&gt;</ept> on the template image.</source>
+          <target state="new">Run <bpt id="29cb3f75-2b27-41bd-a966-bfcac5bc3c3a">&lt;strong&gt;</bpt>gpedit.msc<ept id="29cb3f75-2b27-41bd-a966-bfcac5bc3c3a">&lt;/strong&gt;</ept> on the template image.</target>
+        </trans-unit>
+        <trans-unit id="2d637258-2ded-4c60-ab57-b02c6e9b1844" xml:space="preserve">
+          <source>Navigate to <bpt id="3173232c-0216-4a02-81fe-8edc1c937254">&lt;strong&gt;</bpt>User Configuration &gt; Administrative Templates &gt; Windows Components &gt; Explorer<ept id="3173232c-0216-4a02-81fe-8edc1c937254">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to <bpt id="3173232c-0216-4a02-81fe-8edc1c937254">&lt;strong&gt;</bpt>User Configuration &gt; Administrative Templates &gt; Windows Components &gt; Explorer<ept id="3173232c-0216-4a02-81fe-8edc1c937254">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3869ae56-c40d-4796-94c3-6cb78f04024a" xml:space="preserve">
+          <source>Select the following options:</source>
+          <target state="new">Select the following options:</target>
+        </trans-unit>
+        <trans-unit id="5dab5f20-7301-4a76-ac1b-c247079ef7d7" xml:space="preserve">
+          <source><bpt id="5adfed61-e730-4f48-84be-313f504139f9">&lt;strong&gt;</bpt>Hide these specified drives in My Computer<ept id="5adfed61-e730-4f48-84be-313f504139f9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5adfed61-e730-4f48-84be-313f504139f9">&lt;strong&gt;</bpt>Hide these specified drives in My Computer<ept id="5adfed61-e730-4f48-84be-313f504139f9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b0a3ec8-5a17-402c-bf00-2a1876f04608" xml:space="preserve">
+          <source><bpt id="d00d9eca-4e77-466e-8fd5-b897a88b5646">&lt;strong&gt;</bpt>Prevent access to drives from My Computer<ept id="d00d9eca-4e77-466e-8fd5-b897a88b5646">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d00d9eca-4e77-466e-8fd5-b897a88b5646">&lt;strong&gt;</bpt>Prevent access to drives from My Computer<ept id="d00d9eca-4e77-466e-8fd5-b897a88b5646">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5176713a-cc3e-407c-8440-9dffbd0f4cab" xml:space="preserve">
+          <source>Yes, when you create the template image, you can add information to the default profile.</source>
+          <target state="new">Yes, when you create the template image, you can add information to the default profile.</target>
+        </trans-unit>
+        <trans-unit id="36071669-4f5b-4896-848c-180b16e3f576" xml:space="preserve">
+          <source>That information is then added to the UPD.</source>
+          <target state="new">That information is then added to the UPD.</target>
+        </trans-unit>
+        <trans-unit id="33a872f4-e680-44ae-800f-26f12a040701" xml:space="preserve">
+          <source>No, all UPDs have 50 GB of storage.</source>
+          <target state="new">No, all UPDs have 50 GB of storage.</target>
+        </trans-unit>
+        <trans-unit id="787199cd-9331-42fc-bbfc-bb791dd07bc6" xml:space="preserve">
+          <source>If you want to store different amounts of data, try the following:</source>
+          <target state="new">If you want to store different amounts of data, try the following:</target>
+        </trans-unit>
+        <trans-unit id="25dc169d-1e3d-4822-b213-c5abc0e8620f" xml:space="preserve">
+          <source>Disable UPDs for the collection.</source>
+          <target state="new">Disable UPDs for the collection.</target>
+        </trans-unit>
+        <trans-unit id="d5766a35-561d-46e3-92ff-89b2d2a4774a" xml:space="preserve">
+          <source>Set up a file share for users to access.</source>
+          <target state="new">Set up a file share for users to access.</target>
+        </trans-unit>
+        <trans-unit id="f4f0b63f-577f-4953-b2fd-e650bdcc69b7" xml:space="preserve">
+          <source>Load the file share by using a startup script.</source>
+          <target state="new">Load the file share by using a startup script.</target>
+        </trans-unit>
+        <trans-unit id="0213c3ec-a0b8-4979-a64b-19e5cef519d9" xml:space="preserve">
+          <source>See below for details on startup scripts in Azure RemoteApp.</source>
+          <target state="new">See below for details on startup scripts in Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="ecbdaea0-1567-44a4-a0a0-fe003548f8fa" xml:space="preserve">
+          <source>Direct users to save all data to the file share.</source>
+          <target state="new">Direct users to save all data to the file share.</target>
+        </trans-unit>
+        <trans-unit id="a934201b-a770-40cd-8e55-003debc24b4b" xml:space="preserve">
+          <source>You can also use data synchronization apps like OneDrive for Business.</source>
+          <target state="new">You can also use data synchronization apps like OneDrive for Business.</target>
+        </trans-unit>
+        <trans-unit id="7ef58740-b758-4ff8-83f4-6cb42eab2861" xml:space="preserve">
+          <source>If you want to run a startup script, start by creating a scheduled task in the template image you are going to use for the collection.</source>
+          <target state="new">If you want to run a startup script, start by creating a scheduled task in the template image you are going to use for the collection.</target>
+        </trans-unit>
+        <trans-unit id="45cf8a7f-377f-4b21-b5c2-0fde690b0f0e" xml:space="preserve">
+          <source>(Do this <bpt id="3adce0fc-a45f-488a-bc07-4808ce34836d">&lt;em&gt;</bpt>before<ept id="3adce0fc-a45f-488a-bc07-4808ce34836d">&lt;/em&gt;</ept> you run sysprep.)</source>
+          <target state="new">(Do this <bpt id="3adce0fc-a45f-488a-bc07-4808ce34836d">&lt;em&gt;</bpt>before<ept id="3adce0fc-a45f-488a-bc07-4808ce34836d">&lt;/em&gt;</ept> you run sysprep.)</target>
+        </trans-unit>
+        <trans-unit id="7614d626-3923-498b-9bf0-72f504ac82ca" xml:space="preserve">
+          <source><bpt id="10fc483d-8c6a-465e-9168-b23ac30cc5fb">&lt;linkText&gt;</bpt>Create a system task<ept id="10fc483d-8c6a-465e-9168-b23ac30cc5fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10fc483d-8c6a-465e-9168-b23ac30cc5fb">&lt;linkText&gt;</bpt>Create a system task<ept id="10fc483d-8c6a-465e-9168-b23ac30cc5fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8added51-6f09-4bd2-8f44-9d3b32d891c9" xml:space="preserve">
+          <source><bpt id="78792e94-ae4a-4494-9ed2-2dc98639b128">&lt;linkText&gt;</bpt>Create a system task that runs when a user logs on<ept id="78792e94-ae4a-4494-9ed2-2dc98639b128">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78792e94-ae4a-4494-9ed2-2dc98639b128">&lt;linkText&gt;</bpt>Create a system task that runs when a user logs on<ept id="78792e94-ae4a-4494-9ed2-2dc98639b128">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a557bac8-cd5a-4af7-b8bf-f30104cfb433" xml:space="preserve">
+          <source>The scheduled task will launch your startup script, using the user's credentials.</source>
+          <target state="new">The scheduled task will launch your startup script, using the user's credentials.</target>
+        </trans-unit>
+        <trans-unit id="8cfa7212-d30f-4ddc-b975-406cf1f32b63" xml:space="preserve">
+          <source>Schedule the task to run every a time a user logs on.</source>
+          <target state="new">Schedule the task to run every a time a user logs on.</target>
+        </trans-unit>
+        <trans-unit id="a784dc73-5b71-468f-8304-f809b471171d" xml:space="preserve">
+          <source><bpt id="05bd7cf0-2703-4aa0-879e-83910b4b3b26">&lt;linkText&gt;</bpt>Set the trigger for the task as "At log on"<ept id="05bd7cf0-2703-4aa0-879e-83910b4b3b26">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="05bd7cf0-2703-4aa0-879e-83910b4b3b26">&lt;linkText&gt;</bpt>Set the trigger for the task as "At log on"<ept id="05bd7cf0-2703-4aa0-879e-83910b4b3b26">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5223270a-ca0a-457d-94fb-33d00f81c7e7" xml:space="preserve">
+          <source>You can also use <bpt id="a6fc7284-433a-417c-af5f-45ab2d7ff198">&lt;linkText&gt;</bpt>Group Policy-based startup scripts<ept id="a6fc7284-433a-417c-af5f-45ab2d7ff198">&lt;/linkText&gt;</ept><bpt id="a6fc7284-433a-417c-af5f-45ab2d7ff198">&lt;title&gt;</bpt><ept id="a6fc7284-433a-417c-af5f-45ab2d7ff198">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also use <bpt id="a6fc7284-433a-417c-af5f-45ab2d7ff198">&lt;linkText&gt;</bpt>Group Policy-based startup scripts<ept id="a6fc7284-433a-417c-af5f-45ab2d7ff198">&lt;/linkText&gt;</ept><bpt id="a6fc7284-433a-417c-af5f-45ab2d7ff198">&lt;title&gt;</bpt><ept id="a6fc7284-433a-417c-af5f-45ab2d7ff198">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9310c76-5a7c-43cd-be28-114adade459b" xml:space="preserve">
+          <source>In other words, can I create a .bat file that runs a config window script and save it to the c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp folder, and then have that script run whenever a user starts a RemoteApp session?</source>
+          <target state="new">In other words, can I create a .bat file that runs a config window script and save it to the c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp folder, and then have that script run whenever a user starts a RemoteApp session?</target>
+        </trans-unit>
+        <trans-unit id="acdb084d-fcfe-48cd-adbc-99efc57435a0" xml:space="preserve">
+          <source>No, that's not supported with Azure RemoteApp, which uses RDSH, which also does not support startup scripts in the Start menu.</source>
+          <target state="new">No, that's not supported with Azure RemoteApp, which uses RDSH, which also does not support startup scripts in the Start menu.</target>
+        </trans-unit>
+        <trans-unit id="772aa411-a19a-48cd-b5b5-087d94ba2bc4" xml:space="preserve">
+          <source>Nope, not supported by Azure RemoteApp.</source>
+          <target state="new">Nope, not supported by Azure RemoteApp.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

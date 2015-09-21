@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dd08b186-8a6b-4ab4-adf3-1095b355853e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dd08b186-8a6b-4ab4-adf3-1095b355853e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e6aae051-aa32-4b47-94bb-59706123a93c">
+        <trans-unit id="7a392440-2563-4484-8952-7192402a5846" xml:space="preserve">
+          <source>Identify differences with Change Tracking</source>
+          <target state="new">Identify differences with Change Tracking</target>
+        </trans-unit>
+        <trans-unit id="7c88e9a4-d64f-496a-b22e-a4207f08371e" xml:space="preserve">
+          <source>Use the Configuration Change Tracking solution in Microsoft Azure Operational Insights to help you easily identify software and Windows Services changes that occur in your environment</source>
+          <target state="new">Use the Configuration Change Tracking solution in Microsoft Azure Operational Insights to help you easily identify software and Windows Services changes that occur in your environment</target>
+        </trans-unit>
+        <trans-unit id="aaf94428-16ed-418c-8c12-89bfc3ec363a" xml:space="preserve">
+          <source><bpt id="6c92fd15-ada8-4697-9d2e-bee2fa37c086">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="6c92fd15-ada8-4697-9d2e-bee2fa37c086">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6c92fd15-ada8-4697-9d2e-bee2fa37c086">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="6c92fd15-ada8-4697-9d2e-bee2fa37c086">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4f152b8-210a-4e71-9d3e-9cef8f28a6d2" xml:space="preserve">
+          <source>You can use the Configuration Change Tracking solution in Microsoft Azure Operational Insights to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.</source>
+          <target state="new">You can use the Configuration Change Tracking solution in Microsoft Azure Operational Insights to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.</target>
+        </trans-unit>
+        <trans-unit id="28ba6cab-8c31-4efd-9020-48916a498646" xml:space="preserve">
+          <source>You install the solution to update the Operations Manager agent and base configuration module for Operational Insights.</source>
+          <target state="new">You install the solution to update the Operations Manager agent and base configuration module for Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="281ad117-e8cd-470b-9df0-1b07ec3e45e9" xml:space="preserve">
+          <source>Changes to installed software and Windows services on the monitored servers are read and then the data is sent to the Operational Insights service in the cloud for processing.</source>
+          <target state="new">Changes to installed software and Windows services on the monitored servers are read and then the data is sent to the Operational Insights service in the cloud for processing.</target>
+        </trans-unit>
+        <trans-unit id="c3939bb6-973c-4c96-a90e-63f5e9383149" xml:space="preserve">
+          <source>Logic is applied to the received data and the cloud service records the data.</source>
+          <target state="new">Logic is applied to the received data and the cloud service records the data.</target>
+        </trans-unit>
+        <trans-unit id="e6e8d779-c623-4a69-ae50-5f7e317324c0" xml:space="preserve">
+          <source>When changes are found, servers with changes are shown in the Change Tracking dashboard.</source>
+          <target state="new">When changes are found, servers with changes are shown in the Change Tracking dashboard.</target>
+        </trans-unit>
+        <trans-unit id="7852091f-b487-4f02-ab5e-79f7dfc520fc" xml:space="preserve">
+          <source>By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.</source>
+          <target state="new">By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="14abeca5-862b-49ad-8bf7-8e68a71dacad" xml:space="preserve">
+          <source>Before you can use Change Tracking in Operational Insights, you must have the solution installed.</source>
+          <target state="new">Before you can use Change Tracking in Operational Insights, you must have the solution installed.</target>
+        </trans-unit>
+        <trans-unit id="93159665-eee1-4b75-a281-792cb031ebc9" xml:space="preserve">
+          <source>To read more about installing solution, see <bpt id="32ec9981-d878-42f0-8726-00c9dd231960">&lt;linkText&gt;</bpt>Use the Solution Gallery to add or remove solutions<ept id="32ec9981-d878-42f0-8726-00c9dd231960">&lt;/linkText&gt;</ept><bpt id="32ec9981-d878-42f0-8726-00c9dd231960">&lt;title&gt;</bpt><ept id="32ec9981-d878-42f0-8726-00c9dd231960">&lt;/title&gt;</ept>.</source>
+          <target state="new">To read more about installing solution, see <bpt id="32ec9981-d878-42f0-8726-00c9dd231960">&lt;linkText&gt;</bpt>Use the Solution Gallery to add or remove solutions<ept id="32ec9981-d878-42f0-8726-00c9dd231960">&lt;/linkText&gt;</ept><bpt id="32ec9981-d878-42f0-8726-00c9dd231960">&lt;title&gt;</bpt><ept id="32ec9981-d878-42f0-8726-00c9dd231960">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf195dd0-dbf8-4438-ae9e-c8448510f9a7" xml:space="preserve">
+          <source>After it is installed, you can view the summary of changes for your monitored servers by using the <bpt id="ae1568a3-9dd3-4ea4-93a6-aecad2dd50dd">&lt;strong&gt;</bpt>Change Tracking<ept id="ae1568a3-9dd3-4ea4-93a6-aecad2dd50dd">&lt;/strong&gt;</ept> tile on the <bpt id="d8df0639-27cc-472a-a0a2-d9b8f9e46cac">&lt;strong&gt;</bpt>Overview<ept id="d8df0639-27cc-472a-a0a2-d9b8f9e46cac">&lt;/strong&gt;</ept> page in Operational Insights.</source>
+          <target state="new">After it is installed, you can view the summary of changes for your monitored servers by using the <bpt id="ae1568a3-9dd3-4ea4-93a6-aecad2dd50dd">&lt;strong&gt;</bpt>Change Tracking<ept id="ae1568a3-9dd3-4ea4-93a6-aecad2dd50dd">&lt;/strong&gt;</ept> tile on the <bpt id="d8df0639-27cc-472a-a0a2-d9b8f9e46cac">&lt;strong&gt;</bpt>Overview<ept id="d8df0639-27cc-472a-a0a2-d9b8f9e46cac">&lt;/strong&gt;</ept> page in Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="24340ad0-d859-4c09-b5e0-60157af59c4d" xml:space="preserve">
+          <source><bpt id="a01cd650-5b6e-4160-890c-7ba0fd05b301">&lt;linkText&gt;</bpt>image of Change Tracking tile<ept id="a01cd650-5b6e-4160-890c-7ba0fd05b301">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a01cd650-5b6e-4160-890c-7ba0fd05b301">&lt;linkText&gt;</bpt>image of Change Tracking tile<ept id="a01cd650-5b6e-4160-890c-7ba0fd05b301">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40cea86b-e9b2-465d-b07c-dc3428cdec7a" xml:space="preserve">
+          <source>You can view changes to your infrastructure and then drill-into details for the following categories:</source>
+          <target state="new">You can view changes to your infrastructure and then drill-into details for the following categories:</target>
+        </trans-unit>
+        <trans-unit id="940cb0a6-c5c8-4442-a44a-c8ae8fd28308" xml:space="preserve">
+          <source>Changes by configuration type for software and Windows services</source>
+          <target state="new">Changes by configuration type for software and Windows services</target>
+        </trans-unit>
+        <trans-unit id="b9d07253-c584-4bdb-b1e8-364afd38917f" xml:space="preserve">
+          <source>Software changes to applications and updates for individual servers</source>
+          <target state="new">Software changes to applications and updates for individual servers</target>
+        </trans-unit>
+        <trans-unit id="7efe8e3a-b364-471f-a026-77c6f13e15c3" xml:space="preserve">
+          <source>Total number of software changes for each application</source>
+          <target state="new">Total number of software changes for each application</target>
+        </trans-unit>
+        <trans-unit id="e08fab56-73b3-43bd-b4ac-71ceac97f6e9" xml:space="preserve">
+          <source>Windows service changes for individual servers</source>
+          <target state="new">Windows service changes for individual servers</target>
+        </trans-unit>
+        <trans-unit id="8e3cab6a-9178-4978-a743-1e677e3d2738" xml:space="preserve">
+          <source><bpt id="68f9ded0-3f28-4cfc-a844-aa5076bd346b">&lt;linkText&gt;</bpt>image of Change Tracking dashboard<ept id="68f9ded0-3f28-4cfc-a844-aa5076bd346b">&lt;/linkText&gt;</ept>
+<bpt id="b3715440-0814-493e-915b-bfd54de989df">&lt;linkText&gt;</bpt>image of Change Tracking dashboard<ept id="b3715440-0814-493e-915b-bfd54de989df">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="68f9ded0-3f28-4cfc-a844-aa5076bd346b">&lt;linkText&gt;</bpt>image of Change Tracking dashboard<ept id="68f9ded0-3f28-4cfc-a844-aa5076bd346b">&lt;/linkText&gt;</ept>
+<bpt id="b3715440-0814-493e-915b-bfd54de989df">&lt;linkText&gt;</bpt>image of Change Tracking dashboard<ept id="b3715440-0814-493e-915b-bfd54de989df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1355de9d-7e46-4d4e-87e8-bf882ffcbbe2" xml:space="preserve">
+          <source>On the <bpt id="74d21e5c-d16e-4cb0-95b7-c182d533fc56">&lt;strong&gt;</bpt>Overview<ept id="74d21e5c-d16e-4cb0-95b7-c182d533fc56">&lt;/strong&gt;</ept> page, click the <bpt id="e74c9e5f-684a-4568-a05f-671fb72edb3e">&lt;strong&gt;</bpt>Change Tracking<ept id="e74c9e5f-684a-4568-a05f-671fb72edb3e">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new">On the <bpt id="74d21e5c-d16e-4cb0-95b7-c182d533fc56">&lt;strong&gt;</bpt>Overview<ept id="74d21e5c-d16e-4cb0-95b7-c182d533fc56">&lt;/strong&gt;</ept> page, click the <bpt id="e74c9e5f-684a-4568-a05f-671fb72edb3e">&lt;strong&gt;</bpt>Change Tracking<ept id="e74c9e5f-684a-4568-a05f-671fb72edb3e">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+        <trans-unit id="30193826-98ec-45dd-9b7c-591d65684049" xml:space="preserve">
+          <source>On the <bpt id="af071f31-8fea-4845-8611-b7be44d0bb38">&lt;strong&gt;</bpt>Change Tracking<ept id="af071f31-8fea-4845-8611-b7be44d0bb38">&lt;/strong&gt;</ept> dashboard, review the summary information in one of the change type blades and then click one to view detailed information about it in the <bpt id="4223b4ce-896c-4b0c-a74e-4d70c9d6b4cf">&lt;strong&gt;</bpt>log search<ept id="4223b4ce-896c-4b0c-a74e-4d70c9d6b4cf">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">On the <bpt id="af071f31-8fea-4845-8611-b7be44d0bb38">&lt;strong&gt;</bpt>Change Tracking<ept id="af071f31-8fea-4845-8611-b7be44d0bb38">&lt;/strong&gt;</ept> dashboard, review the summary information in one of the change type blades and then click one to view detailed information about it in the <bpt id="4223b4ce-896c-4b0c-a74e-4d70c9d6b4cf">&lt;strong&gt;</bpt>log search<ept id="4223b4ce-896c-4b0c-a74e-4d70c9d6b4cf">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="3250fa08-6435-4592-9a38-f26f90185bb7" xml:space="preserve">
+          <source>On any of the log search pages, you can view results by time, detailed results, and your log search history.</source>
+          <target state="new">On any of the log search pages, you can view results by time, detailed results, and your log search history.</target>
+        </trans-unit>
+        <trans-unit id="af8e9e60-bb71-47b1-8521-4e40a1c929a5" xml:space="preserve">
+          <source>You can also filter by facets to narrow the results.</source>
+          <target state="new">You can also filter by facets to narrow the results.</target>
+        </trans-unit>
+        <trans-unit id="002d4ec4-9f30-4e6e-98bd-7c5661476b18" xml:space="preserve">
+          <source><bpt id="9af9c26d-23db-4db5-8010-9554d4338443">&lt;token href="../../includes/operational-insights-export.md"&gt;</bpt><ept id="9af9c26d-23db-4db5-8010-9554d4338443">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9af9c26d-23db-4db5-8010-9554d4338443">&lt;token href="../../includes/operational-insights-export.md"&gt;</bpt><ept id="9af9c26d-23db-4db5-8010-9554d4338443">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

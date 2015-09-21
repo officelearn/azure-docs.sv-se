@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2ebd231e-05f1-42ca-be90-84250116f9e7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2ebd231e-05f1-42ca-be90-84250116f9e7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="16eefa66-6f21-4d95-ae1b-f794aba1d59c">
+        <trans-unit id="929831ee-4b43-4612-a22a-8562bb339b96" xml:space="preserve">
+          <source>How applications are added to Azure Active Directory.</source>
+          <target state="new">How applications are added to Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="4ca3c14e-5d25-4948-9463-b2b7ed69fde4" xml:space="preserve">
+          <source>This article describes how applications are added to an instance of Azure Active Directory.</source>
+          <target state="new">This article describes how applications are added to an instance of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="e5cfc1ab-1c6d-460f-983f-5d54e72247a6" xml:space="preserve">
+          <source>One of the initially puzzling things when viewing a list of applications in your instance of Azure Active Directory is understanding where the applications came from and why they are there.</source>
+          <target state="new">One of the initially puzzling things when viewing a list of applications in your instance of Azure Active Directory is understanding where the applications came from and why they are there.</target>
+        </trans-unit>
+        <trans-unit id="78a112f8-1f6a-48bb-8d19-62d1bcf90f47" xml:space="preserve">
+          <source>This article will provide a high level overview of how applications are represented in the directory and provide you with context that will assist you in understanding how an application came to be in your directory.</source>
+          <target state="new">This article will provide a high level overview of how applications are represented in the directory and provide you with context that will assist you in understanding how an application came to be in your directory.</target>
+        </trans-unit>
+        <trans-unit id="cd33de6f-a01a-4e10-917d-04ac6c12d7ba" xml:space="preserve">
+          <source>Applications are added to Azure AD to leverage one or more of the services it provides.</source>
+          <target state="new">Applications are added to Azure AD to leverage one or more of the services it provides.</target>
+        </trans-unit>
+        <trans-unit id="ab464215-76bb-43a2-80e3-af5286595d2f" xml:space="preserve">
+          <source>Those services include:</source>
+          <target state="new">Those services include:</target>
+        </trans-unit>
+        <trans-unit id="617bac01-3308-46a9-90ed-75acce07c959" xml:space="preserve">
+          <source>App authentication and authorization</source>
+          <target state="new">App authentication and authorization</target>
+        </trans-unit>
+        <trans-unit id="d6050a8e-7345-4c2b-a849-5458f558f8f1" xml:space="preserve">
+          <source>User authentication &amp; authorization</source>
+          <target state="new">User authentication &amp; authorization</target>
+        </trans-unit>
+        <trans-unit id="088ccd55-41ab-4ce5-972b-a0dee10394cf" xml:space="preserve">
+          <source>Single sign-on (SSO) using federation or password</source>
+          <target state="new">Single sign-on (SSO) using federation or password</target>
+        </trans-unit>
+        <trans-unit id="ba3220fc-b545-456e-9480-2efc39368ecb" xml:space="preserve">
+          <source>User provisioning &amp; synchronization</source>
+          <target state="new">User provisioning &amp; synchronization</target>
+        </trans-unit>
+        <trans-unit id="7b9c4eb6-0194-4a43-8b75-c95baaad4583" xml:space="preserve">
+          <source>Role-based access control; Use the directory to define application roles to perform roles based authorization checks in an app.</source>
+          <target state="new">Role-based access control; Use the directory to define application roles to perform roles based authorization checks in an app.</target>
+        </trans-unit>
+        <trans-unit id="3e6f9a81-c1c9-4147-855f-ccbfa7894a79" xml:space="preserve">
+          <source>oAuth authorization services (used by Office 365 and other Microsoft apps to authorize access to APIs/resources.)</source>
+          <target state="new">oAuth authorization services (used by Office 365 and other Microsoft apps to authorize access to APIs/resources.)</target>
+        </trans-unit>
+        <trans-unit id="2daed6c8-8f24-4483-bb41-382b62b09b53" xml:space="preserve">
+          <source>Application publishing &amp; proxy; Publish an app from a private network to the internet</source>
+          <target state="new">Application publishing &amp; proxy; Publish an app from a private network to the internet</target>
+        </trans-unit>
+        <trans-unit id="b1d28bed-f90d-4363-a1e6-d71246bf96d7" xml:space="preserve">
+          <source>Applications are represented in the Azure AD using 2 objects: an application object and a service principal object.</source>
+          <target state="new">Applications are represented in the Azure AD using 2 objects: an application object and a service principal object.</target>
+        </trans-unit>
+        <trans-unit id="b893eac2-2bff-4e4f-a20e-d862d7d0ae15" xml:space="preserve">
+          <source>There is one application object, registered in a "home"/"owner" or "publishing" directory and one or more service principal objects representing the application in every directory in which it acts.</source>
+          <target state="new">There is one application object, registered in a "home"/"owner" or "publishing" directory and one or more service principal objects representing the application in every directory in which it acts.</target>
+        </trans-unit>
+        <trans-unit id="9a77f890-4fee-4c72-ad8f-cd62cf9e84fe" xml:space="preserve">
+          <source>The application object describes the app to Azure AD (the multi-tenant service) and may include any of the following: (<bpt id="c3cff436-17f0-4d84-b827-977cbf1b14d2">&lt;em&gt;</bpt>Note<ept id="c3cff436-17f0-4d84-b827-977cbf1b14d2">&lt;/em&gt;</ept>: This is not an exhaustive list.)</source>
+          <target state="new">The application object describes the app to Azure AD (the multi-tenant service) and may include any of the following: (<bpt id="c3cff436-17f0-4d84-b827-977cbf1b14d2">&lt;em&gt;</bpt>Note<ept id="c3cff436-17f0-4d84-b827-977cbf1b14d2">&lt;/em&gt;</ept>: This is not an exhaustive list.)</target>
+        </trans-unit>
+        <trans-unit id="ace10c29-9274-4e06-ab14-860a6a68e955" xml:space="preserve">
+          <source>Name, Logo &amp; Publisher</source>
+          <target state="new">Name, Logo &amp; Publisher</target>
+        </trans-unit>
+        <trans-unit id="cdd6c83e-9d08-4bb1-8497-2fa0c680a823" xml:space="preserve">
+          <source>Secrets (symmetric and/or asymmetric keys used to authenticate the app)</source>
+          <target state="new">Secrets (symmetric and/or asymmetric keys used to authenticate the app)</target>
+        </trans-unit>
+        <trans-unit id="54c20525-dc1d-4d9d-aef3-913d9f810275" xml:space="preserve">
+          <source>API dependencies (oAuth)</source>
+          <target state="new">API dependencies (oAuth)</target>
+        </trans-unit>
+        <trans-unit id="3f7f0593-4c20-4e39-8985-7dcdc4fcee73" xml:space="preserve">
+          <source>APIs/resources/scopes published (oAuth)</source>
+          <target state="new">APIs/resources/scopes published (oAuth)</target>
+        </trans-unit>
+        <trans-unit id="5d6d1cda-fd27-409e-b429-51a2b34ff9a5" xml:space="preserve">
+          <source>App roles (RBAC)</source>
+          <target state="new">App roles (RBAC)</target>
+        </trans-unit>
+        <trans-unit id="14e408a2-1b73-4f9f-b84f-39f9ef9d2421" xml:space="preserve">
+          <source>SSO metadata and configuration (SSO)</source>
+          <target state="new">SSO metadata and configuration (SSO)</target>
+        </trans-unit>
+        <trans-unit id="6733f40b-6cfe-4287-8a4e-0feb8938594f" xml:space="preserve">
+          <source>User provisioning metadata and configuration</source>
+          <target state="new">User provisioning metadata and configuration</target>
+        </trans-unit>
+        <trans-unit id="6fe807d5-1a25-4784-b8b6-52884f0f7599" xml:space="preserve">
+          <source>Proxy metadata and configuration</source>
+          <target state="new">Proxy metadata and configuration</target>
+        </trans-unit>
+        <trans-unit id="11384a46-7543-4f7f-899f-aa0c82915f5b" xml:space="preserve">
+          <source>The service principal is a record of the application in every directory, where the application acts including its home directory.</source>
+          <target state="new">The service principal is a record of the application in every directory, where the application acts including its home directory.</target>
+        </trans-unit>
+        <trans-unit id="d088289f-5aaf-4777-9864-e4618e187cf7" xml:space="preserve">
+          <source>The service principal:</source>
+          <target state="new">The service principal:</target>
+        </trans-unit>
+        <trans-unit id="9338cdb3-77c7-40af-8520-75b7289be3e8" xml:space="preserve">
+          <source>Refers back to an application object via the app id property</source>
+          <target state="new">Refers back to an application object via the app id property</target>
+        </trans-unit>
+        <trans-unit id="c9a7c213-f19d-462d-8a4d-c5ad00568799" xml:space="preserve">
+          <source>Records local user and group app-role assignments</source>
+          <target state="new">Records local user and group app-role assignments</target>
+        </trans-unit>
+        <trans-unit id="3b36ba2c-ed9c-45d8-a2bf-b06cf371da60" xml:space="preserve">
+          <source>Records local user and admin permissions granted to the app</source>
+          <target state="new">Records local user and admin permissions granted to the app</target>
+        </trans-unit>
+        <trans-unit id="57ea880f-2f70-4a2b-9c60-37aef9883f83" xml:space="preserve">
+          <source>For example: permission for the app to access a particular users email</source>
+          <target state="new">For example: permission for the app to access a particular users email</target>
+        </trans-unit>
+        <trans-unit id="e27efe43-47bb-495b-9a2a-86fbae4f094c" xml:space="preserve">
+          <source>Records local policies including conditional access policy</source>
+          <target state="new">Records local policies including conditional access policy</target>
+        </trans-unit>
+        <trans-unit id="cd0311f0-61bc-46a0-b5d5-83e068959fae" xml:space="preserve">
+          <source>Records local alternate local settings for an app</source>
+          <target state="new">Records local alternate local settings for an app</target>
+        </trans-unit>
+        <trans-unit id="60c20956-d220-43f2-8339-aeb086cf4ae6" xml:space="preserve">
+          <source>Claims transformation rules</source>
+          <target state="new">Claims transformation rules</target>
+        </trans-unit>
+        <trans-unit id="cb77b83c-d422-470e-8387-99bc4e860f39" xml:space="preserve">
+          <source>Attribute mappings (User provisioning)</source>
+          <target state="new">Attribute mappings (User provisioning)</target>
+        </trans-unit>
+        <trans-unit id="b08769bf-f329-4143-9de9-d8b7d60dc774" xml:space="preserve">
+          <source>Tenant specific app roles (if the app supports custom roles)</source>
+          <target state="new">Tenant specific app roles (if the app supports custom roles)</target>
+        </trans-unit>
+        <trans-unit id="49282233-a106-4cdf-b45d-4f44d08e146c" xml:space="preserve">
+          <source>Name/Logo</source>
+          <target state="new">Name/Logo</target>
+        </trans-unit>
+        <trans-unit id="14953010-c83a-4f3b-8d53-7ec36b8eac15" xml:space="preserve">
+          <source><bpt id="04c80a32-716f-4d8b-b565-fa902f632640">&lt;linkText&gt;</bpt>A diagram illustrating how application objects and service principals existing with Azure AD instances.<ept id="04c80a32-716f-4d8b-b565-fa902f632640">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="04c80a32-716f-4d8b-b565-fa902f632640">&lt;linkText&gt;</bpt>A diagram illustrating how application objects and service principals existing with Azure AD instances.<ept id="04c80a32-716f-4d8b-b565-fa902f632640">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23696ba6-b2db-4204-8357-f99c80321951" xml:space="preserve">
+          <source>As you can see from the diagram above.</source>
+          <target state="new">As you can see from the diagram above.</target>
+        </trans-unit>
+        <trans-unit id="0a8d9496-024c-4759-81ad-48962e4d4290" xml:space="preserve">
+          <source>Microsoft maintains two directories internally (on the left) it uses to publish applications.</source>
+          <target state="new">Microsoft maintains two directories internally (on the left) it uses to publish applications.</target>
+        </trans-unit>
+        <trans-unit id="1f9ddcca-92a4-4c96-9f66-7ca66e329fc9" xml:space="preserve">
+          <source>One for Microsoft Apps (Microsoft services directory)</source>
+          <target state="new">One for Microsoft Apps (Microsoft services directory)</target>
+        </trans-unit>
+        <trans-unit id="5946442f-9c01-4378-ac32-9f642e0e6b3c" xml:space="preserve">
+          <source>One for pre-integrated 3rd Party Apps (App Gallery directory)</source>
+          <target state="new">One for pre-integrated 3rd Party Apps (App Gallery directory)</target>
+        </trans-unit>
+        <trans-unit id="484d2bb9-340b-4181-b888-6e4439b7c697" xml:space="preserve">
+          <source>Application publishers/vendors who integrate with Azure AD are required to have a publishing directory.</source>
+          <target state="new">Application publishers/vendors who integrate with Azure AD are required to have a publishing directory.</target>
+        </trans-unit>
+        <trans-unit id="b56522a9-b7bd-42e3-9631-b56c75829735" xml:space="preserve">
+          <source>(Some SAAS Directory).</source>
+          <target state="new">(Some SAAS Directory).</target>
+        </trans-unit>
+        <trans-unit id="ce27d3e9-41c8-41dc-a7a0-b9ef8f9dd588" xml:space="preserve">
+          <source>Applications that you add yourself include:</source>
+          <target state="new">Applications that you add yourself include:</target>
+        </trans-unit>
+        <trans-unit id="e43c7102-1dfd-4944-8211-e97bd588a861" xml:space="preserve">
+          <source>Apps you developed (integrated with AAD)</source>
+          <target state="new">Apps you developed (integrated with AAD)</target>
+        </trans-unit>
+        <trans-unit id="d9b67660-7a14-4192-99d8-f228cedb8c02" xml:space="preserve">
+          <source>Apps you connected for single-sign-on</source>
+          <target state="new">Apps you connected for single-sign-on</target>
+        </trans-unit>
+        <trans-unit id="93c0910b-5d80-46c7-b3d9-f9890b82cc39" xml:space="preserve">
+          <source>Apps you published using the Azure AD application proxy.</source>
+          <target state="new">Apps you published using the Azure AD application proxy.</target>
+        </trans-unit>
+        <trans-unit id="769a475b-9734-4bc2-b8a0-dafdae793eef" xml:space="preserve">
+          <source>Not all service principals point back to application objects.</source>
+          <target state="new">Not all service principals point back to application objects.</target>
+        </trans-unit>
+        <trans-unit id="76bdd9eb-95e4-406c-8bd4-530dbf96ae69" xml:space="preserve">
+          <source>Huh?</source>
+          <target state="new">Huh?</target>
+        </trans-unit>
+        <trans-unit id="052451aa-d250-4a67-a5b6-31270e0b4929" xml:space="preserve">
+          <source>When Azure AD was originally built the services provided to applications were much more limited and the service principal was sufficient for establishing an app identity.</source>
+          <target state="new">When Azure AD was originally built the services provided to applications were much more limited and the service principal was sufficient for establishing an app identity.</target>
+        </trans-unit>
+        <trans-unit id="3aa657df-ac8d-4755-8bc1-d07459f82333" xml:space="preserve">
+          <source>The original service principal was closer in shape to the Windows Server Active Directory service account.</source>
+          <target state="new">The original service principal was closer in shape to the Windows Server Active Directory service account.</target>
+        </trans-unit>
+        <trans-unit id="cac24fc6-a136-406e-acb9-643edc9a061c" xml:space="preserve">
+          <source>For this reason it's still possible to create service principals using the Azure AD PowerShell without first creating an application object.</source>
+          <target state="new">For this reason it's still possible to create service principals using the Azure AD PowerShell without first creating an application object.</target>
+        </trans-unit>
+        <trans-unit id="413c903d-cc2c-47b6-9892-aa6b986acc39" xml:space="preserve">
+          <source>The Graph API requires an app object before creating a service principal.</source>
+          <target state="new">The Graph API requires an app object before creating a service principal.</target>
+        </trans-unit>
+        <trans-unit id="67205b42-637f-4c4e-bbfe-5e89ecb05167" xml:space="preserve">
+          <source>Not all of the information described above is currently exposed programmatically.</source>
+          <target state="new">Not all of the information described above is currently exposed programmatically.</target>
+        </trans-unit>
+        <trans-unit id="98232514-a26d-438f-8646-2b1e11639a07" xml:space="preserve">
+          <source>The following are only available in the UI:</source>
+          <target state="new">The following are only available in the UI:</target>
+        </trans-unit>
+        <trans-unit id="571b1146-7879-4ef7-8919-cd755738da25" xml:space="preserve">
+          <source>Claims transformation rules</source>
+          <target state="new">Claims transformation rules</target>
+        </trans-unit>
+        <trans-unit id="c14bbadc-1ead-477f-bee5-82efdebfd83f" xml:space="preserve">
+          <source>Attribute mappings (User provisioning)</source>
+          <target state="new">Attribute mappings (User provisioning)</target>
+        </trans-unit>
+        <trans-unit id="2d04cdb4-2c34-4433-8761-c01db5f78674" xml:space="preserve">
+          <source>For more detailed information on the service principal and application objects please refer to the Azure AD Graph REST API reference documentation.</source>
+          <target state="new">For more detailed information on the service principal and application objects please refer to the Azure AD Graph REST API reference documentation.</target>
+        </trans-unit>
+        <trans-unit id="521af299-07a7-4f12-8b25-5f54a093f12b" xml:space="preserve">
+          <source><bpt id="ef269eda-0122-4627-89ce-1aedba239098">&lt;em&gt;</bpt>Hint<ept id="ef269eda-0122-4627-89ce-1aedba239098">&lt;/em&gt;</ept>: The Azure AD Graph API documentation is the closest thing to a schema reference for Azure AD that's currently available.</source>
+          <target state="new"><bpt id="ef269eda-0122-4627-89ce-1aedba239098">&lt;em&gt;</bpt>Hint<ept id="ef269eda-0122-4627-89ce-1aedba239098">&lt;/em&gt;</ept>: The Azure AD Graph API documentation is the closest thing to a schema reference for Azure AD that's currently available.</target>
+        </trans-unit>
+        <trans-unit id="6624f46e-1bc2-406d-8549-f4b306cfe3f7" xml:space="preserve">
+          <source><bpt id="98767aa5-5864-4588-b9c2-b2e1d849483d">&lt;linkText&gt;</bpt>Application<ept id="98767aa5-5864-4588-b9c2-b2e1d849483d">&lt;/linkText&gt;</ept><bpt id="98767aa5-5864-4588-b9c2-b2e1d849483d">&lt;title&gt;</bpt><ept id="98767aa5-5864-4588-b9c2-b2e1d849483d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="98767aa5-5864-4588-b9c2-b2e1d849483d">&lt;linkText&gt;</bpt>Application<ept id="98767aa5-5864-4588-b9c2-b2e1d849483d">&lt;/linkText&gt;</ept><bpt id="98767aa5-5864-4588-b9c2-b2e1d849483d">&lt;title&gt;</bpt><ept id="98767aa5-5864-4588-b9c2-b2e1d849483d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd306b46-9eaf-4cc5-a0c3-82876b34e98b" xml:space="preserve">
+          <source><bpt id="dc5bf13c-2b94-43ff-8137-7ff2ea4d8a63">&lt;linkText&gt;</bpt>Service Principal<ept id="dc5bf13c-2b94-43ff-8137-7ff2ea4d8a63">&lt;/linkText&gt;</ept><bpt id="dc5bf13c-2b94-43ff-8137-7ff2ea4d8a63">&lt;title&gt;</bpt><ept id="dc5bf13c-2b94-43ff-8137-7ff2ea4d8a63">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dc5bf13c-2b94-43ff-8137-7ff2ea4d8a63">&lt;linkText&gt;</bpt>Service Principal<ept id="dc5bf13c-2b94-43ff-8137-7ff2ea4d8a63">&lt;/linkText&gt;</ept><bpt id="dc5bf13c-2b94-43ff-8137-7ff2ea4d8a63">&lt;title&gt;</bpt><ept id="dc5bf13c-2b94-43ff-8137-7ff2ea4d8a63">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe486e99-8162-4834-8f06-331193a9405b" xml:space="preserve">
+          <source>There are many ways an app can be added to Azure AD:</source>
+          <target state="new">There are many ways an app can be added to Azure AD:</target>
+        </trans-unit>
+        <trans-unit id="1391515b-bec8-4987-9f84-a77cffc423ba" xml:space="preserve">
+          <source>Add an app from the <bpt id="795fbd8c-79de-4cc0-a7c3-33cf28afa37c">&lt;linkText&gt;</bpt>Azure Active Directory App Gallery<ept id="795fbd8c-79de-4cc0-a7c3-33cf28afa37c">&lt;/linkText&gt;</ept><bpt id="795fbd8c-79de-4cc0-a7c3-33cf28afa37c">&lt;title&gt;</bpt><ept id="795fbd8c-79de-4cc0-a7c3-33cf28afa37c">&lt;/title&gt;</ept></source>
+          <target state="new">Add an app from the <bpt id="795fbd8c-79de-4cc0-a7c3-33cf28afa37c">&lt;linkText&gt;</bpt>Azure Active Directory App Gallery<ept id="795fbd8c-79de-4cc0-a7c3-33cf28afa37c">&lt;/linkText&gt;</ept><bpt id="795fbd8c-79de-4cc0-a7c3-33cf28afa37c">&lt;title&gt;</bpt><ept id="795fbd8c-79de-4cc0-a7c3-33cf28afa37c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f263e6a9-173d-4ef7-b72f-b19994e7b289" xml:space="preserve">
+          <source>Sign up/into a 3rd Party App integrated with Azure Active Directory (For example: <bpt id="bd6bd65d-77ed-4580-b2a6-0033b79a82eb">&lt;linkText&gt;</bpt>Smartsheet<ept id="bd6bd65d-77ed-4580-b2a6-0033b79a82eb">&lt;/linkText&gt;</ept><bpt id="bd6bd65d-77ed-4580-b2a6-0033b79a82eb">&lt;title&gt;</bpt><ept id="bd6bd65d-77ed-4580-b2a6-0033b79a82eb">&lt;/title&gt;</ept> or <bpt id="87f1f891-6e2f-4b0a-9464-1710aaf7d62b">&lt;linkText&gt;</bpt>DocuSign<ept id="87f1f891-6e2f-4b0a-9464-1710aaf7d62b">&lt;/linkText&gt;</ept><bpt id="87f1f891-6e2f-4b0a-9464-1710aaf7d62b">&lt;title&gt;</bpt><ept id="87f1f891-6e2f-4b0a-9464-1710aaf7d62b">&lt;/title&gt;</ept>)</source>
+          <target state="new">Sign up/into a 3rd Party App integrated with Azure Active Directory (For example: <bpt id="bd6bd65d-77ed-4580-b2a6-0033b79a82eb">&lt;linkText&gt;</bpt>Smartsheet<ept id="bd6bd65d-77ed-4580-b2a6-0033b79a82eb">&lt;/linkText&gt;</ept><bpt id="bd6bd65d-77ed-4580-b2a6-0033b79a82eb">&lt;title&gt;</bpt><ept id="bd6bd65d-77ed-4580-b2a6-0033b79a82eb">&lt;/title&gt;</ept> or <bpt id="87f1f891-6e2f-4b0a-9464-1710aaf7d62b">&lt;linkText&gt;</bpt>DocuSign<ept id="87f1f891-6e2f-4b0a-9464-1710aaf7d62b">&lt;/linkText&gt;</ept><bpt id="87f1f891-6e2f-4b0a-9464-1710aaf7d62b">&lt;title&gt;</bpt><ept id="87f1f891-6e2f-4b0a-9464-1710aaf7d62b">&lt;/title&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="5b537750-01c0-42e0-8ad0-852b18488aa8" xml:space="preserve">
+          <source>During sign up/in users are asked to give permission to the app to access their profile and other permissions.</source>
+          <target state="new">During sign up/in users are asked to give permission to the app to access their profile and other permissions.</target>
+        </trans-unit>
+        <trans-unit id="ed19271c-3c60-48cc-b70c-b8fb46f80d66" xml:space="preserve">
+          <source>The first person to give consent causes a service principal representing the app to be added to the directory.</source>
+          <target state="new">The first person to give consent causes a service principal representing the app to be added to the directory.</target>
+        </trans-unit>
+        <trans-unit id="00eefeaa-d6f8-4007-b132-8c3467095377" xml:space="preserve">
+          <source>Sign up/into Microsoft online services like <bpt id="f493387d-6fd0-4a8a-8a06-1e7b940c744e">&lt;linkText&gt;</bpt>Office 365<ept id="f493387d-6fd0-4a8a-8a06-1e7b940c744e">&lt;/linkText&gt;</ept><bpt id="f493387d-6fd0-4a8a-8a06-1e7b940c744e">&lt;title&gt;</bpt><ept id="f493387d-6fd0-4a8a-8a06-1e7b940c744e">&lt;/title&gt;</ept></source>
+          <target state="new">Sign up/into Microsoft online services like <bpt id="f493387d-6fd0-4a8a-8a06-1e7b940c744e">&lt;linkText&gt;</bpt>Office 365<ept id="f493387d-6fd0-4a8a-8a06-1e7b940c744e">&lt;/linkText&gt;</ept><bpt id="f493387d-6fd0-4a8a-8a06-1e7b940c744e">&lt;title&gt;</bpt><ept id="f493387d-6fd0-4a8a-8a06-1e7b940c744e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fb8b437-0338-4c33-8d94-5407360e066c" xml:space="preserve">
+          <source>When you subscribe to Office 365 or begin a trial one or more service principals are created in the directory representing the various services that are used to deliver all of the functionality associated with Office 365.</source>
+          <target state="new">When you subscribe to Office 365 or begin a trial one or more service principals are created in the directory representing the various services that are used to deliver all of the functionality associated with Office 365.</target>
+        </trans-unit>
+        <trans-unit id="59097b5d-7c7b-4e84-b1ac-193c3ab05bbf" xml:space="preserve">
+          <source>Some Office 365 services like SharePoint create service principals on an on-going basis to allow secure communication between components including workflows.</source>
+          <target state="new">Some Office 365 services like SharePoint create service principals on an on-going basis to allow secure communication between components including workflows.</target>
+        </trans-unit>
+        <trans-unit id="22109a9f-d5b6-4aa0-b28a-26f99ecf357b" xml:space="preserve">
+          <source>Add an app you're developing in the Azure Management Portal see: https://msdn.microsoft.com/library/azure/dn132599.aspx</source>
+          <target state="new">Add an app you're developing in the Azure Management Portal see: https://msdn.microsoft.com/library/azure/dn132599.aspx</target>
+        </trans-unit>
+        <trans-unit id="235a0188-1b2e-44c0-83aa-6e08617c8813" xml:space="preserve">
+          <source>Add an app you're developing using Visual Studio see:</source>
+          <target state="new">Add an app you're developing using Visual Studio see:</target>
+        </trans-unit>
+        <trans-unit id="d050ee34-c69c-45ba-a456-d8e79e33bbb4" xml:space="preserve">
+          <source><bpt id="d84a32cb-36f5-49a6-863c-a08607390ea3">&lt;linkText&gt;</bpt>ASP.Net Authentication Methods<ept id="d84a32cb-36f5-49a6-863c-a08607390ea3">&lt;/linkText&gt;</ept><bpt id="d84a32cb-36f5-49a6-863c-a08607390ea3">&lt;title&gt;</bpt><ept id="d84a32cb-36f5-49a6-863c-a08607390ea3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d84a32cb-36f5-49a6-863c-a08607390ea3">&lt;linkText&gt;</bpt>ASP.Net Authentication Methods<ept id="d84a32cb-36f5-49a6-863c-a08607390ea3">&lt;/linkText&gt;</ept><bpt id="d84a32cb-36f5-49a6-863c-a08607390ea3">&lt;title&gt;</bpt><ept id="d84a32cb-36f5-49a6-863c-a08607390ea3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8407124-bc28-4b9c-8db8-99402137dc64" xml:space="preserve">
+          <source><bpt id="1969dc69-ced5-47b6-bccc-baaaa79b23d0">&lt;linkText&gt;</bpt>Connected Services<ept id="1969dc69-ced5-47b6-bccc-baaaa79b23d0">&lt;/linkText&gt;</ept><bpt id="1969dc69-ced5-47b6-bccc-baaaa79b23d0">&lt;title&gt;</bpt><ept id="1969dc69-ced5-47b6-bccc-baaaa79b23d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1969dc69-ced5-47b6-bccc-baaaa79b23d0">&lt;linkText&gt;</bpt>Connected Services<ept id="1969dc69-ced5-47b6-bccc-baaaa79b23d0">&lt;/linkText&gt;</ept><bpt id="1969dc69-ced5-47b6-bccc-baaaa79b23d0">&lt;title&gt;</bpt><ept id="1969dc69-ced5-47b6-bccc-baaaa79b23d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e28b495d-8de6-43a1-881b-6dadf41199e4" xml:space="preserve">
+          <source>Add an app to use to use the <bpt id="b8989c22-2645-4bf8-aa40-cfbb305a1c51">&lt;linkText&gt;</bpt>Azure AD Application Proxy<ept id="b8989c22-2645-4bf8-aa40-cfbb305a1c51">&lt;/linkText&gt;</ept><bpt id="b8989c22-2645-4bf8-aa40-cfbb305a1c51">&lt;title&gt;</bpt><ept id="b8989c22-2645-4bf8-aa40-cfbb305a1c51">&lt;/title&gt;</ept></source>
+          <target state="new">Add an app to use to use the <bpt id="b8989c22-2645-4bf8-aa40-cfbb305a1c51">&lt;linkText&gt;</bpt>Azure AD Application Proxy<ept id="b8989c22-2645-4bf8-aa40-cfbb305a1c51">&lt;/linkText&gt;</ept><bpt id="b8989c22-2645-4bf8-aa40-cfbb305a1c51">&lt;title&gt;</bpt><ept id="b8989c22-2645-4bf8-aa40-cfbb305a1c51">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4e416ce-0217-40de-a13e-7a21bd8c94f9" xml:space="preserve">
+          <source>Connect an app for single sign on using SAML or Password SSO</source>
+          <target state="new">Connect an app for single sign on using SAML or Password SSO</target>
+        </trans-unit>
+        <trans-unit id="329dd80c-3d32-470c-96c0-8cd90b26c4de" xml:space="preserve">
+          <source>Many others including various developer experiences in Azure and/in API explorer experiences across developer centers</source>
+          <target state="new">Many others including various developer experiences in Azure and/in API explorer experiences across developer centers</target>
+        </trans-unit>
+        <trans-unit id="80f0d2f8-c573-4cf5-8119-0e37068cef08" xml:space="preserve">
+          <source>Only global administrators can:</source>
+          <target state="new">Only global administrators can:</target>
+        </trans-unit>
+        <trans-unit id="f9f414f4-ba2b-4583-b4b0-85eb9dc0ebe9" xml:space="preserve">
+          <source>Add apps from the Azure AD app gallery (pre-integrated 3rd Party Apps)</source>
+          <target state="new">Add apps from the Azure AD app gallery (pre-integrated 3rd Party Apps)</target>
+        </trans-unit>
+        <trans-unit id="db887cb7-72ee-40b0-b5b6-0701abbc2dfa" xml:space="preserve">
+          <source>Publish an app using the Azure AD Application Proxy</source>
+          <target state="new">Publish an app using the Azure AD Application Proxy</target>
+        </trans-unit>
+        <trans-unit id="b33e31f7-ff70-401f-abbd-dc0c5a731092" xml:space="preserve">
+          <source>All users in your directory have rights to add applications that they are developing and discretion over which applications they share/give access to their organizational data.</source>
+          <target state="new">All users in your directory have rights to add applications that they are developing and discretion over which applications they share/give access to their organizational data.</target>
+        </trans-unit>
+        <trans-unit id="a25d29f7-9762-4cdf-84d4-4bb5d6b9fbc0" xml:space="preserve">
+          <source><bpt id="ea093f5b-6a94-45f4-90e7-c4030981c2b8">&lt;em&gt;</bpt>Remember user sign up/in to an app and granting permissions may result in a service principal being created.<ept id="ea093f5b-6a94-45f4-90e7-c4030981c2b8">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="ea093f5b-6a94-45f4-90e7-c4030981c2b8">&lt;em&gt;</bpt>Remember user sign up/in to an app and granting permissions may result in a service principal being created.<ept id="ea093f5b-6a94-45f4-90e7-c4030981c2b8">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4362eaed-e6e3-4574-8ee7-15c0001d648e" xml:space="preserve">
+          <source>This might initially sound concerning, but keep the following in mind:</source>
+          <target state="new">This might initially sound concerning, but keep the following in mind:</target>
+        </trans-unit>
+        <trans-unit id="3df9658e-c602-4209-8546-2e5c97823ae9" xml:space="preserve">
+          <source>Apps have been able to leverage Windows Server Active Directory for user authentication for many years without requiring the application to be registered/recorded in the directory.</source>
+          <target state="new">Apps have been able to leverage Windows Server Active Directory for user authentication for many years without requiring the application to be registered/recorded in the directory.</target>
+        </trans-unit>
+        <trans-unit id="f23a50d4-2016-40cd-9ddb-a90a9d2078f2" xml:space="preserve">
+          <source>Now the organization will have improved visibility to exactly how many apps are using the directory and what for.</source>
+          <target state="new">Now the organization will have improved visibility to exactly how many apps are using the directory and what for.</target>
+        </trans-unit>
+        <trans-unit id="7f3d7e27-ff71-4ff7-8bdb-a62cb5faa8cb" xml:space="preserve">
+          <source>No need for admin driven app publishing/registration process.</source>
+          <target state="new">No need for admin driven app publishing/registration process.</target>
+        </trans-unit>
+        <trans-unit id="8853f572-d841-4a27-8e4d-0e87cef804b6" xml:space="preserve">
+          <source>With Active Directory Federation Services it was likely that an admin had to add an app as a relying party on behalf of developers.</source>
+          <target state="new">With Active Directory Federation Services it was likely that an admin had to add an app as a relying party on behalf of developers.</target>
+        </trans-unit>
+        <trans-unit id="b1abba56-f54b-41aa-97d1-f02a579f7b25" xml:space="preserve">
+          <source>Now developers can self-service.</source>
+          <target state="new">Now developers can self-service.</target>
+        </trans-unit>
+        <trans-unit id="f2e819b3-de78-42db-b443-8cc9ba6a31b8" xml:space="preserve">
+          <source>Users signing in/up to apps using their organization accounts for business purposes is a good thing.</source>
+          <target state="new">Users signing in/up to apps using their organization accounts for business purposes is a good thing.</target>
+        </trans-unit>
+        <trans-unit id="c157bcd6-e3a7-4e5c-9bcb-5fd46d2804a3" xml:space="preserve">
+          <source>If they subsequently leave the organization they will lose access to their account in the application they were using.</source>
+          <target state="new">If they subsequently leave the organization they will lose access to their account in the application they were using.</target>
+        </trans-unit>
+        <trans-unit id="265018a2-9e49-4397-9d3e-616cfc0e0c41" xml:space="preserve">
+          <source>Having a record of what data was shared with which application is a good thing.</source>
+          <target state="new">Having a record of what data was shared with which application is a good thing.</target>
+        </trans-unit>
+        <trans-unit id="e61cc323-cc5b-4d72-96f1-e1f12b16f1ca" xml:space="preserve">
+          <source>Data is more transportable than ever and having a clear record of who shared what data with which applications is useful.</source>
+          <target state="new">Data is more transportable than ever and having a clear record of who shared what data with which applications is useful.</target>
+        </trans-unit>
+        <trans-unit id="c51738ad-2c56-4e02-b185-698910f8322f" xml:space="preserve">
+          <source>Apps who use Azure AD for oAuth decide exactly what permissions that users are able to grant to applications and which permissions require an admin to agree to.</source>
+          <target state="new">Apps who use Azure AD for oAuth decide exactly what permissions that users are able to grant to applications and which permissions require an admin to agree to.</target>
+        </trans-unit>
+        <trans-unit id="51ad2063-4f48-449b-94b6-4611faf5bcc0" xml:space="preserve">
+          <source>It should go without saying that only admins can consent to larger scopes and more significant permissions.</source>
+          <target state="new">It should go without saying that only admins can consent to larger scopes and more significant permissions.</target>
+        </trans-unit>
+        <trans-unit id="c7ad6ae3-30cb-45ec-aecd-36d5d32b8c6e" xml:space="preserve">
+          <source>Users adding and allowing apps to access their data are audited events so you can view the Audit Reports within the Azure Managment portal to determine how an app was added to the directory.</source>
+          <target state="new">Users adding and allowing apps to access their data are audited events so you can view the Audit Reports within the Azure Managment portal to determine how an app was added to the directory.</target>
+        </trans-unit>
+        <trans-unit id="74c563c5-60aa-41d9-b1ff-a9d9956202ae" xml:space="preserve">
+          <source><bpt id="fed0b504-0a56-4738-8a11-58a8f57cef58">&lt;strong&gt;</bpt>Note:<ept id="fed0b504-0a56-4738-8a11-58a8f57cef58">&lt;/strong&gt;</ept> <bpt id="ae12a454-0283-4eb6-8f36-53ad0cd46d14">&lt;em&gt;</bpt>Microsoft itself has been operating using the default configuration for many months now.<ept id="ae12a454-0283-4eb6-8f36-53ad0cd46d14">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="fed0b504-0a56-4738-8a11-58a8f57cef58">&lt;strong&gt;</bpt>Note:<ept id="fed0b504-0a56-4738-8a11-58a8f57cef58">&lt;/strong&gt;</ept> <bpt id="ae12a454-0283-4eb6-8f36-53ad0cd46d14">&lt;em&gt;</bpt>Microsoft itself has been operating using the default configuration for many months now.<ept id="ae12a454-0283-4eb6-8f36-53ad0cd46d14">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a84c891e-bb7a-4e99-bd63-9fdd88433ff5" xml:space="preserve">
+          <source>With all of that said it is possible to prevent users in your directory from adding applications and from exercising discretion over what information they share with applications by modifying Directory configuration in the Azure Management portal.</source>
+          <target state="new">With all of that said it is possible to prevent users in your directory from adding applications and from exercising discretion over what information they share with applications by modifying Directory configuration in the Azure Management portal.</target>
+        </trans-unit>
+        <trans-unit id="bee14196-7898-4250-a6ef-e427728351c0" xml:space="preserve">
+          <source>The following configuration can be accessed within the Azure Management portal on your Directory's "Configure" tab.</source>
+          <target state="new">The following configuration can be accessed within the Azure Management portal on your Directory's "Configure" tab.</target>
+        </trans-unit>
+        <trans-unit id="b20f39da-824a-4270-85aa-bbf499c64ef6" xml:space="preserve">
+          <source><bpt id="e603a405-889e-45e1-85c7-311ec1f114a6">&lt;linkText&gt;</bpt>A screenshot of the UI for configuring integrated app settings<ept id="e603a405-889e-45e1-85c7-311ec1f114a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e603a405-889e-45e1-85c7-311ec1f114a6">&lt;linkText&gt;</bpt>A screenshot of the UI for configuring integrated app settings<ept id="e603a405-889e-45e1-85c7-311ec1f114a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11f4b995-51e6-400c-9748-1369c2033e2f" xml:space="preserve">
+          <source>Learn more about how to add applications to Azure AD and how to configure services for apps.</source>
+          <target state="new">Learn more about how to add applications to Azure AD and how to configure services for apps.</target>
+        </trans-unit>
+        <trans-unit id="4765fb8b-748d-42c5-8771-56cdc74f00fb" xml:space="preserve">
+          <source>Developers: <bpt id="bd9d1ee8-6c40-4762-b036-eff06f74ba9d">&lt;linkText&gt;</bpt>Learn how to integrate an application with AAD<ept id="bd9d1ee8-6c40-4762-b036-eff06f74ba9d">&lt;/linkText&gt;</ept><bpt id="bd9d1ee8-6c40-4762-b036-eff06f74ba9d">&lt;title&gt;</bpt><ept id="bd9d1ee8-6c40-4762-b036-eff06f74ba9d">&lt;/title&gt;</ept></source>
+          <target state="new">Developers: <bpt id="bd9d1ee8-6c40-4762-b036-eff06f74ba9d">&lt;linkText&gt;</bpt>Learn how to integrate an application with AAD<ept id="bd9d1ee8-6c40-4762-b036-eff06f74ba9d">&lt;/linkText&gt;</ept><bpt id="bd9d1ee8-6c40-4762-b036-eff06f74ba9d">&lt;title&gt;</bpt><ept id="bd9d1ee8-6c40-4762-b036-eff06f74ba9d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6523786f-7b5a-4a25-85ea-6b90b13cba56" xml:space="preserve">
+          <source>Developers: <bpt id="d994235a-5623-43e2-b8c4-7a01526f8792">&lt;linkText&gt;</bpt>Review sample code for apps integrated with Azure Active Directory on Github<ept id="d994235a-5623-43e2-b8c4-7a01526f8792">&lt;/linkText&gt;</ept><bpt id="d994235a-5623-43e2-b8c4-7a01526f8792">&lt;title&gt;</bpt><ept id="d994235a-5623-43e2-b8c4-7a01526f8792">&lt;/title&gt;</ept></source>
+          <target state="new">Developers: <bpt id="d994235a-5623-43e2-b8c4-7a01526f8792">&lt;linkText&gt;</bpt>Review sample code for apps integrated with Azure Active Directory on Github<ept id="d994235a-5623-43e2-b8c4-7a01526f8792">&lt;/linkText&gt;</ept><bpt id="d994235a-5623-43e2-b8c4-7a01526f8792">&lt;title&gt;</bpt><ept id="d994235a-5623-43e2-b8c4-7a01526f8792">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="316f6bc9-e418-47ba-8d32-87abd844cf82" xml:space="preserve">
+          <source>Developers and IT Pros: <bpt id="1bab4989-7c47-461d-b3cd-db11bf32c876">&lt;linkText&gt;</bpt>Review the REST API documentation for the Azure Active Directory Graph API<ept id="1bab4989-7c47-461d-b3cd-db11bf32c876">&lt;/linkText&gt;</ept><bpt id="1bab4989-7c47-461d-b3cd-db11bf32c876">&lt;title&gt;</bpt><ept id="1bab4989-7c47-461d-b3cd-db11bf32c876">&lt;/title&gt;</ept></source>
+          <target state="new">Developers and IT Pros: <bpt id="1bab4989-7c47-461d-b3cd-db11bf32c876">&lt;linkText&gt;</bpt>Review the REST API documentation for the Azure Active Directory Graph API<ept id="1bab4989-7c47-461d-b3cd-db11bf32c876">&lt;/linkText&gt;</ept><bpt id="1bab4989-7c47-461d-b3cd-db11bf32c876">&lt;title&gt;</bpt><ept id="1bab4989-7c47-461d-b3cd-db11bf32c876">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12ed4588-1af5-45bb-8086-33a328aca771" xml:space="preserve">
+          <source>IT Pros: <bpt id="b9506cb8-31a5-4087-b670-87e0dc92c49b">&lt;linkText&gt;</bpt>Learn how to use Azure Active Directory pre-integrated applications from the App Gallery<ept id="b9506cb8-31a5-4087-b670-87e0dc92c49b">&lt;/linkText&gt;</ept><bpt id="b9506cb8-31a5-4087-b670-87e0dc92c49b">&lt;title&gt;</bpt><ept id="b9506cb8-31a5-4087-b670-87e0dc92c49b">&lt;/title&gt;</ept></source>
+          <target state="new">IT Pros: <bpt id="b9506cb8-31a5-4087-b670-87e0dc92c49b">&lt;linkText&gt;</bpt>Learn how to use Azure Active Directory pre-integrated applications from the App Gallery<ept id="b9506cb8-31a5-4087-b670-87e0dc92c49b">&lt;/linkText&gt;</ept><bpt id="b9506cb8-31a5-4087-b670-87e0dc92c49b">&lt;title&gt;</bpt><ept id="b9506cb8-31a5-4087-b670-87e0dc92c49b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92d1bb30-9adc-4007-8639-a3b19b75b7cd" xml:space="preserve">
+          <source>IT Pros: <bpt id="b5175328-48b2-44d3-83e2-cac2cd20005f">&lt;linkText&gt;</bpt>Find tutorials for configuring specific pre-integrated apps<ept id="b5175328-48b2-44d3-83e2-cac2cd20005f">&lt;/linkText&gt;</ept><bpt id="b5175328-48b2-44d3-83e2-cac2cd20005f">&lt;title&gt;</bpt><ept id="b5175328-48b2-44d3-83e2-cac2cd20005f">&lt;/title&gt;</ept></source>
+          <target state="new">IT Pros: <bpt id="b5175328-48b2-44d3-83e2-cac2cd20005f">&lt;linkText&gt;</bpt>Find tutorials for configuring specific pre-integrated apps<ept id="b5175328-48b2-44d3-83e2-cac2cd20005f">&lt;/linkText&gt;</ept><bpt id="b5175328-48b2-44d3-83e2-cac2cd20005f">&lt;title&gt;</bpt><ept id="b5175328-48b2-44d3-83e2-cac2cd20005f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6cf089e-64f2-420c-a444-e9afef010abe" xml:space="preserve">
+          <source>IT Pros: <bpt id="11efec5f-dbac-46e6-8fb4-0d5489957574">&lt;linkText&gt;</bpt>Learn how to publish an app using the Azure Active Directory Application Proxy<ept id="11efec5f-dbac-46e6-8fb4-0d5489957574">&lt;/linkText&gt;</ept><bpt id="11efec5f-dbac-46e6-8fb4-0d5489957574">&lt;title&gt;</bpt><ept id="11efec5f-dbac-46e6-8fb4-0d5489957574">&lt;/title&gt;</ept></source>
+          <target state="new">IT Pros: <bpt id="11efec5f-dbac-46e6-8fb4-0d5489957574">&lt;linkText&gt;</bpt>Learn how to publish an app using the Azure Active Directory Application Proxy<ept id="11efec5f-dbac-46e6-8fb4-0d5489957574">&lt;/linkText&gt;</ept><bpt id="11efec5f-dbac-46e6-8fb4-0d5489957574">&lt;title&gt;</bpt><ept id="11efec5f-dbac-46e6-8fb4-0d5489957574">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0cd2040c-fa0e-480b-8405-8bbf159b0fb6" xml:space="preserve">
+          <source>media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg</source>
+          <target state="new">media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg</target>
+        </trans-unit>
+        <trans-unit id="efd5ed22-bdbc-463d-95a2-7af399529183" xml:space="preserve">
+          <source>media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg</source>
+          <target state="new">media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="b7d0c670-b2ad-4f6a-8a4b-58d23471b7f9" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f231a8de-33ee-4bd8-8dd4-64026077a3f9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f231a8de-33ee-4bd8-8dd4-64026077a3f9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1dcdd8ac-d89f-4abc-9fac-107ac651ea0e">
+        <trans-unit id="400a2bb8-95d5-4137-ac49-7333ce0b1a11" xml:space="preserve">
+          <source>Get started with your first Azure Search application in .NET | Microsoft Azure</source>
+          <target state="new">Get started with your first Azure Search application in .NET | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="57326c88-1327-4946-9b56-3284ecd741ec" xml:space="preserve">
+          <source>Tutorial on how to build a Visual Studio solution using the .NET client library from the Azure Search .NET SDK.</source>
+          <target state="new">Tutorial on how to build a Visual Studio solution using the .NET client library from the Azure Search .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="2cb4ac59-1b9c-42a7-ad2b-68063a52fbce" xml:space="preserve">
+          <source>Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience.</source>
+          <target state="new">Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience.</target>
+        </trans-unit>
+        <trans-unit id="5b379515-8f31-4f33-91d0-61e0a7e6502b" xml:space="preserve">
+          <source>This tutorial uses the <bpt id="093f9b57-4455-4c90-b338-b801f2548493">&lt;linkText&gt;</bpt>Azure Search .NET SDK<ept id="093f9b57-4455-4c90-b338-b801f2548493">&lt;/linkText&gt;</ept><bpt id="093f9b57-4455-4c90-b338-b801f2548493">&lt;title&gt;</bpt><ept id="093f9b57-4455-4c90-b338-b801f2548493">&lt;/title&gt;</ept> to build classes for the objects and operations used in this exercise, as well as the Azure Search service REST API.</source>
+          <target state="new">This tutorial uses the <bpt id="093f9b57-4455-4c90-b338-b801f2548493">&lt;linkText&gt;</bpt>Azure Search .NET SDK<ept id="093f9b57-4455-4c90-b338-b801f2548493">&lt;/linkText&gt;</ept><bpt id="093f9b57-4455-4c90-b338-b801f2548493">&lt;title&gt;</bpt><ept id="093f9b57-4455-4c90-b338-b801f2548493">&lt;/title&gt;</ept> to build classes for the objects and operations used in this exercise, as well as the Azure Search service REST API.</target>
+        </trans-unit>
+        <trans-unit id="45e01849-8554-4692-9bc5-525b4d476fc3" xml:space="preserve">
+          <source>To run this sample, you need an Azure Search service, which you can sign up for in the <bpt id="d2acbf97-05a3-4194-a32c-9eabb7edbb2f">&lt;linkText&gt;</bpt>Azure portal<ept id="d2acbf97-05a3-4194-a32c-9eabb7edbb2f">&lt;/linkText&gt;</ept><bpt id="d2acbf97-05a3-4194-a32c-9eabb7edbb2f">&lt;title&gt;</bpt><ept id="d2acbf97-05a3-4194-a32c-9eabb7edbb2f">&lt;/title&gt;</ept>.</source>
+          <target state="new">To run this sample, you need an Azure Search service, which you can sign up for in the <bpt id="d2acbf97-05a3-4194-a32c-9eabb7edbb2f">&lt;linkText&gt;</bpt>Azure portal<ept id="d2acbf97-05a3-4194-a32c-9eabb7edbb2f">&lt;/linkText&gt;</ept><bpt id="d2acbf97-05a3-4194-a32c-9eabb7edbb2f">&lt;title&gt;</bpt><ept id="d2acbf97-05a3-4194-a32c-9eabb7edbb2f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49c1ab69-7c03-4b18-9ae3-a6572e0003ab" xml:space="preserve">
+          <source>Download the source code for this tutorial at <bpt id="417dd509-b1a0-41c2-a4d8-ca9e33cfc791">&lt;linkText&gt;</bpt>Azure Search .NET Samples<ept id="417dd509-b1a0-41c2-a4d8-ca9e33cfc791">&lt;/linkText&gt;</ept><bpt id="417dd509-b1a0-41c2-a4d8-ca9e33cfc791">&lt;title&gt;</bpt><ept id="417dd509-b1a0-41c2-a4d8-ca9e33cfc791">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download the source code for this tutorial at <bpt id="417dd509-b1a0-41c2-a4d8-ca9e33cfc791">&lt;linkText&gt;</bpt>Azure Search .NET Samples<ept id="417dd509-b1a0-41c2-a4d8-ca9e33cfc791">&lt;/linkText&gt;</ept><bpt id="417dd509-b1a0-41c2-a4d8-ca9e33cfc791">&lt;title&gt;</bpt><ept id="417dd509-b1a0-41c2-a4d8-ca9e33cfc791">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1367239-a301-4615-9c30-9f5b2b366525" xml:space="preserve">
+          <source>Learn how to set up connections and send requests in <bpt id="063aa98c-aeab-4883-9a7b-1b77a1090556">&lt;linkText&gt;</bpt>How to use Azure Search from a .NET application<ept id="063aa98c-aeab-4883-9a7b-1b77a1090556">&lt;/linkText&gt;</ept><bpt id="063aa98c-aeab-4883-9a7b-1b77a1090556">&lt;title&gt;</bpt><ept id="063aa98c-aeab-4883-9a7b-1b77a1090556">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn how to set up connections and send requests in <bpt id="063aa98c-aeab-4883-9a7b-1b77a1090556">&lt;linkText&gt;</bpt>How to use Azure Search from a .NET application<ept id="063aa98c-aeab-4883-9a7b-1b77a1090556">&lt;/linkText&gt;</ept><bpt id="063aa98c-aeab-4883-9a7b-1b77a1090556">&lt;title&gt;</bpt><ept id="063aa98c-aeab-4883-9a7b-1b77a1090556">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c9545911-17b5-4e7d-92e0-ce83cb329655" xml:space="preserve">
+          <source>This sample application uses data from the <bpt id="b4086eaf-3742-4489-b7a6-3e97a7616e64">&lt;linkText&gt;</bpt>United States Geological Services (USGS)<ept id="b4086eaf-3742-4489-b7a6-3e97a7616e64">&lt;/linkText&gt;</ept><bpt id="b4086eaf-3742-4489-b7a6-3e97a7616e64">&lt;title&gt;</bpt><ept id="b4086eaf-3742-4489-b7a6-3e97a7616e64">&lt;/title&gt;</ept>, filtered on the state of Rhode Island to reduce the dataset size.</source>
+          <target state="new">This sample application uses data from the <bpt id="b4086eaf-3742-4489-b7a6-3e97a7616e64">&lt;linkText&gt;</bpt>United States Geological Services (USGS)<ept id="b4086eaf-3742-4489-b7a6-3e97a7616e64">&lt;/linkText&gt;</ept><bpt id="b4086eaf-3742-4489-b7a6-3e97a7616e64">&lt;title&gt;</bpt><ept id="b4086eaf-3742-4489-b7a6-3e97a7616e64">&lt;/title&gt;</ept>, filtered on the state of Rhode Island to reduce the dataset size.</target>
+        </trans-unit>
+        <trans-unit id="2767e9d6-698b-44f9-96d7-c40c11ec796d" xml:space="preserve">
+          <source>We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.</source>
+          <target state="new">We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.</target>
+        </trans-unit>
+        <trans-unit id="c6480ba0-13fb-4ecb-b98a-1b88f2901921" xml:space="preserve">
+          <source>In this application, the <bpt id="39f22f81-01eb-40ab-9c92-da75303d634d">&lt;strong&gt;</bpt>DataIndexer<ept id="39f22f81-01eb-40ab-9c92-da75303d634d">&lt;/strong&gt;</ept> program builds and loads the index using an <bpt id="c24d9996-00ec-433a-97b9-52d7c76075f9">&lt;linkText&gt;</bpt>Indexer<ept id="c24d9996-00ec-433a-97b9-52d7c76075f9">&lt;/linkText&gt;</ept><bpt id="c24d9996-00ec-433a-97b9-52d7c76075f9">&lt;title&gt;</bpt><ept id="c24d9996-00ec-433a-97b9-52d7c76075f9">&lt;/title&gt;</ept> construct, retrieving the filtered USGS dataset from a public Azure SQL Database.</source>
+          <target state="new">In this application, the <bpt id="39f22f81-01eb-40ab-9c92-da75303d634d">&lt;strong&gt;</bpt>DataIndexer<ept id="39f22f81-01eb-40ab-9c92-da75303d634d">&lt;/strong&gt;</ept> program builds and loads the index using an <bpt id="c24d9996-00ec-433a-97b9-52d7c76075f9">&lt;linkText&gt;</bpt>Indexer<ept id="c24d9996-00ec-433a-97b9-52d7c76075f9">&lt;/linkText&gt;</ept><bpt id="c24d9996-00ec-433a-97b9-52d7c76075f9">&lt;title&gt;</bpt><ept id="c24d9996-00ec-433a-97b9-52d7c76075f9">&lt;/title&gt;</ept> construct, retrieving the filtered USGS dataset from a public Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="eb953085-7999-4c7e-9470-51360d0cf307" xml:space="preserve">
+          <source>Credentials and connection information to the online data source is provided in the program code.</source>
+          <target state="new">Credentials and connection information to the online data source is provided in the program code.</target>
+        </trans-unit>
+        <trans-unit id="6bddbee7-c204-4457-8353-00b4dace79be" xml:space="preserve">
+          <source>No further configuration is necessary.</source>
+          <target state="new">No further configuration is necessary.</target>
+        </trans-unit>
+        <trans-unit id="93e38e10-e417-4095-a66d-6bc07397bbd3" xml:space="preserve">
+          <source>We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier.</source>
+          <target state="new">We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="d20c0165-97c2-4d41-bd76-bfdc77425581" xml:space="preserve">
+          <source>If you use the standard tier, this limit does not apply.</source>
+          <target state="new">If you use the standard tier, this limit does not apply.</target>
+        </trans-unit>
+        <trans-unit id="938df141-8563-4c26-8894-6ab00835a2c4" xml:space="preserve">
+          <source>For details about capacity for each pricing tier, see <bpt id="5932cc1a-c8a1-4c5b-8418-33983dda46aa">&lt;linkText&gt;</bpt>Limits and constraints<ept id="5932cc1a-c8a1-4c5b-8418-33983dda46aa">&lt;/linkText&gt;</ept><bpt id="5932cc1a-c8a1-4c5b-8418-33983dda46aa">&lt;title&gt;</bpt><ept id="5932cc1a-c8a1-4c5b-8418-33983dda46aa">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about capacity for each pricing tier, see <bpt id="5932cc1a-c8a1-4c5b-8418-33983dda46aa">&lt;linkText&gt;</bpt>Limits and constraints<ept id="5932cc1a-c8a1-4c5b-8418-33983dda46aa">&lt;/linkText&gt;</ept><bpt id="5932cc1a-c8a1-4c5b-8418-33983dda46aa">&lt;title&gt;</bpt><ept id="5932cc1a-c8a1-4c5b-8418-33983dda46aa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="266dd30d-c379-4a2c-8b54-7f35ed21e148" xml:space="preserve">
+          <source>Sign in to the <bpt id="1dc22075-574c-47c7-8875-232d4563eb99">&lt;linkText&gt;</bpt>Azure portal<ept id="1dc22075-574c-47c7-8875-232d4563eb99">&lt;/linkText&gt;</ept><bpt id="1dc22075-574c-47c7-8875-232d4563eb99">&lt;title&gt;</bpt><ept id="1dc22075-574c-47c7-8875-232d4563eb99">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="1dc22075-574c-47c7-8875-232d4563eb99">&lt;linkText&gt;</bpt>Azure portal<ept id="1dc22075-574c-47c7-8875-232d4563eb99">&lt;/linkText&gt;</ept><bpt id="1dc22075-574c-47c7-8875-232d4563eb99">&lt;title&gt;</bpt><ept id="1dc22075-574c-47c7-8875-232d4563eb99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f74215cb-070b-47a4-9a55-4aa272d3a8e3" xml:space="preserve">
+          <source>In the Jumpbar, click <bpt id="75ca6544-1d4c-4b1c-8f75-0330e55cb948">&lt;strong&gt;</bpt>New<ept id="75ca6544-1d4c-4b1c-8f75-0330e55cb948">&lt;/strong&gt;</ept> &gt; <bpt id="4eb97805-e26b-4657-a1df-5fb4f07adab0">&lt;strong&gt;</bpt>Data + Storage<ept id="4eb97805-e26b-4657-a1df-5fb4f07adab0">&lt;/strong&gt;</ept> &gt; <bpt id="6fbd2d2c-c6b2-46a3-b673-d48197c3c580">&lt;strong&gt;</bpt>Search<ept id="6fbd2d2c-c6b2-46a3-b673-d48197c3c580">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Jumpbar, click <bpt id="75ca6544-1d4c-4b1c-8f75-0330e55cb948">&lt;strong&gt;</bpt>New<ept id="75ca6544-1d4c-4b1c-8f75-0330e55cb948">&lt;/strong&gt;</ept> &gt; <bpt id="4eb97805-e26b-4657-a1df-5fb4f07adab0">&lt;strong&gt;</bpt>Data + Storage<ept id="4eb97805-e26b-4657-a1df-5fb4f07adab0">&lt;/strong&gt;</ept> &gt; <bpt id="6fbd2d2c-c6b2-46a3-b673-d48197c3c580">&lt;strong&gt;</bpt>Search<ept id="6fbd2d2c-c6b2-46a3-b673-d48197c3c580">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67e39e6d-b06b-4601-a720-308ce08d3bb1" xml:space="preserve">
+          <source> <bpt id="62ddbb92-d50b-417e-adc0-5879acdd88ce">&lt;linkText&gt;</bpt><ept id="62ddbb92-d50b-417e-adc0-5879acdd88ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="62ddbb92-d50b-417e-adc0-5879acdd88ce">&lt;linkText&gt;</bpt><ept id="62ddbb92-d50b-417e-adc0-5879acdd88ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c142a6e-3222-4e2d-bcf3-4f8daa3ee223" xml:space="preserve">
+          <source>Configure the service name, pricing tier, resource group, subscription and location.</source>
+          <target state="new">Configure the service name, pricing tier, resource group, subscription and location.</target>
+        </trans-unit>
+        <trans-unit id="fada6c59-592a-47c4-b869-7e27c58f2495" xml:space="preserve">
+          <source>These settings are required and cannot be changed once the service is provisioned.</source>
+          <target state="new">These settings are required and cannot be changed once the service is provisioned.</target>
+        </trans-unit>
+        <trans-unit id="cccaee97-b738-4815-b9d1-cb7a8fdf654a" xml:space="preserve">
+          <source> <bpt id="c0bddda4-a80c-4f12-8214-cefdd17c4d95">&lt;linkText&gt;</bpt><ept id="c0bddda4-a80c-4f12-8214-cefdd17c4d95">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="c0bddda4-a80c-4f12-8214-cefdd17c4d95">&lt;linkText&gt;</bpt><ept id="c0bddda4-a80c-4f12-8214-cefdd17c4d95">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f889fbe6-b0f7-4003-94a3-74fa5757eb35" xml:space="preserve">
+          <source><bpt id="2eae3699-4f1f-4741-8b1d-a23f85bb658f">&lt;strong&gt;</bpt>Service name<ept id="2eae3699-4f1f-4741-8b1d-a23f85bb658f">&lt;/strong&gt;</ept> must be unique, lower-case, under 15 characters, with no spaces.</source>
+          <target state="new"><bpt id="2eae3699-4f1f-4741-8b1d-a23f85bb658f">&lt;strong&gt;</bpt>Service name<ept id="2eae3699-4f1f-4741-8b1d-a23f85bb658f">&lt;/strong&gt;</ept> must be unique, lower-case, under 15 characters, with no spaces.</target>
+        </trans-unit>
+        <trans-unit id="acdf42dc-1b11-4b16-a8d2-46b119ccdb6f" xml:space="preserve">
+          <source>This name becomes part of the endpoint of your Azure Search service.</source>
+          <target state="new">This name becomes part of the endpoint of your Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="c866e1e5-124c-4b33-b483-3abd8065e6eb" xml:space="preserve">
+          <source>See <bpt id="7862d1ce-bceb-4702-b8c7-6c17cbff9cfa">&lt;linkText&gt;</bpt>Naming Rules<ept id="7862d1ce-bceb-4702-b8c7-6c17cbff9cfa">&lt;/linkText&gt;</ept><bpt id="7862d1ce-bceb-4702-b8c7-6c17cbff9cfa">&lt;title&gt;</bpt><ept id="7862d1ce-bceb-4702-b8c7-6c17cbff9cfa">&lt;/title&gt;</ept> for more information about naming conventions.</source>
+          <target state="new">See <bpt id="7862d1ce-bceb-4702-b8c7-6c17cbff9cfa">&lt;linkText&gt;</bpt>Naming Rules<ept id="7862d1ce-bceb-4702-b8c7-6c17cbff9cfa">&lt;/linkText&gt;</ept><bpt id="7862d1ce-bceb-4702-b8c7-6c17cbff9cfa">&lt;title&gt;</bpt><ept id="7862d1ce-bceb-4702-b8c7-6c17cbff9cfa">&lt;/title&gt;</ept> for more information about naming conventions.</target>
+        </trans-unit>
+        <trans-unit id="ff9dc990-f659-46f8-a4aa-2449e556649a" xml:space="preserve">
+          <source><bpt id="07d526a9-9f7c-46d0-bf66-56f5909ad61d">&lt;strong&gt;</bpt>Pricing Tier<ept id="07d526a9-9f7c-46d0-bf66-56f5909ad61d">&lt;/strong&gt;</ept> determines capacity and billing.</source>
+          <target state="new"><bpt id="07d526a9-9f7c-46d0-bf66-56f5909ad61d">&lt;strong&gt;</bpt>Pricing Tier<ept id="07d526a9-9f7c-46d0-bf66-56f5909ad61d">&lt;/strong&gt;</ept> determines capacity and billing.</target>
+        </trans-unit>
+        <trans-unit id="8959cecb-a9c2-4349-ae7a-47e58b2e7ce4" xml:space="preserve">
+          <source>Both tiers provide the same features, but at different resource levels.</source>
+          <target state="new">Both tiers provide the same features, but at different resource levels.</target>
+        </trans-unit>
+        <trans-unit id="6005f26b-0f0b-47fb-a081-f9771c8d890b" xml:space="preserve">
+          <source><bpt id="725633ee-d3de-40a0-8e4e-f50d61a850f7">&lt;strong&gt;</bpt>Free<ept id="725633ee-d3de-40a0-8e4e-f50d61a850f7">&lt;/strong&gt;</ept>  runs on clusters that are shared with other subscribers.</source>
+          <target state="new"><bpt id="725633ee-d3de-40a0-8e4e-f50d61a850f7">&lt;strong&gt;</bpt>Free<ept id="725633ee-d3de-40a0-8e4e-f50d61a850f7">&lt;/strong&gt;</ept>  runs on clusters that are shared with other subscribers.</target>
+        </trans-unit>
+        <trans-unit id="f67ca879-4cbc-45bf-9f8b-c3cd32786571" xml:space="preserve">
+          <source>It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications.</source>
+          <target state="new">It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications.</target>
+        </trans-unit>
+        <trans-unit id="5e6d4f2e-226c-4cde-9bb1-e0e3f55a916a" xml:space="preserve">
+          <source>Deploying a free service typically only takes a few minutes.</source>
+          <target state="new">Deploying a free service typically only takes a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="ed9bbf19-1b60-461f-ba41-30ae057fbf9b" xml:space="preserve">
+          <source><bpt id="7b231b5e-c550-4704-9ca3-e8d98194862a">&lt;strong&gt;</bpt>Standard<ept id="7b231b5e-c550-4704-9ca3-e8d98194862a">&lt;/strong&gt;</ept> runs on dedicated resources and is highly scalable.</source>
+          <target state="new"><bpt id="7b231b5e-c550-4704-9ca3-e8d98194862a">&lt;strong&gt;</bpt>Standard<ept id="7b231b5e-c550-4704-9ca3-e8d98194862a">&lt;/strong&gt;</ept> runs on dedicated resources and is highly scalable.</target>
+        </trans-unit>
+        <trans-unit id="2d5ea529-b58f-48ee-84ba-bb4d469e306b" xml:space="preserve">
+          <source>Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created.</source>
+          <target state="new">Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created.</target>
+        </trans-unit>
+        <trans-unit id="6cc95933-de3d-4fca-b0cd-b07642f57e8b" xml:space="preserve">
+          <source>Deploying a standard service takes longer, usually about fifteen minutes.</source>
+          <target state="new">Deploying a standard service takes longer, usually about fifteen minutes.</target>
+        </trans-unit>
+        <trans-unit id="ac53de3f-0923-462a-96de-a6f13bebeaa4" xml:space="preserve">
+          <source><bpt id="fa0e1a29-829f-4472-8dc3-fa1fde39c000">&lt;strong&gt;</bpt>Resource Groups<ept id="fa0e1a29-829f-4472-8dc3-fa1fde39c000">&lt;/strong&gt;</ept> are containers for services and resources used for a common purpose.</source>
+          <target state="new"><bpt id="fa0e1a29-829f-4472-8dc3-fa1fde39c000">&lt;strong&gt;</bpt>Resource Groups<ept id="fa0e1a29-829f-4472-8dc3-fa1fde39c000">&lt;/strong&gt;</ept> are containers for services and resources used for a common purpose.</target>
+        </trans-unit>
+        <trans-unit id="0ab24191-9a81-48bb-8041-97269e5c8572" xml:space="preserve">
+          <source>For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.</source>
+          <target state="new">For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.</target>
+        </trans-unit>
+        <trans-unit id="37542bf7-21e6-4230-8064-8216fdae3c32" xml:space="preserve">
+          <source><bpt id="9df0343c-835b-4d4b-a1a1-8e0eba8e02c0">&lt;strong&gt;</bpt>Subscription<ept id="9df0343c-835b-4d4b-a1a1-8e0eba8e02c0">&lt;/strong&gt;</ept> allows you to choose among multiple subscriptions, if you have more than one subscription.</source>
+          <target state="new"><bpt id="9df0343c-835b-4d4b-a1a1-8e0eba8e02c0">&lt;strong&gt;</bpt>Subscription<ept id="9df0343c-835b-4d4b-a1a1-8e0eba8e02c0">&lt;/strong&gt;</ept> allows you to choose among multiple subscriptions, if you have more than one subscription.</target>
+        </trans-unit>
+        <trans-unit id="a19973ff-b3cc-49f5-af5f-d018c95e6a63" xml:space="preserve">
+          <source><bpt id="25943aec-1e6f-4ac5-a3ed-13b2c421a4e4">&lt;strong&gt;</bpt>Location<ept id="25943aec-1e6f-4ac5-a3ed-13b2c421a4e4">&lt;/strong&gt;</ept> is the data center region.</source>
+          <target state="new"><bpt id="25943aec-1e6f-4ac5-a3ed-13b2c421a4e4">&lt;strong&gt;</bpt>Location<ept id="25943aec-1e6f-4ac5-a3ed-13b2c421a4e4">&lt;/strong&gt;</ept> is the data center region.</target>
+        </trans-unit>
+        <trans-unit id="3ca21855-890f-4a89-899a-e1fee6ada189" xml:space="preserve">
+          <source>Currently, all resources must run in the same data center.</source>
+          <target state="new">Currently, all resources must run in the same data center.</target>
+        </trans-unit>
+        <trans-unit id="eb3ac4ed-2485-4029-b9c7-c36cce399523" xml:space="preserve">
+          <source>Distributing resources across multiple data centers is not supported.</source>
+          <target state="new">Distributing resources across multiple data centers is not supported.</target>
+        </trans-unit>
+        <trans-unit id="b242e350-d642-4af9-828e-84ec3e1221d5" xml:space="preserve">
+          <source>Click <bpt id="6f5d9446-0b6f-474c-b964-920d12c97897">&lt;strong&gt;</bpt>Create<ept id="6f5d9446-0b6f-474c-b964-920d12c97897">&lt;/strong&gt;</ept> to provision the service.</source>
+          <target state="new">Click <bpt id="6f5d9446-0b6f-474c-b964-920d12c97897">&lt;strong&gt;</bpt>Create<ept id="6f5d9446-0b6f-474c-b964-920d12c97897">&lt;/strong&gt;</ept> to provision the service.</target>
+        </trans-unit>
+        <trans-unit id="6b7d783e-ef2e-47ce-b047-2085c9257a95" xml:space="preserve">
+          <source>Watch for notifications in the Jumpbar.</source>
+          <target state="new">Watch for notifications in the Jumpbar.</target>
+        </trans-unit>
+        <trans-unit id="2139ae44-cf35-44a8-831f-106bcb7225ed" xml:space="preserve">
+          <source>A notice will appear when the service is ready to use.</source>
+          <target state="new">A notice will appear when the service is ready to use.</target>
+        </trans-unit>
+        <trans-unit id="4c28fa9a-abd5-48ec-82bf-a651601ab20a" xml:space="preserve">
+          <source><bpt id="be91ae67-717b-44d3-9c59-b50aecddc2aa">&lt;bookmark&gt;</bpt><ept id="be91ae67-717b-44d3-9c59-b50aecddc2aa">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="be91ae67-717b-44d3-9c59-b50aecddc2aa">&lt;bookmark&gt;</bpt><ept id="be91ae67-717b-44d3-9c59-b50aecddc2aa">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="470df6da-178b-437e-bfd8-1678d85329aa" xml:space="preserve">
+          <source>After you create the service, return to the portal to get the URL or <bpt id="d13fa61a-95ac-4f86-8440-9222f8d54fc5">&lt;code&gt;</bpt>api-key<ept id="d13fa61a-95ac-4f86-8440-9222f8d54fc5">&lt;/code&gt;</ept>.</source>
+          <target state="new">After you create the service, return to the portal to get the URL or <bpt id="d13fa61a-95ac-4f86-8440-9222f8d54fc5">&lt;code&gt;</bpt>api-key<ept id="d13fa61a-95ac-4f86-8440-9222f8d54fc5">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5283cfeb-6d8c-4080-b4e9-7e8e986b01d8" xml:space="preserve">
+          <source>Connections to your Search service require that you have both the URL and an <bpt id="2d241358-1b3b-4f14-94e6-7bb938603c9d">&lt;code&gt;</bpt>api-key<ept id="2d241358-1b3b-4f14-94e6-7bb938603c9d">&lt;/code&gt;</ept> to authenticate the call.</source>
+          <target state="new">Connections to your Search service require that you have both the URL and an <bpt id="2d241358-1b3b-4f14-94e6-7bb938603c9d">&lt;code&gt;</bpt>api-key<ept id="2d241358-1b3b-4f14-94e6-7bb938603c9d">&lt;/code&gt;</ept> to authenticate the call.</target>
+        </trans-unit>
+        <trans-unit id="d41e21f5-ed5f-4f4c-bc46-784de88caebd" xml:space="preserve">
+          <source>In the Jumpbar, click <bpt id="fec7bcf0-b1e5-46d1-a6c4-73d067b8b537">&lt;strong&gt;</bpt>Home<ept id="fec7bcf0-b1e5-46d1-a6c4-73d067b8b537">&lt;/strong&gt;</ept> and then click the Search service to open the service dashboard.</source>
+          <target state="new">In the Jumpbar, click <bpt id="fec7bcf0-b1e5-46d1-a6c4-73d067b8b537">&lt;strong&gt;</bpt>Home<ept id="fec7bcf0-b1e5-46d1-a6c4-73d067b8b537">&lt;/strong&gt;</ept> and then click the Search service to open the service dashboard.</target>
+        </trans-unit>
+        <trans-unit id="0ee9a24a-2b29-47b2-aa49-7c11cb57c045" xml:space="preserve">
+          <source>On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.</source>
+          <target state="new">On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.</target>
+        </trans-unit>
+        <trans-unit id="bf9cd82a-4806-4433-8b81-5fe4c4654559" xml:space="preserve">
+          <source><bpt id="a10d0b72-f607-4233-878c-6f7234734b42">&lt;linkText&gt;</bpt><ept id="a10d0b72-f607-4233-878c-6f7234734b42">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a10d0b72-f607-4233-878c-6f7234734b42">&lt;linkText&gt;</bpt><ept id="a10d0b72-f607-4233-878c-6f7234734b42">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da42318a-8ff2-410d-8af7-7998dff0cb47" xml:space="preserve">
+          <source>Copy the service URL and an admin key.</source>
+          <target state="new">Copy the service URL and an admin key.</target>
+        </trans-unit>
+        <trans-unit id="e22857d9-e747-45a1-ada0-2447e6a88e9a" xml:space="preserve">
+          <source>You'll need them later, when you add them to the app.config and web.config files in your Visual Studio projects.</source>
+          <target state="new">You'll need them later, when you add them to the app.config and web.config files in your Visual Studio projects.</target>
+        </trans-unit>
+        <trans-unit id="45d775fb-314e-4292-9c91-b2ce7c0e4ed2" xml:space="preserve">
+          <source>This solution includes two projects:</source>
+          <target state="new">This solution includes two projects:</target>
+        </trans-unit>
+        <trans-unit id="4330f1e8-9580-4617-b5ec-fbb8748682dd" xml:space="preserve">
+          <source><bpt id="809c4019-2828-4eb9-816d-17d152074c55">&lt;strong&gt;</bpt>DataIndexer<ept id="809c4019-2828-4eb9-816d-17d152074c55">&lt;/strong&gt;</ept>, a Visual C# console application, used for loading data.</source>
+          <target state="new"><bpt id="809c4019-2828-4eb9-816d-17d152074c55">&lt;strong&gt;</bpt>DataIndexer<ept id="809c4019-2828-4eb9-816d-17d152074c55">&lt;/strong&gt;</ept>, a Visual C# console application, used for loading data.</target>
+        </trans-unit>
+        <trans-unit id="2d2acb4d-b053-41cb-8455-fd0a82e9bc94" xml:space="preserve">
+          <source><bpt id="eb922667-6e09-43ac-8e52-2418aba5c425">&lt;strong&gt;</bpt>SimpleSearchMVCApp<ept id="eb922667-6e09-43ac-8e52-2418aba5c425">&lt;/strong&gt;</ept>, a Visual C# ASP.NET MVC Web application, used to query and return search results.</source>
+          <target state="new"><bpt id="eb922667-6e09-43ac-8e52-2418aba5c425">&lt;strong&gt;</bpt>SimpleSearchMVCApp<ept id="eb922667-6e09-43ac-8e52-2418aba5c425">&lt;/strong&gt;</ept>, a Visual C# ASP.NET MVC Web application, used to query and return search results.</target>
+        </trans-unit>
+        <trans-unit id="9d40817e-8199-4579-9e5b-e8e7182a0469" xml:space="preserve">
+          <source>In this step, you'll create both projects.</source>
+          <target state="new">In this step, you'll create both projects.</target>
+        </trans-unit>
+        <trans-unit id="8994d5f0-e7c8-4ffc-be0d-c7cf76d46212" xml:space="preserve">
+          <source>Start <bpt id="3ee2ab28-f707-4f93-884d-27da8cc326d1">&lt;strong&gt;</bpt>Visual Studio<ept id="3ee2ab28-f707-4f93-884d-27da8cc326d1">&lt;/strong&gt;</ept> &gt; <bpt id="efa3b8d2-fa37-4cb0-8f7b-9983c8f50312">&lt;strong&gt;</bpt>New Project<ept id="efa3b8d2-fa37-4cb0-8f7b-9983c8f50312">&lt;/strong&gt;</ept> &gt; <bpt id="c3f52fa2-84e6-4cb8-8362-e9f2c00d3153">&lt;strong&gt;</bpt>Visual C#<ept id="c3f52fa2-84e6-4cb8-8362-e9f2c00d3153">&lt;/strong&gt;</ept> &gt; <bpt id="abc1faf9-fea3-474d-8955-a4f5b8dbaea9">&lt;strong&gt;</bpt>Console Application<ept id="abc1faf9-fea3-474d-8955-a4f5b8dbaea9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Start <bpt id="3ee2ab28-f707-4f93-884d-27da8cc326d1">&lt;strong&gt;</bpt>Visual Studio<ept id="3ee2ab28-f707-4f93-884d-27da8cc326d1">&lt;/strong&gt;</ept> &gt; <bpt id="efa3b8d2-fa37-4cb0-8f7b-9983c8f50312">&lt;strong&gt;</bpt>New Project<ept id="efa3b8d2-fa37-4cb0-8f7b-9983c8f50312">&lt;/strong&gt;</ept> &gt; <bpt id="c3f52fa2-84e6-4cb8-8362-e9f2c00d3153">&lt;strong&gt;</bpt>Visual C#<ept id="c3f52fa2-84e6-4cb8-8362-e9f2c00d3153">&lt;/strong&gt;</ept> &gt; <bpt id="abc1faf9-fea3-474d-8955-a4f5b8dbaea9">&lt;strong&gt;</bpt>Console Application<ept id="abc1faf9-fea3-474d-8955-a4f5b8dbaea9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4819f745-eb8c-4f17-8e34-249f827b5989" xml:space="preserve">
+          <source>Name the project <bpt id="921c2216-6f40-41c4-84d5-d9c4d5fd3219">&lt;strong&gt;</bpt>DataIndexer<ept id="921c2216-6f40-41c4-84d5-d9c4d5fd3219">&lt;/strong&gt;</ept> and then name the solution <bpt id="a5127b21-6144-43f6-8af7-7266cb41ff7b">&lt;strong&gt;</bpt>AzureSearchDotNetDemo<ept id="a5127b21-6144-43f6-8af7-7266cb41ff7b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the project <bpt id="921c2216-6f40-41c4-84d5-d9c4d5fd3219">&lt;strong&gt;</bpt>DataIndexer<ept id="921c2216-6f40-41c4-84d5-d9c4d5fd3219">&lt;/strong&gt;</ept> and then name the solution <bpt id="a5127b21-6144-43f6-8af7-7266cb41ff7b">&lt;strong&gt;</bpt>AzureSearchDotNetDemo<ept id="a5127b21-6144-43f6-8af7-7266cb41ff7b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23a65808-c38d-4022-91dc-d0cb82f08ebe" xml:space="preserve">
+          <source>In Solution Explorer, on solution, right-click <bpt id="953d0a5b-5484-4974-b87a-731da7af62d9">&lt;strong&gt;</bpt>Add<ept id="953d0a5b-5484-4974-b87a-731da7af62d9">&lt;/strong&gt;</ept> &gt; <bpt id="d22bf067-f609-4562-a3a3-fca4239baa0a">&lt;strong&gt;</bpt>New Project<ept id="d22bf067-f609-4562-a3a3-fca4239baa0a">&lt;/strong&gt;</ept> &gt; <bpt id="53c6e3d2-04c9-4688-8d8e-8fe2e8560d70">&lt;strong&gt;</bpt>Visual C#<ept id="53c6e3d2-04c9-4688-8d8e-8fe2e8560d70">&lt;/strong&gt;</ept> &gt; <bpt id="5d2fe16c-e7d1-448b-b69d-ceb86104f9fa">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="5d2fe16c-e7d1-448b-b69d-ceb86104f9fa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, on solution, right-click <bpt id="953d0a5b-5484-4974-b87a-731da7af62d9">&lt;strong&gt;</bpt>Add<ept id="953d0a5b-5484-4974-b87a-731da7af62d9">&lt;/strong&gt;</ept> &gt; <bpt id="d22bf067-f609-4562-a3a3-fca4239baa0a">&lt;strong&gt;</bpt>New Project<ept id="d22bf067-f609-4562-a3a3-fca4239baa0a">&lt;/strong&gt;</ept> &gt; <bpt id="53c6e3d2-04c9-4688-8d8e-8fe2e8560d70">&lt;strong&gt;</bpt>Visual C#<ept id="53c6e3d2-04c9-4688-8d8e-8fe2e8560d70">&lt;/strong&gt;</ept> &gt; <bpt id="5d2fe16c-e7d1-448b-b69d-ceb86104f9fa">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="5d2fe16c-e7d1-448b-b69d-ceb86104f9fa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f43280cc-2b02-4c8d-a19f-49811be8eefb" xml:space="preserve">
+          <source>Name the project <bpt id="48c293b1-d163-422a-b68c-e731ddb41ff7">&lt;strong&gt;</bpt>SimpleSearchMVCApp<ept id="48c293b1-d163-422a-b68c-e731ddb41ff7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the project <bpt id="48c293b1-d163-422a-b68c-e731ddb41ff7">&lt;strong&gt;</bpt>SimpleSearchMVCApp<ept id="48c293b1-d163-422a-b68c-e731ddb41ff7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5207f86f-62a8-4527-92cb-6a6925d0ba2b" xml:space="preserve">
+          <source>In the New ASP.NET Project, choose the MVC template, and clear options to avoid creating program artifacts that you won't be using in this tutorial.</source>
+          <target state="new">In the New ASP.NET Project, choose the MVC template, and clear options to avoid creating program artifacts that you won't be using in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="5926d7e4-680c-407c-b36b-3045701a2812" xml:space="preserve">
+          <source>Clear the checkboxes for Azure Hosting and Unit Tests, and set Authentication to none.</source>
+          <target state="new">Clear the checkboxes for Azure Hosting and Unit Tests, and set Authentication to none.</target>
+        </trans-unit>
+        <trans-unit id="9089d94b-037b-4533-868a-bd6967929bd6" xml:space="preserve">
+          <source><bpt id="257f6f39-793b-43c4-9235-0fcce5bd9431">&lt;linkText&gt;</bpt><ept id="257f6f39-793b-43c4-9235-0fcce5bd9431">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="257f6f39-793b-43c4-9235-0fcce5bd9431">&lt;linkText&gt;</bpt><ept id="257f6f39-793b-43c4-9235-0fcce5bd9431">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc1deca2-ec13-49e3-bce3-74c930e0a5cf" xml:space="preserve">
+          <source>When you're finished creating the projects, your solution should look similar to the example shown below.</source>
+          <target state="new">When you're finished creating the projects, your solution should look similar to the example shown below.</target>
+        </trans-unit>
+        <trans-unit id="45f26dd3-ddc0-4a8a-98db-e9f6d8a980ff" xml:space="preserve">
+          <source>   <bpt id="60654dfb-ab2a-40ea-9f34-17bd5d0bdcec">&lt;linkText&gt;</bpt><ept id="60654dfb-ab2a-40ea-9f34-17bd5d0bdcec">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="60654dfb-ab2a-40ea-9f34-17bd5d0bdcec">&lt;linkText&gt;</bpt><ept id="60654dfb-ab2a-40ea-9f34-17bd5d0bdcec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f3fc5fd-83f3-4713-b20f-5836d5b24c08" xml:space="preserve">
+          <source>Right-click <bpt id="e78e0d73-13e9-4c0a-acb7-94b4a5309ec7">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="e78e0d73-13e9-4c0a-acb7-94b4a5309ec7">&lt;/strong&gt;</ept> on the solution in Solution Explorer.</source>
+          <target state="new">Right-click <bpt id="e78e0d73-13e9-4c0a-acb7-94b4a5309ec7">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="e78e0d73-13e9-4c0a-acb7-94b4a5309ec7">&lt;/strong&gt;</ept> on the solution in Solution Explorer.</target>
+        </trans-unit>
+        <trans-unit id="e0693576-e413-4063-bbb3-80b8e5263fe6" xml:space="preserve">
+          <source>Specify <bpt id="230e75b7-1261-4271-b762-3b630325670f">&lt;strong&gt;</bpt>Updates<ept id="230e75b7-1261-4271-b762-3b630325670f">&lt;/strong&gt;</ept> &gt; <bpt id="a1faa898-1aae-40e6-830e-53c40a4ac94d">&lt;strong&gt;</bpt>Stable Only<ept id="a1faa898-1aae-40e6-830e-53c40a4ac94d">&lt;/strong&gt;</ept> &gt; <bpt id="0870466d-2012-456e-8c17-ef16951a833b">&lt;strong&gt;</bpt>Update All<ept id="0870466d-2012-456e-8c17-ef16951a833b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify <bpt id="230e75b7-1261-4271-b762-3b630325670f">&lt;strong&gt;</bpt>Updates<ept id="230e75b7-1261-4271-b762-3b630325670f">&lt;/strong&gt;</ept> &gt; <bpt id="a1faa898-1aae-40e6-830e-53c40a4ac94d">&lt;strong&gt;</bpt>Stable Only<ept id="a1faa898-1aae-40e6-830e-53c40a4ac94d">&lt;/strong&gt;</ept> &gt; <bpt id="0870466d-2012-456e-8c17-ef16951a833b">&lt;strong&gt;</bpt>Update All<ept id="0870466d-2012-456e-8c17-ef16951a833b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8d87829-3d89-4fe2-a04b-0dbb9319bcd6" xml:space="preserve">
+          <source><bpt id="dde98cd1-2180-46cb-9cea-06902688b814">&lt;linkText&gt;</bpt><ept id="dde98cd1-2180-46cb-9cea-06902688b814">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dde98cd1-2180-46cb-9cea-06902688b814">&lt;linkText&gt;</bpt><ept id="dde98cd1-2180-46cb-9cea-06902688b814">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="000acb5a-0118-485e-b042-8d2df7e1a1bc" xml:space="preserve">
+          <source>Accept the additional package installations so that all dependencies are also installed.</source>
+          <target state="new">Accept the additional package installations so that all dependencies are also installed.</target>
+        </trans-unit>
+        <trans-unit id="5bd6a119-90c6-4380-918e-03fcc42fc1cb" xml:space="preserve">
+          <source>Next, install the Azure Search .NET client library.</source>
+          <target state="new">Next, install the Azure Search .NET client library.</target>
+        </trans-unit>
+        <trans-unit id="6acec682-34e3-472f-b0e8-249b970b8870" xml:space="preserve">
+          <source>Be sure to specify the search correctly or you won't easily find the package.</source>
+          <target state="new">Be sure to specify the search correctly or you won't easily find the package.</target>
+        </trans-unit>
+        <trans-unit id="aeb53ea2-1c98-4710-83c6-ee418820e33f" xml:space="preserve">
+          <source>Right-click <bpt id="1d09bc64-5de7-4ddd-abb4-54be6659fa64">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="1d09bc64-5de7-4ddd-abb4-54be6659fa64">&lt;/strong&gt;</ept> again.</source>
+          <target state="new">Right-click <bpt id="1d09bc64-5de7-4ddd-abb4-54be6659fa64">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="1d09bc64-5de7-4ddd-abb4-54be6659fa64">&lt;/strong&gt;</ept> again.</target>
+        </trans-unit>
+        <trans-unit id="5318b553-87f3-45bf-a4a5-9a554d16cdad" xml:space="preserve">
+          <source>Specify <bpt id="5cf97da4-a388-4466-85a3-61bb6e63e28e">&lt;strong&gt;</bpt>Online<ept id="5cf97da4-a388-4466-85a3-61bb6e63e28e">&lt;/strong&gt;</ept> &gt; <bpt id="1b817d5c-8aa8-4375-9c6c-73a2cac7f151">&lt;strong&gt;</bpt>nuget.org<ept id="1b817d5c-8aa8-4375-9c6c-73a2cac7f151">&lt;/strong&gt;</ept> &gt; <bpt id="b3e9cebc-e284-41d9-bc16-3e54eabff659">&lt;strong&gt;</bpt>Include Prerelease<ept id="b3e9cebc-e284-41d9-bc16-3e54eabff659">&lt;/strong&gt;</ept>, and then search for <bpt id="c24ba946-e1ea-4d67-b9c7-2abe63869e29">&lt;em&gt;</bpt>azure.search<ept id="c24ba946-e1ea-4d67-b9c7-2abe63869e29">&lt;/em&gt;</ept>.</source>
+          <target state="new">Specify <bpt id="5cf97da4-a388-4466-85a3-61bb6e63e28e">&lt;strong&gt;</bpt>Online<ept id="5cf97da4-a388-4466-85a3-61bb6e63e28e">&lt;/strong&gt;</ept> &gt; <bpt id="1b817d5c-8aa8-4375-9c6c-73a2cac7f151">&lt;strong&gt;</bpt>nuget.org<ept id="1b817d5c-8aa8-4375-9c6c-73a2cac7f151">&lt;/strong&gt;</ept> &gt; <bpt id="b3e9cebc-e284-41d9-bc16-3e54eabff659">&lt;strong&gt;</bpt>Include Prerelease<ept id="b3e9cebc-e284-41d9-bc16-3e54eabff659">&lt;/strong&gt;</ept>, and then search for <bpt id="c24ba946-e1ea-4d67-b9c7-2abe63869e29">&lt;em&gt;</bpt>azure.search<ept id="c24ba946-e1ea-4d67-b9c7-2abe63869e29">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b97a1b4d-0193-4030-8a94-4011d27cd0c6" xml:space="preserve">
+          <source>Click <bpt id="c37972f1-9d90-4cfe-b186-7ee7d91400b6">&lt;strong&gt;</bpt>Install<ept id="c37972f1-9d90-4cfe-b186-7ee7d91400b6">&lt;/strong&gt;</ept> to install the library.</source>
+          <target state="new">Click <bpt id="c37972f1-9d90-4cfe-b186-7ee7d91400b6">&lt;strong&gt;</bpt>Install<ept id="c37972f1-9d90-4cfe-b186-7ee7d91400b6">&lt;/strong&gt;</ept> to install the library.</target>
+        </trans-unit>
+        <trans-unit id="372870c1-7743-4345-a07a-3f9a17d20b37" xml:space="preserve">
+          <source><bpt id="9aa48c28-3fd3-4541-bedf-7807057cf8b5">&lt;linkText&gt;</bpt><ept id="9aa48c28-3fd3-4541-bedf-7807057cf8b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9aa48c28-3fd3-4541-bedf-7807057cf8b5">&lt;linkText&gt;</bpt><ept id="9aa48c28-3fd3-4541-bedf-7807057cf8b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28b5d7ac-d485-4dfe-9276-36c426e68802" xml:space="preserve">
+          <source>A partial list of the assemblies used in this example is shown below.</source>
+          <target state="new">A partial list of the assemblies used in this example is shown below.</target>
+        </trans-unit>
+        <trans-unit id="7373a07c-515a-4cbd-8414-042b6a94a9e3" xml:space="preserve">
+          <source>   <bpt id="364e866c-fbe1-4ffe-a3d4-f6d1075afd6e">&lt;linkText&gt;</bpt><ept id="364e866c-fbe1-4ffe-a3d4-f6d1075afd6e">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="364e866c-fbe1-4ffe-a3d4-f6d1075afd6e">&lt;linkText&gt;</bpt><ept id="364e866c-fbe1-4ffe-a3d4-f6d1075afd6e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac25beb0-2bc2-4d72-982e-b1eb58438c0d" xml:space="preserve">
+          <source><bpt id="aee816c6-8911-4af2-b604-0ea76506879c">&lt;strong&gt;</bpt>DataIndexer<ept id="aee816c6-8911-4af2-b604-0ea76506879c">&lt;/strong&gt;</ept> uses <bpt id="bc9b5acd-6db6-44a9-844e-dcf617fcf0dc">&lt;strong&gt;</bpt>System.Configuration<ept id="bc9b5acd-6db6-44a9-844e-dcf617fcf0dc">&lt;/strong&gt;</ept> to read the configuration settings in app.config.</source>
+          <target state="new"><bpt id="aee816c6-8911-4af2-b604-0ea76506879c">&lt;strong&gt;</bpt>DataIndexer<ept id="aee816c6-8911-4af2-b604-0ea76506879c">&lt;/strong&gt;</ept> uses <bpt id="bc9b5acd-6db6-44a9-844e-dcf617fcf0dc">&lt;strong&gt;</bpt>System.Configuration<ept id="bc9b5acd-6db6-44a9-844e-dcf617fcf0dc">&lt;/strong&gt;</ept> to read the configuration settings in app.config.</target>
+        </trans-unit>
+        <trans-unit id="b672a236-0856-4439-9bd5-f8c5b1512165" xml:space="preserve">
+          <source>Right-click <bpt id="cfaa3474-80cd-4349-a185-56eea6f6fcc9">&lt;strong&gt;</bpt>DataIndexer<ept id="cfaa3474-80cd-4349-a185-56eea6f6fcc9">&lt;/strong&gt;</ept> &gt; <bpt id="3ce20897-a015-4233-bcdd-53d560f9b511">&lt;strong&gt;</bpt>Add<ept id="3ce20897-a015-4233-bcdd-53d560f9b511">&lt;/strong&gt;</ept> &gt; <bpt id="94425d35-021e-46be-ab9e-0370a2fbeb03">&lt;strong&gt;</bpt>Reference<ept id="94425d35-021e-46be-ab9e-0370a2fbeb03">&lt;/strong&gt;</ept> &gt; <bpt id="afbbcb51-97e8-4b48-90a2-3eae23c3e030">&lt;strong&gt;</bpt>Framework<ept id="afbbcb51-97e8-4b48-90a2-3eae23c3e030">&lt;/strong&gt;</ept> &gt; <bpt id="30ca25ab-37fa-4879-aeae-17a9469f8955">&lt;strong&gt;</bpt>System.Configuration<ept id="30ca25ab-37fa-4879-aeae-17a9469f8955">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="cfaa3474-80cd-4349-a185-56eea6f6fcc9">&lt;strong&gt;</bpt>DataIndexer<ept id="cfaa3474-80cd-4349-a185-56eea6f6fcc9">&lt;/strong&gt;</ept> &gt; <bpt id="3ce20897-a015-4233-bcdd-53d560f9b511">&lt;strong&gt;</bpt>Add<ept id="3ce20897-a015-4233-bcdd-53d560f9b511">&lt;/strong&gt;</ept> &gt; <bpt id="94425d35-021e-46be-ab9e-0370a2fbeb03">&lt;strong&gt;</bpt>Reference<ept id="94425d35-021e-46be-ab9e-0370a2fbeb03">&lt;/strong&gt;</ept> &gt; <bpt id="afbbcb51-97e8-4b48-90a2-3eae23c3e030">&lt;strong&gt;</bpt>Framework<ept id="afbbcb51-97e8-4b48-90a2-3eae23c3e030">&lt;/strong&gt;</ept> &gt; <bpt id="30ca25ab-37fa-4879-aeae-17a9469f8955">&lt;strong&gt;</bpt>System.Configuration<ept id="30ca25ab-37fa-4879-aeae-17a9469f8955">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da837914-1c23-4c95-a103-8ce4a2d15a73" xml:space="preserve">
+          <source>Select the check box.</source>
+          <target state="new">Select the check box.</target>
+        </trans-unit>
+        <trans-unit id="fe7ce0ff-9c5c-4060-abd0-f5d90fd57fe3" xml:space="preserve">
+          <source>Click <bpt id="501a468c-93dc-4c2f-b81c-807841477f48">&lt;strong&gt;</bpt>OK<ept id="501a468c-93dc-4c2f-b81c-807841477f48">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="501a468c-93dc-4c2f-b81c-807841477f48">&lt;strong&gt;</bpt>OK<ept id="501a468c-93dc-4c2f-b81c-807841477f48">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="659c1e20-ad4c-4d49-9236-7a0f2b59b2a6" xml:space="preserve">
+          <source>Each project includes configuration files that specify the service name and api-key.</source>
+          <target state="new">Each project includes configuration files that specify the service name and api-key.</target>
+        </trans-unit>
+        <trans-unit id="50eb6e0e-f0f1-4ffe-949b-35a7e326c283" xml:space="preserve">
+          <source>In <bpt id="cb6ae4d6-d4e5-4c71-9bbc-f593e90d3980">&lt;strong&gt;</bpt>DataIndexer<ept id="cb6ae4d6-d4e5-4c71-9bbc-f593e90d3980">&lt;/strong&gt;</ept>, replace App.config with the following example, updating the [SERVICE NAME] and [SERVICE KEY] with values that are valid for your service.</source>
+          <target state="new">In <bpt id="cb6ae4d6-d4e5-4c71-9bbc-f593e90d3980">&lt;strong&gt;</bpt>DataIndexer<ept id="cb6ae4d6-d4e5-4c71-9bbc-f593e90d3980">&lt;/strong&gt;</ept>, replace App.config with the following example, updating the [SERVICE NAME] and [SERVICE KEY] with values that are valid for your service.</target>
+        </trans-unit>
+        <trans-unit id="d4a84caf-69b1-4758-be7d-295fa44d3d58" xml:space="preserve">
+          <source>Note that the service name is not the full URL.</source>
+          <target state="new">Note that the service name is not the full URL.</target>
+        </trans-unit>
+        <trans-unit id="f869464b-4015-4249-9c37-5aad979c86db" xml:space="preserve">
+          <source>For example, if your Search service endpoint is <bpt id="4255cf22-c18b-4fcc-b55c-8f31dc32ced9">&lt;em&gt;</bpt>https://mysearchsrv.search.microsoft.net<ept id="4255cf22-c18b-4fcc-b55c-8f31dc32ced9">&lt;/em&gt;</ept>, the service name you would enter in App.config is <bpt id="a50c59ca-71c3-447d-a5f1-769a353f7bf2">&lt;em&gt;</bpt>mysearchsrv<ept id="a50c59ca-71c3-447d-a5f1-769a353f7bf2">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, if your Search service endpoint is <bpt id="4255cf22-c18b-4fcc-b55c-8f31dc32ced9">&lt;em&gt;</bpt>https://mysearchsrv.search.microsoft.net<ept id="4255cf22-c18b-4fcc-b55c-8f31dc32ced9">&lt;/em&gt;</ept>, the service name you would enter in App.config is <bpt id="a50c59ca-71c3-447d-a5f1-769a353f7bf2">&lt;em&gt;</bpt>mysearchsrv<ept id="a50c59ca-71c3-447d-a5f1-769a353f7bf2">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb837694-daea-4b70-9d00-ac939cd44c84" xml:space="preserve">
+          <source>In <bpt id="c2535035-97c2-4f05-8a18-639e3dd4ca98">&lt;strong&gt;</bpt>SimpleSearchMVCApp<ept id="c2535035-97c2-4f05-8a18-639e3dd4ca98">&lt;/strong&gt;</ept>, replace Web.config  with the following example, again updating [SERVICE NAME] and [SERVICE KEY] with values that are valid for your service.</source>
+          <target state="new">In <bpt id="c2535035-97c2-4f05-8a18-639e3dd4ca98">&lt;strong&gt;</bpt>SimpleSearchMVCApp<ept id="c2535035-97c2-4f05-8a18-639e3dd4ca98">&lt;/strong&gt;</ept>, replace Web.config  with the following example, again updating [SERVICE NAME] and [SERVICE KEY] with values that are valid for your service.</target>
+        </trans-unit>
+        <trans-unit id="c7f48371-de5a-4d6c-81f1-ded738fb8efe" xml:space="preserve">
+          <source>This program is a console app that connects to your Search service as specified in app.config, creates the index, and then loads it with USGS dataset stored in an Azure SQL Database.</source>
+          <target state="new">This program is a console app that connects to your Search service as specified in app.config, creates the index, and then loads it with USGS dataset stored in an Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="a83a1627-d286-409e-8a20-d19f3fe2cfcd" xml:space="preserve">
+          <source>Currently, the pre-release version of the client library does not support indexers, so we'll use the REST API to create and use an indexer for this portion of the tutorial.</source>
+          <target state="new">Currently, the pre-release version of the client library does not support indexers, so we'll use the REST API to create and use an indexer for this portion of the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="fb097c34-a540-4efc-9a50-8064389e672f" xml:space="preserve">
+          <source>Before you can run this program, you'll make two modifications:</source>
+          <target state="new">Before you can run this program, you'll make two modifications:</target>
+        </trans-unit>
+        <trans-unit id="40e1fead-5b41-41cc-8a94-fa86c3f8c2ce" xml:space="preserve">
+          <source>Add <bpt id="0309a6fc-27b2-4853-8ff0-61f1cdf8c21c">&lt;strong&gt;</bpt>AzureSearchhelper.cs<ept id="0309a6fc-27b2-4853-8ff0-61f1cdf8c21c">&lt;/strong&gt;</ept>, used when calling the REST API to handle connections and serialize and deserialize JSON requests and responses.</source>
+          <target state="new">Add <bpt id="0309a6fc-27b2-4853-8ff0-61f1cdf8c21c">&lt;strong&gt;</bpt>AzureSearchhelper.cs<ept id="0309a6fc-27b2-4853-8ff0-61f1cdf8c21c">&lt;/strong&gt;</ept>, used when calling the REST API to handle connections and serialize and deserialize JSON requests and responses.</target>
+        </trans-unit>
+        <trans-unit id="1dde4a3c-4a87-4594-bba8-d146b6c4526d" xml:space="preserve">
+          <source>Replace <bpt id="95c5bde9-e41b-444e-aa72-63d5adce70ba">&lt;strong&gt;</bpt>Program.cs<ept id="95c5bde9-e41b-444e-aa72-63d5adce70ba">&lt;/strong&gt;</ept>, used to create the index, indexer, load data, and write messages.</source>
+          <target state="new">Replace <bpt id="95c5bde9-e41b-444e-aa72-63d5adce70ba">&lt;strong&gt;</bpt>Program.cs<ept id="95c5bde9-e41b-444e-aa72-63d5adce70ba">&lt;/strong&gt;</ept>, used to create the index, indexer, load data, and write messages.</target>
+        </trans-unit>
+        <trans-unit id="2a912449-ee70-4d4c-9bb1-c52eeab40888" xml:space="preserve">
+          <source>Code that calls the REST API should include a class that handles connections and the serialization and deserialization of JSON requests and responses.</source>
+          <target state="new">Code that calls the REST API should include a class that handles connections and the serialization and deserialization of JSON requests and responses.</target>
+        </trans-unit>
+        <trans-unit id="eda81daa-725f-4370-880c-be634049a6ce" xml:space="preserve">
+          <source>In the samples provided with Azure Search, this class is typically called <bpt id="56eb0eb5-59ed-4f0c-af04-f2662f1bcedb">&lt;strong&gt;</bpt>AzureSearchHelper.cs<ept id="56eb0eb5-59ed-4f0c-af04-f2662f1bcedb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the samples provided with Azure Search, this class is typically called <bpt id="56eb0eb5-59ed-4f0c-af04-f2662f1bcedb">&lt;strong&gt;</bpt>AzureSearchHelper.cs<ept id="56eb0eb5-59ed-4f0c-af04-f2662f1bcedb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b308d08-dd40-4df7-b149-85dba6cdcf3b" xml:space="preserve">
+          <source>You can create this class and add it to <bpt id="f50c19ba-c699-43a9-b88c-e0569b4cbc0b">&lt;strong&gt;</bpt>DataIndexer<ept id="f50c19ba-c699-43a9-b88c-e0569b4cbc0b">&lt;/strong&gt;</ept>, using the following code.</source>
+          <target state="new">You can create this class and add it to <bpt id="f50c19ba-c699-43a9-b88c-e0569b4cbc0b">&lt;strong&gt;</bpt>DataIndexer<ept id="f50c19ba-c699-43a9-b88c-e0569b4cbc0b">&lt;/strong&gt;</ept>, using the following code.</target>
+        </trans-unit>
+        <trans-unit id="ec9774a0-a8f8-4df7-8880-542d65a3e8bb" xml:space="preserve">
+          <source>In Solution Explorer, right-click <bpt id="e25886a2-fac2-4438-b4c3-8290b38fa6bd">&lt;strong&gt;</bpt>DataIndexer<ept id="e25886a2-fac2-4438-b4c3-8290b38fa6bd">&lt;/strong&gt;</ept> &gt; <bpt id="41dda21c-870d-4358-80de-4ad491b76f35">&lt;strong&gt;</bpt>Add<ept id="41dda21c-870d-4358-80de-4ad491b76f35">&lt;/strong&gt;</ept> &gt; <bpt id="5b963a50-d2d5-4350-bdb8-3014406e5f45">&lt;strong&gt;</bpt>New Item<ept id="5b963a50-d2d5-4350-bdb8-3014406e5f45">&lt;/strong&gt;</ept> &gt; <bpt id="88ee9173-a8c6-460a-b5a0-f9485f37d3aa">&lt;strong&gt;</bpt>Code<ept id="88ee9173-a8c6-460a-b5a0-f9485f37d3aa">&lt;/strong&gt;</ept> &gt; <bpt id="28528a78-5e62-43d1-9301-c9e45f036a1a">&lt;strong&gt;</bpt>Class<ept id="28528a78-5e62-43d1-9301-c9e45f036a1a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, right-click <bpt id="e25886a2-fac2-4438-b4c3-8290b38fa6bd">&lt;strong&gt;</bpt>DataIndexer<ept id="e25886a2-fac2-4438-b4c3-8290b38fa6bd">&lt;/strong&gt;</ept> &gt; <bpt id="41dda21c-870d-4358-80de-4ad491b76f35">&lt;strong&gt;</bpt>Add<ept id="41dda21c-870d-4358-80de-4ad491b76f35">&lt;/strong&gt;</ept> &gt; <bpt id="5b963a50-d2d5-4350-bdb8-3014406e5f45">&lt;strong&gt;</bpt>New Item<ept id="5b963a50-d2d5-4350-bdb8-3014406e5f45">&lt;/strong&gt;</ept> &gt; <bpt id="88ee9173-a8c6-460a-b5a0-f9485f37d3aa">&lt;strong&gt;</bpt>Code<ept id="88ee9173-a8c6-460a-b5a0-f9485f37d3aa">&lt;/strong&gt;</ept> &gt; <bpt id="28528a78-5e62-43d1-9301-c9e45f036a1a">&lt;strong&gt;</bpt>Class<ept id="28528a78-5e62-43d1-9301-c9e45f036a1a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="878966da-7153-4c58-ad50-1d33ff0094a8" xml:space="preserve">
+          <source>Name the class <bpt id="c26ac2b3-0ef6-4abb-b8d4-c5fd0cf7860e">&lt;strong&gt;</bpt>AzureSearchHelper<ept id="c26ac2b3-0ef6-4abb-b8d4-c5fd0cf7860e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the class <bpt id="c26ac2b3-0ef6-4abb-b8d4-c5fd0cf7860e">&lt;strong&gt;</bpt>AzureSearchHelper<ept id="c26ac2b3-0ef6-4abb-b8d4-c5fd0cf7860e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c0c24dc-611a-4c5b-97be-1a603505d17d" xml:space="preserve">
+          <source>Replace the default code with the following code.</source>
+          <target state="new">Replace the default code with the following code.</target>
+        </trans-unit>
+        <trans-unit id="00a169c0-12a6-4e24-997a-9963097826f6" xml:space="preserve">
+          <source>In Solution Explorer, open <bpt id="dd296285-3947-4a25-95a6-e309db55cd70">&lt;strong&gt;</bpt>DataIndexer<ept id="dd296285-3947-4a25-95a6-e309db55cd70">&lt;/strong&gt;</ept> &gt; <bpt id="d34d7eb0-801f-489c-9525-d6062f0aa501">&lt;strong&gt;</bpt>Program.cs<ept id="d34d7eb0-801f-489c-9525-d6062f0aa501">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, open <bpt id="dd296285-3947-4a25-95a6-e309db55cd70">&lt;strong&gt;</bpt>DataIndexer<ept id="dd296285-3947-4a25-95a6-e309db55cd70">&lt;/strong&gt;</ept> &gt; <bpt id="d34d7eb0-801f-489c-9525-d6062f0aa501">&lt;strong&gt;</bpt>Program.cs<ept id="d34d7eb0-801f-489c-9525-d6062f0aa501">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2185b5c4-bd47-4e00-9a9a-f43cea558a7f" xml:space="preserve">
+          <source>Replace the contents of Program.cs with the following code.</source>
+          <target state="new">Replace the contents of Program.cs with the following code.</target>
+        </trans-unit>
+        <trans-unit id="a63f1678-7096-4b88-a561-069d810f9662" xml:space="preserve">
+          <source>Right-click the <bpt id="e62dc913-d58f-4bd4-880f-a3e7d5fd68c8">&lt;strong&gt;</bpt>DataIndexer<ept id="e62dc913-d58f-4bd4-880f-a3e7d5fd68c8">&lt;/strong&gt;</ept> project.</source>
+          <target state="new">Right-click the <bpt id="e62dc913-d58f-4bd4-880f-a3e7d5fd68c8">&lt;strong&gt;</bpt>DataIndexer<ept id="e62dc913-d58f-4bd4-880f-a3e7d5fd68c8">&lt;/strong&gt;</ept> project.</target>
+        </trans-unit>
+        <trans-unit id="c5239a85-4be9-4a3c-9908-f097f6e1928d" xml:space="preserve">
+          <source>Build the project.</source>
+          <target state="new">Build the project.</target>
+        </trans-unit>
+        <trans-unit id="c7e81ea8-63a8-407c-80db-53b5f94c2250" xml:space="preserve">
+          <source>Press <bpt id="2872db29-8e3c-421d-b842-bd20302c81ed">&lt;strong&gt;</bpt>F5<ept id="2872db29-8e3c-421d-b842-bd20302c81ed">&lt;/strong&gt;</ept> to run it.</source>
+          <target state="new">Press <bpt id="2872db29-8e3c-421d-b842-bd20302c81ed">&lt;strong&gt;</bpt>F5<ept id="2872db29-8e3c-421d-b842-bd20302c81ed">&lt;/strong&gt;</ept> to run it.</target>
+        </trans-unit>
+        <trans-unit id="b1c95592-286c-4f3f-a3e6-39a48fdd8838" xml:space="preserve">
+          <source>You should see a console window with these messages.</source>
+          <target state="new">You should see a console window with these messages.</target>
+        </trans-unit>
+        <trans-unit id="5ea30f2f-2644-49c4-b804-d2daa380375f" xml:space="preserve">
+          <source><bpt id="24484189-c4b9-4d74-9413-144da669751d">&lt;linkText&gt;</bpt><ept id="24484189-c4b9-4d74-9413-144da669751d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24484189-c4b9-4d74-9413-144da669751d">&lt;linkText&gt;</bpt><ept id="24484189-c4b9-4d74-9413-144da669751d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="623205bf-ccc8-41fa-b63a-9a39b14b4955" xml:space="preserve">
+          <source>In the portal, you should see a new <bpt id="367f8be5-7be7-4791-8bc6-f9fdb9030733">&lt;strong&gt;</bpt>geonames<ept id="367f8be5-7be7-4791-8bc6-f9fdb9030733">&lt;/strong&gt;</ept> index.</source>
+          <target state="new">In the portal, you should see a new <bpt id="367f8be5-7be7-4791-8bc6-f9fdb9030733">&lt;strong&gt;</bpt>geonames<ept id="367f8be5-7be7-4791-8bc6-f9fdb9030733">&lt;/strong&gt;</ept> index.</target>
+        </trans-unit>
+        <trans-unit id="08abca80-fcea-4150-8827-c4672e8ffc9c" xml:space="preserve">
+          <source>It can take the portal several minutes to catch up, so you might want to wait a bit before checking the results.</source>
+          <target state="new">It can take the portal several minutes to catch up, so you might want to wait a bit before checking the results.</target>
+        </trans-unit>
+        <trans-unit id="6d016e55-bc2f-4dd0-acb6-d2a5dfa6c071" xml:space="preserve">
+          <source><bpt id="9a5e7af4-b9e8-4d30-8786-9f63cae4d65e">&lt;linkText&gt;</bpt><ept id="9a5e7af4-b9e8-4d30-8786-9f63cae4d65e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9a5e7af4-b9e8-4d30-8786-9f63cae4d65e">&lt;linkText&gt;</bpt><ept id="9a5e7af4-b9e8-4d30-8786-9f63cae4d65e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="821e5acf-9afd-4525-94e8-9de6e6ce8b5e" xml:space="preserve">
+          <source><bpt id="f46f0c56-4c2d-421e-bb75-ee9ba9872b60">&lt;strong&gt;</bpt>SimpleSearchMVC<ept id="f46f0c56-4c2d-421e-bb75-ee9ba9872b60">&lt;/strong&gt;</ept> is a web app that runs locally in IIS Express.</source>
+          <target state="new"><bpt id="f46f0c56-4c2d-421e-bb75-ee9ba9872b60">&lt;strong&gt;</bpt>SimpleSearchMVC<ept id="f46f0c56-4c2d-421e-bb75-ee9ba9872b60">&lt;/strong&gt;</ept> is a web app that runs locally in IIS Express.</target>
+        </trans-unit>
+        <trans-unit id="d1853546-c87a-4652-9cda-5d36c54f287c" xml:space="preserve">
+          <source>It provides a search box and presents search results in a table.</source>
+          <target state="new">It provides a search box and presents search results in a table.</target>
+        </trans-unit>
+        <trans-unit id="e6e4a517-13dc-460b-a504-22278da65321" xml:space="preserve">
+          <source>Before you can run this program, you'll make three modifications:</source>
+          <target state="new">Before you can run this program, you'll make three modifications:</target>
+        </trans-unit>
+        <trans-unit id="f14b89b0-6cee-4599-a4c9-0beebf482bfc" xml:space="preserve">
+          <source>Replace <bpt id="027c0088-3247-422e-b522-1e8c8c77577e">&lt;strong&gt;</bpt>HomeController.cs<ept id="027c0088-3247-422e-b522-1e8c8c77577e">&lt;/strong&gt;</ept>, used to accept user input.</source>
+          <target state="new">Replace <bpt id="027c0088-3247-422e-b522-1e8c8c77577e">&lt;strong&gt;</bpt>HomeController.cs<ept id="027c0088-3247-422e-b522-1e8c8c77577e">&lt;/strong&gt;</ept>, used to accept user input.</target>
+        </trans-unit>
+        <trans-unit id="51c3b6b1-7ef0-435e-9135-94bf81005960" xml:space="preserve">
+          <source>In this example, the search term is stored in a variable named <bpt id="96a627e0-72b0-4335-b799-999223b3fa68">&lt;em&gt;</bpt>q<ept id="96a627e0-72b0-4335-b799-999223b3fa68">&lt;/em&gt;</ept>.</source>
+          <target state="new">In this example, the search term is stored in a variable named <bpt id="96a627e0-72b0-4335-b799-999223b3fa68">&lt;em&gt;</bpt>q<ept id="96a627e0-72b0-4335-b799-999223b3fa68">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c4b4e4f-55ab-4ad2-83d0-c2b5abfc3757" xml:space="preserve">
+          <source>Replace <bpt id="e9702a36-f8f8-473f-a58b-bcfaa09fd8cd">&lt;strong&gt;</bpt>index.cshtml<ept id="e9702a36-f8f8-473f-a58b-bcfaa09fd8cd">&lt;/strong&gt;</ept>, a web page that provides the search term inputs and displays search results.</source>
+          <target state="new">Replace <bpt id="e9702a36-f8f8-473f-a58b-bcfaa09fd8cd">&lt;strong&gt;</bpt>index.cshtml<ept id="e9702a36-f8f8-473f-a58b-bcfaa09fd8cd">&lt;/strong&gt;</ept>, a web page that provides the search term inputs and displays search results.</target>
+        </trans-unit>
+        <trans-unit id="361ff193-065f-4469-bcf8-b0555978b4a3" xml:space="preserve">
+          <source>Add <bpt id="7b088b83-e22e-4b4a-87db-a25ab3c0f3c7">&lt;strong&gt;</bpt>FeatureSearch.cs<ept id="7b088b83-e22e-4b4a-87db-a25ab3c0f3c7">&lt;/strong&gt;</ept>, a class that creates the search client and executes the search.</source>
+          <target state="new">Add <bpt id="7b088b83-e22e-4b4a-87db-a25ab3c0f3c7">&lt;strong&gt;</bpt>FeatureSearch.cs<ept id="7b088b83-e22e-4b4a-87db-a25ab3c0f3c7">&lt;/strong&gt;</ept>, a class that creates the search client and executes the search.</target>
+        </trans-unit>
+        <trans-unit id="8f0b383d-0df5-4aa8-b114-edc49c631b39" xml:space="preserve">
+          <source>Replace the default code with the following code.</source>
+          <target state="new">Replace the default code with the following code.</target>
+        </trans-unit>
+        <trans-unit id="16d1f98b-5d34-4c3d-b1d9-2f79a2475d99" xml:space="preserve">
+          <source>Replace the default code with the following code.</source>
+          <target state="new">Replace the default code with the following code.</target>
+        </trans-unit>
+        <trans-unit id="714ab902-d5b0-4bed-939a-60ff6fdc826d" xml:space="preserve">
+          <source>Add a class that provides search functionality to your application.</source>
+          <target state="new">Add a class that provides search functionality to your application.</target>
+        </trans-unit>
+        <trans-unit id="bfdab3f1-0c19-4f2e-a48d-779f04a98361" xml:space="preserve">
+          <source>In Solution Explorer, right-click <bpt id="6d05d1d3-87b6-4abe-a013-87b8fd58af2e">&lt;strong&gt;</bpt>SimpleSearchMVCApp<ept id="6d05d1d3-87b6-4abe-a013-87b8fd58af2e">&lt;/strong&gt;</ept> &gt; <bpt id="56b1ec9d-0083-428c-99e7-f73268a85584">&lt;strong&gt;</bpt>Add<ept id="56b1ec9d-0083-428c-99e7-f73268a85584">&lt;/strong&gt;</ept> &gt; <bpt id="5d44d4be-12c6-47a0-ae3e-40cdd18b04bf">&lt;strong&gt;</bpt>New Item<ept id="5d44d4be-12c6-47a0-ae3e-40cdd18b04bf">&lt;/strong&gt;</ept> &gt; <bpt id="c37ce7ca-90fb-42fd-babd-31abce180639">&lt;strong&gt;</bpt>Code<ept id="c37ce7ca-90fb-42fd-babd-31abce180639">&lt;/strong&gt;</ept> &gt; <bpt id="1c774307-3900-43eb-b50d-8578797cbcd7">&lt;strong&gt;</bpt>Class<ept id="1c774307-3900-43eb-b50d-8578797cbcd7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, right-click <bpt id="6d05d1d3-87b6-4abe-a013-87b8fd58af2e">&lt;strong&gt;</bpt>SimpleSearchMVCApp<ept id="6d05d1d3-87b6-4abe-a013-87b8fd58af2e">&lt;/strong&gt;</ept> &gt; <bpt id="56b1ec9d-0083-428c-99e7-f73268a85584">&lt;strong&gt;</bpt>Add<ept id="56b1ec9d-0083-428c-99e7-f73268a85584">&lt;/strong&gt;</ept> &gt; <bpt id="5d44d4be-12c6-47a0-ae3e-40cdd18b04bf">&lt;strong&gt;</bpt>New Item<ept id="5d44d4be-12c6-47a0-ae3e-40cdd18b04bf">&lt;/strong&gt;</ept> &gt; <bpt id="c37ce7ca-90fb-42fd-babd-31abce180639">&lt;strong&gt;</bpt>Code<ept id="c37ce7ca-90fb-42fd-babd-31abce180639">&lt;/strong&gt;</ept> &gt; <bpt id="1c774307-3900-43eb-b50d-8578797cbcd7">&lt;strong&gt;</bpt>Class<ept id="1c774307-3900-43eb-b50d-8578797cbcd7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73491bdf-3e4d-41df-9925-856a57d04906" xml:space="preserve">
+          <source>Name the class <bpt id="89667803-7760-47fb-98aa-5530fb571bd4">&lt;strong&gt;</bpt>FeaturesSearch<ept id="89667803-7760-47fb-98aa-5530fb571bd4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the class <bpt id="89667803-7760-47fb-98aa-5530fb571bd4">&lt;strong&gt;</bpt>FeaturesSearch<ept id="89667803-7760-47fb-98aa-5530fb571bd4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03e0d1f6-5878-4e3a-919d-72749812c5ff" xml:space="preserve">
+          <source>Replace the default code with the following code.</source>
+          <target state="new">Replace the default code with the following code.</target>
+        </trans-unit>
+        <trans-unit id="a4e04eb6-4634-4d6a-acf9-c6a0b7ba8ca8" xml:space="preserve">
+          <source>Right-click the <bpt id="ec8d444c-3719-4bce-bdd1-2421a201cfd6">&lt;strong&gt;</bpt>SimpleSearchMVCApp<ept id="ec8d444c-3719-4bce-bdd1-2421a201cfd6">&lt;/strong&gt;</ept> project to set it as the start-up project.</source>
+          <target state="new">Right-click the <bpt id="ec8d444c-3719-4bce-bdd1-2421a201cfd6">&lt;strong&gt;</bpt>SimpleSearchMVCApp<ept id="ec8d444c-3719-4bce-bdd1-2421a201cfd6">&lt;/strong&gt;</ept> project to set it as the start-up project.</target>
+        </trans-unit>
+        <trans-unit id="596d8e6b-80d3-48c6-9716-2c4b9216959f" xml:space="preserve">
+          <source>When you build and run this program, you should see a web page in your default browser, providing a search box for accessing USGS data stored in the index in your Azure Search service.</source>
+          <target state="new">When you build and run this program, you should see a web page in your default browser, providing a search box for accessing USGS data stored in the index in your Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="87daea90-be80-4bcd-a914-5c1cfacd9915" xml:space="preserve">
+          <source><bpt id="bb786b95-09b2-4ba5-b6ef-f98646f8526f">&lt;linkText&gt;</bpt><ept id="bb786b95-09b2-4ba5-b6ef-f98646f8526f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb786b95-09b2-4ba5-b6ef-f98646f8526f">&lt;linkText&gt;</bpt><ept id="bb786b95-09b2-4ba5-b6ef-f98646f8526f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40f18782-cccc-4c38-a3ff-072b20e2547d" xml:space="preserve">
+          <source>The USGS data set includes records that are relevant to the state of Rhode Island.</source>
+          <target state="new">The USGS data set includes records that are relevant to the state of Rhode Island.</target>
+        </trans-unit>
+        <trans-unit id="5679cd75-70aa-43a4-afeb-08ebfa233579" xml:space="preserve">
+          <source>If you click <bpt id="db717f04-d062-4b64-b853-4a298e555160">&lt;strong&gt;</bpt>Search<ept id="db717f04-d062-4b64-b853-4a298e555160">&lt;/strong&gt;</ept> on an empty search box, you will get the top 50 entries, which is the default.</source>
+          <target state="new">If you click <bpt id="db717f04-d062-4b64-b853-4a298e555160">&lt;strong&gt;</bpt>Search<ept id="db717f04-d062-4b64-b853-4a298e555160">&lt;/strong&gt;</ept> on an empty search box, you will get the top 50 entries, which is the default.</target>
+        </trans-unit>
+        <trans-unit id="06eacd6c-f487-41c7-a39a-7ffc4147817d" xml:space="preserve">
+          <source>Entering a search term will give the search engine criteria for narrowing the search.</source>
+          <target state="new">Entering a search term will give the search engine criteria for narrowing the search.</target>
+        </trans-unit>
+        <trans-unit id="e7253acf-7070-4e62-8606-f6fd734fb907" xml:space="preserve">
+          <source>Try entering a regional name.</source>
+          <target state="new">Try entering a regional name.</target>
+        </trans-unit>
+        <trans-unit id="591c25df-894d-4bcc-8d02-e85eb3511c66" xml:space="preserve">
+          <source><bpt id="5b46076a-c02e-4ef9-a88c-4f38d016c090">&lt;em&gt;</bpt>Roger Williams<ept id="5b46076a-c02e-4ef9-a88c-4f38d016c090">&lt;/em&gt;</ept> was the first governor of Rhode Island.</source>
+          <target state="new"><bpt id="5b46076a-c02e-4ef9-a88c-4f38d016c090">&lt;em&gt;</bpt>Roger Williams<ept id="5b46076a-c02e-4ef9-a88c-4f38d016c090">&lt;/em&gt;</ept> was the first governor of Rhode Island.</target>
+        </trans-unit>
+        <trans-unit id="3bb635a3-9a54-4f01-9509-ade3c120fde8" xml:space="preserve">
+          <source>Numerous parks, buildings, and schools are named after him.</source>
+          <target state="new">Numerous parks, buildings, and schools are named after him.</target>
+        </trans-unit>
+        <trans-unit id="f2dd86f4-cb42-42f0-afb8-17a37ec1fc13" xml:space="preserve">
+          <source><bpt id="d6ed228a-a884-4077-8f41-433e2877df54">&lt;linkText&gt;</bpt><ept id="d6ed228a-a884-4077-8f41-433e2877df54">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d6ed228a-a884-4077-8f41-433e2877df54">&lt;linkText&gt;</bpt><ept id="d6ed228a-a884-4077-8f41-433e2877df54">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef427cfa-d273-48f1-b0fc-f4eb1ba4d39c" xml:space="preserve">
+          <source>You could also try these queries, adding or removing phrases or operators to re-scope your search:</source>
+          <target state="new">You could also try these queries, adding or removing phrases or operators to re-scope your search:</target>
+        </trans-unit>
+        <trans-unit id="5c8fe39b-10cf-4a0b-acde-2e1df3842132" xml:space="preserve">
+          <source>Pawtucket OR Pembroke</source>
+          <target state="new">Pawtucket OR Pembroke</target>
+        </trans-unit>
+        <trans-unit id="fa58eb22-3b05-4a0e-8f6b-1ce940e401c7" xml:space="preserve">
+          <source>goose +cape -neck</source>
+          <target state="new">goose +cape -neck</target>
+        </trans-unit>
+        <trans-unit id="316a66cf-8e1d-498c-86b6-dd315468c103" xml:space="preserve">
+          <source>This is the first Azure Search tutorial based on .NET and the USGS dataset.</source>
+          <target state="new">This is the first Azure Search tutorial based on .NET and the USGS dataset.</target>
+        </trans-unit>
+        <trans-unit id="aa71df2b-cd04-4024-9197-11120b2b2aec" xml:space="preserve">
+          <source>Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.</source>
+          <target state="new">Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.</target>
+        </trans-unit>
+        <trans-unit id="8316165d-9b43-47c1-88f8-46aa01aeb6d0" xml:space="preserve">
+          <source>If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation.</source>
+          <target state="new">If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation.</target>
+        </trans-unit>
+        <trans-unit id="0636969c-c990-4625-ba96-75600c9eab79" xml:space="preserve">
+          <source>You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.</source>
+          <target state="new">You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.</target>
+        </trans-unit>
+        <trans-unit id="6ab54b3a-23c2-45ea-931e-d733a0b0f990" xml:space="preserve">
+          <source>New to Azure Search?</source>
+          <target state="new">New to Azure Search?</target>
+        </trans-unit>
+        <trans-unit id="bdbbb12a-b3bb-4c9b-bdf7-7be726eed88d" xml:space="preserve">
+          <source>We recommend trying other tutorials to develop an understanding of what you can create.</source>
+          <target state="new">We recommend trying other tutorials to develop an understanding of what you can create.</target>
+        </trans-unit>
+        <trans-unit id="ee895bab-3abe-4abc-94c3-6299548c2d9d" xml:space="preserve">
+          <source>Visit our <bpt id="a7f8d31b-9b13-4a9f-9fdc-26bd1cf0b46d">&lt;linkText&gt;</bpt>documentation page<ept id="a7f8d31b-9b13-4a9f-9fdc-26bd1cf0b46d">&lt;/linkText&gt;</ept><bpt id="a7f8d31b-9b13-4a9f-9fdc-26bd1cf0b46d">&lt;title&gt;</bpt><ept id="a7f8d31b-9b13-4a9f-9fdc-26bd1cf0b46d">&lt;/title&gt;</ept> to find more resources.</source>
+          <target state="new">Visit our <bpt id="a7f8d31b-9b13-4a9f-9fdc-26bd1cf0b46d">&lt;linkText&gt;</bpt>documentation page<ept id="a7f8d31b-9b13-4a9f-9fdc-26bd1cf0b46d">&lt;/linkText&gt;</ept><bpt id="a7f8d31b-9b13-4a9f-9fdc-26bd1cf0b46d">&lt;title&gt;</bpt><ept id="a7f8d31b-9b13-4a9f-9fdc-26bd1cf0b46d">&lt;/title&gt;</ept> to find more resources.</target>
+        </trans-unit>
+        <trans-unit id="2bf19b54-b8f0-4a64-8bb3-b29420e4031d" xml:space="preserve">
+          <source>You can also view the links in our <bpt id="a3f562f8-1f42-42ac-a38c-e4b58abbb434">&lt;linkText&gt;</bpt>Video and Tutorial list<ept id="a3f562f8-1f42-42ac-a38c-e4b58abbb434">&lt;/linkText&gt;</ept><bpt id="a3f562f8-1f42-42ac-a38c-e4b58abbb434">&lt;title&gt;</bpt><ept id="a3f562f8-1f42-42ac-a38c-e4b58abbb434">&lt;/title&gt;</ept> to access more information.</source>
+          <target state="new">You can also view the links in our <bpt id="a3f562f8-1f42-42ac-a38c-e4b58abbb434">&lt;linkText&gt;</bpt>Video and Tutorial list<ept id="a3f562f8-1f42-42ac-a38c-e4b58abbb434">&lt;/linkText&gt;</ept><bpt id="a3f562f8-1f42-42ac-a38c-e4b58abbb434">&lt;title&gt;</bpt><ept id="a3f562f8-1f42-42ac-a38c-e4b58abbb434">&lt;/title&gt;</ept> to access more information.</target>
+        </trans-unit>
+        <trans-unit id="fafc2af4-4650-4f23-bc11-126c33108bff" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/create-search-portal-1.PNG</source>
+          <target state="new">./media/search-get-started-dotnet/create-search-portal-1.PNG</target>
+        </trans-unit>
+        <trans-unit id="ec0c0462-09d9-473a-bb1b-4c8d6d190a65" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/create-search-portal-2.PNG</source>
+          <target state="new">./media/search-get-started-dotnet/create-search-portal-2.PNG</target>
+        </trans-unit>
+        <trans-unit id="a5388f3d-ff9f-4a01-9bab-4751c35dedfa" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/create-search-portal-3.PNG</source>
+          <target state="new">./media/search-get-started-dotnet/create-search-portal-3.PNG</target>
+        </trans-unit>
+        <trans-unit id="e6bbe611-d1c6-44bd-b906-7bec68b82342" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/AzSearch-DotNet-VSSolutionExplorer.png</source>
+          <target state="new">./media/search-get-started-dotnet/AzSearch-DotNet-VSSolutionExplorer.png</target>
+        </trans-unit>
+        <trans-unit id="4ef10818-5cb2-46e7-9acf-a8f2accf4c29" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/AzSearch-DotNet-Assembly.png</source>
+          <target state="new">./media/search-get-started-dotnet/AzSearch-DotNet-Assembly.png</target>
+        </trans-unit>
+        <trans-unit id="2ad19ab0-89be-4f6c-ac57-c378e45d0ff0" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/consolemessages.png</source>
+          <target state="new">./media/search-get-started-dotnet/consolemessages.png</target>
+        </trans-unit>
+        <trans-unit id="ae348922-aff5-4a9c-b5fc-9f5bc251b956" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/portalindexstatus.png</source>
+          <target state="new">./media/search-get-started-dotnet/portalindexstatus.png</target>
+        </trans-unit>
+        <trans-unit id="57c307e4-2916-489b-8a49-2a48902e0043" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/usgssearchbox.png</source>
+          <target state="new">./media/search-get-started-dotnet/usgssearchbox.png</target>
+        </trans-unit>
+        <trans-unit id="f7ae859b-7a63-420d-9bd2-cb8bca49e7c3" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/rogerwilliamsschool.png</source>
+          <target state="new">./media/search-get-started-dotnet/rogerwilliamsschool.png</target>
+        </trans-unit>
+        <trans-unit id="2e9b5085-54cc-41c7-b113-fb69de6a7b91" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/AzSearch-DotNet-MVCOptions.PNG</source>
+          <target state="new">./media/search-get-started-dotnet/AzSearch-DotNet-MVCOptions.PNG</target>
+        </trans-unit>
+        <trans-unit id="922381e3-597b-41cd-bb26-40fad3ff1850" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG</source>
+          <target state="new">./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG</target>
+        </trans-unit>
+        <trans-unit id="87c40a0c-3d3e-4351-9221-c86381569915" xml:space="preserve">
+          <source>./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG</source>
+          <target state="new">./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="270cb458-f6aa-4f09-b51e-82fce9887ffd" />
+    </body>
+  </file>
+</xliff>

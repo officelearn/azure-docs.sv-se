@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1d5d8be8-8ad5-4173-a664-5d812f08a441" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1d5d8be8-8ad5-4173-a664-5d812f08a441" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="733d7e0f-4ea8-4d8b-9662-994601aacc7f">
+        <trans-unit id="460223ca-2786-4559-8db7-f1728ce4206d" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with SCC LifeCycle | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with SCC LifeCycle | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="abdcd968-13bf-4dd6-9694-518db9a9f672" xml:space="preserve">
+          <source>Learn how to use SCC LifeCycle with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use SCC LifeCycle with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="2bf91802-6919-4454-ac43-3900d0f89509" xml:space="preserve">
+          <source>For feedback, click <bpt id="1987b876-92a1-417f-83d9-8a482c2919ff">&lt;linkText&gt;</bpt>here<ept id="1987b876-92a1-417f-83d9-8a482c2919ff">&lt;/linkText&gt;</ept><bpt id="1987b876-92a1-417f-83d9-8a482c2919ff">&lt;title&gt;</bpt><ept id="1987b876-92a1-417f-83d9-8a482c2919ff">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="1987b876-92a1-417f-83d9-8a482c2919ff">&lt;linkText&gt;</bpt>here<ept id="1987b876-92a1-417f-83d9-8a482c2919ff">&lt;/linkText&gt;</ept><bpt id="1987b876-92a1-417f-83d9-8a482c2919ff">&lt;title&gt;</bpt><ept id="1987b876-92a1-417f-83d9-8a482c2919ff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f5794db-fae6-429d-8710-95616d63350d" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and SCC LifeCycle.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and SCC LifeCycle.</target>
+        </trans-unit>
+        <trans-unit id="e304ff3e-1926-4b0a-aca8-48c8b7ecb981" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="e8205899-50d4-47fc-9085-0a0039b40963" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="13a8a1d5-1378-447c-81ab-e719ab97e2ac" xml:space="preserve">
+          <source>A SCC LifeCycle single sign-on enabled subscription</source>
+          <target state="new">A SCC LifeCycle single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="18166255-aa30-4d50-886a-fc67b6d180f3" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to SCC LifeCycle will be able to single sign into the application at your SCC LifeCycle company site (service provider initiated sign on), or using the <bpt id="737d7263-7bbf-44b8-9184-7cfbf607ee50">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="737d7263-7bbf-44b8-9184-7cfbf607ee50">&lt;/linkText&gt;</ept><bpt id="737d7263-7bbf-44b8-9184-7cfbf607ee50">&lt;title&gt;</bpt><ept id="737d7263-7bbf-44b8-9184-7cfbf607ee50">&lt;/title&gt;</ept>.</source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to SCC LifeCycle will be able to single sign into the application at your SCC LifeCycle company site (service provider initiated sign on), or using the <bpt id="737d7263-7bbf-44b8-9184-7cfbf607ee50">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="737d7263-7bbf-44b8-9184-7cfbf607ee50">&lt;/linkText&gt;</ept><bpt id="737d7263-7bbf-44b8-9184-7cfbf607ee50">&lt;title&gt;</bpt><ept id="737d7263-7bbf-44b8-9184-7cfbf607ee50">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93bfbaa7-6793-44dc-9cac-cea966b70f76" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="19ae42ed-3b81-4292-8c00-971bf22cfe52" xml:space="preserve">
+          <source>Enabling the application integration for SCC LifeCycle</source>
+          <target state="new">Enabling the application integration for SCC LifeCycle</target>
+        </trans-unit>
+        <trans-unit id="0fdd860e-6e53-42d2-a3af-71a4ac2bae45" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="5db16482-ef7c-4b00-94f0-9a002fa7cc21" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="edc15ae1-9e94-4c3f-b19b-2d2123ccfdc6" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="72603005-d9a0-4d3c-ba53-1b8953cc5789" xml:space="preserve">
+          <source><bpt id="ce4d94bd-0335-41e4-975a-5921df705fe3">&lt;linkText&gt;</bpt>Scenario<ept id="ce4d94bd-0335-41e4-975a-5921df705fe3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce4d94bd-0335-41e4-975a-5921df705fe3">&lt;linkText&gt;</bpt>Scenario<ept id="ce4d94bd-0335-41e4-975a-5921df705fe3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a957f18d-1255-482a-9871-4a5ec10b6ba8" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for SCC LifeCycle.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for SCC LifeCycle.</target>
+        </trans-unit>
+        <trans-unit id="01a750d2-9a19-40ed-8904-87c4b488ecb7" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="83b74c3f-8c7e-43c0-af35-8cb19d9c2fff">&lt;strong&gt;</bpt>Active Directory<ept id="83b74c3f-8c7e-43c0-af35-8cb19d9c2fff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="83b74c3f-8c7e-43c0-af35-8cb19d9c2fff">&lt;strong&gt;</bpt>Active Directory<ept id="83b74c3f-8c7e-43c0-af35-8cb19d9c2fff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c6eabff-e924-433e-940b-6ac72d92a5d1" xml:space="preserve">
+          <source><bpt id="b62e023b-e79e-4a72-b80c-5bd9302b20a4">&lt;linkText&gt;</bpt>Active Directory<ept id="b62e023b-e79e-4a72-b80c-5bd9302b20a4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b62e023b-e79e-4a72-b80c-5bd9302b20a4">&lt;linkText&gt;</bpt>Active Directory<ept id="b62e023b-e79e-4a72-b80c-5bd9302b20a4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fb20dfa-d396-47aa-9f6b-ec0fa67dcfe4" xml:space="preserve">
+          <source>From the <bpt id="33a2cbf9-9e9c-4713-b2e1-23ad67e3247a">&lt;strong&gt;</bpt>Directory<ept id="33a2cbf9-9e9c-4713-b2e1-23ad67e3247a">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="33a2cbf9-9e9c-4713-b2e1-23ad67e3247a">&lt;strong&gt;</bpt>Directory<ept id="33a2cbf9-9e9c-4713-b2e1-23ad67e3247a">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="64668c11-c763-4d9b-b611-ebb1ca7d8ebb" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="2675a2e6-8dfe-4742-990b-2982b2e67b1e">&lt;strong&gt;</bpt>Applications<ept id="2675a2e6-8dfe-4742-990b-2982b2e67b1e">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="2675a2e6-8dfe-4742-990b-2982b2e67b1e">&lt;strong&gt;</bpt>Applications<ept id="2675a2e6-8dfe-4742-990b-2982b2e67b1e">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="8b6999e6-318b-4c3c-b570-bdafbaab9e24" xml:space="preserve">
+          <source><bpt id="e487d2a2-991a-4f68-a7cb-4d94669e61cd">&lt;linkText&gt;</bpt>Applications<ept id="e487d2a2-991a-4f68-a7cb-4d94669e61cd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e487d2a2-991a-4f68-a7cb-4d94669e61cd">&lt;linkText&gt;</bpt>Applications<ept id="e487d2a2-991a-4f68-a7cb-4d94669e61cd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1259384-b42f-4639-9875-b33639025872" xml:space="preserve">
+          <source>Click <bpt id="199d4620-d4d1-44eb-a26c-02dc95058885">&lt;strong&gt;</bpt>Add<ept id="199d4620-d4d1-44eb-a26c-02dc95058885">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="199d4620-d4d1-44eb-a26c-02dc95058885">&lt;strong&gt;</bpt>Add<ept id="199d4620-d4d1-44eb-a26c-02dc95058885">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="d932dcf5-719a-44e8-a899-ef7b12390b1d" xml:space="preserve">
+          <source><bpt id="5bfef5df-add3-4b02-b648-e9762ef46639">&lt;linkText&gt;</bpt>Add application<ept id="5bfef5df-add3-4b02-b648-e9762ef46639">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5bfef5df-add3-4b02-b648-e9762ef46639">&lt;linkText&gt;</bpt>Add application<ept id="5bfef5df-add3-4b02-b648-e9762ef46639">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="651a32ae-99f3-4678-9aab-d861d1d18dcb" xml:space="preserve">
+          <source>On the <bpt id="2b38031a-104d-445e-b06e-527379121da9">&lt;strong&gt;</bpt>What do you want to do<ept id="2b38031a-104d-445e-b06e-527379121da9">&lt;/strong&gt;</ept> dialog, click <bpt id="6a732ed9-4a0c-450f-99b0-43186fdbf9fd">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="6a732ed9-4a0c-450f-99b0-43186fdbf9fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="2b38031a-104d-445e-b06e-527379121da9">&lt;strong&gt;</bpt>What do you want to do<ept id="2b38031a-104d-445e-b06e-527379121da9">&lt;/strong&gt;</ept> dialog, click <bpt id="6a732ed9-4a0c-450f-99b0-43186fdbf9fd">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="6a732ed9-4a0c-450f-99b0-43186fdbf9fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47edeced-d172-4de7-81a2-bdcccd14dabb" xml:space="preserve">
+          <source><bpt id="d022bbdb-9f06-48c5-b13b-2874a70b1205">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="d022bbdb-9f06-48c5-b13b-2874a70b1205">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d022bbdb-9f06-48c5-b13b-2874a70b1205">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="d022bbdb-9f06-48c5-b13b-2874a70b1205">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="305d9ed0-fbc4-4711-96b1-e081603594e0" xml:space="preserve">
+          <source>In the <bpt id="bfd0975a-6321-4339-8c8e-1c03035c2032">&lt;strong&gt;</bpt>search box<ept id="bfd0975a-6321-4339-8c8e-1c03035c2032">&lt;/strong&gt;</ept>, type <bpt id="b04bc772-8e93-430b-b7be-b1439274e1ba">&lt;strong&gt;</bpt>SCC LifeCycle<ept id="b04bc772-8e93-430b-b7be-b1439274e1ba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="bfd0975a-6321-4339-8c8e-1c03035c2032">&lt;strong&gt;</bpt>search box<ept id="bfd0975a-6321-4339-8c8e-1c03035c2032">&lt;/strong&gt;</ept>, type <bpt id="b04bc772-8e93-430b-b7be-b1439274e1ba">&lt;strong&gt;</bpt>SCC LifeCycle<ept id="b04bc772-8e93-430b-b7be-b1439274e1ba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27eb307c-9de7-40ee-9428-cebe7239400c" xml:space="preserve">
+          <source><bpt id="fb024d0b-529d-414c-92a4-540efc049210">&lt;linkText&gt;</bpt>Application Gallery<ept id="fb024d0b-529d-414c-92a4-540efc049210">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb024d0b-529d-414c-92a4-540efc049210">&lt;linkText&gt;</bpt>Application Gallery<ept id="fb024d0b-529d-414c-92a4-540efc049210">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86d6d267-1adb-4259-a583-757c2afb01fe" xml:space="preserve">
+          <source>In the results pane, select <bpt id="40d41955-3ef8-4908-867c-1915cde06f6c">&lt;strong&gt;</bpt>SCC LifeCycle<ept id="40d41955-3ef8-4908-867c-1915cde06f6c">&lt;/strong&gt;</ept>, and then click <bpt id="0a47e43b-5d8c-416a-b92c-ede4c49859ab">&lt;strong&gt;</bpt>Complete<ept id="0a47e43b-5d8c-416a-b92c-ede4c49859ab">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="40d41955-3ef8-4908-867c-1915cde06f6c">&lt;strong&gt;</bpt>SCC LifeCycle<ept id="40d41955-3ef8-4908-867c-1915cde06f6c">&lt;/strong&gt;</ept>, and then click <bpt id="0a47e43b-5d8c-416a-b92c-ede4c49859ab">&lt;strong&gt;</bpt>Complete<ept id="0a47e43b-5d8c-416a-b92c-ede4c49859ab">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="b6e96ba2-f47a-4adc-b6ef-5abb8bc3365f" xml:space="preserve">
+          <source><bpt id="ea774413-df94-41f2-a3b6-a39f684bc19b">&lt;linkText&gt;</bpt>SCC LifeCycle<ept id="ea774413-df94-41f2-a3b6-a39f684bc19b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea774413-df94-41f2-a3b6-a39f684bc19b">&lt;linkText&gt;</bpt>SCC LifeCycle<ept id="ea774413-df94-41f2-a3b6-a39f684bc19b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8877cb7b-d30f-4f36-af5e-0476c28a802c" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to SCC LifeCycle with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to SCC LifeCycle with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="aaaca162-da24-4d9a-a1c3-7fd3aafdd3fe" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="51b37835-2571-48e9-a36d-a4fcbd03f759">&lt;strong&gt;</bpt>SCC LifeCycle<ept id="51b37835-2571-48e9-a36d-a4fcbd03f759">&lt;/strong&gt;</ept> application integration page, click <bpt id="6342d44f-384a-4c94-839d-778a9f768ec9">&lt;strong&gt;</bpt>Configure single sign-on<ept id="6342d44f-384a-4c94-839d-778a9f768ec9">&lt;/strong&gt;</ept> to open the <bpt id="212475a1-2fef-4528-bd60-c686e4629feb">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="212475a1-2fef-4528-bd60-c686e4629feb">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="51b37835-2571-48e9-a36d-a4fcbd03f759">&lt;strong&gt;</bpt>SCC LifeCycle<ept id="51b37835-2571-48e9-a36d-a4fcbd03f759">&lt;/strong&gt;</ept> application integration page, click <bpt id="6342d44f-384a-4c94-839d-778a9f768ec9">&lt;strong&gt;</bpt>Configure single sign-on<ept id="6342d44f-384a-4c94-839d-778a9f768ec9">&lt;/strong&gt;</ept> to open the <bpt id="212475a1-2fef-4528-bd60-c686e4629feb">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="212475a1-2fef-4528-bd60-c686e4629feb">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="37f0d18d-df08-4f3d-9cad-f7f1c0c7fc4f" xml:space="preserve">
+          <source><bpt id="2d19afe0-3949-42a9-a93b-d4c1ca1db920">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2d19afe0-3949-42a9-a93b-d4c1ca1db920">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2d19afe0-3949-42a9-a93b-d4c1ca1db920">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2d19afe0-3949-42a9-a93b-d4c1ca1db920">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b855dba2-8017-4b2a-abba-7854fbedef8e" xml:space="preserve">
+          <source>On the <bpt id="6cc99de9-ca44-40be-b0b7-b1956e3c7883">&lt;strong&gt;</bpt>How would you like users to sign on to SCC LifeCycle<ept id="6cc99de9-ca44-40be-b0b7-b1956e3c7883">&lt;/strong&gt;</ept> page, select <bpt id="57ba9724-f0bb-45a7-bd83-1e019830914d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="57ba9724-f0bb-45a7-bd83-1e019830914d">&lt;/strong&gt;</ept>, and then click <bpt id="6060292b-0f6c-4e72-82f3-ea5038878c79">&lt;strong&gt;</bpt>Next<ept id="6060292b-0f6c-4e72-82f3-ea5038878c79">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6cc99de9-ca44-40be-b0b7-b1956e3c7883">&lt;strong&gt;</bpt>How would you like users to sign on to SCC LifeCycle<ept id="6cc99de9-ca44-40be-b0b7-b1956e3c7883">&lt;/strong&gt;</ept> page, select <bpt id="57ba9724-f0bb-45a7-bd83-1e019830914d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="57ba9724-f0bb-45a7-bd83-1e019830914d">&lt;/strong&gt;</ept>, and then click <bpt id="6060292b-0f6c-4e72-82f3-ea5038878c79">&lt;strong&gt;</bpt>Next<ept id="6060292b-0f6c-4e72-82f3-ea5038878c79">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b64c5718-828e-485c-8b0e-042be2e6962d" xml:space="preserve">
+          <source><bpt id="163259a7-a384-4a9c-9b5a-e0fe7b6d4389">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="163259a7-a384-4a9c-9b5a-e0fe7b6d4389">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="163259a7-a384-4a9c-9b5a-e0fe7b6d4389">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="163259a7-a384-4a9c-9b5a-e0fe7b6d4389">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b58f81a3-5965-4dd9-b109-7a079a71c21b" xml:space="preserve">
+          <source>On the <bpt id="27ff1294-3329-4458-968c-7b00cfb95a43">&lt;strong&gt;</bpt>Configure App URL<ept id="27ff1294-3329-4458-968c-7b00cfb95a43">&lt;/strong&gt;</ept> page, in the <bpt id="c1f4f9d1-e457-457a-ad81-005ea0025f0b">&lt;strong&gt;</bpt>Sign On URL<ept id="c1f4f9d1-e457-457a-ad81-005ea0025f0b">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to your SCC LifeCycle application using the following pattern "<bpt id="4d1e1a43-2fa0-4f96-a3c0-f31d8014850b">&lt;em&gt;</bpt>https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx<ept id="4d1e1a43-2fa0-4f96-a3c0-f31d8014850b">&lt;/em&gt;</ept>", and then click <bpt id="886367c7-504b-4a62-b251-d15f3e02186d">&lt;strong&gt;</bpt>Next<ept id="886367c7-504b-4a62-b251-d15f3e02186d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="27ff1294-3329-4458-968c-7b00cfb95a43">&lt;strong&gt;</bpt>Configure App URL<ept id="27ff1294-3329-4458-968c-7b00cfb95a43">&lt;/strong&gt;</ept> page, in the <bpt id="c1f4f9d1-e457-457a-ad81-005ea0025f0b">&lt;strong&gt;</bpt>Sign On URL<ept id="c1f4f9d1-e457-457a-ad81-005ea0025f0b">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to your SCC LifeCycle application using the following pattern "<bpt id="4d1e1a43-2fa0-4f96-a3c0-f31d8014850b">&lt;em&gt;</bpt>https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx<ept id="4d1e1a43-2fa0-4f96-a3c0-f31d8014850b">&lt;/em&gt;</ept>", and then click <bpt id="886367c7-504b-4a62-b251-d15f3e02186d">&lt;strong&gt;</bpt>Next<ept id="886367c7-504b-4a62-b251-d15f3e02186d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b1e514e-a42e-4046-bc80-b888d1df302b" xml:space="preserve">
+          <source><bpt id="ea96754f-48f8-482e-9655-e40cbe079952">&lt;linkText&gt;</bpt>Configure App URL<ept id="ea96754f-48f8-482e-9655-e40cbe079952">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea96754f-48f8-482e-9655-e40cbe079952">&lt;linkText&gt;</bpt>Configure App URL<ept id="ea96754f-48f8-482e-9655-e40cbe079952">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4054484b-59c6-407b-8198-0c8d0dda4bde" xml:space="preserve">
+          <source>On the <bpt id="0112de65-c8ae-4634-bd78-e644e1041a9b">&lt;strong&gt;</bpt>Configure single sign-on at SCC LifeCycle<ept id="0112de65-c8ae-4634-bd78-e644e1041a9b">&lt;/strong&gt;</ept> page, click <bpt id="4b6e6108-6cba-4928-b13e-a6fa5a98e87e">&lt;strong&gt;</bpt>Download metadata<ept id="4b6e6108-6cba-4928-b13e-a6fa5a98e87e">&lt;/strong&gt;</ept>, and then save metadata file locally on your computer.</source>
+          <target state="new">On the <bpt id="0112de65-c8ae-4634-bd78-e644e1041a9b">&lt;strong&gt;</bpt>Configure single sign-on at SCC LifeCycle<ept id="0112de65-c8ae-4634-bd78-e644e1041a9b">&lt;/strong&gt;</ept> page, click <bpt id="4b6e6108-6cba-4928-b13e-a6fa5a98e87e">&lt;strong&gt;</bpt>Download metadata<ept id="4b6e6108-6cba-4928-b13e-a6fa5a98e87e">&lt;/strong&gt;</ept>, and then save metadata file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="5ff4c242-75b5-4b57-bdfd-af4ddddbe0ef" xml:space="preserve">
+          <source><bpt id="4ae32481-b7ea-490f-bf36-87b92835ac81">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="4ae32481-b7ea-490f-bf36-87b92835ac81">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ae32481-b7ea-490f-bf36-87b92835ac81">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="4ae32481-b7ea-490f-bf36-87b92835ac81">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c24f6a0-637a-45eb-ae8d-3e3ef70aed58" xml:space="preserve">
+          <source>Forward that Metadata file to SCC LifeCycle Support team.</source>
+          <target state="new">Forward that Metadata file to SCC LifeCycle Support team.</target>
+        </trans-unit>
+        <trans-unit id="05a9105b-b68a-44b5-8a96-ab3a3e119b5b" xml:space="preserve">
+          <source>Single sign-on has to be enabled by the SCC LifeCycle support team.</source>
+          <target state="new">Single sign-on has to be enabled by the SCC LifeCycle support team.</target>
+        </trans-unit>
+        <trans-unit id="693645ee-5d79-4ff0-a3c4-61ca1cd771e4" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="5658c881-90ff-42aa-9eae-10eca7b830ab">&lt;strong&gt;</bpt>Complete<ept id="5658c881-90ff-42aa-9eae-10eca7b830ab">&lt;/strong&gt;</ept> to close the <bpt id="258a092d-2572-4d57-9874-8d27c14838b9">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="258a092d-2572-4d57-9874-8d27c14838b9">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="5658c881-90ff-42aa-9eae-10eca7b830ab">&lt;strong&gt;</bpt>Complete<ept id="5658c881-90ff-42aa-9eae-10eca7b830ab">&lt;/strong&gt;</ept> to close the <bpt id="258a092d-2572-4d57-9874-8d27c14838b9">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="258a092d-2572-4d57-9874-8d27c14838b9">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="0b2a5da1-ab06-47c7-8048-3e7552af661c" xml:space="preserve">
+          <source><bpt id="f96432ab-0c9d-4559-9125-34acc2042707">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f96432ab-0c9d-4559-9125-34acc2042707">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f96432ab-0c9d-4559-9125-34acc2042707">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f96432ab-0c9d-4559-9125-34acc2042707">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a37bf44-66d7-4485-a378-fc23641217b6" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into SCC LifeCycle, they must be provisioned into SCC LifeCycle.</source>
+          <target state="new">In order to enable Azure AD users to log into SCC LifeCycle, they must be provisioned into SCC LifeCycle.</target>
+        </trans-unit>
+        <trans-unit id="ee05ae0b-7691-415c-a7aa-a5852151d7b8" xml:space="preserve">
+          <source>There is no action item for you to configure user provisioning to SCC LifeCycle.</source>
+          <target state="new">There is no action item for you to configure user provisioning to SCC LifeCycle.</target>
+        </trans-unit>
+        <trans-unit id="cbeac3cf-f3b0-40bf-9a3b-5566bd9ef955" xml:space="preserve">
+          <source>When an assigned user tries to log into SCC LifeCycle, an SCC LifeCycle account is automatically created if necessary.</source>
+          <target state="new">When an assigned user tries to log into SCC LifeCycle, an SCC LifeCycle account is automatically created if necessary.</target>
+        </trans-unit>
+        <trans-unit id="949b633a-26a6-4388-acdf-268a6eb5e4a3" xml:space="preserve">
+          <source>You can use any other SCC LifeCycle user account creation tools or APIs provided by SCC LifeCycle to provision AAD user accounts.</source>
+          <target state="new">You can use any other SCC LifeCycle user account creation tools or APIs provided by SCC LifeCycle to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="8b98b04e-f7c5-4ec1-aaa8-333fdb9f0ef8" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="80503198-9328-4666-a63e-6954c3663a1c" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="14f88d02-4c83-4544-8b58-26769ec4cd36" xml:space="preserve">
+          <source>On the <bpt id="0bdde27c-64bc-401e-a20d-7336cf6e1550">&lt;strong&gt;</bpt>SCC LifeCycle **application integration page, click **Assign users<ept id="0bdde27c-64bc-401e-a20d-7336cf6e1550">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="0bdde27c-64bc-401e-a20d-7336cf6e1550">&lt;strong&gt;</bpt>SCC LifeCycle **application integration page, click **Assign users<ept id="0bdde27c-64bc-401e-a20d-7336cf6e1550">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d5e169d-8fc7-4c08-99c5-be93a73173e1" xml:space="preserve">
+          <source><bpt id="8ada5a3c-6322-41ee-9300-863d9744cff4">&lt;linkText&gt;</bpt>Assign Users<ept id="8ada5a3c-6322-41ee-9300-863d9744cff4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8ada5a3c-6322-41ee-9300-863d9744cff4">&lt;linkText&gt;</bpt>Assign Users<ept id="8ada5a3c-6322-41ee-9300-863d9744cff4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="daff7fe3-9f8c-4102-b64d-646887280e95" xml:space="preserve">
+          <source>Select your test user, click <bpt id="e52e0a29-0db8-4d39-b318-ce930263693f">&lt;strong&gt;</bpt>Assign<ept id="e52e0a29-0db8-4d39-b318-ce930263693f">&lt;/strong&gt;</ept>, and then click <bpt id="35bffea2-cee6-400c-b237-ca64183a1a47">&lt;strong&gt;</bpt>Yes<ept id="35bffea2-cee6-400c-b237-ca64183a1a47">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="e52e0a29-0db8-4d39-b318-ce930263693f">&lt;strong&gt;</bpt>Assign<ept id="e52e0a29-0db8-4d39-b318-ce930263693f">&lt;/strong&gt;</ept>, and then click <bpt id="35bffea2-cee6-400c-b237-ca64183a1a47">&lt;strong&gt;</bpt>Yes<ept id="35bffea2-cee6-400c-b237-ca64183a1a47">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="ce56a5f3-2ebd-40e5-b9d1-173d249fd6ec" xml:space="preserve">
+          <source><bpt id="77b167f9-7ecb-4a5d-9397-593530bc57fa">&lt;linkText&gt;</bpt>Yes<ept id="77b167f9-7ecb-4a5d-9397-593530bc57fa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="77b167f9-7ecb-4a5d-9397-593530bc57fa">&lt;linkText&gt;</bpt>Yes<ept id="77b167f9-7ecb-4a5d-9397-593530bc57fa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9d32ff1-0622-4c0c-9629-86a0fb27dad3" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="0f5fe7ca-d9e8-426b-827a-ecbec9cd4a22" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="f761417d-25bf-4413-95e9-2a6c8901d328">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="f761417d-25bf-4413-95e9-2a6c8901d328">&lt;/linkText&gt;</ept><bpt id="f761417d-25bf-4413-95e9-2a6c8901d328">&lt;title&gt;</bpt><ept id="f761417d-25bf-4413-95e9-2a6c8901d328">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="f761417d-25bf-4413-95e9-2a6c8901d328">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="f761417d-25bf-4413-95e9-2a6c8901d328">&lt;/linkText&gt;</ept><bpt id="f761417d-25bf-4413-95e9-2a6c8901d328">&lt;title&gt;</bpt><ept id="f761417d-25bf-4413-95e9-2a6c8901d328">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e0a6809f-ea17-40a5-97c1-ee6e7ef2056b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e0a6809f-ea17-40a5-97c1-ee6e7ef2056b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="974b1b2e-510e-42b3-86ec-b73dfb6482dc">
+        <trans-unit id="7302e4bf-6a49-4286-ad72-a07550f4eb5c" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Zoho Mail | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Zoho Mail | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5b53114a-19b4-429f-b3e2-5eaf1bf67985" xml:space="preserve">
+          <source>Learn how to use Zoho Mail with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Zoho Mail with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="c7f903e0-648a-4fef-bfe2-c34076990fd7" xml:space="preserve">
+          <source>For feedback, click <bpt id="87ac5117-767c-4f3a-8aa4-310f1d721365">&lt;linkText&gt;</bpt>here<ept id="87ac5117-767c-4f3a-8aa4-310f1d721365">&lt;/linkText&gt;</ept><bpt id="87ac5117-767c-4f3a-8aa4-310f1d721365">&lt;title&gt;</bpt><ept id="87ac5117-767c-4f3a-8aa4-310f1d721365">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="87ac5117-767c-4f3a-8aa4-310f1d721365">&lt;linkText&gt;</bpt>here<ept id="87ac5117-767c-4f3a-8aa4-310f1d721365">&lt;/linkText&gt;</ept><bpt id="87ac5117-767c-4f3a-8aa4-310f1d721365">&lt;title&gt;</bpt><ept id="87ac5117-767c-4f3a-8aa4-310f1d721365">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="546bc3cf-c6dd-4c5e-8594-82721fc0d94c" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Zoho Mail.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Zoho Mail.</target>
+        </trans-unit>
+        <trans-unit id="e9f3d80a-1af4-45fd-a8b1-39da17108294" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="dffc69e1-82c5-4175-9664-0191ffbd163a" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="34fb8508-c261-410e-8158-61f00d0ed678" xml:space="preserve">
+          <source>A Zoho Mail tenant</source>
+          <target state="new">A Zoho Mail tenant</target>
+        </trans-unit>
+        <trans-unit id="b679d5bb-f307-44b4-bd78-ab6d2c62def9" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Zoho Mail will be able to single sign into the application at your Zoho Mail company site (service provider initiated sign on), or using the <bpt id="d2c3ca4a-bb48-4664-acb8-8e82e9f1f250">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="d2c3ca4a-bb48-4664-acb8-8e82e9f1f250">&lt;/linkText&gt;</ept><bpt id="d2c3ca4a-bb48-4664-acb8-8e82e9f1f250">&lt;title&gt;</bpt><ept id="d2c3ca4a-bb48-4664-acb8-8e82e9f1f250">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Zoho Mail will be able to single sign into the application at your Zoho Mail company site (service provider initiated sign on), or using the <bpt id="d2c3ca4a-bb48-4664-acb8-8e82e9f1f250">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="d2c3ca4a-bb48-4664-acb8-8e82e9f1f250">&lt;/linkText&gt;</ept><bpt id="d2c3ca4a-bb48-4664-acb8-8e82e9f1f250">&lt;title&gt;</bpt><ept id="d2c3ca4a-bb48-4664-acb8-8e82e9f1f250">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53e07837-9823-42e4-a473-a0a5ec202611" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="5d8985eb-bf35-422e-9a1c-60906aaa5361" xml:space="preserve">
+          <source>Enabling the application integration for Zoho Mail</source>
+          <target state="new">Enabling the application integration for Zoho Mail</target>
+        </trans-unit>
+        <trans-unit id="077466ee-4eb2-4079-9fd3-dff5cbafc843" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="e00b13fc-6524-4277-a155-0648ccb79676" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="50cef989-5063-4cd1-bbf1-d0034c3ad20d" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="59bc4283-8f51-4415-8ea4-3157bf6a7f3a" xml:space="preserve">
+          <source><bpt id="f3511814-7504-4f9d-96cd-d324ec317958">&lt;linkText&gt;</bpt>Scenario<ept id="f3511814-7504-4f9d-96cd-d324ec317958">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f3511814-7504-4f9d-96cd-d324ec317958">&lt;linkText&gt;</bpt>Scenario<ept id="f3511814-7504-4f9d-96cd-d324ec317958">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="409f5a57-3871-40fd-a230-b089bae6137d" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Zoho Mail.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Zoho Mail.</target>
+        </trans-unit>
+        <trans-unit id="dda7799f-a24f-4728-9498-ace0d48c12ad" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="c8de3d98-0514-472e-bf62-155208c0f14b">&lt;strong&gt;</bpt>Active Directory<ept id="c8de3d98-0514-472e-bf62-155208c0f14b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="c8de3d98-0514-472e-bf62-155208c0f14b">&lt;strong&gt;</bpt>Active Directory<ept id="c8de3d98-0514-472e-bf62-155208c0f14b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9c63782-0569-49f4-a184-ab201e344b86" xml:space="preserve">
+          <source><bpt id="7d9d5a77-7208-4c68-ae20-b9468e6b0806">&lt;linkText&gt;</bpt>Active Directory<ept id="7d9d5a77-7208-4c68-ae20-b9468e6b0806">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7d9d5a77-7208-4c68-ae20-b9468e6b0806">&lt;linkText&gt;</bpt>Active Directory<ept id="7d9d5a77-7208-4c68-ae20-b9468e6b0806">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bce89fb6-055b-4f06-b80d-d6571594bfde" xml:space="preserve">
+          <source>From the <bpt id="edd0d962-60cf-41ab-9fec-0923512284ac">&lt;strong&gt;</bpt>Directory<ept id="edd0d962-60cf-41ab-9fec-0923512284ac">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="edd0d962-60cf-41ab-9fec-0923512284ac">&lt;strong&gt;</bpt>Directory<ept id="edd0d962-60cf-41ab-9fec-0923512284ac">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="b8c6e632-6def-415e-88c0-d9c6c882e430" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="29926384-dfff-41cf-825f-117c17388d1d">&lt;strong&gt;</bpt>Applications<ept id="29926384-dfff-41cf-825f-117c17388d1d">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="29926384-dfff-41cf-825f-117c17388d1d">&lt;strong&gt;</bpt>Applications<ept id="29926384-dfff-41cf-825f-117c17388d1d">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="6c573c12-9301-439b-b3c0-3de876c4607f" xml:space="preserve">
+          <source><bpt id="d12ef78d-7eed-49aa-8788-e15c0fb9a316">&lt;linkText&gt;</bpt>Applications<ept id="d12ef78d-7eed-49aa-8788-e15c0fb9a316">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d12ef78d-7eed-49aa-8788-e15c0fb9a316">&lt;linkText&gt;</bpt>Applications<ept id="d12ef78d-7eed-49aa-8788-e15c0fb9a316">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14259c22-88fb-4c9c-8ffe-49413799396a" xml:space="preserve">
+          <source>Click <bpt id="96b69a25-0e8a-49de-91c0-f00504bace23">&lt;strong&gt;</bpt>Add<ept id="96b69a25-0e8a-49de-91c0-f00504bace23">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="96b69a25-0e8a-49de-91c0-f00504bace23">&lt;strong&gt;</bpt>Add<ept id="96b69a25-0e8a-49de-91c0-f00504bace23">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="d867c0b6-c3da-45a4-b8a1-d0bd9bd5eb0f" xml:space="preserve">
+          <source><bpt id="90feedef-d0d6-4a09-8ee4-1dbb3e71c8f1">&lt;linkText&gt;</bpt>Add application<ept id="90feedef-d0d6-4a09-8ee4-1dbb3e71c8f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="90feedef-d0d6-4a09-8ee4-1dbb3e71c8f1">&lt;linkText&gt;</bpt>Add application<ept id="90feedef-d0d6-4a09-8ee4-1dbb3e71c8f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3368059-3057-40ad-a629-9de53bfc60ee" xml:space="preserve">
+          <source>On the <bpt id="21233606-4d9f-46f6-8673-7f07ffb43788">&lt;strong&gt;</bpt>What do you want to do<ept id="21233606-4d9f-46f6-8673-7f07ffb43788">&lt;/strong&gt;</ept> dialog, click <bpt id="2893f4a3-1faf-407c-bd1c-4a9458cae739">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="2893f4a3-1faf-407c-bd1c-4a9458cae739">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="21233606-4d9f-46f6-8673-7f07ffb43788">&lt;strong&gt;</bpt>What do you want to do<ept id="21233606-4d9f-46f6-8673-7f07ffb43788">&lt;/strong&gt;</ept> dialog, click <bpt id="2893f4a3-1faf-407c-bd1c-4a9458cae739">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="2893f4a3-1faf-407c-bd1c-4a9458cae739">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a00c378-0389-45af-986a-2d29cbccf9d6" xml:space="preserve">
+          <source><bpt id="083415df-448a-4c81-9de6-831e646d86c1">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="083415df-448a-4c81-9de6-831e646d86c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="083415df-448a-4c81-9de6-831e646d86c1">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="083415df-448a-4c81-9de6-831e646d86c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="534721af-d234-4118-967d-c1eb5c7dfba3" xml:space="preserve">
+          <source>In the <bpt id="78c5447a-cac1-4575-81e9-35b0584af136">&lt;strong&gt;</bpt>search box<ept id="78c5447a-cac1-4575-81e9-35b0584af136">&lt;/strong&gt;</ept>, type <bpt id="68a23b9e-68a6-492e-b7cd-f5ca011ec2e2">&lt;strong&gt;</bpt>Zoho Mail<ept id="68a23b9e-68a6-492e-b7cd-f5ca011ec2e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="78c5447a-cac1-4575-81e9-35b0584af136">&lt;strong&gt;</bpt>search box<ept id="78c5447a-cac1-4575-81e9-35b0584af136">&lt;/strong&gt;</ept>, type <bpt id="68a23b9e-68a6-492e-b7cd-f5ca011ec2e2">&lt;strong&gt;</bpt>Zoho Mail<ept id="68a23b9e-68a6-492e-b7cd-f5ca011ec2e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e36a47a4-091f-4541-8540-9c09cbc411c0" xml:space="preserve">
+          <source><bpt id="dbd9ca32-8d62-4dea-8225-78d1a715d0e9">&lt;linkText&gt;</bpt>Application Gallery<ept id="dbd9ca32-8d62-4dea-8225-78d1a715d0e9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dbd9ca32-8d62-4dea-8225-78d1a715d0e9">&lt;linkText&gt;</bpt>Application Gallery<ept id="dbd9ca32-8d62-4dea-8225-78d1a715d0e9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be609cd0-fd33-44b9-b0ce-84894735c7d2" xml:space="preserve">
+          <source>In the results pane, select <bpt id="17944885-8454-48f1-a9fd-e0535dc2f127">&lt;strong&gt;</bpt>Zoho Mail<ept id="17944885-8454-48f1-a9fd-e0535dc2f127">&lt;/strong&gt;</ept>, and then click <bpt id="3315af74-8041-4ed5-bcc6-93a1c6cf87e3">&lt;strong&gt;</bpt>Complete<ept id="3315af74-8041-4ed5-bcc6-93a1c6cf87e3">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="17944885-8454-48f1-a9fd-e0535dc2f127">&lt;strong&gt;</bpt>Zoho Mail<ept id="17944885-8454-48f1-a9fd-e0535dc2f127">&lt;/strong&gt;</ept>, and then click <bpt id="3315af74-8041-4ed5-bcc6-93a1c6cf87e3">&lt;strong&gt;</bpt>Complete<ept id="3315af74-8041-4ed5-bcc6-93a1c6cf87e3">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="f53a0bf0-2bda-44ee-8e58-6200287e5921" xml:space="preserve">
+          <source><bpt id="48fc6ebe-29da-4e19-9cea-bc47fb0e2270">&lt;linkText&gt;</bpt>Zoho Mail<ept id="48fc6ebe-29da-4e19-9cea-bc47fb0e2270">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48fc6ebe-29da-4e19-9cea-bc47fb0e2270">&lt;linkText&gt;</bpt>Zoho Mail<ept id="48fc6ebe-29da-4e19-9cea-bc47fb0e2270">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ea6e36e-face-4ff8-8253-170d234bfb45" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Zoho Mail with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Zoho Mail with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="ff8f8bcf-6494-4ad3-b386-acf01a23b806" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="16f40593-62c6-4266-8e08-9222b776877b" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="a724b786-91f9-47fc-a743-4a8fe5e2d859">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="a724b786-91f9-47fc-a743-4a8fe5e2d859">&lt;/linkText&gt;</ept><bpt id="a724b786-91f9-47fc-a743-4a8fe5e2d859">&lt;title&gt;</bpt><ept id="a724b786-91f9-47fc-a743-4a8fe5e2d859">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="a724b786-91f9-47fc-a743-4a8fe5e2d859">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="a724b786-91f9-47fc-a743-4a8fe5e2d859">&lt;/linkText&gt;</ept><bpt id="a724b786-91f9-47fc-a743-4a8fe5e2d859">&lt;title&gt;</bpt><ept id="a724b786-91f9-47fc-a743-4a8fe5e2d859">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52eec460-53c3-44c4-8b1f-0aafd5c31ca2" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="f80699ff-c5f8-476a-a3c0-b29f3353c97e">&lt;strong&gt;</bpt>Zoho Mail<ept id="f80699ff-c5f8-476a-a3c0-b29f3353c97e">&lt;/strong&gt;</ept> application integration page, click <bpt id="e529ca09-ee35-4355-9462-2a2afca4ee4a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="e529ca09-ee35-4355-9462-2a2afca4ee4a">&lt;/strong&gt;</ept> to open the <bpt id="76f6a419-a3fd-4d34-aaaf-186c11264f6d">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="76f6a419-a3fd-4d34-aaaf-186c11264f6d">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="f80699ff-c5f8-476a-a3c0-b29f3353c97e">&lt;strong&gt;</bpt>Zoho Mail<ept id="f80699ff-c5f8-476a-a3c0-b29f3353c97e">&lt;/strong&gt;</ept> application integration page, click <bpt id="e529ca09-ee35-4355-9462-2a2afca4ee4a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="e529ca09-ee35-4355-9462-2a2afca4ee4a">&lt;/strong&gt;</ept> to open the <bpt id="76f6a419-a3fd-4d34-aaaf-186c11264f6d">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="76f6a419-a3fd-4d34-aaaf-186c11264f6d">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="e853fdce-c436-4872-8910-208de6da1dea" xml:space="preserve">
+          <source><bpt id="c78d664b-d6a1-4caf-99f2-e0ca9afa27d3">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="c78d664b-d6a1-4caf-99f2-e0ca9afa27d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c78d664b-d6a1-4caf-99f2-e0ca9afa27d3">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="c78d664b-d6a1-4caf-99f2-e0ca9afa27d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c3d5eec-c596-479a-9c91-da0c15e9e6d0" xml:space="preserve">
+          <source>On the <bpt id="5c617a69-5b46-4e29-9108-9085ab963c6b">&lt;strong&gt;</bpt>How would you like users to sign on to Zoho Mail<ept id="5c617a69-5b46-4e29-9108-9085ab963c6b">&lt;/strong&gt;</ept> page, select <bpt id="9c50847f-da54-4a6f-bb8f-abdfa46b74ad">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="9c50847f-da54-4a6f-bb8f-abdfa46b74ad">&lt;/strong&gt;</ept>, and then click <bpt id="ee4b64d1-f47b-4c78-959b-925bc4bc66f5">&lt;strong&gt;</bpt>Next<ept id="ee4b64d1-f47b-4c78-959b-925bc4bc66f5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5c617a69-5b46-4e29-9108-9085ab963c6b">&lt;strong&gt;</bpt>How would you like users to sign on to Zoho Mail<ept id="5c617a69-5b46-4e29-9108-9085ab963c6b">&lt;/strong&gt;</ept> page, select <bpt id="9c50847f-da54-4a6f-bb8f-abdfa46b74ad">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="9c50847f-da54-4a6f-bb8f-abdfa46b74ad">&lt;/strong&gt;</ept>, and then click <bpt id="ee4b64d1-f47b-4c78-959b-925bc4bc66f5">&lt;strong&gt;</bpt>Next<ept id="ee4b64d1-f47b-4c78-959b-925bc4bc66f5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a914e82-c0b7-4f90-b7c9-485f7047c931" xml:space="preserve">
+          <source><bpt id="5de8cae6-4d67-41f8-985c-c8e2158a4ad6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="5de8cae6-4d67-41f8-985c-c8e2158a4ad6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5de8cae6-4d67-41f8-985c-c8e2158a4ad6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="5de8cae6-4d67-41f8-985c-c8e2158a4ad6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8dc48bb6-a970-4745-84dc-d04f2e2141a9" xml:space="preserve">
+          <source>On the <bpt id="660b0afd-2421-4bd1-b4b5-6d2ac3a0c338">&lt;strong&gt;</bpt>Configure App URL<ept id="660b0afd-2421-4bd1-b4b5-6d2ac3a0c338">&lt;/strong&gt;</ept> page, in the <bpt id="fb5b1f2b-32c7-46c8-aaba-8fc15601bec1">&lt;strong&gt;</bpt>Zoho Mail Sign On URL<ept id="fb5b1f2b-32c7-46c8-aaba-8fc15601bec1">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="b7869d9b-4c49-45dd-a42d-1761d6576821">&lt;em&gt;</bpt>http://company.ZohoMail.com<ept id="b7869d9b-4c49-45dd-a42d-1761d6576821">&lt;/em&gt;</ept>", and then click <bpt id="d8d872d0-6b71-48bb-80b1-40d488bf48b8">&lt;strong&gt;</bpt>Next<ept id="d8d872d0-6b71-48bb-80b1-40d488bf48b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="660b0afd-2421-4bd1-b4b5-6d2ac3a0c338">&lt;strong&gt;</bpt>Configure App URL<ept id="660b0afd-2421-4bd1-b4b5-6d2ac3a0c338">&lt;/strong&gt;</ept> page, in the <bpt id="fb5b1f2b-32c7-46c8-aaba-8fc15601bec1">&lt;strong&gt;</bpt>Zoho Mail Sign On URL<ept id="fb5b1f2b-32c7-46c8-aaba-8fc15601bec1">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="b7869d9b-4c49-45dd-a42d-1761d6576821">&lt;em&gt;</bpt>http://company.ZohoMail.com<ept id="b7869d9b-4c49-45dd-a42d-1761d6576821">&lt;/em&gt;</ept>", and then click <bpt id="d8d872d0-6b71-48bb-80b1-40d488bf48b8">&lt;strong&gt;</bpt>Next<ept id="d8d872d0-6b71-48bb-80b1-40d488bf48b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="234fbf54-1e8b-4d60-8e04-6abda21244bc" xml:space="preserve">
+          <source><bpt id="464f5503-ccc1-41ab-ad0f-0fd7c4e8092e">&lt;linkText&gt;</bpt>Configure App URL<ept id="464f5503-ccc1-41ab-ad0f-0fd7c4e8092e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="464f5503-ccc1-41ab-ad0f-0fd7c4e8092e">&lt;linkText&gt;</bpt>Configure App URL<ept id="464f5503-ccc1-41ab-ad0f-0fd7c4e8092e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98b8f61a-e3c1-4c71-a598-368d88cd51f0" xml:space="preserve">
+          <source>On the <bpt id="0acec6ab-16de-4bf4-bd0a-3bf215ef743f">&lt;strong&gt;</bpt>Configure single sign-on at Zoho Mail<ept id="0acec6ab-16de-4bf4-bd0a-3bf215ef743f">&lt;/strong&gt;</ept> page, click <bpt id="407629af-d4ba-44ca-8cd5-cc12d376b5b5">&lt;strong&gt;</bpt>Download certificate<ept id="407629af-d4ba-44ca-8cd5-cc12d376b5b5">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="0acec6ab-16de-4bf4-bd0a-3bf215ef743f">&lt;strong&gt;</bpt>Configure single sign-on at Zoho Mail<ept id="0acec6ab-16de-4bf4-bd0a-3bf215ef743f">&lt;/strong&gt;</ept> page, click <bpt id="407629af-d4ba-44ca-8cd5-cc12d376b5b5">&lt;strong&gt;</bpt>Download certificate<ept id="407629af-d4ba-44ca-8cd5-cc12d376b5b5">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="c40aa4ff-c4e0-42e7-9edd-03e910e1828f" xml:space="preserve">
+          <source><bpt id="731b2072-c976-4ea2-948b-3f4f24058789">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="731b2072-c976-4ea2-948b-3f4f24058789">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="731b2072-c976-4ea2-948b-3f4f24058789">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="731b2072-c976-4ea2-948b-3f4f24058789">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d39cbb4-ecab-40a8-a711-90843d4352d9" xml:space="preserve">
+          <source>In a different web browser window, log into your Zoho Mail company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Zoho Mail company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="f1bf508f-fbc3-411e-9dee-2b9391f3a16d" xml:space="preserve">
+          <source>Go to the <bpt id="3c388506-33c0-445c-9b6d-e30a81b32939">&lt;strong&gt;</bpt>Control panel<ept id="3c388506-33c0-445c-9b6d-e30a81b32939">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to the <bpt id="3c388506-33c0-445c-9b6d-e30a81b32939">&lt;strong&gt;</bpt>Control panel<ept id="3c388506-33c0-445c-9b6d-e30a81b32939">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6844aae-67ff-4438-abcf-85a495ab0605" xml:space="preserve">
+          <source><bpt id="4ce0741a-97d7-4650-8b6d-0cc4cfc72dd6">&lt;linkText&gt;</bpt>Control Panel<ept id="4ce0741a-97d7-4650-8b6d-0cc4cfc72dd6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ce0741a-97d7-4650-8b6d-0cc4cfc72dd6">&lt;linkText&gt;</bpt>Control Panel<ept id="4ce0741a-97d7-4650-8b6d-0cc4cfc72dd6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a9b5b8a-17ef-4d19-9e6d-c4ced62a6b1d" xml:space="preserve">
+          <source>Click the <bpt id="a99e6e74-ce49-408d-b0ff-6e7961f4b66c">&lt;strong&gt;</bpt>SAML Authentication<ept id="a99e6e74-ce49-408d-b0ff-6e7961f4b66c">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="a99e6e74-ce49-408d-b0ff-6e7961f4b66c">&lt;strong&gt;</bpt>SAML Authentication<ept id="a99e6e74-ce49-408d-b0ff-6e7961f4b66c">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="3e22565f-3edb-4cab-abed-7472f2cde575" xml:space="preserve">
+          <source><bpt id="a67df9da-ac06-4cf9-9862-48203029b586">&lt;linkText&gt;</bpt>SAML Authentication<ept id="a67df9da-ac06-4cf9-9862-48203029b586">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a67df9da-ac06-4cf9-9862-48203029b586">&lt;linkText&gt;</bpt>SAML Authentication<ept id="a67df9da-ac06-4cf9-9862-48203029b586">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7e6f307-e40e-46c2-b193-f695b690c39a" xml:space="preserve">
+          <source>In the <bpt id="ae3e32eb-bc82-4a3c-956d-44ceaf1b786f">&lt;strong&gt;</bpt>SAML Authentication Details<ept id="ae3e32eb-bc82-4a3c-956d-44ceaf1b786f">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="ae3e32eb-bc82-4a3c-956d-44ceaf1b786f">&lt;strong&gt;</bpt>SAML Authentication Details<ept id="ae3e32eb-bc82-4a3c-956d-44ceaf1b786f">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="342a2e58-eeee-488c-9693-c4fbd656d762" xml:space="preserve">
+          <source><bpt id="5bf18a55-2b04-4caf-9446-fa13dc34688c">&lt;linkText&gt;</bpt>SAML Authentication Details<ept id="5bf18a55-2b04-4caf-9446-fa13dc34688c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5bf18a55-2b04-4caf-9446-fa13dc34688c">&lt;linkText&gt;</bpt>SAML Authentication Details<ept id="5bf18a55-2b04-4caf-9446-fa13dc34688c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc6b7121-0a66-413c-acec-fec979a0aa62" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="e8ce27cd-eb45-4beb-a51c-c1274ac5b03f">&lt;strong&gt;</bpt>Configure single sign-on at Zoho Mail<ept id="e8ce27cd-eb45-4beb-a51c-c1274ac5b03f">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="5aca8782-2e15-4e5c-8c44-253e6fa5749b">&lt;strong&gt;</bpt>Remote Login URL<ept id="5aca8782-2e15-4e5c-8c44-253e6fa5749b">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="8837a4bb-da87-4c60-a2ac-70b21ae33b20">&lt;strong&gt;</bpt>Login URL<ept id="8837a4bb-da87-4c60-a2ac-70b21ae33b20">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="e8ce27cd-eb45-4beb-a51c-c1274ac5b03f">&lt;strong&gt;</bpt>Configure single sign-on at Zoho Mail<ept id="e8ce27cd-eb45-4beb-a51c-c1274ac5b03f">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="5aca8782-2e15-4e5c-8c44-253e6fa5749b">&lt;strong&gt;</bpt>Remote Login URL<ept id="5aca8782-2e15-4e5c-8c44-253e6fa5749b">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="8837a4bb-da87-4c60-a2ac-70b21ae33b20">&lt;strong&gt;</bpt>Login URL<ept id="8837a4bb-da87-4c60-a2ac-70b21ae33b20">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="3a310e90-bd4f-4048-abce-511e1808a87e" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="37a71efa-0480-4214-87b6-5306a3eb941f">&lt;strong&gt;</bpt>Configure single sign-on at Zoho Mail<ept id="37a71efa-0480-4214-87b6-5306a3eb941f">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="b80af912-d261-4be6-a0b3-5dd50d1b7081">&lt;strong&gt;</bpt>Remote Logout URL<ept id="b80af912-d261-4be6-a0b3-5dd50d1b7081">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="07608b62-13ca-43af-bd10-77f8fd129f4a">&lt;strong&gt;</bpt>Logout URL<ept id="07608b62-13ca-43af-bd10-77f8fd129f4a">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="37a71efa-0480-4214-87b6-5306a3eb941f">&lt;strong&gt;</bpt>Configure single sign-on at Zoho Mail<ept id="37a71efa-0480-4214-87b6-5306a3eb941f">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="b80af912-d261-4be6-a0b3-5dd50d1b7081">&lt;strong&gt;</bpt>Remote Logout URL<ept id="b80af912-d261-4be6-a0b3-5dd50d1b7081">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="07608b62-13ca-43af-bd10-77f8fd129f4a">&lt;strong&gt;</bpt>Logout URL<ept id="07608b62-13ca-43af-bd10-77f8fd129f4a">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="bd346795-5922-471e-94b3-6e56407601c9" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="2f2898ed-20ae-44ea-a99d-2bc8efb456ae">&lt;strong&gt;</bpt>Configure single sign-on at Zoho Mail<ept id="2f2898ed-20ae-44ea-a99d-2bc8efb456ae">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="0de3cab5-fa0a-4ff2-9abb-679b0ab0f5da">&lt;strong&gt;</bpt>Change Password URL<ept id="0de3cab5-fa0a-4ff2-9abb-679b0ab0f5da">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="fc7ba8f4-80c7-4621-a927-ffadd73ad401">&lt;strong&gt;</bpt>Change Password URL<ept id="fc7ba8f4-80c7-4621-a927-ffadd73ad401">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="2f2898ed-20ae-44ea-a99d-2bc8efb456ae">&lt;strong&gt;</bpt>Configure single sign-on at Zoho Mail<ept id="2f2898ed-20ae-44ea-a99d-2bc8efb456ae">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="0de3cab5-fa0a-4ff2-9abb-679b0ab0f5da">&lt;strong&gt;</bpt>Change Password URL<ept id="0de3cab5-fa0a-4ff2-9abb-679b0ab0f5da">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="fc7ba8f4-80c7-4621-a927-ffadd73ad401">&lt;strong&gt;</bpt>Change Password URL<ept id="fc7ba8f4-80c7-4621-a927-ffadd73ad401">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="2af64135-4324-412f-8455-59e938f38246" xml:space="preserve">
+          <source>Create a <bpt id="c1f40aea-005d-455a-b7e1-e200c610c7f0">&lt;strong&gt;</bpt>base-64 encoded<ept id="c1f40aea-005d-455a-b7e1-e200c610c7f0">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="c1f40aea-005d-455a-b7e1-e200c610c7f0">&lt;strong&gt;</bpt>base-64 encoded<ept id="c1f40aea-005d-455a-b7e1-e200c610c7f0">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="e863a695-3697-4ba6-a70c-60d34328847a" xml:space="preserve">
+          <source>For more details, see <bpt id="1aa4c584-0eef-4fe4-8e71-95cf6efd5eef">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="1aa4c584-0eef-4fe4-8e71-95cf6efd5eef">&lt;/linkText&gt;</ept><bpt id="1aa4c584-0eef-4fe4-8e71-95cf6efd5eef">&lt;title&gt;</bpt><ept id="1aa4c584-0eef-4fe4-8e71-95cf6efd5eef">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="1aa4c584-0eef-4fe4-8e71-95cf6efd5eef">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="1aa4c584-0eef-4fe4-8e71-95cf6efd5eef">&lt;/linkText&gt;</ept><bpt id="1aa4c584-0eef-4fe4-8e71-95cf6efd5eef">&lt;title&gt;</bpt><ept id="1aa4c584-0eef-4fe4-8e71-95cf6efd5eef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c03be4f-25e1-4780-a4c1-2dfa23dbb6dd" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="bb1b78e9-55dc-40a9-88ba-cb4df56998a7">&lt;strong&gt;</bpt>PublicKey<ept id="bb1b78e9-55dc-40a9-88ba-cb4df56998a7">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="bb1b78e9-55dc-40a9-88ba-cb4df56998a7">&lt;strong&gt;</bpt>PublicKey<ept id="bb1b78e9-55dc-40a9-88ba-cb4df56998a7">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="f725a549-1afa-478c-80f6-65a951df88d9" xml:space="preserve">
+          <source>As <bpt id="bb66b73b-3c73-42e1-8733-83986fb772df">&lt;strong&gt;</bpt>Algorithm<ept id="bb66b73b-3c73-42e1-8733-83986fb772df">&lt;/strong&gt;</ept>, select <bpt id="4e8b4904-2fc0-4b31-8ef7-6cf2519c65c1">&lt;strong&gt;</bpt>RSA<ept id="4e8b4904-2fc0-4b31-8ef7-6cf2519c65c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="bb66b73b-3c73-42e1-8733-83986fb772df">&lt;strong&gt;</bpt>Algorithm<ept id="bb66b73b-3c73-42e1-8733-83986fb772df">&lt;/strong&gt;</ept>, select <bpt id="4e8b4904-2fc0-4b31-8ef7-6cf2519c65c1">&lt;strong&gt;</bpt>RSA<ept id="4e8b4904-2fc0-4b31-8ef7-6cf2519c65c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7403f90-9918-4960-af4e-0f33962fd7b4" xml:space="preserve">
+          <source>Click <bpt id="756db7fc-1df5-49ae-a81d-be57ad68e6b2">&lt;strong&gt;</bpt>OK<ept id="756db7fc-1df5-49ae-a81d-be57ad68e6b2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="756db7fc-1df5-49ae-a81d-be57ad68e6b2">&lt;strong&gt;</bpt>OK<ept id="756db7fc-1df5-49ae-a81d-be57ad68e6b2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfcd1dc4-4514-4a4f-972b-be04f0324910" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="597c9585-312d-48b5-b6cc-b7b1ac964605">&lt;strong&gt;</bpt>Complete<ept id="597c9585-312d-48b5-b6cc-b7b1ac964605">&lt;/strong&gt;</ept> to close the <bpt id="07b28e81-97e6-45fb-aea1-aa77596e8d21">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="07b28e81-97e6-45fb-aea1-aa77596e8d21">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="597c9585-312d-48b5-b6cc-b7b1ac964605">&lt;strong&gt;</bpt>Complete<ept id="597c9585-312d-48b5-b6cc-b7b1ac964605">&lt;/strong&gt;</ept> to close the <bpt id="07b28e81-97e6-45fb-aea1-aa77596e8d21">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="07b28e81-97e6-45fb-aea1-aa77596e8d21">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="641fb11a-dce1-4100-bc19-0824a22a4245" xml:space="preserve">
+          <source><bpt id="b2ba4372-fafb-4627-b339-8ba0ced5d701">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="b2ba4372-fafb-4627-b339-8ba0ced5d701">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b2ba4372-fafb-4627-b339-8ba0ced5d701">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="b2ba4372-fafb-4627-b339-8ba0ced5d701">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b7fead7-6269-456b-9c9f-2f009165f634" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Zoho Mail, they must be provisioned into Zoho Mail.</source>
+          <target state="new">In order to enable Azure AD users to log into Zoho Mail, they must be provisioned into Zoho Mail.</target>
+        </trans-unit>
+        <trans-unit id="aca7d7d6-9e68-40c0-aa6d-551b99dcd312" xml:space="preserve">
+          <source>In the case of Zoho Mail, provisioning is a manual task.</source>
+          <target state="new">In the case of Zoho Mail, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="7420acf5-4ce0-4d5c-aba2-4f79b9b74457" xml:space="preserve">
+          <source>Log in to your <bpt id="26498381-fe1f-4ebf-a359-a657a9d0a352">&lt;strong&gt;</bpt>Zoho Mail<ept id="26498381-fe1f-4ebf-a359-a657a9d0a352">&lt;/strong&gt;</ept> company site as an administrator.</source>
+          <target state="new">Log in to your <bpt id="26498381-fe1f-4ebf-a359-a657a9d0a352">&lt;strong&gt;</bpt>Zoho Mail<ept id="26498381-fe1f-4ebf-a359-a657a9d0a352">&lt;/strong&gt;</ept> company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="10ba900e-7ce2-4e78-9b5a-37f3c748f794" xml:space="preserve">
+          <source>Go to <bpt id="7a1748d9-1261-496a-a43b-3410cc7a9291">&lt;strong&gt;</bpt>Control Panel \&gt; Mail &amp; Docs<ept id="7a1748d9-1261-496a-a43b-3410cc7a9291">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="7a1748d9-1261-496a-a43b-3410cc7a9291">&lt;strong&gt;</bpt>Control Panel \&gt; Mail &amp; Docs<ept id="7a1748d9-1261-496a-a43b-3410cc7a9291">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="908493c6-d871-47c8-9f29-9c9e6bbeaad8" xml:space="preserve">
+          <source>Go to <bpt id="c2675c7d-99fc-479d-b02a-a1747301520a">&lt;strong&gt;</bpt>User Details \&gt; Add User<ept id="c2675c7d-99fc-479d-b02a-a1747301520a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="c2675c7d-99fc-479d-b02a-a1747301520a">&lt;strong&gt;</bpt>User Details \&gt; Add User<ept id="c2675c7d-99fc-479d-b02a-a1747301520a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13661c79-c3c9-467d-a85f-c16e221e0444" xml:space="preserve">
+          <source><bpt id="7ae27fef-2c9d-46ed-8926-ba037d82e557">&lt;linkText&gt;</bpt>Add User<ept id="7ae27fef-2c9d-46ed-8926-ba037d82e557">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ae27fef-2c9d-46ed-8926-ba037d82e557">&lt;linkText&gt;</bpt>Add User<ept id="7ae27fef-2c9d-46ed-8926-ba037d82e557">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ccf3219-c689-4dc1-8f68-4049657305ae" xml:space="preserve">
+          <source>On the <bpt id="51ff436a-bb19-481a-ad6b-39d06b55485c">&lt;strong&gt;</bpt>Add users<ept id="51ff436a-bb19-481a-ad6b-39d06b55485c">&lt;/strong&gt;</ept> dialog, perform the following steps:</source>
+          <target state="new">On the <bpt id="51ff436a-bb19-481a-ad6b-39d06b55485c">&lt;strong&gt;</bpt>Add users<ept id="51ff436a-bb19-481a-ad6b-39d06b55485c">&lt;/strong&gt;</ept> dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="0123f004-b1f1-4ced-a03f-fb4940564281" xml:space="preserve">
+          <source><bpt id="58a84c20-e1e6-47bd-9310-67a366c9bc23">&lt;linkText&gt;</bpt>Add User<ept id="58a84c20-e1e6-47bd-9310-67a366c9bc23">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="58a84c20-e1e6-47bd-9310-67a366c9bc23">&lt;linkText&gt;</bpt>Add User<ept id="58a84c20-e1e6-47bd-9310-67a366c9bc23">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fed1d8be-867d-463b-aa95-72152707b977" xml:space="preserve">
+          <source>Type the <bpt id="66350e6a-30fb-4450-8513-7e44a367bfdf">&lt;strong&gt;</bpt>First Name<ept id="66350e6a-30fb-4450-8513-7e44a367bfdf">&lt;/strong&gt;</ept>, <bpt id="d9599c94-5630-4d16-bd43-22ffade7170e">&lt;strong&gt;</bpt>Last Name<ept id="d9599c94-5630-4d16-bd43-22ffade7170e">&lt;/strong&gt;</ept>, <bpt id="fd6e24a8-2c80-4a90-b8b3-ce1b0efe195c">&lt;strong&gt;</bpt>Email ID<ept id="fd6e24a8-2c80-4a90-b8b3-ce1b0efe195c">&lt;/strong&gt;</ept>, <bpt id="a0bae7b3-0f12-49a1-8395-88ddf7595172">&lt;strong&gt;</bpt>Password<ept id="a0bae7b3-0f12-49a1-8395-88ddf7595172">&lt;/strong&gt;</ept> of a valid Azure Active Directory account you want to provision into the related textboxes.</source>
+          <target state="new">Type the <bpt id="66350e6a-30fb-4450-8513-7e44a367bfdf">&lt;strong&gt;</bpt>First Name<ept id="66350e6a-30fb-4450-8513-7e44a367bfdf">&lt;/strong&gt;</ept>, <bpt id="d9599c94-5630-4d16-bd43-22ffade7170e">&lt;strong&gt;</bpt>Last Name<ept id="d9599c94-5630-4d16-bd43-22ffade7170e">&lt;/strong&gt;</ept>, <bpt id="fd6e24a8-2c80-4a90-b8b3-ce1b0efe195c">&lt;strong&gt;</bpt>Email ID<ept id="fd6e24a8-2c80-4a90-b8b3-ce1b0efe195c">&lt;/strong&gt;</ept>, <bpt id="a0bae7b3-0f12-49a1-8395-88ddf7595172">&lt;strong&gt;</bpt>Password<ept id="a0bae7b3-0f12-49a1-8395-88ddf7595172">&lt;/strong&gt;</ept> of a valid Azure Active Directory account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="edec7323-4783-4259-aea1-62d075b54d51" xml:space="preserve">
+          <source>Click <bpt id="95bfbe54-2190-44fc-8250-379492021993">&lt;strong&gt;</bpt>OK<ept id="95bfbe54-2190-44fc-8250-379492021993">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="95bfbe54-2190-44fc-8250-379492021993">&lt;strong&gt;</bpt>OK<ept id="95bfbe54-2190-44fc-8250-379492021993">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ce77392-c38b-47fa-924c-587bd457126d" xml:space="preserve">
+          <source>The Azure Active Directory account holder will receive an email with a link to confirm the account before it becomes active.</source>
+          <target state="new">The Azure Active Directory account holder will receive an email with a link to confirm the account before it becomes active.</target>
+        </trans-unit>
+        <trans-unit id="49173b60-685f-4e6d-b8d9-60d9cc6565df" xml:space="preserve">
+          <source>You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision AAD user accounts.</source>
+          <target state="new">You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="b926bc8a-ebbb-428b-b7ef-15a8b35fb93c" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="42d47c23-be54-43a0-af2c-78833c30835a" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="38eb5a57-e5ee-4408-b7e7-59ed24c1e108" xml:space="preserve">
+          <source>On the <bpt id="f66994b2-9354-4a5c-a148-2fad97937fbb">&lt;strong&gt;</bpt>Zoho Mail **application integration page, click **Assign users<ept id="f66994b2-9354-4a5c-a148-2fad97937fbb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f66994b2-9354-4a5c-a148-2fad97937fbb">&lt;strong&gt;</bpt>Zoho Mail **application integration page, click **Assign users<ept id="f66994b2-9354-4a5c-a148-2fad97937fbb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e197d73f-dffe-452b-bd35-42786a2ec4f5" xml:space="preserve">
+          <source><bpt id="31d1daf6-0680-4583-9526-2ca3f373623d">&lt;linkText&gt;</bpt>Assign Users<ept id="31d1daf6-0680-4583-9526-2ca3f373623d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="31d1daf6-0680-4583-9526-2ca3f373623d">&lt;linkText&gt;</bpt>Assign Users<ept id="31d1daf6-0680-4583-9526-2ca3f373623d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b7e615d-cb72-4329-8429-5ee21291fb91" xml:space="preserve">
+          <source>Select your test user, click <bpt id="02eb8d70-3cd6-4eb1-8518-74f42ad9dd51">&lt;strong&gt;</bpt>Assign<ept id="02eb8d70-3cd6-4eb1-8518-74f42ad9dd51">&lt;/strong&gt;</ept>, and then click <bpt id="836e6593-6044-4af3-a2f1-306fa121b3be">&lt;strong&gt;</bpt>Yes<ept id="836e6593-6044-4af3-a2f1-306fa121b3be">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="02eb8d70-3cd6-4eb1-8518-74f42ad9dd51">&lt;strong&gt;</bpt>Assign<ept id="02eb8d70-3cd6-4eb1-8518-74f42ad9dd51">&lt;/strong&gt;</ept>, and then click <bpt id="836e6593-6044-4af3-a2f1-306fa121b3be">&lt;strong&gt;</bpt>Yes<ept id="836e6593-6044-4af3-a2f1-306fa121b3be">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="7253e319-ac15-4bf6-9017-abdec5577594" xml:space="preserve">
+          <source><bpt id="0293fcd9-38fa-45e4-9685-e44ad8c3fb59">&lt;linkText&gt;</bpt>Yes<ept id="0293fcd9-38fa-45e4-9685-e44ad8c3fb59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0293fcd9-38fa-45e4-9685-e44ad8c3fb59">&lt;linkText&gt;</bpt>Yes<ept id="0293fcd9-38fa-45e4-9685-e44ad8c3fb59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb7f45cc-b77b-468c-a332-192b9e1b9c03" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="05d8d3c0-5576-43f3-ac27-25d615bf54c1" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="b87f3f12-05cc-46ec-95fa-acf749fc729a">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="b87f3f12-05cc-46ec-95fa-acf749fc729a">&lt;/linkText&gt;</ept><bpt id="b87f3f12-05cc-46ec-95fa-acf749fc729a">&lt;title&gt;</bpt><ept id="b87f3f12-05cc-46ec-95fa-acf749fc729a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="b87f3f12-05cc-46ec-95fa-acf749fc729a">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="b87f3f12-05cc-46ec-95fa-acf749fc729a">&lt;/linkText&gt;</ept><bpt id="b87f3f12-05cc-46ec-95fa-acf749fc729a">&lt;title&gt;</bpt><ept id="b87f3f12-05cc-46ec-95fa-acf749fc729a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6535188e-bb8f-47d7-ad17-a4f13aaa01a3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6535188e-bb8f-47d7-ad17-a4f13aaa01a3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c0f9f1e5-f8f0-4312-8d54-0c7b271d8d1c">
+        <trans-unit id="0533dbf0-bfd2-40ee-b266-56c6d8203c9a" xml:space="preserve">
+          <source>Your first step is to create a new account to use for the tutorial.</source>
+          <target state="new">Your first step is to create a new account to use for the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="8a40abf5-38a1-4cec-bf76-8e041ca0b6c8" xml:space="preserve">
+          <source>You can use the FREE Sandbox plan, it's perfect for this tutorial.</source>
+          <target state="new">You can use the FREE Sandbox plan, it's perfect for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="4c1fa23d-ae0b-482f-a94f-647f467cb907" xml:space="preserve">
+          <source>Log in to the <bpt id="02efe3fd-742f-4994-b8e1-d7f34e538bce">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="02efe3fd-742f-4994-b8e1-d7f34e538bce">&lt;/linkText&gt;</ept><bpt id="02efe3fd-742f-4994-b8e1-d7f34e538bce">&lt;title&gt;</bpt><ept id="02efe3fd-742f-4994-b8e1-d7f34e538bce">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="02efe3fd-742f-4994-b8e1-d7f34e538bce">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="02efe3fd-742f-4994-b8e1-d7f34e538bce">&lt;/linkText&gt;</ept><bpt id="02efe3fd-742f-4994-b8e1-d7f34e538bce">&lt;title&gt;</bpt><ept id="02efe3fd-742f-4994-b8e1-d7f34e538bce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a9f57c7-86ea-4354-b43f-7d045e03e001" xml:space="preserve">
+          <source>In the lower pane of the management portal, click <bpt id="6dbfd257-eeac-41f9-b58a-6c2b6b99a9c0">&lt;strong&gt;</bpt>New<ept id="6dbfd257-eeac-41f9-b58a-6c2b6b99a9c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the lower pane of the management portal, click <bpt id="6dbfd257-eeac-41f9-b58a-6c2b6b99a9c0">&lt;strong&gt;</bpt>New<ept id="6dbfd257-eeac-41f9-b58a-6c2b6b99a9c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a984e788-bc5a-4b36-a200-6717986060e5" xml:space="preserve">
+          <source><bpt id="f8edb8b9-8d49-4a16-9eb9-22b6d173c988">&lt;linkText&gt;</bpt>command-bar-new<ept id="f8edb8b9-8d49-4a16-9eb9-22b6d173c988">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8edb8b9-8d49-4a16-9eb9-22b6d173c988">&lt;linkText&gt;</bpt>command-bar-new<ept id="f8edb8b9-8d49-4a16-9eb9-22b6d173c988">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a0565cd-86d7-4da7-a230-c66c257b7aba" xml:space="preserve">
+          <source>Click <bpt id="ba7bf4d5-f808-4118-a218-e81b1e0cb1ca">&lt;strong&gt;</bpt>Store<ept id="ba7bf4d5-f808-4118-a218-e81b1e0cb1ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ba7bf4d5-f808-4118-a218-e81b1e0cb1ca">&lt;strong&gt;</bpt>Store<ept id="ba7bf4d5-f808-4118-a218-e81b1e0cb1ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cbf95386-9403-458e-a317-f2f71c9f07e1" xml:space="preserve">
+          <source><bpt id="499646c0-1cdb-49d2-a35d-7f257f38d972">&lt;linkText&gt;</bpt>pusher-store<ept id="499646c0-1cdb-49d2-a35d-7f257f38d972">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="499646c0-1cdb-49d2-a35d-7f257f38d972">&lt;linkText&gt;</bpt>pusher-store<ept id="499646c0-1cdb-49d2-a35d-7f257f38d972">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="679f2522-edbf-44bd-8020-a400a826b220" xml:space="preserve">
+          <source>In the <bpt id="ffd791ee-863b-40c0-bacd-7a5c5bebf741">&lt;strong&gt;</bpt>Choose an Add-on<ept id="ffd791ee-863b-40c0-bacd-7a5c5bebf741">&lt;/strong&gt;</ept> dialog, select <bpt id="8c230432-b303-41d6-8bb4-d19dd0b20f03">&lt;strong&gt;</bpt>Pusher<ept id="8c230432-b303-41d6-8bb4-d19dd0b20f03">&lt;/strong&gt;</ept> and click the right arrow.</source>
+          <target state="new">In the <bpt id="ffd791ee-863b-40c0-bacd-7a5c5bebf741">&lt;strong&gt;</bpt>Choose an Add-on<ept id="ffd791ee-863b-40c0-bacd-7a5c5bebf741">&lt;/strong&gt;</ept> dialog, select <bpt id="8c230432-b303-41d6-8bb4-d19dd0b20f03">&lt;strong&gt;</bpt>Pusher<ept id="8c230432-b303-41d6-8bb4-d19dd0b20f03">&lt;/strong&gt;</ept> and click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="00703c4a-4ab0-4ddf-be11-6650c73a9538" xml:space="preserve">
+          <source>In the <bpt id="4562b179-3714-40d3-9497-a64f86e6f016">&lt;strong&gt;</bpt>Personalize Add-on<ept id="4562b179-3714-40d3-9497-a64f86e6f016">&lt;/strong&gt;</ept> dialog select the <bpt id="70740f2b-4222-42b2-8b2f-9ff70ce69042">&lt;strong&gt;</bpt>Pusher<ept id="70740f2b-4222-42b2-8b2f-9ff70ce69042">&lt;/strong&gt;</ept> plan you want to sign up for.</source>
+          <target state="new">In the <bpt id="4562b179-3714-40d3-9497-a64f86e6f016">&lt;strong&gt;</bpt>Personalize Add-on<ept id="4562b179-3714-40d3-9497-a64f86e6f016">&lt;/strong&gt;</ept> dialog select the <bpt id="70740f2b-4222-42b2-8b2f-9ff70ce69042">&lt;strong&gt;</bpt>Pusher<ept id="70740f2b-4222-42b2-8b2f-9ff70ce69042">&lt;/strong&gt;</ept> plan you want to sign up for.</target>
+        </trans-unit>
+        <trans-unit id="9da55439-1402-4c97-8b0c-c40ea0afa968" xml:space="preserve">
+          <source>Enter a name to identify your <bpt id="b9b0d0fb-cc9c-460d-b8c2-373f3636fc45">&lt;strong&gt;</bpt>Pusher<ept id="b9b0d0fb-cc9c-460d-b8c2-373f3636fc45">&lt;/strong&gt;</ept> service in your Azure settings, or use the default value of <bpt id="30d19bba-f5df-441f-8500-7a97a08ba6cc">&lt;strong&gt;</bpt>Pusher<ept id="30d19bba-f5df-441f-8500-7a97a08ba6cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a name to identify your <bpt id="b9b0d0fb-cc9c-460d-b8c2-373f3636fc45">&lt;strong&gt;</bpt>Pusher<ept id="b9b0d0fb-cc9c-460d-b8c2-373f3636fc45">&lt;/strong&gt;</ept> service in your Azure settings, or use the default value of <bpt id="30d19bba-f5df-441f-8500-7a97a08ba6cc">&lt;strong&gt;</bpt>Pusher<ept id="30d19bba-f5df-441f-8500-7a97a08ba6cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2fa5767e-8d3f-415b-9bb6-97a0abe92614" xml:space="preserve">
+          <source>Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores.</source>
+          <target state="new">Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores.</target>
+        </trans-unit>
+        <trans-unit id="cad1fbf7-01b8-43f0-ac71-8a8b59dd79b1" xml:space="preserve">
+          <source>The name must be unique in your list of subscribed Azure Store Items.</source>
+          <target state="new">The name must be unique in your list of subscribed Azure Store Items.</target>
+        </trans-unit>
+        <trans-unit id="f43a9a35-48d8-49c4-b992-bfba7ce21f52" xml:space="preserve">
+          <source><bpt id="0e7b4339-5b14-44ff-9d2b-f10f71db23e2">&lt;linkText&gt;</bpt>store-screen-1<ept id="0e7b4339-5b14-44ff-9d2b-f10f71db23e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e7b4339-5b14-44ff-9d2b-f10f71db23e2">&lt;linkText&gt;</bpt>store-screen-1<ept id="0e7b4339-5b14-44ff-9d2b-f10f71db23e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="344e1f3a-120a-4c1c-8b61-a8dc48d3ffae" xml:space="preserve">
+          <source>Choose a value for the region; for example, West US.</source>
+          <target state="new">Choose a value for the region; for example, West US.</target>
+        </trans-unit>
+        <trans-unit id="ae52561d-7711-4c6f-ad1a-a55e6791788b" xml:space="preserve">
+          <source>Click the right arrow.</source>
+          <target state="new">Click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="2467e631-1c4d-4f75-b5ba-6fbc30c5158c" xml:space="preserve">
+          <source>On the <bpt id="a646b231-0692-4245-b0d3-1f4a64e8c76f">&lt;strong&gt;</bpt>Review Purchase<ept id="a646b231-0692-4245-b0d3-1f4a64e8c76f">&lt;/strong&gt;</ept> tab, review the plan and pricing information, and review the legal terms.</source>
+          <target state="new">On the <bpt id="a646b231-0692-4245-b0d3-1f4a64e8c76f">&lt;strong&gt;</bpt>Review Purchase<ept id="a646b231-0692-4245-b0d3-1f4a64e8c76f">&lt;/strong&gt;</ept> tab, review the plan and pricing information, and review the legal terms.</target>
+        </trans-unit>
+        <trans-unit id="648f1fec-c3da-47e5-8140-ce980d1fb202" xml:space="preserve">
+          <source>If you agree to the terms, click the check mark.</source>
+          <target state="new">If you agree to the terms, click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="1ae256b9-71f6-4e22-8968-396a990d0a22" xml:space="preserve">
+          <source>After you click the check mark, your Pusher account will begin the provisioning process.</source>
+          <target state="new">After you click the check mark, your Pusher account will begin the provisioning process.</target>
+        </trans-unit>
+        <trans-unit id="b6479e72-7c53-41a5-bb4a-382a3d7be836" xml:space="preserve">
+          <source><bpt id="13b99718-4ff0-47e3-a948-1f986beca35d">&lt;linkText&gt;</bpt>store-screen-2<ept id="13b99718-4ff0-47e3-a948-1f986beca35d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="13b99718-4ff0-47e3-a948-1f986beca35d">&lt;linkText&gt;</bpt>store-screen-2<ept id="13b99718-4ff0-47e3-a948-1f986beca35d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9523435-ee8c-4257-95ab-ff3f5f665cb6" xml:space="preserve">
+          <source>After confirming your purchase you are redirected to the add-ons dashboard and you will see the message <bpt id="2e42a6e3-08d5-4717-859e-c2c7a4c916fb">&lt;strong&gt;</bpt>Purchasing Pusher<ept id="2e42a6e3-08d5-4717-859e-c2c7a4c916fb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After confirming your purchase you are redirected to the add-ons dashboard and you will see the message <bpt id="2e42a6e3-08d5-4717-859e-c2c7a4c916fb">&lt;strong&gt;</bpt>Purchasing Pusher<ept id="2e42a6e3-08d5-4717-859e-c2c7a4c916fb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1cb6f2ef-7bf2-4c8e-b116-05dfa6d7764a" xml:space="preserve">
+          <source><bpt id="b884134e-d8d2-4c1c-845e-f110954c8e38">&lt;linkText&gt;</bpt>store-screen-3<ept id="b884134e-d8d2-4c1c-845e-f110954c8e38">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b884134e-d8d2-4c1c-845e-f110954c8e38">&lt;linkText&gt;</bpt>store-screen-3<ept id="b884134e-d8d2-4c1c-845e-f110954c8e38">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5475c648-1a94-4508-9ab5-f7dbc439318e" xml:space="preserve">
+          <source>Your Pusher account is provisioned immediately and you will see the message <bpt id="ba036ef0-ad8b-4367-b156-1304c6f5fb17">&lt;strong&gt;</bpt>Successfully purchased Add-On Pusher<ept id="ba036ef0-ad8b-4367-b156-1304c6f5fb17">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Your Pusher account is provisioned immediately and you will see the message <bpt id="ba036ef0-ad8b-4367-b156-1304c6f5fb17">&lt;strong&gt;</bpt>Successfully purchased Add-On Pusher<ept id="ba036ef0-ad8b-4367-b156-1304c6f5fb17">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5bd4c5b4-4f39-4bd5-9011-45905a1cc8a9" xml:space="preserve">
+          <source>Your account has been created and you are now ready to use the Pusher service.</source>
+          <target state="new">Your account has been created and you are now ready to use the Pusher service.</target>
+        </trans-unit>
+        <trans-unit id="f4ff4467-8e7b-4e90-93f7-252c166edbd0" xml:space="preserve">
+          <source>To modify your subscription plan or see the Pusher contact settings, click the name of your Pusher service to open the Pusher add-ons dashboard.</source>
+          <target state="new">To modify your subscription plan or see the Pusher contact settings, click the name of your Pusher service to open the Pusher add-ons dashboard.</target>
+        </trans-unit>
+        <trans-unit id="90bbf86a-99ec-48ae-92d1-a7228cce6cb7" xml:space="preserve">
+          <source><bpt id="bb6f70ad-2491-480d-b284-82f80353bc9a">&lt;linkText&gt;</bpt>pusher-add-on-dashboard<ept id="bb6f70ad-2491-480d-b284-82f80353bc9a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb6f70ad-2491-480d-b284-82f80353bc9a">&lt;linkText&gt;</bpt>pusher-add-on-dashboard<ept id="bb6f70ad-2491-480d-b284-82f80353bc9a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ed6e5cb-b7dd-4513-a110-cfd5e79e3a41" xml:space="preserve">
+          <source>When using Pusher you will need to supply your Pusher app connection settings.</source>
+          <target state="new">When using Pusher you will need to supply your Pusher app connection settings.</target>
+        </trans-unit>
+        <trans-unit id="dcac2d55-3010-4f4e-aca4-a5355bd82e91" xml:space="preserve">
+          <source>Click <bpt id="dfd68811-eeae-42fc-9902-2da8cdd14758">&lt;strong&gt;</bpt>Connection Info<ept id="dfd68811-eeae-42fc-9902-2da8cdd14758">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="dfd68811-eeae-42fc-9902-2da8cdd14758">&lt;strong&gt;</bpt>Connection Info<ept id="dfd68811-eeae-42fc-9902-2da8cdd14758">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de5553f8-9c0d-4edd-a32d-85ce7165b18d" xml:space="preserve">
+          <source><bpt id="691796fc-b556-4db0-86ce-b35b1d583b30">&lt;linkText&gt;</bpt>pusher-connection-info-button<ept id="691796fc-b556-4db0-86ce-b35b1d583b30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="691796fc-b556-4db0-86ce-b35b1d583b30">&lt;linkText&gt;</bpt>pusher-connection-info-button<ept id="691796fc-b556-4db0-86ce-b35b1d583b30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17bc70a9-2b5e-4369-a4ea-adb28fc294e2" xml:space="preserve">
+          <source>In the <bpt id="5e590d9b-5eff-4c0c-bb66-f9722ca631b9">&lt;em&gt;</bpt>Connection info<ept id="5e590d9b-5eff-4c0c-bb66-f9722ca631b9">&lt;/em&gt;</ept> dialog you will see your app ID, key and secret.</source>
+          <target state="new">In the <bpt id="5e590d9b-5eff-4c0c-bb66-f9722ca631b9">&lt;em&gt;</bpt>Connection info<ept id="5e590d9b-5eff-4c0c-bb66-f9722ca631b9">&lt;/em&gt;</ept> dialog you will see your app ID, key and secret.</target>
+        </trans-unit>
+        <trans-unit id="1fbdea59-f1c9-4e5d-b913-8ea8352357ce" xml:space="preserve">
+          <source>You will use these values later in the tutorial so copy them for late use.</source>
+          <target state="new">You will use these values later in the tutorial so copy them for late use.</target>
+        </trans-unit>
+        <trans-unit id="173ff33f-eefc-42b4-9cc5-f0428af3a3ba" xml:space="preserve">
+          <source><bpt id="ae9ef7d5-a690-4b67-b382-ca26e3b940ba">&lt;linkText&gt;</bpt>pusher-connection-info<ept id="ae9ef7d5-a690-4b67-b382-ca26e3b940ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae9ef7d5-a690-4b67-b382-ca26e3b940ba">&lt;linkText&gt;</bpt>pusher-connection-info<ept id="ae9ef7d5-a690-4b67-b382-ca26e3b940ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e8b06f5-7060-4d65-8d0c-aee8ed55a526" xml:space="preserve">
+          <source>For more information on getting started with Pusher, see <bpt id="f8d30c3b-d97e-40bc-a98a-66cbc5d4eebd">&lt;linkText&gt;</bpt>Understanding Pusher<ept id="f8d30c3b-d97e-40bc-a98a-66cbc5d4eebd">&lt;/linkText&gt;</ept><bpt id="f8d30c3b-d97e-40bc-a98a-66cbc5d4eebd">&lt;title&gt;</bpt><ept id="f8d30c3b-d97e-40bc-a98a-66cbc5d4eebd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on getting started with Pusher, see <bpt id="f8d30c3b-d97e-40bc-a98a-66cbc5d4eebd">&lt;linkText&gt;</bpt>Understanding Pusher<ept id="f8d30c3b-d97e-40bc-a98a-66cbc5d4eebd">&lt;/linkText&gt;</ept><bpt id="f8d30c3b-d97e-40bc-a98a-66cbc5d4eebd">&lt;title&gt;</bpt><ept id="f8d30c3b-d97e-40bc-a98a-66cbc5d4eebd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e0b0438-e0c1-419c-8305-5113c1031ebb" xml:space="preserve">
+          <source>./media/pusher-sign-up/1-command-bar-new.png</source>
+          <target state="new">./media/pusher-sign-up/1-command-bar-new.png</target>
+        </trans-unit>
+        <trans-unit id="fe9e5fce-37db-437c-aa21-db3979e3371c" xml:space="preserve">
+          <source>./media/pusher-sign-up/2-pusher-store.png</source>
+          <target state="new">./media/pusher-sign-up/2-pusher-store.png</target>
+        </trans-unit>
+        <trans-unit id="f617f825-18ca-4867-88a0-8bb31114711d" xml:space="preserve">
+          <source>./media/pusher-sign-up/3-pusher-store-screen-1.png</source>
+          <target state="new">./media/pusher-sign-up/3-pusher-store-screen-1.png</target>
+        </trans-unit>
+        <trans-unit id="b7bfa199-1c80-4c1d-87a5-a152b371c309" xml:space="preserve">
+          <source>./media/pusher-sign-up/4-pusher-store-screen-2.png</source>
+          <target state="new">./media/pusher-sign-up/4-pusher-store-screen-2.png</target>
+        </trans-unit>
+        <trans-unit id="766f5224-35c5-4c87-88f6-a5001ac44983" xml:space="preserve">
+          <source>./media/pusher-sign-up/5-pusher-store-screen-3.png</source>
+          <target state="new">./media/pusher-sign-up/5-pusher-store-screen-3.png</target>
+        </trans-unit>
+        <trans-unit id="a388cbd7-d654-47cf-a47d-4be3435bb9b4" xml:space="preserve">
+          <source>./media/pusher-sign-up/6-pusher-add-on-dashboard.png</source>
+          <target state="new">./media/pusher-sign-up/6-pusher-add-on-dashboard.png</target>
+        </trans-unit>
+        <trans-unit id="a5ab6098-5caf-4266-86b3-b8e991e97f44" xml:space="preserve">
+          <source>./media/pusher-sign-up/7-pusher-connection-info-button.png</source>
+          <target state="new">./media/pusher-sign-up/7-pusher-connection-info-button.png</target>
+        </trans-unit>
+        <trans-unit id="f5077d81-3382-4e6f-b798-393dc5e99be1" xml:space="preserve">
+          <source>./media/pusher-sign-up/8-pusher-connection-info.png</source>
+          <target state="new">./media/pusher-sign-up/8-pusher-connection-info.png</target>
+        </trans-unit>
+        <trans-unit id="12660a8f-d843-49f7-aee9-09c8903eb7da" xml:space="preserve">
+          <source>https://manage.windowsazure.com</source>
+          <target state="new">https://manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="06c3ac98-4895-470b-9dbe-01f1e29b5e06" xml:space="preserve">
+          <source>http://pusher.com/docs</source>
+          <target state="new">http://pusher.com/docs</target>
+        </trans-unit>
+      </group>
+      <group id="d3598f74-4d1d-4c9e-bdaf-01c7989d8da9" />
+    </body>
+  </file>
+</xliff>

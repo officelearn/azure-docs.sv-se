@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="95305941-b216-44c7-8b10-2112349fef7b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="95305941-b216-44c7-8b10-2112349fef7b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ed3266ef-9240-4e25-8a36-639c5d78c952">
+        <trans-unit id="dcdf04b0-f416-420f-8581-c6ee39f5c7cc" xml:space="preserve">
+          <source>Learning Map for DocumentDB | Microsoft Azure</source>
+          <target state="new">Learning Map for DocumentDB | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d2c2a166-feb3-426d-87ef-02f821386f9f" xml:space="preserve">
+          <source>Get a visual map of the resources available to go from 0 to 60 on Azure DocumentDB.</source>
+          <target state="new">Get a visual map of the resources available to go from 0 to 60 on Azure DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="797d1fdc-b184-4731-b903-3956e5ff52bb" xml:space="preserve">
+          <source>Azure DocumentDB is a NoSQL document database service designed from the ground up to natively support JSON and JavaScript directly inside the database engine.</source>
+          <target state="new">Azure DocumentDB is a NoSQL document database service designed from the ground up to natively support JSON and JavaScript directly inside the database engine.</target>
+        </trans-unit>
+        <trans-unit id="489944e8-dc7f-4f4d-8b67-0019ceca4005" xml:space="preserve">
+          <source>Follow the guidance on this page for an effective learning path through DocumentDB content.</source>
+          <target state="new">Follow the guidance on this page for an effective learning path through DocumentDB content.</target>
+        </trans-unit>
+        <trans-unit id="9c6cb651-6db9-41d0-8bb1-0cecac782f2e" xml:space="preserve">
+          <source>&lt;object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/DocumentDB.Content.Flow.svg" width="100%" height="100%"&gt;
+&lt;/object&gt;</source>
+          <target state="new">&lt;object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/DocumentDB.Content.Flow.svg" width="100%" height="100%"&gt;
+&lt;/object&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

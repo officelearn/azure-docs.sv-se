@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ef1e6ea9-23ae-4c22-a5f4-6373081117fa" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ef1e6ea9-23ae-4c22-a5f4-6373081117fa" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="60422bb8-f6f1-40a3-b5d6-eed41e97b831">
+        <trans-unit id="6d60e80b-0363-4785-ba9a-6484badfd3cf" xml:space="preserve">
+          <source>Learning Guide: Advanced data processing in Azure | Microsoft Azure</source>
+          <target state="new">Learning Guide: Advanced data processing in Azure | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3e173b12-24d3-496d-aca0-e08430ead30f" xml:space="preserve">
+          <source>Prepare data for use in the Advanced Analytics Process and Technology (ADAPT) for Azure Machine Learning.</source>
+          <target state="new">Prepare data for use in the Advanced Analytics Process and Technology (ADAPT) for Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="e384d294-9d6a-4da0-841f-5e91e7e5198a" xml:space="preserve">
+          <source>This map walks through the process of preparing data to be used in an Azure Machine Learning experiment.</source>
+          <target state="new">This map walks through the process of preparing data to be used in an Azure Machine Learning experiment.</target>
+        </trans-unit>
+        <trans-unit id="3884b2e2-1a54-48df-9387-8bc79f6e4e3e" xml:space="preserve">
+          <source>It shows how to move, process, and sample data to prepare it for machine learning.</source>
+          <target state="new">It shows how to move, process, and sample data to prepare it for machine learning.</target>
+        </trans-unit>
+        <trans-unit id="6ff71f28-1c26-489b-871d-39096b30981c" xml:space="preserve">
+          <source>The data preparation process described here is a step in the map provided in the <bpt id="ae1e598f-e2b5-455e-9d50-e6e5de0da300">&lt;linkText&gt;</bpt>Build advanced analytics solutions in Azure<ept id="ae1e598f-e2b5-455e-9d50-e6e5de0da300">&lt;/linkText&gt;</ept><bpt id="ae1e598f-e2b5-455e-9d50-e6e5de0da300">&lt;title&gt;</bpt><ept id="ae1e598f-e2b5-455e-9d50-e6e5de0da300">&lt;/title&gt;</ept>.</source>
+          <target state="new">The data preparation process described here is a step in the map provided in the <bpt id="ae1e598f-e2b5-455e-9d50-e6e5de0da300">&lt;linkText&gt;</bpt>Build advanced analytics solutions in Azure<ept id="ae1e598f-e2b5-455e-9d50-e6e5de0da300">&lt;/linkText&gt;</ept><bpt id="ae1e598f-e2b5-455e-9d50-e6e5de0da300">&lt;title&gt;</bpt><ept id="ae1e598f-e2b5-455e-9d50-e6e5de0da300">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a4ae402-3db4-4da8-8953-4257a7533549" xml:space="preserve">
+          <source>The ADAPT guide outlines the data science tasks typically involved in building and deploying predictive models with Azure Machine Learning.</source>
+          <target state="new">The ADAPT guide outlines the data science tasks typically involved in building and deploying predictive models with Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="8eb736e5-7dfd-4738-85d4-e1f812a9427b" xml:space="preserve">
+          <source><bpt id="3ca2aaef-57d5-4328-8703-32505b933a27">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="3ca2aaef-57d5-4328-8703-32505b933a27">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3ca2aaef-57d5-4328-8703-32505b933a27">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="3ca2aaef-57d5-4328-8703-32505b933a27">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b4ba0ce-bac5-4cea-9d8a-b4fecb921135" xml:space="preserve">
+          <source>&lt;object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-prepare-data-for-ml.svg" width="100%" height="100%"&gt;
+&lt;/object&gt;</source>
+          <target state="new">&lt;object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-prepare-data-for-ml.svg" width="100%" height="100%"&gt;
+&lt;/object&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

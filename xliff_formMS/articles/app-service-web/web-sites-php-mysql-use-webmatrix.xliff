@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e6ce6758-111b-41e5-8684-700205708ae0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e6ce6758-111b-41e5-8684-700205708ae0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="67f304e4-e9b0-4267-8547-06b1ed5a7812">
+        <trans-unit id="d91c1c10-9729-40b2-80f5-291e2e860faa" xml:space="preserve">
+          <source>Create and Deploy a PHP-MySQL web app in Azure App Service using WebMatrix</source>
+          <target state="new">Create and Deploy a PHP-MySQL web app in Azure App Service using WebMatrix</target>
+        </trans-unit>
+        <trans-unit id="219f2a5d-1124-4db6-8763-a01160554a33" xml:space="preserve">
+          <source>A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web app in Azure App Service that stores data in MySQL.</source>
+          <target state="new">A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web app in Azure App Service that stores data in MySQL.</target>
+        </trans-unit>
+        <trans-unit id="f8b78198-0ba5-473f-b29a-c51e75568a1b" xml:space="preserve">
+          <source>This tutorial shows you how to use WebMatrix to develop and deploy a PHP-MySQL application to <bpt id="a9b7782f-caa9-4201-996e-8cc3ea061c6f">&lt;linkText&gt;</bpt>Azure App Service<ept id="a9b7782f-caa9-4201-996e-8cc3ea061c6f">&lt;/linkText&gt;</ept><bpt id="a9b7782f-caa9-4201-996e-8cc3ea061c6f">&lt;title&gt;</bpt><ept id="a9b7782f-caa9-4201-996e-8cc3ea061c6f">&lt;/title&gt;</ept> Web Apps.</source>
+          <target state="new">This tutorial shows you how to use WebMatrix to develop and deploy a PHP-MySQL application to <bpt id="a9b7782f-caa9-4201-996e-8cc3ea061c6f">&lt;linkText&gt;</bpt>Azure App Service<ept id="a9b7782f-caa9-4201-996e-8cc3ea061c6f">&lt;/linkText&gt;</ept><bpt id="a9b7782f-caa9-4201-996e-8cc3ea061c6f">&lt;title&gt;</bpt><ept id="a9b7782f-caa9-4201-996e-8cc3ea061c6f">&lt;/title&gt;</ept> Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="b7e64750-f752-4162-a7fd-50e1a6735196" xml:space="preserve">
+          <source>WebMatrix is a free web development tool from Microsoft that includes everything you need for website development.</source>
+          <target state="new">WebMatrix is a free web development tool from Microsoft that includes everything you need for website development.</target>
+        </trans-unit>
+        <trans-unit id="9db72086-9f38-48b5-979d-4179f9f0dcef" xml:space="preserve">
+          <source>WebMatrix supports PHP and includes intellisense for PHP development.</source>
+          <target state="new">WebMatrix supports PHP and includes intellisense for PHP development.</target>
+        </trans-unit>
+        <trans-unit id="cd432073-5457-431d-b69d-9455689b40bb" xml:space="preserve">
+          <source>This tutorial assumes you have <bpt id="4ac8c643-fb4f-4e2d-b175-2068c27fd9a7">&lt;linkText&gt;</bpt>MySQL[install-mysql]<ept id="4ac8c643-fb4f-4e2d-b175-2068c27fd9a7">&lt;/linkText&gt;</ept><bpt id="4ac8c643-fb4f-4e2d-b175-2068c27fd9a7">&lt;title&gt;</bpt><ept id="4ac8c643-fb4f-4e2d-b175-2068c27fd9a7">&lt;/title&gt;</ept> installed on your computer so that you can test an application locally.</source>
+          <target state="new">This tutorial assumes you have <bpt id="4ac8c643-fb4f-4e2d-b175-2068c27fd9a7">&lt;linkText&gt;</bpt>MySQL[install-mysql]<ept id="4ac8c643-fb4f-4e2d-b175-2068c27fd9a7">&lt;/linkText&gt;</ept><bpt id="4ac8c643-fb4f-4e2d-b175-2068c27fd9a7">&lt;title&gt;</bpt><ept id="4ac8c643-fb4f-4e2d-b175-2068c27fd9a7">&lt;/title&gt;</ept> installed on your computer so that you can test an application locally.</target>
+        </trans-unit>
+        <trans-unit id="fa9a02e1-a1d0-4789-a44c-fd59cea2841a" xml:space="preserve">
+          <source>However, you can complete the tutorial without having MySQL installed.</source>
+          <target state="new">However, you can complete the tutorial without having MySQL installed.</target>
+        </trans-unit>
+        <trans-unit id="b6eb0e7c-cf99-4491-ade6-ad6d50f70a85" xml:space="preserve">
+          <source>Instead, you can deploy your application directly to Azure App Service Web Apps.</source>
+          <target state="new">Instead, you can deploy your application directly to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="f8ba6294-9df3-4601-9862-7a13b195fb47" xml:space="preserve">
+          <source>Upon completing this guide, you will have a PHP-MySQL website running in Web Apps.</source>
+          <target state="new">Upon completing this guide, you will have a PHP-MySQL website running in Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="57c6775d-aae9-4e87-829e-e1acc7642837" xml:space="preserve">
+          <source>You will learn:</source>
+          <target state="new">You will learn:</target>
+        </trans-unit>
+        <trans-unit id="5d98150f-d603-444c-af8d-953ffd24ab98" xml:space="preserve">
+          <source>How to create a website in App Service Web Apps and a MySQL database using the <bpt id="8c28a8bc-924a-4e09-b72e-bf12b8fd544d">&lt;linkText&gt;</bpt>Azure Portal<ept id="8c28a8bc-924a-4e09-b72e-bf12b8fd544d">&lt;/linkText&gt;</ept><bpt id="8c28a8bc-924a-4e09-b72e-bf12b8fd544d">&lt;title&gt;</bpt><ept id="8c28a8bc-924a-4e09-b72e-bf12b8fd544d">&lt;/title&gt;</ept>.</source>
+          <target state="new">How to create a website in App Service Web Apps and a MySQL database using the <bpt id="8c28a8bc-924a-4e09-b72e-bf12b8fd544d">&lt;linkText&gt;</bpt>Azure Portal<ept id="8c28a8bc-924a-4e09-b72e-bf12b8fd544d">&lt;/linkText&gt;</ept><bpt id="8c28a8bc-924a-4e09-b72e-bf12b8fd544d">&lt;title&gt;</bpt><ept id="8c28a8bc-924a-4e09-b72e-bf12b8fd544d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad33078c-02ee-4fea-add2-6b0675db003f" xml:space="preserve">
+          <source>Because PHP is enabled in Web Apps by default, nothing special is required to run your PHP code.</source>
+          <target state="new">Because PHP is enabled in Web Apps by default, nothing special is required to run your PHP code.</target>
+        </trans-unit>
+        <trans-unit id="62bae13b-17d0-4fa9-88b0-46bce2743ba7" xml:space="preserve">
+          <source>How to develop a PHP application using WebMatrix.</source>
+          <target state="new">How to develop a PHP application using WebMatrix.</target>
+        </trans-unit>
+        <trans-unit id="11f6a293-133b-4c9d-a9cb-8f6bf69cf252" xml:space="preserve">
+          <source>How to publish and re-publish your application to Web Apps using WebMatrix.</source>
+          <target state="new">How to publish and re-publish your application to Web Apps using WebMatrix.</target>
+        </trans-unit>
+        <trans-unit id="548e3f90-6e59-46c3-96a9-cae4c3329fa9" xml:space="preserve">
+          <source>By following this tutorial, you will build a simple Tasklist web application in PHP.</source>
+          <target state="new">By following this tutorial, you will build a simple Tasklist web application in PHP.</target>
+        </trans-unit>
+        <trans-unit id="33d16d14-55f8-4e47-a006-04651f6df635" xml:space="preserve">
+          <source>The application will be hosted in App Service Web Apps.</source>
+          <target state="new">The application will be hosted in App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="95886c9b-b204-43f7-9062-984865342ac6" xml:space="preserve">
+          <source>A screenshot of the running application is below:</source>
+          <target state="new">A screenshot of the running application is below:</target>
+        </trans-unit>
+        <trans-unit id="94e66538-7338-4e3f-af01-deb6cc1c0a0b" xml:space="preserve">
+          <source><bpt id="696f9ab5-cedc-4365-8c84-15e84cf09a23">&lt;linkText&gt;</bpt>Azure PHP Web Site<ept id="696f9ab5-cedc-4365-8c84-15e84cf09a23">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="696f9ab5-cedc-4365-8c84-15e84cf09a23">&lt;linkText&gt;</bpt>Azure PHP Web Site<ept id="696f9ab5-cedc-4365-8c84-15e84cf09a23">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd5f99be-525d-4aa5-b643-f854ae4ebb9b" xml:space="preserve">
+          <source><bpt id="ff2ff4ea-6e51-4ce8-9550-cc37f1c60ecb">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="ff2ff4ea-6e51-4ce8-9550-cc37f1c60ecb">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ff2ff4ea-6e51-4ce8-9550-cc37f1c60ecb">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="ff2ff4ea-6e51-4ce8-9550-cc37f1c60ecb">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94d586c7-c939-4102-9226-60f79052f875" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="bcc73203-fd57-4065-b1f5-332d251342ab">&lt;linkText&gt;</bpt>Try App Service<ept id="bcc73203-fd57-4065-b1f5-332d251342ab">&lt;/linkText&gt;</ept><bpt id="bcc73203-fd57-4065-b1f5-332d251342ab">&lt;title&gt;</bpt><ept id="bcc73203-fd57-4065-b1f5-332d251342ab">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="bcc73203-fd57-4065-b1f5-332d251342ab">&lt;linkText&gt;</bpt>Try App Service<ept id="bcc73203-fd57-4065-b1f5-332d251342ab">&lt;/linkText&gt;</ept><bpt id="bcc73203-fd57-4065-b1f5-332d251342ab">&lt;title&gt;</bpt><ept id="bcc73203-fd57-4065-b1f5-332d251342ab">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="f8629e4d-be61-4abf-881b-7ec6ad674d19" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="c5cf1f1f-e0d8-4eeb-8720-1962c25a56b5" xml:space="preserve">
+          <source><bpt id="2b80df80-47f0-4169-b205-a31f640e870b">&lt;linkText&gt;</bpt>Download[tasklist-mysql-download]<ept id="2b80df80-47f0-4169-b205-a31f640e870b">&lt;/linkText&gt;</ept><bpt id="2b80df80-47f0-4169-b205-a31f640e870b">&lt;title&gt;</bpt><ept id="2b80df80-47f0-4169-b205-a31f640e870b">&lt;/title&gt;</ept> the Tasklist application files.</source>
+          <target state="new"><bpt id="2b80df80-47f0-4169-b205-a31f640e870b">&lt;linkText&gt;</bpt>Download[tasklist-mysql-download]<ept id="2b80df80-47f0-4169-b205-a31f640e870b">&lt;/linkText&gt;</ept><bpt id="2b80df80-47f0-4169-b205-a31f640e870b">&lt;title&gt;</bpt><ept id="2b80df80-47f0-4169-b205-a31f640e870b">&lt;/title&gt;</ept> the Tasklist application files.</target>
+        </trans-unit>
+        <trans-unit id="5208e8c1-9138-4eb6-b956-3fad36114f83" xml:space="preserve">
+          <source>The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list.</source>
+          <target state="new">The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list.</target>
+        </trans-unit>
+        <trans-unit id="5f5433f8-bbc0-4940-a5f5-6a173c38d0d4" xml:space="preserve">
+          <source>Task list items are stored in a MySQL database.</source>
+          <target state="new">Task list items are stored in a MySQL database.</target>
+        </trans-unit>
+        <trans-unit id="7eb30ecb-6a77-45e5-affb-0f6899fd1848" xml:space="preserve">
+          <source>The application consists of these files:</source>
+          <target state="new">The application consists of these files:</target>
+        </trans-unit>
+        <trans-unit id="24fb558f-724e-4de2-8fe5-2633930def6b" xml:space="preserve">
+          <source><bpt id="7f7d6f6e-2199-437d-ae5f-524356107501">&lt;strong&gt;</bpt>additem.php<ept id="7f7d6f6e-2199-437d-ae5f-524356107501">&lt;/strong&gt;</ept>: Adds an item to the list.</source>
+          <target state="new"><bpt id="7f7d6f6e-2199-437d-ae5f-524356107501">&lt;strong&gt;</bpt>additem.php<ept id="7f7d6f6e-2199-437d-ae5f-524356107501">&lt;/strong&gt;</ept>: Adds an item to the list.</target>
+        </trans-unit>
+        <trans-unit id="c73ba6f6-7255-4bac-abbf-26f36e8c9ea9" xml:space="preserve">
+          <source><bpt id="989c00d3-a1d2-43fe-b97e-f9da50e4ecf8">&lt;strong&gt;</bpt>createtable.php<ept id="989c00d3-a1d2-43fe-b97e-f9da50e4ecf8">&lt;/strong&gt;</ept>: Creates the MySQL table for the application.</source>
+          <target state="new"><bpt id="989c00d3-a1d2-43fe-b97e-f9da50e4ecf8">&lt;strong&gt;</bpt>createtable.php<ept id="989c00d3-a1d2-43fe-b97e-f9da50e4ecf8">&lt;/strong&gt;</ept>: Creates the MySQL table for the application.</target>
+        </trans-unit>
+        <trans-unit id="a28d2c94-7fcf-4c08-ae5f-e63cf378f1cb" xml:space="preserve">
+          <source>This file will only be called once.</source>
+          <target state="new">This file will only be called once.</target>
+        </trans-unit>
+        <trans-unit id="e5a1c81d-7bee-4968-a36d-09dd83c695c5" xml:space="preserve">
+          <source><bpt id="281a1788-6503-4313-bace-c57d2b6f26b4">&lt;strong&gt;</bpt>deleteitem.php<ept id="281a1788-6503-4313-bace-c57d2b6f26b4">&lt;/strong&gt;</ept>: Deletes an item.</source>
+          <target state="new"><bpt id="281a1788-6503-4313-bace-c57d2b6f26b4">&lt;strong&gt;</bpt>deleteitem.php<ept id="281a1788-6503-4313-bace-c57d2b6f26b4">&lt;/strong&gt;</ept>: Deletes an item.</target>
+        </trans-unit>
+        <trans-unit id="9b747aa3-bfe3-4f81-8083-9a9c47f0a44f" xml:space="preserve">
+          <source><bpt id="5cdbf302-f079-46c6-9fb9-68070f63bbca">&lt;strong&gt;</bpt>getitems.php<ept id="5cdbf302-f079-46c6-9fb9-68070f63bbca">&lt;/strong&gt;</ept>: Gets all items in the database.</source>
+          <target state="new"><bpt id="5cdbf302-f079-46c6-9fb9-68070f63bbca">&lt;strong&gt;</bpt>getitems.php<ept id="5cdbf302-f079-46c6-9fb9-68070f63bbca">&lt;/strong&gt;</ept>: Gets all items in the database.</target>
+        </trans-unit>
+        <trans-unit id="cfdb9b75-af57-4ba7-9392-5958f42fe026" xml:space="preserve">
+          <source><bpt id="dfdfbc0a-249b-4a4e-82c2-6a42a88c867b">&lt;strong&gt;</bpt>index.php<ept id="dfdfbc0a-249b-4a4e-82c2-6a42a88c867b">&lt;/strong&gt;</ept>: Displays tasks and provides a form for adding an item to the list.</source>
+          <target state="new"><bpt id="dfdfbc0a-249b-4a4e-82c2-6a42a88c867b">&lt;strong&gt;</bpt>index.php<ept id="dfdfbc0a-249b-4a4e-82c2-6a42a88c867b">&lt;/strong&gt;</ept>: Displays tasks and provides a form for adding an item to the list.</target>
+        </trans-unit>
+        <trans-unit id="2a22587d-2113-411b-995f-02de774284d4" xml:space="preserve">
+          <source><bpt id="60db1811-ffbb-4dcd-bcdf-cb003a2205d2">&lt;strong&gt;</bpt>markitemcomplete.php<ept id="60db1811-ffbb-4dcd-bcdf-cb003a2205d2">&lt;/strong&gt;</ept>: Changes the status of an item to complete.</source>
+          <target state="new"><bpt id="60db1811-ffbb-4dcd-bcdf-cb003a2205d2">&lt;strong&gt;</bpt>markitemcomplete.php<ept id="60db1811-ffbb-4dcd-bcdf-cb003a2205d2">&lt;/strong&gt;</ept>: Changes the status of an item to complete.</target>
+        </trans-unit>
+        <trans-unit id="e2664c01-4d73-4414-934d-b63bf164896c" xml:space="preserve">
+          <source><bpt id="83a3f455-e069-4477-b469-7fee4d1523b8">&lt;strong&gt;</bpt>taskmodel.php<ept id="83a3f455-e069-4477-b469-7fee4d1523b8">&lt;/strong&gt;</ept>: Contains functions that add, get, update, and delete items from the database.</source>
+          <target state="new"><bpt id="83a3f455-e069-4477-b469-7fee4d1523b8">&lt;strong&gt;</bpt>taskmodel.php<ept id="83a3f455-e069-4477-b469-7fee4d1523b8">&lt;/strong&gt;</ept>: Contains functions that add, get, update, and delete items from the database.</target>
+        </trans-unit>
+        <trans-unit id="b4610435-88c6-4cfb-861a-4b2b2cc4d607" xml:space="preserve">
+          <source>Create a local MySQL database called <bpt id="670cdf84-7547-4e88-af6b-990302a4c0fb">&lt;code&gt;</bpt>tasklist<ept id="670cdf84-7547-4e88-af6b-990302a4c0fb">&lt;/code&gt;</ept>.</source>
+          <target state="new">Create a local MySQL database called <bpt id="670cdf84-7547-4e88-af6b-990302a4c0fb">&lt;code&gt;</bpt>tasklist<ept id="670cdf84-7547-4e88-af6b-990302a4c0fb">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="312a5122-7b6b-4894-bad1-3579c8b480cd" xml:space="preserve">
+          <source>You can do this either from the Database workspace in WebMatrix (after it is installed below in the tutorial) or from the MySQL command prompt with this command:</source>
+          <target state="new">You can do this either from the Database workspace in WebMatrix (after it is installed below in the tutorial) or from the MySQL command prompt with this command:</target>
+        </trans-unit>
+        <trans-unit id="6375da4d-ddba-45de-8368-ddf476b65b40" xml:space="preserve">
+          <source>This step is only necessary if you want to test your application locally.</source>
+          <target state="new">This step is only necessary if you want to test your application locally.</target>
+        </trans-unit>
+        <trans-unit id="adba071f-c081-477e-9879-ed6932d23eaf" xml:space="preserve">
+          <source>Follow these steps to create a web app and a MySQL database:</source>
+          <target state="new">Follow these steps to create a web app and a MySQL database:</target>
+        </trans-unit>
+        <trans-unit id="1dc06b58-0b76-4ab0-a06f-644f03aed510" xml:space="preserve">
+          <source>Login to the <bpt id="6c91d849-46a9-4666-8b20-e99610388887">&lt;linkText&gt;</bpt>Azure Portal<ept id="6c91d849-46a9-4666-8b20-e99610388887">&lt;/linkText&gt;</ept><bpt id="6c91d849-46a9-4666-8b20-e99610388887">&lt;title&gt;</bpt><ept id="6c91d849-46a9-4666-8b20-e99610388887">&lt;/title&gt;</ept>.</source>
+          <target state="new">Login to the <bpt id="6c91d849-46a9-4666-8b20-e99610388887">&lt;linkText&gt;</bpt>Azure Portal<ept id="6c91d849-46a9-4666-8b20-e99610388887">&lt;/linkText&gt;</ept><bpt id="6c91d849-46a9-4666-8b20-e99610388887">&lt;title&gt;</bpt><ept id="6c91d849-46a9-4666-8b20-e99610388887">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="374fb54c-47db-4752-813b-748f0a90185e" xml:space="preserve">
+          <source>Click the <bpt id="96119a39-4a1b-4cc5-8f63-a6a5e11d16ee">&lt;strong&gt;</bpt>New<ept id="96119a39-4a1b-4cc5-8f63-a6a5e11d16ee">&lt;/strong&gt;</ept> icon on the bottom left of the portal.</source>
+          <target state="new">Click the <bpt id="96119a39-4a1b-4cc5-8f63-a6a5e11d16ee">&lt;strong&gt;</bpt>New<ept id="96119a39-4a1b-4cc5-8f63-a6a5e11d16ee">&lt;/strong&gt;</ept> icon on the bottom left of the portal.</target>
+        </trans-unit>
+        <trans-unit id="ae22a0e5-46c3-4395-a5dc-0ca290ae47dd" xml:space="preserve">
+          <source><bpt id="67f7a906-fca0-4960-af25-8a144548149e">&lt;linkText&gt;</bpt>Create New Azure web site<ept id="67f7a906-fca0-4960-af25-8a144548149e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="67f7a906-fca0-4960-af25-8a144548149e">&lt;linkText&gt;</bpt>Create New Azure web site<ept id="67f7a906-fca0-4960-af25-8a144548149e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="625a4293-cdef-447b-9c09-89fa2ace688b" xml:space="preserve">
+          <source>Click <bpt id="54883a20-385a-42c3-9c96-aedc14466069">&lt;strong&gt;</bpt>Web + Mobile<ept id="54883a20-385a-42c3-9c96-aedc14466069">&lt;/strong&gt;</ept>, then <bpt id="50d555a0-47cf-4d3b-8a5a-78f53a819b1c">&lt;strong&gt;</bpt>Web app + MySQL<ept id="50d555a0-47cf-4d3b-8a5a-78f53a819b1c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="54883a20-385a-42c3-9c96-aedc14466069">&lt;strong&gt;</bpt>Web + Mobile<ept id="54883a20-385a-42c3-9c96-aedc14466069">&lt;/strong&gt;</ept>, then <bpt id="50d555a0-47cf-4d3b-8a5a-78f53a819b1c">&lt;strong&gt;</bpt>Web app + MySQL<ept id="50d555a0-47cf-4d3b-8a5a-78f53a819b1c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c161f71-270b-4696-8c27-2a177995815c" xml:space="preserve">
+          <source><bpt id="4b0aef8a-20b4-408e-ba5a-65e6b7ebfb5f">&lt;linkText&gt;</bpt>Custom Create a new web site<ept id="4b0aef8a-20b4-408e-ba5a-65e6b7ebfb5f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b0aef8a-20b4-408e-ba5a-65e6b7ebfb5f">&lt;linkText&gt;</bpt>Custom Create a new web site<ept id="4b0aef8a-20b4-408e-ba5a-65e6b7ebfb5f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a567117f-bc99-4308-b235-1985270bff09" xml:space="preserve">
+          <source>Enter a valid name for your resource group.</source>
+          <target state="new">Enter a valid name for your resource group.</target>
+        </trans-unit>
+        <trans-unit id="a2b04cb6-4d70-447b-a619-3588a720e609" xml:space="preserve">
+          <source><bpt id="eda44e04-b1cb-44b8-bac3-a6a2381afbf3">&lt;linkText&gt;</bpt>Set resource group name<ept id="eda44e04-b1cb-44b8-bac3-a6a2381afbf3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eda44e04-b1cb-44b8-bac3-a6a2381afbf3">&lt;linkText&gt;</bpt>Set resource group name<ept id="eda44e04-b1cb-44b8-bac3-a6a2381afbf3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="232f1e7d-1465-422a-be5b-1227f1c5f9d6" xml:space="preserve">
+          <source>Enter values for your new web app.</source>
+          <target state="new">Enter values for your new web app.</target>
+        </trans-unit>
+        <trans-unit id="74b8d90e-b573-4646-9f8b-8e120594c1cf" xml:space="preserve">
+          <source><bpt id="7c291740-3451-4583-b447-bfa0a0548b78">&lt;linkText&gt;</bpt>Create web app<ept id="7c291740-3451-4583-b447-bfa0a0548b78">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7c291740-3451-4583-b447-bfa0a0548b78">&lt;linkText&gt;</bpt>Create web app<ept id="7c291740-3451-4583-b447-bfa0a0548b78">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7531dd14-3afc-47bb-89f6-e992c3355c2a" xml:space="preserve">
+          <source>Enter values for your new database, including agreeing to the legal terms.</source>
+          <target state="new">Enter values for your new database, including agreeing to the legal terms.</target>
+        </trans-unit>
+        <trans-unit id="208ad9e3-6db1-4864-82b9-6494da1a3abd" xml:space="preserve">
+          <source><bpt id="3c1c3dfa-d6eb-439a-81ee-b2d245c55e32">&lt;linkText&gt;</bpt>Create new MySQL database<ept id="3c1c3dfa-d6eb-439a-81ee-b2d245c55e32">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3c1c3dfa-d6eb-439a-81ee-b2d245c55e32">&lt;linkText&gt;</bpt>Create new MySQL database<ept id="3c1c3dfa-d6eb-439a-81ee-b2d245c55e32">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76b2b75a-4f79-404f-8ae2-77e00dc47d1e" xml:space="preserve">
+          <source>When the web app has been created, you will see the new resource group.</source>
+          <target state="new">When the web app has been created, you will see the new resource group.</target>
+        </trans-unit>
+        <trans-unit id="cebc9291-0806-4e93-89f8-3d35ed883fed" xml:space="preserve">
+          <source>To connect to the MySQL database that is running in Web Apps, your will need the connection information.</source>
+          <target state="new">To connect to the MySQL database that is running in Web Apps, your will need the connection information.</target>
+        </trans-unit>
+        <trans-unit id="7ee1af35-357c-49dc-b1f1-185766a12fdf" xml:space="preserve">
+          <source>To get MySQL connection information, follow these steps:</source>
+          <target state="new">To get MySQL connection information, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="9f8befeb-a5d4-4f4e-9c46-dec8f47fe816" xml:space="preserve">
+          <source>From your resource group, click the database:</source>
+          <target state="new">From your resource group, click the database:</target>
+        </trans-unit>
+        <trans-unit id="e0eb68c7-68a6-4722-9869-19d6e0b8d144" xml:space="preserve">
+          <source><bpt id="28ff5650-a6bb-4834-be6a-75b81bbc1be6">&lt;linkText&gt;</bpt>Select database<ept id="28ff5650-a6bb-4834-be6a-75b81bbc1be6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="28ff5650-a6bb-4834-be6a-75b81bbc1be6">&lt;linkText&gt;</bpt>Select database<ept id="28ff5650-a6bb-4834-be6a-75b81bbc1be6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bed9662-3902-440e-987d-32e5efa7c7a1" xml:space="preserve">
+          <source>From the database sumamry, select <bpt id="06c806c1-109d-44dc-a604-a359de41c20a">&lt;strong&gt;</bpt>Properties<ept id="06c806c1-109d-44dc-a604-a359de41c20a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the database sumamry, select <bpt id="06c806c1-109d-44dc-a604-a359de41c20a">&lt;strong&gt;</bpt>Properties<ept id="06c806c1-109d-44dc-a604-a359de41c20a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33c0529c-eaf2-4d26-a423-2360f625551d" xml:space="preserve">
+          <source><bpt id="06f3f2a3-2d48-46d0-9b0f-9cc5828bf48b">&lt;linkText&gt;</bpt>Select properties<ept id="06f3f2a3-2d48-46d0-9b0f-9cc5828bf48b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06f3f2a3-2d48-46d0-9b0f-9cc5828bf48b">&lt;linkText&gt;</bpt>Select properties<ept id="06f3f2a3-2d48-46d0-9b0f-9cc5828bf48b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16c610ca-3ae4-45bf-8b8f-cf92eb472da1" xml:space="preserve">
+          <source>Make note of the values for <bpt id="59118a75-bb58-4e4d-bc4a-6af83d8b96b0">&lt;code&gt;</bpt>Database<ept id="59118a75-bb58-4e4d-bc4a-6af83d8b96b0">&lt;/code&gt;</ept>, <bpt id="0ce8d401-6254-462d-a150-8f43bc1c6b47">&lt;code&gt;</bpt>Host<ept id="0ce8d401-6254-462d-a150-8f43bc1c6b47">&lt;/code&gt;</ept>, <bpt id="6a634d26-48a6-463d-893d-339587fa6a74">&lt;code&gt;</bpt>User Id<ept id="6a634d26-48a6-463d-893d-339587fa6a74">&lt;/code&gt;</ept>, and <bpt id="4411c7ee-bf11-4392-9cf7-b3190d4d6447">&lt;code&gt;</bpt>Password<ept id="4411c7ee-bf11-4392-9cf7-b3190d4d6447">&lt;/code&gt;</ept>.</source>
+          <target state="new">Make note of the values for <bpt id="59118a75-bb58-4e4d-bc4a-6af83d8b96b0">&lt;code&gt;</bpt>Database<ept id="59118a75-bb58-4e4d-bc4a-6af83d8b96b0">&lt;/code&gt;</ept>, <bpt id="0ce8d401-6254-462d-a150-8f43bc1c6b47">&lt;code&gt;</bpt>Host<ept id="0ce8d401-6254-462d-a150-8f43bc1c6b47">&lt;/code&gt;</ept>, <bpt id="6a634d26-48a6-463d-893d-339587fa6a74">&lt;code&gt;</bpt>User Id<ept id="6a634d26-48a6-463d-893d-339587fa6a74">&lt;/code&gt;</ept>, and <bpt id="4411c7ee-bf11-4392-9cf7-b3190d4d6447">&lt;code&gt;</bpt>Password<ept id="4411c7ee-bf11-4392-9cf7-b3190d4d6447">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64cfc043-df0e-4519-b19a-d0953393e185" xml:space="preserve">
+          <source><bpt id="8ba495d6-9340-44ff-91b3-45ff6ecca9ed">&lt;linkText&gt;</bpt>Note properties<ept id="8ba495d6-9340-44ff-91b3-45ff6ecca9ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8ba495d6-9340-44ff-91b3-45ff6ecca9ed">&lt;linkText&gt;</bpt>Note properties<ept id="8ba495d6-9340-44ff-91b3-45ff6ecca9ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="732320be-e094-407d-a720-1e2eff2e8ddc" xml:space="preserve">
+          <source>In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications.</source>
+          <target state="new">In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications.</target>
+        </trans-unit>
+        <trans-unit id="f7d73d90-6088-4a42-a0b9-c6696a166660" xml:space="preserve">
+          <source>You could, however, add your own existing files or create new files.</source>
+          <target state="new">You could, however, add your own existing files or create new files.</target>
+        </trans-unit>
+        <trans-unit id="45663ce1-6ccb-4a8e-92bc-9e78df0b9a30" xml:space="preserve">
+          <source>Launch <bpt id="d9ad348a-f74f-4e3e-a8c0-8020569a2ff1">&lt;linkText&gt;</bpt>Microsoft WebMatrix<ept id="d9ad348a-f74f-4e3e-a8c0-8020569a2ff1">&lt;/linkText&gt;</ept><bpt id="d9ad348a-f74f-4e3e-a8c0-8020569a2ff1">&lt;title&gt;</bpt><ept id="d9ad348a-f74f-4e3e-a8c0-8020569a2ff1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Launch <bpt id="d9ad348a-f74f-4e3e-a8c0-8020569a2ff1">&lt;linkText&gt;</bpt>Microsoft WebMatrix<ept id="d9ad348a-f74f-4e3e-a8c0-8020569a2ff1">&lt;/linkText&gt;</ept><bpt id="d9ad348a-f74f-4e3e-a8c0-8020569a2ff1">&lt;title&gt;</bpt><ept id="d9ad348a-f74f-4e3e-a8c0-8020569a2ff1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1522c064-b2ed-43bf-a6c6-f4d4abb2af9e" xml:space="preserve">
+          <source>If you haven't alreayd installed it yet, do it now.</source>
+          <target state="new">If you haven't alreayd installed it yet, do it now.</target>
+        </trans-unit>
+        <trans-unit id="1e16f65d-ca14-4d6d-8da3-90fed5021801" xml:space="preserve">
+          <source>If this is the first time you've used WebMatrix 3, you will be prompted to sign into Azure.</source>
+          <target state="new">If this is the first time you've used WebMatrix 3, you will be prompted to sign into Azure.</target>
+        </trans-unit>
+        <trans-unit id="a1d428c1-914a-4471-b3c1-511b17fed4ed" xml:space="preserve">
+          <source>Otherwise, you can click on the <bpt id="2e42a0c9-ae39-4da6-9605-3ae993621388">&lt;strong&gt;</bpt>Sign In<ept id="2e42a0c9-ae39-4da6-9605-3ae993621388">&lt;/strong&gt;</ept> button, and choose <bpt id="a24536f7-6124-466a-8013-c7689fd4f15c">&lt;strong&gt;</bpt>Add Account<ept id="a24536f7-6124-466a-8013-c7689fd4f15c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Otherwise, you can click on the <bpt id="2e42a0c9-ae39-4da6-9605-3ae993621388">&lt;strong&gt;</bpt>Sign In<ept id="2e42a0c9-ae39-4da6-9605-3ae993621388">&lt;/strong&gt;</ept> button, and choose <bpt id="a24536f7-6124-466a-8013-c7689fd4f15c">&lt;strong&gt;</bpt>Add Account<ept id="a24536f7-6124-466a-8013-c7689fd4f15c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97724d32-2ee8-489c-8d99-eaa5f2f2b99d" xml:space="preserve">
+          <source>Choose to <bpt id="c0d5a4e5-51e2-40f9-8c0f-a13269f2df28">&lt;strong&gt;</bpt>Sign in<ept id="c0d5a4e5-51e2-40f9-8c0f-a13269f2df28">&lt;/strong&gt;</ept> using your Microsoft Account.</source>
+          <target state="new">Choose to <bpt id="c0d5a4e5-51e2-40f9-8c0f-a13269f2df28">&lt;strong&gt;</bpt>Sign in<ept id="c0d5a4e5-51e2-40f9-8c0f-a13269f2df28">&lt;/strong&gt;</ept> using your Microsoft Account.</target>
+        </trans-unit>
+        <trans-unit id="330af3ab-f667-4ae3-94a0-2bec9ec71e4c" xml:space="preserve">
+          <source><bpt id="a35582fc-d2ba-4326-960d-12c2da422678">&lt;linkText&gt;</bpt>Add Account<ept id="a35582fc-d2ba-4326-960d-12c2da422678">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a35582fc-d2ba-4326-960d-12c2da422678">&lt;linkText&gt;</bpt>Add Account<ept id="a35582fc-d2ba-4326-960d-12c2da422678">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="561c69ef-ad84-4d60-abb3-5ee6141d381c" xml:space="preserve">
+          <source>If you have signed up for an Azure account, you may log in using your Microsoft Account:</source>
+          <target state="new">If you have signed up for an Azure account, you may log in using your Microsoft Account:</target>
+        </trans-unit>
+        <trans-unit id="425ac8fe-aa8e-4726-8557-3748efc69752" xml:space="preserve">
+          <source><bpt id="fdc2865f-2614-4d2c-bb8a-a97972b0e9db">&lt;linkText&gt;</bpt>Sign into Azure<ept id="fdc2865f-2614-4d2c-bb8a-a97972b0e9db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fdc2865f-2614-4d2c-bb8a-a97972b0e9db">&lt;linkText&gt;</bpt>Sign into Azure<ept id="fdc2865f-2614-4d2c-bb8a-a97972b0e9db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="454ea70d-fbb0-4f34-935a-fdc72106f0c0" xml:space="preserve">
+          <source>On the start screen, click the <bpt id="12af9278-c0ca-4c4d-a1ef-3c7a2609debf">&lt;strong&gt;</bpt>New<ept id="12af9278-c0ca-4c4d-a1ef-3c7a2609debf">&lt;/strong&gt;</ept> button, and choose <bpt id="bd9ecaa6-9bb3-4bb0-9f96-0da4fd3e91b9">&lt;strong&gt;</bpt>Template Gallery<ept id="bd9ecaa6-9bb3-4bb0-9f96-0da4fd3e91b9">&lt;/strong&gt;</ept> to create a new site from the Template Gallery:</source>
+          <target state="new">On the start screen, click the <bpt id="12af9278-c0ca-4c4d-a1ef-3c7a2609debf">&lt;strong&gt;</bpt>New<ept id="12af9278-c0ca-4c4d-a1ef-3c7a2609debf">&lt;/strong&gt;</ept> button, and choose <bpt id="bd9ecaa6-9bb3-4bb0-9f96-0da4fd3e91b9">&lt;strong&gt;</bpt>Template Gallery<ept id="bd9ecaa6-9bb3-4bb0-9f96-0da4fd3e91b9">&lt;/strong&gt;</ept> to create a new site from the Template Gallery:</target>
+        </trans-unit>
+        <trans-unit id="51c6c607-57b6-449e-b0bf-3e4b388018ba" xml:space="preserve">
+          <source><bpt id="dabad81e-8b3c-4ffa-8e49-579589587a88">&lt;linkText&gt;</bpt>New site from Template Gallery<ept id="dabad81e-8b3c-4ffa-8e49-579589587a88">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dabad81e-8b3c-4ffa-8e49-579589587a88">&lt;linkText&gt;</bpt>New site from Template Gallery<ept id="dabad81e-8b3c-4ffa-8e49-579589587a88">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edeb4b41-6e3f-4024-8f97-bc53a4f293b7" xml:space="preserve">
+          <source>From the available templates, choose <bpt id="fc32fdf9-6686-4826-807a-832cc4543c80">&lt;strong&gt;</bpt>PHP<ept id="fc32fdf9-6686-4826-807a-832cc4543c80">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the available templates, choose <bpt id="fc32fdf9-6686-4826-807a-832cc4543c80">&lt;strong&gt;</bpt>PHP<ept id="fc32fdf9-6686-4826-807a-832cc4543c80">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0ea07ed-6434-43fe-85af-06eef19c1d70" xml:space="preserve">
+          <source><bpt id="a3878a7a-0e49-477e-9bae-567fae30093c">&lt;linkText&gt;</bpt>Site from template<ept id="a3878a7a-0e49-477e-9bae-567fae30093c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a3878a7a-0e49-477e-9bae-567fae30093c">&lt;linkText&gt;</bpt>Site from template<ept id="a3878a7a-0e49-477e-9bae-567fae30093c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="942d031c-56ab-4445-bee6-6c75e971fe72" xml:space="preserve">
+          <source>Select the <bpt id="5c37d917-52c7-410c-91ed-4f72badf619b">&lt;strong&gt;</bpt>Empty Site<ept id="5c37d917-52c7-410c-91ed-4f72badf619b">&lt;/strong&gt;</ept> template.</source>
+          <target state="new">Select the <bpt id="5c37d917-52c7-410c-91ed-4f72badf619b">&lt;strong&gt;</bpt>Empty Site<ept id="5c37d917-52c7-410c-91ed-4f72badf619b">&lt;/strong&gt;</ept> template.</target>
+        </trans-unit>
+        <trans-unit id="94f8f09a-a320-436e-9f64-73536c8cacce" xml:space="preserve">
+          <source>Provide a name for the site and click <bpt id="6bd5d18d-d577-4b50-b9e2-015a0bb10388">&lt;strong&gt;</bpt>NEXT<ept id="6bd5d18d-d577-4b50-b9e2-015a0bb10388">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Provide a name for the site and click <bpt id="6bd5d18d-d577-4b50-b9e2-015a0bb10388">&lt;strong&gt;</bpt>NEXT<ept id="6bd5d18d-d577-4b50-b9e2-015a0bb10388">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83b9c4a6-bdf9-401c-922b-3c947937e27f" xml:space="preserve">
+          <source><bpt id="9a7811ce-15d0-4961-bf75-613408b475f0">&lt;linkText&gt;</bpt>Provide name for site<ept id="9a7811ce-15d0-4961-bf75-613408b475f0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9a7811ce-15d0-4961-bf75-613408b475f0">&lt;linkText&gt;</bpt>Provide name for site<ept id="9a7811ce-15d0-4961-bf75-613408b475f0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf670fe2-8770-42f2-88af-e420cece6c45" xml:space="preserve">
+          <source>Your site will be opened on WebMatrix with some default files in place.</source>
+          <target state="new">Your site will be opened on WebMatrix with some default files in place.</target>
+        </trans-unit>
+        <trans-unit id="cb46a67d-3f7c-4afc-b2e6-6f7df7ac33ea" xml:space="preserve">
+          <source>In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications.</source>
+          <target state="new">In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications.</target>
+        </trans-unit>
+        <trans-unit id="187e2cc7-93ed-45cd-9ee4-c36536338b56" xml:space="preserve">
+          <source>You could, however, add your own existing files or create new files.</source>
+          <target state="new">You could, however, add your own existing files or create new files.</target>
+        </trans-unit>
+        <trans-unit id="0eeb3af8-314d-46a1-b4d0-16e3a8537101" xml:space="preserve">
+          <source>Add your application files by clicking <bpt id="3f2f4253-b116-46d9-b216-7f840314e8a8">&lt;strong&gt;</bpt>Add Existing<ept id="3f2f4253-b116-46d9-b216-7f840314e8a8">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Add your application files by clicking <bpt id="3f2f4253-b116-46d9-b216-7f840314e8a8">&lt;strong&gt;</bpt>Add Existing<ept id="3f2f4253-b116-46d9-b216-7f840314e8a8">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="4845f797-07fa-4717-b000-0e587222f82b" xml:space="preserve">
+          <source><bpt id="6260c6e6-b774-417c-a163-8188bdedafa2">&lt;linkText&gt;</bpt>WebMatrix - Add existing files<ept id="6260c6e6-b774-417c-a163-8188bdedafa2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6260c6e6-b774-417c-a163-8188bdedafa2">&lt;linkText&gt;</bpt>WebMatrix - Add existing files<ept id="6260c6e6-b774-417c-a163-8188bdedafa2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="733bddf6-3980-4721-ab79-5d2da6fce226" xml:space="preserve">
+          <source>In the resulting dialog, navigate to the files you downloaded earlier, select all of them, and click Open.</source>
+          <target state="new">In the resulting dialog, navigate to the files you downloaded earlier, select all of them, and click Open.</target>
+        </trans-unit>
+        <trans-unit id="ed110dcc-e72c-4aec-afa6-192a4c7d4367" xml:space="preserve">
+          <source>When prompted, choose to replace the <bpt id="08612d11-6200-480e-a4e0-46868013eedd">&lt;code&gt;</bpt>index.php<ept id="08612d11-6200-480e-a4e0-46868013eedd">&lt;/code&gt;</ept> file.</source>
+          <target state="new">When prompted, choose to replace the <bpt id="08612d11-6200-480e-a4e0-46868013eedd">&lt;code&gt;</bpt>index.php<ept id="08612d11-6200-480e-a4e0-46868013eedd">&lt;/code&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="49490507-4ec6-4221-a063-cefa132f4458" xml:space="preserve">
+          <source>Next, you need to add your local MySQL database connection information to the <bpt id="8eeecae2-9011-4b30-8be4-3e3f08f1d8d2">&lt;code&gt;</bpt>taskmodel.php<ept id="8eeecae2-9011-4b30-8be4-3e3f08f1d8d2">&lt;/code&gt;</ept> file.</source>
+          <target state="new">Next, you need to add your local MySQL database connection information to the <bpt id="8eeecae2-9011-4b30-8be4-3e3f08f1d8d2">&lt;code&gt;</bpt>taskmodel.php<ept id="8eeecae2-9011-4b30-8be4-3e3f08f1d8d2">&lt;/code&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="fd2b3a77-7b69-4b60-a2d3-28618d1a4956" xml:space="preserve">
+          <source>Open the  <bpt id="731bac84-057d-44e9-bc45-e03da4479c45">&lt;code&gt;</bpt>taskmodel.php<ept id="731bac84-057d-44e9-bc45-e03da4479c45">&lt;/code&gt;</ept> file by double clicking it, and update the database connection information in the <bpt id="c2c0237f-5419-4148-94c9-38367975810b">&lt;code&gt;</bpt>connect<ept id="c2c0237f-5419-4148-94c9-38367975810b">&lt;/code&gt;</ept> function.</source>
+          <target state="new">Open the  <bpt id="731bac84-057d-44e9-bc45-e03da4479c45">&lt;code&gt;</bpt>taskmodel.php<ept id="731bac84-057d-44e9-bc45-e03da4479c45">&lt;/code&gt;</ept> file by double clicking it, and update the database connection information in the <bpt id="c2c0237f-5419-4148-94c9-38367975810b">&lt;code&gt;</bpt>connect<ept id="c2c0237f-5419-4148-94c9-38367975810b">&lt;/code&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="6395373c-e0e9-46be-8a5b-b4bc0100c5dd" xml:space="preserve">
+          <source>(<bpt id="6bf603d0-c72e-4226-9655-037dc592d32f">&lt;strong&gt;</bpt>Note<ept id="6bf603d0-c72e-4226-9655-037dc592d32f">&lt;/strong&gt;</ept>: Jump to <bpt id="5e1d44ec-f6c7-4c41-84cd-8b04ab133922">&lt;linkText&gt;</bpt>Publish Your Application<ept id="5e1d44ec-f6c7-4c41-84cd-8b04ab133922">&lt;/linkText&gt;</ept><bpt id="5e1d44ec-f6c7-4c41-84cd-8b04ab133922">&lt;title&gt;</bpt><ept id="5e1d44ec-f6c7-4c41-84cd-8b04ab133922">&lt;/title&gt;</ept> if you do not want to test your application locally and want to instead publish directly to Azure App Service Web Apps.)</source>
+          <target state="new">(<bpt id="6bf603d0-c72e-4226-9655-037dc592d32f">&lt;strong&gt;</bpt>Note<ept id="6bf603d0-c72e-4226-9655-037dc592d32f">&lt;/strong&gt;</ept>: Jump to <bpt id="5e1d44ec-f6c7-4c41-84cd-8b04ab133922">&lt;linkText&gt;</bpt>Publish Your Application<ept id="5e1d44ec-f6c7-4c41-84cd-8b04ab133922">&lt;/linkText&gt;</ept><bpt id="5e1d44ec-f6c7-4c41-84cd-8b04ab133922">&lt;title&gt;</bpt><ept id="5e1d44ec-f6c7-4c41-84cd-8b04ab133922">&lt;/title&gt;</ept> if you do not want to test your application locally and want to instead publish directly to Azure App Service Web Apps.)</target>
+        </trans-unit>
+        <trans-unit id="2fb2bc43-c72a-4ebb-a60d-6d5bfe6affe0" xml:space="preserve">
+          <source>Save the <bpt id="bca74e25-de47-49ba-998e-5ce5907cae06">&lt;code&gt;</bpt>taskmodel.php<ept id="bca74e25-de47-49ba-998e-5ce5907cae06">&lt;/code&gt;</ept> file.</source>
+          <target state="new">Save the <bpt id="bca74e25-de47-49ba-998e-5ce5907cae06">&lt;code&gt;</bpt>taskmodel.php<ept id="bca74e25-de47-49ba-998e-5ce5907cae06">&lt;/code&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="c5456ce6-662a-4d4b-adf4-e3c65924345c" xml:space="preserve">
+          <source>For the application to run, the <bpt id="d88f07ec-cfd9-4884-8847-f2b06541a7e0">&lt;code&gt;</bpt>items<ept id="d88f07ec-cfd9-4884-8847-f2b06541a7e0">&lt;/code&gt;</ept> table needs to be created.</source>
+          <target state="new">For the application to run, the <bpt id="d88f07ec-cfd9-4884-8847-f2b06541a7e0">&lt;code&gt;</bpt>items<ept id="d88f07ec-cfd9-4884-8847-f2b06541a7e0">&lt;/code&gt;</ept> table needs to be created.</target>
+        </trans-unit>
+        <trans-unit id="87fe5ed1-3b42-4751-a6aa-323a98439f4c" xml:space="preserve">
+          <source>Right click the <bpt id="ee182773-b499-4cb6-a4e3-c4dfe9e95e2b">&lt;code&gt;</bpt>createtable.php<ept id="ee182773-b499-4cb6-a4e3-c4dfe9e95e2b">&lt;/code&gt;</ept> file and select <bpt id="ebc66be7-4c4c-47f6-87b2-65c846e60545">&lt;strong&gt;</bpt>Launch in browser<ept id="ebc66be7-4c4c-47f6-87b2-65c846e60545">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right click the <bpt id="ee182773-b499-4cb6-a4e3-c4dfe9e95e2b">&lt;code&gt;</bpt>createtable.php<ept id="ee182773-b499-4cb6-a4e3-c4dfe9e95e2b">&lt;/code&gt;</ept> file and select <bpt id="ebc66be7-4c4c-47f6-87b2-65c846e60545">&lt;strong&gt;</bpt>Launch in browser<ept id="ebc66be7-4c4c-47f6-87b2-65c846e60545">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd37bd74-f2a5-4396-83e2-b94cd734c1ca" xml:space="preserve">
+          <source>This will launch <bpt id="bba7a5b2-7600-4b64-aa57-bf83394149a2">&lt;code&gt;</bpt>createtable.php<ept id="bba7a5b2-7600-4b64-aa57-bf83394149a2">&lt;/code&gt;</ept> in your browser and execute code that creates the <bpt id="bad0ab86-9e91-400d-bddc-56a7e03b4c8b">&lt;code&gt;</bpt>items<ept id="bad0ab86-9e91-400d-bddc-56a7e03b4c8b">&lt;/code&gt;</ept> table in the <bpt id="98603fcd-6194-4b2e-ad5e-b849a89d9e85">&lt;code&gt;</bpt>tasklist<ept id="98603fcd-6194-4b2e-ad5e-b849a89d9e85">&lt;/code&gt;</ept> database.</source>
+          <target state="new">This will launch <bpt id="bba7a5b2-7600-4b64-aa57-bf83394149a2">&lt;code&gt;</bpt>createtable.php<ept id="bba7a5b2-7600-4b64-aa57-bf83394149a2">&lt;/code&gt;</ept> in your browser and execute code that creates the <bpt id="bad0ab86-9e91-400d-bddc-56a7e03b4c8b">&lt;code&gt;</bpt>items<ept id="bad0ab86-9e91-400d-bddc-56a7e03b4c8b">&lt;/code&gt;</ept> table in the <bpt id="98603fcd-6194-4b2e-ad5e-b849a89d9e85">&lt;code&gt;</bpt>tasklist<ept id="98603fcd-6194-4b2e-ad5e-b849a89d9e85">&lt;/code&gt;</ept> database.</target>
+        </trans-unit>
+        <trans-unit id="5c84ecae-cc6b-47db-9106-26bdc4107902" xml:space="preserve">
+          <source><bpt id="78445802-f24c-474a-8c54-13ba73c7fbd9">&lt;linkText&gt;</bpt>WebMatrix - Launch createtable.php in browser<ept id="78445802-f24c-474a-8c54-13ba73c7fbd9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78445802-f24c-474a-8c54-13ba73c7fbd9">&lt;linkText&gt;</bpt>WebMatrix - Launch createtable.php in browser<ept id="78445802-f24c-474a-8c54-13ba73c7fbd9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79f4dbe8-e70e-4ee2-97b7-3c72684adb9c" xml:space="preserve">
+          <source>Now you can test the application locally.</source>
+          <target state="new">Now you can test the application locally.</target>
+        </trans-unit>
+        <trans-unit id="90c46ae3-b323-4b05-80ce-fb231cbfa6b5" xml:space="preserve">
+          <source>Right click the <bpt id="9aa7b95d-45ca-4f6e-a250-8285427de614">&lt;code&gt;</bpt>index.php<ept id="9aa7b95d-45ca-4f6e-a250-8285427de614">&lt;/code&gt;</ept> file and select <bpt id="38bdd907-7061-47ee-8c6d-13c9a493dbac">&lt;strong&gt;</bpt>Launch in browser<ept id="38bdd907-7061-47ee-8c6d-13c9a493dbac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right click the <bpt id="9aa7b95d-45ca-4f6e-a250-8285427de614">&lt;code&gt;</bpt>index.php<ept id="9aa7b95d-45ca-4f6e-a250-8285427de614">&lt;/code&gt;</ept> file and select <bpt id="38bdd907-7061-47ee-8c6d-13c9a493dbac">&lt;strong&gt;</bpt>Launch in browser<ept id="38bdd907-7061-47ee-8c6d-13c9a493dbac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fefd75c9-393c-4c46-8729-971a8e6dd3e8" xml:space="preserve">
+          <source>Test the application by adding items, marking them complete, and deleting them.</source>
+          <target state="new">Test the application by adding items, marking them complete, and deleting them.</target>
+        </trans-unit>
+        <trans-unit id="1a84043b-017f-4a0b-b3ae-31b17a16ff66" xml:space="preserve">
+          <source>Before publishing your application to App Service Web Apps, the database connection information in <bpt id="6b942f62-4ea2-4a2c-bc45-512165250d4f">&lt;code&gt;</bpt>taskmodel.php<ept id="6b942f62-4ea2-4a2c-bc45-512165250d4f">&lt;/code&gt;</ept> needs to be updated with the connection information you obtained earlier (in the <bpt id="4c62e42d-84ac-4a8e-8d17-bdcf8aed0ff9">&lt;linkText&gt;</bpt>Create a web app and MySQL Database<ept id="4c62e42d-84ac-4a8e-8d17-bdcf8aed0ff9">&lt;/linkText&gt;</ept><bpt id="4c62e42d-84ac-4a8e-8d17-bdcf8aed0ff9">&lt;title&gt;</bpt><ept id="4c62e42d-84ac-4a8e-8d17-bdcf8aed0ff9">&lt;/title&gt;</ept> section).</source>
+          <target state="new">Before publishing your application to App Service Web Apps, the database connection information in <bpt id="6b942f62-4ea2-4a2c-bc45-512165250d4f">&lt;code&gt;</bpt>taskmodel.php<ept id="6b942f62-4ea2-4a2c-bc45-512165250d4f">&lt;/code&gt;</ept> needs to be updated with the connection information you obtained earlier (in the <bpt id="4c62e42d-84ac-4a8e-8d17-bdcf8aed0ff9">&lt;linkText&gt;</bpt>Create a web app and MySQL Database<ept id="4c62e42d-84ac-4a8e-8d17-bdcf8aed0ff9">&lt;/linkText&gt;</ept><bpt id="4c62e42d-84ac-4a8e-8d17-bdcf8aed0ff9">&lt;title&gt;</bpt><ept id="4c62e42d-84ac-4a8e-8d17-bdcf8aed0ff9">&lt;/title&gt;</ept> section).</target>
+        </trans-unit>
+        <trans-unit id="a4c42467-5fe7-46c3-a9d7-4fb6fc8ad56f" xml:space="preserve">
+          <source>Open the <bpt id="a8f2beab-ccec-4904-912d-b7d07465558b">&lt;code&gt;</bpt>taskmodel.php<ept id="a8f2beab-ccec-4904-912d-b7d07465558b">&lt;/code&gt;</ept> file by double clicking it, and update the database connection information in the <bpt id="8aafa07e-57c2-4d7d-bb41-cd353210c9a0">&lt;code&gt;</bpt>connect<ept id="8aafa07e-57c2-4d7d-bb41-cd353210c9a0">&lt;/code&gt;</ept> function.</source>
+          <target state="new">Open the <bpt id="a8f2beab-ccec-4904-912d-b7d07465558b">&lt;code&gt;</bpt>taskmodel.php<ept id="a8f2beab-ccec-4904-912d-b7d07465558b">&lt;/code&gt;</ept> file by double clicking it, and update the database connection information in the <bpt id="8aafa07e-57c2-4d7d-bb41-cd353210c9a0">&lt;code&gt;</bpt>connect<ept id="8aafa07e-57c2-4d7d-bb41-cd353210c9a0">&lt;/code&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="dd206478-467c-4036-a160-9b2328be2c87" xml:space="preserve">
+          <source>Save the <bpt id="7142d755-c0bd-4b21-b291-d2f0f085dd0b">&lt;code&gt;</bpt>taskmodel.php<ept id="7142d755-c0bd-4b21-b291-d2f0f085dd0b">&lt;/code&gt;</ept> file.</source>
+          <target state="new">Save the <bpt id="7142d755-c0bd-4b21-b291-d2f0f085dd0b">&lt;code&gt;</bpt>taskmodel.php<ept id="7142d755-c0bd-4b21-b291-d2f0f085dd0b">&lt;/code&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="34923112-ab1b-4a64-9004-b50525844cf4" xml:space="preserve">
+          <source>Click <bpt id="4f8aab4b-8369-408f-89eb-47dce1b4125b">&lt;strong&gt;</bpt>Publish<ept id="4f8aab4b-8369-408f-89eb-47dce1b4125b">&lt;/strong&gt;</ept> in WebMatrix.</source>
+          <target state="new">Click <bpt id="4f8aab4b-8369-408f-89eb-47dce1b4125b">&lt;strong&gt;</bpt>Publish<ept id="4f8aab4b-8369-408f-89eb-47dce1b4125b">&lt;/strong&gt;</ept> in WebMatrix.</target>
+        </trans-unit>
+        <trans-unit id="0dbfde3d-2a49-44ed-ad79-1d2c6ffc3746" xml:space="preserve">
+          <source><bpt id="3d4612c9-88e8-47f3-b5a8-a3d24e123a1b">&lt;linkText&gt;</bpt>WebMatrix - Publish<ept id="3d4612c9-88e8-47f3-b5a8-a3d24e123a1b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d4612c9-88e8-47f3-b5a8-a3d24e123a1b">&lt;linkText&gt;</bpt>WebMatrix - Publish<ept id="3d4612c9-88e8-47f3-b5a8-a3d24e123a1b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff1b73fe-e15b-40cd-8934-d2d6b57488f5" xml:space="preserve">
+          <source>Click <bpt id="f7c34bf5-9447-47d6-9e77-8dc85ab02794">&lt;strong&gt;</bpt>Choose an existing site from Microsoft Azure<ept id="f7c34bf5-9447-47d6-9e77-8dc85ab02794">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f7c34bf5-9447-47d6-9e77-8dc85ab02794">&lt;strong&gt;</bpt>Choose an existing site from Microsoft Azure<ept id="f7c34bf5-9447-47d6-9e77-8dc85ab02794">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4975216d-05cc-4a15-aeec-c18d200a68fa" xml:space="preserve">
+          <source>Select the App Service web app you created earlier.</source>
+          <target state="new">Select the App Service web app you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="461dc761-0e3d-437f-9676-a0160654a58a" xml:space="preserve">
+          <source><bpt id="20df00a1-3b15-4fc3-b060-addffa096235">&lt;linkText&gt;</bpt><ept id="20df00a1-3b15-4fc3-b060-addffa096235">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="20df00a1-3b15-4fc3-b060-addffa096235">&lt;linkText&gt;</bpt><ept id="20df00a1-3b15-4fc3-b060-addffa096235">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bc81dda-d6e2-4b83-ac7d-265b511cc0b0" xml:space="preserve">
+          <source>Keep clicking <bpt id="14c0b204-b773-4ceb-a890-583287c5b11f">&lt;strong&gt;</bpt>Continue<ept id="14c0b204-b773-4ceb-a890-583287c5b11f">&lt;/strong&gt;</ept> until WebMatrix publishes the site to Azure App Service Web Apps.</source>
+          <target state="new">Keep clicking <bpt id="14c0b204-b773-4ceb-a890-583287c5b11f">&lt;strong&gt;</bpt>Continue<ept id="14c0b204-b773-4ceb-a890-583287c5b11f">&lt;/strong&gt;</ept> until WebMatrix publishes the site to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="595b7c21-fe65-466c-9ccb-1b6cd1c4dacd" xml:space="preserve">
+          <source>Navigate to http://[your web site name].azurewebsites.net/createtable.php to create the <bpt id="f086a7ae-7ba9-4ace-a809-f2855cb15ef6">&lt;code&gt;</bpt>items<ept id="f086a7ae-7ba9-4ace-a809-f2855cb15ef6">&lt;/code&gt;</ept> table.</source>
+          <target state="new">Navigate to http://[your web site name].azurewebsites.net/createtable.php to create the <bpt id="f086a7ae-7ba9-4ace-a809-f2855cb15ef6">&lt;code&gt;</bpt>items<ept id="f086a7ae-7ba9-4ace-a809-f2855cb15ef6">&lt;/code&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="882b40d1-9de1-4381-9b7d-56e4cfa14104" xml:space="preserve">
+          <source>Lastly, navigate to http://[your web site name].azurewebsites.net/index.php to use the application.</source>
+          <target state="new">Lastly, navigate to http://[your web site name].azurewebsites.net/index.php to use the application.</target>
+        </trans-unit>
+        <trans-unit id="f0542604-8a95-42d8-a05c-87283e0d876c" xml:space="preserve">
+          <source>You can easily modify your application by editing the local copy of the site you downloaded earlier and republish or you can make the edit directly in the Remote mode.</source>
+          <target state="new">You can easily modify your application by editing the local copy of the site you downloaded earlier and republish or you can make the edit directly in the Remote mode.</target>
+        </trans-unit>
+        <trans-unit id="9889cf20-6ba6-464d-9909-68c204dc581f" xml:space="preserve">
+          <source>Here, you will make a simple change to the heading in in the <bpt id="7f069a56-cc53-4f44-a97d-aa624048e4b2">&lt;code&gt;</bpt>index.php<ept id="7f069a56-cc53-4f44-a97d-aa624048e4b2">&lt;/code&gt;</ept> file and save it directly to the live site.</source>
+          <target state="new">Here, you will make a simple change to the heading in in the <bpt id="7f069a56-cc53-4f44-a97d-aa624048e4b2">&lt;code&gt;</bpt>index.php<ept id="7f069a56-cc53-4f44-a97d-aa624048e4b2">&lt;/code&gt;</ept> file and save it directly to the live site.</target>
+        </trans-unit>
+        <trans-unit id="46b9f9f3-49e9-4c66-b547-38dccf221ecd" xml:space="preserve">
+          <source>Click on the Remote tab of your site in WebMatrix and select <bpt id="3f9cb923-a7dc-4ea1-a6f9-a543430c25fe">&lt;strong&gt;</bpt>Open Remote View<ept id="3f9cb923-a7dc-4ea1-a6f9-a543430c25fe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click on the Remote tab of your site in WebMatrix and select <bpt id="3f9cb923-a7dc-4ea1-a6f9-a543430c25fe">&lt;strong&gt;</bpt>Open Remote View<ept id="3f9cb923-a7dc-4ea1-a6f9-a543430c25fe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="787d2f37-6e66-4ffc-a1c5-c01be866dfbf" xml:space="preserve">
+          <source>This will open your remote site for editing directly.</source>
+          <target state="new">This will open your remote site for editing directly.</target>
+        </trans-unit>
+        <trans-unit id="3275c71d-cfc2-4445-938c-5aead011a0ad" xml:space="preserve">
+          <source><bpt id="85ab97bd-c5b4-4b9f-84c4-713f8f05e047">&lt;linkText&gt;</bpt>WebMatrix - Open Remote View<ept id="85ab97bd-c5b4-4b9f-84c4-713f8f05e047">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="85ab97bd-c5b4-4b9f-84c4-713f8f05e047">&lt;linkText&gt;</bpt>WebMatrix - Open Remote View<ept id="85ab97bd-c5b4-4b9f-84c4-713f8f05e047">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c65e27ed-3fa6-4e6a-a06c-37f4a2ba67ba" xml:space="preserve">
+          <source>Open the <bpt id="621f381d-e196-4b8d-a799-7e796f5c0c8f">&lt;code&gt;</bpt>index.php<ept id="621f381d-e196-4b8d-a799-7e796f5c0c8f">&lt;/code&gt;</ept> file by double-clicking it.</source>
+          <target state="new">Open the <bpt id="621f381d-e196-4b8d-a799-7e796f5c0c8f">&lt;code&gt;</bpt>index.php<ept id="621f381d-e196-4b8d-a799-7e796f5c0c8f">&lt;/code&gt;</ept> file by double-clicking it.</target>
+        </trans-unit>
+        <trans-unit id="d36cf6ce-bbc7-4ffc-9aa0-711fd634257b" xml:space="preserve">
+          <source><bpt id="f3c1da9b-0463-4639-8b69-c8920c2d87ae">&lt;linkText&gt;</bpt>WebMatrix - Open index file<ept id="f3c1da9b-0463-4639-8b69-c8920c2d87ae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f3c1da9b-0463-4639-8b69-c8920c2d87ae">&lt;linkText&gt;</bpt>WebMatrix - Open index file<ept id="f3c1da9b-0463-4639-8b69-c8920c2d87ae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="265eeddb-baec-436d-9ad2-873e22837379" xml:space="preserve">
+          <source>Change <bpt id="0f69be87-429c-47c3-b377-d80969695bad">&lt;strong&gt;</bpt>My ToDo List<ept id="0f69be87-429c-47c3-b377-d80969695bad">&lt;/strong&gt;</ept> to <bpt id="6cff566b-da1d-4129-8d8b-d8d8dd5b7149">&lt;strong&gt;</bpt>My Task List<ept id="6cff566b-da1d-4129-8d8b-d8d8dd5b7149">&lt;/strong&gt;</ept> in the <bpt id="0547a9c6-d5fb-4ed8-bd0e-47a5eccfb629">&lt;strong&gt;</bpt>title<ept id="0547a9c6-d5fb-4ed8-bd0e-47a5eccfb629">&lt;/strong&gt;</ept> and <bpt id="d431d488-a7e7-4b62-9da5-4b848b4f8c48">&lt;strong&gt;</bpt>h1<ept id="d431d488-a7e7-4b62-9da5-4b848b4f8c48">&lt;/strong&gt;</ept> tags and save the file.</source>
+          <target state="new">Change <bpt id="0f69be87-429c-47c3-b377-d80969695bad">&lt;strong&gt;</bpt>My ToDo List<ept id="0f69be87-429c-47c3-b377-d80969695bad">&lt;/strong&gt;</ept> to <bpt id="6cff566b-da1d-4129-8d8b-d8d8dd5b7149">&lt;strong&gt;</bpt>My Task List<ept id="6cff566b-da1d-4129-8d8b-d8d8dd5b7149">&lt;/strong&gt;</ept> in the <bpt id="0547a9c6-d5fb-4ed8-bd0e-47a5eccfb629">&lt;strong&gt;</bpt>title<ept id="0547a9c6-d5fb-4ed8-bd0e-47a5eccfb629">&lt;/strong&gt;</ept> and <bpt id="d431d488-a7e7-4b62-9da5-4b848b4f8c48">&lt;strong&gt;</bpt>h1<ept id="d431d488-a7e7-4b62-9da5-4b848b4f8c48">&lt;/strong&gt;</ept> tags and save the file.</target>
+        </trans-unit>
+        <trans-unit id="016dd745-aeaa-4053-9e7f-87d14a8e52da" xml:space="preserve">
+          <source>When saving has completed, click the Run button to see the changes on the live site.</source>
+          <target state="new">When saving has completed, click the Run button to see the changes on the live site.</target>
+        </trans-unit>
+        <trans-unit id="2c97a11f-1395-455b-96c6-dcbda39b8595" xml:space="preserve">
+          <source><bpt id="011e6627-4d27-410f-9b46-3b725ab470f0">&lt;linkText&gt;</bpt>WebMatrix - Launch site in Remote<ept id="011e6627-4d27-410f-9b46-3b725ab470f0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="011e6627-4d27-410f-9b46-3b725ab470f0">&lt;linkText&gt;</bpt>WebMatrix - Launch site in Remote<ept id="011e6627-4d27-410f-9b46-3b725ab470f0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ae46634-f173-48c5-af69-b20ab45077be" xml:space="preserve">
+          <source><bpt id="b727d838-12bf-4141-b588-8cde857ee3df">&lt;linkText&gt;</bpt>WebMatrix web site<ept id="b727d838-12bf-4141-b588-8cde857ee3df">&lt;/linkText&gt;</ept><bpt id="b727d838-12bf-4141-b588-8cde857ee3df">&lt;title&gt;</bpt><ept id="b727d838-12bf-4141-b588-8cde857ee3df">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b727d838-12bf-4141-b588-8cde857ee3df">&lt;linkText&gt;</bpt>WebMatrix web site<ept id="b727d838-12bf-4141-b588-8cde857ee3df">&lt;/linkText&gt;</ept><bpt id="b727d838-12bf-4141-b588-8cde857ee3df">&lt;title&gt;</bpt><ept id="b727d838-12bf-4141-b588-8cde857ee3df">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b898e96-ed40-487b-a9a3-64ad64a1443a" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="b51114a7-b56c-4b85-9070-e8ba82104eae">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="b51114a7-b56c-4b85-9070-e8ba82104eae">&lt;/linkText&gt;</ept><bpt id="b51114a7-b56c-4b85-9070-e8ba82104eae">&lt;title&gt;</bpt><ept id="b51114a7-b56c-4b85-9070-e8ba82104eae">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="b51114a7-b56c-4b85-9070-e8ba82104eae">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="b51114a7-b56c-4b85-9070-e8ba82104eae">&lt;/linkText&gt;</ept><bpt id="b51114a7-b56c-4b85-9070-e8ba82104eae">&lt;title&gt;</bpt><ept id="b51114a7-b56c-4b85-9070-e8ba82104eae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4044ff4f-91b7-43a2-9827-567833dd4df7" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="0be5f5d9-2ea1-4c25-b015-8c47417f5191">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="0be5f5d9-2ea1-4c25-b015-8c47417f5191">&lt;/linkText&gt;</ept><bpt id="0be5f5d9-2ea1-4c25-b015-8c47417f5191">&lt;title&gt;</bpt><ept id="0be5f5d9-2ea1-4c25-b015-8c47417f5191">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="0be5f5d9-2ea1-4c25-b015-8c47417f5191">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="0be5f5d9-2ea1-4c25-b015-8c47417f5191">&lt;/linkText&gt;</ept><bpt id="0be5f5d9-2ea1-4c25-b015-8c47417f5191">&lt;title&gt;</bpt><ept id="0be5f5d9-2ea1-4c25-b015-8c47417f5191">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9fc3cc60-9d4f-44ac-861b-aadd8f25ad58" xml:space="preserve">
+          <source>http://dev.mysql.com/doc/refman/5.6/en/installing.html</source>
+          <target state="new">http://dev.mysql.com/doc/refman/5.6/en/installing.html</target>
+        </trans-unit>
+        <trans-unit id="67bb4bf5-d7f6-47ad-804e-8f77fe1cd3f3" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/tasklist_app_windows.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/tasklist_app_windows.png</target>
+        </trans-unit>
+        <trans-unit id="ea035848-d742-4b61-806a-9860a629651d" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=252506</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=252506</target>
+        </trans-unit>
+        <trans-unit id="de81593d-daaa-4882-9a0c-336c02d06d29" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/NewWebSite1.jpg</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/NewWebSite1.jpg</target>
+        </trans-unit>
+        <trans-unit id="1f5e8e7b-a17f-4df8-a099-1584494f73ce" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/NewWebSite2.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/NewWebSite2.png</target>
+        </trans-unit>
+        <trans-unit id="37d8942f-665b-42f3-812a-693a795c0ceb" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/NewWebSite3.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/NewWebSite3.png</target>
+        </trans-unit>
+        <trans-unit id="e083591c-8ef8-4344-afa7-d5cfdaf87821" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/NewWebSite4.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/NewWebSite4.png</target>
+        </trans-unit>
+        <trans-unit id="2fa5ee94-5435-417e-a5d2-1f67b07e3251" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/NewWebSite5.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/NewWebSite5.png</target>
+        </trans-unit>
+        <trans-unit id="fe8c8c89-9f91-4b68-b708-7cbb171b52f2" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/NewWebSite6.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/NewWebSite6.png</target>
+        </trans-unit>
+        <trans-unit id="ec15c283-276d-414b-bd88-69811ad5c326" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/ConnectionString.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/ConnectionString.png</target>
+        </trans-unit>
+        <trans-unit id="18415a42-9e26-409f-ab0d-4297e0093c3c" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/InstallWebMatrix.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/InstallWebMatrix.png</target>
+        </trans-unit>
+        <trans-unit id="d299d382-bb83-4d33-a52d-a79ecf00667f" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/download-site-1.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/download-site-1.png</target>
+        </trans-unit>
+        <trans-unit id="f70812fb-8ee9-43f1-aa0a-fa021b54054c" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/site-from-template.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/site-from-template.png</target>
+        </trans-unit>
+        <trans-unit id="0ab65e27-3b80-4b2b-83a7-f4ee3513581f" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/site-from-template-2.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/site-from-template-2.png</target>
+        </trans-unit>
+        <trans-unit id="63d9d416-9fce-4879-b673-41f27a12e302" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/edit_addexisting.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/edit_addexisting.png</target>
+        </trans-unit>
+        <trans-unit id="c467731c-ffdc-44f4-be70-4a4f5c820b9b" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/edit_run.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/edit_run.png</target>
+        </trans-unit>
+        <trans-unit id="fbc437b7-e1a0-4e8e-a8ab-47931b25607d" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/edit_publish.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/edit_publish.png</target>
+        </trans-unit>
+        <trans-unit id="a5e7488a-0213-4b37-80c9-ead544a52cdd" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/OpenRemoteView.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/OpenRemoteView.png</target>
+        </trans-unit>
+        <trans-unit id="a7df29d1-b576-4473-a42b-b9416b474aa8" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/Remote_editIndex.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/Remote_editIndex.png</target>
+        </trans-unit>
+        <trans-unit id="b7ee9423-c2d6-4e08-861f-fe41597bff08" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-use-webmatrix/Remote_run.png</source>
+          <target state="new">./media/web-sites-php-mysql-use-webmatrix/Remote_run.png</target>
+        </trans-unit>
+        <trans-unit id="afc6b494-65fb-4d35-95ec-fad054bae8a4" xml:space="preserve">
+          <source>https://manage.windowsazure.com</source>
+          <target state="new">https://manage.windowsazure.com</target>
+        </trans-unit>
+      </group>
+      <group id="5f1b826d-ca33-4905-9ea4-c528f6670459" />
+    </body>
+  </file>
+</xliff>

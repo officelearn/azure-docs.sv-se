@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="92348fe1-6977-47a9-a92d-306f66088d9d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="92348fe1-6977-47a9-a92d-306f66088d9d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="358c5c89-0052-4cc5-bff4-08d992eb2694">
+        <trans-unit id="b0e6dd4c-c6ca-419d-a3ad-2689d7e379fa" xml:space="preserve">
+          <source>Respond to lifecycle events for a Cloud Services using .NET</source>
+          <target state="new">Respond to lifecycle events for a Cloud Services using .NET</target>
+        </trans-unit>
+        <trans-unit id="414c8204-ebf1-4e56-a210-23f8297ffc3e" xml:space="preserve">
+          <source>Learn how the lifecycle methods of a Cloud Service role can be used in .NET</source>
+          <target state="new">Learn how the lifecycle methods of a Cloud Service role can be used in .NET</target>
+        </trans-unit>
+        <trans-unit id="94d59ba6-d8ba-4493-866c-99c7d7968824" xml:space="preserve">
+          <source>When you create a worker role, you extend the <bpt id="15925253-cee8-4d49-b600-7664147750d9">&lt;linkText&gt;</bpt>RoleEntryPoint<ept id="15925253-cee8-4d49-b600-7664147750d9">&lt;/linkText&gt;</ept><bpt id="15925253-cee8-4d49-b600-7664147750d9">&lt;title&gt;</bpt><ept id="15925253-cee8-4d49-b600-7664147750d9">&lt;/title&gt;</ept> class which provides methods for you to override that let you respond to lifecycle events.</source>
+          <target state="new">When you create a worker role, you extend the <bpt id="15925253-cee8-4d49-b600-7664147750d9">&lt;linkText&gt;</bpt>RoleEntryPoint<ept id="15925253-cee8-4d49-b600-7664147750d9">&lt;/linkText&gt;</ept><bpt id="15925253-cee8-4d49-b600-7664147750d9">&lt;title&gt;</bpt><ept id="15925253-cee8-4d49-b600-7664147750d9">&lt;/title&gt;</ept> class which provides methods for you to override that let you respond to lifecycle events.</target>
+        </trans-unit>
+        <trans-unit id="8955c1c3-5ca4-4fd2-9fff-d3cbaefadd7d" xml:space="preserve">
+          <source>For web roles this class is optional, so you much use it to respond to lifecycle events.</source>
+          <target state="new">For web roles this class is optional, so you much use it to respond to lifecycle events.</target>
+        </trans-unit>
+        <trans-unit id="a746721a-68e9-44c0-b4ee-151d70bade42" xml:space="preserve">
+          <source>The <bpt id="f3b85eca-5242-40b2-8c57-f66d64b70821">&lt;linkText&gt;</bpt>RoleEntryPoint<ept id="f3b85eca-5242-40b2-8c57-f66d64b70821">&lt;/linkText&gt;</ept><bpt id="f3b85eca-5242-40b2-8c57-f66d64b70821">&lt;title&gt;</bpt><ept id="f3b85eca-5242-40b2-8c57-f66d64b70821">&lt;/title&gt;</ept> class includes methods that are called by Azure when it <bpt id="4d4827d8-1452-4b64-b849-0bc9476460b0">&lt;strong&gt;</bpt>starts<ept id="4d4827d8-1452-4b64-b849-0bc9476460b0">&lt;/strong&gt;</ept>, <bpt id="6dc52036-5055-4363-a865-77e8dff4aef0">&lt;strong&gt;</bpt>runs<ept id="6dc52036-5055-4363-a865-77e8dff4aef0">&lt;/strong&gt;</ept>, or <bpt id="5db355d5-c571-4d2b-8347-c4d965e033c7">&lt;strong&gt;</bpt>stops<ept id="5db355d5-c571-4d2b-8347-c4d965e033c7">&lt;/strong&gt;</ept> a web or worker role.</source>
+          <target state="new">The <bpt id="f3b85eca-5242-40b2-8c57-f66d64b70821">&lt;linkText&gt;</bpt>RoleEntryPoint<ept id="f3b85eca-5242-40b2-8c57-f66d64b70821">&lt;/linkText&gt;</ept><bpt id="f3b85eca-5242-40b2-8c57-f66d64b70821">&lt;title&gt;</bpt><ept id="f3b85eca-5242-40b2-8c57-f66d64b70821">&lt;/title&gt;</ept> class includes methods that are called by Azure when it <bpt id="4d4827d8-1452-4b64-b849-0bc9476460b0">&lt;strong&gt;</bpt>starts<ept id="4d4827d8-1452-4b64-b849-0bc9476460b0">&lt;/strong&gt;</ept>, <bpt id="6dc52036-5055-4363-a865-77e8dff4aef0">&lt;strong&gt;</bpt>runs<ept id="6dc52036-5055-4363-a865-77e8dff4aef0">&lt;/strong&gt;</ept>, or <bpt id="5db355d5-c571-4d2b-8347-c4d965e033c7">&lt;strong&gt;</bpt>stops<ept id="5db355d5-c571-4d2b-8347-c4d965e033c7">&lt;/strong&gt;</ept> a web or worker role.</target>
+        </trans-unit>
+        <trans-unit id="d34ac31a-72e0-4174-a0d6-4fc103212a7c" xml:space="preserve">
+          <source>You can optionally override these methods to manage role initialization, role shutdown sequences, or the execution thread of the role.</source>
+          <target state="new">You can optionally override these methods to manage role initialization, role shutdown sequences, or the execution thread of the role.</target>
+        </trans-unit>
+        <trans-unit id="e0c3f9aa-ac5c-454c-a3ee-5240b151d1a0" xml:space="preserve">
+          <source>When extending <bpt id="160230c1-d6e4-4453-9ea9-47308bcbeaff">&lt;strong&gt;</bpt>RoleEntryPoint<ept id="160230c1-d6e4-4453-9ea9-47308bcbeaff">&lt;/strong&gt;</ept>, you should be aware of the following behaviors of the methods:</source>
+          <target state="new">When extending <bpt id="160230c1-d6e4-4453-9ea9-47308bcbeaff">&lt;strong&gt;</bpt>RoleEntryPoint<ept id="160230c1-d6e4-4453-9ea9-47308bcbeaff">&lt;/strong&gt;</ept>, you should be aware of the following behaviors of the methods:</target>
+        </trans-unit>
+        <trans-unit id="baaf1ac1-5105-4478-a907-9b539871ada6" xml:space="preserve">
+          <source>The <bpt id="cd78808a-1ad0-4906-9e29-b96f027b0bd1">&lt;linkText&gt;</bpt>OnStart<ept id="cd78808a-1ad0-4906-9e29-b96f027b0bd1">&lt;/linkText&gt;</ept><bpt id="cd78808a-1ad0-4906-9e29-b96f027b0bd1">&lt;title&gt;</bpt><ept id="cd78808a-1ad0-4906-9e29-b96f027b0bd1">&lt;/title&gt;</ept> and <bpt id="4a0b8f65-8d03-41b1-991a-b99f074af834">&lt;linkText&gt;</bpt>OnStop<ept id="4a0b8f65-8d03-41b1-991a-b99f074af834">&lt;/linkText&gt;</ept><bpt id="4a0b8f65-8d03-41b1-991a-b99f074af834">&lt;title&gt;</bpt><ept id="4a0b8f65-8d03-41b1-991a-b99f074af834">&lt;/title&gt;</ept> methods return a boolean value, so it is possible to return <bpt id="b5a792c2-b3d4-41ab-b120-fca8b7b2db0a">&lt;strong&gt;</bpt>false<ept id="b5a792c2-b3d4-41ab-b120-fca8b7b2db0a">&lt;/strong&gt;</ept> from these methods.</source>
+          <target state="new">The <bpt id="cd78808a-1ad0-4906-9e29-b96f027b0bd1">&lt;linkText&gt;</bpt>OnStart<ept id="cd78808a-1ad0-4906-9e29-b96f027b0bd1">&lt;/linkText&gt;</ept><bpt id="cd78808a-1ad0-4906-9e29-b96f027b0bd1">&lt;title&gt;</bpt><ept id="cd78808a-1ad0-4906-9e29-b96f027b0bd1">&lt;/title&gt;</ept> and <bpt id="4a0b8f65-8d03-41b1-991a-b99f074af834">&lt;linkText&gt;</bpt>OnStop<ept id="4a0b8f65-8d03-41b1-991a-b99f074af834">&lt;/linkText&gt;</ept><bpt id="4a0b8f65-8d03-41b1-991a-b99f074af834">&lt;title&gt;</bpt><ept id="4a0b8f65-8d03-41b1-991a-b99f074af834">&lt;/title&gt;</ept> methods return a boolean value, so it is possible to return <bpt id="b5a792c2-b3d4-41ab-b120-fca8b7b2db0a">&lt;strong&gt;</bpt>false<ept id="b5a792c2-b3d4-41ab-b120-fca8b7b2db0a">&lt;/strong&gt;</ept> from these methods.</target>
+        </trans-unit>
+        <trans-unit id="4b2b81e2-06b2-4f3c-becc-f72994cabdd2" xml:space="preserve">
+          <source>If your code returns <bpt id="e7f7d69a-ebc8-4dcd-8df7-cd38438fcd76">&lt;strong&gt;</bpt>false<ept id="e7f7d69a-ebc8-4dcd-8df7-cd38438fcd76">&lt;/strong&gt;</ept>, the role process is abruptly terminated, without running any shutdown sequence you may have in place.</source>
+          <target state="new">If your code returns <bpt id="e7f7d69a-ebc8-4dcd-8df7-cd38438fcd76">&lt;strong&gt;</bpt>false<ept id="e7f7d69a-ebc8-4dcd-8df7-cd38438fcd76">&lt;/strong&gt;</ept>, the role process is abruptly terminated, without running any shutdown sequence you may have in place.</target>
+        </trans-unit>
+        <trans-unit id="ce21214a-1d1e-4a51-a367-0286a148294a" xml:space="preserve">
+          <source>In general, you should avoid returning <bpt id="689976f2-dd1c-4012-b506-3a5eacc41fda">&lt;strong&gt;</bpt>false<ept id="689976f2-dd1c-4012-b506-3a5eacc41fda">&lt;/strong&gt;</ept> from the <bpt id="02c93901-08c3-4424-8fe5-64932db97e15">&lt;strong&gt;</bpt>OnStart<ept id="02c93901-08c3-4424-8fe5-64932db97e15">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">In general, you should avoid returning <bpt id="689976f2-dd1c-4012-b506-3a5eacc41fda">&lt;strong&gt;</bpt>false<ept id="689976f2-dd1c-4012-b506-3a5eacc41fda">&lt;/strong&gt;</ept> from the <bpt id="02c93901-08c3-4424-8fe5-64932db97e15">&lt;strong&gt;</bpt>OnStart<ept id="02c93901-08c3-4424-8fe5-64932db97e15">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="7cc17ce7-015c-4e65-85e6-4dbdc110b9ac" xml:space="preserve">
+          <source>Any uncaught exception within an overload of a <bpt id="40c0b708-5993-40eb-b009-27486d96c967">&lt;strong&gt;</bpt>RoleEntryPoint<ept id="40c0b708-5993-40eb-b009-27486d96c967">&lt;/strong&gt;</ept> method is treated as an unhandled exception.</source>
+          <target state="new">Any uncaught exception within an overload of a <bpt id="40c0b708-5993-40eb-b009-27486d96c967">&lt;strong&gt;</bpt>RoleEntryPoint<ept id="40c0b708-5993-40eb-b009-27486d96c967">&lt;/strong&gt;</ept> method is treated as an unhandled exception.</target>
+        </trans-unit>
+        <trans-unit id="2242bd78-4041-434d-9f17-aa84e6722a24" xml:space="preserve">
+          <source>If an exception occurs within one of the lifecycle methods, Azure will raise the <bpt id="4d6716a2-14e6-4659-8241-94de17a1f3ab">&lt;linkText&gt;</bpt>UnhandledException<ept id="4d6716a2-14e6-4659-8241-94de17a1f3ab">&lt;/linkText&gt;</ept><bpt id="4d6716a2-14e6-4659-8241-94de17a1f3ab">&lt;title&gt;</bpt><ept id="4d6716a2-14e6-4659-8241-94de17a1f3ab">&lt;/title&gt;</ept> event, and then the process is terminated.</source>
+          <target state="new">If an exception occurs within one of the lifecycle methods, Azure will raise the <bpt id="4d6716a2-14e6-4659-8241-94de17a1f3ab">&lt;linkText&gt;</bpt>UnhandledException<ept id="4d6716a2-14e6-4659-8241-94de17a1f3ab">&lt;/linkText&gt;</ept><bpt id="4d6716a2-14e6-4659-8241-94de17a1f3ab">&lt;title&gt;</bpt><ept id="4d6716a2-14e6-4659-8241-94de17a1f3ab">&lt;/title&gt;</ept> event, and then the process is terminated.</target>
+        </trans-unit>
+        <trans-unit id="ace2ec91-d105-4e2a-a0d0-62e065774b59" xml:space="preserve">
+          <source>After your role has been taken offline, it will be restarted by Azure.</source>
+          <target state="new">After your role has been taken offline, it will be restarted by Azure.</target>
+        </trans-unit>
+        <trans-unit id="eb0e123f-769b-46cb-a366-87606de74099" xml:space="preserve">
+          <source>When an unhandled exception occurs, the <bpt id="4b398cbf-d8c3-43d6-80d3-d6ed1594731d">&lt;linkText&gt;</bpt>Stopping<ept id="4b398cbf-d8c3-43d6-80d3-d6ed1594731d">&lt;/linkText&gt;</ept><bpt id="4b398cbf-d8c3-43d6-80d3-d6ed1594731d">&lt;title&gt;</bpt><ept id="4b398cbf-d8c3-43d6-80d3-d6ed1594731d">&lt;/title&gt;</ept> event is not raised, and the <bpt id="22010afe-0128-4d5b-b859-39ebaa17f310">&lt;strong&gt;</bpt>OnStop<ept id="22010afe-0128-4d5b-b859-39ebaa17f310">&lt;/strong&gt;</ept> method is not called.</source>
+          <target state="new">When an unhandled exception occurs, the <bpt id="4b398cbf-d8c3-43d6-80d3-d6ed1594731d">&lt;linkText&gt;</bpt>Stopping<ept id="4b398cbf-d8c3-43d6-80d3-d6ed1594731d">&lt;/linkText&gt;</ept><bpt id="4b398cbf-d8c3-43d6-80d3-d6ed1594731d">&lt;title&gt;</bpt><ept id="4b398cbf-d8c3-43d6-80d3-d6ed1594731d">&lt;/title&gt;</ept> event is not raised, and the <bpt id="22010afe-0128-4d5b-b859-39ebaa17f310">&lt;strong&gt;</bpt>OnStop<ept id="22010afe-0128-4d5b-b859-39ebaa17f310">&lt;/strong&gt;</ept> method is not called.</target>
+        </trans-unit>
+        <trans-unit id="af820d56-ac0a-466a-b4b4-803d5c70a8b5" xml:space="preserve">
+          <source>If your role does not start, or is recycling between the initializing, busy, and stopping states, your code may be throwing an unhandled exception within one of the lifecycle events each time the role restarts.</source>
+          <target state="new">If your role does not start, or is recycling between the initializing, busy, and stopping states, your code may be throwing an unhandled exception within one of the lifecycle events each time the role restarts.</target>
+        </trans-unit>
+        <trans-unit id="d5dbf20e-a64d-4e26-91f2-9c8272ac238f" xml:space="preserve">
+          <source>In this case, use the <bpt id="259533b1-45de-49f2-9615-8bc82516ae2a">&lt;linkText&gt;</bpt>UnhandledException<ept id="259533b1-45de-49f2-9615-8bc82516ae2a">&lt;/linkText&gt;</ept><bpt id="259533b1-45de-49f2-9615-8bc82516ae2a">&lt;title&gt;</bpt><ept id="259533b1-45de-49f2-9615-8bc82516ae2a">&lt;/title&gt;</ept> event to determine the cause of the exception and handle it appropriately.</source>
+          <target state="new">In this case, use the <bpt id="259533b1-45de-49f2-9615-8bc82516ae2a">&lt;linkText&gt;</bpt>UnhandledException<ept id="259533b1-45de-49f2-9615-8bc82516ae2a">&lt;/linkText&gt;</ept><bpt id="259533b1-45de-49f2-9615-8bc82516ae2a">&lt;title&gt;</bpt><ept id="259533b1-45de-49f2-9615-8bc82516ae2a">&lt;/title&gt;</ept> event to determine the cause of the exception and handle it appropriately.</target>
+        </trans-unit>
+        <trans-unit id="79557ca1-c765-4d13-99e7-6b06aa0f9eda" xml:space="preserve">
+          <source>Your role may also be returning from the <bpt id="fbc08b93-1759-47c5-904f-9c2c862eb58c">&lt;linkText&gt;</bpt>Run<ept id="fbc08b93-1759-47c5-904f-9c2c862eb58c">&lt;/linkText&gt;</ept><bpt id="fbc08b93-1759-47c5-904f-9c2c862eb58c">&lt;title&gt;</bpt><ept id="fbc08b93-1759-47c5-904f-9c2c862eb58c">&lt;/title&gt;</ept> method, which causes the role to restart.</source>
+          <target state="new">Your role may also be returning from the <bpt id="fbc08b93-1759-47c5-904f-9c2c862eb58c">&lt;linkText&gt;</bpt>Run<ept id="fbc08b93-1759-47c5-904f-9c2c862eb58c">&lt;/linkText&gt;</ept><bpt id="fbc08b93-1759-47c5-904f-9c2c862eb58c">&lt;title&gt;</bpt><ept id="fbc08b93-1759-47c5-904f-9c2c862eb58c">&lt;/title&gt;</ept> method, which causes the role to restart.</target>
+        </trans-unit>
+        <trans-unit id="826141ef-b0c0-4948-b674-95cb7d7490d3" xml:space="preserve">
+          <source>For more information about deployment states, see <bpt id="0b371609-c72c-4d5c-ae72-bf7eada1451f">&lt;linkText&gt;</bpt>Common Issues Which Cause Roles to Recycle<ept id="0b371609-c72c-4d5c-ae72-bf7eada1451f">&lt;/linkText&gt;</ept><bpt id="0b371609-c72c-4d5c-ae72-bf7eada1451f">&lt;title&gt;</bpt><ept id="0b371609-c72c-4d5c-ae72-bf7eada1451f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about deployment states, see <bpt id="0b371609-c72c-4d5c-ae72-bf7eada1451f">&lt;linkText&gt;</bpt>Common Issues Which Cause Roles to Recycle<ept id="0b371609-c72c-4d5c-ae72-bf7eada1451f">&lt;/linkText&gt;</ept><bpt id="0b371609-c72c-4d5c-ae72-bf7eada1451f">&lt;title&gt;</bpt><ept id="0b371609-c72c-4d5c-ae72-bf7eada1451f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df8b6632-5b75-4049-a8f9-489a5da467db" xml:space="preserve">
+          <source>If you are using the <bpt id="ccd1c39f-2649-40d6-be21-80f26ac53439">&lt;linkText&gt;</bpt>Azure Tools for Microsoft Visual Studio<ept id="ccd1c39f-2649-40d6-be21-80f26ac53439">&lt;/linkText&gt;</ept><bpt id="ccd1c39f-2649-40d6-be21-80f26ac53439">&lt;title&gt;</bpt><ept id="ccd1c39f-2649-40d6-be21-80f26ac53439">&lt;/title&gt;</ept> to develop your application, the role project templates automatically extend the <bpt id="f8a7d053-9175-4646-ba66-1dc5878e30b9">&lt;strong&gt;</bpt>RoleEntryPoint<ept id="f8a7d053-9175-4646-ba66-1dc5878e30b9">&lt;/strong&gt;</ept> class for you, in the WebRole.cs and WorkerRole.cs files.</source>
+          <target state="new">If you are using the <bpt id="ccd1c39f-2649-40d6-be21-80f26ac53439">&lt;linkText&gt;</bpt>Azure Tools for Microsoft Visual Studio<ept id="ccd1c39f-2649-40d6-be21-80f26ac53439">&lt;/linkText&gt;</ept><bpt id="ccd1c39f-2649-40d6-be21-80f26ac53439">&lt;title&gt;</bpt><ept id="ccd1c39f-2649-40d6-be21-80f26ac53439">&lt;/title&gt;</ept> to develop your application, the role project templates automatically extend the <bpt id="f8a7d053-9175-4646-ba66-1dc5878e30b9">&lt;strong&gt;</bpt>RoleEntryPoint<ept id="f8a7d053-9175-4646-ba66-1dc5878e30b9">&lt;/strong&gt;</ept> class for you, in the WebRole.cs and WorkerRole.cs files.</target>
+        </trans-unit>
+        <trans-unit id="fe2bbbcb-d2db-433f-8a64-e88bb8fc62e0" xml:space="preserve">
+          <source>The <bpt id="91922097-199a-4f2f-9336-93afc48eae15">&lt;strong&gt;</bpt>OnStart<ept id="91922097-199a-4f2f-9336-93afc48eae15">&lt;/strong&gt;</ept> method is called when your role instance is brought online by Azure.</source>
+          <target state="new">The <bpt id="91922097-199a-4f2f-9336-93afc48eae15">&lt;strong&gt;</bpt>OnStart<ept id="91922097-199a-4f2f-9336-93afc48eae15">&lt;/strong&gt;</ept> method is called when your role instance is brought online by Azure.</target>
+        </trans-unit>
+        <trans-unit id="1bdc4378-00df-4280-9219-dbda484f0309" xml:space="preserve">
+          <source>While the OnStart code is executing, the role instance is marked as <bpt id="405f354e-fcd7-4789-9d3f-fc26afc0fcac">&lt;strong&gt;</bpt>Busy<ept id="405f354e-fcd7-4789-9d3f-fc26afc0fcac">&lt;/strong&gt;</ept> and no external traffic will be directed to it by the load balancer.</source>
+          <target state="new">While the OnStart code is executing, the role instance is marked as <bpt id="405f354e-fcd7-4789-9d3f-fc26afc0fcac">&lt;strong&gt;</bpt>Busy<ept id="405f354e-fcd7-4789-9d3f-fc26afc0fcac">&lt;/strong&gt;</ept> and no external traffic will be directed to it by the load balancer.</target>
+        </trans-unit>
+        <trans-unit id="fa1b5797-0fb2-46ed-aa95-d32e873e13e8" xml:space="preserve">
+          <source>You can override this method to perform initialization work, such as implementing event handlers and starting <bpt id="40bb78a1-28a3-40e0-aa0c-f0a9fd9c28ae">&lt;linkText&gt;</bpt>Azure Diagnostics<ept id="40bb78a1-28a3-40e0-aa0c-f0a9fd9c28ae">&lt;/linkText&gt;</ept><bpt id="40bb78a1-28a3-40e0-aa0c-f0a9fd9c28ae">&lt;title&gt;</bpt><ept id="40bb78a1-28a3-40e0-aa0c-f0a9fd9c28ae">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can override this method to perform initialization work, such as implementing event handlers and starting <bpt id="40bb78a1-28a3-40e0-aa0c-f0a9fd9c28ae">&lt;linkText&gt;</bpt>Azure Diagnostics<ept id="40bb78a1-28a3-40e0-aa0c-f0a9fd9c28ae">&lt;/linkText&gt;</ept><bpt id="40bb78a1-28a3-40e0-aa0c-f0a9fd9c28ae">&lt;title&gt;</bpt><ept id="40bb78a1-28a3-40e0-aa0c-f0a9fd9c28ae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d2b9517-6d40-4623-afb9-e80fbccf2ca0" xml:space="preserve">
+          <source>If <bpt id="f73cb503-4dd0-48b7-9603-d2b5897c5e9e">&lt;strong&gt;</bpt>OnStart<ept id="f73cb503-4dd0-48b7-9603-d2b5897c5e9e">&lt;/strong&gt;</ept> returns <bpt id="9349cdc1-39a9-4053-8040-1dbe7ab561e5">&lt;strong&gt;</bpt>true<ept id="9349cdc1-39a9-4053-8040-1dbe7ab561e5">&lt;/strong&gt;</ept>, the instance is successfully initialized and Azure calls the <bpt id="bf770530-09b9-49e3-976f-b66e52dae1ae">&lt;strong&gt;</bpt>RoleEntryPoint.Run<ept id="bf770530-09b9-49e3-976f-b66e52dae1ae">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">If <bpt id="f73cb503-4dd0-48b7-9603-d2b5897c5e9e">&lt;strong&gt;</bpt>OnStart<ept id="f73cb503-4dd0-48b7-9603-d2b5897c5e9e">&lt;/strong&gt;</ept> returns <bpt id="9349cdc1-39a9-4053-8040-1dbe7ab561e5">&lt;strong&gt;</bpt>true<ept id="9349cdc1-39a9-4053-8040-1dbe7ab561e5">&lt;/strong&gt;</ept>, the instance is successfully initialized and Azure calls the <bpt id="bf770530-09b9-49e3-976f-b66e52dae1ae">&lt;strong&gt;</bpt>RoleEntryPoint.Run<ept id="bf770530-09b9-49e3-976f-b66e52dae1ae">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="f8dfec56-4ab4-42af-9c9b-db182886ce28" xml:space="preserve">
+          <source>If <bpt id="3b007cce-bc8f-4f29-9f4f-b8153ccb0367">&lt;strong&gt;</bpt>OnStart<ept id="3b007cce-bc8f-4f29-9f4f-b8153ccb0367">&lt;/strong&gt;</ept> returns <bpt id="3cefc8f4-ab9b-4032-adb9-b56c950571b5">&lt;strong&gt;</bpt>false<ept id="3cefc8f4-ab9b-4032-adb9-b56c950571b5">&lt;/strong&gt;</ept>, the role terminates immediately, without executing any planned shutdown sequences.</source>
+          <target state="new">If <bpt id="3b007cce-bc8f-4f29-9f4f-b8153ccb0367">&lt;strong&gt;</bpt>OnStart<ept id="3b007cce-bc8f-4f29-9f4f-b8153ccb0367">&lt;/strong&gt;</ept> returns <bpt id="3cefc8f4-ab9b-4032-adb9-b56c950571b5">&lt;strong&gt;</bpt>false<ept id="3cefc8f4-ab9b-4032-adb9-b56c950571b5">&lt;/strong&gt;</ept>, the role terminates immediately, without executing any planned shutdown sequences.</target>
+        </trans-unit>
+        <trans-unit id="539f9645-bed7-4e75-9135-e620524051aa" xml:space="preserve">
+          <source>The following code example shows how to override the <bpt id="477f3a37-eb7b-4c42-b435-34584d499c3e">&lt;strong&gt;</bpt>OnStart<ept id="477f3a37-eb7b-4c42-b435-34584d499c3e">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">The following code example shows how to override the <bpt id="477f3a37-eb7b-4c42-b435-34584d499c3e">&lt;strong&gt;</bpt>OnStart<ept id="477f3a37-eb7b-4c42-b435-34584d499c3e">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="5b1a0c87-b1ac-4e1a-a7d8-59618e48f210" xml:space="preserve">
+          <source>This method configures and starts a diagnostic monitor when the role instance starts and sets up a transfer of logging data to a storage account:</source>
+          <target state="new">This method configures and starts a diagnostic monitor when the role instance starts and sets up a transfer of logging data to a storage account:</target>
+        </trans-unit>
+        <trans-unit id="e25197c4-a3f9-42ba-9b94-595f4ad4dc1f" xml:space="preserve">
+          <source>The <bpt id="7a42514e-1d68-49dc-99a1-36974f76dc9d">&lt;strong&gt;</bpt>OnStop<ept id="7a42514e-1d68-49dc-99a1-36974f76dc9d">&lt;/strong&gt;</ept> method is called after a role instance has been taken offline by Azure and before the process exits.</source>
+          <target state="new">The <bpt id="7a42514e-1d68-49dc-99a1-36974f76dc9d">&lt;strong&gt;</bpt>OnStop<ept id="7a42514e-1d68-49dc-99a1-36974f76dc9d">&lt;/strong&gt;</ept> method is called after a role instance has been taken offline by Azure and before the process exits.</target>
+        </trans-unit>
+        <trans-unit id="e9055449-0977-4eee-b9d8-ba4c11a3cf9b" xml:space="preserve">
+          <source>You can override this method to call code required for your role instance to cleanly shut down.</source>
+          <target state="new">You can override this method to call code required for your role instance to cleanly shut down.</target>
+        </trans-unit>
+        <trans-unit id="40be9206-e728-40df-8b03-2cd9d9233408" xml:space="preserve">
+          <source>Code running in the <bpt id="afb97c40-1d5d-4baa-82ba-48c7c9bc2371">&lt;strong&gt;</bpt>OnStop<ept id="afb97c40-1d5d-4baa-82ba-48c7c9bc2371">&lt;/strong&gt;</ept> method has a limited time to finish when it is called for reasons other than a user-initiated shutdown.</source>
+          <target state="new">Code running in the <bpt id="afb97c40-1d5d-4baa-82ba-48c7c9bc2371">&lt;strong&gt;</bpt>OnStop<ept id="afb97c40-1d5d-4baa-82ba-48c7c9bc2371">&lt;/strong&gt;</ept> method has a limited time to finish when it is called for reasons other than a user-initiated shutdown.</target>
+        </trans-unit>
+        <trans-unit id="71e656d6-b872-4bc8-a223-7648563fc997" xml:space="preserve">
+          <source>After this time elapses, the process is terminated, so you must make sure that code in the <bpt id="4e5e9ab1-6a2d-4aa4-82fa-f163b49abf1c">&lt;strong&gt;</bpt>OnStop<ept id="4e5e9ab1-6a2d-4aa4-82fa-f163b49abf1c">&lt;/strong&gt;</ept> method can run quickly or tolerates not running to completion.</source>
+          <target state="new">After this time elapses, the process is terminated, so you must make sure that code in the <bpt id="4e5e9ab1-6a2d-4aa4-82fa-f163b49abf1c">&lt;strong&gt;</bpt>OnStop<ept id="4e5e9ab1-6a2d-4aa4-82fa-f163b49abf1c">&lt;/strong&gt;</ept> method can run quickly or tolerates not running to completion.</target>
+        </trans-unit>
+        <trans-unit id="646f9452-ef4d-471a-9ea7-88d31d1fb0fd" xml:space="preserve">
+          <source>The <bpt id="2bb91a0b-8c4d-4c92-890b-28bb11863bfd">&lt;strong&gt;</bpt>OnStop<ept id="2bb91a0b-8c4d-4c92-890b-28bb11863bfd">&lt;/strong&gt;</ept> method is called after the <bpt id="9b21aaeb-6235-4c74-b324-5d458788db75">&lt;strong&gt;</bpt>Stopping<ept id="9b21aaeb-6235-4c74-b324-5d458788db75">&lt;/strong&gt;</ept> event is raised.</source>
+          <target state="new">The <bpt id="2bb91a0b-8c4d-4c92-890b-28bb11863bfd">&lt;strong&gt;</bpt>OnStop<ept id="2bb91a0b-8c4d-4c92-890b-28bb11863bfd">&lt;/strong&gt;</ept> method is called after the <bpt id="9b21aaeb-6235-4c74-b324-5d458788db75">&lt;strong&gt;</bpt>Stopping<ept id="9b21aaeb-6235-4c74-b324-5d458788db75">&lt;/strong&gt;</ept> event is raised.</target>
+        </trans-unit>
+        <trans-unit id="8854212c-c80f-430a-a66c-f2b0d74f0a8e" xml:space="preserve">
+          <source>You can override the <bpt id="e0eb8498-d8f3-4689-9b04-82ec85df3feb">&lt;strong&gt;</bpt>Run<ept id="e0eb8498-d8f3-4689-9b04-82ec85df3feb">&lt;/strong&gt;</ept> method to implement a long-running thread for your role instance.</source>
+          <target state="new">You can override the <bpt id="e0eb8498-d8f3-4689-9b04-82ec85df3feb">&lt;strong&gt;</bpt>Run<ept id="e0eb8498-d8f3-4689-9b04-82ec85df3feb">&lt;/strong&gt;</ept> method to implement a long-running thread for your role instance.</target>
+        </trans-unit>
+        <trans-unit id="90643fc8-2199-4e56-b8b2-bf4637b706c4" xml:space="preserve">
+          <source>Overriding the <bpt id="cebacdcd-014a-4b7d-bc56-9a539219a66a">&lt;strong&gt;</bpt>Run<ept id="cebacdcd-014a-4b7d-bc56-9a539219a66a">&lt;/strong&gt;</ept> method is not required; the default implementation starts a thread that sleeps forever.</source>
+          <target state="new">Overriding the <bpt id="cebacdcd-014a-4b7d-bc56-9a539219a66a">&lt;strong&gt;</bpt>Run<ept id="cebacdcd-014a-4b7d-bc56-9a539219a66a">&lt;/strong&gt;</ept> method is not required; the default implementation starts a thread that sleeps forever.</target>
+        </trans-unit>
+        <trans-unit id="e28e18a2-76a6-4011-a8e0-2067ac6a071a" xml:space="preserve">
+          <source>If you do override the <bpt id="88f103e8-7f3f-4f9a-925c-9d8745317893">&lt;strong&gt;</bpt>Run<ept id="88f103e8-7f3f-4f9a-925c-9d8745317893">&lt;/strong&gt;</ept> method, your code should block indefinitely.</source>
+          <target state="new">If you do override the <bpt id="88f103e8-7f3f-4f9a-925c-9d8745317893">&lt;strong&gt;</bpt>Run<ept id="88f103e8-7f3f-4f9a-925c-9d8745317893">&lt;/strong&gt;</ept> method, your code should block indefinitely.</target>
+        </trans-unit>
+        <trans-unit id="32b0fa01-ecf5-4bdb-832b-6001259c341b" xml:space="preserve">
+          <source>If the <bpt id="bb2677c6-d4c5-42d4-b579-dc5db88e2991">&lt;strong&gt;</bpt>Run<ept id="bb2677c6-d4c5-42d4-b579-dc5db88e2991">&lt;/strong&gt;</ept> method returns, the role is automatically gracefully recycled; in other words, Azure raises the <bpt id="aa077f1b-99eb-4d6f-a04c-62b85ed4c072">&lt;strong&gt;</bpt>Stopping<ept id="aa077f1b-99eb-4d6f-a04c-62b85ed4c072">&lt;/strong&gt;</ept> event and calls the <bpt id="1c3f5c51-1b28-402d-9364-cf0f3b8ff996">&lt;strong&gt;</bpt>OnStop<ept id="1c3f5c51-1b28-402d-9364-cf0f3b8ff996">&lt;/strong&gt;</ept> method so that your shutdown sequences may be executed before the role is taken offline.</source>
+          <target state="new">If the <bpt id="bb2677c6-d4c5-42d4-b579-dc5db88e2991">&lt;strong&gt;</bpt>Run<ept id="bb2677c6-d4c5-42d4-b579-dc5db88e2991">&lt;/strong&gt;</ept> method returns, the role is automatically gracefully recycled; in other words, Azure raises the <bpt id="aa077f1b-99eb-4d6f-a04c-62b85ed4c072">&lt;strong&gt;</bpt>Stopping<ept id="aa077f1b-99eb-4d6f-a04c-62b85ed4c072">&lt;/strong&gt;</ept> event and calls the <bpt id="1c3f5c51-1b28-402d-9364-cf0f3b8ff996">&lt;strong&gt;</bpt>OnStop<ept id="1c3f5c51-1b28-402d-9364-cf0f3b8ff996">&lt;/strong&gt;</ept> method so that your shutdown sequences may be executed before the role is taken offline.</target>
+        </trans-unit>
+        <trans-unit id="901d29f0-b5d0-442c-8fa4-570d532bfd2a" xml:space="preserve">
+          <source>You can use the ASP.NET lifecycle methods, in addition to those provided by the <bpt id="3c88eea4-b94d-4da8-9a35-960aee30aef0">&lt;strong&gt;</bpt>RoleEntryPoint<ept id="3c88eea4-b94d-4da8-9a35-960aee30aef0">&lt;/strong&gt;</ept> class, to manage initialization and shutdown sequences for a web role.</source>
+          <target state="new">You can use the ASP.NET lifecycle methods, in addition to those provided by the <bpt id="3c88eea4-b94d-4da8-9a35-960aee30aef0">&lt;strong&gt;</bpt>RoleEntryPoint<ept id="3c88eea4-b94d-4da8-9a35-960aee30aef0">&lt;/strong&gt;</ept> class, to manage initialization and shutdown sequences for a web role.</target>
+        </trans-unit>
+        <trans-unit id="745d6eba-f756-4658-b75e-82af7f78bdb1" xml:space="preserve">
+          <source>This may be useful for compatibility purposes if you are porting an existing ASP.NET application to Azure.</source>
+          <target state="new">This may be useful for compatibility purposes if you are porting an existing ASP.NET application to Azure.</target>
+        </trans-unit>
+        <trans-unit id="81c59d69-689a-42b1-829d-73c7b2e7c6be" xml:space="preserve">
+          <source>The ASP.NET lifecycle methods are called from within the <bpt id="b1e56f77-ca55-42bc-82df-a42da6f8d882">&lt;strong&gt;</bpt>RoleEntryPoint<ept id="b1e56f77-ca55-42bc-82df-a42da6f8d882">&lt;/strong&gt;</ept> methods.</source>
+          <target state="new">The ASP.NET lifecycle methods are called from within the <bpt id="b1e56f77-ca55-42bc-82df-a42da6f8d882">&lt;strong&gt;</bpt>RoleEntryPoint<ept id="b1e56f77-ca55-42bc-82df-a42da6f8d882">&lt;/strong&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="4c0948ad-8b33-42e3-80f5-ee70eaef9f84" xml:space="preserve">
+          <source>The <bpt id="76e72647-c066-4f75-a3e2-ef1a36600414">&lt;strong&gt;</bpt>Application\_Start<ept id="76e72647-c066-4f75-a3e2-ef1a36600414">&lt;/strong&gt;</ept> method is called after the <bpt id="01c6d5cb-8409-4af8-8aca-06ab3fd33e4a">&lt;strong&gt;</bpt>RoleEntryPoint.OnStart<ept id="01c6d5cb-8409-4af8-8aca-06ab3fd33e4a">&lt;/strong&gt;</ept> method finishes.</source>
+          <target state="new">The <bpt id="76e72647-c066-4f75-a3e2-ef1a36600414">&lt;strong&gt;</bpt>Application\_Start<ept id="76e72647-c066-4f75-a3e2-ef1a36600414">&lt;/strong&gt;</ept> method is called after the <bpt id="01c6d5cb-8409-4af8-8aca-06ab3fd33e4a">&lt;strong&gt;</bpt>RoleEntryPoint.OnStart<ept id="01c6d5cb-8409-4af8-8aca-06ab3fd33e4a">&lt;/strong&gt;</ept> method finishes.</target>
+        </trans-unit>
+        <trans-unit id="c9be214a-467d-4ef7-836b-32ab2fec96f1" xml:space="preserve">
+          <source>The <bpt id="7a22a6fc-5792-4e43-8495-78de6430b6e7">&lt;strong&gt;</bpt>Application\_End<ept id="7a22a6fc-5792-4e43-8495-78de6430b6e7">&lt;/strong&gt;</ept> method is called before the <bpt id="32bd65d1-9c64-4288-b82d-1d73c02962d9">&lt;strong&gt;</bpt>RoleEntryPoint.OnStop<ept id="32bd65d1-9c64-4288-b82d-1d73c02962d9">&lt;/strong&gt;</ept> method is called.</source>
+          <target state="new">The <bpt id="7a22a6fc-5792-4e43-8495-78de6430b6e7">&lt;strong&gt;</bpt>Application\_End<ept id="7a22a6fc-5792-4e43-8495-78de6430b6e7">&lt;/strong&gt;</ept> method is called before the <bpt id="32bd65d1-9c64-4288-b82d-1d73c02962d9">&lt;strong&gt;</bpt>RoleEntryPoint.OnStop<ept id="32bd65d1-9c64-4288-b82d-1d73c02962d9">&lt;/strong&gt;</ept> method is called.</target>
+        </trans-unit>
+        <trans-unit id="25218fec-2510-46ad-bf14-4554a0c59a58" xml:space="preserve">
+          <source>Learn how to <bpt id="6e763ad1-4f7d-44b1-b3c8-93746df55242">&lt;linkText&gt;</bpt>create a cloud service package<ept id="6e763ad1-4f7d-44b1-b3c8-93746df55242">&lt;/linkText&gt;</ept><bpt id="6e763ad1-4f7d-44b1-b3c8-93746df55242">&lt;title&gt;</bpt><ept id="6e763ad1-4f7d-44b1-b3c8-93746df55242">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn how to <bpt id="6e763ad1-4f7d-44b1-b3c8-93746df55242">&lt;linkText&gt;</bpt>create a cloud service package<ept id="6e763ad1-4f7d-44b1-b3c8-93746df55242">&lt;/linkText&gt;</ept><bpt id="6e763ad1-4f7d-44b1-b3c8-93746df55242">&lt;title&gt;</bpt><ept id="6e763ad1-4f7d-44b1-b3c8-93746df55242">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

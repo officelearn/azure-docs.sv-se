@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dcedb6be-27f1-4395-8373-a8061284172f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dcedb6be-27f1-4395-8373-a8061284172f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c97078a9-5e5f-4ee5-af04-b65d4118db54">
+        <trans-unit id="97b4733d-e6a9-42c2-b5b9-941959316d43" xml:space="preserve">
+          <source>FAQ: Publish and use Machine Learning apps in Azure Marketplace | Microsoft Azure</source>
+          <target state="new">FAQ: Publish and use Machine Learning apps in Azure Marketplace | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8d37fd61-ff2b-4e84-9564-417fd3b4d7b6" xml:space="preserve">
+          <source>Frequently Asked Questions</source>
+          <target state="new">Frequently Asked Questions</target>
+        </trans-unit>
+        <trans-unit id="1d0ede0f-0622-4c9a-a9f7-1b23d51bc190" xml:space="preserve">
+          <source>**1.</source>
+          <target state="new">**1.</target>
+        </trans-unit>
+        <trans-unit id="a50c1025-9ea2-4b95-9dae-9b2db0298e8f" xml:space="preserve">
+          <source>Why do I get the following error message after I enter input for the web service:**</source>
+          <target state="new">Why do I get the following error message after I enter input for the web service:**</target>
+        </trans-unit>
+        <trans-unit id="3b130533-435d-4d46-8670-4849c622ca2b" xml:space="preserve">
+          <source>**The request resulted in a back-end time out or back-end error.</source>
+          <target state="new">**The request resulted in a back-end time out or back-end error.</target>
+        </trans-unit>
+        <trans-unit id="6036de28-939d-4d86-a2af-1da38afc43f7" xml:space="preserve">
+          <source>The team is investigating the issue.</source>
+          <target state="new">The team is investigating the issue.</target>
+        </trans-unit>
+        <trans-unit id="f812a3c0-bc3b-4bf4-a101-ded22320832f" xml:space="preserve">
+          <source>We are sorry for the inconvenience.</source>
+          <target state="new">We are sorry for the inconvenience.</target>
+        </trans-unit>
+        <trans-unit id="4eff283d-f9b6-416e-93e3-909652d4c7f5" xml:space="preserve">
+          <source>(500)**</source>
+          <target state="new">(500)**</target>
+        </trans-unit>
+        <trans-unit id="3d5451ac-ad80-454a-bf05-b324a85bd0b1" xml:space="preserve">
+          <source>Your input parameter(s) may not conform to the required format for the specific web service.</source>
+          <target state="new">Your input parameter(s) may not conform to the required format for the specific web service.</target>
+        </trans-unit>
+        <trans-unit id="d421e7f2-a41e-4aca-b7cd-41502ae3d500" xml:space="preserve">
+          <source>Please refer to the corresponding documentation link to find the correct format for input parameters and the limitations of this web service.</source>
+          <target state="new">Please refer to the corresponding documentation link to find the correct format for input parameters and the limitations of this web service.</target>
+        </trans-unit>
+        <trans-unit id="b5a099f1-db17-4dee-8b63-e22abe9b3e55" xml:space="preserve">
+          <source><bpt id="ad5f25d1-2cb4-4bb6-ac97-9ef1b1239936">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="ad5f25d1-2cb4-4bb6-ac97-9ef1b1239936">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ad5f25d1-2cb4-4bb6-ac97-9ef1b1239936">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="ad5f25d1-2cb4-4bb6-ac97-9ef1b1239936">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7a43ef6-c2ac-4ac4-8165-d80afe8c2ac0" xml:space="preserve">
+          <source>**2.</source>
+          <target state="new">**2.</target>
+        </trans-unit>
+        <trans-unit id="8ff8454c-b38c-4cf7-a0bf-0051d0e522a0" xml:space="preserve">
+          <source>If I copy the API link for the web service that I see on the "Explore this dataset" page and paste it into another browser window, what credentials should I use to access the results, and how do I see them?**</source>
+          <target state="new">If I copy the API link for the web service that I see on the "Explore this dataset" page and paste it into another browser window, what credentials should I use to access the results, and how do I see them?**</target>
+        </trans-unit>
+        <trans-unit id="54e35261-583a-4a9d-adfd-beaf1787a627" xml:space="preserve">
+          <source>You should use your Marketplace account as the username and the primary account key as the password.</source>
+          <target state="new">You should use your Marketplace account as the username and the primary account key as the password.</target>
+        </trans-unit>
+        <trans-unit id="f3ccf9e0-f091-4db3-8aa8-f8f23f348f11" xml:space="preserve">
+          <source>The primary account key can be found on the <bpt id="937324a7-3c6a-42c2-8c6f-9d30f15a26f0">&lt;strong&gt;</bpt>Explore this dataset<ept id="937324a7-3c6a-42c2-8c6f-9d30f15a26f0">&lt;/strong&gt;</ept> page under the description of the web service (click the <bpt id="7a956fc6-bb88-4af0-89f9-22b499cf9874">&lt;strong&gt;</bpt>show<ept id="7a956fc6-bb88-4af0-89f9-22b499cf9874">&lt;/strong&gt;</ept> button).</source>
+          <target state="new">The primary account key can be found on the <bpt id="937324a7-3c6a-42c2-8c6f-9d30f15a26f0">&lt;strong&gt;</bpt>Explore this dataset<ept id="937324a7-3c6a-42c2-8c6f-9d30f15a26f0">&lt;/strong&gt;</ept> page under the description of the web service (click the <bpt id="7a956fc6-bb88-4af0-89f9-22b499cf9874">&lt;strong&gt;</bpt>show<ept id="7a956fc6-bb88-4af0-89f9-22b499cf9874">&lt;/strong&gt;</ept> button).</target>
+        </trans-unit>
+        <trans-unit id="ea2860bd-c723-42c7-b856-0e11a6ebe14c" xml:space="preserve">
+          <source>The result may display in the browser or it may be available to  download, depending on which browser you are using.</source>
+          <target state="new">The result may display in the browser or it may be available to  download, depending on which browser you are using.</target>
+        </trans-unit>
+        <trans-unit id="a24a7cc6-ac03-4241-ad49-ca9612128443" xml:space="preserve">
+          <source>**3.</source>
+          <target state="new">**3.</target>
+        </trans-unit>
+        <trans-unit id="2415e461-9def-4bae-b98f-2a5bc03942f2" xml:space="preserve">
+          <source>Why do I get the following error message after I enter the input for the web service on the "Explore this dataset" page:**</source>
+          <target state="new">Why do I get the following error message after I enter the input for the web service on the "Explore this dataset" page:**</target>
+        </trans-unit>
+        <trans-unit id="2b0e3c85-310a-479d-a7e4-e6c52372a380" xml:space="preserve">
+          <source>**An unexpected error occurred while processing your request.</source>
+          <target state="new">**An unexpected error occurred while processing your request.</target>
+        </trans-unit>
+        <trans-unit id="b8022ae7-f6b5-4ce6-b0d5-440952b1ace3" xml:space="preserve">
+          <source>Please try again.**</source>
+          <target state="new">Please try again.**</target>
+        </trans-unit>
+        <trans-unit id="57947f28-c27f-4407-a5bc-c2679a6ff63b" xml:space="preserve">
+          <source>One or more input parameters of your web service may have exceeded the length limit when consuming the web service on the marketplace <bpt id="c59543a8-65dc-40b2-b73b-b23d77aff5bb">&lt;strong&gt;</bpt>Explore this dataset<ept id="c59543a8-65dc-40b2-b73b-b23d77aff5bb">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">One or more input parameters of your web service may have exceeded the length limit when consuming the web service on the marketplace <bpt id="c59543a8-65dc-40b2-b73b-b23d77aff5bb">&lt;strong&gt;</bpt>Explore this dataset<ept id="c59543a8-65dc-40b2-b73b-b23d77aff5bb">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="8237cbf5-a8c8-4417-ae86-45a66270aa6f" xml:space="preserve">
+          <source>The services can be called with a longer input length by using HTTP POST methods.</source>
+          <target state="new">The services can be called with a longer input length by using HTTP POST methods.</target>
+        </trans-unit>
+        <trans-unit id="9b2679d5-dfb8-40b2-bee6-20ae585551a4" xml:space="preserve">
+          <source>For examples, see <bpt id="d3bbd206-3829-401b-8511-39fcd9c788de">&lt;linkText&gt;</bpt>Sample solutions using R on Machine Learning and published to Marketplace<ept id="d3bbd206-3829-401b-8511-39fcd9c788de">&lt;/linkText&gt;</ept><bpt id="d3bbd206-3829-401b-8511-39fcd9c788de">&lt;title&gt;</bpt><ept id="d3bbd206-3829-401b-8511-39fcd9c788de">&lt;/title&gt;</ept>.</source>
+          <target state="new">For examples, see <bpt id="d3bbd206-3829-401b-8511-39fcd9c788de">&lt;linkText&gt;</bpt>Sample solutions using R on Machine Learning and published to Marketplace<ept id="d3bbd206-3829-401b-8511-39fcd9c788de">&lt;/linkText&gt;</ept><bpt id="d3bbd206-3829-401b-8511-39fcd9c788de">&lt;title&gt;</bpt><ept id="d3bbd206-3829-401b-8511-39fcd9c788de">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf28020d-2684-4a81-b118-e9db899b0eca" xml:space="preserve">
+          <source>**4.</source>
+          <target state="new">**4.</target>
+        </trans-unit>
+        <trans-unit id="2cc90fc6-1d4d-4716-bd6c-be31ffa8cf14" xml:space="preserve">
+          <source>Why do I not see anything in the "API EXPLORER" tab int the Store in the Azure Management Portal?**</source>
+          <target state="new">Why do I not see anything in the "API EXPLORER" tab int the Store in the Azure Management Portal?**</target>
+        </trans-unit>
+        <trans-unit id="cea052c1-03c8-4fc7-afdd-6145d3d0c07c" xml:space="preserve">
+          <source>This is a known issue with the Azure Management Portal Marketplace.</source>
+          <target state="new">This is a known issue with the Azure Management Portal Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="65cf0aa5-c0ec-498e-9665-5a87909b7442" xml:space="preserve">
+          <source>The team is working to resolve this issue.</source>
+          <target state="new">The team is working to resolve this issue.</target>
+        </trans-unit>
+        <trans-unit id="15c99310-2a40-4309-9279-357486b45426" xml:space="preserve">
+          <source>**1.</source>
+          <target state="new">**1.</target>
+        </trans-unit>
+        <trans-unit id="10c3550f-db1e-49ff-a59d-6194a406f331" xml:space="preserve">
+          <source>Why are my transactions of logos or images not refreshing for my web service?**</source>
+          <target state="new">Why are my transactions of logos or images not refreshing for my web service?**</target>
+        </trans-unit>
+        <trans-unit id="cc287223-ae86-43b0-90bd-038eb45c7368" xml:space="preserve">
+          <source>Logos and images are cached in the publishing portal, and it may take up to 10 days for the new logo or image to update on the portal.</source>
+          <target state="new">Logos and images are cached in the publishing portal, and it may take up to 10 days for the new logo or image to update on the portal.</target>
+        </trans-unit>
+        <trans-unit id="ec6aad58-cc0c-4bf7-a58d-3db9d68362d5" xml:space="preserve">
+          <source>**2.</source>
+          <target state="new">**2.</target>
+        </trans-unit>
+        <trans-unit id="79cf2b72-6614-4276-aec2-98b635b6cf32" xml:space="preserve">
+          <source>Why is the “Detail" tab of my web service on Marketplace showing an error message?**</source>
+          <target state="new">Why is the “Detail" tab of my web service on Marketplace showing an error message?**</target>
+        </trans-unit>
+        <trans-unit id="a9c43128-dab5-4427-a130-eebb97e85ec5" xml:space="preserve">
+          <source>There is a known Marketplace issue when connecting to Azure Machine Learning for service details.</source>
+          <target state="new">There is a known Marketplace issue when connecting to Azure Machine Learning for service details.</target>
+        </trans-unit>
+        <trans-unit id="0ea63bdf-9a75-427a-9567-a3720a171f4d" xml:space="preserve">
+          <source>The team is working to resolve this issue.</source>
+          <target state="new">The team is working to resolve this issue.</target>
+        </trans-unit>
+        <trans-unit id="e30aa0ba-5471-4767-9372-094b79f3654b" xml:space="preserve">
+          <source>**3.</source>
+          <target state="new">**3.</target>
+        </trans-unit>
+        <trans-unit id="e0fec0c0-6960-41f3-b62b-929f36a4491e" xml:space="preserve">
+          <source>Why does the R sample code in the Azure Machine Learning web services not work for consuming the web services in Marketplace?**</source>
+          <target state="new">Why does the R sample code in the Azure Machine Learning web services not work for consuming the web services in Marketplace?**</target>
+        </trans-unit>
+        <trans-unit id="c4ed769e-0f22-46f3-88d5-8e182b446c18" xml:space="preserve">
+          <source>The authentication systems are different when connecting to Azure Machine Learning web services directly compared to connecting to these web services through the Marketplace.</source>
+          <target state="new">The authentication systems are different when connecting to Azure Machine Learning web services directly compared to connecting to these web services through the Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="150c1acc-7e9a-4478-b0e8-ff84641c26eb" xml:space="preserve">
+          <source>The services in Marketplace are OData services, and they can be called with GET or POST methods.</source>
+          <target state="new">The services in Marketplace are OData services, and they can be called with GET or POST methods.</target>
+        </trans-unit>
+        <trans-unit id="ea6237dc-1829-4e46-ab11-606ac55c6cde" xml:space="preserve">
+          <source>**4.</source>
+          <target state="new">**4.</target>
+        </trans-unit>
+        <trans-unit id="8e1c7d9f-f182-47cd-a6c3-51e02d2b697c" xml:space="preserve">
+          <source>Why are the support links of my web service offers not updating correctly for some of my offers?**</source>
+          <target state="new">Why are the support links of my web service offers not updating correctly for some of my offers?**</target>
+        </trans-unit>
+        <trans-unit id="c40259b4-f091-4ad6-b303-144cf111b6df" xml:space="preserve">
+          <source>The support links are global per publisher, not per offer.</source>
+          <target state="new">The support links are global per publisher, not per offer.</target>
+        </trans-unit>
+        <trans-unit id="dd63d165-e857-4aea-9d90-9c40bd15676e" xml:space="preserve">
+          <source>**5.</source>
+          <target state="new">**5.</target>
+        </trans-unit>
+        <trans-unit id="25009d9b-6074-429b-8cc1-5a6307d572c3" xml:space="preserve">
+          <source>How do I publish a web service with batch input mode in Marketplace?**</source>
+          <target state="new">How do I publish a web service with batch input mode in Marketplace?**</target>
+        </trans-unit>
+        <trans-unit id="6889df31-7ad8-4071-8746-b9b53c45bcda" xml:space="preserve">
+          <source>The batch input mode is currently not supported in Marketplace web services.</source>
+          <target state="new">The batch input mode is currently not supported in Marketplace web services.</target>
+        </trans-unit>
+        <trans-unit id="270de7f8-b498-41ae-8569-f7a189f1a322" xml:space="preserve">
+          <source>**6.</source>
+          <target state="new">**6.</target>
+        </trans-unit>
+        <trans-unit id="8fa0a094-6665-496c-a677-2b69b34f09ff" xml:space="preserve">
+          <source>Who should I contact to get help if I have questions about becoming a data publisher, or if I have issues during publishing?**</source>
+          <target state="new">Who should I contact to get help if I have questions about becoming a data publisher, or if I have issues during publishing?**</target>
+        </trans-unit>
+        <trans-unit id="39b14f74-e796-4016-9d86-a86b58e399b0" xml:space="preserve">
+          <source>Please contact the Azure Marketplace team at &lt;datamarketbd@microsoft.com&gt; for more information.</source>
+          <target state="new">Please contact the Azure Marketplace team at &lt;datamarketbd@microsoft.com&gt; for more information.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

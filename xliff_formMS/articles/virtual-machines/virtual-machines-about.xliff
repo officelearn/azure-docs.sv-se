@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4d8a2508-d959-4faf-a830-c77d6feb49e8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4d8a2508-d959-4faf-a830-c77d6feb49e8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bbcd02bd-f2e0-47fb-bda4-d7721a7d8202">
+        <trans-unit id="1a6bec71-cc2e-4adb-a611-247ed8bd57f7" xml:space="preserve">
+          <source>About Azure Virtual Machines</source>
+          <target state="new">About Azure Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="8130e74d-5b38-45b5-82ad-2167443bbba6" xml:space="preserve">
+          <source>Learn about the basics of virtual machines in Azure.</source>
+          <target state="new">Learn about the basics of virtual machines in Azure.</target>
+        </trans-unit>
+        <trans-unit id="fcecc922-7d77-44d3-a9fd-8e69b9346410" xml:space="preserve">
+          <source>Azure Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers.</source>
+          <target state="new">Azure Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers.</target>
+        </trans-unit>
+        <trans-unit id="44546ac9-7dc3-495f-b65d-a169112a67b6" xml:space="preserve">
+          <source>Typically, you'll choose a virtual machine instead of another option if you need more control over the computing environment than the other choices offer.</source>
+          <target state="new">Typically, you'll choose a virtual machine instead of another option if you need more control over the computing environment than the other choices offer.</target>
+        </trans-unit>
+        <trans-unit id="4f052dd6-0997-4f16-b032-dcec838b0e86" xml:space="preserve">
+          <source>Another approach is to use a virtual machine on your own hardware.</source>
+          <target state="new">Another approach is to use a virtual machine on your own hardware.</target>
+        </trans-unit>
+        <trans-unit id="88a4974e-6141-43bc-af85-3f97f3886051" xml:space="preserve">
+          <source>Compared to that approach, an Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine.</source>
+          <target state="new">Compared to that approach, an Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f3037dfe-86b0-45c4-8d58-3a5b383635fd" xml:space="preserve">
+          <source>However, you do still need to maintain the virtual machine -- configuring, patching, and maintaining the operating system and any other software that runs on the virtual machine.</source>
+          <target state="new">However, you do still need to maintain the virtual machine -- configuring, patching, and maintaining the operating system and any other software that runs on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="aba4c11d-eaf1-4580-b565-e47ac9541127" xml:space="preserve">
+          <source>This table helps you compare the choices offered by Azure.</source>
+          <target state="new">This table helps you compare the choices offered by Azure.</target>
+        </trans-unit>
+        <trans-unit id="1b735ff1-c2ad-4668-b9cc-c592bec0d2c2" xml:space="preserve">
+          <source><bpt id="a498ea4d-4c55-4525-9623-65e9c5d2c893">&lt;token href="../../includes/virtual-machines-choose-me-content.md"&gt;</bpt><ept id="a498ea4d-4c55-4525-9623-65e9c5d2c893">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a498ea4d-4c55-4525-9623-65e9c5d2c893">&lt;token href="../../includes/virtual-machines-choose-me-content.md"&gt;</bpt><ept id="a498ea4d-4c55-4525-9623-65e9c5d2c893">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68a9fe86-8a32-4c24-93eb-f0d70094d1df" xml:space="preserve">
+          <source>Try out a virtual machine by creating a simple virtual machine quickly.</source>
+          <target state="new">Try out a virtual machine by creating a simple virtual machine quickly.</target>
+        </trans-unit>
+        <trans-unit id="a3e7ac41-02f6-4729-9272-08e01e16e00b" xml:space="preserve">
+          <source>For instructions, see one of these tutorials:</source>
+          <target state="new">For instructions, see one of these tutorials:</target>
+        </trans-unit>
+        <trans-unit id="5f8dab43-7369-4e9f-8d9f-dbac5d88c697" xml:space="preserve">
+          <source><bpt id="a5183ad1-5a82-4a7c-a2e7-7f57bb0b97a4">&lt;linkText&gt;</bpt>Create a virtual machine running Linux<ept id="a5183ad1-5a82-4a7c-a2e7-7f57bb0b97a4">&lt;/linkText&gt;</ept><bpt id="a5183ad1-5a82-4a7c-a2e7-7f57bb0b97a4">&lt;title&gt;</bpt><ept id="a5183ad1-5a82-4a7c-a2e7-7f57bb0b97a4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a5183ad1-5a82-4a7c-a2e7-7f57bb0b97a4">&lt;linkText&gt;</bpt>Create a virtual machine running Linux<ept id="a5183ad1-5a82-4a7c-a2e7-7f57bb0b97a4">&lt;/linkText&gt;</ept><bpt id="a5183ad1-5a82-4a7c-a2e7-7f57bb0b97a4">&lt;title&gt;</bpt><ept id="a5183ad1-5a82-4a7c-a2e7-7f57bb0b97a4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c9ceb7e-58fc-45d9-aa09-2d30702257e6" xml:space="preserve">
+          <source><bpt id="d7d64c01-a4c3-4fc3-8bd3-a83dc7aa33a7">&lt;linkText&gt;</bpt>Create a virtual machine running Windows in the Azure preview portal<ept id="d7d64c01-a4c3-4fc3-8bd3-a83dc7aa33a7">&lt;/linkText&gt;</ept><bpt id="d7d64c01-a4c3-4fc3-8bd3-a83dc7aa33a7">&lt;title&gt;</bpt><ept id="d7d64c01-a4c3-4fc3-8bd3-a83dc7aa33a7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d7d64c01-a4c3-4fc3-8bd3-a83dc7aa33a7">&lt;linkText&gt;</bpt>Create a virtual machine running Windows in the Azure preview portal<ept id="d7d64c01-a4c3-4fc3-8bd3-a83dc7aa33a7">&lt;/linkText&gt;</ept><bpt id="d7d64c01-a4c3-4fc3-8bd3-a83dc7aa33a7">&lt;title&gt;</bpt><ept id="d7d64c01-a4c3-4fc3-8bd3-a83dc7aa33a7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0598f9fd-1511-4ec4-bbfb-650ca98f8e96" xml:space="preserve">
+          <source>Because those tutorials help you create a virtual machine quickly, they show you only one way to do it instead of describing the various tools you can use to create virtual machines.</source>
+          <target state="new">Because those tutorials help you create a virtual machine quickly, they show you only one way to do it instead of describing the various tools you can use to create virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="745bc436-a75b-4c92-954b-22a0be3fde95" xml:space="preserve">
+          <source>For a summary of these tools and links to instructions, see:</source>
+          <target state="new">For a summary of these tools and links to instructions, see:</target>
+        </trans-unit>
+        <trans-unit id="0f5f79a3-9fbb-48a9-a4c9-d5e38a6f3d45" xml:space="preserve">
+          <source><bpt id="6694347d-e580-47f5-9b05-2042c7db5f71">&lt;linkText&gt;</bpt>Different ways to create a Linux virtual machine<ept id="6694347d-e580-47f5-9b05-2042c7db5f71">&lt;/linkText&gt;</ept><bpt id="6694347d-e580-47f5-9b05-2042c7db5f71">&lt;title&gt;</bpt><ept id="6694347d-e580-47f5-9b05-2042c7db5f71">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6694347d-e580-47f5-9b05-2042c7db5f71">&lt;linkText&gt;</bpt>Different ways to create a Linux virtual machine<ept id="6694347d-e580-47f5-9b05-2042c7db5f71">&lt;/linkText&gt;</ept><bpt id="6694347d-e580-47f5-9b05-2042c7db5f71">&lt;title&gt;</bpt><ept id="6694347d-e580-47f5-9b05-2042c7db5f71">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4223c7dd-6f23-4a61-a93a-18562e89136e" xml:space="preserve">
+          <source><bpt id="84d049b5-6a9b-4f02-9f75-11c787b74928">&lt;linkText&gt;</bpt>Different ways to create a Windows virtual machine<ept id="84d049b5-6a9b-4f02-9f75-11c787b74928">&lt;/linkText&gt;</ept><bpt id="84d049b5-6a9b-4f02-9f75-11c787b74928">&lt;title&gt;</bpt><ept id="84d049b5-6a9b-4f02-9f75-11c787b74928">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="84d049b5-6a9b-4f02-9f75-11c787b74928">&lt;linkText&gt;</bpt>Different ways to create a Windows virtual machine<ept id="84d049b5-6a9b-4f02-9f75-11c787b74928">&lt;/linkText&gt;</ept><bpt id="84d049b5-6a9b-4f02-9f75-11c787b74928">&lt;title&gt;</bpt><ept id="84d049b5-6a9b-4f02-9f75-11c787b74928">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e32dea5-77a2-4401-adc1-256b942cc467" xml:space="preserve">
+          <source>If you're just starting to learn about Azure virtual machines, be sure to also check out the <bpt id="8cccddbc-5b51-4b43-b9a7-e88fc5893206">&lt;linkText&gt;</bpt>Frequently asked questions<ept id="8cccddbc-5b51-4b43-b9a7-e88fc5893206">&lt;/linkText&gt;</ept><bpt id="8cccddbc-5b51-4b43-b9a7-e88fc5893206">&lt;title&gt;</bpt><ept id="8cccddbc-5b51-4b43-b9a7-e88fc5893206">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you're just starting to learn about Azure virtual machines, be sure to also check out the <bpt id="8cccddbc-5b51-4b43-b9a7-e88fc5893206">&lt;linkText&gt;</bpt>Frequently asked questions<ept id="8cccddbc-5b51-4b43-b9a7-e88fc5893206">&lt;/linkText&gt;</ept><bpt id="8cccddbc-5b51-4b43-b9a7-e88fc5893206">&lt;title&gt;</bpt><ept id="8cccddbc-5b51-4b43-b9a7-e88fc5893206">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb5f83df-ec09-414f-abda-b65f0c2ca373" xml:space="preserve">
+          <source>app-service-choose-me.md</source>
+          <target state="new">app-service-choose-me.md</target>
+        </trans-unit>
+        <trans-unit id="a6a475dc-edda-40ef-ab78-52646b7f2f60" xml:space="preserve">
+          <source>#tellmevm</source>
+          <target state="new">#tellmevm</target>
+        </trans-unit>
+        <trans-unit id="90c5ad87-67c5-4438-8760-482901e9ae42" xml:space="preserve">
+          <source>cloud-services-choose-me.md</source>
+          <target state="new">cloud-services-choose-me.md</target>
+        </trans-unit>
+      </group>
+      <group id="73bfb9f9-0e81-43d5-9c61-d163d44d5f69" />
+    </body>
+  </file>
+</xliff>

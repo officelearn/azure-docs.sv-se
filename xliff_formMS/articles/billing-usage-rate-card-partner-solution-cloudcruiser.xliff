@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4e2d1796-71a0-4dae-83ee-a2092c0e7672" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4e2d1796-71a0-4dae-83ee-a2092c0e7672" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6404c5eb-bdb2-43f0-9191-1f2430538564">
+        <trans-unit id="f937a032-c531-4d8e-8e09-f1e61551691d" xml:space="preserve">
+          <source>Cloud Cruiser and Microsoft Azure Billing API Integration</source>
+          <target state="new">Cloud Cruiser and Microsoft Azure Billing API Integration</target>
+        </trans-unit>
+        <trans-unit id="6b82714c-0d9a-4f28-9498-c776f378fc97" xml:space="preserve">
+          <source>Provides a unique perspective from Microsoft Azure Billing partner Cloud Cruiser, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloud Cruiser customers that are interested in using/trying Cloud Cruiser for Microsoft Azure Pack.</source>
+          <target state="new">Provides a unique perspective from Microsoft Azure Billing partner Cloud Cruiser, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloud Cruiser customers that are interested in using/trying Cloud Cruiser for Microsoft Azure Pack.</target>
+        </trans-unit>
+        <trans-unit id="f66ecabe-a802-4ec0-be0a-6d8462cfa3a8" xml:space="preserve">
+          <source>This article describes how the information collected from the new Microsoft Azure Billing APIs can be used in Cloud Cruiser for workflow cost simulation and analysis.</source>
+          <target state="new">This article describes how the information collected from the new Microsoft Azure Billing APIs can be used in Cloud Cruiser for workflow cost simulation and analysis.</target>
+        </trans-unit>
+        <trans-unit id="598ce52c-c1fe-4768-a79d-b67911cce512" xml:space="preserve">
+          <source>The RateCard API provides rate information from Azure.</source>
+          <target state="new">The RateCard API provides rate information from Azure.</target>
+        </trans-unit>
+        <trans-unit id="517d6c1d-e889-44b0-aa58-da85c6bc54bd" xml:space="preserve">
+          <source>After authenticating with the proper credentials, you can query the API to collect metadata about the services available on Azure, along with the rates associated with your Offer ID.</source>
+          <target state="new">After authenticating with the proper credentials, you can query the API to collect metadata about the services available on Azure, along with the rates associated with your Offer ID.</target>
+        </trans-unit>
+        <trans-unit id="89364a26-371a-4837-b278-a8a3645e9823" xml:space="preserve">
+          <source>Below is a sample response from the API showing the prices for the A0 (Windows) instance:</source>
+          <target state="new">Below is a sample response from the API showing the prices for the A0 (Windows) instance:</target>
+        </trans-unit>
+        <trans-unit id="8a494bb5-f711-4c1a-a88b-3a514e7b6eba" xml:space="preserve">
+          <source>Cloud Cruiser can leverage the RateCard API information in different ways.</source>
+          <target state="new">Cloud Cruiser can leverage the RateCard API information in different ways.</target>
+        </trans-unit>
+        <trans-unit id="30ea7e30-cce8-427c-8a60-942083733225" xml:space="preserve">
+          <source>For this article, we will show how it can be used to make IaaS workload cost simulation and analysis.</source>
+          <target state="new">For this article, we will show how it can be used to make IaaS workload cost simulation and analysis.</target>
+        </trans-unit>
+        <trans-unit id="9f87ce1a-6eeb-4e50-8cfe-b1ac90d9c13f" xml:space="preserve">
+          <source>To demonstrate this use case, imagine a workload of several instances running on Microsoft Azure Pack (WAP).</source>
+          <target state="new">To demonstrate this use case, imagine a workload of several instances running on Microsoft Azure Pack (WAP).</target>
+        </trans-unit>
+        <trans-unit id="6026515b-89a7-4582-a9d7-a61b015a6afd" xml:space="preserve">
+          <source>The goal is to simulate this same workload on Azure, and estimate the costs of doing such migration.</source>
+          <target state="new">The goal is to simulate this same workload on Azure, and estimate the costs of doing such migration.</target>
+        </trans-unit>
+        <trans-unit id="02f82568-f6ed-4a5a-875a-0a9d93678155" xml:space="preserve">
+          <source>In order to create this simulation, there are two main tasks to be performed:</source>
+          <target state="new">In order to create this simulation, there are two main tasks to be performed:</target>
+        </trans-unit>
+        <trans-unit id="56ebce14-80e9-4bb5-afa2-6d8470fc1850" xml:space="preserve">
+          <source><bpt id="9c446b8d-dc63-4d92-a991-cb29fe02b7e6">&lt;strong&gt;</bpt>Import and process the service information collected from the RateCard API<ept id="9c446b8d-dc63-4d92-a991-cb29fe02b7e6">&lt;/strong&gt;</ept> - This task is also performed on the workbooks, where the extract from the RateCard API is transformed and published to a new rate plan.</source>
+          <target state="new"><bpt id="9c446b8d-dc63-4d92-a991-cb29fe02b7e6">&lt;strong&gt;</bpt>Import and process the service information collected from the RateCard API<ept id="9c446b8d-dc63-4d92-a991-cb29fe02b7e6">&lt;/strong&gt;</ept> - This task is also performed on the workbooks, where the extract from the RateCard API is transformed and published to a new rate plan.</target>
+        </trans-unit>
+        <trans-unit id="03a462b5-150c-411a-9417-b5779726e9e4" xml:space="preserve">
+          <source>This new rate plan will be used on the simulations to estimate the Azure prices.</source>
+          <target state="new">This new rate plan will be used on the simulations to estimate the Azure prices.</target>
+        </trans-unit>
+        <trans-unit id="444dd4b8-647b-41eb-8c64-44dcaee3a9c7" xml:space="preserve">
+          <source><bpt id="d72df821-ea53-4696-8318-2a3d3acf0498">&lt;strong&gt;</bpt>Normalize WAP services and Azure services for IaaS<ept id="d72df821-ea53-4696-8318-2a3d3acf0498">&lt;/strong&gt;</ept> - By default, WAP services are based on individual resources (CPU, Memory Size, Disk Size, etc.)</source>
+          <target state="new"><bpt id="d72df821-ea53-4696-8318-2a3d3acf0498">&lt;strong&gt;</bpt>Normalize WAP services and Azure services for IaaS<ept id="d72df821-ea53-4696-8318-2a3d3acf0498">&lt;/strong&gt;</ept> - By default, WAP services are based on individual resources (CPU, Memory Size, Disk Size, etc.)</target>
+        </trans-unit>
+        <trans-unit id="9a3c0e82-5d79-40e3-9ebd-829d4d84a4e1" xml:space="preserve">
+          <source>while Azure services are based on instance size (A0, A1, A2, etc.).</source>
+          <target state="new">while Azure services are based on instance size (A0, A1, A2, etc.).</target>
+        </trans-unit>
+        <trans-unit id="08fdf799-a16a-4269-8606-e78f877d9586" xml:space="preserve">
+          <source>This first task can be performed by Cloud Cruiser’s ETL engine, called workbooks, where these resources can be bundled on instance sizes, analogous to Azure instance services.</source>
+          <target state="new">This first task can be performed by Cloud Cruiser’s ETL engine, called workbooks, where these resources can be bundled on instance sizes, analogous to Azure instance services.</target>
+        </trans-unit>
+        <trans-unit id="1a9511f5-2370-4f1d-bcba-78e1a96ae459" xml:space="preserve">
+          <source>Cloud Cruiser workbooks provide an automated way to collect and process information from the RateCard API.</source>
+          <target state="new">Cloud Cruiser workbooks provide an automated way to collect and process information from the RateCard API.</target>
+        </trans-unit>
+        <trans-unit id="73c65f4c-a2db-41bc-a0ba-046516eaea2c" xml:space="preserve">
+          <source>ETL (extract-transform-load) workbooks allow you to configure the collection, transformation, and publishing of data into the Cloud Cruiser database.</source>
+          <target state="new">ETL (extract-transform-load) workbooks allow you to configure the collection, transformation, and publishing of data into the Cloud Cruiser database.</target>
+        </trans-unit>
+        <trans-unit id="db207ee4-bd12-4b81-8e83-7f6534452e83" xml:space="preserve">
+          <source>Each workbook can have one or multiple collections.</source>
+          <target state="new">Each workbook can have one or multiple collections.</target>
+        </trans-unit>
+        <trans-unit id="2e5db8f8-8b62-463f-bdf5-4ebed8b600cb" xml:space="preserve">
+          <source>This allows you to correlate information from different sources to complement or augment the usage data.</source>
+          <target state="new">This allows you to correlate information from different sources to complement or augment the usage data.</target>
+        </trans-unit>
+        <trans-unit id="4e53a78d-31ed-446a-9e45-6fd29530bfcc" xml:space="preserve">
+          <source>In the two screenshots below, we showing creating a new <bpt id="a0227be0-8504-40b9-b53c-b91c667d3079">&lt;em&gt;</bpt>collection<ept id="a0227be0-8504-40b9-b53c-b91c667d3079">&lt;/em&gt;</ept> in an existing workbook, and importing information into the <bpt id="61508f19-a439-4d31-b347-473d88c679f2">&lt;em&gt;</bpt>collection<ept id="61508f19-a439-4d31-b347-473d88c679f2">&lt;/em&gt;</ept> from the RateCard API:</source>
+          <target state="new">In the two screenshots below, we showing creating a new <bpt id="a0227be0-8504-40b9-b53c-b91c667d3079">&lt;em&gt;</bpt>collection<ept id="a0227be0-8504-40b9-b53c-b91c667d3079">&lt;/em&gt;</ept> in an existing workbook, and importing information into the <bpt id="61508f19-a439-4d31-b347-473d88c679f2">&lt;em&gt;</bpt>collection<ept id="61508f19-a439-4d31-b347-473d88c679f2">&lt;/em&gt;</ept> from the RateCard API:</target>
+        </trans-unit>
+        <trans-unit id="24baee5f-da06-4850-8519-5c18d3bda3f1" xml:space="preserve">
+          <source><bpt id="18be9ed9-cbc3-48e7-9b50-01952492c3d3">&lt;linkText&gt;</bpt>Figure 1 - Creating a new collection<ept id="18be9ed9-cbc3-48e7-9b50-01952492c3d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="18be9ed9-cbc3-48e7-9b50-01952492c3d3">&lt;linkText&gt;</bpt>Figure 1 - Creating a new collection<ept id="18be9ed9-cbc3-48e7-9b50-01952492c3d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edf443ab-4f12-421e-914a-5006b38c1be0" xml:space="preserve">
+          <source><bpt id="3ffb70dc-e7d8-4b07-a5cf-bb50a20dbf52">&lt;linkText&gt;</bpt>Figure 2 - Import data from the new collection<ept id="3ffb70dc-e7d8-4b07-a5cf-bb50a20dbf52">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ffb70dc-e7d8-4b07-a5cf-bb50a20dbf52">&lt;linkText&gt;</bpt>Figure 2 - Import data from the new collection<ept id="3ffb70dc-e7d8-4b07-a5cf-bb50a20dbf52">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b29194d-7c4d-4a3c-88b5-287c344b36fb" xml:space="preserve">
+          <source>After importing the data into the workbook, it’s possible to create multiple steps and transformation processes, to modify and model the data.</source>
+          <target state="new">After importing the data into the workbook, it’s possible to create multiple steps and transformation processes, to modify and model the data.</target>
+        </trans-unit>
+        <trans-unit id="96af8ca6-13a2-4674-bf3b-c07ad6908d21" xml:space="preserve">
+          <source>For this example, since we are only interested in infrastructure-as-a-Service (IaaS,) we can use the transformation steps to remove unnecessary rows, or records, related to services other than IaaS.</source>
+          <target state="new">For this example, since we are only interested in infrastructure-as-a-Service (IaaS,) we can use the transformation steps to remove unnecessary rows, or records, related to services other than IaaS.</target>
+        </trans-unit>
+        <trans-unit id="06ecfce9-4914-4fe1-9e6b-55dd05e012b7" xml:space="preserve">
+          <source>The screenshot below shows the transformation steps used to process the data collected from RateCard API:</source>
+          <target state="new">The screenshot below shows the transformation steps used to process the data collected from RateCard API:</target>
+        </trans-unit>
+        <trans-unit id="72167185-f966-4982-88a2-52867166bb3e" xml:space="preserve">
+          <source><bpt id="54e3a58f-1716-4839-80af-9f89d909c483">&lt;linkText&gt;</bpt>Figure 3 - Transformation steps to process collected data from RateCard API<ept id="54e3a58f-1716-4839-80af-9f89d909c483">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54e3a58f-1716-4839-80af-9f89d909c483">&lt;linkText&gt;</bpt>Figure 3 - Transformation steps to process collected data from RateCard API<ept id="54e3a58f-1716-4839-80af-9f89d909c483">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fffdcdbf-a059-49d5-9c4c-d6b48dcbb0ae" xml:space="preserve">
+          <source>There are different ways to define services on Cloud Cruiser.</source>
+          <target state="new">There are different ways to define services on Cloud Cruiser.</target>
+        </trans-unit>
+        <trans-unit id="0c29882b-1ecd-4993-94e8-7931b3245622" xml:space="preserve">
+          <source>One of the options is to import the services from the usage data.</source>
+          <target state="new">One of the options is to import the services from the usage data.</target>
+        </trans-unit>
+        <trans-unit id="3938c5b0-7e1c-47ac-adf4-577bed6ac489" xml:space="preserve">
+          <source>This method is commonly used when working with public clouds, where the services are already defined by the provider.</source>
+          <target state="new">This method is commonly used when working with public clouds, where the services are already defined by the provider.</target>
+        </trans-unit>
+        <trans-unit id="3c8ff656-e445-4ea5-82fc-b87ce3ec3399" xml:space="preserve">
+          <source>A Rate Plan is a set of rates or prices that can be applied to different services, based on effective dates, or group of customers, among other options.</source>
+          <target state="new">A Rate Plan is a set of rates or prices that can be applied to different services, based on effective dates, or group of customers, among other options.</target>
+        </trans-unit>
+        <trans-unit id="91941334-d9c6-4774-bf52-fd238eddb9d2" xml:space="preserve">
+          <source>Rate Plans can also be used on Cloud Cruiser to create simulation or “What-if” scenarios, to understand how changes in services can affect the total cost of a workload.</source>
+          <target state="new">Rate Plans can also be used on Cloud Cruiser to create simulation or “What-if” scenarios, to understand how changes in services can affect the total cost of a workload.</target>
+        </trans-unit>
+        <trans-unit id="906d3075-0712-4545-9a91-b8db2d21bf8c" xml:space="preserve">
+          <source>In this example, we will use the service information from the RateCard API to define new services in Cloud Cruiser.</source>
+          <target state="new">In this example, we will use the service information from the RateCard API to define new services in Cloud Cruiser.</target>
+        </trans-unit>
+        <trans-unit id="91eeaa4a-d34e-438c-ae51-fa5749070b5c" xml:space="preserve">
+          <source>In the same way, we can use the rates associated to the services to create a new Rate Plan on Cloud Cruiser.</source>
+          <target state="new">In the same way, we can use the rates associated to the services to create a new Rate Plan on Cloud Cruiser.</target>
+        </trans-unit>
+        <trans-unit id="40b85be9-0383-4a97-90a1-d0acb3e6f3ab" xml:space="preserve">
+          <source>At the end of the transformation process, it is possible to create a new step and publish the data from the RateCard API as new services and rates.</source>
+          <target state="new">At the end of the transformation process, it is possible to create a new step and publish the data from the RateCard API as new services and rates.</target>
+        </trans-unit>
+        <trans-unit id="fce8dd83-6691-447e-95e0-428a54cb9bad" xml:space="preserve">
+          <source><bpt id="a34463fb-d134-43ca-a150-21ba589a296f">&lt;linkText&gt;</bpt>Figure 4 - Publishing the data from the RateCard API as new Services and Rates<ept id="a34463fb-d134-43ca-a150-21ba589a296f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a34463fb-d134-43ca-a150-21ba589a296f">&lt;linkText&gt;</bpt>Figure 4 - Publishing the data from the RateCard API as new Services and Rates<ept id="a34463fb-d134-43ca-a150-21ba589a296f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a5b35f1-59c7-40d4-814f-2ad31ecb8b23" xml:space="preserve">
+          <source>After publishing the services and rates, you can verify the list of imported services in Cloud Cruiser’s <bpt id="3eca3b97-5fe1-47f5-abd1-d79cd691e9e5">&lt;em&gt;</bpt>Services<ept id="3eca3b97-5fe1-47f5-abd1-d79cd691e9e5">&lt;/em&gt;</ept> tab:</source>
+          <target state="new">After publishing the services and rates, you can verify the list of imported services in Cloud Cruiser’s <bpt id="3eca3b97-5fe1-47f5-abd1-d79cd691e9e5">&lt;em&gt;</bpt>Services<ept id="3eca3b97-5fe1-47f5-abd1-d79cd691e9e5">&lt;/em&gt;</ept> tab:</target>
+        </trans-unit>
+        <trans-unit id="3fb619ca-723d-4ccc-8ffc-2c9422e02a60" xml:space="preserve">
+          <source><bpt id="c2103844-c35e-441b-b76a-4275427abdcb">&lt;linkText&gt;</bpt>Figure 5 - Verifying the new Services<ept id="c2103844-c35e-441b-b76a-4275427abdcb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c2103844-c35e-441b-b76a-4275427abdcb">&lt;linkText&gt;</bpt>Figure 5 - Verifying the new Services<ept id="c2103844-c35e-441b-b76a-4275427abdcb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3eeb767a-8876-4646-944d-82e37a0a057d" xml:space="preserve">
+          <source>On the <bpt id="2fec5e13-9ae5-4f22-820f-a7c28235baf0">&lt;em&gt;</bpt>Rate Plans<ept id="2fec5e13-9ae5-4f22-820f-a7c28235baf0">&lt;/em&gt;</ept> tab, you can check the new rate plan called “AzureSimulation” with the rates imported from the RateCard API.</source>
+          <target state="new">On the <bpt id="2fec5e13-9ae5-4f22-820f-a7c28235baf0">&lt;em&gt;</bpt>Rate Plans<ept id="2fec5e13-9ae5-4f22-820f-a7c28235baf0">&lt;/em&gt;</ept> tab, you can check the new rate plan called “AzureSimulation” with the rates imported from the RateCard API.</target>
+        </trans-unit>
+        <trans-unit id="d8127402-3502-4d8f-97c4-85d39cccae8f" xml:space="preserve">
+          <source><bpt id="53009e71-1ba6-4ace-8832-ace74622faad">&lt;linkText&gt;</bpt>Figure 6 - Verifying the new Rate Plan and associated rates<ept id="53009e71-1ba6-4ace-8832-ace74622faad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="53009e71-1ba6-4ace-8832-ace74622faad">&lt;linkText&gt;</bpt>Figure 6 - Verifying the new Rate Plan and associated rates<ept id="53009e71-1ba6-4ace-8832-ace74622faad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11c5990a-3045-4b07-94c1-1d51141477d5" xml:space="preserve">
+          <source>By default, WAP provides usage information based on the use of compute, memory and network resources.</source>
+          <target state="new">By default, WAP provides usage information based on the use of compute, memory and network resources.</target>
+        </trans-unit>
+        <trans-unit id="a1f37782-36f1-4cd5-9ff0-713a127bf2c8" xml:space="preserve">
+          <source>In Cloud Cruiser, you can define your services based directly on the allocation or metered usage of these resources.</source>
+          <target state="new">In Cloud Cruiser, you can define your services based directly on the allocation or metered usage of these resources.</target>
+        </trans-unit>
+        <trans-unit id="0c63a05f-55d2-497f-9899-ef799a802387" xml:space="preserve">
+          <source>For example, you can set a basic rate for each hour of CPU usage, or charge the GB of memory allocated to an instance.</source>
+          <target state="new">For example, you can set a basic rate for each hour of CPU usage, or charge the GB of memory allocated to an instance.</target>
+        </trans-unit>
+        <trans-unit id="6b31c04d-9805-465b-8142-40a9d6166e41" xml:space="preserve">
+          <source>For this example, in order to compare costs between WAP and Azure, we need to aggregate the resource usage on WAP into bundles, which can then be mapped to Azure services.</source>
+          <target state="new">For this example, in order to compare costs between WAP and Azure, we need to aggregate the resource usage on WAP into bundles, which can then be mapped to Azure services.</target>
+        </trans-unit>
+        <trans-unit id="0082df17-5a9b-4e90-969b-7bb881a60c15" xml:space="preserve">
+          <source>This transformation can be implemented easily in the workbooks:</source>
+          <target state="new">This transformation can be implemented easily in the workbooks:</target>
+        </trans-unit>
+        <trans-unit id="4d85db3b-453d-4888-a30e-94801efdd2c9" xml:space="preserve">
+          <source><bpt id="a29c5864-6672-42e8-9f73-541c9040c8cc">&lt;linkText&gt;</bpt>Figure 7 - Transforming WAP data to normalize services<ept id="a29c5864-6672-42e8-9f73-541c9040c8cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a29c5864-6672-42e8-9f73-541c9040c8cc">&lt;linkText&gt;</bpt>Figure 7 - Transforming WAP data to normalize services<ept id="a29c5864-6672-42e8-9f73-541c9040c8cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d40c22e-df91-4c78-9941-e96b4e3bc654" xml:space="preserve">
+          <source>The last step at the workbook is to publish the data into the Cloud Cruiser database.</source>
+          <target state="new">The last step at the workbook is to publish the data into the Cloud Cruiser database.</target>
+        </trans-unit>
+        <trans-unit id="e5e71a1e-224d-4078-a7b2-0535cb7f4329" xml:space="preserve">
+          <source>During this step, the usage data is now bundled into services (that map to the Azure Services) and tied to default rates to create the charges.</source>
+          <target state="new">During this step, the usage data is now bundled into services (that map to the Azure Services) and tied to default rates to create the charges.</target>
+        </trans-unit>
+        <trans-unit id="53e48891-ccd5-44cc-8b6b-17cc0b848d32" xml:space="preserve">
+          <source>After finishing the workbook, you can automate the processing of the data, by adding a new task on the scheduler and specifying the frequency and time for the workbook to run.</source>
+          <target state="new">After finishing the workbook, you can automate the processing of the data, by adding a new task on the scheduler and specifying the frequency and time for the workbook to run.</target>
+        </trans-unit>
+        <trans-unit id="110b4215-74b8-4ebc-af98-8ef74ede1d40" xml:space="preserve">
+          <source><bpt id="73926e44-1dc8-45a4-b242-ae113e79afeb">&lt;linkText&gt;</bpt>Figure 8 - Workbook scheduling<ept id="73926e44-1dc8-45a4-b242-ae113e79afeb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73926e44-1dc8-45a4-b242-ae113e79afeb">&lt;linkText&gt;</bpt>Figure 8 - Workbook scheduling<ept id="73926e44-1dc8-45a4-b242-ae113e79afeb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a533a7b7-7fdb-4eca-a8d9-c8f3189f1368" xml:space="preserve">
+          <source>As the usage is collected and the charges are loaded into the Cloud Cruiser database, we can then leverage the Cloud Cruiser Insights module – an advanced analytics reporting tool – to create the workload cost simulation that we desire.</source>
+          <target state="new">As the usage is collected and the charges are loaded into the Cloud Cruiser database, we can then leverage the Cloud Cruiser Insights module – an advanced analytics reporting tool – to create the workload cost simulation that we desire.</target>
+        </trans-unit>
+        <trans-unit id="f9ec5210-c49a-4252-9f22-e4d6d88cff29" xml:space="preserve">
+          <source>In order to demonstrate this scenario, we created the following report:</source>
+          <target state="new">In order to demonstrate this scenario, we created the following report:</target>
+        </trans-unit>
+        <trans-unit id="586f17a6-9d86-4326-816e-a0d02bb98704" xml:space="preserve">
+          <source><bpt id="ece277fc-87b2-4509-9aa1-4690e2231b25">&lt;linkText&gt;</bpt>Cost Comparison<ept id="ece277fc-87b2-4509-9aa1-4690e2231b25">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ece277fc-87b2-4509-9aa1-4690e2231b25">&lt;linkText&gt;</bpt>Cost Comparison<ept id="ece277fc-87b2-4509-9aa1-4690e2231b25">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7df47a9-7063-418a-91e4-6592e045a24b" xml:space="preserve">
+          <source>The top graph shows a cost comparison broken by services and compares the price of running the workload for each specific service between WAP (dark blue color) and Azure (light blue color).</source>
+          <target state="new">The top graph shows a cost comparison broken by services and compares the price of running the workload for each specific service between WAP (dark blue color) and Azure (light blue color).</target>
+        </trans-unit>
+        <trans-unit id="03160d50-26f8-4292-beb4-20ce130d58d8" xml:space="preserve">
+          <source>The bottom graph shows the same data but broken down by department, demonstrating the costs for each department to run their workload on WAP and Azure, along with the difference between these two – Savings bar (green color).</source>
+          <target state="new">The bottom graph shows the same data but broken down by department, demonstrating the costs for each department to run their workload on WAP and Azure, along with the difference between these two – Savings bar (green color).</target>
+        </trans-unit>
+        <trans-unit id="99082751-086d-4a17-addb-2c9de645050a" xml:space="preserve">
+          <source>Microsoft recently
+introduced the Azure Usage API, allowing subscribers to programmatically pull
+in usage data to gain insights into their consumption.</source>
+          <target state="new">Microsoft recently
+introduced the Azure Usage API, allowing subscribers to programmatically pull
+in usage data to gain insights into their consumption.</target>
+        </trans-unit>
+        <trans-unit id="b198416b-39cd-41a3-a3d5-1592cf6e6435" xml:space="preserve">
+          <source>This is great news for Cloud
+Cruiser customers that can take advantage of the richer dataset available
+through this API.</source>
+          <target state="new">This is great news for Cloud
+Cruiser customers that can take advantage of the richer dataset available
+through this API.</target>
+        </trans-unit>
+        <trans-unit id="d2ec757d-4096-4097-8cab-5421a28f1b5f" xml:space="preserve">
+          <source>Cloud Cruiser can leverage the integration with the Usage API in several ways.</source>
+          <target state="new">Cloud Cruiser can leverage the integration with the Usage API in several ways.</target>
+        </trans-unit>
+        <trans-unit id="c5e644c6-5ae5-40e3-8ecf-94c4522dc370" xml:space="preserve">
+          <source>The granularity
+(hourly usage information) and resource metadata information available through
+the API provides the necessary dataset to support flexible Showback or
+Chargeback models.</source>
+          <target state="new">The granularity
+(hourly usage information) and resource metadata information available through
+the API provides the necessary dataset to support flexible Showback or
+Chargeback models.</target>
+        </trans-unit>
+        <trans-unit id="cb285c92-1c0b-4017-8877-d747ee34696c" xml:space="preserve">
+          <source>In this tutorial, we will
+present one example of how Cloud Cruiser can benefit from the Usage API
+information.</source>
+          <target state="new">In this tutorial, we will
+present one example of how Cloud Cruiser can benefit from the Usage API
+information.</target>
+        </trans-unit>
+        <trans-unit id="5181a90e-5010-4119-bb9d-ede21cf3d3d7" xml:space="preserve">
+          <source>More specifically, we will create a new Resource Group on Azure,
+associate tags for the account structure, and then describe the process of
+pulling and processing the tag information into Cloud Cruiser.</source>
+          <target state="new">More specifically, we will create a new Resource Group on Azure,
+associate tags for the account structure, and then describe the process of
+pulling and processing the tag information into Cloud Cruiser.</target>
+        </trans-unit>
+        <trans-unit id="54ff454d-7891-4fdb-9069-5ed6c17fb16f" xml:space="preserve">
+          <source>The final goal is to be able
+to create reports like the one below, and be able to analyze cost and
+consumption based on the account structure populated by the tags.</source>
+          <target state="new">The final goal is to be able
+to create reports like the one below, and be able to analyze cost and
+consumption based on the account structure populated by the tags.</target>
+        </trans-unit>
+        <trans-unit id="d2e2c54e-8092-47e9-b06a-f384d7a36f80" xml:space="preserve">
+          <source><bpt id="23f8e049-a8ae-4893-b656-a276700d6c9d">&lt;linkText&gt;</bpt>Figure 10 - Report with breakdowns using tags<ept id="23f8e049-a8ae-4893-b656-a276700d6c9d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23f8e049-a8ae-4893-b656-a276700d6c9d">&lt;linkText&gt;</bpt>Figure 10 - Report with breakdowns using tags<ept id="23f8e049-a8ae-4893-b656-a276700d6c9d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd06d2b5-5b1c-4ebc-813c-c4f8280a1f11" xml:space="preserve">
+          <source>The data available through the Azure Usage API includes not only consumption information, but also resource metadata including any tags associated with it.</source>
+          <target state="new">The data available through the Azure Usage API includes not only consumption information, but also resource metadata including any tags associated with it.</target>
+        </trans-unit>
+        <trans-unit id="304293a5-1210-4519-9f58-72833ce3bc54" xml:space="preserve">
+          <source>Tags provide an easy way to organize your resources, but in order to be effective, you need to ensure that:</source>
+          <target state="new">Tags provide an easy way to organize your resources, but in order to be effective, you need to ensure that:</target>
+        </trans-unit>
+        <trans-unit id="5fb8200f-8ce9-43af-ae14-4afed4f80935" xml:space="preserve">
+          <source>Tags are correctly applied to the resources at provision time</source>
+          <target state="new">Tags are correctly applied to the resources at provision time</target>
+        </trans-unit>
+        <trans-unit id="639f914e-d62b-4737-a325-de4ffcb7a9e4" xml:space="preserve">
+          <source>Tags are properly used on the Showback/Chargeback process to tie the usage to the organization’s account structure.</source>
+          <target state="new">Tags are properly used on the Showback/Chargeback process to tie the usage to the organization’s account structure.</target>
+        </trans-unit>
+        <trans-unit id="beb9bb98-7b91-46d7-b88a-25d31e90ffca" xml:space="preserve">
+          <source>Both of these requirements can be challenging, especially when there is some sort of manual process on the provision or charging side.</source>
+          <target state="new">Both of these requirements can be challenging, especially when there is some sort of manual process on the provision or charging side.</target>
+        </trans-unit>
+        <trans-unit id="d038436b-1c17-4456-9c4a-4e801afcdadc" xml:space="preserve">
+          <source>Mistyped, incorrect or even missing tags are common complaints from customers when using tags and these errors can make life on the charging side very difficult.</source>
+          <target state="new">Mistyped, incorrect or even missing tags are common complaints from customers when using tags and these errors can make life on the charging side very difficult.</target>
+        </trans-unit>
+        <trans-unit id="267eb056-a43b-4d87-845c-4f0266239dfb" xml:space="preserve">
+          <source>With the new Azure Usage API, Cloud Cruiser can pull resource tagging information, and through a very sophisticated ETL tool called workbooks, fix these common tagging errors.</source>
+          <target state="new">With the new Azure Usage API, Cloud Cruiser can pull resource tagging information, and through a very sophisticated ETL tool called workbooks, fix these common tagging errors.</target>
+        </trans-unit>
+        <trans-unit id="8fbb77b1-a081-4bb3-8483-4402798312f0" xml:space="preserve">
+          <source>Through transformation steps leveraging regular expressions and data
+correlation, Cloud Cruiser is able to identify incorrectly tagged resources and apply the correct tags, filling the gaps and ensuring the correct association of the resources with the consumer.</source>
+          <target state="new">Through transformation steps leveraging regular expressions and data
+correlation, Cloud Cruiser is able to identify incorrectly tagged resources and apply the correct tags, filling the gaps and ensuring the correct association of the resources with the consumer.</target>
+        </trans-unit>
+        <trans-unit id="6da20971-48e2-4730-b863-c297a05dc317" xml:space="preserve">
+          <source>On the charging side,
+Cloud Cruiser automates the Showback/Chargeback process, and can leverage the
+tag information to tie the usage to the appropriate consumer (Department,
+Division, Project, etc.).</source>
+          <target state="new">On the charging side,
+Cloud Cruiser automates the Showback/Chargeback process, and can leverage the
+tag information to tie the usage to the appropriate consumer (Department,
+Division, Project, etc.).</target>
+        </trans-unit>
+        <trans-unit id="1adfb80f-487a-4102-9c4e-369880e05b5b" xml:space="preserve">
+          <source>This automation provides a huge improvement and can
+ensure a consistent and auditable charging process.</source>
+          <target state="new">This automation provides a huge improvement and can
+ensure a consistent and auditable charging process.</target>
+        </trans-unit>
+        <trans-unit id="894c5e53-baa0-42d6-a217-ddb0091e526b" xml:space="preserve">
+          <source>The first step in this tutorial is to create a new Resource Group on the Azure Portal and then create new tags to associate to the resources.</source>
+          <target state="new">The first step in this tutorial is to create a new Resource Group on the Azure Portal and then create new tags to associate to the resources.</target>
+        </trans-unit>
+        <trans-unit id="d52d38a9-284f-4f0d-8f1b-c8ab2feb256c" xml:space="preserve">
+          <source>For this example, we will be creating
+the following tags: Department, Environment, Owner, Project.</source>
+          <target state="new">For this example, we will be creating
+the following tags: Department, Environment, Owner, Project.</target>
+        </trans-unit>
+        <trans-unit id="419d85c5-8681-4d3f-8f2b-a24e9b8c0db6" xml:space="preserve">
+          <source>The screenshot below of the Azure Portal shows a sample Resource Group with the associated tags.</source>
+          <target state="new">The screenshot below of the Azure Portal shows a sample Resource Group with the associated tags.</target>
+        </trans-unit>
+        <trans-unit id="f0d0c4e4-ab45-45dd-b406-3a903d92f194" xml:space="preserve">
+          <source><bpt id="d9064bc8-e352-4e00-bd28-95899bec6f90">&lt;linkText&gt;</bpt>Figure 11 - Resource Group with associated tags on Azure Portal<ept id="d9064bc8-e352-4e00-bd28-95899bec6f90">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d9064bc8-e352-4e00-bd28-95899bec6f90">&lt;linkText&gt;</bpt>Figure 11 - Resource Group with associated tags on Azure Portal<ept id="d9064bc8-e352-4e00-bd28-95899bec6f90">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c0b3efd-d630-4743-8f80-ec95231b19b6" xml:space="preserve">
+          <source>The next step is to pull the information from the Usage API into Cloud Cruiser.</source>
+          <target state="new">The next step is to pull the information from the Usage API into Cloud Cruiser.</target>
+        </trans-unit>
+        <trans-unit id="ee70dcdf-570d-4e33-8cdf-0c735c0d0450" xml:space="preserve">
+          <source>The Usage API currently provides responses in JSON format.</source>
+          <target state="new">The Usage API currently provides responses in JSON format.</target>
+        </trans-unit>
+        <trans-unit id="334a5afc-ebf2-4941-a494-e0dd6464e6a6" xml:space="preserve">
+          <source>Here is a sample of the data retrieved:</source>
+          <target state="new">Here is a sample of the data retrieved:</target>
+        </trans-unit>
+        <trans-unit id="906a3c27-26e7-47d4-9cfb-d7fb1887669e" xml:space="preserve">
+          <source>Cloud Cruiser workbooks provide an automated way to collect and process information from the Usage API.</source>
+          <target state="new">Cloud Cruiser workbooks provide an automated way to collect and process information from the Usage API.</target>
+        </trans-unit>
+        <trans-unit id="961c63b5-95be-45af-942d-d2d108a245df" xml:space="preserve">
+          <source>An ETL (extract-transform-load) workbook allows you to configure the
+collection, transformation, and publishing of data into the Cloud Cruiser database.</source>
+          <target state="new">An ETL (extract-transform-load) workbook allows you to configure the
+collection, transformation, and publishing of data into the Cloud Cruiser database.</target>
+        </trans-unit>
+        <trans-unit id="73d96233-81b5-4fcc-b447-b4f2c75b8820" xml:space="preserve">
+          <source>Each workbook can have one or multiple collections.</source>
+          <target state="new">Each workbook can have one or multiple collections.</target>
+        </trans-unit>
+        <trans-unit id="cc687f3a-bb59-4ce1-9ed0-184c66a66392" xml:space="preserve">
+          <source>This allows you to correlate information from different sources to complement or augment the usage data.</source>
+          <target state="new">This allows you to correlate information from different sources to complement or augment the usage data.</target>
+        </trans-unit>
+        <trans-unit id="8d9a2ceb-9503-42fd-9fc9-8d6059888c5c" xml:space="preserve">
+          <source>For this example, we will create a new sheet in the Azure template workbook (<bpt id="861e79b7-1341-482a-b9f7-bd9010f5cf40">&lt;em&gt;</bpt>UsageAPI)<ept id="861e79b7-1341-482a-b9f7-bd9010f5cf40">&lt;/em&gt;</ept> and set a new <bpt id="86e63f34-0a7d-454e-b1b0-4ada9bbda51c">&lt;em&gt;</bpt>collection<ept id="86e63f34-0a7d-454e-b1b0-4ada9bbda51c">&lt;/em&gt;</ept> to import information from the Usage API.</source>
+          <target state="new">For this example, we will create a new sheet in the Azure template workbook (<bpt id="861e79b7-1341-482a-b9f7-bd9010f5cf40">&lt;em&gt;</bpt>UsageAPI)<ept id="861e79b7-1341-482a-b9f7-bd9010f5cf40">&lt;/em&gt;</ept> and set a new <bpt id="86e63f34-0a7d-454e-b1b0-4ada9bbda51c">&lt;em&gt;</bpt>collection<ept id="86e63f34-0a7d-454e-b1b0-4ada9bbda51c">&lt;/em&gt;</ept> to import information from the Usage API.</target>
+        </trans-unit>
+        <trans-unit id="996b7364-489a-4c42-a6cd-8087c5002e6c" xml:space="preserve">
+          <source><bpt id="4056f9e8-39c2-41ca-b666-19a5b292c3e4">&lt;linkText&gt;</bpt>Figure 3 - Usage API data imported into the UsageAPI sheet<ept id="4056f9e8-39c2-41ca-b666-19a5b292c3e4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4056f9e8-39c2-41ca-b666-19a5b292c3e4">&lt;linkText&gt;</bpt>Figure 3 - Usage API data imported into the UsageAPI sheet<ept id="4056f9e8-39c2-41ca-b666-19a5b292c3e4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3119d012-7b36-4fd8-87bc-0e76fda7dc7d" xml:space="preserve">
+          <source>Notice that this workbook already has other sheets to import services from Azure (<bpt id="7019b79e-4c76-4deb-a1a5-9d42aa675ab8">&lt;em&gt;</bpt>ImportServices<ept id="7019b79e-4c76-4deb-a1a5-9d42aa675ab8">&lt;/em&gt;</ept>), and process the consumption information from the Billing API (<bpt id="cdf2072e-27ee-4e3b-8184-17d45b081d9c">&lt;em&gt;</bpt>PublishData<ept id="cdf2072e-27ee-4e3b-8184-17d45b081d9c">&lt;/em&gt;</ept>).</source>
+          <target state="new">Notice that this workbook already has other sheets to import services from Azure (<bpt id="7019b79e-4c76-4deb-a1a5-9d42aa675ab8">&lt;em&gt;</bpt>ImportServices<ept id="7019b79e-4c76-4deb-a1a5-9d42aa675ab8">&lt;/em&gt;</ept>), and process the consumption information from the Billing API (<bpt id="cdf2072e-27ee-4e3b-8184-17d45b081d9c">&lt;em&gt;</bpt>PublishData<ept id="cdf2072e-27ee-4e3b-8184-17d45b081d9c">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="f7e78416-20be-4064-8a9a-9c8d219bdf0c" xml:space="preserve">
+          <source>We are going to extract and process the information from the Usage API on the <bpt id="f22652ba-f226-41d0-b17e-113d21167055">&lt;em&gt;</bpt>UsageAPI<ept id="f22652ba-f226-41d0-b17e-113d21167055">&lt;/em&gt;</ept> sheet, and correlate the information with the consumption data from the Billing API on the <bpt id="570ddbf5-4ced-4321-9212-dd893807064d">&lt;em&gt;</bpt>PublishData<ept id="570ddbf5-4ced-4321-9212-dd893807064d">&lt;/em&gt;</ept> sheet.</source>
+          <target state="new">We are going to extract and process the information from the Usage API on the <bpt id="f22652ba-f226-41d0-b17e-113d21167055">&lt;em&gt;</bpt>UsageAPI<ept id="f22652ba-f226-41d0-b17e-113d21167055">&lt;/em&gt;</ept> sheet, and correlate the information with the consumption data from the Billing API on the <bpt id="570ddbf5-4ced-4321-9212-dd893807064d">&lt;em&gt;</bpt>PublishData<ept id="570ddbf5-4ced-4321-9212-dd893807064d">&lt;/em&gt;</ept> sheet.</target>
+        </trans-unit>
+        <trans-unit id="8ea6d262-031b-46f4-87e1-adb80fd43859" xml:space="preserve">
+          <source>After importing the data into the workbook, we will create transformation steps in the <bpt id="deff67dc-8370-4288-b5cf-027a9aa9fa58">&lt;em&gt;</bpt>UsageAPI<ept id="deff67dc-8370-4288-b5cf-027a9aa9fa58">&lt;/em&gt;</ept> sheet in order to process the information from the API.</source>
+          <target state="new">After importing the data into the workbook, we will create transformation steps in the <bpt id="deff67dc-8370-4288-b5cf-027a9aa9fa58">&lt;em&gt;</bpt>UsageAPI<ept id="deff67dc-8370-4288-b5cf-027a9aa9fa58">&lt;/em&gt;</ept> sheet in order to process the information from the API.</target>
+        </trans-unit>
+        <trans-unit id="41c2c216-c5fe-47ac-b8d1-53d6ded0525a" xml:space="preserve">
+          <source>First step is to use a “JSON split” processor to extract the tags from a single field (as they are imported from the API) and create new fields for each one of them (Department, Project, Owner and
+Environment).</source>
+          <target state="new">First step is to use a “JSON split” processor to extract the tags from a single field (as they are imported from the API) and create new fields for each one of them (Department, Project, Owner and
+Environment).</target>
+        </trans-unit>
+        <trans-unit id="5180eed7-1f70-4a97-a019-ebbcedd4891b" xml:space="preserve">
+          <source><bpt id="57cfd98c-ab92-42fe-b69b-f3e5f0bb7a60">&lt;linkText&gt;</bpt>Figure 4 - Create new fields for the tag information<ept id="57cfd98c-ab92-42fe-b69b-f3e5f0bb7a60">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="57cfd98c-ab92-42fe-b69b-f3e5f0bb7a60">&lt;linkText&gt;</bpt>Figure 4 - Create new fields for the tag information<ept id="57cfd98c-ab92-42fe-b69b-f3e5f0bb7a60">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bda31a96-1794-4399-9272-99ce8a2cee5f" xml:space="preserve">
+          <source>Notice that the “Networking” service is missing the tag information (yellow box), but we can tell that this service is part of the same Resource Group by looking at the <bpt id="090ff5bf-1aab-415d-b663-7e736b713467">&lt;em&gt;</bpt>ResourceGroupName<ept id="090ff5bf-1aab-415d-b663-7e736b713467">&lt;/em&gt;</ept> field.</source>
+          <target state="new">Notice that the “Networking” service is missing the tag information (yellow box), but we can tell that this service is part of the same Resource Group by looking at the <bpt id="090ff5bf-1aab-415d-b663-7e736b713467">&lt;em&gt;</bpt>ResourceGroupName<ept id="090ff5bf-1aab-415d-b663-7e736b713467">&lt;/em&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="4ba35839-c07a-4a7c-aba7-8a2f7dc24f6b" xml:space="preserve">
+          <source>Since we have the tags for the other resources from this same Resource Group, we can use this information to apply the missing tags to this resource later in the process.</source>
+          <target state="new">Since we have the tags for the other resources from this same Resource Group, we can use this information to apply the missing tags to this resource later in the process.</target>
+        </trans-unit>
+        <trans-unit id="2551b612-c8e4-4bf4-991c-9040ef96b578" xml:space="preserve">
+          <source>The next step is to create a lookup table associating the information from the tags to the <bpt id="55fdc99f-aebf-4945-805d-e58c7d3cdb3f">&lt;em&gt;</bpt>ResourceGroupName<ept id="55fdc99f-aebf-4945-805d-e58c7d3cdb3f">&lt;/em&gt;</ept>.</source>
+          <target state="new">The next step is to create a lookup table associating the information from the tags to the <bpt id="55fdc99f-aebf-4945-805d-e58c7d3cdb3f">&lt;em&gt;</bpt>ResourceGroupName<ept id="55fdc99f-aebf-4945-805d-e58c7d3cdb3f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7cab4418-e840-4af6-b0cf-85e5dfebe025" xml:space="preserve">
+          <source>This lookup table will be used on the next step to enrich the consumption data with tag information.</source>
+          <target state="new">This lookup table will be used on the next step to enrich the consumption data with tag information.</target>
+        </trans-unit>
+        <trans-unit id="d832e930-66cb-430d-88e1-fe368baf1c5f" xml:space="preserve">
+          <source>Now we can jump to the <bpt id="10f7e5cc-0397-40a6-a3cb-14c9ed2f8898">&lt;em&gt;</bpt>PublishData<ept id="10f7e5cc-0397-40a6-a3cb-14c9ed2f8898">&lt;/em&gt;</ept> sheet, which processes the consumption information from the Billing API, and add the fields extracted from the tags.</source>
+          <target state="new">Now we can jump to the <bpt id="10f7e5cc-0397-40a6-a3cb-14c9ed2f8898">&lt;em&gt;</bpt>PublishData<ept id="10f7e5cc-0397-40a6-a3cb-14c9ed2f8898">&lt;/em&gt;</ept> sheet, which processes the consumption information from the Billing API, and add the fields extracted from the tags.</target>
+        </trans-unit>
+        <trans-unit id="6f77581b-2f94-4cb0-9277-663b86e2e239" xml:space="preserve">
+          <source>This process is performed by looking at the lookup table created on the previous step, using the <bpt id="bf0d1446-e54d-4921-bf10-5fdd56ab04cc">&lt;em&gt;</bpt>ResourceGroupName<ept id="bf0d1446-e54d-4921-bf10-5fdd56ab04cc">&lt;/em&gt;</ept>
+as the key for the lookups.</source>
+          <target state="new">This process is performed by looking at the lookup table created on the previous step, using the <bpt id="bf0d1446-e54d-4921-bf10-5fdd56ab04cc">&lt;em&gt;</bpt>ResourceGroupName<ept id="bf0d1446-e54d-4921-bf10-5fdd56ab04cc">&lt;/em&gt;</ept>
+as the key for the lookups.</target>
+        </trans-unit>
+        <trans-unit id="71c37cf3-4e08-43ed-853d-90d8d74a4808" xml:space="preserve">
+          <source><bpt id="c9fb6697-81ff-4c80-aec5-f2d8a1c69be3">&lt;linkText&gt;</bpt>Figure 5 - Populating the account structure with the information from the lookups<ept id="c9fb6697-81ff-4c80-aec5-f2d8a1c69be3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9fb6697-81ff-4c80-aec5-f2d8a1c69be3">&lt;linkText&gt;</bpt>Figure 5 - Populating the account structure with the information from the lookups<ept id="c9fb6697-81ff-4c80-aec5-f2d8a1c69be3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cbb99bbb-9c9c-4962-b139-cbb10cf79394" xml:space="preserve">
+          <source>Notice that the appropriate account structure fields for the “Networking” service were applied, fixing the issue with the missing tags.</source>
+          <target state="new">Notice that the appropriate account structure fields for the “Networking” service were applied, fixing the issue with the missing tags.</target>
+        </trans-unit>
+        <trans-unit id="d8aa09d7-80c7-4b16-9064-9433c27643a7" xml:space="preserve">
+          <source>We also populated the account structure
+fields for resources other than our target Resource Group with “Other”, in order to differentiate them on the reports.</source>
+          <target state="new">We also populated the account structure
+fields for resources other than our target Resource Group with “Other”, in order to differentiate them on the reports.</target>
+        </trans-unit>
+        <trans-unit id="a4112952-ab8c-4dae-9de5-aeed15028dc4" xml:space="preserve">
+          <source>Now we just need to add another step to publish the usage data.</source>
+          <target state="new">Now we just need to add another step to publish the usage data.</target>
+        </trans-unit>
+        <trans-unit id="251a0f1a-4393-4b67-b683-158c0fee7892" xml:space="preserve">
+          <source>During this step, the appropriate rates for each service defined on our Rate Plan will be applied to the usage
+information, and the resulting charge is then loaded into the database.</source>
+          <target state="new">During this step, the appropriate rates for each service defined on our Rate Plan will be applied to the usage
+information, and the resulting charge is then loaded into the database.</target>
+        </trans-unit>
+        <trans-unit id="a96fcf45-1c7a-4634-87ae-dd9cc580c44f" xml:space="preserve">
+          <source>The best part is that you only have to go through this process once.</source>
+          <target state="new">The best part is that you only have to go through this process once.</target>
+        </trans-unit>
+        <trans-unit id="36ef6c77-d576-4e71-8a54-7faa5aecc698" xml:space="preserve">
+          <source>When the workbook is completed, you just need to add it to the scheduler and it will run hourly or daily at the
+scheduled time.</source>
+          <target state="new">When the workbook is completed, you just need to add it to the scheduler and it will run hourly or daily at the
+scheduled time.</target>
+        </trans-unit>
+        <trans-unit id="96de374a-c32c-485d-96bc-613fcfcea3d3" xml:space="preserve">
+          <source>Then it’s just a matter of creating new reports, or customizing
+existing ones, in order to visualize and analyze the data to get meaningful
+insights from your cloud usage.</source>
+          <target state="new">Then it’s just a matter of creating new reports, or customizing
+existing ones, in order to visualize and analyze the data to get meaningful
+insights from your cloud usage.</target>
+        </trans-unit>
+        <trans-unit id="eaf7a779-2541-494c-8957-9f6088ab81ca" xml:space="preserve">
+          <source>For detailed instructions on creating Cloud Cruiser workbooks and reports, please refer to Cloud Cruiser’s online <bpt id="7da18848-ac0e-4e0f-8e07-7722f8bbb66b">&lt;linkText&gt;</bpt>documentation<ept id="7da18848-ac0e-4e0f-8e07-7722f8bbb66b">&lt;/linkText&gt;</ept><bpt id="7da18848-ac0e-4e0f-8e07-7722f8bbb66b">&lt;title&gt;</bpt><ept id="7da18848-ac0e-4e0f-8e07-7722f8bbb66b">&lt;/title&gt;</ept> (valid login required).</source>
+          <target state="new">For detailed instructions on creating Cloud Cruiser workbooks and reports, please refer to Cloud Cruiser’s online <bpt id="7da18848-ac0e-4e0f-8e07-7722f8bbb66b">&lt;linkText&gt;</bpt>documentation<ept id="7da18848-ac0e-4e0f-8e07-7722f8bbb66b">&lt;/linkText&gt;</ept><bpt id="7da18848-ac0e-4e0f-8e07-7722f8bbb66b">&lt;title&gt;</bpt><ept id="7da18848-ac0e-4e0f-8e07-7722f8bbb66b">&lt;/title&gt;</ept> (valid login required).</target>
+        </trans-unit>
+        <trans-unit id="2d21a3a7-6e8d-484e-b18f-6d3f9ea2d0d7" xml:space="preserve">
+          <source>For more information about Cloud Cruiser, please contact <bpt id="14a2c6da-4772-4387-9dbb-bde7474edfdb">&lt;linkText&gt;</bpt>info@cloudcruiser.com<ept id="14a2c6da-4772-4387-9dbb-bde7474edfdb">&lt;/linkText&gt;</ept><bpt id="14a2c6da-4772-4387-9dbb-bde7474edfdb">&lt;title&gt;</bpt><ept id="14a2c6da-4772-4387-9dbb-bde7474edfdb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Cloud Cruiser, please contact <bpt id="14a2c6da-4772-4387-9dbb-bde7474edfdb">&lt;linkText&gt;</bpt>info@cloudcruiser.com<ept id="14a2c6da-4772-4387-9dbb-bde7474edfdb">&lt;/linkText&gt;</ept><bpt id="14a2c6da-4772-4387-9dbb-bde7474edfdb">&lt;title&gt;</bpt><ept id="14a2c6da-4772-4387-9dbb-bde7474edfdb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5cafe46f-7ece-4199-8452-bf82f8d5c238" xml:space="preserve">
+          <source>See <bpt id="2e5562da-f56c-4fee-970e-b5de58915c0a">&lt;linkText&gt;</bpt>Gain insights into your Microsoft Azure resource consumption<ept id="2e5562da-f56c-4fee-970e-b5de58915c0a">&lt;/linkText&gt;</ept><bpt id="2e5562da-f56c-4fee-970e-b5de58915c0a">&lt;title&gt;</bpt><ept id="2e5562da-f56c-4fee-970e-b5de58915c0a">&lt;/title&gt;</ept> for an overview of the Azure Resource Usage and RateCard APIs.</source>
+          <target state="new">See <bpt id="2e5562da-f56c-4fee-970e-b5de58915c0a">&lt;linkText&gt;</bpt>Gain insights into your Microsoft Azure resource consumption<ept id="2e5562da-f56c-4fee-970e-b5de58915c0a">&lt;/linkText&gt;</ept><bpt id="2e5562da-f56c-4fee-970e-b5de58915c0a">&lt;title&gt;</bpt><ept id="2e5562da-f56c-4fee-970e-b5de58915c0a">&lt;/title&gt;</ept> for an overview of the Azure Resource Usage and RateCard APIs.</target>
+        </trans-unit>
+        <trans-unit id="6416fce4-bcc5-443d-9ac1-05cb2ac66802" xml:space="preserve">
+          <source>Check out the <bpt id="159a586d-0e37-4310-8223-a90bafe74488">&lt;linkText&gt;</bpt>Azure Billing REST API Reference<ept id="159a586d-0e37-4310-8223-a90bafe74488">&lt;/linkText&gt;</ept><bpt id="159a586d-0e37-4310-8223-a90bafe74488">&lt;title&gt;</bpt><ept id="159a586d-0e37-4310-8223-a90bafe74488">&lt;/title&gt;</ept> for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.</source>
+          <target state="new">Check out the <bpt id="159a586d-0e37-4310-8223-a90bafe74488">&lt;linkText&gt;</bpt>Azure Billing REST API Reference<ept id="159a586d-0e37-4310-8223-a90bafe74488">&lt;/linkText&gt;</ept><bpt id="159a586d-0e37-4310-8223-a90bafe74488">&lt;title&gt;</bpt><ept id="159a586d-0e37-4310-8223-a90bafe74488">&lt;/title&gt;</ept> for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="f87c506d-cdab-4bcb-909d-fd0c6e78e165" xml:space="preserve">
+          <source>If you would like to dive right into the sample code, check out our <bpt id="e789fa8e-daea-49f8-bd14-19d8422608e5">&lt;linkText&gt;</bpt>Microsoft Azure Billing API Code Samples on Github<ept id="e789fa8e-daea-49f8-bd14-19d8422608e5">&lt;/linkText&gt;</ept><bpt id="e789fa8e-daea-49f8-bd14-19d8422608e5">&lt;title&gt;</bpt><ept id="e789fa8e-daea-49f8-bd14-19d8422608e5">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you would like to dive right into the sample code, check out our <bpt id="e789fa8e-daea-49f8-bd14-19d8422608e5">&lt;linkText&gt;</bpt>Microsoft Azure Billing API Code Samples on Github<ept id="e789fa8e-daea-49f8-bd14-19d8422608e5">&lt;/linkText&gt;</ept><bpt id="e789fa8e-daea-49f8-bd14-19d8422608e5">&lt;title&gt;</bpt><ept id="e789fa8e-daea-49f8-bd14-19d8422608e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee3322d0-5461-41d7-a181-90074b63ee1d" xml:space="preserve">
+          <source>See the <bpt id="8dd47c77-632a-4809-b64f-6717b77eaee6">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="8dd47c77-632a-4809-b64f-6717b77eaee6">&lt;/linkText&gt;</ept><bpt id="8dd47c77-632a-4809-b64f-6717b77eaee6">&lt;title&gt;</bpt><ept id="8dd47c77-632a-4809-b64f-6717b77eaee6">&lt;/title&gt;</ept> article to learn more about the Azure Resource Manager.</source>
+          <target state="new">See the <bpt id="8dd47c77-632a-4809-b64f-6717b77eaee6">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="8dd47c77-632a-4809-b64f-6717b77eaee6">&lt;/linkText&gt;</ept><bpt id="8dd47c77-632a-4809-b64f-6717b77eaee6">&lt;title&gt;</bpt><ept id="8dd47c77-632a-4809-b64f-6717b77eaee6">&lt;/title&gt;</ept> article to learn more about the Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="17f55b4f-0da0-45fd-a55a-7731a1cc323d" xml:space="preserve">
+          <source> </source>
+          <target state="new"> </target>
+        </trans-unit>
+        <trans-unit id="fb829664-5a40-47b5-acee-3cf7a52d9918" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png</target>
+        </trans-unit>
+        <trans-unit id="80a0d085-7a29-4c46-b24e-319056a96ce7" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png</target>
+        </trans-unit>
+        <trans-unit id="ca870584-62a5-4a2d-ba53-71856fc21e4f" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png</target>
+        </trans-unit>
+        <trans-unit id="96800c8a-c30f-458f-8c4f-f5caadac70c4" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png</target>
+        </trans-unit>
+        <trans-unit id="608daa50-b86b-43f4-b558-b4700446522d" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png</target>
+        </trans-unit>
+        <trans-unit id="18fd26fa-ce47-4bf4-8f5e-a48534125cae" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png</target>
+        </trans-unit>
+        <trans-unit id="c86aa556-fc97-4084-be61-1d1a8fc644f4" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png</target>
+        </trans-unit>
+        <trans-unit id="5696e786-5428-4f96-a264-84753ddaf549" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png</target>
+        </trans-unit>
+        <trans-unit id="b29dd239-d80e-4092-8bfe-264051dd3144" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png</target>
+        </trans-unit>
+        <trans-unit id="8ebda808-1c26-4d09-8854-2fdb831ca921" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png</target>
+        </trans-unit>
+        <trans-unit id="ac0e37db-1ee1-457b-8c31-49b516624e57" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png</target>
+        </trans-unit>
+        <trans-unit id="36d51909-3d28-4e04-a8db-90f2d413ac3e" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png</target>
+        </trans-unit>
+        <trans-unit id="19d33b31-0270-4319-927c-02861a2ab6ec" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png</target>
+        </trans-unit>
+        <trans-unit id="5a078ed3-18a2-4575-bff6-a7a7b74d398e" xml:space="preserve">
+          <source>./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png</source>
+          <target state="new">./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png</target>
+        </trans-unit>
+      </group>
+      <group id="5d643d7a-5531-4b39-b97c-f8affdad07d4" />
+    </body>
+  </file>
+</xliff>

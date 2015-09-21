@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7e90bf43-d790-423f-93f8-aada05fc001b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7e90bf43-d790-423f-93f8-aada05fc001b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c192ec64-1a47-493b-b957-e62dc314f043">
+        <trans-unit id="3334a7ee-f28b-4df8-9507-6e45176e7d43" xml:space="preserve">
+          <source>SQL Database Business Continuity during Application Upgrade</source>
+          <target state="new">SQL Database Business Continuity during Application Upgrade</target>
+        </trans-unit>
+        <trans-unit id="8d395393-43ab-4eae-a90e-7d08b411195a" xml:space="preserve">
+          <source>This section provides guidance for business continuity to prevent downtime during an application upgrade.</source>
+          <target state="new">This section provides guidance for business continuity to prevent downtime during an application upgrade.</target>
+        </trans-unit>
+        <trans-unit id="2f391985-cd83-4e38-833c-d66ff84bc380" xml:space="preserve">
+          <source>In the context of Microsoft Azure the term 'application' refers to components such as front ends, services deployed in a cloud service, and the data tier used to persist application data or meta-data.</source>
+          <target state="new">In the context of Microsoft Azure the term 'application' refers to components such as front ends, services deployed in a cloud service, and the data tier used to persist application data or meta-data.</target>
+        </trans-unit>
+        <trans-unit id="54d64c3d-23b7-445c-930b-4bf228824d20" xml:space="preserve">
+          <source>Cloud applications are often designed to provide uninterrupted service 24x7.</source>
+          <target state="new">Cloud applications are often designed to provide uninterrupted service 24x7.</target>
+        </trans-unit>
+        <trans-unit id="275d17b7-75c4-40db-87c6-0f0f86381bbe" xml:space="preserve">
+          <source>Rolling out a new version of the application, when changes in the data tier are applied in the live site could potentially cause some disruption, such as reduced features being available or even complete downtime.</source>
+          <target state="new">Rolling out a new version of the application, when changes in the data tier are applied in the live site could potentially cause some disruption, such as reduced features being available or even complete downtime.</target>
+        </trans-unit>
+        <trans-unit id="483a70e3-a60f-4b00-9de2-5ff40add06c2" xml:space="preserve">
+          <source>When designing the application upgrade process the main goal should be eliminating or dramatically reducing the duration of time when application capability is reduced.</source>
+          <target state="new">When designing the application upgrade process the main goal should be eliminating or dramatically reducing the duration of time when application capability is reduced.</target>
+        </trans-unit>
+        <trans-unit id="eb072661-2b94-43b2-9282-95a8d7eec5d5" xml:space="preserve">
+          <source>To achieve that the process typically involves creation of a temporary copy of the application to be used as a backup in case the upgrade fails.</source>
+          <target state="new">To achieve that the process typically involves creation of a temporary copy of the application to be used as a backup in case the upgrade fails.</target>
+        </trans-unit>
+        <trans-unit id="1c975e01-e723-4055-8fb4-4dfacf519b1b" xml:space="preserve">
+          <source>The following  factors should be considered when designing and planning the upgrade:</source>
+          <target state="new">The following  factors should be considered when designing and planning the upgrade:</target>
+        </trans-unit>
+        <trans-unit id="5bccf25e-a67c-4e08-a3ba-8d4b06f1ec5a" xml:space="preserve">
+          <source>Maximum acceptable time when the application will have reduced capability </source>
+          <target state="new">Maximum acceptable time when the application will have reduced capability </target>
+        </trans-unit>
+        <trans-unit id="ecc42147-53a6-4c2e-b7aa-65b50b93c8bb" xml:space="preserve">
+          <source>Minimum set of features that will be available during the upgrade process</source>
+          <target state="new">Minimum set of features that will be available during the upgrade process</target>
+        </trans-unit>
+        <trans-unit id="4e542320-d81d-4abf-835b-9aadae9f401f" xml:space="preserve">
+          <source>Ability to roll back in case of any errors during upgrade.</source>
+          <target state="new">Ability to roll back in case of any errors during upgrade.</target>
+        </trans-unit>
+        <trans-unit id="64edf027-433e-41b3-9b13-e7eaeb66a6a8" xml:space="preserve">
+          <source>Total dollar cost involved.</source>
+          <target state="new">Total dollar cost involved.</target>
+        </trans-unit>
+        <trans-unit id="102ea6bb-74ed-4a9e-9eab-b5c0fbd49260" xml:space="preserve">
+          <source>This includes the cost of additional application components needed to create a temporary copy (such as additional premium databases for active geo-replication) and incremental costs for temporary deployments used by the upgrade process.</source>
+          <target state="new">This includes the cost of additional application components needed to create a temporary copy (such as additional premium databases for active geo-replication) and incremental costs for temporary deployments used by the upgrade process.</target>
+        </trans-unit>
+        <trans-unit id="ec0fe444-2be6-43fa-8375-126f2b6ebbf8" xml:space="preserve">
+          <source>If the application can temporarily operate in read-only mode the upgrade workflow could be designed to effectively eliminate the downtime altogether.</source>
+          <target state="new">If the application can temporarily operate in read-only mode the upgrade workflow could be designed to effectively eliminate the downtime altogether.</target>
+        </trans-unit>
+        <trans-unit id="9f0cf3de-431a-445e-b873-270dc52a134c" xml:space="preserve">
+          <source>To understand how to implement the upgrade work-flow for your specific application topology please refer to <bpt id="8bd684a1-4cbe-40bb-be2f-d826ce8891e8">&lt;linkText&gt;</bpt>Best Practices for minimal disruption to Azure SQL DB during application rolling upgrades<ept id="8bd684a1-4cbe-40bb-be2f-d826ce8891e8">&lt;/linkText&gt;</ept><bpt id="8bd684a1-4cbe-40bb-be2f-d826ce8891e8">&lt;title&gt;</bpt><ept id="8bd684a1-4cbe-40bb-be2f-d826ce8891e8">&lt;/title&gt;</ept></source>
+          <target state="new">To understand how to implement the upgrade work-flow for your specific application topology please refer to <bpt id="8bd684a1-4cbe-40bb-be2f-d826ce8891e8">&lt;linkText&gt;</bpt>Best Practices for minimal disruption to Azure SQL DB during application rolling upgrades<ept id="8bd684a1-4cbe-40bb-be2f-d826ce8891e8">&lt;/linkText&gt;</ept><bpt id="8bd684a1-4cbe-40bb-be2f-d826ce8891e8">&lt;title&gt;</bpt><ept id="8bd684a1-4cbe-40bb-be2f-d826ce8891e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

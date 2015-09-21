@@ -1,0 +1,1683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9563ea00-00f4-4207-b2f3-be607601e48a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9563ea00-00f4-4207-b2f3-be607601e48a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ee211f85-597c-413a-afff-1535efa27a19">
+        <trans-unit id="e10b54dc-1df7-4df7-bf2e-9dc3732c6b4f" xml:space="preserve">
+          <source>How to choose machine learning algorithms | Microsoft Azure</source>
+          <target state="new">How to choose machine learning algorithms | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6a49de26-0864-4e87-b085-d76f1c2c6dfe" xml:space="preserve">
+          <source>How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.</source>
+          <target state="new">How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.</target>
+        </trans-unit>
+        <trans-unit id="6c8f5661-8719-4cff-a9c0-7e4e47a916a1" xml:space="preserve">
+          <source>The answer to the question "What machine learning algorithm should I use?"</source>
+          <target state="new">The answer to the question "What machine learning algorithm should I use?"</target>
+        </trans-unit>
+        <trans-unit id="a1fb7190-2b54-4836-87bf-938db96c815c" xml:space="preserve">
+          <source>is always "It depends."</source>
+          <target state="new">is always "It depends."</target>
+        </trans-unit>
+        <trans-unit id="73309a40-fe9e-498c-8d5e-75ba9a6ae5f9" xml:space="preserve">
+          <source>It depends on the size, quality, and nature of the data.</source>
+          <target state="new">It depends on the size, quality, and nature of the data.</target>
+        </trans-unit>
+        <trans-unit id="8dec02d7-7cd1-4f25-8520-109ccb716ca4" xml:space="preserve">
+          <source>It depends what you want to do with the answer.</source>
+          <target state="new">It depends what you want to do with the answer.</target>
+        </trans-unit>
+        <trans-unit id="f1eb1372-919c-4452-a149-c4ca91e2c857" xml:space="preserve">
+          <source>It depends on how the math of the algorithm was translated into instructions for the computer you are using.</source>
+          <target state="new">It depends on how the math of the algorithm was translated into instructions for the computer you are using.</target>
+        </trans-unit>
+        <trans-unit id="3f7c80ab-5997-4006-9281-b4ad15c120ce" xml:space="preserve">
+          <source>And it depends on how much time you have.</source>
+          <target state="new">And it depends on how much time you have.</target>
+        </trans-unit>
+        <trans-unit id="92870014-cb20-454d-9b8a-66f9a849946c" xml:space="preserve">
+          <source>Even the most experienced data scientists can't tell which algorithm will perform best before trying them.</source>
+          <target state="new">Even the most experienced data scientists can't tell which algorithm will perform best before trying them.</target>
+        </trans-unit>
+        <trans-unit id="1f910db1-1012-4900-afd2-570450c93ae6" xml:space="preserve">
+          <source>The <bpt id="58d6be00-fc43-4f03-9fc4-da6fd8e10cce">&lt;strong&gt;</bpt>Microsoft Azure Machine Learning Algorithm Cheat Sheet<ept id="58d6be00-fc43-4f03-9fc4-da6fd8e10cce">&lt;/strong&gt;</ept> helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.</source>
+          <target state="new">The <bpt id="58d6be00-fc43-4f03-9fc4-da6fd8e10cce">&lt;strong&gt;</bpt>Microsoft Azure Machine Learning Algorithm Cheat Sheet<ept id="58d6be00-fc43-4f03-9fc4-da6fd8e10cce">&lt;/strong&gt;</ept> helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.</target>
+        </trans-unit>
+        <trans-unit id="fb435b09-94f8-4c43-8e67-a65445059b12" xml:space="preserve">
+          <source>This article walks you through how to use it.</source>
+          <target state="new">This article walks you through how to use it.</target>
+        </trans-unit>
+        <trans-unit id="c804e9fc-703e-4652-a61c-85fc0626aebb" xml:space="preserve">
+          <source>To download the cheat sheet and follow along with this article, go to <bpt id="43c05de3-24e0-46d5-a1d0-dbcee96216c7">&lt;linkText&gt;</bpt>Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio<ept id="43c05de3-24e0-46d5-a1d0-dbcee96216c7">&lt;/linkText&gt;</ept><bpt id="43c05de3-24e0-46d5-a1d0-dbcee96216c7">&lt;title&gt;</bpt><ept id="43c05de3-24e0-46d5-a1d0-dbcee96216c7">&lt;/title&gt;</ept>.</source>
+          <target state="new">To download the cheat sheet and follow along with this article, go to <bpt id="43c05de3-24e0-46d5-a1d0-dbcee96216c7">&lt;linkText&gt;</bpt>Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio<ept id="43c05de3-24e0-46d5-a1d0-dbcee96216c7">&lt;/linkText&gt;</ept><bpt id="43c05de3-24e0-46d5-a1d0-dbcee96216c7">&lt;title&gt;</bpt><ept id="43c05de3-24e0-46d5-a1d0-dbcee96216c7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49afbf42-263a-4e84-815e-edc0ce6f894c" xml:space="preserve">
+          <source>This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio.</source>
+          <target state="new">This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="94f400f6-2f99-4454-b5ca-17dd167a3c88" xml:space="preserve">
+          <source>That means that it makes some generalizations and oversimplifications, but it will point you in a safe direction.</source>
+          <target state="new">That means that it makes some generalizations and oversimplifications, but it will point you in a safe direction.</target>
+        </trans-unit>
+        <trans-unit id="1a5ecff0-851b-43c6-a478-aa23b34920ca" xml:space="preserve">
+          <source>It also means that there are lots of algorithms not listed here.</source>
+          <target state="new">It also means that there are lots of algorithms not listed here.</target>
+        </trans-unit>
+        <trans-unit id="8566b16a-7895-474b-9b5c-d8e8411b6f74" xml:space="preserve">
+          <source>As Azure Machine Learning grows to encompass a more complete set of available methods, we'll add them.</source>
+          <target state="new">As Azure Machine Learning grows to encompass a more complete set of available methods, we'll add them.</target>
+        </trans-unit>
+        <trans-unit id="810316ea-a00a-4203-b9e9-04b25f5e49e4" xml:space="preserve">
+          <source>These recommendations are compiled feedback and tips from a lot of data scientists and machine learning experts.</source>
+          <target state="new">These recommendations are compiled feedback and tips from a lot of data scientists and machine learning experts.</target>
+        </trans-unit>
+        <trans-unit id="43e09a47-1638-4089-bf1d-5554e7d458f4" xml:space="preserve">
+          <source>We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus.</source>
+          <target state="new">We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus.</target>
+        </trans-unit>
+        <trans-unit id="a27f1414-7ada-4605-ab08-0e6e87e6488a" xml:space="preserve">
+          <source>Most of the statements of disagreement begin with "It depends…"</source>
+          <target state="new">Most of the statements of disagreement begin with "It depends…"</target>
+        </trans-unit>
+        <trans-unit id="b68c95f4-bae3-462e-b8d5-8ef423e5667a" xml:space="preserve">
+          <source>Read the path and algorithm labels on the chart as "For <bpt id="81f36ae3-650c-4e7f-825e-a65e7545309f">&lt;em&gt;</bpt>&amp;lt;path
+label&amp;gt;<ept id="81f36ae3-650c-4e7f-825e-a65e7545309f">&lt;/em&gt;</ept> use <bpt id="4ad69516-e3a9-4892-a8a0-905056974a8c">&lt;em&gt;</bpt>&amp;lt;algorithm&amp;gt;<ept id="4ad69516-e3a9-4892-a8a0-905056974a8c">&lt;/em&gt;</ept>."</source>
+          <target state="new">Read the path and algorithm labels on the chart as "For <bpt id="81f36ae3-650c-4e7f-825e-a65e7545309f">&lt;em&gt;</bpt>&amp;lt;path
+label&amp;gt;<ept id="81f36ae3-650c-4e7f-825e-a65e7545309f">&lt;/em&gt;</ept> use <bpt id="4ad69516-e3a9-4892-a8a0-905056974a8c">&lt;em&gt;</bpt>&amp;lt;algorithm&amp;gt;<ept id="4ad69516-e3a9-4892-a8a0-905056974a8c">&lt;/em&gt;</ept>."</target>
+        </trans-unit>
+        <trans-unit id="64b239da-d2a2-4b45-a3ba-aa101ed38129" xml:space="preserve">
+          <source>For example, "For <bpt id="a4edabdf-7099-4279-97bb-9e8e0526c460">&lt;em&gt;</bpt>speed<ept id="a4edabdf-7099-4279-97bb-9e8e0526c460">&lt;/em&gt;</ept> use <bpt id="afbddd42-16d3-47ab-816a-3da8c85f0cf5">&lt;em&gt;</bpt>two
+class logistic regression<ept id="afbddd42-16d3-47ab-816a-3da8c85f0cf5">&lt;/em&gt;</ept>."</source>
+          <target state="new">For example, "For <bpt id="a4edabdf-7099-4279-97bb-9e8e0526c460">&lt;em&gt;</bpt>speed<ept id="a4edabdf-7099-4279-97bb-9e8e0526c460">&lt;/em&gt;</ept> use <bpt id="afbddd42-16d3-47ab-816a-3da8c85f0cf5">&lt;em&gt;</bpt>two
+class logistic regression<ept id="afbddd42-16d3-47ab-816a-3da8c85f0cf5">&lt;/em&gt;</ept>."</target>
+        </trans-unit>
+        <trans-unit id="34d20a13-649a-42a3-96fb-59dbf58f89ee" xml:space="preserve">
+          <source>Sometimes more than one branch will apply.</source>
+          <target state="new">Sometimes more than one branch will apply.</target>
+        </trans-unit>
+        <trans-unit id="9762178e-30b0-4061-ba1d-9c6fea190642" xml:space="preserve">
+          <source>Sometimes none of them will be a perfect fit.</source>
+          <target state="new">Sometimes none of them will be a perfect fit.</target>
+        </trans-unit>
+        <trans-unit id="a89e0afd-4f7c-436a-8806-7dde201c0be1" xml:space="preserve">
+          <source>They're intended to be
+rule-of-thumb recommendations, so don't worry about it being exact.</source>
+          <target state="new">They're intended to be
+rule-of-thumb recommendations, so don't worry about it being exact.</target>
+        </trans-unit>
+        <trans-unit id="75b0bf0f-5cae-42e5-aa06-b38aac9114b2" xml:space="preserve">
+          <source>Several data scientists I talked with said that the only sure way to
+find the very best algorithm is to try all of them.</source>
+          <target state="new">Several data scientists I talked with said that the only sure way to
+find the very best algorithm is to try all of them.</target>
+        </trans-unit>
+        <trans-unit id="d56fa99d-f9da-4b57-a70a-13b79837c23e" xml:space="preserve">
+          <source>Here's an example from the <bpt id="a70d406d-b102-4ec9-ac04-45ff56e18b4d">&lt;linkText&gt;</bpt>Azure Machine Learning
+Gallery<ept id="a70d406d-b102-4ec9-ac04-45ff56e18b4d">&lt;/linkText&gt;</ept><bpt id="a70d406d-b102-4ec9-ac04-45ff56e18b4d">&lt;title&gt;</bpt><ept id="a70d406d-b102-4ec9-ac04-45ff56e18b4d">&lt;/title&gt;</ept> of an experiment that tries
+several algorithms against the same data and compares the results:
+<bpt id="0e8df3a5-311e-4e84-9162-c301da73d78b">&lt;linkText&gt;</bpt>Compare Multi-class Classifiers: Letter
+recognition<ept id="0e8df3a5-311e-4e84-9162-c301da73d78b">&lt;/linkText&gt;</ept><bpt id="0e8df3a5-311e-4e84-9162-c301da73d78b">&lt;title&gt;</bpt><ept id="0e8df3a5-311e-4e84-9162-c301da73d78b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Here's an example from the <bpt id="a70d406d-b102-4ec9-ac04-45ff56e18b4d">&lt;linkText&gt;</bpt>Azure Machine Learning
+Gallery<ept id="a70d406d-b102-4ec9-ac04-45ff56e18b4d">&lt;/linkText&gt;</ept><bpt id="a70d406d-b102-4ec9-ac04-45ff56e18b4d">&lt;title&gt;</bpt><ept id="a70d406d-b102-4ec9-ac04-45ff56e18b4d">&lt;/title&gt;</ept> of an experiment that tries
+several algorithms against the same data and compares the results:
+<bpt id="0e8df3a5-311e-4e84-9162-c301da73d78b">&lt;linkText&gt;</bpt>Compare Multi-class Classifiers: Letter
+recognition<ept id="0e8df3a5-311e-4e84-9162-c301da73d78b">&lt;/linkText&gt;</ept><bpt id="0e8df3a5-311e-4e84-9162-c301da73d78b">&lt;title&gt;</bpt><ept id="0e8df3a5-311e-4e84-9162-c301da73d78b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84afca69-39bb-412f-aa28-cef671bb5410" xml:space="preserve">
+          <source>Supervised learning algorithms make predictions based on a set of
+examples.</source>
+          <target state="new">Supervised learning algorithms make predictions based on a set of
+examples.</target>
+        </trans-unit>
+        <trans-unit id="2c52e403-9a55-4eb1-ae4b-bb50e9813b9e" xml:space="preserve">
+          <source>For instance, historical stock prices can be used to hazard
+guesses at future prices.</source>
+          <target state="new">For instance, historical stock prices can be used to hazard
+guesses at future prices.</target>
+        </trans-unit>
+        <trans-unit id="1ca99a2c-eec4-48fa-816c-9ce0e1d23d97" xml:space="preserve">
+          <source>Each example used for training is labeled with
+the value of interest—in this case the stock price.</source>
+          <target state="new">Each example used for training is labeled with
+the value of interest—in this case the stock price.</target>
+        </trans-unit>
+        <trans-unit id="e83bd847-d3f1-46e9-bc07-ec82747d3fab" xml:space="preserve">
+          <source>A supervised
+learning algorithm looks for patterns in those value labels.</source>
+          <target state="new">A supervised
+learning algorithm looks for patterns in those value labels.</target>
+        </trans-unit>
+        <trans-unit id="9d8bb003-c2f7-40b6-8170-c5ff426eda0e" xml:space="preserve">
+          <source>It can use
+any information that might be relevant—the day of the week, the season,
+the company's financial data, the type of industry, the presence of
+disruptive geopolicitical events—and each algorithm looks for different
+types of patterns.</source>
+          <target state="new">It can use
+any information that might be relevant—the day of the week, the season,
+the company's financial data, the type of industry, the presence of
+disruptive geopolicitical events—and each algorithm looks for different
+types of patterns.</target>
+        </trans-unit>
+        <trans-unit id="701ac99a-f7ae-4922-8caa-d0a4e03d0b64" xml:space="preserve">
+          <source>After the algorithm has found the best pattern it
+can, it uses that pattern to make predictions for unlabeled testing
+data—tomorrow's prices.</source>
+          <target state="new">After the algorithm has found the best pattern it
+can, it uses that pattern to make predictions for unlabeled testing
+data—tomorrow's prices.</target>
+        </trans-unit>
+        <trans-unit id="6093a3c2-801d-420b-ace2-a2f554d5f699" xml:space="preserve">
+          <source>This is a popular and useful type of machine learning.</source>
+          <target state="new">This is a popular and useful type of machine learning.</target>
+        </trans-unit>
+        <trans-unit id="00b98814-ce8f-45e3-ad6d-06e0442846b2" xml:space="preserve">
+          <source>With one
+exception, all of the modules in Azure Machine Learning are supervised learning
+algorithms.</source>
+          <target state="new">With one
+exception, all of the modules in Azure Machine Learning are supervised learning
+algorithms.</target>
+        </trans-unit>
+        <trans-unit id="0e13ae2d-7174-4cbd-b5ac-3c9ff4b53450" xml:space="preserve">
+          <source>There are several specific types of supervised learning that
+are represented within Azure Machine Learning: classification, regression, and anomaly
+detection.</source>
+          <target state="new">There are several specific types of supervised learning that
+are represented within Azure Machine Learning: classification, regression, and anomaly
+detection.</target>
+        </trans-unit>
+        <trans-unit id="c018f3f3-6cb7-4cb4-bfbd-1d09fcca7e05" xml:space="preserve">
+          <source><bpt id="c89b4f60-30e1-4c2a-bb13-dc2303d7736c">&lt;strong&gt;</bpt>Classification<ept id="c89b4f60-30e1-4c2a-bb13-dc2303d7736c">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="c89b4f60-30e1-4c2a-bb13-dc2303d7736c">&lt;strong&gt;</bpt>Classification<ept id="c89b4f60-30e1-4c2a-bb13-dc2303d7736c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b429fa93-c1b8-4ff4-a5f8-db5abf0b7c92" xml:space="preserve">
+          <source>When the data are being used to predict a
+category, supervised learning is also called classification.</source>
+          <target state="new">When the data are being used to predict a
+category, supervised learning is also called classification.</target>
+        </trans-unit>
+        <trans-unit id="41f3f224-0016-4b12-80c5-b865440ee838" xml:space="preserve">
+          <source>This is
+the case when assigning an image as a picture of either a 'cat' or a
+'dog'.</source>
+          <target state="new">This is
+the case when assigning an image as a picture of either a 'cat' or a
+'dog'.</target>
+        </trans-unit>
+        <trans-unit id="5a3db03b-e77c-49b5-a238-1294efa2b387" xml:space="preserve">
+          <source>When there are only two choices, this is called <bpt id="7af6c9c6-7333-4ee2-932d-8c8efb2171d7">&lt;strong&gt;</bpt>two-class<ept id="7af6c9c6-7333-4ee2-932d-8c8efb2171d7">&lt;/strong&gt;</ept>
+or <bpt id="416a40b8-9f4e-4c20-9e50-93aefb72fb47">&lt;strong&gt;</bpt>binomial classification<ept id="416a40b8-9f4e-4c20-9e50-93aefb72fb47">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When there are only two choices, this is called <bpt id="7af6c9c6-7333-4ee2-932d-8c8efb2171d7">&lt;strong&gt;</bpt>two-class<ept id="7af6c9c6-7333-4ee2-932d-8c8efb2171d7">&lt;/strong&gt;</ept>
+or <bpt id="416a40b8-9f4e-4c20-9e50-93aefb72fb47">&lt;strong&gt;</bpt>binomial classification<ept id="416a40b8-9f4e-4c20-9e50-93aefb72fb47">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4616ef2c-6294-4b54-86aa-c81b52b78c70" xml:space="preserve">
+          <source>When there are more categories, as
+when predicting the winner of the NCAA March Madness tournament, this
+problem is known as <bpt id="144b2b07-2086-4a9b-8748-4bd6bb59f3f2">&lt;strong&gt;</bpt>multi-class classification<ept id="144b2b07-2086-4a9b-8748-4bd6bb59f3f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When there are more categories, as
+when predicting the winner of the NCAA March Madness tournament, this
+problem is known as <bpt id="144b2b07-2086-4a9b-8748-4bd6bb59f3f2">&lt;strong&gt;</bpt>multi-class classification<ept id="144b2b07-2086-4a9b-8748-4bd6bb59f3f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b255521f-661a-486f-adbd-169dd65fa1d5" xml:space="preserve">
+          <source><bpt id="2d54f7f6-764a-4fb2-9b8f-ac2e10483755">&lt;strong&gt;</bpt>Regression<ept id="2d54f7f6-764a-4fb2-9b8f-ac2e10483755">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="2d54f7f6-764a-4fb2-9b8f-ac2e10483755">&lt;strong&gt;</bpt>Regression<ept id="2d54f7f6-764a-4fb2-9b8f-ac2e10483755">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8dbc0621-bac9-4a49-905a-21487a1394be" xml:space="preserve">
+          <source>When a value is being predicted, as with stock prices,
+supervised learning is called regression.</source>
+          <target state="new">When a value is being predicted, as with stock prices,
+supervised learning is called regression.</target>
+        </trans-unit>
+        <trans-unit id="bb02d0c0-3832-46d5-b06c-5d981ab6c2d5" xml:space="preserve">
+          <source><bpt id="da993328-37f1-4b07-b457-40f2700eab53">&lt;strong&gt;</bpt>Anomaly detection<ept id="da993328-37f1-4b07-b457-40f2700eab53">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="da993328-37f1-4b07-b457-40f2700eab53">&lt;strong&gt;</bpt>Anomaly detection<ept id="da993328-37f1-4b07-b457-40f2700eab53">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="585228dd-8b87-459d-bf82-a29ee07b5e4f" xml:space="preserve">
+          <source>Sometimes the goal is to identify data points
+that are simply unusual.</source>
+          <target state="new">Sometimes the goal is to identify data points
+that are simply unusual.</target>
+        </trans-unit>
+        <trans-unit id="22097dd4-98d4-4e1e-8ade-bbfc54fa8487" xml:space="preserve">
+          <source>In fraud detection, for example, any highly
+unusual credit card spending patterns are suspect.</source>
+          <target state="new">In fraud detection, for example, any highly
+unusual credit card spending patterns are suspect.</target>
+        </trans-unit>
+        <trans-unit id="da5a883e-6fe1-43c0-9d7a-e8e89e84b2ba" xml:space="preserve">
+          <source>The possible
+variations are so numerous and the training examples so few, that it's
+not feasible to learn what fraudulent activity looks like.</source>
+          <target state="new">The possible
+variations are so numerous and the training examples so few, that it's
+not feasible to learn what fraudulent activity looks like.</target>
+        </trans-unit>
+        <trans-unit id="d2dedc71-2bbe-4c97-ad9d-4ef86ddc85d1" xml:space="preserve">
+          <source>The
+approach that anomaly detection takes is to simply learn what normal
+activity looks like (using a history non-fraudulent transactions) and
+identify anything that is significantly different.</source>
+          <target state="new">The
+approach that anomaly detection takes is to simply learn what normal
+activity looks like (using a history non-fraudulent transactions) and
+identify anything that is significantly different.</target>
+        </trans-unit>
+        <trans-unit id="f265da3a-d39e-46bb-9111-2c3fe153ea67" xml:space="preserve">
+          <source>In unsupervised learning, data points have no labels associated with
+them.</source>
+          <target state="new">In unsupervised learning, data points have no labels associated with
+them.</target>
+        </trans-unit>
+        <trans-unit id="dc14a01f-05e7-4e83-9d61-22621ce38d18" xml:space="preserve">
+          <source>Instead, the goal of an unsupervised learning algorithm is to
+organize the data in some way or to describe its structure.</source>
+          <target state="new">Instead, the goal of an unsupervised learning algorithm is to
+organize the data in some way or to describe its structure.</target>
+        </trans-unit>
+        <trans-unit id="0e7e748b-c5c9-4c91-a387-9060f0948cf0" xml:space="preserve">
+          <source>This can
+mean grouping it into clusters or finding different ways of looking at
+complex data so that it appears simpler or more organized.</source>
+          <target state="new">This can
+mean grouping it into clusters or finding different ways of looking at
+complex data so that it appears simpler or more organized.</target>
+        </trans-unit>
+        <trans-unit id="3d290bb3-513c-422f-86fc-86356b28b9dc" xml:space="preserve">
+          <source>In reinforcement learning, the algorithm gets to choose an action in
+response to each data point.</source>
+          <target state="new">In reinforcement learning, the algorithm gets to choose an action in
+response to each data point.</target>
+        </trans-unit>
+        <trans-unit id="34de1a26-cbdf-42a4-b3df-c8f1e8f3f496" xml:space="preserve">
+          <source>The learning algorithm also receives a
+reward signal a short time later, indicating how good the decision was.</source>
+          <target state="new">The learning algorithm also receives a
+reward signal a short time later, indicating how good the decision was.</target>
+        </trans-unit>
+        <trans-unit id="4b43dcd1-c8f4-4bcb-abd4-2d218ca230f9" xml:space="preserve">
+          <source>Based on this, the algorithm modifies its strategy in order to achieve
+the highest reward.</source>
+          <target state="new">Based on this, the algorithm modifies its strategy in order to achieve
+the highest reward.</target>
+        </trans-unit>
+        <trans-unit id="3a9dad8a-f6bc-45bc-b180-8a1c82be831b" xml:space="preserve">
+          <source>Currently there are no reinforcement learning
+algorithm modules in Azure Machine Learning.</source>
+          <target state="new">Currently there are no reinforcement learning
+algorithm modules in Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="64b18bdb-fe0f-47ce-89b5-a4dc110f453b" xml:space="preserve">
+          <source>Reinforcement learning is common in
+robotics, where the set of sensor readings at one point in time is a
+data point, and the algorithm must choose the robot's next action.</source>
+          <target state="new">Reinforcement learning is common in
+robotics, where the set of sensor readings at one point in time is a
+data point, and the algorithm must choose the robot's next action.</target>
+        </trans-unit>
+        <trans-unit id="3014099c-10d1-4b1e-8262-b928e9b1aa91" xml:space="preserve">
+          <source>It is
+also a natural fit for Internet of Things applications.</source>
+          <target state="new">It is
+also a natural fit for Internet of Things applications.</target>
+        </trans-unit>
+        <trans-unit id="7052ac5a-b610-495d-9ea0-2590d546f70c" xml:space="preserve">
+          <source>Getting the most accurate answer possible isn't always necessary.</source>
+          <target state="new">Getting the most accurate answer possible isn't always necessary.</target>
+        </trans-unit>
+        <trans-unit id="c84a168f-7410-40e2-8ba6-f21fdc73d3b5" xml:space="preserve">
+          <source>Sometimes an approximation is adequate, depending on what you want to
+use it for.</source>
+          <target state="new">Sometimes an approximation is adequate, depending on what you want to
+use it for.</target>
+        </trans-unit>
+        <trans-unit id="0a592aff-5e8c-4181-aa1b-9c2eafe939f8" xml:space="preserve">
+          <source>If that's the case, you may be able to cut your processing
+time dramatically by sticking with more approximate methods.</source>
+          <target state="new">If that's the case, you may be able to cut your processing
+time dramatically by sticking with more approximate methods.</target>
+        </trans-unit>
+        <trans-unit id="393d4679-4ed1-49b0-a804-3fcbabf4cfea" xml:space="preserve">
+          <source>Another
+advantage of more approximate methods is that they naturally tend to
+avoid <bpt id="5fd074e9-38e6-4927-bc0c-82f852352a2b">&lt;linkText&gt;</bpt>overfitting<ept id="5fd074e9-38e6-4927-bc0c-82f852352a2b">&lt;/linkText&gt;</ept><bpt id="5fd074e9-38e6-4927-bc0c-82f852352a2b">&lt;title&gt;</bpt><ept id="5fd074e9-38e6-4927-bc0c-82f852352a2b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Another
+advantage of more approximate methods is that they naturally tend to
+avoid <bpt id="5fd074e9-38e6-4927-bc0c-82f852352a2b">&lt;linkText&gt;</bpt>overfitting<ept id="5fd074e9-38e6-4927-bc0c-82f852352a2b">&lt;/linkText&gt;</ept><bpt id="5fd074e9-38e6-4927-bc0c-82f852352a2b">&lt;title&gt;</bpt><ept id="5fd074e9-38e6-4927-bc0c-82f852352a2b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bac4355e-e58a-40b1-99e3-74dafa1ae59f" xml:space="preserve">
+          <source>The number of minutes or hours necessary to train a model varies a great
+deal between algorithms.</source>
+          <target state="new">The number of minutes or hours necessary to train a model varies a great
+deal between algorithms.</target>
+        </trans-unit>
+        <trans-unit id="e275360a-f71c-47d3-af90-3aaad2e7f532" xml:space="preserve">
+          <source>Training time is often closely tied to
+accuracy—one typically accompanies the other.</source>
+          <target state="new">Training time is often closely tied to
+accuracy—one typically accompanies the other.</target>
+        </trans-unit>
+        <trans-unit id="e0fe5288-a2d2-4161-a779-ea4fde941b25" xml:space="preserve">
+          <source>In addition, some
+algorithms are more sensitive to the number of data points than others.</source>
+          <target state="new">In addition, some
+algorithms are more sensitive to the number of data points than others.</target>
+        </trans-unit>
+        <trans-unit id="c955979b-0246-4e26-8b7c-6a30a1e7818e" xml:space="preserve">
+          <source>When time is limited it can drive the choice of algorithm, especially
+when the data set is large.</source>
+          <target state="new">When time is limited it can drive the choice of algorithm, especially
+when the data set is large.</target>
+        </trans-unit>
+        <trans-unit id="9d255db0-278e-4e78-a424-57fce05ecf2c" xml:space="preserve">
+          <source>Lots of machine learning algorithms make use of linearity.</source>
+          <target state="new">Lots of machine learning algorithms make use of linearity.</target>
+        </trans-unit>
+        <trans-unit id="f606c61e-3f5a-48cc-980e-b1791422207b" xml:space="preserve">
+          <source>Linear
+classification algorithms assume that classes can be separated by a
+straight line (or its higher-dimensional analog).</source>
+          <target state="new">Linear
+classification algorithms assume that classes can be separated by a
+straight line (or its higher-dimensional analog).</target>
+        </trans-unit>
+        <trans-unit id="6aecf385-872e-47a6-b087-7663cfc20d69" xml:space="preserve">
+          <source>These include logistic
+regression and support vector machines (as implemented in Azure Machine Learning).</source>
+          <target state="new">These include logistic
+regression and support vector machines (as implemented in Azure Machine Learning).</target>
+        </trans-unit>
+        <trans-unit id="38abf6a5-1274-4f96-a24c-f055d5a60566" xml:space="preserve">
+          <source>Linear regression algorithms assume that data trends follow a straight
+line.</source>
+          <target state="new">Linear regression algorithms assume that data trends follow a straight
+line.</target>
+        </trans-unit>
+        <trans-unit id="cb8e0d2f-3c0e-49db-a34c-6efa62c46fdc" xml:space="preserve">
+          <source>These assumptions aren't bad for some problems, but on others they
+bring accuracy down.</source>
+          <target state="new">These assumptions aren't bad for some problems, but on others they
+bring accuracy down.</target>
+        </trans-unit>
+        <trans-unit id="fec5a3dc-763d-462a-81a6-c9efc68cf2c9" xml:space="preserve">
+          <source><bpt id="b4a59f51-4713-47b9-b01a-ecac2bef587d">&lt;linkText&gt;</bpt>Non-linear class bounday<ept id="b4a59f51-4713-47b9-b01a-ecac2bef587d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b4a59f51-4713-47b9-b01a-ecac2bef587d">&lt;linkText&gt;</bpt>Non-linear class bounday<ept id="b4a59f51-4713-47b9-b01a-ecac2bef587d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a25b680-6a78-455f-8aa4-ca4a6e5f5771" xml:space="preserve">
+          <source><bpt id="21b7b101-e662-48c2-b437-13f31c2247dd">&lt;strong&gt;</bpt>*Non-linear class boundary*<ept id="21b7b101-e662-48c2-b437-13f31c2247dd">&lt;/strong&gt;</ept> <bpt id="450a5ff1-cb22-4edd-b59e-a489dd96c60a">&lt;em&gt;</bpt>- relying on a linear classification
+algorithm would result in low accuracy<ept id="450a5ff1-cb22-4edd-b59e-a489dd96c60a">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="21b7b101-e662-48c2-b437-13f31c2247dd">&lt;strong&gt;</bpt>*Non-linear class boundary*<ept id="21b7b101-e662-48c2-b437-13f31c2247dd">&lt;/strong&gt;</ept> <bpt id="450a5ff1-cb22-4edd-b59e-a489dd96c60a">&lt;em&gt;</bpt>- relying on a linear classification
+algorithm would result in low accuracy<ept id="450a5ff1-cb22-4edd-b59e-a489dd96c60a">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f63ea7e7-4321-466b-ae5e-75105633420d" xml:space="preserve">
+          <source><bpt id="f70e980f-8f6d-4636-8cf8-784800f0974e">&lt;linkText&gt;</bpt>Data with a nonlinear trend<ept id="f70e980f-8f6d-4636-8cf8-784800f0974e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f70e980f-8f6d-4636-8cf8-784800f0974e">&lt;linkText&gt;</bpt>Data with a nonlinear trend<ept id="f70e980f-8f6d-4636-8cf8-784800f0974e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93f5d1bc-fec3-4ff5-ae72-00ace3630e79" xml:space="preserve">
+          <source><bpt id="8d7ab40d-8cbe-4f39-b25a-225c599b6b26">&lt;strong&gt;</bpt>*Data with a nonlinear trend*<ept id="8d7ab40d-8cbe-4f39-b25a-225c599b6b26">&lt;/strong&gt;</ept> <bpt id="1862dcc5-7f84-480e-b3a4-af5f979e4ad5">&lt;em&gt;</bpt>- using a linear regression method would
+generate much larger errors than necessary<ept id="1862dcc5-7f84-480e-b3a4-af5f979e4ad5">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="8d7ab40d-8cbe-4f39-b25a-225c599b6b26">&lt;strong&gt;</bpt>*Data with a nonlinear trend*<ept id="8d7ab40d-8cbe-4f39-b25a-225c599b6b26">&lt;/strong&gt;</ept> <bpt id="1862dcc5-7f84-480e-b3a4-af5f979e4ad5">&lt;em&gt;</bpt>- using a linear regression method would
+generate much larger errors than necessary<ept id="1862dcc5-7f84-480e-b3a4-af5f979e4ad5">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edeea904-8b75-4908-885a-0e7b1a1587fa" xml:space="preserve">
+          <source>Despite their dangers, linear algorithms are very popular as a first
+line of attack.</source>
+          <target state="new">Despite their dangers, linear algorithms are very popular as a first
+line of attack.</target>
+        </trans-unit>
+        <trans-unit id="087c4cef-20d3-493a-98d5-9702f3b5853d" xml:space="preserve">
+          <source>They tend to be algorithmically simple and fast to
+train.</source>
+          <target state="new">They tend to be algorithmically simple and fast to
+train.</target>
+        </trans-unit>
+        <trans-unit id="26055676-f807-4c2c-b5cb-be08f39a9559" xml:space="preserve">
+          <source>Parameters are the knobs a data scientist gets to turn when setting up
+an algorithm.</source>
+          <target state="new">Parameters are the knobs a data scientist gets to turn when setting up
+an algorithm.</target>
+        </trans-unit>
+        <trans-unit id="f8123f15-eebe-43f1-8986-e131b247e296" xml:space="preserve">
+          <source>They are numbers that affect the algorithm's behavior,
+such as error tolerance or number of iterations, or options between
+variants of how the algorithm behaves.</source>
+          <target state="new">They are numbers that affect the algorithm's behavior,
+such as error tolerance or number of iterations, or options between
+variants of how the algorithm behaves.</target>
+        </trans-unit>
+        <trans-unit id="15cf16eb-8c6c-421f-a294-6676a977aff8" xml:space="preserve">
+          <source>The training time and accuracy of
+the algorithm can sometimes be quite sensitive to getting just the right
+settings.</source>
+          <target state="new">The training time and accuracy of
+the algorithm can sometimes be quite sensitive to getting just the right
+settings.</target>
+        </trans-unit>
+        <trans-unit id="037103f6-5144-4e46-9a44-ac8cff95be3d" xml:space="preserve">
+          <source>Typically, algorithms with large numbers parameters require
+the most trial and error to find a good combination.</source>
+          <target state="new">Typically, algorithms with large numbers parameters require
+the most trial and error to find a good combination.</target>
+        </trans-unit>
+        <trans-unit id="f9e20950-6f75-4681-88c3-62cae5f2817a" xml:space="preserve">
+          <source>Alternatively, there is a <bpt id="f458cf19-407d-47be-ac4b-a64477b78849">&lt;linkText&gt;</bpt>parameter
+sweeping<ept id="f458cf19-407d-47be-ac4b-a64477b78849">&lt;/linkText&gt;</ept><bpt id="f458cf19-407d-47be-ac4b-a64477b78849">&lt;title&gt;</bpt><ept id="f458cf19-407d-47be-ac4b-a64477b78849">&lt;/title&gt;</ept>
+module block in Azure Machine Learning that automatically tries all parameter
+combinations at whatever granularity you choose.</source>
+          <target state="new">Alternatively, there is a <bpt id="f458cf19-407d-47be-ac4b-a64477b78849">&lt;linkText&gt;</bpt>parameter
+sweeping<ept id="f458cf19-407d-47be-ac4b-a64477b78849">&lt;/linkText&gt;</ept><bpt id="f458cf19-407d-47be-ac4b-a64477b78849">&lt;title&gt;</bpt><ept id="f458cf19-407d-47be-ac4b-a64477b78849">&lt;/title&gt;</ept>
+module block in Azure Machine Learning that automatically tries all parameter
+combinations at whatever granularity you choose.</target>
+        </trans-unit>
+        <trans-unit id="488f9e14-b8aa-453d-ba48-0bb2e41a29d5" xml:space="preserve">
+          <source>While this is a great
+way to make sure you've spanned the parameter space, the time required
+to train a model increases exponentially with the number of parameters.</source>
+          <target state="new">While this is a great
+way to make sure you've spanned the parameter space, the time required
+to train a model increases exponentially with the number of parameters.</target>
+        </trans-unit>
+        <trans-unit id="46cc7ffb-f532-4f2c-baf5-8c05eeef9c4a" xml:space="preserve">
+          <source>The upside is that having many parameters typically indicates that an
+algorithm has greater flexibility.</source>
+          <target state="new">The upside is that having many parameters typically indicates that an
+algorithm has greater flexibility.</target>
+        </trans-unit>
+        <trans-unit id="3b2887a1-bca4-4cfa-90ff-14339e333210" xml:space="preserve">
+          <source>It can often achieve very good
+accuracy.</source>
+          <target state="new">It can often achieve very good
+accuracy.</target>
+        </trans-unit>
+        <trans-unit id="9a4dc446-0c6c-4ffc-bd7e-a75ba0e02bf8" xml:space="preserve">
+          <source>Provided you can find the right combination of parameter
+settings.</source>
+          <target state="new">Provided you can find the right combination of parameter
+settings.</target>
+        </trans-unit>
+        <trans-unit id="ae1050ec-e616-42a3-afe7-4f780c5c8264" xml:space="preserve">
+          <source>For certain types of data, the number of features can be very large
+compared to the number of data points.</source>
+          <target state="new">For certain types of data, the number of features can be very large
+compared to the number of data points.</target>
+        </trans-unit>
+        <trans-unit id="1b512bf4-bd77-4763-9879-0616e4ca7a63" xml:space="preserve">
+          <source>This is often the case with
+genetics or textual data.</source>
+          <target state="new">This is often the case with
+genetics or textual data.</target>
+        </trans-unit>
+        <trans-unit id="4154cf61-983c-4511-ae80-67704ade378b" xml:space="preserve">
+          <source>The large number of features can bog down some
+learning algorithms, making training time unfeasibly long.</source>
+          <target state="new">The large number of features can bog down some
+learning algorithms, making training time unfeasibly long.</target>
+        </trans-unit>
+        <trans-unit id="993eefc2-6a28-4449-8bd2-f7c3c7a89842" xml:space="preserve">
+          <source>Support
+Vector Machines are particularly well suited to this case (see below).</source>
+          <target state="new">Support
+Vector Machines are particularly well suited to this case (see below).</target>
+        </trans-unit>
+        <trans-unit id="181f6ea7-05ca-42ca-8db2-d3c02199ba31" xml:space="preserve">
+          <source>Some learning algorithms make particular assumptions about the structure
+of the data or the desired results.</source>
+          <target state="new">Some learning algorithms make particular assumptions about the structure
+of the data or the desired results.</target>
+        </trans-unit>
+        <trans-unit id="37777816-9525-4c8e-b07c-f74364b4af03" xml:space="preserve">
+          <source>If you can find one that fits your
+needs, it can give you more useful results, more accurate predictions,
+or faster training times.</source>
+          <target state="new">If you can find one that fits your
+needs, it can give you more useful results, more accurate predictions,
+or faster training times.</target>
+        </trans-unit>
+        <trans-unit id="ecd92e42-ca72-496c-9e6b-0c97e69803b2" xml:space="preserve">
+          <source><bpt id="315f4079-b6be-47a3-a059-5833f0487208">&lt;strong&gt;</bpt>Algorithm<ept id="315f4079-b6be-47a3-a059-5833f0487208">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="315f4079-b6be-47a3-a059-5833f0487208">&lt;strong&gt;</bpt>Algorithm<ept id="315f4079-b6be-47a3-a059-5833f0487208">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0cd39f11-f973-4a59-b6fc-39a609b3133b" xml:space="preserve">
+          <source><bpt id="7a6bb947-2c54-4e7b-a5cd-ae53e64419c9">&lt;strong&gt;</bpt>Accuracy<ept id="7a6bb947-2c54-4e7b-a5cd-ae53e64419c9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7a6bb947-2c54-4e7b-a5cd-ae53e64419c9">&lt;strong&gt;</bpt>Accuracy<ept id="7a6bb947-2c54-4e7b-a5cd-ae53e64419c9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd38c896-c1d9-4d79-8e51-9e54818a2ebc" xml:space="preserve">
+          <source><bpt id="dfe67087-6c60-4434-8868-761145e6e954">&lt;strong&gt;</bpt>Training time<ept id="dfe67087-6c60-4434-8868-761145e6e954">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dfe67087-6c60-4434-8868-761145e6e954">&lt;strong&gt;</bpt>Training time<ept id="dfe67087-6c60-4434-8868-761145e6e954">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df89b7bc-69cf-4bf9-9cc0-15cdfbefca7e" xml:space="preserve">
+          <source><bpt id="cca66e08-621b-4b03-9780-212212038c5c">&lt;strong&gt;</bpt>Linearity<ept id="cca66e08-621b-4b03-9780-212212038c5c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cca66e08-621b-4b03-9780-212212038c5c">&lt;strong&gt;</bpt>Linearity<ept id="cca66e08-621b-4b03-9780-212212038c5c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a6b965e-a2ca-41d6-b403-ca1b7f2ee668" xml:space="preserve">
+          <source><bpt id="5c7500af-d06e-4e59-b01c-eef40b6fd8fe">&lt;strong&gt;</bpt>Parameters<ept id="5c7500af-d06e-4e59-b01c-eef40b6fd8fe">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5c7500af-d06e-4e59-b01c-eef40b6fd8fe">&lt;strong&gt;</bpt>Parameters<ept id="5c7500af-d06e-4e59-b01c-eef40b6fd8fe">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26c6729f-e556-45a5-9b4c-0d832f17e241" xml:space="preserve">
+          <source><bpt id="c2ee1a92-68ce-4cb7-9ef5-f106f8634c85">&lt;strong&gt;</bpt>Notes<ept id="c2ee1a92-68ce-4cb7-9ef5-f106f8634c85">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c2ee1a92-68ce-4cb7-9ef5-f106f8634c85">&lt;strong&gt;</bpt>Notes<ept id="c2ee1a92-68ce-4cb7-9ef5-f106f8634c85">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7ec9a7b-5b55-4413-b2f0-01a9e3dba648" xml:space="preserve">
+          <source><bpt id="f8c16b65-8c23-4be7-8940-bdd0b4c8f004">&lt;strong&gt;</bpt>Two-class classification<ept id="f8c16b65-8c23-4be7-8940-bdd0b4c8f004">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f8c16b65-8c23-4be7-8940-bdd0b4c8f004">&lt;strong&gt;</bpt>Two-class classification<ept id="f8c16b65-8c23-4be7-8940-bdd0b4c8f004">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1aa57f6-a225-49e5-bcd8-5c6599dec9bf" xml:space="preserve">
+          <source><bpt id="bddb35b4-4bf7-4cb5-b960-80cac76e8fe5">&lt;linkText&gt;</bpt>logistic regression<ept id="bddb35b4-4bf7-4cb5-b960-80cac76e8fe5">&lt;/linkText&gt;</ept><bpt id="bddb35b4-4bf7-4cb5-b960-80cac76e8fe5">&lt;title&gt;</bpt><ept id="bddb35b4-4bf7-4cb5-b960-80cac76e8fe5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bddb35b4-4bf7-4cb5-b960-80cac76e8fe5">&lt;linkText&gt;</bpt>logistic regression<ept id="bddb35b4-4bf7-4cb5-b960-80cac76e8fe5">&lt;/linkText&gt;</ept><bpt id="bddb35b4-4bf7-4cb5-b960-80cac76e8fe5">&lt;title&gt;</bpt><ept id="bddb35b4-4bf7-4cb5-b960-80cac76e8fe5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0dc144f-6fa9-433d-89f3-5389beb15596" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="4782ac78-1c8f-4394-afe9-9dbe60bcb0d0" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="d0c46101-3af3-49a8-88bf-457370406ad3" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="e617e16d-44fd-4dda-86c2-5f313a260791" xml:space="preserve">
+          <source><bpt id="53f282ce-6d7a-4b8e-9e69-0e408dc8ca87">&lt;linkText&gt;</bpt>decision forest<ept id="53f282ce-6d7a-4b8e-9e69-0e408dc8ca87">&lt;/linkText&gt;</ept><bpt id="53f282ce-6d7a-4b8e-9e69-0e408dc8ca87">&lt;title&gt;</bpt><ept id="53f282ce-6d7a-4b8e-9e69-0e408dc8ca87">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="53f282ce-6d7a-4b8e-9e69-0e408dc8ca87">&lt;linkText&gt;</bpt>decision forest<ept id="53f282ce-6d7a-4b8e-9e69-0e408dc8ca87">&lt;/linkText&gt;</ept><bpt id="53f282ce-6d7a-4b8e-9e69-0e408dc8ca87">&lt;title&gt;</bpt><ept id="53f282ce-6d7a-4b8e-9e69-0e408dc8ca87">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38a964bc-4351-4ae8-a3d3-560f95830827" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="6a6fa052-fa1c-4d7b-a1f0-ff6a4656f21c" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="69e96ae3-d6f7-4c5c-af9a-f188a64c1d23" xml:space="preserve">
+          <source>6</source>
+          <target state="new">6</target>
+        </trans-unit>
+        <trans-unit id="161c07cd-0617-4d2d-8cb4-3f0892f45b4a" xml:space="preserve">
+          <source><bpt id="60951274-2cfa-4776-966c-4ee77d7a2eb8">&lt;linkText&gt;</bpt>decision jungle<ept id="60951274-2cfa-4776-966c-4ee77d7a2eb8">&lt;/linkText&gt;</ept><bpt id="60951274-2cfa-4776-966c-4ee77d7a2eb8">&lt;title&gt;</bpt><ept id="60951274-2cfa-4776-966c-4ee77d7a2eb8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="60951274-2cfa-4776-966c-4ee77d7a2eb8">&lt;linkText&gt;</bpt>decision jungle<ept id="60951274-2cfa-4776-966c-4ee77d7a2eb8">&lt;/linkText&gt;</ept><bpt id="60951274-2cfa-4776-966c-4ee77d7a2eb8">&lt;title&gt;</bpt><ept id="60951274-2cfa-4776-966c-4ee77d7a2eb8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd22b607-6c21-45d3-b529-2d7501819240" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="7bdb3eef-13c4-4632-9f4f-c380200db56c" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="3562a13d-9642-47e3-8c46-e2c415798aa4" xml:space="preserve">
+          <source>6</source>
+          <target state="new">6</target>
+        </trans-unit>
+        <trans-unit id="b7776103-56ff-4823-a1b3-d9b9c0095c92" xml:space="preserve">
+          <source>Low memory footprint</source>
+          <target state="new">Low memory footprint</target>
+        </trans-unit>
+        <trans-unit id="9b276081-0674-40df-8d85-a927d9b86f8f" xml:space="preserve">
+          <source><bpt id="5a7ab617-9311-4d2c-9e77-786499428026">&lt;linkText&gt;</bpt>boosted decision tree<ept id="5a7ab617-9311-4d2c-9e77-786499428026">&lt;/linkText&gt;</ept><bpt id="5a7ab617-9311-4d2c-9e77-786499428026">&lt;title&gt;</bpt><ept id="5a7ab617-9311-4d2c-9e77-786499428026">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5a7ab617-9311-4d2c-9e77-786499428026">&lt;linkText&gt;</bpt>boosted decision tree<ept id="5a7ab617-9311-4d2c-9e77-786499428026">&lt;/linkText&gt;</ept><bpt id="5a7ab617-9311-4d2c-9e77-786499428026">&lt;title&gt;</bpt><ept id="5a7ab617-9311-4d2c-9e77-786499428026">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b88e6d1e-cef4-498f-a839-b1505814ec6c" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="145511c8-2489-4180-b310-dec19f7839e1" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="cdc64c6e-61b9-4a99-a654-c6eeaf85f85b" xml:space="preserve">
+          <source>6</source>
+          <target state="new">6</target>
+        </trans-unit>
+        <trans-unit id="2a1b5909-2f06-4b52-bace-0b0774a8c6de" xml:space="preserve">
+          <source>Large memory footprint</source>
+          <target state="new">Large memory footprint</target>
+        </trans-unit>
+        <trans-unit id="ac5463ff-fe7d-453d-bd25-226d5e4c20de" xml:space="preserve">
+          <source><bpt id="c1e2eecf-c498-4cc9-9dab-0d43618d0ade">&lt;linkText&gt;</bpt>neural network<ept id="c1e2eecf-c498-4cc9-9dab-0d43618d0ade">&lt;/linkText&gt;</ept><bpt id="c1e2eecf-c498-4cc9-9dab-0d43618d0ade">&lt;title&gt;</bpt><ept id="c1e2eecf-c498-4cc9-9dab-0d43618d0ade">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c1e2eecf-c498-4cc9-9dab-0d43618d0ade">&lt;linkText&gt;</bpt>neural network<ept id="c1e2eecf-c498-4cc9-9dab-0d43618d0ade">&lt;/linkText&gt;</ept><bpt id="c1e2eecf-c498-4cc9-9dab-0d43618d0ade">&lt;title&gt;</bpt><ept id="c1e2eecf-c498-4cc9-9dab-0d43618d0ade">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1f5448f-8a26-423d-b44b-e6b9210c8ea5" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="d0f84dc6-967a-4063-ab26-99e1b649a72b" xml:space="preserve">
+          <source>9</source>
+          <target state="new">9</target>
+        </trans-unit>
+        <trans-unit id="fb4a92ec-1431-4c12-9b6a-5449e773d2c2" xml:space="preserve">
+          <source><bpt id="d8ff5588-57db-4244-ba59-273883694ae9">&lt;linkText&gt;</bpt>Additional customization is possible<ept id="d8ff5588-57db-4244-ba59-273883694ae9">&lt;/linkText&gt;</ept><bpt id="d8ff5588-57db-4244-ba59-273883694ae9">&lt;title&gt;</bpt><ept id="d8ff5588-57db-4244-ba59-273883694ae9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d8ff5588-57db-4244-ba59-273883694ae9">&lt;linkText&gt;</bpt>Additional customization is possible<ept id="d8ff5588-57db-4244-ba59-273883694ae9">&lt;/linkText&gt;</ept><bpt id="d8ff5588-57db-4244-ba59-273883694ae9">&lt;title&gt;</bpt><ept id="d8ff5588-57db-4244-ba59-273883694ae9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4f5de23-aa2d-4e51-affb-5ed04ff34887" xml:space="preserve">
+          <source><bpt id="f87e163a-0d4a-462c-8888-5c167d2a99d5">&lt;linkText&gt;</bpt>averaged perceptron<ept id="f87e163a-0d4a-462c-8888-5c167d2a99d5">&lt;/linkText&gt;</ept><bpt id="f87e163a-0d4a-462c-8888-5c167d2a99d5">&lt;title&gt;</bpt><ept id="f87e163a-0d4a-462c-8888-5c167d2a99d5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f87e163a-0d4a-462c-8888-5c167d2a99d5">&lt;linkText&gt;</bpt>averaged perceptron<ept id="f87e163a-0d4a-462c-8888-5c167d2a99d5">&lt;/linkText&gt;</ept><bpt id="f87e163a-0d4a-462c-8888-5c167d2a99d5">&lt;title&gt;</bpt><ept id="f87e163a-0d4a-462c-8888-5c167d2a99d5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e43d48c2-2216-4323-b988-eebb2e1730e2" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="2e38f7d0-8ce6-4807-937f-8ce965f2db15" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="2e497cd2-461f-4a10-bf3b-e9652b494dd8" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="3e6f1b21-3b5f-4f28-b1d7-6972a878dd2f" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="ecfa4254-62fa-417b-8cda-27fd3ff5b3d4" xml:space="preserve">
+          <source><bpt id="83ba7bda-9440-408d-9916-2fe8dac34aa9">&lt;linkText&gt;</bpt>support vector machine<ept id="83ba7bda-9440-408d-9916-2fe8dac34aa9">&lt;/linkText&gt;</ept><bpt id="83ba7bda-9440-408d-9916-2fe8dac34aa9">&lt;title&gt;</bpt><ept id="83ba7bda-9440-408d-9916-2fe8dac34aa9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="83ba7bda-9440-408d-9916-2fe8dac34aa9">&lt;linkText&gt;</bpt>support vector machine<ept id="83ba7bda-9440-408d-9916-2fe8dac34aa9">&lt;/linkText&gt;</ept><bpt id="83ba7bda-9440-408d-9916-2fe8dac34aa9">&lt;title&gt;</bpt><ept id="83ba7bda-9440-408d-9916-2fe8dac34aa9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88145559-eb58-4f05-9bb0-01a802724446" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="dc3b753c-ebb2-45e3-99c8-41e6baecef01" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="fd410315-263b-4c49-8195-9c197a6ed8fb" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="4d9b9f7e-be7a-479e-bbd9-2055265fd99b" xml:space="preserve">
+          <source>Good for large feature sets</source>
+          <target state="new">Good for large feature sets</target>
+        </trans-unit>
+        <trans-unit id="a64632ef-084e-40e2-9492-9000880e61a9" xml:space="preserve">
+          <source><bpt id="a5d5de47-b3d2-4476-938e-d0b15b08e5bb">&lt;linkText&gt;</bpt>locally deep support vector machine<ept id="a5d5de47-b3d2-4476-938e-d0b15b08e5bb">&lt;/linkText&gt;</ept><bpt id="a5d5de47-b3d2-4476-938e-d0b15b08e5bb">&lt;title&gt;</bpt><ept id="a5d5de47-b3d2-4476-938e-d0b15b08e5bb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a5d5de47-b3d2-4476-938e-d0b15b08e5bb">&lt;linkText&gt;</bpt>locally deep support vector machine<ept id="a5d5de47-b3d2-4476-938e-d0b15b08e5bb">&lt;/linkText&gt;</ept><bpt id="a5d5de47-b3d2-4476-938e-d0b15b08e5bb">&lt;title&gt;</bpt><ept id="a5d5de47-b3d2-4476-938e-d0b15b08e5bb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e656825-4ac6-4e00-b294-a9b2ff6a4d99" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="2fd3f7df-e8a3-41f6-9288-cddd68a58993" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="6dbaf124-00f4-4ad1-ad03-d00724ee81e3" xml:space="preserve">
+          <source>Good for large feature sets</source>
+          <target state="new">Good for large feature sets</target>
+        </trans-unit>
+        <trans-unit id="4e6e4ecd-b3d0-428d-a0fb-460a6be2584c" xml:space="preserve">
+          <source><bpt id="34d451c9-26c5-4191-a42e-30fab45ca96c">&lt;linkText&gt;</bpt>Bayes’ point machine<ept id="34d451c9-26c5-4191-a42e-30fab45ca96c">&lt;/linkText&gt;</ept><bpt id="34d451c9-26c5-4191-a42e-30fab45ca96c">&lt;title&gt;</bpt><ept id="34d451c9-26c5-4191-a42e-30fab45ca96c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="34d451c9-26c5-4191-a42e-30fab45ca96c">&lt;linkText&gt;</bpt>Bayes’ point machine<ept id="34d451c9-26c5-4191-a42e-30fab45ca96c">&lt;/linkText&gt;</ept><bpt id="34d451c9-26c5-4191-a42e-30fab45ca96c">&lt;title&gt;</bpt><ept id="34d451c9-26c5-4191-a42e-30fab45ca96c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ba9f655-5460-46f9-8e30-3e7c304b1a84" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="bd329d6a-d30c-4730-8bee-8b384c3b4ec5" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="9a34286d-3e93-44fc-9b04-43622b8ae6d9" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="9a3f7242-43b2-4c93-8e32-266f053120aa" xml:space="preserve">
+          <source><bpt id="a7e545ce-3db8-4b16-a36a-5ed49bb8b830">&lt;strong&gt;</bpt>Multi-class classification<ept id="a7e545ce-3db8-4b16-a36a-5ed49bb8b830">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a7e545ce-3db8-4b16-a36a-5ed49bb8b830">&lt;strong&gt;</bpt>Multi-class classification<ept id="a7e545ce-3db8-4b16-a36a-5ed49bb8b830">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e1d95bb-c82d-4f30-9e27-b5dde892a630" xml:space="preserve">
+          <source><bpt id="2022a7dd-982b-4c75-99a7-9cc599eab470">&lt;linkText&gt;</bpt>logistic regression<ept id="2022a7dd-982b-4c75-99a7-9cc599eab470">&lt;/linkText&gt;</ept><bpt id="2022a7dd-982b-4c75-99a7-9cc599eab470">&lt;title&gt;</bpt><ept id="2022a7dd-982b-4c75-99a7-9cc599eab470">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2022a7dd-982b-4c75-99a7-9cc599eab470">&lt;linkText&gt;</bpt>logistic regression<ept id="2022a7dd-982b-4c75-99a7-9cc599eab470">&lt;/linkText&gt;</ept><bpt id="2022a7dd-982b-4c75-99a7-9cc599eab470">&lt;title&gt;</bpt><ept id="2022a7dd-982b-4c75-99a7-9cc599eab470">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5245f91a-2993-49a3-8718-d0d23fe76afe" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="8fd82ec0-7c90-4ad7-9ce9-c91145a8f543" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="f5a9e456-c2ca-41d1-a29d-06a69cdd51fd" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="cbae302a-6735-464d-ba54-c9d1c69ece33" xml:space="preserve">
+          <source><bpt id="2f06cfcc-2c75-468a-bd7d-42e39b5e8153">&lt;linkText&gt;</bpt>decision forest<ept id="2f06cfcc-2c75-468a-bd7d-42e39b5e8153">&lt;/linkText&gt;</ept><bpt id="2f06cfcc-2c75-468a-bd7d-42e39b5e8153">&lt;title&gt;</bpt><ept id="2f06cfcc-2c75-468a-bd7d-42e39b5e8153">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2f06cfcc-2c75-468a-bd7d-42e39b5e8153">&lt;linkText&gt;</bpt>decision forest<ept id="2f06cfcc-2c75-468a-bd7d-42e39b5e8153">&lt;/linkText&gt;</ept><bpt id="2f06cfcc-2c75-468a-bd7d-42e39b5e8153">&lt;title&gt;</bpt><ept id="2f06cfcc-2c75-468a-bd7d-42e39b5e8153">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39876df3-14a8-482a-9432-3f6cebe688d2" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="06600633-8db9-4490-9f0e-c2660ad658aa" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="b75b6041-1831-48f2-ba1a-4998355ac705" xml:space="preserve">
+          <source>6</source>
+          <target state="new">6</target>
+        </trans-unit>
+        <trans-unit id="3d771bd5-5f94-4a32-acf3-31796045732b" xml:space="preserve">
+          <source><bpt id="2c9e2364-d5e3-4958-a88b-e59206c57221">&lt;linkText&gt;</bpt>decision jungle <ept id="2c9e2364-d5e3-4958-a88b-e59206c57221">&lt;/linkText&gt;</ept><bpt id="2c9e2364-d5e3-4958-a88b-e59206c57221">&lt;title&gt;</bpt><ept id="2c9e2364-d5e3-4958-a88b-e59206c57221">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c9e2364-d5e3-4958-a88b-e59206c57221">&lt;linkText&gt;</bpt>decision jungle <ept id="2c9e2364-d5e3-4958-a88b-e59206c57221">&lt;/linkText&gt;</ept><bpt id="2c9e2364-d5e3-4958-a88b-e59206c57221">&lt;title&gt;</bpt><ept id="2c9e2364-d5e3-4958-a88b-e59206c57221">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40241af8-0fbc-4a3f-950f-ff56aa9c8db2" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="1b54787b-c286-4429-a6bd-dfeb00c10f33" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="4563070d-0ab0-4189-a187-acf439515713" xml:space="preserve">
+          <source>6</source>
+          <target state="new">6</target>
+        </trans-unit>
+        <trans-unit id="75fb2e89-af7e-45e0-864f-092f988ea24f" xml:space="preserve">
+          <source>Low memory footprint</source>
+          <target state="new">Low memory footprint</target>
+        </trans-unit>
+        <trans-unit id="3c68c5ce-0e45-49c4-b14e-3d659e5b816b" xml:space="preserve">
+          <source><bpt id="bfe2655a-150e-48ce-8d65-7d5e5e204364">&lt;linkText&gt;</bpt>neural network<ept id="bfe2655a-150e-48ce-8d65-7d5e5e204364">&lt;/linkText&gt;</ept><bpt id="bfe2655a-150e-48ce-8d65-7d5e5e204364">&lt;title&gt;</bpt><ept id="bfe2655a-150e-48ce-8d65-7d5e5e204364">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bfe2655a-150e-48ce-8d65-7d5e5e204364">&lt;linkText&gt;</bpt>neural network<ept id="bfe2655a-150e-48ce-8d65-7d5e5e204364">&lt;/linkText&gt;</ept><bpt id="bfe2655a-150e-48ce-8d65-7d5e5e204364">&lt;title&gt;</bpt><ept id="bfe2655a-150e-48ce-8d65-7d5e5e204364">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe376d06-b62f-4e95-88ae-87dbf45d4e81" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="1e9da9e3-80ab-4fcf-86fa-558b1a69b838" xml:space="preserve">
+          <source>9</source>
+          <target state="new">9</target>
+        </trans-unit>
+        <trans-unit id="f877fd17-4659-4ad4-b90f-3be071590748" xml:space="preserve">
+          <source><bpt id="e26bbba8-72a4-4089-a745-4baaa78a7438">&lt;linkText&gt;</bpt>Additional customization is possible<ept id="e26bbba8-72a4-4089-a745-4baaa78a7438">&lt;/linkText&gt;</ept><bpt id="e26bbba8-72a4-4089-a745-4baaa78a7438">&lt;title&gt;</bpt><ept id="e26bbba8-72a4-4089-a745-4baaa78a7438">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e26bbba8-72a4-4089-a745-4baaa78a7438">&lt;linkText&gt;</bpt>Additional customization is possible<ept id="e26bbba8-72a4-4089-a745-4baaa78a7438">&lt;/linkText&gt;</ept><bpt id="e26bbba8-72a4-4089-a745-4baaa78a7438">&lt;title&gt;</bpt><ept id="e26bbba8-72a4-4089-a745-4baaa78a7438">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="878ab22e-277e-4083-8049-cf443072e960" xml:space="preserve">
+          <source><bpt id="36776598-a62f-4646-961b-bc56d828c2ba">&lt;linkText&gt;</bpt>one-v-all<ept id="36776598-a62f-4646-961b-bc56d828c2ba">&lt;/linkText&gt;</ept><bpt id="36776598-a62f-4646-961b-bc56d828c2ba">&lt;title&gt;</bpt><ept id="36776598-a62f-4646-961b-bc56d828c2ba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="36776598-a62f-4646-961b-bc56d828c2ba">&lt;linkText&gt;</bpt>one-v-all<ept id="36776598-a62f-4646-961b-bc56d828c2ba">&lt;/linkText&gt;</ept><bpt id="36776598-a62f-4646-961b-bc56d828c2ba">&lt;title&gt;</bpt><ept id="36776598-a62f-4646-961b-bc56d828c2ba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8ab7fdc-ba76-4e50-b7a4-c86b55eb6192" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="82bafbbb-54e6-4532-abec-6dcdd8fb2fa2" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="599a1595-da56-40a4-a219-957c7f255955" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="8f819ffd-0fe2-4eb5-8cf1-50955a1d0fb7" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="1477ba5b-2f30-4f57-bf29-f5ee2596ed5c" xml:space="preserve">
+          <source>See properties of the two-class method selected</source>
+          <target state="new">See properties of the two-class method selected</target>
+        </trans-unit>
+        <trans-unit id="d17164ab-6cfb-4469-925d-fe573b0f37e1" xml:space="preserve">
+          <source><bpt id="907971a2-38df-4544-b6a5-03d9faf2b992">&lt;strong&gt;</bpt>Regression<ept id="907971a2-38df-4544-b6a5-03d9faf2b992">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="907971a2-38df-4544-b6a5-03d9faf2b992">&lt;strong&gt;</bpt>Regression<ept id="907971a2-38df-4544-b6a5-03d9faf2b992">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc203b62-645d-4da5-82ea-a9051a63b291" xml:space="preserve">
+          <source><bpt id="33fa8736-5e54-4671-a4d4-378f4f253702">&lt;linkText&gt;</bpt>linear <ept id="33fa8736-5e54-4671-a4d4-378f4f253702">&lt;/linkText&gt;</ept><bpt id="33fa8736-5e54-4671-a4d4-378f4f253702">&lt;title&gt;</bpt><ept id="33fa8736-5e54-4671-a4d4-378f4f253702">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="33fa8736-5e54-4671-a4d4-378f4f253702">&lt;linkText&gt;</bpt>linear <ept id="33fa8736-5e54-4671-a4d4-378f4f253702">&lt;/linkText&gt;</ept><bpt id="33fa8736-5e54-4671-a4d4-378f4f253702">&lt;title&gt;</bpt><ept id="33fa8736-5e54-4671-a4d4-378f4f253702">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="481113b2-771b-4988-8f4e-6cdbad04d510" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="692c534b-2143-4e09-8070-8fa0ef7d9304" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="c07df326-6fb8-4948-9dc6-afda78e3b232" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="e26f002d-6d05-4654-974d-a45769b57e24" xml:space="preserve">
+          <source><bpt id="5641c5e1-7cf4-4661-b199-d25c6a721684">&lt;linkText&gt;</bpt>Bayesian linear<ept id="5641c5e1-7cf4-4661-b199-d25c6a721684">&lt;/linkText&gt;</ept><bpt id="5641c5e1-7cf4-4661-b199-d25c6a721684">&lt;title&gt;</bpt><ept id="5641c5e1-7cf4-4661-b199-d25c6a721684">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5641c5e1-7cf4-4661-b199-d25c6a721684">&lt;linkText&gt;</bpt>Bayesian linear<ept id="5641c5e1-7cf4-4661-b199-d25c6a721684">&lt;/linkText&gt;</ept><bpt id="5641c5e1-7cf4-4661-b199-d25c6a721684">&lt;title&gt;</bpt><ept id="5641c5e1-7cf4-4661-b199-d25c6a721684">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="230b5f96-28a0-443f-8319-c34ab6647d10" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="c1658d11-88e7-4002-9172-0cb956054dd8" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="a8c9386a-c586-4646-aa67-bf3384a5111b" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="528bb02e-0ff8-45b3-a2aa-a4753b79bc91" xml:space="preserve">
+          <source><bpt id="e4006bcd-3a00-42a5-910c-5257341f90ef">&lt;linkText&gt;</bpt>decision forest<ept id="e4006bcd-3a00-42a5-910c-5257341f90ef">&lt;/linkText&gt;</ept><bpt id="e4006bcd-3a00-42a5-910c-5257341f90ef">&lt;title&gt;</bpt><ept id="e4006bcd-3a00-42a5-910c-5257341f90ef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e4006bcd-3a00-42a5-910c-5257341f90ef">&lt;linkText&gt;</bpt>decision forest<ept id="e4006bcd-3a00-42a5-910c-5257341f90ef">&lt;/linkText&gt;</ept><bpt id="e4006bcd-3a00-42a5-910c-5257341f90ef">&lt;title&gt;</bpt><ept id="e4006bcd-3a00-42a5-910c-5257341f90ef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5360e9e5-c405-468b-a524-ce239e498bfd" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="38ce1906-ae20-4bcc-9fea-f7402d9f8270" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="1aa66fb2-db2a-4da7-a45e-97427c1d7393" xml:space="preserve">
+          <source>6</source>
+          <target state="new">6</target>
+        </trans-unit>
+        <trans-unit id="987284cf-b85b-4053-ad47-14960063138b" xml:space="preserve">
+          <source><bpt id="e296ae4d-627e-49b5-b49a-d80c81b89f29">&lt;linkText&gt;</bpt>boosted decision tree<ept id="e296ae4d-627e-49b5-b49a-d80c81b89f29">&lt;/linkText&gt;</ept><bpt id="e296ae4d-627e-49b5-b49a-d80c81b89f29">&lt;title&gt;</bpt><ept id="e296ae4d-627e-49b5-b49a-d80c81b89f29">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e296ae4d-627e-49b5-b49a-d80c81b89f29">&lt;linkText&gt;</bpt>boosted decision tree<ept id="e296ae4d-627e-49b5-b49a-d80c81b89f29">&lt;/linkText&gt;</ept><bpt id="e296ae4d-627e-49b5-b49a-d80c81b89f29">&lt;title&gt;</bpt><ept id="e296ae4d-627e-49b5-b49a-d80c81b89f29">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3eacc77-b8d7-40d2-a2f4-359d6fe3acb7" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="307cfd1e-abd5-4b3d-96f4-fae7347b8472" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="16534148-cb45-4f57-ab68-36ec6a5fdedf" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="01ac7ffd-23b8-4f9d-a0a9-580b31539dea" xml:space="preserve">
+          <source>Large memory footprint</source>
+          <target state="new">Large memory footprint</target>
+        </trans-unit>
+        <trans-unit id="c86b1cd4-d938-4d9a-9993-f1e90017422b" xml:space="preserve">
+          <source><bpt id="3cc26296-5905-4e3d-90ac-d4d58879dcd3">&lt;linkText&gt;</bpt>fast forest quantile<ept id="3cc26296-5905-4e3d-90ac-d4d58879dcd3">&lt;/linkText&gt;</ept><bpt id="3cc26296-5905-4e3d-90ac-d4d58879dcd3">&lt;title&gt;</bpt><ept id="3cc26296-5905-4e3d-90ac-d4d58879dcd3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3cc26296-5905-4e3d-90ac-d4d58879dcd3">&lt;linkText&gt;</bpt>fast forest quantile<ept id="3cc26296-5905-4e3d-90ac-d4d58879dcd3">&lt;/linkText&gt;</ept><bpt id="3cc26296-5905-4e3d-90ac-d4d58879dcd3">&lt;title&gt;</bpt><ept id="3cc26296-5905-4e3d-90ac-d4d58879dcd3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c53310c2-f82e-404a-9005-302beaa1cbee" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="f1fa0ef7-43f1-4a5e-850c-ec0eba19a366" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="663485f4-c0a9-42e5-87aa-f41612251d50" xml:space="preserve">
+          <source>9</source>
+          <target state="new">9</target>
+        </trans-unit>
+        <trans-unit id="9a21a4d8-cdef-47b5-a996-b01694253f28" xml:space="preserve">
+          <source>Distributions rather than point predictions</source>
+          <target state="new">Distributions rather than point predictions</target>
+        </trans-unit>
+        <trans-unit id="8e9db4e1-f512-4542-aba3-f98b67e2a8fd" xml:space="preserve">
+          <source><bpt id="cb102d63-5d08-47ec-a21b-ca1fbbadb727">&lt;linkText&gt;</bpt>neural network<ept id="cb102d63-5d08-47ec-a21b-ca1fbbadb727">&lt;/linkText&gt;</ept><bpt id="cb102d63-5d08-47ec-a21b-ca1fbbadb727">&lt;title&gt;</bpt><ept id="cb102d63-5d08-47ec-a21b-ca1fbbadb727">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cb102d63-5d08-47ec-a21b-ca1fbbadb727">&lt;linkText&gt;</bpt>neural network<ept id="cb102d63-5d08-47ec-a21b-ca1fbbadb727">&lt;/linkText&gt;</ept><bpt id="cb102d63-5d08-47ec-a21b-ca1fbbadb727">&lt;title&gt;</bpt><ept id="cb102d63-5d08-47ec-a21b-ca1fbbadb727">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ef4e266-47f9-485c-b19f-16b5da9ef1c7" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="63a2fee7-3d0d-42b9-b175-54dbac636937" xml:space="preserve">
+          <source>9</source>
+          <target state="new">9</target>
+        </trans-unit>
+        <trans-unit id="95b23275-931f-465c-b6af-2c13c2a974b7" xml:space="preserve">
+          <source><bpt id="37608a16-20d2-4540-ac96-089d7a2beaf8">&lt;linkText&gt;</bpt>Additional customization is possible<ept id="37608a16-20d2-4540-ac96-089d7a2beaf8">&lt;/linkText&gt;</ept><bpt id="37608a16-20d2-4540-ac96-089d7a2beaf8">&lt;title&gt;</bpt><ept id="37608a16-20d2-4540-ac96-089d7a2beaf8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="37608a16-20d2-4540-ac96-089d7a2beaf8">&lt;linkText&gt;</bpt>Additional customization is possible<ept id="37608a16-20d2-4540-ac96-089d7a2beaf8">&lt;/linkText&gt;</ept><bpt id="37608a16-20d2-4540-ac96-089d7a2beaf8">&lt;title&gt;</bpt><ept id="37608a16-20d2-4540-ac96-089d7a2beaf8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e813330b-a082-4933-8bdd-64509840c526" xml:space="preserve">
+          <source><bpt id="b9d16e89-782d-465f-a673-d797a97e3b43">&lt;linkText&gt;</bpt>Poisson <ept id="b9d16e89-782d-465f-a673-d797a97e3b43">&lt;/linkText&gt;</ept><bpt id="b9d16e89-782d-465f-a673-d797a97e3b43">&lt;title&gt;</bpt><ept id="b9d16e89-782d-465f-a673-d797a97e3b43">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b9d16e89-782d-465f-a673-d797a97e3b43">&lt;linkText&gt;</bpt>Poisson <ept id="b9d16e89-782d-465f-a673-d797a97e3b43">&lt;/linkText&gt;</ept><bpt id="b9d16e89-782d-465f-a673-d797a97e3b43">&lt;title&gt;</bpt><ept id="b9d16e89-782d-465f-a673-d797a97e3b43">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b592a0f-c08f-466b-9d22-46dc401d2df4" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="26639cc9-1974-4d1b-8c16-c8436c861702" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="34f4da3c-5467-4956-b7a4-3d87bbf2d47b" xml:space="preserve">
+          <source>Technically log-linear.</source>
+          <target state="new">Technically log-linear.</target>
+        </trans-unit>
+        <trans-unit id="c002b39c-1236-4d59-9278-2cecd54c78a7" xml:space="preserve">
+          <source>For predicting counts</source>
+          <target state="new">For predicting counts</target>
+        </trans-unit>
+        <trans-unit id="41244168-5f2c-40c0-bd73-a1f964c04a49" xml:space="preserve">
+          <source><bpt id="53a07fe3-a050-4968-b8ba-f3ee1d5f3efd">&lt;linkText&gt;</bpt>ordinal<ept id="53a07fe3-a050-4968-b8ba-f3ee1d5f3efd">&lt;/linkText&gt;</ept><bpt id="53a07fe3-a050-4968-b8ba-f3ee1d5f3efd">&lt;title&gt;</bpt><ept id="53a07fe3-a050-4968-b8ba-f3ee1d5f3efd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="53a07fe3-a050-4968-b8ba-f3ee1d5f3efd">&lt;linkText&gt;</bpt>ordinal<ept id="53a07fe3-a050-4968-b8ba-f3ee1d5f3efd">&lt;/linkText&gt;</ept><bpt id="53a07fe3-a050-4968-b8ba-f3ee1d5f3efd">&lt;title&gt;</bpt><ept id="53a07fe3-a050-4968-b8ba-f3ee1d5f3efd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f173ec6a-b0b1-493f-81c8-441cefd6e787" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="220b1497-7e7d-4ef4-9649-20cd2dcd91be" xml:space="preserve">
+          <source>For predicting rank-ordering</source>
+          <target state="new">For predicting rank-ordering</target>
+        </trans-unit>
+        <trans-unit id="ceaef012-e363-4d97-91e4-7adab55d2736" xml:space="preserve">
+          <source><bpt id="901df2a6-2a5c-4794-bd15-1b24b6d43e14">&lt;strong&gt;</bpt>Anomaly detection<ept id="901df2a6-2a5c-4794-bd15-1b24b6d43e14">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="901df2a6-2a5c-4794-bd15-1b24b6d43e14">&lt;strong&gt;</bpt>Anomaly detection<ept id="901df2a6-2a5c-4794-bd15-1b24b6d43e14">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="84d51dcd-a079-4949-95e9-32b9835fcec3" xml:space="preserve">
+          <source><bpt id="89e5c61f-b0c3-4d96-8fdd-2e018b6961a0">&lt;linkText&gt;</bpt>support vector machine<ept id="89e5c61f-b0c3-4d96-8fdd-2e018b6961a0">&lt;/linkText&gt;</ept><bpt id="89e5c61f-b0c3-4d96-8fdd-2e018b6961a0">&lt;title&gt;</bpt><ept id="89e5c61f-b0c3-4d96-8fdd-2e018b6961a0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="89e5c61f-b0c3-4d96-8fdd-2e018b6961a0">&lt;linkText&gt;</bpt>support vector machine<ept id="89e5c61f-b0c3-4d96-8fdd-2e018b6961a0">&lt;/linkText&gt;</ept><bpt id="89e5c61f-b0c3-4d96-8fdd-2e018b6961a0">&lt;title&gt;</bpt><ept id="89e5c61f-b0c3-4d96-8fdd-2e018b6961a0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcbb0c75-859a-43b3-bcc4-c0c8365126f4" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="a13cce2e-4d20-45a5-a91b-107487e0fbcb" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="e651a440-3f07-4410-9f1d-aafb4cf1d6e1" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="7e0997c4-81be-4d0e-bd84-45a29b293773" xml:space="preserve">
+          <source>Especially good for large feature sets</source>
+          <target state="new">Especially good for large feature sets</target>
+        </trans-unit>
+        <trans-unit id="0e65db96-3fa5-45ec-99d5-d17c5b21d3a4" xml:space="preserve">
+          <source><bpt id="ee7cff87-21b6-4d06-8138-82595415002a">&lt;linkText&gt;</bpt>PCA-based anomaly detection <ept id="ee7cff87-21b6-4d06-8138-82595415002a">&lt;/linkText&gt;</ept><bpt id="ee7cff87-21b6-4d06-8138-82595415002a">&lt;title&gt;</bpt><ept id="ee7cff87-21b6-4d06-8138-82595415002a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ee7cff87-21b6-4d06-8138-82595415002a">&lt;linkText&gt;</bpt>PCA-based anomaly detection <ept id="ee7cff87-21b6-4d06-8138-82595415002a">&lt;/linkText&gt;</ept><bpt id="ee7cff87-21b6-4d06-8138-82595415002a">&lt;title&gt;</bpt><ept id="ee7cff87-21b6-4d06-8138-82595415002a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09cc6d72-b546-45be-bd67-82a4107f1bea" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="3f3f7041-37b7-45a2-a64d-7f29a3e6fabc" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="11c2e2ba-12b0-4f78-ad2f-d506aad98978" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="049028a5-7173-4d69-ab9f-befb9e5cc3f7" xml:space="preserve">
+          <source><bpt id="964b2e0c-e606-40c7-97c7-bf29e4aaad6f">&lt;linkText&gt;</bpt>K-means<ept id="964b2e0c-e606-40c7-97c7-bf29e4aaad6f">&lt;/linkText&gt;</ept><bpt id="964b2e0c-e606-40c7-97c7-bf29e4aaad6f">&lt;title&gt;</bpt><ept id="964b2e0c-e606-40c7-97c7-bf29e4aaad6f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="964b2e0c-e606-40c7-97c7-bf29e4aaad6f">&lt;linkText&gt;</bpt>K-means<ept id="964b2e0c-e606-40c7-97c7-bf29e4aaad6f">&lt;/linkText&gt;</ept><bpt id="964b2e0c-e606-40c7-97c7-bf29e4aaad6f">&lt;title&gt;</bpt><ept id="964b2e0c-e606-40c7-97c7-bf29e4aaad6f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="343aa142-39cc-4da1-9a5e-1957a5486c4e" xml:space="preserve">
+          <source>○</source>
+          <target state="new">○</target>
+        </trans-unit>
+        <trans-unit id="6b848b8e-dd9b-40d8-97db-7c7ec5419b12" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="6d36bc7a-21bc-4396-93f0-0ba32590ba66" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="c756b198-9db0-419d-aaed-828f26023dc1" xml:space="preserve">
+          <source>A clustering algorithm</source>
+          <target state="new">A clustering algorithm</target>
+        </trans-unit>
+        <trans-unit id="2140b579-bfed-4dae-b6be-e00b4f6b94c7" xml:space="preserve">
+          <source><bpt id="807041e6-7d94-4f56-9dea-9dc89395a82d">&lt;strong&gt;</bpt>Algorithm properties:<ept id="807041e6-7d94-4f56-9dea-9dc89395a82d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="807041e6-7d94-4f56-9dea-9dc89395a82d">&lt;strong&gt;</bpt>Algorithm properties:<ept id="807041e6-7d94-4f56-9dea-9dc89395a82d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd47bf51-e1ca-4f2e-9250-5a92ab3faddb" xml:space="preserve">
+          <source><bpt id="9eedbbc1-60da-4ac3-bc5e-49b568f3e2b5">&lt;strong&gt;</bpt>●<ept id="9eedbbc1-60da-4ac3-bc5e-49b568f3e2b5">&lt;/strong&gt;</ept> - shows excellent accuracy, fast training times, and the use of linearity</source>
+          <target state="new"><bpt id="9eedbbc1-60da-4ac3-bc5e-49b568f3e2b5">&lt;strong&gt;</bpt>●<ept id="9eedbbc1-60da-4ac3-bc5e-49b568f3e2b5">&lt;/strong&gt;</ept> - shows excellent accuracy, fast training times, and the use of linearity</target>
+        </trans-unit>
+        <trans-unit id="1ac3e899-6c24-476e-8ad9-ff2374599ea4" xml:space="preserve">
+          <source><bpt id="b2869322-d657-494f-9324-493a27758d80">&lt;strong&gt;</bpt>○<ept id="b2869322-d657-494f-9324-493a27758d80">&lt;/strong&gt;</ept> - shows good accuracy and moderate training times</source>
+          <target state="new"><bpt id="b2869322-d657-494f-9324-493a27758d80">&lt;strong&gt;</bpt>○<ept id="b2869322-d657-494f-9324-493a27758d80">&lt;/strong&gt;</ept> - shows good accuracy and moderate training times</target>
+        </trans-unit>
+        <trans-unit id="5224dae9-cf7a-4a48-9022-db996a8d7227" xml:space="preserve">
+          <source>As mentioned previously, <bpt id="91ad1240-fdb9-41a7-a082-736697e075dc">&lt;linkText&gt;</bpt>linear regression<ept id="91ad1240-fdb9-41a7-a082-736697e075dc">&lt;/linkText&gt;</ept><bpt id="91ad1240-fdb9-41a7-a082-736697e075dc">&lt;title&gt;</bpt><ept id="91ad1240-fdb9-41a7-a082-736697e075dc">&lt;/title&gt;</ept>
+fits a line (or plane, or hyperplane) to the data set.</source>
+          <target state="new">As mentioned previously, <bpt id="91ad1240-fdb9-41a7-a082-736697e075dc">&lt;linkText&gt;</bpt>linear regression<ept id="91ad1240-fdb9-41a7-a082-736697e075dc">&lt;/linkText&gt;</ept><bpt id="91ad1240-fdb9-41a7-a082-736697e075dc">&lt;title&gt;</bpt><ept id="91ad1240-fdb9-41a7-a082-736697e075dc">&lt;/title&gt;</ept>
+fits a line (or plane, or hyperplane) to the data set.</target>
+        </trans-unit>
+        <trans-unit id="00f80a07-f4e3-47bf-8e2c-b76fda524703" xml:space="preserve">
+          <source>It's a workhorse,
+simple and fast, but it may be overly simplistic for some problems.</source>
+          <target state="new">It's a workhorse,
+simple and fast, but it may be overly simplistic for some problems.</target>
+        </trans-unit>
+        <trans-unit id="f5fe0d79-bf39-4623-85fb-18d6cd588834" xml:space="preserve">
+          <source>Check here for a <bpt id="0ffa742a-d061-424f-8c6e-0818e0c8493a">&lt;linkText&gt;</bpt>linear regression
+tutorial<ept id="0ffa742a-d061-424f-8c6e-0818e0c8493a">&lt;/linkText&gt;</ept><bpt id="0ffa742a-d061-424f-8c6e-0818e0c8493a">&lt;title&gt;</bpt><ept id="0ffa742a-d061-424f-8c6e-0818e0c8493a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Check here for a <bpt id="0ffa742a-d061-424f-8c6e-0818e0c8493a">&lt;linkText&gt;</bpt>linear regression
+tutorial<ept id="0ffa742a-d061-424f-8c6e-0818e0c8493a">&lt;/linkText&gt;</ept><bpt id="0ffa742a-d061-424f-8c6e-0818e0c8493a">&lt;title&gt;</bpt><ept id="0ffa742a-d061-424f-8c6e-0818e0c8493a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35a951ee-b971-4367-9c9a-0c79a4c4d189" xml:space="preserve">
+          <source><bpt id="386496ad-a307-4b20-a816-6904249a1469">&lt;linkText&gt;</bpt>Data with a linear trend<ept id="386496ad-a307-4b20-a816-6904249a1469">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="386496ad-a307-4b20-a816-6904249a1469">&lt;linkText&gt;</bpt>Data with a linear trend<ept id="386496ad-a307-4b20-a816-6904249a1469">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="765780db-63b0-468c-936e-0c129fde5f97" xml:space="preserve">
+          <source><bpt id="bbe56f62-0ab6-4409-916f-cb7b2eb283bd">&lt;strong&gt;</bpt>*Data with a linear trend*<ept id="bbe56f62-0ab6-4409-916f-cb7b2eb283bd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bbe56f62-0ab6-4409-916f-cb7b2eb283bd">&lt;strong&gt;</bpt>*Data with a linear trend*<ept id="bbe56f62-0ab6-4409-916f-cb7b2eb283bd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33df0c03-1a60-470e-b737-fce646d2b1cb" xml:space="preserve">
+          <source>Although it confusingly includes 'regression' in the name, logistic
+regression is actually a powerful tool for
+<bpt id="40dd96e6-8bd9-40c2-89dd-5a7cf9d5870d">&lt;linkText&gt;</bpt>two-class<ept id="40dd96e6-8bd9-40c2-89dd-5a7cf9d5870d">&lt;/linkText&gt;</ept><bpt id="40dd96e6-8bd9-40c2-89dd-5a7cf9d5870d">&lt;title&gt;</bpt><ept id="40dd96e6-8bd9-40c2-89dd-5a7cf9d5870d">&lt;/title&gt;</ept>
+and
+<bpt id="214412b9-207b-43af-8979-fa9c74f058e5">&lt;linkText&gt;</bpt>multiclass<ept id="214412b9-207b-43af-8979-fa9c74f058e5">&lt;/linkText&gt;</ept><bpt id="214412b9-207b-43af-8979-fa9c74f058e5">&lt;title&gt;</bpt><ept id="214412b9-207b-43af-8979-fa9c74f058e5">&lt;/title&gt;</ept>
+classification.</source>
+          <target state="new">Although it confusingly includes 'regression' in the name, logistic
+regression is actually a powerful tool for
+<bpt id="40dd96e6-8bd9-40c2-89dd-5a7cf9d5870d">&lt;linkText&gt;</bpt>two-class<ept id="40dd96e6-8bd9-40c2-89dd-5a7cf9d5870d">&lt;/linkText&gt;</ept><bpt id="40dd96e6-8bd9-40c2-89dd-5a7cf9d5870d">&lt;title&gt;</bpt><ept id="40dd96e6-8bd9-40c2-89dd-5a7cf9d5870d">&lt;/title&gt;</ept>
+and
+<bpt id="214412b9-207b-43af-8979-fa9c74f058e5">&lt;linkText&gt;</bpt>multiclass<ept id="214412b9-207b-43af-8979-fa9c74f058e5">&lt;/linkText&gt;</ept><bpt id="214412b9-207b-43af-8979-fa9c74f058e5">&lt;title&gt;</bpt><ept id="214412b9-207b-43af-8979-fa9c74f058e5">&lt;/title&gt;</ept>
+classification.</target>
+        </trans-unit>
+        <trans-unit id="b3a5cfe1-e7bb-4991-84d5-4b237df7de20" xml:space="preserve">
+          <source>It's fast and simple.</source>
+          <target state="new">It's fast and simple.</target>
+        </trans-unit>
+        <trans-unit id="9e208611-7551-4b19-844f-282737e967b6" xml:space="preserve">
+          <source>The fact that it uses an
+'S'-shaped curve instead of a straight line makes it a natural fit for
+dividing data into groups.</source>
+          <target state="new">The fact that it uses an
+'S'-shaped curve instead of a straight line makes it a natural fit for
+dividing data into groups.</target>
+        </trans-unit>
+        <trans-unit id="f9da0d6d-cbb3-48be-b52c-1d66fd048d29" xml:space="preserve">
+          <source>Logistic regression gives linear class
+boundaries, so when you use it, make sure a linear approximation is
+something you can live with.</source>
+          <target state="new">Logistic regression gives linear class
+boundaries, so when you use it, make sure a linear approximation is
+something you can live with.</target>
+        </trans-unit>
+        <trans-unit id="5dc86f17-782a-4d6a-ad1b-e9fc6948cea6" xml:space="preserve">
+          <source><bpt id="f839c41d-ec8f-4b4b-8a0a-c593c5013d4f">&lt;linkText&gt;</bpt>Logistic regression to two-class data with just one feature<ept id="f839c41d-ec8f-4b4b-8a0a-c593c5013d4f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f839c41d-ec8f-4b4b-8a0a-c593c5013d4f">&lt;linkText&gt;</bpt>Logistic regression to two-class data with just one feature<ept id="f839c41d-ec8f-4b4b-8a0a-c593c5013d4f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1e3adc3-b957-417d-9ff9-b26f1dd5a4c2" xml:space="preserve">
+          <source><bpt id="6d8edf8a-98f7-4de1-9232-31f7c2e082c5">&lt;strong&gt;</bpt>*A logistic regression to two-class data with just one feature*<ept id="6d8edf8a-98f7-4de1-9232-31f7c2e082c5">&lt;/strong&gt;</ept> <bpt id="0588b42d-9471-450d-b4eb-00e2c0007b80">&lt;em&gt;</bpt>- the
+class boundary is the point at which the logistic curve is just as close to both classes<ept id="0588b42d-9471-450d-b4eb-00e2c0007b80">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="6d8edf8a-98f7-4de1-9232-31f7c2e082c5">&lt;strong&gt;</bpt>*A logistic regression to two-class data with just one feature*<ept id="6d8edf8a-98f7-4de1-9232-31f7c2e082c5">&lt;/strong&gt;</ept> <bpt id="0588b42d-9471-450d-b4eb-00e2c0007b80">&lt;em&gt;</bpt>- the
+class boundary is the point at which the logistic curve is just as close to both classes<ept id="0588b42d-9471-450d-b4eb-00e2c0007b80">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4185b109-69e8-4a28-a8fd-543e749d652b" xml:space="preserve">
+          <source>Decision forests
+(<bpt id="8226c851-0241-4868-9c26-1ccc0cefb0dd">&lt;linkText&gt;</bpt>regression<ept id="8226c851-0241-4868-9c26-1ccc0cefb0dd">&lt;/linkText&gt;</ept><bpt id="8226c851-0241-4868-9c26-1ccc0cefb0dd">&lt;title&gt;</bpt><ept id="8226c851-0241-4868-9c26-1ccc0cefb0dd">&lt;/title&gt;</ept>,
+<bpt id="32ee5f4c-44a9-4e7f-8253-e5880da16df0">&lt;linkText&gt;</bpt>two-class<ept id="32ee5f4c-44a9-4e7f-8253-e5880da16df0">&lt;/linkText&gt;</ept><bpt id="32ee5f4c-44a9-4e7f-8253-e5880da16df0">&lt;title&gt;</bpt><ept id="32ee5f4c-44a9-4e7f-8253-e5880da16df0">&lt;/title&gt;</ept>,
+and
+<bpt id="de90abaa-521f-4888-8a8d-b3f0e9636c3a">&lt;linkText&gt;</bpt>multiclass<ept id="de90abaa-521f-4888-8a8d-b3f0e9636c3a">&lt;/linkText&gt;</ept><bpt id="de90abaa-521f-4888-8a8d-b3f0e9636c3a">&lt;title&gt;</bpt><ept id="de90abaa-521f-4888-8a8d-b3f0e9636c3a">&lt;/title&gt;</ept>),
+decision jungles
+(<bpt id="993236c8-dd84-4bf7-8bbc-2deb3c3745e8">&lt;linkText&gt;</bpt>two-class<ept id="993236c8-dd84-4bf7-8bbc-2deb3c3745e8">&lt;/linkText&gt;</ept><bpt id="993236c8-dd84-4bf7-8bbc-2deb3c3745e8">&lt;title&gt;</bpt><ept id="993236c8-dd84-4bf7-8bbc-2deb3c3745e8">&lt;/title&gt;</ept>
+and
+<bpt id="4d149434-14a1-4f02-8ace-3e58fc83c8ab">&lt;linkText&gt;</bpt>multiclass<ept id="4d149434-14a1-4f02-8ace-3e58fc83c8ab">&lt;/linkText&gt;</ept><bpt id="4d149434-14a1-4f02-8ace-3e58fc83c8ab">&lt;title&gt;</bpt><ept id="4d149434-14a1-4f02-8ace-3e58fc83c8ab">&lt;/title&gt;</ept>),
+and boosted decision trees
+(<bpt id="7f3111ae-2dec-40df-a698-1aaa45311a65">&lt;linkText&gt;</bpt>regression<ept id="7f3111ae-2dec-40df-a698-1aaa45311a65">&lt;/linkText&gt;</ept><bpt id="7f3111ae-2dec-40df-a698-1aaa45311a65">&lt;title&gt;</bpt><ept id="7f3111ae-2dec-40df-a698-1aaa45311a65">&lt;/title&gt;</ept>
+and
+<bpt id="241f70dc-c5b7-400f-aafc-cbdb27460767">&lt;linkText&gt;</bpt>two-class<ept id="241f70dc-c5b7-400f-aafc-cbdb27460767">&lt;/linkText&gt;</ept><bpt id="241f70dc-c5b7-400f-aafc-cbdb27460767">&lt;title&gt;</bpt><ept id="241f70dc-c5b7-400f-aafc-cbdb27460767">&lt;/title&gt;</ept>)
+are all based on decision trees, a foundational machine learning
+concept.</source>
+          <target state="new">Decision forests
+(<bpt id="8226c851-0241-4868-9c26-1ccc0cefb0dd">&lt;linkText&gt;</bpt>regression<ept id="8226c851-0241-4868-9c26-1ccc0cefb0dd">&lt;/linkText&gt;</ept><bpt id="8226c851-0241-4868-9c26-1ccc0cefb0dd">&lt;title&gt;</bpt><ept id="8226c851-0241-4868-9c26-1ccc0cefb0dd">&lt;/title&gt;</ept>,
+<bpt id="32ee5f4c-44a9-4e7f-8253-e5880da16df0">&lt;linkText&gt;</bpt>two-class<ept id="32ee5f4c-44a9-4e7f-8253-e5880da16df0">&lt;/linkText&gt;</ept><bpt id="32ee5f4c-44a9-4e7f-8253-e5880da16df0">&lt;title&gt;</bpt><ept id="32ee5f4c-44a9-4e7f-8253-e5880da16df0">&lt;/title&gt;</ept>,
+and
+<bpt id="de90abaa-521f-4888-8a8d-b3f0e9636c3a">&lt;linkText&gt;</bpt>multiclass<ept id="de90abaa-521f-4888-8a8d-b3f0e9636c3a">&lt;/linkText&gt;</ept><bpt id="de90abaa-521f-4888-8a8d-b3f0e9636c3a">&lt;title&gt;</bpt><ept id="de90abaa-521f-4888-8a8d-b3f0e9636c3a">&lt;/title&gt;</ept>),
+decision jungles
+(<bpt id="993236c8-dd84-4bf7-8bbc-2deb3c3745e8">&lt;linkText&gt;</bpt>two-class<ept id="993236c8-dd84-4bf7-8bbc-2deb3c3745e8">&lt;/linkText&gt;</ept><bpt id="993236c8-dd84-4bf7-8bbc-2deb3c3745e8">&lt;title&gt;</bpt><ept id="993236c8-dd84-4bf7-8bbc-2deb3c3745e8">&lt;/title&gt;</ept>
+and
+<bpt id="4d149434-14a1-4f02-8ace-3e58fc83c8ab">&lt;linkText&gt;</bpt>multiclass<ept id="4d149434-14a1-4f02-8ace-3e58fc83c8ab">&lt;/linkText&gt;</ept><bpt id="4d149434-14a1-4f02-8ace-3e58fc83c8ab">&lt;title&gt;</bpt><ept id="4d149434-14a1-4f02-8ace-3e58fc83c8ab">&lt;/title&gt;</ept>),
+and boosted decision trees
+(<bpt id="7f3111ae-2dec-40df-a698-1aaa45311a65">&lt;linkText&gt;</bpt>regression<ept id="7f3111ae-2dec-40df-a698-1aaa45311a65">&lt;/linkText&gt;</ept><bpt id="7f3111ae-2dec-40df-a698-1aaa45311a65">&lt;title&gt;</bpt><ept id="7f3111ae-2dec-40df-a698-1aaa45311a65">&lt;/title&gt;</ept>
+and
+<bpt id="241f70dc-c5b7-400f-aafc-cbdb27460767">&lt;linkText&gt;</bpt>two-class<ept id="241f70dc-c5b7-400f-aafc-cbdb27460767">&lt;/linkText&gt;</ept><bpt id="241f70dc-c5b7-400f-aafc-cbdb27460767">&lt;title&gt;</bpt><ept id="241f70dc-c5b7-400f-aafc-cbdb27460767">&lt;/title&gt;</ept>)
+are all based on decision trees, a foundational machine learning
+concept.</target>
+        </trans-unit>
+        <trans-unit id="950ccebd-75e9-421b-b927-96f06fe5cbc7" xml:space="preserve">
+          <source>There are many variants of decision trees, but they all do the
+same thing—subdivide the feature space into regions with mostly the same
+label.</source>
+          <target state="new">There are many variants of decision trees, but they all do the
+same thing—subdivide the feature space into regions with mostly the same
+label.</target>
+        </trans-unit>
+        <trans-unit id="a198f31e-af67-4021-ad10-c0047b5a367f" xml:space="preserve">
+          <source>These can be regions of consistent category or of constant value,
+depending on whether you are doing classification or regression.</source>
+          <target state="new">These can be regions of consistent category or of constant value,
+depending on whether you are doing classification or regression.</target>
+        </trans-unit>
+        <trans-unit id="8c55f349-8cf3-4fc0-b308-5347c5b7cc79" xml:space="preserve">
+          <source><bpt id="1680e52d-d863-4bf1-a25d-5c5b85e33787">&lt;linkText&gt;</bpt>Decision tree subdivides a feature space<ept id="1680e52d-d863-4bf1-a25d-5c5b85e33787">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1680e52d-d863-4bf1-a25d-5c5b85e33787">&lt;linkText&gt;</bpt>Decision tree subdivides a feature space<ept id="1680e52d-d863-4bf1-a25d-5c5b85e33787">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2facbaed-5950-498b-a216-a6fae5168e29" xml:space="preserve">
+          <source><bpt id="5120aebd-8b63-4d99-b5a2-842bf21b56ce">&lt;strong&gt;</bpt>*A decision tree subdivides a feature space into regions of roughly
+uniform values*<ept id="5120aebd-8b63-4d99-b5a2-842bf21b56ce">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5120aebd-8b63-4d99-b5a2-842bf21b56ce">&lt;strong&gt;</bpt>*A decision tree subdivides a feature space into regions of roughly
+uniform values*<ept id="5120aebd-8b63-4d99-b5a2-842bf21b56ce">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e30d6939-2a12-4343-97b5-3b1f4aa92d9a" xml:space="preserve">
+          <source>Because a feature space can be subdivided into arbitrarily small
+regions, it's easy to imagine dividing it finely enough to have one data
+point per region—an extreme example of overfitting.</source>
+          <target state="new">Because a feature space can be subdivided into arbitrarily small
+regions, it's easy to imagine dividing it finely enough to have one data
+point per region—an extreme example of overfitting.</target>
+        </trans-unit>
+        <trans-unit id="78c25fb7-d172-4f4e-9615-455cf4b73d03" xml:space="preserve">
+          <source>In order to avoid
+this, a large set of trees are constructed with special mathematical
+care taken that the trees are not correlated.</source>
+          <target state="new">In order to avoid
+this, a large set of trees are constructed with special mathematical
+care taken that the trees are not correlated.</target>
+        </trans-unit>
+        <trans-unit id="f1ebfd3d-c141-4348-8c0d-f4292a485284" xml:space="preserve">
+          <source>The average of this
+"decision forest" is a tree that avoids overfitting.</source>
+          <target state="new">The average of this
+"decision forest" is a tree that avoids overfitting.</target>
+        </trans-unit>
+        <trans-unit id="88b8ef2a-556d-47c4-97f0-674f15be6442" xml:space="preserve">
+          <source>Decision forests
+can use a lot of memory.</source>
+          <target state="new">Decision forests
+can use a lot of memory.</target>
+        </trans-unit>
+        <trans-unit id="5f64aaf1-dc95-470e-b205-26cf6d1875ef" xml:space="preserve">
+          <source>Decision jungles are a variant that consumes
+less memory at the expense of a slightly longer training time.</source>
+          <target state="new">Decision jungles are a variant that consumes
+less memory at the expense of a slightly longer training time.</target>
+        </trans-unit>
+        <trans-unit id="b27880c0-459e-43b4-87fd-1ea26bd302d9" xml:space="preserve">
+          <source>Boosted decision trees avoid overfitting by limiting how many times they
+can subdivide and how few data points are allowed in each region.</source>
+          <target state="new">Boosted decision trees avoid overfitting by limiting how many times they
+can subdivide and how few data points are allowed in each region.</target>
+        </trans-unit>
+        <trans-unit id="17285f3c-4470-45d8-8453-62337d946a5b" xml:space="preserve">
+          <source>The
+algorithm constructs a sequence of trees, each of which learns to
+compensate for the error left by the tree before.</source>
+          <target state="new">The
+algorithm constructs a sequence of trees, each of which learns to
+compensate for the error left by the tree before.</target>
+        </trans-unit>
+        <trans-unit id="5359b27e-f165-4656-87a4-c523f6626601" xml:space="preserve">
+          <source>The result is a very
+accurate learner that tends to use a lot of memory.</source>
+          <target state="new">The result is a very
+accurate learner that tends to use a lot of memory.</target>
+        </trans-unit>
+        <trans-unit id="29cbc355-9929-472a-88af-e87761dcf751" xml:space="preserve">
+          <source>For the full
+technical description, check out <bpt id="e9958bdc-4a67-43ea-ab58-f14e5f02822d">&lt;linkText&gt;</bpt>Friedman's original
+paper<ept id="e9958bdc-4a67-43ea-ab58-f14e5f02822d">&lt;/linkText&gt;</ept><bpt id="e9958bdc-4a67-43ea-ab58-f14e5f02822d">&lt;title&gt;</bpt><ept id="e9958bdc-4a67-43ea-ab58-f14e5f02822d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the full
+technical description, check out <bpt id="e9958bdc-4a67-43ea-ab58-f14e5f02822d">&lt;linkText&gt;</bpt>Friedman's original
+paper<ept id="e9958bdc-4a67-43ea-ab58-f14e5f02822d">&lt;/linkText&gt;</ept><bpt id="e9958bdc-4a67-43ea-ab58-f14e5f02822d">&lt;title&gt;</bpt><ept id="e9958bdc-4a67-43ea-ab58-f14e5f02822d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e85c491-61d6-4bca-a681-3991ae4d6952" xml:space="preserve">
+          <source><bpt id="e42e5686-d193-42e8-b44f-70ae0cc4e781">&lt;linkText&gt;</bpt>Fast forest quantile
+regression<ept id="e42e5686-d193-42e8-b44f-70ae0cc4e781">&lt;/linkText&gt;</ept><bpt id="e42e5686-d193-42e8-b44f-70ae0cc4e781">&lt;title&gt;</bpt><ept id="e42e5686-d193-42e8-b44f-70ae0cc4e781">&lt;/title&gt;</ept>
+is a variation of decision trees for the special case where you want to
+know not only the typical (median) value of the data within a region,
+but also its distribution in the form of quantiles.</source>
+          <target state="new"><bpt id="e42e5686-d193-42e8-b44f-70ae0cc4e781">&lt;linkText&gt;</bpt>Fast forest quantile
+regression<ept id="e42e5686-d193-42e8-b44f-70ae0cc4e781">&lt;/linkText&gt;</ept><bpt id="e42e5686-d193-42e8-b44f-70ae0cc4e781">&lt;title&gt;</bpt><ept id="e42e5686-d193-42e8-b44f-70ae0cc4e781">&lt;/title&gt;</ept>
+is a variation of decision trees for the special case where you want to
+know not only the typical (median) value of the data within a region,
+but also its distribution in the form of quantiles.</target>
+        </trans-unit>
+        <trans-unit id="2cb92518-810d-4622-8761-7a1e9eed9701" xml:space="preserve">
+          <source>Neural networks are brain-inspired learning algorithms covering
+<bpt id="ca8e7310-6800-448c-a1b7-572b73c4634b">&lt;linkText&gt;</bpt>multiclass<ept id="ca8e7310-6800-448c-a1b7-572b73c4634b">&lt;/linkText&gt;</ept><bpt id="ca8e7310-6800-448c-a1b7-572b73c4634b">&lt;title&gt;</bpt><ept id="ca8e7310-6800-448c-a1b7-572b73c4634b">&lt;/title&gt;</ept>,
+<bpt id="3329cf7b-e8c4-472d-92ca-06fe55ca85ed">&lt;linkText&gt;</bpt>two-class<ept id="3329cf7b-e8c4-472d-92ca-06fe55ca85ed">&lt;/linkText&gt;</ept><bpt id="3329cf7b-e8c4-472d-92ca-06fe55ca85ed">&lt;title&gt;</bpt><ept id="3329cf7b-e8c4-472d-92ca-06fe55ca85ed">&lt;/title&gt;</ept>,
+and
+<bpt id="a3b4c143-5e38-40b2-bc05-522d98039bd2">&lt;linkText&gt;</bpt>regression<ept id="a3b4c143-5e38-40b2-bc05-522d98039bd2">&lt;/linkText&gt;</ept><bpt id="a3b4c143-5e38-40b2-bc05-522d98039bd2">&lt;title&gt;</bpt><ept id="a3b4c143-5e38-40b2-bc05-522d98039bd2">&lt;/title&gt;</ept>
+problems.</source>
+          <target state="new">Neural networks are brain-inspired learning algorithms covering
+<bpt id="ca8e7310-6800-448c-a1b7-572b73c4634b">&lt;linkText&gt;</bpt>multiclass<ept id="ca8e7310-6800-448c-a1b7-572b73c4634b">&lt;/linkText&gt;</ept><bpt id="ca8e7310-6800-448c-a1b7-572b73c4634b">&lt;title&gt;</bpt><ept id="ca8e7310-6800-448c-a1b7-572b73c4634b">&lt;/title&gt;</ept>,
+<bpt id="3329cf7b-e8c4-472d-92ca-06fe55ca85ed">&lt;linkText&gt;</bpt>two-class<ept id="3329cf7b-e8c4-472d-92ca-06fe55ca85ed">&lt;/linkText&gt;</ept><bpt id="3329cf7b-e8c4-472d-92ca-06fe55ca85ed">&lt;title&gt;</bpt><ept id="3329cf7b-e8c4-472d-92ca-06fe55ca85ed">&lt;/title&gt;</ept>,
+and
+<bpt id="a3b4c143-5e38-40b2-bc05-522d98039bd2">&lt;linkText&gt;</bpt>regression<ept id="a3b4c143-5e38-40b2-bc05-522d98039bd2">&lt;/linkText&gt;</ept><bpt id="a3b4c143-5e38-40b2-bc05-522d98039bd2">&lt;title&gt;</bpt><ept id="a3b4c143-5e38-40b2-bc05-522d98039bd2">&lt;/title&gt;</ept>
+problems.</target>
+        </trans-unit>
+        <trans-unit id="b534fca3-b47c-4a11-a6d9-ce3871a9b351" xml:space="preserve">
+          <source>They come in an infinite variety, but the neural networks
+within Azure Machine Learning are all of the form of directed acyclic graphs.</source>
+          <target state="new">They come in an infinite variety, but the neural networks
+within Azure Machine Learning are all of the form of directed acyclic graphs.</target>
+        </trans-unit>
+        <trans-unit id="9642f875-74d4-4ecf-b33c-2659ead5d9c4" xml:space="preserve">
+          <source>That
+means that input features are passed forward (never backward) through a
+sequence of layers before being turned into outputs.</source>
+          <target state="new">That
+means that input features are passed forward (never backward) through a
+sequence of layers before being turned into outputs.</target>
+        </trans-unit>
+        <trans-unit id="ceb800c8-8008-493b-92ac-29c5daa66412" xml:space="preserve">
+          <source>In each layer,
+inputs are weighted in various combinations, summed, and passed on to
+the next layer.</source>
+          <target state="new">In each layer,
+inputs are weighted in various combinations, summed, and passed on to
+the next layer.</target>
+        </trans-unit>
+        <trans-unit id="3eb03650-2ffb-43c4-848c-a0f7ac91c92f" xml:space="preserve">
+          <source>This combination of simple calculations results in the
+ability to learn sophisticated class boundaries and data trends,
+seemingly by magic.</source>
+          <target state="new">This combination of simple calculations results in the
+ability to learn sophisticated class boundaries and data trends,
+seemingly by magic.</target>
+        </trans-unit>
+        <trans-unit id="c9a573e6-d1d3-4d1b-b9f5-18aef1b37a1b" xml:space="preserve">
+          <source>Many-layered networks of this sort perform the "deep
+learning" that fuels so much tech reporting and science fiction.</source>
+          <target state="new">Many-layered networks of this sort perform the "deep
+learning" that fuels so much tech reporting and science fiction.</target>
+        </trans-unit>
+        <trans-unit id="ea0e5dad-055c-4622-8c9f-f0fee5ae4ecb" xml:space="preserve">
+          <source>This high performance doesn't come for free, though.</source>
+          <target state="new">This high performance doesn't come for free, though.</target>
+        </trans-unit>
+        <trans-unit id="54708b01-64d1-4676-8d1e-b383730c6385" xml:space="preserve">
+          <source>Neural networks can
+take a long time to train, particularly for large data sets with lots of
+features.</source>
+          <target state="new">Neural networks can
+take a long time to train, particularly for large data sets with lots of
+features.</target>
+        </trans-unit>
+        <trans-unit id="ecd177cf-d71b-4d44-a023-13ae7c9af0af" xml:space="preserve">
+          <source>They also have more parameters than most algorithms, which
+means that parameter sweeping expands the training time a great deal.</source>
+          <target state="new">They also have more parameters than most algorithms, which
+means that parameter sweeping expands the training time a great deal.</target>
+        </trans-unit>
+        <trans-unit id="bf338b22-7120-46f0-9b94-8c13cb4be903" xml:space="preserve">
+          <source>And for those overachievers who wish to <bpt id="ef113f14-62b2-4c56-954b-64827411f183">&lt;linkText&gt;</bpt>specify their own network
+structure<ept id="ef113f14-62b2-4c56-954b-64827411f183">&lt;/linkText&gt;</ept><bpt id="ef113f14-62b2-4c56-954b-64827411f183">&lt;title&gt;</bpt><ept id="ef113f14-62b2-4c56-954b-64827411f183">&lt;/title&gt;</ept>, the
+possibilities are inexhaustible.</source>
+          <target state="new">And for those overachievers who wish to <bpt id="ef113f14-62b2-4c56-954b-64827411f183">&lt;linkText&gt;</bpt>specify their own network
+structure<ept id="ef113f14-62b2-4c56-954b-64827411f183">&lt;/linkText&gt;</ept><bpt id="ef113f14-62b2-4c56-954b-64827411f183">&lt;title&gt;</bpt><ept id="ef113f14-62b2-4c56-954b-64827411f183">&lt;/title&gt;</ept>, the
+possibilities are inexhaustible.</target>
+        </trans-unit>
+        <trans-unit id="58c77f16-6f33-48cc-b5e8-b5afb617726e" xml:space="preserve">
+          <source><bpt id="f2acaaed-851d-413b-a113-618f2bcefd4f">&lt;strong&gt;</bpt>*The boundaries learned by neural networks can be complex and
+irregular*<ept id="f2acaaed-851d-413b-a113-618f2bcefd4f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f2acaaed-851d-413b-a113-618f2bcefd4f">&lt;strong&gt;</bpt>*The boundaries learned by neural networks can be complex and
+irregular*<ept id="f2acaaed-851d-413b-a113-618f2bcefd4f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3ca93e8-c1e9-4cd5-a0b7-5921cbc66d19" xml:space="preserve">
+          <source>The <bpt id="abfe33d0-6553-4908-b10b-5040870f9eac">&lt;linkText&gt;</bpt>two-class averaged
+perceptron<ept id="abfe33d0-6553-4908-b10b-5040870f9eac">&lt;/linkText&gt;</ept><bpt id="abfe33d0-6553-4908-b10b-5040870f9eac">&lt;title&gt;</bpt><ept id="abfe33d0-6553-4908-b10b-5040870f9eac">&lt;/title&gt;</ept>
+is neural networks' answer to skyrocketing training times.</source>
+          <target state="new">The <bpt id="abfe33d0-6553-4908-b10b-5040870f9eac">&lt;linkText&gt;</bpt>two-class averaged
+perceptron<ept id="abfe33d0-6553-4908-b10b-5040870f9eac">&lt;/linkText&gt;</ept><bpt id="abfe33d0-6553-4908-b10b-5040870f9eac">&lt;title&gt;</bpt><ept id="abfe33d0-6553-4908-b10b-5040870f9eac">&lt;/title&gt;</ept>
+is neural networks' answer to skyrocketing training times.</target>
+        </trans-unit>
+        <trans-unit id="8a458534-2058-45ae-88a7-cac3562647cb" xml:space="preserve">
+          <source>It uses a
+network structure that gives linear class boundaries.</source>
+          <target state="new">It uses a
+network structure that gives linear class boundaries.</target>
+        </trans-unit>
+        <trans-unit id="30022ca8-0292-487a-872a-8ecfc3176844" xml:space="preserve">
+          <source>It is almost
+primitive by today's standards, but it has a long history of working
+robustly and is small enough to learn quickly.</source>
+          <target state="new">It is almost
+primitive by today's standards, but it has a long history of working
+robustly and is small enough to learn quickly.</target>
+        </trans-unit>
+        <trans-unit id="20244621-2adb-4575-b826-780de92e6d20" xml:space="preserve">
+          <source>Support vector machines (SVMs) find the boundary that separates classes
+by as wide a margin as possible.</source>
+          <target state="new">Support vector machines (SVMs) find the boundary that separates classes
+by as wide a margin as possible.</target>
+        </trans-unit>
+        <trans-unit id="76fd2313-1dde-42c8-adbe-d00d68ecc51b" xml:space="preserve">
+          <source>When the two classes can't be clearly
+separated, the algorithms find the best boundary they can.</source>
+          <target state="new">When the two classes can't be clearly
+separated, the algorithms find the best boundary they can.</target>
+        </trans-unit>
+        <trans-unit id="6780ad64-2571-44d7-a948-f97795609215" xml:space="preserve">
+          <source>As written in
+Azure Machine Learning, the <bpt id="8a474c20-edca-4e23-b1b4-a41dac054a2d">&lt;linkText&gt;</bpt>two-class
+SVM<ept id="8a474c20-edca-4e23-b1b4-a41dac054a2d">&lt;/linkText&gt;</ept><bpt id="8a474c20-edca-4e23-b1b4-a41dac054a2d">&lt;title&gt;</bpt><ept id="8a474c20-edca-4e23-b1b4-a41dac054a2d">&lt;/title&gt;</ept> does
+this with a straight line only.</source>
+          <target state="new">As written in
+Azure Machine Learning, the <bpt id="8a474c20-edca-4e23-b1b4-a41dac054a2d">&lt;linkText&gt;</bpt>two-class
+SVM<ept id="8a474c20-edca-4e23-b1b4-a41dac054a2d">&lt;/linkText&gt;</ept><bpt id="8a474c20-edca-4e23-b1b4-a41dac054a2d">&lt;title&gt;</bpt><ept id="8a474c20-edca-4e23-b1b4-a41dac054a2d">&lt;/title&gt;</ept> does
+this with a straight line only.</target>
+        </trans-unit>
+        <trans-unit id="9606635b-9e94-4c21-a5cc-3fd078b55e8c" xml:space="preserve">
+          <source>(In SVM-speak, it uses a linear kernel.)</source>
+          <target state="new">(In SVM-speak, it uses a linear kernel.)</target>
+        </trans-unit>
+        <trans-unit id="b523da15-f4ce-4ecc-803a-f9c508b92695" xml:space="preserve">
+          <source>Because it makes this linear approximation, it is able to run fairly
+quickly.</source>
+          <target state="new">Because it makes this linear approximation, it is able to run fairly
+quickly.</target>
+        </trans-unit>
+        <trans-unit id="0c5fed66-a8db-4cfd-a930-277c110beabf" xml:space="preserve">
+          <source>Where it really shines is with feature-intense data, like text
+or genomic.</source>
+          <target state="new">Where it really shines is with feature-intense data, like text
+or genomic.</target>
+        </trans-unit>
+        <trans-unit id="0e067724-e337-40e9-acb1-869e8a95db1c" xml:space="preserve">
+          <source>In these cases SVMs are able to separate classes more
+quickly and with less overfitting than most other algorithms, in
+addition to requiring only a modest amount of memory.</source>
+          <target state="new">In these cases SVMs are able to separate classes more
+quickly and with less overfitting than most other algorithms, in
+addition to requiring only a modest amount of memory.</target>
+        </trans-unit>
+        <trans-unit id="49e6e2cd-daba-4403-9689-fe5a518fd66c" xml:space="preserve">
+          <source><bpt id="28809043-766d-4812-8b98-5c411b892ef5">&lt;linkText&gt;</bpt>Support vector machine class boundary<ept id="28809043-766d-4812-8b98-5c411b892ef5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="28809043-766d-4812-8b98-5c411b892ef5">&lt;linkText&gt;</bpt>Support vector machine class boundary<ept id="28809043-766d-4812-8b98-5c411b892ef5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bbc9795e-91bd-4f44-92bc-19e83fb6485c" xml:space="preserve">
+          <source><bpt id="60bd39f4-a734-4d01-9aa0-8eae3deb7b6e">&lt;strong&gt;</bpt>*A typical support vector machine class boundary maximizes the margin
+separating two classes*<ept id="60bd39f4-a734-4d01-9aa0-8eae3deb7b6e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="60bd39f4-a734-4d01-9aa0-8eae3deb7b6e">&lt;strong&gt;</bpt>*A typical support vector machine class boundary maximizes the margin
+separating two classes*<ept id="60bd39f4-a734-4d01-9aa0-8eae3deb7b6e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df04a69e-714f-4214-8ccd-94e5d7960b73" xml:space="preserve">
+          <source>Another product of Microsoft Research, the <bpt id="61e9665d-db21-4f4a-a5f2-aec6d2f9a047">&lt;linkText&gt;</bpt>two-class locally deep
+SVM<ept id="61e9665d-db21-4f4a-a5f2-aec6d2f9a047">&lt;/linkText&gt;</ept><bpt id="61e9665d-db21-4f4a-a5f2-aec6d2f9a047">&lt;title&gt;</bpt><ept id="61e9665d-db21-4f4a-a5f2-aec6d2f9a047">&lt;/title&gt;</ept> is a
+non-linear variant of SVM that retains most of the speed and memory
+efficiency of the linear version.</source>
+          <target state="new">Another product of Microsoft Research, the <bpt id="61e9665d-db21-4f4a-a5f2-aec6d2f9a047">&lt;linkText&gt;</bpt>two-class locally deep
+SVM<ept id="61e9665d-db21-4f4a-a5f2-aec6d2f9a047">&lt;/linkText&gt;</ept><bpt id="61e9665d-db21-4f4a-a5f2-aec6d2f9a047">&lt;title&gt;</bpt><ept id="61e9665d-db21-4f4a-a5f2-aec6d2f9a047">&lt;/title&gt;</ept> is a
+non-linear variant of SVM that retains most of the speed and memory
+efficiency of the linear version.</target>
+        </trans-unit>
+        <trans-unit id="2c472fb1-cb5f-4705-aa44-f60e9be3ed6b" xml:space="preserve">
+          <source>It is ideal for cases where the linear
+approach doesn't give accurate enough answers.</source>
+          <target state="new">It is ideal for cases where the linear
+approach doesn't give accurate enough answers.</target>
+        </trans-unit>
+        <trans-unit id="5994fe2b-967a-466a-af23-49e093a378d6" xml:space="preserve">
+          <source>The developers kept it
+fast by breaking the problem down into a bunch of small linear SVM
+problems.</source>
+          <target state="new">The developers kept it
+fast by breaking the problem down into a bunch of small linear SVM
+problems.</target>
+        </trans-unit>
+        <trans-unit id="6ee1d9dd-a278-4bf8-b536-004cedef2b41" xml:space="preserve">
+          <source>Read the <bpt id="ebbd94a5-26a2-4c6c-8b69-21b97f5be41b">&lt;linkText&gt;</bpt>full
+description<ept id="ebbd94a5-26a2-4c6c-8b69-21b97f5be41b">&lt;/linkText&gt;</ept><bpt id="ebbd94a5-26a2-4c6c-8b69-21b97f5be41b">&lt;title&gt;</bpt><ept id="ebbd94a5-26a2-4c6c-8b69-21b97f5be41b">&lt;/title&gt;</ept>
+for the details on how they pulled off this trick.</source>
+          <target state="new">Read the <bpt id="ebbd94a5-26a2-4c6c-8b69-21b97f5be41b">&lt;linkText&gt;</bpt>full
+description<ept id="ebbd94a5-26a2-4c6c-8b69-21b97f5be41b">&lt;/linkText&gt;</ept><bpt id="ebbd94a5-26a2-4c6c-8b69-21b97f5be41b">&lt;title&gt;</bpt><ept id="ebbd94a5-26a2-4c6c-8b69-21b97f5be41b">&lt;/title&gt;</ept>
+for the details on how they pulled off this trick.</target>
+        </trans-unit>
+        <trans-unit id="ae5f14b4-2643-48da-b254-fb999b400ffd" xml:space="preserve">
+          <source>Using a clever extension of nonlinear SVMs, the <bpt id="a9d1dba2-5a56-4aea-b6b7-f854732dc730">&lt;linkText&gt;</bpt>one-class
+SVM<ept id="a9d1dba2-5a56-4aea-b6b7-f854732dc730">&lt;/linkText&gt;</ept><bpt id="a9d1dba2-5a56-4aea-b6b7-f854732dc730">&lt;title&gt;</bpt><ept id="a9d1dba2-5a56-4aea-b6b7-f854732dc730">&lt;/title&gt;</ept> draws
+a boundary that tightly outlines the entire data set.</source>
+          <target state="new">Using a clever extension of nonlinear SVMs, the <bpt id="a9d1dba2-5a56-4aea-b6b7-f854732dc730">&lt;linkText&gt;</bpt>one-class
+SVM<ept id="a9d1dba2-5a56-4aea-b6b7-f854732dc730">&lt;/linkText&gt;</ept><bpt id="a9d1dba2-5a56-4aea-b6b7-f854732dc730">&lt;title&gt;</bpt><ept id="a9d1dba2-5a56-4aea-b6b7-f854732dc730">&lt;/title&gt;</ept> draws
+a boundary that tightly outlines the entire data set.</target>
+        </trans-unit>
+        <trans-unit id="5434de7a-75c8-4de2-bf39-ca3b15ced3f7" xml:space="preserve">
+          <source>It is useful for
+anomaly detection.</source>
+          <target state="new">It is useful for
+anomaly detection.</target>
+        </trans-unit>
+        <trans-unit id="d0a018a3-fa7e-4700-9144-65e8e4b8a029" xml:space="preserve">
+          <source>Any new data points that fall far outside that
+boundary are unusual enough to be noteworthy.</source>
+          <target state="new">Any new data points that fall far outside that
+boundary are unusual enough to be noteworthy.</target>
+        </trans-unit>
+        <trans-unit id="744099d0-f194-4e2f-80c0-15534231ae19" xml:space="preserve">
+          <source>Bayesian methods have a highly desirable quality: they avoid
+overfitting.</source>
+          <target state="new">Bayesian methods have a highly desirable quality: they avoid
+overfitting.</target>
+        </trans-unit>
+        <trans-unit id="efec0036-199a-4686-a051-c4587ddd992b" xml:space="preserve">
+          <source>They do this by making some assumptions beforehand about
+the likely distribution of the answer.</source>
+          <target state="new">They do this by making some assumptions beforehand about
+the likely distribution of the answer.</target>
+        </trans-unit>
+        <trans-unit id="7ce3c45b-226d-43a7-af5c-d436035ec36b" xml:space="preserve">
+          <source>Another byproduct of this
+approach is that they have very few parameters.</source>
+          <target state="new">Another byproduct of this
+approach is that they have very few parameters.</target>
+        </trans-unit>
+        <trans-unit id="8a310a4c-43fd-4a91-83af-86dcf72ed3c1" xml:space="preserve">
+          <source>Azure Machine Learning has both
+Bayesian algorithms for both classification (<bpt id="d25b7ac8-8239-4200-a4cf-939459a16b6a">&lt;linkText&gt;</bpt>Two-class Bayes' point
+machine<ept id="d25b7ac8-8239-4200-a4cf-939459a16b6a">&lt;/linkText&gt;</ept><bpt id="d25b7ac8-8239-4200-a4cf-939459a16b6a">&lt;title&gt;</bpt><ept id="d25b7ac8-8239-4200-a4cf-939459a16b6a">&lt;/title&gt;</ept>)
+and regression (<bpt id="eb79accb-07d6-445d-b777-af5cd541be19">&lt;linkText&gt;</bpt>Bayesian linear
+regression<ept id="eb79accb-07d6-445d-b777-af5cd541be19">&lt;/linkText&gt;</ept><bpt id="eb79accb-07d6-445d-b777-af5cd541be19">&lt;title&gt;</bpt><ept id="eb79accb-07d6-445d-b777-af5cd541be19">&lt;/title&gt;</ept>).</source>
+          <target state="new">Azure Machine Learning has both
+Bayesian algorithms for both classification (<bpt id="d25b7ac8-8239-4200-a4cf-939459a16b6a">&lt;linkText&gt;</bpt>Two-class Bayes' point
+machine<ept id="d25b7ac8-8239-4200-a4cf-939459a16b6a">&lt;/linkText&gt;</ept><bpt id="d25b7ac8-8239-4200-a4cf-939459a16b6a">&lt;title&gt;</bpt><ept id="d25b7ac8-8239-4200-a4cf-939459a16b6a">&lt;/title&gt;</ept>)
+and regression (<bpt id="eb79accb-07d6-445d-b777-af5cd541be19">&lt;linkText&gt;</bpt>Bayesian linear
+regression<ept id="eb79accb-07d6-445d-b777-af5cd541be19">&lt;/linkText&gt;</ept><bpt id="eb79accb-07d6-445d-b777-af5cd541be19">&lt;title&gt;</bpt><ept id="eb79accb-07d6-445d-b777-af5cd541be19">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="bbd5539d-d7f3-4742-8cd8-00d2bb3a057f" xml:space="preserve">
+          <source>Note that these assume that the data can be split or fit with a straight
+line.</source>
+          <target state="new">Note that these assume that the data can be split or fit with a straight
+line.</target>
+        </trans-unit>
+        <trans-unit id="df3ecd81-ab11-4ee4-8add-fbc3aa8932ab" xml:space="preserve">
+          <source>On an historical note, Bayes' point machines were developed at Microsoft
+Research.</source>
+          <target state="new">On an historical note, Bayes' point machines were developed at Microsoft
+Research.</target>
+        </trans-unit>
+        <trans-unit id="95cd124d-dad3-4f1d-9d24-6051597dd413" xml:space="preserve">
+          <source>They have some exceptionally beautiful theoretical work behind
+them.</source>
+          <target state="new">They have some exceptionally beautiful theoretical work behind
+them.</target>
+        </trans-unit>
+        <trans-unit id="5ccef19f-9319-40c7-b03c-becaa7b71135" xml:space="preserve">
+          <source>The interested student is directed to the <bpt id="77761230-6920-4aae-a24d-ad6145a0994e">&lt;linkText&gt;</bpt>original article in
+JMLR<ept id="77761230-6920-4aae-a24d-ad6145a0994e">&lt;/linkText&gt;</ept><bpt id="77761230-6920-4aae-a24d-ad6145a0994e">&lt;title&gt;</bpt><ept id="77761230-6920-4aae-a24d-ad6145a0994e">&lt;/title&gt;</ept> and an
+<bpt id="db5c597b-9960-4504-9386-d83ab7880fad">&lt;linkText&gt;</bpt>insightful blog by Chris
+Bishop<ept id="db5c597b-9960-4504-9386-d83ab7880fad">&lt;/linkText&gt;</ept><bpt id="db5c597b-9960-4504-9386-d83ab7880fad">&lt;title&gt;</bpt><ept id="db5c597b-9960-4504-9386-d83ab7880fad">&lt;/title&gt;</ept>.</source>
+          <target state="new">The interested student is directed to the <bpt id="77761230-6920-4aae-a24d-ad6145a0994e">&lt;linkText&gt;</bpt>original article in
+JMLR<ept id="77761230-6920-4aae-a24d-ad6145a0994e">&lt;/linkText&gt;</ept><bpt id="77761230-6920-4aae-a24d-ad6145a0994e">&lt;title&gt;</bpt><ept id="77761230-6920-4aae-a24d-ad6145a0994e">&lt;/title&gt;</ept> and an
+<bpt id="db5c597b-9960-4504-9386-d83ab7880fad">&lt;linkText&gt;</bpt>insightful blog by Chris
+Bishop<ept id="db5c597b-9960-4504-9386-d83ab7880fad">&lt;/linkText&gt;</ept><bpt id="db5c597b-9960-4504-9386-d83ab7880fad">&lt;title&gt;</bpt><ept id="db5c597b-9960-4504-9386-d83ab7880fad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aac28537-9b30-4c56-8bcf-fc64726d7e72" xml:space="preserve">
+          <source>If you have a very specific goal you may be in luck.</source>
+          <target state="new">If you have a very specific goal you may be in luck.</target>
+        </trans-unit>
+        <trans-unit id="d4ef7cd2-4ac9-444f-8d4b-85a3e7d2f9a4" xml:space="preserve">
+          <source>Within the Azure Machine Learning
+collection there are algorithms that specialize in rank prediction
+(<bpt id="a54d3336-d6cc-4cb3-988c-9b83686a5f84">&lt;linkText&gt;</bpt>ordinal
+regression<ept id="a54d3336-d6cc-4cb3-988c-9b83686a5f84">&lt;/linkText&gt;</ept><bpt id="a54d3336-d6cc-4cb3-988c-9b83686a5f84">&lt;title&gt;</bpt><ept id="a54d3336-d6cc-4cb3-988c-9b83686a5f84">&lt;/title&gt;</ept>),
+count prediction (<bpt id="46b777c1-c76e-42a0-9d87-9c8596534751">&lt;linkText&gt;</bpt>Poisson
+regression<ept id="46b777c1-c76e-42a0-9d87-9c8596534751">&lt;/linkText&gt;</ept><bpt id="46b777c1-c76e-42a0-9d87-9c8596534751">&lt;title&gt;</bpt><ept id="46b777c1-c76e-42a0-9d87-9c8596534751">&lt;/title&gt;</ept>),
+and anomaly detection (one based on <bpt id="fc975e86-a155-47d0-a2a2-109f236ae37e">&lt;linkText&gt;</bpt>principal components
+analysis<ept id="fc975e86-a155-47d0-a2a2-109f236ae37e">&lt;/linkText&gt;</ept><bpt id="fc975e86-a155-47d0-a2a2-109f236ae37e">&lt;title&gt;</bpt><ept id="fc975e86-a155-47d0-a2a2-109f236ae37e">&lt;/title&gt;</ept>
+and one based on <bpt id="615846f2-2195-4fff-88d0-628407924cca">&lt;linkText&gt;</bpt>support vector
+machine<ept id="615846f2-2195-4fff-88d0-628407924cca">&lt;/linkText&gt;</ept><bpt id="615846f2-2195-4fff-88d0-628407924cca">&lt;title&gt;</bpt><ept id="615846f2-2195-4fff-88d0-628407924cca">&lt;/title&gt;</ept>s).</source>
+          <target state="new">Within the Azure Machine Learning
+collection there are algorithms that specialize in rank prediction
+(<bpt id="a54d3336-d6cc-4cb3-988c-9b83686a5f84">&lt;linkText&gt;</bpt>ordinal
+regression<ept id="a54d3336-d6cc-4cb3-988c-9b83686a5f84">&lt;/linkText&gt;</ept><bpt id="a54d3336-d6cc-4cb3-988c-9b83686a5f84">&lt;title&gt;</bpt><ept id="a54d3336-d6cc-4cb3-988c-9b83686a5f84">&lt;/title&gt;</ept>),
+count prediction (<bpt id="46b777c1-c76e-42a0-9d87-9c8596534751">&lt;linkText&gt;</bpt>Poisson
+regression<ept id="46b777c1-c76e-42a0-9d87-9c8596534751">&lt;/linkText&gt;</ept><bpt id="46b777c1-c76e-42a0-9d87-9c8596534751">&lt;title&gt;</bpt><ept id="46b777c1-c76e-42a0-9d87-9c8596534751">&lt;/title&gt;</ept>),
+and anomaly detection (one based on <bpt id="fc975e86-a155-47d0-a2a2-109f236ae37e">&lt;linkText&gt;</bpt>principal components
+analysis<ept id="fc975e86-a155-47d0-a2a2-109f236ae37e">&lt;/linkText&gt;</ept><bpt id="fc975e86-a155-47d0-a2a2-109f236ae37e">&lt;title&gt;</bpt><ept id="fc975e86-a155-47d0-a2a2-109f236ae37e">&lt;/title&gt;</ept>
+and one based on <bpt id="615846f2-2195-4fff-88d0-628407924cca">&lt;linkText&gt;</bpt>support vector
+machine<ept id="615846f2-2195-4fff-88d0-628407924cca">&lt;/linkText&gt;</ept><bpt id="615846f2-2195-4fff-88d0-628407924cca">&lt;title&gt;</bpt><ept id="615846f2-2195-4fff-88d0-628407924cca">&lt;/title&gt;</ept>s).</target>
+        </trans-unit>
+        <trans-unit id="51ae4e04-3f34-45d4-95c5-494170dc90f4" xml:space="preserve">
+          <source>And there is a lone clustering algorithm as well
+(<bpt id="89dcb2f4-1ed4-47c5-b34c-fe4bbea94fdb">&lt;linkText&gt;</bpt>K-means<ept id="89dcb2f4-1ed4-47c5-b34c-fe4bbea94fdb">&lt;/linkText&gt;</ept><bpt id="89dcb2f4-1ed4-47c5-b34c-fe4bbea94fdb">&lt;title&gt;</bpt><ept id="89dcb2f4-1ed4-47c5-b34c-fe4bbea94fdb">&lt;/title&gt;</ept>).</source>
+          <target state="new">And there is a lone clustering algorithm as well
+(<bpt id="89dcb2f4-1ed4-47c5-b34c-fe4bbea94fdb">&lt;linkText&gt;</bpt>K-means<ept id="89dcb2f4-1ed4-47c5-b34c-fe4bbea94fdb">&lt;/linkText&gt;</ept><bpt id="89dcb2f4-1ed4-47c5-b34c-fe4bbea94fdb">&lt;title&gt;</bpt><ept id="89dcb2f4-1ed4-47c5-b34c-fe4bbea94fdb">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="fd904887-c93f-4ed6-b493-32d56e54e4eb" xml:space="preserve">
+          <source><bpt id="46e7ba1b-8a20-4ce9-b103-49706fb21359">&lt;linkText&gt;</bpt>PCA-based anomaly detection<ept id="46e7ba1b-8a20-4ce9-b103-49706fb21359">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46e7ba1b-8a20-4ce9-b103-49706fb21359">&lt;linkText&gt;</bpt>PCA-based anomaly detection<ept id="46e7ba1b-8a20-4ce9-b103-49706fb21359">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8cb55380-e17c-4ae2-9324-999965535aac" xml:space="preserve">
+          <source><bpt id="51b8e1a8-20ff-4cd3-8886-fd842010b6d2">&lt;strong&gt;</bpt>*PCA-based anomaly detection*<ept id="51b8e1a8-20ff-4cd3-8886-fd842010b6d2">&lt;/strong&gt;</ept> <bpt id="50491a4e-8c44-433e-8c7e-affc20f07471">&lt;em&gt;</bpt>- the vast majority of the data falls
+into a stereotypical distribution; points deviating dramatically from
+that distribution are suspect<ept id="50491a4e-8c44-433e-8c7e-affc20f07471">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="51b8e1a8-20ff-4cd3-8886-fd842010b6d2">&lt;strong&gt;</bpt>*PCA-based anomaly detection*<ept id="51b8e1a8-20ff-4cd3-8886-fd842010b6d2">&lt;/strong&gt;</ept> <bpt id="50491a4e-8c44-433e-8c7e-affc20f07471">&lt;em&gt;</bpt>- the vast majority of the data falls
+into a stereotypical distribution; points deviating dramatically from
+that distribution are suspect<ept id="50491a4e-8c44-433e-8c7e-affc20f07471">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="967f08b9-c2a2-4841-9e8e-427fe0ab9ce5" xml:space="preserve">
+          <source><bpt id="6926842b-f6e9-4a7f-874c-f5bcbdc7ba16">&lt;linkText&gt;</bpt>Data set grouped using K-means<ept id="6926842b-f6e9-4a7f-874c-f5bcbdc7ba16">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6926842b-f6e9-4a7f-874c-f5bcbdc7ba16">&lt;linkText&gt;</bpt>Data set grouped using K-means<ept id="6926842b-f6e9-4a7f-874c-f5bcbdc7ba16">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ace69b45-4cff-4b14-aa1f-60a1d3774456" xml:space="preserve">
+          <source><bpt id="ffbbab51-e857-4ce5-83d2-f3be3a45ac32">&lt;strong&gt;</bpt>*A data set is grouped into 5 clusters using K-means*<ept id="ffbbab51-e857-4ce5-83d2-f3be3a45ac32">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ffbbab51-e857-4ce5-83d2-f3be3a45ac32">&lt;strong&gt;</bpt>*A data set is grouped into 5 clusters using K-means*<ept id="ffbbab51-e857-4ce5-83d2-f3be3a45ac32">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1ce6fbc-58e5-4f61-a831-065e61adde16" xml:space="preserve">
+          <source>There is also an ensemble <bpt id="26e65e0e-4d92-47ae-bbb4-8a95768227c2">&lt;linkText&gt;</bpt>one-v-all multiclass
+classifier<ept id="26e65e0e-4d92-47ae-bbb4-8a95768227c2">&lt;/linkText&gt;</ept><bpt id="26e65e0e-4d92-47ae-bbb4-8a95768227c2">&lt;title&gt;</bpt><ept id="26e65e0e-4d92-47ae-bbb4-8a95768227c2">&lt;/title&gt;</ept>,
+which breaks the N-class classification problem into N-1 two-class
+classification problems.</source>
+          <target state="new">There is also an ensemble <bpt id="26e65e0e-4d92-47ae-bbb4-8a95768227c2">&lt;linkText&gt;</bpt>one-v-all multiclass
+classifier<ept id="26e65e0e-4d92-47ae-bbb4-8a95768227c2">&lt;/linkText&gt;</ept><bpt id="26e65e0e-4d92-47ae-bbb4-8a95768227c2">&lt;title&gt;</bpt><ept id="26e65e0e-4d92-47ae-bbb4-8a95768227c2">&lt;/title&gt;</ept>,
+which breaks the N-class classification problem into N-1 two-class
+classification problems.</target>
+        </trans-unit>
+        <trans-unit id="ed26f137-61f4-4cb8-9365-d160e2d394c8" xml:space="preserve">
+          <source>The accuracy, training time, and linearity
+properties are determined by the two-class classifiers used.</source>
+          <target state="new">The accuracy, training time, and linearity
+properties are determined by the two-class classifiers used.</target>
+        </trans-unit>
+        <trans-unit id="925f416d-5e56-46f6-83d7-15766545acb4" xml:space="preserve">
+          <source><bpt id="3d30191f-e124-4b39-9604-4574b829e6ff">&lt;linkText&gt;</bpt>Two-class classifiers combined to form a three-class classifier<ept id="3d30191f-e124-4b39-9604-4574b829e6ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d30191f-e124-4b39-9604-4574b829e6ff">&lt;linkText&gt;</bpt>Two-class classifiers combined to form a three-class classifier<ept id="3d30191f-e124-4b39-9604-4574b829e6ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc2f848c-614d-4db2-9715-027ffa0847e1" xml:space="preserve">
+          <source><bpt id="7e582b4f-323a-48a5-9ffc-727e2e6ccb56">&lt;strong&gt;</bpt>*A pair of two-class classifiers combine to form a three-class
+classifier*<ept id="7e582b4f-323a-48a5-9ffc-727e2e6ccb56">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7e582b4f-323a-48a5-9ffc-727e2e6ccb56">&lt;strong&gt;</bpt>*A pair of two-class classifiers combine to form a three-class
+classifier*<ept id="7e582b4f-323a-48a5-9ffc-727e2e6ccb56">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2b28645-85ed-4c30-b840-7f642207eb27" xml:space="preserve">
+          <source>Azure Machine Learning also includes access to a powerful machine learning framework
+under the title of <bpt id="19b71ec1-45d9-4850-82c4-5c1447980fa6">&lt;linkText&gt;</bpt>Vowpal
+Wabbit<ept id="19b71ec1-45d9-4850-82c4-5c1447980fa6">&lt;/linkText&gt;</ept><bpt id="19b71ec1-45d9-4850-82c4-5c1447980fa6">&lt;title&gt;</bpt><ept id="19b71ec1-45d9-4850-82c4-5c1447980fa6">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure Machine Learning also includes access to a powerful machine learning framework
+under the title of <bpt id="19b71ec1-45d9-4850-82c4-5c1447980fa6">&lt;linkText&gt;</bpt>Vowpal
+Wabbit<ept id="19b71ec1-45d9-4850-82c4-5c1447980fa6">&lt;/linkText&gt;</ept><bpt id="19b71ec1-45d9-4850-82c4-5c1447980fa6">&lt;title&gt;</bpt><ept id="19b71ec1-45d9-4850-82c4-5c1447980fa6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4cd0071d-d194-414b-8119-e04b1f53f48b" xml:space="preserve">
+          <source>VW defies categorization here, since it can learn both classification
+and regression problems and can even learn from partially unlabeled
+data.</source>
+          <target state="new">VW defies categorization here, since it can learn both classification
+and regression problems and can even learn from partially unlabeled
+data.</target>
+        </trans-unit>
+        <trans-unit id="ed88b038-e8bb-4e00-adf4-1cf2d55a8952" xml:space="preserve">
+          <source>You can configure it to use any one of a number of learning
+algorithms, loss functions, and optimization algorithms.</source>
+          <target state="new">You can configure it to use any one of a number of learning
+algorithms, loss functions, and optimization algorithms.</target>
+        </trans-unit>
+        <trans-unit id="a3c65070-b50c-4ac8-bcb7-8663e07b9ba8" xml:space="preserve">
+          <source>It was designed
+from the ground up to be efficient, parallel, and extremely fast.</source>
+          <target state="new">It was designed
+from the ground up to be efficient, parallel, and extremely fast.</target>
+        </trans-unit>
+        <trans-unit id="6076f98d-e730-49c1-8fc0-8dde009f2b1b" xml:space="preserve">
+          <source>It
+handles ridiculously large feature sets with little apparent effort.</source>
+          <target state="new">It
+handles ridiculously large feature sets with little apparent effort.</target>
+        </trans-unit>
+        <trans-unit id="5e3e2470-e779-43eb-bfc4-469255b886d6" xml:space="preserve">
+          <source>Started and led by Microsoft Research's own John Langford, VW is a
+Formula One entry in a field of stock car algorithms.</source>
+          <target state="new">Started and led by Microsoft Research's own John Langford, VW is a
+Formula One entry in a field of stock car algorithms.</target>
+        </trans-unit>
+        <trans-unit id="9738e5ed-c11c-4032-adb6-a127dd614da2" xml:space="preserve">
+          <source>Not every problem
+fits VW, but if yours does, it may be worth your while to climb the
+learning curve on its interface.</source>
+          <target state="new">Not every problem
+fits VW, but if yours does, it may be worth your while to climb the
+learning curve on its interface.</target>
+        </trans-unit>
+        <trans-unit id="2d2984f1-ac6c-4138-a39d-c5969cc8a3b2" xml:space="preserve">
+          <source>It's also available as <bpt id="eafcf7f0-f41a-4cbc-933f-3b322e7a5650">&lt;linkText&gt;</bpt>stand-alone
+open source code<ept id="eafcf7f0-f41a-4cbc-933f-3b322e7a5650">&lt;/linkText&gt;</ept><bpt id="eafcf7f0-f41a-4cbc-933f-3b322e7a5650">&lt;title&gt;</bpt><ept id="eafcf7f0-f41a-4cbc-933f-3b322e7a5650">&lt;/title&gt;</ept> in
+several languages.</source>
+          <target state="new">It's also available as <bpt id="eafcf7f0-f41a-4cbc-933f-3b322e7a5650">&lt;linkText&gt;</bpt>stand-alone
+open source code<ept id="eafcf7f0-f41a-4cbc-933f-3b322e7a5650">&lt;/linkText&gt;</ept><bpt id="eafcf7f0-f41a-4cbc-933f-3b322e7a5650">&lt;title&gt;</bpt><ept id="eafcf7f0-f41a-4cbc-933f-3b322e7a5650">&lt;/title&gt;</ept> in
+several languages.</target>
+        </trans-unit>
+        <trans-unit id="1f57ef17-86e9-4b99-b69e-2b29058e2b6a" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-choice/image1.png</source>
+          <target state="new">./media/machine-learning-algorithm-choice/image1.png</target>
+        </trans-unit>
+        <trans-unit id="93c07fce-1171-490b-98ce-9c949cd289cf" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-choice/image2.png</source>
+          <target state="new">./media/machine-learning-algorithm-choice/image2.png</target>
+        </trans-unit>
+        <trans-unit id="65b22ee4-01b2-40c1-a91a-a490ec1e4c8d" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-choice/image3.png</source>
+          <target state="new">./media/machine-learning-algorithm-choice/image3.png</target>
+        </trans-unit>
+        <trans-unit id="edec0285-813f-4332-9437-d2ed1f2155ad" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-choice/image4.png</source>
+          <target state="new">./media/machine-learning-algorithm-choice/image4.png</target>
+        </trans-unit>
+        <trans-unit id="31d6cad3-4190-4a05-bfe3-b6461e7c8750" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-choice/image5.png</source>
+          <target state="new">./media/machine-learning-algorithm-choice/image5.png</target>
+        </trans-unit>
+        <trans-unit id="4664f189-b6ac-4e69-baa3-c2344b3cacf9" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-choice/image6.png</source>
+          <target state="new">./media/machine-learning-algorithm-choice/image6.png</target>
+        </trans-unit>
+        <trans-unit id="e7dcb11c-8425-4319-8705-e8d78c8422e5" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-choice/image7.png</source>
+          <target state="new">./media/machine-learning-algorithm-choice/image7.png</target>
+        </trans-unit>
+        <trans-unit id="2b658d71-4b59-47c0-b081-55fc4c7d89aa" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-choice/image8.png</source>
+          <target state="new">./media/machine-learning-algorithm-choice/image8.png</target>
+        </trans-unit>
+        <trans-unit id="7945f2ff-56cf-40d2-88e9-cc4d7bec6084" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-choice/image9.png</source>
+          <target state="new">./media/machine-learning-algorithm-choice/image9.png</target>
+        </trans-unit>
+        <trans-unit id="c450fd04-b593-46cc-b3d6-c1c458bc24e9" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-choice/image10.png</source>
+          <target state="new">./media/machine-learning-algorithm-choice/image10.png</target>
+        </trans-unit>
+      </group>
+      <group id="dde9fc57-13ec-4d64-b4d6-0cb6aa778b04" />
+    </body>
+  </file>
+</xliff>

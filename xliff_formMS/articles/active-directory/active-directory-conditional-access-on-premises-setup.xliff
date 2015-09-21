@@ -1,0 +1,812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d0f02378-32c4-4b27-b572-3b9a18a92f6c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d0f02378-32c4-4b27-b572-3b9a18a92f6c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e3c83466-fdbb-40d3-8a03-dbe66dc4e3d7">
+        <trans-unit id="f5a64a77-60b1-49df-88ab-4f14fec73379" xml:space="preserve">
+          <source>Setting up on-premises conditional access using Azure Active Directory Device Registration | Microsoft Azure</source>
+          <target state="new">Setting up on-premises conditional access using Azure Active Directory Device Registration | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="72dee032-f736-4e90-83fe-5e98a50cbaff" xml:space="preserve">
+          <source>A step-by-step guide to enable conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.</source>
+          <target state="new">A step-by-step guide to enable conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="f1d24779-ef21-4d02-a1e0-19f654312501" xml:space="preserve">
+          <source>Personally owned devices of your users can be marked known to your organization by requiring the users to work place join their devices to the Azure Active Directory Device Registration service.</source>
+          <target state="new">Personally owned devices of your users can be marked known to your organization by requiring the users to work place join their devices to the Azure Active Directory Device Registration service.</target>
+        </trans-unit>
+        <trans-unit id="53b4f927-c824-4392-9b68-8f37be885cdd" xml:space="preserve">
+          <source>Below is a step-by-step guide to enable conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.</source>
+          <target state="new">Below is a step-by-step guide to enable conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="ad95eabc-a0b4-4ce3-ab66-1560522f4ba8" xml:space="preserve">
+          <source>Office 365 license or Azure AD Premium license is required when using devices registered in Azure Active Directory Device Registration service conditional access policies.</source>
+          <target state="new">Office 365 license or Azure AD Premium license is required when using devices registered in Azure Active Directory Device Registration service conditional access policies.</target>
+        </trans-unit>
+        <trans-unit id="9a878b13-451e-4660-bf54-9ff78b1cf9ea" xml:space="preserve">
+          <source>This includes policies enforced by Active Directory Federation Services (AD FS) to on-premises resources.</source>
+          <target state="new">This includes policies enforced by Active Directory Federation Services (AD FS) to on-premises resources.</target>
+        </trans-unit>
+        <trans-unit id="ee97276d-1ed0-4c79-b6d1-7faf22430497" xml:space="preserve">
+          <source>For more information on the conditional access scenarios for on-premises, see <bpt id="7edc2f2d-c3fe-455c-89f8-c1a5817d9b75">&lt;linkText&gt;</bpt>Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications<ept id="7edc2f2d-c3fe-455c-89f8-c1a5817d9b75">&lt;/linkText&gt;</ept><bpt id="7edc2f2d-c3fe-455c-89f8-c1a5817d9b75">&lt;title&gt;</bpt><ept id="7edc2f2d-c3fe-455c-89f8-c1a5817d9b75">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the conditional access scenarios for on-premises, see <bpt id="7edc2f2d-c3fe-455c-89f8-c1a5817d9b75">&lt;linkText&gt;</bpt>Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications<ept id="7edc2f2d-c3fe-455c-89f8-c1a5817d9b75">&lt;/linkText&gt;</ept><bpt id="7edc2f2d-c3fe-455c-89f8-c1a5817d9b75">&lt;title&gt;</bpt><ept id="7edc2f2d-c3fe-455c-89f8-c1a5817d9b75">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="303ff070-3e79-4885-899f-8907bf26ae21" xml:space="preserve">
+          <source>These capabilities are available to customers that purchase an Azure Active Directory Premium license.</source>
+          <target state="new">These capabilities are available to customers that purchase an Azure Active Directory Premium license.</target>
+        </trans-unit>
+        <trans-unit id="b275b54f-2501-4ae1-bb94-e482de19d2af" xml:space="preserve">
+          <source>Windows 7 domain joined devices.</source>
+          <target state="new">Windows 7 domain joined devices.</target>
+        </trans-unit>
+        <trans-unit id="e09b7662-46ef-469c-971f-b4e71465be40" xml:space="preserve">
+          <source>Windows 8.1 personal and domain joined devices.</source>
+          <target state="new">Windows 8.1 personal and domain joined devices.</target>
+        </trans-unit>
+        <trans-unit id="3f8b0c08-bca7-4606-b3b0-869eed5ec94d" xml:space="preserve">
+          <source>iOS 6 and later.</source>
+          <target state="new">iOS 6 and later.</target>
+        </trans-unit>
+        <trans-unit id="ded70e67-3c96-4211-bfd5-9cb75e430e95" xml:space="preserve">
+          <source>Android 4.0 or later, Samsung GS3 or above phones, Samsung Note2 or above tablets.</source>
+          <target state="new">Android 4.0 or later, Samsung GS3 or above phones, Samsung Note2 or above tablets.</target>
+        </trans-unit>
+        <trans-unit id="b45ed83b-40a8-4188-b344-17844a9ab1e0" xml:space="preserve">
+          <source>Windows Server Active Directory (Windows Server 2008 or above)</source>
+          <target state="new">Windows Server Active Directory (Windows Server 2008 or above)</target>
+        </trans-unit>
+        <trans-unit id="23168eae-f443-431b-949b-4a67e36a8629" xml:space="preserve">
+          <source>Updated schema in Windows Server 2012 R2</source>
+          <target state="new">Updated schema in Windows Server 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="0a16c123-4938-429c-85cd-cc5ccee591a7" xml:space="preserve">
+          <source>Subscription to Azure Active Directory Premium</source>
+          <target state="new">Subscription to Azure Active Directory Premium</target>
+        </trans-unit>
+        <trans-unit id="07ec44a5-636c-4d6c-8c20-980b00920c4a" xml:space="preserve">
+          <source>Windows Server 2012 R2 Federation Services, configured for SSO to Azure AD</source>
+          <target state="new">Windows Server 2012 R2 Federation Services, configured for SSO to Azure AD</target>
+        </trans-unit>
+        <trans-unit id="d076a68a-35fc-4916-b30b-c1f641ff3161" xml:space="preserve">
+          <source>Windows Server 2012 R2 Web Application Proxy</source>
+          <target state="new">Windows Server 2012 R2 Web Application Proxy</target>
+        </trans-unit>
+        <trans-unit id="49818598-3a51-4f94-b43c-8f4a1f80bb83" xml:space="preserve">
+          <source>Directory Synchronization Tool (DirSync) with device object write-back.</source>
+          <target state="new">Directory Synchronization Tool (DirSync) with device object write-back.</target>
+        </trans-unit>
+        <trans-unit id="96ee2d77-10b1-4739-ad78-06494e6a6851" xml:space="preserve">
+          <source><bpt id="55406e1e-d584-47a7-99f7-de34251f01a9">&lt;linkText&gt;</bpt>Download the latest build of dirsync.exe.<ept id="55406e1e-d584-47a7-99f7-de34251f01a9">&lt;/linkText&gt;</ept><bpt id="55406e1e-d584-47a7-99f7-de34251f01a9">&lt;title&gt;</bpt><ept id="55406e1e-d584-47a7-99f7-de34251f01a9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="55406e1e-d584-47a7-99f7-de34251f01a9">&lt;linkText&gt;</bpt>Download the latest build of dirsync.exe.<ept id="55406e1e-d584-47a7-99f7-de34251f01a9">&lt;/linkText&gt;</ept><bpt id="55406e1e-d584-47a7-99f7-de34251f01a9">&lt;title&gt;</bpt><ept id="55406e1e-d584-47a7-99f7-de34251f01a9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ce45628-dae6-4f4e-a42a-2ef67bb50ebc" xml:space="preserve">
+          <source>Device based conditional access policies require device object write-back to Active Directory from Azure Active Directory.</source>
+          <target state="new">Device based conditional access policies require device object write-back to Active Directory from Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="f38d53c3-2565-454d-81fd-4a0829edded6" xml:space="preserve">
+          <source>It can take up to 3 hours for device objects to be written-back to Active Directory.</source>
+          <target state="new">It can take up to 3 hours for device objects to be written-back to Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="768afd6c-37b7-4b9d-aa53-88d744ea5977" xml:space="preserve">
+          <source>iOS7 devices will always prompt the user to select a certificate during client certificate authentication.</source>
+          <target state="new">iOS7 devices will always prompt the user to select a certificate during client certificate authentication.</target>
+        </trans-unit>
+        <trans-unit id="9445003c-505f-4936-a90f-b2c29855db31" xml:space="preserve">
+          <source>iOS8 beta devices are not working at this time.</source>
+          <target state="new">iOS8 beta devices are not working at this time.</target>
+        </trans-unit>
+        <trans-unit id="e9dc8a16-98d6-417b-9d79-2624dbebe133" xml:space="preserve">
+          <source>Use this guide to deploy and configure Azure Active Directory Device Registration Service for your organization.</source>
+          <target state="new">Use this guide to deploy and configure Azure Active Directory Device Registration Service for your organization.</target>
+        </trans-unit>
+        <trans-unit id="ace1736c-a6db-4af6-9192-9e913482fbed" xml:space="preserve">
+          <source>This guide assumes that you have configured Windows Server Active Directory and have subscribed to Microsoft Azure Active Directory.</source>
+          <target state="new">This guide assumes that you have configured Windows Server Active Directory and have subscribed to Microsoft Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="c60e5e0e-c739-4dac-b218-361aa8ed3e10" xml:space="preserve">
+          <source>See prerequisites above.</source>
+          <target state="new">See prerequisites above.</target>
+        </trans-unit>
+        <trans-unit id="17b5c0db-305b-4448-9577-d2d86b9a8a7c" xml:space="preserve">
+          <source>To deploy Azure Active Directory Device Registration Service with your Azure Active Directory tenant, complete the tasks in the following checklist, in order.</source>
+          <target state="new">To deploy Azure Active Directory Device Registration Service with your Azure Active Directory tenant, complete the tasks in the following checklist, in order.</target>
+        </trans-unit>
+        <trans-unit id="4f7ead37-32e0-4e70-b1b9-01059da3288b" xml:space="preserve">
+          <source>When a reference link takes you to a conceptual topic, return to this checklist after you review the conceptual topic so that you can proceed with the remaining tasks in this checklist.</source>
+          <target state="new">When a reference link takes you to a conceptual topic, return to this checklist after you review the conceptual topic so that you can proceed with the remaining tasks in this checklist.</target>
+        </trans-unit>
+        <trans-unit id="f60fa891-471d-45fe-9f48-f8d12b4497b9" xml:space="preserve">
+          <source>Some tasks will include a scenario validation step that can help you confirm the step was completed successfully.</source>
+          <target state="new">Some tasks will include a scenario validation step that can help you confirm the step was completed successfully.</target>
+        </trans-unit>
+        <trans-unit id="711906c7-f967-4174-8a9d-d0c57b4b2764" xml:space="preserve">
+          <source><bpt id="56e1eb86-5255-4990-9f77-97a7ba736106">&lt;strong&gt;</bpt>Checklist: Enable Azure Active Directory Device Registration<ept id="56e1eb86-5255-4990-9f77-97a7ba736106">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="56e1eb86-5255-4990-9f77-97a7ba736106">&lt;strong&gt;</bpt>Checklist: Enable Azure Active Directory Device Registration<ept id="56e1eb86-5255-4990-9f77-97a7ba736106">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4785e964-c7c3-4fa8-b66b-07498531fbe2" xml:space="preserve">
+          <source>Follow the checklist below to enable and configure the Azure Active Directory Device Registration Service.</source>
+          <target state="new">Follow the checklist below to enable and configure the Azure Active Directory Device Registration Service.</target>
+        </trans-unit>
+        <trans-unit id="a6d0857e-bc8f-459c-917a-df8c9976774b" xml:space="preserve">
+          <source>Task</source>
+          <target state="new">Task</target>
+        </trans-unit>
+        <trans-unit id="48239356-2af5-4f19-8b30-08fcd09437d5" xml:space="preserve">
+          <source>Reference</source>
+          <target state="new">Reference</target>
+        </trans-unit>
+        <trans-unit id="42754460-00d5-44b9-b3f9-adccc2929170" xml:space="preserve">
+          <source>Enable Device Registration in your Azure Active Directory tenant to allow devices to join the workplace.</source>
+          <target state="new">Enable Device Registration in your Azure Active Directory tenant to allow devices to join the workplace.</target>
+        </trans-unit>
+        <trans-unit id="f61b2116-1c62-427e-bbe9-a1817b4409ed" xml:space="preserve">
+          <source>By default, multi-factor authentication is not enabled for the service.</source>
+          <target state="new">By default, multi-factor authentication is not enabled for the service.</target>
+        </trans-unit>
+        <trans-unit id="ef55ccb8-f67f-480c-a382-5f0b9b9711c5" xml:space="preserve">
+          <source>However, multi-factor authentication is recommended when registering a device.</source>
+          <target state="new">However, multi-factor authentication is recommended when registering a device.</target>
+        </trans-unit>
+        <trans-unit id="f1395891-c6b8-409d-9938-08933c2a91b4" xml:space="preserve">
+          <source>Before enabling multi-factor authentication in ADRS, ensure that AD FS is configured for a multi-factor authentication provider.</source>
+          <target state="new">Before enabling multi-factor authentication in ADRS, ensure that AD FS is configured for a multi-factor authentication provider.</target>
+        </trans-unit>
+        <trans-unit id="8a38c0c5-2f7f-49bc-ac57-237695fd78a0" xml:space="preserve">
+          <source><bpt id="961e4010-2a85-48d9-a802-32628b880913">&lt;linkText&gt;</bpt>Enable Azure Active Directory Device Registration<ept id="961e4010-2a85-48d9-a802-32628b880913">&lt;/linkText&gt;</ept><bpt id="961e4010-2a85-48d9-a802-32628b880913">&lt;title&gt;</bpt><ept id="961e4010-2a85-48d9-a802-32628b880913">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="961e4010-2a85-48d9-a802-32628b880913">&lt;linkText&gt;</bpt>Enable Azure Active Directory Device Registration<ept id="961e4010-2a85-48d9-a802-32628b880913">&lt;/linkText&gt;</ept><bpt id="961e4010-2a85-48d9-a802-32628b880913">&lt;title&gt;</bpt><ept id="961e4010-2a85-48d9-a802-32628b880913">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f06c934-c045-45b5-9aa9-4203830202b8" xml:space="preserve">
+          <source>Devices will discover your Azure Active Directory Device Registration Service by looking for well-known DNS records.</source>
+          <target state="new">Devices will discover your Azure Active Directory Device Registration Service by looking for well-known DNS records.</target>
+        </trans-unit>
+        <trans-unit id="de6f455f-2a6f-4ea5-ad1b-71c9afa92027" xml:space="preserve">
+          <source>You must configure your company DNS so that devices can discover your Azure Active Directory Device Registration Service.</source>
+          <target state="new">You must configure your company DNS so that devices can discover your Azure Active Directory Device Registration Service.</target>
+        </trans-unit>
+        <trans-unit id="d5b447e7-525c-4061-96fd-280822efb09f" xml:space="preserve">
+          <source><bpt id="c08b4a91-8fa2-4410-be93-2d663eedd078">&lt;linkText&gt;</bpt>Configure Azure Active Directory Device Registration discovery.<ept id="c08b4a91-8fa2-4410-be93-2d663eedd078">&lt;/linkText&gt;</ept><bpt id="c08b4a91-8fa2-4410-be93-2d663eedd078">&lt;title&gt;</bpt><ept id="c08b4a91-8fa2-4410-be93-2d663eedd078">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c08b4a91-8fa2-4410-be93-2d663eedd078">&lt;linkText&gt;</bpt>Configure Azure Active Directory Device Registration discovery.<ept id="c08b4a91-8fa2-4410-be93-2d663eedd078">&lt;/linkText&gt;</ept><bpt id="c08b4a91-8fa2-4410-be93-2d663eedd078">&lt;title&gt;</bpt><ept id="c08b4a91-8fa2-4410-be93-2d663eedd078">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f25df0fa-30e7-4099-a4dc-b76220048d3f" xml:space="preserve">
+          <source><bpt id="29f70258-0fed-4187-8398-972c70766c2e">&lt;strong&gt;</bpt>Checklist: Deploy and configure Windows Server 2012 R2 Active Directory Federation Services and set up a federation relationship with Azure Active Directory<ept id="29f70258-0fed-4187-8398-972c70766c2e">&lt;/strong&gt;</ept>
+With the next set of tasks, you integrate Windows Server 2012 R2 Federation services with Azure Active Directory.</source>
+          <target state="new"><bpt id="29f70258-0fed-4187-8398-972c70766c2e">&lt;strong&gt;</bpt>Checklist: Deploy and configure Windows Server 2012 R2 Active Directory Federation Services and set up a federation relationship with Azure Active Directory<ept id="29f70258-0fed-4187-8398-972c70766c2e">&lt;/strong&gt;</ept>
+With the next set of tasks, you integrate Windows Server 2012 R2 Federation services with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="53914f49-c3be-4bd7-8a95-161a10e7e3fe" xml:space="preserve">
+          <source>This allows you to use devices registered in Azure Active Directory Device Registration Service for conditional access policies in AD FS.</source>
+          <target state="new">This allows you to use devices registered in Azure Active Directory Device Registration Service for conditional access policies in AD FS.</target>
+        </trans-unit>
+        <trans-unit id="26728009-62e6-4e26-af68-c76c8f6398f7" xml:space="preserve">
+          <source>Task</source>
+          <target state="new">Task</target>
+        </trans-unit>
+        <trans-unit id="7fbe69f9-7b89-47d2-95e2-fa1aacb7ebce" xml:space="preserve">
+          <source>Reference</source>
+          <target state="new">Reference</target>
+        </trans-unit>
+        <trans-unit id="045ab9f9-5072-4e44-be33-d5ae09d0cbfe" xml:space="preserve">
+          <source>Deploy Active Directory Domain Services domain with the Windows Server 2012 R2 schema extensions.</source>
+          <target state="new">Deploy Active Directory Domain Services domain with the Windows Server 2012 R2 schema extensions.</target>
+        </trans-unit>
+        <trans-unit id="76449170-9f69-4ae1-ad59-a907b92f4389" xml:space="preserve">
+          <source>(You do not need to upgrade any of your domain controllers to Windows Server 2012 R2.</source>
+          <target state="new">(You do not need to upgrade any of your domain controllers to Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="f5f2600d-b74e-4661-8e47-cf6ca13ae762" xml:space="preserve">
+          <source>The schema upgrade is the only requirement).</source>
+          <target state="new">The schema upgrade is the only requirement).</target>
+        </trans-unit>
+        <trans-unit id="4b027c5f-36f3-4acf-8c94-55599c58be64" xml:space="preserve">
+          <source>Upgrade your Active Directory Domain Services Schema.</source>
+          <target state="new">Upgrade your Active Directory Domain Services Schema.</target>
+        </trans-unit>
+        <trans-unit id="6dc3120e-971f-428a-8024-7d3e4b5f73bc" xml:space="preserve">
+          <source>Deploy Windows Server 2012 R2 Federation Services along with the Web Application Proxy.</source>
+          <target state="new">Deploy Windows Server 2012 R2 Federation Services along with the Web Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="4d308337-f220-4cb7-9f7e-7c0f36a56ab6" xml:space="preserve">
+          <source>Deploy Windows Server 2012 R2 Federation Services along with the Web Application Proxy.</source>
+          <target state="new">Deploy Windows Server 2012 R2 Federation Services along with the Web Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="95ee685f-1961-412b-8bf5-e9f45dbe078e" xml:space="preserve">
+          <source>Your Active Directory Domain Services forest must be configured with the objects and containers needed to support device objects.</source>
+          <target state="new">Your Active Directory Domain Services forest must be configured with the objects and containers needed to support device objects.</target>
+        </trans-unit>
+        <trans-unit id="bf308f0c-a4d2-44ce-a4fe-9e6f75d66703" xml:space="preserve">
+          <source>You will also enable Device Authentication in AD FS.</source>
+          <target state="new">You will also enable Device Authentication in AD FS.</target>
+        </trans-unit>
+        <trans-unit id="c7641ded-d9de-4b7b-b23e-92409effdd3f" xml:space="preserve">
+          <source>Prepare your Active Directory forest to support devices.</source>
+          <target state="new">Prepare your Active Directory forest to support devices.</target>
+        </trans-unit>
+        <trans-unit id="b4cbf42c-cc67-4199-9275-581814d027b2" xml:space="preserve">
+          <source>Set up a federation relationship with your organization and Azure Active Directory.,This step will walk you through configuring your Azure Active Directory tenant with your Windows Server 2012 R2 Federation Services.</source>
+          <target state="new">Set up a federation relationship with your organization and Azure Active Directory.,This step will walk you through configuring your Azure Active Directory tenant with your Windows Server 2012 R2 Federation Services.</target>
+        </trans-unit>
+        <trans-unit id="323dccc0-89cb-48d7-b85c-a870623c4ba4" xml:space="preserve">
+          <source>Configure a federation relationship with Azure Active Directory and Configure Directory Sync Tool</source>
+          <target state="new">Configure a federation relationship with Azure Active Directory and Configure Directory Sync Tool</target>
+        </trans-unit>
+        <trans-unit id="f4b4697c-71c9-4354-a85b-fb1ee223583d" xml:space="preserve">
+          <source>Configure Directory Sync (DirSync) to allow device object write-back.</source>
+          <target state="new">Configure Directory Sync (DirSync) to allow device object write-back.</target>
+        </trans-unit>
+        <trans-unit id="b3d22efd-6514-4cc9-9a5f-00834577ff1e" xml:space="preserve">
+          <source>Devices created in Azure Active Directory will be written down to your Active Directory.</source>
+          <target state="new">Devices created in Azure Active Directory will be written down to your Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="5ddc6a9d-38f9-4ee6-bc39-870e79559789" xml:space="preserve">
+          <source>Configure DirSync to allow device object write-back</source>
+          <target state="new">Configure DirSync to allow device object write-back</target>
+        </trans-unit>
+        <trans-unit id="393ca732-5041-458f-9e38-8ee67a9cf776" xml:space="preserve">
+          <source>It is strongly recommended that you configure a multi-factor authentication provider with Windows Server 2012 R2 Federation Services.,This will allow your users to securely register their devices using multi-factor authentication.</source>
+          <target state="new">It is strongly recommended that you configure a multi-factor authentication provider with Windows Server 2012 R2 Federation Services.,This will allow your users to securely register their devices using multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="693e2754-0d7a-4bc8-b5bc-7bde5813026d" xml:space="preserve">
+          <source>Configure federation services to provide multi-factor authentication.</source>
+          <target state="new">Configure federation services to provide multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="d1594cca-a24e-42fb-98e2-0c252de745dd" xml:space="preserve">
+          <source>Upgrading your Active Directory schema cannot be reversed.</source>
+          <target state="new">Upgrading your Active Directory schema cannot be reversed.</target>
+        </trans-unit>
+        <trans-unit id="e0cde666-3490-4900-814b-ec27c22bdbda" xml:space="preserve">
+          <source>It is recommended that you perform this in a test environment.</source>
+          <target state="new">It is recommended that you perform this in a test environment.</target>
+        </trans-unit>
+        <trans-unit id="4214590c-787f-4914-83b4-1664e22e64a8" xml:space="preserve">
+          <source>Log in to your domain controller with an account that has both Enterprise Admin and Schema Admin rights.</source>
+          <target state="new">Log in to your domain controller with an account that has both Enterprise Admin and Schema Admin rights.</target>
+        </trans-unit>
+        <trans-unit id="ad90f46d-82a2-41a9-944d-68af98d515f6" xml:space="preserve">
+          <source>Copy the [media]\support\adprep directory and sub-directories to one of your Active Directory domain controllers.</source>
+          <target state="new">Copy the [media]\support\adprep directory and sub-directories to one of your Active Directory domain controllers.</target>
+        </trans-unit>
+        <trans-unit id="d4d4976d-8471-4de9-b763-34e15905c684" xml:space="preserve">
+          <source>Where [media] is the path to the Windows Server 2012 R2 installation media.</source>
+          <target state="new">Where [media] is the path to the Windows Server 2012 R2 installation media.</target>
+        </trans-unit>
+        <trans-unit id="8e794b7d-54c4-4f41-a0e2-5ffcd48127fb" xml:space="preserve">
+          <source>From a command prompt, navigate to the adprep directory and execute: adprep.exe /forestprep.</source>
+          <target state="new">From a command prompt, navigate to the adprep directory and execute: adprep.exe /forestprep.</target>
+        </trans-unit>
+        <trans-unit id="4f97e7d6-a9d8-423e-b17c-5109efda1c16" xml:space="preserve">
+          <source>Follow the onscreen instructions to complete the schema upgrade.</source>
+          <target state="new">Follow the onscreen instructions to complete the schema upgrade.</target>
+        </trans-unit>
+        <trans-unit id="c194b511-9fb4-4c44-a21f-02125a414c47" xml:space="preserve">
+          <source>Follow the two guides below to deploy Windows Server 2012 R2 Federation Services with the Web Application Proxy and then return to this guide.</source>
+          <target state="new">Follow the two guides below to deploy Windows Server 2012 R2 Federation Services with the Web Application Proxy and then return to this guide.</target>
+        </trans-unit>
+        <trans-unit id="3024c0ff-66d7-48e4-83ab-d03f4b6ac54e" xml:space="preserve">
+          <source>Follow the instructions for deploying a Windows Server 2012 R2 Federation Server Farm.</source>
+          <target state="new">Follow the instructions for deploying a Windows Server 2012 R2 Federation Server Farm.</target>
+        </trans-unit>
+        <trans-unit id="6a011b68-d7e1-4be9-b271-1ffc11111398" xml:space="preserve">
+          <source>When deploying AD FS, you must skip the optional step named: Optional step: Configure a federation server with Device Registration Service (DRS).</source>
+          <target state="new">When deploying AD FS, you must skip the optional step named: Optional step: Configure a federation server with Device Registration Service (DRS).</target>
+        </trans-unit>
+        <trans-unit id="8708bd9c-edb9-4f83-814d-1721e0379c8b" xml:space="preserve">
+          <source>This step is not needed when using Azure Active Directory Device Registration.</source>
+          <target state="new">This step is not needed when using Azure Active Directory Device Registration.</target>
+        </trans-unit>
+        <trans-unit id="17f40968-0b3b-4b1c-8a5e-2a01301c7ddc" xml:space="preserve">
+          <source>Follow the instructions for deploying a Windows Server 2012 R2 Federation Server Proxy.</source>
+          <target state="new">Follow the instructions for deploying a Windows Server 2012 R2 Federation Server Proxy.</target>
+        </trans-unit>
+        <trans-unit id="e0757b98-5679-4956-8c58-5f2148563de6" xml:space="preserve">
+          <source>Install the latest update for Windows Server 2012 R2 on all of your Windows Server 2012 R2 Federation and Proxy servers.</source>
+          <target state="new">Install the latest update for Windows Server 2012 R2 on all of your Windows Server 2012 R2 Federation and Proxy servers.</target>
+        </trans-unit>
+        <trans-unit id="f0112c59-b450-4877-ab33-10b5c961236b" xml:space="preserve">
+          <source>This can be done before or after configuring your federation farm.</source>
+          <target state="new">This can be done before or after configuring your federation farm.</target>
+        </trans-unit>
+        <trans-unit id="20a87912-9385-4bd5-bb0f-00a53a72058b" xml:space="preserve">
+          <source>The update can be found here: Windows Server 2012 R2 Update.</source>
+          <target state="new">The update can be found here: Windows Server 2012 R2 Update.</target>
+        </trans-unit>
+        <trans-unit id="4b0241be-48c8-4eb7-84cc-066e04443cf9" xml:space="preserve">
+          <source>This is a one-time operation that you must run to prepare your Active Directory forest to support devices.</source>
+          <target state="new">This is a one-time operation that you must run to prepare your Active Directory forest to support devices.</target>
+        </trans-unit>
+        <trans-unit id="fec1fde7-d8c8-445f-b445-5333db171ac0" xml:space="preserve">
+          <source>You must be logged on with enterprise administrator permissions and your Active Directory forest must have the Windows Server 2012 R2 schema to complete this procedure.</source>
+          <target state="new">You must be logged on with enterprise administrator permissions and your Active Directory forest must have the Windows Server 2012 R2 schema to complete this procedure.</target>
+        </trans-unit>
+        <trans-unit id="a4528179-f30e-42e8-9563-dd89bfd1c93e" xml:space="preserve">
+          <source>On your federation server, open a Windows PowerShell command window and type:
+<bpt id="c1455436-3f11-491e-b827-d0f627d87ec5">&lt;em&gt;</bpt>Initialize-ADDeviceRegistration<ept id="c1455436-3f11-491e-b827-d0f627d87ec5">&lt;/em&gt;</ept></source>
+          <target state="new">On your federation server, open a Windows PowerShell command window and type:
+<bpt id="c1455436-3f11-491e-b827-d0f627d87ec5">&lt;em&gt;</bpt>Initialize-ADDeviceRegistration<ept id="c1455436-3f11-491e-b827-d0f627d87ec5">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a85a1e7d-4407-44ee-8186-67b6f9a962ef" xml:space="preserve">
+          <source>When prompted for ServiceAccountName, enter the name of the service account you selected as the service account for AD FS.</source>
+          <target state="new">When prompted for ServiceAccountName, enter the name of the service account you selected as the service account for AD FS.</target>
+        </trans-unit>
+        <trans-unit id="6e2bef51-927b-4e24-96e5-41c18857d73f" xml:space="preserve">
+          <source>If it is a gMSA account, enter the account in the domain\accountname$ format.</source>
+          <target state="new">If it is a gMSA account, enter the account in the domain\accountname$ format.</target>
+        </trans-unit>
+        <trans-unit id="91944689-c7d9-48c6-9a70-bf7707dd4619" xml:space="preserve">
+          <source>For a domain account, use the format domain\accountname.</source>
+          <target state="new">For a domain account, use the format domain\accountname.</target>
+        </trans-unit>
+        <trans-unit id="23e08c85-928f-4268-832f-2996953b72fc" xml:space="preserve">
+          <source>On your federation server, open the AD FS management console and navigate to <bpt id="da765f08-1c11-4544-9b0b-76cb04611f30">&lt;strong&gt;</bpt>AD FS<ept id="da765f08-1c11-4544-9b0b-76cb04611f30">&lt;/strong&gt;</ept> &gt; <bpt id="7d593deb-4c02-4936-86cc-8b8288bb2917">&lt;strong&gt;</bpt>Authentication Policies<ept id="7d593deb-4c02-4936-86cc-8b8288bb2917">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On your federation server, open the AD FS management console and navigate to <bpt id="da765f08-1c11-4544-9b0b-76cb04611f30">&lt;strong&gt;</bpt>AD FS<ept id="da765f08-1c11-4544-9b0b-76cb04611f30">&lt;/strong&gt;</ept> &gt; <bpt id="7d593deb-4c02-4936-86cc-8b8288bb2917">&lt;strong&gt;</bpt>Authentication Policies<ept id="7d593deb-4c02-4936-86cc-8b8288bb2917">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1ba3e69-118d-41d3-9bd6-23a6059ded8c" xml:space="preserve">
+          <source>Select E<bpt id="f867bbcf-bd33-46a4-aff6-eff85e946671">&lt;strong&gt;</bpt>dit Global Primary Authentication…<ept id="f867bbcf-bd33-46a4-aff6-eff85e946671">&lt;/strong&gt;</ept> from the <bpt id="8f82f233-cc15-4cca-8b68-53612ae64f5d">&lt;strong&gt;</bpt>Actions<ept id="8f82f233-cc15-4cca-8b68-53612ae64f5d">&lt;/strong&gt;</ept> pane.</source>
+          <target state="new">Select E<bpt id="f867bbcf-bd33-46a4-aff6-eff85e946671">&lt;strong&gt;</bpt>dit Global Primary Authentication…<ept id="f867bbcf-bd33-46a4-aff6-eff85e946671">&lt;/strong&gt;</ept> from the <bpt id="8f82f233-cc15-4cca-8b68-53612ae64f5d">&lt;strong&gt;</bpt>Actions<ept id="8f82f233-cc15-4cca-8b68-53612ae64f5d">&lt;/strong&gt;</ept> pane.</target>
+        </trans-unit>
+        <trans-unit id="2867d50f-221a-45a6-b76a-f1f098fdbbfc" xml:space="preserve">
+          <source>Check <bpt id="fe4b00d0-8f94-44e7-aedf-f10c93d66a8b">&lt;strong&gt;</bpt>Enable device authentication<ept id="fe4b00d0-8f94-44e7-aedf-f10c93d66a8b">&lt;/strong&gt;</ept> and then select<bpt id="355810e7-7240-4af0-b8dc-67689a99f21c">&lt;strong&gt;</bpt>OK<ept id="355810e7-7240-4af0-b8dc-67689a99f21c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Check <bpt id="fe4b00d0-8f94-44e7-aedf-f10c93d66a8b">&lt;strong&gt;</bpt>Enable device authentication<ept id="fe4b00d0-8f94-44e7-aedf-f10c93d66a8b">&lt;/strong&gt;</ept> and then select<bpt id="355810e7-7240-4af0-b8dc-67689a99f21c">&lt;strong&gt;</bpt>OK<ept id="355810e7-7240-4af0-b8dc-67689a99f21c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="120749e1-6e65-4ebe-a898-783ea535f13a" xml:space="preserve">
+          <source>By default, AD FS will periodically remove unused devices from Active Directory.</source>
+          <target state="new">By default, AD FS will periodically remove unused devices from Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="aad0962b-597e-4eb4-85da-0829da88bd9c" xml:space="preserve">
+          <source>You must disable this task when using Azure Active Directory Device Registration so that devices can be managed in Azure.</source>
+          <target state="new">You must disable this task when using Azure Active Directory Device Registration so that devices can be managed in Azure.</target>
+        </trans-unit>
+        <trans-unit id="c676ca3a-154c-41e1-8fb9-09329033bf45" xml:space="preserve">
+          <source>On your federation server, open a Windows PowerShell command window and type:
+<bpt id="b3811c1e-ac45-41a3-8ead-ce60d180d552">&lt;code&gt;</bpt>*Set-AdfsDeviceRegistration -MaximumInactiveDays 0*<ept id="b3811c1e-ac45-41a3-8ead-ce60d180d552">&lt;/code&gt;</ept></source>
+          <target state="new">On your federation server, open a Windows PowerShell command window and type:
+<bpt id="b3811c1e-ac45-41a3-8ead-ce60d180d552">&lt;code&gt;</bpt>*Set-AdfsDeviceRegistration -MaximumInactiveDays 0*<ept id="b3811c1e-ac45-41a3-8ead-ce60d180d552">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ba1698a-6b54-403c-8ca3-c108bd0b0df1" xml:space="preserve">
+          <source>The following section will help you set up a federation trust between Azure Active Directory and AD FS.</source>
+          <target state="new">The following section will help you set up a federation trust between Azure Active Directory and AD FS.</target>
+        </trans-unit>
+        <trans-unit id="642e08dd-6f44-440b-9db2-cbf3fce9cad9" xml:space="preserve">
+          <source>Some steps may take you away from this page.</source>
+          <target state="new">Some steps may take you away from this page.</target>
+        </trans-unit>
+        <trans-unit id="ed2b385b-074b-4210-9767-622a70bd73b0" xml:space="preserve">
+          <source>Follow the instructions below and then return to this guide.</source>
+          <target state="new">Follow the instructions below and then return to this guide.</target>
+        </trans-unit>
+        <trans-unit id="3b74d59f-301a-483c-9d27-01379d10f746" xml:space="preserve">
+          <source>Log on to the Azure Portal as <bpt id="fff9cf95-7edf-4834-94d5-ac599371b5e4">&lt;strong&gt;</bpt>Administrator<ept id="fff9cf95-7edf-4834-94d5-ac599371b5e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Log on to the Azure Portal as <bpt id="fff9cf95-7edf-4834-94d5-ac599371b5e4">&lt;strong&gt;</bpt>Administrator<ept id="fff9cf95-7edf-4834-94d5-ac599371b5e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f483bcae-c25c-4ec5-8d83-05177d5e41f5" xml:space="preserve">
+          <source>On the left pane, select <bpt id="97f6cc10-fc7f-48fe-aa77-3ea54daea806">&lt;strong&gt;</bpt>Active Directory<ept id="97f6cc10-fc7f-48fe-aa77-3ea54daea806">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left pane, select <bpt id="97f6cc10-fc7f-48fe-aa77-3ea54daea806">&lt;strong&gt;</bpt>Active Directory<ept id="97f6cc10-fc7f-48fe-aa77-3ea54daea806">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af3bc080-f248-41ed-9f9c-27c1684b03ce" xml:space="preserve">
+          <source>On the <bpt id="32667c76-1fc2-416b-be88-d7034a4c9a7f">&lt;strong&gt;</bpt>Directory<ept id="32667c76-1fc2-416b-be88-d7034a4c9a7f">&lt;/strong&gt;</ept> tab, select your directory.</source>
+          <target state="new">On the <bpt id="32667c76-1fc2-416b-be88-d7034a4c9a7f">&lt;strong&gt;</bpt>Directory<ept id="32667c76-1fc2-416b-be88-d7034a4c9a7f">&lt;/strong&gt;</ept> tab, select your directory.</target>
+        </trans-unit>
+        <trans-unit id="316f3883-3246-4c17-b416-d2ae2538b80f" xml:space="preserve">
+          <source>Select the <bpt id="9e092fd9-f6fd-4df3-9f73-693568039bb0">&lt;strong&gt;</bpt>Directory Integration<ept id="9e092fd9-f6fd-4df3-9f73-693568039bb0">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the <bpt id="9e092fd9-f6fd-4df3-9f73-693568039bb0">&lt;strong&gt;</bpt>Directory Integration<ept id="9e092fd9-f6fd-4df3-9f73-693568039bb0">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="88a0b84b-54e0-4a08-b293-874051c00309" xml:space="preserve">
+          <source>Under the integration with local active directory section, locate the Directory Sync option and select Activated.</source>
+          <target state="new">Under the integration with local active directory section, locate the Directory Sync option and select Activated.</target>
+        </trans-unit>
+        <trans-unit id="53abbf4f-1cde-42de-8999-ad3ced60fb78" xml:space="preserve">
+          <source>Follow the steps 1 through 4 to integrate Azure Active Directory with your local directory.</source>
+          <target state="new">Follow the steps 1 through 4 to integrate Azure Active Directory with your local directory.</target>
+        </trans-unit>
+        <trans-unit id="6ed86427-909f-4eaa-b53e-69994e1aa94f" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="cb9a8688-cd6a-4a4d-a251-c76b00831a84" xml:space="preserve">
+          <source><bpt id="fb4fb5b3-841b-400f-8bbf-9ef2c789b82b">&lt;strong&gt;</bpt>Add domains<ept id="fb4fb5b3-841b-400f-8bbf-9ef2c789b82b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fb4fb5b3-841b-400f-8bbf-9ef2c789b82b">&lt;strong&gt;</bpt>Add domains<ept id="fb4fb5b3-841b-400f-8bbf-9ef2c789b82b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c65d7b4f-88c5-4e2b-9ef4-e95b47cfd593" xml:space="preserve">
+          <source><bpt id="4bf83f24-da51-4f02-b22b-106efa5e71fe">&lt;strong&gt;</bpt>Configure single-sign on and prepare for directory sync<ept id="4bf83f24-da51-4f02-b22b-106efa5e71fe">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="4bf83f24-da51-4f02-b22b-106efa5e71fe">&lt;strong&gt;</bpt>Configure single-sign on and prepare for directory sync<ept id="4bf83f24-da51-4f02-b22b-106efa5e71fe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9e9d87b-3b4e-4208-85a1-463ee439cb00" xml:space="preserve">
+          <source>If you have already deployed AD FS you can follow these sub-sections to configure and validate a trust between AD FS and Azure AD.</source>
+          <target state="new">If you have already deployed AD FS you can follow these sub-sections to configure and validate a trust between AD FS and Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="6d95c550-823f-4a9e-bc66-f189d30a8aae" xml:space="preserve">
+          <source><bpt id="6b17e91a-eb25-48d8-b9f6-e3a693e09e7a">&lt;linkText&gt;</bpt>Install Windows PowerShell for single sign-on with AD FS<ept id="6b17e91a-eb25-48d8-b9f6-e3a693e09e7a">&lt;/linkText&gt;</ept><bpt id="6b17e91a-eb25-48d8-b9f6-e3a693e09e7a">&lt;title&gt;</bpt><ept id="6b17e91a-eb25-48d8-b9f6-e3a693e09e7a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="6b17e91a-eb25-48d8-b9f6-e3a693e09e7a">&lt;linkText&gt;</bpt>Install Windows PowerShell for single sign-on with AD FS<ept id="6b17e91a-eb25-48d8-b9f6-e3a693e09e7a">&lt;/linkText&gt;</ept><bpt id="6b17e91a-eb25-48d8-b9f6-e3a693e09e7a">&lt;title&gt;</bpt><ept id="6b17e91a-eb25-48d8-b9f6-e3a693e09e7a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="927dc876-c6db-4cc4-9a50-d2bd1b2a001a" xml:space="preserve">
+          <source><bpt id="51614d07-0ba4-4ceb-9129-ab8299547717">&lt;linkText&gt;</bpt>Set up a trust between AD FS and Azure AD<ept id="51614d07-0ba4-4ceb-9129-ab8299547717">&lt;/linkText&gt;</ept><bpt id="51614d07-0ba4-4ceb-9129-ab8299547717">&lt;title&gt;</bpt><ept id="51614d07-0ba4-4ceb-9129-ab8299547717">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="51614d07-0ba4-4ceb-9129-ab8299547717">&lt;linkText&gt;</bpt>Set up a trust between AD FS and Azure AD<ept id="51614d07-0ba4-4ceb-9129-ab8299547717">&lt;/linkText&gt;</ept><bpt id="51614d07-0ba4-4ceb-9129-ab8299547717">&lt;title&gt;</bpt><ept id="51614d07-0ba4-4ceb-9129-ab8299547717">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3025bc5a-4f7e-4086-a900-f9a76c25fd89" xml:space="preserve">
+          <source><bpt id="a8a1de0f-2c11-4c7b-b8f5-822361f71892">&lt;linkText&gt;</bpt>Verify and manage single sign-on with AD FS<ept id="a8a1de0f-2c11-4c7b-b8f5-822361f71892">&lt;/linkText&gt;</ept><bpt id="a8a1de0f-2c11-4c7b-b8f5-822361f71892">&lt;title&gt;</bpt><ept id="a8a1de0f-2c11-4c7b-b8f5-822361f71892">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a8a1de0f-2c11-4c7b-b8f5-822361f71892">&lt;linkText&gt;</bpt>Verify and manage single sign-on with AD FS<ept id="a8a1de0f-2c11-4c7b-b8f5-822361f71892">&lt;/linkText&gt;</ept><bpt id="a8a1de0f-2c11-4c7b-b8f5-822361f71892">&lt;title&gt;</bpt><ept id="a8a1de0f-2c11-4c7b-b8f5-822361f71892">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c45618d-495c-47d9-908a-d039348065e4" xml:space="preserve">
+          <source><bpt id="9ba52e7e-cf46-4d04-b513-7bf0a73b1fee">&lt;linkText&gt;</bpt>Additional AD FS References<ept id="9ba52e7e-cf46-4d04-b513-7bf0a73b1fee">&lt;/linkText&gt;</ept><bpt id="9ba52e7e-cf46-4d04-b513-7bf0a73b1fee">&lt;title&gt;</bpt><ept id="9ba52e7e-cf46-4d04-b513-7bf0a73b1fee">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9ba52e7e-cf46-4d04-b513-7bf0a73b1fee">&lt;linkText&gt;</bpt>Additional AD FS References<ept id="9ba52e7e-cf46-4d04-b513-7bf0a73b1fee">&lt;/linkText&gt;</ept><bpt id="9ba52e7e-cf46-4d04-b513-7bf0a73b1fee">&lt;title&gt;</bpt><ept id="9ba52e7e-cf46-4d04-b513-7bf0a73b1fee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89f0d17a-1d83-40ed-9bbf-718e50aa0aba" xml:space="preserve">
+          <source>Install and run the directory sync tool.</source>
+          <target state="new">Install and run the directory sync tool.</target>
+        </trans-unit>
+        <trans-unit id="503fc66f-9d2c-4690-912c-33f55cdd61a4" xml:space="preserve">
+          <source>If you have already installed DirSync, you must upgrade to the latest version.</source>
+          <target state="new">If you have already installed DirSync, you must upgrade to the latest version.</target>
+        </trans-unit>
+        <trans-unit id="3bac9dc9-85ce-4088-900e-dcf0eeff1771" xml:space="preserve">
+          <source>The minimum version required is 6862.0000.</source>
+          <target state="new">The minimum version required is 6862.0000.</target>
+        </trans-unit>
+        <trans-unit id="a5f35303-06f5-46e6-a517-ce05c3c36ee4" xml:space="preserve">
+          <source>Verify and manage directory sync </source>
+          <target state="new">Verify and manage directory sync </target>
+        </trans-unit>
+        <trans-unit id="b0a3c90d-5629-4ed5-b505-dd7e43de96a5" xml:space="preserve">
+          <source>Configure some additional claim rules on the relying party trust object for Azure Active Directory.</source>
+          <target state="new">Configure some additional claim rules on the relying party trust object for Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="b690443f-6299-491d-8ccc-b154049537b3" xml:space="preserve">
+          <source>This relying party trust object is typically named Microsoft Office 365 Identity Platform.</source>
+          <target state="new">This relying party trust object is typically named Microsoft Office 365 Identity Platform.</target>
+        </trans-unit>
+        <trans-unit id="be6541a1-5277-4da0-88cf-90033e6d7139" xml:space="preserve">
+          <source>Open the AD FS management console and navigate to AD FS &gt; Trust Relationships &gt; <bpt id="4c63e8c2-cc9c-40e0-921d-0b947b9950e4">&lt;strong&gt;</bpt>Relying Party Trusts<ept id="4c63e8c2-cc9c-40e0-921d-0b947b9950e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the AD FS management console and navigate to AD FS &gt; Trust Relationships &gt; <bpt id="4c63e8c2-cc9c-40e0-921d-0b947b9950e4">&lt;strong&gt;</bpt>Relying Party Trusts<ept id="4c63e8c2-cc9c-40e0-921d-0b947b9950e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="238173f9-c202-4438-b560-c812860e37b1" xml:space="preserve">
+          <source>Right-click on the <bpt id="c6068123-9c77-42e1-b44a-3b58ca7656ef">&lt;strong&gt;</bpt>Microsoft Office 365 Identity Platform relying party trust object<ept id="c6068123-9c77-42e1-b44a-3b58ca7656ef">&lt;/strong&gt;</ept> and select **Edit Claim Rules…</source>
+          <target state="new">Right-click on the <bpt id="c6068123-9c77-42e1-b44a-3b58ca7656ef">&lt;strong&gt;</bpt>Microsoft Office 365 Identity Platform relying party trust object<ept id="c6068123-9c77-42e1-b44a-3b58ca7656ef">&lt;/strong&gt;</ept> and select **Edit Claim Rules…</target>
+        </trans-unit>
+        <trans-unit id="0a2bb7e1-bc66-47a2-bfe6-753902d839d1" xml:space="preserve">
+          <source>On the <bpt id="7106eaae-e993-4a24-943c-e0e4e1eacb40">&lt;strong&gt;</bpt>Issuance Transform Rules<ept id="7106eaae-e993-4a24-943c-e0e4e1eacb40">&lt;/strong&gt;</ept> tab, select Add Rule.**</source>
+          <target state="new">On the <bpt id="7106eaae-e993-4a24-943c-e0e4e1eacb40">&lt;strong&gt;</bpt>Issuance Transform Rules<ept id="7106eaae-e993-4a24-943c-e0e4e1eacb40">&lt;/strong&gt;</ept> tab, select Add Rule.**</target>
+        </trans-unit>
+        <trans-unit id="f619f812-2c21-4c6e-a749-8e89299235a4" xml:space="preserve">
+          <source>Select <bpt id="ff7acbd4-4687-40d5-b119-30331d51518e">&lt;strong&gt;</bpt>Send Claims Using a Custom Rule<ept id="ff7acbd4-4687-40d5-b119-30331d51518e">&lt;/strong&gt;</ept> from the <bpt id="82036522-18a4-48d0-b043-b012458d7d5c">&lt;strong&gt;</bpt>Claim<ept id="82036522-18a4-48d0-b043-b012458d7d5c">&lt;/strong&gt;</ept> rule template drop down box.</source>
+          <target state="new">Select <bpt id="ff7acbd4-4687-40d5-b119-30331d51518e">&lt;strong&gt;</bpt>Send Claims Using a Custom Rule<ept id="ff7acbd4-4687-40d5-b119-30331d51518e">&lt;/strong&gt;</ept> from the <bpt id="82036522-18a4-48d0-b043-b012458d7d5c">&lt;strong&gt;</bpt>Claim<ept id="82036522-18a4-48d0-b043-b012458d7d5c">&lt;/strong&gt;</ept> rule template drop down box.</target>
+        </trans-unit>
+        <trans-unit id="69ea529d-9126-4037-8d35-85636f8f4584" xml:space="preserve">
+          <source>Select <bpt id="e75ea6e9-21d7-467e-a73b-f8229131b630">&lt;strong&gt;</bpt>Next<ept id="e75ea6e9-21d7-467e-a73b-f8229131b630">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e75ea6e9-21d7-467e-a73b-f8229131b630">&lt;strong&gt;</bpt>Next<ept id="e75ea6e9-21d7-467e-a73b-f8229131b630">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38756e8b-43f1-45c3-8d77-84148fa63797" xml:space="preserve">
+          <source>Type Auth Method Claim Rule in the <bpt id="11deefc6-2d43-44c4-adf8-28d23deceefd">&lt;strong&gt;</bpt>Claim rule name<ept id="11deefc6-2d43-44c4-adf8-28d23deceefd">&lt;/strong&gt;</ept>: text box.</source>
+          <target state="new">Type Auth Method Claim Rule in the <bpt id="11deefc6-2d43-44c4-adf8-28d23deceefd">&lt;strong&gt;</bpt>Claim rule name<ept id="11deefc6-2d43-44c4-adf8-28d23deceefd">&lt;/strong&gt;</ept>: text box.</target>
+        </trans-unit>
+        <trans-unit id="24d341c4-4f1d-422a-8643-f92df909bb82" xml:space="preserve">
+          <source>Type the following claim rule in the Claim rule: text box:</source>
+          <target state="new">Type the following claim rule in the Claim rule: text box:</target>
+        </trans-unit>
+        <trans-unit id="b004f05a-d28f-430b-b887-5818915c4d9e" xml:space="preserve">
+          <source><bpt id="e98370c4-d8af-45f6-a31d-5a2a57ea8061">&lt;code&gt;</bpt> c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]<ept id="e98370c4-d8af-45f6-a31d-5a2a57ea8061">&lt;/code&gt;</ept>
+   <bpt id="b44298fe-7619-4461-8e89-30077f9fbe47">&lt;code&gt;</bpt>=&gt; issue(claim = c);<ept id="b44298fe-7619-4461-8e89-30077f9fbe47">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e98370c4-d8af-45f6-a31d-5a2a57ea8061">&lt;code&gt;</bpt> c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]<ept id="e98370c4-d8af-45f6-a31d-5a2a57ea8061">&lt;/code&gt;</ept>
+   <bpt id="b44298fe-7619-4461-8e89-30077f9fbe47">&lt;code&gt;</bpt>=&gt; issue(claim = c);<ept id="b44298fe-7619-4461-8e89-30077f9fbe47">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f81144f-b93b-4758-a9af-457c565ecc75" xml:space="preserve">
+          <source>Click <bpt id="28bd055a-b72e-4c2e-90a6-bccc2f273286">&lt;strong&gt;</bpt>OK<ept id="28bd055a-b72e-4c2e-90a6-bccc2f273286">&lt;/strong&gt;</ept> twice to complete the dialog box.</source>
+          <target state="new">Click <bpt id="28bd055a-b72e-4c2e-90a6-bccc2f273286">&lt;strong&gt;</bpt>OK<ept id="28bd055a-b72e-4c2e-90a6-bccc2f273286">&lt;/strong&gt;</ept> twice to complete the dialog box.</target>
+        </trans-unit>
+        <trans-unit id="23d7d75a-654d-4fc4-ab2d-2139a4247086" xml:space="preserve">
+          <source>Configure some additional authentication class references on the relying party trust object for Azure Active Directory.</source>
+          <target state="new">Configure some additional authentication class references on the relying party trust object for Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="e809852c-40fe-4653-94e3-ad6eb20b958a" xml:space="preserve">
+          <source>This relying party trust object is typically named Microsoft Office 365 Identity Platform.</source>
+          <target state="new">This relying party trust object is typically named Microsoft Office 365 Identity Platform.</target>
+        </trans-unit>
+        <trans-unit id="dbb737bc-e984-4217-a4af-5272e6cabc60" xml:space="preserve">
+          <source>On your federation server, open a Windows PowerShell command window and type:</source>
+          <target state="new">On your federation server, open a Windows PowerShell command window and type:</target>
+        </trans-unit>
+        <trans-unit id="b73dc28f-a339-4bb7-9f74-1b1550e0c906" xml:space="preserve">
+          <source><bpt id="f03ac577-6918-4df1-a74c-6f5b72bdf0c2">&lt;em&gt;</bpt>Set-AdfsRelyingPartyTrust -TargetName &lt;RPObjectName&gt; -AllowedAuthenticationClassReferences wiaormultiauthn<ept id="f03ac577-6918-4df1-a74c-6f5b72bdf0c2">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="f03ac577-6918-4df1-a74c-6f5b72bdf0c2">&lt;em&gt;</bpt>Set-AdfsRelyingPartyTrust -TargetName &lt;RPObjectName&gt; -AllowedAuthenticationClassReferences wiaormultiauthn<ept id="f03ac577-6918-4df1-a74c-6f5b72bdf0c2">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2333dc84-bb15-4d47-88be-15e5fcc3e7d1" xml:space="preserve">
+          <source>Where &lt;RPObjectName&gt; is the relying party object name for your Azure Active Directory relying party trust object. This object is typically named Microsoft Office 365 Identity Platform.</source>
+          <target state="new">Where &lt;RPObjectName&gt; is the relying party object name for your Azure Active Directory relying party trust object. This object is typically named Microsoft Office 365 Identity Platform.</target>
+        </trans-unit>
+        <trans-unit id="5d7efdb9-f58b-4553-9293-adddd90cec31" xml:space="preserve">
+          <source>You must configure Directory Sync (DirSync) to allow device object write-back.</source>
+          <target state="new">You must configure Directory Sync (DirSync) to allow device object write-back.</target>
+        </trans-unit>
+        <trans-unit id="659af9d1-2b74-4cfe-9c04-ed6158f0d5b2" xml:space="preserve">
+          <source>Devices created in Azure Active Directory will be written down to your Active Directory.</source>
+          <target state="new">Devices created in Azure Active Directory will be written down to your Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="ae23ef3d-98af-4816-be25-a6a06cda941d" xml:space="preserve">
+          <source>Devices created in Azure Active Directory may take up to 3 hours before they are written back to Active Directory.</source>
+          <target state="new">Devices created in Azure Active Directory may take up to 3 hours before they are written back to Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="9b2ff035-b3b6-4a7f-a258-11e396801f24" xml:space="preserve">
+          <source>[Azure.Note]
+You must be logged on with enterprise administrator permissions to complete the following procedure.</source>
+          <target state="new">[Azure.Note]
+You must be logged on with enterprise administrator permissions to complete the following procedure.</target>
+        </trans-unit>
+        <trans-unit id="3f1699b1-dc57-4a8d-ab28-6445483072dd" xml:space="preserve">
+          <source>Download the latest build of dirsync.exe here.</source>
+          <target state="new">Download the latest build of dirsync.exe here.</target>
+        </trans-unit>
+        <trans-unit id="6987fa47-6a61-4d22-8e57-a7811631b8c4" xml:space="preserve">
+          <source>Office 365 license or Azure AD Premium license is required to allow device write-back to Active Directory.</source>
+          <target state="new">Office 365 license or Azure AD Premium license is required to allow device write-back to Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="d857b7b5-4f6b-4507-821d-8bec7c7cd1a5" xml:space="preserve">
+          <source>If you have just completed the DirSync installation wizard, sign-out and then sign-in before continuing.</source>
+          <target state="new">If you have just completed the DirSync installation wizard, sign-out and then sign-in before continuing.</target>
+        </trans-unit>
+        <trans-unit id="ded3b52e-b5b2-4c26-a5f3-4b0c96bafa84" xml:space="preserve">
+          <source>This will ensure you have an updated access token.</source>
+          <target state="new">This will ensure you have an updated access token.</target>
+        </trans-unit>
+        <trans-unit id="f4350422-234c-43cd-b5a9-e174509a5cf6" xml:space="preserve">
+          <source>It can take up to 3 hours for device objects to be written-back to Active Directory Domain Services.</source>
+          <target state="new">It can take up to 3 hours for device objects to be written-back to Active Directory Domain Services.</target>
+        </trans-unit>
+        <trans-unit id="84163b84-0531-4cf8-8feb-727e9dd9126d" xml:space="preserve">
+          <source>On your directory sync server, open a Windows PowerShell command window and issue the following commands:</source>
+          <target state="new">On your directory sync server, open a Windows PowerShell command window and issue the following commands:</target>
+        </trans-unit>
+        <trans-unit id="72dcff7e-f391-458b-8e7c-bee59649ed42" xml:space="preserve">
+          <source><bpt id="63954dd6-823d-4abd-8adc-88d63601bf56">&lt;code&gt;</bpt>Import-Module DirSync<ept id="63954dd6-823d-4abd-8adc-88d63601bf56">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="63954dd6-823d-4abd-8adc-88d63601bf56">&lt;code&gt;</bpt>Import-Module DirSync<ept id="63954dd6-823d-4abd-8adc-88d63601bf56">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4c17e46-c616-4257-9b28-0710d58ad141" xml:space="preserve">
+          <source><bpt id="c333f6e6-301d-48c9-aed9-16b39ee2996b">&lt;code&gt;</bpt>$AADCreds = Get-Credential<ept id="c333f6e6-301d-48c9-aed9-16b39ee2996b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c333f6e6-301d-48c9-aed9-16b39ee2996b">&lt;code&gt;</bpt>$AADCreds = Get-Credential<ept id="c333f6e6-301d-48c9-aed9-16b39ee2996b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12d539d9-08b9-42d0-a11a-364a4f09a4bc" xml:space="preserve">
+          <source><bpt id="765da081-f66c-4da4-b4c0-19b8c0c579a1">&lt;code&gt;</bpt>$ADCreds = Get-Credential<ept id="765da081-f66c-4da4-b4c0-19b8c0c579a1">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="765da081-f66c-4da4-b4c0-19b8c0c579a1">&lt;code&gt;</bpt>$ADCreds = Get-Credential<ept id="765da081-f66c-4da4-b4c0-19b8c0c579a1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30529480-6ecf-43a8-9a0f-1b33d24d3253" xml:space="preserve">
+          <source>When prompted for credentials, type your cloud service administrator account credentials and your Active Directory administrator credentials.</source>
+          <target state="new">When prompted for credentials, type your cloud service administrator account credentials and your Active Directory administrator credentials.</target>
+        </trans-unit>
+        <trans-unit id="6cd37237-3bb4-4fac-9f8e-6cc8cf03e3ee" xml:space="preserve">
+          <source><bpt id="a61ed251-bd6f-4928-9427-1a242a97e964">&lt;em&gt;</bpt>Enable-MSOnlineObjectManagement –ObjectTypes Device –TargetCredential $AADCreds -Credential $ADCreds<ept id="a61ed251-bd6f-4928-9427-1a242a97e964">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="a61ed251-bd6f-4928-9427-1a242a97e964">&lt;em&gt;</bpt>Enable-MSOnlineObjectManagement –ObjectTypes Device –TargetCredential $AADCreds -Credential $ADCreds<ept id="a61ed251-bd6f-4928-9427-1a242a97e964">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20147cb5-7a08-4f0d-b43f-096f1dd6c2f5" xml:space="preserve">
+          <source>Devices that are registered with your organization can be used as a seamless second factor of authentication.</source>
+          <target state="new">Devices that are registered with your organization can be used as a seamless second factor of authentication.</target>
+        </trans-unit>
+        <trans-unit id="f4ae8aad-44c6-425a-b255-68e16de73ef3" xml:space="preserve">
+          <source>Therefore, it is recommended that you require strong authentication when registering a device.</source>
+          <target state="new">Therefore, it is recommended that you require strong authentication when registering a device.</target>
+        </trans-unit>
+        <trans-unit id="cc187782-7412-43ca-8fbb-c5a446577204" xml:space="preserve">
+          <source>You can follow the guide below to configure AD FS with Azure Multi-Factor Authentication and then return to this guide.</source>
+          <target state="new">You can follow the guide below to configure AD FS with Azure Multi-Factor Authentication and then return to this guide.</target>
+        </trans-unit>
+        <trans-unit id="24fb6030-63bf-4c01-b0dd-7ecae17e9830" xml:space="preserve">
+          <source>Follow the instructions for deploying Azure Multi-Factor Authentication.</source>
+          <target state="new">Follow the instructions for deploying Azure Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="e4f7baea-ff02-4238-bb91-b57b2803efe8" xml:space="preserve">
+          <source>Azure Active Directory Device Registration uses the Over-the-Air Profile enrollment process for iOS devices.</source>
+          <target state="new">Azure Active Directory Device Registration uses the Over-the-Air Profile enrollment process for iOS devices.</target>
+        </trans-unit>
+        <trans-unit id="27cacc6a-ad2c-4cde-b2ef-51f7d6a1b3e1" xml:space="preserve">
+          <source>This process begins with the user connecting to the profile enrollment URL using the Safari web browser.</source>
+          <target state="new">This process begins with the user connecting to the profile enrollment URL using the Safari web browser.</target>
+        </trans-unit>
+        <trans-unit id="a68c650d-2626-40af-990a-d28d8940dcc5" xml:space="preserve">
+          <source>The URL format is as follows:</source>
+          <target state="new">The URL format is as follows:</target>
+        </trans-unit>
+        <trans-unit id="8e6368fc-8de0-4414-acd8-d7720f7418e1" xml:space="preserve">
+          <source>Where &lt;yourdomainname&gt; is the domain name that you have configured with Azure Active Directory. For example, if your domain name is contoso.com, the URL would be:</source>
+          <target state="new">Where &lt;yourdomainname&gt; is the domain name that you have configured with Azure Active Directory. For example, if your domain name is contoso.com, the URL would be:</target>
+        </trans-unit>
+        <trans-unit id="01d9ab15-15d5-46f2-958e-673c3624639f" xml:space="preserve">
+          <source>There are many different ways to communicate this URL to your users.</source>
+          <target state="new">There are many different ways to communicate this URL to your users.</target>
+        </trans-unit>
+        <trans-unit id="7ec8a0bf-70d3-40b5-9e42-233dc7309064" xml:space="preserve">
+          <source>One recommended way is to publish this URL in a custom application access denied message in AD FS.</source>
+          <target state="new">One recommended way is to publish this URL in a custom application access denied message in AD FS.</target>
+        </trans-unit>
+        <trans-unit id="827ee425-e5e5-4197-8fb3-1483e3ac715f" xml:space="preserve">
+          <source>This is covered in the upcoming section: Create an application access policy and custom access denied message.</source>
+          <target state="new">This is covered in the upcoming section: Create an application access policy and custom access denied message.</target>
+        </trans-unit>
+        <trans-unit id="697cff27-84d7-466d-82f8-e4460adbea44" xml:space="preserve">
+          <source>On your Windows 8.1 device, navigate to <bpt id="32ce3ba3-8c45-403e-bd24-e323d4d981a6">&lt;strong&gt;</bpt>PC Settings<ept id="32ce3ba3-8c45-403e-bd24-e323d4d981a6">&lt;/strong&gt;</ept> &gt; <bpt id="69417d1f-6ae7-47f9-89e9-ed975b6efa30">&lt;strong&gt;</bpt>Network<ept id="69417d1f-6ae7-47f9-89e9-ed975b6efa30">&lt;/strong&gt;</ept> &gt; <bpt id="347ed169-f1ee-4cde-935c-49a1391e46f0">&lt;strong&gt;</bpt>Workplace<ept id="347ed169-f1ee-4cde-935c-49a1391e46f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On your Windows 8.1 device, navigate to <bpt id="32ce3ba3-8c45-403e-bd24-e323d4d981a6">&lt;strong&gt;</bpt>PC Settings<ept id="32ce3ba3-8c45-403e-bd24-e323d4d981a6">&lt;/strong&gt;</ept> &gt; <bpt id="69417d1f-6ae7-47f9-89e9-ed975b6efa30">&lt;strong&gt;</bpt>Network<ept id="69417d1f-6ae7-47f9-89e9-ed975b6efa30">&lt;/strong&gt;</ept> &gt; <bpt id="347ed169-f1ee-4cde-935c-49a1391e46f0">&lt;strong&gt;</bpt>Workplace<ept id="347ed169-f1ee-4cde-935c-49a1391e46f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3859c509-c4ae-4dbc-8acb-2752f246f46e" xml:space="preserve">
+          <source>Enter your user name in UPN format.</source>
+          <target state="new">Enter your user name in UPN format.</target>
+        </trans-unit>
+        <trans-unit id="604fc6b8-e7c6-4148-85c5-43d7ad1c5f25" xml:space="preserve">
+          <source>For example, dan@contoso.com..</source>
+          <target state="new">For example, dan@contoso.com..</target>
+        </trans-unit>
+        <trans-unit id="c782ea0b-c856-4dca-be7f-9846a5bb42a1" xml:space="preserve">
+          <source>Select <bpt id="74a5000c-2da1-4fef-a109-dbc0dedde23e">&lt;strong&gt;</bpt>Join<ept id="74a5000c-2da1-4fef-a109-dbc0dedde23e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="74a5000c-2da1-4fef-a109-dbc0dedde23e">&lt;strong&gt;</bpt>Join<ept id="74a5000c-2da1-4fef-a109-dbc0dedde23e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a58f122d-49fe-4c7c-9679-9d285fc906b4" xml:space="preserve">
+          <source>When prompted, sign-in with your credentials.</source>
+          <target state="new">When prompted, sign-in with your credentials.</target>
+        </trans-unit>
+        <trans-unit id="768b3320-328f-4d1b-abc9-c15ea2e53598" xml:space="preserve">
+          <source>The device is now joined.</source>
+          <target state="new">The device is now joined.</target>
+        </trans-unit>
+        <trans-unit id="4bd06a42-9038-4feb-8e9c-aec963bddbf4" xml:space="preserve">
+          <source>The Azure Authenticator for Android topic has instructions on how to install Azure authenticator app on your Android device and add a work account.</source>
+          <target state="new">The Azure Authenticator for Android topic has instructions on how to install Azure authenticator app on your Android device and add a work account.</target>
+        </trans-unit>
+        <trans-unit id="0bb4f36b-9dac-4be3-a540-f7e4d089a974" xml:space="preserve">
+          <source>When a work account is created successfully on an Android device, that device is workplace joined to the organization.</source>
+          <target state="new">When a work account is created successfully on an Android device, that device is workplace joined to the organization.</target>
+        </trans-unit>
+        <trans-unit id="918ebdc8-d2ae-4dfd-9721-9ac07046eb17" xml:space="preserve">
+          <source>You can view and verify that your device objects have been written back to your Active Directory using LDP.exe or ADSI Edit.</source>
+          <target state="new">You can view and verify that your device objects have been written back to your Active Directory using LDP.exe or ADSI Edit.</target>
+        </trans-unit>
+        <trans-unit id="7e0b8221-2faa-4852-8632-39211ca66d53" xml:space="preserve">
+          <source>Both are available with the Active Directory Administrator tools.</source>
+          <target state="new">Both are available with the Active Directory Administrator tools.</target>
+        </trans-unit>
+        <trans-unit id="ddf03ac6-c12e-4ff5-9c78-9690cbce3d10" xml:space="preserve">
+          <source>By default, device objects that are written-back from Azure Active Directory will be placed in the same domain as your AD FS farm.</source>
+          <target state="new">By default, device objects that are written-back from Azure Active Directory will be placed in the same domain as your AD FS farm.</target>
+        </trans-unit>
+        <trans-unit id="ec2d4be8-182b-45d5-9fa3-673412409b7c" xml:space="preserve">
+          <source><bpt id="1d85b5e0-8b3e-457b-b5ce-038e7ab1c9dc">&lt;code&gt;</bpt>CN=RegisteredDevices,defaultNamingContext<ept id="1d85b5e0-8b3e-457b-b5ce-038e7ab1c9dc">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1d85b5e0-8b3e-457b-b5ce-038e7ab1c9dc">&lt;code&gt;</bpt>CN=RegisteredDevices,defaultNamingContext<ept id="1d85b5e0-8b3e-457b-b5ce-038e7ab1c9dc">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8e7c080-720c-4e84-9b7e-d23157a250f9" xml:space="preserve">
+          <source>Consider the following scenario: You create an application Relying Party Trust in AD FS and configure an Issuance Authorization Rule that allows only registered devices.</source>
+          <target state="new">Consider the following scenario: You create an application Relying Party Trust in AD FS and configure an Issuance Authorization Rule that allows only registered devices.</target>
+        </trans-unit>
+        <trans-unit id="d3546a0a-302d-43a4-ba1f-d099734a65a2" xml:space="preserve">
+          <source>Now only devices that are registered are allowed to access the application.</source>
+          <target state="new">Now only devices that are registered are allowed to access the application.</target>
+        </trans-unit>
+        <trans-unit id="cfebe9e1-8678-49b9-aeff-a5478d958e16" xml:space="preserve">
+          <source>To make it easy for your users to gain access to the application, you configure a custom access denied message that includes instructions on how to join their device.</source>
+          <target state="new">To make it easy for your users to gain access to the application, you configure a custom access denied message that includes instructions on how to join their device.</target>
+        </trans-unit>
+        <trans-unit id="e93ac2b7-a944-43b9-bcd4-4032c261304c" xml:space="preserve">
+          <source>Now your users have a seamless way to register their devices in order to access an application.</source>
+          <target state="new">Now your users have a seamless way to register their devices in order to access an application.</target>
+        </trans-unit>
+        <trans-unit id="abb6a29c-7928-48aa-920f-e093990b2c79" xml:space="preserve">
+          <source>The following steps will show you how to implement this scenario.</source>
+          <target state="new">The following steps will show you how to implement this scenario.</target>
+        </trans-unit>
+        <trans-unit id="c33f40de-b090-4271-b244-f67ce9733561" xml:space="preserve">
+          <source>This section assumes that you have already configured a Relying Party Trust for your application in AD FS.</source>
+          <target state="new">This section assumes that you have already configured a Relying Party Trust for your application in AD FS.</target>
+        </trans-unit>
+        <trans-unit id="9321dc7a-0b7c-4513-a062-15b68db2a59d" xml:space="preserve">
+          <source>Open the AD FS MMC tool and navigate to AD FS &gt; Trust Relationships &gt; Relying Party Trusts.</source>
+          <target state="new">Open the AD FS MMC tool and navigate to AD FS &gt; Trust Relationships &gt; Relying Party Trusts.</target>
+        </trans-unit>
+        <trans-unit id="239c95d1-4f96-4584-b7e0-06459490f58e" xml:space="preserve">
+          <source>Locate the application for which this new access rule will apply.</source>
+          <target state="new">Locate the application for which this new access rule will apply.</target>
+        </trans-unit>
+        <trans-unit id="7dcf3e6c-8ebb-4825-a5c9-9505aaa01edb" xml:space="preserve">
+          <source>Right-click the application and select Edit Claim Rules…</source>
+          <target state="new">Right-click the application and select Edit Claim Rules…</target>
+        </trans-unit>
+        <trans-unit id="d16dda16-0b4c-441a-b78d-006664baed9b" xml:space="preserve">
+          <source>Select the <bpt id="8e0ff668-54bc-4fb0-b726-61f18b8474b9">&lt;strong&gt;</bpt>Issuance Authorization Rules<ept id="8e0ff668-54bc-4fb0-b726-61f18b8474b9">&lt;/strong&gt;</ept> tab and then select <bpt id="b2894812-2caa-4847-a454-a20fb6d368aa">&lt;strong&gt;</bpt>Add Rule…<ept id="b2894812-2caa-4847-a454-a20fb6d368aa">&lt;/strong&gt;</ept></source>
+          <target state="new">Select the <bpt id="8e0ff668-54bc-4fb0-b726-61f18b8474b9">&lt;strong&gt;</bpt>Issuance Authorization Rules<ept id="8e0ff668-54bc-4fb0-b726-61f18b8474b9">&lt;/strong&gt;</ept> tab and then select <bpt id="b2894812-2caa-4847-a454-a20fb6d368aa">&lt;strong&gt;</bpt>Add Rule…<ept id="b2894812-2caa-4847-a454-a20fb6d368aa">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f51ab6e9-0113-41e0-9bf1-ef34bfc8ac37" xml:space="preserve">
+          <source>From the <bpt id="26b9464c-ca24-4bb9-8403-538ba48deab7">&lt;strong&gt;</bpt>Claim rule<ept id="26b9464c-ca24-4bb9-8403-538ba48deab7">&lt;/strong&gt;</ept> template drop down list, select <bpt id="11fc6527-6bf5-4bf8-b02b-59dd33a15caf">&lt;strong&gt;</bpt>Permit or Deny Users Based on an Incoming Claim<ept id="11fc6527-6bf5-4bf8-b02b-59dd33a15caf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="26b9464c-ca24-4bb9-8403-538ba48deab7">&lt;strong&gt;</bpt>Claim rule<ept id="26b9464c-ca24-4bb9-8403-538ba48deab7">&lt;/strong&gt;</ept> template drop down list, select <bpt id="11fc6527-6bf5-4bf8-b02b-59dd33a15caf">&lt;strong&gt;</bpt>Permit or Deny Users Based on an Incoming Claim<ept id="11fc6527-6bf5-4bf8-b02b-59dd33a15caf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65d5972a-c917-4d16-bfba-ef933854db97" xml:space="preserve">
+          <source>Select <bpt id="87c02796-df3d-407f-aaf0-d9e72c98c712">&lt;strong&gt;</bpt>Next<ept id="87c02796-df3d-407f-aaf0-d9e72c98c712">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="87c02796-df3d-407f-aaf0-d9e72c98c712">&lt;strong&gt;</bpt>Next<ept id="87c02796-df3d-407f-aaf0-d9e72c98c712">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33e51a7d-8e01-4579-9240-777bc15f9b13" xml:space="preserve">
+          <source>In the Claim Rule name: field type: <bpt id="8cbdd639-5361-4d98-85a4-56d1af00b5db">&lt;strong&gt;</bpt>Permit access from registered devices<ept id="8cbdd639-5361-4d98-85a4-56d1af00b5db">&lt;/strong&gt;</ept></source>
+          <target state="new">In the Claim Rule name: field type: <bpt id="8cbdd639-5361-4d98-85a4-56d1af00b5db">&lt;strong&gt;</bpt>Permit access from registered devices<ept id="8cbdd639-5361-4d98-85a4-56d1af00b5db">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b91a2fc7-fe3d-4d1f-9dea-1d4abe7137d1" xml:space="preserve">
+          <source>From the Incoming claim type: drop down list, select <bpt id="dba726f4-ea6e-4fd8-acf0-70612b32322f">&lt;strong&gt;</bpt>Is Registered User<ept id="dba726f4-ea6e-4fd8-acf0-70612b32322f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Incoming claim type: drop down list, select <bpt id="dba726f4-ea6e-4fd8-acf0-70612b32322f">&lt;strong&gt;</bpt>Is Registered User<ept id="dba726f4-ea6e-4fd8-acf0-70612b32322f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fae53544-c089-4bcd-8fb4-ea6468397a32" xml:space="preserve">
+          <source>In the Incoming claim value: field, type: <bpt id="aa25f098-b342-4b58-ab81-62380f14b584">&lt;strong&gt;</bpt>true<ept id="aa25f098-b342-4b58-ab81-62380f14b584">&lt;/strong&gt;</ept></source>
+          <target state="new">In the Incoming claim value: field, type: <bpt id="aa25f098-b342-4b58-ab81-62380f14b584">&lt;strong&gt;</bpt>true<ept id="aa25f098-b342-4b58-ab81-62380f14b584">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c8d64d0-e5fd-4830-802d-87184377b8f8" xml:space="preserve">
+          <source>Select <bpt id="0c8d08bc-9230-4c71-9d65-94799db667c5">&lt;strong&gt;</bpt>Finish<ept id="0c8d08bc-9230-4c71-9d65-94799db667c5">&lt;/strong&gt;</ept> and then select <bpt id="5178c289-762c-4845-a255-80cdc86513ad">&lt;strong&gt;</bpt>Apply<ept id="5178c289-762c-4845-a255-80cdc86513ad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="0c8d08bc-9230-4c71-9d65-94799db667c5">&lt;strong&gt;</bpt>Finish<ept id="0c8d08bc-9230-4c71-9d65-94799db667c5">&lt;/strong&gt;</ept> and then select <bpt id="5178c289-762c-4845-a255-80cdc86513ad">&lt;strong&gt;</bpt>Apply<ept id="5178c289-762c-4845-a255-80cdc86513ad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80308467-7de8-4ffe-a85f-a3c3778d0925" xml:space="preserve">
+          <source>Remove any rules that are more permissive than the rule you just created.</source>
+          <target state="new">Remove any rules that are more permissive than the rule you just created.</target>
+        </trans-unit>
+        <trans-unit id="a048e829-740e-4de9-9a1c-4fca076f8a1b" xml:space="preserve">
+          <source>For example, remove the default</source>
+          <target state="new">For example, remove the default</target>
+        </trans-unit>
+        <trans-unit id="6640e811-95b3-4d68-92a8-ff6ef9924300" xml:space="preserve">
+          <source>Select the <bpt id="e692f443-be43-4ec3-b3e9-18a6685fdc88">&lt;strong&gt;</bpt>Permit access to users with this incoming claim<ept id="e692f443-be43-4ec3-b3e9-18a6685fdc88">&lt;/strong&gt;</ept> radio button.Permit Access to all Users rule.</source>
+          <target state="new">Select the <bpt id="e692f443-be43-4ec3-b3e9-18a6685fdc88">&lt;strong&gt;</bpt>Permit access to users with this incoming claim<ept id="e692f443-be43-4ec3-b3e9-18a6685fdc88">&lt;/strong&gt;</ept> radio button.Permit Access to all Users rule.</target>
+        </trans-unit>
+        <trans-unit id="0026727d-0387-47e8-9da6-872d3d8ee522" xml:space="preserve">
+          <source>Your application is now configured to allow access only when the user is coming from a device that they registered and joined to the workplace.</source>
+          <target state="new">Your application is now configured to allow access only when the user is coming from a device that they registered and joined to the workplace.</target>
+        </trans-unit>
+        <trans-unit id="74a86a9f-2350-42d8-b226-97cd6d07f74e" xml:space="preserve">
+          <source>For more advanced access polices, see Manage Risk with Multi-Factor Access Control.</source>
+          <target state="new">For more advanced access polices, see Manage Risk with Multi-Factor Access Control.</target>
+        </trans-unit>
+        <trans-unit id="16351a28-a326-4ef2-9481-1190b1c55e5b" xml:space="preserve">
+          <source>Next, you will configure a custom error message for your application.</source>
+          <target state="new">Next, you will configure a custom error message for your application.</target>
+        </trans-unit>
+        <trans-unit id="bfe1c03f-1d6f-48fb-9b2e-3a1f3c81e2d6" xml:space="preserve">
+          <source>The error message will let users know that they must join their device to the workplace before they are allowed access to the application.</source>
+          <target state="new">The error message will let users know that they must join their device to the workplace before they are allowed access to the application.</target>
+        </trans-unit>
+        <trans-unit id="07f911f7-8444-4da5-b5cd-eea91b287dcf" xml:space="preserve">
+          <source>You can create a custom application access denied message using custom HTML and Windows PowerShell.</source>
+          <target state="new">You can create a custom application access denied message using custom HTML and Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="7ab76cc8-0828-4ac3-8fb7-5f9f3686ece3" xml:space="preserve">
+          <source>On your federation server, open a Windows PowerShell command window and type the following command.</source>
+          <target state="new">On your federation server, open a Windows PowerShell command window and type the following command.</target>
+        </trans-unit>
+        <trans-unit id="9a5ce434-69fc-4506-90cd-aed97af30573" xml:space="preserve">
+          <source>Replace portions of the command with items that are specific to your system:</source>
+          <target state="new">Replace portions of the command with items that are specific to your system:</target>
+        </trans-unit>
+        <trans-unit id="fe7260d5-6dfd-43bd-9ba4-9cc836f5e0be" xml:space="preserve">
+          <source><bpt id="8dce525e-d645-4da2-8981-61711085d676">&lt;code&gt;</bpt>Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage <ept id="8dce525e-d645-4da2-8981-61711085d676">&lt;/code&gt;</ept>
+You must register your device before you can access this application.</source>
+          <target state="new"><bpt id="8dce525e-d645-4da2-8981-61711085d676">&lt;code&gt;</bpt>Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage <ept id="8dce525e-d645-4da2-8981-61711085d676">&lt;/code&gt;</ept>
+You must register your device before you can access this application.</target>
+        </trans-unit>
+        <trans-unit id="a91df3a6-fa35-4d67-b8df-fb363bec77a1" xml:space="preserve">
+          <source><bpt id="8ceff3a0-cbdf-4061-9dae-5c0e51e82e4e">&lt;strong&gt;</bpt>If you are using an iOS device, select this link to join your device<ept id="8ceff3a0-cbdf-4061-9dae-5c0e51e82e4e">&lt;/strong&gt;</ept>: </source>
+          <target state="new"><bpt id="8ceff3a0-cbdf-4061-9dae-5c0e51e82e4e">&lt;strong&gt;</bpt>If you are using an iOS device, select this link to join your device<ept id="8ceff3a0-cbdf-4061-9dae-5c0e51e82e4e">&lt;/strong&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="10e3072b-3271-417b-b196-b448e6c63d3a" xml:space="preserve">
+          <source>Join this iOS device to your workplace.</source>
+          <target state="new">Join this iOS device to your workplace.</target>
+        </trans-unit>
+        <trans-unit id="ae7d7759-e33e-429e-9f43-f5a7ae7beb97" xml:space="preserve">
+          <source><bpt id="0815cc31-8ae5-4b88-95aa-8f706ba6a76b">&lt;strong&gt;</bpt>If you are using a Windows 8.1 device<ept id="0815cc31-8ae5-4b88-95aa-8f706ba6a76b">&lt;/strong&gt;</ept>, you can join your device by going to <bpt id="4c32b9c9-0ee5-4490-b457-44f964158600">&lt;strong&gt;</bpt>PC Settings **&gt; **Network<ept id="4c32b9c9-0ee5-4490-b457-44f964158600">&lt;/strong&gt;</ept> &gt; <bpt id="7d80a18c-066c-4a1b-b229-b2f45e5be606">&lt;strong&gt;</bpt>Workplace<ept id="7d80a18c-066c-4a1b-b229-b2f45e5be606">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="0815cc31-8ae5-4b88-95aa-8f706ba6a76b">&lt;strong&gt;</bpt>If you are using a Windows 8.1 device<ept id="0815cc31-8ae5-4b88-95aa-8f706ba6a76b">&lt;/strong&gt;</ept>, you can join your device by going to <bpt id="4c32b9c9-0ee5-4490-b457-44f964158600">&lt;strong&gt;</bpt>PC Settings **&gt; **Network<ept id="4c32b9c9-0ee5-4490-b457-44f964158600">&lt;/strong&gt;</ept> &gt; <bpt id="7d80a18c-066c-4a1b-b229-b2f45e5be606">&lt;strong&gt;</bpt>Workplace<ept id="7d80a18c-066c-4a1b-b229-b2f45e5be606">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37b248f3-6682-4381-ab62-69259bd4f009" xml:space="preserve">
+          <source>Where "<bpt id="fc302564-29f7-40b7-8f5b-ec1887265fd4">&lt;strong&gt;</bpt>relying party trust name<ept id="fc302564-29f7-40b7-8f5b-ec1887265fd4">&lt;/strong&gt;</ept>" is the name of your applications Relying Party Trust object in AD FS.</source>
+          <target state="new">Where "<bpt id="fc302564-29f7-40b7-8f5b-ec1887265fd4">&lt;strong&gt;</bpt>relying party trust name<ept id="fc302564-29f7-40b7-8f5b-ec1887265fd4">&lt;/strong&gt;</ept>" is the name of your applications Relying Party Trust object in AD FS.</target>
+        </trans-unit>
+        <trans-unit id="5bc46cf7-7748-45c5-81df-8353675b91b9" xml:space="preserve">
+          <source>Where yourdomain.com is the domain name that you have configured with Azure Active Directory.</source>
+          <target state="new">Where yourdomain.com is the domain name that you have configured with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="5d21bb00-8369-47a7-9f31-5755534fd76d" xml:space="preserve">
+          <source>For example, contoso.com.</source>
+          <target state="new">For example, contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="a1c81611-8c93-48f0-92a8-52dcd4a15b45" xml:space="preserve">
+          <source>Be sure to remove any line breaks (if any) from the html content that you pass to the S<bpt id="4dff3b8f-bf0e-4337-a89e-d4d7c4f90b8f">&lt;strong&gt;</bpt>et-AdfsRelyingPartyWebContent<ept id="4dff3b8f-bf0e-4337-a89e-d4d7c4f90b8f">&lt;/strong&gt;</ept> Cmdlet.</source>
+          <target state="new">Be sure to remove any line breaks (if any) from the html content that you pass to the S<bpt id="4dff3b8f-bf0e-4337-a89e-d4d7c4f90b8f">&lt;strong&gt;</bpt>et-AdfsRelyingPartyWebContent<ept id="4dff3b8f-bf0e-4337-a89e-d4d7c4f90b8f">&lt;/strong&gt;</ept> Cmdlet.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

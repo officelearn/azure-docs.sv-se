@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7ae0d3d6-c35c-459b-8f59-f644381eedef" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7ae0d3d6-c35c-459b-8f59-f644381eedef" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4afb619a-ed79-4a04-a76d-babe53113a32">
+        <trans-unit id="55e0b68c-c3a9-46e1-a121-2240a90b4651" xml:space="preserve">
+          <source>Get started with SQL Database Dynamic Data Masking (Azure portal)</source>
+          <target state="new">Get started with SQL Database Dynamic Data Masking (Azure portal)</target>
+        </trans-unit>
+        <trans-unit id="85c6549f-7c2f-4ccf-89bd-91d3e93662f6" xml:space="preserve">
+          <source>How to get started with SQL Database Dynamic Data Masking in the Azure portal</source>
+          <target state="new">How to get started with SQL Database Dynamic Data Masking in the Azure portal</target>
+        </trans-unit>
+        <trans-unit id="b1c3f7de-c31b-4827-bc60-5fb0c2d42c99" xml:space="preserve">
+          <source>SQL Database Dynamic Data Masking limits sensitive data exposure by masking it to non-privileged users.</source>
+          <target state="new">SQL Database Dynamic Data Masking limits sensitive data exposure by masking it to non-privileged users.</target>
+        </trans-unit>
+        <trans-unit id="823cbf1a-ef68-449f-ada5-1c88d374886d" xml:space="preserve">
+          <source>Dynamic data masking is in preview for Basic, Standard, and Premium service tiers in the V12 version of Azure SQL Database.</source>
+          <target state="new">Dynamic data masking is in preview for Basic, Standard, and Premium service tiers in the V12 version of Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="b8a4716f-2221-4e07-88a5-789066a9d443" xml:space="preserve">
+          <source>Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer.</source>
+          <target state="new">Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer.</target>
+        </trans-unit>
+        <trans-unit id="26bb9fd8-8f1d-4295-a672-325ababc823f" xml:space="preserve">
+          <source>It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.</source>
+          <target state="new">It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.</target>
+        </trans-unit>
+        <trans-unit id="69f39454-d73a-4219-8843-09f418f1bd25" xml:space="preserve">
+          <source>For example, a call center support person may identify callers by several digits of their social security number or credit card number, but those data items should not be fully exposed to the support person.</source>
+          <target state="new">For example, a call center support person may identify callers by several digits of their social security number or credit card number, but those data items should not be fully exposed to the support person.</target>
+        </trans-unit>
+        <trans-unit id="bc342bc5-9d6a-44ff-bfe1-2d0cf020e390" xml:space="preserve">
+          <source>A developer can define a masking rule to be applied to each query result that masks all but the last four digits of any social security number or credit card number in the result set.</source>
+          <target state="new">A developer can define a masking rule to be applied to each query result that masks all but the last four digits of any social security number or credit card number in the result set.</target>
+        </trans-unit>
+        <trans-unit id="c1c3ff4a-7837-4c87-9918-0c45bfbed148" xml:space="preserve">
+          <source>For another example, by using the appropriate data mask to protect personally identifiable information (PII) data, a developer can query production environments for troubleshooting purposes without violating compliance regulations.</source>
+          <target state="new">For another example, by using the appropriate data mask to protect personally identifiable information (PII) data, a developer can query production environments for troubleshooting purposes without violating compliance regulations.</target>
+        </trans-unit>
+        <trans-unit id="fce68045-3e12-4818-b7ef-2efd5adf1e12" xml:space="preserve">
+          <source>You set up dynamic data masking policy in the Azure portal under the Auditing &amp; Security tab for your database.
+Before setting up dynamic data masking check if you are using a <bpt id="2a0006be-db06-4fbd-bcaf-834d39185d86">&lt;linkText&gt;</bpt>"Downlevel Client"<ept id="2a0006be-db06-4fbd-bcaf-834d39185d86">&lt;/linkText&gt;</ept><bpt id="2a0006be-db06-4fbd-bcaf-834d39185d86">&lt;title&gt;</bpt><ept id="2a0006be-db06-4fbd-bcaf-834d39185d86">&lt;/title&gt;</ept>.</source>
+          <target state="new">You set up dynamic data masking policy in the Azure portal under the Auditing &amp; Security tab for your database.
+Before setting up dynamic data masking check if you are using a <bpt id="2a0006be-db06-4fbd-bcaf-834d39185d86">&lt;linkText&gt;</bpt>"Downlevel Client"<ept id="2a0006be-db06-4fbd-bcaf-834d39185d86">&lt;/linkText&gt;</ept><bpt id="2a0006be-db06-4fbd-bcaf-834d39185d86">&lt;title&gt;</bpt><ept id="2a0006be-db06-4fbd-bcaf-834d39185d86">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d3972c5-3f36-47fe-ae1c-cc3c05ad0c03" xml:space="preserve">
+          <source>To set up dynamic data masking in the Azure Preview portal, see <bpt id="c85b450c-7445-4248-a0ac-6c96c55475da">&lt;linkText&gt;</bpt>Get started with SQL Database Dynamic Data Masking (Azure Preview portal)<ept id="c85b450c-7445-4248-a0ac-6c96c55475da">&lt;/linkText&gt;</ept><bpt id="c85b450c-7445-4248-a0ac-6c96c55475da">&lt;title&gt;</bpt><ept id="c85b450c-7445-4248-a0ac-6c96c55475da">&lt;/title&gt;</ept>.</source>
+          <target state="new">To set up dynamic data masking in the Azure Preview portal, see <bpt id="c85b450c-7445-4248-a0ac-6c96c55475da">&lt;linkText&gt;</bpt>Get started with SQL Database Dynamic Data Masking (Azure Preview portal)<ept id="c85b450c-7445-4248-a0ac-6c96c55475da">&lt;/linkText&gt;</ept><bpt id="c85b450c-7445-4248-a0ac-6c96c55475da">&lt;title&gt;</bpt><ept id="c85b450c-7445-4248-a0ac-6c96c55475da">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96845742-3407-4c1b-ac13-4b60658f444e" xml:space="preserve">
+          <source>Dynamic data masking can be configured by the Azure Database admin, server admin, or security officer roles.</source>
+          <target state="new">Dynamic data masking can be configured by the Azure Database admin, server admin, or security officer roles.</target>
+        </trans-unit>
+        <trans-unit id="a3879feb-dd6a-47b0-a3c0-0ff8ff658017" xml:space="preserve">
+          <source><bpt id="e5cb306f-1ed5-4c44-9eab-3771be19e11a">&lt;strong&gt;</bpt>Privileged logins<ept id="e5cb306f-1ed5-4c44-9eab-3771be19e11a">&lt;/strong&gt;</ept> - A set of logins that will get unmasked data in the SQL query results.</source>
+          <target state="new"><bpt id="e5cb306f-1ed5-4c44-9eab-3771be19e11a">&lt;strong&gt;</bpt>Privileged logins<ept id="e5cb306f-1ed5-4c44-9eab-3771be19e11a">&lt;/strong&gt;</ept> - A set of logins that will get unmasked data in the SQL query results.</target>
+        </trans-unit>
+        <trans-unit id="d22de129-8f66-4670-8776-90876229a5fc" xml:space="preserve">
+          <source><bpt id="fc1518ea-b4fb-46b1-acb8-c0748b37728c">&lt;strong&gt;</bpt>Masking rules<ept id="fc1518ea-b4fb-46b1-acb8-c0748b37728c">&lt;/strong&gt;</ept> - A set of rules that define the designated fields to be masked and the masking function that will be used.</source>
+          <target state="new"><bpt id="fc1518ea-b4fb-46b1-acb8-c0748b37728c">&lt;strong&gt;</bpt>Masking rules<ept id="fc1518ea-b4fb-46b1-acb8-c0748b37728c">&lt;/strong&gt;</ept> - A set of rules that define the designated fields to be masked and the masking function that will be used.</target>
+        </trans-unit>
+        <trans-unit id="a3cddd0f-f944-4195-82b6-eb7a4d13c5c2" xml:space="preserve">
+          <source>The designated fields can be defined using a database table name and column name.</source>
+          <target state="new">The designated fields can be defined using a database table name and column name.</target>
+        </trans-unit>
+        <trans-unit id="ab8ad5fb-4bae-4d0f-8097-d68f0f99ee74" xml:space="preserve">
+          <source><bpt id="77c49fa8-ac75-4b39-b5a5-f90e49e08157">&lt;strong&gt;</bpt>Masking functions<ept id="77c49fa8-ac75-4b39-b5a5-f90e49e08157">&lt;/strong&gt;</ept> - A set of methods that control the exposure of data for different scenarios.</source>
+          <target state="new"><bpt id="77c49fa8-ac75-4b39-b5a5-f90e49e08157">&lt;strong&gt;</bpt>Masking functions<ept id="77c49fa8-ac75-4b39-b5a5-f90e49e08157">&lt;/strong&gt;</ept> - A set of methods that control the exposure of data for different scenarios.</target>
+        </trans-unit>
+        <trans-unit id="3535e296-d21c-43ee-84b2-aa82a873ce76" xml:space="preserve">
+          <source>Masking Function</source>
+          <target state="new">Masking Function</target>
+        </trans-unit>
+        <trans-unit id="3c248ec0-1ba6-4e7e-a8de-9e84f062f31d" xml:space="preserve">
+          <source>Masking Logic</source>
+          <target state="new">Masking Logic</target>
+        </trans-unit>
+        <trans-unit id="732a94a6-ac81-493a-83b7-552a52fa108b" xml:space="preserve">
+          <source><bpt id="2bb7f0fd-e9f5-4e1c-8628-a6963a7761e3">&lt;strong&gt;</bpt>Default<ept id="2bb7f0fd-e9f5-4e1c-8628-a6963a7761e3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2bb7f0fd-e9f5-4e1c-8628-a6963a7761e3">&lt;strong&gt;</bpt>Default<ept id="2bb7f0fd-e9f5-4e1c-8628-a6963a7761e3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="395ef711-c73c-488b-b12b-aae7c97051c0" xml:space="preserve">
+          <source><bpt id="7ca35278-bdee-4150-9f34-0e303723d369">&lt;strong&gt;</bpt>Full masking according to the data types  of the designated fields<ept id="7ca35278-bdee-4150-9f34-0e303723d369">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;• Use XXXXXXXX or fewer Xs if the size of the field is less than 8 characters for string data types (nchar, ntext, nvarchar).&lt;br/&gt;• Use a zero value for numeric data types (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).&lt;br/&gt;• Use 01-01-1900 for date/time data types (date, datetime2, datetime, datetimeoffset, smalldatetime, time).&lt;br/&gt;• For SQL variant, the default value of the current type is used.&lt;br/&gt;• For XML the document &lt;masked/&gt; is used.&lt;br/&gt;• Use an empty value for special data types (timestamp  table, hierarchyid, GUID, binary, image, varbinary spatial types).</source>
+          <target state="new"><bpt id="7ca35278-bdee-4150-9f34-0e303723d369">&lt;strong&gt;</bpt>Full masking according to the data types  of the designated fields<ept id="7ca35278-bdee-4150-9f34-0e303723d369">&lt;/strong&gt;</ept>&lt;br/&gt;&lt;br/&gt;• Use XXXXXXXX or fewer Xs if the size of the field is less than 8 characters for string data types (nchar, ntext, nvarchar).&lt;br/&gt;• Use a zero value for numeric data types (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).&lt;br/&gt;• Use 01-01-1900 for date/time data types (date, datetime2, datetime, datetimeoffset, smalldatetime, time).&lt;br/&gt;• For SQL variant, the default value of the current type is used.&lt;br/&gt;• For XML the document &lt;masked/&gt; is used.&lt;br/&gt;• Use an empty value for special data types (timestamp  table, hierarchyid, GUID, binary, image, varbinary spatial types).</target>
+        </trans-unit>
+        <trans-unit id="51447861-a03a-45ed-bc1a-0b36af50641b" xml:space="preserve">
+          <source><bpt id="3f23d7c3-b7ce-48df-971a-3519587ca536">&lt;strong&gt;</bpt>Credit card<ept id="3f23d7c3-b7ce-48df-971a-3519587ca536">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3f23d7c3-b7ce-48df-971a-3519587ca536">&lt;strong&gt;</bpt>Credit card<ept id="3f23d7c3-b7ce-48df-971a-3519587ca536">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f414fe82-c614-4588-9bce-3077332a0854" xml:space="preserve">
+          <source><bpt id="1811e5e2-bd35-49e8-b1b9-c60d765227e0">&lt;strong&gt;</bpt>Masking method which exposes the last four digits of the designated fields<ept id="1811e5e2-bd35-49e8-b1b9-c60d765227e0">&lt;/strong&gt;</ept> and adds a constant string as a prefix in the form of a credit card.&lt;br/&gt;&lt;br/&gt;XXXX-XXXX-XXXX-1234</source>
+          <target state="new"><bpt id="1811e5e2-bd35-49e8-b1b9-c60d765227e0">&lt;strong&gt;</bpt>Masking method which exposes the last four digits of the designated fields<ept id="1811e5e2-bd35-49e8-b1b9-c60d765227e0">&lt;/strong&gt;</ept> and adds a constant string as a prefix in the form of a credit card.&lt;br/&gt;&lt;br/&gt;XXXX-XXXX-XXXX-1234</target>
+        </trans-unit>
+        <trans-unit id="7398e382-65a1-424e-a6a7-baddc2dd5c68" xml:space="preserve">
+          <source><bpt id="e6a6f2aa-9b1c-43a3-85f5-5a768ef65e4c">&lt;strong&gt;</bpt>Social security number<ept id="e6a6f2aa-9b1c-43a3-85f5-5a768ef65e4c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e6a6f2aa-9b1c-43a3-85f5-5a768ef65e4c">&lt;strong&gt;</bpt>Social security number<ept id="e6a6f2aa-9b1c-43a3-85f5-5a768ef65e4c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4abcf90-b068-4635-abed-c82a7df345db" xml:space="preserve">
+          <source><bpt id="b5238bbf-02bb-4cfe-81f3-43c7bf6d7e19">&lt;strong&gt;</bpt>Masking method which exposes the last two digits of the designated fields<ept id="b5238bbf-02bb-4cfe-81f3-43c7bf6d7e19">&lt;/strong&gt;</ept> and adds a constant string as a prefix in the form of an American social security number.&lt;br/&gt;&lt;br/&gt;XXX-XX-XX12</source>
+          <target state="new"><bpt id="b5238bbf-02bb-4cfe-81f3-43c7bf6d7e19">&lt;strong&gt;</bpt>Masking method which exposes the last two digits of the designated fields<ept id="b5238bbf-02bb-4cfe-81f3-43c7bf6d7e19">&lt;/strong&gt;</ept> and adds a constant string as a prefix in the form of an American social security number.&lt;br/&gt;&lt;br/&gt;XXX-XX-XX12</target>
+        </trans-unit>
+        <trans-unit id="3490f575-c185-4e56-bdd9-6c25593a990c" xml:space="preserve">
+          <source><bpt id="ddd15c14-d43a-443c-85de-04fdbf439034">&lt;strong&gt;</bpt>Email<ept id="ddd15c14-d43a-443c-85de-04fdbf439034">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ddd15c14-d43a-443c-85de-04fdbf439034">&lt;strong&gt;</bpt>Email<ept id="ddd15c14-d43a-443c-85de-04fdbf439034">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7d7b3e6-f35c-4bf4-ba91-5f02c3d22552" xml:space="preserve">
+          <source><bpt id="d2238a60-8f8e-481a-ab22-dc5bc2df3e13">&lt;strong&gt;</bpt>Masking method which exposes the first letter and replaces the domain with XXX.com<ept id="d2238a60-8f8e-481a-ab22-dc5bc2df3e13">&lt;/strong&gt;</ept> using a constant string prefix in the form of an email address.&lt;br/&gt;&lt;br/&gt;aXX@XXXX.com</source>
+          <target state="new"><bpt id="d2238a60-8f8e-481a-ab22-dc5bc2df3e13">&lt;strong&gt;</bpt>Masking method which exposes the first letter and replaces the domain with XXX.com<ept id="d2238a60-8f8e-481a-ab22-dc5bc2df3e13">&lt;/strong&gt;</ept> using a constant string prefix in the form of an email address.&lt;br/&gt;&lt;br/&gt;aXX@XXXX.com</target>
+        </trans-unit>
+        <trans-unit id="7a66703d-7ebb-41ab-b0fe-9a3fb8d820df" xml:space="preserve">
+          <source><bpt id="137d8dfc-b281-44af-928b-81d3b24a3da6">&lt;strong&gt;</bpt>Random number<ept id="137d8dfc-b281-44af-928b-81d3b24a3da6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="137d8dfc-b281-44af-928b-81d3b24a3da6">&lt;strong&gt;</bpt>Random number<ept id="137d8dfc-b281-44af-928b-81d3b24a3da6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e70a420c-d326-4ca3-a9f5-a68453f89457" xml:space="preserve">
+          <source><bpt id="5a6c353f-8d19-4cda-a791-6a1e58c97c8a">&lt;strong&gt;</bpt>Masking method which generates a random number<ept id="5a6c353f-8d19-4cda-a791-6a1e58c97c8a">&lt;/strong&gt;</ept> according to the selected boundaries and actual data types.</source>
+          <target state="new"><bpt id="5a6c353f-8d19-4cda-a791-6a1e58c97c8a">&lt;strong&gt;</bpt>Masking method which generates a random number<ept id="5a6c353f-8d19-4cda-a791-6a1e58c97c8a">&lt;/strong&gt;</ept> according to the selected boundaries and actual data types.</target>
+        </trans-unit>
+        <trans-unit id="9b3519cc-f9cc-4ca6-b2e4-235229f1c64c" xml:space="preserve">
+          <source>If the designated boundaries are equal, then the masking function will be a constant number.&lt;br/&gt;&lt;br/&gt;<bpt id="ca857a57-7758-4f13-8d5a-cc69f3fe2aaf">&lt;linkText&gt;</bpt>Navigation pane<ept id="ca857a57-7758-4f13-8d5a-cc69f3fe2aaf">&lt;/linkText&gt;</ept></source>
+          <target state="new">If the designated boundaries are equal, then the masking function will be a constant number.&lt;br/&gt;&lt;br/&gt;<bpt id="ca857a57-7758-4f13-8d5a-cc69f3fe2aaf">&lt;linkText&gt;</bpt>Navigation pane<ept id="ca857a57-7758-4f13-8d5a-cc69f3fe2aaf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88c8cbd4-0078-46ae-b392-dcc44e60b3bb" xml:space="preserve">
+          <source><bpt id="3e7fee9e-3213-4ddc-8372-6965f9ccd20e">&lt;strong&gt;</bpt>Custom text<ept id="3e7fee9e-3213-4ddc-8372-6965f9ccd20e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3e7fee9e-3213-4ddc-8372-6965f9ccd20e">&lt;strong&gt;</bpt>Custom text<ept id="3e7fee9e-3213-4ddc-8372-6965f9ccd20e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4ddfb9c-d892-4148-a3cc-98c6689050a2" xml:space="preserve">
+          <source><bpt id="805bf3ff-32da-4fd0-b960-d1efe626c482">&lt;strong&gt;</bpt>Masking method which exposes the first and last characters<ept id="805bf3ff-32da-4fd0-b960-d1efe626c482">&lt;/strong&gt;</ept> and adds a custom padding string in the middle.&lt;br/&gt;prefix[padding]suffix&lt;br/&gt;&lt;br/&gt;<bpt id="c350a4cf-978c-4b07-a101-7ffaccef0f91">&lt;linkText&gt;</bpt>Navigation pane<ept id="c350a4cf-978c-4b07-a101-7ffaccef0f91">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="805bf3ff-32da-4fd0-b960-d1efe626c482">&lt;strong&gt;</bpt>Masking method which exposes the first and last characters<ept id="805bf3ff-32da-4fd0-b960-d1efe626c482">&lt;/strong&gt;</ept> and adds a custom padding string in the middle.&lt;br/&gt;prefix[padding]suffix&lt;br/&gt;&lt;br/&gt;<bpt id="c350a4cf-978c-4b07-a101-7ffaccef0f91">&lt;linkText&gt;</bpt>Navigation pane<ept id="c350a4cf-978c-4b07-a101-7ffaccef0f91">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9788c2c9-af1b-4dfb-8bbb-89072e038c3a" xml:space="preserve">
+          <source><bpt id="d98f9162-660a-4e6b-8b23-27b30fda2dd4">&lt;bookmark&gt;</bpt><ept id="d98f9162-660a-4e6b-8b23-27b30fda2dd4">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="d98f9162-660a-4e6b-8b23-27b30fda2dd4">&lt;bookmark&gt;</bpt><ept id="d98f9162-660a-4e6b-8b23-27b30fda2dd4">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="533cafcb-b3c8-4349-9225-a524e51e247b" xml:space="preserve">
+          <source>If you are using a <bpt id="e1e75fd6-2596-435a-823d-5b1c6862ae7d">&lt;linkText&gt;</bpt>"Downlevel Client"<ept id="e1e75fd6-2596-435a-823d-5b1c6862ae7d">&lt;/linkText&gt;</ept><bpt id="e1e75fd6-2596-435a-823d-5b1c6862ae7d">&lt;title&gt;</bpt><ept id="e1e75fd6-2596-435a-823d-5b1c6862ae7d">&lt;/title&gt;</ept>, then you must update existing clients (example: applications) to use a modified connection string format.</source>
+          <target state="new">If you are using a <bpt id="e1e75fd6-2596-435a-823d-5b1c6862ae7d">&lt;linkText&gt;</bpt>"Downlevel Client"<ept id="e1e75fd6-2596-435a-823d-5b1c6862ae7d">&lt;/linkText&gt;</ept><bpt id="e1e75fd6-2596-435a-823d-5b1c6862ae7d">&lt;title&gt;</bpt><ept id="e1e75fd6-2596-435a-823d-5b1c6862ae7d">&lt;/title&gt;</ept>, then you must update existing clients (example: applications) to use a modified connection string format.</target>
+        </trans-unit>
+        <trans-unit id="d6c0ee0c-0446-4e9c-99b9-39a35ca4f159" xml:space="preserve">
+          <source>Please click <bpt id="0c96f78f-ecc6-49e7-b9ca-a58cad772924">&lt;linkText&gt;</bpt>here<ept id="0c96f78f-ecc6-49e7-b9ca-a58cad772924">&lt;/linkText&gt;</ept><bpt id="0c96f78f-ecc6-49e7-b9ca-a58cad772924">&lt;title&gt;</bpt><ept id="0c96f78f-ecc6-49e7-b9ca-a58cad772924">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">Please click <bpt id="0c96f78f-ecc6-49e7-b9ca-a58cad772924">&lt;linkText&gt;</bpt>here<ept id="0c96f78f-ecc6-49e7-b9ca-a58cad772924">&lt;/linkText&gt;</ept><bpt id="0c96f78f-ecc6-49e7-b9ca-a58cad772924">&lt;title&gt;</bpt><ept id="0c96f78f-ecc6-49e7-b9ca-a58cad772924">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="052d0033-3c08-498c-9f69-21b22afecfea" xml:space="preserve">
+          <source>Launch the Azure portal at <bpt id="dd778ed9-1a1d-499a-896b-bc71552e02ff">&lt;linkText&gt;</bpt>https://manage.windowsazure.com<ept id="dd778ed9-1a1d-499a-896b-bc71552e02ff">&lt;/linkText&gt;</ept><bpt id="dd778ed9-1a1d-499a-896b-bc71552e02ff">&lt;title&gt;</bpt><ept id="dd778ed9-1a1d-499a-896b-bc71552e02ff">&lt;/title&gt;</ept>.</source>
+          <target state="new">Launch the Azure portal at <bpt id="dd778ed9-1a1d-499a-896b-bc71552e02ff">&lt;linkText&gt;</bpt>https://manage.windowsazure.com<ept id="dd778ed9-1a1d-499a-896b-bc71552e02ff">&lt;/linkText&gt;</ept><bpt id="dd778ed9-1a1d-499a-896b-bc71552e02ff">&lt;title&gt;</bpt><ept id="dd778ed9-1a1d-499a-896b-bc71552e02ff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2bbe7a09-20d0-46da-a4ac-a2e99a6eb7da" xml:space="preserve">
+          <source>Click the database you want to mask, and then click the <bpt id="741378b6-484b-42d8-ae18-b4dbbd28a2d6">&lt;strong&gt;</bpt>AUDITING &amp; SECURITY<ept id="741378b6-484b-42d8-ae18-b4dbbd28a2d6">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the database you want to mask, and then click the <bpt id="741378b6-484b-42d8-ae18-b4dbbd28a2d6">&lt;strong&gt;</bpt>AUDITING &amp; SECURITY<ept id="741378b6-484b-42d8-ae18-b4dbbd28a2d6">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="8b2d9970-6740-41b1-9ee5-8a245db12313" xml:space="preserve">
+          <source>Under <bpt id="1ab39283-e0e3-4106-81af-7ff486ea29dd">&lt;strong&gt;</bpt>dynamic data masking<ept id="1ab39283-e0e3-4106-81af-7ff486ea29dd">&lt;/strong&gt;</ept>, click <bpt id="ceb2cfbe-62e7-418f-8112-273a26373fe7">&lt;strong&gt;</bpt>ENABLED<ept id="ceb2cfbe-62e7-418f-8112-273a26373fe7">&lt;/strong&gt;</ept> to enable the dynamic data masking feature.</source>
+          <target state="new">Under <bpt id="1ab39283-e0e3-4106-81af-7ff486ea29dd">&lt;strong&gt;</bpt>dynamic data masking<ept id="1ab39283-e0e3-4106-81af-7ff486ea29dd">&lt;/strong&gt;</ept>, click <bpt id="ceb2cfbe-62e7-418f-8112-273a26373fe7">&lt;strong&gt;</bpt>ENABLED<ept id="ceb2cfbe-62e7-418f-8112-273a26373fe7">&lt;/strong&gt;</ept> to enable the dynamic data masking feature.</target>
+        </trans-unit>
+        <trans-unit id="6539a26f-8668-4643-afcc-2f527986ecb7" xml:space="preserve">
+          <source>Type the privileged logins that should have access to the unmasked sensitive data.</source>
+          <target state="new">Type the privileged logins that should have access to the unmasked sensitive data.</target>
+        </trans-unit>
+        <trans-unit id="e2991318-3227-4884-ac97-0c0f060164c4" xml:space="preserve">
+          <source>To make it so the application layer can display sensitive data for application privileged users, add the SQL login that is being used to query the database.</source>
+          <target state="new">To make it so the application layer can display sensitive data for application privileged users, add the SQL login that is being used to query the database.</target>
+        </trans-unit>
+        <trans-unit id="372b23f6-5e1f-42ad-a99c-dd59f0b8ccda" xml:space="preserve">
+          <source>It is highly recommended that this list contain a minimal number of logins to minimize exposure of the sensitive data.</source>
+          <target state="new">It is highly recommended that this list contain a minimal number of logins to minimize exposure of the sensitive data.</target>
+        </trans-unit>
+        <trans-unit id="a4214071-e109-4f70-b659-970daaf9de7a" xml:space="preserve">
+          <source><bpt id="3d642e39-3fbe-451c-a41d-1dbf8b2a15f1">&lt;linkText&gt;</bpt>Navigation pane<ept id="3d642e39-3fbe-451c-a41d-1dbf8b2a15f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d642e39-3fbe-451c-a41d-1dbf8b2a15f1">&lt;linkText&gt;</bpt>Navigation pane<ept id="3d642e39-3fbe-451c-a41d-1dbf8b2a15f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4020a4a-6129-4357-a76a-508c4355b02e" xml:space="preserve">
+          <source>At the bottom of the page in the menu bar, click <bpt id="6f26f187-690a-4824-8f1d-daeb95b0a752">&lt;strong&gt;</bpt>Add MASK<ept id="6f26f187-690a-4824-8f1d-daeb95b0a752">&lt;/strong&gt;</ept> to open the masking rule configuration window.</source>
+          <target state="new">At the bottom of the page in the menu bar, click <bpt id="6f26f187-690a-4824-8f1d-daeb95b0a752">&lt;strong&gt;</bpt>Add MASK<ept id="6f26f187-690a-4824-8f1d-daeb95b0a752">&lt;/strong&gt;</ept> to open the masking rule configuration window.</target>
+        </trans-unit>
+        <trans-unit id="8bf58496-e39d-401e-a2c5-adbde554037c" xml:space="preserve">
+          <source>Select the <bpt id="33af082a-7915-4b2a-9e35-3f440c579513">&lt;strong&gt;</bpt>Table<ept id="33af082a-7915-4b2a-9e35-3f440c579513">&lt;/strong&gt;</ept> and <bpt id="8567b017-8221-40c4-84fe-413241e01cad">&lt;strong&gt;</bpt>Column<ept id="8567b017-8221-40c4-84fe-413241e01cad">&lt;/strong&gt;</ept> from the dropdown lists to define the designated fields that will be masked.</source>
+          <target state="new">Select the <bpt id="33af082a-7915-4b2a-9e35-3f440c579513">&lt;strong&gt;</bpt>Table<ept id="33af082a-7915-4b2a-9e35-3f440c579513">&lt;/strong&gt;</ept> and <bpt id="8567b017-8221-40c4-84fe-413241e01cad">&lt;strong&gt;</bpt>Column<ept id="8567b017-8221-40c4-84fe-413241e01cad">&lt;/strong&gt;</ept> from the dropdown lists to define the designated fields that will be masked.</target>
+        </trans-unit>
+        <trans-unit id="5ea49fb0-4d3c-4cf0-838b-4a837be4d147" xml:space="preserve">
+          <source>Choose a <bpt id="6e183892-1f37-4c9e-974a-cada9bd83fc0">&lt;strong&gt;</bpt>MASKING FUNCTION<ept id="6e183892-1f37-4c9e-974a-cada9bd83fc0">&lt;/strong&gt;</ept> from the list of sensitive data masking categories.</source>
+          <target state="new">Choose a <bpt id="6e183892-1f37-4c9e-974a-cada9bd83fc0">&lt;strong&gt;</bpt>MASKING FUNCTION<ept id="6e183892-1f37-4c9e-974a-cada9bd83fc0">&lt;/strong&gt;</ept> from the list of sensitive data masking categories.</target>
+        </trans-unit>
+        <trans-unit id="e4e4f239-f194-4e81-b33b-d1138dd2b14e" xml:space="preserve">
+          <source><bpt id="f9b6f4b8-2eca-4ec2-b289-02324aaf7fe8">&lt;linkText&gt;</bpt>Navigation pane<ept id="f9b6f4b8-2eca-4ec2-b289-02324aaf7fe8">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="f9b6f4b8-2eca-4ec2-b289-02324aaf7fe8">&lt;linkText&gt;</bpt>Navigation pane<ept id="f9b6f4b8-2eca-4ec2-b289-02324aaf7fe8">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="564b0967-4aa9-436f-a8b9-61f8febc9c43" xml:space="preserve">
+          <source>Click <bpt id="a60cc966-9904-4ae2-8947-7e4cf351d5f6">&lt;strong&gt;</bpt>OK<ept id="a60cc966-9904-4ae2-8947-7e4cf351d5f6">&lt;/strong&gt;</ept> in the data masking rule window to update the set of masking rules in the dynamic data masking policy.</source>
+          <target state="new">Click <bpt id="a60cc966-9904-4ae2-8947-7e4cf351d5f6">&lt;strong&gt;</bpt>OK<ept id="a60cc966-9904-4ae2-8947-7e4cf351d5f6">&lt;/strong&gt;</ept> in the data masking rule window to update the set of masking rules in the dynamic data masking policy.</target>
+        </trans-unit>
+        <trans-unit id="96a9cf87-a6b3-47d2-a905-e403e8a004b7" xml:space="preserve">
+          <source>Click <bpt id="6cee5871-1735-4dbf-a8e5-74ae23627cf0">&lt;strong&gt;</bpt>SAVE<ept id="6cee5871-1735-4dbf-a8e5-74ae23627cf0">&lt;/strong&gt;</ept> to save the new or updated masking policy.</source>
+          <target state="new">Click <bpt id="6cee5871-1735-4dbf-a8e5-74ae23627cf0">&lt;strong&gt;</bpt>SAVE<ept id="6cee5871-1735-4dbf-a8e5-74ae23627cf0">&lt;/strong&gt;</ept> to save the new or updated masking policy.</target>
+        </trans-unit>
+        <trans-unit id="3c69fd29-8e5b-44bb-8095-3c6a4e2b928c" xml:space="preserve">
+          <source>See <bpt id="8763e99e-e0ef-42bb-916b-e24b6c356519">&lt;linkText&gt;</bpt>Azure SQL Database Cmdlets<ept id="8763e99e-e0ef-42bb-916b-e24b6c356519">&lt;/linkText&gt;</ept><bpt id="8763e99e-e0ef-42bb-916b-e24b6c356519">&lt;title&gt;</bpt><ept id="8763e99e-e0ef-42bb-916b-e24b6c356519">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="8763e99e-e0ef-42bb-916b-e24b6c356519">&lt;linkText&gt;</bpt>Azure SQL Database Cmdlets<ept id="8763e99e-e0ef-42bb-916b-e24b6c356519">&lt;/linkText&gt;</ept><bpt id="8763e99e-e0ef-42bb-916b-e24b6c356519">&lt;title&gt;</bpt><ept id="8763e99e-e0ef-42bb-916b-e24b6c356519">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="524bbaa7-cdf0-4708-bc52-4c5016ed63f8" xml:space="preserve">
+          <source>See <bpt id="eb154767-5117-46ee-a046-a0237c666656">&lt;linkText&gt;</bpt>Operations for Azure SQL Databases<ept id="eb154767-5117-46ee-a046-a0237c666656">&lt;/linkText&gt;</ept><bpt id="eb154767-5117-46ee-a046-a0237c666656">&lt;title&gt;</bpt><ept id="eb154767-5117-46ee-a046-a0237c666656">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="eb154767-5117-46ee-a046-a0237c666656">&lt;linkText&gt;</bpt>Operations for Azure SQL Databases<ept id="eb154767-5117-46ee-a046-a0237c666656">&lt;/linkText&gt;</ept><bpt id="eb154767-5117-46ee-a046-a0237c666656">&lt;title&gt;</bpt><ept id="eb154767-5117-46ee-a046-a0237c666656">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

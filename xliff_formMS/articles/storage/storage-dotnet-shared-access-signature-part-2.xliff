@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4be6d8e0-7336-49ee-bb13-a43ab15fb1c9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4be6d8e0-7336-49ee-bb13-a43ab15fb1c9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="43bf1f03-d348-45a0-84a2-37993d81f382">
+        <trans-unit id="1c2c5f04-31a8-447e-98d3-8694a47f944b" xml:space="preserve">
+          <source>Create and use a SAS with the Blob Service | Microsoft Azure</source>
+          <target state="new">Create and use a SAS with the Blob Service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8c38eff8-d226-4ae1-b8e6-ebdb1a189882" xml:space="preserve">
+          <source>Explore generating and using shared access signatures with the Blob service</source>
+          <target state="new">Explore generating and using shared access signatures with the Blob service</target>
+        </trans-unit>
+        <trans-unit id="7b1f3318-b6b6-4102-b323-2f011d328d88" xml:space="preserve">
+          <source><bpt id="2f3c0be8-d4b5-4d74-bf2c-1c0117a5e277">&lt;linkText&gt;</bpt>Part 1<ept id="2f3c0be8-d4b5-4d74-bf2c-1c0117a5e277">&lt;/linkText&gt;</ept><bpt id="2f3c0be8-d4b5-4d74-bf2c-1c0117a5e277">&lt;title&gt;</bpt><ept id="2f3c0be8-d4b5-4d74-bf2c-1c0117a5e277">&lt;/title&gt;</ept> of this tutorial explored shared access signatures (SAS) and explained best practices for using them.</source>
+          <target state="new"><bpt id="2f3c0be8-d4b5-4d74-bf2c-1c0117a5e277">&lt;linkText&gt;</bpt>Part 1<ept id="2f3c0be8-d4b5-4d74-bf2c-1c0117a5e277">&lt;/linkText&gt;</ept><bpt id="2f3c0be8-d4b5-4d74-bf2c-1c0117a5e277">&lt;title&gt;</bpt><ept id="2f3c0be8-d4b5-4d74-bf2c-1c0117a5e277">&lt;/title&gt;</ept> of this tutorial explored shared access signatures (SAS) and explained best practices for using them.</target>
+        </trans-unit>
+        <trans-unit id="cccf0924-feea-47fe-9c4d-6ab51c961c62" xml:space="preserve">
+          <source>Part 2 shows you how to generate and then use shared access signatures with the Azure Blob service.</source>
+          <target state="new">Part 2 shows you how to generate and then use shared access signatures with the Azure Blob service.</target>
+        </trans-unit>
+        <trans-unit id="c84e0bdd-8749-463d-a5a8-2194ce596a77" xml:space="preserve">
+          <source>The examples are written in C# and use the Azure Storage Client Library for .NET.</source>
+          <target state="new">The examples are written in C# and use the Azure Storage Client Library for .NET.</target>
+        </trans-unit>
+        <trans-unit id="05b18184-7e41-4592-bcae-3320bd394b94" xml:space="preserve">
+          <source>The scenarios covered include these aspects of working with shared access signatures:</source>
+          <target state="new">The scenarios covered include these aspects of working with shared access signatures:</target>
+        </trans-unit>
+        <trans-unit id="93e370fa-04c7-4510-a10a-241982c9c0c4" xml:space="preserve">
+          <source>Generating a shared access signature on a container</source>
+          <target state="new">Generating a shared access signature on a container</target>
+        </trans-unit>
+        <trans-unit id="ec1b6b45-e58b-4af3-9544-0bd6568de906" xml:space="preserve">
+          <source>Generating a shared access signature on a blob</source>
+          <target state="new">Generating a shared access signature on a blob</target>
+        </trans-unit>
+        <trans-unit id="1daa44ae-920b-4063-aeab-45da5c42a218" xml:space="preserve">
+          <source>Creating a stored access policy to manage signatures on a container's resources</source>
+          <target state="new">Creating a stored access policy to manage signatures on a container's resources</target>
+        </trans-unit>
+        <trans-unit id="0c7d8744-c66c-4c4b-aaf3-453e6d2d7bf4" xml:space="preserve">
+          <source>Testing the shared access signatures from a client application</source>
+          <target state="new">Testing the shared access signatures from a client application</target>
+        </trans-unit>
+        <trans-unit id="ca479688-c08d-4f1f-ac26-a7a714a56d3f" xml:space="preserve">
+          <source>In this tutorial, we'll focus on creating shared access signatures for containers and blobs by creating two console applications.</source>
+          <target state="new">In this tutorial, we'll focus on creating shared access signatures for containers and blobs by creating two console applications.</target>
+        </trans-unit>
+        <trans-unit id="78aba828-b264-40fe-bb5e-3a4f9f291308" xml:space="preserve">
+          <source>The first console application generates shared access signatures on a container and on a blob.</source>
+          <target state="new">The first console application generates shared access signatures on a container and on a blob.</target>
+        </trans-unit>
+        <trans-unit id="9857c0dd-5157-4731-94f3-f56e410d6b1e" xml:space="preserve">
+          <source>This application has knowledge of the storage account keys.</source>
+          <target state="new">This application has knowledge of the storage account keys.</target>
+        </trans-unit>
+        <trans-unit id="f5b46f1c-ab45-415a-8469-7e66f135b36e" xml:space="preserve">
+          <source>The second console application, which will act as a client application, accesses container and blob resources using the shared access signatures created with the first application.</source>
+          <target state="new">The second console application, which will act as a client application, accesses container and blob resources using the shared access signatures created with the first application.</target>
+        </trans-unit>
+        <trans-unit id="5d82742f-66dc-4f3c-9728-b20aebcc7afc" xml:space="preserve">
+          <source>This application uses the shared access signatures only to authenticate its access to the container and blob resources - it does not have knowledge of the account keys.</source>
+          <target state="new">This application uses the shared access signatures only to authenticate its access to the container and blob resources - it does not have knowledge of the account keys.</target>
+        </trans-unit>
+        <trans-unit id="40378e4a-0261-4a80-bd7d-8f4e4d8aff8c" xml:space="preserve">
+          <source>First, ensure that you have the Azure Storage Client Library for .NET installed.</source>
+          <target state="new">First, ensure that you have the Azure Storage Client Library for .NET installed.</target>
+        </trans-unit>
+        <trans-unit id="f2d7c45f-9b3d-4dc7-a255-7c661f1510d3" xml:space="preserve">
+          <source>You can install the <bpt id="37f2e38d-db01-4bbb-a99c-5ccbb1ccf2a5">&lt;linkText&gt;</bpt>NuGet package<ept id="37f2e38d-db01-4bbb-a99c-5ccbb1ccf2a5">&lt;/linkText&gt;</ept><bpt id="37f2e38d-db01-4bbb-a99c-5ccbb1ccf2a5">&lt;title&gt;</bpt>NuGet package<ept id="37f2e38d-db01-4bbb-a99c-5ccbb1ccf2a5">&lt;/title&gt;</ept> containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes.</source>
+          <target state="new">You can install the <bpt id="37f2e38d-db01-4bbb-a99c-5ccbb1ccf2a5">&lt;linkText&gt;</bpt>NuGet package<ept id="37f2e38d-db01-4bbb-a99c-5ccbb1ccf2a5">&lt;/linkText&gt;</ept><bpt id="37f2e38d-db01-4bbb-a99c-5ccbb1ccf2a5">&lt;title&gt;</bpt>NuGet package<ept id="37f2e38d-db01-4bbb-a99c-5ccbb1ccf2a5">&lt;/title&gt;</ept> containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes.</target>
+        </trans-unit>
+        <trans-unit id="4b62656a-4853-486f-9f59-e95d92e8a540" xml:space="preserve">
+          <source>You can also download the client library as part of the most recent version of the <bpt id="4c9dd54e-3aef-4b63-bf4e-19aa17f0d0fc">&lt;linkText&gt;</bpt>Azure SDK for .NET<ept id="4c9dd54e-3aef-4b63-bf4e-19aa17f0d0fc">&lt;/linkText&gt;</ept><bpt id="4c9dd54e-3aef-4b63-bf4e-19aa17f0d0fc">&lt;title&gt;</bpt><ept id="4c9dd54e-3aef-4b63-bf4e-19aa17f0d0fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also download the client library as part of the most recent version of the <bpt id="4c9dd54e-3aef-4b63-bf4e-19aa17f0d0fc">&lt;linkText&gt;</bpt>Azure SDK for .NET<ept id="4c9dd54e-3aef-4b63-bf4e-19aa17f0d0fc">&lt;/linkText&gt;</ept><bpt id="4c9dd54e-3aef-4b63-bf4e-19aa17f0d0fc">&lt;title&gt;</bpt><ept id="4c9dd54e-3aef-4b63-bf4e-19aa17f0d0fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad974626-bf50-4aad-8bb3-347268676310" xml:space="preserve">
+          <source>In Visual Studio, create a new Windows console application and name it <bpt id="daaa29cc-1886-4531-ad07-d33b8fe098e5">&lt;strong&gt;</bpt>GenerateSharedAccessSignatures<ept id="daaa29cc-1886-4531-ad07-d33b8fe098e5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, create a new Windows console application and name it <bpt id="daaa29cc-1886-4531-ad07-d33b8fe098e5">&lt;strong&gt;</bpt>GenerateSharedAccessSignatures<ept id="daaa29cc-1886-4531-ad07-d33b8fe098e5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ce22d72-dcde-4c1b-9f85-47cc7b69bf88" xml:space="preserve">
+          <source>Add references to  <bpt id="9750d838-2aa6-4fcf-ae9a-2ab29db8124a">&lt;strong&gt;</bpt>Microsoft.WindowsAzure.Configuration.dll<ept id="9750d838-2aa6-4fcf-ae9a-2ab29db8124a">&lt;/strong&gt;</ept> and <bpt id="82ad8d76-a70e-4fa6-9327-3bc517180e10">&lt;strong&gt;</bpt>Microsoft.WindowsAzure.Storage.dll<ept id="82ad8d76-a70e-4fa6-9327-3bc517180e10">&lt;/strong&gt;</ept>, using either of the following approaches:</source>
+          <target state="new">Add references to  <bpt id="9750d838-2aa6-4fcf-ae9a-2ab29db8124a">&lt;strong&gt;</bpt>Microsoft.WindowsAzure.Configuration.dll<ept id="9750d838-2aa6-4fcf-ae9a-2ab29db8124a">&lt;/strong&gt;</ept> and <bpt id="82ad8d76-a70e-4fa6-9327-3bc517180e10">&lt;strong&gt;</bpt>Microsoft.WindowsAzure.Storage.dll<ept id="82ad8d76-a70e-4fa6-9327-3bc517180e10">&lt;/strong&gt;</ept>, using either of the following approaches:</target>
+        </trans-unit>
+        <trans-unit id="f97b11f2-5eeb-4d91-a297-8272ec27efcc" xml:space="preserve">
+          <source>If you want to install the NuGet package, first install the <bpt id="82096f3d-5870-459b-996c-76f7036673b3">&lt;linkText&gt;</bpt>NuGet Package Manager Extension for Visual Studio<ept id="82096f3d-5870-459b-996c-76f7036673b3">&lt;/linkText&gt;</ept><bpt id="82096f3d-5870-459b-996c-76f7036673b3">&lt;title&gt;</bpt><ept id="82096f3d-5870-459b-996c-76f7036673b3">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to install the NuGet package, first install the <bpt id="82096f3d-5870-459b-996c-76f7036673b3">&lt;linkText&gt;</bpt>NuGet Package Manager Extension for Visual Studio<ept id="82096f3d-5870-459b-996c-76f7036673b3">&lt;/linkText&gt;</ept><bpt id="82096f3d-5870-459b-996c-76f7036673b3">&lt;title&gt;</bpt><ept id="82096f3d-5870-459b-996c-76f7036673b3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7d60f88-67c4-4531-9131-2df6f7b971e0" xml:space="preserve">
+          <source>In Visual Studio, select <bpt id="cbdc30a5-8d47-487f-9a54-d1c0dd5d5eca">&lt;strong&gt;</bpt>Project | Manage NuGet Packages<ept id="cbdc30a5-8d47-487f-9a54-d1c0dd5d5eca">&lt;/strong&gt;</ept>, search online for <bpt id="ee21ce1f-1f19-4f4d-841b-9beb97c3608b">&lt;strong&gt;</bpt>Azure Storage<ept id="ee21ce1f-1f19-4f4d-841b-9beb97c3608b">&lt;/strong&gt;</ept>, and follow the instructions to install.</source>
+          <target state="new">In Visual Studio, select <bpt id="cbdc30a5-8d47-487f-9a54-d1c0dd5d5eca">&lt;strong&gt;</bpt>Project | Manage NuGet Packages<ept id="cbdc30a5-8d47-487f-9a54-d1c0dd5d5eca">&lt;/strong&gt;</ept>, search online for <bpt id="ee21ce1f-1f19-4f4d-841b-9beb97c3608b">&lt;strong&gt;</bpt>Azure Storage<ept id="ee21ce1f-1f19-4f4d-841b-9beb97c3608b">&lt;/strong&gt;</ept>, and follow the instructions to install.</target>
+        </trans-unit>
+        <trans-unit id="0b10d8d2-c8e2-42a7-b0b1-dc1fb7d2ed1e" xml:space="preserve">
+          <source>Alternatively, locate the assemblies in your installation of the Azure SDK and add references to them.</source>
+          <target state="new">Alternatively, locate the assemblies in your installation of the Azure SDK and add references to them.</target>
+        </trans-unit>
+        <trans-unit id="1affd571-589d-4cb7-8b01-8fe2aca1c78e" xml:space="preserve">
+          <source>At the top of the Program.cs file, add the following <bpt id="98c39d7d-b3c3-49a5-a015-327ef45a206f">&lt;strong&gt;</bpt>using<ept id="98c39d7d-b3c3-49a5-a015-327ef45a206f">&lt;/strong&gt;</ept> statements:</source>
+          <target state="new">At the top of the Program.cs file, add the following <bpt id="98c39d7d-b3c3-49a5-a015-327ef45a206f">&lt;strong&gt;</bpt>using<ept id="98c39d7d-b3c3-49a5-a015-327ef45a206f">&lt;/strong&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="44cf636b-2639-4a27-863d-830a2c59257b" xml:space="preserve">
+          <source>Edit the app.config file so that it contains a configuration setting with a connection string that points to your storage account.</source>
+          <target state="new">Edit the app.config file so that it contains a configuration setting with a connection string that points to your storage account.</target>
+        </trans-unit>
+        <trans-unit id="9c744676-c473-48cb-a955-8f1266defecb" xml:space="preserve">
+          <source>Your app.config file should look similar to this one:</source>
+          <target state="new">Your app.config file should look similar to this one:</target>
+        </trans-unit>
+        <trans-unit id="9b375169-a253-4d40-996f-2ee4e70c0791" xml:space="preserve">
+          <source>To begin with, we'll add a method to generate a shared access signature on a new container.</source>
+          <target state="new">To begin with, we'll add a method to generate a shared access signature on a new container.</target>
+        </trans-unit>
+        <trans-unit id="52c9e272-808f-4cb4-8b62-68c71c4f22ad" xml:space="preserve">
+          <source>In this case the signature is not associated with a stored access policy, so it carries on the URI the information indicating its expiry time and the permissions that it grants.</source>
+          <target state="new">In this case the signature is not associated with a stored access policy, so it carries on the URI the information indicating its expiry time and the permissions that it grants.</target>
+        </trans-unit>
+        <trans-unit id="cbbfb0cc-f391-4703-bc16-7da8398df6a3" xml:space="preserve">
+          <source>First, add code to the <bpt id="37473b01-356a-45fe-afc9-ae35afa666b5">&lt;strong&gt;</bpt>Main()<ept id="37473b01-356a-45fe-afc9-ae35afa666b5">&lt;/strong&gt;</ept> method to authenticate access to your storage account and create a new container:</source>
+          <target state="new">First, add code to the <bpt id="37473b01-356a-45fe-afc9-ae35afa666b5">&lt;strong&gt;</bpt>Main()<ept id="37473b01-356a-45fe-afc9-ae35afa666b5">&lt;/strong&gt;</ept> method to authenticate access to your storage account and create a new container:</target>
+        </trans-unit>
+        <trans-unit id="a9b905b4-cc1b-4f18-8da0-8227dcfb6409" xml:space="preserve">
+          <source>Next, add a new method that generates the shared access signature for the container and returns the signature URI:</source>
+          <target state="new">Next, add a new method that generates the shared access signature for the container and returns the signature URI:</target>
+        </trans-unit>
+        <trans-unit id="10562502-910e-4947-9377-21435fa638f2" xml:space="preserve">
+          <source>Add the following lines at the bottom of the <bpt id="b3b648a3-9557-4a83-9991-51c67e9be1ce">&lt;strong&gt;</bpt>Main()<ept id="b3b648a3-9557-4a83-9991-51c67e9be1ce">&lt;/strong&gt;</ept> method, before the call to <bpt id="674e4eac-09af-4ac8-99ec-cda3ee3b4fbd">&lt;strong&gt;</bpt>Console.ReadLine()<ept id="674e4eac-09af-4ac8-99ec-cda3ee3b4fbd">&lt;/strong&gt;</ept>, to call <bpt id="64dcfa66-9adb-4ab3-b1f4-997591d7f9ae">&lt;strong&gt;</bpt>GetContainerSasUri()<ept id="64dcfa66-9adb-4ab3-b1f4-997591d7f9ae">&lt;/strong&gt;</ept> and write the signature URI to the console window:</source>
+          <target state="new">Add the following lines at the bottom of the <bpt id="b3b648a3-9557-4a83-9991-51c67e9be1ce">&lt;strong&gt;</bpt>Main()<ept id="b3b648a3-9557-4a83-9991-51c67e9be1ce">&lt;/strong&gt;</ept> method, before the call to <bpt id="674e4eac-09af-4ac8-99ec-cda3ee3b4fbd">&lt;strong&gt;</bpt>Console.ReadLine()<ept id="674e4eac-09af-4ac8-99ec-cda3ee3b4fbd">&lt;/strong&gt;</ept>, to call <bpt id="64dcfa66-9adb-4ab3-b1f4-997591d7f9ae">&lt;strong&gt;</bpt>GetContainerSasUri()<ept id="64dcfa66-9adb-4ab3-b1f4-997591d7f9ae">&lt;/strong&gt;</ept> and write the signature URI to the console window:</target>
+        </trans-unit>
+        <trans-unit id="df73d88e-e747-4c53-8d8e-21ec91cea75b" xml:space="preserve">
+          <source>Compile and run to output the shared access signature URI for the new container.</source>
+          <target state="new">Compile and run to output the shared access signature URI for the new container.</target>
+        </trans-unit>
+        <trans-unit id="22b5af7c-d964-487a-b1bd-457d25fc74e7" xml:space="preserve">
+          <source>The URI will be similar to the following URI:</source>
+          <target state="new">The URI will be similar to the following URI:</target>
+        </trans-unit>
+        <trans-unit id="1a1fe5d9-7f03-4851-ac65-2dc9c678ce72" xml:space="preserve">
+          <source>Once you have run the code, the shared access signature that you created on the container will be valid for the next twenty-four hours.</source>
+          <target state="new">Once you have run the code, the shared access signature that you created on the container will be valid for the next twenty-four hours.</target>
+        </trans-unit>
+        <trans-unit id="fd475dfd-3edf-4c6a-91b9-e9958f53b387" xml:space="preserve">
+          <source>The signature grants a client permission to list blobs in the container and to write a new blob to the container.</source>
+          <target state="new">The signature grants a client permission to list blobs in the container and to write a new blob to the container.</target>
+        </trans-unit>
+        <trans-unit id="dd4eff8b-a7ca-4994-af4b-1a6aaee2c302" xml:space="preserve">
+          <source>Next, we'll write similar code to create a new blob within the container and generate a shared access signature for it.</source>
+          <target state="new">Next, we'll write similar code to create a new blob within the container and generate a shared access signature for it.</target>
+        </trans-unit>
+        <trans-unit id="e36bfbd5-f2d4-4e5c-afb6-22819a45a5d7" xml:space="preserve">
+          <source>This shared access signature is not associated with a stored access policy, so it includes the start time, expiry time, and permission information on the URI.</source>
+          <target state="new">This shared access signature is not associated with a stored access policy, so it includes the start time, expiry time, and permission information on the URI.</target>
+        </trans-unit>
+        <trans-unit id="03877496-b4eb-426d-81f2-783ba3ab6014" xml:space="preserve">
+          <source>Add a new method that creates a new blob and write some text to it, then generates a shared access signature and returns the signature URI:</source>
+          <target state="new">Add a new method that creates a new blob and write some text to it, then generates a shared access signature and returns the signature URI:</target>
+        </trans-unit>
+        <trans-unit id="e05c09c5-ee64-43d4-a6d7-456517f14271" xml:space="preserve">
+          <source>At the bottom of the <bpt id="7d94b738-ddf9-4533-8cbc-57103e140770">&lt;strong&gt;</bpt>Main()<ept id="7d94b738-ddf9-4533-8cbc-57103e140770">&lt;/strong&gt;</ept> method, add the following lines to call <bpt id="e4363a58-f878-442e-90ac-1406dcc34f54">&lt;strong&gt;</bpt>GetBlobSasUri()<ept id="e4363a58-f878-442e-90ac-1406dcc34f54">&lt;/strong&gt;</ept>, before the call to <bpt id="169ff691-363e-42fd-8459-09852777994a">&lt;strong&gt;</bpt>Console.ReadLine()<ept id="169ff691-363e-42fd-8459-09852777994a">&lt;/strong&gt;</ept>, and write the shared access signature URI to the console window:    </source>
+          <target state="new">At the bottom of the <bpt id="7d94b738-ddf9-4533-8cbc-57103e140770">&lt;strong&gt;</bpt>Main()<ept id="7d94b738-ddf9-4533-8cbc-57103e140770">&lt;/strong&gt;</ept> method, add the following lines to call <bpt id="e4363a58-f878-442e-90ac-1406dcc34f54">&lt;strong&gt;</bpt>GetBlobSasUri()<ept id="e4363a58-f878-442e-90ac-1406dcc34f54">&lt;/strong&gt;</ept>, before the call to <bpt id="169ff691-363e-42fd-8459-09852777994a">&lt;strong&gt;</bpt>Console.ReadLine()<ept id="169ff691-363e-42fd-8459-09852777994a">&lt;/strong&gt;</ept>, and write the shared access signature URI to the console window:    </target>
+        </trans-unit>
+        <trans-unit id="f3476655-164b-47ee-9af0-546fb22f47fd" xml:space="preserve">
+          <source>Compile and run to output the shared access signature URI for the new blob.</source>
+          <target state="new">Compile and run to output the shared access signature URI for the new blob.</target>
+        </trans-unit>
+        <trans-unit id="d7b32ba3-7e39-4d5b-afc5-aa8203295066" xml:space="preserve">
+          <source>The URI will be similar to the following URI:</source>
+          <target state="new">The URI will be similar to the following URI:</target>
+        </trans-unit>
+        <trans-unit id="8abf79fe-b869-4a14-af86-49a97eb80b8e" xml:space="preserve">
+          <source>Now let's create a stored access policy on the container, which will define the constraints for any shared access signatures that are associated with it.</source>
+          <target state="new">Now let's create a stored access policy on the container, which will define the constraints for any shared access signatures that are associated with it.</target>
+        </trans-unit>
+        <trans-unit id="662bb9e4-6d59-4747-9e02-6601b0223c2e" xml:space="preserve">
+          <source>In the previous examples, we specified the start time (implicitly or explicitly), the expiry time, and the permissions on the shared access signature URI itself.</source>
+          <target state="new">In the previous examples, we specified the start time (implicitly or explicitly), the expiry time, and the permissions on the shared access signature URI itself.</target>
+        </trans-unit>
+        <trans-unit id="ad04b4a6-006d-42de-852c-3bbc64933864" xml:space="preserve">
+          <source>In the following examples, we will specify these on the stored access policy and not on the shared access signature.</source>
+          <target state="new">In the following examples, we will specify these on the stored access policy and not on the shared access signature.</target>
+        </trans-unit>
+        <trans-unit id="57d7e17f-c4e6-4b0c-b221-54b4070a6c73" xml:space="preserve">
+          <source>Doing so enables us to change these constraints without reissuing the shared access signature.</source>
+          <target state="new">Doing so enables us to change these constraints without reissuing the shared access signature.</target>
+        </trans-unit>
+        <trans-unit id="83ed7744-e6e0-4c3c-9f82-ca5afa2b6317" xml:space="preserve">
+          <source>It's possible to have one or more of the constraints on the shared access signature and the remainder on the stored access policy.</source>
+          <target state="new">It's possible to have one or more of the constraints on the shared access signature and the remainder on the stored access policy.</target>
+        </trans-unit>
+        <trans-unit id="614b8b9f-d64f-419c-ab4e-7e4b55f0044e" xml:space="preserve">
+          <source>However, you can only specify the start time, expiry time, and permissions in one place or the other; for example, you can't specify permissions on the shared access signature and also specify them on the stored access policy.</source>
+          <target state="new">However, you can only specify the start time, expiry time, and permissions in one place or the other; for example, you can't specify permissions on the shared access signature and also specify them on the stored access policy.</target>
+        </trans-unit>
+        <trans-unit id="460d0b03-672c-4b9d-9b84-def8b4ff0f66" xml:space="preserve">
+          <source>Note that when you add an access policy to a container, you must get the container's existing permissions, add the new access policy, and then set the container's permissions.</source>
+          <target state="new">Note that when you add an access policy to a container, you must get the container's existing permissions, add the new access policy, and then set the container's permissions.</target>
+        </trans-unit>
+        <trans-unit id="afa51302-b09e-440a-83ec-09971d4cf41f" xml:space="preserve">
+          <source>Add a new method that creates a new stored access policy on a container and returns the name of the policy:</source>
+          <target state="new">Add a new method that creates a new stored access policy on a container and returns the name of the policy:</target>
+        </trans-unit>
+        <trans-unit id="75012299-7d47-43c4-9e21-dfa6e26c8312" xml:space="preserve">
+          <source>At the bottom of the <bpt id="e8e81276-a248-4225-a9bb-02de9e099934">&lt;strong&gt;</bpt>Main()<ept id="e8e81276-a248-4225-a9bb-02de9e099934">&lt;/strong&gt;</ept> method, before the call to <bpt id="9cf47058-558d-4879-affb-f719ffcfe227">&lt;strong&gt;</bpt>Console.ReadLine()<ept id="9cf47058-558d-4879-affb-f719ffcfe227">&lt;/strong&gt;</ept>, add the following lines to first clear any existing access policies and then call the <bpt id="c084cc32-9e32-4268-9582-fcbeff2f3e5d">&lt;strong&gt;</bpt>CreateSharedAccessPolicy()<ept id="c084cc32-9e32-4268-9582-fcbeff2f3e5d">&lt;/strong&gt;</ept> method:    </source>
+          <target state="new">At the bottom of the <bpt id="e8e81276-a248-4225-a9bb-02de9e099934">&lt;strong&gt;</bpt>Main()<ept id="e8e81276-a248-4225-a9bb-02de9e099934">&lt;/strong&gt;</ept> method, before the call to <bpt id="9cf47058-558d-4879-affb-f719ffcfe227">&lt;strong&gt;</bpt>Console.ReadLine()<ept id="9cf47058-558d-4879-affb-f719ffcfe227">&lt;/strong&gt;</ept>, add the following lines to first clear any existing access policies and then call the <bpt id="c084cc32-9e32-4268-9582-fcbeff2f3e5d">&lt;strong&gt;</bpt>CreateSharedAccessPolicy()<ept id="c084cc32-9e32-4268-9582-fcbeff2f3e5d">&lt;/strong&gt;</ept> method:    </target>
+        </trans-unit>
+        <trans-unit id="2cb90f0c-6b64-427a-ba53-278b26223f87" xml:space="preserve">
+          <source>Note that when you clear the access policies on a container, you must first get the container's existing permissions, then clear the permissions, then set the permissions again.</source>
+          <target state="new">Note that when you clear the access policies on a container, you must first get the container's existing permissions, then clear the permissions, then set the permissions again.</target>
+        </trans-unit>
+        <trans-unit id="1d3e74b5-bd19-454b-aae1-1aabf632bc4f" xml:space="preserve">
+          <source>Next, we'll create another shared access signature on the container that we created earlier, but this time we'll associate the signature with the access policy that we created in the previous example.</source>
+          <target state="new">Next, we'll create another shared access signature on the container that we created earlier, but this time we'll associate the signature with the access policy that we created in the previous example.</target>
+        </trans-unit>
+        <trans-unit id="618f47ac-6520-428c-80fe-784802a09b6d" xml:space="preserve">
+          <source>Add a new method to generate another shared access signature on the container:</source>
+          <target state="new">Add a new method to generate another shared access signature on the container:</target>
+        </trans-unit>
+        <trans-unit id="f0d79405-f25e-4ae8-ad80-1d2de12e2445" xml:space="preserve">
+          <source>At the bottom of the <bpt id="523108f8-31f8-403c-88ff-38dd059b011d">&lt;strong&gt;</bpt>Main()<ept id="523108f8-31f8-403c-88ff-38dd059b011d">&lt;/strong&gt;</ept> method, before the call to <bpt id="de42d6a8-873b-4a69-adf9-e6150b6af0a1">&lt;strong&gt;</bpt>Console.ReadLine()<ept id="de42d6a8-873b-4a69-adf9-e6150b6af0a1">&lt;/strong&gt;</ept>, add the following lines to call the <bpt id="7d9fef37-31c2-4668-9a6d-818d22ed2791">&lt;strong&gt;</bpt>GetContainerSasUriWithPolicy<ept id="7d9fef37-31c2-4668-9a6d-818d22ed2791">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">At the bottom of the <bpt id="523108f8-31f8-403c-88ff-38dd059b011d">&lt;strong&gt;</bpt>Main()<ept id="523108f8-31f8-403c-88ff-38dd059b011d">&lt;/strong&gt;</ept> method, before the call to <bpt id="de42d6a8-873b-4a69-adf9-e6150b6af0a1">&lt;strong&gt;</bpt>Console.ReadLine()<ept id="de42d6a8-873b-4a69-adf9-e6150b6af0a1">&lt;/strong&gt;</ept>, add the following lines to call the <bpt id="7d9fef37-31c2-4668-9a6d-818d22ed2791">&lt;strong&gt;</bpt>GetContainerSasUriWithPolicy<ept id="7d9fef37-31c2-4668-9a6d-818d22ed2791">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="ed3be786-345f-47cb-9363-c64cbbf6d2c8" xml:space="preserve">
+          <source>Finally, we'll add a similar method to create another blob and generate a shared access signature that's associated with an access policy.</source>
+          <target state="new">Finally, we'll add a similar method to create another blob and generate a shared access signature that's associated with an access policy.</target>
+        </trans-unit>
+        <trans-unit id="08cdd6df-bd77-4556-9ab0-8839f69d48e7" xml:space="preserve">
+          <source>Add a new method to create a blob and generate a shared access signature:</source>
+          <target state="new">Add a new method to create a blob and generate a shared access signature:</target>
+        </trans-unit>
+        <trans-unit id="bcd1d001-69ee-4a26-ab4e-d3be239b5ec5" xml:space="preserve">
+          <source>At the bottom of the <bpt id="c6ee278a-74d3-4d98-8904-f01f6d0cf8e4">&lt;strong&gt;</bpt>Main()<ept id="c6ee278a-74d3-4d98-8904-f01f6d0cf8e4">&lt;/strong&gt;</ept> method, before the call to <bpt id="d162851c-1f91-43b4-8c42-fbfb087121b1">&lt;strong&gt;</bpt>Console.ReadLine()<ept id="d162851c-1f91-43b4-8c42-fbfb087121b1">&lt;/strong&gt;</ept>, add the following lines to call the <bpt id="345e4995-ef29-4004-b675-215b547222e3">&lt;strong&gt;</bpt>GetBlobSasUriWithPolicy<ept id="345e4995-ef29-4004-b675-215b547222e3">&lt;/strong&gt;</ept> method:    </source>
+          <target state="new">At the bottom of the <bpt id="c6ee278a-74d3-4d98-8904-f01f6d0cf8e4">&lt;strong&gt;</bpt>Main()<ept id="c6ee278a-74d3-4d98-8904-f01f6d0cf8e4">&lt;/strong&gt;</ept> method, before the call to <bpt id="d162851c-1f91-43b4-8c42-fbfb087121b1">&lt;strong&gt;</bpt>Console.ReadLine()<ept id="d162851c-1f91-43b4-8c42-fbfb087121b1">&lt;/strong&gt;</ept>, add the following lines to call the <bpt id="345e4995-ef29-4004-b675-215b547222e3">&lt;strong&gt;</bpt>GetBlobSasUriWithPolicy<ept id="345e4995-ef29-4004-b675-215b547222e3">&lt;/strong&gt;</ept> method:    </target>
+        </trans-unit>
+        <trans-unit id="f13a839a-2035-4b92-b2f9-6bf8bdc302a4" xml:space="preserve">
+          <source>The <bpt id="f52954a4-da94-4dbc-affd-2dec61f7e4d8">&lt;strong&gt;</bpt>Main()<ept id="f52954a4-da94-4dbc-affd-2dec61f7e4d8">&lt;/strong&gt;</ept> method should now look like this in its entirety.</source>
+          <target state="new">The <bpt id="f52954a4-da94-4dbc-affd-2dec61f7e4d8">&lt;strong&gt;</bpt>Main()<ept id="f52954a4-da94-4dbc-affd-2dec61f7e4d8">&lt;/strong&gt;</ept> method should now look like this in its entirety.</target>
+        </trans-unit>
+        <trans-unit id="1c11b2f8-931e-49f5-a6c2-84c9bddfe71c" xml:space="preserve">
+          <source>Run it to write the shared access signature URIs to the console window, then copy and paste them into a text file for use in the second part of this tutorial.</source>
+          <target state="new">Run it to write the shared access signature URIs to the console window, then copy and paste them into a text file for use in the second part of this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="e275d209-3acf-485f-ac04-b1be5730296c" xml:space="preserve">
+          <source>When you run the GenerateSharedAccessSignatures console application, you'll see output similar to the following in the console window.</source>
+          <target state="new">When you run the GenerateSharedAccessSignatures console application, you'll see output similar to the following in the console window.</target>
+        </trans-unit>
+        <trans-unit id="ab9cfaa0-f4f0-44f2-a2e6-7ccd6e26e0c2" xml:space="preserve">
+          <source>These are the shared access signatures that you'll use in Part 2 of the tutorial.</source>
+          <target state="new">These are the shared access signatures that you'll use in Part 2 of the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="e4f90051-9de6-44fe-b53f-c34fad463788" xml:space="preserve">
+          <source><bpt id="1b257303-0553-47b1-a76d-a0b2abfbaea5">&lt;linkText&gt;</bpt>sas-console-output-1<ept id="1b257303-0553-47b1-a76d-a0b2abfbaea5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b257303-0553-47b1-a76d-a0b2abfbaea5">&lt;linkText&gt;</bpt>sas-console-output-1<ept id="1b257303-0553-47b1-a76d-a0b2abfbaea5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8790dda-5ee6-4f4e-a999-c40d89337bde" xml:space="preserve">
+          <source>To test the shared access signatures created in the previous examples, we'll create a second console application that uses the signatures to perform operations on the container and on a blob.</source>
+          <target state="new">To test the shared access signatures created in the previous examples, we'll create a second console application that uses the signatures to perform operations on the container and on a blob.</target>
+        </trans-unit>
+        <trans-unit id="fc6a2f88-5c8d-4632-96b6-15437de14e4f" xml:space="preserve">
+          <source>If more than 24 hours have passed since you completed the first part of the tutorial, the signatures you generated will no longer be valid.</source>
+          <target state="new">If more than 24 hours have passed since you completed the first part of the tutorial, the signatures you generated will no longer be valid.</target>
+        </trans-unit>
+        <trans-unit id="aca49176-6660-410c-808c-11ed4a466e4c" xml:space="preserve">
+          <source>In this case, you should run the code in the first console application to generate fresh shared access signatures for use in the second part of the tutorial.</source>
+          <target state="new">In this case, you should run the code in the first console application to generate fresh shared access signatures for use in the second part of the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="02e22d5b-c580-4207-90eb-580b4b4d82cc" xml:space="preserve">
+          <source>In Visual Studio, create a new Windows console application and name it <bpt id="73af98b9-755e-4fbd-b83d-340150a0df57">&lt;strong&gt;</bpt>ConsumeSharedAccessSignatures<ept id="73af98b9-755e-4fbd-b83d-340150a0df57">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, create a new Windows console application and name it <bpt id="73af98b9-755e-4fbd-b83d-340150a0df57">&lt;strong&gt;</bpt>ConsumeSharedAccessSignatures<ept id="73af98b9-755e-4fbd-b83d-340150a0df57">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d511754-a6bd-4d24-8076-636167a0f284" xml:space="preserve">
+          <source>Add references to <bpt id="3a6c0534-4ff8-4467-95bb-7c71ead8f7e2">&lt;strong&gt;</bpt>Microsoft.WindowsAzure.Configuration.dll<ept id="3a6c0534-4ff8-4467-95bb-7c71ead8f7e2">&lt;/strong&gt;</ept> and <bpt id="651469f7-5bac-4986-8a19-b28c62910ac2">&lt;strong&gt;</bpt>Microsoft.WindowsAzure.Storage.dll<ept id="651469f7-5bac-4986-8a19-b28c62910ac2">&lt;/strong&gt;</ept>, as you did previously.</source>
+          <target state="new">Add references to <bpt id="3a6c0534-4ff8-4467-95bb-7c71ead8f7e2">&lt;strong&gt;</bpt>Microsoft.WindowsAzure.Configuration.dll<ept id="3a6c0534-4ff8-4467-95bb-7c71ead8f7e2">&lt;/strong&gt;</ept> and <bpt id="651469f7-5bac-4986-8a19-b28c62910ac2">&lt;strong&gt;</bpt>Microsoft.WindowsAzure.Storage.dll<ept id="651469f7-5bac-4986-8a19-b28c62910ac2">&lt;/strong&gt;</ept>, as you did previously.</target>
+        </trans-unit>
+        <trans-unit id="c2a18d1c-f53e-49aa-a3c0-a1456a708d62" xml:space="preserve">
+          <source>At the top of the Program.cs file, add the following <bpt id="7d376dfb-c031-4d07-9b47-b5439ee91e27">&lt;strong&gt;</bpt>using<ept id="7d376dfb-c031-4d07-9b47-b5439ee91e27">&lt;/strong&gt;</ept> statements:</source>
+          <target state="new">At the top of the Program.cs file, add the following <bpt id="7d376dfb-c031-4d07-9b47-b5439ee91e27">&lt;strong&gt;</bpt>using<ept id="7d376dfb-c031-4d07-9b47-b5439ee91e27">&lt;/strong&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="de1fae1a-34c4-4a36-ba3a-195cd4096360" xml:space="preserve">
+          <source>In the body of the <bpt id="1b8a5903-fe53-4d21-8262-8ab0c80e4604">&lt;strong&gt;</bpt>Main()<ept id="1b8a5903-fe53-4d21-8262-8ab0c80e4604">&lt;/strong&gt;</ept> method, add the following constants, and update their values to the shared access signatures that you generated in part 1 of the tutorial.</source>
+          <target state="new">In the body of the <bpt id="1b8a5903-fe53-4d21-8262-8ab0c80e4604">&lt;strong&gt;</bpt>Main()<ept id="1b8a5903-fe53-4d21-8262-8ab0c80e4604">&lt;/strong&gt;</ept> method, add the following constants, and update their values to the shared access signatures that you generated in part 1 of the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="c406d08e-a5c9-4bbd-81ac-1989b76e15e2" xml:space="preserve">
+          <source>Next, we'll add a method that tests some representative container operations using a shared access signature on the container.</source>
+          <target state="new">Next, we'll add a method that tests some representative container operations using a shared access signature on the container.</target>
+        </trans-unit>
+        <trans-unit id="05f4d464-fd78-4e3e-90d6-1cb72fccbad1" xml:space="preserve">
+          <source>Note that the shared access signature is used to return a reference to the container, authenticating access to the container based on the signature alone.</source>
+          <target state="new">Note that the shared access signature is used to return a reference to the container, authenticating access to the container based on the signature alone.</target>
+        </trans-unit>
+        <trans-unit id="d80818d3-cac6-4951-a1f8-736dafc24934" xml:space="preserve">
+          <source>Add the following method to Program.cs:</source>
+          <target state="new">Add the following method to Program.cs:</target>
+        </trans-unit>
+        <trans-unit id="710bae0b-2b31-45ed-9ff3-976b2d67648f" xml:space="preserve">
+          <source>Update the <bpt id="5b93c032-2867-49ea-b8ec-aa7ff0794cb5">&lt;strong&gt;</bpt>Main()<ept id="5b93c032-2867-49ea-b8ec-aa7ff0794cb5">&lt;/strong&gt;</ept> method to call <bpt id="2909b520-672f-4d8e-ae54-1e8de313ab46">&lt;strong&gt;</bpt>UseContainerSAS()<ept id="2909b520-672f-4d8e-ae54-1e8de313ab46">&lt;/strong&gt;</ept> with both of the shared access signatures that you created on the container:</source>
+          <target state="new">Update the <bpt id="5b93c032-2867-49ea-b8ec-aa7ff0794cb5">&lt;strong&gt;</bpt>Main()<ept id="5b93c032-2867-49ea-b8ec-aa7ff0794cb5">&lt;/strong&gt;</ept> method to call <bpt id="2909b520-672f-4d8e-ae54-1e8de313ab46">&lt;strong&gt;</bpt>UseContainerSAS()<ept id="2909b520-672f-4d8e-ae54-1e8de313ab46">&lt;/strong&gt;</ept> with both of the shared access signatures that you created on the container:</target>
+        </trans-unit>
+        <trans-unit id="0f2f63d6-fd15-45a0-b932-3ffd21f27285" xml:space="preserve">
+          <source>Finally, we'll add a method that tests some representative blob operations using a shared access signature on the blob.</source>
+          <target state="new">Finally, we'll add a method that tests some representative blob operations using a shared access signature on the blob.</target>
+        </trans-unit>
+        <trans-unit id="510d4d1d-8492-4044-9657-bbdd3232b35a" xml:space="preserve">
+          <source>In this case we use the constructor <bpt id="7eb01134-39a5-4749-9d77-5c5bc79f1943">&lt;strong&gt;</bpt>CloudBlockBlob(String)<ept id="7eb01134-39a5-4749-9d77-5c5bc79f1943">&lt;/strong&gt;</ept>, passing in the shared access signature, to return a reference to the blob.</source>
+          <target state="new">In this case we use the constructor <bpt id="7eb01134-39a5-4749-9d77-5c5bc79f1943">&lt;strong&gt;</bpt>CloudBlockBlob(String)<ept id="7eb01134-39a5-4749-9d77-5c5bc79f1943">&lt;/strong&gt;</ept>, passing in the shared access signature, to return a reference to the blob.</target>
+        </trans-unit>
+        <trans-unit id="34bb99ae-2844-40eb-885b-dc38e29fcaa7" xml:space="preserve">
+          <source>No other authentication is required; it's based on the signature alone.</source>
+          <target state="new">No other authentication is required; it's based on the signature alone.</target>
+        </trans-unit>
+        <trans-unit id="75e820c5-9a2b-40c2-89ff-b138026db7e7" xml:space="preserve">
+          <source>Add the following method to Program.cs:</source>
+          <target state="new">Add the following method to Program.cs:</target>
+        </trans-unit>
+        <trans-unit id="0e0a3cf0-d905-4178-b877-8ea014ab7578" xml:space="preserve">
+          <source>Update the <bpt id="e7a5d943-d635-46f8-9833-7223c2247105">&lt;strong&gt;</bpt>Main()<ept id="e7a5d943-d635-46f8-9833-7223c2247105">&lt;/strong&gt;</ept> method to call <bpt id="fd6d139d-216e-4cd3-ba9a-3b32048a127a">&lt;strong&gt;</bpt>UseBlobSAS()<ept id="fd6d139d-216e-4cd3-ba9a-3b32048a127a">&lt;/strong&gt;</ept> with both of the shared access signatures that you created on the blob:</source>
+          <target state="new">Update the <bpt id="e7a5d943-d635-46f8-9833-7223c2247105">&lt;strong&gt;</bpt>Main()<ept id="e7a5d943-d635-46f8-9833-7223c2247105">&lt;/strong&gt;</ept> method to call <bpt id="fd6d139d-216e-4cd3-ba9a-3b32048a127a">&lt;strong&gt;</bpt>UseBlobSAS()<ept id="fd6d139d-216e-4cd3-ba9a-3b32048a127a">&lt;/strong&gt;</ept> with both of the shared access signatures that you created on the blob:</target>
+        </trans-unit>
+        <trans-unit id="942ca52a-cd7b-4205-bdd1-1501a27859ab" xml:space="preserve">
+          <source>Run the console application and observe the output to see which operations are permitted for which signatures.</source>
+          <target state="new">Run the console application and observe the output to see which operations are permitted for which signatures.</target>
+        </trans-unit>
+        <trans-unit id="a3d4aca2-0cee-4f2b-a39e-6fcc70b73a39" xml:space="preserve">
+          <source>The output in the console window will look similar to the following:</source>
+          <target state="new">The output in the console window will look similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="31cdabe6-7de0-4ce6-9eef-b3fd345a9a93" xml:space="preserve">
+          <source><bpt id="57cd394a-dd6e-4d3c-a37c-913e4f1221bf">&lt;linkText&gt;</bpt>sas-console-output-2<ept id="57cd394a-dd6e-4d3c-a37c-913e4f1221bf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="57cd394a-dd6e-4d3c-a37c-913e4f1221bf">&lt;linkText&gt;</bpt>sas-console-output-2<ept id="57cd394a-dd6e-4d3c-a37c-913e4f1221bf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b2a68d2-18f7-474f-bffb-68d5fb81ea54" xml:space="preserve">
+          <source><bpt id="5c481682-67c7-47fb-a74e-6f8ec0363d53">&lt;linkText&gt;</bpt>Shared Access Signatures, Part 1: Understanding the SAS Model<ept id="5c481682-67c7-47fb-a74e-6f8ec0363d53">&lt;/linkText&gt;</ept><bpt id="5c481682-67c7-47fb-a74e-6f8ec0363d53">&lt;title&gt;</bpt><ept id="5c481682-67c7-47fb-a74e-6f8ec0363d53">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5c481682-67c7-47fb-a74e-6f8ec0363d53">&lt;linkText&gt;</bpt>Shared Access Signatures, Part 1: Understanding the SAS Model<ept id="5c481682-67c7-47fb-a74e-6f8ec0363d53">&lt;/linkText&gt;</ept><bpt id="5c481682-67c7-47fb-a74e-6f8ec0363d53">&lt;title&gt;</bpt><ept id="5c481682-67c7-47fb-a74e-6f8ec0363d53">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14067331-3ee2-4dc6-bcbe-45d799260d92" xml:space="preserve">
+          <source><bpt id="d1058ce7-9623-4eb3-b674-c923a78578d1">&lt;linkText&gt;</bpt>Manage Access to Azure Storage Resources<ept id="d1058ce7-9623-4eb3-b674-c923a78578d1">&lt;/linkText&gt;</ept><bpt id="d1058ce7-9623-4eb3-b674-c923a78578d1">&lt;title&gt;</bpt><ept id="d1058ce7-9623-4eb3-b674-c923a78578d1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d1058ce7-9623-4eb3-b674-c923a78578d1">&lt;linkText&gt;</bpt>Manage Access to Azure Storage Resources<ept id="d1058ce7-9623-4eb3-b674-c923a78578d1">&lt;/linkText&gt;</ept><bpt id="d1058ce7-9623-4eb3-b674-c923a78578d1">&lt;title&gt;</bpt><ept id="d1058ce7-9623-4eb3-b674-c923a78578d1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2608ea22-0767-44ab-9227-2f7736c43d9b" xml:space="preserve">
+          <source><bpt id="9ae4e34a-f128-4ef0-b780-d9cb6e45439f">&lt;linkText&gt;</bpt>Delegating Access with a Shared Access Signature (REST API)<ept id="9ae4e34a-f128-4ef0-b780-d9cb6e45439f">&lt;/linkText&gt;</ept><bpt id="9ae4e34a-f128-4ef0-b780-d9cb6e45439f">&lt;title&gt;</bpt><ept id="9ae4e34a-f128-4ef0-b780-d9cb6e45439f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9ae4e34a-f128-4ef0-b780-d9cb6e45439f">&lt;linkText&gt;</bpt>Delegating Access with a Shared Access Signature (REST API)<ept id="9ae4e34a-f128-4ef0-b780-d9cb6e45439f">&lt;/linkText&gt;</ept><bpt id="9ae4e34a-f128-4ef0-b780-d9cb6e45439f">&lt;title&gt;</bpt><ept id="9ae4e34a-f128-4ef0-b780-d9cb6e45439f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="527e8940-4f12-4a91-b120-6c4c215c3259" xml:space="preserve">
+          <source><bpt id="41d1abd0-432f-440d-bbc0-a4df924c3cdd">&lt;linkText&gt;</bpt>Introducing Table and Queue SAS<ept id="41d1abd0-432f-440d-bbc0-a4df924c3cdd">&lt;/linkText&gt;</ept><bpt id="41d1abd0-432f-440d-bbc0-a4df924c3cdd">&lt;title&gt;</bpt><ept id="41d1abd0-432f-440d-bbc0-a4df924c3cdd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="41d1abd0-432f-440d-bbc0-a4df924c3cdd">&lt;linkText&gt;</bpt>Introducing Table and Queue SAS<ept id="41d1abd0-432f-440d-bbc0-a4df924c3cdd">&lt;/linkText&gt;</ept><bpt id="41d1abd0-432f-440d-bbc0-a4df924c3cdd">&lt;title&gt;</bpt><ept id="41d1abd0-432f-440d-bbc0-a4df924c3cdd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21426330-c0ae-4083-919f-ac827125ba19" xml:space="preserve">
+          <source>./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG</source>
+          <target state="new">./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG</target>
+        </trans-unit>
+        <trans-unit id="a5afb041-66a8-4b69-8e07-37aec4c258e3" xml:space="preserve">
+          <source>./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG</source>
+          <target state="new">./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="735b939f-7853-4b55-9291-353081b71946" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9cb3282f-41c1-451d-832c-9a0291f88613" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9cb3282f-41c1-451d-832c-9a0291f88613" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fea2dbb6-c373-4d29-9b2b-43622e2ac3a4">
+        <trans-unit id="67e3e033-b697-4a2d-9d7d-2d38f89312e3" xml:space="preserve">
+          <source>Machine Learning example apps in the Azure Marketplace | Microsoft Azure</source>
+          <target state="new">Machine Learning example apps in the Azure Marketplace | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="aa7929e9-4c4c-46c4-9715-78ab295e42b2" xml:space="preserve">
+          <source>Azure Machine Learning Marketplace App examples show how you can publish your machine learning services to the Azure Marketplace for paying subscribers to use in their apps.</source>
+          <target state="new">Azure Machine Learning Marketplace App examples show how you can publish your machine learning services to the Azure Marketplace for paying subscribers to use in their apps.</target>
+        </trans-unit>
+        <trans-unit id="5dc85729-69cd-4212-b9b6-315dbd355288" xml:space="preserve">
+          <source>Azure Machine Learning provides data scientists with a channel to monetize their know-how and creativity just as smartphone app developers do.</source>
+          <target state="new">Azure Machine Learning provides data scientists with a channel to monetize their know-how and creativity just as smartphone app developers do.</target>
+        </trans-unit>
+        <trans-unit id="fb44f7a9-7bb4-4f8d-9a6a-bf08fbb5e63a" xml:space="preserve">
+          <source>By publishing your machine learning services in the Azure Marketplace, you enable anyone in the world to pay and subscribe to your published cloud APIs and use them in their apps.</source>
+          <target state="new">By publishing your machine learning services in the Azure Marketplace, you enable anyone in the world to pay and subscribe to your published cloud APIs and use them in their apps.</target>
+        </trans-unit>
+        <trans-unit id="9a3e7835-01d8-497e-b774-df00aa5b9b5b" xml:space="preserve">
+          <source><bpt id="0a26c81a-9767-4ee5-8aa7-8663cb62a478">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="0a26c81a-9767-4ee5-8aa7-8663cb62a478">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="0a26c81a-9767-4ee5-8aa7-8663cb62a478">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="0a26c81a-9767-4ee5-8aa7-8663cb62a478">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d35944c1-32a3-4627-817a-983e2ad2b0aa" xml:space="preserve">
+          <source>But Azure Marketplace can offer much more than basic analytics APIs.</source>
+          <target state="new">But Azure Marketplace can offer much more than basic analytics APIs.</target>
+        </trans-unit>
+        <trans-unit id="9abccf3b-f916-4017-b7f0-bad66eb8a6fc" xml:space="preserve">
+          <source>For example, we built a set of finished end-to-end Machine Learning applications to solve specific business needs.</source>
+          <target state="new">For example, we built a set of finished end-to-end Machine Learning applications to solve specific business needs.</target>
+        </trans-unit>
+        <trans-unit id="d8f4d0e5-2e1f-4c64-8604-8a709c250783" xml:space="preserve">
+          <source>These Machine Learning apps do not require a data scientist or Machine Learning expertise to use them.</source>
+          <target state="new">These Machine Learning apps do not require a data scientist or Machine Learning expertise to use them.</target>
+        </trans-unit>
+        <trans-unit id="ed6bfdea-41ff-4c86-9676-2395bf6dc263" xml:space="preserve">
+          <source>The science is already baked into our solutions.</source>
+          <target state="new">The science is already baked into our solutions.</target>
+        </trans-unit>
+        <trans-unit id="042efdf4-4ebf-4c14-920a-c97f0cf63882" xml:space="preserve">
+          <source>Users can simply supply their own data and start using the apps.</source>
+          <target state="new">Users can simply supply their own data and start using the apps.</target>
+        </trans-unit>
+        <trans-unit id="a58b2f77-e8f0-44ff-9bc1-4f54660fc3f2" xml:space="preserve">
+          <source>For example, these apps include :</source>
+          <target state="new">For example, these apps include :</target>
+        </trans-unit>
+        <trans-unit id="2e394184-d28c-47b7-9a1f-211fab350aed" xml:space="preserve">
+          <source> A self-service, but super powerful, recommendation engine that enables you to easily add personalized product recommendations to your website or email campaigns.</source>
+          <target state="new"> A self-service, but super powerful, recommendation engine that enables you to easily add personalized product recommendations to your website or email campaigns.</target>
+        </trans-unit>
+        <trans-unit id="9d5832bc-3ef7-4722-87cc-e07e73b8196d" xml:space="preserve">
+          <source><bpt id="7fe735d2-7825-4b0d-b635-46aa32b09260">&lt;linkText&gt;</bpt>Data Market Link<ept id="7fe735d2-7825-4b0d-b635-46aa32b09260">&lt;/linkText&gt;</ept><bpt id="7fe735d2-7825-4b0d-b635-46aa32b09260">&lt;title&gt;</bpt><ept id="7fe735d2-7825-4b0d-b635-46aa32b09260">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7fe735d2-7825-4b0d-b635-46aa32b09260">&lt;linkText&gt;</bpt>Data Market Link<ept id="7fe735d2-7825-4b0d-b635-46aa32b09260">&lt;/linkText&gt;</ept><bpt id="7fe735d2-7825-4b0d-b635-46aa32b09260">&lt;title&gt;</bpt><ept id="7fe735d2-7825-4b0d-b635-46aa32b09260">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0370df4d-2edf-4a9e-9ab5-30b623315a5c" xml:space="preserve">
+          <source><bpt id="0109e88b-5945-42ff-8a05-b149dd26e009">&lt;linkText&gt;</bpt>Quick Start Guide<ept id="0109e88b-5945-42ff-8a05-b149dd26e009">&lt;/linkText&gt;</ept><bpt id="0109e88b-5945-42ff-8a05-b149dd26e009">&lt;title&gt;</bpt><ept id="0109e88b-5945-42ff-8a05-b149dd26e009">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="0109e88b-5945-42ff-8a05-b149dd26e009">&lt;linkText&gt;</bpt>Quick Start Guide<ept id="0109e88b-5945-42ff-8a05-b149dd26e009">&lt;/linkText&gt;</ept><bpt id="0109e88b-5945-42ff-8a05-b149dd26e009">&lt;title&gt;</bpt><ept id="0109e88b-5945-42ff-8a05-b149dd26e009">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f929f402-f939-4871-913a-92b45576c793" xml:space="preserve">
+          <source>An API that helps your customers discover items in your catalog that are frequently purchased together.</source>
+          <target state="new">An API that helps your customers discover items in your catalog that are frequently purchased together.</target>
+        </trans-unit>
+        <trans-unit id="b3722312-4f00-474b-92b9-f4bff52fe40d" xml:space="preserve">
+          <source>Use your customer purchase history to add Frequently Bought Together recommendations to your website and to improve conversion in your digital store.</source>
+          <target state="new">Use your customer purchase history to add Frequently Bought Together recommendations to your website and to improve conversion in your digital store.</target>
+        </trans-unit>
+        <trans-unit id="5580fbbb-d50b-475c-8282-0f55c04e50a9" xml:space="preserve">
+          <source><bpt id="cea4f6d4-e4b9-45c6-b142-5df1feb5b889">&lt;linkText&gt;</bpt>Data Market Link<ept id="cea4f6d4-e4b9-45c6-b142-5df1feb5b889">&lt;/linkText&gt;</ept><bpt id="cea4f6d4-e4b9-45c6-b142-5df1feb5b889">&lt;title&gt;</bpt><ept id="cea4f6d4-e4b9-45c6-b142-5df1feb5b889">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cea4f6d4-e4b9-45c6-b142-5df1feb5b889">&lt;linkText&gt;</bpt>Data Market Link<ept id="cea4f6d4-e4b9-45c6-b142-5df1feb5b889">&lt;/linkText&gt;</ept><bpt id="cea4f6d4-e4b9-45c6-b142-5df1feb5b889">&lt;title&gt;</bpt><ept id="cea4f6d4-e4b9-45c6-b142-5df1feb5b889">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26e9b8d5-9374-4f41-baf6-fbffc1842ea6" xml:space="preserve">
+          <source><bpt id="0a3e1172-b729-421b-818f-ab5c103794aa">&lt;linkText&gt;</bpt>Documentation<ept id="0a3e1172-b729-421b-818f-ab5c103794aa">&lt;/linkText&gt;</ept><bpt id="0a3e1172-b729-421b-818f-ab5c103794aa">&lt;title&gt;</bpt><ept id="0a3e1172-b729-421b-818f-ab5c103794aa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0a3e1172-b729-421b-818f-ab5c103794aa">&lt;linkText&gt;</bpt>Documentation<ept id="0a3e1172-b729-421b-818f-ab5c103794aa">&lt;/linkText&gt;</ept><bpt id="0a3e1172-b729-421b-818f-ab5c103794aa">&lt;title&gt;</bpt><ept id="0a3e1172-b729-421b-818f-ab5c103794aa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9339e34-8d84-4067-8954-c0e4afb0a639" xml:space="preserve">
+          <source>An API that can spot anomalous events in time series data (for example, server telemetry or sensor-based data).</source>
+          <target state="new">An API that can spot anomalous events in time series data (for example, server telemetry or sensor-based data).</target>
+        </trans-unit>
+        <trans-unit id="7a104707-c887-4b52-9bdb-79d72bd489b0" xml:space="preserve">
+          <source><bpt id="0e0e9f15-b139-4ba5-b84e-e9830fae273c">&lt;linkText&gt;</bpt>Data Market Link<ept id="0e0e9f15-b139-4ba5-b84e-e9830fae273c">&lt;/linkText&gt;</ept><bpt id="0e0e9f15-b139-4ba5-b84e-e9830fae273c">&lt;title&gt;</bpt><ept id="0e0e9f15-b139-4ba5-b84e-e9830fae273c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0e0e9f15-b139-4ba5-b84e-e9830fae273c">&lt;linkText&gt;</bpt>Data Market Link<ept id="0e0e9f15-b139-4ba5-b84e-e9830fae273c">&lt;/linkText&gt;</ept><bpt id="0e0e9f15-b139-4ba5-b84e-e9830fae273c">&lt;title&gt;</bpt><ept id="0e0e9f15-b139-4ba5-b84e-e9830fae273c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8f12b67-6e71-4eac-8aef-c30b7bb96579" xml:space="preserve">
+          <source><bpt id="7720ade6-cad5-4205-a936-d8f7a0d01e5b">&lt;linkText&gt;</bpt>Documentation<ept id="7720ade6-cad5-4205-a936-d8f7a0d01e5b">&lt;/linkText&gt;</ept><bpt id="7720ade6-cad5-4205-a936-d8f7a0d01e5b">&lt;title&gt;</bpt><ept id="7720ade6-cad5-4205-a936-d8f7a0d01e5b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7720ade6-cad5-4205-a936-d8f7a0d01e5b">&lt;linkText&gt;</bpt>Documentation<ept id="7720ade6-cad5-4205-a936-d8f7a0d01e5b">&lt;/linkText&gt;</ept><bpt id="7720ade6-cad5-4205-a936-d8f7a0d01e5b">&lt;title&gt;</bpt><ept id="7720ade6-cad5-4205-a936-d8f7a0d01e5b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40b61cef-69f9-4cfe-a7ee-44d00894eba8" xml:space="preserve">
+          <source>These APIs allow you to consume powerful machine learning-based services built on Azure Machine Learning, without needing to be a data scientist or spend a lot of time developing apps yourself.</source>
+          <target state="new">These APIs allow you to consume powerful machine learning-based services built on Azure Machine Learning, without needing to be a data scientist or spend a lot of time developing apps yourself.</target>
+        </trans-unit>
+        <trans-unit id="aafc1f64-abe2-4d35-a4d1-034f279e59e9" xml:space="preserve">
+          <source>Simply bring your own data and start using them.</source>
+          <target state="new">Simply bring your own data and start using them.</target>
+        </trans-unit>
+        <trans-unit id="95fc164e-b43a-4617-8e47-405abb9d1b87" xml:space="preserve">
+          <source>This API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction.</source>
+          <target state="new">This API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction.</target>
+        </trans-unit>
+        <trans-unit id="61749a53-d505-44a9-9d56-f3ebb883affa" xml:space="preserve">
+          <source>No training data is needed to use this API, just bring your text data.</source>
+          <target state="new">No training data is needed to use this API, just bring your text data.</target>
+        </trans-unit>
+        <trans-unit id="84bc274e-f34b-479e-9a1b-0eda51530eac" xml:space="preserve">
+          <source>It uses advanced natural language processing techniques under the hood.</source>
+          <target state="new">It uses advanced natural language processing techniques under the hood.</target>
+        </trans-unit>
+        <trans-unit id="cb6a9646-7196-4aa0-8a04-6adbe742b7de" xml:space="preserve">
+          <source><bpt id="d5fb25c0-f559-414c-813f-762edb591ef4">&lt;linkText&gt;</bpt>Data Market Link<ept id="d5fb25c0-f559-414c-813f-762edb591ef4">&lt;/linkText&gt;</ept><bpt id="d5fb25c0-f559-414c-813f-762edb591ef4">&lt;title&gt;</bpt><ept id="d5fb25c0-f559-414c-813f-762edb591ef4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d5fb25c0-f559-414c-813f-762edb591ef4">&lt;linkText&gt;</bpt>Data Market Link<ept id="d5fb25c0-f559-414c-813f-762edb591ef4">&lt;/linkText&gt;</ept><bpt id="d5fb25c0-f559-414c-813f-762edb591ef4">&lt;title&gt;</bpt><ept id="d5fb25c0-f559-414c-813f-762edb591ef4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1040201-504a-47ae-b258-4da2f6aa2154" xml:space="preserve">
+          <source><bpt id="358f2580-aaad-44f1-92a7-1d0aecb65500">&lt;linkText&gt;</bpt>Documentation<ept id="358f2580-aaad-44f1-92a7-1d0aecb65500">&lt;/linkText&gt;</ept><bpt id="358f2580-aaad-44f1-92a7-1d0aecb65500">&lt;title&gt;</bpt><ept id="358f2580-aaad-44f1-92a7-1d0aecb65500">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="358f2580-aaad-44f1-92a7-1d0aecb65500">&lt;linkText&gt;</bpt>Documentation<ept id="358f2580-aaad-44f1-92a7-1d0aecb65500">&lt;/linkText&gt;</ept><bpt id="358f2580-aaad-44f1-92a7-1d0aecb65500">&lt;title&gt;</bpt><ept id="358f2580-aaad-44f1-92a7-1d0aecb65500">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91a74edd-03a5-486d-8c4b-f1b81be2c139" xml:space="preserve">
+          <source>##Customer Churn Prediction##
+Customer Churn Prediction is a churn analytics service built with Azure Machine Learning.</source>
+          <target state="new">##Customer Churn Prediction##
+Customer Churn Prediction is a churn analytics service built with Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="5056faec-4416-4221-a8de-5aca6603ac82" xml:space="preserve">
+          <source>It's designed to predict when a customer (player, subscriber, user, etc.)</source>
+          <target state="new">It's designed to predict when a customer (player, subscriber, user, etc.)</target>
+        </trans-unit>
+        <trans-unit id="6453eae0-36a4-4a2d-9e18-b8a298f4baae" xml:space="preserve">
+          <source>is likely to end his or her relationship with a company or service.</source>
+          <target state="new">is likely to end his or her relationship with a company or service.</target>
+        </trans-unit>
+        <trans-unit id="00dd2e50-d130-456d-ac9b-46066fabde3d" xml:space="preserve">
+          <source>Being able to predict which customers have a high risk of leaving the relationship with a company provides the company with a window of opportunity to approach them and reduce the likelihood of their leaving.</source>
+          <target state="new">Being able to predict which customers have a high risk of leaving the relationship with a company provides the company with a window of opportunity to approach them and reduce the likelihood of their leaving.</target>
+        </trans-unit>
+        <trans-unit id="ceb237a2-7671-46f9-b233-76d94db3fcfc" xml:space="preserve">
+          <source><bpt id="0e2e3567-38a4-4dba-81b9-a65e4b12b3b4">&lt;linkText&gt;</bpt>Data Market Link<ept id="0e2e3567-38a4-4dba-81b9-a65e4b12b3b4">&lt;/linkText&gt;</ept><bpt id="0e2e3567-38a4-4dba-81b9-a65e4b12b3b4">&lt;title&gt;</bpt><ept id="0e2e3567-38a4-4dba-81b9-a65e4b12b3b4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0e2e3567-38a4-4dba-81b9-a65e4b12b3b4">&lt;linkText&gt;</bpt>Data Market Link<ept id="0e2e3567-38a4-4dba-81b9-a65e4b12b3b4">&lt;/linkText&gt;</ept><bpt id="0e2e3567-38a4-4dba-81b9-a65e4b12b3b4">&lt;title&gt;</bpt><ept id="0e2e3567-38a4-4dba-81b9-a65e4b12b3b4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e175ce68-b853-476f-ae2a-5b2c413118e9" xml:space="preserve">
+          <source><bpt id="cf566b9d-b0e5-4972-8820-5f4f5873772a">&lt;linkText&gt;</bpt>Documentation<ept id="cf566b9d-b0e5-4972-8820-5f4f5873772a">&lt;/linkText&gt;</ept><bpt id="cf566b9d-b0e5-4972-8820-5f4f5873772a">&lt;title&gt;</bpt><ept id="cf566b9d-b0e5-4972-8820-5f4f5873772a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cf566b9d-b0e5-4972-8820-5f4f5873772a">&lt;linkText&gt;</bpt>Documentation<ept id="cf566b9d-b0e5-4972-8820-5f4f5873772a">&lt;/linkText&gt;</ept><bpt id="cf566b9d-b0e5-4972-8820-5f4f5873772a">&lt;title&gt;</bpt><ept id="cf566b9d-b0e5-4972-8820-5f4f5873772a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e352fe93-5c4c-4bf3-93ac-1340a41c8a50" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e352fe93-5c4c-4bf3-93ac-1340a41c8a50" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="46ebb36d-a61a-45ea-a3b7-aa88f95449fd">
+        <trans-unit id="b3afc20d-4b61-49a6-bf3c-aafb9a1d1c99" xml:space="preserve">
+          <source>Azure AD Connect sync customization options | Microsoft Azure</source>
+          <target state="new">Azure AD Connect sync customization options | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="afe922e1-5150-4a11-9c4e-bf9ce06067e0" xml:space="preserve">
+          <source>Explains how to customize Azure AD Connect sync.</source>
+          <target state="new">Explains how to customize Azure AD Connect sync.</target>
+        </trans-unit>
+        <trans-unit id="6892f60a-b844-4b69-bdb6-6bfb87f06ffc" xml:space="preserve">
+          <source>The Azure Active Directory Connect synchronization services (Azure AD Connect sync) is a main component of Azure AD Connect that takes care of all the operations that are related to synchronizing identity data between your on-premises environment and Azure AD in the cloud.</source>
+          <target state="new">The Azure Active Directory Connect synchronization services (Azure AD Connect sync) is a main component of Azure AD Connect that takes care of all the operations that are related to synchronizing identity data between your on-premises environment and Azure AD in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="9fa643f6-c36d-42e2-bd5f-3be6e99ef41f" xml:space="preserve">
+          <source>From a synchronization perspective, Azure AD Connect sync is the successor of DirSync, Azure AD Sync and Forefront Identity Manager with the Azure Active Directory Connector configured.</source>
+          <target state="new">From a synchronization perspective, Azure AD Connect sync is the successor of DirSync, Azure AD Sync and Forefront Identity Manager with the Azure Active Directory Connector configured.</target>
+        </trans-unit>
+        <trans-unit id="76fbb2bd-7893-4731-ac66-868e18461a8e" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="aa2e1a38-0bb5-48c4-a06d-60cc6314d2f8">&lt;linkText&gt;</bpt>Azure AD Connect sync<ept id="aa2e1a38-0bb5-48c4-a06d-60cc6314d2f8">&lt;/linkText&gt;</ept>
+&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="aa2e1a38-0bb5-48c4-a06d-60cc6314d2f8">&lt;linkText&gt;</bpt>Azure AD Connect sync<ept id="aa2e1a38-0bb5-48c4-a06d-60cc6314d2f8">&lt;/linkText&gt;</ept>
+&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="de61d480-87de-473f-a8da-05050c9cacb6" xml:space="preserve">
+          <source>The objective of this topic is to provide you with links to topics that are related to Auzre AD Connect sync.</source>
+          <target state="new">The objective of this topic is to provide you with links to topics that are related to Auzre AD Connect sync.</target>
+        </trans-unit>
+        <trans-unit id="19cdfb60-0608-40f8-8d53-b0693d19d1c9" xml:space="preserve">
+          <source>What do you want to do next?:</source>
+          <target state="new">What do you want to do next?:</target>
+        </trans-unit>
+        <trans-unit id="4b4ec639-785b-48c6-aafd-20c404679f55" xml:space="preserve">
+          <source>For an overview of the technical concepts, see <bpt id="3d9bc7f3-5d1d-400d-8cbe-10cb21b9b16d">&lt;linkText&gt;</bpt>Technical Concepts<ept id="3d9bc7f3-5d1d-400d-8cbe-10cb21b9b16d">&lt;/linkText&gt;</ept><bpt id="3d9bc7f3-5d1d-400d-8cbe-10cb21b9b16d">&lt;title&gt;</bpt><ept id="3d9bc7f3-5d1d-400d-8cbe-10cb21b9b16d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an overview of the technical concepts, see <bpt id="3d9bc7f3-5d1d-400d-8cbe-10cb21b9b16d">&lt;linkText&gt;</bpt>Technical Concepts<ept id="3d9bc7f3-5d1d-400d-8cbe-10cb21b9b16d">&lt;/linkText&gt;</ept><bpt id="3d9bc7f3-5d1d-400d-8cbe-10cb21b9b16d">&lt;title&gt;</bpt><ept id="3d9bc7f3-5d1d-400d-8cbe-10cb21b9b16d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fce3073b-fdd8-46e6-b449-21b9dc4f4aab" xml:space="preserve">
+          <source>For an overview of topologies and scenarios supported by Azure AD Connect sync, see <bpt id="6b185f1a-6efd-477b-afde-4718db225778">&lt;linkText&gt;</bpt>Topologies for Azure AD Connect<ept id="6b185f1a-6efd-477b-afde-4718db225778">&lt;/linkText&gt;</ept><bpt id="6b185f1a-6efd-477b-afde-4718db225778">&lt;title&gt;</bpt><ept id="6b185f1a-6efd-477b-afde-4718db225778">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an overview of topologies and scenarios supported by Azure AD Connect sync, see <bpt id="6b185f1a-6efd-477b-afde-4718db225778">&lt;linkText&gt;</bpt>Topologies for Azure AD Connect<ept id="6b185f1a-6efd-477b-afde-4718db225778">&lt;/linkText&gt;</ept><bpt id="6b185f1a-6efd-477b-afde-4718db225778">&lt;title&gt;</bpt><ept id="6b185f1a-6efd-477b-afde-4718db225778">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a21f042-15ae-4974-80d1-68952d701c95" xml:space="preserve">
+          <source>If you want to learn about how implement a filter, see <bpt id="2ea50708-c140-4381-9017-487dd7060164">&lt;linkText&gt;</bpt>Configure Filtering<ept id="2ea50708-c140-4381-9017-487dd7060164">&lt;/linkText&gt;</ept><bpt id="2ea50708-c140-4381-9017-487dd7060164">&lt;title&gt;</bpt><ept id="2ea50708-c140-4381-9017-487dd7060164">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to learn about how implement a filter, see <bpt id="2ea50708-c140-4381-9017-487dd7060164">&lt;linkText&gt;</bpt>Configure Filtering<ept id="2ea50708-c140-4381-9017-487dd7060164">&lt;/linkText&gt;</ept><bpt id="2ea50708-c140-4381-9017-487dd7060164">&lt;title&gt;</bpt><ept id="2ea50708-c140-4381-9017-487dd7060164">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3878aecc-b0ab-4e5e-998e-8d922c647d5d" xml:space="preserve">
+          <source>If you want to know more about password synchronization, see <bpt id="bf286b85-0485-4478-b476-3609622bd095">&lt;linkText&gt;</bpt>Implement password synchronization<ept id="bf286b85-0485-4478-b476-3609622bd095">&lt;/linkText&gt;</ept><bpt id="bf286b85-0485-4478-b476-3609622bd095">&lt;title&gt;</bpt><ept id="bf286b85-0485-4478-b476-3609622bd095">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to know more about password synchronization, see <bpt id="bf286b85-0485-4478-b476-3609622bd095">&lt;linkText&gt;</bpt>Implement password synchronization<ept id="bf286b85-0485-4478-b476-3609622bd095">&lt;/linkText&gt;</ept><bpt id="bf286b85-0485-4478-b476-3609622bd095">&lt;title&gt;</bpt><ept id="bf286b85-0485-4478-b476-3609622bd095">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2194de0c-bb45-48e1-a3c4-1e8cccdba3bf" xml:space="preserve">
+          <source>If you want to know more about users and contacts in Azure AD Connect sync, see <bpt id="f2906f70-d1ff-423b-89ba-54ebf11c2fbf">&lt;linkText&gt;</bpt>Understanding Users and Contacts<ept id="f2906f70-d1ff-423b-89ba-54ebf11c2fbf">&lt;/linkText&gt;</ept><bpt id="f2906f70-d1ff-423b-89ba-54ebf11c2fbf">&lt;title&gt;</bpt><ept id="f2906f70-d1ff-423b-89ba-54ebf11c2fbf">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to know more about users and contacts in Azure AD Connect sync, see <bpt id="f2906f70-d1ff-423b-89ba-54ebf11c2fbf">&lt;linkText&gt;</bpt>Understanding Users and Contacts<ept id="f2906f70-d1ff-423b-89ba-54ebf11c2fbf">&lt;/linkText&gt;</ept><bpt id="f2906f70-d1ff-423b-89ba-54ebf11c2fbf">&lt;title&gt;</bpt><ept id="f2906f70-d1ff-423b-89ba-54ebf11c2fbf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f5ee4ab0-531b-4f81-9047-88f4762d2a26" xml:space="preserve">
+          <source>If you want to change the default configuration, see <bpt id="ebfd2e78-4b49-4561-a34e-fc097aedd2dd">&lt;linkText&gt;</bpt>Best practices for changing the default configuration<ept id="ebfd2e78-4b49-4561-a34e-fc097aedd2dd">&lt;/linkText&gt;</ept><bpt id="ebfd2e78-4b49-4561-a34e-fc097aedd2dd">&lt;title&gt;</bpt><ept id="ebfd2e78-4b49-4561-a34e-fc097aedd2dd">&lt;/title&gt;</ept></source>
+          <target state="new">If you want to change the default configuration, see <bpt id="ebfd2e78-4b49-4561-a34e-fc097aedd2dd">&lt;linkText&gt;</bpt>Best practices for changing the default configuration<ept id="ebfd2e78-4b49-4561-a34e-fc097aedd2dd">&lt;/linkText&gt;</ept><bpt id="ebfd2e78-4b49-4561-a34e-fc097aedd2dd">&lt;title&gt;</bpt><ept id="ebfd2e78-4b49-4561-a34e-fc097aedd2dd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18525897-1598-404e-bb9c-d3375def6be7" xml:space="preserve">
+          <source>If you want to explore the attributes that are synchronized to Azure AD, see <bpt id="0319ded3-58c2-45bd-bd47-a1741f099208">&lt;linkText&gt;</bpt>Attributes synchronized to Azure Active Directory<ept id="0319ded3-58c2-45bd-bd47-a1741f099208">&lt;/linkText&gt;</ept><bpt id="0319ded3-58c2-45bd-bd47-a1741f099208">&lt;title&gt;</bpt><ept id="0319ded3-58c2-45bd-bd47-a1741f099208">&lt;/title&gt;</ept></source>
+          <target state="new">If you want to explore the attributes that are synchronized to Azure AD, see <bpt id="0319ded3-58c2-45bd-bd47-a1741f099208">&lt;linkText&gt;</bpt>Attributes synchronized to Azure Active Directory<ept id="0319ded3-58c2-45bd-bd47-a1741f099208">&lt;/linkText&gt;</ept><bpt id="0319ded3-58c2-45bd-bd47-a1741f099208">&lt;title&gt;</bpt><ept id="0319ded3-58c2-45bd-bd47-a1741f099208">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="181513d9-cc76-4aa7-ac40-90f2006851a6" xml:space="preserve">
+          <source>If you want to learn more about declarative provisioning, see <bpt id="6041ff76-15c3-4514-9292-6a01d43863b6">&lt;linkText&gt;</bpt>Understanding Declarative Provisioning Expressions<ept id="6041ff76-15c3-4514-9292-6a01d43863b6">&lt;/linkText&gt;</ept><bpt id="6041ff76-15c3-4514-9292-6a01d43863b6">&lt;title&gt;</bpt><ept id="6041ff76-15c3-4514-9292-6a01d43863b6">&lt;/title&gt;</ept></source>
+          <target state="new">If you want to learn more about declarative provisioning, see <bpt id="6041ff76-15c3-4514-9292-6a01d43863b6">&lt;linkText&gt;</bpt>Understanding Declarative Provisioning Expressions<ept id="6041ff76-15c3-4514-9292-6a01d43863b6">&lt;/linkText&gt;</ept><bpt id="6041ff76-15c3-4514-9292-6a01d43863b6">&lt;title&gt;</bpt><ept id="6041ff76-15c3-4514-9292-6a01d43863b6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="740b74df-1e79-4d1d-a93d-b2ab7d0a0f20" xml:space="preserve">
+          <source>To explore the declarative provisioning functions, see <bpt id="039fe56b-17ff-46ba-8ddf-4f3b517a863d">&lt;linkText&gt;</bpt>Functions Reference<ept id="039fe56b-17ff-46ba-8ddf-4f3b517a863d">&lt;/linkText&gt;</ept><bpt id="039fe56b-17ff-46ba-8ddf-4f3b517a863d">&lt;title&gt;</bpt><ept id="039fe56b-17ff-46ba-8ddf-4f3b517a863d">&lt;/title&gt;</ept></source>
+          <target state="new">To explore the declarative provisioning functions, see <bpt id="039fe56b-17ff-46ba-8ddf-4f3b517a863d">&lt;linkText&gt;</bpt>Functions Reference<ept id="039fe56b-17ff-46ba-8ddf-4f3b517a863d">&lt;/linkText&gt;</ept><bpt id="039fe56b-17ff-46ba-8ddf-4f3b517a863d">&lt;title&gt;</bpt><ept id="039fe56b-17ff-46ba-8ddf-4f3b517a863d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bf17634-ad3f-4d56-9269-831d12bbb6ee" xml:space="preserve">
+          <source><bpt id="2167e531-008b-4ec1-bdc5-2190d39cd2a5">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="2167e531-008b-4ec1-bdc5-2190d39cd2a5">&lt;/linkText&gt;</ept><bpt id="2167e531-008b-4ec1-bdc5-2190d39cd2a5">&lt;title&gt;</bpt><ept id="2167e531-008b-4ec1-bdc5-2190d39cd2a5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2167e531-008b-4ec1-bdc5-2190d39cd2a5">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="2167e531-008b-4ec1-bdc5-2190d39cd2a5">&lt;/linkText&gt;</ept><bpt id="2167e531-008b-4ec1-bdc5-2190d39cd2a5">&lt;title&gt;</bpt><ept id="2167e531-008b-4ec1-bdc5-2190d39cd2a5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

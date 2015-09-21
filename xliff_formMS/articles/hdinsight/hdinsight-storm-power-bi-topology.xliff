@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2b0bd370-9ee5-4d5a-afc2-3ce9be1cb2a3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2b0bd370-9ee5-4d5a-afc2-3ce9be1cb2a3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e1c73cc4-7b1b-478b-a947-56053e0c7518">
+        <trans-unit id="cc17e84c-4278-42e0-9e2a-2440d1a7815c" xml:space="preserve">
+          <source>Write data to Power BI from Apache Storm | Microsoft Azure</source>
+          <target state="new">Write data to Power BI from Apache Storm | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3ce55775-3cd9-40ad-8478-ea69b39cc9d0" xml:space="preserve">
+          <source>Write data to Power BI from a C# topology running on an Apache Storm cluster in HDInsight. Also, create a report and real-time dashboard using Power BI.</source>
+          <target state="new">Write data to Power BI from a C# topology running on an Apache Storm cluster in HDInsight. Also, create a report and real-time dashboard using Power BI.</target>
+        </trans-unit>
+        <trans-unit id="cccc49a4-49cd-4c1e-90e1-a0bbba3ef06c" xml:space="preserve">
+          <source>The Power BI preview allows you to visually display data as reports, or dashboards.</source>
+          <target state="new">The Power BI preview allows you to visually display data as reports, or dashboards.</target>
+        </trans-unit>
+        <trans-unit id="718d95c5-543e-42c8-ae2b-53397365fd15" xml:space="preserve">
+          <source>Using the Power BI REST API, you can easily use data from a topology running on an Apache Storm on HDInsight cluster to Power BI.</source>
+          <target state="new">Using the Power BI REST API, you can easily use data from a topology running on an Apache Storm on HDInsight cluster to Power BI.</target>
+        </trans-unit>
+        <trans-unit id="6fbcab11-2435-45da-9c8b-94947018bfd6" xml:space="preserve">
+          <source>In this document, you will learn how to use Power BI to create a report and dashboard from data created by a Storm topology.</source>
+          <target state="new">In this document, you will learn how to use Power BI to create a report and dashboard from data created by a Storm topology.</target>
+        </trans-unit>
+        <trans-unit id="f620f140-aff7-4eda-abb9-01e0c7a2a19a" xml:space="preserve">
+          <source>An Azure subscription.</source>
+          <target state="new">An Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="838fe02e-54b5-49a9-bd22-8c54e9364494" xml:space="preserve">
+          <source>See <bpt id="a4d648e5-cf28-4ef2-9903-24024c8f8b7a">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="a4d648e5-cf28-4ef2-9903-24024c8f8b7a">&lt;/linkText&gt;</ept><bpt id="a4d648e5-cf28-4ef2-9903-24024c8f8b7a">&lt;title&gt;</bpt><ept id="a4d648e5-cf28-4ef2-9903-24024c8f8b7a">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="a4d648e5-cf28-4ef2-9903-24024c8f8b7a">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="a4d648e5-cf28-4ef2-9903-24024c8f8b7a">&lt;/linkText&gt;</ept><bpt id="a4d648e5-cf28-4ef2-9903-24024c8f8b7a">&lt;title&gt;</bpt><ept id="a4d648e5-cf28-4ef2-9903-24024c8f8b7a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc871706-fea9-43d3-8753-7fc5c26517d3" xml:space="preserve">
+          <source>An Azure Active Directory user with <bpt id="7c038836-ea39-4caa-80ea-a869a773aeb5">&lt;linkText&gt;</bpt>Power BI<ept id="7c038836-ea39-4caa-80ea-a869a773aeb5">&lt;/linkText&gt;</ept><bpt id="7c038836-ea39-4caa-80ea-a869a773aeb5">&lt;title&gt;</bpt><ept id="7c038836-ea39-4caa-80ea-a869a773aeb5">&lt;/title&gt;</ept> access</source>
+          <target state="new">An Azure Active Directory user with <bpt id="7c038836-ea39-4caa-80ea-a869a773aeb5">&lt;linkText&gt;</bpt>Power BI<ept id="7c038836-ea39-4caa-80ea-a869a773aeb5">&lt;/linkText&gt;</ept><bpt id="7c038836-ea39-4caa-80ea-a869a773aeb5">&lt;title&gt;</bpt><ept id="7c038836-ea39-4caa-80ea-a869a773aeb5">&lt;/title&gt;</ept> access</target>
+        </trans-unit>
+        <trans-unit id="72ec6472-c40e-45ee-bc23-78bcd422d251" xml:space="preserve">
+          <source>Visual Studio (one of the following versions)</source>
+          <target state="new">Visual Studio (one of the following versions)</target>
+        </trans-unit>
+        <trans-unit id="4a812406-6c29-4d51-a3da-9847e211f917" xml:space="preserve">
+          <source>Visual Studio 2012 with <bpt id="d81452d4-d022-4067-b988-06b162701bef">&lt;linkText&gt;</bpt>update 4<ept id="d81452d4-d022-4067-b988-06b162701bef">&lt;/linkText&gt;</ept><bpt id="d81452d4-d022-4067-b988-06b162701bef">&lt;title&gt;</bpt><ept id="d81452d4-d022-4067-b988-06b162701bef">&lt;/title&gt;</ept></source>
+          <target state="new">Visual Studio 2012 with <bpt id="d81452d4-d022-4067-b988-06b162701bef">&lt;linkText&gt;</bpt>update 4<ept id="d81452d4-d022-4067-b988-06b162701bef">&lt;/linkText&gt;</ept><bpt id="d81452d4-d022-4067-b988-06b162701bef">&lt;title&gt;</bpt><ept id="d81452d4-d022-4067-b988-06b162701bef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="522a2bda-f6d3-49cd-bd38-ae59b5d693cf" xml:space="preserve">
+          <source>Visual Studio 2013 with <bpt id="28213165-d874-4225-86ae-a7c8589f7bcd">&lt;linkText&gt;</bpt>update 4<ept id="28213165-d874-4225-86ae-a7c8589f7bcd">&lt;/linkText&gt;</ept><bpt id="28213165-d874-4225-86ae-a7c8589f7bcd">&lt;title&gt;</bpt><ept id="28213165-d874-4225-86ae-a7c8589f7bcd">&lt;/title&gt;</ept> or <bpt id="14cfbfeb-c706-4455-a267-d96201a4f2fc">&lt;linkText&gt;</bpt>Visual Studio 2013 Community<ept id="14cfbfeb-c706-4455-a267-d96201a4f2fc">&lt;/linkText&gt;</ept><bpt id="14cfbfeb-c706-4455-a267-d96201a4f2fc">&lt;title&gt;</bpt><ept id="14cfbfeb-c706-4455-a267-d96201a4f2fc">&lt;/title&gt;</ept></source>
+          <target state="new">Visual Studio 2013 with <bpt id="28213165-d874-4225-86ae-a7c8589f7bcd">&lt;linkText&gt;</bpt>update 4<ept id="28213165-d874-4225-86ae-a7c8589f7bcd">&lt;/linkText&gt;</ept><bpt id="28213165-d874-4225-86ae-a7c8589f7bcd">&lt;title&gt;</bpt><ept id="28213165-d874-4225-86ae-a7c8589f7bcd">&lt;/title&gt;</ept> or <bpt id="14cfbfeb-c706-4455-a267-d96201a4f2fc">&lt;linkText&gt;</bpt>Visual Studio 2013 Community<ept id="14cfbfeb-c706-4455-a267-d96201a4f2fc">&lt;/linkText&gt;</ept><bpt id="14cfbfeb-c706-4455-a267-d96201a4f2fc">&lt;title&gt;</bpt><ept id="14cfbfeb-c706-4455-a267-d96201a4f2fc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7108bf3b-9a0f-444d-82cb-32dbc7be1208" xml:space="preserve">
+          <source>Visual Studio 2015 <bpt id="833ef561-c312-4839-a3e8-d054b8bdbe60">&lt;linkText&gt;</bpt>CTP6<ept id="833ef561-c312-4839-a3e8-d054b8bdbe60">&lt;/linkText&gt;</ept><bpt id="833ef561-c312-4839-a3e8-d054b8bdbe60">&lt;title&gt;</bpt><ept id="833ef561-c312-4839-a3e8-d054b8bdbe60">&lt;/title&gt;</ept></source>
+          <target state="new">Visual Studio 2015 <bpt id="833ef561-c312-4839-a3e8-d054b8bdbe60">&lt;linkText&gt;</bpt>CTP6<ept id="833ef561-c312-4839-a3e8-d054b8bdbe60">&lt;/linkText&gt;</ept><bpt id="833ef561-c312-4839-a3e8-d054b8bdbe60">&lt;title&gt;</bpt><ept id="833ef561-c312-4839-a3e8-d054b8bdbe60">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29ec0e01-5227-4619-89b2-08ae29fcfb54" xml:space="preserve">
+          <source>The HDInsight Tools for Visual Studio: See <bpt id="0d76b739-0907-47d7-af0f-880567518113">&lt;linkText&gt;</bpt>Get started using the HDInsight Tools for Visual Studio<ept id="0d76b739-0907-47d7-af0f-880567518113">&lt;/linkText&gt;</ept><bpt id="0d76b739-0907-47d7-af0f-880567518113">&lt;title&gt;</bpt><ept id="0d76b739-0907-47d7-af0f-880567518113">&lt;/title&gt;</ept> for information on installation information.</source>
+          <target state="new">The HDInsight Tools for Visual Studio: See <bpt id="0d76b739-0907-47d7-af0f-880567518113">&lt;linkText&gt;</bpt>Get started using the HDInsight Tools for Visual Studio<ept id="0d76b739-0907-47d7-af0f-880567518113">&lt;/linkText&gt;</ept><bpt id="0d76b739-0907-47d7-af0f-880567518113">&lt;title&gt;</bpt><ept id="0d76b739-0907-47d7-af0f-880567518113">&lt;/title&gt;</ept> for information on installation information.</target>
+        </trans-unit>
+        <trans-unit id="68df3b9a-5302-44b5-b8e0-233b01ff51bd" xml:space="preserve">
+          <source>This example contains a C# Storm topology that randomly generates a sentence, splits the sentence into words, counts the words, and sends the word and count to the Power BI REST API.</source>
+          <target state="new">This example contains a C# Storm topology that randomly generates a sentence, splits the sentence into words, counts the words, and sends the word and count to the Power BI REST API.</target>
+        </trans-unit>
+        <trans-unit id="a9463647-06cc-4c19-a005-f9c147c1ebd3" xml:space="preserve">
+          <source>The <bpt id="35d526c6-9bcb-45ae-9fd3-8258f9214502">&lt;linkText&gt;</bpt>PowerBi.Api.Client<ept id="35d526c6-9bcb-45ae-9fd3-8258f9214502">&lt;/linkText&gt;</ept><bpt id="35d526c6-9bcb-45ae-9fd3-8258f9214502">&lt;title&gt;</bpt><ept id="35d526c6-9bcb-45ae-9fd3-8258f9214502">&lt;/title&gt;</ept> Nuget package is used to communicate with Power BI.</source>
+          <target state="new">The <bpt id="35d526c6-9bcb-45ae-9fd3-8258f9214502">&lt;linkText&gt;</bpt>PowerBi.Api.Client<ept id="35d526c6-9bcb-45ae-9fd3-8258f9214502">&lt;/linkText&gt;</ept><bpt id="35d526c6-9bcb-45ae-9fd3-8258f9214502">&lt;title&gt;</bpt><ept id="35d526c6-9bcb-45ae-9fd3-8258f9214502">&lt;/title&gt;</ept> Nuget package is used to communicate with Power BI.</target>
+        </trans-unit>
+        <trans-unit id="53703fad-e59e-4f20-9859-864a48cc4481" xml:space="preserve">
+          <source>The following files in this project implement the Power BI specific functionality:</source>
+          <target state="new">The following files in this project implement the Power BI specific functionality:</target>
+        </trans-unit>
+        <trans-unit id="23e13abe-4832-474e-a672-d44fa2338ff6" xml:space="preserve">
+          <source><bpt id="d297522e-b3f0-46cf-b8af-036c63381a45">&lt;strong&gt;</bpt>PowerBiBolt.cs<ept id="d297522e-b3f0-46cf-b8af-036c63381a45">&lt;/strong&gt;</ept>: Implements the Storm bolt, which sends data to Power BI</source>
+          <target state="new"><bpt id="d297522e-b3f0-46cf-b8af-036c63381a45">&lt;strong&gt;</bpt>PowerBiBolt.cs<ept id="d297522e-b3f0-46cf-b8af-036c63381a45">&lt;/strong&gt;</ept>: Implements the Storm bolt, which sends data to Power BI</target>
+        </trans-unit>
+        <trans-unit id="bf4e31fd-a02f-413e-9c61-68cb5d86da23" xml:space="preserve">
+          <source><bpt id="749ee309-00d5-4026-af93-f745e7325195">&lt;strong&gt;</bpt>Data.cs<ept id="749ee309-00d5-4026-af93-f745e7325195">&lt;/strong&gt;</ept>: Describes the data object/row that will be sent to Power BI</source>
+          <target state="new"><bpt id="749ee309-00d5-4026-af93-f745e7325195">&lt;strong&gt;</bpt>Data.cs<ept id="749ee309-00d5-4026-af93-f745e7325195">&lt;/strong&gt;</ept>: Describes the data object/row that will be sent to Power BI</target>
+        </trans-unit>
+        <trans-unit id="7097eb6e-6bab-4d4a-8645-de6d20f4aa08" xml:space="preserve">
+          <source>Power BI seems to allow the creation of multiple datasets with the same name.</source>
+          <target state="new">Power BI seems to allow the creation of multiple datasets with the same name.</target>
+        </trans-unit>
+        <trans-unit id="ba25fe08-00ba-4329-9625-ead1b664cb2e" xml:space="preserve">
+          <source>This can occur if the dataset does not exist, and your topology creates multiple instances of the Power BI Bolt.</source>
+          <target state="new">This can occur if the dataset does not exist, and your topology creates multiple instances of the Power BI Bolt.</target>
+        </trans-unit>
+        <trans-unit id="869fed41-a292-4658-81d3-dc6a7e4e70a3" xml:space="preserve">
+          <source>To avoid this, either set the parallelism hint of the bolt to 1 (as this example does,) or create the dataset before deploying the topology.</source>
+          <target state="new">To avoid this, either set the parallelism hint of the bolt to 1 (as this example does,) or create the dataset before deploying the topology.</target>
+        </trans-unit>
+        <trans-unit id="3b27b221-ca23-4a05-b7e6-9c907b1e3e23" xml:space="preserve">
+          <source>The <bpt id="3d0730d8-57ef-45bf-b0a0-85c9210f351c">&lt;strong&gt;</bpt>CreateDataset<ept id="3d0730d8-57ef-45bf-b0a0-85c9210f351c">&lt;/strong&gt;</ept> console application included in this solution is provided as an example of how to create the dataset outside of the topology.</source>
+          <target state="new">The <bpt id="3d0730d8-57ef-45bf-b0a0-85c9210f351c">&lt;strong&gt;</bpt>CreateDataset<ept id="3d0730d8-57ef-45bf-b0a0-85c9210f351c">&lt;/strong&gt;</ept> console application included in this solution is provided as an example of how to create the dataset outside of the topology.</target>
+        </trans-unit>
+        <trans-unit id="1b2672ed-fcea-483d-a137-9c67d9f9c08e" xml:space="preserve">
+          <source>Follow the steps in the <bpt id="26674fcc-33d8-416d-8592-07a9cb8ff7c6">&lt;linkText&gt;</bpt>Power BI quickstart<ept id="26674fcc-33d8-416d-8592-07a9cb8ff7c6">&lt;/linkText&gt;</ept><bpt id="26674fcc-33d8-416d-8592-07a9cb8ff7c6">&lt;title&gt;</bpt><ept id="26674fcc-33d8-416d-8592-07a9cb8ff7c6">&lt;/title&gt;</ept> to sign up for Power BI.</source>
+          <target state="new">Follow the steps in the <bpt id="26674fcc-33d8-416d-8592-07a9cb8ff7c6">&lt;linkText&gt;</bpt>Power BI quickstart<ept id="26674fcc-33d8-416d-8592-07a9cb8ff7c6">&lt;/linkText&gt;</ept><bpt id="26674fcc-33d8-416d-8592-07a9cb8ff7c6">&lt;title&gt;</bpt><ept id="26674fcc-33d8-416d-8592-07a9cb8ff7c6">&lt;/title&gt;</ept> to sign up for Power BI.</target>
+        </trans-unit>
+        <trans-unit id="c07336a0-1a47-43f2-8886-c757ee0f1fe5" xml:space="preserve">
+          <source>Follow the steps in <bpt id="1a15c957-d50c-429a-a71e-1268b3b1e980">&lt;linkText&gt;</bpt>Register an app<ept id="1a15c957-d50c-429a-a71e-1268b3b1e980">&lt;/linkText&gt;</ept><bpt id="1a15c957-d50c-429a-a71e-1268b3b1e980">&lt;title&gt;</bpt><ept id="1a15c957-d50c-429a-a71e-1268b3b1e980">&lt;/title&gt;</ept> to create an application registration.</source>
+          <target state="new">Follow the steps in <bpt id="1a15c957-d50c-429a-a71e-1268b3b1e980">&lt;linkText&gt;</bpt>Register an app<ept id="1a15c957-d50c-429a-a71e-1268b3b1e980">&lt;/linkText&gt;</ept><bpt id="1a15c957-d50c-429a-a71e-1268b3b1e980">&lt;title&gt;</bpt><ept id="1a15c957-d50c-429a-a71e-1268b3b1e980">&lt;/title&gt;</ept> to create an application registration.</target>
+        </trans-unit>
+        <trans-unit id="5ab7ab2e-b5d6-4d24-a671-9bb8f835920c" xml:space="preserve">
+          <source>This will be used when accessing the Power BI REST API.</source>
+          <target state="new">This will be used when accessing the Power BI REST API.</target>
+        </trans-unit>
+        <trans-unit id="a1770904-2692-4fca-920d-a74d057942a1" xml:space="preserve">
+          <source>Save the <bpt id="f6a2ed5d-ee4e-4173-8312-c017adc6d990">&lt;strong&gt;</bpt>Client ID<ept id="f6a2ed5d-ee4e-4173-8312-c017adc6d990">&lt;/strong&gt;</ept> for the application registration.</source>
+          <target state="new">Save the <bpt id="f6a2ed5d-ee4e-4173-8312-c017adc6d990">&lt;strong&gt;</bpt>Client ID<ept id="f6a2ed5d-ee4e-4173-8312-c017adc6d990">&lt;/strong&gt;</ept> for the application registration.</target>
+        </trans-unit>
+        <trans-unit id="52744620-3bd9-488e-80f9-35b0e3b864db" xml:space="preserve">
+          <source>Download the <bpt id="74342bcb-0933-4962-bbd3-f8ad76f84156">&lt;linkText&gt;</bpt>HDInsight C# Storm Power BI example<ept id="74342bcb-0933-4962-bbd3-f8ad76f84156">&lt;/linkText&gt;</ept><bpt id="74342bcb-0933-4962-bbd3-f8ad76f84156">&lt;title&gt;</bpt><ept id="74342bcb-0933-4962-bbd3-f8ad76f84156">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download the <bpt id="74342bcb-0933-4962-bbd3-f8ad76f84156">&lt;linkText&gt;</bpt>HDInsight C# Storm Power BI example<ept id="74342bcb-0933-4962-bbd3-f8ad76f84156">&lt;/linkText&gt;</ept><bpt id="74342bcb-0933-4962-bbd3-f8ad76f84156">&lt;title&gt;</bpt><ept id="74342bcb-0933-4962-bbd3-f8ad76f84156">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18978a9a-e712-444c-8c0c-2a05d7cad46d" xml:space="preserve">
+          <source>To download it, either fork/clone it using <bpt id="092da2a8-3909-46aa-acdf-5305c60f88c0">&lt;linkText&gt;</bpt>git<ept id="092da2a8-3909-46aa-acdf-5305c60f88c0">&lt;/linkText&gt;</ept><bpt id="092da2a8-3909-46aa-acdf-5305c60f88c0">&lt;title&gt;</bpt><ept id="092da2a8-3909-46aa-acdf-5305c60f88c0">&lt;/title&gt;</ept>, or use the <bpt id="3b45e3d9-57e5-489d-b8b6-7140993893dc">&lt;strong&gt;</bpt>Download<ept id="3b45e3d9-57e5-489d-b8b6-7140993893dc">&lt;/strong&gt;</ept> link to download a .zip of the archive.</source>
+          <target state="new">To download it, either fork/clone it using <bpt id="092da2a8-3909-46aa-acdf-5305c60f88c0">&lt;linkText&gt;</bpt>git<ept id="092da2a8-3909-46aa-acdf-5305c60f88c0">&lt;/linkText&gt;</ept><bpt id="092da2a8-3909-46aa-acdf-5305c60f88c0">&lt;title&gt;</bpt><ept id="092da2a8-3909-46aa-acdf-5305c60f88c0">&lt;/title&gt;</ept>, or use the <bpt id="3b45e3d9-57e5-489d-b8b6-7140993893dc">&lt;strong&gt;</bpt>Download<ept id="3b45e3d9-57e5-489d-b8b6-7140993893dc">&lt;/strong&gt;</ept> link to download a .zip of the archive.</target>
+        </trans-unit>
+        <trans-unit id="831e12aa-6806-4cd4-b8a1-a26d748bc62f" xml:space="preserve">
+          <source>Open the sample in Visual Studio. From <bpt id="8f098727-41c6-4477-8ea8-c980de637120">&lt;strong&gt;</bpt>Solution Explorer<ept id="8f098727-41c6-4477-8ea8-c980de637120">&lt;/strong&gt;</ept>, open the <bpt id="b9bf79af-d6cb-44af-bf86-1c2348c1dce3">&lt;strong&gt;</bpt>SCPHost.exe.config<ept id="b9bf79af-d6cb-44af-bf86-1c2348c1dce3">&lt;/strong&gt;</ept> file, and then find the <bpt id="46b93e76-4fcb-4b68-9ad1-40833c3750cf">&lt;strong&gt;</bpt>&lt;OAuth .../&gt;<ept id="46b93e76-4fcb-4b68-9ad1-40833c3750cf">&lt;/strong&gt;</ept> element. Enter values for the following properties of this element.</source>
+          <target state="new">Open the sample in Visual Studio. From <bpt id="8f098727-41c6-4477-8ea8-c980de637120">&lt;strong&gt;</bpt>Solution Explorer<ept id="8f098727-41c6-4477-8ea8-c980de637120">&lt;/strong&gt;</ept>, open the <bpt id="b9bf79af-d6cb-44af-bf86-1c2348c1dce3">&lt;strong&gt;</bpt>SCPHost.exe.config<ept id="b9bf79af-d6cb-44af-bf86-1c2348c1dce3">&lt;/strong&gt;</ept> file, and then find the <bpt id="46b93e76-4fcb-4b68-9ad1-40833c3750cf">&lt;strong&gt;</bpt>&lt;OAuth .../&gt;<ept id="46b93e76-4fcb-4b68-9ad1-40833c3750cf">&lt;/strong&gt;</ept> element. Enter values for the following properties of this element.</target>
+        </trans-unit>
+        <trans-unit id="3b983726-d7d2-48b7-b418-859ae8cf1bb1" xml:space="preserve">
+          <source><bpt id="214dd4cf-f947-4434-b5e1-001f4f0354a3">&lt;strong&gt;</bpt>Client<ept id="214dd4cf-f947-4434-b5e1-001f4f0354a3">&lt;/strong&gt;</ept>: The Client ID for the application registration you created earlier.</source>
+          <target state="new"><bpt id="214dd4cf-f947-4434-b5e1-001f4f0354a3">&lt;strong&gt;</bpt>Client<ept id="214dd4cf-f947-4434-b5e1-001f4f0354a3">&lt;/strong&gt;</ept>: The Client ID for the application registration you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="2cacf8ac-02b9-4ae0-8c34-86fc7780abaf" xml:space="preserve">
+          <source><bpt id="f34723f7-7e76-4b2b-8012-7ad68787f17e">&lt;strong&gt;</bpt>User<ept id="f34723f7-7e76-4b2b-8012-7ad68787f17e">&lt;/strong&gt;</ept>: An Azure Active Directory account that has access to Power BI.</source>
+          <target state="new"><bpt id="f34723f7-7e76-4b2b-8012-7ad68787f17e">&lt;strong&gt;</bpt>User<ept id="f34723f7-7e76-4b2b-8012-7ad68787f17e">&lt;/strong&gt;</ept>: An Azure Active Directory account that has access to Power BI.</target>
+        </trans-unit>
+        <trans-unit id="d9dc04cf-db62-4a42-bb16-9c2b815eb480" xml:space="preserve">
+          <source><bpt id="e50e9a8b-7247-40dc-8ab9-551dabd31b61">&lt;strong&gt;</bpt>Password<ept id="e50e9a8b-7247-40dc-8ab9-551dabd31b61">&lt;/strong&gt;</ept>: The password for the Azure Active Directory account.</source>
+          <target state="new"><bpt id="e50e9a8b-7247-40dc-8ab9-551dabd31b61">&lt;strong&gt;</bpt>Password<ept id="e50e9a8b-7247-40dc-8ab9-551dabd31b61">&lt;/strong&gt;</ept>: The password for the Azure Active Directory account.</target>
+        </trans-unit>
+        <trans-unit id="02316694-c6f1-4d74-adba-c99cf6a032d5" xml:space="preserve">
+          <source>(Optional).</source>
+          <target state="new">(Optional).</target>
+        </trans-unit>
+        <trans-unit id="98aa7d47-4b82-4187-9b75-56e8e19564c9" xml:space="preserve">
+          <source>The default dataset name used by this project is <bpt id="d3a3a7fe-ce15-4988-aad1-7323b376bd25">&lt;strong&gt;</bpt>Words<ept id="d3a3a7fe-ce15-4988-aad1-7323b376bd25">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default dataset name used by this project is <bpt id="d3a3a7fe-ce15-4988-aad1-7323b376bd25">&lt;strong&gt;</bpt>Words<ept id="d3a3a7fe-ce15-4988-aad1-7323b376bd25">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ac243e6-59e5-4990-8bcb-7027bf53814f" xml:space="preserve">
+          <source>To change this, right click on the <bpt id="70ac527c-6a79-49fb-b250-a38fdb0c36ea">&lt;strong&gt;</bpt>WordCount<ept id="70ac527c-6a79-49fb-b250-a38fdb0c36ea">&lt;/strong&gt;</ept> project in <bpt id="bcc90ef1-8410-4f80-8b45-38d57ba5c58b">&lt;strong&gt;</bpt>Solution Explorer<ept id="bcc90ef1-8410-4f80-8b45-38d57ba5c58b">&lt;/strong&gt;</ept>, select <bpt id="b2b5a0cc-4955-4992-ac41-6e90db566176">&lt;strong&gt;</bpt>Properties<ept id="b2b5a0cc-4955-4992-ac41-6e90db566176">&lt;/strong&gt;</ept>, and then select <bpt id="cd8ae880-da1a-4abe-9101-41df1cab9129">&lt;strong&gt;</bpt>Settings<ept id="cd8ae880-da1a-4abe-9101-41df1cab9129">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To change this, right click on the <bpt id="70ac527c-6a79-49fb-b250-a38fdb0c36ea">&lt;strong&gt;</bpt>WordCount<ept id="70ac527c-6a79-49fb-b250-a38fdb0c36ea">&lt;/strong&gt;</ept> project in <bpt id="bcc90ef1-8410-4f80-8b45-38d57ba5c58b">&lt;strong&gt;</bpt>Solution Explorer<ept id="bcc90ef1-8410-4f80-8b45-38d57ba5c58b">&lt;/strong&gt;</ept>, select <bpt id="b2b5a0cc-4955-4992-ac41-6e90db566176">&lt;strong&gt;</bpt>Properties<ept id="b2b5a0cc-4955-4992-ac41-6e90db566176">&lt;/strong&gt;</ept>, and then select <bpt id="cd8ae880-da1a-4abe-9101-41df1cab9129">&lt;strong&gt;</bpt>Settings<ept id="cd8ae880-da1a-4abe-9101-41df1cab9129">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a5f49b8-537d-49b5-a59b-baab06080687" xml:space="preserve">
+          <source>Change the <bpt id="3b8df492-4d55-4fcf-b3ab-d2dc99430c8c">&lt;strong&gt;</bpt>DatasetName<ept id="3b8df492-4d55-4fcf-b3ab-d2dc99430c8c">&lt;/strong&gt;</ept> entry to the desired value.</source>
+          <target state="new">Change the <bpt id="3b8df492-4d55-4fcf-b3ab-d2dc99430c8c">&lt;strong&gt;</bpt>DatasetName<ept id="3b8df492-4d55-4fcf-b3ab-d2dc99430c8c">&lt;/strong&gt;</ept> entry to the desired value.</target>
+        </trans-unit>
+        <trans-unit id="cb5a2a59-ffae-4d0a-80cd-6619baad6b87" xml:space="preserve">
+          <source>Save and close the files.</source>
+          <target state="new">Save and close the files.</target>
+        </trans-unit>
+        <trans-unit id="f470bc2d-ec08-422c-8a40-369de1bb0e9a" xml:space="preserve">
+          <source>From <bpt id="e955788f-73bf-4f8c-9c70-bbb5977d2978">&lt;strong&gt;</bpt>Solution Explorer<ept id="e955788f-73bf-4f8c-9c70-bbb5977d2978">&lt;/strong&gt;</ept>, right-click the <bpt id="4769e3b1-ee13-4028-b180-9c88d53e0901">&lt;strong&gt;</bpt>WordCount<ept id="4769e3b1-ee13-4028-b180-9c88d53e0901">&lt;/strong&gt;</ept> project and select <bpt id="d9e89f29-e71b-4fab-a444-b9d9a62bf155">&lt;strong&gt;</bpt>Submit to Storm on HDInsight<ept id="d9e89f29-e71b-4fab-a444-b9d9a62bf155">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="e955788f-73bf-4f8c-9c70-bbb5977d2978">&lt;strong&gt;</bpt>Solution Explorer<ept id="e955788f-73bf-4f8c-9c70-bbb5977d2978">&lt;/strong&gt;</ept>, right-click the <bpt id="4769e3b1-ee13-4028-b180-9c88d53e0901">&lt;strong&gt;</bpt>WordCount<ept id="4769e3b1-ee13-4028-b180-9c88d53e0901">&lt;/strong&gt;</ept> project and select <bpt id="d9e89f29-e71b-4fab-a444-b9d9a62bf155">&lt;strong&gt;</bpt>Submit to Storm on HDInsight<ept id="d9e89f29-e71b-4fab-a444-b9d9a62bf155">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67abf4d1-60c1-4e17-ae68-5f7c80b95837" xml:space="preserve">
+          <source>Select the HDInsight cluster from the <bpt id="1a47b492-6d03-4239-8ea6-5494582a825f">&lt;strong&gt;</bpt>Storm Cluster<ept id="1a47b492-6d03-4239-8ea6-5494582a825f">&lt;/strong&gt;</ept> dropdown dialog.</source>
+          <target state="new">Select the HDInsight cluster from the <bpt id="1a47b492-6d03-4239-8ea6-5494582a825f">&lt;strong&gt;</bpt>Storm Cluster<ept id="1a47b492-6d03-4239-8ea6-5494582a825f">&lt;/strong&gt;</ept> dropdown dialog.</target>
+        </trans-unit>
+        <trans-unit id="1ac01dc5-d961-40eb-b0e5-9bdcae07dd2d" xml:space="preserve">
+          <source>It may take a few seconds for the <bpt id="9920ddf7-59b9-43ca-9383-06da833849e7">&lt;strong&gt;</bpt>Storm Cluster<ept id="9920ddf7-59b9-43ca-9383-06da833849e7">&lt;/strong&gt;</ept> dropdown to populate with server names.</source>
+          <target state="new">It may take a few seconds for the <bpt id="9920ddf7-59b9-43ca-9383-06da833849e7">&lt;strong&gt;</bpt>Storm Cluster<ept id="9920ddf7-59b9-43ca-9383-06da833849e7">&lt;/strong&gt;</ept> dropdown to populate with server names.</target>
+        </trans-unit>
+        <trans-unit id="03673f13-26f0-4b68-9315-b4bdad86d659" xml:space="preserve">
+          <source>If prompted, enter the login credentials for your Azure subscription.</source>
+          <target state="new">If prompted, enter the login credentials for your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="cbd0a7d9-c83f-4b47-9709-b2ffb321042a" xml:space="preserve">
+          <source>If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.</source>
+          <target state="new">If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="bc082e08-e075-4a9d-b40e-8798a083fc3b" xml:space="preserve">
+          <source>When the topology has been successfully submitted, the Storm Topologies for the cluster should appear.</source>
+          <target state="new">When the topology has been successfully submitted, the Storm Topologies for the cluster should appear.</target>
+        </trans-unit>
+        <trans-unit id="f47e1923-df66-488e-a4ed-e0c96435768d" xml:space="preserve">
+          <source>Select the WordCount topology from the list to view information about the running topology.</source>
+          <target state="new">Select the WordCount topology from the list to view information about the running topology.</target>
+        </trans-unit>
+        <trans-unit id="2682de9a-827d-43b7-8013-d4e30f9a8955" xml:space="preserve">
+          <source><bpt id="e57c9210-1c2c-4c2b-87a1-93aabfeba2f1">&lt;linkText&gt;</bpt>The topologies, with the WordCount topology selected<ept id="e57c9210-1c2c-4c2b-87a1-93aabfeba2f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e57c9210-1c2c-4c2b-87a1-93aabfeba2f1">&lt;linkText&gt;</bpt>The topologies, with the WordCount topology selected<ept id="e57c9210-1c2c-4c2b-87a1-93aabfeba2f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66fb0947-7a94-40b6-80f0-a57aae988867" xml:space="preserve">
+          <source>You can also view Storm Topologies from Server Explorer: Expand Azure, HDInsight, right-click a Storm on HDInsight cluster, and then select View Storm Topologies.</source>
+          <target state="new">You can also view Storm Topologies from Server Explorer: Expand Azure, HDInsight, right-click a Storm on HDInsight cluster, and then select View Storm Topologies.</target>
+        </trans-unit>
+        <trans-unit id="45fdd6e1-964f-4925-85d3-056755a0fb64" xml:space="preserve">
+          <source>When viewing the <bpt id="a9f40630-534c-40f2-89d5-dca5aa9e76d6">&lt;strong&gt;</bpt>Topology Summary<ept id="a9f40630-534c-40f2-89d5-dca5aa9e76d6">&lt;/strong&gt;</ept>, scroll until you see the <bpt id="500df5dd-1395-48aa-8074-ee31136096d3">&lt;strong&gt;</bpt>Bolts<ept id="500df5dd-1395-48aa-8074-ee31136096d3">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">When viewing the <bpt id="a9f40630-534c-40f2-89d5-dca5aa9e76d6">&lt;strong&gt;</bpt>Topology Summary<ept id="a9f40630-534c-40f2-89d5-dca5aa9e76d6">&lt;/strong&gt;</ept>, scroll until you see the <bpt id="500df5dd-1395-48aa-8074-ee31136096d3">&lt;strong&gt;</bpt>Bolts<ept id="500df5dd-1395-48aa-8074-ee31136096d3">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="7775958a-6a1c-4a7f-b185-11122a5b9a3c" xml:space="preserve">
+          <source>In this section, note the <bpt id="fa4e10dc-d7e2-4888-a0a6-ef95c2725786">&lt;strong&gt;</bpt>Executed<ept id="fa4e10dc-d7e2-4888-a0a6-ef95c2725786">&lt;/strong&gt;</ept> column for the <bpt id="d14c377a-3600-4570-a97f-3b3185fae199">&lt;strong&gt;</bpt>PowerBI<ept id="d14c377a-3600-4570-a97f-3b3185fae199">&lt;/strong&gt;</ept> bolt.</source>
+          <target state="new">In this section, note the <bpt id="fa4e10dc-d7e2-4888-a0a6-ef95c2725786">&lt;strong&gt;</bpt>Executed<ept id="fa4e10dc-d7e2-4888-a0a6-ef95c2725786">&lt;/strong&gt;</ept> column for the <bpt id="d14c377a-3600-4570-a97f-3b3185fae199">&lt;strong&gt;</bpt>PowerBI<ept id="d14c377a-3600-4570-a97f-3b3185fae199">&lt;/strong&gt;</ept> bolt.</target>
+        </trans-unit>
+        <trans-unit id="66d7ce3f-42f8-4049-b11e-53f5078fae30" xml:space="preserve">
+          <source>Use the refresh button at the top of the page to refresh until the value changes to something other than zero.</source>
+          <target state="new">Use the refresh button at the top of the page to refresh until the value changes to something other than zero.</target>
+        </trans-unit>
+        <trans-unit id="bcbf4ec7-1717-49b2-88bc-d9ca1b8fbdbf" xml:space="preserve">
+          <source>When this number starts to increase, it indicates that items are being written to Power BI.</source>
+          <target state="new">When this number starts to increase, it indicates that items are being written to Power BI.</target>
+        </trans-unit>
+        <trans-unit id="580048e7-d73a-48c2-ac28-87e3c931863e" xml:space="preserve">
+          <source>In a browser, visit <bpt id="4631c691-7d1b-470e-8e28-0e17829e3a88">&lt;linkText&gt;</bpt>https://PowerBI.com<ept id="4631c691-7d1b-470e-8e28-0e17829e3a88">&lt;/linkText&gt;</ept><bpt id="4631c691-7d1b-470e-8e28-0e17829e3a88">&lt;title&gt;</bpt><ept id="4631c691-7d1b-470e-8e28-0e17829e3a88">&lt;/title&gt;</ept>.</source>
+          <target state="new">In a browser, visit <bpt id="4631c691-7d1b-470e-8e28-0e17829e3a88">&lt;linkText&gt;</bpt>https://PowerBI.com<ept id="4631c691-7d1b-470e-8e28-0e17829e3a88">&lt;/linkText&gt;</ept><bpt id="4631c691-7d1b-470e-8e28-0e17829e3a88">&lt;title&gt;</bpt><ept id="4631c691-7d1b-470e-8e28-0e17829e3a88">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35bdfc40-37f4-43e3-9f84-f2d956629e83" xml:space="preserve">
+          <source>Sign in with your account.</source>
+          <target state="new">Sign in with your account.</target>
+        </trans-unit>
+        <trans-unit id="b1b3f29c-017d-4f49-8534-3e2d5f395ad7" xml:space="preserve">
+          <source>On the left side of the page, expand <bpt id="f7bd31a1-c838-4f3b-b79a-f77aa1c3e191">&lt;strong&gt;</bpt>Datasets<ept id="f7bd31a1-c838-4f3b-b79a-f77aa1c3e191">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left side of the page, expand <bpt id="f7bd31a1-c838-4f3b-b79a-f77aa1c3e191">&lt;strong&gt;</bpt>Datasets<ept id="f7bd31a1-c838-4f3b-b79a-f77aa1c3e191">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a8872dd-0bca-42c7-8520-b736ed9b91b3" xml:space="preserve">
+          <source>Select the <bpt id="143d9a6b-b1bc-47db-a2fc-6f18f4206e51">&lt;strong&gt;</bpt>Words<ept id="143d9a6b-b1bc-47db-a2fc-6f18f4206e51">&lt;/strong&gt;</ept> entry.</source>
+          <target state="new">Select the <bpt id="143d9a6b-b1bc-47db-a2fc-6f18f4206e51">&lt;strong&gt;</bpt>Words<ept id="143d9a6b-b1bc-47db-a2fc-6f18f4206e51">&lt;/strong&gt;</ept> entry.</target>
+        </trans-unit>
+        <trans-unit id="76237367-42f1-4f63-b83c-95d112805965" xml:space="preserve">
+          <source>This is the dataset created by the example topology.</source>
+          <target state="new">This is the dataset created by the example topology.</target>
+        </trans-unit>
+        <trans-unit id="110e6051-d447-4ecd-bada-ec5d5253f6ae" xml:space="preserve">
+          <source><bpt id="b7491491-0d4b-4ffd-8dc3-d52b55e865b8">&lt;linkText&gt;</bpt>Words dataset entry<ept id="b7491491-0d4b-4ffd-8dc3-d52b55e865b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7491491-0d4b-4ffd-8dc3-d52b55e865b8">&lt;linkText&gt;</bpt>Words dataset entry<ept id="b7491491-0d4b-4ffd-8dc3-d52b55e865b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bde690e-7e14-499f-a0c1-b20bc7236c2e" xml:space="preserve">
+          <source>From the <bpt id="d32b521f-2d5e-45ae-8753-4cda2615ef16">&lt;strong&gt;</bpt>Fields<ept id="d32b521f-2d5e-45ae-8753-4cda2615ef16">&lt;/strong&gt;</ept> area, expand <bpt id="3cb9b62f-6603-4a4f-b53a-2d6dce4b905b">&lt;strong&gt;</bpt>WordCount<ept id="3cb9b62f-6603-4a4f-b53a-2d6dce4b905b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="d32b521f-2d5e-45ae-8753-4cda2615ef16">&lt;strong&gt;</bpt>Fields<ept id="d32b521f-2d5e-45ae-8753-4cda2615ef16">&lt;/strong&gt;</ept> area, expand <bpt id="3cb9b62f-6603-4a4f-b53a-2d6dce4b905b">&lt;strong&gt;</bpt>WordCount<ept id="3cb9b62f-6603-4a4f-b53a-2d6dce4b905b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1134a27-368c-4e27-a12d-cde73daf4b09" xml:space="preserve">
+          <source>Drag the <bpt id="e2af6461-ba56-48e5-925a-9bd618a83296">&lt;strong&gt;</bpt>Count<ept id="e2af6461-ba56-48e5-925a-9bd618a83296">&lt;/strong&gt;</ept> and <bpt id="0bc0b21a-979b-4819-88e0-e11a981effac">&lt;strong&gt;</bpt>Word<ept id="0bc0b21a-979b-4819-88e0-e11a981effac">&lt;/strong&gt;</ept> entries to the middle part of the page.</source>
+          <target state="new">Drag the <bpt id="e2af6461-ba56-48e5-925a-9bd618a83296">&lt;strong&gt;</bpt>Count<ept id="e2af6461-ba56-48e5-925a-9bd618a83296">&lt;/strong&gt;</ept> and <bpt id="0bc0b21a-979b-4819-88e0-e11a981effac">&lt;strong&gt;</bpt>Word<ept id="0bc0b21a-979b-4819-88e0-e11a981effac">&lt;/strong&gt;</ept> entries to the middle part of the page.</target>
+        </trans-unit>
+        <trans-unit id="920a2fd9-2a5c-48ac-87e1-05fbea0d7814" xml:space="preserve">
+          <source>This will create a new chart that displays a bar for each word indicating how many times the word has occurred.</source>
+          <target state="new">This will create a new chart that displays a bar for each word indicating how many times the word has occurred.</target>
+        </trans-unit>
+        <trans-unit id="fd33ce9b-47bd-473e-bacd-4fec99117219" xml:space="preserve">
+          <source><bpt id="278ef62c-49ec-48e3-8489-48589f0d121a">&lt;linkText&gt;</bpt>WordCount chart<ept id="278ef62c-49ec-48e3-8489-48589f0d121a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="278ef62c-49ec-48e3-8489-48589f0d121a">&lt;linkText&gt;</bpt>WordCount chart<ept id="278ef62c-49ec-48e3-8489-48589f0d121a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07cd6151-8c2c-40a4-af3f-b1286d626d5e" xml:space="preserve">
+          <source>From the upper left of the page, select <bpt id="00eadbc6-0272-4a93-a123-2d67e9961378">&lt;strong&gt;</bpt>Save<ept id="00eadbc6-0272-4a93-a123-2d67e9961378">&lt;/strong&gt;</ept> to create a new report.</source>
+          <target state="new">From the upper left of the page, select <bpt id="00eadbc6-0272-4a93-a123-2d67e9961378">&lt;strong&gt;</bpt>Save<ept id="00eadbc6-0272-4a93-a123-2d67e9961378">&lt;/strong&gt;</ept> to create a new report.</target>
+        </trans-unit>
+        <trans-unit id="7067fe26-b224-45fe-bf6b-4724b427b9ad" xml:space="preserve">
+          <source>Enter <bpt id="79eb43c2-32aa-43c0-a295-b43da75a8d48">&lt;strong&gt;</bpt>Word Count<ept id="79eb43c2-32aa-43c0-a295-b43da75a8d48">&lt;/strong&gt;</ept> as the name of the Report.</source>
+          <target state="new">Enter <bpt id="79eb43c2-32aa-43c0-a295-b43da75a8d48">&lt;strong&gt;</bpt>Word Count<ept id="79eb43c2-32aa-43c0-a295-b43da75a8d48">&lt;/strong&gt;</ept> as the name of the Report.</target>
+        </trans-unit>
+        <trans-unit id="48300866-a1e7-4976-b8b7-24ab88729960" xml:space="preserve">
+          <source>Select the Power BI logo to return to the dashboard.</source>
+          <target state="new">Select the Power BI logo to return to the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="96c8409f-a51e-410e-9224-3b1fed7118a1" xml:space="preserve">
+          <source>The <bpt id="4949af57-86c2-421e-bdbf-d3a8b1d51ced">&lt;strong&gt;</bpt>Word Count<ept id="4949af57-86c2-421e-bdbf-d3a8b1d51ced">&lt;/strong&gt;</ept> report now appears under <bpt id="a609865b-9c94-44e0-a5f1-2d9949e9b1c1">&lt;strong&gt;</bpt>Reports<ept id="a609865b-9c94-44e0-a5f1-2d9949e9b1c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="4949af57-86c2-421e-bdbf-d3a8b1d51ced">&lt;strong&gt;</bpt>Word Count<ept id="4949af57-86c2-421e-bdbf-d3a8b1d51ced">&lt;/strong&gt;</ept> report now appears under <bpt id="a609865b-9c94-44e0-a5f1-2d9949e9b1c1">&lt;strong&gt;</bpt>Reports<ept id="a609865b-9c94-44e0-a5f1-2d9949e9b1c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e63d4195-7816-4fac-8a9a-6c0297ec8a37" xml:space="preserve">
+          <source>Beside <bpt id="9685890d-83dd-44c7-be3c-baa7ce8f66c5">&lt;strong&gt;</bpt>Dashboard<ept id="9685890d-83dd-44c7-be3c-baa7ce8f66c5">&lt;/strong&gt;</ept>, select the <bpt id="de28614a-b2af-4e98-a1d1-7781e5b30dd7">&lt;strong&gt;</bpt>+<ept id="de28614a-b2af-4e98-a1d1-7781e5b30dd7">&lt;/strong&gt;</ept> icon to create a new dashboard.</source>
+          <target state="new">Beside <bpt id="9685890d-83dd-44c7-be3c-baa7ce8f66c5">&lt;strong&gt;</bpt>Dashboard<ept id="9685890d-83dd-44c7-be3c-baa7ce8f66c5">&lt;/strong&gt;</ept>, select the <bpt id="de28614a-b2af-4e98-a1d1-7781e5b30dd7">&lt;strong&gt;</bpt>+<ept id="de28614a-b2af-4e98-a1d1-7781e5b30dd7">&lt;/strong&gt;</ept> icon to create a new dashboard.</target>
+        </trans-unit>
+        <trans-unit id="93925533-8699-4cc0-8e8f-f316f33732e6" xml:space="preserve">
+          <source>Name the new dashboard <bpt id="2f3ecbcc-a6a2-46f7-8fbb-8cad2c20818a">&lt;strong&gt;</bpt>Live Word Count<ept id="2f3ecbcc-a6a2-46f7-8fbb-8cad2c20818a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the new dashboard <bpt id="2f3ecbcc-a6a2-46f7-8fbb-8cad2c20818a">&lt;strong&gt;</bpt>Live Word Count<ept id="2f3ecbcc-a6a2-46f7-8fbb-8cad2c20818a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="564eb29f-869a-4a2b-bf51-88392e184eea" xml:space="preserve">
+          <source>Select the <bpt id="6c80d4a9-0f5e-48b1-9d88-81c2eec50bdf">&lt;strong&gt;</bpt>Word Count<ept id="6c80d4a9-0f5e-48b1-9d88-81c2eec50bdf">&lt;/strong&gt;</ept> report you created earlier.</source>
+          <target state="new">Select the <bpt id="6c80d4a9-0f5e-48b1-9d88-81c2eec50bdf">&lt;strong&gt;</bpt>Word Count<ept id="6c80d4a9-0f5e-48b1-9d88-81c2eec50bdf">&lt;/strong&gt;</ept> report you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="47b29b3f-bcc8-4bda-ac21-e2a34ca46347" xml:space="preserve">
+          <source>When displayed, select the chart, then select the pushpin icon to the upper right of the chart.</source>
+          <target state="new">When displayed, select the chart, then select the pushpin icon to the upper right of the chart.</target>
+        </trans-unit>
+        <trans-unit id="d4b14399-a093-48f6-857e-9bc793b35e2d" xml:space="preserve">
+          <source>You should receive a notification that it was pinned to the dashboard.</source>
+          <target state="new">You should receive a notification that it was pinned to the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="8d1830a6-82e0-4654-b628-27412c7f54cd" xml:space="preserve">
+          <source><bpt id="0e11ab31-57e4-4d76-96c3-d04ac08a0de0">&lt;linkText&gt;</bpt>chart with pushpin displayed<ept id="0e11ab31-57e4-4d76-96c3-d04ac08a0de0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e11ab31-57e4-4d76-96c3-d04ac08a0de0">&lt;linkText&gt;</bpt>chart with pushpin displayed<ept id="0e11ab31-57e4-4d76-96c3-d04ac08a0de0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dcad91cb-5b22-4e4a-9db0-0f3ebb16f326" xml:space="preserve">
+          <source>Select the Power BI logo to return to the dashboard.</source>
+          <target state="new">Select the Power BI logo to return to the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="c24eb657-23ad-46a2-8134-2d99f22c4b5e" xml:space="preserve">
+          <source>Select the <bpt id="ef00b4a6-57e5-42f0-8668-c1bfb8f5b738">&lt;strong&gt;</bpt>Live Word Count<ept id="ef00b4a6-57e5-42f0-8668-c1bfb8f5b738">&lt;/strong&gt;</ept> dashboard.</source>
+          <target state="new">Select the <bpt id="ef00b4a6-57e5-42f0-8668-c1bfb8f5b738">&lt;strong&gt;</bpt>Live Word Count<ept id="ef00b4a6-57e5-42f0-8668-c1bfb8f5b738">&lt;/strong&gt;</ept> dashboard.</target>
+        </trans-unit>
+        <trans-unit id="8bfbc85d-921b-4465-9261-bc3d9813ad90" xml:space="preserve">
+          <source>It now contains the Word Count chart, and the chart updates as new entries are sent to Power BI from the WordCount topology running on HDInsight.</source>
+          <target state="new">It now contains the Word Count chart, and the chart updates as new entries are sent to Power BI from the WordCount topology running on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="7f44ddcc-2a37-441e-b488-b49ee4c32adb" xml:space="preserve">
+          <source><bpt id="fb0b4db0-2a48-42e9-a16c-852f7502a04c">&lt;linkText&gt;</bpt>The live dashboard<ept id="fb0b4db0-2a48-42e9-a16c-852f7502a04c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb0b4db0-2a48-42e9-a16c-852f7502a04c">&lt;linkText&gt;</bpt>The live dashboard<ept id="fb0b4db0-2a48-42e9-a16c-852f7502a04c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b1c8688-273a-4268-88e4-78d7f1c350c5" xml:space="preserve">
+          <source>The topology will continue to run until you stop it or delete the Storm on HDInsight cluster.</source>
+          <target state="new">The topology will continue to run until you stop it or delete the Storm on HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="8f865f3f-3c27-419f-b589-0a540ac3de9c" xml:space="preserve">
+          <source>Perform the following steps to stop the topology.</source>
+          <target state="new">Perform the following steps to stop the topology.</target>
+        </trans-unit>
+        <trans-unit id="5ee78b08-137e-47e7-8d37-c98e71abaa86" xml:space="preserve">
+          <source>In Visual Studio, open the <bpt id="8fc88b5a-4297-4fc1-bd9e-423ac0dddbb0">&lt;strong&gt;</bpt>Topology Summary<ept id="8fc88b5a-4297-4fc1-bd9e-423ac0dddbb0">&lt;/strong&gt;</ept> window for the WordCount topology.</source>
+          <target state="new">In Visual Studio, open the <bpt id="8fc88b5a-4297-4fc1-bd9e-423ac0dddbb0">&lt;strong&gt;</bpt>Topology Summary<ept id="8fc88b5a-4297-4fc1-bd9e-423ac0dddbb0">&lt;/strong&gt;</ept> window for the WordCount topology.</target>
+        </trans-unit>
+        <trans-unit id="26f6009c-604b-4590-a07e-90450cfade11" xml:space="preserve">
+          <source>If the Topology Summary is not already open, go to <bpt id="705993a7-5121-491d-937c-61f6c3cb5a9a">&lt;strong&gt;</bpt>Server Explorer<ept id="705993a7-5121-491d-937c-61f6c3cb5a9a">&lt;/strong&gt;</ept>, expand the <bpt id="19ac09bb-56a7-4130-8afb-2f62bf33607a">&lt;strong&gt;</bpt>Azure<ept id="19ac09bb-56a7-4130-8afb-2f62bf33607a">&lt;/strong&gt;</ept> and <bpt id="314e358a-1e1a-4c48-b932-857b58be10e5">&lt;strong&gt;</bpt>HDInsight<ept id="314e358a-1e1a-4c48-b932-857b58be10e5">&lt;/strong&gt;</ept> entries, right-click on the Storm on HDInsight cluster and select <bpt id="2889256b-c011-4a42-b0fa-bc574f0970c7">&lt;strong&gt;</bpt>View Storm Topologies<ept id="2889256b-c011-4a42-b0fa-bc574f0970c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the Topology Summary is not already open, go to <bpt id="705993a7-5121-491d-937c-61f6c3cb5a9a">&lt;strong&gt;</bpt>Server Explorer<ept id="705993a7-5121-491d-937c-61f6c3cb5a9a">&lt;/strong&gt;</ept>, expand the <bpt id="19ac09bb-56a7-4130-8afb-2f62bf33607a">&lt;strong&gt;</bpt>Azure<ept id="19ac09bb-56a7-4130-8afb-2f62bf33607a">&lt;/strong&gt;</ept> and <bpt id="314e358a-1e1a-4c48-b932-857b58be10e5">&lt;strong&gt;</bpt>HDInsight<ept id="314e358a-1e1a-4c48-b932-857b58be10e5">&lt;/strong&gt;</ept> entries, right-click on the Storm on HDInsight cluster and select <bpt id="2889256b-c011-4a42-b0fa-bc574f0970c7">&lt;strong&gt;</bpt>View Storm Topologies<ept id="2889256b-c011-4a42-b0fa-bc574f0970c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0f642ed-a3aa-4e8e-b24e-53a4d155339e" xml:space="preserve">
+          <source>Finally, select the <bpt id="66978b45-6930-4469-b9d0-5433d3c980ed">&lt;strong&gt;</bpt>WordCount<ept id="66978b45-6930-4469-b9d0-5433d3c980ed">&lt;/strong&gt;</ept> topology.</source>
+          <target state="new">Finally, select the <bpt id="66978b45-6930-4469-b9d0-5433d3c980ed">&lt;strong&gt;</bpt>WordCount<ept id="66978b45-6930-4469-b9d0-5433d3c980ed">&lt;/strong&gt;</ept> topology.</target>
+        </trans-unit>
+        <trans-unit id="82359ac9-208d-468e-9d43-f0f9a3856e49" xml:space="preserve">
+          <source>Select the <bpt id="a94f8bef-bbdd-49ac-ad65-d31dbddde7ee">&lt;strong&gt;</bpt>Kill<ept id="a94f8bef-bbdd-49ac-ad65-d31dbddde7ee">&lt;/strong&gt;</ept> button to stop the <bpt id="195ccb48-9543-4c11-b85f-58e76af15a59">&lt;strong&gt;</bpt>WordCount<ept id="195ccb48-9543-4c11-b85f-58e76af15a59">&lt;/strong&gt;</ept> topology.</source>
+          <target state="new">Select the <bpt id="a94f8bef-bbdd-49ac-ad65-d31dbddde7ee">&lt;strong&gt;</bpt>Kill<ept id="a94f8bef-bbdd-49ac-ad65-d31dbddde7ee">&lt;/strong&gt;</ept> button to stop the <bpt id="195ccb48-9543-4c11-b85f-58e76af15a59">&lt;strong&gt;</bpt>WordCount<ept id="195ccb48-9543-4c11-b85f-58e76af15a59">&lt;/strong&gt;</ept> topology.</target>
+        </trans-unit>
+        <trans-unit id="34cb29e7-9873-42e8-9c5e-09da189825b0" xml:space="preserve">
+          <source><bpt id="b84f9d88-67a5-4abc-9455-49a95f2d9c91">&lt;linkText&gt;</bpt>Kill button on the toplogy summary<ept id="b84f9d88-67a5-4abc-9455-49a95f2d9c91">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b84f9d88-67a5-4abc-9455-49a95f2d9c91">&lt;linkText&gt;</bpt>Kill button on the toplogy summary<ept id="b84f9d88-67a5-4abc-9455-49a95f2d9c91">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3c1c421-2bc8-44c7-8cbc-a3d4badd0553" xml:space="preserve">
+          <source>In this document, you learned how to send data from a Storm topology to Power BI using REST.</source>
+          <target state="new">In this document, you learned how to send data from a Storm topology to Power BI using REST.</target>
+        </trans-unit>
+        <trans-unit id="1c0b1e09-9097-425d-8a26-e2b4d571481a" xml:space="preserve">
+          <source>For information on how to work with other Azure technologies, see the following:</source>
+          <target state="new">For information on how to work with other Azure technologies, see the following:</target>
+        </trans-unit>
+        <trans-unit id="59a40c9f-ea39-4ff8-8b97-b21189c16111" xml:space="preserve">
+          <source><bpt id="427fe409-4527-4f10-b286-980653e6ac97">&lt;linkText&gt;</bpt>Example topologies for Storm on HDInsight<ept id="427fe409-4527-4f10-b286-980653e6ac97">&lt;/linkText&gt;</ept><bpt id="427fe409-4527-4f10-b286-980653e6ac97">&lt;title&gt;</bpt><ept id="427fe409-4527-4f10-b286-980653e6ac97">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="427fe409-4527-4f10-b286-980653e6ac97">&lt;linkText&gt;</bpt>Example topologies for Storm on HDInsight<ept id="427fe409-4527-4f10-b286-980653e6ac97">&lt;/linkText&gt;</ept><bpt id="427fe409-4527-4f10-b286-980653e6ac97">&lt;title&gt;</bpt><ept id="427fe409-4527-4f10-b286-980653e6ac97">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

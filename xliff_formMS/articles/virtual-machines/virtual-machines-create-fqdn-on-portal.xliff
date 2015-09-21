@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f99b39a4-7a09-4031-ba75-9f96d3384a9e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f99b39a4-7a09-4031-ba75-9f96d3384a9e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="687feaaf-5e74-4c97-a43a-29f3fdfc147e">
+        <trans-unit id="1cccf2e6-6be1-4dc0-80bb-a2a003da0cc0" xml:space="preserve">
+          <source>Create an FQDN for a VM in the Azure Portal | Microsoft Azure</source>
+          <target state="new">Create an FQDN for a VM in the Azure Portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7cb3cf69-b6f7-48ca-a083-136633049997" xml:space="preserve">
+          <source>Learn how to create a Fully Qualified Domain Name or FQDN for a Resource Manager based virtual machine in the Azure preview portal.</source>
+          <target state="new">Learn how to create a Fully Qualified Domain Name or FQDN for a Resource Manager based virtual machine in the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="13b614ac-cf1a-44d2-b43a-352798a3356c" xml:space="preserve">
+          <source>When you create a virtual machine in the <bpt id="00058168-5a8c-43db-979f-afaa30e0b534">&lt;linkText&gt;</bpt>Azure preview portal<ept id="00058168-5a8c-43db-979f-afaa30e0b534">&lt;/linkText&gt;</ept><bpt id="00058168-5a8c-43db-979f-afaa30e0b534">&lt;title&gt;</bpt><ept id="00058168-5a8c-43db-979f-afaa30e0b534">&lt;/title&gt;</ept> using the <bpt id="0a2e1969-a5bc-494a-843c-13d1dd152371">&lt;strong&gt;</bpt>Resource Manager<ept id="0a2e1969-a5bc-494a-843c-13d1dd152371">&lt;/strong&gt;</ept> deployment model, the portal creates a public IP resource for the virtual machine.</source>
+          <target state="new">When you create a virtual machine in the <bpt id="00058168-5a8c-43db-979f-afaa30e0b534">&lt;linkText&gt;</bpt>Azure preview portal<ept id="00058168-5a8c-43db-979f-afaa30e0b534">&lt;/linkText&gt;</ept><bpt id="00058168-5a8c-43db-979f-afaa30e0b534">&lt;title&gt;</bpt><ept id="00058168-5a8c-43db-979f-afaa30e0b534">&lt;/title&gt;</ept> using the <bpt id="0a2e1969-a5bc-494a-843c-13d1dd152371">&lt;strong&gt;</bpt>Resource Manager<ept id="0a2e1969-a5bc-494a-843c-13d1dd152371">&lt;/strong&gt;</ept> deployment model, the portal creates a public IP resource for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="973ddc7c-44e6-4974-abc4-72eb358e02f5" xml:space="preserve">
+          <source>You can use this IP address to remotely access the virtual machine.</source>
+          <target state="new">You can use this IP address to remotely access the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="bd8354fe-2803-4b21-a72e-286db7fd7a0a" xml:space="preserve">
+          <source>However, the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully<bpt id="c537d91c-eb9c-4bdc-80fe-7ce4184382e6">&lt;em&gt;</bpt>qualified<ept id="c537d91c-eb9c-4bdc-80fe-7ce4184382e6">&lt;/em&gt;</ept>domain_name) or FQDN, by default.</source>
+          <target state="new">However, the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully<bpt id="c537d91c-eb9c-4bdc-80fe-7ce4184382e6">&lt;em&gt;</bpt>qualified<ept id="c537d91c-eb9c-4bdc-80fe-7ce4184382e6">&lt;/em&gt;</ept>domain_name) or FQDN, by default.</target>
+        </trans-unit>
+        <trans-unit id="eb67e166-ac92-47e2-a19e-c990dcdd61af" xml:space="preserve">
+          <source>Since it would be easier to remember and use an FQDN instead of an IP address, this article demonstrates how you can add one to your virtual machine.</source>
+          <target state="new">Since it would be easier to remember and use an FQDN instead of an IP address, this article demonstrates how you can add one to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e4dbfd7b-2e07-40bd-8c97-574683cfc7e8" xml:space="preserve">
+          <source>The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images, using the <bpt id="b7a99cc4-0d5d-4c0d-b3f7-56fe18415a7d">&lt;strong&gt;</bpt>Resource Manager<ept id="b7a99cc4-0d5d-4c0d-b3f7-56fe18415a7d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images, using the <bpt id="b7a99cc4-0d5d-4c0d-b3f7-56fe18415a7d">&lt;strong&gt;</bpt>Resource Manager<ept id="b7a99cc4-0d5d-4c0d-b3f7-56fe18415a7d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc330c21-ed7f-422d-996c-ce211750cdb3" xml:space="preserve">
+          <source>Follow these steps once your virtual machine starts running.</source>
+          <target state="new">Follow these steps once your virtual machine starts running.</target>
+        </trans-unit>
+        <trans-unit id="06b570fe-2373-475b-a3bb-77afeaa919b1" xml:space="preserve">
+          <source>View the virtual machine settings on the portal and click on the Public IP address.</source>
+          <target state="new">View the virtual machine settings on the portal and click on the Public IP address.</target>
+        </trans-unit>
+        <trans-unit id="adb02322-2375-45a4-a7d6-4fee0716a155" xml:space="preserve">
+          <source><bpt id="849ec4d6-491e-426f-8ffd-a45dfe2bce28">&lt;linkText&gt;</bpt>locate ip resource<ept id="849ec4d6-491e-426f-8ffd-a45dfe2bce28">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="849ec4d6-491e-426f-8ffd-a45dfe2bce28">&lt;linkText&gt;</bpt>locate ip resource<ept id="849ec4d6-491e-426f-8ffd-a45dfe2bce28">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06513fe8-02d2-43f1-84ae-bf50b3e8ae9a" xml:space="preserve">
+          <source><bpt id="e76db0d8-8a65-49aa-81ee-09d15297a641">&lt;strong&gt;</bpt>Dissociate<ept id="e76db0d8-8a65-49aa-81ee-09d15297a641">&lt;/strong&gt;</ept> the Public IP from the virtual machine.</source>
+          <target state="new"><bpt id="e76db0d8-8a65-49aa-81ee-09d15297a641">&lt;strong&gt;</bpt>Dissociate<ept id="e76db0d8-8a65-49aa-81ee-09d15297a641">&lt;/strong&gt;</ept> the Public IP from the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="aec76633-8abc-40b4-87c3-d4233f5d9ba2" xml:space="preserve">
+          <source>Note that it does not yet show a domain name.</source>
+          <target state="new">Note that it does not yet show a domain name.</target>
+        </trans-unit>
+        <trans-unit id="b5429018-09b1-4920-8c74-babb724b199c" xml:space="preserve">
+          <source>After you click on the <bpt id="cd7e7d2c-ace8-4a56-957e-4fe84f24560e">&lt;strong&gt;</bpt>Yes<ept id="cd7e7d2c-ace8-4a56-957e-4fe84f24560e">&lt;/strong&gt;</ept> button, it might take a few seconds before it completes the dissociation.</source>
+          <target state="new">After you click on the <bpt id="cd7e7d2c-ace8-4a56-957e-4fe84f24560e">&lt;strong&gt;</bpt>Yes<ept id="cd7e7d2c-ace8-4a56-957e-4fe84f24560e">&lt;/strong&gt;</ept> button, it might take a few seconds before it completes the dissociation.</target>
+        </trans-unit>
+        <trans-unit id="d8e9d7ba-9bdf-4f32-93be-b8f57294e87d" xml:space="preserve">
+          <source><bpt id="cdae3ccb-4635-46d1-ba4b-d4a1633a927a">&lt;linkText&gt;</bpt>dissociate ip resource<ept id="cdae3ccb-4635-46d1-ba4b-d4a1633a927a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cdae3ccb-4635-46d1-ba4b-d4a1633a927a">&lt;linkText&gt;</bpt>dissociate ip resource<ept id="cdae3ccb-4635-46d1-ba4b-d4a1633a927a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="051ab71c-f09e-4cb6-8b14-b9fb99db2019" xml:space="preserve">
+          <source>We will associate this Public IP with the virtual machine after the following steps.</source>
+          <target state="new">We will associate this Public IP with the virtual machine after the following steps.</target>
+        </trans-unit>
+        <trans-unit id="78b9252f-adc7-4506-acb9-e00f20e07f2e" xml:space="preserve">
+          <source>If the Public IP is a <bpt id="b730489b-1cce-4c77-87db-5174f94ef138">&lt;em&gt;</bpt>Dynamic Public IP<ept id="b730489b-1cce-4c77-87db-5174f94ef138">&lt;/em&gt;</ept>, then you will lose the IPV4 address and a new one will be assigned after the FQDN is configured.</source>
+          <target state="new">If the Public IP is a <bpt id="b730489b-1cce-4c77-87db-5174f94ef138">&lt;em&gt;</bpt>Dynamic Public IP<ept id="b730489b-1cce-4c77-87db-5174f94ef138">&lt;/em&gt;</ept>, then you will lose the IPV4 address and a new one will be assigned after the FQDN is configured.</target>
+        </trans-unit>
+        <trans-unit id="bbbb4743-33c3-47ba-a09b-40b69ace932e" xml:space="preserve">
+          <source>Once the <bpt id="e0904343-6b13-4aa1-9ad7-5765fe8ba678">&lt;strong&gt;</bpt>Dissociate<ept id="e0904343-6b13-4aa1-9ad7-5765fe8ba678">&lt;/strong&gt;</ept> button grays out, click the <bpt id="88e84cd8-9a70-4c31-859e-a41048d4800a">&lt;strong&gt;</bpt>All settings<ept id="88e84cd8-9a70-4c31-859e-a41048d4800a">&lt;/strong&gt;</ept> section of the Public IP and open the <bpt id="381d11b6-b5b8-4643-8744-c7e3b8baca6e">&lt;strong&gt;</bpt>Configuration<ept id="381d11b6-b5b8-4643-8744-c7e3b8baca6e">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Once the <bpt id="e0904343-6b13-4aa1-9ad7-5765fe8ba678">&lt;strong&gt;</bpt>Dissociate<ept id="e0904343-6b13-4aa1-9ad7-5765fe8ba678">&lt;/strong&gt;</ept> button grays out, click the <bpt id="88e84cd8-9a70-4c31-859e-a41048d4800a">&lt;strong&gt;</bpt>All settings<ept id="88e84cd8-9a70-4c31-859e-a41048d4800a">&lt;/strong&gt;</ept> section of the Public IP and open the <bpt id="381d11b6-b5b8-4643-8744-c7e3b8baca6e">&lt;strong&gt;</bpt>Configuration<ept id="381d11b6-b5b8-4643-8744-c7e3b8baca6e">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="dd5aaab4-c5d9-4453-bcfe-b8917e324e6d" xml:space="preserve">
+          <source>Enter the desired DNS name label.</source>
+          <target state="new">Enter the desired DNS name label.</target>
+        </trans-unit>
+        <trans-unit id="4a02e3de-3216-4a48-8110-98f902c36250" xml:space="preserve">
+          <source><bpt id="0e68ad08-dc7b-48df-b85c-ef750c706267">&lt;strong&gt;</bpt>Save<ept id="0e68ad08-dc7b-48df-b85c-ef750c706267">&lt;/strong&gt;</ept> this configuration.</source>
+          <target state="new"><bpt id="0e68ad08-dc7b-48df-b85c-ef750c706267">&lt;strong&gt;</bpt>Save<ept id="0e68ad08-dc7b-48df-b85c-ef750c706267">&lt;/strong&gt;</ept> this configuration.</target>
+        </trans-unit>
+        <trans-unit id="48a58bee-1bdc-4966-8e4b-252c2996bcc0" xml:space="preserve">
+          <source><bpt id="89d9c854-ec74-4c40-bf66-77f4ad0e36b1">&lt;linkText&gt;</bpt>enter dns name label<ept id="89d9c854-ec74-4c40-bf66-77f4ad0e36b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="89d9c854-ec74-4c40-bf66-77f4ad0e36b1">&lt;linkText&gt;</bpt>enter dns name label<ept id="89d9c854-ec74-4c40-bf66-77f4ad0e36b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b93e2e95-1535-482f-81a0-af776966d90c" xml:space="preserve">
+          <source>Go back to the virtual machine blade in the portal and click the <bpt id="c494f9eb-e677-43b6-9fc2-7ff691b99ba8">&lt;strong&gt;</bpt>All settings<ept id="c494f9eb-e677-43b6-9fc2-7ff691b99ba8">&lt;/strong&gt;</ept> for the virtual machine.</source>
+          <target state="new">Go back to the virtual machine blade in the portal and click the <bpt id="c494f9eb-e677-43b6-9fc2-7ff691b99ba8">&lt;strong&gt;</bpt>All settings<ept id="c494f9eb-e677-43b6-9fc2-7ff691b99ba8">&lt;/strong&gt;</ept> for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="2571abbc-655d-4010-85dc-bba6d08478cf" xml:space="preserve">
+          <source>Open the <bpt id="2a1caf6c-3dd4-4960-ad81-3601ff03ebe8">&lt;strong&gt;</bpt>Network interfaces<ept id="2a1caf6c-3dd4-4960-ad81-3601ff03ebe8">&lt;/strong&gt;</ept> tab and click on the Network interface resource associated with this virtual machine.</source>
+          <target state="new">Open the <bpt id="2a1caf6c-3dd4-4960-ad81-3601ff03ebe8">&lt;strong&gt;</bpt>Network interfaces<ept id="2a1caf6c-3dd4-4960-ad81-3601ff03ebe8">&lt;/strong&gt;</ept> tab and click on the Network interface resource associated with this virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="490268d4-025b-4077-a0ec-d1d51bce1928" xml:space="preserve">
+          <source>This will open the <bpt id="1e1b6571-97b3-4508-a2f2-990cd6c2b672">&lt;strong&gt;</bpt>Network interface<ept id="1e1b6571-97b3-4508-a2f2-990cd6c2b672">&lt;/strong&gt;</ept> blade in the portal.</source>
+          <target state="new">This will open the <bpt id="1e1b6571-97b3-4508-a2f2-990cd6c2b672">&lt;strong&gt;</bpt>Network interface<ept id="1e1b6571-97b3-4508-a2f2-990cd6c2b672">&lt;/strong&gt;</ept> blade in the portal.</target>
+        </trans-unit>
+        <trans-unit id="5cfc4829-576f-4a55-a9b2-633c44e53d4c" xml:space="preserve">
+          <source><bpt id="290206c3-f736-4d21-b49e-61b3f9f3cd1c">&lt;linkText&gt;</bpt>open network interface<ept id="290206c3-f736-4d21-b49e-61b3f9f3cd1c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="290206c3-f736-4d21-b49e-61b3f9f3cd1c">&lt;linkText&gt;</bpt>open network interface<ept id="290206c3-f736-4d21-b49e-61b3f9f3cd1c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50a93036-13b1-4ecf-a11c-28f7fe558b6c" xml:space="preserve">
+          <source>Note that the <bpt id="4dea9aa2-f5a1-4faf-ba53-91d5483028c0">&lt;strong&gt;</bpt>Public IP address<ept id="4dea9aa2-f5a1-4faf-ba53-91d5483028c0">&lt;/strong&gt;</ept> field for the Network interface is blank.</source>
+          <target state="new">Note that the <bpt id="4dea9aa2-f5a1-4faf-ba53-91d5483028c0">&lt;strong&gt;</bpt>Public IP address<ept id="4dea9aa2-f5a1-4faf-ba53-91d5483028c0">&lt;/strong&gt;</ept> field for the Network interface is blank.</target>
+        </trans-unit>
+        <trans-unit id="c4d28bff-4277-4148-9826-799bd5f249eb" xml:space="preserve">
+          <source>Click the <bpt id="568090f4-d74d-425c-ba6b-b633178c57ff">&lt;strong&gt;</bpt>All settings<ept id="568090f4-d74d-425c-ba6b-b633178c57ff">&lt;/strong&gt;</ept> section for this Network interface and open the <bpt id="c1c41ef2-af7f-482c-a8ed-90978f26d8c2">&lt;strong&gt;</bpt>IP addresses<ept id="c1c41ef2-af7f-482c-a8ed-90978f26d8c2">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="568090f4-d74d-425c-ba6b-b633178c57ff">&lt;strong&gt;</bpt>All settings<ept id="568090f4-d74d-425c-ba6b-b633178c57ff">&lt;/strong&gt;</ept> section for this Network interface and open the <bpt id="c1c41ef2-af7f-482c-a8ed-90978f26d8c2">&lt;strong&gt;</bpt>IP addresses<ept id="c1c41ef2-af7f-482c-a8ed-90978f26d8c2">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="a1b0054c-23cb-41ce-9c1a-b34c61c19a6d" xml:space="preserve">
+          <source>On the <bpt id="dcd034a4-55fa-4943-8608-d46238edb320">&lt;strong&gt;</bpt>IP addresses<ept id="dcd034a4-55fa-4943-8608-d46238edb320">&lt;/strong&gt;</ept> blade, click <bpt id="7791534b-0237-4768-9710-af80950cc0dc">&lt;strong&gt;</bpt>Enabled<ept id="7791534b-0237-4768-9710-af80950cc0dc">&lt;/strong&gt;</ept> for the <bpt id="59d9ca75-f6b2-4cb2-9d42-82f07646e506">&lt;strong&gt;</bpt>Public IP address<ept id="59d9ca75-f6b2-4cb2-9d42-82f07646e506">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">On the <bpt id="dcd034a4-55fa-4943-8608-d46238edb320">&lt;strong&gt;</bpt>IP addresses<ept id="dcd034a4-55fa-4943-8608-d46238edb320">&lt;/strong&gt;</ept> blade, click <bpt id="7791534b-0237-4768-9710-af80950cc0dc">&lt;strong&gt;</bpt>Enabled<ept id="7791534b-0237-4768-9710-af80950cc0dc">&lt;/strong&gt;</ept> for the <bpt id="59d9ca75-f6b2-4cb2-9d42-82f07646e506">&lt;strong&gt;</bpt>Public IP address<ept id="59d9ca75-f6b2-4cb2-9d42-82f07646e506">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="5ca26e22-c77e-4f2e-bdca-f95d6a19a018" xml:space="preserve">
+          <source>Select the <bpt id="d568d2e5-c6a0-41c9-9978-71c7343f86b3">&lt;strong&gt;</bpt>IP address Configure required settings<ept id="d568d2e5-c6a0-41c9-9978-71c7343f86b3">&lt;/strong&gt;</ept> tab and select the default IP that you had dissociated earlier.</source>
+          <target state="new">Select the <bpt id="d568d2e5-c6a0-41c9-9978-71c7343f86b3">&lt;strong&gt;</bpt>IP address Configure required settings<ept id="d568d2e5-c6a0-41c9-9978-71c7343f86b3">&lt;/strong&gt;</ept> tab and select the default IP that you had dissociated earlier.</target>
+        </trans-unit>
+        <trans-unit id="456c3c5c-0561-493b-bc45-5a480aed5f8b" xml:space="preserve">
+          <source>Click <bpt id="eddcc75f-9fe2-4e4f-97b3-28eb658ab118">&lt;strong&gt;</bpt>Save<ept id="eddcc75f-9fe2-4e4f-97b3-28eb658ab118">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="eddcc75f-9fe2-4e4f-97b3-28eb658ab118">&lt;strong&gt;</bpt>Save<ept id="eddcc75f-9fe2-4e4f-97b3-28eb658ab118">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f3ad8bc-2399-4012-97e3-d70be3b6d008" xml:space="preserve">
+          <source>It might take a few moments to add back the IP resource.</source>
+          <target state="new">It might take a few moments to add back the IP resource.</target>
+        </trans-unit>
+        <trans-unit id="a15eae69-456f-4cfe-ac1d-eace8aa60e67" xml:space="preserve">
+          <source><bpt id="a76def29-16d4-4deb-ae7f-ecfc09df6fc9">&lt;linkText&gt;</bpt>configure IP resource<ept id="a76def29-16d4-4deb-ae7f-ecfc09df6fc9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a76def29-16d4-4deb-ae7f-ecfc09df6fc9">&lt;linkText&gt;</bpt>configure IP resource<ept id="a76def29-16d4-4deb-ae7f-ecfc09df6fc9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6e80056-cffe-4969-b948-26dd4e205a61" xml:space="preserve">
+          <source>Close all other blades and go back to the <bpt id="d202e89d-9d6d-40cb-ac73-319c34925cc4">&lt;strong&gt;</bpt>Virtual Machine<ept id="d202e89d-9d6d-40cb-ac73-319c34925cc4">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Close all other blades and go back to the <bpt id="d202e89d-9d6d-40cb-ac73-319c34925cc4">&lt;strong&gt;</bpt>Virtual Machine<ept id="d202e89d-9d6d-40cb-ac73-319c34925cc4">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="cb2a6d92-a926-4780-9853-56de4ce6ca32" xml:space="preserve">
+          <source>Click on the Public IP resource in the settings.</source>
+          <target state="new">Click on the Public IP resource in the settings.</target>
+        </trans-unit>
+        <trans-unit id="c7fe755c-5e47-4fc0-8dfc-a3678324aa59" xml:space="preserve">
+          <source>Notice that the Public IP blade now shows the desired FQDN as the <bpt id="6fd46de9-d1c8-40e2-8ce5-a2bda9b2bcaf">&lt;strong&gt;</bpt>DNS name<ept id="6fd46de9-d1c8-40e2-8ce5-a2bda9b2bcaf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice that the Public IP blade now shows the desired FQDN as the <bpt id="6fd46de9-d1c8-40e2-8ce5-a2bda9b2bcaf">&lt;strong&gt;</bpt>DNS name<ept id="6fd46de9-d1c8-40e2-8ce5-a2bda9b2bcaf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb2fc148-f4aa-4a7f-ab3e-9a606073450a" xml:space="preserve">
+          <source><bpt id="4f254650-6b75-43c9-b836-007104310d51">&lt;linkText&gt;</bpt>FQDN is created<ept id="4f254650-6b75-43c9-b836-007104310d51">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4f254650-6b75-43c9-b836-007104310d51">&lt;linkText&gt;</bpt>FQDN is created<ept id="4f254650-6b75-43c9-b836-007104310d51">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e94bac85-54d7-415a-ac1b-a3921d98f5aa" xml:space="preserve">
+          <source>You can now connect remotely to the virtual machine using this DNS name.</source>
+          <target state="new">You can now connect remotely to the virtual machine using this DNS name.</target>
+        </trans-unit>
+        <trans-unit id="90bfa4d6-fa4b-4dc9-ab4a-4f165aec9649" xml:space="preserve">
+          <source>For example, use <bpt id="2389dad5-18df-48d6-adaf-a38943d29882">&lt;code&gt;</bpt>SSH adminuser@testdnslabel.eastus.cloudapp.azure.com<ept id="2389dad5-18df-48d6-adaf-a38943d29882">&lt;/code&gt;</ept>, when connecting to a Linux virtual machine which has the fully qualified domain name of <bpt id="13a06684-649e-4619-a84f-296298c4a403">&lt;code&gt;</bpt>testdnslabel.eastus.cloudapp.azure.com<ept id="13a06684-649e-4619-a84f-296298c4a403">&lt;/code&gt;</ept> and user name of <bpt id="bc7c20c4-d5c5-4d7b-a276-bfee85bfe796">&lt;code&gt;</bpt>adminuser<ept id="bc7c20c4-d5c5-4d7b-a276-bfee85bfe796">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, use <bpt id="2389dad5-18df-48d6-adaf-a38943d29882">&lt;code&gt;</bpt>SSH adminuser@testdnslabel.eastus.cloudapp.azure.com<ept id="2389dad5-18df-48d6-adaf-a38943d29882">&lt;/code&gt;</ept>, when connecting to a Linux virtual machine which has the fully qualified domain name of <bpt id="13a06684-649e-4619-a84f-296298c4a403">&lt;code&gt;</bpt>testdnslabel.eastus.cloudapp.azure.com<ept id="13a06684-649e-4619-a84f-296298c4a403">&lt;/code&gt;</ept> and user name of <bpt id="bc7c20c4-d5c5-4d7b-a276-bfee85bfe796">&lt;code&gt;</bpt>adminuser<ept id="bc7c20c4-d5c5-4d7b-a276-bfee85bfe796">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="369164f7-71f6-4b83-b96d-43a3b0dbf9c6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="369164f7-71f6-4b83-b96d-43a3b0dbf9c6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e69b1336-0032-4697-b936-92e72a1bd318">
+        <trans-unit id="bf1e8b6c-16fa-43d4-838c-b6a4f51cd948" xml:space="preserve">
+          <source>Send push notifications to authenticated Windows Phone Silverlight app users | Microsoft Azure</source>
+          <target state="new">Send push notifications to authenticated Windows Phone Silverlight app users | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ac32268e-9366-4b02-b8ff-625d31c6e681" xml:space="preserve">
+          <source>Learn how to send push notifications from Azure Mobile Services to specific users of your Windows Phone Silverlight app.</source>
+          <target state="new">Learn how to send push notifications from Azure Mobile Services to specific users of your Windows Phone Silverlight app.</target>
+        </trans-unit>
+        <trans-unit id="90fa03c7-2582-4215-9085-6b6151673cb5" xml:space="preserve">
+          <source><bpt id="02b8f554-a497-4723-98ad-97ea88d04470">&lt;token href="../../includes/mobile-services-selector-push-users.md"&gt;</bpt><ept id="02b8f554-a497-4723-98ad-97ea88d04470">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="02b8f554-a497-4723-98ad-97ea88d04470">&lt;token href="../../includes/mobile-services-selector-push-users.md"&gt;</bpt><ept id="02b8f554-a497-4723-98ad-97ea88d04470">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="028ab3f1-f254-4d5f-849d-0d407d286041" xml:space="preserve">
+          <source>This topic shows you how to send push notifications to an authenticate user on any registered device.</source>
+          <target state="new">This topic shows you how to send push notifications to an authenticate user on any registered device.</target>
+        </trans-unit>
+        <trans-unit id="8674a8ac-98c0-482d-ad4b-3787356c6f8a" xml:space="preserve">
+          <source>Unlike the previous [Add push notifications to your app] tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications.</source>
+          <target state="new">Unlike the previous [Add push notifications to your app] tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications.</target>
+        </trans-unit>
+        <trans-unit id="cc7472ae-be65-42d8-9c12-f2f5afd86083" xml:space="preserve">
+          <source>Registration is also modified to add a tag based on the assigned user ID.</source>
+          <target state="new">Registration is also modified to add a tag based on the assigned user ID.</target>
+        </trans-unit>
+        <trans-unit id="33bd4c44-b18e-43b7-9723-30f182409db0" xml:space="preserve">
+          <source>Finally, the server script is updated to send the notification only to the authenticated user instead of to all registrations.</source>
+          <target state="new">Finally, the server script is updated to send the notification only to the authenticated user instead of to all registrations.</target>
+        </trans-unit>
+        <trans-unit id="7249265e-8843-4432-aac2-d4561ac33035" xml:space="preserve">
+          <source>This tutorial supports Windows Phone 8.0 and Windows Phone 8.1 Silverlight apps.</source>
+          <target state="new">This tutorial supports Windows Phone 8.0 and Windows Phone 8.1 Silverlight apps.</target>
+        </trans-unit>
+        <trans-unit id="a8afcb4d-4bbc-4092-8307-6f666c43712b" xml:space="preserve">
+          <source>For Windows Phone 8.1 Store apps, see the <bpt id="a5f0865d-9e77-4cfb-af37-1f5d19297d08">&lt;linkText&gt;</bpt>Windows Store version of this topic<ept id="a5f0865d-9e77-4cfb-af37-1f5d19297d08">&lt;/linkText&gt;</ept><bpt id="a5f0865d-9e77-4cfb-af37-1f5d19297d08">&lt;title&gt;</bpt><ept id="a5f0865d-9e77-4cfb-af37-1f5d19297d08">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Windows Phone 8.1 Store apps, see the <bpt id="a5f0865d-9e77-4cfb-af37-1f5d19297d08">&lt;linkText&gt;</bpt>Windows Store version of this topic<ept id="a5f0865d-9e77-4cfb-af37-1f5d19297d08">&lt;/linkText&gt;</ept><bpt id="a5f0865d-9e77-4cfb-af37-1f5d19297d08">&lt;title&gt;</bpt><ept id="a5f0865d-9e77-4cfb-af37-1f5d19297d08">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07f28113-1801-4909-8a93-7f25b4e90c53" xml:space="preserve">
+          <source>Before you start this tutorial, you must have already completed these Mobile Services tutorials:</source>
+          <target state="new">Before you start this tutorial, you must have already completed these Mobile Services tutorials:</target>
+        </trans-unit>
+        <trans-unit id="4828c580-523a-4692-9063-37b9c98d3dc7" xml:space="preserve">
+          <source>[Add authentication to your app]&lt;br/&gt;Adds a login requirement to the TodoList sample app.</source>
+          <target state="new">[Add authentication to your app]&lt;br/&gt;Adds a login requirement to the TodoList sample app.</target>
+        </trans-unit>
+        <trans-unit id="31f66027-836a-4ac3-b814-59330beea2ce" xml:space="preserve">
+          <source>[Add push notifications to your app]&lt;br/&gt;Configures the TodoList sample app for push notifications by using Notification Hubs.</source>
+          <target state="new">[Add push notifications to your app]&lt;br/&gt;Configures the TodoList sample app for push notifications by using Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="23ee88d3-5be8-45a1-8bbb-e2f5ae2c67c5" xml:space="preserve">
+          <source>After you have completed both tutorials, you can prevent unauthenticated users from registering for push notifications from your mobile service.</source>
+          <target state="new">After you have completed both tutorials, you can prevent unauthenticated users from registering for push notifications from your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="7de1ead2-c6de-41fb-ab78-4dd762363cad" xml:space="preserve">
+          <source><bpt id="f927e11c-b941-428c-b3bc-45a04ab4a715">&lt;token href="../../includes/mobile-services-javascript-backend-push-notifications-app-users.md"&gt;</bpt><ept id="f927e11c-b941-428c-b3bc-45a04ab4a715">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="f927e11c-b941-428c-b3bc-45a04ab4a715">&lt;token href="../../includes/mobile-services-javascript-backend-push-notifications-app-users.md"&gt;</bpt><ept id="f927e11c-b941-428c-b3bc-45a04ab4a715">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="1d0ceac1-1a78-431c-9410-6bae58b0b4e6" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;5.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;5.</target>
+        </trans-unit>
+        <trans-unit id="10eac981-9ac4-4c67-9154-d0068db653eb" xml:space="preserve">
+          <source>Replace the insert function with the following code, then click <bpt id="f9595abf-ecdc-481c-9f34-897a90f6669e">&lt;strong&gt;</bpt>Save<ept id="f9595abf-ecdc-481c-9f34-897a90f6669e">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Replace the insert function with the following code, then click <bpt id="f9595abf-ecdc-481c-9f34-897a90f6669e">&lt;strong&gt;</bpt>Save<ept id="f9595abf-ecdc-481c-9f34-897a90f6669e">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="4b2521a6-e9cb-4936-80e5-4ec9dfcecd98" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;This insert script uses the user ID tag to send a push notification (with the text of the inserted item) to all Windows Phone (MPNS) app registrations created by the logged-in user.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;This insert script uses the user ID tag to send a push notification (with the text of the inserted item) to all Windows Phone (MPNS) app registrations created by the logged-in user.</target>
+        </trans-unit>
+        <trans-unit id="1ec1eeb4-0d65-4146-b060-8d82f9c274f6" xml:space="preserve">
+          <source><bpt id="9ac22523-3c02-472b-8d29-c0d41595636e">&lt;token href="../../includes/mobile-services-windows-phone-push-notifications-app-users.md"&gt;</bpt><ept id="9ac22523-3c02-472b-8d29-c0d41595636e">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="9ac22523-3c02-472b-8d29-c0d41595636e">&lt;token href="../../includes/mobile-services-windows-phone-push-notifications-app-users.md"&gt;</bpt><ept id="9ac22523-3c02-472b-8d29-c0d41595636e">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="9d8788a0-ff48-4d18-ae0b-3fdb87367c05" xml:space="preserve">
+          <source><bpt id="60094f0e-f4d1-42f1-8ad8-768b9cda0682">&lt;token href="../../includes/mobile-services-windows-test-push-users.md"&gt;</bpt><ept id="60094f0e-f4d1-42f1-8ad8-768b9cda0682">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="60094f0e-f4d1-42f1-8ad8-768b9cda0682">&lt;token href="../../includes/mobile-services-windows-test-push-users.md"&gt;</bpt><ept id="60094f0e-f4d1-42f1-8ad8-768b9cda0682">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d7a35fa2-8a42-458f-a1ea-8881b6685cc1" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="25ee094f-2977-44c7-8836-1776b52ea5b5" xml:space="preserve">
+          <source>#update-app</source>
+          <target state="new">#update-app</target>
+        </trans-unit>
+        <trans-unit id="2ff31b34-41b5-4502-8bb7-da7806921b61" xml:space="preserve">
+          <source>#test</source>
+          <target state="new">#test</target>
+        </trans-unit>
+        <trans-unit id="6baccedb-7e2d-41b8-be2f-5a8172ba5d7e" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="3e949838-a8d4-443b-8b15-0cd716a95f4b" xml:space="preserve">
+          <source>mobile-services-windows-phone-get-started-users.md</source>
+          <target state="new">mobile-services-windows-phone-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="a4f21f6e-c236-4efd-b130-fb694fb15e6b" xml:space="preserve">
+          <source>mobile-services-javascript-backend-windows-phone-get-started-push.md</source>
+          <target state="new">mobile-services-javascript-backend-windows-phone-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="38a1c494-7ced-48bb-9919-ba7a101dd57d" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="dbf0acc0-b799-483f-868a-57e86f13a07e" />
+    </body>
+  </file>
+</xliff>

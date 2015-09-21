@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ed13d0f4-37f4-481c-8532-04c667c3fc59" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ed13d0f4-37f4-481c-8532-04c667c3fc59" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="062d3759-63f7-4a6a-a3fa-c4c7c1223525">
+        <trans-unit id="cdefbe8e-a173-40c0-9e94-b1c682157112" xml:space="preserve">
+          <source>How to Manage Federation Certificates in Azure AD | Microsoft Azure</source>
+          <target state="new">How to Manage Federation Certificates in Azure AD | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3c6a21d8-e37d-48b0-98d4-f81c3ede6c84" xml:space="preserve">
+          <source>Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.</source>
+          <target state="new">Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.</target>
+        </trans-unit>
+        <trans-unit id="aa333ed2-e488-4ac6-8588-662753bf7f78" xml:space="preserve">
+          <source>This article covers common questions related to the certificates that Azure Active Directory creates in order to establish federated single sign-on (SSO) to your SaaS applications.</source>
+          <target state="new">This article covers common questions related to the certificates that Azure Active Directory creates in order to establish federated single sign-on (SSO) to your SaaS applications.</target>
+        </trans-unit>
+        <trans-unit id="1acf5925-bb80-4ed9-a3bd-73de43d3bd79" xml:space="preserve">
+          <source>This article is only relevant to apps that are configured to use <bpt id="0a140ec7-4a8a-407f-8471-b15493c57f1a">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="0a140ec7-4a8a-407f-8471-b15493c57f1a">&lt;/strong&gt;</ept>, as shown in the example below:</source>
+          <target state="new">This article is only relevant to apps that are configured to use <bpt id="0a140ec7-4a8a-407f-8471-b15493c57f1a">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="0a140ec7-4a8a-407f-8471-b15493c57f1a">&lt;/strong&gt;</ept>, as shown in the example below:</target>
+        </trans-unit>
+        <trans-unit id="a61175ef-0292-49c4-a423-70c093d0f1b6" xml:space="preserve">
+          <source><bpt id="3c3616f0-f83d-4080-830a-367ee9dbc1b7">&lt;linkText&gt;</bpt>Azure AD Single Sign-On<ept id="3c3616f0-f83d-4080-830a-367ee9dbc1b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3c3616f0-f83d-4080-830a-367ee9dbc1b7">&lt;linkText&gt;</bpt>Azure AD Single Sign-On<ept id="3c3616f0-f83d-4080-830a-367ee9dbc1b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aee4d1ff-b918-4771-bce1-f36c92f5bf9d" xml:space="preserve">
+          <source>By default, certificates are set to expire after two years.</source>
+          <target state="new">By default, certificates are set to expire after two years.</target>
+        </trans-unit>
+        <trans-unit id="b96f821e-f6e3-4f08-b7ca-dc9dd6283711" xml:space="preserve">
+          <source>You can choose a different expiration date for your certificate by following the steps below.</source>
+          <target state="new">You can choose a different expiration date for your certificate by following the steps below.</target>
+        </trans-unit>
+        <trans-unit id="960dcfab-1cb0-40f3-89c3-dcdda06d2b20" xml:space="preserve">
+          <source>The included screenshots use ServiceNow for the sake of example, but these steps can apply to any federated SaaS app.</source>
+          <target state="new">The included screenshots use ServiceNow for the sake of example, but these steps can apply to any federated SaaS app.</target>
+        </trans-unit>
+        <trans-unit id="a5b8119c-2ac3-48b8-b043-b0b740bc2734" xml:space="preserve">
+          <source>In Azure Active Directory, on the Quick Start page for your application, click on <bpt id="1494e66e-4213-4ca8-8a79-e7231767f758">&lt;strong&gt;</bpt>Configure single sign-on<ept id="1494e66e-4213-4ca8-8a79-e7231767f758">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Azure Active Directory, on the Quick Start page for your application, click on <bpt id="1494e66e-4213-4ca8-8a79-e7231767f758">&lt;strong&gt;</bpt>Configure single sign-on<ept id="1494e66e-4213-4ca8-8a79-e7231767f758">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6de50e46-beb7-4d73-b315-bd8dbdc53c5c" xml:space="preserve">
+          <source><bpt id="41209855-e446-4d8c-8652-b27c5c9c9875">&lt;linkText&gt;</bpt>Open the SSO configuration wizard.<ept id="41209855-e446-4d8c-8652-b27c5c9c9875">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="41209855-e446-4d8c-8652-b27c5c9c9875">&lt;linkText&gt;</bpt>Open the SSO configuration wizard.<ept id="41209855-e446-4d8c-8652-b27c5c9c9875">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8728315a-5cf7-4be9-9b5f-8db0dad5453b" xml:space="preserve">
+          <source>Select <bpt id="bc4a1c5c-f160-415f-ba07-349ed0f90b24">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="bc4a1c5c-f160-415f-ba07-349ed0f90b24">&lt;/strong&gt;</ept>, and then click <bpt id="2849d74f-b7fc-4ca3-95ec-c94174f2e294">&lt;strong&gt;</bpt>Next<ept id="2849d74f-b7fc-4ca3-95ec-c94174f2e294">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="bc4a1c5c-f160-415f-ba07-349ed0f90b24">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="bc4a1c5c-f160-415f-ba07-349ed0f90b24">&lt;/strong&gt;</ept>, and then click <bpt id="2849d74f-b7fc-4ca3-95ec-c94174f2e294">&lt;strong&gt;</bpt>Next<ept id="2849d74f-b7fc-4ca3-95ec-c94174f2e294">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cba821ed-89ad-4937-8ebd-1a2df3e000a4" xml:space="preserve">
+          <source>Type in the <bpt id="642f825d-b7ac-4128-815c-3d540fb9f2d8">&lt;strong&gt;</bpt>Sign-On URL<ept id="642f825d-b7ac-4128-815c-3d540fb9f2d8">&lt;/strong&gt;</ept> of your application, and select the checkbox for <bpt id="9af2a126-f1a0-4c50-8e9d-372edda88b51">&lt;strong&gt;</bpt>Configure the certificate used for federated single sign-on<ept id="9af2a126-f1a0-4c50-8e9d-372edda88b51">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type in the <bpt id="642f825d-b7ac-4128-815c-3d540fb9f2d8">&lt;strong&gt;</bpt>Sign-On URL<ept id="642f825d-b7ac-4128-815c-3d540fb9f2d8">&lt;/strong&gt;</ept> of your application, and select the checkbox for <bpt id="9af2a126-f1a0-4c50-8e9d-372edda88b51">&lt;strong&gt;</bpt>Configure the certificate used for federated single sign-on<ept id="9af2a126-f1a0-4c50-8e9d-372edda88b51">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="426bdc78-7e57-4bc7-824e-e3ba98f4a4c2" xml:space="preserve">
+          <source>Then click <bpt id="34157cec-51af-41d4-97ac-982a2b78320c">&lt;strong&gt;</bpt>Next<ept id="34157cec-51af-41d4-97ac-982a2b78320c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="34157cec-51af-41d4-97ac-982a2b78320c">&lt;strong&gt;</bpt>Next<ept id="34157cec-51af-41d4-97ac-982a2b78320c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4cdf114-45b6-4161-8694-7f8b71d21d83" xml:space="preserve">
+          <source><bpt id="9930135c-d9b7-4f49-9d96-95ddc70f8ec2">&lt;linkText&gt;</bpt>Azure AD Single Sign-On<ept id="9930135c-d9b7-4f49-9d96-95ddc70f8ec2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9930135c-d9b7-4f49-9d96-95ddc70f8ec2">&lt;linkText&gt;</bpt>Azure AD Single Sign-On<ept id="9930135c-d9b7-4f49-9d96-95ddc70f8ec2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c41b5b65-b8e8-4211-88c9-f35848b52af7" xml:space="preserve">
+          <source>On the next page, select <bpt id="27a230a5-7ecb-4716-bb87-4bdf4a0bb378">&lt;strong&gt;</bpt>Generate a new certificate<ept id="27a230a5-7ecb-4716-bb87-4bdf4a0bb378">&lt;/strong&gt;</ept>, and select how long you'd like the certificate to be valid for.</source>
+          <target state="new">On the next page, select <bpt id="27a230a5-7ecb-4716-bb87-4bdf4a0bb378">&lt;strong&gt;</bpt>Generate a new certificate<ept id="27a230a5-7ecb-4716-bb87-4bdf4a0bb378">&lt;/strong&gt;</ept>, and select how long you'd like the certificate to be valid for.</target>
+        </trans-unit>
+        <trans-unit id="4f622d1a-4d2f-4dd6-83ed-10a1dc600ddf" xml:space="preserve">
+          <source>Then click <bpt id="d902018e-90ab-4ee0-8fa7-3b89aa609ca3">&lt;strong&gt;</bpt>Next<ept id="d902018e-90ab-4ee0-8fa7-3b89aa609ca3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="d902018e-90ab-4ee0-8fa7-3b89aa609ca3">&lt;strong&gt;</bpt>Next<ept id="d902018e-90ab-4ee0-8fa7-3b89aa609ca3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9555930-ebcd-4566-97e2-a1026c904707" xml:space="preserve">
+          <source><bpt id="7d1b5834-e3c5-42a0-ada7-2b81c5dd079b">&lt;linkText&gt;</bpt>Generate a new certificate<ept id="7d1b5834-e3c5-42a0-ada7-2b81c5dd079b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7d1b5834-e3c5-42a0-ada7-2b81c5dd079b">&lt;linkText&gt;</bpt>Generate a new certificate<ept id="7d1b5834-e3c5-42a0-ada7-2b81c5dd079b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="948f7f28-ab94-4daa-ad40-730944a32ae9" xml:space="preserve">
+          <source>Next, click on <bpt id="d0365f97-be54-4ebc-b4d1-9aa60991edea">&lt;strong&gt;</bpt>Download certificate<ept id="d0365f97-be54-4ebc-b4d1-9aa60991edea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Next, click on <bpt id="d0365f97-be54-4ebc-b4d1-9aa60991edea">&lt;strong&gt;</bpt>Download certificate<ept id="d0365f97-be54-4ebc-b4d1-9aa60991edea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63a9000c-0b5a-48d3-af3c-9f9d4c720fef" xml:space="preserve">
+          <source>To learn how to upload the certificate to your particular SaaS app, click <bpt id="ec43b9eb-2baa-4440-a396-2272989f977a">&lt;strong&gt;</bpt>View configuration instructions<ept id="ec43b9eb-2baa-4440-a396-2272989f977a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To learn how to upload the certificate to your particular SaaS app, click <bpt id="ec43b9eb-2baa-4440-a396-2272989f977a">&lt;strong&gt;</bpt>View configuration instructions<ept id="ec43b9eb-2baa-4440-a396-2272989f977a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47b4ff31-5cda-4993-806b-0e12c86dd2e9" xml:space="preserve">
+          <source><bpt id="70ada7e6-f129-4d67-a2dd-17d914905af4">&lt;linkText&gt;</bpt>Download then upload the certificate<ept id="70ada7e6-f129-4d67-a2dd-17d914905af4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="70ada7e6-f129-4d67-a2dd-17d914905af4">&lt;linkText&gt;</bpt>Download then upload the certificate<ept id="70ada7e6-f129-4d67-a2dd-17d914905af4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07585f86-7b8e-4ace-b4d3-cd1e3b335965" xml:space="preserve">
+          <source>The certificate won't be enabled until you select the confirmation checkbox at the bottom of the dialog and then press submit.</source>
+          <target state="new">The certificate won't be enabled until you select the confirmation checkbox at the bottom of the dialog and then press submit.</target>
+        </trans-unit>
+        <trans-unit id="1e31cbfc-2292-40cf-bc9c-32decc893527" xml:space="preserve">
+          <source>The renewal steps shown below should ideally result in no significant downtime for your users.</source>
+          <target state="new">The renewal steps shown below should ideally result in no significant downtime for your users.</target>
+        </trans-unit>
+        <trans-unit id="2a2f343f-a915-4804-9cf3-04e96b5c2613" xml:space="preserve">
+          <source>The screenshots used in this section feature Salesforce as an example, but these steps can apply to any federated SaaS app.</source>
+          <target state="new">The screenshots used in this section feature Salesforce as an example, but these steps can apply to any federated SaaS app.</target>
+        </trans-unit>
+        <trans-unit id="5f012ed4-030f-4f0b-ad6e-c2ed180f7580" xml:space="preserve">
+          <source>In Azure Active Directory, on the Quick Start page for your application, click on <bpt id="b2e1c311-f8a0-4b6a-964b-4b97dc9264d6">&lt;strong&gt;</bpt>Configure Single Sign-On<ept id="b2e1c311-f8a0-4b6a-964b-4b97dc9264d6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Azure Active Directory, on the Quick Start page for your application, click on <bpt id="b2e1c311-f8a0-4b6a-964b-4b97dc9264d6">&lt;strong&gt;</bpt>Configure Single Sign-On<ept id="b2e1c311-f8a0-4b6a-964b-4b97dc9264d6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f3685ed-0a81-49c3-a905-f2fdd8dacc80" xml:space="preserve">
+          <source><bpt id="092283b9-25a5-44e1-be93-016d8b462c8c">&lt;linkText&gt;</bpt>Open the SSO configuration wizard<ept id="092283b9-25a5-44e1-be93-016d8b462c8c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="092283b9-25a5-44e1-be93-016d8b462c8c">&lt;linkText&gt;</bpt>Open the SSO configuration wizard<ept id="092283b9-25a5-44e1-be93-016d8b462c8c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be27a3ee-7d67-41a1-9a6a-9d1b9b1db0a9" xml:space="preserve">
+          <source>On the first page of the dialog, <bpt id="47a58b08-0282-4ed2-8e85-06941675b46b">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="47a58b08-0282-4ed2-8e85-06941675b46b">&lt;/strong&gt;</ept> should already be selected, so click <bpt id="acc79287-1e2c-4d8c-bc4e-af0ae436ff3c">&lt;strong&gt;</bpt>Next<ept id="acc79287-1e2c-4d8c-bc4e-af0ae436ff3c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the first page of the dialog, <bpt id="47a58b08-0282-4ed2-8e85-06941675b46b">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="47a58b08-0282-4ed2-8e85-06941675b46b">&lt;/strong&gt;</ept> should already be selected, so click <bpt id="acc79287-1e2c-4d8c-bc4e-af0ae436ff3c">&lt;strong&gt;</bpt>Next<ept id="acc79287-1e2c-4d8c-bc4e-af0ae436ff3c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c06b93df-ebe8-45ac-9f72-3d2a354af324" xml:space="preserve">
+          <source>On the second page, select the checkbox for <bpt id="20e7edd6-32c9-453d-b807-1e6f6cfb2685">&lt;strong&gt;</bpt>Configure the certificate used for federated single sign-on<ept id="20e7edd6-32c9-453d-b807-1e6f6cfb2685">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the second page, select the checkbox for <bpt id="20e7edd6-32c9-453d-b807-1e6f6cfb2685">&lt;strong&gt;</bpt>Configure the certificate used for federated single sign-on<ept id="20e7edd6-32c9-453d-b807-1e6f6cfb2685">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10a828ab-3a48-4aa4-aacb-54cb6c82930e" xml:space="preserve">
+          <source>Then click <bpt id="0d90e499-39a4-4ab1-b875-864127eaa52b">&lt;strong&gt;</bpt>Next<ept id="0d90e499-39a4-4ab1-b875-864127eaa52b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="0d90e499-39a4-4ab1-b875-864127eaa52b">&lt;strong&gt;</bpt>Next<ept id="0d90e499-39a4-4ab1-b875-864127eaa52b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="28bf905f-f338-4c47-918e-69d1887c6961" xml:space="preserve">
+          <source><bpt id="fb07ebb7-b907-4012-9e3c-bd7bd948c241">&lt;linkText&gt;</bpt>Azure AD Single Sign-On<ept id="fb07ebb7-b907-4012-9e3c-bd7bd948c241">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb07ebb7-b907-4012-9e3c-bd7bd948c241">&lt;linkText&gt;</bpt>Azure AD Single Sign-On<ept id="fb07ebb7-b907-4012-9e3c-bd7bd948c241">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7bd3e11-a2a1-48f6-b469-48edc211cdc5" xml:space="preserve">
+          <source>On the next page, select <bpt id="6fab46bc-c99b-4c1f-bc9c-e15062cc531d">&lt;strong&gt;</bpt>Generate a new certificate<ept id="6fab46bc-c99b-4c1f-bc9c-e15062cc531d">&lt;/strong&gt;</ept>, and select how long you'd like the new certificate to be valid for.</source>
+          <target state="new">On the next page, select <bpt id="6fab46bc-c99b-4c1f-bc9c-e15062cc531d">&lt;strong&gt;</bpt>Generate a new certificate<ept id="6fab46bc-c99b-4c1f-bc9c-e15062cc531d">&lt;/strong&gt;</ept>, and select how long you'd like the new certificate to be valid for.</target>
+        </trans-unit>
+        <trans-unit id="57e4c682-7cd1-460b-a2a0-2ecbca1e9920" xml:space="preserve">
+          <source>Then click <bpt id="45a9f855-5092-4bad-8d5b-2a5a1f57f1de">&lt;strong&gt;</bpt>Next<ept id="45a9f855-5092-4bad-8d5b-2a5a1f57f1de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="45a9f855-5092-4bad-8d5b-2a5a1f57f1de">&lt;strong&gt;</bpt>Next<ept id="45a9f855-5092-4bad-8d5b-2a5a1f57f1de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec50743c-9260-4b4f-bc3b-886b748d763a" xml:space="preserve">
+          <source><bpt id="62955fe2-fb1f-4675-a439-633cbb4e45ea">&lt;linkText&gt;</bpt>Generate a new certificate<ept id="62955fe2-fb1f-4675-a439-633cbb4e45ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62955fe2-fb1f-4675-a439-633cbb4e45ea">&lt;linkText&gt;</bpt>Generate a new certificate<ept id="62955fe2-fb1f-4675-a439-633cbb4e45ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5185d7d8-21d0-47ff-ae28-c19e9db94f5b" xml:space="preserve">
+          <source>Click on <bpt id="43601266-020f-4e61-9092-f5aab492bd33">&lt;strong&gt;</bpt>Download certificate<ept id="43601266-020f-4e61-9092-f5aab492bd33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click on <bpt id="43601266-020f-4e61-9092-f5aab492bd33">&lt;strong&gt;</bpt>Download certificate<ept id="43601266-020f-4e61-9092-f5aab492bd33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b194d03-e44b-4c51-9401-ee1ef663e61f" xml:space="preserve">
+          <source>To successfully rewnew your certificate, you must perform the following two steps:</source>
+          <target state="new">To successfully rewnew your certificate, you must perform the following two steps:</target>
+        </trans-unit>
+        <trans-unit id="adcd2695-3e2c-4087-b705-9b714571b0ff" xml:space="preserve">
+          <source>Upload the new certificate to the SaaS app's single sign-on configuration screen.</source>
+          <target state="new">Upload the new certificate to the SaaS app's single sign-on configuration screen.</target>
+        </trans-unit>
+        <trans-unit id="21f17a49-ff15-4ff5-99e6-f6de79a95bab" xml:space="preserve">
+          <source>To learn how to do this for your particular SaaS app, click <bpt id="4e00ba83-1cba-4361-a774-10ff8d1b33c4">&lt;strong&gt;</bpt>View configuration instructions<ept id="4e00ba83-1cba-4361-a774-10ff8d1b33c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To learn how to do this for your particular SaaS app, click <bpt id="4e00ba83-1cba-4361-a774-10ff8d1b33c4">&lt;strong&gt;</bpt>View configuration instructions<ept id="4e00ba83-1cba-4361-a774-10ff8d1b33c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e26e301-31ea-4819-8caa-ce87cca57daf" xml:space="preserve">
+          <source>In Azure AD, Select the confirmation checkbox at the bottom of the dialog to enable the new certificate, and then click <bpt id="9f5a30ee-486a-4e38-b654-01c14f88b7ef">&lt;strong&gt;</bpt>Next<ept id="9f5a30ee-486a-4e38-b654-01c14f88b7ef">&lt;/strong&gt;</ept> to submit.</source>
+          <target state="new">In Azure AD, Select the confirmation checkbox at the bottom of the dialog to enable the new certificate, and then click <bpt id="9f5a30ee-486a-4e38-b654-01c14f88b7ef">&lt;strong&gt;</bpt>Next<ept id="9f5a30ee-486a-4e38-b654-01c14f88b7ef">&lt;/strong&gt;</ept> to submit.</target>
+        </trans-unit>
+        <trans-unit id="6f53215e-73e0-44b6-afad-24c60ab1d703" xml:space="preserve">
+          <source>Single sign-on to the app will be disabled the moment either one of these two steps is completed, but it will be enabled again once the second step is completed.</source>
+          <target state="new">Single sign-on to the app will be disabled the moment either one of these two steps is completed, but it will be enabled again once the second step is completed.</target>
+        </trans-unit>
+        <trans-unit id="b0f045aa-edfe-4dd5-b082-e00d4d7beb48" xml:space="preserve">
+          <source>Therefore, to minimize downtime, please prepare to accomplish both steps within a short amount of time from each other.</source>
+          <target state="new">Therefore, to minimize downtime, please prepare to accomplish both steps within a short amount of time from each other.</target>
+        </trans-unit>
+        <trans-unit id="a7e99326-68cd-4659-b9b4-189311d53e8c" xml:space="preserve">
+          <source><bpt id="38518f10-6bca-4efa-824f-7ef48a4d0887">&lt;linkText&gt;</bpt>Download then upload the certificate<ept id="38518f10-6bca-4efa-824f-7ef48a4d0887">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="38518f10-6bca-4efa-824f-7ef48a4d0887">&lt;linkText&gt;</bpt>Download then upload the certificate<ept id="38518f10-6bca-4efa-824f-7ef48a4d0887">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="137c405f-708d-483f-a2b7-d024bc75dc51" xml:space="preserve">
+          <source><bpt id="6071a3d4-c2db-46f0-9441-de257203cffc">&lt;linkText&gt;</bpt>Application Access and Single Sign-On in Azure AD<ept id="6071a3d4-c2db-46f0-9441-de257203cffc">&lt;/linkText&gt;</ept><bpt id="6071a3d4-c2db-46f0-9441-de257203cffc">&lt;title&gt;</bpt><ept id="6071a3d4-c2db-46f0-9441-de257203cffc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6071a3d4-c2db-46f0-9441-de257203cffc">&lt;linkText&gt;</bpt>Application Access and Single Sign-On in Azure AD<ept id="6071a3d4-c2db-46f0-9441-de257203cffc">&lt;/linkText&gt;</ept><bpt id="6071a3d4-c2db-46f0-9441-de257203cffc">&lt;title&gt;</bpt><ept id="6071a3d4-c2db-46f0-9441-de257203cffc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

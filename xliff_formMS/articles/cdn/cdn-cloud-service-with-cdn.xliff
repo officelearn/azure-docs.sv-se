@@ -1,0 +1,844 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e9dd8684-b98e-43e8-b7e1-27fa9e710061" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e9dd8684-b98e-43e8-b7e1-27fa9e710061" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7db2e058-f51d-4454-b881-1bd33e424959">
+        <trans-unit id="94b4affa-cc0f-4da7-8f82-ac8d2dd23d10" xml:space="preserve">
+          <source>Integrate a cloud service with Azure CDN</source>
+          <target state="new">Integrate a cloud service with Azure CDN</target>
+        </trans-unit>
+        <trans-unit id="d3e9155b-a523-4f58-8ae0-c5013cacb767" xml:space="preserve">
+          <source>A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint</source>
+          <target state="new">A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint</target>
+        </trans-unit>
+        <trans-unit id="fa79cb7e-1eaf-426b-a207-8b1a04415dfe" xml:space="preserve">
+          <source>A cloud service can be integrated with Azure CDN, serving any content from the cloud service's <bpt id="31781cfc-b01f-4fba-989c-008425e3f462">&lt;code&gt;</bpt>~/CDN<ept id="31781cfc-b01f-4fba-989c-008425e3f462">&lt;/code&gt;</ept> path.</source>
+          <target state="new">A cloud service can be integrated with Azure CDN, serving any content from the cloud service's <bpt id="31781cfc-b01f-4fba-989c-008425e3f462">&lt;code&gt;</bpt>~/CDN<ept id="31781cfc-b01f-4fba-989c-008425e3f462">&lt;/code&gt;</ept> path.</target>
+        </trans-unit>
+        <trans-unit id="6728a9f2-1120-4ae7-b278-44d5b3f8316f" xml:space="preserve">
+          <source>This approach gives you the following advantages:</source>
+          <target state="new">This approach gives you the following advantages:</target>
+        </trans-unit>
+        <trans-unit id="0ac0e3d9-6f09-450e-a42c-cb0b14393575" xml:space="preserve">
+          <source>Easily deploy and update images, scripts, and stylesheets in your cloud service's project directories</source>
+          <target state="new">Easily deploy and update images, scripts, and stylesheets in your cloud service's project directories</target>
+        </trans-unit>
+        <trans-unit id="9784bee0-299d-4876-85d5-350ac8f6cc0c" xml:space="preserve">
+          <source>Easily upgrade the NuGet packages in your cloud service, such as jQuery or Bootstrap versions </source>
+          <target state="new">Easily upgrade the NuGet packages in your cloud service, such as jQuery or Bootstrap versions </target>
+        </trans-unit>
+        <trans-unit id="f18bf7b2-d4fc-40e0-8155-70324ec4e5ff" xml:space="preserve">
+          <source>Manage your Web application and your CDN-served content all from the same Visual Studio interface</source>
+          <target state="new">Manage your Web application and your CDN-served content all from the same Visual Studio interface</target>
+        </trans-unit>
+        <trans-unit id="08106d26-df9f-4d51-8fd2-7a0242c2dbd3" xml:space="preserve">
+          <source>Unified deployment workflow for your Web application and your CDN-served content</source>
+          <target state="new">Unified deployment workflow for your Web application and your CDN-served content</target>
+        </trans-unit>
+        <trans-unit id="e23b7081-b5cd-4f87-8cc8-dbc692287726" xml:space="preserve">
+          <source>Integrate ASP.NET bundling and minification with Azure CDN</source>
+          <target state="new">Integrate ASP.NET bundling and minification with Azure CDN</target>
+        </trans-unit>
+        <trans-unit id="1b2fede8-85ac-4858-99c3-c4c57bd85585" xml:space="preserve">
+          <source>In this tutorial, you will learn how to:</source>
+          <target state="new">In this tutorial, you will learn how to:</target>
+        </trans-unit>
+        <trans-unit id="569591c5-a6f5-4f97-bd15-6dbfc05885a1" xml:space="preserve">
+          <source><bpt id="049e7973-b0de-49e5-989d-3e7de04e3f3a">&lt;linkText&gt;</bpt>Integrate an Azure CDN endpoint with your cloud service and serve static content in your Web pages from Azure CDN<ept id="049e7973-b0de-49e5-989d-3e7de04e3f3a">&lt;/linkText&gt;</ept><bpt id="049e7973-b0de-49e5-989d-3e7de04e3f3a">&lt;title&gt;</bpt><ept id="049e7973-b0de-49e5-989d-3e7de04e3f3a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="049e7973-b0de-49e5-989d-3e7de04e3f3a">&lt;linkText&gt;</bpt>Integrate an Azure CDN endpoint with your cloud service and serve static content in your Web pages from Azure CDN<ept id="049e7973-b0de-49e5-989d-3e7de04e3f3a">&lt;/linkText&gt;</ept><bpt id="049e7973-b0de-49e5-989d-3e7de04e3f3a">&lt;title&gt;</bpt><ept id="049e7973-b0de-49e5-989d-3e7de04e3f3a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e12c991-0a29-462c-87ad-d2989a05e5a9" xml:space="preserve">
+          <source><bpt id="74650f18-6b5e-49bd-a766-30e46475204a">&lt;linkText&gt;</bpt>Configure cache settings for static content in your cloud service<ept id="74650f18-6b5e-49bd-a766-30e46475204a">&lt;/linkText&gt;</ept><bpt id="74650f18-6b5e-49bd-a766-30e46475204a">&lt;title&gt;</bpt><ept id="74650f18-6b5e-49bd-a766-30e46475204a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="74650f18-6b5e-49bd-a766-30e46475204a">&lt;linkText&gt;</bpt>Configure cache settings for static content in your cloud service<ept id="74650f18-6b5e-49bd-a766-30e46475204a">&lt;/linkText&gt;</ept><bpt id="74650f18-6b5e-49bd-a766-30e46475204a">&lt;title&gt;</bpt><ept id="74650f18-6b5e-49bd-a766-30e46475204a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3e31524-000c-43dd-9213-4b240ed2710d" xml:space="preserve">
+          <source><bpt id="bd49e80c-a0e6-424d-a37d-4e9c1fb95291">&lt;linkText&gt;</bpt>Serve content from controller actions through Azure CDN<ept id="bd49e80c-a0e6-424d-a37d-4e9c1fb95291">&lt;/linkText&gt;</ept><bpt id="bd49e80c-a0e6-424d-a37d-4e9c1fb95291">&lt;title&gt;</bpt><ept id="bd49e80c-a0e6-424d-a37d-4e9c1fb95291">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bd49e80c-a0e6-424d-a37d-4e9c1fb95291">&lt;linkText&gt;</bpt>Serve content from controller actions through Azure CDN<ept id="bd49e80c-a0e6-424d-a37d-4e9c1fb95291">&lt;/linkText&gt;</ept><bpt id="bd49e80c-a0e6-424d-a37d-4e9c1fb95291">&lt;title&gt;</bpt><ept id="bd49e80c-a0e6-424d-a37d-4e9c1fb95291">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45404035-2014-4e01-af19-21ae7917b465" xml:space="preserve">
+          <source><bpt id="6239b160-9828-4102-a0f1-f900ce71cdf1">&lt;linkText&gt;</bpt>Serve bundled and minified content through Azure CDN while preserving the script debugging experience in Visual Studio<ept id="6239b160-9828-4102-a0f1-f900ce71cdf1">&lt;/linkText&gt;</ept><bpt id="6239b160-9828-4102-a0f1-f900ce71cdf1">&lt;title&gt;</bpt><ept id="6239b160-9828-4102-a0f1-f900ce71cdf1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6239b160-9828-4102-a0f1-f900ce71cdf1">&lt;linkText&gt;</bpt>Serve bundled and minified content through Azure CDN while preserving the script debugging experience in Visual Studio<ept id="6239b160-9828-4102-a0f1-f900ce71cdf1">&lt;/linkText&gt;</ept><bpt id="6239b160-9828-4102-a0f1-f900ce71cdf1">&lt;title&gt;</bpt><ept id="6239b160-9828-4102-a0f1-f900ce71cdf1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01b1ad93-ec0c-47d6-a592-dacea902ec85" xml:space="preserve">
+          <source><bpt id="8eb63910-c9e6-4ba4-83d1-9450b2dbb403">&lt;linkText&gt;</bpt>Configure fallback your scripts and CSS when your Azure CDN is offline<ept id="8eb63910-c9e6-4ba4-83d1-9450b2dbb403">&lt;/linkText&gt;</ept><bpt id="8eb63910-c9e6-4ba4-83d1-9450b2dbb403">&lt;title&gt;</bpt><ept id="8eb63910-c9e6-4ba4-83d1-9450b2dbb403">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="8eb63910-c9e6-4ba4-83d1-9450b2dbb403">&lt;linkText&gt;</bpt>Configure fallback your scripts and CSS when your Azure CDN is offline<ept id="8eb63910-c9e6-4ba4-83d1-9450b2dbb403">&lt;/linkText&gt;</ept><bpt id="8eb63910-c9e6-4ba4-83d1-9450b2dbb403">&lt;title&gt;</bpt><ept id="8eb63910-c9e6-4ba4-83d1-9450b2dbb403">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="0af058d4-7da2-4cc3-8100-47e341fb6883" xml:space="preserve">
+          <source>You will deploy a cloud service Web role using the default ASP.NET MVC template, add code to serve content from an integrated Azure CDN, such as an image, controller action results, and the default JavaScript and CSS files, and also write code to configure the fallback mechanism for bundles served in the event that the CDN is offline.</source>
+          <target state="new">You will deploy a cloud service Web role using the default ASP.NET MVC template, add code to serve content from an integrated Azure CDN, such as an image, controller action results, and the default JavaScript and CSS files, and also write code to configure the fallback mechanism for bundles served in the event that the CDN is offline.</target>
+        </trans-unit>
+        <trans-unit id="4babe23f-fdbf-43a5-a08c-269daf1d8e4c" xml:space="preserve">
+          <source>This tutorial has the following prerequisites:</source>
+          <target state="new">This tutorial has the following prerequisites:</target>
+        </trans-unit>
+        <trans-unit id="778f7bca-6053-4f4a-8ec8-bc6563446694" xml:space="preserve">
+          <source>An active <bpt id="87c46fe6-a7f3-4068-a52f-8b4fc41a9dc8">&lt;linkText&gt;</bpt>Microsoft Azure account<ept id="87c46fe6-a7f3-4068-a52f-8b4fc41a9dc8">&lt;/linkText&gt;</ept><bpt id="87c46fe6-a7f3-4068-a52f-8b4fc41a9dc8">&lt;title&gt;</bpt><ept id="87c46fe6-a7f3-4068-a52f-8b4fc41a9dc8">&lt;/title&gt;</ept></source>
+          <target state="new">An active <bpt id="87c46fe6-a7f3-4068-a52f-8b4fc41a9dc8">&lt;linkText&gt;</bpt>Microsoft Azure account<ept id="87c46fe6-a7f3-4068-a52f-8b4fc41a9dc8">&lt;/linkText&gt;</ept><bpt id="87c46fe6-a7f3-4068-a52f-8b4fc41a9dc8">&lt;title&gt;</bpt><ept id="87c46fe6-a7f3-4068-a52f-8b4fc41a9dc8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6418276d-ef9f-413a-ae9b-bc7178e0abff" xml:space="preserve">
+          <source>Visual Studio 2013 with <bpt id="abbdf79c-4f12-4d40-9819-c0f8b7ed3788">&lt;linkText&gt;</bpt>Azure SDK<ept id="abbdf79c-4f12-4d40-9819-c0f8b7ed3788">&lt;/linkText&gt;</ept><bpt id="abbdf79c-4f12-4d40-9819-c0f8b7ed3788">&lt;title&gt;</bpt><ept id="abbdf79c-4f12-4d40-9819-c0f8b7ed3788">&lt;/title&gt;</ept></source>
+          <target state="new">Visual Studio 2013 with <bpt id="abbdf79c-4f12-4d40-9819-c0f8b7ed3788">&lt;linkText&gt;</bpt>Azure SDK<ept id="abbdf79c-4f12-4d40-9819-c0f8b7ed3788">&lt;/linkText&gt;</ept><bpt id="abbdf79c-4f12-4d40-9819-c0f8b7ed3788">&lt;title&gt;</bpt><ept id="abbdf79c-4f12-4d40-9819-c0f8b7ed3788">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d189d3b3-ff52-4845-9a21-db4ad18dcd47" xml:space="preserve">
+          <source>You need an Azure account to complete this tutorial:</source>
+          <target state="new">You need an Azure account to complete this tutorial:</target>
+        </trans-unit>
+        <trans-unit id="64afcdbf-8d7a-475b-abfd-1b94d5f68feb" xml:space="preserve">
+          <source>You can <bpt id="e98e9d59-87f7-4a84-81e3-f436a140001d">&lt;linkText&gt;</bpt>open an Azure account for free<ept id="e98e9d59-87f7-4a84-81e3-f436a140001d">&lt;/linkText&gt;</ept><bpt id="e98e9d59-87f7-4a84-81e3-f436a140001d">&lt;title&gt;</bpt><ept id="e98e9d59-87f7-4a84-81e3-f436a140001d">&lt;/title&gt;</ept> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</source>
+          <target state="new">You can <bpt id="e98e9d59-87f7-4a84-81e3-f436a140001d">&lt;linkText&gt;</bpt>open an Azure account for free<ept id="e98e9d59-87f7-4a84-81e3-f436a140001d">&lt;/linkText&gt;</ept><bpt id="e98e9d59-87f7-4a84-81e3-f436a140001d">&lt;title&gt;</bpt><ept id="e98e9d59-87f7-4a84-81e3-f436a140001d">&lt;/title&gt;</ept> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</target>
+        </trans-unit>
+        <trans-unit id="0911ba99-35c1-473c-9d9c-40766a115eac" xml:space="preserve">
+          <source>You can <bpt id="6ef77dcb-958e-42a9-9988-da40b1dd728e">&lt;linkText&gt;</bpt>activate MSDN subscriber benefits<ept id="6ef77dcb-958e-42a9-9988-da40b1dd728e">&lt;/linkText&gt;</ept><bpt id="6ef77dcb-958e-42a9-9988-da40b1dd728e">&lt;title&gt;</bpt><ept id="6ef77dcb-958e-42a9-9988-da40b1dd728e">&lt;/title&gt;</ept> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</source>
+          <target state="new">You can <bpt id="6ef77dcb-958e-42a9-9988-da40b1dd728e">&lt;linkText&gt;</bpt>activate MSDN subscriber benefits<ept id="6ef77dcb-958e-42a9-9988-da40b1dd728e">&lt;/linkText&gt;</ept><bpt id="6ef77dcb-958e-42a9-9988-da40b1dd728e">&lt;title&gt;</bpt><ept id="6ef77dcb-958e-42a9-9988-da40b1dd728e">&lt;/title&gt;</ept> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</target>
+        </trans-unit>
+        <trans-unit id="4fbf3c27-fd02-44be-b785-a4aea6bffc05" xml:space="preserve">
+          <source><bpt id="407d8f97-6582-416b-8a5a-c6a74795e515">&lt;bookmark&gt;</bpt><ept id="407d8f97-6582-416b-8a5a-c6a74795e515">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="407d8f97-6582-416b-8a5a-c6a74795e515">&lt;bookmark&gt;</bpt><ept id="407d8f97-6582-416b-8a5a-c6a74795e515">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf20d439-1a41-4cdf-9d07-2158a0fe2870" xml:space="preserve">
+          <source>In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2013 to a cloud service Web role, and then integrate it with a new CDN endpoint.</source>
+          <target state="new">In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2013 to a cloud service Web role, and then integrate it with a new CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="e81c6c59-f6f3-4e92-b522-5b72522d4ba8" xml:space="preserve">
+          <source>Follow the instructions below:</source>
+          <target state="new">Follow the instructions below:</target>
+        </trans-unit>
+        <trans-unit id="f292dc71-bf6f-48b2-a1d0-7717111f7ce3" xml:space="preserve">
+          <source>In Visual Studio 2013, create a new Azure cloud service from the menu bar by going to <bpt id="1dc27adb-d6d5-4d15-99f5-0fc413064958">&lt;strong&gt;</bpt>File &gt; New &gt; Project &gt; Cloud &gt; Azure Cloud Service<ept id="1dc27adb-d6d5-4d15-99f5-0fc413064958">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio 2013, create a new Azure cloud service from the menu bar by going to <bpt id="1dc27adb-d6d5-4d15-99f5-0fc413064958">&lt;strong&gt;</bpt>File &gt; New &gt; Project &gt; Cloud &gt; Azure Cloud Service<ept id="1dc27adb-d6d5-4d15-99f5-0fc413064958">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6973669-7464-462f-a268-3b18b05b5e75" xml:space="preserve">
+          <source>Give it a name and click <bpt id="971e0afb-bd61-4745-a18e-8ddbe526b4e9">&lt;strong&gt;</bpt>OK<ept id="971e0afb-bd61-4745-a18e-8ddbe526b4e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Give it a name and click <bpt id="971e0afb-bd61-4745-a18e-8ddbe526b4e9">&lt;strong&gt;</bpt>OK<ept id="971e0afb-bd61-4745-a18e-8ddbe526b4e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b78e5a2d-aa82-4cec-af64-1e69a8128529" xml:space="preserve">
+          <source><bpt id="fcfbedad-886f-4bb3-9654-b40cf9373bfd">&lt;linkText&gt;</bpt><ept id="fcfbedad-886f-4bb3-9654-b40cf9373bfd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fcfbedad-886f-4bb3-9654-b40cf9373bfd">&lt;linkText&gt;</bpt><ept id="fcfbedad-886f-4bb3-9654-b40cf9373bfd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97e03d58-fe9d-4cd5-879c-cb739a914a15" xml:space="preserve">
+          <source>Select <bpt id="37e1e9c8-2167-4594-9809-32347e9a9e56">&lt;strong&gt;</bpt>ASP.NET Web Role<ept id="37e1e9c8-2167-4594-9809-32347e9a9e56">&lt;/strong&gt;</ept> and click the <bpt id="d5586921-7f9a-45fc-bafc-7b8325e1529f">&lt;strong&gt;</bpt>&gt;<ept id="d5586921-7f9a-45fc-bafc-7b8325e1529f">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Select <bpt id="37e1e9c8-2167-4594-9809-32347e9a9e56">&lt;strong&gt;</bpt>ASP.NET Web Role<ept id="37e1e9c8-2167-4594-9809-32347e9a9e56">&lt;/strong&gt;</ept> and click the <bpt id="d5586921-7f9a-45fc-bafc-7b8325e1529f">&lt;strong&gt;</bpt>&gt;<ept id="d5586921-7f9a-45fc-bafc-7b8325e1529f">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="6593062e-3359-4afd-80e7-7eb65600b054" xml:space="preserve">
+          <source>Click OK.</source>
+          <target state="new">Click OK.</target>
+        </trans-unit>
+        <trans-unit id="f54652c4-3b23-4f9d-b65f-467d6e610cdc" xml:space="preserve">
+          <source><bpt id="544082bb-200e-4e3f-9354-f94b2f5978b8">&lt;linkText&gt;</bpt><ept id="544082bb-200e-4e3f-9354-f94b2f5978b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="544082bb-200e-4e3f-9354-f94b2f5978b8">&lt;linkText&gt;</bpt><ept id="544082bb-200e-4e3f-9354-f94b2f5978b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50264cbe-9876-426b-8f7d-5a1c652a45b9" xml:space="preserve">
+          <source>Select <bpt id="da164b5b-3e12-4862-bb55-d147465da8b1">&lt;strong&gt;</bpt>MVC<ept id="da164b5b-3e12-4862-bb55-d147465da8b1">&lt;/strong&gt;</ept> and click <bpt id="32f26675-8bb1-4b17-a02f-e923c8f40d56">&lt;strong&gt;</bpt>OK<ept id="32f26675-8bb1-4b17-a02f-e923c8f40d56">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="da164b5b-3e12-4862-bb55-d147465da8b1">&lt;strong&gt;</bpt>MVC<ept id="da164b5b-3e12-4862-bb55-d147465da8b1">&lt;/strong&gt;</ept> and click <bpt id="32f26675-8bb1-4b17-a02f-e923c8f40d56">&lt;strong&gt;</bpt>OK<ept id="32f26675-8bb1-4b17-a02f-e923c8f40d56">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d7baa07-e66f-4c0b-80ec-f9d9523aabea" xml:space="preserve">
+          <source><bpt id="a83c59e6-90c3-45c9-a244-0448555e2a9e">&lt;linkText&gt;</bpt><ept id="a83c59e6-90c3-45c9-a244-0448555e2a9e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a83c59e6-90c3-45c9-a244-0448555e2a9e">&lt;linkText&gt;</bpt><ept id="a83c59e6-90c3-45c9-a244-0448555e2a9e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea6ce471-15d2-4d34-b297-7497e5d1cb64" xml:space="preserve">
+          <source>Now, publish this Web role to an Azure cloud service.</source>
+          <target state="new">Now, publish this Web role to an Azure cloud service.</target>
+        </trans-unit>
+        <trans-unit id="7b8e05c2-df9d-406a-9f26-a29e3a2dcce0" xml:space="preserve">
+          <source>Right-click the cloud service project and select <bpt id="c06f9d68-941c-428b-a346-4463ab2b09ed">&lt;strong&gt;</bpt>Publish<ept id="c06f9d68-941c-428b-a346-4463ab2b09ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the cloud service project and select <bpt id="c06f9d68-941c-428b-a346-4463ab2b09ed">&lt;strong&gt;</bpt>Publish<ept id="c06f9d68-941c-428b-a346-4463ab2b09ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9346ddcd-9deb-435b-8d3b-b522ad27c470" xml:space="preserve">
+          <source><bpt id="7b5820e8-d32d-4ace-912e-e936931cbcb7">&lt;linkText&gt;</bpt><ept id="7b5820e8-d32d-4ace-912e-e936931cbcb7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7b5820e8-d32d-4ace-912e-e936931cbcb7">&lt;linkText&gt;</bpt><ept id="7b5820e8-d32d-4ace-912e-e936931cbcb7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37898329-8194-4dc6-b2f7-2bff50057aba" xml:space="preserve">
+          <source>If you have not yet signed into Microsoft Azure, click the <bpt id="0ada0d48-edcf-4441-ab30-1f1640d16e1e">&lt;strong&gt;</bpt>Sign In<ept id="0ada0d48-edcf-4441-ab30-1f1640d16e1e">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">If you have not yet signed into Microsoft Azure, click the <bpt id="0ada0d48-edcf-4441-ab30-1f1640d16e1e">&lt;strong&gt;</bpt>Sign In<ept id="0ada0d48-edcf-4441-ab30-1f1640d16e1e">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="c9b7c035-da1a-4077-bcdf-20967d10d2c7" xml:space="preserve">
+          <source><bpt id="7cbad140-f573-457d-9b30-0a2d2ebd0134">&lt;linkText&gt;</bpt><ept id="7cbad140-f573-457d-9b30-0a2d2ebd0134">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7cbad140-f573-457d-9b30-0a2d2ebd0134">&lt;linkText&gt;</bpt><ept id="7cbad140-f573-457d-9b30-0a2d2ebd0134">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0cd96036-dddc-486d-ad47-736b9f33485a" xml:space="preserve">
+          <source>In the sign-in page, sign in with the Microsoft account you used to activate your Azure account.</source>
+          <target state="new">In the sign-in page, sign in with the Microsoft account you used to activate your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="58bcbb49-a11a-40ce-8f98-a1224c980073" xml:space="preserve">
+          <source>Once you're signed in, click <bpt id="18594253-5ae7-4ace-9e82-b9d9830629aa">&lt;strong&gt;</bpt>Next<ept id="18594253-5ae7-4ace-9e82-b9d9830629aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you're signed in, click <bpt id="18594253-5ae7-4ace-9e82-b9d9830629aa">&lt;strong&gt;</bpt>Next<ept id="18594253-5ae7-4ace-9e82-b9d9830629aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62293859-295d-489a-8085-2463ecb777c0" xml:space="preserve">
+          <source><bpt id="d67f9af2-1950-4223-a35d-30e4f0551d48">&lt;linkText&gt;</bpt><ept id="d67f9af2-1950-4223-a35d-30e4f0551d48">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d67f9af2-1950-4223-a35d-30e4f0551d48">&lt;linkText&gt;</bpt><ept id="d67f9af2-1950-4223-a35d-30e4f0551d48">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01e279b8-eb4a-4fd9-8ed1-3c6a79bc4c2d" xml:space="preserve">
+          <source>Assuming that you haven't created a cloud service or storage account, Visual Studio will help you create both.</source>
+          <target state="new">Assuming that you haven't created a cloud service or storage account, Visual Studio will help you create both.</target>
+        </trans-unit>
+        <trans-unit id="35f13912-cd0b-4df6-86fd-be6f40191900" xml:space="preserve">
+          <source>In the <bpt id="3ab5e281-3648-49eb-bc98-0a2b88d4f048">&lt;strong&gt;</bpt>Create Cloud Service and Account<ept id="3ab5e281-3648-49eb-bc98-0a2b88d4f048">&lt;/strong&gt;</ept> dialog, type the desired service name.</source>
+          <target state="new">In the <bpt id="3ab5e281-3648-49eb-bc98-0a2b88d4f048">&lt;strong&gt;</bpt>Create Cloud Service and Account<ept id="3ab5e281-3648-49eb-bc98-0a2b88d4f048">&lt;/strong&gt;</ept> dialog, type the desired service name.</target>
+        </trans-unit>
+        <trans-unit id="6cf8ee24-4263-4916-a568-f477a1821958" xml:space="preserve">
+          <source>Then, click <bpt id="7f36665f-fe62-4178-8c15-a4e4597cc50e">&lt;strong&gt;</bpt>Create<ept id="7f36665f-fe62-4178-8c15-a4e4597cc50e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, click <bpt id="7f36665f-fe62-4178-8c15-a4e4597cc50e">&lt;strong&gt;</bpt>Create<ept id="7f36665f-fe62-4178-8c15-a4e4597cc50e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa39415b-bee3-4703-b63b-89ea4f7da998" xml:space="preserve">
+          <source><bpt id="8ed0dba8-47a0-4876-b32c-b3d4d13dc6d9">&lt;linkText&gt;</bpt><ept id="8ed0dba8-47a0-4876-b32c-b3d4d13dc6d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8ed0dba8-47a0-4876-b32c-b3d4d13dc6d9">&lt;linkText&gt;</bpt><ept id="8ed0dba8-47a0-4876-b32c-b3d4d13dc6d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d29656b-dbf2-48a9-9ac5-4b7f505e428a" xml:space="preserve">
+          <source>In the publish settings page, verify the configuration and click <bpt id="a95aed21-4f06-4c58-b7ec-d01631e539d7">&lt;strong&gt;</bpt>Publish<ept id="a95aed21-4f06-4c58-b7ec-d01631e539d7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the publish settings page, verify the configuration and click <bpt id="a95aed21-4f06-4c58-b7ec-d01631e539d7">&lt;strong&gt;</bpt>Publish<ept id="a95aed21-4f06-4c58-b7ec-d01631e539d7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d594ac2-616a-40ad-87f4-587fbb7f6983" xml:space="preserve">
+          <source><bpt id="d912b830-e645-4cbf-b438-02b19bd8173f">&lt;linkText&gt;</bpt><ept id="d912b830-e645-4cbf-b438-02b19bd8173f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d912b830-e645-4cbf-b438-02b19bd8173f">&lt;linkText&gt;</bpt><ept id="d912b830-e645-4cbf-b438-02b19bd8173f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf4f08b7-1197-45f2-8d18-04e5133bc2c2" xml:space="preserve">
+          <source>The publishing process for cloud services takes a long time.</source>
+          <target state="new">The publishing process for cloud services takes a long time.</target>
+        </trans-unit>
+        <trans-unit id="5a3ce3e3-4a7c-4595-9a24-864bfa821a29" xml:space="preserve">
+          <source>The Enable Web Deploy for all roles option can make debugging your cloud service much quicker by providing fast (but temporary) updates to your Web roles.</source>
+          <target state="new">The Enable Web Deploy for all roles option can make debugging your cloud service much quicker by providing fast (but temporary) updates to your Web roles.</target>
+        </trans-unit>
+        <trans-unit id="2d829c0c-f1bf-41a7-bca8-095f12ceaaf3" xml:space="preserve">
+          <source>For more information on this option, see <bpt id="d0134025-f0a8-49a0-ba87-11e0ca649938">&lt;linkText&gt;</bpt>Publishing a Cloud Service using the Azure Tools<ept id="d0134025-f0a8-49a0-ba87-11e0ca649938">&lt;/linkText&gt;</ept><bpt id="d0134025-f0a8-49a0-ba87-11e0ca649938">&lt;title&gt;</bpt><ept id="d0134025-f0a8-49a0-ba87-11e0ca649938">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on this option, see <bpt id="d0134025-f0a8-49a0-ba87-11e0ca649938">&lt;linkText&gt;</bpt>Publishing a Cloud Service using the Azure Tools<ept id="d0134025-f0a8-49a0-ba87-11e0ca649938">&lt;/linkText&gt;</ept><bpt id="d0134025-f0a8-49a0-ba87-11e0ca649938">&lt;title&gt;</bpt><ept id="d0134025-f0a8-49a0-ba87-11e0ca649938">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fde2b0e9-2f2d-4a26-a00a-e37273581d18" xml:space="preserve">
+          <source>When the <bpt id="bbb01179-7c7e-4011-ac7c-e49aafc3ec53">&lt;strong&gt;</bpt>Microsoft Azure Activity Log<ept id="bbb01179-7c7e-4011-ac7c-e49aafc3ec53">&lt;/strong&gt;</ept> shows that publishing status is <bpt id="2073b4c5-045a-468d-abf4-c85890476bc5">&lt;strong&gt;</bpt>Completed<ept id="2073b4c5-045a-468d-abf4-c85890476bc5">&lt;/strong&gt;</ept>, you will create a CDN endpoint that's integrated with this cloud service.</source>
+          <target state="new">When the <bpt id="bbb01179-7c7e-4011-ac7c-e49aafc3ec53">&lt;strong&gt;</bpt>Microsoft Azure Activity Log<ept id="bbb01179-7c7e-4011-ac7c-e49aafc3ec53">&lt;/strong&gt;</ept> shows that publishing status is <bpt id="2073b4c5-045a-468d-abf4-c85890476bc5">&lt;strong&gt;</bpt>Completed<ept id="2073b4c5-045a-468d-abf4-c85890476bc5">&lt;/strong&gt;</ept>, you will create a CDN endpoint that's integrated with this cloud service.</target>
+        </trans-unit>
+        <trans-unit id="69659197-ebc9-4b16-a595-577cad2d91ca" xml:space="preserve">
+          <source>To create a CDN endpoint, log into your <bpt id="3ca94cd5-0cff-40a3-9dd0-7c71a663b51d">&lt;linkText&gt;</bpt>Azure management portal<ept id="3ca94cd5-0cff-40a3-9dd0-7c71a663b51d">&lt;/linkText&gt;</ept><bpt id="3ca94cd5-0cff-40a3-9dd0-7c71a663b51d">&lt;title&gt;</bpt><ept id="3ca94cd5-0cff-40a3-9dd0-7c71a663b51d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a CDN endpoint, log into your <bpt id="3ca94cd5-0cff-40a3-9dd0-7c71a663b51d">&lt;linkText&gt;</bpt>Azure management portal<ept id="3ca94cd5-0cff-40a3-9dd0-7c71a663b51d">&lt;/linkText&gt;</ept><bpt id="3ca94cd5-0cff-40a3-9dd0-7c71a663b51d">&lt;title&gt;</bpt><ept id="3ca94cd5-0cff-40a3-9dd0-7c71a663b51d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7fbf4583-6662-4820-a0ba-7d88ce332c8b" xml:space="preserve">
+          <source>Click <bpt id="a548fd6b-32bd-456d-8ade-93575c80fa95">&lt;strong&gt;</bpt>New<ept id="a548fd6b-32bd-456d-8ade-93575c80fa95">&lt;/strong&gt;</ept> &gt; <bpt id="72fc2faa-e54f-41e9-9857-044f84166c07">&lt;strong&gt;</bpt>App Services<ept id="72fc2faa-e54f-41e9-9857-044f84166c07">&lt;/strong&gt;</ept> &gt; <bpt id="32d07aac-e1a6-4552-9df3-9a214b142536">&lt;strong&gt;</bpt>CDN<ept id="32d07aac-e1a6-4552-9df3-9a214b142536">&lt;/strong&gt;</ept> &gt; <bpt id="94ae21b3-2e57-40f4-b606-56f854c722eb">&lt;strong&gt;</bpt>Quick Create<ept id="94ae21b3-2e57-40f4-b606-56f854c722eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a548fd6b-32bd-456d-8ade-93575c80fa95">&lt;strong&gt;</bpt>New<ept id="a548fd6b-32bd-456d-8ade-93575c80fa95">&lt;/strong&gt;</ept> &gt; <bpt id="72fc2faa-e54f-41e9-9857-044f84166c07">&lt;strong&gt;</bpt>App Services<ept id="72fc2faa-e54f-41e9-9857-044f84166c07">&lt;/strong&gt;</ept> &gt; <bpt id="32d07aac-e1a6-4552-9df3-9a214b142536">&lt;strong&gt;</bpt>CDN<ept id="32d07aac-e1a6-4552-9df3-9a214b142536">&lt;/strong&gt;</ept> &gt; <bpt id="94ae21b3-2e57-40f4-b606-56f854c722eb">&lt;strong&gt;</bpt>Quick Create<ept id="94ae21b3-2e57-40f4-b606-56f854c722eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f138368-5db3-4059-bc99-4a834bbee8a2" xml:space="preserve">
+          <source>Select <bpt id="89f510bd-cf15-4d56-a7e0-938ea44c24b3">&lt;strong&gt;</bpt>http://*&amp;lt;servicename&gt;*.cloudapp.net/cdn/<ept id="89f510bd-cf15-4d56-a7e0-938ea44c24b3">&lt;/strong&gt;</ept> and click <bpt id="1143681d-3573-430d-a98a-c7ae6be9b1de">&lt;strong&gt;</bpt>Create<ept id="1143681d-3573-430d-a98a-c7ae6be9b1de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="89f510bd-cf15-4d56-a7e0-938ea44c24b3">&lt;strong&gt;</bpt>http://*&amp;lt;servicename&gt;*.cloudapp.net/cdn/<ept id="89f510bd-cf15-4d56-a7e0-938ea44c24b3">&lt;/strong&gt;</ept> and click <bpt id="1143681d-3573-430d-a98a-c7ae6be9b1de">&lt;strong&gt;</bpt>Create<ept id="1143681d-3573-430d-a98a-c7ae6be9b1de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c61cb3e0-44c0-4894-9659-0a52c2e69b79" xml:space="preserve">
+          <source><bpt id="cb358e08-17ed-40cb-b5c4-1bce6ce03b21">&lt;linkText&gt;</bpt><ept id="cb358e08-17ed-40cb-b5c4-1bce6ce03b21">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb358e08-17ed-40cb-b5c4-1bce6ce03b21">&lt;linkText&gt;</bpt><ept id="cb358e08-17ed-40cb-b5c4-1bce6ce03b21">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cbdfc45e-b5db-4d34-9419-c8bbdf2fd6e7" xml:space="preserve">
+          <source>Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with.</source>
+          <target state="new">Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with.</target>
+        </trans-unit>
+        <trans-unit id="742abf68-5a3a-4949-a040-1f830442a09f" xml:space="preserve">
+          <source>However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations.</source>
+          <target state="new">However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations.</target>
+        </trans-unit>
+        <trans-unit id="e893971a-adef-4d7f-857c-1f176006aa12" xml:space="preserve">
+          <source>Note that the CDN endpoint is tied to the path <bpt id="91e1c862-a6ad-4da4-a693-14c178b84246">&lt;strong&gt;</bpt>cdn/<ept id="91e1c862-a6ad-4da4-a693-14c178b84246">&lt;/strong&gt;</ept> of your cloud service.</source>
+          <target state="new">Note that the CDN endpoint is tied to the path <bpt id="91e1c862-a6ad-4da4-a693-14c178b84246">&lt;strong&gt;</bpt>cdn/<ept id="91e1c862-a6ad-4da4-a693-14c178b84246">&lt;/strong&gt;</ept> of your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="a3bd5595-2d58-4673-bc12-8ea45215118c" xml:space="preserve">
+          <source>You can either create a <bpt id="b1dbdbe4-b597-4c7d-a886-d60c57abd75a">&lt;strong&gt;</bpt>cdn<ept id="b1dbdbe4-b597-4c7d-a886-d60c57abd75a">&lt;/strong&gt;</ept> folder in your <bpt id="1bcc4d97-ef11-41e5-b225-c35be1d86c95">&lt;strong&gt;</bpt>WebRole1<ept id="1bcc4d97-ef11-41e5-b225-c35be1d86c95">&lt;/strong&gt;</ept> project, or you can use URL rewrite to strip all incoming links of this path.</source>
+          <target state="new">You can either create a <bpt id="b1dbdbe4-b597-4c7d-a886-d60c57abd75a">&lt;strong&gt;</bpt>cdn<ept id="b1dbdbe4-b597-4c7d-a886-d60c57abd75a">&lt;/strong&gt;</ept> folder in your <bpt id="1bcc4d97-ef11-41e5-b225-c35be1d86c95">&lt;strong&gt;</bpt>WebRole1<ept id="1bcc4d97-ef11-41e5-b225-c35be1d86c95">&lt;/strong&gt;</ept> project, or you can use URL rewrite to strip all incoming links of this path.</target>
+        </trans-unit>
+        <trans-unit id="163634e6-276e-4362-9499-6b8b1c440cac" xml:space="preserve">
+          <source>In this tutorial, you will take the latter route.</source>
+          <target state="new">In this tutorial, you will take the latter route.</target>
+        </trans-unit>
+        <trans-unit id="b01b0857-39d9-4337-8aa8-2ea723e3973d" xml:space="preserve">
+          <source>Back in the Azure portal, in the <bpt id="063f361f-c466-4a06-8126-f25c1ad0e7c2">&lt;strong&gt;</bpt>CDN<ept id="063f361f-c466-4a06-8126-f25c1ad0e7c2">&lt;/strong&gt;</ept> tab, click the name of the CDN endpoint you just created.</source>
+          <target state="new">Back in the Azure portal, in the <bpt id="063f361f-c466-4a06-8126-f25c1ad0e7c2">&lt;strong&gt;</bpt>CDN<ept id="063f361f-c466-4a06-8126-f25c1ad0e7c2">&lt;/strong&gt;</ept> tab, click the name of the CDN endpoint you just created.</target>
+        </trans-unit>
+        <trans-unit id="0321e35e-27b1-4583-b865-c481f21e1ddd" xml:space="preserve">
+          <source><bpt id="fe536226-b98b-4cc5-8171-ba70908b1e5e">&lt;linkText&gt;</bpt><ept id="fe536226-b98b-4cc5-8171-ba70908b1e5e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe536226-b98b-4cc5-8171-ba70908b1e5e">&lt;linkText&gt;</bpt><ept id="fe536226-b98b-4cc5-8171-ba70908b1e5e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a66d28a7-a812-4273-99c4-7216f55523a0" xml:space="preserve">
+          <source>Click <bpt id="98e98734-03c7-4b98-be1e-af9df1cce53c">&lt;strong&gt;</bpt>Enable Query String<ept id="98e98734-03c7-4b98-be1e-af9df1cce53c">&lt;/strong&gt;</ept> to enable query strings in the CDN cache.</source>
+          <target state="new">Click <bpt id="98e98734-03c7-4b98-be1e-af9df1cce53c">&lt;strong&gt;</bpt>Enable Query String<ept id="98e98734-03c7-4b98-be1e-af9df1cce53c">&lt;/strong&gt;</ept> to enable query strings in the CDN cache.</target>
+        </trans-unit>
+        <trans-unit id="2ff07d76-7297-495d-8707-b788b4b0fdc2" xml:space="preserve">
+          <source>Once you enable this, the same link accessed with different query strings will be cached as separate entries.</source>
+          <target state="new">Once you enable this, the same link accessed with different query strings will be cached as separate entries.</target>
+        </trans-unit>
+        <trans-unit id="478de1b5-1c85-42ec-8da7-d3d6f7ee8509" xml:space="preserve">
+          <source><bpt id="332c455f-608e-421e-89e9-5a2e20c62896">&lt;linkText&gt;</bpt><ept id="332c455f-608e-421e-89e9-5a2e20c62896">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="332c455f-608e-421e-89e9-5a2e20c62896">&lt;linkText&gt;</bpt><ept id="332c455f-608e-421e-89e9-5a2e20c62896">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8f5f7a6-c8e7-4766-8e4d-e49aaddbc215" xml:space="preserve">
+          <source>While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).</source>
+          <target state="new">While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).</target>
+        </trans-unit>
+        <trans-unit id="79db9af0-38dd-487a-8447-8687f2673e24" xml:space="preserve">
+          <source>Ping your CDN endpoint to make sure that it's propagated to the CDN nodes.</source>
+          <target state="new">Ping your CDN endpoint to make sure that it's propagated to the CDN nodes.</target>
+        </trans-unit>
+        <trans-unit id="6e452beb-ada0-4711-a8c8-642f15a8119c" xml:space="preserve">
+          <source>You may need to wait up to an hour before it will respond to pings.</source>
+          <target state="new">You may need to wait up to an hour before it will respond to pings.</target>
+        </trans-unit>
+        <trans-unit id="cc5e38df-3407-4950-99b1-e591bb61ba50" xml:space="preserve">
+          <source><bpt id="f0291b43-87be-432a-83a2-fb372c58a48a">&lt;linkText&gt;</bpt><ept id="f0291b43-87be-432a-83a2-fb372c58a48a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0291b43-87be-432a-83a2-fb372c58a48a">&lt;linkText&gt;</bpt><ept id="f0291b43-87be-432a-83a2-fb372c58a48a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31f88ba2-5b5d-47ac-afe7-2dd89f8590c5" xml:space="preserve">
+          <source>Back in Visual Studio 2013, open <bpt id="90f61f67-071b-42f4-b3db-009c2e90dac4">&lt;strong&gt;</bpt>Web.config<ept id="90f61f67-071b-42f4-b3db-009c2e90dac4">&lt;/strong&gt;</ept> in your <bpt id="52d3b0d3-1e78-44bf-b490-abf2dcb2a47e">&lt;strong&gt;</bpt>WebRole1<ept id="52d3b0d3-1e78-44bf-b490-abf2dcb2a47e">&lt;/strong&gt;</ept> project and add the following code into the <bpt id="ecddc291-1843-4e43-b945-a94260ff1dd2">&lt;code&gt;</bpt>&lt;system.webServer&gt;<ept id="ecddc291-1843-4e43-b945-a94260ff1dd2">&lt;/code&gt;</ept> tag:  </source>
+          <target state="new">Back in Visual Studio 2013, open <bpt id="90f61f67-071b-42f4-b3db-009c2e90dac4">&lt;strong&gt;</bpt>Web.config<ept id="90f61f67-071b-42f4-b3db-009c2e90dac4">&lt;/strong&gt;</ept> in your <bpt id="52d3b0d3-1e78-44bf-b490-abf2dcb2a47e">&lt;strong&gt;</bpt>WebRole1<ept id="52d3b0d3-1e78-44bf-b490-abf2dcb2a47e">&lt;/strong&gt;</ept> project and add the following code into the <bpt id="ecddc291-1843-4e43-b945-a94260ff1dd2">&lt;code&gt;</bpt>&lt;system.webServer&gt;<ept id="ecddc291-1843-4e43-b945-a94260ff1dd2">&lt;/code&gt;</ept> tag:  </target>
+        </trans-unit>
+        <trans-unit id="70bc2bc6-f8db-436c-bc41-40d1fe4b6e9f" xml:space="preserve">
+          <source>Publish the cloud service again.</source>
+          <target state="new">Publish the cloud service again.</target>
+        </trans-unit>
+        <trans-unit id="68391fa3-4821-4314-8f9f-c836f693b7ca" xml:space="preserve">
+          <source>Right-click the cloud service project and select <bpt id="fadebe22-2d40-4baf-82ac-82627df73c17">&lt;strong&gt;</bpt>Publish<ept id="fadebe22-2d40-4baf-82ac-82627df73c17">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the cloud service project and select <bpt id="fadebe22-2d40-4baf-82ac-82627df73c17">&lt;strong&gt;</bpt>Publish<ept id="fadebe22-2d40-4baf-82ac-82627df73c17">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7891ef5c-f91a-4336-a10d-6cf970b88016" xml:space="preserve">
+          <source><bpt id="6374b985-bfe2-428b-bdbe-dbeec46a6eef">&lt;linkText&gt;</bpt><ept id="6374b985-bfe2-428b-bdbe-dbeec46a6eef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6374b985-bfe2-428b-bdbe-dbeec46a6eef">&lt;linkText&gt;</bpt><ept id="6374b985-bfe2-428b-bdbe-dbeec46a6eef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27d90874-124f-4022-aeb3-6c79f1f003d6" xml:space="preserve">
+          <source>When the publishing status is <bpt id="ecd46279-134b-4bda-a30f-0fefb0ea9986">&lt;strong&gt;</bpt>Completed<ept id="ecd46279-134b-4bda-a30f-0fefb0ea9986">&lt;/strong&gt;</ept>, open a browser window and navigate to <bpt id="00b82d66-d22d-48e5-8711-dc853a83cf50">&lt;strong&gt;</bpt>http://*&amp;lt;cdnName&gt;*.vo.msecnd.net/Content/bootstrap.css<ept id="00b82d66-d22d-48e5-8711-dc853a83cf50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the publishing status is <bpt id="ecd46279-134b-4bda-a30f-0fefb0ea9986">&lt;strong&gt;</bpt>Completed<ept id="ecd46279-134b-4bda-a30f-0fefb0ea9986">&lt;/strong&gt;</ept>, open a browser window and navigate to <bpt id="00b82d66-d22d-48e5-8711-dc853a83cf50">&lt;strong&gt;</bpt>http://*&amp;lt;cdnName&gt;*.vo.msecnd.net/Content/bootstrap.css<ept id="00b82d66-d22d-48e5-8711-dc853a83cf50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56f9d488-191d-492d-8066-0ddd97efdf63" xml:space="preserve">
+          <source>In my setup, this URL is:</source>
+          <target state="new">In my setup, this URL is:</target>
+        </trans-unit>
+        <trans-unit id="bb7d95ab-8ac3-41c8-af5d-8304e2ce5a4f" xml:space="preserve">
+          <source>Which corresponds to the following origin URL at the CDN endpoint:</source>
+          <target state="new">Which corresponds to the following origin URL at the CDN endpoint:</target>
+        </trans-unit>
+        <trans-unit id="852f2446-7f38-4563-9fef-d521072e823d" xml:space="preserve">
+          <source>After URL rewrite in my Web app, the actual file that gets cached to my CDN cache is:</source>
+          <target state="new">After URL rewrite in my Web app, the actual file that gets cached to my CDN cache is:</target>
+        </trans-unit>
+        <trans-unit id="0648b28c-5211-426c-8d46-94a429de0594" xml:space="preserve">
+          <source>When you navigate to <bpt id="9ad1e4da-6331-4dd8-aad7-5c13713879a4">&lt;strong&gt;</bpt>http://*&amp;lt;cdnName&gt;*.vo.msecnd.net/Content/bootstrap.css<ept id="9ad1e4da-6331-4dd8-aad7-5c13713879a4">&lt;/strong&gt;</ept>, you will be prompted to download the bootstrap.css that came from your published Web app.</source>
+          <target state="new">When you navigate to <bpt id="9ad1e4da-6331-4dd8-aad7-5c13713879a4">&lt;strong&gt;</bpt>http://*&amp;lt;cdnName&gt;*.vo.msecnd.net/Content/bootstrap.css<ept id="9ad1e4da-6331-4dd8-aad7-5c13713879a4">&lt;/strong&gt;</ept>, you will be prompted to download the bootstrap.css that came from your published Web app.</target>
+        </trans-unit>
+        <trans-unit id="3f1e1ed1-3b3d-40a4-80a3-470aab49429e" xml:space="preserve">
+          <source><bpt id="9374f7e7-11b7-44e6-8405-94b617b0e436">&lt;linkText&gt;</bpt><ept id="9374f7e7-11b7-44e6-8405-94b617b0e436">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9374f7e7-11b7-44e6-8405-94b617b0e436">&lt;linkText&gt;</bpt><ept id="9374f7e7-11b7-44e6-8405-94b617b0e436">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16973159-d084-46f7-b052-6f30d3e19e2f" xml:space="preserve">
+          <source>You can similarly access any publicly accessible URL at <bpt id="ecad8eef-a219-4376-be48-9969062aad1d">&lt;strong&gt;</bpt>http://*&amp;lt;serviceName&gt;*.cloudapp.net/<ept id="ecad8eef-a219-4376-be48-9969062aad1d">&lt;/strong&gt;</ept>, straight from your CDN endpoint.</source>
+          <target state="new">You can similarly access any publicly accessible URL at <bpt id="ecad8eef-a219-4376-be48-9969062aad1d">&lt;strong&gt;</bpt>http://*&amp;lt;serviceName&gt;*.cloudapp.net/<ept id="ecad8eef-a219-4376-be48-9969062aad1d">&lt;/strong&gt;</ept>, straight from your CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="e54c27da-1cf1-4543-b4e1-110374f59add" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="f2383718-2880-4904-8f04-7bffc51309c7" xml:space="preserve">
+          <source>A .js file from the /Script path</source>
+          <target state="new">A .js file from the /Script path</target>
+        </trans-unit>
+        <trans-unit id="679a3b8a-718f-46b6-a7b5-fe2d939b86f8" xml:space="preserve">
+          <source>Any content file from the /Content path</source>
+          <target state="new">Any content file from the /Content path</target>
+        </trans-unit>
+        <trans-unit id="7639cbbb-9b9e-4914-8a8e-249266e12104" xml:space="preserve">
+          <source>Any controller/action </source>
+          <target state="new">Any controller/action </target>
+        </trans-unit>
+        <trans-unit id="fbf44ffe-782a-4611-b722-961307941db2" xml:space="preserve">
+          <source>If the query string is enabled at your CDN endpoint, any URL with query strings</source>
+          <target state="new">If the query string is enabled at your CDN endpoint, any URL with query strings</target>
+        </trans-unit>
+        <trans-unit id="afe0e287-282b-4fa9-998b-8300cc1defef" xml:space="preserve">
+          <source>In fact, with the above configuration, you can host the entire cloud service from <bpt id="be61557d-4961-4670-b885-d0749786444b">&lt;strong&gt;</bpt>http://*&amp;lt;cdnName&gt;*.vo.msecnd.net/<ept id="be61557d-4961-4670-b885-d0749786444b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In fact, with the above configuration, you can host the entire cloud service from <bpt id="be61557d-4961-4670-b885-d0749786444b">&lt;strong&gt;</bpt>http://*&amp;lt;cdnName&gt;*.vo.msecnd.net/<ept id="be61557d-4961-4670-b885-d0749786444b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9211023a-6326-4896-b9a4-7266863c5d09" xml:space="preserve">
+          <source>If I navigate to <bpt id="4025f78f-07a0-4ac4-9464-7b9714c7f401">&lt;strong&gt;</bpt>http://az632148.vo.msecnd.net/<ept id="4025f78f-07a0-4ac4-9464-7b9714c7f401">&lt;/strong&gt;</ept>, I get the action result from Home/Index.</source>
+          <target state="new">If I navigate to <bpt id="4025f78f-07a0-4ac4-9464-7b9714c7f401">&lt;strong&gt;</bpt>http://az632148.vo.msecnd.net/<ept id="4025f78f-07a0-4ac4-9464-7b9714c7f401">&lt;/strong&gt;</ept>, I get the action result from Home/Index.</target>
+        </trans-unit>
+        <trans-unit id="e9feaf5d-eb11-49ef-a505-f275c43cca7b" xml:space="preserve">
+          <source><bpt id="b429350b-24b5-477e-8530-2f4b446c3748">&lt;linkText&gt;</bpt><ept id="b429350b-24b5-477e-8530-2f4b446c3748">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b429350b-24b5-477e-8530-2f4b446c3748">&lt;linkText&gt;</bpt><ept id="b429350b-24b5-477e-8530-2f4b446c3748">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ee3e5b4-0411-441c-bc39-416f1bd8f3ee" xml:space="preserve">
+          <source>This does not mean, however, that it's always a good idea (or generally a good idea) to serve an entire cloud service through Azure CDN.</source>
+          <target state="new">This does not mean, however, that it's always a good idea (or generally a good idea) to serve an entire cloud service through Azure CDN.</target>
+        </trans-unit>
+        <trans-unit id="2b138699-5e19-44d2-b26a-0fc09589bc00" xml:space="preserve">
+          <source>Some of the caveats are:</source>
+          <target state="new">Some of the caveats are:</target>
+        </trans-unit>
+        <trans-unit id="ffabedaf-89c2-4027-873b-e66eae781618" xml:space="preserve">
+          <source>This approach requires your entire site to be public, because Azure CDN cannot serve any private content.</source>
+          <target state="new">This approach requires your entire site to be public, because Azure CDN cannot serve any private content.</target>
+        </trans-unit>
+        <trans-unit id="aca68e39-7e7b-4feb-8069-d7b7e16d3afc" xml:space="preserve">
+          <source>If the CDN endpoint goes offline for any reason, whether scheduled maintenance or user error, your entire cloud service goes offline unless the customers can be redirected to the origin URL <bpt id="a54c9b8b-1e45-48cd-8468-dfb74853a9eb">&lt;strong&gt;</bpt>http://*&amp;lt;serviceName&gt;*.cloudapp.net/<ept id="a54c9b8b-1e45-48cd-8468-dfb74853a9eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the CDN endpoint goes offline for any reason, whether scheduled maintenance or user error, your entire cloud service goes offline unless the customers can be redirected to the origin URL <bpt id="a54c9b8b-1e45-48cd-8468-dfb74853a9eb">&lt;strong&gt;</bpt>http://*&amp;lt;serviceName&gt;*.cloudapp.net/<ept id="a54c9b8b-1e45-48cd-8468-dfb74853a9eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bac49d5d-9f7c-41d6-9f95-b79369af29cc" xml:space="preserve">
+          <source>Even with the custom Cache-Control settings (see <bpt id="86451b60-674c-4845-8529-c507bf7f6bfe">&lt;linkText&gt;</bpt>Configure caching options for static files in your cloud service<ept id="86451b60-674c-4845-8529-c507bf7f6bfe">&lt;/linkText&gt;</ept><bpt id="86451b60-674c-4845-8529-c507bf7f6bfe">&lt;title&gt;</bpt><ept id="86451b60-674c-4845-8529-c507bf7f6bfe">&lt;/title&gt;</ept>), a CDN endpoint does not improve the performance of highly-dynamic content.</source>
+          <target state="new">Even with the custom Cache-Control settings (see <bpt id="86451b60-674c-4845-8529-c507bf7f6bfe">&lt;linkText&gt;</bpt>Configure caching options for static files in your cloud service<ept id="86451b60-674c-4845-8529-c507bf7f6bfe">&lt;/linkText&gt;</ept><bpt id="86451b60-674c-4845-8529-c507bf7f6bfe">&lt;title&gt;</bpt><ept id="86451b60-674c-4845-8529-c507bf7f6bfe">&lt;/title&gt;</ept>), a CDN endpoint does not improve the performance of highly-dynamic content.</target>
+        </trans-unit>
+        <trans-unit id="fe951d4d-dcdf-44e1-97c2-26f68d8a0d4a" xml:space="preserve">
+          <source>If you tried to load the home page from your CDN endpoint as shown above, notice that it took at least 5 seconds to load the default home page the first time, which is a fairly simple page.</source>
+          <target state="new">If you tried to load the home page from your CDN endpoint as shown above, notice that it took at least 5 seconds to load the default home page the first time, which is a fairly simple page.</target>
+        </trans-unit>
+        <trans-unit id="495b5e4a-d565-4c47-acb9-c4aee18e4f93" xml:space="preserve">
+          <source>Imagine what would happen to the client experience if this page contains dynamic content that must update every minute.</source>
+          <target state="new">Imagine what would happen to the client experience if this page contains dynamic content that must update every minute.</target>
+        </trans-unit>
+        <trans-unit id="0df5ad81-8dd5-44c5-9c2e-28f4cf2d65b5" xml:space="preserve">
+          <source>Serving dynamic content from a CDN endpoint requires short cache expiration, which translates to frequent cache misses at the CDN endpoint.</source>
+          <target state="new">Serving dynamic content from a CDN endpoint requires short cache expiration, which translates to frequent cache misses at the CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="7cd0f6c4-5c73-4f00-abdc-0974c00996af" xml:space="preserve">
+          <source>This hurts the performance of your cloud service and defeats the purpose of a CDN.</source>
+          <target state="new">This hurts the performance of your cloud service and defeats the purpose of a CDN.</target>
+        </trans-unit>
+        <trans-unit id="fcb8d8df-5341-4e00-861e-6e9f4d849e23" xml:space="preserve">
+          <source>The alternative is to determine which content to serve from Azure CDN on a case-by-case basis in your cloud service.</source>
+          <target state="new">The alternative is to determine which content to serve from Azure CDN on a case-by-case basis in your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="5408709e-09ca-4724-9040-b370a33aa1ea" xml:space="preserve">
+          <source>To that end, you have already seen how to access individual content files from the CDN endpoint.</source>
+          <target state="new">To that end, you have already seen how to access individual content files from the CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="670f766f-ee19-4573-9b52-5a10349dfeeb" xml:space="preserve">
+          <source>I will show you how to serve a specific controller action through the CDN endpoint in <bpt id="061012fa-3a37-45d6-b3f7-e45476dfbef3">&lt;linkText&gt;</bpt>Serve content from controller actions through Azure CDN<ept id="061012fa-3a37-45d6-b3f7-e45476dfbef3">&lt;/linkText&gt;</ept><bpt id="061012fa-3a37-45d6-b3f7-e45476dfbef3">&lt;title&gt;</bpt><ept id="061012fa-3a37-45d6-b3f7-e45476dfbef3">&lt;/title&gt;</ept>.</source>
+          <target state="new">I will show you how to serve a specific controller action through the CDN endpoint in <bpt id="061012fa-3a37-45d6-b3f7-e45476dfbef3">&lt;linkText&gt;</bpt>Serve content from controller actions through Azure CDN<ept id="061012fa-3a37-45d6-b3f7-e45476dfbef3">&lt;/linkText&gt;</ept><bpt id="061012fa-3a37-45d6-b3f7-e45476dfbef3">&lt;title&gt;</bpt><ept id="061012fa-3a37-45d6-b3f7-e45476dfbef3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50bef816-511d-41db-bc6c-015e4a53e247" xml:space="preserve">
+          <source>You can specify a more restrictive URL rewrite rule to limit the content accessible through your CDN endpoint.</source>
+          <target state="new">You can specify a more restrictive URL rewrite rule to limit the content accessible through your CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="9c465427-15b3-4cea-8001-2749e82addc8" xml:space="preserve">
+          <source>For example, to limit URL rewrite to the <bpt id="21c55217-46d8-4dc5-9fee-d6bc1898481c">&lt;em&gt;</bpt>\Scripts<ept id="21c55217-46d8-4dc5-9fee-d6bc1898481c">&lt;/em&gt;</ept> folder, change the above rewrite rule as follows:</source>
+          <target state="new">For example, to limit URL rewrite to the <bpt id="21c55217-46d8-4dc5-9fee-d6bc1898481c">&lt;em&gt;</bpt>\Scripts<ept id="21c55217-46d8-4dc5-9fee-d6bc1898481c">&lt;/em&gt;</ept> folder, change the above rewrite rule as follows:</target>
+        </trans-unit>
+        <trans-unit id="e682c176-5ddb-4615-9ac2-524fbab87885" xml:space="preserve">
+          <source><bpt id="2669ef74-1072-45b5-b35e-77a46329ec7c">&lt;bookmark&gt;</bpt><ept id="2669ef74-1072-45b5-b35e-77a46329ec7c">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="2669ef74-1072-45b5-b35e-77a46329ec7c">&lt;bookmark&gt;</bpt><ept id="2669ef74-1072-45b5-b35e-77a46329ec7c">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad7910e7-f8e8-4633-95c8-9f9972e788b2" xml:space="preserve">
+          <source>With Azure CDN integration in your cloud service, you can specify how you want static content to be cached in the CDN endpoint. To do this, open <bpt id="741382bf-d9b1-45cc-b505-faed0d2e6df3">&lt;em&gt;</bpt>Web.config<ept id="741382bf-d9b1-45cc-b505-faed0d2e6df3">&lt;/em&gt;</ept> from your Web role project (e.g. WebRole1) and add a <bpt id="e682f100-7616-4d2d-984a-1d60712c8e95">&lt;code&gt;</bpt>&lt;staticContent&gt;<ept id="e682f100-7616-4d2d-984a-1d60712c8e95">&lt;/code&gt;</ept> element to <bpt id="7607cf09-92f7-4b45-a5df-df56a9b232f3">&lt;code&gt;</bpt>&lt;system.webServer&gt;<ept id="7607cf09-92f7-4b45-a5df-df56a9b232f3">&lt;/code&gt;</ept>. The XML below configures the cache to expire in 3 days.  </source>
+          <target state="new">With Azure CDN integration in your cloud service, you can specify how you want static content to be cached in the CDN endpoint. To do this, open <bpt id="741382bf-d9b1-45cc-b505-faed0d2e6df3">&lt;em&gt;</bpt>Web.config<ept id="741382bf-d9b1-45cc-b505-faed0d2e6df3">&lt;/em&gt;</ept> from your Web role project (e.g. WebRole1) and add a <bpt id="e682f100-7616-4d2d-984a-1d60712c8e95">&lt;code&gt;</bpt>&lt;staticContent&gt;<ept id="e682f100-7616-4d2d-984a-1d60712c8e95">&lt;/code&gt;</ept> element to <bpt id="7607cf09-92f7-4b45-a5df-df56a9b232f3">&lt;code&gt;</bpt>&lt;system.webServer&gt;<ept id="7607cf09-92f7-4b45-a5df-df56a9b232f3">&lt;/code&gt;</ept>. The XML below configures the cache to expire in 3 days.  </target>
+        </trans-unit>
+        <trans-unit id="38fa1e5f-7665-45d4-ac68-112b5f9b864a" xml:space="preserve">
+          <source>Once you do this, all static files in your cloud service will observe the same rule in your CDN cache.</source>
+          <target state="new">Once you do this, all static files in your cloud service will observe the same rule in your CDN cache.</target>
+        </trans-unit>
+        <trans-unit id="cee331f2-5f91-4209-a4c5-f1509655e1a2" xml:space="preserve">
+          <source>For more granular control of cache settings, add a <bpt id="b9118cda-6841-418c-aba7-e9b4aa1bcf09">&lt;em&gt;</bpt>Web.config<ept id="b9118cda-6841-418c-aba7-e9b4aa1bcf09">&lt;/em&gt;</ept> file into a folder and add your settings there.</source>
+          <target state="new">For more granular control of cache settings, add a <bpt id="b9118cda-6841-418c-aba7-e9b4aa1bcf09">&lt;em&gt;</bpt>Web.config<ept id="b9118cda-6841-418c-aba7-e9b4aa1bcf09">&lt;/em&gt;</ept> file into a folder and add your settings there.</target>
+        </trans-unit>
+        <trans-unit id="8da0fafc-e979-4af2-aa2c-57f2991f2c74" xml:space="preserve">
+          <source>For example, add a <bpt id="855efe60-b77c-46f5-949f-3b5528bdaed7">&lt;em&gt;</bpt>Web.config<ept id="855efe60-b77c-46f5-949f-3b5528bdaed7">&lt;/em&gt;</ept> file to the <bpt id="4a5b98cd-42ef-4984-91ea-b82ac23080dd">&lt;em&gt;</bpt>\Content<ept id="4a5b98cd-42ef-4984-91ea-b82ac23080dd">&lt;/em&gt;</ept> folder and replace the content with the following XML:</source>
+          <target state="new">For example, add a <bpt id="855efe60-b77c-46f5-949f-3b5528bdaed7">&lt;em&gt;</bpt>Web.config<ept id="855efe60-b77c-46f5-949f-3b5528bdaed7">&lt;/em&gt;</ept> file to the <bpt id="4a5b98cd-42ef-4984-91ea-b82ac23080dd">&lt;em&gt;</bpt>\Content<ept id="4a5b98cd-42ef-4984-91ea-b82ac23080dd">&lt;/em&gt;</ept> folder and replace the content with the following XML:</target>
+        </trans-unit>
+        <trans-unit id="00868d69-04ec-4588-a836-dceb98213b79" xml:space="preserve">
+          <source>This setting causes all static files from the <bpt id="245ba129-4443-48ac-bb20-ad9985c4d23b">&lt;em&gt;</bpt>\Content<ept id="245ba129-4443-48ac-bb20-ad9985c4d23b">&lt;/em&gt;</ept> folder to be cached for 15 days.</source>
+          <target state="new">This setting causes all static files from the <bpt id="245ba129-4443-48ac-bb20-ad9985c4d23b">&lt;em&gt;</bpt>\Content<ept id="245ba129-4443-48ac-bb20-ad9985c4d23b">&lt;/em&gt;</ept> folder to be cached for 15 days.</target>
+        </trans-unit>
+        <trans-unit id="39685110-b3da-452a-bfc0-692f852379c5" xml:space="preserve">
+          <source>For more information on how to configure the <bpt id="293afb83-30b6-40aa-a0c5-04b955f5c5af">&lt;code&gt;</bpt>&lt;clientCache&gt;<ept id="293afb83-30b6-40aa-a0c5-04b955f5c5af">&lt;/code&gt;</ept> element, see <bpt id="36d05648-e7df-49a4-8e4c-d360955bb78a">&lt;linkText&gt;</bpt>Client Cache &amp;lt;clientCache&gt;<ept id="36d05648-e7df-49a4-8e4c-d360955bb78a">&lt;/linkText&gt;</ept><bpt id="36d05648-e7df-49a4-8e4c-d360955bb78a">&lt;title&gt;</bpt><ept id="36d05648-e7df-49a4-8e4c-d360955bb78a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on how to configure the <bpt id="293afb83-30b6-40aa-a0c5-04b955f5c5af">&lt;code&gt;</bpt>&lt;clientCache&gt;<ept id="293afb83-30b6-40aa-a0c5-04b955f5c5af">&lt;/code&gt;</ept> element, see <bpt id="36d05648-e7df-49a4-8e4c-d360955bb78a">&lt;linkText&gt;</bpt>Client Cache &amp;lt;clientCache&gt;<ept id="36d05648-e7df-49a4-8e4c-d360955bb78a">&lt;/linkText&gt;</ept><bpt id="36d05648-e7df-49a4-8e4c-d360955bb78a">&lt;title&gt;</bpt><ept id="36d05648-e7df-49a4-8e4c-d360955bb78a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ef99b8f-26c4-41c1-9dbb-2ed4d3875b35" xml:space="preserve">
+          <source>In <bpt id="6da4368b-16cd-4655-ae00-8c978d8db3a0">&lt;linkText&gt;</bpt>Serve content from controller actions through Azure CDN<ept id="6da4368b-16cd-4655-ae00-8c978d8db3a0">&lt;/linkText&gt;</ept><bpt id="6da4368b-16cd-4655-ae00-8c978d8db3a0">&lt;title&gt;</bpt><ept id="6da4368b-16cd-4655-ae00-8c978d8db3a0">&lt;/title&gt;</ept>, I will also show you how you can configure cache settings for controller action results in the CDN cache.</source>
+          <target state="new">In <bpt id="6da4368b-16cd-4655-ae00-8c978d8db3a0">&lt;linkText&gt;</bpt>Serve content from controller actions through Azure CDN<ept id="6da4368b-16cd-4655-ae00-8c978d8db3a0">&lt;/linkText&gt;</ept><bpt id="6da4368b-16cd-4655-ae00-8c978d8db3a0">&lt;title&gt;</bpt><ept id="6da4368b-16cd-4655-ae00-8c978d8db3a0">&lt;/title&gt;</ept>, I will also show you how you can configure cache settings for controller action results in the CDN cache.</target>
+        </trans-unit>
+        <trans-unit id="83107c42-bb53-43e1-bcb4-c9f88734a25a" xml:space="preserve">
+          <source><bpt id="8c1dd627-dd05-4213-bdfb-2db7a8b55ea8">&lt;bookmark&gt;</bpt><ept id="8c1dd627-dd05-4213-bdfb-2db7a8b55ea8">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="8c1dd627-dd05-4213-bdfb-2db7a8b55ea8">&lt;bookmark&gt;</bpt><ept id="8c1dd627-dd05-4213-bdfb-2db7a8b55ea8">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8f7c030-1b10-4cf6-82db-e97881d19a1a" xml:space="preserve">
+          <source>When you integrate a cloud service Web role with Azure CDN, it is relatively easy to serve content from controller actions through the Azure CDN.</source>
+          <target state="new">When you integrate a cloud service Web role with Azure CDN, it is relatively easy to serve content from controller actions through the Azure CDN.</target>
+        </trans-unit>
+        <trans-unit id="c54803f2-0229-4a06-bc9a-274b3e0cd4f1" xml:space="preserve">
+          <source>Other than serving your cloud service directly through Azure CDN (demonstrated above), <bpt id="7463a0da-a749-4ff2-a566-b58eac46ee4c">&lt;linkText&gt;</bpt>Maarten Balliauw<ept id="7463a0da-a749-4ff2-a566-b58eac46ee4c">&lt;/linkText&gt;</ept><bpt id="7463a0da-a749-4ff2-a566-b58eac46ee4c">&lt;title&gt;</bpt><ept id="7463a0da-a749-4ff2-a566-b58eac46ee4c">&lt;/title&gt;</ept> shows you how to do it with a fun MemeGenerator controller in <bpt id="3ca4da07-0789-4425-8589-4e7e70e1eac8">&lt;linkText&gt;</bpt>Reducing latency on the web with the Azure CDN<ept id="3ca4da07-0789-4425-8589-4e7e70e1eac8">&lt;/linkText&gt;</ept><bpt id="3ca4da07-0789-4425-8589-4e7e70e1eac8">&lt;title&gt;</bpt><ept id="3ca4da07-0789-4425-8589-4e7e70e1eac8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Other than serving your cloud service directly through Azure CDN (demonstrated above), <bpt id="7463a0da-a749-4ff2-a566-b58eac46ee4c">&lt;linkText&gt;</bpt>Maarten Balliauw<ept id="7463a0da-a749-4ff2-a566-b58eac46ee4c">&lt;/linkText&gt;</ept><bpt id="7463a0da-a749-4ff2-a566-b58eac46ee4c">&lt;title&gt;</bpt><ept id="7463a0da-a749-4ff2-a566-b58eac46ee4c">&lt;/title&gt;</ept> shows you how to do it with a fun MemeGenerator controller in <bpt id="3ca4da07-0789-4425-8589-4e7e70e1eac8">&lt;linkText&gt;</bpt>Reducing latency on the web with the Azure CDN<ept id="3ca4da07-0789-4425-8589-4e7e70e1eac8">&lt;/linkText&gt;</ept><bpt id="3ca4da07-0789-4425-8589-4e7e70e1eac8">&lt;title&gt;</bpt><ept id="3ca4da07-0789-4425-8589-4e7e70e1eac8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3593c990-8513-454d-989b-39b3350340db" xml:space="preserve">
+          <source>I will simply reproduce it here.</source>
+          <target state="new">I will simply reproduce it here.</target>
+        </trans-unit>
+        <trans-unit id="b1b6112b-4205-41b9-bebd-5708470cf70e" xml:space="preserve">
+          <source>Suppose in your cloud service you want to generate memes based on a young Chuck Norris image (photo by <bpt id="0a529262-eaf6-4a44-8707-08b77501103d">&lt;linkText&gt;</bpt>Alan Light<ept id="0a529262-eaf6-4a44-8707-08b77501103d">&lt;/linkText&gt;</ept><bpt id="0a529262-eaf6-4a44-8707-08b77501103d">&lt;title&gt;</bpt><ept id="0a529262-eaf6-4a44-8707-08b77501103d">&lt;/title&gt;</ept>) like this:</source>
+          <target state="new">Suppose in your cloud service you want to generate memes based on a young Chuck Norris image (photo by <bpt id="0a529262-eaf6-4a44-8707-08b77501103d">&lt;linkText&gt;</bpt>Alan Light<ept id="0a529262-eaf6-4a44-8707-08b77501103d">&lt;/linkText&gt;</ept><bpt id="0a529262-eaf6-4a44-8707-08b77501103d">&lt;title&gt;</bpt><ept id="0a529262-eaf6-4a44-8707-08b77501103d">&lt;/title&gt;</ept>) like this:</target>
+        </trans-unit>
+        <trans-unit id="9774bfb2-5047-4769-8712-9ecc0eb1b269" xml:space="preserve">
+          <source><bpt id="299a49be-b4a5-48f6-9630-b264775a0516">&lt;linkText&gt;</bpt><ept id="299a49be-b4a5-48f6-9630-b264775a0516">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="299a49be-b4a5-48f6-9630-b264775a0516">&lt;linkText&gt;</bpt><ept id="299a49be-b4a5-48f6-9630-b264775a0516">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fdfa65f-6610-474c-bdcc-d2e2d70b86fc" xml:space="preserve">
+          <source>You have a simple <bpt id="18f81193-5c42-43d0-94ed-38965c7b55b5">&lt;code&gt;</bpt>Index<ept id="18f81193-5c42-43d0-94ed-38965c7b55b5">&lt;/code&gt;</ept> action that allows the customers to specify the superlatives in the image, then generates the meme once they post to the action.</source>
+          <target state="new">You have a simple <bpt id="18f81193-5c42-43d0-94ed-38965c7b55b5">&lt;code&gt;</bpt>Index<ept id="18f81193-5c42-43d0-94ed-38965c7b55b5">&lt;/code&gt;</ept> action that allows the customers to specify the superlatives in the image, then generates the meme once they post to the action.</target>
+        </trans-unit>
+        <trans-unit id="5a6550b1-490f-4791-ad6b-1f15d611c723" xml:space="preserve">
+          <source>Since it's Chuck Norris, you would expect this page to become wildly popular globally.</source>
+          <target state="new">Since it's Chuck Norris, you would expect this page to become wildly popular globally.</target>
+        </trans-unit>
+        <trans-unit id="3b0c47a8-9b6b-44d1-a293-9766e415c083" xml:space="preserve">
+          <source>This is a good example of serving semi-dynamic content with Azure CDN.</source>
+          <target state="new">This is a good example of serving semi-dynamic content with Azure CDN.</target>
+        </trans-unit>
+        <trans-unit id="6c2fad0b-0b47-43d1-be2b-b441bbdd0744" xml:space="preserve">
+          <source>Follow the steps above to setup this controller action:</source>
+          <target state="new">Follow the steps above to setup this controller action:</target>
+        </trans-unit>
+        <trans-unit id="1f55d934-0aee-4bbd-834f-573dc89dbbad" xml:space="preserve">
+          <source>In the <bpt id="8bfa75ff-678d-42c4-83df-dfe91d67fc8e">&lt;em&gt;</bpt>\Controllers<ept id="8bfa75ff-678d-42c4-83df-dfe91d67fc8e">&lt;/em&gt;</ept> folder, create a new .cs file called <bpt id="0a10615b-4a45-4bc3-8b3a-cee39056ec0c">&lt;em&gt;</bpt>MemeGeneratorController.cs<ept id="0a10615b-4a45-4bc3-8b3a-cee39056ec0c">&lt;/em&gt;</ept> and replace the content with the following code.</source>
+          <target state="new">In the <bpt id="8bfa75ff-678d-42c4-83df-dfe91d67fc8e">&lt;em&gt;</bpt>\Controllers<ept id="8bfa75ff-678d-42c4-83df-dfe91d67fc8e">&lt;/em&gt;</ept> folder, create a new .cs file called <bpt id="0a10615b-4a45-4bc3-8b3a-cee39056ec0c">&lt;em&gt;</bpt>MemeGeneratorController.cs<ept id="0a10615b-4a45-4bc3-8b3a-cee39056ec0c">&lt;/em&gt;</ept> and replace the content with the following code.</target>
+        </trans-unit>
+        <trans-unit id="72b57f8c-8bf7-48c6-a237-5a55c7a01ca4" xml:space="preserve">
+          <source>Be sure to replace the highlighted portion with your CDN name.</source>
+          <target state="new">Be sure to replace the highlighted portion with your CDN name.</target>
+        </trans-unit>
+        <trans-unit id="ce225d4f-5875-4b90-8dbe-35392cf9de23" xml:space="preserve">
+          <source>Right-click in the default <bpt id="9b9393c3-81e0-4267-a3f9-74117f32adaf">&lt;code&gt;</bpt>Index()<ept id="9b9393c3-81e0-4267-a3f9-74117f32adaf">&lt;/code&gt;</ept> action and select <bpt id="8e66aa17-9d57-4e92-a6eb-d53216367a68">&lt;strong&gt;</bpt>Add View<ept id="8e66aa17-9d57-4e92-a6eb-d53216367a68">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click in the default <bpt id="9b9393c3-81e0-4267-a3f9-74117f32adaf">&lt;code&gt;</bpt>Index()<ept id="9b9393c3-81e0-4267-a3f9-74117f32adaf">&lt;/code&gt;</ept> action and select <bpt id="8e66aa17-9d57-4e92-a6eb-d53216367a68">&lt;strong&gt;</bpt>Add View<ept id="8e66aa17-9d57-4e92-a6eb-d53216367a68">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a336ef5-24c0-4997-94fb-9c5983baa2ee" xml:space="preserve">
+          <source><bpt id="f600c525-ba16-4c10-ad25-20d7ccba109c">&lt;linkText&gt;</bpt><ept id="f600c525-ba16-4c10-ad25-20d7ccba109c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f600c525-ba16-4c10-ad25-20d7ccba109c">&lt;linkText&gt;</bpt><ept id="f600c525-ba16-4c10-ad25-20d7ccba109c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fd460f0-8eea-43c0-aff1-479f436135cf" xml:space="preserve">
+          <source>Accept the settings below and click <bpt id="27e1983c-e989-41f9-b9ec-8d383debe056">&lt;strong&gt;</bpt>Add<ept id="27e1983c-e989-41f9-b9ec-8d383debe056">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Accept the settings below and click <bpt id="27e1983c-e989-41f9-b9ec-8d383debe056">&lt;strong&gt;</bpt>Add<ept id="27e1983c-e989-41f9-b9ec-8d383debe056">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a264bcd-c857-44bf-8296-efded3725813" xml:space="preserve">
+          <source><bpt id="a413af67-6c37-4394-a66a-5bc5c2991195">&lt;linkText&gt;</bpt><ept id="a413af67-6c37-4394-a66a-5bc5c2991195">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a413af67-6c37-4394-a66a-5bc5c2991195">&lt;linkText&gt;</bpt><ept id="a413af67-6c37-4394-a66a-5bc5c2991195">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c01b58c-7319-4db0-a9ff-82e9b6a72d23" xml:space="preserve">
+          <source>Open the new <bpt id="4ad207a3-2e4f-48ab-a187-73d9b7c2e3c0">&lt;em&gt;</bpt>Views\MemeGenerator\Index.cshtml<ept id="4ad207a3-2e4f-48ab-a187-73d9b7c2e3c0">&lt;/em&gt;</ept> and replace the content with the following simple HTML for submitting the superlatives:</source>
+          <target state="new">Open the new <bpt id="4ad207a3-2e4f-48ab-a187-73d9b7c2e3c0">&lt;em&gt;</bpt>Views\MemeGenerator\Index.cshtml<ept id="4ad207a3-2e4f-48ab-a187-73d9b7c2e3c0">&lt;/em&gt;</ept> and replace the content with the following simple HTML for submitting the superlatives:</target>
+        </trans-unit>
+        <trans-unit id="0b099494-7a90-4b5b-b624-89d7229c6db2" xml:space="preserve">
+          <source>Publish the cloud service again and navigate to <bpt id="4be64761-9855-42ef-91b7-a23133f3c80f">&lt;strong&gt;</bpt>http://*&amp;lt;serviceName&gt;*.cloudapp.net/MemeGenerator/Index<ept id="4be64761-9855-42ef-91b7-a23133f3c80f">&lt;/strong&gt;</ept> in your browser.</source>
+          <target state="new">Publish the cloud service again and navigate to <bpt id="4be64761-9855-42ef-91b7-a23133f3c80f">&lt;strong&gt;</bpt>http://*&amp;lt;serviceName&gt;*.cloudapp.net/MemeGenerator/Index<ept id="4be64761-9855-42ef-91b7-a23133f3c80f">&lt;/strong&gt;</ept> in your browser.</target>
+        </trans-unit>
+        <trans-unit id="04a57131-2c6a-487a-aba0-cbd362f01328" xml:space="preserve">
+          <source>When you submit the form values to <bpt id="82a3ce64-a450-4020-8e50-c94cdd790661">&lt;code&gt;</bpt>/MemeGenerator/Index<ept id="82a3ce64-a450-4020-8e50-c94cdd790661">&lt;/code&gt;</ept>, the <bpt id="f3dc1668-f806-43cf-8cec-bc30c701655d">&lt;code&gt;</bpt>Index_Post<ept id="f3dc1668-f806-43cf-8cec-bc30c701655d">&lt;/code&gt;</ept> action method returns a link to the <bpt id="c91681bc-e61a-4da2-8d56-50bb30965279">&lt;code&gt;</bpt>Show<ept id="c91681bc-e61a-4da2-8d56-50bb30965279">&lt;/code&gt;</ept> action method with the respective input identifier.</source>
+          <target state="new">When you submit the form values to <bpt id="82a3ce64-a450-4020-8e50-c94cdd790661">&lt;code&gt;</bpt>/MemeGenerator/Index<ept id="82a3ce64-a450-4020-8e50-c94cdd790661">&lt;/code&gt;</ept>, the <bpt id="f3dc1668-f806-43cf-8cec-bc30c701655d">&lt;code&gt;</bpt>Index_Post<ept id="f3dc1668-f806-43cf-8cec-bc30c701655d">&lt;/code&gt;</ept> action method returns a link to the <bpt id="c91681bc-e61a-4da2-8d56-50bb30965279">&lt;code&gt;</bpt>Show<ept id="c91681bc-e61a-4da2-8d56-50bb30965279">&lt;/code&gt;</ept> action method with the respective input identifier.</target>
+        </trans-unit>
+        <trans-unit id="e221831a-6536-43e5-9cb0-601a29c3d7c5" xml:space="preserve">
+          <source>When you click the link, you reach the following code:</source>
+          <target state="new">When you click the link, you reach the following code:</target>
+        </trans-unit>
+        <trans-unit id="9a8b8abb-9b64-473c-9460-9d74a92ecd06" xml:space="preserve">
+          <source>If your local debugger is attached, then you will get the regular debug experience with a local redirect.</source>
+          <target state="new">If your local debugger is attached, then you will get the regular debug experience with a local redirect.</target>
+        </trans-unit>
+        <trans-unit id="9ee7f12c-dbe1-4d41-8c7a-256f93b79da6" xml:space="preserve">
+          <source>If it's running in the cloud service, then it will redirect to:</source>
+          <target state="new">If it's running in the cloud service, then it will redirect to:</target>
+        </trans-unit>
+        <trans-unit id="e77e72f7-f9d6-4433-a043-df14034d0582" xml:space="preserve">
+          <source>Which corresponds to the following origin URL at your CDN endpoint:</source>
+          <target state="new">Which corresponds to the following origin URL at your CDN endpoint:</target>
+        </trans-unit>
+        <trans-unit id="e1b63227-a2a1-4235-ad53-ce7ec6f9b9dc" xml:space="preserve">
+          <source>After URL rewrite rule previously applied, the actual file that gets cached to your CDN endpoint is:</source>
+          <target state="new">After URL rewrite rule previously applied, the actual file that gets cached to your CDN endpoint is:</target>
+        </trans-unit>
+        <trans-unit id="387b6725-15bd-48ff-86eb-d0398c47aa2d" xml:space="preserve">
+          <source>You can then use the <bpt id="e89552cb-3376-482b-880b-daf6d669e9ff">&lt;code&gt;</bpt>OutputCacheAttribute<ept id="e89552cb-3376-482b-880b-daf6d669e9ff">&lt;/code&gt;</ept> attribute on the <bpt id="82000f38-e59d-4733-942c-3026028e9ddf">&lt;code&gt;</bpt>Generate<ept id="82000f38-e59d-4733-942c-3026028e9ddf">&lt;/code&gt;</ept> method to specify how the action result should be cached, which Azure CDN will honor.</source>
+          <target state="new">You can then use the <bpt id="e89552cb-3376-482b-880b-daf6d669e9ff">&lt;code&gt;</bpt>OutputCacheAttribute<ept id="e89552cb-3376-482b-880b-daf6d669e9ff">&lt;/code&gt;</ept> attribute on the <bpt id="82000f38-e59d-4733-942c-3026028e9ddf">&lt;code&gt;</bpt>Generate<ept id="82000f38-e59d-4733-942c-3026028e9ddf">&lt;/code&gt;</ept> method to specify how the action result should be cached, which Azure CDN will honor.</target>
+        </trans-unit>
+        <trans-unit id="4c5f7c66-a16c-4d50-8ddd-0b14bb9f507e" xml:space="preserve">
+          <source>The code below specify a cache expiration of 1 hour (3,600 seconds).</source>
+          <target state="new">The code below specify a cache expiration of 1 hour (3,600 seconds).</target>
+        </trans-unit>
+        <trans-unit id="79a90245-0d4f-4a6f-8ba1-02f1e77a6528" xml:space="preserve">
+          <source>Likewise, you can serve up content from any controller action in your cloud service through your Azure CDN, with the desired caching option.</source>
+          <target state="new">Likewise, you can serve up content from any controller action in your cloud service through your Azure CDN, with the desired caching option.</target>
+        </trans-unit>
+        <trans-unit id="4464c504-5f7e-400e-a0da-d4d1ccedd396" xml:space="preserve">
+          <source>In the next section, I will show you how to serve the bundled and minified scripts and CSS through Azure CDN.</source>
+          <target state="new">In the next section, I will show you how to serve the bundled and minified scripts and CSS through Azure CDN.</target>
+        </trans-unit>
+        <trans-unit id="3d7ef7e9-cd77-47ce-be75-7b641a0baf66" xml:space="preserve">
+          <source><bpt id="03d1b1a5-39b5-44b8-b96b-929853bc6dd7">&lt;bookmark&gt;</bpt><ept id="03d1b1a5-39b5-44b8-b96b-929853bc6dd7">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="03d1b1a5-39b5-44b8-b96b-929853bc6dd7">&lt;bookmark&gt;</bpt><ept id="03d1b1a5-39b5-44b8-b96b-929853bc6dd7">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a88b660-f630-4d06-b5a2-8ff40b9cc03e" xml:space="preserve">
+          <source>Scripts and CSS stylesheets change infrequently and are prime candidates for the Azure CDN cache.</source>
+          <target state="new">Scripts and CSS stylesheets change infrequently and are prime candidates for the Azure CDN cache.</target>
+        </trans-unit>
+        <trans-unit id="fd5da01d-1281-4110-b8a2-ee8f58283bb1" xml:space="preserve">
+          <source>Serving the entire Web role through your Azure CDN is the easiest way to integrate bundling and minification with Azure CDN.</source>
+          <target state="new">Serving the entire Web role through your Azure CDN is the easiest way to integrate bundling and minification with Azure CDN.</target>
+        </trans-unit>
+        <trans-unit id="7cafb42e-724e-4841-971e-586386ed67fb" xml:space="preserve">
+          <source>However, as you may not want to do this, I will show you how to do it while preserving the desired develper experience of ASP.NET bundling and minification, such as:</source>
+          <target state="new">However, as you may not want to do this, I will show you how to do it while preserving the desired develper experience of ASP.NET bundling and minification, such as:</target>
+        </trans-unit>
+        <trans-unit id="9c80f05a-96aa-4649-a5e7-469ff34a94b3" xml:space="preserve">
+          <source>Great debug mode experience</source>
+          <target state="new">Great debug mode experience</target>
+        </trans-unit>
+        <trans-unit id="2ec22e51-1687-40a3-ae44-3f94fc3f3fc2" xml:space="preserve">
+          <source>Streamlined deployment</source>
+          <target state="new">Streamlined deployment</target>
+        </trans-unit>
+        <trans-unit id="d0015802-df29-4a1b-aa75-e2512dbfb1f4" xml:space="preserve">
+          <source>Immediate updates to clients for script/CSS version upgrades</source>
+          <target state="new">Immediate updates to clients for script/CSS version upgrades</target>
+        </trans-unit>
+        <trans-unit id="b3746252-edf2-4035-8691-c6eed762f647" xml:space="preserve">
+          <source>Fallback mechanism when your CDN endpoint fails</source>
+          <target state="new">Fallback mechanism when your CDN endpoint fails</target>
+        </trans-unit>
+        <trans-unit id="1f021374-3631-4b9d-b100-6c940d277ffb" xml:space="preserve">
+          <source>Minimize code modification</source>
+          <target state="new">Minimize code modification</target>
+        </trans-unit>
+        <trans-unit id="4d9ac569-83a9-491c-96f5-b1072ab4f589" xml:space="preserve">
+          <source>In the <bpt id="d040712e-fdd9-4c76-87e8-15b06e209b1f">&lt;strong&gt;</bpt>WebRole1<ept id="d040712e-fdd9-4c76-87e8-15b06e209b1f">&lt;/strong&gt;</ept> project that you created in <bpt id="58f23736-3da2-44ae-b501-7a9200809a61">&lt;linkText&gt;</bpt>Integrate an Azure CDN endpoint with your Azure website and serve static content in your Web pages from Azure CDN<ept id="58f23736-3da2-44ae-b501-7a9200809a61">&lt;/linkText&gt;</ept><bpt id="58f23736-3da2-44ae-b501-7a9200809a61">&lt;title&gt;</bpt><ept id="58f23736-3da2-44ae-b501-7a9200809a61">&lt;/title&gt;</ept>, open <bpt id="9f7302c0-ffaa-492c-b24a-4eeebca4f1d9">&lt;em&gt;</bpt>App_Start\BundleConfig.cs<ept id="9f7302c0-ffaa-492c-b24a-4eeebca4f1d9">&lt;/em&gt;</ept> and take a look at the <bpt id="334d0b76-4312-4f5c-be78-f91fb29beb2c">&lt;code&gt;</bpt>bundles.Add()<ept id="334d0b76-4312-4f5c-be78-f91fb29beb2c">&lt;/code&gt;</ept> method calls.</source>
+          <target state="new">In the <bpt id="d040712e-fdd9-4c76-87e8-15b06e209b1f">&lt;strong&gt;</bpt>WebRole1<ept id="d040712e-fdd9-4c76-87e8-15b06e209b1f">&lt;/strong&gt;</ept> project that you created in <bpt id="58f23736-3da2-44ae-b501-7a9200809a61">&lt;linkText&gt;</bpt>Integrate an Azure CDN endpoint with your Azure website and serve static content in your Web pages from Azure CDN<ept id="58f23736-3da2-44ae-b501-7a9200809a61">&lt;/linkText&gt;</ept><bpt id="58f23736-3da2-44ae-b501-7a9200809a61">&lt;title&gt;</bpt><ept id="58f23736-3da2-44ae-b501-7a9200809a61">&lt;/title&gt;</ept>, open <bpt id="9f7302c0-ffaa-492c-b24a-4eeebca4f1d9">&lt;em&gt;</bpt>App_Start\BundleConfig.cs<ept id="9f7302c0-ffaa-492c-b24a-4eeebca4f1d9">&lt;/em&gt;</ept> and take a look at the <bpt id="334d0b76-4312-4f5c-be78-f91fb29beb2c">&lt;code&gt;</bpt>bundles.Add()<ept id="334d0b76-4312-4f5c-be78-f91fb29beb2c">&lt;/code&gt;</ept> method calls.</target>
+        </trans-unit>
+        <trans-unit id="3cb963c7-42d9-42a1-940d-0468085e840e" xml:space="preserve">
+          <source>The first <bpt id="31e85742-8964-4a48-a31a-3e4729e35af4">&lt;code&gt;</bpt>bundles.Add()<ept id="31e85742-8964-4a48-a31a-3e4729e35af4">&lt;/code&gt;</ept> statement adds a script bundle at the virtual directory <bpt id="4530c216-70a2-4e4f-a053-084313f100de">&lt;code&gt;</bpt>~/bundles/jquery<ept id="4530c216-70a2-4e4f-a053-084313f100de">&lt;/code&gt;</ept>.</source>
+          <target state="new">The first <bpt id="31e85742-8964-4a48-a31a-3e4729e35af4">&lt;code&gt;</bpt>bundles.Add()<ept id="31e85742-8964-4a48-a31a-3e4729e35af4">&lt;/code&gt;</ept> statement adds a script bundle at the virtual directory <bpt id="4530c216-70a2-4e4f-a053-084313f100de">&lt;code&gt;</bpt>~/bundles/jquery<ept id="4530c216-70a2-4e4f-a053-084313f100de">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd39b2c2-d135-4212-bcbf-958ba8a13cc6" xml:space="preserve">
+          <source>Then, open <bpt id="af0e0686-3776-4277-a2c3-6e2b597b1790">&lt;em&gt;</bpt>Views\Shared\_Layout.cshtml<ept id="af0e0686-3776-4277-a2c3-6e2b597b1790">&lt;/em&gt;</ept> to see how the script bundle tag is rendered.</source>
+          <target state="new">Then, open <bpt id="af0e0686-3776-4277-a2c3-6e2b597b1790">&lt;em&gt;</bpt>Views\Shared\_Layout.cshtml<ept id="af0e0686-3776-4277-a2c3-6e2b597b1790">&lt;/em&gt;</ept> to see how the script bundle tag is rendered.</target>
+        </trans-unit>
+        <trans-unit id="5b975f9e-69e8-4c14-a8b0-281699f64cad" xml:space="preserve">
+          <source>You should be able to find the following line of Razor code:</source>
+          <target state="new">You should be able to find the following line of Razor code:</target>
+        </trans-unit>
+        <trans-unit id="859d2085-5aac-4fc4-abd8-ab0582213a4a" xml:space="preserve">
+          <source>When this Razor code is run in the Azure Web role, it will render a <bpt id="a573d37a-e4ca-45b6-a688-45dcc059372f">&lt;code&gt;</bpt>&lt;script&gt;<ept id="a573d37a-e4ca-45b6-a688-45dcc059372f">&lt;/code&gt;</ept> tag for the script bundle similar to the following: </source>
+          <target state="new">When this Razor code is run in the Azure Web role, it will render a <bpt id="a573d37a-e4ca-45b6-a688-45dcc059372f">&lt;code&gt;</bpt>&lt;script&gt;<ept id="a573d37a-e4ca-45b6-a688-45dcc059372f">&lt;/code&gt;</ept> tag for the script bundle similar to the following: </target>
+        </trans-unit>
+        <trans-unit id="f062c916-a341-4447-bcb7-b710e1519433" xml:space="preserve">
+          <source>However, when it is run in Visual Studio by typing <bpt id="9e0e4718-5c54-4011-9dd5-ce802d71c8cc">&lt;code&gt;</bpt>F5<ept id="9e0e4718-5c54-4011-9dd5-ce802d71c8cc">&lt;/code&gt;</ept>, it will render each script file in the bundle individually (in the case above, only one script file is in the bundle):</source>
+          <target state="new">However, when it is run in Visual Studio by typing <bpt id="9e0e4718-5c54-4011-9dd5-ce802d71c8cc">&lt;code&gt;</bpt>F5<ept id="9e0e4718-5c54-4011-9dd5-ce802d71c8cc">&lt;/code&gt;</ept>, it will render each script file in the bundle individually (in the case above, only one script file is in the bundle):</target>
+        </trans-unit>
+        <trans-unit id="d91f3621-877b-458d-9b6d-4dd57e6a239f" xml:space="preserve">
+          <source>This enables you to debug the JavaScript code in your development environment while reducing concurrent client connections (bundling) and improving file download performance (minification) in production.</source>
+          <target state="new">This enables you to debug the JavaScript code in your development environment while reducing concurrent client connections (bundling) and improving file download performance (minification) in production.</target>
+        </trans-unit>
+        <trans-unit id="e98aa684-6a59-42ee-9960-a45278a634bc" xml:space="preserve">
+          <source>It's a great feature to preserve with Azure CDN integration.</source>
+          <target state="new">It's a great feature to preserve with Azure CDN integration.</target>
+        </trans-unit>
+        <trans-unit id="bcaa637d-4cdd-46a5-9c16-c78682a9c194" xml:space="preserve">
+          <source>Furthermore, since the rendered bundle already contains an automatically generated version string, you want to replicate that functionality so the whenever you update your jQuery version through NuGet, it can be updated at the client side as soon as possible.</source>
+          <target state="new">Furthermore, since the rendered bundle already contains an automatically generated version string, you want to replicate that functionality so the whenever you update your jQuery version through NuGet, it can be updated at the client side as soon as possible.</target>
+        </trans-unit>
+        <trans-unit id="799463a2-6f87-446d-b281-c02a9c27b993" xml:space="preserve">
+          <source>Follow the steps below to integration ASP.NET bundling and minification with your CDN endpoint.</source>
+          <target state="new">Follow the steps below to integration ASP.NET bundling and minification with your CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="06f0961a-4d59-4759-a820-dd864e3eaff0" xml:space="preserve">
+          <source>Back in <bpt id="c72f0158-6a33-4b2c-9833-2be72100b088">&lt;em&gt;</bpt>App_Start\BundleConfig.cs<ept id="c72f0158-6a33-4b2c-9833-2be72100b088">&lt;/em&gt;</ept>, modify the <bpt id="175e3065-4971-4907-8ab5-abada1693e44">&lt;code&gt;</bpt>bundles.Add()<ept id="175e3065-4971-4907-8ab5-abada1693e44">&lt;/code&gt;</ept> methods to use a different <bpt id="f8b94d23-e6d6-4447-abe2-cd318d3cac84">&lt;linkText&gt;</bpt>Bundle constructor<ept id="f8b94d23-e6d6-4447-abe2-cd318d3cac84">&lt;/linkText&gt;</ept><bpt id="f8b94d23-e6d6-4447-abe2-cd318d3cac84">&lt;title&gt;</bpt><ept id="f8b94d23-e6d6-4447-abe2-cd318d3cac84">&lt;/title&gt;</ept>, one that specifies a CDN address.</source>
+          <target state="new">Back in <bpt id="c72f0158-6a33-4b2c-9833-2be72100b088">&lt;em&gt;</bpt>App_Start\BundleConfig.cs<ept id="c72f0158-6a33-4b2c-9833-2be72100b088">&lt;/em&gt;</ept>, modify the <bpt id="175e3065-4971-4907-8ab5-abada1693e44">&lt;code&gt;</bpt>bundles.Add()<ept id="175e3065-4971-4907-8ab5-abada1693e44">&lt;/code&gt;</ept> methods to use a different <bpt id="f8b94d23-e6d6-4447-abe2-cd318d3cac84">&lt;linkText&gt;</bpt>Bundle constructor<ept id="f8b94d23-e6d6-4447-abe2-cd318d3cac84">&lt;/linkText&gt;</ept><bpt id="f8b94d23-e6d6-4447-abe2-cd318d3cac84">&lt;title&gt;</bpt><ept id="f8b94d23-e6d6-4447-abe2-cd318d3cac84">&lt;/title&gt;</ept>, one that specifies a CDN address.</target>
+        </trans-unit>
+        <trans-unit id="4ab07523-13ec-469b-9cad-2a4dd0fe8ec1" xml:space="preserve">
+          <source>To do this, replace the <bpt id="936c2367-cd1c-47ce-b3da-0dbab53c938e">&lt;code&gt;</bpt>RegisterBundles<ept id="936c2367-cd1c-47ce-b3da-0dbab53c938e">&lt;/code&gt;</ept> method definition with the following code:</source>
+          <target state="new">To do this, replace the <bpt id="936c2367-cd1c-47ce-b3da-0dbab53c938e">&lt;code&gt;</bpt>RegisterBundles<ept id="936c2367-cd1c-47ce-b3da-0dbab53c938e">&lt;/code&gt;</ept> method definition with the following code:</target>
+        </trans-unit>
+        <trans-unit id="04e6b18c-cce9-41a0-a776-43bd53ead227" xml:space="preserve">
+          <source>Be sure to replace <bpt id="4a7e5cd6-3723-41a4-b34c-33b041fa62de">&lt;code&gt;</bpt>&lt;yourCDNName&gt;<ept id="4a7e5cd6-3723-41a4-b34c-33b041fa62de">&lt;/code&gt;</ept> with the name of your Azure CDN.</source>
+          <target state="new">Be sure to replace <bpt id="4a7e5cd6-3723-41a4-b34c-33b041fa62de">&lt;code&gt;</bpt>&lt;yourCDNName&gt;<ept id="4a7e5cd6-3723-41a4-b34c-33b041fa62de">&lt;/code&gt;</ept> with the name of your Azure CDN.</target>
+        </trans-unit>
+        <trans-unit id="d05e8213-395d-46c4-8fab-ed3e4154664b" xml:space="preserve">
+          <source>In plain words, you are setting <bpt id="903683ad-f524-45f0-a519-8cc2ccff5806">&lt;code&gt;</bpt>bundles.UseCdn = true<ept id="903683ad-f524-45f0-a519-8cc2ccff5806">&lt;/code&gt;</ept> and added a carefully crafted CDN URL to each bundle.</source>
+          <target state="new">In plain words, you are setting <bpt id="903683ad-f524-45f0-a519-8cc2ccff5806">&lt;code&gt;</bpt>bundles.UseCdn = true<ept id="903683ad-f524-45f0-a519-8cc2ccff5806">&lt;/code&gt;</ept> and added a carefully crafted CDN URL to each bundle.</target>
+        </trans-unit>
+        <trans-unit id="fb1e6736-bfd8-4f8e-89f3-285d764b09df" xml:space="preserve">
+          <source>For example, the first constructor in the code:</source>
+          <target state="new">For example, the first constructor in the code:</target>
+        </trans-unit>
+        <trans-unit id="fe880d19-a8d5-4700-8306-0e107a723cf2" xml:space="preserve">
+          <source>is the same as: </source>
+          <target state="new">is the same as: </target>
+        </trans-unit>
+        <trans-unit id="c0114546-87fe-4da1-accd-ba8eb60a4d4f" xml:space="preserve">
+          <source>This constructor tells ASP.NET bundling and minification to render individual script files when debugged locally, but use the specified CDN address to access the script in question.</source>
+          <target state="new">This constructor tells ASP.NET bundling and minification to render individual script files when debugged locally, but use the specified CDN address to access the script in question.</target>
+        </trans-unit>
+        <trans-unit id="3c75f7fa-19cd-4aa6-852e-b633eedfddce" xml:space="preserve">
+          <source>However, note two important characteristics with this carefully crafted CDN URL:</source>
+          <target state="new">However, note two important characteristics with this carefully crafted CDN URL:</target>
+        </trans-unit>
+        <trans-unit id="c26c109b-5337-4888-b41e-9512a09d7908" xml:space="preserve">
+          <source>The origin for this CDN URL is <bpt id="00201da6-3198-48a4-bc6c-96c103c65464">&lt;code&gt;</bpt>http://&lt;yourCloudService&gt;.cloudapp.net/bundles/jquery?v=&lt;W.X.Y.Z&gt;<ept id="00201da6-3198-48a4-bc6c-96c103c65464">&lt;/code&gt;</ept>, which is actually the virtual directory of the script bundle in your cloud service.</source>
+          <target state="new">The origin for this CDN URL is <bpt id="00201da6-3198-48a4-bc6c-96c103c65464">&lt;code&gt;</bpt>http://&lt;yourCloudService&gt;.cloudapp.net/bundles/jquery?v=&lt;W.X.Y.Z&gt;<ept id="00201da6-3198-48a4-bc6c-96c103c65464">&lt;/code&gt;</ept>, which is actually the virtual directory of the script bundle in your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="df430248-e354-4fb4-9a80-c75d47e2c637" xml:space="preserve">
+          <source>Since you are using CDN constructor, the CDN script tag for the bundle no longer contains the automatically generated version string in the rendered URL.</source>
+          <target state="new">Since you are using CDN constructor, the CDN script tag for the bundle no longer contains the automatically generated version string in the rendered URL.</target>
+        </trans-unit>
+        <trans-unit id="25d3d397-ee7d-4f04-8938-7c791e42b7db" xml:space="preserve">
+          <source>You must manually generate a unique version string every time the script bundle is modified to force a cache miss at your Azure CDN.</source>
+          <target state="new">You must manually generate a unique version string every time the script bundle is modified to force a cache miss at your Azure CDN.</target>
+        </trans-unit>
+        <trans-unit id="7f18d608-7215-4d8c-a320-dbb223a7c1ac" xml:space="preserve">
+          <source>At the same time, this unique version string must remain constant through the life of the deployment to maximize cache hits at your Azure CDN after the bundle is deployed.</source>
+          <target state="new">At the same time, this unique version string must remain constant through the life of the deployment to maximize cache hits at your Azure CDN after the bundle is deployed.</target>
+        </trans-unit>
+        <trans-unit id="aca7f54b-fe42-4abd-a7ec-8a839b506828" xml:space="preserve">
+          <source>The query string v=&lt;W.X.Y.Z&gt; pulls from <bpt id="f73020c1-f3a2-4ca2-887d-2da21b55e479">&lt;em&gt;</bpt>Properties\AssemblyInfo.cs<ept id="f73020c1-f3a2-4ca2-887d-2da21b55e479">&lt;/em&gt;</ept> in your Web role project. You can have a deployment workflow that includes incrementing the assembly version every time you publish to Azure. Or, you can just modify <bpt id="57cd0396-da04-4e19-af80-57a72342e6df">&lt;em&gt;</bpt>Properties\AssemblyInfo.cs<ept id="57cd0396-da04-4e19-af80-57a72342e6df">&lt;/em&gt;</ept> in your project to automatically increment the version string every time you build, using the wildcard character '*'. For example:</source>
+          <target state="new">The query string v=&lt;W.X.Y.Z&gt; pulls from <bpt id="f73020c1-f3a2-4ca2-887d-2da21b55e479">&lt;em&gt;</bpt>Properties\AssemblyInfo.cs<ept id="f73020c1-f3a2-4ca2-887d-2da21b55e479">&lt;/em&gt;</ept> in your Web role project. You can have a deployment workflow that includes incrementing the assembly version every time you publish to Azure. Or, you can just modify <bpt id="57cd0396-da04-4e19-af80-57a72342e6df">&lt;em&gt;</bpt>Properties\AssemblyInfo.cs<ept id="57cd0396-da04-4e19-af80-57a72342e6df">&lt;/em&gt;</ept> in your project to automatically increment the version string every time you build, using the wildcard character '*'. For example:</target>
+        </trans-unit>
+        <trans-unit id="ec98d8ed-122a-4b23-add3-36cccc29a282" xml:space="preserve">
+          <source>Any other strategy to streamline generating a unique string for the life of a deployment will work here.</source>
+          <target state="new">Any other strategy to streamline generating a unique string for the life of a deployment will work here.</target>
+        </trans-unit>
+        <trans-unit id="9c45c6d1-d666-4214-9d8f-d9e138e38bf0" xml:space="preserve">
+          <source>Republish the cloud service and access the home page.</source>
+          <target state="new">Republish the cloud service and access the home page.</target>
+        </trans-unit>
+        <trans-unit id="e8e602c2-ba37-4e87-8d06-e98b2fc667b0" xml:space="preserve">
+          <source>View the HTML code for the page.</source>
+          <target state="new">View the HTML code for the page.</target>
+        </trans-unit>
+        <trans-unit id="c94f474b-aee0-42e9-a28c-f8e7455aacd2" xml:space="preserve">
+          <source>You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your cloud service.</source>
+          <target state="new">You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="d3ec4537-eaeb-4454-b495-d98bce7f629c" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="bf0f5e5e-fedf-4f94-8dfc-b442ac909d96" xml:space="preserve">
+          <source>In Visual Studio, debug the cloud service in Visual Studio by typing <bpt id="88816f7c-2921-4632-85b3-fd1621788057">&lt;code&gt;</bpt>F5<ept id="88816f7c-2921-4632-85b3-fd1621788057">&lt;/code&gt;</ept>., </source>
+          <target state="new">In Visual Studio, debug the cloud service in Visual Studio by typing <bpt id="88816f7c-2921-4632-85b3-fd1621788057">&lt;code&gt;</bpt>F5<ept id="88816f7c-2921-4632-85b3-fd1621788057">&lt;/code&gt;</ept>., </target>
+        </trans-unit>
+        <trans-unit id="73523ba1-c300-4b5f-9d97-83c692839983" xml:space="preserve">
+          <source>View the HTML code for the page.</source>
+          <target state="new">View the HTML code for the page.</target>
+        </trans-unit>
+        <trans-unit id="00b7c915-d8fa-4355-b5a1-b9c963d3174b" xml:space="preserve">
+          <source>You will still see each script file individually rendered so that you can have a consistent debug experience in Visual Studio.</source>
+          <target state="new">You will still see each script file individually rendered so that you can have a consistent debug experience in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="9bbe0b27-0161-441a-bc01-baa76a8df8f9" xml:space="preserve">
+          <source><bpt id="a2ca5a6f-5219-454e-a831-5a4ec634e913">&lt;bookmark&gt;</bpt><ept id="a2ca5a6f-5219-454e-a831-5a4ec634e913">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="a2ca5a6f-5219-454e-a831-5a4ec634e913">&lt;bookmark&gt;</bpt><ept id="a2ca5a6f-5219-454e-a831-5a4ec634e913">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="486f6019-aa39-4b84-a62f-6b87b5a50f69" xml:space="preserve">
+          <source>When your Azure CDN endpoint fails for any reason, you want your Web page to be smart enough to access your origin Web server as the fallback option for loading JavaScript or Bootstrap.</source>
+          <target state="new">When your Azure CDN endpoint fails for any reason, you want your Web page to be smart enough to access your origin Web server as the fallback option for loading JavaScript or Bootstrap.</target>
+        </trans-unit>
+        <trans-unit id="692e4745-f93f-452f-a20c-184dadeabaed" xml:space="preserve">
+          <source>It's serious enough to lose images on your website due to CDN unavailability, but much more severe to lose crucial page functionality provided by your scripts and stylesheets.</source>
+          <target state="new">It's serious enough to lose images on your website due to CDN unavailability, but much more severe to lose crucial page functionality provided by your scripts and stylesheets.</target>
+        </trans-unit>
+        <trans-unit id="13f2b683-a5a6-4cda-92f8-a9c538a8d040" xml:space="preserve">
+          <source>The <bpt id="983fd43d-46bb-4657-9445-fe30281e95c9">&lt;linkText&gt;</bpt>Bundle<ept id="983fd43d-46bb-4657-9445-fe30281e95c9">&lt;/linkText&gt;</ept><bpt id="983fd43d-46bb-4657-9445-fe30281e95c9">&lt;title&gt;</bpt><ept id="983fd43d-46bb-4657-9445-fe30281e95c9">&lt;/title&gt;</ept> class contains a property called <bpt id="63ebe0dd-1f5f-45da-be54-a08bc7059b53">&lt;linkText&gt;</bpt>CdnFallbackExpression<ept id="63ebe0dd-1f5f-45da-be54-a08bc7059b53">&lt;/linkText&gt;</ept><bpt id="63ebe0dd-1f5f-45da-be54-a08bc7059b53">&lt;title&gt;</bpt><ept id="63ebe0dd-1f5f-45da-be54-a08bc7059b53">&lt;/title&gt;</ept> that enables you to configure the fallback mechanism for CDN failure.</source>
+          <target state="new">The <bpt id="983fd43d-46bb-4657-9445-fe30281e95c9">&lt;linkText&gt;</bpt>Bundle<ept id="983fd43d-46bb-4657-9445-fe30281e95c9">&lt;/linkText&gt;</ept><bpt id="983fd43d-46bb-4657-9445-fe30281e95c9">&lt;title&gt;</bpt><ept id="983fd43d-46bb-4657-9445-fe30281e95c9">&lt;/title&gt;</ept> class contains a property called <bpt id="63ebe0dd-1f5f-45da-be54-a08bc7059b53">&lt;linkText&gt;</bpt>CdnFallbackExpression<ept id="63ebe0dd-1f5f-45da-be54-a08bc7059b53">&lt;/linkText&gt;</ept><bpt id="63ebe0dd-1f5f-45da-be54-a08bc7059b53">&lt;title&gt;</bpt><ept id="63ebe0dd-1f5f-45da-be54-a08bc7059b53">&lt;/title&gt;</ept> that enables you to configure the fallback mechanism for CDN failure.</target>
+        </trans-unit>
+        <trans-unit id="385bf5f6-53fb-4b91-ae12-7bde3e260b18" xml:space="preserve">
+          <source>To use this property, follow the steps below:</source>
+          <target state="new">To use this property, follow the steps below:</target>
+        </trans-unit>
+        <trans-unit id="95081b93-706b-457b-a901-9487ecf5e37f" xml:space="preserve">
+          <source>In your Web role project, open <bpt id="dafd3a2d-4ac4-4758-8ec4-d19cbd2da183">&lt;em&gt;</bpt>App_Start\BundleConfig.cs<ept id="dafd3a2d-4ac4-4758-8ec4-d19cbd2da183">&lt;/em&gt;</ept>, where you added a CDN URL in each <bpt id="5215059d-287c-4de3-9fba-2ce417a43f6f">&lt;linkText&gt;</bpt>Bundle constructor<ept id="5215059d-287c-4de3-9fba-2ce417a43f6f">&lt;/linkText&gt;</ept><bpt id="5215059d-287c-4de3-9fba-2ce417a43f6f">&lt;title&gt;</bpt><ept id="5215059d-287c-4de3-9fba-2ce417a43f6f">&lt;/title&gt;</ept>, and make the following highlighted changes to add fallback mechanism to the default bundles:  </source>
+          <target state="new">In your Web role project, open <bpt id="dafd3a2d-4ac4-4758-8ec4-d19cbd2da183">&lt;em&gt;</bpt>App_Start\BundleConfig.cs<ept id="dafd3a2d-4ac4-4758-8ec4-d19cbd2da183">&lt;/em&gt;</ept>, where you added a CDN URL in each <bpt id="5215059d-287c-4de3-9fba-2ce417a43f6f">&lt;linkText&gt;</bpt>Bundle constructor<ept id="5215059d-287c-4de3-9fba-2ce417a43f6f">&lt;/linkText&gt;</ept><bpt id="5215059d-287c-4de3-9fba-2ce417a43f6f">&lt;title&gt;</bpt><ept id="5215059d-287c-4de3-9fba-2ce417a43f6f">&lt;/title&gt;</ept>, and make the following highlighted changes to add fallback mechanism to the default bundles:  </target>
+        </trans-unit>
+        <trans-unit id="4abc58f3-ba42-41c3-b710-484408ddad87" xml:space="preserve">
+          <source>When <bpt id="47bfe6a3-e319-4381-958c-ab8bd5a2e984">&lt;code&gt;</bpt>CdnFallbackExpression<ept id="47bfe6a3-e319-4381-958c-ab8bd5a2e984">&lt;/code&gt;</ept> is not null, script is injected into the HTML to test whether the bundle is loaded successfully and, if not, access the bundle directly from the origin Web server.</source>
+          <target state="new">When <bpt id="47bfe6a3-e319-4381-958c-ab8bd5a2e984">&lt;code&gt;</bpt>CdnFallbackExpression<ept id="47bfe6a3-e319-4381-958c-ab8bd5a2e984">&lt;/code&gt;</ept> is not null, script is injected into the HTML to test whether the bundle is loaded successfully and, if not, access the bundle directly from the origin Web server.</target>
+        </trans-unit>
+        <trans-unit id="9664e2a5-1c4d-4fe3-8485-df5c8934077d" xml:space="preserve">
+          <source>This property needs to be set to a JavaScript expression that tests whether the respective CDN bundle is loaded properly.</source>
+          <target state="new">This property needs to be set to a JavaScript expression that tests whether the respective CDN bundle is loaded properly.</target>
+        </trans-unit>
+        <trans-unit id="7f2eef89-a0e4-4d18-a132-1db5a94cbc56" xml:space="preserve">
+          <source>The expression needed to test each bundle differs according to the content.</source>
+          <target state="new">The expression needed to test each bundle differs according to the content.</target>
+        </trans-unit>
+        <trans-unit id="6aa93271-7719-4800-a3b5-c3d835441998" xml:space="preserve">
+          <source>For the default bundles above:</source>
+          <target state="new">For the default bundles above:</target>
+        </trans-unit>
+        <trans-unit id="c294ff7b-24d3-4e7f-bb93-21f1978cd363" xml:space="preserve">
+          <source><bpt id="685f2fc1-ffe1-40ec-883a-2fd38ecc8688">&lt;code&gt;</bpt>window.jquery<ept id="685f2fc1-ffe1-40ec-883a-2fd38ecc8688">&lt;/code&gt;</ept> is defined in jquery-{version}.js</source>
+          <target state="new"><bpt id="685f2fc1-ffe1-40ec-883a-2fd38ecc8688">&lt;code&gt;</bpt>window.jquery<ept id="685f2fc1-ffe1-40ec-883a-2fd38ecc8688">&lt;/code&gt;</ept> is defined in jquery-{version}.js</target>
+        </trans-unit>
+        <trans-unit id="0f09d6b6-2a61-4de9-a8f2-3637e2da5308" xml:space="preserve">
+          <source><bpt id="bb08b221-7d18-4c6c-852f-3ef989ac6173">&lt;code&gt;</bpt>$.validator<ept id="bb08b221-7d18-4c6c-852f-3ef989ac6173">&lt;/code&gt;</ept> is defined in jquery.validate.js</source>
+          <target state="new"><bpt id="bb08b221-7d18-4c6c-852f-3ef989ac6173">&lt;code&gt;</bpt>$.validator<ept id="bb08b221-7d18-4c6c-852f-3ef989ac6173">&lt;/code&gt;</ept> is defined in jquery.validate.js</target>
+        </trans-unit>
+        <trans-unit id="931b787f-8d94-4357-8575-2e9bc25d8c4d" xml:space="preserve">
+          <source><bpt id="7b93c2b3-1f87-430b-a1c3-aae125105919">&lt;code&gt;</bpt>window.Modernizr<ept id="7b93c2b3-1f87-430b-a1c3-aae125105919">&lt;/code&gt;</ept> is defined in modernizer-{version}.js</source>
+          <target state="new"><bpt id="7b93c2b3-1f87-430b-a1c3-aae125105919">&lt;code&gt;</bpt>window.Modernizr<ept id="7b93c2b3-1f87-430b-a1c3-aae125105919">&lt;/code&gt;</ept> is defined in modernizer-{version}.js</target>
+        </trans-unit>
+        <trans-unit id="01aa9c92-5457-4a7b-94a3-7f2706c00dec" xml:space="preserve">
+          <source><bpt id="0fcda6cf-5b1a-4342-b3d4-c4fe033e9870">&lt;code&gt;</bpt>$.fn.modal<ept id="0fcda6cf-5b1a-4342-b3d4-c4fe033e9870">&lt;/code&gt;</ept> is defined in bootstrap.js</source>
+          <target state="new"><bpt id="0fcda6cf-5b1a-4342-b3d4-c4fe033e9870">&lt;code&gt;</bpt>$.fn.modal<ept id="0fcda6cf-5b1a-4342-b3d4-c4fe033e9870">&lt;/code&gt;</ept> is defined in bootstrap.js</target>
+        </trans-unit>
+        <trans-unit id="356a08a4-beb3-4fd0-ac3e-df6d985089a6" xml:space="preserve">
+          <source>You might have noticed that I did not set CdnFallbackExpression for the <bpt id="d0735c16-aec1-44e4-a750-01d141b35941">&lt;code&gt;</bpt>~/Cointent/css<ept id="d0735c16-aec1-44e4-a750-01d141b35941">&lt;/code&gt;</ept> bundle. This is because currently there is a <bpt id="cec3e1d1-2497-479d-b31d-cf4fd72b7c9f">&lt;linkText&gt;</bpt>bug in System.Web.Optimization<ept id="cec3e1d1-2497-479d-b31d-cf4fd72b7c9f">&lt;/linkText&gt;</ept><bpt id="cec3e1d1-2497-479d-b31d-cf4fd72b7c9f">&lt;title&gt;</bpt><ept id="cec3e1d1-2497-479d-b31d-cf4fd72b7c9f">&lt;/title&gt;</ept> that injects a <bpt id="5648761b-1c8e-44e6-a463-a8fc53a574ee">&lt;code&gt;</bpt>&lt;script&gt;<ept id="5648761b-1c8e-44e6-a463-a8fc53a574ee">&lt;/code&gt;</ept> tag for the fallback CSS instead of the expected <bpt id="47f5c4bd-29f3-4192-ad9a-e06968382996">&lt;code&gt;</bpt>&lt;link&gt;<ept id="47f5c4bd-29f3-4192-ad9a-e06968382996">&lt;/code&gt;</ept> tag.</source>
+          <target state="new">You might have noticed that I did not set CdnFallbackExpression for the <bpt id="d0735c16-aec1-44e4-a750-01d141b35941">&lt;code&gt;</bpt>~/Cointent/css<ept id="d0735c16-aec1-44e4-a750-01d141b35941">&lt;/code&gt;</ept> bundle. This is because currently there is a <bpt id="cec3e1d1-2497-479d-b31d-cf4fd72b7c9f">&lt;linkText&gt;</bpt>bug in System.Web.Optimization<ept id="cec3e1d1-2497-479d-b31d-cf4fd72b7c9f">&lt;/linkText&gt;</ept><bpt id="cec3e1d1-2497-479d-b31d-cf4fd72b7c9f">&lt;title&gt;</bpt><ept id="cec3e1d1-2497-479d-b31d-cf4fd72b7c9f">&lt;/title&gt;</ept> that injects a <bpt id="5648761b-1c8e-44e6-a463-a8fc53a574ee">&lt;code&gt;</bpt>&lt;script&gt;<ept id="5648761b-1c8e-44e6-a463-a8fc53a574ee">&lt;/code&gt;</ept> tag for the fallback CSS instead of the expected <bpt id="47f5c4bd-29f3-4192-ad9a-e06968382996">&lt;code&gt;</bpt>&lt;link&gt;<ept id="47f5c4bd-29f3-4192-ad9a-e06968382996">&lt;/code&gt;</ept> tag.</target>
+        </trans-unit>
+        <trans-unit id="d280f676-82d7-4d89-b2e9-b170496df742" xml:space="preserve">
+          <source>There is, however, a good <bpt id="602c9d0e-4b49-48b6-ab42-07f5cadfec08">&lt;linkText&gt;</bpt>Style Bundle Fallback<ept id="602c9d0e-4b49-48b6-ab42-07f5cadfec08">&lt;/linkText&gt;</ept><bpt id="602c9d0e-4b49-48b6-ab42-07f5cadfec08">&lt;title&gt;</bpt><ept id="602c9d0e-4b49-48b6-ab42-07f5cadfec08">&lt;/title&gt;</ept> offered by <bpt id="758e2eb2-4e20-4eea-a8d6-0c177a1d155e">&lt;linkText&gt;</bpt>Ember Consulting Group<ept id="758e2eb2-4e20-4eea-a8d6-0c177a1d155e">&lt;/linkText&gt;</ept><bpt id="758e2eb2-4e20-4eea-a8d6-0c177a1d155e">&lt;title&gt;</bpt><ept id="758e2eb2-4e20-4eea-a8d6-0c177a1d155e">&lt;/title&gt;</ept>.</source>
+          <target state="new">There is, however, a good <bpt id="602c9d0e-4b49-48b6-ab42-07f5cadfec08">&lt;linkText&gt;</bpt>Style Bundle Fallback<ept id="602c9d0e-4b49-48b6-ab42-07f5cadfec08">&lt;/linkText&gt;</ept><bpt id="602c9d0e-4b49-48b6-ab42-07f5cadfec08">&lt;title&gt;</bpt><ept id="602c9d0e-4b49-48b6-ab42-07f5cadfec08">&lt;/title&gt;</ept> offered by <bpt id="758e2eb2-4e20-4eea-a8d6-0c177a1d155e">&lt;linkText&gt;</bpt>Ember Consulting Group<ept id="758e2eb2-4e20-4eea-a8d6-0c177a1d155e">&lt;/linkText&gt;</ept><bpt id="758e2eb2-4e20-4eea-a8d6-0c177a1d155e">&lt;title&gt;</bpt><ept id="758e2eb2-4e20-4eea-a8d6-0c177a1d155e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a45d9a25-6a0c-4100-9c0b-09d5f7156fd2" xml:space="preserve">
+          <source>To use the workaround for CSS, create a new .cs file in your Web role project's <bpt id="2fbf9c9d-6f76-45b4-af3d-a1aa2161d0d9">&lt;em&gt;</bpt>App_Start<ept id="2fbf9c9d-6f76-45b4-af3d-a1aa2161d0d9">&lt;/em&gt;</ept> folder called <bpt id="b09e9140-082f-4e3a-bd16-e9131420fc02">&lt;em&gt;</bpt>StyleBundleExtensions.cs<ept id="b09e9140-082f-4e3a-bd16-e9131420fc02">&lt;/em&gt;</ept>, and replace its content with the <bpt id="3d12c9d4-7d42-42f0-8fe1-a64febf0f466">&lt;linkText&gt;</bpt>code from GitHub<ept id="3d12c9d4-7d42-42f0-8fe1-a64febf0f466">&lt;/linkText&gt;</ept><bpt id="3d12c9d4-7d42-42f0-8fe1-a64febf0f466">&lt;title&gt;</bpt><ept id="3d12c9d4-7d42-42f0-8fe1-a64febf0f466">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use the workaround for CSS, create a new .cs file in your Web role project's <bpt id="2fbf9c9d-6f76-45b4-af3d-a1aa2161d0d9">&lt;em&gt;</bpt>App_Start<ept id="2fbf9c9d-6f76-45b4-af3d-a1aa2161d0d9">&lt;/em&gt;</ept> folder called <bpt id="b09e9140-082f-4e3a-bd16-e9131420fc02">&lt;em&gt;</bpt>StyleBundleExtensions.cs<ept id="b09e9140-082f-4e3a-bd16-e9131420fc02">&lt;/em&gt;</ept>, and replace its content with the <bpt id="3d12c9d4-7d42-42f0-8fe1-a64febf0f466">&lt;linkText&gt;</bpt>code from GitHub<ept id="3d12c9d4-7d42-42f0-8fe1-a64febf0f466">&lt;/linkText&gt;</ept><bpt id="3d12c9d4-7d42-42f0-8fe1-a64febf0f466">&lt;title&gt;</bpt><ept id="3d12c9d4-7d42-42f0-8fe1-a64febf0f466">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="71e70a96-53ae-4889-bfbb-812b987156a6" xml:space="preserve">
+          <source>In <bpt id="018f57d8-1b1a-4df2-8921-d197995482ae">&lt;em&gt;</bpt>App_Start\StyleFundleExtensions.cs<ept id="018f57d8-1b1a-4df2-8921-d197995482ae">&lt;/em&gt;</ept>, rename the namespace to your Web role's name (e.g. <bpt id="83907eef-35aa-4663-a25f-fca5e682e20e">&lt;strong&gt;</bpt>WebRole1<ept id="83907eef-35aa-4663-a25f-fca5e682e20e">&lt;/strong&gt;</ept>).</source>
+          <target state="new">In <bpt id="018f57d8-1b1a-4df2-8921-d197995482ae">&lt;em&gt;</bpt>App_Start\StyleFundleExtensions.cs<ept id="018f57d8-1b1a-4df2-8921-d197995482ae">&lt;/em&gt;</ept>, rename the namespace to your Web role's name (e.g. <bpt id="83907eef-35aa-4663-a25f-fca5e682e20e">&lt;strong&gt;</bpt>WebRole1<ept id="83907eef-35aa-4663-a25f-fca5e682e20e">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="55fede7c-fa90-4f08-b642-5773f8507f0a" xml:space="preserve">
+          <source>Go back to <bpt id="a2a00383-05d6-47b5-91d4-bb2f5fa76ab4">&lt;code&gt;</bpt>App_Start\BundleConfig.cs<ept id="a2a00383-05d6-47b5-91d4-bb2f5fa76ab4">&lt;/code&gt;</ept> and modify the last <bpt id="858d94e4-d477-4928-8a6c-d2d6f29eb226">&lt;code&gt;</bpt>bundles.Add<ept id="858d94e4-d477-4928-8a6c-d2d6f29eb226">&lt;/code&gt;</ept> statement with the following highlighted code:  </source>
+          <target state="new">Go back to <bpt id="a2a00383-05d6-47b5-91d4-bb2f5fa76ab4">&lt;code&gt;</bpt>App_Start\BundleConfig.cs<ept id="a2a00383-05d6-47b5-91d4-bb2f5fa76ab4">&lt;/code&gt;</ept> and modify the last <bpt id="858d94e4-d477-4928-8a6c-d2d6f29eb226">&lt;code&gt;</bpt>bundles.Add<ept id="858d94e4-d477-4928-8a6c-d2d6f29eb226">&lt;/code&gt;</ept> statement with the following highlighted code:  </target>
+        </trans-unit>
+        <trans-unit id="7cf00753-855f-4674-bdec-dc779e53f731" xml:space="preserve">
+          <source>This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.</source>
+          <target state="new">This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.</target>
+        </trans-unit>
+        <trans-unit id="8cca745c-62c8-47d5-8676-b4113593f168" xml:space="preserve">
+          <source>Publish the cloud service again and access the home page.</source>
+          <target state="new">Publish the cloud service again and access the home page.</target>
+        </trans-unit>
+        <trans-unit id="ad1a89bb-5dff-4d2b-92ee-26bf4836b71d" xml:space="preserve">
+          <source>View the HTML code for the page.</source>
+          <target state="new">View the HTML code for the page.</target>
+        </trans-unit>
+        <trans-unit id="95c2b00f-a35f-4493-8385-3155cf794ca6" xml:space="preserve">
+          <source>You should find injected scripts similar to the following:</source>
+          <target state="new">You should find injected scripts similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="ab1c37ca-e323-4fa9-b1ff-745e41829fc3" xml:space="preserve">
+          <source>Note that injected script for the CSS bundle still contains the errant remnant from the <bpt id="f6e6f556-f396-4e52-9605-c50371ea3bb0">&lt;code&gt;</bpt>CdnFallbackExpression<ept id="f6e6f556-f396-4e52-9605-c50371ea3bb0">&lt;/code&gt;</ept> property in the line:</source>
+          <target state="new">Note that injected script for the CSS bundle still contains the errant remnant from the <bpt id="f6e6f556-f396-4e52-9605-c50371ea3bb0">&lt;code&gt;</bpt>CdnFallbackExpression<ept id="f6e6f556-f396-4e52-9605-c50371ea3bb0">&lt;/code&gt;</ept> property in the line:</target>
+        </trans-unit>
+        <trans-unit id="96e62694-ba77-4dcf-834e-3c6b1e5da326" xml:space="preserve">
+          <source>But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.</source>
+          <target state="new">But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.</target>
+        </trans-unit>
+        <trans-unit id="f07ea905-40c6-4cdf-9fff-e6b026f298eb" xml:space="preserve">
+          <source><bpt id="6ba1e16b-198c-42e6-97a1-a88df49ba46a">&lt;linkText&gt;</bpt>Overview of the Azure Content Delivery Network (CDN)<ept id="6ba1e16b-198c-42e6-97a1-a88df49ba46a">&lt;/linkText&gt;</ept><bpt id="6ba1e16b-198c-42e6-97a1-a88df49ba46a">&lt;title&gt;</bpt><ept id="6ba1e16b-198c-42e6-97a1-a88df49ba46a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6ba1e16b-198c-42e6-97a1-a88df49ba46a">&lt;linkText&gt;</bpt>Overview of the Azure Content Delivery Network (CDN)<ept id="6ba1e16b-198c-42e6-97a1-a88df49ba46a">&lt;/linkText&gt;</ept><bpt id="6ba1e16b-198c-42e6-97a1-a88df49ba46a">&lt;title&gt;</bpt><ept id="6ba1e16b-198c-42e6-97a1-a88df49ba46a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cccf9901-6b4d-4414-8e81-03574d674207" xml:space="preserve">
+          <source><bpt id="61116c5b-f49e-4538-bf45-6536419245af">&lt;linkText&gt;</bpt>Serve Content from Azure CDN in Your Web Application<ept id="61116c5b-f49e-4538-bf45-6536419245af">&lt;/linkText&gt;</ept><bpt id="61116c5b-f49e-4538-bf45-6536419245af">&lt;title&gt;</bpt><ept id="61116c5b-f49e-4538-bf45-6536419245af">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="61116c5b-f49e-4538-bf45-6536419245af">&lt;linkText&gt;</bpt>Serve Content from Azure CDN in Your Web Application<ept id="61116c5b-f49e-4538-bf45-6536419245af">&lt;/linkText&gt;</ept><bpt id="61116c5b-f49e-4538-bf45-6536419245af">&lt;title&gt;</bpt><ept id="61116c5b-f49e-4538-bf45-6536419245af">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea7a2a9c-d096-4344-896c-e1588a4d337b" xml:space="preserve">
+          <source><bpt id="d662f4d8-34e1-44c8-a206-412bf062dd38">&lt;linkText&gt;</bpt>Integrate an Azure Website with Azure CDN<ept id="d662f4d8-34e1-44c8-a206-412bf062dd38">&lt;/linkText&gt;</ept><bpt id="d662f4d8-34e1-44c8-a206-412bf062dd38">&lt;title&gt;</bpt><ept id="d662f4d8-34e1-44c8-a206-412bf062dd38">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d662f4d8-34e1-44c8-a206-412bf062dd38">&lt;linkText&gt;</bpt>Integrate an Azure Website with Azure CDN<ept id="d662f4d8-34e1-44c8-a206-412bf062dd38">&lt;/linkText&gt;</ept><bpt id="d662f4d8-34e1-44c8-a206-412bf062dd38">&lt;title&gt;</bpt><ept id="d662f4d8-34e1-44c8-a206-412bf062dd38">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd0d236e-ccad-4852-bd28-acd1d358fef6" xml:space="preserve">
+          <source><bpt id="681ec4f6-a8b0-4710-a405-f938a589065f">&lt;linkText&gt;</bpt>ASP.NET Bundling and Minification<ept id="681ec4f6-a8b0-4710-a405-f938a589065f">&lt;/linkText&gt;</ept><bpt id="681ec4f6-a8b0-4710-a405-f938a589065f">&lt;title&gt;</bpt><ept id="681ec4f6-a8b0-4710-a405-f938a589065f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="681ec4f6-a8b0-4710-a405-f938a589065f">&lt;linkText&gt;</bpt>ASP.NET Bundling and Minification<ept id="681ec4f6-a8b0-4710-a405-f938a589065f">&lt;/linkText&gt;</ept><bpt id="681ec4f6-a8b0-4710-a405-f938a589065f">&lt;title&gt;</bpt><ept id="681ec4f6-a8b0-4710-a405-f938a589065f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3036546d-cdd6-4d3f-8742-9e17cdbfb25f" xml:space="preserve">
+          <source><bpt id="79400f25-c64f-4c56-b28c-a30a61225a3b">&lt;linkText&gt;</bpt>Using CDN for Azure<ept id="79400f25-c64f-4c56-b28c-a30a61225a3b">&lt;/linkText&gt;</ept><bpt id="79400f25-c64f-4c56-b28c-a30a61225a3b">&lt;title&gt;</bpt><ept id="79400f25-c64f-4c56-b28c-a30a61225a3b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="79400f25-c64f-4c56-b28c-a30a61225a3b">&lt;linkText&gt;</bpt>Using CDN for Azure<ept id="79400f25-c64f-4c56-b28c-a30a61225a3b">&lt;/linkText&gt;</ept><bpt id="79400f25-c64f-4c56-b28c-a30a61225a3b">&lt;title&gt;</bpt><ept id="79400f25-c64f-4c56-b28c-a30a61225a3b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

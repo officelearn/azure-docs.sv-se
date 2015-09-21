@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="38520884-361b-4eff-ac4c-2e36be8393e7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="38520884-361b-4eff-ac4c-2e36be8393e7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="29846db0-714c-4d6a-a878-235b8f74ee6c">
+        <trans-unit id="21f9178a-3a4a-4faf-99e2-7c2d342d4121" xml:space="preserve">
+          <source>Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table.</source>
+          <target state="new">Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table.</target>
+        </trans-unit>
+        <trans-unit id="abaa839e-01bd-45e1-9295-daaf78cd2eac" xml:space="preserve">
+          <source>The <bpt id="62a8dda6-ee61-42e3-8743-ef8b4b4c53c5">&lt;strong&gt;</bpt>columnMapping<ept id="62a8dda6-ee61-42e3-8743-ef8b4b4c53c5">&lt;/strong&gt;</ept> property is available in the <bpt id="571ad392-4380-44cd-a7fb-460b3f1038f1">&lt;strong&gt;</bpt>typeProperties<ept id="571ad392-4380-44cd-a7fb-460b3f1038f1">&lt;/strong&gt;</ept> section of the Copy activity.</source>
+          <target state="new">The <bpt id="62a8dda6-ee61-42e3-8743-ef8b4b4c53c5">&lt;strong&gt;</bpt>columnMapping<ept id="62a8dda6-ee61-42e3-8743-ef8b4b4c53c5">&lt;/strong&gt;</ept> property is available in the <bpt id="571ad392-4380-44cd-a7fb-460b3f1038f1">&lt;strong&gt;</bpt>typeProperties<ept id="571ad392-4380-44cd-a7fb-460b3f1038f1">&lt;/strong&gt;</ept> section of the Copy activity.</target>
+        </trans-unit>
+        <trans-unit id="67ff1df7-3bca-4ff1-8107-a943b6616564" xml:space="preserve">
+          <source>Column mapping supports the following scenarios:</source>
+          <target state="new">Column mapping supports the following scenarios:</target>
+        </trans-unit>
+        <trans-unit id="c728f472-906d-46a3-be8c-9722308a6cc4" xml:space="preserve">
+          <source>All columns in the source table “structure” are mapped to all columns in the sink table “structure”.</source>
+          <target state="new">All columns in the source table “structure” are mapped to all columns in the sink table “structure”.</target>
+        </trans-unit>
+        <trans-unit id="c2472232-6ee8-4bc1-8b30-e76cdc44a070" xml:space="preserve">
+          <source>A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.</source>
+          <target state="new">A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.</target>
+        </trans-unit>
+        <trans-unit id="afbe5528-b234-4d0d-82be-ac6237ba49b9" xml:space="preserve">
+          <source>The following are error conditions and will result in an exception:</source>
+          <target state="new">The following are error conditions and will result in an exception:</target>
+        </trans-unit>
+        <trans-unit id="604aa204-d41d-49c7-8ba7-016b11cef62b" xml:space="preserve">
+          <source>Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.</source>
+          <target state="new">Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.</target>
+        </trans-unit>
+        <trans-unit id="a53fe32b-c7a5-4485-aead-ecc4bf1482a3" xml:space="preserve">
+          <source>Duplicate mapping.</source>
+          <target state="new">Duplicate mapping.</target>
+        </trans-unit>
+        <trans-unit id="0fce3bea-ef8c-46ec-bc7d-9fc2eb6bb25e" xml:space="preserve">
+          <source>SQL query result does not have a column name that is specified in the mapping.</source>
+          <target state="new">SQL query result does not have a column name that is specified in the mapping.</target>
+        </trans-unit>
+        <trans-unit id="049fcc83-e108-4e23-a49f-2bd2b06ffc53" xml:space="preserve">
+          <source>The samples below are for Azure SQL and Azure Blob but are applicable in the same way for any data store that supports rectangular tables.</source>
+          <target state="new">The samples below are for Azure SQL and Azure Blob but are applicable in the same way for any data store that supports rectangular tables.</target>
+        </trans-unit>
+        <trans-unit id="6fd4d50a-a3ef-4f38-a5d5-4ebf1aa9aacc" xml:space="preserve">
+          <source>You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source.</source>
+          <target state="new">You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source.</target>
+        </trans-unit>
+        <trans-unit id="5346604e-1fd6-40be-afa4-633e0308cc01" xml:space="preserve">
+          <source>In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.</source>
+          <target state="new">In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="d11b0a7c-b470-4669-abdd-d59a97aa06f1" xml:space="preserve">
+          <source>In this sample, the output table has a structure and it points to a blob in an Azure blob storage.</source>
+          <target state="new">In this sample, the output table has a structure and it points to a blob in an Azure blob storage.</target>
+        </trans-unit>
+        <trans-unit id="18acb6e2-603f-487a-a397-0d46d7301c06" xml:space="preserve">
+          <source>The JSON for the activity is shown below.</source>
+          <target state="new">The JSON for the activity is shown below.</target>
+        </trans-unit>
+        <trans-unit id="42285b1a-a9b5-4176-95ae-23f3463cb1ec" xml:space="preserve">
+          <source>The columns from source mapped to columns in sink (<bpt id="1279f730-7fb5-44ad-8fa7-1c770cc0207e">&lt;strong&gt;</bpt>columnMappings<ept id="1279f730-7fb5-44ad-8fa7-1c770cc0207e">&lt;/strong&gt;</ept>) by using <bpt id="1a2ea589-ebc3-49a0-b97b-6f750a01e605">&lt;strong&gt;</bpt>Translator<ept id="1a2ea589-ebc3-49a0-b97b-6f750a01e605">&lt;/strong&gt;</ept> property.</source>
+          <target state="new">The columns from source mapped to columns in sink (<bpt id="1279f730-7fb5-44ad-8fa7-1c770cc0207e">&lt;strong&gt;</bpt>columnMappings<ept id="1279f730-7fb5-44ad-8fa7-1c770cc0207e">&lt;/strong&gt;</ept>) by using <bpt id="1a2ea589-ebc3-49a0-b97b-6f750a01e605">&lt;strong&gt;</bpt>Translator<ept id="1a2ea589-ebc3-49a0-b97b-6f750a01e605">&lt;/strong&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="66feee18-2661-469b-b736-d0744e889304" xml:space="preserve">
+          <source><bpt id="8affc369-c7e7-4f95-a9da-10bcfe55f537">&lt;strong&gt;</bpt>Column mapping flow:<ept id="8affc369-c7e7-4f95-a9da-10bcfe55f537">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8affc369-c7e7-4f95-a9da-10bcfe55f537">&lt;strong&gt;</bpt>Column mapping flow:<ept id="8affc369-c7e7-4f95-a9da-10bcfe55f537">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecc0c369-f8d6-4385-b8b7-ca05f48205c9" xml:space="preserve">
+          <source><bpt id="f78f94fa-136c-4568-90c3-ed97eedf9371">&lt;linkText&gt;</bpt>Column mapping flow<ept id="f78f94fa-136c-4568-90c3-ed97eedf9371">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f78f94fa-136c-4568-90c3-ed97eedf9371">&lt;linkText&gt;</bpt>Column mapping flow<ept id="f78f94fa-136c-4568-90c3-ed97eedf9371">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19badd4e-a8ba-4946-99d1-ff0a30c295b0" xml:space="preserve">
+          <source>In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section.</source>
+          <target state="new">In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section.</target>
+        </trans-unit>
+        <trans-unit id="6b334236-6ab7-4d36-af4b-b018364f0596" xml:space="preserve">
+          <source>In this case, the query results are first mapped to columns specified in “structure” of source.</source>
+          <target state="new">In this case, the query results are first mapped to columns specified in “structure” of source.</target>
+        </trans-unit>
+        <trans-unit id="9e2125ae-eb66-4a7d-a34f-4460a9c13931" xml:space="preserve">
+          <source>Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.</source>
+          <target state="new">Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.</target>
+        </trans-unit>
+        <trans-unit id="86822bd8-5c09-4766-b2ec-a5b16ef42333" xml:space="preserve">
+          <source>Suppose the query returns 5 columns, two additional columns then those specified in the “structure” of source.</source>
+          <target state="new">Suppose the query returns 5 columns, two additional columns then those specified in the “structure” of source.</target>
+        </trans-unit>
+        <trans-unit id="b25fcaae-046a-47a9-8f45-ee0326ec0ab6" xml:space="preserve">
+          <source><bpt id="638f4e27-c095-4650-845a-eab852583e70">&lt;strong&gt;</bpt>Column mapping flow<ept id="638f4e27-c095-4650-845a-eab852583e70">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="638f4e27-c095-4650-845a-eab852583e70">&lt;strong&gt;</bpt>Column mapping flow<ept id="638f4e27-c095-4650-845a-eab852583e70">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eec156fd-1585-4b20-a7dc-eaebcde8b3a3" xml:space="preserve">
+          <source><bpt id="7464929d-278d-43c1-985e-b6965f3bab12">&lt;linkText&gt;</bpt>Column mapping flow-2<ept id="7464929d-278d-43c1-985e-b6965f3bab12">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7464929d-278d-43c1-985e-b6965f3bab12">&lt;linkText&gt;</bpt>Column mapping flow-2<ept id="7464929d-278d-43c1-985e-b6965f3bab12">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

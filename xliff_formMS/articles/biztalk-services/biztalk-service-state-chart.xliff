@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fd09359b-e760-4b4b-ac65-aabc66c92eac" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fd09359b-e760-4b4b-ac65-aabc66c92eac" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3ec2c384-fc00-4ac0-9cae-5b7bd62b76d5">
+        <trans-unit id="3cb8e2ce-da64-48d5-9bb3-fab8fe292ebb" xml:space="preserve">
+          <source>Tasks allowed in different states or statuses in BizTalk Services | Microsoft Azure</source>
+          <target state="new">Tasks allowed in different states or statuses in BizTalk Services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8891632e-3b54-4629-b504-c978ca13d416" xml:space="preserve">
+          <source>The actions/operations allowed in different MABS status: stop, start, restart, suspend, resume, delete, scale, update configuration, and backing up</source>
+          <target state="new">The actions/operations allowed in different MABS status: stop, start, restart, suspend, resume, delete, scale, update configuration, and backing up</target>
+        </trans-unit>
+        <trans-unit id="6a32d191-6cbd-4f36-9dc0-04e2d4a46b37" xml:space="preserve">
+          <source>Depending on the current state of the BizTalk service, there are operations that you can or cannot perform on the BizTalk service.</source>
+          <target state="new">Depending on the current state of the BizTalk service, there are operations that you can or cannot perform on the BizTalk service.</target>
+        </trans-unit>
+        <trans-unit id="c99adea4-9a15-436a-b119-bb86c6f27960" xml:space="preserve">
+          <source>For example, you provision a new BizTalk service in the Azure Management Portal.</source>
+          <target state="new">For example, you provision a new BizTalk service in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="b0a1a196-6a80-40d0-bf32-ef5f18ebed47" xml:space="preserve">
+          <source>When it completes successfully, the BizTalk service is in Active state.</source>
+          <target state="new">When it completes successfully, the BizTalk service is in Active state.</target>
+        </trans-unit>
+        <trans-unit id="90c1a938-dd99-4b75-b9af-e81751072d10" xml:space="preserve">
+          <source>In the Active State, you can Stop the BizTalk service.</source>
+          <target state="new">In the Active State, you can Stop the BizTalk service.</target>
+        </trans-unit>
+        <trans-unit id="145357a9-eb9a-43c6-bbd8-bf1083c8728f" xml:space="preserve">
+          <source>If Stop is successful, the BizTalk service goes to a Stopped state.</source>
+          <target state="new">If Stop is successful, the BizTalk service goes to a Stopped state.</target>
+        </trans-unit>
+        <trans-unit id="c12647d0-268c-4c22-a561-9f1a85f11774" xml:space="preserve">
+          <source>If Stop fails, the BizTalk service goes to a StopFailed state.</source>
+          <target state="new">If Stop fails, the BizTalk service goes to a StopFailed state.</target>
+        </trans-unit>
+        <trans-unit id="3a2d09d4-f46d-4534-9669-b22335d3e1aa" xml:space="preserve">
+          <source>In the StopFailed state, you can Restart the BizTalk service.</source>
+          <target state="new">In the StopFailed state, you can Restart the BizTalk service.</target>
+        </trans-unit>
+        <trans-unit id="267e33db-60db-4973-9a71-5dae9f4a1f71" xml:space="preserve">
+          <source>If you try an Operation that is not allowed, like Resume the BizTalk service, the following error occurs:</source>
+          <target state="new">If you try an Operation that is not allowed, like Resume the BizTalk service, the following error occurs:</target>
+        </trans-unit>
+        <trans-unit id="cc347c4b-b1a1-4cda-b130-ac93d76f5273" xml:space="preserve">
+          <source><bpt id="41dc72ef-fcb0-4973-bdc5-542d620a8a98">&lt;strong&gt;</bpt>Operation not allowed<ept id="41dc72ef-fcb0-4973-bdc5-542d620a8a98">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="41dc72ef-fcb0-4973-bdc5-542d620a8a98">&lt;strong&gt;</bpt>Operation not allowed<ept id="41dc72ef-fcb0-4973-bdc5-542d620a8a98">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="accbe3c3-b2a5-45b9-b85f-db2507478946" xml:space="preserve">
+          <source>To provision a BizTalk Service, go to <bpt id="12e33b7a-16d6-48bf-9790-102ce2dac1df">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="12e33b7a-16d6-48bf-9790-102ce2dac1df">&lt;/linkText&gt;</ept><bpt id="12e33b7a-16d6-48bf-9790-102ce2dac1df">&lt;title&gt;</bpt><ept id="12e33b7a-16d6-48bf-9790-102ce2dac1df">&lt;/title&gt;</ept>.</source>
+          <target state="new">To provision a BizTalk Service, go to <bpt id="12e33b7a-16d6-48bf-9790-102ce2dac1df">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="12e33b7a-16d6-48bf-9790-102ce2dac1df">&lt;/linkText&gt;</ept><bpt id="12e33b7a-16d6-48bf-9790-102ce2dac1df">&lt;title&gt;</bpt><ept id="12e33b7a-16d6-48bf-9790-102ce2dac1df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="538cc088-b0e0-49e5-9348-8599b85bbf52" xml:space="preserve">
+          <source>The following tables list the Operations or actions that can be completed when the BizTalk Service is in a specific state.</source>
+          <target state="new">The following tables list the Operations or actions that can be completed when the BizTalk Service is in a specific state.</target>
+        </trans-unit>
+        <trans-unit id="06a4dcf0-53dd-4c94-8b6e-e8c7e643397d" xml:space="preserve">
+          <source>A check mark means the operation is allowed while in that state.</source>
+          <target state="new">A check mark means the operation is allowed while in that state.</target>
+        </trans-unit>
+        <trans-unit id="94826a15-a82f-43b1-ae6a-35b315014913" xml:space="preserve">
+          <source>A blank entry means the operation cannot be performed while in that state.</source>
+          <target state="new">A blank entry means the operation cannot be performed while in that state.</target>
+        </trans-unit>
+        <trans-unit id="c7d92811-6291-4810-982b-d6f66aaea1ed" xml:space="preserve">
+          <source>Operation or Action</source>
+          <target state="new">Operation or Action</target>
+        </trans-unit>
+        <trans-unit id="3b4c648f-7696-4876-b718-eb05ca77df69" xml:space="preserve">
+          <source>BizTalk Service State</source>
+          <target state="new">BizTalk Service State</target>
+        </trans-unit>
+        <trans-unit id="734f2010-8c28-47c5-bbe6-97b84ad4b6e7" xml:space="preserve">
+          <source>Start</source>
+          <target state="new">Start</target>
+        </trans-unit>
+        <trans-unit id="d2d34ed8-2b36-42f1-b818-14654fc425cf" xml:space="preserve">
+          <source>Stop</source>
+          <target state="new">Stop</target>
+        </trans-unit>
+        <trans-unit id="54f85d17-ac32-4216-b0eb-b2efc02caccb" xml:space="preserve">
+          <source>Restart</source>
+          <target state="new">Restart</target>
+        </trans-unit>
+        <trans-unit id="31856818-b12e-4d69-b3d9-4958bc4c9c53" xml:space="preserve">
+          <source>Suspend</source>
+          <target state="new">Suspend</target>
+        </trans-unit>
+        <trans-unit id="63e5c8b8-7953-413a-b9e2-995c354e0f9a" xml:space="preserve">
+          <source>Resume</source>
+          <target state="new">Resume</target>
+        </trans-unit>
+        <trans-unit id="81441f13-ce29-48f1-b3d0-8ec8a6b6e712" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+        </trans-unit>
+        <trans-unit id="fbd128e5-679d-4af1-b649-4acfe6b8d957" xml:space="preserve">
+          <source>Active</source>
+          <target state="new">Active</target>
+        </trans-unit>
+        <trans-unit id="05bb962b-175f-4bdb-8b00-e75391cea0dd" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="908b207a-167a-445a-9807-0896f47aba47" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="c207c6d7-8495-44aa-b8fa-2a0c02b1b7c4" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="ae3ce728-8b97-477b-aa0c-9cfc76b5c7a6" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="319f393b-b330-45ee-adc5-47f91f7ba5ef" xml:space="preserve">
+          <source>Disabled</source>
+          <target state="new">Disabled</target>
+        </trans-unit>
+        <trans-unit id="23fb2dae-57bf-47ea-b0ef-1133013a6708" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="7b51fe5e-965f-4e11-a771-8b9b56bf3896" xml:space="preserve">
+          <source>Suspended</source>
+          <target state="new">Suspended</target>
+        </trans-unit>
+        <trans-unit id="64dd8f5a-2465-4227-b43c-c8597f77aa1f" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="38bc5682-3da1-41a7-b0d6-fb78e0c0bce2" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="806a4bd3-f850-446e-8177-aaf8e94456e8" xml:space="preserve">
+          <source>Stopped</source>
+          <target state="new">Stopped</target>
+        </trans-unit>
+        <trans-unit id="2fa364d0-a86d-46b8-b34b-ecf867741f89" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="5a1ff12a-e57e-4764-834e-ccddb0d49d75" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="4f95a4d9-bb0a-428a-9cab-572bbf7cfe87" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="cd414f48-6fa7-4668-9069-b8b6a95c8f14" xml:space="preserve">
+          <source>Service Update Failed</source>
+          <target state="new">Service Update Failed</target>
+        </trans-unit>
+        <trans-unit id="ccde3851-21d1-44dd-9f64-f142d8aad0cb" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="2de89129-b642-4914-97d4-932cbe427647" xml:space="preserve">
+          <source>DisableFailed</source>
+          <target state="new">DisableFailed</target>
+        </trans-unit>
+        <trans-unit id="de268e8a-98ba-4684-9ed5-8b8c0ec1a543" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="6571390f-b307-489b-9083-a83f81e69c1e" xml:space="preserve">
+          <source>EnableFailed</source>
+          <target state="new">EnableFailed</target>
+        </trans-unit>
+        <trans-unit id="eb0a6f6f-47b7-46c6-9355-77ee37c805e8" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="635ee29b-e4be-4c53-80be-f456e63fc69e" xml:space="preserve">
+          <source>StartFailed</source>
+          <target state="new">StartFailed</target>
+        </trans-unit>
+        <trans-unit id="32bc8f04-8861-415d-bb0b-3ef62a3571a1" xml:space="preserve">
+          <source>
+StopFailed</source>
+          <target state="new">
+StopFailed</target>
+        </trans-unit>
+        <trans-unit id="47ab6a7c-fd30-44e1-bda6-4e0d88c4b7fb" xml:space="preserve">
+          <source>
+RestartFailed</source>
+          <target state="new">
+RestartFailed</target>
+        </trans-unit>
+        <trans-unit id="e30461ac-86bb-4015-879f-df6eff70de0a" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="fcd684f1-da84-46c8-9473-6fd235fd31c2" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="428bd577-699e-4648-a312-63047eec7245" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="244f1f38-e130-4868-b980-e176f78c8d07" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="64bd9675-7dff-4700-befe-ca31d7fca58b" xml:space="preserve">
+          <source>SuspendedFailed</source>
+          <target state="new">SuspendedFailed</target>
+        </trans-unit>
+        <trans-unit id="3a315d23-aefd-4aed-8dc8-dc69f6864da8" xml:space="preserve">
+          <source>
+ResumeFailed</source>
+          <target state="new">
+ResumeFailed</target>
+        </trans-unit>
+        <trans-unit id="6ec5e1cf-fbc0-459c-86ff-292bfd596087" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="9d2ed73d-93f1-47b3-a04f-1cdc2646a87f" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="bd52bc4e-5919-4e13-9909-a6787331c419" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="b4f5e470-5750-475b-b37d-19cf593845cd" xml:space="preserve">
+          <source>CreatedFailed</source>
+          <target state="new">CreatedFailed</target>
+        </trans-unit>
+        <trans-unit id="6bfd53e6-87bc-4878-a5a4-b1b111275684" xml:space="preserve">
+          <source>
+RestoreFailed</source>
+          <target state="new">
+RestoreFailed</target>
+        </trans-unit>
+        <trans-unit id="ff618147-9f3a-4536-beae-3937ff93f233" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="77f4862d-5c91-4b60-ac94-b2bcb26ae741" xml:space="preserve">
+          <source>ConfigUpdateFailed</source>
+          <target state="new">ConfigUpdateFailed</target>
+        </trans-unit>
+        <trans-unit id="9817090b-f712-4caf-8576-6362a3618a7e" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="063771f5-6c5d-45f4-aa5a-a0573bd6d691" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="dfccbf9c-d1b8-41d6-a57c-bc531adeebda" xml:space="preserve">
+          <source>ScaleFailed</source>
+          <target state="new">ScaleFailed</target>
+        </trans-unit>
+        <trans-unit id="33f955d0-90bb-41e9-a744-3e46fec9d926" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="3b6b81d0-a438-46f4-a525-dbd83e191938" xml:space="preserve">
+          <source>&lt;br/&gt;</source>
+          <target state="new">&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="bd0034b9-df72-49e4-a6fa-d28256014c12" xml:space="preserve">
+          <source>Operation or Action</source>
+          <target state="new">Operation or Action</target>
+        </trans-unit>
+        <trans-unit id="4188b2a8-e4fd-463b-bea1-db5486e6754e" xml:space="preserve">
+          <source>BizTalk Service State</source>
+          <target state="new">BizTalk Service State</target>
+        </trans-unit>
+        <trans-unit id="c8fffdf4-c51b-4392-b6dc-ada913b650bd" xml:space="preserve">
+          <source>Scale</source>
+          <target state="new">Scale</target>
+        </trans-unit>
+        <trans-unit id="c39b0462-08f4-40a5-aff6-3da51f9aa96c" xml:space="preserve">
+          <source>Update Configuration</source>
+          <target state="new">Update Configuration</target>
+        </trans-unit>
+        <trans-unit id="106f54c3-ad41-4b63-82c9-af20c3b02dd6" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="e8965504-d65a-4bf6-aa60-39e511e3146c" xml:space="preserve">
+          <source>Active</source>
+          <target state="new">Active</target>
+        </trans-unit>
+        <trans-unit id="c3d6cd06-45d0-43f4-b6b0-7ac155f78c30" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="00b418b5-7619-44c7-aadb-e0e57bce82e8" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="3718ad98-215e-4aa5-ad45-2f6740a52e83" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="5977d3a7-6ed0-4a8a-8fa1-85f218355ab6" xml:space="preserve">
+          <source>Disabled</source>
+          <target state="new">Disabled</target>
+        </trans-unit>
+        <trans-unit id="12638f11-7a56-4d5c-bda9-b2a02da2730f" xml:space="preserve">
+          <source>Suspended</source>
+          <target state="new">Suspended</target>
+        </trans-unit>
+        <trans-unit id="86ef504f-b3f5-4533-a608-e440342c40f3" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="f2404366-5ad1-400b-928c-f1e2d633f907" xml:space="preserve">
+          <source>Stopped</source>
+          <target state="new">Stopped</target>
+        </trans-unit>
+        <trans-unit id="39dcd818-3d8a-4674-8211-9b4aaf3327b6" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="ea096f74-cb18-4620-a4d2-2da19c9f24b0" xml:space="preserve">
+          <source>Service Update Failed</source>
+          <target state="new">Service Update Failed</target>
+        </trans-unit>
+        <trans-unit id="e50a239a-a256-4b16-b449-0b3d0287cb21" xml:space="preserve">
+          <source>DisableFailed</source>
+          <target state="new">DisableFailed</target>
+        </trans-unit>
+        <trans-unit id="1613abf3-9960-4028-bf68-ba8ef07ed857" xml:space="preserve">
+          <source>EnableFailed</source>
+          <target state="new">EnableFailed</target>
+        </trans-unit>
+        <trans-unit id="ede8c78a-72f4-4899-8e65-fa87b6909ef4" xml:space="preserve">
+          <source>StartFailed</source>
+          <target state="new">StartFailed</target>
+        </trans-unit>
+        <trans-unit id="132ce6ed-e366-4803-94d1-c4d1a196eda6" xml:space="preserve">
+          <source>
+StopFailed</source>
+          <target state="new">
+StopFailed</target>
+        </trans-unit>
+        <trans-unit id="62ee9dbc-1e13-4468-98ee-86f85a70f25e" xml:space="preserve">
+          <source>
+RestartFailed</source>
+          <target state="new">
+RestartFailed</target>
+        </trans-unit>
+        <trans-unit id="71bf6994-bab6-405e-8a2a-bec961ea2fe4" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="d058b97f-1ff8-4b32-bf30-9a67cc970068" xml:space="preserve">
+          <source>SuspendedFailed</source>
+          <target state="new">SuspendedFailed</target>
+        </trans-unit>
+        <trans-unit id="3779d233-2361-46a1-9152-22d260b394be" xml:space="preserve">
+          <source>
+ResumeFailed</source>
+          <target state="new">
+ResumeFailed</target>
+        </trans-unit>
+        <trans-unit id="4140c427-1ad0-4327-b0b3-24240092cdfc" xml:space="preserve">
+          <source>CreatedFailed</source>
+          <target state="new">CreatedFailed</target>
+        </trans-unit>
+        <trans-unit id="d5fdd353-327c-409d-b517-cfc27f35ebb1" xml:space="preserve">
+          <source>
+RestoreFailed</source>
+          <target state="new">
+RestoreFailed</target>
+        </trans-unit>
+        <trans-unit id="d9c94122-aa16-4e64-a3e2-7ad75f40786c" xml:space="preserve">
+          <source>ConfigUpdateFailed</source>
+          <target state="new">ConfigUpdateFailed</target>
+        </trans-unit>
+        <trans-unit id="1e652d5d-ddaa-4162-bd53-45e4b4f7c93c" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="6335775d-60f2-4c21-9b2b-d6e745f284d3" xml:space="preserve">
+          <source>ScaleFailed</source>
+          <target state="new">ScaleFailed</target>
+        </trans-unit>
+        <trans-unit id="5ff083c3-2141-4185-96c6-a4b0e032a844" xml:space="preserve">
+          <source>x</source>
+          <target state="new">x</target>
+        </trans-unit>
+        <trans-unit id="0b7cbaa1-f680-40a4-93b6-7b90d417e4d3" xml:space="preserve">
+          <source><bpt id="b5b3da96-eadf-4410-9fd5-8a36f32d2996">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="b5b3da96-eadf-4410-9fd5-8a36f32d2996">&lt;/linkText&gt;</ept><bpt id="b5b3da96-eadf-4410-9fd5-8a36f32d2996">&lt;title&gt;</bpt><ept id="b5b3da96-eadf-4410-9fd5-8a36f32d2996">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="b5b3da96-eadf-4410-9fd5-8a36f32d2996">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="b5b3da96-eadf-4410-9fd5-8a36f32d2996">&lt;/linkText&gt;</ept><bpt id="b5b3da96-eadf-4410-9fd5-8a36f32d2996">&lt;title&gt;</bpt><ept id="b5b3da96-eadf-4410-9fd5-8a36f32d2996">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="59dd6225-1df1-4528-a383-83bb8f04d916" xml:space="preserve">
+          <source><bpt id="0ca15d20-634e-4d0b-9e58-77b9a5b008e6">&lt;linkText&gt;</bpt>BizTalk Services: Dashboard, Monitor and Scale tabs<ept id="0ca15d20-634e-4d0b-9e58-77b9a5b008e6">&lt;/linkText&gt;</ept><bpt id="0ca15d20-634e-4d0b-9e58-77b9a5b008e6">&lt;title&gt;</bpt><ept id="0ca15d20-634e-4d0b-9e58-77b9a5b008e6">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="0ca15d20-634e-4d0b-9e58-77b9a5b008e6">&lt;linkText&gt;</bpt>BizTalk Services: Dashboard, Monitor and Scale tabs<ept id="0ca15d20-634e-4d0b-9e58-77b9a5b008e6">&lt;/linkText&gt;</ept><bpt id="0ca15d20-634e-4d0b-9e58-77b9a5b008e6">&lt;title&gt;</bpt><ept id="0ca15d20-634e-4d0b-9e58-77b9a5b008e6">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="6f98cabb-f012-4135-8c18-2012ec180fe1" xml:space="preserve">
+          <source><bpt id="6d74169f-7e90-4a60-818e-51b0d1ae218f">&lt;linkText&gt;</bpt>BizTalk Services: Developer, Basic, Standard and Premium Editions Chart<ept id="6d74169f-7e90-4a60-818e-51b0d1ae218f">&lt;/linkText&gt;</ept><bpt id="6d74169f-7e90-4a60-818e-51b0d1ae218f">&lt;title&gt;</bpt><ept id="6d74169f-7e90-4a60-818e-51b0d1ae218f">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="6d74169f-7e90-4a60-818e-51b0d1ae218f">&lt;linkText&gt;</bpt>BizTalk Services: Developer, Basic, Standard and Premium Editions Chart<ept id="6d74169f-7e90-4a60-818e-51b0d1ae218f">&lt;/linkText&gt;</ept><bpt id="6d74169f-7e90-4a60-818e-51b0d1ae218f">&lt;title&gt;</bpt><ept id="6d74169f-7e90-4a60-818e-51b0d1ae218f">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="50333fe0-7ea4-4be5-84d3-133f5d501971" xml:space="preserve">
+          <source><bpt id="657c6855-0269-43c0-aa06-d962e8e7f12c">&lt;linkText&gt;</bpt>BizTalk Services: Backup and Restore<ept id="657c6855-0269-43c0-aa06-d962e8e7f12c">&lt;/linkText&gt;</ept><bpt id="657c6855-0269-43c0-aa06-d962e8e7f12c">&lt;title&gt;</bpt><ept id="657c6855-0269-43c0-aa06-d962e8e7f12c">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="657c6855-0269-43c0-aa06-d962e8e7f12c">&lt;linkText&gt;</bpt>BizTalk Services: Backup and Restore<ept id="657c6855-0269-43c0-aa06-d962e8e7f12c">&lt;/linkText&gt;</ept><bpt id="657c6855-0269-43c0-aa06-d962e8e7f12c">&lt;title&gt;</bpt><ept id="657c6855-0269-43c0-aa06-d962e8e7f12c">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="a1630004-abb1-44c5-af31-3e454d7dd993" xml:space="preserve">
+          <source><bpt id="7a26a9b9-53a2-4988-a782-d0f958d1bd94">&lt;linkText&gt;</bpt>BizTalk Services: Throttling<ept id="7a26a9b9-53a2-4988-a782-d0f958d1bd94">&lt;/linkText&gt;</ept><bpt id="7a26a9b9-53a2-4988-a782-d0f958d1bd94">&lt;title&gt;</bpt><ept id="7a26a9b9-53a2-4988-a782-d0f958d1bd94">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="7a26a9b9-53a2-4988-a782-d0f958d1bd94">&lt;linkText&gt;</bpt>BizTalk Services: Throttling<ept id="7a26a9b9-53a2-4988-a782-d0f958d1bd94">&lt;/linkText&gt;</ept><bpt id="7a26a9b9-53a2-4988-a782-d0f958d1bd94">&lt;title&gt;</bpt><ept id="7a26a9b9-53a2-4988-a782-d0f958d1bd94">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="3c328600-1612-41a0-9642-63276a6cf6d7" xml:space="preserve">
+          <source><bpt id="b9f5189f-62aa-454a-a078-b13ad2432f34">&lt;linkText&gt;</bpt>BizTalk Services: Issuer Name and Issuer Key<ept id="b9f5189f-62aa-454a-a078-b13ad2432f34">&lt;/linkText&gt;</ept><bpt id="b9f5189f-62aa-454a-a078-b13ad2432f34">&lt;title&gt;</bpt><ept id="b9f5189f-62aa-454a-a078-b13ad2432f34">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="b9f5189f-62aa-454a-a078-b13ad2432f34">&lt;linkText&gt;</bpt>BizTalk Services: Issuer Name and Issuer Key<ept id="b9f5189f-62aa-454a-a078-b13ad2432f34">&lt;/linkText&gt;</ept><bpt id="b9f5189f-62aa-454a-a078-b13ad2432f34">&lt;title&gt;</bpt><ept id="b9f5189f-62aa-454a-a078-b13ad2432f34">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="4a8bb3dc-845f-4ea4-938b-ea6f36ae9247" xml:space="preserve">
+          <source><bpt id="134344ed-f3cb-43bf-859a-62534a7fb0ce">&lt;linkText&gt;</bpt>How do I Start Using the Azure BizTalk Services SDK<ept id="134344ed-f3cb-43bf-859a-62534a7fb0ce">&lt;/linkText&gt;</ept><bpt id="134344ed-f3cb-43bf-859a-62534a7fb0ce">&lt;title&gt;</bpt><ept id="134344ed-f3cb-43bf-859a-62534a7fb0ce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="134344ed-f3cb-43bf-859a-62534a7fb0ce">&lt;linkText&gt;</bpt>How do I Start Using the Azure BizTalk Services SDK<ept id="134344ed-f3cb-43bf-859a-62534a7fb0ce">&lt;/linkText&gt;</ept><bpt id="134344ed-f3cb-43bf-859a-62534a7fb0ce">&lt;title&gt;</bpt><ept id="134344ed-f3cb-43bf-859a-62534a7fb0ce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

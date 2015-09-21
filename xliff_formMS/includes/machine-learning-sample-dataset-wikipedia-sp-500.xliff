@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="81b076de-0524-425e-9d27-ef492a8776ee" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="81b076de-0524-425e-9d27-ef492a8776ee" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="80748c67-a625-45ea-910f-3167d9f874fd">
+        <trans-unit id="21fcf990-0306-4835-8dd1-ee2d48d4335b" xml:space="preserve">
+          <source>Data is derived from Wikipedia (&lt;a href="http://www.wikipedia.org/"&gt;http://www.wikipedia.org/&lt;/a&gt;) based on articles of each S&amp;P 500 company, stored as XML data.&lt;p&gt; &lt;/p&gt;Before uploading to Azure ML Studio, the dataset was processed as follows:&lt;ul&gt;&lt;li&gt;Extract text content for each specific company&lt;/li&gt;&lt;li&gt;Remove wiki formatting&lt;/li&gt;&lt;li&gt;Remove non-alphanumeric characters&lt;/li&gt;&lt;li&gt;Convert all text to lowercase&lt;/li&gt;&lt;li&gt;Known company categories were added&lt;/li&gt;&lt;/ul&gt;&lt;p&gt; &lt;/p&gt;Note that for some companies an article could not be found, so the number of records is less than 500.</source>
+          <target state="new">Data is derived from Wikipedia (&lt;a href="http://www.wikipedia.org/"&gt;http://www.wikipedia.org/&lt;/a&gt;) based on articles of each S&amp;P 500 company, stored as XML data.&lt;p&gt; &lt;/p&gt;Before uploading to Azure ML Studio, the dataset was processed as follows:&lt;ul&gt;&lt;li&gt;Extract text content for each specific company&lt;/li&gt;&lt;li&gt;Remove wiki formatting&lt;/li&gt;&lt;li&gt;Remove non-alphanumeric characters&lt;/li&gt;&lt;li&gt;Convert all text to lowercase&lt;/li&gt;&lt;li&gt;Known company categories were added&lt;/li&gt;&lt;/ul&gt;&lt;p&gt; &lt;/p&gt;Note that for some companies an article could not be found, so the number of records is less than 500.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

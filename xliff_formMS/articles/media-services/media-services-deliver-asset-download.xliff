@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ef75583c-dbb7-4411-a18a-144cb99b3539" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ef75583c-dbb7-4411-a18a-144cb99b3539" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5e826a72-94ca-4cfe-9072-c0471fac4bb6">
+        <trans-unit id="2f4fb27a-997d-4644-9a85-cdd0b4a59701" xml:space="preserve">
+          <source>Download Media Assets</source>
+          <target state="new">Download Media Assets</target>
+        </trans-unit>
+        <trans-unit id="6616ba8c-cf4f-432e-8022-b9264b14e549" xml:space="preserve">
+          <source>Learn about to download assets to your computer. Code samples are written in C# and use the Media Services SDK for .NET.</source>
+          <target state="new">Learn about to download assets to your computer. Code samples are written in C# and use the Media Services SDK for .NET.</target>
+        </trans-unit>
+        <trans-unit id="9f792486-700b-428e-816e-92eafed82276" xml:space="preserve">
+          <source>This topic discusses options for delivering media assets uploaded to Media Services.</source>
+          <target state="new">This topic discusses options for delivering media assets uploaded to Media Services.</target>
+        </trans-unit>
+        <trans-unit id="33cfbba8-5f51-47e7-b42b-339ade447681" xml:space="preserve">
+          <source>You can deliver Media Services content in numerous application scenarios.</source>
+          <target state="new">You can deliver Media Services content in numerous application scenarios.</target>
+        </trans-unit>
+        <trans-unit id="e6260651-da03-4bfe-bbd7-fae4236cb0aa" xml:space="preserve">
+          <source>You can download media assets, or access them by using a locator.</source>
+          <target state="new">You can download media assets, or access them by using a locator.</target>
+        </trans-unit>
+        <trans-unit id="232aae94-3b53-47e4-abe2-cf121363d541" xml:space="preserve">
+          <source>You can send media content to another application or to another content provider.</source>
+          <target state="new">You can send media content to another application or to another content provider.</target>
+        </trans-unit>
+        <trans-unit id="47bd8b90-9564-4563-bb22-24f2c33ff7d0" xml:space="preserve">
+          <source>For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN).</source>
+          <target state="new">For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN).</target>
+        </trans-unit>
+        <trans-unit id="9ab28706-5fa3-4935-8c24-9d88670a91c8" xml:space="preserve">
+          <source>This example shows how to download media assets from Media Services to your local computer.</source>
+          <target state="new">This example shows how to download media assets from Media Services to your local computer.</target>
+        </trans-unit>
+        <trans-unit id="42e12ea0-87a1-4f60-84a4-7541d1210dad" xml:space="preserve">
+          <source>The code queries the jobs associated with the Media Services account by job ID and accesses its <bpt id="8b690d3f-a5db-41b0-ba18-384b8bdc3732">&lt;strong&gt;</bpt>OutputMediaAssets<ept id="8b690d3f-a5db-41b0-ba18-384b8bdc3732">&lt;/strong&gt;</ept> collection (which is the set of one or more output media assets that results from running a job).</source>
+          <target state="new">The code queries the jobs associated with the Media Services account by job ID and accesses its <bpt id="8b690d3f-a5db-41b0-ba18-384b8bdc3732">&lt;strong&gt;</bpt>OutputMediaAssets<ept id="8b690d3f-a5db-41b0-ba18-384b8bdc3732">&lt;/strong&gt;</ept> collection (which is the set of one or more output media assets that results from running a job).</target>
+        </trans-unit>
+        <trans-unit id="e73aa59c-f528-4bd0-8186-fb5f099a17d7" xml:space="preserve">
+          <source>This  example shows how to download output media assets from a job, but you can apply the same approach to download other assets.</source>
+          <target state="new">This  example shows how to download output media assets from a job, but you can apply the same approach to download other assets.</target>
+        </trans-unit>
+        <trans-unit id="625127e1-ebde-4bd7-b020-8ca2c92d8011" xml:space="preserve">
+          <source><bpt id="abd0ddd7-7187-4c3a-8e16-440e6495678c">&lt;linkText&gt;</bpt>Deliver streaming content<ept id="abd0ddd7-7187-4c3a-8e16-440e6495678c">&lt;/linkText&gt;</ept><bpt id="abd0ddd7-7187-4c3a-8e16-440e6495678c">&lt;title&gt;</bpt><ept id="abd0ddd7-7187-4c3a-8e16-440e6495678c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="abd0ddd7-7187-4c3a-8e16-440e6495678c">&lt;linkText&gt;</bpt>Deliver streaming content<ept id="abd0ddd7-7187-4c3a-8e16-440e6495678c">&lt;/linkText&gt;</ept><bpt id="abd0ddd7-7187-4c3a-8e16-440e6495678c">&lt;title&gt;</bpt><ept id="abd0ddd7-7187-4c3a-8e16-440e6495678c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

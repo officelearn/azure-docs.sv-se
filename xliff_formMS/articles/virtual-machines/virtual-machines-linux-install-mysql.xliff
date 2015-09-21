@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e9b4dce7-3ffb-4e98-87e8-790f0171882b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e9b4dce7-3ffb-4e98-87e8-790f0171882b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="967d1262-634a-419f-a912-9b8b931d16f4">
+        <trans-unit id="bbe73b4e-1773-47b4-aede-02df59618fba" xml:space="preserve">
+          <source>How to install MySQL on Azure </source>
+          <target state="new">How to install MySQL on Azure </target>
+        </trans-unit>
+        <trans-unit id="48de120d-a32b-4310-9a2a-3440a7eb9216" xml:space="preserve">
+          <source>Learn how to install the MySQL stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or RedHat family OS.</source>
+          <target state="new">Learn how to install the MySQL stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or RedHat family OS.</target>
+        </trans-unit>
+        <trans-unit id="6adf1f32-ceb7-49a6-bc22-2f407054fb73" xml:space="preserve">
+          <source>In this article, you will learn how to install and configure MySQL on an Azure virtual machine running Linux.</source>
+          <target state="new">In this article, you will learn how to install and configure MySQL on an Azure virtual machine running Linux.</target>
+        </trans-unit>
+        <trans-unit id="5b4412cf-4cfa-43f4-930b-258981bb4657" xml:space="preserve">
+          <source>You must already have a Microsoft Azure virtual machine running Linux in order to complete this tutorial.</source>
+          <target state="new">You must already have a Microsoft Azure virtual machine running Linux in order to complete this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="0baed5a8-2db0-45df-be78-67dadc373f33" xml:space="preserve">
+          <source>Please see the 
+<bpt id="507414d3-2a57-4a5a-aaf4-7071e59b249f">&lt;linkText&gt;</bpt>Azure Linux VM tutorial<ept id="507414d3-2a57-4a5a-aaf4-7071e59b249f">&lt;/linkText&gt;</ept><bpt id="507414d3-2a57-4a5a-aaf4-7071e59b249f">&lt;title&gt;</bpt><ept id="507414d3-2a57-4a5a-aaf4-7071e59b249f">&lt;/title&gt;</ept> to create and set up a Linux VM with <bpt id="2ead8cc4-d476-417e-9544-50d5aac20789">&lt;code&gt;</bpt>mysqlnode<ept id="2ead8cc4-d476-417e-9544-50d5aac20789">&lt;/code&gt;</ept> as the VM name and <bpt id="25313f4b-e672-42f3-9276-9263d8e1e8a7">&lt;code&gt;</bpt>azureuser<ept id="25313f4b-e672-42f3-9276-9263d8e1e8a7">&lt;/code&gt;</ept> as user before proceeding.</source>
+          <target state="new">Please see the 
+<bpt id="507414d3-2a57-4a5a-aaf4-7071e59b249f">&lt;linkText&gt;</bpt>Azure Linux VM tutorial<ept id="507414d3-2a57-4a5a-aaf4-7071e59b249f">&lt;/linkText&gt;</ept><bpt id="507414d3-2a57-4a5a-aaf4-7071e59b249f">&lt;title&gt;</bpt><ept id="507414d3-2a57-4a5a-aaf4-7071e59b249f">&lt;/title&gt;</ept> to create and set up a Linux VM with <bpt id="2ead8cc4-d476-417e-9544-50d5aac20789">&lt;code&gt;</bpt>mysqlnode<ept id="2ead8cc4-d476-417e-9544-50d5aac20789">&lt;/code&gt;</ept> as the VM name and <bpt id="25313f4b-e672-42f3-9276-9263d8e1e8a7">&lt;code&gt;</bpt>azureuser<ept id="25313f4b-e672-42f3-9276-9263d8e1e8a7">&lt;/code&gt;</ept> as user before proceeding.</target>
+        </trans-unit>
+        <trans-unit id="42a07acf-7829-4e20-9bb4-a54ada8116c7" xml:space="preserve">
+          <source>[In this case, use 3306 port as the MySQL port.]</source>
+          <target state="new">[In this case, use 3306 port as the MySQL port.]</target>
+        </trans-unit>
+        <trans-unit id="637454ab-bc82-4afd-97cf-93ef2d50ff46" xml:space="preserve">
+          <source>Connect to the Linux VM you created via putty.</source>
+          <target state="new">Connect to the Linux VM you created via putty.</target>
+        </trans-unit>
+        <trans-unit id="63b112c6-d7db-4d07-99d1-3094e12d19f6" xml:space="preserve">
+          <source>If this is the first time you use Azure Linux VM, see how to use putty connect to a Linux VM <bpt id="50a540d4-4014-45b3-8fcf-1937e5fff217">&lt;linkText&gt;</bpt>here<ept id="50a540d4-4014-45b3-8fcf-1937e5fff217">&lt;/linkText&gt;</ept><bpt id="50a540d4-4014-45b3-8fcf-1937e5fff217">&lt;title&gt;</bpt><ept id="50a540d4-4014-45b3-8fcf-1937e5fff217">&lt;/title&gt;</ept>.</source>
+          <target state="new">If this is the first time you use Azure Linux VM, see how to use putty connect to a Linux VM <bpt id="50a540d4-4014-45b3-8fcf-1937e5fff217">&lt;linkText&gt;</bpt>here<ept id="50a540d4-4014-45b3-8fcf-1937e5fff217">&lt;/linkText&gt;</ept><bpt id="50a540d4-4014-45b3-8fcf-1937e5fff217">&lt;title&gt;</bpt><ept id="50a540d4-4014-45b3-8fcf-1937e5fff217">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="acd8e29c-cfc9-4415-9c6d-11c6437f60b9" xml:space="preserve">
+          <source>We will use repository package to install MySQL5.6 as an example in this article.</source>
+          <target state="new">We will use repository package to install MySQL5.6 as an example in this article.</target>
+        </trans-unit>
+        <trans-unit id="11590ec2-2351-4ea9-8370-2b08edde28af" xml:space="preserve">
+          <source>Actually, MySQL5.6 has more improvement in performance than MySQL5.5.</source>
+          <target state="new">Actually, MySQL5.6 has more improvement in performance than MySQL5.5.</target>
+        </trans-unit>
+        <trans-unit id="51dfc1bb-6bbc-483e-b394-ea02055eec47" xml:space="preserve">
+          <source>More information <bpt id="8cdd5dfc-241d-43d6-b723-0f3f6f43fc71">&lt;linkText&gt;</bpt>here<ept id="8cdd5dfc-241d-43d6-b723-0f3f6f43fc71">&lt;/linkText&gt;</ept><bpt id="8cdd5dfc-241d-43d6-b723-0f3f6f43fc71">&lt;title&gt;</bpt><ept id="8cdd5dfc-241d-43d6-b723-0f3f6f43fc71">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information <bpt id="8cdd5dfc-241d-43d6-b723-0f3f6f43fc71">&lt;linkText&gt;</bpt>here<ept id="8cdd5dfc-241d-43d6-b723-0f3f6f43fc71">&lt;/linkText&gt;</ept><bpt id="8cdd5dfc-241d-43d6-b723-0f3f6f43fc71">&lt;title&gt;</bpt><ept id="8cdd5dfc-241d-43d6-b723-0f3f6f43fc71">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1128bb2-2690-4490-a0b8-f3df7449dedd" xml:space="preserve">
+          <source>We will use Linux VM with Ubuntu from Azure here.</source>
+          <target state="new">We will use Linux VM with Ubuntu from Azure here.</target>
+        </trans-unit>
+        <trans-unit id="7b6696fb-96a6-4938-a6ef-66148c5d6135" xml:space="preserve">
+          <source>Step 1: Install MySQL Server 5.6
+Switch to <bpt id="4059d846-7182-482a-90ee-03a846b259b6">&lt;code&gt;</bpt>root<ept id="4059d846-7182-482a-90ee-03a846b259b6">&lt;/code&gt;</ept> user: </source>
+          <target state="new">Step 1: Install MySQL Server 5.6
+Switch to <bpt id="4059d846-7182-482a-90ee-03a846b259b6">&lt;code&gt;</bpt>root<ept id="4059d846-7182-482a-90ee-03a846b259b6">&lt;/code&gt;</ept> user: </target>
+        </trans-unit>
+        <trans-unit id="6c02bad2-8371-4fac-975a-5df2be1462ce" xml:space="preserve">
+          <source>Install mysql-server 5.6:</source>
+          <target state="new">Install mysql-server 5.6:</target>
+        </trans-unit>
+        <trans-unit id="27397459-a22f-492d-bd20-8dd1017dcab0" xml:space="preserve">
+          <source>During installation, you will see a dialog window poping up to ask you to set MySQL root password below, and you need set the password here.</source>
+          <target state="new">During installation, you will see a dialog window poping up to ask you to set MySQL root password below, and you need set the password here.</target>
+        </trans-unit>
+        <trans-unit id="de088e49-340c-4462-9751-25c2d1d295d9" xml:space="preserve">
+          <source><bpt id="5e48f436-9fbc-41da-9a2f-231b3268c227">&lt;linkText&gt;</bpt>image<ept id="5e48f436-9fbc-41da-9a2f-231b3268c227">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5e48f436-9fbc-41da-9a2f-231b3268c227">&lt;linkText&gt;</bpt>image<ept id="5e48f436-9fbc-41da-9a2f-231b3268c227">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d7c6a21-c79e-4ecf-aa99-be9797de30e8" xml:space="preserve">
+          <source>Input the password again to confirm.</source>
+          <target state="new">Input the password again to confirm.</target>
+        </trans-unit>
+        <trans-unit id="f918d19b-4a65-458f-b025-4a54e61f3230" xml:space="preserve">
+          <source><bpt id="722c8fc5-2c70-4a99-9ed0-0fac0434062d">&lt;linkText&gt;</bpt>image<ept id="722c8fc5-2c70-4a99-9ed0-0fac0434062d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="722c8fc5-2c70-4a99-9ed0-0fac0434062d">&lt;linkText&gt;</bpt>image<ept id="722c8fc5-2c70-4a99-9ed0-0fac0434062d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7cef9e0-5da4-473b-8b89-94d38b6405c8" xml:space="preserve">
+          <source>Step 2: Login MySQL Server</source>
+          <target state="new">Step 2: Login MySQL Server</target>
+        </trans-unit>
+        <trans-unit id="1afabde5-0909-46df-a483-22f794dbd458" xml:space="preserve">
+          <source>When MySQL server installation finished, MySQL service will be started automatically.</source>
+          <target state="new">When MySQL server installation finished, MySQL service will be started automatically.</target>
+        </trans-unit>
+        <trans-unit id="7dcb25d4-235b-4b26-851e-b7b54cbbb792" xml:space="preserve">
+          <source>You can login MySQL Server with <bpt id="141408fd-6d0b-4e81-ba7a-9f85545803c8">&lt;code&gt;</bpt>root<ept id="141408fd-6d0b-4e81-ba7a-9f85545803c8">&lt;/code&gt;</ept> user.</source>
+          <target state="new">You can login MySQL Server with <bpt id="141408fd-6d0b-4e81-ba7a-9f85545803c8">&lt;code&gt;</bpt>root<ept id="141408fd-6d0b-4e81-ba7a-9f85545803c8">&lt;/code&gt;</ept> user.</target>
+        </trans-unit>
+        <trans-unit id="557f49f8-5cb3-4a47-84fd-58992fd53d79" xml:space="preserve">
+          <source>Use the below command to login and input password.</source>
+          <target state="new">Use the below command to login and input password.</target>
+        </trans-unit>
+        <trans-unit id="afd9e824-43f6-4be3-bcf0-dc76c1d49c6f" xml:space="preserve">
+          <source>Step 3: Manage the running MySQL service</source>
+          <target state="new">Step 3: Manage the running MySQL service</target>
+        </trans-unit>
+        <trans-unit id="50b40ca8-33b0-4644-b536-4933a0d338cc" xml:space="preserve">
+          <source>(a) Get status of MySQL service</source>
+          <target state="new">(a) Get status of MySQL service</target>
+        </trans-unit>
+        <trans-unit id="fb67422f-bcd0-45a6-82bc-3d08f52f468b" xml:space="preserve">
+          <source>(b) Start MySQL Service</source>
+          <target state="new">(b) Start MySQL Service</target>
+        </trans-unit>
+        <trans-unit id="6aa2b799-4073-4fbf-bb23-f75b81fcf0e1" xml:space="preserve">
+          <source>(c) Stop MySQL service</source>
+          <target state="new">(c) Stop MySQL service</target>
+        </trans-unit>
+        <trans-unit id="bfc0634e-1559-4854-af15-99a14442105b" xml:space="preserve">
+          <source>(d) Restart the MySQL service</source>
+          <target state="new">(d) Restart the MySQL service</target>
+        </trans-unit>
+        <trans-unit id="1ddef941-1491-402d-aec6-544c28116f1a" xml:space="preserve">
+          <source>We will use Linux VM with CentOS or Oracle Linux here.</source>
+          <target state="new">We will use Linux VM with CentOS or Oracle Linux here.</target>
+        </trans-unit>
+        <trans-unit id="20e06a64-5d61-4276-9c58-901696aa96ee" xml:space="preserve">
+          <source>Step 1: Add the MySQL Yum repository
+Switch to <bpt id="04626a0c-87b2-4e04-af13-7395c76664df">&lt;code&gt;</bpt>root<ept id="04626a0c-87b2-4e04-af13-7395c76664df">&lt;/code&gt;</ept> user: </source>
+          <target state="new">Step 1: Add the MySQL Yum repository
+Switch to <bpt id="04626a0c-87b2-4e04-af13-7395c76664df">&lt;code&gt;</bpt>root<ept id="04626a0c-87b2-4e04-af13-7395c76664df">&lt;/code&gt;</ept> user: </target>
+        </trans-unit>
+        <trans-unit id="acf2795a-d193-4456-a521-b3518f14ef40" xml:space="preserve">
+          <source>Download and install the MySQL release package: </source>
+          <target state="new">Download and install the MySQL release package: </target>
+        </trans-unit>
+        <trans-unit id="e06d2447-cfaf-431d-ad0a-7dc6b37d395b" xml:space="preserve">
+          <source>Step 2: Edit below file to enable the MySQL repository for downloading the MySQL5.6 package.</source>
+          <target state="new">Step 2: Edit below file to enable the MySQL repository for downloading the MySQL5.6 package.</target>
+        </trans-unit>
+        <trans-unit id="feaf1e81-aa71-4264-81be-13bbea6234b0" xml:space="preserve">
+          <source>Update each value of this file to below:</source>
+          <target state="new">Update each value of this file to below:</target>
+        </trans-unit>
+        <trans-unit id="ec1ae2d8-03ae-45e2-887e-986d231b94e1" xml:space="preserve">
+          <source>Step 3: Install MySQL from MySQL repository
+Install MySQL:</source>
+          <target state="new">Step 3: Install MySQL from MySQL repository
+Install MySQL:</target>
+        </trans-unit>
+        <trans-unit id="166c5213-ab33-4afb-a9bc-09bf52bd5b3a" xml:space="preserve">
+          <source>MySQL RPM package and all related packages will be installed.</source>
+          <target state="new">MySQL RPM package and all related packages will be installed.</target>
+        </trans-unit>
+        <trans-unit id="7de82e9d-32ab-44d9-90cc-0f9046c51007" xml:space="preserve">
+          <source>Step 4: Manage the running MySQL service</source>
+          <target state="new">Step 4: Manage the running MySQL service</target>
+        </trans-unit>
+        <trans-unit id="f14d842c-3cc5-4f21-b33c-54e62ab201a2" xml:space="preserve">
+          <source>(a) Check the service status of the MySQL server:</source>
+          <target state="new">(a) Check the service status of the MySQL server:</target>
+        </trans-unit>
+        <trans-unit id="f7521e6f-9924-46b7-948d-8607b0a88b74" xml:space="preserve">
+          <source>(b) Check whether the default port of  MySQL server is running:</source>
+          <target state="new">(b) Check whether the default port of  MySQL server is running:</target>
+        </trans-unit>
+        <trans-unit id="24af4dbf-340e-4d34-bc74-e382bc3a9922" xml:space="preserve">
+          <source>(c) Start the MySQL server:</source>
+          <target state="new">(c) Start the MySQL server:</target>
+        </trans-unit>
+        <trans-unit id="a0316289-8a7e-4b6f-a1ef-1641eb807bec" xml:space="preserve">
+          <source>(d) Stop the MySQL server:</source>
+          <target state="new">(d) Stop the MySQL server:</target>
+        </trans-unit>
+        <trans-unit id="2e8e2ee4-264a-47a4-83ed-75fb62e56ad6" xml:space="preserve">
+          <source>(e) Set MySQL to start when the system boot-up:</source>
+          <target state="new">(e) Set MySQL to start when the system boot-up:</target>
+        </trans-unit>
+        <trans-unit id="b41fa97b-5bc0-48f2-88cb-5f6051df038c" xml:space="preserve">
+          <source>We will use Linux VM with OpenSUSE here.</source>
+          <target state="new">We will use Linux VM with OpenSUSE here.</target>
+        </trans-unit>
+        <trans-unit id="fb02e2be-7cdb-46a0-bebd-2612746f01b6" xml:space="preserve">
+          <source>Step 1: Download and install MySQL Server</source>
+          <target state="new">Step 1: Download and install MySQL Server</target>
+        </trans-unit>
+        <trans-unit id="abd9c251-508a-43dd-b4ca-32e6fdf59819" xml:space="preserve">
+          <source>Switch to <bpt id="6688fe56-63b7-4453-824e-b377b7a74244">&lt;code&gt;</bpt>root<ept id="6688fe56-63b7-4453-824e-b377b7a74244">&lt;/code&gt;</ept> user through below command:  </source>
+          <target state="new">Switch to <bpt id="6688fe56-63b7-4453-824e-b377b7a74244">&lt;code&gt;</bpt>root<ept id="6688fe56-63b7-4453-824e-b377b7a74244">&lt;/code&gt;</ept> user through below command:  </target>
+        </trans-unit>
+        <trans-unit id="2e86d0fa-d618-4e3f-8466-1f294492006f" xml:space="preserve">
+          <source>Download and install MySQL package:</source>
+          <target state="new">Download and install MySQL package:</target>
+        </trans-unit>
+        <trans-unit id="d22cc236-6bc8-4f68-b24b-ccc35d490f52" xml:space="preserve">
+          <source>Step 2: Manage the running MySQL service</source>
+          <target state="new">Step 2: Manage the running MySQL service</target>
+        </trans-unit>
+        <trans-unit id="9994e6da-e4f5-4dd4-a398-d9326a948eaf" xml:space="preserve">
+          <source>(a) Check the status of the MySQL server:</source>
+          <target state="new">(a) Check the status of the MySQL server:</target>
+        </trans-unit>
+        <trans-unit id="58269817-3020-4af3-9c87-6da97d129788" xml:space="preserve">
+          <source>(b) Check whether the default port of the MySQL server:</source>
+          <target state="new">(b) Check whether the default port of the MySQL server:</target>
+        </trans-unit>
+        <trans-unit id="ec017468-4963-4680-8ba3-65c6aedf39fe" xml:space="preserve">
+          <source>(c) Start the MySQL server:</source>
+          <target state="new">(c) Start the MySQL server:</target>
+        </trans-unit>
+        <trans-unit id="cde7ce46-bfa6-4182-95ea-1122d8c2b4f4" xml:space="preserve">
+          <source>(d) Stop the MySQL server:</source>
+          <target state="new">(d) Stop the MySQL server:</target>
+        </trans-unit>
+        <trans-unit id="41169ea3-73d6-4989-bc92-56ad3599c3f3" xml:space="preserve">
+          <source>(e) Set MySQL to start when the system boot-up:</source>
+          <target state="new">(e) Set MySQL to start when the system boot-up:</target>
+        </trans-unit>
+        <trans-unit id="d27d4a8e-d7ea-46e7-9f16-d85af837d92a" xml:space="preserve">
+          <source>Find more usage and information regarding MySQL <bpt id="35795d05-d9cf-4991-a09d-b433d51412a8">&lt;linkText&gt;</bpt>Here<ept id="35795d05-d9cf-4991-a09d-b433d51412a8">&lt;/linkText&gt;</ept><bpt id="35795d05-d9cf-4991-a09d-b433d51412a8">&lt;title&gt;</bpt><ept id="35795d05-d9cf-4991-a09d-b433d51412a8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Find more usage and information regarding MySQL <bpt id="35795d05-d9cf-4991-a09d-b433d51412a8">&lt;linkText&gt;</bpt>Here<ept id="35795d05-d9cf-4991-a09d-b433d51412a8">&lt;/linkText&gt;</ept><bpt id="35795d05-d9cf-4991-a09d-b433d51412a8">&lt;title&gt;</bpt><ept id="35795d05-d9cf-4991-a09d-b433d51412a8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

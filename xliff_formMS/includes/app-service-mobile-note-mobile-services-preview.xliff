@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="12f00e30-3a6f-49af-92a1-5f30a1803818" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="12f00e30-3a6f-49af-92a1-5f30a1803818" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e593d197-a830-47ad-b5f0-43bcca612318">
+        <trans-unit id="dbdf491f-8601-4d13-ab60-d93661b75a0d" xml:space="preserve">
+          <source>This is an <bpt id="2d97fed8-d666-4d83-97a1-03673097a36a">&lt;strong&gt;</bpt>Azure Mobile Apps<ept id="2d97fed8-d666-4d83-97a1-03673097a36a">&lt;/strong&gt;</ept> topic.</source>
+          <target state="new">This is an <bpt id="2d97fed8-d666-4d83-97a1-03673097a36a">&lt;strong&gt;</bpt>Azure Mobile Apps<ept id="2d97fed8-d666-4d83-97a1-03673097a36a">&lt;/strong&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="3d49b0f6-bf63-4d3b-8e88-3cabd1a74ab3" xml:space="preserve">
+          <source>For Mobile Services topics, see the <bpt id="9de87ab3-5eec-44d5-8b7c-317f6cff8337">&lt;linkText&gt;</bpt>Mobile Services documentation center<ept id="9de87ab3-5eec-44d5-8b7c-317f6cff8337">&lt;/linkText&gt;</ept><bpt id="9de87ab3-5eec-44d5-8b7c-317f6cff8337">&lt;title&gt;</bpt><ept id="9de87ab3-5eec-44d5-8b7c-317f6cff8337">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Mobile Services topics, see the <bpt id="9de87ab3-5eec-44d5-8b7c-317f6cff8337">&lt;linkText&gt;</bpt>Mobile Services documentation center<ept id="9de87ab3-5eec-44d5-8b7c-317f6cff8337">&lt;/linkText&gt;</ept><bpt id="9de87ab3-5eec-44d5-8b7c-317f6cff8337">&lt;title&gt;</bpt><ept id="9de87ab3-5eec-44d5-8b7c-317f6cff8337">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30f61af9-3c07-4357-914a-dc444acdb477" xml:space="preserve">
+          <source>Mobile Apps is currently in Preview and is not yet recommended for production use.</source>
+          <target state="new">Mobile Apps is currently in Preview and is not yet recommended for production use.</target>
+        </trans-unit>
+        <trans-unit id="6f0b2da6-7371-4d43-8c6e-be0fdd46333b" xml:space="preserve">
+          <source>SDK and API contracts are subject to change even within minor version releases.</source>
+          <target state="new">SDK and API contracts are subject to change even within minor version releases.</target>
+        </trans-unit>
+        <trans-unit id="e41763aa-8830-459b-9ca4-2552463717ef" xml:space="preserve">
+          <source>For production apps, consider Mobile Services instead.</source>
+          <target state="new">For production apps, consider Mobile Services instead.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

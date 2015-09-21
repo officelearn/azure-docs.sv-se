@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="20658c1e-8361-4862-a77a-071980054937" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="20658c1e-8361-4862-a77a-071980054937" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6e273397-9c28-46fb-b43c-8842f394955b">
+        <trans-unit id="355299c4-243a-4d43-9710-b3098e0b9356" xml:space="preserve">
+          <source>How to uninstall elastic database job tool</source>
+          <target state="new">How to uninstall elastic database job tool</target>
+        </trans-unit>
+        <trans-unit id="cf3b067a-6217-4e66-939b-0495ff651ea6" xml:space="preserve">
+          <source>How to uninstall elastic database job tool</source>
+          <target state="new">How to uninstall elastic database job tool</target>
+        </trans-unit>
+        <trans-unit id="ed0a257b-9f10-4226-b10f-b32c3f4f65c2" xml:space="preserve">
+          <source><bpt id="1a6eadca-f083-49ba-a1a0-416460002e62">&lt;strong&gt;</bpt>Elastic Database jobs<ept id="1a6eadca-f083-49ba-a1a0-416460002e62">&lt;/strong&gt;</ept> components can be uninstalled using either the Portal or PowerShell.</source>
+          <target state="new"><bpt id="1a6eadca-f083-49ba-a1a0-416460002e62">&lt;strong&gt;</bpt>Elastic Database jobs<ept id="1a6eadca-f083-49ba-a1a0-416460002e62">&lt;/strong&gt;</ept> components can be uninstalled using either the Portal or PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="ba7cc027-3699-4747-994f-297dc9b0951d" xml:space="preserve">
+          <source>Open the <bpt id="86703f7a-c697-45f7-b2fb-1d3ed69ba3c1">&lt;linkText&gt;</bpt>Azure portal<ept id="86703f7a-c697-45f7-b2fb-1d3ed69ba3c1">&lt;/linkText&gt;</ept><bpt id="86703f7a-c697-45f7-b2fb-1d3ed69ba3c1">&lt;title&gt;</bpt><ept id="86703f7a-c697-45f7-b2fb-1d3ed69ba3c1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Open the <bpt id="86703f7a-c697-45f7-b2fb-1d3ed69ba3c1">&lt;linkText&gt;</bpt>Azure portal<ept id="86703f7a-c697-45f7-b2fb-1d3ed69ba3c1">&lt;/linkText&gt;</ept><bpt id="86703f7a-c697-45f7-b2fb-1d3ed69ba3c1">&lt;title&gt;</bpt><ept id="86703f7a-c697-45f7-b2fb-1d3ed69ba3c1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54ae0105-d957-42f7-a1b7-50af9d2c1304" xml:space="preserve">
+          <source>Navigate to the subscription that contains <bpt id="e2959b7c-51ba-4739-991b-e5ddaef733a2">&lt;strong&gt;</bpt>Elastic Database jobs<ept id="e2959b7c-51ba-4739-991b-e5ddaef733a2">&lt;/strong&gt;</ept> components, namely the subscription in which Elastic Database jobs components were installed.</source>
+          <target state="new">Navigate to the subscription that contains <bpt id="e2959b7c-51ba-4739-991b-e5ddaef733a2">&lt;strong&gt;</bpt>Elastic Database jobs<ept id="e2959b7c-51ba-4739-991b-e5ddaef733a2">&lt;/strong&gt;</ept> components, namely the subscription in which Elastic Database jobs components were installed.</target>
+        </trans-unit>
+        <trans-unit id="6768b21e-1565-4de4-9568-69ab267ad990" xml:space="preserve">
+          <source>Click <bpt id="ae45ae83-49f4-49ea-b7cc-9d0e8d35925e">&lt;strong&gt;</bpt>Browse<ept id="ae45ae83-49f4-49ea-b7cc-9d0e8d35925e">&lt;/strong&gt;</ept> and click <bpt id="a9e7c688-ea7e-484f-a416-e79651fd48fb">&lt;strong&gt;</bpt>Resource groups<ept id="a9e7c688-ea7e-484f-a416-e79651fd48fb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ae45ae83-49f4-49ea-b7cc-9d0e8d35925e">&lt;strong&gt;</bpt>Browse<ept id="ae45ae83-49f4-49ea-b7cc-9d0e8d35925e">&lt;/strong&gt;</ept> and click <bpt id="a9e7c688-ea7e-484f-a416-e79651fd48fb">&lt;strong&gt;</bpt>Resource groups<ept id="a9e7c688-ea7e-484f-a416-e79651fd48fb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc3d74ae-81c6-49ca-bb41-becd440bd316" xml:space="preserve">
+          <source>Select the resource group named "__ElasticDatabaseJob".</source>
+          <target state="new">Select the resource group named "__ElasticDatabaseJob".</target>
+        </trans-unit>
+        <trans-unit id="b4600f0e-98f4-4bad-83f0-be834afd9a5b" xml:space="preserve">
+          <source>Delete the resource group.</source>
+          <target state="new">Delete the resource group.</target>
+        </trans-unit>
+        <trans-unit id="39fbe491-bad1-4e5b-95bd-292433db4f1f" xml:space="preserve">
+          <source>Launch a Microsoft Azure PowerShell command window and navigate to the tools sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x folder: Type cd tools</source>
+          <target state="new">Launch a Microsoft Azure PowerShell command window and navigate to the tools sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x folder: Type cd tools</target>
+        </trans-unit>
+        <trans-unit id="36fd8230-1454-4a69-b08e-1130628fdb51" xml:space="preserve">
+          <source>Execute the .\UninstallElasticDatabaseJobs.ps1 PowerShell script.</source>
+          <target state="new">Execute the .\UninstallElasticDatabaseJobs.ps1 PowerShell script.</target>
+        </trans-unit>
+        <trans-unit id="48b97f21-aaec-446a-9c53-e7733fa03b01" xml:space="preserve">
+          <source>Or simply, execute the following script, assuming default values where used on installation of the components:</source>
+          <target state="new">Or simply, execute the following script, assuming default values where used on installation of the components:</target>
+        </trans-unit>
+        <trans-unit id="e0d48210-3efe-4840-b74b-c9bbd8b9cfd7" xml:space="preserve">
+          <source>To re-install Elastic Database jobs, see <bpt id="6fae68af-360b-42bf-89f9-6ebebe951831">&lt;linkText&gt;</bpt>Installing the Elastic Database job service<ept id="6fae68af-360b-42bf-89f9-6ebebe951831">&lt;/linkText&gt;</ept><bpt id="6fae68af-360b-42bf-89f9-6ebebe951831">&lt;title&gt;</bpt><ept id="6fae68af-360b-42bf-89f9-6ebebe951831">&lt;/title&gt;</ept></source>
+          <target state="new">To re-install Elastic Database jobs, see <bpt id="6fae68af-360b-42bf-89f9-6ebebe951831">&lt;linkText&gt;</bpt>Installing the Elastic Database job service<ept id="6fae68af-360b-42bf-89f9-6ebebe951831">&lt;/linkText&gt;</ept><bpt id="6fae68af-360b-42bf-89f9-6ebebe951831">&lt;title&gt;</bpt><ept id="6fae68af-360b-42bf-89f9-6ebebe951831">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cdd4c59d-dc59-460c-baf9-aef1f469dc77" xml:space="preserve">
+          <source>For an overview of Elastic Database jobs, see <bpt id="5404550e-9990-485c-b061-a00c34f1abb7">&lt;linkText&gt;</bpt>Elastic Database jobs overview<ept id="5404550e-9990-485c-b061-a00c34f1abb7">&lt;/linkText&gt;</ept><bpt id="5404550e-9990-485c-b061-a00c34f1abb7">&lt;title&gt;</bpt><ept id="5404550e-9990-485c-b061-a00c34f1abb7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an overview of Elastic Database jobs, see <bpt id="5404550e-9990-485c-b061-a00c34f1abb7">&lt;linkText&gt;</bpt>Elastic Database jobs overview<ept id="5404550e-9990-485c-b061-a00c34f1abb7">&lt;/linkText&gt;</ept><bpt id="5404550e-9990-485c-b061-a00c34f1abb7">&lt;title&gt;</bpt><ept id="5404550e-9990-485c-b061-a00c34f1abb7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="377208d6-5433-41c3-add8-e79346f709b8" xml:space="preserve">
+          <source>./media/sql-database-elastic-job-uninstall/</source>
+          <target state="new">./media/sql-database-elastic-job-uninstall/</target>
+        </trans-unit>
+      </group>
+      <group id="74b91946-2a03-4154-a245-74b6383544fc" />
+    </body>
+  </file>
+</xliff>

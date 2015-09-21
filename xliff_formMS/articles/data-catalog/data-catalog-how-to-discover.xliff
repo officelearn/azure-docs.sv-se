@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4a18f889-7397-4fea-b916-a9d89c2ebaf8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4a18f889-7397-4fea-b916-a9d89c2ebaf8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="44d7f9b0-5026-4404-999c-f4d3e3550330">
+        <trans-unit id="74b8a1f8-5e2a-4ac0-9252-c73c3fc0437b" xml:space="preserve">
+          <source>How to discover data sources</source>
+          <target state="new">How to discover data sources</target>
+        </trans-unit>
+        <trans-unit id="d3f74baf-516d-4c70-8a76-fcd337a396f4" xml:space="preserve">
+          <source>How-to article highlighting how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal.</source>
+          <target state="new">How-to article highlighting how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal.</target>
+        </trans-unit>
+        <trans-unit id="7996754a-b145-4fb7-a66d-e89dd180b439" xml:space="preserve">
+          <source><bpt id="d45a2bae-e90b-4d15-91eb-a9375832945a">&lt;strong&gt;</bpt>Microsoft Azure Data Catalog<ept id="d45a2bae-e90b-4d15-91eb-a9375832945a">&lt;/strong&gt;</ept> is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources.</source>
+          <target state="new"><bpt id="d45a2bae-e90b-4d15-91eb-a9375832945a">&lt;strong&gt;</bpt>Microsoft Azure Data Catalog<ept id="d45a2bae-e90b-4d15-91eb-a9375832945a">&lt;/strong&gt;</ept> is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources.</target>
+        </trans-unit>
+        <trans-unit id="4f2ec9a4-552d-4d49-a8e9-9dadac758eee" xml:space="preserve">
+          <source>In other words, <bpt id="dcd3aa6c-e095-413f-9525-12641c00542d">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="dcd3aa6c-e095-413f-9525-12641c00542d">&lt;/strong&gt;</ept> is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data.</source>
+          <target state="new">In other words, <bpt id="dcd3aa6c-e095-413f-9525-12641c00542d">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="dcd3aa6c-e095-413f-9525-12641c00542d">&lt;/strong&gt;</ept> is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data.</target>
+        </trans-unit>
+        <trans-unit id="24e656e2-3312-4033-b45d-85e02a01bf97" xml:space="preserve">
+          <source>Once a data source has been registered with <bpt id="bc95602a-1704-4702-abdc-d316852fb86c">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="bc95602a-1704-4702-abdc-d316852fb86c">&lt;/strong&gt;</ept>, its metadata is indexed by the service, so that users can easily search to discover the data they need.</source>
+          <target state="new">Once a data source has been registered with <bpt id="bc95602a-1704-4702-abdc-d316852fb86c">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="bc95602a-1704-4702-abdc-d316852fb86c">&lt;/strong&gt;</ept>, its metadata is indexed by the service, so that users can easily search to discover the data they need.</target>
+        </trans-unit>
+        <trans-unit id="51f85988-d7e7-4e50-afcf-5700a25f1637" xml:space="preserve">
+          <source>Discovery in <bpt id="18371250-4ad0-4778-bdef-26605729abf1">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="18371250-4ad0-4778-bdef-26605729abf1">&lt;/strong&gt;</ept> uses two primary mechanisms: searching and filtering.</source>
+          <target state="new">Discovery in <bpt id="18371250-4ad0-4778-bdef-26605729abf1">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="18371250-4ad0-4778-bdef-26605729abf1">&lt;/strong&gt;</ept> uses two primary mechanisms: searching and filtering.</target>
+        </trans-unit>
+        <trans-unit id="929f74f8-fdec-4a16-b24b-29bce86d6482" xml:space="preserve">
+          <source>Searching is designed to be both intuitive and powerful – by default, search terms are matched against any property in the catalog, including user-provided annotations.</source>
+          <target state="new">Searching is designed to be both intuitive and powerful – by default, search terms are matched against any property in the catalog, including user-provided annotations.</target>
+        </trans-unit>
+        <trans-unit id="f915e4cd-13f9-4bb6-b251-d9c27a85debb" xml:space="preserve">
+          <source>Filtering is designed to complement searching.</source>
+          <target state="new">Filtering is designed to complement searching.</target>
+        </trans-unit>
+        <trans-unit id="f13f9105-d347-4555-b2a8-f88a9af4e2d5" xml:space="preserve">
+          <source>Users can select specific characteristics such as experts, data source type, object type, and tags, to view only matching data assets, and to constrain search results to matching assets as well.</source>
+          <target state="new">Users can select specific characteristics such as experts, data source type, object type, and tags, to view only matching data assets, and to constrain search results to matching assets as well.</target>
+        </trans-unit>
+        <trans-unit id="05f15a1b-ab83-4496-86dc-dbbc7b19bfd9" xml:space="preserve">
+          <source>By using a combination of searching and filtering, users can quickly navigate the data sources that have been registered with <bpt id="13ddee45-93f9-4fa1-9df4-504605e32454">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="13ddee45-93f9-4fa1-9df4-504605e32454">&lt;/strong&gt;</ept> to discover the data sources they need.</source>
+          <target state="new">By using a combination of searching and filtering, users can quickly navigate the data sources that have been registered with <bpt id="13ddee45-93f9-4fa1-9df4-504605e32454">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="13ddee45-93f9-4fa1-9df4-504605e32454">&lt;/strong&gt;</ept> to discover the data sources they need.</target>
+        </trans-unit>
+        <trans-unit id="7de0d301-3fc1-4b2e-9bff-c593aa6132e7" xml:space="preserve">
+          <source>Although the default free text search is simple and intuitive, users can also use <bpt id="5b881546-a3fb-48b7-a312-5873329ff2b9">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="5b881546-a3fb-48b7-a312-5873329ff2b9">&lt;/strong&gt;</ept>’s search syntax to have greater control over the search results.</source>
+          <target state="new">Although the default free text search is simple and intuitive, users can also use <bpt id="5b881546-a3fb-48b7-a312-5873329ff2b9">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="5b881546-a3fb-48b7-a312-5873329ff2b9">&lt;/strong&gt;</ept>’s search syntax to have greater control over the search results.</target>
+        </trans-unit>
+        <trans-unit id="15050d26-9df4-463e-9d59-608842dce24c" xml:space="preserve">
+          <source><bpt id="e53741b4-da40-4431-a425-b626b859a240">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="e53741b4-da40-4431-a425-b626b859a240">&lt;/strong&gt;</ept> search supports the following techniques:</source>
+          <target state="new"><bpt id="e53741b4-da40-4431-a425-b626b859a240">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="e53741b4-da40-4431-a425-b626b859a240">&lt;/strong&gt;</ept> search supports the following techniques:</target>
+        </trans-unit>
+        <trans-unit id="f02661fa-d8a6-41ae-a82b-76aa70ca50ef" xml:space="preserve">
+          <source>Technique</source>
+          <target state="new">Technique</target>
+        </trans-unit>
+        <trans-unit id="f32bcd00-10ba-4152-bd46-a80f48413f25" xml:space="preserve">
+          <source>Use</source>
+          <target state="new">Use</target>
+        </trans-unit>
+        <trans-unit id="81fc57f9-d2ad-4caf-943d-86ffba1f251b" xml:space="preserve">
+          <source>Example</source>
+          <target state="new">Example</target>
+        </trans-unit>
+        <trans-unit id="95e38ee0-71c5-4d7b-9eeb-fdb24adb70db" xml:space="preserve">
+          <source>Basic Search</source>
+          <target state="new">Basic Search</target>
+        </trans-unit>
+        <trans-unit id="286ba9fe-7b4f-44fd-8fb6-3ff7138b8435" xml:space="preserve">
+          <source>Basic search using one or more search terms.</source>
+          <target state="new">Basic search using one or more search terms.</target>
+        </trans-unit>
+        <trans-unit id="f75f9877-9c59-436c-9547-3cc7b960ddcd" xml:space="preserve">
+          <source>Results are any assets that match on any property with one or more of the terms specified.</source>
+          <target state="new">Results are any assets that match on any property with one or more of the terms specified.</target>
+        </trans-unit>
+        <trans-unit id="75aa2b47-3e7f-4edc-bd12-dfb4bcdc69dd" xml:space="preserve">
+          <source>sales data</source>
+          <target state="new">sales data</target>
+        </trans-unit>
+        <trans-unit id="53767b02-40df-4a3f-bd3d-98ea977f6d2d" xml:space="preserve">
+          <source>Property Scoping</source>
+          <target state="new">Property Scoping</target>
+        </trans-unit>
+        <trans-unit id="bd354e45-1316-4860-b903-58a44f343aee" xml:space="preserve">
+          <source>Only return data sources where the search term is matched with the specified property</source>
+          <target state="new">Only return data sources where the search term is matched with the specified property</target>
+        </trans-unit>
+        <trans-unit id="3bb94c98-6bcd-4b7f-a438-3183bd654f6c" xml:space="preserve">
+          <source>name:finance</source>
+          <target state="new">name:finance</target>
+        </trans-unit>
+        <trans-unit id="22b3300d-81ea-46d9-bb17-1f778e4cc7fa" xml:space="preserve">
+          <source>Boolean Operators</source>
+          <target state="new">Boolean Operators</target>
+        </trans-unit>
+        <trans-unit id="99126a22-734e-473f-8936-c8e7d62823ab" xml:space="preserve">
+          <source>Broaden or narrow a search using Boolean operations</source>
+          <target state="new">Broaden or narrow a search using Boolean operations</target>
+        </trans-unit>
+        <trans-unit id="508633fc-33bc-42dc-b300-ccccf23ce6bd" xml:space="preserve">
+          <source>finance NOT corporate</source>
+          <target state="new">finance NOT corporate</target>
+        </trans-unit>
+        <trans-unit id="7b973f09-7675-4b39-bb92-3f95aced0360" xml:space="preserve">
+          <source>Grouping with Parenthesis</source>
+          <target state="new">Grouping with Parenthesis</target>
+        </trans-unit>
+        <trans-unit id="494efc26-d19d-48ee-9a6f-656cf31eb329" xml:space="preserve">
+          <source>Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators</source>
+          <target state="new">Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators</target>
+        </trans-unit>
+        <trans-unit id="9f7c6692-ed32-4b74-9bef-5936dbf14f15" xml:space="preserve">
+          <source>name:finance AND (tags:Q1 OR tags:Q2)Comparison Operators</source>
+          <target state="new">name:finance AND (tags:Q1 OR tags:Q2)Comparison Operators</target>
+        </trans-unit>
+        <trans-unit id="20b8851f-c0fb-4d35-b841-ee70b9924656" xml:space="preserve">
+          <source>Comparison Operators</source>
+          <target state="new">Comparison Operators</target>
+        </trans-unit>
+        <trans-unit id="00356265-0f9e-4c07-b4e9-18edfcbab634" xml:space="preserve">
+          <source>Use comparisons other than equality for properties that have numeric and date data types</source>
+          <target state="new">Use comparisons other than equality for properties that have numeric and date data types</target>
+        </trans-unit>
+        <trans-unit id="7bf1a3d2-fcab-4e49-be23-ddf29062b8d8" xml:space="preserve">
+          <source>creationTime&gt;"11/05/2014"</source>
+          <target state="new">creationTime&gt;"11/05/2014"</target>
+        </trans-unit>
+        <trans-unit id="e036cd81-6a30-41a6-8e32-c65425fe12ef" xml:space="preserve">
+          <source>For more information on <bpt id="fcee1c11-73ea-4ebc-a896-ce408a99cd67">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="fcee1c11-73ea-4ebc-a896-ce408a99cd67">&lt;/strong&gt;</ept> search, see <bpt id="a13cb55c-71f4-4d83-9465-dc4a1b87d4a2">&lt;linkText&gt;</bpt>https://msdn.microsoft.com/library/azure/mt267594.aspx<ept id="a13cb55c-71f4-4d83-9465-dc4a1b87d4a2">&lt;/linkText&gt;</ept><bpt id="a13cb55c-71f4-4d83-9465-dc4a1b87d4a2">&lt;title&gt;</bpt><ept id="a13cb55c-71f4-4d83-9465-dc4a1b87d4a2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on <bpt id="fcee1c11-73ea-4ebc-a896-ce408a99cd67">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="fcee1c11-73ea-4ebc-a896-ce408a99cd67">&lt;/strong&gt;</ept> search, see <bpt id="a13cb55c-71f4-4d83-9465-dc4a1b87d4a2">&lt;linkText&gt;</bpt>https://msdn.microsoft.com/library/azure/mt267594.aspx<ept id="a13cb55c-71f4-4d83-9465-dc4a1b87d4a2">&lt;/linkText&gt;</ept><bpt id="a13cb55c-71f4-4d83-9465-dc4a1b87d4a2">&lt;title&gt;</bpt><ept id="a13cb55c-71f4-4d83-9465-dc4a1b87d4a2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2bafff9c-c2aa-4a41-80e2-20ece2176f5f" xml:space="preserve">
+          <source>When viewing search results, any displayed properties that match the specified search terms – such as the data asset name, description, and tags – will be highlighted to make it easier to identify why a given data asset was returned by a given search.</source>
+          <target state="new">When viewing search results, any displayed properties that match the specified search terms – such as the data asset name, description, and tags – will be highlighted to make it easier to identify why a given data asset was returned by a given search.</target>
+        </trans-unit>
+        <trans-unit id="e9cd8622-005f-4096-b88e-2edbbdc3c8fc" xml:space="preserve">
+          <source>Users can turn hit highlighting off if desired, using the “Highlight” switch in the <bpt id="ed44b329-257f-40dc-8659-5e1727316f5c">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="ed44b329-257f-40dc-8659-5e1727316f5c">&lt;/strong&gt;</ept> portal.</source>
+          <target state="new">Users can turn hit highlighting off if desired, using the “Highlight” switch in the <bpt id="ed44b329-257f-40dc-8659-5e1727316f5c">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="ed44b329-257f-40dc-8659-5e1727316f5c">&lt;/strong&gt;</ept> portal.</target>
+        </trans-unit>
+        <trans-unit id="873b0a53-df4c-4f24-89ad-69480c578009" xml:space="preserve">
+          <source>When viewing search results, it may not always be obvious why a data asset is included, even with hit highlighting enabled.</source>
+          <target state="new">When viewing search results, it may not always be obvious why a data asset is included, even with hit highlighting enabled.</target>
+        </trans-unit>
+        <trans-unit id="e6323281-10ba-4b86-b16b-57fb3125b60b" xml:space="preserve">
+          <source>Because all properties are searched by default, a data asset may be returned due to a match on a column-level property.</source>
+          <target state="new">Because all properties are searched by default, a data asset may be returned due to a match on a column-level property.</target>
+        </trans-unit>
+        <trans-unit id="2ec51458-0238-4ee9-97e7-0bbc1b10c7df" xml:space="preserve">
+          <source>And because multiple users can annotate registered data assets with their own tags and descriptions, not all metadata may be displayed in the list of search results.</source>
+          <target state="new">And because multiple users can annotate registered data assets with their own tags and descriptions, not all metadata may be displayed in the list of search results.</target>
+        </trans-unit>
+        <trans-unit id="12cadd14-53cb-4f6d-9a07-c77269007af4" xml:space="preserve">
+          <source>In the default tile view, each tile displayed in the search results will include a “View search term matches” icon, which allows the user to quickly view the number of matches and their location, and to jump to them if desired.</source>
+          <target state="new">In the default tile view, each tile displayed in the search results will include a “View search term matches” icon, which allows the user to quickly view the number of matches and their location, and to jump to them if desired.</target>
+        </trans-unit>
+        <trans-unit id="74a9c567-46e2-491f-9d21-2eefacb0f0da" xml:space="preserve">
+          <source> <bpt id="cb95a9c4-42f8-4d58-88e3-cb8af915f939">&lt;linkText&gt;</bpt>Hit highlighting and search matches in the Azure Data Catalog portal<ept id="cb95a9c4-42f8-4d58-88e3-cb8af915f939">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="cb95a9c4-42f8-4d58-88e3-cb8af915f939">&lt;linkText&gt;</bpt>Hit highlighting and search matches in the Azure Data Catalog portal<ept id="cb95a9c4-42f8-4d58-88e3-cb8af915f939">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e2073ea-72c2-4239-8870-9d451170b308" xml:space="preserve">
+          <source>Registering a data source with <bpt id="1ff954cc-8b67-410c-b8c3-69cf5d37f35c">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="1ff954cc-8b67-410c-b8c3-69cf5d37f35c">&lt;/strong&gt;</ept> makes that data source easier to discover and understand, by copying structural and descriptive metadata from the data source into the Catalog service.</source>
+          <target state="new">Registering a data source with <bpt id="1ff954cc-8b67-410c-b8c3-69cf5d37f35c">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="1ff954cc-8b67-410c-b8c3-69cf5d37f35c">&lt;/strong&gt;</ept> makes that data source easier to discover and understand, by copying structural and descriptive metadata from the data source into the Catalog service.</target>
+        </trans-unit>
+        <trans-unit id="96a1d78d-f116-4156-a273-abf60d62cee8" xml:space="preserve">
+          <source>Once a data source has been registered, users can discover it using filtering and search from within the <bpt id="15ea33fe-d41c-4554-9742-3206cac9cf73">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="15ea33fe-d41c-4554-9742-3206cac9cf73">&lt;/strong&gt;</ept> portal.</source>
+          <target state="new">Once a data source has been registered, users can discover it using filtering and search from within the <bpt id="15ea33fe-d41c-4554-9742-3206cac9cf73">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="15ea33fe-d41c-4554-9742-3206cac9cf73">&lt;/strong&gt;</ept> portal.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

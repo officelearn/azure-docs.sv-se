@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c840a1a1-9852-4c37-8a0b-f3e06a27ea47" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c840a1a1-9852-4c37-8a0b-f3e06a27ea47" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fe10b36c-0003-437f-855c-c0ff221f0c05">
+        <trans-unit id="d6a97a17-73b1-46f8-aa16-de8498b771ea" xml:space="preserve">
+          <source>Upgrade from the old Visual Studio Online version of Application Insights</source>
+          <target state="new">Upgrade from the old Visual Studio Online version of Application Insights</target>
+        </trans-unit>
+        <trans-unit id="821da798-6c65-4ee8-976b-e725f92a91a0" xml:space="preserve">
+          <source>Upgrade existing projects</source>
+          <target state="new">Upgrade existing projects</target>
+        </trans-unit>
+        <trans-unit id="8ccc0848-a69f-4f80-acd4-dd6ef49e41d1" xml:space="preserve">
+          <source>This document is of interest to you only if you have a project that is still using the older version of Application Insights, which was part of Visual Studio Online.</source>
+          <target state="new">This document is of interest to you only if you have a project that is still using the older version of Application Insights, which was part of Visual Studio Online.</target>
+        </trans-unit>
+        <trans-unit id="ea421678-07f8-4f13-aa09-2ff2d5bda33e" xml:space="preserve">
+          <source>That version will be switched off in due course, and so we encourage you to upgrade to the new version, which is a service within Microsoft Azure.</source>
+          <target state="new">That version will be switched off in due course, and so we encourage you to upgrade to the new version, which is a service within Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="7acb4786-db51-43fe-89c4-3ce26126c237" xml:space="preserve">
+          <source>If you added Application Insights to your project using Visual Studio 2013 Update 3 or later, it most probably uses the new Azure version.</source>
+          <target state="new">If you added Application Insights to your project using Visual Studio 2013 Update 3 or later, it most probably uses the new Azure version.</target>
+        </trans-unit>
+        <trans-unit id="09deffb0-d5a6-492e-8403-c7b6f499822e" xml:space="preserve">
+          <source>Open ApplicationInsights.config.</source>
+          <target state="new">Open ApplicationInsights.config.</target>
+        </trans-unit>
+        <trans-unit id="864895f9-e7aa-4141-899d-9969bfc140ca" xml:space="preserve">
+          <source>If it has nodes <bpt id="44e74976-9bac-4728-b230-0c229e83c7f4">&lt;code&gt;</bpt>ActiveProfile<ept id="44e74976-9bac-4728-b230-0c229e83c7f4">&lt;/code&gt;</ept> and <bpt id="c2e05c3f-8240-4117-8187-1855c417bb71">&lt;code&gt;</bpt>Profiles<ept id="c2e05c3f-8240-4117-8187-1855c417bb71">&lt;/code&gt;</ept>, it's the old version and you should upgrade.</source>
+          <target state="new">If it has nodes <bpt id="44e74976-9bac-4728-b230-0c229e83c7f4">&lt;code&gt;</bpt>ActiveProfile<ept id="44e74976-9bac-4728-b230-0c229e83c7f4">&lt;/code&gt;</ept> and <bpt id="c2e05c3f-8240-4117-8187-1855c417bb71">&lt;code&gt;</bpt>Profiles<ept id="c2e05c3f-8240-4117-8187-1855c417bb71">&lt;/code&gt;</ept>, it's the old version and you should upgrade.</target>
+        </trans-unit>
+        <trans-unit id="06a68ee7-d2b5-457c-affa-7fc81e11025d" xml:space="preserve">
+          <source>Or look at your project in Visual Studio Solution Explorer, and under References, select Microsoft.ApplicationInsights.</source>
+          <target state="new">Or look at your project in Visual Studio Solution Explorer, and under References, select Microsoft.ApplicationInsights.</target>
+        </trans-unit>
+        <trans-unit id="17c0f3ce-e183-4bd6-a3b7-99130d67e06f" xml:space="preserve">
+          <source>In the Properties window, find the Version.</source>
+          <target state="new">In the Properties window, find the Version.</target>
+        </trans-unit>
+        <trans-unit id="2f7dda26-e4ed-4e56-ade2-4e5ff06cb02c" xml:space="preserve">
+          <source>If it's less than 0.12, then you should upgrade.</source>
+          <target state="new">If it's less than 0.12, then you should upgrade.</target>
+        </trans-unit>
+        <trans-unit id="d93b66ed-f7ee-4867-881a-e200f08e2eed" xml:space="preserve">
+          <source>Open the project in Visual Studio 2013 Update 3 or later.</source>
+          <target state="new">Open the project in Visual Studio 2013 Update 3 or later.</target>
+        </trans-unit>
+        <trans-unit id="09035a29-00de-4285-852f-84c5d8ec458d" xml:space="preserve">
+          <source>Delete ApplicationInsights.config </source>
+          <target state="new">Delete ApplicationInsights.config </target>
+        </trans-unit>
+        <trans-unit id="786eb0bf-0ddf-4fb1-9be2-e9fb44c22250" xml:space="preserve">
+          <source>Remove the Application Insights NuGet packages from the project.</source>
+          <target state="new">Remove the Application Insights NuGet packages from the project.</target>
+        </trans-unit>
+        <trans-unit id="c00cd8a9-b7b0-4f9e-82a6-a0969bd70fc6" xml:space="preserve">
+          <source>To do this, right-click the project in Solution Explorer and choose Manage NuGet Packages.</source>
+          <target state="new">To do this, right-click the project in Solution Explorer and choose Manage NuGet Packages.</target>
+        </trans-unit>
+        <trans-unit id="f9192d51-2de3-46fc-abdb-345685cf104e" xml:space="preserve">
+          <source><bpt id="13f04f55-4fee-4a5c-a4ac-51025e537b3b">&lt;linkText&gt;</bpt><ept id="13f04f55-4fee-4a5c-a4ac-51025e537b3b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="13f04f55-4fee-4a5c-a4ac-51025e537b3b">&lt;linkText&gt;</bpt><ept id="13f04f55-4fee-4a5c-a4ac-51025e537b3b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d8159ee8-b43e-4d02-ad82-3f4951e7d23e" xml:space="preserve">
+          <source>Delete the folder AppInsightsAgent and the files it contains.</source>
+          <target state="new">Delete the folder AppInsightsAgent and the files it contains.</target>
+        </trans-unit>
+        <trans-unit id="42562de8-07d3-4812-8a22-45859c8a8d9b" xml:space="preserve">
+          <source><bpt id="e3899e13-99a8-4c4c-b171-ad6e3bebd8bc">&lt;linkText&gt;</bpt><ept id="e3899e13-99a8-4c4c-b171-ad6e3bebd8bc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3899e13-99a8-4c4c-b171-ad6e3bebd8bc">&lt;linkText&gt;</bpt><ept id="e3899e13-99a8-4c4c-b171-ad6e3bebd8bc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="986fc42b-8816-47dd-a88a-c777fe2c5232" xml:space="preserve">
+          <source>Remove all Microsoft.AppInsights settings names and values from ServiceDefinition.csdef and ServiceConfiguration.csfg</source>
+          <target state="new">Remove all Microsoft.AppInsights settings names and values from ServiceDefinition.csdef and ServiceConfiguration.csfg</target>
+        </trans-unit>
+        <trans-unit id="cebc2bbd-a4d1-493f-b961-4b5288a1bc20" xml:space="preserve">
+          <source><bpt id="ebd7f82e-69c0-42fe-9337-7971fe17a2d5">&lt;linkText&gt;</bpt><ept id="ebd7f82e-69c0-42fe-9337-7971fe17a2d5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ebd7f82e-69c0-42fe-9337-7971fe17a2d5">&lt;linkText&gt;</bpt><ept id="ebd7f82e-69c0-42fe-9337-7971fe17a2d5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b100432-562a-4afe-9cc8-222f6e5e0907" xml:space="preserve">
+          <source>SDK: Right-click the project and <bpt id="42eb40d0-5e54-4074-98f6-c8d0451e9348">&lt;linkText&gt;</bpt>choose Add Application Insights[greenbrown]<ept id="42eb40d0-5e54-4074-98f6-c8d0451e9348">&lt;/linkText&gt;</ept><bpt id="42eb40d0-5e54-4074-98f6-c8d0451e9348">&lt;title&gt;</bpt><ept id="42eb40d0-5e54-4074-98f6-c8d0451e9348">&lt;/title&gt;</ept>.</source>
+          <target state="new">SDK: Right-click the project and <bpt id="42eb40d0-5e54-4074-98f6-c8d0451e9348">&lt;linkText&gt;</bpt>choose Add Application Insights[greenbrown]<ept id="42eb40d0-5e54-4074-98f6-c8d0451e9348">&lt;/linkText&gt;</ept><bpt id="42eb40d0-5e54-4074-98f6-c8d0451e9348">&lt;title&gt;</bpt><ept id="42eb40d0-5e54-4074-98f6-c8d0451e9348">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf4ccc16-7663-44ac-8ec5-18430ca6ac60" xml:space="preserve">
+          <source>This adds the SDK to your project, and also creates a new Application Insights resource in Azure.</source>
+          <target state="new">This adds the SDK to your project, and also creates a new Application Insights resource in Azure.</target>
+        </trans-unit>
+        <trans-unit id="0d1b34d5-df53-4d85-8eba-0538d2b58b23" xml:space="preserve">
+          <source>Logging: If your code includes calls to the old API such as LogEvent(), you'll discover them when you try to build the solution.</source>
+          <target state="new">Logging: If your code includes calls to the old API such as LogEvent(), you'll discover them when you try to build the solution.</target>
+        </trans-unit>
+        <trans-unit id="8608417a-50c1-489c-8b9f-e38cd7953274" xml:space="preserve">
+          <source>Update them to <bpt id="43e207be-1808-4b14-a3ce-6107a44e4266">&lt;linkText&gt;</bpt>use the new API[track]<ept id="43e207be-1808-4b14-a3ce-6107a44e4266">&lt;/linkText&gt;</ept><bpt id="43e207be-1808-4b14-a3ce-6107a44e4266">&lt;title&gt;</bpt><ept id="43e207be-1808-4b14-a3ce-6107a44e4266">&lt;/title&gt;</ept>.</source>
+          <target state="new">Update them to <bpt id="43e207be-1808-4b14-a3ce-6107a44e4266">&lt;linkText&gt;</bpt>use the new API[track]<ept id="43e207be-1808-4b14-a3ce-6107a44e4266">&lt;/linkText&gt;</ept><bpt id="43e207be-1808-4b14-a3ce-6107a44e4266">&lt;title&gt;</bpt><ept id="43e207be-1808-4b14-a3ce-6107a44e4266">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1424121f-f486-487b-80c9-510e526893ea" xml:space="preserve">
+          <source>Web pages: If your project includes web pages, replace the scripts in the &lt;head&gt; sections. Typically there's just one copy in a master page such as Views\Shared\_Layout.cshtml. <bpt id="4b7f086c-113b-49d0-9562-67c9f5c56568">&lt;linkText&gt;</bpt>Get the new script from the Quick Start blade in your Application Insights resource in Azure[usage]<ept id="4b7f086c-113b-49d0-9562-67c9f5c56568">&lt;/linkText&gt;</ept><bpt id="4b7f086c-113b-49d0-9562-67c9f5c56568">&lt;title&gt;</bpt><ept id="4b7f086c-113b-49d0-9562-67c9f5c56568">&lt;/title&gt;</ept>. 
+If your web pages include telemetry calls in the body such as logEvent or logPage, <bpt id="5c814539-ca04-4fce-9f75-2babbac818e1">&lt;linkText&gt;</bpt>update them to use the new API[api]<ept id="5c814539-ca04-4fce-9f75-2babbac818e1">&lt;/linkText&gt;</ept><bpt id="5c814539-ca04-4fce-9f75-2babbac818e1">&lt;title&gt;</bpt><ept id="5c814539-ca04-4fce-9f75-2babbac818e1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Web pages: If your project includes web pages, replace the scripts in the &lt;head&gt; sections. Typically there's just one copy in a master page such as Views\Shared\_Layout.cshtml. <bpt id="4b7f086c-113b-49d0-9562-67c9f5c56568">&lt;linkText&gt;</bpt>Get the new script from the Quick Start blade in your Application Insights resource in Azure[usage]<ept id="4b7f086c-113b-49d0-9562-67c9f5c56568">&lt;/linkText&gt;</ept><bpt id="4b7f086c-113b-49d0-9562-67c9f5c56568">&lt;title&gt;</bpt><ept id="4b7f086c-113b-49d0-9562-67c9f5c56568">&lt;/title&gt;</ept>. 
+If your web pages include telemetry calls in the body such as logEvent or logPage, <bpt id="5c814539-ca04-4fce-9f75-2babbac818e1">&lt;linkText&gt;</bpt>update them to use the new API[api]<ept id="5c814539-ca04-4fce-9f75-2babbac818e1">&lt;/linkText&gt;</ept><bpt id="5c814539-ca04-4fce-9f75-2babbac818e1">&lt;title&gt;</bpt><ept id="5c814539-ca04-4fce-9f75-2babbac818e1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2cc84796-9e52-4a43-a330-6b8f1827a075" xml:space="preserve">
+          <source>Server monitor: If your app is a service running on IIS, uninstall Microsoft Monitoring Agent from the server, and then <bpt id="f9832846-6fa2-4f16-a040-9f2524367c94">&lt;linkText&gt;</bpt>install Application Insights Status Monitor[redfield]<ept id="f9832846-6fa2-4f16-a040-9f2524367c94">&lt;/linkText&gt;</ept><bpt id="f9832846-6fa2-4f16-a040-9f2524367c94">&lt;title&gt;</bpt><ept id="f9832846-6fa2-4f16-a040-9f2524367c94">&lt;/title&gt;</ept>.</source>
+          <target state="new">Server monitor: If your app is a service running on IIS, uninstall Microsoft Monitoring Agent from the server, and then <bpt id="f9832846-6fa2-4f16-a040-9f2524367c94">&lt;linkText&gt;</bpt>install Application Insights Status Monitor[redfield]<ept id="f9832846-6fa2-4f16-a040-9f2524367c94">&lt;/linkText&gt;</ept><bpt id="f9832846-6fa2-4f16-a040-9f2524367c94">&lt;title&gt;</bpt><ept id="f9832846-6fa2-4f16-a040-9f2524367c94">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48501218-1cff-4de8-bd8c-27acb7c98eb8" xml:space="preserve">
+          <source>Web tests: If you were using web availability tests, <bpt id="57435985-d85d-42c0-8b17-7455c300c178">&lt;linkText&gt;</bpt>recreate them on the new portal[availability]<ept id="57435985-d85d-42c0-8b17-7455c300c178">&lt;/linkText&gt;</ept><bpt id="57435985-d85d-42c0-8b17-7455c300c178">&lt;title&gt;</bpt><ept id="57435985-d85d-42c0-8b17-7455c300c178">&lt;/title&gt;</ept>, with their alerts.</source>
+          <target state="new">Web tests: If you were using web availability tests, <bpt id="57435985-d85d-42c0-8b17-7455c300c178">&lt;linkText&gt;</bpt>recreate them on the new portal[availability]<ept id="57435985-d85d-42c0-8b17-7455c300c178">&lt;/linkText&gt;</ept><bpt id="57435985-d85d-42c0-8b17-7455c300c178">&lt;title&gt;</bpt><ept id="57435985-d85d-42c0-8b17-7455c300c178">&lt;/title&gt;</ept>, with their alerts.</target>
+        </trans-unit>
+        <trans-unit id="4053c625-e77b-4dd3-8ce1-b806edcfdce3" xml:space="preserve">
+          <source>Alerts: Set up <bpt id="17cb6cd7-a30c-42c5-8042-be102e8217d9">&lt;linkText&gt;</bpt>alerts on metrics[alerts]<ept id="17cb6cd7-a30c-42c5-8042-be102e8217d9">&lt;/linkText&gt;</ept><bpt id="17cb6cd7-a30c-42c5-8042-be102e8217d9">&lt;title&gt;</bpt><ept id="17cb6cd7-a30c-42c5-8042-be102e8217d9">&lt;/title&gt;</ept> in the Azure portal.</source>
+          <target state="new">Alerts: Set up <bpt id="17cb6cd7-a30c-42c5-8042-be102e8217d9">&lt;linkText&gt;</bpt>alerts on metrics[alerts]<ept id="17cb6cd7-a30c-42c5-8042-be102e8217d9">&lt;/linkText&gt;</ept><bpt id="17cb6cd7-a30c-42c5-8042-be102e8217d9">&lt;title&gt;</bpt><ept id="17cb6cd7-a30c-42c5-8042-be102e8217d9">&lt;/title&gt;</ept> in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="a58fd162-1087-401d-98f6-b0917a7183a3" xml:space="preserve">
+          <source>In your server machine, disable the old agent by removing references to the APM agent from the web service startup file.</source>
+          <target state="new">In your server machine, disable the old agent by removing references to the APM agent from the web service startup file.</target>
+        </trans-unit>
+        <trans-unit id="e14ee8ca-36b1-479b-ba8e-42e6f55f2939" xml:space="preserve">
+          <source>On a TomCat server, edit Catalina.bat.</source>
+          <target state="new">On a TomCat server, edit Catalina.bat.</target>
+        </trans-unit>
+        <trans-unit id="2d2d6ab1-67c3-453f-b1d3-631f4d086f9a" xml:space="preserve">
+          <source>On a JBoss server, edit Run.bat.</source>
+          <target state="new">On a JBoss server, edit Run.bat.</target>
+        </trans-unit>
+        <trans-unit id="6490afcc-71ec-4eb8-a4c1-039219df929a" xml:space="preserve">
+          <source>Restart the web service.</source>
+          <target state="new">Restart the web service.</target>
+        </trans-unit>
+        <trans-unit id="37cfb278-9764-476e-8b7c-e27b324fde7f" xml:space="preserve">
+          <source>In the Microsoft Azure portal, <bpt id="a159700f-feb7-4918-a9e1-e7ed21e942a3">&lt;linkText&gt;</bpt>add a new Application Insights resource[java]<ept id="a159700f-feb7-4918-a9e1-e7ed21e942a3">&lt;/linkText&gt;</ept><bpt id="a159700f-feb7-4918-a9e1-e7ed21e942a3">&lt;title&gt;</bpt><ept id="a159700f-feb7-4918-a9e1-e7ed21e942a3">&lt;/title&gt;</ept>.</source>
+          <target state="new">In the Microsoft Azure portal, <bpt id="a159700f-feb7-4918-a9e1-e7ed21e942a3">&lt;linkText&gt;</bpt>add a new Application Insights resource[java]<ept id="a159700f-feb7-4918-a9e1-e7ed21e942a3">&lt;/linkText&gt;</ept><bpt id="a159700f-feb7-4918-a9e1-e7ed21e942a3">&lt;title&gt;</bpt><ept id="a159700f-feb7-4918-a9e1-e7ed21e942a3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b373eaa1-526f-4c63-8b49-7310e3bb1566" xml:space="preserve">
+          <source>In your development machine, add <bpt id="b22550aa-a260-4c96-bbdd-509b203a0aef">&lt;linkText&gt;</bpt>the Java SDK[java]<ept id="b22550aa-a260-4c96-bbdd-509b203a0aef">&lt;/linkText&gt;</ept><bpt id="b22550aa-a260-4c96-bbdd-509b203a0aef">&lt;title&gt;</bpt><ept id="b22550aa-a260-4c96-bbdd-509b203a0aef">&lt;/title&gt;</ept> to your web project.</source>
+          <target state="new">In your development machine, add <bpt id="b22550aa-a260-4c96-bbdd-509b203a0aef">&lt;linkText&gt;</bpt>the Java SDK[java]<ept id="b22550aa-a260-4c96-bbdd-509b203a0aef">&lt;/linkText&gt;</ept><bpt id="b22550aa-a260-4c96-bbdd-509b203a0aef">&lt;title&gt;</bpt><ept id="b22550aa-a260-4c96-bbdd-509b203a0aef">&lt;/title&gt;</ept> to your web project.</target>
+        </trans-unit>
+        <trans-unit id="c29e0388-ea8b-40c6-af44-f0b8ab1dd05e" xml:space="preserve">
+          <source>Replace the scripts in the &lt;head&gt; sections of your web pages. (There might be just one copy in a server side include.) <bpt id="dbf8aa6f-5ae9-4503-bf7d-10dbc143bcc2">&lt;linkText&gt;</bpt>Get the new script from the Quick Start blade in your new Application Insights resource in Azure[usage]<ept id="dbf8aa6f-5ae9-4503-bf7d-10dbc143bcc2">&lt;/linkText&gt;</ept><bpt id="dbf8aa6f-5ae9-4503-bf7d-10dbc143bcc2">&lt;title&gt;</bpt><ept id="dbf8aa6f-5ae9-4503-bf7d-10dbc143bcc2">&lt;/title&gt;</ept>. 
+If your web pages include telemetry calls in the body such as logEvent or logPage, <bpt id="43bbec29-3f10-43f7-ac3a-c7b4770ba9b9">&lt;linkText&gt;</bpt>update them to use the new API[track]<ept id="43bbec29-3f10-43f7-ac3a-c7b4770ba9b9">&lt;/linkText&gt;</ept><bpt id="43bbec29-3f10-43f7-ac3a-c7b4770ba9b9">&lt;title&gt;</bpt><ept id="43bbec29-3f10-43f7-ac3a-c7b4770ba9b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Replace the scripts in the &lt;head&gt; sections of your web pages. (There might be just one copy in a server side include.) <bpt id="dbf8aa6f-5ae9-4503-bf7d-10dbc143bcc2">&lt;linkText&gt;</bpt>Get the new script from the Quick Start blade in your new Application Insights resource in Azure[usage]<ept id="dbf8aa6f-5ae9-4503-bf7d-10dbc143bcc2">&lt;/linkText&gt;</ept><bpt id="dbf8aa6f-5ae9-4503-bf7d-10dbc143bcc2">&lt;title&gt;</bpt><ept id="dbf8aa6f-5ae9-4503-bf7d-10dbc143bcc2">&lt;/title&gt;</ept>. 
+If your web pages include telemetry calls in the body such as logEvent or logPage, <bpt id="43bbec29-3f10-43f7-ac3a-c7b4770ba9b9">&lt;linkText&gt;</bpt>update them to use the new API[track]<ept id="43bbec29-3f10-43f7-ac3a-c7b4770ba9b9">&lt;/linkText&gt;</ept><bpt id="43bbec29-3f10-43f7-ac3a-c7b4770ba9b9">&lt;title&gt;</bpt><ept id="43bbec29-3f10-43f7-ac3a-c7b4770ba9b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d567214e-cdcf-4b93-9f2c-802be45c00b6" xml:space="preserve">
+          <source>Web tests: If you were using web availability tests, <bpt id="9b3fb096-18f7-4343-87ba-1e7dd660a2d0">&lt;linkText&gt;</bpt>recreate them on the new portal[availability]<ept id="9b3fb096-18f7-4343-87ba-1e7dd660a2d0">&lt;/linkText&gt;</ept><bpt id="9b3fb096-18f7-4343-87ba-1e7dd660a2d0">&lt;title&gt;</bpt><ept id="9b3fb096-18f7-4343-87ba-1e7dd660a2d0">&lt;/title&gt;</ept>, with their alerts.</source>
+          <target state="new">Web tests: If you were using web availability tests, <bpt id="9b3fb096-18f7-4343-87ba-1e7dd660a2d0">&lt;linkText&gt;</bpt>recreate them on the new portal[availability]<ept id="9b3fb096-18f7-4343-87ba-1e7dd660a2d0">&lt;/linkText&gt;</ept><bpt id="9b3fb096-18f7-4343-87ba-1e7dd660a2d0">&lt;title&gt;</bpt><ept id="9b3fb096-18f7-4343-87ba-1e7dd660a2d0">&lt;/title&gt;</ept>, with their alerts.</target>
+        </trans-unit>
+        <trans-unit id="46d2455e-d8a2-4f6e-99b7-0cd97b15eb49" xml:space="preserve">
+          <source>Alerts: Set up <bpt id="7d9e3afd-8ac1-400b-a4b2-170cec797577">&lt;linkText&gt;</bpt>alerts on metrics[alerts]<ept id="7d9e3afd-8ac1-400b-a4b2-170cec797577">&lt;/linkText&gt;</ept><bpt id="7d9e3afd-8ac1-400b-a4b2-170cec797577">&lt;title&gt;</bpt><ept id="7d9e3afd-8ac1-400b-a4b2-170cec797577">&lt;/title&gt;</ept> in the Azure portal.</source>
+          <target state="new">Alerts: Set up <bpt id="7d9e3afd-8ac1-400b-a4b2-170cec797577">&lt;linkText&gt;</bpt>alerts on metrics[alerts]<ept id="7d9e3afd-8ac1-400b-a4b2-170cec797577">&lt;/linkText&gt;</ept><bpt id="7d9e3afd-8ac1-400b-a4b2-170cec797577">&lt;title&gt;</bpt><ept id="7d9e3afd-8ac1-400b-a4b2-170cec797577">&lt;/title&gt;</ept> in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="6babaaf2-d46c-447c-9dff-39d08a02769a" xml:space="preserve">
+          <source>app-insights-alerts.md</source>
+          <target state="new">app-insights-alerts.md</target>
+        </trans-unit>
+        <trans-unit id="7076d557-512c-470c-a8d5-795db6c13aa5" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="21e35bd9-2d2a-4dfb-a7fb-95a300896e81" xml:space="preserve">
+          <source>app-insights-monitor-web-app-availability.md</source>
+          <target state="new">app-insights-monitor-web-app-availability.md</target>
+        </trans-unit>
+        <trans-unit id="62dcff8d-c353-431f-866e-69c2103c8dfa" xml:space="preserve">
+          <source>app-insights-start-monitoring-app-health-usage.md</source>
+          <target state="new">app-insights-start-monitoring-app-health-usage.md</target>
+        </trans-unit>
+        <trans-unit id="95c4ec91-b770-48a0-b6ee-a586a5039082" xml:space="preserve">
+          <source>app-insights-java-get-started.md</source>
+          <target state="new">app-insights-java-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="9e1578a0-2114-4820-94bf-fd2a4aa0f08b" xml:space="preserve">
+          <source>app-insights-monitor-performance-live-website-now.md</source>
+          <target state="new">app-insights-monitor-performance-live-website-now.md</target>
+        </trans-unit>
+        <trans-unit id="268064b7-ab4b-4725-9273-13090ef9b0a6" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="c65013ae-513e-45b9-ab1b-aeeb31ab8cec" xml:space="preserve">
+          <source>app-insights-web-track-usage.md</source>
+          <target state="new">app-insights-web-track-usage.md</target>
+        </trans-unit>
+      </group>
+      <group id="8a796e18-b01a-4f6b-a6f2-c27eb8b04d4a" />
+    </body>
+  </file>
+</xliff>

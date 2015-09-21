@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="19f95e7b-f0a1-442a-993f-153ed45ec7ea" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="19f95e7b-f0a1-442a-993f-153ed45ec7ea" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0d19c471-801d-4c27-b536-af1e6ec36a6e">
+        <trans-unit id="223e68a9-f354-40c3-b465-5e305ceb893c" xml:space="preserve">
+          <source>&lt;properties
+    pageTitle="Change the Azure Active Directory tenant in Azure RemoteApp"
+    description="Learn how to change the Azure Active Directory tenant associated with Azure RemoteApp"
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap"
+    manager="mbaldwin" /&gt;</source>
+          <target state="new">&lt;properties
+    pageTitle="Change the Azure Active Directory tenant in Azure RemoteApp"
+    description="Learn how to change the Azure Active Directory tenant associated with Azure RemoteApp"
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap"
+    manager="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="2ac2bf20-3f9b-4d74-87a3-59875c12f8b6" xml:space="preserve">
+          <source>&lt;tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2015"
+    ms.author="elizapo" /&gt;</source>
+          <target state="new">&lt;tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2015"
+    ms.author="elizapo" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="30bc4969-11d5-4a52-a8c4-e58a04e206c3" xml:space="preserve">
+          <source>Azure RemoteApp uses Azure Active Directory (Azure AD) to allow user access.</source>
+          <target state="new">Azure RemoteApp uses Azure Active Directory (Azure AD) to allow user access.</target>
+        </trans-unit>
+        <trans-unit id="5b618d4a-bc30-458c-92e3-39609230408f" xml:space="preserve">
+          <source>The only Azure AD tenant that you can use is the one associated with the Azure subscription.</source>
+          <target state="new">The only Azure AD tenant that you can use is the one associated with the Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="6aa82e3d-2892-44a4-85c7-12ba2d92e211" xml:space="preserve">
+          <source>You can view the associated subscription on the Settings page in the portal.</source>
+          <target state="new">You can view the associated subscription on the Settings page in the portal.</target>
+        </trans-unit>
+        <trans-unit id="deac69ed-2508-4977-baac-8c3fc42bca96" xml:space="preserve">
+          <source>Look at the Directory column on the Subscriptions tab.</source>
+          <target state="new">Look at the Directory column on the Subscriptions tab.</target>
+        </trans-unit>
+        <trans-unit id="c406a79c-c038-404c-b08a-8eb73c4a0cfb" xml:space="preserve">
+          <source>For this change to succeed, first remove all users from the existing Azure Active Directory tenant from all Azure RemoteApp collections.</source>
+          <target state="new">For this change to succeed, first remove all users from the existing Azure Active Directory tenant from all Azure RemoteApp collections.</target>
+        </trans-unit>
+        <trans-unit id="5c4e431d-ba77-4033-8568-a5c11baba2bc" xml:space="preserve">
+          <source>To do this, go to the Azure Portal, go to the Azure RemoteApp tab and open every Azure RemoteApp collection.</source>
+          <target state="new">To do this, go to the Azure Portal, go to the Azure RemoteApp tab and open every Azure RemoteApp collection.</target>
+        </trans-unit>
+        <trans-unit id="6a09d009-f92f-49d0-8c58-5c6f158b611b" xml:space="preserve">
+          <source>Go to the <bpt id="1716cfb0-b7b3-4838-9ce9-8b044957cbcb">&lt;strong&gt;</bpt>Users<ept id="1716cfb0-b7b3-4838-9ce9-8b044957cbcb">&lt;/strong&gt;</ept> tab and remove users that belong to your current Azure Active Directory tenant.</source>
+          <target state="new">Go to the <bpt id="1716cfb0-b7b3-4838-9ce9-8b044957cbcb">&lt;strong&gt;</bpt>Users<ept id="1716cfb0-b7b3-4838-9ce9-8b044957cbcb">&lt;/strong&gt;</ept> tab and remove users that belong to your current Azure Active Directory tenant.</target>
+        </trans-unit>
+        <trans-unit id="0c314dac-a63c-4d61-b2aa-a543302e536c" xml:space="preserve">
+          <source>Repeat for all existing Azure RemoteApp collections.</source>
+          <target state="new">Repeat for all existing Azure RemoteApp collections.</target>
+        </trans-unit>
+        <trans-unit id="5674b3be-1385-49e2-beaf-6293494d8576" xml:space="preserve">
+          <source>Without doing this, you will not be able to create or patch collections.</source>
+          <target state="new">Without doing this, you will not be able to create or patch collections.</target>
+        </trans-unit>
+        <trans-unit id="d64c3d0b-ba6a-47ab-be4c-6834ccd165a0" xml:space="preserve">
+          <source>If you want to use a different tenant, use these steps to change the association with your subscription:</source>
+          <target state="new">If you want to use a different tenant, use these steps to change the association with your subscription:</target>
+        </trans-unit>
+        <trans-unit id="32b05b2f-28b2-47a0-a361-2c3e2e340956" xml:space="preserve">
+          <source>In the portal, remove any Azure AD users to which you’ve given access to Azure RemoteApp collections.</source>
+          <target state="new">In the portal, remove any Azure AD users to which you’ve given access to Azure RemoteApp collections.</target>
+        </trans-unit>
+        <trans-unit id="38451eda-037c-4dab-b4c5-c446f5f28030" xml:space="preserve">
+          <source>Set a Microsoft account (formerly called a Live ID) as the Service Administrator.</source>
+          <target state="new">Set a Microsoft account (formerly called a Live ID) as the Service Administrator.</target>
+        </trans-unit>
+        <trans-unit id="de14d376-9177-4f0e-af79-89482e81fe49" xml:space="preserve">
+          <source>(Look at <bpt id="093e0075-019f-4ac2-9cc8-59d2c0573b3a">&lt;strong&gt;</bpt>Settings -&gt; Administrators<ept id="093e0075-019f-4ac2-9cc8-59d2c0573b3a">&lt;/strong&gt;</ept>.)</source>
+          <target state="new">(Look at <bpt id="093e0075-019f-4ac2-9cc8-59d2c0573b3a">&lt;strong&gt;</bpt>Settings -&gt; Administrators<ept id="093e0075-019f-4ac2-9cc8-59d2c0573b3a">&lt;/strong&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="25094fe0-c3e1-4461-946c-c040228ab892" xml:space="preserve">
+          <source>Click the currently logged in user in the upper right corner, and then click <bpt id="ba2649a8-1992-4bbf-8121-328b55920830">&lt;strong&gt;</bpt>View my bill<ept id="ba2649a8-1992-4bbf-8121-328b55920830">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the currently logged in user in the upper right corner, and then click <bpt id="ba2649a8-1992-4bbf-8121-328b55920830">&lt;strong&gt;</bpt>View my bill<ept id="ba2649a8-1992-4bbf-8121-328b55920830">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="617cb484-b316-421e-8bef-36f7452f52e7" xml:space="preserve">
+          <source>Select your subscription, and then click <bpt id="0ccdaa6e-6e56-4838-8f7f-7d107628a5cb">&lt;strong&gt;</bpt>Edit subscription details<ept id="0ccdaa6e-6e56-4838-8f7f-7d107628a5cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select your subscription, and then click <bpt id="0ccdaa6e-6e56-4838-8f7f-7d107628a5cb">&lt;strong&gt;</bpt>Edit subscription details<ept id="0ccdaa6e-6e56-4838-8f7f-7d107628a5cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed37d47c-96ef-4a23-aac7-c69711a8d3d3" xml:space="preserve">
+          <source>Make the changes necessary.</source>
+          <target state="new">Make the changes necessary.</target>
+        </trans-unit>
+        <trans-unit id="e0ee3572-0067-414b-a30c-1f384ce7d9af" xml:space="preserve">
+          <source>Sign out of the portal, and then sign back in with the Microsoft account you specified in the previous step.</source>
+          <target state="new">Sign out of the portal, and then sign back in with the Microsoft account you specified in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="9dd47397-3dbf-4ef6-ac0d-d2e4b13a6b1f" xml:space="preserve">
+          <source>Click <bpt id="9d591cbb-060e-42f2-abb3-3a7989082b0b">&lt;strong&gt;</bpt>New -&gt; App Services -&gt; Active Directory -&gt; Custom Create -&gt; Use Existing Directory<ept id="9d591cbb-060e-42f2-abb3-3a7989082b0b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9d591cbb-060e-42f2-abb3-3a7989082b0b">&lt;strong&gt;</bpt>New -&gt; App Services -&gt; Active Directory -&gt; Custom Create -&gt; Use Existing Directory<ept id="9d591cbb-060e-42f2-abb3-3a7989082b0b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98138ad7-9974-49d2-8713-24d54f6eb3be" xml:space="preserve">
+          <source>Add the Azure AD tenant that you want to associate with this subscription.</source>
+          <target state="new">Add the Azure AD tenant that you want to associate with this subscription.</target>
+        </trans-unit>
+        <trans-unit id="e145f173-760a-4449-bed3-8a8d37b6873f" xml:space="preserve">
+          <source>Under <bpt id="91501685-e0aa-4d9a-b9d2-d689463a0f44">&lt;strong&gt;</bpt>Settings -&gt; Subscriptions<ept id="91501685-e0aa-4d9a-b9d2-d689463a0f44">&lt;/strong&gt;</ept>, select your subscription, and then click <bpt id="32e7922e-b6a5-4875-9fed-ce5d42ebe18b">&lt;strong&gt;</bpt>Edit Directory<ept id="32e7922e-b6a5-4875-9fed-ce5d42ebe18b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="91501685-e0aa-4d9a-b9d2-d689463a0f44">&lt;strong&gt;</bpt>Settings -&gt; Subscriptions<ept id="91501685-e0aa-4d9a-b9d2-d689463a0f44">&lt;/strong&gt;</ept>, select your subscription, and then click <bpt id="32e7922e-b6a5-4875-9fed-ce5d42ebe18b">&lt;strong&gt;</bpt>Edit Directory<ept id="32e7922e-b6a5-4875-9fed-ce5d42ebe18b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a289bbaa-126f-4935-bf4f-691025849d61" xml:space="preserve">
+          <source>Select the Azure AD tenant that you want to use.</source>
+          <target state="new">Select the Azure AD tenant that you want to use.</target>
+        </trans-unit>
+        <trans-unit id="cbf539a1-7a38-41e4-a6a3-b4fb3f027731" xml:space="preserve">
+          <source>You can now use the new Azure AD tenant to control access to the Azure subscription and to configure user access in Azure RemoteApp.</source>
+          <target state="new">You can now use the new Azure AD tenant to control access to the Azure subscription and to configure user access in Azure RemoteApp.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

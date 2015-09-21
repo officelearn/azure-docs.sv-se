@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="85e77319-c965-42b7-8cc7-0a7883045d2d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="85e77319-c965-42b7-8cc7-0a7883045d2d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="44f1307d-8174-4c7c-a15a-09364c6a931f">
+        <trans-unit id="aeab0011-50e5-4d37-bfd1-bbfe1d7f8b94" xml:space="preserve">
+          <source>Azure Backup - Offline Backup or Initial Seeding using Azure Import/Export Service | Microsoft Azure</source>
+          <target state="new">Azure Backup - Offline Backup or Initial Seeding using Azure Import/Export Service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9e5b871e-81ce-4981-b7bf-2ba5744fc6d4" xml:space="preserve">
+          <source>Learn how Azure Backup enables you to send data off the network using Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service</source>
+          <target state="new">Learn how Azure Backup enables you to send data off the network using Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service</target>
+        </trans-unit>
+        <trans-unit id="bd57228e-d82b-4cb7-b72a-895232666324" xml:space="preserve">
+          <source>Azure Backup is deeply integrated with the Azure Import/Export service which enables you to transfer initial backup data quickly. If you have TBs of initial backup data that needs to be transferred over a high latency &amp; low bandwidth network, you can use the Azure Import/Export service to ship the initial backup copy on one or more hard drives to an Azure data center. This article provides an overview of the steps required to complete this workflow.</source>
+          <target state="new">Azure Backup is deeply integrated with the Azure Import/Export service which enables you to transfer initial backup data quickly. If you have TBs of initial backup data that needs to be transferred over a high latency &amp; low bandwidth network, you can use the Azure Import/Export service to ship the initial backup copy on one or more hard drives to an Azure data center. This article provides an overview of the steps required to complete this workflow.</target>
+        </trans-unit>
+        <trans-unit id="97c9bf26-f459-4e55-ae2a-0d16ad36f36b" xml:space="preserve">
+          <source>With Azure Backup and Azure Import/Export, it is simple and straightforward to upload the data to Azure offline through disks.</source>
+          <target state="new">With Azure Backup and Azure Import/Export, it is simple and straightforward to upload the data to Azure offline through disks.</target>
+        </trans-unit>
+        <trans-unit id="9023a6a7-b89b-4bd8-a657-ac362b47837e" xml:space="preserve">
+          <source>Instead of transferring the initial full copy over the network, the backup data is written to a <bpt id="85ee72ce-8ef5-42d4-bf01-1546c49e2a46">&lt;em&gt;</bpt>staging location<ept id="85ee72ce-8ef5-42d4-bf01-1546c49e2a46">&lt;/em&gt;</ept>.</source>
+          <target state="new">Instead of transferring the initial full copy over the network, the backup data is written to a <bpt id="85ee72ce-8ef5-42d4-bf01-1546c49e2a46">&lt;em&gt;</bpt>staging location<ept id="85ee72ce-8ef5-42d4-bf01-1546c49e2a46">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13bb2c91-cc92-4a68-8c3b-78676fe13d54" xml:space="preserve">
+          <source>The staging location can be a direct attached storage or a network share.</source>
+          <target state="new">The staging location can be a direct attached storage or a network share.</target>
+        </trans-unit>
+        <trans-unit id="54f00b1b-1330-4532-8404-7f80382d84e8" xml:space="preserve">
+          <source>Once the initial copy is completed, using the <bpt id="008fa801-6cf2-4c3b-a178-9ff07a54de27">&lt;em&gt;</bpt>Azure Import/Export tool<ept id="008fa801-6cf2-4c3b-a178-9ff07a54de27">&lt;/em&gt;</ept>, this data is written to a SATA drive which is eventually shipped to the Azure data center.</source>
+          <target state="new">Once the initial copy is completed, using the <bpt id="008fa801-6cf2-4c3b-a178-9ff07a54de27">&lt;em&gt;</bpt>Azure Import/Export tool<ept id="008fa801-6cf2-4c3b-a178-9ff07a54de27">&lt;/em&gt;</ept>, this data is written to a SATA drive which is eventually shipped to the Azure data center.</target>
+        </trans-unit>
+        <trans-unit id="c2cad9ca-02cc-441b-84d0-10256156eb32" xml:space="preserve">
+          <source>Depending on the size of the initial backup, one or more SATA drives may be required to complete this operation.</source>
+          <target state="new">Depending on the size of the initial backup, one or more SATA drives may be required to complete this operation.</target>
+        </trans-unit>
+        <trans-unit id="5a1b13d1-585a-4721-ab48-005d556cef7d" xml:space="preserve">
+          <source>The Azure Import/Export tool accounts for these scenarios.</source>
+          <target state="new">The Azure Import/Export tool accounts for these scenarios.</target>
+        </trans-unit>
+        <trans-unit id="43ca7f0a-2e0f-4740-b76d-d2ddf673f4c9" xml:space="preserve">
+          <source>After the backups are written to the disk, they can be shipped to the nearest data center location for uploading to Azure.</source>
+          <target state="new">After the backups are written to the disk, they can be shipped to the nearest data center location for uploading to Azure.</target>
+        </trans-unit>
+        <trans-unit id="0cc95d02-2104-4178-99a1-102063c2b2ae" xml:space="preserve">
+          <source>Azure Backup then copies the backup data to the backup vault and the incremental backups are scheduled.</source>
+          <target state="new">Azure Backup then copies the backup data to the backup vault and the incremental backups are scheduled.</target>
+        </trans-unit>
+        <trans-unit id="8202a39a-9773-4274-b95c-8577d0089709" xml:space="preserve">
+          <source>It is important to familiarize yourself with the Azure Import export workflow which is listed <bpt id="88b33208-1cd0-43eb-97d8-9a1f4db4501f">&lt;linkText&gt;</bpt>here<ept id="88b33208-1cd0-43eb-97d8-9a1f4db4501f">&lt;/linkText&gt;</ept><bpt id="88b33208-1cd0-43eb-97d8-9a1f4db4501f">&lt;title&gt;</bpt><ept id="88b33208-1cd0-43eb-97d8-9a1f4db4501f">&lt;/title&gt;</ept>.</source>
+          <target state="new">It is important to familiarize yourself with the Azure Import export workflow which is listed <bpt id="88b33208-1cd0-43eb-97d8-9a1f4db4501f">&lt;linkText&gt;</bpt>here<ept id="88b33208-1cd0-43eb-97d8-9a1f4db4501f">&lt;/linkText&gt;</ept><bpt id="88b33208-1cd0-43eb-97d8-9a1f4db4501f">&lt;title&gt;</bpt><ept id="88b33208-1cd0-43eb-97d8-9a1f4db4501f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22b6d5b6-cf49-4899-bc69-2933c2def659" xml:space="preserve">
+          <source>Before initiating the workflow, ensure that a Azure Backup vault has been created, vault credentials have been downloaded, Azure Backup agent has been installed on either your Windows Server/Windows Client or System Center Data Protection Manager (SCDPM) server and that the machine is registered with the Azure Backup vault.</source>
+          <target state="new">Before initiating the workflow, ensure that a Azure Backup vault has been created, vault credentials have been downloaded, Azure Backup agent has been installed on either your Windows Server/Windows Client or System Center Data Protection Manager (SCDPM) server and that the machine is registered with the Azure Backup vault.</target>
+        </trans-unit>
+        <trans-unit id="a80537ac-69a1-4465-903a-2497ff7322e7" xml:space="preserve">
+          <source>Download the Azure Publish file settings from <bpt id="a85bdfd4-0c8b-40ff-a458-8ae86f413b51">&lt;linkText&gt;</bpt>here<ept id="a85bdfd4-0c8b-40ff-a458-8ae86f413b51">&lt;/linkText&gt;</ept><bpt id="a85bdfd4-0c8b-40ff-a458-8ae86f413b51">&lt;title&gt;</bpt><ept id="a85bdfd4-0c8b-40ff-a458-8ae86f413b51">&lt;/title&gt;</ept> on the machine from which you plan to backup our data.</source>
+          <target state="new">Download the Azure Publish file settings from <bpt id="a85bdfd4-0c8b-40ff-a458-8ae86f413b51">&lt;linkText&gt;</bpt>here<ept id="a85bdfd4-0c8b-40ff-a458-8ae86f413b51">&lt;/linkText&gt;</ept><bpt id="a85bdfd4-0c8b-40ff-a458-8ae86f413b51">&lt;title&gt;</bpt><ept id="a85bdfd4-0c8b-40ff-a458-8ae86f413b51">&lt;/title&gt;</ept> on the machine from which you plan to backup our data.</target>
+        </trans-unit>
+        <trans-unit id="51c5cceb-d741-4279-9291-27744bc9c77e" xml:space="preserve">
+          <source>Prepare a <bpt id="4002bc88-8c00-41ff-9fff-b7276962d903">&lt;em&gt;</bpt>staging location<ept id="4002bc88-8c00-41ff-9fff-b7276962d903">&lt;/em&gt;</ept> which could be a network share or additional drive on the machine.</source>
+          <target state="new">Prepare a <bpt id="4002bc88-8c00-41ff-9fff-b7276962d903">&lt;em&gt;</bpt>staging location<ept id="4002bc88-8c00-41ff-9fff-b7276962d903">&lt;/em&gt;</ept> which could be a network share or additional drive on the machine.</target>
+        </trans-unit>
+        <trans-unit id="65765be4-3ce5-4040-adb3-c0c78586a46f" xml:space="preserve">
+          <source>Ensure that the staging location has enough disk space to hold your initial copy.</source>
+          <target state="new">Ensure that the staging location has enough disk space to hold your initial copy.</target>
+        </trans-unit>
+        <trans-unit id="45e6b0f6-dea8-430b-a756-ba881a9cec82" xml:space="preserve">
+          <source>For example, if you are trying to backup a 500GB file server, ensure that the staging area is at least 500GB (though a lesser amount will be used).</source>
+          <target state="new">For example, if you are trying to backup a 500GB file server, ensure that the staging area is at least 500GB (though a lesser amount will be used).</target>
+        </trans-unit>
+        <trans-unit id="0ab7f175-ce78-45a5-a956-5f9153021269" xml:space="preserve">
+          <source>The staging area is 'transient storage' and is used temporarily during this workflow.</source>
+          <target state="new">The staging area is 'transient storage' and is used temporarily during this workflow.</target>
+        </trans-unit>
+        <trans-unit id="e5d6f1b4-57ff-48d6-bcfa-fd9e9f9f4890" xml:space="preserve">
+          <source>External SATA drive writer and an external 3.5 Inch SATA drive.</source>
+          <target state="new">External SATA drive writer and an external 3.5 Inch SATA drive.</target>
+        </trans-unit>
+        <trans-unit id="576df26d-f537-4934-90bd-f41c780b3d42" xml:space="preserve">
+          <source>Only 3.5 inch SATA II/III hard drives are supported for use with the Import/Export service.</source>
+          <target state="new">Only 3.5 inch SATA II/III hard drives are supported for use with the Import/Export service.</target>
+        </trans-unit>
+        <trans-unit id="0e322b41-ab04-4290-88c0-7acb237674b8" xml:space="preserve">
+          <source>Hard drives larger than 6TB are not supported.</source>
+          <target state="new">Hard drives larger than 6TB are not supported.</target>
+        </trans-unit>
+        <trans-unit id="1b9213d7-8576-412d-a408-2bda47f8e64e" xml:space="preserve">
+          <source>You can attach a SATA II/III disk externally to most computers using a SATA II/III USB Adapter.</source>
+          <target state="new">You can attach a SATA II/III disk externally to most computers using a SATA II/III USB Adapter.</target>
+        </trans-unit>
+        <trans-unit id="0b30ca28-ec4a-4c28-bd86-105e29b25318" xml:space="preserve">
+          <source>Check the Azure Import/Export documentation for the latest set of drives which are supported by the service.</source>
+          <target state="new">Check the Azure Import/Export documentation for the latest set of drives which are supported by the service.</target>
+        </trans-unit>
+        <trans-unit id="06fbb604-d83d-4070-8edc-4cc675c1454e" xml:space="preserve">
+          <source>Enable BitLocker on the machine to which the SATA drive writer is connected.</source>
+          <target state="new">Enable BitLocker on the machine to which the SATA drive writer is connected.</target>
+        </trans-unit>
+        <trans-unit id="3d67e7ae-fb17-42f2-87eb-850801fade26" xml:space="preserve">
+          <source>Download the Azure Import/Export tool from <bpt id="b654397b-e6f9-485e-8e77-cc0895e45ffe">&lt;linkText&gt;</bpt>here<ept id="b654397b-e6f9-485e-8e77-cc0895e45ffe">&lt;/linkText&gt;</ept><bpt id="b654397b-e6f9-485e-8e77-cc0895e45ffe">&lt;title&gt;</bpt><ept id="b654397b-e6f9-485e-8e77-cc0895e45ffe">&lt;/title&gt;</ept> to the machine to which the SATA drive writer is connected.</source>
+          <target state="new">Download the Azure Import/Export tool from <bpt id="b654397b-e6f9-485e-8e77-cc0895e45ffe">&lt;linkText&gt;</bpt>here<ept id="b654397b-e6f9-485e-8e77-cc0895e45ffe">&lt;/linkText&gt;</ept><bpt id="b654397b-e6f9-485e-8e77-cc0895e45ffe">&lt;title&gt;</bpt><ept id="b654397b-e6f9-485e-8e77-cc0895e45ffe">&lt;/title&gt;</ept> to the machine to which the SATA drive writer is connected.</target>
+        </trans-unit>
+        <trans-unit id="e6634b45-4c62-46e5-8df0-7a551f673756" xml:space="preserve">
+          <source>The information provided in this section is for completing the <bpt id="56e549f9-6c0d-44f2-b173-6bcdd11cfdae">&lt;strong&gt;</bpt>Offline Backup<ept id="56e549f9-6c0d-44f2-b173-6bcdd11cfdae">&lt;/strong&gt;</ept> workflow so your data can be delivered to an Azure data center and uploaded to Azure storage.</source>
+          <target state="new">The information provided in this section is for completing the <bpt id="56e549f9-6c0d-44f2-b173-6bcdd11cfdae">&lt;strong&gt;</bpt>Offline Backup<ept id="56e549f9-6c0d-44f2-b173-6bcdd11cfdae">&lt;/strong&gt;</ept> workflow so your data can be delivered to an Azure data center and uploaded to Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="a3a69283-fde3-4377-b384-de73ce686103" xml:space="preserve">
+          <source>If you have questions about the Import service or any aspect of the process, see the Import service overview referenced <bpt id="b24948a2-450b-4fd6-9d95-2bf31c9ba668">&lt;linkText&gt;</bpt>above<ept id="b24948a2-450b-4fd6-9d95-2bf31c9ba668">&lt;/linkText&gt;</ept><bpt id="b24948a2-450b-4fd6-9d95-2bf31c9ba668">&lt;title&gt;</bpt><ept id="b24948a2-450b-4fd6-9d95-2bf31c9ba668">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have questions about the Import service or any aspect of the process, see the Import service overview referenced <bpt id="b24948a2-450b-4fd6-9d95-2bf31c9ba668">&lt;linkText&gt;</bpt>above<ept id="b24948a2-450b-4fd6-9d95-2bf31c9ba668">&lt;/linkText&gt;</ept><bpt id="b24948a2-450b-4fd6-9d95-2bf31c9ba668">&lt;title&gt;</bpt><ept id="b24948a2-450b-4fd6-9d95-2bf31c9ba668">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84e23501-9b1f-4eff-9389-e2145bdfa6bd" xml:space="preserve">
+          <source>As part of scheduling a backup, you will encounter the following screen (in Windows Server, Windows client or SCDPM).</source>
+          <target state="new">As part of scheduling a backup, you will encounter the following screen (in Windows Server, Windows client or SCDPM).</target>
+        </trans-unit>
+        <trans-unit id="c800f9e1-c1e3-48ed-b8aa-e22df3ef25d6" xml:space="preserve">
+          <source><bpt id="87a74e97-c062-449f-a90b-6c9a3e9d47a7">&lt;linkText&gt;</bpt>ImportScreen<ept id="87a74e97-c062-449f-a90b-6c9a3e9d47a7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87a74e97-c062-449f-a90b-6c9a3e9d47a7">&lt;linkText&gt;</bpt>ImportScreen<ept id="87a74e97-c062-449f-a90b-6c9a3e9d47a7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a172678-11ff-4a85-aa92-1ee19aad9570" xml:space="preserve">
+          <source>The coresponding screen in SCDPM looks as follows.</source>
+          <target state="new">The coresponding screen in SCDPM looks as follows.</target>
+        </trans-unit>
+        <trans-unit id="4e40d2df-9dc8-4db3-ba94-2326693e6f18" xml:space="preserve">
+          <source>&lt;br/&gt;
+<bpt id="07f50916-114b-4800-877f-e2a5db11999d">&lt;linkText&gt;</bpt>DPM Import screen<ept id="07f50916-114b-4800-877f-e2a5db11999d">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;br/&gt;
+<bpt id="07f50916-114b-4800-877f-e2a5db11999d">&lt;linkText&gt;</bpt>DPM Import screen<ept id="07f50916-114b-4800-877f-e2a5db11999d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72be0cf3-f3c9-4504-9f8c-46ec0a53cc85" xml:space="preserve">
+          <source>where:</source>
+          <target state="new">where:</target>
+        </trans-unit>
+        <trans-unit id="9c605602-6cf8-4619-a540-058c35a745aa" xml:space="preserve">
+          <source><bpt id="d688575f-37f3-4a3d-87aa-d58214d98f54">&lt;strong&gt;</bpt>Staging Location<ept id="d688575f-37f3-4a3d-87aa-d58214d98f54">&lt;/strong&gt;</ept> - This refers to the temporary storage location to which the initial backup copy is written.</source>
+          <target state="new"><bpt id="d688575f-37f3-4a3d-87aa-d58214d98f54">&lt;strong&gt;</bpt>Staging Location<ept id="d688575f-37f3-4a3d-87aa-d58214d98f54">&lt;/strong&gt;</ept> - This refers to the temporary storage location to which the initial backup copy is written.</target>
+        </trans-unit>
+        <trans-unit id="d35fe91b-1951-48e2-9b98-60112bd1ba8c" xml:space="preserve">
+          <source>This could be on a network share or on the local machine.</source>
+          <target state="new">This could be on a network share or on the local machine.</target>
+        </trans-unit>
+        <trans-unit id="1160ef99-f603-42c0-a195-30f8720be61d" xml:space="preserve">
+          <source><bpt id="df4ab353-4d1a-474b-8720-1b75cca77b70">&lt;strong&gt;</bpt>Azure Import Job Name<ept id="df4ab353-4d1a-474b-8720-1b75cca77b70">&lt;/strong&gt;</ept> - As part of completing this workflow, you will need to create an <bpt id="60b0700c-f9a1-40b5-a204-608d25da2988">&lt;em&gt;</bpt>Import job<ept id="60b0700c-f9a1-40b5-a204-608d25da2988">&lt;/em&gt;</ept> in the Azure portal (covered in the later part of the document).</source>
+          <target state="new"><bpt id="df4ab353-4d1a-474b-8720-1b75cca77b70">&lt;strong&gt;</bpt>Azure Import Job Name<ept id="df4ab353-4d1a-474b-8720-1b75cca77b70">&lt;/strong&gt;</ept> - As part of completing this workflow, you will need to create an <bpt id="60b0700c-f9a1-40b5-a204-608d25da2988">&lt;em&gt;</bpt>Import job<ept id="60b0700c-f9a1-40b5-a204-608d25da2988">&lt;/em&gt;</ept> in the Azure portal (covered in the later part of the document).</target>
+        </trans-unit>
+        <trans-unit id="98be2fde-0694-41bf-9975-10ab3aefecc3" xml:space="preserve">
+          <source>Provide an input which you plan to use later in the Azure portal as well.</source>
+          <target state="new">Provide an input which you plan to use later in the Azure portal as well.</target>
+        </trans-unit>
+        <trans-unit id="9d5b9c46-7cba-41aa-81d0-7eeddf443680" xml:space="preserve">
+          <source><bpt id="9c3c036c-38ab-4cf5-b0ba-1582bb4d2453">&lt;strong&gt;</bpt>Azure Publish Settings<ept id="9c3c036c-38ab-4cf5-b0ba-1582bb4d2453">&lt;/strong&gt;</ept> - This is an XML file which contains information about your subscription profile.</source>
+          <target state="new"><bpt id="9c3c036c-38ab-4cf5-b0ba-1582bb4d2453">&lt;strong&gt;</bpt>Azure Publish Settings<ept id="9c3c036c-38ab-4cf5-b0ba-1582bb4d2453">&lt;/strong&gt;</ept> - This is an XML file which contains information about your subscription profile.</target>
+        </trans-unit>
+        <trans-unit id="58f3e521-8b8e-4030-8b77-bdbdba9272c4" xml:space="preserve">
+          <source>It also contains secure credentials associated to your subscription.</source>
+          <target state="new">It also contains secure credentials associated to your subscription.</target>
+        </trans-unit>
+        <trans-unit id="67c82a7a-a576-42d8-aca8-361a907cff26" xml:space="preserve">
+          <source>The file can be downloaded from <bpt id="59ce8a8c-2f57-4a72-b79a-6d5e06c608ed">&lt;linkText&gt;</bpt>here<ept id="59ce8a8c-2f57-4a72-b79a-6d5e06c608ed">&lt;/linkText&gt;</ept><bpt id="59ce8a8c-2f57-4a72-b79a-6d5e06c608ed">&lt;title&gt;</bpt><ept id="59ce8a8c-2f57-4a72-b79a-6d5e06c608ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">The file can be downloaded from <bpt id="59ce8a8c-2f57-4a72-b79a-6d5e06c608ed">&lt;linkText&gt;</bpt>here<ept id="59ce8a8c-2f57-4a72-b79a-6d5e06c608ed">&lt;/linkText&gt;</ept><bpt id="59ce8a8c-2f57-4a72-b79a-6d5e06c608ed">&lt;title&gt;</bpt><ept id="59ce8a8c-2f57-4a72-b79a-6d5e06c608ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3cb315a7-6f97-4d33-9a37-b778e5fe412f" xml:space="preserve">
+          <source>Provide the local path to the publish settings file.</source>
+          <target state="new">Provide the local path to the publish settings file.</target>
+        </trans-unit>
+        <trans-unit id="4e70f530-d153-4a7e-9bb2-11ec925138a7" xml:space="preserve">
+          <source><bpt id="ac70a570-0786-403c-9605-937851bd8f63">&lt;strong&gt;</bpt>Azure Subscription ID<ept id="ac70a570-0786-403c-9605-937851bd8f63">&lt;/strong&gt;</ept> - Provide the Azure subscription id in which you plan to initiate the Azure Import job.</source>
+          <target state="new"><bpt id="ac70a570-0786-403c-9605-937851bd8f63">&lt;strong&gt;</bpt>Azure Subscription ID<ept id="ac70a570-0786-403c-9605-937851bd8f63">&lt;/strong&gt;</ept> - Provide the Azure subscription id in which you plan to initiate the Azure Import job.</target>
+        </trans-unit>
+        <trans-unit id="87f60fc9-0801-42e8-a5c8-38bcbd43f503" xml:space="preserve">
+          <source>If you have multiple Azure subscriptions, use the ID associated with the Import job.</source>
+          <target state="new">If you have multiple Azure subscriptions, use the ID associated with the Import job.</target>
+        </trans-unit>
+        <trans-unit id="e91fd12d-27ce-4542-b368-07b8372938fb" xml:space="preserve">
+          <source><bpt id="4ad1a105-58df-43ec-a1b9-a8346ba5f9a6">&lt;strong&gt;</bpt>Azure Storage Account<ept id="4ad1a105-58df-43ec-a1b9-a8346ba5f9a6">&lt;/strong&gt;</ept> - Enter the name of the Azure storage account that will be associated with this Import job.</source>
+          <target state="new"><bpt id="4ad1a105-58df-43ec-a1b9-a8346ba5f9a6">&lt;strong&gt;</bpt>Azure Storage Account<ept id="4ad1a105-58df-43ec-a1b9-a8346ba5f9a6">&lt;/strong&gt;</ept> - Enter the name of the Azure storage account that will be associated with this Import job.</target>
+        </trans-unit>
+        <trans-unit id="018561d6-aa0f-41d7-bb48-f8627c8a0256" xml:space="preserve">
+          <source><bpt id="bb1e74e3-ba3d-4e2a-803d-09b941786c5e">&lt;strong&gt;</bpt>Azure Storage Container<ept id="bb1e74e3-ba3d-4e2a-803d-09b941786c5e">&lt;/strong&gt;</ept> - Enter the name of the destination storage blob where this job’s data will be imported.</source>
+          <target state="new"><bpt id="bb1e74e3-ba3d-4e2a-803d-09b941786c5e">&lt;strong&gt;</bpt>Azure Storage Container<ept id="bb1e74e3-ba3d-4e2a-803d-09b941786c5e">&lt;/strong&gt;</ept> - Enter the name of the destination storage blob where this job’s data will be imported.</target>
+        </trans-unit>
+        <trans-unit id="d66799f6-a039-406c-8432-c60b37dc7fad" xml:space="preserve">
+          <source>Complete the workflow and select <bpt id="db6fbaa3-dade-4a4f-a8c4-d8232be0c573">&lt;strong&gt;</bpt>Backup Now<ept id="db6fbaa3-dade-4a4f-a8c4-d8232be0c573">&lt;/strong&gt;</ept> in the Azure Backup mmc to initiate the offline backup copy.</source>
+          <target state="new">Complete the workflow and select <bpt id="db6fbaa3-dade-4a4f-a8c4-d8232be0c573">&lt;strong&gt;</bpt>Backup Now<ept id="db6fbaa3-dade-4a4f-a8c4-d8232be0c573">&lt;/strong&gt;</ept> in the Azure Backup mmc to initiate the offline backup copy.</target>
+        </trans-unit>
+        <trans-unit id="f2450f23-ca6f-45f5-a801-79ac39f1eb1f" xml:space="preserve">
+          <source>The initial backup is written to the staging area as part of this step.</source>
+          <target state="new">The initial backup is written to the staging area as part of this step.</target>
+        </trans-unit>
+        <trans-unit id="e64256ff-84d9-438e-94e9-c6ff16b47a7c" xml:space="preserve">
+          <source><bpt id="701114d2-1a17-4eff-a11c-0ef79928839d">&lt;linkText&gt;</bpt>Backup now<ept id="701114d2-1a17-4eff-a11c-0ef79928839d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="701114d2-1a17-4eff-a11c-0ef79928839d">&lt;linkText&gt;</bpt>Backup now<ept id="701114d2-1a17-4eff-a11c-0ef79928839d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1552938-5607-49de-be32-24cded5e8293" xml:space="preserve">
+          <source>The corresponding workflow in SCDPM is enabled by clicking on the <bpt id="e5cb9cd5-3acb-446a-8cf8-14ffd16e517e">&lt;strong&gt;</bpt>Protection Group<ept id="e5cb9cd5-3acb-446a-8cf8-14ffd16e517e">&lt;/strong&gt;</ept> and choosing the <bpt id="21d36507-a83b-486f-9d3d-2a71b78160fd">&lt;strong&gt;</bpt>Create recovery point<ept id="21d36507-a83b-486f-9d3d-2a71b78160fd">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">The corresponding workflow in SCDPM is enabled by clicking on the <bpt id="e5cb9cd5-3acb-446a-8cf8-14ffd16e517e">&lt;strong&gt;</bpt>Protection Group<ept id="e5cb9cd5-3acb-446a-8cf8-14ffd16e517e">&lt;/strong&gt;</ept> and choosing the <bpt id="21d36507-a83b-486f-9d3d-2a71b78160fd">&lt;strong&gt;</bpt>Create recovery point<ept id="21d36507-a83b-486f-9d3d-2a71b78160fd">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="1bd324b8-3579-45e4-b9ee-d2c1c9b83308" xml:space="preserve">
+          <source>This is followed by choosing the <bpt id="3470af0d-c6a9-4a6c-a6ab-4e25805c7182">&lt;strong&gt;</bpt>Online Protection<ept id="3470af0d-c6a9-4a6c-a6ab-4e25805c7182">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">This is followed by choosing the <bpt id="3470af0d-c6a9-4a6c-a6ab-4e25805c7182">&lt;strong&gt;</bpt>Online Protection<ept id="3470af0d-c6a9-4a6c-a6ab-4e25805c7182">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="afa65026-9775-42a0-ba92-a7a7c19a564a" xml:space="preserve">
+          <source><bpt id="40886286-d2bd-414a-910a-bcbc2034e2f5">&lt;linkText&gt;</bpt>DPM Backup now<ept id="40886286-d2bd-414a-910a-bcbc2034e2f5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40886286-d2bd-414a-910a-bcbc2034e2f5">&lt;linkText&gt;</bpt>DPM Backup now<ept id="40886286-d2bd-414a-910a-bcbc2034e2f5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1e1b67a-2874-4ebc-a078-9f6c6edb43d4" xml:space="preserve">
+          <source>Once the operation completes, an <bpt id="56c30cd9-2d2a-4868-8959-47d4bc80addb">&lt;em&gt;</bpt>.AIBBlob<ept id="56c30cd9-2d2a-4868-8959-47d4bc80addb">&lt;/em&gt;</ept> and <bpt id="5a586832-8399-426c-8246-0513621364dd">&lt;em&gt;</bpt>.BaseBlob<ept id="5a586832-8399-426c-8246-0513621364dd">&lt;/em&gt;</ept> file is created in the staging location.</source>
+          <target state="new">Once the operation completes, an <bpt id="56c30cd9-2d2a-4868-8959-47d4bc80addb">&lt;em&gt;</bpt>.AIBBlob<ept id="56c30cd9-2d2a-4868-8959-47d4bc80addb">&lt;/em&gt;</ept> and <bpt id="5a586832-8399-426c-8246-0513621364dd">&lt;em&gt;</bpt>.BaseBlob<ept id="5a586832-8399-426c-8246-0513621364dd">&lt;/em&gt;</ept> file is created in the staging location.</target>
+        </trans-unit>
+        <trans-unit id="9f4edab2-05ae-4f3a-8bde-ac18df182f12" xml:space="preserve">
+          <source><bpt id="e2ec942e-279b-4494-b102-acd9378693e6">&lt;linkText&gt;</bpt>Output<ept id="e2ec942e-279b-4494-b102-acd9378693e6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e2ec942e-279b-4494-b102-acd9378693e6">&lt;linkText&gt;</bpt>Output<ept id="e2ec942e-279b-4494-b102-acd9378693e6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c530deaa-b75e-4993-80b0-a96a7262c08e" xml:space="preserve">
+          <source>Download the <bpt id="88efee17-8e57-421c-b521-9a849797317d">&lt;linkText&gt;</bpt>Microsoft Azure Import/Export Tool<ept id="88efee17-8e57-421c-b521-9a849797317d">&lt;/linkText&gt;</ept><bpt id="88efee17-8e57-421c-b521-9a849797317d">&lt;title&gt;</bpt><ept id="88efee17-8e57-421c-b521-9a849797317d">&lt;/title&gt;</ept> to the <bpt id="fd0e244b-4fe9-4a52-8fe9-85384279fee8">&lt;em&gt;</bpt>copy machine<ept id="fd0e244b-4fe9-4a52-8fe9-85384279fee8">&lt;/em&gt;</ept>. Ensure that the staging location (in the previous step) is accessible from the machine in which you plan to run the next set of commands. If required, the copy machine can be the same as the source machine.</source>
+          <target state="new">Download the <bpt id="88efee17-8e57-421c-b521-9a849797317d">&lt;linkText&gt;</bpt>Microsoft Azure Import/Export Tool<ept id="88efee17-8e57-421c-b521-9a849797317d">&lt;/linkText&gt;</ept><bpt id="88efee17-8e57-421c-b521-9a849797317d">&lt;title&gt;</bpt><ept id="88efee17-8e57-421c-b521-9a849797317d">&lt;/title&gt;</ept> to the <bpt id="fd0e244b-4fe9-4a52-8fe9-85384279fee8">&lt;em&gt;</bpt>copy machine<ept id="fd0e244b-4fe9-4a52-8fe9-85384279fee8">&lt;/em&gt;</ept>. Ensure that the staging location (in the previous step) is accessible from the machine in which you plan to run the next set of commands. If required, the copy machine can be the same as the source machine.</target>
+        </trans-unit>
+        <trans-unit id="0c51adf6-f040-445f-96a2-92aff95bff6d" xml:space="preserve">
+          <source>Unzip the <bpt id="26525e2c-2507-48ef-bafc-2d516b84049f">&lt;em&gt;</bpt>WAImportExport.zip<ept id="26525e2c-2507-48ef-bafc-2d516b84049f">&lt;/em&gt;</ept> file.</source>
+          <target state="new">Unzip the <bpt id="26525e2c-2507-48ef-bafc-2d516b84049f">&lt;em&gt;</bpt>WAImportExport.zip<ept id="26525e2c-2507-48ef-bafc-2d516b84049f">&lt;/em&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="c6fdb39b-fe9e-4e09-a578-cc28faa9ac8c" xml:space="preserve">
+          <source>Run the <bpt id="10d37aa7-5103-4ef6-8bf7-b32334711f59">&lt;em&gt;</bpt>WAImportExport<ept id="10d37aa7-5103-4ef6-8bf7-b32334711f59">&lt;/em&gt;</ept> tool  that will format the SATA drive, write the backup data to the SATA drive, and encrypt it.</source>
+          <target state="new">Run the <bpt id="10d37aa7-5103-4ef6-8bf7-b32334711f59">&lt;em&gt;</bpt>WAImportExport<ept id="10d37aa7-5103-4ef6-8bf7-b32334711f59">&lt;/em&gt;</ept> tool  that will format the SATA drive, write the backup data to the SATA drive, and encrypt it.</target>
+        </trans-unit>
+        <trans-unit id="38e94d1b-579f-4199-83a6-c0f25c345be1" xml:space="preserve">
+          <source>Before running the following command ensure that BitLocker is enabled on the machine.</source>
+          <target state="new">Before running the following command ensure that BitLocker is enabled on the machine.</target>
+        </trans-unit>
+        <trans-unit id="d8753a25-0a29-4c2c-be60-21c6f8ff50ed" xml:space="preserve">
+          <source>&lt;br/&gt;</source>
+          <target state="new">&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="15de5a8a-813a-4738-bd1b-784a51946ed0" xml:space="preserve">
+          <source><bpt id="2811fcc6-361b-43b9-a791-f634f7526a71">&lt;em&gt;</bpt>.\WAImportExport.exe PrepImport /j:&lt;<ept id="2811fcc6-361b-43b9-a791-f634f7526a71">&lt;/em&gt;</ept>JournalFile<bpt id="872f910b-426b-4c82-8fe1-5855ce877f35">&lt;em&gt;</bpt>&gt;.jrn /id: &lt;<ept id="872f910b-426b-4c82-8fe1-5855ce877f35">&lt;/em&gt;</ept>SessionId<bpt id="f024998b-b18e-4c62-ab1d-7aeaf7a7360d">&lt;em&gt;</bpt>&gt; /sk:&lt;<ept id="f024998b-b18e-4c62-ab1d-7aeaf7a7360d">&lt;/em&gt;</ept>StorageAccountKey*&gt; /BlobType:<bpt id="c5733dc1-7f21-425d-a5e2-9ab46ea182a5">&lt;strong&gt;</bpt>PageBlob<ept id="c5733dc1-7f21-425d-a5e2-9ab46ea182a5">&lt;/strong&gt;</ept> /t:&lt;<bpt id="d571348a-44f2-4ce8-8f41-66244d77d21b">&lt;em&gt;</bpt>TargetDriveLetter<ept id="d571348a-44f2-4ce8-8f41-66244d77d21b">&lt;/em&gt;</ept>&gt; /format /encrypt /srcdir:&lt;<bpt id="38b43e80-9ee8-4360-abb8-d3c96a27076f">&lt;em&gt;</bpt>staging location<ept id="38b43e80-9ee8-4360-abb8-d3c96a27076f">&lt;/em&gt;</ept>&gt; /dstdir: &lt;<bpt id="7e344114-87d9-406a-856f-7299864c5647">&lt;em&gt;</bpt>DestinationBlobVirtualDirectory<ept id="7e344114-87d9-406a-856f-7299864c5647">&lt;/em&gt;</ept>&gt;/*</source>
+          <target state="new"><bpt id="2811fcc6-361b-43b9-a791-f634f7526a71">&lt;em&gt;</bpt>.\WAImportExport.exe PrepImport /j:&lt;<ept id="2811fcc6-361b-43b9-a791-f634f7526a71">&lt;/em&gt;</ept>JournalFile<bpt id="872f910b-426b-4c82-8fe1-5855ce877f35">&lt;em&gt;</bpt>&gt;.jrn /id: &lt;<ept id="872f910b-426b-4c82-8fe1-5855ce877f35">&lt;/em&gt;</ept>SessionId<bpt id="f024998b-b18e-4c62-ab1d-7aeaf7a7360d">&lt;em&gt;</bpt>&gt; /sk:&lt;<ept id="f024998b-b18e-4c62-ab1d-7aeaf7a7360d">&lt;/em&gt;</ept>StorageAccountKey*&gt; /BlobType:<bpt id="c5733dc1-7f21-425d-a5e2-9ab46ea182a5">&lt;strong&gt;</bpt>PageBlob<ept id="c5733dc1-7f21-425d-a5e2-9ab46ea182a5">&lt;/strong&gt;</ept> /t:&lt;<bpt id="d571348a-44f2-4ce8-8f41-66244d77d21b">&lt;em&gt;</bpt>TargetDriveLetter<ept id="d571348a-44f2-4ce8-8f41-66244d77d21b">&lt;/em&gt;</ept>&gt; /format /encrypt /srcdir:&lt;<bpt id="38b43e80-9ee8-4360-abb8-d3c96a27076f">&lt;em&gt;</bpt>staging location<ept id="38b43e80-9ee8-4360-abb8-d3c96a27076f">&lt;/em&gt;</ept>&gt; /dstdir: &lt;<bpt id="7e344114-87d9-406a-856f-7299864c5647">&lt;em&gt;</bpt>DestinationBlobVirtualDirectory<ept id="7e344114-87d9-406a-856f-7299864c5647">&lt;/em&gt;</ept>&gt;/*</target>
+        </trans-unit>
+        <trans-unit id="31a54c88-38f6-41d9-8d1e-4eb9192e824e" xml:space="preserve">
+          <source>Parameter</source>
+          <target state="new">Parameter</target>
+        </trans-unit>
+        <trans-unit id="6cae6e1a-fa54-4fa4-8478-91275abbee83" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="39cf7941-b1e5-498f-a7a9-eb1290a3b1eb" xml:space="preserve">
+          <source>/j:&lt;<bpt id="4fade388-af9a-4081-bf51-827d7ea6e258">&lt;em&gt;</bpt>JournalFile<ept id="4fade388-af9a-4081-bf51-827d7ea6e258">&lt;/em&gt;</ept>&gt;</source>
+          <target state="new">/j:&lt;<bpt id="4fade388-af9a-4081-bf51-827d7ea6e258">&lt;em&gt;</bpt>JournalFile<ept id="4fade388-af9a-4081-bf51-827d7ea6e258">&lt;/em&gt;</ept>&gt;</target>
+        </trans-unit>
+        <trans-unit id="9e129161-1af8-4a43-84a6-60aee2c6982b" xml:space="preserve">
+          <source>The path to the journal file.</source>
+          <target state="new">The path to the journal file.</target>
+        </trans-unit>
+        <trans-unit id="20b20f86-360d-40f7-9e42-3ea66e6ee27b" xml:space="preserve">
+          <source>Each drive must have exactly one journal file.</source>
+          <target state="new">Each drive must have exactly one journal file.</target>
+        </trans-unit>
+        <trans-unit id="c051921b-c81d-4dbb-9c46-6f620d28e356" xml:space="preserve">
+          <source>Note that the journal file must not reside on the target drive.</source>
+          <target state="new">Note that the journal file must not reside on the target drive.</target>
+        </trans-unit>
+        <trans-unit id="08577018-e77d-496e-a09c-06d951a4d7f0" xml:space="preserve">
+          <source>The journal file extension is .jrn and is created as part of running this command.</source>
+          <target state="new">The journal file extension is .jrn and is created as part of running this command.</target>
+        </trans-unit>
+        <trans-unit id="205e8e5e-4592-489c-bf7e-b6fe3b251167" xml:space="preserve">
+          <source>/id:&lt;<bpt id="3285a3f0-6c65-47ec-b5df-137adcf7615f">&lt;em&gt;</bpt>SessionId<ept id="3285a3f0-6c65-47ec-b5df-137adcf7615f">&lt;/em&gt;</ept>&gt;</source>
+          <target state="new">/id:&lt;<bpt id="3285a3f0-6c65-47ec-b5df-137adcf7615f">&lt;em&gt;</bpt>SessionId<ept id="3285a3f0-6c65-47ec-b5df-137adcf7615f">&lt;/em&gt;</ept>&gt;</target>
+        </trans-unit>
+        <trans-unit id="ec739bcb-f29b-4396-992e-bfe6eb5d0ebd" xml:space="preserve">
+          <source>The session ID identifies a <bpt id="8d04d695-0e17-4577-bd18-2aac0a0d236f">&lt;em&gt;</bpt>copy session<ept id="8d04d695-0e17-4577-bd18-2aac0a0d236f">&lt;/em&gt;</ept>.</source>
+          <target state="new">The session ID identifies a <bpt id="8d04d695-0e17-4577-bd18-2aac0a0d236f">&lt;em&gt;</bpt>copy session<ept id="8d04d695-0e17-4577-bd18-2aac0a0d236f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e1a7fe8-2aad-4813-b6e6-58a3b5f82824" xml:space="preserve">
+          <source>It is used to ensure accurate recovery of an interrupted copy session.</source>
+          <target state="new">It is used to ensure accurate recovery of an interrupted copy session.</target>
+        </trans-unit>
+        <trans-unit id="5440425e-ebc4-44fb-b0ba-d1c0b552a5fc" xml:space="preserve">
+          <source>Files that are copied in a copy session are stored in a directory named after the session ID on the target drive.</source>
+          <target state="new">Files that are copied in a copy session are stored in a directory named after the session ID on the target drive.</target>
+        </trans-unit>
+        <trans-unit id="d5d99579-ce0f-4eaf-82f1-ffb24bb5d69e" xml:space="preserve">
+          <source>/sk:&lt;<bpt id="a24eca5d-7fc9-4ea2-9b92-6d2eeabd1d5a">&lt;em&gt;</bpt>StorageAccountKey<ept id="a24eca5d-7fc9-4ea2-9b92-6d2eeabd1d5a">&lt;/em&gt;</ept>&gt;</source>
+          <target state="new">/sk:&lt;<bpt id="a24eca5d-7fc9-4ea2-9b92-6d2eeabd1d5a">&lt;em&gt;</bpt>StorageAccountKey<ept id="a24eca5d-7fc9-4ea2-9b92-6d2eeabd1d5a">&lt;/em&gt;</ept>&gt;</target>
+        </trans-unit>
+        <trans-unit id="9ab23c56-7cf7-448f-be50-e79042ac7b03" xml:space="preserve">
+          <source>The account key for the storage account to which the data will be imported.</source>
+          <target state="new">The account key for the storage account to which the data will be imported.</target>
+        </trans-unit>
+        <trans-unit id="00dfc1bc-72ac-40c1-acc2-7e52acc90e89" xml:space="preserve">
+          <source>/BlobType</source>
+          <target state="new">/BlobType</target>
+        </trans-unit>
+        <trans-unit id="555823af-4cce-49e9-a5e9-99c1cf381525" xml:space="preserve">
+          <source>Specify <bpt id="6da5a2d3-6843-4355-bb2c-398b0633a59f">&lt;strong&gt;</bpt>PageBlob<ept id="6da5a2d3-6843-4355-bb2c-398b0633a59f">&lt;/strong&gt;</ept>, this workflow will succeed only if the PageBlob option is specified.</source>
+          <target state="new">Specify <bpt id="6da5a2d3-6843-4355-bb2c-398b0633a59f">&lt;strong&gt;</bpt>PageBlob<ept id="6da5a2d3-6843-4355-bb2c-398b0633a59f">&lt;/strong&gt;</ept>, this workflow will succeed only if the PageBlob option is specified.</target>
+        </trans-unit>
+        <trans-unit id="73b929d6-42f8-4a6e-8d09-281fb9ca4f4c" xml:space="preserve">
+          <source>This is not the default option and should be mentioned in this command.</source>
+          <target state="new">This is not the default option and should be mentioned in this command.</target>
+        </trans-unit>
+        <trans-unit id="0e0901ad-f06d-4190-bf85-07e3c1dd1461" xml:space="preserve">
+          <source>/t:&lt;<bpt id="d30f4ded-8d08-4a72-bd89-8522f6517306">&lt;em&gt;</bpt>TargetDriveLetter<ept id="d30f4ded-8d08-4a72-bd89-8522f6517306">&lt;/em&gt;</ept>&gt;</source>
+          <target state="new">/t:&lt;<bpt id="d30f4ded-8d08-4a72-bd89-8522f6517306">&lt;em&gt;</bpt>TargetDriveLetter<ept id="d30f4ded-8d08-4a72-bd89-8522f6517306">&lt;/em&gt;</ept>&gt;</target>
+        </trans-unit>
+        <trans-unit id="ec9c1f4f-a3ef-4576-b196-141779d32a50" xml:space="preserve">
+          <source>The drive letter of the target hard drive for the current copy session, without the trailing colon.</source>
+          <target state="new">The drive letter of the target hard drive for the current copy session, without the trailing colon.</target>
+        </trans-unit>
+        <trans-unit id="50d8efb4-0730-400e-aa88-b90c5317e94e" xml:space="preserve">
+          <source>/format</source>
+          <target state="new">/format</target>
+        </trans-unit>
+        <trans-unit id="828d94cb-43a4-4e93-bd76-8451e888a0c2" xml:space="preserve">
+          <source>Specify this parameter when the drive needs to be formatted; otherwise, omit it.</source>
+          <target state="new">Specify this parameter when the drive needs to be formatted; otherwise, omit it.</target>
+        </trans-unit>
+        <trans-unit id="c1249c6a-50bc-45e5-9e44-9da869b36714" xml:space="preserve">
+          <source>Before the tool formats the drive, it will prompt for a confirmation from console.</source>
+          <target state="new">Before the tool formats the drive, it will prompt for a confirmation from console.</target>
+        </trans-unit>
+        <trans-unit id="80304d15-4f18-4efe-b4bb-f538fdbe91e2" xml:space="preserve">
+          <source>To suppress the confirmation, specify the /silentmode parameter.</source>
+          <target state="new">To suppress the confirmation, specify the /silentmode parameter.</target>
+        </trans-unit>
+        <trans-unit id="b2961020-0bba-4a95-9720-f1c8b5a7fd52" xml:space="preserve">
+          <source>/encrypt</source>
+          <target state="new">/encrypt</target>
+        </trans-unit>
+        <trans-unit id="7ff2c7a6-a320-4093-b979-f7df3fa45e66" xml:space="preserve">
+          <source>Specified this parameter when the drive has not yet been encrypted with BitLocker and needs to be encrypted by the tool.</source>
+          <target state="new">Specified this parameter when the drive has not yet been encrypted with BitLocker and needs to be encrypted by the tool.</target>
+        </trans-unit>
+        <trans-unit id="0c931fce-1acd-4a19-a428-f6b79754e91e" xml:space="preserve">
+          <source>If the drive has already been encrypted with BitLocker, then omit this parameter and specify the /bk parameter, providing the existing BitLocker key.</source>
+          <target state="new">If the drive has already been encrypted with BitLocker, then omit this parameter and specify the /bk parameter, providing the existing BitLocker key.</target>
+        </trans-unit>
+        <trans-unit id="870b760e-7bf3-43b2-90ea-f9866839cbcd" xml:space="preserve">
+          <source>If you specify the /format parameter, then you must also specify the /encrypt parameter.</source>
+          <target state="new">If you specify the /format parameter, then you must also specify the /encrypt parameter.</target>
+        </trans-unit>
+        <trans-unit id="3880398b-bd43-4320-b6b1-3a323bcb9086" xml:space="preserve">
+          <source>/srcdir:&lt;<bpt id="ffaec4c6-c407-460b-a0ee-51546e2a2bd7">&lt;em&gt;</bpt>SourceDirectory<ept id="ffaec4c6-c407-460b-a0ee-51546e2a2bd7">&lt;/em&gt;</ept>&gt;</source>
+          <target state="new">/srcdir:&lt;<bpt id="ffaec4c6-c407-460b-a0ee-51546e2a2bd7">&lt;em&gt;</bpt>SourceDirectory<ept id="ffaec4c6-c407-460b-a0ee-51546e2a2bd7">&lt;/em&gt;</ept>&gt;</target>
+        </trans-unit>
+        <trans-unit id="e1604068-e350-4da2-9bd5-0e8c209f1e5c" xml:space="preserve">
+          <source>The source directory that contains files to be copied to the target drive.</source>
+          <target state="new">The source directory that contains files to be copied to the target drive.</target>
+        </trans-unit>
+        <trans-unit id="306c74ff-bb92-4895-be62-4e0bb781eabc" xml:space="preserve">
+          <source>The directory path must be an absolute path (not a relative path).</source>
+          <target state="new">The directory path must be an absolute path (not a relative path).</target>
+        </trans-unit>
+        <trans-unit id="0df0d592-d93c-45d6-a8a0-a75f851039f7" xml:space="preserve">
+          <source>/dstdir:&lt;<bpt id="e8410a86-47f5-42c7-82fe-0493f3bb96c4">&lt;em&gt;</bpt>DestinationBlobVirtualDirectory<ept id="e8410a86-47f5-42c7-82fe-0493f3bb96c4">&lt;/em&gt;</ept>&gt;</source>
+          <target state="new">/dstdir:&lt;<bpt id="e8410a86-47f5-42c7-82fe-0493f3bb96c4">&lt;em&gt;</bpt>DestinationBlobVirtualDirectory<ept id="e8410a86-47f5-42c7-82fe-0493f3bb96c4">&lt;/em&gt;</ept>&gt;</target>
+        </trans-unit>
+        <trans-unit id="1db1dc7a-3d61-4e74-868e-fc6962056953" xml:space="preserve">
+          <source>The path to the destination virtual directory in your Microsoft Azure storage account.</source>
+          <target state="new">The path to the destination virtual directory in your Microsoft Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="cd90bb0c-a6f2-4f5b-b2fc-050283a6b96f" xml:space="preserve">
+          <source>Be sure to use valid container names when specifying destination virtual directories or blobs.</source>
+          <target state="new">Be sure to use valid container names when specifying destination virtual directories or blobs.</target>
+        </trans-unit>
+        <trans-unit id="802af9b3-c7e1-44f7-a8ee-554691d79baa" xml:space="preserve">
+          <source>Keep in mind that container names must be lowercase.</source>
+          <target state="new">Keep in mind that container names must be lowercase.</target>
+        </trans-unit>
+        <trans-unit id="9be3e242-886c-4ec8-bac9-043d86584993" xml:space="preserve">
+          <source>A journal file is created in the WAImportExport folder that captures the entire information of the workflow.</source>
+          <target state="new">A journal file is created in the WAImportExport folder that captures the entire information of the workflow.</target>
+        </trans-unit>
+        <trans-unit id="ca163adf-6c09-481c-a197-fa5d1e4bdd4e" xml:space="preserve">
+          <source>You will need this file when creating an import job in the Azure portal.</source>
+          <target state="new">You will need this file when creating an import job in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="e2ba91b4-969d-4e24-a729-bc5a00adb2da" xml:space="preserve">
+          <source>  <bpt id="cb5940f4-d045-4848-bc33-33e34bdc9009">&lt;linkText&gt;</bpt>PowerShell output<ept id="cb5940f4-d045-4848-bc33-33e34bdc9009">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="cb5940f4-d045-4848-bc33-33e34bdc9009">&lt;linkText&gt;</bpt>PowerShell output<ept id="cb5940f4-d045-4848-bc33-33e34bdc9009">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c0bcdb3-76a4-4ab7-9508-295484447b48" xml:space="preserve">
+          <source>Navigate to your storage account in the <bpt id="2c2c2583-176e-4b93-a07e-e4030fd96160">&lt;linkText&gt;</bpt>Management Portal<ept id="2c2c2583-176e-4b93-a07e-e4030fd96160">&lt;/linkText&gt;</ept><bpt id="2c2c2583-176e-4b93-a07e-e4030fd96160">&lt;title&gt;</bpt><ept id="2c2c2583-176e-4b93-a07e-e4030fd96160">&lt;/title&gt;</ept>, and click on <bpt id="ea480df7-3c96-4325-a13b-86e8eff0cdb1">&lt;strong&gt;</bpt>Import/Export<ept id="ea480df7-3c96-4325-a13b-86e8eff0cdb1">&lt;/strong&gt;</ept> and then on <bpt id="72a303df-9a2c-4291-849b-81b195d17c47">&lt;strong&gt;</bpt>Create Import Job<ept id="72a303df-9a2c-4291-849b-81b195d17c47">&lt;/strong&gt;</ept> in the task pane.</source>
+          <target state="new">Navigate to your storage account in the <bpt id="2c2c2583-176e-4b93-a07e-e4030fd96160">&lt;linkText&gt;</bpt>Management Portal<ept id="2c2c2583-176e-4b93-a07e-e4030fd96160">&lt;/linkText&gt;</ept><bpt id="2c2c2583-176e-4b93-a07e-e4030fd96160">&lt;title&gt;</bpt><ept id="2c2c2583-176e-4b93-a07e-e4030fd96160">&lt;/title&gt;</ept>, and click on <bpt id="ea480df7-3c96-4325-a13b-86e8eff0cdb1">&lt;strong&gt;</bpt>Import/Export<ept id="ea480df7-3c96-4325-a13b-86e8eff0cdb1">&lt;/strong&gt;</ept> and then on <bpt id="72a303df-9a2c-4291-849b-81b195d17c47">&lt;strong&gt;</bpt>Create Import Job<ept id="72a303df-9a2c-4291-849b-81b195d17c47">&lt;/strong&gt;</ept> in the task pane.</target>
+        </trans-unit>
+        <trans-unit id="66441f13-7314-4cd4-8635-a82156b5ef7c" xml:space="preserve">
+          <source><bpt id="ccdd307e-5d2f-4f30-a5ce-53496404f9af">&lt;linkText&gt;</bpt>Portal<ept id="ccdd307e-5d2f-4f30-a5ce-53496404f9af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ccdd307e-5d2f-4f30-a5ce-53496404f9af">&lt;linkText&gt;</bpt>Portal<ept id="ccdd307e-5d2f-4f30-a5ce-53496404f9af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44023836-2150-48f7-87d2-9b6c94183c45" xml:space="preserve">
+          <source>In Step 1 of the wizard, indicate that you have prepared your drive and that you have the drive journal file available.</source>
+          <target state="new">In Step 1 of the wizard, indicate that you have prepared your drive and that you have the drive journal file available.</target>
+        </trans-unit>
+        <trans-unit id="3e809616-fa49-45e2-a04e-45f0c98553eb" xml:space="preserve">
+          <source>In Step 2 of the wizard, provide contact information for the person responsible for this import job.</source>
+          <target state="new">In Step 2 of the wizard, provide contact information for the person responsible for this import job.</target>
+        </trans-unit>
+        <trans-unit id="adb289c1-26b7-4861-b387-ea913f722630" xml:space="preserve">
+          <source>In Step 3, upload the drive journal files that you obtained during the previous section.</source>
+          <target state="new">In Step 3, upload the drive journal files that you obtained during the previous section.</target>
+        </trans-unit>
+        <trans-unit id="ac303cce-5c03-4f44-ad73-0409b160416c" xml:space="preserve">
+          <source>In Step 4, enter a descriptive name for the import job.</source>
+          <target state="new">In Step 4, enter a descriptive name for the import job.</target>
+        </trans-unit>
+        <trans-unit id="1f2d7309-0b47-4e86-bb38-f7e9b02fe41b" xml:space="preserve">
+          <source>Note that the name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces.</source>
+          <target state="new">Note that the name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces.</target>
+        </trans-unit>
+        <trans-unit id="f5359409-938e-4d4b-a2c6-6d5d983354dc" xml:space="preserve">
+          <source>You'll use the name you choose to track your jobs while they are in progress and once they are completed.</source>
+          <target state="new">You'll use the name you choose to track your jobs while they are in progress and once they are completed.</target>
+        </trans-unit>
+        <trans-unit id="deb5f47f-d1a5-4d4c-ada0-47d5d87ae438" xml:space="preserve">
+          <source>Next, select your data center region from the list.</source>
+          <target state="new">Next, select your data center region from the list.</target>
+        </trans-unit>
+        <trans-unit id="a333e1cb-e0b9-419b-8643-e8f9e4f4cdd7" xml:space="preserve">
+          <source>The data center region will indicate the data center and address to which you must ship your package.</source>
+          <target state="new">The data center region will indicate the data center and address to which you must ship your package.</target>
+        </trans-unit>
+        <trans-unit id="9f176020-be5e-46bc-a577-c303b814dcf5" xml:space="preserve">
+          <source><bpt id="43dcbc6f-4c15-4193-b587-6dc29aad00e1">&lt;linkText&gt;</bpt>DC<ept id="43dcbc6f-4c15-4193-b587-6dc29aad00e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="43dcbc6f-4c15-4193-b587-6dc29aad00e1">&lt;linkText&gt;</bpt>DC<ept id="43dcbc6f-4c15-4193-b587-6dc29aad00e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="682018d3-ebc6-4f1b-858c-3be5d3b39013" xml:space="preserve">
+          <source>In Step 5, select your return carrier from the list, and enter your carrier account number.</source>
+          <target state="new">In Step 5, select your return carrier from the list, and enter your carrier account number.</target>
+        </trans-unit>
+        <trans-unit id="9f517078-851d-4356-ae15-17e20d50e179" xml:space="preserve">
+          <source>Microsoft will use this account to ship your drives back to you once your import job is complete.</source>
+          <target state="new">Microsoft will use this account to ship your drives back to you once your import job is complete.</target>
+        </trans-unit>
+        <trans-unit id="5d2f27ba-1728-448d-803d-7853d7e18196" xml:space="preserve">
+          <source>Ship the disk and enter the tracking number to track the status of the shipment.</source>
+          <target state="new">Ship the disk and enter the tracking number to track the status of the shipment.</target>
+        </trans-unit>
+        <trans-unit id="882aab7f-0973-4e74-8893-72befbb6befe" xml:space="preserve">
+          <source>Once the disk arrives in the datacenter, it is copied to the storage account and the status is updated.</source>
+          <target state="new">Once the disk arrives in the datacenter, it is copied to the storage account and the status is updated.</target>
+        </trans-unit>
+        <trans-unit id="5a486230-5fed-4a17-b2cb-64d59cf8ea5b" xml:space="preserve">
+          <source><bpt id="3841dae6-20fc-403a-8243-338aa58ec9f7">&lt;linkText&gt;</bpt>Complete Status<ept id="3841dae6-20fc-403a-8243-338aa58ec9f7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3841dae6-20fc-403a-8243-338aa58ec9f7">&lt;linkText&gt;</bpt>Complete Status<ept id="3841dae6-20fc-403a-8243-338aa58ec9f7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e7c4088-5b25-4224-b2ac-9189a6bfc8e1" xml:space="preserve">
+          <source>Once the initial backup data is available in your storage account, the Azure Backup agent copies the contents of the data from this account to the multi-tenanted backup storage account.</source>
+          <target state="new">Once the initial backup data is available in your storage account, the Azure Backup agent copies the contents of the data from this account to the multi-tenanted backup storage account.</target>
+        </trans-unit>
+        <trans-unit id="e10ae2e1-ff44-4b61-8fda-df30f16eb40e" xml:space="preserve">
+          <source>In the next schedule backup time, the Azure Backup agent performs the incremental backup over the initial backup copy.</source>
+          <target state="new">In the next schedule backup time, the Azure Backup agent performs the incremental backup over the initial backup copy.</target>
+        </trans-unit>
+        <trans-unit id="cfe4e37e-7c8d-46e8-b8c9-7e3fcca01056" xml:space="preserve">
+          <source>For any questions on the Azure Import/Export workflow, please refer to this <bpt id="f91bfb8a-6bf0-42fa-bb94-53914fa05c55">&lt;linkText&gt;</bpt>article<ept id="f91bfb8a-6bf0-42fa-bb94-53914fa05c55">&lt;/linkText&gt;</ept><bpt id="f91bfb8a-6bf0-42fa-bb94-53914fa05c55">&lt;title&gt;</bpt><ept id="f91bfb8a-6bf0-42fa-bb94-53914fa05c55">&lt;/title&gt;</ept>.</source>
+          <target state="new">For any questions on the Azure Import/Export workflow, please refer to this <bpt id="f91bfb8a-6bf0-42fa-bb94-53914fa05c55">&lt;linkText&gt;</bpt>article<ept id="f91bfb8a-6bf0-42fa-bb94-53914fa05c55">&lt;/linkText&gt;</ept><bpt id="f91bfb8a-6bf0-42fa-bb94-53914fa05c55">&lt;title&gt;</bpt><ept id="f91bfb8a-6bf0-42fa-bb94-53914fa05c55">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="036eefef-6a21-4933-885b-fc4b389fce44" xml:space="preserve">
+          <source>Refer to the Offline Backup section of the Azure Backup <bpt id="dce55e82-891f-438c-aa8a-da9ec8565fc8">&lt;linkText&gt;</bpt>FAQ<ept id="dce55e82-891f-438c-aa8a-da9ec8565fc8">&lt;/linkText&gt;</ept><bpt id="dce55e82-891f-438c-aa8a-da9ec8565fc8">&lt;title&gt;</bpt><ept id="dce55e82-891f-438c-aa8a-da9ec8565fc8">&lt;/title&gt;</ept> for any questions about the workflow</source>
+          <target state="new">Refer to the Offline Backup section of the Azure Backup <bpt id="dce55e82-891f-438c-aa8a-da9ec8565fc8">&lt;linkText&gt;</bpt>FAQ<ept id="dce55e82-891f-438c-aa8a-da9ec8565fc8">&lt;/linkText&gt;</ept><bpt id="dce55e82-891f-438c-aa8a-da9ec8565fc8">&lt;title&gt;</bpt><ept id="dce55e82-891f-438c-aa8a-da9ec8565fc8">&lt;/title&gt;</ept> for any questions about the workflow</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

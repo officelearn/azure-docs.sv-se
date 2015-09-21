@@ -1,0 +1,605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ad73683c-52c5-4079-8ab1-98cd139a693a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ad73683c-52c5-4079-8ab1-98cd139a693a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6ff75da8-4a2f-4285-9eb8-f214f1fe313b">
+        <trans-unit id="ae4e85de-ec57-4cc5-b088-97b9b7c58fc8" xml:space="preserve">
+          <source>Configure VPN connection between two virtual networks | Microsoft Azure</source>
+          <target state="new">Configure VPN connection between two virtual networks | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ae811d06-0a11-4751-9ba5-44c202add33d" xml:space="preserve">
+          <source>Learn how to configure VPN connections and domain name resolution between two Azure virtual networks, and how to configure HBase geo-replication.</source>
+          <target state="new">Learn how to configure VPN connections and domain name resolution between two Azure virtual networks, and how to configure HBase geo-replication.</target>
+        </trans-unit>
+        <trans-unit id="1e73401c-192e-46b8-ac50-0cc53e0508ff" xml:space="preserve">
+          <source>Azure virtual network site-to-site connectivity uses a VPN gateway to provide a secure tunnel using Ipsec/IKE.</source>
+          <target state="new">Azure virtual network site-to-site connectivity uses a VPN gateway to provide a secure tunnel using Ipsec/IKE.</target>
+        </trans-unit>
+        <trans-unit id="074bb8e3-6c73-4f26-88ef-7b312a3c57fa" xml:space="preserve">
+          <source>The VNets can be in different subscriptions and different regions.</source>
+          <target state="new">The VNets can be in different subscriptions and different regions.</target>
+        </trans-unit>
+        <trans-unit id="6904e6e2-793d-4a5f-b57a-f986d12f8790" xml:space="preserve">
+          <source>You can even combine VNet to VNet communication with multi-site configurations.</source>
+          <target state="new">You can even combine VNet to VNet communication with multi-site configurations.</target>
+        </trans-unit>
+        <trans-unit id="5daa4798-c5c9-4626-927b-4b8e13d2bb4f" xml:space="preserve">
+          <source>There are several reasons for VNet to VNet connectivity:</source>
+          <target state="new">There are several reasons for VNet to VNet connectivity:</target>
+        </trans-unit>
+        <trans-unit id="0ccb93f7-38ef-4da2-a9c6-07743f43c6a1" xml:space="preserve">
+          <source>Cross region geo-redundancy and geo-presence </source>
+          <target state="new">Cross region geo-redundancy and geo-presence </target>
+        </trans-unit>
+        <trans-unit id="07531dd1-6319-44b0-ac11-e841fa8f478e" xml:space="preserve">
+          <source>Regional multi-tier applications with strong isolation boundary </source>
+          <target state="new">Regional multi-tier applications with strong isolation boundary </target>
+        </trans-unit>
+        <trans-unit id="ebb77166-ad70-4bd0-94c1-6c57891d7bff" xml:space="preserve">
+          <source>Cross subscription, inter-organization communication in Azure</source>
+          <target state="new">Cross subscription, inter-organization communication in Azure</target>
+        </trans-unit>
+        <trans-unit id="17693293-8d5f-466d-9476-dfa96ae9c4a6" xml:space="preserve">
+          <source>For more information, see <bpt id="896eed1d-82e0-4f34-84a8-2794c6a48d8e">&lt;linkText&gt;</bpt>Configure a VNet to VNet connection<ept id="896eed1d-82e0-4f34-84a8-2794c6a48d8e">&lt;/linkText&gt;</ept><bpt id="896eed1d-82e0-4f34-84a8-2794c6a48d8e">&lt;title&gt;</bpt><ept id="896eed1d-82e0-4f34-84a8-2794c6a48d8e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="896eed1d-82e0-4f34-84a8-2794c6a48d8e">&lt;linkText&gt;</bpt>Configure a VNet to VNet connection<ept id="896eed1d-82e0-4f34-84a8-2794c6a48d8e">&lt;/linkText&gt;</ept><bpt id="896eed1d-82e0-4f34-84a8-2794c6a48d8e">&lt;title&gt;</bpt><ept id="896eed1d-82e0-4f34-84a8-2794c6a48d8e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14684b71-fef5-4274-a9c5-1d7e8bec5a28" xml:space="preserve">
+          <source>To see it on video:</source>
+          <target state="new">To see it on video:</target>
+        </trans-unit>
+        <trans-unit id="ae2c597c-00d0-4f8e-900b-9c5f69a03ace" xml:space="preserve">
+          <source>This tutorial is a part of the <bpt id="3100a771-d113-43a6-81ae-5beecdd66886">&lt;linkText&gt;</bpt>series[hdinsight-hbase-replication]<ept id="3100a771-d113-43a6-81ae-5beecdd66886">&lt;/linkText&gt;</ept><bpt id="3100a771-d113-43a6-81ae-5beecdd66886">&lt;title&gt;</bpt><ept id="3100a771-d113-43a6-81ae-5beecdd66886">&lt;/title&gt;</ept> on creating HBase geo-replication.</source>
+          <target state="new">This tutorial is a part of the <bpt id="3100a771-d113-43a6-81ae-5beecdd66886">&lt;linkText&gt;</bpt>series[hdinsight-hbase-replication]<ept id="3100a771-d113-43a6-81ae-5beecdd66886">&lt;/linkText&gt;</ept><bpt id="3100a771-d113-43a6-81ae-5beecdd66886">&lt;title&gt;</bpt><ept id="3100a771-d113-43a6-81ae-5beecdd66886">&lt;/title&gt;</ept> on creating HBase geo-replication.</target>
+        </trans-unit>
+        <trans-unit id="81d80a43-e3b6-41e3-b7b2-90c5c5c9a56e" xml:space="preserve">
+          <source>Configure a VPN connectivity between two virtual networks (this tutorial)</source>
+          <target state="new">Configure a VPN connectivity between two virtual networks (this tutorial)</target>
+        </trans-unit>
+        <trans-unit id="69859033-7ae6-4241-aacb-a828001018e1" xml:space="preserve">
+          <source><bpt id="2c97982a-25a1-4fef-9cab-4d3380f21e9c">&lt;linkText&gt;</bpt>Configure DNS for the virtual networks[hdinsight-hbase-geo-replication-dns]<ept id="2c97982a-25a1-4fef-9cab-4d3380f21e9c">&lt;/linkText&gt;</ept><bpt id="2c97982a-25a1-4fef-9cab-4d3380f21e9c">&lt;title&gt;</bpt><ept id="2c97982a-25a1-4fef-9cab-4d3380f21e9c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c97982a-25a1-4fef-9cab-4d3380f21e9c">&lt;linkText&gt;</bpt>Configure DNS for the virtual networks[hdinsight-hbase-geo-replication-dns]<ept id="2c97982a-25a1-4fef-9cab-4d3380f21e9c">&lt;/linkText&gt;</ept><bpt id="2c97982a-25a1-4fef-9cab-4d3380f21e9c">&lt;title&gt;</bpt><ept id="2c97982a-25a1-4fef-9cab-4d3380f21e9c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db2f3514-5398-46b3-abdf-fa7a2ed09b52" xml:space="preserve">
+          <source><bpt id="f0b47cae-edde-42de-a1d1-d2b71db8e584">&lt;linkText&gt;</bpt>Configure HBase geo replication[hdinsight-hbase-geo-replication]<ept id="f0b47cae-edde-42de-a1d1-d2b71db8e584">&lt;/linkText&gt;</ept><bpt id="f0b47cae-edde-42de-a1d1-d2b71db8e584">&lt;title&gt;</bpt><ept id="f0b47cae-edde-42de-a1d1-d2b71db8e584">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f0b47cae-edde-42de-a1d1-d2b71db8e584">&lt;linkText&gt;</bpt>Configure HBase geo replication[hdinsight-hbase-geo-replication]<ept id="f0b47cae-edde-42de-a1d1-d2b71db8e584">&lt;/linkText&gt;</ept><bpt id="f0b47cae-edde-42de-a1d1-d2b71db8e584">&lt;title&gt;</bpt><ept id="f0b47cae-edde-42de-a1d1-d2b71db8e584">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c007ed6c-1f1d-4307-8f16-1593c0b8f59d" xml:space="preserve">
+          <source>The following diagram illustrates the two virtual networks you will create in this tutorial:</source>
+          <target state="new">The following diagram illustrates the two virtual networks you will create in this tutorial:</target>
+        </trans-unit>
+        <trans-unit id="2675e14a-3708-4237-9e58-80a0dbd10886" xml:space="preserve">
+          <source><bpt id="3f068369-5c69-48d9-bc40-f5fd96fc6831">&lt;linkText&gt;</bpt>HDInsight HBase replication virtual network diagram<ept id="3f068369-5c69-48d9-bc40-f5fd96fc6831">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3f068369-5c69-48d9-bc40-f5fd96fc6831">&lt;linkText&gt;</bpt>HDInsight HBase replication virtual network diagram<ept id="3f068369-5c69-48d9-bc40-f5fd96fc6831">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c3ede12-2feb-403f-bc26-1316cfe73998" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have the following:</source>
+          <target state="new">Before you begin this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="3bcb0189-5d06-4316-9851-022facc6dc58" xml:space="preserve">
+          <source><bpt id="3d7bcc3a-4d84-4b08-9bed-31a71a199e9e">&lt;strong&gt;</bpt>An Azure subscription<ept id="3d7bcc3a-4d84-4b08-9bed-31a71a199e9e">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3d7bcc3a-4d84-4b08-9bed-31a71a199e9e">&lt;strong&gt;</bpt>An Azure subscription<ept id="3d7bcc3a-4d84-4b08-9bed-31a71a199e9e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="177b63db-5838-495f-900b-2d5840048ab2" xml:space="preserve">
+          <source>See <bpt id="39ab2272-0bdf-4f0d-91e3-724bb37e91a1">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="39ab2272-0bdf-4f0d-91e3-724bb37e91a1">&lt;/linkText&gt;</ept><bpt id="39ab2272-0bdf-4f0d-91e3-724bb37e91a1">&lt;title&gt;</bpt><ept id="39ab2272-0bdf-4f0d-91e3-724bb37e91a1">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="39ab2272-0bdf-4f0d-91e3-724bb37e91a1">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="39ab2272-0bdf-4f0d-91e3-724bb37e91a1">&lt;/linkText&gt;</ept><bpt id="39ab2272-0bdf-4f0d-91e3-724bb37e91a1">&lt;title&gt;</bpt><ept id="39ab2272-0bdf-4f0d-91e3-724bb37e91a1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27827290-98a6-4b73-b448-2d8febabba97" xml:space="preserve">
+          <source><bpt id="f2ca01c4-8105-4528-a955-aba0b21b0aaa">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="f2ca01c4-8105-4528-a955-aba0b21b0aaa">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f2ca01c4-8105-4528-a955-aba0b21b0aaa">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="f2ca01c4-8105-4528-a955-aba0b21b0aaa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0eae8a4b-5b89-4432-aa70-afa1256d7106" xml:space="preserve">
+          <source>See <bpt id="df373cc3-bc5a-4de2-aab2-e77e2dafa1ee">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="df373cc3-bc5a-4de2-aab2-e77e2dafa1ee">&lt;/linkText&gt;</ept><bpt id="df373cc3-bc5a-4de2-aab2-e77e2dafa1ee">&lt;title&gt;</bpt><ept id="df373cc3-bc5a-4de2-aab2-e77e2dafa1ee">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="df373cc3-bc5a-4de2-aab2-e77e2dafa1ee">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="df373cc3-bc5a-4de2-aab2-e77e2dafa1ee">&lt;/linkText&gt;</ept><bpt id="df373cc3-bc5a-4de2-aab2-e77e2dafa1ee">&lt;title&gt;</bpt><ept id="df373cc3-bc5a-4de2-aab2-e77e2dafa1ee">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="192afa0e-0646-4bf5-aa0e-93ef2db0c8b7" xml:space="preserve">
+          <source>Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:</source>
+          <target state="new">Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="d4a92878-f22d-4a06-bb7f-82b68f3ef76e" xml:space="preserve">
+          <source>If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:</source>
+          <target state="new">If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:</target>
+        </trans-unit>
+        <trans-unit id="11c9ccd7-1421-4a35-8687-e1be53e2d0df" xml:space="preserve">
+          <source>Azure service names and virtual machine names must be unique.</source>
+          <target state="new">Azure service names and virtual machine names must be unique.</target>
+        </trans-unit>
+        <trans-unit id="6500c333-9a49-48b6-95ba-a9d8312d5abd" xml:space="preserve">
+          <source>The name used in this tutorial is Contoso-[Azure Service/VM name]-[EU/US].</source>
+          <target state="new">The name used in this tutorial is Contoso-[Azure Service/VM name]-[EU/US].</target>
+        </trans-unit>
+        <trans-unit id="ffa2385c-6f05-4a86-a47c-73043319af52" xml:space="preserve">
+          <source>For example, Contoso-VNet-EU is the Azure virtual network in the North Europe data center; Contoso-DNS-US is the DNS server VM in the East U.S. datacenter.</source>
+          <target state="new">For example, Contoso-VNet-EU is the Azure virtual network in the North Europe data center; Contoso-DNS-US is the DNS server VM in the East U.S. datacenter.</target>
+        </trans-unit>
+        <trans-unit id="6d903b64-b94c-4960-ae88-fadd631810d8" xml:space="preserve">
+          <source>You must come up with your own names.</source>
+          <target state="new">You must come up with your own names.</target>
+        </trans-unit>
+        <trans-unit id="6a52bff2-f458-4981-aad5-f51563e70422" xml:space="preserve">
+          <source><bpt id="a6eda58d-dcc8-43fd-8f2c-905871d4b0cf">&lt;strong&gt;</bpt>To create a virtual network called Contoso-VNet-EU in North-Europe<ept id="a6eda58d-dcc8-43fd-8f2c-905871d4b0cf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a6eda58d-dcc8-43fd-8f2c-905871d4b0cf">&lt;strong&gt;</bpt>To create a virtual network called Contoso-VNet-EU in North-Europe<ept id="a6eda58d-dcc8-43fd-8f2c-905871d4b0cf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3abe5b75-ee40-43f1-bcfd-cf98b236465c" xml:space="preserve">
+          <source>Sign in to the <bpt id="68151417-d0a9-4a3d-985a-ae2e9bbddd94">&lt;linkText&gt;</bpt>Azure portal[azure-portal]<ept id="68151417-d0a9-4a3d-985a-ae2e9bbddd94">&lt;/linkText&gt;</ept><bpt id="68151417-d0a9-4a3d-985a-ae2e9bbddd94">&lt;title&gt;</bpt><ept id="68151417-d0a9-4a3d-985a-ae2e9bbddd94">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="68151417-d0a9-4a3d-985a-ae2e9bbddd94">&lt;linkText&gt;</bpt>Azure portal[azure-portal]<ept id="68151417-d0a9-4a3d-985a-ae2e9bbddd94">&lt;/linkText&gt;</ept><bpt id="68151417-d0a9-4a3d-985a-ae2e9bbddd94">&lt;title&gt;</bpt><ept id="68151417-d0a9-4a3d-985a-ae2e9bbddd94">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec957ac6-ff28-43bd-8a49-80aab55fa9d5" xml:space="preserve">
+          <source>Click <bpt id="3775dcf4-ae32-4e35-8db5-3b950f71f7db">&lt;strong&gt;</bpt>NEW<ept id="3775dcf4-ae32-4e35-8db5-3b950f71f7db">&lt;/strong&gt;</ept>, <bpt id="b81c10e5-99e8-4d86-b9b0-7cd8761276b3">&lt;strong&gt;</bpt>NETWORK SERVICES<ept id="b81c10e5-99e8-4d86-b9b0-7cd8761276b3">&lt;/strong&gt;</ept>, <bpt id="1bc6ca54-4ae3-475b-a358-39bf86261fb5">&lt;strong&gt;</bpt>VIRTUAL NETWORK<ept id="1bc6ca54-4ae3-475b-a358-39bf86261fb5">&lt;/strong&gt;</ept>, <bpt id="870b13e3-7d42-422e-9161-804dc14496b4">&lt;strong&gt;</bpt>CUSTOM CREATE<ept id="870b13e3-7d42-422e-9161-804dc14496b4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3775dcf4-ae32-4e35-8db5-3b950f71f7db">&lt;strong&gt;</bpt>NEW<ept id="3775dcf4-ae32-4e35-8db5-3b950f71f7db">&lt;/strong&gt;</ept>, <bpt id="b81c10e5-99e8-4d86-b9b0-7cd8761276b3">&lt;strong&gt;</bpt>NETWORK SERVICES<ept id="b81c10e5-99e8-4d86-b9b0-7cd8761276b3">&lt;/strong&gt;</ept>, <bpt id="1bc6ca54-4ae3-475b-a358-39bf86261fb5">&lt;strong&gt;</bpt>VIRTUAL NETWORK<ept id="1bc6ca54-4ae3-475b-a358-39bf86261fb5">&lt;/strong&gt;</ept>, <bpt id="870b13e3-7d42-422e-9161-804dc14496b4">&lt;strong&gt;</bpt>CUSTOM CREATE<ept id="870b13e3-7d42-422e-9161-804dc14496b4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3167cac9-8221-4571-a97d-a83333da8cac" xml:space="preserve">
+          <source>Enter:</source>
+          <target state="new">Enter:</target>
+        </trans-unit>
+        <trans-unit id="f6a60262-d930-40b8-b27d-3f2fffd1c561" xml:space="preserve">
+          <source><bpt id="f4cf8394-0ea0-4605-b7fa-25374ca95cfc">&lt;strong&gt;</bpt>NAME<ept id="f4cf8394-0ea0-4605-b7fa-25374ca95cfc">&lt;/strong&gt;</ept>: Contoso-VNet-EU</source>
+          <target state="new"><bpt id="f4cf8394-0ea0-4605-b7fa-25374ca95cfc">&lt;strong&gt;</bpt>NAME<ept id="f4cf8394-0ea0-4605-b7fa-25374ca95cfc">&lt;/strong&gt;</ept>: Contoso-VNet-EU</target>
+        </trans-unit>
+        <trans-unit id="91e66498-020a-411a-a2d3-fb5a49167b7d" xml:space="preserve">
+          <source><bpt id="29216697-682d-4f6d-ae27-8e998cb7c0ec">&lt;strong&gt;</bpt>LOCATION<ept id="29216697-682d-4f6d-ae27-8e998cb7c0ec">&lt;/strong&gt;</ept>: North Europe</source>
+          <target state="new"><bpt id="29216697-682d-4f6d-ae27-8e998cb7c0ec">&lt;strong&gt;</bpt>LOCATION<ept id="29216697-682d-4f6d-ae27-8e998cb7c0ec">&lt;/strong&gt;</ept>: North Europe</target>
+        </trans-unit>
+        <trans-unit id="22eb3c9d-c1af-4f85-9716-4c21be460b61" xml:space="preserve">
+          <source>This tutorial uses North Europe and East US datacenters.</source>
+          <target state="new">This tutorial uses North Europe and East US datacenters.</target>
+        </trans-unit>
+        <trans-unit id="a8329ef7-b33a-4f57-ba68-bd246bd1992b" xml:space="preserve">
+          <source>You can choose your own datacenters.</source>
+          <target state="new">You can choose your own datacenters.</target>
+        </trans-unit>
+        <trans-unit id="8134a296-8ce5-462b-8d11-658523961581" xml:space="preserve">
+          <source>Enter:</source>
+          <target state="new">Enter:</target>
+        </trans-unit>
+        <trans-unit id="fa667dac-2b86-4a94-bc18-f5001de647db" xml:space="preserve">
+          <source><bpt id="82c15f50-bd76-4366-82ef-02b70e19b586">&lt;strong&gt;</bpt>DNS SERVER<ept id="82c15f50-bd76-4366-82ef-02b70e19b586">&lt;/strong&gt;</ept>: (Leave it blank) </source>
+          <target state="new"><bpt id="82c15f50-bd76-4366-82ef-02b70e19b586">&lt;strong&gt;</bpt>DNS SERVER<ept id="82c15f50-bd76-4366-82ef-02b70e19b586">&lt;/strong&gt;</ept>: (Leave it blank) </target>
+        </trans-unit>
+        <trans-unit id="c40aa782-0000-43a9-a345-f7aa7f49021b" xml:space="preserve">
+          <source>You will need your own DNS server for name resolution within virtual networks.</source>
+          <target state="new">You will need your own DNS server for name resolution within virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="d72f0c6b-7300-44b5-96c7-33b141ab6c85" xml:space="preserve">
+          <source>For more information on when to use Azure-provided name resolution and when to use your own DNS server, see <bpt id="c78b3ffd-fdb8-49df-89fe-f02b68730598">&lt;linkText&gt;</bpt>Name Resolution (DNS)<ept id="c78b3ffd-fdb8-49df-89fe-f02b68730598">&lt;/linkText&gt;</ept><bpt id="c78b3ffd-fdb8-49df-89fe-f02b68730598">&lt;title&gt;</bpt><ept id="c78b3ffd-fdb8-49df-89fe-f02b68730598">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on when to use Azure-provided name resolution and when to use your own DNS server, see <bpt id="c78b3ffd-fdb8-49df-89fe-f02b68730598">&lt;linkText&gt;</bpt>Name Resolution (DNS)<ept id="c78b3ffd-fdb8-49df-89fe-f02b68730598">&lt;/linkText&gt;</ept><bpt id="c78b3ffd-fdb8-49df-89fe-f02b68730598">&lt;title&gt;</bpt><ept id="c78b3ffd-fdb8-49df-89fe-f02b68730598">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0512f4d1-472d-4906-97f4-c52d01984d50" xml:space="preserve">
+          <source>For instructions to configure name resolution between VNets, see <bpt id="369be0bb-9176-4d34-af9d-43d6d0ecf537">&lt;linkText&gt;</bpt>Configure DNS between two Azure virtual networks[hdinsight-hbase-dns]<ept id="369be0bb-9176-4d34-af9d-43d6d0ecf537">&lt;/linkText&gt;</ept><bpt id="369be0bb-9176-4d34-af9d-43d6d0ecf537">&lt;title&gt;</bpt><ept id="369be0bb-9176-4d34-af9d-43d6d0ecf537">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions to configure name resolution between VNets, see <bpt id="369be0bb-9176-4d34-af9d-43d6d0ecf537">&lt;linkText&gt;</bpt>Configure DNS between two Azure virtual networks[hdinsight-hbase-dns]<ept id="369be0bb-9176-4d34-af9d-43d6d0ecf537">&lt;/linkText&gt;</ept><bpt id="369be0bb-9176-4d34-af9d-43d6d0ecf537">&lt;title&gt;</bpt><ept id="369be0bb-9176-4d34-af9d-43d6d0ecf537">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb3c3a71-f9c2-47bb-a317-aff98d1969a7" xml:space="preserve">
+          <source><bpt id="0fdfb6a4-3ea6-4160-9643-4fa9576f53c6">&lt;strong&gt;</bpt>Configure a point-to-site VPN<ept id="0fdfb6a4-3ea6-4160-9643-4fa9576f53c6">&lt;/strong&gt;</ept>: (unchecked)</source>
+          <target state="new"><bpt id="0fdfb6a4-3ea6-4160-9643-4fa9576f53c6">&lt;strong&gt;</bpt>Configure a point-to-site VPN<ept id="0fdfb6a4-3ea6-4160-9643-4fa9576f53c6">&lt;/strong&gt;</ept>: (unchecked)</target>
+        </trans-unit>
+        <trans-unit id="d81ee8f0-c262-4cd0-a621-58326fa9af5d" xml:space="preserve">
+          <source>Point-to-site doesn't apply to this scenario.</source>
+          <target state="new">Point-to-site doesn't apply to this scenario.</target>
+        </trans-unit>
+        <trans-unit id="61d27759-6cf6-4e39-b3cb-88d03a733581" xml:space="preserve">
+          <source><bpt id="faa389a8-21dc-4902-9263-1c627c8b9ab8">&lt;strong&gt;</bpt>Configure a site-to-site VPN<ept id="faa389a8-21dc-4902-9263-1c627c8b9ab8">&lt;/strong&gt;</ept>: (unchecked)</source>
+          <target state="new"><bpt id="faa389a8-21dc-4902-9263-1c627c8b9ab8">&lt;strong&gt;</bpt>Configure a site-to-site VPN<ept id="faa389a8-21dc-4902-9263-1c627c8b9ab8">&lt;/strong&gt;</ept>: (unchecked)</target>
+        </trans-unit>
+        <trans-unit id="f246a14b-9c9e-4f29-a8a4-2182e7345f77" xml:space="preserve">
+          <source>You will configure the site-to-site VPN connection to the Azure virtual network in the East U.S. datacenter.</source>
+          <target state="new">You will configure the site-to-site VPN connection to the Azure virtual network in the East U.S. datacenter.</target>
+        </trans-unit>
+        <trans-unit id="584903cf-a9cb-4642-89ac-e761a3f79cf5" xml:space="preserve">
+          <source>Enter:</source>
+          <target state="new">Enter:</target>
+        </trans-unit>
+        <trans-unit id="39d14e76-0ca1-4288-9b36-18a7119e34a7" xml:space="preserve">
+          <source><bpt id="e1a7c38c-85c9-47fd-8758-dc8040e3d8fa">&lt;strong&gt;</bpt>ADDRESS SPACE STARTING IP<ept id="e1a7c38c-85c9-47fd-8758-dc8040e3d8fa">&lt;/strong&gt;</ept>: 10.1.0.0</source>
+          <target state="new"><bpt id="e1a7c38c-85c9-47fd-8758-dc8040e3d8fa">&lt;strong&gt;</bpt>ADDRESS SPACE STARTING IP<ept id="e1a7c38c-85c9-47fd-8758-dc8040e3d8fa">&lt;/strong&gt;</ept>: 10.1.0.0</target>
+        </trans-unit>
+        <trans-unit id="f4b610ef-686f-4129-ab3f-1767aae2e176" xml:space="preserve">
+          <source><bpt id="38b9add9-0ee4-499b-b268-32edcb1d556b">&lt;strong&gt;</bpt>ADDRESS SPACE CIDR<ept id="38b9add9-0ee4-499b-b268-32edcb1d556b">&lt;/strong&gt;</ept>: /16</source>
+          <target state="new"><bpt id="38b9add9-0ee4-499b-b268-32edcb1d556b">&lt;strong&gt;</bpt>ADDRESS SPACE CIDR<ept id="38b9add9-0ee4-499b-b268-32edcb1d556b">&lt;/strong&gt;</ept>: /16</target>
+        </trans-unit>
+        <trans-unit id="a5ce8b50-fdf1-447a-8a7a-fd86139e979f" xml:space="preserve">
+          <source><bpt id="db919dee-e9c6-487f-9864-92468c54b813">&lt;strong&gt;</bpt>Subnet-1 STARTING IP<ept id="db919dee-e9c6-487f-9864-92468c54b813">&lt;/strong&gt;</ept>: 10.1.0.0</source>
+          <target state="new"><bpt id="db919dee-e9c6-487f-9864-92468c54b813">&lt;strong&gt;</bpt>Subnet-1 STARTING IP<ept id="db919dee-e9c6-487f-9864-92468c54b813">&lt;/strong&gt;</ept>: 10.1.0.0</target>
+        </trans-unit>
+        <trans-unit id="f46e8eed-a7f3-458a-940c-05d70dcfcc35" xml:space="preserve">
+          <source><bpt id="0ba4aa7e-d3c5-493b-b856-458bfe198251">&lt;strong&gt;</bpt>Subnet-1 CIDR<ept id="0ba4aa7e-d3c5-493b-b856-458bfe198251">&lt;/strong&gt;</ept>: /24</source>
+          <target state="new"><bpt id="0ba4aa7e-d3c5-493b-b856-458bfe198251">&lt;strong&gt;</bpt>Subnet-1 CIDR<ept id="0ba4aa7e-d3c5-493b-b856-458bfe198251">&lt;/strong&gt;</ept>: /24</target>
+        </trans-unit>
+        <trans-unit id="e14a0d97-58cf-4e0f-9090-20b918b73f2e" xml:space="preserve">
+          <source>The address space can not overlap with the U.S. virtual network.</source>
+          <target state="new">The address space can not overlap with the U.S. virtual network.</target>
+        </trans-unit>
+        <trans-unit id="e7932f32-7483-4d61-a97c-d72ad9e87481" xml:space="preserve">
+          <source><bpt id="6c038a04-cf5e-4524-91f6-cc29aebd483b">&lt;strong&gt;</bpt>To create a virtual network called Contoso-VNet-EU in West-Europe<ept id="6c038a04-cf5e-4524-91f6-cc29aebd483b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6c038a04-cf5e-4524-91f6-cc29aebd483b">&lt;strong&gt;</bpt>To create a virtual network called Contoso-VNet-EU in West-Europe<ept id="6c038a04-cf5e-4524-91f6-cc29aebd483b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd7bf418-0527-4662-bbe5-9a994afba19e" xml:space="preserve">
+          <source>Repeat the last procedure with the following values:</source>
+          <target state="new">Repeat the last procedure with the following values:</target>
+        </trans-unit>
+        <trans-unit id="9705b3af-491d-42b3-897f-1b03f4543e1e" xml:space="preserve">
+          <source><bpt id="5e012461-3efb-4c4d-96bf-4d606000a947">&lt;strong&gt;</bpt>NAME<ept id="5e012461-3efb-4c4d-96bf-4d606000a947">&lt;/strong&gt;</ept>: Contoso-VNet-US</source>
+          <target state="new"><bpt id="5e012461-3efb-4c4d-96bf-4d606000a947">&lt;strong&gt;</bpt>NAME<ept id="5e012461-3efb-4c4d-96bf-4d606000a947">&lt;/strong&gt;</ept>: Contoso-VNet-US</target>
+        </trans-unit>
+        <trans-unit id="e9511782-6899-496f-a370-152757b39e60" xml:space="preserve">
+          <source><bpt id="f3e0ccfe-e3e8-4cc7-9443-ee17b8869125">&lt;strong&gt;</bpt>LOCATION<ept id="f3e0ccfe-e3e8-4cc7-9443-ee17b8869125">&lt;/strong&gt;</ept>: East US</source>
+          <target state="new"><bpt id="f3e0ccfe-e3e8-4cc7-9443-ee17b8869125">&lt;strong&gt;</bpt>LOCATION<ept id="f3e0ccfe-e3e8-4cc7-9443-ee17b8869125">&lt;/strong&gt;</ept>: East US</target>
+        </trans-unit>
+        <trans-unit id="f390caf9-1958-408c-a20f-d7bf734d3943" xml:space="preserve">
+          <source><bpt id="c4e9e038-accb-4e28-8fac-19a63108ebca">&lt;strong&gt;</bpt>DNS SERVER<ept id="c4e9e038-accb-4e28-8fac-19a63108ebca">&lt;/strong&gt;</ept>: (leave it blank)</source>
+          <target state="new"><bpt id="c4e9e038-accb-4e28-8fac-19a63108ebca">&lt;strong&gt;</bpt>DNS SERVER<ept id="c4e9e038-accb-4e28-8fac-19a63108ebca">&lt;/strong&gt;</ept>: (leave it blank)</target>
+        </trans-unit>
+        <trans-unit id="e5210527-ba8f-4913-81c3-c1b092e7420f" xml:space="preserve">
+          <source><bpt id="c9b83a83-ef99-41fc-8823-69ae03ea4a53">&lt;strong&gt;</bpt>Configure a point-to-site VPN<ept id="c9b83a83-ef99-41fc-8823-69ae03ea4a53">&lt;/strong&gt;</ept>: (unchecked)</source>
+          <target state="new"><bpt id="c9b83a83-ef99-41fc-8823-69ae03ea4a53">&lt;strong&gt;</bpt>Configure a point-to-site VPN<ept id="c9b83a83-ef99-41fc-8823-69ae03ea4a53">&lt;/strong&gt;</ept>: (unchecked)</target>
+        </trans-unit>
+        <trans-unit id="ec1f73d3-c90f-478d-bfac-0c4d9cb1f2a9" xml:space="preserve">
+          <source><bpt id="777587a5-508e-4bba-892c-e51f4f088f96">&lt;strong&gt;</bpt>Configure a site-to-site VPN<ept id="777587a5-508e-4bba-892c-e51f4f088f96">&lt;/strong&gt;</ept>: (unchecked)</source>
+          <target state="new"><bpt id="777587a5-508e-4bba-892c-e51f4f088f96">&lt;strong&gt;</bpt>Configure a site-to-site VPN<ept id="777587a5-508e-4bba-892c-e51f4f088f96">&lt;/strong&gt;</ept>: (unchecked)</target>
+        </trans-unit>
+        <trans-unit id="ee1e1fc4-8c47-4fb7-9ceb-d45141f3cc43" xml:space="preserve">
+          <source><bpt id="bb02b173-8d7b-4349-80a9-6502cd7699f0">&lt;strong&gt;</bpt>ADDRESS SPACE STARTING IP<ept id="bb02b173-8d7b-4349-80a9-6502cd7699f0">&lt;/strong&gt;</ept>: 10.2.0.0</source>
+          <target state="new"><bpt id="bb02b173-8d7b-4349-80a9-6502cd7699f0">&lt;strong&gt;</bpt>ADDRESS SPACE STARTING IP<ept id="bb02b173-8d7b-4349-80a9-6502cd7699f0">&lt;/strong&gt;</ept>: 10.2.0.0</target>
+        </trans-unit>
+        <trans-unit id="17e2c582-d56c-4f5e-8159-2243ffed8b06" xml:space="preserve">
+          <source><bpt id="7a1d3dc7-494b-4a28-92cf-9fd184508d1a">&lt;strong&gt;</bpt>ADDRESS SPACE CIDR<ept id="7a1d3dc7-494b-4a28-92cf-9fd184508d1a">&lt;/strong&gt;</ept>: /16</source>
+          <target state="new"><bpt id="7a1d3dc7-494b-4a28-92cf-9fd184508d1a">&lt;strong&gt;</bpt>ADDRESS SPACE CIDR<ept id="7a1d3dc7-494b-4a28-92cf-9fd184508d1a">&lt;/strong&gt;</ept>: /16</target>
+        </trans-unit>
+        <trans-unit id="a3105905-715d-4f1c-ab3f-dd37847e2b76" xml:space="preserve">
+          <source><bpt id="8517a79c-2889-4793-839f-894e23e83b4b">&lt;strong&gt;</bpt>Subnet-1 STARTING IP<ept id="8517a79c-2889-4793-839f-894e23e83b4b">&lt;/strong&gt;</ept>: 10.2.0.0</source>
+          <target state="new"><bpt id="8517a79c-2889-4793-839f-894e23e83b4b">&lt;strong&gt;</bpt>Subnet-1 STARTING IP<ept id="8517a79c-2889-4793-839f-894e23e83b4b">&lt;/strong&gt;</ept>: 10.2.0.0</target>
+        </trans-unit>
+        <trans-unit id="35e35205-fb27-449d-b7b7-6618e61a33c0" xml:space="preserve">
+          <source><bpt id="b4b74583-2353-4734-987f-1877d694a7c1">&lt;strong&gt;</bpt>Subnet-1 CIDR<ept id="b4b74583-2353-4734-987f-1877d694a7c1">&lt;/strong&gt;</ept>: /24</source>
+          <target state="new"><bpt id="b4b74583-2353-4734-987f-1877d694a7c1">&lt;strong&gt;</bpt>Subnet-1 CIDR<ept id="b4b74583-2353-4734-987f-1877d694a7c1">&lt;/strong&gt;</ept>: /24</target>
+        </trans-unit>
+        <trans-unit id="28433b24-d941-4e91-940a-12ef7182608d" xml:space="preserve">
+          <source>When you create a VNet to VNet configuration, you need to configure each VNet to identify each other as a local network site.</source>
+          <target state="new">When you create a VNet to VNet configuration, you need to configure each VNet to identify each other as a local network site.</target>
+        </trans-unit>
+        <trans-unit id="14c57777-c135-4ea6-8145-e9c26464ae76" xml:space="preserve">
+          <source>In this section, you’ll configure each VNet as a local network.</source>
+          <target state="new">In this section, you’ll configure each VNet as a local network.</target>
+        </trans-unit>
+        <trans-unit id="c9e49e97-aec6-4be9-b686-a7ff4ee9cebd" xml:space="preserve">
+          <source>The local networks share the same IP address spaces with the corresponding VNet.</source>
+          <target state="new">The local networks share the same IP address spaces with the corresponding VNet.</target>
+        </trans-unit>
+        <trans-unit id="e9911db1-cb73-4cf8-8070-414e11fc7e42" xml:space="preserve">
+          <source><bpt id="39ab09a3-d913-4fac-ae54-6d4caeed0f82">&lt;linkText&gt;</bpt>Configure Azure VPN site-to-site configuration - azure local networks<ept id="39ab09a3-d913-4fac-ae54-6d4caeed0f82">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="39ab09a3-d913-4fac-ae54-6d4caeed0f82">&lt;linkText&gt;</bpt>Configure Azure VPN site-to-site configuration - azure local networks<ept id="39ab09a3-d913-4fac-ae54-6d4caeed0f82">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2df0862a-339f-4736-b6cf-febdcb04059a" xml:space="preserve">
+          <source><bpt id="1bf06ef5-eb43-4e58-808d-7e34c6ad1b14">&lt;strong&gt;</bpt>To create a local network called Contoso-LNet-EU matching the Contoso-VNet-EU network address space<ept id="1bf06ef5-eb43-4e58-808d-7e34c6ad1b14">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1bf06ef5-eb43-4e58-808d-7e34c6ad1b14">&lt;strong&gt;</bpt>To create a local network called Contoso-LNet-EU matching the Contoso-VNet-EU network address space<ept id="1bf06ef5-eb43-4e58-808d-7e34c6ad1b14">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26712e11-4054-4c60-ba66-01a508cb1fdd" xml:space="preserve">
+          <source>From the Azure portal, click <bpt id="2eac1f3f-d73f-4f63-b36c-ae8581e9f0ef">&lt;strong&gt;</bpt>NEW<ept id="2eac1f3f-d73f-4f63-b36c-ae8581e9f0ef">&lt;/strong&gt;</ept>, <bpt id="1787ed62-067c-49e3-8a8a-a6fa09be510b">&lt;strong&gt;</bpt>NETWORK SERVICES<ept id="1787ed62-067c-49e3-8a8a-a6fa09be510b">&lt;/strong&gt;</ept>, <bpt id="edc6d7d4-7915-41ba-96c6-119cdf9c8345">&lt;strong&gt;</bpt>VIRTUAL NETWORK<ept id="edc6d7d4-7915-41ba-96c6-119cdf9c8345">&lt;/strong&gt;</ept>, <bpt id="1d4f5113-8429-497e-95d3-544113e417a9">&lt;strong&gt;</bpt>ADD LOCAL NETWORK<ept id="1d4f5113-8429-497e-95d3-544113e417a9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure portal, click <bpt id="2eac1f3f-d73f-4f63-b36c-ae8581e9f0ef">&lt;strong&gt;</bpt>NEW<ept id="2eac1f3f-d73f-4f63-b36c-ae8581e9f0ef">&lt;/strong&gt;</ept>, <bpt id="1787ed62-067c-49e3-8a8a-a6fa09be510b">&lt;strong&gt;</bpt>NETWORK SERVICES<ept id="1787ed62-067c-49e3-8a8a-a6fa09be510b">&lt;/strong&gt;</ept>, <bpt id="edc6d7d4-7915-41ba-96c6-119cdf9c8345">&lt;strong&gt;</bpt>VIRTUAL NETWORK<ept id="edc6d7d4-7915-41ba-96c6-119cdf9c8345">&lt;/strong&gt;</ept>, <bpt id="1d4f5113-8429-497e-95d3-544113e417a9">&lt;strong&gt;</bpt>ADD LOCAL NETWORK<ept id="1d4f5113-8429-497e-95d3-544113e417a9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e05dfcf1-2c51-4195-a6a8-9a669eccdd38" xml:space="preserve">
+          <source>Enter:</source>
+          <target state="new">Enter:</target>
+        </trans-unit>
+        <trans-unit id="148439d3-1c84-471c-99fb-af34969f73bf" xml:space="preserve">
+          <source><bpt id="4d74943a-b541-493a-906f-58e35967846e">&lt;strong&gt;</bpt>NAME<ept id="4d74943a-b541-493a-906f-58e35967846e">&lt;/strong&gt;</ept>: Contoso-LNet-EU</source>
+          <target state="new"><bpt id="4d74943a-b541-493a-906f-58e35967846e">&lt;strong&gt;</bpt>NAME<ept id="4d74943a-b541-493a-906f-58e35967846e">&lt;/strong&gt;</ept>: Contoso-LNet-EU</target>
+        </trans-unit>
+        <trans-unit id="9f36deed-978f-4b07-9a54-a286b370aad1" xml:space="preserve">
+          <source><bpt id="458611b1-bab6-434c-9e6d-9231569b230a">&lt;strong&gt;</bpt>VPN DEVICE IP ADDRESS<ept id="458611b1-bab6-434c-9e6d-9231569b230a">&lt;/strong&gt;</ept>: 192.168.0.1 (this address will be updated later)</source>
+          <target state="new"><bpt id="458611b1-bab6-434c-9e6d-9231569b230a">&lt;strong&gt;</bpt>VPN DEVICE IP ADDRESS<ept id="458611b1-bab6-434c-9e6d-9231569b230a">&lt;/strong&gt;</ept>: 192.168.0.1 (this address will be updated later)</target>
+        </trans-unit>
+        <trans-unit id="757239b5-f3e9-4bcc-8a18-ab5c97069a4d" xml:space="preserve">
+          <source>Typically, you’d use the actual external IP address for a VPN device.</source>
+          <target state="new">Typically, you’d use the actual external IP address for a VPN device.</target>
+        </trans-unit>
+        <trans-unit id="2b5d1b96-84ab-4c12-9be9-ce1f5e8b626d" xml:space="preserve">
+          <source>For VNet to VNet configurations, you will use the VPN gateway IP address.</source>
+          <target state="new">For VNet to VNet configurations, you will use the VPN gateway IP address.</target>
+        </trans-unit>
+        <trans-unit id="0ded767c-6fbf-4972-99cf-0cb40111fc56" xml:space="preserve">
+          <source>Given that you have not created the VPN gateways for the two VNets yet, you enter an arbitary IP address and come back to fix it.</source>
+          <target state="new">Given that you have not created the VPN gateways for the two VNets yet, you enter an arbitary IP address and come back to fix it.</target>
+        </trans-unit>
+        <trans-unit id="6145e74e-8a82-4fee-9fb9-1c597fe06d97" xml:space="preserve">
+          <source>Enter:</source>
+          <target state="new">Enter:</target>
+        </trans-unit>
+        <trans-unit id="60c64391-ac98-4597-9982-3a27aae09587" xml:space="preserve">
+          <source><bpt id="1272dee5-9d24-4537-9028-decb7d87d644">&lt;strong&gt;</bpt>ADDRESS SPACE STARTING IP:<ept id="1272dee5-9d24-4537-9028-decb7d87d644">&lt;/strong&gt;</ept> 10.1.0.0</source>
+          <target state="new"><bpt id="1272dee5-9d24-4537-9028-decb7d87d644">&lt;strong&gt;</bpt>ADDRESS SPACE STARTING IP:<ept id="1272dee5-9d24-4537-9028-decb7d87d644">&lt;/strong&gt;</ept> 10.1.0.0</target>
+        </trans-unit>
+        <trans-unit id="c1d30300-db59-412d-888d-0bda6a6ea497" xml:space="preserve">
+          <source><bpt id="17856bfa-5661-429d-a23a-833d67d55472">&lt;strong&gt;</bpt>ADDRESS SPACE CIDR:<ept id="17856bfa-5661-429d-a23a-833d67d55472">&lt;/strong&gt;</ept> /16</source>
+          <target state="new"><bpt id="17856bfa-5661-429d-a23a-833d67d55472">&lt;strong&gt;</bpt>ADDRESS SPACE CIDR:<ept id="17856bfa-5661-429d-a23a-833d67d55472">&lt;/strong&gt;</ept> /16</target>
+        </trans-unit>
+        <trans-unit id="f05305ff-b635-4339-a787-5f0625854aa6" xml:space="preserve">
+          <source>This must correspond exactly to the range that you specified earlier for Contoso-VNet-EU.</source>
+          <target state="new">This must correspond exactly to the range that you specified earlier for Contoso-VNet-EU.</target>
+        </trans-unit>
+        <trans-unit id="72cb4333-d367-416e-a9b6-dbe5d64b4df4" xml:space="preserve">
+          <source><bpt id="32ca0470-47b7-4fb7-8332-353715a1d1ee">&lt;strong&gt;</bpt>To create a local network called Contoso-LNet-US matching the Contoso-VNet-US network address space<ept id="32ca0470-47b7-4fb7-8332-353715a1d1ee">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="32ca0470-47b7-4fb7-8332-353715a1d1ee">&lt;strong&gt;</bpt>To create a local network called Contoso-LNet-US matching the Contoso-VNet-US network address space<ept id="32ca0470-47b7-4fb7-8332-353715a1d1ee">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21924160-6b6a-40ea-9f23-57ad5519d37c" xml:space="preserve">
+          <source>Repeat the last procedure with the following parameters:</source>
+          <target state="new">Repeat the last procedure with the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="68a7e85b-5ec3-4dd6-a792-2f0198dca03c" xml:space="preserve">
+          <source><bpt id="9ffc3073-3d2e-456a-b1c1-80093a4521e2">&lt;strong&gt;</bpt>NAME<ept id="9ffc3073-3d2e-456a-b1c1-80093a4521e2">&lt;/strong&gt;</ept>: Contoso-LNet-US</source>
+          <target state="new"><bpt id="9ffc3073-3d2e-456a-b1c1-80093a4521e2">&lt;strong&gt;</bpt>NAME<ept id="9ffc3073-3d2e-456a-b1c1-80093a4521e2">&lt;/strong&gt;</ept>: Contoso-LNet-US</target>
+        </trans-unit>
+        <trans-unit id="829a8a80-cefa-462a-876f-5b5fe5b585e9" xml:space="preserve">
+          <source><bpt id="a3718873-da43-408b-8c60-a3b1e0d270f6">&lt;strong&gt;</bpt>VPN DEVICE IP ADDRESS<ept id="a3718873-da43-408b-8c60-a3b1e0d270f6">&lt;/strong&gt;</ept>: 192.168.0.1 (this address will be updated later)</source>
+          <target state="new"><bpt id="a3718873-da43-408b-8c60-a3b1e0d270f6">&lt;strong&gt;</bpt>VPN DEVICE IP ADDRESS<ept id="a3718873-da43-408b-8c60-a3b1e0d270f6">&lt;/strong&gt;</ept>: 192.168.0.1 (this address will be updated later)</target>
+        </trans-unit>
+        <trans-unit id="1543af87-f08e-4ac9-9b70-1265dbecf064" xml:space="preserve">
+          <source><bpt id="4a50921b-0f31-494f-ba3e-85b7895e4807">&lt;strong&gt;</bpt>ADDRESS SPACE STARTING IP<ept id="4a50921b-0f31-494f-ba3e-85b7895e4807">&lt;/strong&gt;</ept>: 10.2.0.0</source>
+          <target state="new"><bpt id="4a50921b-0f31-494f-ba3e-85b7895e4807">&lt;strong&gt;</bpt>ADDRESS SPACE STARTING IP<ept id="4a50921b-0f31-494f-ba3e-85b7895e4807">&lt;/strong&gt;</ept>: 10.2.0.0</target>
+        </trans-unit>
+        <trans-unit id="1bcc645a-96d3-4728-8b92-8762a3fd8edf" xml:space="preserve">
+          <source><bpt id="b0699e83-ec01-4dd3-bc30-c18a8d945c75">&lt;strong&gt;</bpt>ADDRESS SPACE CIDR<ept id="b0699e83-ec01-4dd3-bc30-c18a8d945c75">&lt;/strong&gt;</ept>: /16</source>
+          <target state="new"><bpt id="b0699e83-ec01-4dd3-bc30-c18a8d945c75">&lt;strong&gt;</bpt>ADDRESS SPACE CIDR<ept id="b0699e83-ec01-4dd3-bc30-c18a8d945c75">&lt;/strong&gt;</ept>: /16</target>
+        </trans-unit>
+        <trans-unit id="760c4774-26e8-4793-94d6-d7b098295884" xml:space="preserve">
+          <source>There are two parts in this configuration.</source>
+          <target state="new">There are two parts in this configuration.</target>
+        </trans-unit>
+        <trans-unit id="4e0ad130-63a8-4bc0-ab92-cb49a16aa356" xml:space="preserve">
+          <source>First you configure a VNet site-to-site connection to a local network, and then you create a dynamic routing VPN.</source>
+          <target state="new">First you configure a VNet site-to-site connection to a local network, and then you create a dynamic routing VPN.</target>
+        </trans-unit>
+        <trans-unit id="a82c5a97-919b-4c1f-8bd2-da4ae60a9db7" xml:space="preserve">
+          <source>VNet to VNet requires Azure VPN gateways with dynamic routing VPNs.</source>
+          <target state="new">VNet to VNet requires Azure VPN gateways with dynamic routing VPNs.</target>
+        </trans-unit>
+        <trans-unit id="db3d10cb-5161-4df8-a35e-464e1a87e2f6" xml:space="preserve">
+          <source>Azure static routing VPNs are not supported.</source>
+          <target state="new">Azure static routing VPNs are not supported.</target>
+        </trans-unit>
+        <trans-unit id="a8029d5e-f04d-417c-927d-d33590ee4e02" xml:space="preserve">
+          <source><bpt id="7492f539-94e3-4048-9396-e6e59c8eb665">&lt;strong&gt;</bpt>To configure the Contoso-VNet-EU site-to-site connection to Contoso-LNet-US<ept id="7492f539-94e3-4048-9396-e6e59c8eb665">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7492f539-94e3-4048-9396-e6e59c8eb665">&lt;strong&gt;</bpt>To configure the Contoso-VNet-EU site-to-site connection to Contoso-LNet-US<ept id="7492f539-94e3-4048-9396-e6e59c8eb665">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ca4993a-4c03-4a55-a215-85e0b29c36b8" xml:space="preserve">
+          <source>From the Azure portal, click <bpt id="019eaab8-47d7-4f0f-a651-2eb0563019ea">&lt;strong&gt;</bpt>NETWORKS<ept id="019eaab8-47d7-4f0f-a651-2eb0563019ea">&lt;/strong&gt;</ept> on the left pane,</source>
+          <target state="new">From the Azure portal, click <bpt id="019eaab8-47d7-4f0f-a651-2eb0563019ea">&lt;strong&gt;</bpt>NETWORKS<ept id="019eaab8-47d7-4f0f-a651-2eb0563019ea">&lt;/strong&gt;</ept> on the left pane,</target>
+        </trans-unit>
+        <trans-unit id="0f650327-dc7a-4526-9bfe-8c9ccd1a8e3e" xml:space="preserve">
+          <source>Click <bpt id="6b194e6e-6522-43c2-b718-3d42c6c63942">&lt;strong&gt;</bpt>Contoso-VNet-EU<ept id="6b194e6e-6522-43c2-b718-3d42c6c63942">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6b194e6e-6522-43c2-b718-3d42c6c63942">&lt;strong&gt;</bpt>Contoso-VNet-EU<ept id="6b194e6e-6522-43c2-b718-3d42c6c63942">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75c866e7-4cb5-4725-9d0a-f5c90a0889ac" xml:space="preserve">
+          <source>Click the <bpt id="ad5e6750-f569-43d4-bd84-23b673f9aacc">&lt;strong&gt;</bpt>CONFIGUE<ept id="ad5e6750-f569-43d4-bd84-23b673f9aacc">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="ad5e6750-f569-43d4-bd84-23b673f9aacc">&lt;strong&gt;</bpt>CONFIGUE<ept id="ad5e6750-f569-43d4-bd84-23b673f9aacc">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="f62374e3-3e65-4fb1-9e14-dd76769cd087" xml:space="preserve">
+          <source>Check <bpt id="83ef348f-5e35-4bc8-8d93-f1944b416488">&lt;strong&gt;</bpt>Connect to local network<ept id="83ef348f-5e35-4bc8-8d93-f1944b416488">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Check <bpt id="83ef348f-5e35-4bc8-8d93-f1944b416488">&lt;strong&gt;</bpt>Connect to local network<ept id="83ef348f-5e35-4bc8-8d93-f1944b416488">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2679d7cf-3bbd-44bb-917b-af0900aede49" xml:space="preserve">
+          <source>In <bpt id="4b51e565-674b-4263-afb3-dc60a8f423a1">&lt;strong&gt;</bpt>LOCAL NETWORK<ept id="4b51e565-674b-4263-afb3-dc60a8f423a1">&lt;/strong&gt;</ept>, select <bpt id="9fe6629a-f2c9-41d9-b13b-a025832885e0">&lt;strong&gt;</bpt>Contoso-LNet-US<ept id="9fe6629a-f2c9-41d9-b13b-a025832885e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="4b51e565-674b-4263-afb3-dc60a8f423a1">&lt;strong&gt;</bpt>LOCAL NETWORK<ept id="4b51e565-674b-4263-afb3-dc60a8f423a1">&lt;/strong&gt;</ept>, select <bpt id="9fe6629a-f2c9-41d9-b13b-a025832885e0">&lt;strong&gt;</bpt>Contoso-LNet-US<ept id="9fe6629a-f2c9-41d9-b13b-a025832885e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a276376-e9ec-480c-b1e0-cdf0edfa0db3" xml:space="preserve">
+          <source>Click <bpt id="984ede0d-c16b-441d-959e-1dd68bb38b20">&lt;strong&gt;</bpt>Add gateway subnet<ept id="984ede0d-c16b-441d-959e-1dd68bb38b20">&lt;/strong&gt;</ept> in the virtual network address spaces section.</source>
+          <target state="new">Click <bpt id="984ede0d-c16b-441d-959e-1dd68bb38b20">&lt;strong&gt;</bpt>Add gateway subnet<ept id="984ede0d-c16b-441d-959e-1dd68bb38b20">&lt;/strong&gt;</ept> in the virtual network address spaces section.</target>
+        </trans-unit>
+        <trans-unit id="034a7380-ad25-4098-a586-3187911809c6" xml:space="preserve">
+          <source>Click <bpt id="0f028e73-5534-4171-9ff1-0752a2a470f0">&lt;strong&gt;</bpt>SAVE<ept id="0f028e73-5534-4171-9ff1-0752a2a470f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0f028e73-5534-4171-9ff1-0752a2a470f0">&lt;strong&gt;</bpt>SAVE<ept id="0f028e73-5534-4171-9ff1-0752a2a470f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="acf0771f-7b43-4b3e-a308-cd8de1218efb" xml:space="preserve">
+          <source>Click <bpt id="63e8b3d9-8c3e-43c0-a6e2-c3a267f092a4">&lt;strong&gt;</bpt>OK<ept id="63e8b3d9-8c3e-43c0-a6e2-c3a267f092a4">&lt;/strong&gt;</ept> to confirm.</source>
+          <target state="new">Click <bpt id="63e8b3d9-8c3e-43c0-a6e2-c3a267f092a4">&lt;strong&gt;</bpt>OK<ept id="63e8b3d9-8c3e-43c0-a6e2-c3a267f092a4">&lt;/strong&gt;</ept> to confirm.</target>
+        </trans-unit>
+        <trans-unit id="2615f86b-cc18-4918-a41d-13de3302e280" xml:space="preserve">
+          <source><bpt id="bd16df7f-154e-4517-b1dd-413505ba43dd">&lt;strong&gt;</bpt>To create a VPN gateway for Contoso-VNet-EU<ept id="bd16df7f-154e-4517-b1dd-413505ba43dd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bd16df7f-154e-4517-b1dd-413505ba43dd">&lt;strong&gt;</bpt>To create a VPN gateway for Contoso-VNet-EU<ept id="bd16df7f-154e-4517-b1dd-413505ba43dd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92e19a64-85cf-4972-882e-097bee66e04f" xml:space="preserve">
+          <source>From the Azure portal, click the <bpt id="87c14458-7d40-4e40-8496-770a81f316f0">&lt;strong&gt;</bpt>DASHBOARD<ept id="87c14458-7d40-4e40-8496-770a81f316f0">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">From the Azure portal, click the <bpt id="87c14458-7d40-4e40-8496-770a81f316f0">&lt;strong&gt;</bpt>DASHBOARD<ept id="87c14458-7d40-4e40-8496-770a81f316f0">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="f83ce682-e866-49cc-a688-637462e5e861" xml:space="preserve">
+          <source>Click <bpt id="966465d6-fb69-46f6-853b-0e35717f4ad0">&lt;strong&gt;</bpt>CREATE GATEWAY<ept id="966465d6-fb69-46f6-853b-0e35717f4ad0">&lt;/strong&gt;</ept> on the bottom of the page, and then click <bpt id="7fc9482d-9b30-414c-b27e-5cf319448aac">&lt;strong&gt;</bpt>Dynamic Routing<ept id="7fc9482d-9b30-414c-b27e-5cf319448aac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="966465d6-fb69-46f6-853b-0e35717f4ad0">&lt;strong&gt;</bpt>CREATE GATEWAY<ept id="966465d6-fb69-46f6-853b-0e35717f4ad0">&lt;/strong&gt;</ept> on the bottom of the page, and then click <bpt id="7fc9482d-9b30-414c-b27e-5cf319448aac">&lt;strong&gt;</bpt>Dynamic Routing<ept id="7fc9482d-9b30-414c-b27e-5cf319448aac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="473b2701-aab9-45ba-9824-70541581cda8" xml:space="preserve">
+          <source>Click <bpt id="a966bd0b-3f9a-4a05-8f5d-268c26e167b4">&lt;strong&gt;</bpt>Yes<ept id="a966bd0b-3f9a-4a05-8f5d-268c26e167b4">&lt;/strong&gt;</ept> to confirm.</source>
+          <target state="new">Click <bpt id="a966bd0b-3f9a-4a05-8f5d-268c26e167b4">&lt;strong&gt;</bpt>Yes<ept id="a966bd0b-3f9a-4a05-8f5d-268c26e167b4">&lt;/strong&gt;</ept> to confirm.</target>
+        </trans-unit>
+        <trans-unit id="d7a69ea7-6ba0-4a62-8b55-c300a1c72d4b" xml:space="preserve">
+          <source>Notice the gateway graphic on the page changes to yellow and says Creating Gateway.</source>
+          <target state="new">Notice the gateway graphic on the page changes to yellow and says Creating Gateway.</target>
+        </trans-unit>
+        <trans-unit id="650f25c6-3b48-44f7-824c-767698f8b398" xml:space="preserve">
+          <source>It typically takes about 15 minutes for the gateway to create.</source>
+          <target state="new">It typically takes about 15 minutes for the gateway to create.</target>
+        </trans-unit>
+        <trans-unit id="1e66a529-f126-450c-be18-8a3fd31d7580" xml:space="preserve">
+          <source>When the gateway status changes to Connecting, the IP address for each Gateway will be visible in the Dashboard.</source>
+          <target state="new">When the gateway status changes to Connecting, the IP address for each Gateway will be visible in the Dashboard.</target>
+        </trans-unit>
+        <trans-unit id="7ff5e1ba-899a-4f37-b099-dc0338a6be35" xml:space="preserve">
+          <source>Write down the IP address that corresponds to each VNet, taking care not to mix them up.</source>
+          <target state="new">Write down the IP address that corresponds to each VNet, taking care not to mix them up.</target>
+        </trans-unit>
+        <trans-unit id="f2753d04-90a9-47ff-a963-d3b1a84a8614" xml:space="preserve">
+          <source>These are the IP addresses that will be used when you edit your placeholder IP addresses for the VPN Device in Local Networks.</source>
+          <target state="new">These are the IP addresses that will be used when you edit your placeholder IP addresses for the VPN Device in Local Networks.</target>
+        </trans-unit>
+        <trans-unit id="e8e9ddb7-0b56-4a42-b802-2ced7a9dede3" xml:space="preserve">
+          <source>Make a copy of the <bpt id="545eb4dd-dde4-4b5c-b36d-3cd59046cf92">&lt;strong&gt;</bpt>GATEWAY IP ADDRESS<ept id="545eb4dd-dde4-4b5c-b36d-3cd59046cf92">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Make a copy of the <bpt id="545eb4dd-dde4-4b5c-b36d-3cd59046cf92">&lt;strong&gt;</bpt>GATEWAY IP ADDRESS<ept id="545eb4dd-dde4-4b5c-b36d-3cd59046cf92">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8070cf15-b670-4ceb-8559-3382248eabf1" xml:space="preserve">
+          <source>You will use it to configure the VPN gateway IP address for Contoso-VNet-EU in the next section.</source>
+          <target state="new">You will use it to configure the VPN gateway IP address for Contoso-VNet-EU in the next section.</target>
+        </trans-unit>
+        <trans-unit id="8954113b-979b-41ae-a169-d8d0bcbc665c" xml:space="preserve">
+          <source><bpt id="eb457035-c255-4183-b04c-75ebe9ca87ca">&lt;strong&gt;</bpt>To create a VPN gateway for Contoso-VNet-EU<ept id="eb457035-c255-4183-b04c-75ebe9ca87ca">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="eb457035-c255-4183-b04c-75ebe9ca87ca">&lt;strong&gt;</bpt>To create a VPN gateway for Contoso-VNet-EU<ept id="eb457035-c255-4183-b04c-75ebe9ca87ca">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="109e24a3-1443-4188-9ee5-c45d05ad692a" xml:space="preserve">
+          <source>Repeat the last two procedure to configure the Contoso-VNet-US site-to-site connectivity to Contoso-LNet-EU, and the creat a VPN gateway for Contoso-Vnet-US.</source>
+          <target state="new">Repeat the last two procedure to configure the Contoso-VNet-US site-to-site connectivity to Contoso-LNet-EU, and the creat a VPN gateway for Contoso-Vnet-US.</target>
+        </trans-unit>
+        <trans-unit id="5febdd4a-dfcd-4043-ab36-23c6c90c4a71" xml:space="preserve">
+          <source>When you are done, you will have the VPN gateway IP address for Contoso-VNet-US.</source>
+          <target state="new">When you are done, you will have the VPN gateway IP address for Contoso-VNet-US.</target>
+        </trans-unit>
+        <trans-unit id="788dd319-d092-431e-9191-e81992f248e3" xml:space="preserve">
+          <source>In the last section, you create a VPN gateway for each of the VNets.</source>
+          <target state="new">In the last section, you create a VPN gateway for each of the VNets.</target>
+        </trans-unit>
+        <trans-unit id="17478e58-9280-4127-a09f-f1c5ee4377d1" xml:space="preserve">
+          <source>You have got the IP addresses of the VPN gateways.</source>
+          <target state="new">You have got the IP addresses of the VPN gateways.</target>
+        </trans-unit>
+        <trans-unit id="aa235387-d0c2-4334-8243-5c4c7b04c5e1" xml:space="preserve">
+          <source>Now you can go back to configure local network VPN device IP addresses.</source>
+          <target state="new">Now you can go back to configure local network VPN device IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="67de0549-cc35-4ed0-8cea-07d9149f8b86" xml:space="preserve">
+          <source><bpt id="0f09e75c-436c-474f-bc91-5a57e7725cbe">&lt;strong&gt;</bpt>To configure the VPN device IP address for Contoso-LNet-EU<ept id="0f09e75c-436c-474f-bc91-5a57e7725cbe">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="0f09e75c-436c-474f-bc91-5a57e7725cbe">&lt;strong&gt;</bpt>To configure the VPN device IP address for Contoso-LNet-EU<ept id="0f09e75c-436c-474f-bc91-5a57e7725cbe">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="8cc2a423-c84f-467c-8807-f33653327929" xml:space="preserve">
+          <source>From the Azure portal, click <bpt id="49264096-fbd9-4331-9288-60e7635bee52">&lt;strong&gt;</bpt>NETWORKS<ept id="49264096-fbd9-4331-9288-60e7635bee52">&lt;/strong&gt;</ept> on the left pane.</source>
+          <target state="new">From the Azure portal, click <bpt id="49264096-fbd9-4331-9288-60e7635bee52">&lt;strong&gt;</bpt>NETWORKS<ept id="49264096-fbd9-4331-9288-60e7635bee52">&lt;/strong&gt;</ept> on the left pane.</target>
+        </trans-unit>
+        <trans-unit id="466889c6-6f44-4075-a806-7d0aa68d8cc9" xml:space="preserve">
+          <source>Click <bpt id="fad84838-05c4-4a55-a05f-90805646e232">&lt;strong&gt;</bpt>LOCAL NETWORKS<ept id="fad84838-05c4-4a55-a05f-90805646e232">&lt;/strong&gt;</ept> from the top.</source>
+          <target state="new">Click <bpt id="fad84838-05c4-4a55-a05f-90805646e232">&lt;strong&gt;</bpt>LOCAL NETWORKS<ept id="fad84838-05c4-4a55-a05f-90805646e232">&lt;/strong&gt;</ept> from the top.</target>
+        </trans-unit>
+        <trans-unit id="dd05e132-a6a9-429c-b0a6-6b48fe3cf63a" xml:space="preserve">
+          <source>Click <bpt id="041c8dd0-3aa3-417e-8ce9-5b0b2c2f9952">&lt;strong&gt;</bpt>Contoso-LNet-EU<ept id="041c8dd0-3aa3-417e-8ce9-5b0b2c2f9952">&lt;/strong&gt;</ept>, and then click <bpt id="657ba7f0-2ebc-4bfd-bd7c-c464789a3aef">&lt;strong&gt;</bpt>EDIT<ept id="657ba7f0-2ebc-4bfd-bd7c-c464789a3aef">&lt;/strong&gt;</ept> on the bottom.</source>
+          <target state="new">Click <bpt id="041c8dd0-3aa3-417e-8ce9-5b0b2c2f9952">&lt;strong&gt;</bpt>Contoso-LNet-EU<ept id="041c8dd0-3aa3-417e-8ce9-5b0b2c2f9952">&lt;/strong&gt;</ept>, and then click <bpt id="657ba7f0-2ebc-4bfd-bd7c-c464789a3aef">&lt;strong&gt;</bpt>EDIT<ept id="657ba7f0-2ebc-4bfd-bd7c-c464789a3aef">&lt;/strong&gt;</ept> on the bottom.</target>
+        </trans-unit>
+        <trans-unit id="08e4daf5-9082-4d5f-ba7f-8a0f6eeae56a" xml:space="preserve">
+          <source>Update <bpt id="ce065d23-4a96-47f9-b42a-fcac3bbdbbe6">&lt;strong&gt;</bpt>VPN DEVICE IP ADDRESS<ept id="ce065d23-4a96-47f9-b42a-fcac3bbdbbe6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Update <bpt id="ce065d23-4a96-47f9-b42a-fcac3bbdbbe6">&lt;strong&gt;</bpt>VPN DEVICE IP ADDRESS<ept id="ce065d23-4a96-47f9-b42a-fcac3bbdbbe6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6998f2f4-7c18-4021-bb22-b41f355aaf69" xml:space="preserve">
+          <source>This is the address you get from the DASHBOARD tab of Contoso-VNET-EU.</source>
+          <target state="new">This is the address you get from the DASHBOARD tab of Contoso-VNET-EU.</target>
+        </trans-unit>
+        <trans-unit id="0f4b9065-4bef-4d17-aadb-5cae43fa251e" xml:space="preserve">
+          <source>Click the right button.</source>
+          <target state="new">Click the right button.</target>
+        </trans-unit>
+        <trans-unit id="9a32c31c-eacd-4508-a69c-12b448db3f36" xml:space="preserve">
+          <source>Click the check button.</source>
+          <target state="new">Click the check button.</target>
+        </trans-unit>
+        <trans-unit id="bd275926-c8a1-4b8e-bacf-bab7239e1355" xml:space="preserve">
+          <source><bpt id="51d2a095-727b-412b-aa70-3dd328f70e81">&lt;strong&gt;</bpt>To configure the VPN device IP address for Contoso-LNet-US<ept id="51d2a095-727b-412b-aa70-3dd328f70e81">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="51d2a095-727b-412b-aa70-3dd328f70e81">&lt;strong&gt;</bpt>To configure the VPN device IP address for Contoso-LNet-US<ept id="51d2a095-727b-412b-aa70-3dd328f70e81">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="36e2eff0-cc93-4680-8ba0-f812e21e3409" xml:space="preserve">
+          <source>Repeat the last procedure to configure the VPN device IP address for Contoso-LNet-US.</source>
+          <target state="new">Repeat the last procedure to configure the VPN device IP address for Contoso-LNet-US.</target>
+        </trans-unit>
+        <trans-unit id="58151efb-fe2e-4887-80ca-3e310e34623a" xml:space="preserve">
+          <source>The Vnet gateways use a shared key to authenticate connections between the virtual networks.</source>
+          <target state="new">The Vnet gateways use a shared key to authenticate connections between the virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="3fff6f84-1735-4dda-b508-c374cfa22d87" xml:space="preserve">
+          <source>The key can't be configured from the Azure portal.</source>
+          <target state="new">The key can't be configured from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="e2ce976d-2a1b-45a5-8096-747691645bde" xml:space="preserve">
+          <source>You must use PowerShell or .NET SDK.</source>
+          <target state="new">You must use PowerShell or .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="cdba5a89-f49d-47c9-a053-69e906c72e99" xml:space="preserve">
+          <source><bpt id="4c6a05b4-c085-472a-a0ef-807f1544ecae">&lt;strong&gt;</bpt>To set the keys<ept id="4c6a05b4-c085-472a-a0ef-807f1544ecae">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4c6a05b4-c085-472a-a0ef-807f1544ecae">&lt;strong&gt;</bpt>To set the keys<ept id="4c6a05b4-c085-472a-a0ef-807f1544ecae">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f8b51cf-fb52-4825-a713-3053745cfd71" xml:space="preserve">
+          <source>From your workstation, open <bpt id="8b1d251d-9f79-4a10-899a-a74743b830e7">&lt;strong&gt;</bpt>Windows PowerShell ISE<ept id="8b1d251d-9f79-4a10-899a-a74743b830e7">&lt;/strong&gt;</ept> or the Windows PowerShell console.</source>
+          <target state="new">From your workstation, open <bpt id="8b1d251d-9f79-4a10-899a-a74743b830e7">&lt;strong&gt;</bpt>Windows PowerShell ISE<ept id="8b1d251d-9f79-4a10-899a-a74743b830e7">&lt;/strong&gt;</ept> or the Windows PowerShell console.</target>
+        </trans-unit>
+        <trans-unit id="32b35423-c61f-4eae-aa25-972edff06366" xml:space="preserve">
+          <source>Update the parameters in this follow script and run it:</source>
+          <target state="new">Update the parameters in this follow script and run it:</target>
+        </trans-unit>
+        <trans-unit id="09627c6c-70fc-4033-a847-555c3fdcb698" xml:space="preserve">
+          <source>Without any VMs deployed to the VNets, you can use the virtual network visual diagram the VNet Dashboard page on the Azure portal to check the connection status:</source>
+          <target state="new">Without any VMs deployed to the VNets, you can use the virtual network visual diagram the VNet Dashboard page on the Azure portal to check the connection status:</target>
+        </trans-unit>
+        <trans-unit id="677fdfd0-881e-4320-ae07-7394ca4f1ece" xml:space="preserve">
+          <source><bpt id="1ec8740a-0561-46c5-b16c-86fef5eebd9b">&lt;linkText&gt;</bpt>HDInsight HBase replication virtual network VPN connection status<ept id="1ec8740a-0561-46c5-b16c-86fef5eebd9b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ec8740a-0561-46c5-b16c-86fef5eebd9b">&lt;linkText&gt;</bpt>HDInsight HBase replication virtual network VPN connection status<ept id="1ec8740a-0561-46c5-b16c-86fef5eebd9b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9383b686-d6ab-4381-8099-1a6800c4a99b" xml:space="preserve">
+          <source>In this tutorial you have learned how to configure a VPN connection between two Azure virtual networks.</source>
+          <target state="new">In this tutorial you have learned how to configure a VPN connection between two Azure virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="49acfabd-b9aa-4842-b529-3509ffe918b2" xml:space="preserve">
+          <source>The other two articles in the series cover:</source>
+          <target state="new">The other two articles in the series cover:</target>
+        </trans-unit>
+        <trans-unit id="7c16ca4a-bda4-4ee0-8fa1-9985accda450" xml:space="preserve">
+          <source><bpt id="e06cc19b-7e56-4d0e-9683-e95c75681943">&lt;linkText&gt;</bpt>Configure DNS between two Azure virtual networks[hdinsight-hbase-geo-replication-dns]<ept id="e06cc19b-7e56-4d0e-9683-e95c75681943">&lt;/linkText&gt;</ept><bpt id="e06cc19b-7e56-4d0e-9683-e95c75681943">&lt;title&gt;</bpt><ept id="e06cc19b-7e56-4d0e-9683-e95c75681943">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e06cc19b-7e56-4d0e-9683-e95c75681943">&lt;linkText&gt;</bpt>Configure DNS between two Azure virtual networks[hdinsight-hbase-geo-replication-dns]<ept id="e06cc19b-7e56-4d0e-9683-e95c75681943">&lt;/linkText&gt;</ept><bpt id="e06cc19b-7e56-4d0e-9683-e95c75681943">&lt;title&gt;</bpt><ept id="e06cc19b-7e56-4d0e-9683-e95c75681943">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12922955-195d-481d-abbb-12cbf16257d6" xml:space="preserve">
+          <source><bpt id="59e3a7cb-0136-41cc-bf25-36510ca87a0c">&lt;linkText&gt;</bpt>Configure HBase geo replication[hdinsight-hbase-geo-replication]<ept id="59e3a7cb-0136-41cc-bf25-36510ca87a0c">&lt;/linkText&gt;</ept><bpt id="59e3a7cb-0136-41cc-bf25-36510ca87a0c">&lt;title&gt;</bpt><ept id="59e3a7cb-0136-41cc-bf25-36510ca87a0c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="59e3a7cb-0136-41cc-bf25-36510ca87a0c">&lt;linkText&gt;</bpt>Configure HBase geo replication[hdinsight-hbase-geo-replication]<ept id="59e3a7cb-0136-41cc-bf25-36510ca87a0c">&lt;/linkText&gt;</ept><bpt id="59e3a7cb-0136-41cc-bf25-36510ca87a0c">&lt;title&gt;</bpt><ept id="59e3a7cb-0136-41cc-bf25-36510ca87a0c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37278e5e-463b-4df7-9fd6-cfb20b45a1f2" xml:space="preserve">
+          <source>hdinsight-hbase-geo-replication-configure-DNS.md</source>
+          <target state="new">hdinsight-hbase-geo-replication-configure-DNS.md</target>
+        </trans-unit>
+        <trans-unit id="6d46af0c-f032-46d1-85b7-a577dfc57c20" xml:space="preserve">
+          <source>hdinsight-hbase-geo-replication.md</source>
+          <target state="new">hdinsight-hbase-geo-replication.md</target>
+        </trans-unit>
+        <trans-unit id="e3ceaa0a-8a13-494d-9a72-2f137e1df8c8" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="7bfc798d-2afd-45af-8d50-9ac358f29066" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="69511566-1614-4607-baf8-8daa10e61749" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="ceff5c4a-87a0-4338-a261-2ff466f8f8a5" xml:space="preserve">
+          <source>https://portal.azure.com</source>
+          <target state="new">https://portal.azure.com</target>
+        </trans-unit>
+        <trans-unit id="4517e59c-3dcc-4a40-a695-8a22dd866e83" xml:space="preserve">
+          <source>../install-configure-powershell</source>
+          <target state="new">../install-configure-powershell</target>
+        </trans-unit>
+        <trans-unit id="fe438e9a-b9e0-4450-bc67-14cb956cfe71" xml:space="preserve">
+          <source>../hdinsight-hbase-geo-replication/</source>
+          <target state="new">../hdinsight-hbase-geo-replication/</target>
+        </trans-unit>
+        <trans-unit id="c40bd124-4404-4a0e-9fba-65cf0cc02b35" xml:space="preserve">
+          <source>../hdinsight-hbase-geo-replication-configure-DNS/</source>
+          <target state="new">../hdinsight-hbase-geo-replication-configure-DNS/</target>
+        </trans-unit>
+        <trans-unit id="b358d96c-7f74-40e6-a218-b2262a507a96" xml:space="preserve">
+          <source>./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png</source>
+          <target state="new">./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png</target>
+        </trans-unit>
+        <trans-unit id="760cd0ca-fda0-4edc-99d1-9e4538ad4ca0" xml:space="preserve">
+          <source>./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png</source>
+          <target state="new">./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png</target>
+        </trans-unit>
+        <trans-unit id="79cc73d9-fa87-4ffb-8737-01ad01b228db" xml:space="preserve">
+          <source>./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png</source>
+          <target state="new">./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png</target>
+        </trans-unit>
+      </group>
+      <group id="933746c8-a28f-4f78-be5b-45dbc7258fd9" />
+    </body>
+  </file>
+</xliff>

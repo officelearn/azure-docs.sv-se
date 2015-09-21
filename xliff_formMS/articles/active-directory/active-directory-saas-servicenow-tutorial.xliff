@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d7394141-7b99-4bd3-95c8-338e293dc6bc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d7394141-7b99-4bd3-95c8-338e293dc6bc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3f570d03-eead-4bc8-a045-cb1f28abd98d">
+        <trans-unit id="22843dc3-e577-4e16-975f-54dbfb0d1cef" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with ServiceNow | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with ServiceNow | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f67ecec2-1c44-4d59-90e8-d6b16e151b8d" xml:space="preserve">
+          <source>Learn how to use ServiceNow with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use ServiceNow with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="32693567-22e1-40c0-8043-4dbfc4855204" xml:space="preserve">
+          <source>For feedback, click <bpt id="e14f7220-4221-4879-8539-68a658b9f347">&lt;linkText&gt;</bpt>here<ept id="e14f7220-4221-4879-8539-68a658b9f347">&lt;/linkText&gt;</ept><bpt id="e14f7220-4221-4879-8539-68a658b9f347">&lt;title&gt;</bpt><ept id="e14f7220-4221-4879-8539-68a658b9f347">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="e14f7220-4221-4879-8539-68a658b9f347">&lt;linkText&gt;</bpt>here<ept id="e14f7220-4221-4879-8539-68a658b9f347">&lt;/linkText&gt;</ept><bpt id="e14f7220-4221-4879-8539-68a658b9f347">&lt;title&gt;</bpt><ept id="e14f7220-4221-4879-8539-68a658b9f347">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d5534bb-06f7-4d14-a832-6df7ee0a1f86" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and ServiceNow.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and ServiceNow.</target>
+        </trans-unit>
+        <trans-unit id="c2edcc8f-f6db-45fe-9c43-4298f2ab31b2" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="719e2818-cbbb-4077-964f-555dde64e53d" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="3cb39a9e-8b26-48d8-abf8-7fac3fb6a8de" xml:space="preserve">
+          <source>A tenant in ServiceNow</source>
+          <target state="new">A tenant in ServiceNow</target>
+        </trans-unit>
+        <trans-unit id="1ad52e1f-c25e-4d10-9afb-12b2dd25a375" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to ServiceNow will be able to single sign into the application at your ServiceNow company site (service provider initiated sign on), or using the <bpt id="90e1c327-9eee-44d6-9bcd-b3782752333c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="90e1c327-9eee-44d6-9bcd-b3782752333c">&lt;/linkText&gt;</ept><bpt id="90e1c327-9eee-44d6-9bcd-b3782752333c">&lt;title&gt;</bpt><ept id="90e1c327-9eee-44d6-9bcd-b3782752333c">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to ServiceNow will be able to single sign into the application at your ServiceNow company site (service provider initiated sign on), or using the <bpt id="90e1c327-9eee-44d6-9bcd-b3782752333c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="90e1c327-9eee-44d6-9bcd-b3782752333c">&lt;/linkText&gt;</ept><bpt id="90e1c327-9eee-44d6-9bcd-b3782752333c">&lt;title&gt;</bpt><ept id="90e1c327-9eee-44d6-9bcd-b3782752333c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78c7c880-0020-4a08-9c39-0fa27d125af4" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="01513268-3d30-459e-a0f7-1e2cdc9842ff" xml:space="preserve">
+          <source>Enabling the application integration for ServiceNow</source>
+          <target state="new">Enabling the application integration for ServiceNow</target>
+        </trans-unit>
+        <trans-unit id="bde880da-fdfc-4c57-ae37-f51fd7feb9f3" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="ad09737d-e2bb-4622-a880-b5786def82cf" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="fe7e6b9d-5c15-4a7d-be6d-57a3b96b22bb" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="a43948c7-b73d-4192-9113-47048be4729c" xml:space="preserve">
+          <source><bpt id="0fb431ab-30ee-43dd-84d2-62b3659f743c">&lt;linkText&gt;</bpt>Scenario<ept id="0fb431ab-30ee-43dd-84d2-62b3659f743c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0fb431ab-30ee-43dd-84d2-62b3659f743c">&lt;linkText&gt;</bpt>Scenario<ept id="0fb431ab-30ee-43dd-84d2-62b3659f743c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5b26b07-83be-427e-9c05-42efe05cf9a2" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for ServiceNow.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for ServiceNow.</target>
+        </trans-unit>
+        <trans-unit id="955afc07-7c59-428b-b0b6-3b0ad1e69e12" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="22d57718-1e93-4d4d-af08-d88fa99a2d92">&lt;strong&gt;</bpt>Active Directory<ept id="22d57718-1e93-4d4d-af08-d88fa99a2d92">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="22d57718-1e93-4d4d-af08-d88fa99a2d92">&lt;strong&gt;</bpt>Active Directory<ept id="22d57718-1e93-4d4d-af08-d88fa99a2d92">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02b88eab-18be-424b-857a-7dbd4aacd9d5" xml:space="preserve">
+          <source><bpt id="f66083a0-b1da-44f3-b92d-b81439b98585">&lt;linkText&gt;</bpt>Active Directory<ept id="f66083a0-b1da-44f3-b92d-b81439b98585">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f66083a0-b1da-44f3-b92d-b81439b98585">&lt;linkText&gt;</bpt>Active Directory<ept id="f66083a0-b1da-44f3-b92d-b81439b98585">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="279b78f5-7d33-49d2-ac4f-5c1fe0899608" xml:space="preserve">
+          <source>From the <bpt id="afbb41f6-78cc-432a-bec5-b201f39359b0">&lt;strong&gt;</bpt>Directory<ept id="afbb41f6-78cc-432a-bec5-b201f39359b0">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="afbb41f6-78cc-432a-bec5-b201f39359b0">&lt;strong&gt;</bpt>Directory<ept id="afbb41f6-78cc-432a-bec5-b201f39359b0">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="b58afad8-31cd-4690-8aa2-51fa17b12218" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="57fcc2b9-5c2d-4367-b1d4-3fec0ac8feb7">&lt;strong&gt;</bpt>Applications<ept id="57fcc2b9-5c2d-4367-b1d4-3fec0ac8feb7">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="57fcc2b9-5c2d-4367-b1d4-3fec0ac8feb7">&lt;strong&gt;</bpt>Applications<ept id="57fcc2b9-5c2d-4367-b1d4-3fec0ac8feb7">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="ff819833-e94a-4d1a-930e-511b3f42ad6b" xml:space="preserve">
+          <source><bpt id="9af98683-c400-40a4-8c76-695cc5017997">&lt;linkText&gt;</bpt>Applications<ept id="9af98683-c400-40a4-8c76-695cc5017997">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9af98683-c400-40a4-8c76-695cc5017997">&lt;linkText&gt;</bpt>Applications<ept id="9af98683-c400-40a4-8c76-695cc5017997">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b130bbf-4227-4422-9222-e7d854388e95" xml:space="preserve">
+          <source>Click <bpt id="1a963a0a-cbbc-4ed6-9331-ce8d4ae26f59">&lt;strong&gt;</bpt>Add<ept id="1a963a0a-cbbc-4ed6-9331-ce8d4ae26f59">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="1a963a0a-cbbc-4ed6-9331-ce8d4ae26f59">&lt;strong&gt;</bpt>Add<ept id="1a963a0a-cbbc-4ed6-9331-ce8d4ae26f59">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="e4014f89-2676-4551-ba14-441850c679cb" xml:space="preserve">
+          <source><bpt id="8b7aaf18-0cbb-442c-9ef0-85ea6e962273">&lt;linkText&gt;</bpt>Add application<ept id="8b7aaf18-0cbb-442c-9ef0-85ea6e962273">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8b7aaf18-0cbb-442c-9ef0-85ea6e962273">&lt;linkText&gt;</bpt>Add application<ept id="8b7aaf18-0cbb-442c-9ef0-85ea6e962273">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79f05183-f831-4eb7-ad10-5f5165ef5a37" xml:space="preserve">
+          <source>On the <bpt id="a28d4310-82b3-457d-81d0-fd30afccce79">&lt;strong&gt;</bpt>What do you want to do<ept id="a28d4310-82b3-457d-81d0-fd30afccce79">&lt;/strong&gt;</ept> dialog, click <bpt id="e3170ad7-a440-428d-98b6-021f28a671a2">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="e3170ad7-a440-428d-98b6-021f28a671a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="a28d4310-82b3-457d-81d0-fd30afccce79">&lt;strong&gt;</bpt>What do you want to do<ept id="a28d4310-82b3-457d-81d0-fd30afccce79">&lt;/strong&gt;</ept> dialog, click <bpt id="e3170ad7-a440-428d-98b6-021f28a671a2">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="e3170ad7-a440-428d-98b6-021f28a671a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b98d88c-bc2c-49a6-8f8b-1e0f47ba6047" xml:space="preserve">
+          <source><bpt id="874a5c07-b5c5-44b1-a125-bb432e41213f">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="874a5c07-b5c5-44b1-a125-bb432e41213f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="874a5c07-b5c5-44b1-a125-bb432e41213f">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="874a5c07-b5c5-44b1-a125-bb432e41213f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53cf2f96-e568-4146-bb8f-95206e89b4f4" xml:space="preserve">
+          <source>In the <bpt id="2d3d7e29-4dc4-4acc-9296-cec46aed2147">&lt;strong&gt;</bpt>search box<ept id="2d3d7e29-4dc4-4acc-9296-cec46aed2147">&lt;/strong&gt;</ept>, type <bpt id="70188bd2-e564-4ec0-9611-85b76057fdc5">&lt;strong&gt;</bpt>ServiceNow<ept id="70188bd2-e564-4ec0-9611-85b76057fdc5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2d3d7e29-4dc4-4acc-9296-cec46aed2147">&lt;strong&gt;</bpt>search box<ept id="2d3d7e29-4dc4-4acc-9296-cec46aed2147">&lt;/strong&gt;</ept>, type <bpt id="70188bd2-e564-4ec0-9611-85b76057fdc5">&lt;strong&gt;</bpt>ServiceNow<ept id="70188bd2-e564-4ec0-9611-85b76057fdc5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f09bb989-ef73-4fdc-b4ce-0625e5562a65" xml:space="preserve">
+          <source><bpt id="cc80a6bd-92e8-420e-931b-3748f958dcd6">&lt;linkText&gt;</bpt>Application gallery<ept id="cc80a6bd-92e8-420e-931b-3748f958dcd6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cc80a6bd-92e8-420e-931b-3748f958dcd6">&lt;linkText&gt;</bpt>Application gallery<ept id="cc80a6bd-92e8-420e-931b-3748f958dcd6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f80d0655-6b51-485e-b299-2ac97a7d3d5d" xml:space="preserve">
+          <source>In the results pane, select <bpt id="d5dc8d59-8ca8-46de-ab80-2556a3a2967f">&lt;strong&gt;</bpt>ServiceNow<ept id="d5dc8d59-8ca8-46de-ab80-2556a3a2967f">&lt;/strong&gt;</ept>, and then click <bpt id="49267c90-3268-44b1-8d78-04ddb2f50cca">&lt;strong&gt;</bpt>Complete<ept id="49267c90-3268-44b1-8d78-04ddb2f50cca">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="d5dc8d59-8ca8-46de-ab80-2556a3a2967f">&lt;strong&gt;</bpt>ServiceNow<ept id="d5dc8d59-8ca8-46de-ab80-2556a3a2967f">&lt;/strong&gt;</ept>, and then click <bpt id="49267c90-3268-44b1-8d78-04ddb2f50cca">&lt;strong&gt;</bpt>Complete<ept id="49267c90-3268-44b1-8d78-04ddb2f50cca">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="10178863-a58c-4a93-8a6b-81b8a9c78d77" xml:space="preserve">
+          <source><bpt id="25d9cbb3-56ad-4190-bc2e-4d0f1fdcd31f">&lt;linkText&gt;</bpt>ServiceNow<ept id="25d9cbb3-56ad-4190-bc2e-4d0f1fdcd31f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="25d9cbb3-56ad-4190-bc2e-4d0f1fdcd31f">&lt;linkText&gt;</bpt>ServiceNow<ept id="25d9cbb3-56ad-4190-bc2e-4d0f1fdcd31f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb9db392-53d3-4987-948a-673d6b37a3b3" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to ServiceNow with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to ServiceNow with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="4beeab8f-0d05-4bd1-b93e-303a59f8b1b8" xml:space="preserve">
+          <source>As part of this procedure, you are required to upload a base-64 encoded certificate to your Dropbox for Business tenant.</source>
+          <target state="new">As part of this procedure, you are required to upload a base-64 encoded certificate to your Dropbox for Business tenant.</target>
+        </trans-unit>
+        <trans-unit id="a6ac0665-5858-445e-91ac-bfa70c2623a4" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="0254aa4c-8af3-4cfe-b13c-66e7fe73d8b3">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="0254aa4c-8af3-4cfe-b13c-66e7fe73d8b3">&lt;/linkText&gt;</ept><bpt id="0254aa4c-8af3-4cfe-b13c-66e7fe73d8b3">&lt;title&gt;</bpt><ept id="0254aa4c-8af3-4cfe-b13c-66e7fe73d8b3">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="0254aa4c-8af3-4cfe-b13c-66e7fe73d8b3">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="0254aa4c-8af3-4cfe-b13c-66e7fe73d8b3">&lt;/linkText&gt;</ept><bpt id="0254aa4c-8af3-4cfe-b13c-66e7fe73d8b3">&lt;title&gt;</bpt><ept id="0254aa4c-8af3-4cfe-b13c-66e7fe73d8b3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a87c801b-0859-488d-b0b6-cf541c5f0ce4" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="b18833cc-b9f3-4a39-838d-5bec97559411">&lt;strong&gt;</bpt>ServiceNow<ept id="b18833cc-b9f3-4a39-838d-5bec97559411">&lt;/strong&gt;</ept> application integration page, click <bpt id="ffadbafd-8ff5-40d1-aa67-bd6b5413d2d1">&lt;strong&gt;</bpt>Configure single sign-on<ept id="ffadbafd-8ff5-40d1-aa67-bd6b5413d2d1">&lt;/strong&gt;</ept> to open the <bpt id="9c38ba35-67b3-455a-9ac1-38e79fba69e2">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="9c38ba35-67b3-455a-9ac1-38e79fba69e2">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="b18833cc-b9f3-4a39-838d-5bec97559411">&lt;strong&gt;</bpt>ServiceNow<ept id="b18833cc-b9f3-4a39-838d-5bec97559411">&lt;/strong&gt;</ept> application integration page, click <bpt id="ffadbafd-8ff5-40d1-aa67-bd6b5413d2d1">&lt;strong&gt;</bpt>Configure single sign-on<ept id="ffadbafd-8ff5-40d1-aa67-bd6b5413d2d1">&lt;/strong&gt;</ept> to open the <bpt id="9c38ba35-67b3-455a-9ac1-38e79fba69e2">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="9c38ba35-67b3-455a-9ac1-38e79fba69e2">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="b8d1a988-8e9b-4b53-81b8-826ed90a7cb5" xml:space="preserve">
+          <source><bpt id="b8859ea8-f8cc-4bcd-be9f-98b68d762cf7">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="b8859ea8-f8cc-4bcd-be9f-98b68d762cf7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8859ea8-f8cc-4bcd-be9f-98b68d762cf7">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="b8859ea8-f8cc-4bcd-be9f-98b68d762cf7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="245d604f-2938-487f-8534-669d894a3db4" xml:space="preserve">
+          <source>On the <bpt id="1994e1d0-2cd2-44a5-8dd4-151f0faf4ac7">&lt;strong&gt;</bpt>How would you like users to sign on to ServiceNow<ept id="1994e1d0-2cd2-44a5-8dd4-151f0faf4ac7">&lt;/strong&gt;</ept> page, select <bpt id="21e3a79c-d4a4-4d36-8f3c-31d8dd12a1e3">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="21e3a79c-d4a4-4d36-8f3c-31d8dd12a1e3">&lt;/strong&gt;</ept>, and then click <bpt id="7addf623-7355-4c38-b815-7d8be8b0b7d9">&lt;strong&gt;</bpt>Next<ept id="7addf623-7355-4c38-b815-7d8be8b0b7d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="1994e1d0-2cd2-44a5-8dd4-151f0faf4ac7">&lt;strong&gt;</bpt>How would you like users to sign on to ServiceNow<ept id="1994e1d0-2cd2-44a5-8dd4-151f0faf4ac7">&lt;/strong&gt;</ept> page, select <bpt id="21e3a79c-d4a4-4d36-8f3c-31d8dd12a1e3">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="21e3a79c-d4a4-4d36-8f3c-31d8dd12a1e3">&lt;/strong&gt;</ept>, and then click <bpt id="7addf623-7355-4c38-b815-7d8be8b0b7d9">&lt;strong&gt;</bpt>Next<ept id="7addf623-7355-4c38-b815-7d8be8b0b7d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8329f48e-c37a-4708-9157-a13026366df5" xml:space="preserve">
+          <source><bpt id="64180911-00cb-41e0-9065-31dee34c31e3">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="64180911-00cb-41e0-9065-31dee34c31e3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="64180911-00cb-41e0-9065-31dee34c31e3">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="64180911-00cb-41e0-9065-31dee34c31e3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83815fd4-7c3f-4b5d-9b0c-d36d5fc23095" xml:space="preserve">
+          <source>On the <bpt id="ab90f0a7-bfc4-4469-83bb-3b7db3c68e6c">&lt;strong&gt;</bpt>Configure App URL<ept id="ab90f0a7-bfc4-4469-83bb-3b7db3c68e6c">&lt;/strong&gt;</ept> page, in the <bpt id="7ed181cd-8ced-46cd-9d8d-6a3f60d38b69">&lt;strong&gt;</bpt>ServiceNow Sign In URL<ept id="7ed181cd-8ced-46cd-9d8d-6a3f60d38b69">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="95a82413-4de1-491b-a774-ec57fbfde87f">&lt;em&gt;</bpt>https://&lt;InstanceName&gt;.servicenow.com<ept id="95a82413-4de1-491b-a774-ec57fbfde87f">&lt;/em&gt;</ept>", and then click <bpt id="e98f7ea0-75ed-42ca-b3d1-d4b633a8a989">&lt;strong&gt;</bpt>Next<ept id="e98f7ea0-75ed-42ca-b3d1-d4b633a8a989">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ab90f0a7-bfc4-4469-83bb-3b7db3c68e6c">&lt;strong&gt;</bpt>Configure App URL<ept id="ab90f0a7-bfc4-4469-83bb-3b7db3c68e6c">&lt;/strong&gt;</ept> page, in the <bpt id="7ed181cd-8ced-46cd-9d8d-6a3f60d38b69">&lt;strong&gt;</bpt>ServiceNow Sign In URL<ept id="7ed181cd-8ced-46cd-9d8d-6a3f60d38b69">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="95a82413-4de1-491b-a774-ec57fbfde87f">&lt;em&gt;</bpt>https://&lt;InstanceName&gt;.servicenow.com<ept id="95a82413-4de1-491b-a774-ec57fbfde87f">&lt;/em&gt;</ept>", and then click <bpt id="e98f7ea0-75ed-42ca-b3d1-d4b633a8a989">&lt;strong&gt;</bpt>Next<ept id="e98f7ea0-75ed-42ca-b3d1-d4b633a8a989">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd616456-61fe-4838-aee1-5bbc63d0812b" xml:space="preserve">
+          <source><bpt id="949f04fb-202f-48ee-b04c-81e60e6aed7d">&lt;linkText&gt;</bpt>Configure app URL<ept id="949f04fb-202f-48ee-b04c-81e60e6aed7d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="949f04fb-202f-48ee-b04c-81e60e6aed7d">&lt;linkText&gt;</bpt>Configure app URL<ept id="949f04fb-202f-48ee-b04c-81e60e6aed7d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0dd8f05e-7dc7-4607-8f4a-5bcc63ba2798" xml:space="preserve">
+          <source>On the <bpt id="c153fe0a-1e7e-4c81-88f3-b2cf51717e4a">&lt;strong&gt;</bpt>Configure single sign-on at ServiceNow<ept id="c153fe0a-1e7e-4c81-88f3-b2cf51717e4a">&lt;/strong&gt;</ept> page, click <bpt id="4689fd03-320b-467f-a3e3-a032df633bf1">&lt;strong&gt;</bpt>Download certificate<ept id="4689fd03-320b-467f-a3e3-a032df633bf1">&lt;/strong&gt;</ept>, save the certificate file locally on your computer, and then click <bpt id="c4b64069-28b2-4088-9872-cd66f8a209ba">&lt;strong&gt;</bpt>Next<ept id="c4b64069-28b2-4088-9872-cd66f8a209ba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c153fe0a-1e7e-4c81-88f3-b2cf51717e4a">&lt;strong&gt;</bpt>Configure single sign-on at ServiceNow<ept id="c153fe0a-1e7e-4c81-88f3-b2cf51717e4a">&lt;/strong&gt;</ept> page, click <bpt id="4689fd03-320b-467f-a3e3-a032df633bf1">&lt;strong&gt;</bpt>Download certificate<ept id="4689fd03-320b-467f-a3e3-a032df633bf1">&lt;/strong&gt;</ept>, save the certificate file locally on your computer, and then click <bpt id="c4b64069-28b2-4088-9872-cd66f8a209ba">&lt;strong&gt;</bpt>Next<ept id="c4b64069-28b2-4088-9872-cd66f8a209ba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7b9d99c-504f-42e9-83a6-8e58d1421596" xml:space="preserve">
+          <source><bpt id="40645c01-5dcf-4a59-9b89-973e656d461c">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="40645c01-5dcf-4a59-9b89-973e656d461c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40645c01-5dcf-4a59-9b89-973e656d461c">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="40645c01-5dcf-4a59-9b89-973e656d461c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b3b3944-671a-4d46-80fd-32199ef5ad10" xml:space="preserve">
+          <source>In your ServiceNow tenant, on the navigation bar at the left side, click <bpt id="2a6427cc-b326-46d7-8f41-9d9e13a1df26">&lt;strong&gt;</bpt>Properties<ept id="2a6427cc-b326-46d7-8f41-9d9e13a1df26">&lt;/strong&gt;</ept> to open the <bpt id="1977ea09-16f2-4184-8ab6-45df6cbbb496">&lt;strong&gt;</bpt>SAML 2.0 Single Sign on properties<ept id="1977ea09-16f2-4184-8ab6-45df6cbbb496">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">In your ServiceNow tenant, on the navigation bar at the left side, click <bpt id="2a6427cc-b326-46d7-8f41-9d9e13a1df26">&lt;strong&gt;</bpt>Properties<ept id="2a6427cc-b326-46d7-8f41-9d9e13a1df26">&lt;/strong&gt;</ept> to open the <bpt id="1977ea09-16f2-4184-8ab6-45df6cbbb496">&lt;strong&gt;</bpt>SAML 2.0 Single Sign on properties<ept id="1977ea09-16f2-4184-8ab6-45df6cbbb496">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="43231609-cd38-423d-8cea-9ae5d5b6a1f3" xml:space="preserve">
+          <source>On the <bpt id="86ca729a-b401-450f-aba5-43ad12e8ab4b">&lt;strong&gt;</bpt>SAML 2.0 Single Sign-on properties<ept id="86ca729a-b401-450f-aba5-43ad12e8ab4b">&lt;/strong&gt;</ept> page, perform the following steps:</source>
+          <target state="new">On the <bpt id="86ca729a-b401-450f-aba5-43ad12e8ab4b">&lt;strong&gt;</bpt>SAML 2.0 Single Sign-on properties<ept id="86ca729a-b401-450f-aba5-43ad12e8ab4b">&lt;/strong&gt;</ept> page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="a247361a-7bbe-49f6-929d-89e653d7034e" xml:space="preserve">
+          <source>6.1.</source>
+          <target state="new">6.1.</target>
+        </trans-unit>
+        <trans-unit id="3725fcb5-4d1c-40eb-a503-05705a33b262" xml:space="preserve">
+          <source>As <bpt id="894355a8-8f08-4b10-97cc-de663ee14445">&lt;strong&gt;</bpt>Enable external authentication<ept id="894355a8-8f08-4b10-97cc-de663ee14445">&lt;/strong&gt;</ept>, select <bpt id="9ed5344e-bffe-45ed-b5ef-dee0f8919a2b">&lt;strong&gt;</bpt>Yes<ept id="9ed5344e-bffe-45ed-b5ef-dee0f8919a2b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="894355a8-8f08-4b10-97cc-de663ee14445">&lt;strong&gt;</bpt>Enable external authentication<ept id="894355a8-8f08-4b10-97cc-de663ee14445">&lt;/strong&gt;</ept>, select <bpt id="9ed5344e-bffe-45ed-b5ef-dee0f8919a2b">&lt;strong&gt;</bpt>Yes<ept id="9ed5344e-bffe-45ed-b5ef-dee0f8919a2b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08d8f375-8a79-4a98-bebd-eea6c741efed" xml:space="preserve">
+          <source> 6.2. In <bpt id="22f2398e-cfca-4572-a1ac-711f3c3b492f">&lt;strong&gt;</bpt>The Identity Provider URL which will issue the SAML2 security token with user info<ept id="22f2398e-cfca-4572-a1ac-711f3c3b492f">&lt;/strong&gt;</ept> textbox, type <bpt id="24c7167d-dc5e-46a6-8844-2eade21c1273">&lt;strong&gt;</bpt>https://sts.windows.net/&lt;your tenant’s GUID&gt;/<ept id="24c7167d-dc5e-46a6-8844-2eade21c1273">&lt;/strong&gt;</ept>.</source>
+          <target state="new"> 6.2. In <bpt id="22f2398e-cfca-4572-a1ac-711f3c3b492f">&lt;strong&gt;</bpt>The Identity Provider URL which will issue the SAML2 security token with user info<ept id="22f2398e-cfca-4572-a1ac-711f3c3b492f">&lt;/strong&gt;</ept> textbox, type <bpt id="24c7167d-dc5e-46a6-8844-2eade21c1273">&lt;strong&gt;</bpt>https://sts.windows.net/&lt;your tenant’s GUID&gt;/<ept id="24c7167d-dc5e-46a6-8844-2eade21c1273">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05c073eb-f5f8-4338-957c-6c72e1936879" xml:space="preserve">
+          <source> 6.3. In <bpt id="74369423-dfb4-44ce-963f-45721c18bfb7">&lt;strong&gt;</bpt>The base URL to the Identity Provider’s AuthnRequest service<ept id="74369423-dfb4-44ce-963f-45721c18bfb7">&lt;/strong&gt;</ept> textbox, type <bpt id="2cbddc79-09f0-4c1e-9d52-7d5d89ba5bbc">&lt;strong&gt;</bpt>https://login.windows.net/&lt;your tenant’s GUID&gt;/saml2<ept id="2cbddc79-09f0-4c1e-9d52-7d5d89ba5bbc">&lt;/strong&gt;</ept>.</source>
+          <target state="new"> 6.3. In <bpt id="74369423-dfb4-44ce-963f-45721c18bfb7">&lt;strong&gt;</bpt>The base URL to the Identity Provider’s AuthnRequest service<ept id="74369423-dfb4-44ce-963f-45721c18bfb7">&lt;/strong&gt;</ept> textbox, type <bpt id="2cbddc79-09f0-4c1e-9d52-7d5d89ba5bbc">&lt;strong&gt;</bpt>https://login.windows.net/&lt;your tenant’s GUID&gt;/saml2<ept id="2cbddc79-09f0-4c1e-9d52-7d5d89ba5bbc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b78c20ba-aabe-49e0-a636-3786f16e4bb5" xml:space="preserve">
+          <source> 6.4. In <bpt id="bde8281d-4d35-471b-9529-bbd5be47f226">&lt;strong&gt;</bpt>The base URL to the Identity Provider’s SingleLogoutRequest service<ept id="bde8281d-4d35-471b-9529-bbd5be47f226">&lt;/strong&gt;</ept> textbox, type <bpt id="11bb8f17-dae1-4fd4-93a7-2e6c0715c426">&lt;strong&gt;</bpt>https://login.windows.net/&lt;your tenant’s GUID&gt;/saml2<ept id="11bb8f17-dae1-4fd4-93a7-2e6c0715c426">&lt;/strong&gt;</ept>.</source>
+          <target state="new"> 6.4. In <bpt id="bde8281d-4d35-471b-9529-bbd5be47f226">&lt;strong&gt;</bpt>The base URL to the Identity Provider’s SingleLogoutRequest service<ept id="bde8281d-4d35-471b-9529-bbd5be47f226">&lt;/strong&gt;</ept> textbox, type <bpt id="11bb8f17-dae1-4fd4-93a7-2e6c0715c426">&lt;strong&gt;</bpt>https://login.windows.net/&lt;your tenant’s GUID&gt;/saml2<ept id="11bb8f17-dae1-4fd4-93a7-2e6c0715c426">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58530167-d203-400e-8990-4e34b0f8520f" xml:space="preserve">
+          <source>6.5.</source>
+          <target state="new">6.5.</target>
+        </trans-unit>
+        <trans-unit id="fcc42f04-a58d-445d-a11e-b8f8e5455378" xml:space="preserve">
+          <source>In <bpt id="3e499dd1-9048-484e-a916-c3fb0bcd6f2b">&lt;strong&gt;</bpt>The protocol binding for the Identity Provider’s SingleLogoutRequest service<ept id="3e499dd1-9048-484e-a916-c3fb0bcd6f2b">&lt;/strong&gt;</ept> textbox, type <bpt id="d431d3d8-b85b-4ad6-972e-b5773261e725">&lt;strong&gt;</bpt>urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect<ept id="d431d3d8-b85b-4ad6-972e-b5773261e725">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="3e499dd1-9048-484e-a916-c3fb0bcd6f2b">&lt;strong&gt;</bpt>The protocol binding for the Identity Provider’s SingleLogoutRequest service<ept id="3e499dd1-9048-484e-a916-c3fb0bcd6f2b">&lt;/strong&gt;</ept> textbox, type <bpt id="d431d3d8-b85b-4ad6-972e-b5773261e725">&lt;strong&gt;</bpt>urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect<ept id="d431d3d8-b85b-4ad6-972e-b5773261e725">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0da03c23-36ed-4694-88aa-1fc117092b0e" xml:space="preserve">
+          <source>6.6.</source>
+          <target state="new">6.6.</target>
+        </trans-unit>
+        <trans-unit id="de7954b9-b95e-426b-99c3-bd905442c681" xml:space="preserve">
+          <source>As <bpt id="6d69a918-1f43-41a8-a0ef-d147ed4fe3a5">&lt;strong&gt;</bpt>Sign LogoutRequest<ept id="6d69a918-1f43-41a8-a0ef-d147ed4fe3a5">&lt;/strong&gt;</ept>, select <bpt id="f5742aae-871c-498c-a86e-aba6917df206">&lt;strong&gt;</bpt>Yes<ept id="f5742aae-871c-498c-a86e-aba6917df206">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="6d69a918-1f43-41a8-a0ef-d147ed4fe3a5">&lt;strong&gt;</bpt>Sign LogoutRequest<ept id="6d69a918-1f43-41a8-a0ef-d147ed4fe3a5">&lt;/strong&gt;</ept>, select <bpt id="f5742aae-871c-498c-a86e-aba6917df206">&lt;strong&gt;</bpt>Yes<ept id="f5742aae-871c-498c-a86e-aba6917df206">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b69a645b-ce0c-41ea-b757-c98e65f3cf4d" xml:space="preserve">
+          <source> 6.7. In the <bpt id="87be27f7-b76f-433a-802a-f5dd7e48a5d8">&lt;strong&gt;</bpt>When SAML 2.0 single sign-on fails because the session is not authenticated, or this is the first login, redirect to this URL<ept id="87be27f7-b76f-433a-802a-f5dd7e48a5d8">&lt;/strong&gt;</ept> textbox, type <bpt id="35a32027-aa29-43b0-a21f-7f7b19cfb09f">&lt;strong&gt;</bpt>https://login.windows.net/&lt;your tenant’s GUID&gt;/saml2<ept id="35a32027-aa29-43b0-a21f-7f7b19cfb09f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"> 6.7. In the <bpt id="87be27f7-b76f-433a-802a-f5dd7e48a5d8">&lt;strong&gt;</bpt>When SAML 2.0 single sign-on fails because the session is not authenticated, or this is the first login, redirect to this URL<ept id="87be27f7-b76f-433a-802a-f5dd7e48a5d8">&lt;/strong&gt;</ept> textbox, type <bpt id="35a32027-aa29-43b0-a21f-7f7b19cfb09f">&lt;strong&gt;</bpt>https://login.windows.net/&lt;your tenant’s GUID&gt;/saml2<ept id="35a32027-aa29-43b0-a21f-7f7b19cfb09f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a560946-bce2-4e46-a01a-f1449725e373" xml:space="preserve">
+          <source>In the <bpt id="60a54025-41f5-45ec-bb44-44c7516570b9">&lt;em&gt;</bpt>*Service Provider (Service-Now) properties *<ept id="60a54025-41f5-45ec-bb44-44c7516570b9">&lt;/em&gt;</ept>section, perform the following steps:</source>
+          <target state="new">In the <bpt id="60a54025-41f5-45ec-bb44-44c7516570b9">&lt;em&gt;</bpt>*Service Provider (Service-Now) properties *<ept id="60a54025-41f5-45ec-bb44-44c7516570b9">&lt;/em&gt;</ept>section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="31997746-ff7e-4b0f-b22a-c3a6e1b91160" xml:space="preserve">
+          <source> 7.1. In <bpt id="5aea90c4-cf48-4dd9-9fa9-f72ed7caa134">&lt;strong&gt;</bpt>The URL to Service-now instance homepage<ept id="5aea90c4-cf48-4dd9-9fa9-f72ed7caa134">&lt;/strong&gt;</ept> textbox, type the URL to your ServiceNow instance homepage. The URL of the ServiceNow instance homepage is a concatenation of your <bpt id="248d9acb-53da-4118-88ea-7bdc33868895">&lt;strong&gt;</bpt>ServiceNow tenant URL<ept id="248d9acb-53da-4118-88ea-7bdc33868895">&lt;/strong&gt;</ept> and <bpt id="b45f40c5-c7d3-4637-9de0-11b0f2b929d4">&lt;strong&gt;</bpt>/navpage.do<ept id="b45f40c5-c7d3-4637-9de0-11b0f2b929d4">&lt;/strong&gt;</ept>: <bpt id="1e516ab8-e8b0-463c-9620-6920e5df5945">&lt;strong&gt;</bpt>https://&lt;InstanceName&gt;.service-now.com/navpage.do<ept id="1e516ab8-e8b0-463c-9620-6920e5df5945">&lt;/strong&gt;</ept> &lt;br&gt;&lt;br&gt;   <bpt id="b84ef893-39eb-4eca-a775-554c75060d6e">&lt;linkText&gt;</bpt>Service-now instance homepage<ept id="b84ef893-39eb-4eca-a775-554c75060d6e">&lt;/linkText&gt;</ept></source>
+          <target state="new"> 7.1. In <bpt id="5aea90c4-cf48-4dd9-9fa9-f72ed7caa134">&lt;strong&gt;</bpt>The URL to Service-now instance homepage<ept id="5aea90c4-cf48-4dd9-9fa9-f72ed7caa134">&lt;/strong&gt;</ept> textbox, type the URL to your ServiceNow instance homepage. The URL of the ServiceNow instance homepage is a concatenation of your <bpt id="248d9acb-53da-4118-88ea-7bdc33868895">&lt;strong&gt;</bpt>ServiceNow tenant URL<ept id="248d9acb-53da-4118-88ea-7bdc33868895">&lt;/strong&gt;</ept> and <bpt id="b45f40c5-c7d3-4637-9de0-11b0f2b929d4">&lt;strong&gt;</bpt>/navpage.do<ept id="b45f40c5-c7d3-4637-9de0-11b0f2b929d4">&lt;/strong&gt;</ept>: <bpt id="1e516ab8-e8b0-463c-9620-6920e5df5945">&lt;strong&gt;</bpt>https://&lt;InstanceName&gt;.service-now.com/navpage.do<ept id="1e516ab8-e8b0-463c-9620-6920e5df5945">&lt;/strong&gt;</ept> &lt;br&gt;&lt;br&gt;   <bpt id="b84ef893-39eb-4eca-a775-554c75060d6e">&lt;linkText&gt;</bpt>Service-now instance homepage<ept id="b84ef893-39eb-4eca-a775-554c75060d6e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b223066-d6c2-4df9-8577-9b66aa9912dc" xml:space="preserve">
+          <source>7.2.</source>
+          <target state="new">7.2.</target>
+        </trans-unit>
+        <trans-unit id="e78cc5f5-6beb-49d0-ba99-a91154250c4f" xml:space="preserve">
+          <source>In <bpt id="c9b1439b-30cb-4c6a-9afa-32b22f2ce956">&lt;strong&gt;</bpt>The entity identification, or the issuer<ept id="c9b1439b-30cb-4c6a-9afa-32b22f2ce956">&lt;/strong&gt;</ept> textbox, type the URL of your tenant.</source>
+          <target state="new">In <bpt id="c9b1439b-30cb-4c6a-9afa-32b22f2ce956">&lt;strong&gt;</bpt>The entity identification, or the issuer<ept id="c9b1439b-30cb-4c6a-9afa-32b22f2ce956">&lt;/strong&gt;</ept> textbox, type the URL of your tenant.</target>
+        </trans-unit>
+        <trans-unit id="b7eae7e4-975c-4e8f-8b41-8be1ca9b7f46" xml:space="preserve">
+          <source>7.3.</source>
+          <target state="new">7.3.</target>
+        </trans-unit>
+        <trans-unit id="c9eef369-6c8a-4680-8916-d7eb386fb70c" xml:space="preserve">
+          <source>In <bpt id="9e717485-ef46-43cc-8af7-52c1db1e4e1f">&lt;strong&gt;</bpt>The audience uri that accepts SAML2 token<ept id="9e717485-ef46-43cc-8af7-52c1db1e4e1f">&lt;/strong&gt;</ept> textbox, type the URL of your tenant.</source>
+          <target state="new">In <bpt id="9e717485-ef46-43cc-8af7-52c1db1e4e1f">&lt;strong&gt;</bpt>The audience uri that accepts SAML2 token<ept id="9e717485-ef46-43cc-8af7-52c1db1e4e1f">&lt;/strong&gt;</ept> textbox, type the URL of your tenant.</target>
+        </trans-unit>
+        <trans-unit id="21427d8c-b5b7-499d-a8b1-97fdb2a17a63" xml:space="preserve">
+          <source>7.4.</source>
+          <target state="new">7.4.</target>
+        </trans-unit>
+        <trans-unit id="096a57a7-e88b-47e6-b346-b6e72889c710" xml:space="preserve">
+          <source>In <bpt id="5d0c2e44-d8bf-4f48-94fe-2ea17f17dcab">&lt;strong&gt;</bpt>The User table field to match with the Subject’s NameID element in the SAMLResponse<ept id="5d0c2e44-d8bf-4f48-94fe-2ea17f17dcab">&lt;/strong&gt;</ept> textbox, type <bpt id="29ec6313-6233-4ae2-8dc8-50b653abbb1b">&lt;strong&gt;</bpt>email<ept id="29ec6313-6233-4ae2-8dc8-50b653abbb1b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="5d0c2e44-d8bf-4f48-94fe-2ea17f17dcab">&lt;strong&gt;</bpt>The User table field to match with the Subject’s NameID element in the SAMLResponse<ept id="5d0c2e44-d8bf-4f48-94fe-2ea17f17dcab">&lt;/strong&gt;</ept> textbox, type <bpt id="29ec6313-6233-4ae2-8dc8-50b653abbb1b">&lt;strong&gt;</bpt>email<ept id="29ec6313-6233-4ae2-8dc8-50b653abbb1b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b00738a8-8df0-49f0-ab38-be92dbed9c12" xml:space="preserve">
+          <source>7.5.</source>
+          <target state="new">7.5.</target>
+        </trans-unit>
+        <trans-unit id="4cc0aef8-4b63-46fd-95bf-9f43a1d24be3" xml:space="preserve">
+          <source>In <bpt id="e48742b2-4678-4bed-896c-8ba5efbccb73">&lt;strong&gt;</bpt>The NameID policy to use for returning the Subject’s NameID in the SAMLResponse<ept id="e48742b2-4678-4bed-896c-8ba5efbccb73">&lt;/strong&gt;</ept> textbox, type <bpt id="93ba729e-b963-4bd1-8eed-fdf1d0f15475">&lt;strong&gt;</bpt>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified<ept id="93ba729e-b963-4bd1-8eed-fdf1d0f15475">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="e48742b2-4678-4bed-896c-8ba5efbccb73">&lt;strong&gt;</bpt>The NameID policy to use for returning the Subject’s NameID in the SAMLResponse<ept id="e48742b2-4678-4bed-896c-8ba5efbccb73">&lt;/strong&gt;</ept> textbox, type <bpt id="93ba729e-b963-4bd1-8eed-fdf1d0f15475">&lt;strong&gt;</bpt>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified<ept id="93ba729e-b963-4bd1-8eed-fdf1d0f15475">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ce26b74-4857-48dc-a45f-d9fec222f399" xml:space="preserve">
+          <source> 7.6 Leave <bpt id="36b63fca-d7f0-4b20-b621-3e97ca9e7372">&lt;strong&gt;</bpt>Create an AuthnContextClass request in the AuthnRequest statement<ept id="36b63fca-d7f0-4b20-b621-3e97ca9e7372">&lt;/strong&gt;</ept> unchecked.</source>
+          <target state="new"> 7.6 Leave <bpt id="36b63fca-d7f0-4b20-b621-3e97ca9e7372">&lt;strong&gt;</bpt>Create an AuthnContextClass request in the AuthnRequest statement<ept id="36b63fca-d7f0-4b20-b621-3e97ca9e7372">&lt;/strong&gt;</ept> unchecked.</target>
+        </trans-unit>
+        <trans-unit id="18a41ef8-7798-45d7-8ac6-55c25dd93b15" xml:space="preserve">
+          <source> 7.7 In <bpt id="07a4b91e-f5ac-4c98-a269-c1b54f280efb">&lt;strong&gt;</bpt>The AuthnContextClassRef method that will be included in our SAML 2.0 AuthnRequest to the Identity Provider<ept id="07a4b91e-f5ac-4c98-a269-c1b54f280efb">&lt;/strong&gt;</ept> textbox, type <bpt id="458bb147-0e12-4e80-85f7-140b67b35c4e">&lt;strong&gt;</bpt>http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password<ept id="458bb147-0e12-4e80-85f7-140b67b35c4e">&lt;/strong&gt;</ept>.</source>
+          <target state="new"> 7.7 In <bpt id="07a4b91e-f5ac-4c98-a269-c1b54f280efb">&lt;strong&gt;</bpt>The AuthnContextClassRef method that will be included in our SAML 2.0 AuthnRequest to the Identity Provider<ept id="07a4b91e-f5ac-4c98-a269-c1b54f280efb">&lt;/strong&gt;</ept> textbox, type <bpt id="458bb147-0e12-4e80-85f7-140b67b35c4e">&lt;strong&gt;</bpt>http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password<ept id="458bb147-0e12-4e80-85f7-140b67b35c4e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f052ee0-d790-4194-8177-edae8ecf5de5" xml:space="preserve">
+          <source>In the <bpt id="7c816f00-81ae-4983-9ee6-6da668a2d7ee">&lt;strong&gt;</bpt>Advanced settings<ept id="7c816f00-81ae-4983-9ee6-6da668a2d7ee">&lt;/strong&gt;</ept> section perform the following steps:</source>
+          <target state="new">In the <bpt id="7c816f00-81ae-4983-9ee6-6da668a2d7ee">&lt;strong&gt;</bpt>Advanced settings<ept id="7c816f00-81ae-4983-9ee6-6da668a2d7ee">&lt;/strong&gt;</ept> section perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="32278f86-f77c-4af8-9b28-cd437471daaa" xml:space="preserve">
+          <source>8.1.</source>
+          <target state="new">8.1.</target>
+        </trans-unit>
+        <trans-unit id="50778bef-e1cb-472f-b983-1db88cb18b1d" xml:space="preserve">
+          <source>In <bpt id="4e679bcc-7e7c-4aa8-ad0a-f373f334231b">&lt;strong&gt;</bpt>The number in seconds before “notBefore” constraint, or after “notOnOrAfter” constraint to consider still valid<ept id="4e679bcc-7e7c-4aa8-ad0a-f373f334231b">&lt;/strong&gt;</ept> textbox, type <bpt id="f0e4e524-af8a-476b-a571-2486b78012c3">&lt;strong&gt;</bpt>60<ept id="f0e4e524-af8a-476b-a571-2486b78012c3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="4e679bcc-7e7c-4aa8-ad0a-f373f334231b">&lt;strong&gt;</bpt>The number in seconds before “notBefore” constraint, or after “notOnOrAfter” constraint to consider still valid<ept id="4e679bcc-7e7c-4aa8-ad0a-f373f334231b">&lt;/strong&gt;</ept> textbox, type <bpt id="f0e4e524-af8a-476b-a571-2486b78012c3">&lt;strong&gt;</bpt>60<ept id="f0e4e524-af8a-476b-a571-2486b78012c3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f5a55f4-c7a6-416e-922f-91db576b56d2" xml:space="preserve">
+          <source>To save the configuration, click <bpt id="db458acb-35a7-426f-8d7f-e6da6b19106f">&lt;strong&gt;</bpt>Save<ept id="db458acb-35a7-426f-8d7f-e6da6b19106f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To save the configuration, click <bpt id="db458acb-35a7-426f-8d7f-e6da6b19106f">&lt;strong&gt;</bpt>Save<ept id="db458acb-35a7-426f-8d7f-e6da6b19106f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="155233fd-6985-416a-90b1-5750d7dea80e" xml:space="preserve">
+          <source>On the navigation bar at the left side, click <bpt id="1c24727f-5b9a-4f8a-be34-69d95d8c64b9">&lt;strong&gt;</bpt>Certificate<ept id="1c24727f-5b9a-4f8a-be34-69d95d8c64b9">&lt;/strong&gt;</ept> to open the <bpt id="1f4802ae-1493-4988-9660-2a7ca58d2f62">&lt;strong&gt;</bpt>Certificate<ept id="1f4802ae-1493-4988-9660-2a7ca58d2f62">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">On the navigation bar at the left side, click <bpt id="1c24727f-5b9a-4f8a-be34-69d95d8c64b9">&lt;strong&gt;</bpt>Certificate<ept id="1c24727f-5b9a-4f8a-be34-69d95d8c64b9">&lt;/strong&gt;</ept> to open the <bpt id="1f4802ae-1493-4988-9660-2a7ca58d2f62">&lt;strong&gt;</bpt>Certificate<ept id="1f4802ae-1493-4988-9660-2a7ca58d2f62">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="bab8c604-0b24-49c3-b11c-c5fb0973a2de" xml:space="preserve">
+          <source>To upload your certificate, on the certificate page, perform the following steps:</source>
+          <target state="new">To upload your certificate, on the certificate page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="602c7872-c9b3-40ac-9cfa-8d88a6bf78e2" xml:space="preserve">
+          <source>11.1.</source>
+          <target state="new">11.1.</target>
+        </trans-unit>
+        <trans-unit id="8404b23c-ec92-46b3-b77d-e166f9450f32" xml:space="preserve">
+          <source>Click <bpt id="ecd1c388-69fd-45ca-b27b-d7b5a85be4ec">&lt;strong&gt;</bpt>New<ept id="ecd1c388-69fd-45ca-b27b-d7b5a85be4ec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ecd1c388-69fd-45ca-b27b-d7b5a85be4ec">&lt;strong&gt;</bpt>New<ept id="ecd1c388-69fd-45ca-b27b-d7b5a85be4ec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34f8433c-7457-4cae-968d-440ea2235253" xml:space="preserve">
+          <source>11.2.</source>
+          <target state="new">11.2.</target>
+        </trans-unit>
+        <trans-unit id="aed4bbdf-8055-4fb1-95a7-8120a5301a12" xml:space="preserve">
+          <source>In the <bpt id="910b7e73-d4b9-470a-8280-a4da0937e0bd">&lt;strong&gt;</bpt>Name<ept id="910b7e73-d4b9-470a-8280-a4da0937e0bd">&lt;/strong&gt;</ept> textbox, type <bpt id="ec164d9d-8420-4d5f-ab4a-37451dd19016">&lt;strong&gt;</bpt>SAML 2.0<ept id="ec164d9d-8420-4d5f-ab4a-37451dd19016">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="910b7e73-d4b9-470a-8280-a4da0937e0bd">&lt;strong&gt;</bpt>Name<ept id="910b7e73-d4b9-470a-8280-a4da0937e0bd">&lt;/strong&gt;</ept> textbox, type <bpt id="ec164d9d-8420-4d5f-ab4a-37451dd19016">&lt;strong&gt;</bpt>SAML 2.0<ept id="ec164d9d-8420-4d5f-ab4a-37451dd19016">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9348a1a6-dbce-451b-b1a2-0125fb8ba0b8" xml:space="preserve">
+          <source>11.3.</source>
+          <target state="new">11.3.</target>
+        </trans-unit>
+        <trans-unit id="5f2adde7-8bcb-459d-88fb-42999573d88b" xml:space="preserve">
+          <source>Select <bpt id="7964e47a-ed7c-47e6-9799-9c8bda7b0a21">&lt;strong&gt;</bpt>Active<ept id="7964e47a-ed7c-47e6-9799-9c8bda7b0a21">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="7964e47a-ed7c-47e6-9799-9c8bda7b0a21">&lt;strong&gt;</bpt>Active<ept id="7964e47a-ed7c-47e6-9799-9c8bda7b0a21">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0132fd0d-fd55-42f9-8758-4d2d56bfe050" xml:space="preserve">
+          <source>11.4.</source>
+          <target state="new">11.4.</target>
+        </trans-unit>
+        <trans-unit id="dcc98388-5b0a-4462-b8b6-13d5e49a83d9" xml:space="preserve">
+          <source>As <bpt id="d4473cdb-5d75-4409-a0b3-177aa32dac35">&lt;strong&gt;</bpt>Format<ept id="d4473cdb-5d75-4409-a0b3-177aa32dac35">&lt;/strong&gt;</ept>, select <bpt id="6fcd276b-7515-4c9d-abfb-19173fe4419e">&lt;strong&gt;</bpt>PEM<ept id="6fcd276b-7515-4c9d-abfb-19173fe4419e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="d4473cdb-5d75-4409-a0b3-177aa32dac35">&lt;strong&gt;</bpt>Format<ept id="d4473cdb-5d75-4409-a0b3-177aa32dac35">&lt;/strong&gt;</ept>, select <bpt id="6fcd276b-7515-4c9d-abfb-19173fe4419e">&lt;strong&gt;</bpt>PEM<ept id="6fcd276b-7515-4c9d-abfb-19173fe4419e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="294d58cc-4250-4f38-b65c-13f94a3821d2" xml:space="preserve">
+          <source>11.5.</source>
+          <target state="new">11.5.</target>
+        </trans-unit>
+        <trans-unit id="b734f2b9-82d7-4e9b-9ad6-3328350ae817" xml:space="preserve">
+          <source>Create a Base-64 encoded file from your downloaded certificate.</source>
+          <target state="new">Create a Base-64 encoded file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="0940aa17-17db-470b-8231-2f8dbb4d295e" xml:space="preserve">
+          <source>&gt; [AZURE.NOTE] For more details, see <bpt id="a36a9b4d-91b7-45b8-9344-c589b7f0aa98">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="a36a9b4d-91b7-45b8-9344-c589b7f0aa98">&lt;/linkText&gt;</ept><bpt id="a36a9b4d-91b7-45b8-9344-c589b7f0aa98">&lt;title&gt;</bpt><ept id="a36a9b4d-91b7-45b8-9344-c589b7f0aa98">&lt;/title&gt;</ept>.</source>
+          <target state="new">&gt; [AZURE.NOTE] For more details, see <bpt id="a36a9b4d-91b7-45b8-9344-c589b7f0aa98">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="a36a9b4d-91b7-45b8-9344-c589b7f0aa98">&lt;/linkText&gt;</ept><bpt id="a36a9b4d-91b7-45b8-9344-c589b7f0aa98">&lt;title&gt;</bpt><ept id="a36a9b4d-91b7-45b8-9344-c589b7f0aa98">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ca67805-d6fd-4ebc-b9ab-0ba1eea123f8" xml:space="preserve">
+          <source>11.6.</source>
+          <target state="new">11.6.</target>
+        </trans-unit>
+        <trans-unit id="29a3aef0-5eae-4483-9c5c-d766bf43195d" xml:space="preserve">
+          <source>In <bpt id="94a2afd7-8a1f-42fc-be41-756bb96c4c3b">&lt;strong&gt;</bpt>Notepad<ept id="94a2afd7-8a1f-42fc-be41-756bb96c4c3b">&lt;/strong&gt;</ept>, open your Base-64 encoded file, and then copy the content of this file into the clipboard.</source>
+          <target state="new">In <bpt id="94a2afd7-8a1f-42fc-be41-756bb96c4c3b">&lt;strong&gt;</bpt>Notepad<ept id="94a2afd7-8a1f-42fc-be41-756bb96c4c3b">&lt;/strong&gt;</ept>, open your Base-64 encoded file, and then copy the content of this file into the clipboard.</target>
+        </trans-unit>
+        <trans-unit id="38ba69af-bddd-4a1c-98aa-d9276d2b2e5c" xml:space="preserve">
+          <source>11.7.</source>
+          <target state="new">11.7.</target>
+        </trans-unit>
+        <trans-unit id="063f2859-fa4c-4e98-8462-bd24d610b14b" xml:space="preserve">
+          <source>Paste the content of your clipboard into the <bpt id="d791ad7e-71f9-4ec3-8c52-929bc7ba184d">&lt;strong&gt;</bpt>PEM Certificate<ept id="d791ad7e-71f9-4ec3-8c52-929bc7ba184d">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Paste the content of your clipboard into the <bpt id="d791ad7e-71f9-4ec3-8c52-929bc7ba184d">&lt;strong&gt;</bpt>PEM Certificate<ept id="d791ad7e-71f9-4ec3-8c52-929bc7ba184d">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="654d97dd-1749-4002-a211-be1d8126ed8c" xml:space="preserve">
+          <source>11.8.</source>
+          <target state="new">11.8.</target>
+        </trans-unit>
+        <trans-unit id="eee988e5-d33f-4584-be22-5e8c5bded40c" xml:space="preserve">
+          <source>Click <bpt id="e3858425-06cb-4ee9-a1a3-702ea7911975">&lt;strong&gt;</bpt>Submit<ept id="e3858425-06cb-4ee9-a1a3-702ea7911975">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e3858425-06cb-4ee9-a1a3-702ea7911975">&lt;strong&gt;</bpt>Submit<ept id="e3858425-06cb-4ee9-a1a3-702ea7911975">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df690ba7-015f-4882-82ca-c8fce182c2e4" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click Complete to close the Configure Single Sign On dialog. &lt;br&gt;&lt;br&gt; <bpt id="d094a316-b189-40c9-a771-a18021f78425">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="d094a316-b189-40c9-a771-a18021f78425">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click Complete to close the Configure Single Sign On dialog. &lt;br&gt;&lt;br&gt; <bpt id="d094a316-b189-40c9-a771-a18021f78425">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="d094a316-b189-40c9-a771-a18021f78425">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d4d9174-0335-4cef-a433-1c53a5951a84" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to ServiceNow.</source>
+          <target state="new">The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to ServiceNow.</target>
+        </trans-unit>
+        <trans-unit id="27624e47-8c75-4bb0-abd7-e69961028137" xml:space="preserve">
+          <source>In the Azure Management Portal, on the <bpt id="d67c5a37-b9ff-4490-95d4-3fe39323f6c4">&lt;strong&gt;</bpt>ServiceNow<ept id="d67c5a37-b9ff-4490-95d4-3fe39323f6c4">&lt;/strong&gt;</ept> application integration page, click <bpt id="7f1ed030-493d-418e-89a0-864d1475a748">&lt;strong&gt;</bpt>Configure user provisioning<ept id="7f1ed030-493d-418e-89a0-864d1475a748">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt; <bpt id="59ef33e0-0dbf-4364-a883-52e460d68079">&lt;linkText&gt;</bpt>User provisioning<ept id="59ef33e0-0dbf-4364-a883-52e460d68079">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the Azure Management Portal, on the <bpt id="d67c5a37-b9ff-4490-95d4-3fe39323f6c4">&lt;strong&gt;</bpt>ServiceNow<ept id="d67c5a37-b9ff-4490-95d4-3fe39323f6c4">&lt;/strong&gt;</ept> application integration page, click <bpt id="7f1ed030-493d-418e-89a0-864d1475a748">&lt;strong&gt;</bpt>Configure user provisioning<ept id="7f1ed030-493d-418e-89a0-864d1475a748">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt; <bpt id="59ef33e0-0dbf-4364-a883-52e460d68079">&lt;linkText&gt;</bpt>User provisioning<ept id="59ef33e0-0dbf-4364-a883-52e460d68079">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7ab8147-4254-42ca-a88a-4735b80da829" xml:space="preserve">
+          <source>On the <bpt id="73608fa7-bb56-411a-8fa6-af095882e30b">&lt;strong&gt;</bpt>Enter your ServiceNow credentials to enable automatic user provisioning<ept id="73608fa7-bb56-411a-8fa6-af095882e30b">&lt;/strong&gt;</ept> page, provide the following configuration settings:
+Configure User Provisioning </source>
+          <target state="new">On the <bpt id="73608fa7-bb56-411a-8fa6-af095882e30b">&lt;strong&gt;</bpt>Enter your ServiceNow credentials to enable automatic user provisioning<ept id="73608fa7-bb56-411a-8fa6-af095882e30b">&lt;/strong&gt;</ept> page, provide the following configuration settings:
+Configure User Provisioning </target>
+        </trans-unit>
+        <trans-unit id="429b054d-1a34-49c5-93a7-bda59dab4b9c" xml:space="preserve">
+          <source>2.1.</source>
+          <target state="new">2.1.</target>
+        </trans-unit>
+        <trans-unit id="41353a01-fcba-40d2-bf76-55c5e1410b96" xml:space="preserve">
+          <source>In the <bpt id="6a27e45b-a9f8-4715-922c-10ddb9a41a55">&lt;strong&gt;</bpt>ServiceNow Instance Name<ept id="6a27e45b-a9f8-4715-922c-10ddb9a41a55">&lt;/strong&gt;</ept> textbox, type the ServiceNow instance name.</source>
+          <target state="new">In the <bpt id="6a27e45b-a9f8-4715-922c-10ddb9a41a55">&lt;strong&gt;</bpt>ServiceNow Instance Name<ept id="6a27e45b-a9f8-4715-922c-10ddb9a41a55">&lt;/strong&gt;</ept> textbox, type the ServiceNow instance name.</target>
+        </trans-unit>
+        <trans-unit id="9efd6943-e1e0-4cd4-886f-ce33544d63ad" xml:space="preserve">
+          <source>2.2.</source>
+          <target state="new">2.2.</target>
+        </trans-unit>
+        <trans-unit id="9a07f3e5-2c02-4a6c-83d0-71e0289271d1" xml:space="preserve">
+          <source>In the <bpt id="446bcba8-1bf6-4d0d-ac54-bc68f0df682f">&lt;strong&gt;</bpt>ServiceNow Admin User Name<ept id="446bcba8-1bf6-4d0d-ac54-bc68f0df682f">&lt;/strong&gt;</ept> textbox, type the name of the ServiceNow admin account.</source>
+          <target state="new">In the <bpt id="446bcba8-1bf6-4d0d-ac54-bc68f0df682f">&lt;strong&gt;</bpt>ServiceNow Admin User Name<ept id="446bcba8-1bf6-4d0d-ac54-bc68f0df682f">&lt;/strong&gt;</ept> textbox, type the name of the ServiceNow admin account.</target>
+        </trans-unit>
+        <trans-unit id="87c2e66b-f5d8-4aac-9ede-f9b17954d73a" xml:space="preserve">
+          <source>2.3.</source>
+          <target state="new">2.3.</target>
+        </trans-unit>
+        <trans-unit id="d851b436-807d-41aa-8851-f2e9a11accf5" xml:space="preserve">
+          <source>In the <bpt id="0818b1f5-26b4-4ff1-b191-b6ef3fb1d1de">&lt;strong&gt;</bpt>ServiceNow Admin Password<ept id="0818b1f5-26b4-4ff1-b191-b6ef3fb1d1de">&lt;/strong&gt;</ept> textbox, type the password for this account.</source>
+          <target state="new">In the <bpt id="0818b1f5-26b4-4ff1-b191-b6ef3fb1d1de">&lt;strong&gt;</bpt>ServiceNow Admin Password<ept id="0818b1f5-26b4-4ff1-b191-b6ef3fb1d1de">&lt;/strong&gt;</ept> textbox, type the password for this account.</target>
+        </trans-unit>
+        <trans-unit id="c65a84db-5c1f-4bdf-aaaf-fd62d1668b1b" xml:space="preserve">
+          <source>2.4.</source>
+          <target state="new">2.4.</target>
+        </trans-unit>
+        <trans-unit id="c82b30cb-9142-4553-b8ba-2b6260868f1d" xml:space="preserve">
+          <source>Click <bpt id="950db580-635e-40e3-a179-158ed7af5fab">&lt;strong&gt;</bpt>validate<ept id="950db580-635e-40e3-a179-158ed7af5fab">&lt;/strong&gt;</ept> to verify your configuration.</source>
+          <target state="new">Click <bpt id="950db580-635e-40e3-a179-158ed7af5fab">&lt;strong&gt;</bpt>validate<ept id="950db580-635e-40e3-a179-158ed7af5fab">&lt;/strong&gt;</ept> to verify your configuration.</target>
+        </trans-unit>
+        <trans-unit id="984e97a5-b2d7-4ed5-85ac-0f9ad918c4a6" xml:space="preserve">
+          <source>2.5.</source>
+          <target state="new">2.5.</target>
+        </trans-unit>
+        <trans-unit id="99194cdd-e0c8-4c2c-965f-1d7ebf4bc632" xml:space="preserve">
+          <source>Click the <bpt id="3d011c25-19ea-4a59-8587-7504d7c81ce8">&lt;strong&gt;</bpt>Next<ept id="3d011c25-19ea-4a59-8587-7504d7c81ce8">&lt;/strong&gt;</ept> button to open the <bpt id="24cd08b1-64dc-4020-a240-7851273d730c">&lt;strong&gt;</bpt>Next steps<ept id="24cd08b1-64dc-4020-a240-7851273d730c">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Click the <bpt id="3d011c25-19ea-4a59-8587-7504d7c81ce8">&lt;strong&gt;</bpt>Next<ept id="3d011c25-19ea-4a59-8587-7504d7c81ce8">&lt;/strong&gt;</ept> button to open the <bpt id="24cd08b1-64dc-4020-a240-7851273d730c">&lt;strong&gt;</bpt>Next steps<ept id="24cd08b1-64dc-4020-a240-7851273d730c">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="d58334f4-5811-4725-b5e8-416fd3c584f8" xml:space="preserve">
+          <source> 2.6. If you want to provision all users to this application, select “<bpt id="4a4f3ba9-9c47-40c2-a48a-41b1903ca3e1">&lt;strong&gt;</bpt>Automatically provision all user accounts in the directory to this application<ept id="4a4f3ba9-9c47-40c2-a48a-41b1903ca3e1">&lt;/strong&gt;</ept>”. &lt;br&gt;&lt;br&gt; <bpt id="378d8933-333f-4b8f-979e-d49936b48ae0">&lt;linkText&gt;</bpt>Next Steps<ept id="378d8933-333f-4b8f-979e-d49936b48ae0">&lt;/linkText&gt;</ept></source>
+          <target state="new"> 2.6. If you want to provision all users to this application, select “<bpt id="4a4f3ba9-9c47-40c2-a48a-41b1903ca3e1">&lt;strong&gt;</bpt>Automatically provision all user accounts in the directory to this application<ept id="4a4f3ba9-9c47-40c2-a48a-41b1903ca3e1">&lt;/strong&gt;</ept>”. &lt;br&gt;&lt;br&gt; <bpt id="378d8933-333f-4b8f-979e-d49936b48ae0">&lt;linkText&gt;</bpt>Next Steps<ept id="378d8933-333f-4b8f-979e-d49936b48ae0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e303e3e-64f0-4ac8-99cc-59381971a21c" xml:space="preserve">
+          <source>2.7.</source>
+          <target state="new">2.7.</target>
+        </trans-unit>
+        <trans-unit id="59593f9e-9db9-4460-b315-09a9795f3897" xml:space="preserve">
+          <source>On the <bpt id="74db9b1f-9d34-4430-a734-ff5f29042fda">&lt;strong&gt;</bpt>Next steps<ept id="74db9b1f-9d34-4430-a734-ff5f29042fda">&lt;/strong&gt;</ept> page, click <bpt id="6c923a09-68ac-41f5-ae21-3e788293588c">&lt;strong&gt;</bpt>Complete<ept id="6c923a09-68ac-41f5-ae21-3e788293588c">&lt;/strong&gt;</ept> to save your configuration.</source>
+          <target state="new">On the <bpt id="74db9b1f-9d34-4430-a734-ff5f29042fda">&lt;strong&gt;</bpt>Next steps<ept id="74db9b1f-9d34-4430-a734-ff5f29042fda">&lt;/strong&gt;</ept> page, click <bpt id="6c923a09-68ac-41f5-ae21-3e788293588c">&lt;strong&gt;</bpt>Complete<ept id="6c923a09-68ac-41f5-ae21-3e788293588c">&lt;/strong&gt;</ept> to save your configuration.</target>
+        </trans-unit>
+        <trans-unit id="7136f03d-2188-4057-9f23-1ccfe441c16c" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="5244c043-22f6-4bcf-9d86-56ac35cdedc9" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="171b8f7d-87a0-48ba-988a-2a7142a54397" xml:space="preserve">
+          <source>On the <bpt id="b5b593e4-8f62-47d6-b17d-7ca5657e14ac">&lt;strong&gt;</bpt>ServiceNow **application integration page, click **Assign users<ept id="b5b593e4-8f62-47d6-b17d-7ca5657e14ac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b5b593e4-8f62-47d6-b17d-7ca5657e14ac">&lt;strong&gt;</bpt>ServiceNow **application integration page, click **Assign users<ept id="b5b593e4-8f62-47d6-b17d-7ca5657e14ac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="767d7ba5-b945-4799-addd-53d13496b516" xml:space="preserve">
+          <source><bpt id="00557ec0-666e-482b-b816-380d8da844ea">&lt;linkText&gt;</bpt>Assign users<ept id="00557ec0-666e-482b-b816-380d8da844ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="00557ec0-666e-482b-b816-380d8da844ea">&lt;linkText&gt;</bpt>Assign users<ept id="00557ec0-666e-482b-b816-380d8da844ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80c033ef-c72b-4363-8716-8378484e1438" xml:space="preserve">
+          <source>Select your test user, click <bpt id="878e759c-a435-48c2-87e4-8add29027d06">&lt;strong&gt;</bpt>Assign<ept id="878e759c-a435-48c2-87e4-8add29027d06">&lt;/strong&gt;</ept>, and then click <bpt id="5e16d17c-4205-4ada-a836-14eedd9ce79a">&lt;strong&gt;</bpt>Yes<ept id="5e16d17c-4205-4ada-a836-14eedd9ce79a">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="878e759c-a435-48c2-87e4-8add29027d06">&lt;strong&gt;</bpt>Assign<ept id="878e759c-a435-48c2-87e4-8add29027d06">&lt;/strong&gt;</ept>, and then click <bpt id="5e16d17c-4205-4ada-a836-14eedd9ce79a">&lt;strong&gt;</bpt>Yes<ept id="5e16d17c-4205-4ada-a836-14eedd9ce79a">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="f2242227-de48-4e8a-aeb8-2a55be3696f2" xml:space="preserve">
+          <source><bpt id="f522dd8e-0d9a-44b1-a729-3a9793a4d5c3">&lt;linkText&gt;</bpt>Yes<ept id="f522dd8e-0d9a-44b1-a729-3a9793a4d5c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f522dd8e-0d9a-44b1-a729-3a9793a4d5c3">&lt;linkText&gt;</bpt>Yes<ept id="f522dd8e-0d9a-44b1-a729-3a9793a4d5c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="496637e7-4c07-4f41-998d-4520f9174cf7" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="79d97fd1-9c0d-4e01-9c1d-99bc85f2b382" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="b7fbc9e3-0acd-47d8-b43c-0b06395fd37d">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="b7fbc9e3-0acd-47d8-b43c-0b06395fd37d">&lt;/linkText&gt;</ept><bpt id="b7fbc9e3-0acd-47d8-b43c-0b06395fd37d">&lt;title&gt;</bpt><ept id="b7fbc9e3-0acd-47d8-b43c-0b06395fd37d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="b7fbc9e3-0acd-47d8-b43c-0b06395fd37d">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="b7fbc9e3-0acd-47d8-b43c-0b06395fd37d">&lt;/linkText&gt;</ept><bpt id="b7fbc9e3-0acd-47d8-b43c-0b06395fd37d">&lt;title&gt;</bpt><ept id="b7fbc9e3-0acd-47d8-b43c-0b06395fd37d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4b62688-db93-4673-8e4e-c34a4c39599f" xml:space="preserve">
+          <source><bpt id="1047aa45-cb50-4c7c-9a40-0064f0a85624">&lt;linkText&gt;</bpt>List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory<ept id="1047aa45-cb50-4c7c-9a40-0064f0a85624">&lt;/linkText&gt;</ept><bpt id="1047aa45-cb50-4c7c-9a40-0064f0a85624">&lt;title&gt;</bpt><ept id="1047aa45-cb50-4c7c-9a40-0064f0a85624">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1047aa45-cb50-4c7c-9a40-0064f0a85624">&lt;linkText&gt;</bpt>List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory<ept id="1047aa45-cb50-4c7c-9a40-0064f0a85624">&lt;/linkText&gt;</ept><bpt id="1047aa45-cb50-4c7c-9a40-0064f0a85624">&lt;title&gt;</bpt><ept id="1047aa45-cb50-4c7c-9a40-0064f0a85624">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7eaa15fb-7cc1-4f21-8fad-ad0c1e7726a1" xml:space="preserve">
+          <source><bpt id="5ab1e2ca-50f9-4d3c-94ba-83f1137fdaba">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="5ab1e2ca-50f9-4d3c-94ba-83f1137fdaba">&lt;/linkText&gt;</ept><bpt id="5ab1e2ca-50f9-4d3c-94ba-83f1137fdaba">&lt;title&gt;</bpt><ept id="5ab1e2ca-50f9-4d3c-94ba-83f1137fdaba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5ab1e2ca-50f9-4d3c-94ba-83f1137fdaba">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="5ab1e2ca-50f9-4d3c-94ba-83f1137fdaba">&lt;/linkText&gt;</ept><bpt id="5ab1e2ca-50f9-4d3c-94ba-83f1137fdaba">&lt;title&gt;</bpt><ept id="5ab1e2ca-50f9-4d3c-94ba-83f1137fdaba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

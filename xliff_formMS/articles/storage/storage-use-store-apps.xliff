@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4b21e67b-758e-48eb-afeb-63ec9e30f306" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4b21e67b-758e-48eb-afeb-63ec9e30f306" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e5fa530e-0a53-4411-ab25-1e9e6b2a894a">
+        <trans-unit id="bde346cb-bfa4-4b9d-8f11-e2ea3617a6e7" xml:space="preserve">
+          <source>Use Azure storage in Windows Store apps | Microsoft Azure</source>
+          <target state="new">Use Azure storage in Windows Store apps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="29280ea1-5eb7-4a04-be69-cdb3dc0f32b2" xml:space="preserve">
+          <source>Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app.</source>
+          <target state="new">Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="57516caa-b6e8-4ea7-a31b-6d8ec667c7bc" xml:space="preserve">
+          <source>This guide shows how to get started with developing a Windows Store app that makes use of Azure Storage.</source>
+          <target state="new">This guide shows how to get started with developing a Windows Store app that makes use of Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="0dedeca5-a67c-488d-9850-5b2e24c80d54" xml:space="preserve">
+          <source><bpt id="77d7ce42-c5c5-4d30-861c-da6b55b6d1d2">&lt;linkText&gt;</bpt>Visual Studio 2012<ept id="77d7ce42-c5c5-4d30-861c-da6b55b6d1d2">&lt;/linkText&gt;</ept><bpt id="77d7ce42-c5c5-4d30-861c-da6b55b6d1d2">&lt;title&gt;</bpt><ept id="77d7ce42-c5c5-4d30-861c-da6b55b6d1d2">&lt;/title&gt;</ept> makes it easy to build, debug, localize, package, and deploy Windows Store apps.</source>
+          <target state="new"><bpt id="77d7ce42-c5c5-4d30-861c-da6b55b6d1d2">&lt;linkText&gt;</bpt>Visual Studio 2012<ept id="77d7ce42-c5c5-4d30-861c-da6b55b6d1d2">&lt;/linkText&gt;</ept><bpt id="77d7ce42-c5c5-4d30-861c-da6b55b6d1d2">&lt;title&gt;</bpt><ept id="77d7ce42-c5c5-4d30-861c-da6b55b6d1d2">&lt;/title&gt;</ept> makes it easy to build, debug, localize, package, and deploy Windows Store apps.</target>
+        </trans-unit>
+        <trans-unit id="f478c749-37b4-41cf-9e63-18a30f2efd9b" xml:space="preserve">
+          <source><bpt id="5c59afe7-a90b-4617-a222-349fa0b858d5">&lt;linkText&gt;</bpt>Azure Storage Client Library for Windows Runtime<ept id="5c59afe7-a90b-4617-a222-349fa0b858d5">&lt;/linkText&gt;</ept><bpt id="5c59afe7-a90b-4617-a222-349fa0b858d5">&lt;title&gt;</bpt><ept id="5c59afe7-a90b-4617-a222-349fa0b858d5">&lt;/title&gt;</ept> provides a class library for working with Azure Storage.</source>
+          <target state="new"><bpt id="5c59afe7-a90b-4617-a222-349fa0b858d5">&lt;linkText&gt;</bpt>Azure Storage Client Library for Windows Runtime<ept id="5c59afe7-a90b-4617-a222-349fa0b858d5">&lt;/linkText&gt;</ept><bpt id="5c59afe7-a90b-4617-a222-349fa0b858d5">&lt;title&gt;</bpt><ept id="5c59afe7-a90b-4617-a222-349fa0b858d5">&lt;/title&gt;</ept> provides a class library for working with Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="b220c0d7-a4b8-495f-aef7-e86ea48f9add" xml:space="preserve">
+          <source><bpt id="d3c42478-59be-4464-9418-f83579546b4b">&lt;linkText&gt;</bpt>WCF Data Services Tools for Windows Store Apps<ept id="d3c42478-59be-4464-9418-f83579546b4b">&lt;/linkText&gt;</ept><bpt id="d3c42478-59be-4464-9418-f83579546b4b">&lt;title&gt;</bpt><ept id="d3c42478-59be-4464-9418-f83579546b4b">&lt;/title&gt;</ept> extends the Add Service Reference experience with client-side OData support for Windows Store apps in Visual Studio 2012 and later.</source>
+          <target state="new"><bpt id="d3c42478-59be-4464-9418-f83579546b4b">&lt;linkText&gt;</bpt>WCF Data Services Tools for Windows Store Apps<ept id="d3c42478-59be-4464-9418-f83579546b4b">&lt;/linkText&gt;</ept><bpt id="d3c42478-59be-4464-9418-f83579546b4b">&lt;title&gt;</bpt><ept id="d3c42478-59be-4464-9418-f83579546b4b">&lt;/title&gt;</ept> extends the Add Service Reference experience with client-side OData support for Windows Store apps in Visual Studio 2012 and later.</target>
+        </trans-unit>
+        <trans-unit id="bdb7ee95-be24-4cc2-8325-ce03a15f8a3e" xml:space="preserve">
+          <source>Create a new Windows Store app project in Visual Studio 2012 or later:</source>
+          <target state="new">Create a new Windows Store app project in Visual Studio 2012 or later:</target>
+        </trans-unit>
+        <trans-unit id="3f3da695-ac4f-402b-8122-e8d872dc2aad" xml:space="preserve">
+          <source><bpt id="2caa235f-36f0-4e55-ba8b-8b98ec0b437a">&lt;linkText&gt;</bpt>store-apps-storage-vs-project<ept id="2caa235f-36f0-4e55-ba8b-8b98ec0b437a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2caa235f-36f0-4e55-ba8b-8b98ec0b437a">&lt;linkText&gt;</bpt>store-apps-storage-vs-project<ept id="2caa235f-36f0-4e55-ba8b-8b98ec0b437a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05d2be2c-4044-4e45-a82b-4df9853522b5" xml:space="preserve">
+          <source>Next, add a reference to the Azure Storage Client Library by right-clicking <bpt id="1313b44b-a7da-40e0-b5b7-594dface553d">&lt;strong&gt;</bpt>References<ept id="1313b44b-a7da-40e0-b5b7-594dface553d">&lt;/strong&gt;</ept>, clicking <bpt id="cac06005-04ec-42b5-9183-0d05527dcf7f">&lt;strong&gt;</bpt>Add Reference<ept id="cac06005-04ec-42b5-9183-0d05527dcf7f">&lt;/strong&gt;</ept>, and then browsing to the Storage Client Library for Windows Runtime that you downloaded:</source>
+          <target state="new">Next, add a reference to the Azure Storage Client Library by right-clicking <bpt id="1313b44b-a7da-40e0-b5b7-594dface553d">&lt;strong&gt;</bpt>References<ept id="1313b44b-a7da-40e0-b5b7-594dface553d">&lt;/strong&gt;</ept>, clicking <bpt id="cac06005-04ec-42b5-9183-0d05527dcf7f">&lt;strong&gt;</bpt>Add Reference<ept id="cac06005-04ec-42b5-9183-0d05527dcf7f">&lt;/strong&gt;</ept>, and then browsing to the Storage Client Library for Windows Runtime that you downloaded:</target>
+        </trans-unit>
+        <trans-unit id="d2fe131d-7b60-4453-911b-3873dbb38ecd" xml:space="preserve">
+          <source><bpt id="21d1144c-8d86-4c24-8eb3-810a09b727d1">&lt;linkText&gt;</bpt>store-apps-storage-choose-library<ept id="21d1144c-8d86-4c24-8eb3-810a09b727d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21d1144c-8d86-4c24-8eb3-810a09b727d1">&lt;linkText&gt;</bpt>store-apps-storage-choose-library<ept id="21d1144c-8d86-4c24-8eb3-810a09b727d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a70ca134-6a99-4390-8ccd-ad6014a072b9" xml:space="preserve">
+          <source>At this point, your app is ready to call the Azure Blob and Queue services.</source>
+          <target state="new">At this point, your app is ready to call the Azure Blob and Queue services.</target>
+        </trans-unit>
+        <trans-unit id="d15f661d-43d4-4593-9f7c-6c29c5886387" xml:space="preserve">
+          <source>Add the following <bpt id="8da4d8ae-c7f9-41bf-96a5-86a13299161c">&lt;strong&gt;</bpt>using<ept id="8da4d8ae-c7f9-41bf-96a5-86a13299161c">&lt;/strong&gt;</ept> statements so that Azure Storage types can be referenced directly:</source>
+          <target state="new">Add the following <bpt id="8da4d8ae-c7f9-41bf-96a5-86a13299161c">&lt;strong&gt;</bpt>using<ept id="8da4d8ae-c7f9-41bf-96a5-86a13299161c">&lt;/strong&gt;</ept> statements so that Azure Storage types can be referenced directly:</target>
+        </trans-unit>
+        <trans-unit id="f8022d43-d1e6-4ede-8ab4-e9cecdaef6c2" xml:space="preserve">
+          <source>Next, add a button to your page.</source>
+          <target state="new">Next, add a button to your page.</target>
+        </trans-unit>
+        <trans-unit id="b489f00e-179c-4bdc-82b2-7a1c00aa3a0b" xml:space="preserve">
+          <source>Add the following code to its <bpt id="58b5583f-96d3-4773-84ee-95b592776ee1">&lt;strong&gt;</bpt>Click<ept id="58b5583f-96d3-4773-84ee-95b592776ee1">&lt;/strong&gt;</ept> event and modify your event handler method by using the <bpt id="dd123782-e58b-4762-992e-8c2843fc70f9">&lt;linkText&gt;</bpt>async keyword<ept id="dd123782-e58b-4762-992e-8c2843fc70f9">&lt;/linkText&gt;</ept><bpt id="dd123782-e58b-4762-992e-8c2843fc70f9">&lt;title&gt;</bpt><ept id="dd123782-e58b-4762-992e-8c2843fc70f9">&lt;/title&gt;</ept>:</source>
+          <target state="new">Add the following code to its <bpt id="58b5583f-96d3-4773-84ee-95b592776ee1">&lt;strong&gt;</bpt>Click<ept id="58b5583f-96d3-4773-84ee-95b592776ee1">&lt;/strong&gt;</ept> event and modify your event handler method by using the <bpt id="dd123782-e58b-4762-992e-8c2843fc70f9">&lt;linkText&gt;</bpt>async keyword<ept id="dd123782-e58b-4762-992e-8c2843fc70f9">&lt;/linkText&gt;</ept><bpt id="dd123782-e58b-4762-992e-8c2843fc70f9">&lt;title&gt;</bpt><ept id="dd123782-e58b-4762-992e-8c2843fc70f9">&lt;/title&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="d103bd2c-21c1-4956-ae37-44be77be8005" xml:space="preserve">
+          <source>This code assumes that you have two string variables, <bpt id="ebdc7de3-1b26-4c3e-aa44-7e2888d08ab4">&lt;em&gt;</bpt>accountName<ept id="ebdc7de3-1b26-4c3e-aa44-7e2888d08ab4">&lt;/em&gt;</ept> and <bpt id="843ac497-51e9-49ce-8a5d-67be192f1244">&lt;em&gt;</bpt>accountKey<ept id="843ac497-51e9-49ce-8a5d-67be192f1244">&lt;/em&gt;</ept>.</source>
+          <target state="new">This code assumes that you have two string variables, <bpt id="ebdc7de3-1b26-4c3e-aa44-7e2888d08ab4">&lt;em&gt;</bpt>accountName<ept id="ebdc7de3-1b26-4c3e-aa44-7e2888d08ab4">&lt;/em&gt;</ept> and <bpt id="843ac497-51e9-49ce-8a5d-67be192f1244">&lt;em&gt;</bpt>accountKey<ept id="843ac497-51e9-49ce-8a5d-67be192f1244">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e759a48-b587-4559-8ed5-47016a2c709a" xml:space="preserve">
+          <source>They represent the name of your storage account and the account key that is associated with that account.</source>
+          <target state="new">They represent the name of your storage account and the account key that is associated with that account.</target>
+        </trans-unit>
+        <trans-unit id="f3215d62-1009-4541-8465-f39f8887755e" xml:space="preserve">
+          <source>Build and run the application.</source>
+          <target state="new">Build and run the application.</target>
+        </trans-unit>
+        <trans-unit id="197e935c-ca1d-49a9-8212-fc6aaac222bb" xml:space="preserve">
+          <source>Clicking the button will check whether a container named <bpt id="b05fac80-f6a1-429a-8c23-f4207729d425">&lt;em&gt;</bpt>container1<ept id="b05fac80-f6a1-429a-8c23-f4207729d425">&lt;/em&gt;</ept> exists in your account and then create it if not.</source>
+          <target state="new">Clicking the button will check whether a container named <bpt id="b05fac80-f6a1-429a-8c23-f4207729d425">&lt;em&gt;</bpt>container1<ept id="b05fac80-f6a1-429a-8c23-f4207729d425">&lt;/em&gt;</ept> exists in your account and then create it if not.</target>
+        </trans-unit>
+        <trans-unit id="3acd84dd-8141-4ab3-8035-2148e0d55b91" xml:space="preserve">
+          <source>Types that are used to communicate with the Azure Table service depend on WCF Data Services for the Windows Store app library.</source>
+          <target state="new">Types that are used to communicate with the Azure Table service depend on WCF Data Services for the Windows Store app library.</target>
+        </trans-unit>
+        <trans-unit id="fed57017-8084-4141-8d00-38831b46d3e3" xml:space="preserve">
+          <source>Next, add a reference to the required WCF libraries by using the Package Manager Console:</source>
+          <target state="new">Next, add a reference to the required WCF libraries by using the Package Manager Console:</target>
+        </trans-unit>
+        <trans-unit id="53a3baad-836e-437a-a119-251391825af3" xml:space="preserve">
+          <source><bpt id="ab2f70d3-aa95-4dbc-ab53-ee7c8b7426ab">&lt;linkText&gt;</bpt>store-apps-storage-package-manager<ept id="ab2f70d3-aa95-4dbc-ab53-ee7c8b7426ab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ab2f70d3-aa95-4dbc-ab53-ee7c8b7426ab">&lt;linkText&gt;</bpt>store-apps-storage-package-manager<ept id="ab2f70d3-aa95-4dbc-ab53-ee7c8b7426ab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4162c904-9bb5-43c2-af9f-fdd5453e515f" xml:space="preserve">
+          <source>Use the following command to point Package Manager to the location on your machine:</source>
+          <target state="new">Use the following command to point Package Manager to the location on your machine:</target>
+        </trans-unit>
+        <trans-unit id="3fe6ace0-71e0-4062-a569-fb91bab79d94" xml:space="preserve">
+          <source>This command will automatically add all required references to your project.</source>
+          <target state="new">This command will automatically add all required references to your project.</target>
+        </trans-unit>
+        <trans-unit id="1b2025dd-2df1-4a2e-a95c-9a80ed2902e4" xml:space="preserve">
+          <source>If you do not want to use the Package Manager Console, you can add the WCF Data Services NuGet folder on your local machine to the list of package sources and then add the reference through the UI, as described in <bpt id="0058a8d3-f64b-4449-9348-66ae92899dad">&lt;linkText&gt;</bpt>Managing NuGet Packages Using the Dialog<ept id="0058a8d3-f64b-4449-9348-66ae92899dad">&lt;/linkText&gt;</ept><bpt id="0058a8d3-f64b-4449-9348-66ae92899dad">&lt;title&gt;</bpt><ept id="0058a8d3-f64b-4449-9348-66ae92899dad">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not want to use the Package Manager Console, you can add the WCF Data Services NuGet folder on your local machine to the list of package sources and then add the reference through the UI, as described in <bpt id="0058a8d3-f64b-4449-9348-66ae92899dad">&lt;linkText&gt;</bpt>Managing NuGet Packages Using the Dialog<ept id="0058a8d3-f64b-4449-9348-66ae92899dad">&lt;/linkText&gt;</ept><bpt id="0058a8d3-f64b-4449-9348-66ae92899dad">&lt;title&gt;</bpt><ept id="0058a8d3-f64b-4449-9348-66ae92899dad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52a59fdb-7a67-4e4d-814a-9852a98fd7cd" xml:space="preserve">
+          <source>When you have referenced the WCF Data Services NuGet package, change the code in your button's <bpt id="d33072ab-b891-4254-9623-4ce227cc87e8">&lt;strong&gt;</bpt>Click<ept id="d33072ab-b891-4254-9623-4ce227cc87e8">&lt;/strong&gt;</ept> event:</source>
+          <target state="new">When you have referenced the WCF Data Services NuGet package, change the code in your button's <bpt id="d33072ab-b891-4254-9623-4ce227cc87e8">&lt;strong&gt;</bpt>Click<ept id="d33072ab-b891-4254-9623-4ce227cc87e8">&lt;/strong&gt;</ept> event:</target>
+        </trans-unit>
+        <trans-unit id="0c39cb62-8aa7-4d14-8005-40c6b2fd08b8" xml:space="preserve">
+          <source>This code checks whether a table named <bpt id="72f56fc9-b139-4f8f-9b1a-311f6706b4e2">&lt;em&gt;</bpt>table1<ept id="72f56fc9-b139-4f8f-9b1a-311f6706b4e2">&lt;/em&gt;</ept> exists in your account, and then creates it if not.</source>
+          <target state="new">This code checks whether a table named <bpt id="72f56fc9-b139-4f8f-9b1a-311f6706b4e2">&lt;em&gt;</bpt>table1<ept id="72f56fc9-b139-4f8f-9b1a-311f6706b4e2">&lt;/em&gt;</ept> exists in your account, and then creates it if not.</target>
+        </trans-unit>
+        <trans-unit id="829203b4-5277-4ab1-bc0c-7bfcee4a0fe4" xml:space="preserve">
+          <source>You can also add a reference to Microsoft.WindowsAzure.Storage.Table.dll, which is available in the same package that you downloaded.</source>
+          <target state="new">You can also add a reference to Microsoft.WindowsAzure.Storage.Table.dll, which is available in the same package that you downloaded.</target>
+        </trans-unit>
+        <trans-unit id="49fa2620-99d9-4f13-9d40-7380de257e6f" xml:space="preserve">
+          <source>This library contains additional functionality, such as reflection-based serialization and generic queries.</source>
+          <target state="new">This library contains additional functionality, such as reflection-based serialization and generic queries.</target>
+        </trans-unit>
+        <trans-unit id="1bede3de-fc1e-4ef7-9f86-faa3068ce356" xml:space="preserve">
+          <source>Note that this library does not support JavaScript.</source>
+          <target state="new">Note that this library does not support JavaScript.</target>
+        </trans-unit>
+        <trans-unit id="076d3c14-601e-4d83-a385-b9cdb909940b" xml:space="preserve">
+          <source>./media/storage-use-store-apps/store-apps-storage-vs-project.png</source>
+          <target state="new">./media/storage-use-store-apps/store-apps-storage-vs-project.png</target>
+        </trans-unit>
+        <trans-unit id="d3a3ad20-2d1f-4f50-81df-05adbae79809" xml:space="preserve">
+          <source>./media/storage-use-store-apps/store-apps-storage-choose-library.png</source>
+          <target state="new">./media/storage-use-store-apps/store-apps-storage-choose-library.png</target>
+        </trans-unit>
+        <trans-unit id="cbe31317-22c3-4b73-89b3-6cd33941baa3" xml:space="preserve">
+          <source>./media/storage-use-store-apps/store-apps-storage-package-manager.png</source>
+          <target state="new">./media/storage-use-store-apps/store-apps-storage-package-manager.png</target>
+        </trans-unit>
+      </group>
+      <group id="6076e7aa-b69b-4633-a40c-3e9805fd6b84" />
+    </body>
+  </file>
+</xliff>

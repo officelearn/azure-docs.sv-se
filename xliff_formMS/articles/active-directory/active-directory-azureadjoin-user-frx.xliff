@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="91ed72b6-baec-4696-847c-2eb87bd3f44c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="91ed72b6-baec-4696-847c-2eb87bd3f44c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7f38a3c9-8ef0-4066-8b00-49aead7fc6ce">
+        <trans-unit id="e9042bf4-cd48-45b1-8ea6-c93372ee858d" xml:space="preserve">
+          <source>Set up a new device with Azure AD during Setup| Microsoft Azure</source>
+          <target state="new">Set up a new device with Azure AD during Setup| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f00bfff9-e966-4b74-a7d4-0f051241a1b3" xml:space="preserve">
+          <source>A topic that explains how users can set up Azure AD Join during their first run experience.</source>
+          <target state="new">A topic that explains how users can set up Azure AD Join during their first run experience.</target>
+        </trans-unit>
+        <trans-unit id="7667a0e4-c963-4306-b2e5-478b3d4a7441" xml:space="preserve">
+          <source>In Windows 10, end-users can join their device to Azure AD in the first run experience (FRX).</source>
+          <target state="new">In Windows 10, end-users can join their device to Azure AD in the first run experience (FRX).</target>
+        </trans-unit>
+        <trans-unit id="9daf9e37-1689-4a36-af58-766dc15a7fe7" xml:space="preserve">
+          <source>This will allow organizations to distribute shrink-wrapped devices to their employees or students, or let them choose their own device (CYOD).</source>
+          <target state="new">This will allow organizations to distribute shrink-wrapped devices to their employees or students, or let them choose their own device (CYOD).</target>
+        </trans-unit>
+        <trans-unit id="0028ed63-20ab-4c67-a8b3-9e1f8fa95643" xml:space="preserve">
+          <source>If you install either the Professional or Enterprise SKU for Windows 10, the experience defaults to the setup for company-owned devices.</source>
+          <target state="new">If you install either the Professional or Enterprise SKU for Windows 10, the experience defaults to the setup for company-owned devices.</target>
+        </trans-unit>
+        <trans-unit id="8ffa7ed6-ac4a-4175-b9b9-9ab584376684" xml:space="preserve">
+          <source>After the <bpt id="7c51200d-6014-4661-a770-159c1583c592">&lt;strong&gt;</bpt>Getting Ready<ept id="7c51200d-6014-4661-a770-159c1583c592">&lt;/strong&gt;</ept> stage, you are prompted with the Setup wizard.</source>
+          <target state="new">After the <bpt id="7c51200d-6014-4661-a770-159c1583c592">&lt;strong&gt;</bpt>Getting Ready<ept id="7c51200d-6014-4661-a770-159c1583c592">&lt;/strong&gt;</ept> stage, you are prompted with the Setup wizard.</target>
+        </trans-unit>
+        <trans-unit id="180a3ef8-c585-469a-af8b-8fe8767e0159" xml:space="preserve">
+          <source>Start by customizing their region and language, accept the EULA and get online.</source>
+          <target state="new">Start by customizing their region and language, accept the EULA and get online.</target>
+        </trans-unit>
+        <trans-unit id="d1e57543-3343-41a0-b362-16e1dc2f5a13" xml:space="preserve">
+          <source>&lt;center&gt;
+<bpt id="381c91d7-24e6-4f20-b386-3db565381c3f">&lt;linkText&gt;</bpt><ept id="381c91d7-24e6-4f20-b386-3db565381c3f">&lt;/linkText&gt;</ept> &lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;
+<bpt id="381c91d7-24e6-4f20-b386-3db565381c3f">&lt;linkText&gt;</bpt><ept id="381c91d7-24e6-4f20-b386-3db565381c3f">&lt;/linkText&gt;</ept> &lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="fa6cd783-e82c-4e15-a74a-cc7ddcb17157" xml:space="preserve">
+          <source>Select the network to connect to the internet.</source>
+          <target state="new">Select the network to connect to the internet.</target>
+        </trans-unit>
+        <trans-unit id="3dd440d4-341b-4853-8f2a-f97d42078186" xml:space="preserve">
+          <source>Select if it’s a personal device or a company-owned device:</source>
+          <target state="new">Select if it’s a personal device or a company-owned device:</target>
+        </trans-unit>
+        <trans-unit id="74fe4b0d-0dde-49b7-9d54-3eed6ec22381" xml:space="preserve">
+          <source>Click <bpt id="44ce3547-0586-4005-ab7f-20379b0a8481">&lt;strong&gt;</bpt>this device belongs to my organization<ept id="44ce3547-0586-4005-ab7f-20379b0a8481">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="44ce3547-0586-4005-ab7f-20379b0a8481">&lt;strong&gt;</bpt>this device belongs to my organization<ept id="44ce3547-0586-4005-ab7f-20379b0a8481">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3230a84-7479-4774-a22a-d544da2063b0" xml:space="preserve">
+          <source>This starts the Azure AD Join experience.</source>
+          <target state="new">This starts the Azure AD Join experience.</target>
+        </trans-unit>
+        <trans-unit id="81cfb29f-434b-4e46-bcb5-215a8dcb0d2d" xml:space="preserve">
+          <source>Following is a screen that you see in Windows 10 Professional SKU.</source>
+          <target state="new">Following is a screen that you see in Windows 10 Professional SKU.</target>
+        </trans-unit>
+        <trans-unit id="0a11ff13-863b-4713-80fc-a90259513d78" xml:space="preserve">
+          <source>&lt;center&gt;
+<bpt id="562118af-8ba4-411b-9f0a-3be33c6c5c22">&lt;linkText&gt;</bpt><ept id="562118af-8ba4-411b-9f0a-3be33c6c5c22">&lt;/linkText&gt;</ept> &lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;
+<bpt id="562118af-8ba4-411b-9f0a-3be33c6c5c22">&lt;linkText&gt;</bpt><ept id="562118af-8ba4-411b-9f0a-3be33c6c5c22">&lt;/linkText&gt;</ept> &lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="1a5250bd-1a7d-4e89-8c06-9d7f423e3a99" xml:space="preserve">
+          <source>Enter the credentials provided to you by your organization.</source>
+          <target state="new">Enter the credentials provided to you by your organization.</target>
+        </trans-unit>
+        <trans-unit id="87d630dc-9a91-4926-8a6c-8cb1926d9bb0" xml:space="preserve">
+          <source>&lt;center&gt;
+<bpt id="58ca0682-b0e3-4090-9782-66169c7d1479">&lt;linkText&gt;</bpt><ept id="58ca0682-b0e3-4090-9782-66169c7d1479">&lt;/linkText&gt;</ept> &lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;
+<bpt id="58ca0682-b0e3-4090-9782-66169c7d1479">&lt;linkText&gt;</bpt><ept id="58ca0682-b0e3-4090-9782-66169c7d1479">&lt;/linkText&gt;</ept> &lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="20427bee-5afe-400e-b49e-9b2511f57975" xml:space="preserve">
+          <source>Once you have entered your username, a matching tenant is located in Azure AD.</source>
+          <target state="new">Once you have entered your username, a matching tenant is located in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="09f9cc52-8352-43ff-8f3f-68d8b5341e31" xml:space="preserve">
+          <source>If you are in a federated domain, you will be redirected to your on-premises Secure Token Service (STS) server (for example, AD FS).</source>
+          <target state="new">If you are in a federated domain, you will be redirected to your on-premises Secure Token Service (STS) server (for example, AD FS).</target>
+        </trans-unit>
+        <trans-unit id="6de8136a-3bd3-427e-b704-049cf116ffa5" xml:space="preserve">
+          <source>If you are a user in a non-federated domains, you need to enter your credentials directly on the Azure AD-hosted page.</source>
+          <target state="new">If you are a user in a non-federated domains, you need to enter your credentials directly on the Azure AD-hosted page.</target>
+        </trans-unit>
+        <trans-unit id="7bdaa6c0-59a0-43fc-bbfe-29a8ecb412d0" xml:space="preserve">
+          <source>You will also see your organization’s logo and support text if Company Branding was configured.</source>
+          <target state="new">You will also see your organization’s logo and support text if Company Branding was configured.</target>
+        </trans-unit>
+        <trans-unit id="3240b59e-7db5-4b93-9a2a-cc71d410a857" xml:space="preserve">
+          <source>You will then be prompted for a multi-factor authentication challenge.</source>
+          <target state="new">You will then be prompted for a multi-factor authentication challenge.</target>
+        </trans-unit>
+        <trans-unit id="679ce844-2f55-448c-be84-394227b6a673" xml:space="preserve">
+          <source>This is configurable by IT.</source>
+          <target state="new">This is configurable by IT.</target>
+        </trans-unit>
+        <trans-unit id="73a519f6-d8cf-4603-89f1-554d5733207e" xml:space="preserve">
+          <source>Azure AD will then check whether this user/device requires mobile device management (MDM) enrollment.</source>
+          <target state="new">Azure AD will then check whether this user/device requires mobile device management (MDM) enrollment.</target>
+        </trans-unit>
+        <trans-unit id="14d9c91e-1083-486f-9fa5-ad5e72eaef19" xml:space="preserve">
+          <source>Windows will then register the device in the organization’s directory in Azure AD and enroll it in MDM.</source>
+          <target state="new">Windows will then register the device in the organization’s directory in Azure AD and enroll it in MDM.</target>
+        </trans-unit>
+        <trans-unit id="16ffde65-7e21-436f-828f-29c503a516e2" xml:space="preserve">
+          <source>When this is done, if you are a managed user, Windows will wrap up the setup process and take the user to the desktop through the automatic sign-in.</source>
+          <target state="new">When this is done, if you are a managed user, Windows will wrap up the setup process and take the user to the desktop through the automatic sign-in.</target>
+        </trans-unit>
+        <trans-unit id="90588a44-4ea4-4b9a-99db-ee6f6fe3f7e3" xml:space="preserve">
+          <source>If you are a federated user, you land on the Windows sign-in screen and have to enter your credentials to sign in.</source>
+          <target state="new">If you are a federated user, you land on the Windows sign-in screen and have to enter your credentials to sign in.</target>
+        </trans-unit>
+        <trans-unit id="eb6552f9-0377-4fc2-a820-031d0c683c40" xml:space="preserve">
+          <source>Joining an on-premises Active Directory domain in the Windows out-of-box experience is not supported.</source>
+          <target state="new">Joining an on-premises Active Directory domain in the Windows out-of-box experience is not supported.</target>
+        </trans-unit>
+        <trans-unit id="0f2ad3f5-28c6-4692-ac63-89cf7adb9203" xml:space="preserve">
+          <source>Therefore, if you plan to join a PC to a domain you should select the link “Set up Windows with a local account instead”.</source>
+          <target state="new">Therefore, if you plan to join a PC to a domain you should select the link “Set up Windows with a local account instead”.</target>
+        </trans-unit>
+        <trans-unit id="b24ce6cb-0261-476c-9cf7-6dbb1774ce16" xml:space="preserve">
+          <source>You can then join the domain from PC Settings as you’ve done before.</source>
+          <target state="new">You can then join the domain from PC Settings as you’ve done before.</target>
+        </trans-unit>
+        <trans-unit id="76b3da05-8e96-45d9-8b22-baffb58a9226" xml:space="preserve">
+          <source><bpt id="a3316513-32c8-4de8-bb5c-1cb04b422a50">&lt;linkText&gt;</bpt>Learn about usage scenarios for Azure AD Join<ept id="a3316513-32c8-4de8-bb5c-1cb04b422a50">&lt;/linkText&gt;</ept><bpt id="a3316513-32c8-4de8-bb5c-1cb04b422a50">&lt;title&gt;</bpt><ept id="a3316513-32c8-4de8-bb5c-1cb04b422a50">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a3316513-32c8-4de8-bb5c-1cb04b422a50">&lt;linkText&gt;</bpt>Learn about usage scenarios for Azure AD Join<ept id="a3316513-32c8-4de8-bb5c-1cb04b422a50">&lt;/linkText&gt;</ept><bpt id="a3316513-32c8-4de8-bb5c-1cb04b422a50">&lt;title&gt;</bpt><ept id="a3316513-32c8-4de8-bb5c-1cb04b422a50">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="694c2722-f6be-4308-a47c-6737fda832a2" xml:space="preserve">
+          <source><bpt id="a8f4277e-7af8-4dec-9f32-7959da8a2233">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="a8f4277e-7af8-4dec-9f32-7959da8a2233">&lt;/linkText&gt;</ept><bpt id="a8f4277e-7af8-4dec-9f32-7959da8a2233">&lt;title&gt;</bpt><ept id="a8f4277e-7af8-4dec-9f32-7959da8a2233">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a8f4277e-7af8-4dec-9f32-7959da8a2233">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="a8f4277e-7af8-4dec-9f32-7959da8a2233">&lt;/linkText&gt;</ept><bpt id="a8f4277e-7af8-4dec-9f32-7959da8a2233">&lt;title&gt;</bpt><ept id="a8f4277e-7af8-4dec-9f32-7959da8a2233">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

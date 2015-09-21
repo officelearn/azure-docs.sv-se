@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6a49a4ed-4067-4946-aea6-6362c5dac223" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6a49a4ed-4067-4946-aea6-6362c5dac223" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c08cf53c-6a2e-42f2-8cc7-e1faab6d4400">
+        <trans-unit id="8e7393fd-df44-4209-8362-14aa0bd9d4ad" xml:space="preserve">
+          <source>This article is part of a series on how to manage SaaS applications with Azure Active Directory.</source>
+          <target state="new">This article is part of a series on how to manage SaaS applications with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="dfff4d80-bbcc-4f9a-b9ed-ce72a2d5920d" xml:space="preserve">
+          <source>Below are all of the articles in the series:</source>
+          <target state="new">Below are all of the articles in the series:</target>
+        </trans-unit>
+        <trans-unit id="8f1af9d9-be84-41cf-944b-2fd21e15fa46" xml:space="preserve">
+          <source><bpt id="0886e4c3-772d-409a-a539-63cbd71f3646">&lt;linkText&gt;</bpt>Introduction to Single Sign-On and Managing App Access with Azure Active Directory<ept id="0886e4c3-772d-409a-a539-63cbd71f3646">&lt;/linkText&gt;</ept><bpt id="0886e4c3-772d-409a-a539-63cbd71f3646">&lt;title&gt;</bpt><ept id="0886e4c3-772d-409a-a539-63cbd71f3646">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0886e4c3-772d-409a-a539-63cbd71f3646">&lt;linkText&gt;</bpt>Introduction to Single Sign-On and Managing App Access with Azure Active Directory<ept id="0886e4c3-772d-409a-a539-63cbd71f3646">&lt;/linkText&gt;</ept><bpt id="0886e4c3-772d-409a-a539-63cbd71f3646">&lt;title&gt;</bpt><ept id="0886e4c3-772d-409a-a539-63cbd71f3646">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6a350ed-79b8-4527-bd74-d0516022452b" xml:space="preserve">
+          <source><bpt id="0922429c-b310-4e3f-95fa-3bf6232a1657">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="0922429c-b310-4e3f-95fa-3bf6232a1657">&lt;/linkText&gt;</ept><bpt id="0922429c-b310-4e3f-95fa-3bf6232a1657">&lt;title&gt;</bpt><ept id="0922429c-b310-4e3f-95fa-3bf6232a1657">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0922429c-b310-4e3f-95fa-3bf6232a1657">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="0922429c-b310-4e3f-95fa-3bf6232a1657">&lt;/linkText&gt;</ept><bpt id="0922429c-b310-4e3f-95fa-3bf6232a1657">&lt;title&gt;</bpt><ept id="0922429c-b310-4e3f-95fa-3bf6232a1657">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="522c8422-9c9f-47e5-a7b1-e1b29f6e3e40" xml:space="preserve">
+          <source><bpt id="6fe8fb11-9059-40d9-9483-156bc2f1a357">&lt;linkText&gt;</bpt>Automate User Provisioning and Deprovisioning to SaaS Applications<ept id="6fe8fb11-9059-40d9-9483-156bc2f1a357">&lt;/linkText&gt;</ept><bpt id="6fe8fb11-9059-40d9-9483-156bc2f1a357">&lt;title&gt;</bpt><ept id="6fe8fb11-9059-40d9-9483-156bc2f1a357">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6fe8fb11-9059-40d9-9483-156bc2f1a357">&lt;linkText&gt;</bpt>Automate User Provisioning and Deprovisioning to SaaS Applications<ept id="6fe8fb11-9059-40d9-9483-156bc2f1a357">&lt;/linkText&gt;</ept><bpt id="6fe8fb11-9059-40d9-9483-156bc2f1a357">&lt;title&gt;</bpt><ept id="6fe8fb11-9059-40d9-9483-156bc2f1a357">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fa689b7-723e-4acf-9cb9-9cb6dc06cfd1" xml:space="preserve">
+          <source><bpt id="908d2b9a-ff4d-423c-88cb-d23c782f091f">&lt;linkText&gt;</bpt>Customizing Attribute Mappings for User Provisioning<ept id="908d2b9a-ff4d-423c-88cb-d23c782f091f">&lt;/linkText&gt;</ept><bpt id="908d2b9a-ff4d-423c-88cb-d23c782f091f">&lt;title&gt;</bpt><ept id="908d2b9a-ff4d-423c-88cb-d23c782f091f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="908d2b9a-ff4d-423c-88cb-d23c782f091f">&lt;linkText&gt;</bpt>Customizing Attribute Mappings for User Provisioning<ept id="908d2b9a-ff4d-423c-88cb-d23c782f091f">&lt;/linkText&gt;</ept><bpt id="908d2b9a-ff4d-423c-88cb-d23c782f091f">&lt;title&gt;</bpt><ept id="908d2b9a-ff4d-423c-88cb-d23c782f091f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f1b3747-22f1-4254-b441-bd01637af4ca" xml:space="preserve">
+          <source><bpt id="6bca63ea-5152-4056-b9ad-34ab8427532a">&lt;linkText&gt;</bpt>Writing Expressions for Attribute Mappings<ept id="6bca63ea-5152-4056-b9ad-34ab8427532a">&lt;/linkText&gt;</ept><bpt id="6bca63ea-5152-4056-b9ad-34ab8427532a">&lt;title&gt;</bpt><ept id="6bca63ea-5152-4056-b9ad-34ab8427532a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6bca63ea-5152-4056-b9ad-34ab8427532a">&lt;linkText&gt;</bpt>Writing Expressions for Attribute Mappings<ept id="6bca63ea-5152-4056-b9ad-34ab8427532a">&lt;/linkText&gt;</ept><bpt id="6bca63ea-5152-4056-b9ad-34ab8427532a">&lt;title&gt;</bpt><ept id="6bca63ea-5152-4056-b9ad-34ab8427532a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c021027d-2927-4b3f-84bd-224cb1609a02" xml:space="preserve">
+          <source><bpt id="852bf3ba-94fb-4244-b559-edd69cb79c03">&lt;linkText&gt;</bpt>Scoping Filters for User Provisioning<ept id="852bf3ba-94fb-4244-b559-edd69cb79c03">&lt;/linkText&gt;</ept><bpt id="852bf3ba-94fb-4244-b559-edd69cb79c03">&lt;title&gt;</bpt><ept id="852bf3ba-94fb-4244-b559-edd69cb79c03">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="852bf3ba-94fb-4244-b559-edd69cb79c03">&lt;linkText&gt;</bpt>Scoping Filters for User Provisioning<ept id="852bf3ba-94fb-4244-b559-edd69cb79c03">&lt;/linkText&gt;</ept><bpt id="852bf3ba-94fb-4244-b559-edd69cb79c03">&lt;title&gt;</bpt><ept id="852bf3ba-94fb-4244-b559-edd69cb79c03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3642af10-0cce-4e7e-8187-860c08c081a4" xml:space="preserve">
+          <source><bpt id="60cd7542-7561-457b-8403-f331aeda38f4">&lt;linkText&gt;</bpt>Account Provisioning Notifications<ept id="60cd7542-7561-457b-8403-f331aeda38f4">&lt;/linkText&gt;</ept><bpt id="60cd7542-7561-457b-8403-f331aeda38f4">&lt;title&gt;</bpt><ept id="60cd7542-7561-457b-8403-f331aeda38f4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="60cd7542-7561-457b-8403-f331aeda38f4">&lt;linkText&gt;</bpt>Account Provisioning Notifications<ept id="60cd7542-7561-457b-8403-f331aeda38f4">&lt;/linkText&gt;</ept><bpt id="60cd7542-7561-457b-8403-f331aeda38f4">&lt;title&gt;</bpt><ept id="60cd7542-7561-457b-8403-f331aeda38f4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afae78c8-9bfa-4643-bf1f-78209f3600d2" xml:space="preserve">
+          <source><bpt id="732f4d11-300b-41e5-b39a-51eb7fc074ee">&lt;linkText&gt;</bpt>List of Tutorials on How to Integrate SaaS Apps<ept id="732f4d11-300b-41e5-b39a-51eb7fc074ee">&lt;/linkText&gt;</ept><bpt id="732f4d11-300b-41e5-b39a-51eb7fc074ee">&lt;title&gt;</bpt><ept id="732f4d11-300b-41e5-b39a-51eb7fc074ee">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="732f4d11-300b-41e5-b39a-51eb7fc074ee">&lt;linkText&gt;</bpt>List of Tutorials on How to Integrate SaaS Apps<ept id="732f4d11-300b-41e5-b39a-51eb7fc074ee">&lt;/linkText&gt;</ept><bpt id="732f4d11-300b-41e5-b39a-51eb7fc074ee">&lt;title&gt;</bpt><ept id="732f4d11-300b-41e5-b39a-51eb7fc074ee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df8059ee-8f5a-4738-bd70-d698a65eca25" xml:space="preserve">
+          <source><bpt id="feab0885-9d43-4349-848e-36c8cb654550">&lt;linkText&gt;</bpt>How to integrate Salesforce<ept id="feab0885-9d43-4349-848e-36c8cb654550">&lt;/linkText&gt;</ept><bpt id="feab0885-9d43-4349-848e-36c8cb654550">&lt;title&gt;</bpt><ept id="feab0885-9d43-4349-848e-36c8cb654550">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="feab0885-9d43-4349-848e-36c8cb654550">&lt;linkText&gt;</bpt>How to integrate Salesforce<ept id="feab0885-9d43-4349-848e-36c8cb654550">&lt;/linkText&gt;</ept><bpt id="feab0885-9d43-4349-848e-36c8cb654550">&lt;title&gt;</bpt><ept id="feab0885-9d43-4349-848e-36c8cb654550">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fa0d67c-7962-4c50-90e3-ee05b61043f8" xml:space="preserve">
+          <source><bpt id="258ad246-2b8a-473e-8491-a0215a5916d1">&lt;linkText&gt;</bpt>How to integrate Google Apps<ept id="258ad246-2b8a-473e-8491-a0215a5916d1">&lt;/linkText&gt;</ept><bpt id="258ad246-2b8a-473e-8491-a0215a5916d1">&lt;title&gt;</bpt><ept id="258ad246-2b8a-473e-8491-a0215a5916d1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="258ad246-2b8a-473e-8491-a0215a5916d1">&lt;linkText&gt;</bpt>How to integrate Google Apps<ept id="258ad246-2b8a-473e-8491-a0215a5916d1">&lt;/linkText&gt;</ept><bpt id="258ad246-2b8a-473e-8491-a0215a5916d1">&lt;title&gt;</bpt><ept id="258ad246-2b8a-473e-8491-a0215a5916d1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="483b819f-71ef-4e92-97e4-96f27f69c836" xml:space="preserve">
+          <source><bpt id="14d2eef6-85d6-438b-b7e7-034efac1dcde">&lt;linkText&gt;</bpt>How to integrate Box<ept id="14d2eef6-85d6-438b-b7e7-034efac1dcde">&lt;/linkText&gt;</ept><bpt id="14d2eef6-85d6-438b-b7e7-034efac1dcde">&lt;title&gt;</bpt><ept id="14d2eef6-85d6-438b-b7e7-034efac1dcde">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="14d2eef6-85d6-438b-b7e7-034efac1dcde">&lt;linkText&gt;</bpt>How to integrate Box<ept id="14d2eef6-85d6-438b-b7e7-034efac1dcde">&lt;/linkText&gt;</ept><bpt id="14d2eef6-85d6-438b-b7e7-034efac1dcde">&lt;title&gt;</bpt><ept id="14d2eef6-85d6-438b-b7e7-034efac1dcde">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61af06ce-0879-4d79-bf20-e039f7f0011c" xml:space="preserve">
+          <source><bpt id="d1ed5b43-bf4b-4244-a2d9-a84d61a4ad7b">&lt;linkText&gt;</bpt>How to integrate ServiceNow<ept id="d1ed5b43-bf4b-4244-a2d9-a84d61a4ad7b">&lt;/linkText&gt;</ept><bpt id="d1ed5b43-bf4b-4244-a2d9-a84d61a4ad7b">&lt;title&gt;</bpt><ept id="d1ed5b43-bf4b-4244-a2d9-a84d61a4ad7b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d1ed5b43-bf4b-4244-a2d9-a84d61a4ad7b">&lt;linkText&gt;</bpt>How to integrate ServiceNow<ept id="d1ed5b43-bf4b-4244-a2d9-a84d61a4ad7b">&lt;/linkText&gt;</ept><bpt id="d1ed5b43-bf4b-4244-a2d9-a84d61a4ad7b">&lt;title&gt;</bpt><ept id="d1ed5b43-bf4b-4244-a2d9-a84d61a4ad7b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a81109a-5a05-459e-9305-02d50ffeef48" xml:space="preserve">
+          <source><bpt id="ff62d2f5-d062-4d65-8059-d653573c22c6">&lt;linkText&gt;</bpt>How to integrate Dropbox for Business<ept id="ff62d2f5-d062-4d65-8059-d653573c22c6">&lt;/linkText&gt;</ept><bpt id="ff62d2f5-d062-4d65-8059-d653573c22c6">&lt;title&gt;</bpt><ept id="ff62d2f5-d062-4d65-8059-d653573c22c6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ff62d2f5-d062-4d65-8059-d653573c22c6">&lt;linkText&gt;</bpt>How to integrate Dropbox for Business<ept id="ff62d2f5-d062-4d65-8059-d653573c22c6">&lt;/linkText&gt;</ept><bpt id="ff62d2f5-d062-4d65-8059-d653573c22c6">&lt;title&gt;</bpt><ept id="ff62d2f5-d062-4d65-8059-d653573c22c6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="760ad09d-7bbc-48e1-931a-65a208b33192" xml:space="preserve">
+          <source><bpt id="0cfd60fa-676a-4618-98d9-4e167e544443">&lt;linkText&gt;</bpt>How to integrate Workday<ept id="0cfd60fa-676a-4618-98d9-4e167e544443">&lt;/linkText&gt;</ept><bpt id="0cfd60fa-676a-4618-98d9-4e167e544443">&lt;title&gt;</bpt><ept id="0cfd60fa-676a-4618-98d9-4e167e544443">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="0cfd60fa-676a-4618-98d9-4e167e544443">&lt;linkText&gt;</bpt>How to integrate Workday<ept id="0cfd60fa-676a-4618-98d9-4e167e544443">&lt;/linkText&gt;</ept><bpt id="0cfd60fa-676a-4618-98d9-4e167e544443">&lt;title&gt;</bpt><ept id="0cfd60fa-676a-4618-98d9-4e167e544443">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="57062725-00c0-4366-85cd-44f593075c6e" xml:space="preserve">
+          <source><bpt id="1767a70c-7a72-4210-88de-46d1418654e0">&lt;linkText&gt;</bpt>More SaaS App Tutorials...<ept id="1767a70c-7a72-4210-88de-46d1418654e0">&lt;/linkText&gt;</ept><bpt id="1767a70c-7a72-4210-88de-46d1418654e0">&lt;title&gt;</bpt><ept id="1767a70c-7a72-4210-88de-46d1418654e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1767a70c-7a72-4210-88de-46d1418654e0">&lt;linkText&gt;</bpt>More SaaS App Tutorials...<ept id="1767a70c-7a72-4210-88de-46d1418654e0">&lt;/linkText&gt;</ept><bpt id="1767a70c-7a72-4210-88de-46d1418654e0">&lt;title&gt;</bpt><ept id="1767a70c-7a72-4210-88de-46d1418654e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

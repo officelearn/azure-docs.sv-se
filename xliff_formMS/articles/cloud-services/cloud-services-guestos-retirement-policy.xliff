@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="73e1bf6b-07fd-4a8d-a5b8-64f8033ca98a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="73e1bf6b-07fd-4a8d-a5b8-64f8033ca98a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c512b2c2-c2aa-46e4-9851-c5d2de841e66">
+        <trans-unit id="ae3cea88-c7be-4d23-8ba0-a14ac207fd43" xml:space="preserve">
+          <source>Supportability and retirement policy guide for Azure Guest OS | Microsoft Azure</source>
+          <target state="new">Supportability and retirement policy guide for Azure Guest OS | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="64862e24-a60f-493a-8dfe-83d824296b9f" xml:space="preserve">
+          <source>Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services.</source>
+          <target state="new">Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services.</target>
+        </trans-unit>
+        <trans-unit id="e8772d88-756d-46f2-9ff8-79b279dfbe9d" xml:space="preserve">
+          <source>The information on this page relates to the Azure Guest operating system (<bpt id="5017b66c-6d55-46f1-954a-9b3b4ae33ea9">&lt;linkText&gt;</bpt>Guest OS<ept id="5017b66c-6d55-46f1-954a-9b3b4ae33ea9">&lt;/linkText&gt;</ept><bpt id="5017b66c-6d55-46f1-954a-9b3b4ae33ea9">&lt;title&gt;</bpt><ept id="5017b66c-6d55-46f1-954a-9b3b4ae33ea9">&lt;/title&gt;</ept>) for Cloud Services worker and web roles (PaaS).</source>
+          <target state="new">The information on this page relates to the Azure Guest operating system (<bpt id="5017b66c-6d55-46f1-954a-9b3b4ae33ea9">&lt;linkText&gt;</bpt>Guest OS<ept id="5017b66c-6d55-46f1-954a-9b3b4ae33ea9">&lt;/linkText&gt;</ept><bpt id="5017b66c-6d55-46f1-954a-9b3b4ae33ea9">&lt;title&gt;</bpt><ept id="5017b66c-6d55-46f1-954a-9b3b4ae33ea9">&lt;/title&gt;</ept>) for Cloud Services worker and web roles (PaaS).</target>
+        </trans-unit>
+        <trans-unit id="a97b8deb-12b2-4f32-8ee8-b0f3aaf55471" xml:space="preserve">
+          <source>It does not apply to Virtual Machines (IaaS).</source>
+          <target state="new">It does not apply to Virtual Machines (IaaS).</target>
+        </trans-unit>
+        <trans-unit id="b9eb0f7e-a6c1-45da-a6a9-5c1cc077205a" xml:space="preserve">
+          <source>Microsoft has a published <bpt id="cea4e7f7-cfeb-4fe9-87e3-219ba052b251">&lt;linkText&gt;</bpt>support policy for the Guest OS<ept id="cea4e7f7-cfeb-4fe9-87e3-219ba052b251">&lt;/linkText&gt;</ept><bpt id="cea4e7f7-cfeb-4fe9-87e3-219ba052b251">&lt;title&gt;</bpt><ept id="cea4e7f7-cfeb-4fe9-87e3-219ba052b251">&lt;/title&gt;</ept>.</source>
+          <target state="new">Microsoft has a published <bpt id="cea4e7f7-cfeb-4fe9-87e3-219ba052b251">&lt;linkText&gt;</bpt>support policy for the Guest OS<ept id="cea4e7f7-cfeb-4fe9-87e3-219ba052b251">&lt;/linkText&gt;</ept><bpt id="cea4e7f7-cfeb-4fe9-87e3-219ba052b251">&lt;title&gt;</bpt><ept id="cea4e7f7-cfeb-4fe9-87e3-219ba052b251">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9940b48f-205a-408b-aa52-e08876fd13bb" xml:space="preserve">
+          <source>The page you are reading now describes how the policy is implemented.</source>
+          <target state="new">The page you are reading now describes how the policy is implemented.</target>
+        </trans-unit>
+        <trans-unit id="45a48fb6-ddb0-41eb-96e9-e8a54d08796b" xml:space="preserve">
+          <source>The policy is </source>
+          <target state="new">The policy is </target>
+        </trans-unit>
+        <trans-unit id="d058b292-42a4-4851-884b-854c3e1a8987" xml:space="preserve">
+          <source>Microsoft will support <bpt id="58b38004-af71-4837-b156-ede5ad73fd6d">&lt;strong&gt;</bpt>at least the latest two families of the Guest OS<ept id="58b38004-af71-4837-b156-ede5ad73fd6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Microsoft will support <bpt id="58b38004-af71-4837-b156-ede5ad73fd6d">&lt;strong&gt;</bpt>at least the latest two families of the Guest OS<ept id="58b38004-af71-4837-b156-ede5ad73fd6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d433777-7e9e-42e6-881b-b6f5bb509fa5" xml:space="preserve">
+          <source>When a family is retired, customers have 12 months from the official retirement date to update to a newer supported Guest OS family.</source>
+          <target state="new">When a family is retired, customers have 12 months from the official retirement date to update to a newer supported Guest OS family.</target>
+        </trans-unit>
+        <trans-unit id="a1bfe88a-3efb-41be-9cc6-8083f76bf8cc" xml:space="preserve">
+          <source>Microsoft will support the <bpt id="7747a289-3123-414f-a38c-02bdde0effe0">&lt;strong&gt;</bpt>at least the latest two versions of the supported Guest OS families<ept id="7747a289-3123-414f-a38c-02bdde0effe0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Microsoft will support the <bpt id="7747a289-3123-414f-a38c-02bdde0effe0">&lt;strong&gt;</bpt>at least the latest two versions of the supported Guest OS families<ept id="7747a289-3123-414f-a38c-02bdde0effe0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80dc0ba7-3354-4f5f-91f7-7f9c9548bd8a" xml:space="preserve">
+          <source>Microsoft will support the at <bpt id="e692e456-9730-4083-a5fb-42a5d5d3e17c">&lt;strong&gt;</bpt>least the latest two versions of the Azure SDK<ept id="e692e456-9730-4083-a5fb-42a5d5d3e17c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Microsoft will support the at <bpt id="e692e456-9730-4083-a5fb-42a5d5d3e17c">&lt;strong&gt;</bpt>least the latest two versions of the Azure SDK<ept id="e692e456-9730-4083-a5fb-42a5d5d3e17c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb18ed31-bc85-4046-b841-99232ad716a6" xml:space="preserve">
+          <source>When a version of the SDK is retired, customers will have 12 months from the official retirement date to update to a newer version.</source>
+          <target state="new">When a version of the SDK is retired, customers will have 12 months from the official retirement date to update to a newer version.</target>
+        </trans-unit>
+        <trans-unit id="d7eec7d7-979a-4c4a-b529-1466a5294222" xml:space="preserve">
+          <source>At times more than two families or releases may be supported.</source>
+          <target state="new">At times more than two families or releases may be supported.</target>
+        </trans-unit>
+        <trans-unit id="cdda1b1b-0910-484b-a2b4-6337b1f611b3" xml:space="preserve">
+          <source>Official Guest OS support information will appear on the <bpt id="37a30e01-f07d-4026-8593-a652ea3fe5f1">&lt;linkText&gt;</bpt>Azure Guest OS Releases and SDK Compatibility Matrix<ept id="37a30e01-f07d-4026-8593-a652ea3fe5f1">&lt;/linkText&gt;</ept><bpt id="37a30e01-f07d-4026-8593-a652ea3fe5f1">&lt;title&gt;</bpt><ept id="37a30e01-f07d-4026-8593-a652ea3fe5f1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Official Guest OS support information will appear on the <bpt id="37a30e01-f07d-4026-8593-a652ea3fe5f1">&lt;linkText&gt;</bpt>Azure Guest OS Releases and SDK Compatibility Matrix<ept id="37a30e01-f07d-4026-8593-a652ea3fe5f1">&lt;/linkText&gt;</ept><bpt id="37a30e01-f07d-4026-8593-a652ea3fe5f1">&lt;title&gt;</bpt><ept id="37a30e01-f07d-4026-8593-a652ea3fe5f1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c2ff488-8fa6-495b-9fdf-b108dad11aa9" xml:space="preserve">
+          <source>A new Guest OS <bpt id="8306c3c9-9327-413a-b69e-c61f6bfcc85c">&lt;strong&gt;</bpt>family<ept id="8306c3c9-9327-413a-b69e-c61f6bfcc85c">&lt;/strong&gt;</ept> is introduced sometime after the release of a new official version of the Windows Server operating system.</source>
+          <target state="new">A new Guest OS <bpt id="8306c3c9-9327-413a-b69e-c61f6bfcc85c">&lt;strong&gt;</bpt>family<ept id="8306c3c9-9327-413a-b69e-c61f6bfcc85c">&lt;/strong&gt;</ept> is introduced sometime after the release of a new official version of the Windows Server operating system.</target>
+        </trans-unit>
+        <trans-unit id="6361da65-7b50-43b5-b3bf-c79969020416" xml:space="preserve">
+          <source>Whenever a new Guest OS family is introduced, Microsoft will retire the oldest Guest OS family.</source>
+          <target state="new">Whenever a new Guest OS family is introduced, Microsoft will retire the oldest Guest OS family.</target>
+        </trans-unit>
+        <trans-unit id="163f919f-ada9-43bd-be46-fc5b6b2042b6" xml:space="preserve">
+          <source>New Guest OS <bpt id="006715a2-b8ef-4c16-8098-e68be761a838">&lt;strong&gt;</bpt>versions<ept id="006715a2-b8ef-4c16-8098-e68be761a838">&lt;/strong&gt;</ept> are introduced about every month to incorporate the latest MSRC updates.</source>
+          <target state="new">New Guest OS <bpt id="006715a2-b8ef-4c16-8098-e68be761a838">&lt;strong&gt;</bpt>versions<ept id="006715a2-b8ef-4c16-8098-e68be761a838">&lt;/strong&gt;</ept> are introduced about every month to incorporate the latest MSRC updates.</target>
+        </trans-unit>
+        <trans-unit id="0deba4fa-f62c-4fe4-8a3f-448238a5cae9" xml:space="preserve">
+          <source>Because of the regular monthly updates, a Guest OS version is normally disabled 60 days after its release.</source>
+          <target state="new">Because of the regular monthly updates, a Guest OS version is normally disabled 60 days after its release.</target>
+        </trans-unit>
+        <trans-unit id="ac63dd33-05a4-4513-a0a3-1b3e8565a52c" xml:space="preserve">
+          <source>This keeps at least two Guest OS versions for each family available for use.</source>
+          <target state="new">This keeps at least two Guest OS versions for each family available for use.</target>
+        </trans-unit>
+        <trans-unit id="93f3b4cf-1969-479d-ae2d-822fd0a318a1" xml:space="preserve">
+          <source>Once the retirement is announced, customers have a 12 month "transition" period before the older family is officially removed from service.</source>
+          <target state="new">Once the retirement is announced, customers have a 12 month "transition" period before the older family is officially removed from service.</target>
+        </trans-unit>
+        <trans-unit id="bcb29878-db22-469c-8766-4129bfda1069" xml:space="preserve">
+          <source>This transition time may be extended at the discretion of Microsoft.</source>
+          <target state="new">This transition time may be extended at the discretion of Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="6239322c-0573-4ba9-8b08-d0cc4e4ebb44" xml:space="preserve">
+          <source>Updates will be posted on the <bpt id="ef7a385d-0a25-4d77-9de8-19662d9df0d5">&lt;linkText&gt;</bpt>Azure Guest OS Releases and SDK Compatibility Matrix<ept id="ef7a385d-0a25-4d77-9de8-19662d9df0d5">&lt;/linkText&gt;</ept><bpt id="ef7a385d-0a25-4d77-9de8-19662d9df0d5">&lt;title&gt;</bpt><ept id="ef7a385d-0a25-4d77-9de8-19662d9df0d5">&lt;/title&gt;</ept>.</source>
+          <target state="new">Updates will be posted on the <bpt id="ef7a385d-0a25-4d77-9de8-19662d9df0d5">&lt;linkText&gt;</bpt>Azure Guest OS Releases and SDK Compatibility Matrix<ept id="ef7a385d-0a25-4d77-9de8-19662d9df0d5">&lt;/linkText&gt;</ept><bpt id="ef7a385d-0a25-4d77-9de8-19662d9df0d5">&lt;title&gt;</bpt><ept id="ef7a385d-0a25-4d77-9de8-19662d9df0d5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54a7dec0-b142-4953-b978-9cf62f05885e" xml:space="preserve">
+          <source>A gradual retirement process will begin 6 months into the transition period.</source>
+          <target state="new">A gradual retirement process will begin 6 months into the transition period.</target>
+        </trans-unit>
+        <trans-unit id="9ee959ca-3845-43bc-a59d-8e34f5148ad1" xml:space="preserve">
+          <source>During this time:</source>
+          <target state="new">During this time:</target>
+        </trans-unit>
+        <trans-unit id="aa5e6207-439c-4db6-a1ed-c6ea152c9503" xml:space="preserve">
+          <source>Microsoft will notify customers of the retirement.</source>
+          <target state="new">Microsoft will notify customers of the retirement.</target>
+        </trans-unit>
+        <trans-unit id="cbd66e52-df3c-44f0-b0f4-9b61fc4e2300" xml:space="preserve">
+          <source>The newer version of the Azure SDK won’t support the retired Guest OS family.</source>
+          <target state="new">The newer version of the Azure SDK won’t support the retired Guest OS family.</target>
+        </trans-unit>
+        <trans-unit id="7cbd0e68-a9cb-4cfd-9be8-5d71764cfd50" xml:space="preserve">
+          <source>New deployments and redeployments of Cloud Services will not be allowed on the retired family</source>
+          <target state="new">New deployments and redeployments of Cloud Services will not be allowed on the retired family</target>
+        </trans-unit>
+        <trans-unit id="d6a89a01-4cac-4c86-b80b-de0c6af72e94" xml:space="preserve">
+          <source>Microsoft will continue to introduce new Guest OS version incorporating the latest MSRC updates until the last day of the transition period, known as the "expiration date".</source>
+          <target state="new">Microsoft will continue to introduce new Guest OS version incorporating the latest MSRC updates until the last day of the transition period, known as the "expiration date".</target>
+        </trans-unit>
+        <trans-unit id="5aa3a01f-85ea-4b80-b98e-681e20aff630" xml:space="preserve">
+          <source>At that time, the any Cloud Services still running will be unsupported under the Azure SLA.</source>
+          <target state="new">At that time, the any Cloud Services still running will be unsupported under the Azure SLA.</target>
+        </trans-unit>
+        <trans-unit id="32f0f697-9daa-49c5-9d24-aae65de44cdc" xml:space="preserve">
+          <source>Microsoft has the discretion to force upgrade, delete or stop those services after that date.</source>
+          <target state="new">Microsoft has the discretion to force upgrade, delete or stop those services after that date.</target>
+        </trans-unit>
+        <trans-unit id="a091d1a5-70f5-453f-87ca-952f37ad1daf" xml:space="preserve">
+          <source>If customers set their Guest OS to automatically update, they never have to worry about dealing with Guest OS versions.</source>
+          <target state="new">If customers set their Guest OS to automatically update, they never have to worry about dealing with Guest OS versions.</target>
+        </trans-unit>
+        <trans-unit id="32875b6a-f2bd-450d-8c36-4e2e9f3758f8" xml:space="preserve">
+          <source>They will always be using the latest Guest OS version.</source>
+          <target state="new">They will always be using the latest Guest OS version.</target>
+        </trans-unit>
+        <trans-unit id="8a8a91fb-9303-4309-b4a8-3dccbcf5cd4b" xml:space="preserve">
+          <source>Guest OS Versions are released every month.</source>
+          <target state="new">Guest OS Versions are released every month.</target>
+        </trans-unit>
+        <trans-unit id="7db78a35-f26e-4a22-a79f-040c7a5bc257" xml:space="preserve">
+          <source>Because of the rate of regular releases, each version has a fixed lifespan.</source>
+          <target state="new">Because of the rate of regular releases, each version has a fixed lifespan.</target>
+        </trans-unit>
+        <trans-unit id="9924535a-2885-4945-ae40-f645a8e0b130" xml:space="preserve">
+          <source>At 60 days into the lifespan a version is "<bpt id="5756b541-be98-4fcd-869a-6d1113915865">&lt;em&gt;</bpt>disabled<ept id="5756b541-be98-4fcd-869a-6d1113915865">&lt;/em&gt;</ept>".</source>
+          <target state="new">At 60 days into the lifespan a version is "<bpt id="5756b541-be98-4fcd-869a-6d1113915865">&lt;em&gt;</bpt>disabled<ept id="5756b541-be98-4fcd-869a-6d1113915865">&lt;/em&gt;</ept>".</target>
+        </trans-unit>
+        <trans-unit id="62ba98eb-9e1a-4e91-868d-b41787d184fb" xml:space="preserve">
+          <source>"Disabled" means that the version is removed from the Azure Management Portal.</source>
+          <target state="new">"Disabled" means that the version is removed from the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="d9ca3b55-9b31-46df-8c6b-49459ad388c0" xml:space="preserve">
+          <source>It also can no longer be set from the CSCFG configuration file.</source>
+          <target state="new">It also can no longer be set from the CSCFG configuration file.</target>
+        </trans-unit>
+        <trans-unit id="8e31579e-caf6-4325-8ccd-c3a55778cb27" xml:space="preserve">
+          <source>Existing deployments are left running, but new deployments and code and configuration updates to existing deployments will not be allowed.</source>
+          <target state="new">Existing deployments are left running, but new deployments and code and configuration updates to existing deployments will not be allowed.</target>
+        </trans-unit>
+        <trans-unit id="15e130f0-ae1b-4ba2-bb97-fa4a6efda71e" xml:space="preserve">
+          <source>At a later time, the Guest OS version "<bpt id="0bf64614-0a20-453f-8235-9c9ee9a05206">&lt;em&gt;</bpt>expires<ept id="0bf64614-0a20-453f-8235-9c9ee9a05206">&lt;/em&gt;</ept>" and any installations still running that version are force upgraded and set to automatically update the Guest OS in the future.</source>
+          <target state="new">At a later time, the Guest OS version "<bpt id="0bf64614-0a20-453f-8235-9c9ee9a05206">&lt;em&gt;</bpt>expires<ept id="0bf64614-0a20-453f-8235-9c9ee9a05206">&lt;/em&gt;</ept>" and any installations still running that version are force upgraded and set to automatically update the Guest OS in the future.</target>
+        </trans-unit>
+        <trans-unit id="1dd8763b-e43f-4fca-8229-e7ad0256d521" xml:space="preserve">
+          <source>Expiration is done in batches so the period of time from disablement to expiration can vary.</source>
+          <target state="new">Expiration is done in batches so the period of time from disablement to expiration can vary.</target>
+        </trans-unit>
+        <trans-unit id="96162676-4c22-438f-9566-ae7341083b4b" xml:space="preserve">
+          <source>These periods may be made longer at Microsoft's discretion to ease customer transitions.</source>
+          <target state="new">These periods may be made longer at Microsoft's discretion to ease customer transitions.</target>
+        </trans-unit>
+        <trans-unit id="19223969-50b1-4934-98ed-59fbbd7c74d3" xml:space="preserve">
+          <source>Any changes will be communicated on the <bpt id="dd6d42a5-6010-4c6a-bc7d-2efaaec9e7a4">&lt;linkText&gt;</bpt>Azure Guest OS Releases and SDK Compatibility Matrix<ept id="dd6d42a5-6010-4c6a-bc7d-2efaaec9e7a4">&lt;/linkText&gt;</ept><bpt id="dd6d42a5-6010-4c6a-bc7d-2efaaec9e7a4">&lt;title&gt;</bpt><ept id="dd6d42a5-6010-4c6a-bc7d-2efaaec9e7a4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Any changes will be communicated on the <bpt id="dd6d42a5-6010-4c6a-bc7d-2efaaec9e7a4">&lt;linkText&gt;</bpt>Azure Guest OS Releases and SDK Compatibility Matrix<ept id="dd6d42a5-6010-4c6a-bc7d-2efaaec9e7a4">&lt;/linkText&gt;</ept><bpt id="dd6d42a5-6010-4c6a-bc7d-2efaaec9e7a4">&lt;title&gt;</bpt><ept id="dd6d42a5-6010-4c6a-bc7d-2efaaec9e7a4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26a2e377-4f3b-4025-a1a2-863e7e6f0bf0" xml:space="preserve">
+          <source><bpt id="c18516bf-1ff5-427f-9d38-d2383d1e48c9">&lt;strong&gt;</bpt>Family retirement<ept id="c18516bf-1ff5-427f-9d38-d2383d1e48c9">&lt;/strong&gt;</ept> &lt;br&gt;Microsoft will use blog posts and management portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to this page and the RSS feed listed at the beginning of this page. </source>
+          <target state="new"><bpt id="c18516bf-1ff5-427f-9d38-d2383d1e48c9">&lt;strong&gt;</bpt>Family retirement<ept id="c18516bf-1ff5-427f-9d38-d2383d1e48c9">&lt;/strong&gt;</ept> &lt;br&gt;Microsoft will use blog posts and management portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to this page and the RSS feed listed at the beginning of this page. </target>
+        </trans-unit>
+        <trans-unit id="8d32b861-c07a-4bcf-9d87-4baaac52632a" xml:space="preserve">
+          <source><bpt id="5e74cb00-cd3b-4892-bd77-e69d1a79064e">&lt;strong&gt;</bpt>Version Retirement<ept id="5e74cb00-cd3b-4892-bd77-e69d1a79064e">&lt;/strong&gt;</ept> &lt;br&gt;All changes will be posted to this page and the RSS feed listed at the beginning of this page, including the release, disabled and expiration dates. Services admins will receive emails if they have deployments running on a disabled Guest OS version or family. The timing of these emails can vary. Generally they are at least a month before disablement, though this timing is not an official SLA. </source>
+          <target state="new"><bpt id="5e74cb00-cd3b-4892-bd77-e69d1a79064e">&lt;strong&gt;</bpt>Version Retirement<ept id="5e74cb00-cd3b-4892-bd77-e69d1a79064e">&lt;/strong&gt;</ept> &lt;br&gt;All changes will be posted to this page and the RSS feed listed at the beginning of this page, including the release, disabled and expiration dates. Services admins will receive emails if they have deployments running on a disabled Guest OS version or family. The timing of these emails can vary. Generally they are at least a month before disablement, though this timing is not an official SLA. </target>
+        </trans-unit>
+        <trans-unit id="0f3205c0-e656-4006-9d32-df6e7be17048" xml:space="preserve">
+          <source><bpt id="75b6b909-5f0c-43e4-b34d-52b0d19bb458">&lt;strong&gt;</bpt>How can I mitigate the impacts of migration?<ept id="75b6b909-5f0c-43e4-b34d-52b0d19bb458">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="75b6b909-5f0c-43e4-b34d-52b0d19bb458">&lt;strong&gt;</bpt>How can I mitigate the impacts of migration?<ept id="75b6b909-5f0c-43e4-b34d-52b0d19bb458">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a07a25b-425b-47bb-8cb3-88675e6cc7bf" xml:space="preserve">
+          <source>You should use latest Guest OS family for designing your Cloud Services.</source>
+          <target state="new">You should use latest Guest OS family for designing your Cloud Services.</target>
+        </trans-unit>
+        <trans-unit id="ff36478d-bd72-468b-8cf2-cd0c0f00557c" xml:space="preserve">
+          <source>Start planning your migration to a newer family early.</source>
+          <target state="new">Start planning your migration to a newer family early.</target>
+        </trans-unit>
+        <trans-unit id="f8cb0bd4-206c-4b9c-8d32-0997edac13eb" xml:space="preserve">
+          <source>Set up temporary test deployments to test your Cloud Service running on the new family.</source>
+          <target state="new">Set up temporary test deployments to test your Cloud Service running on the new family.</target>
+        </trans-unit>
+        <trans-unit id="c335d05e-5061-4637-a510-2a566243f6ac" xml:space="preserve">
+          <source><bpt id="6fa1ba17-0b54-4c92-b6e0-9604a1101116">&lt;linkText&gt;</bpt>Set your Guest OS version<ept id="6fa1ba17-0b54-4c92-b6e0-9604a1101116">&lt;/linkText&gt;</ept><bpt id="6fa1ba17-0b54-4c92-b6e0-9604a1101116">&lt;title&gt;</bpt><ept id="6fa1ba17-0b54-4c92-b6e0-9604a1101116">&lt;/title&gt;</ept> to "Automatic" (osVersion=* in the <bpt id="01957cc7-f7ff-40d5-bea3-65d8ea1116f4">&lt;linkText&gt;</bpt>.CSCFG<ept id="01957cc7-f7ff-40d5-bea3-65d8ea1116f4">&lt;/linkText&gt;</ept><bpt id="01957cc7-f7ff-40d5-bea3-65d8ea1116f4">&lt;title&gt;</bpt><ept id="01957cc7-f7ff-40d5-bea3-65d8ea1116f4">&lt;/title&gt;</ept> file) so the migration to new Guest OS versions occurs automatically.</source>
+          <target state="new"><bpt id="6fa1ba17-0b54-4c92-b6e0-9604a1101116">&lt;linkText&gt;</bpt>Set your Guest OS version<ept id="6fa1ba17-0b54-4c92-b6e0-9604a1101116">&lt;/linkText&gt;</ept><bpt id="6fa1ba17-0b54-4c92-b6e0-9604a1101116">&lt;title&gt;</bpt><ept id="6fa1ba17-0b54-4c92-b6e0-9604a1101116">&lt;/title&gt;</ept> to "Automatic" (osVersion=* in the <bpt id="01957cc7-f7ff-40d5-bea3-65d8ea1116f4">&lt;linkText&gt;</bpt>.CSCFG<ept id="01957cc7-f7ff-40d5-bea3-65d8ea1116f4">&lt;/linkText&gt;</ept><bpt id="01957cc7-f7ff-40d5-bea3-65d8ea1116f4">&lt;title&gt;</bpt><ept id="01957cc7-f7ff-40d5-bea3-65d8ea1116f4">&lt;/title&gt;</ept> file) so the migration to new Guest OS versions occurs automatically.</target>
+        </trans-unit>
+        <trans-unit id="6fa8d750-9b8a-40c7-8c64-be2d83474a12" xml:space="preserve">
+          <source><bpt id="a3cc7514-318e-4b8a-b036-a9d01b19f222">&lt;strong&gt;</bpt>What if my web application requires deeper integration with the OS?<ept id="a3cc7514-318e-4b8a-b036-a9d01b19f222">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a3cc7514-318e-4b8a-b036-a9d01b19f222">&lt;strong&gt;</bpt>What if my web application requires deeper integration with the OS?<ept id="a3cc7514-318e-4b8a-b036-a9d01b19f222">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29d5f3ef-d283-4e9b-858e-9b261c4320f4" xml:space="preserve">
+          <source>If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as "<bpt id="728487a5-03b7-4470-924b-d19fc63b8020">&lt;linkText&gt;</bpt>Startup Tasks<ept id="728487a5-03b7-4470-924b-d19fc63b8020">&lt;/linkText&gt;</ept><bpt id="728487a5-03b7-4470-924b-d19fc63b8020">&lt;title&gt;</bpt><ept id="728487a5-03b7-4470-924b-d19fc63b8020">&lt;/title&gt;</ept>" or other extensibility mechanisms which may exist in the future.</source>
+          <target state="new">If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as "<bpt id="728487a5-03b7-4470-924b-d19fc63b8020">&lt;linkText&gt;</bpt>Startup Tasks<ept id="728487a5-03b7-4470-924b-d19fc63b8020">&lt;/linkText&gt;</ept><bpt id="728487a5-03b7-4470-924b-d19fc63b8020">&lt;title&gt;</bpt><ept id="728487a5-03b7-4470-924b-d19fc63b8020">&lt;/title&gt;</ept>" or other extensibility mechanisms which may exist in the future.</target>
+        </trans-unit>
+        <trans-unit id="fb014bca-29c2-46fc-93a5-e64efb8e046e" xml:space="preserve">
+          <source>Alternatively, you can also use <bpt id="0cbc1a17-3e74-44cb-a80c-3c368b094adf">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="0cbc1a17-3e74-44cb-a80c-3c368b094adf">&lt;/linkText&gt;</ept><bpt id="0cbc1a17-3e74-44cb-a80c-3c368b094adf">&lt;title&gt;</bpt><ept id="0cbc1a17-3e74-44cb-a80c-3c368b094adf">&lt;/title&gt;</ept> (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.</source>
+          <target state="new">Alternatively, you can also use <bpt id="0cbc1a17-3e74-44cb-a80c-3c368b094adf">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="0cbc1a17-3e74-44cb-a80c-3c368b094adf">&lt;/linkText&gt;</ept><bpt id="0cbc1a17-3e74-44cb-a80c-3c368b094adf">&lt;title&gt;</bpt><ept id="0cbc1a17-3e74-44cb-a80c-3c368b094adf">&lt;/title&gt;</ept> (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.</target>
+        </trans-unit>
+        <trans-unit id="279162e3-1c41-479a-86d8-07e178138349" xml:space="preserve">
+          <source>Review the latest <bpt id="b9827b92-e040-4c8d-b7ab-e715bd25e29d">&lt;linkText&gt;</bpt>Guest OS releases<ept id="b9827b92-e040-4c8d-b7ab-e715bd25e29d">&lt;/linkText&gt;</ept><bpt id="b9827b92-e040-4c8d-b7ab-e715bd25e29d">&lt;title&gt;</bpt><ept id="b9827b92-e040-4c8d-b7ab-e715bd25e29d">&lt;/title&gt;</ept>.</source>
+          <target state="new">Review the latest <bpt id="b9827b92-e040-4c8d-b7ab-e715bd25e29d">&lt;linkText&gt;</bpt>Guest OS releases<ept id="b9827b92-e040-4c8d-b7ab-e715bd25e29d">&lt;/linkText&gt;</ept><bpt id="b9827b92-e040-4c8d-b7ab-e715bd25e29d">&lt;title&gt;</bpt><ept id="b9827b92-e040-4c8d-b7ab-e715bd25e29d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

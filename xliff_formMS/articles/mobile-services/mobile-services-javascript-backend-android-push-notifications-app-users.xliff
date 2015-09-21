@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="66a51588-925e-443f-96c1-3212a7d99412" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="66a51588-925e-443f-96c1-3212a7d99412" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4cda9f4a-9337-43c7-85bc-33ecb30e4743">
+        <trans-unit id="c29e0c77-7bd6-472a-9b12-f089ee90b108" xml:space="preserve">
+          <source>&lt;properties
+    pageTitle="Send push notifications to authenticated users"
+    description="Learn how to send push notifications to specific"
+    services="mobile-services, notification-hubs"
+    documentationCenter="android"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/&gt;</source>
+          <target state="new">&lt;properties
+    pageTitle="Send push notifications to authenticated users"
+    description="Learn how to send push notifications to specific"
+    services="mobile-services, notification-hubs"
+    documentationCenter="android"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/&gt;</target>
+        </trans-unit>
+        <trans-unit id="d0944713-22dc-4174-a4ec-384e07e004e2" xml:space="preserve">
+          <source>&lt;tags
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="06/16/2015" 
+    ms.author="wesmc"/&gt;</source>
+          <target state="new">&lt;tags
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="06/16/2015" 
+    ms.author="wesmc"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="f52a10c2-ecb0-4e1c-bf2c-33680c82bcf3" xml:space="preserve">
+          <source><bpt id="2157b62c-5da2-435c-80b3-bb19cce764bc">&lt;token href="../../includes/mobile-services-selector-push-users.md"&gt;</bpt><ept id="2157b62c-5da2-435c-80b3-bb19cce764bc">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2157b62c-5da2-435c-80b3-bb19cce764bc">&lt;token href="../../includes/mobile-services-selector-push-users.md"&gt;</bpt><ept id="2157b62c-5da2-435c-80b3-bb19cce764bc">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19b5e893-425c-4feb-9198-ba2eebb6519b" xml:space="preserve">
+          <source>This topic shows you how to send push notifications to an authenticated user on any registered device.</source>
+          <target state="new">This topic shows you how to send push notifications to an authenticated user on any registered device.</target>
+        </trans-unit>
+        <trans-unit id="6902958c-43ff-4798-bcdc-78e5a3a812ee" xml:space="preserve">
+          <source>Unlike the previous <bpt id="759e3153-0095-41c6-b453-0b3774543b9e">&lt;linkText&gt;</bpt>push notification[get started with push notifications]<ept id="759e3153-0095-41c6-b453-0b3774543b9e">&lt;/linkText&gt;</ept><bpt id="759e3153-0095-41c6-b453-0b3774543b9e">&lt;title&gt;</bpt><ept id="759e3153-0095-41c6-b453-0b3774543b9e">&lt;/title&gt;</ept> tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications.</source>
+          <target state="new">Unlike the previous <bpt id="759e3153-0095-41c6-b453-0b3774543b9e">&lt;linkText&gt;</bpt>push notification[get started with push notifications]<ept id="759e3153-0095-41c6-b453-0b3774543b9e">&lt;/linkText&gt;</ept><bpt id="759e3153-0095-41c6-b453-0b3774543b9e">&lt;title&gt;</bpt><ept id="759e3153-0095-41c6-b453-0b3774543b9e">&lt;/title&gt;</ept> tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications.</target>
+        </trans-unit>
+        <trans-unit id="44abaa7a-141c-4cdd-b009-b53e81a896ec" xml:space="preserve">
+          <source>Registration is also modified to add a tag based on the assigned user ID.</source>
+          <target state="new">Registration is also modified to add a tag based on the assigned user ID.</target>
+        </trans-unit>
+        <trans-unit id="76a86584-37c2-400d-a72b-95493399aeb8" xml:space="preserve">
+          <source>Finally, the server script is updated to send the notification only to the authenticated user instead of to all registrations.</source>
+          <target state="new">Finally, the server script is updated to send the notification only to the authenticated user instead of to all registrations.</target>
+        </trans-unit>
+        <trans-unit id="544cf5c2-8509-4c30-953b-40f91bf56866" xml:space="preserve">
+          <source>This tutorial supports Android apps.</source>
+          <target state="new">This tutorial supports Android apps.</target>
+        </trans-unit>
+        <trans-unit id="a9001867-8d7f-42bb-ab77-9081567bcc1a" xml:space="preserve">
+          <source>Before you start this tutorial, you must have already completed these Mobile Services tutorials:</source>
+          <target state="new">Before you start this tutorial, you must have already completed these Mobile Services tutorials:</target>
+        </trans-unit>
+        <trans-unit id="99777441-58e0-496d-a99a-42105809a6db" xml:space="preserve">
+          <source>[Add authentication to your Mobile Services app]&lt;br/&gt;Adds a login requirement to the TodoList sample app.</source>
+          <target state="new">[Add authentication to your Mobile Services app]&lt;br/&gt;Adds a login requirement to the TodoList sample app.</target>
+        </trans-unit>
+        <trans-unit id="d763fbb3-bfff-4f6c-a83c-c2c3ed9240ce" xml:space="preserve">
+          <source>[Get started with push notifications]&lt;br/&gt;Configures the TodoList sample app for push notifications by using Notification Hubs.</source>
+          <target state="new">[Get started with push notifications]&lt;br/&gt;Configures the TodoList sample app for push notifications by using Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="c80396f7-1aa3-4dc0-af8a-37662b6a6d8a" xml:space="preserve">
+          <source>After you have completed both tutorials, you can prevent unauthenticated users from registering for push notifications from your mobile service.</source>
+          <target state="new">After you have completed both tutorials, you can prevent unauthenticated users from registering for push notifications from your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="e8ecffa1-5d34-4b55-b3a0-344a7c33ed72" xml:space="preserve">
+          <source><bpt id="d23b5245-3619-43f7-9586-73b387867f71">&lt;token href="../../includes/mobile-services-javascript-backend-push-notifications-app-users.md"&gt;</bpt><ept id="d23b5245-3619-43f7-9586-73b387867f71">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d23b5245-3619-43f7-9586-73b387867f71">&lt;token href="../../includes/mobile-services-javascript-backend-push-notifications-app-users.md"&gt;</bpt><ept id="d23b5245-3619-43f7-9586-73b387867f71">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3c7b56b-9ec4-47d5-8c00-e162c8c79243" xml:space="preserve">
+          <source>Replace the insert function with the following code, then click </source>
+          <target state="new">Replace the insert function with the following code, then click </target>
+        </trans-unit>
+        <trans-unit id="e9b091f2-0cc9-4aef-b76b-0a9a1e1d65fb" xml:space="preserve">
+          <source>Save</source>
+          <target state="new">Save</target>
+        </trans-unit>
+        <trans-unit id="881105a1-befa-4302-a546-d9af0e5f3c5b" xml:space="preserve">
+          <source>:</source>
+          <target state="new">:</target>
+        </trans-unit>
+        <trans-unit id="11742302-233b-4361-9fd8-a123abab2b7a" xml:space="preserve">
+          <source>function insert(item, user, request) {
+
+    // Define a payload for the Google Cloud Messaging toast notification.
+    var payload =
+        '{"data":{"message" : "Hello from Mobile Services! An Item was inserted"}}';
+
+    // Get the ID of the logged-in user.
+    var userId = user.userId;
+
+    request.execute({
+        success: function() {
+            // If the insert succeeds, send a notification to all devices
+            // registered to the logged-in user as a tag.
+            push.gcm.send(userId, payload, {
+                success: function(pushResponse) {
+                    console.log("Sent push with " + userId + " tag:", pushResponse, payload);
+                    request.respond();
+                    },
+                    error: function (pushResponse) {
+                            console.log("Error Sending push:", pushResponse);
+                        request.respond(500, { error: pushResponse });
+                        }
+                    });
+                },
+                error: function(err) {
+                    console.log("request.execute error", err)
+                    request.respond();
+                }
+            });
+}</source>
+          <target state="new">function insert(item, user, request) {
+
+    // Define a payload for the Google Cloud Messaging toast notification.
+    var payload =
+        '{"data":{"message" : "Hello from Mobile Services! An Item was inserted"}}';
+
+    // Get the ID of the logged-in user.
+    var userId = user.userId;
+
+    request.execute({
+        success: function() {
+            // If the insert succeeds, send a notification to all devices
+            // registered to the logged-in user as a tag.
+            push.gcm.send(userId, payload, {
+                success: function(pushResponse) {
+                    console.log("Sent push with " + userId + " tag:", pushResponse, payload);
+                    request.respond();
+                    },
+                    error: function (pushResponse) {
+                            console.log("Error Sending push:", pushResponse);
+                        request.respond(500, { error: pushResponse });
+                        }
+                    });
+                },
+                error: function(err) {
+                    console.log("request.execute error", err)
+                    request.respond();
+                }
+            });
+}</target>
+        </trans-unit>
+        <trans-unit id="3fe8fe74-e24e-45af-9f2e-1197e9fc28d8" xml:space="preserve">
+          <source>This insert script uses the user ID tag to send a push notification (with the text of the inserted item) to all Google Cloud Messaging registrations created by the logged-in user.</source>
+          <target state="new">This insert script uses the user ID tag to send a push notification (with the text of the inserted item) to all Google Cloud Messaging registrations created by the logged-in user.</target>
+        </trans-unit>
+        <trans-unit id="cd52e2ca-b32b-45d8-9669-6dc6bfdff26a" xml:space="preserve">
+          <source><bpt id="b9a635e7-bcef-4462-9426-7821bd64190b">&lt;token href="../../includes/mobile-services-android-push-notifications-app-users.md"&gt;</bpt><ept id="b9a635e7-bcef-4462-9426-7821bd64190b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b9a635e7-bcef-4462-9426-7821bd64190b">&lt;token href="../../includes/mobile-services-android-push-notifications-app-users.md"&gt;</bpt><ept id="b9a635e7-bcef-4462-9426-7821bd64190b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56b94e28-19b2-4aea-a226-e682a0c91308" xml:space="preserve">
+          <source><bpt id="60431d7a-cee7-4601-bbaa-f1e5e1d6213c">&lt;token href="../../includes/mobile-services-android-test-push-users.md"&gt;</bpt><ept id="60431d7a-cee7-4601-bbaa-f1e5e1d6213c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="60431d7a-cee7-4601-bbaa-f1e5e1d6213c">&lt;token href="../../includes/mobile-services-android-test-push-users.md"&gt;</bpt><ept id="60431d7a-cee7-4601-bbaa-f1e5e1d6213c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="824e09ab-c1ec-4f78-9ceb-bd7ff0dc04b0" xml:space="preserve">
+          <source>mobile-services-android-get-started-users.md</source>
+          <target state="new">mobile-services-android-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="bc82b100-e693-432e-bea5-c806ab40d241" xml:space="preserve">
+          <source>mobile-services-javascript-backend-android-get-started-push.md</source>
+          <target state="new">mobile-services-javascript-backend-android-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="6db27668-ecbf-4b68-b24e-0567b3a7b494" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="f96c4f70-75be-4b11-91bf-92290ff8dbc0" xml:space="preserve">
+          <source>/develop/mobile/how-to-guides/work-with-net-client-library</source>
+          <target state="new">/develop/mobile/how-to-guides/work-with-net-client-library</target>
+        </trans-unit>
+      </group>
+      <group id="ef819794-0000-4b62-9be7-815fb4b79cb0" />
+    </body>
+  </file>
+</xliff>

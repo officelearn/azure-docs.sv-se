@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cecbbdaa-9023-442a-b182-fc12f2118da3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cecbbdaa-9023-442a-b182-fc12f2118da3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fc784ba9-2cf1-4b1a-a528-d225a1612a1e">
+        <trans-unit id="3b5f878f-8feb-4b43-b48b-1853bcca8f7e" xml:space="preserve">
+          <source>CDN - Improve performance by compressing files</source>
+          <target state="new">CDN - Improve performance by compressing files</target>
+        </trans-unit>
+        <trans-unit id="70b0589a-1701-4e09-8e6c-0239fda6a1f9" xml:space="preserve">
+          <source>You can improve file transfer speed and increases page load performance by compressing your files.</source>
+          <target state="new">You can improve file transfer speed and increases page load performance by compressing your files.</target>
+        </trans-unit>
+        <trans-unit id="e8137db9-b115-4e3f-a4b7-fb7b0b198101" xml:space="preserve">
+          <source>This topic discusses how to improve file transfer speed and increases page load performance by compressing your files.</source>
+          <target state="new">This topic discusses how to improve file transfer speed and increases page load performance by compressing your files.</target>
+        </trans-unit>
+        <trans-unit id="23dbc784-b089-440e-a886-6c030789da04" xml:space="preserve">
+          <source>There are two ways CDN can support compression: </source>
+          <target state="new">There are two ways CDN can support compression: </target>
+        </trans-unit>
+        <trans-unit id="12358e3f-bd43-435f-8c70-18b746f24758" xml:space="preserve">
+          <source>You can enable compression on your origin server, in which case the CDN will support compression by default and deliver compressed files to clients.</source>
+          <target state="new">You can enable compression on your origin server, in which case the CDN will support compression by default and deliver compressed files to clients.</target>
+        </trans-unit>
+        <trans-unit id="e7e1f3b7-e32f-4da3-9389-774c589ea586" xml:space="preserve">
+          <source>You can enable compression directly on CDN edge servers, in which case the CDN will compress the files and serve it to end users.</source>
+          <target state="new">You can enable compression directly on CDN edge servers, in which case the CDN will compress the files and serve it to end users.</target>
+        </trans-unit>
+        <trans-unit id="490158fd-f889-4fe1-87e4-b46f9001a655" xml:space="preserve">
+          <source><bpt id="0f50cd8d-f56e-4d51-8932-660493abbd9d">&lt;strong&gt;</bpt>Accept-Encoding<ept id="0f50cd8d-f56e-4d51-8932-660493abbd9d">&lt;/strong&gt;</ept> request header - This header indicates the compression methods a user agent supports.</source>
+          <target state="new"><bpt id="0f50cd8d-f56e-4d51-8932-660493abbd9d">&lt;strong&gt;</bpt>Accept-Encoding<ept id="0f50cd8d-f56e-4d51-8932-660493abbd9d">&lt;/strong&gt;</ept> request header - This header indicates the compression methods a user agent supports.</target>
+        </trans-unit>
+        <trans-unit id="2282c783-6b5e-435d-9271-acad06498f31" xml:space="preserve">
+          <source>It must be included in the request header.</source>
+          <target state="new">It must be included in the request header.</target>
+        </trans-unit>
+        <trans-unit id="e113905f-000e-4506-b0b4-d4b06387ee12" xml:space="preserve">
+          <source>For more information, see <bpt id="f3e482c0-6452-4569-a907-05f123090501">&lt;linkText&gt;</bpt>Header Field Definitions<ept id="f3e482c0-6452-4569-a907-05f123090501">&lt;/linkText&gt;</ept><bpt id="f3e482c0-6452-4569-a907-05f123090501">&lt;title&gt;</bpt><ept id="f3e482c0-6452-4569-a907-05f123090501">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="f3e482c0-6452-4569-a907-05f123090501">&lt;linkText&gt;</bpt>Header Field Definitions<ept id="f3e482c0-6452-4569-a907-05f123090501">&lt;/linkText&gt;</ept><bpt id="f3e482c0-6452-4569-a907-05f123090501">&lt;title&gt;</bpt><ept id="f3e482c0-6452-4569-a907-05f123090501">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a53f3554-23b3-4b1a-bfbc-b057e3384f91" xml:space="preserve">
+          <source><bpt id="97b7c03f-29f2-4094-a09b-9f5a74b9d1ea">&lt;strong&gt;</bpt>Content type<ept id="97b7c03f-29f2-4094-a09b-9f5a74b9d1ea">&lt;/strong&gt;</ept> - A list of content types needs to be added for compression.</source>
+          <target state="new"><bpt id="97b7c03f-29f2-4094-a09b-9f5a74b9d1ea">&lt;strong&gt;</bpt>Content type<ept id="97b7c03f-29f2-4094-a09b-9f5a74b9d1ea">&lt;/strong&gt;</ept> - A list of content types needs to be added for compression.</target>
+        </trans-unit>
+        <trans-unit id="1d0b79c4-0aca-4ecd-8c85-84f4d1b6c3af" xml:space="preserve">
+          <source>Only text files are eligible for compression.</source>
+          <target state="new">Only text files are eligible for compression.</target>
+        </trans-unit>
+        <trans-unit id="cf9cce05-3bc0-4bdd-8fe2-345ce8bb7f8c" xml:space="preserve">
+          <source>E.g. text/plain, text/html.</source>
+          <target state="new">E.g. text/plain, text/html.</target>
+        </trans-unit>
+        <trans-unit id="f2f51824-64ad-4d5e-b73c-3b471c218f2e" xml:space="preserve">
+          <source><bpt id="69b5447b-927e-4213-a285-1d7f366abfbe">&lt;strong&gt;</bpt>Compression method<ept id="69b5447b-927e-4213-a285-1d7f366abfbe">&lt;/strong&gt;</ept> - Supported compression methods are gzip/deflate/bzip2, a supported method must be set in the Accept-Encoding Request Header.</source>
+          <target state="new"><bpt id="69b5447b-927e-4213-a285-1d7f366abfbe">&lt;strong&gt;</bpt>Compression method<ept id="69b5447b-927e-4213-a285-1d7f366abfbe">&lt;/strong&gt;</ept> - Supported compression methods are gzip/deflate/bzip2, a supported method must be set in the Accept-Encoding Request Header.</target>
+        </trans-unit>
+        <trans-unit id="be7f04cb-2d8f-45f4-89ed-7c639f100bc3" xml:space="preserve">
+          <source><bpt id="cbf5c98b-c10c-4cee-a478-ffd67953cdfb">&lt;strong&gt;</bpt>Cache status<ept id="cbf5c98b-c10c-4cee-a478-ffd67953cdfb">&lt;/strong&gt;</ept> - Cache status identifies whether the requested content is already cached on the POP closest to the requester.</source>
+          <target state="new"><bpt id="cbf5c98b-c10c-4cee-a478-ffd67953cdfb">&lt;strong&gt;</bpt>Cache status<ept id="cbf5c98b-c10c-4cee-a478-ffd67953cdfb">&lt;/strong&gt;</ept> - Cache status identifies whether the requested content is already cached on the POP closest to the requester.</target>
+        </trans-unit>
+        <trans-unit id="cd729c66-b987-4085-a657-b8e225d7af4f" xml:space="preserve">
+          <source><bpt id="c277c150-f24d-4146-9748-3475cfdb2dcd">&lt;strong&gt;</bpt>File size<ept id="c277c150-f24d-4146-9748-3475cfdb2dcd">&lt;/strong&gt;</ept> - By default compression only supports files larger than 1 byte and smaller than 1MB.</source>
+          <target state="new"><bpt id="c277c150-f24d-4146-9748-3475cfdb2dcd">&lt;strong&gt;</bpt>File size<ept id="c277c150-f24d-4146-9748-3475cfdb2dcd">&lt;/strong&gt;</ept> - By default compression only supports files larger than 1 byte and smaller than 1MB.</target>
+        </trans-unit>
+        <trans-unit id="764f0a2a-a4b9-4246-b96a-43c4048226a3" xml:space="preserve">
+          <source>Requester sends a request for content.</source>
+          <target state="new">Requester sends a request for content.</target>
+        </trans-unit>
+        <trans-unit id="5e146de5-b0f6-4efe-b4b0-e118b9a45cb3" xml:space="preserve">
+          <source>An edge server checks whether there is <bpt id="f7c9cbf2-093e-4a1c-8f39-58d5239d3760">&lt;strong&gt;</bpt>Accept-Encoding<ept id="f7c9cbf2-093e-4a1c-8f39-58d5239d3760">&lt;/strong&gt;</ept> header.</source>
+          <target state="new">An edge server checks whether there is <bpt id="f7c9cbf2-093e-4a1c-8f39-58d5239d3760">&lt;strong&gt;</bpt>Accept-Encoding<ept id="f7c9cbf2-093e-4a1c-8f39-58d5239d3760">&lt;/strong&gt;</ept> header.</target>
+        </trans-unit>
+        <trans-unit id="5d02d632-76d0-4a5a-973a-4e41bda7815d" xml:space="preserve">
+          <source>If included, this header identifies the requested compression method.</source>
+          <target state="new">If included, this header identifies the requested compression method.</target>
+        </trans-unit>
+        <trans-unit id="26e2e69d-a9e2-4695-aee7-89275d4bc12f" xml:space="preserve">
+          <source>If missing, this type of request will be served in an uncompressed format.</source>
+          <target state="new">If missing, this type of request will be served in an uncompressed format.</target>
+        </trans-unit>
+        <trans-unit id="6eacd758-8237-44b8-86f8-400a39922bc3" xml:space="preserve">
+          <source>The closest edge POP checks the cache status, compression method and if it still has a valid TTL.</source>
+          <target state="new">The closest edge POP checks the cache status, compression method and if it still has a valid TTL.</target>
+        </trans-unit>
+        <trans-unit id="047bf215-190e-493b-bdd4-dd3b318a0dd8" xml:space="preserve">
+          <source>Cache Miss:  if the requested version is not cached, the request is forwarded to the origin.</source>
+          <target state="new">Cache Miss:  if the requested version is not cached, the request is forwarded to the origin.</target>
+        </trans-unit>
+        <trans-unit id="8a854004-e69f-4f3d-a661-2bcda2387848" xml:space="preserve">
+          <source>Cache HIT with same compression method: The edge server will immediately deliver the compressed content to the client.</source>
+          <target state="new">Cache HIT with same compression method: The edge server will immediately deliver the compressed content to the client.</target>
+        </trans-unit>
+        <trans-unit id="ddc8a745-70ca-4109-9d5a-39280785efd1" xml:space="preserve">
+          <source>Cache HIT with different compression method: The edge server will transcode the asset to the requested compression method.</source>
+          <target state="new">Cache HIT with different compression method: The edge server will transcode the asset to the requested compression method.</target>
+        </trans-unit>
+        <trans-unit id="c130cc56-6e2f-47a9-aff9-d2cefe349633" xml:space="preserve">
+          <source>Cache HIT and uncompressed : if the initial request caused the asset to be cached in an uncompressed format, then a check will be performed to see whether the request is eligible for edge server compression (based on the criteria in the definition/requirement section above.)</source>
+          <target state="new">Cache HIT and uncompressed : if the initial request caused the asset to be cached in an uncompressed format, then a check will be performed to see whether the request is eligible for edge server compression (based on the criteria in the definition/requirement section above.)</target>
+        </trans-unit>
+        <trans-unit id="792a723e-72f6-47f5-bc2a-a3540654e4f4" xml:space="preserve">
+          <source>If eligible, the edge server will compress the file and serve it to the client.</source>
+          <target state="new">If eligible, the edge server will compress the file and serve it to the client.</target>
+        </trans-unit>
+        <trans-unit id="147a6950-9252-48af-9bc6-a1ff6116fefb" xml:space="preserve">
+          <source>If not eligible: the edge server will immediately deliver the uncompressed content to the client.</source>
+          <target state="new">If not eligible: the edge server will immediately deliver the uncompressed content to the client.</target>
+        </trans-unit>
+        <trans-unit id="bb9a484d-49db-4e2b-b172-8e1463a9e770" xml:space="preserve">
+          <source><bpt id="32956a75-7016-48d3-8d1b-cc9f68d49631">&lt;linkText&gt;</bpt>File compression<ept id="32956a75-7016-48d3-8d1b-cc9f68d49631">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="32956a75-7016-48d3-8d1b-cc9f68d49631">&lt;linkText&gt;</bpt>File compression<ept id="32956a75-7016-48d3-8d1b-cc9f68d49631">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c572775-d3b0-4b53-a22c-e32878d484c8" xml:space="preserve">
+          <source>For Media Services CDN enabled streaming endpoints, compression is enabled by default for the following content types: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml.</source>
+          <target state="new">For Media Services CDN enabled streaming endpoints, compression is enabled by default for the following content types: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml.</target>
+        </trans-unit>
+        <trans-unit id="95d82d4e-a10a-45ad-a860-41636d99b872" xml:space="preserve">
+          <source>You cannot enable/disable compression for the mentioned types using the Azure portal.</source>
+          <target state="new">You cannot enable/disable compression for the mentioned types using the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="0182d2c0-855c-42e7-8294-35d8bcd7be3b" xml:space="preserve">
+          <source>Only one file version (compressed or uncompressed) will be cached on the edge server.</source>
+          <target state="new">Only one file version (compressed or uncompressed) will be cached on the edge server.</target>
+        </trans-unit>
+        <trans-unit id="bbce529d-e522-48f9-8024-d01ea5f133e3" xml:space="preserve">
+          <source>A request for a different version will result in the content being transcoded by the edge server.</source>
+          <target state="new">A request for a different version will result in the content being transcoded by the edge server.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

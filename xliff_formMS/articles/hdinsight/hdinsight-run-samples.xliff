@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="99218152-2b77-4043-8e6c-abdac34e51ae" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="99218152-2b77-4043-8e6c-abdac34e51ae" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fc93ee47-6be7-46f1-aa55-d58e15fcf193">
+        <trans-unit id="7b499a72-630e-4338-9dab-6924511aecf4" xml:space="preserve">
+          <source>Run the Hadoop samples in HDInsight | Microsoft Azure</source>
+          <target state="new">Run the Hadoop samples in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e6048fea-82c6-40d7-851c-8dab7b7e7413" xml:space="preserve">
+          <source>Get started using the Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters.</source>
+          <target state="new">Get started using the Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters.</target>
+        </trans-unit>
+        <trans-unit id="87647883-7c11-4681-b215-7ad1b492f91f" xml:space="preserve">
+          <source><bpt id="5c849c4d-4758-405d-bb86-23727efcac92">&lt;token href="../../includes/hdinsight-run-samples-selector.md"&gt;</bpt><ept id="5c849c4d-4758-405d-bb86-23727efcac92">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="5c849c4d-4758-405d-bb86-23727efcac92">&lt;token href="../../includes/hdinsight-run-samples-selector.md"&gt;</bpt><ept id="5c849c4d-4758-405d-bb86-23727efcac92">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a2996da-a73f-48c5-b749-d6470edf3647" xml:space="preserve">
+          <source>A set of samples are provided to help you get started running MapReduce jobs on Hadoop clusters using Azure HDInsight.</source>
+          <target state="new">A set of samples are provided to help you get started running MapReduce jobs on Hadoop clusters using Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="41fc8596-9711-432e-8edd-233a79a15d56" xml:space="preserve">
+          <source>These samples are made available on each of the HDInsight managed clusters that you create.</source>
+          <target state="new">These samples are made available on each of the HDInsight managed clusters that you create.</target>
+        </trans-unit>
+        <trans-unit id="c2b81b5e-bb78-4529-b520-0a68c36dc33f" xml:space="preserve">
+          <source>Running these samples will familiarize you with using Azure PowerShell cmdlets to run jobs on Hadoop clusters.</source>
+          <target state="new">Running these samples will familiarize you with using Azure PowerShell cmdlets to run jobs on Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="2cba5561-aedd-4623-8bd5-5284783e46d9" xml:space="preserve">
+          <source>MapReduce programs can also be run programmatically from an application by using the Microsoft .NET API for HDInsight.</source>
+          <target state="new">MapReduce programs can also be run programmatically from an application by using the Microsoft .NET API for HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="10a68e84-4fa2-4d41-a0a6-7d1d72446346" xml:space="preserve">
+          <source>For more information about using the HDInsight APIs for job submission, see <bpt id="a08525de-549e-468c-8f2b-087e9ae7f24c">&lt;linkText&gt;</bpt>Submit Hadoop Jobs in HDInsight[hdinsight-submit-jobs]<ept id="a08525de-549e-468c-8f2b-087e9ae7f24c">&lt;/linkText&gt;</ept><bpt id="a08525de-549e-468c-8f2b-087e9ae7f24c">&lt;title&gt;</bpt><ept id="a08525de-549e-468c-8f2b-087e9ae7f24c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using the HDInsight APIs for job submission, see <bpt id="a08525de-549e-468c-8f2b-087e9ae7f24c">&lt;linkText&gt;</bpt>Submit Hadoop Jobs in HDInsight[hdinsight-submit-jobs]<ept id="a08525de-549e-468c-8f2b-087e9ae7f24c">&lt;/linkText&gt;</ept><bpt id="a08525de-549e-468c-8f2b-087e9ae7f24c">&lt;title&gt;</bpt><ept id="a08525de-549e-468c-8f2b-087e9ae7f24c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b050d18d-7e0c-40e3-95f0-3a66fbf1aa22" xml:space="preserve">
+          <source>Much additional documentation exists on the web for Hadoop-related technologies, such as Java-based MapReduce programming and streaming, and documentation about the cmdlets that are used in Windows PowerShell scripting.</source>
+          <target state="new">Much additional documentation exists on the web for Hadoop-related technologies, such as Java-based MapReduce programming and streaming, and documentation about the cmdlets that are used in Windows PowerShell scripting.</target>
+        </trans-unit>
+        <trans-unit id="4712bd6f-cce8-48bc-a40e-0d64b0c31e66" xml:space="preserve">
+          <source>For more information about these resources, see the final <bpt id="700e2ece-42a3-4d38-8866-547699b84a43">&lt;strong&gt;</bpt>Resources for HDInsight<ept id="700e2ece-42a3-4d38-8866-547699b84a43">&lt;/strong&gt;</ept> section of <bpt id="b3f79ca6-4429-413c-976a-978d4c8c7d16">&lt;linkText&gt;</bpt>Introduction to Azure HDInsight[hdinsight-introduction]<ept id="b3f79ca6-4429-413c-976a-978d4c8c7d16">&lt;/linkText&gt;</ept><bpt id="b3f79ca6-4429-413c-976a-978d4c8c7d16">&lt;title&gt;</bpt><ept id="b3f79ca6-4429-413c-976a-978d4c8c7d16">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about these resources, see the final <bpt id="700e2ece-42a3-4d38-8866-547699b84a43">&lt;strong&gt;</bpt>Resources for HDInsight<ept id="700e2ece-42a3-4d38-8866-547699b84a43">&lt;/strong&gt;</ept> section of <bpt id="b3f79ca6-4429-413c-976a-978d4c8c7d16">&lt;linkText&gt;</bpt>Introduction to Azure HDInsight[hdinsight-introduction]<ept id="b3f79ca6-4429-413c-976a-978d4c8c7d16">&lt;/linkText&gt;</ept><bpt id="b3f79ca6-4429-413c-976a-978d4c8c7d16">&lt;title&gt;</bpt><ept id="b3f79ca6-4429-413c-976a-978d4c8c7d16">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5216f48b-d5a1-4282-a44b-7a017baf76ce" xml:space="preserve">
+          <source><bpt id="6adffcf9-94f3-4ba0-a00f-ab624f2a7b97">&lt;strong&gt;</bpt>What these samples are<ept id="6adffcf9-94f3-4ba0-a00f-ab624f2a7b97">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6adffcf9-94f3-4ba0-a00f-ab624f2a7b97">&lt;strong&gt;</bpt>What these samples are<ept id="6adffcf9-94f3-4ba0-a00f-ab624f2a7b97">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78323b10-41f3-4d61-b3fd-ddaddfad578d" xml:space="preserve">
+          <source>These samples are intended to get you up to speed quickly on how to deploy Hadoop jobs and to provide you with an extensible testing bed to work with the concepts and scripting procedures that are used by the service. They provide you with examples of common tasks, such as creating and importing data sets of various sizes, running and composing jobs sequentially, and examining the results of your jobs. The data sets that you use can be varied in size, which allows you to observe the effects that data sets of various size have on job performance.</source>
+          <target state="new">These samples are intended to get you up to speed quickly on how to deploy Hadoop jobs and to provide you with an extensible testing bed to work with the concepts and scripting procedures that are used by the service. They provide you with examples of common tasks, such as creating and importing data sets of various sizes, running and composing jobs sequentially, and examining the results of your jobs. The data sets that you use can be varied in size, which allows you to observe the effects that data sets of various size have on job performance.</target>
+        </trans-unit>
+        <trans-unit id="ab6ecd4f-2228-41ca-bbac-dd6f36852c43" xml:space="preserve">
+          <source><bpt id="a6b681f2-4b86-4445-9283-3be58a1315eb">&lt;strong&gt;</bpt>Prerequisites<ept id="a6b681f2-4b86-4445-9283-3be58a1315eb">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="a6b681f2-4b86-4445-9283-3be58a1315eb">&lt;strong&gt;</bpt>Prerequisites<ept id="a6b681f2-4b86-4445-9283-3be58a1315eb">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="3139a6a2-6282-46e7-bfc9-185d64458a28" xml:space="preserve">
+          <source><bpt id="b7354cee-a564-49c4-9ebc-2606080e3539">&lt;strong&gt;</bpt>An Azure subscription<ept id="b7354cee-a564-49c4-9ebc-2606080e3539">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="b7354cee-a564-49c4-9ebc-2606080e3539">&lt;strong&gt;</bpt>An Azure subscription<ept id="b7354cee-a564-49c4-9ebc-2606080e3539">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02ca3e23-b7bc-4b5c-8194-e316c38f0942" xml:space="preserve">
+          <source>See <bpt id="4711ae62-bae4-4f18-b73d-7ee07647d973">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="4711ae62-bae4-4f18-b73d-7ee07647d973">&lt;/linkText&gt;</ept><bpt id="4711ae62-bae4-4f18-b73d-7ee07647d973">&lt;title&gt;</bpt><ept id="4711ae62-bae4-4f18-b73d-7ee07647d973">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="4711ae62-bae4-4f18-b73d-7ee07647d973">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="4711ae62-bae4-4f18-b73d-7ee07647d973">&lt;/linkText&gt;</ept><bpt id="4711ae62-bae4-4f18-b73d-7ee07647d973">&lt;title&gt;</bpt><ept id="4711ae62-bae4-4f18-b73d-7ee07647d973">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16705d8e-4194-4a1c-9838-c91aac544880" xml:space="preserve">
+          <source><bpt id="2190c09a-41c9-44fa-926a-afde6a9a1d13">&lt;strong&gt;</bpt>an HDInsight cluster<ept id="2190c09a-41c9-44fa-926a-afde6a9a1d13">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="2190c09a-41c9-44fa-926a-afde6a9a1d13">&lt;strong&gt;</bpt>an HDInsight cluster<ept id="2190c09a-41c9-44fa-926a-afde6a9a1d13">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="675384f1-5852-446d-b3ec-87ac205399bd" xml:space="preserve">
+          <source>For instructions on the various ways in which such clusters can be created, see <bpt id="0e520c02-f7a5-4abe-ba2e-13cd24d12b50">&lt;linkText&gt;</bpt>Provision HDInsight Clusters<ept id="0e520c02-f7a5-4abe-ba2e-13cd24d12b50">&lt;/linkText&gt;</ept><bpt id="0e520c02-f7a5-4abe-ba2e-13cd24d12b50">&lt;title&gt;</bpt><ept id="0e520c02-f7a5-4abe-ba2e-13cd24d12b50">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on the various ways in which such clusters can be created, see <bpt id="0e520c02-f7a5-4abe-ba2e-13cd24d12b50">&lt;linkText&gt;</bpt>Provision HDInsight Clusters<ept id="0e520c02-f7a5-4abe-ba2e-13cd24d12b50">&lt;/linkText&gt;</ept><bpt id="0e520c02-f7a5-4abe-ba2e-13cd24d12b50">&lt;title&gt;</bpt><ept id="0e520c02-f7a5-4abe-ba2e-13cd24d12b50">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6041aeea-cf59-4f52-be34-4691779e0cac" xml:space="preserve">
+          <source><bpt id="00624dff-8d54-4d52-b79a-c3b6e7589541">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="00624dff-8d54-4d52-b79a-c3b6e7589541">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="00624dff-8d54-4d52-b79a-c3b6e7589541">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="00624dff-8d54-4d52-b79a-c3b6e7589541">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a430e538-dd2f-4bd0-b8cb-3b0856e8d83c" xml:space="preserve">
+          <source>See <bpt id="bc92ec03-89c9-4dfa-bb05-2edff916cb3e">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="bc92ec03-89c9-4dfa-bb05-2edff916cb3e">&lt;/linkText&gt;</ept><bpt id="bc92ec03-89c9-4dfa-bb05-2edff916cb3e">&lt;title&gt;</bpt><ept id="bc92ec03-89c9-4dfa-bb05-2edff916cb3e">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="bc92ec03-89c9-4dfa-bb05-2edff916cb3e">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="bc92ec03-89c9-4dfa-bb05-2edff916cb3e">&lt;/linkText&gt;</ept><bpt id="bc92ec03-89c9-4dfa-bb05-2edff916cb3e">&lt;title&gt;</bpt><ept id="bc92ec03-89c9-4dfa-bb05-2edff916cb3e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e90aa2c8-1b10-448a-91f3-9da7690110a6" xml:space="preserve">
+          <source>HDInsight ships with the following samples:</source>
+          <target state="new">HDInsight ships with the following samples:</target>
+        </trans-unit>
+        <trans-unit id="6f85aca3-fee2-4c20-9a44-685a6268ca90" xml:space="preserve">
+          <source><bpt id="23770267-69b3-4ad8-9e58-c09d951f836f">&lt;linkText&gt;</bpt>**The pi estimator Hadoop sample**[hdinsight-sample-pi-estimator]<ept id="23770267-69b3-4ad8-9e58-c09d951f836f">&lt;/linkText&gt;</ept><bpt id="23770267-69b3-4ad8-9e58-c09d951f836f">&lt;title&gt;</bpt><ept id="23770267-69b3-4ad8-9e58-c09d951f836f">&lt;/title&gt;</ept>: Shows how to run a MapReduce program with HDInsight that uses a statistical (quasi-Monte Carlo) method to estimate the value of pi.</source>
+          <target state="new"><bpt id="23770267-69b3-4ad8-9e58-c09d951f836f">&lt;linkText&gt;</bpt>**The pi estimator Hadoop sample**[hdinsight-sample-pi-estimator]<ept id="23770267-69b3-4ad8-9e58-c09d951f836f">&lt;/linkText&gt;</ept><bpt id="23770267-69b3-4ad8-9e58-c09d951f836f">&lt;title&gt;</bpt><ept id="23770267-69b3-4ad8-9e58-c09d951f836f">&lt;/title&gt;</ept>: Shows how to run a MapReduce program with HDInsight that uses a statistical (quasi-Monte Carlo) method to estimate the value of pi.</target>
+        </trans-unit>
+        <trans-unit id="c729ccef-1996-4eac-9888-48b723e50e94" xml:space="preserve">
+          <source><bpt id="539eef5e-f0d2-44bd-b3f0-ff4bd6c79801">&lt;linkText&gt;</bpt>**Run a MapReduce word count example on an Hadoop cluster**[hdinsight-sample-wordcount]<ept id="539eef5e-f0d2-44bd-b3f0-ff4bd6c79801">&lt;/linkText&gt;</ept><bpt id="539eef5e-f0d2-44bd-b3f0-ff4bd6c79801">&lt;title&gt;</bpt><ept id="539eef5e-f0d2-44bd-b3f0-ff4bd6c79801">&lt;/title&gt;</ept>: Shows how to use an HDInsight cluster to run a MapReduce program that counts word occurrences in a text file.</source>
+          <target state="new"><bpt id="539eef5e-f0d2-44bd-b3f0-ff4bd6c79801">&lt;linkText&gt;</bpt>**Run a MapReduce word count example on an Hadoop cluster**[hdinsight-sample-wordcount]<ept id="539eef5e-f0d2-44bd-b3f0-ff4bd6c79801">&lt;/linkText&gt;</ept><bpt id="539eef5e-f0d2-44bd-b3f0-ff4bd6c79801">&lt;title&gt;</bpt><ept id="539eef5e-f0d2-44bd-b3f0-ff4bd6c79801">&lt;/title&gt;</ept>: Shows how to use an HDInsight cluster to run a MapReduce program that counts word occurrences in a text file.</target>
+        </trans-unit>
+        <trans-unit id="52acdc9a-ba77-42b8-96dd-c93c8d9a7373" xml:space="preserve">
+          <source><bpt id="5df09507-9654-4033-824a-3782f5889b00">&lt;linkText&gt;</bpt>**The 10-GB Graysort Hadoop sample**[hdinsight-sample-10gb-graysort]<ept id="5df09507-9654-4033-824a-3782f5889b00">&lt;/linkText&gt;</ept><bpt id="5df09507-9654-4033-824a-3782f5889b00">&lt;title&gt;</bpt><ept id="5df09507-9654-4033-824a-3782f5889b00">&lt;/title&gt;</ept>: Shows how to run a general purpose GraySort on a 10 GB file by using HDInsight.</source>
+          <target state="new"><bpt id="5df09507-9654-4033-824a-3782f5889b00">&lt;linkText&gt;</bpt>**The 10-GB Graysort Hadoop sample**[hdinsight-sample-10gb-graysort]<ept id="5df09507-9654-4033-824a-3782f5889b00">&lt;/linkText&gt;</ept><bpt id="5df09507-9654-4033-824a-3782f5889b00">&lt;title&gt;</bpt><ept id="5df09507-9654-4033-824a-3782f5889b00">&lt;/title&gt;</ept>: Shows how to run a general purpose GraySort on a 10 GB file by using HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="c843cdde-da23-48a8-b357-b731040f0e3e" xml:space="preserve">
+          <source>There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm that the data has been properly sorted.</source>
+          <target state="new">There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm that the data has been properly sorted.</target>
+        </trans-unit>
+        <trans-unit id="016626a1-8962-4297-b3fe-ebf62b5e1b7e" xml:space="preserve">
+          <source><bpt id="67828d63-d7ca-4cb2-b57e-27e39980a2aa">&lt;linkText&gt;</bpt>**The C# streaming wordcount MapReduce sample in Hadoop**[hdinsight-sample-csharp-streaming]<ept id="67828d63-d7ca-4cb2-b57e-27e39980a2aa">&lt;/linkText&gt;</ept><bpt id="67828d63-d7ca-4cb2-b57e-27e39980a2aa">&lt;title&gt;</bpt><ept id="67828d63-d7ca-4cb2-b57e-27e39980a2aa">&lt;/title&gt;</ept>: Shows how to use C# to write a MapReduce program that uses the Hadoop streaming interface.</source>
+          <target state="new"><bpt id="67828d63-d7ca-4cb2-b57e-27e39980a2aa">&lt;linkText&gt;</bpt>**The C# streaming wordcount MapReduce sample in Hadoop**[hdinsight-sample-csharp-streaming]<ept id="67828d63-d7ca-4cb2-b57e-27e39980a2aa">&lt;/linkText&gt;</ept><bpt id="67828d63-d7ca-4cb2-b57e-27e39980a2aa">&lt;title&gt;</bpt><ept id="67828d63-d7ca-4cb2-b57e-27e39980a2aa">&lt;/title&gt;</ept>: Shows how to use C# to write a MapReduce program that uses the Hadoop streaming interface.</target>
+        </trans-unit>
+        <trans-unit id="227782fc-eaed-461d-9c80-48c50d1e877e" xml:space="preserve">
+          <source>The samples can be run by using Azure PowerShell.</source>
+          <target state="new">The samples can be run by using Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="5fda7808-aae7-4ff3-961a-cf02f2ab198f" xml:space="preserve">
+          <source>Instructions about how to do this are provided for each of the previous samples.</source>
+          <target state="new">Instructions about how to do this are provided for each of the previous samples.</target>
+        </trans-unit>
+        <trans-unit id="9329d0ec-3fe4-4243-89a2-3823f693d9e7" xml:space="preserve">
+          <source>From this article and the articles in each of the samples, you learned how to run the samples included with the HDInsight clusters by using Azure PowerShell.</source>
+          <target state="new">From this article and the articles in each of the samples, you learned how to run the samples included with the HDInsight clusters by using Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="c2364d06-7c11-41a9-974e-a0ea630e2b3c" xml:space="preserve">
+          <source>For tutorials about using Pig, Hive, and MapReduce with HDInsight, see the following topics:</source>
+          <target state="new">For tutorials about using Pig, Hive, and MapReduce with HDInsight, see the following topics:</target>
+        </trans-unit>
+        <trans-unit id="e8653035-e4e6-4966-84b8-082feebec2fd" xml:space="preserve">
+          <source><bpt id="c66fa749-6511-4d83-991f-6e93f1c30b77">&lt;linkText&gt;</bpt>Get started using Hadoop with Hive in HDInsight to analyze mobile handset use[hdinsight-get-started]<ept id="c66fa749-6511-4d83-991f-6e93f1c30b77">&lt;/linkText&gt;</ept><bpt id="c66fa749-6511-4d83-991f-6e93f1c30b77">&lt;title&gt;</bpt><ept id="c66fa749-6511-4d83-991f-6e93f1c30b77">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c66fa749-6511-4d83-991f-6e93f1c30b77">&lt;linkText&gt;</bpt>Get started using Hadoop with Hive in HDInsight to analyze mobile handset use[hdinsight-get-started]<ept id="c66fa749-6511-4d83-991f-6e93f1c30b77">&lt;/linkText&gt;</ept><bpt id="c66fa749-6511-4d83-991f-6e93f1c30b77">&lt;title&gt;</bpt><ept id="c66fa749-6511-4d83-991f-6e93f1c30b77">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e42f4f73-44fe-4603-b35a-c1539d66a092" xml:space="preserve">
+          <source><bpt id="58279047-5f99-4b68-9d7e-6357a20b96e6">&lt;linkText&gt;</bpt>Use Pig with Hadoop on HDInsight[hdinsight-use-pig]<ept id="58279047-5f99-4b68-9d7e-6357a20b96e6">&lt;/linkText&gt;</ept><bpt id="58279047-5f99-4b68-9d7e-6357a20b96e6">&lt;title&gt;</bpt><ept id="58279047-5f99-4b68-9d7e-6357a20b96e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="58279047-5f99-4b68-9d7e-6357a20b96e6">&lt;linkText&gt;</bpt>Use Pig with Hadoop on HDInsight[hdinsight-use-pig]<ept id="58279047-5f99-4b68-9d7e-6357a20b96e6">&lt;/linkText&gt;</ept><bpt id="58279047-5f99-4b68-9d7e-6357a20b96e6">&lt;title&gt;</bpt><ept id="58279047-5f99-4b68-9d7e-6357a20b96e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d36b6529-5735-408d-ab5e-2a4c437ec7a6" xml:space="preserve">
+          <source><bpt id="f48d382e-0d78-4330-a7aa-396b4024bdfa">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight[hdinsight-use-hive]<ept id="f48d382e-0d78-4330-a7aa-396b4024bdfa">&lt;/linkText&gt;</ept><bpt id="f48d382e-0d78-4330-a7aa-396b4024bdfa">&lt;title&gt;</bpt><ept id="f48d382e-0d78-4330-a7aa-396b4024bdfa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f48d382e-0d78-4330-a7aa-396b4024bdfa">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight[hdinsight-use-hive]<ept id="f48d382e-0d78-4330-a7aa-396b4024bdfa">&lt;/linkText&gt;</ept><bpt id="f48d382e-0d78-4330-a7aa-396b4024bdfa">&lt;title&gt;</bpt><ept id="f48d382e-0d78-4330-a7aa-396b4024bdfa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abcd3d75-e99d-453f-9bc1-b28836cb3a58" xml:space="preserve">
+          <source><bpt id="374eb551-8f19-4e6a-80b2-9be530113795">&lt;linkText&gt;</bpt>Submit Hadoop Jobs in HDInsight[hdinsight-submit-jobs]<ept id="374eb551-8f19-4e6a-80b2-9be530113795">&lt;/linkText&gt;</ept><bpt id="374eb551-8f19-4e6a-80b2-9be530113795">&lt;title&gt;</bpt><ept id="374eb551-8f19-4e6a-80b2-9be530113795">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="374eb551-8f19-4e6a-80b2-9be530113795">&lt;linkText&gt;</bpt>Submit Hadoop Jobs in HDInsight[hdinsight-submit-jobs]<ept id="374eb551-8f19-4e6a-80b2-9be530113795">&lt;/linkText&gt;</ept><bpt id="374eb551-8f19-4e6a-80b2-9be530113795">&lt;title&gt;</bpt><ept id="374eb551-8f19-4e6a-80b2-9be530113795">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85cb56d6-468d-45ff-be55-6a22f749b71f" xml:space="preserve">
+          <source><bpt id="b03dabbb-10bb-4d99-b570-b7dcdd9dba92">&lt;linkText&gt;</bpt>Azure HDInsight SDK documentation[hdinsight-sdk-documentation]<ept id="b03dabbb-10bb-4d99-b570-b7dcdd9dba92">&lt;/linkText&gt;</ept><bpt id="b03dabbb-10bb-4d99-b570-b7dcdd9dba92">&lt;title&gt;</bpt><ept id="b03dabbb-10bb-4d99-b570-b7dcdd9dba92">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b03dabbb-10bb-4d99-b570-b7dcdd9dba92">&lt;linkText&gt;</bpt>Azure HDInsight SDK documentation[hdinsight-sdk-documentation]<ept id="b03dabbb-10bb-4d99-b570-b7dcdd9dba92">&lt;/linkText&gt;</ept><bpt id="b03dabbb-10bb-4d99-b570-b7dcdd9dba92">&lt;title&gt;</bpt><ept id="b03dabbb-10bb-4d99-b570-b7dcdd9dba92">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a981d72f-ae98-4d9f-827e-32a9193d0e3c" xml:space="preserve">
+          <source><bpt id="7fe4eae0-23af-4d9f-b421-02800a0a0bca">&lt;linkText&gt;</bpt>Debug Hadoop in HDInsight: Error messages[hdinsight-errors]<ept id="7fe4eae0-23af-4d9f-b421-02800a0a0bca">&lt;/linkText&gt;</ept><bpt id="7fe4eae0-23af-4d9f-b421-02800a0a0bca">&lt;title&gt;</bpt><ept id="7fe4eae0-23af-4d9f-b421-02800a0a0bca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7fe4eae0-23af-4d9f-b421-02800a0a0bca">&lt;linkText&gt;</bpt>Debug Hadoop in HDInsight: Error messages[hdinsight-errors]<ept id="7fe4eae0-23af-4d9f-b421-02800a0a0bca">&lt;/linkText&gt;</ept><bpt id="7fe4eae0-23af-4d9f-b421-02800a0a0bca">&lt;title&gt;</bpt><ept id="7fe4eae0-23af-4d9f-b421-02800a0a0bca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d053182-f99f-420b-8bce-6c1fa3b770e4" xml:space="preserve">
+          <source>hdinsight-debug-jobs.md</source>
+          <target state="new">hdinsight-debug-jobs.md</target>
+        </trans-unit>
+        <trans-unit id="305ee49b-d7d2-421a-8482-722a32bdcfb4" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn479185.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn479185.aspx</target>
+        </trans-unit>
+        <trans-unit id="2b4b164f-dd5e-437e-9c76-45fe9842767f" xml:space="preserve">
+          <source>hdinsight-submit-hadoop-jobs-programmatically.md</source>
+          <target state="new">hdinsight-submit-hadoop-jobs-programmatically.md</target>
+        </trans-unit>
+        <trans-unit id="3da81607-1e8f-4166-b421-f46813ee0418" xml:space="preserve">
+          <source>hdinsight-hadoop-introduction.md</source>
+          <target state="new">hdinsight-hadoop-introduction.md</target>
+        </trans-unit>
+        <trans-unit id="5f4951dd-7a70-4203-b135-5868c1add253" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="bfdd3d1a-feee-48bf-a169-282f52703aef" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="281369ab-212f-45fb-9350-a1c44157de98" xml:space="preserve">
+          <source>hdinsight-run-samples.md</source>
+          <target state="new">hdinsight-run-samples.md</target>
+        </trans-unit>
+        <trans-unit id="14e97a77-18b4-44f2-afb2-d9c4843c359e" xml:space="preserve">
+          <source>hdinsight-sample-10gb-graysort.md</source>
+          <target state="new">hdinsight-sample-10gb-graysort.md</target>
+        </trans-unit>
+        <trans-unit id="bb14089b-252a-49ae-b421-1c3f767aa52a" xml:space="preserve">
+          <source>hdinsight-sample-csharp-streaming.md</source>
+          <target state="new">hdinsight-sample-csharp-streaming.md</target>
+        </trans-unit>
+        <trans-unit id="e7ee7ad8-9e01-4f48-9bb0-c65673bcca8e" xml:space="preserve">
+          <source>hdinsight-sample-pi-estimator.md</source>
+          <target state="new">hdinsight-sample-pi-estimator.md</target>
+        </trans-unit>
+        <trans-unit id="85ef6c57-71f8-4d32-bdd5-72d78a61e722" xml:space="preserve">
+          <source>hdinsight-sample-wordcount.md</source>
+          <target state="new">hdinsight-sample-wordcount.md</target>
+        </trans-unit>
+        <trans-unit id="65f4ac52-2339-4b0d-ad03-0bbe046f6419" xml:space="preserve">
+          <source>hdinsight-use-hive.md</source>
+          <target state="new">hdinsight-use-hive.md</target>
+        </trans-unit>
+        <trans-unit id="47712e9d-5f93-44a2-8d4e-0b3555608772" xml:space="preserve">
+          <source>hdinsight-use-pig.md</source>
+          <target state="new">hdinsight-use-pig.md</target>
+        </trans-unit>
+      </group>
+      <group id="e862503a-70c0-42af-b9f5-22b1742ce762" />
+    </body>
+  </file>
+</xliff>

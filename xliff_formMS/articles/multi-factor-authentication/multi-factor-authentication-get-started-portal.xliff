@@ -1,0 +1,684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ef0085b3-7a69-4148-8951-f4649b2cea75" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ef0085b3-7a69-4148-8951-f4649b2cea75" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bd25bcb2-9468-4888-a8d3-66b2d967a23d">
+        <trans-unit id="d1805429-7bb0-464c-acb0-c2e534bda1fe" xml:space="preserve">
+          <source>Deploying the user portal for the Azure Multi-Factor Authentication Server</source>
+          <target state="new">Deploying the user portal for the Azure Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="72a9b106-5620-4076-b661-55d8dff9b5a1" xml:space="preserve">
+          <source>This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and the user portal.</source>
+          <target state="new">This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and the user portal.</target>
+        </trans-unit>
+        <trans-unit id="bc9682f5-03e5-49ef-86fe-8b52a9e19090" xml:space="preserve">
+          <source>The User Portal allows the administrator to install and configure the Azure Multi-Factor Authentication User Portal.</source>
+          <target state="new">The User Portal allows the administrator to install and configure the Azure Multi-Factor Authentication User Portal.</target>
+        </trans-unit>
+        <trans-unit id="3006846c-fafd-443e-b274-75fd936a3316" xml:space="preserve">
+          <source>The User Portal is an IIS web site which allows users to enroll in Azure Multi-Factor Authentication and maintain their accounts.</source>
+          <target state="new">The User Portal is an IIS web site which allows users to enroll in Azure Multi-Factor Authentication and maintain their accounts.</target>
+        </trans-unit>
+        <trans-unit id="e1dba645-ef5f-4e4c-bd9a-5dd9341e493a" xml:space="preserve">
+          <source>A user may change their phone number, change their PIN, or bypass Azure Multi-Factor Authentication during their next sign on.</source>
+          <target state="new">A user may change their phone number, change their PIN, or bypass Azure Multi-Factor Authentication during their next sign on.</target>
+        </trans-unit>
+        <trans-unit id="6c690405-5b3c-444b-98eb-af3ba0bfe45b" xml:space="preserve">
+          <source>Users will log in to the User Portal using their normal username and password and will either complete a Azure Multi-Factor Authentication call or answer security questions to complete their authentication.</source>
+          <target state="new">Users will log in to the User Portal using their normal username and password and will either complete a Azure Multi-Factor Authentication call or answer security questions to complete their authentication.</target>
+        </trans-unit>
+        <trans-unit id="2ce4efcd-75f7-45dd-8ada-fb77ab1eaee9" xml:space="preserve">
+          <source>If user enrollment is allowed, a user will configure their phone number and PIN the first time they log in to the User Portal.</source>
+          <target state="new">If user enrollment is allowed, a user will configure their phone number and PIN the first time they log in to the User Portal.</target>
+        </trans-unit>
+        <trans-unit id="528a00af-008c-4997-908b-1e9167ea6d18" xml:space="preserve">
+          <source>User Portal Administrators may be set up and granted permission to add new users and update existing users.</source>
+          <target state="new">User Portal Administrators may be set up and granted permission to add new users and update existing users.</target>
+        </trans-unit>
+        <trans-unit id="e9361d2d-f2ee-4946-be77-0e3a4dcdf942" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="2bf27fbd-dc1c-482b-998b-dba025854edf">&lt;linkText&gt;</bpt>Setup<ept id="2bf27fbd-dc1c-482b-998b-dba025854edf">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="2bf27fbd-dc1c-482b-998b-dba025854edf">&lt;linkText&gt;</bpt>Setup<ept id="2bf27fbd-dc1c-482b-998b-dba025854edf">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="56f13704-17d7-45d5-9dd9-9fa4bacbee88" xml:space="preserve">
+          <source>The following pre-requisites are required for installing the Users Portal on the same server as the Azure Multi-Factor Authentication Server:</source>
+          <target state="new">The following pre-requisites are required for installing the Users Portal on the same server as the Azure Multi-Factor Authentication Server:</target>
+        </trans-unit>
+        <trans-unit id="cb315738-5a66-419a-b529-950b23eb7536" xml:space="preserve">
+          <source>IIS needs to be installed including asp.net and IIS 6 meta base compatibility (for IIS 7 or higher) </source>
+          <target state="new">IIS needs to be installed including asp.net and IIS 6 meta base compatibility (for IIS 7 or higher) </target>
+        </trans-unit>
+        <trans-unit id="ec7e9606-bbef-4ab1-af95-e20fcde827d0" xml:space="preserve">
+          <source>Logged in user must have admin rights for the computer and Domain if applicable.</source>
+          <target state="new">Logged in user must have admin rights for the computer and Domain if applicable.</target>
+        </trans-unit>
+        <trans-unit id="562f4d61-5fbe-4e86-8d4b-ffd06426213c" xml:space="preserve">
+          <source>This is because the account needs permissions to create Active Directory security groups.</source>
+          <target state="new">This is because the account needs permissions to create Active Directory security groups.</target>
+        </trans-unit>
+        <trans-unit id="2219e1c1-3c48-421b-9442-dbd940e8ac1e" xml:space="preserve">
+          <source>Within the Azure Multi-Factor Authentication Server: click User Portal icon in the left menu, click Install User Portal button.</source>
+          <target state="new">Within the Azure Multi-Factor Authentication Server: click User Portal icon in the left menu, click Install User Portal button.</target>
+        </trans-unit>
+        <trans-unit id="af904498-d32e-41d9-8482-995f9d14b813" xml:space="preserve">
+          <source>Click Next.</source>
+          <target state="new">Click Next.</target>
+        </trans-unit>
+        <trans-unit id="f637bc6b-243e-4e84-b3b5-3d7af2d40079" xml:space="preserve">
+          <source>Click Next.</source>
+          <target state="new">Click Next.</target>
+        </trans-unit>
+        <trans-unit id="b4fbe469-590e-44de-84e5-624346839d07" xml:space="preserve">
+          <source>If the computer is joined to a domain and the Active Directory configuration for securing communication between the User Portal and the Azure Multi-Factor Authentication service is incomplete, the Active Directory step will be displayed.</source>
+          <target state="new">If the computer is joined to a domain and the Active Directory configuration for securing communication between the User Portal and the Azure Multi-Factor Authentication service is incomplete, the Active Directory step will be displayed.</target>
+        </trans-unit>
+        <trans-unit id="749e856e-d7db-4c75-abf7-d323602acb1a" xml:space="preserve">
+          <source>Click the Next button to automatically complete this configuration.</source>
+          <target state="new">Click the Next button to automatically complete this configuration.</target>
+        </trans-unit>
+        <trans-unit id="c70b52f8-c9f9-4963-b6d3-4e3f6c159495" xml:space="preserve">
+          <source>Click Next.</source>
+          <target state="new">Click Next.</target>
+        </trans-unit>
+        <trans-unit id="a631e27f-b263-475e-af26-e81e6c52f4d5" xml:space="preserve">
+          <source>Click Next.</source>
+          <target state="new">Click Next.</target>
+        </trans-unit>
+        <trans-unit id="b257a742-68e6-4f22-9ddb-3b7fdd07e3b3" xml:space="preserve">
+          <source>Click Close.</source>
+          <target state="new">Click Close.</target>
+        </trans-unit>
+        <trans-unit id="91774a2c-c913-4b18-a987-a2c9b43f1b8c" xml:space="preserve">
+          <source>Open a web browser from any computer and navigate to the URL where User Portal was installed (e.g. https://www.publicwebsite.com/MultiFactorAuth ).</source>
+          <target state="new">Open a web browser from any computer and navigate to the URL where User Portal was installed (e.g. https://www.publicwebsite.com/MultiFactorAuth ).</target>
+        </trans-unit>
+        <trans-unit id="53fda977-566e-4a4d-b8ec-e194d9e03a07" xml:space="preserve">
+          <source>Ensure that no certificate warnings or errors are displayed.</source>
+          <target state="new">Ensure that no certificate warnings or errors are displayed.</target>
+        </trans-unit>
+        <trans-unit id="f5e3d7a2-df99-4f7c-a05c-a8fdeecd39f2" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="9aca3547-4eff-42bc-a9fd-5abc1d368ebc">&lt;linkText&gt;</bpt>Setup<ept id="9aca3547-4eff-42bc-a9fd-5abc1d368ebc">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="9aca3547-4eff-42bc-a9fd-5abc1d368ebc">&lt;linkText&gt;</bpt>Setup<ept id="9aca3547-4eff-42bc-a9fd-5abc1d368ebc">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="0867bcc2-fae0-4ece-b959-a60953856ae5" xml:space="preserve">
+          <source>In order to use the Azure Multi-Factor Authentication App, the following are required so that the app can successfully communicate with User Portal: </source>
+          <target state="new">In order to use the Azure Multi-Factor Authentication App, the following are required so that the app can successfully communicate with User Portal: </target>
+        </trans-unit>
+        <trans-unit id="f7b3f864-c08e-4d33-bbeb-b12fabc73b38" xml:space="preserve">
+          <source>Please see Hardware and Software Requirements for hardware and software requirements:</source>
+          <target state="new">Please see Hardware and Software Requirements for hardware and software requirements:</target>
+        </trans-unit>
+        <trans-unit id="075dca1e-ede1-4474-89f8-2ecee603e007" xml:space="preserve">
+          <source>You must be using v6.0 or higher of the Azure Multi-Factor Authentication Server.</source>
+          <target state="new">You must be using v6.0 or higher of the Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="dd66cc2e-2bd7-49a1-a904-1aab0e041631" xml:space="preserve">
+          <source>User Portal must be installed on an Internet-facing web server running Microsoft® Internet Information Services (IIS) 6.x, IIS 7.x or higher.</source>
+          <target state="new">User Portal must be installed on an Internet-facing web server running Microsoft® Internet Information Services (IIS) 6.x, IIS 7.x or higher.</target>
+        </trans-unit>
+        <trans-unit id="f3102b18-8643-4fd2-8589-374c6b2e71a2" xml:space="preserve">
+          <source>When using IIS 6.x, ensure ASP.NET v2.0.50727 is installed, registered and set to Allowed.</source>
+          <target state="new">When using IIS 6.x, ensure ASP.NET v2.0.50727 is installed, registered and set to Allowed.</target>
+        </trans-unit>
+        <trans-unit id="db1826c4-53e7-409c-8e00-4b157e5d8ef3" xml:space="preserve">
+          <source>Required role services when using IIS 7.x or higher include ASP.NET and IIS 6 Metabase Compatibility.</source>
+          <target state="new">Required role services when using IIS 7.x or higher include ASP.NET and IIS 6 Metabase Compatibility.</target>
+        </trans-unit>
+        <trans-unit id="b8cc22ec-347b-467c-bc4a-49e216310cc7" xml:space="preserve">
+          <source>User Portal should be secured with an SSL certificate.</source>
+          <target state="new">User Portal should be secured with an SSL certificate.</target>
+        </trans-unit>
+        <trans-unit id="120f6f29-9e1b-4d90-a2f5-d088fb010856" xml:space="preserve">
+          <source>The Azure Multi-Factor Authentication Web Service SDK must be installed in IIS 6.x, IIS 7.x or higher on the server that the Azure Multi-Factor Authentication Server is installed on.</source>
+          <target state="new">The Azure Multi-Factor Authentication Web Service SDK must be installed in IIS 6.x, IIS 7.x or higher on the server that the Azure Multi-Factor Authentication Server is installed on.</target>
+        </trans-unit>
+        <trans-unit id="f372359a-cf47-4c26-8778-34c980f634e8" xml:space="preserve">
+          <source>The Azure Multi-Factor Authentication Web Service SDK must be secured with an SSL certificate.</source>
+          <target state="new">The Azure Multi-Factor Authentication Web Service SDK must be secured with an SSL certificate.</target>
+        </trans-unit>
+        <trans-unit id="94d240ab-2f25-4fe3-bb5e-cc91325a6f36" xml:space="preserve">
+          <source>User Portal must be able to connect to the Azure Multi-Factor Authentication Web Service SDK over SSL.</source>
+          <target state="new">User Portal must be able to connect to the Azure Multi-Factor Authentication Web Service SDK over SSL.</target>
+        </trans-unit>
+        <trans-unit id="2000d5ab-1d7b-4aba-8485-1b2ab6e1a481" xml:space="preserve">
+          <source>User Portal must be able to authenticate to the Azure Multi-Factor Authentication Web Service SDK using the credentials of a service account that is a member of a security group called “PhoneFactor Admins”.</source>
+          <target state="new">User Portal must be able to authenticate to the Azure Multi-Factor Authentication Web Service SDK using the credentials of a service account that is a member of a security group called “PhoneFactor Admins”.</target>
+        </trans-unit>
+        <trans-unit id="858e2db3-7500-4cfb-8dd2-e03727cb0065" xml:space="preserve">
+          <source>This service account and group exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server.</source>
+          <target state="new">This service account and group exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server.</target>
+        </trans-unit>
+        <trans-unit id="0c37ddd8-e997-49e0-81e5-63dc2288a02c" xml:space="preserve">
+          <source>This service account and group exist locally on the Azure Multi-Factor Authentication Server if it is not joined to a domain.</source>
+          <target state="new">This service account and group exist locally on the Azure Multi-Factor Authentication Server if it is not joined to a domain.</target>
+        </trans-unit>
+        <trans-unit id="2e79ffd9-92f9-4114-9f72-86a717c5987e" xml:space="preserve">
+          <source>Installing the user portal on a server other than the Azure Multi-Factor Authentication Server requires the following three steps:</source>
+          <target state="new">Installing the user portal on a server other than the Azure Multi-Factor Authentication Server requires the following three steps:</target>
+        </trans-unit>
+        <trans-unit id="80504800-077b-46cc-878b-6290fdbd9f76" xml:space="preserve">
+          <source>Install the web service SDK</source>
+          <target state="new">Install the web service SDK</target>
+        </trans-unit>
+        <trans-unit id="c6fc35a6-bfef-43ff-9c9c-26033a8b7051" xml:space="preserve">
+          <source>Install the user portal</source>
+          <target state="new">Install the user portal</target>
+        </trans-unit>
+        <trans-unit id="c7a2a5c2-0e08-4ae1-9824-25a6c7b0a003" xml:space="preserve">
+          <source>Configure the User Portal Settings in the Azure Multi-Factor Authentication Server</source>
+          <target state="new">Configure the User Portal Settings in the Azure Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="18ffc5b6-09e9-45bc-86f7-3711b0883538" xml:space="preserve">
+          <source>If the Azure Multi-Factor Authentication Web Service SDK is not already installed on the Azure Multi-Factor Authentication Server, go to that server and open the Azure Multi-Factor Authentication Server.</source>
+          <target state="new">If the Azure Multi-Factor Authentication Web Service SDK is not already installed on the Azure Multi-Factor Authentication Server, go to that server and open the Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="462b8ac7-4724-4221-b2b2-41d95c78fac6" xml:space="preserve">
+          <source>Click the Web Service SDK icon, click the Install Web Service SDK…</source>
+          <target state="new">Click the Web Service SDK icon, click the Install Web Service SDK…</target>
+        </trans-unit>
+        <trans-unit id="9de68520-f664-427e-980f-978d3b5e882f" xml:space="preserve">
+          <source>button and follow the instructions presented.</source>
+          <target state="new">button and follow the instructions presented.</target>
+        </trans-unit>
+        <trans-unit id="3694ba02-c1bf-40ef-bc7a-fa4c1d4b4d87" xml:space="preserve">
+          <source>The Web Service SDK must be secured with an SSL certificate.</source>
+          <target state="new">The Web Service SDK must be secured with an SSL certificate.</target>
+        </trans-unit>
+        <trans-unit id="455012c0-3600-4ee3-a5ad-15d4e1f15d1a" xml:space="preserve">
+          <source>A self-signed certificate is okay for this purpose, but it has to be imported into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it will trust that certificate when initiating the SSL connection.</source>
+          <target state="new">A self-signed certificate is okay for this purpose, but it has to be imported into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it will trust that certificate when initiating the SSL connection.</target>
+        </trans-unit>
+        <trans-unit id="8b9cd7bc-ed65-4278-a420-7ab5138ed860" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="6635eec9-c22b-43df-b6be-7fd89d3f6be3">&lt;linkText&gt;</bpt>Setup<ept id="6635eec9-c22b-43df-b6be-7fd89d3f6be3">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="6635eec9-c22b-43df-b6be-7fd89d3f6be3">&lt;linkText&gt;</bpt>Setup<ept id="6635eec9-c22b-43df-b6be-7fd89d3f6be3">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="aa951073-7327-4a42-9866-fcb0270501ea" xml:space="preserve">
+          <source>Before installing the user portal on a seperate server, be aware of the following:</source>
+          <target state="new">Before installing the user portal on a seperate server, be aware of the following:</target>
+        </trans-unit>
+        <trans-unit id="bf4ffc8d-4dd1-4541-a7c6-d9393d42a907" xml:space="preserve">
+          <source>It is helpful to open a web browser on the Internet-facing web server and navigate to the URL of the Web Service SDK that was entered into the web.config file.</source>
+          <target state="new">It is helpful to open a web browser on the Internet-facing web server and navigate to the URL of the Web Service SDK that was entered into the web.config file.</target>
+        </trans-unit>
+        <trans-unit id="fff4fb5f-a804-4b58-b6c1-1f3da8a0e6e1" xml:space="preserve">
+          <source>If the browser can get to the web service successfully, it should prompt you for credentials.</source>
+          <target state="new">If the browser can get to the web service successfully, it should prompt you for credentials.</target>
+        </trans-unit>
+        <trans-unit id="350dac25-192e-4e85-8e67-30b28f610349" xml:space="preserve">
+          <source>Enter the username and password that were entered into the web.config file exactly as it appears in the file.</source>
+          <target state="new">Enter the username and password that were entered into the web.config file exactly as it appears in the file.</target>
+        </trans-unit>
+        <trans-unit id="d263c39e-7697-457e-bd2b-c66bee3a60ab" xml:space="preserve">
+          <source>Ensure that no certificate warnings or errors are displayed.</source>
+          <target state="new">Ensure that no certificate warnings or errors are displayed.</target>
+        </trans-unit>
+        <trans-unit id="1c4230c2-4442-471b-8d8d-daaafb894080" xml:space="preserve">
+          <source>If a reverse proxy or firewall is sitting in front of the User Portal web server and performing SSL offloading, you can edit the User Portal web.config file and add the following key to the &lt;appSettings&gt; section so that the User Portal can use http instead of https. &lt;add key="SSL_REQUIRED" value="false"/&gt;</source>
+          <target state="new">If a reverse proxy or firewall is sitting in front of the User Portal web server and performing SSL offloading, you can edit the User Portal web.config file and add the following key to the &lt;appSettings&gt; section so that the User Portal can use http instead of https. &lt;add key="SSL_REQUIRED" value="false"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="7fe47830-ec6a-4f34-8e5b-6596500db78c" xml:space="preserve">
+          <source>Open Windows Explorer on the Azure Multi-Factor Authentication Server server and navigate to the folder where the Azure Multi-Factor Authentication Server is installed (e.g. C:\Program Files\Multi-Factor Authentication Server).</source>
+          <target state="new">Open Windows Explorer on the Azure Multi-Factor Authentication Server server and navigate to the folder where the Azure Multi-Factor Authentication Server is installed (e.g. C:\Program Files\Multi-Factor Authentication Server).</target>
+        </trans-unit>
+        <trans-unit id="078d5d60-1fe5-414d-9ec7-09e93fee90f1" xml:space="preserve">
+          <source>Choose the 32-bit or 64-bit version of the MultiFactorAuthenticationUserPortalSetup installation file as appropriate for the server that User Portal will be installed on.</source>
+          <target state="new">Choose the 32-bit or 64-bit version of the MultiFactorAuthenticationUserPortalSetup installation file as appropriate for the server that User Portal will be installed on.</target>
+        </trans-unit>
+        <trans-unit id="bf029679-63ad-433d-89cc-d0eda851991d" xml:space="preserve">
+          <source>Copy the installation file to the Internet-facing server.</source>
+          <target state="new">Copy the installation file to the Internet-facing server.</target>
+        </trans-unit>
+        <trans-unit id="331e2ef3-6c2c-4b6f-9099-597f153230f1" xml:space="preserve">
+          <source>On the Internet-facing web server, the setup file must be run with administrator rights.</source>
+          <target state="new">On the Internet-facing web server, the setup file must be run with administrator rights.</target>
+        </trans-unit>
+        <trans-unit id="6723dd61-8658-4121-837b-2eb6bf3a789f" xml:space="preserve">
+          <source>The easiest way to do this is to open a command prompt as an administrator and navigate to the location where the installation file was copied.</source>
+          <target state="new">The easiest way to do this is to open a command prompt as an administrator and navigate to the location where the installation file was copied.</target>
+        </trans-unit>
+        <trans-unit id="8444f869-c281-4588-b5c1-ee39ffb39973" xml:space="preserve">
+          <source>Run the MultiFactorAuthenticationUserPortalSetup64 install file, change the Site and Virtual Directory name if desired.</source>
+          <target state="new">Run the MultiFactorAuthenticationUserPortalSetup64 install file, change the Site and Virtual Directory name if desired.</target>
+        </trans-unit>
+        <trans-unit id="a4daaf2b-0386-48ac-87f4-5a1b6de115ed" xml:space="preserve">
+          <source>After finishing the install of the User Portal, browse to C:\inetpub\wwwroot\MultiFactorAuth (or appropriate directory based on the virtual directory name) and edit the web.config file.</source>
+          <target state="new">After finishing the install of the User Portal, browse to C:\inetpub\wwwroot\MultiFactorAuth (or appropriate directory based on the virtual directory name) and edit the web.config file.</target>
+        </trans-unit>
+        <trans-unit id="b66fb6b8-2462-4692-a1c7-eb273f4b3cd9" xml:space="preserve">
+          <source>Locate the USE<bpt id="3d3d38bb-4938-476a-b39b-1661b533a5ea">&lt;em&gt;</bpt>WEB<ept id="3d3d38bb-4938-476a-b39b-1661b533a5ea">&lt;/em&gt;</ept>SERVICE_SDK key and change the value from false to true.</source>
+          <target state="new">Locate the USE<bpt id="3d3d38bb-4938-476a-b39b-1661b533a5ea">&lt;em&gt;</bpt>WEB<ept id="3d3d38bb-4938-476a-b39b-1661b533a5ea">&lt;/em&gt;</ept>SERVICE_SDK key and change the value from false to true.</target>
+        </trans-unit>
+        <trans-unit id="48dccecb-4a61-4930-a024-6f783141a5a3" xml:space="preserve">
+          <source>Locate the WEB<bpt id="220aece9-077b-47bc-8ba5-22a3411824bc">&lt;em&gt;</bpt>SERVICE<ept id="220aece9-077b-47bc-8ba5-22a3411824bc">&lt;/em&gt;</ept>SDK<bpt id="92e7294a-5e82-4de8-a557-9606547fddaf">&lt;em&gt;</bpt>AUTHENTICATION<ept id="92e7294a-5e82-4de8-a557-9606547fddaf">&lt;/em&gt;</ept>USERNAME and WEB<bpt id="b2b69ef7-8e24-4c35-b183-ba866b266d70">&lt;em&gt;</bpt>SERVICE<ept id="b2b69ef7-8e24-4c35-b183-ba866b266d70">&lt;/em&gt;</ept>SDK<bpt id="b7f5b5d3-7b6f-4fb0-8088-9b5db213ce90">&lt;em&gt;</bpt>AUTHENTICATION<ept id="b7f5b5d3-7b6f-4fb0-8088-9b5db213ce90">&lt;/em&gt;</ept>PASSWORD keys and set the values to the username and password of the service account that is a member of the PhoneFactor Admins security group (see the Requirements section above).</source>
+          <target state="new">Locate the WEB<bpt id="220aece9-077b-47bc-8ba5-22a3411824bc">&lt;em&gt;</bpt>SERVICE<ept id="220aece9-077b-47bc-8ba5-22a3411824bc">&lt;/em&gt;</ept>SDK<bpt id="92e7294a-5e82-4de8-a557-9606547fddaf">&lt;em&gt;</bpt>AUTHENTICATION<ept id="92e7294a-5e82-4de8-a557-9606547fddaf">&lt;/em&gt;</ept>USERNAME and WEB<bpt id="b2b69ef7-8e24-4c35-b183-ba866b266d70">&lt;em&gt;</bpt>SERVICE<ept id="b2b69ef7-8e24-4c35-b183-ba866b266d70">&lt;/em&gt;</ept>SDK<bpt id="b7f5b5d3-7b6f-4fb0-8088-9b5db213ce90">&lt;em&gt;</bpt>AUTHENTICATION<ept id="b7f5b5d3-7b6f-4fb0-8088-9b5db213ce90">&lt;/em&gt;</ept>PASSWORD keys and set the values to the username and password of the service account that is a member of the PhoneFactor Admins security group (see the Requirements section above).</target>
+        </trans-unit>
+        <trans-unit id="958dd6c5-c23f-485b-8264-d9ddf23bbaec" xml:space="preserve">
+          <source>Be sure to enter the Username and Password in between the quotation marks at the end of the line, (value=””/&gt;).</source>
+          <target state="new">Be sure to enter the Username and Password in between the quotation marks at the end of the line, (value=””/&gt;).</target>
+        </trans-unit>
+        <trans-unit id="70769542-2dcd-4d3b-a669-bc635e7176c9" xml:space="preserve">
+          <source>It is recommended to use a qualified username (e.g. domain\username or machine\username)</source>
+          <target state="new">It is recommended to use a qualified username (e.g. domain\username or machine\username)</target>
+        </trans-unit>
+        <trans-unit id="9e28c26b-8fa1-4614-a3c5-4535e04a7ec4" xml:space="preserve">
+          <source>Locate the pfup<bpt id="89ade384-1ee0-40b5-95cb-ae98218532ce">&lt;em&gt;</bpt>pfwssdk<ept id="89ade384-1ee0-40b5-95cb-ae98218532ce">&lt;/em&gt;</ept>PfWsSdk setting and change the value from “http://localhost:4898/PfWsSdk.asmx” to the URL of the Web Service SDK that is running on the Azure Multi-Factor Authentication Server (e.g. https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).</source>
+          <target state="new">Locate the pfup<bpt id="89ade384-1ee0-40b5-95cb-ae98218532ce">&lt;em&gt;</bpt>pfwssdk<ept id="89ade384-1ee0-40b5-95cb-ae98218532ce">&lt;/em&gt;</ept>PfWsSdk setting and change the value from “http://localhost:4898/PfWsSdk.asmx” to the URL of the Web Service SDK that is running on the Azure Multi-Factor Authentication Server (e.g. https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).</target>
+        </trans-unit>
+        <trans-unit id="197f9eae-bb32-46dd-b50b-09150e920abf" xml:space="preserve">
+          <source>Since SSL is used for this connection, you must reference the Web Service SDK by server name and not IP address since the SSL certificate will have been issued for the server name and the URL used must match the name on the certificate.</source>
+          <target state="new">Since SSL is used for this connection, you must reference the Web Service SDK by server name and not IP address since the SSL certificate will have been issued for the server name and the URL used must match the name on the certificate.</target>
+        </trans-unit>
+        <trans-unit id="2ee13f5b-2135-4a4a-9085-029930d2a8a4" xml:space="preserve">
+          <source>If the server name does not resolve to an IP address from the Internet-facing server, add an entry to the hosts file on that server to map the name of the Azure Multi-Factor Authentication Server to its IP address.</source>
+          <target state="new">If the server name does not resolve to an IP address from the Internet-facing server, add an entry to the hosts file on that server to map the name of the Azure Multi-Factor Authentication Server to its IP address.</target>
+        </trans-unit>
+        <trans-unit id="fa536f30-4a9f-45f6-ac9e-fffa59c036e6" xml:space="preserve">
+          <source>Save the web.config file after changes have been made.</source>
+          <target state="new">Save the web.config file after changes have been made.</target>
+        </trans-unit>
+        <trans-unit id="1f9d4648-fb7f-4ac4-857f-d0a6d4310897" xml:space="preserve">
+          <source>If the website that User Portal was installed under (e.g. Default Web Site) has not already been binded with a publicly-signed certificate, install the certificate on the server if not already installed, open IIS Manager and bind the certificate to the website.</source>
+          <target state="new">If the website that User Portal was installed under (e.g. Default Web Site) has not already been binded with a publicly-signed certificate, install the certificate on the server if not already installed, open IIS Manager and bind the certificate to the website.</target>
+        </trans-unit>
+        <trans-unit id="4ae52191-8b29-486d-a1ce-a6b6028b598f" xml:space="preserve">
+          <source>Open a web browser from any computer and navigate to the URL where User Portal was installed (e.g. https://www.publicwebsite.com/MultiFactorAuth ).</source>
+          <target state="new">Open a web browser from any computer and navigate to the URL where User Portal was installed (e.g. https://www.publicwebsite.com/MultiFactorAuth ).</target>
+        </trans-unit>
+        <trans-unit id="159885ba-413f-4c9e-a1c2-3996326bcd59" xml:space="preserve">
+          <source>Ensure that no certificate warnings or errors are displayed.</source>
+          <target state="new">Ensure that no certificate warnings or errors are displayed.</target>
+        </trans-unit>
+        <trans-unit id="29a43ba7-2be7-484a-a22c-6d2308efcdd2" xml:space="preserve">
+          <source>Now that the portal is installed, you need to configure the Azure Multi-Factor Authentication Server to work with the portal.</source>
+          <target state="new">Now that the portal is installed, you need to configure the Azure Multi-Factor Authentication Server to work with the portal.</target>
+        </trans-unit>
+        <trans-unit id="f5645937-4c8f-4332-a248-aa56b904ae56" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication server provides several options for the user portal.</source>
+          <target state="new">Azure Multi-Factor Authentication server provides several options for the user portal.</target>
+        </trans-unit>
+        <trans-unit id="6261bb5e-d721-437e-b01a-1036690658e0" xml:space="preserve">
+          <source>The following table provides a list of these options and an explaination of what they are used for.</source>
+          <target state="new">The following table provides a list of these options and an explaination of what they are used for.</target>
+        </trans-unit>
+        <trans-unit id="59d31ce0-afef-49fe-aae3-6e6b7004ecec" xml:space="preserve">
+          <source>User Portal Settings</source>
+          <target state="new">User Portal Settings</target>
+        </trans-unit>
+        <trans-unit id="8ae96d42-4046-4486-a1c0-14c3ee0fd5f3" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="ac8ae05c-fa6e-4861-8d5e-8786b3030229" xml:space="preserve">
+          <source>User Portal URL</source>
+          <target state="new">User Portal URL</target>
+        </trans-unit>
+        <trans-unit id="4c61d3dd-cf79-45bc-8e65-1d51c0b23018" xml:space="preserve">
+          <source>Allows you to enter the URL of where the portal is being hosted.</source>
+          <target state="new">Allows you to enter the URL of where the portal is being hosted.</target>
+        </trans-unit>
+        <trans-unit id="6a636f38-dc49-44ad-86a0-7cef9f97e2b5" xml:space="preserve">
+          <source>Primary authentication</source>
+          <target state="new">Primary authentication</target>
+        </trans-unit>
+        <trans-unit id="13d09a62-5224-47e4-9b4c-12fbb8c366a5" xml:space="preserve">
+          <source>Allows you to specify the type of authentication to use when signing in to the portal.</source>
+          <target state="new">Allows you to specify the type of authentication to use when signing in to the portal.</target>
+        </trans-unit>
+        <trans-unit id="d3fa6d32-7407-4572-a22e-167bcc402072" xml:space="preserve">
+          <source>Either Windows, Radius, or LDAP authentication.</source>
+          <target state="new">Either Windows, Radius, or LDAP authentication.</target>
+        </trans-unit>
+        <trans-unit id="3101af3c-ac31-4013-a9c0-2c8e6015b345" xml:space="preserve">
+          <source>Allow users to log in</source>
+          <target state="new">Allow users to log in</target>
+        </trans-unit>
+        <trans-unit id="ef79752d-b16b-423b-9370-c6bcabe6e003" xml:space="preserve">
+          <source>Allows users to enter a username and password on the sign in page for the User portal.</source>
+          <target state="new">Allows users to enter a username and password on the sign in page for the User portal.</target>
+        </trans-unit>
+        <trans-unit id="f9fdc214-434d-4952-b39b-e512c5f5612b" xml:space="preserve">
+          <source>If this is not selected, the boxes will be greyed out.</source>
+          <target state="new">If this is not selected, the boxes will be greyed out.</target>
+        </trans-unit>
+        <trans-unit id="bda12c74-63cb-4820-9d9c-89301fa2b0cc" xml:space="preserve">
+          <source>Allow user enrollment</source>
+          <target state="new">Allow user enrollment</target>
+        </trans-unit>
+        <trans-unit id="e997ec09-bda1-4e93-81c0-52991a384273" xml:space="preserve">
+          <source>Allows user to enroll in multi-factor authentication by taking them to a setup screen that prompts them for additional information such as telephone number.</source>
+          <target state="new">Allows user to enroll in multi-factor authentication by taking them to a setup screen that prompts them for additional information such as telephone number.</target>
+        </trans-unit>
+        <trans-unit id="20b76a77-c5d4-4a0e-855b-12ffe97477c1" xml:space="preserve">
+          <source>Prompt for backup phone allows users to specify a secondary phone number.</source>
+          <target state="new">Prompt for backup phone allows users to specify a secondary phone number.</target>
+        </trans-unit>
+        <trans-unit id="78a02444-2fbd-4452-b4a0-973a22e1a60c" xml:space="preserve">
+          <source>Prompt for third-party OATH token allows users to specify a 3rd party OATH token.</source>
+          <target state="new">Prompt for third-party OATH token allows users to specify a 3rd party OATH token.</target>
+        </trans-unit>
+        <trans-unit id="9f064b6d-608a-4e5e-a8cb-545d885d894b" xml:space="preserve">
+          <source>Allow users to initiate One-Time Bypass</source>
+          <target state="new">Allow users to initiate One-Time Bypass</target>
+        </trans-unit>
+        <trans-unit id="dab99486-f650-4140-9cf9-5ce47f8fce36" xml:space="preserve">
+          <source>This allows users to initiate a one-time bypass.</source>
+          <target state="new">This allows users to initiate a one-time bypass.</target>
+        </trans-unit>
+        <trans-unit id="8912d4a9-6c2e-4487-8bf6-913151e924cf" xml:space="preserve">
+          <source>If a user sets this up it will take affect the next time the user signs in.</source>
+          <target state="new">If a user sets this up it will take affect the next time the user signs in.</target>
+        </trans-unit>
+        <trans-unit id="d427b46c-d8c9-4a67-9c18-937cf14e3284" xml:space="preserve">
+          <source>Prompt for bypass seconds provides the user with a box so they can change the default of 300 seconds.</source>
+          <target state="new">Prompt for bypass seconds provides the user with a box so they can change the default of 300 seconds.</target>
+        </trans-unit>
+        <trans-unit id="ec617191-fcf3-4d31-bc9e-37cba5e50ae4" xml:space="preserve">
+          <source>Otherwise, the one-time bypass is only good for 300 seconds.</source>
+          <target state="new">Otherwise, the one-time bypass is only good for 300 seconds.</target>
+        </trans-unit>
+        <trans-unit id="fce1b36a-381d-4e1b-9799-18db3ea37504" xml:space="preserve">
+          <source>Allow users to select method</source>
+          <target state="new">Allow users to select method</target>
+        </trans-unit>
+        <trans-unit id="cb69952d-1a2a-4824-b8ad-69a223e94752" xml:space="preserve">
+          <source>Allows users to specify their primary contact method.</source>
+          <target state="new">Allows users to specify their primary contact method.</target>
+        </trans-unit>
+        <trans-unit id="34d4aee3-0659-42ed-96c2-494c7eb760d7" xml:space="preserve">
+          <source>This can be phone call, text message, mobile app, or OATH token.</source>
+          <target state="new">This can be phone call, text message, mobile app, or OATH token.</target>
+        </trans-unit>
+        <trans-unit id="774c6b3e-fc52-4317-b3d7-3fe80b097dfd" xml:space="preserve">
+          <source>Allow users to select language</source>
+          <target state="new">Allow users to select language</target>
+        </trans-unit>
+        <trans-unit id="cc156833-58f3-48c5-a542-7d242d4a4117" xml:space="preserve">
+          <source>Allows the user to change the language that is used for the phone call, text message, mobile app, or OATH token.</source>
+          <target state="new">Allows the user to change the language that is used for the phone call, text message, mobile app, or OATH token.</target>
+        </trans-unit>
+        <trans-unit id="ae1967b1-0314-4540-bebc-7e27717eb0e2" xml:space="preserve">
+          <source>Allow users to activate mobile app</source>
+          <target state="new">Allow users to activate mobile app</target>
+        </trans-unit>
+        <trans-unit id="0a383cda-609e-46dc-ba81-a4573bc204a1" xml:space="preserve">
+          <source>Allows the users to generate an activation code to complete the mobile app activation process that is used with the server.</source>
+          <target state="new">Allows the users to generate an activation code to complete the mobile app activation process that is used with the server.</target>
+        </trans-unit>
+        <trans-unit id="c00f5e44-ba5c-42ca-9dfa-f34df08546ba" xml:space="preserve">
+          <source>You can also set the number of devices they can activate this on.</source>
+          <target state="new">You can also set the number of devices they can activate this on.</target>
+        </trans-unit>
+        <trans-unit id="af10fc39-2f55-4d32-aad1-d43e784a3a49" xml:space="preserve">
+          <source>Between 1 and 10.</source>
+          <target state="new">Between 1 and 10.</target>
+        </trans-unit>
+        <trans-unit id="f7bcf1db-0256-4433-9145-2d490e6853cc" xml:space="preserve">
+          <source>Use security questions for fallback</source>
+          <target state="new">Use security questions for fallback</target>
+        </trans-unit>
+        <trans-unit id="b0002c49-f83c-4418-b59b-a3191e6a59e3" xml:space="preserve">
+          <source>Allows you to use security questions in case multi-factor authentication fails.</source>
+          <target state="new">Allows you to use security questions in case multi-factor authentication fails.</target>
+        </trans-unit>
+        <trans-unit id="35f737cc-3716-4af5-9987-da71a2050dd4" xml:space="preserve">
+          <source>You can specify the number of security questions that must be successfully answered.</source>
+          <target state="new">You can specify the number of security questions that must be successfully answered.</target>
+        </trans-unit>
+        <trans-unit id="e26b6222-0dcf-4d46-82b8-6a24b29872eb" xml:space="preserve">
+          <source>Allow users to associate third-party OATH token</source>
+          <target state="new">Allow users to associate third-party OATH token</target>
+        </trans-unit>
+        <trans-unit id="648b2f23-f7fe-4ece-971f-152ca7b39023" xml:space="preserve">
+          <source>Allows users to specify a third-party OATH token.</source>
+          <target state="new">Allows users to specify a third-party OATH token.</target>
+        </trans-unit>
+        <trans-unit id="fb0e9f6b-9715-493c-81ac-9b2b81db7aca" xml:space="preserve">
+          <source>Use OATH token for fallback</source>
+          <target state="new">Use OATH token for fallback</target>
+        </trans-unit>
+        <trans-unit id="7e32b4d5-eaf8-405e-98c5-d52be78f19ef" xml:space="preserve">
+          <source>Allows for the use of an OATH token in the event that multi-factor authentication is not successful.</source>
+          <target state="new">Allows for the use of an OATH token in the event that multi-factor authentication is not successful.</target>
+        </trans-unit>
+        <trans-unit id="14264970-afd4-4970-8231-bd10f7548428" xml:space="preserve">
+          <source>You can also specify the session timeout in minutes.</source>
+          <target state="new">You can also specify the session timeout in minutes.</target>
+        </trans-unit>
+        <trans-unit id="b94a73a6-5eb6-4cd1-af72-57b4671e1180" xml:space="preserve">
+          <source>Enable logging</source>
+          <target state="new">Enable logging</target>
+        </trans-unit>
+        <trans-unit id="7981a373-edbf-4c83-96ea-2c63ebb07267" xml:space="preserve">
+          <source>Enables logging on the user portal.</source>
+          <target state="new">Enables logging on the user portal.</target>
+        </trans-unit>
+        <trans-unit id="99a0a9df-a227-4b2f-8280-029c8422c8f1" xml:space="preserve">
+          <source>The log files are located at: C:\Program Files\Multi-Factor Authentication Server\Logs.</source>
+          <target state="new">The log files are located at: C:\Program Files\Multi-Factor Authentication Server\Logs.</target>
+        </trans-unit>
+        <trans-unit id="7c045a9b-8f32-4109-8043-b2bf3cf8d720" xml:space="preserve">
+          <source>The majority of these settings are visible to the user once they are enabled and the user signs into the user portal.</source>
+          <target state="new">The majority of these settings are visible to the user once they are enabled and the user signs into the user portal.</target>
+        </trans-unit>
+        <trans-unit id="ef683716-c271-42b7-b1a3-e8bde5cb8d89" xml:space="preserve">
+          <source><bpt id="92f88ece-d6b4-40bf-99fe-8a503aef2738">&lt;linkText&gt;</bpt>User portal settings<ept id="92f88ece-d6b4-40bf-99fe-8a503aef2738">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="92f88ece-d6b4-40bf-99fe-8a503aef2738">&lt;linkText&gt;</bpt>User portal settings<ept id="92f88ece-d6b4-40bf-99fe-8a503aef2738">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bf82be1-5835-430d-bd11-7328e1c730bc" xml:space="preserve">
+          <source>In the Azure Multi-Factor Authentication Server, click on the User Portal icon.</source>
+          <target state="new">In the Azure Multi-Factor Authentication Server, click on the User Portal icon.</target>
+        </trans-unit>
+        <trans-unit id="5a5bfdc2-bdb0-4be6-8f1c-9861a0c0e4af" xml:space="preserve">
+          <source>On the Settings tab, enter the URL to the User Portal in the User Portal URL textbox.</source>
+          <target state="new">On the Settings tab, enter the URL to the User Portal in the User Portal URL textbox.</target>
+        </trans-unit>
+        <trans-unit id="f04d0a0a-c2d9-4844-8cb7-9d7473b8d31f" xml:space="preserve">
+          <source>This URL will be inserted into emails that are sent to users when they are imported into the Azure Multi-Factor Authentication Server if the email functionality has been enabled.</source>
+          <target state="new">This URL will be inserted into emails that are sent to users when they are imported into the Azure Multi-Factor Authentication Server if the email functionality has been enabled.</target>
+        </trans-unit>
+        <trans-unit id="51e8b383-89b6-433e-a221-604f6c1ef5a0" xml:space="preserve">
+          <source>Choose the settings that you want to use in the User Portal.</source>
+          <target state="new">Choose the settings that you want to use in the User Portal.</target>
+        </trans-unit>
+        <trans-unit id="06a239f5-2c6c-4c81-8d67-b22500f90343" xml:space="preserve">
+          <source>For example, if users are allowed to control their authentication methods, ensure that Allow users to select method is checked along with the methods they can choose from.</source>
+          <target state="new">For example, if users are allowed to control their authentication methods, ensure that Allow users to select method is checked along with the methods they can choose from.</target>
+        </trans-unit>
+        <trans-unit id="59ff89af-77a7-4ba9-9c93-82705ba8bdfa" xml:space="preserve">
+          <source>Click the Help link in the top right corner for help understanding any of the settings displayed.</source>
+          <target state="new">Click the Help link in the top right corner for help understanding any of the settings displayed.</target>
+        </trans-unit>
+        <trans-unit id="f9a6d4dc-b321-4fff-9670-3b3038e7bf72" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="d485fef3-bdf9-4a06-9863-4f3a1e495260">&lt;linkText&gt;</bpt>Setup<ept id="d485fef3-bdf9-4a06-9863-4f3a1e495260">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="d485fef3-bdf9-4a06-9863-4f3a1e495260">&lt;linkText&gt;</bpt>Setup<ept id="d485fef3-bdf9-4a06-9863-4f3a1e495260">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="63b94ebb-33be-44b6-9ed2-f51daee4890b" xml:space="preserve">
+          <source>This tab simply allows you to add users who will have administrative privileges.</source>
+          <target state="new">This tab simply allows you to add users who will have administrative privileges.</target>
+        </trans-unit>
+        <trans-unit id="b03af5bc-8010-4c0a-aa1b-5c0b695b9f7e" xml:space="preserve">
+          <source>When adding an administrator, you can fine tune the permissions that they receive.</source>
+          <target state="new">When adding an administrator, you can fine tune the permissions that they receive.</target>
+        </trans-unit>
+        <trans-unit id="fc20259e-d8d4-4417-9182-d2ed4e90e752" xml:space="preserve">
+          <source>This way, you can be sure to only grant the needed permissions to the administrator.</source>
+          <target state="new">This way, you can be sure to only grant the needed permissions to the administrator.</target>
+        </trans-unit>
+        <trans-unit id="afadefc3-7592-456e-9848-b3d477ccf520" xml:space="preserve">
+          <source>Simply click the Add button and then select and user and their permissions and then click Add.</source>
+          <target state="new">Simply click the Add button and then select and user and their permissions and then click Add.</target>
+        </trans-unit>
+        <trans-unit id="eba2e1df-7a95-4d1f-b2fd-aae36008e968" xml:space="preserve">
+          <source><bpt id="4d413266-7ae8-473a-8def-7ecc7063cc4f">&lt;linkText&gt;</bpt>User portal administrators<ept id="4d413266-7ae8-473a-8def-7ecc7063cc4f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d413266-7ae8-473a-8def-7ecc7063cc4f">&lt;linkText&gt;</bpt>User portal administrators<ept id="4d413266-7ae8-473a-8def-7ecc7063cc4f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca939e01-2530-4a44-86f6-508a368002f3" xml:space="preserve">
+          <source>This tab allows you to specify the security questions that users will need to provide answers to if the Use security questions for fallback option is selected.</source>
+          <target state="new">This tab allows you to specify the security questions that users will need to provide answers to if the Use security questions for fallback option is selected.</target>
+        </trans-unit>
+        <trans-unit id="cf4a36e9-02b9-4319-8739-5580d3d98019" xml:space="preserve">
+          <source>Azure Multi-Factor Authenticaton Server comes with default questions that you can use.</source>
+          <target state="new">Azure Multi-Factor Authenticaton Server comes with default questions that you can use.</target>
+        </trans-unit>
+        <trans-unit id="fa5d16c7-ebf4-4511-bfb1-fba77d0405cc" xml:space="preserve">
+          <source>You can also change the order or add your own questions.</source>
+          <target state="new">You can also change the order or add your own questions.</target>
+        </trans-unit>
+        <trans-unit id="1c5baf9a-7557-45b5-91a3-2a0e6e27275e" xml:space="preserve">
+          <source>When adding your own questions, you can specify the language you would like those question to appear in as well.</source>
+          <target state="new">When adding your own questions, you can specify the language you would like those question to appear in as well.</target>
+        </trans-unit>
+        <trans-unit id="e73a5851-548a-42e2-85c3-0ddc67f832a5" xml:space="preserve">
+          <source><bpt id="997bc661-6a60-4777-9eca-5e0c6730e0ac">&lt;linkText&gt;</bpt>User portal security questions<ept id="997bc661-6a60-4777-9eca-5e0c6730e0ac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="997bc661-6a60-4777-9eca-5e0c6730e0ac">&lt;linkText&gt;</bpt>User portal security questions<ept id="997bc661-6a60-4777-9eca-5e0c6730e0ac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2874fdc4-abfb-4001-808e-56642be62e6f" xml:space="preserve">
+          <source>Allows you to setup the user portal to accept claims from an identity provider using SAML.</source>
+          <target state="new">Allows you to setup the user portal to accept claims from an identity provider using SAML.</target>
+        </trans-unit>
+        <trans-unit id="c8a25096-0b76-45a3-a60f-774a70ed7c48" xml:space="preserve">
+          <source>You can specify the timeout session, specify the verification certificate and the Log out redirect URL.</source>
+          <target state="new">You can specify the timeout session, specify the verification certificate and the Log out redirect URL.</target>
+        </trans-unit>
+        <trans-unit id="c68ca519-37d6-4bad-b989-18672bbac67f" xml:space="preserve">
+          <source><bpt id="6181c318-5ea3-4881-8cc7-64149f0506ea">&lt;linkText&gt;</bpt>SAML<ept id="6181c318-5ea3-4881-8cc7-64149f0506ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6181c318-5ea3-4881-8cc7-64149f0506ea">&lt;linkText&gt;</bpt>SAML<ept id="6181c318-5ea3-4881-8cc7-64149f0506ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2066bd71-ccc0-4463-9c34-474bedeebe9c" xml:space="preserve">
+          <source>This tab allows you to specify either single IP addresses or IP address ranges that can be added so that if a user is signing in from one of these IP addresses, then multi-factor authentication is bypassed.</source>
+          <target state="new">This tab allows you to specify either single IP addresses or IP address ranges that can be added so that if a user is signing in from one of these IP addresses, then multi-factor authentication is bypassed.</target>
+        </trans-unit>
+        <trans-unit id="fdad4806-521a-43f7-8eb5-49d03d3d284b" xml:space="preserve">
+          <source><bpt id="907f9658-6c91-433d-974c-c8b6f06f5bf8">&lt;linkText&gt;</bpt>User portal trusted IPs<ept id="907f9658-6c91-433d-974c-c8b6f06f5bf8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="907f9658-6c91-433d-974c-c8b6f06f5bf8">&lt;linkText&gt;</bpt>User portal trusted IPs<ept id="907f9658-6c91-433d-974c-c8b6f06f5bf8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b73252d-1dfe-4d79-8438-9a6b07c30eab" xml:space="preserve">
+          <source>If you want your users to sign in and enroll you must select the Allow users to login in and Allow user enrollment options.</source>
+          <target state="new">If you want your users to sign in and enroll you must select the Allow users to login in and Allow user enrollment options.</target>
+        </trans-unit>
+        <trans-unit id="d13b2b29-4c1b-4fcf-86c1-f1f5ea11a617" xml:space="preserve">
+          <source>Remember that the settings you select will affect the user sign-in experience.</source>
+          <target state="new">Remember that the settings you select will affect the user sign-in experience.</target>
+        </trans-unit>
+        <trans-unit id="e5cbcb70-60ac-433d-8940-af0fcf2f55e3" xml:space="preserve">
+          <source>For example, when a user logs in to the User Portal and clicks the Log In button, they are then taken to the Azure Multi-Factor Authentication User Setup page.</source>
+          <target state="new">For example, when a user logs in to the User Portal and clicks the Log In button, they are then taken to the Azure Multi-Factor Authentication User Setup page.</target>
+        </trans-unit>
+        <trans-unit id="015a717e-4e11-49b8-a74a-a6d587ff6a45" xml:space="preserve">
+          <source>Depending on how you have configured Azure Multi-Factor Authentication, the user may be able to select their authentication method.</source>
+          <target state="new">Depending on how you have configured Azure Multi-Factor Authentication, the user may be able to select their authentication method.</target>
+        </trans-unit>
+        <trans-unit id="39dd6d6e-1981-46f4-9276-5117fb46ab65" xml:space="preserve">
+          <source>If they select the Voice Call authentication method or have been pre-configured to use that method, the page will prompt the user to enter their primary phone number and extension if applicable.</source>
+          <target state="new">If they select the Voice Call authentication method or have been pre-configured to use that method, the page will prompt the user to enter their primary phone number and extension if applicable.</target>
+        </trans-unit>
+        <trans-unit id="21659b7d-265a-4c33-a61d-53c6c061a863" xml:space="preserve">
+          <source>They may also be allowed to enter a backup phone number.</source>
+          <target state="new">They may also be allowed to enter a backup phone number.</target>
+        </trans-unit>
+        <trans-unit id="1a44e05d-e15f-4ea3-9e2d-432362dccf36" xml:space="preserve">
+          <source><bpt id="24dee0c5-d797-4a63-a70f-bcd10035b928">&lt;linkText&gt;</bpt>User portal trusted IPs<ept id="24dee0c5-d797-4a63-a70f-bcd10035b928">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24dee0c5-d797-4a63-a70f-bcd10035b928">&lt;linkText&gt;</bpt>User portal trusted IPs<ept id="24dee0c5-d797-4a63-a70f-bcd10035b928">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80ff1e57-8388-48a3-8b3b-df3e1a3594ce" xml:space="preserve">
+          <source>If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.</source>
+          <target state="new">If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.</target>
+        </trans-unit>
+        <trans-unit id="f3bde5fa-6150-4511-ae24-8f39c6f4008d" xml:space="preserve">
+          <source>After entering their phone number(s) and PIN (if applicable), the user clicks the Call Me Now to Authenticate button.</source>
+          <target state="new">After entering their phone number(s) and PIN (if applicable), the user clicks the Call Me Now to Authenticate button.</target>
+        </trans-unit>
+        <trans-unit id="3ebe8852-56ac-4e22-b907-943dd5eedb50" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication will perform a phone call authentication to the user’s primary phone number.</source>
+          <target state="new">Azure Multi-Factor Authentication will perform a phone call authentication to the user’s primary phone number.</target>
+        </trans-unit>
+        <trans-unit id="31b43e13-471b-4d3e-a3f5-3278f0c2902a" xml:space="preserve">
+          <source>The user must answer the phone call and enter their PIN (if applicable) and press # to move on to the next step of the self-enrollment process.</source>
+          <target state="new">The user must answer the phone call and enter their PIN (if applicable) and press # to move on to the next step of the self-enrollment process.</target>
+        </trans-unit>
+        <trans-unit id="615f54ed-64da-4c76-93ce-7f152d4aae97" xml:space="preserve">
+          <source>If the user selects the SMS Text authentication method or has been pre-configured to use that method, the page will prompt the user for their mobile phone number.</source>
+          <target state="new">If the user selects the SMS Text authentication method or has been pre-configured to use that method, the page will prompt the user for their mobile phone number.</target>
+        </trans-unit>
+        <trans-unit id="13267fcd-66f9-4007-8378-1c63f4a527e9" xml:space="preserve">
+          <source>If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.</source>
+          <target state="new">If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.</target>
+        </trans-unit>
+        <trans-unit id="5a3b55f8-bbb5-4796-a652-179c4c22b193" xml:space="preserve">
+          <source>After entering their phone number and PIN (if applicable), the user clicks the Text Me Now to Authenticate button.</source>
+          <target state="new">After entering their phone number and PIN (if applicable), the user clicks the Text Me Now to Authenticate button.</target>
+        </trans-unit>
+        <trans-unit id="7d2472bf-6f4a-46f6-8505-38ae6c174c9d" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication will perform an SMS authentication to the user’s mobile phone.</source>
+          <target state="new">Azure Multi-Factor Authentication will perform an SMS authentication to the user’s mobile phone.</target>
+        </trans-unit>
+        <trans-unit id="8fbc16eb-5b74-4513-b6fa-3af4ac1ff2b2" xml:space="preserve">
+          <source>The user must receive the SMS which contains a one- time-passcode (OTP) and reply to the message with that OTP plus their PIN if applicable) to move on to the next step of the self-enrollment process.</source>
+          <target state="new">The user must receive the SMS which contains a one- time-passcode (OTP) and reply to the message with that OTP plus their PIN if applicable) to move on to the next step of the self-enrollment process.</target>
+        </trans-unit>
+        <trans-unit id="18147781-88f9-4e57-8b0d-a57749efa431" xml:space="preserve">
+          <source><bpt id="05a5e12d-5a22-40cb-86d0-096ed7cfd0c5">&lt;linkText&gt;</bpt>User portal SMS<ept id="05a5e12d-5a22-40cb-86d0-096ed7cfd0c5">&lt;/linkText&gt;</ept>   </source>
+          <target state="new"><bpt id="05a5e12d-5a22-40cb-86d0-096ed7cfd0c5">&lt;linkText&gt;</bpt>User portal SMS<ept id="05a5e12d-5a22-40cb-86d0-096ed7cfd0c5">&lt;/linkText&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="7586165b-7fbc-49fb-b720-03f0e9d64f90" xml:space="preserve">
+          <source>If the user selects the Mobile app authentication method or has been pre-configured to use that method, the page will prompt the user to install the Azure Multi-Factor Authentication app on their device and generate an activation code.</source>
+          <target state="new">If the user selects the Mobile app authentication method or has been pre-configured to use that method, the page will prompt the user to install the Azure Multi-Factor Authentication app on their device and generate an activation code.</target>
+        </trans-unit>
+        <trans-unit id="e4708b18-a608-4891-9c5d-e41b080b0c75" xml:space="preserve">
+          <source>After installing the Azure Multi-Factor Authentication app, the user clicks the Generate Activation Code button.</source>
+          <target state="new">After installing the Azure Multi-Factor Authentication app, the user clicks the Generate Activation Code button.</target>
+        </trans-unit>
+        <trans-unit id="30926214-1f41-4ba6-86cc-34959c70baf0" xml:space="preserve">
+          <source>In order to use the Azure Multi-Factor Authentication app, the user must enable push notifications for their device.</source>
+          <target state="new">In order to use the Azure Multi-Factor Authentication app, the user must enable push notifications for their device.</target>
+        </trans-unit>
+        <trans-unit id="00dd2862-1f3a-4a4e-a03b-b4d0ded470fb" xml:space="preserve">
+          <source>The page then displays an activation code and a URL along with a barcode picture.</source>
+          <target state="new">The page then displays an activation code and a URL along with a barcode picture.</target>
+        </trans-unit>
+        <trans-unit id="a005b26a-ba74-436c-b305-c922936846b3" xml:space="preserve">
+          <source>If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.</source>
+          <target state="new">If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.</target>
+        </trans-unit>
+        <trans-unit id="bc54ad94-1786-4a99-baff-28c420cde115" xml:space="preserve">
+          <source>The user enters the activation code and URL into the Azure Multi-Factor Authentication app or uses the barcode scanner to scan the barcode picture and clicks the Activate button.</source>
+          <target state="new">The user enters the activation code and URL into the Azure Multi-Factor Authentication app or uses the barcode scanner to scan the barcode picture and clicks the Activate button.</target>
+        </trans-unit>
+        <trans-unit id="a40823c1-8a3c-4e67-8751-c6b92d8d8bc5" xml:space="preserve">
+          <source>After the activation is complete, the user clicks the Authenticate Me Now button.</source>
+          <target state="new">After the activation is complete, the user clicks the Authenticate Me Now button.</target>
+        </trans-unit>
+        <trans-unit id="65627ae4-6c88-4ef2-9bb0-24fba18484a1" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication will perform an authentication to the user’s mobile app.</source>
+          <target state="new">Azure Multi-Factor Authentication will perform an authentication to the user’s mobile app.</target>
+        </trans-unit>
+        <trans-unit id="e88304f6-5a6c-4776-8e03-986439ceca6d" xml:space="preserve">
+          <source>The user must enter their PIN (if applicable) and press the Authenticate button in their mobile app to move on to the next step of the self-enrollment process.</source>
+          <target state="new">The user must enter their PIN (if applicable) and press the Authenticate button in their mobile app to move on to the next step of the self-enrollment process.</target>
+        </trans-unit>
+        <trans-unit id="358a8038-c184-4f02-a740-a9467d4f6058" xml:space="preserve">
+          <source>If the administrators have configured the Azure Multi-Factor Authentication Server to collect security questions and answers, the user is then taken to the Security Questions page.</source>
+          <target state="new">If the administrators have configured the Azure Multi-Factor Authentication Server to collect security questions and answers, the user is then taken to the Security Questions page.</target>
+        </trans-unit>
+        <trans-unit id="ad3348fc-584d-4ee0-b644-89b772fef313" xml:space="preserve">
+          <source>The user must select four security questions and provide answers to their selected questions.</source>
+          <target state="new">The user must select four security questions and provide answers to their selected questions.</target>
+        </trans-unit>
+        <trans-unit id="d02c438a-0963-4c07-9b1a-5d4dcbc9e551" xml:space="preserve">
+          <source><bpt id="0e000219-a48e-4003-96e7-6ee7a6df729c">&lt;linkText&gt;</bpt>User portal security questions<ept id="0e000219-a48e-4003-96e7-6ee7a6df729c">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="0e000219-a48e-4003-96e7-6ee7a6df729c">&lt;linkText&gt;</bpt>User portal security questions<ept id="0e000219-a48e-4003-96e7-6ee7a6df729c">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="191a0551-16b7-40c8-9a17-8b586e3ea926" xml:space="preserve">
+          <source>The user self-enrollment is now complete and the user is logged in to the User Portal.</source>
+          <target state="new">The user self-enrollment is now complete and the user is logged in to the User Portal.</target>
+        </trans-unit>
+        <trans-unit id="d636d51f-540f-446f-b15a-b78fb87183b2" xml:space="preserve">
+          <source>Users can log back in to the User Portal at any time in the future to change their phone numbers, PINs, authentication methods and security questions if allowed by their administrators.</source>
+          <target state="new">Users can log back in to the User Portal at any time in the future to change their phone numbers, PINs, authentication methods and security questions if allowed by their administrators.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

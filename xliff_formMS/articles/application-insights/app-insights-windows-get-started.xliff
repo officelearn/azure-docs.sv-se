@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9f4be961-374d-49cc-bf2f-2f276a97a481" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9f4be961-374d-49cc-bf2f-2f276a97a481" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a455a032-b7d3-4f9d-9280-0adc22930a27">
+        <trans-unit id="be685c13-6da2-4663-89ec-b042c39cebe6" xml:space="preserve">
+          <source>Application Insights for Windows Phone and Store apps | Microsoft Azure</source>
+          <target state="new">Application Insights for Windows Phone and Store apps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4d2b2e0f-df7d-463d-9a63-370a1db37800" xml:space="preserve">
+          <source>Analyze usage and performance of your Windows device app with Application Insights.</source>
+          <target state="new">Analyze usage and performance of your Windows device app with Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="9cfdebf1-e0ab-45cf-baf5-c6a2c637f159" xml:space="preserve">
+          <source><bpt id="ec236fe5-e717-4f39-ad8d-31fb4cf46ae0">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="ec236fe5-e717-4f39-ad8d-31fb4cf46ae0">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="ec236fe5-e717-4f39-ad8d-31fb4cf46ae0">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="ec236fe5-e717-4f39-ad8d-31fb4cf46ae0">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97891390-27f9-48d3-8d67-17f4439d98dd" xml:space="preserve">
+          <source><bpt id="022edfab-1d8f-45e7-b32b-a9aea147fa4e">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="022edfab-1d8f-45e7-b32b-a9aea147fa4e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="022edfab-1d8f-45e7-b32b-a9aea147fa4e">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="022edfab-1d8f-45e7-b32b-a9aea147fa4e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1034c7b-5996-45e7-8dc0-8e54a47a0fd9" xml:space="preserve">
+          <source>Visual Studio Application Insights lets you monitor your published application for:</source>
+          <target state="new">Visual Studio Application Insights lets you monitor your published application for:</target>
+        </trans-unit>
+        <trans-unit id="91026750-d13c-43d5-9e4f-cb27882c5c14" xml:space="preserve">
+          <source><bpt id="8db50388-e5c3-4974-827d-df18d4304457">&lt;linkText&gt;</bpt>**Usage**[windowsusage]<ept id="8db50388-e5c3-4974-827d-df18d4304457">&lt;/linkText&gt;</ept><bpt id="8db50388-e5c3-4974-827d-df18d4304457">&lt;title&gt;</bpt><ept id="8db50388-e5c3-4974-827d-df18d4304457">&lt;/title&gt;</ept>&amp;#151;Learn how many users you have and what they are doing with your app.</source>
+          <target state="new"><bpt id="8db50388-e5c3-4974-827d-df18d4304457">&lt;linkText&gt;</bpt>**Usage**[windowsusage]<ept id="8db50388-e5c3-4974-827d-df18d4304457">&lt;/linkText&gt;</ept><bpt id="8db50388-e5c3-4974-827d-df18d4304457">&lt;title&gt;</bpt><ept id="8db50388-e5c3-4974-827d-df18d4304457">&lt;/title&gt;</ept>&amp;#151;Learn how many users you have and what they are doing with your app.</target>
+        </trans-unit>
+        <trans-unit id="13934dc5-bfb0-40b0-aee2-e6360b28f177" xml:space="preserve">
+          <source><bpt id="c255845e-4ad4-4adb-b4cc-88f2d7363105">&lt;linkText&gt;</bpt>**Crashes**[windowscrash]<ept id="c255845e-4ad4-4adb-b4cc-88f2d7363105">&lt;/linkText&gt;</ept><bpt id="c255845e-4ad4-4adb-b4cc-88f2d7363105">&lt;title&gt;</bpt><ept id="c255845e-4ad4-4adb-b4cc-88f2d7363105">&lt;/title&gt;</ept>&amp;#151;Get diagnostic reports of crashes and understand their impact on users.</source>
+          <target state="new"><bpt id="c255845e-4ad4-4adb-b4cc-88f2d7363105">&lt;linkText&gt;</bpt>**Crashes**[windowscrash]<ept id="c255845e-4ad4-4adb-b4cc-88f2d7363105">&lt;/linkText&gt;</ept><bpt id="c255845e-4ad4-4adb-b4cc-88f2d7363105">&lt;title&gt;</bpt><ept id="c255845e-4ad4-4adb-b4cc-88f2d7363105">&lt;/title&gt;</ept>&amp;#151;Get diagnostic reports of crashes and understand their impact on users.</target>
+        </trans-unit>
+        <trans-unit id="7bfa1968-2773-451d-92b8-36d20fb55038" xml:space="preserve">
+          <source><bpt id="62e45b07-76ed-464b-8a5f-e81c948d3018">&lt;linkText&gt;</bpt><ept id="62e45b07-76ed-464b-8a5f-e81c948d3018">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62e45b07-76ed-464b-8a5f-e81c948d3018">&lt;linkText&gt;</bpt><ept id="62e45b07-76ed-464b-8a5f-e81c948d3018">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0529d74e-384a-490b-8e81-64f4c1ea4bd5" xml:space="preserve">
+          <source>For many application types, <bpt id="fcf22687-cae0-4c17-8d14-e677505b7c25">&lt;linkText&gt;</bpt>Visual Studio can add Application Insights to your app<ept id="fcf22687-cae0-4c17-8d14-e677505b7c25">&lt;/linkText&gt;</ept><bpt id="fcf22687-cae0-4c17-8d14-e677505b7c25">&lt;title&gt;</bpt><ept id="fcf22687-cae0-4c17-8d14-e677505b7c25">&lt;/title&gt;</ept> almost without you noticing.</source>
+          <target state="new">For many application types, <bpt id="fcf22687-cae0-4c17-8d14-e677505b7c25">&lt;linkText&gt;</bpt>Visual Studio can add Application Insights to your app<ept id="fcf22687-cae0-4c17-8d14-e677505b7c25">&lt;/linkText&gt;</ept><bpt id="fcf22687-cae0-4c17-8d14-e677505b7c25">&lt;title&gt;</bpt><ept id="fcf22687-cae0-4c17-8d14-e677505b7c25">&lt;/title&gt;</ept> almost without you noticing.</target>
+        </trans-unit>
+        <trans-unit id="667a6b3e-f27c-4b07-8a81-7076287ab7f1" xml:space="preserve">
+          <source>But since you're reading this to get a better understanding of what's going on, we'll take you through the steps manually.</source>
+          <target state="new">But since you're reading this to get a better understanding of what's going on, we'll take you through the steps manually.</target>
+        </trans-unit>
+        <trans-unit id="c53daf46-037d-4f22-9853-5e82cccb060b" xml:space="preserve">
+          <source>You'll need:</source>
+          <target state="new">You'll need:</target>
+        </trans-unit>
+        <trans-unit id="9604cc3b-5b63-4d34-9ece-589d34af41fa" xml:space="preserve">
+          <source>A subscription to <bpt id="3675dec9-da8e-4ab6-8925-95fc98056b29">&lt;linkText&gt;</bpt>Microsoft Azure[azure]<ept id="3675dec9-da8e-4ab6-8925-95fc98056b29">&lt;/linkText&gt;</ept><bpt id="3675dec9-da8e-4ab6-8925-95fc98056b29">&lt;title&gt;</bpt><ept id="3675dec9-da8e-4ab6-8925-95fc98056b29">&lt;/title&gt;</ept>.</source>
+          <target state="new">A subscription to <bpt id="3675dec9-da8e-4ab6-8925-95fc98056b29">&lt;linkText&gt;</bpt>Microsoft Azure[azure]<ept id="3675dec9-da8e-4ab6-8925-95fc98056b29">&lt;/linkText&gt;</ept><bpt id="3675dec9-da8e-4ab6-8925-95fc98056b29">&lt;title&gt;</bpt><ept id="3675dec9-da8e-4ab6-8925-95fc98056b29">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="71daabf3-adf3-434d-85f0-e77bd905f6ea" xml:space="preserve">
+          <source>Visual Studio 2013 or later.</source>
+          <target state="new">Visual Studio 2013 or later.</target>
+        </trans-unit>
+        <trans-unit id="642fcbc1-f926-4d8b-bcde-0aaa0e9de986" xml:space="preserve">
+          <source>In the <bpt id="b9337d82-b5ab-44ab-b11a-45b20d824deb">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="b9337d82-b5ab-44ab-b11a-45b20d824deb">&lt;/linkText&gt;</ept><bpt id="b9337d82-b5ab-44ab-b11a-45b20d824deb">&lt;title&gt;</bpt><ept id="b9337d82-b5ab-44ab-b11a-45b20d824deb">&lt;/title&gt;</ept>, create a new Application Insights resource.</source>
+          <target state="new">In the <bpt id="b9337d82-b5ab-44ab-b11a-45b20d824deb">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="b9337d82-b5ab-44ab-b11a-45b20d824deb">&lt;/linkText&gt;</ept><bpt id="b9337d82-b5ab-44ab-b11a-45b20d824deb">&lt;title&gt;</bpt><ept id="b9337d82-b5ab-44ab-b11a-45b20d824deb">&lt;/title&gt;</ept>, create a new Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="393f8d20-c6a3-4ca4-aa01-e804428b4899" xml:space="preserve">
+          <source><bpt id="7dcf5c74-115a-4628-afbc-f360d0b8512f">&lt;linkText&gt;</bpt>Choose New, Developer Services, Application Insights<ept id="7dcf5c74-115a-4628-afbc-f360d0b8512f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7dcf5c74-115a-4628-afbc-f360d0b8512f">&lt;linkText&gt;</bpt>Choose New, Developer Services, Application Insights<ept id="7dcf5c74-115a-4628-afbc-f360d0b8512f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1f77a2f-b409-4b6b-a434-f0544a09e6ae" xml:space="preserve">
+          <source>A <bpt id="b89ba551-0d86-4f73-bdc7-8caec0792bb6">&lt;linkText&gt;</bpt>resource[roles]<ept id="b89ba551-0d86-4f73-bdc7-8caec0792bb6">&lt;/linkText&gt;</ept><bpt id="b89ba551-0d86-4f73-bdc7-8caec0792bb6">&lt;title&gt;</bpt><ept id="b89ba551-0d86-4f73-bdc7-8caec0792bb6">&lt;/title&gt;</ept> in Azure is an instance of a service.</source>
+          <target state="new">A <bpt id="b89ba551-0d86-4f73-bdc7-8caec0792bb6">&lt;linkText&gt;</bpt>resource[roles]<ept id="b89ba551-0d86-4f73-bdc7-8caec0792bb6">&lt;/linkText&gt;</ept><bpt id="b89ba551-0d86-4f73-bdc7-8caec0792bb6">&lt;title&gt;</bpt><ept id="b89ba551-0d86-4f73-bdc7-8caec0792bb6">&lt;/title&gt;</ept> in Azure is an instance of a service.</target>
+        </trans-unit>
+        <trans-unit id="848dfa94-dce0-4b67-873e-14345e49890f" xml:space="preserve">
+          <source>This resource is where telemetry from your app will be analyzed and presented to you.</source>
+          <target state="new">This resource is where telemetry from your app will be analyzed and presented to you.</target>
+        </trans-unit>
+        <trans-unit id="7a05bd63-d36c-479c-9a0d-faf40e19f8fb" xml:space="preserve">
+          <source>The key identifies the resource.</source>
+          <target state="new">The key identifies the resource.</target>
+        </trans-unit>
+        <trans-unit id="b260d9ec-fb57-4bec-ba14-34038f0b5bb9" xml:space="preserve">
+          <source>You'll need it to configure the SDK to send the data to the resource.</source>
+          <target state="new">You'll need it to configure the SDK to send the data to the resource.</target>
+        </trans-unit>
+        <trans-unit id="98453d18-3a56-4266-a6b4-824837fe36df" xml:space="preserve">
+          <source><bpt id="387fc6a1-5874-42f8-8cc2-d3cfcbd5680a">&lt;linkText&gt;</bpt>Open the Essentials drop-down drawer and select the instrumentation key<ept id="387fc6a1-5874-42f8-8cc2-d3cfcbd5680a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="387fc6a1-5874-42f8-8cc2-d3cfcbd5680a">&lt;linkText&gt;</bpt>Open the Essentials drop-down drawer and select the instrumentation key<ept id="387fc6a1-5874-42f8-8cc2-d3cfcbd5680a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2efcb29-9b3a-4244-9a88-7b22ffd707ce" xml:space="preserve">
+          <source>In Visual Studio, add the appropriate SDK to your project.</source>
+          <target state="new">In Visual Studio, add the appropriate SDK to your project.</target>
+        </trans-unit>
+        <trans-unit id="ee664e08-9736-475b-b724-12291c1dfc6d" xml:space="preserve">
+          <source>If it's a Windows Universal app, repeat the steps for both the Windows Phone project and the Windows project.</source>
+          <target state="new">If it's a Windows Universal app, repeat the steps for both the Windows Phone project and the Windows project.</target>
+        </trans-unit>
+        <trans-unit id="4b4229f0-3a4c-482f-b522-789086f1ba8f" xml:space="preserve">
+          <source>Right-click the project in Solution Explorer and choose <bpt id="947fc930-a794-4093-b8ce-5264f5219e56">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="947fc930-a794-4093-b8ce-5264f5219e56">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the project in Solution Explorer and choose <bpt id="947fc930-a794-4093-b8ce-5264f5219e56">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="947fc930-a794-4093-b8ce-5264f5219e56">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8824e25-45a9-4525-9d70-211fec50ac1a" xml:space="preserve">
+          <source><bpt id="b36973ce-d1de-4bf1-b6a1-ecad622259f4">&lt;linkText&gt;</bpt><ept id="b36973ce-d1de-4bf1-b6a1-ecad622259f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b36973ce-d1de-4bf1-b6a1-ecad622259f4">&lt;linkText&gt;</bpt><ept id="b36973ce-d1de-4bf1-b6a1-ecad622259f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d55d68d7-c614-40eb-b048-1276aaba0afa" xml:space="preserve">
+          <source>Search for "Application Insights".</source>
+          <target state="new">Search for "Application Insights".</target>
+        </trans-unit>
+        <trans-unit id="41db4e13-6eb4-4a04-8bb3-5c3c3b8fe6f8" xml:space="preserve">
+          <source><bpt id="4bd1a3e4-45ef-4e9d-b1b5-1c5160f8c478">&lt;linkText&gt;</bpt><ept id="4bd1a3e4-45ef-4e9d-b1b5-1c5160f8c478">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4bd1a3e4-45ef-4e9d-b1b5-1c5160f8c478">&lt;linkText&gt;</bpt><ept id="4bd1a3e4-45ef-4e9d-b1b5-1c5160f8c478">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f027ba6e-afa8-4aa0-a775-735469f1a790" xml:space="preserve">
+          <source>Choose <bpt id="acb3159b-c1a5-42ce-a2be-d156a12fde46">&lt;strong&gt;</bpt>Application Insights for Windows Applications<ept id="acb3159b-c1a5-42ce-a2be-d156a12fde46">&lt;/strong&gt;</ept></source>
+          <target state="new">Choose <bpt id="acb3159b-c1a5-42ce-a2be-d156a12fde46">&lt;strong&gt;</bpt>Application Insights for Windows Applications<ept id="acb3159b-c1a5-42ce-a2be-d156a12fde46">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11c19bf5-626b-421d-a7e3-98b604560d35" xml:space="preserve">
+          <source>Add an ApplicationInsights.config file to the root of your project and insert the instrumentation key copied from the portal.</source>
+          <target state="new">Add an ApplicationInsights.config file to the root of your project and insert the instrumentation key copied from the portal.</target>
+        </trans-unit>
+        <trans-unit id="8a0b59bb-14d3-4517-9ff7-f1d2d71304f5" xml:space="preserve">
+          <source>A sample xml for this config file is shown below.</source>
+          <target state="new">A sample xml for this config file is shown below.</target>
+        </trans-unit>
+        <trans-unit id="af3c382a-4ca6-41f0-91f5-253285895579" xml:space="preserve">
+          <source>Add the following initialization code.</source>
+          <target state="new">Add the following initialization code.</target>
+        </trans-unit>
+        <trans-unit id="79d1384a-a52e-4a3e-af8f-4baaec36fb3c" xml:space="preserve">
+          <source>It is best to add this code to the <bpt id="c6d03b6a-465c-4258-bd34-9f10b4f36dab">&lt;code&gt;</bpt>App()<ept id="c6d03b6a-465c-4258-bd34-9f10b4f36dab">&lt;/code&gt;</ept> constructor.</source>
+          <target state="new">It is best to add this code to the <bpt id="c6d03b6a-465c-4258-bd34-9f10b4f36dab">&lt;code&gt;</bpt>App()<ept id="c6d03b6a-465c-4258-bd34-9f10b4f36dab">&lt;/code&gt;</ept> constructor.</target>
+        </trans-unit>
+        <trans-unit id="6ee55520-8050-4b59-a207-f3380c35ae15" xml:space="preserve">
+          <source>If you do it somewhere else, you might miss auto collection of the first pageviews.</source>
+          <target state="new">If you do it somewhere else, you might miss auto collection of the first pageviews.</target>
+        </trans-unit>
+        <trans-unit id="fb5e6e62-b8c3-41c7-9388-11374aa648d3" xml:space="preserve">
+          <source><bpt id="92736102-3e2e-4793-a046-96f6c3d03326">&lt;strong&gt;</bpt>Windows Universal apps<ept id="92736102-3e2e-4793-a046-96f6c3d03326">&lt;/strong&gt;</ept>: Repeat the steps for both the Phone and the Store project.</source>
+          <target state="new"><bpt id="92736102-3e2e-4793-a046-96f6c3d03326">&lt;strong&gt;</bpt>Windows Universal apps<ept id="92736102-3e2e-4793-a046-96f6c3d03326">&lt;/strong&gt;</ept>: Repeat the steps for both the Phone and the Store project.</target>
+        </trans-unit>
+        <trans-unit id="b0fad064-fd1b-4242-8d03-4fc55730a45b" xml:space="preserve">
+          <source><bpt id="a481a7e5-50d2-4220-a777-8b670b8471d6">&lt;linkText&gt;</bpt>Example of a Windows 8.1 Universal app<ept id="a481a7e5-50d2-4220-a777-8b670b8471d6">&lt;/linkText&gt;</ept><bpt id="a481a7e5-50d2-4220-a777-8b670b8471d6">&lt;title&gt;</bpt><ept id="a481a7e5-50d2-4220-a777-8b670b8471d6">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a481a7e5-50d2-4220-a777-8b670b8471d6">&lt;linkText&gt;</bpt>Example of a Windows 8.1 Universal app<ept id="a481a7e5-50d2-4220-a777-8b670b8471d6">&lt;/linkText&gt;</ept><bpt id="a481a7e5-50d2-4220-a777-8b670b8471d6">&lt;title&gt;</bpt><ept id="a481a7e5-50d2-4220-a777-8b670b8471d6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08e88742-eac4-4a57-8f0f-cec9641d9e95" xml:space="preserve">
+          <source>If your app doesn't already <bpt id="9f405ffc-971e-49d4-abef-ae2eee1c77ac">&lt;linkText&gt;</bpt>request outgoing network access<ept id="9f405ffc-971e-49d4-abef-ae2eee1c77ac">&lt;/linkText&gt;</ept><bpt id="9f405ffc-971e-49d4-abef-ae2eee1c77ac">&lt;title&gt;</bpt><ept id="9f405ffc-971e-49d4-abef-ae2eee1c77ac">&lt;/title&gt;</ept>, you'll have to add that to its manifest as a <bpt id="44b01852-cad9-4d7e-849a-950ae1274e0c">&lt;linkText&gt;</bpt>required capability<ept id="44b01852-cad9-4d7e-849a-950ae1274e0c">&lt;/linkText&gt;</ept><bpt id="44b01852-cad9-4d7e-849a-950ae1274e0c">&lt;title&gt;</bpt><ept id="44b01852-cad9-4d7e-849a-950ae1274e0c">&lt;/title&gt;</ept>.</source>
+          <target state="new">If your app doesn't already <bpt id="9f405ffc-971e-49d4-abef-ae2eee1c77ac">&lt;linkText&gt;</bpt>request outgoing network access<ept id="9f405ffc-971e-49d4-abef-ae2eee1c77ac">&lt;/linkText&gt;</ept><bpt id="9f405ffc-971e-49d4-abef-ae2eee1c77ac">&lt;title&gt;</bpt><ept id="9f405ffc-971e-49d4-abef-ae2eee1c77ac">&lt;/title&gt;</ept>, you'll have to add that to its manifest as a <bpt id="44b01852-cad9-4d7e-849a-950ae1274e0c">&lt;linkText&gt;</bpt>required capability<ept id="44b01852-cad9-4d7e-849a-950ae1274e0c">&lt;/linkText&gt;</ept><bpt id="44b01852-cad9-4d7e-849a-950ae1274e0c">&lt;title&gt;</bpt><ept id="44b01852-cad9-4d7e-849a-950ae1274e0c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ffa8100-8acc-43a3-bc43-428b59b406e6" xml:space="preserve">
+          <source><bpt id="47d5d8e6-5d16-4de7-b370-37f187fb68d4">&lt;linkText&gt;</bpt>Run your application with F5<ept id="47d5d8e6-5d16-4de7-b370-37f187fb68d4">&lt;/linkText&gt;</ept><bpt id="47d5d8e6-5d16-4de7-b370-37f187fb68d4">&lt;title&gt;</bpt><ept id="47d5d8e6-5d16-4de7-b370-37f187fb68d4">&lt;/title&gt;</ept> and use it, so as to generate some telemetry.</source>
+          <target state="new"><bpt id="47d5d8e6-5d16-4de7-b370-37f187fb68d4">&lt;linkText&gt;</bpt>Run your application with F5<ept id="47d5d8e6-5d16-4de7-b370-37f187fb68d4">&lt;/linkText&gt;</ept><bpt id="47d5d8e6-5d16-4de7-b370-37f187fb68d4">&lt;title&gt;</bpt><ept id="47d5d8e6-5d16-4de7-b370-37f187fb68d4">&lt;/title&gt;</ept> and use it, so as to generate some telemetry.</target>
+        </trans-unit>
+        <trans-unit id="4517fa67-b8c0-43ac-84ad-639c530c65e3" xml:space="preserve">
+          <source>In Visual Studio, you'll see a count of the events that have been received.</source>
+          <target state="new">In Visual Studio, you'll see a count of the events that have been received.</target>
+        </trans-unit>
+        <trans-unit id="31c032a7-5881-4fd0-b600-1485f4a31860" xml:space="preserve">
+          <source><bpt id="cdb298e7-266c-47e0-9b74-247454b2df5d">&lt;linkText&gt;</bpt><ept id="cdb298e7-266c-47e0-9b74-247454b2df5d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cdb298e7-266c-47e0-9b74-247454b2df5d">&lt;linkText&gt;</bpt><ept id="cdb298e7-266c-47e0-9b74-247454b2df5d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ce02080-96ac-4477-9844-d577060fc7ea" xml:space="preserve">
+          <source>In debug mode, telemetry is sent as soon as it's generated.</source>
+          <target state="new">In debug mode, telemetry is sent as soon as it's generated.</target>
+        </trans-unit>
+        <trans-unit id="3d047a9f-309d-41f6-89f9-a2de098e63d9" xml:space="preserve">
+          <source>In release mode, telemetry is stored on the device and sent only when the app resumes.</source>
+          <target state="new">In release mode, telemetry is stored on the device and sent only when the app resumes.</target>
+        </trans-unit>
+        <trans-unit id="24b4b977-cf94-40e7-ade3-a17f971fe97e" xml:space="preserve">
+          <source>Open Application Insights from your project.</source>
+          <target state="new">Open Application Insights from your project.</target>
+        </trans-unit>
+        <trans-unit id="70101e06-60bd-4570-8317-048a7de97ef6" xml:space="preserve">
+          <source><bpt id="5b95c0ad-945f-4068-9aa8-c0fe328bd9b6">&lt;linkText&gt;</bpt>Right-click your project and open the Azure portal<ept id="5b95c0ad-945f-4068-9aa8-c0fe328bd9b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b95c0ad-945f-4068-9aa8-c0fe328bd9b6">&lt;linkText&gt;</bpt>Right-click your project and open the Azure portal<ept id="5b95c0ad-945f-4068-9aa8-c0fe328bd9b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4bbe7e0-fc8e-4f61-951d-392afff9e451" xml:space="preserve">
+          <source>At first, you'll just see one or two points.</source>
+          <target state="new">At first, you'll just see one or two points.</target>
+        </trans-unit>
+        <trans-unit id="58b5cb6e-45f9-4298-85e3-0f6e73358db9" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="7d4cc6c8-ac07-4048-bbdd-52a79de671e0" xml:space="preserve">
+          <source><bpt id="a403a386-9b14-4c56-9a0c-6810a25adcf5">&lt;linkText&gt;</bpt>Click through to more data<ept id="a403a386-9b14-4c56-9a0c-6810a25adcf5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a403a386-9b14-4c56-9a0c-6810a25adcf5">&lt;linkText&gt;</bpt>Click through to more data<ept id="a403a386-9b14-4c56-9a0c-6810a25adcf5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d22302ec-8dca-4f30-8306-6e30eb7d68b3" xml:space="preserve">
+          <source>Click <bpt id="200c0ea5-35f1-4bbe-8544-2e05829c6dd7">&lt;strong&gt;</bpt>Refresh<ept id="200c0ea5-35f1-4bbe-8544-2e05829c6dd7">&lt;/strong&gt;</ept> after a few seconds if you're expecting more data.</source>
+          <target state="new">Click <bpt id="200c0ea5-35f1-4bbe-8544-2e05829c6dd7">&lt;strong&gt;</bpt>Refresh<ept id="200c0ea5-35f1-4bbe-8544-2e05829c6dd7">&lt;/strong&gt;</ept> after a few seconds if you're expecting more data.</target>
+        </trans-unit>
+        <trans-unit id="4490a2f5-e914-4852-be18-7a7532b9f154" xml:space="preserve">
+          <source>Click any chart to see more detail.</source>
+          <target state="new">Click any chart to see more detail.</target>
+        </trans-unit>
+        <trans-unit id="bf047f2b-6dcf-4b37-8ff7-7b1c361cd9d1" xml:space="preserve">
+          <source><bpt id="3b11a21c-2202-461a-92fa-2434f9737a3f">&lt;linkText&gt;</bpt>Publish your application<ept id="3b11a21c-2202-461a-92fa-2434f9737a3f">&lt;/linkText&gt;</ept><bpt id="3b11a21c-2202-461a-92fa-2434f9737a3f">&lt;title&gt;</bpt><ept id="3b11a21c-2202-461a-92fa-2434f9737a3f">&lt;/title&gt;</ept> and watch the data accumulate as users download and use it.</source>
+          <target state="new"><bpt id="3b11a21c-2202-461a-92fa-2434f9737a3f">&lt;linkText&gt;</bpt>Publish your application<ept id="3b11a21c-2202-461a-92fa-2434f9737a3f">&lt;/linkText&gt;</ept><bpt id="3b11a21c-2202-461a-92fa-2434f9737a3f">&lt;title&gt;</bpt><ept id="3b11a21c-2202-461a-92fa-2434f9737a3f">&lt;/title&gt;</ept> and watch the data accumulate as users download and use it.</target>
+        </trans-unit>
+        <trans-unit id="118398b3-7ef8-4e78-9228-9cd975d0734f" xml:space="preserve">
+          <source>Application Insights SDK Includes several collectors, which collect different types of data from your app automatically.</source>
+          <target state="new">Application Insights SDK Includes several collectors, which collect different types of data from your app automatically.</target>
+        </trans-unit>
+        <trans-unit id="81ba277d-cf37-452e-a7e2-39bcbc014809" xml:space="preserve">
+          <source>By default, they are all active.</source>
+          <target state="new">By default, they are all active.</target>
+        </trans-unit>
+        <trans-unit id="f825eb79-7984-49c6-8ed7-a85768ee3e2e" xml:space="preserve">
+          <source>But you can choose which collectors to initialize in the app constructor:</source>
+          <target state="new">But you can choose which collectors to initialize in the app constructor:</target>
+        </trans-unit>
+        <trans-unit id="fc5a2510-8aa9-4b51-a09b-01b466fa7321" xml:space="preserve">
+          <source>Use the <bpt id="89f1099e-937c-4272-8ea1-fcc3a30b48cf">&lt;linkText&gt;</bpt>API[api]<ept id="89f1099e-937c-4272-8ea1-fcc3a30b48cf">&lt;/linkText&gt;</ept><bpt id="89f1099e-937c-4272-8ea1-fcc3a30b48cf">&lt;title&gt;</bpt><ept id="89f1099e-937c-4272-8ea1-fcc3a30b48cf">&lt;/title&gt;</ept> to send events, metrics and diagnostic data to Application Insights.</source>
+          <target state="new">Use the <bpt id="89f1099e-937c-4272-8ea1-fcc3a30b48cf">&lt;linkText&gt;</bpt>API[api]<ept id="89f1099e-937c-4272-8ea1-fcc3a30b48cf">&lt;/linkText&gt;</ept><bpt id="89f1099e-937c-4272-8ea1-fcc3a30b48cf">&lt;title&gt;</bpt><ept id="89f1099e-937c-4272-8ea1-fcc3a30b48cf">&lt;/title&gt;</ept> to send events, metrics and diagnostic data to Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="1273abde-19d6-45d1-ae92-2585f3a9a176" xml:space="preserve">
+          <source>In summary:</source>
+          <target state="new">In summary:</target>
+        </trans-unit>
+        <trans-unit id="8eacc5ab-41e6-43cf-991f-d13afdd038f8" xml:space="preserve">
+          <source>For more details, see <bpt id="321e9cba-5da2-46f6-8c89-034447cde3cb">&lt;linkText&gt;</bpt>Custom Events and Metrics[api]<ept id="321e9cba-5da2-46f6-8c89-034447cde3cb">&lt;/linkText&gt;</ept><bpt id="321e9cba-5da2-46f6-8c89-034447cde3cb">&lt;title&gt;</bpt><ept id="321e9cba-5da2-46f6-8c89-034447cde3cb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="321e9cba-5da2-46f6-8c89-034447cde3cb">&lt;linkText&gt;</bpt>Custom Events and Metrics[api]<ept id="321e9cba-5da2-46f6-8c89-034447cde3cb">&lt;/linkText&gt;</ept><bpt id="321e9cba-5da2-46f6-8c89-034447cde3cb">&lt;title&gt;</bpt><ept id="321e9cba-5da2-46f6-8c89-034447cde3cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f99b38bb-f51f-428c-909f-7c1d1f2b2f4d" xml:space="preserve">
+          <source><bpt id="761b42bd-b33d-451c-9767-0dd26d8ed3ac">&lt;linkText&gt;</bpt>Detect and diagnose crashes in your app[windowscrash]<ept id="761b42bd-b33d-451c-9767-0dd26d8ed3ac">&lt;/linkText&gt;</ept><bpt id="761b42bd-b33d-451c-9767-0dd26d8ed3ac">&lt;title&gt;</bpt><ept id="761b42bd-b33d-451c-9767-0dd26d8ed3ac">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="761b42bd-b33d-451c-9767-0dd26d8ed3ac">&lt;linkText&gt;</bpt>Detect and diagnose crashes in your app[windowscrash]<ept id="761b42bd-b33d-451c-9767-0dd26d8ed3ac">&lt;/linkText&gt;</ept><bpt id="761b42bd-b33d-451c-9767-0dd26d8ed3ac">&lt;title&gt;</bpt><ept id="761b42bd-b33d-451c-9767-0dd26d8ed3ac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a02c7281-f7ab-451c-b54e-18e9bb839229" xml:space="preserve">
+          <source><bpt id="fd9cd934-8aa3-4ea7-a186-d25feb37dafe">&lt;linkText&gt;</bpt>Learn about metrics[metrics]<ept id="fd9cd934-8aa3-4ea7-a186-d25feb37dafe">&lt;/linkText&gt;</ept><bpt id="fd9cd934-8aa3-4ea7-a186-d25feb37dafe">&lt;title&gt;</bpt><ept id="fd9cd934-8aa3-4ea7-a186-d25feb37dafe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fd9cd934-8aa3-4ea7-a186-d25feb37dafe">&lt;linkText&gt;</bpt>Learn about metrics[metrics]<ept id="fd9cd934-8aa3-4ea7-a186-d25feb37dafe">&lt;/linkText&gt;</ept><bpt id="fd9cd934-8aa3-4ea7-a186-d25feb37dafe">&lt;title&gt;</bpt><ept id="fd9cd934-8aa3-4ea7-a186-d25feb37dafe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5134844b-acc8-4b89-b0b7-6c3a3747eb10" xml:space="preserve">
+          <source><bpt id="62f7e843-eeb2-4712-8b54-9c44b9f464ca">&lt;linkText&gt;</bpt>Learn about diagnostic search[diagnostic]<ept id="62f7e843-eeb2-4712-8b54-9c44b9f464ca">&lt;/linkText&gt;</ept><bpt id="62f7e843-eeb2-4712-8b54-9c44b9f464ca">&lt;title&gt;</bpt><ept id="62f7e843-eeb2-4712-8b54-9c44b9f464ca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="62f7e843-eeb2-4712-8b54-9c44b9f464ca">&lt;linkText&gt;</bpt>Learn about diagnostic search[diagnostic]<ept id="62f7e843-eeb2-4712-8b54-9c44b9f464ca">&lt;/linkText&gt;</ept><bpt id="62f7e843-eeb2-4712-8b54-9c44b9f464ca">&lt;title&gt;</bpt><ept id="62f7e843-eeb2-4712-8b54-9c44b9f464ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce40baa1-d534-4136-8771-e558c1cf080c" xml:space="preserve">
+          <source>If you prefer to let Visual Studio perform the setup steps, you can do that with Windows Phone, Windows Store, and many other types of apps.</source>
+          <target state="new">If you prefer to let Visual Studio perform the setup steps, you can do that with Windows Phone, Windows Store, and many other types of apps.</target>
+        </trans-unit>
+        <trans-unit id="006fd29c-a26e-4556-859b-7b96e1993303" xml:space="preserve">
+          <source>Select <bpt id="9c86e07d-dddb-4b5e-beec-6b896cc4eff4">&lt;strong&gt;</bpt>Application Insights<ept id="9c86e07d-dddb-4b5e-beec-6b896cc4eff4">&lt;/strong&gt;</ept> in the <bpt id="c6c7e43f-78e9-49e9-83cd-32be78c45b15">&lt;strong&gt;</bpt>New Project<ept id="c6c7e43f-78e9-49e9-83cd-32be78c45b15">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Select <bpt id="9c86e07d-dddb-4b5e-beec-6b896cc4eff4">&lt;strong&gt;</bpt>Application Insights<ept id="9c86e07d-dddb-4b5e-beec-6b896cc4eff4">&lt;/strong&gt;</ept> in the <bpt id="c6c7e43f-78e9-49e9-83cd-32be78c45b15">&lt;strong&gt;</bpt>New Project<ept id="c6c7e43f-78e9-49e9-83cd-32be78c45b15">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="e93b500b-ff98-4123-97a8-8666b62aa27d" xml:space="preserve">
+          <source>If you're asked to sign in, use the credentials for your Azure account (which is separate from your Visual Studio Online account).</source>
+          <target state="new">If you're asked to sign in, use the credentials for your Azure account (which is separate from your Visual Studio Online account).</target>
+        </trans-unit>
+        <trans-unit id="13402a75-89c0-49ab-9a73-6e3547da00b5" xml:space="preserve">
+          <source><bpt id="71d0e89e-0f35-4e00-a283-e7126904dd51">&lt;linkText&gt;</bpt><ept id="71d0e89e-0f35-4e00-a283-e7126904dd51">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="71d0e89e-0f35-4e00-a283-e7126904dd51">&lt;linkText&gt;</bpt><ept id="71d0e89e-0f35-4e00-a283-e7126904dd51">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="481ee394-6777-43eb-af86-a5727894e61e" xml:space="preserve">
+          <source>Add Application Insights from Solution Explorer.</source>
+          <target state="new">Add Application Insights from Solution Explorer.</target>
+        </trans-unit>
+        <trans-unit id="c185fcdd-a44f-42e8-a8e1-eab1b9a78995" xml:space="preserve">
+          <source><bpt id="da2549fb-1b99-4cb9-992b-cf1d46bf8a05">&lt;linkText&gt;</bpt><ept id="da2549fb-1b99-4cb9-992b-cf1d46bf8a05">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da2549fb-1b99-4cb9-992b-cf1d46bf8a05">&lt;linkText&gt;</bpt><ept id="da2549fb-1b99-4cb9-992b-cf1d46bf8a05">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a4be3de-3712-4a1e-8495-f21635046dfc" xml:space="preserve">
+          <source>When a <bpt id="23b3b5c7-be9a-4e9b-8580-fdb0cd8e7a34">&lt;linkText&gt;</bpt>new SDK version is released<ept id="23b3b5c7-be9a-4e9b-8580-fdb0cd8e7a34">&lt;/linkText&gt;</ept><bpt id="23b3b5c7-be9a-4e9b-8580-fdb0cd8e7a34">&lt;title&gt;</bpt><ept id="23b3b5c7-be9a-4e9b-8580-fdb0cd8e7a34">&lt;/title&gt;</ept>:</source>
+          <target state="new">When a <bpt id="23b3b5c7-be9a-4e9b-8580-fdb0cd8e7a34">&lt;linkText&gt;</bpt>new SDK version is released<ept id="23b3b5c7-be9a-4e9b-8580-fdb0cd8e7a34">&lt;/linkText&gt;</ept><bpt id="23b3b5c7-be9a-4e9b-8580-fdb0cd8e7a34">&lt;title&gt;</bpt><ept id="23b3b5c7-be9a-4e9b-8580-fdb0cd8e7a34">&lt;/title&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="86faf0d4-8ca4-4e14-94a7-c0aa25c8055f" xml:space="preserve">
+          <source>Right-click your project and choose Manage NuGet Packages.</source>
+          <target state="new">Right-click your project and choose Manage NuGet Packages.</target>
+        </trans-unit>
+        <trans-unit id="14f2bc4f-f546-4bea-a089-2abeb78679a4" xml:space="preserve">
+          <source>Select the installed Application Insights packages and choose <bpt id="d79bfac7-9858-4d99-a89e-19ff5971304b">&lt;strong&gt;</bpt>Action: Upgrade<ept id="d79bfac7-9858-4d99-a89e-19ff5971304b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the installed Application Insights packages and choose <bpt id="d79bfac7-9858-4d99-a89e-19ff5971304b">&lt;strong&gt;</bpt>Action: Upgrade<ept id="d79bfac7-9858-4d99-a89e-19ff5971304b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c5b7af2-fdb4-4e34-9102-e155b1e9a582" xml:space="preserve">
+          <source><bpt id="c86945a4-c758-4ec9-90c1-ce5251bb964e">&lt;linkText&gt;</bpt>Detect and diagnose crashes in your app[windowscrash]<ept id="c86945a4-c758-4ec9-90c1-ce5251bb964e">&lt;/linkText&gt;</ept><bpt id="c86945a4-c758-4ec9-90c1-ce5251bb964e">&lt;title&gt;</bpt><ept id="c86945a4-c758-4ec9-90c1-ce5251bb964e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c86945a4-c758-4ec9-90c1-ce5251bb964e">&lt;linkText&gt;</bpt>Detect and diagnose crashes in your app[windowscrash]<ept id="c86945a4-c758-4ec9-90c1-ce5251bb964e">&lt;/linkText&gt;</ept><bpt id="c86945a4-c758-4ec9-90c1-ce5251bb964e">&lt;title&gt;</bpt><ept id="c86945a4-c758-4ec9-90c1-ce5251bb964e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31c95f0f-5207-461e-bb94-ea43adc6c98d" xml:space="preserve">
+          <source><bpt id="64d64485-6d19-43d8-8a3f-45f3d8dbfd0d">&lt;linkText&gt;</bpt>Capture and search diagnostic logs[diagnostic]<ept id="64d64485-6d19-43d8-8a3f-45f3d8dbfd0d">&lt;/linkText&gt;</ept><bpt id="64d64485-6d19-43d8-8a3f-45f3d8dbfd0d">&lt;title&gt;</bpt><ept id="64d64485-6d19-43d8-8a3f-45f3d8dbfd0d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="64d64485-6d19-43d8-8a3f-45f3d8dbfd0d">&lt;linkText&gt;</bpt>Capture and search diagnostic logs[diagnostic]<ept id="64d64485-6d19-43d8-8a3f-45f3d8dbfd0d">&lt;/linkText&gt;</ept><bpt id="64d64485-6d19-43d8-8a3f-45f3d8dbfd0d">&lt;title&gt;</bpt><ept id="64d64485-6d19-43d8-8a3f-45f3d8dbfd0d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c3abaa3-6fe2-4960-8c58-c2bf4d6c4b34" xml:space="preserve">
+          <source><bpt id="3b1a5ac8-b85d-4caf-aed0-568ebf82d222">&lt;linkText&gt;</bpt>Track usage of your app[windowsusage]<ept id="3b1a5ac8-b85d-4caf-aed0-568ebf82d222">&lt;/linkText&gt;</ept><bpt id="3b1a5ac8-b85d-4caf-aed0-568ebf82d222">&lt;title&gt;</bpt><ept id="3b1a5ac8-b85d-4caf-aed0-568ebf82d222">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3b1a5ac8-b85d-4caf-aed0-568ebf82d222">&lt;linkText&gt;</bpt>Track usage of your app[windowsusage]<ept id="3b1a5ac8-b85d-4caf-aed0-568ebf82d222">&lt;/linkText&gt;</ept><bpt id="3b1a5ac8-b85d-4caf-aed0-568ebf82d222">&lt;title&gt;</bpt><ept id="3b1a5ac8-b85d-4caf-aed0-568ebf82d222">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b286b40-f662-46ef-b298-847f56b94aff" xml:space="preserve">
+          <source><bpt id="a3a62245-b292-4213-85b7-615f29c38f4b">&lt;linkText&gt;</bpt>Use the API to send custom telemetry[api]<ept id="a3a62245-b292-4213-85b7-615f29c38f4b">&lt;/linkText&gt;</ept><bpt id="a3a62245-b292-4213-85b7-615f29c38f4b">&lt;title&gt;</bpt><ept id="a3a62245-b292-4213-85b7-615f29c38f4b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a3a62245-b292-4213-85b7-615f29c38f4b">&lt;linkText&gt;</bpt>Use the API to send custom telemetry[api]<ept id="a3a62245-b292-4213-85b7-615f29c38f4b">&lt;/linkText&gt;</ept><bpt id="a3a62245-b292-4213-85b7-615f29c38f4b">&lt;title&gt;</bpt><ept id="a3a62245-b292-4213-85b7-615f29c38f4b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17dc5132-a3b4-496a-94c5-b203961c18cd" xml:space="preserve">
+          <source><bpt id="06bac87c-7dba-48b1-bcd6-180f726c6baf">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="06bac87c-7dba-48b1-bcd6-180f726c6baf">&lt;/linkText&gt;</ept><bpt id="06bac87c-7dba-48b1-bcd6-180f726c6baf">&lt;title&gt;</bpt><ept id="06bac87c-7dba-48b1-bcd6-180f726c6baf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="06bac87c-7dba-48b1-bcd6-180f726c6baf">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="06bac87c-7dba-48b1-bcd6-180f726c6baf">&lt;/linkText&gt;</ept><bpt id="06bac87c-7dba-48b1-bcd6-180f726c6baf">&lt;title&gt;</bpt><ept id="06bac87c-7dba-48b1-bcd6-180f726c6baf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b6ec61e-1b56-4e7f-8eb8-e4aa006aa479" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="e83c491f-88e7-426d-a90f-cbf6444c450e" xml:space="preserve">
+          <source>../insights-perf-analytics.md</source>
+          <target state="new">../insights-perf-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="473f6993-0c19-4c9a-bb3a-197425d681fb" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="d9892649-7103-4d01-8fe6-1af344419bdd" xml:space="preserve">
+          <source>app-insights-metrics-explorer.md</source>
+          <target state="new">app-insights-metrics-explorer.md</target>
+        </trans-unit>
+        <trans-unit id="3c1a024f-910d-425b-8560-36e12a3aaa89" xml:space="preserve">
+          <source>http://portal.azure.com/</source>
+          <target state="new">http://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="e8f30ac9-114b-4481-a9db-26ccf875e93b" xml:space="preserve">
+          <source>app-insights-troubleshoot-faq.md</source>
+          <target state="new">app-insights-troubleshoot-faq.md</target>
+        </trans-unit>
+        <trans-unit id="8954f2df-9db9-4b17-b1ea-0998499e7a8f" xml:space="preserve">
+          <source>app-insights-resources-roles-access-control.md</source>
+          <target state="new">app-insights-resources-roles-access-control.md</target>
+        </trans-unit>
+        <trans-unit id="5f69a747-d0e3-4b57-942c-c08fe7376a35" xml:space="preserve">
+          <source>app-insights-windows-crashes.md</source>
+          <target state="new">app-insights-windows-crashes.md</target>
+        </trans-unit>
+        <trans-unit id="db38773f-1548-49ff-8287-0d41cdc8d1f7" xml:space="preserve">
+          <source>app-insights-windows-usage.md</source>
+          <target state="new">app-insights-windows-usage.md</target>
+        </trans-unit>
+      </group>
+      <group id="4321d9f0-bfca-42f8-bd9e-95c184c075f3" />
+    </body>
+  </file>
+</xliff>

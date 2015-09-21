@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="174c2c36-f090-4c9b-8a31-a866c79a80af" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="174c2c36-f090-4c9b-8a31-a866c79a80af" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9cba0023-831a-4b60-a348-f5aed8b19679">
+        <trans-unit id="ae49a452-7182-43df-80ee-88c40d5695ab" xml:space="preserve">
+          <source>Manage pricing and quota for Application Insights</source>
+          <target state="new">Manage pricing and quota for Application Insights</target>
+        </trans-unit>
+        <trans-unit id="efd2b721-679d-4f88-8f46-5483e55f8b11" xml:space="preserve">
+          <source>Choose the price plan you need</source>
+          <target state="new">Choose the price plan you need</target>
+        </trans-unit>
+        <trans-unit id="89e09c4f-8b27-450b-a214-cb8016db6f02" xml:space="preserve">
+          <source><bpt id="7334ab8f-353a-44c9-8359-ea4b01ab35b7">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="7334ab8f-353a-44c9-8359-ea4b01ab35b7">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="7334ab8f-353a-44c9-8359-ea4b01ab35b7">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="7334ab8f-353a-44c9-8359-ea4b01ab35b7">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55a15723-42c4-4b9d-957b-3ce0e0867427" xml:space="preserve">
+          <source><bpt id="c20db478-ddc5-46e9-88bb-ab80a3ef36fc">&lt;linkText&gt;</bpt>Pricing[pricing]<ept id="c20db478-ddc5-46e9-88bb-ab80a3ef36fc">&lt;/linkText&gt;</ept><bpt id="c20db478-ddc5-46e9-88bb-ab80a3ef36fc">&lt;title&gt;</bpt><ept id="c20db478-ddc5-46e9-88bb-ab80a3ef36fc">&lt;/title&gt;</ept> for <bpt id="cf5173ec-49f2-4201-9618-3da859e1c121">&lt;linkText&gt;</bpt>Visual Studio Application Insights[start]<ept id="cf5173ec-49f2-4201-9618-3da859e1c121">&lt;/linkText&gt;</ept><bpt id="cf5173ec-49f2-4201-9618-3da859e1c121">&lt;title&gt;</bpt><ept id="cf5173ec-49f2-4201-9618-3da859e1c121">&lt;/title&gt;</ept> is based on data volume per application.</source>
+          <target state="new"><bpt id="c20db478-ddc5-46e9-88bb-ab80a3ef36fc">&lt;linkText&gt;</bpt>Pricing[pricing]<ept id="c20db478-ddc5-46e9-88bb-ab80a3ef36fc">&lt;/linkText&gt;</ept><bpt id="c20db478-ddc5-46e9-88bb-ab80a3ef36fc">&lt;title&gt;</bpt><ept id="c20db478-ddc5-46e9-88bb-ab80a3ef36fc">&lt;/title&gt;</ept> for <bpt id="cf5173ec-49f2-4201-9618-3da859e1c121">&lt;linkText&gt;</bpt>Visual Studio Application Insights[start]<ept id="cf5173ec-49f2-4201-9618-3da859e1c121">&lt;/linkText&gt;</ept><bpt id="cf5173ec-49f2-4201-9618-3da859e1c121">&lt;title&gt;</bpt><ept id="cf5173ec-49f2-4201-9618-3da859e1c121">&lt;/title&gt;</ept> is based on data volume per application.</target>
+        </trans-unit>
+        <trans-unit id="9f4a4bdc-3cc0-4785-8078-38a8ca1f47f9" xml:space="preserve">
+          <source>There's a substantial Free tier in which you get most of the features with some limitations.</source>
+          <target state="new">There's a substantial Free tier in which you get most of the features with some limitations.</target>
+        </trans-unit>
+        <trans-unit id="c8f469bc-d29e-484f-a183-bdd20d7a44cf" xml:space="preserve">
+          <source>Each Application Insights resource is charged as a separate service, and contributes to the bill for your subscription to Azure.</source>
+          <target state="new">Each Application Insights resource is charged as a separate service, and contributes to the bill for your subscription to Azure.</target>
+        </trans-unit>
+        <trans-unit id="013344de-1e70-4bd4-ae3e-8c266a7c2d73" xml:space="preserve">
+          <source><bpt id="5def40f8-bff9-4d64-bec1-8e24c55d5008">&lt;linkText&gt;</bpt>See the pricing scheme[pricing]<ept id="5def40f8-bff9-4d64-bec1-8e24c55d5008">&lt;/linkText&gt;</ept><bpt id="5def40f8-bff9-4d64-bec1-8e24c55d5008">&lt;title&gt;</bpt><ept id="5def40f8-bff9-4d64-bec1-8e24c55d5008">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="5def40f8-bff9-4d64-bec1-8e24c55d5008">&lt;linkText&gt;</bpt>See the pricing scheme[pricing]<ept id="5def40f8-bff9-4d64-bec1-8e24c55d5008">&lt;/linkText&gt;</ept><bpt id="5def40f8-bff9-4d64-bec1-8e24c55d5008">&lt;title&gt;</bpt><ept id="5def40f8-bff9-4d64-bec1-8e24c55d5008">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad250ad2-02bc-4069-b55d-47e39ce2117d" xml:space="preserve">
+          <source>You can open the Quota + Pricing blade from your application resource's Settings.</source>
+          <target state="new">You can open the Quota + Pricing blade from your application resource's Settings.</target>
+        </trans-unit>
+        <trans-unit id="b37ecb83-06a9-4f65-b39a-97a505e9f52a" xml:space="preserve">
+          <source><bpt id="2cf468b5-0bbe-4a9f-8e29-27dcc6a44247">&lt;linkText&gt;</bpt>Choose Settings, Quota + pricing.<ept id="2cf468b5-0bbe-4a9f-8e29-27dcc6a44247">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2cf468b5-0bbe-4a9f-8e29-27dcc6a44247">&lt;linkText&gt;</bpt>Choose Settings, Quota + pricing.<ept id="2cf468b5-0bbe-4a9f-8e29-27dcc6a44247">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c280e5f-a18f-4c48-99ca-37fa816d2918" xml:space="preserve">
+          <source>Your choice of pricing scheme affects:</source>
+          <target state="new">Your choice of pricing scheme affects:</target>
+        </trans-unit>
+        <trans-unit id="c47790d1-30b9-47d8-a33b-2c2dfce0141c" xml:space="preserve">
+          <source><bpt id="adab90f3-5542-4929-9084-19e655e7d6a2">&lt;linkText&gt;</bpt>Monthly Quota<ept id="adab90f3-5542-4929-9084-19e655e7d6a2">&lt;/linkText&gt;</ept><bpt id="adab90f3-5542-4929-9084-19e655e7d6a2">&lt;title&gt;</bpt><ept id="adab90f3-5542-4929-9084-19e655e7d6a2">&lt;/title&gt;</ept> - the amount of telemetry you can analyze each month.</source>
+          <target state="new"><bpt id="adab90f3-5542-4929-9084-19e655e7d6a2">&lt;linkText&gt;</bpt>Monthly Quota<ept id="adab90f3-5542-4929-9084-19e655e7d6a2">&lt;/linkText&gt;</ept><bpt id="adab90f3-5542-4929-9084-19e655e7d6a2">&lt;title&gt;</bpt><ept id="adab90f3-5542-4929-9084-19e655e7d6a2">&lt;/title&gt;</ept> - the amount of telemetry you can analyze each month.</target>
+        </trans-unit>
+        <trans-unit id="0c65d399-3a3c-478f-895c-af8d9d4827f9" xml:space="preserve">
+          <source><bpt id="4ae8f808-cac4-4348-9cc6-e951380f081c">&lt;linkText&gt;</bpt>Data rate<ept id="4ae8f808-cac4-4348-9cc6-e951380f081c">&lt;/linkText&gt;</ept><bpt id="4ae8f808-cac4-4348-9cc6-e951380f081c">&lt;title&gt;</bpt><ept id="4ae8f808-cac4-4348-9cc6-e951380f081c">&lt;/title&gt;</ept> - the maximum rate at which data from your app can be processed.</source>
+          <target state="new"><bpt id="4ae8f808-cac4-4348-9cc6-e951380f081c">&lt;linkText&gt;</bpt>Data rate<ept id="4ae8f808-cac4-4348-9cc6-e951380f081c">&lt;/linkText&gt;</ept><bpt id="4ae8f808-cac4-4348-9cc6-e951380f081c">&lt;title&gt;</bpt><ept id="4ae8f808-cac4-4348-9cc6-e951380f081c">&lt;/title&gt;</ept> - the maximum rate at which data from your app can be processed.</target>
+        </trans-unit>
+        <trans-unit id="8b714940-7687-44ea-b2e9-e1ca5107d3b9" xml:space="preserve">
+          <source><bpt id="eb49c3ed-8e38-4063-8380-15515f72450f">&lt;linkText&gt;</bpt>Retention<ept id="eb49c3ed-8e38-4063-8380-15515f72450f">&lt;/linkText&gt;</ept><bpt id="eb49c3ed-8e38-4063-8380-15515f72450f">&lt;title&gt;</bpt><ept id="eb49c3ed-8e38-4063-8380-15515f72450f">&lt;/title&gt;</ept> - how long data is kept in  the Application Insights portal for you to view.</source>
+          <target state="new"><bpt id="eb49c3ed-8e38-4063-8380-15515f72450f">&lt;linkText&gt;</bpt>Retention<ept id="eb49c3ed-8e38-4063-8380-15515f72450f">&lt;/linkText&gt;</ept><bpt id="eb49c3ed-8e38-4063-8380-15515f72450f">&lt;title&gt;</bpt><ept id="eb49c3ed-8e38-4063-8380-15515f72450f">&lt;/title&gt;</ept> - how long data is kept in  the Application Insights portal for you to view.</target>
+        </trans-unit>
+        <trans-unit id="7a2c1509-b492-4676-8144-430eb5a83383" xml:space="preserve">
+          <source><bpt id="10fe831a-e891-415a-ab46-82051d925d20">&lt;linkText&gt;</bpt>Continuous export<ept id="10fe831a-e891-415a-ab46-82051d925d20">&lt;/linkText&gt;</ept><bpt id="10fe831a-e891-415a-ab46-82051d925d20">&lt;title&gt;</bpt><ept id="10fe831a-e891-415a-ab46-82051d925d20">&lt;/title&gt;</ept> - whether you can export data to other tools and services.</source>
+          <target state="new"><bpt id="10fe831a-e891-415a-ab46-82051d925d20">&lt;linkText&gt;</bpt>Continuous export<ept id="10fe831a-e891-415a-ab46-82051d925d20">&lt;/linkText&gt;</ept><bpt id="10fe831a-e891-415a-ab46-82051d925d20">&lt;title&gt;</bpt><ept id="10fe831a-e891-415a-ab46-82051d925d20">&lt;/title&gt;</ept> - whether you can export data to other tools and services.</target>
+        </trans-unit>
+        <trans-unit id="b3a695ae-51cf-4067-a8c1-ce0b7c360d7f" xml:space="preserve">
+          <source>These limits are set separately for each Application Insights resource.</source>
+          <target state="new">These limits are set separately for each Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="57c5e8f8-3152-468b-96c7-ab8946b1d2e3" xml:space="preserve">
+          <source>When you first create a new Application Insights resource, it starts in the Free tier.</source>
+          <target state="new">When you first create a new Application Insights resource, it starts in the Free tier.</target>
+        </trans-unit>
+        <trans-unit id="3caff661-e1e6-41cf-ab88-d7b17375341b" xml:space="preserve">
+          <source>At any time, you can switch to the 30 day free Premium trial.</source>
+          <target state="new">At any time, you can switch to the 30 day free Premium trial.</target>
+        </trans-unit>
+        <trans-unit id="cb2929be-9774-4927-a813-10c89aadf4c6" xml:space="preserve">
+          <source>This gives you the benefits of the Premium tier.</source>
+          <target state="new">This gives you the benefits of the Premium tier.</target>
+        </trans-unit>
+        <trans-unit id="1d7c405b-30bc-44e0-934e-7d4fe0babef8" xml:space="preserve">
+          <source>After 30 days, it will automatically revert to whatever tier you were in before - unless you explicitly choose another tier.</source>
+          <target state="new">After 30 days, it will automatically revert to whatever tier you were in before - unless you explicitly choose another tier.</target>
+        </trans-unit>
+        <trans-unit id="02026928-f4d7-49d6-a00f-ecb1e8ae9b69" xml:space="preserve">
+          <source>You select the tier you'd like at any time during the trial period, but you'll still get the free trial until the end of the 30-day period.</source>
+          <target state="new">You select the tier you'd like at any time during the trial period, but you'll still get the free trial until the end of the 30-day period.</target>
+        </trans-unit>
+        <trans-unit id="337d0727-7206-41d6-8811-94c84970cff6" xml:space="preserve">
+          <source>In each calendar month, your application can send up to a specified quantity of telemetry to Application Insights.</source>
+          <target state="new">In each calendar month, your application can send up to a specified quantity of telemetry to Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="e8994aa3-04cd-4315-abd1-4f7e31bc7da3" xml:space="preserve">
+          <source>See the <bpt id="1683e707-2753-4de8-989b-08bafbf693a0">&lt;linkText&gt;</bpt>pricing scheme[pricing]<ept id="1683e707-2753-4de8-989b-08bafbf693a0">&lt;/linkText&gt;</ept><bpt id="1683e707-2753-4de8-989b-08bafbf693a0">&lt;title&gt;</bpt><ept id="1683e707-2753-4de8-989b-08bafbf693a0">&lt;/title&gt;</ept> for the  actual numbers.</source>
+          <target state="new">See the <bpt id="1683e707-2753-4de8-989b-08bafbf693a0">&lt;linkText&gt;</bpt>pricing scheme[pricing]<ept id="1683e707-2753-4de8-989b-08bafbf693a0">&lt;/linkText&gt;</ept><bpt id="1683e707-2753-4de8-989b-08bafbf693a0">&lt;title&gt;</bpt><ept id="1683e707-2753-4de8-989b-08bafbf693a0">&lt;/title&gt;</ept> for the  actual numbers.</target>
+        </trans-unit>
+        <trans-unit id="edb0cfeb-98db-421f-90f6-97027043a172" xml:space="preserve">
+          <source>The quota depends on the pricing tier that you have chosen.</source>
+          <target state="new">The quota depends on the pricing tier that you have chosen.</target>
+        </trans-unit>
+        <trans-unit id="29137dbd-3348-4473-acd0-baaabf9f555a" xml:space="preserve">
+          <source>The quota is counted from midnight UTC on the first day of each month.</source>
+          <target state="new">The quota is counted from midnight UTC on the first day of each month.</target>
+        </trans-unit>
+        <trans-unit id="5d8c5e2b-386b-4845-967f-d5966b4bd5c2" xml:space="preserve">
+          <source>The Data points chart shows how much of your quota has been used up this month.</source>
+          <target state="new">The Data points chart shows how much of your quota has been used up this month.</target>
+        </trans-unit>
+        <trans-unit id="48d6cb08-b2f7-4aee-96f2-94029b0d1e69" xml:space="preserve">
+          <source>The quota is measured in <bpt id="81f65240-e0bc-47b4-a4b9-2b202fabfc57">&lt;em&gt;</bpt>data points.<ept id="81f65240-e0bc-47b4-a4b9-2b202fabfc57">&lt;/em&gt;</ept> A single data point is a call to one of the Track methods, whether called explicitly in your code, or by one of the standard telemetry modules.</source>
+          <target state="new">The quota is measured in <bpt id="81f65240-e0bc-47b4-a4b9-2b202fabfc57">&lt;em&gt;</bpt>data points.<ept id="81f65240-e0bc-47b4-a4b9-2b202fabfc57">&lt;/em&gt;</ept> A single data point is a call to one of the Track methods, whether called explicitly in your code, or by one of the standard telemetry modules.</target>
+        </trans-unit>
+        <trans-unit id="0fe258ac-6f04-4317-9535-2c49883c3567" xml:space="preserve">
+          <source>Data points include:</source>
+          <target state="new">Data points include:</target>
+        </trans-unit>
+        <trans-unit id="67ebe149-b74c-4264-b4cd-784d829eabd8" xml:space="preserve">
+          <source>Each row you see in <bpt id="bc76d6e5-0706-49fa-9c89-2214c9c87d6f">&lt;linkText&gt;</bpt>diagnostic search<ept id="bc76d6e5-0706-49fa-9c89-2214c9c87d6f">&lt;/linkText&gt;</ept><bpt id="bc76d6e5-0706-49fa-9c89-2214c9c87d6f">&lt;title&gt;</bpt><ept id="bc76d6e5-0706-49fa-9c89-2214c9c87d6f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Each row you see in <bpt id="bc76d6e5-0706-49fa-9c89-2214c9c87d6f">&lt;linkText&gt;</bpt>diagnostic search<ept id="bc76d6e5-0706-49fa-9c89-2214c9c87d6f">&lt;/linkText&gt;</ept><bpt id="bc76d6e5-0706-49fa-9c89-2214c9c87d6f">&lt;title&gt;</bpt><ept id="bc76d6e5-0706-49fa-9c89-2214c9c87d6f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0db0482-f00b-4b49-8003-b384333b7a21" xml:space="preserve">
+          <source>Each raw measurement of a <bpt id="154f52bf-b7d7-47a6-9dbc-4578f4fbf7ce">&lt;linkText&gt;</bpt>metric<ept id="154f52bf-b7d7-47a6-9dbc-4578f4fbf7ce">&lt;/linkText&gt;</ept><bpt id="154f52bf-b7d7-47a6-9dbc-4578f4fbf7ce">&lt;title&gt;</bpt><ept id="154f52bf-b7d7-47a6-9dbc-4578f4fbf7ce">&lt;/title&gt;</ept> such as a performance counter.</source>
+          <target state="new">Each raw measurement of a <bpt id="154f52bf-b7d7-47a6-9dbc-4578f4fbf7ce">&lt;linkText&gt;</bpt>metric<ept id="154f52bf-b7d7-47a6-9dbc-4578f4fbf7ce">&lt;/linkText&gt;</ept><bpt id="154f52bf-b7d7-47a6-9dbc-4578f4fbf7ce">&lt;title&gt;</bpt><ept id="154f52bf-b7d7-47a6-9dbc-4578f4fbf7ce">&lt;/title&gt;</ept> such as a performance counter.</target>
+        </trans-unit>
+        <trans-unit id="6defaa86-c85b-4a4d-ad34-97bcee6150ab" xml:space="preserve">
+          <source>(The points you see on the charts are usually aggregates of multiple raw data points.)</source>
+          <target state="new">(The points you see on the charts are usually aggregates of multiple raw data points.)</target>
+        </trans-unit>
+        <trans-unit id="ca40ac23-02a5-4d12-a2a1-34e4bb814576" xml:space="preserve">
+          <source>Each point on the <bpt id="b8ee29bf-578a-41a1-a530-b9be62dad07a">&lt;linkText&gt;</bpt>web test (availability)<ept id="b8ee29bf-578a-41a1-a530-b9be62dad07a">&lt;/linkText&gt;</ept><bpt id="b8ee29bf-578a-41a1-a530-b9be62dad07a">&lt;title&gt;</bpt><ept id="b8ee29bf-578a-41a1-a530-b9be62dad07a">&lt;/title&gt;</ept> charts.</source>
+          <target state="new">Each point on the <bpt id="b8ee29bf-578a-41a1-a530-b9be62dad07a">&lt;linkText&gt;</bpt>web test (availability)<ept id="b8ee29bf-578a-41a1-a530-b9be62dad07a">&lt;/linkText&gt;</ept><bpt id="b8ee29bf-578a-41a1-a530-b9be62dad07a">&lt;title&gt;</bpt><ept id="b8ee29bf-578a-41a1-a530-b9be62dad07a">&lt;/title&gt;</ept> charts.</target>
+        </trans-unit>
+        <trans-unit id="3dd422e7-7f1f-429e-8785-5f3bf0456765" xml:space="preserve">
+          <source><bpt id="f0d8af1b-c21f-409e-85e7-a7e94c436ace">&lt;em&gt;</bpt>Session data<ept id="f0d8af1b-c21f-409e-85e7-a7e94c436ace">&lt;/em&gt;</ept> is not counted in the quota.</source>
+          <target state="new"><bpt id="f0d8af1b-c21f-409e-85e7-a7e94c436ace">&lt;em&gt;</bpt>Session data<ept id="f0d8af1b-c21f-409e-85e7-a7e94c436ace">&lt;/em&gt;</ept> is not counted in the quota.</target>
+        </trans-unit>
+        <trans-unit id="3100d3ac-93cc-4e0b-aa34-f8f3117ae333" xml:space="preserve">
+          <source>This includes counts of users, sessions, environment and device data.</source>
+          <target state="new">This includes counts of users, sessions, environment and device data.</target>
+        </trans-unit>
+        <trans-unit id="6919f173-9562-41bd-8b04-f9b4d78bf8a8" xml:space="preserve">
+          <source>If your application sends more than the monthly quota, you can:</source>
+          <target state="new">If your application sends more than the monthly quota, you can:</target>
+        </trans-unit>
+        <trans-unit id="74014eba-d591-4456-8bc8-9751f44210a0" xml:space="preserve">
+          <source>Pay for additional data.</source>
+          <target state="new">Pay for additional data.</target>
+        </trans-unit>
+        <trans-unit id="2beef25d-c800-4366-aa64-76047b757e32" xml:space="preserve">
+          <source>See the <bpt id="67c14235-9074-4370-93b8-adb57f586ea5">&lt;linkText&gt;</bpt>pricing scheme[pricing]<ept id="67c14235-9074-4370-93b8-adb57f586ea5">&lt;/linkText&gt;</ept><bpt id="67c14235-9074-4370-93b8-adb57f586ea5">&lt;title&gt;</bpt><ept id="67c14235-9074-4370-93b8-adb57f586ea5">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See the <bpt id="67c14235-9074-4370-93b8-adb57f586ea5">&lt;linkText&gt;</bpt>pricing scheme[pricing]<ept id="67c14235-9074-4370-93b8-adb57f586ea5">&lt;/linkText&gt;</ept><bpt id="67c14235-9074-4370-93b8-adb57f586ea5">&lt;title&gt;</bpt><ept id="67c14235-9074-4370-93b8-adb57f586ea5">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="e9b28e92-53b8-4784-b49f-2540531e93a0" xml:space="preserve">
+          <source>You can choose this option in advance.</source>
+          <target state="new">You can choose this option in advance.</target>
+        </trans-unit>
+        <trans-unit id="6e520419-dd09-4a1d-b1e4-1839702eb6a5" xml:space="preserve">
+          <source>This option isn't available in the Free pricing tier.</source>
+          <target state="new">This option isn't available in the Free pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="599893b8-a635-43b4-92c8-c2f6e10e4b76" xml:space="preserve">
+          <source>Upgrade your pricing tier.</source>
+          <target state="new">Upgrade your pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="0b4a6a68-0885-45b2-a96e-5e0b1bd6ff1c" xml:space="preserve">
+          <source>Do nothing.</source>
+          <target state="new">Do nothing.</target>
+        </trans-unit>
+        <trans-unit id="6ad28f46-5be0-4f92-8996-ccb8fc597630" xml:space="preserve">
+          <source>Session data will continue to be recorded, but other data will not appear in diagnostic search or in metrics explorer.</source>
+          <target state="new">Session data will continue to be recorded, but other data will not appear in diagnostic search or in metrics explorer.</target>
+        </trans-unit>
+        <trans-unit id="5f15ff55-9693-491a-83b5-9310cef09a95" xml:space="preserve">
+          <source>The chart at the bottom of the pricing blade shows your application's data point volume, grouped by data point type.</source>
+          <target state="new">The chart at the bottom of the pricing blade shows your application's data point volume, grouped by data point type.</target>
+        </trans-unit>
+        <trans-unit id="190fe45a-c64e-487a-97a5-67faf2e1c1cd" xml:space="preserve">
+          <source>(You can also create this chart in Metric Explorer.)</source>
+          <target state="new">(You can also create this chart in Metric Explorer.)</target>
+        </trans-unit>
+        <trans-unit id="1bad4241-c8f2-42d3-aeaf-ad87e1638b5a" xml:space="preserve">
+          <source><bpt id="9f198a39-8738-4fcd-941d-75cc76d93cf0">&lt;linkText&gt;</bpt>At the bottom of the pricing blade<ept id="9f198a39-8738-4fcd-941d-75cc76d93cf0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9f198a39-8738-4fcd-941d-75cc76d93cf0">&lt;linkText&gt;</bpt>At the bottom of the pricing blade<ept id="9f198a39-8738-4fcd-941d-75cc76d93cf0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b608604-6eda-46a9-a632-adff26f80423" xml:space="preserve">
+          <source>Click the chart for more detail, or drag across it and click (+) for the detail of a time range.</source>
+          <target state="new">Click the chart for more detail, or drag across it and click (+) for the detail of a time range.</target>
+        </trans-unit>
+        <trans-unit id="ab056698-d22d-481a-b8b0-d86efc102799" xml:space="preserve">
+          <source>In addition to the monthly quota, there are throttling limits on the data rate.</source>
+          <target state="new">In addition to the monthly quota, there are throttling limits on the data rate.</target>
+        </trans-unit>
+        <trans-unit id="f043f1a3-8740-4c37-9f45-8c90cb488e74" xml:space="preserve">
+          <source>For the free <bpt id="594e0896-bcec-4deb-a962-a7646c523dae">&lt;linkText&gt;</bpt>pricing tier[pricing]<ept id="594e0896-bcec-4deb-a962-a7646c523dae">&lt;/linkText&gt;</ept><bpt id="594e0896-bcec-4deb-a962-a7646c523dae">&lt;title&gt;</bpt><ept id="594e0896-bcec-4deb-a962-a7646c523dae">&lt;/title&gt;</ept> the limit is 200 data points/second averaged over 5 minutes and for the paid tiers it is 500/s averaged over 1 minute.</source>
+          <target state="new">For the free <bpt id="594e0896-bcec-4deb-a962-a7646c523dae">&lt;linkText&gt;</bpt>pricing tier[pricing]<ept id="594e0896-bcec-4deb-a962-a7646c523dae">&lt;/linkText&gt;</ept><bpt id="594e0896-bcec-4deb-a962-a7646c523dae">&lt;title&gt;</bpt><ept id="594e0896-bcec-4deb-a962-a7646c523dae">&lt;/title&gt;</ept> the limit is 200 data points/second averaged over 5 minutes and for the paid tiers it is 500/s averaged over 1 minute.</target>
+        </trans-unit>
+        <trans-unit id="3b41d340-8bf6-4367-8aab-47eba12c65d6" xml:space="preserve">
+          <source>There are three buckets which are counted separately:</source>
+          <target state="new">There are three buckets which are counted separately:</target>
+        </trans-unit>
+        <trans-unit id="47440141-9590-4181-bdee-cea07a20fc53" xml:space="preserve">
+          <source><bpt id="7765b025-9dc9-408a-ab9e-e9d4cb3be9b0">&lt;linkText&gt;</bpt>TrackTrace calls<ept id="7765b025-9dc9-408a-ab9e-e9d4cb3be9b0">&lt;/linkText&gt;</ept><bpt id="7765b025-9dc9-408a-ab9e-e9d4cb3be9b0">&lt;title&gt;</bpt><ept id="7765b025-9dc9-408a-ab9e-e9d4cb3be9b0">&lt;/title&gt;</ept> and <bpt id="e4e32c30-bdd3-4109-92d7-ae6f9940f82c">&lt;linkText&gt;</bpt>captured logs<ept id="e4e32c30-bdd3-4109-92d7-ae6f9940f82c">&lt;/linkText&gt;</ept><bpt id="e4e32c30-bdd3-4109-92d7-ae6f9940f82c">&lt;title&gt;</bpt><ept id="e4e32c30-bdd3-4109-92d7-ae6f9940f82c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7765b025-9dc9-408a-ab9e-e9d4cb3be9b0">&lt;linkText&gt;</bpt>TrackTrace calls<ept id="7765b025-9dc9-408a-ab9e-e9d4cb3be9b0">&lt;/linkText&gt;</ept><bpt id="7765b025-9dc9-408a-ab9e-e9d4cb3be9b0">&lt;title&gt;</bpt><ept id="7765b025-9dc9-408a-ab9e-e9d4cb3be9b0">&lt;/title&gt;</ept> and <bpt id="e4e32c30-bdd3-4109-92d7-ae6f9940f82c">&lt;linkText&gt;</bpt>captured logs<ept id="e4e32c30-bdd3-4109-92d7-ae6f9940f82c">&lt;/linkText&gt;</ept><bpt id="e4e32c30-bdd3-4109-92d7-ae6f9940f82c">&lt;title&gt;</bpt><ept id="e4e32c30-bdd3-4109-92d7-ae6f9940f82c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de1abd25-e70d-4e9e-848e-89c1e6b45186" xml:space="preserve">
+          <source><bpt id="251ffffd-3b34-4965-8d48-ed66567bfdba">&lt;linkText&gt;</bpt>Exceptions<ept id="251ffffd-3b34-4965-8d48-ed66567bfdba">&lt;/linkText&gt;</ept><bpt id="251ffffd-3b34-4965-8d48-ed66567bfdba">&lt;title&gt;</bpt><ept id="251ffffd-3b34-4965-8d48-ed66567bfdba">&lt;/title&gt;</ept>, limited to 50 points/s.</source>
+          <target state="new"><bpt id="251ffffd-3b34-4965-8d48-ed66567bfdba">&lt;linkText&gt;</bpt>Exceptions<ept id="251ffffd-3b34-4965-8d48-ed66567bfdba">&lt;/linkText&gt;</ept><bpt id="251ffffd-3b34-4965-8d48-ed66567bfdba">&lt;title&gt;</bpt><ept id="251ffffd-3b34-4965-8d48-ed66567bfdba">&lt;/title&gt;</ept>, limited to 50 points/s.</target>
+        </trans-unit>
+        <trans-unit id="4b3b09c6-d790-4d8b-ae4e-8f4943f39a10" xml:space="preserve">
+          <source>All other telemetry (page views, sessions, requests, dependencies, metrics, custom events, web test results).</source>
+          <target state="new">All other telemetry (page views, sessions, requests, dependencies, metrics, custom events, web test results).</target>
+        </trans-unit>
+        <trans-unit id="e1b3cb17-750c-4f93-ba7a-463df39c5641" xml:space="preserve">
+          <source>If your app sends more than the limit, some of the data is dropped.</source>
+          <target state="new">If your app sends more than the limit, some of the data is dropped.</target>
+        </trans-unit>
+        <trans-unit id="99965bef-ae90-40c5-ac85-a9fd98127530" xml:space="preserve">
+          <source>You'll see a notification warning that this has happened.</source>
+          <target state="new">You'll see a notification warning that this has happened.</target>
+        </trans-unit>
+        <trans-unit id="e76f53b4-f6b1-4ab7-9205-084aaf11de2a" xml:space="preserve">
+          <source>If you encounter the throttling limits, here are some things you can do:</source>
+          <target state="new">If you encounter the throttling limits, here are some things you can do:</target>
+        </trans-unit>
+        <trans-unit id="ed602859-5384-41f6-951c-79b24478fbde" xml:space="preserve">
+          <source>Switch off collection modules you don't need by <bpt id="e779eea5-4134-4f46-9757-004509e0656c">&lt;linkText&gt;</bpt>editing ApplicationInsights.config<ept id="e779eea5-4134-4f46-9757-004509e0656c">&lt;/linkText&gt;</ept><bpt id="e779eea5-4134-4f46-9757-004509e0656c">&lt;title&gt;</bpt><ept id="e779eea5-4134-4f46-9757-004509e0656c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Switch off collection modules you don't need by <bpt id="e779eea5-4134-4f46-9757-004509e0656c">&lt;linkText&gt;</bpt>editing ApplicationInsights.config<ept id="e779eea5-4134-4f46-9757-004509e0656c">&lt;/linkText&gt;</ept><bpt id="e779eea5-4134-4f46-9757-004509e0656c">&lt;title&gt;</bpt><ept id="e779eea5-4134-4f46-9757-004509e0656c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14d62e9a-7d27-4f19-9081-a3bac8c4b418" xml:space="preserve">
+          <source>For example, you might decide that performance counters or dependency data are inessential.</source>
+          <target state="new">For example, you might decide that performance counters or dependency data are inessential.</target>
+        </trans-unit>
+        <trans-unit id="9609f27f-645e-45e5-8c94-708f3d2e4e0c" xml:space="preserve">
+          <source>Pre-aggregate metrics.</source>
+          <target state="new">Pre-aggregate metrics.</target>
+        </trans-unit>
+        <trans-unit id="e8667fab-a0cd-4785-85f3-13d14ec62837" xml:space="preserve">
+          <source>If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements.</source>
+          <target state="new">If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements.</target>
+        </trans-unit>
+        <trans-unit id="99d1ca99-50c2-42fa-a340-1019393cf7c0" xml:space="preserve">
+          <source>Or you can use a <bpt id="0188968e-d988-4ec9-a3ef-017a7f98ea34">&lt;linkText&gt;</bpt>pre-aggregating package<ept id="0188968e-d988-4ec9-a3ef-017a7f98ea34">&lt;/linkText&gt;</ept><bpt id="0188968e-d988-4ec9-a3ef-017a7f98ea34">&lt;title&gt;</bpt><ept id="0188968e-d988-4ec9-a3ef-017a7f98ea34">&lt;/title&gt;</ept>.</source>
+          <target state="new">Or you can use a <bpt id="0188968e-d988-4ec9-a3ef-017a7f98ea34">&lt;linkText&gt;</bpt>pre-aggregating package<ept id="0188968e-d988-4ec9-a3ef-017a7f98ea34">&lt;/linkText&gt;</ept><bpt id="0188968e-d988-4ec9-a3ef-017a7f98ea34">&lt;title&gt;</bpt><ept id="0188968e-d988-4ec9-a3ef-017a7f98ea34">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b52ea7a-4bfb-4230-911c-79b8902de7ea" xml:space="preserve">
+          <source>Maximum of 200 unique metric names and 200 unique property names for your application.</source>
+          <target state="new">Maximum of 200 unique metric names and 200 unique property names for your application.</target>
+        </trans-unit>
+        <trans-unit id="4ccf862a-4473-43fa-bed7-7e48f7e80210" xml:space="preserve">
+          <source>Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.</source>
+          <target state="new">Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.</target>
+        </trans-unit>
+        <trans-unit id="e03cf433-ea07-46bd-9d7a-43e5fc59a3e7" xml:space="preserve">
+          <source><bpt id="355a751f-f13a-46a8-85b9-811a1cd74c42">&lt;linkText&gt;</bpt>Metrics and property names[api]<ept id="355a751f-f13a-46a8-85b9-811a1cd74c42">&lt;/linkText&gt;</ept><bpt id="355a751f-f13a-46a8-85b9-811a1cd74c42">&lt;title&gt;</bpt><ept id="355a751f-f13a-46a8-85b9-811a1cd74c42">&lt;/title&gt;</ept> are global per instrumentation key not scoped to data type.</source>
+          <target state="new"><bpt id="355a751f-f13a-46a8-85b9-811a1cd74c42">&lt;linkText&gt;</bpt>Metrics and property names[api]<ept id="355a751f-f13a-46a8-85b9-811a1cd74c42">&lt;/linkText&gt;</ept><bpt id="355a751f-f13a-46a8-85b9-811a1cd74c42">&lt;title&gt;</bpt><ept id="355a751f-f13a-46a8-85b9-811a1cd74c42">&lt;/title&gt;</ept> are global per instrumentation key not scoped to data type.</target>
+        </trans-unit>
+        <trans-unit id="cfc1ad3a-7c76-47f2-97d5-411c62c4bfee" xml:space="preserve">
+          <source><bpt id="6c28122f-e817-447a-9493-89a86ce22eea">&lt;linkText&gt;</bpt>Properties[apiproperties]<ept id="6c28122f-e817-447a-9493-89a86ce22eea">&lt;/linkText&gt;</ept><bpt id="6c28122f-e817-447a-9493-89a86ce22eea">&lt;title&gt;</bpt><ept id="6c28122f-e817-447a-9493-89a86ce22eea">&lt;/title&gt;</ept> can be used for filtering and group by only while they have less than 100 unique values for each property.</source>
+          <target state="new"><bpt id="6c28122f-e817-447a-9493-89a86ce22eea">&lt;linkText&gt;</bpt>Properties[apiproperties]<ept id="6c28122f-e817-447a-9493-89a86ce22eea">&lt;/linkText&gt;</ept><bpt id="6c28122f-e817-447a-9493-89a86ce22eea">&lt;title&gt;</bpt><ept id="6c28122f-e817-447a-9493-89a86ce22eea">&lt;/title&gt;</ept> can be used for filtering and group by only while they have less than 100 unique values for each property.</target>
+        </trans-unit>
+        <trans-unit id="08223703-2eb7-43d6-b9dd-f11f5781b86d" xml:space="preserve">
+          <source>After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.</source>
+          <target state="new">After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.</target>
+        </trans-unit>
+        <trans-unit id="29e28bdb-e632-4b59-a2b6-2eea6dcba67f" xml:space="preserve">
+          <source>Standard properties such as Request Name and Page URL are limited to 1000 unique values per week.</source>
+          <target state="new">Standard properties such as Request Name and Page URL are limited to 1000 unique values per week.</target>
+        </trans-unit>
+        <trans-unit id="720abd6d-2a85-451f-bc03-45aa9e96c401" xml:space="preserve">
+          <source>After 1000 unique values, additional values are marked as “Other values”.</source>
+          <target state="new">After 1000 unique values, additional values are marked as “Other values”.</target>
+        </trans-unit>
+        <trans-unit id="74f63eea-3fef-4402-9d9b-2652a036e651" xml:space="preserve">
+          <source>The original value can still be used for full text search and filtering.</source>
+          <target state="new">The original value can still be used for full text search and filtering.</target>
+        </trans-unit>
+        <trans-unit id="29d291f7-8272-4d4e-bbaf-00aebee74637" xml:space="preserve">
+          <source>Your pricing tier determines how long data is kept in the portal, and therefore how far back you can set the time ranges.</source>
+          <target state="new">Your pricing tier determines how long data is kept in the portal, and therefore how far back you can set the time ranges.</target>
+        </trans-unit>
+        <trans-unit id="3b70e276-d413-4a1c-9aba-cbe694ab8746" xml:space="preserve">
+          <source>Raw data points (that is, instances that you can inspect in Diagnostic Search): between 7 and 30 days.</source>
+          <target state="new">Raw data points (that is, instances that you can inspect in Diagnostic Search): between 7 and 30 days.</target>
+        </trans-unit>
+        <trans-unit id="71712c37-c626-4ee3-a9c4-0f64aead9c26" xml:space="preserve">
+          <source>Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.</source>
+          <target state="new">Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.</target>
+        </trans-unit>
+        <trans-unit id="7f7120c8-e2aa-4d1c-944f-3f1a94ba0244" xml:space="preserve">
+          <source>Application Insights charges are added to your Azure bill.</source>
+          <target state="new">Application Insights charges are added to your Azure bill.</target>
+        </trans-unit>
+        <trans-unit id="44477ba8-09cf-4538-b0f5-662720c30b05" xml:space="preserve">
+          <source>You can see details of your Azure bill on the Billing section of the Azure portal or in the <bpt id="3aee0769-4405-44aa-82aa-dfdcd9fcb3fc">&lt;linkText&gt;</bpt>Azure Billing Portal<ept id="3aee0769-4405-44aa-82aa-dfdcd9fcb3fc">&lt;/linkText&gt;</ept><bpt id="3aee0769-4405-44aa-82aa-dfdcd9fcb3fc">&lt;title&gt;</bpt><ept id="3aee0769-4405-44aa-82aa-dfdcd9fcb3fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can see details of your Azure bill on the Billing section of the Azure portal or in the <bpt id="3aee0769-4405-44aa-82aa-dfdcd9fcb3fc">&lt;linkText&gt;</bpt>Azure Billing Portal<ept id="3aee0769-4405-44aa-82aa-dfdcd9fcb3fc">&lt;/linkText&gt;</ept><bpt id="3aee0769-4405-44aa-82aa-dfdcd9fcb3fc">&lt;title&gt;</bpt><ept id="3aee0769-4405-44aa-82aa-dfdcd9fcb3fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43ea3b9c-7d69-41bd-8245-61f6e74bc8ff" xml:space="preserve">
+          <source><bpt id="d084e124-e3c2-4589-9e65-c536c1a0fe32">&lt;linkText&gt;</bpt>On the side menu, choose Billing.<ept id="d084e124-e3c2-4589-9e65-c536c1a0fe32">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d084e124-e3c2-4589-9e65-c536c1a0fe32">&lt;linkText&gt;</bpt>On the side menu, choose Billing.<ept id="d084e124-e3c2-4589-9e65-c536c1a0fe32">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ee8bf6b-edac-4222-a1da-f751c6eb9a51" xml:space="preserve">
+          <source><bpt id="9852184a-8ef1-46c2-9228-63cc96044b9a">&lt;token href="../../includes/application-insights-limits.md"&gt;</bpt><ept id="9852184a-8ef1-46c2-9228-63cc96044b9a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9852184a-8ef1-46c2-9228-63cc96044b9a">&lt;token href="../../includes/application-insights-limits.md"&gt;</bpt><ept id="9852184a-8ef1-46c2-9228-63cc96044b9a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2486844-e025-4394-bce9-c258ad1ff40f" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="b6be0f0b-6f24-4ec3-8a50-0c3b58f5dee5" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md#properties</source>
+          <target state="new">app-insights-api-custom-events-metrics.md#properties</target>
+        </trans-unit>
+        <trans-unit id="1a09b2af-42f8-4072-a485-4d6c91326855" xml:space="preserve">
+          <source>app-insights-get-started.md</source>
+          <target state="new">app-insights-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="ddc61d72-d0b5-451a-b71a-c7e4c6148404" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/details/application-insights/</source>
+          <target state="new">http://azure.microsoft.com/pricing/details/application-insights/</target>
+        </trans-unit>
+      </group>
+      <group id="c468cfd6-3606-45eb-acc7-818b42a333f2" />
+    </body>
+  </file>
+</xliff>

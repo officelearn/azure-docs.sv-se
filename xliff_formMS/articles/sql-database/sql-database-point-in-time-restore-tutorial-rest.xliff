@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3598650c-6351-420e-b406-d48a37b34aa6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3598650c-6351-420e-b406-d48a37b34aa6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="acd9898a-90f4-4ae1-a920-e5fbd9045600">
+        <trans-unit id="707674ae-11c0-46ea-8675-b5d0897b28c1" xml:space="preserve">
+          <source>Restore an Azure SQL database using Point in Time Restore with REST API</source>
+          <target state="new">Restore an Azure SQL database using Point in Time Restore with REST API</target>
+        </trans-unit>
+        <trans-unit id="131afb3c-f404-4aaf-bbc3-7e7f4a774e97" xml:space="preserve">
+          <source>Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, REST API</source>
+          <target state="new">Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, REST API</target>
+        </trans-unit>
+        <trans-unit id="8ff02ac7-99e7-437d-a68d-d33c59c846c0" xml:space="preserve">
+          <source>This guide shows you how to restore an Azure SQL database using Point in Time Restore with REST API.</source>
+          <target state="new">This guide shows you how to restore an Azure SQL database using Point in Time Restore with REST API.</target>
+        </trans-unit>
+        <trans-unit id="0aeee3d0-a3f1-4e4c-b222-1b9e3600450d" xml:space="preserve">
+          <source>Links to more detailed operations are provided.</source>
+          <target state="new">Links to more detailed operations are provided.</target>
+        </trans-unit>
+        <trans-unit id="2d32fa3c-dd55-4b34-9cb3-82faeb47ab39" xml:space="preserve">
+          <source>Point in Time Restore creates a new database.</source>
+          <target state="new">Point in Time Restore creates a new database.</target>
+        </trans-unit>
+        <trans-unit id="3c5728b6-4de1-4f81-a1eb-651bcef81157" xml:space="preserve">
+          <source>The service automatically selects the service tier based on the backup used at the restore point.</source>
+          <target state="new">The service automatically selects the service tier based on the backup used at the restore point.</target>
+        </trans-unit>
+        <trans-unit id="6d32d99e-f3ce-490b-b633-ae43d4cf1ae4" xml:space="preserve">
+          <source>Make sure you have available quota on the logical server to create another database.</source>
+          <target state="new">Make sure you have available quota on the logical server to create another database.</target>
+        </trans-unit>
+        <trans-unit id="b365c7bb-c55b-474d-a4fc-99b0d3c70864" xml:space="preserve">
+          <source>If you'd like to request an increased quota, contact <bpt id="c93cf4a4-a73c-478d-8735-5f49fca02f29">&lt;linkText&gt;</bpt>Azure Support<ept id="c93cf4a4-a73c-478d-8735-5f49fca02f29">&lt;/linkText&gt;</ept><bpt id="c93cf4a4-a73c-478d-8735-5f49fca02f29">&lt;title&gt;</bpt><ept id="c93cf4a4-a73c-478d-8735-5f49fca02f29">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you'd like to request an increased quota, contact <bpt id="c93cf4a4-a73c-478d-8735-5f49fca02f29">&lt;linkText&gt;</bpt>Azure Support<ept id="c93cf4a4-a73c-478d-8735-5f49fca02f29">&lt;/linkText&gt;</ept><bpt id="c93cf4a4-a73c-478d-8735-5f49fca02f29">&lt;title&gt;</bpt><ept id="c93cf4a4-a73c-478d-8735-5f49fca02f29">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4134ac4-67e0-473a-ab8d-b2bff52c395c" xml:space="preserve">
+          <source>See <bpt id="dc40b41c-7fe0-4c2e-b555-385a7e37df60">&lt;linkText&gt;</bpt>Restore an Azure SQL database using Point in Time Restore in the Azure portal<ept id="dc40b41c-7fe0-4c2e-b555-385a7e37df60">&lt;/linkText&gt;</ept><bpt id="dc40b41c-7fe0-4c2e-b555-385a7e37df60">&lt;title&gt;</bpt><ept id="dc40b41c-7fe0-4c2e-b555-385a7e37df60">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="dc40b41c-7fe0-4c2e-b555-385a7e37df60">&lt;linkText&gt;</bpt>Restore an Azure SQL database using Point in Time Restore in the Azure portal<ept id="dc40b41c-7fe0-4c2e-b555-385a7e37df60">&lt;/linkText&gt;</ept><bpt id="dc40b41c-7fe0-4c2e-b555-385a7e37df60">&lt;title&gt;</bpt><ept id="dc40b41c-7fe0-4c2e-b555-385a7e37df60">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89d60bb7-ae14-49a6-8c0f-975f20403a02" xml:space="preserve">
+          <source>Get the database you want to restore using the <bpt id="45763118-c667-46c6-9a53-2eb3bc913948">&lt;linkText&gt;</bpt>Get Database<ept id="45763118-c667-46c6-9a53-2eb3bc913948">&lt;/linkText&gt;</ept><bpt id="45763118-c667-46c6-9a53-2eb3bc913948">&lt;title&gt;</bpt><ept id="45763118-c667-46c6-9a53-2eb3bc913948">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Get the database you want to restore using the <bpt id="45763118-c667-46c6-9a53-2eb3bc913948">&lt;linkText&gt;</bpt>Get Database<ept id="45763118-c667-46c6-9a53-2eb3bc913948">&lt;/linkText&gt;</ept><bpt id="45763118-c667-46c6-9a53-2eb3bc913948">&lt;title&gt;</bpt><ept id="45763118-c667-46c6-9a53-2eb3bc913948">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="b07ebb64-6fcc-49d3-8b94-c83c02f6d2dd" xml:space="preserve">
+          <source>Create the restore request using the <bpt id="2da2104b-762c-4602-b8ba-fce37e05c569">&lt;linkText&gt;</bpt>Create Database Restore Request<ept id="2da2104b-762c-4602-b8ba-fce37e05c569">&lt;/linkText&gt;</ept><bpt id="2da2104b-762c-4602-b8ba-fce37e05c569">&lt;title&gt;</bpt><ept id="2da2104b-762c-4602-b8ba-fce37e05c569">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Create the restore request using the <bpt id="2da2104b-762c-4602-b8ba-fce37e05c569">&lt;linkText&gt;</bpt>Create Database Restore Request<ept id="2da2104b-762c-4602-b8ba-fce37e05c569">&lt;/linkText&gt;</ept><bpt id="2da2104b-762c-4602-b8ba-fce37e05c569">&lt;title&gt;</bpt><ept id="2da2104b-762c-4602-b8ba-fce37e05c569">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="96daac6c-fa36-42d7-9449-6528b0c188c6" xml:space="preserve">
+          <source>Track the restore request using the <bpt id="28bb82ee-89fc-4519-83fb-d23845f74ff6">&lt;linkText&gt;</bpt>Database Operation Status<ept id="28bb82ee-89fc-4519-83fb-d23845f74ff6">&lt;/linkText&gt;</ept><bpt id="28bb82ee-89fc-4519-83fb-d23845f74ff6">&lt;title&gt;</bpt><ept id="28bb82ee-89fc-4519-83fb-d23845f74ff6">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Track the restore request using the <bpt id="28bb82ee-89fc-4519-83fb-d23845f74ff6">&lt;linkText&gt;</bpt>Database Operation Status<ept id="28bb82ee-89fc-4519-83fb-d23845f74ff6">&lt;/linkText&gt;</ept><bpt id="28bb82ee-89fc-4519-83fb-d23845f74ff6">&lt;title&gt;</bpt><ept id="28bb82ee-89fc-4519-83fb-d23845f74ff6">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="eeaee48b-b522-45b5-a907-7bc5309f92c5" xml:space="preserve">
+          <source>For more information, see the following: </source>
+          <target state="new">For more information, see the following: </target>
+        </trans-unit>
+        <trans-unit id="ee3ab1a8-9c5e-4635-8405-5ba6ef42f8e8" xml:space="preserve">
+          <source><bpt id="521275ef-fb2e-40b0-98af-314cef95c649">&lt;linkText&gt;</bpt>Azure SQL Database Business Continuity<ept id="521275ef-fb2e-40b0-98af-314cef95c649">&lt;/linkText&gt;</ept><bpt id="521275ef-fb2e-40b0-98af-314cef95c649">&lt;title&gt;</bpt><ept id="521275ef-fb2e-40b0-98af-314cef95c649">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="521275ef-fb2e-40b0-98af-314cef95c649">&lt;linkText&gt;</bpt>Azure SQL Database Business Continuity<ept id="521275ef-fb2e-40b0-98af-314cef95c649">&lt;/linkText&gt;</ept><bpt id="521275ef-fb2e-40b0-98af-314cef95c649">&lt;title&gt;</bpt><ept id="521275ef-fb2e-40b0-98af-314cef95c649">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94b09138-298d-4900-9ba8-5ba4c91343b0" xml:space="preserve">
+          <source><bpt id="6d460f90-e8e3-408a-bf31-d31969982a21">&lt;linkText&gt;</bpt>Azure SQL Database Backup and Restore<ept id="6d460f90-e8e3-408a-bf31-d31969982a21">&lt;/linkText&gt;</ept><bpt id="6d460f90-e8e3-408a-bf31-d31969982a21">&lt;title&gt;</bpt><ept id="6d460f90-e8e3-408a-bf31-d31969982a21">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6d460f90-e8e3-408a-bf31-d31969982a21">&lt;linkText&gt;</bpt>Azure SQL Database Backup and Restore<ept id="6d460f90-e8e3-408a-bf31-d31969982a21">&lt;/linkText&gt;</ept><bpt id="6d460f90-e8e3-408a-bf31-d31969982a21">&lt;title&gt;</bpt><ept id="6d460f90-e8e3-408a-bf31-d31969982a21">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98e48c6b-d83a-40da-8768-47d8a6907fd1" xml:space="preserve">
+          <source><bpt id="b718bf8e-4590-44d1-9ad6-0b54144da647">&lt;linkText&gt;</bpt>Azure SQL Database Point in Time Restore (blog)<ept id="b718bf8e-4590-44d1-9ad6-0b54144da647">&lt;/linkText&gt;</ept><bpt id="b718bf8e-4590-44d1-9ad6-0b54144da647">&lt;title&gt;</bpt><ept id="b718bf8e-4590-44d1-9ad6-0b54144da647">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b718bf8e-4590-44d1-9ad6-0b54144da647">&lt;linkText&gt;</bpt>Azure SQL Database Point in Time Restore (blog)<ept id="b718bf8e-4590-44d1-9ad6-0b54144da647">&lt;/linkText&gt;</ept><bpt id="b718bf8e-4590-44d1-9ad6-0b54144da647">&lt;title&gt;</bpt><ept id="b718bf8e-4590-44d1-9ad6-0b54144da647">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a7255ff-087c-4c97-9239-e67208718bf5" xml:space="preserve">
+          <source><bpt id="656faff8-e351-472a-af5e-b15850d11ee3">&lt;linkText&gt;</bpt>Service Management REST API Reference<ept id="656faff8-e351-472a-af5e-b15850d11ee3">&lt;/linkText&gt;</ept><bpt id="656faff8-e351-472a-af5e-b15850d11ee3">&lt;title&gt;</bpt><ept id="656faff8-e351-472a-af5e-b15850d11ee3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="656faff8-e351-472a-af5e-b15850d11ee3">&lt;linkText&gt;</bpt>Service Management REST API Reference<ept id="656faff8-e351-472a-af5e-b15850d11ee3">&lt;/linkText&gt;</ept><bpt id="656faff8-e351-472a-af5e-b15850d11ee3">&lt;title&gt;</bpt><ept id="656faff8-e351-472a-af5e-b15850d11ee3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

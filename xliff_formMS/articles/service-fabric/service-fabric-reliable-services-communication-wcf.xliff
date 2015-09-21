@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="257e4a9c-643f-46c6-8686-443da8796075" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="257e4a9c-643f-46c6-8686-443da8796075" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7dcb6b7e-47c2-4de5-8a92-247d1b3840d6">
+        <trans-unit id="1e5a5057-1f58-4eb9-a43d-45a581d01f83" xml:space="preserve">
+          <source>WCF based Communication stack provided by Reliable Services API</source>
+          <target state="new">WCF based Communication stack provided by Reliable Services API</target>
+        </trans-unit>
+        <trans-unit id="f6d384d9-76a6-475e-b96d-66a8593a373f" xml:space="preserve">
+          <source>This article describes the WCF based communication stack provided by the Reliable Service's api.</source>
+          <target state="new">This article describes the WCF based communication stack provided by the Reliable Service's api.</target>
+        </trans-unit>
+        <trans-unit id="279acb70-8ea4-4c6e-950f-293041847bc3" xml:space="preserve">
+          <source>Reliable services framework allows Service authors to decide the communication stack they want to use for their service.</source>
+          <target state="new">Reliable services framework allows Service authors to decide the communication stack they want to use for their service.</target>
+        </trans-unit>
+        <trans-unit id="366fdbe1-2c8d-4e14-8385-1ae3ddb6f1fa" xml:space="preserve">
+          <source>They can plugin the communication stack of their choice via the <bpt id="49a545cb-6ac1-4b88-86a2-a839b24e70a9">&lt;code&gt;</bpt>ICommunicationListener<ept id="49a545cb-6ac1-4b88-86a2-a839b24e70a9">&lt;/code&gt;</ept> returned from the [<bpt id="9e182e21-a566-47ad-96d8-93aa81c7d4d3">&lt;code&gt;</bpt>CreateCommunicationListener<ept id="9e182e21-a566-47ad-96d8-93aa81c7d4d3">&lt;/code&gt;</ept>](../service-fabric-reliable-service-communication.md) method.</source>
+          <target state="new">They can plugin the communication stack of their choice via the <bpt id="49a545cb-6ac1-4b88-86a2-a839b24e70a9">&lt;code&gt;</bpt>ICommunicationListener<ept id="49a545cb-6ac1-4b88-86a2-a839b24e70a9">&lt;/code&gt;</ept> returned from the [<bpt id="9e182e21-a566-47ad-96d8-93aa81c7d4d3">&lt;code&gt;</bpt>CreateCommunicationListener<ept id="9e182e21-a566-47ad-96d8-93aa81c7d4d3">&lt;/code&gt;</ept>](../service-fabric-reliable-service-communication.md) method.</target>
+        </trans-unit>
+        <trans-unit id="28c6a298-1613-4a4c-9a55-6b52c8a86886" xml:space="preserve">
+          <source>The framework provides a WCF based implementation of the communication stack, for service authors who want to use WCF based communication.</source>
+          <target state="new">The framework provides a WCF based implementation of the communication stack, for service authors who want to use WCF based communication.</target>
+        </trans-unit>
+        <trans-unit id="8dc32de9-c9de-4722-b71b-7cde5e4d033c" xml:space="preserve">
+          <source>The WCF specific implementation of <bpt id="e53eb404-e883-41fc-84ee-0332fe9bba70">&lt;code&gt;</bpt>ICommunicationListener<ept id="e53eb404-e883-41fc-84ee-0332fe9bba70">&lt;/code&gt;</ept> is provided by the <bpt id="f313ce2d-a2f3-4362-840c-af6ef1fb0760">&lt;code&gt;</bpt>WcfCommunicationListener<ept id="f313ce2d-a2f3-4362-840c-af6ef1fb0760">&lt;/code&gt;</ept> class.</source>
+          <target state="new">The WCF specific implementation of <bpt id="e53eb404-e883-41fc-84ee-0332fe9bba70">&lt;code&gt;</bpt>ICommunicationListener<ept id="e53eb404-e883-41fc-84ee-0332fe9bba70">&lt;/code&gt;</ept> is provided by the <bpt id="f313ce2d-a2f3-4362-840c-af6ef1fb0760">&lt;code&gt;</bpt>WcfCommunicationListener<ept id="f313ce2d-a2f3-4362-840c-af6ef1fb0760">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="cd2a233b-3a11-47c3-bdf4-4cd27350ba69" xml:space="preserve">
+          <source>For writing clients to communicate with services using WCF, the framework provides <bpt id="3e64d181-22a8-43b8-83a1-ed83d107410f">&lt;code&gt;</bpt>WcfClientCommunicationFactory<ept id="3e64d181-22a8-43b8-83a1-ed83d107410f">&lt;/code&gt;</ept>, which is the WCF specific implementation of [<bpt id="aa35c0a2-006e-4e57-bbe4-93dfa528231d">&lt;code&gt;</bpt>ClientCommunicationFactoryBase<ept id="aa35c0a2-006e-4e57-bbe4-93dfa528231d">&lt;/code&gt;</ept>](../service-fabric-reliable-service-communication.md).</source>
+          <target state="new">For writing clients to communicate with services using WCF, the framework provides <bpt id="3e64d181-22a8-43b8-83a1-ed83d107410f">&lt;code&gt;</bpt>WcfClientCommunicationFactory<ept id="3e64d181-22a8-43b8-83a1-ed83d107410f">&lt;/code&gt;</ept>, which is the WCF specific implementation of [<bpt id="aa35c0a2-006e-4e57-bbe4-93dfa528231d">&lt;code&gt;</bpt>ClientCommunicationFactoryBase<ept id="aa35c0a2-006e-4e57-bbe4-93dfa528231d">&lt;/code&gt;</ept>](../service-fabric-reliable-service-communication.md).</target>
+        </trans-unit>
+        <trans-unit id="974c2fb2-b661-471e-b744-8e845873fdb2" xml:space="preserve">
+          <source>The WCF communication channel can be accessed from the <bpt id="316ce378-9f84-4571-9930-c17c21f4e023">&lt;code&gt;</bpt>WcfCommunicationClient<ept id="316ce378-9f84-4571-9930-c17c21f4e023">&lt;/code&gt;</ept> created by the <bpt id="a05e244e-758d-4460-8ba7-01674576d1ff">&lt;code&gt;</bpt>WcfCommunicationClientFactory<ept id="a05e244e-758d-4460-8ba7-01674576d1ff">&lt;/code&gt;</ept></source>
+          <target state="new">The WCF communication channel can be accessed from the <bpt id="316ce378-9f84-4571-9930-c17c21f4e023">&lt;code&gt;</bpt>WcfCommunicationClient<ept id="316ce378-9f84-4571-9930-c17c21f4e023">&lt;/code&gt;</ept> created by the <bpt id="a05e244e-758d-4460-8ba7-01674576d1ff">&lt;code&gt;</bpt>WcfCommunicationClientFactory<ept id="a05e244e-758d-4460-8ba7-01674576d1ff">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b8f3e6a-e604-418e-a2d3-42f086b677d9" xml:space="preserve">
+          <source>Client code can use the <bpt id="91007c74-dc53-4e7c-a121-3c0ff47a05d9">&lt;code&gt;</bpt>WcfCommunicationClientFactory<ept id="91007c74-dc53-4e7c-a121-3c0ff47a05d9">&lt;/code&gt;</ept> along with the <bpt id="83376af8-6b06-4c93-9ba6-00afc2fa37ff">&lt;code&gt;</bpt>ServicePartitionClient<ept id="83376af8-6b06-4c93-9ba6-00afc2fa37ff">&lt;/code&gt;</ept> to determine the service endpoint and make communicate with the service.</source>
+          <target state="new">Client code can use the <bpt id="91007c74-dc53-4e7c-a121-3c0ff47a05d9">&lt;code&gt;</bpt>WcfCommunicationClientFactory<ept id="91007c74-dc53-4e7c-a121-3c0ff47a05d9">&lt;/code&gt;</ept> along with the <bpt id="83376af8-6b06-4c93-9ba6-00afc2fa37ff">&lt;code&gt;</bpt>ServicePartitionClient<ept id="83376af8-6b06-4c93-9ba6-00afc2fa37ff">&lt;/code&gt;</ept> to determine the service endpoint and make communicate with the service.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

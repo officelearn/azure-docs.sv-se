@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="47300669-3ed9-4ea6-a137-cb0b26a6e011" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="47300669-3ed9-4ea6-a137-cb0b26a6e011" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="97413681-bd28-482c-91aa-f9d8452093ed">
+        <trans-unit id="50184791-c472-455c-81d4-ce8a44339f61" xml:space="preserve">
+          <source>How To Configure TLS Mutual Authentication for Web App</source>
+          <target state="new">How To Configure TLS Mutual Authentication for Web App</target>
+        </trans-unit>
+        <trans-unit id="f794581c-dfa8-417e-b78e-bf310657ed28" xml:space="preserve">
+          <source>Learn how to configure your web app to use client certificate authentication on TLS.</source>
+          <target state="new">Learn how to configure your web app to use client certificate authentication on TLS.</target>
+        </trans-unit>
+        <trans-unit id="2391a39b-ed7a-4d56-b56c-42d42be10530" xml:space="preserve">
+          <source>You can restrict access to your Azure web app by enabling different types of authentication for it.</source>
+          <target state="new">You can restrict access to your Azure web app by enabling different types of authentication for it.</target>
+        </trans-unit>
+        <trans-unit id="5100aa55-32ce-40b4-9a2a-3b2b11a63439" xml:space="preserve">
+          <source>One way to do so is to authenticate using a client certificate when the request is over TLS/SSL.</source>
+          <target state="new">One way to do so is to authenticate using a client certificate when the request is over TLS/SSL.</target>
+        </trans-unit>
+        <trans-unit id="1f335944-7e5e-4745-87d6-43ee05a24eed" xml:space="preserve">
+          <source>This mechanism is called TLS mutual authentication or client certificate authentication and this article will detail how to setup your web app to use client certificate authentication.</source>
+          <target state="new">This mechanism is called TLS mutual authentication or client certificate authentication and this article will detail how to setup your web app to use client certificate authentication.</target>
+        </trans-unit>
+        <trans-unit id="1749bda7-7307-40f3-a147-b679f0453063" xml:space="preserve">
+          <source>To setup your web app to require client certificates you need to add the clientCertEnabled site setting for your web app and set it to true.</source>
+          <target state="new">To setup your web app to require client certificates you need to add the clientCertEnabled site setting for your web app and set it to true.</target>
+        </trans-unit>
+        <trans-unit id="badee5a2-1505-4a4b-8c54-e6f597549b4b" xml:space="preserve">
+          <source>This setting is not currently available through the management experience in the portal, and the REST API will need to be used to accomplish this.</source>
+          <target state="new">This setting is not currently available through the management experience in the portal, and the REST API will need to be used to accomplish this.</target>
+        </trans-unit>
+        <trans-unit id="335689bb-6437-4836-a5ba-7ad6282de01f" xml:space="preserve">
+          <source>You can use the <bpt id="901de478-4fcd-4e2b-ae02-610bdfb4f0e2">&lt;linkText&gt;</bpt>ARMClient tool<ept id="901de478-4fcd-4e2b-ae02-610bdfb4f0e2">&lt;/linkText&gt;</ept><bpt id="901de478-4fcd-4e2b-ae02-610bdfb4f0e2">&lt;title&gt;</bpt><ept id="901de478-4fcd-4e2b-ae02-610bdfb4f0e2">&lt;/title&gt;</ept> to make it easy to craft the REST API call.</source>
+          <target state="new">You can use the <bpt id="901de478-4fcd-4e2b-ae02-610bdfb4f0e2">&lt;linkText&gt;</bpt>ARMClient tool<ept id="901de478-4fcd-4e2b-ae02-610bdfb4f0e2">&lt;/linkText&gt;</ept><bpt id="901de478-4fcd-4e2b-ae02-610bdfb4f0e2">&lt;title&gt;</bpt><ept id="901de478-4fcd-4e2b-ae02-610bdfb4f0e2">&lt;/title&gt;</ept> to make it easy to craft the REST API call.</target>
+        </trans-unit>
+        <trans-unit id="7c81d3b8-1788-49be-8be1-ad89f9879385" xml:space="preserve">
+          <source>After you log in with the tool you will need to issue the following command:</source>
+          <target state="new">After you log in with the tool you will need to issue the following command:</target>
+        </trans-unit>
+        <trans-unit id="15c05f8e-2943-4d1e-b23c-bb6629ab5c60" xml:space="preserve">
+          <source>replacing everything in {} with information for your web app and creating a file called enableclientcert.json with the following JSON content:</source>
+          <target state="new">replacing everything in {} with information for your web app and creating a file called enableclientcert.json with the following JSON content:</target>
+        </trans-unit>
+        <trans-unit id="617b2a81-bb57-4063-a9fa-b155524dae34" xml:space="preserve">
+          <source>{
+  "location": "My Web App Location",   
+  "properties": 
+  {  
+    "clientCertEnabled": true
+  }
+}  </source>
+          <target state="new">{
+  "location": "My Web App Location",   
+  "properties": 
+  {  
+    "clientCertEnabled": true
+  }
+}  </target>
+        </trans-unit>
+        <trans-unit id="4a0fd505-927e-437d-934d-5019061903d6" xml:space="preserve">
+          <source>Make sure to change the value of "location" to wherever your web app is located e.g. North Central US or West US etc.</source>
+          <target state="new">Make sure to change the value of "location" to wherever your web app is located e.g. North Central US or West US etc.</target>
+        </trans-unit>
+        <trans-unit id="3805eb9f-9bac-4c79-bfd0-a8637cb450ec" xml:space="preserve">
+          <source>When your web app is configured to use client certificate authentication, the client cert will be available in your app through a base64 encoded value in the "X-ARR-ClientCert" request header.</source>
+          <target state="new">When your web app is configured to use client certificate authentication, the client cert will be available in your app through a base64 encoded value in the "X-ARR-ClientCert" request header.</target>
+        </trans-unit>
+        <trans-unit id="788572b2-fbd8-4723-9a62-25093a94f5c0" xml:space="preserve">
+          <source>Your application can create a certificate from this value and then use it for authentication and authorization purposes in your application.</source>
+          <target state="new">Your application can create a certificate from this value and then use it for authentication and authorization purposes in your application.</target>
+        </trans-unit>
+        <trans-unit id="3ce9fc84-8cdd-4b87-822a-5e3ddb0da5bf" xml:space="preserve">
+          <source>The client certificate that is sent to the application does not go through any validation by the Azure Web Apps platform.</source>
+          <target state="new">The client certificate that is sent to the application does not go through any validation by the Azure Web Apps platform.</target>
+        </trans-unit>
+        <trans-unit id="6d09a677-c213-40fc-b0a5-6536903ed302" xml:space="preserve">
+          <source>Validating this certificate is the responsibility of the web app.</source>
+          <target state="new">Validating this certificate is the responsibility of the web app.</target>
+        </trans-unit>
+        <trans-unit id="cf195552-1983-4a17-93cf-75c1d2ac3336" xml:space="preserve">
+          <source>Here is sample ASP.NET code that validates certificate properties for authentication purposes.</source>
+          <target state="new">Here is sample ASP.NET code that validates certificate properties for authentication purposes.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

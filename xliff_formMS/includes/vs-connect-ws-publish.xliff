@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="28cf5c04-676b-4555-8096-04eb08009cdd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="28cf5c04-676b-4555-8096-04eb08009cdd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="67326202-3d1f-439f-a599-e0d64c7a733c">
+        <trans-unit id="20b00915-a516-422e-9879-d2af068d5730" xml:space="preserve">
+          <source>Click <bpt id="96d8f956-0b06-4714-81d7-92644df3cdd9">&lt;strong&gt;</bpt>Sign In<ept id="96d8f956-0b06-4714-81d7-92644df3cdd9">&lt;/strong&gt;</ept>, and then enter the credentials for your Azure account.</source>
+          <target state="new">Click <bpt id="96d8f956-0b06-4714-81d7-92644df3cdd9">&lt;strong&gt;</bpt>Sign In<ept id="96d8f956-0b06-4714-81d7-92644df3cdd9">&lt;/strong&gt;</ept>, and then enter the credentials for your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="9f7286c2-2e35-43e5-bef3-a3f06b9b006e" xml:space="preserve">
+          <source> This method is quicker and easier, but if you use this method you won't be able to see Azure SQL Database or Mobile Services in the <bpt id="fe2339ac-e472-4d72-a480-70a1e447a08e">&lt;strong&gt;</bpt>Server Explorer<ept id="fe2339ac-e472-4d72-a480-70a1e447a08e">&lt;/strong&gt;</ept> window.</source>
+          <target state="new"> This method is quicker and easier, but if you use this method you won't be able to see Azure SQL Database or Mobile Services in the <bpt id="fe2339ac-e472-4d72-a480-70a1e447a08e">&lt;strong&gt;</bpt>Server Explorer<ept id="fe2339ac-e472-4d72-a480-70a1e447a08e">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="c4f443f1-5a5e-4404-9c45-7265608de868" xml:space="preserve">
+          <source>Click <bpt id="1e3bcb5f-99c5-442c-b766-3dabcc901672">&lt;strong&gt;</bpt>Manage subscriptions<ept id="1e3bcb5f-99c5-442c-b766-3dabcc901672">&lt;/strong&gt;</ept> in order to install a management certificate that enables access to your account.</source>
+          <target state="new">Click <bpt id="1e3bcb5f-99c5-442c-b766-3dabcc901672">&lt;strong&gt;</bpt>Manage subscriptions<ept id="1e3bcb5f-99c5-442c-b766-3dabcc901672">&lt;/strong&gt;</ept> in order to install a management certificate that enables access to your account.</target>
+        </trans-unit>
+        <trans-unit id="a0928508-11fd-4622-bc0d-bbd71a936933" xml:space="preserve">
+          <source>In the <bpt id="76f7b56b-c159-4bd3-9b06-fc18aca8ab99">&lt;strong&gt;</bpt>Manage Azure Subscriptions<ept id="76f7b56b-c159-4bd3-9b06-fc18aca8ab99">&lt;/strong&gt;</ept> dialog box, click the <bpt id="216ab068-4126-446a-b2d7-34beb465573d">&lt;strong&gt;</bpt>Certificates<ept id="216ab068-4126-446a-b2d7-34beb465573d">&lt;/strong&gt;</ept> tab, and then click <bpt id="04653824-f8bd-4f1f-9504-fa7c987747bf">&lt;strong&gt;</bpt>Import<ept id="04653824-f8bd-4f1f-9504-fa7c987747bf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="76f7b56b-c159-4bd3-9b06-fc18aca8ab99">&lt;strong&gt;</bpt>Manage Azure Subscriptions<ept id="76f7b56b-c159-4bd3-9b06-fc18aca8ab99">&lt;/strong&gt;</ept> dialog box, click the <bpt id="216ab068-4126-446a-b2d7-34beb465573d">&lt;strong&gt;</bpt>Certificates<ept id="216ab068-4126-446a-b2d7-34beb465573d">&lt;/strong&gt;</ept> tab, and then click <bpt id="04653824-f8bd-4f1f-9504-fa7c987747bf">&lt;strong&gt;</bpt>Import<ept id="04653824-f8bd-4f1f-9504-fa7c987747bf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1912568-21b3-4f8f-8729-d5dc4966de92" xml:space="preserve">
+          <source>Follow the directions to download and import a subscription file (also called a <bpt id="1184586f-b425-450d-8c2a-9ffb1b65f4c3">&lt;em&gt;</bpt>.publishsettings<ept id="1184586f-b425-450d-8c2a-9ffb1b65f4c3">&lt;/em&gt;</ept> file) for your Azure account.</source>
+          <target state="new">Follow the directions to download and import a subscription file (also called a <bpt id="1184586f-b425-450d-8c2a-9ffb1b65f4c3">&lt;em&gt;</bpt>.publishsettings<ept id="1184586f-b425-450d-8c2a-9ffb1b65f4c3">&lt;/em&gt;</ept> file) for your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="4878dbba-1b38-4b62-8da2-81152eb26f8a" xml:space="preserve">
+          <source>Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed.</source>
+          <target state="new">Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed.</target>
+        </trans-unit>
+        <trans-unit id="950d3ba8-3fed-4749-9eb2-037e9e40f088" xml:space="preserve">
+          <source>A malicious user who gains access to the subscription file can edit, create, and delete your Azure services.</source>
+          <target state="new">A malicious user who gains access to the subscription file can edit, create, and delete your Azure services.</target>
+        </trans-unit>
+        <trans-unit id="afb371a2-2830-4bed-84a8-d5d28f979b78" xml:space="preserve">
+          <source>For more information, see <bpt id="ab821680-93f9-4b2c-aee8-2f1194557db1">&lt;linkText&gt;</bpt>How to Connect to Azure from Visual Studio<ept id="ab821680-93f9-4b2c-aee8-2f1194557db1">&lt;/linkText&gt;</ept><bpt id="ab821680-93f9-4b2c-aee8-2f1194557db1">&lt;title&gt;</bpt><ept id="ab821680-93f9-4b2c-aee8-2f1194557db1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ab821680-93f9-4b2c-aee8-2f1194557db1">&lt;linkText&gt;</bpt>How to Connect to Azure from Visual Studio<ept id="ab821680-93f9-4b2c-aee8-2f1194557db1">&lt;/linkText&gt;</ept><bpt id="ab821680-93f9-4b2c-aee8-2f1194557db1">&lt;title&gt;</bpt><ept id="ab821680-93f9-4b2c-aee8-2f1194557db1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

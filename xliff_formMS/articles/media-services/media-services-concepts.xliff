@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4eaa915a-e621-492f-8984-6af93d6945b0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4eaa915a-e621-492f-8984-6af93d6945b0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bc2ec6c3-1721-4753-b579-4dd8a1955228">
+        <trans-unit id="54ce51a8-47e5-4e5c-bec4-ef21747d86ad" xml:space="preserve">
+          <source>Azure Media Services Concepts</source>
+          <target state="new">Azure Media Services Concepts</target>
+        </trans-unit>
+        <trans-unit id="fcd611cd-83bb-461d-b262-14ea2849dce3" xml:space="preserve">
+          <source>This topic gives an overview of Azure Media Services Concepts</source>
+          <target state="new">This topic gives an overview of Azure Media Services Concepts</target>
+        </trans-unit>
+        <trans-unit id="377c75f1-74dc-4f09-983c-e8fa639ac43d" xml:space="preserve">
+          <source>This topic gives an overview of the most important Media Services concepts.</source>
+          <target state="new">This topic gives an overview of the most important Media Services concepts.</target>
+        </trans-unit>
+        <trans-unit id="51d41aef-175d-4f67-b9bc-a96e21386313" xml:space="preserve">
+          <source>An <bpt id="3d5a58f8-2d9d-4df3-9f73-4ec117d02aaa">&lt;linkText&gt;</bpt>Asset<ept id="3d5a58f8-2d9d-4df3-9f73-4ec117d02aaa">&lt;/linkText&gt;</ept><bpt id="3d5a58f8-2d9d-4df3-9f73-4ec117d02aaa">&lt;title&gt;</bpt><ept id="3d5a58f8-2d9d-4df3-9f73-4ec117d02aaa">&lt;/title&gt;</ept> contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files.</source>
+          <target state="new">An <bpt id="3d5a58f8-2d9d-4df3-9f73-4ec117d02aaa">&lt;linkText&gt;</bpt>Asset<ept id="3d5a58f8-2d9d-4df3-9f73-4ec117d02aaa">&lt;/linkText&gt;</ept><bpt id="3d5a58f8-2d9d-4df3-9f73-4ec117d02aaa">&lt;title&gt;</bpt><ept id="3d5a58f8-2d9d-4df3-9f73-4ec117d02aaa">&lt;/title&gt;</ept> contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files.</target>
+        </trans-unit>
+        <trans-unit id="54f6c6c2-5821-460c-a633-8fc3d2b2cb27" xml:space="preserve">
+          <source>After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.</source>
+          <target state="new">After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.</target>
+        </trans-unit>
+        <trans-unit id="a780f58f-cc8d-4b3c-a46c-f63119acb597" xml:space="preserve">
+          <source>An asset is mapped to a blob container in the Azure Storage account and the files in the asset are stored as blobs in that container.</source>
+          <target state="new">An asset is mapped to a blob container in the Azure Storage account and the files in the asset are stored as blobs in that container.</target>
+        </trans-unit>
+        <trans-unit id="edc434f6-e241-45ef-93d7-01261fbd476c" xml:space="preserve">
+          <source>When deciding what media content to upload and store in an asset, the following considerations apply:</source>
+          <target state="new">When deciding what media content to upload and store in an asset, the following considerations apply:</target>
+        </trans-unit>
+        <trans-unit id="2fc157ec-4c68-402d-89de-cf851cf5ba22" xml:space="preserve">
+          <source>An asset should contain only a single, unique instance of media content.</source>
+          <target state="new">An asset should contain only a single, unique instance of media content.</target>
+        </trans-unit>
+        <trans-unit id="f2374ba7-2c45-4b77-ad66-7c6253e0e8e3" xml:space="preserve">
+          <source>For example, a single edit of a TV episode, movie, or advertisement.</source>
+          <target state="new">For example, a single edit of a TV episode, movie, or advertisement.</target>
+        </trans-unit>
+        <trans-unit id="0e7a264e-52d3-497b-a463-19ce403ef8a6" xml:space="preserve">
+          <source>An asset should not contain multiple renditions or edits of an audiovisual file.</source>
+          <target state="new">An asset should not contain multiple renditions or edits of an audiovisual file.</target>
+        </trans-unit>
+        <trans-unit id="380ec2da-368a-491f-9a05-31c01c011ac3" xml:space="preserve">
+          <source>One example of an improper usage of an Asset would be attempting to store more than one TV episode, advertisement, or multiple camera angles from a single production inside an asset.</source>
+          <target state="new">One example of an improper usage of an Asset would be attempting to store more than one TV episode, advertisement, or multiple camera angles from a single production inside an asset.</target>
+        </trans-unit>
+        <trans-unit id="2b4ce1e3-3bbc-42f6-9493-fc08af9ad05b" xml:space="preserve">
+          <source>Storing multiple renditions or edits of an audiovisual file in an asset can result in difficulties submitting encoding jobs, streaming and securing the delivery of the asset later in the workflow.</source>
+          <target state="new">Storing multiple renditions or edits of an audiovisual file in an asset can result in difficulties submitting encoding jobs, streaming and securing the delivery of the asset later in the workflow.</target>
+        </trans-unit>
+        <trans-unit id="1212f349-860f-4ead-9313-bf931149e1ea" xml:space="preserve">
+          <source>An <bpt id="da8ceb2f-97b0-4eb4-b5ad-aba7c7561f24">&lt;linkText&gt;</bpt>AssetFile<ept id="da8ceb2f-97b0-4eb4-b5ad-aba7c7561f24">&lt;/linkText&gt;</ept><bpt id="da8ceb2f-97b0-4eb4-b5ad-aba7c7561f24">&lt;title&gt;</bpt><ept id="da8ceb2f-97b0-4eb4-b5ad-aba7c7561f24">&lt;/title&gt;</ept> represents an actual video or audio file that is stored in a blob container.</source>
+          <target state="new">An <bpt id="da8ceb2f-97b0-4eb4-b5ad-aba7c7561f24">&lt;linkText&gt;</bpt>AssetFile<ept id="da8ceb2f-97b0-4eb4-b5ad-aba7c7561f24">&lt;/linkText&gt;</ept><bpt id="da8ceb2f-97b0-4eb4-b5ad-aba7c7561f24">&lt;title&gt;</bpt><ept id="da8ceb2f-97b0-4eb4-b5ad-aba7c7561f24">&lt;/title&gt;</ept> represents an actual video or audio file that is stored in a blob container.</target>
+        </trans-unit>
+        <trans-unit id="986ba76e-ab78-4c7e-8b08-66253e220ddc" xml:space="preserve">
+          <source>An asset file is always associated with an asset, and an asset may contain one or many files.</source>
+          <target state="new">An asset file is always associated with an asset, and an asset may contain one or many files.</target>
+        </trans-unit>
+        <trans-unit id="f572eaae-c2d4-41bb-ba4b-aee7b49f2aeb" xml:space="preserve">
+          <source>The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.</source>
+          <target state="new">The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.</target>
+        </trans-unit>
+        <trans-unit id="a1d4cf86-36f1-414d-8fe7-89664edd43fe" xml:space="preserve">
+          <source>The <bpt id="c28f868b-1fa7-4823-a38b-bc5b0685e8d7">&lt;strong&gt;</bpt>AssetFile<ept id="c28f868b-1fa7-4823-a38b-bc5b0685e8d7">&lt;/strong&gt;</ept> instance and the actual media file are two distinct objects.</source>
+          <target state="new">The <bpt id="c28f868b-1fa7-4823-a38b-bc5b0685e8d7">&lt;strong&gt;</bpt>AssetFile<ept id="c28f868b-1fa7-4823-a38b-bc5b0685e8d7">&lt;/strong&gt;</ept> instance and the actual media file are two distinct objects.</target>
+        </trans-unit>
+        <trans-unit id="4a1f0a13-b815-454f-92c7-4976ce2d9660" xml:space="preserve">
+          <source>The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.</source>
+          <target state="new">The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.</target>
+        </trans-unit>
+        <trans-unit id="0ad4bb39-924b-42f3-9253-81286f9bff3c" xml:space="preserve">
+          <source>You should not attempt to change the contents of blob containers that were generated by Media Services without using Media Service APIs.</source>
+          <target state="new">You should not attempt to change the contents of blob containers that were generated by Media Services without using Media Service APIs.</target>
+        </trans-unit>
+        <trans-unit id="9422fcfa-0320-4bb7-9380-1519b25e8126" xml:space="preserve">
+          <source>Depending on the type of content you want to upload, store, and deliver, Media Services provides various encryption options that you can choose from.</source>
+          <target state="new">Depending on the type of content you want to upload, store, and deliver, Media Services provides various encryption options that you can choose from.</target>
+        </trans-unit>
+        <trans-unit id="5bf9e6d8-4e68-444c-bb10-10d58e786c3e" xml:space="preserve">
+          <source><bpt id="020ca852-c195-48f3-9101-531e827d319b">&lt;strong&gt;</bpt>None<ept id="020ca852-c195-48f3-9101-531e827d319b">&lt;/strong&gt;</ept> No encryption is used.</source>
+          <target state="new"><bpt id="020ca852-c195-48f3-9101-531e827d319b">&lt;strong&gt;</bpt>None<ept id="020ca852-c195-48f3-9101-531e827d319b">&lt;/strong&gt;</ept> No encryption is used.</target>
+        </trans-unit>
+        <trans-unit id="3d5a4d24-4df5-4a46-b876-17ab87656cb5" xml:space="preserve">
+          <source>This is the default value.</source>
+          <target state="new">This is the default value.</target>
+        </trans-unit>
+        <trans-unit id="f4d4dc45-e224-4c9a-b605-c8ae698d8d20" xml:space="preserve">
+          <source>Note that when using this option your content is not protected in transit or at rest in storage.</source>
+          <target state="new">Note that when using this option your content is not protected in transit or at rest in storage.</target>
+        </trans-unit>
+        <trans-unit id="6a4f256c-e9ea-4a2b-9a72-8ed117c1eb3f" xml:space="preserve">
+          <source>If you plan to deliver an MP4 using progressive download, use this option to upload your content.</source>
+          <target state="new">If you plan to deliver an MP4 using progressive download, use this option to upload your content.</target>
+        </trans-unit>
+        <trans-unit id="36d94769-4265-4c01-a52d-11be8ad5b4ad" xml:space="preserve">
+          <source><bpt id="455f9582-3dd5-45b4-bdf2-c7901d0527d3">&lt;strong&gt;</bpt>StorageEncrypted<ept id="455f9582-3dd5-45b4-bdf2-c7901d0527d3">&lt;/strong&gt;</ept> – Use this option to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest.</source>
+          <target state="new"><bpt id="455f9582-3dd5-45b4-bdf2-c7901d0527d3">&lt;strong&gt;</bpt>StorageEncrypted<ept id="455f9582-3dd5-45b4-bdf2-c7901d0527d3">&lt;/strong&gt;</ept> – Use this option to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest.</target>
+        </trans-unit>
+        <trans-unit id="793b0625-05e3-4037-9c2b-fa564a4dd59e" xml:space="preserve">
+          <source>Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset.</source>
+          <target state="new">Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset.</target>
+        </trans-unit>
+        <trans-unit id="991603d6-3d57-4bc5-ae6c-bf0c6420bc16" xml:space="preserve">
+          <source>The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.</source>
+          <target state="new">The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.</target>
+        </trans-unit>
+        <trans-unit id="07b40a2a-94d0-4e74-a9da-aa5336d6d064" xml:space="preserve">
+          <source>In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content.</source>
+          <target state="new">In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content.</target>
+        </trans-unit>
+        <trans-unit id="0f37beed-caad-4bd8-9dad-4a386402d962" xml:space="preserve">
+          <source>Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, PlayReady, or no encryption).</source>
+          <target state="new">Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, PlayReady, or no encryption).</target>
+        </trans-unit>
+        <trans-unit id="51051daa-84f3-4c8e-90cc-3c9cc655c117" xml:space="preserve">
+          <source><bpt id="8969997e-a298-4604-a8bf-8362dc383873">&lt;strong&gt;</bpt>CommonEncryptionProtected<ept id="8969997e-a298-4604-a8bf-8362dc383873">&lt;/strong&gt;</ept> - Use this option if you want to encrypt (or upload already encrypted) content with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).</source>
+          <target state="new"><bpt id="8969997e-a298-4604-a8bf-8362dc383873">&lt;strong&gt;</bpt>CommonEncryptionProtected<ept id="8969997e-a298-4604-a8bf-8362dc383873">&lt;/strong&gt;</ept> - Use this option if you want to encrypt (or upload already encrypted) content with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).</target>
+        </trans-unit>
+        <trans-unit id="2481371a-1179-49e1-b415-170a38f31ff9" xml:space="preserve">
+          <source><bpt id="cf49452a-cb72-41b7-8407-84a0242ea4a0">&lt;strong&gt;</bpt>EnvelopeEncryptionProtected<ept id="cf49452a-cb72-41b7-8407-84a0242ea4a0">&lt;/strong&gt;</ept> – Use this option if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES).</source>
+          <target state="new"><bpt id="cf49452a-cb72-41b7-8407-84a0242ea4a0">&lt;strong&gt;</bpt>EnvelopeEncryptionProtected<ept id="cf49452a-cb72-41b7-8407-84a0242ea4a0">&lt;/strong&gt;</ept> – Use this option if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES).</target>
+        </trans-unit>
+        <trans-unit id="7f7d2256-772d-424c-b48b-c3e905f8011a" xml:space="preserve">
+          <source>Note that if you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.</source>
+          <target state="new">Note that if you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.</target>
+        </trans-unit>
+        <trans-unit id="f24a18db-2159-4e37-a2ad-d9b63480545c" xml:space="preserve">
+          <source>An <bpt id="e32a1b8d-64cd-41f8-8fb4-1feb76e8e406">&lt;linkText&gt;</bpt>AccessPolicy<ept id="e32a1b8d-64cd-41f8-8fb4-1feb76e8e406">&lt;/linkText&gt;</ept><bpt id="e32a1b8d-64cd-41f8-8fb4-1feb76e8e406">&lt;title&gt;</bpt><ept id="e32a1b8d-64cd-41f8-8fb4-1feb76e8e406">&lt;/title&gt;</ept> defines permissions (like read, write, and list) and duration of access to an asset.</source>
+          <target state="new">An <bpt id="e32a1b8d-64cd-41f8-8fb4-1feb76e8e406">&lt;linkText&gt;</bpt>AccessPolicy<ept id="e32a1b8d-64cd-41f8-8fb4-1feb76e8e406">&lt;/linkText&gt;</ept><bpt id="e32a1b8d-64cd-41f8-8fb4-1feb76e8e406">&lt;title&gt;</bpt><ept id="e32a1b8d-64cd-41f8-8fb4-1feb76e8e406">&lt;/title&gt;</ept> defines permissions (like read, write, and list) and duration of access to an asset.</target>
+        </trans-unit>
+        <trans-unit id="71eee2f0-11ca-402e-af0f-3495b98efd0e" xml:space="preserve">
+          <source>You would usually pass an AccessPolicy object to a locator that would then be used to access the files contained in an asset.</source>
+          <target state="new">You would usually pass an AccessPolicy object to a locator that would then be used to access the files contained in an asset.</target>
+        </trans-unit>
+        <trans-unit id="dba538c3-6c74-4229-be20-06c530cb6280" xml:space="preserve">
+          <source>A blob container provides a grouping of a set of blobs.</source>
+          <target state="new">A blob container provides a grouping of a set of blobs.</target>
+        </trans-unit>
+        <trans-unit id="d368c70b-a2f1-4d3d-8ec1-1bce8ec9e075" xml:space="preserve">
+          <source>Blob containers are used in Media Services as boundary point for access control, and Shared Access Signature (SAS) locators on assets.</source>
+          <target state="new">Blob containers are used in Media Services as boundary point for access control, and Shared Access Signature (SAS) locators on assets.</target>
+        </trans-unit>
+        <trans-unit id="4dae116f-45d2-4341-9701-ffeb7f5478f2" xml:space="preserve">
+          <source>An Azure Storage account can contain an unlimited number of blob containers.</source>
+          <target state="new">An Azure Storage account can contain an unlimited number of blob containers.</target>
+        </trans-unit>
+        <trans-unit id="093d3e97-fb1c-480a-b22d-6bcdc2d9aef1" xml:space="preserve">
+          <source>A container can store an unlimited number of blobs.</source>
+          <target state="new">A container can store an unlimited number of blobs.</target>
+        </trans-unit>
+        <trans-unit id="dfce27ad-6191-4e50-9d7d-134da25ea3be" xml:space="preserve">
+          <source>You should not attempt to change the contents of blob containers that were generated by Media Services without using Media Service APIs.</source>
+          <target state="new">You should not attempt to change the contents of blob containers that were generated by Media Services without using Media Service APIs.</target>
+        </trans-unit>
+        <trans-unit id="fd5c10a7-1e56-4cca-bbd6-b61bf71575f3" xml:space="preserve">
+          <source><bpt id="81611689-b2ae-444d-86be-e480a9b7a389">&lt;linkText&gt;</bpt>Locator<ept id="81611689-b2ae-444d-86be-e480a9b7a389">&lt;/linkText&gt;</ept><bpt id="81611689-b2ae-444d-86be-e480a9b7a389">&lt;title&gt;</bpt><ept id="81611689-b2ae-444d-86be-e480a9b7a389">&lt;/title&gt;</ept>s provide an entry point to access the files contained in an asset.</source>
+          <target state="new"><bpt id="81611689-b2ae-444d-86be-e480a9b7a389">&lt;linkText&gt;</bpt>Locator<ept id="81611689-b2ae-444d-86be-e480a9b7a389">&lt;/linkText&gt;</ept><bpt id="81611689-b2ae-444d-86be-e480a9b7a389">&lt;title&gt;</bpt><ept id="81611689-b2ae-444d-86be-e480a9b7a389">&lt;/title&gt;</ept>s provide an entry point to access the files contained in an asset.</target>
+        </trans-unit>
+        <trans-unit id="031327c2-1780-475d-8368-4ca055099b53" xml:space="preserve">
+          <source>An access policy is used to define the permissions and duration that a client has access to a given asset.</source>
+          <target state="new">An access policy is used to define the permissions and duration that a client has access to a given asset.</target>
+        </trans-unit>
+        <trans-unit id="1563fe6c-46a6-426b-bb0f-105db262c113" xml:space="preserve">
+          <source>Locators can have a many to one relationship with an access policy, such that different locators can provide different start times and connection types to different clients while all using the same permission and duration settings; however, because of a shared access policy restriction set by Azure storage services, you cannot have more than five unique locators associated with a given asset at one time.</source>
+          <target state="new">Locators can have a many to one relationship with an access policy, such that different locators can provide different start times and connection types to different clients while all using the same permission and duration settings; however, because of a shared access policy restriction set by Azure storage services, you cannot have more than five unique locators associated with a given asset at one time.</target>
+        </trans-unit>
+        <trans-unit id="89bf6010-8d46-481a-b73d-3aa26a52e1e4" xml:space="preserve">
+          <source>Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download media and SAS URL locators, used to upload or download media files to\from Azure storage.</source>
+          <target state="new">Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download media and SAS URL locators, used to upload or download media files to\from Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="e240746b-614e-403f-b565-c1f7c0a77114" xml:space="preserve">
+          <source>Note, that the list permission (AccessPermissions.List) should not be used when creating an OrDemandOrigin locator.</source>
+          <target state="new">Note, that the list permission (AccessPermissions.List) should not be used when creating an OrDemandOrigin locator.</target>
+        </trans-unit>
+        <trans-unit id="4cde1d4c-cab5-413e-934c-a11700e547b4" xml:space="preserve">
+          <source>All access to Azure Storage is done through a storage account.</source>
+          <target state="new">All access to Azure Storage is done through a storage account.</target>
+        </trans-unit>
+        <trans-unit id="f3230a90-24ff-4520-ae26-f4f3c3cf6864" xml:space="preserve">
+          <source>A Media Service account can associate with one or more storage accounts.</source>
+          <target state="new">A Media Service account can associate with one or more storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="d4247808-8e3f-4d61-bb91-ca4345a4b31a" xml:space="preserve">
+          <source>An account can contain an unlimited number of containers, as long as their total size is under 500TB per storage account.</source>
+          <target state="new">An account can contain an unlimited number of containers, as long as their total size is under 500TB per storage account.</target>
+        </trans-unit>
+        <trans-unit id="1f106aad-8cc6-4640-891c-ea3239a05a66" xml:space="preserve">
+          <source>Media Services provides SDK level tooling to allow you to manage multiple storage accounts and load balance the distribution of your assets during upload to these accounts based on metrics or random distribution.</source>
+          <target state="new">Media Services provides SDK level tooling to allow you to manage multiple storage accounts and load balance the distribution of your assets during upload to these accounts based on metrics or random distribution.</target>
+        </trans-unit>
+        <trans-unit id="fbd108f2-acda-4557-aeb2-4a1b56d6bb4f" xml:space="preserve">
+          <source>For more information, see Working with <bpt id="ad0840f1-0d0b-408b-83f5-b9620e343326">&lt;linkText&gt;</bpt>Azure Storage<ept id="ad0840f1-0d0b-408b-83f5-b9620e343326">&lt;/linkText&gt;</ept><bpt id="ad0840f1-0d0b-408b-83f5-b9620e343326">&lt;title&gt;</bpt><ept id="ad0840f1-0d0b-408b-83f5-b9620e343326">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see Working with <bpt id="ad0840f1-0d0b-408b-83f5-b9620e343326">&lt;linkText&gt;</bpt>Azure Storage<ept id="ad0840f1-0d0b-408b-83f5-b9620e343326">&lt;/linkText&gt;</ept><bpt id="ad0840f1-0d0b-408b-83f5-b9620e343326">&lt;title&gt;</bpt><ept id="ad0840f1-0d0b-408b-83f5-b9620e343326">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="454ffa74-62bf-4ab6-8e88-f100460fc27b" xml:space="preserve">
+          <source>A <bpt id="4d1e61b3-b98a-4298-8915-b72401cbdd70">&lt;linkText&gt;</bpt>job<ept id="4d1e61b3-b98a-4298-8915-b72401cbdd70">&lt;/linkText&gt;</ept><bpt id="4d1e61b3-b98a-4298-8915-b72401cbdd70">&lt;title&gt;</bpt><ept id="4d1e61b3-b98a-4298-8915-b72401cbdd70">&lt;/title&gt;</ept> is typically used to process (for example, index or encode) one audio/video presentation.</source>
+          <target state="new">A <bpt id="4d1e61b3-b98a-4298-8915-b72401cbdd70">&lt;linkText&gt;</bpt>job<ept id="4d1e61b3-b98a-4298-8915-b72401cbdd70">&lt;/linkText&gt;</ept><bpt id="4d1e61b3-b98a-4298-8915-b72401cbdd70">&lt;title&gt;</bpt><ept id="4d1e61b3-b98a-4298-8915-b72401cbdd70">&lt;/title&gt;</ept> is typically used to process (for example, index or encode) one audio/video presentation.</target>
+        </trans-unit>
+        <trans-unit id="1bcc0d38-4b60-45f9-82ec-17f05a217a03" xml:space="preserve">
+          <source>If you are processing multiple videos, create a job for each video to be encoded.</source>
+          <target state="new">If you are processing multiple videos, create a job for each video to be encoded.</target>
+        </trans-unit>
+        <trans-unit id="fc516cc8-e63e-466b-aa52-a1b9e6af5040" xml:space="preserve">
+          <source>A job contains metadata about the processing to be performed.</source>
+          <target state="new">A job contains metadata about the processing to be performed.</target>
+        </trans-unit>
+        <trans-unit id="db29c313-4659-48b2-963f-556563338415" xml:space="preserve">
+          <source>Each job contains one or more <bpt id="ba1cb97c-0740-4f1e-842a-48f31d98f702">&lt;linkText&gt;</bpt>task<ept id="ba1cb97c-0740-4f1e-842a-48f31d98f702">&lt;/linkText&gt;</ept><bpt id="ba1cb97c-0740-4f1e-842a-48f31d98f702">&lt;title&gt;</bpt><ept id="ba1cb97c-0740-4f1e-842a-48f31d98f702">&lt;/title&gt;</ept>s that specify an atomic processing task, its input Assets, output Assets, a media processor and its associated settings.</source>
+          <target state="new">Each job contains one or more <bpt id="ba1cb97c-0740-4f1e-842a-48f31d98f702">&lt;linkText&gt;</bpt>task<ept id="ba1cb97c-0740-4f1e-842a-48f31d98f702">&lt;/linkText&gt;</ept><bpt id="ba1cb97c-0740-4f1e-842a-48f31d98f702">&lt;title&gt;</bpt><ept id="ba1cb97c-0740-4f1e-842a-48f31d98f702">&lt;/title&gt;</ept>s that specify an atomic processing task, its input Assets, output Assets, a media processor and its associated settings.</target>
+        </trans-unit>
+        <trans-unit id="5928643d-f273-4cd1-a6e6-3702dcbecb29" xml:space="preserve">
+          <source>Tasks within a job can be chained together, where the output asset of one task is given as the input asset to the next task.</source>
+          <target state="new">Tasks within a job can be chained together, where the output asset of one task is given as the input asset to the next task.</target>
+        </trans-unit>
+        <trans-unit id="37576e5e-af8f-459f-9de0-bae06bc1cd6c" xml:space="preserve">
+          <source>In this way one job can contain all of the processing necessary for a media presentation.</source>
+          <target state="new">In this way one job can contain all of the processing necessary for a media presentation.</target>
+        </trans-unit>
+        <trans-unit id="ba3ad2b8-d320-4150-a94a-1c9d6e0626e4" xml:space="preserve">
+          <source>In order to deliver digital video over the internet you must compress the media.</source>
+          <target state="new">In order to deliver digital video over the internet you must compress the media.</target>
+        </trans-unit>
+        <trans-unit id="196962eb-8faa-4d6a-ac2a-1d86f6140b52" xml:space="preserve">
+          <source>Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly.</source>
+          <target state="new">Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly.</target>
+        </trans-unit>
+        <trans-unit id="20015b9f-779a-4427-9adb-3bb0f8a92e34" xml:space="preserve">
+          <source>People watch videos on a variety of devices from TVs with set-top boxes, desktop PCs to tablets and smartphones.</source>
+          <target state="new">People watch videos on a variety of devices from TVs with set-top boxes, desktop PCs to tablets and smartphones.</target>
+        </trans-unit>
+        <trans-unit id="4ab752ae-046a-411a-a1c4-3245fb3f5160" xml:space="preserve">
+          <source>Each of these devices have different bandwidth and compression requirements.</source>
+          <target state="new">Each of these devices have different bandwidth and compression requirements.</target>
+        </trans-unit>
+        <trans-unit id="b175c0e2-8daf-4c95-9c2a-d6cc95c4ca56" xml:space="preserve">
+          <source>Encoding is the process of compressing video and audio using Compressor/Decompressors or codecs.</source>
+          <target state="new">Encoding is the process of compressing video and audio using Compressor/Decompressors or codecs.</target>
+        </trans-unit>
+        <trans-unit id="f5bdb18c-f767-48eb-a2d0-60732ca0238e" xml:space="preserve">
+          <source>Transcoding is the process of taking a video that has been encoded and re-encode it into a different encoding format.</source>
+          <target state="new">Transcoding is the process of taking a video that has been encoded and re-encode it into a different encoding format.</target>
+        </trans-unit>
+        <trans-unit id="19d144ca-1dc9-4692-b37c-7e9e512ea98e" xml:space="preserve">
+          <source>Since most cameras encode video to some degree, most encoding work done on Azure Media Services is technically transcoding.</source>
+          <target state="new">Since most cameras encode video to some degree, most encoding work done on Azure Media Services is technically transcoding.</target>
+        </trans-unit>
+        <trans-unit id="d703fe00-5806-475f-9ca3-9cdbd1c86cc7" xml:space="preserve">
+          <source>Codecs have two components: one to compress digital media files for transmission and the other to decompress digital media files for playback.</source>
+          <target state="new">Codecs have two components: one to compress digital media files for transmission and the other to decompress digital media files for playback.</target>
+        </trans-unit>
+        <trans-unit id="92ac997b-1f16-4325-a0ae-e00400a18751" xml:space="preserve">
+          <source>There are audio codecs that compress and decompress audio and video codecs that compress and decompress video.</source>
+          <target state="new">There are audio codecs that compress and decompress audio and video codecs that compress and decompress video.</target>
+        </trans-unit>
+        <trans-unit id="d0809df0-116f-4a16-9d61-a367919ced62" xml:space="preserve">
+          <source>Codecs can use lossless or lossy compression.</source>
+          <target state="new">Codecs can use lossless or lossy compression.</target>
+        </trans-unit>
+        <trans-unit id="d7a3585a-f857-492d-8054-07d2934505aa" xml:space="preserve">
+          <source>Lossless codecs preserve all of the information when compression occurs.</source>
+          <target state="new">Lossless codecs preserve all of the information when compression occurs.</target>
+        </trans-unit>
+        <trans-unit id="2aab16ab-86dd-4c56-b7df-fccdf78e90ab" xml:space="preserve">
+          <source>When the file is decompressed, the result is a file that is identical to the input media, making lossless codecs well suited to archiving and storage.</source>
+          <target state="new">When the file is decompressed, the result is a file that is identical to the input media, making lossless codecs well suited to archiving and storage.</target>
+        </trans-unit>
+        <trans-unit id="9e891519-9820-4802-942a-0badf5ca6a00" xml:space="preserve">
+          <source>Lossy codecs lose some of the information when encoding and produce smaller files (than the original) at the cost of video quality and are well suited to streaming over the internet.</source>
+          <target state="new">Lossy codecs lose some of the information when encoding and produce smaller files (than the original) at the cost of video quality and are well suited to streaming over the internet.</target>
+        </trans-unit>
+        <trans-unit id="175bcc93-0775-4d88-a491-d0d8ac029eeb" xml:space="preserve">
+          <source>The two main codecs used by the Azure Media Encoder to encode are H.264 and VC-1.</source>
+          <target state="new">The two main codecs used by the Azure Media Encoder to encode are H.264 and VC-1.</target>
+        </trans-unit>
+        <trans-unit id="1dd0ba29-9c37-4bc9-8448-e9f6eea6788e" xml:space="preserve">
+          <source>Other codecs may be available in our partner ecosystem of encoders.</source>
+          <target state="new">Other codecs may be available in our partner ecosystem of encoders.</target>
+        </trans-unit>
+        <trans-unit id="86f45b13-cba7-4e7d-9b84-61413dbb3218" xml:space="preserve">
+          <source>For information about supported encoders, see <bpt id="0be59977-d813-4864-8c8b-4957f6ee9a9c">&lt;linkText&gt;</bpt>Encoders<ept id="0be59977-d813-4864-8c8b-4957f6ee9a9c">&lt;/linkText&gt;</ept><bpt id="0be59977-d813-4864-8c8b-4957f6ee9a9c">&lt;title&gt;</bpt><ept id="0be59977-d813-4864-8c8b-4957f6ee9a9c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about supported encoders, see <bpt id="0be59977-d813-4864-8c8b-4957f6ee9a9c">&lt;linkText&gt;</bpt>Encoders<ept id="0be59977-d813-4864-8c8b-4957f6ee9a9c">&lt;/linkText&gt;</ept><bpt id="0be59977-d813-4864-8c8b-4957f6ee9a9c">&lt;title&gt;</bpt><ept id="0be59977-d813-4864-8c8b-4957f6ee9a9c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40c2a0ed-46b5-46ec-b053-b10e51c9caf4" xml:space="preserve">
+          <source>An on-premises live encoder (or transcoder) converts the audio and/or video that is streamed from your camera into a multi-bitrate RTMP or Smooth Streaming format.</source>
+          <target state="new">An on-premises live encoder (or transcoder) converts the audio and/or video that is streamed from your camera into a multi-bitrate RTMP or Smooth Streaming format.</target>
+        </trans-unit>
+        <trans-unit id="f75efd5b-0e56-41ca-9348-993cee5e9351" xml:space="preserve">
+          <source>The transcoder then pushes the adaptive bitrate RTMP or Smooth streams into a Media Services channel.</source>
+          <target state="new">The transcoder then pushes the adaptive bitrate RTMP or Smooth streams into a Media Services channel.</target>
+        </trans-unit>
+        <trans-unit id="469808aa-9179-4106-a828-c936e8f91912" xml:space="preserve">
+          <source>Media Services then broadcasts the event live.</source>
+          <target state="new">Media Services then broadcasts the event live.</target>
+        </trans-unit>
+        <trans-unit id="d437374e-2469-4b2e-be3a-47a7e916907e" xml:space="preserve">
+          <source>In Media Services, <bpt id="01638106-8d69-413d-b325-49cf33c0f80f">&lt;linkText&gt;</bpt>Channel<ept id="01638106-8d69-413d-b325-49cf33c0f80f">&lt;/linkText&gt;</ept><bpt id="01638106-8d69-413d-b325-49cf33c0f80f">&lt;title&gt;</bpt><ept id="01638106-8d69-413d-b325-49cf33c0f80f">&lt;/title&gt;</ept>s are responsible for processing live streaming content.</source>
+          <target state="new">In Media Services, <bpt id="01638106-8d69-413d-b325-49cf33c0f80f">&lt;linkText&gt;</bpt>Channel<ept id="01638106-8d69-413d-b325-49cf33c0f80f">&lt;/linkText&gt;</ept><bpt id="01638106-8d69-413d-b325-49cf33c0f80f">&lt;title&gt;</bpt><ept id="01638106-8d69-413d-b325-49cf33c0f80f">&lt;/title&gt;</ept>s are responsible for processing live streaming content.</target>
+        </trans-unit>
+        <trans-unit id="3761eb4b-40fe-40d3-9012-0d5c2374b4a3" xml:space="preserve">
+          <source>A Channel provides an input endpoint (ingest URL) that you then provide to a live transcoder.</source>
+          <target state="new">A Channel provides an input endpoint (ingest URL) that you then provide to a live transcoder.</target>
+        </trans-unit>
+        <trans-unit id="041ade17-4ff9-476e-84bf-dbcb05703577" xml:space="preserve">
+          <source>The channel receives live input streams from the live transcoder and makes it available for streaming through one or more StreamingEndpoints.</source>
+          <target state="new">The channel receives live input streams from the live transcoder and makes it available for streaming through one or more StreamingEndpoints.</target>
+        </trans-unit>
+        <trans-unit id="797740e8-0c09-4036-a77a-4e99f193e6dc" xml:space="preserve">
+          <source>Channels also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.</source>
+          <target state="new">Channels also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.</target>
+        </trans-unit>
+        <trans-unit id="323d80c2-feb8-4ee6-9f27-605716d59110" xml:space="preserve">
+          <source>You can get the ingest URL and the preview URL when you create the channel.</source>
+          <target state="new">You can get the ingest URL and the preview URL when you create the channel.</target>
+        </trans-unit>
+        <trans-unit id="6a8ec03a-c034-479a-94a2-46da9afb317f" xml:space="preserve">
+          <source>To get these URLs, the channel does not have to be in the started state.</source>
+          <target state="new">To get these URLs, the channel does not have to be in the started state.</target>
+        </trans-unit>
+        <trans-unit id="b50010ab-814e-4a5d-8357-58503119b35f" xml:space="preserve">
+          <source>When you are ready to start pushing data from a live transcoder into the channel, the channel must be started.</source>
+          <target state="new">When you are ready to start pushing data from a live transcoder into the channel, the channel must be started.</target>
+        </trans-unit>
+        <trans-unit id="55ad0394-a17a-4ebf-8b9a-4c56f4cc5063" xml:space="preserve">
+          <source>Once the live transcoder starts ingesting data, you can preview your stream.</source>
+          <target state="new">Once the live transcoder starts ingesting data, you can preview your stream.</target>
+        </trans-unit>
+        <trans-unit id="1761c30b-76fe-4649-bbd5-a4f84dcdb2fc" xml:space="preserve">
+          <source>Each Media Services account can contain multiple Channels, multiple Programs, and multiple StreamingEndpoints.</source>
+          <target state="new">Each Media Services account can contain multiple Channels, multiple Programs, and multiple StreamingEndpoints.</target>
+        </trans-unit>
+        <trans-unit id="15ea2554-2303-4095-a0f3-daf4c740e3b8" xml:space="preserve">
+          <source>Depending on the bandwidth and security needs, StreamingEndpoint services can be dedicated to one or more channels.</source>
+          <target state="new">Depending on the bandwidth and security needs, StreamingEndpoint services can be dedicated to one or more channels.</target>
+        </trans-unit>
+        <trans-unit id="50a56b63-37b0-4ec7-9206-b43aef74aabb" xml:space="preserve">
+          <source>Any StreamingEndpoint can pull from any Channel.</source>
+          <target state="new">Any StreamingEndpoint can pull from any Channel.</target>
+        </trans-unit>
+        <trans-unit id="bfb18d4c-8d3e-46d8-971d-4a822fa3860b" xml:space="preserve">
+          <source>By default you can add 5 channels to your Media Services account.</source>
+          <target state="new">By default you can add 5 channels to your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="f24c5ec6-b8ff-49c9-a5f7-355dd5c7c27a" xml:space="preserve">
+          <source>To request a higher limit, see <bpt id="a90e225f-3ae3-414e-8714-5088fd625cc8">&lt;linkText&gt;</bpt>Quotas and limitations<ept id="a90e225f-3ae3-414e-8714-5088fd625cc8">&lt;/linkText&gt;</ept><bpt id="a90e225f-3ae3-414e-8714-5088fd625cc8">&lt;title&gt;</bpt><ept id="a90e225f-3ae3-414e-8714-5088fd625cc8">&lt;/title&gt;</ept>.</source>
+          <target state="new">To request a higher limit, see <bpt id="a90e225f-3ae3-414e-8714-5088fd625cc8">&lt;linkText&gt;</bpt>Quotas and limitations<ept id="a90e225f-3ae3-414e-8714-5088fd625cc8">&lt;/linkText&gt;</ept><bpt id="a90e225f-3ae3-414e-8714-5088fd625cc8">&lt;title&gt;</bpt><ept id="a90e225f-3ae3-414e-8714-5088fd625cc8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1145229-fade-4135-9708-2be6f64fd309" xml:space="preserve">
+          <source>You are only billed when your channel is in running state.</source>
+          <target state="new">You are only billed when your channel is in running state.</target>
+        </trans-unit>
+        <trans-unit id="98849b9f-6b45-4cbf-80f6-cc9a0d472252" xml:space="preserve">
+          <source>A <bpt id="eab0cb58-485c-4edc-8bbd-bb4b543f9645">&lt;linkText&gt;</bpt>Program<ept id="eab0cb58-485c-4edc-8bbd-bb4b543f9645">&lt;/linkText&gt;</ept><bpt id="eab0cb58-485c-4edc-8bbd-bb4b543f9645">&lt;title&gt;</bpt><ept id="eab0cb58-485c-4edc-8bbd-bb4b543f9645">&lt;/title&gt;</ept> enables you to control the publishing and storage of segments in a live stream.</source>
+          <target state="new">A <bpt id="eab0cb58-485c-4edc-8bbd-bb4b543f9645">&lt;linkText&gt;</bpt>Program<ept id="eab0cb58-485c-4edc-8bbd-bb4b543f9645">&lt;/linkText&gt;</ept><bpt id="eab0cb58-485c-4edc-8bbd-bb4b543f9645">&lt;title&gt;</bpt><ept id="eab0cb58-485c-4edc-8bbd-bb4b543f9645">&lt;/title&gt;</ept> enables you to control the publishing and storage of segments in a live stream.</target>
+        </trans-unit>
+        <trans-unit id="c47f8d3b-5d8c-4c45-92a8-e0b8c99897df" xml:space="preserve">
+          <source>Channels manage Programs.</source>
+          <target state="new">Channels manage Programs.</target>
+        </trans-unit>
+        <trans-unit id="9126f83b-c216-4831-94ce-954f7e029563" xml:space="preserve">
+          <source>The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.</source>
+          <target state="new">The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.</target>
+        </trans-unit>
+        <trans-unit id="10ad8bec-c6e8-4b99-8966-2d264e8e8f09" xml:space="preserve">
+          <source>You can specify the number of hours you want to retain the recorded content for the program by setting the <bpt id="b122eef9-92d7-45ef-8363-58bb578c7e14">&lt;strong&gt;</bpt>ArchiveWindowLength<ept id="b122eef9-92d7-45ef-8363-58bb578c7e14">&lt;/strong&gt;</ept> property.</source>
+          <target state="new">You can specify the number of hours you want to retain the recorded content for the program by setting the <bpt id="b122eef9-92d7-45ef-8363-58bb578c7e14">&lt;strong&gt;</bpt>ArchiveWindowLength<ept id="b122eef9-92d7-45ef-8363-58bb578c7e14">&lt;/strong&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="9ef33eaa-bf29-4d36-874d-2d2edefa5e80" xml:space="preserve">
+          <source>This value can be set from a minimum of 5 minutes to a maximum of 25 hours.</source>
+          <target state="new">This value can be set from a minimum of 5 minutes to a maximum of 25 hours.</target>
+        </trans-unit>
+        <trans-unit id="4752bb6f-856a-4742-bc49-6f2ef0a70130" xml:space="preserve">
+          <source>ArchiveWindowLength also dictates the maximum amount of time clients can seek back in time from the current live position.</source>
+          <target state="new">ArchiveWindowLength also dictates the maximum amount of time clients can seek back in time from the current live position.</target>
+        </trans-unit>
+        <trans-unit id="d0f1f38d-c920-4504-b2ac-5ac69a3f6aed" xml:space="preserve">
+          <source>Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded.</source>
+          <target state="new">Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded.</target>
+        </trans-unit>
+        <trans-unit id="1f41da8c-42b4-4759-969a-51bdcc53c952" xml:space="preserve">
+          <source>This value of this property also determines how long the client manifests can grow.</source>
+          <target state="new">This value of this property also determines how long the client manifests can grow.</target>
+        </trans-unit>
+        <trans-unit id="dabe71de-db37-4715-aef7-b9e497204d08" xml:space="preserve">
+          <source>Each program is associated with an Asset.</source>
+          <target state="new">Each program is associated with an Asset.</target>
+        </trans-unit>
+        <trans-unit id="c6ac2388-70c1-420f-9fc6-7ec59b3748e6" xml:space="preserve">
+          <source>To publish the program you must create a locator for the associated asset.</source>
+          <target state="new">To publish the program you must create a locator for the associated asset.</target>
+        </trans-unit>
+        <trans-unit id="5222d7f9-7a2a-4c79-b807-7861cf8a3d60" xml:space="preserve">
+          <source>Having this locator will enable you to build a streaming URL that you can provide to your clients.</source>
+          <target state="new">Having this locator will enable you to build a streaming URL that you can provide to your clients.</target>
+        </trans-unit>
+        <trans-unit id="b0d30984-25c1-465a-9f5a-25e95aaf8604" xml:space="preserve">
+          <source>A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream.</source>
+          <target state="new">A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream.</target>
+        </trans-unit>
+        <trans-unit id="79c26f88-6076-4031-8b95-f2bb9729ab53" xml:space="preserve">
+          <source>This allows you to publish and archive different parts of an event as needed.</source>
+          <target state="new">This allows you to publish and archive different parts of an event as needed.</target>
+        </trans-unit>
+        <trans-unit id="fc8bd42c-d0aa-4692-a179-acdee7e957f0" xml:space="preserve">
+          <source>For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes.</source>
+          <target state="new">For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes.</target>
+        </trans-unit>
+        <trans-unit id="b8150602-89c4-48ba-b4ef-95d245a3ee3e" xml:space="preserve">
+          <source>To accomplish this, you need to create two concurrently running programs.</source>
+          <target state="new">To accomplish this, you need to create two concurrently running programs.</target>
+        </trans-unit>
+        <trans-unit id="fb3e3827-b53a-4fd5-b94c-469394ff6acd" xml:space="preserve">
+          <source>One program is set to archive 6 hours of the event but the program is not published.</source>
+          <target state="new">One program is set to archive 6 hours of the event but the program is not published.</target>
+        </trans-unit>
+        <trans-unit id="34a503c3-d082-4325-aaf6-443118455a85" xml:space="preserve">
+          <source>The other program is set to archive for 10 minutes and this program is published.</source>
+          <target state="new">The other program is set to archive for 10 minutes and this program is published.</target>
+        </trans-unit>
+        <trans-unit id="4cc9b4c6-9190-4f6d-9ee6-b1359e1e1535" xml:space="preserve">
+          <source>Microsoft Azure Media Services enables you to deliver your content encrypted  dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM.</source>
+          <target state="new">Microsoft Azure Media Services enables you to deliver your content encrypted  dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM.</target>
+        </trans-unit>
+        <trans-unit id="d63058df-d437-44a2-b804-d83005964f58" xml:space="preserve">
+          <source>Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming.</source>
+          <target state="new">Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming.</target>
+        </trans-unit>
+        <trans-unit id="5627f782-f6ea-4700-ae28-f3c0920ac999" xml:space="preserve">
+          <source>You cannot encrypt HDS streaming format, or progressive downloads.</source>
+          <target state="new">You cannot encrypt HDS streaming format, or progressive downloads.</target>
+        </trans-unit>
+        <trans-unit id="97de6072-ebe7-4d2c-8966-224ecbaa026b" xml:space="preserve">
+          <source>If you want for Media Services to encrypt an asset, you need to associate an encryption key (CommonEncryption or EnvelopeEncryption) with your asset and also configure authorization policies for the key.</source>
+          <target state="new">If you want for Media Services to encrypt an asset, you need to associate an encryption key (CommonEncryption or EnvelopeEncryption) with your asset and also configure authorization policies for the key.</target>
+        </trans-unit>
+        <trans-unit id="b3b2e970-f416-4c40-9cf8-bce87b8ca3e4" xml:space="preserve">
+          <source>You also need to configure the asset's delivery policy.</source>
+          <target state="new">You also need to configure the asset's delivery policy.</target>
+        </trans-unit>
+        <trans-unit id="00216a52-08ce-46a2-b171-cb452c51b1db" xml:space="preserve">
+          <source>If you want to stream a storage encrypted asset, make sure to specify how you want to deliver it by configuring asset delivery policy.</source>
+          <target state="new">If you want to stream a storage encrypted asset, make sure to specify how you want to deliver it by configuring asset delivery policy.</target>
+        </trans-unit>
+        <trans-unit id="8eb4d7c2-8e92-4444-b62e-114682c987df" xml:space="preserve">
+          <source>When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption.</source>
+          <target state="new">When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption.</target>
+        </trans-unit>
+        <trans-unit id="51d42671-855a-40d8-87aa-d12d97304966" xml:space="preserve">
+          <source>To decrypt the stream, the player will request the key from the key delivery service.</source>
+          <target state="new">To decrypt the stream, the player will request the key from the key delivery service.</target>
+        </trans-unit>
+        <trans-unit id="360544b8-6c6a-47fa-8e5e-c42ee6f58fe4" xml:space="preserve">
+          <source>To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.</source>
+          <target state="new">To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.</target>
+        </trans-unit>
+        <trans-unit id="7643cfc8-b61b-4162-a70f-3fd49e5a693c" xml:space="preserve">
+          <source>Media Services provides a service for delivering PlayReady licenses and AES clear keys to authorized clients.</source>
+          <target state="new">Media Services provides a service for delivering PlayReady licenses and AES clear keys to authorized clients.</target>
+        </trans-unit>
+        <trans-unit id="bce13f24-6974-4b25-929f-5dd29f7a4090" xml:space="preserve">
+          <source>You can use the Azure Management Portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.</source>
+          <target state="new">You can use the Azure Management Portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.</target>
+        </trans-unit>
+        <trans-unit id="3a52bbd0-9f3f-44a3-be84-72b79fbb9452" xml:space="preserve">
+          <source>Note if you are using the Portal, you can configure one AES policy (which will be applied to all the AES encrypted content) and one PlayReady policy (which will be applied to all the PlayReady encrypted content).</source>
+          <target state="new">Note if you are using the Portal, you can configure one AES policy (which will be applied to all the AES encrypted content) and one PlayReady policy (which will be applied to all the PlayReady encrypted content).</target>
+        </trans-unit>
+        <trans-unit id="b872ec1f-cea7-497e-bb56-308bf15d7861" xml:space="preserve">
+          <source>Use Media Services SDK for .NET if you want more control over the configurations.</source>
+          <target state="new">Use Media Services SDK for .NET if you want more control over the configurations.</target>
+        </trans-unit>
+        <trans-unit id="699b833e-b706-42c6-ab81-02cd5d643187" xml:space="preserve">
+          <source>Media Services provides a service for delivering PlayReady licenses.</source>
+          <target state="new">Media Services provides a service for delivering PlayReady licenses.</target>
+        </trans-unit>
+        <trans-unit id="9ad99730-5d23-400c-a2d6-959181d0ee18" xml:space="preserve">
+          <source>When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license.</source>
+          <target state="new">When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license.</target>
+        </trans-unit>
+        <trans-unit id="edf72960-367d-4399-a209-918e6d970e3d" xml:space="preserve">
+          <source>If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.</source>
+          <target state="new">If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.</target>
+        </trans-unit>
+        <trans-unit id="0d5d2641-910a-4910-b727-cd5f568f75ed" xml:space="preserve">
+          <source>Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content.</source>
+          <target state="new">Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content.</target>
+        </trans-unit>
+        <trans-unit id="925a6664-3cfb-4620-84c6-4d013bb661ce" xml:space="preserve">
+          <source>Media Services provides APIs that let you configure your PlayReady licenses.</source>
+          <target state="new">Media Services provides APIs that let you configure your PlayReady licenses.</target>
+        </trans-unit>
+        <trans-unit id="01c2cf31-1c68-46e9-be00-9a29ac484019" xml:space="preserve">
+          <source>For more information, see <bpt id="4d2c3e2e-6d5b-4672-a03c-e8b5fd476a57">&lt;linkText&gt;</bpt>Media Services PlayReady License Template Overview<ept id="4d2c3e2e-6d5b-4672-a03c-e8b5fd476a57">&lt;/linkText&gt;</ept><bpt id="4d2c3e2e-6d5b-4672-a03c-e8b5fd476a57">&lt;title&gt;</bpt><ept id="4d2c3e2e-6d5b-4672-a03c-e8b5fd476a57">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="4d2c3e2e-6d5b-4672-a03c-e8b5fd476a57">&lt;linkText&gt;</bpt>Media Services PlayReady License Template Overview<ept id="4d2c3e2e-6d5b-4672-a03c-e8b5fd476a57">&lt;/linkText&gt;</ept><bpt id="4d2c3e2e-6d5b-4672-a03c-e8b5fd476a57">&lt;title&gt;</bpt><ept id="4d2c3e2e-6d5b-4672-a03c-e8b5fd476a57">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d189defb-9d7d-4628-ae6f-76b9dbed233a" xml:space="preserve">
+          <source>The content key authorization policy could have one or more authorization restrictions: open, token restriction, or IP restriction.</source>
+          <target state="new">The content key authorization policy could have one or more authorization restrictions: open, token restriction, or IP restriction.</target>
+        </trans-unit>
+        <trans-unit id="196eb0b5-857f-472c-b807-cc504a19a6c5" xml:space="preserve">
+          <source>The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS).</source>
+          <target state="new">The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS).</target>
+        </trans-unit>
+        <trans-unit id="b6a027ce-fe15-468d-9339-5c154a2f999e" xml:space="preserve">
+          <source>Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format.</source>
+          <target state="new">Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format.</target>
+        </trans-unit>
+        <trans-unit id="bb02b10b-da07-4b57-b36d-ccf2a34ea95c" xml:space="preserve">
+          <source>Media Services does not provide Secure Token Services.</source>
+          <target state="new">Media Services does not provide Secure Token Services.</target>
+        </trans-unit>
+        <trans-unit id="6b22ea04-fdf2-404a-981c-764d0d69c6b2" xml:space="preserve">
+          <source>You can create a custom STS or leverage Microsoft Azure ACS to issue tokens.</source>
+          <target state="new">You can create a custom STS or leverage Microsoft Azure ACS to issue tokens.</target>
+        </trans-unit>
+        <trans-unit id="40624efc-f24c-49c0-9f7f-1562939e1fd3" xml:space="preserve">
+          <source>The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration.</source>
+          <target state="new">The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration.</target>
+        </trans-unit>
+        <trans-unit id="a414f857-845b-440a-9845-419299d5db36" xml:space="preserve">
+          <source>The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).</source>
+          <target state="new">The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).</target>
+        </trans-unit>
+        <trans-unit id="dc8ba9c2-853f-442e-85ee-03b794bfdf8a" xml:space="preserve">
+          <source>When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters.</source>
+          <target state="new">When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters.</target>
+        </trans-unit>
+        <trans-unit id="a8bdb351-f531-4680-ada3-ab02fe2dbd1d" xml:space="preserve">
+          <source>The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token.</source>
+          <target state="new">The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token.</target>
+        </trans-unit>
+        <trans-unit id="b21f8836-50de-462a-9178-2fc7a1aa2170" xml:space="preserve">
+          <source>The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to.</source>
+          <target state="new">The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to.</target>
+        </trans-unit>
+        <trans-unit id="919aac15-5033-4944-816c-b5baf4e6e925" xml:space="preserve">
+          <source>The Media Services key delivery service validates that these values in the token match the values in the template.</source>
+          <target state="new">The Media Services key delivery service validates that these values in the token match the values in the template.</target>
+        </trans-unit>
+        <trans-unit id="9981fd72-d5b5-4179-bcb9-a4359a37f474" xml:space="preserve">
+          <source>When working with Media Services it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the <bpt id="d71c0823-621c-4149-9f6f-96cd91ac4dde">&lt;linkText&gt;</bpt>Dynamic Packaging<ept id="d71c0823-621c-4149-9f6f-96cd91ac4dde">&lt;/linkText&gt;</ept><bpt id="d71c0823-621c-4149-9f6f-96cd91ac4dde">&lt;title&gt;</bpt><ept id="d71c0823-621c-4149-9f6f-96cd91ac4dde">&lt;/title&gt;</ept>.</source>
+          <target state="new">When working with Media Services it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the <bpt id="d71c0823-621c-4149-9f6f-96cd91ac4dde">&lt;linkText&gt;</bpt>Dynamic Packaging<ept id="d71c0823-621c-4149-9f6f-96cd91ac4dde">&lt;/linkText&gt;</ept><bpt id="d71c0823-621c-4149-9f6f-96cd91ac4dde">&lt;title&gt;</bpt><ept id="d71c0823-621c-4149-9f6f-96cd91ac4dde">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b37e4477-3680-4952-a422-1a5a54454571" xml:space="preserve">
+          <source>A StreamingEndpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution (Azure Media Services now provides the Azure CDN integration.)</source>
+          <target state="new">A StreamingEndpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution (Azure Media Services now provides the Azure CDN integration.)</target>
+        </trans-unit>
+        <trans-unit id="3f3de4a8-3577-43ad-98c0-fcd63eded2cb" xml:space="preserve">
+          <source>The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account.</source>
+          <target state="new">The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="38da274d-b690-47db-a1cd-b5763b652c04" xml:space="preserve">
+          <source>In addition, you can control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as streaming units).</source>
+          <target state="new">In addition, you can control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as streaming units).</target>
+        </trans-unit>
+        <trans-unit id="ff87d7c5-91e2-4c4d-bbc7-f7083974305d" xml:space="preserve">
+          <source>It is recommended to allocate one or more scale units for applications in production environment.</source>
+          <target state="new">It is recommended to allocate one or more scale units for applications in production environment.</target>
+        </trans-unit>
+        <trans-unit id="efe85cbc-329e-4063-9506-7313c06ac83d" xml:space="preserve">
+          <source>Scale units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which currently includes use dynamic packaging.</source>
+          <target state="new">Scale units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which currently includes use dynamic packaging.</target>
+        </trans-unit>
+        <trans-unit id="dbb8cbb8-50b2-4004-85a7-12c5ee728606" xml:space="preserve">
+          <source>It is recommended to use dynamic packaging and\or dynamic encryption.</source>
+          <target state="new">It is recommended to use dynamic packaging and\or dynamic encryption.</target>
+        </trans-unit>
+        <trans-unit id="032d9e14-113e-46d5-8920-af924785e69f" xml:space="preserve">
+          <source>To use these features, you must have at least one streaming unit for the endpoint from which you plan to stream.</source>
+          <target state="new">To use these features, you must have at least one streaming unit for the endpoint from which you plan to stream.</target>
+        </trans-unit>
+        <trans-unit id="67af001d-bd97-408e-88c9-7e603624059b" xml:space="preserve">
+          <source>For more information, see  [Scaling streaming units](media-services-manage-origins.md#scale<bpt id="5ef5ce4f-04ad-4952-9f3b-83fa11c0b8f5">&lt;em&gt;</bpt>streaming<ept id="5ef5ce4f-04ad-4952-9f3b-83fa11c0b8f5">&lt;/em&gt;</ept>endpoints).</source>
+          <target state="new">For more information, see  [Scaling streaming units](media-services-manage-origins.md#scale<bpt id="5ef5ce4f-04ad-4952-9f3b-83fa11c0b8f5">&lt;em&gt;</bpt>streaming<ept id="5ef5ce4f-04ad-4952-9f3b-83fa11c0b8f5">&lt;/em&gt;</ept>endpoints).</target>
+        </trans-unit>
+        <trans-unit id="e779506b-afc1-4c29-9ca8-430976883600" xml:space="preserve">
+          <source>By default you can have up to 2 streaming endpoints in your Media Services account.</source>
+          <target state="new">By default you can have up to 2 streaming endpoints in your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="8a317944-bccb-464e-af05-f8b77d3bd00f" xml:space="preserve">
+          <source>To request a higher limit, see <bpt id="5b5f5a4b-d3cd-4cc0-a56c-fd87642065bc">&lt;linkText&gt;</bpt>Quotas and limitations<ept id="5b5f5a4b-d3cd-4cc0-a56c-fd87642065bc">&lt;/linkText&gt;</ept><bpt id="5b5f5a4b-d3cd-4cc0-a56c-fd87642065bc">&lt;title&gt;</bpt><ept id="5b5f5a4b-d3cd-4cc0-a56c-fd87642065bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">To request a higher limit, see <bpt id="5b5f5a4b-d3cd-4cc0-a56c-fd87642065bc">&lt;linkText&gt;</bpt>Quotas and limitations<ept id="5b5f5a4b-d3cd-4cc0-a56c-fd87642065bc">&lt;/linkText&gt;</ept><bpt id="5b5f5a4b-d3cd-4cc0-a56c-fd87642065bc">&lt;title&gt;</bpt><ept id="5b5f5a4b-d3cd-4cc0-a56c-fd87642065bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de0a4828-a0c3-4fcb-88bd-39ccbedc490d" xml:space="preserve">
+          <source>You are only billed when your StreamingEndpoint is in running state.</source>
+          <target state="new">You are only billed when your StreamingEndpoint is in running state.</target>
+        </trans-unit>
+        <trans-unit id="763398f0-84a9-4ceb-8ec3-207df86e3ca0" xml:space="preserve">
+          <source>One of the steps in the Media Services content delivery workflow is configuring <bpt id="4fe2c221-a1ac-4efc-86e3-8a7ab2d79d8e">&lt;linkText&gt;</bpt>delivery policies for assets <ept id="4fe2c221-a1ac-4efc-86e3-8a7ab2d79d8e">&lt;/linkText&gt;</ept><bpt id="4fe2c221-a1ac-4efc-86e3-8a7ab2d79d8e">&lt;title&gt;</bpt><ept id="4fe2c221-a1ac-4efc-86e3-8a7ab2d79d8e">&lt;/title&gt;</ept>that you want to be streamed.</source>
+          <target state="new">One of the steps in the Media Services content delivery workflow is configuring <bpt id="4fe2c221-a1ac-4efc-86e3-8a7ab2d79d8e">&lt;linkText&gt;</bpt>delivery policies for assets <ept id="4fe2c221-a1ac-4efc-86e3-8a7ab2d79d8e">&lt;/linkText&gt;</ept><bpt id="4fe2c221-a1ac-4efc-86e3-8a7ab2d79d8e">&lt;title&gt;</bpt><ept id="4fe2c221-a1ac-4efc-86e3-8a7ab2d79d8e">&lt;/title&gt;</ept>that you want to be streamed.</target>
+        </trans-unit>
+        <trans-unit id="65dbd009-c6f6-4bf1-b9ff-c084d2514a8a" xml:space="preserve">
+          <source>The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).</source>
+          <target state="new">The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).</target>
+        </trans-unit>
+        <trans-unit id="d6d827ac-eba9-4792-b1a9-68a72ed9f0f6" xml:space="preserve">
+          <source>If you have a storage encrypted asset, before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy.</source>
+          <target state="new">If you have a storage encrypted asset, before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy.</target>
+        </trans-unit>
+        <trans-unit id="22249748-d7a1-4988-874c-cde39b1d4e04" xml:space="preserve">
+          <source>For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) encryption key, set the policy type to DynamicEnvelopeEncryption.</source>
+          <target state="new">For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) encryption key, set the policy type to DynamicEnvelopeEncryption.</target>
+        </trans-unit>
+        <trans-unit id="2cc5c0ea-fe98-4c86-a476-9d54bbd52fc6" xml:space="preserve">
+          <source>To remove storage encryption and stream the asset in the clear, set the policy type to NoDynamicEncryption.</source>
+          <target state="new">To remove storage encryption and stream the asset in the clear, set the policy type to NoDynamicEncryption.</target>
+        </trans-unit>
+        <trans-unit id="94918a40-a130-440b-a35c-ce265b6e9d9b" xml:space="preserve">
+          <source>Progressive download allows you to start playing media before the entire file has been downloaded.</source>
+          <target state="new">Progressive download allows you to start playing media before the entire file has been downloaded.</target>
+        </trans-unit>
+        <trans-unit id="0d0b8223-6415-4198-b777-769a3472be85" xml:space="preserve">
+          <source>You can only progressively download an MP4 file.</source>
+          <target state="new">You can only progressively download an MP4 file.</target>
+        </trans-unit>
+        <trans-unit id="1b9dc950-7326-48f1-8bd6-e14a5305b436" xml:space="preserve">
+          <source>Note that you must decrypt encrypted assets if you wish for them to be available for progressive download.</source>
+          <target state="new">Note that you must decrypt encrypted assets if you wish for them to be available for progressive download.</target>
+        </trans-unit>
+        <trans-unit id="db0c4eea-7472-42d7-b47f-a5e32a95ac6b" xml:space="preserve">
+          <source>To provide users with progressive download URLs, you first must create an OnDemandOrigin locator.</source>
+          <target state="new">To provide users with progressive download URLs, you first must create an OnDemandOrigin locator.</target>
+        </trans-unit>
+        <trans-unit id="44c5c15b-c1a6-45c5-a729-4b0130a8bb26" xml:space="preserve">
+          <source>Creating the locator, gives you the base Path to the asset.</source>
+          <target state="new">Creating the locator, gives you the base Path to the asset.</target>
+        </trans-unit>
+        <trans-unit id="4457c1d5-90a0-47f8-a860-f02afd70ee86" xml:space="preserve">
+          <source>You then need to append the name of MP4 file.</source>
+          <target state="new">You then need to append the name of MP4 file.</target>
+        </trans-unit>
+        <trans-unit id="86131789-ae9c-42dc-8771-c22f3fd6088d" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="aab1153d-7543-43dd-bbf8-686a4aed897d" xml:space="preserve">
+          <source>Streaming your content to clients.</source>
+          <target state="new">Streaming your content to clients.</target>
+        </trans-unit>
+        <trans-unit id="f75b8fb8-3c59-4159-a92f-e134f822b550" xml:space="preserve">
+          <source>To provide users with streaming URLs, you first must create an OnDemandOrigin locator.</source>
+          <target state="new">To provide users with streaming URLs, you first must create an OnDemandOrigin locator.</target>
+        </trans-unit>
+        <trans-unit id="0447a4ec-924a-44fe-b2a1-70f2bbb740d1" xml:space="preserve">
+          <source>Creating the locator, gives you the base Path to the asset that contains the content you want to stream.</source>
+          <target state="new">Creating the locator, gives you the base Path to the asset that contains the content you want to stream.</target>
+        </trans-unit>
+        <trans-unit id="ed9f315a-1d1d-483c-bad4-bcf6fbbfb4ad" xml:space="preserve">
+          <source>However, to be able to stream this content you need to modify this path further.</source>
+          <target state="new">However, to be able to stream this content you need to modify this path further.</target>
+        </trans-unit>
+        <trans-unit id="8eeebe39-d601-48b4-b49c-013976472d61" xml:space="preserve">
+          <source>To construct a full URL to the streaming manifest file, you must concatenate the locator’s Path value and the manifest (filename.ism) file name.</source>
+          <target state="new">To construct a full URL to the streaming manifest file, you must concatenate the locator’s Path value and the manifest (filename.ism) file name.</target>
+        </trans-unit>
+        <trans-unit id="95972fbb-372f-4911-98d3-e101fec5dc0c" xml:space="preserve">
+          <source>Then, append /Manifest and an appropriate format (if needed) to the locator path.</source>
+          <target state="new">Then, append /Manifest and an appropriate format (if needed) to the locator path.</target>
+        </trans-unit>
+        <trans-unit id="6a0e191a-f469-4032-8164-aa2d68698b24" xml:space="preserve">
+          <source>You can also stream your content over an SSL connection.</source>
+          <target state="new">You can also stream your content over an SSL connection.</target>
+        </trans-unit>
+        <trans-unit id="c2913038-27b5-47a3-8e46-0fa2151cdefd" xml:space="preserve">
+          <source>To do this, make sure your streaming URLs start with HTTPS.</source>
+          <target state="new">To do this, make sure your streaming URLs start with HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="2cd84eb2-f180-42e9-9875-f6ea445cfc26" xml:space="preserve">
+          <source>Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014.</source>
+          <target state="new">Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014.</target>
+        </trans-unit>
+        <trans-unit id="633d93da-e7de-4029-82df-9e30d103a8ad" xml:space="preserve">
+          <source>If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format).</source>
+          <target state="new">If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format).</target>
+        </trans-unit>
+        <trans-unit id="60c9c025-6d5a-4938-a3f5-f9ceb530a51b" xml:space="preserve">
+          <source>Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL.</source>
+          <target state="new">Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL.</target>
+        </trans-unit>
+        <trans-unit id="f29c76d1-6436-4592-b5b7-5efdca1f1cf9" xml:space="preserve">
+          <source>If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint.</source>
+          <target state="new">If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint.</target>
+        </trans-unit>
+        <trans-unit id="f00f8e3d-d3d1-4533-aae6-c89db370285e" xml:space="preserve">
+          <source>Use URLs created based on the new streaming endpoint to stream your content over SSL.</source>
+          <target state="new">Use URLs created based on the new streaming endpoint to stream your content over SSL.</target>
+        </trans-unit>
+        <trans-unit id="070ffe17-150a-42aa-97a4-491da94f596a" xml:space="preserve">
+          <source>The following list describes different streaming formats and gives examples:</source>
+          <target state="new">The following list describes different streaming formats and gives examples:</target>
+        </trans-unit>
+        <trans-unit id="023ee63e-a078-469b-a735-2020b1cd071c" xml:space="preserve">
+          <source>Smooth Streaming</source>
+          <target state="new">Smooth Streaming</target>
+        </trans-unit>
+        <trans-unit id="3f9cf133-b533-4f30-886d-4b7aff0cf30d" xml:space="preserve">
+          <source>{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest</source>
+          <target state="new">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest</target>
+        </trans-unit>
+        <trans-unit id="62ab6180-6682-4c41-a523-0ce7ab9434e6" xml:space="preserve">
+          <source>MPEG DASH</source>
+          <target state="new">MPEG DASH</target>
+        </trans-unit>
+        <trans-unit id="1c64ecf6-a6b7-47c5-a0fe-f241878c3017" xml:space="preserve">
+          <source>{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)</source>
+          <target state="new">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)</target>
+        </trans-unit>
+        <trans-unit id="7c6c2bb3-c323-4f6c-b4c6-f6e8aeebba86" xml:space="preserve">
+          <source>Apple HTTP Live Streaming (HLS) V4</source>
+          <target state="new">Apple HTTP Live Streaming (HLS) V4</target>
+        </trans-unit>
+        <trans-unit id="83199f6d-e0d4-4f02-b689-1dfbdef7b691" xml:space="preserve">
+          <source>{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)</source>
+          <target state="new">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)</target>
+        </trans-unit>
+        <trans-unit id="ff8158db-75db-48d9-9e72-0a27fbd4772b" xml:space="preserve">
+          <source>Apple HTTP Live Streaming (HLS) V3</source>
+          <target state="new">Apple HTTP Live Streaming (HLS) V3</target>
+        </trans-unit>
+        <trans-unit id="4cae6903-a52c-4c25-ad8d-d43f32363f6d" xml:space="preserve">
+          <source>{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)</source>
+          <target state="new">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)</target>
+        </trans-unit>
+        <trans-unit id="8c099e0f-2f78-40c7-bb8d-482fc83f36a5" xml:space="preserve">
+          <source>HDS (for Adobe PrimeTime/Access licensees only)</source>
+          <target state="new">HDS (for Adobe PrimeTime/Access licensees only)</target>
+        </trans-unit>
+        <trans-unit id="f2d83b94-dc56-4f8e-8653-4d7bfb3378a0" xml:space="preserve">
+          <source>{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)</source>
+          <target state="new">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

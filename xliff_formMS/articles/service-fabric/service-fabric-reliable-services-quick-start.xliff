@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="92a10f76-d6b6-4689-bc6f-19cebd647d3d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="92a10f76-d6b6-4689-bc6f-19cebd647d3d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b46dfc2d-d8a4-4aec-abcb-7ef159da6ebe">
+        <trans-unit id="b39d339a-bd57-4e6c-a81a-4f7876c6134b" xml:space="preserve">
+          <source>Getting Started with Microsoft Azure Service Fabric Reliable Services</source>
+          <target state="new">Getting Started with Microsoft Azure Service Fabric Reliable Services</target>
+        </trans-unit>
+        <trans-unit id="73740534-d367-4143-856e-2272b3bca493" xml:space="preserve">
+          <source>How to create a Service Fabric Application with stateless and stateful services.</source>
+          <target state="new">How to create a Service Fabric Application with stateless and stateful services.</target>
+        </trans-unit>
+        <trans-unit id="6ffcb236-94ad-4840-95cc-fae4c2aee9cf" xml:space="preserve">
+          <source>A Service Fabric Application contains one or more services that run your code.</source>
+          <target state="new">A Service Fabric Application contains one or more services that run your code.</target>
+        </trans-unit>
+        <trans-unit id="c2ba03e3-b4f7-441d-9d18-3c8e8fed3a56" xml:space="preserve">
+          <source>This tutorial walks you through the steps of creating both stateless and stateful "Hello World" Service Fabric Applications using the [<bpt id="639b592e-1ee8-47af-904e-3c5cbb2968f0">&lt;em&gt;</bpt>Reliable Services<ept id="639b592e-1ee8-47af-904e-3c5cbb2968f0">&lt;/em&gt;</ept> programming model](../Service-Fabric/service-fabric-reliable-services-introduction.md).</source>
+          <target state="new">This tutorial walks you through the steps of creating both stateless and stateful "Hello World" Service Fabric Applications using the [<bpt id="639b592e-1ee8-47af-904e-3c5cbb2968f0">&lt;em&gt;</bpt>Reliable Services<ept id="639b592e-1ee8-47af-904e-3c5cbb2968f0">&lt;/em&gt;</ept> programming model](../Service-Fabric/service-fabric-reliable-services-introduction.md).</target>
+        </trans-unit>
+        <trans-unit id="290f4130-08ff-4430-9ccc-24aaf69d74ea" xml:space="preserve">
+          <source>A stateless service is the type of service that mostly exists in cloud applications today.</source>
+          <target state="new">A stateless service is the type of service that mostly exists in cloud applications today.</target>
+        </trans-unit>
+        <trans-unit id="13e1386a-d32e-4560-a370-c361db084da4" xml:space="preserve">
+          <source>The service is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available - in other words, if an instance of a stateless service shuts down, all of its internal state is lost.</source>
+          <target state="new">The service is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available - in other words, if an instance of a stateless service shuts down, all of its internal state is lost.</target>
+        </trans-unit>
+        <trans-unit id="702867a5-f861-4c96-a246-43b1cd601c75" xml:space="preserve">
+          <source>In these types of services, state must be persisted to an external store, such as Azure Tables or a SQL database, to be made highly-available and reliable.</source>
+          <target state="new">In these types of services, state must be persisted to an external store, such as Azure Tables or a SQL database, to be made highly-available and reliable.</target>
+        </trans-unit>
+        <trans-unit id="02c40d0a-a0c7-4839-91d8-bede1ce3cf8a" xml:space="preserve">
+          <source>Service Fabric introduces a new kind of service that is stateful: A service that can maintain state reliably within the service itself, co-located with the code that's using it.</source>
+          <target state="new">Service Fabric introduces a new kind of service that is stateful: A service that can maintain state reliably within the service itself, co-located with the code that's using it.</target>
+        </trans-unit>
+        <trans-unit id="c36a4735-44a8-4ae5-a548-6ccb3791bb73" xml:space="preserve">
+          <source>Your state is  made highly available by Service Fabric without the need to persist state to an external store.</source>
+          <target state="new">Your state is  made highly available by Service Fabric without the need to persist state to an external store.</target>
+        </trans-unit>
+        <trans-unit id="f205f0b6-7497-455f-ba27-921292574870" xml:space="preserve">
+          <source>In this tutorial, you'll implement both a stateless service and a stateful service that keeps an internal counter.</source>
+          <target state="new">In this tutorial, you'll implement both a stateless service and a stateful service that keeps an internal counter.</target>
+        </trans-unit>
+        <trans-unit id="866d777d-7bfa-4455-abb9-e79d70012801" xml:space="preserve">
+          <source>In the stateless service, the value of the counter is lost when the service restarts or moves.</source>
+          <target state="new">In the stateless service, the value of the counter is lost when the service restarts or moves.</target>
+        </trans-unit>
+        <trans-unit id="16364e80-7b6e-4bf6-91f4-dabf6d2570d9" xml:space="preserve">
+          <source>However, in the stateful service, the counter state is made reliable by Service Fabric so that if the service execution is interrupted for any reason in the middle of counting, it can pick up right where it left off.</source>
+          <target state="new">However, in the stateful service, the counter state is made reliable by Service Fabric so that if the service execution is interrupted for any reason in the middle of counting, it can pick up right where it left off.</target>
+        </trans-unit>
+        <trans-unit id="686765aa-1df8-4dcd-9009-e3eb2eff1dc2" xml:space="preserve">
+          <source>Let's start with a stateless service.</source>
+          <target state="new">Let's start with a stateless service.</target>
+        </trans-unit>
+        <trans-unit id="db8ed46b-1291-4d10-9bf6-10d7ad06eba7" xml:space="preserve">
+          <source>Launch Visual Studio 2015 RC as <bpt id="fe1ed944-ad9d-4a5a-ab00-6e3f45fa6b26">&lt;strong&gt;</bpt>Administrator<ept id="fe1ed944-ad9d-4a5a-ab00-6e3f45fa6b26">&lt;/strong&gt;</ept>, and create a new <bpt id="6bd48be1-8631-46ea-adcc-bb3f0aa6288b">&lt;strong&gt;</bpt>Service Fabric Application<ept id="6bd48be1-8631-46ea-adcc-bb3f0aa6288b">&lt;/strong&gt;</ept> Project named <bpt id="667c07ca-d391-46fe-aeea-ca605d9a8395">&lt;em&gt;</bpt>HelloWorld<ept id="667c07ca-d391-46fe-aeea-ca605d9a8395">&lt;/em&gt;</ept>:</source>
+          <target state="new">Launch Visual Studio 2015 RC as <bpt id="fe1ed944-ad9d-4a5a-ab00-6e3f45fa6b26">&lt;strong&gt;</bpt>Administrator<ept id="fe1ed944-ad9d-4a5a-ab00-6e3f45fa6b26">&lt;/strong&gt;</ept>, and create a new <bpt id="6bd48be1-8631-46ea-adcc-bb3f0aa6288b">&lt;strong&gt;</bpt>Service Fabric Application<ept id="6bd48be1-8631-46ea-adcc-bb3f0aa6288b">&lt;/strong&gt;</ept> Project named <bpt id="667c07ca-d391-46fe-aeea-ca605d9a8395">&lt;em&gt;</bpt>HelloWorld<ept id="667c07ca-d391-46fe-aeea-ca605d9a8395">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="ae3cac03-32f6-4a4f-9140-2e2e9c986174" xml:space="preserve">
+          <source><bpt id="ac809a5b-1b48-4cea-b124-d88b4e7900f4">&lt;linkText&gt;</bpt>Use the New Project dialog to create a new Service Fabric Application<ept id="ac809a5b-1b48-4cea-b124-d88b4e7900f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ac809a5b-1b48-4cea-b124-d88b4e7900f4">&lt;linkText&gt;</bpt>Use the New Project dialog to create a new Service Fabric Application<ept id="ac809a5b-1b48-4cea-b124-d88b4e7900f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="360c7a1b-7604-4c36-a639-398641a18e81" xml:space="preserve">
+          <source>Then create a <bpt id="4cb9cb00-b75a-4a02-a44b-152e9d673dd4">&lt;strong&gt;</bpt>Stateless Service<ept id="4cb9cb00-b75a-4a02-a44b-152e9d673dd4">&lt;/strong&gt;</ept> project named <bpt id="eb3097a8-90e3-40a9-97a9-9e2df12ff97e">&lt;em&gt;</bpt>HelloWorldStateless<ept id="eb3097a8-90e3-40a9-97a9-9e2df12ff97e">&lt;/em&gt;</ept>:</source>
+          <target state="new">Then create a <bpt id="4cb9cb00-b75a-4a02-a44b-152e9d673dd4">&lt;strong&gt;</bpt>Stateless Service<ept id="4cb9cb00-b75a-4a02-a44b-152e9d673dd4">&lt;/strong&gt;</ept> project named <bpt id="eb3097a8-90e3-40a9-97a9-9e2df12ff97e">&lt;em&gt;</bpt>HelloWorldStateless<ept id="eb3097a8-90e3-40a9-97a9-9e2df12ff97e">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="18cdd3a1-daaa-49d5-bd38-41789308093c" xml:space="preserve">
+          <source><bpt id="9b276860-eb23-422d-9421-14bde85c32a0">&lt;linkText&gt;</bpt>In the second dialog, create a stateless service<ept id="9b276860-eb23-422d-9421-14bde85c32a0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b276860-eb23-422d-9421-14bde85c32a0">&lt;linkText&gt;</bpt>In the second dialog, create a stateless service<ept id="9b276860-eb23-422d-9421-14bde85c32a0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3448b29b-82bc-4a4e-8e69-58d31f56aae3" xml:space="preserve">
+          <source>Your solution now contains 2 projects:</source>
+          <target state="new">Your solution now contains 2 projects:</target>
+        </trans-unit>
+        <trans-unit id="a402fd54-f393-4c82-b0a0-6e7bad68f025" xml:space="preserve">
+          <source><bpt id="fbbb5590-4f43-453c-880e-2485e4aafe15">&lt;strong&gt;</bpt>HelloWorld<ept id="fbbb5590-4f43-453c-880e-2485e4aafe15">&lt;/strong&gt;</ept>
+This is the <bpt id="5cb0e9dd-11ee-4ec3-ba74-e2e0258f3808">&lt;em&gt;</bpt>application<ept id="5cb0e9dd-11ee-4ec3-ba74-e2e0258f3808">&lt;/em&gt;</ept> project that contains your <bpt id="3bbf5277-a160-4c6b-aa4a-f3747e7e50b9">&lt;em&gt;</bpt>services<ept id="3bbf5277-a160-4c6b-aa4a-f3747e7e50b9">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="fbbb5590-4f43-453c-880e-2485e4aafe15">&lt;strong&gt;</bpt>HelloWorld<ept id="fbbb5590-4f43-453c-880e-2485e4aafe15">&lt;/strong&gt;</ept>
+This is the <bpt id="5cb0e9dd-11ee-4ec3-ba74-e2e0258f3808">&lt;em&gt;</bpt>application<ept id="5cb0e9dd-11ee-4ec3-ba74-e2e0258f3808">&lt;/em&gt;</ept> project that contains your <bpt id="3bbf5277-a160-4c6b-aa4a-f3747e7e50b9">&lt;em&gt;</bpt>services<ept id="3bbf5277-a160-4c6b-aa4a-f3747e7e50b9">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee16e46c-a696-42c5-90b9-39c20e56c0b7" xml:space="preserve">
+          <source>It also contains the application manifest that describes the application and a number of PowerShell scripts that help you to deploy your application.</source>
+          <target state="new">It also contains the application manifest that describes the application and a number of PowerShell scripts that help you to deploy your application.</target>
+        </trans-unit>
+        <trans-unit id="20f91e60-a86f-4b4f-8549-3d9eb44e52b7" xml:space="preserve">
+          <source><bpt id="94d89e90-b4db-426c-a4e7-5fc1abe28d16">&lt;strong&gt;</bpt>HelloWorldStateless<ept id="94d89e90-b4db-426c-a4e7-5fc1abe28d16">&lt;/strong&gt;</ept>  
+This is the service project, which contains the stateless service implementation.</source>
+          <target state="new"><bpt id="94d89e90-b4db-426c-a4e7-5fc1abe28d16">&lt;strong&gt;</bpt>HelloWorldStateless<ept id="94d89e90-b4db-426c-a4e7-5fc1abe28d16">&lt;/strong&gt;</ept>  
+This is the service project, which contains the stateless service implementation.</target>
+        </trans-unit>
+        <trans-unit id="0457469f-ba6c-44a1-a76a-de799bdb3b81" xml:space="preserve">
+          <source>Open the <bpt id="879c629c-c3f6-4396-b58f-adafe4442533">&lt;strong&gt;</bpt>HelloWorld.cs<ept id="879c629c-c3f6-4396-b58f-adafe4442533">&lt;/strong&gt;</ept> file in the service project.</source>
+          <target state="new">Open the <bpt id="879c629c-c3f6-4396-b58f-adafe4442533">&lt;strong&gt;</bpt>HelloWorld.cs<ept id="879c629c-c3f6-4396-b58f-adafe4442533">&lt;/strong&gt;</ept> file in the service project.</target>
+        </trans-unit>
+        <trans-unit id="88f55e52-23f2-4fb1-bddc-a5b77e9f61fb" xml:space="preserve">
+          <source>In Service Fabric, a service can run any business logic whatsoever.</source>
+          <target state="new">In Service Fabric, a service can run any business logic whatsoever.</target>
+        </trans-unit>
+        <trans-unit id="5e6663f6-56b7-4d31-87b9-2213c600942f" xml:space="preserve">
+          <source>The service API provides two entry points for your code:</source>
+          <target state="new">The service API provides two entry points for your code:</target>
+        </trans-unit>
+        <trans-unit id="7b22e977-f663-4c0b-8fdd-f0401e4e8b4e" xml:space="preserve">
+          <source>An open-ended entry point method called <bpt id="bceac67d-d2de-46b9-9bee-4ddd8b5b60fe">&lt;em&gt;</bpt>RunAsync<ept id="bceac67d-d2de-46b9-9bee-4ddd8b5b60fe">&lt;/em&gt;</ept> where you can begin executing any workload you want, such as long-running compute workloads.</source>
+          <target state="new">An open-ended entry point method called <bpt id="bceac67d-d2de-46b9-9bee-4ddd8b5b60fe">&lt;em&gt;</bpt>RunAsync<ept id="bceac67d-d2de-46b9-9bee-4ddd8b5b60fe">&lt;/em&gt;</ept> where you can begin executing any workload you want, such as long-running compute workloads.</target>
+        </trans-unit>
+        <trans-unit id="8273ea51-652e-40f1-be92-deeea6ab10fe" xml:space="preserve">
+          <source>A communication entry point where you can plug in your communication stack of choice, such as Web API, where you can start receiving requests from users or other services.</source>
+          <target state="new">A communication entry point where you can plug in your communication stack of choice, such as Web API, where you can start receiving requests from users or other services.</target>
+        </trans-unit>
+        <trans-unit id="dc11efad-372f-494b-977f-07fcd181e52a" xml:space="preserve">
+          <source>In this tutorial, we will focus on the <bpt id="f763f1e1-8de4-4525-b7f9-48c23c6b92d7">&lt;code&gt;</bpt>RunAsync()<ept id="f763f1e1-8de4-4525-b7f9-48c23c6b92d7">&lt;/code&gt;</ept> entry point method where you can immediately start running your code.</source>
+          <target state="new">In this tutorial, we will focus on the <bpt id="f763f1e1-8de4-4525-b7f9-48c23c6b92d7">&lt;code&gt;</bpt>RunAsync()<ept id="f763f1e1-8de4-4525-b7f9-48c23c6b92d7">&lt;/code&gt;</ept> entry point method where you can immediately start running your code.</target>
+        </trans-unit>
+        <trans-unit id="c376b4c0-daf5-4926-a26b-fe9c177c8a84" xml:space="preserve">
+          <source>The project template includes an example implementation of <bpt id="1e1c1a3d-eed7-4df2-9ea9-a12f06d51426">&lt;code&gt;</bpt>RunAsync()<ept id="1e1c1a3d-eed7-4df2-9ea9-a12f06d51426">&lt;/code&gt;</ept> that increments a rolling count.</source>
+          <target state="new">The project template includes an example implementation of <bpt id="1e1c1a3d-eed7-4df2-9ea9-a12f06d51426">&lt;code&gt;</bpt>RunAsync()<ept id="1e1c1a3d-eed7-4df2-9ea9-a12f06d51426">&lt;/code&gt;</ept> that increments a rolling count.</target>
+        </trans-unit>
+        <trans-unit id="ea55f44b-b7cc-4c0d-af0c-3475379df0c0" xml:space="preserve">
+          <source>For details on working with a communication stack, check out <bpt id="f02473c7-0f51-42f3-920f-9a6b5653927b">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host<ept id="f02473c7-0f51-42f3-920f-9a6b5653927b">&lt;/linkText&gt;</ept><bpt id="f02473c7-0f51-42f3-920f-9a6b5653927b">&lt;title&gt;</bpt><ept id="f02473c7-0f51-42f3-920f-9a6b5653927b">&lt;/title&gt;</ept></source>
+          <target state="new">For details on working with a communication stack, check out <bpt id="f02473c7-0f51-42f3-920f-9a6b5653927b">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host<ept id="f02473c7-0f51-42f3-920f-9a6b5653927b">&lt;/linkText&gt;</ept><bpt id="f02473c7-0f51-42f3-920f-9a6b5653927b">&lt;title&gt;</bpt><ept id="f02473c7-0f51-42f3-920f-9a6b5653927b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ea91d7a-540a-44e1-b86d-639293b1c857" xml:space="preserve">
+          <source>The platform calls this method when an instance of your service is placed and ready to execute.</source>
+          <target state="new">The platform calls this method when an instance of your service is placed and ready to execute.</target>
+        </trans-unit>
+        <trans-unit id="c27864a1-f116-4ac6-8511-be986c2e4546" xml:space="preserve">
+          <source>For stateless services, that simply means when the service instance is opened.</source>
+          <target state="new">For stateless services, that simply means when the service instance is opened.</target>
+        </trans-unit>
+        <trans-unit id="a555d71a-75f8-4343-a022-5952ebd41f39" xml:space="preserve">
+          <source>A cancellation token is provided to coordinate when your service instance needs to be closed.</source>
+          <target state="new">A cancellation token is provided to coordinate when your service instance needs to be closed.</target>
+        </trans-unit>
+        <trans-unit id="7f2b6900-16ea-44de-bc09-0ab38c0e65db" xml:space="preserve">
+          <source>In Service Fabric, this open-close cycle of a service instance can occur many times over the lifetime of your service as a whole for various reasons, including:</source>
+          <target state="new">In Service Fabric, this open-close cycle of a service instance can occur many times over the lifetime of your service as a whole for various reasons, including:</target>
+        </trans-unit>
+        <trans-unit id="ba317cac-46cb-4030-b332-a6534585e30d" xml:space="preserve">
+          <source>The system may move your service instances around for resource balancing.</source>
+          <target state="new">The system may move your service instances around for resource balancing.</target>
+        </trans-unit>
+        <trans-unit id="be8db262-7f2f-45fd-8b8b-a22dc44d1448" xml:space="preserve">
+          <source>Faults occured within your code.</source>
+          <target state="new">Faults occured within your code.</target>
+        </trans-unit>
+        <trans-unit id="3dd04f1a-604b-4f6a-824a-605108e25d0d" xml:space="preserve">
+          <source>During application or system upgrades.</source>
+          <target state="new">During application or system upgrades.</target>
+        </trans-unit>
+        <trans-unit id="d2f4ed44-8eda-4739-aa2b-3812c3486dbe" xml:space="preserve">
+          <source>When the underlying hardware experiences an outage.</source>
+          <target state="new">When the underlying hardware experiences an outage.</target>
+        </trans-unit>
+        <trans-unit id="33e12b68-d212-45ca-b737-6a46659dad86" xml:space="preserve">
+          <source>This orchestration is managed by the system in the interest of keeping your service highly available and properly balanced.</source>
+          <target state="new">This orchestration is managed by the system in the interest of keeping your service highly available and properly balanced.</target>
+        </trans-unit>
+        <trans-unit id="1599f98a-27fe-473b-932c-8606e2403e93" xml:space="preserve">
+          <source><bpt id="5c25b5c6-4dec-4409-ae4e-e7bb40c12dd8">&lt;code&gt;</bpt>RunAsync()<ept id="5c25b5c6-4dec-4409-ae4e-e7bb40c12dd8">&lt;/code&gt;</ept> is executed in its own <bpt id="3ba834da-334a-427d-aec6-3ad61d6177c3">&lt;strong&gt;</bpt>Task<ept id="3ba834da-334a-427d-aec6-3ad61d6177c3">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="5c25b5c6-4dec-4409-ae4e-e7bb40c12dd8">&lt;code&gt;</bpt>RunAsync()<ept id="5c25b5c6-4dec-4409-ae4e-e7bb40c12dd8">&lt;/code&gt;</ept> is executed in its own <bpt id="3ba834da-334a-427d-aec6-3ad61d6177c3">&lt;strong&gt;</bpt>Task<ept id="3ba834da-334a-427d-aec6-3ad61d6177c3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b18cc910-f56c-48ec-8770-e57ede3e5730" xml:space="preserve">
+          <source>Note that in the code snippet above we jump right into a <bpt id="41925933-c5c4-448a-9420-94047c8a53cb">&lt;strong&gt;</bpt>while<ept id="41925933-c5c4-448a-9420-94047c8a53cb">&lt;/strong&gt;</ept> loop; there is no need to schedule a separate task for your workload.</source>
+          <target state="new">Note that in the code snippet above we jump right into a <bpt id="41925933-c5c4-448a-9420-94047c8a53cb">&lt;strong&gt;</bpt>while<ept id="41925933-c5c4-448a-9420-94047c8a53cb">&lt;/strong&gt;</ept> loop; there is no need to schedule a separate task for your workload.</target>
+        </trans-unit>
+        <trans-unit id="b15b7fb1-7c7d-46e4-b8ee-1c6783b4efb8" xml:space="preserve">
+          <source>Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token.</source>
+          <target state="new">Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token.</target>
+        </trans-unit>
+        <trans-unit id="956dc427-1f9c-4bfd-ba40-a52cfa73638c" xml:space="preserve">
+          <source>The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on.</source>
+          <target state="new">The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on.</target>
+        </trans-unit>
+        <trans-unit id="a31400cc-16bc-4249-abcb-1d7399d7cf39" xml:space="preserve">
+          <source>It is <bpt id="36467fd2-ff9b-4016-ab0e-3e319d54cdc3">&lt;strong&gt;</bpt>important<ept id="36467fd2-ff9b-4016-ab0e-3e319d54cdc3">&lt;/strong&gt;</ept> to honor the cancellation token, finish up any work, and exit <bpt id="91d1b304-247b-4115-bfa3-ef6de703803c">&lt;code&gt;</bpt>RunAsync()<ept id="91d1b304-247b-4115-bfa3-ef6de703803c">&lt;/code&gt;</ept> as quickly as possible when cancellation is requested by the system.</source>
+          <target state="new">It is <bpt id="36467fd2-ff9b-4016-ab0e-3e319d54cdc3">&lt;strong&gt;</bpt>important<ept id="36467fd2-ff9b-4016-ab0e-3e319d54cdc3">&lt;/strong&gt;</ept> to honor the cancellation token, finish up any work, and exit <bpt id="91d1b304-247b-4115-bfa3-ef6de703803c">&lt;code&gt;</bpt>RunAsync()<ept id="91d1b304-247b-4115-bfa3-ef6de703803c">&lt;/code&gt;</ept> as quickly as possible when cancellation is requested by the system.</target>
+        </trans-unit>
+        <trans-unit id="78a0f543-3422-4567-a4d9-cb3105f0ae7c" xml:space="preserve">
+          <source>In the this stateless service example, the count is stored in a local variable.</source>
+          <target state="new">In the this stateless service example, the count is stored in a local variable.</target>
+        </trans-unit>
+        <trans-unit id="d35e3a21-0e7b-46ba-a951-e2fff088300a" xml:space="preserve">
+          <source>But because this is a stateless service, the value that's being stored only exists for the current lifecycle of the service instance that it's in.</source>
+          <target state="new">But because this is a stateless service, the value that's being stored only exists for the current lifecycle of the service instance that it's in.</target>
+        </trans-unit>
+        <trans-unit id="91123530-3a3e-4905-b704-985fa976d29d" xml:space="preserve">
+          <source>When the service moves or restarts, the value is lost.</source>
+          <target state="new">When the service moves or restarts, the value is lost.</target>
+        </trans-unit>
+        <trans-unit id="82e8572c-8a31-4eb2-bdf8-ae53a7691ddb" xml:space="preserve">
+          <source>To convert our counter value from stateless to highly-available and persistent, even when the service moves or restarts, we need a stateful service.</source>
+          <target state="new">To convert our counter value from stateless to highly-available and persistent, even when the service moves or restarts, we need a stateful service.</target>
+        </trans-unit>
+        <trans-unit id="8d7fceb1-54c7-426e-8796-41aff13373ea" xml:space="preserve">
+          <source>In the same <bpt id="03bb62d6-64d0-44fd-91e8-16730f969746">&lt;strong&gt;</bpt>HelloWorld<ept id="03bb62d6-64d0-44fd-91e8-16730f969746">&lt;/strong&gt;</ept> application, add a new service by right-clicking on the application project and selecting <bpt id="eaae2761-9b53-4a1f-92db-9c9301935888">&lt;strong&gt;</bpt>New Fabric Service<ept id="eaae2761-9b53-4a1f-92db-9c9301935888">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the same <bpt id="03bb62d6-64d0-44fd-91e8-16730f969746">&lt;strong&gt;</bpt>HelloWorld<ept id="03bb62d6-64d0-44fd-91e8-16730f969746">&lt;/strong&gt;</ept> application, add a new service by right-clicking on the application project and selecting <bpt id="eaae2761-9b53-4a1f-92db-9c9301935888">&lt;strong&gt;</bpt>New Fabric Service<ept id="eaae2761-9b53-4a1f-92db-9c9301935888">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="521964e5-9d2a-44f6-9cd8-da45be7cd06f" xml:space="preserve">
+          <source><bpt id="b3ed41de-0ded-4ccb-98d0-3c295068ff50">&lt;linkText&gt;</bpt>Add a service to your Service Fabric application<ept id="b3ed41de-0ded-4ccb-98d0-3c295068ff50">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b3ed41de-0ded-4ccb-98d0-3c295068ff50">&lt;linkText&gt;</bpt>Add a service to your Service Fabric application<ept id="b3ed41de-0ded-4ccb-98d0-3c295068ff50">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5ae6fa0-42ac-460f-8561-bf859a2dff7b" xml:space="preserve">
+          <source>Select <bpt id="e658c95d-eac0-45ab-b207-19d99f3eb598">&lt;strong&gt;</bpt>Service Fabric Stateful Service<ept id="e658c95d-eac0-45ab-b207-19d99f3eb598">&lt;/strong&gt;</ept> and name it "HelloWorldStateful".</source>
+          <target state="new">Select <bpt id="e658c95d-eac0-45ab-b207-19d99f3eb598">&lt;strong&gt;</bpt>Service Fabric Stateful Service<ept id="e658c95d-eac0-45ab-b207-19d99f3eb598">&lt;/strong&gt;</ept> and name it "HelloWorldStateful".</target>
+        </trans-unit>
+        <trans-unit id="e493801f-2143-44a5-a1a9-cf634d071203" xml:space="preserve">
+          <source>Click <bpt id="69a8fe47-3c77-4854-bfd6-3880bf085b82">&lt;strong&gt;</bpt>Add<ept id="69a8fe47-3c77-4854-bfd6-3880bf085b82">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="69a8fe47-3c77-4854-bfd6-3880bf085b82">&lt;strong&gt;</bpt>Add<ept id="69a8fe47-3c77-4854-bfd6-3880bf085b82">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b3b1e8f-dab5-4bd0-9ef4-6ae8feeab16e" xml:space="preserve">
+          <source><bpt id="3b2e3822-91e4-40f5-b7ff-64370cd2de6f">&lt;linkText&gt;</bpt>Use the New Project dialog to create a new Service Fabric Stateful Service<ept id="3b2e3822-91e4-40f5-b7ff-64370cd2de6f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b2e3822-91e4-40f5-b7ff-64370cd2de6f">&lt;linkText&gt;</bpt>Use the New Project dialog to create a new Service Fabric Stateful Service<ept id="3b2e3822-91e4-40f5-b7ff-64370cd2de6f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66de830e-bf02-4ff2-9f6f-ab3dd1becbdb" xml:space="preserve">
+          <source>Your application should now have two services: the stateless service <bpt id="6753a140-850e-4437-be98-348980c4d141">&lt;em&gt;</bpt>HelloWorld<ept id="6753a140-850e-4437-be98-348980c4d141">&lt;/em&gt;</ept> and the stateful service <bpt id="4b92f272-d7e7-4b65-941a-419f4438d829">&lt;em&gt;</bpt>HelloWorldStateful<ept id="4b92f272-d7e7-4b65-941a-419f4438d829">&lt;/em&gt;</ept>.</source>
+          <target state="new">Your application should now have two services: the stateless service <bpt id="6753a140-850e-4437-be98-348980c4d141">&lt;em&gt;</bpt>HelloWorld<ept id="6753a140-850e-4437-be98-348980c4d141">&lt;/em&gt;</ept> and the stateful service <bpt id="4b92f272-d7e7-4b65-941a-419f4438d829">&lt;em&gt;</bpt>HelloWorldStateful<ept id="4b92f272-d7e7-4b65-941a-419f4438d829">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4636675-f16f-4eee-bf61-ab55d9304b48" xml:space="preserve">
+          <source>Open <bpt id="a2060ded-0c3f-431e-94ab-ab3af78fee59">&lt;strong&gt;</bpt>HelloWorldStateful.cs<ept id="a2060ded-0c3f-431e-94ab-ab3af78fee59">&lt;/strong&gt;</ept> in <bpt id="03605052-5b0b-4832-92c5-15d822b08bfa">&lt;em&gt;</bpt>HelloWorldStateful<ept id="03605052-5b0b-4832-92c5-15d822b08bfa">&lt;/em&gt;</ept> which contains the following <bpt id="e23a2929-f0c5-4816-8ea8-94f345f15840">&lt;code&gt;</bpt>RunAsync<ept id="e23a2929-f0c5-4816-8ea8-94f345f15840">&lt;/code&gt;</ept> method:</source>
+          <target state="new">Open <bpt id="a2060ded-0c3f-431e-94ab-ab3af78fee59">&lt;strong&gt;</bpt>HelloWorldStateful.cs<ept id="a2060ded-0c3f-431e-94ab-ab3af78fee59">&lt;/strong&gt;</ept> in <bpt id="03605052-5b0b-4832-92c5-15d822b08bfa">&lt;em&gt;</bpt>HelloWorldStateful<ept id="03605052-5b0b-4832-92c5-15d822b08bfa">&lt;/em&gt;</ept> which contains the following <bpt id="e23a2929-f0c5-4816-8ea8-94f345f15840">&lt;code&gt;</bpt>RunAsync<ept id="e23a2929-f0c5-4816-8ea8-94f345f15840">&lt;/code&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="fafa3bd2-4104-4b09-8178-be5140ee381c" xml:space="preserve">
+          <source>A stateful service has the same entry points as a stateless service.</source>
+          <target state="new">A stateful service has the same entry points as a stateless service.</target>
+        </trans-unit>
+        <trans-unit id="c145bc03-787c-40aa-9fe4-109cc572b1dd" xml:space="preserve">
+          <source>The main difference is the availability of <bpt id="9a663c48-c93f-48c0-af99-414ec0a848c4">&lt;em&gt;</bpt>Reliable Collections<ept id="9a663c48-c93f-48c0-af99-414ec0a848c4">&lt;/em&gt;</ept> and the <bpt id="9a8d2a9e-dd1f-4f43-989d-948434f183df">&lt;em&gt;</bpt>State Manager<ept id="9a8d2a9e-dd1f-4f43-989d-948434f183df">&lt;/em&gt;</ept>.</source>
+          <target state="new">The main difference is the availability of <bpt id="9a663c48-c93f-48c0-af99-414ec0a848c4">&lt;em&gt;</bpt>Reliable Collections<ept id="9a663c48-c93f-48c0-af99-414ec0a848c4">&lt;/em&gt;</ept> and the <bpt id="9a8d2a9e-dd1f-4f43-989d-948434f183df">&lt;em&gt;</bpt>State Manager<ept id="9a8d2a9e-dd1f-4f43-989d-948434f183df">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d2ffc12-320a-4ef1-aef7-fbc0c45ce304" xml:space="preserve">
+          <source><bpt id="3a7052d9-c231-4238-89f1-35fcad2cc693">&lt;code&gt;</bpt>RunAsync()<ept id="3a7052d9-c231-4238-89f1-35fcad2cc693">&lt;/code&gt;</ept> in a stateful service operates similar to a stateless service, except that in a stateful service the platform performs additional work on your behalf before executing <bpt id="3e42be37-e88a-46c7-92a3-825dc5c85c28">&lt;code&gt;</bpt>RunAsync()<ept id="3e42be37-e88a-46c7-92a3-825dc5c85c28">&lt;/code&gt;</ept>, such as ensuring the <bpt id="aa4efff1-f7ef-4413-bed8-c4b86ee80b49">&lt;em&gt;</bpt>State Manager<ept id="aa4efff1-f7ef-4413-bed8-c4b86ee80b49">&lt;/em&gt;</ept> and <bpt id="d405bd35-979f-48b5-bbbd-b8491a5a5581">&lt;em&gt;</bpt>Reliable Collections<ept id="d405bd35-979f-48b5-bbbd-b8491a5a5581">&lt;/em&gt;</ept> are ready for use.</source>
+          <target state="new"><bpt id="3a7052d9-c231-4238-89f1-35fcad2cc693">&lt;code&gt;</bpt>RunAsync()<ept id="3a7052d9-c231-4238-89f1-35fcad2cc693">&lt;/code&gt;</ept> in a stateful service operates similar to a stateless service, except that in a stateful service the platform performs additional work on your behalf before executing <bpt id="3e42be37-e88a-46c7-92a3-825dc5c85c28">&lt;code&gt;</bpt>RunAsync()<ept id="3e42be37-e88a-46c7-92a3-825dc5c85c28">&lt;/code&gt;</ept>, such as ensuring the <bpt id="aa4efff1-f7ef-4413-bed8-c4b86ee80b49">&lt;em&gt;</bpt>State Manager<ept id="aa4efff1-f7ef-4413-bed8-c4b86ee80b49">&lt;/em&gt;</ept> and <bpt id="d405bd35-979f-48b5-bbbd-b8491a5a5581">&lt;em&gt;</bpt>Reliable Collections<ept id="d405bd35-979f-48b5-bbbd-b8491a5a5581">&lt;/em&gt;</ept> are ready for use.</target>
+        </trans-unit>
+        <trans-unit id="67f811da-a51f-4724-8e49-3fd5ebb70488" xml:space="preserve">
+          <source><bpt id="43757458-c29e-4800-9494-ab20cb4743a3">&lt;strong&gt;</bpt>IReliableDictionary<ept id="43757458-c29e-4800-9494-ab20cb4743a3">&lt;/strong&gt;</ept> is a dictionary implementation that lets you reliably store state in the service.</source>
+          <target state="new"><bpt id="43757458-c29e-4800-9494-ab20cb4743a3">&lt;strong&gt;</bpt>IReliableDictionary<ept id="43757458-c29e-4800-9494-ab20cb4743a3">&lt;/strong&gt;</ept> is a dictionary implementation that lets you reliably store state in the service.</target>
+        </trans-unit>
+        <trans-unit id="4f7c98ce-fc74-4ae8-ae20-8ef33167e295" xml:space="preserve">
+          <source>This is part of Service Fabric's built-in <bpt id="8cec9ad5-a404-4ba7-aa7a-d922097fcf6e">&lt;linkText&gt;</bpt>Reliable Collections<ept id="8cec9ad5-a404-4ba7-aa7a-d922097fcf6e">&lt;/linkText&gt;</ept><bpt id="8cec9ad5-a404-4ba7-aa7a-d922097fcf6e">&lt;title&gt;</bpt><ept id="8cec9ad5-a404-4ba7-aa7a-d922097fcf6e">&lt;/title&gt;</ept>.</source>
+          <target state="new">This is part of Service Fabric's built-in <bpt id="8cec9ad5-a404-4ba7-aa7a-d922097fcf6e">&lt;linkText&gt;</bpt>Reliable Collections<ept id="8cec9ad5-a404-4ba7-aa7a-d922097fcf6e">&lt;/linkText&gt;</ept><bpt id="8cec9ad5-a404-4ba7-aa7a-d922097fcf6e">&lt;title&gt;</bpt><ept id="8cec9ad5-a404-4ba7-aa7a-d922097fcf6e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="45b3d0f9-7c40-4f27-9426-0f731e6f3fc6" xml:space="preserve">
+          <source>With Service Fabric and Reliable Collections, you can now store data directly in your service without the need for an external persistent store, making your data highly-available.</source>
+          <target state="new">With Service Fabric and Reliable Collections, you can now store data directly in your service without the need for an external persistent store, making your data highly-available.</target>
+        </trans-unit>
+        <trans-unit id="9b609074-b538-47a0-8bb3-2f2ec3562ddc" xml:space="preserve">
+          <source>Service Fabric accomplishes this by creating and managing multiple <bpt id="a230f64e-d4d6-4760-89aa-4e4526b68cc5">&lt;em&gt;</bpt>replicas<ept id="a230f64e-d4d6-4760-89aa-4e4526b68cc5">&lt;/em&gt;</ept> of your service for you while providing an API that abstracts away the complexities of managing those replicas and their state transitions.</source>
+          <target state="new">Service Fabric accomplishes this by creating and managing multiple <bpt id="a230f64e-d4d6-4760-89aa-4e4526b68cc5">&lt;em&gt;</bpt>replicas<ept id="a230f64e-d4d6-4760-89aa-4e4526b68cc5">&lt;/em&gt;</ept> of your service for you while providing an API that abstracts away the complexities of managing those replicas and their state transitions.</target>
+        </trans-unit>
+        <trans-unit id="bae39611-5e86-4d3c-8aa4-3fd07a52070c" xml:space="preserve">
+          <source>Reliable Collections can store any .NET type - including your custom types - with a couple of caveats:</source>
+          <target state="new">Reliable Collections can store any .NET type - including your custom types - with a couple of caveats:</target>
+        </trans-unit>
+        <trans-unit id="28613a9e-107a-4d3d-910a-fad78b5cffa9" xml:space="preserve">
+          <source>Service Fabric makes your state highly-available by <bpt id="534b00c2-39da-4b06-be90-274210518c2c">&lt;em&gt;</bpt>replicating<ept id="534b00c2-39da-4b06-be90-274210518c2c">&lt;/em&gt;</ept> state across nodes and storing it to local disk.</source>
+          <target state="new">Service Fabric makes your state highly-available by <bpt id="534b00c2-39da-4b06-be90-274210518c2c">&lt;em&gt;</bpt>replicating<ept id="534b00c2-39da-4b06-be90-274210518c2c">&lt;/em&gt;</ept> state across nodes and storing it to local disk.</target>
+        </trans-unit>
+        <trans-unit id="2c4cfaae-7f98-4c90-b353-98bb4903deba" xml:space="preserve">
+          <source>This means everything that is stored in a Reliable Collection must be <bpt id="9928e7df-65c0-4a26-94da-5c607760c604">&lt;em&gt;</bpt>serializable<ept id="9928e7df-65c0-4a26-94da-5c607760c604">&lt;/em&gt;</ept>.</source>
+          <target state="new">This means everything that is stored in a Reliable Collection must be <bpt id="9928e7df-65c0-4a26-94da-5c607760c604">&lt;em&gt;</bpt>serializable<ept id="9928e7df-65c0-4a26-94da-5c607760c604">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c53e47d-1ddd-4cbd-8dc9-d3e113e1dcc9" xml:space="preserve">
+          <source>By default, Reliable Collections use <bpt id="25ab91ea-c70a-4d14-868a-ce982fe91c72">&lt;linkText&gt;</bpt>DataContract<ept id="25ab91ea-c70a-4d14-868a-ce982fe91c72">&lt;/linkText&gt;</ept><bpt id="25ab91ea-c70a-4d14-868a-ce982fe91c72">&lt;title&gt;</bpt><ept id="25ab91ea-c70a-4d14-868a-ce982fe91c72">&lt;/title&gt;</ept> for serialization, so it's important to make sure your types are <bpt id="0cb7d4b1-b330-4377-b7d3-c78a24892cb5">&lt;linkText&gt;</bpt>supported by the Data Contract Serializer<ept id="0cb7d4b1-b330-4377-b7d3-c78a24892cb5">&lt;/linkText&gt;</ept><bpt id="0cb7d4b1-b330-4377-b7d3-c78a24892cb5">&lt;title&gt;</bpt><ept id="0cb7d4b1-b330-4377-b7d3-c78a24892cb5">&lt;/title&gt;</ept> when using the default serializer.</source>
+          <target state="new">By default, Reliable Collections use <bpt id="25ab91ea-c70a-4d14-868a-ce982fe91c72">&lt;linkText&gt;</bpt>DataContract<ept id="25ab91ea-c70a-4d14-868a-ce982fe91c72">&lt;/linkText&gt;</ept><bpt id="25ab91ea-c70a-4d14-868a-ce982fe91c72">&lt;title&gt;</bpt><ept id="25ab91ea-c70a-4d14-868a-ce982fe91c72">&lt;/title&gt;</ept> for serialization, so it's important to make sure your types are <bpt id="0cb7d4b1-b330-4377-b7d3-c78a24892cb5">&lt;linkText&gt;</bpt>supported by the Data Contract Serializer<ept id="0cb7d4b1-b330-4377-b7d3-c78a24892cb5">&lt;/linkText&gt;</ept><bpt id="0cb7d4b1-b330-4377-b7d3-c78a24892cb5">&lt;title&gt;</bpt><ept id="0cb7d4b1-b330-4377-b7d3-c78a24892cb5">&lt;/title&gt;</ept> when using the default serializer.</target>
+        </trans-unit>
+        <trans-unit id="f9e5d42b-ebfb-4bc8-a00e-bac95376f109" xml:space="preserve">
+          <source>Objects are replicated for high-availability when you commit a transaction on a Reliable Collection.</source>
+          <target state="new">Objects are replicated for high-availability when you commit a transaction on a Reliable Collection.</target>
+        </trans-unit>
+        <trans-unit id="667bdda1-5499-4316-b4e0-8501639d146d" xml:space="preserve">
+          <source>Objects stored in Reliable Collections are kept in local memory in your service, which means you have a local reference to the object.</source>
+          <target state="new">Objects stored in Reliable Collections are kept in local memory in your service, which means you have a local reference to the object.</target>
+        </trans-unit>
+        <trans-unit id="c967f524-fec8-4f88-8799-ef7a4de4bbe7" xml:space="preserve">
+          <source>It is important that you do not mutate local instances of those objects without performing an update operation on the Reliable Collection in a transaction, as those changes will not be replicated automatically.</source>
+          <target state="new">It is important that you do not mutate local instances of those objects without performing an update operation on the Reliable Collection in a transaction, as those changes will not be replicated automatically.</target>
+        </trans-unit>
+        <trans-unit id="c906bc75-35b4-4df8-8b34-8590afd24902" xml:space="preserve">
+          <source>The <bpt id="5785aa5f-7984-4ea2-9124-f00c7bd7fe48">&lt;em&gt;</bpt>StateManager<ept id="5785aa5f-7984-4ea2-9124-f00c7bd7fe48">&lt;/em&gt;</ept> takes care of managing Reliable Collections for you.</source>
+          <target state="new">The <bpt id="5785aa5f-7984-4ea2-9124-f00c7bd7fe48">&lt;em&gt;</bpt>StateManager<ept id="5785aa5f-7984-4ea2-9124-f00c7bd7fe48">&lt;/em&gt;</ept> takes care of managing Reliable Collections for you.</target>
+        </trans-unit>
+        <trans-unit id="f9475cf7-61af-4ed2-a0c6-97f2933470ed" xml:space="preserve">
+          <source>Simply ask the StateManager for a reliable collection by name at any time, any place in your service and it ensures you get a reference back.</source>
+          <target state="new">Simply ask the StateManager for a reliable collection by name at any time, any place in your service and it ensures you get a reference back.</target>
+        </trans-unit>
+        <trans-unit id="327feb39-1f4d-4f85-ba3d-ef7665cd681a" xml:space="preserve">
+          <source>Saving references to Reliable Collection instances in class member variables or properties is not recommended, as special care must be taken to ensure the reference is set to an instance at all times in the service lifecycle.</source>
+          <target state="new">Saving references to Reliable Collection instances in class member variables or properties is not recommended, as special care must be taken to ensure the reference is set to an instance at all times in the service lifecycle.</target>
+        </trans-unit>
+        <trans-unit id="797763c0-443e-47f5-b466-f8f78f797b4e" xml:space="preserve">
+          <source>The StateManager handles this work for you, optimized for repeat visits.</source>
+          <target state="new">The StateManager handles this work for you, optimized for repeat visits.</target>
+        </trans-unit>
+        <trans-unit id="8e5f669a-a8fe-4681-ab45-9dc841ce00c7" xml:space="preserve">
+          <source>Reliable Collections have many of the same operations as their <bpt id="c27db9d5-523f-471a-a688-597442d351ac">&lt;code&gt;</bpt>System.Collections.Generic<ept id="c27db9d5-523f-471a-a688-597442d351ac">&lt;/code&gt;</ept> and <bpt id="1120148c-d945-42b8-8917-bd1c81c0257e">&lt;code&gt;</bpt>System.Collections.Concurrent<ept id="1120148c-d945-42b8-8917-bd1c81c0257e">&lt;/code&gt;</ept> counterparts, including LINQ.</source>
+          <target state="new">Reliable Collections have many of the same operations as their <bpt id="c27db9d5-523f-471a-a688-597442d351ac">&lt;code&gt;</bpt>System.Collections.Generic<ept id="c27db9d5-523f-471a-a688-597442d351ac">&lt;/code&gt;</ept> and <bpt id="1120148c-d945-42b8-8917-bd1c81c0257e">&lt;code&gt;</bpt>System.Collections.Concurrent<ept id="1120148c-d945-42b8-8917-bd1c81c0257e">&lt;/code&gt;</ept> counterparts, including LINQ.</target>
+        </trans-unit>
+        <trans-unit id="353d9b45-feb2-4fcb-96ad-40cc922801ce" xml:space="preserve">
+          <source>However, operations on Reliable Collections are asynchronous.</source>
+          <target state="new">However, operations on Reliable Collections are asynchronous.</target>
+        </trans-unit>
+        <trans-unit id="463baece-4d57-4229-bebd-2fa6ef47723c" xml:space="preserve">
+          <source>This is because write operations with Reliable Collections are <bpt id="b9b0f31f-13d4-49cf-a971-f305ffae7883">&lt;em&gt;</bpt>replicated<ept id="b9b0f31f-13d4-49cf-a971-f305ffae7883">&lt;/em&gt;</ept>, that is, the operation is sent to other replicas of the service on different nodes for high-availability.</source>
+          <target state="new">This is because write operations with Reliable Collections are <bpt id="b9b0f31f-13d4-49cf-a971-f305ffae7883">&lt;em&gt;</bpt>replicated<ept id="b9b0f31f-13d4-49cf-a971-f305ffae7883">&lt;/em&gt;</ept>, that is, the operation is sent to other replicas of the service on different nodes for high-availability.</target>
+        </trans-unit>
+        <trans-unit id="cbea7e63-1d40-430b-87bd-72b83bea365a" xml:space="preserve">
+          <source>They also support <bpt id="dc2b3ac2-4b3d-4a2c-b1a2-bfe496ba3aba">&lt;em&gt;</bpt>transactional<ept id="dc2b3ac2-4b3d-4a2c-b1a2-bfe496ba3aba">&lt;/em&gt;</ept> operations so you can keep state consistent between multiple Reliable Collections.</source>
+          <target state="new">They also support <bpt id="dc2b3ac2-4b3d-4a2c-b1a2-bfe496ba3aba">&lt;em&gt;</bpt>transactional<ept id="dc2b3ac2-4b3d-4a2c-b1a2-bfe496ba3aba">&lt;/em&gt;</ept> operations so you can keep state consistent between multiple Reliable Collections.</target>
+        </trans-unit>
+        <trans-unit id="5928598f-34cc-4e4f-b655-a2d08c28f6b8" xml:space="preserve">
+          <source>For example, you may dequeue a work item from a Reliable Queue, perform an operation on it, and save the result in a Reliable Dictionary, all within a single transaction.</source>
+          <target state="new">For example, you may dequeue a work item from a Reliable Queue, perform an operation on it, and save the result in a Reliable Dictionary, all within a single transaction.</target>
+        </trans-unit>
+        <trans-unit id="2ffbc537-84b5-48db-a068-3e888a7f6481" xml:space="preserve">
+          <source>This is treated as an atomic operation, guaranteeing that either the entire operation will succeed, or none of it will - so if an error occurs after you've dequeued the item but before you could save the result, the entire transaction is rolled back and the item remains on the queue for processing.</source>
+          <target state="new">This is treated as an atomic operation, guaranteeing that either the entire operation will succeed, or none of it will - so if an error occurs after you've dequeued the item but before you could save the result, the entire transaction is rolled back and the item remains on the queue for processing.</target>
+        </trans-unit>
+        <trans-unit id="464a452a-a79a-4516-92dc-7051ae5ca289" xml:space="preserve">
+          <source>Back to the <bpt id="f5541ae9-3024-4a76-a22f-37d480bbcae8">&lt;em&gt;</bpt>HelloWorld<ept id="f5541ae9-3024-4a76-a22f-37d480bbcae8">&lt;/em&gt;</ept> application.</source>
+          <target state="new">Back to the <bpt id="f5541ae9-3024-4a76-a22f-37d480bbcae8">&lt;em&gt;</bpt>HelloWorld<ept id="f5541ae9-3024-4a76-a22f-37d480bbcae8">&lt;/em&gt;</ept> application.</target>
+        </trans-unit>
+        <trans-unit id="e4d6c4c5-95b2-4d8d-b8c5-48cf29e5a6d4" xml:space="preserve">
+          <source>You can now build and deploy your services.</source>
+          <target state="new">You can now build and deploy your services.</target>
+        </trans-unit>
+        <trans-unit id="54cc8f3a-a345-4161-8d03-75b9e508cb22" xml:space="preserve">
+          <source>Press <bpt id="49afa747-97af-43e9-bbec-865bea120688">&lt;strong&gt;</bpt>F5<ept id="49afa747-97af-43e9-bbec-865bea120688">&lt;/strong&gt;</ept>, and your application will be built and deployed to your local cluster.</source>
+          <target state="new">Press <bpt id="49afa747-97af-43e9-bbec-865bea120688">&lt;strong&gt;</bpt>F5<ept id="49afa747-97af-43e9-bbec-865bea120688">&lt;/strong&gt;</ept>, and your application will be built and deployed to your local cluster.</target>
+        </trans-unit>
+        <trans-unit id="9e3e3881-a28b-47e4-8a1a-35277d85d3a7" xml:space="preserve">
+          <source>Once the services are running, you can see the generated ETW events in a <bpt id="178cad1a-c036-4ce2-90b6-e114d0b1baa9">&lt;strong&gt;</bpt>Diagnostic Events<ept id="178cad1a-c036-4ce2-90b6-e114d0b1baa9">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">Once the services are running, you can see the generated ETW events in a <bpt id="178cad1a-c036-4ce2-90b6-e114d0b1baa9">&lt;strong&gt;</bpt>Diagnostic Events<ept id="178cad1a-c036-4ce2-90b6-e114d0b1baa9">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="08b2fbfb-7612-42af-912e-26919c9b5e39" xml:space="preserve">
+          <source>Note that there are events displayed from both the stateless service and the stateful service in the application.</source>
+          <target state="new">Note that there are events displayed from both the stateless service and the stateful service in the application.</target>
+        </trans-unit>
+        <trans-unit id="647a2cec-a037-4ed5-96e4-c1cb1c690ac4" xml:space="preserve">
+          <source>You can pause the stream by clicking the <bpt id="0467cd1e-5284-4984-8998-d3e8bca9c9d1">&lt;em&gt;</bpt>Pause<ept id="0467cd1e-5284-4984-8998-d3e8bca9c9d1">&lt;/em&gt;</ept> button, and then examine message details by expanding a message.</source>
+          <target state="new">You can pause the stream by clicking the <bpt id="0467cd1e-5284-4984-8998-d3e8bca9c9d1">&lt;em&gt;</bpt>Pause<ept id="0467cd1e-5284-4984-8998-d3e8bca9c9d1">&lt;/em&gt;</ept> button, and then examine message details by expanding a message.</target>
+        </trans-unit>
+        <trans-unit id="54c388d2-6a9a-49df-921b-947319aa5269" xml:space="preserve">
+          <source>Before running the application, make sure you have a local development cluster running.</source>
+          <target state="new">Before running the application, make sure you have a local development cluster running.</target>
+        </trans-unit>
+        <trans-unit id="defae92d-0952-4eb7-af51-a6c6cc7342f2" xml:space="preserve">
+          <source>Check out the <bpt id="34422dd4-8129-4ead-9a73-3bd3b4ed4662">&lt;linkText&gt;</bpt>Getting Started Guide<ept id="34422dd4-8129-4ead-9a73-3bd3b4ed4662">&lt;/linkText&gt;</ept><bpt id="34422dd4-8129-4ead-9a73-3bd3b4ed4662">&lt;title&gt;</bpt><ept id="34422dd4-8129-4ead-9a73-3bd3b4ed4662">&lt;/title&gt;</ept> to get your local environment set up.</source>
+          <target state="new">Check out the <bpt id="34422dd4-8129-4ead-9a73-3bd3b4ed4662">&lt;linkText&gt;</bpt>Getting Started Guide<ept id="34422dd4-8129-4ead-9a73-3bd3b4ed4662">&lt;/linkText&gt;</ept><bpt id="34422dd4-8129-4ead-9a73-3bd3b4ed4662">&lt;title&gt;</bpt><ept id="34422dd4-8129-4ead-9a73-3bd3b4ed4662">&lt;/title&gt;</ept> to get your local environment set up.</target>
+        </trans-unit>
+        <trans-unit id="010b8e0c-6d29-4e8e-81f7-4466d738647c" xml:space="preserve">
+          <source><bpt id="ba7e676e-5eff-42c0-b291-afacb59ff90a">&lt;linkText&gt;</bpt>View diagnostic events in Visual Studio<ept id="ba7e676e-5eff-42c0-b291-afacb59ff90a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ba7e676e-5eff-42c0-b291-afacb59ff90a">&lt;linkText&gt;</bpt>View diagnostic events in Visual Studio<ept id="ba7e676e-5eff-42c0-b291-afacb59ff90a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07b96b95-a3d9-4850-8356-3b7c7a9f19ae" xml:space="preserve">
+          <source><bpt id="8f624878-c0b1-4053-a80b-829e66e62327">&lt;linkText&gt;</bpt>Debugging your Service Fabric Application in Visual Studio<ept id="8f624878-c0b1-4053-a80b-829e66e62327">&lt;/linkText&gt;</ept><bpt id="8f624878-c0b1-4053-a80b-829e66e62327">&lt;title&gt;</bpt><ept id="8f624878-c0b1-4053-a80b-829e66e62327">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8f624878-c0b1-4053-a80b-829e66e62327">&lt;linkText&gt;</bpt>Debugging your Service Fabric Application in Visual Studio<ept id="8f624878-c0b1-4053-a80b-829e66e62327">&lt;/linkText&gt;</ept><bpt id="8f624878-c0b1-4053-a80b-829e66e62327">&lt;title&gt;</bpt><ept id="8f624878-c0b1-4053-a80b-829e66e62327">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ceec832b-8e24-46f9-afa6-e2fe072bb859" xml:space="preserve">
+          <source><bpt id="8ab25f7e-3f30-45fb-bc25-451387b26ead">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host<ept id="8ab25f7e-3f30-45fb-bc25-451387b26ead">&lt;/linkText&gt;</ept><bpt id="8ab25f7e-3f30-45fb-bc25-451387b26ead">&lt;title&gt;</bpt><ept id="8ab25f7e-3f30-45fb-bc25-451387b26ead">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8ab25f7e-3f30-45fb-bc25-451387b26ead">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host<ept id="8ab25f7e-3f30-45fb-bc25-451387b26ead">&lt;/linkText&gt;</ept><bpt id="8ab25f7e-3f30-45fb-bc25-451387b26ead">&lt;title&gt;</bpt><ept id="8ab25f7e-3f30-45fb-bc25-451387b26ead">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ed6a3c9-ed8d-44bd-8279-6193a5feac32" xml:space="preserve">
+          <source><bpt id="4a3e3920-0cad-45d3-b72a-0a2e0a1ebd0b">&lt;linkText&gt;</bpt>Learn more about Reliable Collections<ept id="4a3e3920-0cad-45d3-b72a-0a2e0a1ebd0b">&lt;/linkText&gt;</ept><bpt id="4a3e3920-0cad-45d3-b72a-0a2e0a1ebd0b">&lt;title&gt;</bpt><ept id="4a3e3920-0cad-45d3-b72a-0a2e0a1ebd0b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4a3e3920-0cad-45d3-b72a-0a2e0a1ebd0b">&lt;linkText&gt;</bpt>Learn more about Reliable Collections<ept id="4a3e3920-0cad-45d3-b72a-0a2e0a1ebd0b">&lt;/linkText&gt;</ept><bpt id="4a3e3920-0cad-45d3-b72a-0a2e0a1ebd0b">&lt;title&gt;</bpt><ept id="4a3e3920-0cad-45d3-b72a-0a2e0a1ebd0b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1134d99e-d1fb-4c55-bf69-84c957f1680d" xml:space="preserve">
+          <source><bpt id="774cc2b8-aaf4-49c5-b795-e8e0ff2e463b">&lt;linkText&gt;</bpt>Manage a Service Fabric service<ept id="774cc2b8-aaf4-49c5-b795-e8e0ff2e463b">&lt;/linkText&gt;</ept><bpt id="774cc2b8-aaf4-49c5-b795-e8e0ff2e463b">&lt;title&gt;</bpt><ept id="774cc2b8-aaf4-49c5-b795-e8e0ff2e463b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="774cc2b8-aaf4-49c5-b795-e8e0ff2e463b">&lt;linkText&gt;</bpt>Manage a Service Fabric service<ept id="774cc2b8-aaf4-49c5-b795-e8e0ff2e463b">&lt;/linkText&gt;</ept><bpt id="774cc2b8-aaf4-49c5-b795-e8e0ff2e463b">&lt;title&gt;</bpt><ept id="774cc2b8-aaf4-49c5-b795-e8e0ff2e463b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62ef93d4-009d-403a-b435-b3a114cf8ae0" xml:space="preserve">
+          <source><bpt id="d17f8df6-8d70-45a1-afd1-39de2a0501a6">&lt;linkText&gt;</bpt>Developer reference for Reliable Services<ept id="d17f8df6-8d70-45a1-afd1-39de2a0501a6">&lt;/linkText&gt;</ept><bpt id="d17f8df6-8d70-45a1-afd1-39de2a0501a6">&lt;title&gt;</bpt><ept id="d17f8df6-8d70-45a1-afd1-39de2a0501a6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d17f8df6-8d70-45a1-afd1-39de2a0501a6">&lt;linkText&gt;</bpt>Developer reference for Reliable Services<ept id="d17f8df6-8d70-45a1-afd1-39de2a0501a6">&lt;/linkText&gt;</ept><bpt id="d17f8df6-8d70-45a1-afd1-39de2a0501a6">&lt;title&gt;</bpt><ept id="d17f8df6-8d70-45a1-afd1-39de2a0501a6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="93373f81-d8fd-41fc-99bd-ce6c66fd5234" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="93373f81-d8fd-41fc-99bd-ce6c66fd5234" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4465e4dc-92c0-415d-b72a-1d5943aa6345">
+        <trans-unit id="1c6febc9-f308-4308-8f06-f2ec75440b15" xml:space="preserve">
+          <source>Azure Automation DSC Overview</source>
+          <target state="new">Azure Automation DSC Overview</target>
+        </trans-unit>
+        <trans-unit id="3017fc36-2591-491d-ba7e-d5a74924cd0e" xml:space="preserve">
+          <source>An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues</source>
+          <target state="new">An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues</target>
+        </trans-unit>
+        <trans-unit id="441a72e7-b815-4cae-b721-c6898498355d" xml:space="preserve">
+          <source><bpt id="9fcd4d70-2578-439c-8aa1-5a46b9e788d6">&lt;strong&gt;</bpt>Azure Automation DSC is currently in limited preview<ept id="9fcd4d70-2578-439c-8aa1-5a46b9e788d6">&lt;/strong&gt;</ept>, and is not supported for production workloads. It is mostly cmdlet-based for now, and has a minimal graphical user interface. By signing up for Azure Automation DSC’s preview, you acknowledge that this feature is in Preview and subject to reduced or different service terms, as set forth in the <bpt id="7b9ab68d-c4e9-432e-9260-5b91f3255b77">&lt;linkText&gt;</bpt>service agreement<ept id="7b9ab68d-c4e9-432e-9260-5b91f3255b77">&lt;/linkText&gt;</ept><bpt id="7b9ab68d-c4e9-432e-9260-5b91f3255b77">&lt;title&gt;</bpt><ept id="7b9ab68d-c4e9-432e-9260-5b91f3255b77">&lt;/title&gt;</ept>, and that you agree to the <bpt id="8180b3e7-db6f-4038-b1a9-aa545d04f3fa">&lt;linkText&gt;</bpt>preview supplemental terms<ept id="8180b3e7-db6f-4038-b1a9-aa545d04f3fa">&lt;/linkText&gt;</ept><bpt id="8180b3e7-db6f-4038-b1a9-aa545d04f3fa">&lt;title&gt;</bpt><ept id="8180b3e7-db6f-4038-b1a9-aa545d04f3fa">&lt;/title&gt;</ept>. While the service is currently free to use, pricing will be introduced in the future.</source>
+          <target state="new"><bpt id="9fcd4d70-2578-439c-8aa1-5a46b9e788d6">&lt;strong&gt;</bpt>Azure Automation DSC is currently in limited preview<ept id="9fcd4d70-2578-439c-8aa1-5a46b9e788d6">&lt;/strong&gt;</ept>, and is not supported for production workloads. It is mostly cmdlet-based for now, and has a minimal graphical user interface. By signing up for Azure Automation DSC’s preview, you acknowledge that this feature is in Preview and subject to reduced or different service terms, as set forth in the <bpt id="7b9ab68d-c4e9-432e-9260-5b91f3255b77">&lt;linkText&gt;</bpt>service agreement<ept id="7b9ab68d-c4e9-432e-9260-5b91f3255b77">&lt;/linkText&gt;</ept><bpt id="7b9ab68d-c4e9-432e-9260-5b91f3255b77">&lt;title&gt;</bpt><ept id="7b9ab68d-c4e9-432e-9260-5b91f3255b77">&lt;/title&gt;</ept>, and that you agree to the <bpt id="8180b3e7-db6f-4038-b1a9-aa545d04f3fa">&lt;linkText&gt;</bpt>preview supplemental terms<ept id="8180b3e7-db6f-4038-b1a9-aa545d04f3fa">&lt;/linkText&gt;</ept><bpt id="8180b3e7-db6f-4038-b1a9-aa545d04f3fa">&lt;title&gt;</bpt><ept id="8180b3e7-db6f-4038-b1a9-aa545d04f3fa">&lt;/title&gt;</ept>. While the service is currently free to use, pricing will be introduced in the future.</target>
+        </trans-unit>
+        <trans-unit id="33bed498-5ea5-49d2-9a0d-8fa012caca1e" xml:space="preserve">
+          <source>Desired State Configuration (DSC) is a new management platform in Windows PowerShell that enables management of configuration for physical hosts and virtual machines using a declarative PowerShell syntax.</source>
+          <target state="new">Desired State Configuration (DSC) is a new management platform in Windows PowerShell that enables management of configuration for physical hosts and virtual machines using a declarative PowerShell syntax.</target>
+        </trans-unit>
+        <trans-unit id="fa27abb5-a702-4655-bc88-15baea5c92a6" xml:space="preserve">
+          <source>DSC provides a set of Windows PowerShell language extensions, new Windows PowerShell cmdlets, and resources that you can use to declaratively specify how you want your software environment to be configured.</source>
+          <target state="new">DSC provides a set of Windows PowerShell language extensions, new Windows PowerShell cmdlets, and resources that you can use to declaratively specify how you want your software environment to be configured.</target>
+        </trans-unit>
+        <trans-unit id="4678ebdc-f1dd-4d75-b2ee-7f4261c58500" xml:space="preserve">
+          <source>It also provides a means to maintain and manage existing configurations.</source>
+          <target state="new">It also provides a means to maintain and manage existing configurations.</target>
+        </trans-unit>
+        <trans-unit id="4349a8c4-df37-42dd-947b-5169649f35ff" xml:space="preserve">
+          <source>Following are some example scenarios where you can use built-in DSC resources to configure and manage a set of computers (also known as target nodes) in an automated way:</source>
+          <target state="new">Following are some example scenarios where you can use built-in DSC resources to configure and manage a set of computers (also known as target nodes) in an automated way:</target>
+        </trans-unit>
+        <trans-unit id="243c6121-ef8a-4ca0-ac56-bf20ae4e61c7" xml:space="preserve">
+          <source>Enabling or disabling server roles and features</source>
+          <target state="new">Enabling or disabling server roles and features</target>
+        </trans-unit>
+        <trans-unit id="8916f138-a0b2-43ae-9e95-d6e90f54c657" xml:space="preserve">
+          <source>Managing registry settings</source>
+          <target state="new">Managing registry settings</target>
+        </trans-unit>
+        <trans-unit id="4264edde-39da-4f21-be66-d29590b14746" xml:space="preserve">
+          <source>Managing files and directories</source>
+          <target state="new">Managing files and directories</target>
+        </trans-unit>
+        <trans-unit id="c9d4f998-4705-485f-b139-894232dd940a" xml:space="preserve">
+          <source>Starting, stopping, and managing processes and services</source>
+          <target state="new">Starting, stopping, and managing processes and services</target>
+        </trans-unit>
+        <trans-unit id="38a51c51-296f-4e7f-b961-6021b6feeba1" xml:space="preserve">
+          <source>Managing groups and user accounts</source>
+          <target state="new">Managing groups and user accounts</target>
+        </trans-unit>
+        <trans-unit id="64b6d7fc-fd94-4641-b643-2dcc7a44b07c" xml:space="preserve">
+          <source>Deploying new software</source>
+          <target state="new">Deploying new software</target>
+        </trans-unit>
+        <trans-unit id="3c360eff-1d61-4aac-bf5b-ffc933fa4757" xml:space="preserve">
+          <source>Managing environment variables</source>
+          <target state="new">Managing environment variables</target>
+        </trans-unit>
+        <trans-unit id="0be9d412-21df-4ab2-a0ad-5625ae5953ab" xml:space="preserve">
+          <source>Running Windows PowerShell scripts</source>
+          <target state="new">Running Windows PowerShell scripts</target>
+        </trans-unit>
+        <trans-unit id="7e2c4ced-6080-42dd-9624-0acbeb417662" xml:space="preserve">
+          <source>Fixing a configuration that has drifted away from the desired state</source>
+          <target state="new">Fixing a configuration that has drifted away from the desired state</target>
+        </trans-unit>
+        <trans-unit id="c98779c2-a5de-44fe-a945-6d3e84ba2565" xml:space="preserve">
+          <source>Discovering the actual configuration state on a given node</source>
+          <target state="new">Discovering the actual configuration state on a given node</target>
+        </trans-unit>
+        <trans-unit id="5407e69c-e8c6-4cd8-93d8-30e807b0fce5" xml:space="preserve">
+          <source>In addition, you can create custom resources to configure the state of any application or system setting.</source>
+          <target state="new">In addition, you can create custom resources to configure the state of any application or system setting.</target>
+        </trans-unit>
+        <trans-unit id="9365c875-e0a4-43ba-beae-5069f82b4279" xml:space="preserve">
+          <source>For more details on PowerShell DSC, see: <bpt id="e4d04e2e-7e33-4257-a26a-00138be4d576">&lt;linkText&gt;</bpt>Configuration in a DevOps world - Windows PowerShell Desired State Configuration<ept id="e4d04e2e-7e33-4257-a26a-00138be4d576">&lt;/linkText&gt;</ept><bpt id="e4d04e2e-7e33-4257-a26a-00138be4d576">&lt;title&gt;</bpt><ept id="e4d04e2e-7e33-4257-a26a-00138be4d576">&lt;/title&gt;</ept></source>
+          <target state="new">For more details on PowerShell DSC, see: <bpt id="e4d04e2e-7e33-4257-a26a-00138be4d576">&lt;linkText&gt;</bpt>Configuration in a DevOps world - Windows PowerShell Desired State Configuration<ept id="e4d04e2e-7e33-4257-a26a-00138be4d576">&lt;/linkText&gt;</ept><bpt id="e4d04e2e-7e33-4257-a26a-00138be4d576">&lt;title&gt;</bpt><ept id="e4d04e2e-7e33-4257-a26a-00138be4d576">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="804daf46-8c39-4dec-b970-98600545287a" xml:space="preserve">
+          <source>Azure Automation DSC builds on top of the fundamentals introduced in PowerShell DSC to provide an even easier configuration management experience. Azure Automation DSC brings the same management layer to <bpt id="b64f2be5-8645-4dbe-8f16-243c889c7fd0">&lt;linkText&gt;</bpt>PowerShell Desired State Configuration<ept id="b64f2be5-8645-4dbe-8f16-243c889c7fd0">&lt;/linkText&gt;</ept><bpt id="b64f2be5-8645-4dbe-8f16-243c889c7fd0">&lt;title&gt;</bpt><ept id="b64f2be5-8645-4dbe-8f16-243c889c7fd0">&lt;/title&gt;</ept> &lt;link&gt; as Azure Automation offers for PowerShell scripting today.</source>
+          <target state="new">Azure Automation DSC builds on top of the fundamentals introduced in PowerShell DSC to provide an even easier configuration management experience. Azure Automation DSC brings the same management layer to <bpt id="b64f2be5-8645-4dbe-8f16-243c889c7fd0">&lt;linkText&gt;</bpt>PowerShell Desired State Configuration<ept id="b64f2be5-8645-4dbe-8f16-243c889c7fd0">&lt;/linkText&gt;</ept><bpt id="b64f2be5-8645-4dbe-8f16-243c889c7fd0">&lt;title&gt;</bpt><ept id="b64f2be5-8645-4dbe-8f16-243c889c7fd0">&lt;/title&gt;</ept> &lt;link&gt; as Azure Automation offers for PowerShell scripting today.</target>
+        </trans-unit>
+        <trans-unit id="cda93d96-bf94-4411-88e8-46d992d250f0" xml:space="preserve">
+          <source>Azure Automation DSC allows you to <bpt id="ebf16499-fde7-491c-b9ff-0aa0c58cc040">&lt;linkText&gt;</bpt>author and manage PowerShell Desired State Configurations<ept id="ebf16499-fde7-491c-b9ff-0aa0c58cc040">&lt;/linkText&gt;</ept><bpt id="ebf16499-fde7-491c-b9ff-0aa0c58cc040">&lt;title&gt;</bpt><ept id="ebf16499-fde7-491c-b9ff-0aa0c58cc040">&lt;/title&gt;</ept>, import <bpt id="f1cddaec-c7e7-4b57-a763-9539974d51af">&lt;linkText&gt;</bpt>DSC Resources<ept id="f1cddaec-c7e7-4b57-a763-9539974d51af">&lt;/linkText&gt;</ept><bpt id="f1cddaec-c7e7-4b57-a763-9539974d51af">&lt;title&gt;</bpt><ept id="f1cddaec-c7e7-4b57-a763-9539974d51af">&lt;/title&gt;</ept>, and generate DSC Node Configurations (MOF documents), all in the cloud.</source>
+          <target state="new">Azure Automation DSC allows you to <bpt id="ebf16499-fde7-491c-b9ff-0aa0c58cc040">&lt;linkText&gt;</bpt>author and manage PowerShell Desired State Configurations<ept id="ebf16499-fde7-491c-b9ff-0aa0c58cc040">&lt;/linkText&gt;</ept><bpt id="ebf16499-fde7-491c-b9ff-0aa0c58cc040">&lt;title&gt;</bpt><ept id="ebf16499-fde7-491c-b9ff-0aa0c58cc040">&lt;/title&gt;</ept>, import <bpt id="f1cddaec-c7e7-4b57-a763-9539974d51af">&lt;linkText&gt;</bpt>DSC Resources<ept id="f1cddaec-c7e7-4b57-a763-9539974d51af">&lt;/linkText&gt;</ept><bpt id="f1cddaec-c7e7-4b57-a763-9539974d51af">&lt;title&gt;</bpt><ept id="f1cddaec-c7e7-4b57-a763-9539974d51af">&lt;/title&gt;</ept>, and generate DSC Node Configurations (MOF documents), all in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="900ab11c-2a7e-4933-953e-a2d4758d74ca" xml:space="preserve">
+          <source>These DSC items will be placed on the Azure Automation <bpt id="a32d9013-f9a0-46fd-bd51-be1b5118fe24">&lt;linkText&gt;</bpt>DSC pull server<ept id="a32d9013-f9a0-46fd-bd51-be1b5118fe24">&lt;/linkText&gt;</ept><bpt id="a32d9013-f9a0-46fd-bd51-be1b5118fe24">&lt;title&gt;</bpt><ept id="a32d9013-f9a0-46fd-bd51-be1b5118fe24">&lt;/title&gt;</ept> so that target nodes (such as physical and virtual machines) in the cloud or on-premises can pick them up, automatically conform to the desired state they specify, and report back on their compliance with the desired state to Azure Automation.</source>
+          <target state="new">These DSC items will be placed on the Azure Automation <bpt id="a32d9013-f9a0-46fd-bd51-be1b5118fe24">&lt;linkText&gt;</bpt>DSC pull server<ept id="a32d9013-f9a0-46fd-bd51-be1b5118fe24">&lt;/linkText&gt;</ept><bpt id="a32d9013-f9a0-46fd-bd51-be1b5118fe24">&lt;title&gt;</bpt><ept id="a32d9013-f9a0-46fd-bd51-be1b5118fe24">&lt;/title&gt;</ept> so that target nodes (such as physical and virtual machines) in the cloud or on-premises can pick them up, automatically conform to the desired state they specify, and report back on their compliance with the desired state to Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="8c43dede-0547-4370-be2b-7e3bf46c5c49" xml:space="preserve">
+          <source>PowerShell DSC introduced a new concept called configurations.</source>
+          <target state="new">PowerShell DSC introduced a new concept called configurations.</target>
+        </trans-unit>
+        <trans-unit id="302ef458-dff9-49e9-85ae-3a173349720c" xml:space="preserve">
+          <source>Configurations allow you to define, via PowerShell syntax, the desired state of your environment.</source>
+          <target state="new">Configurations allow you to define, via PowerShell syntax, the desired state of your environment.</target>
+        </trans-unit>
+        <trans-unit id="d1517d21-38fe-4b60-b5a0-7ad34f4b7b28" xml:space="preserve">
+          <source>To use DSC to configure your environment, first define a Windows PowerShell script block using the configuration keyword, then follow it with an identifier, then with braces ({}) to delimit the block.</source>
+          <target state="new">To use DSC to configure your environment, first define a Windows PowerShell script block using the configuration keyword, then follow it with an identifier, then with braces ({}) to delimit the block.</target>
+        </trans-unit>
+        <trans-unit id="c714b82f-dfc9-4801-b2d7-b08f5913cf2c" xml:space="preserve">
+          <source><bpt id="78020b06-74b2-4dff-801f-37813595216e">&lt;linkText&gt;</bpt>alt text<ept id="78020b06-74b2-4dff-801f-37813595216e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78020b06-74b2-4dff-801f-37813595216e">&lt;linkText&gt;</bpt>alt text<ept id="78020b06-74b2-4dff-801f-37813595216e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80b4771a-66a6-4c19-b697-da7c6eb39a3f" xml:space="preserve">
+          <source>Inside the configuration block you can define node configuration blocks that specify the desired configuration for a set of nodes (computers) in your environment that should be configured exactly the same.</source>
+          <target state="new">Inside the configuration block you can define node configuration blocks that specify the desired configuration for a set of nodes (computers) in your environment that should be configured exactly the same.</target>
+        </trans-unit>
+        <trans-unit id="23fb2a8f-4c37-4019-a540-95689c2249b8" xml:space="preserve">
+          <source>In this way, a node configuration represents a “role” for one or more nodes to assume.</source>
+          <target state="new">In this way, a node configuration represents a “role” for one or more nodes to assume.</target>
+        </trans-unit>
+        <trans-unit id="7d0e5f94-3fd0-4ea6-908a-a34c953f014a" xml:space="preserve">
+          <source>A node configuration block starts with the node keyword.</source>
+          <target state="new">A node configuration block starts with the node keyword.</target>
+        </trans-unit>
+        <trans-unit id="0922fea3-b438-47ea-80fa-4525ccc41976" xml:space="preserve">
+          <source>Follow this keyword with the name of the role, which can be a variable or expression.</source>
+          <target state="new">Follow this keyword with the name of the role, which can be a variable or expression.</target>
+        </trans-unit>
+        <trans-unit id="cac679da-49f6-471d-9a91-103a6f06019f" xml:space="preserve">
+          <source>After the role name, use braces {} to delimit the node configuration block.</source>
+          <target state="new">After the role name, use braces {} to delimit the node configuration block.</target>
+        </trans-unit>
+        <trans-unit id="0c75d39d-23cf-4abd-b92c-353088f86f4d" xml:space="preserve">
+          <source><bpt id="bfcb8f3c-2ff1-4688-96f0-678c62aefe0c">&lt;linkText&gt;</bpt>alt text<ept id="bfcb8f3c-2ff1-4688-96f0-678c62aefe0c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bfcb8f3c-2ff1-4688-96f0-678c62aefe0c">&lt;linkText&gt;</bpt>alt text<ept id="bfcb8f3c-2ff1-4688-96f0-678c62aefe0c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82eadc25-1b6a-44fd-a33b-c6280172c4bc" xml:space="preserve">
+          <source>Inside the node configuration block, you can define resource blocks to configure specific DSC resources.</source>
+          <target state="new">Inside the node configuration block, you can define resource blocks to configure specific DSC resources.</target>
+        </trans-unit>
+        <trans-unit id="4a57b01f-e3c2-4df7-a98a-396dc8c5578e" xml:space="preserve">
+          <source>A resource block starts with the name of the resource, followed by the identifier you want to specify for that block, then braces {} to delimit the block.</source>
+          <target state="new">A resource block starts with the name of the resource, followed by the identifier you want to specify for that block, then braces {} to delimit the block.</target>
+        </trans-unit>
+        <trans-unit id="42dbad43-5673-43ba-b86c-10fbdf88a242" xml:space="preserve">
+          <source><bpt id="605b5f3b-60d8-4d0e-8eac-c44975dab4e0">&lt;linkText&gt;</bpt>alt text<ept id="605b5f3b-60d8-4d0e-8eac-c44975dab4e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="605b5f3b-60d8-4d0e-8eac-c44975dab4e0">&lt;linkText&gt;</bpt>alt text<ept id="605b5f3b-60d8-4d0e-8eac-c44975dab4e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c60eb96b-9627-4d48-8d37-d25ea4dbf41e" xml:space="preserve">
+          <source>For more detailed information about the configuration keyword, see: <bpt id="617df67f-9f1a-40a9-9103-a4765dee0e03">&lt;linkText&gt;</bpt>Understanding Configuration Keyword in Desired State Configuration<ept id="617df67f-9f1a-40a9-9103-a4765dee0e03">&lt;/linkText&gt;</ept><bpt id="617df67f-9f1a-40a9-9103-a4765dee0e03">&lt;title&gt;</bpt>Understanding Configuration Keyword in Desired State Configuration<ept id="617df67f-9f1a-40a9-9103-a4765dee0e03">&lt;/title&gt;</ept></source>
+          <target state="new">For more detailed information about the configuration keyword, see: <bpt id="617df67f-9f1a-40a9-9103-a4765dee0e03">&lt;linkText&gt;</bpt>Understanding Configuration Keyword in Desired State Configuration<ept id="617df67f-9f1a-40a9-9103-a4765dee0e03">&lt;/linkText&gt;</ept><bpt id="617df67f-9f1a-40a9-9103-a4765dee0e03">&lt;title&gt;</bpt>Understanding Configuration Keyword in Desired State Configuration<ept id="617df67f-9f1a-40a9-9103-a4765dee0e03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cccaff96-7c80-4165-b5f5-3b009201b306" xml:space="preserve">
+          <source>Running (compiling) a DSC configuration will produce one or more DSC node configurations (MOF documents), which are what DSC nodes apply to comply with desired state.</source>
+          <target state="new">Running (compiling) a DSC configuration will produce one or more DSC node configurations (MOF documents), which are what DSC nodes apply to comply with desired state.</target>
+        </trans-unit>
+        <trans-unit id="3d26e779-5323-49ed-951a-6a17adc916a2" xml:space="preserve">
+          <source>Azure Automation DSC allows you to import, author, and compile DSC configurations in Azure Automation, similar to how runbooks can be imported, authored, and started in Azure Automation.</source>
+          <target state="new">Azure Automation DSC allows you to import, author, and compile DSC configurations in Azure Automation, similar to how runbooks can be imported, authored, and started in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="81daaded-1e5b-4721-b64c-571dd06926f8" xml:space="preserve">
+          <source>Azure Automation DSC currently provides the following cmdlets in the <bpt id="9b1a0681-71fe-437b-b508-78d0bd6946a9">&lt;linkText&gt;</bpt>Azure Resource Manager PowerShell module<ept id="9b1a0681-71fe-437b-b508-78d0bd6946a9">&lt;/linkText&gt;</ept><bpt id="9b1a0681-71fe-437b-b508-78d0bd6946a9">&lt;title&gt;</bpt><ept id="9b1a0681-71fe-437b-b508-78d0bd6946a9">&lt;/title&gt;</ept> for management of DSC configurations:</source>
+          <target state="new">Azure Automation DSC currently provides the following cmdlets in the <bpt id="9b1a0681-71fe-437b-b508-78d0bd6946a9">&lt;linkText&gt;</bpt>Azure Resource Manager PowerShell module<ept id="9b1a0681-71fe-437b-b508-78d0bd6946a9">&lt;/linkText&gt;</ept><bpt id="9b1a0681-71fe-437b-b508-78d0bd6946a9">&lt;title&gt;</bpt><ept id="9b1a0681-71fe-437b-b508-78d0bd6946a9">&lt;/title&gt;</ept> for management of DSC configurations:</target>
+        </trans-unit>
+        <trans-unit id="63fcb721-e764-435e-b0bb-566a353006e3" xml:space="preserve">
+          <source><bpt id="57aa84fe-363d-4485-a03b-504317fdab26">&lt;code&gt;</bpt>Get-AzureAutomationDscConfiguration<ept id="57aa84fe-363d-4485-a03b-504317fdab26">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="57aa84fe-363d-4485-a03b-504317fdab26">&lt;code&gt;</bpt>Get-AzureAutomationDscConfiguration<ept id="57aa84fe-363d-4485-a03b-504317fdab26">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fabf55e-b4a4-4d72-8565-7ce226a60a2c" xml:space="preserve">
+          <source><bpt id="395e4ce1-f221-47c0-86a7-80118813ba9e">&lt;code&gt;</bpt>Import-AzureAutomationDscConfiguration<ept id="395e4ce1-f221-47c0-86a7-80118813ba9e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="395e4ce1-f221-47c0-86a7-80118813ba9e">&lt;code&gt;</bpt>Import-AzureAutomationDscConfiguration<ept id="395e4ce1-f221-47c0-86a7-80118813ba9e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23ae26da-b6b3-4e8f-835b-c50ec667917b" xml:space="preserve">
+          <source>A configuration should contain only one configuration block, with the same name as the configuration, in Azure Automation DSC.</source>
+          <target state="new">A configuration should contain only one configuration block, with the same name as the configuration, in Azure Automation DSC.</target>
+        </trans-unit>
+        <trans-unit id="23860eea-2383-4bb1-a40f-c66c021bd1ac" xml:space="preserve">
+          <source>When a DSC Configuration is compiled, one or more node configurations are produced depending on the Node blocks in the configuration.</source>
+          <target state="new">When a DSC Configuration is compiled, one or more node configurations are produced depending on the Node blocks in the configuration.</target>
+        </trans-unit>
+        <trans-unit id="d1efc27a-963d-428c-a7b3-4d22fab38b1f" xml:space="preserve">
+          <source>A node configuration is the same as a “MOF,” or “configuration document” (if you are familiar with those PS DSC terms) and represents a “role,” such as webserver or worker, which desired state one or more nodes should assume.</source>
+          <target state="new">A node configuration is the same as a “MOF,” or “configuration document” (if you are familiar with those PS DSC terms) and represents a “role,” such as webserver or worker, which desired state one or more nodes should assume.</target>
+        </trans-unit>
+        <trans-unit id="8bcb4e66-e0c4-4e70-9507-233519e54dbf" xml:space="preserve">
+          <source>PS DSC nodes become aware of node configurations they should enact via either DSC push, or pull methods.</source>
+          <target state="new">PS DSC nodes become aware of node configurations they should enact via either DSC push, or pull methods.</target>
+        </trans-unit>
+        <trans-unit id="ceb40562-2225-4f58-a683-057e53c76337" xml:space="preserve">
+          <source>Azure Automation DSC relies on the DSC pull method, where nodes request node configurations they should apply from Azure Automation DSC pull server.</source>
+          <target state="new">Azure Automation DSC relies on the DSC pull method, where nodes request node configurations they should apply from Azure Automation DSC pull server.</target>
+        </trans-unit>
+        <trans-unit id="e115636b-b69f-4976-9b52-df520ed006d5" xml:space="preserve">
+          <source>Because the nodes make the request to Azure Automation DSC, nodes can be behind firewalls, have all inbound ports closed, etc. They only need outbound access to the Internet.</source>
+          <target state="new">Because the nodes make the request to Azure Automation DSC, nodes can be behind firewalls, have all inbound ports closed, etc. They only need outbound access to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="b1cb8b21-673c-4df2-bee3-ec5a6e09d570" xml:space="preserve">
+          <source>Azure Automation DSC currently provides the following cmdlets in the <bpt id="d4319657-c816-408a-9d9f-775bbcec43b1">&lt;linkText&gt;</bpt>Azure Resource Manager PowerShell module<ept id="d4319657-c816-408a-9d9f-775bbcec43b1">&lt;/linkText&gt;</ept><bpt id="d4319657-c816-408a-9d9f-775bbcec43b1">&lt;title&gt;</bpt><ept id="d4319657-c816-408a-9d9f-775bbcec43b1">&lt;/title&gt;</ept> for management of DSC node configurations: <bpt id="78fc9667-d2d9-44df-8dbf-eace451383c5">&lt;code&gt;</bpt>Get-AzureAutomationDscNodeConfiguration<ept id="78fc9667-d2d9-44df-8dbf-eace451383c5">&lt;/code&gt;</ept></source>
+          <target state="new">Azure Automation DSC currently provides the following cmdlets in the <bpt id="d4319657-c816-408a-9d9f-775bbcec43b1">&lt;linkText&gt;</bpt>Azure Resource Manager PowerShell module<ept id="d4319657-c816-408a-9d9f-775bbcec43b1">&lt;/linkText&gt;</ept><bpt id="d4319657-c816-408a-9d9f-775bbcec43b1">&lt;title&gt;</bpt><ept id="d4319657-c816-408a-9d9f-775bbcec43b1">&lt;/title&gt;</ept> for management of DSC node configurations: <bpt id="78fc9667-d2d9-44df-8dbf-eace451383c5">&lt;code&gt;</bpt>Get-AzureAutomationDscNodeConfiguration<ept id="78fc9667-d2d9-44df-8dbf-eace451383c5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e75845c6-1be3-4d75-964e-349dcdff3798" xml:space="preserve">
+          <source>A DSC node is any machine that has its configuration managed by DSC.</source>
+          <target state="new">A DSC node is any machine that has its configuration managed by DSC.</target>
+        </trans-unit>
+        <trans-unit id="2bf62a2a-8657-457f-a5c4-51c80d86ed72" xml:space="preserve">
+          <source>This could be an Azure VM or an on-premises VM / physical host.</source>
+          <target state="new">This could be an Azure VM or an on-premises VM / physical host.</target>
+        </trans-unit>
+        <trans-unit id="a65f65aa-c081-4708-b366-7b9326010de2" xml:space="preserve">
+          <source>Nodes enact node configurations to become and maintain compliance with the desired state they define, and also can report back to a reporting server on their configuration status and compliance.</source>
+          <target state="new">Nodes enact node configurations to become and maintain compliance with the desired state they define, and also can report back to a reporting server on their configuration status and compliance.</target>
+        </trans-unit>
+        <trans-unit id="dec72673-102d-4a71-b13a-5534c1b7cd07" xml:space="preserve">
+          <source>Azure Automation DSC makes onboarding of nodes for management by Azure Automation DSC easy, and allows changing of the node configuration assigned to each node server-side, so next time a node checks the server for instructions it will assume a different role and change how it is configured to match.</source>
+          <target state="new">Azure Automation DSC makes onboarding of nodes for management by Azure Automation DSC easy, and allows changing of the node configuration assigned to each node server-side, so next time a node checks the server for instructions it will assume a different role and change how it is configured to match.</target>
+        </trans-unit>
+        <trans-unit id="8aaf41f6-d135-4a43-87a1-1aa2d2fc82e6" xml:space="preserve">
+          <source>Nodes also report their status and configuration compliance to Azure Automation DSC.</source>
+          <target state="new">Nodes also report their status and configuration compliance to Azure Automation DSC.</target>
+        </trans-unit>
+        <trans-unit id="e703678d-11cd-41b1-a807-d1417fe92a90" xml:space="preserve">
+          <source>Azure Automation DSC currently provides the following cmdlets in the <bpt id="b49f5e0e-525f-4961-b3c2-4a8dfe3574b4">&lt;linkText&gt;</bpt>Azure Resource Manager PowerShell module<ept id="b49f5e0e-525f-4961-b3c2-4a8dfe3574b4">&lt;/linkText&gt;</ept><bpt id="b49f5e0e-525f-4961-b3c2-4a8dfe3574b4">&lt;title&gt;</bpt><ept id="b49f5e0e-525f-4961-b3c2-4a8dfe3574b4">&lt;/title&gt;</ept> for management of DSC nodes:</source>
+          <target state="new">Azure Automation DSC currently provides the following cmdlets in the <bpt id="b49f5e0e-525f-4961-b3c2-4a8dfe3574b4">&lt;linkText&gt;</bpt>Azure Resource Manager PowerShell module<ept id="b49f5e0e-525f-4961-b3c2-4a8dfe3574b4">&lt;/linkText&gt;</ept><bpt id="b49f5e0e-525f-4961-b3c2-4a8dfe3574b4">&lt;title&gt;</bpt><ept id="b49f5e0e-525f-4961-b3c2-4a8dfe3574b4">&lt;/title&gt;</ept> for management of DSC nodes:</target>
+        </trans-unit>
+        <trans-unit id="cbe04f1f-d355-413b-9550-90099af85368" xml:space="preserve">
+          <source><bpt id="071e32f1-aba5-43c3-a010-f60b0a4bb0c5">&lt;code&gt;</bpt>Get-AzureAutomationDscNode<ept id="071e32f1-aba5-43c3-a010-f60b0a4bb0c5">&lt;/code&gt;</ept>  </source>
+          <target state="new"><bpt id="071e32f1-aba5-43c3-a010-f60b0a4bb0c5">&lt;code&gt;</bpt>Get-AzureAutomationDscNode<ept id="071e32f1-aba5-43c3-a010-f60b0a4bb0c5">&lt;/code&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="f0387ba2-d0da-41d7-81fd-0b79ca448853" xml:space="preserve">
+          <source><bpt id="84d92ed6-9652-4e92-9909-58826bb8552e">&lt;code&gt;</bpt>Register-AzureAutomationDscNode<ept id="84d92ed6-9652-4e92-9909-58826bb8552e">&lt;/code&gt;</ept> (used to onboard Azure v2 VMs as nodes)</source>
+          <target state="new"><bpt id="84d92ed6-9652-4e92-9909-58826bb8552e">&lt;code&gt;</bpt>Register-AzureAutomationDscNode<ept id="84d92ed6-9652-4e92-9909-58826bb8552e">&lt;/code&gt;</ept> (used to onboard Azure v2 VMs as nodes)</target>
+        </trans-unit>
+        <trans-unit id="c2c8cf87-9986-414c-b1d0-69327ca3ba4f" xml:space="preserve">
+          <source><bpt id="42c127d7-9c13-4b16-83ee-07f1739b2c84">&lt;code&gt;</bpt>Get-AzureAutomationDscOnboardingMetaconfig<ept id="42c127d7-9c13-4b16-83ee-07f1739b2c84">&lt;/code&gt;</ept> (used to onboard Nodes)</source>
+          <target state="new"><bpt id="42c127d7-9c13-4b16-83ee-07f1739b2c84">&lt;code&gt;</bpt>Get-AzureAutomationDscOnboardingMetaconfig<ept id="42c127d7-9c13-4b16-83ee-07f1739b2c84">&lt;/code&gt;</ept> (used to onboard Nodes)</target>
+        </trans-unit>
+        <trans-unit id="c0ef43c0-d2b3-4027-962c-f0359b1b251f" xml:space="preserve">
+          <source><bpt id="8b61f5af-c779-403b-9321-71a6b2a3de23">&lt;code&gt;</bpt>Set-AzureAutomationDscNode<ept id="8b61f5af-c779-403b-9321-71a6b2a3de23">&lt;/code&gt;</ept>  (used to set/update Node to Node Configuration mappings)</source>
+          <target state="new"><bpt id="8b61f5af-c779-403b-9321-71a6b2a3de23">&lt;code&gt;</bpt>Set-AzureAutomationDscNode<ept id="8b61f5af-c779-403b-9321-71a6b2a3de23">&lt;/code&gt;</ept>  (used to set/update Node to Node Configuration mappings)</target>
+        </trans-unit>
+        <trans-unit id="95c3921e-0057-407a-8e17-b2e380186955" xml:space="preserve">
+          <source><bpt id="3ebcf34d-7db2-4a27-8e89-fa5f67324448">&lt;code&gt;</bpt>Unregister-AzureAutomationDscNode<ept id="3ebcf34d-7db2-4a27-8e89-fa5f67324448">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3ebcf34d-7db2-4a27-8e89-fa5f67324448">&lt;code&gt;</bpt>Unregister-AzureAutomationDscNode<ept id="3ebcf34d-7db2-4a27-8e89-fa5f67324448">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03b99040-ee6f-40f4-a636-80126a095535" xml:space="preserve">
+          <source><bpt id="79a464a4-f377-4aab-8568-41f44e1cb329">&lt;code&gt;</bpt>Get-AzureAutomationDscNodeReport<ept id="79a464a4-f377-4aab-8568-41f44e1cb329">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="79a464a4-f377-4aab-8568-41f44e1cb329">&lt;code&gt;</bpt>Get-AzureAutomationDscNodeReport<ept id="79a464a4-f377-4aab-8568-41f44e1cb329">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d989a731-ee9a-43bf-956c-b1eb6d3817e4" xml:space="preserve">
+          <source><bpt id="ce7fde8f-fd80-4b89-9649-4eaeddb78a1e">&lt;code&gt;</bpt>Export-AzureAutomationDscNodeReportContent<ept id="ce7fde8f-fd80-4b89-9649-4eaeddb78a1e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ce7fde8f-fd80-4b89-9649-4eaeddb78a1e">&lt;code&gt;</bpt>Export-AzureAutomationDscNodeReportContent<ept id="ce7fde8f-fd80-4b89-9649-4eaeddb78a1e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccd04870-9776-4719-8a50-d845fc95e5f6" xml:space="preserve">
+          <source>The <bpt id="cdfb99fc-eaeb-432a-be77-3ee7dc343afe">&lt;code&gt;</bpt>Get-AzureAutomationRegistrationInfo<ept id="cdfb99fc-eaeb-432a-be77-3ee7dc343afe">&lt;/code&gt;</ept> cmdlet can be used to get the registration URL and key needed to onboard Azure classic VMs to an Azure Automation account, either via the Azure Automation DSC VM extension in the Azure portal, or via PowerShell.</source>
+          <target state="new">The <bpt id="cdfb99fc-eaeb-432a-be77-3ee7dc343afe">&lt;code&gt;</bpt>Get-AzureAutomationRegistrationInfo<ept id="cdfb99fc-eaeb-432a-be77-3ee7dc343afe">&lt;/code&gt;</ept> cmdlet can be used to get the registration URL and key needed to onboard Azure classic VMs to an Azure Automation account, either via the Azure Automation DSC VM extension in the Azure portal, or via PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="9efb7d3b-7e95-4424-b62a-ab81e0cb05dc" xml:space="preserve">
+          <source>Azure Automation DSC VM extension:</source>
+          <target state="new">Azure Automation DSC VM extension:</target>
+        </trans-unit>
+        <trans-unit id="3829bfb6-3ec3-4c64-a6f1-dbeff883e458" xml:space="preserve">
+          <source><bpt id="e06e0647-08e4-46d1-b0f3-af6fe33b676e">&lt;linkText&gt;</bpt>alt text<ept id="e06e0647-08e4-46d1-b0f3-af6fe33b676e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e06e0647-08e4-46d1-b0f3-af6fe33b676e">&lt;linkText&gt;</bpt>alt text<ept id="e06e0647-08e4-46d1-b0f3-af6fe33b676e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65aed1da-d710-4f42-82e9-837177c167c8" xml:space="preserve">
+          <source>PowerShell:</source>
+          <target state="new">PowerShell:</target>
+        </trans-unit>
+        <trans-unit id="14123f51-cb6a-46be-8366-3e0048cfc78f" xml:space="preserve">
+          <source>DSC resources are building blocks that you can use to define a Windows PowerShell Desired State Configuration (DSC) configuration.</source>
+          <target state="new">DSC resources are building blocks that you can use to define a Windows PowerShell Desired State Configuration (DSC) configuration.</target>
+        </trans-unit>
+        <trans-unit id="1da2f6ef-53a7-4f81-9ac8-47a2db49fdc8" xml:space="preserve">
+          <source>DSC comes with a set of built-in functionality for configuring resources such as files and folders, server features and roles, registry settings, environment variables, and services and processes.</source>
+          <target state="new">DSC comes with a set of built-in functionality for configuring resources such as files and folders, server features and roles, registry settings, environment variables, and services and processes.</target>
+        </trans-unit>
+        <trans-unit id="26909d47-3e05-4e34-979f-f835d9b3d47b" xml:space="preserve">
+          <source>To learn about the full list of built-in DSC resources and how to use them, see <bpt id="92b3b33d-e829-4cd2-8355-6463ab267ab2">&lt;linkText&gt;</bpt>Built-In Windows PowerShell Desired State Configuration Resources<ept id="92b3b33d-e829-4cd2-8355-6463ab267ab2">&lt;/linkText&gt;</ept><bpt id="92b3b33d-e829-4cd2-8355-6463ab267ab2">&lt;title&gt;</bpt><ept id="92b3b33d-e829-4cd2-8355-6463ab267ab2">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn about the full list of built-in DSC resources and how to use them, see <bpt id="92b3b33d-e829-4cd2-8355-6463ab267ab2">&lt;linkText&gt;</bpt>Built-In Windows PowerShell Desired State Configuration Resources<ept id="92b3b33d-e829-4cd2-8355-6463ab267ab2">&lt;/linkText&gt;</ept><bpt id="92b3b33d-e829-4cd2-8355-6463ab267ab2">&lt;title&gt;</bpt><ept id="92b3b33d-e829-4cd2-8355-6463ab267ab2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="874d98e6-49ac-4916-a1e0-3ea18f9922ab" xml:space="preserve">
+          <source>DSC resources can also be imported as part of PowerShell Modules to extend the set of built-in DSC resources.</source>
+          <target state="new">DSC resources can also be imported as part of PowerShell Modules to extend the set of built-in DSC resources.</target>
+        </trans-unit>
+        <trans-unit id="c6c9f806-ffe1-4531-873f-43981c129b52" xml:space="preserve">
+          <source>Non-default resources will be pulled down by DSC nodes from the DSC pull server, if a node configuration the node is meant to enact contains references to those resources.</source>
+          <target state="new">Non-default resources will be pulled down by DSC nodes from the DSC pull server, if a node configuration the node is meant to enact contains references to those resources.</target>
+        </trans-unit>
+        <trans-unit id="8611f9dc-81db-4351-beea-9b32e0cd9fb0" xml:space="preserve">
+          <source>To learn how to create custom resources, see <bpt id="f0c3b192-3f48-4ad7-9acd-ddca21525155">&lt;linkText&gt;</bpt>Build Custom Windows PowerShell Desired State Configuration Resources<ept id="f0c3b192-3f48-4ad7-9acd-ddca21525155">&lt;/linkText&gt;</ept><bpt id="f0c3b192-3f48-4ad7-9acd-ddca21525155">&lt;title&gt;</bpt><ept id="f0c3b192-3f48-4ad7-9acd-ddca21525155">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to create custom resources, see <bpt id="f0c3b192-3f48-4ad7-9acd-ddca21525155">&lt;linkText&gt;</bpt>Build Custom Windows PowerShell Desired State Configuration Resources<ept id="f0c3b192-3f48-4ad7-9acd-ddca21525155">&lt;/linkText&gt;</ept><bpt id="f0c3b192-3f48-4ad7-9acd-ddca21525155">&lt;title&gt;</bpt><ept id="f0c3b192-3f48-4ad7-9acd-ddca21525155">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="daacd8e2-47d4-489d-b226-764f13de61ea" xml:space="preserve">
+          <source>Azure Automation DSC ships with all the same built-in DSC resources as does PS DSC.</source>
+          <target state="new">Azure Automation DSC ships with all the same built-in DSC resources as does PS DSC.</target>
+        </trans-unit>
+        <trans-unit id="71247b53-3760-485b-ba1e-c2696ec73c4a" xml:space="preserve">
+          <source>Additional resources can be added to Azure Automation DSC by importing PowerShell modules containing the resources into Azure Automation.</source>
+          <target state="new">Additional resources can be added to Azure Automation DSC by importing PowerShell modules containing the resources into Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="4d8a508c-d0be-4fba-8fed-2d16b0fd8ba3" xml:space="preserve">
+          <source>Azure Automation DSC currently provides the following cmdlets in the <bpt id="4e3bd115-759e-4e7f-b197-af668a92837a">&lt;linkText&gt;</bpt>Azure Resource Manager PowerShell module<ept id="4e3bd115-759e-4e7f-b197-af668a92837a">&lt;/linkText&gt;</ept><bpt id="4e3bd115-759e-4e7f-b197-af668a92837a">&lt;title&gt;</bpt><ept id="4e3bd115-759e-4e7f-b197-af668a92837a">&lt;/title&gt;</ept> for management of PowerShell modules:</source>
+          <target state="new">Azure Automation DSC currently provides the following cmdlets in the <bpt id="4e3bd115-759e-4e7f-b197-af668a92837a">&lt;linkText&gt;</bpt>Azure Resource Manager PowerShell module<ept id="4e3bd115-759e-4e7f-b197-af668a92837a">&lt;/linkText&gt;</ept><bpt id="4e3bd115-759e-4e7f-b197-af668a92837a">&lt;title&gt;</bpt><ept id="4e3bd115-759e-4e7f-b197-af668a92837a">&lt;/title&gt;</ept> for management of PowerShell modules:</target>
+        </trans-unit>
+        <trans-unit id="1687d015-bda5-4cc6-9278-49e5be56328a" xml:space="preserve">
+          <source><bpt id="7cfe5797-b006-4ee0-a3a8-70e1753abff5">&lt;code&gt;</bpt>New-AzureAutomationModule<ept id="7cfe5797-b006-4ee0-a3a8-70e1753abff5">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="7cfe5797-b006-4ee0-a3a8-70e1753abff5">&lt;code&gt;</bpt>New-AzureAutomationModule<ept id="7cfe5797-b006-4ee0-a3a8-70e1753abff5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9dd39ac-6ffb-453c-b5b3-21fddf774872" xml:space="preserve">
+          <source><bpt id="462511b6-1e36-43b6-8e3b-8088ffe51073">&lt;code&gt;</bpt>Remove-AzureAutomationModule<ept id="462511b6-1e36-43b6-8e3b-8088ffe51073">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="462511b6-1e36-43b6-8e3b-8088ffe51073">&lt;code&gt;</bpt>Remove-AzureAutomationModule<ept id="462511b6-1e36-43b6-8e3b-8088ffe51073">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a21b433f-1c77-4af1-ab26-75f6ebe139a7" xml:space="preserve">
+          <source><bpt id="fef6a49a-ab8d-48de-b2f4-6b4c903156a0">&lt;code&gt;</bpt>Set-AzureAutomationModule<ept id="fef6a49a-ab8d-48de-b2f4-6b4c903156a0">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="fef6a49a-ab8d-48de-b2f4-6b4c903156a0">&lt;code&gt;</bpt>Set-AzureAutomationModule<ept id="fef6a49a-ab8d-48de-b2f4-6b4c903156a0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfff4d90-7dca-448f-b986-b2281f06fe5d" xml:space="preserve">
+          <source><bpt id="1b8a0f62-0bc9-473e-8a2f-48811d093213">&lt;code&gt;</bpt>Get-AzureAutomationModule<ept id="1b8a0f62-0bc9-473e-8a2f-48811d093213">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1b8a0f62-0bc9-473e-8a2f-48811d093213">&lt;code&gt;</bpt>Get-AzureAutomationModule<ept id="1b8a0f62-0bc9-473e-8a2f-48811d093213">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f2cc03f-d5fa-4ae8-8e3d-65c1fb598ff7" xml:space="preserve">
+          <source>A compilation job in Azure Automation DSC is an instance of compilation of a configuration, to create one or more node configurations. They are similar to Azure Automation runbook jobs, except that they do not actually perform any task except to create node configurations. Any node configurations created by a compilation job are automatically placed on the Azure Automation DSC pull server, and overwrite previous versions of node Configurations, if they existed for this Configuration. The name of a node configuration produced by a compilation job takes the form of “&lt;Configuration-name&gt;.&lt;Node configuration-block-name&gt;”. For example, compiling the below configuration would produce a single node configuration called “MyConfiguration.webserver”</source>
+          <target state="new">A compilation job in Azure Automation DSC is an instance of compilation of a configuration, to create one or more node configurations. They are similar to Azure Automation runbook jobs, except that they do not actually perform any task except to create node configurations. Any node configurations created by a compilation job are automatically placed on the Azure Automation DSC pull server, and overwrite previous versions of node Configurations, if they existed for this Configuration. The name of a node configuration produced by a compilation job takes the form of “&lt;Configuration-name&gt;.&lt;Node configuration-block-name&gt;”. For example, compiling the below configuration would produce a single node configuration called “MyConfiguration.webserver”</target>
+        </trans-unit>
+        <trans-unit id="4a3a7b33-aa22-472b-b39d-142e58e74720" xml:space="preserve">
+          <source><bpt id="ae77bee0-92ca-4b74-b341-9f357aa29ec4">&lt;linkText&gt;</bpt>alt text<ept id="ae77bee0-92ca-4b74-b341-9f357aa29ec4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae77bee0-92ca-4b74-b341-9f357aa29ec4">&lt;linkText&gt;</bpt>alt text<ept id="ae77bee0-92ca-4b74-b341-9f357aa29ec4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99ca7890-d3fd-4b97-a14d-0da48655f9ff" xml:space="preserve">
+          <source>Just like runbooks, configurations can be published.</source>
+          <target state="new">Just like runbooks, configurations can be published.</target>
+        </trans-unit>
+        <trans-unit id="d540609d-0b89-430d-b3f6-cd747251da7b" xml:space="preserve">
+          <source>This is not related to putting DSC items onto the Azure Automation DSC pull server.</source>
+          <target state="new">This is not related to putting DSC items onto the Azure Automation DSC pull server.</target>
+        </trans-unit>
+        <trans-unit id="430e8695-89e1-4610-8bf9-bbe718246372" xml:space="preserve">
+          <source>Compilation jobs cause DSC items to be placed on the Azure Automation DSC pull server.</source>
+          <target state="new">Compilation jobs cause DSC items to be placed on the Azure Automation DSC pull server.</target>
+        </trans-unit>
+        <trans-unit id="a06745b1-01f2-46c9-b864-0093c07da116" xml:space="preserve">
+          <source>For more information on “publishing” in Azure Automation, see <bpt id="db0c6a3b-398f-48e7-aaff-e36c2abe5c54">&lt;linkText&gt;</bpt>Publishing a Runbook<ept id="db0c6a3b-398f-48e7-aaff-e36c2abe5c54">&lt;/linkText&gt;</ept><bpt id="db0c6a3b-398f-48e7-aaff-e36c2abe5c54">&lt;title&gt;</bpt><ept id="db0c6a3b-398f-48e7-aaff-e36c2abe5c54">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on “publishing” in Azure Automation, see <bpt id="db0c6a3b-398f-48e7-aaff-e36c2abe5c54">&lt;linkText&gt;</bpt>Publishing a Runbook<ept id="db0c6a3b-398f-48e7-aaff-e36c2abe5c54">&lt;/linkText&gt;</ept><bpt id="db0c6a3b-398f-48e7-aaff-e36c2abe5c54">&lt;title&gt;</bpt><ept id="db0c6a3b-398f-48e7-aaff-e36c2abe5c54">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7aa8b619-ffb8-400b-9e7b-d4263ed6ad65" xml:space="preserve">
+          <source>Azure Automation DSC currently provides the following cmdlets in the <bpt id="34720e9c-f1f9-4cb5-b1cb-ba42731ef361">&lt;linkText&gt;</bpt>Azure Resource Manager PowerShell module<ept id="34720e9c-f1f9-4cb5-b1cb-ba42731ef361">&lt;/linkText&gt;</ept><bpt id="34720e9c-f1f9-4cb5-b1cb-ba42731ef361">&lt;title&gt;</bpt><ept id="34720e9c-f1f9-4cb5-b1cb-ba42731ef361">&lt;/title&gt;</ept> for management of compilation jobs:</source>
+          <target state="new">Azure Automation DSC currently provides the following cmdlets in the <bpt id="34720e9c-f1f9-4cb5-b1cb-ba42731ef361">&lt;linkText&gt;</bpt>Azure Resource Manager PowerShell module<ept id="34720e9c-f1f9-4cb5-b1cb-ba42731ef361">&lt;/linkText&gt;</ept><bpt id="34720e9c-f1f9-4cb5-b1cb-ba42731ef361">&lt;title&gt;</bpt><ept id="34720e9c-f1f9-4cb5-b1cb-ba42731ef361">&lt;/title&gt;</ept> for management of compilation jobs:</target>
+        </trans-unit>
+        <trans-unit id="bd9082d6-07ba-4edc-b07e-b84e178bdcd3" xml:space="preserve">
+          <source><bpt id="d7388094-09b7-4942-bd8d-8461f53ed0ab">&lt;code&gt;</bpt>Get-AzureAutomationDscCompilationJob<ept id="d7388094-09b7-4942-bd8d-8461f53ed0ab">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d7388094-09b7-4942-bd8d-8461f53ed0ab">&lt;code&gt;</bpt>Get-AzureAutomationDscCompilationJob<ept id="d7388094-09b7-4942-bd8d-8461f53ed0ab">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b4c7e69-2133-4bfb-97c5-5879df890900" xml:space="preserve">
+          <source><bpt id="3ff57085-bb19-4ba9-b827-51d4fa4e493f">&lt;code&gt;</bpt>Get-AzureAutomationDscCompilationJobOutput<ept id="3ff57085-bb19-4ba9-b827-51d4fa4e493f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3ff57085-bb19-4ba9-b827-51d4fa4e493f">&lt;code&gt;</bpt>Get-AzureAutomationDscCompilationJobOutput<ept id="3ff57085-bb19-4ba9-b827-51d4fa4e493f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="364fbb56-038c-41cc-ab41-ac3367501d4b" xml:space="preserve">
+          <source><bpt id="55bfcd8d-b838-42a5-be1a-72477d776e3d">&lt;code&gt;</bpt>Start-AzureAutomationDscCompilationJob<ept id="55bfcd8d-b838-42a5-be1a-72477d776e3d">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="55bfcd8d-b838-42a5-be1a-72477d776e3d">&lt;code&gt;</bpt>Start-AzureAutomationDscCompilationJob<ept id="55bfcd8d-b838-42a5-be1a-72477d776e3d">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72d8144a-477a-4d34-a46b-b98e581ad9f0" xml:space="preserve">
+          <source>Since Azure Automation DSC is in preview, the first time you use this feature you will need to sign up for it using the Azure PowerShell cmdlets or Azure preview portal.</source>
+          <target state="new">Since Azure Automation DSC is in preview, the first time you use this feature you will need to sign up for it using the Azure PowerShell cmdlets or Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="edbe6fb0-9257-4ad5-86dd-ed39c86c3b1f" xml:space="preserve">
+          <source>You can sign up by calling the following two cmdlets:</source>
+          <target state="new">You can sign up by calling the following two cmdlets:</target>
+        </trans-unit>
+        <trans-unit id="efc634a8-34de-47a0-9a64-0868c8a1d7ff" xml:space="preserve">
+          <source><bpt id="0ce9f5ea-287c-4fd0-a821-4f8844ac4b8d">&lt;code&gt;</bpt>Register-AzureProvider –ProviderNamespace Microsoft.Automation<ept id="0ce9f5ea-287c-4fd0-a821-4f8844ac4b8d">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="0ce9f5ea-287c-4fd0-a821-4f8844ac4b8d">&lt;code&gt;</bpt>Register-AzureProvider –ProviderNamespace Microsoft.Automation<ept id="0ce9f5ea-287c-4fd0-a821-4f8844ac4b8d">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d54cd99a-91b1-4eda-bc53-be65fb4119ea" xml:space="preserve">
+          <source><bpt id="5f2651e3-7e36-4625-8867-96d420b447f6">&lt;code&gt;</bpt>Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation<ept id="5f2651e3-7e36-4625-8867-96d420b447f6">&lt;/code&gt;</ept> </source>
+          <target state="new"><bpt id="5f2651e3-7e36-4625-8867-96d420b447f6">&lt;code&gt;</bpt>Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation<ept id="5f2651e3-7e36-4625-8867-96d420b447f6">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="137ff57f-40ed-4f14-b5ea-c96b2dd8617d" xml:space="preserve">
+          <source>Azure Automation DSC registration may take up to one hour to complete before the feature will become available for use.</source>
+          <target state="new">Azure Automation DSC registration may take up to one hour to complete before the feature will become available for use.</target>
+        </trans-unit>
+        <trans-unit id="1cdb099f-eca4-42bc-8665-ab29d929f83a" xml:space="preserve">
+          <source>Azure Automation DSC does not support partial or composite DSC configurations at this time.</source>
+          <target state="new">Azure Automation DSC does not support partial or composite DSC configurations at this time.</target>
+        </trans-unit>
+        <trans-unit id="fbd6994f-2fd6-486c-bb00-f886800f9e93" xml:space="preserve">
+          <source>The latest version of WMF 5 must be installed for the PowerShell DSC agent for Windows to be able to communicate with Azure Automation.</source>
+          <target state="new">The latest version of WMF 5 must be installed for the PowerShell DSC agent for Windows to be able to communicate with Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="b672106e-2ade-4ffd-884e-2e60b55cff33" xml:space="preserve">
+          <source>The PowerShell DSC agent for Linux does not support communicating with Azure Automation at this time.</source>
+          <target state="new">The PowerShell DSC agent for Linux does not support communicating with Azure Automation at this time.</target>
+        </trans-unit>
+        <trans-unit id="c6e5baa6-e7b3-429f-94b3-ab52aa24ddc0" xml:space="preserve">
+          <source>This should be updated soon.</source>
+          <target state="new">This should be updated soon.</target>
+        </trans-unit>
+        <trans-unit id="540e7fb0-af71-4aad-b6da-d4a5143b3f31" xml:space="preserve">
+          <source>Azure Automation does not support side by side use of PowerShell modules.</source>
+          <target state="new">Azure Automation does not support side by side use of PowerShell modules.</target>
+        </trans-unit>
+        <trans-unit id="868eb62c-c719-4209-9342-462c44262c66" xml:space="preserve">
+          <source>This means all configurations within an Automation account must work with the last version of a PowerShell module imported into that Automation account, and with any PowerShell DSC resources that module contains that the configuration uses.</source>
+          <target state="new">This means all configurations within an Automation account must work with the last version of a PowerShell module imported into that Automation account, and with any PowerShell DSC resources that module contains that the configuration uses.</target>
+        </trans-unit>
+        <trans-unit id="0fa1f784-ce5c-43ff-8e63-a96414e2981c" xml:space="preserve">
+          <source>The traditional PowerShell DSC pull server expects module zips to be placed on the pull server in the format <bpt id="72c0856c-786e-4bac-b80e-8a2ea7d38f6d">&lt;strong&gt;</bpt>ModuleName_Version.zip”<ept id="72c0856c-786e-4bac-b80e-8a2ea7d38f6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The traditional PowerShell DSC pull server expects module zips to be placed on the pull server in the format <bpt id="72c0856c-786e-4bac-b80e-8a2ea7d38f6d">&lt;strong&gt;</bpt>ModuleName_Version.zip”<ept id="72c0856c-786e-4bac-b80e-8a2ea7d38f6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f2399ba-0f99-4166-93f2-cec4a72910b0" xml:space="preserve">
+          <source>Azure Automation expects PowerShell modules to be imported with names in the form of <bpt id="f6bc3da5-aef6-4d84-a82e-7230c2a3e395">&lt;strong&gt;</bpt>ModuleName.zip<ept id="f6bc3da5-aef6-4d84-a82e-7230c2a3e395">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Azure Automation expects PowerShell modules to be imported with names in the form of <bpt id="f6bc3da5-aef6-4d84-a82e-7230c2a3e395">&lt;strong&gt;</bpt>ModuleName.zip<ept id="f6bc3da5-aef6-4d84-a82e-7230c2a3e395">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56960f59-24d6-426d-9d74-6e3eacecc4b1" xml:space="preserve">
+          <source>See <bpt id="0cab32ac-055b-4d38-b609-eeb3ea12e2d5">&lt;linkText&gt;</bpt>this blog post<ept id="0cab32ac-055b-4d38-b609-eeb3ea12e2d5">&lt;/linkText&gt;</ept><bpt id="0cab32ac-055b-4d38-b609-eeb3ea12e2d5">&lt;title&gt;</bpt><ept id="0cab32ac-055b-4d38-b609-eeb3ea12e2d5">&lt;/title&gt;</ept> for more info on the Integration Module format needed to import the module into Azure Automation.</source>
+          <target state="new">See <bpt id="0cab32ac-055b-4d38-b609-eeb3ea12e2d5">&lt;linkText&gt;</bpt>this blog post<ept id="0cab32ac-055b-4d38-b609-eeb3ea12e2d5">&lt;/linkText&gt;</ept><bpt id="0cab32ac-055b-4d38-b609-eeb3ea12e2d5">&lt;title&gt;</bpt><ept id="0cab32ac-055b-4d38-b609-eeb3ea12e2d5">&lt;/title&gt;</ept> for more info on the Integration Module format needed to import the module into Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="be177cca-9f01-4ff0-8a34-4a4a659b0370" xml:space="preserve">
+          <source>PowerShell modules that specify DSC resources side by side within the module, using the “version per folder” format, will not work in Azure Automation right now.</source>
+          <target state="new">PowerShell modules that specify DSC resources side by side within the module, using the “version per folder” format, will not work in Azure Automation right now.</target>
+        </trans-unit>
+        <trans-unit id="cb6c15d7-ecdd-4363-85e4-f5913bb8940a" xml:space="preserve">
+          <source>When importing a PowerShell modules into Azure Automation using the <bpt id="872922c7-5a7e-43dd-acde-4a12cc4683ed">&lt;code&gt;</bpt>New-AzureAutomationModule<ept id="872922c7-5a7e-43dd-acde-4a12cc4683ed">&lt;/code&gt;</ept> or <bpt id="4b598164-0c2e-4ff1-b7f1-feeea59b56c0">&lt;code&gt;</bpt>Set-AzureAutomationModule<ept id="4b598164-0c2e-4ff1-b7f1-feeea59b56c0">&lt;/code&gt;</ept> cmdlets, the module import is asynchronous. Even if the cmdlet returns successfully, that does not mean module import has succeeded. To check if import has succeeded, use <bpt id="d31cecba-6c4f-4d12-8726-e0ad9b5e1e35">&lt;code&gt;</bpt>Get-AzureAutomationModule –Name &lt;ModuleName&gt;<ept id="d31cecba-6c4f-4d12-8726-e0ad9b5e1e35">&lt;/code&gt;</ept> (make sure to get just this module, not all modules) and check that the <bpt id="ac84ce09-10df-41c8-8867-d5bc66fc7336">&lt;strong&gt;</bpt>ProvisioningState<ept id="ac84ce09-10df-41c8-8867-d5bc66fc7336">&lt;/strong&gt;</ept> field of the module says succeeded.</source>
+          <target state="new">When importing a PowerShell modules into Azure Automation using the <bpt id="872922c7-5a7e-43dd-acde-4a12cc4683ed">&lt;code&gt;</bpt>New-AzureAutomationModule<ept id="872922c7-5a7e-43dd-acde-4a12cc4683ed">&lt;/code&gt;</ept> or <bpt id="4b598164-0c2e-4ff1-b7f1-feeea59b56c0">&lt;code&gt;</bpt>Set-AzureAutomationModule<ept id="4b598164-0c2e-4ff1-b7f1-feeea59b56c0">&lt;/code&gt;</ept> cmdlets, the module import is asynchronous. Even if the cmdlet returns successfully, that does not mean module import has succeeded. To check if import has succeeded, use <bpt id="d31cecba-6c4f-4d12-8726-e0ad9b5e1e35">&lt;code&gt;</bpt>Get-AzureAutomationModule –Name &lt;ModuleName&gt;<ept id="d31cecba-6c4f-4d12-8726-e0ad9b5e1e35">&lt;/code&gt;</ept> (make sure to get just this module, not all modules) and check that the <bpt id="ac84ce09-10df-41c8-8867-d5bc66fc7336">&lt;strong&gt;</bpt>ProvisioningState<ept id="ac84ce09-10df-41c8-8867-d5bc66fc7336">&lt;/strong&gt;</ept> field of the module says succeeded.</target>
+        </trans-unit>
+        <trans-unit id="974f9a00-3ae7-4987-bf8c-ab7974c358e1" xml:space="preserve">
+          <source>PowerShell modules imported into Azure Automation cannot contain .doc or .docx files.</source>
+          <target state="new">PowerShell modules imported into Azure Automation cannot contain .doc or .docx files.</target>
+        </trans-unit>
+        <trans-unit id="bb07892d-e38a-47e1-b65e-83b9f8c00508" xml:space="preserve">
+          <source>Some PowerShell modules containing DSC resources contain these files, for help purposes.</source>
+          <target state="new">Some PowerShell modules containing DSC resources contain these files, for help purposes.</target>
+        </trans-unit>
+        <trans-unit id="801ca015-a0c4-4970-b342-02141deede6e" xml:space="preserve">
+          <source>These files should be removed from modules, prior to import into Azure Automation.</source>
+          <target state="new">These files should be removed from modules, prior to import into Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="95283027-5211-4678-ae5e-5757718dda77" xml:space="preserve">
+          <source>Configurations in Azure Automation currently only support strings for parameter values.</source>
+          <target state="new">Configurations in Azure Automation currently only support strings for parameter values.</target>
+        </trans-unit>
+        <trans-unit id="c7565fa6-d4be-4717-85ae-4d7456545cf3" xml:space="preserve">
+          <source>If you want to pass something other than a string for the value of a parameter, pass the parameter value as a JSON string, and within the configuration use ConvertFrom-Json to convert the JSON string back to a non-string value.</source>
+          <target state="new">If you want to pass something other than a string for the value of a parameter, pass the parameter value as a JSON string, and within the configuration use ConvertFrom-Json to convert the JSON string back to a non-string value.</target>
+        </trans-unit>
+        <trans-unit id="0c3d21e6-a297-454f-bdab-a2b8bac7a2c6" xml:space="preserve">
+          <source>When a node is first registered with an Azure Automation account, or the node is changed to be mapped to a different node configuration server-side, it’s status will be compliant, even if the node’s status is not actually compliant with the node configuration it is now mapped to.</source>
+          <target state="new">When a node is first registered with an Azure Automation account, or the node is changed to be mapped to a different node configuration server-side, it’s status will be compliant, even if the node’s status is not actually compliant with the node configuration it is now mapped to.</target>
+        </trans-unit>
+        <trans-unit id="ff3ee174-e49b-496d-b81e-78068639f0c5" xml:space="preserve">
+          <source>After the node sends its first report after registration or a node configuration mapping change, the node status can be trusted.</source>
+          <target state="new">After the node sends its first report after registration or a node configuration mapping change, the node status can be trusted.</target>
+        </trans-unit>
+        <trans-unit id="49ca0f27-6ab6-4edd-b2de-f3a3df1a8ee3" xml:space="preserve">
+          <source>When onboarding an Azure VM for management with Azure Automation DSC using <bpt id="efc03fbd-0e2d-4fb3-9b04-7a045a5e0d97">&lt;code&gt;</bpt>Register-AzureAutomationDscNode<ept id="efc03fbd-0e2d-4fb3-9b04-7a045a5e0d97">&lt;/code&gt;</ept>, <bpt id="ae959305-cb0a-4e3b-b588-5892d7954f7f">&lt;code&gt;</bpt>Set-AzureVMExtension<ept id="ae959305-cb0a-4e3b-b588-5892d7954f7f">&lt;/code&gt;</ept>, or the Azure Automation DSC VM extension in the Azure preview portal, if registration fails with <bpt id="186e7b02-633f-415c-8697-9307fb0c3e09">&lt;strong&gt;</bpt>The computer name was not specified and the configuration directory does not have any configuration files<ept id="186e7b02-633f-415c-8697-9307fb0c3e09">&lt;/strong&gt;</ept>, this is a false alarm and the VM registration actually succeeded.</source>
+          <target state="new">When onboarding an Azure VM for management with Azure Automation DSC using <bpt id="efc03fbd-0e2d-4fb3-9b04-7a045a5e0d97">&lt;code&gt;</bpt>Register-AzureAutomationDscNode<ept id="efc03fbd-0e2d-4fb3-9b04-7a045a5e0d97">&lt;/code&gt;</ept>, <bpt id="ae959305-cb0a-4e3b-b588-5892d7954f7f">&lt;code&gt;</bpt>Set-AzureVMExtension<ept id="ae959305-cb0a-4e3b-b588-5892d7954f7f">&lt;/code&gt;</ept>, or the Azure Automation DSC VM extension in the Azure preview portal, if registration fails with <bpt id="186e7b02-633f-415c-8697-9307fb0c3e09">&lt;strong&gt;</bpt>The computer name was not specified and the configuration directory does not have any configuration files<ept id="186e7b02-633f-415c-8697-9307fb0c3e09">&lt;/strong&gt;</ept>, this is a false alarm and the VM registration actually succeeded.</target>
+        </trans-unit>
+        <trans-unit id="922c0e0d-d8e4-4d06-a715-a49f281bff86" xml:space="preserve">
+          <source>Successful registration can be verified using the <bpt id="e94e8c4f-fc98-4ec1-9aad-3e9ebb3350aa">&lt;code&gt;</bpt>Get-AzureAutomationDscNode<ept id="e94e8c4f-fc98-4ec1-9aad-3e9ebb3350aa">&lt;/code&gt;</ept> cmdlet.</source>
+          <target state="new">Successful registration can be verified using the <bpt id="e94e8c4f-fc98-4ec1-9aad-3e9ebb3350aa">&lt;code&gt;</bpt>Get-AzureAutomationDscNode<ept id="e94e8c4f-fc98-4ec1-9aad-3e9ebb3350aa">&lt;/code&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="897ecb38-82df-4518-8db8-98fb4438fee6" xml:space="preserve">
+          <source>When onboarding an Azure VM for management with Azure Automation DSC using <bpt id="71458399-e582-4e6b-8b07-48983ce7ff18">&lt;code&gt;</bpt>Register-AzureAutomationDscNode<ept id="71458399-e582-4e6b-8b07-48983ce7ff18">&lt;/code&gt;</ept>, <bpt id="f1e6543d-6bf4-42ce-acd7-c1e394ac7a92">&lt;code&gt;</bpt>Set-AzureVMExtension<ept id="f1e6543d-6bf4-42ce-acd7-c1e394ac7a92">&lt;/code&gt;</ept>, or the Azure Automation DSC VM extension in the Azure preview portal, it could take up to an hour for the VM to show up as a DSC node in Azure Automation.</source>
+          <target state="new">When onboarding an Azure VM for management with Azure Automation DSC using <bpt id="71458399-e582-4e6b-8b07-48983ce7ff18">&lt;code&gt;</bpt>Register-AzureAutomationDscNode<ept id="71458399-e582-4e6b-8b07-48983ce7ff18">&lt;/code&gt;</ept>, <bpt id="f1e6543d-6bf4-42ce-acd7-c1e394ac7a92">&lt;code&gt;</bpt>Set-AzureVMExtension<ept id="f1e6543d-6bf4-42ce-acd7-c1e394ac7a92">&lt;/code&gt;</ept>, or the Azure Automation DSC VM extension in the Azure preview portal, it could take up to an hour for the VM to show up as a DSC node in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="0f801dcb-9c02-46b3-a2e6-c86d478cbd4e" xml:space="preserve">
+          <source>This is due to the installation of Windows Management Framework 5.0 on the VM by the Azure VM DSC extension, which is required to onboard the VM to Azure Automation DSC.</source>
+          <target state="new">This is due to the installation of Windows Management Framework 5.0 on the VM by the Azure VM DSC extension, which is required to onboard the VM to Azure Automation DSC.</target>
+        </trans-unit>
+        <trans-unit id="9b10e6f2-f0bd-4eba-ad80-5a46129e6d24" xml:space="preserve">
+          <source>DSC nodes onboarded to Azure Automation DSC will initially show a 'Compliant' status, even if they are not actually compliant with the DSC node configuration they are mapped to.</source>
+          <target state="new">DSC nodes onboarded to Azure Automation DSC will initially show a 'Compliant' status, even if they are not actually compliant with the DSC node configuration they are mapped to.</target>
+        </trans-unit>
+        <trans-unit id="e2d08d6a-76dc-4e1f-8155-445dab99325e" xml:space="preserve">
+          <source>After a node performs its first pull and sends its first DSC report to Azure Automation DSC, the status of the node should be correct.</source>
+          <target state="new">After a node performs its first pull and sends its first DSC report to Azure Automation DSC, the status of the node should be correct.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="857becf7-132d-467f-982b-4a1f8e54cee9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="857becf7-132d-467f-982b-4a1f8e54cee9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b502866e-33eb-459f-a1d9-35d42306556d">
+        <trans-unit id="2cb56758-db33-4028-88f7-465f671b29b5" xml:space="preserve">
+          <source>Update your StorSimple device | Microsoft Azure</source>
+          <target state="new">Update your StorSimple device | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="56a45cf1-1684-4e86-a9e6-ae5cccedc804" xml:space="preserve">
+          <source>Explains how to use the StorSimple update feature to install regular and maintenance mode updates and hotfixes.</source>
+          <target state="new">Explains how to use the StorSimple update feature to install regular and maintenance mode updates and hotfixes.</target>
+        </trans-unit>
+        <trans-unit id="778b9e2a-8902-43ad-abec-a19653c1d22f" xml:space="preserve">
+          <source>The StorSimple updates features allow you to easily keep your StorSimple device up-to-date.</source>
+          <target state="new">The StorSimple updates features allow you to easily keep your StorSimple device up-to-date.</target>
+        </trans-unit>
+        <trans-unit id="42c7c2d1-b94b-44ca-822a-2111bc1217ea" xml:space="preserve">
+          <source>Depending on the update type, you can apply updates to the device via the Microsoft Azure Management Portal or via the Windows PowerShell interface.</source>
+          <target state="new">Depending on the update type, you can apply updates to the device via the Microsoft Azure Management Portal or via the Windows PowerShell interface.</target>
+        </trans-unit>
+        <trans-unit id="06f1423b-59f3-4083-92a1-42b60e17fe73" xml:space="preserve">
+          <source>This tutorial describes the update types and how to install each of them.</source>
+          <target state="new">This tutorial describes the update types and how to install each of them.</target>
+        </trans-unit>
+        <trans-unit id="263278d3-1532-4c3a-9815-e44fb799fa4a" xml:space="preserve">
+          <source>You can apply two types of device updates: </source>
+          <target state="new">You can apply two types of device updates: </target>
+        </trans-unit>
+        <trans-unit id="6ccde299-38e0-452c-8aa5-eecfb5e3a943" xml:space="preserve">
+          <source>Regular (or Normal mode) updates</source>
+          <target state="new">Regular (or Normal mode) updates</target>
+        </trans-unit>
+        <trans-unit id="0acf818e-7087-4154-ad8c-1ee07bacfab2" xml:space="preserve">
+          <source>Maintenance mode updates</source>
+          <target state="new">Maintenance mode updates</target>
+        </trans-unit>
+        <trans-unit id="2f4d6261-2c39-4fe9-b8e8-057b82084280" xml:space="preserve">
+          <source>You can install regular updates via the Management Portal or Windows PowerShell; however, you must use Windows PowerShell to install Maintenance mode updates.</source>
+          <target state="new">You can install regular updates via the Management Portal or Windows PowerShell; however, you must use Windows PowerShell to install Maintenance mode updates.</target>
+        </trans-unit>
+        <trans-unit id="741aad65-c12e-4623-828a-5dfc76086a38" xml:space="preserve">
+          <source>Each update type is described separately, below.</source>
+          <target state="new">Each update type is described separately, below.</target>
+        </trans-unit>
+        <trans-unit id="e2bf48b8-8039-4538-bf7a-be62c38622a2" xml:space="preserve">
+          <source>Regular updates are non-disruptive updates that can be installed when the device is in Normal mode.</source>
+          <target state="new">Regular updates are non-disruptive updates that can be installed when the device is in Normal mode.</target>
+        </trans-unit>
+        <trans-unit id="5f3ba38d-0142-456d-aa1c-646da77aa87e" xml:space="preserve">
+          <source>These updates are applied through the Microsoft Update website to each device controller.</source>
+          <target state="new">These updates are applied through the Microsoft Update website to each device controller.</target>
+        </trans-unit>
+        <trans-unit id="ecf8f820-50e0-425e-8d55-90d0b17444bd" xml:space="preserve">
+          <source>A controller failover may occur during the update process.</source>
+          <target state="new">A controller failover may occur during the update process.</target>
+        </trans-unit>
+        <trans-unit id="24be28e8-82d8-4adf-8115-bb7233450bcf" xml:space="preserve">
+          <source>However, this will not affect system availability or operation.</source>
+          <target state="new">However, this will not affect system availability or operation.</target>
+        </trans-unit>
+        <trans-unit id="9db38bb7-1b54-4389-b82f-213b0a61e206" xml:space="preserve">
+          <source>For details on how to install regular updates via the Management Portal, see <bpt id="70a0b7c8-37f5-48f0-982c-7573fefe91b6">&lt;linkText&gt;</bpt>Install regular updates via the Management Portal<ept id="70a0b7c8-37f5-48f0-982c-7573fefe91b6">&lt;/linkText&gt;</ept><bpt id="70a0b7c8-37f5-48f0-982c-7573fefe91b6">&lt;title&gt;</bpt><ept id="70a0b7c8-37f5-48f0-982c-7573fefe91b6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on how to install regular updates via the Management Portal, see <bpt id="70a0b7c8-37f5-48f0-982c-7573fefe91b6">&lt;linkText&gt;</bpt>Install regular updates via the Management Portal<ept id="70a0b7c8-37f5-48f0-982c-7573fefe91b6">&lt;/linkText&gt;</ept><bpt id="70a0b7c8-37f5-48f0-982c-7573fefe91b6">&lt;title&gt;</bpt><ept id="70a0b7c8-37f5-48f0-982c-7573fefe91b6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d6cdcba-3a76-4b33-b5df-f14beb1e6c01" xml:space="preserve">
+          <source>You can also install regular updates via Windows PowerShell for StorSimple.</source>
+          <target state="new">You can also install regular updates via Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="bebbc036-751b-4854-81b5-2d7be440f49a" xml:space="preserve">
+          <source>For details, see <bpt id="76601531-b514-4c50-a7fd-329cc8493519">&lt;linkText&gt;</bpt>Install regular updates via Windows PowerShell for StorSimple<ept id="76601531-b514-4c50-a7fd-329cc8493519">&lt;/linkText&gt;</ept><bpt id="76601531-b514-4c50-a7fd-329cc8493519">&lt;title&gt;</bpt><ept id="76601531-b514-4c50-a7fd-329cc8493519">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="76601531-b514-4c50-a7fd-329cc8493519">&lt;linkText&gt;</bpt>Install regular updates via Windows PowerShell for StorSimple<ept id="76601531-b514-4c50-a7fd-329cc8493519">&lt;/linkText&gt;</ept><bpt id="76601531-b514-4c50-a7fd-329cc8493519">&lt;title&gt;</bpt><ept id="76601531-b514-4c50-a7fd-329cc8493519">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e7aaf82-64ad-4364-b152-159b3add509e" xml:space="preserve">
+          <source>Maintenance Mode updates are disruptive updates such as disk firmware upgrades or USM firmware upgrades.</source>
+          <target state="new">Maintenance Mode updates are disruptive updates such as disk firmware upgrades or USM firmware upgrades.</target>
+        </trans-unit>
+        <trans-unit id="341f9f37-9f30-4dce-a2d3-16cc06ec8571" xml:space="preserve">
+          <source>These updates require the device to be put into Maintenance mode.</source>
+          <target state="new">These updates require the device to be put into Maintenance mode.</target>
+        </trans-unit>
+        <trans-unit id="64a94f97-83d8-4af8-ab07-c6aed1e25596" xml:space="preserve">
+          <source>For details, see <bpt id="4b4cad08-3da6-4317-8dd1-4e45e8690c16">&lt;linkText&gt;</bpt>Step 2: Enter Maintenance mode<ept id="4b4cad08-3da6-4317-8dd1-4e45e8690c16">&lt;/linkText&gt;</ept><bpt id="4b4cad08-3da6-4317-8dd1-4e45e8690c16">&lt;title&gt;</bpt><ept id="4b4cad08-3da6-4317-8dd1-4e45e8690c16">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="4b4cad08-3da6-4317-8dd1-4e45e8690c16">&lt;linkText&gt;</bpt>Step 2: Enter Maintenance mode<ept id="4b4cad08-3da6-4317-8dd1-4e45e8690c16">&lt;/linkText&gt;</ept><bpt id="4b4cad08-3da6-4317-8dd1-4e45e8690c16">&lt;title&gt;</bpt><ept id="4b4cad08-3da6-4317-8dd1-4e45e8690c16">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b78ad6c8-a9a6-4290-a00f-3748c9192455" xml:space="preserve">
+          <source>You cannot use the Management Portal to install Maintenance mode updates.</source>
+          <target state="new">You cannot use the Management Portal to install Maintenance mode updates.</target>
+        </trans-unit>
+        <trans-unit id="5e8c7339-a53b-470b-8c27-f0d14b44366c" xml:space="preserve">
+          <source>Instead, you must use Windows PowerShell for StorSimple.</source>
+          <target state="new">Instead, you must use Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="b30e60d4-9496-4f64-9e68-fc27140965a2" xml:space="preserve">
+          <source>For details on how to install Maintenance mode updates, see <bpt id="e4a6e64b-1a99-4c32-af43-71bf4b086430">&lt;linkText&gt;</bpt>Install Maintenance mode updates via Windows PowerShell for StorSimple<ept id="e4a6e64b-1a99-4c32-af43-71bf4b086430">&lt;/linkText&gt;</ept><bpt id="e4a6e64b-1a99-4c32-af43-71bf4b086430">&lt;title&gt;</bpt><ept id="e4a6e64b-1a99-4c32-af43-71bf4b086430">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on how to install Maintenance mode updates, see <bpt id="e4a6e64b-1a99-4c32-af43-71bf4b086430">&lt;linkText&gt;</bpt>Install Maintenance mode updates via Windows PowerShell for StorSimple<ept id="e4a6e64b-1a99-4c32-af43-71bf4b086430">&lt;/linkText&gt;</ept><bpt id="e4a6e64b-1a99-4c32-af43-71bf4b086430">&lt;title&gt;</bpt><ept id="e4a6e64b-1a99-4c32-af43-71bf4b086430">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7fbec2e-7d8b-405c-b9b2-25d04635c2da" xml:space="preserve">
+          <source>Maintenance mode updates must be applied separately to each controller.</source>
+          <target state="new">Maintenance mode updates must be applied separately to each controller.</target>
+        </trans-unit>
+        <trans-unit id="965a87f2-32b7-4d31-a329-4ee066c63f40" xml:space="preserve">
+          <source>You can use the Management Portal to apply updates to your StorSimple device.</source>
+          <target state="new">You can use the Management Portal to apply updates to your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="7e89d8d4-cfa4-4ef1-9ef2-c6389230e8e4" xml:space="preserve">
+          <source><bpt id="9d8716b5-3f04-4363-8dba-411bd8563813">&lt;token href="../../includes/storsimple-install-updates-manually.md"&gt;</bpt><ept id="9d8716b5-3f04-4363-8dba-411bd8563813">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9d8716b5-3f04-4363-8dba-411bd8563813">&lt;token href="../../includes/storsimple-install-updates-manually.md"&gt;</bpt><ept id="9d8716b5-3f04-4363-8dba-411bd8563813">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f56b118-d5f9-44c2-9674-0cb08085ffdb" xml:space="preserve">
+          <source>Alternatively, you can use Windows PowerShell for StorSimple to apply regular (Normal mode) updates.</source>
+          <target state="new">Alternatively, you can use Windows PowerShell for StorSimple to apply regular (Normal mode) updates.</target>
+        </trans-unit>
+        <trans-unit id="34c82225-c1b2-4ca6-8885-788b1ed95453" xml:space="preserve">
+          <source>Although you can install regular updates using Windows PowerShell for StorSimple, we strongly recommend that you install regular updates through the Management Portal.</source>
+          <target state="new">Although you can install regular updates using Windows PowerShell for StorSimple, we strongly recommend that you install regular updates through the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="92143860-dba2-4aa3-9a37-87ceeb605d7f" xml:space="preserve">
+          <source>Beginning with Update 1, pre-checks will be performed prior to installing updates from the Portal.</source>
+          <target state="new">Beginning with Update 1, pre-checks will be performed prior to installing updates from the Portal.</target>
+        </trans-unit>
+        <trans-unit id="3bf7e9f4-3d48-45aa-b212-17a36e75b2a9" xml:space="preserve">
+          <source>These pre-checks will preempt failures and ensure a smoother experience.</source>
+          <target state="new">These pre-checks will preempt failures and ensure a smoother experience.</target>
+        </trans-unit>
+        <trans-unit id="90cbe139-c18b-4bfa-9fc6-e532a622239a" xml:space="preserve">
+          <source><bpt id="566581a4-a348-4411-91da-ce87985c55fb">&lt;token href="../../includes/storsimple-install-regular-updates-powershell.md"&gt;</bpt><ept id="566581a4-a348-4411-91da-ce87985c55fb">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="566581a4-a348-4411-91da-ce87985c55fb">&lt;token href="../../includes/storsimple-install-regular-updates-powershell.md"&gt;</bpt><ept id="566581a4-a348-4411-91da-ce87985c55fb">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca976f4f-2194-4ca1-a8b0-a546393ad450" xml:space="preserve">
+          <source>You use Windows PowerShell for StorSimple to apply Maintenance mode updates to your StorSimple device.</source>
+          <target state="new">You use Windows PowerShell for StorSimple to apply Maintenance mode updates to your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="41e5a18d-18cf-4ba0-b04c-d95a55111d2b" xml:space="preserve">
+          <source>All I/O requests are paused in this mode.</source>
+          <target state="new">All I/O requests are paused in this mode.</target>
+        </trans-unit>
+        <trans-unit id="9b618374-3dd8-4a8a-8511-f77515ed8f66" xml:space="preserve">
+          <source>Services such as non-volatile random access memory (NVRAM) or the clustering service are also stopped.</source>
+          <target state="new">Services such as non-volatile random access memory (NVRAM) or the clustering service are also stopped.</target>
+        </trans-unit>
+        <trans-unit id="763230cf-4b43-4436-8c2e-71e45c209076" xml:space="preserve">
+          <source>Both controllers are rebooted when you enter or exit this mode.</source>
+          <target state="new">Both controllers are rebooted when you enter or exit this mode.</target>
+        </trans-unit>
+        <trans-unit id="fe629eaa-a4ef-4cce-958c-91c08d9c8a3f" xml:space="preserve">
+          <source>When you exit this mode, all the services will resume and should be healthy.</source>
+          <target state="new">When you exit this mode, all the services will resume and should be healthy.</target>
+        </trans-unit>
+        <trans-unit id="23346ac2-31e5-4b98-9e71-3cf5a2019c8a" xml:space="preserve">
+          <source>(This may take a few minutes.)</source>
+          <target state="new">(This may take a few minutes.)</target>
+        </trans-unit>
+        <trans-unit id="f721ed81-f0ef-4009-aee0-396c8e960c72" xml:space="preserve">
+          <source>If you need to apply Maintenance mode updates, you will receive an alert through the Management Portal that you have updates that must be installed.</source>
+          <target state="new">If you need to apply Maintenance mode updates, you will receive an alert through the Management Portal that you have updates that must be installed.</target>
+        </trans-unit>
+        <trans-unit id="d23c1278-ba36-437e-b5c0-9036600a9cb6" xml:space="preserve">
+          <source>This alert will include instructions for using Windows PowerShell for StorSimple to install the updates.</source>
+          <target state="new">This alert will include instructions for using Windows PowerShell for StorSimple to install the updates.</target>
+        </trans-unit>
+        <trans-unit id="e1b62f53-d056-4d93-9dde-b341c98b4bb5" xml:space="preserve">
+          <source>After you update your device, use the same procedure to change the device to Regular mode.</source>
+          <target state="new">After you update your device, use the same procedure to change the device to Regular mode.</target>
+        </trans-unit>
+        <trans-unit id="708b7f17-8032-4073-8548-dbb3b37d651e" xml:space="preserve">
+          <source>For step-by-step instructions, see <bpt id="4d933db4-a3db-4890-81fc-d03f39618b56">&lt;linkText&gt;</bpt>Step 4: Exit Maintenance mode<ept id="4d933db4-a3db-4890-81fc-d03f39618b56">&lt;/linkText&gt;</ept><bpt id="4d933db4-a3db-4890-81fc-d03f39618b56">&lt;title&gt;</bpt><ept id="4d933db4-a3db-4890-81fc-d03f39618b56">&lt;/title&gt;</ept>.</source>
+          <target state="new">For step-by-step instructions, see <bpt id="4d933db4-a3db-4890-81fc-d03f39618b56">&lt;linkText&gt;</bpt>Step 4: Exit Maintenance mode<ept id="4d933db4-a3db-4890-81fc-d03f39618b56">&lt;/linkText&gt;</ept><bpt id="4d933db4-a3db-4890-81fc-d03f39618b56">&lt;title&gt;</bpt><ept id="4d933db4-a3db-4890-81fc-d03f39618b56">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="306167c6-2024-4cfc-8467-11b8a077a34c" xml:space="preserve">
+          <source>Before entering Maintenance mode, verify that both device controllers are healthy by checking the <bpt id="44d2787d-4e79-4f8d-8a1d-d91cc9af7cb8">&lt;strong&gt;</bpt>Hardware Status<ept id="44d2787d-4e79-4f8d-8a1d-d91cc9af7cb8">&lt;/strong&gt;</ept> on the <bpt id="e831b202-1b66-4200-a07b-a009ab9317cd">&lt;strong&gt;</bpt>Maintenance<ept id="e831b202-1b66-4200-a07b-a009ab9317cd">&lt;/strong&gt;</ept> page in the Management Portal.</source>
+          <target state="new">Before entering Maintenance mode, verify that both device controllers are healthy by checking the <bpt id="44d2787d-4e79-4f8d-8a1d-d91cc9af7cb8">&lt;strong&gt;</bpt>Hardware Status<ept id="44d2787d-4e79-4f8d-8a1d-d91cc9af7cb8">&lt;/strong&gt;</ept> on the <bpt id="e831b202-1b66-4200-a07b-a009ab9317cd">&lt;strong&gt;</bpt>Maintenance<ept id="e831b202-1b66-4200-a07b-a009ab9317cd">&lt;/strong&gt;</ept> page in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="9496c6d3-0df6-4cdf-953d-4f8fb8b39ac1" xml:space="preserve">
+          <source>If the controller is not healthy, contact Microsoft Support for the next steps.</source>
+          <target state="new">If the controller is not healthy, contact Microsoft Support for the next steps.</target>
+        </trans-unit>
+        <trans-unit id="2e194d96-1bac-47ff-a87d-7dfe09535efe" xml:space="preserve">
+          <source>For more information, go to Contact Microsoft Support.</source>
+          <target state="new">For more information, go to Contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="b7870fb7-dc3c-4de9-b8d4-4b21b3e78db3" xml:space="preserve">
+          <source>When you are in Maintenance mode, you need to apply the update first on one controller and then on the other controller.</source>
+          <target state="new">When you are in Maintenance mode, you need to apply the update first on one controller and then on the other controller.</target>
+        </trans-unit>
+        <trans-unit id="2125cbf6-d4b9-415a-bb05-ebf75e125073" xml:space="preserve">
+          <source>First, use an application such as PuTTY to access the serial console.</source>
+          <target state="new">First, use an application such as PuTTY to access the serial console.</target>
+        </trans-unit>
+        <trans-unit id="d1cbfada-0cde-4314-bea2-31756fbae3d6" xml:space="preserve">
+          <source>The following procedure explains how to use PuTTY to connect to the serial console.</source>
+          <target state="new">The following procedure explains how to use PuTTY to connect to the serial console.</target>
+        </trans-unit>
+        <trans-unit id="00998d25-0fd2-4f43-a679-ec8135cdcadb" xml:space="preserve">
+          <source><bpt id="c599fee7-0690-43f0-9e8a-83aec0be4530">&lt;token href="../../includes/storsimple-use-putty.md"&gt;</bpt><ept id="c599fee7-0690-43f0-9e8a-83aec0be4530">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c599fee7-0690-43f0-9e8a-83aec0be4530">&lt;token href="../../includes/storsimple-use-putty.md"&gt;</bpt><ept id="c599fee7-0690-43f0-9e8a-83aec0be4530">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f895eb4f-9439-40ba-9d7f-51115ad49590" xml:space="preserve">
+          <source>After you connect to the console, determine whether there are updates to install, and enter Maintenance mode to install them.</source>
+          <target state="new">After you connect to the console, determine whether there are updates to install, and enter Maintenance mode to install them.</target>
+        </trans-unit>
+        <trans-unit id="eb5ab134-0998-4394-bd29-28a33e58c886" xml:space="preserve">
+          <source><bpt id="f18b47f4-7273-4fef-a577-ad70ebfbf0c7">&lt;token href="../../includes/storsimple-enter-maintenance-mode.md"&gt;</bpt><ept id="f18b47f4-7273-4fef-a577-ad70ebfbf0c7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f18b47f4-7273-4fef-a577-ad70ebfbf0c7">&lt;token href="../../includes/storsimple-enter-maintenance-mode.md"&gt;</bpt><ept id="f18b47f4-7273-4fef-a577-ad70ebfbf0c7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a091d37-c4e4-4a45-9dd1-76371d25725c" xml:space="preserve">
+          <source>Next, install your updates.</source>
+          <target state="new">Next, install your updates.</target>
+        </trans-unit>
+        <trans-unit id="d59bdcec-679f-4a46-8512-0b6d7ca9694a" xml:space="preserve">
+          <source><bpt id="8db1b5a4-e844-4ec9-b87f-b54956754359">&lt;token href="../../includes/storsimple-install-maintenance-mode-updates.md"&gt;</bpt><ept id="8db1b5a4-e844-4ec9-b87f-b54956754359">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8db1b5a4-e844-4ec9-b87f-b54956754359">&lt;token href="../../includes/storsimple-install-maintenance-mode-updates.md"&gt;</bpt><ept id="8db1b5a4-e844-4ec9-b87f-b54956754359">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28b68e3c-78f8-409f-b7fb-b753c907ed2b" xml:space="preserve">
+          <source>Finally, exit Maintenance mode.</source>
+          <target state="new">Finally, exit Maintenance mode.</target>
+        </trans-unit>
+        <trans-unit id="7d6b770f-b2f3-4bd7-bfd5-23ceffb3b4cd" xml:space="preserve">
+          <source><bpt id="78438eef-37d3-4b26-938f-f57decac0a4e">&lt;token href="../../includes/storsimple-exit-maintenance-mode.md"&gt;</bpt><ept id="78438eef-37d3-4b26-938f-f57decac0a4e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="78438eef-37d3-4b26-938f-f57decac0a4e">&lt;token href="../../includes/storsimple-exit-maintenance-mode.md"&gt;</bpt><ept id="78438eef-37d3-4b26-938f-f57decac0a4e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c410ac26-5950-4ecb-89a3-a890c1685062" xml:space="preserve">
+          <source>Unlike updates for Microsoft Azure StorSimple, hotfixes are installed from a shared folder.</source>
+          <target state="new">Unlike updates for Microsoft Azure StorSimple, hotfixes are installed from a shared folder.</target>
+        </trans-unit>
+        <trans-unit id="e4a8fca8-07a7-431f-af57-c106b3636fd9" xml:space="preserve">
+          <source>As with updates, there are two types of hotfixes:</source>
+          <target state="new">As with updates, there are two types of hotfixes:</target>
+        </trans-unit>
+        <trans-unit id="b27596f5-c771-480c-ab5c-7284224e6fcc" xml:space="preserve">
+          <source>Regular hotfixes </source>
+          <target state="new">Regular hotfixes </target>
+        </trans-unit>
+        <trans-unit id="0d912d49-0bf4-4e01-9828-4aef27be044a" xml:space="preserve">
+          <source>Maintenance mode hotfixes  </source>
+          <target state="new">Maintenance mode hotfixes  </target>
+        </trans-unit>
+        <trans-unit id="6296f38a-40a2-4767-b444-dde6a96a4e9f" xml:space="preserve">
+          <source>The following procedures explain how to use Windows PowerShell for StorSimple to install regular and Maintenance mode hotfixes.</source>
+          <target state="new">The following procedures explain how to use Windows PowerShell for StorSimple to install regular and Maintenance mode hotfixes.</target>
+        </trans-unit>
+        <trans-unit id="e1a55d4d-db47-4fa9-8fb4-435c3ffec661" xml:space="preserve">
+          <source><bpt id="46752df1-f608-4f4c-abce-906b43c5fc22">&lt;token href="../../includes/storsimple-install-regular-hotfixes.md"&gt;</bpt><ept id="46752df1-f608-4f4c-abce-906b43c5fc22">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="46752df1-f608-4f4c-abce-906b43c5fc22">&lt;token href="../../includes/storsimple-install-regular-hotfixes.md"&gt;</bpt><ept id="46752df1-f608-4f4c-abce-906b43c5fc22">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c05e4656-c627-44ba-a48c-4346afe509cb" xml:space="preserve">
+          <source><bpt id="5484da48-6994-4d06-8bb9-136b802a60a5">&lt;token href="../../includes/storsimple-install-maintenance-mode-hotfixes.md"&gt;</bpt><ept id="5484da48-6994-4d06-8bb9-136b802a60a5">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="5484da48-6994-4d06-8bb9-136b802a60a5">&lt;token href="../../includes/storsimple-install-maintenance-mode-hotfixes.md"&gt;</bpt><ept id="5484da48-6994-4d06-8bb9-136b802a60a5">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e083788b-4f9d-4e8d-83ff-bca9ffaf3491" xml:space="preserve">
+          <source>If a device is reset to factory settings, then all the updates are lost.</source>
+          <target state="new">If a device is reset to factory settings, then all the updates are lost.</target>
+        </trans-unit>
+        <trans-unit id="46314466-0f3f-4d30-8441-824fa45ec330" xml:space="preserve">
+          <source>After the factory-reset device is registered and configured, you will need to manually install updates through the Management Portal and/or Windows PowerShell for StorSimple.</source>
+          <target state="new">After the factory-reset device is registered and configured, you will need to manually install updates through the Management Portal and/or Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="cfca4c7e-6aac-4d99-98e5-d8cc414f3c73" xml:space="preserve">
+          <source>For more information about factory reset, see <bpt id="7813aa14-a948-4fdc-9d3c-1b26683ae575">&lt;linkText&gt;</bpt>Reset the device to factory default settings<ept id="7813aa14-a948-4fdc-9d3c-1b26683ae575">&lt;/linkText&gt;</ept><bpt id="7813aa14-a948-4fdc-9d3c-1b26683ae575">&lt;title&gt;</bpt><ept id="7813aa14-a948-4fdc-9d3c-1b26683ae575">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about factory reset, see <bpt id="7813aa14-a948-4fdc-9d3c-1b26683ae575">&lt;linkText&gt;</bpt>Reset the device to factory default settings<ept id="7813aa14-a948-4fdc-9d3c-1b26683ae575">&lt;/linkText&gt;</ept><bpt id="7813aa14-a948-4fdc-9d3c-1b26683ae575">&lt;title&gt;</bpt><ept id="7813aa14-a948-4fdc-9d3c-1b26683ae575">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25770614-92e4-4271-988f-f7dca1e7f476" xml:space="preserve">
+          <source><bpt id="b3070a2e-f60b-4666-b578-cc6ebc19d110">&lt;linkText&gt;</bpt>Learn how to use Windows PowerShell for StorSimple to administer your StorSimple device<ept id="b3070a2e-f60b-4666-b578-cc6ebc19d110">&lt;/linkText&gt;</ept><bpt id="b3070a2e-f60b-4666-b578-cc6ebc19d110">&lt;title&gt;</bpt><ept id="b3070a2e-f60b-4666-b578-cc6ebc19d110">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="b3070a2e-f60b-4666-b578-cc6ebc19d110">&lt;linkText&gt;</bpt>Learn how to use Windows PowerShell for StorSimple to administer your StorSimple device<ept id="b3070a2e-f60b-4666-b578-cc6ebc19d110">&lt;/linkText&gt;</ept><bpt id="b3070a2e-f60b-4666-b578-cc6ebc19d110">&lt;title&gt;</bpt><ept id="b3070a2e-f60b-4666-b578-cc6ebc19d110">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

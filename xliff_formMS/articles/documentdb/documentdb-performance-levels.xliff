@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a71e1e05-e49f-4561-b99d-712c3afaab6c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a71e1e05-e49f-4561-b99d-712c3afaab6c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="00e840f9-773b-488e-bd75-3e134615fff4">
+        <trans-unit id="1f1d86f0-af14-48e1-8ebb-a173ca62ac7e" xml:space="preserve">
+          <source>Performance levels in DocumentDB | Microsoft Azure</source>
+          <target state="new">Performance levels in DocumentDB | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4a7e7e60-196a-41bd-a379-9b28aa5040e2" xml:space="preserve">
+          <source>Learn about how performance levels in DocumentDB enable you to reserve throughput on a per collection basis.</source>
+          <target state="new">Learn about how performance levels in DocumentDB enable you to reserve throughput on a per collection basis.</target>
+        </trans-unit>
+        <trans-unit id="385b442d-d759-4827-9085-d99c729cb631" xml:space="preserve">
+          <source>This article provides an overview of performance levels in <bpt id="7ed5ee58-ba64-4b7b-bfed-354080be1632">&lt;linkText&gt;</bpt>Microsoft Azure DocumentDB<ept id="7ed5ee58-ba64-4b7b-bfed-354080be1632">&lt;/linkText&gt;</ept><bpt id="7ed5ee58-ba64-4b7b-bfed-354080be1632">&lt;title&gt;</bpt><ept id="7ed5ee58-ba64-4b7b-bfed-354080be1632">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article provides an overview of performance levels in <bpt id="7ed5ee58-ba64-4b7b-bfed-354080be1632">&lt;linkText&gt;</bpt>Microsoft Azure DocumentDB<ept id="7ed5ee58-ba64-4b7b-bfed-354080be1632">&lt;/linkText&gt;</ept><bpt id="7ed5ee58-ba64-4b7b-bfed-354080be1632">&lt;title&gt;</bpt><ept id="7ed5ee58-ba64-4b7b-bfed-354080be1632">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3974867e-e9ab-44d3-b212-3c892cd6a16f" xml:space="preserve">
+          <source>After reading this article, you'll be able to answer the following questions:  </source>
+          <target state="new">After reading this article, you'll be able to answer the following questions:  </target>
+        </trans-unit>
+        <trans-unit id="68f0df2d-8732-43c6-a3b7-cd7f16a12254" xml:space="preserve">
+          <source>What is a performance level?</source>
+          <target state="new">What is a performance level?</target>
+        </trans-unit>
+        <trans-unit id="a6c0c1a5-5abe-4724-b137-198ad05145fb" xml:space="preserve">
+          <source>How is throughput reserved for a database account?</source>
+          <target state="new">How is throughput reserved for a database account?</target>
+        </trans-unit>
+        <trans-unit id="179a4d52-d6da-466f-9dd5-999ce265921f" xml:space="preserve">
+          <source>How do I work with performance levels?</source>
+          <target state="new">How do I work with performance levels?</target>
+        </trans-unit>
+        <trans-unit id="e21d2a7b-daab-4b2b-bf1f-cdb324f04d11" xml:space="preserve">
+          <source>How am I billed for performance levels?</source>
+          <target state="new">How am I billed for performance levels?</target>
+        </trans-unit>
+        <trans-unit id="92690b3d-c66c-43be-a6ef-ac4055e93d6e" xml:space="preserve">
+          <source>Each DocumentDB collection created under a Standard account is provisioned with an associated performance level.</source>
+          <target state="new">Each DocumentDB collection created under a Standard account is provisioned with an associated performance level.</target>
+        </trans-unit>
+        <trans-unit id="a1f39429-469b-49d7-b521-d99e20d1b7f1" xml:space="preserve">
+          <source>Performance levels are designated as S1, S2 or S3 ranging from lowest to highest in performance.</source>
+          <target state="new">Performance levels are designated as S1, S2 or S3 ranging from lowest to highest in performance.</target>
+        </trans-unit>
+        <trans-unit id="8058a997-8209-4d4e-81c1-d16475ad2250" xml:space="preserve">
+          <source>The collection’s performance level determines the amount of service resources reserved for your application.</source>
+          <target state="new">The collection’s performance level determines the amount of service resources reserved for your application.</target>
+        </trans-unit>
+        <trans-unit id="82892a52-56f7-473f-986d-b88f6554ee4c" xml:space="preserve">
+          <source>Each collection in a database can have a different performance level allowing you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections.</source>
+          <target state="new">Each collection in a database can have a different performance level allowing you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections.</target>
+        </trans-unit>
+        <trans-unit id="05c429ff-550b-4062-9eec-6fb0d33cfbc2" xml:space="preserve">
+          <source>Each performance level has an associated request unit (RU) rate limit.</source>
+          <target state="new">Each performance level has an associated request unit (RU) rate limit.</target>
+        </trans-unit>
+        <trans-unit id="d97d7bc0-fd7a-459a-8b71-f1caed54c6ec" xml:space="preserve">
+          <source>This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively.</source>
+          <target state="new">This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively.</target>
+        </trans-unit>
+        <trans-unit id="05fbedaf-e382-48d0-83d7-95dca675cabd" xml:space="preserve">
+          <source>Collections can be created through the <bpt id="b6af8b72-3f97-4bed-bafa-b8ef9495f88d">&lt;linkText&gt;</bpt>Azure portal<ept id="b6af8b72-3f97-4bed-bafa-b8ef9495f88d">&lt;/linkText&gt;</ept><bpt id="b6af8b72-3f97-4bed-bafa-b8ef9495f88d">&lt;title&gt;</bpt><ept id="b6af8b72-3f97-4bed-bafa-b8ef9495f88d">&lt;/title&gt;</ept> or any of the <bpt id="581e4659-54a1-4f93-a43c-57f8e0bba744">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="581e4659-54a1-4f93-a43c-57f8e0bba744">&lt;/linkText&gt;</ept><bpt id="581e4659-54a1-4f93-a43c-57f8e0bba744">&lt;title&gt;</bpt><ept id="581e4659-54a1-4f93-a43c-57f8e0bba744">&lt;/title&gt;</ept>.</source>
+          <target state="new">Collections can be created through the <bpt id="b6af8b72-3f97-4bed-bafa-b8ef9495f88d">&lt;linkText&gt;</bpt>Azure portal<ept id="b6af8b72-3f97-4bed-bafa-b8ef9495f88d">&lt;/linkText&gt;</ept><bpt id="b6af8b72-3f97-4bed-bafa-b8ef9495f88d">&lt;title&gt;</bpt><ept id="b6af8b72-3f97-4bed-bafa-b8ef9495f88d">&lt;/title&gt;</ept> or any of the <bpt id="581e4659-54a1-4f93-a43c-57f8e0bba744">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="581e4659-54a1-4f93-a43c-57f8e0bba744">&lt;/linkText&gt;</ept><bpt id="581e4659-54a1-4f93-a43c-57f8e0bba744">&lt;title&gt;</bpt><ept id="581e4659-54a1-4f93-a43c-57f8e0bba744">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9890b535-409e-450f-b802-74c40ddd9fbc" xml:space="preserve">
+          <source>The DocumentDB APIs allow you to specify the performance level of a collection.</source>
+          <target state="new">The DocumentDB APIs allow you to specify the performance level of a collection.</target>
+        </trans-unit>
+        <trans-unit id="9de16d95-e9b5-4e69-bc1d-a5bddb7bee27" xml:space="preserve">
+          <source>Collection performance leve</source>
+          <target state="new">Collection performance leve</target>
+        </trans-unit>
+        <trans-unit id="dee55911-e5c2-4126-9b63-ad12cdedc397" xml:space="preserve">
+          <source>Reserved throughput</source>
+          <target state="new">Reserved throughput</target>
+        </trans-unit>
+        <trans-unit id="83af7290-26c0-4939-a672-aca2dd953a02" xml:space="preserve">
+          <source>S1</source>
+          <target state="new">S1</target>
+        </trans-unit>
+        <trans-unit id="f81ae45a-a448-4d06-b7ba-d1c93cb495f5" xml:space="preserve">
+          <source>250 RU/sec</source>
+          <target state="new">250 RU/sec</target>
+        </trans-unit>
+        <trans-unit id="34e8f7c4-cd68-4781-b47d-ed5d828663a4" xml:space="preserve">
+          <source>S2</source>
+          <target state="new">S2</target>
+        </trans-unit>
+        <trans-unit id="071ec975-56b5-4d49-8d35-781b113c35b0" xml:space="preserve">
+          <source>1000 RU/sec</source>
+          <target state="new">1000 RU/sec</target>
+        </trans-unit>
+        <trans-unit id="fb1dc9a8-899d-4e44-8971-dbc1079aa360" xml:space="preserve">
+          <source>S3</source>
+          <target state="new">S3</target>
+        </trans-unit>
+        <trans-unit id="184f4bad-1a52-488e-8544-d18d3f3c422a" xml:space="preserve">
+          <source>2500 RU/sec</source>
+          <target state="new">2500 RU/sec</target>
+        </trans-unit>
+        <trans-unit id="9aa57e4e-ed3d-47ec-982c-354562ac0925" xml:space="preserve">
+          <source>DocumentDB allows for a rich set of database operations including queries, queries with user-defined functions (UDFs), stored procedures and triggers.</source>
+          <target state="new">DocumentDB allows for a rich set of database operations including queries, queries with user-defined functions (UDFs), stored procedures and triggers.</target>
+        </trans-unit>
+        <trans-unit id="2b8b1078-9c4a-4efd-9882-f09a12a55521" xml:space="preserve">
+          <source>The processing cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation.</source>
+          <target state="new">The processing cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation.</target>
+        </trans-unit>
+        <trans-unit id="78de58dc-de03-44da-afb1-265c142df652" xml:space="preserve">
+          <source>Instead of thinking about and managing hardware resources, you can think of a request unit as a single measure for the resources required to perform various database operations and service an application request.</source>
+          <target state="new">Instead of thinking about and managing hardware resources, you can think of a request unit as a single measure for the resources required to perform various database operations and service an application request.</target>
+        </trans-unit>
+        <trans-unit id="c8354284-2e6a-47e7-9a4c-b113b3fe09d6" xml:space="preserve">
+          <source>Performance levels are measured in request units.</source>
+          <target state="new">Performance levels are measured in request units.</target>
+        </trans-unit>
+        <trans-unit id="644dfeed-f404-42d4-b3aa-38d513ac1cfe" xml:space="preserve">
+          <source>Each performance level has an associated maximum request unit per second rate.</source>
+          <target state="new">Each performance level has an associated maximum request unit per second rate.</target>
+        </trans-unit>
+        <trans-unit id="78081847-91b9-4fe2-8119-ee7896f3ef3b" xml:space="preserve">
+          <source>The performance level of a collection can be adjusted through the APIs or the <bpt id="f4aebff0-67c5-423a-a77c-77fbcccb4616">&lt;linkText&gt;</bpt>Azure portal<ept id="f4aebff0-67c5-423a-a77c-77fbcccb4616">&lt;/linkText&gt;</ept><bpt id="f4aebff0-67c5-423a-a77c-77fbcccb4616">&lt;title&gt;</bpt><ept id="f4aebff0-67c5-423a-a77c-77fbcccb4616">&lt;/title&gt;</ept>.</source>
+          <target state="new">The performance level of a collection can be adjusted through the APIs or the <bpt id="f4aebff0-67c5-423a-a77c-77fbcccb4616">&lt;linkText&gt;</bpt>Azure portal<ept id="f4aebff0-67c5-423a-a77c-77fbcccb4616">&lt;/linkText&gt;</ept><bpt id="f4aebff0-67c5-423a-a77c-77fbcccb4616">&lt;title&gt;</bpt><ept id="f4aebff0-67c5-423a-a77c-77fbcccb4616">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8cd3cba4-283e-44f9-9f2f-5bf3329b3edc" xml:space="preserve">
+          <source>Once a collection is created, the full allocation of RUs based on the designated performance level are reserved for the collection.</source>
+          <target state="new">Once a collection is created, the full allocation of RUs based on the designated performance level are reserved for the collection.</target>
+        </trans-unit>
+        <trans-unit id="9c16ba03-5e76-4173-988f-50fd4aec3d22" xml:space="preserve">
+          <source>For example, if a collection is set as S3 – the collection is capable of processing 2,500 RUs/sec.</source>
+          <target state="new">For example, if a collection is set as S3 – the collection is capable of processing 2,500 RUs/sec.</target>
+        </trans-unit>
+        <trans-unit id="2eaaf3c3-32d7-4ba0-b9e3-a29a388fba17" xml:space="preserve">
+          <source>Each collection reserves its designated throughput and 10GB of database storage.</source>
+          <target state="new">Each collection reserves its designated throughput and 10GB of database storage.</target>
+        </trans-unit>
+        <trans-unit id="2c8475a4-19b9-466e-82ce-9cbdde8e3678" xml:space="preserve">
+          <source>The price of the collection will vary based on the performance level chosen (S1, S2, S3).</source>
+          <target state="new">The price of the collection will vary based on the performance level chosen (S1, S2, S3).</target>
+        </trans-unit>
+        <trans-unit id="dc14d4d7-3bde-4788-bd07-1066b4e08164" xml:space="preserve">
+          <source>Note that DocumentDB operates based on capacity reservation; by creating a collection, an application has reserved and is billed for reserved throughput and database storage, regardless of how much of that storage and throughput is actively used.</source>
+          <target state="new">Note that DocumentDB operates based on capacity reservation; by creating a collection, an application has reserved and is billed for reserved throughput and database storage, regardless of how much of that storage and throughput is actively used.</target>
+        </trans-unit>
+        <trans-unit id="9419d942-6b98-4c17-a7f1-64ad16ea3582" xml:space="preserve">
+          <source>After collections are created, you can modify the performance level through the DocumentDB SDKs or through the Azure management portal.</source>
+          <target state="new">After collections are created, you can modify the performance level through the DocumentDB SDKs or through the Azure management portal.</target>
+        </trans-unit>
+        <trans-unit id="a3c3d2a1-5b03-410a-a9a4-eed1aa338d21" xml:space="preserve">
+          <source>DocumentDB Standard collections are billed at an hourly rate and each collection you create will be billed for a minimum one hour of usage.</source>
+          <target state="new">DocumentDB Standard collections are billed at an hourly rate and each collection you create will be billed for a minimum one hour of usage.</target>
+        </trans-unit>
+        <trans-unit id="20a0eb43-2246-47b1-86a2-f05b116731bc" xml:space="preserve">
+          <source>If you adjust the performance level of a collection within an hour, you will be billed for the highest performance level set during the hour.</source>
+          <target state="new">If you adjust the performance level of a collection within an hour, you will be billed for the highest performance level set during the hour.</target>
+        </trans-unit>
+        <trans-unit id="41faff98-0bfc-42c2-b80e-df483ec813de" xml:space="preserve">
+          <source>For example, if you increase your performance level for a collection at 8:53am you will be charged for the new level starting at 8:00am.</source>
+          <target state="new">For example, if you increase your performance level for a collection at 8:53am you will be charged for the new level starting at 8:00am.</target>
+        </trans-unit>
+        <trans-unit id="e8711ef4-af38-4d83-a04a-d3d1e159a8d9" xml:space="preserve">
+          <source>Likewise, if you decrease your performance level at 8:53am, the new rate will be applied at 9:00am.</source>
+          <target state="new">Likewise, if you decrease your performance level at 8:53am, the new rate will be applied at 9:00am.</target>
+        </trans-unit>
+        <trans-unit id="34eb276e-ca9b-4951-9138-6004944e5022" xml:space="preserve">
+          <source>Request units are reserved for each collection based on the performance level set.</source>
+          <target state="new">Request units are reserved for each collection based on the performance level set.</target>
+        </trans-unit>
+        <trans-unit id="2e5e388f-482e-4747-9d0b-52a6ec223a4f" xml:space="preserve">
+          <source>Request unit consumption is evaluated as a per second rate.</source>
+          <target state="new">Request unit consumption is evaluated as a per second rate.</target>
+        </trans-unit>
+        <trans-unit id="89c22ae6-1d8b-473b-af41-a66f8022264a" xml:space="preserve">
+          <source>Applications that exceed the provisioned request unit rate (or performance level) on a collection will be throttled until the rate drops below the reserved level for that collection.</source>
+          <target state="new">Applications that exceed the provisioned request unit rate (or performance level) on a collection will be throttled until the rate drops below the reserved level for that collection.</target>
+        </trans-unit>
+        <trans-unit id="c03e4fec-d75a-4b75-9a61-a7f3fdaafcd8" xml:space="preserve">
+          <source>If your application requires a higher level of throughput, you can increase the performance level for each collection.</source>
+          <target state="new">If your application requires a higher level of throughput, you can increase the performance level for each collection.</target>
+        </trans-unit>
+        <trans-unit id="0e3e20f7-8f37-40ff-a506-81039cd43faa" xml:space="preserve">
+          <source>When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis.</source>
+          <target state="new">When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis.</target>
+        </trans-unit>
+        <trans-unit id="35a03447-ba11-4cba-bec4-80b86331da6b" xml:space="preserve">
+          <source>This means that some application requests may succeed while others may be throttled.</source>
+          <target state="new">This means that some application requests may succeed while others may be throttled.</target>
+        </trans-unit>
+        <trans-unit id="c2c2a237-b367-42ae-a272-c00081190cc7" xml:space="preserve">
+          <source>DocumentDB collections allow you to partition your data based on both the query patterns and performance needs of your application.</source>
+          <target state="new">DocumentDB collections allow you to partition your data based on both the query patterns and performance needs of your application.</target>
+        </trans-unit>
+        <trans-unit id="a6ea4b07-64cc-4953-8d2e-3170bc2847b4" xml:space="preserve">
+          <source>Refer to the <bpt id="edfd48e5-5e36-48b9-afa4-e1558d63808d">&lt;linkText&gt;</bpt>partitioning data documentation<ept id="edfd48e5-5e36-48b9-afa4-e1558d63808d">&lt;/linkText&gt;</ept><bpt id="edfd48e5-5e36-48b9-afa4-e1558d63808d">&lt;title&gt;</bpt><ept id="edfd48e5-5e36-48b9-afa4-e1558d63808d">&lt;/title&gt;</ept> for more details on partitioning data with DocumentDB.</source>
+          <target state="new">Refer to the <bpt id="edfd48e5-5e36-48b9-afa4-e1558d63808d">&lt;linkText&gt;</bpt>partitioning data documentation<ept id="edfd48e5-5e36-48b9-afa4-e1558d63808d">&lt;/linkText&gt;</ept><bpt id="edfd48e5-5e36-48b9-afa4-e1558d63808d">&lt;title&gt;</bpt><ept id="edfd48e5-5e36-48b9-afa4-e1558d63808d">&lt;/title&gt;</ept> for more details on partitioning data with DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="3a7ff82f-4af9-4a9d-9fb2-71505161ba2c" xml:space="preserve">
+          <source>With DocumentDB’s automatic indexing and query support, it is quite common to collocate heterogeneous documents within the same collection.</source>
+          <target state="new">With DocumentDB’s automatic indexing and query support, it is quite common to collocate heterogeneous documents within the same collection.</target>
+        </trans-unit>
+        <trans-unit id="c63d9f31-8e32-4437-82e4-201c60731ef2" xml:space="preserve">
+          <source>The key considerations in deciding whether separate collections should be used include:</source>
+          <target state="new">The key considerations in deciding whether separate collections should be used include:</target>
+        </trans-unit>
+        <trans-unit id="655f121b-a556-4621-9382-347ee668abf5" xml:space="preserve">
+          <source>Queries – A collection is the scope for query execution.</source>
+          <target state="new">Queries – A collection is the scope for query execution.</target>
+        </trans-unit>
+        <trans-unit id="06fdb8b9-9d51-4c7d-a39b-3a56e28ab133" xml:space="preserve">
+          <source>If you need to query across a set of documents, the most efficient read patterns come from collocating documents in a single collection.</source>
+          <target state="new">If you need to query across a set of documents, the most efficient read patterns come from collocating documents in a single collection.</target>
+        </trans-unit>
+        <trans-unit id="0eca0e16-bf56-4ee3-a9e4-4697df0af7a5" xml:space="preserve">
+          <source>Transactions – A collection is the transaction domain for stored procedures and triggers.</source>
+          <target state="new">Transactions – A collection is the transaction domain for stored procedures and triggers.</target>
+        </trans-unit>
+        <trans-unit id="562f8704-07c8-4f7e-b79c-8ad3fd45d9c7" xml:space="preserve">
+          <source>All transactions are scoped to a single collection.</source>
+          <target state="new">All transactions are scoped to a single collection.</target>
+        </trans-unit>
+        <trans-unit id="dd611eff-7d5a-4405-af51-8b27d3d4d40b" xml:space="preserve">
+          <source>Performance – A collection has an associated performance level.</source>
+          <target state="new">Performance – A collection has an associated performance level.</target>
+        </trans-unit>
+        <trans-unit id="749b25f5-faff-4da7-8aac-16189ca8bed3" xml:space="preserve">
+          <source>This ensures that each collection has a predictable performance through reserved RUs.</source>
+          <target state="new">This ensures that each collection has a predictable performance through reserved RUs.</target>
+        </trans-unit>
+        <trans-unit id="2967abd9-a977-48bb-89bd-12e60f916871" xml:space="preserve">
+          <source>Data can be allocated to different collections, with different performance levels, based on access frequency.</source>
+          <target state="new">Data can be allocated to different collections, with different performance levels, based on access frequency.</target>
+        </trans-unit>
+        <trans-unit id="bf8d96f4-ca50-4e7a-bd6c-e313b9647286" xml:space="preserve">
+          <source>It is important to understand you will be billed at full standard rates based on the number of collections created by your application.</source>
+          <target state="new">It is important to understand you will be billed at full standard rates based on the number of collections created by your application.</target>
+        </trans-unit>
+        <trans-unit id="e1bdc6c8-2680-43fb-a279-8f5201e1b34d" xml:space="preserve">
+          <source>It is recommended that your application makes use of a small number of collections unless you have large storage or throughput requirements.</source>
+          <target state="new">It is recommended that your application makes use of a small number of collections unless you have large storage or throughput requirements.</target>
+        </trans-unit>
+        <trans-unit id="c8b1e476-6749-440c-8539-300b2983c5ec" xml:space="preserve">
+          <source>Ensure that you have well understood application patterns for the creation of new collections.</source>
+          <target state="new">Ensure that you have well understood application patterns for the creation of new collections.</target>
+        </trans-unit>
+        <trans-unit id="49b9d606-1c67-43cd-b4d5-0ac39baa9509" xml:space="preserve">
+          <source>You may choose to reserve collection creation as a management action handled outside your application.</source>
+          <target state="new">You may choose to reserve collection creation as a management action handled outside your application.</target>
+        </trans-unit>
+        <trans-unit id="8a375c41-5825-41ad-9be3-3d3bdcdb405b" xml:space="preserve">
+          <source>Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed.</source>
+          <target state="new">Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed.</target>
+        </trans-unit>
+        <trans-unit id="956f13e3-3c94-4913-ae54-03a6c11469d4" xml:space="preserve">
+          <source>You should monitor collection performance levels if your application adjusts these dynamically.</source>
+          <target state="new">You should monitor collection performance levels if your application adjusts these dynamically.</target>
+        </trans-unit>
+        <trans-unit id="54f439d7-e338-46bc-92fc-6dc40aea348f" xml:space="preserve">
+          <source>The Azure Preview portal is one option available to you when managing your collections' performance levels.</source>
+          <target state="new">The Azure Preview portal is one option available to you when managing your collections' performance levels.</target>
+        </trans-unit>
+        <trans-unit id="4acbfbc6-9248-4ae5-acca-83e43d80b98c" xml:space="preserve">
+          <source>Follow these steps to change a collection's performance level from the Azure Portal.</source>
+          <target state="new">Follow these steps to change a collection's performance level from the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="66b2abe2-c2d7-4819-90e5-7afd3efada98" xml:space="preserve">
+          <source>Navigate over to the [<bpt id="2f0f54fb-5c97-45a6-9bfc-c13e9cee9972">&lt;strong&gt;</bpt>Azure Preview portal<ept id="2f0f54fb-5c97-45a6-9bfc-c13e9cee9972">&lt;/strong&gt;</ept>](https://portal.azure.com) from your browser.</source>
+          <target state="new">Navigate over to the [<bpt id="2f0f54fb-5c97-45a6-9bfc-c13e9cee9972">&lt;strong&gt;</bpt>Azure Preview portal<ept id="2f0f54fb-5c97-45a6-9bfc-c13e9cee9972">&lt;/strong&gt;</ept>](https://portal.azure.com) from your browser.</target>
+        </trans-unit>
+        <trans-unit id="6e89da44-7fc1-4492-a9b2-4fbc1c157556" xml:space="preserve">
+          <source>Click <bpt id="13f465bb-8cc0-48af-b1cc-8b92036f1d92">&lt;strong&gt;</bpt>Browse<ept id="13f465bb-8cc0-48af-b1cc-8b92036f1d92">&lt;/strong&gt;</ept> from the jump bar on the left side.</source>
+          <target state="new">Click <bpt id="13f465bb-8cc0-48af-b1cc-8b92036f1d92">&lt;strong&gt;</bpt>Browse<ept id="13f465bb-8cc0-48af-b1cc-8b92036f1d92">&lt;/strong&gt;</ept> from the jump bar on the left side.</target>
+        </trans-unit>
+        <trans-unit id="c8f2fa0d-64ff-4149-9735-cde7397b96e8" xml:space="preserve">
+          <source>In the <bpt id="01a20ae2-fdc7-47ad-8a62-713e936e31e8">&lt;strong&gt;</bpt>Browse<ept id="01a20ae2-fdc7-47ad-8a62-713e936e31e8">&lt;/strong&gt;</ept> hub, click <bpt id="b6bf4c22-f614-401d-9a2c-9d7e90b91560">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="b6bf4c22-f614-401d-9a2c-9d7e90b91560">&lt;/strong&gt;</ept> under the <bpt id="a8ad2178-d144-40a3-8dfd-4a491d9c50b6">&lt;strong&gt;</bpt>Filter by<ept id="a8ad2178-d144-40a3-8dfd-4a491d9c50b6">&lt;/strong&gt;</ept> label.</source>
+          <target state="new">In the <bpt id="01a20ae2-fdc7-47ad-8a62-713e936e31e8">&lt;strong&gt;</bpt>Browse<ept id="01a20ae2-fdc7-47ad-8a62-713e936e31e8">&lt;/strong&gt;</ept> hub, click <bpt id="b6bf4c22-f614-401d-9a2c-9d7e90b91560">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="b6bf4c22-f614-401d-9a2c-9d7e90b91560">&lt;/strong&gt;</ept> under the <bpt id="a8ad2178-d144-40a3-8dfd-4a491d9c50b6">&lt;strong&gt;</bpt>Filter by<ept id="a8ad2178-d144-40a3-8dfd-4a491d9c50b6">&lt;/strong&gt;</ept> label.</target>
+        </trans-unit>
+        <trans-unit id="b76994e1-f9c1-47ea-a0b2-e3f4160b114c" xml:space="preserve">
+          <source>In the <bpt id="25b847ad-3243-4710-8995-735d404a7daa">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="25b847ad-3243-4710-8995-735d404a7daa">&lt;/strong&gt;</ept> blade, click the DocumentDB account that contains the desired collection.</source>
+          <target state="new">In the <bpt id="25b847ad-3243-4710-8995-735d404a7daa">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="25b847ad-3243-4710-8995-735d404a7daa">&lt;/strong&gt;</ept> blade, click the DocumentDB account that contains the desired collection.</target>
+        </trans-unit>
+        <trans-unit id="b8c3f3b9-91e9-49dd-a39b-4d5bcb2af720" xml:space="preserve">
+          <source>In the <bpt id="dd51a0f6-0ab4-42dd-a8d8-adfb0cb67197">&lt;strong&gt;</bpt>DocumentDB Account<ept id="dd51a0f6-0ab4-42dd-a8d8-adfb0cb67197">&lt;/strong&gt;</ept> blade, scroll down to the <bpt id="58f64c0c-6e46-42ba-bd28-517bb3d45498">&lt;strong&gt;</bpt>Databases<ept id="58f64c0c-6e46-42ba-bd28-517bb3d45498">&lt;/strong&gt;</ept> lens and click the database that contains the desired collection.</source>
+          <target state="new">In the <bpt id="dd51a0f6-0ab4-42dd-a8d8-adfb0cb67197">&lt;strong&gt;</bpt>DocumentDB Account<ept id="dd51a0f6-0ab4-42dd-a8d8-adfb0cb67197">&lt;/strong&gt;</ept> blade, scroll down to the <bpt id="58f64c0c-6e46-42ba-bd28-517bb3d45498">&lt;strong&gt;</bpt>Databases<ept id="58f64c0c-6e46-42ba-bd28-517bb3d45498">&lt;/strong&gt;</ept> lens and click the database that contains the desired collection.</target>
+        </trans-unit>
+        <trans-unit id="1d8eb57b-6781-479a-b97b-fe6f1a56fe7d" xml:space="preserve">
+          <source>In the newly opened <bpt id="6d2ff0aa-58e0-4359-9bd5-60ece7f5ea7c">&lt;strong&gt;</bpt>Database<ept id="6d2ff0aa-58e0-4359-9bd5-60ece7f5ea7c">&lt;/strong&gt;</ept> blade, scroll down to the <bpt id="653a9d6d-864b-4315-9dd4-d600d5bc7f16">&lt;strong&gt;</bpt>Collections<ept id="653a9d6d-864b-4315-9dd4-d600d5bc7f16">&lt;/strong&gt;</ept> lens and select your desired collection.</source>
+          <target state="new">In the newly opened <bpt id="6d2ff0aa-58e0-4359-9bd5-60ece7f5ea7c">&lt;strong&gt;</bpt>Database<ept id="6d2ff0aa-58e0-4359-9bd5-60ece7f5ea7c">&lt;/strong&gt;</ept> blade, scroll down to the <bpt id="653a9d6d-864b-4315-9dd4-d600d5bc7f16">&lt;strong&gt;</bpt>Collections<ept id="653a9d6d-864b-4315-9dd4-d600d5bc7f16">&lt;/strong&gt;</ept> lens and select your desired collection.</target>
+        </trans-unit>
+        <trans-unit id="9e21f4ba-1842-41dc-b7ce-48b2123c9366" xml:space="preserve">
+          <source>Finally, within your <bpt id="b509727f-2e8c-4e94-b8e4-3f817d3daf74">&lt;strong&gt;</bpt>Collection<ept id="b509727f-2e8c-4e94-b8e4-3f817d3daf74">&lt;/strong&gt;</ept> blade, find and click the <bpt id="c938d21c-7b43-41a5-8219-505772850088">&lt;strong&gt;</bpt>Pricing tier<ept id="c938d21c-7b43-41a5-8219-505772850088">&lt;/strong&gt;</ept> tile in the <bpt id="e53e73db-7231-4c50-bd65-107333cb9add">&lt;strong&gt;</bpt>Usage<ept id="e53e73db-7231-4c50-bd65-107333cb9add">&lt;/strong&gt;</ept> lens.</source>
+          <target state="new">Finally, within your <bpt id="b509727f-2e8c-4e94-b8e4-3f817d3daf74">&lt;strong&gt;</bpt>Collection<ept id="b509727f-2e8c-4e94-b8e4-3f817d3daf74">&lt;/strong&gt;</ept> blade, find and click the <bpt id="c938d21c-7b43-41a5-8219-505772850088">&lt;strong&gt;</bpt>Pricing tier<ept id="c938d21c-7b43-41a5-8219-505772850088">&lt;/strong&gt;</ept> tile in the <bpt id="e53e73db-7231-4c50-bd65-107333cb9add">&lt;strong&gt;</bpt>Usage<ept id="e53e73db-7231-4c50-bd65-107333cb9add">&lt;/strong&gt;</ept> lens.</target>
+        </trans-unit>
+        <trans-unit id="e90b47d7-f248-4b1f-aad0-e2cd010501ce" xml:space="preserve">
+          <source>In the <bpt id="7b035228-5ad9-4c66-a50d-0a937c9328c2">&lt;strong&gt;</bpt>Choose your pricing tier<ept id="7b035228-5ad9-4c66-a50d-0a937c9328c2">&lt;/strong&gt;</ept> blade, click the desired performance level and then click <bpt id="710618b8-fe7f-4839-a8ad-6808c128f476">&lt;strong&gt;</bpt>Select<ept id="710618b8-fe7f-4839-a8ad-6808c128f476">&lt;/strong&gt;</ept> at the bottom of the blade.</source>
+          <target state="new">In the <bpt id="7b035228-5ad9-4c66-a50d-0a937c9328c2">&lt;strong&gt;</bpt>Choose your pricing tier<ept id="7b035228-5ad9-4c66-a50d-0a937c9328c2">&lt;/strong&gt;</ept> blade, click the desired performance level and then click <bpt id="710618b8-fe7f-4839-a8ad-6808c128f476">&lt;strong&gt;</bpt>Select<ept id="710618b8-fe7f-4839-a8ad-6808c128f476">&lt;/strong&gt;</ept> at the bottom of the blade.</target>
+        </trans-unit>
+        <trans-unit id="95400b55-acd5-41aa-9882-4ec3a79023f2" xml:space="preserve">
+          <source>Changing performance levels of a collection may take up to 2 minutes.</source>
+          <target state="new">Changing performance levels of a collection may take up to 2 minutes.</target>
+        </trans-unit>
+        <trans-unit id="737cccda-51ff-4e49-95ce-8a57516e2986" xml:space="preserve">
+          <source><bpt id="806f9ebe-3663-43cd-8a24-e7755e3e0318">&lt;linkText&gt;</bpt>Changing pricing tier<ept id="806f9ebe-3663-43cd-8a24-e7755e3e0318">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="806f9ebe-3663-43cd-8a24-e7755e3e0318">&lt;linkText&gt;</bpt>Changing pricing tier<ept id="806f9ebe-3663-43cd-8a24-e7755e3e0318">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1536b46a-5d47-4079-a12d-eaf377c915ba" xml:space="preserve">
+          <source>Another option for changing your collections' performance levels is through our SDKs.</source>
+          <target state="new">Another option for changing your collections' performance levels is through our SDKs.</target>
+        </trans-unit>
+        <trans-unit id="72c25e63-5f66-468c-9bb6-91cf42fd814b" xml:space="preserve">
+          <source>This section only covers changing a collection's performance level using our <bpt id="acb7f562-50af-41f3-80dc-06b2e31df716">&lt;linkText&gt;</bpt>.NET SDK<ept id="acb7f562-50af-41f3-80dc-06b2e31df716">&lt;/linkText&gt;</ept><bpt id="acb7f562-50af-41f3-80dc-06b2e31df716">&lt;title&gt;</bpt><ept id="acb7f562-50af-41f3-80dc-06b2e31df716">&lt;/title&gt;</ept>, but the process is similar for our other <bpt id="7af9c40f-dda6-4823-81c9-8dbe4646b23c">&lt;linkText&gt;</bpt>SDKs<ept id="7af9c40f-dda6-4823-81c9-8dbe4646b23c">&lt;/linkText&gt;</ept><bpt id="7af9c40f-dda6-4823-81c9-8dbe4646b23c">&lt;title&gt;</bpt><ept id="7af9c40f-dda6-4823-81c9-8dbe4646b23c">&lt;/title&gt;</ept>.</source>
+          <target state="new">This section only covers changing a collection's performance level using our <bpt id="acb7f562-50af-41f3-80dc-06b2e31df716">&lt;linkText&gt;</bpt>.NET SDK<ept id="acb7f562-50af-41f3-80dc-06b2e31df716">&lt;/linkText&gt;</ept><bpt id="acb7f562-50af-41f3-80dc-06b2e31df716">&lt;title&gt;</bpt><ept id="acb7f562-50af-41f3-80dc-06b2e31df716">&lt;/title&gt;</ept>, but the process is similar for our other <bpt id="7af9c40f-dda6-4823-81c9-8dbe4646b23c">&lt;linkText&gt;</bpt>SDKs<ept id="7af9c40f-dda6-4823-81c9-8dbe4646b23c">&lt;/linkText&gt;</ept><bpt id="7af9c40f-dda6-4823-81c9-8dbe4646b23c">&lt;title&gt;</bpt><ept id="7af9c40f-dda6-4823-81c9-8dbe4646b23c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69733785-baa3-4c62-812d-26f588d693be" xml:space="preserve">
+          <source>If you are new to our .NET SDK, please visit our <bpt id="abac6a45-0df9-4609-bcf2-bc976d37cb73">&lt;linkText&gt;</bpt>getting started tutorial<ept id="abac6a45-0df9-4609-bcf2-bc976d37cb73">&lt;/linkText&gt;</ept><bpt id="abac6a45-0df9-4609-bcf2-bc976d37cb73">&lt;title&gt;</bpt><ept id="abac6a45-0df9-4609-bcf2-bc976d37cb73">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are new to our .NET SDK, please visit our <bpt id="abac6a45-0df9-4609-bcf2-bc976d37cb73">&lt;linkText&gt;</bpt>getting started tutorial<ept id="abac6a45-0df9-4609-bcf2-bc976d37cb73">&lt;/linkText&gt;</ept><bpt id="abac6a45-0df9-4609-bcf2-bc976d37cb73">&lt;title&gt;</bpt><ept id="abac6a45-0df9-4609-bcf2-bc976d37cb73">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0180b3f3-cf18-44a2-b782-6dfc670217ac" xml:space="preserve">
+          <source>Here is a code snippet for changing the offer type:</source>
+          <target state="new">Here is a code snippet for changing the offer type:</target>
+        </trans-unit>
+        <trans-unit id="87749e89-ad53-41ef-b2ec-b8db74bc8183" xml:space="preserve">
+          <source>Visit <bpt id="5572fb9c-2ed5-49f0-aa06-b7ef29331aec">&lt;linkText&gt;</bpt>MSDN<ept id="5572fb9c-2ed5-49f0-aa06-b7ef29331aec">&lt;/linkText&gt;</ept><bpt id="5572fb9c-2ed5-49f0-aa06-b7ef29331aec">&lt;title&gt;</bpt><ept id="5572fb9c-2ed5-49f0-aa06-b7ef29331aec">&lt;/title&gt;</ept> to view additional examples and learn more about our offer methods: </source>
+          <target state="new">Visit <bpt id="5572fb9c-2ed5-49f0-aa06-b7ef29331aec">&lt;linkText&gt;</bpt>MSDN<ept id="5572fb9c-2ed5-49f0-aa06-b7ef29331aec">&lt;/linkText&gt;</ept><bpt id="5572fb9c-2ed5-49f0-aa06-b7ef29331aec">&lt;title&gt;</bpt><ept id="5572fb9c-2ed5-49f0-aa06-b7ef29331aec">&lt;/title&gt;</ept> to view additional examples and learn more about our offer methods: </target>
+        </trans-unit>
+        <trans-unit id="cff55f9e-5ea3-4b83-a6a4-999d2c7b85dc" xml:space="preserve">
+          <source>[<bpt id="baae0513-993a-4952-aabe-1c4bd4a81d4b">&lt;strong&gt;</bpt>ReadOfferAsync<ept id="baae0513-993a-4952-aabe-1c4bd4a81d4b">&lt;/strong&gt;</ept>](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)</source>
+          <target state="new">[<bpt id="baae0513-993a-4952-aabe-1c4bd4a81d4b">&lt;strong&gt;</bpt>ReadOfferAsync<ept id="baae0513-993a-4952-aabe-1c4bd4a81d4b">&lt;/strong&gt;</ept>](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)</target>
+        </trans-unit>
+        <trans-unit id="8168eced-a8dd-49d1-a799-1020cbd65891" xml:space="preserve">
+          <source>[<bpt id="1e59ef59-a655-4afa-95b9-e218e55a36b2">&lt;strong&gt;</bpt>ReadOffersFeedAsync<ept id="1e59ef59-a655-4afa-95b9-e218e55a36b2">&lt;/strong&gt;</ept>](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)</source>
+          <target state="new">[<bpt id="1e59ef59-a655-4afa-95b9-e218e55a36b2">&lt;strong&gt;</bpt>ReadOffersFeedAsync<ept id="1e59ef59-a655-4afa-95b9-e218e55a36b2">&lt;/strong&gt;</ept>](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)</target>
+        </trans-unit>
+        <trans-unit id="7c344631-0b28-4125-8ace-2e9e744b20a4" xml:space="preserve">
+          <source>[<bpt id="5ca9e96e-ac82-4ab0-a98b-c863343f3125">&lt;strong&gt;</bpt>ReplaceOfferAsync<ept id="5ca9e96e-ac82-4ab0-a98b-c863343f3125">&lt;/strong&gt;</ept>](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)</source>
+          <target state="new">[<bpt id="5ca9e96e-ac82-4ab0-a98b-c863343f3125">&lt;strong&gt;</bpt>ReplaceOfferAsync<ept id="5ca9e96e-ac82-4ab0-a98b-c863343f3125">&lt;/strong&gt;</ept>](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)</target>
+        </trans-unit>
+        <trans-unit id="e10eef8c-5831-492d-a091-0eda9ea4a07a" xml:space="preserve">
+          <source>[<bpt id="7828e388-330c-4c17-a36b-aacddfa7763b">&lt;strong&gt;</bpt>CreateOfferQuery<ept id="7828e388-330c-4c17-a36b-aacddfa7763b">&lt;/strong&gt;</ept>](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx) </source>
+          <target state="new">[<bpt id="7828e388-330c-4c17-a36b-aacddfa7763b">&lt;strong&gt;</bpt>CreateOfferQuery<ept id="7828e388-330c-4c17-a36b-aacddfa7763b">&lt;/strong&gt;</ept>](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx) </target>
+        </trans-unit>
+        <trans-unit id="821e29cf-878a-440f-b2e6-8a7541f5c098" xml:space="preserve">
+          <source>To learn more about pricing and managing data with Azure DocumentDB, explore these resources:</source>
+          <target state="new">To learn more about pricing and managing data with Azure DocumentDB, explore these resources:</target>
+        </trans-unit>
+        <trans-unit id="3ac82cf7-775f-4bbe-9bb2-03802f7c62e8" xml:space="preserve">
+          <source><bpt id="85b7e930-ec5c-4282-89a0-11a68b541bdc">&lt;linkText&gt;</bpt>DocumentDB pricing<ept id="85b7e930-ec5c-4282-89a0-11a68b541bdc">&lt;/linkText&gt;</ept><bpt id="85b7e930-ec5c-4282-89a0-11a68b541bdc">&lt;title&gt;</bpt><ept id="85b7e930-ec5c-4282-89a0-11a68b541bdc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="85b7e930-ec5c-4282-89a0-11a68b541bdc">&lt;linkText&gt;</bpt>DocumentDB pricing<ept id="85b7e930-ec5c-4282-89a0-11a68b541bdc">&lt;/linkText&gt;</ept><bpt id="85b7e930-ec5c-4282-89a0-11a68b541bdc">&lt;title&gt;</bpt><ept id="85b7e930-ec5c-4282-89a0-11a68b541bdc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95f7a3d4-5026-4cc6-bd1f-ebaf710bfcd7" xml:space="preserve">
+          <source><bpt id="fd20dbfe-5ca6-46ce-815a-0c1af8511a21">&lt;linkText&gt;</bpt>Managing DocumentDB capacity<ept id="fd20dbfe-5ca6-46ce-815a-0c1af8511a21">&lt;/linkText&gt;</ept><bpt id="fd20dbfe-5ca6-46ce-815a-0c1af8511a21">&lt;title&gt;</bpt><ept id="fd20dbfe-5ca6-46ce-815a-0c1af8511a21">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="fd20dbfe-5ca6-46ce-815a-0c1af8511a21">&lt;linkText&gt;</bpt>Managing DocumentDB capacity<ept id="fd20dbfe-5ca6-46ce-815a-0c1af8511a21">&lt;/linkText&gt;</ept><bpt id="fd20dbfe-5ca6-46ce-815a-0c1af8511a21">&lt;title&gt;</bpt><ept id="fd20dbfe-5ca6-46ce-815a-0c1af8511a21">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="0608f32c-4928-4c49-ba39-244f5b5afcdf" xml:space="preserve">
+          <source><bpt id="be74646c-9425-4916-907f-0940963880d9">&lt;linkText&gt;</bpt>Modeling data in DocumentDB<ept id="be74646c-9425-4916-907f-0940963880d9">&lt;/linkText&gt;</ept><bpt id="be74646c-9425-4916-907f-0940963880d9">&lt;title&gt;</bpt><ept id="be74646c-9425-4916-907f-0940963880d9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="be74646c-9425-4916-907f-0940963880d9">&lt;linkText&gt;</bpt>Modeling data in DocumentDB<ept id="be74646c-9425-4916-907f-0940963880d9">&lt;/linkText&gt;</ept><bpt id="be74646c-9425-4916-907f-0940963880d9">&lt;title&gt;</bpt><ept id="be74646c-9425-4916-907f-0940963880d9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1135585a-5ab3-4d69-be2d-17cf27db1941" xml:space="preserve">
+          <source><bpt id="fafd6c87-a09b-4aa2-b923-526068bef71d">&lt;linkText&gt;</bpt>Partitioning data in DocumentDB<ept id="fafd6c87-a09b-4aa2-b923-526068bef71d">&lt;/linkText&gt;</ept><bpt id="fafd6c87-a09b-4aa2-b923-526068bef71d">&lt;title&gt;</bpt><ept id="fafd6c87-a09b-4aa2-b923-526068bef71d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fafd6c87-a09b-4aa2-b923-526068bef71d">&lt;linkText&gt;</bpt>Partitioning data in DocumentDB<ept id="fafd6c87-a09b-4aa2-b923-526068bef71d">&lt;/linkText&gt;</ept><bpt id="fafd6c87-a09b-4aa2-b923-526068bef71d">&lt;title&gt;</bpt><ept id="fafd6c87-a09b-4aa2-b923-526068bef71d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20c113df-623a-4d7f-9a56-516168e880bd" xml:space="preserve">
+          <source>To learn more about DocumentDB, see the Azure DocumentDB <bpt id="cbad4d0a-11a1-4a2e-84be-975d8ab5d0fb">&lt;linkText&gt;</bpt>documentation<ept id="cbad4d0a-11a1-4a2e-84be-975d8ab5d0fb">&lt;/linkText&gt;</ept><bpt id="cbad4d0a-11a1-4a2e-84be-975d8ab5d0fb">&lt;title&gt;</bpt><ept id="cbad4d0a-11a1-4a2e-84be-975d8ab5d0fb">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about DocumentDB, see the Azure DocumentDB <bpt id="cbad4d0a-11a1-4a2e-84be-975d8ab5d0fb">&lt;linkText&gt;</bpt>documentation<ept id="cbad4d0a-11a1-4a2e-84be-975d8ab5d0fb">&lt;/linkText&gt;</ept><bpt id="cbad4d0a-11a1-4a2e-84be-975d8ab5d0fb">&lt;title&gt;</bpt><ept id="cbad4d0a-11a1-4a2e-84be-975d8ab5d0fb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c090d012-3b81-4166-bbf7-55eec743fdf3" xml:space="preserve">
+          <source>./media/documentdb-performance-levels/img1.png</source>
+          <target state="new">./media/documentdb-performance-levels/img1.png</target>
+        </trans-unit>
+      </group>
+      <group id="447da242-714a-40bf-b49e-508597a5bfac" />
+    </body>
+  </file>
+</xliff>

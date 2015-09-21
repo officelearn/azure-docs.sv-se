@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="766e015d-15ac-4e94-b194-89674a318cc6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="766e015d-15ac-4e94-b194-89674a318cc6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1330129a-ad25-428a-9d32-7d7c9b6b82fc">
+        <trans-unit id="c4839c4e-3591-4ff2-9913-8df86f86c3de" xml:space="preserve">
+          <source>Stored procedures in SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Stored procedures in SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="fd1e6159-8cc9-453e-9b48-eb3d1f9bf86c" xml:space="preserve">
+          <source>Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="1eb898e8-14e0-452e-9fa3-7cbcc806d9e6" xml:space="preserve">
+          <source>SQL Data Warehouse supports many of the Transact-SQL features found in SQL Server.</source>
+          <target state="new">SQL Data Warehouse supports many of the Transact-SQL features found in SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="d1579771-8f11-470b-bf21-f2a52c4c3872" xml:space="preserve">
+          <source>More importantly there are scale out specific features that we will want to leverage to maximize the performance of your solution.</source>
+          <target state="new">More importantly there are scale out specific features that we will want to leverage to maximize the performance of your solution.</target>
+        </trans-unit>
+        <trans-unit id="814593d9-9dbc-4b03-bbae-aacc3d969002" xml:space="preserve">
+          <source>However, to maintain the scale and performance of SQL Data Warehouse there are also some features and functionality that have behavioral differences and others that are not supported.</source>
+          <target state="new">However, to maintain the scale and performance of SQL Data Warehouse there are also some features and functionality that have behavioral differences and others that are not supported.</target>
+        </trans-unit>
+        <trans-unit id="7b67e422-4d8a-4fe3-bb5a-cd28de46631e" xml:space="preserve">
+          <source>This article explains how to implement stored procedures within SQL Data Warehouse.</source>
+          <target state="new">This article explains how to implement stored procedures within SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="2e2543ac-5794-4ebf-9026-7721f3c8c35b" xml:space="preserve">
+          <source>Stored procedures are a great way for encapsulating your SQL code; storing it close to your data in the data warehouse.</source>
+          <target state="new">Stored procedures are a great way for encapsulating your SQL code; storing it close to your data in the data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="dd664b81-e7a4-4166-b810-302a269e02a4" xml:space="preserve">
+          <source>By encapsulating the code into manageable units stored procedures help developers modularize their solutions; facilitating greater re-usability of code.</source>
+          <target state="new">By encapsulating the code into manageable units stored procedures help developers modularize their solutions; facilitating greater re-usability of code.</target>
+        </trans-unit>
+        <trans-unit id="a65b72bc-095c-436f-b053-3155a56ba024" xml:space="preserve">
+          <source>Each stored procedure can also accept parameters to make them even more flexible.</source>
+          <target state="new">Each stored procedure can also accept parameters to make them even more flexible.</target>
+        </trans-unit>
+        <trans-unit id="d0333e59-34ec-4e4d-ba09-47f8f2aff289" xml:space="preserve">
+          <source>SQL Data Warehouse provides a simplified and streamlined stored procedure implementation.</source>
+          <target state="new">SQL Data Warehouse provides a simplified and streamlined stored procedure implementation.</target>
+        </trans-unit>
+        <trans-unit id="77a954f7-15d4-4693-9d3c-81315195b915" xml:space="preserve">
+          <source>The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code.</source>
+          <target state="new">The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code.</target>
+        </trans-unit>
+        <trans-unit id="e349d72f-1336-4811-8031-546ae49a19ee" xml:space="preserve">
+          <source>In data warehouses we are generally less concerned with the compilation time.</source>
+          <target state="new">In data warehouses we are generally less concerned with the compilation time.</target>
+        </trans-unit>
+        <trans-unit id="6cdb03ce-9aa9-4c9f-9093-4bf5875654e9" xml:space="preserve">
+          <source>It is more important that the stored procedure code is correctly optimised when operating against large data volumes.</source>
+          <target state="new">It is more important that the stored procedure code is correctly optimised when operating against large data volumes.</target>
+        </trans-unit>
+        <trans-unit id="02636e06-a0b6-4568-8476-30424698f01e" xml:space="preserve">
+          <source>The goal is to save hours, minutes and seconds not milliseconds.</source>
+          <target state="new">The goal is to save hours, minutes and seconds not milliseconds.</target>
+        </trans-unit>
+        <trans-unit id="d76645e8-d948-49af-8b2c-04fdd9ad49d7" xml:space="preserve">
+          <source>It is therefore more helpful to think of stored procedures as containers for SQL logic.</source>
+          <target state="new">It is therefore more helpful to think of stored procedures as containers for SQL logic.</target>
+        </trans-unit>
+        <trans-unit id="f77afb1e-cadc-49ad-a653-a0e6a48da2bb" xml:space="preserve">
+          <source>When SQL Data Warehouse executes your stored procedure the SQL statements are parsed, translated and optimized at run time.</source>
+          <target state="new">When SQL Data Warehouse executes your stored procedure the SQL statements are parsed, translated and optimized at run time.</target>
+        </trans-unit>
+        <trans-unit id="0b9d5a81-951f-43ad-9a2b-e6c7626935f9" xml:space="preserve">
+          <source>During this process each statement is converted into distributed queries.</source>
+          <target state="new">During this process each statement is converted into distributed queries.</target>
+        </trans-unit>
+        <trans-unit id="965e9397-579b-4320-bfd8-e94bd7ddcab5" xml:space="preserve">
+          <source>The SQL code that is actually executed against the data is different to the query submitted.</source>
+          <target state="new">The SQL code that is actually executed against the data is different to the query submitted.</target>
+        </trans-unit>
+        <trans-unit id="a61d6fa4-6dc1-4b34-80c0-f6e3db2021f6" xml:space="preserve">
+          <source>When stored procedures call other stored procedures or execute dynamic sql then the inner stored procedure or code invocation is said to be nested.</source>
+          <target state="new">When stored procedures call other stored procedures or execute dynamic sql then the inner stored procedure or code invocation is said to be nested.</target>
+        </trans-unit>
+        <trans-unit id="cb5d1e7b-5372-4455-92ae-e0cea6119f17" xml:space="preserve">
+          <source>SQL Data Warehouse support a maximum of 8 nesting levels.</source>
+          <target state="new">SQL Data Warehouse support a maximum of 8 nesting levels.</target>
+        </trans-unit>
+        <trans-unit id="2784e25a-4dba-421b-8865-92c2d14cced4" xml:space="preserve">
+          <source>This is slightly different to SQL Server.</source>
+          <target state="new">This is slightly different to SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="5f26876b-e603-4006-980a-396aecb9bb7e" xml:space="preserve">
+          <source>The nest level in SQL Server is 32.</source>
+          <target state="new">The nest level in SQL Server is 32.</target>
+        </trans-unit>
+        <trans-unit id="26f86d82-c8be-418a-8e81-8204e851e324" xml:space="preserve">
+          <source>The top level stored procedure call equates to nest level 1</source>
+          <target state="new">The top level stored procedure call equates to nest level 1</target>
+        </trans-unit>
+        <trans-unit id="c60ef1df-6863-4a70-b32d-87ad5a9e224f" xml:space="preserve">
+          <source>If the stored procedure also makes another EXEC call then this will increase the nest level to 2</source>
+          <target state="new">If the stored procedure also makes another EXEC call then this will increase the nest level to 2</target>
+        </trans-unit>
+        <trans-unit id="23884ddf-d57c-417f-ac33-f6e940410a6f" xml:space="preserve">
+          <source>If the second procedure then executes some dynamic sql then this will increase the nest level to 3</source>
+          <target state="new">If the second procedure then executes some dynamic sql then this will increase the nest level to 3</target>
+        </trans-unit>
+        <trans-unit id="105beab3-450a-41bd-94eb-240048a864b6" xml:space="preserve">
+          <source>Note SQL Data Warehouse does not currently support @@NESTLEVEL.</source>
+          <target state="new">Note SQL Data Warehouse does not currently support @@NESTLEVEL.</target>
+        </trans-unit>
+        <trans-unit id="aaba61ae-210e-44ed-9e35-8015028d72de" xml:space="preserve">
+          <source>You will need to keep a track of your nest level yourself.</source>
+          <target state="new">You will need to keep a track of your nest level yourself.</target>
+        </trans-unit>
+        <trans-unit id="8a8e6875-b6d2-40cf-a263-1261c43b2c0c" xml:space="preserve">
+          <source>It is unlikely you will hit the 8 nest level limit but if you do you will need to re-work your code and "flatten" it so that it fits within this limit.</source>
+          <target state="new">It is unlikely you will hit the 8 nest level limit but if you do you will need to re-work your code and "flatten" it so that it fits within this limit.</target>
+        </trans-unit>
+        <trans-unit id="b253d0b2-c4be-43ea-86d3-7bbad55e777e" xml:space="preserve">
+          <source>SQL Data Warehouse does not permit you to consume the result set of a stored procedure with an INSERT statement.</source>
+          <target state="new">SQL Data Warehouse does not permit you to consume the result set of a stored procedure with an INSERT statement.</target>
+        </trans-unit>
+        <trans-unit id="ab46c767-2f2d-48b8-9fcc-19e64b2a1b84" xml:space="preserve">
+          <source>However, there is an alternative approach you can use.</source>
+          <target state="new">However, there is an alternative approach you can use.</target>
+        </trans-unit>
+        <trans-unit id="d1581ed4-c6c0-4d18-9073-d10b6ab37772" xml:space="preserve">
+          <source>Please refer to the following article on [temporary tables] for an example on how to do this.</source>
+          <target state="new">Please refer to the following article on [temporary tables] for an example on how to do this.</target>
+        </trans-unit>
+        <trans-unit id="3e725239-3c3f-416b-b9c5-3545b99a370d" xml:space="preserve">
+          <source>There are some aspects of Transact-SQL stored procedures that are not implemented in SQL Data Warehouse.</source>
+          <target state="new">There are some aspects of Transact-SQL stored procedures that are not implemented in SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="b4259fbe-0aed-4a41-89e2-fed1539f6f4d" xml:space="preserve">
+          <source>They are:</source>
+          <target state="new">They are:</target>
+        </trans-unit>
+        <trans-unit id="d7b83143-2f40-4674-9019-1769964f24a2" xml:space="preserve">
+          <source>temporary stored procedures</source>
+          <target state="new">temporary stored procedures</target>
+        </trans-unit>
+        <trans-unit id="4ab25e7b-8da7-426d-abe5-2ee81eae9e9d" xml:space="preserve">
+          <source>numbered stored procedures</source>
+          <target state="new">numbered stored procedures</target>
+        </trans-unit>
+        <trans-unit id="2f21ca0c-22d9-4844-ac0b-7b401f8d5cff" xml:space="preserve">
+          <source>extended stored procedures</source>
+          <target state="new">extended stored procedures</target>
+        </trans-unit>
+        <trans-unit id="bc9a04f8-6065-4771-bf29-4f463586fdf1" xml:space="preserve">
+          <source>CLR stored procedures</source>
+          <target state="new">CLR stored procedures</target>
+        </trans-unit>
+        <trans-unit id="3954b392-16d1-4e0f-ac78-ad5228972f35" xml:space="preserve">
+          <source>encryption option</source>
+          <target state="new">encryption option</target>
+        </trans-unit>
+        <trans-unit id="5f7670b7-6b8d-4378-8839-0c881bd51a05" xml:space="preserve">
+          <source>replication option</source>
+          <target state="new">replication option</target>
+        </trans-unit>
+        <trans-unit id="19fab8c8-654e-4ef1-a2e0-9e9c87a2b411" xml:space="preserve">
+          <source>table-valued parameters</source>
+          <target state="new">table-valued parameters</target>
+        </trans-unit>
+        <trans-unit id="029eba9f-8a54-4bab-95d4-60d0e20572cc" xml:space="preserve">
+          <source>read-only parameters</source>
+          <target state="new">read-only parameters</target>
+        </trans-unit>
+        <trans-unit id="5f5e2a29-7958-4767-8250-086b30df53e0" xml:space="preserve">
+          <source>default parameters</source>
+          <target state="new">default parameters</target>
+        </trans-unit>
+        <trans-unit id="f4332758-d57a-4bff-adf2-98ff24e93429" xml:space="preserve">
+          <source>execution contexts</source>
+          <target state="new">execution contexts</target>
+        </trans-unit>
+        <trans-unit id="afeb3a6f-0e2b-466c-9025-cb70cb41fd81" xml:space="preserve">
+          <source>return statement</source>
+          <target state="new">return statement</target>
+        </trans-unit>
+        <trans-unit id="98694231-7e4b-4cf7-af47-e766f83788aa" xml:space="preserve">
+          <source>For more development tips, see <bpt id="a6064e71-325a-42fc-861e-f255a6a6e637">&lt;linkText&gt;</bpt>development overview<ept id="a6064e71-325a-42fc-861e-f255a6a6e637">&lt;/linkText&gt;</ept><bpt id="a6064e71-325a-42fc-861e-f255a6a6e637">&lt;title&gt;</bpt><ept id="a6064e71-325a-42fc-861e-f255a6a6e637">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="a6064e71-325a-42fc-861e-f255a6a6e637">&lt;linkText&gt;</bpt>development overview<ept id="a6064e71-325a-42fc-861e-f255a6a6e637">&lt;/linkText&gt;</ept><bpt id="a6064e71-325a-42fc-861e-f255a6a6e637">&lt;title&gt;</bpt><ept id="a6064e71-325a-42fc-861e-f255a6a6e637">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a40eaa45-fec1-483f-b5d8-df1c967bc8fa" xml:space="preserve">
+          <source>sql-data-warehouse-develop-temporary-tables.md</source>
+          <target state="new">sql-data-warehouse-develop-temporary-tables.md</target>
+        </trans-unit>
+        <trans-unit id="dbf3e53f-2d63-4e7c-ae81-641a21b8abb9" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+        <trans-unit id="173dcec9-d70c-4d41-a5af-1aa41502a594" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/ms187371.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/ms187371.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="4c8c26a1-39ab-4630-ad28-0b836714eff8" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7a91c708-5aa1-47d7-828d-7c6baa930a93" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7a91c708-5aa1-47d7-828d-7c6baa930a93" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="82555d20-2c49-4ec9-bc2e-0b30a4202e18">
+        <trans-unit id="83852680-ba3e-4694-861c-5fcdb568a8c4" xml:space="preserve">
+          <source>This article is for an Azure resource created in Resource Manager, which Microsoft recommends over a resource created in Service Management. For an explanation of the advantages of Resource Manager, see <bpt id="2bc8a74a-9641-41ec-babd-e37fdb809953">&lt;linkText&gt;</bpt>Azure Compute, Network &amp; Storage Providers under Azure Resource Manager<ept id="2bc8a74a-9641-41ec-babd-e37fdb809953">&lt;/linkText&gt;</ept><bpt id="2bc8a74a-9641-41ec-babd-e37fdb809953">&lt;title&gt;</bpt><ept id="2bc8a74a-9641-41ec-babd-e37fdb809953">&lt;/title&gt;</ept>. To do the same task for a resource created with Azure Service Management, see the following article:</source>
+          <target state="new">This article is for an Azure resource created in Resource Manager, which Microsoft recommends over a resource created in Service Management. For an explanation of the advantages of Resource Manager, see <bpt id="2bc8a74a-9641-41ec-babd-e37fdb809953">&lt;linkText&gt;</bpt>Azure Compute, Network &amp; Storage Providers under Azure Resource Manager<ept id="2bc8a74a-9641-41ec-babd-e37fdb809953">&lt;/linkText&gt;</ept><bpt id="2bc8a74a-9641-41ec-babd-e37fdb809953">&lt;title&gt;</bpt><ept id="2bc8a74a-9641-41ec-babd-e37fdb809953">&lt;/title&gt;</ept>. To do the same task for a resource created with Azure Service Management, see the following article:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="eb19325d-b82a-4ce5-a926-702965d1f144" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="eb19325d-b82a-4ce5-a926-702965d1f144" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0e7258f2-348e-477f-bf82-01f248c68d54">
+        <trans-unit id="8b03611b-5293-45d4-9023-bb5b77172e9e" xml:space="preserve">
+          <source>Automated Backup for SQL Server in Azure Virtual Machines</source>
+          <target state="new">Automated Backup for SQL Server in Azure Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="bfb75803-0bb1-4367-8179-19849c76b88c" xml:space="preserve">
+          <source>Explains the Automated Backup feature for SQL Server running in Azure Virtual Machines.</source>
+          <target state="new">Explains the Automated Backup feature for SQL Server running in Azure Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="8c493cb0-eded-4515-a165-6106c390ecd3" xml:space="preserve">
+          <source>Automated Backup automatically configures <bpt id="47071e52-41d2-4776-9c9e-0c018b1f8939">&lt;linkText&gt;</bpt>Managed Backup to Microsoft Azure<ept id="47071e52-41d2-4776-9c9e-0c018b1f8939">&lt;/linkText&gt;</ept><bpt id="47071e52-41d2-4776-9c9e-0c018b1f8939">&lt;title&gt;</bpt><ept id="47071e52-41d2-4776-9c9e-0c018b1f8939">&lt;/title&gt;</ept> for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise.</source>
+          <target state="new">Automated Backup automatically configures <bpt id="47071e52-41d2-4776-9c9e-0c018b1f8939">&lt;linkText&gt;</bpt>Managed Backup to Microsoft Azure<ept id="47071e52-41d2-4776-9c9e-0c018b1f8939">&lt;/linkText&gt;</ept><bpt id="47071e52-41d2-4776-9c9e-0c018b1f8939">&lt;title&gt;</bpt><ept id="47071e52-41d2-4776-9c9e-0c018b1f8939">&lt;/title&gt;</ept> for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise.</target>
+        </trans-unit>
+        <trans-unit id="643bae7b-5e59-4a11-a9b2-bc08aff145a0" xml:space="preserve">
+          <source>This enables you to configure regular database backups that utilize durable Azure blob storage.</source>
+          <target state="new">This enables you to configure regular database backups that utilize durable Azure blob storage.</target>
+        </trans-unit>
+        <trans-unit id="7383209b-3833-4bfe-8c27-254d5df50548" xml:space="preserve">
+          <source>Automated Backup relies on the SQL Server IaaS Agent.</source>
+          <target state="new">Automated Backup relies on the SQL Server IaaS Agent.</target>
+        </trans-unit>
+        <trans-unit id="41a0f55d-f786-4aab-821f-727c6bb41786" xml:space="preserve">
+          <source>To install and configure the agent, you must have the Azure VM Agent running on the target virtual machine.</source>
+          <target state="new">To install and configure the agent, you must have the Azure VM Agent running on the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7af1b9c7-3a7b-4be9-b9b9-90386d266b63" xml:space="preserve">
+          <source>Newer virtual machine gallery images have this option enabled by default, but the Azure VM Agent might be missing on existing VMs.</source>
+          <target state="new">Newer virtual machine gallery images have this option enabled by default, but the Azure VM Agent might be missing on existing VMs.</target>
+        </trans-unit>
+        <trans-unit id="ff757196-4586-4d52-ac4d-f6de238ba136" xml:space="preserve">
+          <source>If you are using your own VM image, you will also need to install the SQL Server IaaS Agent.</source>
+          <target state="new">If you are using your own VM image, you will also need to install the SQL Server IaaS Agent.</target>
+        </trans-unit>
+        <trans-unit id="2cc0e5e2-70b2-45db-908c-d8e593d6acb6" xml:space="preserve">
+          <source>For more information, see <bpt id="9c0483b3-ba5a-4d9d-a98a-82a8d190b78a">&lt;linkText&gt;</bpt>VM Agent and Extensions<ept id="9c0483b3-ba5a-4d9d-a98a-82a8d190b78a">&lt;/linkText&gt;</ept><bpt id="9c0483b3-ba5a-4d9d-a98a-82a8d190b78a">&lt;title&gt;</bpt><ept id="9c0483b3-ba5a-4d9d-a98a-82a8d190b78a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="9c0483b3-ba5a-4d9d-a98a-82a8d190b78a">&lt;linkText&gt;</bpt>VM Agent and Extensions<ept id="9c0483b3-ba5a-4d9d-a98a-82a8d190b78a">&lt;/linkText&gt;</ept><bpt id="9c0483b3-ba5a-4d9d-a98a-82a8d190b78a">&lt;title&gt;</bpt><ept id="9c0483b3-ba5a-4d9d-a98a-82a8d190b78a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c982576d-6baf-44b1-8532-2860e00ffe44" xml:space="preserve">
+          <source>The following table describes the options that can be configured for Automated Backup.</source>
+          <target state="new">The following table describes the options that can be configured for Automated Backup.</target>
+        </trans-unit>
+        <trans-unit id="4d40a0ab-8ea8-4cf5-a905-1d719ff735b0" xml:space="preserve">
+          <source>The actual configuration steps vary depending on whether you use the Azure Portal or Azure Windows PowerShell commands.</source>
+          <target state="new">The actual configuration steps vary depending on whether you use the Azure Portal or Azure Windows PowerShell commands.</target>
+        </trans-unit>
+        <trans-unit id="25d3548b-54ef-46f6-9f27-304072a3e312" xml:space="preserve">
+          <source>Setting</source>
+          <target state="new">Setting</target>
+        </trans-unit>
+        <trans-unit id="d373663d-dc8f-46a2-8a95-bb92cfd64626" xml:space="preserve">
+          <source>Range (Default)</source>
+          <target state="new">Range (Default)</target>
+        </trans-unit>
+        <trans-unit id="2328f7f4-0e09-42fa-a9b1-3f86fee182e2" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="8a7e354b-a827-47a5-b1b1-6cc9f74d03b1" xml:space="preserve">
+          <source><bpt id="1ba420ec-dcc5-453d-a37a-b6d214cff9c1">&lt;strong&gt;</bpt>Automated Backup<ept id="1ba420ec-dcc5-453d-a37a-b6d214cff9c1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1ba420ec-dcc5-453d-a37a-b6d214cff9c1">&lt;strong&gt;</bpt>Automated Backup<ept id="1ba420ec-dcc5-453d-a37a-b6d214cff9c1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33181a1e-d644-40b7-a935-82af839d1621" xml:space="preserve">
+          <source>Enable/Disable (Disabled)</source>
+          <target state="new">Enable/Disable (Disabled)</target>
+        </trans-unit>
+        <trans-unit id="21d90758-8f60-4010-9ae7-6c286c49e759" xml:space="preserve">
+          <source>Enables or disables Automated Backup for an Azure VM running SQL Server 2014 Standard or Enterprise.</source>
+          <target state="new">Enables or disables Automated Backup for an Azure VM running SQL Server 2014 Standard or Enterprise.</target>
+        </trans-unit>
+        <trans-unit id="3a70223e-41dc-4a08-a489-f078b392d13d" xml:space="preserve">
+          <source><bpt id="1dafdb1c-ea24-4486-9df9-8cbfbef8310b">&lt;strong&gt;</bpt>Retention Period<ept id="1dafdb1c-ea24-4486-9df9-8cbfbef8310b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1dafdb1c-ea24-4486-9df9-8cbfbef8310b">&lt;strong&gt;</bpt>Retention Period<ept id="1dafdb1c-ea24-4486-9df9-8cbfbef8310b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca110fbe-d7a0-45ce-a2b6-1c973fcadbb2" xml:space="preserve">
+          <source>1-30 days (30 days)</source>
+          <target state="new">1-30 days (30 days)</target>
+        </trans-unit>
+        <trans-unit id="a4b36793-f632-44cf-ae06-f8884a227f40" xml:space="preserve">
+          <source>The number of days to retain a backup.</source>
+          <target state="new">The number of days to retain a backup.</target>
+        </trans-unit>
+        <trans-unit id="3db7daaa-f98b-471f-b052-66d7010f9406" xml:space="preserve">
+          <source><bpt id="f2fa7089-f6b1-4462-b285-53ce13341d55">&lt;strong&gt;</bpt>Storage Account<ept id="f2fa7089-f6b1-4462-b285-53ce13341d55">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f2fa7089-f6b1-4462-b285-53ce13341d55">&lt;strong&gt;</bpt>Storage Account<ept id="f2fa7089-f6b1-4462-b285-53ce13341d55">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d72839b6-d501-4a9e-935e-1de0213969ba" xml:space="preserve">
+          <source>Azure storage account (the storage account created for the specified VM)</source>
+          <target state="new">Azure storage account (the storage account created for the specified VM)</target>
+        </trans-unit>
+        <trans-unit id="125b3546-c99c-4817-aa56-7730379ddde2" xml:space="preserve">
+          <source>An Azure storage account to use for storing Automated Backup files in blob storage.</source>
+          <target state="new">An Azure storage account to use for storing Automated Backup files in blob storage.</target>
+        </trans-unit>
+        <trans-unit id="8707df1a-7f1d-4198-aa41-b57209a88047" xml:space="preserve">
+          <source>A container is created at this location to store all backup files.</source>
+          <target state="new">A container is created at this location to store all backup files.</target>
+        </trans-unit>
+        <trans-unit id="eb9a516d-21e3-4ddf-8dd2-4e3f9c584f1e" xml:space="preserve">
+          <source>The backup file naming convention includes the date, time, and machine name.</source>
+          <target state="new">The backup file naming convention includes the date, time, and machine name.</target>
+        </trans-unit>
+        <trans-unit id="83cfb5b9-8b1c-4451-a4df-d2cc43cf2b8f" xml:space="preserve">
+          <source><bpt id="5afe06ab-7b24-4359-b425-be0e8529cd48">&lt;strong&gt;</bpt>Encryption<ept id="5afe06ab-7b24-4359-b425-be0e8529cd48">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5afe06ab-7b24-4359-b425-be0e8529cd48">&lt;strong&gt;</bpt>Encryption<ept id="5afe06ab-7b24-4359-b425-be0e8529cd48">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="457b4f1a-d5e0-447b-9fdf-e0a8e5246dbd" xml:space="preserve">
+          <source>Enable/Disable (Disabled)</source>
+          <target state="new">Enable/Disable (Disabled)</target>
+        </trans-unit>
+        <trans-unit id="4bde1c73-dbfd-45cd-a409-a3fb5109e4da" xml:space="preserve">
+          <source>Enables or disables encryption.</source>
+          <target state="new">Enables or disables encryption.</target>
+        </trans-unit>
+        <trans-unit id="991c78e2-2027-4331-abad-3417e78ed8d7" xml:space="preserve">
+          <source>When encryption is enabled, the certificates used to restore the backup are located in the specified storage account in the same automaticbackup container using the same naming convention.</source>
+          <target state="new">When encryption is enabled, the certificates used to restore the backup are located in the specified storage account in the same automaticbackup container using the same naming convention.</target>
+        </trans-unit>
+        <trans-unit id="ba508f12-ffb8-4b40-92e3-be5c3961212e" xml:space="preserve">
+          <source>If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups.</source>
+          <target state="new">If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups.</target>
+        </trans-unit>
+        <trans-unit id="f91e7de5-01ee-4514-9055-46ce3990808a" xml:space="preserve">
+          <source><bpt id="136e6ca7-93ce-4d38-ae38-c0498d24d5a2">&lt;strong&gt;</bpt>Password<ept id="136e6ca7-93ce-4d38-ae38-c0498d24d5a2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="136e6ca7-93ce-4d38-ae38-c0498d24d5a2">&lt;strong&gt;</bpt>Password<ept id="136e6ca7-93ce-4d38-ae38-c0498d24d5a2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88f757e0-e76b-4632-a7df-30e212404723" xml:space="preserve">
+          <source>Password text (None)</source>
+          <target state="new">Password text (None)</target>
+        </trans-unit>
+        <trans-unit id="6358b3a2-13a1-48df-bff8-d84debe5f850" xml:space="preserve">
+          <source>A password for encryption keys.</source>
+          <target state="new">A password for encryption keys.</target>
+        </trans-unit>
+        <trans-unit id="5a800b6b-ca50-498d-ab78-86d2761260d5" xml:space="preserve">
+          <source>This is only required if encryption is enabled.</source>
+          <target state="new">This is only required if encryption is enabled.</target>
+        </trans-unit>
+        <trans-unit id="4f24d43c-9e43-4161-be00-454504954c6f" xml:space="preserve">
+          <source>In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken.</source>
+          <target state="new">In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken.</target>
+        </trans-unit>
+        <trans-unit id="ee1c0a6e-5755-40bf-b22a-90289174fb6d" xml:space="preserve">
+          <source>You can use the <bpt id="65e8e479-3bcb-4652-ad2c-9b7249ec2cc2">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="65e8e479-3bcb-4652-ad2c-9b7249ec2cc2">&lt;/linkText&gt;</ept><bpt id="65e8e479-3bcb-4652-ad2c-9b7249ec2cc2">&lt;title&gt;</bpt><ept id="65e8e479-3bcb-4652-ad2c-9b7249ec2cc2">&lt;/title&gt;</ept> to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine. The following screenshot shows these options under <bpt id="95c13bfb-c3b7-461f-9d31-9d975fa7420f">&lt;strong&gt;</bpt>OPTIONAL CONFIGURATION<ept id="95c13bfb-c3b7-461f-9d31-9d975fa7420f">&lt;/strong&gt;</ept> | <bpt id="e827de7d-b4c7-418f-a914-43c4382d235e">&lt;strong&gt;</bpt>SQL AUTOMATED BACKUP<ept id="e827de7d-b4c7-418f-a914-43c4382d235e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can use the <bpt id="65e8e479-3bcb-4652-ad2c-9b7249ec2cc2">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="65e8e479-3bcb-4652-ad2c-9b7249ec2cc2">&lt;/linkText&gt;</ept><bpt id="65e8e479-3bcb-4652-ad2c-9b7249ec2cc2">&lt;title&gt;</bpt><ept id="65e8e479-3bcb-4652-ad2c-9b7249ec2cc2">&lt;/title&gt;</ept> to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine. The following screenshot shows these options under <bpt id="95c13bfb-c3b7-461f-9d31-9d975fa7420f">&lt;strong&gt;</bpt>OPTIONAL CONFIGURATION<ept id="95c13bfb-c3b7-461f-9d31-9d975fa7420f">&lt;/strong&gt;</ept> | <bpt id="e827de7d-b4c7-418f-a914-43c4382d235e">&lt;strong&gt;</bpt>SQL AUTOMATED BACKUP<ept id="e827de7d-b4c7-418f-a914-43c4382d235e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e89408bb-cf6b-4a42-906c-9bfa009a6019" xml:space="preserve">
+          <source><bpt id="6ec8bab7-bf66-4c84-95c3-22db68926f2a">&lt;linkText&gt;</bpt>SQL Automatic Backup configuration in Azure Portal<ept id="6ec8bab7-bf66-4c84-95c3-22db68926f2a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ec8bab7-bf66-4c84-95c3-22db68926f2a">&lt;linkText&gt;</bpt>SQL Automatic Backup configuration in Azure Portal<ept id="6ec8bab7-bf66-4c84-95c3-22db68926f2a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44474d4f-6f3c-4633-af57-9674c5e7c2f0" xml:space="preserve">
+          <source>For existing SQL Server 2014 virtual machines, select the <bpt id="3049a54d-1df0-41e7-80d4-758216de71da">&lt;strong&gt;</bpt>Auto backup<ept id="3049a54d-1df0-41e7-80d4-758216de71da">&lt;/strong&gt;</ept> settings in the <bpt id="88fd3e89-8eb7-4dbd-ac98-380121a9991a">&lt;strong&gt;</bpt>Configuration<ept id="88fd3e89-8eb7-4dbd-ac98-380121a9991a">&lt;/strong&gt;</ept> section of the virtual machine properties.</source>
+          <target state="new">For existing SQL Server 2014 virtual machines, select the <bpt id="3049a54d-1df0-41e7-80d4-758216de71da">&lt;strong&gt;</bpt>Auto backup<ept id="3049a54d-1df0-41e7-80d4-758216de71da">&lt;/strong&gt;</ept> settings in the <bpt id="88fd3e89-8eb7-4dbd-ac98-380121a9991a">&lt;strong&gt;</bpt>Configuration<ept id="88fd3e89-8eb7-4dbd-ac98-380121a9991a">&lt;/strong&gt;</ept> section of the virtual machine properties.</target>
+        </trans-unit>
+        <trans-unit id="22e4fe33-509a-4e9c-a26c-c80621495047" xml:space="preserve">
+          <source>In the <bpt id="45931eea-4df3-409d-9fdf-ec36dea0d4e3">&lt;strong&gt;</bpt>Automated backup<ept id="45931eea-4df3-409d-9fdf-ec36dea0d4e3">&lt;/strong&gt;</ept> window, you can enable the feature, set the retention period, select the storage account, and set encryption.</source>
+          <target state="new">In the <bpt id="45931eea-4df3-409d-9fdf-ec36dea0d4e3">&lt;strong&gt;</bpt>Automated backup<ept id="45931eea-4df3-409d-9fdf-ec36dea0d4e3">&lt;/strong&gt;</ept> window, you can enable the feature, set the retention period, select the storage account, and set encryption.</target>
+        </trans-unit>
+        <trans-unit id="e908d2f2-3843-47e8-b802-c54114225138" xml:space="preserve">
+          <source>This is shown in the following screenshot.</source>
+          <target state="new">This is shown in the following screenshot.</target>
+        </trans-unit>
+        <trans-unit id="60c2e17d-a147-4333-bf10-8bbc4fe33ca4" xml:space="preserve">
+          <source><bpt id="523b4d04-d7f1-4636-9cb2-5aae1abb38bc">&lt;linkText&gt;</bpt>Automated Backup Configuration in Azure Portal<ept id="523b4d04-d7f1-4636-9cb2-5aae1abb38bc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="523b4d04-d7f1-4636-9cb2-5aae1abb38bc">&lt;linkText&gt;</bpt>Automated Backup Configuration in Azure Portal<ept id="523b4d04-d7f1-4636-9cb2-5aae1abb38bc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3162c482-7194-4e7f-bc38-a679aecd89da" xml:space="preserve">
+          <source>When you enable Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background.</source>
+          <target state="new">When you enable Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background.</target>
+        </trans-unit>
+        <trans-unit id="7d4ca084-1c75-4cd4-abb4-4a5c4e7de9ba" xml:space="preserve">
+          <source>During this time, the portal will not show that Automated Backup is configured.</source>
+          <target state="new">During this time, the portal will not show that Automated Backup is configured.</target>
+        </trans-unit>
+        <trans-unit id="eea011fb-264c-4e71-a334-921cf0e8e513" xml:space="preserve">
+          <source>Wait several minutes for the agent to be installed, configured.</source>
+          <target state="new">Wait several minutes for the agent to be installed, configured.</target>
+        </trans-unit>
+        <trans-unit id="8160c610-236b-46a2-8714-c0888c7ce1c0" xml:space="preserve">
+          <source>After that the portal will reflect the new settings.</source>
+          <target state="new">After that the portal will reflect the new settings.</target>
+        </trans-unit>
+        <trans-unit id="9c1093b0-d5d6-444d-b915-ad98be47a658" xml:space="preserve">
+          <source>In the following PowerShell example, Automated Backup is configured for an existing SQL Server 2014 VM.</source>
+          <target state="new">In the following PowerShell example, Automated Backup is configured for an existing SQL Server 2014 VM.</target>
+        </trans-unit>
+        <trans-unit id="677efa2d-7b96-46a4-8bb8-f79f627d31e4" xml:space="preserve">
+          <source>The <bpt id="7b64167c-c9df-49a8-b44e-1a66cc4d2b35">&lt;strong&gt;</bpt>New-AzureVMSqlServerAutoBackupConfig<ept id="7b64167c-c9df-49a8-b44e-1a66cc4d2b35">&lt;/strong&gt;</ept> command configures the Automated Backup settings to store backups in the Azure storage account specified by the $storageaccount variable.</source>
+          <target state="new">The <bpt id="7b64167c-c9df-49a8-b44e-1a66cc4d2b35">&lt;strong&gt;</bpt>New-AzureVMSqlServerAutoBackupConfig<ept id="7b64167c-c9df-49a8-b44e-1a66cc4d2b35">&lt;/strong&gt;</ept> command configures the Automated Backup settings to store backups in the Azure storage account specified by the $storageaccount variable.</target>
+        </trans-unit>
+        <trans-unit id="bc667f7e-3a17-4bfa-a5ef-c3d79130801b" xml:space="preserve">
+          <source>These backups will be retained for 10 days.</source>
+          <target state="new">These backups will be retained for 10 days.</target>
+        </trans-unit>
+        <trans-unit id="a733b956-2fa1-494a-9871-897eeec95846" xml:space="preserve">
+          <source>The <bpt id="f10ff274-cd1f-48bf-9076-92f1a232cd05">&lt;strong&gt;</bpt>Set-AzureVMSqlServerExtension<ept id="f10ff274-cd1f-48bf-9076-92f1a232cd05">&lt;/strong&gt;</ept> command updates the specified Azure VM with these settings.</source>
+          <target state="new">The <bpt id="f10ff274-cd1f-48bf-9076-92f1a232cd05">&lt;strong&gt;</bpt>Set-AzureVMSqlServerExtension<ept id="f10ff274-cd1f-48bf-9076-92f1a232cd05">&lt;/strong&gt;</ept> command updates the specified Azure VM with these settings.</target>
+        </trans-unit>
+        <trans-unit id="57837ff2-da04-4baf-8542-3f7d3c0ec41e" xml:space="preserve">
+          <source>It could take several minutes to install and configure the SQL Server IaaS Agent.</source>
+          <target state="new">It could take several minutes to install and configure the SQL Server IaaS Agent.</target>
+        </trans-unit>
+        <trans-unit id="fc5bf1b9-728d-45b9-aa99-387fede48d6d" xml:space="preserve">
+          <source>To enable encryption, modify the previous script to pass the EnableEncryption parameter along with a password (secure string) for the CertificatePassword parameter.</source>
+          <target state="new">To enable encryption, modify the previous script to pass the EnableEncryption parameter along with a password (secure string) for the CertificatePassword parameter.</target>
+        </trans-unit>
+        <trans-unit id="a121593b-13fa-4870-8c33-0e303c6991b4" xml:space="preserve">
+          <source>The following script enables the Automated Backup settings in the previous example and adds encryption.</source>
+          <target state="new">The following script enables the Automated Backup settings in the previous example and adds encryption.</target>
+        </trans-unit>
+        <trans-unit id="b865b304-485d-48df-bc20-a3b2834a2e42" xml:space="preserve">
+          <source>To disable automatic backup, run the same script without the <bpt id="40bcede7-b51c-41ee-bb7a-19e4dc6360d6">&lt;strong&gt;</bpt>-Enable<ept id="40bcede7-b51c-41ee-bb7a-19e4dc6360d6">&lt;/strong&gt;</ept> parameter to the <bpt id="0a2fce8d-e020-4450-9284-fdce3b9b50ee">&lt;strong&gt;</bpt>New-AzureVMSqlServerAutoBackupConfig<ept id="0a2fce8d-e020-4450-9284-fdce3b9b50ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To disable automatic backup, run the same script without the <bpt id="40bcede7-b51c-41ee-bb7a-19e4dc6360d6">&lt;strong&gt;</bpt>-Enable<ept id="40bcede7-b51c-41ee-bb7a-19e4dc6360d6">&lt;/strong&gt;</ept> parameter to the <bpt id="0a2fce8d-e020-4450-9284-fdce3b9b50ee">&lt;strong&gt;</bpt>New-AzureVMSqlServerAutoBackupConfig<ept id="0a2fce8d-e020-4450-9284-fdce3b9b50ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8c46162-bb98-45bc-9414-11ce4cf44b3e" xml:space="preserve">
+          <source>As with installation, it can take several minutes to disable Automated Backup.</source>
+          <target state="new">As with installation, it can take several minutes to disable Automated Backup.</target>
+        </trans-unit>
+        <trans-unit id="f9b564ba-32d7-4065-b7ee-7231070992e1" xml:space="preserve">
+          <source>If you want to disable the SQL Server IaaS Agent for Automated Backup and Patching, use the following command:</source>
+          <target state="new">If you want to disable the SQL Server IaaS Agent for Automated Backup and Patching, use the following command:</target>
+        </trans-unit>
+        <trans-unit id="99dca1bd-af33-46b6-80d0-9f56766da363" xml:space="preserve">
+          <source>To uninstall the SQL Server IaaS Agent, use the following syntax:</source>
+          <target state="new">To uninstall the SQL Server IaaS Agent, use the following syntax:</target>
+        </trans-unit>
+        <trans-unit id="96474a77-d955-4a00-b6aa-c6537624b612" xml:space="preserve">
+          <source>You can also uninstall the extension using the <bpt id="04d0a28b-b0fb-4321-9801-dbe9e8c21d58">&lt;strong&gt;</bpt>Remove-AzureVMSqlServerExtension<ept id="04d0a28b-b0fb-4321-9801-dbe9e8c21d58">&lt;/strong&gt;</ept> command:</source>
+          <target state="new">You can also uninstall the extension using the <bpt id="04d0a28b-b0fb-4321-9801-dbe9e8c21d58">&lt;strong&gt;</bpt>Remove-AzureVMSqlServerExtension<ept id="04d0a28b-b0fb-4321-9801-dbe9e8c21d58">&lt;/strong&gt;</ept> command:</target>
+        </trans-unit>
+        <trans-unit id="4c637171-a65c-486a-82f7-664af4e7b26b" xml:space="preserve">
+          <source>Disabling and uninstalling the SQL Server IaaS Agent does not remove the previously configured Managed Backup settings.</source>
+          <target state="new">Disabling and uninstalling the SQL Server IaaS Agent does not remove the previously configured Managed Backup settings.</target>
+        </trans-unit>
+        <trans-unit id="e0d6467e-a708-4e01-a7fb-80639646b3e3" xml:space="preserve">
+          <source>You should disable Automated Backup before disabling or uninstalling the SQL Server IaaS Agent.</source>
+          <target state="new">You should disable Automated Backup before disabling or uninstalling the SQL Server IaaS Agent.</target>
+        </trans-unit>
+        <trans-unit id="388d18e1-21d2-41e4-a5cb-b802b064d64c" xml:space="preserve">
+          <source>The following products are compatible with the SQL Server IaaS Agent features for Automated Backup:</source>
+          <target state="new">The following products are compatible with the SQL Server IaaS Agent features for Automated Backup:</target>
+        </trans-unit>
+        <trans-unit id="83ffb589-8e3a-4a7b-b7a5-d9a35eedc73d" xml:space="preserve">
+          <source>Windows Server 2012</source>
+          <target state="new">Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="3c71af34-a991-4516-9114-39a1b3d3085f" xml:space="preserve">
+          <source>Windows Server 2012 R2</source>
+          <target state="new">Windows Server 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="88f9e807-6b1d-43be-a7d0-cc545887f816" xml:space="preserve">
+          <source>SQL Server 2014 Standard</source>
+          <target state="new">SQL Server 2014 Standard</target>
+        </trans-unit>
+        <trans-unit id="66333b35-706e-4c8d-811b-da2abfcec447" xml:space="preserve">
+          <source>SQL Server 2014 Enterprise</source>
+          <target state="new">SQL Server 2014 Enterprise</target>
+        </trans-unit>
+        <trans-unit id="aab17705-5a04-4169-b1fd-7ef4adf2fe53" xml:space="preserve">
+          <source>Automated Backup configures Managed Backup on Azure VMs.</source>
+          <target state="new">Automated Backup configures Managed Backup on Azure VMs.</target>
+        </trans-unit>
+        <trans-unit id="36eeaf4a-5a54-4bd9-8b75-3e4d3b9eb4b5" xml:space="preserve">
+          <source>So it is important to <bpt id="ad91d5d8-fb91-4158-b66c-8148e758a06a">&lt;linkText&gt;</bpt>review the documentation for Managed Backup<ept id="ad91d5d8-fb91-4158-b66c-8148e758a06a">&lt;/linkText&gt;</ept><bpt id="ad91d5d8-fb91-4158-b66c-8148e758a06a">&lt;title&gt;</bpt><ept id="ad91d5d8-fb91-4158-b66c-8148e758a06a">&lt;/title&gt;</ept> to understand the behavior and implications.</source>
+          <target state="new">So it is important to <bpt id="ad91d5d8-fb91-4158-b66c-8148e758a06a">&lt;linkText&gt;</bpt>review the documentation for Managed Backup<ept id="ad91d5d8-fb91-4158-b66c-8148e758a06a">&lt;/linkText&gt;</ept><bpt id="ad91d5d8-fb91-4158-b66c-8148e758a06a">&lt;title&gt;</bpt><ept id="ad91d5d8-fb91-4158-b66c-8148e758a06a">&lt;/title&gt;</ept> to understand the behavior and implications.</target>
+        </trans-unit>
+        <trans-unit id="a7209fa1-5825-4d49-8364-cb2a2240fe62" xml:space="preserve">
+          <source>You can find additional backup and restore guidance for SQL Server on Azure VMs in the following topic: <bpt id="bbc5f000-217a-43f7-b7c5-e95298fde0df">&lt;linkText&gt;</bpt>Backup and Restore for SQL Server in Azure Virtual Machines<ept id="bbc5f000-217a-43f7-b7c5-e95298fde0df">&lt;/linkText&gt;</ept><bpt id="bbc5f000-217a-43f7-b7c5-e95298fde0df">&lt;title&gt;</bpt><ept id="bbc5f000-217a-43f7-b7c5-e95298fde0df">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find additional backup and restore guidance for SQL Server on Azure VMs in the following topic: <bpt id="bbc5f000-217a-43f7-b7c5-e95298fde0df">&lt;linkText&gt;</bpt>Backup and Restore for SQL Server in Azure Virtual Machines<ept id="bbc5f000-217a-43f7-b7c5-e95298fde0df">&lt;/linkText&gt;</ept><bpt id="bbc5f000-217a-43f7-b7c5-e95298fde0df">&lt;title&gt;</bpt><ept id="bbc5f000-217a-43f7-b7c5-e95298fde0df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e1110be-691d-4e8e-834c-6ec76ab27afa" xml:space="preserve">
+          <source>A related feature for SQL Server VMs in Azure is <bpt id="8af46c3c-dec1-43b1-8498-e9362f8490cb">&lt;linkText&gt;</bpt>Automated Patching for SQL Server in Azure Virtual Machines<ept id="8af46c3c-dec1-43b1-8498-e9362f8490cb">&lt;/linkText&gt;</ept><bpt id="8af46c3c-dec1-43b1-8498-e9362f8490cb">&lt;title&gt;</bpt><ept id="8af46c3c-dec1-43b1-8498-e9362f8490cb">&lt;/title&gt;</ept>.</source>
+          <target state="new">A related feature for SQL Server VMs in Azure is <bpt id="8af46c3c-dec1-43b1-8498-e9362f8490cb">&lt;linkText&gt;</bpt>Automated Patching for SQL Server in Azure Virtual Machines<ept id="8af46c3c-dec1-43b1-8498-e9362f8490cb">&lt;/linkText&gt;</ept><bpt id="8af46c3c-dec1-43b1-8498-e9362f8490cb">&lt;title&gt;</bpt><ept id="8af46c3c-dec1-43b1-8498-e9362f8490cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef237df8-1073-4a39-af0f-207544bfed03" xml:space="preserve">
+          <source>Review other <bpt id="ec59caf3-2d13-4daa-876c-1c4ef56bfbc4">&lt;linkText&gt;</bpt>resources for running SQL Server in Azure Virtual Machines<ept id="ec59caf3-2d13-4daa-876c-1c4ef56bfbc4">&lt;/linkText&gt;</ept><bpt id="ec59caf3-2d13-4daa-876c-1c4ef56bfbc4">&lt;title&gt;</bpt><ept id="ec59caf3-2d13-4daa-876c-1c4ef56bfbc4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Review other <bpt id="ec59caf3-2d13-4daa-876c-1c4ef56bfbc4">&lt;linkText&gt;</bpt>resources for running SQL Server in Azure Virtual Machines<ept id="ec59caf3-2d13-4daa-876c-1c4ef56bfbc4">&lt;/linkText&gt;</ept><bpt id="ec59caf3-2d13-4daa-876c-1c4ef56bfbc4">&lt;title&gt;</bpt><ept id="ec59caf3-2d13-4daa-876c-1c4ef56bfbc4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

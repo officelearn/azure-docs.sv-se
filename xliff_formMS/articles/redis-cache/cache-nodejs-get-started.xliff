@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="10e20276-55dd-4401-9220-a206c185975d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="10e20276-55dd-4401-9220-a206c185975d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2d17b347-410a-4fb7-b15a-b8cadccb8384">
+        <trans-unit id="4bd789a0-62fb-415d-a135-d2ecd65a8951" xml:space="preserve">
+          <source>How to use Azure Redis Cache with Node.js | Microsoft Azure</source>
+          <target state="new">How to use Azure Redis Cache with Node.js | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d1fb94b1-06b0-42e2-95a5-85257744ca1f" xml:space="preserve">
+          <source>Get started with Azure Redis Cache using Node.js and node_redis.</source>
+          <target state="new">Get started with Azure Redis Cache using Node.js and node_redis.</target>
+        </trans-unit>
+        <trans-unit id="5d6de290-e0e0-4583-b7cf-f852cef469e2" xml:space="preserve">
+          <source>Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft.</source>
+          <target state="new">Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="c8e226d4-a883-4923-9755-997fb76a33f9" xml:space="preserve">
+          <source>Your cache is accessible from any application within Microsoft Azure.</source>
+          <target state="new">Your cache is accessible from any application within Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="889c99a2-0a22-475b-a3b4-c97e5e77692d" xml:space="preserve">
+          <source>This topic shows you how to get started with Azure Redis Cache using Node.js.</source>
+          <target state="new">This topic shows you how to get started with Azure Redis Cache using Node.js.</target>
+        </trans-unit>
+        <trans-unit id="c6e84dee-b300-4ea7-b71b-e2576b53c890" xml:space="preserve">
+          <source>For another example of using Azure Redis Cache with Node.js, see <bpt id="10b73f0c-0ac1-44c3-b5a0-db18c6c13b07">&lt;linkText&gt;</bpt>Build a Node.js Chat Application with Socket.IO on an Azure Website<ept id="10b73f0c-0ac1-44c3-b5a0-db18c6c13b07">&lt;/linkText&gt;</ept><bpt id="10b73f0c-0ac1-44c3-b5a0-db18c6c13b07">&lt;title&gt;</bpt><ept id="10b73f0c-0ac1-44c3-b5a0-db18c6c13b07">&lt;/title&gt;</ept>.</source>
+          <target state="new">For another example of using Azure Redis Cache with Node.js, see <bpt id="10b73f0c-0ac1-44c3-b5a0-db18c6c13b07">&lt;linkText&gt;</bpt>Build a Node.js Chat Application with Socket.IO on an Azure Website<ept id="10b73f0c-0ac1-44c3-b5a0-db18c6c13b07">&lt;/linkText&gt;</ept><bpt id="10b73f0c-0ac1-44c3-b5a0-db18c6c13b07">&lt;title&gt;</bpt><ept id="10b73f0c-0ac1-44c3-b5a0-db18c6c13b07">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="802464ad-5c09-4d84-a49a-386cf283b4a0" xml:space="preserve">
+          <source>Install [node<bpt id="f83a98b7-65ff-4bce-bcbe-0f631ae4a2d8">&lt;em&gt;</bpt>redis](https://github.com/mranney/node<ept id="f83a98b7-65ff-4bce-bcbe-0f631ae4a2d8">&lt;/em&gt;</ept>redis):</source>
+          <target state="new">Install [node<bpt id="f83a98b7-65ff-4bce-bcbe-0f631ae4a2d8">&lt;em&gt;</bpt>redis](https://github.com/mranney/node<ept id="f83a98b7-65ff-4bce-bcbe-0f631ae4a2d8">&lt;/em&gt;</ept>redis):</target>
+        </trans-unit>
+        <trans-unit id="375e93bb-eff4-4919-8f47-b7fd5284d427" xml:space="preserve">
+          <source>This tutorial uses [node<bpt id="7f01c0b8-eb25-45ca-ae1d-594c95923fde">&lt;em&gt;</bpt>redis](https://github.com/mranney/node<ept id="7f01c0b8-eb25-45ca-ae1d-594c95923fde">&lt;/em&gt;</ept>redis), but you can use any Node.js client listed at <bpt id="a1ee9ec4-d6a2-427f-a46e-04ee88b20a65">&lt;linkText&gt;</bpt>http://redis.io/clients<ept id="a1ee9ec4-d6a2-427f-a46e-04ee88b20a65">&lt;/linkText&gt;</ept><bpt id="a1ee9ec4-d6a2-427f-a46e-04ee88b20a65">&lt;title&gt;</bpt><ept id="a1ee9ec4-d6a2-427f-a46e-04ee88b20a65">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial uses [node<bpt id="7f01c0b8-eb25-45ca-ae1d-594c95923fde">&lt;em&gt;</bpt>redis](https://github.com/mranney/node<ept id="7f01c0b8-eb25-45ca-ae1d-594c95923fde">&lt;/em&gt;</ept>redis), but you can use any Node.js client listed at <bpt id="a1ee9ec4-d6a2-427f-a46e-04ee88b20a65">&lt;linkText&gt;</bpt>http://redis.io/clients<ept id="a1ee9ec4-d6a2-427f-a46e-04ee88b20a65">&lt;/linkText&gt;</ept><bpt id="a1ee9ec4-d6a2-427f-a46e-04ee88b20a65">&lt;title&gt;</bpt><ept id="a1ee9ec4-d6a2-427f-a46e-04ee88b20a65">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a02937c9-b5c7-458c-ab49-420832a75fd0" xml:space="preserve">
+          <source>In the <bpt id="851dfa05-5093-4cad-960a-2e8641eb0bd3">&lt;linkText&gt;</bpt>Azure preview portal<ept id="851dfa05-5093-4cad-960a-2e8641eb0bd3">&lt;/linkText&gt;</ept><bpt id="851dfa05-5093-4cad-960a-2e8641eb0bd3">&lt;title&gt;</bpt><ept id="851dfa05-5093-4cad-960a-2e8641eb0bd3">&lt;/title&gt;</ept>, click <bpt id="9767cece-1390-48f9-b629-faf7ef2bee2c">&lt;strong&gt;</bpt>New<ept id="9767cece-1390-48f9-b629-faf7ef2bee2c">&lt;/strong&gt;</ept>, <bpt id="e72a6b24-0582-48da-99bf-c07cb48c0b8e">&lt;strong&gt;</bpt>Data + Storage<ept id="e72a6b24-0582-48da-99bf-c07cb48c0b8e">&lt;/strong&gt;</ept>, and select <bpt id="76e0882f-c575-4049-ae35-6e5880189f33">&lt;strong&gt;</bpt>Redis Cache<ept id="76e0882f-c575-4049-ae35-6e5880189f33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="851dfa05-5093-4cad-960a-2e8641eb0bd3">&lt;linkText&gt;</bpt>Azure preview portal<ept id="851dfa05-5093-4cad-960a-2e8641eb0bd3">&lt;/linkText&gt;</ept><bpt id="851dfa05-5093-4cad-960a-2e8641eb0bd3">&lt;title&gt;</bpt><ept id="851dfa05-5093-4cad-960a-2e8641eb0bd3">&lt;/title&gt;</ept>, click <bpt id="9767cece-1390-48f9-b629-faf7ef2bee2c">&lt;strong&gt;</bpt>New<ept id="9767cece-1390-48f9-b629-faf7ef2bee2c">&lt;/strong&gt;</ept>, <bpt id="e72a6b24-0582-48da-99bf-c07cb48c0b8e">&lt;strong&gt;</bpt>Data + Storage<ept id="e72a6b24-0582-48da-99bf-c07cb48c0b8e">&lt;/strong&gt;</ept>, and select <bpt id="76e0882f-c575-4049-ae35-6e5880189f33">&lt;strong&gt;</bpt>Redis Cache<ept id="76e0882f-c575-4049-ae35-6e5880189f33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1857f160-a8fa-4d2d-9bee-8d7fa6048b69" xml:space="preserve">
+          <source>  <bpt id="46fd8101-340e-4f1c-976e-8136ca2c20f2">&lt;linkText&gt;</bpt><ept id="46fd8101-340e-4f1c-976e-8136ca2c20f2">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="46fd8101-340e-4f1c-976e-8136ca2c20f2">&lt;linkText&gt;</bpt><ept id="46fd8101-340e-4f1c-976e-8136ca2c20f2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff0b7c97-a57f-40c4-895f-a34d57fa6fd3" xml:space="preserve">
+          <source>Enter a DNS hostname. It will have the form <bpt id="b04574e1-7dc3-4fe6-8ade-397ad052ea0f">&lt;code&gt;</bpt>&lt;name&gt;.redis.cache.windows.net<ept id="b04574e1-7dc3-4fe6-8ade-397ad052ea0f">&lt;/code&gt;</ept>. Click <bpt id="8be5815c-b5bb-47d1-9316-41d58dfbf8d6">&lt;strong&gt;</bpt>Create<ept id="8be5815c-b5bb-47d1-9316-41d58dfbf8d6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a DNS hostname. It will have the form <bpt id="b04574e1-7dc3-4fe6-8ade-397ad052ea0f">&lt;code&gt;</bpt>&lt;name&gt;.redis.cache.windows.net<ept id="b04574e1-7dc3-4fe6-8ade-397ad052ea0f">&lt;/code&gt;</ept>. Click <bpt id="8be5815c-b5bb-47d1-9316-41d58dfbf8d6">&lt;strong&gt;</bpt>Create<ept id="8be5815c-b5bb-47d1-9316-41d58dfbf8d6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0cb92da2-e01f-4bc5-bfba-fb46970db1d7" xml:space="preserve">
+          <source>  <bpt id="82496ed5-65e9-4a4b-9ac4-f593e2fb6884">&lt;linkText&gt;</bpt><ept id="82496ed5-65e9-4a4b-9ac4-f593e2fb6884">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="82496ed5-65e9-4a4b-9ac4-f593e2fb6884">&lt;linkText&gt;</bpt><ept id="82496ed5-65e9-4a4b-9ac4-f593e2fb6884">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="632dc49b-5bc3-4074-9a16-d7ca3c437bf0" xml:space="preserve">
+          <source>Once you create the cache, click on it in the preview portal to view the cache settings.</source>
+          <target state="new">Once you create the cache, click on it in the preview portal to view the cache settings.</target>
+        </trans-unit>
+        <trans-unit id="c4e72479-ec70-486c-b09b-f14d7f39653f" xml:space="preserve">
+          <source>Click the link under <bpt id="619a2df6-1b17-4a00-87f8-5d40f674f8e7">&lt;strong&gt;</bpt>Keys<ept id="619a2df6-1b17-4a00-87f8-5d40f674f8e7">&lt;/strong&gt;</ept> and copy the primary key.</source>
+          <target state="new">Click the link under <bpt id="619a2df6-1b17-4a00-87f8-5d40f674f8e7">&lt;strong&gt;</bpt>Keys<ept id="619a2df6-1b17-4a00-87f8-5d40f674f8e7">&lt;/strong&gt;</ept> and copy the primary key.</target>
+        </trans-unit>
+        <trans-unit id="923957a6-76c6-4861-991d-d3cecfb594a5" xml:space="preserve">
+          <source>You need this to authenticate requests.</source>
+          <target state="new">You need this to authenticate requests.</target>
+        </trans-unit>
+        <trans-unit id="f6fadc15-af16-435d-9301-032e34c7a327" xml:space="preserve">
+          <source>  <bpt id="08000ae6-b8b3-490e-8093-8507442b8cbf">&lt;linkText&gt;</bpt><ept id="08000ae6-b8b3-490e-8093-8507442b8cbf">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="08000ae6-b8b3-490e-8093-8507442b8cbf">&lt;linkText&gt;</bpt><ept id="08000ae6-b8b3-490e-8093-8507442b8cbf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71b3b61a-e147-4549-bdd2-a77425d2070d" xml:space="preserve">
+          <source>Click the link under <bpt id="01be3755-735d-41eb-b45e-b88bb5efb3c0">&lt;strong&gt;</bpt>Ports<ept id="01be3755-735d-41eb-b45e-b88bb5efb3c0">&lt;/strong&gt;</ept>, and click <bpt id="8ad423e8-8a9b-42af-b03e-26ca6928944d">&lt;strong&gt;</bpt>No<ept id="8ad423e8-8a9b-42af-b03e-26ca6928944d">&lt;/strong&gt;</ept> for "Allow access only via SSL".</source>
+          <target state="new">Click the link under <bpt id="01be3755-735d-41eb-b45e-b88bb5efb3c0">&lt;strong&gt;</bpt>Ports<ept id="01be3755-735d-41eb-b45e-b88bb5efb3c0">&lt;/strong&gt;</ept>, and click <bpt id="8ad423e8-8a9b-42af-b03e-26ca6928944d">&lt;strong&gt;</bpt>No<ept id="8ad423e8-8a9b-42af-b03e-26ca6928944d">&lt;/strong&gt;</ept> for "Allow access only via SSL".</target>
+        </trans-unit>
+        <trans-unit id="7867c0f9-f78b-4689-b3c1-9d3a5a7f8c93" xml:space="preserve">
+          <source>This enables the non-SSL port for the cache.</source>
+          <target state="new">This enables the non-SSL port for the cache.</target>
+        </trans-unit>
+        <trans-unit id="aca0b266-7d50-441d-b918-416f58a0ed34" xml:space="preserve">
+          <source>The node_redis client currently does not support SSL.</source>
+          <target state="new">The node_redis client currently does not support SSL.</target>
+        </trans-unit>
+        <trans-unit id="17fcb05e-a45a-4825-b29d-57849af68222" xml:space="preserve">
+          <source>  <bpt id="fcdb6d98-9edf-4cfc-8dec-4fd0c8172f9a">&lt;linkText&gt;</bpt><ept id="fcdb6d98-9edf-4cfc-8dec-4fd0c8172f9a">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="fcdb6d98-9edf-4cfc-8dec-4fd0c8172f9a">&lt;linkText&gt;</bpt><ept id="fcdb6d98-9edf-4cfc-8dec-4fd0c8172f9a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f4c361e-2589-4a3e-a05f-81c43e50bc03" xml:space="preserve">
+          <source>Output:</source>
+          <target state="new">Output:</target>
+        </trans-unit>
+        <trans-unit id="740fd197-379b-4ad2-97d6-312828392164" xml:space="preserve">
+          <source><bpt id="0d2686c1-a849-4a14-8c25-7f301e823f7a">&lt;linkText&gt;</bpt>Enable cache diagnostics<ept id="0d2686c1-a849-4a14-8c25-7f301e823f7a">&lt;/linkText&gt;</ept><bpt id="0d2686c1-a849-4a14-8c25-7f301e823f7a">&lt;title&gt;</bpt><ept id="0d2686c1-a849-4a14-8c25-7f301e823f7a">&lt;/title&gt;</ept> so you can <bpt id="560a1fd5-6c9e-423c-ab2d-3c87f7b9808d">&lt;linkText&gt;</bpt>monitor<ept id="560a1fd5-6c9e-423c-ab2d-3c87f7b9808d">&lt;/linkText&gt;</ept><bpt id="560a1fd5-6c9e-423c-ab2d-3c87f7b9808d">&lt;title&gt;</bpt><ept id="560a1fd5-6c9e-423c-ab2d-3c87f7b9808d">&lt;/title&gt;</ept> the health of your cache.</source>
+          <target state="new"><bpt id="0d2686c1-a849-4a14-8c25-7f301e823f7a">&lt;linkText&gt;</bpt>Enable cache diagnostics<ept id="0d2686c1-a849-4a14-8c25-7f301e823f7a">&lt;/linkText&gt;</ept><bpt id="0d2686c1-a849-4a14-8c25-7f301e823f7a">&lt;title&gt;</bpt><ept id="0d2686c1-a849-4a14-8c25-7f301e823f7a">&lt;/title&gt;</ept> so you can <bpt id="560a1fd5-6c9e-423c-ab2d-3c87f7b9808d">&lt;linkText&gt;</bpt>monitor<ept id="560a1fd5-6c9e-423c-ab2d-3c87f7b9808d">&lt;/linkText&gt;</ept><bpt id="560a1fd5-6c9e-423c-ab2d-3c87f7b9808d">&lt;title&gt;</bpt><ept id="560a1fd5-6c9e-423c-ab2d-3c87f7b9808d">&lt;/title&gt;</ept> the health of your cache.</target>
+        </trans-unit>
+        <trans-unit id="e449aee0-6fa8-43e1-8953-f48053a35950" xml:space="preserve">
+          <source>Read the official <bpt id="5d83630c-cd60-4867-8303-002d937944e1">&lt;linkText&gt;</bpt>Redis documentation<ept id="5d83630c-cd60-4867-8303-002d937944e1">&lt;/linkText&gt;</ept><bpt id="5d83630c-cd60-4867-8303-002d937944e1">&lt;title&gt;</bpt><ept id="5d83630c-cd60-4867-8303-002d937944e1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read the official <bpt id="5d83630c-cd60-4867-8303-002d937944e1">&lt;linkText&gt;</bpt>Redis documentation<ept id="5d83630c-cd60-4867-8303-002d937944e1">&lt;/linkText&gt;</ept><bpt id="5d83630c-cd60-4867-8303-002d937944e1">&lt;title&gt;</bpt><ept id="5d83630c-cd60-4867-8303-002d937944e1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2db43eef-a8f2-4302-9c70-aadfb05b4379" xml:space="preserve">
+          <source>./media/cache-nodejs-get-started/cache01.png</source>
+          <target state="new">./media/cache-nodejs-get-started/cache01.png</target>
+        </trans-unit>
+        <trans-unit id="7d832e58-a7ee-4c9e-ba2d-b421b5e6de25" xml:space="preserve">
+          <source>./media/cache-nodejs-get-started/cache02.png</source>
+          <target state="new">./media/cache-nodejs-get-started/cache02.png</target>
+        </trans-unit>
+        <trans-unit id="bb36c0b3-0caa-4d6c-8b7e-01907c14082d" xml:space="preserve">
+          <source>./media/cache-nodejs-get-started/cache03.png</source>
+          <target state="new">./media/cache-nodejs-get-started/cache03.png</target>
+        </trans-unit>
+        <trans-unit id="af1d1c3d-6ecf-4fd3-a3e7-12963aed6fe1" xml:space="preserve">
+          <source>./media/cache-nodejs-get-started/cache04.png</source>
+          <target state="new">./media/cache-nodejs-get-started/cache04.png</target>
+        </trans-unit>
+        <trans-unit id="3e7b4f35-80f4-4e13-81c5-737d9ca0f7df" xml:space="preserve">
+          <source>../app-service-web/web-sites-nodejs-chat-app-socketio.md</source>
+          <target state="new">../app-service-web/web-sites-nodejs-chat-app-socketio.md</target>
+        </trans-unit>
+      </group>
+      <group id="54fa6b31-69db-4b50-b404-181cf3ae29f7" />
+    </body>
+  </file>
+</xliff>

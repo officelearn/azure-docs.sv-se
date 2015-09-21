@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="45b288f9-734e-43d8-8559-ea3cb2c38586" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="45b288f9-734e-43d8-8559-ea3cb2c38586" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="98bccbb0-3bee-42cf-81f0-3ece8a41a9e5">
+        <trans-unit id="a1ca528e-6646-4ceb-a018-602a7984800a" xml:space="preserve">
+          <source>SQL Database Disaster Recovery</source>
+          <target state="new">SQL Database Disaster Recovery</target>
+        </trans-unit>
+        <trans-unit id="be73c686-e796-4e11-a3e6-b159640cefa8" xml:space="preserve">
+          <source>Learn how  to recover a database from a regional datacenter outage or failure with the Azure SQL Database Geo-replication and Geo-restore capabilities.</source>
+          <target state="new">Learn how  to recover a database from a regional datacenter outage or failure with the Azure SQL Database Geo-replication and Geo-restore capabilities.</target>
+        </trans-unit>
+        <trans-unit id="01798181-baa4-4611-bbd4-4c92bfab92eb" xml:space="preserve">
+          <source>Azure SQL Database's offers a few outage recovery capabilities:</source>
+          <target state="new">Azure SQL Database's offers a few outage recovery capabilities:</target>
+        </trans-unit>
+        <trans-unit id="5f3a04e1-2a77-489e-9ff4-bcb7c00cddb1" xml:space="preserve">
+          <source>Active Geo-Replication <bpt id="69ccba96-af85-4412-a0f7-3aac3b75c900">&lt;linkText&gt;</bpt>(blog)<ept id="69ccba96-af85-4412-a0f7-3aac3b75c900">&lt;/linkText&gt;</ept><bpt id="69ccba96-af85-4412-a0f7-3aac3b75c900">&lt;title&gt;</bpt><ept id="69ccba96-af85-4412-a0f7-3aac3b75c900">&lt;/title&gt;</ept></source>
+          <target state="new">Active Geo-Replication <bpt id="69ccba96-af85-4412-a0f7-3aac3b75c900">&lt;linkText&gt;</bpt>(blog)<ept id="69ccba96-af85-4412-a0f7-3aac3b75c900">&lt;/linkText&gt;</ept><bpt id="69ccba96-af85-4412-a0f7-3aac3b75c900">&lt;title&gt;</bpt><ept id="69ccba96-af85-4412-a0f7-3aac3b75c900">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e1c3652-4e8b-49b1-b9aa-1701225b5473" xml:space="preserve">
+          <source>Standard Geo-Replication <bpt id="ed8ee842-6be6-48a4-8def-a9728ff6cb82">&lt;linkText&gt;</bpt>(blog)<ept id="ed8ee842-6be6-48a4-8def-a9728ff6cb82">&lt;/linkText&gt;</ept><bpt id="ed8ee842-6be6-48a4-8def-a9728ff6cb82">&lt;title&gt;</bpt><ept id="ed8ee842-6be6-48a4-8def-a9728ff6cb82">&lt;/title&gt;</ept></source>
+          <target state="new">Standard Geo-Replication <bpt id="ed8ee842-6be6-48a4-8def-a9728ff6cb82">&lt;linkText&gt;</bpt>(blog)<ept id="ed8ee842-6be6-48a4-8def-a9728ff6cb82">&lt;/linkText&gt;</ept><bpt id="ed8ee842-6be6-48a4-8def-a9728ff6cb82">&lt;title&gt;</bpt><ept id="ed8ee842-6be6-48a4-8def-a9728ff6cb82">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ebd8205-2bff-4fa3-996b-efa3d1f483ec" xml:space="preserve">
+          <source>Geo-restore <bpt id="8bd5cd33-f69e-4604-99bb-13545ce3473d">&lt;linkText&gt;</bpt>(blog)<ept id="8bd5cd33-f69e-4604-99bb-13545ce3473d">&lt;/linkText&gt;</ept><bpt id="8bd5cd33-f69e-4604-99bb-13545ce3473d">&lt;title&gt;</bpt><ept id="8bd5cd33-f69e-4604-99bb-13545ce3473d">&lt;/title&gt;</ept></source>
+          <target state="new">Geo-restore <bpt id="8bd5cd33-f69e-4604-99bb-13545ce3473d">&lt;linkText&gt;</bpt>(blog)<ept id="8bd5cd33-f69e-4604-99bb-13545ce3473d">&lt;/linkText&gt;</ept><bpt id="8bd5cd33-f69e-4604-99bb-13545ce3473d">&lt;title&gt;</bpt><ept id="8bd5cd33-f69e-4604-99bb-13545ce3473d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22eb7837-9404-4dc6-a596-8ca7d663f292" xml:space="preserve">
+          <source>To learn about preparing for disaster and when to recover your database, visit our <bpt id="bd64a832-1be5-44a4-a652-07f103bf16f4">&lt;linkText&gt;</bpt>Design for Business Continuity<ept id="bd64a832-1be5-44a4-a652-07f103bf16f4">&lt;/linkText&gt;</ept><bpt id="bd64a832-1be5-44a4-a652-07f103bf16f4">&lt;title&gt;</bpt><ept id="bd64a832-1be5-44a4-a652-07f103bf16f4">&lt;/title&gt;</ept> page.</source>
+          <target state="new">To learn about preparing for disaster and when to recover your database, visit our <bpt id="bd64a832-1be5-44a4-a652-07f103bf16f4">&lt;linkText&gt;</bpt>Design for Business Continuity<ept id="bd64a832-1be5-44a4-a652-07f103bf16f4">&lt;/linkText&gt;</ept><bpt id="bd64a832-1be5-44a4-a652-07f103bf16f4">&lt;title&gt;</bpt><ept id="bd64a832-1be5-44a4-a652-07f103bf16f4">&lt;/title&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="e668f891-c678-4099-8f15-c1d24d4b8d4d" xml:space="preserve">
+          <source>The recovery operation impacts the application.</source>
+          <target state="new">The recovery operation impacts the application.</target>
+        </trans-unit>
+        <trans-unit id="e5c648ea-acc3-4d9f-b13d-ceb0e2d905f7" xml:space="preserve">
+          <source>It requires changing the SQL connection string and could result in permanent data loss.</source>
+          <target state="new">It requires changing the SQL connection string and could result in permanent data loss.</target>
+        </trans-unit>
+        <trans-unit id="343deba1-6fbe-4f83-85e2-d27178bb503e" xml:space="preserve">
+          <source>Therefore it should be done only when the outage is likely to last longer than your application's RTO.</source>
+          <target state="new">Therefore it should be done only when the outage is likely to last longer than your application's RTO.</target>
+        </trans-unit>
+        <trans-unit id="35083ea5-4402-41dc-b0c5-249f8baa60dc" xml:space="preserve">
+          <source>When the application is deployed to production you should perform regular monitoring of the application health and use the following data points to assert that the recovery is warranted:</source>
+          <target state="new">When the application is deployed to production you should perform regular monitoring of the application health and use the following data points to assert that the recovery is warranted:</target>
+        </trans-unit>
+        <trans-unit id="7d9dea87-426c-467e-b7fd-d63472f1cd73" xml:space="preserve">
+          <source>Permanent connectivity failure from the application tier to the database.</source>
+          <target state="new">Permanent connectivity failure from the application tier to the database.</target>
+        </trans-unit>
+        <trans-unit id="9266f8f7-aa02-40c2-b5c8-c897f8cd6a9c" xml:space="preserve">
+          <source>Your Azure Portal shows an alert about an incident in the region with broad impact.</source>
+          <target state="new">Your Azure Portal shows an alert about an incident in the region with broad impact.</target>
+        </trans-unit>
+        <trans-unit id="ed9953d9-cf0b-499e-b0da-59fdf4abaf0c" xml:space="preserve">
+          <source>You must configure <bpt id="8178d443-846f-49ee-a665-f897218bb651">&lt;linkText&gt;</bpt>Standard Geo-Replication<ept id="8178d443-846f-49ee-a665-f897218bb651">&lt;/linkText&gt;</ept><bpt id="8178d443-846f-49ee-a665-f897218bb651">&lt;title&gt;</bpt><ept id="8178d443-846f-49ee-a665-f897218bb651">&lt;/title&gt;</ept> or <bpt id="c13df89f-b7ae-42f5-98b4-06fb9214c91d">&lt;linkText&gt;</bpt>Active Geo-Replication<ept id="c13df89f-b7ae-42f5-98b4-06fb9214c91d">&lt;/linkText&gt;</ept><bpt id="c13df89f-b7ae-42f5-98b4-06fb9214c91d">&lt;title&gt;</bpt><ept id="c13df89f-b7ae-42f5-98b4-06fb9214c91d">&lt;/title&gt;</ept> to have a secondary database to use for failover.</source>
+          <target state="new">You must configure <bpt id="8178d443-846f-49ee-a665-f897218bb651">&lt;linkText&gt;</bpt>Standard Geo-Replication<ept id="8178d443-846f-49ee-a665-f897218bb651">&lt;/linkText&gt;</ept><bpt id="8178d443-846f-49ee-a665-f897218bb651">&lt;title&gt;</bpt><ept id="8178d443-846f-49ee-a665-f897218bb651">&lt;/title&gt;</ept> or <bpt id="c13df89f-b7ae-42f5-98b4-06fb9214c91d">&lt;linkText&gt;</bpt>Active Geo-Replication<ept id="c13df89f-b7ae-42f5-98b4-06fb9214c91d">&lt;/linkText&gt;</ept><bpt id="c13df89f-b7ae-42f5-98b4-06fb9214c91d">&lt;title&gt;</bpt><ept id="c13df89f-b7ae-42f5-98b4-06fb9214c91d">&lt;/title&gt;</ept> to have a secondary database to use for failover.</target>
+        </trans-unit>
+        <trans-unit id="37ce4b85-bbf9-4d93-a7e7-f35173e7dd92" xml:space="preserve">
+          <source>Geo-Replication is only available for Standard and Premium databases.</source>
+          <target state="new">Geo-Replication is only available for Standard and Premium databases.</target>
+        </trans-unit>
+        <trans-unit id="c495570b-0928-4b5a-8ec8-0e2cb463ca9b" xml:space="preserve">
+          <source>In the event of an outage on the primary database, you can failover to a secondary database to restore availability.</source>
+          <target state="new">In the event of an outage on the primary database, you can failover to a secondary database to restore availability.</target>
+        </trans-unit>
+        <trans-unit id="73655379-5059-44dc-b5fd-f61a3535d66e" xml:space="preserve">
+          <source>To do this you will need to force terminate the continuous copy relationship.</source>
+          <target state="new">To do this you will need to force terminate the continuous copy relationship.</target>
+        </trans-unit>
+        <trans-unit id="1d62907e-1843-4b06-8a1b-ae3c68af7c87" xml:space="preserve">
+          <source>For a full description of terminating continuous copy relationships go <bpt id="c7572732-fb26-4c2b-8b51-f69b07ac75b8">&lt;linkText&gt;</bpt>here<ept id="c7572732-fb26-4c2b-8b51-f69b07ac75b8">&lt;/linkText&gt;</ept><bpt id="c7572732-fb26-4c2b-8b51-f69b07ac75b8">&lt;title&gt;</bpt><ept id="c7572732-fb26-4c2b-8b51-f69b07ac75b8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a full description of terminating continuous copy relationships go <bpt id="c7572732-fb26-4c2b-8b51-f69b07ac75b8">&lt;linkText&gt;</bpt>here<ept id="c7572732-fb26-4c2b-8b51-f69b07ac75b8">&lt;/linkText&gt;</ept><bpt id="c7572732-fb26-4c2b-8b51-f69b07ac75b8">&lt;title&gt;</bpt><ept id="c7572732-fb26-4c2b-8b51-f69b07ac75b8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4618bd8-9e96-42ee-a3a5-c1120568a018" xml:space="preserve">
+          <source>Log in to the <bpt id="932e03db-f69d-4e12-9438-98e64c4cd34c">&lt;linkText&gt;</bpt>Azure Portal<ept id="932e03db-f69d-4e12-9438-98e64c4cd34c">&lt;/linkText&gt;</ept><bpt id="932e03db-f69d-4e12-9438-98e64c4cd34c">&lt;title&gt;</bpt><ept id="932e03db-f69d-4e12-9438-98e64c4cd34c">&lt;/title&gt;</ept></source>
+          <target state="new">Log in to the <bpt id="932e03db-f69d-4e12-9438-98e64c4cd34c">&lt;linkText&gt;</bpt>Azure Portal<ept id="932e03db-f69d-4e12-9438-98e64c4cd34c">&lt;/linkText&gt;</ept><bpt id="932e03db-f69d-4e12-9438-98e64c4cd34c">&lt;title&gt;</bpt><ept id="932e03db-f69d-4e12-9438-98e64c4cd34c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7437730-42ff-498d-a731-757c15696bab" xml:space="preserve">
+          <source>On the left side of the screen select <bpt id="f6a35242-2974-4945-bd64-0b13df8d1201">&lt;strong&gt;</bpt>BROWSE<ept id="f6a35242-2974-4945-bd64-0b13df8d1201">&lt;/strong&gt;</ept> and then select <bpt id="96c914a5-7888-40ec-b90b-219d967cb3de">&lt;strong&gt;</bpt>SQL Databases<ept id="96c914a5-7888-40ec-b90b-219d967cb3de">&lt;/strong&gt;</ept></source>
+          <target state="new">On the left side of the screen select <bpt id="f6a35242-2974-4945-bd64-0b13df8d1201">&lt;strong&gt;</bpt>BROWSE<ept id="f6a35242-2974-4945-bd64-0b13df8d1201">&lt;/strong&gt;</ept> and then select <bpt id="96c914a5-7888-40ec-b90b-219d967cb3de">&lt;strong&gt;</bpt>SQL Databases<ept id="96c914a5-7888-40ec-b90b-219d967cb3de">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="981513be-581c-4926-9d79-619a60abd309" xml:space="preserve">
+          <source>Navigate to your database and select it.</source>
+          <target state="new">Navigate to your database and select it.</target>
+        </trans-unit>
+        <trans-unit id="856a7d11-e9bb-48b3-be43-4d14e3e84f63" xml:space="preserve">
+          <source>At the bottom of your database blade select the <bpt id="37cfbf2e-8d3a-4afb-b0ba-3f1981e30296">&lt;strong&gt;</bpt>Geo Replication map<ept id="37cfbf2e-8d3a-4afb-b0ba-3f1981e30296">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of your database blade select the <bpt id="37cfbf2e-8d3a-4afb-b0ba-3f1981e30296">&lt;strong&gt;</bpt>Geo Replication map<ept id="37cfbf2e-8d3a-4afb-b0ba-3f1981e30296">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c254cbc-86a3-4a64-a4b8-236978f58f3f" xml:space="preserve">
+          <source>Under <bpt id="f2e88e6c-0368-44ff-8ba3-3ea86a234163">&lt;strong&gt;</bpt>Secondaries<ept id="f2e88e6c-0368-44ff-8ba3-3ea86a234163">&lt;/strong&gt;</ept> right click on the row with the name of the database you want to recover to and select <bpt id="76eee1ed-cf48-42c7-bc9b-6692c4c076a1">&lt;strong&gt;</bpt>Stop<ept id="76eee1ed-cf48-42c7-bc9b-6692c4c076a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="f2e88e6c-0368-44ff-8ba3-3ea86a234163">&lt;strong&gt;</bpt>Secondaries<ept id="f2e88e6c-0368-44ff-8ba3-3ea86a234163">&lt;/strong&gt;</ept> right click on the row with the name of the database you want to recover to and select <bpt id="76eee1ed-cf48-42c7-bc9b-6692c4c076a1">&lt;strong&gt;</bpt>Stop<ept id="76eee1ed-cf48-42c7-bc9b-6692c4c076a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34c78f25-2229-4f9c-83c0-a9d737ce9d73" xml:space="preserve">
+          <source>After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the <bpt id="fe2bb798-1dbc-458c-a7b4-52bfd2bcf613">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="fe2bb798-1dbc-458c-a7b4-52bfd2bcf613">&lt;/linkText&gt;</ept><bpt id="fe2bb798-1dbc-458c-a7b4-52bfd2bcf613">&lt;title&gt;</bpt><ept id="fe2bb798-1dbc-458c-a7b4-52bfd2bcf613">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the <bpt id="fe2bb798-1dbc-458c-a7b4-52bfd2bcf613">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="fe2bb798-1dbc-458c-a7b4-52bfd2bcf613">&lt;/linkText&gt;</ept><bpt id="fe2bb798-1dbc-458c-a7b4-52bfd2bcf613">&lt;title&gt;</bpt><ept id="fe2bb798-1dbc-458c-a7b4-52bfd2bcf613">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="289decf9-ad47-4018-9b2b-59a9b69df50b" xml:space="preserve">
+          <source>Use PowerShell to programmatically perform database recovery.</source>
+          <target state="new">Use PowerShell to programmatically perform database recovery.</target>
+        </trans-unit>
+        <trans-unit id="b6eb2221-19c3-41c8-91ea-0f0979344cf0" xml:space="preserve">
+          <source>To terminate the relationship from the secondary database, use the <bpt id="9e689437-13eb-4d9c-b17f-794f47017d7f">&lt;linkText&gt;</bpt>Stop-AzureSqlDatabaseCopy<ept id="9e689437-13eb-4d9c-b17f-794f47017d7f">&lt;/linkText&gt;</ept><bpt id="9e689437-13eb-4d9c-b17f-794f47017d7f">&lt;title&gt;</bpt><ept id="9e689437-13eb-4d9c-b17f-794f47017d7f">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">To terminate the relationship from the secondary database, use the <bpt id="9e689437-13eb-4d9c-b17f-794f47017d7f">&lt;linkText&gt;</bpt>Stop-AzureSqlDatabaseCopy<ept id="9e689437-13eb-4d9c-b17f-794f47017d7f">&lt;/linkText&gt;</ept><bpt id="9e689437-13eb-4d9c-b17f-794f47017d7f">&lt;title&gt;</bpt><ept id="9e689437-13eb-4d9c-b17f-794f47017d7f">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="d7c6cfc9-c102-41c0-aab0-5756665dfb61" xml:space="preserve">
+          <source>After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the <bpt id="5ad4c0cd-fcaf-4394-a747-d5758e1c2fa5">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="5ad4c0cd-fcaf-4394-a747-d5758e1c2fa5">&lt;/linkText&gt;</ept><bpt id="5ad4c0cd-fcaf-4394-a747-d5758e1c2fa5">&lt;title&gt;</bpt><ept id="5ad4c0cd-fcaf-4394-a747-d5758e1c2fa5">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the <bpt id="5ad4c0cd-fcaf-4394-a747-d5758e1c2fa5">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="5ad4c0cd-fcaf-4394-a747-d5758e1c2fa5">&lt;/linkText&gt;</ept><bpt id="5ad4c0cd-fcaf-4394-a747-d5758e1c2fa5">&lt;title&gt;</bpt><ept id="5ad4c0cd-fcaf-4394-a747-d5758e1c2fa5">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="98e9b00b-7594-4b79-8aeb-11ab69061a4d" xml:space="preserve">
+          <source>Use REST to programmatically perform database recovery.</source>
+          <target state="new">Use REST to programmatically perform database recovery.</target>
+        </trans-unit>
+        <trans-unit id="af67632a-c9bb-4c93-a40a-1fee0ad9542f" xml:space="preserve">
+          <source>Get the database continuous copy using the <bpt id="7bab8731-6f70-4c5a-87ff-5d60f6c6599e">&lt;linkText&gt;</bpt>Get Database Copy<ept id="7bab8731-6f70-4c5a-87ff-5d60f6c6599e">&lt;/linkText&gt;</ept><bpt id="7bab8731-6f70-4c5a-87ff-5d60f6c6599e">&lt;title&gt;</bpt><ept id="7bab8731-6f70-4c5a-87ff-5d60f6c6599e">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Get the database continuous copy using the <bpt id="7bab8731-6f70-4c5a-87ff-5d60f6c6599e">&lt;linkText&gt;</bpt>Get Database Copy<ept id="7bab8731-6f70-4c5a-87ff-5d60f6c6599e">&lt;/linkText&gt;</ept><bpt id="7bab8731-6f70-4c5a-87ff-5d60f6c6599e">&lt;title&gt;</bpt><ept id="7bab8731-6f70-4c5a-87ff-5d60f6c6599e">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="7da35b03-3c6c-4e0d-b54a-9407aac3624d" xml:space="preserve">
+          <source>Stop the database continuous copy using the <bpt id="8b67d79a-346f-4822-9a97-0aa3da886164">&lt;linkText&gt;</bpt>Stop Database Copy<ept id="8b67d79a-346f-4822-9a97-0aa3da886164">&lt;/linkText&gt;</ept><bpt id="8b67d79a-346f-4822-9a97-0aa3da886164">&lt;title&gt;</bpt><ept id="8b67d79a-346f-4822-9a97-0aa3da886164">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Stop the database continuous copy using the <bpt id="8b67d79a-346f-4822-9a97-0aa3da886164">&lt;linkText&gt;</bpt>Stop Database Copy<ept id="8b67d79a-346f-4822-9a97-0aa3da886164">&lt;/linkText&gt;</ept><bpt id="8b67d79a-346f-4822-9a97-0aa3da886164">&lt;title&gt;</bpt><ept id="8b67d79a-346f-4822-9a97-0aa3da886164">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="5be239df-a00a-439d-8e96-794f03409abe" xml:space="preserve">
+          <source>Use the secondary server name and database name in the Stop Database Copy request URI</source>
+          <target state="new">Use the secondary server name and database name in the Stop Database Copy request URI</target>
+        </trans-unit>
+        <trans-unit id="16c20df4-2997-4e2d-86b1-364663a2fa8f" xml:space="preserve">
+          <source>After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the <bpt id="bdb8f332-fe29-4712-91e4-79b447541980">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="bdb8f332-fe29-4712-91e4-79b447541980">&lt;/linkText&gt;</ept><bpt id="bdb8f332-fe29-4712-91e4-79b447541980">&lt;title&gt;</bpt><ept id="bdb8f332-fe29-4712-91e4-79b447541980">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the <bpt id="bdb8f332-fe29-4712-91e4-79b447541980">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="bdb8f332-fe29-4712-91e4-79b447541980">&lt;/linkText&gt;</ept><bpt id="bdb8f332-fe29-4712-91e4-79b447541980">&lt;title&gt;</bpt><ept id="bdb8f332-fe29-4712-91e4-79b447541980">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="46779e36-58f5-4050-9a71-93ff6e61c0a5" xml:space="preserve">
+          <source>In the event of an outage of a database, you can recover your database from its latest geo redundant backup using Geo-Restore.</source>
+          <target state="new">In the event of an outage of a database, you can recover your database from its latest geo redundant backup using Geo-Restore.</target>
+        </trans-unit>
+        <trans-unit id="02c79ded-e2df-42b5-ba23-bc864eca3415" xml:space="preserve">
+          <source>Recovering a database creates a new database.</source>
+          <target state="new">Recovering a database creates a new database.</target>
+        </trans-unit>
+        <trans-unit id="bbeec4e0-799f-4045-bf8e-8a35c180965a" xml:space="preserve">
+          <source>It is important to make sure the server you are recovering to has enough DTU capacity for the new database.</source>
+          <target state="new">It is important to make sure the server you are recovering to has enough DTU capacity for the new database.</target>
+        </trans-unit>
+        <trans-unit id="bc8833ac-f7b9-40b0-89ba-5864cc31490e" xml:space="preserve">
+          <source>You can request an increase of this quota by <bpt id="b4c3c0ac-f41f-4184-87ef-16fab370669a">&lt;linkText&gt;</bpt>contacting support<ept id="b4c3c0ac-f41f-4184-87ef-16fab370669a">&lt;/linkText&gt;</ept><bpt id="b4c3c0ac-f41f-4184-87ef-16fab370669a">&lt;title&gt;</bpt><ept id="b4c3c0ac-f41f-4184-87ef-16fab370669a">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can request an increase of this quota by <bpt id="b4c3c0ac-f41f-4184-87ef-16fab370669a">&lt;linkText&gt;</bpt>contacting support<ept id="b4c3c0ac-f41f-4184-87ef-16fab370669a">&lt;/linkText&gt;</ept><bpt id="b4c3c0ac-f41f-4184-87ef-16fab370669a">&lt;title&gt;</bpt><ept id="b4c3c0ac-f41f-4184-87ef-16fab370669a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9113acef-5aa0-4c24-89e1-3397cb0c39cd" xml:space="preserve">
+          <source>Log in to the <bpt id="9a1f8b86-335a-488d-91f4-f2889d528c44">&lt;linkText&gt;</bpt>Azure Portal<ept id="9a1f8b86-335a-488d-91f4-f2889d528c44">&lt;/linkText&gt;</ept><bpt id="9a1f8b86-335a-488d-91f4-f2889d528c44">&lt;title&gt;</bpt><ept id="9a1f8b86-335a-488d-91f4-f2889d528c44">&lt;/title&gt;</ept></source>
+          <target state="new">Log in to the <bpt id="9a1f8b86-335a-488d-91f4-f2889d528c44">&lt;linkText&gt;</bpt>Azure Portal<ept id="9a1f8b86-335a-488d-91f4-f2889d528c44">&lt;/linkText&gt;</ept><bpt id="9a1f8b86-335a-488d-91f4-f2889d528c44">&lt;title&gt;</bpt><ept id="9a1f8b86-335a-488d-91f4-f2889d528c44">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8052b369-9ed9-48ff-9471-94453604d85b" xml:space="preserve">
+          <source>On the left side of the screen select <bpt id="185e4dcc-ab8c-4341-a358-4b97f3c3ba6e">&lt;strong&gt;</bpt>NEW<ept id="185e4dcc-ab8c-4341-a358-4b97f3c3ba6e">&lt;/strong&gt;</ept>, then select <bpt id="c570eae0-a9f2-4e8e-9e19-6f397a4741aa">&lt;strong&gt;</bpt>Data and Storage<ept id="c570eae0-a9f2-4e8e-9e19-6f397a4741aa">&lt;/strong&gt;</ept>, and then select <bpt id="9a4b3323-ae3b-4a2f-9a59-e9cdda193b4f">&lt;strong&gt;</bpt>SQL Database<ept id="9a4b3323-ae3b-4a2f-9a59-e9cdda193b4f">&lt;/strong&gt;</ept></source>
+          <target state="new">On the left side of the screen select <bpt id="185e4dcc-ab8c-4341-a358-4b97f3c3ba6e">&lt;strong&gt;</bpt>NEW<ept id="185e4dcc-ab8c-4341-a358-4b97f3c3ba6e">&lt;/strong&gt;</ept>, then select <bpt id="c570eae0-a9f2-4e8e-9e19-6f397a4741aa">&lt;strong&gt;</bpt>Data and Storage<ept id="c570eae0-a9f2-4e8e-9e19-6f397a4741aa">&lt;/strong&gt;</ept>, and then select <bpt id="9a4b3323-ae3b-4a2f-9a59-e9cdda193b4f">&lt;strong&gt;</bpt>SQL Database<ept id="9a4b3323-ae3b-4a2f-9a59-e9cdda193b4f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf83340d-53ea-47b0-92d9-97c799f3c92b" xml:space="preserve">
+          <source>Select <bpt id="63ebdde5-5a0f-4309-b4b0-4fef640d13b6">&lt;strong&gt;</bpt>BACKUP<ept id="63ebdde5-5a0f-4309-b4b0-4fef640d13b6">&lt;/strong&gt;</ept> as the source  and then select the geo redundant backup you want to recover from.</source>
+          <target state="new">Select <bpt id="63ebdde5-5a0f-4309-b4b0-4fef640d13b6">&lt;strong&gt;</bpt>BACKUP<ept id="63ebdde5-5a0f-4309-b4b0-4fef640d13b6">&lt;/strong&gt;</ept> as the source  and then select the geo redundant backup you want to recover from.</target>
+        </trans-unit>
+        <trans-unit id="fdf4e43f-2c18-4f8e-8a5c-7153aa110de0" xml:space="preserve">
+          <source>Specify the rest of the database properties and then click <bpt id="35b82d33-2ed8-46c5-afa3-f8ef2bed89c9">&lt;strong&gt;</bpt>Create<ept id="35b82d33-2ed8-46c5-afa3-f8ef2bed89c9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify the rest of the database properties and then click <bpt id="35b82d33-2ed8-46c5-afa3-f8ef2bed89c9">&lt;strong&gt;</bpt>Create<ept id="35b82d33-2ed8-46c5-afa3-f8ef2bed89c9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d85cc45-7f81-456f-889b-c29c270bb9d9" xml:space="preserve">
+          <source>The database restore process will begin and can be monitored using <bpt id="028c980e-1bd2-4afd-a73c-0aae0e028f82">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="028c980e-1bd2-4afd-a73c-0aae0e028f82">&lt;/strong&gt;</ept> on the left side of the screen.</source>
+          <target state="new">The database restore process will begin and can be monitored using <bpt id="028c980e-1bd2-4afd-a73c-0aae0e028f82">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="028c980e-1bd2-4afd-a73c-0aae0e028f82">&lt;/strong&gt;</ept> on the left side of the screen.</target>
+        </trans-unit>
+        <trans-unit id="79d4729b-e0e2-4fc5-a8da-a60f52f4a67d" xml:space="preserve">
+          <source>After the database is recovered you can configure it to be used by following the <bpt id="f642113e-2001-4c68-bbcb-9c353969de78">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="f642113e-2001-4c68-bbcb-9c353969de78">&lt;/linkText&gt;</ept><bpt id="f642113e-2001-4c68-bbcb-9c353969de78">&lt;title&gt;</bpt><ept id="f642113e-2001-4c68-bbcb-9c353969de78">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the database is recovered you can configure it to be used by following the <bpt id="f642113e-2001-4c68-bbcb-9c353969de78">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="f642113e-2001-4c68-bbcb-9c353969de78">&lt;/linkText&gt;</ept><bpt id="f642113e-2001-4c68-bbcb-9c353969de78">&lt;title&gt;</bpt><ept id="f642113e-2001-4c68-bbcb-9c353969de78">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="2b883e63-149f-4b06-810b-cafe1f9c15ed" xml:space="preserve">
+          <source>Use PowerShell to programmatically perform database recovery.</source>
+          <target state="new">Use PowerShell to programmatically perform database recovery.</target>
+        </trans-unit>
+        <trans-unit id="9ce08bd6-ea9c-4529-a4cd-72bfae95f4e2" xml:space="preserve">
+          <source>To start a Geo-Restore request, use the <bpt id="9e597427-5ece-440f-a9e2-98588bb3ffeb">&lt;linkText&gt;</bpt>start-AzureSqlDatabaseRecovery<ept id="9e597427-5ece-440f-a9e2-98588bb3ffeb">&lt;/linkText&gt;</ept><bpt id="9e597427-5ece-440f-a9e2-98588bb3ffeb">&lt;title&gt;</bpt><ept id="9e597427-5ece-440f-a9e2-98588bb3ffeb">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">To start a Geo-Restore request, use the <bpt id="9e597427-5ece-440f-a9e2-98588bb3ffeb">&lt;linkText&gt;</bpt>start-AzureSqlDatabaseRecovery<ept id="9e597427-5ece-440f-a9e2-98588bb3ffeb">&lt;/linkText&gt;</ept><bpt id="9e597427-5ece-440f-a9e2-98588bb3ffeb">&lt;title&gt;</bpt><ept id="9e597427-5ece-440f-a9e2-98588bb3ffeb">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="50a7f147-efb7-446e-a022-cc629d38fe13" xml:space="preserve">
+          <source>For a detailed walk through, please see our <bpt id="99054e20-386d-4845-a54d-43f5a4e9160a">&lt;linkText&gt;</bpt>how-to video<ept id="99054e20-386d-4845-a54d-43f5a4e9160a">&lt;/linkText&gt;</ept><bpt id="99054e20-386d-4845-a54d-43f5a4e9160a">&lt;title&gt;</bpt><ept id="99054e20-386d-4845-a54d-43f5a4e9160a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a detailed walk through, please see our <bpt id="99054e20-386d-4845-a54d-43f5a4e9160a">&lt;linkText&gt;</bpt>how-to video<ept id="99054e20-386d-4845-a54d-43f5a4e9160a">&lt;/linkText&gt;</ept><bpt id="99054e20-386d-4845-a54d-43f5a4e9160a">&lt;title&gt;</bpt><ept id="99054e20-386d-4845-a54d-43f5a4e9160a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d08181bb-e007-40e5-9441-9e3bed34b8ed" xml:space="preserve">
+          <source>After the database is recovered you can configure it to be used by following the <bpt id="76d567fb-4782-4c6b-ae14-0dee1594d943">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="76d567fb-4782-4c6b-ae14-0dee1594d943">&lt;/linkText&gt;</ept><bpt id="76d567fb-4782-4c6b-ae14-0dee1594d943">&lt;title&gt;</bpt><ept id="76d567fb-4782-4c6b-ae14-0dee1594d943">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the database is recovered you can configure it to be used by following the <bpt id="76d567fb-4782-4c6b-ae14-0dee1594d943">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="76d567fb-4782-4c6b-ae14-0dee1594d943">&lt;/linkText&gt;</ept><bpt id="76d567fb-4782-4c6b-ae14-0dee1594d943">&lt;title&gt;</bpt><ept id="76d567fb-4782-4c6b-ae14-0dee1594d943">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="6add15b5-bc7c-4265-8457-a46b366cba94" xml:space="preserve">
+          <source>Use REST to programmatically perform database recovery.</source>
+          <target state="new">Use REST to programmatically perform database recovery.</target>
+        </trans-unit>
+        <trans-unit id="8f35b737-00c6-4534-a9e3-f29816170929" xml:space="preserve">
+          <source>Get your list of recoverable databases using the <bpt id="fd4b88dd-63c4-4ed8-8127-303fd1906fd2">&lt;linkText&gt;</bpt>List Recoverable Databases<ept id="fd4b88dd-63c4-4ed8-8127-303fd1906fd2">&lt;/linkText&gt;</ept><bpt id="fd4b88dd-63c4-4ed8-8127-303fd1906fd2">&lt;title&gt;</bpt><ept id="fd4b88dd-63c4-4ed8-8127-303fd1906fd2">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Get your list of recoverable databases using the <bpt id="fd4b88dd-63c4-4ed8-8127-303fd1906fd2">&lt;linkText&gt;</bpt>List Recoverable Databases<ept id="fd4b88dd-63c4-4ed8-8127-303fd1906fd2">&lt;/linkText&gt;</ept><bpt id="fd4b88dd-63c4-4ed8-8127-303fd1906fd2">&lt;title&gt;</bpt><ept id="fd4b88dd-63c4-4ed8-8127-303fd1906fd2">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="7be0bd18-e581-49a1-ab0b-533e4bfafb6d" xml:space="preserve">
+          <source>Get the database you want to recover using the <bpt id="7e85dd9d-7d56-4e1a-ab05-f631a5c9c1dc">&lt;linkText&gt;</bpt>Get Recoverable Database<ept id="7e85dd9d-7d56-4e1a-ab05-f631a5c9c1dc">&lt;/linkText&gt;</ept><bpt id="7e85dd9d-7d56-4e1a-ab05-f631a5c9c1dc">&lt;title&gt;</bpt><ept id="7e85dd9d-7d56-4e1a-ab05-f631a5c9c1dc">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Get the database you want to recover using the <bpt id="7e85dd9d-7d56-4e1a-ab05-f631a5c9c1dc">&lt;linkText&gt;</bpt>Get Recoverable Database<ept id="7e85dd9d-7d56-4e1a-ab05-f631a5c9c1dc">&lt;/linkText&gt;</ept><bpt id="7e85dd9d-7d56-4e1a-ab05-f631a5c9c1dc">&lt;title&gt;</bpt><ept id="7e85dd9d-7d56-4e1a-ab05-f631a5c9c1dc">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="0c148fac-5b2f-4088-9234-bdc830d2f72a" xml:space="preserve">
+          <source>Create the recovery request using the <bpt id="b55520e0-a90d-4a31-a761-1bbc2ad1dd53">&lt;linkText&gt;</bpt>Create Database Recovery Request<ept id="b55520e0-a90d-4a31-a761-1bbc2ad1dd53">&lt;/linkText&gt;</ept><bpt id="b55520e0-a90d-4a31-a761-1bbc2ad1dd53">&lt;title&gt;</bpt><ept id="b55520e0-a90d-4a31-a761-1bbc2ad1dd53">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Create the recovery request using the <bpt id="b55520e0-a90d-4a31-a761-1bbc2ad1dd53">&lt;linkText&gt;</bpt>Create Database Recovery Request<ept id="b55520e0-a90d-4a31-a761-1bbc2ad1dd53">&lt;/linkText&gt;</ept><bpt id="b55520e0-a90d-4a31-a761-1bbc2ad1dd53">&lt;title&gt;</bpt><ept id="b55520e0-a90d-4a31-a761-1bbc2ad1dd53">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="82a19d07-6fd6-4eeb-abe4-929caf909910" xml:space="preserve">
+          <source>Track the status of the recovery using the <bpt id="1c04267a-da41-4ac7-a7f1-19ee82129703">&lt;linkText&gt;</bpt>Database Operation Status<ept id="1c04267a-da41-4ac7-a7f1-19ee82129703">&lt;/linkText&gt;</ept><bpt id="1c04267a-da41-4ac7-a7f1-19ee82129703">&lt;title&gt;</bpt><ept id="1c04267a-da41-4ac7-a7f1-19ee82129703">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Track the status of the recovery using the <bpt id="1c04267a-da41-4ac7-a7f1-19ee82129703">&lt;linkText&gt;</bpt>Database Operation Status<ept id="1c04267a-da41-4ac7-a7f1-19ee82129703">&lt;/linkText&gt;</ept><bpt id="1c04267a-da41-4ac7-a7f1-19ee82129703">&lt;title&gt;</bpt><ept id="1c04267a-da41-4ac7-a7f1-19ee82129703">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="8b5d2d9a-15dc-4c1a-b312-711daff5b1e5" xml:space="preserve">
+          <source>After the database is recovered you can configure it to be used by following the <bpt id="8325cd53-24d4-419c-aa05-ec45a41034e2">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="8325cd53-24d4-419c-aa05-ec45a41034e2">&lt;/linkText&gt;</ept><bpt id="8325cd53-24d4-419c-aa05-ec45a41034e2">&lt;title&gt;</bpt><ept id="8325cd53-24d4-419c-aa05-ec45a41034e2">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the database is recovered you can configure it to be used by following the <bpt id="8325cd53-24d4-419c-aa05-ec45a41034e2">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="8325cd53-24d4-419c-aa05-ec45a41034e2">&lt;/linkText&gt;</ept><bpt id="8325cd53-24d4-419c-aa05-ec45a41034e2">&lt;title&gt;</bpt><ept id="8325cd53-24d4-419c-aa05-ec45a41034e2">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

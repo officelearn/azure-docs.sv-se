@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3d68ba64-c619-4007-8cb5-16afef7a0a08" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3d68ba64-c619-4007-8cb5-16afef7a0a08" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c9081d5c-6a83-4476-8036-2595336fd64c">
+        <trans-unit id="e2e22d2f-de3d-47a3-9550-cde9d11fb619" xml:space="preserve">
+          <source>Application Insights: Proactive anomaly detection</source>
+          <target state="new">Application Insights: Proactive anomaly detection</target>
+        </trans-unit>
+        <trans-unit id="dd6169fe-7d2d-4379-9a01-5542a7be0964" xml:space="preserve">
+          <source>Application Insights performs deep analysis of your app telemetry and warns you of potential problems.</source>
+          <target state="new">Application Insights performs deep analysis of your app telemetry and warns you of potential problems.</target>
+        </trans-unit>
+        <trans-unit id="8e2bea3a-73bc-433e-b188-bd7684c3cb20" xml:space="preserve">
+          <source><bpt id="1a91e526-a18b-4126-959b-6a62d5c897ff">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="1a91e526-a18b-4126-959b-6a62d5c897ff">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="1a91e526-a18b-4126-959b-6a62d5c897ff">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="1a91e526-a18b-4126-959b-6a62d5c897ff">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dbedb0be-da07-4373-9892-7c62a045b4b3" xml:space="preserve">
+          <source>Application Insights performs deep analysis of your app telemetry, and can warn you about potential performance problems.</source>
+          <target state="new">Application Insights performs deep analysis of your app telemetry, and can warn you about potential performance problems.</target>
+        </trans-unit>
+        <trans-unit id="38c13ad9-6203-4f9e-89b0-33899d8295d4" xml:space="preserve">
+          <source>You're probably reading this because you received one of our anomaly alerts by email.</source>
+          <target state="new">You're probably reading this because you received one of our anomaly alerts by email.</target>
+        </trans-unit>
+        <trans-unit id="0040e33a-a72d-440a-ba55-2aab606bb0bc" xml:space="preserve">
+          <source><bpt id="4ff21eed-50e8-4a86-a5af-b86e47d61786">&lt;em&gt;</bpt>Why have I received this alert?<ept id="4ff21eed-50e8-4a86-a5af-b86e47d61786">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="4ff21eed-50e8-4a86-a5af-b86e47d61786">&lt;em&gt;</bpt>Why have I received this alert?<ept id="4ff21eed-50e8-4a86-a5af-b86e47d61786">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5838348e-e653-4370-8d1f-87e9d7a4ad06" xml:space="preserve">
+          <source>Application Insights periodically analyzes your data with pattern recognition rules.</source>
+          <target state="new">Application Insights periodically analyzes your data with pattern recognition rules.</target>
+        </trans-unit>
+        <trans-unit id="915ed21f-6b4b-4e63-8d49-3d30d54240b2" xml:space="preserve">
+          <source>It looks for anomalies that might indicate performance issues in your application.</source>
+          <target state="new">It looks for anomalies that might indicate performance issues in your application.</target>
+        </trans-unit>
+        <trans-unit id="344f3be2-cb55-4c92-9d91-d39fc16f2055" xml:space="preserve">
+          <source><bpt id="b0e9f766-6dc6-4e16-9ff9-361b77c5206a">&lt;em&gt;</bpt>Does the notification mean I definitely have a problem?<ept id="b0e9f766-6dc6-4e16-9ff9-361b77c5206a">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="b0e9f766-6dc6-4e16-9ff9-361b77c5206a">&lt;em&gt;</bpt>Does the notification mean I definitely have a problem?<ept id="b0e9f766-6dc6-4e16-9ff9-361b77c5206a">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d2e3f4c-0921-471c-9306-34fe2bc91b64" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="db21fb49-95d8-4351-b138-7c6cc1f188c6" xml:space="preserve">
+          <source>It's simply a suggestion about something you might want to look at more closely.</source>
+          <target state="new">It's simply a suggestion about something you might want to look at more closely.</target>
+        </trans-unit>
+        <trans-unit id="9dad47c1-54af-4c41-89c5-dae8a4330f04" xml:space="preserve">
+          <source><bpt id="d54a5829-b462-410c-9596-4ec86ba534b2">&lt;em&gt;</bpt>What should I do?<ept id="d54a5829-b462-410c-9596-4ec86ba534b2">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="d54a5829-b462-410c-9596-4ec86ba534b2">&lt;em&gt;</bpt>What should I do?<ept id="d54a5829-b462-410c-9596-4ec86ba534b2">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80701e3a-5913-477d-a528-19dd9898a6ef" xml:space="preserve">
+          <source><bpt id="691c2b39-0233-4b11-971a-7f5e6e2f43ad">&lt;linkText&gt;</bpt>Look at the data presented<ept id="691c2b39-0233-4b11-971a-7f5e6e2f43ad">&lt;/linkText&gt;</ept><bpt id="691c2b39-0233-4b11-971a-7f5e6e2f43ad">&lt;title&gt;</bpt><ept id="691c2b39-0233-4b11-971a-7f5e6e2f43ad">&lt;/title&gt;</ept> and consider whether it might represent a problem.</source>
+          <target state="new"><bpt id="691c2b39-0233-4b11-971a-7f5e6e2f43ad">&lt;linkText&gt;</bpt>Look at the data presented<ept id="691c2b39-0233-4b11-971a-7f5e6e2f43ad">&lt;/linkText&gt;</ept><bpt id="691c2b39-0233-4b11-971a-7f5e6e2f43ad">&lt;title&gt;</bpt><ept id="691c2b39-0233-4b11-971a-7f5e6e2f43ad">&lt;/title&gt;</ept> and consider whether it might represent a problem.</target>
+        </trans-unit>
+        <trans-unit id="75ec11d2-933a-4a88-9c31-7ad21e99fc20" xml:space="preserve">
+          <source>If not, that's fine.</source>
+          <target state="new">If not, that's fine.</target>
+        </trans-unit>
+        <trans-unit id="8ba2f284-c097-4dba-9302-6fc9390afd89" xml:space="preserve">
+          <source><bpt id="5374469d-2b3e-4df3-9a8d-89e31c9ef909">&lt;em&gt;</bpt>So, do you guys look at my data?<ept id="5374469d-2b3e-4df3-9a8d-89e31c9ef909">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="5374469d-2b3e-4df3-9a8d-89e31c9ef909">&lt;em&gt;</bpt>So, do you guys look at my data?<ept id="5374469d-2b3e-4df3-9a8d-89e31c9ef909">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3086fa09-1f02-432e-b502-8ef1a5257b72" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="cff6bd2e-fb50-4f7d-85b6-559f5ce7bd77" xml:space="preserve">
+          <source>The service is entirely automatic.</source>
+          <target state="new">The service is entirely automatic.</target>
+        </trans-unit>
+        <trans-unit id="4d2faa63-b670-4979-a83d-2ad4087e339f" xml:space="preserve">
+          <source>Only you get the notifications.</source>
+          <target state="new">Only you get the notifications.</target>
+        </trans-unit>
+        <trans-unit id="de75134e-30b4-4bc6-bf04-6f0b8db8b07b" xml:space="preserve">
+          <source>Your data is <bpt id="2b782b2e-31fb-4346-a5cb-c2066ce48e02">&lt;linkText&gt;</bpt>private<ept id="2b782b2e-31fb-4346-a5cb-c2066ce48e02">&lt;/linkText&gt;</ept><bpt id="2b782b2e-31fb-4346-a5cb-c2066ce48e02">&lt;title&gt;</bpt><ept id="2b782b2e-31fb-4346-a5cb-c2066ce48e02">&lt;/title&gt;</ept>.</source>
+          <target state="new">Your data is <bpt id="2b782b2e-31fb-4346-a5cb-c2066ce48e02">&lt;linkText&gt;</bpt>private<ept id="2b782b2e-31fb-4346-a5cb-c2066ce48e02">&lt;/linkText&gt;</ept><bpt id="2b782b2e-31fb-4346-a5cb-c2066ce48e02">&lt;title&gt;</bpt><ept id="2b782b2e-31fb-4346-a5cb-c2066ce48e02">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88c40a98-faf6-4cc9-9e63-9ecc1074821c" xml:space="preserve">
+          <source><bpt id="f42a9965-765b-4489-a3d1-3066ceb99fb1">&lt;em&gt;</bpt>What kinds of anomalies are detected?<ept id="f42a9965-765b-4489-a3d1-3066ceb99fb1">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="f42a9965-765b-4489-a3d1-3066ceb99fb1">&lt;em&gt;</bpt>What kinds of anomalies are detected?<ept id="f42a9965-765b-4489-a3d1-3066ceb99fb1">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="511a2ebd-555f-4787-97c7-af6d78af0b6a" xml:space="preserve">
+          <source>Patterns that you would find it time-consuming to check for yourself.</source>
+          <target state="new">Patterns that you would find it time-consuming to check for yourself.</target>
+        </trans-unit>
+        <trans-unit id="18ef2a7c-7cc6-4a5b-9290-c0603f063b9c" xml:space="preserve">
+          <source>For example, poor performance in a specific combination of location, time of day and platform.</source>
+          <target state="new">For example, poor performance in a specific combination of location, time of day and platform.</target>
+        </trans-unit>
+        <trans-unit id="cd6d73ee-fd07-45af-a309-ed8fa043113b" xml:space="preserve">
+          <source><bpt id="0ffcc4d4-ee10-444a-95b9-0d74e09d2594">&lt;em&gt;</bpt>Can I create my own anomaly detection rules?<ept id="0ffcc4d4-ee10-444a-95b9-0d74e09d2594">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="0ffcc4d4-ee10-444a-95b9-0d74e09d2594">&lt;em&gt;</bpt>Can I create my own anomaly detection rules?<ept id="0ffcc4d4-ee10-444a-95b9-0d74e09d2594">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="196f3624-3e92-48d9-8c2a-d57fa1867eb2" xml:space="preserve">
+          <source>Not for this kind of deep analysis.</source>
+          <target state="new">Not for this kind of deep analysis.</target>
+        </trans-unit>
+        <trans-unit id="4d6081bb-2d0a-4b3f-b9dd-f50ab4139575" xml:space="preserve">
+          <source>(But you can <bpt id="f68c20a2-17ff-4ccb-bc49-78fcf2af70cc">&lt;linkText&gt;</bpt>set up alerts<ept id="f68c20a2-17ff-4ccb-bc49-78fcf2af70cc">&lt;/linkText&gt;</ept><bpt id="f68c20a2-17ff-4ccb-bc49-78fcf2af70cc">&lt;title&gt;</bpt><ept id="f68c20a2-17ff-4ccb-bc49-78fcf2af70cc">&lt;/title&gt;</ept> that tell you when a metric crosses a threshold.)</source>
+          <target state="new">(But you can <bpt id="f68c20a2-17ff-4ccb-bc49-78fcf2af70cc">&lt;linkText&gt;</bpt>set up alerts<ept id="f68c20a2-17ff-4ccb-bc49-78fcf2af70cc">&lt;/linkText&gt;</ept><bpt id="f68c20a2-17ff-4ccb-bc49-78fcf2af70cc">&lt;title&gt;</bpt><ept id="f68c20a2-17ff-4ccb-bc49-78fcf2af70cc">&lt;/title&gt;</ept> that tell you when a metric crosses a threshold.)</target>
+        </trans-unit>
+        <trans-unit id="eac685e3-bdbd-46de-b0f5-51bb2b463e4f" xml:space="preserve">
+          <source><bpt id="f11b3688-cd06-4240-9916-a9aa367521e1">&lt;em&gt;</bpt>How often is the analysis performed?<ept id="f11b3688-cd06-4240-9916-a9aa367521e1">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="f11b3688-cd06-4240-9916-a9aa367521e1">&lt;em&gt;</bpt>How often is the analysis performed?<ept id="f11b3688-cd06-4240-9916-a9aa367521e1">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b8cb64b-0898-4668-a0d7-b5adadf994a1" xml:space="preserve">
+          <source>We don't perform analysis on an app resource that doesn't get much telemetry.</source>
+          <target state="new">We don't perform analysis on an app resource that doesn't get much telemetry.</target>
+        </trans-unit>
+        <trans-unit id="ae3355df-15b2-4a2f-ab6c-81fd32a6f641" xml:space="preserve">
+          <source>You're unlikely to get warnings about your debugging sessions.</source>
+          <target state="new">You're unlikely to get warnings about your debugging sessions.</target>
+        </trans-unit>
+        <trans-unit id="0b431c00-1d2e-4dfc-9831-2a6bd78c448a" xml:space="preserve">
+          <source>Open the anomaly report either from the email or from the anomalies list.</source>
+          <target state="new">Open the anomaly report either from the email or from the anomalies list.</target>
+        </trans-unit>
+        <trans-unit id="1b72ac56-7de9-4101-bc84-05c50877043d" xml:space="preserve">
+          <source><bpt id="068455d1-81c3-468d-93bf-7fc463895fd1">&lt;linkText&gt;</bpt><ept id="068455d1-81c3-468d-93bf-7fc463895fd1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="068455d1-81c3-468d-93bf-7fc463895fd1">&lt;linkText&gt;</bpt><ept id="068455d1-81c3-468d-93bf-7fc463895fd1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3359e1df-115f-4764-b07e-72f7d3c01d49" xml:space="preserve">
+          <source>Notice:</source>
+          <target state="new">Notice:</target>
+        </trans-unit>
+        <trans-unit id="8a7f634b-d72c-41cf-b25b-c30af11951c0" xml:space="preserve">
+          <source>The description</source>
+          <target state="new">The description</target>
+        </trans-unit>
+        <trans-unit id="2ad5af7f-1510-4c58-a5b4-eb7295f4c7d1" xml:space="preserve">
+          <source>The impact statement, which tells you how many or how often users are affected.</source>
+          <target state="new">The impact statement, which tells you how many or how often users are affected.</target>
+        </trans-unit>
+        <trans-unit id="26db5bd5-2cc8-4435-acac-3ec129b7623d" xml:space="preserve">
+          <source>Click a chart to open a blade that has more detail.</source>
+          <target state="new">Click a chart to open a blade that has more detail.</target>
+        </trans-unit>
+        <trans-unit id="497a9b60-bdd4-4bc5-aa56-be7cffd0fb17" xml:space="preserve">
+          <source>Modify the time range and filters to explore the telemetry.</source>
+          <target state="new">Modify the time range and filters to explore the telemetry.</target>
+        </trans-unit>
+        <trans-unit id="e2acbf72-3189-413d-a8a5-f51a02080e8d" xml:space="preserve">
+          <source><bpt id="258ea0d9-ef6e-4dfc-b1ce-a391b270ff1f">&lt;em&gt;</bpt>Do I have to subscribe to this service in order to receive notifications?<ept id="258ea0d9-ef6e-4dfc-b1ce-a391b270ff1f">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="258ea0d9-ef6e-4dfc-b1ce-a391b270ff1f">&lt;em&gt;</bpt>Do I have to subscribe to this service in order to receive notifications?<ept id="258ea0d9-ef6e-4dfc-b1ce-a391b270ff1f">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6856eeb9-6bb8-440a-8eb6-9274fc2c94d0" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="90d1df14-972e-4926-bfd2-e7146d8f2c5e" xml:space="preserve">
+          <source>Our bot periodically surveys the data from all Application Insights users, and sends notifications if it detects problems.</source>
+          <target state="new">Our bot periodically surveys the data from all Application Insights users, and sends notifications if it detects problems.</target>
+        </trans-unit>
+        <trans-unit id="4abe3465-cf66-42f6-8dd0-f4bdf4397602" xml:space="preserve">
+          <source><bpt id="a446e6ec-83de-4845-8e71-7ce0f66898b1">&lt;em&gt;</bpt>Can I unsubscribe or get the notifications sent to my colleagues instead?<ept id="a446e6ec-83de-4845-8e71-7ce0f66898b1">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="a446e6ec-83de-4845-8e71-7ce0f66898b1">&lt;em&gt;</bpt>Can I unsubscribe or get the notifications sent to my colleagues instead?<ept id="a446e6ec-83de-4845-8e71-7ce0f66898b1">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e3cacf9-6815-42b8-8521-e26ea345a068" xml:space="preserve">
+          <source>Click the link in the alert or email.</source>
+          <target state="new">Click the link in the alert or email.</target>
+        </trans-unit>
+        <trans-unit id="cebfd136-7942-4341-b2cf-37f3d7060a7a" xml:space="preserve">
+          <source>Open anomaly settings.</source>
+          <target state="new">Open anomaly settings.</target>
+        </trans-unit>
+        <trans-unit id="cc75534e-9baf-4b70-9f17-f485b21cc47d" xml:space="preserve">
+          <source><bpt id="d7e8ab0f-ed86-4369-80db-538a0713a151">&lt;linkText&gt;</bpt><ept id="d7e8ab0f-ed86-4369-80db-538a0713a151">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d7e8ab0f-ed86-4369-80db-538a0713a151">&lt;linkText&gt;</bpt><ept id="d7e8ab0f-ed86-4369-80db-538a0713a151">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1524b2a0-f65d-4668-b97b-59bf66581759" xml:space="preserve">
+          <source>Currently they're sent to those who have <bpt id="d979b571-80f4-4fd1-a4f7-c45ce1b45fa4">&lt;linkText&gt;</bpt>write access to the Application Insights resource<ept id="d979b571-80f4-4fd1-a4f7-c45ce1b45fa4">&lt;/linkText&gt;</ept><bpt id="d979b571-80f4-4fd1-a4f7-c45ce1b45fa4">&lt;title&gt;</bpt><ept id="d979b571-80f4-4fd1-a4f7-c45ce1b45fa4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Currently they're sent to those who have <bpt id="d979b571-80f4-4fd1-a4f7-c45ce1b45fa4">&lt;linkText&gt;</bpt>write access to the Application Insights resource<ept id="d979b571-80f4-4fd1-a4f7-c45ce1b45fa4">&lt;/linkText&gt;</ept><bpt id="d979b571-80f4-4fd1-a4f7-c45ce1b45fa4">&lt;title&gt;</bpt><ept id="d979b571-80f4-4fd1-a4f7-c45ce1b45fa4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a1e0f74-bed3-42a1-8577-38cb428ed860" xml:space="preserve">
+          <source><bpt id="603dd381-88c1-43de-a3cb-c289a26e78c5">&lt;em&gt;</bpt>I don't want to be flooded with these messages.<ept id="603dd381-88c1-43de-a3cb-c289a26e78c5">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="603dd381-88c1-43de-a3cb-c289a26e78c5">&lt;em&gt;</bpt>I don't want to be flooded with these messages.<ept id="603dd381-88c1-43de-a3cb-c289a26e78c5">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e32f872-83f5-40d7-a685-04b8b5e431d8" xml:space="preserve">
+          <source>They are limited to three per day.</source>
+          <target state="new">They are limited to three per day.</target>
+        </trans-unit>
+        <trans-unit id="0f195096-3da6-4973-8f7f-d037251a7638" xml:space="preserve">
+          <source>You won't get repeats of any message.</source>
+          <target state="new">You won't get repeats of any message.</target>
+        </trans-unit>
+        <trans-unit id="9f8fe552-014f-40bb-8919-bc716f5c8af9" xml:space="preserve">
+          <source><bpt id="e89a18d6-8749-44df-b654-70e618a109da">&lt;em&gt;</bpt>If I don't do anything, will I get a reminder?<ept id="e89a18d6-8749-44df-b654-70e618a109da">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="e89a18d6-8749-44df-b654-70e618a109da">&lt;em&gt;</bpt>If I don't do anything, will I get a reminder?<ept id="e89a18d6-8749-44df-b654-70e618a109da">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d3475a9-a15e-4db2-9775-a42b120df3d1" xml:space="preserve">
+          <source>No, you get a message about each issue only once.</source>
+          <target state="new">No, you get a message about each issue only once.</target>
+        </trans-unit>
+        <trans-unit id="151856f1-bec0-4185-a22f-187cd4400c54" xml:space="preserve">
+          <source>*I lost the email.</source>
+          <target state="new">*I lost the email.</target>
+        </trans-unit>
+        <trans-unit id="3b51df6c-a72f-47aa-81b4-ec58ce647911" xml:space="preserve">
+          <source>Where can I find the notifications in the portal?*</source>
+          <target state="new">Where can I find the notifications in the portal?*</target>
+        </trans-unit>
+        <trans-unit id="18ac9a4b-a6fb-43ab-9b66-ea930c603d8f" xml:space="preserve">
+          <source>In the Application Insights overview of your app, click the <bpt id="5d009773-8e45-4508-968d-be4252ffaafc">&lt;strong&gt;</bpt>Anomalies<ept id="5d009773-8e45-4508-968d-be4252ffaafc">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new">In the Application Insights overview of your app, click the <bpt id="5d009773-8e45-4508-968d-be4252ffaafc">&lt;strong&gt;</bpt>Anomalies<ept id="5d009773-8e45-4508-968d-be4252ffaafc">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

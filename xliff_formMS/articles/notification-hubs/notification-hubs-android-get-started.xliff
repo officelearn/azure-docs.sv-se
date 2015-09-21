@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="795a9633-00ba-4011-bf91-53557b731913" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="795a9633-00ba-4011-bf91-53557b731913" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3468d5e2-7abd-4ca8-b420-dfaee98823b9">
+        <trans-unit id="1d7339e7-4770-47eb-983b-6701d06dac03" xml:space="preserve">
+          <source>Get started with Azure Notification Hubs | Microsoft Azure</source>
+          <target state="new">Get started with Azure Notification Hubs | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7138eca8-5a19-453c-9c17-82c5c38e6e0d" xml:space="preserve">
+          <source>In this tutorial, you learn how to use Azure Notification Hubs to push notifications to Android devices.</source>
+          <target state="new">In this tutorial, you learn how to use Azure Notification Hubs to push notifications to Android devices.</target>
+        </trans-unit>
+        <trans-unit id="e707a9b4-ef64-42a0-a678-3425ad6b7cdf" xml:space="preserve">
+          <source><bpt id="1b941090-c8e1-43dc-b3ef-2c365aedfb55">&lt;token href="../../includes/notification-hubs-selector-get-started.md"&gt;</bpt><ept id="1b941090-c8e1-43dc-b3ef-2c365aedfb55">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1b941090-c8e1-43dc-b3ef-2c365aedfb55">&lt;token href="../../includes/notification-hubs-selector-get-started.md"&gt;</bpt><ept id="1b941090-c8e1-43dc-b3ef-2c365aedfb55">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0c050eb-68ee-4c4d-b1b8-b055bd8d6fe5" xml:space="preserve">
+          <source>This tutorial shows you how to use Azure Notification Hubs to send push notifications to an Android application.</source>
+          <target state="new">This tutorial shows you how to use Azure Notification Hubs to send push notifications to an Android application.</target>
+        </trans-unit>
+        <trans-unit id="fb498d4a-cb3a-47bb-a3c3-b6a681b30c1b" xml:space="preserve">
+          <source>You'll create a blank Android app that receives push notifications by using Google Cloud Messaging (GCM).</source>
+          <target state="new">You'll create a blank Android app that receives push notifications by using Google Cloud Messaging (GCM).</target>
+        </trans-unit>
+        <trans-unit id="82e11de9-778a-443d-97b2-72adc5245f82" xml:space="preserve">
+          <source>When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.</source>
+          <target state="new">When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.</target>
+        </trans-unit>
+        <trans-unit id="93d3dc47-75b8-4d24-84b3-de6719651d02" xml:space="preserve">
+          <source>This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.</source>
+          <target state="new">This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="68aee0e7-87b6-4ad5-98e1-6f811e68c528" xml:space="preserve">
+          <source>Be sure to follow along with the next tutorial to see how to use Notification Hubs to address specific users and groups of devices.</source>
+          <target state="new">Be sure to follow along with the next tutorial to see how to use Notification Hubs to address specific users and groups of devices.</target>
+        </trans-unit>
+        <trans-unit id="c9878ee3-7b2e-45b4-bc8a-a18eafb7ec19" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="cfacdc5a-80fa-4fd0-8043-806030056806" xml:space="preserve">
+          <source>Android Studio, which you can download from &lt;a href="http://go.microsoft.com/fwlink/?LinkId=389797"&gt;the Android site&lt;/a&gt;.</source>
+          <target state="new">Android Studio, which you can download from &lt;a href="http://go.microsoft.com/fwlink/?LinkId=389797"&gt;the Android site&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="e0bb0dc7-e4fb-4d1a-a58b-ecf73e180891" xml:space="preserve">
+          <source>An active Azure account.</source>
+          <target state="new">An active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="d314150d-7971-4a17-baae-b27a8f5690c2" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="596c6c23-7564-497b-baf8-573ccb1fddf2" xml:space="preserve">
+          <source>For details, see <bpt id="fe887191-dcd9-4232-a4f1-73bd6497b3a4">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="fe887191-dcd9-4232-a4f1-73bd6497b3a4">&lt;/linkText&gt;</ept><bpt id="fe887191-dcd9-4232-a4f1-73bd6497b3a4">&lt;title&gt;</bpt><ept id="fe887191-dcd9-4232-a4f1-73bd6497b3a4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="fe887191-dcd9-4232-a4f1-73bd6497b3a4">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="fe887191-dcd9-4232-a4f1-73bd6497b3a4">&lt;/linkText&gt;</ept><bpt id="fe887191-dcd9-4232-a4f1-73bd6497b3a4">&lt;title&gt;</bpt><ept id="fe887191-dcd9-4232-a4f1-73bd6497b3a4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e5526a3-c151-4e8e-9139-fa1c6fede3cc" xml:space="preserve">
+          <source>Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Android apps.</source>
+          <target state="new">Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Android apps.</target>
+        </trans-unit>
+        <trans-unit id="8aee4c46-427e-4353-b7c6-67a542a699c1" xml:space="preserve">
+          <source><bpt id="019d9e74-21fe-4ff1-8212-4c21394a3782">&lt;token href="../../includes/mobile-services-enable-google-cloud-messaging.md"&gt;</bpt><ept id="019d9e74-21fe-4ff1-8212-4c21394a3782">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="019d9e74-21fe-4ff1-8212-4c21394a3782">&lt;token href="../../includes/mobile-services-enable-google-cloud-messaging.md"&gt;</bpt><ept id="019d9e74-21fe-4ff1-8212-4c21394a3782">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f930f1b6-d796-4470-9f2d-ac48d589f77d" xml:space="preserve">
+          <source><bpt id="9c1aa3e0-fa5f-406a-9f61-22e8e5cdb158">&lt;token href="../../includes/notification-hubs-android-configure-push.md"&gt;</bpt><ept id="9c1aa3e0-fa5f-406a-9f61-22e8e5cdb158">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9c1aa3e0-fa5f-406a-9f61-22e8e5cdb158">&lt;token href="../../includes/notification-hubs-android-configure-push.md"&gt;</bpt><ept id="9c1aa3e0-fa5f-406a-9f61-22e8e5cdb158">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1df246ed-0e58-46e4-a6a9-7d8fc2fffde7" xml:space="preserve">
+          <source>In Android Studio, start a new Android Studio project.</source>
+          <target state="new">In Android Studio, start a new Android Studio project.</target>
+        </trans-unit>
+        <trans-unit id="f75d2a12-43ff-4d12-9323-9684d4322f71" xml:space="preserve">
+          <source><bpt id="3a20d9cf-2c85-4820-ba89-7f4141fce017">&lt;linkText&gt;</bpt><ept id="3a20d9cf-2c85-4820-ba89-7f4141fce017">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a20d9cf-2c85-4820-ba89-7f4141fce017">&lt;linkText&gt;</bpt><ept id="3a20d9cf-2c85-4820-ba89-7f4141fce017">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48eaceeb-722f-4e78-ae1b-7d97dadf9f1b" xml:space="preserve">
+          <source>Choose the <bpt id="2d33b5f3-13a5-4669-9bc0-55d3a824b5ec">&lt;strong&gt;</bpt>Phone and Tablet<ept id="2d33b5f3-13a5-4669-9bc0-55d3a824b5ec">&lt;/strong&gt;</ept> form factor and the <bpt id="518ed170-43fb-4e95-bebb-97cf48664a99">&lt;strong&gt;</bpt>Minimum SDK<ept id="518ed170-43fb-4e95-bebb-97cf48664a99">&lt;/strong&gt;</ept> that you want to support.</source>
+          <target state="new">Choose the <bpt id="2d33b5f3-13a5-4669-9bc0-55d3a824b5ec">&lt;strong&gt;</bpt>Phone and Tablet<ept id="2d33b5f3-13a5-4669-9bc0-55d3a824b5ec">&lt;/strong&gt;</ept> form factor and the <bpt id="518ed170-43fb-4e95-bebb-97cf48664a99">&lt;strong&gt;</bpt>Minimum SDK<ept id="518ed170-43fb-4e95-bebb-97cf48664a99">&lt;/strong&gt;</ept> that you want to support.</target>
+        </trans-unit>
+        <trans-unit id="508baa1e-ea0d-4c60-9f22-6165b1c731c2" xml:space="preserve">
+          <source>Then click <bpt id="9d7fd6d7-5a64-4162-8267-c6fe6c427ab4">&lt;strong&gt;</bpt>Next<ept id="9d7fd6d7-5a64-4162-8267-c6fe6c427ab4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="9d7fd6d7-5a64-4162-8267-c6fe6c427ab4">&lt;strong&gt;</bpt>Next<ept id="9d7fd6d7-5a64-4162-8267-c6fe6c427ab4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f217d47-4194-43a2-ba24-40fc60adc26e" xml:space="preserve">
+          <source><bpt id="d41c50e0-6f17-48f7-80e8-40ee4920ac86">&lt;linkText&gt;</bpt><ept id="d41c50e0-6f17-48f7-80e8-40ee4920ac86">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d41c50e0-6f17-48f7-80e8-40ee4920ac86">&lt;linkText&gt;</bpt><ept id="d41c50e0-6f17-48f7-80e8-40ee4920ac86">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6aec5ed-cce9-45c9-9f7b-471e4dbaa7a1" xml:space="preserve">
+          <source>Choose <bpt id="d52e3d00-d7a7-480f-b2af-d2c1ea432135">&lt;strong&gt;</bpt>Blank Activity<ept id="d52e3d00-d7a7-480f-b2af-d2c1ea432135">&lt;/strong&gt;</ept> for the main activity, click <bpt id="2ae0bd4e-ccb5-4c64-a309-de3965272d0f">&lt;strong&gt;</bpt>Next<ept id="2ae0bd4e-ccb5-4c64-a309-de3965272d0f">&lt;/strong&gt;</ept>, and then click <bpt id="960bb8b5-5bcf-40c2-9a75-df48e2fe30e4">&lt;strong&gt;</bpt>Finish<ept id="960bb8b5-5bcf-40c2-9a75-df48e2fe30e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose <bpt id="d52e3d00-d7a7-480f-b2af-d2c1ea432135">&lt;strong&gt;</bpt>Blank Activity<ept id="d52e3d00-d7a7-480f-b2af-d2c1ea432135">&lt;/strong&gt;</ept> for the main activity, click <bpt id="2ae0bd4e-ccb5-4c64-a309-de3965272d0f">&lt;strong&gt;</bpt>Next<ept id="2ae0bd4e-ccb5-4c64-a309-de3965272d0f">&lt;/strong&gt;</ept>, and then click <bpt id="960bb8b5-5bcf-40c2-9a75-df48e2fe30e4">&lt;strong&gt;</bpt>Finish<ept id="960bb8b5-5bcf-40c2-9a75-df48e2fe30e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce5ef977-e121-4229-b0f2-22f760db2785" xml:space="preserve">
+          <source><bpt id="c04cfb28-bdfb-40cb-8050-395a9981b6a7">&lt;token href="../../includes/mobile-services-add-google-play-services.md"&gt;</bpt><ept id="c04cfb28-bdfb-40cb-8050-395a9981b6a7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c04cfb28-bdfb-40cb-8050-395a9981b6a7">&lt;token href="../../includes/mobile-services-add-google-play-services.md"&gt;</bpt><ept id="c04cfb28-bdfb-40cb-8050-395a9981b6a7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0bb2eb23-bd70-47a0-84db-ded2cd65e102" xml:space="preserve">
+          <source>Download the &lt;a href="https://go.microsoft.com/fwLink/?LinkID=280126&amp;clcid=0x409"&gt;Notification Hubs Android SDK&lt;/a&gt;. Extract the .zip file and copy <bpt id="803e47de-0e21-415d-aa16-8b01f766bcf7">&lt;strong&gt;</bpt>notificationhubs\notification-hubs-0.4.jar<ept id="803e47de-0e21-415d-aa16-8b01f766bcf7">&lt;/strong&gt;</ept> and <bpt id="f1eda996-6020-4ae5-b8d6-4274440d1e88">&lt;strong&gt;</bpt>notifications\notifications-1.0.1.jar<ept id="f1eda996-6020-4ae5-b8d6-4274440d1e88">&lt;/strong&gt;</ept> to the <bpt id="4e0407d0-a4ed-4c20-b4b2-92775fced849">&lt;strong&gt;</bpt>app\libs<ept id="4e0407d0-a4ed-4c20-b4b2-92775fced849">&lt;/strong&gt;</ept> directory of your project. You can do this by dragging the files directly into the <bpt id="d865f754-2aa1-48a1-aef2-73a6ee3fe964">&lt;strong&gt;</bpt>libs<ept id="d865f754-2aa1-48a1-aef2-73a6ee3fe964">&lt;/strong&gt;</ept> folder in the Project View window of Android Studio. Refresh the <bpt id="ea5300bf-9ca8-4aed-a811-851eba6a8d3e">&lt;strong&gt;</bpt>libs<ept id="ea5300bf-9ca8-4aed-a811-851eba6a8d3e">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">Download the &lt;a href="https://go.microsoft.com/fwLink/?LinkID=280126&amp;clcid=0x409"&gt;Notification Hubs Android SDK&lt;/a&gt;. Extract the .zip file and copy <bpt id="803e47de-0e21-415d-aa16-8b01f766bcf7">&lt;strong&gt;</bpt>notificationhubs\notification-hubs-0.4.jar<ept id="803e47de-0e21-415d-aa16-8b01f766bcf7">&lt;/strong&gt;</ept> and <bpt id="f1eda996-6020-4ae5-b8d6-4274440d1e88">&lt;strong&gt;</bpt>notifications\notifications-1.0.1.jar<ept id="f1eda996-6020-4ae5-b8d6-4274440d1e88">&lt;/strong&gt;</ept> to the <bpt id="4e0407d0-a4ed-4c20-b4b2-92775fced849">&lt;strong&gt;</bpt>app\libs<ept id="4e0407d0-a4ed-4c20-b4b2-92775fced849">&lt;/strong&gt;</ept> directory of your project. You can do this by dragging the files directly into the <bpt id="d865f754-2aa1-48a1-aef2-73a6ee3fe964">&lt;strong&gt;</bpt>libs<ept id="d865f754-2aa1-48a1-aef2-73a6ee3fe964">&lt;/strong&gt;</ept> folder in the Project View window of Android Studio. Refresh the <bpt id="ea5300bf-9ca8-4aed-a811-851eba6a8d3e">&lt;strong&gt;</bpt>libs<ept id="ea5300bf-9ca8-4aed-a811-851eba6a8d3e">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="4f9d6c9f-6fc3-4d0b-ae1b-c608781d3bdc" xml:space="preserve">
+          <source>The reference documentation for these two packages is located in the links below:</source>
+          <target state="new">The reference documentation for these two packages is located in the links below:</target>
+        </trans-unit>
+        <trans-unit id="3a8cb353-ff68-43a9-be74-2b78455af685" xml:space="preserve">
+          <source><bpt id="e60364b6-7950-4337-afd2-ae429f629c71">&lt;linkText&gt;</bpt>com.microsoft.windowsazure.messaging<ept id="e60364b6-7950-4337-afd2-ae429f629c71">&lt;/linkText&gt;</ept><bpt id="e60364b6-7950-4337-afd2-ae429f629c71">&lt;title&gt;</bpt><ept id="e60364b6-7950-4337-afd2-ae429f629c71">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e60364b6-7950-4337-afd2-ae429f629c71">&lt;linkText&gt;</bpt>com.microsoft.windowsazure.messaging<ept id="e60364b6-7950-4337-afd2-ae429f629c71">&lt;/linkText&gt;</ept><bpt id="e60364b6-7950-4337-afd2-ae429f629c71">&lt;title&gt;</bpt><ept id="e60364b6-7950-4337-afd2-ae429f629c71">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05c5f2b7-c441-47fd-807a-54a57177cc50" xml:space="preserve">
+          <source><bpt id="6c566b5c-b13b-43ae-9698-fbdda2c38c22">&lt;linkText&gt;</bpt>com.microsoft.windowsazure.notifications<ept id="6c566b5c-b13b-43ae-9698-fbdda2c38c22">&lt;/linkText&gt;</ept><bpt id="6c566b5c-b13b-43ae-9698-fbdda2c38c22">&lt;title&gt;</bpt><ept id="6c566b5c-b13b-43ae-9698-fbdda2c38c22">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6c566b5c-b13b-43ae-9698-fbdda2c38c22">&lt;linkText&gt;</bpt>com.microsoft.windowsazure.notifications<ept id="6c566b5c-b13b-43ae-9698-fbdda2c38c22">&lt;/linkText&gt;</ept><bpt id="6c566b5c-b13b-43ae-9698-fbdda2c38c22">&lt;title&gt;</bpt><ept id="6c566b5c-b13b-43ae-9698-fbdda2c38c22">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87e32635-412b-4eed-964f-ceb8c1e4ab4e" xml:space="preserve">
+          <source>The numbers at the end of the file name may change in subsequent SDK releases.</source>
+          <target state="new">The numbers at the end of the file name may change in subsequent SDK releases.</target>
+        </trans-unit>
+        <trans-unit id="98b65a0b-5566-4bb0-8cef-f8ca5926de69" xml:space="preserve">
+          <source>Set up the application to obtain a registration ID from GCM, and use it to register the app instance to the notification hub.</source>
+          <target state="new">Set up the application to obtain a registration ID from GCM, and use it to register the app instance to the notification hub.</target>
+        </trans-unit>
+        <trans-unit id="b425bf05-bd10-4cf0-b38f-09c37636067f" xml:space="preserve">
+          <source>In the AndroidManifest.xml file, add the following permissions below the  <bpt id="a746e15d-8a09-4f14-b6c0-49da50d8948d">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="a746e15d-8a09-4f14-b6c0-49da50d8948d">&lt;/code&gt;</ept> tag. Make sure to replace <bpt id="279e01b3-0478-4b16-8545-b32b8f7d440b">&lt;code&gt;</bpt>&lt;your package&gt;<ept id="279e01b3-0478-4b16-8545-b32b8f7d440b">&lt;/code&gt;</ept> with the package name shown at the top of the AndroidManifest.xml file (<bpt id="cc78a9b9-a855-4099-b8eb-b7bab532a4ca">&lt;code&gt;</bpt>com.example.testnotificationhubs<ept id="cc78a9b9-a855-4099-b8eb-b7bab532a4ca">&lt;/code&gt;</ept> in this example).</source>
+          <target state="new">In the AndroidManifest.xml file, add the following permissions below the  <bpt id="a746e15d-8a09-4f14-b6c0-49da50d8948d">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="a746e15d-8a09-4f14-b6c0-49da50d8948d">&lt;/code&gt;</ept> tag. Make sure to replace <bpt id="279e01b3-0478-4b16-8545-b32b8f7d440b">&lt;code&gt;</bpt>&lt;your package&gt;<ept id="279e01b3-0478-4b16-8545-b32b8f7d440b">&lt;/code&gt;</ept> with the package name shown at the top of the AndroidManifest.xml file (<bpt id="cc78a9b9-a855-4099-b8eb-b7bab532a4ca">&lt;code&gt;</bpt>com.example.testnotificationhubs<ept id="cc78a9b9-a855-4099-b8eb-b7bab532a4ca">&lt;/code&gt;</ept> in this example).</target>
+        </trans-unit>
+        <trans-unit id="36fab3c9-7e44-46a1-ac22-87d0105801c2" xml:space="preserve">
+          <source>In the <bpt id="e2c0a298-0f57-42c8-b0b8-ace768115c4d">&lt;strong&gt;</bpt>MainActivity<ept id="e2c0a298-0f57-42c8-b0b8-ace768115c4d">&lt;/strong&gt;</ept> class, add the following <bpt id="2acf57ca-e1da-4d6b-97bc-2f04217a12bb">&lt;code&gt;</bpt>import<ept id="2acf57ca-e1da-4d6b-97bc-2f04217a12bb">&lt;/code&gt;</ept> statements above the class declaration.</source>
+          <target state="new">In the <bpt id="e2c0a298-0f57-42c8-b0b8-ace768115c4d">&lt;strong&gt;</bpt>MainActivity<ept id="e2c0a298-0f57-42c8-b0b8-ace768115c4d">&lt;/strong&gt;</ept> class, add the following <bpt id="2acf57ca-e1da-4d6b-97bc-2f04217a12bb">&lt;code&gt;</bpt>import<ept id="2acf57ca-e1da-4d6b-97bc-2f04217a12bb">&lt;/code&gt;</ept> statements above the class declaration.</target>
+        </trans-unit>
+        <trans-unit id="b190aa4a-5fa3-4018-8724-da67a8e0766d" xml:space="preserve">
+          <source>Add the following private members at the top of the class.</source>
+          <target state="new">Add the following private members at the top of the class.</target>
+        </trans-unit>
+        <trans-unit id="1003ecef-b049-4c68-8f8d-77cc88fbc687" xml:space="preserve">
+          <source>Make sure to update the three placeholders:</source>
+          <target state="new">Make sure to update the three placeholders:</target>
+        </trans-unit>
+        <trans-unit id="57b3720a-d4ae-4674-9f81-84fb5b06d2ed" xml:space="preserve">
+          <source><bpt id="439de278-a9a8-4ca6-871d-25274fce2569">&lt;strong&gt;</bpt>SENDER_ID<ept id="439de278-a9a8-4ca6-871d-25274fce2569">&lt;/strong&gt;</ept>: Set <bpt id="7d499f1e-be64-480e-99cc-2ffbe3cd0bf4">&lt;code&gt;</bpt>SENDER_ID<ept id="7d499f1e-be64-480e-99cc-2ffbe3cd0bf4">&lt;/code&gt;</ept> to the project number that you obtained earlier from the project that you created in  the <bpt id="ab237d1a-758f-4748-a870-d19c4624e5d7">&lt;linkText&gt;</bpt>Google Cloud Console<ept id="ab237d1a-758f-4748-a870-d19c4624e5d7">&lt;/linkText&gt;</ept><bpt id="ab237d1a-758f-4748-a870-d19c4624e5d7">&lt;title&gt;</bpt><ept id="ab237d1a-758f-4748-a870-d19c4624e5d7">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="439de278-a9a8-4ca6-871d-25274fce2569">&lt;strong&gt;</bpt>SENDER_ID<ept id="439de278-a9a8-4ca6-871d-25274fce2569">&lt;/strong&gt;</ept>: Set <bpt id="7d499f1e-be64-480e-99cc-2ffbe3cd0bf4">&lt;code&gt;</bpt>SENDER_ID<ept id="7d499f1e-be64-480e-99cc-2ffbe3cd0bf4">&lt;/code&gt;</ept> to the project number that you obtained earlier from the project that you created in  the <bpt id="ab237d1a-758f-4748-a870-d19c4624e5d7">&lt;linkText&gt;</bpt>Google Cloud Console<ept id="ab237d1a-758f-4748-a870-d19c4624e5d7">&lt;/linkText&gt;</ept><bpt id="ab237d1a-758f-4748-a870-d19c4624e5d7">&lt;title&gt;</bpt><ept id="ab237d1a-758f-4748-a870-d19c4624e5d7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cbce43de-3602-4a8c-8c22-69710241593c" xml:space="preserve">
+          <source><bpt id="8abe5e4e-f492-4a6d-859a-417b95bdf306">&lt;strong&gt;</bpt>HubListenConnectionString<ept id="8abe5e4e-f492-4a6d-859a-417b95bdf306">&lt;/strong&gt;</ept>: Set <bpt id="89f6c4e0-0ffb-4a6b-9711-cb59f5f8aae0">&lt;code&gt;</bpt>HubListenConnectionString<ept id="89f6c4e0-0ffb-4a6b-9711-cb59f5f8aae0">&lt;/code&gt;</ept> to the <bpt id="886cdd00-baf6-4d1f-a9a5-8e3ca0213666">&lt;strong&gt;</bpt>DefaultListenAccessSignature<ept id="886cdd00-baf6-4d1f-a9a5-8e3ca0213666">&lt;/strong&gt;</ept> connection string for your hub.</source>
+          <target state="new"><bpt id="8abe5e4e-f492-4a6d-859a-417b95bdf306">&lt;strong&gt;</bpt>HubListenConnectionString<ept id="8abe5e4e-f492-4a6d-859a-417b95bdf306">&lt;/strong&gt;</ept>: Set <bpt id="89f6c4e0-0ffb-4a6b-9711-cb59f5f8aae0">&lt;code&gt;</bpt>HubListenConnectionString<ept id="89f6c4e0-0ffb-4a6b-9711-cb59f5f8aae0">&lt;/code&gt;</ept> to the <bpt id="886cdd00-baf6-4d1f-a9a5-8e3ca0213666">&lt;strong&gt;</bpt>DefaultListenAccessSignature<ept id="886cdd00-baf6-4d1f-a9a5-8e3ca0213666">&lt;/strong&gt;</ept> connection string for your hub.</target>
+        </trans-unit>
+        <trans-unit id="994578bf-88f9-4a58-a2c7-36cd12534692" xml:space="preserve">
+          <source>You can copy that connection string by clicking <bpt id="e65165f8-1979-41cd-b21b-c7ba4b1def51">&lt;strong&gt;</bpt>View Connection String<ept id="e65165f8-1979-41cd-b21b-c7ba4b1def51">&lt;/strong&gt;</ept> on the <bpt id="a49a75c1-60b9-46a7-967b-c9b2457693a7">&lt;strong&gt;</bpt>Dashboard<ept id="a49a75c1-60b9-46a7-967b-c9b2457693a7">&lt;/strong&gt;</ept> tab of your hub on the [Azure portal].</source>
+          <target state="new">You can copy that connection string by clicking <bpt id="e65165f8-1979-41cd-b21b-c7ba4b1def51">&lt;strong&gt;</bpt>View Connection String<ept id="e65165f8-1979-41cd-b21b-c7ba4b1def51">&lt;/strong&gt;</ept> on the <bpt id="a49a75c1-60b9-46a7-967b-c9b2457693a7">&lt;strong&gt;</bpt>Dashboard<ept id="a49a75c1-60b9-46a7-967b-c9b2457693a7">&lt;/strong&gt;</ept> tab of your hub on the [Azure portal].</target>
+        </trans-unit>
+        <trans-unit id="f01336a0-fa4c-4dc1-8256-80f738c5abbe" xml:space="preserve">
+          <source><bpt id="f77a6a16-7398-48c0-831a-2b3b448d4795">&lt;strong&gt;</bpt>HubName<ept id="f77a6a16-7398-48c0-831a-2b3b448d4795">&lt;/strong&gt;</ept>: Use the name of your notification hub that appears at the top of the page in Azure for your hub (<bpt id="796402cb-5a99-4bf3-844b-68cbace60de9">&lt;strong&gt;</bpt>not<ept id="796402cb-5a99-4bf3-844b-68cbace60de9">&lt;/strong&gt;</ept> the full URL).</source>
+          <target state="new"><bpt id="f77a6a16-7398-48c0-831a-2b3b448d4795">&lt;strong&gt;</bpt>HubName<ept id="f77a6a16-7398-48c0-831a-2b3b448d4795">&lt;/strong&gt;</ept>: Use the name of your notification hub that appears at the top of the page in Azure for your hub (<bpt id="796402cb-5a99-4bf3-844b-68cbace60de9">&lt;strong&gt;</bpt>not<ept id="796402cb-5a99-4bf3-844b-68cbace60de9">&lt;/strong&gt;</ept> the full URL).</target>
+        </trans-unit>
+        <trans-unit id="d7ddfe0b-bb44-466a-aca9-122d13845341" xml:space="preserve">
+          <source>For example, use <bpt id="9bb04dd2-81a2-4cb5-a193-703ce434c310">&lt;code&gt;</bpt>"myhub"<ept id="9bb04dd2-81a2-4cb5-a193-703ce434c310">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, use <bpt id="9bb04dd2-81a2-4cb5-a193-703ce434c310">&lt;code&gt;</bpt>"myhub"<ept id="9bb04dd2-81a2-4cb5-a193-703ce434c310">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97e229d3-a449-4ea4-9c48-13e4891ad7f9" xml:space="preserve">
+          <source>In the <bpt id="7c2b11fa-c972-40ca-acb9-6295994fe73f">&lt;strong&gt;</bpt>OnCreate<ept id="7c2b11fa-c972-40ca-acb9-6295994fe73f">&lt;/strong&gt;</ept> method of the <bpt id="af9b6142-2fca-4176-9d4d-12f655a36565">&lt;strong&gt;</bpt>MainActivity<ept id="af9b6142-2fca-4176-9d4d-12f655a36565">&lt;/strong&gt;</ept> class, add the following code to perform the registration on creation of the activity.</source>
+          <target state="new">In the <bpt id="7c2b11fa-c972-40ca-acb9-6295994fe73f">&lt;strong&gt;</bpt>OnCreate<ept id="7c2b11fa-c972-40ca-acb9-6295994fe73f">&lt;/strong&gt;</ept> method of the <bpt id="af9b6142-2fca-4176-9d4d-12f655a36565">&lt;strong&gt;</bpt>MainActivity<ept id="af9b6142-2fca-4176-9d4d-12f655a36565">&lt;/strong&gt;</ept> class, add the following code to perform the registration on creation of the activity.</target>
+        </trans-unit>
+        <trans-unit id="1cd0550f-90ed-4e2c-ab49-23851dcc8edb" xml:space="preserve">
+          <source>In <bpt id="56f35e91-f843-4a7f-9d12-2c966558a77b">&lt;strong&gt;</bpt>MainActivity.java<ept id="56f35e91-f843-4a7f-9d12-2c966558a77b">&lt;/strong&gt;</ept>, add the code below for the <bpt id="9eb7d628-7159-4960-9943-e5cddfbb422d">&lt;strong&gt;</bpt>registerWithNotificationHubs()<ept id="9eb7d628-7159-4960-9943-e5cddfbb422d">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">In <bpt id="56f35e91-f843-4a7f-9d12-2c966558a77b">&lt;strong&gt;</bpt>MainActivity.java<ept id="56f35e91-f843-4a7f-9d12-2c966558a77b">&lt;/strong&gt;</ept>, add the code below for the <bpt id="9eb7d628-7159-4960-9943-e5cddfbb422d">&lt;strong&gt;</bpt>registerWithNotificationHubs()<ept id="9eb7d628-7159-4960-9943-e5cddfbb422d">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="9586042a-eb62-496b-a3a0-be652d4877f1" xml:space="preserve">
+          <source>This method reports success after registering with Google Cloud Messaging and the notification hub.</source>
+          <target state="new">This method reports success after registering with Google Cloud Messaging and the notification hub.</target>
+        </trans-unit>
+        <trans-unit id="dd367c63-ca0a-4d22-bc80-5769c19dd859" xml:space="preserve">
+          <source>Add the <bpt id="cbd2434a-cae2-4268-8d37-6abdcbf02e80">&lt;strong&gt;</bpt>DialogNotify<ept id="cbd2434a-cae2-4268-8d37-6abdcbf02e80">&lt;/strong&gt;</ept> method to the activity to display the notification when the app is running and visible.</source>
+          <target state="new">Add the <bpt id="cbd2434a-cae2-4268-8d37-6abdcbf02e80">&lt;strong&gt;</bpt>DialogNotify<ept id="cbd2434a-cae2-4268-8d37-6abdcbf02e80">&lt;/strong&gt;</ept> method to the activity to display the notification when the app is running and visible.</target>
+        </trans-unit>
+        <trans-unit id="585bb213-d9c8-4b88-bf51-3b961acd1779" xml:space="preserve">
+          <source>Also override <bpt id="81be9bab-a209-48d0-994b-f3dd1d0f22cd">&lt;strong&gt;</bpt>onStart<ept id="81be9bab-a209-48d0-994b-f3dd1d0f22cd">&lt;/strong&gt;</ept> and <bpt id="3bb4d82e-3a9a-444d-89c8-ba129e7cdac7">&lt;strong&gt;</bpt>onStop<ept id="3bb4d82e-3a9a-444d-89c8-ba129e7cdac7">&lt;/strong&gt;</ept> to determine whether the activity is visible to display the dialog.</source>
+          <target state="new">Also override <bpt id="81be9bab-a209-48d0-994b-f3dd1d0f22cd">&lt;strong&gt;</bpt>onStart<ept id="81be9bab-a209-48d0-994b-f3dd1d0f22cd">&lt;/strong&gt;</ept> and <bpt id="3bb4d82e-3a9a-444d-89c8-ba129e7cdac7">&lt;strong&gt;</bpt>onStop<ept id="3bb4d82e-3a9a-444d-89c8-ba129e7cdac7">&lt;/strong&gt;</ept> to determine whether the activity is visible to display the dialog.</target>
+        </trans-unit>
+        <trans-unit id="6f8dfaba-43f7-4d57-bf40-648021fc7f51" xml:space="preserve">
+          <source>Because Android does not display notifications, you must write your own receiver. In <bpt id="4595ba45-b354-4cc6-bc8a-2be9bfe8a5e7">&lt;strong&gt;</bpt>AndroidManifest.xml<ept id="4595ba45-b354-4cc6-bc8a-2be9bfe8a5e7">&lt;/strong&gt;</ept>, add the following element inside the <bpt id="d9ef8e78-844b-46ac-81f7-e74dd825b39b">&lt;code&gt;</bpt>&lt;application&gt;<ept id="d9ef8e78-844b-46ac-81f7-e74dd825b39b">&lt;/code&gt;</ept> element.</source>
+          <target state="new">Because Android does not display notifications, you must write your own receiver. In <bpt id="4595ba45-b354-4cc6-bc8a-2be9bfe8a5e7">&lt;strong&gt;</bpt>AndroidManifest.xml<ept id="4595ba45-b354-4cc6-bc8a-2be9bfe8a5e7">&lt;/strong&gt;</ept>, add the following element inside the <bpt id="d9ef8e78-844b-46ac-81f7-e74dd825b39b">&lt;code&gt;</bpt>&lt;application&gt;<ept id="d9ef8e78-844b-46ac-81f7-e74dd825b39b">&lt;/code&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="150cddfb-296c-4c33-91b1-8ca749b37d60" xml:space="preserve">
+          <source>Replace the placeholder with your package name.</source>
+          <target state="new">Replace the placeholder with your package name.</target>
+        </trans-unit>
+        <trans-unit id="a8d9ced9-2850-4f1a-94aa-f22ce0e1d22b" xml:space="preserve">
+          <source>In the Project View, expand <bpt id="6c789012-acaa-402c-837f-bda428eb7991">&lt;strong&gt;</bpt>app<ept id="6c789012-acaa-402c-837f-bda428eb7991">&lt;/strong&gt;</ept> &gt; <bpt id="d44c6e59-878e-44e4-b5f1-3a87e65074e6">&lt;strong&gt;</bpt>src<ept id="d44c6e59-878e-44e4-b5f1-3a87e65074e6">&lt;/strong&gt;</ept> &gt; <bpt id="9ca4001d-fa3e-4493-819d-f9a402449a9a">&lt;strong&gt;</bpt>main<ept id="9ca4001d-fa3e-4493-819d-f9a402449a9a">&lt;/strong&gt;</ept> &gt; <bpt id="a7f5ed25-2c33-4e12-bc11-8c2de7078c10">&lt;strong&gt;</bpt>java<ept id="a7f5ed25-2c33-4e12-bc11-8c2de7078c10">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Project View, expand <bpt id="6c789012-acaa-402c-837f-bda428eb7991">&lt;strong&gt;</bpt>app<ept id="6c789012-acaa-402c-837f-bda428eb7991">&lt;/strong&gt;</ept> &gt; <bpt id="d44c6e59-878e-44e4-b5f1-3a87e65074e6">&lt;strong&gt;</bpt>src<ept id="d44c6e59-878e-44e4-b5f1-3a87e65074e6">&lt;/strong&gt;</ept> &gt; <bpt id="9ca4001d-fa3e-4493-819d-f9a402449a9a">&lt;strong&gt;</bpt>main<ept id="9ca4001d-fa3e-4493-819d-f9a402449a9a">&lt;/strong&gt;</ept> &gt; <bpt id="a7f5ed25-2c33-4e12-bc11-8c2de7078c10">&lt;strong&gt;</bpt>java<ept id="a7f5ed25-2c33-4e12-bc11-8c2de7078c10">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05d00d57-cec8-47e9-a2bd-8bf26bd05e29" xml:space="preserve">
+          <source>Right-click your package folder under <bpt id="b412a1a0-2084-4715-8673-88c918ccb498">&lt;strong&gt;</bpt>java<ept id="b412a1a0-2084-4715-8673-88c918ccb498">&lt;/strong&gt;</ept>, click <bpt id="c90dea3d-10fd-469b-99f0-5e52b110850a">&lt;strong&gt;</bpt>New<ept id="c90dea3d-10fd-469b-99f0-5e52b110850a">&lt;/strong&gt;</ept>, and then click <bpt id="b8190a28-6ddc-408a-9c1f-cd3b7001ac85">&lt;strong&gt;</bpt>Java Class<ept id="b8190a28-6ddc-408a-9c1f-cd3b7001ac85">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click your package folder under <bpt id="b412a1a0-2084-4715-8673-88c918ccb498">&lt;strong&gt;</bpt>java<ept id="b412a1a0-2084-4715-8673-88c918ccb498">&lt;/strong&gt;</ept>, click <bpt id="c90dea3d-10fd-469b-99f0-5e52b110850a">&lt;strong&gt;</bpt>New<ept id="c90dea3d-10fd-469b-99f0-5e52b110850a">&lt;/strong&gt;</ept>, and then click <bpt id="b8190a28-6ddc-408a-9c1f-cd3b7001ac85">&lt;strong&gt;</bpt>Java Class<ept id="b8190a28-6ddc-408a-9c1f-cd3b7001ac85">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97fed261-801d-40cf-a6cb-4d97de19f13b" xml:space="preserve">
+          <source><bpt id="21013541-ae91-400f-a0bc-1307187e2ac0">&lt;linkText&gt;</bpt><ept id="21013541-ae91-400f-a0bc-1307187e2ac0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21013541-ae91-400f-a0bc-1307187e2ac0">&lt;linkText&gt;</bpt><ept id="21013541-ae91-400f-a0bc-1307187e2ac0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b21c75d6-cc50-4845-84b0-1bc7ff00a6c7" xml:space="preserve">
+          <source>In the <bpt id="2173d52c-62cd-4688-8786-afdf9fde95a9">&lt;strong&gt;</bpt>Name<ept id="2173d52c-62cd-4688-8786-afdf9fde95a9">&lt;/strong&gt;</ept> field for the new class, type <bpt id="1b586153-bc61-43bf-a6ef-c33c97def1e1">&lt;strong&gt;</bpt>MyHandler<ept id="1b586153-bc61-43bf-a6ef-c33c97def1e1">&lt;/strong&gt;</ept>, and then click <bpt id="a592fe93-5167-42ee-80a1-48972bf92eda">&lt;strong&gt;</bpt>OK<ept id="a592fe93-5167-42ee-80a1-48972bf92eda">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2173d52c-62cd-4688-8786-afdf9fde95a9">&lt;strong&gt;</bpt>Name<ept id="2173d52c-62cd-4688-8786-afdf9fde95a9">&lt;/strong&gt;</ept> field for the new class, type <bpt id="1b586153-bc61-43bf-a6ef-c33c97def1e1">&lt;strong&gt;</bpt>MyHandler<ept id="1b586153-bc61-43bf-a6ef-c33c97def1e1">&lt;/strong&gt;</ept>, and then click <bpt id="a592fe93-5167-42ee-80a1-48972bf92eda">&lt;strong&gt;</bpt>OK<ept id="a592fe93-5167-42ee-80a1-48972bf92eda">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="671078a6-556b-48b9-9b1f-b73bf6809516" xml:space="preserve">
+          <source>Add the following import statements at the top of <bpt id="824ef31b-020c-438e-81a5-ec903b7d97c0">&lt;strong&gt;</bpt>MyHandler.java<ept id="824ef31b-020c-438e-81a5-ec903b7d97c0">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Add the following import statements at the top of <bpt id="824ef31b-020c-438e-81a5-ec903b7d97c0">&lt;strong&gt;</bpt>MyHandler.java<ept id="824ef31b-020c-438e-81a5-ec903b7d97c0">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="0a2862b3-3786-4497-8811-e94fadea7a68" xml:space="preserve">
+          <source>Update the class declaration as follows to make <bpt id="5719632c-f1ec-4ad1-9049-dd0c134f62e7">&lt;code&gt;</bpt>MyHandler<ept id="5719632c-f1ec-4ad1-9049-dd0c134f62e7">&lt;/code&gt;</ept> a subclass of <bpt id="67917a15-f73b-42b7-9db0-4aaac79220e7">&lt;code&gt;</bpt>com.microsoft.windowsazure.notifications.NotificationsHandler<ept id="67917a15-f73b-42b7-9db0-4aaac79220e7">&lt;/code&gt;</ept> as shown below.</source>
+          <target state="new">Update the class declaration as follows to make <bpt id="5719632c-f1ec-4ad1-9049-dd0c134f62e7">&lt;code&gt;</bpt>MyHandler<ept id="5719632c-f1ec-4ad1-9049-dd0c134f62e7">&lt;/code&gt;</ept> a subclass of <bpt id="67917a15-f73b-42b7-9db0-4aaac79220e7">&lt;code&gt;</bpt>com.microsoft.windowsazure.notifications.NotificationsHandler<ept id="67917a15-f73b-42b7-9db0-4aaac79220e7">&lt;/code&gt;</ept> as shown below.</target>
+        </trans-unit>
+        <trans-unit id="c070df39-2f67-4e2e-b7cb-9b1fc2ac2120" xml:space="preserve">
+          <source>Add the following code for the <bpt id="e35845a3-f053-4148-8012-571c9a01a118">&lt;code&gt;</bpt>MyHandler<ept id="e35845a3-f053-4148-8012-571c9a01a118">&lt;/code&gt;</ept> class.</source>
+          <target state="new">Add the following code for the <bpt id="e35845a3-f053-4148-8012-571c9a01a118">&lt;code&gt;</bpt>MyHandler<ept id="e35845a3-f053-4148-8012-571c9a01a118">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="63103261-a964-4fe2-ad89-ae5ef9121af3" xml:space="preserve">
+          <source>This code overrides the <bpt id="c23b4af5-171e-4ffb-9cc7-edc30fd119d3">&lt;code&gt;</bpt>OnReceive<ept id="c23b4af5-171e-4ffb-9cc7-edc30fd119d3">&lt;/code&gt;</ept> method, so the handler will pop up an <bpt id="05101961-a90e-45eb-96e7-d392afec8d88">&lt;code&gt;</bpt>AlertDialog<ept id="05101961-a90e-45eb-96e7-d392afec8d88">&lt;/code&gt;</ept> to show notifications that are received.</source>
+          <target state="new">This code overrides the <bpt id="c23b4af5-171e-4ffb-9cc7-edc30fd119d3">&lt;code&gt;</bpt>OnReceive<ept id="c23b4af5-171e-4ffb-9cc7-edc30fd119d3">&lt;/code&gt;</ept> method, so the handler will pop up an <bpt id="05101961-a90e-45eb-96e7-d392afec8d88">&lt;code&gt;</bpt>AlertDialog<ept id="05101961-a90e-45eb-96e7-d392afec8d88">&lt;/code&gt;</ept> to show notifications that are received.</target>
+        </trans-unit>
+        <trans-unit id="b44d2da6-5eeb-4e92-85c2-e2c557e95ea3" xml:space="preserve">
+          <source>The handler also sends the notification to the Android notification manager by using the <bpt id="2163408b-227e-44ac-a230-05ac445a8f60">&lt;code&gt;</bpt>sendNotification()<ept id="2163408b-227e-44ac-a230-05ac445a8f60">&lt;/code&gt;</ept> method.</source>
+          <target state="new">The handler also sends the notification to the Android notification manager by using the <bpt id="2163408b-227e-44ac-a230-05ac445a8f60">&lt;code&gt;</bpt>sendNotification()<ept id="2163408b-227e-44ac-a230-05ac445a8f60">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="224a72da-d611-41fc-a122-1cba345939a7" xml:space="preserve">
+          <source>In Android Studio on the menu bar, click <bpt id="2c03a2ee-58a6-4d4f-923e-59bc747d3be4">&lt;strong&gt;</bpt>Build<ept id="2c03a2ee-58a6-4d4f-923e-59bc747d3be4">&lt;/strong&gt;</ept> &gt; <bpt id="445c5032-f816-4adc-a25a-56165861bcd5">&lt;strong&gt;</bpt>Rebuild Project<ept id="445c5032-f816-4adc-a25a-56165861bcd5">&lt;/strong&gt;</ept> to make sure that no errors are detected.</source>
+          <target state="new">In Android Studio on the menu bar, click <bpt id="2c03a2ee-58a6-4d4f-923e-59bc747d3be4">&lt;strong&gt;</bpt>Build<ept id="2c03a2ee-58a6-4d4f-923e-59bc747d3be4">&lt;/strong&gt;</ept> &gt; <bpt id="445c5032-f816-4adc-a25a-56165861bcd5">&lt;strong&gt;</bpt>Rebuild Project<ept id="445c5032-f816-4adc-a25a-56165861bcd5">&lt;/strong&gt;</ept> to make sure that no errors are detected.</target>
+        </trans-unit>
+        <trans-unit id="533d235c-721b-43ba-adb9-c560c5108d0c" xml:space="preserve">
+          <source>You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.</source>
+          <target state="new">You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.</target>
+        </trans-unit>
+        <trans-unit id="33b96c87-f640-488e-b2bf-d967a36019fa" xml:space="preserve">
+          <source><bpt id="c23c2ade-9873-4789-874d-3c5e7d45b4c9">&lt;linkText&gt;</bpt><ept id="c23c2ade-9873-4789-874d-3c5e7d45b4c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c23c2ade-9873-4789-874d-3c5e7d45b4c9">&lt;linkText&gt;</bpt><ept id="c23c2ade-9873-4789-874d-3c5e7d45b4c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="381ed6f6-055e-4dea-ab58-9d8cf4d7d58e" xml:space="preserve">
+          <source><bpt id="303e72a7-7960-47d5-95f3-80475546b6af">&lt;token href="../../includes/notification-hubs-sending-notifications-from-the-portal.md"&gt;</bpt><ept id="303e72a7-7960-47d5-95f3-80475546b6af">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="303e72a7-7960-47d5-95f3-80475546b6af">&lt;token href="../../includes/notification-hubs-sending-notifications-from-the-portal.md"&gt;</bpt><ept id="303e72a7-7960-47d5-95f3-80475546b6af">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7efe1e4-f4e8-4cb1-9cd9-b0e99aec9b41" xml:space="preserve">
+          <source><bpt id="94e62aee-467c-45bd-a20f-a3145dcf5d34">&lt;linkText&gt;</bpt><ept id="94e62aee-467c-45bd-a20f-a3145dcf5d34">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="94e62aee-467c-45bd-a20f-a3145dcf5d34">&lt;linkText&gt;</bpt><ept id="94e62aee-467c-45bd-a20f-a3145dcf5d34">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e2c8bfd-e43d-41e8-a18d-56248dabed41" xml:space="preserve">
+          <source>In Android Studio Project View, expand <bpt id="dde17702-5c21-4e33-bf1f-461587a1905c">&lt;strong&gt;</bpt>App<ept id="dde17702-5c21-4e33-bf1f-461587a1905c">&lt;/strong&gt;</ept> &gt; <bpt id="e41dcb64-fdbe-45ca-8bf0-266fcc7a3be3">&lt;strong&gt;</bpt>src<ept id="e41dcb64-fdbe-45ca-8bf0-266fcc7a3be3">&lt;/strong&gt;</ept> &gt; <bpt id="790dc709-93ba-4f15-87b0-e4819c5b11f3">&lt;strong&gt;</bpt>main<ept id="790dc709-93ba-4f15-87b0-e4819c5b11f3">&lt;/strong&gt;</ept> &gt; <bpt id="190c5768-bbe3-4ffe-9a3f-79bf7f599e26">&lt;strong&gt;</bpt>res<ept id="190c5768-bbe3-4ffe-9a3f-79bf7f599e26">&lt;/strong&gt;</ept> &gt; <bpt id="670869df-950a-4d9a-948f-f287a975be19">&lt;strong&gt;</bpt>layout<ept id="670869df-950a-4d9a-948f-f287a975be19">&lt;/strong&gt;</ept>. Open the <bpt id="d6583272-866a-46e6-b577-444ffe168a3c">&lt;strong&gt;</bpt>activity_main.xml<ept id="d6583272-866a-46e6-b577-444ffe168a3c">&lt;/strong&gt;</ept> layout file and click the <bpt id="79fad7bd-9c77-44d4-82e8-25fd4f4caed6">&lt;strong&gt;</bpt>Text<ept id="79fad7bd-9c77-44d4-82e8-25fd4f4caed6">&lt;/strong&gt;</ept> tab to update the text contents of the file. Update it with the code below, which adds new <bpt id="47e540f3-4e73-41d9-91bf-5b4952dcc412">&lt;code&gt;</bpt>Button<ept id="47e540f3-4e73-41d9-91bf-5b4952dcc412">&lt;/code&gt;</ept> and <bpt id="d7b77d27-0b32-40e3-97ec-3ece3f39b642">&lt;code&gt;</bpt>EditText<ept id="d7b77d27-0b32-40e3-97ec-3ece3f39b642">&lt;/code&gt;</ept> controls for sending notification messages to the notification hub. Add this code at the bottom, just before <bpt id="bbea6a75-e701-4df4-b1f0-a1f988cfbc56">&lt;code&gt;</bpt>&lt;/RelativeLayout&gt;<ept id="bbea6a75-e701-4df4-b1f0-a1f988cfbc56">&lt;/code&gt;</ept>.</source>
+          <target state="new">In Android Studio Project View, expand <bpt id="dde17702-5c21-4e33-bf1f-461587a1905c">&lt;strong&gt;</bpt>App<ept id="dde17702-5c21-4e33-bf1f-461587a1905c">&lt;/strong&gt;</ept> &gt; <bpt id="e41dcb64-fdbe-45ca-8bf0-266fcc7a3be3">&lt;strong&gt;</bpt>src<ept id="e41dcb64-fdbe-45ca-8bf0-266fcc7a3be3">&lt;/strong&gt;</ept> &gt; <bpt id="790dc709-93ba-4f15-87b0-e4819c5b11f3">&lt;strong&gt;</bpt>main<ept id="790dc709-93ba-4f15-87b0-e4819c5b11f3">&lt;/strong&gt;</ept> &gt; <bpt id="190c5768-bbe3-4ffe-9a3f-79bf7f599e26">&lt;strong&gt;</bpt>res<ept id="190c5768-bbe3-4ffe-9a3f-79bf7f599e26">&lt;/strong&gt;</ept> &gt; <bpt id="670869df-950a-4d9a-948f-f287a975be19">&lt;strong&gt;</bpt>layout<ept id="670869df-950a-4d9a-948f-f287a975be19">&lt;/strong&gt;</ept>. Open the <bpt id="d6583272-866a-46e6-b577-444ffe168a3c">&lt;strong&gt;</bpt>activity_main.xml<ept id="d6583272-866a-46e6-b577-444ffe168a3c">&lt;/strong&gt;</ept> layout file and click the <bpt id="79fad7bd-9c77-44d4-82e8-25fd4f4caed6">&lt;strong&gt;</bpt>Text<ept id="79fad7bd-9c77-44d4-82e8-25fd4f4caed6">&lt;/strong&gt;</ept> tab to update the text contents of the file. Update it with the code below, which adds new <bpt id="47e540f3-4e73-41d9-91bf-5b4952dcc412">&lt;code&gt;</bpt>Button<ept id="47e540f3-4e73-41d9-91bf-5b4952dcc412">&lt;/code&gt;</ept> and <bpt id="d7b77d27-0b32-40e3-97ec-3ece3f39b642">&lt;code&gt;</bpt>EditText<ept id="d7b77d27-0b32-40e3-97ec-3ece3f39b642">&lt;/code&gt;</ept> controls for sending notification messages to the notification hub. Add this code at the bottom, just before <bpt id="bbea6a75-e701-4df4-b1f0-a1f988cfbc56">&lt;code&gt;</bpt>&lt;/RelativeLayout&gt;<ept id="bbea6a75-e701-4df4-b1f0-a1f988cfbc56">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2ae034b-09ff-48b1-a909-291a321a5661" xml:space="preserve">
+          <source>In Android Studio Project View, expand <bpt id="16f89c76-8217-41f1-9a0d-421c2ab57023">&lt;strong&gt;</bpt>App<ept id="16f89c76-8217-41f1-9a0d-421c2ab57023">&lt;/strong&gt;</ept> &gt; <bpt id="5282ced6-105b-4b04-97c5-88b19fe348b1">&lt;strong&gt;</bpt>src<ept id="5282ced6-105b-4b04-97c5-88b19fe348b1">&lt;/strong&gt;</ept> &gt; <bpt id="065e7505-19bf-41fb-862c-7a67049f0722">&lt;strong&gt;</bpt>main<ept id="065e7505-19bf-41fb-862c-7a67049f0722">&lt;/strong&gt;</ept> &gt; <bpt id="5d0dae52-926e-42b8-8dc0-8f905539c1ea">&lt;strong&gt;</bpt>res<ept id="5d0dae52-926e-42b8-8dc0-8f905539c1ea">&lt;/strong&gt;</ept> &gt; <bpt id="94fcb12f-59fd-4011-97a2-195fbe511761">&lt;strong&gt;</bpt>values<ept id="94fcb12f-59fd-4011-97a2-195fbe511761">&lt;/strong&gt;</ept>. Open the <bpt id="3ac9ccf2-f1c4-4d5d-8064-523eaa5a7fa8">&lt;strong&gt;</bpt>strings.xml<ept id="3ac9ccf2-f1c4-4d5d-8064-523eaa5a7fa8">&lt;/strong&gt;</ept> file and add the string values that are referenced by the new <bpt id="6ba7a8d8-5c3d-44e4-b888-7124b87c60f2">&lt;code&gt;</bpt>Button<ept id="6ba7a8d8-5c3d-44e4-b888-7124b87c60f2">&lt;/code&gt;</ept> and <bpt id="936bf8c2-a13b-4056-a104-467a81e869e1">&lt;code&gt;</bpt>EditText<ept id="936bf8c2-a13b-4056-a104-467a81e869e1">&lt;/code&gt;</ept> controls. Add these at the bottom of the file, just before <bpt id="492e9e4f-daba-41ba-bbf3-6af92c576fe2">&lt;code&gt;</bpt>&lt;/resources&gt;<ept id="492e9e4f-daba-41ba-bbf3-6af92c576fe2">&lt;/code&gt;</ept>.</source>
+          <target state="new">In Android Studio Project View, expand <bpt id="16f89c76-8217-41f1-9a0d-421c2ab57023">&lt;strong&gt;</bpt>App<ept id="16f89c76-8217-41f1-9a0d-421c2ab57023">&lt;/strong&gt;</ept> &gt; <bpt id="5282ced6-105b-4b04-97c5-88b19fe348b1">&lt;strong&gt;</bpt>src<ept id="5282ced6-105b-4b04-97c5-88b19fe348b1">&lt;/strong&gt;</ept> &gt; <bpt id="065e7505-19bf-41fb-862c-7a67049f0722">&lt;strong&gt;</bpt>main<ept id="065e7505-19bf-41fb-862c-7a67049f0722">&lt;/strong&gt;</ept> &gt; <bpt id="5d0dae52-926e-42b8-8dc0-8f905539c1ea">&lt;strong&gt;</bpt>res<ept id="5d0dae52-926e-42b8-8dc0-8f905539c1ea">&lt;/strong&gt;</ept> &gt; <bpt id="94fcb12f-59fd-4011-97a2-195fbe511761">&lt;strong&gt;</bpt>values<ept id="94fcb12f-59fd-4011-97a2-195fbe511761">&lt;/strong&gt;</ept>. Open the <bpt id="3ac9ccf2-f1c4-4d5d-8064-523eaa5a7fa8">&lt;strong&gt;</bpt>strings.xml<ept id="3ac9ccf2-f1c4-4d5d-8064-523eaa5a7fa8">&lt;/strong&gt;</ept> file and add the string values that are referenced by the new <bpt id="6ba7a8d8-5c3d-44e4-b888-7124b87c60f2">&lt;code&gt;</bpt>Button<ept id="6ba7a8d8-5c3d-44e4-b888-7124b87c60f2">&lt;/code&gt;</ept> and <bpt id="936bf8c2-a13b-4056-a104-467a81e869e1">&lt;code&gt;</bpt>EditText<ept id="936bf8c2-a13b-4056-a104-467a81e869e1">&lt;/code&gt;</ept> controls. Add these at the bottom of the file, just before <bpt id="492e9e4f-daba-41ba-bbf3-6af92c576fe2">&lt;code&gt;</bpt>&lt;/resources&gt;<ept id="492e9e4f-daba-41ba-bbf3-6af92c576fe2">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b9e9066-ffd6-4c7f-9df7-f91376f9140d" xml:space="preserve">
+          <source>In your <bpt id="fef5b8f5-dc9d-44e1-a887-0b005701f814">&lt;strong&gt;</bpt>MainActivity.java<ept id="fef5b8f5-dc9d-44e1-a887-0b005701f814">&lt;/strong&gt;</ept> file, add the following <bpt id="1c0bf0d1-da73-48ea-a467-e9594e0f6b43">&lt;code&gt;</bpt>import<ept id="1c0bf0d1-da73-48ea-a467-e9594e0f6b43">&lt;/code&gt;</ept> statements above the <bpt id="38484949-a57c-4616-b031-8f3aac3be978">&lt;code&gt;</bpt>MainActivity<ept id="38484949-a57c-4616-b031-8f3aac3be978">&lt;/code&gt;</ept> class.</source>
+          <target state="new">In your <bpt id="fef5b8f5-dc9d-44e1-a887-0b005701f814">&lt;strong&gt;</bpt>MainActivity.java<ept id="fef5b8f5-dc9d-44e1-a887-0b005701f814">&lt;/strong&gt;</ept> file, add the following <bpt id="1c0bf0d1-da73-48ea-a467-e9594e0f6b43">&lt;code&gt;</bpt>import<ept id="1c0bf0d1-da73-48ea-a467-e9594e0f6b43">&lt;/code&gt;</ept> statements above the <bpt id="38484949-a57c-4616-b031-8f3aac3be978">&lt;code&gt;</bpt>MainActivity<ept id="38484949-a57c-4616-b031-8f3aac3be978">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="a756ce6a-9278-4df5-85fb-63eb2c8c68f2" xml:space="preserve">
+          <source>In your <bpt id="d5b7cddf-ce8d-4d34-90f2-3c34ad88eea7">&lt;strong&gt;</bpt>MainActivity.java<ept id="d5b7cddf-ce8d-4d34-90f2-3c34ad88eea7">&lt;/strong&gt;</ept> file, add the following members at the top of the <bpt id="fe6aa9f7-d0a4-4460-a7d1-c37a59ce20e9">&lt;code&gt;</bpt>MainActivity<ept id="fe6aa9f7-d0a4-4460-a7d1-c37a59ce20e9">&lt;/code&gt;</ept> class.</source>
+          <target state="new">In your <bpt id="d5b7cddf-ce8d-4d34-90f2-3c34ad88eea7">&lt;strong&gt;</bpt>MainActivity.java<ept id="d5b7cddf-ce8d-4d34-90f2-3c34ad88eea7">&lt;/strong&gt;</ept> file, add the following members at the top of the <bpt id="fe6aa9f7-d0a4-4460-a7d1-c37a59ce20e9">&lt;code&gt;</bpt>MainActivity<ept id="fe6aa9f7-d0a4-4460-a7d1-c37a59ce20e9">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="239260e9-6390-4bf1-b03d-2865abae3678" xml:space="preserve">
+          <source>Enter the name of your hub for <bpt id="4c972f59-d797-4072-ad5b-1a3424906264">&lt;code&gt;</bpt>HubName<ept id="4c972f59-d797-4072-ad5b-1a3424906264">&lt;/code&gt;</ept>, not the namespace.</source>
+          <target state="new">Enter the name of your hub for <bpt id="4c972f59-d797-4072-ad5b-1a3424906264">&lt;code&gt;</bpt>HubName<ept id="4c972f59-d797-4072-ad5b-1a3424906264">&lt;/code&gt;</ept>, not the namespace.</target>
+        </trans-unit>
+        <trans-unit id="3b4aca2b-fcf2-476a-b7f6-d4b566f78510" xml:space="preserve">
+          <source>For example, enter "myhub".</source>
+          <target state="new">For example, enter "myhub".</target>
+        </trans-unit>
+        <trans-unit id="e87cfb9e-64ed-4dfd-9d36-1cb582303380" xml:space="preserve">
+          <source>Also, enter the <bpt id="b2b213be-f54d-4cb6-af1a-b0fc4111cb0b">&lt;strong&gt;</bpt>DefaultFullSharedAccessSignature<ept id="b2b213be-f54d-4cb6-af1a-b0fc4111cb0b">&lt;/strong&gt;</ept> connection string.</source>
+          <target state="new">Also, enter the <bpt id="b2b213be-f54d-4cb6-af1a-b0fc4111cb0b">&lt;strong&gt;</bpt>DefaultFullSharedAccessSignature<ept id="b2b213be-f54d-4cb6-af1a-b0fc4111cb0b">&lt;/strong&gt;</ept> connection string.</target>
+        </trans-unit>
+        <trans-unit id="dab29478-4f72-486d-8093-2414ad715d78" xml:space="preserve">
+          <source>This connection string can be copied from the [Azure portal] by clicking <bpt id="9cb43ca8-ea73-4c7b-a4be-2d6c45eff118">&lt;strong&gt;</bpt>View Connection String<ept id="9cb43ca8-ea73-4c7b-a4be-2d6c45eff118">&lt;/strong&gt;</ept> on the <bpt id="df9a850c-6886-44fe-96f9-c2575657173b">&lt;strong&gt;</bpt>Dashboard<ept id="df9a850c-6886-44fe-96f9-c2575657173b">&lt;/strong&gt;</ept> tab for your notification hub.</source>
+          <target state="new">This connection string can be copied from the [Azure portal] by clicking <bpt id="9cb43ca8-ea73-4c7b-a4be-2d6c45eff118">&lt;strong&gt;</bpt>View Connection String<ept id="9cb43ca8-ea73-4c7b-a4be-2d6c45eff118">&lt;/strong&gt;</ept> on the <bpt id="df9a850c-6886-44fe-96f9-c2575657173b">&lt;strong&gt;</bpt>Dashboard<ept id="df9a850c-6886-44fe-96f9-c2575657173b">&lt;/strong&gt;</ept> tab for your notification hub.</target>
+        </trans-unit>
+        <trans-unit id="ddaec065-4039-400d-9b1f-eb5d33bbe55f" xml:space="preserve">
+          <source>Your activity holds the hub name and the full shared access connection string for the hub.</source>
+          <target state="new">Your activity holds the hub name and the full shared access connection string for the hub.</target>
+        </trans-unit>
+        <trans-unit id="fa8a4c25-b5e9-42be-b61f-0e9459961d4d" xml:space="preserve">
+          <source>You must create a Software Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub.</source>
+          <target state="new">You must create a Software Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub.</target>
+        </trans-unit>
+        <trans-unit id="76111fd8-3351-4ffb-ad8b-e7f172d13634" xml:space="preserve">
+          <source>This is done by parsing the key data from the connection string and then creating the SaS token, as mentioned in the <bpt id="25692e0a-b675-4157-8194-40245f05898f">&lt;linkText&gt;</bpt>Common Concepts<ept id="25692e0a-b675-4157-8194-40245f05898f">&lt;/linkText&gt;</ept><bpt id="25692e0a-b675-4157-8194-40245f05898f">&lt;title&gt;</bpt><ept id="25692e0a-b675-4157-8194-40245f05898f">&lt;/title&gt;</ept> REST API reference.</source>
+          <target state="new">This is done by parsing the key data from the connection string and then creating the SaS token, as mentioned in the <bpt id="25692e0a-b675-4157-8194-40245f05898f">&lt;linkText&gt;</bpt>Common Concepts<ept id="25692e0a-b675-4157-8194-40245f05898f">&lt;/linkText&gt;</ept><bpt id="25692e0a-b675-4157-8194-40245f05898f">&lt;title&gt;</bpt><ept id="25692e0a-b675-4157-8194-40245f05898f">&lt;/title&gt;</ept> REST API reference.</target>
+        </trans-unit>
+        <trans-unit id="1d6a3289-3c26-4178-9ec9-5b6807c7383e" xml:space="preserve">
+          <source>In <bpt id="da2bff10-7894-40f2-95b1-3ff5a84249d3">&lt;strong&gt;</bpt>MainActivity.java<ept id="da2bff10-7894-40f2-95b1-3ff5a84249d3">&lt;/strong&gt;</ept>, add the following method to the <bpt id="5ae687bb-69b4-427f-b27d-7980bc75dd0a">&lt;code&gt;</bpt>MainActivity<ept id="5ae687bb-69b4-427f-b27d-7980bc75dd0a">&lt;/code&gt;</ept> class to parse your connection string.</source>
+          <target state="new">In <bpt id="da2bff10-7894-40f2-95b1-3ff5a84249d3">&lt;strong&gt;</bpt>MainActivity.java<ept id="da2bff10-7894-40f2-95b1-3ff5a84249d3">&lt;/strong&gt;</ept>, add the following method to the <bpt id="5ae687bb-69b4-427f-b27d-7980bc75dd0a">&lt;code&gt;</bpt>MainActivity<ept id="5ae687bb-69b4-427f-b27d-7980bc75dd0a">&lt;/code&gt;</ept> class to parse your connection string.</target>
+        </trans-unit>
+        <trans-unit id="4d07cd2e-9636-41cc-bd51-56f1107a7455" xml:space="preserve">
+          <source>In <bpt id="c9883e97-72bd-4cdb-89fb-ef34e07fd299">&lt;strong&gt;</bpt>MainActivity.java<ept id="c9883e97-72bd-4cdb-89fb-ef34e07fd299">&lt;/strong&gt;</ept>, add the following method to the <bpt id="e375ca8a-625e-4e72-b10f-c6878aab2d74">&lt;code&gt;</bpt>MainActivity<ept id="e375ca8a-625e-4e72-b10f-c6878aab2d74">&lt;/code&gt;</ept> class to create a SaS authentication token.</source>
+          <target state="new">In <bpt id="c9883e97-72bd-4cdb-89fb-ef34e07fd299">&lt;strong&gt;</bpt>MainActivity.java<ept id="c9883e97-72bd-4cdb-89fb-ef34e07fd299">&lt;/strong&gt;</ept>, add the following method to the <bpt id="e375ca8a-625e-4e72-b10f-c6878aab2d74">&lt;code&gt;</bpt>MainActivity<ept id="e375ca8a-625e-4e72-b10f-c6878aab2d74">&lt;/code&gt;</ept> class to create a SaS authentication token.</target>
+        </trans-unit>
+        <trans-unit id="0520a474-74ab-4b50-b1c7-e516ef8541c4" xml:space="preserve">
+          <source>In <bpt id="4e1cf45d-02f4-4094-91fe-96c224c44e7c">&lt;strong&gt;</bpt>MainActivity.java<ept id="4e1cf45d-02f4-4094-91fe-96c224c44e7c">&lt;/strong&gt;</ept>, add the following method to the <bpt id="7691eda8-961d-49c2-893a-5170667c7299">&lt;code&gt;</bpt>MainActivity<ept id="7691eda8-961d-49c2-893a-5170667c7299">&lt;/code&gt;</ept> class to handle the <bpt id="2da8752d-723f-45d8-9d68-53f53ab22a47">&lt;strong&gt;</bpt>Send Notification<ept id="2da8752d-723f-45d8-9d68-53f53ab22a47">&lt;/strong&gt;</ept> button click and send the notification message to the hub by using the REST API.</source>
+          <target state="new">In <bpt id="4e1cf45d-02f4-4094-91fe-96c224c44e7c">&lt;strong&gt;</bpt>MainActivity.java<ept id="4e1cf45d-02f4-4094-91fe-96c224c44e7c">&lt;/strong&gt;</ept>, add the following method to the <bpt id="7691eda8-961d-49c2-893a-5170667c7299">&lt;code&gt;</bpt>MainActivity<ept id="7691eda8-961d-49c2-893a-5170667c7299">&lt;/code&gt;</ept> class to handle the <bpt id="2da8752d-723f-45d8-9d68-53f53ab22a47">&lt;strong&gt;</bpt>Send Notification<ept id="2da8752d-723f-45d8-9d68-53f53ab22a47">&lt;/strong&gt;</ept> button click and send the notification message to the hub by using the REST API.</target>
+        </trans-unit>
+        <trans-unit id="6bcc5760-82b6-446d-9e6b-340cdf7ffcf0" xml:space="preserve">
+          <source>If you want to test on an emulator, make sure that your emulator image supports the Google API level that you choose for your app.</source>
+          <target state="new">If you want to test on an emulator, make sure that your emulator image supports the Google API level that you choose for your app.</target>
+        </trans-unit>
+        <trans-unit id="c89ef1cd-6ade-4333-a906-d398c8241c18" xml:space="preserve">
+          <source>If your image doesn't support the Google APIs, you will end up with the <bpt id="432a09af-e0e0-4af5-a926-9c6e8654b2ec">&lt;strong&gt;</bpt>SERVICE\_NOT\_AVAILABLE<ept id="432a09af-e0e0-4af5-a926-9c6e8654b2ec">&lt;/strong&gt;</ept> exception.</source>
+          <target state="new">If your image doesn't support the Google APIs, you will end up with the <bpt id="432a09af-e0e0-4af5-a926-9c6e8654b2ec">&lt;strong&gt;</bpt>SERVICE\_NOT\_AVAILABLE<ept id="432a09af-e0e0-4af5-a926-9c6e8654b2ec">&lt;/strong&gt;</ept> exception.</target>
+        </trans-unit>
+        <trans-unit id="f474c375-84b5-4fd2-a031-0c239bab1acd" xml:space="preserve">
+          <source>Also make sure that you have added your Google account to your running emulator under <bpt id="14afa748-31f1-4d85-817e-26f285dcc19e">&lt;strong&gt;</bpt>Settings<ept id="14afa748-31f1-4d85-817e-26f285dcc19e">&lt;/strong&gt;</ept> &gt; <bpt id="eafb5fa9-73fc-4062-ab0a-162646129312">&lt;strong&gt;</bpt>Accounts<ept id="eafb5fa9-73fc-4062-ab0a-162646129312">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Also make sure that you have added your Google account to your running emulator under <bpt id="14afa748-31f1-4d85-817e-26f285dcc19e">&lt;strong&gt;</bpt>Settings<ept id="14afa748-31f1-4d85-817e-26f285dcc19e">&lt;/strong&gt;</ept> &gt; <bpt id="eafb5fa9-73fc-4062-ab0a-162646129312">&lt;strong&gt;</bpt>Accounts<ept id="eafb5fa9-73fc-4062-ab0a-162646129312">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63a9d727-93d9-4243-9e4f-56b85a91e875" xml:space="preserve">
+          <source>Otherwise, your attempts to register with GCM may result in the <bpt id="ce01b55d-0c62-4397-af99-8c468079824c">&lt;strong&gt;</bpt>AUTHENTICATION\_FAILED<ept id="ce01b55d-0c62-4397-af99-8c468079824c">&lt;/strong&gt;</ept> exception.</source>
+          <target state="new">Otherwise, your attempts to register with GCM may result in the <bpt id="ce01b55d-0c62-4397-af99-8c468079824c">&lt;strong&gt;</bpt>AUTHENTICATION\_FAILED<ept id="ce01b55d-0c62-4397-af99-8c468079824c">&lt;/strong&gt;</ept> exception.</target>
+        </trans-unit>
+        <trans-unit id="303b4993-b019-4cbe-9fba-a8c70f8f746e" xml:space="preserve">
+          <source>Run the app and notice that the registration ID is reported for a successful registration.</source>
+          <target state="new">Run the app and notice that the registration ID is reported for a successful registration.</target>
+        </trans-unit>
+        <trans-unit id="5008480e-39fc-4406-bda9-157784168cd6" xml:space="preserve">
+          <source><bpt id="4d75bfba-f6bf-4b2d-8a83-7eaeded82d11">&lt;linkText&gt;</bpt><ept id="4d75bfba-f6bf-4b2d-8a83-7eaeded82d11">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d75bfba-f6bf-4b2d-8a83-7eaeded82d11">&lt;linkText&gt;</bpt><ept id="4d75bfba-f6bf-4b2d-8a83-7eaeded82d11">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12b52303-bf46-4ae6-b50f-1832a68a424d" xml:space="preserve">
+          <source>Enter a notification message to be sent to all Android devices that have registered with the hub.</source>
+          <target state="new">Enter a notification message to be sent to all Android devices that have registered with the hub.</target>
+        </trans-unit>
+        <trans-unit id="5e8e835e-1335-49eb-b9bd-b85835e68033" xml:space="preserve">
+          <source><bpt id="ff9a4d5b-e483-4a5e-bb37-92c37f0cc51b">&lt;linkText&gt;</bpt><ept id="ff9a4d5b-e483-4a5e-bb37-92c37f0cc51b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff9a4d5b-e483-4a5e-bb37-92c37f0cc51b">&lt;linkText&gt;</bpt><ept id="ff9a4d5b-e483-4a5e-bb37-92c37f0cc51b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a0ac3df-afef-4e5f-8d0a-8fd04af382a8" xml:space="preserve">
+          <source>Press <bpt id="fbde7142-cf37-4665-b941-571a33488228">&lt;strong&gt;</bpt>Send Notification<ept id="fbde7142-cf37-4665-b941-571a33488228">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Press <bpt id="fbde7142-cf37-4665-b941-571a33488228">&lt;strong&gt;</bpt>Send Notification<ept id="fbde7142-cf37-4665-b941-571a33488228">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b96c9a4-2d38-4bd8-96c6-7a922bc5c803" xml:space="preserve">
+          <source>Any devices that have the app running will show an <bpt id="91596f8f-6a99-44d2-b63d-078403c47697">&lt;code&gt;</bpt>AlertDialog<ept id="91596f8f-6a99-44d2-b63d-078403c47697">&lt;/code&gt;</ept> with the notification message.</source>
+          <target state="new">Any devices that have the app running will show an <bpt id="91596f8f-6a99-44d2-b63d-078403c47697">&lt;code&gt;</bpt>AlertDialog<ept id="91596f8f-6a99-44d2-b63d-078403c47697">&lt;/code&gt;</ept> with the notification message.</target>
+        </trans-unit>
+        <trans-unit id="541f25b0-cb28-48c6-a520-7599df00bdf1" xml:space="preserve">
+          <source>Devices that don't have the app running but were previously registered for the notifications will receive a notification added to the notification manager.</source>
+          <target state="new">Devices that don't have the app running but were previously registered for the notifications will receive a notification added to the notification manager.</target>
+        </trans-unit>
+        <trans-unit id="16af225e-3ab1-4532-9bba-ba164e838779" xml:space="preserve">
+          <source>Notifications can be viewed by swiping down from the upper-left corner.</source>
+          <target state="new">Notifications can be viewed by swiping down from the upper-left corner.</target>
+        </trans-unit>
+        <trans-unit id="7d68312a-1cf3-4219-b635-a2926cbd81a3" xml:space="preserve">
+          <source><bpt id="3f50681b-be25-41b5-a68f-ca58434f3a3e">&lt;linkText&gt;</bpt><ept id="3f50681b-be25-41b5-a68f-ca58434f3a3e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3f50681b-be25-41b5-a68f-ca58434f3a3e">&lt;linkText&gt;</bpt><ept id="3f50681b-be25-41b5-a68f-ca58434f3a3e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c15299f7-5755-4e97-91da-83bd813711ac" xml:space="preserve">
+          <source>In this simple example, you broadcast notifications to all your Android devices.</source>
+          <target state="new">In this simple example, you broadcast notifications to all your Android devices.</target>
+        </trans-unit>
+        <trans-unit id="00dd2997-aefe-4e08-ba3b-d5adb6feb18c" xml:space="preserve">
+          <source>In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users].</source>
+          <target state="new">In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users].</target>
+        </trans-unit>
+        <trans-unit id="469748cc-917c-472b-8f00-98a814096b5d" xml:space="preserve">
+          <source>If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news].</source>
+          <target state="new">If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news].</target>
+        </trans-unit>
+        <trans-unit id="51369326-0739-496a-b452-50fe164b1e49" xml:space="preserve">
+          <source>Learn more about how to use Notification Hubs in [Notification Hubs Guidance].</source>
+          <target state="new">Learn more about how to use Notification Hubs in [Notification Hubs Guidance].</target>
+        </trans-unit>
+        <trans-unit id="79f1a43a-ef61-4300-9fc5-2c34575057b1" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/mobile-services-google-new-project.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/mobile-services-google-new-project.png</target>
+        </trans-unit>
+        <trans-unit id="b2804538-5fa1-4f91-be1c-7002ee2828fd" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png</target>
+        </trans-unit>
+        <trans-unit id="13c098d5-7a93-4de1-a0b0-3bd1165b368e" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png</target>
+        </trans-unit>
+        <trans-unit id="178de0ba-8ef8-4019-bac4-1bd76ca49a06" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png</target>
+        </trans-unit>
+        <trans-unit id="450b1f49-1e13-4c07-8012-694067938fbf" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png</target>
+        </trans-unit>
+        <trans-unit id="c79c2375-5ae3-4563-bfbe-842aff5931fd" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hub-android-new-class.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hub-android-new-class.png</target>
+        </trans-unit>
+        <trans-unit id="ad0a375d-9113-4b72-9f32-dd732cc1a9b7" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hub-connection-strings.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hub-connection-strings.png</target>
+        </trans-unit>
+        <trans-unit id="0af18d6d-db03-45c8-b799-c2ccda8707bb" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hubs-android-studio-new-project.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hubs-android-studio-new-project.png</target>
+        </trans-unit>
+        <trans-unit id="58fd64bd-8471-4f25-af50-9ea8b9fd4a0c" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hubs-android-studio-choose-form-factor.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hubs-android-studio-choose-form-factor.png</target>
+        </trans-unit>
+        <trans-unit id="c73cc367-847a-4ee6-adca-bf32262900dd" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png</target>
+        </trans-unit>
+        <trans-unit id="c03897bf-fc01-4a8c-88a0-d1cf56531123" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hub-create-android-app5.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hub-create-android-app5.png</target>
+        </trans-unit>
+        <trans-unit id="e91b2aca-8ea1-484a-8cac-3027ff398498" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hub-create-android-app6.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hub-create-android-app6.png</target>
+        </trans-unit>
+        <trans-unit id="e94326d0-bb23-42c2-bae0-0762cb4c2154" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hubs-android-studio-registered.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hubs-android-studio-registered.png</target>
+        </trans-unit>
+        <trans-unit id="20f5d112-0f4e-49e2-9e7b-d0f62b9a545c" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hubs-android-studio-set-message.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hubs-android-studio-set-message.png</target>
+        </trans-unit>
+        <trans-unit id="163ecd36-206c-4aa6-ac8b-5a78df35cf0f" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hub-create-console-app.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hub-create-console-app.png</target>
+        </trans-unit>
+        <trans-unit id="180dce4f-3dbc-4f05-9715-4203c8ae9ea1" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hubs-android-studio-received-message.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hubs-android-studio-received-message.png</target>
+        </trans-unit>
+        <trans-unit id="6cbce1e5-4101-4fe0-bb41-f4fcf53c7b53" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hub-scheduler1.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hub-scheduler1.png</target>
+        </trans-unit>
+        <trans-unit id="89cbd9b4-2688-45ce-8ae5-1ea10562130c" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hub-scheduler2.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hub-scheduler2.png</target>
+        </trans-unit>
+        <trans-unit id="6eff07c3-ef59-4f17-9c7c-b95fef5a31fa" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png</source>
+          <target state="new">./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png</target>
+        </trans-unit>
+        <trans-unit id="c8d8d782-a5dc-4386-ad70-6472d4d60ac6" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png</target>
+        </trans-unit>
+        <trans-unit id="fd55add3-8015-45c3-b570-24bbbbba4db2" xml:space="preserve">
+          <source>./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png</source>
+          <target state="new">./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png</target>
+        </trans-unit>
+        <trans-unit id="1c591590-160c-41d0-9405-677b6a22be88" xml:space="preserve">
+          <source>../mobile-services-javascript-backend-android-get-started-push.md</source>
+          <target state="new">../mobile-services-javascript-backend-android-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="225ce87f-36ec-493c-9c2e-0c2adbe570c2" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/?LinkID=280126&amp;clcid=0x409</source>
+          <target state="new">https://go.microsoft.com/fwLink/?LinkID=280126&amp;clcid=0x409</target>
+        </trans-unit>
+        <trans-unit id="47caffcf-861b-4072-97df-209919b56e5a" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=389800</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=389800</target>
+        </trans-unit>
+        <trans-unit id="519686f7-ae8f-4c3f-a4be-c608adbe17cf" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="60afb7da-8d30-41e8-9025-83c8dc1cdb53" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/jj927170.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/jj927170.aspx</target>
+        </trans-unit>
+        <trans-unit id="22792c89-64b6-4829-a858-d50c8da302cd" xml:space="preserve">
+          <source>notification-hubs-aspnet-backend-android-notify-users.md</source>
+          <target state="new">notification-hubs-aspnet-backend-android-notify-users.md</target>
+        </trans-unit>
+        <trans-unit id="8012c2b6-c59e-418b-b71a-6bc3644e0678" xml:space="preserve">
+          <source>notification-hubs-aspnet-backend-android-breaking-news.md</source>
+          <target state="new">notification-hubs-aspnet-backend-android-breaking-news.md</target>
+        </trans-unit>
+      </group>
+      <group id="1beb1e57-9aef-4d14-8355-0a4a61cfa420" />
+    </body>
+  </file>
+</xliff>

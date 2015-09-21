@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b9c3e229-db63-4f17-8ae9-576c24a39858" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b9c3e229-db63-4f17-8ae9-576c24a39858" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="90844c31-d318-4dc5-b53d-2bb6cb26088d">
+        <trans-unit id="9a8ffc81-5011-45de-8f09-47710922dda8" xml:space="preserve">
+          <source>Data retention and storage in Application Insights</source>
+          <target state="new">Data retention and storage in Application Insights</target>
+        </trans-unit>
+        <trans-unit id="28331c93-c4d0-4524-822e-3b478a275b8e" xml:space="preserve">
+          <source>Retention and privacy policy statement</source>
+          <target state="new">Retention and privacy policy statement</target>
+        </trans-unit>
+        <trans-unit id="767c9dd2-768a-43bc-878c-d969420da807" xml:space="preserve">
+          <source><bpt id="70e5faff-8ddb-4c59-b071-ed02190ad79b">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="70e5faff-8ddb-4c59-b071-ed02190ad79b">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="70e5faff-8ddb-4c59-b071-ed02190ad79b">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="70e5faff-8ddb-4c59-b071-ed02190ad79b">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d13ce4c9-ef2c-4108-936b-c11ea21d82f9" xml:space="preserve">
+          <source>This article answers questions about the data collected by  <bpt id="2821df63-9643-4b8f-8627-4e0e87f40d80">&lt;linkText&gt;</bpt>Visual Studio Application Insights[start]<ept id="2821df63-9643-4b8f-8627-4e0e87f40d80">&lt;/linkText&gt;</ept><bpt id="2821df63-9643-4b8f-8627-4e0e87f40d80">&lt;title&gt;</bpt><ept id="2821df63-9643-4b8f-8627-4e0e87f40d80">&lt;/title&gt;</ept> and how it is processed and stored.</source>
+          <target state="new">This article answers questions about the data collected by  <bpt id="2821df63-9643-4b8f-8627-4e0e87f40d80">&lt;linkText&gt;</bpt>Visual Studio Application Insights[start]<ept id="2821df63-9643-4b8f-8627-4e0e87f40d80">&lt;/linkText&gt;</ept><bpt id="2821df63-9643-4b8f-8627-4e0e87f40d80">&lt;title&gt;</bpt><ept id="2821df63-9643-4b8f-8627-4e0e87f40d80">&lt;/title&gt;</ept> and how it is processed and stored.</target>
+        </trans-unit>
+        <trans-unit id="03ef1589-e2e6-4254-aca6-3f74c7e9900b" xml:space="preserve">
+          <source>Application Insights is an Azure Service in Preview.</source>
+          <target state="new">Application Insights is an Azure Service in Preview.</target>
+        </trans-unit>
+        <trans-unit id="fe0e7961-a5a6-4623-b9c4-fcc746cea4af" xml:space="preserve">
+          <source>While in Preview we are working towards protecting your data per the policies described in the <bpt id="721d21f4-51c8-4306-a567-30be5fc365d1">&lt;linkText&gt;</bpt>Azure Security, Privacy, and Compliance white paper<ept id="721d21f4-51c8-4306-a567-30be5fc365d1">&lt;/linkText&gt;</ept><bpt id="721d21f4-51c8-4306-a567-30be5fc365d1">&lt;title&gt;</bpt><ept id="721d21f4-51c8-4306-a567-30be5fc365d1">&lt;/title&gt;</ept>.</source>
+          <target state="new">While in Preview we are working towards protecting your data per the policies described in the <bpt id="721d21f4-51c8-4306-a567-30be5fc365d1">&lt;linkText&gt;</bpt>Azure Security, Privacy, and Compliance white paper<ept id="721d21f4-51c8-4306-a567-30be5fc365d1">&lt;/linkText&gt;</ept><bpt id="721d21f4-51c8-4306-a567-30be5fc365d1">&lt;title&gt;</bpt><ept id="721d21f4-51c8-4306-a567-30be5fc365d1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33f58dd5-f54c-4b38-b647-3245493c9400" xml:space="preserve">
+          <source>Application Insights SDKs and agents that you combine with your application send data to the Application Insights service.</source>
+          <target state="new">Application Insights SDKs and agents that you combine with your application send data to the Application Insights service.</target>
+        </trans-unit>
+        <trans-unit id="d6a711af-281e-484c-b1a0-4b6852e2ae95" xml:space="preserve">
+          <source>The data is processed by the service to provide you with reports, alerts and other functionality.</source>
+          <target state="new">The data is processed by the service to provide you with reports, alerts and other functionality.</target>
+        </trans-unit>
+        <trans-unit id="b3c51eac-e521-43e4-a84f-faf224e8d427" xml:space="preserve">
+          <source>This can include data that you choose to capture by using the API, for example in properties and custom events.</source>
+          <target state="new">This can include data that you choose to capture by using the API, for example in properties and custom events.</target>
+        </trans-unit>
+        <trans-unit id="fbb0f34d-859b-4457-9997-40d89a3970a4" xml:space="preserve">
+          <source><bpt id="2a7970b4-6881-45ed-93d5-e5f9ebd0ba19">&lt;strong&gt;</bpt>Per second<ept id="2a7970b4-6881-45ed-93d5-e5f9ebd0ba19">&lt;/strong&gt;</ept>: Up to 500 data points per second per instrumentation key (that is, per application).</source>
+          <target state="new"><bpt id="2a7970b4-6881-45ed-93d5-e5f9ebd0ba19">&lt;strong&gt;</bpt>Per second<ept id="2a7970b4-6881-45ed-93d5-e5f9ebd0ba19">&lt;/strong&gt;</ept>: Up to 500 data points per second per instrumentation key (that is, per application).</target>
+        </trans-unit>
+        <trans-unit id="2a4414ee-98f2-47d9-8f92-63860b59de60" xml:space="preserve">
+          <source>For the free <bpt id="dccfaaa7-c4eb-4d28-8151-42de4dbb51b4">&lt;linkText&gt;</bpt>pricing tier[pricing]<ept id="dccfaaa7-c4eb-4d28-8151-42de4dbb51b4">&lt;/linkText&gt;</ept><bpt id="dccfaaa7-c4eb-4d28-8151-42de4dbb51b4">&lt;title&gt;</bpt><ept id="dccfaaa7-c4eb-4d28-8151-42de4dbb51b4">&lt;/title&gt;</ept>, the limit is 100 dp/s.</source>
+          <target state="new">For the free <bpt id="dccfaaa7-c4eb-4d28-8151-42de4dbb51b4">&lt;linkText&gt;</bpt>pricing tier[pricing]<ept id="dccfaaa7-c4eb-4d28-8151-42de4dbb51b4">&lt;/linkText&gt;</ept><bpt id="dccfaaa7-c4eb-4d28-8151-42de4dbb51b4">&lt;title&gt;</bpt><ept id="dccfaaa7-c4eb-4d28-8151-42de4dbb51b4">&lt;/title&gt;</ept>, the limit is 100 dp/s.</target>
+        </trans-unit>
+        <trans-unit id="58463d2d-4df5-45af-b2d1-2f87b26e6fdd" xml:space="preserve">
+          <source>There are three buckets which are counted separately:</source>
+          <target state="new">There are three buckets which are counted separately:</target>
+        </trans-unit>
+        <trans-unit id="79d7443a-764a-45f5-9f33-1d798d86fc2b" xml:space="preserve">
+          <source><bpt id="72586ae0-15b4-4f83-a603-d02d51bb4f70">&lt;linkText&gt;</bpt>TrackTrace calls<ept id="72586ae0-15b4-4f83-a603-d02d51bb4f70">&lt;/linkText&gt;</ept><bpt id="72586ae0-15b4-4f83-a603-d02d51bb4f70">&lt;title&gt;</bpt><ept id="72586ae0-15b4-4f83-a603-d02d51bb4f70">&lt;/title&gt;</ept> and <bpt id="8684e118-887d-4e1e-84e8-fbde1bc9ff7e">&lt;linkText&gt;</bpt>captured logs<ept id="8684e118-887d-4e1e-84e8-fbde1bc9ff7e">&lt;/linkText&gt;</ept><bpt id="8684e118-887d-4e1e-84e8-fbde1bc9ff7e">&lt;title&gt;</bpt><ept id="8684e118-887d-4e1e-84e8-fbde1bc9ff7e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="72586ae0-15b4-4f83-a603-d02d51bb4f70">&lt;linkText&gt;</bpt>TrackTrace calls<ept id="72586ae0-15b4-4f83-a603-d02d51bb4f70">&lt;/linkText&gt;</ept><bpt id="72586ae0-15b4-4f83-a603-d02d51bb4f70">&lt;title&gt;</bpt><ept id="72586ae0-15b4-4f83-a603-d02d51bb4f70">&lt;/title&gt;</ept> and <bpt id="8684e118-887d-4e1e-84e8-fbde1bc9ff7e">&lt;linkText&gt;</bpt>captured logs<ept id="8684e118-887d-4e1e-84e8-fbde1bc9ff7e">&lt;/linkText&gt;</ept><bpt id="8684e118-887d-4e1e-84e8-fbde1bc9ff7e">&lt;title&gt;</bpt><ept id="8684e118-887d-4e1e-84e8-fbde1bc9ff7e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f42de390-1617-48c5-b48b-07086304dfc1" xml:space="preserve">
+          <source><bpt id="0b35cdfe-69e7-445d-bc5c-89b1eb314107">&lt;linkText&gt;</bpt>Exceptions<ept id="0b35cdfe-69e7-445d-bc5c-89b1eb314107">&lt;/linkText&gt;</ept><bpt id="0b35cdfe-69e7-445d-bc5c-89b1eb314107">&lt;title&gt;</bpt><ept id="0b35cdfe-69e7-445d-bc5c-89b1eb314107">&lt;/title&gt;</ept>, subject to a lower limit of 50/s.</source>
+          <target state="new"><bpt id="0b35cdfe-69e7-445d-bc5c-89b1eb314107">&lt;linkText&gt;</bpt>Exceptions<ept id="0b35cdfe-69e7-445d-bc5c-89b1eb314107">&lt;/linkText&gt;</ept><bpt id="0b35cdfe-69e7-445d-bc5c-89b1eb314107">&lt;title&gt;</bpt><ept id="0b35cdfe-69e7-445d-bc5c-89b1eb314107">&lt;/title&gt;</ept>, subject to a lower limit of 50/s.</target>
+        </trans-unit>
+        <trans-unit id="fba21c97-a7fc-4004-b6c6-db899f4163a4" xml:space="preserve">
+          <source>All other telemetry (page views, requests, dependencies, metrics, custom events and web test results).</source>
+          <target state="new">All other telemetry (page views, requests, dependencies, metrics, custom events and web test results).</target>
+        </trans-unit>
+        <trans-unit id="4551e0eb-ab49-4d05-9a75-c9595955bd4a" xml:space="preserve">
+          <source><bpt id="2cc061af-7e32-4f92-a771-2f73290281b5">&lt;strong&gt;</bpt>Monthly<ept id="2cc061af-7e32-4f92-a771-2f73290281b5">&lt;/strong&gt;</ept>: Between 5 and 15 million data points in each calendar month, depending on your <bpt id="555f6e62-9f05-4598-b16c-1e1940a61ee1">&lt;linkText&gt;</bpt>pricing plan<ept id="555f6e62-9f05-4598-b16c-1e1940a61ee1">&lt;/linkText&gt;</ept><bpt id="555f6e62-9f05-4598-b16c-1e1940a61ee1">&lt;title&gt;</bpt><ept id="555f6e62-9f05-4598-b16c-1e1940a61ee1">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="2cc061af-7e32-4f92-a771-2f73290281b5">&lt;strong&gt;</bpt>Monthly<ept id="2cc061af-7e32-4f92-a771-2f73290281b5">&lt;/strong&gt;</ept>: Between 5 and 15 million data points in each calendar month, depending on your <bpt id="555f6e62-9f05-4598-b16c-1e1940a61ee1">&lt;linkText&gt;</bpt>pricing plan<ept id="555f6e62-9f05-4598-b16c-1e1940a61ee1">&lt;/linkText&gt;</ept><bpt id="555f6e62-9f05-4598-b16c-1e1940a61ee1">&lt;title&gt;</bpt><ept id="555f6e62-9f05-4598-b16c-1e1940a61ee1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b24bef8a-f29e-401a-9b27-f8acef54cca5" xml:space="preserve">
+          <source>Except for the free <bpt id="33fb121a-187c-407b-a529-67351c10eeb2">&lt;linkText&gt;</bpt>pricing tier[pricing]<ept id="33fb121a-187c-407b-a529-67351c10eeb2">&lt;/linkText&gt;</ept><bpt id="33fb121a-187c-407b-a529-67351c10eeb2">&lt;title&gt;</bpt><ept id="33fb121a-187c-407b-a529-67351c10eeb2">&lt;/title&gt;</ept>, you can buy additional capacity if you hit the limit.</source>
+          <target state="new">Except for the free <bpt id="33fb121a-187c-407b-a529-67351c10eeb2">&lt;linkText&gt;</bpt>pricing tier[pricing]<ept id="33fb121a-187c-407b-a529-67351c10eeb2">&lt;/linkText&gt;</ept><bpt id="33fb121a-187c-407b-a529-67351c10eeb2">&lt;title&gt;</bpt><ept id="33fb121a-187c-407b-a529-67351c10eeb2">&lt;/title&gt;</ept>, you can buy additional capacity if you hit the limit.</target>
+        </trans-unit>
+        <trans-unit id="e6d7bfe1-fb0f-473c-9ecc-977b19ac1839" xml:space="preserve">
+          <source>A <bpt id="57956243-be04-451c-a8a0-165b6c9f8617">&lt;em&gt;</bpt>data point<ept id="57956243-be04-451c-a8a0-165b6c9f8617">&lt;/em&gt;</ept> is an item of telemetry sent to the Azure portal about your app.</source>
+          <target state="new">A <bpt id="57956243-be04-451c-a8a0-165b6c9f8617">&lt;em&gt;</bpt>data point<ept id="57956243-be04-451c-a8a0-165b6c9f8617">&lt;/em&gt;</ept> is an item of telemetry sent to the Azure portal about your app.</target>
+        </trans-unit>
+        <trans-unit id="f3cd437f-8348-4cd7-8346-aece0c890173" xml:space="preserve">
+          <source>It can be sent by:</source>
+          <target state="new">It can be sent by:</target>
+        </trans-unit>
+        <trans-unit id="797374a3-d0d8-4424-aedd-71d7fb7c9533" xml:space="preserve">
+          <source><bpt id="d43f11fc-3055-4405-89fc-fbbd86fe7da4">&lt;linkText&gt;</bpt>SDK modules<ept id="d43f11fc-3055-4405-89fc-fbbd86fe7da4">&lt;/linkText&gt;</ept><bpt id="d43f11fc-3055-4405-89fc-fbbd86fe7da4">&lt;title&gt;</bpt><ept id="d43f11fc-3055-4405-89fc-fbbd86fe7da4">&lt;/title&gt;</ept> that automatically collect data, for example to report a request or crash, or to measure performance.</source>
+          <target state="new"><bpt id="d43f11fc-3055-4405-89fc-fbbd86fe7da4">&lt;linkText&gt;</bpt>SDK modules<ept id="d43f11fc-3055-4405-89fc-fbbd86fe7da4">&lt;/linkText&gt;</ept><bpt id="d43f11fc-3055-4405-89fc-fbbd86fe7da4">&lt;title&gt;</bpt><ept id="d43f11fc-3055-4405-89fc-fbbd86fe7da4">&lt;/title&gt;</ept> that automatically collect data, for example to report a request or crash, or to measure performance.</target>
+        </trans-unit>
+        <trans-unit id="96e3f7b9-d891-4457-a81e-f9e39e7e9a84" xml:space="preserve">
+          <source><bpt id="47fef3fe-746b-4e11-b9e5-57a8b0304138">&lt;linkText&gt;</bpt>API<ept id="47fef3fe-746b-4e11-b9e5-57a8b0304138">&lt;/linkText&gt;</ept><bpt id="47fef3fe-746b-4e11-b9e5-57a8b0304138">&lt;title&gt;</bpt><ept id="47fef3fe-746b-4e11-b9e5-57a8b0304138">&lt;/title&gt;</ept> <bpt id="bca481d1-19f6-4d3d-a914-fede4eb94143">&lt;code&gt;</bpt>Track...<ept id="bca481d1-19f6-4d3d-a914-fede4eb94143">&lt;/code&gt;</ept> calls that you have written, such as <bpt id="ded4dd15-0807-4b3f-9989-b89099bdb8f6">&lt;code&gt;</bpt>TrackEvent<ept id="ded4dd15-0807-4b3f-9989-b89099bdb8f6">&lt;/code&gt;</ept> or <bpt id="48bfdf00-d523-4f27-bce2-4d9e519e2238">&lt;code&gt;</bpt>trackPageView<ept id="48bfdf00-d523-4f27-bce2-4d9e519e2238">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="47fef3fe-746b-4e11-b9e5-57a8b0304138">&lt;linkText&gt;</bpt>API<ept id="47fef3fe-746b-4e11-b9e5-57a8b0304138">&lt;/linkText&gt;</ept><bpt id="47fef3fe-746b-4e11-b9e5-57a8b0304138">&lt;title&gt;</bpt><ept id="47fef3fe-746b-4e11-b9e5-57a8b0304138">&lt;/title&gt;</ept> <bpt id="bca481d1-19f6-4d3d-a914-fede4eb94143">&lt;code&gt;</bpt>Track...<ept id="bca481d1-19f6-4d3d-a914-fede4eb94143">&lt;/code&gt;</ept> calls that you have written, such as <bpt id="ded4dd15-0807-4b3f-9989-b89099bdb8f6">&lt;code&gt;</bpt>TrackEvent<ept id="ded4dd15-0807-4b3f-9989-b89099bdb8f6">&lt;/code&gt;</ept> or <bpt id="48bfdf00-d523-4f27-bce2-4d9e519e2238">&lt;code&gt;</bpt>trackPageView<ept id="48bfdf00-d523-4f27-bce2-4d9e519e2238">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cefb0e26-7dc1-4b83-a936-c7f6de5c59c7" xml:space="preserve">
+          <source><bpt id="58e199aa-c74a-49b2-9e67-f968a31fbfb4">&lt;linkText&gt;</bpt>Availability web tests<ept id="58e199aa-c74a-49b2-9e67-f968a31fbfb4">&lt;/linkText&gt;</ept><bpt id="58e199aa-c74a-49b2-9e67-f968a31fbfb4">&lt;title&gt;</bpt><ept id="58e199aa-c74a-49b2-9e67-f968a31fbfb4">&lt;/title&gt;</ept> that you have set up.</source>
+          <target state="new"><bpt id="58e199aa-c74a-49b2-9e67-f968a31fbfb4">&lt;linkText&gt;</bpt>Availability web tests<ept id="58e199aa-c74a-49b2-9e67-f968a31fbfb4">&lt;/linkText&gt;</ept><bpt id="58e199aa-c74a-49b2-9e67-f968a31fbfb4">&lt;title&gt;</bpt><ept id="58e199aa-c74a-49b2-9e67-f968a31fbfb4">&lt;/title&gt;</ept> that you have set up.</target>
+        </trans-unit>
+        <trans-unit id="4e57e8fa-bb1a-4a39-84fe-4cf58f5cfabe" xml:space="preserve">
+          <source>Telemetry data include:</source>
+          <target state="new">Telemetry data include:</target>
+        </trans-unit>
+        <trans-unit id="8829e8d8-a4b7-4ba8-9cd2-322c24975cca" xml:space="preserve">
+          <source>Each row in <bpt id="4c4d43fb-f528-4c0a-857c-affe993b0341">&lt;linkText&gt;</bpt>diagnostic search<ept id="4c4d43fb-f528-4c0a-857c-affe993b0341">&lt;/linkText&gt;</ept><bpt id="4c4d43fb-f528-4c0a-857c-affe993b0341">&lt;title&gt;</bpt><ept id="4c4d43fb-f528-4c0a-857c-affe993b0341">&lt;/title&gt;</ept></source>
+          <target state="new">Each row in <bpt id="4c4d43fb-f528-4c0a-857c-affe993b0341">&lt;linkText&gt;</bpt>diagnostic search<ept id="4c4d43fb-f528-4c0a-857c-affe993b0341">&lt;/linkText&gt;</ept><bpt id="4c4d43fb-f528-4c0a-857c-affe993b0341">&lt;title&gt;</bpt><ept id="4c4d43fb-f528-4c0a-857c-affe993b0341">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccf10235-13a0-4d60-9cbf-55571cf0a854" xml:space="preserve">
+          <source>The raw data from which charts in <bpt id="7dbc67de-8906-4e89-bb95-2795003ffbf3">&lt;linkText&gt;</bpt>metric explorer<ept id="7dbc67de-8906-4e89-bb95-2795003ffbf3">&lt;/linkText&gt;</ept><bpt id="7dbc67de-8906-4e89-bb95-2795003ffbf3">&lt;title&gt;</bpt><ept id="7dbc67de-8906-4e89-bb95-2795003ffbf3">&lt;/title&gt;</ept> are aggregated.</source>
+          <target state="new">The raw data from which charts in <bpt id="7dbc67de-8906-4e89-bb95-2795003ffbf3">&lt;linkText&gt;</bpt>metric explorer<ept id="7dbc67de-8906-4e89-bb95-2795003ffbf3">&lt;/linkText&gt;</ept><bpt id="7dbc67de-8906-4e89-bb95-2795003ffbf3">&lt;title&gt;</bpt><ept id="7dbc67de-8906-4e89-bb95-2795003ffbf3">&lt;/title&gt;</ept> are aggregated.</target>
+        </trans-unit>
+        <trans-unit id="6108d670-0ee2-4b5a-b18f-5e502ea0ab64" xml:space="preserve">
+          <source>Metric data such as performance counter data don't usually appear as individual points in metric explorer.</source>
+          <target state="new">Metric data such as performance counter data don't usually appear as individual points in metric explorer.</target>
+        </trans-unit>
+        <trans-unit id="c784cdc8-465c-4808-9cd0-39c900f9582b" xml:space="preserve">
+          <source>Each web test result in an <bpt id="f9846b63-2fc1-41f2-8ea7-455a047bd823">&lt;linkText&gt;</bpt>availability<ept id="f9846b63-2fc1-41f2-8ea7-455a047bd823">&lt;/linkText&gt;</ept><bpt id="f9846b63-2fc1-41f2-8ea7-455a047bd823">&lt;title&gt;</bpt><ept id="f9846b63-2fc1-41f2-8ea7-455a047bd823">&lt;/title&gt;</ept> report.</source>
+          <target state="new">Each web test result in an <bpt id="f9846b63-2fc1-41f2-8ea7-455a047bd823">&lt;linkText&gt;</bpt>availability<ept id="f9846b63-2fc1-41f2-8ea7-455a047bd823">&lt;/linkText&gt;</ept><bpt id="f9846b63-2fc1-41f2-8ea7-455a047bd823">&lt;title&gt;</bpt><ept id="f9846b63-2fc1-41f2-8ea7-455a047bd823">&lt;/title&gt;</ept> report.</target>
+        </trans-unit>
+        <trans-unit id="a0ff0701-963a-4c8c-8387-b2ce8e539e66" xml:space="preserve">
+          <source>User and session counts aren't included in the quota for pricing purposes.</source>
+          <target state="new">User and session counts aren't included in the quota for pricing purposes.</target>
+        </trans-unit>
+        <trans-unit id="17fbdf18-e245-4dc3-a56e-429f76e6e79f" xml:space="preserve">
+          <source><bpt id="20e4b502-3a80-4c4e-9ef4-ea74f48d2600">&lt;em&gt;</bpt>How do I know how many data points my app is sending?<ept id="20e4b502-3a80-4c4e-9ef4-ea74f48d2600">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="20e4b502-3a80-4c4e-9ef4-ea74f48d2600">&lt;em&gt;</bpt>How do I know how many data points my app is sending?<ept id="20e4b502-3a80-4c4e-9ef4-ea74f48d2600">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5664ab5-635e-4d72-ab12-b0ce4026c9d5" xml:space="preserve">
+          <source>Open Settings/Quota and Pricing to see the Data Volume chart.</source>
+          <target state="new">Open Settings/Quota and Pricing to see the Data Volume chart.</target>
+        </trans-unit>
+        <trans-unit id="f0f329d7-91d2-4653-b165-1d519fa7a556" xml:space="preserve">
+          <source>Or in Metrics Explorer, add a new chart and select <bpt id="cda7e860-f11c-4250-9f67-abc74213fc21">&lt;strong&gt;</bpt>Data point volume<ept id="cda7e860-f11c-4250-9f67-abc74213fc21">&lt;/strong&gt;</ept> as its metric.</source>
+          <target state="new">Or in Metrics Explorer, add a new chart and select <bpt id="cda7e860-f11c-4250-9f67-abc74213fc21">&lt;strong&gt;</bpt>Data point volume<ept id="cda7e860-f11c-4250-9f67-abc74213fc21">&lt;/strong&gt;</ept> as its metric.</target>
+        </trans-unit>
+        <trans-unit id="197dbaa8-88e4-4ee4-bd5d-052a3cd77af5" xml:space="preserve">
+          <source>Switch on Grouping, and group by <bpt id="79fa65e6-6302-4702-b82d-1d00fc07b118">&lt;strong&gt;</bpt>Data type<ept id="79fa65e6-6302-4702-b82d-1d00fc07b118">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Switch on Grouping, and group by <bpt id="79fa65e6-6302-4702-b82d-1d00fc07b118">&lt;strong&gt;</bpt>Data type<ept id="79fa65e6-6302-4702-b82d-1d00fc07b118">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0541570-b59c-4100-905d-e062a531efd2" xml:space="preserve">
+          <source>It depends on your <bpt id="3137a97e-73a9-48dc-9a3d-ddffad4564b5">&lt;linkText&gt;</bpt>pricing plan<ept id="3137a97e-73a9-48dc-9a3d-ddffad4564b5">&lt;/linkText&gt;</ept><bpt id="3137a97e-73a9-48dc-9a3d-ddffad4564b5">&lt;title&gt;</bpt><ept id="3137a97e-73a9-48dc-9a3d-ddffad4564b5">&lt;/title&gt;</ept>.</source>
+          <target state="new">It depends on your <bpt id="3137a97e-73a9-48dc-9a3d-ddffad4564b5">&lt;linkText&gt;</bpt>pricing plan<ept id="3137a97e-73a9-48dc-9a3d-ddffad4564b5">&lt;/linkText&gt;</ept><bpt id="3137a97e-73a9-48dc-9a3d-ddffad4564b5">&lt;title&gt;</bpt><ept id="3137a97e-73a9-48dc-9a3d-ddffad4564b5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1eb39c14-ef1f-47dc-88a6-1419078bc6c6" xml:space="preserve">
+          <source>Raw data points (that is, items that you can inspect in Diagnostic Search): between 7 and 30 days.</source>
+          <target state="new">Raw data points (that is, items that you can inspect in Diagnostic Search): between 7 and 30 days.</target>
+        </trans-unit>
+        <trans-unit id="bc9162c1-675f-4aae-8b49-13c9a666edac" xml:space="preserve">
+          <source>Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.</source>
+          <target state="new">Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.</target>
+        </trans-unit>
+        <trans-unit id="d37b0b0d-2e5f-4ec4-b7da-b7dbbed60f2d" xml:space="preserve">
+          <source>Maximum of 200 unique metric names and 200 unique property names for your application.</source>
+          <target state="new">Maximum of 200 unique metric names and 200 unique property names for your application.</target>
+        </trans-unit>
+        <trans-unit id="87f3eb44-9769-417b-8a34-11b4c07700c6" xml:space="preserve">
+          <source>Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.</source>
+          <target state="new">Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.</target>
+        </trans-unit>
+        <trans-unit id="69c5db8e-9228-4ed1-a892-676949a887da" xml:space="preserve">
+          <source><bpt id="48bd28f3-e88b-4072-b851-b33bb15e0fa0">&lt;linkText&gt;</bpt>Metrics and property names[api]<ept id="48bd28f3-e88b-4072-b851-b33bb15e0fa0">&lt;/linkText&gt;</ept><bpt id="48bd28f3-e88b-4072-b851-b33bb15e0fa0">&lt;title&gt;</bpt><ept id="48bd28f3-e88b-4072-b851-b33bb15e0fa0">&lt;/title&gt;</ept> are global per instrumentation key not scoped to data type.</source>
+          <target state="new"><bpt id="48bd28f3-e88b-4072-b851-b33bb15e0fa0">&lt;linkText&gt;</bpt>Metrics and property names[api]<ept id="48bd28f3-e88b-4072-b851-b33bb15e0fa0">&lt;/linkText&gt;</ept><bpt id="48bd28f3-e88b-4072-b851-b33bb15e0fa0">&lt;title&gt;</bpt><ept id="48bd28f3-e88b-4072-b851-b33bb15e0fa0">&lt;/title&gt;</ept> are global per instrumentation key not scoped to data type.</target>
+        </trans-unit>
+        <trans-unit id="5b6b5614-326d-4969-b452-7dc1a00ed32e" xml:space="preserve">
+          <source><bpt id="fa77365f-3ae2-4f59-9967-a8f607e762bc">&lt;linkText&gt;</bpt>Properties[apiproperties]<ept id="fa77365f-3ae2-4f59-9967-a8f607e762bc">&lt;/linkText&gt;</ept><bpt id="fa77365f-3ae2-4f59-9967-a8f607e762bc">&lt;title&gt;</bpt><ept id="fa77365f-3ae2-4f59-9967-a8f607e762bc">&lt;/title&gt;</ept> can be used for filtering and group by only while they have less than 100 unique values for each property.</source>
+          <target state="new"><bpt id="fa77365f-3ae2-4f59-9967-a8f607e762bc">&lt;linkText&gt;</bpt>Properties[apiproperties]<ept id="fa77365f-3ae2-4f59-9967-a8f607e762bc">&lt;/linkText&gt;</ept><bpt id="fa77365f-3ae2-4f59-9967-a8f607e762bc">&lt;title&gt;</bpt><ept id="fa77365f-3ae2-4f59-9967-a8f607e762bc">&lt;/title&gt;</ept> can be used for filtering and group by only while they have less than 100 unique values for each property.</target>
+        </trans-unit>
+        <trans-unit id="736df8cb-f169-4903-a726-23ecb2ada6bd" xml:space="preserve">
+          <source>After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.</source>
+          <target state="new">After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.</target>
+        </trans-unit>
+        <trans-unit id="71fdddef-fcfb-4a23-ad02-751b00f0c026" xml:space="preserve">
+          <source>Standard properties such as Request Name and Page URL are limited to 1000 unique values per week.</source>
+          <target state="new">Standard properties such as Request Name and Page URL are limited to 1000 unique values per week.</target>
+        </trans-unit>
+        <trans-unit id="ddbd8c75-92a3-4379-8082-1c408058fa24" xml:space="preserve">
+          <source>After 1000 unique values, additional values are marked as “Other values”.</source>
+          <target state="new">After 1000 unique values, additional values are marked as “Other values”.</target>
+        </trans-unit>
+        <trans-unit id="92c868b8-316f-4720-a45e-7700ec5c07b3" xml:space="preserve">
+          <source>The original value can still be used for full text search and filtering.</source>
+          <target state="new">The original value can still be used for full text search and filtering.</target>
+        </trans-unit>
+        <trans-unit id="b1e545f5-d397-4277-aa8f-381fe8a52ea6" xml:space="preserve">
+          <source>The data is visible to you and, if you have an organization account, your team members.</source>
+          <target state="new">The data is visible to you and, if you have an organization account, your team members.</target>
+        </trans-unit>
+        <trans-unit id="5bca6445-0291-4bfc-9498-88eb9a1fa6b3" xml:space="preserve">
+          <source>It can be exported by you and your team members and could be copied to other locations and passed on to other people.</source>
+          <target state="new">It can be exported by you and your team members and could be copied to other locations and passed on to other people.</target>
+        </trans-unit>
+        <trans-unit id="85c53466-fa51-4c58-8db3-c13c4443c172" xml:space="preserve">
+          <source>Microsoft uses the data only in order to provide the service to you.</source>
+          <target state="new">Microsoft uses the data only in order to provide the service to you.</target>
+        </trans-unit>
+        <trans-unit id="6f10c541-aefa-415b-8a87-511755519863" xml:space="preserve">
+          <source>In the USA.</source>
+          <target state="new">In the USA.</target>
+        </trans-unit>
+        <trans-unit id="17160c2c-7dd9-4dc9-8603-8457070a2898" xml:space="preserve">
+          <source>Not yet.</source>
+          <target state="new">Not yet.</target>
+        </trans-unit>
+        <trans-unit id="77b4e774-48d0-42ee-b6b9-0c652e6818c9" xml:space="preserve">
+          <source>The data is stored in Microsoft Azure servers.</source>
+          <target state="new">The data is stored in Microsoft Azure servers.</target>
+        </trans-unit>
+        <trans-unit id="b1963ca5-c26a-4f88-bd60-fe840432c6d4" xml:space="preserve">
+          <source>For accounts in the Azure Preview Portal, account restrictions are described in the <bpt id="13c443cb-c186-4042-bcb6-cd49457a9473">&lt;linkText&gt;</bpt>Azure Security, Privacy, and Compliance document<ept id="13c443cb-c186-4042-bcb6-cd49457a9473">&lt;/linkText&gt;</ept><bpt id="13c443cb-c186-4042-bcb6-cd49457a9473">&lt;title&gt;</bpt><ept id="13c443cb-c186-4042-bcb6-cd49457a9473">&lt;/title&gt;</ept>.</source>
+          <target state="new">For accounts in the Azure Preview Portal, account restrictions are described in the <bpt id="13c443cb-c186-4042-bcb6-cd49457a9473">&lt;linkText&gt;</bpt>Azure Security, Privacy, and Compliance document<ept id="13c443cb-c186-4042-bcb6-cd49457a9473">&lt;/linkText&gt;</ept><bpt id="13c443cb-c186-4042-bcb6-cd49457a9473">&lt;title&gt;</bpt><ept id="13c443cb-c186-4042-bcb6-cd49457a9473">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d66c46c-a9b3-4ea2-aead-a92ba55af491" xml:space="preserve">
+          <source>For accounts in the Visual Studio Online Portal, the <bpt id="55d8978d-07e1-4f4e-b005-e56077894205">&lt;linkText&gt;</bpt>Visual Studio Online Data Protection<ept id="55d8978d-07e1-4f4e-b005-e56077894205">&lt;/linkText&gt;</ept><bpt id="55d8978d-07e1-4f4e-b005-e56077894205">&lt;title&gt;</bpt><ept id="55d8978d-07e1-4f4e-b005-e56077894205">&lt;/title&gt;</ept> document applies.</source>
+          <target state="new">For accounts in the Visual Studio Online Portal, the <bpt id="55d8978d-07e1-4f4e-b005-e56077894205">&lt;linkText&gt;</bpt>Visual Studio Online Data Protection<ept id="55d8978d-07e1-4f4e-b005-e56077894205">&lt;/linkText&gt;</ept><bpt id="55d8978d-07e1-4f4e-b005-e56077894205">&lt;title&gt;</bpt><ept id="55d8978d-07e1-4f4e-b005-e56077894205">&lt;/title&gt;</ept> document applies.</target>
+        </trans-unit>
+        <trans-unit id="cf62827b-606b-48a0-8ea3-155b44e36aa9" xml:space="preserve">
+          <source>Access to your data by Microsoft personnel is restricted.</source>
+          <target state="new">Access to your data by Microsoft personnel is restricted.</target>
+        </trans-unit>
+        <trans-unit id="8665071d-4584-40cb-9f8e-8e96449d9ab5" xml:space="preserve">
+          <source>We access your data only with your permission and if it is necessary to support your use of Application Insights.</source>
+          <target state="new">We access your data only with your permission and if it is necessary to support your use of Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="320353d3-94cb-4103-a924-550200efcdfd" xml:space="preserve">
+          <source>Data in aggregate across all our customers' applications (such as data rates and average size of traces) is used to improve Application Insights.</source>
+          <target state="new">Data in aggregate across all our customers' applications (such as data rates and average size of traces) is used to improve Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="099d46dd-4b7a-4ab2-86c8-146b00a95ffd" xml:space="preserve">
+          <source>They could send additional telemetry to your account by using the instrumentation key, which can be found in the code of your web pages.</source>
+          <target state="new">They could send additional telemetry to your account by using the instrumentation key, which can be found in the code of your web pages.</target>
+        </trans-unit>
+        <trans-unit id="526fac5e-3c09-4ae1-8a8d-b896a8051d2d" xml:space="preserve">
+          <source>With enough additional data, your metrics would not correctly represent your app's performance and usage.</source>
+          <target state="new">With enough additional data, your metrics would not correctly represent your app's performance and usage.</target>
+        </trans-unit>
+        <trans-unit id="03ac3b82-35b8-4f7e-8ef5-af358a4754ee" xml:space="preserve">
+          <source>If you share code with other projects, remember to remove your instrumentation key.</source>
+          <target state="new">If you share code with other projects, remember to remove your instrumentation key.</target>
+        </trans-unit>
+        <trans-unit id="81fab15f-b54a-42f8-84d2-d9c4a5276dc6" xml:space="preserve">
+          <source>Not inside the servers at present.</source>
+          <target state="new">Not inside the servers at present.</target>
+        </trans-unit>
+        <trans-unit id="e5ca3ffe-4782-4299-a845-46615411a495" xml:space="preserve">
+          <source>All data is encrypted as it moves between data centers.</source>
+          <target state="new">All data is encrypted as it moves between data centers.</target>
+        </trans-unit>
+        <trans-unit id="551c150f-e519-4e9a-a2b8-e227f45b7609" xml:space="preserve">
+          <source>Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages.</source>
+          <target state="new">Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages.</target>
+        </trans-unit>
+        <trans-unit id="3f79550c-3d14-4788-b4f3-d2887b3ca06c" xml:space="preserve">
+          <source>The only exception is data sent from plain HTTP web pages.</source>
+          <target state="new">The only exception is data sent from plain HTTP web pages.</target>
+        </trans-unit>
+        <trans-unit id="c63d0f5b-bd53-4397-972d-0741b46520a2" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="b2e590b6-4107-43fe-9116-1c3121be56c4" xml:space="preserve">
+          <source>As general guidance:</source>
+          <target state="new">As general guidance:</target>
+        </trans-unit>
+        <trans-unit id="b3dadde7-73ca-4114-9428-b9bb3814a2ea" xml:space="preserve">
+          <source>Most standard telemetry (that is, telemetry sent without you writing any code) does not include explicit PII.</source>
+          <target state="new">Most standard telemetry (that is, telemetry sent without you writing any code) does not include explicit PII.</target>
+        </trans-unit>
+        <trans-unit id="b98403ca-d7bf-4a06-8c58-87e66a6133da" xml:space="preserve">
+          <source>However, it might be possible to identify individuals by inference from a collection of events.</source>
+          <target state="new">However, it might be possible to identify individuals by inference from a collection of events.</target>
+        </trans-unit>
+        <trans-unit id="3ea1f63e-f745-40ad-8d2b-342295f4e303" xml:space="preserve">
+          <source>Exception and trace messages could contain PII</source>
+          <target state="new">Exception and trace messages could contain PII</target>
+        </trans-unit>
+        <trans-unit id="f3082dee-5b6d-4616-860b-4b889afc7910" xml:space="preserve">
+          <source>Custom telemetry - that is, calls such as TrackEvent that you write in code using the API or log traces - can contain any data you choose.</source>
+          <target state="new">Custom telemetry - that is, calls such as TrackEvent that you write in code using the API or log traces - can contain any data you choose.</target>
+        </trans-unit>
+        <trans-unit id="6fec6743-52ca-4a96-ab53-1b457409fda3" xml:space="preserve">
+          <source>The table at the end of this document contains more detailed descriptions of the data collected.</source>
+          <target state="new">The table at the end of this document contains more detailed descriptions of the data collected.</target>
+        </trans-unit>
+        <trans-unit id="a2f4de6e-88ee-4d91-ace1-48d7033f8518" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="24e36085-7e1e-48b8-a5af-fc0955ff65c6" xml:space="preserve">
+          <source>It is your responsibility to ensure that the collection and use of the data complies with laws and regulations, and with the Microsoft Online Services Terms.</source>
+          <target state="new">It is your responsibility to ensure that the collection and use of the data complies with laws and regulations, and with the Microsoft Online Services Terms.</target>
+        </trans-unit>
+        <trans-unit id="0a316f16-f8a7-4906-9848-99ee3e3de3ca" xml:space="preserve">
+          <source>You should inform your customers appropriately about the data your application collects and how the data is used.</source>
+          <target state="new">You should inform your customers appropriately about the data your application collects and how the data is used.</target>
+        </trans-unit>
+        <trans-unit id="917e2c60-d750-4204-b0a3-f963fb9c9673" xml:space="preserve">
+          <source>Not directly.</source>
+          <target state="new">Not directly.</target>
+        </trans-unit>
+        <trans-unit id="a4fb5481-475f-426a-9d2f-38e036e86a53" xml:space="preserve">
+          <source>We don't provide a switch that your users can operate to turn off Application Insights.</source>
+          <target state="new">We don't provide a switch that your users can operate to turn off Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="e2c62317-9424-431c-ba97-9ce66aa5c5a6" xml:space="preserve">
+          <source>However, you can implement such a feature in your application.</source>
+          <target state="new">However, you can implement such a feature in your application.</target>
+        </trans-unit>
+        <trans-unit id="96269c47-1943-411f-827b-7601c213f4d2" xml:space="preserve">
+          <source>All the SDKs include an API setting that turns off telemetry collection.</source>
+          <target state="new">All the SDKs include an API setting that turns off telemetry collection.</target>
+        </trans-unit>
+        <trans-unit id="77324088-b8ed-4555-bfb1-cbb99060eea9" xml:space="preserve">
+          <source>Application Insights does not filter or delete your data.</source>
+          <target state="new">Application Insights does not filter or delete your data.</target>
+        </trans-unit>
+        <trans-unit id="3099901d-be61-4758-b326-d831256637d5" xml:space="preserve">
+          <source>You should manage the data appropriately and avoid sending such data to Application Insights.</source>
+          <target state="new">You should manage the data appropriately and avoid sending such data to Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="49ce2323-0f8c-47e8-9470-e4cce29ada66" xml:space="preserve">
+          <source>The SDKs vary between platforms, and there are are several components that you can install.</source>
+          <target state="new">The SDKs vary between platforms, and there are are several components that you can install.</target>
+        </trans-unit>
+        <trans-unit id="541ab406-e40d-4d34-afea-0a956d5d1172" xml:space="preserve">
+          <source>(Refer to <bpt id="3d1517ce-e40f-4f85-8e08-4ad6d7fc65ed">&lt;linkText&gt;</bpt>Application Insights - get started[start]<ept id="3d1517ce-e40f-4f85-8e08-4ad6d7fc65ed">&lt;/linkText&gt;</ept><bpt id="3d1517ce-e40f-4f85-8e08-4ad6d7fc65ed">&lt;title&gt;</bpt><ept id="3d1517ce-e40f-4f85-8e08-4ad6d7fc65ed">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(Refer to <bpt id="3d1517ce-e40f-4f85-8e08-4ad6d7fc65ed">&lt;linkText&gt;</bpt>Application Insights - get started[start]<ept id="3d1517ce-e40f-4f85-8e08-4ad6d7fc65ed">&lt;/linkText&gt;</ept><bpt id="3d1517ce-e40f-4f85-8e08-4ad6d7fc65ed">&lt;title&gt;</bpt><ept id="3d1517ce-e40f-4f85-8e08-4ad6d7fc65ed">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="247274a9-c614-4fc9-b517-a4ab0e917b98" xml:space="preserve">
+          <source>Each component sends different data.</source>
+          <target state="new">Each component sends different data.</target>
+        </trans-unit>
+        <trans-unit id="414d6c4f-0e55-48b7-bac0-882bf5c92883" xml:space="preserve">
+          <source>Your action</source>
+          <target state="new">Your action</target>
+        </trans-unit>
+        <trans-unit id="d3a69111-5758-416b-bffd-5cf2108289ac" xml:space="preserve">
+          <source>Data classes collected (see next table)</source>
+          <target state="new">Data classes collected (see next table)</target>
+        </trans-unit>
+        <trans-unit id="45f2a9bd-2305-47c0-9f9f-1b1c7e1abfad" xml:space="preserve">
+          <source><bpt id="e467bf4a-5218-4fce-b46b-1cb9d36d310e">&lt;linkText&gt;</bpt>Add Application Insights SDK to a .NET web project[greenbrown]<ept id="e467bf4a-5218-4fce-b46b-1cb9d36d310e">&lt;/linkText&gt;</ept><bpt id="e467bf4a-5218-4fce-b46b-1cb9d36d310e">&lt;title&gt;</bpt><ept id="e467bf4a-5218-4fce-b46b-1cb9d36d310e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e467bf4a-5218-4fce-b46b-1cb9d36d310e">&lt;linkText&gt;</bpt>Add Application Insights SDK to a .NET web project[greenbrown]<ept id="e467bf4a-5218-4fce-b46b-1cb9d36d310e">&lt;/linkText&gt;</ept><bpt id="e467bf4a-5218-4fce-b46b-1cb9d36d310e">&lt;title&gt;</bpt><ept id="e467bf4a-5218-4fce-b46b-1cb9d36d310e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ae615dc-d08b-4dad-83fa-20ee48dc021c" xml:space="preserve">
+          <source>ServerContext&lt;br/&gt;Inferred&lt;br/&gt;Perf counters&lt;br/&gt;Requests&lt;br/&gt;<bpt id="b6a37cc0-ac1a-49f7-aec6-597f96af4e18">&lt;strong&gt;</bpt>Exceptions<ept id="b6a37cc0-ac1a-49f7-aec6-597f96af4e18">&lt;/strong&gt;</ept>&lt;br/&gt;Session&lt;br/&gt;users</source>
+          <target state="new">ServerContext&lt;br/&gt;Inferred&lt;br/&gt;Perf counters&lt;br/&gt;Requests&lt;br/&gt;<bpt id="b6a37cc0-ac1a-49f7-aec6-597f96af4e18">&lt;strong&gt;</bpt>Exceptions<ept id="b6a37cc0-ac1a-49f7-aec6-597f96af4e18">&lt;/strong&gt;</ept>&lt;br/&gt;Session&lt;br/&gt;users</target>
+        </trans-unit>
+        <trans-unit id="6420bab7-682e-4c3c-beac-63be726f4534" xml:space="preserve">
+          <source><bpt id="fd34ee12-3054-4481-99dc-1df370ba1e45">&lt;linkText&gt;</bpt>Install Status Monitor on IIS[redfield]<ept id="fd34ee12-3054-4481-99dc-1df370ba1e45">&lt;/linkText&gt;</ept><bpt id="fd34ee12-3054-4481-99dc-1df370ba1e45">&lt;title&gt;</bpt><ept id="fd34ee12-3054-4481-99dc-1df370ba1e45">&lt;/title&gt;</ept>&lt;br/&gt;<bpt id="71c0b84d-6f31-4208-abc9-84342e41b3a4">&lt;linkText&gt;</bpt>Add AI Extension to Azure VM or Web App[azure]<ept id="71c0b84d-6f31-4208-abc9-84342e41b3a4">&lt;/linkText&gt;</ept><bpt id="71c0b84d-6f31-4208-abc9-84342e41b3a4">&lt;title&gt;</bpt><ept id="71c0b84d-6f31-4208-abc9-84342e41b3a4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fd34ee12-3054-4481-99dc-1df370ba1e45">&lt;linkText&gt;</bpt>Install Status Monitor on IIS[redfield]<ept id="fd34ee12-3054-4481-99dc-1df370ba1e45">&lt;/linkText&gt;</ept><bpt id="fd34ee12-3054-4481-99dc-1df370ba1e45">&lt;title&gt;</bpt><ept id="fd34ee12-3054-4481-99dc-1df370ba1e45">&lt;/title&gt;</ept>&lt;br/&gt;<bpt id="71c0b84d-6f31-4208-abc9-84342e41b3a4">&lt;linkText&gt;</bpt>Add AI Extension to Azure VM or Web App[azure]<ept id="71c0b84d-6f31-4208-abc9-84342e41b3a4">&lt;/linkText&gt;</ept><bpt id="71c0b84d-6f31-4208-abc9-84342e41b3a4">&lt;title&gt;</bpt><ept id="71c0b84d-6f31-4208-abc9-84342e41b3a4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0a6ae8f-3b93-4d1e-8394-08fb46deffde" xml:space="preserve">
+          <source>Dependencies&lt;br/&gt;ServerContext&lt;br/&gt;Inferred&lt;br/&gt;Perf counters</source>
+          <target state="new">Dependencies&lt;br/&gt;ServerContext&lt;br/&gt;Inferred&lt;br/&gt;Perf counters</target>
+        </trans-unit>
+        <trans-unit id="3b21968c-0003-414d-9a55-6ec30f59241b" xml:space="preserve">
+          <source><bpt id="1f0bcedc-3bfb-4f87-978b-d54c439c92f4">&lt;linkText&gt;</bpt>Add Application Insights SDK to a Java web app[java]<ept id="1f0bcedc-3bfb-4f87-978b-d54c439c92f4">&lt;/linkText&gt;</ept><bpt id="1f0bcedc-3bfb-4f87-978b-d54c439c92f4">&lt;title&gt;</bpt><ept id="1f0bcedc-3bfb-4f87-978b-d54c439c92f4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1f0bcedc-3bfb-4f87-978b-d54c439c92f4">&lt;linkText&gt;</bpt>Add Application Insights SDK to a Java web app[java]<ept id="1f0bcedc-3bfb-4f87-978b-d54c439c92f4">&lt;/linkText&gt;</ept><bpt id="1f0bcedc-3bfb-4f87-978b-d54c439c92f4">&lt;title&gt;</bpt><ept id="1f0bcedc-3bfb-4f87-978b-d54c439c92f4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f282c9c0-2751-4dae-880a-de4001b9a831" xml:space="preserve">
+          <source>ServerContext&lt;br/&gt;Inferred&lt;br/&gt;Request&lt;br/&gt;Session&lt;br/&gt;users</source>
+          <target state="new">ServerContext&lt;br/&gt;Inferred&lt;br/&gt;Request&lt;br/&gt;Session&lt;br/&gt;users</target>
+        </trans-unit>
+        <trans-unit id="c8e28ccb-aede-43be-855a-40a21c9a3e68" xml:space="preserve">
+          <source><bpt id="8689049f-84df-4bfb-9fd0-610a3266b6b7">&lt;linkText&gt;</bpt>Add JavaScript SDK to web page[client]<ept id="8689049f-84df-4bfb-9fd0-610a3266b6b7">&lt;/linkText&gt;</ept><bpt id="8689049f-84df-4bfb-9fd0-610a3266b6b7">&lt;title&gt;</bpt><ept id="8689049f-84df-4bfb-9fd0-610a3266b6b7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8689049f-84df-4bfb-9fd0-610a3266b6b7">&lt;linkText&gt;</bpt>Add JavaScript SDK to web page[client]<ept id="8689049f-84df-4bfb-9fd0-610a3266b6b7">&lt;/linkText&gt;</ept><bpt id="8689049f-84df-4bfb-9fd0-610a3266b6b7">&lt;title&gt;</bpt><ept id="8689049f-84df-4bfb-9fd0-610a3266b6b7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d04a46b2-1dfd-4777-ab63-44a1dc2e6f47" xml:space="preserve">
+          <source>ClientContext &lt;br/&gt;Inferred&lt;br/&gt;Page&lt;br/&gt;ClientPerf</source>
+          <target state="new">ClientContext &lt;br/&gt;Inferred&lt;br/&gt;Page&lt;br/&gt;ClientPerf</target>
+        </trans-unit>
+        <trans-unit id="137dfcf9-9fd1-4637-9c4d-f2edf1c4a0eb" xml:space="preserve">
+          <source><bpt id="ba523cf3-c692-4a4f-9f88-8999fc2f29a1">&lt;linkText&gt;</bpt>Add SDK to Windows Store app[windows]<ept id="ba523cf3-c692-4a4f-9f88-8999fc2f29a1">&lt;/linkText&gt;</ept><bpt id="ba523cf3-c692-4a4f-9f88-8999fc2f29a1">&lt;title&gt;</bpt><ept id="ba523cf3-c692-4a4f-9f88-8999fc2f29a1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba523cf3-c692-4a4f-9f88-8999fc2f29a1">&lt;linkText&gt;</bpt>Add SDK to Windows Store app[windows]<ept id="ba523cf3-c692-4a4f-9f88-8999fc2f29a1">&lt;/linkText&gt;</ept><bpt id="ba523cf3-c692-4a4f-9f88-8999fc2f29a1">&lt;title&gt;</bpt><ept id="ba523cf3-c692-4a4f-9f88-8999fc2f29a1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d779306c-66c5-45e5-82f6-fe7cfaa5804c" xml:space="preserve">
+          <source>DeviceContext&lt;br/&gt;Users&lt;br/&gt;Crash data</source>
+          <target state="new">DeviceContext&lt;br/&gt;Users&lt;br/&gt;Crash data</target>
+        </trans-unit>
+        <trans-unit id="6375b34a-50a4-4670-8373-25c348194433" xml:space="preserve">
+          <source><bpt id="aaba06f0-d2a9-4039-a57e-c17d97bea766">&lt;linkText&gt;</bpt>Define default properties[apiproperties]<ept id="aaba06f0-d2a9-4039-a57e-c17d97bea766">&lt;/linkText&gt;</ept><bpt id="aaba06f0-d2a9-4039-a57e-c17d97bea766">&lt;title&gt;</bpt><ept id="aaba06f0-d2a9-4039-a57e-c17d97bea766">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aaba06f0-d2a9-4039-a57e-c17d97bea766">&lt;linkText&gt;</bpt>Define default properties[apiproperties]<ept id="aaba06f0-d2a9-4039-a57e-c17d97bea766">&lt;/linkText&gt;</ept><bpt id="aaba06f0-d2a9-4039-a57e-c17d97bea766">&lt;title&gt;</bpt><ept id="aaba06f0-d2a9-4039-a57e-c17d97bea766">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56cfaafc-9213-4eb7-818c-5ce0b67150ec" xml:space="preserve">
+          <source><bpt id="f840a6fe-b31e-4490-a2ff-2c53124391dc">&lt;strong&gt;</bpt>Properties<ept id="f840a6fe-b31e-4490-a2ff-2c53124391dc">&lt;/strong&gt;</ept> on all standard and custom events</source>
+          <target state="new"><bpt id="f840a6fe-b31e-4490-a2ff-2c53124391dc">&lt;strong&gt;</bpt>Properties<ept id="f840a6fe-b31e-4490-a2ff-2c53124391dc">&lt;/strong&gt;</ept> on all standard and custom events</target>
+        </trans-unit>
+        <trans-unit id="ee422fb9-39db-4c50-b3b8-3227b08163a3" xml:space="preserve">
+          <source><bpt id="578b7ea6-204c-4348-88d8-c722826153c9">&lt;linkText&gt;</bpt>Call TrackMetric[api]<ept id="578b7ea6-204c-4348-88d8-c722826153c9">&lt;/linkText&gt;</ept><bpt id="578b7ea6-204c-4348-88d8-c722826153c9">&lt;title&gt;</bpt><ept id="578b7ea6-204c-4348-88d8-c722826153c9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="578b7ea6-204c-4348-88d8-c722826153c9">&lt;linkText&gt;</bpt>Call TrackMetric[api]<ept id="578b7ea6-204c-4348-88d8-c722826153c9">&lt;/linkText&gt;</ept><bpt id="578b7ea6-204c-4348-88d8-c722826153c9">&lt;title&gt;</bpt><ept id="578b7ea6-204c-4348-88d8-c722826153c9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47e08e82-149c-4304-be94-6ca676a008b0" xml:space="preserve">
+          <source>Numeric values&lt;br/&gt;<bpt id="9bc21d9f-d2ae-4edf-9cc8-62fab221d9c3">&lt;strong&gt;</bpt>Properties<ept id="9bc21d9f-d2ae-4edf-9cc8-62fab221d9c3">&lt;/strong&gt;</ept></source>
+          <target state="new">Numeric values&lt;br/&gt;<bpt id="9bc21d9f-d2ae-4edf-9cc8-62fab221d9c3">&lt;strong&gt;</bpt>Properties<ept id="9bc21d9f-d2ae-4edf-9cc8-62fab221d9c3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05d59733-d54a-4295-8bee-8f3b85d8c728" xml:space="preserve">
+          <source><bpt id="1846bbee-c13a-4b85-9b42-a4ae80223ed2">&lt;linkText&gt;</bpt>Call Track*[api]<ept id="1846bbee-c13a-4b85-9b42-a4ae80223ed2">&lt;/linkText&gt;</ept><bpt id="1846bbee-c13a-4b85-9b42-a4ae80223ed2">&lt;title&gt;</bpt><ept id="1846bbee-c13a-4b85-9b42-a4ae80223ed2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1846bbee-c13a-4b85-9b42-a4ae80223ed2">&lt;linkText&gt;</bpt>Call Track*[api]<ept id="1846bbee-c13a-4b85-9b42-a4ae80223ed2">&lt;/linkText&gt;</ept><bpt id="1846bbee-c13a-4b85-9b42-a4ae80223ed2">&lt;title&gt;</bpt><ept id="1846bbee-c13a-4b85-9b42-a4ae80223ed2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb6edce6-725e-4304-a430-9306d89e8fca" xml:space="preserve">
+          <source>Event name&lt;br/&gt;<bpt id="7a101744-6065-4e59-ad83-88c7f896e518">&lt;strong&gt;</bpt>Properties<ept id="7a101744-6065-4e59-ad83-88c7f896e518">&lt;/strong&gt;</ept></source>
+          <target state="new">Event name&lt;br/&gt;<bpt id="7a101744-6065-4e59-ad83-88c7f896e518">&lt;strong&gt;</bpt>Properties<ept id="7a101744-6065-4e59-ad83-88c7f896e518">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd7f7cfc-852b-401a-8aaa-3f2aee0ee337" xml:space="preserve">
+          <source><bpt id="1d140d05-8b42-4a66-9d14-34b62049b773">&lt;linkText&gt;</bpt>Call TrackException[api]<ept id="1d140d05-8b42-4a66-9d14-34b62049b773">&lt;/linkText&gt;</ept><bpt id="1d140d05-8b42-4a66-9d14-34b62049b773">&lt;title&gt;</bpt><ept id="1d140d05-8b42-4a66-9d14-34b62049b773">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1d140d05-8b42-4a66-9d14-34b62049b773">&lt;linkText&gt;</bpt>Call TrackException[api]<ept id="1d140d05-8b42-4a66-9d14-34b62049b773">&lt;/linkText&gt;</ept><bpt id="1d140d05-8b42-4a66-9d14-34b62049b773">&lt;title&gt;</bpt><ept id="1d140d05-8b42-4a66-9d14-34b62049b773">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e4a7a9d-9956-47bf-b090-56ff817cf441" xml:space="preserve">
+          <source><bpt id="c37a00f9-3201-4432-b508-5a1093f6d53e">&lt;strong&gt;</bpt>Exceptions<ept id="c37a00f9-3201-4432-b508-5a1093f6d53e">&lt;/strong&gt;</ept>&lt;br/&gt;Stack dump&lt;br/&gt;<bpt id="b86f6496-91dc-4149-b556-0dacc407e377">&lt;strong&gt;</bpt>Properties<ept id="b86f6496-91dc-4149-b556-0dacc407e377">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c37a00f9-3201-4432-b508-5a1093f6d53e">&lt;strong&gt;</bpt>Exceptions<ept id="c37a00f9-3201-4432-b508-5a1093f6d53e">&lt;/strong&gt;</ept>&lt;br/&gt;Stack dump&lt;br/&gt;<bpt id="b86f6496-91dc-4149-b556-0dacc407e377">&lt;strong&gt;</bpt>Properties<ept id="b86f6496-91dc-4149-b556-0dacc407e377">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7075adfb-a817-496b-b4b6-76aec49ad91e" xml:space="preserve">
+          <source>SDK can't collect data.</source>
+          <target state="new">SDK can't collect data.</target>
+        </trans-unit>
+        <trans-unit id="c7163186-4364-4662-a4ac-5a72fe73f1ea" xml:space="preserve">
+          <source>For example: &lt;br/&gt; - can't access perf counters&lt;br/&gt; -  exception in telemetry initializer</source>
+          <target state="new">For example: &lt;br/&gt; - can't access perf counters&lt;br/&gt; -  exception in telemetry initializer</target>
+        </trans-unit>
+        <trans-unit id="075887d6-1131-49cc-809a-c2576a0e91bc" xml:space="preserve">
+          <source>SDK diagnostics</source>
+          <target state="new">SDK diagnostics</target>
+        </trans-unit>
+        <trans-unit id="b6cafb0f-e0a4-4f9d-92ec-a278e7ef1260" xml:space="preserve">
+          <source>For <bpt id="417fbc17-94a6-4f88-b3e8-338bcb9082bc">&lt;linkText&gt;</bpt>SDKs for other platforms[platforms]<ept id="417fbc17-94a6-4f88-b3e8-338bcb9082bc">&lt;/linkText&gt;</ept><bpt id="417fbc17-94a6-4f88-b3e8-338bcb9082bc">&lt;title&gt;</bpt><ept id="417fbc17-94a6-4f88-b3e8-338bcb9082bc">&lt;/title&gt;</ept>, see their documents.</source>
+          <target state="new">For <bpt id="417fbc17-94a6-4f88-b3e8-338bcb9082bc">&lt;linkText&gt;</bpt>SDKs for other platforms[platforms]<ept id="417fbc17-94a6-4f88-b3e8-338bcb9082bc">&lt;/linkText&gt;</ept><bpt id="417fbc17-94a6-4f88-b3e8-338bcb9082bc">&lt;title&gt;</bpt><ept id="417fbc17-94a6-4f88-b3e8-338bcb9082bc">&lt;/title&gt;</ept>, see their documents.</target>
+        </trans-unit>
+        <trans-unit id="b2d19559-48b3-4c30-bedd-70e7dc0c6c6d" xml:space="preserve">
+          <source>Collected data class</source>
+          <target state="new">Collected data class</target>
+        </trans-unit>
+        <trans-unit id="e55bf5de-efea-452b-b345-82b9ce7138ec" xml:space="preserve">
+          <source>Includes (not an exhaustive list)</source>
+          <target state="new">Includes (not an exhaustive list)</target>
+        </trans-unit>
+        <trans-unit id="c0da4aea-b9c7-47dc-b359-a68f37d90be6" xml:space="preserve">
+          <source><bpt id="f05454a1-2cc2-419b-9fbb-d52f299572df">&lt;strong&gt;</bpt>Properties<ept id="f05454a1-2cc2-419b-9fbb-d52f299572df">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f05454a1-2cc2-419b-9fbb-d52f299572df">&lt;strong&gt;</bpt>Properties<ept id="f05454a1-2cc2-419b-9fbb-d52f299572df">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2c38221-6cf3-4d74-8c05-0efb85004ddd" xml:space="preserve">
+          <source><bpt id="017cf400-673e-4eac-bdff-111d3932bc1c">&lt;strong&gt;</bpt>Any data - determined by your code<ept id="017cf400-673e-4eac-bdff-111d3932bc1c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="017cf400-673e-4eac-bdff-111d3932bc1c">&lt;strong&gt;</bpt>Any data - determined by your code<ept id="017cf400-673e-4eac-bdff-111d3932bc1c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a58d0ab-6e19-446b-8150-f6179ef2e848" xml:space="preserve">
+          <source>DeviceContext</source>
+          <target state="new">DeviceContext</target>
+        </trans-unit>
+        <trans-unit id="938141c9-88bb-4259-8d42-c746a306ae13" xml:space="preserve">
+          <source>Id, IP, Locale, Device model, network, network type, OEM name, screen resolution, Role Instance, Role Name, Device Type</source>
+          <target state="new">Id, IP, Locale, Device model, network, network type, OEM name, screen resolution, Role Instance, Role Name, Device Type</target>
+        </trans-unit>
+        <trans-unit id="e1bdfd5a-c112-4295-80c2-f80ee9a086ab" xml:space="preserve">
+          <source>ClientContext</source>
+          <target state="new">ClientContext</target>
+        </trans-unit>
+        <trans-unit id="3c010447-b732-4d48-9f38-94fe1f9514c8" xml:space="preserve">
+          <source>OS, locale, language, network, window resolution</source>
+          <target state="new">OS, locale, language, network, window resolution</target>
+        </trans-unit>
+        <trans-unit id="cda7845c-a00c-4f6a-af11-7f2b892df8c2" xml:space="preserve">
+          <source>Session</source>
+          <target state="new">Session</target>
+        </trans-unit>
+        <trans-unit id="296a22a3-0986-4e98-b0cb-c899d963ab9a" xml:space="preserve">
+          <source>session id</source>
+          <target state="new">session id</target>
+        </trans-unit>
+        <trans-unit id="7c57514c-a89c-4b74-95cd-69a4205d0031" xml:space="preserve">
+          <source>ServerContext</source>
+          <target state="new">ServerContext</target>
+        </trans-unit>
+        <trans-unit id="c7735b91-4db4-469c-80c5-eace6443a506" xml:space="preserve">
+          <source>Machine name, locale, OS, device, user session, user context, operation</source>
+          <target state="new">Machine name, locale, OS, device, user session, user context, operation</target>
+        </trans-unit>
+        <trans-unit id="90632556-9075-404a-8ac4-205700d5dcc0" xml:space="preserve">
+          <source>Inferred</source>
+          <target state="new">Inferred</target>
+        </trans-unit>
+        <trans-unit id="fb2718b0-7180-4721-8c60-8fb015559b1e" xml:space="preserve">
+          <source>geo location from IP address, timestamp, OS, browser</source>
+          <target state="new">geo location from IP address, timestamp, OS, browser</target>
+        </trans-unit>
+        <trans-unit id="2a007131-2565-40df-a7fb-c62a38811242" xml:space="preserve">
+          <source>Metrics</source>
+          <target state="new">Metrics</target>
+        </trans-unit>
+        <trans-unit id="9dae2b6f-309b-41aa-8658-329c6b88e938" xml:space="preserve">
+          <source>Metric name and value</source>
+          <target state="new">Metric name and value</target>
+        </trans-unit>
+        <trans-unit id="78af71d4-714b-4938-a5ec-90e49ca34d81" xml:space="preserve">
+          <source>Events</source>
+          <target state="new">Events</target>
+        </trans-unit>
+        <trans-unit id="d856fec9-b5da-4676-94fb-fe3bf1f05616" xml:space="preserve">
+          <source>Event name and value</source>
+          <target state="new">Event name and value</target>
+        </trans-unit>
+        <trans-unit id="bf3d3e9d-5cf9-4f8c-8a96-4cc67719c969" xml:space="preserve">
+          <source>PageViews</source>
+          <target state="new">PageViews</target>
+        </trans-unit>
+        <trans-unit id="644d0c45-391e-4f0c-b049-7283b3c7a7c1" xml:space="preserve">
+          <source>URL and page name or screen name</source>
+          <target state="new">URL and page name or screen name</target>
+        </trans-unit>
+        <trans-unit id="0f0522b0-2735-4488-802c-cf0bf7a0a367" xml:space="preserve">
+          <source>Client perf</source>
+          <target state="new">Client perf</target>
+        </trans-unit>
+        <trans-unit id="9069a9f3-bc6f-420c-a355-dd0dceebd7f3" xml:space="preserve">
+          <source>URL/page name, browser load time</source>
+          <target state="new">URL/page name, browser load time</target>
+        </trans-unit>
+        <trans-unit id="7ef01e97-146c-4558-b402-7562458d39f2" xml:space="preserve">
+          <source>Requests</source>
+          <target state="new">Requests</target>
+        </trans-unit>
+        <trans-unit id="160ab167-4b82-4987-8bad-3e3bd0268723" xml:space="preserve">
+          <source>URL, duration, response code</source>
+          <target state="new">URL, duration, response code</target>
+        </trans-unit>
+        <trans-unit id="b95d3118-0dc9-4417-a6e1-c16fa8bafcfd" xml:space="preserve">
+          <source>Dependencies</source>
+          <target state="new">Dependencies</target>
+        </trans-unit>
+        <trans-unit id="692e02f0-d42d-481a-87ae-e8b46a1dda88" xml:space="preserve">
+          <source>Type(SQL, HTTP, ...), connection string or URI, sync/async, duration, success, SQL statement (with Status Monitor)</source>
+          <target state="new">Type(SQL, HTTP, ...), connection string or URI, sync/async, duration, success, SQL statement (with Status Monitor)</target>
+        </trans-unit>
+        <trans-unit id="aa41b51a-2898-435b-a171-73edc42151ae" xml:space="preserve">
+          <source><bpt id="93acd861-5a1e-42cc-8c3d-119c2136b3e0">&lt;strong&gt;</bpt>Exceptions<ept id="93acd861-5a1e-42cc-8c3d-119c2136b3e0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="93acd861-5a1e-42cc-8c3d-119c2136b3e0">&lt;strong&gt;</bpt>Exceptions<ept id="93acd861-5a1e-42cc-8c3d-119c2136b3e0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5759911-f028-4220-abef-19b3b9cd3752" xml:space="preserve">
+          <source>Type, <bpt id="fa3dd267-8404-4826-9867-69b2683a01d4">&lt;strong&gt;</bpt>message<ept id="fa3dd267-8404-4826-9867-69b2683a01d4">&lt;/strong&gt;</ept>, call stacks, source file and line number, thread id</source>
+          <target state="new">Type, <bpt id="fa3dd267-8404-4826-9867-69b2683a01d4">&lt;strong&gt;</bpt>message<ept id="fa3dd267-8404-4826-9867-69b2683a01d4">&lt;/strong&gt;</ept>, call stacks, source file and line number, thread id</target>
+        </trans-unit>
+        <trans-unit id="ce625240-c4d6-47b5-86cc-786211e26dd4" xml:space="preserve">
+          <source>Crashes</source>
+          <target state="new">Crashes</target>
+        </trans-unit>
+        <trans-unit id="d7a65620-f7ca-42e4-9ea7-4c9f7cbd8787" xml:space="preserve">
+          <source>Process id, parent process id, crash thread id; application patch, id, build;  exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type</source>
+          <target state="new">Process id, parent process id, crash thread id; application patch, id, build;  exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type</target>
+        </trans-unit>
+        <trans-unit id="d8afac9d-a6af-4988-a37c-65f0847f9c70" xml:space="preserve">
+          <source>Trace</source>
+          <target state="new">Trace</target>
+        </trans-unit>
+        <trans-unit id="3ea637bc-0ae0-4f17-8023-dea0b1891449" xml:space="preserve">
+          <source><bpt id="54087e53-608c-4195-a88c-9648ffa75b60">&lt;strong&gt;</bpt>Message<ept id="54087e53-608c-4195-a88c-9648ffa75b60">&lt;/strong&gt;</ept> and severity level</source>
+          <target state="new"><bpt id="54087e53-608c-4195-a88c-9648ffa75b60">&lt;strong&gt;</bpt>Message<ept id="54087e53-608c-4195-a88c-9648ffa75b60">&lt;/strong&gt;</ept> and severity level</target>
+        </trans-unit>
+        <trans-unit id="5fcd3381-c5f1-42be-8225-fac54ea299f1" xml:space="preserve">
+          <source>Perf counters</source>
+          <target state="new">Perf counters</target>
+        </trans-unit>
+        <trans-unit id="401f2503-8419-4732-b55a-70a1f0995555" xml:space="preserve">
+          <source>Processor time, available memory, request rate, exception rate, process private bytes, IO rate, request duration, request queue length</source>
+          <target state="new">Processor time, available memory, request rate, exception rate, process private bytes, IO rate, request duration, request queue length</target>
+        </trans-unit>
+        <trans-unit id="227f667d-fc02-4d0c-afec-376424a79691" xml:space="preserve">
+          <source>Availability</source>
+          <target state="new">Availability</target>
+        </trans-unit>
+        <trans-unit id="0d775480-fe7c-4122-ac94-8992bb32b905" xml:space="preserve">
+          <source>Web test response code, duration of each test step, test name, timestamp, success, response time, test location</source>
+          <target state="new">Web test response code, duration of each test step, test name, timestamp, success, response time, test location</target>
+        </trans-unit>
+        <trans-unit id="3b40a75f-66cf-41d1-ad51-70b2a7a0b0d7" xml:space="preserve">
+          <source>SDK diagnostics</source>
+          <target state="new">SDK diagnostics</target>
+        </trans-unit>
+        <trans-unit id="f25f786e-ac14-46ba-a183-2569ac4555a2" xml:space="preserve">
+          <source>Trace message or Exception</source>
+          <target state="new">Trace message or Exception</target>
+        </trans-unit>
+        <trans-unit id="e0dacaf9-4721-4741-9071-13be85f819dd" xml:space="preserve">
+          <source>You can <bpt id="e2319007-ad54-4384-9e82-af2030ced133">&lt;linkText&gt;</bpt>switch off some of the data by editing ApplicationInsights.config[config]<ept id="e2319007-ad54-4384-9e82-af2030ced133">&lt;/linkText&gt;</ept><bpt id="e2319007-ad54-4384-9e82-af2030ced133">&lt;title&gt;</bpt><ept id="e2319007-ad54-4384-9e82-af2030ced133">&lt;/title&gt;</ept></source>
+          <target state="new">You can <bpt id="e2319007-ad54-4384-9e82-af2030ced133">&lt;linkText&gt;</bpt>switch off some of the data by editing ApplicationInsights.config[config]<ept id="e2319007-ad54-4384-9e82-af2030ced133">&lt;/linkText&gt;</ept><bpt id="e2319007-ad54-4384-9e82-af2030ced133">&lt;title&gt;</bpt><ept id="e2319007-ad54-4384-9e82-af2030ced133">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9715001b-cf84-4965-931c-9f3a35398e5a" xml:space="preserve">
+          <source>This product includes GeoLite2 data created by MaxMind, available from <bpt id="91e3b04a-1980-4a7f-abc1-120c98c07870">&lt;linkText&gt;</bpt>http://www.maxmind.com<ept id="91e3b04a-1980-4a7f-abc1-120c98c07870">&lt;/linkText&gt;</ept><bpt id="91e3b04a-1980-4a7f-abc1-120c98c07870">&lt;title&gt;</bpt><ept id="91e3b04a-1980-4a7f-abc1-120c98c07870">&lt;/title&gt;</ept>.</source>
+          <target state="new">This product includes GeoLite2 data created by MaxMind, available from <bpt id="91e3b04a-1980-4a7f-abc1-120c98c07870">&lt;linkText&gt;</bpt>http://www.maxmind.com<ept id="91e3b04a-1980-4a7f-abc1-120c98c07870">&lt;/linkText&gt;</ept><bpt id="91e3b04a-1980-4a7f-abc1-120c98c07870">&lt;title&gt;</bpt><ept id="91e3b04a-1980-4a7f-abc1-120c98c07870">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9a08f0d-d8ea-4142-bddb-333f7df04226" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="0c889e5b-1dc3-4e14-bcd8-704a6b2481dd" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md#properties</source>
+          <target state="new">app-insights-api-custom-events-metrics.md#properties</target>
+        </trans-unit>
+        <trans-unit id="ed61f211-3cf9-4771-8217-82950079ec1d" xml:space="preserve">
+          <source>../insights-perf-analytics.md</source>
+          <target state="new">../insights-perf-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="8277949a-7752-4a50-977d-1a4fa893d34f" xml:space="preserve">
+          <source>app-insights-javascript.md</source>
+          <target state="new">app-insights-javascript.md</target>
+        </trans-unit>
+        <trans-unit id="644b3b53-d0fc-4de7-80c8-11a6723f0d44" xml:space="preserve">
+          <source>app-insights-configuration-with-applicationinsights-config.md</source>
+          <target state="new">app-insights-configuration-with-applicationinsights-config.md</target>
+        </trans-unit>
+        <trans-unit id="4efbf9a2-9907-48e1-bc36-65e786c53509" xml:space="preserve">
+          <source>app-insights-start-monitoring-app-health-usage.md</source>
+          <target state="new">app-insights-start-monitoring-app-health-usage.md</target>
+        </trans-unit>
+        <trans-unit id="730382f5-7252-4be1-afcd-2856f9decf52" xml:space="preserve">
+          <source>app-insights-java-get-started.md</source>
+          <target state="new">app-insights-java-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="41eb7a31-e44e-4bfc-9e04-d1faa598b406" xml:space="preserve">
+          <source>app-insights-platforms.md</source>
+          <target state="new">app-insights-platforms.md</target>
+        </trans-unit>
+        <trans-unit id="881d8051-2d2f-4633-b48f-34ab58df3cd2" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/details/application-insights/</source>
+          <target state="new">http://azure.microsoft.com/pricing/details/application-insights/</target>
+        </trans-unit>
+        <trans-unit id="32c64b20-1a4f-4208-8b67-aa1d63422ce3" xml:space="preserve">
+          <source>app-insights-monitor-performance-live-website-now.md</source>
+          <target state="new">app-insights-monitor-performance-live-website-now.md</target>
+        </trans-unit>
+        <trans-unit id="c87d2735-6b0e-4f88-87ea-4077f27fdcd3" xml:space="preserve">
+          <source>app-insights-get-started.md</source>
+          <target state="new">app-insights-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="07ccee91-3c72-44c4-aa03-3327ddb071fa" xml:space="preserve">
+          <source>app-insights-windows-get-started.md</source>
+          <target state="new">app-insights-windows-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="9a6e20bc-7289-444e-ae97-958991bda9de" />
+    </body>
+  </file>
+</xliff>

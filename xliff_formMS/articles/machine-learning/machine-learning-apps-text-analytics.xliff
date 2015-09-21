@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="86deef7a-9301-460e-95dc-65fc428721cb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="86deef7a-9301-460e-95dc-65fc428721cb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="faab898e-8222-4ee1-a8ec-8896846562e8">
+        <trans-unit id="567a29d5-a6cb-454a-acc1-85265a57a8f6" xml:space="preserve">
+          <source>Machine Learning app: Sentiment analysis | Microsoft Azure</source>
+          <target state="new">Machine Learning app: Sentiment analysis | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="52d15876-37fa-42cb-a67a-6ab7c1a0cab7" xml:space="preserve">
+          <source>Text Analytics API is a suite of text analytics built with Azure Machine Learning. The API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction.</source>
+          <target state="new">Text Analytics API is a suite of text analytics built with Azure Machine Learning. The API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction.</target>
+        </trans-unit>
+        <trans-unit id="9a0142c5-325b-4af6-b39f-5116e68da28c" xml:space="preserve">
+          <source>Text Analytics API is a suite of text analytics <bpt id="da8650c3-1190-462d-bb1d-a33e7beb8f7f">&lt;linkText&gt;</bpt>web services<ept id="da8650c3-1190-462d-bb1d-a33e7beb8f7f">&lt;/linkText&gt;</ept><bpt id="da8650c3-1190-462d-bb1d-a33e7beb8f7f">&lt;title&gt;</bpt><ept id="da8650c3-1190-462d-bb1d-a33e7beb8f7f">&lt;/title&gt;</ept> built with Azure Machine Learning.</source>
+          <target state="new">Text Analytics API is a suite of text analytics <bpt id="da8650c3-1190-462d-bb1d-a33e7beb8f7f">&lt;linkText&gt;</bpt>web services<ept id="da8650c3-1190-462d-bb1d-a33e7beb8f7f">&lt;/linkText&gt;</ept><bpt id="da8650c3-1190-462d-bb1d-a33e7beb8f7f">&lt;title&gt;</bpt><ept id="da8650c3-1190-462d-bb1d-a33e7beb8f7f">&lt;/title&gt;</ept> built with Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="10666939-8429-4442-bac9-bc16bf57c661" xml:space="preserve">
+          <source>The API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction.</source>
+          <target state="new">The API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction.</target>
+        </trans-unit>
+        <trans-unit id="f2f5eafe-2a10-4e09-8e36-4720dc1f4725" xml:space="preserve">
+          <source>No training data is needed to use this API, just bring your text data.</source>
+          <target state="new">No training data is needed to use this API, just bring your text data.</target>
+        </trans-unit>
+        <trans-unit id="4aed40a4-8787-4433-8eb5-c5799933c50e" xml:space="preserve">
+          <source>We support English language only right now.</source>
+          <target state="new">We support English language only right now.</target>
+        </trans-unit>
+        <trans-unit id="1d09f2c1-61f5-4288-bee0-76a9b716e552" xml:space="preserve">
+          <source>This API uses advanced natural language processing techniques under the hood.</source>
+          <target state="new">This API uses advanced natural language processing techniques under the hood.</target>
+        </trans-unit>
+        <trans-unit id="97b01103-9cdc-4412-86d0-bfcd2a37bd1e" xml:space="preserve">
+          <source><bpt id="50340e1a-0303-40d3-b277-3cfd4162d0da">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="50340e1a-0303-40d3-b277-3cfd4162d0da">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="50340e1a-0303-40d3-b277-3cfd4162d0da">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="50340e1a-0303-40d3-b277-3cfd4162d0da">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c4c74211-3a28-4d0d-af5d-111c67cbd073" xml:space="preserve">
+          <source>The API returns a numeric score between 0 &amp; 1. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and word embeddings.</source>
+          <target state="new">The API returns a numeric score between 0 &amp; 1. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and word embeddings.</target>
+        </trans-unit>
+        <trans-unit id="5cc25680-27bb-40b7-904e-9e0cb0fedc85" xml:space="preserve">
+          <source>The API returns a list of strings denoting the key talking points in the input text.</source>
+          <target state="new">The API returns a list of strings denoting the key talking points in the input text.</target>
+        </trans-unit>
+        <trans-unit id="d75a3bee-815d-4829-90cf-939d17f5e4fa" xml:space="preserve">
+          <source>We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.</source>
+          <target state="new">We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.</target>
+        </trans-unit>
+        <trans-unit id="b29e5e98-5307-49a9-b0c2-75b4beb930e0" xml:space="preserve">
+          <source><bpt id="2313b09b-a75b-4499-8193-29a34a343c71">&lt;strong&gt;</bpt>URL<ept id="2313b09b-a75b-4499-8193-29a34a343c71">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="2313b09b-a75b-4499-8193-29a34a343c71">&lt;strong&gt;</bpt>URL<ept id="2313b09b-a75b-4499-8193-29a34a343c71">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f5a10e7e-f617-4e23-95ae-f27c3fd251c0" xml:space="preserve">
+          <source><bpt id="bb984b35-2f4f-43c8-92bb-28a9d0ef90d0">&lt;strong&gt;</bpt>Example request<ept id="bb984b35-2f4f-43c8-92bb-28a9d0ef90d0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bb984b35-2f4f-43c8-92bb-28a9d0ef90d0">&lt;strong&gt;</bpt>Example request<ept id="bb984b35-2f4f-43c8-92bb-28a9d0ef90d0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40ce19a2-9386-47dc-a9d8-70fcc2cf5eac" xml:space="preserve">
+          <source>In the GET call below, we are requesting for the sentiment for the phrase <bpt id="03d70f43-0e85-42f5-9724-28d56e001c4d">&lt;em&gt;</bpt>Hello World<ept id="03d70f43-0e85-42f5-9724-28d56e001c4d">&lt;/em&gt;</ept></source>
+          <target state="new">In the GET call below, we are requesting for the sentiment for the phrase <bpt id="03d70f43-0e85-42f5-9724-28d56e001c4d">&lt;em&gt;</bpt>Hello World<ept id="03d70f43-0e85-42f5-9724-28d56e001c4d">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee541cb3-ecc7-424e-8271-92bec36e11e8" xml:space="preserve">
+          <source>Headers:</source>
+          <target state="new">Headers:</target>
+        </trans-unit>
+        <trans-unit id="e2b8e8ed-6970-4890-ad75-1d46605227b9" xml:space="preserve">
+          <source>You get your account key <bpt id="530d0398-9aea-4da3-8732-b4b7686d5be6">&lt;linkText&gt;</bpt>here<ept id="530d0398-9aea-4da3-8732-b4b7686d5be6">&lt;/linkText&gt;</ept><bpt id="530d0398-9aea-4da3-8732-b4b7686d5be6">&lt;title&gt;</bpt><ept id="530d0398-9aea-4da3-8732-b4b7686d5be6">&lt;/title&gt;</ept>.</source>
+          <target state="new">You get your account key <bpt id="530d0398-9aea-4da3-8732-b4b7686d5be6">&lt;linkText&gt;</bpt>here<ept id="530d0398-9aea-4da3-8732-b4b7686d5be6">&lt;/linkText&gt;</ept><bpt id="530d0398-9aea-4da3-8732-b4b7686d5be6">&lt;title&gt;</bpt><ept id="530d0398-9aea-4da3-8732-b4b7686d5be6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c634fbc-3b71-430b-b1d7-26d581ff5283" xml:space="preserve">
+          <source><bpt id="20fbeea5-fee7-4f29-ba8c-9b5bcf372cf9">&lt;strong&gt;</bpt>Example response<ept id="20fbeea5-fee7-4f29-ba8c-9b5bcf372cf9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="20fbeea5-fee7-4f29-ba8c-9b5bcf372cf9">&lt;strong&gt;</bpt>Example response<ept id="20fbeea5-fee7-4f29-ba8c-9b5bcf372cf9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="948763b7-a1c0-40b9-818c-79adaed23b4d" xml:space="preserve">
+          <source><bpt id="e15a3720-ff37-4752-bcb5-b5f1772b891a">&lt;strong&gt;</bpt>URL<ept id="e15a3720-ff37-4752-bcb5-b5f1772b891a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e15a3720-ff37-4752-bcb5-b5f1772b891a">&lt;strong&gt;</bpt>URL<ept id="e15a3720-ff37-4752-bcb5-b5f1772b891a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f1a8905-29ad-4cdf-86bd-88ed61bce2c7" xml:space="preserve">
+          <source><bpt id="0512ab40-fc73-4abd-835c-ee64115a5e54">&lt;strong&gt;</bpt>Example request<ept id="0512ab40-fc73-4abd-835c-ee64115a5e54">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0512ab40-fc73-4abd-835c-ee64115a5e54">&lt;strong&gt;</bpt>Example request<ept id="0512ab40-fc73-4abd-835c-ee64115a5e54">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="311adde5-ede1-426c-9739-1779c557c14a" xml:space="preserve">
+          <source>In the GET call below, we are requesting for the sentiment for the key phrases in the text <bpt id="0bda4866-e814-4785-b109-1a6e24b06e83">&lt;em&gt;</bpt>It was a wonderful hotel to stay at, with unique decor and friendly staff<ept id="0bda4866-e814-4785-b109-1a6e24b06e83">&lt;/em&gt;</ept></source>
+          <target state="new">In the GET call below, we are requesting for the sentiment for the key phrases in the text <bpt id="0bda4866-e814-4785-b109-1a6e24b06e83">&lt;em&gt;</bpt>It was a wonderful hotel to stay at, with unique decor and friendly staff<ept id="0bda4866-e814-4785-b109-1a6e24b06e83">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2ec797e-b669-4669-a3e1-0834d9379f59" xml:space="preserve">
+          <source>Headers:</source>
+          <target state="new">Headers:</target>
+        </trans-unit>
+        <trans-unit id="24415091-d5f3-4c2e-87c0-3a93718fafe9" xml:space="preserve">
+          <source>You get your account key <bpt id="a91cc5da-037c-427e-b6c9-fdee4018ce8e">&lt;linkText&gt;</bpt>here<ept id="a91cc5da-037c-427e-b6c9-fdee4018ce8e">&lt;/linkText&gt;</ept><bpt id="a91cc5da-037c-427e-b6c9-fdee4018ce8e">&lt;title&gt;</bpt><ept id="a91cc5da-037c-427e-b6c9-fdee4018ce8e">&lt;/title&gt;</ept>.</source>
+          <target state="new">You get your account key <bpt id="a91cc5da-037c-427e-b6c9-fdee4018ce8e">&lt;linkText&gt;</bpt>here<ept id="a91cc5da-037c-427e-b6c9-fdee4018ce8e">&lt;/linkText&gt;</ept><bpt id="a91cc5da-037c-427e-b6c9-fdee4018ce8e">&lt;title&gt;</bpt><ept id="a91cc5da-037c-427e-b6c9-fdee4018ce8e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bad6934d-5f8c-482d-9ff8-da8d5df80e47" xml:space="preserve">
+          <source><bpt id="b559af6a-3863-4989-a2e0-f96f2e3263e5">&lt;strong&gt;</bpt>Example response<ept id="b559af6a-3863-4989-a2e0-f96f2e3263e5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b559af6a-3863-4989-a2e0-f96f2e3263e5">&lt;strong&gt;</bpt>Example response<ept id="b559af6a-3863-4989-a2e0-f96f2e3263e5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a8fab4e-c515-4fb7-91b6-4febd9badf95" xml:space="preserve">
+          <source><bpt id="b6e9c8a7-48e5-43dc-9f55-06a8b865881e">&lt;strong&gt;</bpt>URL<ept id="b6e9c8a7-48e5-43dc-9f55-06a8b865881e">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="b6e9c8a7-48e5-43dc-9f55-06a8b865881e">&lt;strong&gt;</bpt>URL<ept id="b6e9c8a7-48e5-43dc-9f55-06a8b865881e">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="cf2c7bc6-8703-4ced-b943-c8b13b335549" xml:space="preserve">
+          <source><bpt id="f683e94c-613f-48b7-bb57-4facf1ce9e52">&lt;strong&gt;</bpt>Example request<ept id="f683e94c-613f-48b7-bb57-4facf1ce9e52">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f683e94c-613f-48b7-bb57-4facf1ce9e52">&lt;strong&gt;</bpt>Example request<ept id="f683e94c-613f-48b7-bb57-4facf1ce9e52">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa7d4769-0bf7-41a7-b041-6f085bee3b4d" xml:space="preserve">
+          <source>In the POST call below, we are requesting for the sentiments of the following phrases: Hello World, Hello Foo World, Hello My World in the body of the request</source>
+          <target state="new">In the POST call below, we are requesting for the sentiments of the following phrases: Hello World, Hello Foo World, Hello My World in the body of the request</target>
+        </trans-unit>
+        <trans-unit id="f1b25f9e-51ae-4425-ae02-458a453830c3" xml:space="preserve">
+          <source>Body:</source>
+          <target state="new">Body:</target>
+        </trans-unit>
+        <trans-unit id="77196c58-d09e-4fdc-88b8-867acfb86ecf" xml:space="preserve">
+          <source>Headers:</source>
+          <target state="new">Headers:</target>
+        </trans-unit>
+        <trans-unit id="eb701fff-368b-48e6-bc9f-75e8730f78f1" xml:space="preserve">
+          <source>You get your account key <bpt id="a85f35e8-2c87-4f54-b208-14380f7c8abf">&lt;linkText&gt;</bpt>here<ept id="a85f35e8-2c87-4f54-b208-14380f7c8abf">&lt;/linkText&gt;</ept><bpt id="a85f35e8-2c87-4f54-b208-14380f7c8abf">&lt;title&gt;</bpt><ept id="a85f35e8-2c87-4f54-b208-14380f7c8abf">&lt;/title&gt;</ept>.</source>
+          <target state="new">You get your account key <bpt id="a85f35e8-2c87-4f54-b208-14380f7c8abf">&lt;linkText&gt;</bpt>here<ept id="a85f35e8-2c87-4f54-b208-14380f7c8abf">&lt;/linkText&gt;</ept><bpt id="a85f35e8-2c87-4f54-b208-14380f7c8abf">&lt;title&gt;</bpt><ept id="a85f35e8-2c87-4f54-b208-14380f7c8abf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32772865-2c70-4e0d-bdf0-e5bff6bf4adf" xml:space="preserve">
+          <source><bpt id="24604653-f822-4992-98e8-3336b97cf9be">&lt;strong&gt;</bpt>Example response<ept id="24604653-f822-4992-98e8-3336b97cf9be">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="24604653-f822-4992-98e8-3336b97cf9be">&lt;strong&gt;</bpt>Example response<ept id="24604653-f822-4992-98e8-3336b97cf9be">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88065c87-54c5-416e-8bb5-522af635886d" xml:space="preserve">
+          <source>In the response below, you get the list of scores associated with your text Ids:</source>
+          <target state="new">In the response below, you get the list of scores associated with your text Ids:</target>
+        </trans-unit>
+        <trans-unit id="0d8feffc-7d16-4ce1-ace7-c34799fffd40" xml:space="preserve">
+          <source><bpt id="b3877b73-894e-4dac-952e-0b97390da6b3">&lt;strong&gt;</bpt>URL<ept id="b3877b73-894e-4dac-952e-0b97390da6b3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b3877b73-894e-4dac-952e-0b97390da6b3">&lt;strong&gt;</bpt>URL<ept id="b3877b73-894e-4dac-952e-0b97390da6b3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="845437e6-8da5-49f7-9d31-ba1ab0d5cb6d" xml:space="preserve">
+          <source><bpt id="2ec59479-99c0-43d6-a8b4-25bd4bf4dfaa">&lt;strong&gt;</bpt>Example request<ept id="2ec59479-99c0-43d6-a8b4-25bd4bf4dfaa">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2ec59479-99c0-43d6-a8b4-25bd4bf4dfaa">&lt;strong&gt;</bpt>Example request<ept id="2ec59479-99c0-43d6-a8b4-25bd4bf4dfaa">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="844b07a6-273d-4d8d-823d-49ee7bf3dd66" xml:space="preserve">
+          <source>In the POST call below, we are requesting for the list of sentiments for the key phrases in the following texts: </source>
+          <target state="new">In the POST call below, we are requesting for the list of sentiments for the key phrases in the following texts: </target>
+        </trans-unit>
+        <trans-unit id="ddfc3649-f219-457d-97b3-fc68c60ca0b5" xml:space="preserve">
+          <source><bpt id="ad204308-6322-421e-a379-f8c195afdae6">&lt;em&gt;</bpt>It was a wonderful hotel to stay at, with unique decor and friendly staff<ept id="ad204308-6322-421e-a379-f8c195afdae6">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="ad204308-6322-421e-a379-f8c195afdae6">&lt;em&gt;</bpt>It was a wonderful hotel to stay at, with unique decor and friendly staff<ept id="ad204308-6322-421e-a379-f8c195afdae6">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8dce8bdd-f98e-4876-859b-0c7fdefe0250" xml:space="preserve">
+          <source><bpt id="b0e9ad05-42a1-42f9-9491-ecb597d8b1a4">&lt;em&gt;</bpt>It was an amazing build conference, with very interesting talks<ept id="b0e9ad05-42a1-42f9-9491-ecb597d8b1a4">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="b0e9ad05-42a1-42f9-9491-ecb597d8b1a4">&lt;em&gt;</bpt>It was an amazing build conference, with very interesting talks<ept id="b0e9ad05-42a1-42f9-9491-ecb597d8b1a4">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c66a188-975a-4da4-b4a1-641a39f48cba" xml:space="preserve">
+          <source><bpt id="f64847fc-4ebf-457e-a3c9-56e27402eeb8">&lt;em&gt;</bpt>The traffic was terrible, I spent three hours going to the airport<ept id="f64847fc-4ebf-457e-a3c9-56e27402eeb8">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="f64847fc-4ebf-457e-a3c9-56e27402eeb8">&lt;em&gt;</bpt>The traffic was terrible, I spent three hours going to the airport<ept id="f64847fc-4ebf-457e-a3c9-56e27402eeb8">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fa0cae6-b557-4320-8957-1b40423ed188" xml:space="preserve">
+          <source>Body:</source>
+          <target state="new">Body:</target>
+        </trans-unit>
+        <trans-unit id="ce17e1a7-1153-4a75-8a5c-efe34c37a4f0" xml:space="preserve">
+          <source>Headers:</source>
+          <target state="new">Headers:</target>
+        </trans-unit>
+        <trans-unit id="4fd714bd-cc21-4d5f-9edc-cde44bdd197d" xml:space="preserve">
+          <source>You get your account key <bpt id="1922b507-3be2-4223-bbed-322f24680266">&lt;linkText&gt;</bpt>here<ept id="1922b507-3be2-4223-bbed-322f24680266">&lt;/linkText&gt;</ept><bpt id="1922b507-3be2-4223-bbed-322f24680266">&lt;title&gt;</bpt><ept id="1922b507-3be2-4223-bbed-322f24680266">&lt;/title&gt;</ept>.</source>
+          <target state="new">You get your account key <bpt id="1922b507-3be2-4223-bbed-322f24680266">&lt;linkText&gt;</bpt>here<ept id="1922b507-3be2-4223-bbed-322f24680266">&lt;/linkText&gt;</ept><bpt id="1922b507-3be2-4223-bbed-322f24680266">&lt;title&gt;</bpt><ept id="1922b507-3be2-4223-bbed-322f24680266">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4277da93-4629-4ae0-b891-bb35c93cd74b" xml:space="preserve">
+          <source><bpt id="6f767e72-705d-4333-b577-8361e892098e">&lt;strong&gt;</bpt>Example response<ept id="6f767e72-705d-4333-b577-8361e892098e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6f767e72-705d-4333-b577-8361e892098e">&lt;strong&gt;</bpt>Example response<ept id="6f767e72-705d-4333-b577-8361e892098e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02192f78-3964-4f75-8480-e2c931c05743" xml:space="preserve">
+          <source>In the response below, you get the list of key phrases associated with your text Ids:</source>
+          <target state="new">In the response below, you get the list of key phrases associated with your text Ids:</target>
+        </trans-unit>
+        <trans-unit id="b84aef69-237f-46b4-8912-eb0a237741b7" xml:space="preserve">
+          <source><bpt id="ed6368aa-39f8-4b51-8e04-fa59b7c27059">&lt;strong&gt;</bpt>Notes related to batch processing<ept id="ed6368aa-39f8-4b51-8e04-fa59b7c27059">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ed6368aa-39f8-4b51-8e04-fa59b7c27059">&lt;strong&gt;</bpt>Notes related to batch processing<ept id="ed6368aa-39f8-4b51-8e04-fa59b7c27059">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f242d7ce-8ebb-47cd-be49-56be4f389932" xml:space="preserve">
+          <source>The Ids entered into the system are the Ids returned by the system.</source>
+          <target state="new">The Ids entered into the system are the Ids returned by the system.</target>
+        </trans-unit>
+        <trans-unit id="00885f6a-4b20-4b43-83f6-4fb56053172d" xml:space="preserve">
+          <source>The web service does not check that the Ids are unique.</source>
+          <target state="new">The web service does not check that the Ids are unique.</target>
+        </trans-unit>
+        <trans-unit id="6ddbc7e5-54f8-4dbb-ac23-ec9be310e875" xml:space="preserve">
+          <source>It is the responsibility of the caller to verify uniqueness.</source>
+          <target state="new">It is the responsibility of the caller to verify uniqueness.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

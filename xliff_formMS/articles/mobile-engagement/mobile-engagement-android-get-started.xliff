@@ -1,0 +1,763 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="82606a7c-9ca0-4ace-a925-a9995712fb82" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="82606a7c-9ca0-4ace-a925-a9995712fb82" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5742e4c9-8a60-4cb7-a506-76c08893e9da">
+        <trans-unit id="6c812411-2306-43e1-8db0-219ab2fa4445" xml:space="preserve">
+          <source>Get started with Azure Mobile Engagement</source>
+          <target state="new">Get started with Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="82c7eeff-28bb-4dd5-8a99-c79d9c9d7954" xml:space="preserve">
+          <source>Learn how to use Azure Mobile Engagement with analytics and push notifications for Android apps.</source>
+          <target state="new">Learn how to use Azure Mobile Engagement with analytics and push notifications for Android apps.</target>
+        </trans-unit>
+        <trans-unit id="26f59fe8-bbda-4906-9cc9-908b61c93eac" xml:space="preserve">
+          <source>This topic shows you how to use Azure Mobile Engagement to understand your app usage and how to send push notifications to segmented users of an Android application.</source>
+          <target state="new">This topic shows you how to use Azure Mobile Engagement to understand your app usage and how to send push notifications to segmented users of an Android application.</target>
+        </trans-unit>
+        <trans-unit id="acdb442d-cfc0-4f8c-befc-f11dd7a4f269" xml:space="preserve">
+          <source>This tutorial demonstrates the simple broadcast scenario using Mobile Engagement.</source>
+          <target state="new">This tutorial demonstrates the simple broadcast scenario using Mobile Engagement.</target>
+        </trans-unit>
+        <trans-unit id="4f9316cc-70ec-4e87-9a7b-ef1b641d13b5" xml:space="preserve">
+          <source>In it, you create a blank Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM).</source>
+          <target state="new">In it, you create a blank Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM).</target>
+        </trans-unit>
+        <trans-unit id="5c97fd06-b9e7-43b6-a8e2-a483860d4b29" xml:space="preserve">
+          <source>When you have completed this tutorial, you will be able to broadcast push notifications to all the devices or target-specific users based on their devices' properties.</source>
+          <target state="new">When you have completed this tutorial, you will be able to broadcast push notifications to all the devices or target-specific users based on their devices' properties.</target>
+        </trans-unit>
+        <trans-unit id="592a2377-23c0-4ca5-8a47-69e753e0a6df" xml:space="preserve">
+          <source>Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.</source>
+          <target state="new">Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.</target>
+        </trans-unit>
+        <trans-unit id="cfa7bcab-0391-40d5-8ed4-2e0aa280bcc7" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="4bc8fee4-da7c-4502-aead-1dc8f14f3869" xml:space="preserve">
+          <source>The Android SDK (it is assumed you will be using Android Studio), which you can download <bpt id="43b81a5a-43c9-49c0-8aa8-3fae561d4bb6">&lt;linkText&gt;</bpt>here<ept id="43b81a5a-43c9-49c0-8aa8-3fae561d4bb6">&lt;/linkText&gt;</ept><bpt id="43b81a5a-43c9-49c0-8aa8-3fae561d4bb6">&lt;title&gt;</bpt><ept id="43b81a5a-43c9-49c0-8aa8-3fae561d4bb6">&lt;/title&gt;</ept></source>
+          <target state="new">The Android SDK (it is assumed you will be using Android Studio), which you can download <bpt id="43b81a5a-43c9-49c0-8aa8-3fae561d4bb6">&lt;linkText&gt;</bpt>here<ept id="43b81a5a-43c9-49c0-8aa8-3fae561d4bb6">&lt;/linkText&gt;</ept><bpt id="43b81a5a-43c9-49c0-8aa8-3fae561d4bb6">&lt;title&gt;</bpt><ept id="43b81a5a-43c9-49c0-8aa8-3fae561d4bb6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="835af0c2-736b-474c-9569-203e10ac0929" xml:space="preserve">
+          <source>The [Mobile Engagement Android SDK]</source>
+          <target state="new">The [Mobile Engagement Android SDK]</target>
+        </trans-unit>
+        <trans-unit id="3a50a822-9eca-4248-9c74-6b7e6ad986e2" xml:space="preserve">
+          <source>Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Android apps, and to complete it, you must have an active Azure account.</source>
+          <target state="new">Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Android apps, and to complete it, you must have an active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="16dcd96f-cfa5-494a-b1ca-7280f4245d7a" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="23a28377-68bd-4045-949c-53c1412f18c9" xml:space="preserve">
+          <source>For details, see &lt;a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc<bpt id="455412ef-2328-43d1-be51-9468c36a72af">&lt;em&gt;</bpt>id=A0E0E5C02&amp;amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="<ept id="455412ef-2328-43d1-be51-9468c36a72af">&lt;/em&gt;</ept>blank"&gt;Azure Free Trial&lt;/a&gt;.</source>
+          <target state="new">For details, see &lt;a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc<bpt id="455412ef-2328-43d1-be51-9468c36a72af">&lt;em&gt;</bpt>id=A0E0E5C02&amp;amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="<ept id="455412ef-2328-43d1-be51-9468c36a72af">&lt;/em&gt;</ept>blank"&gt;Azure Free Trial&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="88c349fe-0491-43ca-b5e6-673efe63e48b" xml:space="preserve">
+          <source>Sign in to the <bpt id="6297d4fc-5ab6-4d5e-a70c-51f65b1ae0c0">&lt;linkText&gt;</bpt>Azure portal<ept id="6297d4fc-5ab6-4d5e-a70c-51f65b1ae0c0">&lt;/linkText&gt;</ept><bpt id="6297d4fc-5ab6-4d5e-a70c-51f65b1ae0c0">&lt;title&gt;</bpt><ept id="6297d4fc-5ab6-4d5e-a70c-51f65b1ae0c0">&lt;/title&gt;</ept>, and then click <bpt id="83c2b040-356d-4d2b-a651-a3133093cf88">&lt;strong&gt;</bpt>+NEW<ept id="83c2b040-356d-4d2b-a651-a3133093cf88">&lt;/strong&gt;</ept> at the bottom of the screen.</source>
+          <target state="new">Sign in to the <bpt id="6297d4fc-5ab6-4d5e-a70c-51f65b1ae0c0">&lt;linkText&gt;</bpt>Azure portal<ept id="6297d4fc-5ab6-4d5e-a70c-51f65b1ae0c0">&lt;/linkText&gt;</ept><bpt id="6297d4fc-5ab6-4d5e-a70c-51f65b1ae0c0">&lt;title&gt;</bpt><ept id="6297d4fc-5ab6-4d5e-a70c-51f65b1ae0c0">&lt;/title&gt;</ept>, and then click <bpt id="83c2b040-356d-4d2b-a651-a3133093cf88">&lt;strong&gt;</bpt>+NEW<ept id="83c2b040-356d-4d2b-a651-a3133093cf88">&lt;/strong&gt;</ept> at the bottom of the screen.</target>
+        </trans-unit>
+        <trans-unit id="4583aaa7-bcf5-443a-af45-87dd0105ea82" xml:space="preserve">
+          <source>Click <bpt id="4bfc2bc5-a5bf-4246-bf10-fd13fd735e65">&lt;strong&gt;</bpt>App Services<ept id="4bfc2bc5-a5bf-4246-bf10-fd13fd735e65">&lt;/strong&gt;</ept>, click <bpt id="9fc6243e-7f3c-4c40-ac95-c04b573c5e8b">&lt;strong&gt;</bpt>Mobile Engagement<ept id="9fc6243e-7f3c-4c40-ac95-c04b573c5e8b">&lt;/strong&gt;</ept>, and then click <bpt id="5a478e9f-ec89-475a-ab2d-d5acf4358da9">&lt;strong&gt;</bpt>Create<ept id="5a478e9f-ec89-475a-ab2d-d5acf4358da9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="4bfc2bc5-a5bf-4246-bf10-fd13fd735e65">&lt;strong&gt;</bpt>App Services<ept id="4bfc2bc5-a5bf-4246-bf10-fd13fd735e65">&lt;/strong&gt;</ept>, click <bpt id="9fc6243e-7f3c-4c40-ac95-c04b573c5e8b">&lt;strong&gt;</bpt>Mobile Engagement<ept id="9fc6243e-7f3c-4c40-ac95-c04b573c5e8b">&lt;/strong&gt;</ept>, and then click <bpt id="5a478e9f-ec89-475a-ab2d-d5acf4358da9">&lt;strong&gt;</bpt>Create<ept id="5a478e9f-ec89-475a-ab2d-d5acf4358da9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cbf03d9-6ada-4fe0-b6ca-3cc3711cc9e4" xml:space="preserve">
+          <source><bpt id="610e31fb-7120-4672-8c2e-a95497115104">&lt;linkText&gt;</bpt><ept id="610e31fb-7120-4672-8c2e-a95497115104">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="610e31fb-7120-4672-8c2e-a95497115104">&lt;linkText&gt;</bpt><ept id="610e31fb-7120-4672-8c2e-a95497115104">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b117f139-5ec5-4040-8e2e-c95912d07222" xml:space="preserve">
+          <source>In the pop-up that appears, enter the following information:</source>
+          <target state="new">In the pop-up that appears, enter the following information:</target>
+        </trans-unit>
+        <trans-unit id="25d10ee2-fab3-40e8-ad07-b2edf8ac5606" xml:space="preserve">
+          <source><bpt id="1e560d4e-8282-4d4b-9020-79ecdc3c8f96">&lt;linkText&gt;</bpt><ept id="1e560d4e-8282-4d4b-9020-79ecdc3c8f96">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e560d4e-8282-4d4b-9020-79ecdc3c8f96">&lt;linkText&gt;</bpt><ept id="1e560d4e-8282-4d4b-9020-79ecdc3c8f96">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6c1aa7d-58de-4fa7-b180-e68fc4cfe8f4" xml:space="preserve">
+          <source><bpt id="fe40b047-ecd0-4cf1-87e7-00f51f083e77">&lt;strong&gt;</bpt>Application Name<ept id="fe40b047-ecd0-4cf1-87e7-00f51f083e77">&lt;/strong&gt;</ept>: You can type the name of your application.</source>
+          <target state="new"><bpt id="fe40b047-ecd0-4cf1-87e7-00f51f083e77">&lt;strong&gt;</bpt>Application Name<ept id="fe40b047-ecd0-4cf1-87e7-00f51f083e77">&lt;/strong&gt;</ept>: You can type the name of your application.</target>
+        </trans-unit>
+        <trans-unit id="b368b2b1-34e9-4965-a984-c019e6902bd3" xml:space="preserve">
+          <source>Feel free to use any character.</source>
+          <target state="new">Feel free to use any character.</target>
+        </trans-unit>
+        <trans-unit id="e784f7a8-228d-4d34-a175-7b3a6e4a3c41" xml:space="preserve">
+          <source><bpt id="5468b184-2683-40dd-98e0-35c0581cd14e">&lt;strong&gt;</bpt>Platform<ept id="5468b184-2683-40dd-98e0-35c0581cd14e">&lt;/strong&gt;</ept>: Select the target platform for that app (if your app targets multiple platforms, repeat this tutorial for each platform).</source>
+          <target state="new"><bpt id="5468b184-2683-40dd-98e0-35c0581cd14e">&lt;strong&gt;</bpt>Platform<ept id="5468b184-2683-40dd-98e0-35c0581cd14e">&lt;/strong&gt;</ept>: Select the target platform for that app (if your app targets multiple platforms, repeat this tutorial for each platform).</target>
+        </trans-unit>
+        <trans-unit id="526c3d9a-7daa-4135-9b7e-30200e1ddd92" xml:space="preserve">
+          <source><bpt id="5d944fa8-f635-44f8-88d1-2d84fbd73be6">&lt;strong&gt;</bpt>Application Resource Name<ept id="5d944fa8-f635-44f8-88d1-2d84fbd73be6">&lt;/strong&gt;</ept>: This is the name by which this application will be accessible via APIs and URLs.</source>
+          <target state="new"><bpt id="5d944fa8-f635-44f8-88d1-2d84fbd73be6">&lt;strong&gt;</bpt>Application Resource Name<ept id="5d944fa8-f635-44f8-88d1-2d84fbd73be6">&lt;/strong&gt;</ept>: This is the name by which this application will be accessible via APIs and URLs.</target>
+        </trans-unit>
+        <trans-unit id="486f0dcc-92ea-4193-a207-8c2af2e4d48a" xml:space="preserve">
+          <source>We advise that you use only conventional URL characters: The auto-generated name should provide you a strong basis.</source>
+          <target state="new">We advise that you use only conventional URL characters: The auto-generated name should provide you a strong basis.</target>
+        </trans-unit>
+        <trans-unit id="7e6942c2-2b4e-4f0f-a778-6f602f3a3c96" xml:space="preserve">
+          <source>We also advise appending the platform name to avoid any name clash because this name must be unique.</source>
+          <target state="new">We also advise appending the platform name to avoid any name clash because this name must be unique.</target>
+        </trans-unit>
+        <trans-unit id="bb6655fe-9bfe-4b54-a64f-262d6d26f98b" xml:space="preserve">
+          <source><bpt id="c25eebcf-19b3-47e7-ade4-fa5ee6040a82">&lt;strong&gt;</bpt>Location<ept id="c25eebcf-19b3-47e7-ade4-fa5ee6040a82">&lt;/strong&gt;</ept>: Select the datacenter where this app (and more importantly its Collection - see below) will be hosted.</source>
+          <target state="new"><bpt id="c25eebcf-19b3-47e7-ade4-fa5ee6040a82">&lt;strong&gt;</bpt>Location<ept id="c25eebcf-19b3-47e7-ade4-fa5ee6040a82">&lt;/strong&gt;</ept>: Select the datacenter where this app (and more importantly its Collection - see below) will be hosted.</target>
+        </trans-unit>
+        <trans-unit id="c3bc2e8b-1221-4a1f-abdb-0f135f34911e" xml:space="preserve">
+          <source><bpt id="a6f1a2ba-b707-416d-94f5-215afc10ccd4">&lt;strong&gt;</bpt>Collection<ept id="a6f1a2ba-b707-416d-94f5-215afc10ccd4">&lt;/strong&gt;</ept>: If you have already created an application, select a previously created Collection; otherwise select <bpt id="a1a65593-292d-4aa2-bc41-a2098472e617">&lt;strong&gt;</bpt>New Collection<ept id="a1a65593-292d-4aa2-bc41-a2098472e617">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="a6f1a2ba-b707-416d-94f5-215afc10ccd4">&lt;strong&gt;</bpt>Collection<ept id="a6f1a2ba-b707-416d-94f5-215afc10ccd4">&lt;/strong&gt;</ept>: If you have already created an application, select a previously created Collection; otherwise select <bpt id="a1a65593-292d-4aa2-bc41-a2098472e617">&lt;strong&gt;</bpt>New Collection<ept id="a1a65593-292d-4aa2-bc41-a2098472e617">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2302a459-4b59-4d69-9e49-0d8a834ce680" xml:space="preserve">
+          <source><bpt id="ce0c634b-dd07-4464-b4b6-164673eec535">&lt;strong&gt;</bpt>Collection Name<ept id="ce0c634b-dd07-4464-b4b6-164673eec535">&lt;/strong&gt;</ept>: This represents your group of applications.</source>
+          <target state="new"><bpt id="ce0c634b-dd07-4464-b4b6-164673eec535">&lt;strong&gt;</bpt>Collection Name<ept id="ce0c634b-dd07-4464-b4b6-164673eec535">&lt;/strong&gt;</ept>: This represents your group of applications.</target>
+        </trans-unit>
+        <trans-unit id="42f3e589-034c-4cdc-8f67-a2721af3bc59" xml:space="preserve">
+          <source>It will also ensure all your apps are in a group that allows aggregated calculations.</source>
+          <target state="new">It will also ensure all your apps are in a group that allows aggregated calculations.</target>
+        </trans-unit>
+        <trans-unit id="4583846f-c6aa-47db-90ec-9b8510f20a71" xml:space="preserve">
+          <source>We strongly advise that you use your company name or department.</source>
+          <target state="new">We strongly advise that you use your company name or department.</target>
+        </trans-unit>
+        <trans-unit id="45b955ff-23ba-418a-8557-522e0e788efb" xml:space="preserve">
+          <source>When you're done, click the check mark button to finish the creation of your app.</source>
+          <target state="new">When you're done, click the check mark button to finish the creation of your app.</target>
+        </trans-unit>
+        <trans-unit id="88d20241-26a5-43f3-8d0d-ac05c083820b" xml:space="preserve">
+          <source>Now click or select the app you just created in the <bpt id="bf239b42-b678-4e5e-9b29-92db8989dca4">&lt;strong&gt;</bpt>Application<ept id="bf239b42-b678-4e5e-9b29-92db8989dca4">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Now click or select the app you just created in the <bpt id="bf239b42-b678-4e5e-9b29-92db8989dca4">&lt;strong&gt;</bpt>Application<ept id="bf239b42-b678-4e5e-9b29-92db8989dca4">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="5f5ed2a6-51bd-4dfb-bafb-b2de9483e4d8" xml:space="preserve">
+          <source><bpt id="e0c865a0-bd93-45b8-837c-a77b799dfda5">&lt;linkText&gt;</bpt><ept id="e0c865a0-bd93-45b8-837c-a77b799dfda5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e0c865a0-bd93-45b8-837c-a77b799dfda5">&lt;linkText&gt;</bpt><ept id="e0c865a0-bd93-45b8-837c-a77b799dfda5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8fc0ab14-be44-4d21-8d6c-1d186ebbdaae" xml:space="preserve">
+          <source>Then click <bpt id="e58ed913-f84b-4cef-ac54-cad87d0ba2b9">&lt;strong&gt;</bpt>Connection Info<ept id="e58ed913-f84b-4cef-ac54-cad87d0ba2b9">&lt;/strong&gt;</ept> in order to display the <bpt id="4ce84e43-6aa1-4985-b477-c9b24bc2e71d">&lt;strong&gt;</bpt>Connection<ept id="4ce84e43-6aa1-4985-b477-c9b24bc2e71d">&lt;/strong&gt;</ept> settings to put into your SDK integration.</source>
+          <target state="new">Then click <bpt id="e58ed913-f84b-4cef-ac54-cad87d0ba2b9">&lt;strong&gt;</bpt>Connection Info<ept id="e58ed913-f84b-4cef-ac54-cad87d0ba2b9">&lt;/strong&gt;</ept> in order to display the <bpt id="4ce84e43-6aa1-4985-b477-c9b24bc2e71d">&lt;strong&gt;</bpt>Connection<ept id="4ce84e43-6aa1-4985-b477-c9b24bc2e71d">&lt;/strong&gt;</ept> settings to put into your SDK integration.</target>
+        </trans-unit>
+        <trans-unit id="ac03ece9-67a9-4d63-b1a0-ece13c882883" xml:space="preserve">
+          <source><bpt id="9bae88e5-a886-4f69-97e7-746861c2d2f1">&lt;linkText&gt;</bpt><ept id="9bae88e5-a886-4f69-97e7-746861c2d2f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9bae88e5-a886-4f69-97e7-746861c2d2f1">&lt;linkText&gt;</bpt><ept id="9bae88e5-a886-4f69-97e7-746861c2d2f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5cbb2e54-021f-4c9f-97ad-b0aa74687510" xml:space="preserve">
+          <source>Finally, write down the <bpt id="e51e9d25-212d-4b16-9b58-24bde882c3ec">&lt;strong&gt;</bpt>Connection String<ept id="e51e9d25-212d-4b16-9b58-24bde882c3ec">&lt;/strong&gt;</ept>, which is what you will need to identify this app from your application code.</source>
+          <target state="new">Finally, write down the <bpt id="e51e9d25-212d-4b16-9b58-24bde882c3ec">&lt;strong&gt;</bpt>Connection String<ept id="e51e9d25-212d-4b16-9b58-24bde882c3ec">&lt;/strong&gt;</ept>, which is what you will need to identify this app from your application code.</target>
+        </trans-unit>
+        <trans-unit id="90a3da0e-6caf-45a5-bc06-9e5e948cd632" xml:space="preserve">
+          <source><bpt id="43aa92c7-de26-4a45-bb2c-eb4c7a241d39">&lt;linkText&gt;</bpt><ept id="43aa92c7-de26-4a45-bb2c-eb4c7a241d39">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="43aa92c7-de26-4a45-bb2c-eb4c7a241d39">&lt;linkText&gt;</bpt><ept id="43aa92c7-de26-4a45-bb2c-eb4c7a241d39">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7001a75e-7c9a-42e1-89c3-f70d77c1368c" xml:space="preserve">
+          <source>You can use the <bpt id="b680e4c1-3528-4e8d-9285-b10879f1f164">&lt;strong&gt;</bpt>Copy<ept id="b680e4c1-3528-4e8d-9285-b10879f1f164">&lt;/strong&gt;</ept> icon on the right of the <bpt id="42adf11c-2c9f-40ec-aa39-12d4d5678264">&lt;strong&gt;</bpt>Connection String<ept id="42adf11c-2c9f-40ec-aa39-12d4d5678264">&lt;/strong&gt;</ept> to copy it to the Clipboard as a convenience.</source>
+          <target state="new">You can use the <bpt id="b680e4c1-3528-4e8d-9285-b10879f1f164">&lt;strong&gt;</bpt>Copy<ept id="b680e4c1-3528-4e8d-9285-b10879f1f164">&lt;/strong&gt;</ept> icon on the right of the <bpt id="42adf11c-2c9f-40ec-aa39-12d4d5678264">&lt;strong&gt;</bpt>Connection String<ept id="42adf11c-2c9f-40ec-aa39-12d4d5678264">&lt;/strong&gt;</ept> to copy it to the Clipboard as a convenience.</target>
+        </trans-unit>
+        <trans-unit id="912ba01f-c1bc-4900-b720-0ee09979b179" xml:space="preserve">
+          <source>This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification.</source>
+          <target state="new">This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification.</target>
+        </trans-unit>
+        <trans-unit id="feb7f9d6-ae77-4386-8d4e-55c3e9570ef5" xml:space="preserve">
+          <source>The complete integration documentation can be found in the [Mobile Engagement Android SDK documentation].</source>
+          <target state="new">The complete integration documentation can be found in the [Mobile Engagement Android SDK documentation].</target>
+        </trans-unit>
+        <trans-unit id="9f9c128f-2b16-4387-8c98-b461bce880c6" xml:space="preserve">
+          <source>We will create a basic app with Android Studio to demonstrate the integration.</source>
+          <target state="new">We will create a basic app with Android Studio to demonstrate the integration.</target>
+        </trans-unit>
+        <trans-unit id="e2633450-7091-4e38-bc85-9906ff9d9360" xml:space="preserve">
+          <source>You can skip this step if you already have an app and are familiar with Android development.</source>
+          <target state="new">You can skip this step if you already have an app and are familiar with Android development.</target>
+        </trans-unit>
+        <trans-unit id="4303a469-6a1c-4f27-80b8-52c2911b0a36" xml:space="preserve">
+          <source>Start <bpt id="8d3625bd-d020-41f7-bc0c-a655b97893f0">&lt;strong&gt;</bpt>Android Studio<ept id="8d3625bd-d020-41f7-bc0c-a655b97893f0">&lt;/strong&gt;</ept>, and in the pop-up, select <bpt id="da3fa848-cbda-4db6-be59-3f96d9727eca">&lt;strong&gt;</bpt>Start a new Android Studio project<ept id="da3fa848-cbda-4db6-be59-3f96d9727eca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Start <bpt id="8d3625bd-d020-41f7-bc0c-a655b97893f0">&lt;strong&gt;</bpt>Android Studio<ept id="8d3625bd-d020-41f7-bc0c-a655b97893f0">&lt;/strong&gt;</ept>, and in the pop-up, select <bpt id="da3fa848-cbda-4db6-be59-3f96d9727eca">&lt;strong&gt;</bpt>Start a new Android Studio project<ept id="da3fa848-cbda-4db6-be59-3f96d9727eca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22f6da4d-fc9c-49d1-a73f-c0449e02dcf4" xml:space="preserve">
+          <source><bpt id="c6bb911d-4739-464a-9558-e2bea8710d59">&lt;linkText&gt;</bpt><ept id="c6bb911d-4739-464a-9558-e2bea8710d59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c6bb911d-4739-464a-9558-e2bea8710d59">&lt;linkText&gt;</bpt><ept id="c6bb911d-4739-464a-9558-e2bea8710d59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4293440c-d2dc-4b80-8ccf-d79653525b8c" xml:space="preserve">
+          <source>Fill in the app name and company domain.</source>
+          <target state="new">Fill in the app name and company domain.</target>
+        </trans-unit>
+        <trans-unit id="42797e75-bf30-424b-a847-8d37a7a9e2a8" xml:space="preserve">
+          <source>Write them down because you will need them later, and then click <bpt id="b1099edf-c4ef-4ede-97e9-8eb22e080003">&lt;strong&gt;</bpt>Next<ept id="b1099edf-c4ef-4ede-97e9-8eb22e080003">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Write them down because you will need them later, and then click <bpt id="b1099edf-c4ef-4ede-97e9-8eb22e080003">&lt;strong&gt;</bpt>Next<ept id="b1099edf-c4ef-4ede-97e9-8eb22e080003">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="698b4de0-0491-49cb-9c5a-929b35a9c9d8" xml:space="preserve">
+          <source><bpt id="6671be7f-a3ab-42d6-9031-ce6bbdb12495">&lt;linkText&gt;</bpt><ept id="6671be7f-a3ab-42d6-9031-ce6bbdb12495">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6671be7f-a3ab-42d6-9031-ce6bbdb12495">&lt;linkText&gt;</bpt><ept id="6671be7f-a3ab-42d6-9031-ce6bbdb12495">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08ad6273-8e92-4e87-b64d-67b480b7350b" xml:space="preserve">
+          <source>Now select the target form factor and API level, and then click <bpt id="161267f6-b95b-438f-a2fb-847ca442eb47">&lt;strong&gt;</bpt>Next<ept id="161267f6-b95b-438f-a2fb-847ca442eb47">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Now select the target form factor and API level, and then click <bpt id="161267f6-b95b-438f-a2fb-847ca442eb47">&lt;strong&gt;</bpt>Next<ept id="161267f6-b95b-438f-a2fb-847ca442eb47">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e863929d-3b5a-48c4-bf7e-bf12dae9419f" xml:space="preserve">
+          <source>Mobile Engagement requires API level 10 minimum (Android 2.3.3).</source>
+          <target state="new">Mobile Engagement requires API level 10 minimum (Android 2.3.3).</target>
+        </trans-unit>
+        <trans-unit id="f87db53b-ef94-4503-a6e6-1f16ae167399" xml:space="preserve">
+          <source><bpt id="5c8f3097-494d-4217-9a3e-310c3c0c52be">&lt;linkText&gt;</bpt><ept id="5c8f3097-494d-4217-9a3e-310c3c0c52be">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5c8f3097-494d-4217-9a3e-310c3c0c52be">&lt;linkText&gt;</bpt><ept id="5c8f3097-494d-4217-9a3e-310c3c0c52be">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d12969a4-eeb3-4743-813a-4ac754f60a0f" xml:space="preserve">
+          <source>We'll now add an activity to our simple app, which will be its main and only screen.</source>
+          <target state="new">We'll now add an activity to our simple app, which will be its main and only screen.</target>
+        </trans-unit>
+        <trans-unit id="017978da-a970-49c3-a717-ea9b86734297" xml:space="preserve">
+          <source>Make sure <bpt id="7099147b-b2dd-4c89-947f-ad5d78d2e270">&lt;strong&gt;</bpt>Blank Activity<ept id="7099147b-b2dd-4c89-947f-ad5d78d2e270">&lt;/strong&gt;</ept> is selected, and then lick <bpt id="a5ad601f-6a20-417b-a868-04aac7b5e978">&lt;strong&gt;</bpt>Next<ept id="a5ad601f-6a20-417b-a868-04aac7b5e978">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Make sure <bpt id="7099147b-b2dd-4c89-947f-ad5d78d2e270">&lt;strong&gt;</bpt>Blank Activity<ept id="7099147b-b2dd-4c89-947f-ad5d78d2e270">&lt;/strong&gt;</ept> is selected, and then lick <bpt id="a5ad601f-6a20-417b-a868-04aac7b5e978">&lt;strong&gt;</bpt>Next<ept id="a5ad601f-6a20-417b-a868-04aac7b5e978">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb0b4ce2-699b-42dc-af82-0960ea933301" xml:space="preserve">
+          <source><bpt id="89f2fed0-1fe2-4c25-a9d0-c3915c5a91e3">&lt;linkText&gt;</bpt><ept id="89f2fed0-1fe2-4c25-a9d0-c3915c5a91e3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="89f2fed0-1fe2-4c25-a9d0-c3915c5a91e3">&lt;linkText&gt;</bpt><ept id="89f2fed0-1fe2-4c25-a9d0-c3915c5a91e3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="520738c9-058e-4fc1-bb35-9259e62bc5a4" xml:space="preserve">
+          <source>In the final screen of the wizard, you can leave everything as is for the purposes of this tutorial, and then click <bpt id="6cfddebc-5f04-4913-8acb-e1a7b0a3a89f">&lt;strong&gt;</bpt>Finish<ept id="6cfddebc-5f04-4913-8acb-e1a7b0a3a89f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the final screen of the wizard, you can leave everything as is for the purposes of this tutorial, and then click <bpt id="6cfddebc-5f04-4913-8acb-e1a7b0a3a89f">&lt;strong&gt;</bpt>Finish<ept id="6cfddebc-5f04-4913-8acb-e1a7b0a3a89f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c46d052-cdd3-44be-95be-ffed391e49da" xml:space="preserve">
+          <source><bpt id="439df117-568a-4207-a8b8-d756a7ded7a1">&lt;linkText&gt;</bpt><ept id="439df117-568a-4207-a8b8-d756a7ded7a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="439df117-568a-4207-a8b8-d756a7ded7a1">&lt;linkText&gt;</bpt><ept id="439df117-568a-4207-a8b8-d756a7ded7a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23b1462d-3b28-4de6-bc36-92bde4e61580" xml:space="preserve">
+          <source>Android Studio now creates the demo app into which we will integrate Mobile Engagement.</source>
+          <target state="new">Android Studio now creates the demo app into which we will integrate Mobile Engagement.</target>
+        </trans-unit>
+        <trans-unit id="857677e1-e673-4942-b31d-2785594778ef" xml:space="preserve">
+          <source>Download and integrate the SDK library</source>
+          <target state="new">Download and integrate the SDK library</target>
+        </trans-unit>
+        <trans-unit id="8d7ff926-dd86-484a-8976-256edc249ee3" xml:space="preserve">
+          <source>Download the [Mobile Engagement Android SDK].</source>
+          <target state="new">Download the [Mobile Engagement Android SDK].</target>
+        </trans-unit>
+        <trans-unit id="335196d4-19e3-4b86-ac4f-a287ac8fb12b" xml:space="preserve">
+          <source>Extract the archive file to a folder in your computer.</source>
+          <target state="new">Extract the archive file to a folder in your computer.</target>
+        </trans-unit>
+        <trans-unit id="5d19c72c-6e86-4499-bf6e-442bec958b90" xml:space="preserve">
+          <source>Identify the .jar library for the current version of this SDK and copy it to the Clipboard.</source>
+          <target state="new">Identify the .jar library for the current version of this SDK and copy it to the Clipboard.</target>
+        </trans-unit>
+        <trans-unit id="bf05798b-2479-408e-acd8-998c98c497d0" xml:space="preserve">
+          <source>  <bpt id="44d9cd43-b207-47c0-9b3b-bb97f270e1e8">&lt;linkText&gt;</bpt><ept id="44d9cd43-b207-47c0-9b3b-bb97f270e1e8">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="44d9cd43-b207-47c0-9b3b-bb97f270e1e8">&lt;linkText&gt;</bpt><ept id="44d9cd43-b207-47c0-9b3b-bb97f270e1e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76fea17a-7153-4214-bd99-fe7194f51074" xml:space="preserve">
+          <source>Navigate to the <bpt id="f4c2c113-3498-4258-85ac-53e619e596a9">&lt;strong&gt;</bpt>Project<ept id="f4c2c113-3498-4258-85ac-53e619e596a9">&lt;/strong&gt;</ept> section (1) and paste the .jar in the libs folder (2).</source>
+          <target state="new">Navigate to the <bpt id="f4c2c113-3498-4258-85ac-53e619e596a9">&lt;strong&gt;</bpt>Project<ept id="f4c2c113-3498-4258-85ac-53e619e596a9">&lt;/strong&gt;</ept> section (1) and paste the .jar in the libs folder (2).</target>
+        </trans-unit>
+        <trans-unit id="b845c8d9-c552-45d7-9326-07732ebf7783" xml:space="preserve">
+          <source>  <bpt id="7f7a8d79-4a09-4928-b64c-b2e1dd40e0f5">&lt;linkText&gt;</bpt><ept id="7f7a8d79-4a09-4928-b64c-b2e1dd40e0f5">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="7f7a8d79-4a09-4928-b64c-b2e1dd40e0f5">&lt;linkText&gt;</bpt><ept id="7f7a8d79-4a09-4928-b64c-b2e1dd40e0f5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e80506e-9ca6-4c15-b6a6-b027236cb4e2" xml:space="preserve">
+          <source>Sync your project to load the library.</source>
+          <target state="new">Sync your project to load the library.</target>
+        </trans-unit>
+        <trans-unit id="15d84582-b9f2-4eaf-b882-94050e5894ed" xml:space="preserve">
+          <source>  <bpt id="21e6f75f-d100-49fa-acfe-28491e9999e3">&lt;linkText&gt;</bpt><ept id="21e6f75f-d100-49fa-acfe-28491e9999e3">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="21e6f75f-d100-49fa-acfe-28491e9999e3">&lt;linkText&gt;</bpt><ept id="21e6f75f-d100-49fa-acfe-28491e9999e3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="018371ae-3af8-4a00-89ad-8cd40e369d2f" xml:space="preserve">
+          <source>Copy the following lines of code into the activity creation (must be done only in one place of your application, usually the main activity).</source>
+          <target state="new">Copy the following lines of code into the activity creation (must be done only in one place of your application, usually the main activity).</target>
+        </trans-unit>
+        <trans-unit id="0abc277b-3ea3-4b4a-859d-77f71bf8a0e8" xml:space="preserve">
+          <source>Go back to the Azure portal in your app's <bpt id="62366489-3d51-4dd6-8812-df91ea6db42a">&lt;strong&gt;</bpt>Connection Info<ept id="62366489-3d51-4dd6-8812-df91ea6db42a">&lt;/strong&gt;</ept> page and copy the <bpt id="606f6dff-82ea-4014-9e9f-87b7aedf3939">&lt;strong&gt;</bpt>Connection String<ept id="606f6dff-82ea-4014-9e9f-87b7aedf3939">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go back to the Azure portal in your app's <bpt id="62366489-3d51-4dd6-8812-df91ea6db42a">&lt;strong&gt;</bpt>Connection Info<ept id="62366489-3d51-4dd6-8812-df91ea6db42a">&lt;/strong&gt;</ept> page and copy the <bpt id="606f6dff-82ea-4014-9e9f-87b7aedf3939">&lt;strong&gt;</bpt>Connection String<ept id="606f6dff-82ea-4014-9e9f-87b7aedf3939">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9506082-db9e-417a-9858-4e1cf1d1dc50" xml:space="preserve">
+          <source>  <bpt id="b5789db8-94d2-4bed-9a90-af1bcea40141">&lt;linkText&gt;</bpt><ept id="b5789db8-94d2-4bed-9a90-af1bcea40141">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="b5789db8-94d2-4bed-9a90-af1bcea40141">&lt;linkText&gt;</bpt><ept id="b5789db8-94d2-4bed-9a90-af1bcea40141">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ad8f733-81ff-4128-be68-a6c13b6fb451" xml:space="preserve">
+          <source>Paste it in the <bpt id="ce9be2f3-afba-4b6a-aa99-e41a298bb7df">&lt;code&gt;</bpt>setConnectionString<ept id="ce9be2f3-afba-4b6a-aa99-e41a298bb7df">&lt;/code&gt;</ept> parameter to replace the example provided as shown below (The AppId and Sdkkey were hidden below).</source>
+          <target state="new">Paste it in the <bpt id="ce9be2f3-afba-4b6a-aa99-e41a298bb7df">&lt;code&gt;</bpt>setConnectionString<ept id="ce9be2f3-afba-4b6a-aa99-e41a298bb7df">&lt;/code&gt;</ept> parameter to replace the example provided as shown below (The AppId and Sdkkey were hidden below).</target>
+        </trans-unit>
+        <trans-unit id="4feea0fb-2f14-4eda-85ed-959cc326ca8b" xml:space="preserve">
+          <source><bpt id="3a9ca8bf-c5b6-4abb-bbdf-412e3a75cb60">&lt;strong&gt;</bpt>EngagementConfiguration<ept id="3a9ca8bf-c5b6-4abb-bbdf-412e3a75cb60">&lt;/strong&gt;</ept> and <bpt id="1a9ab418-ad53-4c28-83d1-da3e382076f6">&lt;strong&gt;</bpt>EngagementAgent<ept id="1a9ab418-ad53-4c28-83d1-da3e382076f6">&lt;/strong&gt;</ept> will probably show as unresolved (in red in the code).</source>
+          <target state="new"><bpt id="3a9ca8bf-c5b6-4abb-bbdf-412e3a75cb60">&lt;strong&gt;</bpt>EngagementConfiguration<ept id="3a9ca8bf-c5b6-4abb-bbdf-412e3a75cb60">&lt;/strong&gt;</ept> and <bpt id="1a9ab418-ad53-4c28-83d1-da3e382076f6">&lt;strong&gt;</bpt>EngagementAgent<ept id="1a9ab418-ad53-4c28-83d1-da3e382076f6">&lt;/strong&gt;</ept> will probably show as unresolved (in red in the code).</target>
+        </trans-unit>
+        <trans-unit id="70ddad93-ba77-4d27-bfc6-f382c7ddbc38" xml:space="preserve">
+          <source>Click each of the unresolved classes, and then press Alt+Enter to automatically resolve them.</source>
+          <target state="new">Click each of the unresolved classes, and then press Alt+Enter to automatically resolve them.</target>
+        </trans-unit>
+        <trans-unit id="617f8b5a-4535-47e6-9eee-7d198dd7205c" xml:space="preserve">
+          <source>  <bpt id="4877aadc-f4ff-459f-9ada-7c2e08992a0a">&lt;linkText&gt;</bpt><ept id="4877aadc-f4ff-459f-9ada-7c2e08992a0a">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="4877aadc-f4ff-459f-9ada-7c2e08992a0a">&lt;linkText&gt;</bpt><ept id="4877aadc-f4ff-459f-9ada-7c2e08992a0a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8048a08f-adf1-43c9-b783-3ad433ba2c10" xml:space="preserve">
+          <source>Add these permissions to the Manifest.xml of your project immediately before or after the <bpt id="845becb4-cd3e-4af7-ae54-0834dd7d223c">&lt;code&gt;</bpt>&lt;application&gt;<ept id="845becb4-cd3e-4af7-ae54-0834dd7d223c">&lt;/code&gt;</ept> tag:</source>
+          <target state="new">Add these permissions to the Manifest.xml of your project immediately before or after the <bpt id="845becb4-cd3e-4af7-ae54-0834dd7d223c">&lt;code&gt;</bpt>&lt;application&gt;<ept id="845becb4-cd3e-4af7-ae54-0834dd7d223c">&lt;/code&gt;</ept> tag:</target>
+        </trans-unit>
+        <trans-unit id="9924269b-bc93-413d-ab58-7978b537807c" xml:space="preserve">
+          <source>The result should be as shown below:</source>
+          <target state="new">The result should be as shown below:</target>
+        </trans-unit>
+        <trans-unit id="e4d2daa5-fca1-4c82-b6a0-07dc8494109d" xml:space="preserve">
+          <source> <bpt id="e039b9eb-179c-4d78-9952-c47786d4bcd4">&lt;linkText&gt;</bpt><ept id="e039b9eb-179c-4d78-9952-c47786d4bcd4">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="e039b9eb-179c-4d78-9952-c47786d4bcd4">&lt;linkText&gt;</bpt><ept id="e039b9eb-179c-4d78-9952-c47786d4bcd4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ef272e5-daed-4bca-afd7-8fb9b849a85c" xml:space="preserve">
+          <source>Add the following between the <bpt id="cefdbd80-825c-4f5e-ad4a-1e3a8200193f">&lt;code&gt;</bpt>&lt;application&gt;<ept id="cefdbd80-825c-4f5e-ad4a-1e3a8200193f">&lt;/code&gt;</ept> and <bpt id="22b011e2-a248-4483-9324-f563b64e3a13">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="22b011e2-a248-4483-9324-f563b64e3a13">&lt;/code&gt;</ept> tags to declare the agent service:</source>
+          <target state="new">Add the following between the <bpt id="cefdbd80-825c-4f5e-ad4a-1e3a8200193f">&lt;code&gt;</bpt>&lt;application&gt;<ept id="cefdbd80-825c-4f5e-ad4a-1e3a8200193f">&lt;/code&gt;</ept> and <bpt id="22b011e2-a248-4483-9324-f563b64e3a13">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="22b011e2-a248-4483-9324-f563b64e3a13">&lt;/code&gt;</ept> tags to declare the agent service:</target>
+        </trans-unit>
+        <trans-unit id="c04f2089-0fc1-4206-bf07-b1aec28ce288" xml:space="preserve">
+          <source>In the code you just pasted, replace <bpt id="380ecca7-8664-4133-8871-f88bab0ad707">&lt;code&gt;</bpt>"&lt;Your application name&gt;"<ept id="380ecca7-8664-4133-8871-f88bab0ad707">&lt;/code&gt;</ept> in the label. This is displayed in the <bpt id="dafe85f6-4262-4da7-88a4-138c714691b1">&lt;strong&gt;</bpt>Settings<ept id="dafe85f6-4262-4da7-88a4-138c714691b1">&lt;/strong&gt;</ept> menu where users can see services running on the device. You can add the word "Service" in that label for example.</source>
+          <target state="new">In the code you just pasted, replace <bpt id="380ecca7-8664-4133-8871-f88bab0ad707">&lt;code&gt;</bpt>"&lt;Your application name&gt;"<ept id="380ecca7-8664-4133-8871-f88bab0ad707">&lt;/code&gt;</ept> in the label. This is displayed in the <bpt id="dafe85f6-4262-4da7-88a4-138c714691b1">&lt;strong&gt;</bpt>Settings<ept id="dafe85f6-4262-4da7-88a4-138c714691b1">&lt;/strong&gt;</ept> menu where users can see services running on the device. You can add the word "Service" in that label for example.</target>
+        </trans-unit>
+        <trans-unit id="23637be3-b64e-4147-875c-fbc45f1a86ea" xml:space="preserve">
+          <source>In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.</source>
+          <target state="new">In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.</target>
+        </trans-unit>
+        <trans-unit id="2166d667-2d99-4202-94e0-8dc2ffea9aa6" xml:space="preserve">
+          <source>We will achieve this by subclassing our Activity with <bpt id="d21474c3-03b7-409e-bb01-6ae63e42975f">&lt;strong&gt;</bpt>EngagementActivity<ept id="d21474c3-03b7-409e-bb01-6ae63e42975f">&lt;/strong&gt;</ept> our SDK provides.</source>
+          <target state="new">We will achieve this by subclassing our Activity with <bpt id="d21474c3-03b7-409e-bb01-6ae63e42975f">&lt;strong&gt;</bpt>EngagementActivity<ept id="d21474c3-03b7-409e-bb01-6ae63e42975f">&lt;/strong&gt;</ept> our SDK provides.</target>
+        </trans-unit>
+        <trans-unit id="9bc73340-4956-434a-8078-b4ed200f05bf" xml:space="preserve">
+          <source>In order to to that, replace the super class of <bpt id="26b2eee5-5632-4f7e-aad0-388438912d2c">&lt;strong&gt;</bpt>MainActivity<ept id="26b2eee5-5632-4f7e-aad0-388438912d2c">&lt;/strong&gt;</ept>, which is before <bpt id="f86250d3-103d-4774-9747-dca8bb2412a0">&lt;strong&gt;</bpt>ActionBarActivity<ept id="f86250d3-103d-4774-9747-dca8bb2412a0">&lt;/strong&gt;</ept>, with <bpt id="dd039351-b8c9-43b0-9712-20270ee3fc39">&lt;strong&gt;</bpt>EngagementActivity<ept id="dd039351-b8c9-43b0-9712-20270ee3fc39">&lt;/strong&gt;</ept>, as shown below:</source>
+          <target state="new">In order to to that, replace the super class of <bpt id="26b2eee5-5632-4f7e-aad0-388438912d2c">&lt;strong&gt;</bpt>MainActivity<ept id="26b2eee5-5632-4f7e-aad0-388438912d2c">&lt;/strong&gt;</ept>, which is before <bpt id="f86250d3-103d-4774-9747-dca8bb2412a0">&lt;strong&gt;</bpt>ActionBarActivity<ept id="f86250d3-103d-4774-9747-dca8bb2412a0">&lt;/strong&gt;</ept>, with <bpt id="dd039351-b8c9-43b0-9712-20270ee3fc39">&lt;strong&gt;</bpt>EngagementActivity<ept id="dd039351-b8c9-43b0-9712-20270ee3fc39">&lt;/strong&gt;</ept>, as shown below:</target>
+        </trans-unit>
+        <trans-unit id="1eb36b56-2eab-4ae0-9fb4-046176e2cc54" xml:space="preserve">
+          <source> <bpt id="f964cf07-dd15-4aa6-8ba4-b284cd63a01c">&lt;linkText&gt;</bpt><ept id="f964cf07-dd15-4aa6-8ba4-b284cd63a01c">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="f964cf07-dd15-4aa6-8ba4-b284cd63a01c">&lt;linkText&gt;</bpt><ept id="f964cf07-dd15-4aa6-8ba4-b284cd63a01c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae1ec077-0dc3-4ca9-a1d8-b43c1f846c03" xml:space="preserve">
+          <source>Do not forget to resolve the class if it appears in red by clicking it and pressing Alt+Enter.</source>
+          <target state="new">Do not forget to resolve the class if it appears in red by clicking it and pressing Alt+Enter.</target>
+        </trans-unit>
+        <trans-unit id="c6af489b-008e-4bd1-8ca0-0d988b9628e9" xml:space="preserve">
+          <source>This section shows you how to make sure that your app connects to the Mobile Engagement backend by using the Mobile Engagement's real-time monitoring feature.</source>
+          <target state="new">This section shows you how to make sure that your app connects to the Mobile Engagement backend by using the Mobile Engagement's real-time monitoring feature.</target>
+        </trans-unit>
+        <trans-unit id="24e14fc3-6936-4747-b937-816d183d0f05" xml:space="preserve">
+          <source>Navigate to your Mobile Engagement portal.</source>
+          <target state="new">Navigate to your Mobile Engagement portal.</target>
+        </trans-unit>
+        <trans-unit id="29f5958c-7e4d-408d-83ef-e5a562a5a2ca" xml:space="preserve">
+          <source>From your Azure portal, ensure you're in the app we're using for this project, and then click the <bpt id="fdda2dbc-0b7f-4be1-be66-d347ff6ef5cf">&lt;strong&gt;</bpt>Engage<ept id="fdda2dbc-0b7f-4be1-be66-d347ff6ef5cf">&lt;/strong&gt;</ept> button at the bottom.</source>
+          <target state="new">From your Azure portal, ensure you're in the app we're using for this project, and then click the <bpt id="fdda2dbc-0b7f-4be1-be66-d347ff6ef5cf">&lt;strong&gt;</bpt>Engage<ept id="fdda2dbc-0b7f-4be1-be66-d347ff6ef5cf">&lt;/strong&gt;</ept> button at the bottom.</target>
+        </trans-unit>
+        <trans-unit id="06fdd088-afcc-4c11-96dc-91f415ae95e6" xml:space="preserve">
+          <source> <bpt id="9d47a249-69f8-44d6-a716-044328573724">&lt;linkText&gt;</bpt><ept id="9d47a249-69f8-44d6-a716-044328573724">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="9d47a249-69f8-44d6-a716-044328573724">&lt;linkText&gt;</bpt><ept id="9d47a249-69f8-44d6-a716-044328573724">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86e27e25-8135-41b3-9c3b-eacd72a6f713" xml:space="preserve">
+          <source>You will land in the <bpt id="a6b09608-9c76-4795-bb53-b806c06a29b8">&lt;strong&gt;</bpt>Settings<ept id="a6b09608-9c76-4795-bb53-b806c06a29b8">&lt;/strong&gt;</ept> page of your Engagement portal for your app.</source>
+          <target state="new">You will land in the <bpt id="a6b09608-9c76-4795-bb53-b806c06a29b8">&lt;strong&gt;</bpt>Settings<ept id="a6b09608-9c76-4795-bb53-b806c06a29b8">&lt;/strong&gt;</ept> page of your Engagement portal for your app.</target>
+        </trans-unit>
+        <trans-unit id="5bd6f7d5-c783-49e5-a78b-0ede132328e3" xml:space="preserve">
+          <source>From there, click the <bpt id="d2b629fe-ac31-41b3-9112-83725faefee3">&lt;strong&gt;</bpt>Monitor<ept id="d2b629fe-ac31-41b3-9112-83725faefee3">&lt;/strong&gt;</ept> tab as shown below.</source>
+          <target state="new">From there, click the <bpt id="d2b629fe-ac31-41b3-9112-83725faefee3">&lt;strong&gt;</bpt>Monitor<ept id="d2b629fe-ac31-41b3-9112-83725faefee3">&lt;/strong&gt;</ept> tab as shown below.</target>
+        </trans-unit>
+        <trans-unit id="066999af-5698-4dcb-9849-df458ecd3b4d" xml:space="preserve">
+          <source><bpt id="c4a45fb7-dd83-4363-b7c5-870ae5eb13f7">&lt;linkText&gt;</bpt><ept id="c4a45fb7-dd83-4363-b7c5-870ae5eb13f7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c4a45fb7-dd83-4363-b7c5-870ae5eb13f7">&lt;linkText&gt;</bpt><ept id="c4a45fb7-dd83-4363-b7c5-870ae5eb13f7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3952f31-41e7-467e-bd84-8012c4e3cc65" xml:space="preserve">
+          <source>The monitor is ready to show you any device in real time, which will start your app.</source>
+          <target state="new">The monitor is ready to show you any device in real time, which will start your app.</target>
+        </trans-unit>
+        <trans-unit id="81be00ec-ebd6-425b-a238-8e3fdc9b81af" xml:space="preserve">
+          <source><bpt id="607972b8-3355-484e-bdc5-3efda88c3af0">&lt;linkText&gt;</bpt><ept id="607972b8-3355-484e-bdc5-3efda88c3af0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="607972b8-3355-484e-bdc5-3efda88c3af0">&lt;linkText&gt;</bpt><ept id="607972b8-3355-484e-bdc5-3efda88c3af0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3f9136d-d31c-4ee3-911b-621ddaf48371" xml:space="preserve">
+          <source>Back in Android Studio, start your app either in the monitor or in a connected device by clicking the green triangle and then selecting your device.</source>
+          <target state="new">Back in Android Studio, start your app either in the monitor or in a connected device by clicking the green triangle and then selecting your device.</target>
+        </trans-unit>
+        <trans-unit id="95ca64e9-6c67-45e5-8050-e1eb92a355b8" xml:space="preserve">
+          <source><bpt id="17ba485b-64ff-407a-bb8a-4b03125972cc">&lt;linkText&gt;</bpt><ept id="17ba485b-64ff-407a-bb8a-4b03125972cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="17ba485b-64ff-407a-bb8a-4b03125972cc">&lt;linkText&gt;</bpt><ept id="17ba485b-64ff-407a-bb8a-4b03125972cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8520fbc-e831-4e4e-ac8b-f3423b12203b" xml:space="preserve">
+          <source>If it worked, you should now see one session in the monitor!</source>
+          <target state="new">If it worked, you should now see one session in the monitor!</target>
+        </trans-unit>
+        <trans-unit id="3fd2c017-b939-4d83-9add-683425043680" xml:space="preserve">
+          <source><bpt id="a883be19-6814-4397-a320-f242ecca4c25">&lt;linkText&gt;</bpt><ept id="a883be19-6814-4397-a320-f242ecca4c25">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a883be19-6814-4397-a320-f242ecca4c25">&lt;linkText&gt;</bpt><ept id="a883be19-6814-4397-a320-f242ecca4c25">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0982d77d-ae37-4070-ba04-b62433c34087" xml:space="preserve">
+          <source><bpt id="8cd49f82-c8a7-4ae6-b88f-cc885dd3f684">&lt;strong&gt;</bpt>Congratulations!<ept id="8cd49f82-c8a7-4ae6-b88f-cc885dd3f684">&lt;/strong&gt;</ept> You succeeded in completing the first step of this tutorial with an app that connects to the Mobile Engagement backend, which is already sending data.</source>
+          <target state="new"><bpt id="8cd49f82-c8a7-4ae6-b88f-cc885dd3f684">&lt;strong&gt;</bpt>Congratulations!<ept id="8cd49f82-c8a7-4ae6-b88f-cc885dd3f684">&lt;/strong&gt;</ept> You succeeded in completing the first step of this tutorial with an app that connects to the Mobile Engagement backend, which is already sending data.</target>
+        </trans-unit>
+        <trans-unit id="810f24a5-6613-4b77-a7fb-19d53ad6d9d0" xml:space="preserve">
+          <source>Mobile Engagement allows you to interact with and REACH your users with push notifications and in-app messaging in the context of campaigns.</source>
+          <target state="new">Mobile Engagement allows you to interact with and REACH your users with push notifications and in-app messaging in the context of campaigns.</target>
+        </trans-unit>
+        <trans-unit id="1884b375-ee3a-4a84-90fd-61576e6a09a9" xml:space="preserve">
+          <source>This module is called REACH in the Mobile Engagement portal.</source>
+          <target state="new">This module is called REACH in the Mobile Engagement portal.</target>
+        </trans-unit>
+        <trans-unit id="6886f6c7-ad7e-4ba2-a385-f2120233e4a0" xml:space="preserve">
+          <source>The following sections sets up your app to receive them.</source>
+          <target state="new">The following sections sets up your app to receive them.</target>
+        </trans-unit>
+        <trans-unit id="aa9fa83f-2aa2-489e-b600-3e1bddcbc288" xml:space="preserve">
+          <source>Copy the in-app messaging resources below into your Manifest.xml between the <bpt id="0ff901e0-3d57-452d-b002-cbadb5e85ee3">&lt;code&gt;</bpt>&lt;application&gt;<ept id="0ff901e0-3d57-452d-b002-cbadb5e85ee3">&lt;/code&gt;</ept> and <bpt id="4337d31c-b9b3-442d-b8de-7dad439ec372">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="4337d31c-b9b3-442d-b8de-7dad439ec372">&lt;/code&gt;</ept> tags.</source>
+          <target state="new">Copy the in-app messaging resources below into your Manifest.xml between the <bpt id="0ff901e0-3d57-452d-b002-cbadb5e85ee3">&lt;code&gt;</bpt>&lt;application&gt;<ept id="0ff901e0-3d57-452d-b002-cbadb5e85ee3">&lt;/code&gt;</ept> and <bpt id="4337d31c-b9b3-442d-b8de-7dad439ec372">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="4337d31c-b9b3-442d-b8de-7dad439ec372">&lt;/code&gt;</ept> tags.</target>
+        </trans-unit>
+        <trans-unit id="266e45b5-48fd-4106-8cc5-0bd621079e91" xml:space="preserve">
+          <source>Copy the resources to your project through the following steps:</source>
+          <target state="new">Copy the resources to your project through the following steps:</target>
+        </trans-unit>
+        <trans-unit id="2b0c0b5a-0ca6-4265-8eb9-4eadd066381c" xml:space="preserve">
+          <source>Navigate back to your SDK download content and copy the 'res' folder.</source>
+          <target state="new">Navigate back to your SDK download content and copy the 'res' folder.</target>
+        </trans-unit>
+        <trans-unit id="96b8bc6e-0b18-4eb6-b11a-831f7c26069b" xml:space="preserve">
+          <source> <bpt id="9ae5e3b2-f17e-4d51-8491-be09da00d407">&lt;linkText&gt;</bpt><ept id="9ae5e3b2-f17e-4d51-8491-be09da00d407">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="9ae5e3b2-f17e-4d51-8491-be09da00d407">&lt;linkText&gt;</bpt><ept id="9ae5e3b2-f17e-4d51-8491-be09da00d407">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ed4b326-0bd7-4a76-9a99-792d6d978250" xml:space="preserve">
+          <source>Go back to Android Studio, select the 'main' directory of your project files, and then paste it to add the resources to your project.</source>
+          <target state="new">Go back to Android Studio, select the 'main' directory of your project files, and then paste it to add the resources to your project.</target>
+        </trans-unit>
+        <trans-unit id="0633f9e6-af3d-4ba9-9748-9193393a534b" xml:space="preserve">
+          <source> <bpt id="7128c698-0a56-4bd1-a964-95bd537c36c4">&lt;linkText&gt;</bpt><ept id="7128c698-0a56-4bd1-a964-95bd537c36c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="7128c698-0a56-4bd1-a964-95bd537c36c4">&lt;linkText&gt;</bpt><ept id="7128c698-0a56-4bd1-a964-95bd537c36c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01e9849c-cf5a-48fd-9bd0-394773e4b343" xml:space="preserve">
+          <source>The following code defines the icon that is used to be displayed both in app and system notifications.</source>
+          <target state="new">The following code defines the icon that is used to be displayed both in app and system notifications.</target>
+        </trans-unit>
+        <trans-unit id="ed667000-0da8-497e-9884-c9f3a1c2168c" xml:space="preserve">
+          <source>Although this is optional for in-app notifications, it is mandatory for system notifications.</source>
+          <target state="new">Although this is optional for in-app notifications, it is mandatory for system notifications.</target>
+        </trans-unit>
+        <trans-unit id="363782c6-2d77-4cf4-81ac-2a4b5c753a68" xml:space="preserve">
+          <source>Android rejects system notifications with invalid icons.</source>
+          <target state="new">Android rejects system notifications with invalid icons.</target>
+        </trans-unit>
+        <trans-unit id="f7b880e8-2bc4-4713-b33a-411ce7e3f8af" xml:space="preserve">
+          <source>This XML snippet is to be pasted into your Manifest.xml between the <bpt id="eddd2880-2cf9-45fc-9c3f-dea8a09edcc8">&lt;code&gt;</bpt>&lt;application&gt;<ept id="eddd2880-2cf9-45fc-9c3f-dea8a09edcc8">&lt;/code&gt;</ept> and <bpt id="245afe28-e339-4613-90e6-d149a85aa882">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="245afe28-e339-4613-90e6-d149a85aa882">&lt;/code&gt;</ept> tags.</source>
+          <target state="new">This XML snippet is to be pasted into your Manifest.xml between the <bpt id="eddd2880-2cf9-45fc-9c3f-dea8a09edcc8">&lt;code&gt;</bpt>&lt;application&gt;<ept id="eddd2880-2cf9-45fc-9c3f-dea8a09edcc8">&lt;/code&gt;</ept> and <bpt id="245afe28-e339-4613-90e6-d149a85aa882">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="245afe28-e339-4613-90e6-d149a85aa882">&lt;/code&gt;</ept> tags.</target>
+        </trans-unit>
+        <trans-unit id="f8a0eebc-5bd8-46a0-af0b-66242d8edba8" xml:space="preserve">
+          <source>Make sure you are using an icon that exists in one of the <bpt id="5b608c54-1fd9-4b85-b653-b3cdbf1cc3e1">&lt;strong&gt;</bpt>drawable<ept id="5b608c54-1fd9-4b85-b653-b3cdbf1cc3e1">&lt;/strong&gt;</ept> folders (like <bpt id="b54baed4-7d26-4abf-ba43-5538c5d63e72">&lt;code&gt;</bpt>engagement_close.png<ept id="b54baed4-7d26-4abf-ba43-5538c5d63e72">&lt;/code&gt;</ept>).</source>
+          <target state="new">Make sure you are using an icon that exists in one of the <bpt id="5b608c54-1fd9-4b85-b653-b3cdbf1cc3e1">&lt;strong&gt;</bpt>drawable<ept id="5b608c54-1fd9-4b85-b653-b3cdbf1cc3e1">&lt;/strong&gt;</ept> folders (like <bpt id="b54baed4-7d26-4abf-ba43-5538c5d63e72">&lt;code&gt;</bpt>engagement_close.png<ept id="b54baed4-7d26-4abf-ba43-5538c5d63e72">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="280172e1-c733-41f2-ae1a-6c24ba78901b" xml:space="preserve">
+          <source>We don't support <bpt id="7d70fec6-8640-402a-bde6-db5893e4f6a1">&lt;strong&gt;</bpt>mipmap<ept id="7d70fec6-8640-402a-bde6-db5893e4f6a1">&lt;/strong&gt;</ept> folders.</source>
+          <target state="new">We don't support <bpt id="7d70fec6-8640-402a-bde6-db5893e4f6a1">&lt;strong&gt;</bpt>mipmap<ept id="7d70fec6-8640-402a-bde6-db5893e4f6a1">&lt;/strong&gt;</ept> folders.</target>
+        </trans-unit>
+        <trans-unit id="c0bdf7f3-6e91-4ea8-9382-3348ea42dca5" xml:space="preserve">
+          <source>It's just an example to show the syntax.</source>
+          <target state="new">It's just an example to show the syntax.</target>
+        </trans-unit>
+        <trans-unit id="13cf58a0-fca8-4254-b229-54e50e77389c" xml:space="preserve">
+          <source>You should of course use an icon that is suitable for notifications per <bpt id="2892efbe-fa1b-497e-a215-635cf073f4c0">&lt;linkText&gt;</bpt>Android design guidelines<ept id="2892efbe-fa1b-497e-a215-635cf073f4c0">&lt;/linkText&gt;</ept><bpt id="2892efbe-fa1b-497e-a215-635cf073f4c0">&lt;title&gt;</bpt><ept id="2892efbe-fa1b-497e-a215-635cf073f4c0">&lt;/title&gt;</ept>.</source>
+          <target state="new">You should of course use an icon that is suitable for notifications per <bpt id="2892efbe-fa1b-497e-a215-635cf073f4c0">&lt;linkText&gt;</bpt>Android design guidelines<ept id="2892efbe-fa1b-497e-a215-635cf073f4c0">&lt;/linkText&gt;</ept><bpt id="2892efbe-fa1b-497e-a215-635cf073f4c0">&lt;title&gt;</bpt><ept id="2892efbe-fa1b-497e-a215-635cf073f4c0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24b09d2f-4614-47e9-b6f8-9a891867a536" xml:space="preserve">
+          <source>You should not use the <bpt id="d63fdec7-a694-4460-a5c2-e5f7468b51d1">&lt;strong&gt;</bpt>launcher<ept id="d63fdec7-a694-4460-a5c2-e5f7468b51d1">&lt;/strong&gt;</ept> icon.</source>
+          <target state="new">You should not use the <bpt id="d63fdec7-a694-4460-a5c2-e5f7468b51d1">&lt;strong&gt;</bpt>launcher<ept id="d63fdec7-a694-4460-a5c2-e5f7468b51d1">&lt;/strong&gt;</ept> icon.</target>
+        </trans-unit>
+        <trans-unit id="8592c88b-67c0-4007-9c02-2fa98b347de5" xml:space="preserve">
+          <source>It has a different resolution and is usually in the mipmap folders, which we don't support.</source>
+          <target state="new">It has a different resolution and is usually in the mipmap folders, which we don't support.</target>
+        </trans-unit>
+        <trans-unit id="ddb1003b-a2f5-4116-828f-862e5cfe927a" xml:space="preserve">
+          <source>To be sure to use correct icon resolutions, you can look at <bpt id="beb34feb-6d0e-45d8-ac1e-90ca040d5455">&lt;linkText&gt;</bpt>those examples<ept id="beb34feb-6d0e-45d8-ac1e-90ca040d5455">&lt;/linkText&gt;</ept><bpt id="beb34feb-6d0e-45d8-ac1e-90ca040d5455">&lt;title&gt;</bpt><ept id="beb34feb-6d0e-45d8-ac1e-90ca040d5455">&lt;/title&gt;</ept>.</source>
+          <target state="new">To be sure to use correct icon resolutions, you can look at <bpt id="beb34feb-6d0e-45d8-ac1e-90ca040d5455">&lt;linkText&gt;</bpt>those examples<ept id="beb34feb-6d0e-45d8-ac1e-90ca040d5455">&lt;/linkText&gt;</ept><bpt id="beb34feb-6d0e-45d8-ac1e-90ca040d5455">&lt;title&gt;</bpt><ept id="beb34feb-6d0e-45d8-ac1e-90ca040d5455">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5575617-981d-45f7-9bc5-0ba04d3eb374" xml:space="preserve">
+          <source>Scroll down to the <bpt id="93b6521d-3e2c-4918-96af-0d1daad7f8d1">&lt;strong&gt;</bpt>Notification<ept id="93b6521d-3e2c-4918-96af-0d1daad7f8d1">&lt;/strong&gt;</ept> section, click an icon, and then click <bpt id="ba75852f-a580-4d9e-95a1-6aa5cbe6c563">&lt;code&gt;</bpt>PNGS<ept id="ba75852f-a580-4d9e-95a1-6aa5cbe6c563">&lt;/code&gt;</ept> to download the icon drawable set.</source>
+          <target state="new">Scroll down to the <bpt id="93b6521d-3e2c-4918-96af-0d1daad7f8d1">&lt;strong&gt;</bpt>Notification<ept id="93b6521d-3e2c-4918-96af-0d1daad7f8d1">&lt;/strong&gt;</ept> section, click an icon, and then click <bpt id="ba75852f-a580-4d9e-95a1-6aa5cbe6c563">&lt;code&gt;</bpt>PNGS<ept id="ba75852f-a580-4d9e-95a1-6aa5cbe6c563">&lt;/code&gt;</ept> to download the icon drawable set.</target>
+        </trans-unit>
+        <trans-unit id="03a60309-cf80-4c80-994d-fbe486e24ab3" xml:space="preserve">
+          <source>You can see what drawable folders with which resolution to use for each version of the icon.</source>
+          <target state="new">You can see what drawable folders with which resolution to use for each version of the icon.</target>
+        </trans-unit>
+        <trans-unit id="6c0d6e7b-201a-46d3-96cb-4443e3b55b83" xml:space="preserve">
+          <source>Enter your gcm:sender metadata and copy and paste the following into your Manifest.xml between the <bpt id="e783ea69-fc10-417d-8731-6b7e946e03f2">&lt;code&gt;</bpt>&lt;application&gt;<ept id="e783ea69-fc10-417d-8731-6b7e946e03f2">&lt;/code&gt;</ept> and <bpt id="f4a2de79-76ee-4a96-baa4-78285bd63728">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="f4a2de79-76ee-4a96-baa4-78285bd63728">&lt;/code&gt;</ept> tags.</source>
+          <target state="new">Enter your gcm:sender metadata and copy and paste the following into your Manifest.xml between the <bpt id="e783ea69-fc10-417d-8731-6b7e946e03f2">&lt;code&gt;</bpt>&lt;application&gt;<ept id="e783ea69-fc10-417d-8731-6b7e946e03f2">&lt;/code&gt;</ept> and <bpt id="f4a2de79-76ee-4a96-baa4-78285bd63728">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="f4a2de79-76ee-4a96-baa4-78285bd63728">&lt;/code&gt;</ept> tags.</target>
+        </trans-unit>
+        <trans-unit id="6820e672-8a58-4cf5-bd99-d67c605ea957" xml:space="preserve">
+          <source>The hidden value below (with stars) is the <bpt id="30ca18f4-71f1-4a86-a7b3-1bf55ebfa89d">&lt;code&gt;</bpt>project number<ept id="30ca18f4-71f1-4a86-a7b3-1bf55ebfa89d">&lt;/code&gt;</ept> obtained from your Google Play console.</source>
+          <target state="new">The hidden value below (with stars) is the <bpt id="30ca18f4-71f1-4a86-a7b3-1bf55ebfa89d">&lt;code&gt;</bpt>project number<ept id="30ca18f4-71f1-4a86-a7b3-1bf55ebfa89d">&lt;/code&gt;</ept> obtained from your Google Play console.</target>
+        </trans-unit>
+        <trans-unit id="456aa98c-102d-4be0-9096-4ed2e0f3ceb3" xml:space="preserve">
+          <source>The \n is intentional so make sure that you end the project number with it.</source>
+          <target state="new">The \n is intentional so make sure that you end the project number with it.</target>
+        </trans-unit>
+        <trans-unit id="426bb1b6-25ad-4373-a112-aa74384619a1" xml:space="preserve">
+          <source>Paste the code below into your Manifest.xml between the <bpt id="5c611ce8-fa8e-4dc1-a5a5-bf1c16bb051f">&lt;code&gt;</bpt>&lt;application&gt;<ept id="5c611ce8-fa8e-4dc1-a5a5-bf1c16bb051f">&lt;/code&gt;</ept> and <bpt id="4587b374-2134-45aa-801f-38d5dbd02c0f">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="4587b374-2134-45aa-801f-38d5dbd02c0f">&lt;/code&gt;</ept> tags. Replace the package name &lt;Your package name&gt;.</source>
+          <target state="new">Paste the code below into your Manifest.xml between the <bpt id="5c611ce8-fa8e-4dc1-a5a5-bf1c16bb051f">&lt;code&gt;</bpt>&lt;application&gt;<ept id="5c611ce8-fa8e-4dc1-a5a5-bf1c16bb051f">&lt;/code&gt;</ept> and <bpt id="4587b374-2134-45aa-801f-38d5dbd02c0f">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="4587b374-2134-45aa-801f-38d5dbd02c0f">&lt;/code&gt;</ept> tags. Replace the package name &lt;Your package name&gt;.</target>
+        </trans-unit>
+        <trans-unit id="9b1ae0cc-92cb-4f30-8341-ef661b9def8a" xml:space="preserve">
+          <source>Add the last set of permissions that are highlighted before the <bpt id="523c6020-6f53-4c52-812c-3ec5ee936c22">&lt;code&gt;</bpt>&lt;application&gt;<ept id="523c6020-6f53-4c52-812c-3ec5ee936c22">&lt;/code&gt;</ept> tag. Replace <bpt id="92b67a4f-b364-40e4-973a-796633f23d83">&lt;code&gt;</bpt>&lt;Your package name&gt;<ept id="92b67a4f-b364-40e4-973a-796633f23d83">&lt;/code&gt;</ept> by the actual package name of your application.</source>
+          <target state="new">Add the last set of permissions that are highlighted before the <bpt id="523c6020-6f53-4c52-812c-3ec5ee936c22">&lt;code&gt;</bpt>&lt;application&gt;<ept id="523c6020-6f53-4c52-812c-3ec5ee936c22">&lt;/code&gt;</ept> tag. Replace <bpt id="92b67a4f-b364-40e4-973a-796633f23d83">&lt;code&gt;</bpt>&lt;Your package name&gt;<ept id="92b67a4f-b364-40e4-973a-796633f23d83">&lt;/code&gt;</ept> by the actual package name of your application.</target>
+        </trans-unit>
+        <trans-unit id="f07e89fa-12f6-4603-bce5-1851502f22af" xml:space="preserve">
+          <source>To allow Mobile Engagement to send push notifications on your behalf, you need to grant it access to your API Key.</source>
+          <target state="new">To allow Mobile Engagement to send push notifications on your behalf, you need to grant it access to your API Key.</target>
+        </trans-unit>
+        <trans-unit id="64200720-a22a-408e-ad72-51e14e9534de" xml:space="preserve">
+          <source>This is done by configuring and entering your key into the Mobile Engagement portal.</source>
+          <target state="new">This is done by configuring and entering your key into the Mobile Engagement portal.</target>
+        </trans-unit>
+        <trans-unit id="b31d2360-e9a1-42af-8802-e907dc5ce79d" xml:space="preserve">
+          <source>Navigate to your Mobile Engagement portal</source>
+          <target state="new">Navigate to your Mobile Engagement portal</target>
+        </trans-unit>
+        <trans-unit id="f6108e7a-b8e8-4efe-98c1-170b6fa23b5e" xml:space="preserve">
+          <source>From your Azure portal, ensure you're in the app we're using for this project, and then click the <bpt id="d3a4feba-6da9-4fbc-8706-9fe7b333a860">&lt;strong&gt;</bpt>Engage<ept id="d3a4feba-6da9-4fbc-8706-9fe7b333a860">&lt;/strong&gt;</ept> button at the bottom:</source>
+          <target state="new">From your Azure portal, ensure you're in the app we're using for this project, and then click the <bpt id="d3a4feba-6da9-4fbc-8706-9fe7b333a860">&lt;strong&gt;</bpt>Engage<ept id="d3a4feba-6da9-4fbc-8706-9fe7b333a860">&lt;/strong&gt;</ept> button at the bottom:</target>
+        </trans-unit>
+        <trans-unit id="deb79839-912b-4809-8e36-b6f851363083" xml:space="preserve">
+          <source> <bpt id="0909c3d6-ad73-4720-9e22-b152714932a1">&lt;linkText&gt;</bpt><ept id="0909c3d6-ad73-4720-9e22-b152714932a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="0909c3d6-ad73-4720-9e22-b152714932a1">&lt;linkText&gt;</bpt><ept id="0909c3d6-ad73-4720-9e22-b152714932a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1abb26e0-6168-405d-ab70-d0d045cafec5" xml:space="preserve">
+          <source>You are now in the <bpt id="92421703-c177-4b50-9d5c-8adcabcb71ef">&lt;strong&gt;</bpt>Settings<ept id="92421703-c177-4b50-9d5c-8adcabcb71ef">&lt;/strong&gt;</ept> page in your Engagement portal.</source>
+          <target state="new">You are now in the <bpt id="92421703-c177-4b50-9d5c-8adcabcb71ef">&lt;strong&gt;</bpt>Settings<ept id="92421703-c177-4b50-9d5c-8adcabcb71ef">&lt;/strong&gt;</ept> page in your Engagement portal.</target>
+        </trans-unit>
+        <trans-unit id="dd8d8140-5b80-4720-8625-b3b0fdcb9702" xml:space="preserve">
+          <source>From there, click the <bpt id="0534f2e2-3f91-4d3a-bf1c-225279b37100">&lt;strong&gt;</bpt>Native Push<ept id="0534f2e2-3f91-4d3a-bf1c-225279b37100">&lt;/strong&gt;</ept> section to enter your GCM Key:
+  <bpt id="38e8cdd5-bd89-4800-8cce-ee12053f40f7">&lt;linkText&gt;</bpt><ept id="38e8cdd5-bd89-4800-8cce-ee12053f40f7">&lt;/linkText&gt;</ept></source>
+          <target state="new">From there, click the <bpt id="0534f2e2-3f91-4d3a-bf1c-225279b37100">&lt;strong&gt;</bpt>Native Push<ept id="0534f2e2-3f91-4d3a-bf1c-225279b37100">&lt;/strong&gt;</ept> section to enter your GCM Key:
+  <bpt id="38e8cdd5-bd89-4800-8cce-ee12053f40f7">&lt;linkText&gt;</bpt><ept id="38e8cdd5-bd89-4800-8cce-ee12053f40f7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e9516a4-ec0e-4cf4-a2f1-5326f173df64" xml:space="preserve">
+          <source>Click the <bpt id="278d07a3-32a2-4468-b94f-14ad025c137c">&lt;strong&gt;</bpt>Edit<ept id="278d07a3-32a2-4468-b94f-14ad025c137c">&lt;/strong&gt;</ept> icon in front of <bpt id="3fe4aa0c-2b19-4d94-a73b-328f3f7ec9a4">&lt;strong&gt;</bpt>API Key<ept id="3fe4aa0c-2b19-4d94-a73b-328f3f7ec9a4">&lt;/strong&gt;</ept> in the <bpt id="4f7c4c27-5016-4424-ba5d-4900d9088d94">&lt;strong&gt;</bpt>GCM Settings<ept id="4f7c4c27-5016-4424-ba5d-4900d9088d94">&lt;/strong&gt;</ept> section as shown below:
+  <bpt id="837d57f8-da26-4f42-a5bb-5be69819f09b">&lt;linkText&gt;</bpt><ept id="837d57f8-da26-4f42-a5bb-5be69819f09b">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click the <bpt id="278d07a3-32a2-4468-b94f-14ad025c137c">&lt;strong&gt;</bpt>Edit<ept id="278d07a3-32a2-4468-b94f-14ad025c137c">&lt;/strong&gt;</ept> icon in front of <bpt id="3fe4aa0c-2b19-4d94-a73b-328f3f7ec9a4">&lt;strong&gt;</bpt>API Key<ept id="3fe4aa0c-2b19-4d94-a73b-328f3f7ec9a4">&lt;/strong&gt;</ept> in the <bpt id="4f7c4c27-5016-4424-ba5d-4900d9088d94">&lt;strong&gt;</bpt>GCM Settings<ept id="4f7c4c27-5016-4424-ba5d-4900d9088d94">&lt;/strong&gt;</ept> section as shown below:
+  <bpt id="837d57f8-da26-4f42-a5bb-5be69819f09b">&lt;linkText&gt;</bpt><ept id="837d57f8-da26-4f42-a5bb-5be69819f09b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb4b74d0-2819-4acf-b916-f636a0bf3237" xml:space="preserve">
+          <source>In the pop-up, paste the GCM Server Key you obtained in the section <bpt id="ec598326-1286-43f0-8422-b7c6404e33c5">&lt;linkText&gt;</bpt>Enable Google Cloud Messaging<ept id="ec598326-1286-43f0-8422-b7c6404e33c5">&lt;/linkText&gt;</ept><bpt id="ec598326-1286-43f0-8422-b7c6404e33c5">&lt;title&gt;</bpt><ept id="ec598326-1286-43f0-8422-b7c6404e33c5">&lt;/title&gt;</ept>, and then click <bpt id="4668c4f3-eed8-4960-b432-185fc7b17f84">&lt;strong&gt;</bpt>Ok<ept id="4668c4f3-eed8-4960-b432-185fc7b17f84">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the pop-up, paste the GCM Server Key you obtained in the section <bpt id="ec598326-1286-43f0-8422-b7c6404e33c5">&lt;linkText&gt;</bpt>Enable Google Cloud Messaging<ept id="ec598326-1286-43f0-8422-b7c6404e33c5">&lt;/linkText&gt;</ept><bpt id="ec598326-1286-43f0-8422-b7c6404e33c5">&lt;title&gt;</bpt><ept id="ec598326-1286-43f0-8422-b7c6404e33c5">&lt;/title&gt;</ept>, and then click <bpt id="4668c4f3-eed8-4960-b432-185fc7b17f84">&lt;strong&gt;</bpt>Ok<ept id="4668c4f3-eed8-4960-b432-185fc7b17f84">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80c7e46d-7b6e-411b-b6db-0f686a62bc29" xml:space="preserve">
+          <source> <bpt id="5cf92d11-4b7a-4e3e-9b22-3f44d1df1fc4">&lt;linkText&gt;</bpt><ept id="5cf92d11-4b7a-4e3e-9b22-3f44d1df1fc4">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="5cf92d11-4b7a-4e3e-9b22-3f44d1df1fc4">&lt;linkText&gt;</bpt><ept id="5cf92d11-4b7a-4e3e-9b22-3f44d1df1fc4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17ac6438-8bec-453e-aa08-88e7b7d92661" xml:space="preserve">
+          <source>You're all set.</source>
+          <target state="new">You're all set.</target>
+        </trans-unit>
+        <trans-unit id="e775526c-e61f-4bda-83eb-8d55cbb41c2e" xml:space="preserve">
+          <source>Now we will verify that you have correctly carried out this basic integration.</source>
+          <target state="new">Now we will verify that you have correctly carried out this basic integration.</target>
+        </trans-unit>
+        <trans-unit id="5c88d5d5-97e7-4d2d-98d6-3e6342867c0b" xml:space="preserve">
+          <source>Make sure you build, start with this new code, exit the app, and wait about 1 minute before doing the following steps.</source>
+          <target state="new">Make sure you build, start with this new code, exit the app, and wait about 1 minute before doing the following steps.</target>
+        </trans-unit>
+        <trans-unit id="25a5b182-3f19-4065-b3c3-640fe2d1759f" xml:space="preserve">
+          <source>We will now create a simple push notification campaign that sends a push notification to our app.</source>
+          <target state="new">We will now create a simple push notification campaign that sends a push notification to our app.</target>
+        </trans-unit>
+        <trans-unit id="305f53f1-346d-43b0-b5b7-1e502f16edd5" xml:space="preserve">
+          <source>Navigate to the <bpt id="eebb9f88-3d46-4e3c-b1ee-24e0ab7db27b">&lt;strong&gt;</bpt>REACH<ept id="eebb9f88-3d46-4e3c-b1ee-24e0ab7db27b">&lt;/strong&gt;</ept> tab in your Mobile Engagement portal.</source>
+          <target state="new">Navigate to the <bpt id="eebb9f88-3d46-4e3c-b1ee-24e0ab7db27b">&lt;strong&gt;</bpt>REACH<ept id="eebb9f88-3d46-4e3c-b1ee-24e0ab7db27b">&lt;/strong&gt;</ept> tab in your Mobile Engagement portal.</target>
+        </trans-unit>
+        <trans-unit id="b9fcc206-8fc4-47bc-89dd-55be383312d0" xml:space="preserve">
+          <source><bpt id="d31bbd0c-b298-45cd-a436-1a1305a0c603">&lt;linkText&gt;</bpt><ept id="d31bbd0c-b298-45cd-a436-1a1305a0c603">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d31bbd0c-b298-45cd-a436-1a1305a0c603">&lt;linkText&gt;</bpt><ept id="d31bbd0c-b298-45cd-a436-1a1305a0c603">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cdc75a1-9fd7-4864-83f8-656f39507b86" xml:space="preserve">
+          <source>Click <bpt id="36b2105a-e5a6-4327-b173-5266ea54fdc0">&lt;strong&gt;</bpt>New announcement<ept id="36b2105a-e5a6-4327-b173-5266ea54fdc0">&lt;/strong&gt;</ept> to create your push notification campaign.</source>
+          <target state="new">Click <bpt id="36b2105a-e5a6-4327-b173-5266ea54fdc0">&lt;strong&gt;</bpt>New announcement<ept id="36b2105a-e5a6-4327-b173-5266ea54fdc0">&lt;/strong&gt;</ept> to create your push notification campaign.</target>
+        </trans-unit>
+        <trans-unit id="1924d494-d8b1-487e-9f06-5dce617b5241" xml:space="preserve">
+          <source><bpt id="efee36f0-7597-4a8d-9169-4559c1645b6c">&lt;linkText&gt;</bpt><ept id="efee36f0-7597-4a8d-9169-4559c1645b6c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="efee36f0-7597-4a8d-9169-4559c1645b6c">&lt;linkText&gt;</bpt><ept id="efee36f0-7597-4a8d-9169-4559c1645b6c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b5a9224-25e6-4e20-8fbc-9a348579f541" xml:space="preserve">
+          <source>Set up the first field of your campaign through the following steps:
+ <bpt id="6024bb60-709f-4c9f-8df7-3a3f46a49eca">&lt;linkText&gt;</bpt><ept id="6024bb60-709f-4c9f-8df7-3a3f46a49eca">&lt;/linkText&gt;</ept></source>
+          <target state="new">Set up the first field of your campaign through the following steps:
+ <bpt id="6024bb60-709f-4c9f-8df7-3a3f46a49eca">&lt;linkText&gt;</bpt><ept id="6024bb60-709f-4c9f-8df7-3a3f46a49eca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da9e2c5a-02db-4f30-b188-56e9f4759a1e" xml:space="preserve">
+          <source>Name your campaign with any name you like.</source>
+          <target state="new">Name your campaign with any name you like.</target>
+        </trans-unit>
+        <trans-unit id="f0434fee-5124-4068-905d-faf90d9f9358" xml:space="preserve">
+          <source>Select the <bpt id="247a4508-e728-4347-a434-f4a639b9e567">&lt;strong&gt;</bpt>Delivery type<ept id="247a4508-e728-4347-a434-f4a639b9e567">&lt;/strong&gt;</ept> as <bpt id="7af7a325-b216-4415-8a7f-78f126207bfe">&lt;em&gt;</bpt>System notification / Simple<ept id="7af7a325-b216-4415-8a7f-78f126207bfe">&lt;/em&gt;</ept>: This is the simple Android push notification type that features a title and a small line of text.</source>
+          <target state="new">Select the <bpt id="247a4508-e728-4347-a434-f4a639b9e567">&lt;strong&gt;</bpt>Delivery type<ept id="247a4508-e728-4347-a434-f4a639b9e567">&lt;/strong&gt;</ept> as <bpt id="7af7a325-b216-4415-8a7f-78f126207bfe">&lt;em&gt;</bpt>System notification / Simple<ept id="7af7a325-b216-4415-8a7f-78f126207bfe">&lt;/em&gt;</ept>: This is the simple Android push notification type that features a title and a small line of text.</target>
+        </trans-unit>
+        <trans-unit id="e08ac1b2-f7d4-44a7-8484-210d5236696e" xml:space="preserve">
+          <source>Select <bpt id="ac46b8ef-6b57-4498-8e9e-d36ff975651b">&lt;strong&gt;</bpt>Delivery time<ept id="ac46b8ef-6b57-4498-8e9e-d36ff975651b">&lt;/strong&gt;</ept> as <bpt id="fe26c5b3-ad0d-4250-baa8-e03bc7cd205e">&lt;em&gt;</bpt>Any time<ept id="fe26c5b3-ad0d-4250-baa8-e03bc7cd205e">&lt;/em&gt;</ept> to allow the app to receive a notification whether the app is started or not.</source>
+          <target state="new">Select <bpt id="ac46b8ef-6b57-4498-8e9e-d36ff975651b">&lt;strong&gt;</bpt>Delivery time<ept id="ac46b8ef-6b57-4498-8e9e-d36ff975651b">&lt;/strong&gt;</ept> as <bpt id="fe26c5b3-ad0d-4250-baa8-e03bc7cd205e">&lt;em&gt;</bpt>Any time<ept id="fe26c5b3-ad0d-4250-baa8-e03bc7cd205e">&lt;/em&gt;</ept> to allow the app to receive a notification whether the app is started or not.</target>
+        </trans-unit>
+        <trans-unit id="a10c559d-42fe-4916-b2fd-f1d2a2a49a96" xml:space="preserve">
+          <source>In the notification text, type the title, which will be in bold in the push.</source>
+          <target state="new">In the notification text, type the title, which will be in bold in the push.</target>
+        </trans-unit>
+        <trans-unit id="dee7d6f5-1c9b-4963-8628-3374a9be0758" xml:space="preserve">
+          <source>Then type your message.</source>
+          <target state="new">Then type your message.</target>
+        </trans-unit>
+        <trans-unit id="0258662e-ca41-4072-ab54-67161aed8667" xml:space="preserve">
+          <source>Scroll down, and in the <bpt id="51cf68a7-64c1-4ba2-9924-68f7dd89b16f">&lt;strong&gt;</bpt>Content<ept id="51cf68a7-64c1-4ba2-9924-68f7dd89b16f">&lt;/strong&gt;</ept> section, select <bpt id="a1b023a5-87a1-400a-b29d-4e95693ddf25">&lt;strong&gt;</bpt>Notification only<ept id="a1b023a5-87a1-400a-b29d-4e95693ddf25">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll down, and in the <bpt id="51cf68a7-64c1-4ba2-9924-68f7dd89b16f">&lt;strong&gt;</bpt>Content<ept id="51cf68a7-64c1-4ba2-9924-68f7dd89b16f">&lt;/strong&gt;</ept> section, select <bpt id="a1b023a5-87a1-400a-b29d-4e95693ddf25">&lt;strong&gt;</bpt>Notification only<ept id="a1b023a5-87a1-400a-b29d-4e95693ddf25">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="982a1488-9a56-4abf-822f-644c227fe4eb" xml:space="preserve">
+          <source><bpt id="93c4c3b5-74ac-4168-8d57-5f73748d05f2">&lt;linkText&gt;</bpt><ept id="93c4c3b5-74ac-4168-8d57-5f73748d05f2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93c4c3b5-74ac-4168-8d57-5f73748d05f2">&lt;linkText&gt;</bpt><ept id="93c4c3b5-74ac-4168-8d57-5f73748d05f2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d0ee674-fcc8-4025-9632-5e24acb10eb9" xml:space="preserve">
+          <source>You're done setting the most basic campaign possible, now scroll down again and create your campaign to save it!</source>
+          <target state="new">You're done setting the most basic campaign possible, now scroll down again and create your campaign to save it!</target>
+        </trans-unit>
+        <trans-unit id="406d464d-b8d4-4b80-bd89-77f2f6394291" xml:space="preserve">
+          <source><bpt id="df0e42a3-2978-40b6-a106-564ff02fd153">&lt;linkText&gt;</bpt><ept id="df0e42a3-2978-40b6-a106-564ff02fd153">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df0e42a3-2978-40b6-a106-564ff02fd153">&lt;linkText&gt;</bpt><ept id="df0e42a3-2978-40b6-a106-564ff02fd153">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5892f8aa-f6ef-4be3-bcba-3c467b3c6cba" xml:space="preserve">
+          <source>Last step: Activate your campaign.</source>
+          <target state="new">Last step: Activate your campaign.</target>
+        </trans-unit>
+        <trans-unit id="56561647-874a-443e-be6e-b9601fa7f4d2" xml:space="preserve">
+          <source><bpt id="c29b0def-f803-4368-a8e3-993d506ce35a">&lt;linkText&gt;</bpt><ept id="c29b0def-f803-4368-a8e3-993d506ce35a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c29b0def-f803-4368-a8e3-993d506ce35a">&lt;linkText&gt;</bpt><ept id="c29b0def-f803-4368-a8e3-993d506ce35a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd87fc6a-aca4-4780-8988-a7d2ff4d3029" xml:space="preserve">
+          <source>http://go.microsoft.com/?linkid=9863935</source>
+          <target state="new">http://go.microsoft.com/?linkid=9863935</target>
+        </trans-unit>
+        <trans-unit id="e72ac61f-1f1a-4372-a939-a1fdfb14383b" xml:space="preserve">
+          <source>http://go.microsoft.com/?linkid=9874682</source>
+          <target state="new">http://go.microsoft.com/?linkid=9874682</target>
+        </trans-unit>
+        <trans-unit id="522f3358-7e92-43dc-a62c-5e391022c3b2" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/create-mobile-engagement-app.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/create-mobile-engagement-app.png</target>
+        </trans-unit>
+        <trans-unit id="954e0c03-6b04-487a-a64b-4596819e5a3a" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/create-azme-popup.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/create-azme-popup.png</target>
+        </trans-unit>
+        <trans-unit id="f8b785b0-5ed3-446a-9598-b9a7fef4fce1" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/select-app.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/select-app.png</target>
+        </trans-unit>
+        <trans-unit id="39a163c8-7e38-4024-a897-71b5d315e016" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/app-main-page-select-connection-info.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/app-main-page-select-connection-info.png</target>
+        </trans-unit>
+        <trans-unit id="1d3d1ccc-dd4a-4dcf-bd1a-6a2c185e2a7d" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/app-connection-info-page.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/app-connection-info-page.png</target>
+        </trans-unit>
+        <trans-unit id="de9197e8-66f6-49ac-9b4d-817b71584661" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/android-studio-new-project.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/android-studio-new-project.png</target>
+        </trans-unit>
+        <trans-unit id="6324f16a-9a2f-496b-8a21-bec8257db42e" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/android-studio-project-props.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/android-studio-project-props.png</target>
+        </trans-unit>
+        <trans-unit id="e3b1cac4-a253-4f05-91cc-a32f62dd3fa9" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/android-studio-project-props2.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/android-studio-project-props2.png</target>
+        </trans-unit>
+        <trans-unit id="24d2a85f-9f75-4dbb-a251-e4e600fb9654" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/android-studio-add-activity.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/android-studio-add-activity.png</target>
+        </trans-unit>
+        <trans-unit id="171c145a-0287-4929-b6ca-250bfaabd60b" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/android-studio-activity-name.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/android-studio-activity-name.png</target>
+        </trans-unit>
+        <trans-unit id="2d8caf4c-647d-42ee-9a39-fe7ed055ddac" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/sdk-content.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/sdk-content.png</target>
+        </trans-unit>
+        <trans-unit id="c1f78f71-cfa4-4860-bc64-f544c4c81864" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/paste-jar.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/paste-jar.png</target>
+        </trans-unit>
+        <trans-unit id="6f57f1bf-0157-4279-9b2d-9f345ef6722f" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/sync-project.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/sync-project.png</target>
+        </trans-unit>
+        <trans-unit id="317a5a13-9ec6-4f2e-80fe-db486d3b3ef5" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/resolve-classes.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/resolve-classes.png</target>
+        </trans-unit>
+        <trans-unit id="224a2999-20a0-4b70-baf6-ae7b92e8146f" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/permissions.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/permissions.png</target>
+        </trans-unit>
+        <trans-unit id="d0578d39-f767-4a6a-a91b-8556ea941824" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/subclass-activity.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/subclass-activity.png</target>
+        </trans-unit>
+        <trans-unit id="35241108-8b2b-4426-8d98-c04e21d5104c" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/copy-resources.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/copy-resources.png</target>
+        </trans-unit>
+        <trans-unit id="000134a2-fad5-4f8b-8c3c-dc51a33ecf29" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/paste-resources.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/paste-resources.png</target>
+        </trans-unit>
+        <trans-unit id="875d27b4-ddbb-4792-acf3-819869e1804b" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/engage-button.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/engage-button.png</target>
+        </trans-unit>
+        <trans-unit id="02563142-f44a-4128-a801-2ab0c0e565ea" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/engagement-portal.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/engagement-portal.png</target>
+        </trans-unit>
+        <trans-unit id="b54523e9-0980-411d-8903-3a91175eb9c7" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/native-push-settings.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/native-push-settings.png</target>
+        </trans-unit>
+        <trans-unit id="57faa5b8-94b9-40b5-8df9-7d306d1fd3a7" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/api-key.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/api-key.png</target>
+        </trans-unit>
+        <trans-unit id="2c0b3be4-5134-450c-9a3f-d65f8ae6e628" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/clic-monitor-tab.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/clic-monitor-tab.png</target>
+        </trans-unit>
+        <trans-unit id="d6f31a14-fd4f-4042-8795-e7c13047af11" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/monitor.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/monitor.png</target>
+        </trans-unit>
+        <trans-unit id="0415fd5b-55b2-491c-b9f0-ceb38d73eda7" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/launch.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/launch.png</target>
+        </trans-unit>
+        <trans-unit id="eff0260d-c2e2-4c2a-b805-91fc257a7260" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/monitor-trafic.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/monitor-trafic.png</target>
+        </trans-unit>
+        <trans-unit id="70596346-087e-4744-be24-c4c6f19cca39" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/reach-tab.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/reach-tab.png</target>
+        </trans-unit>
+        <trans-unit id="859e4226-a43e-4c9a-989c-e83de3c97813" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/new-announcement.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/new-announcement.png</target>
+        </trans-unit>
+        <trans-unit id="27beb43c-8fad-4c88-bb7c-d2c194b5be79" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/campaign-first-params.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/campaign-first-params.png</target>
+        </trans-unit>
+        <trans-unit id="7c0de62b-9300-4a30-9f6c-5cdc7b3df9eb" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/campaign-content.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/campaign-content.png</target>
+        </trans-unit>
+        <trans-unit id="e98d5c83-f02b-4bf7-8c5f-e0a56fb81bad" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/campaign-create.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/campaign-create.png</target>
+        </trans-unit>
+        <trans-unit id="0cf694da-f959-4a17-8ba3-63a60e586582" xml:space="preserve">
+          <source>./media/mobile-engagement-android-get-started/campaign-activate.png</source>
+          <target state="new">./media/mobile-engagement-android-get-started/campaign-activate.png</target>
+        </trans-unit>
+      </group>
+      <group id="9e70b2e8-5680-4b4e-9fd2-94d26ae84644" />
+    </body>
+  </file>
+</xliff>

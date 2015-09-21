@@ -1,0 +1,661 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="da419965-737e-4cc6-8695-a2cef8488b4d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="da419965-737e-4cc6-8695-a2cef8488b4d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2521b19b-5f60-49bd-bb19-42c2f02a1bb2">
+        <trans-unit id="b1000e71-ef61-4139-b308-43dbbf6cec5f" xml:space="preserve">
+          <source>Creating web apps with Flask in Azure</source>
+          <target state="new">Creating web apps with Flask in Azure</target>
+        </trans-unit>
+        <trans-unit id="bff59b29-db98-4ef7-aa73-abd4c92af957" xml:space="preserve">
+          <source>A tutorial that introduces you to running a Python web app on Azure.</source>
+          <target state="new">A tutorial that introduces you to running a Python web app on Azure.</target>
+        </trans-unit>
+        <trans-unit id="3d7206f5-ca3d-4139-a45c-aaaaa8ca81c3" xml:space="preserve">
+          <source>This tutorial describes how to get started running Python in <bpt id="907ccab0-f95c-4d8f-9e12-d0487b954472">&lt;linkText&gt;</bpt>Azure App Service Web Apps<ept id="907ccab0-f95c-4d8f-9e12-d0487b954472">&lt;/linkText&gt;</ept><bpt id="907ccab0-f95c-4d8f-9e12-d0487b954472">&lt;title&gt;</bpt><ept id="907ccab0-f95c-4d8f-9e12-d0487b954472">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial describes how to get started running Python in <bpt id="907ccab0-f95c-4d8f-9e12-d0487b954472">&lt;linkText&gt;</bpt>Azure App Service Web Apps<ept id="907ccab0-f95c-4d8f-9e12-d0487b954472">&lt;/linkText&gt;</ept><bpt id="907ccab0-f95c-4d8f-9e12-d0487b954472">&lt;title&gt;</bpt><ept id="907ccab0-f95c-4d8f-9e12-d0487b954472">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb8c8e6e-6793-4ac2-8a0b-9cc63cd5ea9b" xml:space="preserve">
+          <source>Web Apps provides limited free hosting and rapid deployment, and you can use Python!</source>
+          <target state="new">Web Apps provides limited free hosting and rapid deployment, and you can use Python!</target>
+        </trans-unit>
+        <trans-unit id="cb2da6ec-2833-41c0-9604-8792e521ceb4" xml:space="preserve">
+          <source>As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.</source>
+          <target state="new">As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.</target>
+        </trans-unit>
+        <trans-unit id="6bcad43c-1131-4beb-8bbf-38ce13300684" xml:space="preserve">
+          <source>You will create an application using the Flask web framework (see alternate versions of this tutorial for <bpt id="f270193b-f1bc-4bd9-8acf-103b99e97baa">&lt;linkText&gt;</bpt>Django<ept id="f270193b-f1bc-4bd9-8acf-103b99e97baa">&lt;/linkText&gt;</ept><bpt id="f270193b-f1bc-4bd9-8acf-103b99e97baa">&lt;title&gt;</bpt><ept id="f270193b-f1bc-4bd9-8acf-103b99e97baa">&lt;/title&gt;</ept> and <bpt id="702df856-7015-4632-8865-ddcc8c2b093f">&lt;linkText&gt;</bpt>Bottle<ept id="702df856-7015-4632-8865-ddcc8c2b093f">&lt;/linkText&gt;</ept><bpt id="702df856-7015-4632-8865-ddcc8c2b093f">&lt;title&gt;</bpt><ept id="702df856-7015-4632-8865-ddcc8c2b093f">&lt;/title&gt;</ept>).</source>
+          <target state="new">You will create an application using the Flask web framework (see alternate versions of this tutorial for <bpt id="f270193b-f1bc-4bd9-8acf-103b99e97baa">&lt;linkText&gt;</bpt>Django<ept id="f270193b-f1bc-4bd9-8acf-103b99e97baa">&lt;/linkText&gt;</ept><bpt id="f270193b-f1bc-4bd9-8acf-103b99e97baa">&lt;title&gt;</bpt><ept id="f270193b-f1bc-4bd9-8acf-103b99e97baa">&lt;/title&gt;</ept> and <bpt id="702df856-7015-4632-8865-ddcc8c2b093f">&lt;linkText&gt;</bpt>Bottle<ept id="702df856-7015-4632-8865-ddcc8c2b093f">&lt;/linkText&gt;</ept><bpt id="702df856-7015-4632-8865-ddcc8c2b093f">&lt;title&gt;</bpt><ept id="702df856-7015-4632-8865-ddcc8c2b093f">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="7ac9d349-461f-49e9-adf1-d5d3180005a7" xml:space="preserve">
+          <source>You will create the website from the Azure gallery, set up Git deployment, and clone the repository locally.</source>
+          <target state="new">You will create the website from the Azure gallery, set up Git deployment, and clone the repository locally.</target>
+        </trans-unit>
+        <trans-unit id="1c662cb8-122c-4f4f-9f29-c2d0f9457e78" xml:space="preserve">
+          <source>Then you will run the application locally, make changes, commit and push them to Azure.</source>
+          <target state="new">Then you will run the application locally, make changes, commit and push them to Azure.</target>
+        </trans-unit>
+        <trans-unit id="702a4d77-8c43-4ccc-8eac-82337c68b4cc" xml:space="preserve">
+          <source>The tutorial shows how to do this from Windows or Mac/Linux.</source>
+          <target state="new">The tutorial shows how to do this from Windows or Mac/Linux.</target>
+        </trans-unit>
+        <trans-unit id="1885a441-1e24-4fb2-adee-6f587e785b40" xml:space="preserve">
+          <source><bpt id="0d256470-7969-47f2-bb66-e197ef3f71ae">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="0d256470-7969-47f2-bb66-e197ef3f71ae">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0d256470-7969-47f2-bb66-e197ef3f71ae">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="0d256470-7969-47f2-bb66-e197ef3f71ae">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19c4f8a4-f4e0-4926-92b7-5d65acaa9bfb" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="75c35e41-d290-41d1-8153-1490ed4a4c10">&lt;linkText&gt;</bpt>Try App Service<ept id="75c35e41-d290-41d1-8153-1490ed4a4c10">&lt;/linkText&gt;</ept><bpt id="75c35e41-d290-41d1-8153-1490ed4a4c10">&lt;title&gt;</bpt><ept id="75c35e41-d290-41d1-8153-1490ed4a4c10">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="75c35e41-d290-41d1-8153-1490ed4a4c10">&lt;linkText&gt;</bpt>Try App Service<ept id="75c35e41-d290-41d1-8153-1490ed4a4c10">&lt;/linkText&gt;</ept><bpt id="75c35e41-d290-41d1-8153-1490ed4a4c10">&lt;title&gt;</bpt><ept id="75c35e41-d290-41d1-8153-1490ed4a4c10">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="b36fba13-c1fa-47e4-9ab4-23518bef41f3" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="a039cfb6-769c-40f6-9289-709f20e33628" xml:space="preserve">
+          <source>Windows, Mac or Linux</source>
+          <target state="new">Windows, Mac or Linux</target>
+        </trans-unit>
+        <trans-unit id="e7cbb481-040f-4eb8-bad0-c29983f524bc" xml:space="preserve">
+          <source>Python 2.7 or 3.4</source>
+          <target state="new">Python 2.7 or 3.4</target>
+        </trans-unit>
+        <trans-unit id="f5bb746c-f081-4b51-b016-026d217b9108" xml:space="preserve">
+          <source>setuptools, pip, virtualenv (Python 2.7 only)</source>
+          <target state="new">setuptools, pip, virtualenv (Python 2.7 only)</target>
+        </trans-unit>
+        <trans-unit id="bd0a21db-6c4f-45eb-bf01-4582e1063ba3" xml:space="preserve">
+          <source>Git</source>
+          <target state="new">Git</target>
+        </trans-unit>
+        <trans-unit id="b190ae82-6f34-43b2-b99e-080bab1caea8" xml:space="preserve">
+          <source><bpt id="ba9a9e53-038f-4791-b6fe-9388ebc3f258">&lt;linkText&gt;</bpt>Python Tools for Visual Studio<ept id="ba9a9e53-038f-4791-b6fe-9388ebc3f258">&lt;/linkText&gt;</ept><bpt id="ba9a9e53-038f-4791-b6fe-9388ebc3f258">&lt;title&gt;</bpt><ept id="ba9a9e53-038f-4791-b6fe-9388ebc3f258">&lt;/title&gt;</ept> (PTVS) - Note: this is optional</source>
+          <target state="new"><bpt id="ba9a9e53-038f-4791-b6fe-9388ebc3f258">&lt;linkText&gt;</bpt>Python Tools for Visual Studio<ept id="ba9a9e53-038f-4791-b6fe-9388ebc3f258">&lt;/linkText&gt;</ept><bpt id="ba9a9e53-038f-4791-b6fe-9388ebc3f258">&lt;title&gt;</bpt><ept id="ba9a9e53-038f-4791-b6fe-9388ebc3f258">&lt;/title&gt;</ept> (PTVS) - Note: this is optional</target>
+        </trans-unit>
+        <trans-unit id="b74cbdac-068b-4284-adce-4fd816aa8a98" xml:space="preserve">
+          <source><bpt id="7cb00257-95a7-4423-a751-4a6ae6f2fdd8">&lt;strong&gt;</bpt>Note<ept id="7cb00257-95a7-4423-a751-4a6ae6f2fdd8">&lt;/strong&gt;</ept>: TFS publishing is currently not supported for Python projects.</source>
+          <target state="new"><bpt id="7cb00257-95a7-4423-a751-4a6ae6f2fdd8">&lt;strong&gt;</bpt>Note<ept id="7cb00257-95a7-4423-a751-4a6ae6f2fdd8">&lt;/strong&gt;</ept>: TFS publishing is currently not supported for Python projects.</target>
+        </trans-unit>
+        <trans-unit id="9b759284-8c26-4d13-881e-bebba783e859" xml:space="preserve">
+          <source>If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7] or [Azure SDK for Python 3.4] using Web Platform Installer.</source>
+          <target state="new">If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7] or [Azure SDK for Python 3.4] using Web Platform Installer.</target>
+        </trans-unit>
+        <trans-unit id="5a2a9a34-c1a9-4521-8bb5-286eaa442ba9" xml:space="preserve">
+          <source>This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).</source>
+          <target state="new">This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).</target>
+        </trans-unit>
+        <trans-unit id="8b4da702-980e-40f6-b8cf-cc73a5a84d22" xml:space="preserve">
+          <source>Alternatively, you can get Python from [python.org].</source>
+          <target state="new">Alternatively, you can get Python from [python.org].</target>
+        </trans-unit>
+        <trans-unit id="0b01ee1c-2aac-42cb-9591-1b4ba7f5e04f" xml:space="preserve">
+          <source>For Git, we recommend [Git for Windows] or [GitHub for Windows].</source>
+          <target state="new">For Git, we recommend [Git for Windows] or [GitHub for Windows].</target>
+        </trans-unit>
+        <trans-unit id="e17799b7-9e3a-4f7e-a670-65148cfe0ced" xml:space="preserve">
+          <source>If you use Visual Studio, you can use the integrated Git support.</source>
+          <target state="new">If you use Visual Studio, you can use the integrated Git support.</target>
+        </trans-unit>
+        <trans-unit id="66be0a69-8732-4cdc-95d8-3e665a472d66" xml:space="preserve">
+          <source>We also recommend installing [Python Tools 2.2 for Visual Studio].</source>
+          <target state="new">We also recommend installing [Python Tools 2.2 for Visual Studio].</target>
+        </trans-unit>
+        <trans-unit id="cf887d70-fce5-4690-8dff-d7137a9ceec1" xml:space="preserve">
+          <source>This is optional, but if you have [Visual Studio], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.</source>
+          <target state="new">This is optional, but if you have [Visual Studio], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.</target>
+        </trans-unit>
+        <trans-unit id="a6eb261a-6778-4943-94e8-b5e5aff6eb3e" xml:space="preserve">
+          <source>You should have Python and Git already installed, but make sure you have either Python 2.7 or 3.4.</source>
+          <target state="new">You should have Python and Git already installed, but make sure you have either Python 2.7 or 3.4.</target>
+        </trans-unit>
+        <trans-unit id="d8482741-2a7b-4929-9126-6e9f7891ded5" xml:space="preserve">
+          <source>The first step in creating your app is to create the web app via the <bpt id="52ac359b-d522-4ca7-901d-79ccde6f8c9f">&lt;linkText&gt;</bpt>Azure Portal<ept id="52ac359b-d522-4ca7-901d-79ccde6f8c9f">&lt;/linkText&gt;</ept><bpt id="52ac359b-d522-4ca7-901d-79ccde6f8c9f">&lt;title&gt;</bpt><ept id="52ac359b-d522-4ca7-901d-79ccde6f8c9f">&lt;/title&gt;</ept>.</source>
+          <target state="new">The first step in creating your app is to create the web app via the <bpt id="52ac359b-d522-4ca7-901d-79ccde6f8c9f">&lt;linkText&gt;</bpt>Azure Portal<ept id="52ac359b-d522-4ca7-901d-79ccde6f8c9f">&lt;/linkText&gt;</ept><bpt id="52ac359b-d522-4ca7-901d-79ccde6f8c9f">&lt;title&gt;</bpt><ept id="52ac359b-d522-4ca7-901d-79ccde6f8c9f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e3efc1f-9ade-46ae-9da8-dd97a6410a53" xml:space="preserve">
+          <source>Log into the Azure Portal and click the <bpt id="1e32aa4b-9476-4fd7-a83c-27598ab80b0c">&lt;strong&gt;</bpt>NEW<ept id="1e32aa4b-9476-4fd7-a83c-27598ab80b0c">&lt;/strong&gt;</ept> button in the bottom left corner.</source>
+          <target state="new">Log into the Azure Portal and click the <bpt id="1e32aa4b-9476-4fd7-a83c-27598ab80b0c">&lt;strong&gt;</bpt>NEW<ept id="1e32aa4b-9476-4fd7-a83c-27598ab80b0c">&lt;/strong&gt;</ept> button in the bottom left corner.</target>
+        </trans-unit>
+        <trans-unit id="3c0de83b-03ad-46e5-8bee-de51a0aa126e" xml:space="preserve">
+          <source>Click <bpt id="cdecf1a3-668e-4366-88ea-33aecc4f7ac6">&lt;strong&gt;</bpt>Web + Mobile<ept id="cdecf1a3-668e-4366-88ea-33aecc4f7ac6">&lt;/strong&gt;</ept> &gt; <bpt id="364acf4b-0c42-4baa-9a1f-ea55e11721e0">&lt;strong&gt;</bpt>Azure Marketplace<ept id="364acf4b-0c42-4baa-9a1f-ea55e11721e0">&lt;/strong&gt;</ept> &gt; <bpt id="7ffc94c1-257f-4216-a310-9ed1ee71994b">&lt;strong&gt;</bpt>Web Apps<ept id="7ffc94c1-257f-4216-a310-9ed1ee71994b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="cdecf1a3-668e-4366-88ea-33aecc4f7ac6">&lt;strong&gt;</bpt>Web + Mobile<ept id="cdecf1a3-668e-4366-88ea-33aecc4f7ac6">&lt;/strong&gt;</ept> &gt; <bpt id="364acf4b-0c42-4baa-9a1f-ea55e11721e0">&lt;strong&gt;</bpt>Azure Marketplace<ept id="364acf4b-0c42-4baa-9a1f-ea55e11721e0">&lt;/strong&gt;</ept> &gt; <bpt id="7ffc94c1-257f-4216-a310-9ed1ee71994b">&lt;strong&gt;</bpt>Web Apps<ept id="7ffc94c1-257f-4216-a310-9ed1ee71994b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb6f6773-0e04-439d-ae89-73cac8c9849d" xml:space="preserve">
+          <source>In the search box, type "python".</source>
+          <target state="new">In the search box, type "python".</target>
+        </trans-unit>
+        <trans-unit id="4e8d2eb0-74da-4919-8b9a-0b32c2d1d682" xml:space="preserve">
+          <source>In the search results, select <bpt id="478d9e5f-d24e-47a6-b9e7-fe28af85ad81">&lt;strong&gt;</bpt>Flask<ept id="478d9e5f-d24e-47a6-b9e7-fe28af85ad81">&lt;/strong&gt;</ept>, then click <bpt id="5025fb85-4484-41f4-bdcf-69c3865eedbd">&lt;strong&gt;</bpt>Create<ept id="5025fb85-4484-41f4-bdcf-69c3865eedbd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the search results, select <bpt id="478d9e5f-d24e-47a6-b9e7-fe28af85ad81">&lt;strong&gt;</bpt>Flask<ept id="478d9e5f-d24e-47a6-b9e7-fe28af85ad81">&lt;/strong&gt;</ept>, then click <bpt id="5025fb85-4484-41f4-bdcf-69c3865eedbd">&lt;strong&gt;</bpt>Create<ept id="5025fb85-4484-41f4-bdcf-69c3865eedbd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93036121-b616-428e-906a-38ac8d3ab2fb" xml:space="preserve">
+          <source>Configure the new Flask app, such as creating a new App Service plan and a new resource group for it.</source>
+          <target state="new">Configure the new Flask app, such as creating a new App Service plan and a new resource group for it.</target>
+        </trans-unit>
+        <trans-unit id="92ef802d-6df0-4edd-8937-85cf9ac30d33" xml:space="preserve">
+          <source>Then, click <bpt id="fea619cb-da76-45bd-9d1f-4c7211dfc8a9">&lt;strong&gt;</bpt>Create<ept id="fea619cb-da76-45bd-9d1f-4c7211dfc8a9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, click <bpt id="fea619cb-da76-45bd-9d1f-4c7211dfc8a9">&lt;strong&gt;</bpt>Create<ept id="fea619cb-da76-45bd-9d1f-4c7211dfc8a9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="babea4c4-20de-4cc5-b307-9a3a300633df" xml:space="preserve">
+          <source>Configure Git publishing for your newly created web app by following the instructions at <bpt id="650a2057-b9ba-4e84-b790-03a0f9eea3ee">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="650a2057-b9ba-4e84-b790-03a0f9eea3ee">&lt;/linkText&gt;</ept><bpt id="650a2057-b9ba-4e84-b790-03a0f9eea3ee">&lt;title&gt;</bpt><ept id="650a2057-b9ba-4e84-b790-03a0f9eea3ee">&lt;/title&gt;</ept>.</source>
+          <target state="new">Configure Git publishing for your newly created web app by following the instructions at <bpt id="650a2057-b9ba-4e84-b790-03a0f9eea3ee">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="650a2057-b9ba-4e84-b790-03a0f9eea3ee">&lt;/linkText&gt;</ept><bpt id="650a2057-b9ba-4e84-b790-03a0f9eea3ee">&lt;title&gt;</bpt><ept id="650a2057-b9ba-4e84-b790-03a0f9eea3ee">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d0346c5-c404-4f76-9a45-c801913263e4" xml:space="preserve">
+          <source>Here's an overview of the files you'll find in the initial Git repository, which we'll clone in the next section.</source>
+          <target state="new">Here's an overview of the files you'll find in the initial Git repository, which we'll clone in the next section.</target>
+        </trans-unit>
+        <trans-unit id="0a9dd002-9e43-4aa0-986e-ca8237f01ac9" xml:space="preserve">
+          <source>Main sources for the application.</source>
+          <target state="new">Main sources for the application.</target>
+        </trans-unit>
+        <trans-unit id="0e3e13f2-b7a5-4a80-bd79-f09b6ec3901c" xml:space="preserve">
+          <source>Consists of 3 pages (index, about, contact) with a master layout.</source>
+          <target state="new">Consists of 3 pages (index, about, contact) with a master layout.</target>
+        </trans-unit>
+        <trans-unit id="ae8a86a7-392e-4ca3-a0b0-1b0144594303" xml:space="preserve">
+          <source>Static content and scripts include bootstrap, jquery, modernizr and respond.</source>
+          <target state="new">Static content and scripts include bootstrap, jquery, modernizr and respond.</target>
+        </trans-unit>
+        <trans-unit id="6fc6ded2-56c5-4113-b8e1-eb05111187f3" xml:space="preserve">
+          <source>Local development server support.</source>
+          <target state="new">Local development server support.</target>
+        </trans-unit>
+        <trans-unit id="c135541a-b968-433b-8817-6aa015a65853" xml:space="preserve">
+          <source>Use this to run the application locally.</source>
+          <target state="new">Use this to run the application locally.</target>
+        </trans-unit>
+        <trans-unit id="501175d6-0c00-4f72-929f-6a8bbe934c34" xml:space="preserve">
+          <source>Project files for use with [Python Tools for Visual Studio].</source>
+          <target state="new">Project files for use with [Python Tools for Visual Studio].</target>
+        </trans-unit>
+        <trans-unit id="67f02555-b691-4e2a-ad17-3103c40f1b4a" xml:space="preserve">
+          <source>IIS proxy for virtual environments and PTVS remote debugging support.</source>
+          <target state="new">IIS proxy for virtual environments and PTVS remote debugging support.</target>
+        </trans-unit>
+        <trans-unit id="32b5962d-6fbc-49f1-971b-b432ba52e87f" xml:space="preserve">
+          <source>External packages needed by this application.</source>
+          <target state="new">External packages needed by this application.</target>
+        </trans-unit>
+        <trans-unit id="305674cd-8278-49e4-851f-539adbc37a17" xml:space="preserve">
+          <source>The deployment script will pip install the packages listed in this file.</source>
+          <target state="new">The deployment script will pip install the packages listed in this file.</target>
+        </trans-unit>
+        <trans-unit id="b6a7a636-a647-4980-be67-edf53e3bd0b6" xml:space="preserve">
+          <source>IIS configuration files.</source>
+          <target state="new">IIS configuration files.</target>
+        </trans-unit>
+        <trans-unit id="e9ff1c5b-f5df-410e-b2fe-22faa2fdf563" xml:space="preserve">
+          <source>The deployment script will use the appropriate web.x.y.config and copy it as web.config.</source>
+          <target state="new">The deployment script will use the appropriate web.x.y.config and copy it as web.config.</target>
+        </trans-unit>
+        <trans-unit id="c667ab4d-621b-4ee5-8170-ce4d001c3a75" xml:space="preserve">
+          <source><bpt id="18885972-46b7-48b4-a12c-7961d46ba2e4">&lt;token href="../../includes/web-sites-python-customizing-deployment.md"&gt;</bpt><ept id="18885972-46b7-48b4-a12c-7961d46ba2e4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="18885972-46b7-48b4-a12c-7961d46ba2e4">&lt;token href="../../includes/web-sites-python-customizing-deployment.md"&gt;</bpt><ept id="18885972-46b7-48b4-a12c-7961d46ba2e4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbb045b0-7779-407c-9200-cf9cb08ae8f9" xml:space="preserve">
+          <source><bpt id="46359623-461c-486d-9be4-c0a7ef871f38">&lt;token href="../../includes/web-sites-python-customizing-runtime.md"&gt;</bpt><ept id="46359623-461c-486d-9be4-c0a7ef871f38">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="46359623-461c-486d-9be4-c0a7ef871f38">&lt;token href="../../includes/web-sites-python-customizing-runtime.md"&gt;</bpt><ept id="46359623-461c-486d-9be4-c0a7ef871f38">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa6bbef3-5f74-4cab-ace7-195d75b2aa30" xml:space="preserve">
+          <source>Some files exist on the server but are not added to the git repository.</source>
+          <target state="new">Some files exist on the server but are not added to the git repository.</target>
+        </trans-unit>
+        <trans-unit id="fbd95895-c254-4f46-b059-2650c359f640" xml:space="preserve">
+          <source>These are created by the deployment script.</source>
+          <target state="new">These are created by the deployment script.</target>
+        </trans-unit>
+        <trans-unit id="1755ff54-f508-44dc-b0d8-519ad4ed9925" xml:space="preserve">
+          <source>IIS configuration file.</source>
+          <target state="new">IIS configuration file.</target>
+        </trans-unit>
+        <trans-unit id="44dd7c4c-efc4-4588-908d-e53f647b91d6" xml:space="preserve">
+          <source>Created from web.x.y.config on every deployment.</source>
+          <target state="new">Created from web.x.y.config on every deployment.</target>
+        </trans-unit>
+        <trans-unit id="acf08e92-32dc-4a6a-865d-58616bae1f8f" xml:space="preserve">
+          <source>Python virtual environment.</source>
+          <target state="new">Python virtual environment.</target>
+        </trans-unit>
+        <trans-unit id="135e4468-abd5-4a43-b7b2-361e29d92449" xml:space="preserve">
+          <source>Created during deployment if a compatible virtual environment doesn't already exist on the app.</source>
+          <target state="new">Created during deployment if a compatible virtual environment doesn't already exist on the app.</target>
+        </trans-unit>
+        <trans-unit id="356ca10d-0f30-4c5d-a885-ab6a75f751fb" xml:space="preserve">
+          <source>Packages listed in requirements.txt are pip installed, but pip will skip installation if the packages are already installed.</source>
+          <target state="new">Packages listed in requirements.txt are pip installed, but pip will skip installation if the packages are already installed.</target>
+        </trans-unit>
+        <trans-unit id="7843efff-e9f7-4551-ae83-c1a364a40c1a" xml:space="preserve">
+          <source>The next 3 sections describe how to proceed with the web app development under 3 different environments:</source>
+          <target state="new">The next 3 sections describe how to proceed with the web app development under 3 different environments:</target>
+        </trans-unit>
+        <trans-unit id="aacf5971-692a-42b4-99e2-8a2073779a3b" xml:space="preserve">
+          <source>Windows, with Python Tools for Visual Studio</source>
+          <target state="new">Windows, with Python Tools for Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="70f336ec-2c6e-4e0d-b786-b2673e0d17f9" xml:space="preserve">
+          <source>Windows, with command line</source>
+          <target state="new">Windows, with command line</target>
+        </trans-unit>
+        <trans-unit id="9adba40e-ebbb-48bb-8789-7c41596aff6e" xml:space="preserve">
+          <source>Mac/Linux, with command line</source>
+          <target state="new">Mac/Linux, with command line</target>
+        </trans-unit>
+        <trans-unit id="4448143c-bc3d-483f-b8dd-7923767a1a25" xml:space="preserve">
+          <source>First, clone the repository using the URL provided on the Azure Portal.</source>
+          <target state="new">First, clone the repository using the URL provided on the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="a27922ea-69cb-407a-b91a-bea48dacc4d3" xml:space="preserve">
+          <source>For more information, see <bpt id="ea0f7745-5d5f-48cd-9e97-011c16b12150">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="ea0f7745-5d5f-48cd-9e97-011c16b12150">&lt;/linkText&gt;</ept><bpt id="ea0f7745-5d5f-48cd-9e97-011c16b12150">&lt;title&gt;</bpt><ept id="ea0f7745-5d5f-48cd-9e97-011c16b12150">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ea0f7745-5d5f-48cd-9e97-011c16b12150">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="ea0f7745-5d5f-48cd-9e97-011c16b12150">&lt;/linkText&gt;</ept><bpt id="ea0f7745-5d5f-48cd-9e97-011c16b12150">&lt;title&gt;</bpt><ept id="ea0f7745-5d5f-48cd-9e97-011c16b12150">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7eab3d9d-e0c8-4dc8-96bb-0dc2019e9229" xml:space="preserve">
+          <source>Open the solution file (.sln) that is included in the root of the repository.</source>
+          <target state="new">Open the solution file (.sln) that is included in the root of the repository.</target>
+        </trans-unit>
+        <trans-unit id="e8c48fcd-cda2-40d3-b967-a387ab25c00f" xml:space="preserve">
+          <source><bpt id="ed07e9cf-fe08-4189-8198-421ca68281ce">&lt;linkText&gt;</bpt><ept id="ed07e9cf-fe08-4189-8198-421ca68281ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ed07e9cf-fe08-4189-8198-421ca68281ce">&lt;linkText&gt;</bpt><ept id="ed07e9cf-fe08-4189-8198-421ca68281ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b6c5f6f-3e9f-4cbc-83f8-61fba7db3d82" xml:space="preserve">
+          <source>Now we'll create a virtual environment for local development.</source>
+          <target state="new">Now we'll create a virtual environment for local development.</target>
+        </trans-unit>
+        <trans-unit id="7f1183a7-5a98-49ba-b613-c56e1148a5d5" xml:space="preserve">
+          <source>Right-click on <bpt id="9be477f1-5506-422a-b3b2-25a9daf8a620">&lt;strong&gt;</bpt>Python Environments<ept id="9be477f1-5506-422a-b3b2-25a9daf8a620">&lt;/strong&gt;</ept> select <bpt id="f7671765-cc18-4b60-8c10-ed690d85a74c">&lt;strong&gt;</bpt>Add Virtual Environment...<ept id="f7671765-cc18-4b60-8c10-ed690d85a74c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click on <bpt id="9be477f1-5506-422a-b3b2-25a9daf8a620">&lt;strong&gt;</bpt>Python Environments<ept id="9be477f1-5506-422a-b3b2-25a9daf8a620">&lt;/strong&gt;</ept> select <bpt id="f7671765-cc18-4b60-8c10-ed690d85a74c">&lt;strong&gt;</bpt>Add Virtual Environment...<ept id="f7671765-cc18-4b60-8c10-ed690d85a74c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47071a75-987a-4a95-8194-485595122009" xml:space="preserve">
+          <source>Make sure the name of the environment is <bpt id="dc92fc2f-a1e2-48c1-afa2-9124a4ba522c">&lt;code&gt;</bpt>env<ept id="dc92fc2f-a1e2-48c1-afa2-9124a4ba522c">&lt;/code&gt;</ept>.</source>
+          <target state="new">Make sure the name of the environment is <bpt id="dc92fc2f-a1e2-48c1-afa2-9124a4ba522c">&lt;code&gt;</bpt>env<ept id="dc92fc2f-a1e2-48c1-afa2-9124a4ba522c">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65ed5da7-ff7f-463a-b71f-f24f4758c513" xml:space="preserve">
+          <source>Select the base interpreter.</source>
+          <target state="new">Select the base interpreter.</target>
+        </trans-unit>
+        <trans-unit id="4bc3ef4e-c948-4dbf-b45a-9ab5134d1177" xml:space="preserve">
+          <source>Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the <bpt id="dfb2ead4-75df-4c32-91f5-c7359c92e885">&lt;strong&gt;</bpt>Application Settings<ept id="dfb2ead4-75df-4c32-91f5-c7359c92e885">&lt;/strong&gt;</ept> blade of your web app in the Azure Portal).</source>
+          <target state="new">Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the <bpt id="dfb2ead4-75df-4c32-91f5-c7359c92e885">&lt;strong&gt;</bpt>Application Settings<ept id="dfb2ead4-75df-4c32-91f5-c7359c92e885">&lt;/strong&gt;</ept> blade of your web app in the Azure Portal).</target>
+        </trans-unit>
+        <trans-unit id="df484734-587e-40be-88b3-abd3df0ef6cd" xml:space="preserve">
+          <source>Make sure the option to download and install packages is checked.</source>
+          <target state="new">Make sure the option to download and install packages is checked.</target>
+        </trans-unit>
+        <trans-unit id="c17c82cd-12ec-47bd-9fd0-48074fbdb987" xml:space="preserve">
+          <source><bpt id="128e6a69-5ca9-41d0-aaf6-f4020847d10c">&lt;linkText&gt;</bpt><ept id="128e6a69-5ca9-41d0-aaf6-f4020847d10c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="128e6a69-5ca9-41d0-aaf6-f4020847d10c">&lt;linkText&gt;</bpt><ept id="128e6a69-5ca9-41d0-aaf6-f4020847d10c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2906fd3-6297-4926-8d0d-ea1e5dc16d55" xml:space="preserve">
+          <source>Click <bpt id="f3ed306f-c54c-4838-80f2-36285aaf31e7">&lt;strong&gt;</bpt>Create<ept id="f3ed306f-c54c-4838-80f2-36285aaf31e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f3ed306f-c54c-4838-80f2-36285aaf31e7">&lt;strong&gt;</bpt>Create<ept id="f3ed306f-c54c-4838-80f2-36285aaf31e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3967e9df-5cef-47dc-813e-60606035ec2c" xml:space="preserve">
+          <source>This will create the virtual environment, and install dependencies listed in requirements.txt.</source>
+          <target state="new">This will create the virtual environment, and install dependencies listed in requirements.txt.</target>
+        </trans-unit>
+        <trans-unit id="5c7e66c5-906d-456e-8e73-9bfd241edb3f" xml:space="preserve">
+          <source>Press F5 to start debugging, and your web browser will open automatically to the page running locally.</source>
+          <target state="new">Press F5 to start debugging, and your web browser will open automatically to the page running locally.</target>
+        </trans-unit>
+        <trans-unit id="12c2d479-7bab-4685-8ebe-7740aa899dd4" xml:space="preserve">
+          <source><bpt id="85558e55-03c9-462c-ada2-a201911e0380">&lt;linkText&gt;</bpt><ept id="85558e55-03c9-462c-ada2-a201911e0380">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="85558e55-03c9-462c-ada2-a201911e0380">&lt;linkText&gt;</bpt><ept id="85558e55-03c9-462c-ada2-a201911e0380">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d351b52-9fdc-4781-b1ce-0896961c6788" xml:space="preserve">
+          <source>You can set breakpoints in the sources, use the watch windows, etc.  See the [Python Tools for Visual Studio Documentation] for more information on the various features.</source>
+          <target state="new">You can set breakpoints in the sources, use the watch windows, etc.  See the [Python Tools for Visual Studio Documentation] for more information on the various features.</target>
+        </trans-unit>
+        <trans-unit id="b3cab0dc-8b30-4df6-94a3-00fa8be5eb98" xml:space="preserve">
+          <source>Now you can experiment by making changes to the application sources and/or templates.</source>
+          <target state="new">Now you can experiment by making changes to the application sources and/or templates.</target>
+        </trans-unit>
+        <trans-unit id="63cd7417-61e1-4ef6-8e6c-44e338ab7061" xml:space="preserve">
+          <source>After you've tested your changes, commit them to the Git repository:</source>
+          <target state="new">After you've tested your changes, commit them to the Git repository:</target>
+        </trans-unit>
+        <trans-unit id="94c81e0d-982b-44e9-85cc-708b8e84540f" xml:space="preserve">
+          <source><bpt id="a8a8850e-6dcc-4a54-afc6-1c9859f88459">&lt;linkText&gt;</bpt><ept id="a8a8850e-6dcc-4a54-afc6-1c9859f88459">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a8a8850e-6dcc-4a54-afc6-1c9859f88459">&lt;linkText&gt;</bpt><ept id="a8a8850e-6dcc-4a54-afc6-1c9859f88459">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e2b70dc-6ebc-4379-b89a-7293065c47a6" xml:space="preserve">
+          <source>Your application may have dependencies beyond Python and Flask.</source>
+          <target state="new">Your application may have dependencies beyond Python and Flask.</target>
+        </trans-unit>
+        <trans-unit id="c42e1943-0466-4186-869f-dbc60cf17008" xml:space="preserve">
+          <source>You can install additional packages using pip.</source>
+          <target state="new">You can install additional packages using pip.</target>
+        </trans-unit>
+        <trans-unit id="354116f2-e8c7-4cfc-9dca-3f77bd129994" xml:space="preserve">
+          <source>To install a package, right-click on the virtual environment and select <bpt id="01591fb7-48ab-4418-be93-1fe076e5b8ed">&lt;strong&gt;</bpt>Install Python Package<ept id="01591fb7-48ab-4418-be93-1fe076e5b8ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To install a package, right-click on the virtual environment and select <bpt id="01591fb7-48ab-4418-be93-1fe076e5b8ed">&lt;strong&gt;</bpt>Install Python Package<ept id="01591fb7-48ab-4418-be93-1fe076e5b8ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2290e406-c2c0-4441-9915-59858a5887de" xml:space="preserve">
+          <source>For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, enter <bpt id="0c3497a4-164b-4a78-9d0e-f106e866e51e">&lt;code&gt;</bpt>azure<ept id="0c3497a4-164b-4a78-9d0e-f106e866e51e">&lt;/code&gt;</ept>:</source>
+          <target state="new">For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, enter <bpt id="0c3497a4-164b-4a78-9d0e-f106e866e51e">&lt;code&gt;</bpt>azure<ept id="0c3497a4-164b-4a78-9d0e-f106e866e51e">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="1939ff35-0bc7-4d23-99f9-0983a970ff9c" xml:space="preserve">
+          <source><bpt id="158dd776-1935-437d-9177-2be4fa26fcde">&lt;linkText&gt;</bpt><ept id="158dd776-1935-437d-9177-2be4fa26fcde">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="158dd776-1935-437d-9177-2be4fa26fcde">&lt;linkText&gt;</bpt><ept id="158dd776-1935-437d-9177-2be4fa26fcde">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c682927c-5307-45f9-8dbc-9099791ed519" xml:space="preserve">
+          <source>Right-click on the virtual environment and select <bpt id="61a5936d-db8d-4416-9203-9de0aa001ad7">&lt;strong&gt;</bpt>Generate requirements.txt<ept id="61a5936d-db8d-4416-9203-9de0aa001ad7">&lt;/strong&gt;</ept> to update requirements.txt.</source>
+          <target state="new">Right-click on the virtual environment and select <bpt id="61a5936d-db8d-4416-9203-9de0aa001ad7">&lt;strong&gt;</bpt>Generate requirements.txt<ept id="61a5936d-db8d-4416-9203-9de0aa001ad7">&lt;/strong&gt;</ept> to update requirements.txt.</target>
+        </trans-unit>
+        <trans-unit id="0766bc98-43d0-4b86-86bf-b3d7518b796a" xml:space="preserve">
+          <source>Then, commit the changes to requirements.txt to the Git repository.</source>
+          <target state="new">Then, commit the changes to requirements.txt to the Git repository.</target>
+        </trans-unit>
+        <trans-unit id="8b5c5977-e3f6-467b-b973-f7b744f9c81f" xml:space="preserve">
+          <source>To trigger a deployment, click on <bpt id="5a828000-c048-48f8-962f-4c07aad49205">&lt;strong&gt;</bpt>Sync<ept id="5a828000-c048-48f8-962f-4c07aad49205">&lt;/strong&gt;</ept> or <bpt id="32119c0f-4dd6-4305-b256-275425c0b21b">&lt;strong&gt;</bpt>Push<ept id="32119c0f-4dd6-4305-b256-275425c0b21b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To trigger a deployment, click on <bpt id="5a828000-c048-48f8-962f-4c07aad49205">&lt;strong&gt;</bpt>Sync<ept id="5a828000-c048-48f8-962f-4c07aad49205">&lt;/strong&gt;</ept> or <bpt id="32119c0f-4dd6-4305-b256-275425c0b21b">&lt;strong&gt;</bpt>Push<ept id="32119c0f-4dd6-4305-b256-275425c0b21b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a05e716a-0702-4609-9e6e-42b3e00a852e" xml:space="preserve">
+          <source>Sync does both a push and a pull.</source>
+          <target state="new">Sync does both a push and a pull.</target>
+        </trans-unit>
+        <trans-unit id="185acf45-e836-40ea-b65f-b76b4fe5873c" xml:space="preserve">
+          <source><bpt id="32a7fbcb-d63b-4092-83e9-2722494acc3e">&lt;linkText&gt;</bpt><ept id="32a7fbcb-d63b-4092-83e9-2722494acc3e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="32a7fbcb-d63b-4092-83e9-2722494acc3e">&lt;linkText&gt;</bpt><ept id="32a7fbcb-d63b-4092-83e9-2722494acc3e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74f22d12-7cba-4992-85c8-be8ac48a38ca" xml:space="preserve">
+          <source>The first deployment will take some time, as it will create a virtual environment, install packages, etc.</source>
+          <target state="new">The first deployment will take some time, as it will create a virtual environment, install packages, etc.</target>
+        </trans-unit>
+        <trans-unit id="e5443dd6-7387-42f1-b9cc-98e73663dd53" xml:space="preserve">
+          <source>Visual Studio doesn't show the progress of the deployment.</source>
+          <target state="new">Visual Studio doesn't show the progress of the deployment.</target>
+        </trans-unit>
+        <trans-unit id="fcadc492-e716-42f8-a2b4-75b8a63ffdc9" xml:space="preserve">
+          <source>If you'd like to review the output, see the section on <bpt id="2266b3c5-6df6-4ff2-996f-836ea0f2889b">&lt;linkText&gt;</bpt>Troubleshooting - Deployment<ept id="2266b3c5-6df6-4ff2-996f-836ea0f2889b">&lt;/linkText&gt;</ept><bpt id="2266b3c5-6df6-4ff2-996f-836ea0f2889b">&lt;title&gt;</bpt><ept id="2266b3c5-6df6-4ff2-996f-836ea0f2889b">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you'd like to review the output, see the section on <bpt id="2266b3c5-6df6-4ff2-996f-836ea0f2889b">&lt;linkText&gt;</bpt>Troubleshooting - Deployment<ept id="2266b3c5-6df6-4ff2-996f-836ea0f2889b">&lt;/linkText&gt;</ept><bpt id="2266b3c5-6df6-4ff2-996f-836ea0f2889b">&lt;title&gt;</bpt><ept id="2266b3c5-6df6-4ff2-996f-836ea0f2889b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d02cc518-08da-4122-bf8b-2094475efb3d" xml:space="preserve">
+          <source>Browse to the Azure URL to view your changes.</source>
+          <target state="new">Browse to the Azure URL to view your changes.</target>
+        </trans-unit>
+        <trans-unit id="b884e800-5837-4279-a118-cbe17beb7bc8" xml:space="preserve">
+          <source>First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote.</source>
+          <target state="new">First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote.</target>
+        </trans-unit>
+        <trans-unit id="425fcefe-81ee-4c1d-9b7f-5abf8baca313" xml:space="preserve">
+          <source>For more information, see <bpt id="7df27439-7683-496a-ba0c-5b4273cbbb62">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="7df27439-7683-496a-ba0c-5b4273cbbb62">&lt;/linkText&gt;</ept><bpt id="7df27439-7683-496a-ba0c-5b4273cbbb62">&lt;title&gt;</bpt><ept id="7df27439-7683-496a-ba0c-5b4273cbbb62">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7df27439-7683-496a-ba0c-5b4273cbbb62">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="7df27439-7683-496a-ba0c-5b4273cbbb62">&lt;/linkText&gt;</ept><bpt id="7df27439-7683-496a-ba0c-5b4273cbbb62">&lt;title&gt;</bpt><ept id="7df27439-7683-496a-ba0c-5b4273cbbb62">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbcbbcf1-2de6-4113-b597-d7cd373e3684" xml:space="preserve">
+          <source>We'll create a new virtual environment for development purposes (do not add it to the repository).</source>
+          <target state="new">We'll create a new virtual environment for development purposes (do not add it to the repository).</target>
+        </trans-unit>
+        <trans-unit id="99be68ed-ec8b-41fa-a584-1ed907eb2c01" xml:space="preserve">
+          <source>Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.</source>
+          <target state="new">Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.</target>
+        </trans-unit>
+        <trans-unit id="01d5525f-12da-4286-a3c3-3b6728c4804c" xml:space="preserve">
+          <source>Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the <bpt id="08994073-0381-4ac3-a54d-bdcd31617196">&lt;strong&gt;</bpt>Application Settings<ept id="08994073-0381-4ac3-a54d-bdcd31617196">&lt;/strong&gt;</ept> blade of your web app in the Azure Portal).</source>
+          <target state="new">Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the <bpt id="08994073-0381-4ac3-a54d-bdcd31617196">&lt;strong&gt;</bpt>Application Settings<ept id="08994073-0381-4ac3-a54d-bdcd31617196">&lt;/strong&gt;</ept> blade of your web app in the Azure Portal).</target>
+        </trans-unit>
+        <trans-unit id="bff688cb-9ecd-41da-92d6-c0481d2ebb5c" xml:space="preserve">
+          <source>For Python 2.7:</source>
+          <target state="new">For Python 2.7:</target>
+        </trans-unit>
+        <trans-unit id="0100bd4d-2b23-429c-b733-c62bb9cd98a1" xml:space="preserve">
+          <source>For Python 3.4:</source>
+          <target state="new">For Python 3.4:</target>
+        </trans-unit>
+        <trans-unit id="27df0d64-56b3-4a0e-93ce-59e5320c295a" xml:space="preserve">
+          <source>Install any external packages required by your application.</source>
+          <target state="new">Install any external packages required by your application.</target>
+        </trans-unit>
+        <trans-unit id="a25768e8-9689-4057-9f97-5b78a3fc0825" xml:space="preserve">
+          <source>You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:</source>
+          <target state="new">You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:</target>
+        </trans-unit>
+        <trans-unit id="04b10852-e29c-4afd-917e-329fe00a8a43" xml:space="preserve">
+          <source>You can launch the application under a development server with the following command:</source>
+          <target state="new">You can launch the application under a development server with the following command:</target>
+        </trans-unit>
+        <trans-unit id="7add6253-d0b1-4fff-9aa5-82632a898e09" xml:space="preserve">
+          <source>The console will display the URL and port the server listens to:</source>
+          <target state="new">The console will display the URL and port the server listens to:</target>
+        </trans-unit>
+        <trans-unit id="2365fede-55de-4841-a321-df7a6a76136c" xml:space="preserve">
+          <source><bpt id="1e923601-2482-4de9-96fc-ac03526e14b4">&lt;linkText&gt;</bpt><ept id="1e923601-2482-4de9-96fc-ac03526e14b4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e923601-2482-4de9-96fc-ac03526e14b4">&lt;linkText&gt;</bpt><ept id="1e923601-2482-4de9-96fc-ac03526e14b4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="454ecc8b-1933-4e5b-b076-d3f2d49142a1" xml:space="preserve">
+          <source>Then, open your web browser to that URL.</source>
+          <target state="new">Then, open your web browser to that URL.</target>
+        </trans-unit>
+        <trans-unit id="af77ee19-6f8e-4ab8-ae29-c90f652849f6" xml:space="preserve">
+          <source><bpt id="291460d5-38ea-4d1d-a7f1-9aba785d8881">&lt;linkText&gt;</bpt><ept id="291460d5-38ea-4d1d-a7f1-9aba785d8881">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="291460d5-38ea-4d1d-a7f1-9aba785d8881">&lt;linkText&gt;</bpt><ept id="291460d5-38ea-4d1d-a7f1-9aba785d8881">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c20c961-0bdf-4eaf-b454-337a5f8bfe65" xml:space="preserve">
+          <source>Now you can experiment by making changes to the application sources and/or templates.</source>
+          <target state="new">Now you can experiment by making changes to the application sources and/or templates.</target>
+        </trans-unit>
+        <trans-unit id="06b0ff3e-0b03-41e0-ab31-b8aa3c4fd7a0" xml:space="preserve">
+          <source>After you've tested your changes, commit them to the Git repository:</source>
+          <target state="new">After you've tested your changes, commit them to the Git repository:</target>
+        </trans-unit>
+        <trans-unit id="fae9516d-7656-42ec-bfcf-84e295e1a4cb" xml:space="preserve">
+          <source>Your application may have dependencies beyond Python and Flask.</source>
+          <target state="new">Your application may have dependencies beyond Python and Flask.</target>
+        </trans-unit>
+        <trans-unit id="805987ea-13df-41da-8346-45c7f36c5a1f" xml:space="preserve">
+          <source>You can install additional packages using pip.</source>
+          <target state="new">You can install additional packages using pip.</target>
+        </trans-unit>
+        <trans-unit id="8fc75068-e378-41a4-bf72-49ab824d7d13" xml:space="preserve">
+          <source>For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, type:</source>
+          <target state="new">For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, type:</target>
+        </trans-unit>
+        <trans-unit id="1018da01-ad2a-43fd-955c-035b5f590d7c" xml:space="preserve">
+          <source>Make sure to update requirements.txt:</source>
+          <target state="new">Make sure to update requirements.txt:</target>
+        </trans-unit>
+        <trans-unit id="777753d7-f82d-48a4-8469-6c9aa743d8a1" xml:space="preserve">
+          <source>Commit the changes:</source>
+          <target state="new">Commit the changes:</target>
+        </trans-unit>
+        <trans-unit id="41b0fe70-2321-4c09-b17b-32aa5c5e6b4e" xml:space="preserve">
+          <source>To trigger a deployment, push the changes to Azure:</source>
+          <target state="new">To trigger a deployment, push the changes to Azure:</target>
+        </trans-unit>
+        <trans-unit id="e865d003-40d3-451e-8e47-42865b8e9b6d" xml:space="preserve">
+          <source>You will see the output of the deployment script, including virtual environment creation, installation of packages, creation of web.config.</source>
+          <target state="new">You will see the output of the deployment script, including virtual environment creation, installation of packages, creation of web.config.</target>
+        </trans-unit>
+        <trans-unit id="ab49a216-bced-4338-96fb-838ea9726c84" xml:space="preserve">
+          <source>Browse to the Azure URL to view your changes.</source>
+          <target state="new">Browse to the Azure URL to view your changes.</target>
+        </trans-unit>
+        <trans-unit id="95f8beeb-ca37-48e9-acce-43bed21a61e3" xml:space="preserve">
+          <source>First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote.</source>
+          <target state="new">First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote.</target>
+        </trans-unit>
+        <trans-unit id="2be23a89-63ba-449f-9722-b5c05a50f305" xml:space="preserve">
+          <source>For more information, see <bpt id="6746bb56-d77b-463f-acdd-c8ee5c35eef7">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="6746bb56-d77b-463f-acdd-c8ee5c35eef7">&lt;/linkText&gt;</ept><bpt id="6746bb56-d77b-463f-acdd-c8ee5c35eef7">&lt;title&gt;</bpt><ept id="6746bb56-d77b-463f-acdd-c8ee5c35eef7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="6746bb56-d77b-463f-acdd-c8ee5c35eef7">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="6746bb56-d77b-463f-acdd-c8ee5c35eef7">&lt;/linkText&gt;</ept><bpt id="6746bb56-d77b-463f-acdd-c8ee5c35eef7">&lt;title&gt;</bpt><ept id="6746bb56-d77b-463f-acdd-c8ee5c35eef7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="812b2697-f990-46b3-a76f-6615d598b5f1" xml:space="preserve">
+          <source>We'll create a new virtual environment for development purposes (do not add it to the repository).</source>
+          <target state="new">We'll create a new virtual environment for development purposes (do not add it to the repository).</target>
+        </trans-unit>
+        <trans-unit id="dd1b29c6-888b-4ad5-9398-fe0e640ce475" xml:space="preserve">
+          <source>Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.</source>
+          <target state="new">Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.</target>
+        </trans-unit>
+        <trans-unit id="e48baddc-cb55-4924-b823-01feff3e3b78" xml:space="preserve">
+          <source>Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the <bpt id="d8b9b5e3-f8e3-4eae-9f3f-1c12b5349f06">&lt;strong&gt;</bpt>Application Settings<ept id="d8b9b5e3-f8e3-4eae-9f3f-1c12b5349f06">&lt;/strong&gt;</ept> blade of your web app in the Azure Portal).</source>
+          <target state="new">Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the <bpt id="d8b9b5e3-f8e3-4eae-9f3f-1c12b5349f06">&lt;strong&gt;</bpt>Application Settings<ept id="d8b9b5e3-f8e3-4eae-9f3f-1c12b5349f06">&lt;/strong&gt;</ept> blade of your web app in the Azure Portal).</target>
+        </trans-unit>
+        <trans-unit id="4fac50e8-11c0-4ca3-9a02-cf384e0a7090" xml:space="preserve">
+          <source>For Python 2.7:</source>
+          <target state="new">For Python 2.7:</target>
+        </trans-unit>
+        <trans-unit id="38f6444c-d8bf-4c8e-a16c-4de5aefb179e" xml:space="preserve">
+          <source>For Python 3.4:</source>
+          <target state="new">For Python 3.4:</target>
+        </trans-unit>
+        <trans-unit id="4154691f-1552-4b07-9809-a31ef1ce9820" xml:space="preserve">
+          <source>Install any external packages required by your application.</source>
+          <target state="new">Install any external packages required by your application.</target>
+        </trans-unit>
+        <trans-unit id="a59d0b15-4873-4b53-a384-dba62f9614fc" xml:space="preserve">
+          <source>You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:</source>
+          <target state="new">You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:</target>
+        </trans-unit>
+        <trans-unit id="e2f2cf16-40da-4e80-8be2-91da0450fb54" xml:space="preserve">
+          <source>You can launch the application under a development server with the following command:</source>
+          <target state="new">You can launch the application under a development server with the following command:</target>
+        </trans-unit>
+        <trans-unit id="018a3e0d-8c36-4bd2-847c-b9af242bc78d" xml:space="preserve">
+          <source>The console will display the URL and port the server listens to:</source>
+          <target state="new">The console will display the URL and port the server listens to:</target>
+        </trans-unit>
+        <trans-unit id="3f2ca7f7-d4d5-4392-a54b-68ad27a60b1b" xml:space="preserve">
+          <source><bpt id="4a0d2d5b-37d8-4c87-ae7f-f47b3b7d5adf">&lt;linkText&gt;</bpt><ept id="4a0d2d5b-37d8-4c87-ae7f-f47b3b7d5adf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4a0d2d5b-37d8-4c87-ae7f-f47b3b7d5adf">&lt;linkText&gt;</bpt><ept id="4a0d2d5b-37d8-4c87-ae7f-f47b3b7d5adf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e19fe63b-83bc-4ac6-96f0-cbf52de0691f" xml:space="preserve">
+          <source>Then, open your web browser to that URL.</source>
+          <target state="new">Then, open your web browser to that URL.</target>
+        </trans-unit>
+        <trans-unit id="5686341c-40ad-4e9f-9d87-e59616cf706d" xml:space="preserve">
+          <source><bpt id="9b9cab3f-52d6-4f19-81fe-67d57331fda4">&lt;linkText&gt;</bpt><ept id="9b9cab3f-52d6-4f19-81fe-67d57331fda4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b9cab3f-52d6-4f19-81fe-67d57331fda4">&lt;linkText&gt;</bpt><ept id="9b9cab3f-52d6-4f19-81fe-67d57331fda4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85cba887-acc1-4e64-b1a3-3780244de24b" xml:space="preserve">
+          <source>Now you can experiment by making changes to the application sources and/or templates.</source>
+          <target state="new">Now you can experiment by making changes to the application sources and/or templates.</target>
+        </trans-unit>
+        <trans-unit id="62038374-13d6-4117-9e50-063c0b12a231" xml:space="preserve">
+          <source>After you've tested your changes, commit them to the Git repository:</source>
+          <target state="new">After you've tested your changes, commit them to the Git repository:</target>
+        </trans-unit>
+        <trans-unit id="39574d94-d8df-4c2a-a8ed-2a9945c50ec0" xml:space="preserve">
+          <source>Your application may have dependencies beyond Python and Flask.</source>
+          <target state="new">Your application may have dependencies beyond Python and Flask.</target>
+        </trans-unit>
+        <trans-unit id="8f9c8326-44e0-4c7b-9b02-d96f6c49c29a" xml:space="preserve">
+          <source>You can install additional packages using pip.</source>
+          <target state="new">You can install additional packages using pip.</target>
+        </trans-unit>
+        <trans-unit id="9e4a33d9-287c-43e5-ac7e-525faa82a836" xml:space="preserve">
+          <source>For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, type:</source>
+          <target state="new">For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, type:</target>
+        </trans-unit>
+        <trans-unit id="808522c8-a282-4065-8fae-54abfe65a99e" xml:space="preserve">
+          <source>Make sure to update requirements.txt:</source>
+          <target state="new">Make sure to update requirements.txt:</target>
+        </trans-unit>
+        <trans-unit id="970b9362-97be-4dd5-b976-e53471589212" xml:space="preserve">
+          <source>Commit the changes:</source>
+          <target state="new">Commit the changes:</target>
+        </trans-unit>
+        <trans-unit id="80050154-774c-43cd-9329-bb4dc576af39" xml:space="preserve">
+          <source>To trigger a deployment, push the changes to Azure:</source>
+          <target state="new">To trigger a deployment, push the changes to Azure:</target>
+        </trans-unit>
+        <trans-unit id="b8b89241-8c31-48ae-8a2d-557efb7a0459" xml:space="preserve">
+          <source>You will see the output of the deployment script, including virtual environment creation, installation of packages, creation of web.config.</source>
+          <target state="new">You will see the output of the deployment script, including virtual environment creation, installation of packages, creation of web.config.</target>
+        </trans-unit>
+        <trans-unit id="4e6c8c7f-ce15-49f6-afb5-4b3e9fd824c6" xml:space="preserve">
+          <source>Browse to the Azure URL to view your changes.</source>
+          <target state="new">Browse to the Azure URL to view your changes.</target>
+        </trans-unit>
+        <trans-unit id="fada50c7-9b6c-440e-967c-6ab6128d7acc" xml:space="preserve">
+          <source><bpt id="18721657-4dfd-4032-88e9-e21784da767c">&lt;token href="../../includes/web-sites-python-troubleshooting-package-installation.md"&gt;</bpt><ept id="18721657-4dfd-4032-88e9-e21784da767c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="18721657-4dfd-4032-88e9-e21784da767c">&lt;token href="../../includes/web-sites-python-troubleshooting-package-installation.md"&gt;</bpt><ept id="18721657-4dfd-4032-88e9-e21784da767c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a00c1e8-d0f6-4928-9a64-709fd9ec75e7" xml:space="preserve">
+          <source><bpt id="fbcc4c9b-893d-49d0-9656-30270d2a0a52">&lt;token href="../../includes/web-sites-python-troubleshooting-virtual-environment.md"&gt;</bpt><ept id="fbcc4c9b-893d-49d0-9656-30270d2a0a52">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="fbcc4c9b-893d-49d0-9656-30270d2a0a52">&lt;token href="../../includes/web-sites-python-troubleshooting-virtual-environment.md"&gt;</bpt><ept id="fbcc4c9b-893d-49d0-9656-30270d2a0a52">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e06699d-e821-47cf-8682-34476718b035" xml:space="preserve">
+          <source>Follow these links to learn more about Flask and Python Tools for Visual Studio: </source>
+          <target state="new">Follow these links to learn more about Flask and Python Tools for Visual Studio: </target>
+        </trans-unit>
+        <trans-unit id="d60ffc61-e47c-4454-9d0f-5db5a427dbd4" xml:space="preserve">
+          <source>[Flask Documentation]</source>
+          <target state="new">[Flask Documentation]</target>
+        </trans-unit>
+        <trans-unit id="b7af364b-2c4e-43eb-8358-404cb8a7d9fc" xml:space="preserve">
+          <source>[Python Tools for Visual Studio Documentation]</source>
+          <target state="new">[Python Tools for Visual Studio Documentation]</target>
+        </trans-unit>
+        <trans-unit id="18623d95-0a70-4399-98e9-badbb85109cf" xml:space="preserve">
+          <source>For information on using Azure Table Storage and MongoDB:</source>
+          <target state="new">For information on using Azure Table Storage and MongoDB:</target>
+        </trans-unit>
+        <trans-unit id="53abe528-a5e3-4b8b-8786-256d74b807ce" xml:space="preserve">
+          <source>[Flask and MongoDB on Azure with Python Tools for Visual Studio]</source>
+          <target state="new">[Flask and MongoDB on Azure with Python Tools for Visual Studio]</target>
+        </trans-unit>
+        <trans-unit id="7387eef2-f554-4a28-8ed4-dff9666d2308" xml:space="preserve">
+          <source>[Flask and Azure Table Storage on Azure with Python Tools for Visual Studio]</source>
+          <target state="new">[Flask and Azure Table Storage on Azure with Python Tools for Visual Studio]</target>
+        </trans-unit>
+        <trans-unit id="375316fc-253a-4a7e-8f60-9add50205c5f" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="6f31d325-ecc3-4771-86bc-c779f3efbeb5">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="6f31d325-ecc3-4771-86bc-c779f3efbeb5">&lt;/linkText&gt;</ept><bpt id="6f31d325-ecc3-4771-86bc-c779f3efbeb5">&lt;title&gt;</bpt><ept id="6f31d325-ecc3-4771-86bc-c779f3efbeb5">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="6f31d325-ecc3-4771-86bc-c779f3efbeb5">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="6f31d325-ecc3-4771-86bc-c779f3efbeb5">&lt;/linkText&gt;</ept><bpt id="6f31d325-ecc3-4771-86bc-c779f3efbeb5">&lt;title&gt;</bpt><ept id="6f31d325-ecc3-4771-86bc-c779f3efbeb5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fbac6a6-8f41-4035-b594-5a21c30ea492" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="8913a2a6-f823-499a-816a-d3eb3d888ca9">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="8913a2a6-f823-499a-816a-d3eb3d888ca9">&lt;/linkText&gt;</ept><bpt id="8913a2a6-f823-499a-816a-d3eb3d888ca9">&lt;title&gt;</bpt><ept id="8913a2a6-f823-499a-816a-d3eb3d888ca9">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="8913a2a6-f823-499a-816a-d3eb3d888ca9">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="8913a2a6-f823-499a-816a-d3eb3d888ca9">&lt;/linkText&gt;</ept><bpt id="8913a2a6-f823-499a-816a-d3eb3d888ca9">&lt;title&gt;</bpt><ept id="8913a2a6-f823-499a-816a-d3eb3d888ca9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bb6cca8-2814-4dfd-adf0-b10b34a7f94e" xml:space="preserve">
+          <source>https://github.com/microsoft/ptvs/wiki/Flask-and-MongoDB-on-Azure</source>
+          <target state="new">https://github.com/microsoft/ptvs/wiki/Flask-and-MongoDB-on-Azure</target>
+        </trans-unit>
+        <trans-unit id="87c5351d-56a6-41d5-a5af-0556e4e01860" xml:space="preserve">
+          <source>web-sites-python-ptvs-flask-table-storage.md</source>
+          <target state="new">web-sites-python-ptvs-flask-table-storage.md</target>
+        </trans-unit>
+        <trans-unit id="95dac1e0-cdb4-49a5-b284-414f63fb6a27" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?linkid=254281</source>
+          <target state="new">http://go.microsoft.com/fwlink/?linkid=254281</target>
+        </trans-unit>
+        <trans-unit id="e9a5e3db-b2b8-4280-aa0f-90d57223b714" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?linkid=516990</source>
+          <target state="new">http://go.microsoft.com/fwlink/?linkid=516990</target>
+        </trans-unit>
+        <trans-unit id="0505c27e-c0b4-4032-ac57-6b9f4c3644db" xml:space="preserve">
+          <source>http://www.python.org/</source>
+          <target state="new">http://www.python.org/</target>
+        </trans-unit>
+        <trans-unit id="1b670eb5-e984-4425-be03-a9e0b94383f3" xml:space="preserve">
+          <source>http://msysgit.github.io/</source>
+          <target state="new">http://msysgit.github.io/</target>
+        </trans-unit>
+        <trans-unit id="d862ba98-d6b6-43fd-9dac-c6cc3e5025ad" xml:space="preserve">
+          <source>https://windows.github.com/</source>
+          <target state="new">https://windows.github.com/</target>
+        </trans-unit>
+        <trans-unit id="a4081541-4cc5-4dad-ab08-9cd372296ed9" xml:space="preserve">
+          <source>http://aka.ms/ptvs</source>
+          <target state="new">http://aka.ms/ptvs</target>
+        </trans-unit>
+        <trans-unit id="5ebf7b2a-40c9-4b3a-824c-4fc75e25f707" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=624025</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=624025</target>
+        </trans-unit>
+        <trans-unit id="5348e30d-72ae-4519-81f6-8f4709e80f63" xml:space="preserve">
+          <source>http://www.visualstudio.com/</source>
+          <target state="new">http://www.visualstudio.com/</target>
+        </trans-unit>
+        <trans-unit id="71f2a956-4f32-43cf-9f7c-6803fbcfec8c" xml:space="preserve">
+          <source>http://aka.ms/ptvsdocs</source>
+          <target state="new">http://aka.ms/ptvsdocs</target>
+        </trans-unit>
+        <trans-unit id="1918a078-e9a0-4de9-a843-f385e375c133" xml:space="preserve">
+          <source>http://flask.pocoo.org/</source>
+          <target state="new">http://flask.pocoo.org/</target>
+        </trans-unit>
+      </group>
+      <group id="8b7fe4a5-42f9-4645-a60d-ca55d864f24a" />
+    </body>
+  </file>
+</xliff>

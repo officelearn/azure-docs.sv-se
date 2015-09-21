@@ -1,0 +1,773 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7aa69b7c-9768-4089-a0c9-66395ecbfa5a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7aa69b7c-9768-4089-a0c9-66395ecbfa5a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9c051326-d1c0-4bb6-9fec-62c37004d148">
+        <trans-unit id="f0469743-d9e1-4aa0-831c-604c7400086c" xml:space="preserve">
+          <source>Azure Machine Learning FAQ | Microsoft Azure</source>
+          <target state="new">Azure Machine Learning FAQ | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="09b1d29c-50ca-465d-9226-567478981230" xml:space="preserve">
+          <source>Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.</source>
+          <target state="new">Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.</target>
+        </trans-unit>
+        <trans-unit id="610e8895-d4e3-4c53-926b-6d9494493de0" xml:space="preserve">
+          <source>This FAQ answers questions about Azure Machine Learning, a cloud service for predictive modeling and operationalizing solutions through web services.</source>
+          <target state="new">This FAQ answers questions about Azure Machine Learning, a cloud service for predictive modeling and operationalizing solutions through web services.</target>
+        </trans-unit>
+        <trans-unit id="ba7d0ed2-9d31-47a9-a69a-b71419b1b322" xml:space="preserve">
+          <source>This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.</source>
+          <target state="new">This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.</target>
+        </trans-unit>
+        <trans-unit id="1144ac4a-bbc9-4bc7-af32-fa6cb3ebaafc" xml:space="preserve">
+          <source><bpt id="8ed84b48-f5bb-4d56-b946-78474e019d56">&lt;strong&gt;</bpt>What is Azure Machine Learning?<ept id="8ed84b48-f5bb-4d56-b946-78474e019d56">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8ed84b48-f5bb-4d56-b946-78474e019d56">&lt;strong&gt;</bpt>What is Azure Machine Learning?<ept id="8ed84b48-f5bb-4d56-b946-78474e019d56">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb93d0c9-97c6-47c8-a3e5-153d2e6ec1b7" xml:space="preserve">
+          <source>Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud.</source>
+          <target state="new">Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="97421fd8-1aed-457c-a918-ceef9dfec579" xml:space="preserve">
+          <source>With only a browser, you can sign-in, upload data, and immediately start machine learning experiments.</source>
+          <target state="new">With only a browser, you can sign-in, upload data, and immediately start machine learning experiments.</target>
+        </trans-unit>
+        <trans-unit id="5477397e-64ef-4d9c-b7cb-e0e6764ae3ae" xml:space="preserve">
+          <source>Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates makes common machine learning tasks simple and quick.</source>
+          <target state="new">Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates makes common machine learning tasks simple and quick.</target>
+        </trans-unit>
+        <trans-unit id="e303520f-eecc-490f-83c1-609ef64c8c8c" xml:space="preserve">
+          <source>For more information, see the <bpt id="5f19de87-d6ed-48be-9ba3-7562ea3439f4">&lt;linkText&gt;</bpt>Azure Machine Learning service overview<ept id="5f19de87-d6ed-48be-9ba3-7562ea3439f4">&lt;/linkText&gt;</ept><bpt id="5f19de87-d6ed-48be-9ba3-7562ea3439f4">&lt;title&gt;</bpt><ept id="5f19de87-d6ed-48be-9ba3-7562ea3439f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="5f19de87-d6ed-48be-9ba3-7562ea3439f4">&lt;linkText&gt;</bpt>Azure Machine Learning service overview<ept id="5f19de87-d6ed-48be-9ba3-7562ea3439f4">&lt;/linkText&gt;</ept><bpt id="5f19de87-d6ed-48be-9ba3-7562ea3439f4">&lt;title&gt;</bpt><ept id="5f19de87-d6ed-48be-9ba3-7562ea3439f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="039dbc23-dc96-498f-893b-0af9fc9ae9f4" xml:space="preserve">
+          <source>For a machine learning introduction covering key terminology and concepts, see <bpt id="23ac0d05-c784-4378-af54-b2488de297c8">&lt;linkText&gt;</bpt>Introduction to Azure Machine Learning<ept id="23ac0d05-c784-4378-af54-b2488de297c8">&lt;/linkText&gt;</ept><bpt id="23ac0d05-c784-4378-af54-b2488de297c8">&lt;title&gt;</bpt><ept id="23ac0d05-c784-4378-af54-b2488de297c8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a machine learning introduction covering key terminology and concepts, see <bpt id="23ac0d05-c784-4378-af54-b2488de297c8">&lt;linkText&gt;</bpt>Introduction to Azure Machine Learning<ept id="23ac0d05-c784-4378-af54-b2488de297c8">&lt;/linkText&gt;</ept><bpt id="23ac0d05-c784-4378-af54-b2488de297c8">&lt;title&gt;</bpt><ept id="23ac0d05-c784-4378-af54-b2488de297c8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f4686d7-be2f-4863-8298-fe11d9c0eb5b" xml:space="preserve">
+          <source><bpt id="86db3e8f-fbe4-490a-8b27-946f3af31012">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="86db3e8f-fbe4-490a-8b27-946f3af31012">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="86db3e8f-fbe4-490a-8b27-946f3af31012">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="86db3e8f-fbe4-490a-8b27-946f3af31012">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74a12b9f-dfbd-4a83-b7ee-cb75120a7f86" xml:space="preserve">
+          <source><bpt id="549eed19-466d-4bcd-a3e7-2c795297cdde">&lt;strong&gt;</bpt>What is Machine Learning Studio?<ept id="549eed19-466d-4bcd-a3e7-2c795297cdde">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="549eed19-466d-4bcd-a3e7-2c795297cdde">&lt;strong&gt;</bpt>What is Machine Learning Studio?<ept id="549eed19-466d-4bcd-a3e7-2c795297cdde">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a85609d1-04a9-4a52-9ee2-0810dbe94372" xml:space="preserve">
+          <source>Machine Learning Studio is a workbench environment you access through a web browser.</source>
+          <target state="new">Machine Learning Studio is a workbench environment you access through a web browser.</target>
+        </trans-unit>
+        <trans-unit id="f1af570d-e3a1-4eee-b4f6-e81de350d9ba" xml:space="preserve">
+          <source>Machine Learning Studio hosts a pallet of modules with a visual composition interface that enables you to build an end-to-end, data-science workflow in the form of an experiment.</source>
+          <target state="new">Machine Learning Studio hosts a pallet of modules with a visual composition interface that enables you to build an end-to-end, data-science workflow in the form of an experiment.</target>
+        </trans-unit>
+        <trans-unit id="04cd90a7-1459-45e0-aac4-51417569dcce" xml:space="preserve">
+          <source>For more information about the Machine Learning Studio, see <bpt id="a90019e4-4b7a-4553-89a6-f6996a86fc11">&lt;linkText&gt;</bpt>What is Machine Learning Studio<ept id="a90019e4-4b7a-4553-89a6-f6996a86fc11">&lt;/linkText&gt;</ept><bpt id="a90019e4-4b7a-4553-89a6-f6996a86fc11">&lt;title&gt;</bpt><ept id="a90019e4-4b7a-4553-89a6-f6996a86fc11">&lt;/title&gt;</ept></source>
+          <target state="new">For more information about the Machine Learning Studio, see <bpt id="a90019e4-4b7a-4553-89a6-f6996a86fc11">&lt;linkText&gt;</bpt>What is Machine Learning Studio<ept id="a90019e4-4b7a-4553-89a6-f6996a86fc11">&lt;/linkText&gt;</ept><bpt id="a90019e4-4b7a-4553-89a6-f6996a86fc11">&lt;title&gt;</bpt><ept id="a90019e4-4b7a-4553-89a6-f6996a86fc11">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36790675-9f4e-4907-be27-01f794b054ea" xml:space="preserve">
+          <source><bpt id="9cf3ccf3-c67f-4ae7-a236-c8153789a272">&lt;strong&gt;</bpt>What is the Machine Learning API service?<ept id="9cf3ccf3-c67f-4ae7-a236-c8153789a272">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9cf3ccf3-c67f-4ae7-a236-c8153789a272">&lt;strong&gt;</bpt>What is the Machine Learning API service?<ept id="9cf3ccf3-c67f-4ae7-a236-c8153789a272">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="adae6f57-6b3c-44c4-927e-e554d0f8f936" xml:space="preserve">
+          <source>The Machine Learning API service enables you to deploy predictive models built in Machine Learning Studio as scalable, fault-tolerant, web services.</source>
+          <target state="new">The Machine Learning API service enables you to deploy predictive models built in Machine Learning Studio as scalable, fault-tolerant, web services.</target>
+        </trans-unit>
+        <trans-unit id="ed75eb57-7118-4af6-9dae-280a6f2ac8d3" xml:space="preserve">
+          <source>The web services created by the Machine Learning API service are REST APIs that provide an interface for communication between external applications and your predictive analytics models.</source>
+          <target state="new">The web services created by the Machine Learning API service are REST APIs that provide an interface for communication between external applications and your predictive analytics models.</target>
+        </trans-unit>
+        <trans-unit id="8e362b5c-77a4-450f-97cb-f8a1b6e91664" xml:space="preserve">
+          <source>See <bpt id="593007f5-c081-4862-ba50-812179295995">&lt;linkText&gt;</bpt>Connect to a Machine Learning web service<ept id="593007f5-c081-4862-ba50-812179295995">&lt;/linkText&gt;</ept><bpt id="593007f5-c081-4862-ba50-812179295995">&lt;title&gt;</bpt><ept id="593007f5-c081-4862-ba50-812179295995">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="593007f5-c081-4862-ba50-812179295995">&lt;linkText&gt;</bpt>Connect to a Machine Learning web service<ept id="593007f5-c081-4862-ba50-812179295995">&lt;/linkText&gt;</ept><bpt id="593007f5-c081-4862-ba50-812179295995">&lt;title&gt;</bpt><ept id="593007f5-c081-4862-ba50-812179295995">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="a816bf5d-afe2-44fd-8194-0d0ea7d8e4c6" xml:space="preserve">
+          <source><bpt id="5e408dff-5c5c-4dc0-9cc2-0bc1c2d469d3">&lt;strong&gt;</bpt>How does Machine Learning billing work?<ept id="5e408dff-5c5c-4dc0-9cc2-0bc1c2d469d3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5e408dff-5c5c-4dc0-9cc2-0bc1c2d469d3">&lt;strong&gt;</bpt>How does Machine Learning billing work?<ept id="5e408dff-5c5c-4dc0-9cc2-0bc1c2d469d3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6efcac90-3d2d-48ed-9dac-50995c3b4069" xml:space="preserve">
+          <source>For billing and pricing information, see <bpt id="7d179831-7bdf-4bfc-9570-680a7fed9c1d">&lt;linkText&gt;</bpt>Machine Learning Pricing<ept id="7d179831-7bdf-4bfc-9570-680a7fed9c1d">&lt;/linkText&gt;</ept><bpt id="7d179831-7bdf-4bfc-9570-680a7fed9c1d">&lt;title&gt;</bpt><ept id="7d179831-7bdf-4bfc-9570-680a7fed9c1d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For billing and pricing information, see <bpt id="7d179831-7bdf-4bfc-9570-680a7fed9c1d">&lt;linkText&gt;</bpt>Machine Learning Pricing<ept id="7d179831-7bdf-4bfc-9570-680a7fed9c1d">&lt;/linkText&gt;</ept><bpt id="7d179831-7bdf-4bfc-9570-680a7fed9c1d">&lt;title&gt;</bpt><ept id="7d179831-7bdf-4bfc-9570-680a7fed9c1d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9b65f54-8db9-4da6-a423-ad9d9e34217d" xml:space="preserve">
+          <source><bpt id="f1bb7d51-25a3-4700-be80-1517a4ac5b37">&lt;strong&gt;</bpt>Does Machine Learning have a free trial?<ept id="f1bb7d51-25a3-4700-be80-1517a4ac5b37">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f1bb7d51-25a3-4700-be80-1517a4ac5b37">&lt;strong&gt;</bpt>Does Machine Learning have a free trial?<ept id="f1bb7d51-25a3-4700-be80-1517a4ac5b37">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a401d4ae-218c-433e-a663-d63e607f9ecb" xml:space="preserve">
+          <source>When you sign up for an Azure free trial, you can try any Azure services for a month.</source>
+          <target state="new">When you sign up for an Azure free trial, you can try any Azure services for a month.</target>
+        </trans-unit>
+        <trans-unit id="ec02902c-336c-4f77-93cc-4cee534caa3b" xml:space="preserve">
+          <source>To learn more about Azure free trial, visit <bpt id="da8b5407-16e1-4545-b4d3-2c2214bf9e11">&lt;linkText&gt;</bpt>Azure Free Trial FAQ<ept id="da8b5407-16e1-4545-b4d3-2c2214bf9e11">&lt;/linkText&gt;</ept><bpt id="da8b5407-16e1-4545-b4d3-2c2214bf9e11">&lt;title&gt;</bpt><ept id="da8b5407-16e1-4545-b4d3-2c2214bf9e11">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Azure free trial, visit <bpt id="da8b5407-16e1-4545-b4d3-2c2214bf9e11">&lt;linkText&gt;</bpt>Azure Free Trial FAQ<ept id="da8b5407-16e1-4545-b4d3-2c2214bf9e11">&lt;/linkText&gt;</ept><bpt id="da8b5407-16e1-4545-b4d3-2c2214bf9e11">&lt;title&gt;</bpt><ept id="da8b5407-16e1-4545-b4d3-2c2214bf9e11">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a88a4a26-b442-4a3c-a94c-d1757ebfdc74" xml:space="preserve">
+          <source><bpt id="5765015d-ae19-4e5e-825c-ce5fb5c58a54">&lt;strong&gt;</bpt>Is there version control or Git integration for experiment graphs?<ept id="5765015d-ae19-4e5e-825c-ce5fb5c58a54">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5765015d-ae19-4e5e-825c-ce5fb5c58a54">&lt;strong&gt;</bpt>Is there version control or Git integration for experiment graphs?<ept id="5765015d-ae19-4e5e-825c-ce5fb5c58a54">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6eee23ee-bb05-469f-b2de-b221ea846c32" xml:space="preserve">
+          <source>No, however each time an experiment is run that version of the graph is kept and cannot be modified by other users.</source>
+          <target state="new">No, however each time an experiment is run that version of the graph is kept and cannot be modified by other users.</target>
+        </trans-unit>
+        <trans-unit id="bda21316-3e6f-4c59-8acc-38c4566afc81" xml:space="preserve">
+          <source><bpt id="5f686a0d-229c-4585-8413-c96738b11e4e">&lt;strong&gt;</bpt>What data sources does Machine Learning support?<ept id="5f686a0d-229c-4585-8413-c96738b11e4e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5f686a0d-229c-4585-8413-c96738b11e4e">&lt;strong&gt;</bpt>What data sources does Machine Learning support?<ept id="5f686a0d-229c-4585-8413-c96738b11e4e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5dac6da0-c9b3-48f2-a734-5abf178edb76" xml:space="preserve">
+          <source>Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data.</source>
+          <target state="new">Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data.</target>
+        </trans-unit>
+        <trans-unit id="e986f421-3e82-4a94-a02a-ccaccb8b92fa" xml:space="preserve">
+          <source>Local files can be uploaded by adding new datasets in Machine Learning Studio.</source>
+          <target state="new">Local files can be uploaded by adding new datasets in Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="1969728c-139c-4597-96a5-2caf94ef8925" xml:space="preserve">
+          <source>See <bpt id="551e5dac-fe2c-462d-8d9e-ff5c12660405">&lt;linkText&gt;</bpt>Import training data into Machine Learning Studio<ept id="551e5dac-fe2c-462d-8d9e-ff5c12660405">&lt;/linkText&gt;</ept><bpt id="551e5dac-fe2c-462d-8d9e-ff5c12660405">&lt;title&gt;</bpt><ept id="551e5dac-fe2c-462d-8d9e-ff5c12660405">&lt;/title&gt;</ept> to learn more about supported file formats.</source>
+          <target state="new">See <bpt id="551e5dac-fe2c-462d-8d9e-ff5c12660405">&lt;linkText&gt;</bpt>Import training data into Machine Learning Studio<ept id="551e5dac-fe2c-462d-8d9e-ff5c12660405">&lt;/linkText&gt;</ept><bpt id="551e5dac-fe2c-462d-8d9e-ff5c12660405">&lt;title&gt;</bpt><ept id="551e5dac-fe2c-462d-8d9e-ff5c12660405">&lt;/title&gt;</ept> to learn more about supported file formats.</target>
+        </trans-unit>
+        <trans-unit id="b574f262-bd79-4d37-be20-5656afd42762" xml:space="preserve">
+          <source>Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases.</source>
+          <target state="new">Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases.</target>
+        </trans-unit>
+        <trans-unit id="c98d4d20-822d-451a-bcaa-107ad92f5d63" xml:space="preserve">
+          <source>If a module takes more than one input, the 10 GB is the total of all input sizes.</source>
+          <target state="new">If a module takes more than one input, the 10 GB is the total of all input sizes.</target>
+        </trans-unit>
+        <trans-unit id="ffd5b8ee-0e05-46fb-9539-d57c2fb853bf" xml:space="preserve">
+          <source>You can also sample larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion.</source>
+          <target state="new">You can also sample larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion.</target>
+        </trans-unit>
+        <trans-unit id="5a6cc8a6-1274-4676-af5e-cc5a24746a36" xml:space="preserve">
+          <source>The following types of data can expand into larger datasets during feature normalization, and are limited to less than 10 GB:</source>
+          <target state="new">The following types of data can expand into larger datasets during feature normalization, and are limited to less than 10 GB:</target>
+        </trans-unit>
+        <trans-unit id="08c1a9b2-6c22-4113-aca9-19158c8f87cd" xml:space="preserve">
+          <source>Sparse</source>
+          <target state="new">Sparse</target>
+        </trans-unit>
+        <trans-unit id="243b1682-744d-43f9-9503-e69d552153a1" xml:space="preserve">
+          <source>Categorical</source>
+          <target state="new">Categorical</target>
+        </trans-unit>
+        <trans-unit id="554f005b-9fd7-4893-b572-4f4ed9ccf173" xml:space="preserve">
+          <source>Strings</source>
+          <target state="new">Strings</target>
+        </trans-unit>
+        <trans-unit id="4270d528-661e-465f-b0f8-dfc43fbe7d81" xml:space="preserve">
+          <source>Binary data</source>
+          <target state="new">Binary data</target>
+        </trans-unit>
+        <trans-unit id="166e6742-b9a3-48a8-b722-e3e228086c13" xml:space="preserve">
+          <source>The following modules are limited to datasets less than 10GB:</source>
+          <target state="new">The following modules are limited to datasets less than 10GB:</target>
+        </trans-unit>
+        <trans-unit id="f94f6a8b-b4d8-44db-8d93-e11823fa0fb5" xml:space="preserve">
+          <source>Recommender modules</source>
+          <target state="new">Recommender modules</target>
+        </trans-unit>
+        <trans-unit id="5a9e51cd-e454-4be8-ad61-61aeddfb39ca" xml:space="preserve">
+          <source>SMOTE module</source>
+          <target state="new">SMOTE module</target>
+        </trans-unit>
+        <trans-unit id="a270c1c6-e292-4095-8b95-1372721013f5" xml:space="preserve">
+          <source>Scripting modules: R, Python, SQL</source>
+          <target state="new">Scripting modules: R, Python, SQL</target>
+        </trans-unit>
+        <trans-unit id="ebbf91e3-f351-4bcc-b1e2-dbdec55af38c" xml:space="preserve">
+          <source>Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.</source>
+          <target state="new">Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.</target>
+        </trans-unit>
+        <trans-unit id="e7198f71-587f-4bd8-b3c0-d80e18bd8934" xml:space="preserve">
+          <source>Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.</source>
+          <target state="new">Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.</target>
+        </trans-unit>
+        <trans-unit id="74e84e97-aae6-4c08-a8c5-cdc5f804109d" xml:space="preserve">
+          <source>For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.</source>
+          <target state="new">For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.</target>
+        </trans-unit>
+        <trans-unit id="a142d32e-2521-49bf-9bcc-879fa76870b3" xml:space="preserve">
+          <source>For datasets larger than a couple GB, upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.</source>
+          <target state="new">For datasets larger than a couple GB, upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.</target>
+        </trans-unit>
+        <trans-unit id="118ad638-64f9-45ef-b5d4-d1366e585bae" xml:space="preserve">
+          <source><bpt id="9578f2b4-0abe-487a-8fdd-dc7f84c0980e">&lt;strong&gt;</bpt>Can I read data from Amazon S3?<ept id="9578f2b4-0abe-487a-8fdd-dc7f84c0980e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9578f2b4-0abe-487a-8fdd-dc7f84c0980e">&lt;strong&gt;</bpt>Can I read data from Amazon S3?<ept id="9578f2b4-0abe-487a-8fdd-dc7f84c0980e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="220551b5-3090-4cf8-b0a8-6251a74a8078" xml:space="preserve">
+          <source>If you have a small amount of data and want to expose it via an http URL, then you can use the <bpt id="bd358b50-8b42-4fd5-809d-25779709bb37">&lt;linkText&gt;</bpt>Reader[reader]<ept id="bd358b50-8b42-4fd5-809d-25779709bb37">&lt;/linkText&gt;</ept><bpt id="bd358b50-8b42-4fd5-809d-25779709bb37">&lt;title&gt;</bpt><ept id="bd358b50-8b42-4fd5-809d-25779709bb37">&lt;/title&gt;</ept> module.</source>
+          <target state="new">If you have a small amount of data and want to expose it via an http URL, then you can use the <bpt id="bd358b50-8b42-4fd5-809d-25779709bb37">&lt;linkText&gt;</bpt>Reader[reader]<ept id="bd358b50-8b42-4fd5-809d-25779709bb37">&lt;/linkText&gt;</ept><bpt id="bd358b50-8b42-4fd5-809d-25779709bb37">&lt;title&gt;</bpt><ept id="bd358b50-8b42-4fd5-809d-25779709bb37">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="fa3f75b6-d847-49cb-9f67-aaaf6ba28f5d" xml:space="preserve">
+          <source>For any larger amounts of data to transfer it to Azure Storage first and then use the <bpt id="52bee5ac-36e0-499b-9ff8-447b88e2dd4c">&lt;linkText&gt;</bpt>Reader[reader]<ept id="52bee5ac-36e0-499b-9ff8-447b88e2dd4c">&lt;/linkText&gt;</ept><bpt id="52bee5ac-36e0-499b-9ff8-447b88e2dd4c">&lt;title&gt;</bpt><ept id="52bee5ac-36e0-499b-9ff8-447b88e2dd4c">&lt;/title&gt;</ept> module to bring it into your experiment.</source>
+          <target state="new">For any larger amounts of data to transfer it to Azure Storage first and then use the <bpt id="52bee5ac-36e0-499b-9ff8-447b88e2dd4c">&lt;linkText&gt;</bpt>Reader[reader]<ept id="52bee5ac-36e0-499b-9ff8-447b88e2dd4c">&lt;/linkText&gt;</ept><bpt id="52bee5ac-36e0-499b-9ff8-447b88e2dd4c">&lt;title&gt;</bpt><ept id="52bee5ac-36e0-499b-9ff8-447b88e2dd4c">&lt;/title&gt;</ept> module to bring it into your experiment.</target>
+        </trans-unit>
+        <trans-unit id="7b787984-8668-4b4d-96ce-140b63244b7f" xml:space="preserve">
+          <source><bpt id="7a58097f-6e91-4264-8ef9-d3d905c75211">&lt;strong&gt;</bpt>Is there a built-in image input capability?<ept id="7a58097f-6e91-4264-8ef9-d3d905c75211">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="7a58097f-6e91-4264-8ef9-d3d905c75211">&lt;strong&gt;</bpt>Is there a built-in image input capability?<ept id="7a58097f-6e91-4264-8ef9-d3d905c75211">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c78c3439-50f1-4a1b-999b-1fc315ec1f5e" xml:space="preserve">
+          <source>You can learn about image input capability in the <bpt id="7fc1d3f4-1cc4-4edb-bc6f-50e617247ce6">&lt;linkText&gt;</bpt>Image Reader[image-reader]<ept id="7fc1d3f4-1cc4-4edb-bc6f-50e617247ce6">&lt;/linkText&gt;</ept><bpt id="7fc1d3f4-1cc4-4edb-bc6f-50e617247ce6">&lt;title&gt;</bpt><ept id="7fc1d3f4-1cc4-4edb-bc6f-50e617247ce6">&lt;/title&gt;</ept> reference.</source>
+          <target state="new">You can learn about image input capability in the <bpt id="7fc1d3f4-1cc4-4edb-bc6f-50e617247ce6">&lt;linkText&gt;</bpt>Image Reader[image-reader]<ept id="7fc1d3f4-1cc4-4edb-bc6f-50e617247ce6">&lt;/linkText&gt;</ept><bpt id="7fc1d3f4-1cc4-4edb-bc6f-50e617247ce6">&lt;title&gt;</bpt><ept id="7fc1d3f4-1cc4-4edb-bc6f-50e617247ce6">&lt;/title&gt;</ept> reference.</target>
+        </trans-unit>
+        <trans-unit id="593b22e6-24c4-45b0-a5c2-7f2cf7799a98" xml:space="preserve">
+          <source><bpt id="2a9f76f8-16a5-4b51-bb8f-6685873eb168">&lt;strong&gt;</bpt>The algorithm, data source, data format, or data transformation operation I am looking for isn't in Azure ML Studio, what are my options?<ept id="2a9f76f8-16a5-4b51-bb8f-6685873eb168">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2a9f76f8-16a5-4b51-bb8f-6685873eb168">&lt;strong&gt;</bpt>The algorithm, data source, data format, or data transformation operation I am looking for isn't in Azure ML Studio, what are my options?<ept id="2a9f76f8-16a5-4b51-bb8f-6685873eb168">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a9d444a-79e2-4c76-989a-d3716e71d98e" xml:space="preserve">
+          <source>You can visit the <bpt id="7bfa4d08-f3f7-48a7-8464-d1b1bdcf3c36">&lt;linkText&gt;</bpt>user feedback forum<ept id="7bfa4d08-f3f7-48a7-8464-d1b1bdcf3c36">&lt;/linkText&gt;</ept><bpt id="7bfa4d08-f3f7-48a7-8464-d1b1bdcf3c36">&lt;title&gt;</bpt><ept id="7bfa4d08-f3f7-48a7-8464-d1b1bdcf3c36">&lt;/title&gt;</ept> to see features requests that we are tracking.</source>
+          <target state="new">You can visit the <bpt id="7bfa4d08-f3f7-48a7-8464-d1b1bdcf3c36">&lt;linkText&gt;</bpt>user feedback forum<ept id="7bfa4d08-f3f7-48a7-8464-d1b1bdcf3c36">&lt;/linkText&gt;</ept><bpt id="7bfa4d08-f3f7-48a7-8464-d1b1bdcf3c36">&lt;title&gt;</bpt><ept id="7bfa4d08-f3f7-48a7-8464-d1b1bdcf3c36">&lt;/title&gt;</ept> to see features requests that we are tracking.</target>
+        </trans-unit>
+        <trans-unit id="6e49033b-af8b-40af-b7b6-9091fd3cdecb" xml:space="preserve">
+          <source>Add your vote to this request if a capability you are looking for has already been requested.</source>
+          <target state="new">Add your vote to this request if a capability you are looking for has already been requested.</target>
+        </trans-unit>
+        <trans-unit id="9e560e83-e40e-4a92-9125-291b4e4c9fcf" xml:space="preserve">
+          <source>If the capability you are looking for does not exist, create a new request.</source>
+          <target state="new">If the capability you are looking for does not exist, create a new request.</target>
+        </trans-unit>
+        <trans-unit id="bccc2645-2749-42c6-b2d7-9c1bc2620c79" xml:space="preserve">
+          <source>You can view the status of your request in this forum too.</source>
+          <target state="new">You can view the status of your request in this forum too.</target>
+        </trans-unit>
+        <trans-unit id="28403f6e-0a41-4ce9-8cc2-d2fcead355b7" xml:space="preserve">
+          <source>We track this list closely and update the status of feature availability frequently.</source>
+          <target state="new">We track this list closely and update the status of feature availability frequently.</target>
+        </trans-unit>
+        <trans-unit id="ea0be081-6234-4e29-af75-f6f9a54abfd0" xml:space="preserve">
+          <source>In addition with the built-in support for R and Python, custom transformations can be created as needed.</source>
+          <target state="new">In addition with the built-in support for R and Python, custom transformations can be created as needed.</target>
+        </trans-unit>
+        <trans-unit id="697968e8-6755-4a03-926d-dddde111b460" xml:space="preserve">
+          <source><bpt id="da7f7f3c-895f-4425-b6c1-24ec935c9c34">&lt;strong&gt;</bpt>Can I bring my existing code into ML Studio?<ept id="da7f7f3c-895f-4425-b6c1-24ec935c9c34">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="da7f7f3c-895f-4425-b6c1-24ec935c9c34">&lt;strong&gt;</bpt>Can I bring my existing code into ML Studio?<ept id="da7f7f3c-895f-4425-b6c1-24ec935c9c34">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="37803299-1355-4c81-98a7-e89148d23510" xml:space="preserve">
+          <source>Yes, you can bring your existing R code in ML Studio and run it in the same experiment with Azure Machine Learning-provided learners and publish this as a web service via Azure Machine Learning.</source>
+          <target state="new">Yes, you can bring your existing R code in ML Studio and run it in the same experiment with Azure Machine Learning-provided learners and publish this as a web service via Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="4c66b72e-63ae-4c26-a761-894cba30f927" xml:space="preserve">
+          <source>See <bpt id="dfe28aea-20f3-48e6-9c1e-09b232e96a46">&lt;linkText&gt;</bpt>Extend your experiment with R <ept id="dfe28aea-20f3-48e6-9c1e-09b232e96a46">&lt;/linkText&gt;</ept><bpt id="dfe28aea-20f3-48e6-9c1e-09b232e96a46">&lt;title&gt;</bpt><ept id="dfe28aea-20f3-48e6-9c1e-09b232e96a46">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="dfe28aea-20f3-48e6-9c1e-09b232e96a46">&lt;linkText&gt;</bpt>Extend your experiment with R <ept id="dfe28aea-20f3-48e6-9c1e-09b232e96a46">&lt;/linkText&gt;</ept><bpt id="dfe28aea-20f3-48e6-9c1e-09b232e96a46">&lt;title&gt;</bpt><ept id="dfe28aea-20f3-48e6-9c1e-09b232e96a46">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f98c7d3f-0c6c-4483-8897-35a49b2d7812" xml:space="preserve">
+          <source><bpt id="d0ffc5d2-50e3-4bbf-88bd-ef5bb485b539">&lt;strong&gt;</bpt>Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)  to define a model?<ept id="d0ffc5d2-50e3-4bbf-88bd-ef5bb485b539">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d0ffc5d2-50e3-4bbf-88bd-ef5bb485b539">&lt;strong&gt;</bpt>Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)  to define a model?<ept id="d0ffc5d2-50e3-4bbf-88bd-ef5bb485b539">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a13acda2-7fa7-4c59-a17d-31ca785605b2" xml:space="preserve">
+          <source>No, that is not supported, however custom R and Python code can be used to define a module.</source>
+          <target state="new">No, that is not supported, however custom R and Python code can be used to define a module.</target>
+        </trans-unit>
+        <trans-unit id="5b7a7104-88b3-45f8-9064-2825322c7ee6" xml:space="preserve">
+          <source><bpt id="734366b8-b54d-4824-8d5a-9f0755cc5f83">&lt;strong&gt;</bpt>Is there an ability to visualize data (beyond R visualizations) interactively within the experiment?<ept id="734366b8-b54d-4824-8d5a-9f0755cc5f83">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="734366b8-b54d-4824-8d5a-9f0755cc5f83">&lt;strong&gt;</bpt>Is there an ability to visualize data (beyond R visualizations) interactively within the experiment?<ept id="734366b8-b54d-4824-8d5a-9f0755cc5f83">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d62b7b8d-d5a9-4c57-a625-35eea1fcd2ec" xml:space="preserve">
+          <source>By clicking on the output of a module you can visualize the data and get  statistics.</source>
+          <target state="new">By clicking on the output of a module you can visualize the data and get  statistics.</target>
+        </trans-unit>
+        <trans-unit id="a6a6ef35-05c9-4c65-ac67-457e7ef3f937" xml:space="preserve">
+          <source><bpt id="b7343b64-b7b4-476a-862a-dcdaa8a9ebd9">&lt;strong&gt;</bpt>When previewing results or data in the browser, the number of rows and columns is limited, why?<ept id="b7343b64-b7b4-476a-862a-dcdaa8a9ebd9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b7343b64-b7b4-476a-862a-dcdaa8a9ebd9">&lt;strong&gt;</bpt>When previewing results or data in the browser, the number of rows and columns is limited, why?<ept id="b7343b64-b7b4-476a-862a-dcdaa8a9ebd9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fed2123-049f-4511-86f9-3f2f8b4f3e93" xml:space="preserve">
+          <source>Since the data is being transmitted to the browser and may be large, the data size is limited to prevent slowing down the ML studio.</source>
+          <target state="new">Since the data is being transmitted to the browser and may be large, the data size is limited to prevent slowing down the ML studio.</target>
+        </trans-unit>
+        <trans-unit id="5d514362-a7ac-422d-bce1-97568fcbceb5" xml:space="preserve">
+          <source>It is better to download the data/result and use Excel or another tool to visualize the entire data.</source>
+          <target state="new">It is better to download the data/result and use Excel or another tool to visualize the entire data.</target>
+        </trans-unit>
+        <trans-unit id="33c0242a-997f-4ed8-9031-4648618bb6cf" xml:space="preserve">
+          <source><bpt id="181e074a-841b-4c89-b71f-44a6f79cb78c">&lt;strong&gt;</bpt>What existing algorithms are supported in Machine Learning Studio?<ept id="181e074a-841b-4c89-b71f-44a6f79cb78c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="181e074a-841b-4c89-b71f-44a6f79cb78c">&lt;strong&gt;</bpt>What existing algorithms are supported in Machine Learning Studio?<ept id="181e074a-841b-4c89-b71f-44a6f79cb78c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1483a794-aab4-4563-be10-d13a48c45462" xml:space="preserve">
+          <source>Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research.</source>
+          <target state="new">Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research.</target>
+        </trans-unit>
+        <trans-unit id="4c7c252d-ca97-4d41-8e12-777939cf70c1" xml:space="preserve">
+          <source>Scalable open-source machine learning packages like Vowpal Wabbit are also included.</source>
+          <target state="new">Scalable open-source machine learning packages like Vowpal Wabbit are also included.</target>
+        </trans-unit>
+        <trans-unit id="d5c4cfb2-9f8c-4b27-aeb2-9578b5382e16" xml:space="preserve">
+          <source>Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering.</source>
+          <target state="new">Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering.</target>
+        </trans-unit>
+        <trans-unit id="28b96aa2-c36f-4294-a503-ab222579113c" xml:space="preserve">
+          <source>See the complete list of <bpt id="95c0573c-90de-44f3-8b9e-1dc720459757">&lt;linkText&gt;</bpt>Machine Learning Modules[machine-learning-modules]<ept id="95c0573c-90de-44f3-8b9e-1dc720459757">&lt;/linkText&gt;</ept><bpt id="95c0573c-90de-44f3-8b9e-1dc720459757">&lt;title&gt;</bpt><ept id="95c0573c-90de-44f3-8b9e-1dc720459757">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the complete list of <bpt id="95c0573c-90de-44f3-8b9e-1dc720459757">&lt;linkText&gt;</bpt>Machine Learning Modules[machine-learning-modules]<ept id="95c0573c-90de-44f3-8b9e-1dc720459757">&lt;/linkText&gt;</ept><bpt id="95c0573c-90de-44f3-8b9e-1dc720459757">&lt;title&gt;</bpt><ept id="95c0573c-90de-44f3-8b9e-1dc720459757">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="348e1ed9-7b72-4b90-ac2d-3044cc80611e" xml:space="preserve">
+          <source><bpt id="f91ede00-e65a-4688-8860-4054295beffe">&lt;strong&gt;</bpt>Do you automatically suggest the right Machine Learning algorithm to use for my data?<ept id="f91ede00-e65a-4688-8860-4054295beffe">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="f91ede00-e65a-4688-8860-4054295beffe">&lt;strong&gt;</bpt>Do you automatically suggest the right Machine Learning algorithm to use for my data?<ept id="f91ede00-e65a-4688-8860-4054295beffe">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="321c34dd-01b4-4b27-93ca-d0ad2961b0e0" xml:space="preserve">
+          <source>No, however there are a number of ways in Machine Learning Studio to compare the results of each algorithm to determine the right one for your problem.</source>
+          <target state="new">No, however there are a number of ways in Machine Learning Studio to compare the results of each algorithm to determine the right one for your problem.</target>
+        </trans-unit>
+        <trans-unit id="07287f23-6362-4564-a9ff-1f0d189caa6e" xml:space="preserve">
+          <source><bpt id="12b5d730-d641-4d85-aaf8-bf59fce94f49">&lt;strong&gt;</bpt>Do you have any guidelines on picking one algorithm over another for the provided algorithms?<ept id="12b5d730-d641-4d85-aaf8-bf59fce94f49">&lt;/strong&gt;</ept> 
+See <bpt id="de835220-e0f9-4b63-a4ac-cd37ef004f31">&lt;linkText&gt;</bpt>How to choose an algorithm <ept id="de835220-e0f9-4b63-a4ac-cd37ef004f31">&lt;/linkText&gt;</ept><bpt id="de835220-e0f9-4b63-a4ac-cd37ef004f31">&lt;title&gt;</bpt><ept id="de835220-e0f9-4b63-a4ac-cd37ef004f31">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="12b5d730-d641-4d85-aaf8-bf59fce94f49">&lt;strong&gt;</bpt>Do you have any guidelines on picking one algorithm over another for the provided algorithms?<ept id="12b5d730-d641-4d85-aaf8-bf59fce94f49">&lt;/strong&gt;</ept> 
+See <bpt id="de835220-e0f9-4b63-a4ac-cd37ef004f31">&lt;linkText&gt;</bpt>How to choose an algorithm <ept id="de835220-e0f9-4b63-a4ac-cd37ef004f31">&lt;/linkText&gt;</ept><bpt id="de835220-e0f9-4b63-a4ac-cd37ef004f31">&lt;title&gt;</bpt><ept id="de835220-e0f9-4b63-a4ac-cd37ef004f31">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0b2252c-5c42-4525-90fa-e494f8f46307" xml:space="preserve">
+          <source><bpt id="c64959bf-e7f4-482a-8693-58088dfdd1f3">&lt;strong&gt;</bpt>Are the provided algorithms written in R or Python?<ept id="c64959bf-e7f4-482a-8693-58088dfdd1f3">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="c64959bf-e7f4-482a-8693-58088dfdd1f3">&lt;strong&gt;</bpt>Are the provided algorithms written in R or Python?<ept id="c64959bf-e7f4-482a-8693-58088dfdd1f3">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="ae622663-a17a-4ef5-9985-d605e1ba282d" xml:space="preserve">
+          <source>No, these algorithms are mostly written in compiled languages to provide higher performance.</source>
+          <target state="new">No, these algorithms are mostly written in compiled languages to provide higher performance.</target>
+        </trans-unit>
+        <trans-unit id="5c54316a-99b2-45a6-a39b-bf76fd0a746b" xml:space="preserve">
+          <source><bpt id="a233994a-a642-4a75-8da7-f5e7db61a612">&lt;strong&gt;</bpt>Are any details of the algorithms provided?<ept id="a233994a-a642-4a75-8da7-f5e7db61a612">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="a233994a-a642-4a75-8da7-f5e7db61a612">&lt;strong&gt;</bpt>Are any details of the algorithms provided?<ept id="a233994a-a642-4a75-8da7-f5e7db61a612">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d805a6aa-6cdc-4159-81f2-148208d3a322" xml:space="preserve">
+          <source>The documentation provides some information about the algorithms, and the parameters provided for tuning are described to optimize the algorithm for your use.</source>
+          <target state="new">The documentation provides some information about the algorithms, and the parameters provided for tuning are described to optimize the algorithm for your use.</target>
+        </trans-unit>
+        <trans-unit id="b2010087-aebd-4c33-9123-70f20c256c87" xml:space="preserve">
+          <source><bpt id="16238287-223d-47a5-bba7-fb5e102278fe">&lt;strong&gt;</bpt>Is there any support for online learning?<ept id="16238287-223d-47a5-bba7-fb5e102278fe">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="16238287-223d-47a5-bba7-fb5e102278fe">&lt;strong&gt;</bpt>Is there any support for online learning?<ept id="16238287-223d-47a5-bba7-fb5e102278fe">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="845d4652-8d93-46b5-b772-01f9a5eff29a" xml:space="preserve">
+          <source>No, currently only programmatic retraining is supported.</source>
+          <target state="new">No, currently only programmatic retraining is supported.</target>
+        </trans-unit>
+        <trans-unit id="aefd4246-836b-47f5-9c59-cb3c21c3e250" xml:space="preserve">
+          <source><bpt id="b36fadcd-cfcd-400e-9d26-934f5a7f8754">&lt;strong&gt;</bpt>Can I visualize the layers of a Neural Net Model using the built-in Module?<ept id="b36fadcd-cfcd-400e-9d26-934f5a7f8754">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="b36fadcd-cfcd-400e-9d26-934f5a7f8754">&lt;strong&gt;</bpt>Can I visualize the layers of a Neural Net Model using the built-in Module?<ept id="b36fadcd-cfcd-400e-9d26-934f5a7f8754">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="72e9b952-a418-4db4-bd22-8dae6e090389" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="d037dd81-461b-40af-9676-2e441134285d" xml:space="preserve">
+          <source><bpt id="4f0aaba1-0efd-4d54-9d0b-0209d9a9e4d0">&lt;strong&gt;</bpt>Can I create my own modules in C# or some other language?<ept id="4f0aaba1-0efd-4d54-9d0b-0209d9a9e4d0">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="4f0aaba1-0efd-4d54-9d0b-0209d9a9e4d0">&lt;strong&gt;</bpt>Can I create my own modules in C# or some other language?<ept id="4f0aaba1-0efd-4d54-9d0b-0209d9a9e4d0">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="ebd7f583-8613-439c-90a7-e9a33a97934f" xml:space="preserve">
+          <source>Currently new custom modules can only be created in R. </source>
+          <target state="new">Currently new custom modules can only be created in R. </target>
+        </trans-unit>
+        <trans-unit id="b36bc443-22e0-4e22-ae8d-e1c636019250" xml:space="preserve">
+          <source><bpt id="e47ef9f6-4e02-458f-bfb4-d714114f478f">&lt;strong&gt;</bpt>What R packages are available in Machine Learning Studio?<ept id="e47ef9f6-4e02-458f-bfb4-d714114f478f">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="e47ef9f6-4e02-458f-bfb4-d714114f478f">&lt;strong&gt;</bpt>What R packages are available in Machine Learning Studio?<ept id="e47ef9f6-4e02-458f-bfb4-d714114f478f">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="09733eb0-b940-40aa-9235-52dfd4545cf1" xml:space="preserve">
+          <source>Machine Learning Studio supports 400+ R packages today, and this list is constantly growing.</source>
+          <target state="new">Machine Learning Studio supports 400+ R packages today, and this list is constantly growing.</target>
+        </trans-unit>
+        <trans-unit id="45bf5cbe-a489-4a41-bd59-788e36f9c180" xml:space="preserve">
+          <source>See <bpt id="da923ab2-c68f-4dd8-8422-6ecad7e750b5">&lt;linkText&gt;</bpt>Extend your experiment with R <ept id="da923ab2-c68f-4dd8-8422-6ecad7e750b5">&lt;/linkText&gt;</ept><bpt id="da923ab2-c68f-4dd8-8422-6ecad7e750b5">&lt;title&gt;</bpt><ept id="da923ab2-c68f-4dd8-8422-6ecad7e750b5">&lt;/title&gt;</ept> to learn how to get a list of supported R packages.</source>
+          <target state="new">See <bpt id="da923ab2-c68f-4dd8-8422-6ecad7e750b5">&lt;linkText&gt;</bpt>Extend your experiment with R <ept id="da923ab2-c68f-4dd8-8422-6ecad7e750b5">&lt;/linkText&gt;</ept><bpt id="da923ab2-c68f-4dd8-8422-6ecad7e750b5">&lt;title&gt;</bpt><ept id="da923ab2-c68f-4dd8-8422-6ecad7e750b5">&lt;/title&gt;</ept> to learn how to get a list of supported R packages.</target>
+        </trans-unit>
+        <trans-unit id="194d0b82-5fa5-497a-af38-f94468635b07" xml:space="preserve">
+          <source>If the package you want is not in this list, provide the name of package at <bpt id="3517c173-2caf-433c-9a04-6ba93b8fc4ed">&lt;linkText&gt;</bpt>user feedback forum<ept id="3517c173-2caf-433c-9a04-6ba93b8fc4ed">&lt;/linkText&gt;</ept><bpt id="3517c173-2caf-433c-9a04-6ba93b8fc4ed">&lt;title&gt;</bpt><ept id="3517c173-2caf-433c-9a04-6ba93b8fc4ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">If the package you want is not in this list, provide the name of package at <bpt id="3517c173-2caf-433c-9a04-6ba93b8fc4ed">&lt;linkText&gt;</bpt>user feedback forum<ept id="3517c173-2caf-433c-9a04-6ba93b8fc4ed">&lt;/linkText&gt;</ept><bpt id="3517c173-2caf-433c-9a04-6ba93b8fc4ed">&lt;title&gt;</bpt><ept id="3517c173-2caf-433c-9a04-6ba93b8fc4ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="adf3962e-c419-45d1-b158-d11ce9b5ce4f" xml:space="preserve">
+          <source><bpt id="51e8e1ca-6a56-408a-8cf7-a1cd5c4cf58d">&lt;strong&gt;</bpt>Is it possible to build a custom R module?<ept id="51e8e1ca-6a56-408a-8cf7-a1cd5c4cf58d">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="51e8e1ca-6a56-408a-8cf7-a1cd5c4cf58d">&lt;strong&gt;</bpt>Is it possible to build a custom R module?<ept id="51e8e1ca-6a56-408a-8cf7-a1cd5c4cf58d">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a7057c1a-4d1e-4912-8366-e7544183c341" xml:space="preserve">
+          <source>Yes, see <bpt id="c7d68d69-f857-4013-8325-3186527c6ed4">&lt;linkText&gt;</bpt>Author custom R modules in Azure Machine Learning<ept id="c7d68d69-f857-4013-8325-3186527c6ed4">&lt;/linkText&gt;</ept><bpt id="c7d68d69-f857-4013-8325-3186527c6ed4">&lt;title&gt;</bpt><ept id="c7d68d69-f857-4013-8325-3186527c6ed4">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">Yes, see <bpt id="c7d68d69-f857-4013-8325-3186527c6ed4">&lt;linkText&gt;</bpt>Author custom R modules in Azure Machine Learning<ept id="c7d68d69-f857-4013-8325-3186527c6ed4">&lt;/linkText&gt;</ept><bpt id="c7d68d69-f857-4013-8325-3186527c6ed4">&lt;title&gt;</bpt><ept id="c7d68d69-f857-4013-8325-3186527c6ed4">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="1afebbc1-42da-4fac-afdf-694ca7fa5d94" xml:space="preserve">
+          <source><bpt id="1b646ca0-698a-4788-810f-f1ae1e227776">&lt;strong&gt;</bpt>Is there a REPL environment for R?<ept id="1b646ca0-698a-4788-810f-f1ae1e227776">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="1b646ca0-698a-4788-810f-f1ae1e227776">&lt;strong&gt;</bpt>Is there a REPL environment for R?<ept id="1b646ca0-698a-4788-810f-f1ae1e227776">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="39f57606-e426-42c4-90f9-b133955c2c14" xml:space="preserve">
+          <source>No, there is no REPL environment for R in the studio.</source>
+          <target state="new">No, there is no REPL environment for R in the studio.</target>
+        </trans-unit>
+        <trans-unit id="5b93c85e-8cc7-42c6-9061-ab9df0bbb28b" xml:space="preserve">
+          <source><bpt id="a4c9f470-3b2a-42ae-a05f-f3643c1caa72">&lt;strong&gt;</bpt>Is it possible to build a custom Python module?<ept id="a4c9f470-3b2a-42ae-a05f-f3643c1caa72">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="a4c9f470-3b2a-42ae-a05f-f3643c1caa72">&lt;strong&gt;</bpt>Is it possible to build a custom Python module?<ept id="a4c9f470-3b2a-42ae-a05f-f3643c1caa72">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d840f622-c78f-4382-8b38-d8e9bcfbf2a4" xml:space="preserve">
+          <source>Not currently, but with the standard Python module or a set of them the same result can be achieved.</source>
+          <target state="new">Not currently, but with the standard Python module or a set of them the same result can be achieved.</target>
+        </trans-unit>
+        <trans-unit id="61e4b60e-7def-4d04-9157-bb249b55eb16" xml:space="preserve">
+          <source><bpt id="989cdcc8-4758-477f-8337-51c1fb1918e0">&lt;strong&gt;</bpt>Is there a REPL environment for Python?<ept id="989cdcc8-4758-477f-8337-51c1fb1918e0">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="989cdcc8-4758-477f-8337-51c1fb1918e0">&lt;strong&gt;</bpt>Is there a REPL environment for Python?<ept id="989cdcc8-4758-477f-8337-51c1fb1918e0">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e0c5263b-2dd8-403c-9aa2-be2894fd290f" xml:space="preserve">
+          <source>You can use the Jupyter Notebooks in the Machine Learning Studio.</source>
+          <target state="new">You can use the Jupyter Notebooks in the Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="f2264c32-a00d-4811-a9bf-b674e23820b1" xml:space="preserve">
+          <source>For more information, see [Introducing Jupyter Notebooks in Azure ML Studio] (http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)</source>
+          <target state="new">For more information, see [Introducing Jupyter Notebooks in Azure ML Studio] (http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)</target>
+        </trans-unit>
+        <trans-unit id="280b1811-fb38-4715-bc1d-0b20456b64b1" xml:space="preserve">
+          <source><bpt id="3c138bef-591d-465b-99ad-7d5085946e69">&lt;strong&gt;</bpt>How do I Retrain AzureML Models programmatically?<ept id="3c138bef-591d-465b-99ad-7d5085946e69">&lt;/strong&gt;</ept>
+Use the Retraining APIs.</source>
+          <target state="new"><bpt id="3c138bef-591d-465b-99ad-7d5085946e69">&lt;strong&gt;</bpt>How do I Retrain AzureML Models programmatically?<ept id="3c138bef-591d-465b-99ad-7d5085946e69">&lt;/strong&gt;</ept>
+Use the Retraining APIs.</target>
+        </trans-unit>
+        <trans-unit id="2a4c3623-e059-4161-99a0-47dcddb74c2b" xml:space="preserve">
+          <source>Sample code is available <bpt id="5bedf567-beeb-44b3-b93e-3656f61c2dcb">&lt;linkText&gt;</bpt>here<ept id="5bedf567-beeb-44b3-b93e-3656f61c2dcb">&lt;/linkText&gt;</ept><bpt id="5bedf567-beeb-44b3-b93e-3656f61c2dcb">&lt;title&gt;</bpt><ept id="5bedf567-beeb-44b3-b93e-3656f61c2dcb">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sample code is available <bpt id="5bedf567-beeb-44b3-b93e-3656f61c2dcb">&lt;linkText&gt;</bpt>here<ept id="5bedf567-beeb-44b3-b93e-3656f61c2dcb">&lt;/linkText&gt;</ept><bpt id="5bedf567-beeb-44b3-b93e-3656f61c2dcb">&lt;title&gt;</bpt><ept id="5bedf567-beeb-44b3-b93e-3656f61c2dcb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7adca1f3-52c5-4d7d-84e0-9bfbfe468624" xml:space="preserve">
+          <source><bpt id="c1a04314-0d9b-4191-880b-3ffae52d9224">&lt;strong&gt;</bpt>Can I deploy the model locally or in an application without an internet connection?<ept id="c1a04314-0d9b-4191-880b-3ffae52d9224">&lt;/strong&gt;</ept>
+No.</source>
+          <target state="new"><bpt id="c1a04314-0d9b-4191-880b-3ffae52d9224">&lt;strong&gt;</bpt>Can I deploy the model locally or in an application without an internet connection?<ept id="c1a04314-0d9b-4191-880b-3ffae52d9224">&lt;/strong&gt;</ept>
+No.</target>
+        </trans-unit>
+        <trans-unit id="202f7cc5-4af7-4e15-9332-b5c743fdfc46" xml:space="preserve">
+          <source><bpt id="0f0a15fa-d670-43a4-a287-514e6907b85f">&lt;strong&gt;</bpt>Is there a baseline latency that is expected for all web services?<ept id="0f0a15fa-d670-43a4-a287-514e6907b85f">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="0f0a15fa-d670-43a4-a287-514e6907b85f">&lt;strong&gt;</bpt>Is there a baseline latency that is expected for all web services?<ept id="0f0a15fa-d670-43a4-a287-514e6907b85f">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d34af6fe-f3e2-468c-b267-6541e4492de4" xml:space="preserve">
+          <source>See the <bpt id="352640a9-e674-46b2-b0d4-2d5da83e0c84">&lt;linkText&gt;</bpt>Azure subscription limits<ept id="352640a9-e674-46b2-b0d4-2d5da83e0c84">&lt;/linkText&gt;</ept><bpt id="352640a9-e674-46b2-b0d4-2d5da83e0c84">&lt;title&gt;</bpt><ept id="352640a9-e674-46b2-b0d4-2d5da83e0c84">&lt;/title&gt;</ept></source>
+          <target state="new">See the <bpt id="352640a9-e674-46b2-b0d4-2d5da83e0c84">&lt;linkText&gt;</bpt>Azure subscription limits<ept id="352640a9-e674-46b2-b0d4-2d5da83e0c84">&lt;/linkText&gt;</ept><bpt id="352640a9-e674-46b2-b0d4-2d5da83e0c84">&lt;title&gt;</bpt><ept id="352640a9-e674-46b2-b0d4-2d5da83e0c84">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="965d3dcd-c8a4-4888-95cd-dd43df50b29f" xml:space="preserve">
+          <source><bpt id="e36aaeeb-df94-4cb4-bf9d-709fd2071b22">&lt;strong&gt;</bpt>When would I want to run my predictive model as a Batch Execution service versus a Request Response service?<ept id="e36aaeeb-df94-4cb4-bf9d-709fd2071b22">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e36aaeeb-df94-4cb4-bf9d-709fd2071b22">&lt;strong&gt;</bpt>When would I want to run my predictive model as a Batch Execution service versus a Request Response service?<ept id="e36aaeeb-df94-4cb4-bf9d-709fd2071b22">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ca4f012-00ff-4604-b7fb-04915d9550b6" xml:space="preserve">
+          <source>The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and published from the experimentation environment.</source>
+          <target state="new">The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and published from the experimentation environment.</target>
+        </trans-unit>
+        <trans-unit id="637fbda2-1374-469a-b8db-9cf96d0a309d" xml:space="preserve">
+          <source>The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records.</source>
+          <target state="new">The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records.</target>
+        </trans-unit>
+        <trans-unit id="440bf83c-d610-42e6-897c-77898498b74d" xml:space="preserve">
+          <source>The input for BES is similar to data input used in RRS.</source>
+          <target state="new">The input for BES is similar to data input used in RRS.</target>
+        </trans-unit>
+        <trans-unit id="f5ba883f-8d78-4dac-b1de-3eeb26c816ae" xml:space="preserve">
+          <source>The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources.</source>
+          <target state="new">The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources.</target>
+        </trans-unit>
+        <trans-unit id="4380a8c7-7ad2-4e34-8e54-00369fb8e72b" xml:space="preserve">
+          <source>For more information, see <bpt id="0ca3c2d2-6c5c-436c-bc27-b733648e37bf">&lt;linkText&gt;</bpt>How to consume Machine Learning web services<ept id="0ca3c2d2-6c5c-436c-bc27-b733648e37bf">&lt;/linkText&gt;</ept><bpt id="0ca3c2d2-6c5c-436c-bc27-b733648e37bf">&lt;title&gt;</bpt><ept id="0ca3c2d2-6c5c-436c-bc27-b733648e37bf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="0ca3c2d2-6c5c-436c-bc27-b733648e37bf">&lt;linkText&gt;</bpt>How to consume Machine Learning web services<ept id="0ca3c2d2-6c5c-436c-bc27-b733648e37bf">&lt;/linkText&gt;</ept><bpt id="0ca3c2d2-6c5c-436c-bc27-b733648e37bf">&lt;title&gt;</bpt><ept id="0ca3c2d2-6c5c-436c-bc27-b733648e37bf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93c552a7-09d7-4236-ad19-7aeb0ec2116f" xml:space="preserve">
+          <source><bpt id="cfd039ea-6994-4c5b-adaf-3a21b55bcf49">&lt;strong&gt;</bpt>How do I update the model for the deployed web service?<ept id="cfd039ea-6994-4c5b-adaf-3a21b55bcf49">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="cfd039ea-6994-4c5b-adaf-3a21b55bcf49">&lt;strong&gt;</bpt>How do I update the model for the deployed web service?<ept id="cfd039ea-6994-4c5b-adaf-3a21b55bcf49">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="af90a9c5-7643-481b-9523-05f92a1d87dc" xml:space="preserve">
+          <source>Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model.</source>
+          <target state="new">Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model.</target>
+        </trans-unit>
+        <trans-unit id="7e52e9f2-8cfe-4639-8bd7-6bf3e6f3d9d8" xml:space="preserve">
+          <source>Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service.</source>
+          <target state="new">Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service.</target>
+        </trans-unit>
+        <trans-unit id="d44d1d5e-7775-460f-a091-236a4e3ddfae" xml:space="preserve">
+          <source>After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well.</source>
+          <target state="new">After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well.</target>
+        </trans-unit>
+        <trans-unit id="4fe37310-5f3e-44c3-843d-08eb91e11cd8" xml:space="preserve">
+          <source>See <bpt id="8a429750-2070-4b1d-ab4a-a76ae2302f78">&lt;linkText&gt;</bpt>Publish a Machine Learning web service<ept id="8a429750-2070-4b1d-ab4a-a76ae2302f78">&lt;/linkText&gt;</ept><bpt id="8a429750-2070-4b1d-ab4a-a76ae2302f78">&lt;title&gt;</bpt><ept id="8a429750-2070-4b1d-ab4a-a76ae2302f78">&lt;/title&gt;</ept> for details on how to update a deployed web service.</source>
+          <target state="new">See <bpt id="8a429750-2070-4b1d-ab4a-a76ae2302f78">&lt;linkText&gt;</bpt>Publish a Machine Learning web service<ept id="8a429750-2070-4b1d-ab4a-a76ae2302f78">&lt;/linkText&gt;</ept><bpt id="8a429750-2070-4b1d-ab4a-a76ae2302f78">&lt;title&gt;</bpt><ept id="8a429750-2070-4b1d-ab4a-a76ae2302f78">&lt;/title&gt;</ept> for details on how to update a deployed web service.</target>
+        </trans-unit>
+        <trans-unit id="64f0de9c-bb57-4b77-9065-1ab320c2cce4" xml:space="preserve">
+          <source>You can also use the Retraining APIs.</source>
+          <target state="new">You can also use the Retraining APIs.</target>
+        </trans-unit>
+        <trans-unit id="aab6d1a2-5b21-4ef5-81f0-4feb4465d95f" xml:space="preserve">
+          <source>The sample code is available <bpt id="e026a4bf-75d5-4f48-9f94-57433c8cf453">&lt;linkText&gt;</bpt>here<ept id="e026a4bf-75d5-4f48-9f94-57433c8cf453">&lt;/linkText&gt;</ept><bpt id="e026a4bf-75d5-4f48-9f94-57433c8cf453">&lt;title&gt;</bpt><ept id="e026a4bf-75d5-4f48-9f94-57433c8cf453">&lt;/title&gt;</ept>.</source>
+          <target state="new">The sample code is available <bpt id="e026a4bf-75d5-4f48-9f94-57433c8cf453">&lt;linkText&gt;</bpt>here<ept id="e026a4bf-75d5-4f48-9f94-57433c8cf453">&lt;/linkText&gt;</ept><bpt id="e026a4bf-75d5-4f48-9f94-57433c8cf453">&lt;title&gt;</bpt><ept id="e026a4bf-75d5-4f48-9f94-57433c8cf453">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a43e50c7-e57a-4192-9a5e-11f5fee6cf59" xml:space="preserve">
+          <source><bpt id="18d12d6b-ec73-42b9-a916-e0cda253f4bf">&lt;strong&gt;</bpt>How do I monitor my Web service deployed in production?<ept id="18d12d6b-ec73-42b9-a916-e0cda253f4bf">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="18d12d6b-ec73-42b9-a916-e0cda253f4bf">&lt;strong&gt;</bpt>How do I monitor my Web service deployed in production?<ept id="18d12d6b-ec73-42b9-a916-e0cda253f4bf">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="0d7a5223-d02a-4e90-a40f-3647b4563356" xml:space="preserve">
+          <source>Once a predictive model has been put into production, you can monitor it from the Azure portal.</source>
+          <target state="new">Once a predictive model has been put into production, you can monitor it from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="2b1f066b-b565-4463-8442-aafad07bef8e" xml:space="preserve">
+          <source>Each deployed service has its own dashboard, where you can see monitoring information for that service.</source>
+          <target state="new">Each deployed service has its own dashboard, where you can see monitoring information for that service.</target>
+        </trans-unit>
+        <trans-unit id="edbafefe-34ef-4d7c-afc4-1603c6b53884" xml:space="preserve">
+          <source><bpt id="e002ad1f-fc45-42b1-9ada-59057cb54b2b">&lt;strong&gt;</bpt>Is there a place where I can see the output of my RRS/BES?<ept id="e002ad1f-fc45-42b1-9ada-59057cb54b2b">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="e002ad1f-fc45-42b1-9ada-59057cb54b2b">&lt;strong&gt;</bpt>Is there a place where I can see the output of my RRS/BES?<ept id="e002ad1f-fc45-42b1-9ada-59057cb54b2b">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="0edaaf6d-1684-48eb-9083-b64862fe265d" xml:space="preserve">
+          <source>For RRS, the web service response is typically where you see the result.</source>
+          <target state="new">For RRS, the web service response is typically where you see the result.</target>
+        </trans-unit>
+        <trans-unit id="b98e995d-75cb-468f-8cdb-d6f12c8211f4" xml:space="preserve">
+          <source>You can also write it a blob.</source>
+          <target state="new">You can also write it a blob.</target>
+        </trans-unit>
+        <trans-unit id="22c8f538-0ef0-4056-b4ce-91afda7e564b" xml:space="preserve">
+          <source>For BES, the output is written to a blob by default.</source>
+          <target state="new">For BES, the output is written to a blob by default.</target>
+        </trans-unit>
+        <trans-unit id="658dcd1a-af1c-4acf-913e-709eea39b393" xml:space="preserve">
+          <source>You can also write the output to a database or table using the Writer module.</source>
+          <target state="new">You can also write the output to a database or table using the Writer module.</target>
+        </trans-unit>
+        <trans-unit id="f16e650e-243f-4a20-bd96-670b7e7ff4bd" xml:space="preserve">
+          <source>**Can I create web services only from models created in the Studio?</source>
+          <target state="new">**Can I create web services only from models created in the Studio?</target>
+        </trans-unit>
+        <trans-unit id="33540086-ecb3-468c-b707-a652dd3614ee" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="7a813ccf-40c5-4769-85ea-dff0972a20a7" xml:space="preserve">
+          <source>You can also create web services directly from Jupyter Notebooks, and RStudio.</source>
+          <target state="new">You can also create web services directly from Jupyter Notebooks, and RStudio.</target>
+        </trans-unit>
+        <trans-unit id="9c655083-0165-499d-b3cc-e351603723d7" xml:space="preserve">
+          <source><bpt id="cd03ffd7-4d98-44dc-9121-453cee5eec41">&lt;strong&gt;</bpt>What is the scalability of the web service?<ept id="cd03ffd7-4d98-44dc-9121-453cee5eec41">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="cd03ffd7-4d98-44dc-9121-453cee5eec41">&lt;strong&gt;</bpt>What is the scalability of the web service?<ept id="cd03ffd7-4d98-44dc-9121-453cee5eec41">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a5d840d2-a3dd-41db-a395-199918c37b9c" xml:space="preserve">
+          <source>Currently, the maximum is 20 concurrent requests per end point, though it can scale to 10,000 end points.</source>
+          <target state="new">Currently, the maximum is 20 concurrent requests per end point, though it can scale to 10,000 end points.</target>
+        </trans-unit>
+        <trans-unit id="93432b82-521f-49c5-905a-e88f5aa84f28" xml:space="preserve">
+          <source>This translates to 4,800 concurrent request if we use every resource (300 workers).</source>
+          <target state="new">This translates to 4,800 concurrent request if we use every resource (300 workers).</target>
+        </trans-unit>
+        <trans-unit id="9a380b0a-28ee-46c5-ac89-235ef32dedbd" xml:space="preserve">
+          <source><bpt id="f283209d-d8b1-49c1-995d-537fa461ea8d">&lt;strong&gt;</bpt>Are R jobs spread across nodes?<ept id="f283209d-d8b1-49c1-995d-537fa461ea8d">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="f283209d-d8b1-49c1-995d-537fa461ea8d">&lt;strong&gt;</bpt>Are R jobs spread across nodes?<ept id="f283209d-d8b1-49c1-995d-537fa461ea8d">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="b2d4ab3a-f894-4ce8-9518-9d48dc9442ab" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="e0febe6d-266d-475b-a710-73aa559d9bcf" xml:space="preserve">
+          <source><bpt id="b6914dfc-a451-402b-8b22-68ea115751c8">&lt;strong&gt;</bpt>How much data can I train on?<ept id="b6914dfc-a451-402b-8b22-68ea115751c8">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="b6914dfc-a451-402b-8b22-68ea115751c8">&lt;strong&gt;</bpt>How much data can I train on?<ept id="b6914dfc-a451-402b-8b22-68ea115751c8">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="8dd81e10-81ae-47a7-891f-30b68193ebff" xml:space="preserve">
+          <source>Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases.</source>
+          <target state="new">Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases.</target>
+        </trans-unit>
+        <trans-unit id="6e868c42-19a5-448a-9aee-f41d405b1035" xml:space="preserve">
+          <source>If a module takes more than one input, the 10 GB is the total of all input sizes.</source>
+          <target state="new">If a module takes more than one input, the 10 GB is the total of all input sizes.</target>
+        </trans-unit>
+        <trans-unit id="837d868a-018d-4139-9036-07372e384565" xml:space="preserve">
+          <source>You can also sample larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion.</source>
+          <target state="new">You can also sample larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion.</target>
+        </trans-unit>
+        <trans-unit id="8bf46efd-0b5c-4dd0-a749-07f649701e96" xml:space="preserve">
+          <source>The following types of data can expand into larger datasets during feature normalization, and are limited to less than 10 GB:</source>
+          <target state="new">The following types of data can expand into larger datasets during feature normalization, and are limited to less than 10 GB:</target>
+        </trans-unit>
+        <trans-unit id="2d3b07b7-4401-448b-94eb-318f62e4a9ac" xml:space="preserve">
+          <source>Sparse</source>
+          <target state="new">Sparse</target>
+        </trans-unit>
+        <trans-unit id="879e0eb3-5eea-4fa1-832f-7270521067a4" xml:space="preserve">
+          <source>Categorical</source>
+          <target state="new">Categorical</target>
+        </trans-unit>
+        <trans-unit id="c8e200dc-202e-4518-96c8-d03fe0d7ab50" xml:space="preserve">
+          <source>Strings</source>
+          <target state="new">Strings</target>
+        </trans-unit>
+        <trans-unit id="a69c9cc6-b080-4ff0-aa08-30b1e1ba1ce7" xml:space="preserve">
+          <source>Binary data</source>
+          <target state="new">Binary data</target>
+        </trans-unit>
+        <trans-unit id="9f01910a-8a11-46a2-af05-08245c9f5587" xml:space="preserve">
+          <source>The following modules are limited to datasets less than 10GB:</source>
+          <target state="new">The following modules are limited to datasets less than 10GB:</target>
+        </trans-unit>
+        <trans-unit id="158895fc-c859-4a42-b624-e9f5daea1acc" xml:space="preserve">
+          <source>Recommender modules</source>
+          <target state="new">Recommender modules</target>
+        </trans-unit>
+        <trans-unit id="6cb7fbde-5f9c-4326-ba8b-c0b916936dbc" xml:space="preserve">
+          <source>SMOTE module</source>
+          <target state="new">SMOTE module</target>
+        </trans-unit>
+        <trans-unit id="532f5303-aafe-415a-b36f-c7a614655e15" xml:space="preserve">
+          <source>Scripting modules: R, Python, SQL</source>
+          <target state="new">Scripting modules: R, Python, SQL</target>
+        </trans-unit>
+        <trans-unit id="772d1379-f221-444b-a6ef-fefda415377f" xml:space="preserve">
+          <source>Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.</source>
+          <target state="new">Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.</target>
+        </trans-unit>
+        <trans-unit id="6cc1ce94-719f-42fe-bf40-a7362d54671f" xml:space="preserve">
+          <source>Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.</source>
+          <target state="new">Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.</target>
+        </trans-unit>
+        <trans-unit id="5b829f82-b610-4953-8bc6-fe5d9ce1562f" xml:space="preserve">
+          <source>For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.</source>
+          <target state="new">For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.</target>
+        </trans-unit>
+        <trans-unit id="abb968b8-f12b-45b4-8a7c-4792370ee326" xml:space="preserve">
+          <source><bpt id="9bcad6fc-dbd3-4f65-8a6d-b62b5bf87bfa">&lt;strong&gt;</bpt>Are there any vector size limitations?<ept id="9bcad6fc-dbd3-4f65-8a6d-b62b5bf87bfa">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="9bcad6fc-dbd3-4f65-8a6d-b62b5bf87bfa">&lt;strong&gt;</bpt>Are there any vector size limitations?<ept id="9bcad6fc-dbd3-4f65-8a6d-b62b5bf87bfa">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="29d80e89-3697-4a1a-b7e9-f332c3f74fad" xml:space="preserve">
+          <source>Rows and columns are each limited to the .NET limitation of  Max Int: 2,147,483,647.</source>
+          <target state="new">Rows and columns are each limited to the .NET limitation of  Max Int: 2,147,483,647.</target>
+        </trans-unit>
+        <trans-unit id="fe8749ae-dd51-4cb1-8bdc-76a78c58e730" xml:space="preserve">
+          <source><bpt id="edbad52f-df60-4ad9-9982-eeb9c3b42a84">&lt;strong&gt;</bpt>Can the VM size that this is being run on be adjusted?<ept id="edbad52f-df60-4ad9-9982-eeb9c3b42a84">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="edbad52f-df60-4ad9-9982-eeb9c3b42a84">&lt;strong&gt;</bpt>Can the VM size that this is being run on be adjusted?<ept id="edbad52f-df60-4ad9-9982-eeb9c3b42a84">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="2541d16f-7ec4-4de1-91cc-4a2c9efb35bd" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="b4473942-ba1b-48ad-8283-62df030528fc" xml:space="preserve">
+          <source>**Who has access to the http end point for the web service deployed in production by default?</source>
+          <target state="new">**Who has access to the http end point for the web service deployed in production by default?</target>
+        </trans-unit>
+        <trans-unit id="e1703253-bec3-4f0b-aa25-fd5ae7e913a1" xml:space="preserve">
+          <source>How do I restrict access to the end point?**</source>
+          <target state="new">How do I restrict access to the end point?**</target>
+        </trans-unit>
+        <trans-unit id="5b9dd80d-134c-4f7e-b38f-d6a05486cba1" xml:space="preserve">
+          <source>After a web service is published, we create a default endpoint for that service.</source>
+          <target state="new">After a web service is published, we create a default endpoint for that service.</target>
+        </trans-unit>
+        <trans-unit id="88d1e198-febf-46bf-a0a9-39a0e35a53ed" xml:space="preserve">
+          <source>That default endpoint is deployed to production and can be called using its API Key.</source>
+          <target state="new">That default endpoint is deployed to production and can be called using its API Key.</target>
+        </trans-unit>
+        <trans-unit id="edf3b159-1f29-4cbb-91e8-454201548c76" xml:space="preserve">
+          <source>Additional endpoints can be added with their own keys from the Azure Portal or programmatically using the Web Service Management APIs.</source>
+          <target state="new">Additional endpoints can be added with their own keys from the Azure Portal or programmatically using the Web Service Management APIs.</target>
+        </trans-unit>
+        <trans-unit id="894defae-b55a-46b0-949d-dd8c926dda3b" xml:space="preserve">
+          <source>Access keys are needed to make calls to the web service in production and staging.</source>
+          <target state="new">Access keys are needed to make calls to the web service in production and staging.</target>
+        </trans-unit>
+        <trans-unit id="3b5862fc-dcc9-46b2-bac9-c8c1276848cc" xml:space="preserve">
+          <source>For more information, see <bpt id="25019448-2e76-41db-9268-c9d90796208e">&lt;linkText&gt;</bpt>Connect to a Machine Learning web service<ept id="25019448-2e76-41db-9268-c9d90796208e">&lt;/linkText&gt;</ept><bpt id="25019448-2e76-41db-9268-c9d90796208e">&lt;title&gt;</bpt><ept id="25019448-2e76-41db-9268-c9d90796208e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="25019448-2e76-41db-9268-c9d90796208e">&lt;linkText&gt;</bpt>Connect to a Machine Learning web service<ept id="25019448-2e76-41db-9268-c9d90796208e">&lt;/linkText&gt;</ept><bpt id="25019448-2e76-41db-9268-c9d90796208e">&lt;title&gt;</bpt><ept id="25019448-2e76-41db-9268-c9d90796208e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04971b43-6dde-44ff-9b78-b707ea1e5932" xml:space="preserve">
+          <source><bpt id="b39b692e-5ae1-44bf-a1d7-ad1f833f2eb3">&lt;strong&gt;</bpt>What happens if my Storage Account cannot be found?<ept id="b39b692e-5ae1-44bf-a1d7-ad1f833f2eb3">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="b39b692e-5ae1-44bf-a1d7-ad1f833f2eb3">&lt;strong&gt;</bpt>What happens if my Storage Account cannot be found?<ept id="b39b692e-5ae1-44bf-a1d7-ad1f833f2eb3">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="72c7956c-9d71-4ffe-b474-b9eb7e6fbadb" xml:space="preserve">
+          <source>Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow.</source>
+          <target state="new">Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow.</target>
+        </trans-unit>
+        <trans-unit id="2419620e-4f6e-45b6-85fe-7db33395fc9c" xml:space="preserve">
+          <source>This Storage Account is provided to Machine Learning Studio at the time a workspace is created.</source>
+          <target state="new">This Storage Account is provided to Machine Learning Studio at the time a workspace is created.</target>
+        </trans-unit>
+        <trans-unit id="6a62a28d-dba3-4482-aaba-98cc9b4eb0d1" xml:space="preserve">
+          <source>After the workspace is created, if the Storage Account is deleted and can no longer be found, that workspace will stop functioning and all experiments in that workspace will fail.</source>
+          <target state="new">After the workspace is created, if the Storage Account is deleted and can no longer be found, that workspace will stop functioning and all experiments in that workspace will fail.</target>
+        </trans-unit>
+        <trans-unit id="c9b82149-c26d-4f1e-966f-dba41b59912f" xml:space="preserve">
+          <source>If you accidentally deleted the Storage Account, the only way to recover from it is to recreate that Storage Account with the exact same name in the exact same Region as the deleted one.</source>
+          <target state="new">If you accidentally deleted the Storage Account, the only way to recover from it is to recreate that Storage Account with the exact same name in the exact same Region as the deleted one.</target>
+        </trans-unit>
+        <trans-unit id="5b3ec3b6-2e19-45c9-abd1-ca8a2d638f48" xml:space="preserve">
+          <source>After that, please re-sync the Access Key.</source>
+          <target state="new">After that, please re-sync the Access Key.</target>
+        </trans-unit>
+        <trans-unit id="a15abc51-18fe-4d64-9100-9cfd04b1cb79" xml:space="preserve">
+          <source><bpt id="0ef49eee-9f0c-4358-b85f-18ab3879d9b4">&lt;strong&gt;</bpt>What happens if my Storage Account Access Key is out of sync?<ept id="0ef49eee-9f0c-4358-b85f-18ab3879d9b4">&lt;/strong&gt;</ept> 
+Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow.</source>
+          <target state="new"><bpt id="0ef49eee-9f0c-4358-b85f-18ab3879d9b4">&lt;strong&gt;</bpt>What happens if my Storage Account Access Key is out of sync?<ept id="0ef49eee-9f0c-4358-b85f-18ab3879d9b4">&lt;/strong&gt;</ept> 
+Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow.</target>
+        </trans-unit>
+        <trans-unit id="f97ddd3e-f368-43ae-874c-686f2cdaeea3" xml:space="preserve">
+          <source>This Storage Account is provided to Machine Learning Studio at the time a workspace is created and the Access Keys are associated with that workspace.</source>
+          <target state="new">This Storage Account is provided to Machine Learning Studio at the time a workspace is created and the Access Keys are associated with that workspace.</target>
+        </trans-unit>
+        <trans-unit id="0aa0d563-a077-4d51-b1bf-d7065b728d0e" xml:space="preserve">
+          <source>After the workspace is created, if the Access keys are changed, that workspace can no longer access the Storage Account, and it will stop functioning and all experiments in that workspace will fail.</source>
+          <target state="new">After the workspace is created, if the Access keys are changed, that workspace can no longer access the Storage Account, and it will stop functioning and all experiments in that workspace will fail.</target>
+        </trans-unit>
+        <trans-unit id="98428aa0-904f-4ca9-9b9e-c5bf26b014e0" xml:space="preserve">
+          <source>If you have changed Storage Account Access Keys, please ensure to resync the Access Keys in the workspace setting in the Azure portal  </source>
+          <target state="new">If you have changed Storage Account Access Keys, please ensure to resync the Access Keys in the workspace setting in the Azure portal  </target>
+        </trans-unit>
+        <trans-unit id="8cbe2aec-18f9-4ba0-83ca-bac5e99783af" xml:space="preserve">
+          <source>See the <bpt id="87e70e9a-39ce-4269-8d0d-a713bfcdb6a2">&lt;linkText&gt;</bpt>FAQ for publishing and using apps in the Machine Learning Marketplace<ept id="87e70e9a-39ce-4269-8d0d-a713bfcdb6a2">&lt;/linkText&gt;</ept><bpt id="87e70e9a-39ce-4269-8d0d-a713bfcdb6a2">&lt;title&gt;</bpt><ept id="87e70e9a-39ce-4269-8d0d-a713bfcdb6a2">&lt;/title&gt;</ept></source>
+          <target state="new">See the <bpt id="87e70e9a-39ce-4269-8d0d-a713bfcdb6a2">&lt;linkText&gt;</bpt>FAQ for publishing and using apps in the Machine Learning Marketplace<ept id="87e70e9a-39ce-4269-8d0d-a713bfcdb6a2">&lt;/linkText&gt;</ept><bpt id="87e70e9a-39ce-4269-8d0d-a713bfcdb6a2">&lt;title&gt;</bpt><ept id="87e70e9a-39ce-4269-8d0d-a713bfcdb6a2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4734540a-6392-427f-99a7-82e128a79a20" xml:space="preserve">
+          <source><bpt id="ada32558-4d9c-4bfa-bcc7-8c701f3a8bac">&lt;strong&gt;</bpt>Where can I get training for Azure ML?<ept id="ada32558-4d9c-4bfa-bcc7-8c701f3a8bac">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="ada32558-4d9c-4bfa-bcc7-8c701f3a8bac">&lt;strong&gt;</bpt>Where can I get training for Azure ML?<ept id="ada32558-4d9c-4bfa-bcc7-8c701f3a8bac">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="baf7d983-eeeb-470c-8f91-139f35383f16" xml:space="preserve">
+          <source><bpt id="0fbbf7af-af1a-480d-8c14-34b955caaa61">&lt;linkText&gt;</bpt>Azure Machine Learning Documentation Center<ept id="0fbbf7af-af1a-480d-8c14-34b955caaa61">&lt;/linkText&gt;</ept><bpt id="0fbbf7af-af1a-480d-8c14-34b955caaa61">&lt;title&gt;</bpt><ept id="0fbbf7af-af1a-480d-8c14-34b955caaa61">&lt;/title&gt;</ept> hosts video tutorials as well as how-to guides.</source>
+          <target state="new"><bpt id="0fbbf7af-af1a-480d-8c14-34b955caaa61">&lt;linkText&gt;</bpt>Azure Machine Learning Documentation Center<ept id="0fbbf7af-af1a-480d-8c14-34b955caaa61">&lt;/linkText&gt;</ept><bpt id="0fbbf7af-af1a-480d-8c14-34b955caaa61">&lt;title&gt;</bpt><ept id="0fbbf7af-af1a-480d-8c14-34b955caaa61">&lt;/title&gt;</ept> hosts video tutorials as well as how-to guides.</target>
+        </trans-unit>
+        <trans-unit id="151934b0-dd33-4f89-8bae-6e251ec68a79" xml:space="preserve">
+          <source>These step-by-step guides provide an introduction to the services and walk through the data science life cycle of importing data, cleaning data, building predictive models and deploying them in production with Azure ML.</source>
+          <target state="new">These step-by-step guides provide an introduction to the services and walk through the data science life cycle of importing data, cleaning data, building predictive models and deploying them in production with Azure ML.</target>
+        </trans-unit>
+        <trans-unit id="b1bb92f5-fbff-4392-84e0-6a67b47ba7ba" xml:space="preserve">
+          <source>We will be adding new material to Machine Learning Center on an ongoing basis.</source>
+          <target state="new">We will be adding new material to Machine Learning Center on an ongoing basis.</target>
+        </trans-unit>
+        <trans-unit id="b0d7f7a2-da94-4f9f-95f8-14c25f2e8e7d" xml:space="preserve">
+          <source>You can submit requests for additional learning material on Machine Learning Center at <bpt id="39912d4d-6376-4d09-993f-92e49a4b91a7">&lt;linkText&gt;</bpt>user feedback forum<ept id="39912d4d-6376-4d09-993f-92e49a4b91a7">&lt;/linkText&gt;</ept><bpt id="39912d4d-6376-4d09-993f-92e49a4b91a7">&lt;title&gt;</bpt><ept id="39912d4d-6376-4d09-993f-92e49a4b91a7">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can submit requests for additional learning material on Machine Learning Center at <bpt id="39912d4d-6376-4d09-993f-92e49a4b91a7">&lt;linkText&gt;</bpt>user feedback forum<ept id="39912d4d-6376-4d09-993f-92e49a4b91a7">&lt;/linkText&gt;</ept><bpt id="39912d4d-6376-4d09-993f-92e49a4b91a7">&lt;title&gt;</bpt><ept id="39912d4d-6376-4d09-993f-92e49a4b91a7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dfe4b824-33a8-48aa-807c-fdf8907f24b9" xml:space="preserve">
+          <source>You can also find training at <bpt id="c6e75b05-f388-4370-b8d6-b2675b394486">&lt;linkText&gt;</bpt>Microsoft Virtual Academy<ept id="c6e75b05-f388-4370-b8d6-b2675b394486">&lt;/linkText&gt;</ept><bpt id="c6e75b05-f388-4370-b8d6-b2675b394486">&lt;title&gt;</bpt><ept id="c6e75b05-f388-4370-b8d6-b2675b394486">&lt;/title&gt;</ept></source>
+          <target state="new">You can also find training at <bpt id="c6e75b05-f388-4370-b8d6-b2675b394486">&lt;linkText&gt;</bpt>Microsoft Virtual Academy<ept id="c6e75b05-f388-4370-b8d6-b2675b394486">&lt;/linkText&gt;</ept><bpt id="c6e75b05-f388-4370-b8d6-b2675b394486">&lt;title&gt;</bpt><ept id="c6e75b05-f388-4370-b8d6-b2675b394486">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="055e70dc-7bb0-4eaf-8b2c-f13f10348b25" xml:space="preserve">
+          <source><bpt id="9fe1336e-2f3b-4475-bf72-aee62590dbdd">&lt;strong&gt;</bpt>How do I get support for Azure Machine Learning?<ept id="9fe1336e-2f3b-4475-bf72-aee62590dbdd">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="9fe1336e-2f3b-4475-bf72-aee62590dbdd">&lt;strong&gt;</bpt>How do I get support for Azure Machine Learning?<ept id="9fe1336e-2f3b-4475-bf72-aee62590dbdd">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="ad820a22-faec-4296-9c15-b88ce401a6a9" xml:space="preserve">
+          <source>To get technical support for Azure Machine Learning,  go to <bpt id="bdf82e03-1c54-43ca-8c78-1dad06e24c70">&lt;linkText&gt;</bpt>Azure Support<ept id="bdf82e03-1c54-43ca-8c78-1dad06e24c70">&lt;/linkText&gt;</ept><bpt id="bdf82e03-1c54-43ca-8c78-1dad06e24c70">&lt;title&gt;</bpt><ept id="bdf82e03-1c54-43ca-8c78-1dad06e24c70">&lt;/title&gt;</ept> select <bpt id="17889d72-2b33-43d2-881a-1bb85f960ac7">&lt;strong&gt;</bpt>Machine Learning<ept id="17889d72-2b33-43d2-881a-1bb85f960ac7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To get technical support for Azure Machine Learning,  go to <bpt id="bdf82e03-1c54-43ca-8c78-1dad06e24c70">&lt;linkText&gt;</bpt>Azure Support<ept id="bdf82e03-1c54-43ca-8c78-1dad06e24c70">&lt;/linkText&gt;</ept><bpt id="bdf82e03-1c54-43ca-8c78-1dad06e24c70">&lt;title&gt;</bpt><ept id="bdf82e03-1c54-43ca-8c78-1dad06e24c70">&lt;/title&gt;</ept> select <bpt id="17889d72-2b33-43d2-881a-1bb85f960ac7">&lt;strong&gt;</bpt>Machine Learning<ept id="17889d72-2b33-43d2-881a-1bb85f960ac7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01c0b6ef-750d-4106-808a-3d4ddef89cb2" xml:space="preserve">
+          <source>Azure Machine Learning also has a community forum on MSDN, where you can ask Azure ML related questions.</source>
+          <target state="new">Azure Machine Learning also has a community forum on MSDN, where you can ask Azure ML related questions.</target>
+        </trans-unit>
+        <trans-unit id="29fc3384-cde6-4a15-a032-30960dc194ce" xml:space="preserve">
+          <source>The forum is monitored by the Azure ML team.</source>
+          <target state="new">The forum is monitored by the Azure ML team.</target>
+        </trans-unit>
+        <trans-unit id="2dbe5384-3774-4ea9-91fc-d765d91552a3" xml:space="preserve">
+          <source>Visit <bpt id="5fa6a4d5-bc38-4cdb-9e25-74ddc07b285e">&lt;linkText&gt;</bpt>Azure Forum<ept id="5fa6a4d5-bc38-4cdb-9e25-74ddc07b285e">&lt;/linkText&gt;</ept><bpt id="5fa6a4d5-bc38-4cdb-9e25-74ddc07b285e">&lt;title&gt;</bpt><ept id="5fa6a4d5-bc38-4cdb-9e25-74ddc07b285e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Visit <bpt id="5fa6a4d5-bc38-4cdb-9e25-74ddc07b285e">&lt;linkText&gt;</bpt>Azure Forum<ept id="5fa6a4d5-bc38-4cdb-9e25-74ddc07b285e">&lt;/linkText&gt;</ept><bpt id="5fa6a4d5-bc38-4cdb-9e25-74ddc07b285e">&lt;title&gt;</bpt><ept id="5fa6a4d5-bc38-4cdb-9e25-74ddc07b285e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a164a657-e2f0-4803-abde-128585765737" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/</target>
+        </trans-unit>
+        <trans-unit id="2251c457-c11f-4b6a-874c-df8ea902a60b" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/124865f7-e901-4656-adac-f4cb08248099/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/124865f7-e901-4656-adac-f4cb08248099/</target>
+        </trans-unit>
+        <trans-unit id="7c051aa4-d542-4052-8e5b-cc1b4aef55d8" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/</target>
+        </trans-unit>
+        <trans-unit id="ca6c0254-a458-429d-802e-5edce2575768" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/</target>
+        </trans-unit>
+        <trans-unit id="e8cb42d6-9a28-42bd-8136-7bf8a755a7d2" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/</target>
+        </trans-unit>
+        <trans-unit id="8d6c2c13-e920-410d-b5ef-33273f07d66d" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/</target>
+        </trans-unit>
+      </group>
+      <group id="83de681f-4794-4793-9cfa-5b8b8b11fd68" />
+    </body>
+  </file>
+</xliff>

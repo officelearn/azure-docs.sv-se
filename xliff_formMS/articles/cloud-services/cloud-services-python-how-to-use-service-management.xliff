@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="248d7094-5f17-4a6c-b457-44d961eb5c02" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="248d7094-5f17-4a6c-b457-44d961eb5c02" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="874b1227-e3be-4842-bb78-83f5d2f6df47">
+        <trans-unit id="1fc5d984-7278-42f4-b369-bbd298136792" xml:space="preserve">
+          <source>How to use the service management API (Python) - feature guide</source>
+          <target state="new">How to use the service management API (Python) - feature guide</target>
+        </trans-unit>
+        <trans-unit id="b378fe34-9d4b-49b1-93de-dd6f20f5eabf" xml:space="preserve">
+          <source>Learn how to programmatically perform common service management tasks from Python.</source>
+          <target state="new">Learn how to programmatically perform common service management tasks from Python.</target>
+        </trans-unit>
+        <trans-unit id="9a9286e9-a64f-42cd-8b84-0b2f74700878" xml:space="preserve">
+          <source>This guide will show you how to programmatically perform common service management tasks from Python.</source>
+          <target state="new">This guide will show you how to programmatically perform common service management tasks from Python.</target>
+        </trans-unit>
+        <trans-unit id="98608387-6dc3-49fb-be0b-656662754b37" xml:space="preserve">
+          <source>The <bpt id="f6ac4b6a-02f3-46ed-a4f5-a3fb06c72d1d">&lt;strong&gt;</bpt>ServiceManagementService<ept id="f6ac4b6a-02f3-46ed-a4f5-a3fb06c72d1d">&lt;/strong&gt;</ept> class in the <bpt id="46650c72-aa49-453f-abbc-363a91d00eda">&lt;linkText&gt;</bpt>Azure SDK for Python[download-sdk-python]<ept id="46650c72-aa49-453f-abbc-363a91d00eda">&lt;/linkText&gt;</ept><bpt id="46650c72-aa49-453f-abbc-363a91d00eda">&lt;title&gt;</bpt><ept id="46650c72-aa49-453f-abbc-363a91d00eda">&lt;/title&gt;</ept> supports programmatic access to much of the service management-related functionality that is available in the <bpt id="27a48748-7359-498e-8f2d-6954bd724593">&lt;linkText&gt;</bpt>management portal[management-portal]<ept id="27a48748-7359-498e-8f2d-6954bd724593">&lt;/linkText&gt;</ept><bpt id="27a48748-7359-498e-8f2d-6954bd724593">&lt;title&gt;</bpt><ept id="27a48748-7359-498e-8f2d-6954bd724593">&lt;/title&gt;</ept> (such as <bpt id="6315e810-82ae-44bd-8a48-9ac277b7c102">&lt;strong&gt;</bpt>creating, updating, and deleting cloud services, deployments, data management services and virtual machines<ept id="6315e810-82ae-44bd-8a48-9ac277b7c102">&lt;/strong&gt;</ept>).</source>
+          <target state="new">The <bpt id="f6ac4b6a-02f3-46ed-a4f5-a3fb06c72d1d">&lt;strong&gt;</bpt>ServiceManagementService<ept id="f6ac4b6a-02f3-46ed-a4f5-a3fb06c72d1d">&lt;/strong&gt;</ept> class in the <bpt id="46650c72-aa49-453f-abbc-363a91d00eda">&lt;linkText&gt;</bpt>Azure SDK for Python[download-sdk-python]<ept id="46650c72-aa49-453f-abbc-363a91d00eda">&lt;/linkText&gt;</ept><bpt id="46650c72-aa49-453f-abbc-363a91d00eda">&lt;title&gt;</bpt><ept id="46650c72-aa49-453f-abbc-363a91d00eda">&lt;/title&gt;</ept> supports programmatic access to much of the service management-related functionality that is available in the <bpt id="27a48748-7359-498e-8f2d-6954bd724593">&lt;linkText&gt;</bpt>management portal[management-portal]<ept id="27a48748-7359-498e-8f2d-6954bd724593">&lt;/linkText&gt;</ept><bpt id="27a48748-7359-498e-8f2d-6954bd724593">&lt;title&gt;</bpt><ept id="27a48748-7359-498e-8f2d-6954bd724593">&lt;/title&gt;</ept> (such as <bpt id="6315e810-82ae-44bd-8a48-9ac277b7c102">&lt;strong&gt;</bpt>creating, updating, and deleting cloud services, deployments, data management services and virtual machines<ept id="6315e810-82ae-44bd-8a48-9ac277b7c102">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="a3b45bfd-ff25-46ca-a7d4-bfc0fdad890f" xml:space="preserve">
+          <source>This functionality can be useful in building applications that need programmatic access to service management.</source>
+          <target state="new">This functionality can be useful in building applications that need programmatic access to service management.</target>
+        </trans-unit>
+        <trans-unit id="8cf76833-e1a1-4f36-b68d-34fd094d2003" xml:space="preserve">
+          <source>The Service Management API provides programmatic access to much of the service management functionality available through the <bpt id="f559d3ca-f107-46a5-a753-4883caca225e">&lt;linkText&gt;</bpt>management portal[management-portal]<ept id="f559d3ca-f107-46a5-a753-4883caca225e">&lt;/linkText&gt;</ept><bpt id="f559d3ca-f107-46a5-a753-4883caca225e">&lt;title&gt;</bpt><ept id="f559d3ca-f107-46a5-a753-4883caca225e">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Service Management API provides programmatic access to much of the service management functionality available through the <bpt id="f559d3ca-f107-46a5-a753-4883caca225e">&lt;linkText&gt;</bpt>management portal[management-portal]<ept id="f559d3ca-f107-46a5-a753-4883caca225e">&lt;/linkText&gt;</ept><bpt id="f559d3ca-f107-46a5-a753-4883caca225e">&lt;title&gt;</bpt><ept id="f559d3ca-f107-46a5-a753-4883caca225e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="720c9e41-ea91-4bb2-a83a-5365ef4cff9e" xml:space="preserve">
+          <source>The Azure SDK for Python allows you to manage your cloud services and storage accounts.</source>
+          <target state="new">The Azure SDK for Python allows you to manage your cloud services and storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="d76b1eaa-7988-4073-b12d-440fcd9dbf89" xml:space="preserve">
+          <source>To use the Service Management API, you will need to <bpt id="d876b341-38b8-4c64-a122-e1486f8baaf7">&lt;linkText&gt;</bpt>create an Azure account<ept id="d876b341-38b8-4c64-a122-e1486f8baaf7">&lt;/linkText&gt;</ept><bpt id="d876b341-38b8-4c64-a122-e1486f8baaf7">&lt;title&gt;</bpt><ept id="d876b341-38b8-4c64-a122-e1486f8baaf7">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use the Service Management API, you will need to <bpt id="d876b341-38b8-4c64-a122-e1486f8baaf7">&lt;linkText&gt;</bpt>create an Azure account<ept id="d876b341-38b8-4c64-a122-e1486f8baaf7">&lt;/linkText&gt;</ept><bpt id="d876b341-38b8-4c64-a122-e1486f8baaf7">&lt;title&gt;</bpt><ept id="d876b341-38b8-4c64-a122-e1486f8baaf7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ee95532-3905-47f5-ac9c-ed97234ed4e8" xml:space="preserve">
+          <source>The Azure SDK for Python wraps the <bpt id="5e9959e6-c824-4691-9010-e2336cb813be">&lt;linkText&gt;</bpt>Azure Service Management API[svc-mgmt-rest-api]<ept id="5e9959e6-c824-4691-9010-e2336cb813be">&lt;/linkText&gt;</ept><bpt id="5e9959e6-c824-4691-9010-e2336cb813be">&lt;title&gt;</bpt><ept id="5e9959e6-c824-4691-9010-e2336cb813be">&lt;/title&gt;</ept>, which is a REST API.</source>
+          <target state="new">The Azure SDK for Python wraps the <bpt id="5e9959e6-c824-4691-9010-e2336cb813be">&lt;linkText&gt;</bpt>Azure Service Management API[svc-mgmt-rest-api]<ept id="5e9959e6-c824-4691-9010-e2336cb813be">&lt;/linkText&gt;</ept><bpt id="5e9959e6-c824-4691-9010-e2336cb813be">&lt;title&gt;</bpt><ept id="5e9959e6-c824-4691-9010-e2336cb813be">&lt;/title&gt;</ept>, which is a REST API.</target>
+        </trans-unit>
+        <trans-unit id="63388633-3ada-4afc-a263-254f33f12a59" xml:space="preserve">
+          <source>All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates.</source>
+          <target state="new">All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates.</target>
+        </trans-unit>
+        <trans-unit id="f7c6499f-fa72-4b43-9e0c-5d706b413de7" xml:space="preserve">
+          <source>The management service may be accessed from within a service running in Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.</source>
+          <target state="new">The management service may be accessed from within a service running in Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.</target>
+        </trans-unit>
+        <trans-unit id="4ee16268-feca-4ea6-a576-7dbb006f7783" xml:space="preserve">
+          <source>To connect to the Service Management endpoint, you need your Azure subscription ID and a valid management certificate.</source>
+          <target state="new">To connect to the Service Management endpoint, you need your Azure subscription ID and a valid management certificate.</target>
+        </trans-unit>
+        <trans-unit id="bf605778-3804-4a7a-b2a6-dc5b09fbce9b" xml:space="preserve">
+          <source>You can obtain your subscription ID through the <bpt id="d6c1144b-3e8d-428d-b678-183b75960500">&lt;linkText&gt;</bpt>management portal[management-portal]<ept id="d6c1144b-3e8d-428d-b678-183b75960500">&lt;/linkText&gt;</ept><bpt id="d6c1144b-3e8d-428d-b678-183b75960500">&lt;title&gt;</bpt><ept id="d6c1144b-3e8d-428d-b678-183b75960500">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can obtain your subscription ID through the <bpt id="d6c1144b-3e8d-428d-b678-183b75960500">&lt;linkText&gt;</bpt>management portal[management-portal]<ept id="d6c1144b-3e8d-428d-b678-183b75960500">&lt;/linkText&gt;</ept><bpt id="d6c1144b-3e8d-428d-b678-183b75960500">&lt;title&gt;</bpt><ept id="d6c1144b-3e8d-428d-b678-183b75960500">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7ebbc0e-de12-4a9e-aca3-775707b03791" xml:space="preserve">
+          <source>Since Azure SDK for Python v0.8.0, it is now possible to use certificates created with OpenSSL when running on Windows.</source>
+          <target state="new">Since Azure SDK for Python v0.8.0, it is now possible to use certificates created with OpenSSL when running on Windows.</target>
+        </trans-unit>
+        <trans-unit id="43d1951d-5075-4903-bc23-b7975d551b02" xml:space="preserve">
+          <source>This requires Python 2.7.4 or later.</source>
+          <target state="new">This requires Python 2.7.4 or later.</target>
+        </trans-unit>
+        <trans-unit id="600c1f1c-af55-40cd-a175-cb98dc7339c2" xml:space="preserve">
+          <source>We recommend users to use OpenSSL instead of .pfx, since support for .pfx certificates will likely be removed in the future.</source>
+          <target state="new">We recommend users to use OpenSSL instead of .pfx, since support for .pfx certificates will likely be removed in the future.</target>
+        </trans-unit>
+        <trans-unit id="ed1988e6-188b-46af-863c-24c9782904da" xml:space="preserve">
+          <source>You can use <bpt id="625fc972-a2f1-4dd9-b6e4-67caf47decde">&lt;linkText&gt;</bpt>OpenSSL<ept id="625fc972-a2f1-4dd9-b6e4-67caf47decde">&lt;/linkText&gt;</ept><bpt id="625fc972-a2f1-4dd9-b6e4-67caf47decde">&lt;title&gt;</bpt><ept id="625fc972-a2f1-4dd9-b6e4-67caf47decde">&lt;/title&gt;</ept> to create your management certificate.</source>
+          <target state="new">You can use <bpt id="625fc972-a2f1-4dd9-b6e4-67caf47decde">&lt;linkText&gt;</bpt>OpenSSL<ept id="625fc972-a2f1-4dd9-b6e4-67caf47decde">&lt;/linkText&gt;</ept><bpt id="625fc972-a2f1-4dd9-b6e4-67caf47decde">&lt;title&gt;</bpt><ept id="625fc972-a2f1-4dd9-b6e4-67caf47decde">&lt;/title&gt;</ept> to create your management certificate.</target>
+        </trans-unit>
+        <trans-unit id="84c015fe-134a-4be4-acec-951724ff6141" xml:space="preserve">
+          <source>You actually need to create two certificates, one for the server (a <bpt id="7357b709-76ba-41bb-bf2a-5e454fa9a609">&lt;code&gt;</bpt>.cer<ept id="7357b709-76ba-41bb-bf2a-5e454fa9a609">&lt;/code&gt;</ept> file) and one for the client (a <bpt id="dd036909-44f4-4d29-b1af-48f8b4fee00e">&lt;code&gt;</bpt>.pem<ept id="dd036909-44f4-4d29-b1af-48f8b4fee00e">&lt;/code&gt;</ept> file).</source>
+          <target state="new">You actually need to create two certificates, one for the server (a <bpt id="7357b709-76ba-41bb-bf2a-5e454fa9a609">&lt;code&gt;</bpt>.cer<ept id="7357b709-76ba-41bb-bf2a-5e454fa9a609">&lt;/code&gt;</ept> file) and one for the client (a <bpt id="dd036909-44f4-4d29-b1af-48f8b4fee00e">&lt;code&gt;</bpt>.pem<ept id="dd036909-44f4-4d29-b1af-48f8b4fee00e">&lt;/code&gt;</ept> file).</target>
+        </trans-unit>
+        <trans-unit id="053bd0f8-2024-44cf-b167-0a49a884598e" xml:space="preserve">
+          <source>To create the <bpt id="e6a70f2f-6271-4109-b494-391db7d382e6">&lt;code&gt;</bpt>.pem<ept id="e6a70f2f-6271-4109-b494-391db7d382e6">&lt;/code&gt;</ept> file, execute this:</source>
+          <target state="new">To create the <bpt id="e6a70f2f-6271-4109-b494-391db7d382e6">&lt;code&gt;</bpt>.pem<ept id="e6a70f2f-6271-4109-b494-391db7d382e6">&lt;/code&gt;</ept> file, execute this:</target>
+        </trans-unit>
+        <trans-unit id="08cce891-65fd-4478-b51e-1229ae4b45f5" xml:space="preserve">
+          <source>To create the <bpt id="9de48c20-4501-41b8-8640-2536087086e2">&lt;code&gt;</bpt>.cer<ept id="9de48c20-4501-41b8-8640-2536087086e2">&lt;/code&gt;</ept> certificate, execute this:</source>
+          <target state="new">To create the <bpt id="9de48c20-4501-41b8-8640-2536087086e2">&lt;code&gt;</bpt>.cer<ept id="9de48c20-4501-41b8-8640-2536087086e2">&lt;/code&gt;</ept> certificate, execute this:</target>
+        </trans-unit>
+        <trans-unit id="c0734b9b-0a2d-4c5b-b80a-3b6f63eec0ee" xml:space="preserve">
+          <source>For more information about Azure certificates, see <bpt id="52bb1f00-1492-484c-bee7-814f685c5c18">&lt;linkText&gt;</bpt>Managing Certificates in Azure<ept id="52bb1f00-1492-484c-bee7-814f685c5c18">&lt;/linkText&gt;</ept><bpt id="52bb1f00-1492-484c-bee7-814f685c5c18">&lt;title&gt;</bpt><ept id="52bb1f00-1492-484c-bee7-814f685c5c18">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Azure certificates, see <bpt id="52bb1f00-1492-484c-bee7-814f685c5c18">&lt;linkText&gt;</bpt>Managing Certificates in Azure<ept id="52bb1f00-1492-484c-bee7-814f685c5c18">&lt;/linkText&gt;</ept><bpt id="52bb1f00-1492-484c-bee7-814f685c5c18">&lt;title&gt;</bpt><ept id="52bb1f00-1492-484c-bee7-814f685c5c18">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4837ef56-b836-47ac-bdb6-349b82f1bfba" xml:space="preserve">
+          <source>For a complete description of OpenSSL parameters, see the documentation at <bpt id="ee0fe80e-c47b-4d9c-bee7-c71dee38fa9e">&lt;linkText&gt;</bpt>http://www.openssl.org/docs/apps/openssl.html<ept id="ee0fe80e-c47b-4d9c-bee7-c71dee38fa9e">&lt;/linkText&gt;</ept><bpt id="ee0fe80e-c47b-4d9c-bee7-c71dee38fa9e">&lt;title&gt;</bpt><ept id="ee0fe80e-c47b-4d9c-bee7-c71dee38fa9e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a complete description of OpenSSL parameters, see the documentation at <bpt id="ee0fe80e-c47b-4d9c-bee7-c71dee38fa9e">&lt;linkText&gt;</bpt>http://www.openssl.org/docs/apps/openssl.html<ept id="ee0fe80e-c47b-4d9c-bee7-c71dee38fa9e">&lt;/linkText&gt;</ept><bpt id="ee0fe80e-c47b-4d9c-bee7-c71dee38fa9e">&lt;title&gt;</bpt><ept id="ee0fe80e-c47b-4d9c-bee7-c71dee38fa9e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3477d563-89e7-41f4-b0df-985991219d02" xml:space="preserve">
+          <source>After you have created these files, you will need to upload the <bpt id="18ec5e4e-5011-4187-9ad8-ebc28bbc1cad">&lt;code&gt;</bpt>.cer<ept id="18ec5e4e-5011-4187-9ad8-ebc28bbc1cad">&lt;/code&gt;</ept> file to Azure via the "Upload" action of the "Settings" tab of the <bpt id="59387006-32c2-4f9b-9df9-d87455a13381">&lt;linkText&gt;</bpt>management portal[management-portal]<ept id="59387006-32c2-4f9b-9df9-d87455a13381">&lt;/linkText&gt;</ept><bpt id="59387006-32c2-4f9b-9df9-d87455a13381">&lt;title&gt;</bpt><ept id="59387006-32c2-4f9b-9df9-d87455a13381">&lt;/title&gt;</ept>, and you will need to make note of where you saved the <bpt id="b5b373b8-29c0-4336-868f-ca89e63b52cf">&lt;code&gt;</bpt>.pem<ept id="b5b373b8-29c0-4336-868f-ca89e63b52cf">&lt;/code&gt;</ept> file.</source>
+          <target state="new">After you have created these files, you will need to upload the <bpt id="18ec5e4e-5011-4187-9ad8-ebc28bbc1cad">&lt;code&gt;</bpt>.cer<ept id="18ec5e4e-5011-4187-9ad8-ebc28bbc1cad">&lt;/code&gt;</ept> file to Azure via the "Upload" action of the "Settings" tab of the <bpt id="59387006-32c2-4f9b-9df9-d87455a13381">&lt;linkText&gt;</bpt>management portal[management-portal]<ept id="59387006-32c2-4f9b-9df9-d87455a13381">&lt;/linkText&gt;</ept><bpt id="59387006-32c2-4f9b-9df9-d87455a13381">&lt;title&gt;</bpt><ept id="59387006-32c2-4f9b-9df9-d87455a13381">&lt;/title&gt;</ept>, and you will need to make note of where you saved the <bpt id="b5b373b8-29c0-4336-868f-ca89e63b52cf">&lt;code&gt;</bpt>.pem<ept id="b5b373b8-29c0-4336-868f-ca89e63b52cf">&lt;/code&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="80e5c142-3dc9-400b-ab5d-d7db5b7fac58" xml:space="preserve">
+          <source>After you have obtained your subscription ID, created a certificate, and uploaded the <bpt id="502df59f-c32d-4836-87ed-96653872cd81">&lt;code&gt;</bpt>.cer<ept id="502df59f-c32d-4836-87ed-96653872cd81">&lt;/code&gt;</ept> file to Azure, you can connect to the Azure management endpoint by passing the subscription id and the path to the <bpt id="fbe3f5a2-93dc-49b0-be96-8566dd2b9549">&lt;code&gt;</bpt>.pem<ept id="fbe3f5a2-93dc-49b0-be96-8566dd2b9549">&lt;/code&gt;</ept> file to <bpt id="910fe01f-336b-4c7b-8fff-ca26654e5984">&lt;strong&gt;</bpt>ServiceManagementService<ept id="910fe01f-336b-4c7b-8fff-ca26654e5984">&lt;/strong&gt;</ept>:</source>
+          <target state="new">After you have obtained your subscription ID, created a certificate, and uploaded the <bpt id="502df59f-c32d-4836-87ed-96653872cd81">&lt;code&gt;</bpt>.cer<ept id="502df59f-c32d-4836-87ed-96653872cd81">&lt;/code&gt;</ept> file to Azure, you can connect to the Azure management endpoint by passing the subscription id and the path to the <bpt id="fbe3f5a2-93dc-49b0-be96-8566dd2b9549">&lt;code&gt;</bpt>.pem<ept id="fbe3f5a2-93dc-49b0-be96-8566dd2b9549">&lt;/code&gt;</ept> file to <bpt id="910fe01f-336b-4c7b-8fff-ca26654e5984">&lt;strong&gt;</bpt>ServiceManagementService<ept id="910fe01f-336b-4c7b-8fff-ca26654e5984">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a2c1bc20-cc6f-46d0-8b5b-4fe121173a2a" xml:space="preserve">
+          <source>In the example above, <bpt id="ba9ad79a-6649-4969-9881-5801729aa80e">&lt;code&gt;</bpt>sms<ept id="ba9ad79a-6649-4969-9881-5801729aa80e">&lt;/code&gt;</ept> is a <bpt id="493467f9-0aae-4863-9b1e-cf7d4d4dc2f4">&lt;strong&gt;</bpt>ServiceManagementService<ept id="493467f9-0aae-4863-9b1e-cf7d4d4dc2f4">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">In the example above, <bpt id="ba9ad79a-6649-4969-9881-5801729aa80e">&lt;code&gt;</bpt>sms<ept id="ba9ad79a-6649-4969-9881-5801729aa80e">&lt;/code&gt;</ept> is a <bpt id="493467f9-0aae-4863-9b1e-cf7d4d4dc2f4">&lt;strong&gt;</bpt>ServiceManagementService<ept id="493467f9-0aae-4863-9b1e-cf7d4d4dc2f4">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="372a91e2-e061-48bd-9ce8-67ed8de6fc09" xml:space="preserve">
+          <source>The <bpt id="2d608d7b-a821-4eaf-b10c-28dc4ff1fa91">&lt;strong&gt;</bpt>ServiceManagementService<ept id="2d608d7b-a821-4eaf-b10c-28dc4ff1fa91">&lt;/strong&gt;</ept> class is the primary class used to manage Azure services.</source>
+          <target state="new">The <bpt id="2d608d7b-a821-4eaf-b10c-28dc4ff1fa91">&lt;strong&gt;</bpt>ServiceManagementService<ept id="2d608d7b-a821-4eaf-b10c-28dc4ff1fa91">&lt;/strong&gt;</ept> class is the primary class used to manage Azure services.</target>
+        </trans-unit>
+        <trans-unit id="ffe4edbd-0bd9-4c9f-bd14-14b21bb763a6" xml:space="preserve">
+          <source>You can create a self-signed management certificate on your machine using <bpt id="9bfd1bb5-b7ae-4a06-a0ba-f220f5db25ca">&lt;code&gt;</bpt>makecert.exe<ept id="9bfd1bb5-b7ae-4a06-a0ba-f220f5db25ca">&lt;/code&gt;</ept>.</source>
+          <target state="new">You can create a self-signed management certificate on your machine using <bpt id="9bfd1bb5-b7ae-4a06-a0ba-f220f5db25ca">&lt;code&gt;</bpt>makecert.exe<ept id="9bfd1bb5-b7ae-4a06-a0ba-f220f5db25ca">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46f83cfb-5ee3-4a0b-a8b9-5427a7c21dc5" xml:space="preserve">
+          <source>Open a <bpt id="2fd082db-0fd4-469c-874d-b3969d62888e">&lt;strong&gt;</bpt>Visual Studio command prompt<ept id="2fd082db-0fd4-469c-874d-b3969d62888e">&lt;/strong&gt;</ept> as an <bpt id="7e4915b8-f442-4703-bfb6-4a4668c8ed8c">&lt;strong&gt;</bpt>administrator<ept id="7e4915b8-f442-4703-bfb6-4a4668c8ed8c">&lt;/strong&gt;</ept> and use the following command, replacing <bpt id="9f80f8f9-8b5c-45e7-9d12-ebd2ca49324a">&lt;em&gt;</bpt>AzureCertificate<ept id="9f80f8f9-8b5c-45e7-9d12-ebd2ca49324a">&lt;/em&gt;</ept> with the certificate name you would like to use.</source>
+          <target state="new">Open a <bpt id="2fd082db-0fd4-469c-874d-b3969d62888e">&lt;strong&gt;</bpt>Visual Studio command prompt<ept id="2fd082db-0fd4-469c-874d-b3969d62888e">&lt;/strong&gt;</ept> as an <bpt id="7e4915b8-f442-4703-bfb6-4a4668c8ed8c">&lt;strong&gt;</bpt>administrator<ept id="7e4915b8-f442-4703-bfb6-4a4668c8ed8c">&lt;/strong&gt;</ept> and use the following command, replacing <bpt id="9f80f8f9-8b5c-45e7-9d12-ebd2ca49324a">&lt;em&gt;</bpt>AzureCertificate<ept id="9f80f8f9-8b5c-45e7-9d12-ebd2ca49324a">&lt;/em&gt;</ept> with the certificate name you would like to use.</target>
+        </trans-unit>
+        <trans-unit id="f31110b5-2b29-4754-8c52-58e2d2f15136" xml:space="preserve">
+          <source>The command will create the <bpt id="ad8534d8-db31-43f4-ba32-4d46baf53c3c">&lt;code&gt;</bpt>.cer<ept id="ad8534d8-db31-43f4-ba32-4d46baf53c3c">&lt;/code&gt;</ept> file, and install it in the <bpt id="5494445e-c4f8-4896-8bb0-2a2c438b6be8">&lt;strong&gt;</bpt>Personal<ept id="5494445e-c4f8-4896-8bb0-2a2c438b6be8">&lt;/strong&gt;</ept> certificate store.</source>
+          <target state="new">The command will create the <bpt id="ad8534d8-db31-43f4-ba32-4d46baf53c3c">&lt;code&gt;</bpt>.cer<ept id="ad8534d8-db31-43f4-ba32-4d46baf53c3c">&lt;/code&gt;</ept> file, and install it in the <bpt id="5494445e-c4f8-4896-8bb0-2a2c438b6be8">&lt;strong&gt;</bpt>Personal<ept id="5494445e-c4f8-4896-8bb0-2a2c438b6be8">&lt;/strong&gt;</ept> certificate store.</target>
+        </trans-unit>
+        <trans-unit id="af437aba-74ed-4f79-9cee-4e613d4265fb" xml:space="preserve">
+          <source>For more details, see <bpt id="4471abf2-f2de-4987-99a8-2ba9f87376d8">&lt;linkText&gt;</bpt>Create and Upload a Management Certificate for Azure<ept id="4471abf2-f2de-4987-99a8-2ba9f87376d8">&lt;/linkText&gt;</ept><bpt id="4471abf2-f2de-4987-99a8-2ba9f87376d8">&lt;title&gt;</bpt><ept id="4471abf2-f2de-4987-99a8-2ba9f87376d8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="4471abf2-f2de-4987-99a8-2ba9f87376d8">&lt;linkText&gt;</bpt>Create and Upload a Management Certificate for Azure<ept id="4471abf2-f2de-4987-99a8-2ba9f87376d8">&lt;/linkText&gt;</ept><bpt id="4471abf2-f2de-4987-99a8-2ba9f87376d8">&lt;title&gt;</bpt><ept id="4471abf2-f2de-4987-99a8-2ba9f87376d8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3180843b-9e25-421a-b556-ba4d57c665f0" xml:space="preserve">
+          <source>After you have created the certificate, you will need to upload the <bpt id="c85162b3-0b8f-428f-b3d1-2a4692d50f42">&lt;code&gt;</bpt>.cer<ept id="c85162b3-0b8f-428f-b3d1-2a4692d50f42">&lt;/code&gt;</ept> file to Azure via the "Upload" action of the "Settings" tab of the <bpt id="003d214b-235c-40f6-87f5-7f65b1cdd13e">&lt;linkText&gt;</bpt>management portal[management-portal]<ept id="003d214b-235c-40f6-87f5-7f65b1cdd13e">&lt;/linkText&gt;</ept><bpt id="003d214b-235c-40f6-87f5-7f65b1cdd13e">&lt;title&gt;</bpt><ept id="003d214b-235c-40f6-87f5-7f65b1cdd13e">&lt;/title&gt;</ept>.</source>
+          <target state="new">After you have created the certificate, you will need to upload the <bpt id="c85162b3-0b8f-428f-b3d1-2a4692d50f42">&lt;code&gt;</bpt>.cer<ept id="c85162b3-0b8f-428f-b3d1-2a4692d50f42">&lt;/code&gt;</ept> file to Azure via the "Upload" action of the "Settings" tab of the <bpt id="003d214b-235c-40f6-87f5-7f65b1cdd13e">&lt;linkText&gt;</bpt>management portal[management-portal]<ept id="003d214b-235c-40f6-87f5-7f65b1cdd13e">&lt;/linkText&gt;</ept><bpt id="003d214b-235c-40f6-87f5-7f65b1cdd13e">&lt;title&gt;</bpt><ept id="003d214b-235c-40f6-87f5-7f65b1cdd13e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a469354a-6092-4d40-ae13-f28970080567" xml:space="preserve">
+          <source>After you have obtained your subscription ID, created a certificate, and uploaded the <bpt id="3f28bae9-bb74-4bda-aa86-468922df7c51">&lt;code&gt;</bpt>.cer<ept id="3f28bae9-bb74-4bda-aa86-468922df7c51">&lt;/code&gt;</ept> file to Azure, you can connect to the Azure management endpoint by passing the subscription id and the location of the certificate in your <bpt id="aea2b044-3596-4a30-bb20-c95a37099a16">&lt;strong&gt;</bpt>Personal<ept id="aea2b044-3596-4a30-bb20-c95a37099a16">&lt;/strong&gt;</ept> certificate store to <bpt id="33cdbde7-2aaa-4b0c-ab38-ade918197314">&lt;strong&gt;</bpt>ServiceManagementService<ept id="33cdbde7-2aaa-4b0c-ab38-ade918197314">&lt;/strong&gt;</ept> (again, replace <bpt id="4a8f52bd-ae7e-426d-b92c-5d2567f045a0">&lt;em&gt;</bpt>AzureCertificate<ept id="4a8f52bd-ae7e-426d-b92c-5d2567f045a0">&lt;/em&gt;</ept> with the name of your certificate):</source>
+          <target state="new">After you have obtained your subscription ID, created a certificate, and uploaded the <bpt id="3f28bae9-bb74-4bda-aa86-468922df7c51">&lt;code&gt;</bpt>.cer<ept id="3f28bae9-bb74-4bda-aa86-468922df7c51">&lt;/code&gt;</ept> file to Azure, you can connect to the Azure management endpoint by passing the subscription id and the location of the certificate in your <bpt id="aea2b044-3596-4a30-bb20-c95a37099a16">&lt;strong&gt;</bpt>Personal<ept id="aea2b044-3596-4a30-bb20-c95a37099a16">&lt;/strong&gt;</ept> certificate store to <bpt id="33cdbde7-2aaa-4b0c-ab38-ade918197314">&lt;strong&gt;</bpt>ServiceManagementService<ept id="33cdbde7-2aaa-4b0c-ab38-ade918197314">&lt;/strong&gt;</ept> (again, replace <bpt id="4a8f52bd-ae7e-426d-b92c-5d2567f045a0">&lt;em&gt;</bpt>AzureCertificate<ept id="4a8f52bd-ae7e-426d-b92c-5d2567f045a0">&lt;/em&gt;</ept> with the name of your certificate):</target>
+        </trans-unit>
+        <trans-unit id="90cfe89d-27bc-4766-a4f5-7662b01e706a" xml:space="preserve">
+          <source>In the example above, <bpt id="88b60b58-47bc-4511-b674-e2d96b448523">&lt;code&gt;</bpt>sms<ept id="88b60b58-47bc-4511-b674-e2d96b448523">&lt;/code&gt;</ept> is a <bpt id="429da875-1620-47a2-b86f-cf42bd74c425">&lt;strong&gt;</bpt>ServiceManagementService<ept id="429da875-1620-47a2-b86f-cf42bd74c425">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">In the example above, <bpt id="88b60b58-47bc-4511-b674-e2d96b448523">&lt;code&gt;</bpt>sms<ept id="88b60b58-47bc-4511-b674-e2d96b448523">&lt;/code&gt;</ept> is a <bpt id="429da875-1620-47a2-b86f-cf42bd74c425">&lt;strong&gt;</bpt>ServiceManagementService<ept id="429da875-1620-47a2-b86f-cf42bd74c425">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="a8391b4a-a34f-474c-898c-aead7f8745d0" xml:space="preserve">
+          <source>The <bpt id="861459d8-4bc9-4f00-a767-b2ac785f584b">&lt;strong&gt;</bpt>ServiceManagementService<ept id="861459d8-4bc9-4f00-a767-b2ac785f584b">&lt;/strong&gt;</ept> class is the primary class used to manage Azure services.</source>
+          <target state="new">The <bpt id="861459d8-4bc9-4f00-a767-b2ac785f584b">&lt;strong&gt;</bpt>ServiceManagementService<ept id="861459d8-4bc9-4f00-a767-b2ac785f584b">&lt;/strong&gt;</ept> class is the primary class used to manage Azure services.</target>
+        </trans-unit>
+        <trans-unit id="629963e8-1bb6-45e9-b565-fbeaf49407fe" xml:space="preserve">
+          <source>To list the locations that are available for hosting services, use the <bpt id="6a185bfc-3c55-414a-8770-70a0d897c65a">&lt;strong&gt;</bpt>list\_locations<ept id="6a185bfc-3c55-414a-8770-70a0d897c65a">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">To list the locations that are available for hosting services, use the <bpt id="6a185bfc-3c55-414a-8770-70a0d897c65a">&lt;strong&gt;</bpt>list\_locations<ept id="6a185bfc-3c55-414a-8770-70a0d897c65a">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="18dadf75-2b34-408b-974e-f986e93e62ff" xml:space="preserve">
+          <source>When you create a cloud service or storage service you will need to provide a valid location.</source>
+          <target state="new">When you create a cloud service or storage service you will need to provide a valid location.</target>
+        </trans-unit>
+        <trans-unit id="4805e900-6c2c-46fd-bced-b5b41ce0c28a" xml:space="preserve">
+          <source>The <bpt id="249cefcb-8b43-4448-a271-9b9e5881d116">&lt;strong&gt;</bpt>list\_locations<ept id="249cefcb-8b43-4448-a271-9b9e5881d116">&lt;/strong&gt;</ept> method will always return an up-to-date list of the currently available locations.</source>
+          <target state="new">The <bpt id="249cefcb-8b43-4448-a271-9b9e5881d116">&lt;strong&gt;</bpt>list\_locations<ept id="249cefcb-8b43-4448-a271-9b9e5881d116">&lt;/strong&gt;</ept> method will always return an up-to-date list of the currently available locations.</target>
+        </trans-unit>
+        <trans-unit id="a794203d-6c27-4b21-8198-383673762642" xml:space="preserve">
+          <source>As of this writing, the available locations are:</source>
+          <target state="new">As of this writing, the available locations are:</target>
+        </trans-unit>
+        <trans-unit id="a4c20e66-c216-483b-8ee4-aa0caeac0144" xml:space="preserve">
+          <source>West Europe</source>
+          <target state="new">West Europe</target>
+        </trans-unit>
+        <trans-unit id="edb08c58-9459-4eaa-a27e-580fbef06c0c" xml:space="preserve">
+          <source>North Europe</source>
+          <target state="new">North Europe</target>
+        </trans-unit>
+        <trans-unit id="cb972008-9126-43e9-ae7f-aa014dcb17f5" xml:space="preserve">
+          <source>Southeast Asia</source>
+          <target state="new">Southeast Asia</target>
+        </trans-unit>
+        <trans-unit id="30d5d838-e2e5-4cbf-ad0c-1c89a4d862d5" xml:space="preserve">
+          <source>East Asia</source>
+          <target state="new">East Asia</target>
+        </trans-unit>
+        <trans-unit id="bfd457fd-1a3e-47ae-82ef-9f3411d78487" xml:space="preserve">
+          <source>Central US</source>
+          <target state="new">Central US</target>
+        </trans-unit>
+        <trans-unit id="6805257f-dbff-48db-a4f7-ba5196d49b5b" xml:space="preserve">
+          <source>North Central US</source>
+          <target state="new">North Central US</target>
+        </trans-unit>
+        <trans-unit id="e8f38584-a5bc-403e-94a8-ca0a83133853" xml:space="preserve">
+          <source>South Central US</source>
+          <target state="new">South Central US</target>
+        </trans-unit>
+        <trans-unit id="635025c0-ad64-46fb-9bf7-ca13c0808691" xml:space="preserve">
+          <source>West US</source>
+          <target state="new">West US</target>
+        </trans-unit>
+        <trans-unit id="0a2f10ee-24cc-4594-9fd3-3e59d0420a30" xml:space="preserve">
+          <source>East US</source>
+          <target state="new">East US</target>
+        </trans-unit>
+        <trans-unit id="1134644f-6951-4c24-9f54-d5fe451f638d" xml:space="preserve">
+          <source>Japan East</source>
+          <target state="new">Japan East</target>
+        </trans-unit>
+        <trans-unit id="ec48825a-1a39-4aa4-a57a-09625be55cf0" xml:space="preserve">
+          <source>Japan West</source>
+          <target state="new">Japan West</target>
+        </trans-unit>
+        <trans-unit id="2cfee7cd-0892-46ed-ae5f-b30c3a67cc29" xml:space="preserve">
+          <source>Brazil South</source>
+          <target state="new">Brazil South</target>
+        </trans-unit>
+        <trans-unit id="0a5e6269-d436-4648-a4f2-22a3f5787d4a" xml:space="preserve">
+          <source>Australia East</source>
+          <target state="new">Australia East</target>
+        </trans-unit>
+        <trans-unit id="33607327-a88f-40d1-b112-4ff9025b3767" xml:space="preserve">
+          <source>Australia Southeast</source>
+          <target state="new">Australia Southeast</target>
+        </trans-unit>
+        <trans-unit id="0070d0cc-8dfc-4b88-88de-898c3f77b12d" xml:space="preserve">
+          <source>When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service] (known as a <bpt id="badd041a-1558-4ad2-9aac-00bc16baac7b">&lt;em&gt;</bpt>hosted service<ept id="badd041a-1558-4ad2-9aac-00bc16baac7b">&lt;/em&gt;</ept> in earlier Azure releases).</source>
+          <target state="new">When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service] (known as a <bpt id="badd041a-1558-4ad2-9aac-00bc16baac7b">&lt;em&gt;</bpt>hosted service<ept id="badd041a-1558-4ad2-9aac-00bc16baac7b">&lt;/em&gt;</ept> in earlier Azure releases).</target>
+        </trans-unit>
+        <trans-unit id="d3adcbd8-88b0-43b4-a95b-52126349c6b6" xml:space="preserve">
+          <source>The <bpt id="214b1325-dfb8-4d7c-9184-d195512291d5">&lt;strong&gt;</bpt>create\_hosted\_service<ept id="214b1325-dfb8-4d7c-9184-d195512291d5">&lt;/strong&gt;</ept> method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (automatically encoded to base64), a description and a location.</source>
+          <target state="new">The <bpt id="214b1325-dfb8-4d7c-9184-d195512291d5">&lt;strong&gt;</bpt>create\_hosted\_service<ept id="214b1325-dfb8-4d7c-9184-d195512291d5">&lt;/strong&gt;</ept> method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (automatically encoded to base64), a description and a location.</target>
+        </trans-unit>
+        <trans-unit id="7e2b2aeb-55c8-423d-aa62-002ad761f842" xml:space="preserve">
+          <source>You can list all the hosted services for your subscription with the <bpt id="2fb7eec2-43c2-477e-ab8d-0e388af44296">&lt;strong&gt;</bpt>list\_hosted\_services<ept id="2fb7eec2-43c2-477e-ab8d-0e388af44296">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">You can list all the hosted services for your subscription with the <bpt id="2fb7eec2-43c2-477e-ab8d-0e388af44296">&lt;strong&gt;</bpt>list\_hosted\_services<ept id="2fb7eec2-43c2-477e-ab8d-0e388af44296">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="cee2b7f3-c7f7-4d7d-b390-3bbb99d2ab5c" xml:space="preserve">
+          <source>If you want to get information about a particular hosted service, you can do so by passing the hosted service name to the <bpt id="d5d29c55-bc1b-42e3-9a40-1c3579c385fc">&lt;strong&gt;</bpt>get\_hosted\_service\_properties<ept id="d5d29c55-bc1b-42e3-9a40-1c3579c385fc">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">If you want to get information about a particular hosted service, you can do so by passing the hosted service name to the <bpt id="d5d29c55-bc1b-42e3-9a40-1c3579c385fc">&lt;strong&gt;</bpt>get\_hosted\_service\_properties<ept id="d5d29c55-bc1b-42e3-9a40-1c3579c385fc">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="32bbd512-0cb1-4df0-b801-3cb04e8626a0" xml:space="preserve">
+          <source>After you have created a cloud service, you can deploy your code to the service with the <bpt id="d532ed37-7eca-4163-bbc0-78e8a02945de">&lt;strong&gt;</bpt>create\_deployment<ept id="d532ed37-7eca-4163-bbc0-78e8a02945de">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">After you have created a cloud service, you can deploy your code to the service with the <bpt id="d532ed37-7eca-4163-bbc0-78e8a02945de">&lt;strong&gt;</bpt>create\_deployment<ept id="d532ed37-7eca-4163-bbc0-78e8a02945de">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="f5290d3e-f9ef-43d0-a4cc-05e3e08b99dd" xml:space="preserve">
+          <source>You can delete a cloud service by passing the service name to the <bpt id="ce82a76a-d2a2-4090-a1b6-286f6aa1fe3f">&lt;strong&gt;</bpt>delete\_hosted\_service<ept id="ce82a76a-d2a2-4090-a1b6-286f6aa1fe3f">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">You can delete a cloud service by passing the service name to the <bpt id="ce82a76a-d2a2-4090-a1b6-286f6aa1fe3f">&lt;strong&gt;</bpt>delete\_hosted\_service<ept id="ce82a76a-d2a2-4090-a1b6-286f6aa1fe3f">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="cce4584b-cf4d-4718-b648-d6198519e223" xml:space="preserve">
+          <source>Note that before you can delete a service, all deployments for the the service must first be deleted.</source>
+          <target state="new">Note that before you can delete a service, all deployments for the the service must first be deleted.</target>
+        </trans-unit>
+        <trans-unit id="c498ab48-51cf-4bd8-a17d-66d0ec6b72ef" xml:space="preserve">
+          <source>(See <bpt id="06a9f90f-90e4-4eec-b036-6ef10f789633">&lt;linkText&gt;</bpt>How to: Delete a deployment<ept id="06a9f90f-90e4-4eec-b036-6ef10f789633">&lt;/linkText&gt;</ept><bpt id="06a9f90f-90e4-4eec-b036-6ef10f789633">&lt;title&gt;</bpt><ept id="06a9f90f-90e4-4eec-b036-6ef10f789633">&lt;/title&gt;</ept> for details.)</source>
+          <target state="new">(See <bpt id="06a9f90f-90e4-4eec-b036-6ef10f789633">&lt;linkText&gt;</bpt>How to: Delete a deployment<ept id="06a9f90f-90e4-4eec-b036-6ef10f789633">&lt;/linkText&gt;</ept><bpt id="06a9f90f-90e4-4eec-b036-6ef10f789633">&lt;title&gt;</bpt><ept id="06a9f90f-90e4-4eec-b036-6ef10f789633">&lt;/title&gt;</ept> for details.)</target>
+        </trans-unit>
+        <trans-unit id="25cb4c71-b9d3-4126-8b01-484560823d42" xml:space="preserve">
+          <source>To delete a deployment, use the <bpt id="97292836-2dda-4d7f-a4be-468c26959583">&lt;strong&gt;</bpt>delete\_deployment<ept id="97292836-2dda-4d7f-a4be-468c26959583">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To delete a deployment, use the <bpt id="97292836-2dda-4d7f-a4be-468c26959583">&lt;strong&gt;</bpt>delete\_deployment<ept id="97292836-2dda-4d7f-a4be-468c26959583">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="910018a9-d930-4479-977a-073d9d705966" xml:space="preserve">
+          <source>The following example shows how to delete a deployment named <bpt id="aa179c1b-fa3f-4e52-a8c6-77c679aae14f">&lt;code&gt;</bpt>v1<ept id="aa179c1b-fa3f-4e52-a8c6-77c679aae14f">&lt;/code&gt;</ept>.</source>
+          <target state="new">The following example shows how to delete a deployment named <bpt id="aa179c1b-fa3f-4e52-a8c6-77c679aae14f">&lt;code&gt;</bpt>v1<ept id="aa179c1b-fa3f-4e52-a8c6-77c679aae14f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22802c8f-4363-42cd-9374-3d7604f8f0af" xml:space="preserve">
+          <source>A [storage service] gives you access to Azure <bpt id="d2dd2f8c-b2ab-4264-8c5f-58c6760bebf7">&lt;linkText&gt;</bpt>Blobs[azure-blobs]<ept id="d2dd2f8c-b2ab-4264-8c5f-58c6760bebf7">&lt;/linkText&gt;</ept><bpt id="d2dd2f8c-b2ab-4264-8c5f-58c6760bebf7">&lt;title&gt;</bpt><ept id="d2dd2f8c-b2ab-4264-8c5f-58c6760bebf7">&lt;/title&gt;</ept>, <bpt id="e99f5d30-2d87-42ab-91fe-08373b2c2324">&lt;linkText&gt;</bpt>Tables[azure-tables]<ept id="e99f5d30-2d87-42ab-91fe-08373b2c2324">&lt;/linkText&gt;</ept><bpt id="e99f5d30-2d87-42ab-91fe-08373b2c2324">&lt;title&gt;</bpt><ept id="e99f5d30-2d87-42ab-91fe-08373b2c2324">&lt;/title&gt;</ept>, and <bpt id="9e2e69af-3f03-4fd4-b861-88c2c0a9ecc5">&lt;linkText&gt;</bpt>Queues[azure-queues]<ept id="9e2e69af-3f03-4fd4-b861-88c2c0a9ecc5">&lt;/linkText&gt;</ept><bpt id="9e2e69af-3f03-4fd4-b861-88c2c0a9ecc5">&lt;title&gt;</bpt><ept id="9e2e69af-3f03-4fd4-b861-88c2c0a9ecc5">&lt;/title&gt;</ept>.</source>
+          <target state="new">A [storage service] gives you access to Azure <bpt id="d2dd2f8c-b2ab-4264-8c5f-58c6760bebf7">&lt;linkText&gt;</bpt>Blobs[azure-blobs]<ept id="d2dd2f8c-b2ab-4264-8c5f-58c6760bebf7">&lt;/linkText&gt;</ept><bpt id="d2dd2f8c-b2ab-4264-8c5f-58c6760bebf7">&lt;title&gt;</bpt><ept id="d2dd2f8c-b2ab-4264-8c5f-58c6760bebf7">&lt;/title&gt;</ept>, <bpt id="e99f5d30-2d87-42ab-91fe-08373b2c2324">&lt;linkText&gt;</bpt>Tables[azure-tables]<ept id="e99f5d30-2d87-42ab-91fe-08373b2c2324">&lt;/linkText&gt;</ept><bpt id="e99f5d30-2d87-42ab-91fe-08373b2c2324">&lt;title&gt;</bpt><ept id="e99f5d30-2d87-42ab-91fe-08373b2c2324">&lt;/title&gt;</ept>, and <bpt id="9e2e69af-3f03-4fd4-b861-88c2c0a9ecc5">&lt;linkText&gt;</bpt>Queues[azure-queues]<ept id="9e2e69af-3f03-4fd4-b861-88c2c0a9ecc5">&lt;/linkText&gt;</ept><bpt id="9e2e69af-3f03-4fd4-b861-88c2c0a9ecc5">&lt;title&gt;</bpt><ept id="9e2e69af-3f03-4fd4-b861-88c2c0a9ecc5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4950d768-0883-42dc-a4a6-159d2b0e84b0" xml:space="preserve">
+          <source>To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Azure), a description, a label (up to 100 characters, automatically encoded to base64), and a location.</source>
+          <target state="new">To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Azure), a description, a label (up to 100 characters, automatically encoded to base64), and a location.</target>
+        </trans-unit>
+        <trans-unit id="29178057-7aad-4f38-87e5-b1dc6da19958" xml:space="preserve">
+          <source>The following example shows how to create a storage service by specifying a location.</source>
+          <target state="new">The following example shows how to create a storage service by specifying a location.</target>
+        </trans-unit>
+        <trans-unit id="06915ed4-1f2c-4e79-9707-44b66d380a7e" xml:space="preserve">
+          <source>Note in the example above that the status of the <bpt id="9b3ac00a-3c70-4536-94e2-22e240fddae8">&lt;strong&gt;</bpt>create\_storage\_account<ept id="9b3ac00a-3c70-4536-94e2-22e240fddae8">&lt;/strong&gt;</ept> operation can be retrieved by passing the result returned by <bpt id="204cabbf-3a5a-47a9-a306-768d57449e9c">&lt;strong&gt;</bpt>create\_storage\_account<ept id="204cabbf-3a5a-47a9-a306-768d57449e9c">&lt;/strong&gt;</ept> to the <bpt id="40b9db8d-597a-404e-99ec-e8a9197048c2">&lt;strong&gt;</bpt>get\_operation\_status<ept id="40b9db8d-597a-404e-99ec-e8a9197048c2">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">Note in the example above that the status of the <bpt id="9b3ac00a-3c70-4536-94e2-22e240fddae8">&lt;strong&gt;</bpt>create\_storage\_account<ept id="9b3ac00a-3c70-4536-94e2-22e240fddae8">&lt;/strong&gt;</ept> operation can be retrieved by passing the result returned by <bpt id="204cabbf-3a5a-47a9-a306-768d57449e9c">&lt;strong&gt;</bpt>create\_storage\_account<ept id="204cabbf-3a5a-47a9-a306-768d57449e9c">&lt;/strong&gt;</ept> to the <bpt id="40b9db8d-597a-404e-99ec-e8a9197048c2">&lt;strong&gt;</bpt>get\_operation\_status<ept id="40b9db8d-597a-404e-99ec-e8a9197048c2">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="46123048-cde6-4753-982e-1f72106cd9e5" xml:space="preserve">
+          <source>You can list your storage accounts and their properties with the <bpt id="91d4c374-8ad8-49d3-af13-38b063a0e887">&lt;strong&gt;</bpt>list\_storage\_accounts<ept id="91d4c374-8ad8-49d3-af13-38b063a0e887">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">You can list your storage accounts and their properties with the <bpt id="91d4c374-8ad8-49d3-af13-38b063a0e887">&lt;strong&gt;</bpt>list\_storage\_accounts<ept id="91d4c374-8ad8-49d3-af13-38b063a0e887">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="c47ced56-7676-47f1-97ac-d983553df973" xml:space="preserve">
+          <source>You can delete a storage service by passing the storage service name to the <bpt id="881383fc-43f4-4797-9b79-4d9a0df957eb">&lt;strong&gt;</bpt>delete\_storage\_account<ept id="881383fc-43f4-4797-9b79-4d9a0df957eb">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">You can delete a storage service by passing the storage service name to the <bpt id="881383fc-43f4-4797-9b79-4d9a0df957eb">&lt;strong&gt;</bpt>delete\_storage\_account<ept id="881383fc-43f4-4797-9b79-4d9a0df957eb">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="2b88e2d9-283d-4f70-85fc-74f0e135f7a7" xml:space="preserve">
+          <source>Deleting a storage service will delete all data stored in the service (blobs, tables and queues).</source>
+          <target state="new">Deleting a storage service will delete all data stored in the service (blobs, tables and queues).</target>
+        </trans-unit>
+        <trans-unit id="75295cdc-389b-47f4-b86e-e520f2d887a4" xml:space="preserve">
+          <source>To list the operating systems that are available for hosting services, use the <bpt id="258ddd00-f590-4970-9610-da5a6ee1dceb">&lt;strong&gt;</bpt>list\_operating\_systems<ept id="258ddd00-f590-4970-9610-da5a6ee1dceb">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">To list the operating systems that are available for hosting services, use the <bpt id="258ddd00-f590-4970-9610-da5a6ee1dceb">&lt;strong&gt;</bpt>list\_operating\_systems<ept id="258ddd00-f590-4970-9610-da5a6ee1dceb">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="2ffd7a99-1275-4e4d-9ec2-d93cf6c03104" xml:space="preserve">
+          <source>Alternatively, you can use the <bpt id="da17b364-2aa3-401a-9e87-37e47089a701">&lt;strong&gt;</bpt>list\_operating\_system\_families<ept id="da17b364-2aa3-401a-9e87-37e47089a701">&lt;/strong&gt;</ept> method, which groups the operating systems by family:</source>
+          <target state="new">Alternatively, you can use the <bpt id="da17b364-2aa3-401a-9e87-37e47089a701">&lt;strong&gt;</bpt>list\_operating\_system\_families<ept id="da17b364-2aa3-401a-9e87-37e47089a701">&lt;/strong&gt;</ept> method, which groups the operating systems by family:</target>
+        </trans-unit>
+        <trans-unit id="7a91094e-fc9f-4dd4-9b3a-57fa00afaf3b" xml:space="preserve">
+          <source>To add an operating system image to the image repository, use the <bpt id="11cedee9-89db-4f4f-b3f1-d8a117e642fd">&lt;strong&gt;</bpt>add\_os\_image<ept id="11cedee9-89db-4f4f-b3f1-d8a117e642fd">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">To add an operating system image to the image repository, use the <bpt id="11cedee9-89db-4f4f-b3f1-d8a117e642fd">&lt;strong&gt;</bpt>add\_os\_image<ept id="11cedee9-89db-4f4f-b3f1-d8a117e642fd">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="d1c63a28-81ed-432a-a6d6-5e89cf36b9ba" xml:space="preserve">
+          <source>To list the operating system images that are available, use the <bpt id="f09a1345-6805-4571-8a87-6c59bbf28093">&lt;strong&gt;</bpt>list\_os\_images<ept id="f09a1345-6805-4571-8a87-6c59bbf28093">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To list the operating system images that are available, use the <bpt id="f09a1345-6805-4571-8a87-6c59bbf28093">&lt;strong&gt;</bpt>list\_os\_images<ept id="f09a1345-6805-4571-8a87-6c59bbf28093">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="8fc43f2a-7ad2-45cf-b7de-8e28dd16ce56" xml:space="preserve">
+          <source>This includes all platform images and user images:</source>
+          <target state="new">This includes all platform images and user images:</target>
+        </trans-unit>
+        <trans-unit id="4095b6ca-ad8c-4f38-84c5-89f83cd9df0a" xml:space="preserve">
+          <source>To delete a user image, use the <bpt id="eab04b9c-3ada-473b-ac50-5bc14fadd769">&lt;strong&gt;</bpt>delete\_os\_image<ept id="eab04b9c-3ada-473b-ac50-5bc14fadd769">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">To delete a user image, use the <bpt id="eab04b9c-3ada-473b-ac50-5bc14fadd769">&lt;strong&gt;</bpt>delete\_os\_image<ept id="eab04b9c-3ada-473b-ac50-5bc14fadd769">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="ce73588d-d7cf-4876-a05e-9c5828469af7" xml:space="preserve">
+          <source>To create a virtual machine, you first need to create a <bpt id="bae33f5d-c7c3-46f7-ab7a-170b25dd2817">&lt;linkText&gt;</bpt>cloud service<ept id="bae33f5d-c7c3-46f7-ab7a-170b25dd2817">&lt;/linkText&gt;</ept><bpt id="bae33f5d-c7c3-46f7-ab7a-170b25dd2817">&lt;title&gt;</bpt><ept id="bae33f5d-c7c3-46f7-ab7a-170b25dd2817">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a virtual machine, you first need to create a <bpt id="bae33f5d-c7c3-46f7-ab7a-170b25dd2817">&lt;linkText&gt;</bpt>cloud service<ept id="bae33f5d-c7c3-46f7-ab7a-170b25dd2817">&lt;/linkText&gt;</ept><bpt id="bae33f5d-c7c3-46f7-ab7a-170b25dd2817">&lt;title&gt;</bpt><ept id="bae33f5d-c7c3-46f7-ab7a-170b25dd2817">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3e35024-7367-445e-8bd1-eb1a8b2c0b0a" xml:space="preserve">
+          <source>Then create the virtual machine deployment using the <bpt id="26582e64-7583-4e75-ae04-a2d293d37d31">&lt;strong&gt;</bpt>create\_virtual\_machine\_deployment<ept id="26582e64-7583-4e75-ae04-a2d293d37d31">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Then create the virtual machine deployment using the <bpt id="26582e64-7583-4e75-ae04-a2d293d37d31">&lt;strong&gt;</bpt>create\_virtual\_machine\_deployment<ept id="26582e64-7583-4e75-ae04-a2d293d37d31">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="7a8a3550-e85f-4d8e-8678-71dfa763fbf8" xml:space="preserve">
+          <source>To delete a virtual machine, you first delete the deployment using the <bpt id="94f85e2d-0fa3-49f1-b015-e1f4ce6d5915">&lt;strong&gt;</bpt>delete\_deployment<ept id="94f85e2d-0fa3-49f1-b015-e1f4ce6d5915">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">To delete a virtual machine, you first delete the deployment using the <bpt id="94f85e2d-0fa3-49f1-b015-e1f4ce6d5915">&lt;strong&gt;</bpt>delete\_deployment<ept id="94f85e2d-0fa3-49f1-b015-e1f4ce6d5915">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="8993240b-c764-4d05-a8e1-782255413b0c" xml:space="preserve">
+          <source>The cloud service can then be deleted using the <bpt id="6de850a1-2a04-4454-85a8-f15ae0a2df49">&lt;strong&gt;</bpt>delete\_hosted\_service<ept id="6de850a1-2a04-4454-85a8-f15ae0a2df49">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">The cloud service can then be deleted using the <bpt id="6de850a1-2a04-4454-85a8-f15ae0a2df49">&lt;strong&gt;</bpt>delete\_hosted\_service<ept id="6de850a1-2a04-4454-85a8-f15ae0a2df49">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="3eb4ef5a-455a-447e-9985-61f32ba1832f" xml:space="preserve">
+          <source>To capture a VM image, you first call the <bpt id="730cbcf0-1112-42fe-8c81-4d183e11a577">&lt;strong&gt;</bpt>capture\_vm\_image<ept id="730cbcf0-1112-42fe-8c81-4d183e11a577">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">To capture a VM image, you first call the <bpt id="730cbcf0-1112-42fe-8c81-4d183e11a577">&lt;strong&gt;</bpt>capture\_vm\_image<ept id="730cbcf0-1112-42fe-8c81-4d183e11a577">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="3393f81d-9273-4b97-8e4f-ea00cf84abea" xml:space="preserve">
+          <source>Next, to make sure that you have successfully captured the image, use the <bpt id="bbdd54dc-37fc-478d-b473-a99df288f243">&lt;strong&gt;</bpt>list\_vm\_images<ept id="bbdd54dc-37fc-478d-b473-a99df288f243">&lt;/strong&gt;</ept> api and make sure your image is displayed in the results:</source>
+          <target state="new">Next, to make sure that you have successfully captured the image, use the <bpt id="bbdd54dc-37fc-478d-b473-a99df288f243">&lt;strong&gt;</bpt>list\_vm\_images<ept id="bbdd54dc-37fc-478d-b473-a99df288f243">&lt;/strong&gt;</ept> api and make sure your image is displayed in the results:</target>
+        </trans-unit>
+        <trans-unit id="fad723d4-f3a3-4945-b0a5-572cdca8674b" xml:space="preserve">
+          <source>To finally create the virtual machine using the captured image, use the <bpt id="e4c600ae-ab90-4241-9b5c-92a0a17be81e">&lt;strong&gt;</bpt>create\_virtual\_machine\_deployment<ept id="e4c600ae-ab90-4241-9b5c-92a0a17be81e">&lt;/strong&gt;</ept> method as before, but this time pass in the vm<bpt id="810a14c3-5cae-4cae-81d4-47f28f15091f">&lt;em&gt;</bpt>image<ept id="810a14c3-5cae-4cae-81d4-47f28f15091f">&lt;/em&gt;</ept>name instead</source>
+          <target state="new">To finally create the virtual machine using the captured image, use the <bpt id="e4c600ae-ab90-4241-9b5c-92a0a17be81e">&lt;strong&gt;</bpt>create\_virtual\_machine\_deployment<ept id="e4c600ae-ab90-4241-9b5c-92a0a17be81e">&lt;/strong&gt;</ept> method as before, but this time pass in the vm<bpt id="810a14c3-5cae-4cae-81d4-47f28f15091f">&lt;em&gt;</bpt>image<ept id="810a14c3-5cae-4cae-81d4-47f28f15091f">&lt;/em&gt;</ept>name instead</target>
+        </trans-unit>
+        <trans-unit id="2ff50291-1b21-4ef9-8575-bc42645c144b" xml:space="preserve">
+          <source>To learn more about how to capture a Linux Virtual Machine, see <bpt id="626b37cb-42df-475a-90ee-6558a9f458db">&lt;linkText&gt;</bpt>How to Capture a Linux Virtual Machine.<ept id="626b37cb-42df-475a-90ee-6558a9f458db">&lt;/linkText&gt;</ept><bpt id="626b37cb-42df-475a-90ee-6558a9f458db">&lt;title&gt;</bpt><ept id="626b37cb-42df-475a-90ee-6558a9f458db">&lt;/title&gt;</ept></source>
+          <target state="new">To learn more about how to capture a Linux Virtual Machine, see <bpt id="626b37cb-42df-475a-90ee-6558a9f458db">&lt;linkText&gt;</bpt>How to Capture a Linux Virtual Machine.<ept id="626b37cb-42df-475a-90ee-6558a9f458db">&lt;/linkText&gt;</ept><bpt id="626b37cb-42df-475a-90ee-6558a9f458db">&lt;title&gt;</bpt><ept id="626b37cb-42df-475a-90ee-6558a9f458db">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3817baac-2867-446c-ad05-12e72d4bf519" xml:space="preserve">
+          <source>To learn more about how to capture a Windows Virtual Machine, see <bpt id="722c3d57-2251-464d-b04f-0f53c19e5ee6">&lt;linkText&gt;</bpt>How to Capture a Windows Virtual Machine.<ept id="722c3d57-2251-464d-b04f-0f53c19e5ee6">&lt;/linkText&gt;</ept><bpt id="722c3d57-2251-464d-b04f-0f53c19e5ee6">&lt;title&gt;</bpt><ept id="722c3d57-2251-464d-b04f-0f53c19e5ee6">&lt;/title&gt;</ept></source>
+          <target state="new">To learn more about how to capture a Windows Virtual Machine, see <bpt id="722c3d57-2251-464d-b04f-0f53c19e5ee6">&lt;linkText&gt;</bpt>How to Capture a Windows Virtual Machine.<ept id="722c3d57-2251-464d-b04f-0f53c19e5ee6">&lt;/linkText&gt;</ept><bpt id="722c3d57-2251-464d-b04f-0f53c19e5ee6">&lt;title&gt;</bpt><ept id="722c3d57-2251-464d-b04f-0f53c19e5ee6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bc83360-fa2a-4fbd-afa4-fe9a65690dcb" xml:space="preserve">
+          <source>Now that you've learned the basics of service management, you can access the <bpt id="af8122bf-213a-46b4-b677-05ff099a64ab">&lt;linkText&gt;</bpt>Complete API reference documentation for the Azure Python SDK<ept id="af8122bf-213a-46b4-b677-05ff099a64ab">&lt;/linkText&gt;</ept><bpt id="af8122bf-213a-46b4-b677-05ff099a64ab">&lt;title&gt;</bpt><ept id="af8122bf-213a-46b4-b677-05ff099a64ab">&lt;/title&gt;</ept> and perform complex tasks easily to manage your python application.</source>
+          <target state="new">Now that you've learned the basics of service management, you can access the <bpt id="af8122bf-213a-46b4-b677-05ff099a64ab">&lt;linkText&gt;</bpt>Complete API reference documentation for the Azure Python SDK<ept id="af8122bf-213a-46b4-b677-05ff099a64ab">&lt;/linkText&gt;</ept><bpt id="af8122bf-213a-46b4-b677-05ff099a64ab">&lt;title&gt;</bpt><ept id="af8122bf-213a-46b4-b677-05ff099a64ab">&lt;/title&gt;</ept> and perform complex tasks easily to manage your python application.</target>
+        </trans-unit>
+        <trans-unit id="e8e1007e-8a88-4bfc-9a39-351189269e7c" xml:space="preserve">
+          <source>#WhatIs</source>
+          <target state="new">#WhatIs</target>
+        </trans-unit>
+        <trans-unit id="26705c61-c810-407a-82f0-0846b8473e23" xml:space="preserve">
+          <source>#Concepts</source>
+          <target state="new">#Concepts</target>
+        </trans-unit>
+        <trans-unit id="65db7456-790b-4ea3-80f9-253bbce723f8" xml:space="preserve">
+          <source>#Connect</source>
+          <target state="new">#Connect</target>
+        </trans-unit>
+        <trans-unit id="b22fe069-ca6e-4d22-9833-6963fdec8c7c" xml:space="preserve">
+          <source>#ListAvailableLocations</source>
+          <target state="new">#ListAvailableLocations</target>
+        </trans-unit>
+        <trans-unit id="4a1311a1-e401-48c4-bb49-c63ef92bb4de" xml:space="preserve">
+          <source>#CreateCloudService</source>
+          <target state="new">#CreateCloudService</target>
+        </trans-unit>
+        <trans-unit id="d27aead4-511a-4c96-a5c5-c94f49bf5181" xml:space="preserve">
+          <source>#DeleteCloudService</source>
+          <target state="new">#DeleteCloudService</target>
+        </trans-unit>
+        <trans-unit id="c70e9a90-5e62-4475-878f-d9981c6e9e05" xml:space="preserve">
+          <source>#CreateDeployment</source>
+          <target state="new">#CreateDeployment</target>
+        </trans-unit>
+        <trans-unit id="19102fa4-66ed-4829-8f65-5a36c362272f" xml:space="preserve">
+          <source>#UpdateDeployment</source>
+          <target state="new">#UpdateDeployment</target>
+        </trans-unit>
+        <trans-unit id="15c86b35-352d-4004-90aa-850d52b5bdd7" xml:space="preserve">
+          <source>#MoveDeployments</source>
+          <target state="new">#MoveDeployments</target>
+        </trans-unit>
+        <trans-unit id="e041e88b-cd2f-451f-abe9-2f0d5671553e" xml:space="preserve">
+          <source>#DeleteDeployment</source>
+          <target state="new">#DeleteDeployment</target>
+        </trans-unit>
+        <trans-unit id="f7477988-7acf-4bc8-b92b-2fd9ff181fb7" xml:space="preserve">
+          <source>#CreateStorageService</source>
+          <target state="new">#CreateStorageService</target>
+        </trans-unit>
+        <trans-unit id="e507dc96-dc23-456a-ab91-976b7ec2f814" xml:space="preserve">
+          <source>#DeleteStorageService</source>
+          <target state="new">#DeleteStorageService</target>
+        </trans-unit>
+        <trans-unit id="a0f6eabd-16e9-4ab6-88c1-04da65359ab8" xml:space="preserve">
+          <source>#ListOperatingSystems</source>
+          <target state="new">#ListOperatingSystems</target>
+        </trans-unit>
+        <trans-unit id="a6e379cb-8b1d-47d1-97a3-81d237914173" xml:space="preserve">
+          <source>#CreateVMImage</source>
+          <target state="new">#CreateVMImage</target>
+        </trans-unit>
+        <trans-unit id="4603f413-0dd2-4467-aae1-40baa80af298" xml:space="preserve">
+          <source>#DeleteVMImage</source>
+          <target state="new">#DeleteVMImage</target>
+        </trans-unit>
+        <trans-unit id="94e59db0-7f95-4e8d-8d02-072a2faa2040" xml:space="preserve">
+          <source>#CreateVM</source>
+          <target state="new">#CreateVM</target>
+        </trans-unit>
+        <trans-unit id="5e8c56fc-1ffb-4f35-b6cc-6c25ed061d91" xml:space="preserve">
+          <source>#DeleteVM</source>
+          <target state="new">#DeleteVM</target>
+        </trans-unit>
+        <trans-unit id="8864e28e-ab0c-4977-a44b-0918291258a5" xml:space="preserve">
+          <source>#NextSteps</source>
+          <target state="new">#NextSteps</target>
+        </trans-unit>
+        <trans-unit id="0de499e8-4711-4f47-8d75-afcca3393513" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="399e870d-a93c-4005-835b-2832596db5d8" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/ee460799.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/ee460799.aspx</target>
+        </trans-unit>
+        <trans-unit id="fba59cfd-8fbc-4a61-a924-55fb51076967" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/python/common-tasks/install-python/</source>
+          <target state="new">https://www.windowsazure.com/develop/python/common-tasks/install-python/</target>
+        </trans-unit>
+        <trans-unit id="ce402adf-a9a7-4d1e-9266-d5953b1ab8f3" xml:space="preserve">
+          <source>http://windowsazure.com/documentation/articles/cloud-services-what-is</source>
+          <target state="new">http://windowsazure.com/documentation/articles/cloud-services-what-is</target>
+        </trans-unit>
+        <trans-unit id="d264b9bf-97f3-41b7-abaf-1eed583c9daf" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/jj155995.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/jj155995.aspx</target>
+        </trans-unit>
+        <trans-unit id="23e7aee2-eeb8-4a25-8316-d8f18f5366aa" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/php/how-to-guides/powershell-cmdlets/</source>
+          <target state="new">https://www.windowsazure.com/develop/php/how-to-guides/powershell-cmdlets/</target>
+        </trans-unit>
+        <trans-unit id="93eb51f8-13ff-47a8-a687-ef53dd320657" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/gg432988.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/gg432988.aspx</target>
+        </trans-unit>
+        <trans-unit id="fa24976f-1f08-4b75-89c3-88dc9f83b4c0" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/gg433027.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/gg433027.aspx</target>
+        </trans-unit>
+        <trans-unit id="24fe2d1a-d83b-4158-8c56-578898fec419" xml:space="preserve">
+          <source>https://www.windowsazure.com/manage/services/storage/what-is-a-storage-account/</source>
+          <target state="new">https://www.windowsazure.com/manage/services/storage/what-is-a-storage-account/</target>
+        </trans-unit>
+        <trans-unit id="6dcfa41d-9987-4b51-b8ca-10ab321bd14f" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/python/how-to-guides/blob-service/</source>
+          <target state="new">https://www.windowsazure.com/develop/python/how-to-guides/blob-service/</target>
+        </trans-unit>
+        <trans-unit id="95b9fc83-4556-4c85-993f-8ceb68756738" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/python/how-to-guides/table-service/</source>
+          <target state="new">https://www.windowsazure.com/develop/python/how-to-guides/table-service/</target>
+        </trans-unit>
+        <trans-unit id="ef34da04-3242-478f-9f01-11f9ea69f875" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/python/how-to-guides/queue-service/</source>
+          <target state="new">https://www.windowsazure.com/develop/python/how-to-guides/queue-service/</target>
+        </trans-unit>
+        <trans-unit id="4807c0fe-97a3-4df7-b9b5-18180bbb962b" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/ee758710.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/ee758710.aspx</target>
+        </trans-unit>
+        <trans-unit id="f42b07fe-00e4-4456-a97f-bb20db18526d" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/jj155995.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/jj155995.aspx</target>
+        </trans-unit>
+        <trans-unit id="e9ebc31c-fc7c-4611-8235-859d337d0127" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/jj156003.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/jj156003.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="46b549b2-6130-465d-8f96-8a8496540185" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b336f6e1-947b-43c9-a0c2-ba4a015eb3f5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b336f6e1-947b-43c9-a0c2-ba4a015eb3f5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2a252153-ee0e-492b-8fce-7b464de67ca7">
+        <trans-unit id="15811e3f-fdba-46e7-8003-050417994df4" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="Signing in using a call to your office or mobile phone with Azure Multi-Factor Authentication" 
+    description="This page describes how a user can signin using their mobile phones." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="Signing in using a call to your office or mobile phone with Azure Multi-Factor Authentication" 
+    description="This page describes how a user can signin using their mobile phones." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="f7df02b0-51d0-4207-bf23-477eb0b2fb59" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2015" 
+    ms.author="billmath"/&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2015" 
+    ms.author="billmath"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="5ab3b9c5-17fb-4a9c-87c6-0ea912a76b1f" xml:space="preserve">
+          <source>The following information will describe the experience of using multi-factor authentication with your mobile or office phone.</source>
+          <target state="new">The following information will describe the experience of using multi-factor authentication with your mobile or office phone.</target>
+        </trans-unit>
+        <trans-unit id="32178868-f37a-49d9-af8c-adbcacd338ad" xml:space="preserve">
+          <source>&lt;ol&gt;</source>
+          <target state="new">&lt;ol&gt;</target>
+        </trans-unit>
+        <trans-unit id="b4da136e-d86c-478c-90db-9617d84d760d" xml:space="preserve">
+          <source>&lt;li&gt;Sign in to an application or service such as Office 365 using your user name and password.&lt;/li&gt;
+&lt;li&gt;Microsoft will call you.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Sign in to an application or service such as Office 365 using your user name and password.&lt;/li&gt;
+&lt;li&gt;Microsoft will call you.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="767c5246-848a-4434-af64-e564f76b3286" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="22dc7b0c-2311-49ea-9e3a-de1849a6e494">&lt;linkText&gt;</bpt>Setup<ept id="22dc7b0c-2311-49ea-9e3a-de1849a6e494">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="22dc7b0c-2311-49ea-9e3a-de1849a6e494">&lt;linkText&gt;</bpt>Setup<ept id="22dc7b0c-2311-49ea-9e3a-de1849a6e494">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="45dee572-997d-42df-be14-202c01f66b7b" xml:space="preserve">
+          <source>&lt;li&gt;Answer the phone and hit the # key.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Answer the phone and hit the # key.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="3bd2a837-6b87-4395-b58c-29656f6ead84" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="2a0e896f-3d9e-4d0e-a03f-00fd2be87488">&lt;linkText&gt;</bpt>Setup<ept id="2a0e896f-3d9e-4d0e-a03f-00fd2be87488">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="2a0e896f-3d9e-4d0e-a03f-00fd2be87488">&lt;linkText&gt;</bpt>Setup<ept id="2a0e896f-3d9e-4d0e-a03f-00fd2be87488">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="98a1970f-16cc-4669-b060-8175b8ddb70d" xml:space="preserve">
+          <source>&lt;li&gt;You should now be signed in.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;You should now be signed in.&lt;/li&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

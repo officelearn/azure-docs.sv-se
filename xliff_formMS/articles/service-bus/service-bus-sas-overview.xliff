@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d2696fa1-a55e-49aa-952e-0bee752d2023" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d2696fa1-a55e-49aa-952e-0bee752d2023" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="61a27a13-c355-4757-ae77-c1195645dab4">
+        <trans-unit id="35e459e2-bc87-40d9-a6e0-38e32c4f72d2" xml:space="preserve">
+          <source>Shared Access Signatures Overview</source>
+          <target state="new">Shared Access Signatures Overview</target>
+        </trans-unit>
+        <trans-unit id="bf7859f2-1d4f-43ed-a6b3-b9615121d652" xml:space="preserve">
+          <source>What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#.</source>
+          <target state="new">What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#.</target>
+        </trans-unit>
+        <trans-unit id="9424c643-c529-4968-8459-226fcb735665" xml:space="preserve">
+          <source><bpt id="b29371c3-15c3-440a-b88f-057ee51a89df">&lt;em&gt;</bpt>Shared Access Signatures<ept id="b29371c3-15c3-440a-b88f-057ee51a89df">&lt;/em&gt;</ept> (SAS) is the primary security mechanism for Service Bus, including Event Hubs, brokered messaging (queues and topics), and relayed messaging.</source>
+          <target state="new"><bpt id="b29371c3-15c3-440a-b88f-057ee51a89df">&lt;em&gt;</bpt>Shared Access Signatures<ept id="b29371c3-15c3-440a-b88f-057ee51a89df">&lt;/em&gt;</ept> (SAS) is the primary security mechanism for Service Bus, including Event Hubs, brokered messaging (queues and topics), and relayed messaging.</target>
+        </trans-unit>
+        <trans-unit id="a920750c-4152-4800-9946-b791e97c69e4" xml:space="preserve">
+          <source>This article discusses Shared Access Signatures, how they work, and how to use them in a platform-agnostic way.</source>
+          <target state="new">This article discusses Shared Access Signatures, how they work, and how to use them in a platform-agnostic way.</target>
+        </trans-unit>
+        <trans-unit id="1de5f9d2-ae7f-4fde-86b4-d0983fb9d24d" xml:space="preserve">
+          <source>Shared Access Signatures are an authentication mechanism based on SHA-256 secure hashes or URIs.</source>
+          <target state="new">Shared Access Signatures are an authentication mechanism based on SHA-256 secure hashes or URIs.</target>
+        </trans-unit>
+        <trans-unit id="568d07e7-2610-4c7c-81a7-4ade82f48fea" xml:space="preserve">
+          <source>SAS is an extremely powerful mechanism that is used by all Service Bus services.</source>
+          <target state="new">SAS is an extremely powerful mechanism that is used by all Service Bus services.</target>
+        </trans-unit>
+        <trans-unit id="0bc567bb-2a13-4e0d-a177-5f7072eaadee" xml:space="preserve">
+          <source>In actual use, SAS has two components: a <bpt id="da59a191-c035-42fe-892c-cbbffdd5958d">&lt;em&gt;</bpt>Shared Access Policy<ept id="da59a191-c035-42fe-892c-cbbffdd5958d">&lt;/em&gt;</ept> and a <bpt id="1ed9d776-aaab-42c3-bd44-4def3d168205">&lt;em&gt;</bpt>Shared Access Signature<ept id="1ed9d776-aaab-42c3-bd44-4def3d168205">&lt;/em&gt;</ept> (often called a <bpt id="a1fc3e18-f41d-4d86-8532-02c7de36df97">&lt;em&gt;</bpt>token<ept id="a1fc3e18-f41d-4d86-8532-02c7de36df97">&lt;/em&gt;</ept>).</source>
+          <target state="new">In actual use, SAS has two components: a <bpt id="da59a191-c035-42fe-892c-cbbffdd5958d">&lt;em&gt;</bpt>Shared Access Policy<ept id="da59a191-c035-42fe-892c-cbbffdd5958d">&lt;/em&gt;</ept> and a <bpt id="1ed9d776-aaab-42c3-bd44-4def3d168205">&lt;em&gt;</bpt>Shared Access Signature<ept id="1ed9d776-aaab-42c3-bd44-4def3d168205">&lt;/em&gt;</ept> (often called a <bpt id="a1fc3e18-f41d-4d86-8532-02c7de36df97">&lt;em&gt;</bpt>token<ept id="a1fc3e18-f41d-4d86-8532-02c7de36df97">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="837b9c9b-4d7f-421c-9b53-054c30bf6b65" xml:space="preserve">
+          <source>You can find more detailed information about Shared Access Signatures with Service Bus in <bpt id="89087596-9ae3-45e8-9f97-9ada1e95f6b9">&lt;linkText&gt;</bpt>Shared Access Signature Authentication with Service Bus<ept id="89087596-9ae3-45e8-9f97-9ada1e95f6b9">&lt;/linkText&gt;</ept><bpt id="89087596-9ae3-45e8-9f97-9ada1e95f6b9">&lt;title&gt;</bpt><ept id="89087596-9ae3-45e8-9f97-9ada1e95f6b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find more detailed information about Shared Access Signatures with Service Bus in <bpt id="89087596-9ae3-45e8-9f97-9ada1e95f6b9">&lt;linkText&gt;</bpt>Shared Access Signature Authentication with Service Bus<ept id="89087596-9ae3-45e8-9f97-9ada1e95f6b9">&lt;/linkText&gt;</ept><bpt id="89087596-9ae3-45e8-9f97-9ada1e95f6b9">&lt;title&gt;</bpt><ept id="89087596-9ae3-45e8-9f97-9ada1e95f6b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c2326f2-d9e3-49fc-ad84-a8a1f0caa8e3" xml:space="preserve">
+          <source>An important thing to understand about SAS is that it all starts with a policy. For every policy, you decide on three pieces of information: <bpt id="0a1fd80b-7c0c-4d20-97bf-720c6b13eb40">&lt;strong&gt;</bpt>name<ept id="0a1fd80b-7c0c-4d20-97bf-720c6b13eb40">&lt;/strong&gt;</ept>, <bpt id="ea6930f3-4802-46c5-ad20-5c60dc80edf5">&lt;strong&gt;</bpt>scope<ept id="ea6930f3-4802-46c5-ad20-5c60dc80edf5">&lt;/strong&gt;</ept>, and <bpt id="7361f017-4ac0-488b-89ec-5e1031a80e06">&lt;strong&gt;</bpt>permissions<ept id="7361f017-4ac0-488b-89ec-5e1031a80e06">&lt;/strong&gt;</ept>. The <bpt id="f81e5784-4637-4b4f-b796-8686adf35546">&lt;strong&gt;</bpt>name<ept id="f81e5784-4637-4b4f-b796-8686adf35546">&lt;/strong&gt;</ept> is just that; a unique name within that scope. The scope is easy enough: it's the URI of the resource in question. For a Service Bus namespace, the scope is the fully qualified domain name (FQDN), such as **<bpt id="b13bf68d-45c8-4c1e-8c8d-eba09825ba62">&lt;code&gt;</bpt>https://&lt;yournamespace&gt;.servicebus.windows.net/<ept id="b13bf68d-45c8-4c1e-8c8d-eba09825ba62">&lt;/code&gt;</ept>**.</source>
+          <target state="new">An important thing to understand about SAS is that it all starts with a policy. For every policy, you decide on three pieces of information: <bpt id="0a1fd80b-7c0c-4d20-97bf-720c6b13eb40">&lt;strong&gt;</bpt>name<ept id="0a1fd80b-7c0c-4d20-97bf-720c6b13eb40">&lt;/strong&gt;</ept>, <bpt id="ea6930f3-4802-46c5-ad20-5c60dc80edf5">&lt;strong&gt;</bpt>scope<ept id="ea6930f3-4802-46c5-ad20-5c60dc80edf5">&lt;/strong&gt;</ept>, and <bpt id="7361f017-4ac0-488b-89ec-5e1031a80e06">&lt;strong&gt;</bpt>permissions<ept id="7361f017-4ac0-488b-89ec-5e1031a80e06">&lt;/strong&gt;</ept>. The <bpt id="f81e5784-4637-4b4f-b796-8686adf35546">&lt;strong&gt;</bpt>name<ept id="f81e5784-4637-4b4f-b796-8686adf35546">&lt;/strong&gt;</ept> is just that; a unique name within that scope. The scope is easy enough: it's the URI of the resource in question. For a Service Bus namespace, the scope is the fully qualified domain name (FQDN), such as **<bpt id="b13bf68d-45c8-4c1e-8c8d-eba09825ba62">&lt;code&gt;</bpt>https://&lt;yournamespace&gt;.servicebus.windows.net/<ept id="b13bf68d-45c8-4c1e-8c8d-eba09825ba62">&lt;/code&gt;</ept>**.</target>
+        </trans-unit>
+        <trans-unit id="a15db8d8-9d36-4efc-aa8d-33d277097bbf" xml:space="preserve">
+          <source>The available permissions for a policy are largely self-explanatory:</source>
+          <target state="new">The available permissions for a policy are largely self-explanatory:</target>
+        </trans-unit>
+        <trans-unit id="e504b9b8-0909-494c-a440-1c93125a1c39" xml:space="preserve">
+          <source>Send</source>
+          <target state="new">Send</target>
+        </trans-unit>
+        <trans-unit id="3abb8c52-749f-4fcd-9de8-a213943d97ac" xml:space="preserve">
+          <source>Listen</source>
+          <target state="new">Listen</target>
+        </trans-unit>
+        <trans-unit id="e41caffb-76a0-4f3c-88ca-6e27322a93e2" xml:space="preserve">
+          <source>Manage</source>
+          <target state="new">Manage</target>
+        </trans-unit>
+        <trans-unit id="261e1a1a-88af-4af6-9555-aeb5ae83fcbf" xml:space="preserve">
+          <source>After you create the policy, it is assigned a <bpt id="c622c9b2-47d0-4c24-8a90-ba577e98ea6d">&lt;em&gt;</bpt>Primary Key<ept id="c622c9b2-47d0-4c24-8a90-ba577e98ea6d">&lt;/em&gt;</ept> and a <bpt id="43defb8c-a00d-459b-8fa1-da7675111b73">&lt;em&gt;</bpt>Secondary Key<ept id="43defb8c-a00d-459b-8fa1-da7675111b73">&lt;/em&gt;</ept>.</source>
+          <target state="new">After you create the policy, it is assigned a <bpt id="c622c9b2-47d0-4c24-8a90-ba577e98ea6d">&lt;em&gt;</bpt>Primary Key<ept id="c622c9b2-47d0-4c24-8a90-ba577e98ea6d">&lt;/em&gt;</ept> and a <bpt id="43defb8c-a00d-459b-8fa1-da7675111b73">&lt;em&gt;</bpt>Secondary Key<ept id="43defb8c-a00d-459b-8fa1-da7675111b73">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e66fbf8e-637d-4250-8736-d6ae7c4a86f0" xml:space="preserve">
+          <source>These are cryptographically strong keys.</source>
+          <target state="new">These are cryptographically strong keys.</target>
+        </trans-unit>
+        <trans-unit id="99554062-3213-49e6-a43a-5b45a32f985b" xml:space="preserve">
+          <source>Don't lose them or leak them - they'll always be available in the portal.</source>
+          <target state="new">Don't lose them or leak them - they'll always be available in the portal.</target>
+        </trans-unit>
+        <trans-unit id="725bc238-ecbe-4f74-9250-f3573d17fc58" xml:space="preserve">
+          <source>You can use either of the generated keys, and you can regenerate them at any time.</source>
+          <target state="new">You can use either of the generated keys, and you can regenerate them at any time.</target>
+        </trans-unit>
+        <trans-unit id="159e109f-411d-465f-99a7-aa67b8c5dcd0" xml:space="preserve">
+          <source>However, if you regenerate or change the primary key in the policy, any Shared Access Signatures created from it will be invalidated.</source>
+          <target state="new">However, if you regenerate or change the primary key in the policy, any Shared Access Signatures created from it will be invalidated.</target>
+        </trans-unit>
+        <trans-unit id="69b2c18d-d91c-4752-99b3-44bdc89ac752" xml:space="preserve">
+          <source>When you create a Service Bus namespace, a policy is automatically created for the entire namespace called <bpt id="b9caa50c-200c-4fe0-b687-b72e4f298012">&lt;strong&gt;</bpt>RootManageSharedAccessKey<ept id="b9caa50c-200c-4fe0-b687-b72e4f298012">&lt;/strong&gt;</ept>, and this policy has all permissions.</source>
+          <target state="new">When you create a Service Bus namespace, a policy is automatically created for the entire namespace called <bpt id="b9caa50c-200c-4fe0-b687-b72e4f298012">&lt;strong&gt;</bpt>RootManageSharedAccessKey<ept id="b9caa50c-200c-4fe0-b687-b72e4f298012">&lt;/strong&gt;</ept>, and this policy has all permissions.</target>
+        </trans-unit>
+        <trans-unit id="edd1d104-a248-4fb6-9cd6-bfd3ef5475a3" xml:space="preserve">
+          <source>You don't log on as <bpt id="f41ba880-0f58-412b-984a-00ff11981c66">&lt;strong&gt;</bpt>root<ept id="f41ba880-0f58-412b-984a-00ff11981c66">&lt;/strong&gt;</ept>, so don't use this policy unless there's a really good reason.</source>
+          <target state="new">You don't log on as <bpt id="f41ba880-0f58-412b-984a-00ff11981c66">&lt;strong&gt;</bpt>root<ept id="f41ba880-0f58-412b-984a-00ff11981c66">&lt;/strong&gt;</ept>, so don't use this policy unless there's a really good reason.</target>
+        </trans-unit>
+        <trans-unit id="eb68821b-cfa6-4a00-9655-86885353c6c0" xml:space="preserve">
+          <source>You can create additional policies in the <bpt id="907aea64-b2c9-4626-bfc8-c07bb5ecdd1e">&lt;strong&gt;</bpt>Configure<ept id="907aea64-b2c9-4626-bfc8-c07bb5ecdd1e">&lt;/strong&gt;</ept> tab for the namespace in the Azure management portal.</source>
+          <target state="new">You can create additional policies in the <bpt id="907aea64-b2c9-4626-bfc8-c07bb5ecdd1e">&lt;strong&gt;</bpt>Configure<ept id="907aea64-b2c9-4626-bfc8-c07bb5ecdd1e">&lt;/strong&gt;</ept> tab for the namespace in the Azure management portal.</target>
+        </trans-unit>
+        <trans-unit id="bdb791b9-5fda-4a31-8e6b-2e888d22299b" xml:space="preserve">
+          <source>It's important to note that a single tree level in Service Bus (namespace, queue, Event Hub, etc.)</source>
+          <target state="new">It's important to note that a single tree level in Service Bus (namespace, queue, Event Hub, etc.)</target>
+        </trans-unit>
+        <trans-unit id="493f779f-6d81-458a-86ab-3b19ebb3ea4d" xml:space="preserve">
+          <source>can only have up to 12 policies attached to it.</source>
+          <target state="new">can only have up to 12 policies attached to it.</target>
+        </trans-unit>
+        <trans-unit id="0f565358-1748-4e6a-8c3e-73783dcf647a" xml:space="preserve">
+          <source>The policy itself is not the access token for Service Bus.</source>
+          <target state="new">The policy itself is not the access token for Service Bus.</target>
+        </trans-unit>
+        <trans-unit id="2013a696-5474-4b75-b28c-ffbe16a82df2" xml:space="preserve">
+          <source>It is the object from which the access token is generated - using either the primary or secondary key.</source>
+          <target state="new">It is the object from which the access token is generated - using either the primary or secondary key.</target>
+        </trans-unit>
+        <trans-unit id="44c4f289-7428-4292-8c80-639ba26024d3" xml:space="preserve">
+          <source>The token is generated by carefully crafting a string in the following format:</source>
+          <target state="new">The token is generated by carefully crafting a string in the following format:</target>
+        </trans-unit>
+        <trans-unit id="279dc6af-921d-444d-a546-b49a0a015a60" xml:space="preserve">
+          <source>Where <bpt id="edfa16a9-9e76-4fa7-ac19-d477b9665f42">&lt;code&gt;</bpt>signature-string<ept id="edfa16a9-9e76-4fa7-ac19-d477b9665f42">&lt;/code&gt;</ept> is the SHA-256 hash of the scope of the token (<bpt id="d7cdeb7f-895b-462f-a04d-90d1c2f83562">&lt;strong&gt;</bpt>scope<ept id="d7cdeb7f-895b-462f-a04d-90d1c2f83562">&lt;/strong&gt;</ept> as described in the previous section) with a CRLF appended and an expiry time (in seconds since the epoch: <bpt id="31db436c-fe9d-4183-8bc3-afe57cb1c89b">&lt;code&gt;</bpt>00:00:00 UTC<ept id="31db436c-fe9d-4183-8bc3-afe57cb1c89b">&lt;/code&gt;</ept> on 1 January 1970).</source>
+          <target state="new">Where <bpt id="edfa16a9-9e76-4fa7-ac19-d477b9665f42">&lt;code&gt;</bpt>signature-string<ept id="edfa16a9-9e76-4fa7-ac19-d477b9665f42">&lt;/code&gt;</ept> is the SHA-256 hash of the scope of the token (<bpt id="d7cdeb7f-895b-462f-a04d-90d1c2f83562">&lt;strong&gt;</bpt>scope<ept id="d7cdeb7f-895b-462f-a04d-90d1c2f83562">&lt;/strong&gt;</ept> as described in the previous section) with a CRLF appended and an expiry time (in seconds since the epoch: <bpt id="31db436c-fe9d-4183-8bc3-afe57cb1c89b">&lt;code&gt;</bpt>00:00:00 UTC<ept id="31db436c-fe9d-4183-8bc3-afe57cb1c89b">&lt;/code&gt;</ept> on 1 January 1970).</target>
+        </trans-unit>
+        <trans-unit id="bbf34701-c35d-4d5b-9bce-8859266b7a80" xml:space="preserve">
+          <source>The hash looks similar to the following pseudo code and returns 32 bytes.</source>
+          <target state="new">The hash looks similar to the following pseudo code and returns 32 bytes.</target>
+        </trans-unit>
+        <trans-unit id="d2d68bbd-fc95-4d47-97f7-01be4fb9e049" xml:space="preserve">
+          <source>The non-hashed values are in the <bpt id="b99df6d4-e096-408a-969b-3debeca79c95">&lt;strong&gt;</bpt>SharedAccessSignature<ept id="b99df6d4-e096-408a-969b-3debeca79c95">&lt;/strong&gt;</ept> string so that the recipient can compute the hash with the same parameters, to be sure that it returns the same result.</source>
+          <target state="new">The non-hashed values are in the <bpt id="b99df6d4-e096-408a-969b-3debeca79c95">&lt;strong&gt;</bpt>SharedAccessSignature<ept id="b99df6d4-e096-408a-969b-3debeca79c95">&lt;/strong&gt;</ept> string so that the recipient can compute the hash with the same parameters, to be sure that it returns the same result.</target>
+        </trans-unit>
+        <trans-unit id="38f4a2ad-c562-4e43-aea1-02e1c6d9e5a5" xml:space="preserve">
+          <source>The URI specifies the scope, and the key name identifies the policy to be used to compute the hash.</source>
+          <target state="new">The URI specifies the scope, and the key name identifies the policy to be used to compute the hash.</target>
+        </trans-unit>
+        <trans-unit id="8c2a0228-9754-4739-a55d-3453e6c8a5b0" xml:space="preserve">
+          <source>This is important from a security standpoint.</source>
+          <target state="new">This is important from a security standpoint.</target>
+        </trans-unit>
+        <trans-unit id="f157eba6-df45-4438-83ce-946687796386" xml:space="preserve">
+          <source>If the signature doesn't match that which the recipient (Service Bus) calculates, then access is denied.</source>
+          <target state="new">If the signature doesn't match that which the recipient (Service Bus) calculates, then access is denied.</target>
+        </trans-unit>
+        <trans-unit id="c03a1e65-4371-41a6-a767-5dc66e16be17" xml:space="preserve">
+          <source>At this point we can be sure that the sender had access to the key and should be granted the rights specified in the policy.</source>
+          <target state="new">At this point we can be sure that the sender had access to the key and should be granted the rights specified in the policy.</target>
+        </trans-unit>
+        <trans-unit id="64ec4a1f-9cbb-4c2f-a9e9-c7f52a479137" xml:space="preserve">
+          <source>How do you actually do this in code?</source>
+          <target state="new">How do you actually do this in code?</target>
+        </trans-unit>
+        <trans-unit id="75ca4e79-d608-4fef-89ee-a4fd52d44444" xml:space="preserve">
+          <source>Let's take a look at a few of these.</source>
+          <target state="new">Let's take a look at a few of these.</target>
+        </trans-unit>
+        <trans-unit id="c6b4d3e2-3c18-44c6-b02a-5e9c3507c18c" xml:space="preserve">
+          <source>Now that you know how to create Shared Access Signatures for any entities in Service Bus, you are ready to perform an HTTP POST:</source>
+          <target state="new">Now that you know how to create Shared Access Signatures for any entities in Service Bus, you are ready to perform an HTTP POST:</target>
+        </trans-unit>
+        <trans-unit id="72ece0f7-06c8-42aa-b101-fc26cb14ed33" xml:space="preserve">
+          <source>Remember, this works for everything. You can create SAS for a queue, topic, subscription, Event Hub, or relay. If you use per-publisher identity for Event Hubs, you simply append <bpt id="c1c6f927-c09a-437f-9c7b-180a65a8221d">&lt;code&gt;</bpt>/publishers/&lt; publisherid&gt;<ept id="c1c6f927-c09a-437f-9c7b-180a65a8221d">&lt;/code&gt;</ept>.</source>
+          <target state="new">Remember, this works for everything. You can create SAS for a queue, topic, subscription, Event Hub, or relay. If you use per-publisher identity for Event Hubs, you simply append <bpt id="c1c6f927-c09a-437f-9c7b-180a65a8221d">&lt;code&gt;</bpt>/publishers/&lt; publisherid&gt;<ept id="c1c6f927-c09a-437f-9c7b-180a65a8221d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="416dc99b-6c6c-466b-a147-b75b694e02a9" xml:space="preserve">
+          <source>If you give a sender or client a SAS token, they don't have the key directly, and they cannot reverse the hash to obtain it.</source>
+          <target state="new">If you give a sender or client a SAS token, they don't have the key directly, and they cannot reverse the hash to obtain it.</target>
+        </trans-unit>
+        <trans-unit id="5257fa54-d9b1-481f-8466-9d2cf6a796d3" xml:space="preserve">
+          <source>As such, you have control over what they can access, and for how long.</source>
+          <target state="new">As such, you have control over what they can access, and for how long.</target>
+        </trans-unit>
+        <trans-unit id="f9605ab9-417d-4b33-b887-a3e36d1a6ecc" xml:space="preserve">
+          <source>An important thing to remember is that if you change the primary key in the policy, any Shared Access Signatures created from it will be invalidated.</source>
+          <target state="new">An important thing to remember is that if you change the primary key in the policy, any Shared Access Signatures created from it will be invalidated.</target>
+        </trans-unit>
+        <trans-unit id="f7541675-e316-4013-98f3-6c53df14a796" xml:space="preserve">
+          <source>In the previous section, you saw how to use the SAS token with an HTTP POST request for sending data to the Service Bus.</source>
+          <target state="new">In the previous section, you saw how to use the SAS token with an HTTP POST request for sending data to the Service Bus.</target>
+        </trans-unit>
+        <trans-unit id="9e4c6757-9aa4-4818-bc51-92bf0022648d" xml:space="preserve">
+          <source>As you know, you can access Service Bus using the AMQP (Advanced Message Queue Protocol) protocol that is the mainly and preferred protocol to use for performance reasons in a lot of scenarios.</source>
+          <target state="new">As you know, you can access Service Bus using the AMQP (Advanced Message Queue Protocol) protocol that is the mainly and preferred protocol to use for performance reasons in a lot of scenarios.</target>
+        </trans-unit>
+        <trans-unit id="92e96018-895c-4d6d-90b7-b18b0040e307" xml:space="preserve">
+          <source>The SAS token usage with AMQP is described in the following document <bpt id="29a68377-3b0b-414a-a95d-0a0bb2d35b66">&lt;linkText&gt;</bpt>AMQP Claim-Based Security Version 1.0<ept id="29a68377-3b0b-414a-a95d-0a0bb2d35b66">&lt;/linkText&gt;</ept><bpt id="29a68377-3b0b-414a-a95d-0a0bb2d35b66">&lt;title&gt;</bpt><ept id="29a68377-3b0b-414a-a95d-0a0bb2d35b66">&lt;/title&gt;</ept> that is in working draft since 2013 but it's well supported by Azure today.</source>
+          <target state="new">The SAS token usage with AMQP is described in the following document <bpt id="29a68377-3b0b-414a-a95d-0a0bb2d35b66">&lt;linkText&gt;</bpt>AMQP Claim-Based Security Version 1.0<ept id="29a68377-3b0b-414a-a95d-0a0bb2d35b66">&lt;/linkText&gt;</ept><bpt id="29a68377-3b0b-414a-a95d-0a0bb2d35b66">&lt;title&gt;</bpt><ept id="29a68377-3b0b-414a-a95d-0a0bb2d35b66">&lt;/title&gt;</ept> that is in working draft since 2013 but it's well supported by Azure today.</target>
+        </trans-unit>
+        <trans-unit id="34807ab2-a010-4add-9cd3-d2b4a2886139" xml:space="preserve">
+          <source>Before starting to send data to the Service Bus, the publisher needs to send the SAS token inside an AMQP message to a well defined AMQP node named <bpt id="24ba80b4-4640-4562-be34-40652338e2f7">&lt;strong&gt;</bpt>"$cbs"<ept id="24ba80b4-4640-4562-be34-40652338e2f7">&lt;/strong&gt;</ept> (you can see it like a "special" queue used by the service to acquire and validate all the SAS tokens).</source>
+          <target state="new">Before starting to send data to the Service Bus, the publisher needs to send the SAS token inside an AMQP message to a well defined AMQP node named <bpt id="24ba80b4-4640-4562-be34-40652338e2f7">&lt;strong&gt;</bpt>"$cbs"<ept id="24ba80b4-4640-4562-be34-40652338e2f7">&lt;/strong&gt;</ept> (you can see it like a "special" queue used by the service to acquire and validate all the SAS tokens).</target>
+        </trans-unit>
+        <trans-unit id="d31a98df-9837-4c73-b2b7-b7965bcabb76" xml:space="preserve">
+          <source>The publisher needs to specify the <bpt id="5d9c0258-c676-4b10-8a8e-03c1326436e6">&lt;strong&gt;</bpt>"ReplyTo"<ept id="5d9c0258-c676-4b10-8a8e-03c1326436e6">&lt;/strong&gt;</ept> field inside the AMQP message; this is the node where the service will reply to the publisher with the result of the token validation (a simple request/reply pattern between publisher and service).</source>
+          <target state="new">The publisher needs to specify the <bpt id="5d9c0258-c676-4b10-8a8e-03c1326436e6">&lt;strong&gt;</bpt>"ReplyTo"<ept id="5d9c0258-c676-4b10-8a8e-03c1326436e6">&lt;/strong&gt;</ept> field inside the AMQP message; this is the node where the service will reply to the publisher with the result of the token validation (a simple request/reply pattern between publisher and service).</target>
+        </trans-unit>
+        <trans-unit id="af74eb58-ad8d-47db-9993-4f2d282cc55d" xml:space="preserve">
+          <source>This reply node is created "on fly" speaking about "dynamic creation of remote node" as described by the AMQP 1.0 specification.</source>
+          <target state="new">This reply node is created "on fly" speaking about "dynamic creation of remote node" as described by the AMQP 1.0 specification.</target>
+        </trans-unit>
+        <trans-unit id="b2550405-021d-4474-bcf7-ee72faeba5f9" xml:space="preserve">
+          <source>After checking that the SAS token is valid, the publisher can go forward and start to send data to the service.</source>
+          <target state="new">After checking that the SAS token is valid, the publisher can go forward and start to send data to the service.</target>
+        </trans-unit>
+        <trans-unit id="0e0d05fe-290b-40ac-b1c0-366a3be366ed" xml:space="preserve">
+          <source>The following steps will show how to send the SAS token with AMQP protocol using the <bpt id="3568cf65-5ec5-4d9e-b8e4-fa69aef67451">&lt;linkText&gt;</bpt>AMQP.Net Lite<ept id="3568cf65-5ec5-4d9e-b8e4-fa69aef67451">&lt;/linkText&gt;</ept><bpt id="3568cf65-5ec5-4d9e-b8e4-fa69aef67451">&lt;title&gt;</bpt><ept id="3568cf65-5ec5-4d9e-b8e4-fa69aef67451">&lt;/title&gt;</ept> library useful if you can't use the official Service Bus SDK (for example on WinRT, .Net Compact Framework, .Net Micro Framework and Mono) developing in C&amp;#35;.</source>
+          <target state="new">The following steps will show how to send the SAS token with AMQP protocol using the <bpt id="3568cf65-5ec5-4d9e-b8e4-fa69aef67451">&lt;linkText&gt;</bpt>AMQP.Net Lite<ept id="3568cf65-5ec5-4d9e-b8e4-fa69aef67451">&lt;/linkText&gt;</ept><bpt id="3568cf65-5ec5-4d9e-b8e4-fa69aef67451">&lt;title&gt;</bpt><ept id="3568cf65-5ec5-4d9e-b8e4-fa69aef67451">&lt;/title&gt;</ept> library useful if you can't use the official Service Bus SDK (for example on WinRT, .Net Compact Framework, .Net Micro Framework and Mono) developing in C&amp;#35;.</target>
+        </trans-unit>
+        <trans-unit id="85773c2a-7fb3-496d-8f18-5f6844731fea" xml:space="preserve">
+          <source>Of corse, this library is useful to understand how Claim-Based Security works at AMQP level as you saw how it works at HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header).</source>
+          <target state="new">Of corse, this library is useful to understand how Claim-Based Security works at AMQP level as you saw how it works at HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header).</target>
+        </trans-unit>
+        <trans-unit id="0495db57-02a3-4737-9dda-edc2936335d5" xml:space="preserve">
+          <source>However, don't worry !</source>
+          <target state="new">However, don't worry !</target>
+        </trans-unit>
+        <trans-unit id="caecba09-8685-4774-b0c0-f1c4ac463b32" xml:space="preserve">
+          <source>If you don't need such deep knowledge about AMQP, you can use official Service Bus SDK with .Net Framework applications that will do it for you or the <bpt id="6a05c082-e03c-47b9-a818-c145d435b9ba">&lt;linkText&gt;</bpt>Azure SB Lite<ept id="6a05c082-e03c-47b9-a818-c145d435b9ba">&lt;/linkText&gt;</ept><bpt id="6a05c082-e03c-47b9-a818-c145d435b9ba">&lt;title&gt;</bpt><ept id="6a05c082-e03c-47b9-a818-c145d435b9ba">&lt;/title&gt;</ept> library for all the other platforms (see above).</source>
+          <target state="new">If you don't need such deep knowledge about AMQP, you can use official Service Bus SDK with .Net Framework applications that will do it for you or the <bpt id="6a05c082-e03c-47b9-a818-c145d435b9ba">&lt;linkText&gt;</bpt>Azure SB Lite<ept id="6a05c082-e03c-47b9-a818-c145d435b9ba">&lt;/linkText&gt;</ept><bpt id="6a05c082-e03c-47b9-a818-c145d435b9ba">&lt;title&gt;</bpt><ept id="6a05c082-e03c-47b9-a818-c145d435b9ba">&lt;/title&gt;</ept> library for all the other platforms (see above).</target>
+        </trans-unit>
+        <trans-unit id="1af1fec6-fb3c-4a0f-9aa7-ee22360042f4" xml:space="preserve">
+          <source>The above <bpt id="58cb70ff-9c0b-4495-8d62-41fc58667b18">&lt;em&gt;</bpt>PutCbsToken()<ept id="58cb70ff-9c0b-4495-8d62-41fc58667b18">&lt;/em&gt;</ept> method receives the <bpt id="a243864f-8c37-4254-a365-aedbfd23a5e5">&lt;em&gt;</bpt>connection<ept id="a243864f-8c37-4254-a365-aedbfd23a5e5">&lt;/em&gt;</ept> (AMQP Connection class instance as provided by AMQP .Net Lite library) that represents the TCP connection to the service and the <bpt id="1a7801c5-660b-4cb6-ba68-a1535567e8ef">&lt;em&gt;</bpt>sasToken<ept id="1a7801c5-660b-4cb6-ba68-a1535567e8ef">&lt;/em&gt;</ept> parameter that is the SAS token to send.</source>
+          <target state="new">The above <bpt id="58cb70ff-9c0b-4495-8d62-41fc58667b18">&lt;em&gt;</bpt>PutCbsToken()<ept id="58cb70ff-9c0b-4495-8d62-41fc58667b18">&lt;/em&gt;</ept> method receives the <bpt id="a243864f-8c37-4254-a365-aedbfd23a5e5">&lt;em&gt;</bpt>connection<ept id="a243864f-8c37-4254-a365-aedbfd23a5e5">&lt;/em&gt;</ept> (AMQP Connection class instance as provided by AMQP .Net Lite library) that represents the TCP connection to the service and the <bpt id="1a7801c5-660b-4cb6-ba68-a1535567e8ef">&lt;em&gt;</bpt>sasToken<ept id="1a7801c5-660b-4cb6-ba68-a1535567e8ef">&lt;/em&gt;</ept> parameter that is the SAS token to send.</target>
+        </trans-unit>
+        <trans-unit id="8ed15ff3-e074-4c54-acf5-134e400b8bde" xml:space="preserve">
+          <source>NOTE : it's important that the connection is created with <bpt id="d4ccac62-c8b3-4944-8f38-0f279e227bdf">&lt;strong&gt;</bpt>SASL authentication mechanism set to EXTERNAL<ept id="d4ccac62-c8b3-4944-8f38-0f279e227bdf">&lt;/strong&gt;</ept> (and not the default PLAIN with username and password used when you don't need to send the SAS token).</source>
+          <target state="new">NOTE : it's important that the connection is created with <bpt id="d4ccac62-c8b3-4944-8f38-0f279e227bdf">&lt;strong&gt;</bpt>SASL authentication mechanism set to EXTERNAL<ept id="d4ccac62-c8b3-4944-8f38-0f279e227bdf">&lt;/strong&gt;</ept> (and not the default PLAIN with username and password used when you don't need to send the SAS token).</target>
+        </trans-unit>
+        <trans-unit id="9f47dd7a-8079-4bc0-b73d-6f3f8899cd1e" xml:space="preserve">
+          <source>Next the publisher creates two AMQP links for sending the SAS token and receiving the reply (token validation result) from the service.</source>
+          <target state="new">Next the publisher creates two AMQP links for sending the SAS token and receiving the reply (token validation result) from the service.</target>
+        </trans-unit>
+        <trans-unit id="63911a94-1ef5-4762-a955-9a2972fa5d5d" xml:space="preserve">
+          <source>The AMQP message is a litte complex with a bunch of properties and more information than a simple message.</source>
+          <target state="new">The AMQP message is a litte complex with a bunch of properties and more information than a simple message.</target>
+        </trans-unit>
+        <trans-unit id="954e2ccd-f188-4217-a84c-67886c339689" xml:space="preserve">
+          <source>The SAS token is put as the body of the message (using its constructor).</source>
+          <target state="new">The SAS token is put as the body of the message (using its constructor).</target>
+        </trans-unit>
+        <trans-unit id="79ac827c-1b8a-49b9-ab9f-b08486d5c375" xml:space="preserve">
+          <source>The <bpt id="dd64d8a9-cc38-41a3-9c2f-da2b8a35da7a">&lt;strong&gt;</bpt>"ReplyTo"<ept id="dd64d8a9-cc38-41a3-9c2f-da2b8a35da7a">&lt;/strong&gt;</ept> property is set to the node name for receiving the validation result on the receiver link (you can change its name as you want and it will be created dynamically by the service).</source>
+          <target state="new">The <bpt id="dd64d8a9-cc38-41a3-9c2f-da2b8a35da7a">&lt;strong&gt;</bpt>"ReplyTo"<ept id="dd64d8a9-cc38-41a3-9c2f-da2b8a35da7a">&lt;/strong&gt;</ept> property is set to the node name for receiving the validation result on the receiver link (you can change its name as you want and it will be created dynamically by the service).</target>
+        </trans-unit>
+        <trans-unit id="67f5d7b2-a5f9-4c42-88e2-7d5b8b7b6de0" xml:space="preserve">
+          <source>The last three application/custom properties are used by the service to understand what kind of operation it has to execute.</source>
+          <target state="new">The last three application/custom properties are used by the service to understand what kind of operation it has to execute.</target>
+        </trans-unit>
+        <trans-unit id="1668d485-00ea-4bc2-b728-db28fff25bb1" xml:space="preserve">
+          <source>As described by the CBS draft specification they must be the <bpt id="081db4e7-4cde-4345-9e34-d148507eab8a">&lt;strong&gt;</bpt>operation name<ept id="081db4e7-4cde-4345-9e34-d148507eab8a">&lt;/strong&gt;</ept> (so "put-token"), the <bpt id="63013d18-1aa4-48ee-be27-d8fc95fdb739">&lt;strong&gt;</bpt>type of token<ept id="63013d18-1aa4-48ee-be27-d8fc95fdb739">&lt;/strong&gt;</ept> being put (so a "servicebus.windows.net:sastoken") and finally the <bpt id="c83f65be-b259-4f62-aff3-165c47265c05">&lt;strong&gt;</bpt>"name" of the audience<ept id="c83f65be-b259-4f62-aff3-165c47265c05">&lt;/strong&gt;</ept> to which the token applies (the entire entity).</source>
+          <target state="new">As described by the CBS draft specification they must be the <bpt id="081db4e7-4cde-4345-9e34-d148507eab8a">&lt;strong&gt;</bpt>operation name<ept id="081db4e7-4cde-4345-9e34-d148507eab8a">&lt;/strong&gt;</ept> (so "put-token"), the <bpt id="63013d18-1aa4-48ee-be27-d8fc95fdb739">&lt;strong&gt;</bpt>type of token<ept id="63013d18-1aa4-48ee-be27-d8fc95fdb739">&lt;/strong&gt;</ept> being put (so a "servicebus.windows.net:sastoken") and finally the <bpt id="c83f65be-b259-4f62-aff3-165c47265c05">&lt;strong&gt;</bpt>"name" of the audience<ept id="c83f65be-b259-4f62-aff3-165c47265c05">&lt;/strong&gt;</ept> to which the token applies (the entire entity).</target>
+        </trans-unit>
+        <trans-unit id="1a696d18-dc17-4408-9324-8deba64c498b" xml:space="preserve">
+          <source>After sending the SAS token on the sender link, the publisher needs to read the reply on the receiver link.</source>
+          <target state="new">After sending the SAS token on the sender link, the publisher needs to read the reply on the receiver link.</target>
+        </trans-unit>
+        <trans-unit id="c55c6ba3-c2b2-4adf-9096-9da341975911" xml:space="preserve">
+          <source>The reply is a simple AMQP message with an application properties named <bpt id="687c1d67-f73e-4d97-b3d1-31c865e60117">&lt;strong&gt;</bpt>"status-code"<ept id="687c1d67-f73e-4d97-b3d1-31c865e60117">&lt;/strong&gt;</ept> that can contain the same values as an HTTP status code.</source>
+          <target state="new">The reply is a simple AMQP message with an application properties named <bpt id="687c1d67-f73e-4d97-b3d1-31c865e60117">&lt;strong&gt;</bpt>"status-code"<ept id="687c1d67-f73e-4d97-b3d1-31c865e60117">&lt;/strong&gt;</ept> that can contain the same values as an HTTP status code.</target>
+        </trans-unit>
+        <trans-unit id="27034a9f-e3e1-4dda-b958-3ad2b87e3021" xml:space="preserve">
+          <source>See the <bpt id="b888eb0d-bb0c-4db3-a016-b5d1faaaedc5">&lt;linkText&gt;</bpt>Service Bus REST API reference<ept id="b888eb0d-bb0c-4db3-a016-b5d1faaaedc5">&lt;/linkText&gt;</ept><bpt id="b888eb0d-bb0c-4db3-a016-b5d1faaaedc5">&lt;title&gt;</bpt><ept id="b888eb0d-bb0c-4db3-a016-b5d1faaaedc5">&lt;/title&gt;</ept> for more information about what you can do with these SAS tokens.</source>
+          <target state="new">See the <bpt id="b888eb0d-bb0c-4db3-a016-b5d1faaaedc5">&lt;linkText&gt;</bpt>Service Bus REST API reference<ept id="b888eb0d-bb0c-4db3-a016-b5d1faaaedc5">&lt;/linkText&gt;</ept><bpt id="b888eb0d-bb0c-4db3-a016-b5d1faaaedc5">&lt;title&gt;</bpt><ept id="b888eb0d-bb0c-4db3-a016-b5d1faaaedc5">&lt;/title&gt;</ept> for more information about what you can do with these SAS tokens.</target>
+        </trans-unit>
+        <trans-unit id="76b14a3b-1e10-445d-8016-63743df42c6e" xml:space="preserve">
+          <source>For more information about SAS, see the <bpt id="7513005b-5969-4cf2-a1ab-bc09c912b701">&lt;linkText&gt;</bpt>Service Bus Authentication<ept id="7513005b-5969-4cf2-a1ab-bc09c912b701">&lt;/linkText&gt;</ept><bpt id="7513005b-5969-4cf2-a1ab-bc09c912b701">&lt;title&gt;</bpt><ept id="7513005b-5969-4cf2-a1ab-bc09c912b701">&lt;/title&gt;</ept> node on MSDN.</source>
+          <target state="new">For more information about SAS, see the <bpt id="7513005b-5969-4cf2-a1ab-bc09c912b701">&lt;linkText&gt;</bpt>Service Bus Authentication<ept id="7513005b-5969-4cf2-a1ab-bc09c912b701">&lt;/linkText&gt;</ept><bpt id="7513005b-5969-4cf2-a1ab-bc09c912b701">&lt;title&gt;</bpt><ept id="7513005b-5969-4cf2-a1ab-bc09c912b701">&lt;/title&gt;</ept> node on MSDN.</target>
+        </trans-unit>
+        <trans-unit id="9a22a0f6-6ff3-4cbf-99d9-498c23206c08" xml:space="preserve">
+          <source>More examples about SAS in C# and Java Script in <bpt id="81536eb5-922c-4182-933b-91196fe95b02">&lt;linkText&gt;</bpt>Damir's blog<ept id="81536eb5-922c-4182-933b-91196fe95b02">&lt;/linkText&gt;</ept><bpt id="81536eb5-922c-4182-933b-91196fe95b02">&lt;title&gt;</bpt><ept id="81536eb5-922c-4182-933b-91196fe95b02">&lt;/title&gt;</ept></source>
+          <target state="new">More examples about SAS in C# and Java Script in <bpt id="81536eb5-922c-4182-933b-91196fe95b02">&lt;linkText&gt;</bpt>Damir's blog<ept id="81536eb5-922c-4182-933b-91196fe95b02">&lt;/linkText&gt;</ept><bpt id="81536eb5-922c-4182-933b-91196fe95b02">&lt;title&gt;</bpt><ept id="81536eb5-922c-4182-933b-91196fe95b02">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

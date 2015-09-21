@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d29391ac-b903-414e-b174-2f6e6b4e2bf6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d29391ac-b903-414e-b174-2f6e6b4e2bf6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="923b3f10-7e83-42e3-83cc-6b78a2bc32b8">
+        <trans-unit id="11d208bb-6750-4117-9eae-30b624bc2205" xml:space="preserve">
+          <source>Use Chrome Postman with Azure Search | Microsoft Azure</source>
+          <target state="new">Use Chrome Postman with Azure Search | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="91fca7af-5fab-4ef2-95bf-8bff37657376" xml:space="preserve">
+          <source>Use Chrome Postman with Azure Search. Install and configure Postman. Create an Azure Search index. Post documents to and query the index with Postman.</source>
+          <target state="new">Use Chrome Postman with Azure Search. Install and configure Postman. Create an Azure Search index. Post documents to and query the index with Postman.</target>
+        </trans-unit>
+        <trans-unit id="cbbd5320-ca73-423c-a296-4094681a2eaf" xml:space="preserve">
+          <source><bpt id="0f8a626b-82c7-458b-b96d-55ad73300317">&lt;linkText&gt;</bpt>Postman<ept id="0f8a626b-82c7-458b-b96d-55ad73300317">&lt;/linkText&gt;</ept><bpt id="0f8a626b-82c7-458b-b96d-55ad73300317">&lt;title&gt;</bpt>Chrome Postman<ept id="0f8a626b-82c7-458b-b96d-55ad73300317">&lt;/title&gt;</ept> is a tool provided as part of Google Chrome that allows developers to work efficiently with REST-based API services such as Azure Search.</source>
+          <target state="new"><bpt id="0f8a626b-82c7-458b-b96d-55ad73300317">&lt;linkText&gt;</bpt>Postman<ept id="0f8a626b-82c7-458b-b96d-55ad73300317">&lt;/linkText&gt;</ept><bpt id="0f8a626b-82c7-458b-b96d-55ad73300317">&lt;title&gt;</bpt>Chrome Postman<ept id="0f8a626b-82c7-458b-b96d-55ad73300317">&lt;/title&gt;</ept> is a tool provided as part of Google Chrome that allows developers to work efficiently with REST-based API services such as Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="1c52f3b3-0fc7-4f62-98f7-50bb01819349" xml:space="preserve">
+          <source>You can use Postman to quickly create and query your search indexes by sending API calls through Postman, without having to write any code.</source>
+          <target state="new">You can use Postman to quickly create and query your search indexes by sending API calls through Postman, without having to write any code.</target>
+        </trans-unit>
+        <trans-unit id="20a2f012-0b76-4935-ba8d-fbc71348924f" xml:space="preserve">
+          <source>This approach is an efficient way to learn the API and try out new features.</source>
+          <target state="new">This approach is an efficient way to learn the API and try out new features.</target>
+        </trans-unit>
+        <trans-unit id="5419bab6-2d77-488c-a97c-8de86f380ef8" xml:space="preserve">
+          <source><bpt id="1a4e715f-289e-46f5-9153-83c3940df8ee">&lt;linkText&gt;</bpt><ept id="1a4e715f-289e-46f5-9153-83c3940df8ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1a4e715f-289e-46f5-9153-83c3940df8ee">&lt;linkText&gt;</bpt><ept id="1a4e715f-289e-46f5-9153-83c3940df8ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7ebe3a0-711f-483c-bd05-f5b17f7330f7" xml:space="preserve">
+          <source>You must have an Azure Search service.</source>
+          <target state="new">You must have an Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="be433645-2a91-4b11-8752-f2ec43db15b0" xml:space="preserve">
+          <source>As with any custom application that uses Azure Search, you will need the URL to your service, plus an admin <bpt id="b130e4b3-cbc3-4751-956d-1785d5b960c1">&lt;code&gt;</bpt>api-key<ept id="b130e4b3-cbc3-4751-956d-1785d5b960c1">&lt;/code&gt;</ept> so that you can create the index.</source>
+          <target state="new">As with any custom application that uses Azure Search, you will need the URL to your service, plus an admin <bpt id="b130e4b3-cbc3-4751-956d-1785d5b960c1">&lt;code&gt;</bpt>api-key<ept id="b130e4b3-cbc3-4751-956d-1785d5b960c1">&lt;/code&gt;</ept> so that you can create the index.</target>
+        </trans-unit>
+        <trans-unit id="1fc4ccf7-fbf8-41f2-a603-aeae77afd5a2" xml:space="preserve">
+          <source>For instructions on how to get the values for your search service, see <bpt id="168b53ce-7f62-41d7-9088-167cf68ab176">&lt;linkText&gt;</bpt>Create a service in the portal<ept id="168b53ce-7f62-41d7-9088-167cf68ab176">&lt;/linkText&gt;</ept><bpt id="168b53ce-7f62-41d7-9088-167cf68ab176">&lt;title&gt;</bpt><ept id="168b53ce-7f62-41d7-9088-167cf68ab176">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on how to get the values for your search service, see <bpt id="168b53ce-7f62-41d7-9088-167cf68ab176">&lt;linkText&gt;</bpt>Create a service in the portal<ept id="168b53ce-7f62-41d7-9088-167cf68ab176">&lt;/linkText&gt;</ept><bpt id="168b53ce-7f62-41d7-9088-167cf68ab176">&lt;title&gt;</bpt><ept id="168b53ce-7f62-41d7-9088-167cf68ab176">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ae37c36-609f-4420-af41-b91c8443fd1c" xml:space="preserve">
+          <source>To download Postman, visit the <bpt id="809156b4-87d8-47f6-b141-7e15cf86e45e">&lt;linkText&gt;</bpt>Google Chrome Store<ept id="809156b4-87d8-47f6-b141-7e15cf86e45e">&lt;/linkText&gt;</ept><bpt id="809156b4-87d8-47f6-b141-7e15cf86e45e">&lt;title&gt;</bpt><ept id="809156b4-87d8-47f6-b141-7e15cf86e45e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To download Postman, visit the <bpt id="809156b4-87d8-47f6-b141-7e15cf86e45e">&lt;linkText&gt;</bpt>Google Chrome Store<ept id="809156b4-87d8-47f6-b141-7e15cf86e45e">&lt;/linkText&gt;</ept><bpt id="809156b4-87d8-47f6-b141-7e15cf86e45e">&lt;title&gt;</bpt><ept id="809156b4-87d8-47f6-b141-7e15cf86e45e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b19a72c-6bda-4872-b3aa-c15c9b72bc8d" xml:space="preserve">
+          <source>The link from this page allows you to download and install the REST client for Postman.</source>
+          <target state="new">The link from this page allows you to download and install the REST client for Postman.</target>
+        </trans-unit>
+        <trans-unit id="e0f3ef6a-5a87-4ad2-aead-d746dda3544d" xml:space="preserve">
+          <source>After it is installed, you can launch Postman from the Chrome App Launcher.</source>
+          <target state="new">After it is installed, you can launch Postman from the Chrome App Launcher.</target>
+        </trans-unit>
+        <trans-unit id="bd577738-dc95-4a7c-9eeb-5b859311cb05" xml:space="preserve">
+          <source><bpt id="6abf7ec1-e663-4e9c-8093-5a94b6530f54">&lt;linkText&gt;</bpt><ept id="6abf7ec1-e663-4e9c-8093-5a94b6530f54">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6abf7ec1-e663-4e9c-8093-5a94b6530f54">&lt;linkText&gt;</bpt><ept id="6abf7ec1-e663-4e9c-8093-5a94b6530f54">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a462324-f583-4a55-b951-bfe979331edb" xml:space="preserve">
+          <source>To configure Postman, follow these steps:</source>
+          <target state="new">To configure Postman, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="6ab9ffba-1c22-4134-9cdf-eaf6113b72b0" xml:space="preserve">
+          <source>Enter your Azure Search service URL where it says "Enter request URL here".</source>
+          <target state="new">Enter your Azure Search service URL where it says "Enter request URL here".</target>
+        </trans-unit>
+        <trans-unit id="beb9bc12-2e3c-48b5-bb93-4bb635996988" xml:space="preserve">
+          <source>Append to the URL: <bpt id="e6dc35ca-dae2-49f2-84d1-a37ed2b94b49">&lt;code&gt;</bpt>?api-version=2015-02-28<ept id="e6dc35ca-dae2-49f2-84d1-a37ed2b94b49">&lt;/code&gt;</ept>.</source>
+          <target state="new">Append to the URL: <bpt id="e6dc35ca-dae2-49f2-84d1-a37ed2b94b49">&lt;code&gt;</bpt>?api-version=2015-02-28<ept id="e6dc35ca-dae2-49f2-84d1-a37ed2b94b49">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eac2b6f2-c202-459b-b89f-88649fcb50e4" xml:space="preserve">
+          <source>You could also specify a different API version.</source>
+          <target state="new">You could also specify a different API version.</target>
+        </trans-unit>
+        <trans-unit id="6768d8e3-1bb9-4776-9075-ad7e653fe5cc" xml:space="preserve">
+          <source>See <bpt id="5d0e2eed-8e31-41a8-810c-ac246f2d097c">&lt;linkText&gt;</bpt>Azure Search service versioning<ept id="5d0e2eed-8e31-41a8-810c-ac246f2d097c">&lt;/linkText&gt;</ept><bpt id="5d0e2eed-8e31-41a8-810c-ac246f2d097c">&lt;title&gt;</bpt><ept id="5d0e2eed-8e31-41a8-810c-ac246f2d097c">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="5d0e2eed-8e31-41a8-810c-ac246f2d097c">&lt;linkText&gt;</bpt>Azure Search service versioning<ept id="5d0e2eed-8e31-41a8-810c-ac246f2d097c">&lt;/linkText&gt;</ept><bpt id="5d0e2eed-8e31-41a8-810c-ac246f2d097c">&lt;title&gt;</bpt><ept id="5d0e2eed-8e31-41a8-810c-ac246f2d097c">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="78279e1e-a95e-4aeb-8429-316032f372ed" xml:space="preserve">
+          <source>Ensure that <bpt id="991dee1c-7893-4d84-ac12-7e9b3e9ebf86">&lt;code&gt;</bpt>GET<ept id="991dee1c-7893-4d84-ac12-7e9b3e9ebf86">&lt;/code&gt;</ept> is chosen.</source>
+          <target state="new">Ensure that <bpt id="991dee1c-7893-4d84-ac12-7e9b3e9ebf86">&lt;code&gt;</bpt>GET<ept id="991dee1c-7893-4d84-ac12-7e9b3e9ebf86">&lt;/code&gt;</ept> is chosen.</target>
+        </trans-unit>
+        <trans-unit id="acc8719b-3922-44b3-b4b7-55a3fec7da78" xml:space="preserve">
+          <source>Click the <bpt id="44a50063-02b9-49b5-8e17-3ee3dee9e8b4">&lt;strong&gt;</bpt>Headers<ept id="44a50063-02b9-49b5-8e17-3ee3dee9e8b4">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="44a50063-02b9-49b5-8e17-3ee3dee9e8b4">&lt;strong&gt;</bpt>Headers<ept id="44a50063-02b9-49b5-8e17-3ee3dee9e8b4">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="da2b260b-ba79-430b-ade2-97487a714aa3" xml:space="preserve">
+          <source>Enter values for:</source>
+          <target state="new">Enter values for:</target>
+        </trans-unit>
+        <trans-unit id="94e7bf5b-6562-44d7-a384-44b06e34893f" xml:space="preserve">
+          <source><bpt id="c47b34d2-ee01-4404-bcf9-9dba2d717a77">&lt;code&gt;</bpt>api-key<ept id="c47b34d2-ee01-4404-bcf9-9dba2d717a77">&lt;/code&gt;</ept>:  [Admin Key]</source>
+          <target state="new"><bpt id="c47b34d2-ee01-4404-bcf9-9dba2d717a77">&lt;code&gt;</bpt>api-key<ept id="c47b34d2-ee01-4404-bcf9-9dba2d717a77">&lt;/code&gt;</ept>:  [Admin Key]</target>
+        </trans-unit>
+        <trans-unit id="dce35500-1b9a-4f98-92de-14a24f333eee" xml:space="preserve">
+          <source><bpt id="a9f205cd-fce5-4e1d-96d1-7df8631fa86e">&lt;code&gt;</bpt>Content-Type<ept id="a9f205cd-fce5-4e1d-96d1-7df8631fa86e">&lt;/code&gt;</ept>: <bpt id="5197bccb-128a-4961-8b06-3caedc773ff8">&lt;code&gt;</bpt>application/json; charset=utf-8<ept id="5197bccb-128a-4961-8b06-3caedc773ff8">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="a9f205cd-fce5-4e1d-96d1-7df8631fa86e">&lt;code&gt;</bpt>Content-Type<ept id="a9f205cd-fce5-4e1d-96d1-7df8631fa86e">&lt;/code&gt;</ept>: <bpt id="5197bccb-128a-4961-8b06-3caedc773ff8">&lt;code&gt;</bpt>application/json; charset=utf-8<ept id="5197bccb-128a-4961-8b06-3caedc773ff8">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c34211f3-22e2-49be-93e8-bacfb7ee0800" xml:space="preserve">
+          <source>Click <bpt id="f4ea04ac-f89a-4e34-b754-20195698437c">&lt;strong&gt;</bpt>Send<ept id="f4ea04ac-f89a-4e34-b754-20195698437c">&lt;/strong&gt;</ept> to issue the REST call to Azure Search and display the JSON response.</source>
+          <target state="new">Click <bpt id="f4ea04ac-f89a-4e34-b754-20195698437c">&lt;strong&gt;</bpt>Send<ept id="f4ea04ac-f89a-4e34-b754-20195698437c">&lt;/strong&gt;</ept> to issue the REST call to Azure Search and display the JSON response.</target>
+        </trans-unit>
+        <trans-unit id="5845f872-165b-449f-b9d9-a39975b8d509" xml:space="preserve">
+          <source><bpt id="190e5e90-1b38-4e2b-a1f2-f45d696ff035">&lt;linkText&gt;</bpt><ept id="190e5e90-1b38-4e2b-a1f2-f45d696ff035">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="190e5e90-1b38-4e2b-a1f2-f45d696ff035">&lt;linkText&gt;</bpt><ept id="190e5e90-1b38-4e2b-a1f2-f45d696ff035">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15374c11-19c4-43ff-8580-34c3d3aec9be" xml:space="preserve">
+          <source>Next, we will expand on what we completed in the last step by issuing a REST call to create a new Azure Search index.</source>
+          <target state="new">Next, we will expand on what we completed in the last step by issuing a REST call to create a new Azure Search index.</target>
+        </trans-unit>
+        <trans-unit id="46a25df2-37b4-4699-a91a-00b595c8421a" xml:space="preserve">
+          <source>Unlike the previous call, the index creation requires an HTTP PUT and a JSON document with the definition of the index schema.</source>
+          <target state="new">Unlike the previous call, the index creation requires an HTTP PUT and a JSON document with the definition of the index schema.</target>
+        </trans-unit>
+        <trans-unit id="8d5f1fbe-9a50-4eb6-bdc0-1ea957e944e1" xml:space="preserve">
+          <source>For this sample, we are going to create an index that will store a list of hiking trails.</source>
+          <target state="new">For this sample, we are going to create an index that will store a list of hiking trails.</target>
+        </trans-unit>
+        <trans-unit id="fa1364d9-a95b-468f-8b97-868a658bcbda" xml:space="preserve">
+          <source>To do this:</source>
+          <target state="new">To do this:</target>
+        </trans-unit>
+        <trans-unit id="b03f5d91-0966-4c01-9fe9-72635c7a7516" xml:space="preserve">
+          <source>Change the URL to: <bpt id="0adc5cb7-380a-4afe-9da9-d7f2b24dcd2f">&lt;code&gt;</bpt>https://[SEARCH SERVICE].search.windows.net/indexes/trails?api-version=2015-02-28<ept id="0adc5cb7-380a-4afe-9da9-d7f2b24dcd2f">&lt;/code&gt;</ept> using your search service name.</source>
+          <target state="new">Change the URL to: <bpt id="0adc5cb7-380a-4afe-9da9-d7f2b24dcd2f">&lt;code&gt;</bpt>https://[SEARCH SERVICE].search.windows.net/indexes/trails?api-version=2015-02-28<ept id="0adc5cb7-380a-4afe-9da9-d7f2b24dcd2f">&lt;/code&gt;</ept> using your search service name.</target>
+        </trans-unit>
+        <trans-unit id="bffc1ea6-5026-448b-8f54-ef7994a2dd51" xml:space="preserve">
+          <source>Change the request type from <bpt id="1f55656b-3c91-47fb-8ba6-5b6af4796903">&lt;code&gt;</bpt>GET<ept id="1f55656b-3c91-47fb-8ba6-5b6af4796903">&lt;/code&gt;</ept> to <bpt id="a53f42d2-25c1-4af6-995f-ab2dd7f15f18">&lt;code&gt;</bpt>PUT<ept id="a53f42d2-25c1-4af6-995f-ab2dd7f15f18">&lt;/code&gt;</ept>.</source>
+          <target state="new">Change the request type from <bpt id="1f55656b-3c91-47fb-8ba6-5b6af4796903">&lt;code&gt;</bpt>GET<ept id="1f55656b-3c91-47fb-8ba6-5b6af4796903">&lt;/code&gt;</ept> to <bpt id="a53f42d2-25c1-4af6-995f-ab2dd7f15f18">&lt;code&gt;</bpt>PUT<ept id="a53f42d2-25c1-4af6-995f-ab2dd7f15f18">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="414e2d95-9569-4c57-ada2-8091f98b089a" xml:space="preserve">
+          <source>In the RAW body content, enter the following JSON:</source>
+          <target state="new">In the RAW body content, enter the following JSON:</target>
+        </trans-unit>
+        <trans-unit id="994ed9f6-58fb-4173-991e-8f984817d792" xml:space="preserve">
+          <source>Click <bpt id="1436bb3e-e8bc-4bab-940e-63eec442d4f5">&lt;strong&gt;</bpt>Send<ept id="1436bb3e-e8bc-4bab-940e-63eec442d4f5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1436bb3e-e8bc-4bab-940e-63eec442d4f5">&lt;strong&gt;</bpt>Send<ept id="1436bb3e-e8bc-4bab-940e-63eec442d4f5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db76e019-3137-4339-a7b3-f75b3c29a1d9" xml:space="preserve">
+          <source><bpt id="99a96834-9bfe-4710-bd46-0c0b0b7ab6e2">&lt;linkText&gt;</bpt><ept id="99a96834-9bfe-4710-bd46-0c0b0b7ab6e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99a96834-9bfe-4710-bd46-0c0b0b7ab6e2">&lt;linkText&gt;</bpt><ept id="99a96834-9bfe-4710-bd46-0c0b0b7ab6e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6eae7368-9e4e-43bf-bca4-16625e65ac0d" xml:space="preserve">
+          <source>Now that the index is created, we can load documents into it.</source>
+          <target state="new">Now that the index is created, we can load documents into it.</target>
+        </trans-unit>
+        <trans-unit id="4e7ea19d-9d34-4c91-ba19-a2c39bea1600" xml:space="preserve">
+          <source>To do this, we'll post a group of documents in a batch, using data for five trails from the United States Geological Survey (USGS) dataset:</source>
+          <target state="new">To do this, we'll post a group of documents in a batch, using data for five trails from the United States Geological Survey (USGS) dataset:</target>
+        </trans-unit>
+        <trans-unit id="642670f3-8ab3-45f8-8169-f04c8bccee8c" xml:space="preserve">
+          <source>Change the URL to: <bpt id="7cbcefb5-9ca4-4e23-98ac-37b03ed45e66">&lt;code&gt;</bpt>https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28<ept id="7cbcefb5-9ca4-4e23-98ac-37b03ed45e66">&lt;/code&gt;</ept> using your search service name.</source>
+          <target state="new">Change the URL to: <bpt id="7cbcefb5-9ca4-4e23-98ac-37b03ed45e66">&lt;code&gt;</bpt>https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28<ept id="7cbcefb5-9ca4-4e23-98ac-37b03ed45e66">&lt;/code&gt;</ept> using your search service name.</target>
+        </trans-unit>
+        <trans-unit id="2b29ff46-d477-4e27-bbf5-2bd6864a8e64" xml:space="preserve">
+          <source>Notice that the URL includes a path to the index you just created.</source>
+          <target state="new">Notice that the URL includes a path to the index you just created.</target>
+        </trans-unit>
+        <trans-unit id="dd99d82c-4c33-44dc-aeeb-435a5471d66f" xml:space="preserve">
+          <source>Change the HTTP type to <bpt id="7f73260c-3ec3-4517-a567-103f062dc0bd">&lt;code&gt;</bpt>POST<ept id="7f73260c-3ec3-4517-a567-103f062dc0bd">&lt;/code&gt;</ept>.</source>
+          <target state="new">Change the HTTP type to <bpt id="7f73260c-3ec3-4517-a567-103f062dc0bd">&lt;code&gt;</bpt>POST<ept id="7f73260c-3ec3-4517-a567-103f062dc0bd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d46ab910-866a-4c3a-9603-ddb66e0f2712" xml:space="preserve">
+          <source>In the RAW body content, enter the following JSON:</source>
+          <target state="new">In the RAW body content, enter the following JSON:</target>
+        </trans-unit>
+        <trans-unit id="7344ff99-b646-4362-ba22-dcf882b53503" xml:space="preserve">
+          <source>Click <bpt id="55786679-c1dc-4b4f-972f-ff781d16ad35">&lt;strong&gt;</bpt>Send<ept id="55786679-c1dc-4b4f-972f-ff781d16ad35">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="55786679-c1dc-4b4f-972f-ff781d16ad35">&lt;strong&gt;</bpt>Send<ept id="55786679-c1dc-4b4f-972f-ff781d16ad35">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdec0207-a14a-47f4-84eb-fc4a895a781c" xml:space="preserve">
+          <source><bpt id="3d4cb928-497e-42ba-a4f0-61946343f48e">&lt;linkText&gt;</bpt><ept id="3d4cb928-497e-42ba-a4f0-61946343f48e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d4cb928-497e-42ba-a4f0-61946343f48e">&lt;linkText&gt;</bpt><ept id="3d4cb928-497e-42ba-a4f0-61946343f48e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2827fb6c-a3f2-44d9-8525-b737b493f205" xml:space="preserve">
+          <source>The final step is to query the index and issue a simple full-text search request for the word <bpt id="06c71f6f-0b1b-4c5b-9b2e-790cc7afe231">&lt;em&gt;</bpt>trail<ept id="06c71f6f-0b1b-4c5b-9b2e-790cc7afe231">&lt;/em&gt;</ept>.</source>
+          <target state="new">The final step is to query the index and issue a simple full-text search request for the word <bpt id="06c71f6f-0b1b-4c5b-9b2e-790cc7afe231">&lt;em&gt;</bpt>trail<ept id="06c71f6f-0b1b-4c5b-9b2e-790cc7afe231">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a845e765-bc36-49d0-aa5a-f57d6e0b750f" xml:space="preserve">
+          <source>Enter the following in the URL: <bpt id="344fdecf-81ca-4ad3-937a-b475e86a7fc2">&lt;code&gt;</bpt>https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&amp;search=trail<ept id="344fdecf-81ca-4ad3-937a-b475e86a7fc2">&lt;/code&gt;</ept> using your search service name. Notice that the URL includes the <bpt id="02ca6d8a-1820-4b22-becf-bd97659c463d">&lt;code&gt;</bpt>search<ept id="02ca6d8a-1820-4b22-becf-bd97659c463d">&lt;/code&gt;</ept> query parameter and a search term of <bpt id="1991fa96-b0a4-433e-a14a-25689176646c">&lt;em&gt;</bpt>trail<ept id="1991fa96-b0a4-433e-a14a-25689176646c">&lt;/em&gt;</ept>.</source>
+          <target state="new">Enter the following in the URL: <bpt id="344fdecf-81ca-4ad3-937a-b475e86a7fc2">&lt;code&gt;</bpt>https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&amp;search=trail<ept id="344fdecf-81ca-4ad3-937a-b475e86a7fc2">&lt;/code&gt;</ept> using your search service name. Notice that the URL includes the <bpt id="02ca6d8a-1820-4b22-becf-bd97659c463d">&lt;code&gt;</bpt>search<ept id="02ca6d8a-1820-4b22-becf-bd97659c463d">&lt;/code&gt;</ept> query parameter and a search term of <bpt id="1991fa96-b0a4-433e-a14a-25689176646c">&lt;em&gt;</bpt>trail<ept id="1991fa96-b0a4-433e-a14a-25689176646c">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10a1ef82-1890-40a8-a9be-71c7cd59aff3" xml:space="preserve">
+          <source>Change the HTTP request type to <bpt id="4fec7a00-2782-4a5d-9cb2-52b2e7cd70d0">&lt;code&gt;</bpt>GET<ept id="4fec7a00-2782-4a5d-9cb2-52b2e7cd70d0">&lt;/code&gt;</ept>.</source>
+          <target state="new">Change the HTTP request type to <bpt id="4fec7a00-2782-4a5d-9cb2-52b2e7cd70d0">&lt;code&gt;</bpt>GET<ept id="4fec7a00-2782-4a5d-9cb2-52b2e7cd70d0">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b79e541-5833-4c07-a59b-fbaa7d2eb179" xml:space="preserve">
+          <source>Click <bpt id="fe3dc12b-fcb1-457f-993c-0a3897993064">&lt;strong&gt;</bpt>Send<ept id="fe3dc12b-fcb1-457f-993c-0a3897993064">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fe3dc12b-fcb1-457f-993c-0a3897993064">&lt;strong&gt;</bpt>Send<ept id="fe3dc12b-fcb1-457f-993c-0a3897993064">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48f08234-1bec-428b-a16e-ead27b465537" xml:space="preserve">
+          <source>In the response, you should see the JSON search results returned from Azure Search.</source>
+          <target state="new">In the response, you should see the JSON search results returned from Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="1a1aefa0-a633-46c3-8ff5-97c766005739" xml:space="preserve">
+          <source><bpt id="1641d8f9-1808-4ceb-9ff5-6bf6c2027c14">&lt;linkText&gt;</bpt><ept id="1641d8f9-1808-4ceb-9ff5-6bf6c2027c14">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1641d8f9-1808-4ceb-9ff5-6bf6c2027c14">&lt;linkText&gt;</bpt><ept id="1641d8f9-1808-4ceb-9ff5-6bf6c2027c14">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03fd00c1-65cf-4515-98bd-eb8aee640f70" xml:space="preserve">
+          <source>Now that we have walked through all the basics of using Azure Search with Postman, there are few things to help you with the next steps:</source>
+          <target state="new">Now that we have walked through all the basics of using Azure Search with Postman, there are few things to help you with the next steps:</target>
+        </trans-unit>
+        <trans-unit id="dbbde2a4-75ce-4fd1-b97d-2012eec21f9c" xml:space="preserve">
+          <source>Postman supports <bpt id="521ae463-a1ac-4b44-9a71-4d434348abed">&lt;code&gt;</bpt>Collections<ept id="521ae463-a1ac-4b44-9a71-4d434348abed">&lt;/code&gt;</ept>, which are a convenient way to save commonly issued requests.</source>
+          <target state="new">Postman supports <bpt id="521ae463-a1ac-4b44-9a71-4d434348abed">&lt;code&gt;</bpt>Collections<ept id="521ae463-a1ac-4b44-9a71-4d434348abed">&lt;/code&gt;</ept>, which are a convenient way to save commonly issued requests.</target>
+        </trans-unit>
+        <trans-unit id="855cd41e-5168-4d94-bff8-e4a7604978f7" xml:space="preserve">
+          <source>You can share collections with other people, to be issued in their own copy of Postman.</source>
+          <target state="new">You can share collections with other people, to be issued in their own copy of Postman.</target>
+        </trans-unit>
+        <trans-unit id="46f3c8d5-1788-469c-8814-16b923b34496" xml:space="preserve">
+          <source>In the Azure Search documentation, make sure to make note of the HTTP request type (<bpt id="66ee13d5-e8f6-460d-813a-e5e2c6d31a94">&lt;code&gt;</bpt>GET<ept id="66ee13d5-e8f6-460d-813a-e5e2c6d31a94">&lt;/code&gt;</ept>, <bpt id="48fefb81-30de-41d3-b283-131ce1614197">&lt;code&gt;</bpt>PUT<ept id="48fefb81-30de-41d3-b283-131ce1614197">&lt;/code&gt;</ept>, and so forth) associated with each call and change as appropriate in Postman.</source>
+          <target state="new">In the Azure Search documentation, make sure to make note of the HTTP request type (<bpt id="66ee13d5-e8f6-460d-813a-e5e2c6d31a94">&lt;code&gt;</bpt>GET<ept id="66ee13d5-e8f6-460d-813a-e5e2c6d31a94">&lt;/code&gt;</ept>, <bpt id="48fefb81-30de-41d3-b283-131ce1614197">&lt;code&gt;</bpt>PUT<ept id="48fefb81-30de-41d3-b283-131ce1614197">&lt;/code&gt;</ept>, and so forth) associated with each call and change as appropriate in Postman.</target>
+        </trans-unit>
+        <trans-unit id="f2f30621-f47a-4ca4-923e-1c6d1db4778d" xml:space="preserve">
+          <source>Documentation for the REST API can be found on <bpt id="0ca2b399-2bb8-4dbf-b117-b2fc1d130fb7">&lt;linkText&gt;</bpt>MSDN<ept id="0ca2b399-2bb8-4dbf-b117-b2fc1d130fb7">&lt;/linkText&gt;</ept><bpt id="0ca2b399-2bb8-4dbf-b117-b2fc1d130fb7">&lt;title&gt;</bpt><ept id="0ca2b399-2bb8-4dbf-b117-b2fc1d130fb7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Documentation for the REST API can be found on <bpt id="0ca2b399-2bb8-4dbf-b117-b2fc1d130fb7">&lt;linkText&gt;</bpt>MSDN<ept id="0ca2b399-2bb8-4dbf-b117-b2fc1d130fb7">&lt;/linkText&gt;</ept><bpt id="0ca2b399-2bb8-4dbf-b117-b2fc1d130fb7">&lt;title&gt;</bpt><ept id="0ca2b399-2bb8-4dbf-b117-b2fc1d130fb7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9d0a9f9-caa4-4a1c-a8e2-6b7d1e5da8fc" xml:space="preserve">
+          <source>You can also visit the <bpt id="fb39b43a-bcb1-451d-8941-55994c4e313d">&lt;linkText&gt;</bpt>Video and tutorial list<ept id="fb39b43a-bcb1-451d-8941-55994c4e313d">&lt;/linkText&gt;</ept><bpt id="fb39b43a-bcb1-451d-8941-55994c4e313d">&lt;title&gt;</bpt><ept id="fb39b43a-bcb1-451d-8941-55994c4e313d">&lt;/title&gt;</ept> for more examples.</source>
+          <target state="new">You can also visit the <bpt id="fb39b43a-bcb1-451d-8941-55994c4e313d">&lt;linkText&gt;</bpt>Video and tutorial list<ept id="fb39b43a-bcb1-451d-8941-55994c4e313d">&lt;/linkText&gt;</ept><bpt id="fb39b43a-bcb1-451d-8941-55994c4e313d">&lt;title&gt;</bpt><ept id="fb39b43a-bcb1-451d-8941-55994c4e313d">&lt;/title&gt;</ept> for more examples.</target>
+        </trans-unit>
+        <trans-unit id="dab03798-943c-4b6b-80c4-c43e166473ea" xml:space="preserve">
+          <source>./media/search-chrome-postman/full_postman_client.png</source>
+          <target state="new">./media/search-chrome-postman/full_postman_client.png</target>
+        </trans-unit>
+        <trans-unit id="aeba2273-8f36-4e24-a1a2-0ef037c0d249" xml:space="preserve">
+          <source>./media/search-chrome-postman/postman.png</source>
+          <target state="new">./media/search-chrome-postman/postman.png</target>
+        </trans-unit>
+        <trans-unit id="d2bf1655-0ea1-4227-b541-58d6d0c48e89" xml:space="preserve">
+          <source>./media/search-chrome-postman/configure.png</source>
+          <target state="new">./media/search-chrome-postman/configure.png</target>
+        </trans-unit>
+        <trans-unit id="2fe44a80-b542-4857-aed8-1d79981d9d06" xml:space="preserve">
+          <source>./media/search-chrome-postman/create_index.png</source>
+          <target state="new">./media/search-chrome-postman/create_index.png</target>
+        </trans-unit>
+        <trans-unit id="56dbb744-b4f3-4b19-b6a8-66ecda95ad03" xml:space="preserve">
+          <source>./media/search-chrome-postman/upload_documents.png</source>
+          <target state="new">./media/search-chrome-postman/upload_documents.png</target>
+        </trans-unit>
+        <trans-unit id="d6a13d17-f9c3-42d6-8a5c-67946ecf42d0" xml:space="preserve">
+          <source>./media/search-chrome-postman/query.png</source>
+          <target state="new">./media/search-chrome-postman/query.png</target>
+        </trans-unit>
+      </group>
+      <group id="fac0e5ef-116c-447c-bec2-e821c742b78c" />
+    </body>
+  </file>
+</xliff>

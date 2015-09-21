@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="59d0dd77-809e-4db7-913d-3779ff69d7b8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="59d0dd77-809e-4db7-913d-3779ff69d7b8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="82c0a65f-d35b-4747-951d-d7dcffa4f3c1">
+        <trans-unit id="ea1bec9a-8852-4192-935f-5b9247780002" xml:space="preserve">
+          <source>How to configure Google authentication for your App Services application</source>
+          <target state="new">How to configure Google authentication for your App Services application</target>
+        </trans-unit>
+        <trans-unit id="75561619-fde1-40f1-87fb-2aed7721bcba" xml:space="preserve">
+          <source>Learn how to configure Google authentication for your App Services application.</source>
+          <target state="new">Learn how to configure Google authentication for your App Services application.</target>
+        </trans-unit>
+        <trans-unit id="a9a0c0cd-17c0-45a7-8b3e-994829cfa68e" xml:space="preserve">
+          <source><bpt id="b9534359-9e9f-4bd6-a295-9ad22b434c4b">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="b9534359-9e9f-4bd6-a295-9ad22b434c4b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b9534359-9e9f-4bd6-a295-9ad22b434c4b">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="b9534359-9e9f-4bd6-a295-9ad22b434c4b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e2d0014-9ad9-4270-993c-5756e2568368" xml:space="preserve">
+          <source>This topic shows you how to configure Mobile Apps to use Google as an authentication provider.</source>
+          <target state="new">This topic shows you how to configure Mobile Apps to use Google as an authentication provider.</target>
+        </trans-unit>
+        <trans-unit id="68df8271-1d94-4b90-a517-dfbc19dd590c" xml:space="preserve">
+          <source>To complete the procedure in this topic, you must have a Google account that has a verified email address.</source>
+          <target state="new">To complete the procedure in this topic, you must have a Google account that has a verified email address.</target>
+        </trans-unit>
+        <trans-unit id="cc74e8fc-14c6-49ae-ab95-76dc5b6eed85" xml:space="preserve">
+          <source>To create a new Google account, go to &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank"&gt;accounts.google.com&lt;/a&gt;.</source>
+          <target state="new">To create a new Google account, go to &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank"&gt;accounts.google.com&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="e84b0a09-fa4b-413c-ae02-621f6de40085" xml:space="preserve">
+          <source>Log on to the [Azure Management Portal], and navigate to your Mobile App.</source>
+          <target state="new">Log on to the [Azure Management Portal], and navigate to your Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="f53a531c-b149-48a5-8bb2-5115ea565181" xml:space="preserve">
+          <source>Copy your <bpt id="ef09e741-cc48-4f7c-84af-a80dfdddf53b">&lt;strong&gt;</bpt>URL<ept id="ef09e741-cc48-4f7c-84af-a80dfdddf53b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy your <bpt id="ef09e741-cc48-4f7c-84af-a80dfdddf53b">&lt;strong&gt;</bpt>URL<ept id="ef09e741-cc48-4f7c-84af-a80dfdddf53b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="263827a7-1343-4697-9f20-4b208072ed15" xml:space="preserve">
+          <source>You will use this later with your Google app.</source>
+          <target state="new">You will use this later with your Google app.</target>
+        </trans-unit>
+        <trans-unit id="e07558b4-cc95-4795-91df-03cd38c17999" xml:space="preserve">
+          <source>Click <bpt id="fc1e38fe-7213-4c94-9ae1-77a55b1811f4">&lt;strong&gt;</bpt>Settings<ept id="fc1e38fe-7213-4c94-9ae1-77a55b1811f4">&lt;/strong&gt;</ept>, <bpt id="1da42a38-33c4-4ff0-bc2b-d62325ad5754">&lt;strong&gt;</bpt>User authentication<ept id="1da42a38-33c4-4ff0-bc2b-d62325ad5754">&lt;/strong&gt;</ept>, and then click <bpt id="0c38ec65-c4a9-4b8d-815a-bea65803d313">&lt;strong&gt;</bpt>Google<ept id="0c38ec65-c4a9-4b8d-815a-bea65803d313">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fc1e38fe-7213-4c94-9ae1-77a55b1811f4">&lt;strong&gt;</bpt>Settings<ept id="fc1e38fe-7213-4c94-9ae1-77a55b1811f4">&lt;/strong&gt;</ept>, <bpt id="1da42a38-33c4-4ff0-bc2b-d62325ad5754">&lt;strong&gt;</bpt>User authentication<ept id="1da42a38-33c4-4ff0-bc2b-d62325ad5754">&lt;/strong&gt;</ept>, and then click <bpt id="0c38ec65-c4a9-4b8d-815a-bea65803d313">&lt;strong&gt;</bpt>Google<ept id="0c38ec65-c4a9-4b8d-815a-bea65803d313">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00031cdd-f3b6-4c41-8a1f-f6a953bb1cfb" xml:space="preserve">
+          <source>Copy the <bpt id="f2c6455d-94f7-4844-9fbe-3eab26837506">&lt;strong&gt;</bpt>Redirect URI<ept id="f2c6455d-94f7-4844-9fbe-3eab26837506">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy the <bpt id="f2c6455d-94f7-4844-9fbe-3eab26837506">&lt;strong&gt;</bpt>Redirect URI<ept id="f2c6455d-94f7-4844-9fbe-3eab26837506">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8d1bf3b-1777-4df3-8d92-4ccc7f4e73ee" xml:space="preserve">
+          <source>You will use this to configure your Google app.</source>
+          <target state="new">You will use this to configure your Google app.</target>
+        </trans-unit>
+        <trans-unit id="27d26e10-2d5a-47c2-8265-9567dc55d323" xml:space="preserve">
+          <source>Navigate to the <bpt id="998e7756-5d35-4a15-b85c-aef3f4adbe35">&lt;linkText&gt;</bpt>Google apis<ept id="998e7756-5d35-4a15-b85c-aef3f4adbe35">&lt;/linkText&gt;</ept><bpt id="998e7756-5d35-4a15-b85c-aef3f4adbe35">&lt;title&gt;</bpt><ept id="998e7756-5d35-4a15-b85c-aef3f4adbe35">&lt;/title&gt;</ept> website, sign-in with your Google account credentials, click <bpt id="4c8653ef-937e-4d46-86d9-26fd94b7d64c">&lt;strong&gt;</bpt>Create Project<ept id="4c8653ef-937e-4d46-86d9-26fd94b7d64c">&lt;/strong&gt;</ept>, provide a <bpt id="bc30c086-b6b6-4d9e-b465-7d881aa2dff0">&lt;strong&gt;</bpt>Project name<ept id="bc30c086-b6b6-4d9e-b465-7d881aa2dff0">&lt;/strong&gt;</ept>, then click <bpt id="68ccb218-a6b7-4915-b0d0-c9cf66b105df">&lt;strong&gt;</bpt>Create<ept id="68ccb218-a6b7-4915-b0d0-c9cf66b105df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to the <bpt id="998e7756-5d35-4a15-b85c-aef3f4adbe35">&lt;linkText&gt;</bpt>Google apis<ept id="998e7756-5d35-4a15-b85c-aef3f4adbe35">&lt;/linkText&gt;</ept><bpt id="998e7756-5d35-4a15-b85c-aef3f4adbe35">&lt;title&gt;</bpt><ept id="998e7756-5d35-4a15-b85c-aef3f4adbe35">&lt;/title&gt;</ept> website, sign-in with your Google account credentials, click <bpt id="4c8653ef-937e-4d46-86d9-26fd94b7d64c">&lt;strong&gt;</bpt>Create Project<ept id="4c8653ef-937e-4d46-86d9-26fd94b7d64c">&lt;/strong&gt;</ept>, provide a <bpt id="bc30c086-b6b6-4d9e-b465-7d881aa2dff0">&lt;strong&gt;</bpt>Project name<ept id="bc30c086-b6b6-4d9e-b465-7d881aa2dff0">&lt;/strong&gt;</ept>, then click <bpt id="68ccb218-a6b7-4915-b0d0-c9cf66b105df">&lt;strong&gt;</bpt>Create<ept id="68ccb218-a6b7-4915-b0d0-c9cf66b105df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4df9595c-5ede-4002-b4f5-881dc0cc59a3" xml:space="preserve">
+          <source>In the left navigation bar, click <bpt id="ade3f0b8-e896-4443-9252-181ea6c6c852">&lt;strong&gt;</bpt>API &amp; Auth<ept id="ade3f0b8-e896-4443-9252-181ea6c6c852">&lt;/strong&gt;</ept>, then under <bpt id="054848aa-ae02-41f5-bcd0-e2608cf4a500">&lt;strong&gt;</bpt>Social APIs<ept id="054848aa-ae02-41f5-bcd0-e2608cf4a500">&lt;/strong&gt;</ept> click <bpt id="c70dddc4-659f-4902-9f84-81f2ca99eae8">&lt;strong&gt;</bpt>Google+ API<ept id="c70dddc4-659f-4902-9f84-81f2ca99eae8">&lt;/strong&gt;</ept> &gt; <bpt id="2af11f6d-07c9-46c7-88cf-d5a3e89d2957">&lt;strong&gt;</bpt>Enable API<ept id="2af11f6d-07c9-46c7-88cf-d5a3e89d2957">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left navigation bar, click <bpt id="ade3f0b8-e896-4443-9252-181ea6c6c852">&lt;strong&gt;</bpt>API &amp; Auth<ept id="ade3f0b8-e896-4443-9252-181ea6c6c852">&lt;/strong&gt;</ept>, then under <bpt id="054848aa-ae02-41f5-bcd0-e2608cf4a500">&lt;strong&gt;</bpt>Social APIs<ept id="054848aa-ae02-41f5-bcd0-e2608cf4a500">&lt;/strong&gt;</ept> click <bpt id="c70dddc4-659f-4902-9f84-81f2ca99eae8">&lt;strong&gt;</bpt>Google+ API<ept id="c70dddc4-659f-4902-9f84-81f2ca99eae8">&lt;/strong&gt;</ept> &gt; <bpt id="2af11f6d-07c9-46c7-88cf-d5a3e89d2957">&lt;strong&gt;</bpt>Enable API<ept id="2af11f6d-07c9-46c7-88cf-d5a3e89d2957">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa36e83e-bafd-48aa-aa51-53f63189fbc0" xml:space="preserve">
+          <source>Click <bpt id="8dfabaa9-5a97-497a-8e0f-f8cb451146b4">&lt;strong&gt;</bpt>API &amp; Auth<ept id="8dfabaa9-5a97-497a-8e0f-f8cb451146b4">&lt;/strong&gt;</ept> &gt; <bpt id="10fe54b7-47cc-4492-8dca-a86f3c050964">&lt;strong&gt;</bpt>Credentials<ept id="10fe54b7-47cc-4492-8dca-a86f3c050964">&lt;/strong&gt;</ept> &gt; <bpt id="b48b0f71-eddd-4777-8a7e-f7b7a78ab444">&lt;strong&gt;</bpt>OAuth consent screen<ept id="b48b0f71-eddd-4777-8a7e-f7b7a78ab444">&lt;/strong&gt;</ept>, then select your <bpt id="4bbd7913-cd4f-40fb-b4b6-95a42e9a2c50">&lt;strong&gt;</bpt>Email address<ept id="4bbd7913-cd4f-40fb-b4b6-95a42e9a2c50">&lt;/strong&gt;</ept>,  enter a <bpt id="00cc0656-e6f2-4a34-87c9-3e6d55ff66ed">&lt;strong&gt;</bpt>Product Name<ept id="00cc0656-e6f2-4a34-87c9-3e6d55ff66ed">&lt;/strong&gt;</ept>, and click <bpt id="3e74e21b-58f3-446a-82bc-7308b0bb6fa9">&lt;strong&gt;</bpt>Save<ept id="3e74e21b-58f3-446a-82bc-7308b0bb6fa9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8dfabaa9-5a97-497a-8e0f-f8cb451146b4">&lt;strong&gt;</bpt>API &amp; Auth<ept id="8dfabaa9-5a97-497a-8e0f-f8cb451146b4">&lt;/strong&gt;</ept> &gt; <bpt id="10fe54b7-47cc-4492-8dca-a86f3c050964">&lt;strong&gt;</bpt>Credentials<ept id="10fe54b7-47cc-4492-8dca-a86f3c050964">&lt;/strong&gt;</ept> &gt; <bpt id="b48b0f71-eddd-4777-8a7e-f7b7a78ab444">&lt;strong&gt;</bpt>OAuth consent screen<ept id="b48b0f71-eddd-4777-8a7e-f7b7a78ab444">&lt;/strong&gt;</ept>, then select your <bpt id="4bbd7913-cd4f-40fb-b4b6-95a42e9a2c50">&lt;strong&gt;</bpt>Email address<ept id="4bbd7913-cd4f-40fb-b4b6-95a42e9a2c50">&lt;/strong&gt;</ept>,  enter a <bpt id="00cc0656-e6f2-4a34-87c9-3e6d55ff66ed">&lt;strong&gt;</bpt>Product Name<ept id="00cc0656-e6f2-4a34-87c9-3e6d55ff66ed">&lt;/strong&gt;</ept>, and click <bpt id="3e74e21b-58f3-446a-82bc-7308b0bb6fa9">&lt;strong&gt;</bpt>Save<ept id="3e74e21b-58f3-446a-82bc-7308b0bb6fa9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c38a98cc-3a57-4668-8f04-5c69ab0623d5" xml:space="preserve">
+          <source>In the <bpt id="1beadfb6-64cd-4fed-939a-5aa6b561d7cb">&lt;strong&gt;</bpt>Credentials<ept id="1beadfb6-64cd-4fed-939a-5aa6b561d7cb">&lt;/strong&gt;</ept> tab, click <bpt id="b85bc085-948d-4172-b86e-4f3fda665b78">&lt;strong&gt;</bpt>Add credentials<ept id="b85bc085-948d-4172-b86e-4f3fda665b78">&lt;/strong&gt;</ept> &gt; <bpt id="5f02d33b-4e20-4157-abf0-8a781daa007f">&lt;strong&gt;</bpt>OAuth 2.0 client ID<ept id="5f02d33b-4e20-4157-abf0-8a781daa007f">&lt;/strong&gt;</ept>, then select <bpt id="44651a95-9fe3-44b0-a8a8-e5632c2f45cc">&lt;strong&gt;</bpt>Web application<ept id="44651a95-9fe3-44b0-a8a8-e5632c2f45cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1beadfb6-64cd-4fed-939a-5aa6b561d7cb">&lt;strong&gt;</bpt>Credentials<ept id="1beadfb6-64cd-4fed-939a-5aa6b561d7cb">&lt;/strong&gt;</ept> tab, click <bpt id="b85bc085-948d-4172-b86e-4f3fda665b78">&lt;strong&gt;</bpt>Add credentials<ept id="b85bc085-948d-4172-b86e-4f3fda665b78">&lt;/strong&gt;</ept> &gt; <bpt id="5f02d33b-4e20-4157-abf0-8a781daa007f">&lt;strong&gt;</bpt>OAuth 2.0 client ID<ept id="5f02d33b-4e20-4157-abf0-8a781daa007f">&lt;/strong&gt;</ept>, then select <bpt id="44651a95-9fe3-44b0-a8a8-e5632c2f45cc">&lt;strong&gt;</bpt>Web application<ept id="44651a95-9fe3-44b0-a8a8-e5632c2f45cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04b7abb0-a199-456a-bffa-5f23c774409b" xml:space="preserve">
+          <source>Paste the Mobile Apps <bpt id="170071d0-1598-4646-9162-4eaf2df19a48">&lt;strong&gt;</bpt>URL<ept id="170071d0-1598-4646-9162-4eaf2df19a48">&lt;/strong&gt;</ept> you copied earlier into <bpt id="42884191-3baf-4d5f-8710-eace0b24eb44">&lt;strong&gt;</bpt>Authorized JavaScript Origins<ept id="42884191-3baf-4d5f-8710-eace0b24eb44">&lt;/strong&gt;</ept>, then paste the <bpt id="efdc9261-40a1-441a-bd5c-b248e09b4c4a">&lt;strong&gt;</bpt>Redirect URI<ept id="efdc9261-40a1-441a-bd5c-b248e09b4c4a">&lt;/strong&gt;</ept> you copied earlier into <bpt id="bfaa6e38-d5bc-471c-a897-12cac9f9de76">&lt;strong&gt;</bpt>Authorized Redirect URI<ept id="bfaa6e38-d5bc-471c-a897-12cac9f9de76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Paste the Mobile Apps <bpt id="170071d0-1598-4646-9162-4eaf2df19a48">&lt;strong&gt;</bpt>URL<ept id="170071d0-1598-4646-9162-4eaf2df19a48">&lt;/strong&gt;</ept> you copied earlier into <bpt id="42884191-3baf-4d5f-8710-eace0b24eb44">&lt;strong&gt;</bpt>Authorized JavaScript Origins<ept id="42884191-3baf-4d5f-8710-eace0b24eb44">&lt;/strong&gt;</ept>, then paste the <bpt id="efdc9261-40a1-441a-bd5c-b248e09b4c4a">&lt;strong&gt;</bpt>Redirect URI<ept id="efdc9261-40a1-441a-bd5c-b248e09b4c4a">&lt;/strong&gt;</ept> you copied earlier into <bpt id="bfaa6e38-d5bc-471c-a897-12cac9f9de76">&lt;strong&gt;</bpt>Authorized Redirect URI<ept id="bfaa6e38-d5bc-471c-a897-12cac9f9de76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="524802d4-2c96-448a-8b6d-167e244d6716" xml:space="preserve">
+          <source>The redirect URI is the Mobile App gateway appended with the path, <bpt id="638171e5-162f-468f-8672-6acc5d5eb132">&lt;em&gt;</bpt>/signin-google<ept id="638171e5-162f-468f-8672-6acc5d5eb132">&lt;/em&gt;</ept>.</source>
+          <target state="new">The redirect URI is the Mobile App gateway appended with the path, <bpt id="638171e5-162f-468f-8672-6acc5d5eb132">&lt;em&gt;</bpt>/signin-google<ept id="638171e5-162f-468f-8672-6acc5d5eb132">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f33b06f-4aa1-4b6f-b49f-26dcd496f5fa" xml:space="preserve">
+          <source>For example, <bpt id="810ea583-0b20-4484-9394-3f609992824c">&lt;code&gt;</bpt>https://contosogateway.azurewebsites.net/signin-google<ept id="810ea583-0b20-4484-9394-3f609992824c">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="810ea583-0b20-4484-9394-3f609992824c">&lt;code&gt;</bpt>https://contosogateway.azurewebsites.net/signin-google<ept id="810ea583-0b20-4484-9394-3f609992824c">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88ba41ef-15c8-4825-80e4-91719a561585" xml:space="preserve">
+          <source>Make sure that you are using the HTTPS scheme.</source>
+          <target state="new">Make sure that you are using the HTTPS scheme.</target>
+        </trans-unit>
+        <trans-unit id="2f442e89-b89e-4dad-aedd-232bc63a3d99" xml:space="preserve">
+          <source>Then click <bpt id="b5b309c8-e180-45c0-811a-fde9fb1421ee">&lt;strong&gt;</bpt>Create<ept id="b5b309c8-e180-45c0-811a-fde9fb1421ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="b5b309c8-e180-45c0-811a-fde9fb1421ee">&lt;strong&gt;</bpt>Create<ept id="b5b309c8-e180-45c0-811a-fde9fb1421ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f49eb5bd-84a7-478b-9633-3d178cf0289b" xml:space="preserve">
+          <source>On the next screen, make a note of the values of the client ID and client secret.</source>
+          <target state="new">On the next screen, make a note of the values of the client ID and client secret.</target>
+        </trans-unit>
+        <trans-unit id="f4b1b286-98cd-4ede-8edc-d2ea1041e17e" xml:space="preserve">
+          <source>The client secret is an important security credential.</source>
+          <target state="new">The client secret is an important security credential.</target>
+        </trans-unit>
+        <trans-unit id="ddea7763-a2da-4e11-b085-95890ef97dff" xml:space="preserve">
+          <source>Do not share this secret with anyone or distribute it within a client application.</source>
+          <target state="new">Do not share this secret with anyone or distribute it within a client application.</target>
+        </trans-unit>
+        <trans-unit id="7d790dcb-2143-4ff1-897e-567c78c1e4bf" xml:space="preserve">
+          <source>Back in the [Azure Management Portal], on the Google settings blade for your Mobile App, paste in the Client ID and Client secret values which you obtained previously.</source>
+          <target state="new">Back in the [Azure Management Portal], on the Google settings blade for your Mobile App, paste in the Client ID and Client secret values which you obtained previously.</target>
+        </trans-unit>
+        <trans-unit id="946af5bb-e860-4907-8dde-85e554587c33" xml:space="preserve">
+          <source>Then click <bpt id="43a7cf82-7822-4661-ba92-4d764f921a8c">&lt;strong&gt;</bpt>Save<ept id="43a7cf82-7822-4661-ba92-4d764f921a8c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="43a7cf82-7822-4661-ba92-4d764f921a8c">&lt;strong&gt;</bpt>Save<ept id="43a7cf82-7822-4661-ba92-4d764f921a8c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3afca682-1f1a-4133-ab64-c6022ff2a52a" xml:space="preserve">
+          <source> <bpt id="6b1be5ed-3a3d-4004-bbaf-3a645555a8d9">&lt;linkText&gt;</bpt><ept id="6b1be5ed-3a3d-4004-bbaf-3a645555a8d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="6b1be5ed-3a3d-4004-bbaf-3a645555a8d9">&lt;linkText&gt;</bpt><ept id="6b1be5ed-3a3d-4004-bbaf-3a645555a8d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9acef6b-29ff-4ce1-a43d-8d7d76dc7f23" xml:space="preserve">
+          <source>You are now ready to use Google for authentication in your app.</source>
+          <target state="new">You are now ready to use Google for authentication in your app.</target>
+        </trans-unit>
+        <trans-unit id="d677b787-6ffd-4b78-97b6-c961804f15d1" xml:space="preserve">
+          <source><bpt id="1d6f9b4e-6486-4736-b622-64dd21535379">&lt;token href="../../includes/app-service-mobile-related-content-get-started-users.md"&gt;</bpt><ept id="1d6f9b4e-6486-4736-b622-64dd21535379">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1d6f9b4e-6486-4736-b622-64dd21535379">&lt;token href="../../includes/app-service-mobile-related-content-get-started-users.md"&gt;</bpt><ept id="1d6f9b4e-6486-4736-b622-64dd21535379">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1fff307-f38f-4c9b-876d-2e2124e21f28" xml:space="preserve">
+          <source>./media/app-service-mobile-how-to-configure-google-authentication-preview/mobile-app-google-redirect.png</source>
+          <target state="new">./media/app-service-mobile-how-to-configure-google-authentication-preview/mobile-app-google-redirect.png</target>
+        </trans-unit>
+        <trans-unit id="d1d65b5b-377a-4587-93b0-4f84ca0e3928" xml:space="preserve">
+          <source>./media/app-service-mobile-how-to-configure-google-authentication-preview/mobile-app-google-settings.png</source>
+          <target state="new">./media/app-service-mobile-how-to-configure-google-authentication-preview/mobile-app-google-settings.png</target>
+        </trans-unit>
+        <trans-unit id="dfaa197f-ff08-4410-9da9-f2410650329a" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=268303</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=268303</target>
+        </trans-unit>
+        <trans-unit id="c1de8b62-4dcb-413a-b1fd-508df1c3192a" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="e4b9626a-75f4-4c24-b337-fa904244e048" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3003f70e-c9e1-4516-82db-e41255289cba" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3003f70e-c9e1-4516-82db-e41255289cba" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6015b7fc-0dbd-43c8-9468-89312fd8b36c">
+        <trans-unit id="91cffdfc-cf4e-4de5-873c-6d57b6be7f74" xml:space="preserve">
+          <source>Runbook settings</source>
+          <target state="new">Runbook settings</target>
+        </trans-unit>
+        <trans-unit id="ae004706-a350-4cb5-8c4c-335cd7e51818" xml:space="preserve">
+          <source>Describes the configuration settings for a runbook in Azure Automation and how to change them using both the Azure Management Portal and Windows PowerShell.</source>
+          <target state="new">Describes the configuration settings for a runbook in Azure Automation and how to change them using both the Azure Management Portal and Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="52a57a52-68de-4027-a32e-118504b8656a" xml:space="preserve">
+          <source>Each runbook in Azure Automation has multiple settings that help it to be identified and to change its logging behavior.</source>
+          <target state="new">Each runbook in Azure Automation has multiple settings that help it to be identified and to change its logging behavior.</target>
+        </trans-unit>
+        <trans-unit id="85ed14a4-3df2-4c9f-8e41-fff5acb5054f" xml:space="preserve">
+          <source>Each of these settings is described below followed by procedures on how to modify them.</source>
+          <target state="new">Each of these settings is described below followed by procedures on how to modify them.</target>
+        </trans-unit>
+        <trans-unit id="8f777af6-b75a-432f-9a4c-1751a9f92b9c" xml:space="preserve">
+          <source>You cannot change the name of a runbook after it has been created.</source>
+          <target state="new">You cannot change the name of a runbook after it has been created.</target>
+        </trans-unit>
+        <trans-unit id="76e89f59-ce5c-4b49-bbe8-42236db33bf9" xml:space="preserve">
+          <source>The Description is optional and can be up to 512 characters.</source>
+          <target state="new">The Description is optional and can be up to 512 characters.</target>
+        </trans-unit>
+        <trans-unit id="2a4bb335-243c-4313-b5c4-6679d4a5ec2d" xml:space="preserve">
+          <source>Tags allow you to assign distinct words and phrases to help identify a runbook.</source>
+          <target state="new">Tags allow you to assign distinct words and phrases to help identify a runbook.</target>
+        </trans-unit>
+        <trans-unit id="e6287fde-6311-4ac5-bd69-807581f4fab0" xml:space="preserve">
+          <source>For example, when you submit a runbook to the <bpt id="6b0a97e7-7308-4da4-89b6-70ced58e786a">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="6b0a97e7-7308-4da4-89b6-70ced58e786a">&lt;/linkText&gt;</ept><bpt id="6b0a97e7-7308-4da4-89b6-70ced58e786a">&lt;title&gt;</bpt><ept id="6b0a97e7-7308-4da4-89b6-70ced58e786a">&lt;/title&gt;</ept>, you specify particular tags to identify which categories the runbook should be listed in.</source>
+          <target state="new">For example, when you submit a runbook to the <bpt id="6b0a97e7-7308-4da4-89b6-70ced58e786a">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="6b0a97e7-7308-4da4-89b6-70ced58e786a">&lt;/linkText&gt;</ept><bpt id="6b0a97e7-7308-4da4-89b6-70ced58e786a">&lt;title&gt;</bpt><ept id="6b0a97e7-7308-4da4-89b6-70ced58e786a">&lt;/title&gt;</ept>, you specify particular tags to identify which categories the runbook should be listed in.</target>
+        </trans-unit>
+        <trans-unit id="1fe3928b-fbe4-4c29-811a-299bc94737a2" xml:space="preserve">
+          <source>You can specify multiple tags for a runbook by separating them with commas.</source>
+          <target state="new">You can specify multiple tags for a runbook by separating them with commas.</target>
+        </trans-unit>
+        <trans-unit id="35a47261-1c03-4bc8-a8e2-630a536431a8" xml:space="preserve">
+          <source>By default, Verbose and Progress records are not written to job history.</source>
+          <target state="new">By default, Verbose and Progress records are not written to job history.</target>
+        </trans-unit>
+        <trans-unit id="b5d1e871-9c8b-4eef-ac4f-baa6de93c277" xml:space="preserve">
+          <source>You can change the settings for a particular runbook to log these records.</source>
+          <target state="new">You can change the settings for a particular runbook to log these records.</target>
+        </trans-unit>
+        <trans-unit id="ae9260e2-a413-4f26-bb03-1f65ec6ab033" xml:space="preserve">
+          <source>For more information on these records, see <bpt id="5ffe1e29-6bce-49d9-8671-8bbc14120892">&lt;linkText&gt;</bpt>Runbook Output and Messages<ept id="5ffe1e29-6bce-49d9-8671-8bbc14120892">&lt;/linkText&gt;</ept><bpt id="5ffe1e29-6bce-49d9-8671-8bbc14120892">&lt;title&gt;</bpt><ept id="5ffe1e29-6bce-49d9-8671-8bbc14120892">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on these records, see <bpt id="5ffe1e29-6bce-49d9-8671-8bbc14120892">&lt;linkText&gt;</bpt>Runbook Output and Messages<ept id="5ffe1e29-6bce-49d9-8671-8bbc14120892">&lt;/linkText&gt;</ept><bpt id="5ffe1e29-6bce-49d9-8671-8bbc14120892">&lt;title&gt;</bpt><ept id="5ffe1e29-6bce-49d9-8671-8bbc14120892">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22a175ac-7b66-4c53-8b18-de772130b3ca" xml:space="preserve">
+          <source>You can change settings for a runbook in the Azure Management Portal from the <bpt id="e731c79a-f0f3-4b1f-a840-0aff3de5c5e8">&lt;strong&gt;</bpt>Configure<ept id="e731c79a-f0f3-4b1f-a840-0aff3de5c5e8">&lt;/strong&gt;</ept> page for the runbook.</source>
+          <target state="new">You can change settings for a runbook in the Azure Management Portal from the <bpt id="e731c79a-f0f3-4b1f-a840-0aff3de5c5e8">&lt;strong&gt;</bpt>Configure<ept id="e731c79a-f0f3-4b1f-a840-0aff3de5c5e8">&lt;/strong&gt;</ept> page for the runbook.</target>
+        </trans-unit>
+        <trans-unit id="98963b14-7e02-4126-8d7d-c39cb57d901d" xml:space="preserve">
+          <source>In the Azure Management Portal, select <bpt id="a37aec9c-7fb2-4b3f-a4e3-d8b66f65258f">&lt;strong&gt;</bpt>Automation<ept id="a37aec9c-7fb2-4b3f-a4e3-d8b66f65258f">&lt;/strong&gt;</ept> and then then click the name of an automation account.</source>
+          <target state="new">In the Azure Management Portal, select <bpt id="a37aec9c-7fb2-4b3f-a4e3-d8b66f65258f">&lt;strong&gt;</bpt>Automation<ept id="a37aec9c-7fb2-4b3f-a4e3-d8b66f65258f">&lt;/strong&gt;</ept> and then then click the name of an automation account.</target>
+        </trans-unit>
+        <trans-unit id="00947669-1cae-4c43-99e2-1da8ba6fe1aa" xml:space="preserve">
+          <source>Select the <bpt id="727d1bce-b394-438d-a1e4-763e1c291938">&lt;strong&gt;</bpt>Runbooks<ept id="727d1bce-b394-438d-a1e4-763e1c291938">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the <bpt id="727d1bce-b394-438d-a1e4-763e1c291938">&lt;strong&gt;</bpt>Runbooks<ept id="727d1bce-b394-438d-a1e4-763e1c291938">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="0d123e74-7972-4808-b4b2-162f6faa41a2" xml:space="preserve">
+          <source>Click the name of a runbook.</source>
+          <target state="new">Click the name of a runbook.</target>
+        </trans-unit>
+        <trans-unit id="b3d50078-e311-40c2-bb53-82f0ded8ca04" xml:space="preserve">
+          <source>Select the <bpt id="dcdfae6a-5ba8-4ee9-823d-cf841d749362">&lt;strong&gt;</bpt>Configure<ept id="dcdfae6a-5ba8-4ee9-823d-cf841d749362">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the <bpt id="dcdfae6a-5ba8-4ee9-823d-cf841d749362">&lt;strong&gt;</bpt>Configure<ept id="dcdfae6a-5ba8-4ee9-823d-cf841d749362">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="033ffc7e-6685-488b-822c-75cd64392860" xml:space="preserve">
+          <source>You can use the <bpt id="acd82c0a-3c39-49e2-a2a0-c1331a5034ef">&lt;linkText&gt;</bpt>Set-AzureAutomationRunbook<ept id="acd82c0a-3c39-49e2-a2a0-c1331a5034ef">&lt;/linkText&gt;</ept><bpt id="acd82c0a-3c39-49e2-a2a0-c1331a5034ef">&lt;title&gt;</bpt><ept id="acd82c0a-3c39-49e2-a2a0-c1331a5034ef">&lt;/title&gt;</ept> cmdlet to change the settings for a runbook.</source>
+          <target state="new">You can use the <bpt id="acd82c0a-3c39-49e2-a2a0-c1331a5034ef">&lt;linkText&gt;</bpt>Set-AzureAutomationRunbook<ept id="acd82c0a-3c39-49e2-a2a0-c1331a5034ef">&lt;/linkText&gt;</ept><bpt id="acd82c0a-3c39-49e2-a2a0-c1331a5034ef">&lt;title&gt;</bpt><ept id="acd82c0a-3c39-49e2-a2a0-c1331a5034ef">&lt;/title&gt;</ept> cmdlet to change the settings for a runbook.</target>
+        </trans-unit>
+        <trans-unit id="f2bc9d85-002a-4f05-a8f4-537dd9f2880c" xml:space="preserve">
+          <source>If you want to specify multiple tags, you can either provide an array or a single string with comma delimited values to the Tags parameter.</source>
+          <target state="new">If you want to specify multiple tags, you can either provide an array or a single string with comma delimited values to the Tags parameter.</target>
+        </trans-unit>
+        <trans-unit id="51381446-5782-48f0-a8df-a8142686d60d" xml:space="preserve">
+          <source>You can get the current tags with the <bpt id="05cbdfac-06e3-4a17-bd24-194e8fcfaaae">&lt;linkText&gt;</bpt>Get-AzureAutomationRunbook<ept id="05cbdfac-06e3-4a17-bd24-194e8fcfaaae">&lt;/linkText&gt;</ept><bpt id="05cbdfac-06e3-4a17-bd24-194e8fcfaaae">&lt;title&gt;</bpt><ept id="05cbdfac-06e3-4a17-bd24-194e8fcfaaae">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get the current tags with the <bpt id="05cbdfac-06e3-4a17-bd24-194e8fcfaaae">&lt;linkText&gt;</bpt>Get-AzureAutomationRunbook<ept id="05cbdfac-06e3-4a17-bd24-194e8fcfaaae">&lt;/linkText&gt;</ept><bpt id="05cbdfac-06e3-4a17-bd24-194e8fcfaaae">&lt;title&gt;</bpt><ept id="05cbdfac-06e3-4a17-bd24-194e8fcfaaae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="120ec4e3-070e-46d7-92f9-9d2251d94f95" xml:space="preserve">
+          <source>The following sample commands show how to set the properties for a runbook.</source>
+          <target state="new">The following sample commands show how to set the properties for a runbook.</target>
+        </trans-unit>
+        <trans-unit id="6f5421e5-ac23-46da-b719-c468156a3c42" xml:space="preserve">
+          <source>This sample adds three tags to the existing tags and specifies that verbose records should be logged.</source>
+          <target state="new">This sample adds three tags to the existing tags and specifies that verbose records should be logged.</target>
+        </trans-unit>
+        <trans-unit id="a7f88248-fb45-4486-a1e3-19bd8020dee6" xml:space="preserve">
+          <source><bpt id="ada24011-e2ea-4baa-960b-afd1f66142c8">&lt;linkText&gt;</bpt>Runbook Output and Messages<ept id="ada24011-e2ea-4baa-960b-afd1f66142c8">&lt;/linkText&gt;</ept><bpt id="ada24011-e2ea-4baa-960b-afd1f66142c8">&lt;title&gt;</bpt><ept id="ada24011-e2ea-4baa-960b-afd1f66142c8">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="ada24011-e2ea-4baa-960b-afd1f66142c8">&lt;linkText&gt;</bpt>Runbook Output and Messages<ept id="ada24011-e2ea-4baa-960b-afd1f66142c8">&lt;/linkText&gt;</ept><bpt id="ada24011-e2ea-4baa-960b-afd1f66142c8">&lt;title&gt;</bpt><ept id="ada24011-e2ea-4baa-960b-afd1f66142c8">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="aebbf783-a469-42c1-8c27-6be960de2e1f" xml:space="preserve">
+          <source><bpt id="20dd135d-2616-4d7f-92f0-d8d3e190f988">&lt;linkText&gt;</bpt>Creating or Importing a Runbook<ept id="20dd135d-2616-4d7f-92f0-d8d3e190f988">&lt;/linkText&gt;</ept><bpt id="20dd135d-2616-4d7f-92f0-d8d3e190f988">&lt;title&gt;</bpt><ept id="20dd135d-2616-4d7f-92f0-d8d3e190f988">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="20dd135d-2616-4d7f-92f0-d8d3e190f988">&lt;linkText&gt;</bpt>Creating or Importing a Runbook<ept id="20dd135d-2616-4d7f-92f0-d8d3e190f988">&lt;/linkText&gt;</ept><bpt id="20dd135d-2616-4d7f-92f0-d8d3e190f988">&lt;title&gt;</bpt><ept id="20dd135d-2616-4d7f-92f0-d8d3e190f988">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

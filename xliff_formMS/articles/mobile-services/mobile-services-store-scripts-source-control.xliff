@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a961c361-8146-4982-aa96-7359433f3cd3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a961c361-8146-4982-aa96-7359433f3cd3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ac144e83-e914-47e7-9cb1-0592e5471f17">
+        <trans-unit id="a2523310-c771-4603-ba1e-4809565de269" xml:space="preserve">
+          <source>Store project code in source control | Microsoft Azure</source>
+          <target state="new">Store project code in source control | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="adb4a4bc-0a92-4cab-b744-5381f6b21b63" xml:space="preserve">
+          <source>Learn how to store your server script files and modules in a local Git repo on your computer.</source>
+          <target state="new">Learn how to store your server script files and modules in a local Git repo on your computer.</target>
+        </trans-unit>
+        <trans-unit id="4013be54-3f25-4d10-a4f1-4582c878b6ee" xml:space="preserve">
+          <source>This topic shows you how to use the source control provided by Azure Mobile Services to store your server scripts.</source>
+          <target state="new">This topic shows you how to use the source control provided by Azure Mobile Services to store your server scripts.</target>
+        </trans-unit>
+        <trans-unit id="fe785dbb-c3c4-4e8e-bc46-3090857157cd" xml:space="preserve">
+          <source>Scripts and other JavaScript backend code files can be promoted from your local Git repository to your production mobile service.</source>
+          <target state="new">Scripts and other JavaScript backend code files can be promoted from your local Git repository to your production mobile service.</target>
+        </trans-unit>
+        <trans-unit id="7c9d0d4f-1539-42c8-b067-b0e911e44aa1" xml:space="preserve">
+          <source>It also shows how to define shared code that can be required by multiple scripts and how to use the package.json file to add Node.js modules to your mobile service.</source>
+          <target state="new">It also shows how to define shared code that can be required by multiple scripts and how to use the package.json file to add Node.js modules to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="06f3e7a6-3a5e-4b47-ab34-dc39372f58b3" xml:space="preserve">
+          <source>To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Add Mobile Services to an existing app] tutorial.</source>
+          <target state="new">To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Add Mobile Services to an existing app] tutorial.</target>
+        </trans-unit>
+        <trans-unit id="3373e2a1-6ec7-4556-b56e-fa505ca8a619" xml:space="preserve">
+          <source><bpt id="a86a906e-7607-4302-b340-9e68deae0829">&lt;token href="../../includes/mobile-services-enable-source-control.md"&gt;</bpt><ept id="a86a906e-7607-4302-b340-9e68deae0829">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a86a906e-7607-4302-b340-9e68deae0829">&lt;token href="../../includes/mobile-services-enable-source-control.md"&gt;</bpt><ept id="a86a906e-7607-4302-b340-9e68deae0829">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a18c754d-4667-4e27-a7ea-fd79c213329e" xml:space="preserve">
+          <source>Install Git on your local computer.</source>
+          <target state="new">Install Git on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="22132dd7-ab08-44bb-ae4d-ac7c2bc1ee73" xml:space="preserve">
+          <source>The steps required to install Git vary between operating systems.</source>
+          <target state="new">The steps required to install Git vary between operating systems.</target>
+        </trans-unit>
+        <trans-unit id="471b5075-eab3-4017-b494-a72870ac0a9f" xml:space="preserve">
+          <source>See [Installing Git] for operating system specific distributions and installation guidance.</source>
+          <target state="new">See [Installing Git] for operating system specific distributions and installation guidance.</target>
+        </trans-unit>
+        <trans-unit id="1a66edd6-35be-4fb0-a556-710c782eb7be" xml:space="preserve">
+          <source>On some operating systems, both a command-line and GUI version of Git are available.</source>
+          <target state="new">On some operating systems, both a command-line and GUI version of Git are available.</target>
+        </trans-unit>
+        <trans-unit id="d786f8fb-9211-4742-88b7-2bf5eab26e3d" xml:space="preserve">
+          <source>The instructions provided in this article use the command-line version.</source>
+          <target state="new">The instructions provided in this article use the command-line version.</target>
+        </trans-unit>
+        <trans-unit id="450e39e2-1a2b-416a-a257-6620ab1390a9" xml:space="preserve">
+          <source>Open a command-line, such as <bpt id="d64cb896-f29e-4092-88c7-5cc3e250919d">&lt;strong&gt;</bpt>GitBash<ept id="d64cb896-f29e-4092-88c7-5cc3e250919d">&lt;/strong&gt;</ept> (Windows) or <bpt id="867d95c7-8609-4c3d-af88-50f70a234c1e">&lt;strong&gt;</bpt>Bash<ept id="867d95c7-8609-4c3d-af88-50f70a234c1e">&lt;/strong&gt;</ept> (Unix Shell).</source>
+          <target state="new">Open a command-line, such as <bpt id="d64cb896-f29e-4092-88c7-5cc3e250919d">&lt;strong&gt;</bpt>GitBash<ept id="d64cb896-f29e-4092-88c7-5cc3e250919d">&lt;/strong&gt;</ept> (Windows) or <bpt id="867d95c7-8609-4c3d-af88-50f70a234c1e">&lt;strong&gt;</bpt>Bash<ept id="867d95c7-8609-4c3d-af88-50f70a234c1e">&lt;/strong&gt;</ept> (Unix Shell).</target>
+        </trans-unit>
+        <trans-unit id="534ac242-065e-4a54-9363-622fb3860a5e" xml:space="preserve">
+          <source>On OS X systems you can access the command-line through the <bpt id="b36d5471-a83d-46a9-ad0c-fbd6471d6926">&lt;strong&gt;</bpt>Terminal<ept id="b36d5471-a83d-46a9-ad0c-fbd6471d6926">&lt;/strong&gt;</ept> application.</source>
+          <target state="new">On OS X systems you can access the command-line through the <bpt id="b36d5471-a83d-46a9-ad0c-fbd6471d6926">&lt;strong&gt;</bpt>Terminal<ept id="b36d5471-a83d-46a9-ad0c-fbd6471d6926">&lt;/strong&gt;</ept> application.</target>
+        </trans-unit>
+        <trans-unit id="d8d04731-f507-41d3-909c-82b60d36ef59" xml:space="preserve">
+          <source>From the command line, change to the directory where you will store your scripts.</source>
+          <target state="new">From the command line, change to the directory where you will store your scripts.</target>
+        </trans-unit>
+        <trans-unit id="e005205a-e89a-4f47-ae23-af41840d8ad6" xml:space="preserve">
+          <source>For example, <bpt id="462f90a4-166a-4ded-bf7f-422e56cbd442">&lt;code&gt;</bpt>cd SourceControl<ept id="462f90a4-166a-4ded-bf7f-422e56cbd442">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="462f90a4-166a-4ded-bf7f-422e56cbd442">&lt;code&gt;</bpt>cd SourceControl<ept id="462f90a4-166a-4ded-bf7f-422e56cbd442">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="493a11ce-cf21-4e35-a9c9-a501688de2d4" xml:space="preserve">
+          <source>Use the following command to create a local copy of your new Git repository, replacing <bpt id="08959a27-3a8b-4b41-8631-a3ad85692c78">&lt;code&gt;</bpt>&lt;your_git_URL&gt;<ept id="08959a27-3a8b-4b41-8631-a3ad85692c78">&lt;/code&gt;</ept> with the URL of the Git repository for your mobile service:</source>
+          <target state="new">Use the following command to create a local copy of your new Git repository, replacing <bpt id="08959a27-3a8b-4b41-8631-a3ad85692c78">&lt;code&gt;</bpt>&lt;your_git_URL&gt;<ept id="08959a27-3a8b-4b41-8631-a3ad85692c78">&lt;/code&gt;</ept> with the URL of the Git repository for your mobile service:</target>
+        </trans-unit>
+        <trans-unit id="7c3715c9-cbfb-490a-ab96-9aeb1204be1b" xml:space="preserve">
+          <source>When prompted, type in the user name and password that you set when you enabled source control in your mobile service.</source>
+          <target state="new">When prompted, type in the user name and password that you set when you enabled source control in your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="e90097c4-90b9-482d-8c47-e95eff4c9416" xml:space="preserve">
+          <source>After successful authentication, you will see a series of responses like this:</source>
+          <target state="new">After successful authentication, you will see a series of responses like this:</target>
+        </trans-unit>
+        <trans-unit id="dff3d645-a9b8-4f63-acf5-a26b3619dbde" xml:space="preserve">
+          <source>Browse to the directory from which you ran the <bpt id="022d68b5-a62c-4e8f-b964-ec1f8c937724">&lt;code&gt;</bpt>git clone<ept id="022d68b5-a62c-4e8f-b964-ec1f8c937724">&lt;/code&gt;</ept> command, and notice the following directory structure:</source>
+          <target state="new">Browse to the directory from which you ran the <bpt id="022d68b5-a62c-4e8f-b964-ec1f8c937724">&lt;code&gt;</bpt>git clone<ept id="022d68b5-a62c-4e8f-b964-ec1f8c937724">&lt;/code&gt;</ept> command, and notice the following directory structure:</target>
+        </trans-unit>
+        <trans-unit id="d57663a4-ff19-4e2e-974e-694aed3c82a0" xml:space="preserve">
+          <source><bpt id="1e4a56e5-3f6f-41c5-af06-27873cd0fb33">&lt;linkText&gt;</bpt>4<ept id="1e4a56e5-3f6f-41c5-af06-27873cd0fb33">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e4a56e5-3f6f-41c5-af06-27873cd0fb33">&lt;linkText&gt;</bpt>4<ept id="1e4a56e5-3f6f-41c5-af06-27873cd0fb33">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2d41cfb-c51f-4dad-ac99-524ae8eb6167" xml:space="preserve">
+          <source>In this case, a new directory is created with the name of the mobile service, which is the local repository for the data service.</source>
+          <target state="new">In this case, a new directory is created with the name of the mobile service, which is the local repository for the data service.</target>
+        </trans-unit>
+        <trans-unit id="87536bcc-1cc2-4480-b01e-b212bd609874" xml:space="preserve">
+          <source>Open the .\service\table subfolder and notice that it contains a TodoItem.json file, which is a JSON representation of the operation permissions on the TodoItem table.</source>
+          <target state="new">Open the .\service\table subfolder and notice that it contains a TodoItem.json file, which is a JSON representation of the operation permissions on the TodoItem table.</target>
+        </trans-unit>
+        <trans-unit id="e936c8e2-4832-4858-9303-1479dcb30dc5" xml:space="preserve">
+          <source>When server scripts have been defined on this table, you will also have one or more files named &lt;code&gt;TodoItem.<bpt id="49eabc0b-4b84-471b-97d2-9cc87b8575cf">&lt;em&gt;</bpt>&amp;lt;operation&amp;gt;<ept id="49eabc0b-4b84-471b-97d2-9cc87b8575cf">&lt;/em&gt;</ept>.js&lt;/code&gt; that contain the scripts for the given table operation.</source>
+          <target state="new">When server scripts have been defined on this table, you will also have one or more files named &lt;code&gt;TodoItem.<bpt id="49eabc0b-4b84-471b-97d2-9cc87b8575cf">&lt;em&gt;</bpt>&amp;lt;operation&amp;gt;<ept id="49eabc0b-4b84-471b-97d2-9cc87b8575cf">&lt;/em&gt;</ept>.js&lt;/code&gt; that contain the scripts for the given table operation.</target>
+        </trans-unit>
+        <trans-unit id="b41c78a3-7a07-469b-88bd-42c8780862bc" xml:space="preserve">
+          <source>Scheduler and custom API scripts are maintained in separate folders with those respective names.</source>
+          <target state="new">Scheduler and custom API scripts are maintained in separate folders with those respective names.</target>
+        </trans-unit>
+        <trans-unit id="ee939fc4-43ab-45a9-b069-ece815c0e320" xml:space="preserve">
+          <source>For more information, see [Source control].</source>
+          <target state="new">For more information, see [Source control].</target>
+        </trans-unit>
+        <trans-unit id="cd8fe3f9-661b-4a12-8d72-ddfd25498314" xml:space="preserve">
+          <source>Now that you have created your local repository, you can make changes to server scripts and push the changes back to the mobile service.</source>
+          <target state="new">Now that you have created your local repository, you can make changes to server scripts and push the changes back to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="0161f970-46da-4cdf-afb8-f96aa3c63ca5" xml:space="preserve">
+          <source>Browse to the .\service\table subfolder, and if a file todoitem.insert.js files doesn't already exist, create it now.</source>
+          <target state="new">Browse to the .\service\table subfolder, and if a file todoitem.insert.js files doesn't already exist, create it now.</target>
+        </trans-unit>
+        <trans-unit id="7b0e8b76-e889-469d-a36a-32708dcded03" xml:space="preserve">
+          <source>Open the new file todoitem.insert.js in a text editor and paste in the following code and save your changes:</source>
+          <target state="new">Open the new file todoitem.insert.js in a text editor and paste in the following code and save your changes:</target>
+        </trans-unit>
+        <trans-unit id="2fa27a73-62e2-4cad-a201-f3a561c73283" xml:space="preserve">
+          <source>This code simply writes the inserted item to the log.</source>
+          <target state="new">This code simply writes the inserted item to the log.</target>
+        </trans-unit>
+        <trans-unit id="3c03fb53-ff9e-43cd-9f8e-770ae599a34d" xml:space="preserve">
+          <source>If this file already contains code, simply add some valid JavaScript code to this file, such as a call to <bpt id="20c707ac-1eef-4cd6-8a4e-771ab2b2f9af">&lt;code&gt;</bpt>console.log()<ept id="20c707ac-1eef-4cd6-8a4e-771ab2b2f9af">&lt;/code&gt;</ept>, then save your changes.</source>
+          <target state="new">If this file already contains code, simply add some valid JavaScript code to this file, such as a call to <bpt id="20c707ac-1eef-4cd6-8a4e-771ab2b2f9af">&lt;code&gt;</bpt>console.log()<ept id="20c707ac-1eef-4cd6-8a4e-771ab2b2f9af">&lt;/code&gt;</ept>, then save your changes.</target>
+        </trans-unit>
+        <trans-unit id="109a4d25-9f3f-4d8c-b4cc-ac04739b5a43" xml:space="preserve">
+          <source>In the Git command prompt, type the following command to start tracking the new script file:</source>
+          <target state="new">In the Git command prompt, type the following command to start tracking the new script file:</target>
+        </trans-unit>
+        <trans-unit id="dc117644-c350-438e-b15e-3d3b16dc14aa" xml:space="preserve">
+          <source>Type the following command to commit changes:</source>
+          <target state="new">Type the following command to commit changes:</target>
+        </trans-unit>
+        <trans-unit id="e48e8be3-43c1-4e8c-beec-d9c0a1b8d7b1" xml:space="preserve">
+          <source>Type the following command to upload the changes to the remote repository:</source>
+          <target state="new">Type the following command to upload the changes to the remote repository:</target>
+        </trans-unit>
+        <trans-unit id="252079da-55c9-47c0-b559-4201ff496ba6" xml:space="preserve">
+          <source>You should see a series of commands that indicates that the commit is deployed to the mobile service.</source>
+          <target state="new">You should see a series of commands that indicates that the commit is deployed to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="4632d988-6bda-4afa-9607-41d327ff548f" xml:space="preserve">
+          <source>Back in the Management Portal, click the <bpt id="8a266c89-8775-4ade-a05a-74120b8c5939">&lt;strong&gt;</bpt>Data<ept id="8a266c89-8775-4ade-a05a-74120b8c5939">&lt;/strong&gt;</ept> tab, then click the <bpt id="12e7dc28-5802-4f8c-ac06-68d1cebd9757">&lt;strong&gt;</bpt>TodoItem<ept id="12e7dc28-5802-4f8c-ac06-68d1cebd9757">&lt;/strong&gt;</ept> table, click  <bpt id="8e7f770a-cf77-45db-a2ba-6067551815f6">&lt;strong&gt;</bpt>Script<ept id="8e7f770a-cf77-45db-a2ba-6067551815f6">&lt;/strong&gt;</ept>, then select the <bpt id="60889078-161d-431e-94fa-4c3ce20cb17a">&lt;strong&gt;</bpt>Insert<ept id="60889078-161d-431e-94fa-4c3ce20cb17a">&lt;/strong&gt;</ept> operation.</source>
+          <target state="new">Back in the Management Portal, click the <bpt id="8a266c89-8775-4ade-a05a-74120b8c5939">&lt;strong&gt;</bpt>Data<ept id="8a266c89-8775-4ade-a05a-74120b8c5939">&lt;/strong&gt;</ept> tab, then click the <bpt id="12e7dc28-5802-4f8c-ac06-68d1cebd9757">&lt;strong&gt;</bpt>TodoItem<ept id="12e7dc28-5802-4f8c-ac06-68d1cebd9757">&lt;/strong&gt;</ept> table, click  <bpt id="8e7f770a-cf77-45db-a2ba-6067551815f6">&lt;strong&gt;</bpt>Script<ept id="8e7f770a-cf77-45db-a2ba-6067551815f6">&lt;/strong&gt;</ept>, then select the <bpt id="60889078-161d-431e-94fa-4c3ce20cb17a">&lt;strong&gt;</bpt>Insert<ept id="60889078-161d-431e-94fa-4c3ce20cb17a">&lt;/strong&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="c2e1c0b2-0136-4c00-8ba1-b5642fa011dc" xml:space="preserve">
+          <source>7.</source>
+          <target state="new">7.</target>
+        </trans-unit>
+        <trans-unit id="07987843-c251-422b-adb2-f711861ffc2c" xml:space="preserve">
+          <source>Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.</source>
+          <target state="new">Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.</target>
+        </trans-unit>
+        <trans-unit id="255ce096-eee4-47ab-9093-c65af81e73d9" xml:space="preserve">
+          <source>Mobile Services provides access to the full set of core Node.js modules, which you can use in your code by using the <bpt id="e670d4b6-0513-4683-8215-317264c0ff07">&lt;strong&gt;</bpt>require<ept id="e670d4b6-0513-4683-8215-317264c0ff07">&lt;/strong&gt;</ept> function.</source>
+          <target state="new">Mobile Services provides access to the full set of core Node.js modules, which you can use in your code by using the <bpt id="e670d4b6-0513-4683-8215-317264c0ff07">&lt;strong&gt;</bpt>require<ept id="e670d4b6-0513-4683-8215-317264c0ff07">&lt;/strong&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="73afd5b1-bcc5-422a-890e-9c3766379fdb" xml:space="preserve">
+          <source>Your mobile service can also use Node.js modules that are not part of the core Node.js package, and you can even define your own shared code as Node.js modules.</source>
+          <target state="new">Your mobile service can also use Node.js modules that are not part of the core Node.js package, and you can even define your own shared code as Node.js modules.</target>
+        </trans-unit>
+        <trans-unit id="b4d934e2-dd19-4846-8763-2e28103e48c7" xml:space="preserve">
+          <source>For more information about creating modules, see [Modules] in the Node.js API reference documentation.</source>
+          <target state="new">For more information about creating modules, see [Modules] in the Node.js API reference documentation.</target>
+        </trans-unit>
+        <trans-unit id="4b584689-7ab4-40f7-8d63-1af38e7c6015" xml:space="preserve">
+          <source>The recommended way to add Node.js modules to your mobile service is by adding references to the service's package.json file.</source>
+          <target state="new">The recommended way to add Node.js modules to your mobile service is by adding references to the service's package.json file.</target>
+        </trans-unit>
+        <trans-unit id="78e5a5bc-468a-4876-aec9-209494ccf9c6" xml:space="preserve">
+          <source>Next, you will add the [node-uuid] Node.js module to your mobile service by updating the package.json file.</source>
+          <target state="new">Next, you will add the [node-uuid] Node.js module to your mobile service by updating the package.json file.</target>
+        </trans-unit>
+        <trans-unit id="64b54520-9a9c-423b-a58d-d2b54ce84ff4" xml:space="preserve">
+          <source>When the update is pushed to Azure, the mobile service is restarted and the module is installed.</source>
+          <target state="new">When the update is pushed to Azure, the mobile service is restarted and the module is installed.</target>
+        </trans-unit>
+        <trans-unit id="99c86830-27ed-4c62-b43b-88e3a0b7fae1" xml:space="preserve">
+          <source>This module is then used to generate a new GUID value for the <bpt id="435630b8-baf2-4ba8-ba27-1a48670583bd">&lt;strong&gt;</bpt>uuid<ept id="435630b8-baf2-4ba8-ba27-1a48670583bd">&lt;/strong&gt;</ept> property on inserted items.</source>
+          <target state="new">This module is then used to generate a new GUID value for the <bpt id="435630b8-baf2-4ba8-ba27-1a48670583bd">&lt;strong&gt;</bpt>uuid<ept id="435630b8-baf2-4ba8-ba27-1a48670583bd">&lt;/strong&gt;</ept> property on inserted items.</target>
+        </trans-unit>
+        <trans-unit id="ddce0163-fb47-4f1b-8974-3dc0975abbb2" xml:space="preserve">
+          <source>Navigate to the <bpt id="8ae3baea-3a09-488b-8c18-b096f8b7507e">&lt;code&gt;</bpt>.\service<ept id="8ae3baea-3a09-488b-8c18-b096f8b7507e">&lt;/code&gt;</ept> folder of your local Git repository, and open the package.json file in a text editor, and add the following field to the <bpt id="c274ce44-41e9-46a6-a2ed-0896ded7bfdb">&lt;strong&gt;</bpt>dependencies<ept id="c274ce44-41e9-46a6-a2ed-0896ded7bfdb">&lt;/strong&gt;</ept> object:</source>
+          <target state="new">Navigate to the <bpt id="8ae3baea-3a09-488b-8c18-b096f8b7507e">&lt;code&gt;</bpt>.\service<ept id="8ae3baea-3a09-488b-8c18-b096f8b7507e">&lt;/code&gt;</ept> folder of your local Git repository, and open the package.json file in a text editor, and add the following field to the <bpt id="c274ce44-41e9-46a6-a2ed-0896ded7bfdb">&lt;strong&gt;</bpt>dependencies<ept id="c274ce44-41e9-46a6-a2ed-0896ded7bfdb">&lt;/strong&gt;</ept> object:</target>
+        </trans-unit>
+        <trans-unit id="3911d767-08e6-409a-8a62-bab8f99329bb" xml:space="preserve">
+          <source>This update to the package.json file will cause a restart in your mobile service after the commit is pushed.</source>
+          <target state="new">This update to the package.json file will cause a restart in your mobile service after the commit is pushed.</target>
+        </trans-unit>
+        <trans-unit id="f0ae1884-e0b0-4d80-accd-574e5f7e8100" xml:space="preserve">
+          <source>Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:</source>
+          <target state="new">Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:</target>
+        </trans-unit>
+        <trans-unit id="d9d1255c-f354-4a7a-ae48-33686f99cae3" xml:space="preserve">
+          <source>This code adds a uuid column to the table, populating it with unique GUID identifiers.</source>
+          <target state="new">This code adds a uuid column to the table, populating it with unique GUID identifiers.</target>
+        </trans-unit>
+        <trans-unit id="a7bbb68b-70b9-4723-988e-faa7088072b8" xml:space="preserve">
+          <source>As in the previous section, type the following command in the Git command prompt:</source>
+          <target state="new">As in the previous section, type the following command in the Git command prompt:</target>
+        </trans-unit>
+        <trans-unit id="0f57cd15-3121-4c1f-9326-3a4d9bb3f87e" xml:space="preserve">
+          <source>This adds the new file, commits your changes, and pushes the new node-uuid module and changes to the todoitem.insert.js script to your mobile service.</source>
+          <target state="new">This adds the new file, commits your changes, and pushes the new node-uuid module and changes to the todoitem.insert.js script to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="e0e4aff7-685f-400b-87ae-60215eafda4e" xml:space="preserve">
+          <source>Now that you have completed this tutorial you know how to store your scripts in source control.</source>
+          <target state="new">Now that you have completed this tutorial you know how to store your scripts in source control.</target>
+        </trans-unit>
+        <trans-unit id="71424a53-cd80-41de-a62a-ee6cca91e362" xml:space="preserve">
+          <source>Consider learning more about working with server scripts and with custom APIs:</source>
+          <target state="new">Consider learning more about working with server scripts and with custom APIs:</target>
+        </trans-unit>
+        <trans-unit id="3c7e7dd3-5a5f-4853-8b20-d16198258d41" xml:space="preserve">
+          <source>[Work with server scripts in Mobile Services]
+&lt;br/&gt;Shows how to work with server scripts, job scheduler, and custom APIs.</source>
+          <target state="new">[Work with server scripts in Mobile Services]
+&lt;br/&gt;Shows how to work with server scripts, job scheduler, and custom APIs.</target>
+        </trans-unit>
+        <trans-unit id="293c3275-7e45-4958-87ce-9fa4850be515" xml:space="preserve">
+          <source>[Call a custom API from the client]
+&lt;br/&gt; Shows how to create custom APIs that can be called from the client.</source>
+          <target state="new">[Call a custom API from the client]
+&lt;br/&gt; Shows how to create custom APIs that can be called from the client.</target>
+        </trans-unit>
+        <trans-unit id="61acf1d9-6ce4-4931-8386-9caafef598a0" xml:space="preserve">
+          <source>#enable-source-control</source>
+          <target state="new">#enable-source-control</target>
+        </trans-unit>
+        <trans-unit id="e1971bef-b8a7-41ef-9b61-4078f1d52879" xml:space="preserve">
+          <source>#clone-repo</source>
+          <target state="new">#clone-repo</target>
+        </trans-unit>
+        <trans-unit id="5621e712-1e8f-44e1-9faf-4516f93b3a3c" xml:space="preserve">
+          <source>#deploy-scripts</source>
+          <target state="new">#deploy-scripts</target>
+        </trans-unit>
+        <trans-unit id="a4a44470-fad7-4d8d-91e5-95978b13d56c" xml:space="preserve">
+          <source>#use-npm</source>
+          <target state="new">#use-npm</target>
+        </trans-unit>
+        <trans-unit id="1009bed4-3300-495f-8b4b-42638645e32b" xml:space="preserve">
+          <source>./media/mobile-services-store-scripts-source-control/mobile-source-local-repo.png</source>
+          <target state="new">./media/mobile-services-store-scripts-source-control/mobile-source-local-repo.png</target>
+        </trans-unit>
+        <trans-unit id="c4720754-a1fc-4be6-bbc3-f312a1bc0165" xml:space="preserve">
+          <source>./media/mobile-services-store-scripts-source-control/mobile-portal-data-tables.png</source>
+          <target state="new">./media/mobile-services-store-scripts-source-control/mobile-portal-data-tables.png</target>
+        </trans-unit>
+        <trans-unit id="0726c58c-c039-494a-9e71-d7fa5e1319d8" xml:space="preserve">
+          <source>./media/mobile-services-store-scripts-source-control/mobile-insert-script-source-control.png</source>
+          <target state="new">./media/mobile-services-store-scripts-source-control/mobile-insert-script-source-control.png</target>
+        </trans-unit>
+        <trans-unit id="ab07b950-23fe-497f-a116-60f0631fa5f9" xml:space="preserve">
+          <source>http://git-scm.com</source>
+          <target state="new">http://git-scm.com</target>
+        </trans-unit>
+        <trans-unit id="66b9e6ea-31c2-4dab-b613-9f0b719bd9e2" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643</target>
+        </trans-unit>
+        <trans-unit id="d42aac99-d010-4635-b489-fa790ebc6131" xml:space="preserve">
+          <source>http://git-scm.com/book/en/Getting-Started-Installing-Git</source>
+          <target state="new">http://git-scm.com/book/en/Getting-Started-Installing-Git</target>
+        </trans-unit>
+        <trans-unit id="6eb3089c-279b-47b0-babe-026fa8cdf4cf" xml:space="preserve">
+          <source>mobile-services-ios-get-started.md</source>
+          <target state="new">mobile-services-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="80b4bca9-2caf-4f44-ac5d-b65fa03ba0ed" xml:space="preserve">
+          <source>mobile-services-ios-get-started-data.md</source>
+          <target state="new">mobile-services-ios-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="13037286-a75b-407c-a048-2a45848795d0" xml:space="preserve">
+          <source>mobile-services-how-to-use-server-scripts.md</source>
+          <target state="new">mobile-services-how-to-use-server-scripts.md</target>
+        </trans-unit>
+        <trans-unit id="f3ff2875-a1c8-4c7e-b429-ff6dd324fb63" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="9b61e3b4-f309-4f86-b278-87b57ec5a52a" xml:space="preserve">
+          <source>mobile-services-ios-call-custom-api.md</source>
+          <target state="new">mobile-services-ios-call-custom-api.md</target>
+        </trans-unit>
+        <trans-unit id="4c03f0f4-e71c-4c66-992e-abc6923bf18e" xml:space="preserve">
+          <source>http://nodejs.org/api/modules.html</source>
+          <target state="new">http://nodejs.org/api/modules.html</target>
+        </trans-unit>
+        <trans-unit id="44ec2514-d3ac-448f-b2b3-4a0941272acd" xml:space="preserve">
+          <source>https://npmjs.org/package/node-uuid</source>
+          <target state="new">https://npmjs.org/package/node-uuid</target>
+        </trans-unit>
+      </group>
+      <group id="3996381a-fe42-4afd-a76b-60e3911b4c31" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="db2ccec7-7af4-4fc7-bfd7-494959699899" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="db2ccec7-7af4-4fc7-bfd7-494959699899" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ef0d6668-ada9-405b-83d5-0bf636bb4d35">
+        <trans-unit id="75b97cdb-4b9a-4f0a-86b9-3128e913a2de" xml:space="preserve">
+          <source>Client quick start code samples to SQL Database | Microsoft Azure</source>
+          <target state="new">Client quick start code samples to SQL Database | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c45bdaff-1b00-4499-b13d-0e5e28e73956" xml:space="preserve">
+          <source>Provides code samples and drivers for Node.js on Linux, Python on Mac OS, Java and Windows, Enterprise Library, and many more all for Azure SQL Database clients.</source>
+          <target state="new">Provides code samples and drivers for Node.js on Linux, Python on Mac OS, Java and Windows, Enterprise Library, and many more all for Azure SQL Database clients.</target>
+        </trans-unit>
+        <trans-unit id="8ba3217f-4daf-4824-9abc-67d641e1cd18" xml:space="preserve">
+          <source>This topic provides links to quick-start code samples you can use to connect to Azure SQL Database:</source>
+          <target state="new">This topic provides links to quick-start code samples you can use to connect to Azure SQL Database:</target>
+        </trans-unit>
+        <trans-unit id="913654ab-c2f8-4aec-b3dc-bd630e45acb2" xml:space="preserve">
+          <source>Short samples connect and query.</source>
+          <target state="new">Short samples connect and query.</target>
+        </trans-unit>
+        <trans-unit id="1bad6fb0-73ab-422c-91f3-b4bac339f2e4" xml:space="preserve">
+          <source>Retry samples connect and query, but automatically retry if an encountered error is classified as a [<bpt id="feb44401-12e7-4cd4-be45-3feab3a29098">&lt;em&gt;</bpt>transient fault<ept id="feb44401-12e7-4cd4-be45-3feab3a29098">&lt;/em&gt;</ept>](sql-database-develop-error-messages.md#bkmk<bpt id="2ea7f5e5-f96d-4e65-80de-917f4091de27">&lt;em&gt;</bpt>connection<ept id="2ea7f5e5-f96d-4e65-80de-917f4091de27">&lt;/em&gt;</ept>errors) (such as a connection timeout).</source>
+          <target state="new">Retry samples connect and query, but automatically retry if an encountered error is classified as a [<bpt id="feb44401-12e7-4cd4-be45-3feab3a29098">&lt;em&gt;</bpt>transient fault<ept id="feb44401-12e7-4cd4-be45-3feab3a29098">&lt;/em&gt;</ept>](sql-database-develop-error-messages.md#bkmk<bpt id="2ea7f5e5-f96d-4e65-80de-917f4091de27">&lt;em&gt;</bpt>connection<ept id="2ea7f5e5-f96d-4e65-80de-917f4091de27">&lt;/em&gt;</ept>errors) (such as a connection timeout).</target>
+        </trans-unit>
+        <trans-unit id="41d94cef-37df-42fe-87d3-84e6336ee1da" xml:space="preserve">
+          <source>The samples cover:</source>
+          <target state="new">The samples cover:</target>
+        </trans-unit>
+        <trans-unit id="473b00b2-82c8-4e9d-8f1d-5a58bc6b8a8b" xml:space="preserve">
+          <source>A variety of programming languages.</source>
+          <target state="new">A variety of programming languages.</target>
+        </trans-unit>
+        <trans-unit id="4a7cccbc-63c3-4107-8dd4-6d545a63015f" xml:space="preserve">
+          <source>Windows, Linux, and Mac OS as the operating systems that your client program can run on.</source>
+          <target state="new">Windows, Linux, and Mac OS as the operating systems that your client program can run on.</target>
+        </trans-unit>
+        <trans-unit id="2b699281-386b-4802-b8b7-436babccc45e" xml:space="preserve">
+          <source>Links for downloads to any necessary connection drivers.</source>
+          <target state="new">Links for downloads to any necessary connection drivers.</target>
+        </trans-unit>
+        <trans-unit id="52f9b621-743d-4ef8-a654-9b05e52612d1" xml:space="preserve">
+          <source>Short quick start code samples.</source>
+          <target state="new">Short quick start code samples.</target>
+        </trans-unit>
+        <trans-unit id="0e58f932-270e-44b8-a057-df79103f49d1" xml:space="preserve">
+          <source>Longer samples that contain transient fault handling in the form of automated retry logic.</source>
+          <target state="new">Longer samples that contain transient fault handling in the form of automated retry logic.</target>
+        </trans-unit>
+        <trans-unit id="436c32d3-2aea-4b69-91bb-093ab77f9858" xml:space="preserve">
+          <source>Code samples that convert relational result sets into an object  oriented format.</source>
+          <target state="new">Code samples that convert relational result sets into an object  oriented format.</target>
+        </trans-unit>
+        <trans-unit id="6fc47e49-cf00-4501-be77-eeeadf266bb6" xml:space="preserve">
+          <source>Code samples for more languages are being prepared, and links to them will be added to this topic.</source>
+          <target state="new">Code samples for more languages are being prepared, and links to them will be added to this topic.</target>
+        </trans-unit>
+        <trans-unit id="8525afa7-4601-4e13-83f3-0d9ffc38c72c" xml:space="preserve">
+          <source>This section provides links to code sample topics for client programs that run on Linux.</source>
+          <target state="new">This section provides links to code sample topics for client programs that run on Linux.</target>
+        </trans-unit>
+        <trans-unit id="11b3bb89-aa94-470c-902d-3fda87bc38de" xml:space="preserve">
+          <source>Language</source>
+          <target state="new">Language</target>
+        </trans-unit>
+        <trans-unit id="c4372549-0a4a-4d0b-a9d4-044f46155f80" xml:space="preserve">
+          <source>Short sample</source>
+          <target state="new">Short sample</target>
+        </trans-unit>
+        <trans-unit id="e8af2b5a-6763-4634-bcbb-dd2ac318ca49" xml:space="preserve">
+          <source>Retry sample</source>
+          <target state="new">Retry sample</target>
+        </trans-unit>
+        <trans-unit id="84033653-474e-4e62-b3bd-5ebfe46cb5dc" xml:space="preserve">
+          <source>Relational to object</source>
+          <target state="new">Relational to object</target>
+        </trans-unit>
+        <trans-unit id="5bb7a7d6-52b5-4472-8966-f00b7e840374" xml:space="preserve">
+          <source>Node.js</source>
+          <target state="new">Node.js</target>
+        </trans-unit>
+        <trans-unit id="0d66b9b6-d335-4107-96e9-397d039359af" xml:space="preserve">
+          <source><bpt id="d2a13619-4af8-4ae9-be65-d8c477d65a06">&lt;linkText&gt;</bpt>Tedious<ept id="d2a13619-4af8-4ae9-be65-d8c477d65a06">&lt;/linkText&gt;</ept><bpt id="d2a13619-4af8-4ae9-be65-d8c477d65a06">&lt;title&gt;</bpt><ept id="d2a13619-4af8-4ae9-be65-d8c477d65a06">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d2a13619-4af8-4ae9-be65-d8c477d65a06">&lt;linkText&gt;</bpt>Tedious<ept id="d2a13619-4af8-4ae9-be65-d8c477d65a06">&lt;/linkText&gt;</ept><bpt id="d2a13619-4af8-4ae9-be65-d8c477d65a06">&lt;title&gt;</bpt><ept id="d2a13619-4af8-4ae9-be65-d8c477d65a06">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="305a3227-2634-4afc-a00b-970ee2c09c49" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="dbf69068-c828-4077-bdd4-2eaea5259c80" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="5e986214-56ac-40ca-9308-3086c78c8f6b" xml:space="preserve">
+          <source>Python</source>
+          <target state="new">Python</target>
+        </trans-unit>
+        <trans-unit id="4631143e-7ef4-4f5d-9807-e4072dfbd4c1" xml:space="preserve">
+          <source><bpt id="a18d827d-d340-4c6d-9ab1-b3a7b4b7bce2">&lt;linkText&gt;</bpt>FreeTDS, pymssql<ept id="a18d827d-d340-4c6d-9ab1-b3a7b4b7bce2">&lt;/linkText&gt;</ept><bpt id="a18d827d-d340-4c6d-9ab1-b3a7b4b7bce2">&lt;title&gt;</bpt><ept id="a18d827d-d340-4c6d-9ab1-b3a7b4b7bce2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a18d827d-d340-4c6d-9ab1-b3a7b4b7bce2">&lt;linkText&gt;</bpt>FreeTDS, pymssql<ept id="a18d827d-d340-4c6d-9ab1-b3a7b4b7bce2">&lt;/linkText&gt;</ept><bpt id="a18d827d-d340-4c6d-9ab1-b3a7b4b7bce2">&lt;title&gt;</bpt><ept id="a18d827d-d340-4c6d-9ab1-b3a7b4b7bce2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e327ab1-ea6e-4eed-b87e-114bdaadce04" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="5f10b8e1-d228-4c83-8609-b373fe5cfe34" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="17179ec4-e775-4bb6-9b4e-69608db6c58c" xml:space="preserve">
+          <source>Ruby</source>
+          <target state="new">Ruby</target>
+        </trans-unit>
+        <trans-unit id="28429339-208c-4135-994e-dccc60a8d472" xml:space="preserve">
+          <source><bpt id="f3d7c8f5-1e68-4ba2-8fea-4afde04a7a0b">&lt;linkText&gt;</bpt>FreeTDS, TinyTDS<ept id="f3d7c8f5-1e68-4ba2-8fea-4afde04a7a0b">&lt;/linkText&gt;</ept><bpt id="f3d7c8f5-1e68-4ba2-8fea-4afde04a7a0b">&lt;title&gt;</bpt><ept id="f3d7c8f5-1e68-4ba2-8fea-4afde04a7a0b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f3d7c8f5-1e68-4ba2-8fea-4afde04a7a0b">&lt;linkText&gt;</bpt>FreeTDS, TinyTDS<ept id="f3d7c8f5-1e68-4ba2-8fea-4afde04a7a0b">&lt;/linkText&gt;</ept><bpt id="f3d7c8f5-1e68-4ba2-8fea-4afde04a7a0b">&lt;title&gt;</bpt><ept id="f3d7c8f5-1e68-4ba2-8fea-4afde04a7a0b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da783e94-8fb3-43fd-af80-ad31b019a49c" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="1649edd2-e59f-42ee-8808-109099fa4975" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="3aa6bbda-4eba-4bc2-892e-58004762e141" xml:space="preserve">
+          <source>This section provides links to code sample topics for client programs that run on Mac OS.</source>
+          <target state="new">This section provides links to code sample topics for client programs that run on Mac OS.</target>
+        </trans-unit>
+        <trans-unit id="bf087587-b322-4372-8372-6aa2c960549c" xml:space="preserve">
+          <source>Language</source>
+          <target state="new">Language</target>
+        </trans-unit>
+        <trans-unit id="3872ed59-bb05-4970-af3a-d27cb75772b7" xml:space="preserve">
+          <source>Short sample</source>
+          <target state="new">Short sample</target>
+        </trans-unit>
+        <trans-unit id="63c23961-a70c-48c9-906e-0ddd4e50f699" xml:space="preserve">
+          <source>Retry sample</source>
+          <target state="new">Retry sample</target>
+        </trans-unit>
+        <trans-unit id="859c1cc7-0452-46cf-b98e-db71dc669643" xml:space="preserve">
+          <source>Relational to object</source>
+          <target state="new">Relational to object</target>
+        </trans-unit>
+        <trans-unit id="0e24eb91-6882-4561-b29b-cb44cdc645d6" xml:space="preserve">
+          <source>Python</source>
+          <target state="new">Python</target>
+        </trans-unit>
+        <trans-unit id="a34627d6-e17a-49e3-99a2-11132014d54a" xml:space="preserve">
+          <source><bpt id="ddb7d954-3402-4395-8ac6-f08b78b8eb63">&lt;linkText&gt;</bpt>pymssql<ept id="ddb7d954-3402-4395-8ac6-f08b78b8eb63">&lt;/linkText&gt;</ept><bpt id="ddb7d954-3402-4395-8ac6-f08b78b8eb63">&lt;title&gt;</bpt><ept id="ddb7d954-3402-4395-8ac6-f08b78b8eb63">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ddb7d954-3402-4395-8ac6-f08b78b8eb63">&lt;linkText&gt;</bpt>pymssql<ept id="ddb7d954-3402-4395-8ac6-f08b78b8eb63">&lt;/linkText&gt;</ept><bpt id="ddb7d954-3402-4395-8ac6-f08b78b8eb63">&lt;title&gt;</bpt><ept id="ddb7d954-3402-4395-8ac6-f08b78b8eb63">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5808effd-d27e-406d-92a7-62a34764cd11" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="c9edd77c-b384-4234-966b-97c85426ad68" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="e21007ab-fe01-424b-8b85-627c1ee4a404" xml:space="preserve">
+          <source>Ruby</source>
+          <target state="new">Ruby</target>
+        </trans-unit>
+        <trans-unit id="b194f94c-a806-4e9b-b16b-4f919ad724ae" xml:space="preserve">
+          <source><bpt id="a24ca6af-e98f-42c4-b294-d69ef7c003fb">&lt;linkText&gt;</bpt>Homebrew&lt;br/&gt;FreeTDS, TinyTDS<ept id="a24ca6af-e98f-42c4-b294-d69ef7c003fb">&lt;/linkText&gt;</ept><bpt id="a24ca6af-e98f-42c4-b294-d69ef7c003fb">&lt;title&gt;</bpt><ept id="a24ca6af-e98f-42c4-b294-d69ef7c003fb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a24ca6af-e98f-42c4-b294-d69ef7c003fb">&lt;linkText&gt;</bpt>Homebrew&lt;br/&gt;FreeTDS, TinyTDS<ept id="a24ca6af-e98f-42c4-b294-d69ef7c003fb">&lt;/linkText&gt;</ept><bpt id="a24ca6af-e98f-42c4-b294-d69ef7c003fb">&lt;title&gt;</bpt><ept id="a24ca6af-e98f-42c4-b294-d69ef7c003fb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="552dc045-a79c-493e-9e8d-728e64e157ef" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="31bb30cf-9325-4a92-bff7-42ba087190b0" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="db67c622-df59-4c79-a35c-5b0cb1ca4a7c" xml:space="preserve">
+          <source>This section provides links to code sample topics for client programs that run on Windows.</source>
+          <target state="new">This section provides links to code sample topics for client programs that run on Windows.</target>
+        </trans-unit>
+        <trans-unit id="8b8619d0-7676-4733-8d95-9798080f5a38" xml:space="preserve">
+          <source>Language</source>
+          <target state="new">Language</target>
+        </trans-unit>
+        <trans-unit id="e1e1eae8-5c8c-4afc-a15c-ae7489709afb" xml:space="preserve">
+          <source>Short sample</source>
+          <target state="new">Short sample</target>
+        </trans-unit>
+        <trans-unit id="4c560c20-7e61-432b-aeb3-b2edb773c234" xml:space="preserve">
+          <source>Retry sample</source>
+          <target state="new">Retry sample</target>
+        </trans-unit>
+        <trans-unit id="3abc8589-238d-45eb-b69b-9f6828bceb98" xml:space="preserve">
+          <source>Relational to object</source>
+          <target state="new">Relational to object</target>
+        </trans-unit>
+        <trans-unit id="2e509580-3eb4-4ab4-a93c-cfea0c57a8de" xml:space="preserve">
+          <source>C#</source>
+          <target state="new">C#</target>
+        </trans-unit>
+        <trans-unit id="d1279355-eb6f-4c81-bd8b-cbb6cc9bc088" xml:space="preserve">
+          <source><bpt id="cff457d6-205d-46f4-b6b2-eae5b59b2d52">&lt;linkText&gt;</bpt>ADO.NET<ept id="cff457d6-205d-46f4-b6b2-eae5b59b2d52">&lt;/linkText&gt;</ept><bpt id="cff457d6-205d-46f4-b6b2-eae5b59b2d52">&lt;title&gt;</bpt><ept id="cff457d6-205d-46f4-b6b2-eae5b59b2d52">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cff457d6-205d-46f4-b6b2-eae5b59b2d52">&lt;linkText&gt;</bpt>ADO.NET<ept id="cff457d6-205d-46f4-b6b2-eae5b59b2d52">&lt;/linkText&gt;</ept><bpt id="cff457d6-205d-46f4-b6b2-eae5b59b2d52">&lt;title&gt;</bpt><ept id="cff457d6-205d-46f4-b6b2-eae5b59b2d52">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="951af815-7665-4ec1-83b2-b0d34d4bc2a1" xml:space="preserve">
+          <source><bpt id="3456d362-0b63-4b26-8605-291372bc290d">&lt;linkText&gt;</bpt>ADO.NET custom<ept id="3456d362-0b63-4b26-8605-291372bc290d">&lt;/linkText&gt;</ept><bpt id="3456d362-0b63-4b26-8605-291372bc290d">&lt;title&gt;</bpt><ept id="3456d362-0b63-4b26-8605-291372bc290d">&lt;/title&gt;</ept>&lt;br/&gt;&lt;br/&gt;<bpt id="080eeb73-b615-4d77-8a9c-bb75d4feef69">&lt;linkText&gt;</bpt>Enterprise Library<ept id="080eeb73-b615-4d77-8a9c-bb75d4feef69">&lt;/linkText&gt;</ept><bpt id="080eeb73-b615-4d77-8a9c-bb75d4feef69">&lt;title&gt;</bpt><ept id="080eeb73-b615-4d77-8a9c-bb75d4feef69">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3456d362-0b63-4b26-8605-291372bc290d">&lt;linkText&gt;</bpt>ADO.NET custom<ept id="3456d362-0b63-4b26-8605-291372bc290d">&lt;/linkText&gt;</ept><bpt id="3456d362-0b63-4b26-8605-291372bc290d">&lt;title&gt;</bpt><ept id="3456d362-0b63-4b26-8605-291372bc290d">&lt;/title&gt;</ept>&lt;br/&gt;&lt;br/&gt;<bpt id="080eeb73-b615-4d77-8a9c-bb75d4feef69">&lt;linkText&gt;</bpt>Enterprise Library<ept id="080eeb73-b615-4d77-8a9c-bb75d4feef69">&lt;/linkText&gt;</ept><bpt id="080eeb73-b615-4d77-8a9c-bb75d4feef69">&lt;title&gt;</bpt><ept id="080eeb73-b615-4d77-8a9c-bb75d4feef69">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ee14008-67c4-45d2-a20a-55b4d9b33f1f" xml:space="preserve">
+          <source>(Entity Framework)</source>
+          <target state="new">(Entity Framework)</target>
+        </trans-unit>
+        <trans-unit id="4374b326-ee8c-42e8-a269-4ed1ca23602a" xml:space="preserve">
+          <source>C++</source>
+          <target state="new">C++</target>
+        </trans-unit>
+        <trans-unit id="3cce3a9a-ede6-4f66-8b25-23a8c0ef92a9" xml:space="preserve">
+          <source><bpt id="9614ad72-6354-4cc9-b681-ad8cfc67ae80">&lt;linkText&gt;</bpt>ODBC driver<ept id="9614ad72-6354-4cc9-b681-ad8cfc67ae80">&lt;/linkText&gt;</ept><bpt id="9614ad72-6354-4cc9-b681-ad8cfc67ae80">&lt;title&gt;</bpt><ept id="9614ad72-6354-4cc9-b681-ad8cfc67ae80">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9614ad72-6354-4cc9-b681-ad8cfc67ae80">&lt;linkText&gt;</bpt>ODBC driver<ept id="9614ad72-6354-4cc9-b681-ad8cfc67ae80">&lt;/linkText&gt;</ept><bpt id="9614ad72-6354-4cc9-b681-ad8cfc67ae80">&lt;title&gt;</bpt><ept id="9614ad72-6354-4cc9-b681-ad8cfc67ae80">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e459b0d-3c15-4e78-9ad3-ab31b88fea62" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="ee0dc3a0-67e7-41ac-beef-f75790540c8a" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="77f1427b-1fad-4868-88cd-ac2b089d5ee5" xml:space="preserve">
+          <source>Java</source>
+          <target state="new">Java</target>
+        </trans-unit>
+        <trans-unit id="6b9981c2-91e7-44c8-842e-448354343339" xml:space="preserve">
+          <source>[Java.</source>
+          <target state="new">[Java.</target>
+        </trans-unit>
+        <trans-unit id="4cf939b6-b44a-4eb0-9747-c218b165f9db" xml:space="preserve">
+          <source>JDBC, JDK.</source>
+          <target state="new">JDBC, JDK.</target>
+        </trans-unit>
+        <trans-unit id="83bfa6ce-db3a-4343-8d63-4fe1ae97d9d0" xml:space="preserve">
+          <source>Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)&lt;br/&gt;&lt;br/&gt;[Java.</source>
+          <target state="new">Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)&lt;br/&gt;&lt;br/&gt;[Java.</target>
+        </trans-unit>
+        <trans-unit id="5ff088de-40be-4619-b297-f932e36b3f3c" xml:space="preserve">
+          <source>Eclipse](sql-data-java-how-to-use-sql-database.md)&lt;br/&gt;&lt;br/&gt;[Java.</source>
+          <target state="new">Eclipse](sql-data-java-how-to-use-sql-database.md)&lt;br/&gt;&lt;br/&gt;[Java.</target>
+        </trans-unit>
+        <trans-unit id="cecaf8e3-9f8d-4b85-8e93-39154272ebe8" xml:space="preserve">
+          <source>JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx)</source>
+          <target state="new">JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx)</target>
+        </trans-unit>
+        <trans-unit id="11aa2413-4248-424c-ae76-89635e9768f8" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="f2de68b6-2083-4765-b4e1-c0c07a699e95" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="0085a6bb-f9db-4b1b-a0cb-598675736e2c" xml:space="preserve">
+          <source>Node.js</source>
+          <target state="new">Node.js</target>
+        </trans-unit>
+        <trans-unit id="2d6b7844-d601-49b0-b55e-d8d3ad00176f" xml:space="preserve">
+          <source><bpt id="bf989556-0a11-446e-896d-0a09765bd673">&lt;linkText&gt;</bpt>msnodesql<ept id="bf989556-0a11-446e-896d-0a09765bd673">&lt;/linkText&gt;</ept><bpt id="bf989556-0a11-446e-896d-0a09765bd673">&lt;title&gt;</bpt><ept id="bf989556-0a11-446e-896d-0a09765bd673">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bf989556-0a11-446e-896d-0a09765bd673">&lt;linkText&gt;</bpt>msnodesql<ept id="bf989556-0a11-446e-896d-0a09765bd673">&lt;/linkText&gt;</ept><bpt id="bf989556-0a11-446e-896d-0a09765bd673">&lt;title&gt;</bpt><ept id="bf989556-0a11-446e-896d-0a09765bd673">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39264fb7-2a8f-4a78-8b85-a4929c781fae" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="672111a7-0b11-4314-a618-80b7c547e061" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="4112cb01-e4a3-4412-92e1-d12218d5cfd3" xml:space="preserve">
+          <source>PHP</source>
+          <target state="new">PHP</target>
+        </trans-unit>
+        <trans-unit id="83dad3de-f925-453a-bcfd-3769c0a6565d" xml:space="preserve">
+          <source><bpt id="b7ceda51-24c2-4176-83b2-3954c0eb4907">&lt;linkText&gt;</bpt>ODBC<ept id="b7ceda51-24c2-4176-83b2-3954c0eb4907">&lt;/linkText&gt;</ept><bpt id="b7ceda51-24c2-4176-83b2-3954c0eb4907">&lt;title&gt;</bpt><ept id="b7ceda51-24c2-4176-83b2-3954c0eb4907">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b7ceda51-24c2-4176-83b2-3954c0eb4907">&lt;linkText&gt;</bpt>ODBC<ept id="b7ceda51-24c2-4176-83b2-3954c0eb4907">&lt;/linkText&gt;</ept><bpt id="b7ceda51-24c2-4176-83b2-3954c0eb4907">&lt;title&gt;</bpt><ept id="b7ceda51-24c2-4176-83b2-3954c0eb4907">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2962f81-d343-43a6-bc8a-d1997a94c614" xml:space="preserve">
+          <source><bpt id="63379e13-a1a8-4bc0-8bea-af745211a6dd">&lt;linkText&gt;</bpt>ODBC custom<ept id="63379e13-a1a8-4bc0-8bea-af745211a6dd">&lt;/linkText&gt;</ept><bpt id="63379e13-a1a8-4bc0-8bea-af745211a6dd">&lt;title&gt;</bpt><ept id="63379e13-a1a8-4bc0-8bea-af745211a6dd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="63379e13-a1a8-4bc0-8bea-af745211a6dd">&lt;linkText&gt;</bpt>ODBC custom<ept id="63379e13-a1a8-4bc0-8bea-af745211a6dd">&lt;/linkText&gt;</ept><bpt id="63379e13-a1a8-4bc0-8bea-af745211a6dd">&lt;title&gt;</bpt><ept id="63379e13-a1a8-4bc0-8bea-af745211a6dd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b382987-f730-4494-9dfb-4b9c0b9e146c" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="9ecad3c2-2b0a-4cac-b538-25a1831ff1e8" xml:space="preserve">
+          <source>Python</source>
+          <target state="new">Python</target>
+        </trans-unit>
+        <trans-unit id="4402a392-05e4-433c-90c8-db7e0f54704e" xml:space="preserve">
+          <source><bpt id="8a44968e-4fec-428b-9de3-dd3771f000ab">&lt;linkText&gt;</bpt>pymssql<ept id="8a44968e-4fec-428b-9de3-dd3771f000ab">&lt;/linkText&gt;</ept><bpt id="8a44968e-4fec-428b-9de3-dd3771f000ab">&lt;title&gt;</bpt><ept id="8a44968e-4fec-428b-9de3-dd3771f000ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8a44968e-4fec-428b-9de3-dd3771f000ab">&lt;linkText&gt;</bpt>pymssql<ept id="8a44968e-4fec-428b-9de3-dd3771f000ab">&lt;/linkText&gt;</ept><bpt id="8a44968e-4fec-428b-9de3-dd3771f000ab">&lt;title&gt;</bpt><ept id="8a44968e-4fec-428b-9de3-dd3771f000ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f611f34-5cfd-424d-ab4b-27bbf7dcb16d" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="00382c91-b2d7-4676-baff-27a5f23f993f" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="256d8bfb-11f1-4675-87e5-b94c18008230" xml:space="preserve">
+          <source><bpt id="4fc7e123-0fa7-4746-9ccd-b0094c6ce38c">&lt;linkText&gt;</bpt>Downloads for SDKs and tools, for numerous languages and platforms<ept id="4fc7e123-0fa7-4746-9ccd-b0094c6ce38c">&lt;/linkText&gt;</ept><bpt id="4fc7e123-0fa7-4746-9ccd-b0094c6ce38c">&lt;title&gt;</bpt><ept id="4fc7e123-0fa7-4746-9ccd-b0094c6ce38c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4fc7e123-0fa7-4746-9ccd-b0094c6ce38c">&lt;linkText&gt;</bpt>Downloads for SDKs and tools, for numerous languages and platforms<ept id="4fc7e123-0fa7-4746-9ccd-b0094c6ce38c">&lt;/linkText&gt;</ept><bpt id="4fc7e123-0fa7-4746-9ccd-b0094c6ce38c">&lt;title&gt;</bpt><ept id="4fc7e123-0fa7-4746-9ccd-b0094c6ce38c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc47f839-25c9-4a39-89e5-a77993a7c6c9" xml:space="preserve">
+          <source><bpt id="16ba6d86-5bdd-49b8-9d75-1f37b1c2bd3f">&lt;linkText&gt;</bpt>Connection Libraries for SQL Database and SQL Server<ept id="16ba6d86-5bdd-49b8-9d75-1f37b1c2bd3f">&lt;/linkText&gt;</ept><bpt id="16ba6d86-5bdd-49b8-9d75-1f37b1c2bd3f">&lt;title&gt;</bpt><ept id="16ba6d86-5bdd-49b8-9d75-1f37b1c2bd3f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="16ba6d86-5bdd-49b8-9d75-1f37b1c2bd3f">&lt;linkText&gt;</bpt>Connection Libraries for SQL Database and SQL Server<ept id="16ba6d86-5bdd-49b8-9d75-1f37b1c2bd3f">&lt;/linkText&gt;</ept><bpt id="16ba6d86-5bdd-49b8-9d75-1f37b1c2bd3f">&lt;title&gt;</bpt><ept id="16ba6d86-5bdd-49b8-9d75-1f37b1c2bd3f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="adaa56fb-d8d2-412d-9b93-59f72561f7e2" xml:space="preserve">
+          <source>[List of numeric codes for transient errors](sql-database-develop-error-messages.md#bkmk<bpt id="9977a8b1-c221-4b3d-a133-886b8c8a47bd">&lt;em&gt;</bpt>connection<ept id="9977a8b1-c221-4b3d-a133-886b8c8a47bd">&lt;/em&gt;</ept>errors)&lt;br/&gt;&amp;nbsp;</source>
+          <target state="new">[List of numeric codes for transient errors](sql-database-develop-error-messages.md#bkmk<bpt id="9977a8b1-c221-4b3d-a133-886b8c8a47bd">&lt;em&gt;</bpt>connection<ept id="9977a8b1-c221-4b3d-a133-886b8c8a47bd">&lt;/em&gt;</ept>errors)&lt;br/&gt;&amp;nbsp;</target>
+        </trans-unit>
+        <trans-unit id="88988eaf-b75e-4870-9b43-7ae0373b602d" xml:space="preserve">
+          <source><bpt id="47683897-44fd-403e-8532-199d40c08c28">&lt;linkText&gt;</bpt>Azure SQL Database Development: How-to Topics<ept id="47683897-44fd-403e-8532-199d40c08c28">&lt;/linkText&gt;</ept><bpt id="47683897-44fd-403e-8532-199d40c08c28">&lt;title&gt;</bpt><ept id="47683897-44fd-403e-8532-199d40c08c28">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="47683897-44fd-403e-8532-199d40c08c28">&lt;linkText&gt;</bpt>Azure SQL Database Development: How-to Topics<ept id="47683897-44fd-403e-8532-199d40c08c28">&lt;/linkText&gt;</ept><bpt id="47683897-44fd-403e-8532-199d40c08c28">&lt;title&gt;</bpt><ept id="47683897-44fd-403e-8532-199d40c08c28">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="293a598b-806f-4572-933e-7987216affd8" xml:space="preserve">
+          <source><bpt id="b2d89381-63da-4722-8d1a-1eb0b22b1f36">&lt;linkText&gt;</bpt>Connecting to SQL Database: Links, Best Practices and Design Guidelines<ept id="b2d89381-63da-4722-8d1a-1eb0b22b1f36">&lt;/linkText&gt;</ept><bpt id="b2d89381-63da-4722-8d1a-1eb0b22b1f36">&lt;title&gt;</bpt><ept id="b2d89381-63da-4722-8d1a-1eb0b22b1f36">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b2d89381-63da-4722-8d1a-1eb0b22b1f36">&lt;linkText&gt;</bpt>Connecting to SQL Database: Links, Best Practices and Design Guidelines<ept id="b2d89381-63da-4722-8d1a-1eb0b22b1f36">&lt;/linkText&gt;</ept><bpt id="b2d89381-63da-4722-8d1a-1eb0b22b1f36">&lt;title&gt;</bpt><ept id="b2d89381-63da-4722-8d1a-1eb0b22b1f36">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3861666-5497-4b70-98a8-68a185e0a93a" xml:space="preserve">
+          <source><bpt id="66d1da3e-e86d-498d-bbf5-af1b344480cd">&lt;linkText&gt;</bpt>Create your first Azure SQL Database<ept id="66d1da3e-e86d-498d-bbf5-af1b344480cd">&lt;/linkText&gt;</ept><bpt id="66d1da3e-e86d-498d-bbf5-af1b344480cd">&lt;title&gt;</bpt><ept id="66d1da3e-e86d-498d-bbf5-af1b344480cd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="66d1da3e-e86d-498d-bbf5-af1b344480cd">&lt;linkText&gt;</bpt>Create your first Azure SQL Database<ept id="66d1da3e-e86d-498d-bbf5-af1b344480cd">&lt;/linkText&gt;</ept><bpt id="66d1da3e-e86d-498d-bbf5-af1b344480cd">&lt;title&gt;</bpt><ept id="66d1da3e-e86d-498d-bbf5-af1b344480cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c72793f-04e8-4d06-8e94-450f44db7704" xml:space="preserve">
+          <source><bpt id="2d97273c-8262-4585-91a3-babb0555455a">&lt;linkText&gt;</bpt>Entity Framework 6 here, EF 7 on GitHub<ept id="2d97273c-8262-4585-91a3-babb0555455a">&lt;/linkText&gt;</ept><bpt id="2d97273c-8262-4585-91a3-babb0555455a">&lt;title&gt;</bpt><ept id="2d97273c-8262-4585-91a3-babb0555455a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2d97273c-8262-4585-91a3-babb0555455a">&lt;linkText&gt;</bpt>Entity Framework 6 here, EF 7 on GitHub<ept id="2d97273c-8262-4585-91a3-babb0555455a">&lt;/linkText&gt;</ept><bpt id="2d97273c-8262-4585-91a3-babb0555455a">&lt;title&gt;</bpt><ept id="2d97273c-8262-4585-91a3-babb0555455a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

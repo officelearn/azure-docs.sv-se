@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="35932078-c0ab-4e0a-8f13-e644d4e1d515" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="35932078-c0ab-4e0a-8f13-e644d4e1d515" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e6f798b2-bfab-4982-94a9-5473bb464732">
+        <trans-unit id="ac1a2c0a-1f17-487c-862f-b1e31e91cdd2" xml:space="preserve">
+          <source>Operations Manager considerations with Operational Insights</source>
+          <target state="new">Operations Manager considerations with Operational Insights</target>
+        </trans-unit>
+        <trans-unit id="fda2f454-d15e-4fc8-afb4-b97b0101b6e1" xml:space="preserve">
+          <source>If you use Microsoft Azure Operational Insights with Operations Manager, then your configuration relies on a distribution of Operations Manager agents and management groups to collect and send data to the Operational Insights service for analysis</source>
+          <target state="new">If you use Microsoft Azure Operational Insights with Operations Manager, then your configuration relies on a distribution of Operations Manager agents and management groups to collect and send data to the Operational Insights service for analysis</target>
+        </trans-unit>
+        <trans-unit id="2ad92d35-433a-4e59-827b-19524035f8a2" xml:space="preserve">
+          <source><bpt id="fb9512d1-e789-4126-91f1-34a99f68036c">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="fb9512d1-e789-4126-91f1-34a99f68036c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="fb9512d1-e789-4126-91f1-34a99f68036c">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="fb9512d1-e789-4126-91f1-34a99f68036c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef33e864-afc5-4edf-924e-e15c37ba7372" xml:space="preserve">
+          <source>If you use Microsoft Azure Operational Insights with Operations Manager, then your configuration relies on a distribution of Operations Manager agents and management groups  to collect and send data to the Operational Insights service for analysis.</source>
+          <target state="new">If you use Microsoft Azure Operational Insights with Operations Manager, then your configuration relies on a distribution of Operations Manager agents and management groups  to collect and send data to the Operational Insights service for analysis.</target>
+        </trans-unit>
+        <trans-unit id="7abb5bf0-30d9-45a8-8024-e3df6e8980e9" xml:space="preserve">
+          <source>However, if you use agents that connect directly to the web service, then you do not need Operations Manager.</source>
+          <target state="new">However, if you use agents that connect directly to the web service, then you do not need Operations Manager.</target>
+        </trans-unit>
+        <trans-unit id="47ad4b7a-7928-4201-9c9f-4d3a3295f466" xml:space="preserve">
+          <source>Consider the following issues when your use Operational Insights with Operations Manager.</source>
+          <target state="new">Consider the following issues when your use Operational Insights with Operations Manager.</target>
+        </trans-unit>
+        <trans-unit id="8230422a-c04d-47a9-9d73-4566e74a46d0" xml:space="preserve">
+          <source>Also, you'll need to specify the Run-As credentials for the workloads monitored my Operations Manager to Operational Insights.</source>
+          <target state="new">Also, you'll need to specify the Run-As credentials for the workloads monitored my Operations Manager to Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="4ff0fe3e-286d-4807-9ec2-abb300a56365" xml:space="preserve">
+          <source>Operational Insights consists of a web service in the cloud, and either agents that connect directly to the web service or Operations Manager agents and Operations Manager management groups that are managing computers in your environment.</source>
+          <target state="new">Operational Insights consists of a web service in the cloud, and either agents that connect directly to the web service or Operations Manager agents and Operations Manager management groups that are managing computers in your environment.</target>
+        </trans-unit>
+        <trans-unit id="90742f3c-df4b-4f30-a2e5-754f850bcde4" xml:space="preserve">
+          <source>Before you select Operations Manager agents (to collect data) and management groups (to manage agents and send data to the Operational Insights service), ensure that you understand the following:</source>
+          <target state="new">Before you select Operations Manager agents (to collect data) and management groups (to manage agents and send data to the Operational Insights service), ensure that you understand the following:</target>
+        </trans-unit>
+        <trans-unit id="a2122192-fd37-49b3-90ea-34b70b54e7f5" xml:space="preserve">
+          <source>The Operations Manager agent is installed on any server from which you want to collect and analyze data.</source>
+          <target state="new">The Operations Manager agent is installed on any server from which you want to collect and analyze data.</target>
+        </trans-unit>
+        <trans-unit id="0f86574d-d240-4a23-8c08-2e85f8863bce" xml:space="preserve">
+          <source>The Operations Manager management group transfers data from agents to the Operational Insights web service.</source>
+          <target state="new">The Operations Manager management group transfers data from agents to the Operational Insights web service.</target>
+        </trans-unit>
+        <trans-unit id="272dfe1b-d620-4d81-a6ba-72f82f671652" xml:space="preserve">
+          <source>It does not analyze any of the data.</source>
+          <target state="new">It does not analyze any of the data.</target>
+        </trans-unit>
+        <trans-unit id="c3601778-177b-4604-9077-3f48f3710865" xml:space="preserve">
+          <source>The Operations Manager management group must have access to the Internet to upload data to the web service.</source>
+          <target state="new">The Operations Manager management group must have access to the Internet to upload data to the web service.</target>
+        </trans-unit>
+        <trans-unit id="72b8c62c-3691-4547-ad46-10a957c5c8fa" xml:space="preserve">
+          <source>For the best results, do not install the Operations Manager management server on a computer that is also a domain controller.</source>
+          <target state="new">For the best results, do not install the Operations Manager management server on a computer that is also a domain controller.</target>
+        </trans-unit>
+        <trans-unit id="12980b1d-0761-4e2a-8a7e-f11005dac017" xml:space="preserve">
+          <source>An Operations Manager agent must have network connectivity to the Operations Manager management group so it can transfer data.</source>
+          <target state="new">An Operations Manager agent must have network connectivity to the Operations Manager management group so it can transfer data.</target>
+        </trans-unit>
+        <trans-unit id="9e6b60f7-5ea9-4e6f-beac-bcfb25ac5c18" xml:space="preserve">
+          <source>Operational Insights can use the System Center Health Service to collect and analyze data.</source>
+          <target state="new">Operational Insights can use the System Center Health Service to collect and analyze data.</target>
+        </trans-unit>
+        <trans-unit id="8290ce23-581c-4e21-8ab5-439945605321" xml:space="preserve">
+          <source>Operations Manager depends on the System Center Health Service.</source>
+          <target state="new">Operations Manager depends on the System Center Health Service.</target>
+        </trans-unit>
+        <trans-unit id="012e92b4-1e1f-4fac-b95b-5ed2fec50177" xml:space="preserve">
+          <source>When you view the programs that are installed on your server, you will see System Center Operations Manager agent software, particularly in Add/Remove Programs.</source>
+          <target state="new">When you view the programs that are installed on your server, you will see System Center Operations Manager agent software, particularly in Add/Remove Programs.</target>
+        </trans-unit>
+        <trans-unit id="11709156-2dc8-461e-84e1-f45db2b1d3b4" xml:space="preserve">
+          <source>Do not remove these because Operational Insights is dependent on them.</source>
+          <target state="new">Do not remove these because Operational Insights is dependent on them.</target>
+        </trans-unit>
+        <trans-unit id="9632a408-8fdc-4cf2-8b97-bf9d7e325acd" xml:space="preserve">
+          <source>If you remove the Operations Manager agent software, Operational Insights will no longer function.</source>
+          <target state="new">If you remove the Operations Manager agent software, Operational Insights will no longer function.</target>
+        </trans-unit>
+        <trans-unit id="f89876c2-e5d3-4cbb-81c4-7d271e28333f" xml:space="preserve">
+          <source>When using Operations Manager, Operational Insights is only supported with the Operations Manager agent in System Center Operations Manager 2012 R2 or System Center Operations Manager 2012 SP1.</source>
+          <target state="new">When using Operations Manager, Operational Insights is only supported with the Operations Manager agent in System Center Operations Manager 2012 R2 or System Center Operations Manager 2012 SP1.</target>
+        </trans-unit>
+        <trans-unit id="f0f767c1-174c-4e77-b7ce-bfeb032a9054" xml:space="preserve">
+          <source>It is not supported with previous versions of System Center Operations Manager.</source>
+          <target state="new">It is not supported with previous versions of System Center Operations Manager.</target>
+        </trans-unit>
+        <trans-unit id="067e0644-7287-4dbd-ac25-914200e65f8c" xml:space="preserve">
+          <source>Because the Operations Manager agent is used to collect data, it uses specific credentials (action accounts or Run As accounts) to support some of the analyzed workloads, such as SharePoint 2012.</source>
+          <target state="new">Because the Operations Manager agent is used to collect data, it uses specific credentials (action accounts or Run As accounts) to support some of the analyzed workloads, such as SharePoint 2012.</target>
+        </trans-unit>
+        <trans-unit id="b562f196-1f44-49d7-9ae9-2c5ffe145dc0" xml:space="preserve">
+          <source>When using Operations Manager, the System Center Health Service runs under the Local System account.</source>
+          <target state="new">When using Operations Manager, the System Center Health Service runs under the Local System account.</target>
+        </trans-unit>
+        <trans-unit id="f4532f25-b9cf-4c25-be10-8f63cf1fe194" xml:space="preserve">
+          <source>In SQL Server versions earlier than SQL Server 2008 R2, the Local System account was enabled by default and was a member of the system administrator server role.</source>
+          <target state="new">In SQL Server versions earlier than SQL Server 2008 R2, the Local System account was enabled by default and was a member of the system administrator server role.</target>
+        </trans-unit>
+        <trans-unit id="0948c3ef-e088-4dbe-af31-cf90255d7959" xml:space="preserve">
+          <source>In SQL Server 2012, the Local System login is not part of the system administrator server role.</source>
+          <target state="new">In SQL Server 2012, the Local System login is not part of the system administrator server role.</target>
+        </trans-unit>
+        <trans-unit id="f6651af8-274f-4308-94ca-4990fc73917b" xml:space="preserve">
+          <source>As a result, when you use Operational Insights, it cannot monitor the SQL Server 2012 instance completely, and not all rules can generate alerts.</source>
+          <target state="new">As a result, when you use Operational Insights, it cannot monitor the SQL Server 2012 instance completely, and not all rules can generate alerts.</target>
+        </trans-unit>
+        <trans-unit id="cc1cec5b-a14e-4bb9-a528-73889b4b989a" xml:space="preserve">
+          <source>When using agents that connect directly with the web service, the agents need to access the Internet to send data to the web service and to receive updated configuration information from the web service.</source>
+          <target state="new">When using agents that connect directly with the web service, the agents need to access the Internet to send data to the web service and to receive updated configuration information from the web service.</target>
+        </trans-unit>
+        <trans-unit id="eb0f5be7-891c-4c58-ae2d-f26c40cbecc2" xml:space="preserve">
+          <source>When using Operations Manager, management server needs to access the Internet to send data to the web service and to receive updated configuration information from the web service.</source>
+          <target state="new">When using Operations Manager, management server needs to access the Internet to send data to the web service and to receive updated configuration information from the web service.</target>
+        </trans-unit>
+        <trans-unit id="961c86e8-fffa-4f12-ba65-3be9a3a1d62c" xml:space="preserve">
+          <source>However, your agents do not need to access the Internet.</source>
+          <target state="new">However, your agents do not need to access the Internet.</target>
+        </trans-unit>
+        <trans-unit id="01dad874-d77c-4f6e-934d-fa16e657490a" xml:space="preserve">
+          <source>If you have Operations Manager agents on servers that are not connected to the Internet, you can use the web service if they can communicate with an Internet-connected management server.</source>
+          <target state="new">If you have Operations Manager agents on servers that are not connected to the Internet, you can use the web service if they can communicate with an Internet-connected management server.</target>
+        </trans-unit>
+        <trans-unit id="8a97f5c4-e939-4189-a5c2-6721a150f0a9" xml:space="preserve">
+          <source>The Operations Manager agent is supported on computers running Windows Server 2012, Windows Server 2008 R2, or Windows Server 2008 that is configured to be part of a Windows failover cluster.</source>
+          <target state="new">The Operations Manager agent is supported on computers running Windows Server 2012, Windows Server 2008 R2, or Windows Server 2008 that is configured to be part of a Windows failover cluster.</target>
+        </trans-unit>
+        <trans-unit id="7c873972-fd0f-44d1-bbb3-c786a3d2e014" xml:space="preserve">
+          <source>You can view the clusters in the Operational Insights portal.</source>
+          <target state="new">You can view the clusters in the Operational Insights portal.</target>
+        </trans-unit>
+        <trans-unit id="c0d10647-8acc-4323-95df-6744da2d6a0d" xml:space="preserve">
+          <source>On the Servers page, clusters are identified as TYPE=CLUSTER (as opposed to TYPE=AGENT, which is how physical computers are identified).</source>
+          <target state="new">On the Servers page, clusters are identified as TYPE=CLUSTER (as opposed to TYPE=AGENT, which is how physical computers are identified).</target>
+        </trans-unit>
+        <trans-unit id="4172b5ba-7e18-4e5a-82ed-9888bfb76ac8" xml:space="preserve">
+          <source>The discovery and configuration rules run on the active and passive nodes of the cluster, but any alerts generated on the passive nodes are ignored.</source>
+          <target state="new">The discovery and configuration rules run on the active and passive nodes of the cluster, but any alerts generated on the passive nodes are ignored.</target>
+        </trans-unit>
+        <trans-unit id="b069c345-9a89-4c15-a7cb-11e9aac0bbab" xml:space="preserve">
+          <source>If a node shifts from passive to active, alerts for that node are displayed automatically, with no intervention required from you.</source>
+          <target state="new">If a node shifts from passive to active, alerts for that node are displayed automatically, with no intervention required from you.</target>
+        </trans-unit>
+        <trans-unit id="211b9320-a40d-47b0-bb73-0f463375fc86" xml:space="preserve">
+          <source>Some alerts might be generated twice, depending on the rule that generates the alert.</source>
+          <target state="new">Some alerts might be generated twice, depending on the rule that generates the alert.</target>
+        </trans-unit>
+        <trans-unit id="90fd35fe-9742-4e49-abc0-ddab0f634297" xml:space="preserve">
+          <source>For example, a rule that detects a bad driver by examining the operating system generates alerts for the physical server and for the cluster.</source>
+          <target state="new">For example, a rule that detects a bad driver by examining the operating system generates alerts for the physical server and for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="f34ef77d-0431-41ad-8f49-8ca79e846ff5" xml:space="preserve">
+          <source>Configuration analysis of passive nodes is not supported.</source>
+          <target state="new">Configuration analysis of passive nodes is not supported.</target>
+        </trans-unit>
+        <trans-unit id="a19a9a8f-d40d-4296-b329-b7955b167d14" xml:space="preserve">
+          <source>Operational Insights does not support grouping or linking computers running Windows Server that are part of the same failover cluster.</source>
+          <target state="new">Operational Insights does not support grouping or linking computers running Windows Server that are part of the same failover cluster.</target>
+        </trans-unit>
+        <trans-unit id="8e5e2726-aad3-485a-a5bc-771af8b021b2" xml:space="preserve">
+          <source>When you plan your Operational Insights deployment (particularly when you analyze the number of Operations Manager agents that you want to transfer data through a single management group), consider the capacity of that server in terms of file space.</source>
+          <target state="new">When you plan your Operational Insights deployment (particularly when you analyze the number of Operations Manager agents that you want to transfer data through a single management group), consider the capacity of that server in terms of file space.</target>
+        </trans-unit>
+        <trans-unit id="457a54b5-8c2a-472f-ba0b-efbab01ca407" xml:space="preserve">
+          <source>Consider the following variables:</source>
+          <target state="new">Consider the following variables:</target>
+        </trans-unit>
+        <trans-unit id="e70dce96-e8f1-46b6-8e56-ee2c02a38ec8" xml:space="preserve">
+          <source>Number of agents per management group</source>
+          <target state="new">Number of agents per management group</target>
+        </trans-unit>
+        <trans-unit id="6411d404-5886-4816-b3ec-2c70a4bcff3d" xml:space="preserve">
+          <source>The average size of the data transferred from the agent to the management group per day.</source>
+          <target state="new">The average size of the data transferred from the agent to the management group per day.</target>
+        </trans-unit>
+        <trans-unit id="a33a2190-2b1c-41d5-a7a4-f367cfd368ad" xml:space="preserve">
+          <source>By default, each agent uploads CAB files to the management group twice per day.</source>
+          <target state="new">By default, each agent uploads CAB files to the management group twice per day.</target>
+        </trans-unit>
+        <trans-unit id="9c0d90a1-ce67-4e36-beaa-28623d7ee576" xml:space="preserve">
+          <source>The size of the CAB files depends on the configuration of the server (such as number of SQL Server engines and number databases) and the health of the server (such as the number of alerts generated).</source>
+          <target state="new">The size of the CAB files depends on the configuration of the server (such as number of SQL Server engines and number databases) and the health of the server (such as the number of alerts generated).</target>
+        </trans-unit>
+        <trans-unit id="fd501bda-cc62-40f8-870c-5d5c65efade9" xml:space="preserve">
+          <source>In most cases, the daily upload size is typically less than 100 KB.</source>
+          <target state="new">In most cases, the daily upload size is typically less than 100 KB.</target>
+        </trans-unit>
+        <trans-unit id="582bead7-8dd3-4cfe-969c-7d4480a3d7e5" xml:space="preserve">
+          <source>Archival period for keeping data in the management group (the default is 5 days)</source>
+          <target state="new">Archival period for keeping data in the management group (the default is 5 days)</target>
+        </trans-unit>
+        <trans-unit id="2a44d503-1bb9-48d6-9092-c232174659e0" xml:space="preserve">
+          <source>As an example, if you assume a daily upload size of 100 KB per agent and the default archival period, you would need the following storage for the management group:</source>
+          <target state="new">As an example, if you assume a daily upload size of 100 KB per agent and the default archival period, you would need the following storage for the management group:</target>
+        </trans-unit>
+        <trans-unit id="72be26a0-0311-411c-adc4-2ee9010eb4b3" xml:space="preserve">
+          <source>Number of agents</source>
+          <target state="new">Number of agents</target>
+        </trans-unit>
+        <trans-unit id="3cb62b7f-1ded-403e-aab8-f449295fa45c" xml:space="preserve">
+          <source>Estimated space required for the management group</source>
+          <target state="new">Estimated space required for the management group</target>
+        </trans-unit>
+        <trans-unit id="a71b183a-c445-4986-82af-938f28e71a17" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="7cc320f3-6af3-4f6b-90ae-73bcc86e9d0f" xml:space="preserve">
+          <source>~2.5 MB (5 agents x 100 KB data/day x 5 days = 2,500 KB)</source>
+          <target state="new">~2.5 MB (5 agents x 100 KB data/day x 5 days = 2,500 KB)</target>
+        </trans-unit>
+        <trans-unit id="74e61feb-7dcd-4b4f-802c-608e46b18c76" xml:space="preserve">
+          <source>50</source>
+          <target state="new">50</target>
+        </trans-unit>
+        <trans-unit id="e3347c7a-5a7e-47b7-a367-dfca62bf24c7" xml:space="preserve">
+          <source>~25 MB (50 agents x 100 KB data/day x 5 days = 25,000 KB)</source>
+          <target state="new">~25 MB (50 agents x 100 KB data/day x 5 days = 25,000 KB)</target>
+        </trans-unit>
+        <trans-unit id="d57a869f-ed81-4b4a-aceb-8ebafd29577a" xml:space="preserve">
+          <source>Operational Insights uses the Operations Manager agent and management group to collect and send data to the Operational Insights service.</source>
+          <target state="new">Operational Insights uses the Operations Manager agent and management group to collect and send data to the Operational Insights service.</target>
+        </trans-unit>
+        <trans-unit id="05c6631b-467c-4fa3-a13c-ff0c1162cf64" xml:space="preserve">
+          <source>Operational Insights builds upon management packs for workloads to provide value-add services.</source>
+          <target state="new">Operational Insights builds upon management packs for workloads to provide value-add services.</target>
+        </trans-unit>
+        <trans-unit id="5ef2621f-9536-4f77-96a3-7933eb785c12" xml:space="preserve">
+          <source>Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain account.</source>
+          <target state="new">Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain account.</target>
+        </trans-unit>
+        <trans-unit id="aaa46e83-4ea4-4511-9eff-d96a2457cc97" xml:space="preserve">
+          <source>You need to provide credential information by configuring an Operations Manager Run As account.</source>
+          <target state="new">You need to provide credential information by configuring an Operations Manager Run As account.</target>
+        </trans-unit>
+        <trans-unit id="52162527-31b7-4a2f-b351-f560903e83a6" xml:space="preserve">
+          <source>The following sections describe how to set Operations Manager run-as accounts for the following workloads:</source>
+          <target state="new">The following sections describe how to set Operations Manager run-as accounts for the following workloads:</target>
+        </trans-unit>
+        <trans-unit id="e31e4897-cfee-4ba7-ba54-1421db751b33" xml:space="preserve">
+          <source>SQL Assessment</source>
+          <target state="new">SQL Assessment</target>
+        </trans-unit>
+        <trans-unit id="059a573c-9115-49b2-ae0b-d4eb9d2b1dc8" xml:space="preserve">
+          <source>Virtual Machine Manager</source>
+          <target state="new">Virtual Machine Manager</target>
+        </trans-unit>
+        <trans-unit id="7841e54c-5279-405b-a352-f23a3ed50c45" xml:space="preserve">
+          <source>Lync Server</source>
+          <target state="new">Lync Server</target>
+        </trans-unit>
+        <trans-unit id="704970a8-386a-4879-b681-a864ec8925a7" xml:space="preserve">
+          <source>SharePoint</source>
+          <target state="new">SharePoint</target>
+        </trans-unit>
+        <trans-unit id="842d91bf-35b4-4b4c-a234-a90eb9911050" xml:space="preserve">
+          <source> If you are already using the SQL Server management pack, you should use that Run As account.</source>
+          <target state="new"> If you are already using the SQL Server management pack, you should use that Run As account.</target>
+        </trans-unit>
+        <trans-unit id="2164800d-2e43-4fd3-8f1f-3038cd65bc9d" xml:space="preserve">
+          <source>In Operations Manager, open the Operations console, and then click <bpt id="fa8c00ce-dff5-4f28-aa66-ce7f99b7204b">&lt;strong&gt;</bpt>Administration<ept id="fa8c00ce-dff5-4f28-aa66-ce7f99b7204b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Operations Manager, open the Operations console, and then click <bpt id="fa8c00ce-dff5-4f28-aa66-ce7f99b7204b">&lt;strong&gt;</bpt>Administration<ept id="fa8c00ce-dff5-4f28-aa66-ce7f99b7204b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f004077-5f9a-47f4-bbbc-50ab96890696" xml:space="preserve">
+          <source>Under <bpt id="294e1df5-a5cc-4dfa-93d2-02c7cafc704e">&lt;strong&gt;</bpt>Run As Configuration<ept id="294e1df5-a5cc-4dfa-93d2-02c7cafc704e">&lt;/strong&gt;</ept>, click <bpt id="27b3e739-50e8-431d-ab88-bb16199730eb">&lt;strong&gt;</bpt>Profiles<ept id="27b3e739-50e8-431d-ab88-bb16199730eb">&lt;/strong&gt;</ept>, and open <bpt id="b8842e04-84c2-46a2-ac0d-89fe78352cdd">&lt;strong&gt;</bpt>Operational Insights SQL Assessment Run As Profile<ept id="b8842e04-84c2-46a2-ac0d-89fe78352cdd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="294e1df5-a5cc-4dfa-93d2-02c7cafc704e">&lt;strong&gt;</bpt>Run As Configuration<ept id="294e1df5-a5cc-4dfa-93d2-02c7cafc704e">&lt;/strong&gt;</ept>, click <bpt id="27b3e739-50e8-431d-ab88-bb16199730eb">&lt;strong&gt;</bpt>Profiles<ept id="27b3e739-50e8-431d-ab88-bb16199730eb">&lt;/strong&gt;</ept>, and open <bpt id="b8842e04-84c2-46a2-ac0d-89fe78352cdd">&lt;strong&gt;</bpt>Operational Insights SQL Assessment Run As Profile<ept id="b8842e04-84c2-46a2-ac0d-89fe78352cdd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="438abec8-0d7f-4e2f-b8f4-99959b489250" xml:space="preserve">
+          <source>On the <bpt id="c6a85c27-5101-4d0d-9baa-2b95fc55acea">&lt;strong&gt;</bpt>Run As Accounts<ept id="c6a85c27-5101-4d0d-9baa-2b95fc55acea">&lt;/strong&gt;</ept> page, click <bpt id="425feee2-d035-4102-a7b1-850d9e679894">&lt;strong&gt;</bpt>Add<ept id="425feee2-d035-4102-a7b1-850d9e679894">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c6a85c27-5101-4d0d-9baa-2b95fc55acea">&lt;strong&gt;</bpt>Run As Accounts<ept id="c6a85c27-5101-4d0d-9baa-2b95fc55acea">&lt;/strong&gt;</ept> page, click <bpt id="425feee2-d035-4102-a7b1-850d9e679894">&lt;strong&gt;</bpt>Add<ept id="425feee2-d035-4102-a7b1-850d9e679894">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c332b55-5091-42c8-a2a1-b8beb1d8c38c" xml:space="preserve">
+          <source>Select a Windows Run As account that contains the credentials needed for SQL Server, or click <bpt id="de57db1e-5064-4c57-9d80-a3a7b93f78bc">&lt;strong&gt;</bpt>New<ept id="de57db1e-5064-4c57-9d80-a3a7b93f78bc">&lt;/strong&gt;</ept> to create one.</source>
+          <target state="new">Select a Windows Run As account that contains the credentials needed for SQL Server, or click <bpt id="de57db1e-5064-4c57-9d80-a3a7b93f78bc">&lt;strong&gt;</bpt>New<ept id="de57db1e-5064-4c57-9d80-a3a7b93f78bc">&lt;/strong&gt;</ept> to create one.</target>
+        </trans-unit>
+        <trans-unit id="ccbbedf8-90bb-4825-9ea3-09143646db55" xml:space="preserve">
+          <source>The Run As account type must be Windows.</source>
+          <target state="new">The Run As account type must be Windows.</target>
+        </trans-unit>
+        <trans-unit id="8127c926-7ee6-4d2e-95bb-bfa478e8f137" xml:space="preserve">
+          <source>The Run As account must also be part of Local Administrators group on all Windows Servers hosting SQL Server Instances.</source>
+          <target state="new">The Run As account must also be part of Local Administrators group on all Windows Servers hosting SQL Server Instances.</target>
+        </trans-unit>
+        <trans-unit id="b18a7d22-5ed3-41f3-99c8-954a2c09e9d4" xml:space="preserve">
+          <source>Click <bpt id="9ebe8a1e-034a-49cd-abf2-c43fffa6b70f">&lt;strong&gt;</bpt>Save<ept id="9ebe8a1e-034a-49cd-abf2-c43fffa6b70f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9ebe8a1e-034a-49cd-abf2-c43fffa6b70f">&lt;strong&gt;</bpt>Save<ept id="9ebe8a1e-034a-49cd-abf2-c43fffa6b70f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="668a8216-d07f-4d66-933a-1f9f46384b60" xml:space="preserve">
+          <source>Modify and then execute the following T-SQL sample on each SQL Server Instance to grant minimum permissions required to Run As Account to perform SQL Assessment.</source>
+          <target state="new">Modify and then execute the following T-SQL sample on each SQL Server Instance to grant minimum permissions required to Run As Account to perform SQL Assessment.</target>
+        </trans-unit>
+        <trans-unit id="90850ef6-fc04-4a47-8fc6-61252e06d477" xml:space="preserve">
+          <source>However, you don’t need to do this if a Run As Account is already part of the sysadmin server role on SQL Server Instances.</source>
+          <target state="new">However, you don’t need to do this if a Run As Account is already part of the sysadmin server role on SQL Server Instances.</target>
+        </trans-unit>
+        <trans-unit id="908c0492-e923-4295-83ad-b44dc939d07e" xml:space="preserve">
+          <source>Open a PowerShell window and run the following script after you’ve updated it with your information:</source>
+          <target state="new">Open a PowerShell window and run the following script after you’ve updated it with your information:</target>
+        </trans-unit>
+        <trans-unit id="1f7e80d1-40ff-40b1-bbb9-75bab5af82d7" xml:space="preserve">
+          <source>Ensure that the Run As account has privileges for the following actions:</source>
+          <target state="new">Ensure that the Run As account has privileges for the following actions:</target>
+        </trans-unit>
+        <trans-unit id="315abb54-5b35-4403-a9ac-a4419588f3d1" xml:space="preserve">
+          <source>To use the VMM Windows PowerShell module</source>
+          <target state="new">To use the VMM Windows PowerShell module</target>
+        </trans-unit>
+        <trans-unit id="56bfe0f0-4393-4546-b639-51be10e584e6" xml:space="preserve">
+          <source>To query the VMM database</source>
+          <target state="new">To query the VMM database</target>
+        </trans-unit>
+        <trans-unit id="6db10221-68e6-497b-a00f-ee0c6bf1534d" xml:space="preserve">
+          <source>To remotely administer the VMM agents running on virtualization hosts</source>
+          <target state="new">To remotely administer the VMM agents running on virtualization hosts</target>
+        </trans-unit>
+        <trans-unit id="70338e7f-8dde-4d17-acbe-28086ef18d2d" xml:space="preserve">
+          <source>Use the following steps to set the account when you connect Operational Insights to Operations Manager.</source>
+          <target state="new">Use the following steps to set the account when you connect Operational Insights to Operations Manager.</target>
+        </trans-unit>
+        <trans-unit id="1a588b4d-bb9a-4679-afb8-139de1f995e8" xml:space="preserve">
+          <source>In Operations Manager, open the Operations console, and then click <bpt id="c55760c3-f36f-4451-8c7e-12794534aeed">&lt;strong&gt;</bpt>Administration<ept id="c55760c3-f36f-4451-8c7e-12794534aeed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Operations Manager, open the Operations console, and then click <bpt id="c55760c3-f36f-4451-8c7e-12794534aeed">&lt;strong&gt;</bpt>Administration<ept id="c55760c3-f36f-4451-8c7e-12794534aeed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0221aa63-e1bb-4fdf-874a-9234789d5b80" xml:space="preserve">
+          <source>Under <bpt id="69b46c9a-c7bb-4379-ac42-d6884c15498c">&lt;strong&gt;</bpt>Run As Configuration<ept id="69b46c9a-c7bb-4379-ac42-d6884c15498c">&lt;/strong&gt;</ept>, click <bpt id="147ce687-7f42-4594-bf76-f6ecfb5bf483">&lt;strong&gt;</bpt>Profiles<ept id="147ce687-7f42-4594-bf76-f6ecfb5bf483">&lt;/strong&gt;</ept>, and open <bpt id="af295121-91da-4b06-8688-872bf43243e3">&lt;strong&gt;</bpt>Operational Insights VMM Run As Account<ept id="af295121-91da-4b06-8688-872bf43243e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="69b46c9a-c7bb-4379-ac42-d6884c15498c">&lt;strong&gt;</bpt>Run As Configuration<ept id="69b46c9a-c7bb-4379-ac42-d6884c15498c">&lt;/strong&gt;</ept>, click <bpt id="147ce687-7f42-4594-bf76-f6ecfb5bf483">&lt;strong&gt;</bpt>Profiles<ept id="147ce687-7f42-4594-bf76-f6ecfb5bf483">&lt;/strong&gt;</ept>, and open <bpt id="af295121-91da-4b06-8688-872bf43243e3">&lt;strong&gt;</bpt>Operational Insights VMM Run As Account<ept id="af295121-91da-4b06-8688-872bf43243e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4fbef9f2-ca19-4853-b733-43955d72901a" xml:space="preserve">
+          <source>On the <bpt id="d0368790-c0cb-48f2-b2da-1a2196617bf2">&lt;strong&gt;</bpt>Run As Accounts<ept id="d0368790-c0cb-48f2-b2da-1a2196617bf2">&lt;/strong&gt;</ept> page, click <bpt id="91f1c75a-50f5-4425-8fa0-5c36d79c26a3">&lt;strong&gt;</bpt>Add<ept id="91f1c75a-50f5-4425-8fa0-5c36d79c26a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d0368790-c0cb-48f2-b2da-1a2196617bf2">&lt;strong&gt;</bpt>Run As Accounts<ept id="d0368790-c0cb-48f2-b2da-1a2196617bf2">&lt;/strong&gt;</ept> page, click <bpt id="91f1c75a-50f5-4425-8fa0-5c36d79c26a3">&lt;strong&gt;</bpt>Add<ept id="91f1c75a-50f5-4425-8fa0-5c36d79c26a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8214b852-6e60-4d7b-928d-9e7b1537cf70" xml:space="preserve">
+          <source>Select a Windows Run As account that contains the credentials needed for VMM, or click <bpt id="d58ea3bf-8651-46ba-8350-987d17a318ab">&lt;strong&gt;</bpt>New<ept id="d58ea3bf-8651-46ba-8350-987d17a318ab">&lt;/strong&gt;</ept> to create one.</source>
+          <target state="new">Select a Windows Run As account that contains the credentials needed for VMM, or click <bpt id="d58ea3bf-8651-46ba-8350-987d17a318ab">&lt;strong&gt;</bpt>New<ept id="d58ea3bf-8651-46ba-8350-987d17a318ab">&lt;/strong&gt;</ept> to create one.</target>
+        </trans-unit>
+        <trans-unit id="1f015bb8-35bc-49cf-873f-bb6c360a9082" xml:space="preserve">
+          <source>The Run As account type must be Windows.</source>
+          <target state="new">The Run As account type must be Windows.</target>
+        </trans-unit>
+        <trans-unit id="7516dda4-497e-4c06-8e02-32ffeb4219ac" xml:space="preserve">
+          <source>Click <bpt id="9023ddbe-14ae-4a59-ade7-782ae7ed646a">&lt;strong&gt;</bpt>Save<ept id="9023ddbe-14ae-4a59-ade7-782ae7ed646a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9023ddbe-14ae-4a59-ade7-782ae7ed646a">&lt;strong&gt;</bpt>Save<ept id="9023ddbe-14ae-4a59-ade7-782ae7ed646a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44da7d01-0713-4903-91b8-fcf51155ce94" xml:space="preserve">
+          <source> The Run As account needs to be a member of both the local Administrators and the Lync RTCUniversalUserAdmins security groups.</source>
+          <target state="new"> The Run As account needs to be a member of both the local Administrators and the Lync RTCUniversalUserAdmins security groups.</target>
+        </trans-unit>
+        <trans-unit id="a469b2ce-e576-4c8f-90c2-462363f2b201" xml:space="preserve">
+          <source>In Operations Manager, open the Operations console, and then click <bpt id="bf13686c-604c-4966-a70f-c3b518fcf9b8">&lt;strong&gt;</bpt>Administration<ept id="bf13686c-604c-4966-a70f-c3b518fcf9b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Operations Manager, open the Operations console, and then click <bpt id="bf13686c-604c-4966-a70f-c3b518fcf9b8">&lt;strong&gt;</bpt>Administration<ept id="bf13686c-604c-4966-a70f-c3b518fcf9b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc058dd2-38c7-4164-98f8-a3b5335c1ea5" xml:space="preserve">
+          <source>Under <bpt id="3047a23b-d678-4996-9fb8-07037c20eae4">&lt;strong&gt;</bpt>Run As Configuration<ept id="3047a23b-d678-4996-9fb8-07037c20eae4">&lt;/strong&gt;</ept>, click <bpt id="d5e561aa-ca61-4486-9f31-9f4aa95d39b2">&lt;strong&gt;</bpt>Profiles<ept id="d5e561aa-ca61-4486-9f31-9f4aa95d39b2">&lt;/strong&gt;</ept>, and open <bpt id="ea0f4445-7906-448e-a324-38018d803de7">&lt;strong&gt;</bpt>Operational Insights Lync Run As Account<ept id="ea0f4445-7906-448e-a324-38018d803de7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="3047a23b-d678-4996-9fb8-07037c20eae4">&lt;strong&gt;</bpt>Run As Configuration<ept id="3047a23b-d678-4996-9fb8-07037c20eae4">&lt;/strong&gt;</ept>, click <bpt id="d5e561aa-ca61-4486-9f31-9f4aa95d39b2">&lt;strong&gt;</bpt>Profiles<ept id="d5e561aa-ca61-4486-9f31-9f4aa95d39b2">&lt;/strong&gt;</ept>, and open <bpt id="ea0f4445-7906-448e-a324-38018d803de7">&lt;strong&gt;</bpt>Operational Insights Lync Run As Account<ept id="ea0f4445-7906-448e-a324-38018d803de7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2132e2fd-04f9-43c8-9c62-e44951d1780d" xml:space="preserve">
+          <source>On the <bpt id="f3e3ca02-074d-40b1-a1a5-632ccf82d132">&lt;strong&gt;</bpt>Run As Accounts<ept id="f3e3ca02-074d-40b1-a1a5-632ccf82d132">&lt;/strong&gt;</ept> page, click <bpt id="14c8eced-df4a-48d5-8397-e5824570781b">&lt;strong&gt;</bpt>Add<ept id="14c8eced-df4a-48d5-8397-e5824570781b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f3e3ca02-074d-40b1-a1a5-632ccf82d132">&lt;strong&gt;</bpt>Run As Accounts<ept id="f3e3ca02-074d-40b1-a1a5-632ccf82d132">&lt;/strong&gt;</ept> page, click <bpt id="14c8eced-df4a-48d5-8397-e5824570781b">&lt;strong&gt;</bpt>Add<ept id="14c8eced-df4a-48d5-8397-e5824570781b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc14c257-1f9a-449b-a0ad-1231f42a03be" xml:space="preserve">
+          <source>Select a Windows Run As account that is a member of both the Local Administrators and the Lync RTCUniversalUserAdmins security groups.</source>
+          <target state="new">Select a Windows Run As account that is a member of both the Local Administrators and the Lync RTCUniversalUserAdmins security groups.</target>
+        </trans-unit>
+        <trans-unit id="8844e038-4a55-4d76-81f7-ba2fe2b287e9" xml:space="preserve">
+          <source>The Run As account type must be Windows.</source>
+          <target state="new">The Run As account type must be Windows.</target>
+        </trans-unit>
+        <trans-unit id="25b23584-3f9b-4d60-9011-873c80aba661" xml:space="preserve">
+          <source>Click <bpt id="8610fbe8-4c8d-4965-a3cb-af73d3624885">&lt;strong&gt;</bpt>Save<ept id="8610fbe8-4c8d-4965-a3cb-af73d3624885">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8610fbe8-4c8d-4965-a3cb-af73d3624885">&lt;strong&gt;</bpt>Save<ept id="8610fbe8-4c8d-4965-a3cb-af73d3624885">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be2fd3a5-19eb-40e6-a35a-2cb80026cb7d" xml:space="preserve">
+          <source>In Operations Manager, open the Operations console, and then click <bpt id="e306305e-e49b-4a42-97a3-3a9e29b7f802">&lt;strong&gt;</bpt>Administration<ept id="e306305e-e49b-4a42-97a3-3a9e29b7f802">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Operations Manager, open the Operations console, and then click <bpt id="e306305e-e49b-4a42-97a3-3a9e29b7f802">&lt;strong&gt;</bpt>Administration<ept id="e306305e-e49b-4a42-97a3-3a9e29b7f802">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0448123c-94b7-4ed5-845c-4936c4a11d54" xml:space="preserve">
+          <source>Under <bpt id="5e6337f3-ac1a-4315-a537-e66828d3c82e">&lt;strong&gt;</bpt>Run As Configuration<ept id="5e6337f3-ac1a-4315-a537-e66828d3c82e">&lt;/strong&gt;</ept>, click <bpt id="271e709f-c4d1-4c01-b518-d4350e4422fc">&lt;strong&gt;</bpt>Profiles<ept id="271e709f-c4d1-4c01-b518-d4350e4422fc">&lt;/strong&gt;</ept>, and open <bpt id="ec0fa4d3-8aad-40d7-b2a5-42bed0f76ef4">&lt;strong&gt;</bpt>Operational Insights SharePoint Run As Account<ept id="ec0fa4d3-8aad-40d7-b2a5-42bed0f76ef4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="5e6337f3-ac1a-4315-a537-e66828d3c82e">&lt;strong&gt;</bpt>Run As Configuration<ept id="5e6337f3-ac1a-4315-a537-e66828d3c82e">&lt;/strong&gt;</ept>, click <bpt id="271e709f-c4d1-4c01-b518-d4350e4422fc">&lt;strong&gt;</bpt>Profiles<ept id="271e709f-c4d1-4c01-b518-d4350e4422fc">&lt;/strong&gt;</ept>, and open <bpt id="ec0fa4d3-8aad-40d7-b2a5-42bed0f76ef4">&lt;strong&gt;</bpt>Operational Insights SharePoint Run As Account<ept id="ec0fa4d3-8aad-40d7-b2a5-42bed0f76ef4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3218415a-8055-40e2-b769-8ddd4a82ea21" xml:space="preserve">
+          <source>On the <bpt id="70c4da25-f2aa-4862-b46b-6a391b582bfa">&lt;strong&gt;</bpt>Run As Accounts<ept id="70c4da25-f2aa-4862-b46b-6a391b582bfa">&lt;/strong&gt;</ept> page, click <bpt id="0a2e8a2c-e82a-4518-9b64-1a8786e1b017">&lt;strong&gt;</bpt>Add<ept id="0a2e8a2c-e82a-4518-9b64-1a8786e1b017">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="70c4da25-f2aa-4862-b46b-6a391b582bfa">&lt;strong&gt;</bpt>Run As Accounts<ept id="70c4da25-f2aa-4862-b46b-6a391b582bfa">&lt;/strong&gt;</ept> page, click <bpt id="0a2e8a2c-e82a-4518-9b64-1a8786e1b017">&lt;strong&gt;</bpt>Add<ept id="0a2e8a2c-e82a-4518-9b64-1a8786e1b017">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58345789-37c4-4614-b0f9-9840327b6cac" xml:space="preserve">
+          <source>Select a Windows Run As account that contains the credentials needed for SharePoint, or click <bpt id="1f2c867d-0af5-4696-a239-0258a0542cbf">&lt;strong&gt;</bpt>New<ept id="1f2c867d-0af5-4696-a239-0258a0542cbf">&lt;/strong&gt;</ept> to create one.</source>
+          <target state="new">Select a Windows Run As account that contains the credentials needed for SharePoint, or click <bpt id="1f2c867d-0af5-4696-a239-0258a0542cbf">&lt;strong&gt;</bpt>New<ept id="1f2c867d-0af5-4696-a239-0258a0542cbf">&lt;/strong&gt;</ept> to create one.</target>
+        </trans-unit>
+        <trans-unit id="6e52db13-f738-49e9-9cd0-0dea70fbca4d" xml:space="preserve">
+          <source>The Run As account type must be Windows.</source>
+          <target state="new">The Run As account type must be Windows.</target>
+        </trans-unit>
+        <trans-unit id="ee1d794b-5f05-4526-86ca-937ccfa662de" xml:space="preserve">
+          <source>Click <bpt id="d57ef18e-8ce2-4b52-9932-abf21fc1483d">&lt;strong&gt;</bpt>Save<ept id="d57ef18e-8ce2-4b52-9932-abf21fc1483d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d57ef18e-8ce2-4b52-9932-abf21fc1483d">&lt;strong&gt;</bpt>Save<ept id="d57ef18e-8ce2-4b52-9932-abf21fc1483d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ea6664a-052f-49f8-a707-27e73bb56e3e" xml:space="preserve">
+          <source>If you want to analyze data from servers in diverse geographic locations, consider having one management group per location.</source>
+          <target state="new">If you want to analyze data from servers in diverse geographic locations, consider having one management group per location.</target>
+        </trans-unit>
+        <trans-unit id="405dfe8a-b8e5-4823-a6f9-123418cec7a2" xml:space="preserve">
+          <source>This can improve the performance of data transfer from the agent to the management group.</source>
+          <target state="new">This can improve the performance of data transfer from the agent to the management group.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

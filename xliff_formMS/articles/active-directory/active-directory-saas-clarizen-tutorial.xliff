@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9d11e732-393a-43b7-ad0e-71eea8f5ae15" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9d11e732-393a-43b7-ad0e-71eea8f5ae15" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8ee135c2-2ae3-4485-afc8-2ddd31a6522b">
+        <trans-unit id="535cd09f-8771-4cc6-a5de-63ecf978a595" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Clarizen | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Clarizen | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c08068ff-db91-4714-9dfd-f5a0f791ce1c" xml:space="preserve">
+          <source>Learn how to use Clarizen with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Clarizen with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="6d653fe3-e97b-45e6-873e-6bd2d069b872" xml:space="preserve">
+          <source>For feedback, click <bpt id="56e0c747-ae03-4d8f-a24e-5f6863a646a9">&lt;linkText&gt;</bpt>here<ept id="56e0c747-ae03-4d8f-a24e-5f6863a646a9">&lt;/linkText&gt;</ept><bpt id="56e0c747-ae03-4d8f-a24e-5f6863a646a9">&lt;title&gt;</bpt><ept id="56e0c747-ae03-4d8f-a24e-5f6863a646a9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="56e0c747-ae03-4d8f-a24e-5f6863a646a9">&lt;linkText&gt;</bpt>here<ept id="56e0c747-ae03-4d8f-a24e-5f6863a646a9">&lt;/linkText&gt;</ept><bpt id="56e0c747-ae03-4d8f-a24e-5f6863a646a9">&lt;title&gt;</bpt><ept id="56e0c747-ae03-4d8f-a24e-5f6863a646a9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a8f6669-0f67-47df-8624-67f03fa99021" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Clarizen.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Clarizen.</target>
+        </trans-unit>
+        <trans-unit id="b4d9050e-21cf-4715-8316-37b5a397ff65" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="d56f6f97-bbf2-4cda-be73-a87f10ed0724" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="5cc03ccd-bdf2-404f-9a54-052d099f7bd1" xml:space="preserve">
+          <source>A Clarizen single sign-on enabled subscription</source>
+          <target state="new">A Clarizen single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="2393503a-8af5-487c-b171-3c51e02f2c03" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Clarizen will be able to single sign into the application at your Clarizen company site (service provider initiated sign on), or using the <bpt id="3874032e-0d62-429e-947f-14d6cda513fa">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="3874032e-0d62-429e-947f-14d6cda513fa">&lt;/linkText&gt;</ept><bpt id="3874032e-0d62-429e-947f-14d6cda513fa">&lt;title&gt;</bpt><ept id="3874032e-0d62-429e-947f-14d6cda513fa">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Clarizen will be able to single sign into the application at your Clarizen company site (service provider initiated sign on), or using the <bpt id="3874032e-0d62-429e-947f-14d6cda513fa">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="3874032e-0d62-429e-947f-14d6cda513fa">&lt;/linkText&gt;</ept><bpt id="3874032e-0d62-429e-947f-14d6cda513fa">&lt;title&gt;</bpt><ept id="3874032e-0d62-429e-947f-14d6cda513fa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2760788b-9338-4683-8cf3-2ae8168151c6" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="2a877bae-59a9-4f58-b992-0ce8664ca0fb" xml:space="preserve">
+          <source>Enabling the application integration for Clarizen</source>
+          <target state="new">Enabling the application integration for Clarizen</target>
+        </trans-unit>
+        <trans-unit id="20d3b516-bfa4-4fc9-b226-ccd29afed1d1" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="ee214e3d-674a-4dd2-ab36-c051ab928485" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="f2cbc79f-51a9-4cf7-94d2-4694f6ad62ce" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="409928aa-8181-4dff-b88d-04c5d3299111" xml:space="preserve">
+          <source><bpt id="6b048042-bdfd-492f-8efa-01045550c2f5">&lt;linkText&gt;</bpt>Scenario<ept id="6b048042-bdfd-492f-8efa-01045550c2f5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6b048042-bdfd-492f-8efa-01045550c2f5">&lt;linkText&gt;</bpt>Scenario<ept id="6b048042-bdfd-492f-8efa-01045550c2f5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e239c07-763c-478f-a8f7-4489b0a1cef7" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Clarizen.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Clarizen.</target>
+        </trans-unit>
+        <trans-unit id="9d04385f-52d9-4a1f-bb22-c751cc4755fc" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="e958a917-6d44-4e67-838f-bb3b8230b84a">&lt;strong&gt;</bpt>Active Directory<ept id="e958a917-6d44-4e67-838f-bb3b8230b84a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="e958a917-6d44-4e67-838f-bb3b8230b84a">&lt;strong&gt;</bpt>Active Directory<ept id="e958a917-6d44-4e67-838f-bb3b8230b84a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77ba4b64-7209-4fb4-8fb3-2a3394483d80" xml:space="preserve">
+          <source><bpt id="23a7fc3a-648d-4744-aef6-c11be8ecc72d">&lt;linkText&gt;</bpt>Active Directory<ept id="23a7fc3a-648d-4744-aef6-c11be8ecc72d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23a7fc3a-648d-4744-aef6-c11be8ecc72d">&lt;linkText&gt;</bpt>Active Directory<ept id="23a7fc3a-648d-4744-aef6-c11be8ecc72d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e4b1e8c-36b2-4c00-96b4-1b0e5688df0a" xml:space="preserve">
+          <source>From the <bpt id="8fe2ae48-a45e-4fd7-b46d-f6316e7b1bf6">&lt;strong&gt;</bpt>Directory<ept id="8fe2ae48-a45e-4fd7-b46d-f6316e7b1bf6">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="8fe2ae48-a45e-4fd7-b46d-f6316e7b1bf6">&lt;strong&gt;</bpt>Directory<ept id="8fe2ae48-a45e-4fd7-b46d-f6316e7b1bf6">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="76f94ea8-4d4f-41cd-bd8c-10abd8d73404" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="1a729c99-de3a-4d3c-aee7-18387f1f340f">&lt;strong&gt;</bpt>Applications<ept id="1a729c99-de3a-4d3c-aee7-18387f1f340f">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="1a729c99-de3a-4d3c-aee7-18387f1f340f">&lt;strong&gt;</bpt>Applications<ept id="1a729c99-de3a-4d3c-aee7-18387f1f340f">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="7043983e-0344-4bbf-8803-15f47bc2dbb2" xml:space="preserve">
+          <source><bpt id="9d17f656-454e-4871-aeb0-bc7255dd258b">&lt;linkText&gt;</bpt>Applications<ept id="9d17f656-454e-4871-aeb0-bc7255dd258b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9d17f656-454e-4871-aeb0-bc7255dd258b">&lt;linkText&gt;</bpt>Applications<ept id="9d17f656-454e-4871-aeb0-bc7255dd258b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e38e4a16-3c02-4d31-ab0e-fa0ee530cb3e" xml:space="preserve">
+          <source>Click <bpt id="690b6068-3d8e-4ce1-95db-47d4b4889136">&lt;strong&gt;</bpt>Add<ept id="690b6068-3d8e-4ce1-95db-47d4b4889136">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="690b6068-3d8e-4ce1-95db-47d4b4889136">&lt;strong&gt;</bpt>Add<ept id="690b6068-3d8e-4ce1-95db-47d4b4889136">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="17c69d42-e47e-422d-8d11-ad1b2dd0e290" xml:space="preserve">
+          <source><bpt id="a6244fac-dc33-465b-b1bd-b3b6aa44ca3b">&lt;linkText&gt;</bpt>Add application<ept id="a6244fac-dc33-465b-b1bd-b3b6aa44ca3b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6244fac-dc33-465b-b1bd-b3b6aa44ca3b">&lt;linkText&gt;</bpt>Add application<ept id="a6244fac-dc33-465b-b1bd-b3b6aa44ca3b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d8c4d564-b4a5-40b8-9ed4-a7baeb4ea692" xml:space="preserve">
+          <source>On the <bpt id="bf5db691-a73d-465d-9188-962decd392d5">&lt;strong&gt;</bpt>What do you want to do<ept id="bf5db691-a73d-465d-9188-962decd392d5">&lt;/strong&gt;</ept> dialog, click <bpt id="076e59b9-a930-460e-9f86-a443df354cb4">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="076e59b9-a930-460e-9f86-a443df354cb4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="bf5db691-a73d-465d-9188-962decd392d5">&lt;strong&gt;</bpt>What do you want to do<ept id="bf5db691-a73d-465d-9188-962decd392d5">&lt;/strong&gt;</ept> dialog, click <bpt id="076e59b9-a930-460e-9f86-a443df354cb4">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="076e59b9-a930-460e-9f86-a443df354cb4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a18bdb18-2bfc-4589-a458-2704f97dca1b" xml:space="preserve">
+          <source><bpt id="f47e38e9-9532-4d95-9c31-8d72ecb9b3a3">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="f47e38e9-9532-4d95-9c31-8d72ecb9b3a3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f47e38e9-9532-4d95-9c31-8d72ecb9b3a3">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="f47e38e9-9532-4d95-9c31-8d72ecb9b3a3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b98408b4-df61-4660-a4f1-0a1f2f6b8e84" xml:space="preserve">
+          <source>In the <bpt id="22773aab-0795-4bef-9d21-83334afbc62f">&lt;strong&gt;</bpt>search box<ept id="22773aab-0795-4bef-9d21-83334afbc62f">&lt;/strong&gt;</ept>, type <bpt id="9d8afdf5-5fbf-45f9-bf1e-cce3309ab41c">&lt;strong&gt;</bpt>Clarizen<ept id="9d8afdf5-5fbf-45f9-bf1e-cce3309ab41c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="22773aab-0795-4bef-9d21-83334afbc62f">&lt;strong&gt;</bpt>search box<ept id="22773aab-0795-4bef-9d21-83334afbc62f">&lt;/strong&gt;</ept>, type <bpt id="9d8afdf5-5fbf-45f9-bf1e-cce3309ab41c">&lt;strong&gt;</bpt>Clarizen<ept id="9d8afdf5-5fbf-45f9-bf1e-cce3309ab41c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b80dddc-bd5f-4b91-8e04-26daee132272" xml:space="preserve">
+          <source><bpt id="3c9ae1b1-5495-47f5-a41b-da6c699f1bfc">&lt;linkText&gt;</bpt>Application Gallery<ept id="3c9ae1b1-5495-47f5-a41b-da6c699f1bfc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3c9ae1b1-5495-47f5-a41b-da6c699f1bfc">&lt;linkText&gt;</bpt>Application Gallery<ept id="3c9ae1b1-5495-47f5-a41b-da6c699f1bfc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9345b979-0b91-49d7-be4a-dc288f9c9e2c" xml:space="preserve">
+          <source>In the results pane, select <bpt id="3add485e-adde-458e-81ac-cc0142ab322c">&lt;strong&gt;</bpt>Clarizen<ept id="3add485e-adde-458e-81ac-cc0142ab322c">&lt;/strong&gt;</ept>, and then click <bpt id="9cfacb4f-04ce-4a44-a8cf-7fc68f480942">&lt;strong&gt;</bpt>Complete<ept id="9cfacb4f-04ce-4a44-a8cf-7fc68f480942">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="3add485e-adde-458e-81ac-cc0142ab322c">&lt;strong&gt;</bpt>Clarizen<ept id="3add485e-adde-458e-81ac-cc0142ab322c">&lt;/strong&gt;</ept>, and then click <bpt id="9cfacb4f-04ce-4a44-a8cf-7fc68f480942">&lt;strong&gt;</bpt>Complete<ept id="9cfacb4f-04ce-4a44-a8cf-7fc68f480942">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="6b157eca-5a34-466c-9d1f-83ed98585c6a" xml:space="preserve">
+          <source><bpt id="1f4ce04a-8514-4ec6-97c8-0ea1ec0c2ff8">&lt;linkText&gt;</bpt>Clarizen<ept id="1f4ce04a-8514-4ec6-97c8-0ea1ec0c2ff8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1f4ce04a-8514-4ec6-97c8-0ea1ec0c2ff8">&lt;linkText&gt;</bpt>Clarizen<ept id="1f4ce04a-8514-4ec6-97c8-0ea1ec0c2ff8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b79a3ed-8b3f-498a-b86c-3dd6cc4ee148" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Clarizen with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Clarizen with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="374ed127-ca47-4bc8-9709-14ef3ee58f3d" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="6813db4c-5c8a-4a3e-93fc-3808bfe0baaa">&lt;strong&gt;</bpt>Clarizen<ept id="6813db4c-5c8a-4a3e-93fc-3808bfe0baaa">&lt;/strong&gt;</ept> application integration page, click <bpt id="fcc9f051-b29b-4eec-801a-092001c8ec1b">&lt;strong&gt;</bpt>Configure single sign-on<ept id="fcc9f051-b29b-4eec-801a-092001c8ec1b">&lt;/strong&gt;</ept> to open the <bpt id="5437eb63-4ecb-4c6e-9870-ab9d907a6505">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="5437eb63-4ecb-4c6e-9870-ab9d907a6505">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="6813db4c-5c8a-4a3e-93fc-3808bfe0baaa">&lt;strong&gt;</bpt>Clarizen<ept id="6813db4c-5c8a-4a3e-93fc-3808bfe0baaa">&lt;/strong&gt;</ept> application integration page, click <bpt id="fcc9f051-b29b-4eec-801a-092001c8ec1b">&lt;strong&gt;</bpt>Configure single sign-on<ept id="fcc9f051-b29b-4eec-801a-092001c8ec1b">&lt;/strong&gt;</ept> to open the <bpt id="5437eb63-4ecb-4c6e-9870-ab9d907a6505">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="5437eb63-4ecb-4c6e-9870-ab9d907a6505">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="b8f70b90-ca87-4a0b-9b97-f9e03191c374" xml:space="preserve">
+          <source><bpt id="95d90523-90c9-4871-9b1e-b049c6e2e82a">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="95d90523-90c9-4871-9b1e-b049c6e2e82a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="95d90523-90c9-4871-9b1e-b049c6e2e82a">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="95d90523-90c9-4871-9b1e-b049c6e2e82a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20a7fb69-05fc-44b7-b468-7171a3ac129b" xml:space="preserve">
+          <source>On the <bpt id="18e5a02a-0ecb-48cb-a775-dab4322db479">&lt;strong&gt;</bpt>How would you like users to sign on to Clarizen<ept id="18e5a02a-0ecb-48cb-a775-dab4322db479">&lt;/strong&gt;</ept> page, select <bpt id="04d17deb-f75c-4385-8d91-4e0311fa6ec9">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="04d17deb-f75c-4385-8d91-4e0311fa6ec9">&lt;/strong&gt;</ept>, and then click <bpt id="8228989c-6119-4e1a-a022-aa1c5c78fd77">&lt;strong&gt;</bpt>Next<ept id="8228989c-6119-4e1a-a022-aa1c5c78fd77">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="18e5a02a-0ecb-48cb-a775-dab4322db479">&lt;strong&gt;</bpt>How would you like users to sign on to Clarizen<ept id="18e5a02a-0ecb-48cb-a775-dab4322db479">&lt;/strong&gt;</ept> page, select <bpt id="04d17deb-f75c-4385-8d91-4e0311fa6ec9">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="04d17deb-f75c-4385-8d91-4e0311fa6ec9">&lt;/strong&gt;</ept>, and then click <bpt id="8228989c-6119-4e1a-a022-aa1c5c78fd77">&lt;strong&gt;</bpt>Next<ept id="8228989c-6119-4e1a-a022-aa1c5c78fd77">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6de13d9-efce-460b-aebe-c7eb0c720168" xml:space="preserve">
+          <source><bpt id="bde8e0f1-16fe-4ebb-b490-36e6369575d1">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="bde8e0f1-16fe-4ebb-b490-36e6369575d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bde8e0f1-16fe-4ebb-b490-36e6369575d1">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="bde8e0f1-16fe-4ebb-b490-36e6369575d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1cc61859-ce1e-4452-9163-c31c9a21be50" xml:space="preserve">
+          <source>On the <bpt id="12f0e609-361c-4153-a948-e305eb1f7ba6">&lt;strong&gt;</bpt>Configure single sign-on at Clarizen<ept id="12f0e609-361c-4153-a948-e305eb1f7ba6">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="5f17fa89-5006-4337-9c23-76e496e9dbfb">&lt;strong&gt;</bpt>Download certificate<ept id="5f17fa89-5006-4337-9c23-76e496e9dbfb">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="12f0e609-361c-4153-a948-e305eb1f7ba6">&lt;strong&gt;</bpt>Configure single sign-on at Clarizen<ept id="12f0e609-361c-4153-a948-e305eb1f7ba6">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="5f17fa89-5006-4337-9c23-76e496e9dbfb">&lt;strong&gt;</bpt>Download certificate<ept id="5f17fa89-5006-4337-9c23-76e496e9dbfb">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="4e554b7e-bf94-4b15-bf6d-0bd2932fbf29" xml:space="preserve">
+          <source><bpt id="f222a967-4fc9-416c-b160-eac7487b08ce">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f222a967-4fc9-416c-b160-eac7487b08ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f222a967-4fc9-416c-b160-eac7487b08ce">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f222a967-4fc9-416c-b160-eac7487b08ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d42f10e-353a-4a28-b112-c563bb5e2d0e" xml:space="preserve">
+          <source>In a different web browser window, log into your <bpt id="71ada6c7-3990-4279-af9e-0efde9e55572">&lt;strong&gt;</bpt>Clarizen<ept id="71ada6c7-3990-4279-af9e-0efde9e55572">&lt;/strong&gt;</ept> company site as an administrator (e.g.: <bpt id="ad797948-4923-4bfd-ad9f-280f2a9b7724">&lt;em&gt;</bpt>https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx<ept id="ad797948-4923-4bfd-ad9f-280f2a9b7724">&lt;/em&gt;</ept>).</source>
+          <target state="new">In a different web browser window, log into your <bpt id="71ada6c7-3990-4279-af9e-0efde9e55572">&lt;strong&gt;</bpt>Clarizen<ept id="71ada6c7-3990-4279-af9e-0efde9e55572">&lt;/strong&gt;</ept> company site as an administrator (e.g.: <bpt id="ad797948-4923-4bfd-ad9f-280f2a9b7724">&lt;em&gt;</bpt>https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx<ept id="ad797948-4923-4bfd-ad9f-280f2a9b7724">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="6a195b2e-4b72-4dcb-9e93-2dcb8e022a18" xml:space="preserve">
+          <source>Click your user name, and then click <bpt id="237330cd-17ec-4605-9f7f-43cd5afe8c8a">&lt;strong&gt;</bpt>Settings<ept id="237330cd-17ec-4605-9f7f-43cd5afe8c8a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click your user name, and then click <bpt id="237330cd-17ec-4605-9f7f-43cd5afe8c8a">&lt;strong&gt;</bpt>Settings<ept id="237330cd-17ec-4605-9f7f-43cd5afe8c8a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5abb3c01-2be7-4840-913f-c74ad45853e4" xml:space="preserve">
+          <source><bpt id="a28a4cb4-3c7c-446d-a280-4a963108115e">&lt;linkText&gt;</bpt>Settings<ept id="a28a4cb4-3c7c-446d-a280-4a963108115e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a28a4cb4-3c7c-446d-a280-4a963108115e">&lt;linkText&gt;</bpt>Settings<ept id="a28a4cb4-3c7c-446d-a280-4a963108115e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b5e7d64-ed7e-4ad7-9520-c763aa3eb163" xml:space="preserve">
+          <source>Click the <bpt id="02550dcf-b388-4152-9ba8-93ca6d507c27">&lt;strong&gt;</bpt>Global Settings<ept id="02550dcf-b388-4152-9ba8-93ca6d507c27">&lt;/strong&gt;</ept> tab, and then, next to <bpt id="336683cc-27a4-465c-bca3-695550447645">&lt;strong&gt;</bpt>Federated Authentication<ept id="336683cc-27a4-465c-bca3-695550447645">&lt;/strong&gt;</ept>, click <bpt id="2debe120-195c-485d-8676-91bd446442c7">&lt;strong&gt;</bpt>edit<ept id="2debe120-195c-485d-8676-91bd446442c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="02550dcf-b388-4152-9ba8-93ca6d507c27">&lt;strong&gt;</bpt>Global Settings<ept id="02550dcf-b388-4152-9ba8-93ca6d507c27">&lt;/strong&gt;</ept> tab, and then, next to <bpt id="336683cc-27a4-465c-bca3-695550447645">&lt;strong&gt;</bpt>Federated Authentication<ept id="336683cc-27a4-465c-bca3-695550447645">&lt;/strong&gt;</ept>, click <bpt id="2debe120-195c-485d-8676-91bd446442c7">&lt;strong&gt;</bpt>edit<ept id="2debe120-195c-485d-8676-91bd446442c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a26a93c-0e0b-49ae-9c5f-554abbf0a816" xml:space="preserve">
+          <source><bpt id="d003eec7-cf8a-4419-9fbc-0b9fdfe4d861">&lt;linkText&gt;</bpt>Global Settings<ept id="d003eec7-cf8a-4419-9fbc-0b9fdfe4d861">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d003eec7-cf8a-4419-9fbc-0b9fdfe4d861">&lt;linkText&gt;</bpt>Global Settings<ept id="d003eec7-cf8a-4419-9fbc-0b9fdfe4d861">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6104d43-53a9-42ac-83be-2f2610376133" xml:space="preserve">
+          <source>On the <bpt id="c6916e14-2458-4c01-b1ec-113ca816195f">&lt;strong&gt;</bpt>Federated Authentication<ept id="c6916e14-2458-4c01-b1ec-113ca816195f">&lt;/strong&gt;</ept> dialog, perform the following steps:</source>
+          <target state="new">On the <bpt id="c6916e14-2458-4c01-b1ec-113ca816195f">&lt;strong&gt;</bpt>Federated Authentication<ept id="c6916e14-2458-4c01-b1ec-113ca816195f">&lt;/strong&gt;</ept> dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="47cf105c-3b69-488c-9122-4eafbf670415" xml:space="preserve">
+          <source><bpt id="8879cefa-9f4b-4b15-9b7d-603c5fcd1375">&lt;linkText&gt;</bpt>Federated Authentication<ept id="8879cefa-9f4b-4b15-9b7d-603c5fcd1375">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8879cefa-9f4b-4b15-9b7d-603c5fcd1375">&lt;linkText&gt;</bpt>Federated Authentication<ept id="8879cefa-9f4b-4b15-9b7d-603c5fcd1375">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7fc1624-f530-4df7-a3f2-85f9ebdc3c0a" xml:space="preserve">
+          <source>Click <bpt id="55391929-ff8a-4b6b-b1b0-3aadf4b25177">&lt;strong&gt;</bpt>Upload<ept id="55391929-ff8a-4b6b-b1b0-3aadf4b25177">&lt;/strong&gt;</ept> to upload your downloaded certificate.</source>
+          <target state="new">Click <bpt id="55391929-ff8a-4b6b-b1b0-3aadf4b25177">&lt;strong&gt;</bpt>Upload<ept id="55391929-ff8a-4b6b-b1b0-3aadf4b25177">&lt;/strong&gt;</ept> to upload your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="6c7e2979-e497-4d71-bfea-9f2726de641e" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="df27cb7c-0325-4ca5-bf75-16f4e39c9701">&lt;strong&gt;</bpt>Configure single sign-on at Clarizen<ept id="df27cb7c-0325-4ca5-bf75-16f4e39c9701">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="2bfff97f-9e65-482d-afad-4c78e1036bbf">&lt;strong&gt;</bpt>Single Sign-On Service URL<ept id="2bfff97f-9e65-482d-afad-4c78e1036bbf">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="f55764f8-d63a-4d74-87e2-44d188bd8f3b">&lt;strong&gt;</bpt>Sign-in URL<ept id="f55764f8-d63a-4d74-87e2-44d188bd8f3b">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="df27cb7c-0325-4ca5-bf75-16f4e39c9701">&lt;strong&gt;</bpt>Configure single sign-on at Clarizen<ept id="df27cb7c-0325-4ca5-bf75-16f4e39c9701">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="2bfff97f-9e65-482d-afad-4c78e1036bbf">&lt;strong&gt;</bpt>Single Sign-On Service URL<ept id="2bfff97f-9e65-482d-afad-4c78e1036bbf">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="f55764f8-d63a-4d74-87e2-44d188bd8f3b">&lt;strong&gt;</bpt>Sign-in URL<ept id="f55764f8-d63a-4d74-87e2-44d188bd8f3b">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="c9860471-1a7e-4a5e-bc1d-c047280fb75b" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="d505e1eb-c969-4c71-a7eb-1c07f6829eb0">&lt;strong&gt;</bpt>Configure single sign-out at Clarizen<ept id="d505e1eb-c969-4c71-a7eb-1c07f6829eb0">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="32a2c2bf-255d-4df5-8caf-9ee6773987b3">&lt;strong&gt;</bpt>Single Sign-Out Service URL<ept id="32a2c2bf-255d-4df5-8caf-9ee6773987b3">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="8893d8e7-9117-4b55-beca-6c298c9a141e">&lt;strong&gt;</bpt>Sign-out URL<ept id="8893d8e7-9117-4b55-beca-6c298c9a141e">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="d505e1eb-c969-4c71-a7eb-1c07f6829eb0">&lt;strong&gt;</bpt>Configure single sign-out at Clarizen<ept id="d505e1eb-c969-4c71-a7eb-1c07f6829eb0">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="32a2c2bf-255d-4df5-8caf-9ee6773987b3">&lt;strong&gt;</bpt>Single Sign-Out Service URL<ept id="32a2c2bf-255d-4df5-8caf-9ee6773987b3">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="8893d8e7-9117-4b55-beca-6c298c9a141e">&lt;strong&gt;</bpt>Sign-out URL<ept id="8893d8e7-9117-4b55-beca-6c298c9a141e">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="5ab71062-2593-4434-a80c-c5d3aed436a8" xml:space="preserve">
+          <source>Select <bpt id="f5a1e41c-d47c-41a1-bb39-dfc03a2c1a7f">&lt;strong&gt;</bpt>Use POST<ept id="f5a1e41c-d47c-41a1-bb39-dfc03a2c1a7f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="f5a1e41c-d47c-41a1-bb39-dfc03a2c1a7f">&lt;strong&gt;</bpt>Use POST<ept id="f5a1e41c-d47c-41a1-bb39-dfc03a2c1a7f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96de6795-f500-42f0-8ce5-c1dd1ed9c313" xml:space="preserve">
+          <source>Click <bpt id="3443c7ae-5353-4242-8ff9-16a698c367a2">&lt;strong&gt;</bpt>Save<ept id="3443c7ae-5353-4242-8ff9-16a698c367a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3443c7ae-5353-4242-8ff9-16a698c367a2">&lt;strong&gt;</bpt>Save<ept id="3443c7ae-5353-4242-8ff9-16a698c367a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13533130-a406-4438-8957-025df0fc9948" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="4160c1a5-ae84-46d4-9df0-41ba2faa69d4">&lt;strong&gt;</bpt>Complete<ept id="4160c1a5-ae84-46d4-9df0-41ba2faa69d4">&lt;/strong&gt;</ept> to close the <bpt id="edc18c76-95d8-41b3-8111-3832b8f32f30">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="edc18c76-95d8-41b3-8111-3832b8f32f30">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="4160c1a5-ae84-46d4-9df0-41ba2faa69d4">&lt;strong&gt;</bpt>Complete<ept id="4160c1a5-ae84-46d4-9df0-41ba2faa69d4">&lt;/strong&gt;</ept> to close the <bpt id="edc18c76-95d8-41b3-8111-3832b8f32f30">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="edc18c76-95d8-41b3-8111-3832b8f32f30">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="729335fa-1106-4b7e-b452-145661b84917" xml:space="preserve">
+          <source><bpt id="6fc547c1-c801-4eab-a984-5803b1038184">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="6fc547c1-c801-4eab-a984-5803b1038184">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6fc547c1-c801-4eab-a984-5803b1038184">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="6fc547c1-c801-4eab-a984-5803b1038184">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c5ee070-43dd-4d6b-8cf2-5ec80d10663f" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Clarizen, they must be provisioned into Clarizen.</source>
+          <target state="new">In order to enable Azure AD users to log into Clarizen, they must be provisioned into Clarizen.</target>
+        </trans-unit>
+        <trans-unit id="17462243-4e02-4bf0-9ac6-4e3a1a04e6eb" xml:space="preserve">
+          <source>In the case of Clarizen, provisioning is a manual task.</source>
+          <target state="new">In the case of Clarizen, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="a8e7bb32-eef7-49e6-9b82-944f7736c084" xml:space="preserve">
+          <source>Log in to your <bpt id="c888950d-15ae-4ba8-ab69-23012fc391c9">&lt;strong&gt;</bpt>Clarizen<ept id="c888950d-15ae-4ba8-ab69-23012fc391c9">&lt;/strong&gt;</ept> company site as an administrator.</source>
+          <target state="new">Log in to your <bpt id="c888950d-15ae-4ba8-ab69-23012fc391c9">&lt;strong&gt;</bpt>Clarizen<ept id="c888950d-15ae-4ba8-ab69-23012fc391c9">&lt;/strong&gt;</ept> company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="e5af9c96-2dc9-49cb-b928-4d64e8993814" xml:space="preserve">
+          <source>Click <bpt id="0c6f1a69-27e2-4c4b-86e8-9f11609981cb">&lt;strong&gt;</bpt>People<ept id="0c6f1a69-27e2-4c4b-86e8-9f11609981cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0c6f1a69-27e2-4c4b-86e8-9f11609981cb">&lt;strong&gt;</bpt>People<ept id="0c6f1a69-27e2-4c4b-86e8-9f11609981cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d5ae7a8-e5ae-4011-b93d-19710e3e223c" xml:space="preserve">
+          <source><bpt id="f82a5225-5269-4cd3-a80e-b0bbae0472b4">&lt;linkText&gt;</bpt>People<ept id="f82a5225-5269-4cd3-a80e-b0bbae0472b4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f82a5225-5269-4cd3-a80e-b0bbae0472b4">&lt;linkText&gt;</bpt>People<ept id="f82a5225-5269-4cd3-a80e-b0bbae0472b4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bf60f18-41ec-4012-9acd-972d53d4aff6" xml:space="preserve">
+          <source>Click <bpt id="f039fdc9-5f04-4798-a3eb-1460d520f072">&lt;strong&gt;</bpt>Invite User<ept id="f039fdc9-5f04-4798-a3eb-1460d520f072">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f039fdc9-5f04-4798-a3eb-1460d520f072">&lt;strong&gt;</bpt>Invite User<ept id="f039fdc9-5f04-4798-a3eb-1460d520f072">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44244de8-1d5b-4d00-b643-cb0f7e3c3333" xml:space="preserve">
+          <source><bpt id="498a0aa1-7042-4b7d-92bf-aaa14ddb5fbf">&lt;linkText&gt;</bpt>Invite Users<ept id="498a0aa1-7042-4b7d-92bf-aaa14ddb5fbf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="498a0aa1-7042-4b7d-92bf-aaa14ddb5fbf">&lt;linkText&gt;</bpt>Invite Users<ept id="498a0aa1-7042-4b7d-92bf-aaa14ddb5fbf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab5a5ab6-a75b-4fe0-aaa7-6dd7d436c0b2" xml:space="preserve">
+          <source>On the Invite People dialog page, perform the following steps:</source>
+          <target state="new">On the Invite People dialog page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="48803304-5a99-4d80-a3ae-8d74156c4b97" xml:space="preserve">
+          <source><bpt id="e2e77f1c-568f-4dbc-8f7c-01bbeed17e6d">&lt;linkText&gt;</bpt>Invite People<ept id="e2e77f1c-568f-4dbc-8f7c-01bbeed17e6d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e2e77f1c-568f-4dbc-8f7c-01bbeed17e6d">&lt;linkText&gt;</bpt>Invite People<ept id="e2e77f1c-568f-4dbc-8f7c-01bbeed17e6d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="853fbd5b-4dc5-44e1-b6f9-503644a2d365" xml:space="preserve">
+          <source>In the <bpt id="1d622b54-229b-4461-9eae-f6499810bb17">&lt;strong&gt;</bpt>Email<ept id="1d622b54-229b-4461-9eae-f6499810bb17">&lt;/strong&gt;</ept> textbox, type the email address of a valid Azure Active Directory account you want to provision.</source>
+          <target state="new">In the <bpt id="1d622b54-229b-4461-9eae-f6499810bb17">&lt;strong&gt;</bpt>Email<ept id="1d622b54-229b-4461-9eae-f6499810bb17">&lt;/strong&gt;</ept> textbox, type the email address of a valid Azure Active Directory account you want to provision.</target>
+        </trans-unit>
+        <trans-unit id="0644133e-ae67-40f9-8265-43091a734a8e" xml:space="preserve">
+          <source>Click <bpt id="a1e91a57-8212-4112-852f-b29156096103">&lt;strong&gt;</bpt>Invite<ept id="a1e91a57-8212-4112-852f-b29156096103">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a1e91a57-8212-4112-852f-b29156096103">&lt;strong&gt;</bpt>Invite<ept id="a1e91a57-8212-4112-852f-b29156096103">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8eb92b9b-ee1c-458d-b516-286c9e9d2289" xml:space="preserve">
+          <source>The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.</source>
+          <target state="new">The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.</target>
+        </trans-unit>
+        <trans-unit id="b97342e8-6377-4399-a588-7999af911b79" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="359a829c-34e1-4bc5-b89f-7fb903e4aea9" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="879a4626-6bbb-46c1-97a6-6cb589ab6dda" xml:space="preserve">
+          <source>On the <bpt id="038a4b0b-42cf-44b8-8dde-f066d2b684da">&lt;strong&gt;</bpt>Clarizen **application integration page, click **Assign users<ept id="038a4b0b-42cf-44b8-8dde-f066d2b684da">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="038a4b0b-42cf-44b8-8dde-f066d2b684da">&lt;strong&gt;</bpt>Clarizen **application integration page, click **Assign users<ept id="038a4b0b-42cf-44b8-8dde-f066d2b684da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74a262f1-f485-49b0-840a-6cca6bd28231" xml:space="preserve">
+          <source><bpt id="cf162efd-b69e-459c-bff0-c017acf1618b">&lt;linkText&gt;</bpt>Assign Users<ept id="cf162efd-b69e-459c-bff0-c017acf1618b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf162efd-b69e-459c-bff0-c017acf1618b">&lt;linkText&gt;</bpt>Assign Users<ept id="cf162efd-b69e-459c-bff0-c017acf1618b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07516c3d-6e6b-44b9-a0cd-212b2ed87cf9" xml:space="preserve">
+          <source>Select your test user, click <bpt id="fe69b1f5-5ffa-4eaa-9808-0f60b7aa85fc">&lt;strong&gt;</bpt>Assign<ept id="fe69b1f5-5ffa-4eaa-9808-0f60b7aa85fc">&lt;/strong&gt;</ept>, and then click <bpt id="4fad9fd9-b243-4207-9633-b6de449212c7">&lt;strong&gt;</bpt>Yes<ept id="4fad9fd9-b243-4207-9633-b6de449212c7">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="fe69b1f5-5ffa-4eaa-9808-0f60b7aa85fc">&lt;strong&gt;</bpt>Assign<ept id="fe69b1f5-5ffa-4eaa-9808-0f60b7aa85fc">&lt;/strong&gt;</ept>, and then click <bpt id="4fad9fd9-b243-4207-9633-b6de449212c7">&lt;strong&gt;</bpt>Yes<ept id="4fad9fd9-b243-4207-9633-b6de449212c7">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="f0cc08da-0ed7-405f-ab6d-ba0c30974827" xml:space="preserve">
+          <source><bpt id="55cb409b-19e2-44d6-9f99-77f28197db18">&lt;linkText&gt;</bpt>Yes<ept id="55cb409b-19e2-44d6-9f99-77f28197db18">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55cb409b-19e2-44d6-9f99-77f28197db18">&lt;linkText&gt;</bpt>Yes<ept id="55cb409b-19e2-44d6-9f99-77f28197db18">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cc53481-1c17-4a25-8208-9296318e9431" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="4d4c5f3f-57ee-4082-a0d5-6980942b61f3" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="3eaf8a79-2558-4a05-9965-a9b91ee49ffc">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="3eaf8a79-2558-4a05-9965-a9b91ee49ffc">&lt;/linkText&gt;</ept><bpt id="3eaf8a79-2558-4a05-9965-a9b91ee49ffc">&lt;title&gt;</bpt><ept id="3eaf8a79-2558-4a05-9965-a9b91ee49ffc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="3eaf8a79-2558-4a05-9965-a9b91ee49ffc">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="3eaf8a79-2558-4a05-9965-a9b91ee49ffc">&lt;/linkText&gt;</ept><bpt id="3eaf8a79-2558-4a05-9965-a9b91ee49ffc">&lt;title&gt;</bpt><ept id="3eaf8a79-2558-4a05-9965-a9b91ee49ffc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

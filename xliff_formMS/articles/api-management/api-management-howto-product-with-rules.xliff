@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f72752b6-3b88-44e5-8134-813ce932be30" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f72752b6-3b88-44e5-8134-813ce932be30" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="01b7ac48-5f36-4cfe-b488-7b451723d00e">
+        <trans-unit id="21258ea7-ce74-452b-a060-2dc87f67f14e" xml:space="preserve">
+          <source>Protect your API with Azure API Management | Microsoft Azure</source>
+          <target state="new">Protect your API with Azure API Management | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="862c9400-4ce9-4f62-8bd4-140cb4cb72d4" xml:space="preserve">
+          <source>Learn how to protect your API with quotas and throttling (rate-limiting) policies.</source>
+          <target state="new">Learn how to protect your API with quotas and throttling (rate-limiting) policies.</target>
+        </trans-unit>
+        <trans-unit id="14aee782-a7b9-4f16-adf9-85ef40717bbc" xml:space="preserve">
+          <source>This guide shows you how easy it is to add protection for your backend API by configuring rate limit and quota policies with Azure API Management.</source>
+          <target state="new">This guide shows you how easy it is to add protection for your backend API by configuring rate limit and quota policies with Azure API Management.</target>
+        </trans-unit>
+        <trans-unit id="673b615c-25d3-45b9-8ead-eb0fe8a40e02" xml:space="preserve">
+          <source>In this tutorial, you will create a "Free Trial" API product that allows developers to make up to 10 calls per minute and up to a maximum of 200 calls per week to your API.</source>
+          <target state="new">In this tutorial, you will create a "Free Trial" API product that allows developers to make up to 10 calls per minute and up to a maximum of 200 calls per week to your API.</target>
+        </trans-unit>
+        <trans-unit id="1842ea80-1cb2-40ab-a385-a80313a64947" xml:space="preserve">
+          <source>You will then publish the API and test the rate limit policy.</source>
+          <target state="new">You will then publish the API and test the rate limit policy.</target>
+        </trans-unit>
+        <trans-unit id="e1a2c630-23b3-4334-861e-89d837eace75" xml:space="preserve">
+          <source>If you already have a product configured and want to use it for this tutorial, you can jump ahead to <bpt id="69a4fc36-a20e-4cd4-9f1b-7e1cff228a8a">&lt;linkText&gt;</bpt>Configure call rate limit and quota policies<ept id="69a4fc36-a20e-4cd4-9f1b-7e1cff228a8a">&lt;/linkText&gt;</ept><bpt id="69a4fc36-a20e-4cd4-9f1b-7e1cff228a8a">&lt;title&gt;</bpt><ept id="69a4fc36-a20e-4cd4-9f1b-7e1cff228a8a">&lt;/title&gt;</ept> and follow the tutorial from there using your product in place of the Free Trial product.</source>
+          <target state="new">If you already have a product configured and want to use it for this tutorial, you can jump ahead to <bpt id="69a4fc36-a20e-4cd4-9f1b-7e1cff228a8a">&lt;linkText&gt;</bpt>Configure call rate limit and quota policies<ept id="69a4fc36-a20e-4cd4-9f1b-7e1cff228a8a">&lt;/linkText&gt;</ept><bpt id="69a4fc36-a20e-4cd4-9f1b-7e1cff228a8a">&lt;title&gt;</bpt><ept id="69a4fc36-a20e-4cd4-9f1b-7e1cff228a8a">&lt;/title&gt;</ept> and follow the tutorial from there using your product in place of the Free Trial product.</target>
+        </trans-unit>
+        <trans-unit id="2e78b237-e9b2-4951-8b29-b4f94db48e1d" xml:space="preserve">
+          <source>In this step, you will create a Free Trial product that does not require subscription approval.</source>
+          <target state="new">In this step, you will create a Free Trial product that does not require subscription approval.</target>
+        </trans-unit>
+        <trans-unit id="614cacc8-3ef1-4add-9322-f3c62a121194" xml:space="preserve">
+          <source>To get started, click <bpt id="d985e0dc-fcdf-4f9a-8848-54120a924516">&lt;strong&gt;</bpt>Manage<ept id="d985e0dc-fcdf-4f9a-8848-54120a924516">&lt;/strong&gt;</ept> in the Azure portal for your API Management service.</source>
+          <target state="new">To get started, click <bpt id="d985e0dc-fcdf-4f9a-8848-54120a924516">&lt;strong&gt;</bpt>Manage<ept id="d985e0dc-fcdf-4f9a-8848-54120a924516">&lt;/strong&gt;</ept> in the Azure portal for your API Management service.</target>
+        </trans-unit>
+        <trans-unit id="568e405f-e2ae-4a82-b220-d9e8a33eebf5" xml:space="preserve">
+          <source>This takes you to the API Management publisher portal.</source>
+          <target state="new">This takes you to the API Management publisher portal.</target>
+        </trans-unit>
+        <trans-unit id="5163993c-ed79-46a8-9907-0365806b62fd" xml:space="preserve">
+          <source><bpt id="58321394-b2da-4957-825b-0015c97df524">&lt;linkText&gt;</bpt>Publisher portal<ept id="58321394-b2da-4957-825b-0015c97df524">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="58321394-b2da-4957-825b-0015c97df524">&lt;linkText&gt;</bpt>Publisher portal<ept id="58321394-b2da-4957-825b-0015c97df524">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c258e52-87f8-43c2-b690-24d28805e99e" xml:space="preserve">
+          <source>If you have not yet created an API Management service instance, see <bpt id="5e7ebc9b-93e6-4e0c-98d9-e0d2d9bda3f6">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="5e7ebc9b-93e6-4e0c-98d9-e0d2d9bda3f6">&lt;/linkText&gt;</ept><bpt id="5e7ebc9b-93e6-4e0c-98d9-e0d2d9bda3f6">&lt;title&gt;</bpt><ept id="5e7ebc9b-93e6-4e0c-98d9-e0d2d9bda3f6">&lt;/title&gt;</ept> in the <bpt id="8ff234ec-7964-46fd-8be8-f512a6164220">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="8ff234ec-7964-46fd-8be8-f512a6164220">&lt;/linkText&gt;</ept><bpt id="8ff234ec-7964-46fd-8be8-f512a6164220">&lt;title&gt;</bpt><ept id="8ff234ec-7964-46fd-8be8-f512a6164220">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">If you have not yet created an API Management service instance, see <bpt id="5e7ebc9b-93e6-4e0c-98d9-e0d2d9bda3f6">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="5e7ebc9b-93e6-4e0c-98d9-e0d2d9bda3f6">&lt;/linkText&gt;</ept><bpt id="5e7ebc9b-93e6-4e0c-98d9-e0d2d9bda3f6">&lt;title&gt;</bpt><ept id="5e7ebc9b-93e6-4e0c-98d9-e0d2d9bda3f6">&lt;/title&gt;</ept> in the <bpt id="8ff234ec-7964-46fd-8be8-f512a6164220">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="8ff234ec-7964-46fd-8be8-f512a6164220">&lt;/linkText&gt;</ept><bpt id="8ff234ec-7964-46fd-8be8-f512a6164220">&lt;title&gt;</bpt><ept id="8ff234ec-7964-46fd-8be8-f512a6164220">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="bca62d4f-7993-43af-84cb-c3a3330afc9c" xml:space="preserve">
+          <source>Click <bpt id="44aca1ef-de22-4716-a6d9-a2a3338e11b7">&lt;strong&gt;</bpt>Products<ept id="44aca1ef-de22-4716-a6d9-a2a3338e11b7">&lt;/strong&gt;</ept> in the <bpt id="deb57ac2-3631-4118-8403-23bf4a6008c2">&lt;strong&gt;</bpt>API Management<ept id="deb57ac2-3631-4118-8403-23bf4a6008c2">&lt;/strong&gt;</ept> menu on the left to display the <bpt id="d68ea437-fc28-48e2-ab2f-c436331100b5">&lt;strong&gt;</bpt>Products<ept id="d68ea437-fc28-48e2-ab2f-c436331100b5">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Click <bpt id="44aca1ef-de22-4716-a6d9-a2a3338e11b7">&lt;strong&gt;</bpt>Products<ept id="44aca1ef-de22-4716-a6d9-a2a3338e11b7">&lt;/strong&gt;</ept> in the <bpt id="deb57ac2-3631-4118-8403-23bf4a6008c2">&lt;strong&gt;</bpt>API Management<ept id="deb57ac2-3631-4118-8403-23bf4a6008c2">&lt;/strong&gt;</ept> menu on the left to display the <bpt id="d68ea437-fc28-48e2-ab2f-c436331100b5">&lt;strong&gt;</bpt>Products<ept id="d68ea437-fc28-48e2-ab2f-c436331100b5">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="b5b6b1de-59e1-41bf-ac8b-a06c0a709e0f" xml:space="preserve">
+          <source><bpt id="b6e5f365-ce66-4842-8cf3-91a3c9834648">&lt;linkText&gt;</bpt>Add product<ept id="b6e5f365-ce66-4842-8cf3-91a3c9834648">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b6e5f365-ce66-4842-8cf3-91a3c9834648">&lt;linkText&gt;</bpt>Add product<ept id="b6e5f365-ce66-4842-8cf3-91a3c9834648">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67eb64ff-48fe-40f1-8a21-36e896cc6389" xml:space="preserve">
+          <source>Click <bpt id="60ccbf16-4d21-4f2d-b446-38a0e11c89c7">&lt;strong&gt;</bpt>Add product<ept id="60ccbf16-4d21-4f2d-b446-38a0e11c89c7">&lt;/strong&gt;</ept> to display the <bpt id="6d496ad7-96a4-49ff-9e86-155fba126cb1">&lt;strong&gt;</bpt>Add new product<ept id="6d496ad7-96a4-49ff-9e86-155fba126cb1">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">Click <bpt id="60ccbf16-4d21-4f2d-b446-38a0e11c89c7">&lt;strong&gt;</bpt>Add product<ept id="60ccbf16-4d21-4f2d-b446-38a0e11c89c7">&lt;/strong&gt;</ept> to display the <bpt id="6d496ad7-96a4-49ff-9e86-155fba126cb1">&lt;strong&gt;</bpt>Add new product<ept id="6d496ad7-96a4-49ff-9e86-155fba126cb1">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="3a5ec3f4-8bbb-4706-a657-ad363424d4f1" xml:space="preserve">
+          <source><bpt id="7f36f5c1-6c70-4204-8835-b5b3c0594399">&lt;linkText&gt;</bpt>Add new product<ept id="7f36f5c1-6c70-4204-8835-b5b3c0594399">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f36f5c1-6c70-4204-8835-b5b3c0594399">&lt;linkText&gt;</bpt>Add new product<ept id="7f36f5c1-6c70-4204-8835-b5b3c0594399">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b73188b8-708b-487e-846b-37ff58deb12a" xml:space="preserve">
+          <source>In the <bpt id="5b81c87e-3b20-4c70-84d4-0549ece296c9">&lt;strong&gt;</bpt>Title<ept id="5b81c87e-3b20-4c70-84d4-0549ece296c9">&lt;/strong&gt;</ept> box, type <bpt id="409e464d-94d2-4629-8ba6-6b691b5c50d8">&lt;strong&gt;</bpt>Free Trial<ept id="409e464d-94d2-4629-8ba6-6b691b5c50d8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5b81c87e-3b20-4c70-84d4-0549ece296c9">&lt;strong&gt;</bpt>Title<ept id="5b81c87e-3b20-4c70-84d4-0549ece296c9">&lt;/strong&gt;</ept> box, type <bpt id="409e464d-94d2-4629-8ba6-6b691b5c50d8">&lt;strong&gt;</bpt>Free Trial<ept id="409e464d-94d2-4629-8ba6-6b691b5c50d8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53479682-f6d7-4e13-b876-324f660c9835" xml:space="preserve">
+          <source>In the <bpt id="fa088c7b-a099-4d8a-b0cd-f6d771c475b4">&lt;strong&gt;</bpt>Description<ept id="fa088c7b-a099-4d8a-b0cd-f6d771c475b4">&lt;/strong&gt;</ept> box, type the following text:
+ <bpt id="88648715-0068-45f8-a815-ea7d3451a053">&lt;strong&gt;</bpt>Subscribers will be able to run 10 calls/minute up to a maximum of 200 calls/week after which access is denied.<ept id="88648715-0068-45f8-a815-ea7d3451a053">&lt;/strong&gt;</ept></source>
+          <target state="new">In the <bpt id="fa088c7b-a099-4d8a-b0cd-f6d771c475b4">&lt;strong&gt;</bpt>Description<ept id="fa088c7b-a099-4d8a-b0cd-f6d771c475b4">&lt;/strong&gt;</ept> box, type the following text:
+ <bpt id="88648715-0068-45f8-a815-ea7d3451a053">&lt;strong&gt;</bpt>Subscribers will be able to run 10 calls/minute up to a maximum of 200 calls/week after which access is denied.<ept id="88648715-0068-45f8-a815-ea7d3451a053">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c0f1d8c-97c8-43d2-b0f7-d75f92620930" xml:space="preserve">
+          <source>Products in API Management can be protected or open.</source>
+          <target state="new">Products in API Management can be protected or open.</target>
+        </trans-unit>
+        <trans-unit id="48eb7b3f-be02-4213-ac70-7ed00599d00a" xml:space="preserve">
+          <source>Protected products must be subscribed to before they can be used.</source>
+          <target state="new">Protected products must be subscribed to before they can be used.</target>
+        </trans-unit>
+        <trans-unit id="df058a7f-3e06-426d-a70f-e914d27a3e8d" xml:space="preserve">
+          <source>Open products can be used without a subscription.</source>
+          <target state="new">Open products can be used without a subscription.</target>
+        </trans-unit>
+        <trans-unit id="09d85745-0d8c-4173-a31c-b78c01f5a226" xml:space="preserve">
+          <source>Ensure that <bpt id="4e2a410b-f9f2-47d2-8c7e-f37e7229af41">&lt;strong&gt;</bpt>Require subscription<ept id="4e2a410b-f9f2-47d2-8c7e-f37e7229af41">&lt;/strong&gt;</ept> is selected to create a protected product that requires a subscription.</source>
+          <target state="new">Ensure that <bpt id="4e2a410b-f9f2-47d2-8c7e-f37e7229af41">&lt;strong&gt;</bpt>Require subscription<ept id="4e2a410b-f9f2-47d2-8c7e-f37e7229af41">&lt;/strong&gt;</ept> is selected to create a protected product that requires a subscription.</target>
+        </trans-unit>
+        <trans-unit id="9d88da52-83bd-45fa-b367-6f26a795a6fc" xml:space="preserve">
+          <source>This is the default setting.</source>
+          <target state="new">This is the default setting.</target>
+        </trans-unit>
+        <trans-unit id="975aabee-9daa-41c4-997a-af7b87474808" xml:space="preserve">
+          <source>If you want an administrator to review and accept or reject subscription attempts to this product, select <bpt id="6f348f1a-7a71-4d00-abef-f7c4b768db23">&lt;strong&gt;</bpt>Require subscription approval<ept id="6f348f1a-7a71-4d00-abef-f7c4b768db23">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you want an administrator to review and accept or reject subscription attempts to this product, select <bpt id="6f348f1a-7a71-4d00-abef-f7c4b768db23">&lt;strong&gt;</bpt>Require subscription approval<ept id="6f348f1a-7a71-4d00-abef-f7c4b768db23">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fcfff82d-8c2c-41ca-9932-504481826a4b" xml:space="preserve">
+          <source>If the check box is not selected, subscription attempts will be auto-approved.</source>
+          <target state="new">If the check box is not selected, subscription attempts will be auto-approved.</target>
+        </trans-unit>
+        <trans-unit id="b6e0efff-8774-4025-a374-8bd78e57eac1" xml:space="preserve">
+          <source>In this example, subscriptions are automatically approved, so do not select the box.</source>
+          <target state="new">In this example, subscriptions are automatically approved, so do not select the box.</target>
+        </trans-unit>
+        <trans-unit id="ace8898a-fbea-4804-b836-994e32de794c" xml:space="preserve">
+          <source>To allow developer accounts to subscribe multiple times to the new product, select the <bpt id="887969f6-75ff-44e4-8e4b-02badd89cb35">&lt;strong&gt;</bpt>Allow multiple simultaneous subscriptions<ept id="887969f6-75ff-44e4-8e4b-02badd89cb35">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">To allow developer accounts to subscribe multiple times to the new product, select the <bpt id="887969f6-75ff-44e4-8e4b-02badd89cb35">&lt;strong&gt;</bpt>Allow multiple simultaneous subscriptions<ept id="887969f6-75ff-44e4-8e4b-02badd89cb35">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="c040208c-f55a-474b-92d7-afc0f7591aa6" xml:space="preserve">
+          <source>This tutorial does not utilize multiple simultaneous subscriptions, so leave it unchecked.</source>
+          <target state="new">This tutorial does not utilize multiple simultaneous subscriptions, so leave it unchecked.</target>
+        </trans-unit>
+        <trans-unit id="90237252-9c5c-45db-9716-ed78e63d81d2" xml:space="preserve">
+          <source>After all values are entered, click <bpt id="236ecc4c-d90b-4407-9227-0150b7280a15">&lt;strong&gt;</bpt>Save<ept id="236ecc4c-d90b-4407-9227-0150b7280a15">&lt;/strong&gt;</ept> to create the product.</source>
+          <target state="new">After all values are entered, click <bpt id="236ecc4c-d90b-4407-9227-0150b7280a15">&lt;strong&gt;</bpt>Save<ept id="236ecc4c-d90b-4407-9227-0150b7280a15">&lt;/strong&gt;</ept> to create the product.</target>
+        </trans-unit>
+        <trans-unit id="1fb3004b-ac1a-49af-b22e-96651c3367a5" xml:space="preserve">
+          <source><bpt id="5be56a01-3431-463b-b419-e32f6304b22e">&lt;linkText&gt;</bpt>Product added<ept id="5be56a01-3431-463b-b419-e32f6304b22e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5be56a01-3431-463b-b419-e32f6304b22e">&lt;linkText&gt;</bpt>Product added<ept id="5be56a01-3431-463b-b419-e32f6304b22e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2d9a16d-c41b-4f05-adf5-a54a63bd570b" xml:space="preserve">
+          <source>By default, new products are visible to users in the <bpt id="b817d0c5-5eb1-4533-b1eb-67962334794d">&lt;strong&gt;</bpt>Administrators<ept id="b817d0c5-5eb1-4533-b1eb-67962334794d">&lt;/strong&gt;</ept> group.</source>
+          <target state="new">By default, new products are visible to users in the <bpt id="b817d0c5-5eb1-4533-b1eb-67962334794d">&lt;strong&gt;</bpt>Administrators<ept id="b817d0c5-5eb1-4533-b1eb-67962334794d">&lt;/strong&gt;</ept> group.</target>
+        </trans-unit>
+        <trans-unit id="394c4b36-c748-44e0-9975-99f7df3f08f0" xml:space="preserve">
+          <source>We are going to add the <bpt id="e8d02ef6-4b93-48f0-9a1f-a3cdb8a4aecc">&lt;strong&gt;</bpt>Developers<ept id="e8d02ef6-4b93-48f0-9a1f-a3cdb8a4aecc">&lt;/strong&gt;</ept> group.</source>
+          <target state="new">We are going to add the <bpt id="e8d02ef6-4b93-48f0-9a1f-a3cdb8a4aecc">&lt;strong&gt;</bpt>Developers<ept id="e8d02ef6-4b93-48f0-9a1f-a3cdb8a4aecc">&lt;/strong&gt;</ept> group.</target>
+        </trans-unit>
+        <trans-unit id="8b387f91-6abb-477b-8fca-20e5a1e272d2" xml:space="preserve">
+          <source>Click <bpt id="5f3d64c0-89f3-41d9-b717-d863ff37a660">&lt;strong&gt;</bpt>Free Trial<ept id="5f3d64c0-89f3-41d9-b717-d863ff37a660">&lt;/strong&gt;</ept>, and then click the <bpt id="aaef4038-4d24-4006-99ad-ea36bddd9d13">&lt;strong&gt;</bpt>Visibility<ept id="aaef4038-4d24-4006-99ad-ea36bddd9d13">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click <bpt id="5f3d64c0-89f3-41d9-b717-d863ff37a660">&lt;strong&gt;</bpt>Free Trial<ept id="5f3d64c0-89f3-41d9-b717-d863ff37a660">&lt;/strong&gt;</ept>, and then click the <bpt id="aaef4038-4d24-4006-99ad-ea36bddd9d13">&lt;strong&gt;</bpt>Visibility<ept id="aaef4038-4d24-4006-99ad-ea36bddd9d13">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="fc4cfb65-5941-43d2-989c-b62f8112a2cd" xml:space="preserve">
+          <source>In API Management, groups are used to manage the visibility of products to developers.</source>
+          <target state="new">In API Management, groups are used to manage the visibility of products to developers.</target>
+        </trans-unit>
+        <trans-unit id="2b855a16-f853-48a8-a22f-d9c769c75275" xml:space="preserve">
+          <source>Products grant visibility to groups, and developers can view and subscribe to the products that are visible to the groups in which they belong.</source>
+          <target state="new">Products grant visibility to groups, and developers can view and subscribe to the products that are visible to the groups in which they belong.</target>
+        </trans-unit>
+        <trans-unit id="0d6f9313-5f51-4b71-b64f-1b6d78bcc13c" xml:space="preserve">
+          <source>For more information, see <bpt id="ed5421e3-a2d6-4cdf-803c-59142ccae736">&lt;linkText&gt;</bpt>How to create and use groups in Azure API Management<ept id="ed5421e3-a2d6-4cdf-803c-59142ccae736">&lt;/linkText&gt;</ept><bpt id="ed5421e3-a2d6-4cdf-803c-59142ccae736">&lt;title&gt;</bpt><ept id="ed5421e3-a2d6-4cdf-803c-59142ccae736">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ed5421e3-a2d6-4cdf-803c-59142ccae736">&lt;linkText&gt;</bpt>How to create and use groups in Azure API Management<ept id="ed5421e3-a2d6-4cdf-803c-59142ccae736">&lt;/linkText&gt;</ept><bpt id="ed5421e3-a2d6-4cdf-803c-59142ccae736">&lt;title&gt;</bpt><ept id="ed5421e3-a2d6-4cdf-803c-59142ccae736">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a45adf1b-c1a8-43ff-885b-12c5a64661a8" xml:space="preserve">
+          <source><bpt id="10426c68-0489-46ba-b944-5acf43293f27">&lt;linkText&gt;</bpt>Add developers group<ept id="10426c68-0489-46ba-b944-5acf43293f27">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10426c68-0489-46ba-b944-5acf43293f27">&lt;linkText&gt;</bpt>Add developers group<ept id="10426c68-0489-46ba-b944-5acf43293f27">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35e99ced-4f93-4665-91d5-2e547e80a64f" xml:space="preserve">
+          <source>Select the <bpt id="078ac701-dc7c-4f4f-ad12-82da93df0cfe">&lt;strong&gt;</bpt>Developers<ept id="078ac701-dc7c-4f4f-ad12-82da93df0cfe">&lt;/strong&gt;</ept> check box, and then click <bpt id="700476aa-c473-4005-999a-7bef56ecb419">&lt;strong&gt;</bpt>Save<ept id="700476aa-c473-4005-999a-7bef56ecb419">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="078ac701-dc7c-4f4f-ad12-82da93df0cfe">&lt;strong&gt;</bpt>Developers<ept id="078ac701-dc7c-4f4f-ad12-82da93df0cfe">&lt;/strong&gt;</ept> check box, and then click <bpt id="700476aa-c473-4005-999a-7bef56ecb419">&lt;strong&gt;</bpt>Save<ept id="700476aa-c473-4005-999a-7bef56ecb419">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="503192cc-e266-46d2-987e-c9a323925385" xml:space="preserve">
+          <source>In this step of the tutorial, we will add the Echo API to the new Free Trial product.</source>
+          <target state="new">In this step of the tutorial, we will add the Echo API to the new Free Trial product.</target>
+        </trans-unit>
+        <trans-unit id="0432d595-079e-43cc-92d1-0231674920f4" xml:space="preserve">
+          <source>Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management.</source>
+          <target state="new">Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management.</target>
+        </trans-unit>
+        <trans-unit id="bd1ea9a0-d27d-4811-a871-50c51b336d10" xml:space="preserve">
+          <source>For more information, see <bpt id="25a3db83-eba1-42e3-b71a-5e1bba7a481e">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="25a3db83-eba1-42e3-b71a-5e1bba7a481e">&lt;/linkText&gt;</ept><bpt id="25a3db83-eba1-42e3-b71a-5e1bba7a481e">&lt;title&gt;</bpt><ept id="25a3db83-eba1-42e3-b71a-5e1bba7a481e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="25a3db83-eba1-42e3-b71a-5e1bba7a481e">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="25a3db83-eba1-42e3-b71a-5e1bba7a481e">&lt;/linkText&gt;</ept><bpt id="25a3db83-eba1-42e3-b71a-5e1bba7a481e">&lt;title&gt;</bpt><ept id="25a3db83-eba1-42e3-b71a-5e1bba7a481e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d7b16be-cc4e-4e63-b359-16e754fb5281" xml:space="preserve">
+          <source>Click <bpt id="6a6af7d1-f5bf-49bb-bf9f-d50fdeb09458">&lt;strong&gt;</bpt>Products<ept id="6a6af7d1-f5bf-49bb-bf9f-d50fdeb09458">&lt;/strong&gt;</ept> from the <bpt id="b2f90987-47fd-4fbc-a34b-f400cbaf1f02">&lt;strong&gt;</bpt>API Management<ept id="b2f90987-47fd-4fbc-a34b-f400cbaf1f02">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="02a8f97a-42cf-4163-8380-292bf515554a">&lt;strong&gt;</bpt>Free Trial<ept id="02a8f97a-42cf-4163-8380-292bf515554a">&lt;/strong&gt;</ept> to configure the product.</source>
+          <target state="new">Click <bpt id="6a6af7d1-f5bf-49bb-bf9f-d50fdeb09458">&lt;strong&gt;</bpt>Products<ept id="6a6af7d1-f5bf-49bb-bf9f-d50fdeb09458">&lt;/strong&gt;</ept> from the <bpt id="b2f90987-47fd-4fbc-a34b-f400cbaf1f02">&lt;strong&gt;</bpt>API Management<ept id="b2f90987-47fd-4fbc-a34b-f400cbaf1f02">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="02a8f97a-42cf-4163-8380-292bf515554a">&lt;strong&gt;</bpt>Free Trial<ept id="02a8f97a-42cf-4163-8380-292bf515554a">&lt;/strong&gt;</ept> to configure the product.</target>
+        </trans-unit>
+        <trans-unit id="d98cca7a-dcad-4429-969c-92f2484a7970" xml:space="preserve">
+          <source><bpt id="29cf7e69-a5b5-44fe-a21d-9395bf991cc8">&lt;linkText&gt;</bpt>Configure product<ept id="29cf7e69-a5b5-44fe-a21d-9395bf991cc8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29cf7e69-a5b5-44fe-a21d-9395bf991cc8">&lt;linkText&gt;</bpt>Configure product<ept id="29cf7e69-a5b5-44fe-a21d-9395bf991cc8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="336ea5a5-4386-48fc-93d1-5bfbec02b79b" xml:space="preserve">
+          <source>Click <bpt id="3ffa0045-91e6-4cc4-9594-4e65b621fe25">&lt;strong&gt;</bpt>Add API to product<ept id="3ffa0045-91e6-4cc4-9594-4e65b621fe25">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3ffa0045-91e6-4cc4-9594-4e65b621fe25">&lt;strong&gt;</bpt>Add API to product<ept id="3ffa0045-91e6-4cc4-9594-4e65b621fe25">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab73c38a-675d-4eab-b192-9dc2327163f6" xml:space="preserve">
+          <source><bpt id="9d7b21af-c257-4bac-a620-e2fa19c08481">&lt;linkText&gt;</bpt>Add API to product<ept id="9d7b21af-c257-4bac-a620-e2fa19c08481">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9d7b21af-c257-4bac-a620-e2fa19c08481">&lt;linkText&gt;</bpt>Add API to product<ept id="9d7b21af-c257-4bac-a620-e2fa19c08481">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42851fd1-2eea-40d2-a1df-1640e5f5f04a" xml:space="preserve">
+          <source>Select <bpt id="6469cf85-d3b4-4d22-85fd-0187f648fa32">&lt;strong&gt;</bpt>Echo API<ept id="6469cf85-d3b4-4d22-85fd-0187f648fa32">&lt;/strong&gt;</ept>, and then click <bpt id="5d8e6f5e-501f-43bd-a8a9-5d69ea607724">&lt;strong&gt;</bpt>Save<ept id="5d8e6f5e-501f-43bd-a8a9-5d69ea607724">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="6469cf85-d3b4-4d22-85fd-0187f648fa32">&lt;strong&gt;</bpt>Echo API<ept id="6469cf85-d3b4-4d22-85fd-0187f648fa32">&lt;/strong&gt;</ept>, and then click <bpt id="5d8e6f5e-501f-43bd-a8a9-5d69ea607724">&lt;strong&gt;</bpt>Save<ept id="5d8e6f5e-501f-43bd-a8a9-5d69ea607724">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="baf0cf9e-dfc8-480d-8ffe-ca156c906390" xml:space="preserve">
+          <source><bpt id="1c55b7c6-f0c6-4afe-af5e-8ae93cefad52">&lt;linkText&gt;</bpt>Add Echo API<ept id="1c55b7c6-f0c6-4afe-af5e-8ae93cefad52">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1c55b7c6-f0c6-4afe-af5e-8ae93cefad52">&lt;linkText&gt;</bpt>Add Echo API<ept id="1c55b7c6-f0c6-4afe-af5e-8ae93cefad52">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20a4eed2-a9df-4096-b406-54c5303d3407" xml:space="preserve">
+          <source>Rate limits and quotas are configured in the policy editor.</source>
+          <target state="new">Rate limits and quotas are configured in the policy editor.</target>
+        </trans-unit>
+        <trans-unit id="0862d7e6-5548-4313-9de5-34205ea007a7" xml:space="preserve">
+          <source>Click <bpt id="390319a3-a9b3-42fb-aba5-ac556e6c8348">&lt;strong&gt;</bpt>Policies<ept id="390319a3-a9b3-42fb-aba5-ac556e6c8348">&lt;/strong&gt;</ept> under the <bpt id="ef080acc-7df6-436c-8f41-6d65ed334a0d">&lt;strong&gt;</bpt>API Management<ept id="ef080acc-7df6-436c-8f41-6d65ed334a0d">&lt;/strong&gt;</ept> menu on the left.</source>
+          <target state="new">Click <bpt id="390319a3-a9b3-42fb-aba5-ac556e6c8348">&lt;strong&gt;</bpt>Policies<ept id="390319a3-a9b3-42fb-aba5-ac556e6c8348">&lt;/strong&gt;</ept> under the <bpt id="ef080acc-7df6-436c-8f41-6d65ed334a0d">&lt;strong&gt;</bpt>API Management<ept id="ef080acc-7df6-436c-8f41-6d65ed334a0d">&lt;/strong&gt;</ept> menu on the left.</target>
+        </trans-unit>
+        <trans-unit id="642b4135-f726-4639-a493-f029ed4ff8cc" xml:space="preserve">
+          <source>In the <bpt id="5fbda646-7ef2-41ea-b452-97496147ea3a">&lt;strong&gt;</bpt>Product<ept id="5fbda646-7ef2-41ea-b452-97496147ea3a">&lt;/strong&gt;</ept> list, click <bpt id="decb5702-49a9-4824-b1e2-0fdcb39ad50b">&lt;strong&gt;</bpt>Free Trial<ept id="decb5702-49a9-4824-b1e2-0fdcb39ad50b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5fbda646-7ef2-41ea-b452-97496147ea3a">&lt;strong&gt;</bpt>Product<ept id="5fbda646-7ef2-41ea-b452-97496147ea3a">&lt;/strong&gt;</ept> list, click <bpt id="decb5702-49a9-4824-b1e2-0fdcb39ad50b">&lt;strong&gt;</bpt>Free Trial<ept id="decb5702-49a9-4824-b1e2-0fdcb39ad50b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="764b779a-5ccb-4bf2-ae10-37755b073c30" xml:space="preserve">
+          <source><bpt id="65e37bd5-a859-4b72-bf0b-cea27bb2052a">&lt;linkText&gt;</bpt>Product policy<ept id="65e37bd5-a859-4b72-bf0b-cea27bb2052a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="65e37bd5-a859-4b72-bf0b-cea27bb2052a">&lt;linkText&gt;</bpt>Product policy<ept id="65e37bd5-a859-4b72-bf0b-cea27bb2052a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1dcfb754-426f-48a3-9df1-9504248bbfff" xml:space="preserve">
+          <source>Click <bpt id="643a9dda-b612-4579-a23f-22a2616f9cdd">&lt;strong&gt;</bpt>Add Policy<ept id="643a9dda-b612-4579-a23f-22a2616f9cdd">&lt;/strong&gt;</ept> to import the policy template and begin creating the rate limit and quota policies.</source>
+          <target state="new">Click <bpt id="643a9dda-b612-4579-a23f-22a2616f9cdd">&lt;strong&gt;</bpt>Add Policy<ept id="643a9dda-b612-4579-a23f-22a2616f9cdd">&lt;/strong&gt;</ept> to import the policy template and begin creating the rate limit and quota policies.</target>
+        </trans-unit>
+        <trans-unit id="4ba8e9df-0944-4c64-8c21-f4258a4bc4d1" xml:space="preserve">
+          <source><bpt id="5551505d-7f94-4079-bb8a-cab9b5f92bf7">&lt;linkText&gt;</bpt>Add policy<ept id="5551505d-7f94-4079-bb8a-cab9b5f92bf7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5551505d-7f94-4079-bb8a-cab9b5f92bf7">&lt;linkText&gt;</bpt>Add policy<ept id="5551505d-7f94-4079-bb8a-cab9b5f92bf7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5f09ecb-b712-4eff-a53e-a2292d4f9039" xml:space="preserve">
+          <source>To insert policies, position the cursor into either the <bpt id="e7f55254-2ce8-4808-941f-cefcabd9cf17">&lt;strong&gt;</bpt>inbound<ept id="e7f55254-2ce8-4808-941f-cefcabd9cf17">&lt;/strong&gt;</ept> or <bpt id="db65c93f-226a-44ab-afa8-dd787a683429">&lt;strong&gt;</bpt>outbound<ept id="db65c93f-226a-44ab-afa8-dd787a683429">&lt;/strong&gt;</ept> section of the policy template.</source>
+          <target state="new">To insert policies, position the cursor into either the <bpt id="e7f55254-2ce8-4808-941f-cefcabd9cf17">&lt;strong&gt;</bpt>inbound<ept id="e7f55254-2ce8-4808-941f-cefcabd9cf17">&lt;/strong&gt;</ept> or <bpt id="db65c93f-226a-44ab-afa8-dd787a683429">&lt;strong&gt;</bpt>outbound<ept id="db65c93f-226a-44ab-afa8-dd787a683429">&lt;/strong&gt;</ept> section of the policy template.</target>
+        </trans-unit>
+        <trans-unit id="5e13d270-150f-4662-b11c-302800281b81" xml:space="preserve">
+          <source>Rate limit and quota policies are inbound policies, so position the cursor in the inbound element.</source>
+          <target state="new">Rate limit and quota policies are inbound policies, so position the cursor in the inbound element.</target>
+        </trans-unit>
+        <trans-unit id="f40073c2-68ac-464e-a288-df2168bd4e9a" xml:space="preserve">
+          <source><bpt id="72e310d4-b8a7-44f5-a9c6-0b95734ead39">&lt;linkText&gt;</bpt>Policy editor<ept id="72e310d4-b8a7-44f5-a9c6-0b95734ead39">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="72e310d4-b8a7-44f5-a9c6-0b95734ead39">&lt;linkText&gt;</bpt>Policy editor<ept id="72e310d4-b8a7-44f5-a9c6-0b95734ead39">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="696afca7-8579-4a16-bce2-3c107d63bbd0" xml:space="preserve">
+          <source>The two policies we are adding in this tutorial are the <bpt id="ccff47af-840e-4236-9476-31e0838445d4">&lt;linkText&gt;</bpt>Limit call rate<ept id="ccff47af-840e-4236-9476-31e0838445d4">&lt;/linkText&gt;</ept><bpt id="ccff47af-840e-4236-9476-31e0838445d4">&lt;title&gt;</bpt><ept id="ccff47af-840e-4236-9476-31e0838445d4">&lt;/title&gt;</ept> and <bpt id="2298d632-801b-4f45-ac78-cc325427a0e1">&lt;linkText&gt;</bpt>Set usage quota<ept id="2298d632-801b-4f45-ac78-cc325427a0e1">&lt;/linkText&gt;</ept><bpt id="2298d632-801b-4f45-ac78-cc325427a0e1">&lt;title&gt;</bpt><ept id="2298d632-801b-4f45-ac78-cc325427a0e1">&lt;/title&gt;</ept> policies.</source>
+          <target state="new">The two policies we are adding in this tutorial are the <bpt id="ccff47af-840e-4236-9476-31e0838445d4">&lt;linkText&gt;</bpt>Limit call rate<ept id="ccff47af-840e-4236-9476-31e0838445d4">&lt;/linkText&gt;</ept><bpt id="ccff47af-840e-4236-9476-31e0838445d4">&lt;title&gt;</bpt><ept id="ccff47af-840e-4236-9476-31e0838445d4">&lt;/title&gt;</ept> and <bpt id="2298d632-801b-4f45-ac78-cc325427a0e1">&lt;linkText&gt;</bpt>Set usage quota<ept id="2298d632-801b-4f45-ac78-cc325427a0e1">&lt;/linkText&gt;</ept><bpt id="2298d632-801b-4f45-ac78-cc325427a0e1">&lt;title&gt;</bpt><ept id="2298d632-801b-4f45-ac78-cc325427a0e1">&lt;/title&gt;</ept> policies.</target>
+        </trans-unit>
+        <trans-unit id="27e57747-b911-4188-978e-fe4158101c81" xml:space="preserve">
+          <source><bpt id="38ff5cb7-3432-411d-af17-f519c52f6cef">&lt;linkText&gt;</bpt>Policy statements<ept id="38ff5cb7-3432-411d-af17-f519c52f6cef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="38ff5cb7-3432-411d-af17-f519c52f6cef">&lt;linkText&gt;</bpt>Policy statements<ept id="38ff5cb7-3432-411d-af17-f519c52f6cef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d350b60-a172-4eb5-8354-6c84cb82d45e" xml:space="preserve">
+          <source>After the cursor is positioned in the <bpt id="b79c2db1-de2a-40b9-9c41-8d1b2cf6fc3c">&lt;strong&gt;</bpt>inbound<ept id="b79c2db1-de2a-40b9-9c41-8d1b2cf6fc3c">&lt;/strong&gt;</ept> policy element, click the arrow beside <bpt id="91fc3a34-2580-4052-bb1b-49306fb9e4c6">&lt;strong&gt;</bpt>Limit call rate<ept id="91fc3a34-2580-4052-bb1b-49306fb9e4c6">&lt;/strong&gt;</ept> to insert its policy template.</source>
+          <target state="new">After the cursor is positioned in the <bpt id="b79c2db1-de2a-40b9-9c41-8d1b2cf6fc3c">&lt;strong&gt;</bpt>inbound<ept id="b79c2db1-de2a-40b9-9c41-8d1b2cf6fc3c">&lt;/strong&gt;</ept> policy element, click the arrow beside <bpt id="91fc3a34-2580-4052-bb1b-49306fb9e4c6">&lt;strong&gt;</bpt>Limit call rate<ept id="91fc3a34-2580-4052-bb1b-49306fb9e4c6">&lt;/strong&gt;</ept> to insert its policy template.</target>
+        </trans-unit>
+        <trans-unit id="32bcfefa-512a-46ef-b6a8-018263a0247f" xml:space="preserve">
+          <source><bpt id="b5df1de7-e2e4-4a9d-928c-2762386e964d">&lt;strong&gt;</bpt>Limit call rate<ept id="b5df1de7-e2e4-4a9d-928c-2762386e964d">&lt;/strong&gt;</ept> can be used at the product level and can also be used at the API and individual operation name levels.</source>
+          <target state="new"><bpt id="b5df1de7-e2e4-4a9d-928c-2762386e964d">&lt;strong&gt;</bpt>Limit call rate<ept id="b5df1de7-e2e4-4a9d-928c-2762386e964d">&lt;/strong&gt;</ept> can be used at the product level and can also be used at the API and individual operation name levels.</target>
+        </trans-unit>
+        <trans-unit id="598e04f3-3822-44ba-9a19-a73cf148d90a" xml:space="preserve">
+          <source>In this tutorial, only product-level policies are used, so delete the <bpt id="1ea1b7d1-ab99-497e-95f5-4cca08ac8149">&lt;strong&gt;</bpt>api<ept id="1ea1b7d1-ab99-497e-95f5-4cca08ac8149">&lt;/strong&gt;</ept> and <bpt id="79ae5dd5-ced2-4dc7-81dd-b5897652074f">&lt;strong&gt;</bpt>operation<ept id="79ae5dd5-ced2-4dc7-81dd-b5897652074f">&lt;/strong&gt;</ept> elements from the <bpt id="3e631fce-bf91-4e8d-bf5c-d1c21d5b52bf">&lt;strong&gt;</bpt>rate-limit<ept id="3e631fce-bf91-4e8d-bf5c-d1c21d5b52bf">&lt;/strong&gt;</ept> element, so only the outer <bpt id="1b0b9a81-8e99-4037-b44f-b1a369495e36">&lt;strong&gt;</bpt>rate-limit<ept id="1b0b9a81-8e99-4037-b44f-b1a369495e36">&lt;/strong&gt;</ept> element remains, as shown in the following example.</source>
+          <target state="new">In this tutorial, only product-level policies are used, so delete the <bpt id="1ea1b7d1-ab99-497e-95f5-4cca08ac8149">&lt;strong&gt;</bpt>api<ept id="1ea1b7d1-ab99-497e-95f5-4cca08ac8149">&lt;/strong&gt;</ept> and <bpt id="79ae5dd5-ced2-4dc7-81dd-b5897652074f">&lt;strong&gt;</bpt>operation<ept id="79ae5dd5-ced2-4dc7-81dd-b5897652074f">&lt;/strong&gt;</ept> elements from the <bpt id="3e631fce-bf91-4e8d-bf5c-d1c21d5b52bf">&lt;strong&gt;</bpt>rate-limit<ept id="3e631fce-bf91-4e8d-bf5c-d1c21d5b52bf">&lt;/strong&gt;</ept> element, so only the outer <bpt id="1b0b9a81-8e99-4037-b44f-b1a369495e36">&lt;strong&gt;</bpt>rate-limit<ept id="1b0b9a81-8e99-4037-b44f-b1a369495e36">&lt;/strong&gt;</ept> element remains, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="f5fd4b32-ba6a-478e-8a47-3486ef1581f4" xml:space="preserve">
+          <source>In the Free Trial product, the maximum allowable call rate is 10 calls per minute, so type <bpt id="44705c5b-fd17-4a9d-8bf8-281049bd9303">&lt;strong&gt;</bpt>10<ept id="44705c5b-fd17-4a9d-8bf8-281049bd9303">&lt;/strong&gt;</ept> as the value for the <bpt id="b3e1d0de-d6bd-4f05-a886-23d5b23bdaec">&lt;strong&gt;</bpt>calls<ept id="b3e1d0de-d6bd-4f05-a886-23d5b23bdaec">&lt;/strong&gt;</ept> attribute, and <bpt id="6a1cd725-e5b8-43f3-a97a-d527a56105d9">&lt;strong&gt;</bpt>60<ept id="6a1cd725-e5b8-43f3-a97a-d527a56105d9">&lt;/strong&gt;</ept> for the <bpt id="3f945b3f-771f-4156-87b0-181dc04ea9f4">&lt;strong&gt;</bpt>renewal-period<ept id="3f945b3f-771f-4156-87b0-181dc04ea9f4">&lt;/strong&gt;</ept> attribute.</source>
+          <target state="new">In the Free Trial product, the maximum allowable call rate is 10 calls per minute, so type <bpt id="44705c5b-fd17-4a9d-8bf8-281049bd9303">&lt;strong&gt;</bpt>10<ept id="44705c5b-fd17-4a9d-8bf8-281049bd9303">&lt;/strong&gt;</ept> as the value for the <bpt id="b3e1d0de-d6bd-4f05-a886-23d5b23bdaec">&lt;strong&gt;</bpt>calls<ept id="b3e1d0de-d6bd-4f05-a886-23d5b23bdaec">&lt;/strong&gt;</ept> attribute, and <bpt id="6a1cd725-e5b8-43f3-a97a-d527a56105d9">&lt;strong&gt;</bpt>60<ept id="6a1cd725-e5b8-43f3-a97a-d527a56105d9">&lt;/strong&gt;</ept> for the <bpt id="3f945b3f-771f-4156-87b0-181dc04ea9f4">&lt;strong&gt;</bpt>renewal-period<ept id="3f945b3f-771f-4156-87b0-181dc04ea9f4">&lt;/strong&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="4adda7de-43c1-43d1-bd31-cbf6e9b9aca4" xml:space="preserve">
+          <source>To configure the <bpt id="25d55a81-49bb-4039-b548-0022cd509e76">&lt;strong&gt;</bpt>Set usage quota<ept id="25d55a81-49bb-4039-b548-0022cd509e76">&lt;/strong&gt;</ept> policy, position your cursor immediately below the newly added <bpt id="aa5be9fc-371a-4802-9c1f-e4aa96a30cc6">&lt;strong&gt;</bpt>rate-limit<ept id="aa5be9fc-371a-4802-9c1f-e4aa96a30cc6">&lt;/strong&gt;</ept> element within the <bpt id="5473b8e4-92d0-4c1e-b569-23b035e2bec8">&lt;strong&gt;</bpt>inbound<ept id="5473b8e4-92d0-4c1e-b569-23b035e2bec8">&lt;/strong&gt;</ept> element, and then click the arrow to the left of <bpt id="be4bd146-0ba3-4aaf-9b62-d0ddd5bff8f8">&lt;strong&gt;</bpt>Set usage quota<ept id="be4bd146-0ba3-4aaf-9b62-d0ddd5bff8f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To configure the <bpt id="25d55a81-49bb-4039-b548-0022cd509e76">&lt;strong&gt;</bpt>Set usage quota<ept id="25d55a81-49bb-4039-b548-0022cd509e76">&lt;/strong&gt;</ept> policy, position your cursor immediately below the newly added <bpt id="aa5be9fc-371a-4802-9c1f-e4aa96a30cc6">&lt;strong&gt;</bpt>rate-limit<ept id="aa5be9fc-371a-4802-9c1f-e4aa96a30cc6">&lt;/strong&gt;</ept> element within the <bpt id="5473b8e4-92d0-4c1e-b569-23b035e2bec8">&lt;strong&gt;</bpt>inbound<ept id="5473b8e4-92d0-4c1e-b569-23b035e2bec8">&lt;/strong&gt;</ept> element, and then click the arrow to the left of <bpt id="be4bd146-0ba3-4aaf-9b62-d0ddd5bff8f8">&lt;strong&gt;</bpt>Set usage quota<ept id="be4bd146-0ba3-4aaf-9b62-d0ddd5bff8f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5cbd378f-86eb-4b7a-a229-c3009799b182" xml:space="preserve">
+          <source>Because this policy is also intended to be at the product level, delete the <bpt id="fb445c34-5c16-4302-b353-c042cda733ff">&lt;strong&gt;</bpt>api<ept id="fb445c34-5c16-4302-b353-c042cda733ff">&lt;/strong&gt;</ept> and <bpt id="21197cdf-b2c6-4ef5-9b58-f2a38edc0209">&lt;strong&gt;</bpt>operation<ept id="21197cdf-b2c6-4ef5-9b58-f2a38edc0209">&lt;/strong&gt;</ept> name elements, as shown in the following example.</source>
+          <target state="new">Because this policy is also intended to be at the product level, delete the <bpt id="fb445c34-5c16-4302-b353-c042cda733ff">&lt;strong&gt;</bpt>api<ept id="fb445c34-5c16-4302-b353-c042cda733ff">&lt;/strong&gt;</ept> and <bpt id="21197cdf-b2c6-4ef5-9b58-f2a38edc0209">&lt;strong&gt;</bpt>operation<ept id="21197cdf-b2c6-4ef5-9b58-f2a38edc0209">&lt;/strong&gt;</ept> name elements, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="79df671f-d704-4b20-aff4-9bdab469b5ff" xml:space="preserve">
+          <source>Quotas can be based on the number of calls per interval, bandwidth, or both.</source>
+          <target state="new">Quotas can be based on the number of calls per interval, bandwidth, or both.</target>
+        </trans-unit>
+        <trans-unit id="2294bbc3-26f5-4fe4-bd98-c8e1028b53dc" xml:space="preserve">
+          <source>In this tutorial, we are not throttling based on bandwidth, so delete the <bpt id="48f1cb78-3f91-4d2a-bcc4-b81c0c90cc08">&lt;strong&gt;</bpt>bandwidth<ept id="48f1cb78-3f91-4d2a-bcc4-b81c0c90cc08">&lt;/strong&gt;</ept> attribute.</source>
+          <target state="new">In this tutorial, we are not throttling based on bandwidth, so delete the <bpt id="48f1cb78-3f91-4d2a-bcc4-b81c0c90cc08">&lt;strong&gt;</bpt>bandwidth<ept id="48f1cb78-3f91-4d2a-bcc4-b81c0c90cc08">&lt;/strong&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="ce92079d-f7dc-4730-b000-ee458281b11d" xml:space="preserve">
+          <source>In the Free Trial product, the quota is 200 calls per week.</source>
+          <target state="new">In the Free Trial product, the quota is 200 calls per week.</target>
+        </trans-unit>
+        <trans-unit id="3a713164-5e2d-469e-92dd-b04401a2d1d6" xml:space="preserve">
+          <source>Specify <bpt id="1d19e909-0f10-40c1-808a-0e179387adfe">&lt;strong&gt;</bpt>200<ept id="1d19e909-0f10-40c1-808a-0e179387adfe">&lt;/strong&gt;</ept> as the value for the <bpt id="9e12b2ee-bae5-4e15-9bd2-181da8b231cd">&lt;strong&gt;</bpt>calls<ept id="9e12b2ee-bae5-4e15-9bd2-181da8b231cd">&lt;/strong&gt;</ept> attribute, and then specify <bpt id="0464b0b0-43d5-4b78-8d06-c755a203f317">&lt;strong&gt;</bpt>604800<ept id="0464b0b0-43d5-4b78-8d06-c755a203f317">&lt;/strong&gt;</ept> as the value for the <bpt id="2d487b34-e0d7-4a12-bee0-df270592db45">&lt;strong&gt;</bpt>renewal-period<ept id="2d487b34-e0d7-4a12-bee0-df270592db45">&lt;/strong&gt;</ept> attribute.</source>
+          <target state="new">Specify <bpt id="1d19e909-0f10-40c1-808a-0e179387adfe">&lt;strong&gt;</bpt>200<ept id="1d19e909-0f10-40c1-808a-0e179387adfe">&lt;/strong&gt;</ept> as the value for the <bpt id="9e12b2ee-bae5-4e15-9bd2-181da8b231cd">&lt;strong&gt;</bpt>calls<ept id="9e12b2ee-bae5-4e15-9bd2-181da8b231cd">&lt;/strong&gt;</ept> attribute, and then specify <bpt id="0464b0b0-43d5-4b78-8d06-c755a203f317">&lt;strong&gt;</bpt>604800<ept id="0464b0b0-43d5-4b78-8d06-c755a203f317">&lt;/strong&gt;</ept> as the value for the <bpt id="2d487b34-e0d7-4a12-bee0-df270592db45">&lt;strong&gt;</bpt>renewal-period<ept id="2d487b34-e0d7-4a12-bee0-df270592db45">&lt;/strong&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="1c0ef22f-aefb-4c35-b141-146777f00ad6" xml:space="preserve">
+          <source>Policy intervals are specified in seconds.</source>
+          <target state="new">Policy intervals are specified in seconds.</target>
+        </trans-unit>
+        <trans-unit id="d38220d1-6d05-4e87-9e28-63209da3cbbc" xml:space="preserve">
+          <source>To calculate the interval for a week, you can multiply the number of days (7) by the number of hours in a day (24) by the number of minutes in an hour (60) by the number of seconds in a minute (60): 7 * 24 * 60 * 60 = 604800.</source>
+          <target state="new">To calculate the interval for a week, you can multiply the number of days (7) by the number of hours in a day (24) by the number of minutes in an hour (60) by the number of seconds in a minute (60): 7 * 24 * 60 * 60 = 604800.</target>
+        </trans-unit>
+        <trans-unit id="7642d4fa-52bd-4845-925a-26704bac2ae3" xml:space="preserve">
+          <source>When you have finished configuring the policy, it should match the following example.</source>
+          <target state="new">When you have finished configuring the policy, it should match the following example.</target>
+        </trans-unit>
+        <trans-unit id="e95263d2-058e-4f9d-9915-49eb54dabfca" xml:space="preserve">
+          <source>After the desired policies are configured, click <bpt id="d53d9d8a-89f0-489e-ba47-8c5754cc9233">&lt;strong&gt;</bpt>Save<ept id="d53d9d8a-89f0-489e-ba47-8c5754cc9233">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the desired policies are configured, click <bpt id="d53d9d8a-89f0-489e-ba47-8c5754cc9233">&lt;strong&gt;</bpt>Save<ept id="d53d9d8a-89f0-489e-ba47-8c5754cc9233">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4269a0e-648c-4afd-bb4f-03920fb2b3ba" xml:space="preserve">
+          <source><bpt id="a9bc1bb7-e631-4366-b053-e92a6be1b374">&lt;linkText&gt;</bpt>Save policy<ept id="a9bc1bb7-e631-4366-b053-e92a6be1b374">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a9bc1bb7-e631-4366-b053-e92a6be1b374">&lt;linkText&gt;</bpt>Save policy<ept id="a9bc1bb7-e631-4366-b053-e92a6be1b374">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="838e7fc4-bb95-4342-8e28-a2984a06d930" xml:space="preserve">
+          <source>Now that the the APIs are added and the policies are configured, the product must be published so that it can be used by developers.</source>
+          <target state="new">Now that the the APIs are added and the policies are configured, the product must be published so that it can be used by developers.</target>
+        </trans-unit>
+        <trans-unit id="068c4f9e-e91f-430b-b36f-61f093df84e6" xml:space="preserve">
+          <source>Click <bpt id="e8fac79a-8898-49ec-9874-727623a6d859">&lt;strong&gt;</bpt>Products<ept id="e8fac79a-8898-49ec-9874-727623a6d859">&lt;/strong&gt;</ept> from the <bpt id="93f13a4f-3dc5-435a-977b-4794a9ee512b">&lt;strong&gt;</bpt>API Management<ept id="93f13a4f-3dc5-435a-977b-4794a9ee512b">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="98171f14-a6f8-4759-a22a-1b561071c4a0">&lt;strong&gt;</bpt>Free Trial<ept id="98171f14-a6f8-4759-a22a-1b561071c4a0">&lt;/strong&gt;</ept> to configure the product.</source>
+          <target state="new">Click <bpt id="e8fac79a-8898-49ec-9874-727623a6d859">&lt;strong&gt;</bpt>Products<ept id="e8fac79a-8898-49ec-9874-727623a6d859">&lt;/strong&gt;</ept> from the <bpt id="93f13a4f-3dc5-435a-977b-4794a9ee512b">&lt;strong&gt;</bpt>API Management<ept id="93f13a4f-3dc5-435a-977b-4794a9ee512b">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="98171f14-a6f8-4759-a22a-1b561071c4a0">&lt;strong&gt;</bpt>Free Trial<ept id="98171f14-a6f8-4759-a22a-1b561071c4a0">&lt;/strong&gt;</ept> to configure the product.</target>
+        </trans-unit>
+        <trans-unit id="885816cd-12b3-469c-9676-3f0d3c45249e" xml:space="preserve">
+          <source><bpt id="06cb5b23-c8d1-43fd-8f75-64bae4db9124">&lt;linkText&gt;</bpt>Configure product<ept id="06cb5b23-c8d1-43fd-8f75-64bae4db9124">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06cb5b23-c8d1-43fd-8f75-64bae4db9124">&lt;linkText&gt;</bpt>Configure product<ept id="06cb5b23-c8d1-43fd-8f75-64bae4db9124">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45328af3-4e14-41f9-8888-515770dece30" xml:space="preserve">
+          <source>Click <bpt id="53e39cac-82f7-4e59-9e73-1f5d7598a1f6">&lt;strong&gt;</bpt>Publish<ept id="53e39cac-82f7-4e59-9e73-1f5d7598a1f6">&lt;/strong&gt;</ept>, and then click <bpt id="3e46a657-f94c-4497-b0c6-778f8adce0ba">&lt;strong&gt;</bpt>Yes, publish it<ept id="3e46a657-f94c-4497-b0c6-778f8adce0ba">&lt;/strong&gt;</ept> to confirm.</source>
+          <target state="new">Click <bpt id="53e39cac-82f7-4e59-9e73-1f5d7598a1f6">&lt;strong&gt;</bpt>Publish<ept id="53e39cac-82f7-4e59-9e73-1f5d7598a1f6">&lt;/strong&gt;</ept>, and then click <bpt id="3e46a657-f94c-4497-b0c6-778f8adce0ba">&lt;strong&gt;</bpt>Yes, publish it<ept id="3e46a657-f94c-4497-b0c6-778f8adce0ba">&lt;/strong&gt;</ept> to confirm.</target>
+        </trans-unit>
+        <trans-unit id="399ecf3e-a40b-4448-92c5-669562927fd8" xml:space="preserve">
+          <source><bpt id="27a90ae1-14e1-4d9d-ab9b-b3b72cc15def">&lt;linkText&gt;</bpt>Publish product<ept id="27a90ae1-14e1-4d9d-ab9b-b3b72cc15def">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="27a90ae1-14e1-4d9d-ab9b-b3b72cc15def">&lt;linkText&gt;</bpt>Publish product<ept id="27a90ae1-14e1-4d9d-ab9b-b3b72cc15def">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbf53eae-d2e9-41dc-9612-52c3cc2f6e70" xml:space="preserve">
+          <source>Now that the product is published, it is available to be subscribed to and used by developers.</source>
+          <target state="new">Now that the product is published, it is available to be subscribed to and used by developers.</target>
+        </trans-unit>
+        <trans-unit id="0a588fdc-440f-415e-bc96-3b8a5994fdbe" xml:space="preserve">
+          <source>Administrators of an API Management instance are automatically subscribed to every product.</source>
+          <target state="new">Administrators of an API Management instance are automatically subscribed to every product.</target>
+        </trans-unit>
+        <trans-unit id="47e13d36-4d85-45bd-84ca-3c7b4ce37882" xml:space="preserve">
+          <source>In this tutorial step, we will subscribe one of the non-administrator developer accounts to the Free Trial product.</source>
+          <target state="new">In this tutorial step, we will subscribe one of the non-administrator developer accounts to the Free Trial product.</target>
+        </trans-unit>
+        <trans-unit id="80241e5c-1b63-4929-9855-97caa549bd88" xml:space="preserve">
+          <source>If your developer account is part of the Administrators role, then you can follow along with this step, even though you are already subscribed.</source>
+          <target state="new">If your developer account is part of the Administrators role, then you can follow along with this step, even though you are already subscribed.</target>
+        </trans-unit>
+        <trans-unit id="7a212b01-3282-45bf-8d1b-b9e30827285d" xml:space="preserve">
+          <source>Click <bpt id="aa6650b6-a590-4224-bdf0-a074f9f3e212">&lt;strong&gt;</bpt>Users<ept id="aa6650b6-a590-4224-bdf0-a074f9f3e212">&lt;/strong&gt;</ept> on the <bpt id="309f275c-1d84-43a6-b0ad-4c56d6836c9a">&lt;strong&gt;</bpt>API Management<ept id="309f275c-1d84-43a6-b0ad-4c56d6836c9a">&lt;/strong&gt;</ept> menu on the left, and then click the name of your developer account.</source>
+          <target state="new">Click <bpt id="aa6650b6-a590-4224-bdf0-a074f9f3e212">&lt;strong&gt;</bpt>Users<ept id="aa6650b6-a590-4224-bdf0-a074f9f3e212">&lt;/strong&gt;</ept> on the <bpt id="309f275c-1d84-43a6-b0ad-4c56d6836c9a">&lt;strong&gt;</bpt>API Management<ept id="309f275c-1d84-43a6-b0ad-4c56d6836c9a">&lt;/strong&gt;</ept> menu on the left, and then click the name of your developer account.</target>
+        </trans-unit>
+        <trans-unit id="eef2a45c-40a6-4362-8bb8-7b20cd6e6674" xml:space="preserve">
+          <source>In this example, we are using the <bpt id="051dda1a-d5a8-41a7-93d0-d150cdcae799">&lt;strong&gt;</bpt>Clayton Gragg<ept id="051dda1a-d5a8-41a7-93d0-d150cdcae799">&lt;/strong&gt;</ept> developer account.</source>
+          <target state="new">In this example, we are using the <bpt id="051dda1a-d5a8-41a7-93d0-d150cdcae799">&lt;strong&gt;</bpt>Clayton Gragg<ept id="051dda1a-d5a8-41a7-93d0-d150cdcae799">&lt;/strong&gt;</ept> developer account.</target>
+        </trans-unit>
+        <trans-unit id="82c18cb7-bdf5-414d-90a8-9350d7e93e81" xml:space="preserve">
+          <source><bpt id="ffe3dfa8-d390-4345-ba04-913655d44957">&lt;linkText&gt;</bpt>Configure developer<ept id="ffe3dfa8-d390-4345-ba04-913655d44957">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ffe3dfa8-d390-4345-ba04-913655d44957">&lt;linkText&gt;</bpt>Configure developer<ept id="ffe3dfa8-d390-4345-ba04-913655d44957">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8672f778-9d0e-4ae2-9a7e-4df77ab3e7a7" xml:space="preserve">
+          <source>Click <bpt id="7684e750-c07b-44a8-8ef7-217fbc0d745a">&lt;strong&gt;</bpt>Add Subscription<ept id="7684e750-c07b-44a8-8ef7-217fbc0d745a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7684e750-c07b-44a8-8ef7-217fbc0d745a">&lt;strong&gt;</bpt>Add Subscription<ept id="7684e750-c07b-44a8-8ef7-217fbc0d745a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7bf0459e-4f27-4fb7-a08e-9aaf7f7c622f" xml:space="preserve">
+          <source><bpt id="e4697fe4-adc9-4866-ab26-8efcfdac7504">&lt;linkText&gt;</bpt>Add subscription<ept id="e4697fe4-adc9-4866-ab26-8efcfdac7504">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e4697fe4-adc9-4866-ab26-8efcfdac7504">&lt;linkText&gt;</bpt>Add subscription<ept id="e4697fe4-adc9-4866-ab26-8efcfdac7504">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8fb6976-6bac-49c5-b227-440dd3e7365c" xml:space="preserve">
+          <source>Select <bpt id="a45f95a3-70bf-4f2b-853d-863b592c3ff4">&lt;strong&gt;</bpt>Free Trial<ept id="a45f95a3-70bf-4f2b-853d-863b592c3ff4">&lt;/strong&gt;</ept>, and then click <bpt id="523ecec0-1460-4826-a2f4-034190262439">&lt;strong&gt;</bpt>Subscribe<ept id="523ecec0-1460-4826-a2f4-034190262439">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="a45f95a3-70bf-4f2b-853d-863b592c3ff4">&lt;strong&gt;</bpt>Free Trial<ept id="a45f95a3-70bf-4f2b-853d-863b592c3ff4">&lt;/strong&gt;</ept>, and then click <bpt id="523ecec0-1460-4826-a2f4-034190262439">&lt;strong&gt;</bpt>Subscribe<ept id="523ecec0-1460-4826-a2f4-034190262439">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12e5db0f-bc3b-44fb-aa4c-fb07eb323c91" xml:space="preserve">
+          <source><bpt id="f248f4ec-468b-46cb-844c-bc511533c675">&lt;linkText&gt;</bpt>Add subscription<ept id="f248f4ec-468b-46cb-844c-bc511533c675">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f248f4ec-468b-46cb-844c-bc511533c675">&lt;linkText&gt;</bpt>Add subscription<ept id="f248f4ec-468b-46cb-844c-bc511533c675">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ce13a1a-06e7-4e61-871b-46db2013a2d3" xml:space="preserve">
+          <source>In this tutorial, multiple simultaneous subscriptions are not enabled for the Free Trial product.</source>
+          <target state="new">In this tutorial, multiple simultaneous subscriptions are not enabled for the Free Trial product.</target>
+        </trans-unit>
+        <trans-unit id="e992b9e7-f1d5-4231-af13-bd4c3e5c9bd6" xml:space="preserve">
+          <source>If they were, you would be prompted to name the subscription, as shown in the following example.</source>
+          <target state="new">If they were, you would be prompted to name the subscription, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="40299523-3fc4-4128-8893-2053ff8e873b" xml:space="preserve">
+          <source><bpt id="0c09710f-15e4-4b2d-9ad7-f10af1ce3624">&lt;linkText&gt;</bpt>Add subscription<ept id="0c09710f-15e4-4b2d-9ad7-f10af1ce3624">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c09710f-15e4-4b2d-9ad7-f10af1ce3624">&lt;linkText&gt;</bpt>Add subscription<ept id="0c09710f-15e4-4b2d-9ad7-f10af1ce3624">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="579c9aa2-983b-4e65-8dd0-ed40e7abe6eb" xml:space="preserve">
+          <source>After clicking <bpt id="1c5271e1-7452-4a86-b8b6-5c4e5f8ab0d1">&lt;strong&gt;</bpt>Subscribe<ept id="1c5271e1-7452-4a86-b8b6-5c4e5f8ab0d1">&lt;/strong&gt;</ept>, the product appears in the <bpt id="ac5c8960-0cad-42b0-8013-0c8b801f8d6c">&lt;strong&gt;</bpt>Subscription<ept id="ac5c8960-0cad-42b0-8013-0c8b801f8d6c">&lt;/strong&gt;</ept> list for the user.</source>
+          <target state="new">After clicking <bpt id="1c5271e1-7452-4a86-b8b6-5c4e5f8ab0d1">&lt;strong&gt;</bpt>Subscribe<ept id="1c5271e1-7452-4a86-b8b6-5c4e5f8ab0d1">&lt;/strong&gt;</ept>, the product appears in the <bpt id="ac5c8960-0cad-42b0-8013-0c8b801f8d6c">&lt;strong&gt;</bpt>Subscription<ept id="ac5c8960-0cad-42b0-8013-0c8b801f8d6c">&lt;/strong&gt;</ept> list for the user.</target>
+        </trans-unit>
+        <trans-unit id="fa2f2e92-e887-48e1-bed6-4c736bf1f528" xml:space="preserve">
+          <source><bpt id="a1134c3b-619f-454b-8a17-b2edd4fcf596">&lt;linkText&gt;</bpt>Subscription added<ept id="a1134c3b-619f-454b-8a17-b2edd4fcf596">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a1134c3b-619f-454b-8a17-b2edd4fcf596">&lt;linkText&gt;</bpt>Subscription added<ept id="a1134c3b-619f-454b-8a17-b2edd4fcf596">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95495f5d-718b-4114-b7c3-f782f736f259" xml:space="preserve">
+          <source>Now that the Free Trial product is configured and published, we can call some operations and test the rate limit policy.</source>
+          <target state="new">Now that the Free Trial product is configured and published, we can call some operations and test the rate limit policy.</target>
+        </trans-unit>
+        <trans-unit id="5ed4dee9-01d3-4f0e-8172-aa16e558772a" xml:space="preserve">
+          <source>Switch to the developer portal by clicking <bpt id="47aafd2e-d921-4136-bce0-9b32ad47d55e">&lt;strong&gt;</bpt>Developer portal<ept id="47aafd2e-d921-4136-bce0-9b32ad47d55e">&lt;/strong&gt;</ept> in the upper-right menu.</source>
+          <target state="new">Switch to the developer portal by clicking <bpt id="47aafd2e-d921-4136-bce0-9b32ad47d55e">&lt;strong&gt;</bpt>Developer portal<ept id="47aafd2e-d921-4136-bce0-9b32ad47d55e">&lt;/strong&gt;</ept> in the upper-right menu.</target>
+        </trans-unit>
+        <trans-unit id="b07e7a91-c828-47e0-9e8b-9d54b7ee659f" xml:space="preserve">
+          <source><bpt id="bb144abe-169b-44a3-9517-697efa96dba3">&lt;linkText&gt;</bpt>Developer portal<ept id="bb144abe-169b-44a3-9517-697efa96dba3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb144abe-169b-44a3-9517-697efa96dba3">&lt;linkText&gt;</bpt>Developer portal<ept id="bb144abe-169b-44a3-9517-697efa96dba3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8b4dc14-b04e-4c53-b3be-aa589b94eb70" xml:space="preserve">
+          <source>Click <bpt id="0786e052-2c1a-4b08-9f95-fb9ec500f013">&lt;strong&gt;</bpt>APIs<ept id="0786e052-2c1a-4b08-9f95-fb9ec500f013">&lt;/strong&gt;</ept> in the top menu, and then click <bpt id="48241fa7-2a27-4ea6-97c7-0a8cabab950f">&lt;strong&gt;</bpt>Echo API<ept id="48241fa7-2a27-4ea6-97c7-0a8cabab950f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0786e052-2c1a-4b08-9f95-fb9ec500f013">&lt;strong&gt;</bpt>APIs<ept id="0786e052-2c1a-4b08-9f95-fb9ec500f013">&lt;/strong&gt;</ept> in the top menu, and then click <bpt id="48241fa7-2a27-4ea6-97c7-0a8cabab950f">&lt;strong&gt;</bpt>Echo API<ept id="48241fa7-2a27-4ea6-97c7-0a8cabab950f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60c40383-5cd7-495c-8bc7-391ceeceb571" xml:space="preserve">
+          <source><bpt id="1b4ef26f-4a59-416e-b166-4a94542ffbac">&lt;linkText&gt;</bpt>Developer portal<ept id="1b4ef26f-4a59-416e-b166-4a94542ffbac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b4ef26f-4a59-416e-b166-4a94542ffbac">&lt;linkText&gt;</bpt>Developer portal<ept id="1b4ef26f-4a59-416e-b166-4a94542ffbac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab9456c4-89d9-4f33-8149-0249d49048cf" xml:space="preserve">
+          <source>Click <bpt id="c4c8faeb-5a6b-4655-91b1-db8cfc3b398f">&lt;strong&gt;</bpt>GET Resource<ept id="c4c8faeb-5a6b-4655-91b1-db8cfc3b398f">&lt;/strong&gt;</ept>, and then click <bpt id="33b91d1c-6e4c-49b3-8f5c-2c091881b585">&lt;strong&gt;</bpt>Open Console<ept id="33b91d1c-6e4c-49b3-8f5c-2c091881b585">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c4c8faeb-5a6b-4655-91b1-db8cfc3b398f">&lt;strong&gt;</bpt>GET Resource<ept id="c4c8faeb-5a6b-4655-91b1-db8cfc3b398f">&lt;/strong&gt;</ept>, and then click <bpt id="33b91d1c-6e4c-49b3-8f5c-2c091881b585">&lt;strong&gt;</bpt>Open Console<ept id="33b91d1c-6e4c-49b3-8f5c-2c091881b585">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bea5419d-1f1d-43a5-967b-c07a433a6b04" xml:space="preserve">
+          <source><bpt id="46e7fd5c-4d94-4915-b15a-6cf5dc1f3477">&lt;linkText&gt;</bpt>Open console<ept id="46e7fd5c-4d94-4915-b15a-6cf5dc1f3477">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46e7fd5c-4d94-4915-b15a-6cf5dc1f3477">&lt;linkText&gt;</bpt>Open console<ept id="46e7fd5c-4d94-4915-b15a-6cf5dc1f3477">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c8708c9-a383-442c-bdea-184b4fa5167c" xml:space="preserve">
+          <source>Keep the default parameter values, and then select your subscription key for the Free Trial product.</source>
+          <target state="new">Keep the default parameter values, and then select your subscription key for the Free Trial product.</target>
+        </trans-unit>
+        <trans-unit id="dc7197db-0176-4e01-849c-090f6f2d1d0a" xml:space="preserve">
+          <source><bpt id="7e405428-11c7-44f7-b0b2-836f94503f76">&lt;linkText&gt;</bpt>Subscription key<ept id="7e405428-11c7-44f7-b0b2-836f94503f76">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7e405428-11c7-44f7-b0b2-836f94503f76">&lt;linkText&gt;</bpt>Subscription key<ept id="7e405428-11c7-44f7-b0b2-836f94503f76">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d063603-f52b-4549-bd99-83fbe26da3eb" xml:space="preserve">
+          <source>If you have multiple subscriptions, be sure to select the key for <bpt id="b75ed6e4-4f50-411d-a80a-301553fd3a29">&lt;strong&gt;</bpt>Free Trial<ept id="b75ed6e4-4f50-411d-a80a-301553fd3a29">&lt;/strong&gt;</ept>, or else the policies that were configured in the previous steps won't be in effect.</source>
+          <target state="new">If you have multiple subscriptions, be sure to select the key for <bpt id="b75ed6e4-4f50-411d-a80a-301553fd3a29">&lt;strong&gt;</bpt>Free Trial<ept id="b75ed6e4-4f50-411d-a80a-301553fd3a29">&lt;/strong&gt;</ept>, or else the policies that were configured in the previous steps won't be in effect.</target>
+        </trans-unit>
+        <trans-unit id="60dc880a-f928-4715-84e9-1b24afbcc45d" xml:space="preserve">
+          <source>Click <bpt id="f1eb5c40-ccbe-424f-af6b-b50383cd29ed">&lt;strong&gt;</bpt>HTTP Get<ept id="f1eb5c40-ccbe-424f-af6b-b50383cd29ed">&lt;/strong&gt;</ept>, and then view the response.</source>
+          <target state="new">Click <bpt id="f1eb5c40-ccbe-424f-af6b-b50383cd29ed">&lt;strong&gt;</bpt>HTTP Get<ept id="f1eb5c40-ccbe-424f-af6b-b50383cd29ed">&lt;/strong&gt;</ept>, and then view the response.</target>
+        </trans-unit>
+        <trans-unit id="7689b64b-4d06-4ad3-a1ca-bd8a2f6ae352" xml:space="preserve">
+          <source>Note the <bpt id="aa459c11-06b6-4008-8601-5f2d43caa472">&lt;strong&gt;</bpt>Response status<ept id="aa459c11-06b6-4008-8601-5f2d43caa472">&lt;/strong&gt;</ept> of <bpt id="ba7d8d71-7495-4571-8ca5-dd42fafb5ab2">&lt;strong&gt;</bpt>200 OK<ept id="ba7d8d71-7495-4571-8ca5-dd42fafb5ab2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Note the <bpt id="aa459c11-06b6-4008-8601-5f2d43caa472">&lt;strong&gt;</bpt>Response status<ept id="aa459c11-06b6-4008-8601-5f2d43caa472">&lt;/strong&gt;</ept> of <bpt id="ba7d8d71-7495-4571-8ca5-dd42fafb5ab2">&lt;strong&gt;</bpt>200 OK<ept id="ba7d8d71-7495-4571-8ca5-dd42fafb5ab2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85d6fcf8-1e96-4f38-a506-a592dbf9e27d" xml:space="preserve">
+          <source><bpt id="8aa1b68b-09dc-45ca-8a28-e134a4586181">&lt;linkText&gt;</bpt>Operation results<ept id="8aa1b68b-09dc-45ca-8a28-e134a4586181">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8aa1b68b-09dc-45ca-8a28-e134a4586181">&lt;linkText&gt;</bpt>Operation results<ept id="8aa1b68b-09dc-45ca-8a28-e134a4586181">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6679d92c-31bb-42b0-b8c3-d145badc04e3" xml:space="preserve">
+          <source>Click <bpt id="b34f3c2a-f21d-40fb-ad05-a52e420a8e34">&lt;strong&gt;</bpt>HTTP Get<ept id="b34f3c2a-f21d-40fb-ad05-a52e420a8e34">&lt;/strong&gt;</ept> at a rate greater than the rate limit policy of 10 calls per minute.</source>
+          <target state="new">Click <bpt id="b34f3c2a-f21d-40fb-ad05-a52e420a8e34">&lt;strong&gt;</bpt>HTTP Get<ept id="b34f3c2a-f21d-40fb-ad05-a52e420a8e34">&lt;/strong&gt;</ept> at a rate greater than the rate limit policy of 10 calls per minute.</target>
+        </trans-unit>
+        <trans-unit id="2ed3f0c3-3055-4a77-a2e7-7853129aefe6" xml:space="preserve">
+          <source>After the rate limit policy is exceeded, a response status of <bpt id="fb08ad93-fdba-4738-870d-eb1112166fec">&lt;strong&gt;</bpt>429 Too Many Requests<ept id="fb08ad93-fdba-4738-870d-eb1112166fec">&lt;/strong&gt;</ept> is returned.</source>
+          <target state="new">After the rate limit policy is exceeded, a response status of <bpt id="fb08ad93-fdba-4738-870d-eb1112166fec">&lt;strong&gt;</bpt>429 Too Many Requests<ept id="fb08ad93-fdba-4738-870d-eb1112166fec">&lt;/strong&gt;</ept> is returned.</target>
+        </trans-unit>
+        <trans-unit id="8d8901c7-0050-4744-b1dc-d5af2b734f75" xml:space="preserve">
+          <source><bpt id="7c01819d-6299-4e0c-846c-f0a552b6b855">&lt;linkText&gt;</bpt>Operation results<ept id="7c01819d-6299-4e0c-846c-f0a552b6b855">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7c01819d-6299-4e0c-846c-f0a552b6b855">&lt;linkText&gt;</bpt>Operation results<ept id="7c01819d-6299-4e0c-846c-f0a552b6b855">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08557139-5ece-4ea5-9d32-53993cc9faef" xml:space="preserve">
+          <source>The <bpt id="17243a52-ed26-43d5-80df-ebd6f16549c7">&lt;strong&gt;</bpt>Response Headers<ept id="17243a52-ed26-43d5-80df-ebd6f16549c7">&lt;/strong&gt;</ept> and <bpt id="b6bdf4d2-2ca9-40a0-bc45-bb4acccc0bf4">&lt;strong&gt;</bpt>Response content<ept id="b6bdf4d2-2ca9-40a0-bc45-bb4acccc0bf4">&lt;/strong&gt;</ept> areas indicate the remaining interval before retries will be successful.</source>
+          <target state="new">The <bpt id="17243a52-ed26-43d5-80df-ebd6f16549c7">&lt;strong&gt;</bpt>Response Headers<ept id="17243a52-ed26-43d5-80df-ebd6f16549c7">&lt;/strong&gt;</ept> and <bpt id="b6bdf4d2-2ca9-40a0-bc45-bb4acccc0bf4">&lt;strong&gt;</bpt>Response content<ept id="b6bdf4d2-2ca9-40a0-bc45-bb4acccc0bf4">&lt;/strong&gt;</ept> areas indicate the remaining interval before retries will be successful.</target>
+        </trans-unit>
+        <trans-unit id="500b2d21-bbb1-4e0a-a606-202a6efb65f0" xml:space="preserve">
+          <source>When the rate limit policy of 10 calls per minute is in effect, subsequent calls will fail until 60 seconds have elapsed from the first of the 10 successful calls to the product before the rate limit was exceeded.</source>
+          <target state="new">When the rate limit policy of 10 calls per minute is in effect, subsequent calls will fail until 60 seconds have elapsed from the first of the 10 successful calls to the product before the rate limit was exceeded.</target>
+        </trans-unit>
+        <trans-unit id="b03d5681-1c61-4c43-a4ca-9bc3ac022995" xml:space="preserve">
+          <source>In this example, the remaining interval is 43 seconds.</source>
+          <target state="new">In this example, the remaining interval is 43 seconds.</target>
+        </trans-unit>
+        <trans-unit id="9107da90-171a-49bf-81d4-5579d04c758d" xml:space="preserve">
+          <source>Check out the other topics in the <bpt id="1f95d840-be3d-485c-8d72-3334580de48b">&lt;linkText&gt;</bpt>Get started with advanced API configuration<ept id="1f95d840-be3d-485c-8d72-3334580de48b">&lt;/linkText&gt;</ept><bpt id="1f95d840-be3d-485c-8d72-3334580de48b">&lt;title&gt;</bpt><ept id="1f95d840-be3d-485c-8d72-3334580de48b">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">Check out the other topics in the <bpt id="1f95d840-be3d-485c-8d72-3334580de48b">&lt;linkText&gt;</bpt>Get started with advanced API configuration<ept id="1f95d840-be3d-485c-8d72-3334580de48b">&lt;/linkText&gt;</ept><bpt id="1f95d840-be3d-485c-8d72-3334580de48b">&lt;title&gt;</bpt><ept id="1f95d840-be3d-485c-8d72-3334580de48b">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="554e9ce4-3d6a-457f-93f1-2d05916b07cf" xml:space="preserve">
+          <source>Watch a demo of setting rate limits and quotas in the following video.</source>
+          <target state="new">Watch a demo of setting rate limits and quotas in the following video.</target>
+        </trans-unit>
+        <trans-unit id="34edcf93-bb2c-4809-8e62-1cb35eb8ac3e" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-management-console.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-management-console.png</target>
+        </trans-unit>
+        <trans-unit id="72d9919c-cb3e-49b7-939c-a8311ea46c95" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-add-product.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-add-product.png</target>
+        </trans-unit>
+        <trans-unit id="c70fc096-2a27-4544-8b43-07e4409532f4" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-new-product-window.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-new-product-window.png</target>
+        </trans-unit>
+        <trans-unit id="70c3766d-81b5-40b5-8168-dc0b80be089c" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-product-added.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-product-added.png</target>
+        </trans-unit>
+        <trans-unit id="78593a69-093c-4a7f-9d95-cf1ae1c899c7" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-add-policy.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-add-policy.png</target>
+        </trans-unit>
+        <trans-unit id="143835cf-2563-4253-ab84-0426406cd7d5" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-policy-editor-inbound.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-policy-editor-inbound.png</target>
+        </trans-unit>
+        <trans-unit id="049138fb-28cc-473b-b570-792326e32f68" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-limit-policies.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-limit-policies.png</target>
+        </trans-unit>
+        <trans-unit id="7b2498db-b960-417d-9aa8-abde62b76677" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-policy-save.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-policy-save.png</target>
+        </trans-unit>
+        <trans-unit id="23b9f1ee-10e0-4758-9694-6e731ac7f0c1" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-configure-product.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-configure-product.png</target>
+        </trans-unit>
+        <trans-unit id="3c475587-d943-4413-83ec-bacce37625c6" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-add-api.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-add-api.png</target>
+        </trans-unit>
+        <trans-unit id="87c5043a-4dd9-41c2-9bb4-c13d033ca65d" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-add-echo-api.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-add-echo-api.png</target>
+        </trans-unit>
+        <trans-unit id="3d456e1d-9e1f-49b6-b041-a93a74c8d203" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-developer-portal-menu.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-developer-portal-menu.png</target>
+        </trans-unit>
+        <trans-unit id="4944c085-f940-4894-be36-d0d85aaee039" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-publish-product.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-publish-product.png</target>
+        </trans-unit>
+        <trans-unit id="ac472735-2ea2-42de-9387-a141bf291a9c" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-configure-developer.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-configure-developer.png</target>
+        </trans-unit>
+        <trans-unit id="a6b810f1-0be5-4171-9027-11ae7bdfc6a7" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-add-subscription-menu.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-add-subscription-menu.png</target>
+        </trans-unit>
+        <trans-unit id="b13c11f0-e826-415c-bbe3-a7ebc671f02e" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-add-subscription.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-add-subscription.png</target>
+        </trans-unit>
+        <trans-unit id="9ab546ab-1fc0-4797-ae3e-c58f6a782af2" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-developer-portal-api-menu.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-developer-portal-api-menu.png</target>
+        </trans-unit>
+        <trans-unit id="71fd6e3e-9be9-4e0b-b367-4bde75da89a5" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-open-console.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-open-console.png</target>
+        </trans-unit>
+        <trans-unit id="06c9dee7-c76d-4067-b76c-0557b2703172" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-http-get.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-http-get.png</target>
+        </trans-unit>
+        <trans-unit id="dff3fcdb-b313-4cd5-b076-d50666da5656" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-http-get-results.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-http-get-results.png</target>
+        </trans-unit>
+        <trans-unit id="6aef6f8b-d2f3-4cfd-b7ae-9a7398f24c91" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-http-get-429.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-http-get-429.png</target>
+        </trans-unit>
+        <trans-unit id="197d9d63-e40c-44dd-bb05-7452dd0008b1" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-product-policy.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-product-policy.png</target>
+        </trans-unit>
+        <trans-unit id="f807f0da-e967-4735-83fe-0585c909a665" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-add-developers-group.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-add-developers-group.png</target>
+        </trans-unit>
+        <trans-unit id="b1763dea-8f62-4846-8594-722be2fa18fc" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-select-key.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-select-key.png</target>
+        </trans-unit>
+        <trans-unit id="bb5958f1-50f4-4d66-ac01-dea32ff6365f" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-subscription-added.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-subscription-added.png</target>
+        </trans-unit>
+        <trans-unit id="cb710adc-51f0-4fd4-84a8-c89fd6c8e375" xml:space="preserve">
+          <source>./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png</source>
+          <target state="new">./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png</target>
+        </trans-unit>
+        <trans-unit id="62e9bfa3-2609-4093-a528-bd973296207a" xml:space="preserve">
+          <source>api-management-howto-add-operations.md</source>
+          <target state="new">api-management-howto-add-operations.md</target>
+        </trans-unit>
+        <trans-unit id="a3818ef5-f734-4112-a2d5-cde9c9e8d291" xml:space="preserve">
+          <source>api-management-howto-add-products.md</source>
+          <target state="new">api-management-howto-add-products.md</target>
+        </trans-unit>
+        <trans-unit id="7cbcc349-2f8f-4f99-9649-bad0e55015b5" xml:space="preserve">
+          <source>../api-management-monitoring.md</source>
+          <target state="new">../api-management-monitoring.md</target>
+        </trans-unit>
+        <trans-unit id="f9d36012-bab2-41d5-a216-384a13c8153d" xml:space="preserve">
+          <source>api-management-howto-add-products.md#add-apis</source>
+          <target state="new">api-management-howto-add-products.md#add-apis</target>
+        </trans-unit>
+        <trans-unit id="5eb83472-7bc0-4a8f-8318-2fa817356be3" xml:space="preserve">
+          <source>api-management-howto-add-products.md#publish-product</source>
+          <target state="new">api-management-howto-add-products.md#publish-product</target>
+        </trans-unit>
+        <trans-unit id="b944a2df-364a-4f8e-93fe-a3d0a1f92bf1" xml:space="preserve">
+          <source>api-management-get-started.md</source>
+          <target state="new">api-management-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="517ddf30-d7b2-42f2-b385-862489b21d43" xml:space="preserve">
+          <source>api-management-howto-create-groups.md</source>
+          <target state="new">api-management-howto-create-groups.md</target>
+        </trans-unit>
+        <trans-unit id="7ebfa22e-216f-4543-9ed6-6983bc5a903c" xml:space="preserve">
+          <source>api-management-howto-add-products.md#view-subscribers</source>
+          <target state="new">api-management-howto-add-products.md#view-subscribers</target>
+        </trans-unit>
+        <trans-unit id="816e618c-9d4d-4c55-98ad-c8a4c86713f9" xml:space="preserve">
+          <source>api-management-get-started.md</source>
+          <target state="new">api-management-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="f1ae4a2c-e9c2-4994-a3b6-b577ccf5e5fb" xml:space="preserve">
+          <source>api-management-get-started.md#create-service-instance</source>
+          <target state="new">api-management-get-started.md#create-service-instance</target>
+        </trans-unit>
+        <trans-unit id="3a664e7e-e020-4d04-b85d-30dcee27498d" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="ed951130-c259-4936-9ee5-4a4e344f46a9" xml:space="preserve">
+          <source>#create-product</source>
+          <target state="new">#create-product</target>
+        </trans-unit>
+        <trans-unit id="686d88e9-ad39-4190-8fc1-ef338994d581" xml:space="preserve">
+          <source>#policies</source>
+          <target state="new">#policies</target>
+        </trans-unit>
+        <trans-unit id="88c39a9d-b6b7-4b31-80a7-26844b19c750" xml:space="preserve">
+          <source>#add-api</source>
+          <target state="new">#add-api</target>
+        </trans-unit>
+        <trans-unit id="503cf2de-16ea-43ff-9384-82e15a32745d" xml:space="preserve">
+          <source>#publish-product</source>
+          <target state="new">#publish-product</target>
+        </trans-unit>
+        <trans-unit id="4c2c5e27-4487-4360-a21b-4c4aa90905bb" xml:space="preserve">
+          <source>#subscribe-account</source>
+          <target state="new">#subscribe-account</target>
+        </trans-unit>
+        <trans-unit id="99539c3c-8436-432e-8e76-b3a434b01d71" xml:space="preserve">
+          <source>#test-rate-limit</source>
+          <target state="new">#test-rate-limit</target>
+        </trans-unit>
+        <trans-unit id="fbfeeb75-8d9d-40fe-bee2-b04fe4cd285e" xml:space="preserve">
+          <source>api-management-get-started-advanced.md</source>
+          <target state="new">api-management-get-started-advanced.md</target>
+        </trans-unit>
+        <trans-unit id="0a781238-8316-47ef-8dcd-693cd5456f80" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate</target>
+        </trans-unit>
+        <trans-unit id="75d41630-9e78-4393-9873-3c7cf0e4b442" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota</target>
+        </trans-unit>
+      </group>
+      <group id="fc4eb265-2e32-4035-9d6b-6579594714d8" />
+    </body>
+  </file>
+</xliff>

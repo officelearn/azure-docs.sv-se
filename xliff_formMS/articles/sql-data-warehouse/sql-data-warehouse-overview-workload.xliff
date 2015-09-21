@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="328869f6-78fa-43a5-bf93-8d1fb3006fff" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="328869f6-78fa-43a5-bf93-8d1fb3006fff" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="418077c8-d40b-4e91-a3bd-207e035a103b">
+        <trans-unit id="5bd6d35c-67c1-4947-816b-50e9d2162a90" xml:space="preserve">
+          <source>Data warehouse workload</source>
+          <target state="new">Data warehouse workload</target>
+        </trans-unit>
+        <trans-unit id="103472bf-d976-40d9-8477-6b4b20f3961b" xml:space="preserve">
+          <source>SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. </source>
+          <target state="new">SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. </target>
+        </trans-unit>
+        <trans-unit id="c637af20-e309-4c29-8a10-fe7a604fdbce" xml:space="preserve">
+          <source>A data warehouse workload refers to all of the operations that transpire against a data warehouse.</source>
+          <target state="new">A data warehouse workload refers to all of the operations that transpire against a data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="fe27907e-34f7-4fc0-b893-2cc7ef57ebdf" xml:space="preserve">
+          <source>The data warehouse workload encompasses the entire process of loading data into the warehouse, performing analysis and reporting on the data warehouse, managing data in the data warehouse, and exporting data from the data warehouse.</source>
+          <target state="new">The data warehouse workload encompasses the entire process of loading data into the warehouse, performing analysis and reporting on the data warehouse, managing data in the data warehouse, and exporting data from the data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="8eaa665f-c1c2-4893-9140-a5f75d632106" xml:space="preserve">
+          <source>The depth and breadth of these components are often commensurate with the maturity level of the data warehouse.</source>
+          <target state="new">The depth and breadth of these components are often commensurate with the maturity level of the data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="e7dd5625-03e3-4a05-8ec1-97a9dbd41136" xml:space="preserve">
+          <source>A data warehouse is a collection of data that is loaded from one or more data sources and is used to perform business intelligence tasks such as reporting and data analysis.</source>
+          <target state="new">A data warehouse is a collection of data that is loaded from one or more data sources and is used to perform business intelligence tasks such as reporting and data analysis.</target>
+        </trans-unit>
+        <trans-unit id="0377c3f9-742d-4fb9-a21e-c40ea786336d" xml:space="preserve">
+          <source>Data warehouses are characterized by queries that scan larger numbers of rows, large ranges of data and may return relatively large results for the purposes of analysis and reporting.</source>
+          <target state="new">Data warehouses are characterized by queries that scan larger numbers of rows, large ranges of data and may return relatively large results for the purposes of analysis and reporting.</target>
+        </trans-unit>
+        <trans-unit id="1e128a89-d3b6-4d68-a845-f1b262d8edf3" xml:space="preserve">
+          <source>Data warehouses are also characterized by relatively large data loads versus small transaction-level inserts/updates/deletes.</source>
+          <target state="new">Data warehouses are also characterized by relatively large data loads versus small transaction-level inserts/updates/deletes.</target>
+        </trans-unit>
+        <trans-unit id="3f39bada-0ecb-46f5-9f5d-46779ec38d5b" xml:space="preserve">
+          <source>A data warehouse performs best when the data is stored in a way that optimizes queries that need to scan large numbers of rows or large ranges of data.</source>
+          <target state="new">A data warehouse performs best when the data is stored in a way that optimizes queries that need to scan large numbers of rows or large ranges of data.</target>
+        </trans-unit>
+        <trans-unit id="cb6bdf2f-e8b4-4056-982f-224edbcea0c1" xml:space="preserve">
+          <source>This type of scanning works best when the data is stored and searched by columns, instead of by rows.</source>
+          <target state="new">This type of scanning works best when the data is stored and searched by columns, instead of by rows.</target>
+        </trans-unit>
+        <trans-unit id="83abcf8b-ef5b-4004-b10c-08ac2b811357" xml:space="preserve">
+          <source>The in-memory columnstore index, which uses column storage, provides up to 5x compression gains and 10x query performance gains over traditional binary trees for reporting and analytics queries.</source>
+          <target state="new">The in-memory columnstore index, which uses column storage, provides up to 5x compression gains and 10x query performance gains over traditional binary trees for reporting and analytics queries.</target>
+        </trans-unit>
+        <trans-unit id="64add6ff-2ab0-4165-a4d7-c854611c8179" xml:space="preserve">
+          <source>We consider columnstore indexes as the standard for storing and scanning large data in a data warehouse.</source>
+          <target state="new">We consider columnstore indexes as the standard for storing and scanning large data in a data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="6298cbd9-7711-4a51-900c-87535eeb1ff8" xml:space="preserve">
+          <source>A data warehouse has different requirements than a system that optimizes for online transaction processing (OLTP).</source>
+          <target state="new">A data warehouse has different requirements than a system that optimizes for online transaction processing (OLTP).</target>
+        </trans-unit>
+        <trans-unit id="30a808da-7b14-4b76-b0f8-6b314b938376" xml:space="preserve">
+          <source>The OLTP system has many insert, update, and delete operations.</source>
+          <target state="new">The OLTP system has many insert, update, and delete operations.</target>
+        </trans-unit>
+        <trans-unit id="ef9616d7-3ca8-4363-a0bb-3eafd6bd2b81" xml:space="preserve">
+          <source>These operations seek to specific rows in the table.</source>
+          <target state="new">These operations seek to specific rows in the table.</target>
+        </trans-unit>
+        <trans-unit id="9125b091-0514-4245-ba5c-6ed1fcec9301" xml:space="preserve">
+          <source>Table seeks perform best when the data is stored in a row-by-row manner.</source>
+          <target state="new">Table seeks perform best when the data is stored in a row-by-row manner.</target>
+        </trans-unit>
+        <trans-unit id="a7263e42-d009-44bb-b419-ad6be17c7251" xml:space="preserve">
+          <source>The data can be sorted and quickly searched with a divide and conquer approach called a binary tree or btree search.</source>
+          <target state="new">The data can be sorted and quickly searched with a divide and conquer approach called a binary tree or btree search.</target>
+        </trans-unit>
+        <trans-unit id="cdf7eff2-39f9-4be5-8cfe-0d3c6afefced" xml:space="preserve">
+          <source>Data loading is a big part of the data warehouse workload.</source>
+          <target state="new">Data loading is a big part of the data warehouse workload.</target>
+        </trans-unit>
+        <trans-unit id="139f83e9-40b7-4984-8f0f-fe86444efcba" xml:space="preserve">
+          <source>Businesses usually have a busy OLTP system that tracks changes throughout the day when customers are generating business transactions.</source>
+          <target state="new">Businesses usually have a busy OLTP system that tracks changes throughout the day when customers are generating business transactions.</target>
+        </trans-unit>
+        <trans-unit id="98713b00-6096-4399-9f64-b524c3b06c50" xml:space="preserve">
+          <source>Periodically, often at night during a maintenance window, the transactions are moved or copied to the data warehouse.</source>
+          <target state="new">Periodically, often at night during a maintenance window, the transactions are moved or copied to the data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="dcb1e730-a7be-4e2c-a973-6a80084694cc" xml:space="preserve">
+          <source>Once the data is in the data warehouse, analysts can perform analysis and make business decisions on the data.</source>
+          <target state="new">Once the data is in the data warehouse, analysts can perform analysis and make business decisions on the data.</target>
+        </trans-unit>
+        <trans-unit id="abbe13f5-5cb7-4903-a5df-fa4eeb0421a4" xml:space="preserve">
+          <source>Traditionally, the process of loading is called ETL for Extract, Transform, and Load.</source>
+          <target state="new">Traditionally, the process of loading is called ETL for Extract, Transform, and Load.</target>
+        </trans-unit>
+        <trans-unit id="cafc33e7-c20c-42b3-8b8e-21d55f90ef68" xml:space="preserve">
+          <source>Data usually needs to be transformed so it is consistent with other data in the data warehouse.</source>
+          <target state="new">Data usually needs to be transformed so it is consistent with other data in the data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="15fd8af8-0e52-4efb-bf57-cfdcab0a1a8c" xml:space="preserve">
+          <source>Previously, businesses used dedicated ETL servers to perform the transformations.</source>
+          <target state="new">Previously, businesses used dedicated ETL servers to perform the transformations.</target>
+        </trans-unit>
+        <trans-unit id="8a1a50b1-52e4-4121-8261-60e99977c71b" xml:space="preserve">
+          <source>Now, with such fast massively parallel processing you can load data into SQL Data Warehouse first, and then perform the transformations.</source>
+          <target state="new">Now, with such fast massively parallel processing you can load data into SQL Data Warehouse first, and then perform the transformations.</target>
+        </trans-unit>
+        <trans-unit id="9b6fe260-6e4e-4334-882b-4f75495f0f4b" xml:space="preserve">
+          <source>This process is called Extract, Load, and Transform (ELT), and is becoming a new standard for the data warehouse workload.</source>
+          <target state="new">This process is called Extract, Load, and Transform (ELT), and is becoming a new standard for the data warehouse workload.</target>
+        </trans-unit>
+        <trans-unit id="5dc4da42-d5bb-4146-b71e-c3dbc5c77723" xml:space="preserve">
+          <source>[AZURE NOTE] With SQL Server CTP2, you can now perform analytics in real-time on an OLTP table.</source>
+          <target state="new">[AZURE NOTE] With SQL Server CTP2, you can now perform analytics in real-time on an OLTP table.</target>
+        </trans-unit>
+        <trans-unit id="ddca64ad-82b7-46b1-8b86-92555fe4ec19" xml:space="preserve">
+          <source>This does not replace the need for a data warehouse to store and analyze data, but it does provide a way to perform analysis in real-time.</source>
+          <target state="new">This does not replace the need for a data warehouse to store and analyze data, but it does provide a way to perform analysis in real-time.</target>
+        </trans-unit>
+        <trans-unit id="a7373e4f-2354-44b7-92b2-29027010750c" xml:space="preserve">
+          <source>Reporting and analysis queries are often categorized into small, medium and large based on a number of criteria, but usually it is based on time.</source>
+          <target state="new">Reporting and analysis queries are often categorized into small, medium and large based on a number of criteria, but usually it is based on time.</target>
+        </trans-unit>
+        <trans-unit id="b5f1d423-42da-493c-89b7-97a39a9cec08" xml:space="preserve">
+          <source>In most data warehouses, there is a mixed workload of fast-running versus long-running queries.</source>
+          <target state="new">In most data warehouses, there is a mixed workload of fast-running versus long-running queries.</target>
+        </trans-unit>
+        <trans-unit id="4f1192cf-e8dd-4d54-8ae6-751cb7716eae" xml:space="preserve">
+          <source>In each case, it is important to determine this mix and to determine its frequency (hourly, daily, month-end, quarter-end, and so on).</source>
+          <target state="new">In each case, it is important to determine this mix and to determine its frequency (hourly, daily, month-end, quarter-end, and so on).</target>
+        </trans-unit>
+        <trans-unit id="73a74b14-a9e7-4838-8418-b83f0e712448" xml:space="preserve">
+          <source>It is important to understand that the mixed query workload, coupled with concurrency, lead to proper capacity planning for a data warehouse.</source>
+          <target state="new">It is important to understand that the mixed query workload, coupled with concurrency, lead to proper capacity planning for a data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="17835df0-77e9-4fee-a24e-8c2193c37642" xml:space="preserve">
+          <source>Capacity planning can be a complex task for a mixed query workload, especially when you need a long lead time to add capacity to the data warehouse.</source>
+          <target state="new">Capacity planning can be a complex task for a mixed query workload, especially when you need a long lead time to add capacity to the data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="a03d26ce-0e30-4fec-a5b8-c900b8aea229" xml:space="preserve">
+          <source>SQL Data Warehouse removes the urgency of capacity planning since you can grow and shrink compute capacity at any time, and since storage and compute capacity are independently sized.</source>
+          <target state="new">SQL Data Warehouse removes the urgency of capacity planning since you can grow and shrink compute capacity at any time, and since storage and compute capacity are independently sized.</target>
+        </trans-unit>
+        <trans-unit id="1a58c90c-114e-4507-8093-60e329214169" xml:space="preserve">
+          <source>Managing data is important, especially when you know you might run out of disk space in the near future.</source>
+          <target state="new">Managing data is important, especially when you know you might run out of disk space in the near future.</target>
+        </trans-unit>
+        <trans-unit id="8cfaf8e0-c7ab-48fc-ba71-7088899e6a9e" xml:space="preserve">
+          <source>Data warehouses usually divide the data into meaningful ranges, which are stored as partitions in a table.</source>
+          <target state="new">Data warehouses usually divide the data into meaningful ranges, which are stored as partitions in a table.</target>
+        </trans-unit>
+        <trans-unit id="823bfb84-8b5e-4dc7-9fb4-13be7c975f10" xml:space="preserve">
+          <source>All SQL Server-based products let you move partitions in and out of the table.</source>
+          <target state="new">All SQL Server-based products let you move partitions in and out of the table.</target>
+        </trans-unit>
+        <trans-unit id="9ba80c2f-257c-4347-956f-db12f0934d88" xml:space="preserve">
+          <source>This partition switching lets you move older data to less expensive storage and keep the latest data available on online storage.</source>
+          <target state="new">This partition switching lets you move older data to less expensive storage and keep the latest data available on online storage.</target>
+        </trans-unit>
+        <trans-unit id="8a61f0f6-9b64-4ed1-ab1c-ddd250f0134a" xml:space="preserve">
+          <source>Columnstore indexes support partitioned tables.</source>
+          <target state="new">Columnstore indexes support partitioned tables.</target>
+        </trans-unit>
+        <trans-unit id="d5e678bb-7c34-45aa-ab67-abe69fdeca02" xml:space="preserve">
+          <source>For columnstore indexes, partitioned tables are used for data management and archival.</source>
+          <target state="new">For columnstore indexes, partitioned tables are used for data management and archival.</target>
+        </trans-unit>
+        <trans-unit id="1ee41161-a61e-49fa-aab5-32c2b0ef17d0" xml:space="preserve">
+          <source>For tables stored row-by-row, partitions have a larger role in query performance.</source>
+          <target state="new">For tables stored row-by-row, partitions have a larger role in query performance.</target>
+        </trans-unit>
+        <trans-unit id="5e37123a-a4d3-4a3f-bb5c-dceb96da9605" xml:space="preserve">
+          <source>PolyBase plays an important role in managing data.</source>
+          <target state="new">PolyBase plays an important role in managing data.</target>
+        </trans-unit>
+        <trans-unit id="646c338b-38a3-4d0e-9080-e86cb6998661" xml:space="preserve">
+          <source>Using PolyBase, you have the option to archive older data to Hadoop or Azure blob storage.</source>
+          <target state="new">Using PolyBase, you have the option to archive older data to Hadoop or Azure blob storage.</target>
+        </trans-unit>
+        <trans-unit id="666e5f2d-73fc-4a91-bbd8-436097a05581" xml:space="preserve">
+          <source>This provides lots of options since the data is still online.</source>
+          <target state="new">This provides lots of options since the data is still online.</target>
+        </trans-unit>
+        <trans-unit id="f518be2c-8795-417a-8193-e3e8934c1f45" xml:space="preserve">
+          <source>It might take longer to retrieve data from Hadoop, but the tradeoff of retrieval time might outweigh the storage cost.</source>
+          <target state="new">It might take longer to retrieve data from Hadoop, but the tradeoff of retrieval time might outweigh the storage cost.</target>
+        </trans-unit>
+        <trans-unit id="6cbcbd71-d086-4383-b4c7-30f3f1662d87" xml:space="preserve">
+          <source>One way to make data available for reports and analysis is to send data from the data warehouse to servers dedicated for running reports and analysis.</source>
+          <target state="new">One way to make data available for reports and analysis is to send data from the data warehouse to servers dedicated for running reports and analysis.</target>
+        </trans-unit>
+        <trans-unit id="807da5a2-b0a3-4130-8530-880126f588c6" xml:space="preserve">
+          <source>These servers are called data marts.</source>
+          <target state="new">These servers are called data marts.</target>
+        </trans-unit>
+        <trans-unit id="7597305c-8285-4daa-b304-cacdc4dbf256" xml:space="preserve">
+          <source>For example, you could pre-process report data and then export it from the data warehouse to many servers around the world, to make it broadly available for customers and analysts.</source>
+          <target state="new">For example, you could pre-process report data and then export it from the data warehouse to many servers around the world, to make it broadly available for customers and analysts.</target>
+        </trans-unit>
+        <trans-unit id="f9e2f4a3-489e-45f6-aef3-86b312f8e31b" xml:space="preserve">
+          <source>For generating reports, each night you could populate read-only reporting servers with a snapshot of the daily data.</source>
+          <target state="new">For generating reports, each night you could populate read-only reporting servers with a snapshot of the daily data.</target>
+        </trans-unit>
+        <trans-unit id="582f43c7-4ac5-42de-88a2-2258fc0530e2" xml:space="preserve">
+          <source>This gives higher bandwidth for customers while lowering the compute resource needs on the data warehouse.</source>
+          <target state="new">This gives higher bandwidth for customers while lowering the compute resource needs on the data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="7192e41d-f04c-4834-a3d4-16cbe7639e91" xml:space="preserve">
+          <source>From a security aspect, data marts allow you to reduce the number of users who have access to the data warehouse.</source>
+          <target state="new">From a security aspect, data marts allow you to reduce the number of users who have access to the data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="9481adce-0c7c-4f75-ac66-a28b11675f37" xml:space="preserve">
+          <source>For analytics, you can either build an analysis cube on the data warehouse and run analysis against the data warehouse, or pre-process data and export it to the analysis server for further analytics.</source>
+          <target state="new">For analytics, you can either build an analysis cube on the data warehouse and run analysis against the data warehouse, or pre-process data and export it to the analysis server for further analytics.</target>
+        </trans-unit>
+        <trans-unit id="c089af0e-e5be-43a7-bced-c1fd46325a66" xml:space="preserve">
+          <source>To start developing your data warehouse, see <bpt id="89f74e66-044c-4535-9560-c5a1d4ed7f96">&lt;linkText&gt;</bpt>development overview<ept id="89f74e66-044c-4535-9560-c5a1d4ed7f96">&lt;/linkText&gt;</ept><bpt id="89f74e66-044c-4535-9560-c5a1d4ed7f96">&lt;title&gt;</bpt><ept id="89f74e66-044c-4535-9560-c5a1d4ed7f96">&lt;/title&gt;</ept>.</source>
+          <target state="new">To start developing your data warehouse, see <bpt id="89f74e66-044c-4535-9560-c5a1d4ed7f96">&lt;linkText&gt;</bpt>development overview<ept id="89f74e66-044c-4535-9560-c5a1d4ed7f96">&lt;/linkText&gt;</ept><bpt id="89f74e66-044c-4535-9560-c5a1d4ed7f96">&lt;title&gt;</bpt><ept id="89f74e66-044c-4535-9560-c5a1d4ed7f96">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7584637b-cfe2-4ed8-bee9-0b2957dcf74a" xml:space="preserve">
+          <source><bpt id="c680950a-69db-4504-b387-ad6edad435a5">&lt;linkText&gt;</bpt>Big Data Warehousing<ept id="c680950a-69db-4504-b387-ad6edad435a5">&lt;/linkText&gt;</ept><bpt id="c680950a-69db-4504-b387-ad6edad435a5">&lt;title&gt;</bpt><ept id="c680950a-69db-4504-b387-ad6edad435a5">&lt;/title&gt;</ept> by Karthik Ramachandran, Istvan Szededi, and Richard L. Saltzer (Manning Publications).</source>
+          <target state="new"><bpt id="c680950a-69db-4504-b387-ad6edad435a5">&lt;linkText&gt;</bpt>Big Data Warehousing<ept id="c680950a-69db-4504-b387-ad6edad435a5">&lt;/linkText&gt;</ept><bpt id="c680950a-69db-4504-b387-ad6edad435a5">&lt;title&gt;</bpt><ept id="c680950a-69db-4504-b387-ad6edad435a5">&lt;/title&gt;</ept> by Karthik Ramachandran, Istvan Szededi, and Richard L. Saltzer (Manning Publications).</target>
+        </trans-unit>
+        <trans-unit id="ef45ee6e-7f36-4c2c-8076-6190f8f1da11" xml:space="preserve">
+          <source>[Chapter 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW<bpt id="c5fa9692-c65c-4c3c-9ba8-c1eb378914ee">&lt;em&gt;</bpt>MEAP<ept id="c5fa9692-c65c-4c3c-9ba8-c1eb378914ee">&lt;/em&gt;</ept>ch1.pdf)</source>
+          <target state="new">[Chapter 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW<bpt id="c5fa9692-c65c-4c3c-9ba8-c1eb378914ee">&lt;em&gt;</bpt>MEAP<ept id="c5fa9692-c65c-4c3c-9ba8-c1eb378914ee">&lt;/em&gt;</ept>ch1.pdf)</target>
+        </trans-unit>
+        <trans-unit id="4b0fe811-7ec2-4c24-bfeb-44492de214f0" xml:space="preserve">
+          <source>sql-data-warehouse-overview-development.md</source>
+          <target state="new">sql-data-warehouse-overview-development.md</target>
+        </trans-unit>
+      </group>
+      <group id="ddb3b592-b347-43b7-ac62-71fb861df9cc" />
+    </body>
+  </file>
+</xliff>

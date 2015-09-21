@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="353752a8-b8aa-4598-b278-94b958af0820" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="353752a8-b8aa-4598-b278-94b958af0820" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="31397c85-fc60-4b96-8347-1da1e378f40b">
+        <trans-unit id="edc58c8a-883a-43c9-81c2-03d543af31ee" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Directions on Microsoft | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Directions on Microsoft | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a20f8eca-9686-48ce-98c0-a2260329db8d" xml:space="preserve">
+          <source>Learn how to use Directions on Microsoft with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Directions on Microsoft with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="d9666d76-e99e-4eda-a358-7cd701c619a3" xml:space="preserve">
+          <source>For feedback, click <bpt id="897e6e9a-c0ef-45f1-9f2d-ec8dd506ae29">&lt;linkText&gt;</bpt>here<ept id="897e6e9a-c0ef-45f1-9f2d-ec8dd506ae29">&lt;/linkText&gt;</ept><bpt id="897e6e9a-c0ef-45f1-9f2d-ec8dd506ae29">&lt;title&gt;</bpt><ept id="897e6e9a-c0ef-45f1-9f2d-ec8dd506ae29">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="897e6e9a-c0ef-45f1-9f2d-ec8dd506ae29">&lt;linkText&gt;</bpt>here<ept id="897e6e9a-c0ef-45f1-9f2d-ec8dd506ae29">&lt;/linkText&gt;</ept><bpt id="897e6e9a-c0ef-45f1-9f2d-ec8dd506ae29">&lt;title&gt;</bpt><ept id="897e6e9a-c0ef-45f1-9f2d-ec8dd506ae29">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f448f1c-18d8-40f3-9ac2-7c1b25a9e611" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure Active Directory and Directions on Microsoft.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure Active Directory and Directions on Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="f7021f38-a6b0-44c7-95b2-7abee22adc4e" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="5463b268-d22e-492e-8481-512b58718baf" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="f39452e8-15b3-427a-a4a0-ec28e9a21427" xml:space="preserve">
+          <source>A Directions on Microsoft subscription</source>
+          <target state="new">A Directions on Microsoft subscription</target>
+        </trans-unit>
+        <trans-unit id="8990d0f3-9ff9-4daf-ba40-2dc8b509d254" xml:space="preserve">
+          <source>If you don’t have a federated Directions on Microsoft subscription yet, email a request to “<bpt id="40192810-2746-4ff8-a234-70e112866f6b">&lt;em&gt;</bpt>service@DirectionsOnMicrosoft.com<ept id="40192810-2746-4ff8-a234-70e112866f6b">&lt;/em&gt;</ept>”.</source>
+          <target state="new">If you don’t have a federated Directions on Microsoft subscription yet, email a request to “<bpt id="40192810-2746-4ff8-a234-70e112866f6b">&lt;em&gt;</bpt>service@DirectionsOnMicrosoft.com<ept id="40192810-2746-4ff8-a234-70e112866f6b">&lt;/em&gt;</ept>”.</target>
+        </trans-unit>
+        <trans-unit id="732d3f29-aabb-4ff0-879b-48d0e8830a90" xml:space="preserve">
+          <source>After completing this tutorial, the Azure Active Directory users you have assigned to Directions on Microsoft will be able to single sign into the application using single sign-on.</source>
+          <target state="new">After completing this tutorial, the Azure Active Directory users you have assigned to Directions on Microsoft will be able to single sign into the application using single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="4c64235b-9dc6-49d9-b979-008b84423405" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="e476497a-01fc-4e46-8eac-88460a3220b7" xml:space="preserve">
+          <source>Enabling the application integration for Directions on Microsoft</source>
+          <target state="new">Enabling the application integration for Directions on Microsoft</target>
+        </trans-unit>
+        <trans-unit id="480ded32-7f40-4555-9d60-de9eed4493fd" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="69a90adc-2a28-4b60-a8a8-7aada95db1da" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="af789082-0d69-457f-b6f1-d4b48fae9f0d" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="989ccd1d-201f-4241-895c-3569b4da3e24" xml:space="preserve">
+          <source><bpt id="3caf95ee-ca98-4015-b4be-790a604cd231">&lt;linkText&gt;</bpt>Scenario<ept id="3caf95ee-ca98-4015-b4be-790a604cd231">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3caf95ee-ca98-4015-b4be-790a604cd231">&lt;linkText&gt;</bpt>Scenario<ept id="3caf95ee-ca98-4015-b4be-790a604cd231">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0353adb5-6efa-418e-aa30-1e2a334d48c9" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Directions on Microsoft.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Directions on Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="d35bf964-3563-4cd6-bea8-8be66ec22191" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="b60fcdb7-778f-41ea-b1b1-7ea8fe5914f0">&lt;strong&gt;</bpt>Active Directory<ept id="b60fcdb7-778f-41ea-b1b1-7ea8fe5914f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="b60fcdb7-778f-41ea-b1b1-7ea8fe5914f0">&lt;strong&gt;</bpt>Active Directory<ept id="b60fcdb7-778f-41ea-b1b1-7ea8fe5914f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8889351-6229-401f-848d-b4be0130014c" xml:space="preserve">
+          <source><bpt id="72bcbcf9-f35c-4ce3-8996-563915818fb0">&lt;linkText&gt;</bpt>Active Directory<ept id="72bcbcf9-f35c-4ce3-8996-563915818fb0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="72bcbcf9-f35c-4ce3-8996-563915818fb0">&lt;linkText&gt;</bpt>Active Directory<ept id="72bcbcf9-f35c-4ce3-8996-563915818fb0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="477e1ecd-8fb5-4c21-9865-169f5bb49510" xml:space="preserve">
+          <source>From the <bpt id="8515c149-adbd-494f-aa17-2081910c826f">&lt;strong&gt;</bpt>Directory<ept id="8515c149-adbd-494f-aa17-2081910c826f">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="8515c149-adbd-494f-aa17-2081910c826f">&lt;strong&gt;</bpt>Directory<ept id="8515c149-adbd-494f-aa17-2081910c826f">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="8ac3d2e8-d064-4ab8-a0f1-4b75e23e1294" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="62ec72e2-a087-4fc3-853d-2f9f46f17dd8">&lt;strong&gt;</bpt>Applications<ept id="62ec72e2-a087-4fc3-853d-2f9f46f17dd8">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="62ec72e2-a087-4fc3-853d-2f9f46f17dd8">&lt;strong&gt;</bpt>Applications<ept id="62ec72e2-a087-4fc3-853d-2f9f46f17dd8">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="a018a034-6c4e-4866-a08b-2557ec203602" xml:space="preserve">
+          <source><bpt id="9cd63112-939d-4553-8a53-80173e86917a">&lt;linkText&gt;</bpt>Applications<ept id="9cd63112-939d-4553-8a53-80173e86917a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9cd63112-939d-4553-8a53-80173e86917a">&lt;linkText&gt;</bpt>Applications<ept id="9cd63112-939d-4553-8a53-80173e86917a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eebe4880-44a6-46c3-a0c0-526c3364f98e" xml:space="preserve">
+          <source>Click <bpt id="d108bbf3-4e55-4a67-87cf-0784fdff69c5">&lt;strong&gt;</bpt>Add<ept id="d108bbf3-4e55-4a67-87cf-0784fdff69c5">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="d108bbf3-4e55-4a67-87cf-0784fdff69c5">&lt;strong&gt;</bpt>Add<ept id="d108bbf3-4e55-4a67-87cf-0784fdff69c5">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="5764323e-4770-41dd-95e1-a49b489aef0a" xml:space="preserve">
+          <source><bpt id="9138db6c-53fa-4176-be9f-e9553b60c39d">&lt;linkText&gt;</bpt>Add application<ept id="9138db6c-53fa-4176-be9f-e9553b60c39d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9138db6c-53fa-4176-be9f-e9553b60c39d">&lt;linkText&gt;</bpt>Add application<ept id="9138db6c-53fa-4176-be9f-e9553b60c39d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23f9a5cc-8459-4907-9cfa-2de66773c9c6" xml:space="preserve">
+          <source>On the <bpt id="e710f1b3-5673-41e0-9cbd-f3defe2a0e14">&lt;strong&gt;</bpt>What do you want to do<ept id="e710f1b3-5673-41e0-9cbd-f3defe2a0e14">&lt;/strong&gt;</ept> dialog, click <bpt id="c1a7f26b-4fc4-4b1d-bce7-008369219ce0">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="c1a7f26b-4fc4-4b1d-bce7-008369219ce0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e710f1b3-5673-41e0-9cbd-f3defe2a0e14">&lt;strong&gt;</bpt>What do you want to do<ept id="e710f1b3-5673-41e0-9cbd-f3defe2a0e14">&lt;/strong&gt;</ept> dialog, click <bpt id="c1a7f26b-4fc4-4b1d-bce7-008369219ce0">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="c1a7f26b-4fc4-4b1d-bce7-008369219ce0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="400766e6-5903-411f-bcf0-f43c89b68044" xml:space="preserve">
+          <source><bpt id="d8ea102d-8e3d-4f42-8b39-a1d99632b396">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="d8ea102d-8e3d-4f42-8b39-a1d99632b396">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d8ea102d-8e3d-4f42-8b39-a1d99632b396">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="d8ea102d-8e3d-4f42-8b39-a1d99632b396">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99c6f5e0-1924-4f8a-99db-08c345e86a09" xml:space="preserve">
+          <source>In the <bpt id="4d04f0b2-5cf4-41bb-a270-6696dd681fb2">&lt;strong&gt;</bpt>search box<ept id="4d04f0b2-5cf4-41bb-a270-6696dd681fb2">&lt;/strong&gt;</ept>, type <bpt id="c4013d76-45d1-4586-b674-201ff64afa6b">&lt;strong&gt;</bpt>Directions on Microsoft<ept id="c4013d76-45d1-4586-b674-201ff64afa6b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4d04f0b2-5cf4-41bb-a270-6696dd681fb2">&lt;strong&gt;</bpt>search box<ept id="4d04f0b2-5cf4-41bb-a270-6696dd681fb2">&lt;/strong&gt;</ept>, type <bpt id="c4013d76-45d1-4586-b674-201ff64afa6b">&lt;strong&gt;</bpt>Directions on Microsoft<ept id="c4013d76-45d1-4586-b674-201ff64afa6b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca2f8eb1-8565-471a-9833-736191720b33" xml:space="preserve">
+          <source><bpt id="3d1196b0-754f-4c97-ba0d-5c9d72e98b61">&lt;linkText&gt;</bpt>Application Gallery<ept id="3d1196b0-754f-4c97-ba0d-5c9d72e98b61">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d1196b0-754f-4c97-ba0d-5c9d72e98b61">&lt;linkText&gt;</bpt>Application Gallery<ept id="3d1196b0-754f-4c97-ba0d-5c9d72e98b61">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29641673-938f-4780-a68f-c131681b11a5" xml:space="preserve">
+          <source>In the results pane, select <bpt id="bc2391f8-a567-48b8-8f26-c53070d5a314">&lt;strong&gt;</bpt>Directions on Microsoft<ept id="bc2391f8-a567-48b8-8f26-c53070d5a314">&lt;/strong&gt;</ept>, and then click <bpt id="830cd084-f3d2-4fa8-812f-7e32b354f188">&lt;strong&gt;</bpt>Complete<ept id="830cd084-f3d2-4fa8-812f-7e32b354f188">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="bc2391f8-a567-48b8-8f26-c53070d5a314">&lt;strong&gt;</bpt>Directions on Microsoft<ept id="bc2391f8-a567-48b8-8f26-c53070d5a314">&lt;/strong&gt;</ept>, and then click <bpt id="830cd084-f3d2-4fa8-812f-7e32b354f188">&lt;strong&gt;</bpt>Complete<ept id="830cd084-f3d2-4fa8-812f-7e32b354f188">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="a100321c-b316-45a3-8743-c0a801112fc8" xml:space="preserve">
+          <source><bpt id="fcf4a703-c0e3-49e5-900f-907f73d7f4c4">&lt;linkText&gt;</bpt>Scenario<ept id="fcf4a703-c0e3-49e5-900f-907f73d7f4c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fcf4a703-c0e3-49e5-900f-907f73d7f4c4">&lt;linkText&gt;</bpt>Scenario<ept id="fcf4a703-c0e3-49e5-900f-907f73d7f4c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8432ec1c-fe7c-41f2-838c-3db086d1b732" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Directions on Microsoft with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Directions on Microsoft with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="2f5b6378-814e-4b76-8d99-f892d218304c" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="50a3cec7-8461-440f-b6bd-f25b46178190">&lt;strong&gt;</bpt>Directions on Microsoft<ept id="50a3cec7-8461-440f-b6bd-f25b46178190">&lt;/strong&gt;</ept> application integration page, click <bpt id="62b07bff-3fd0-4649-801a-0ed29b285ada">&lt;strong&gt;</bpt>Configure single sign-on<ept id="62b07bff-3fd0-4649-801a-0ed29b285ada">&lt;/strong&gt;</ept> to open the <bpt id="58bdfcd2-28ef-46b4-bf63-f4ae941751c7">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="58bdfcd2-28ef-46b4-bf63-f4ae941751c7">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="50a3cec7-8461-440f-b6bd-f25b46178190">&lt;strong&gt;</bpt>Directions on Microsoft<ept id="50a3cec7-8461-440f-b6bd-f25b46178190">&lt;/strong&gt;</ept> application integration page, click <bpt id="62b07bff-3fd0-4649-801a-0ed29b285ada">&lt;strong&gt;</bpt>Configure single sign-on<ept id="62b07bff-3fd0-4649-801a-0ed29b285ada">&lt;/strong&gt;</ept> to open the <bpt id="58bdfcd2-28ef-46b4-bf63-f4ae941751c7">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="58bdfcd2-28ef-46b4-bf63-f4ae941751c7">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="c7d76482-f031-4545-8b49-dfb8c6023e67" xml:space="preserve">
+          <source><bpt id="7f40da36-689e-4d5a-9631-a43f856af4dd">&lt;linkText&gt;</bpt>Enable Single Sign-On<ept id="7f40da36-689e-4d5a-9631-a43f856af4dd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f40da36-689e-4d5a-9631-a43f856af4dd">&lt;linkText&gt;</bpt>Enable Single Sign-On<ept id="7f40da36-689e-4d5a-9631-a43f856af4dd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="685852aa-a497-4921-8d92-9f092f9f8682" xml:space="preserve">
+          <source>On the <bpt id="ff4235e9-f79a-4393-ae43-c980202752c1">&lt;strong&gt;</bpt>How would you like users to sign on to Directions on Microsoft<ept id="ff4235e9-f79a-4393-ae43-c980202752c1">&lt;/strong&gt;</ept> page, select <bpt id="eb38786b-8bf2-44da-b7ff-c128c08bdb1e">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="eb38786b-8bf2-44da-b7ff-c128c08bdb1e">&lt;/strong&gt;</ept>, and then click <bpt id="6439cdc7-e3bb-49c2-a166-f39145e389a8">&lt;strong&gt;</bpt>Next<ept id="6439cdc7-e3bb-49c2-a166-f39145e389a8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ff4235e9-f79a-4393-ae43-c980202752c1">&lt;strong&gt;</bpt>How would you like users to sign on to Directions on Microsoft<ept id="ff4235e9-f79a-4393-ae43-c980202752c1">&lt;/strong&gt;</ept> page, select <bpt id="eb38786b-8bf2-44da-b7ff-c128c08bdb1e">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="eb38786b-8bf2-44da-b7ff-c128c08bdb1e">&lt;/strong&gt;</ept>, and then click <bpt id="6439cdc7-e3bb-49c2-a166-f39145e389a8">&lt;strong&gt;</bpt>Next<ept id="6439cdc7-e3bb-49c2-a166-f39145e389a8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4dd2d306-eb58-40cc-9304-bd02171c3e4d" xml:space="preserve">
+          <source><bpt id="c959dc5b-b61c-4569-9fce-73ce3bc38c5b">&lt;linkText&gt;</bpt>Microsoft Azure AD Singel Sign-On<ept id="c959dc5b-b61c-4569-9fce-73ce3bc38c5b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c959dc5b-b61c-4569-9fce-73ce3bc38c5b">&lt;linkText&gt;</bpt>Microsoft Azure AD Singel Sign-On<ept id="c959dc5b-b61c-4569-9fce-73ce3bc38c5b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c4e573b-2b09-4d67-9a1a-9ce13411d67c" xml:space="preserve">
+          <source>On the <bpt id="aa9c631a-1ca0-43d8-9a78-5637766b7106">&lt;strong&gt;</bpt>Configure App URL<ept id="aa9c631a-1ca0-43d8-9a78-5637766b7106">&lt;/strong&gt;</ept> page, in the Sign On URL textbox, type <bpt id="b17f9b70-92b6-48d0-b49a-f24c13ae3515">&lt;strong&gt;</bpt>https://www.directionsonmicrosoft.com/user/login<ept id="b17f9b70-92b6-48d0-b49a-f24c13ae3515">&lt;/strong&gt;</ept>, and then click <bpt id="37acf148-1f70-465f-b9b7-b136d868e362">&lt;strong&gt;</bpt>Next<ept id="37acf148-1f70-465f-b9b7-b136d868e362">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="aa9c631a-1ca0-43d8-9a78-5637766b7106">&lt;strong&gt;</bpt>Configure App URL<ept id="aa9c631a-1ca0-43d8-9a78-5637766b7106">&lt;/strong&gt;</ept> page, in the Sign On URL textbox, type <bpt id="b17f9b70-92b6-48d0-b49a-f24c13ae3515">&lt;strong&gt;</bpt>https://www.directionsonmicrosoft.com/user/login<ept id="b17f9b70-92b6-48d0-b49a-f24c13ae3515">&lt;/strong&gt;</ept>, and then click <bpt id="37acf148-1f70-465f-b9b7-b136d868e362">&lt;strong&gt;</bpt>Next<ept id="37acf148-1f70-465f-b9b7-b136d868e362">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee19aceb-e011-4379-96de-318c45cc04fa" xml:space="preserve">
+          <source><bpt id="14aa681d-306f-493c-803b-eb0e3e32778e">&lt;linkText&gt;</bpt>Configure App URL<ept id="14aa681d-306f-493c-803b-eb0e3e32778e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="14aa681d-306f-493c-803b-eb0e3e32778e">&lt;linkText&gt;</bpt>Configure App URL<ept id="14aa681d-306f-493c-803b-eb0e3e32778e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07aee788-b881-40b4-b4b6-51f323e0b2f6" xml:space="preserve">
+          <source>On the <bpt id="a8c6e2e8-cec6-4b5b-bba2-747088516202">&lt;strong&gt;</bpt>Configure single sign-on at Directions on Microsoft<ept id="a8c6e2e8-cec6-4b5b-bba2-747088516202">&lt;/strong&gt;</ept> page, click <bpt id="0384978c-a3b5-4308-a48a-68665786ca11">&lt;strong&gt;</bpt>Download metadata<ept id="0384978c-a3b5-4308-a48a-68665786ca11">&lt;/strong&gt;</ept>, and then save the metadata file locally on your computer.</source>
+          <target state="new">On the <bpt id="a8c6e2e8-cec6-4b5b-bba2-747088516202">&lt;strong&gt;</bpt>Configure single sign-on at Directions on Microsoft<ept id="a8c6e2e8-cec6-4b5b-bba2-747088516202">&lt;/strong&gt;</ept> page, click <bpt id="0384978c-a3b5-4308-a48a-68665786ca11">&lt;strong&gt;</bpt>Download metadata<ept id="0384978c-a3b5-4308-a48a-68665786ca11">&lt;/strong&gt;</ept>, and then save the metadata file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="f19c16b2-621b-4d60-adff-b08263cd2ced" xml:space="preserve">
+          <source><bpt id="7d249b84-22cc-4d80-a288-b0a93de2daab">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="7d249b84-22cc-4d80-a288-b0a93de2daab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7d249b84-22cc-4d80-a288-b0a93de2daab">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="7d249b84-22cc-4d80-a288-b0a93de2daab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1660be72-c111-458b-9c4e-8974b5d7c8f3" xml:space="preserve">
+          <source>Send the metadata file to the Directions on Microsoft support team (<bpt id="12451a77-5960-4970-b515-6673f38519d6">&lt;em&gt;</bpt>service@DirectionsOnMicrosoft.com<ept id="12451a77-5960-4970-b515-6673f38519d6">&lt;/em&gt;</ept>).</source>
+          <target state="new">Send the metadata file to the Directions on Microsoft support team (<bpt id="12451a77-5960-4970-b515-6673f38519d6">&lt;em&gt;</bpt>service@DirectionsOnMicrosoft.com<ept id="12451a77-5960-4970-b515-6673f38519d6">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="0572a939-2d07-4c8c-a613-ae1b8a8cee32" xml:space="preserve">
+          <source>To enable the Directions on Microsoft support team to locate your federated site membership, include your company information in your email.</source>
+          <target state="new">To enable the Directions on Microsoft support team to locate your federated site membership, include your company information in your email.</target>
+        </trans-unit>
+        <trans-unit id="7edafd3f-f357-4c7b-84ad-62ad9c347ae8" xml:space="preserve">
+          <source>Single sign-on for Directions on Microsoft needs to be enabled by the Directions on Microsoft support team.</source>
+          <target state="new">Single sign-on for Directions on Microsoft needs to be enabled by the Directions on Microsoft support team.</target>
+        </trans-unit>
+        <trans-unit id="51ffff1b-6e41-4ffb-a6d3-f9423bf66d8c" xml:space="preserve">
+          <source>You will receive a notification when single sign-on has been enabled.</source>
+          <target state="new">You will receive a notification when single sign-on has been enabled.</target>
+        </trans-unit>
+        <trans-unit id="9d7605fe-5d98-4aaf-9985-1829699047c3" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="22dc8598-dea3-4da8-b257-f6d4401ed1ad">&lt;strong&gt;</bpt>Complete<ept id="22dc8598-dea3-4da8-b257-f6d4401ed1ad">&lt;/strong&gt;</ept> to close the <bpt id="342ca97c-1757-43a2-b109-774559ca42b2">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="342ca97c-1757-43a2-b109-774559ca42b2">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="22dc8598-dea3-4da8-b257-f6d4401ed1ad">&lt;strong&gt;</bpt>Complete<ept id="22dc8598-dea3-4da8-b257-f6d4401ed1ad">&lt;/strong&gt;</ept> to close the <bpt id="342ca97c-1757-43a2-b109-774559ca42b2">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="342ca97c-1757-43a2-b109-774559ca42b2">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="2f0560f7-53a7-4d35-9ecf-97220afe0de4" xml:space="preserve">
+          <source><bpt id="37c8454c-4f45-478a-82bb-f2cb6d244ddc">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="37c8454c-4f45-478a-82bb-f2cb6d244ddc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="37c8454c-4f45-478a-82bb-f2cb6d244ddc">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="37c8454c-4f45-478a-82bb-f2cb6d244ddc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb87170e-2896-444d-81b5-49074d40b0d9" xml:space="preserve">
+          <source>There is no action item for you to configure user provisioning to Directions on Microsoft.</source>
+          <target state="new">There is no action item for you to configure user provisioning to Directions on Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="634badfc-d95d-454e-85f3-b8febaa70331" xml:space="preserve">
+          <source>When an assigned user tries to log into Directions on Microsoft using the access panel, Directions on Microsoft checks whether the user exists.</source>
+          <target state="new">When an assigned user tries to log into Directions on Microsoft using the access panel, Directions on Microsoft checks whether the user exists.</target>
+        </trans-unit>
+        <trans-unit id="616ef1d5-4dfe-408c-8b77-8568ac725c07" xml:space="preserve">
+          <source>If there is no user account available yet, it is automatically created by Directions on Microsoft.</source>
+          <target state="new">If there is no user account available yet, it is automatically created by Directions on Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="a2f9700f-54f8-4b7d-bcc7-357cc3e631a4" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="353389d6-2471-4964-913c-3d0250e53a89" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="8e37b92b-eb98-4713-8c77-30ffbae4ab2a" xml:space="preserve">
+          <source>On the <bpt id="e06cf733-7382-4365-a49c-757aad3f99b9">&lt;strong&gt;</bpt>Directions on Microsoft **application integration page, click **Assign users<ept id="e06cf733-7382-4365-a49c-757aad3f99b9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e06cf733-7382-4365-a49c-757aad3f99b9">&lt;strong&gt;</bpt>Directions on Microsoft **application integration page, click **Assign users<ept id="e06cf733-7382-4365-a49c-757aad3f99b9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83c84e6f-8ead-4007-b26a-0bf6e1d503ba" xml:space="preserve">
+          <source><bpt id="6131ac3a-f0c0-4e3f-998d-de14d8eeaf0b">&lt;linkText&gt;</bpt>Assign users<ept id="6131ac3a-f0c0-4e3f-998d-de14d8eeaf0b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6131ac3a-f0c0-4e3f-998d-de14d8eeaf0b">&lt;linkText&gt;</bpt>Assign users<ept id="6131ac3a-f0c0-4e3f-998d-de14d8eeaf0b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77fa4bf3-d318-41cd-98f8-ac905ad43aee" xml:space="preserve">
+          <source>Select your test user, click <bpt id="f8949c46-055b-459d-94c7-48c1546f9a50">&lt;strong&gt;</bpt>Assign<ept id="f8949c46-055b-459d-94c7-48c1546f9a50">&lt;/strong&gt;</ept>, and then click <bpt id="c2a73e50-f3ad-455b-b5e6-a89694ed740e">&lt;strong&gt;</bpt>Yes<ept id="c2a73e50-f3ad-455b-b5e6-a89694ed740e">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="f8949c46-055b-459d-94c7-48c1546f9a50">&lt;strong&gt;</bpt>Assign<ept id="f8949c46-055b-459d-94c7-48c1546f9a50">&lt;/strong&gt;</ept>, and then click <bpt id="c2a73e50-f3ad-455b-b5e6-a89694ed740e">&lt;strong&gt;</bpt>Yes<ept id="c2a73e50-f3ad-455b-b5e6-a89694ed740e">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="fa62b294-3393-4e24-9be0-3347d3a5dcaa" xml:space="preserve">
+          <source><bpt id="d3565064-6b31-4707-8c73-28e04d13a5f3">&lt;linkText&gt;</bpt>Yes<ept id="d3565064-6b31-4707-8c73-28e04d13a5f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d3565064-6b31-4707-8c73-28e04d13a5f3">&lt;linkText&gt;</bpt>Yes<ept id="d3565064-6b31-4707-8c73-28e04d13a5f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

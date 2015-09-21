@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d91485e6-8401-4057-a899-7850d378230c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d91485e6-8401-4057-a899-7850d378230c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7fb256fe-0394-4361-b596-91b6bce20d82">
+        <trans-unit id="70174e08-62ed-42aa-9862-c21f54ddf157" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with Picturepark | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with Picturepark | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a98be544-ca69-4d42-a2e6-923f8f9ac30c" xml:space="preserve">
+          <source>Learn how to use Picturepark with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Picturepark with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="434a5b83-3520-4da7-9c41-bc3e927fd74c" xml:space="preserve">
+          <source>For feedback, click <bpt id="1733efbe-6423-439c-888f-3d0042929964">&lt;linkText&gt;</bpt>here<ept id="1733efbe-6423-439c-888f-3d0042929964">&lt;/linkText&gt;</ept><bpt id="1733efbe-6423-439c-888f-3d0042929964">&lt;title&gt;</bpt><ept id="1733efbe-6423-439c-888f-3d0042929964">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="1733efbe-6423-439c-888f-3d0042929964">&lt;linkText&gt;</bpt>here<ept id="1733efbe-6423-439c-888f-3d0042929964">&lt;/linkText&gt;</ept><bpt id="1733efbe-6423-439c-888f-3d0042929964">&lt;title&gt;</bpt><ept id="1733efbe-6423-439c-888f-3d0042929964">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e070272-ebb1-4d53-b216-430a5fb79a2e" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Picturepark.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Picturepark.</target>
+        </trans-unit>
+        <trans-unit id="8e906e0b-73a3-4779-9af5-7c7b857c54fd" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="0fc0f372-7c79-4ad9-9df2-4d4c1633d283" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="d2100557-2ac1-4680-af7c-8dfd89082df8" xml:space="preserve">
+          <source>A Picturepark tenant</source>
+          <target state="new">A Picturepark tenant</target>
+        </trans-unit>
+        <trans-unit id="1f38a343-ccfe-4d0b-a23a-47e00a9efd20" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Picturepark will be able to single sign into the application at your Picturepark company site (service provider initiated sign on), or using the <bpt id="60e1b722-64fe-43a5-8fb9-0007f3bb9e19">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="60e1b722-64fe-43a5-8fb9-0007f3bb9e19">&lt;/linkText&gt;</ept><bpt id="60e1b722-64fe-43a5-8fb9-0007f3bb9e19">&lt;title&gt;</bpt><ept id="60e1b722-64fe-43a5-8fb9-0007f3bb9e19">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Picturepark will be able to single sign into the application at your Picturepark company site (service provider initiated sign on), or using the <bpt id="60e1b722-64fe-43a5-8fb9-0007f3bb9e19">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="60e1b722-64fe-43a5-8fb9-0007f3bb9e19">&lt;/linkText&gt;</ept><bpt id="60e1b722-64fe-43a5-8fb9-0007f3bb9e19">&lt;title&gt;</bpt><ept id="60e1b722-64fe-43a5-8fb9-0007f3bb9e19">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="161c5d8d-aae5-479d-aa8b-e21e4da7bd23" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="e8b2c7fb-058d-4d92-bdde-4e2151c43b42" xml:space="preserve">
+          <source>Enabling the application integration for Picturepark</source>
+          <target state="new">Enabling the application integration for Picturepark</target>
+        </trans-unit>
+        <trans-unit id="e970d82b-058c-4575-823c-65782d729f7e" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="c136e05d-7104-4470-b952-22fd84d98c4c" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="b0369f31-c157-4d2f-9681-e40c951183f0" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="75739c0e-8a05-4739-90cb-6eeacf4bfbca" xml:space="preserve">
+          <source><bpt id="a503cf70-bc03-4972-9bda-abb1ac831ce0">&lt;linkText&gt;</bpt>Scenario<ept id="a503cf70-bc03-4972-9bda-abb1ac831ce0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a503cf70-bc03-4972-9bda-abb1ac831ce0">&lt;linkText&gt;</bpt>Scenario<ept id="a503cf70-bc03-4972-9bda-abb1ac831ce0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2aaee76-dfb5-4fda-85a2-5e35f3682a15" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Picturepark.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Picturepark.</target>
+        </trans-unit>
+        <trans-unit id="5d6fdefb-8fe3-497f-8ee6-27a2777d7f7d" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="29ac4beb-e2eb-46c6-9504-28fecdc50d79">&lt;strong&gt;</bpt>Active Directory<ept id="29ac4beb-e2eb-46c6-9504-28fecdc50d79">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="29ac4beb-e2eb-46c6-9504-28fecdc50d79">&lt;strong&gt;</bpt>Active Directory<ept id="29ac4beb-e2eb-46c6-9504-28fecdc50d79">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="819861ef-34cd-4b14-bd4f-23ec3eb4bd87" xml:space="preserve">
+          <source><bpt id="f59d8a6f-2f4d-414e-ac69-e3960f7b714c">&lt;linkText&gt;</bpt>Active Directory<ept id="f59d8a6f-2f4d-414e-ac69-e3960f7b714c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f59d8a6f-2f4d-414e-ac69-e3960f7b714c">&lt;linkText&gt;</bpt>Active Directory<ept id="f59d8a6f-2f4d-414e-ac69-e3960f7b714c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3700e50c-33b7-44e4-8e0a-278104c1a8e2" xml:space="preserve">
+          <source>From the <bpt id="efd710cb-a893-4e4a-bc22-bf4ac079b657">&lt;strong&gt;</bpt>Directory<ept id="efd710cb-a893-4e4a-bc22-bf4ac079b657">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="efd710cb-a893-4e4a-bc22-bf4ac079b657">&lt;strong&gt;</bpt>Directory<ept id="efd710cb-a893-4e4a-bc22-bf4ac079b657">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="ff9a252b-4de2-4997-a07c-fc88b844db62" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="77585d8f-c422-4a77-aeb3-b331f33b386a">&lt;strong&gt;</bpt>Applications<ept id="77585d8f-c422-4a77-aeb3-b331f33b386a">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="77585d8f-c422-4a77-aeb3-b331f33b386a">&lt;strong&gt;</bpt>Applications<ept id="77585d8f-c422-4a77-aeb3-b331f33b386a">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="8243bc07-08ca-4c00-8026-0b566a66f3c3" xml:space="preserve">
+          <source><bpt id="e400ef86-bb52-4298-8c70-3f55d043924d">&lt;linkText&gt;</bpt>Applications<ept id="e400ef86-bb52-4298-8c70-3f55d043924d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e400ef86-bb52-4298-8c70-3f55d043924d">&lt;linkText&gt;</bpt>Applications<ept id="e400ef86-bb52-4298-8c70-3f55d043924d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e1239bc-8ecb-460d-b255-b54949a8ba1d" xml:space="preserve">
+          <source>Click <bpt id="b70c88a2-8d48-427e-a59a-c4cf7ec4d624">&lt;strong&gt;</bpt>Add<ept id="b70c88a2-8d48-427e-a59a-c4cf7ec4d624">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="b70c88a2-8d48-427e-a59a-c4cf7ec4d624">&lt;strong&gt;</bpt>Add<ept id="b70c88a2-8d48-427e-a59a-c4cf7ec4d624">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="c29aad47-63f8-4123-acb2-974df6a56f8e" xml:space="preserve">
+          <source><bpt id="402377e5-2728-4aa9-aeac-d06cd0a3a60e">&lt;linkText&gt;</bpt>Add application<ept id="402377e5-2728-4aa9-aeac-d06cd0a3a60e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="402377e5-2728-4aa9-aeac-d06cd0a3a60e">&lt;linkText&gt;</bpt>Add application<ept id="402377e5-2728-4aa9-aeac-d06cd0a3a60e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9eb2009d-df85-4cf9-ba94-865fcb668566" xml:space="preserve">
+          <source>On the <bpt id="7d170d75-8c06-44aa-b8c8-a8a7126f106d">&lt;strong&gt;</bpt>What do you want to do<ept id="7d170d75-8c06-44aa-b8c8-a8a7126f106d">&lt;/strong&gt;</ept> dialog, click <bpt id="12331769-f40e-4d81-a750-9c41b030ee4e">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="12331769-f40e-4d81-a750-9c41b030ee4e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7d170d75-8c06-44aa-b8c8-a8a7126f106d">&lt;strong&gt;</bpt>What do you want to do<ept id="7d170d75-8c06-44aa-b8c8-a8a7126f106d">&lt;/strong&gt;</ept> dialog, click <bpt id="12331769-f40e-4d81-a750-9c41b030ee4e">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="12331769-f40e-4d81-a750-9c41b030ee4e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="051e5455-740d-4d9b-8eff-e79b9372f1b7" xml:space="preserve">
+          <source><bpt id="f4626836-93db-40cb-b9c5-03146d9e59c8">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="f4626836-93db-40cb-b9c5-03146d9e59c8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f4626836-93db-40cb-b9c5-03146d9e59c8">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="f4626836-93db-40cb-b9c5-03146d9e59c8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7eb84ebf-cfd9-410d-a37e-2488e39cb19e" xml:space="preserve">
+          <source>In the <bpt id="157b6fe7-c5a5-4c45-b501-b0e5e42af8b1">&lt;strong&gt;</bpt>search box<ept id="157b6fe7-c5a5-4c45-b501-b0e5e42af8b1">&lt;/strong&gt;</ept>, type <bpt id="914241ec-c0b5-4351-a31d-6d33974e7b64">&lt;strong&gt;</bpt>Picturepark<ept id="914241ec-c0b5-4351-a31d-6d33974e7b64">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="157b6fe7-c5a5-4c45-b501-b0e5e42af8b1">&lt;strong&gt;</bpt>search box<ept id="157b6fe7-c5a5-4c45-b501-b0e5e42af8b1">&lt;/strong&gt;</ept>, type <bpt id="914241ec-c0b5-4351-a31d-6d33974e7b64">&lt;strong&gt;</bpt>Picturepark<ept id="914241ec-c0b5-4351-a31d-6d33974e7b64">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2e1f012-de07-40a1-86b5-bf4ca5d8b2a2" xml:space="preserve">
+          <source><bpt id="03d397ea-dd47-40c9-84aa-d9663094e317">&lt;linkText&gt;</bpt>Application Gallery<ept id="03d397ea-dd47-40c9-84aa-d9663094e317">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="03d397ea-dd47-40c9-84aa-d9663094e317">&lt;linkText&gt;</bpt>Application Gallery<ept id="03d397ea-dd47-40c9-84aa-d9663094e317">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5d0a2f4-e6cf-4361-8a35-0153c02ffb88" xml:space="preserve">
+          <source>In the results pane, select <bpt id="96770b66-a065-4b4e-a10b-61ea1a406ef5">&lt;strong&gt;</bpt>Picturepark<ept id="96770b66-a065-4b4e-a10b-61ea1a406ef5">&lt;/strong&gt;</ept>, and then click <bpt id="a1254402-a018-48af-9cd8-ac87447ee5bb">&lt;strong&gt;</bpt>Complete<ept id="a1254402-a018-48af-9cd8-ac87447ee5bb">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="96770b66-a065-4b4e-a10b-61ea1a406ef5">&lt;strong&gt;</bpt>Picturepark<ept id="96770b66-a065-4b4e-a10b-61ea1a406ef5">&lt;/strong&gt;</ept>, and then click <bpt id="a1254402-a018-48af-9cd8-ac87447ee5bb">&lt;strong&gt;</bpt>Complete<ept id="a1254402-a018-48af-9cd8-ac87447ee5bb">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="256f00c0-f807-482e-806c-2403f4857267" xml:space="preserve">
+          <source><bpt id="9e32d3d0-5f87-4b13-afa4-a073a93c025d">&lt;linkText&gt;</bpt>Picturepark<ept id="9e32d3d0-5f87-4b13-afa4-a073a93c025d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9e32d3d0-5f87-4b13-afa4-a073a93c025d">&lt;linkText&gt;</bpt>Picturepark<ept id="9e32d3d0-5f87-4b13-afa4-a073a93c025d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3dda927b-4caf-49e2-9419-efa65d760215" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Picturepark with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Picturepark with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="72908dc4-c06a-482a-a2ef-68f7a6eda107" xml:space="preserve">
+          <source>Configuring single sign-on for Picturepark requires you to retrieve a thumbprint value from a certificate.</source>
+          <target state="new">Configuring single sign-on for Picturepark requires you to retrieve a thumbprint value from a certificate.</target>
+        </trans-unit>
+        <trans-unit id="8676b34c-2761-4e8d-b3f8-8590d8c5fa45" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="451ff150-fafa-40ae-aa67-82a011a67db3">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="451ff150-fafa-40ae-aa67-82a011a67db3">&lt;/linkText&gt;</ept><bpt id="451ff150-fafa-40ae-aa67-82a011a67db3">&lt;title&gt;</bpt><ept id="451ff150-fafa-40ae-aa67-82a011a67db3">&lt;/title&gt;</ept>..</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="451ff150-fafa-40ae-aa67-82a011a67db3">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="451ff150-fafa-40ae-aa67-82a011a67db3">&lt;/linkText&gt;</ept><bpt id="451ff150-fafa-40ae-aa67-82a011a67db3">&lt;title&gt;</bpt><ept id="451ff150-fafa-40ae-aa67-82a011a67db3">&lt;/title&gt;</ept>..</target>
+        </trans-unit>
+        <trans-unit id="c618bb6d-9bf4-4f8f-b113-5e58169542f2" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="d32b0658-fe3f-4441-948e-403e5826d618">&lt;strong&gt;</bpt>Picturepark<ept id="d32b0658-fe3f-4441-948e-403e5826d618">&lt;/strong&gt;</ept> application integration page, click <bpt id="734dba9e-25f3-47b8-bc54-045cd161959c">&lt;strong&gt;</bpt>Configure single sign-on<ept id="734dba9e-25f3-47b8-bc54-045cd161959c">&lt;/strong&gt;</ept> to open the <bpt id="d3d27bb6-2881-4d1a-9cdd-4b2c79c24dce">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="d3d27bb6-2881-4d1a-9cdd-4b2c79c24dce">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="d32b0658-fe3f-4441-948e-403e5826d618">&lt;strong&gt;</bpt>Picturepark<ept id="d32b0658-fe3f-4441-948e-403e5826d618">&lt;/strong&gt;</ept> application integration page, click <bpt id="734dba9e-25f3-47b8-bc54-045cd161959c">&lt;strong&gt;</bpt>Configure single sign-on<ept id="734dba9e-25f3-47b8-bc54-045cd161959c">&lt;/strong&gt;</ept> to open the <bpt id="d3d27bb6-2881-4d1a-9cdd-4b2c79c24dce">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="d3d27bb6-2881-4d1a-9cdd-4b2c79c24dce">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="5dd267e0-3bdf-4c98-8992-2cfa157d87e3" xml:space="preserve">
+          <source><bpt id="8d3e43bb-1846-4d10-bc4c-be41927fa318">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="8d3e43bb-1846-4d10-bc4c-be41927fa318">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8d3e43bb-1846-4d10-bc4c-be41927fa318">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="8d3e43bb-1846-4d10-bc4c-be41927fa318">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9006108b-67f8-4c98-98aa-90fe9c002140" xml:space="preserve">
+          <source>On the <bpt id="fb5f62d0-c5cf-4942-a104-c3bda7f1edc8">&lt;strong&gt;</bpt>How would you like users to sign on to Picturepark<ept id="fb5f62d0-c5cf-4942-a104-c3bda7f1edc8">&lt;/strong&gt;</ept> page, select <bpt id="9b8adf89-3f49-4eeb-8afe-bd943408bed4">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="9b8adf89-3f49-4eeb-8afe-bd943408bed4">&lt;/strong&gt;</ept>, and then click <bpt id="8f74d8b4-9331-4936-8e33-17d006319290">&lt;strong&gt;</bpt>Next<ept id="8f74d8b4-9331-4936-8e33-17d006319290">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="fb5f62d0-c5cf-4942-a104-c3bda7f1edc8">&lt;strong&gt;</bpt>How would you like users to sign on to Picturepark<ept id="fb5f62d0-c5cf-4942-a104-c3bda7f1edc8">&lt;/strong&gt;</ept> page, select <bpt id="9b8adf89-3f49-4eeb-8afe-bd943408bed4">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="9b8adf89-3f49-4eeb-8afe-bd943408bed4">&lt;/strong&gt;</ept>, and then click <bpt id="8f74d8b4-9331-4936-8e33-17d006319290">&lt;strong&gt;</bpt>Next<ept id="8f74d8b4-9331-4936-8e33-17d006319290">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91dc2c39-974b-4a96-989f-ad40059a5b99" xml:space="preserve">
+          <source><bpt id="704669eb-4c15-48cc-9efe-88347f8175e4">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="704669eb-4c15-48cc-9efe-88347f8175e4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="704669eb-4c15-48cc-9efe-88347f8175e4">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="704669eb-4c15-48cc-9efe-88347f8175e4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecc8bad5-1378-4783-a1f3-c7e1026f9cde" xml:space="preserve">
+          <source>On the <bpt id="a796bbfa-1a46-41b1-88de-d6918e63d95c">&lt;strong&gt;</bpt>Configure App URL<ept id="a796bbfa-1a46-41b1-88de-d6918e63d95c">&lt;/strong&gt;</ept> page, in the <bpt id="ad5b7bb5-1512-4d85-8fa5-56a8c6616531">&lt;strong&gt;</bpt>Picturepark Sign On URL<ept id="ad5b7bb5-1512-4d85-8fa5-56a8c6616531">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="69adccdb-873b-4c7a-b43f-9195cb13a6df">&lt;em&gt;</bpt>http://company.picturepark.com<ept id="69adccdb-873b-4c7a-b43f-9195cb13a6df">&lt;/em&gt;</ept>", and then click <bpt id="f53e1817-0c1b-44c2-9a1f-e5da6d8600e1">&lt;strong&gt;</bpt>Next<ept id="f53e1817-0c1b-44c2-9a1f-e5da6d8600e1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="a796bbfa-1a46-41b1-88de-d6918e63d95c">&lt;strong&gt;</bpt>Configure App URL<ept id="a796bbfa-1a46-41b1-88de-d6918e63d95c">&lt;/strong&gt;</ept> page, in the <bpt id="ad5b7bb5-1512-4d85-8fa5-56a8c6616531">&lt;strong&gt;</bpt>Picturepark Sign On URL<ept id="ad5b7bb5-1512-4d85-8fa5-56a8c6616531">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="69adccdb-873b-4c7a-b43f-9195cb13a6df">&lt;em&gt;</bpt>http://company.picturepark.com<ept id="69adccdb-873b-4c7a-b43f-9195cb13a6df">&lt;/em&gt;</ept>", and then click <bpt id="f53e1817-0c1b-44c2-9a1f-e5da6d8600e1">&lt;strong&gt;</bpt>Next<ept id="f53e1817-0c1b-44c2-9a1f-e5da6d8600e1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="402ee6b2-d740-422a-98f3-0d3adc2cb689" xml:space="preserve">
+          <source><bpt id="3ee5d018-1334-4c8d-82b2-99e2cb915603">&lt;linkText&gt;</bpt>Configure App URL<ept id="3ee5d018-1334-4c8d-82b2-99e2cb915603">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ee5d018-1334-4c8d-82b2-99e2cb915603">&lt;linkText&gt;</bpt>Configure App URL<ept id="3ee5d018-1334-4c8d-82b2-99e2cb915603">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61bbc676-540b-4f83-8b5c-caf9730d091f" xml:space="preserve">
+          <source>On the <bpt id="4d5e8a45-d841-4c1f-a8e8-97a33b2455d3">&lt;strong&gt;</bpt>Configure single sign-on at Picturepark<ept id="4d5e8a45-d841-4c1f-a8e8-97a33b2455d3">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="35c15d32-1785-4b34-bafd-7ffecdbba697">&lt;strong&gt;</bpt>Download certificate<ept id="35c15d32-1785-4b34-bafd-7ffecdbba697">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</source>
+          <target state="new">On the <bpt id="4d5e8a45-d841-4c1f-a8e8-97a33b2455d3">&lt;strong&gt;</bpt>Configure single sign-on at Picturepark<ept id="4d5e8a45-d841-4c1f-a8e8-97a33b2455d3">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="35c15d32-1785-4b34-bafd-7ffecdbba697">&lt;strong&gt;</bpt>Download certificate<ept id="35c15d32-1785-4b34-bafd-7ffecdbba697">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="b6992583-55c3-421b-a771-8f232a1fbb6a" xml:space="preserve">
+          <source><bpt id="0ee3c05d-2b9a-42bc-abd5-24604e761c40">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="0ee3c05d-2b9a-42bc-abd5-24604e761c40">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ee3c05d-2b9a-42bc-abd5-24604e761c40">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="0ee3c05d-2b9a-42bc-abd5-24604e761c40">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ddd09b2-97ec-4489-a614-a8c3e978a5ef" xml:space="preserve">
+          <source>In a different web browser window, log into your Picturepark company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Picturepark company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="e8810d34-e9ef-4354-b798-b209b6579f86" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="91083379-96ab-48c9-8ccf-2920fa896e3b">&lt;strong&gt;</bpt>Administrative tools<ept id="91083379-96ab-48c9-8ccf-2920fa896e3b">&lt;/strong&gt;</ept>, and then click <bpt id="904df231-7be5-4120-9697-60f1528a52e5">&lt;strong&gt;</bpt>Management Console<ept id="904df231-7be5-4120-9697-60f1528a52e5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="91083379-96ab-48c9-8ccf-2920fa896e3b">&lt;strong&gt;</bpt>Administrative tools<ept id="91083379-96ab-48c9-8ccf-2920fa896e3b">&lt;/strong&gt;</ept>, and then click <bpt id="904df231-7be5-4120-9697-60f1528a52e5">&lt;strong&gt;</bpt>Management Console<ept id="904df231-7be5-4120-9697-60f1528a52e5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36e7e33f-72bd-4a91-bfdf-b339db16eb67" xml:space="preserve">
+          <source><bpt id="c9d96aab-9e1f-4d75-9b52-fc47f4c6a4e0">&lt;linkText&gt;</bpt>Management Console<ept id="c9d96aab-9e1f-4d75-9b52-fc47f4c6a4e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9d96aab-9e1f-4d75-9b52-fc47f4c6a4e0">&lt;linkText&gt;</bpt>Management Console<ept id="c9d96aab-9e1f-4d75-9b52-fc47f4c6a4e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9b9f2bf-1904-4a44-a995-e2530d4d10ac" xml:space="preserve">
+          <source>Click <bpt id="c71b1ce7-8a08-4f4f-9f1c-b675eb92c759">&lt;strong&gt;</bpt>Authentication<ept id="c71b1ce7-8a08-4f4f-9f1c-b675eb92c759">&lt;/strong&gt;</ept>, and then click <bpt id="7a9ee5db-b026-4483-b2fc-d7159b79ef48">&lt;strong&gt;</bpt>Identity providers<ept id="7a9ee5db-b026-4483-b2fc-d7159b79ef48">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c71b1ce7-8a08-4f4f-9f1c-b675eb92c759">&lt;strong&gt;</bpt>Authentication<ept id="c71b1ce7-8a08-4f4f-9f1c-b675eb92c759">&lt;/strong&gt;</ept>, and then click <bpt id="7a9ee5db-b026-4483-b2fc-d7159b79ef48">&lt;strong&gt;</bpt>Identity providers<ept id="7a9ee5db-b026-4483-b2fc-d7159b79ef48">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99f7762b-08ee-4b1d-8268-74825c67e7ed" xml:space="preserve">
+          <source><bpt id="f2af263d-b925-4240-8181-d838f2fc8902">&lt;linkText&gt;</bpt>Authentication<ept id="f2af263d-b925-4240-8181-d838f2fc8902">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f2af263d-b925-4240-8181-d838f2fc8902">&lt;linkText&gt;</bpt>Authentication<ept id="f2af263d-b925-4240-8181-d838f2fc8902">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="daf6cc93-4051-4518-ace4-2bd4175c251e" xml:space="preserve">
+          <source>In the <bpt id="c1e5b08c-704e-4931-93e1-d10482fb8ba9">&lt;strong&gt;</bpt>Identity provider configuration<ept id="c1e5b08c-704e-4931-93e1-d10482fb8ba9">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="c1e5b08c-704e-4931-93e1-d10482fb8ba9">&lt;strong&gt;</bpt>Identity provider configuration<ept id="c1e5b08c-704e-4931-93e1-d10482fb8ba9">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="2faa6335-5a04-4607-bc9e-6e4b8d193f66" xml:space="preserve">
+          <source><bpt id="31caa23f-fe63-435d-a886-abadcb963796">&lt;linkText&gt;</bpt>Identity provider configuration<ept id="31caa23f-fe63-435d-a886-abadcb963796">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="31caa23f-fe63-435d-a886-abadcb963796">&lt;linkText&gt;</bpt>Identity provider configuration<ept id="31caa23f-fe63-435d-a886-abadcb963796">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f59b6be7-57ee-4d91-91ef-d27ee3a64249" xml:space="preserve">
+          <source>Click <bpt id="c88fc162-9e5a-487c-a155-1361a3ba14cd">&lt;strong&gt;</bpt>Add<ept id="c88fc162-9e5a-487c-a155-1361a3ba14cd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c88fc162-9e5a-487c-a155-1361a3ba14cd">&lt;strong&gt;</bpt>Add<ept id="c88fc162-9e5a-487c-a155-1361a3ba14cd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5bd4016d-9f92-4bc9-81a3-c604a41df45d" xml:space="preserve">
+          <source>Type a name for your configuration.</source>
+          <target state="new">Type a name for your configuration.</target>
+        </trans-unit>
+        <trans-unit id="44a0f682-5aff-4a52-b6b0-6447cea66c82" xml:space="preserve">
+          <source>Select <bpt id="71497b17-603a-44ea-b8c8-eba931e0a401">&lt;strong&gt;</bpt>Set as default<ept id="71497b17-603a-44ea-b8c8-eba931e0a401">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="71497b17-603a-44ea-b8c8-eba931e0a401">&lt;strong&gt;</bpt>Set as default<ept id="71497b17-603a-44ea-b8c8-eba931e0a401">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5bcf2bbf-8ab8-45fb-9867-4215bd238472" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="c2e60d3a-ab71-4dc1-b459-da7820d6cca0">&lt;strong&gt;</bpt>Configure single sign-on at Picturepark<ept id="c2e60d3a-ab71-4dc1-b459-da7820d6cca0">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="475d6e96-3f4a-41bc-8c49-9b50e3c1afcd">&lt;strong&gt;</bpt>SAML SSO URL<ept id="475d6e96-3f4a-41bc-8c49-9b50e3c1afcd">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="1d89b9d9-e860-43a6-8ecc-db9a7fdbe5ec">&lt;strong&gt;</bpt>Issuer URI<ept id="1d89b9d9-e860-43a6-8ecc-db9a7fdbe5ec">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="c2e60d3a-ab71-4dc1-b459-da7820d6cca0">&lt;strong&gt;</bpt>Configure single sign-on at Picturepark<ept id="c2e60d3a-ab71-4dc1-b459-da7820d6cca0">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="475d6e96-3f4a-41bc-8c49-9b50e3c1afcd">&lt;strong&gt;</bpt>SAML SSO URL<ept id="475d6e96-3f4a-41bc-8c49-9b50e3c1afcd">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="1d89b9d9-e860-43a6-8ecc-db9a7fdbe5ec">&lt;strong&gt;</bpt>Issuer URI<ept id="1d89b9d9-e860-43a6-8ecc-db9a7fdbe5ec">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="82afeba3-c16e-42a1-87ef-b9776c661c94" xml:space="preserve">
+          <source>Copy the <bpt id="26b94c11-3bb8-4281-8ba6-d1da07878ed7">&lt;strong&gt;</bpt>Thumbprint<ept id="26b94c11-3bb8-4281-8ba6-d1da07878ed7">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="4844e84b-84d9-453f-b3ea-c2e9bba82b48">&lt;strong&gt;</bpt>Trusted Issuer Thumb Print<ept id="4844e84b-84d9-453f-b3ea-c2e9bba82b48">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Copy the <bpt id="26b94c11-3bb8-4281-8ba6-d1da07878ed7">&lt;strong&gt;</bpt>Thumbprint<ept id="26b94c11-3bb8-4281-8ba6-d1da07878ed7">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="4844e84b-84d9-453f-b3ea-c2e9bba82b48">&lt;strong&gt;</bpt>Trusted Issuer Thumb Print<ept id="4844e84b-84d9-453f-b3ea-c2e9bba82b48">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="fbe04123-f75a-4de7-83b3-aa1185a5afcf" xml:space="preserve">
+          <source>For more details, see <bpt id="f30b723e-0c4c-45c9-be61-94b31a0e1f4f">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="f30b723e-0c4c-45c9-be61-94b31a0e1f4f">&lt;/linkText&gt;</ept><bpt id="f30b723e-0c4c-45c9-be61-94b31a0e1f4f">&lt;title&gt;</bpt><ept id="f30b723e-0c4c-45c9-be61-94b31a0e1f4f">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="f30b723e-0c4c-45c9-be61-94b31a0e1f4f">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="f30b723e-0c4c-45c9-be61-94b31a0e1f4f">&lt;/linkText&gt;</ept><bpt id="f30b723e-0c4c-45c9-be61-94b31a0e1f4f">&lt;title&gt;</bpt><ept id="f30b723e-0c4c-45c9-be61-94b31a0e1f4f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8fc573e5-ec48-4c00-bf36-543b982fa3d7" xml:space="preserve">
+          <source>Click <bpt id="335e38d9-7829-4454-bd30-51af36571ec8">&lt;strong&gt;</bpt>JoinDefaultUsersGroup<ept id="335e38d9-7829-4454-bd30-51af36571ec8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="335e38d9-7829-4454-bd30-51af36571ec8">&lt;strong&gt;</bpt>JoinDefaultUsersGroup<ept id="335e38d9-7829-4454-bd30-51af36571ec8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38c61cde-2a89-4d02-a75f-ebec53dbd261" xml:space="preserve">
+          <source>To set the <bpt id="edf31a0c-4ea7-4f9f-82c4-724fe9a1b858">&lt;strong&gt;</bpt>Emailaddress<ept id="edf31a0c-4ea7-4f9f-82c4-724fe9a1b858">&lt;/strong&gt;</ept> attribute in the <bpt id="6d5fd798-5e2e-400e-b45e-4cb7def71b56">&lt;strong&gt;</bpt>Claim<ept id="6d5fd798-5e2e-400e-b45e-4cb7def71b56">&lt;/strong&gt;</ept> textbox, type <bpt id="506af175-1c83-428d-9397-5acf061f6480">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress<ept id="506af175-1c83-428d-9397-5acf061f6480">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To set the <bpt id="edf31a0c-4ea7-4f9f-82c4-724fe9a1b858">&lt;strong&gt;</bpt>Emailaddress<ept id="edf31a0c-4ea7-4f9f-82c4-724fe9a1b858">&lt;/strong&gt;</ept> attribute in the <bpt id="6d5fd798-5e2e-400e-b45e-4cb7def71b56">&lt;strong&gt;</bpt>Claim<ept id="6d5fd798-5e2e-400e-b45e-4cb7def71b56">&lt;/strong&gt;</ept> textbox, type <bpt id="506af175-1c83-428d-9397-5acf061f6480">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress<ept id="506af175-1c83-428d-9397-5acf061f6480">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="722323f3-a16d-4356-9811-51e67dbef5a9" xml:space="preserve">
+          <source><bpt id="1ffa81ee-13c7-43f4-a8dc-8b7294246763">&lt;linkText&gt;</bpt>Configuration<ept id="1ffa81ee-13c7-43f4-a8dc-8b7294246763">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ffa81ee-13c7-43f4-a8dc-8b7294246763">&lt;linkText&gt;</bpt>Configuration<ept id="1ffa81ee-13c7-43f4-a8dc-8b7294246763">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3d89c0c-864e-44cf-bc89-8c746838095f" xml:space="preserve">
+          <source>Click <bpt id="a5bfaec2-3960-4690-95f0-969b0440d5eb">&lt;strong&gt;</bpt>Save<ept id="a5bfaec2-3960-4690-95f0-969b0440d5eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a5bfaec2-3960-4690-95f0-969b0440d5eb">&lt;strong&gt;</bpt>Save<ept id="a5bfaec2-3960-4690-95f0-969b0440d5eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="414090ff-acd6-4c3c-8fe6-a171d2bffb52" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="d763256f-5157-4270-b6f3-dd298122a3e7">&lt;strong&gt;</bpt>Complete<ept id="d763256f-5157-4270-b6f3-dd298122a3e7">&lt;/strong&gt;</ept> to close the <bpt id="497e6f1b-6c0b-442c-9e6d-b47a9aa98ae1">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="497e6f1b-6c0b-442c-9e6d-b47a9aa98ae1">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="d763256f-5157-4270-b6f3-dd298122a3e7">&lt;strong&gt;</bpt>Complete<ept id="d763256f-5157-4270-b6f3-dd298122a3e7">&lt;/strong&gt;</ept> to close the <bpt id="497e6f1b-6c0b-442c-9e6d-b47a9aa98ae1">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="497e6f1b-6c0b-442c-9e6d-b47a9aa98ae1">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="e13fc34d-caab-4ffe-8f54-9f70376194b2" xml:space="preserve">
+          <source><bpt id="8a4725a1-58f1-468e-b73a-88c94be6256e">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="8a4725a1-58f1-468e-b73a-88c94be6256e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8a4725a1-58f1-468e-b73a-88c94be6256e">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="8a4725a1-58f1-468e-b73a-88c94be6256e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1c5963b-9a48-408d-84c4-86938c3a9805" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Picturepark, they must be provisioned into Picturepark.</source>
+          <target state="new">In order to enable Azure AD users to log into Picturepark, they must be provisioned into Picturepark.</target>
+        </trans-unit>
+        <trans-unit id="a2bb367a-0460-43de-94b1-a5d650783920" xml:space="preserve">
+          <source>In the case of Picturepark, provisioning is a manual task.</source>
+          <target state="new">In the case of Picturepark, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="a986d120-45c9-41eb-b13f-0e679c47b8c9" xml:space="preserve">
+          <source>Log in to your <bpt id="0fc82cbb-689d-41fc-8cd7-724b462cd1d5">&lt;strong&gt;</bpt>Picturepark<ept id="0fc82cbb-689d-41fc-8cd7-724b462cd1d5">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="0fc82cbb-689d-41fc-8cd7-724b462cd1d5">&lt;strong&gt;</bpt>Picturepark<ept id="0fc82cbb-689d-41fc-8cd7-724b462cd1d5">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="b12b24a0-be7a-4a40-b669-f8b955a4fb5f" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="e840abda-1975-47ee-9962-c0a6bc85dbd9">&lt;strong&gt;</bpt>Administrative tools<ept id="e840abda-1975-47ee-9962-c0a6bc85dbd9">&lt;/strong&gt;</ept>, and then click <bpt id="f6550fce-77ac-422c-8820-a71ecc3054b1">&lt;strong&gt;</bpt>Users<ept id="f6550fce-77ac-422c-8820-a71ecc3054b1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="e840abda-1975-47ee-9962-c0a6bc85dbd9">&lt;strong&gt;</bpt>Administrative tools<ept id="e840abda-1975-47ee-9962-c0a6bc85dbd9">&lt;/strong&gt;</ept>, and then click <bpt id="f6550fce-77ac-422c-8820-a71ecc3054b1">&lt;strong&gt;</bpt>Users<ept id="f6550fce-77ac-422c-8820-a71ecc3054b1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bbc7efc3-856c-4899-bd95-5f5099971f8e" xml:space="preserve">
+          <source><bpt id="7106f285-8093-4a45-98be-d6bb3c964968">&lt;linkText&gt;</bpt>Users<ept id="7106f285-8093-4a45-98be-d6bb3c964968">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7106f285-8093-4a45-98be-d6bb3c964968">&lt;linkText&gt;</bpt>Users<ept id="7106f285-8093-4a45-98be-d6bb3c964968">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f68a53e-d14c-4e93-95b9-ee35bd9d3a7a" xml:space="preserve">
+          <source>In the <bpt id="6d01ef1d-71dc-4cfe-933d-48a3956fc3c9">&lt;strong&gt;</bpt>Users overview<ept id="6d01ef1d-71dc-4cfe-933d-48a3956fc3c9">&lt;/strong&gt;</ept> tab, click <bpt id="a2149e63-629e-44fc-983a-c1013a8389a9">&lt;strong&gt;</bpt>New<ept id="a2149e63-629e-44fc-983a-c1013a8389a9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="6d01ef1d-71dc-4cfe-933d-48a3956fc3c9">&lt;strong&gt;</bpt>Users overview<ept id="6d01ef1d-71dc-4cfe-933d-48a3956fc3c9">&lt;/strong&gt;</ept> tab, click <bpt id="a2149e63-629e-44fc-983a-c1013a8389a9">&lt;strong&gt;</bpt>New<ept id="a2149e63-629e-44fc-983a-c1013a8389a9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68addc69-0d50-4a6e-907e-79b05e8fd9a3" xml:space="preserve">
+          <source><bpt id="de11b27a-a187-4329-bee7-d7a2d22b7211">&lt;linkText&gt;</bpt>User management<ept id="de11b27a-a187-4329-bee7-d7a2d22b7211">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="de11b27a-a187-4329-bee7-d7a2d22b7211">&lt;linkText&gt;</bpt>User management<ept id="de11b27a-a187-4329-bee7-d7a2d22b7211">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d9d3507-e15b-40a7-8f59-0a99c77293d7" xml:space="preserve">
+          <source>On the <bpt id="946b87f4-e1c6-4cd6-96c5-3aa8de06e5f7">&lt;strong&gt;</bpt>Create User<ept id="946b87f4-e1c6-4cd6-96c5-3aa8de06e5f7">&lt;/strong&gt;</ept> dialog, perform the following steps:</source>
+          <target state="new">On the <bpt id="946b87f4-e1c6-4cd6-96c5-3aa8de06e5f7">&lt;strong&gt;</bpt>Create User<ept id="946b87f4-e1c6-4cd6-96c5-3aa8de06e5f7">&lt;/strong&gt;</ept> dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="b9e98197-8182-453a-857f-1c9ffb33aebc" xml:space="preserve">
+          <source><bpt id="5b3a03ea-fab5-422b-af1a-7635df962767">&lt;linkText&gt;</bpt>Create User<ept id="5b3a03ea-fab5-422b-af1a-7635df962767">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b3a03ea-fab5-422b-af1a-7635df962767">&lt;linkText&gt;</bpt>Create User<ept id="5b3a03ea-fab5-422b-af1a-7635df962767">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b879fcb-3ef6-43d5-b9fc-660a2ad61cc6" xml:space="preserve">
+          <source>Type the : <bpt id="034758ee-dbde-4820-b1de-15d67afef434">&lt;strong&gt;</bpt>Email Address<ept id="034758ee-dbde-4820-b1de-15d67afef434">&lt;/strong&gt;</ept>, <bpt id="ce204db4-6f41-4b2e-b447-5d8e66960483">&lt;strong&gt;</bpt>Password<ept id="ce204db4-6f41-4b2e-b447-5d8e66960483">&lt;/strong&gt;</ept>, <bpt id="b7b9ae8d-e211-4160-8a5e-c9b6c484f6c6">&lt;strong&gt;</bpt>Confirm Password<ept id="b7b9ae8d-e211-4160-8a5e-c9b6c484f6c6">&lt;/strong&gt;</ept>, <bpt id="4861b5e7-7b5a-470c-a5a8-6e14ef2761c6">&lt;strong&gt;</bpt>First Name<ept id="4861b5e7-7b5a-470c-a5a8-6e14ef2761c6">&lt;/strong&gt;</ept>, <bpt id="25d3277d-6590-44b6-94fb-067faf69b550">&lt;strong&gt;</bpt>Last Name<ept id="25d3277d-6590-44b6-94fb-067faf69b550">&lt;/strong&gt;</ept>, <bpt id="bff05666-86e8-4864-a4fc-979588a0299a">&lt;strong&gt;</bpt>Company<ept id="bff05666-86e8-4864-a4fc-979588a0299a">&lt;/strong&gt;</ept>, <bpt id="2c11641a-a4cd-4aaa-927d-2c7195bc8ed1">&lt;strong&gt;</bpt>Country<ept id="2c11641a-a4cd-4aaa-927d-2c7195bc8ed1">&lt;/strong&gt;</ept>, <bpt id="40d0365b-4f43-4eae-8919-0f80c5e5ac17">&lt;strong&gt;</bpt>ZIP<ept id="40d0365b-4f43-4eae-8919-0f80c5e5ac17">&lt;/strong&gt;</ept>, <bpt id="fb8e66f9-aca8-4f8d-94a5-2dd8ab598cfd">&lt;strong&gt;</bpt>City<ept id="fb8e66f9-aca8-4f8d-94a5-2dd8ab598cfd">&lt;/strong&gt;</ept> of a valid Azure Active Directory User you want ot provision into the related textboxes.</source>
+          <target state="new">Type the : <bpt id="034758ee-dbde-4820-b1de-15d67afef434">&lt;strong&gt;</bpt>Email Address<ept id="034758ee-dbde-4820-b1de-15d67afef434">&lt;/strong&gt;</ept>, <bpt id="ce204db4-6f41-4b2e-b447-5d8e66960483">&lt;strong&gt;</bpt>Password<ept id="ce204db4-6f41-4b2e-b447-5d8e66960483">&lt;/strong&gt;</ept>, <bpt id="b7b9ae8d-e211-4160-8a5e-c9b6c484f6c6">&lt;strong&gt;</bpt>Confirm Password<ept id="b7b9ae8d-e211-4160-8a5e-c9b6c484f6c6">&lt;/strong&gt;</ept>, <bpt id="4861b5e7-7b5a-470c-a5a8-6e14ef2761c6">&lt;strong&gt;</bpt>First Name<ept id="4861b5e7-7b5a-470c-a5a8-6e14ef2761c6">&lt;/strong&gt;</ept>, <bpt id="25d3277d-6590-44b6-94fb-067faf69b550">&lt;strong&gt;</bpt>Last Name<ept id="25d3277d-6590-44b6-94fb-067faf69b550">&lt;/strong&gt;</ept>, <bpt id="bff05666-86e8-4864-a4fc-979588a0299a">&lt;strong&gt;</bpt>Company<ept id="bff05666-86e8-4864-a4fc-979588a0299a">&lt;/strong&gt;</ept>, <bpt id="2c11641a-a4cd-4aaa-927d-2c7195bc8ed1">&lt;strong&gt;</bpt>Country<ept id="2c11641a-a4cd-4aaa-927d-2c7195bc8ed1">&lt;/strong&gt;</ept>, <bpt id="40d0365b-4f43-4eae-8919-0f80c5e5ac17">&lt;strong&gt;</bpt>ZIP<ept id="40d0365b-4f43-4eae-8919-0f80c5e5ac17">&lt;/strong&gt;</ept>, <bpt id="fb8e66f9-aca8-4f8d-94a5-2dd8ab598cfd">&lt;strong&gt;</bpt>City<ept id="fb8e66f9-aca8-4f8d-94a5-2dd8ab598cfd">&lt;/strong&gt;</ept> of a valid Azure Active Directory User you want ot provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="ed54faff-7aeb-482f-8a92-9080e1604194" xml:space="preserve">
+          <source>Select a <bpt id="b7b10cc8-9334-4d35-8951-d825f598e4b0">&lt;strong&gt;</bpt>Language<ept id="b7b10cc8-9334-4d35-8951-d825f598e4b0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select a <bpt id="b7b10cc8-9334-4d35-8951-d825f598e4b0">&lt;strong&gt;</bpt>Language<ept id="b7b10cc8-9334-4d35-8951-d825f598e4b0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ea2cc35-675f-4041-85fd-f3218b65fab9" xml:space="preserve">
+          <source>Click <bpt id="6af7b0e5-f4d3-4045-afcd-904cb90cde4a">&lt;strong&gt;</bpt>Create<ept id="6af7b0e5-f4d3-4045-afcd-904cb90cde4a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6af7b0e5-f4d3-4045-afcd-904cb90cde4a">&lt;strong&gt;</bpt>Create<ept id="6af7b0e5-f4d3-4045-afcd-904cb90cde4a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c8b8bd8-91c2-49ee-b6d4-1558e6f49c76" xml:space="preserve">
+          <source>You can use any other Picturepark user account creation tools or APIs provided by Picturepark to provision AAD user accounts.</source>
+          <target state="new">You can use any other Picturepark user account creation tools or APIs provided by Picturepark to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="a7ac576c-2b06-426f-bb42-ec31a05a0ed5" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="24da7949-b166-4c49-8632-bf93815ba6b7" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="dd161d85-31ba-463f-84c7-cd088ff48d21" xml:space="preserve">
+          <source>On the <bpt id="cd56950d-cde5-49df-bdbc-6797badbd0d2">&lt;strong&gt;</bpt>Picturepark **application integration page, click **Assign users<ept id="cd56950d-cde5-49df-bdbc-6797badbd0d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="cd56950d-cde5-49df-bdbc-6797badbd0d2">&lt;strong&gt;</bpt>Picturepark **application integration page, click **Assign users<ept id="cd56950d-cde5-49df-bdbc-6797badbd0d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="812bc2aa-3211-4610-9e54-83e61ffe48cc" xml:space="preserve">
+          <source><bpt id="21c12de5-b807-46ed-9979-a078f19f145e">&lt;linkText&gt;</bpt>Assign Users<ept id="21c12de5-b807-46ed-9979-a078f19f145e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21c12de5-b807-46ed-9979-a078f19f145e">&lt;linkText&gt;</bpt>Assign Users<ept id="21c12de5-b807-46ed-9979-a078f19f145e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="612cf38a-d375-4878-be6c-6867901a7851" xml:space="preserve">
+          <source>Select your test user, click <bpt id="f265ca85-103c-42c3-8b87-5173dc896903">&lt;strong&gt;</bpt>Assign<ept id="f265ca85-103c-42c3-8b87-5173dc896903">&lt;/strong&gt;</ept>, and then click <bpt id="554e95d5-2bbe-4d60-b775-b16d85ca8199">&lt;strong&gt;</bpt>Yes<ept id="554e95d5-2bbe-4d60-b775-b16d85ca8199">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="f265ca85-103c-42c3-8b87-5173dc896903">&lt;strong&gt;</bpt>Assign<ept id="f265ca85-103c-42c3-8b87-5173dc896903">&lt;/strong&gt;</ept>, and then click <bpt id="554e95d5-2bbe-4d60-b775-b16d85ca8199">&lt;strong&gt;</bpt>Yes<ept id="554e95d5-2bbe-4d60-b775-b16d85ca8199">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="8a0b93bd-01b6-43fa-ab83-33ea17b4da03" xml:space="preserve">
+          <source><bpt id="ebd42466-3fc3-4822-8d74-6a10f7e619b7">&lt;linkText&gt;</bpt>Yes<ept id="ebd42466-3fc3-4822-8d74-6a10f7e619b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ebd42466-3fc3-4822-8d74-6a10f7e619b7">&lt;linkText&gt;</bpt>Yes<ept id="ebd42466-3fc3-4822-8d74-6a10f7e619b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cee8564e-8492-46aa-afe5-26cecc3215f6" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="68c60b6f-e146-4faf-854f-819fe98e8bfb" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="e3015900-84c6-42ee-99e7-8dcc8dbcdd14">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="e3015900-84c6-42ee-99e7-8dcc8dbcdd14">&lt;/linkText&gt;</ept><bpt id="e3015900-84c6-42ee-99e7-8dcc8dbcdd14">&lt;title&gt;</bpt><ept id="e3015900-84c6-42ee-99e7-8dcc8dbcdd14">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="e3015900-84c6-42ee-99e7-8dcc8dbcdd14">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="e3015900-84c6-42ee-99e7-8dcc8dbcdd14">&lt;/linkText&gt;</ept><bpt id="e3015900-84c6-42ee-99e7-8dcc8dbcdd14">&lt;title&gt;</bpt><ept id="e3015900-84c6-42ee-99e7-8dcc8dbcdd14">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

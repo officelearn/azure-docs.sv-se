@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="044d9dcd-32e3-4c52-b741-229c91ea5794" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="044d9dcd-32e3-4c52-b741-229c91ea5794" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="059a7456-ddfa-4c29-99b8-d02e5c3123bb">
+        <trans-unit id="911228ac-cb28-4673-9020-0dbd5818618f" xml:space="preserve">
+          <source>Connect Millions of Things to the Cloud</source>
+          <target state="new">Connect Millions of Things to the Cloud</target>
+        </trans-unit>
+        <trans-unit id="b1740e93-0e3f-4eeb-87f1-fcd7d7626b52" xml:space="preserve">
+          <source>Learn how to connect millions of things to the cloud using Microsoft Azure.</source>
+          <target state="new">Learn how to connect millions of things to the cloud using Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="b39acb11-5e47-4c15-aea9-73ccc332d0fc" xml:space="preserve">
+          <source>Smart and connected "things" increasingly proliferate in modern technology ecosystems.</source>
+          <target state="new">Smart and connected "things" increasingly proliferate in modern technology ecosystems.</target>
+        </trans-unit>
+        <trans-unit id="e0d6826c-28f2-4e0c-a521-b2c7dc07d636" xml:space="preserve">
+          <source>Sensors in cars, homes, infrastructure, and appliances produce new opportunities to provide improved product quality, expanded services, and new customer engagement models.</source>
+          <target state="new">Sensors in cars, homes, infrastructure, and appliances produce new opportunities to provide improved product quality, expanded services, and new customer engagement models.</target>
+        </trans-unit>
+        <trans-unit id="e6254082-4ed0-43df-a6d1-01e79064e4e6" xml:space="preserve">
+          <source>Microsoft Azure Service Bus can help you connect this emerging "Internet of things."</source>
+          <target state="new">Microsoft Azure Service Bus can help you connect this emerging "Internet of things."</target>
+        </trans-unit>
+        <trans-unit id="e2e059d5-ad89-422c-8fd9-622b480684e2" xml:space="preserve">
+          <source><bpt id="5e2c9a01-6d63-4869-b896-011973ef5e08">&lt;linkText&gt;</bpt>Event Hubs<ept id="5e2c9a01-6d63-4869-b896-011973ef5e08">&lt;/linkText&gt;</ept><bpt id="5e2c9a01-6d63-4869-b896-011973ef5e08">&lt;title&gt;</bpt><ept id="5e2c9a01-6d63-4869-b896-011973ef5e08">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5e2c9a01-6d63-4869-b896-011973ef5e08">&lt;linkText&gt;</bpt>Event Hubs<ept id="5e2c9a01-6d63-4869-b896-011973ef5e08">&lt;/linkText&gt;</ept><bpt id="5e2c9a01-6d63-4869-b896-011973ef5e08">&lt;title&gt;</bpt><ept id="5e2c9a01-6d63-4869-b896-011973ef5e08">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f59c283-6224-43fc-93ed-09dd3c7a61b6" xml:space="preserve">
+          <source><bpt id="cc1970ed-036b-48b3-8fe0-ebb164165fad">&lt;linkText&gt;</bpt>Sharding Pattern<ept id="cc1970ed-036b-48b3-8fe0-ebb164165fad">&lt;/linkText&gt;</ept><bpt id="cc1970ed-036b-48b3-8fe0-ebb164165fad">&lt;title&gt;</bpt><ept id="cc1970ed-036b-48b3-8fe0-ebb164165fad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cc1970ed-036b-48b3-8fe0-ebb164165fad">&lt;linkText&gt;</bpt>Sharding Pattern<ept id="cc1970ed-036b-48b3-8fe0-ebb164165fad">&lt;/linkText&gt;</ept><bpt id="cc1970ed-036b-48b3-8fe0-ebb164165fad">&lt;title&gt;</bpt><ept id="cc1970ed-036b-48b3-8fe0-ebb164165fad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38a865d6-356b-4671-a18e-537f9f288390" xml:space="preserve">
+          <source><bpt id="31147faa-cd5e-4bd0-97d9-e2552a8a87e6">&lt;linkText&gt;</bpt>Service Bus and AMQP 1.0<ept id="31147faa-cd5e-4bd0-97d9-e2552a8a87e6">&lt;/linkText&gt;</ept><bpt id="31147faa-cd5e-4bd0-97d9-e2552a8a87e6">&lt;title&gt;</bpt><ept id="31147faa-cd5e-4bd0-97d9-e2552a8a87e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="31147faa-cd5e-4bd0-97d9-e2552a8a87e6">&lt;linkText&gt;</bpt>Service Bus and AMQP 1.0<ept id="31147faa-cd5e-4bd0-97d9-e2552a8a87e6">&lt;/linkText&gt;</ept><bpt id="31147faa-cd5e-4bd0-97d9-e2552a8a87e6">&lt;title&gt;</bpt><ept id="31147faa-cd5e-4bd0-97d9-e2552a8a87e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3cd1631-a9cf-43b9-831f-3e7b5dacd70c" xml:space="preserve">
+          <source><bpt id="bb137e40-6668-4ba3-b415-e49a25d50acd">&lt;linkText&gt;</bpt>Introduction to Service Bus<ept id="bb137e40-6668-4ba3-b415-e49a25d50acd">&lt;/linkText&gt;</ept><bpt id="bb137e40-6668-4ba3-b415-e49a25d50acd">&lt;title&gt;</bpt><ept id="bb137e40-6668-4ba3-b415-e49a25d50acd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bb137e40-6668-4ba3-b415-e49a25d50acd">&lt;linkText&gt;</bpt>Introduction to Service Bus<ept id="bb137e40-6668-4ba3-b415-e49a25d50acd">&lt;/linkText&gt;</ept><bpt id="bb137e40-6668-4ba3-b415-e49a25d50acd">&lt;title&gt;</bpt><ept id="bb137e40-6668-4ba3-b415-e49a25d50acd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f32f6d90-af46-4151-b470-31e385a7cbc7" xml:space="preserve">
+          <source><bpt id="15c2c213-7703-46bc-abf3-487bd794b9b8">&lt;linkText&gt;</bpt>Partitioning messaging entities<ept id="15c2c213-7703-46bc-abf3-487bd794b9b8">&lt;/linkText&gt;</ept><bpt id="15c2c213-7703-46bc-abf3-487bd794b9b8">&lt;title&gt;</bpt><ept id="15c2c213-7703-46bc-abf3-487bd794b9b8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="15c2c213-7703-46bc-abf3-487bd794b9b8">&lt;linkText&gt;</bpt>Partitioning messaging entities<ept id="15c2c213-7703-46bc-abf3-487bd794b9b8">&lt;/linkText&gt;</ept><bpt id="15c2c213-7703-46bc-abf3-487bd794b9b8">&lt;title&gt;</bpt><ept id="15c2c213-7703-46bc-abf3-487bd794b9b8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4553a0d7-2fb0-4597-a5c4-f7f63eabb433" xml:space="preserve">
+          <source><bpt id="eedf0325-d4b9-449c-b5c9-aa2da26048a2">&lt;linkText&gt;</bpt>Service Bus topics<ept id="eedf0325-d4b9-449c-b5c9-aa2da26048a2">&lt;/linkText&gt;</ept><bpt id="eedf0325-d4b9-449c-b5c9-aa2da26048a2">&lt;title&gt;</bpt><ept id="eedf0325-d4b9-449c-b5c9-aa2da26048a2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eedf0325-d4b9-449c-b5c9-aa2da26048a2">&lt;linkText&gt;</bpt>Service Bus topics<ept id="eedf0325-d4b9-449c-b5c9-aa2da26048a2">&lt;/linkText&gt;</ept><bpt id="eedf0325-d4b9-449c-b5c9-aa2da26048a2">&lt;title&gt;</bpt><ept id="eedf0325-d4b9-449c-b5c9-aa2da26048a2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c05198b5-8fb5-4466-9946-b32d069b75a6" xml:space="preserve">
+          <source><bpt id="fdba2fb5-a609-4aae-8395-2af8fd10d00c">&lt;linkText&gt;</bpt>Using Apache Qpid Proton C with Azure Service Bus on Linux and Windows<ept id="fdba2fb5-a609-4aae-8395-2af8fd10d00c">&lt;/linkText&gt;</ept><bpt id="fdba2fb5-a609-4aae-8395-2af8fd10d00c">&lt;title&gt;</bpt><ept id="fdba2fb5-a609-4aae-8395-2af8fd10d00c">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="fdba2fb5-a609-4aae-8395-2af8fd10d00c">&lt;linkText&gt;</bpt>Using Apache Qpid Proton C with Azure Service Bus on Linux and Windows<ept id="fdba2fb5-a609-4aae-8395-2af8fd10d00c">&lt;/linkText&gt;</ept><bpt id="fdba2fb5-a609-4aae-8395-2af8fd10d00c">&lt;title&gt;</bpt><ept id="fdba2fb5-a609-4aae-8395-2af8fd10d00c">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="22e4ddd2-9e88-47d9-8795-59d6243f93a3" xml:space="preserve">
+          <source><bpt id="78b934f3-48f4-4014-93fb-86b8208b54da">&lt;linkText&gt;</bpt>Service Assisted Communication for Connected Devices<ept id="78b934f3-48f4-4014-93fb-86b8208b54da">&lt;/linkText&gt;</ept><bpt id="78b934f3-48f4-4014-93fb-86b8208b54da">&lt;title&gt;</bpt><ept id="78b934f3-48f4-4014-93fb-86b8208b54da">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="78b934f3-48f4-4014-93fb-86b8208b54da">&lt;linkText&gt;</bpt>Service Assisted Communication for Connected Devices<ept id="78b934f3-48f4-4014-93fb-86b8208b54da">&lt;/linkText&gt;</ept><bpt id="78b934f3-48f4-4014-93fb-86b8208b54da">&lt;title&gt;</bpt><ept id="78b934f3-48f4-4014-93fb-86b8208b54da">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81910408-18a5-4fc3-99d6-671db8b9719f" xml:space="preserve">
+          <source><bpt id="de0f4996-101c-4501-8cce-c13539c8a9ed">&lt;linkText&gt;</bpt>Internet of Things (Microsoft blog post announcement)<ept id="de0f4996-101c-4501-8cce-c13539c8a9ed">&lt;/linkText&gt;</ept><bpt id="de0f4996-101c-4501-8cce-c13539c8a9ed">&lt;title&gt;</bpt><ept id="de0f4996-101c-4501-8cce-c13539c8a9ed">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="de0f4996-101c-4501-8cce-c13539c8a9ed">&lt;linkText&gt;</bpt>Internet of Things (Microsoft blog post announcement)<ept id="de0f4996-101c-4501-8cce-c13539c8a9ed">&lt;/linkText&gt;</ept><bpt id="de0f4996-101c-4501-8cce-c13539c8a9ed">&lt;title&gt;</bpt><ept id="de0f4996-101c-4501-8cce-c13539c8a9ed">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="920cdf4b-3d47-4a72-856e-e6def651f443" xml:space="preserve">
+          <source><bpt id="cdc5606f-694f-4b7c-b8d4-805e6571c89d">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="cdc5606f-694f-4b7c-b8d4-805e6571c89d">&lt;/linkText&gt;</ept><bpt id="cdc5606f-694f-4b7c-b8d4-805e6571c89d">&lt;title&gt;</bpt><ept id="cdc5606f-694f-4b7c-b8d4-805e6571c89d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cdc5606f-694f-4b7c-b8d4-805e6571c89d">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="cdc5606f-694f-4b7c-b8d4-805e6571c89d">&lt;/linkText&gt;</ept><bpt id="cdc5606f-694f-4b7c-b8d4-805e6571c89d">&lt;title&gt;</bpt><ept id="cdc5606f-694f-4b7c-b8d4-805e6571c89d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd477eaa-3658-4030-91c0-a92ed15f51da" xml:space="preserve">
+          <source><bpt id="41e1bde2-a7b3-46d8-83ce-26cee98508cb">&lt;linkText&gt;</bpt>Cloud Services<ept id="41e1bde2-a7b3-46d8-83ce-26cee98508cb">&lt;/linkText&gt;</ept><bpt id="41e1bde2-a7b3-46d8-83ce-26cee98508cb">&lt;title&gt;</bpt><ept id="41e1bde2-a7b3-46d8-83ce-26cee98508cb">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="41e1bde2-a7b3-46d8-83ce-26cee98508cb">&lt;linkText&gt;</bpt>Cloud Services<ept id="41e1bde2-a7b3-46d8-83ce-26cee98508cb">&lt;/linkText&gt;</ept><bpt id="41e1bde2-a7b3-46d8-83ce-26cee98508cb">&lt;title&gt;</bpt><ept id="41e1bde2-a7b3-46d8-83ce-26cee98508cb">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

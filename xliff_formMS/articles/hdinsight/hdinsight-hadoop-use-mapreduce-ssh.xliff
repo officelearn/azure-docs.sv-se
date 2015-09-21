@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4a0ea4b6-af8f-4382-909c-a439fbd32843" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4a0ea4b6-af8f-4382-909c-a439fbd32843" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="69e39a47-a943-4fac-9d85-055240ddc8f3">
+        <trans-unit id="a5c49168-75a3-4977-a3ad-db4ab96ff49f" xml:space="preserve">
+          <source>MapReduce and SSH connection with Hadoop in HDInsight | Microsoft Azure</source>
+          <target state="new">MapReduce and SSH connection with Hadoop in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e485c5e5-c3cf-434f-8e77-36b580293ade" xml:space="preserve">
+          <source>Learn how to use SSH to run MapReduce jobs using Hadoop on HDInsight.</source>
+          <target state="new">Learn how to use SSH to run MapReduce jobs using Hadoop on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="d2e0393c-c7ec-4654-9de7-bf1c574c623d" xml:space="preserve">
+          <source><bpt id="2dc3f597-26f3-4027-b4ba-9c3afc4df056">&lt;token href="../../includes/hdinsight-selector-use-mapreduce.md"&gt;</bpt><ept id="2dc3f597-26f3-4027-b4ba-9c3afc4df056">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2dc3f597-26f3-4027-b4ba-9c3afc4df056">&lt;token href="../../includes/hdinsight-selector-use-mapreduce.md"&gt;</bpt><ept id="2dc3f597-26f3-4027-b4ba-9c3afc4df056">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4975be0a-4f77-4a3d-b85a-2847d69c5c8d" xml:space="preserve">
+          <source>In this article, you will learn how to use Secure Shell (SSH) to connect to a Hadoop on HDInsight cluster and then submit MapReduce jobs by using Hadoop commands.</source>
+          <target state="new">In this article, you will learn how to use Secure Shell (SSH) to connect to a Hadoop on HDInsight cluster and then submit MapReduce jobs by using Hadoop commands.</target>
+        </trans-unit>
+        <trans-unit id="ae801d7f-31e1-48b0-97c4-139139bb84ce" xml:space="preserve">
+          <source>If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see <bpt id="5d2448da-3d4b-4652-ac2f-d1bb82f1ce99">&lt;linkText&gt;</bpt>Linux-based HDInsight tips<ept id="5d2448da-3d4b-4652-ac2f-d1bb82f1ce99">&lt;/linkText&gt;</ept><bpt id="5d2448da-3d4b-4652-ac2f-d1bb82f1ce99">&lt;title&gt;</bpt><ept id="5d2448da-3d4b-4652-ac2f-d1bb82f1ce99">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see <bpt id="5d2448da-3d4b-4652-ac2f-d1bb82f1ce99">&lt;linkText&gt;</bpt>Linux-based HDInsight tips<ept id="5d2448da-3d4b-4652-ac2f-d1bb82f1ce99">&lt;/linkText&gt;</ept><bpt id="5d2448da-3d4b-4652-ac2f-d1bb82f1ce99">&lt;title&gt;</bpt><ept id="5d2448da-3d4b-4652-ac2f-d1bb82f1ce99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9ee8863-c37f-4213-b7a7-a0ca31dbfc20" xml:space="preserve">
+          <source>To complete the steps in this article, you will need the following:</source>
+          <target state="new">To complete the steps in this article, you will need the following:</target>
+        </trans-unit>
+        <trans-unit id="78f585b6-f74d-46b2-8b00-4eb76d3046f9" xml:space="preserve">
+          <source>A Linux-based HDInsight (Hadoop on HDInsight) cluster</source>
+          <target state="new">A Linux-based HDInsight (Hadoop on HDInsight) cluster</target>
+        </trans-unit>
+        <trans-unit id="cd42e24a-a833-4866-826f-0e255a54871f" xml:space="preserve">
+          <source>An SSH client.</source>
+          <target state="new">An SSH client.</target>
+        </trans-unit>
+        <trans-unit id="de88cb8f-2a53-44c2-8d93-349c221faec8" xml:space="preserve">
+          <source>Linux, Unix, and Mac operating systems should come with an SSH client.</source>
+          <target state="new">Linux, Unix, and Mac operating systems should come with an SSH client.</target>
+        </trans-unit>
+        <trans-unit id="dc5cd921-a6df-408d-a2dd-4156e0503de2" xml:space="preserve">
+          <source>Windows users must download a client, such as <bpt id="5c42e264-f165-4e5e-8de0-1dc09ffa9d4f">&lt;linkText&gt;</bpt>PuTTY<ept id="5c42e264-f165-4e5e-8de0-1dc09ffa9d4f">&lt;/linkText&gt;</ept><bpt id="5c42e264-f165-4e5e-8de0-1dc09ffa9d4f">&lt;title&gt;</bpt><ept id="5c42e264-f165-4e5e-8de0-1dc09ffa9d4f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Windows users must download a client, such as <bpt id="5c42e264-f165-4e5e-8de0-1dc09ffa9d4f">&lt;linkText&gt;</bpt>PuTTY<ept id="5c42e264-f165-4e5e-8de0-1dc09ffa9d4f">&lt;/linkText&gt;</ept><bpt id="5c42e264-f165-4e5e-8de0-1dc09ffa9d4f">&lt;title&gt;</bpt><ept id="5c42e264-f165-4e5e-8de0-1dc09ffa9d4f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8301209-c286-4f27-b9b9-978e4b814e80" xml:space="preserve">
+          <source>Connect to the fully qualified domain name (FQDN) of your HDInsight cluster by using the SSH command.</source>
+          <target state="new">Connect to the fully qualified domain name (FQDN) of your HDInsight cluster by using the SSH command.</target>
+        </trans-unit>
+        <trans-unit id="073985af-2a0a-406b-8725-d6184832b007" xml:space="preserve">
+          <source>The FQDN will be the name you gave the cluster, followed by <bpt id="2a1dc9bc-d0b5-488d-841a-5cd3b7c370be">&lt;strong&gt;</bpt>.azurehdinsight.net<ept id="2a1dc9bc-d0b5-488d-841a-5cd3b7c370be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The FQDN will be the name you gave the cluster, followed by <bpt id="2a1dc9bc-d0b5-488d-841a-5cd3b7c370be">&lt;strong&gt;</bpt>.azurehdinsight.net<ept id="2a1dc9bc-d0b5-488d-841a-5cd3b7c370be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87853a74-7844-4a4c-a754-0d018d5b4b97" xml:space="preserve">
+          <source>For example, the following would connect to a cluster named <bpt id="111f961f-7de7-4946-9599-00d8a2113c96">&lt;strong&gt;</bpt>myhdinsight<ept id="111f961f-7de7-4946-9599-00d8a2113c96">&lt;/strong&gt;</ept>:</source>
+          <target state="new">For example, the following would connect to a cluster named <bpt id="111f961f-7de7-4946-9599-00d8a2113c96">&lt;strong&gt;</bpt>myhdinsight<ept id="111f961f-7de7-4946-9599-00d8a2113c96">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="437fc0a0-c3cd-4903-90e8-388b89980184" xml:space="preserve">
+          <source><bpt id="18b8ae04-ddee-407b-a8b1-24a738ef49e3">&lt;strong&gt;</bpt>If you provided a certificate key for SSH authentication<ept id="18b8ae04-ddee-407b-a8b1-24a738ef49e3">&lt;/strong&gt;</ept> when you created the HDInsight cluster, you may need to specify the location of the private key on your client system, for example:</source>
+          <target state="new"><bpt id="18b8ae04-ddee-407b-a8b1-24a738ef49e3">&lt;strong&gt;</bpt>If you provided a certificate key for SSH authentication<ept id="18b8ae04-ddee-407b-a8b1-24a738ef49e3">&lt;/strong&gt;</ept> when you created the HDInsight cluster, you may need to specify the location of the private key on your client system, for example:</target>
+        </trans-unit>
+        <trans-unit id="03642634-53df-466d-96df-741b27e192d6" xml:space="preserve">
+          <source><bpt id="c299b59b-f037-4647-bd4f-68177aa349a9">&lt;strong&gt;</bpt>If you provided a password for SSH authentication<ept id="c299b59b-f037-4647-bd4f-68177aa349a9">&lt;/strong&gt;</ept> when you created the HDInsight cluster, you will need to provide the password when prompted.</source>
+          <target state="new"><bpt id="c299b59b-f037-4647-bd4f-68177aa349a9">&lt;strong&gt;</bpt>If you provided a password for SSH authentication<ept id="c299b59b-f037-4647-bd4f-68177aa349a9">&lt;/strong&gt;</ept> when you created the HDInsight cluster, you will need to provide the password when prompted.</target>
+        </trans-unit>
+        <trans-unit id="dae3d5f6-7cb5-43ae-ad19-fce5da818f8c" xml:space="preserve">
+          <source>For more information on using SSH with HDInsight, see <bpt id="27ed0225-f68c-4343-94ff-c76f0e0d53ae">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix<ept id="27ed0225-f68c-4343-94ff-c76f0e0d53ae">&lt;/linkText&gt;</ept><bpt id="27ed0225-f68c-4343-94ff-c76f0e0d53ae">&lt;title&gt;</bpt><ept id="27ed0225-f68c-4343-94ff-c76f0e0d53ae">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on using SSH with HDInsight, see <bpt id="27ed0225-f68c-4343-94ff-c76f0e0d53ae">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix<ept id="27ed0225-f68c-4343-94ff-c76f0e0d53ae">&lt;/linkText&gt;</ept><bpt id="27ed0225-f68c-4343-94ff-c76f0e0d53ae">&lt;title&gt;</bpt><ept id="27ed0225-f68c-4343-94ff-c76f0e0d53ae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6733dab2-2e68-4c18-acf7-8a2855397916" xml:space="preserve">
+          <source>Windows does not provide a built-in SSH client.</source>
+          <target state="new">Windows does not provide a built-in SSH client.</target>
+        </trans-unit>
+        <trans-unit id="585028c0-ce47-4262-a797-de41d2474fcc" xml:space="preserve">
+          <source>We recommend using <bpt id="64c593f0-fbff-40bf-b0df-fbbdceef66aa">&lt;strong&gt;</bpt>PuTTY<ept id="64c593f0-fbff-40bf-b0df-fbbdceef66aa">&lt;/strong&gt;</ept>, which can be downloaded from <bpt id="f5d3d69b-dacf-4bd4-9a1c-f3cfdc66f6a0">&lt;linkText&gt;</bpt>http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html<ept id="f5d3d69b-dacf-4bd4-9a1c-f3cfdc66f6a0">&lt;/linkText&gt;</ept><bpt id="f5d3d69b-dacf-4bd4-9a1c-f3cfdc66f6a0">&lt;title&gt;</bpt><ept id="f5d3d69b-dacf-4bd4-9a1c-f3cfdc66f6a0">&lt;/title&gt;</ept>.</source>
+          <target state="new">We recommend using <bpt id="64c593f0-fbff-40bf-b0df-fbbdceef66aa">&lt;strong&gt;</bpt>PuTTY<ept id="64c593f0-fbff-40bf-b0df-fbbdceef66aa">&lt;/strong&gt;</ept>, which can be downloaded from <bpt id="f5d3d69b-dacf-4bd4-9a1c-f3cfdc66f6a0">&lt;linkText&gt;</bpt>http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html<ept id="f5d3d69b-dacf-4bd4-9a1c-f3cfdc66f6a0">&lt;/linkText&gt;</ept><bpt id="f5d3d69b-dacf-4bd4-9a1c-f3cfdc66f6a0">&lt;title&gt;</bpt><ept id="f5d3d69b-dacf-4bd4-9a1c-f3cfdc66f6a0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="510ddc61-300a-4dd1-98cf-1cff37c0bd3f" xml:space="preserve">
+          <source>For more information on using PuTTY, see <bpt id="e39955c7-42b2-423b-9fa3-d69dfc077811">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows <ept id="e39955c7-42b2-423b-9fa3-d69dfc077811">&lt;/linkText&gt;</ept><bpt id="e39955c7-42b2-423b-9fa3-d69dfc077811">&lt;title&gt;</bpt><ept id="e39955c7-42b2-423b-9fa3-d69dfc077811">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on using PuTTY, see <bpt id="e39955c7-42b2-423b-9fa3-d69dfc077811">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows <ept id="e39955c7-42b2-423b-9fa3-d69dfc077811">&lt;/linkText&gt;</ept><bpt id="e39955c7-42b2-423b-9fa3-d69dfc077811">&lt;title&gt;</bpt><ept id="e39955c7-42b2-423b-9fa3-d69dfc077811">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f814e512-2086-42ee-8d9a-56040f9fac4d" xml:space="preserve">
+          <source>After you are connected to the HDInsight cluster, use the following <bpt id="16ce9451-b71a-40f8-bee4-f6d580530306">&lt;strong&gt;</bpt>Hadoop<ept id="16ce9451-b71a-40f8-bee4-f6d580530306">&lt;/strong&gt;</ept> command to start a MapReduce job:</source>
+          <target state="new">After you are connected to the HDInsight cluster, use the following <bpt id="16ce9451-b71a-40f8-bee4-f6d580530306">&lt;strong&gt;</bpt>Hadoop<ept id="16ce9451-b71a-40f8-bee4-f6d580530306">&lt;/strong&gt;</ept> command to start a MapReduce job:</target>
+        </trans-unit>
+        <trans-unit id="36e3bb7c-e93d-4e74-b89a-57c747d5b95f" xml:space="preserve">
+          <source>This starts the <bpt id="3a5db70c-afd3-4832-81e0-e374421279c8">&lt;strong&gt;</bpt>wordcount<ept id="3a5db70c-afd3-4832-81e0-e374421279c8">&lt;/strong&gt;</ept> class, which is contained in the <bpt id="50b47b55-98c3-49dd-b38b-8367024013fc">&lt;strong&gt;</bpt>hadoop-mapreduce-examples.jar<ept id="50b47b55-98c3-49dd-b38b-8367024013fc">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">This starts the <bpt id="3a5db70c-afd3-4832-81e0-e374421279c8">&lt;strong&gt;</bpt>wordcount<ept id="3a5db70c-afd3-4832-81e0-e374421279c8">&lt;/strong&gt;</ept> class, which is contained in the <bpt id="50b47b55-98c3-49dd-b38b-8367024013fc">&lt;strong&gt;</bpt>hadoop-mapreduce-examples.jar<ept id="50b47b55-98c3-49dd-b38b-8367024013fc">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="68a87f9f-6b60-4ffd-a779-e7d5cd926873" xml:space="preserve">
+          <source>As input, it uses the <bpt id="532f3552-4f37-484f-bf69-7d0d40da0c1b">&lt;strong&gt;</bpt>wasb://example/data/gutenberg/davinci.txt<ept id="532f3552-4f37-484f-bf69-7d0d40da0c1b">&lt;/strong&gt;</ept> document, and output is stored at <bpt id="1f5cbebe-b801-4c6a-a16d-4b5fa4d279b6">&lt;strong&gt;</bpt>wasb:///example/data/WordCountOutput<ept id="1f5cbebe-b801-4c6a-a16d-4b5fa4d279b6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As input, it uses the <bpt id="532f3552-4f37-484f-bf69-7d0d40da0c1b">&lt;strong&gt;</bpt>wasb://example/data/gutenberg/davinci.txt<ept id="532f3552-4f37-484f-bf69-7d0d40da0c1b">&lt;/strong&gt;</ept> document, and output is stored at <bpt id="1f5cbebe-b801-4c6a-a16d-4b5fa4d279b6">&lt;strong&gt;</bpt>wasb:///example/data/WordCountOutput<ept id="1f5cbebe-b801-4c6a-a16d-4b5fa4d279b6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d8aa8d6-dada-4112-bce1-8baab57571b9" xml:space="preserve">
+          <source>For more information about this MapReduce job and the example data, see <bpt id="b15942c8-e670-494b-b5b3-27d078ab07d5">&lt;linkText&gt;</bpt>Use MapReduce in Hadoop on HDInsight<ept id="b15942c8-e670-494b-b5b3-27d078ab07d5">&lt;/linkText&gt;</ept><bpt id="b15942c8-e670-494b-b5b3-27d078ab07d5">&lt;title&gt;</bpt><ept id="b15942c8-e670-494b-b5b3-27d078ab07d5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about this MapReduce job and the example data, see <bpt id="b15942c8-e670-494b-b5b3-27d078ab07d5">&lt;linkText&gt;</bpt>Use MapReduce in Hadoop on HDInsight<ept id="b15942c8-e670-494b-b5b3-27d078ab07d5">&lt;/linkText&gt;</ept><bpt id="b15942c8-e670-494b-b5b3-27d078ab07d5">&lt;title&gt;</bpt><ept id="b15942c8-e670-494b-b5b3-27d078ab07d5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a31b5c61-a028-49e9-8a9f-55fb089ece06" xml:space="preserve">
+          <source>The job emits details as it processes, and it returns information similar to the following when the job completes:</source>
+          <target state="new">The job emits details as it processes, and it returns information similar to the following when the job completes:</target>
+        </trans-unit>
+        <trans-unit id="68f08e0b-c8ab-4c1d-b640-cf1c09a66665" xml:space="preserve">
+          <source>When the job completes, use the following command to list the output files that are stored at <bpt id="b73a0171-c3c6-492f-a061-e80168ef0541">&lt;strong&gt;</bpt>wasb://example/data/WordCountOutput<ept id="b73a0171-c3c6-492f-a061-e80168ef0541">&lt;/strong&gt;</ept>:</source>
+          <target state="new">When the job completes, use the following command to list the output files that are stored at <bpt id="b73a0171-c3c6-492f-a061-e80168ef0541">&lt;strong&gt;</bpt>wasb://example/data/WordCountOutput<ept id="b73a0171-c3c6-492f-a061-e80168ef0541">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="2e5d6859-21ec-4b11-a1e6-3cbfd18ba1fe" xml:space="preserve">
+          <source>This should display two files, <bpt id="ed2cd60b-ea1b-40f1-b367-31d6838e761b">&lt;strong&gt;</bpt>_SUCCESS<ept id="ed2cd60b-ea1b-40f1-b367-31d6838e761b">&lt;/strong&gt;</ept> and <bpt id="efe67206-8ae0-4c6c-a724-15fe405d7d03">&lt;strong&gt;</bpt>part-r-00000<ept id="efe67206-8ae0-4c6c-a724-15fe405d7d03">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This should display two files, <bpt id="ed2cd60b-ea1b-40f1-b367-31d6838e761b">&lt;strong&gt;</bpt>_SUCCESS<ept id="ed2cd60b-ea1b-40f1-b367-31d6838e761b">&lt;/strong&gt;</ept> and <bpt id="efe67206-8ae0-4c6c-a724-15fe405d7d03">&lt;strong&gt;</bpt>part-r-00000<ept id="efe67206-8ae0-4c6c-a724-15fe405d7d03">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1229e722-a08f-45f6-9562-ed673f6f8858" xml:space="preserve">
+          <source>The <bpt id="0eaccd64-5fe3-4622-b484-1e530c7203ec">&lt;strong&gt;</bpt>part-r-00000<ept id="0eaccd64-5fe3-4622-b484-1e530c7203ec">&lt;/strong&gt;</ept> file contains the output for this job.</source>
+          <target state="new">The <bpt id="0eaccd64-5fe3-4622-b484-1e530c7203ec">&lt;strong&gt;</bpt>part-r-00000<ept id="0eaccd64-5fe3-4622-b484-1e530c7203ec">&lt;/strong&gt;</ept> file contains the output for this job.</target>
+        </trans-unit>
+        <trans-unit id="a394aa47-9910-4506-9bbd-06da048d31b8" xml:space="preserve">
+          <source>Some MapReduce jobs may split the results across multiple <bpt id="c55058bc-e492-4153-b4f5-432ab94f1206">&lt;strong&gt;</bpt>part-r-#####<ept id="c55058bc-e492-4153-b4f5-432ab94f1206">&lt;/strong&gt;</ept> files.</source>
+          <target state="new">Some MapReduce jobs may split the results across multiple <bpt id="c55058bc-e492-4153-b4f5-432ab94f1206">&lt;strong&gt;</bpt>part-r-#####<ept id="c55058bc-e492-4153-b4f5-432ab94f1206">&lt;/strong&gt;</ept> files.</target>
+        </trans-unit>
+        <trans-unit id="1c6607ab-f96c-4f7a-a5ac-dabed1460165" xml:space="preserve">
+          <source>If so, use the ##### suffix to indicate the order of the files.</source>
+          <target state="new">If so, use the ##### suffix to indicate the order of the files.</target>
+        </trans-unit>
+        <trans-unit id="26295131-4a6e-481b-a685-abeca6a918ad" xml:space="preserve">
+          <source>To view the output, use the following command:</source>
+          <target state="new">To view the output, use the following command:</target>
+        </trans-unit>
+        <trans-unit id="137038e8-fc26-4646-83c3-d81ec522348d" xml:space="preserve">
+          <source>This displays a list of the words that are contained in the <bpt id="51a25754-f6d8-4a3c-a675-e37480de096f">&lt;strong&gt;</bpt>wasb://example/data/gutenberg/davinci.txt<ept id="51a25754-f6d8-4a3c-a675-e37480de096f">&lt;/strong&gt;</ept> file and the number of times each word occured.</source>
+          <target state="new">This displays a list of the words that are contained in the <bpt id="51a25754-f6d8-4a3c-a675-e37480de096f">&lt;strong&gt;</bpt>wasb://example/data/gutenberg/davinci.txt<ept id="51a25754-f6d8-4a3c-a675-e37480de096f">&lt;/strong&gt;</ept> file and the number of times each word occured.</target>
+        </trans-unit>
+        <trans-unit id="41f6249e-68d4-4fef-baf3-a81c751fa130" xml:space="preserve">
+          <source>The following is an example of the data that will be contained in the file:</source>
+          <target state="new">The following is an example of the data that will be contained in the file:</target>
+        </trans-unit>
+        <trans-unit id="ba00bddb-a564-4f06-a3d2-4e268dcf6b1b" xml:space="preserve">
+          <source>As you can see, Hadoop commands provide an easy way to run MapReduce jobs in an HDInsight cluster and then view the job output.</source>
+          <target state="new">As you can see, Hadoop commands provide an easy way to run MapReduce jobs in an HDInsight cluster and then view the job output.</target>
+        </trans-unit>
+        <trans-unit id="e11f61a8-19ea-4a5d-94b4-4b05f8b03c96" xml:space="preserve">
+          <source>For general information about MapReduce jobs in HDInsight:</source>
+          <target state="new">For general information about MapReduce jobs in HDInsight:</target>
+        </trans-unit>
+        <trans-unit id="2ee70339-0aa5-40ff-a7a0-fce347511d7d" xml:space="preserve">
+          <source><bpt id="043c4685-d9e4-4a4a-937b-3a5ee8800242">&lt;linkText&gt;</bpt>Use MapReduce on HDInsight Hadoop<ept id="043c4685-d9e4-4a4a-937b-3a5ee8800242">&lt;/linkText&gt;</ept><bpt id="043c4685-d9e4-4a4a-937b-3a5ee8800242">&lt;title&gt;</bpt><ept id="043c4685-d9e4-4a4a-937b-3a5ee8800242">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="043c4685-d9e4-4a4a-937b-3a5ee8800242">&lt;linkText&gt;</bpt>Use MapReduce on HDInsight Hadoop<ept id="043c4685-d9e4-4a4a-937b-3a5ee8800242">&lt;/linkText&gt;</ept><bpt id="043c4685-d9e4-4a4a-937b-3a5ee8800242">&lt;title&gt;</bpt><ept id="043c4685-d9e4-4a4a-937b-3a5ee8800242">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7accb358-c872-4e38-b736-f0bd461af7de" xml:space="preserve">
+          <source>For information about other ways you can work with Hadoop on HDInsight:</source>
+          <target state="new">For information about other ways you can work with Hadoop on HDInsight:</target>
+        </trans-unit>
+        <trans-unit id="f536e47a-c481-4417-b7c3-1235ecc7d7ea" xml:space="preserve">
+          <source><bpt id="9015a59c-8734-48be-8769-70af41af2349">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight<ept id="9015a59c-8734-48be-8769-70af41af2349">&lt;/linkText&gt;</ept><bpt id="9015a59c-8734-48be-8769-70af41af2349">&lt;title&gt;</bpt><ept id="9015a59c-8734-48be-8769-70af41af2349">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9015a59c-8734-48be-8769-70af41af2349">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight<ept id="9015a59c-8734-48be-8769-70af41af2349">&lt;/linkText&gt;</ept><bpt id="9015a59c-8734-48be-8769-70af41af2349">&lt;title&gt;</bpt><ept id="9015a59c-8734-48be-8769-70af41af2349">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e027074-03d5-4a77-803c-e0092cb9ce40" xml:space="preserve">
+          <source><bpt id="bb3af0eb-f910-46bc-8786-607a6351cd11">&lt;linkText&gt;</bpt>Use Pig with Hadoop on HDInsight<ept id="bb3af0eb-f910-46bc-8786-607a6351cd11">&lt;/linkText&gt;</ept><bpt id="bb3af0eb-f910-46bc-8786-607a6351cd11">&lt;title&gt;</bpt><ept id="bb3af0eb-f910-46bc-8786-607a6351cd11">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bb3af0eb-f910-46bc-8786-607a6351cd11">&lt;linkText&gt;</bpt>Use Pig with Hadoop on HDInsight<ept id="bb3af0eb-f910-46bc-8786-607a6351cd11">&lt;/linkText&gt;</ept><bpt id="bb3af0eb-f910-46bc-8786-607a6351cd11">&lt;title&gt;</bpt><ept id="bb3af0eb-f910-46bc-8786-607a6351cd11">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

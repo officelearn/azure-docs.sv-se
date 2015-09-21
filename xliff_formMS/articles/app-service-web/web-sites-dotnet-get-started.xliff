@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f2ab9c43-26aa-489a-bea0-97618a891cf9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f2ab9c43-26aa-489a-bea0-97618a891cf9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="601af17f-fb00-4d55-8367-586fc664ee89">
+        <trans-unit id="dbac2e7a-3804-46e3-878a-56c563d7b126" xml:space="preserve">
+          <source>Create an ASP.NET web app in Azure App Service | Microsoft Azure</source>
+          <target state="new">Create an ASP.NET web app in Azure App Service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="93fd4e44-95fd-4692-ba11-680b7af732f3" xml:space="preserve">
+          <source>This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to a web app in Azure App Service.</source>
+          <target state="new">This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to a web app in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="fbe4303c-fc58-4834-ab88-4108e0c9b600" xml:space="preserve">
+          <source>This tutorial shows how to create an ASP.NET web application and deploy it to a <bpt id="60c12c52-d98c-4858-91c0-8197494ed74e">&lt;linkText&gt;</bpt>web app in Azure App Service<ept id="60c12c52-d98c-4858-91c0-8197494ed74e">&lt;/linkText&gt;</ept><bpt id="60c12c52-d98c-4858-91c0-8197494ed74e">&lt;title&gt;</bpt><ept id="60c12c52-d98c-4858-91c0-8197494ed74e">&lt;/title&gt;</ept> by using Visual Studio 2015 or Visual Studio 2013.</source>
+          <target state="new">This tutorial shows how to create an ASP.NET web application and deploy it to a <bpt id="60c12c52-d98c-4858-91c0-8197494ed74e">&lt;linkText&gt;</bpt>web app in Azure App Service<ept id="60c12c52-d98c-4858-91c0-8197494ed74e">&lt;/linkText&gt;</ept><bpt id="60c12c52-d98c-4858-91c0-8197494ed74e">&lt;title&gt;</bpt><ept id="60c12c52-d98c-4858-91c0-8197494ed74e">&lt;/title&gt;</ept> by using Visual Studio 2015 or Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="4f3cb643-49b3-40ff-81a6-252f3fb6b5d5" xml:space="preserve">
+          <source>The tutorial assumes that you have no prior experience with using Azure or ASP.NET.</source>
+          <target state="new">The tutorial assumes that you have no prior experience with using Azure or ASP.NET.</target>
+        </trans-unit>
+        <trans-unit id="9ad469dc-39ec-433c-b280-001fcd34758a" xml:space="preserve">
+          <source>On completing the tutorial, you'll have a simple web application up and running in the cloud.</source>
+          <target state="new">On completing the tutorial, you'll have a simple web application up and running in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="1b08ba34-2438-40a0-9a03-eb6f52379527" xml:space="preserve">
+          <source>The following illustration shows the completed application:</source>
+          <target state="new">The following illustration shows the completed application:</target>
+        </trans-unit>
+        <trans-unit id="58ae8e11-1fa1-46ff-ba3c-49a2a2ddf902" xml:space="preserve">
+          <source><bpt id="af9a08c9-ec70-4e16-9761-97814c169804">&lt;linkText&gt;</bpt>Web app home page<ept id="af9a08c9-ec70-4e16-9761-97814c169804">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af9a08c9-ec70-4e16-9761-97814c169804">&lt;linkText&gt;</bpt>Web app home page<ept id="af9a08c9-ec70-4e16-9761-97814c169804">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d92812e1-c3d7-4bce-bdf7-679ced25732c" xml:space="preserve">
+          <source>You'll learn:</source>
+          <target state="new">You'll learn:</target>
+        </trans-unit>
+        <trans-unit id="c1f9024b-21a8-4790-9533-1ef3f77d9eb7" xml:space="preserve">
+          <source>How to enable your machine for Azure development by installing the Azure SDK.</source>
+          <target state="new">How to enable your machine for Azure development by installing the Azure SDK.</target>
+        </trans-unit>
+        <trans-unit id="80172251-7b5e-477d-bee2-3e9e45c92365" xml:space="preserve">
+          <source>How to create a Visual Studio ASP.NET web project and deploy it to an Azure web app.</source>
+          <target state="new">How to create a Visual Studio ASP.NET web project and deploy it to an Azure web app.</target>
+        </trans-unit>
+        <trans-unit id="a3ffdfbc-057d-466f-a540-5b0900a78244" xml:space="preserve">
+          <source>How to make a change to the web project and redeploy the application.</source>
+          <target state="new">How to make a change to the web project and redeploy the application.</target>
+        </trans-unit>
+        <trans-unit id="c6f0c8be-ba9e-40da-a555-423986491a27" xml:space="preserve">
+          <source>How to use the <bpt id="da28ca40-bd8c-40dd-b901-542bae1bca48">&lt;linkText&gt;</bpt>Azure portal<ept id="da28ca40-bd8c-40dd-b901-542bae1bca48">&lt;/linkText&gt;</ept><bpt id="da28ca40-bd8c-40dd-b901-542bae1bca48">&lt;title&gt;</bpt><ept id="da28ca40-bd8c-40dd-b901-542bae1bca48">&lt;/title&gt;</ept> to monitor and manage your web app.</source>
+          <target state="new">How to use the <bpt id="da28ca40-bd8c-40dd-b901-542bae1bca48">&lt;linkText&gt;</bpt>Azure portal<ept id="da28ca40-bd8c-40dd-b901-542bae1bca48">&lt;/linkText&gt;</ept><bpt id="da28ca40-bd8c-40dd-b901-542bae1bca48">&lt;title&gt;</bpt><ept id="da28ca40-bd8c-40dd-b901-542bae1bca48">&lt;/title&gt;</ept> to monitor and manage your web app.</target>
+        </trans-unit>
+        <trans-unit id="d928a088-dc57-4d86-9766-c6e0ec8ce66d" xml:space="preserve">
+          <source>You need an Azure account to complete this tutorial.</source>
+          <target state="new">You need an Azure account to complete this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="ebdbf98e-cd06-4b93-ade8-253d829f4517" xml:space="preserve">
+          <source>You can:</source>
+          <target state="new">You can:</target>
+        </trans-unit>
+        <trans-unit id="09dd537e-e6c7-41ab-89b0-6e880d25e37f" xml:space="preserve">
+          <source><bpt id="95a16e10-2f8b-48a3-b3fb-4ee6414b5db3">&lt;linkText&gt;</bpt>Open an Azure account for free<ept id="95a16e10-2f8b-48a3-b3fb-4ee6414b5db3">&lt;/linkText&gt;</ept><bpt id="95a16e10-2f8b-48a3-b3fb-4ee6414b5db3">&lt;title&gt;</bpt><ept id="95a16e10-2f8b-48a3-b3fb-4ee6414b5db3">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="95a16e10-2f8b-48a3-b3fb-4ee6414b5db3">&lt;linkText&gt;</bpt>Open an Azure account for free<ept id="95a16e10-2f8b-48a3-b3fb-4ee6414b5db3">&lt;/linkText&gt;</ept><bpt id="95a16e10-2f8b-48a3-b3fb-4ee6414b5db3">&lt;title&gt;</bpt><ept id="95a16e10-2f8b-48a3-b3fb-4ee6414b5db3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9207dc7b-5329-49ac-b70a-364494ab13f0" xml:space="preserve">
+          <source>You get credits you that can use to try out paid Azure services.</source>
+          <target state="new">You get credits you that can use to try out paid Azure services.</target>
+        </trans-unit>
+        <trans-unit id="ba447f5c-394a-4831-ac62-c14153ba3a9d" xml:space="preserve">
+          <source>Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.</source>
+          <target state="new">Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="c9a8b0c1-77a5-4851-b0e1-f080d91c0bcd" xml:space="preserve">
+          <source><bpt id="96950052-e548-4646-9238-345cb046e81e">&lt;linkText&gt;</bpt>Activate MSDN subscriber benefits<ept id="96950052-e548-4646-9238-345cb046e81e">&lt;/linkText&gt;</ept><bpt id="96950052-e548-4646-9238-345cb046e81e">&lt;title&gt;</bpt><ept id="96950052-e548-4646-9238-345cb046e81e">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="96950052-e548-4646-9238-345cb046e81e">&lt;linkText&gt;</bpt>Activate MSDN subscriber benefits<ept id="96950052-e548-4646-9238-345cb046e81e">&lt;/linkText&gt;</ept><bpt id="96950052-e548-4646-9238-345cb046e81e">&lt;title&gt;</bpt><ept id="96950052-e548-4646-9238-345cb046e81e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af414ac6-5340-4f7d-8819-d8384450645e" xml:space="preserve">
+          <source>Your MSDN subscription gives you credits every month that you can use for paid Azure services.</source>
+          <target state="new">Your MSDN subscription gives you credits every month that you can use for paid Azure services.</target>
+        </trans-unit>
+        <trans-unit id="4f71a40a-5653-496b-849a-200b19ee8b5b" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before you sign up for an Azure account, go to <bpt id="afd8b108-9031-4e5f-87aa-5ffef169847c">&lt;linkText&gt;</bpt>Try App Service<ept id="afd8b108-9031-4e5f-87aa-5ffef169847c">&lt;/linkText&gt;</ept><bpt id="afd8b108-9031-4e5f-87aa-5ffef169847c">&lt;title&gt;</bpt><ept id="afd8b108-9031-4e5f-87aa-5ffef169847c">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to get started with Azure App Service before you sign up for an Azure account, go to <bpt id="afd8b108-9031-4e5f-87aa-5ffef169847c">&lt;linkText&gt;</bpt>Try App Service<ept id="afd8b108-9031-4e5f-87aa-5ffef169847c">&lt;/linkText&gt;</ept><bpt id="afd8b108-9031-4e5f-87aa-5ffef169847c">&lt;title&gt;</bpt><ept id="afd8b108-9031-4e5f-87aa-5ffef169847c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6bb62f5-ce9a-4596-8fa0-f7799196e957" xml:space="preserve">
+          <source>There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.</source>
+          <target state="new">There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.</target>
+        </trans-unit>
+        <trans-unit id="557dfb16-2db6-440c-b06d-2c5f3b26e163" xml:space="preserve">
+          <source>In this video, Scott Hanselman shows how easy it is to sign up for a free trial of Microsoft Azure.</source>
+          <target state="new">In this video, Scott Hanselman shows how easy it is to sign up for a free trial of Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="be357ffa-6333-4876-a282-f9fabdbd62a8" xml:space="preserve">
+          <source>(Duration: 1:58)</source>
+          <target state="new">(Duration: 1:58)</target>
+        </trans-unit>
+        <trans-unit id="12774af2-e4eb-4216-824e-865890dd53a4" xml:space="preserve">
+          <source><bpt id="91ae0e72-fa74-4d49-ac70-e16b0ca070e2">&lt;token href="../../includes/install-sdk-2015-2013.md"&gt;</bpt><ept id="91ae0e72-fa74-4d49-ac70-e16b0ca070e2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="91ae0e72-fa74-4d49-ac70-e16b0ca070e2">&lt;token href="../../includes/install-sdk-2015-2013.md"&gt;</bpt><ept id="91ae0e72-fa74-4d49-ac70-e16b0ca070e2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04970070-2b42-4f38-a3d5-94eb1573731c" xml:space="preserve">
+          <source>Your first step is to create a web project in Visual Studio and a web app in Azure App Service.</source>
+          <target state="new">Your first step is to create a web project in Visual Studio and a web app in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="5e79e657-bd18-4df5-8b80-a8a8c0c1a3a7" xml:space="preserve">
+          <source>When that's done, you'll deploy the project to the web app to make it available on the Internet.</source>
+          <target state="new">When that's done, you'll deploy the project to the web app to make it available on the Internet.</target>
+        </trans-unit>
+        <trans-unit id="64645a3e-4047-411f-970f-4e5a84b474c2" xml:space="preserve">
+          <source>The diagram illustrates what you're doing in the create and deploy steps.</source>
+          <target state="new">The diagram illustrates what you're doing in the create and deploy steps.</target>
+        </trans-unit>
+        <trans-unit id="fc9960d2-b1c1-4bfd-8c28-c1e50f410b7c" xml:space="preserve">
+          <source><bpt id="ee907633-bc38-4eac-8cfa-5dd2cbe5aff7">&lt;linkText&gt;</bpt>Create and deploy<ept id="ee907633-bc38-4eac-8cfa-5dd2cbe5aff7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ee907633-bc38-4eac-8cfa-5dd2cbe5aff7">&lt;linkText&gt;</bpt>Create and deploy<ept id="ee907633-bc38-4eac-8cfa-5dd2cbe5aff7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0ec0772-e356-47ff-be11-9db31d800265" xml:space="preserve">
+          <source>Open Visual Studio 2015 or Visual Studio 2013.</source>
+          <target state="new">Open Visual Studio 2015 or Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="481711f8-9e60-4655-930b-ffae39f86839" xml:space="preserve">
+          <source>If you use Visual Studio 2013, the screens will be slightly different from the screenshots, but the procedures are essentially the same.</source>
+          <target state="new">If you use Visual Studio 2013, the screens will be slightly different from the screenshots, but the procedures are essentially the same.</target>
+        </trans-unit>
+        <trans-unit id="bb3b04ea-2038-4a86-99a2-7a066ca2ce64" xml:space="preserve">
+          <source>From the <bpt id="b74c79c4-98a5-4af6-855c-2a25def5b935">&lt;strong&gt;</bpt>File<ept id="b74c79c4-98a5-4af6-855c-2a25def5b935">&lt;/strong&gt;</ept> menu, click <bpt id="4f1a2120-de09-43d4-89a1-ea390515f2e6">&lt;strong&gt;</bpt>New &gt; Project<ept id="4f1a2120-de09-43d4-89a1-ea390515f2e6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="b74c79c4-98a5-4af6-855c-2a25def5b935">&lt;strong&gt;</bpt>File<ept id="b74c79c4-98a5-4af6-855c-2a25def5b935">&lt;/strong&gt;</ept> menu, click <bpt id="4f1a2120-de09-43d4-89a1-ea390515f2e6">&lt;strong&gt;</bpt>New &gt; Project<ept id="4f1a2120-de09-43d4-89a1-ea390515f2e6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="824d3923-09c8-4d29-9b7c-1980bf2ef98f" xml:space="preserve">
+          <source>In the <bpt id="9784f598-2b0e-4b99-92f4-5cd53b64ccd5">&lt;strong&gt;</bpt>New Project<ept id="9784f598-2b0e-4b99-92f4-5cd53b64ccd5">&lt;/strong&gt;</ept> dialog box, click <bpt id="206e5b06-dd5e-4d2c-a0f7-7fa09e3ba0bf">&lt;strong&gt;</bpt>C# &gt; Web &gt; ASP.NET Web Application<ept id="206e5b06-dd5e-4d2c-a0f7-7fa09e3ba0bf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="9784f598-2b0e-4b99-92f4-5cd53b64ccd5">&lt;strong&gt;</bpt>New Project<ept id="9784f598-2b0e-4b99-92f4-5cd53b64ccd5">&lt;/strong&gt;</ept> dialog box, click <bpt id="206e5b06-dd5e-4d2c-a0f7-7fa09e3ba0bf">&lt;strong&gt;</bpt>C# &gt; Web &gt; ASP.NET Web Application<ept id="206e5b06-dd5e-4d2c-a0f7-7fa09e3ba0bf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf4a28c4-bcdd-40ce-9bb9-fef9282079e7" xml:space="preserve">
+          <source>If you prefer, you can choose <bpt id="07bdcde9-5891-45f0-93cb-aed6c9a910bb">&lt;strong&gt;</bpt>Visual Basic<ept id="07bdcde9-5891-45f0-93cb-aed6c9a910bb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you prefer, you can choose <bpt id="07bdcde9-5891-45f0-93cb-aed6c9a910bb">&lt;strong&gt;</bpt>Visual Basic<ept id="07bdcde9-5891-45f0-93cb-aed6c9a910bb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="919b4e5b-117e-48fa-bf6d-9168c24d7170" xml:space="preserve">
+          <source>Make sure that <bpt id="f6fb929a-11c1-4df1-bb2b-bccc71a8c117">&lt;strong&gt;</bpt>.NET Framework 4.5.2<ept id="f6fb929a-11c1-4df1-bb2b-bccc71a8c117">&lt;/strong&gt;</ept> is selected as the target framework.</source>
+          <target state="new">Make sure that <bpt id="f6fb929a-11c1-4df1-bb2b-bccc71a8c117">&lt;strong&gt;</bpt>.NET Framework 4.5.2<ept id="f6fb929a-11c1-4df1-bb2b-bccc71a8c117">&lt;/strong&gt;</ept> is selected as the target framework.</target>
+        </trans-unit>
+        <trans-unit id="c31bde95-1846-4a48-9e85-056967089d2b" xml:space="preserve">
+          <source><bpt id="602b7637-e4c2-41cd-9cca-6167214f9f48">&lt;linkText&gt;</bpt>Azure Application Insights<ept id="602b7637-e4c2-41cd-9cca-6167214f9f48">&lt;/linkText&gt;</ept><bpt id="602b7637-e4c2-41cd-9cca-6167214f9f48">&lt;title&gt;</bpt><ept id="602b7637-e4c2-41cd-9cca-6167214f9f48">&lt;/title&gt;</ept> monitors your web app for availability, performance, and usage.</source>
+          <target state="new"><bpt id="602b7637-e4c2-41cd-9cca-6167214f9f48">&lt;linkText&gt;</bpt>Azure Application Insights<ept id="602b7637-e4c2-41cd-9cca-6167214f9f48">&lt;/linkText&gt;</ept><bpt id="602b7637-e4c2-41cd-9cca-6167214f9f48">&lt;title&gt;</bpt><ept id="602b7637-e4c2-41cd-9cca-6167214f9f48">&lt;/title&gt;</ept> monitors your web app for availability, performance, and usage.</target>
+        </trans-unit>
+        <trans-unit id="d900b17a-aff8-4a42-ae0b-72ccef52791a" xml:space="preserve">
+          <source>Clear the <bpt id="5feca00c-88d5-4764-a4c5-c5b766bdd278">&lt;strong&gt;</bpt>Add Application Insights to Project<ept id="5feca00c-88d5-4764-a4c5-c5b766bdd278">&lt;/strong&gt;</ept> check box if you don't want to try it.</source>
+          <target state="new">Clear the <bpt id="5feca00c-88d5-4764-a4c5-c5b766bdd278">&lt;strong&gt;</bpt>Add Application Insights to Project<ept id="5feca00c-88d5-4764-a4c5-c5b766bdd278">&lt;/strong&gt;</ept> check box if you don't want to try it.</target>
+        </trans-unit>
+        <trans-unit id="b861667b-92e1-439e-98a1-20e5218e5984" xml:space="preserve">
+          <source>Name the application <bpt id="56e937ec-ac61-404b-9050-aefd2eeb6e59">&lt;strong&gt;</bpt>MyExample<ept id="56e937ec-ac61-404b-9050-aefd2eeb6e59">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the application <bpt id="56e937ec-ac61-404b-9050-aefd2eeb6e59">&lt;strong&gt;</bpt>MyExample<ept id="56e937ec-ac61-404b-9050-aefd2eeb6e59">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01ed2d57-a27a-4362-ad28-f1470cbb00ed" xml:space="preserve">
+          <source>Click <bpt id="0d6b60c6-db35-43b0-8fc2-309b0656f585">&lt;strong&gt;</bpt>OK<ept id="0d6b60c6-db35-43b0-8fc2-309b0656f585">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0d6b60c6-db35-43b0-8fc2-309b0656f585">&lt;strong&gt;</bpt>OK<ept id="0d6b60c6-db35-43b0-8fc2-309b0656f585">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="76697f53-d950-4a0e-be1b-d029f8190761" xml:space="preserve">
+          <source><bpt id="f3f6253b-2d0e-477a-a078-324b5b47984d">&lt;linkText&gt;</bpt>New Project dialog box<ept id="f3f6253b-2d0e-477a-a078-324b5b47984d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f3f6253b-2d0e-477a-a078-324b5b47984d">&lt;linkText&gt;</bpt>New Project dialog box<ept id="f3f6253b-2d0e-477a-a078-324b5b47984d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e1ab2ec-9bd8-447f-9180-a1474799de11" xml:space="preserve">
+          <source>In the <bpt id="f0bbdebf-e665-46ee-ac81-c6e58d8bd0de">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="f0bbdebf-e665-46ee-ac81-c6e58d8bd0de">&lt;/strong&gt;</ept> dialog box, select the <bpt id="b01f0526-deea-4f3e-98a8-0c57fbb1d165">&lt;strong&gt;</bpt>MVC<ept id="b01f0526-deea-4f3e-98a8-0c57fbb1d165">&lt;/strong&gt;</ept> template.</source>
+          <target state="new">In the <bpt id="f0bbdebf-e665-46ee-ac81-c6e58d8bd0de">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="f0bbdebf-e665-46ee-ac81-c6e58d8bd0de">&lt;/strong&gt;</ept> dialog box, select the <bpt id="b01f0526-deea-4f3e-98a8-0c57fbb1d165">&lt;strong&gt;</bpt>MVC<ept id="b01f0526-deea-4f3e-98a8-0c57fbb1d165">&lt;/strong&gt;</ept> template.</target>
+        </trans-unit>
+        <trans-unit id="baba7629-bdee-4f78-bc23-d930dbe755b2" xml:space="preserve">
+          <source><bpt id="cf911b6a-3623-45e4-8bac-cec70c973885">&lt;linkText&gt;</bpt>MVC<ept id="cf911b6a-3623-45e4-8bac-cec70c973885">&lt;/linkText&gt;</ept><bpt id="cf911b6a-3623-45e4-8bac-cec70c973885">&lt;title&gt;</bpt><ept id="cf911b6a-3623-45e4-8bac-cec70c973885">&lt;/title&gt;</ept> is an ASP.NET framework for developing web apps.</source>
+          <target state="new"><bpt id="cf911b6a-3623-45e4-8bac-cec70c973885">&lt;linkText&gt;</bpt>MVC<ept id="cf911b6a-3623-45e4-8bac-cec70c973885">&lt;/linkText&gt;</ept><bpt id="cf911b6a-3623-45e4-8bac-cec70c973885">&lt;title&gt;</bpt><ept id="cf911b6a-3623-45e4-8bac-cec70c973885">&lt;/title&gt;</ept> is an ASP.NET framework for developing web apps.</target>
+        </trans-unit>
+        <trans-unit id="5dad81e9-5f50-4644-80e7-4f22448ebac1" xml:space="preserve">
+          <source>Click <bpt id="0afe3e5a-f416-4ff9-a491-28d65e5462a4">&lt;strong&gt;</bpt>Change Authentication<ept id="0afe3e5a-f416-4ff9-a491-28d65e5462a4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0afe3e5a-f416-4ff9-a491-28d65e5462a4">&lt;strong&gt;</bpt>Change Authentication<ept id="0afe3e5a-f416-4ff9-a491-28d65e5462a4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89f9863b-61d5-4238-824f-0b26c65a86be" xml:space="preserve">
+          <source><bpt id="78cdde00-b140-4edf-8289-44c685df24dc">&lt;linkText&gt;</bpt>New ASP.NET Project dialog box<ept id="78cdde00-b140-4edf-8289-44c685df24dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78cdde00-b140-4edf-8289-44c685df24dc">&lt;linkText&gt;</bpt>New ASP.NET Project dialog box<ept id="78cdde00-b140-4edf-8289-44c685df24dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d645c35a-5df8-4c17-b415-ca4d67b1b789" xml:space="preserve">
+          <source>In the <bpt id="aec374f1-dd3e-454a-a839-06badd8d8665">&lt;strong&gt;</bpt>Change Authentication<ept id="aec374f1-dd3e-454a-a839-06badd8d8665">&lt;/strong&gt;</ept> dialog box, click <bpt id="3a3bee59-0e43-4c1a-b250-eb141811bffb">&lt;strong&gt;</bpt>No Authentication<ept id="3a3bee59-0e43-4c1a-b250-eb141811bffb">&lt;/strong&gt;</ept>, and then click <bpt id="fb2d6b36-2a2c-458e-9812-6be38711dc76">&lt;strong&gt;</bpt>OK<ept id="fb2d6b36-2a2c-458e-9812-6be38711dc76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="aec374f1-dd3e-454a-a839-06badd8d8665">&lt;strong&gt;</bpt>Change Authentication<ept id="aec374f1-dd3e-454a-a839-06badd8d8665">&lt;/strong&gt;</ept> dialog box, click <bpt id="3a3bee59-0e43-4c1a-b250-eb141811bffb">&lt;strong&gt;</bpt>No Authentication<ept id="3a3bee59-0e43-4c1a-b250-eb141811bffb">&lt;/strong&gt;</ept>, and then click <bpt id="fb2d6b36-2a2c-458e-9812-6be38711dc76">&lt;strong&gt;</bpt>OK<ept id="fb2d6b36-2a2c-458e-9812-6be38711dc76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf9d6fb3-d4d1-4c7b-80fb-1f5b7606ef4d" xml:space="preserve">
+          <source><bpt id="d19ee9e6-7321-4b41-8dae-94ac731c50db">&lt;linkText&gt;</bpt>No Authentication<ept id="d19ee9e6-7321-4b41-8dae-94ac731c50db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d19ee9e6-7321-4b41-8dae-94ac731c50db">&lt;linkText&gt;</bpt>No Authentication<ept id="d19ee9e6-7321-4b41-8dae-94ac731c50db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9714e273-5678-4b8c-856d-75da6977471e" xml:space="preserve">
+          <source>The sample application that you're creating won't enable users to log in.</source>
+          <target state="new">The sample application that you're creating won't enable users to log in.</target>
+        </trans-unit>
+        <trans-unit id="5a910f36-5983-4720-a220-17e8bb323769" xml:space="preserve">
+          <source>The <bpt id="e620a9bf-e0bf-497c-a268-8af52e5ae342">&lt;linkText&gt;</bpt>Next steps<ept id="e620a9bf-e0bf-497c-a268-8af52e5ae342">&lt;/linkText&gt;</ept><bpt id="e620a9bf-e0bf-497c-a268-8af52e5ae342">&lt;title&gt;</bpt><ept id="e620a9bf-e0bf-497c-a268-8af52e5ae342">&lt;/title&gt;</ept> section links to a tutorial that implements authentication and authorization.</source>
+          <target state="new">The <bpt id="e620a9bf-e0bf-497c-a268-8af52e5ae342">&lt;linkText&gt;</bpt>Next steps<ept id="e620a9bf-e0bf-497c-a268-8af52e5ae342">&lt;/linkText&gt;</ept><bpt id="e620a9bf-e0bf-497c-a268-8af52e5ae342">&lt;title&gt;</bpt><ept id="e620a9bf-e0bf-497c-a268-8af52e5ae342">&lt;/title&gt;</ept> section links to a tutorial that implements authentication and authorization.</target>
+        </trans-unit>
+        <trans-unit id="358f9bd4-8dfb-44f5-a144-09171d4f41b8" xml:space="preserve">
+          <source>In the <bpt id="e3360daf-b751-49d5-8c13-39c90e665305">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="e3360daf-b751-49d5-8c13-39c90e665305">&lt;/strong&gt;</ept> dialog box, leave the settings under <bpt id="693f70c4-1ef2-4e05-9985-1dad716753b6">&lt;strong&gt;</bpt>Microsoft Azure<ept id="693f70c4-1ef2-4e05-9985-1dad716753b6">&lt;/strong&gt;</ept> unchanged, and then click <bpt id="bcbab238-03aa-412b-a202-25fd3ec8b22d">&lt;strong&gt;</bpt>OK<ept id="bcbab238-03aa-412b-a202-25fd3ec8b22d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="e3360daf-b751-49d5-8c13-39c90e665305">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="e3360daf-b751-49d5-8c13-39c90e665305">&lt;/strong&gt;</ept> dialog box, leave the settings under <bpt id="693f70c4-1ef2-4e05-9985-1dad716753b6">&lt;strong&gt;</bpt>Microsoft Azure<ept id="693f70c4-1ef2-4e05-9985-1dad716753b6">&lt;/strong&gt;</ept> unchanged, and then click <bpt id="bcbab238-03aa-412b-a202-25fd3ec8b22d">&lt;strong&gt;</bpt>OK<ept id="bcbab238-03aa-412b-a202-25fd3ec8b22d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24b4ef23-5a90-45b9-973c-eccc2d2123d8" xml:space="preserve">
+          <source><bpt id="4b759b61-b178-408b-9f61-a3213f97721d">&lt;linkText&gt;</bpt>New ASP.NET Project dialog box<ept id="4b759b61-b178-408b-9f61-a3213f97721d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b759b61-b178-408b-9f61-a3213f97721d">&lt;linkText&gt;</bpt>New ASP.NET Project dialog box<ept id="4b759b61-b178-408b-9f61-a3213f97721d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63983d99-bd07-44ac-a48e-160b29955011" xml:space="preserve">
+          <source>The default settings specify that Visual Studio will create an Azure web app for your web project.</source>
+          <target state="new">The default settings specify that Visual Studio will create an Azure web app for your web project.</target>
+        </trans-unit>
+        <trans-unit id="bd8886a8-3ab2-4c6a-bd36-fe4960fae063" xml:space="preserve">
+          <source>In the next section of the tutorial, you'll deploy the web project to the newly created web app.</source>
+          <target state="new">In the next section of the tutorial, you'll deploy the web project to the newly created web app.</target>
+        </trans-unit>
+        <trans-unit id="697d01f1-d64f-4575-9149-5dc9a4f06ef2" xml:space="preserve">
+          <source>If you haven't already signed in to Azure, Visual Studio prompts you to do so.</source>
+          <target state="new">If you haven't already signed in to Azure, Visual Studio prompts you to do so.</target>
+        </trans-unit>
+        <trans-unit id="8311a100-812d-4884-b974-86fc97e9f5a6" xml:space="preserve">
+          <source>Sign in with the ID and password of the account that you use to manage your Azure subscription.</source>
+          <target state="new">Sign in with the ID and password of the account that you use to manage your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="48d378cb-b7bc-4dfc-943d-0dfa79d6fc3c" xml:space="preserve">
+          <source>When you're signed in, the <bpt id="c3c0c42e-613e-4ec7-818d-36847f23e5bb">&lt;strong&gt;</bpt>Configure Microsoft Azure Web App Settings<ept id="c3c0c42e-613e-4ec7-818d-36847f23e5bb">&lt;/strong&gt;</ept> dialog box asks you what resources you want to create.</source>
+          <target state="new">When you're signed in, the <bpt id="c3c0c42e-613e-4ec7-818d-36847f23e5bb">&lt;strong&gt;</bpt>Configure Microsoft Azure Web App Settings<ept id="c3c0c42e-613e-4ec7-818d-36847f23e5bb">&lt;/strong&gt;</ept> dialog box asks you what resources you want to create.</target>
+        </trans-unit>
+        <trans-unit id="3fba8261-0da7-412b-83e7-d33bf25615a3" xml:space="preserve">
+          <source><bpt id="b66a560b-1b6a-44c7-abbc-e47e0354ce7d">&lt;linkText&gt;</bpt>Signed in to Azure<ept id="b66a560b-1b6a-44c7-abbc-e47e0354ce7d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b66a560b-1b6a-44c7-abbc-e47e0354ce7d">&lt;linkText&gt;</bpt>Signed in to Azure<ept id="b66a560b-1b6a-44c7-abbc-e47e0354ce7d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6daf63e5-9aa2-47bd-91ea-5de88887cab0" xml:space="preserve">
+          <source>In the <bpt id="24db502a-8b1d-455e-88cf-d9a9b9b1902e">&lt;strong&gt;</bpt>Configure Microsoft Azure Web App Settings<ept id="24db502a-8b1d-455e-88cf-d9a9b9b1902e">&lt;/strong&gt;</ept> dialog box, enter a <bpt id="4727806d-295d-4156-84dd-0a3863a6653a">&lt;strong&gt;</bpt>Web App name<ept id="4727806d-295d-4156-84dd-0a3863a6653a">&lt;/strong&gt;</ept> that is unique in the <bpt id="7f7e70da-c003-4cec-8873-e8b69264209a">&lt;em&gt;</bpt>azurewebsites.net<ept id="7f7e70da-c003-4cec-8873-e8b69264209a">&lt;/em&gt;</ept> domain.</source>
+          <target state="new">In the <bpt id="24db502a-8b1d-455e-88cf-d9a9b9b1902e">&lt;strong&gt;</bpt>Configure Microsoft Azure Web App Settings<ept id="24db502a-8b1d-455e-88cf-d9a9b9b1902e">&lt;/strong&gt;</ept> dialog box, enter a <bpt id="4727806d-295d-4156-84dd-0a3863a6653a">&lt;strong&gt;</bpt>Web App name<ept id="4727806d-295d-4156-84dd-0a3863a6653a">&lt;/strong&gt;</ept> that is unique in the <bpt id="7f7e70da-c003-4cec-8873-e8b69264209a">&lt;em&gt;</bpt>azurewebsites.net<ept id="7f7e70da-c003-4cec-8873-e8b69264209a">&lt;/em&gt;</ept> domain.</target>
+        </trans-unit>
+        <trans-unit id="69460ddd-78b8-4718-8f0a-5aa7cd002752" xml:space="preserve">
+          <source>For example, you can name it MyExample with numbers to the right to make it unique, such as MyExample810.</source>
+          <target state="new">For example, you can name it MyExample with numbers to the right to make it unique, such as MyExample810.</target>
+        </trans-unit>
+        <trans-unit id="adec2a51-6a5c-48ff-ae31-7b90ef44a7bc" xml:space="preserve">
+          <source>If a default web name is created for you, it will be unique and you can use that.</source>
+          <target state="new">If a default web name is created for you, it will be unique and you can use that.</target>
+        </trans-unit>
+        <trans-unit id="9eb649ec-1ad7-4b03-876e-abb6fa65377f" xml:space="preserve">
+          <source>If someone else has already used the name that you enter, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different name.</source>
+          <target state="new">If someone else has already used the name that you enter, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different name.</target>
+        </trans-unit>
+        <trans-unit id="ee45a433-5e7e-4f38-917d-9db18c93143a" xml:space="preserve">
+          <source>Azure will use this name as the prefix for your application's URL.</source>
+          <target state="new">Azure will use this name as the prefix for your application's URL.</target>
+        </trans-unit>
+        <trans-unit id="ce7cfcde-4d77-488b-aa68-07f9ae16efad" xml:space="preserve">
+          <source>The complete URL will consist of this name plus <bpt id="b4a7d037-2ff9-482f-bf9d-5c2fa72ad031">&lt;em&gt;</bpt>.azurewebsites.net<ept id="b4a7d037-2ff9-482f-bf9d-5c2fa72ad031">&lt;/em&gt;</ept> (as shown next to the <bpt id="e61013b9-2ade-4eb3-9c9b-8e9afc552ef1">&lt;strong&gt;</bpt>Web App name<ept id="e61013b9-2ade-4eb3-9c9b-8e9afc552ef1">&lt;/strong&gt;</ept> text box).</source>
+          <target state="new">The complete URL will consist of this name plus <bpt id="b4a7d037-2ff9-482f-bf9d-5c2fa72ad031">&lt;em&gt;</bpt>.azurewebsites.net<ept id="b4a7d037-2ff9-482f-bf9d-5c2fa72ad031">&lt;/em&gt;</ept> (as shown next to the <bpt id="e61013b9-2ade-4eb3-9c9b-8e9afc552ef1">&lt;strong&gt;</bpt>Web App name<ept id="e61013b9-2ade-4eb3-9c9b-8e9afc552ef1">&lt;/strong&gt;</ept> text box).</target>
+        </trans-unit>
+        <trans-unit id="a2164a45-90db-4ff2-a367-b6aa0144fcc1" xml:space="preserve">
+          <source>For example, if the name is <bpt id="6b224089-7b57-4236-af79-201e37ded1bd">&lt;code&gt;</bpt>MyExample810<ept id="6b224089-7b57-4236-af79-201e37ded1bd">&lt;/code&gt;</ept>, the URL will be <bpt id="02fa8116-72b1-4eac-aef4-c5e6ee8b2a77">&lt;code&gt;</bpt>MyExample810.azurewebsites.net<ept id="02fa8116-72b1-4eac-aef4-c5e6ee8b2a77">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, if the name is <bpt id="6b224089-7b57-4236-af79-201e37ded1bd">&lt;code&gt;</bpt>MyExample810<ept id="6b224089-7b57-4236-af79-201e37ded1bd">&lt;/code&gt;</ept>, the URL will be <bpt id="02fa8116-72b1-4eac-aef4-c5e6ee8b2a77">&lt;code&gt;</bpt>MyExample810.azurewebsites.net<ept id="02fa8116-72b1-4eac-aef4-c5e6ee8b2a77">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16feb7bd-e6ba-463a-91cb-5310fc573dd3" xml:space="preserve">
+          <source>The URL has to be unique.</source>
+          <target state="new">The URL has to be unique.</target>
+        </trans-unit>
+        <trans-unit id="3b9ca2d0-5305-4e7b-affe-b5a3a7a47318" xml:space="preserve">
+          <source>In the <bpt id="1e8d6ac2-19cd-4833-9210-851ed14d05be">&lt;strong&gt;</bpt>App Service plan<ept id="1e8d6ac2-19cd-4833-9210-851ed14d05be">&lt;/strong&gt;</ept> drop-down, select <bpt id="a221c862-be1a-441a-8470-26d912b261c4">&lt;strong&gt;</bpt>Create new App Service plan<ept id="a221c862-be1a-441a-8470-26d912b261c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1e8d6ac2-19cd-4833-9210-851ed14d05be">&lt;strong&gt;</bpt>App Service plan<ept id="1e8d6ac2-19cd-4833-9210-851ed14d05be">&lt;/strong&gt;</ept> drop-down, select <bpt id="a221c862-be1a-441a-8470-26d912b261c4">&lt;strong&gt;</bpt>Create new App Service plan<ept id="a221c862-be1a-441a-8470-26d912b261c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16d2cedf-8fc1-401e-a9f1-47bb083721ea" xml:space="preserve">
+          <source>The <bpt id="76e20e03-bb53-45d9-b97e-3390b4bb652a">&lt;linkText&gt;</bpt>Next steps<ept id="76e20e03-bb53-45d9-b97e-3390b4bb652a">&lt;/linkText&gt;</ept><bpt id="76e20e03-bb53-45d9-b97e-3390b4bb652a">&lt;title&gt;</bpt><ept id="76e20e03-bb53-45d9-b97e-3390b4bb652a">&lt;/title&gt;</ept> section has links to information about App Service plans.</source>
+          <target state="new">The <bpt id="76e20e03-bb53-45d9-b97e-3390b4bb652a">&lt;linkText&gt;</bpt>Next steps<ept id="76e20e03-bb53-45d9-b97e-3390b4bb652a">&lt;/linkText&gt;</ept><bpt id="76e20e03-bb53-45d9-b97e-3390b4bb652a">&lt;title&gt;</bpt><ept id="76e20e03-bb53-45d9-b97e-3390b4bb652a">&lt;/title&gt;</ept> section has links to information about App Service plans.</target>
+        </trans-unit>
+        <trans-unit id="64af4ec5-55cf-45b1-aceb-f4ad822a445e" xml:space="preserve">
+          <source>Enter <bpt id="96aa8144-bf9f-4eb8-b268-beeb9a2b36dc">&lt;strong&gt;</bpt>MyExamplePlan<ept id="96aa8144-bf9f-4eb8-b268-beeb9a2b36dc">&lt;/strong&gt;</ept>, or another name if you prefer, for the plan name.</source>
+          <target state="new">Enter <bpt id="96aa8144-bf9f-4eb8-b268-beeb9a2b36dc">&lt;strong&gt;</bpt>MyExamplePlan<ept id="96aa8144-bf9f-4eb8-b268-beeb9a2b36dc">&lt;/strong&gt;</ept>, or another name if you prefer, for the plan name.</target>
+        </trans-unit>
+        <trans-unit id="e575080c-ed13-4411-8dab-7cb6aecf222e" xml:space="preserve">
+          <source>In the <bpt id="0d9464cc-87fa-42db-9e59-2749c50a92e5">&lt;strong&gt;</bpt>Resource group<ept id="0d9464cc-87fa-42db-9e59-2749c50a92e5">&lt;/strong&gt;</ept> drop-down, select <bpt id="3232b463-dec9-4d2e-aa88-394f798ff1aa">&lt;strong&gt;</bpt>Create new resource group<ept id="3232b463-dec9-4d2e-aa88-394f798ff1aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="0d9464cc-87fa-42db-9e59-2749c50a92e5">&lt;strong&gt;</bpt>Resource group<ept id="0d9464cc-87fa-42db-9e59-2749c50a92e5">&lt;/strong&gt;</ept> drop-down, select <bpt id="3232b463-dec9-4d2e-aa88-394f798ff1aa">&lt;strong&gt;</bpt>Create new resource group<ept id="3232b463-dec9-4d2e-aa88-394f798ff1aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91b9e3da-d991-4ff4-8a20-93f863629264" xml:space="preserve">
+          <source>The <bpt id="2cccd365-6a76-45e8-97a3-7296620fd043">&lt;linkText&gt;</bpt>Next steps<ept id="2cccd365-6a76-45e8-97a3-7296620fd043">&lt;/linkText&gt;</ept><bpt id="2cccd365-6a76-45e8-97a3-7296620fd043">&lt;title&gt;</bpt><ept id="2cccd365-6a76-45e8-97a3-7296620fd043">&lt;/title&gt;</ept> section has links to information about resource groups.</source>
+          <target state="new">The <bpt id="2cccd365-6a76-45e8-97a3-7296620fd043">&lt;linkText&gt;</bpt>Next steps<ept id="2cccd365-6a76-45e8-97a3-7296620fd043">&lt;/linkText&gt;</ept><bpt id="2cccd365-6a76-45e8-97a3-7296620fd043">&lt;title&gt;</bpt><ept id="2cccd365-6a76-45e8-97a3-7296620fd043">&lt;/title&gt;</ept> section has links to information about resource groups.</target>
+        </trans-unit>
+        <trans-unit id="a201853e-5684-4fd5-b13b-34899e71a3c8" xml:space="preserve">
+          <source>Enter <bpt id="7cb05e3a-2989-4c4a-b8b7-866f162dbaf4">&lt;strong&gt;</bpt>MyExampleGroup<ept id="7cb05e3a-2989-4c4a-b8b7-866f162dbaf4">&lt;/strong&gt;</ept>, or another name if you prefer, for the resource group name.</source>
+          <target state="new">Enter <bpt id="7cb05e3a-2989-4c4a-b8b7-866f162dbaf4">&lt;strong&gt;</bpt>MyExampleGroup<ept id="7cb05e3a-2989-4c4a-b8b7-866f162dbaf4">&lt;/strong&gt;</ept>, or another name if you prefer, for the resource group name.</target>
+        </trans-unit>
+        <trans-unit id="8fe6aa5d-edd8-4274-a390-f522f3af3182" xml:space="preserve">
+          <source>In the <bpt id="f15b28f8-360a-431d-838f-b9ce5d4f9207">&lt;strong&gt;</bpt>Region<ept id="f15b28f8-360a-431d-838f-b9ce5d4f9207">&lt;/strong&gt;</ept> drop-down list, choose the location that is closest to you.</source>
+          <target state="new">In the <bpt id="f15b28f8-360a-431d-838f-b9ce5d4f9207">&lt;strong&gt;</bpt>Region<ept id="f15b28f8-360a-431d-838f-b9ce5d4f9207">&lt;/strong&gt;</ept> drop-down list, choose the location that is closest to you.</target>
+        </trans-unit>
+        <trans-unit id="3115a455-bc4e-426b-a025-41f70cc97d59" xml:space="preserve">
+          <source>This setting specifies which Azure datacenter your web app will run in. For this tutorial, you can select any region and it won't make a noticeable difference. But for a production web app, you want your web server to be as close as possible to the browsers that are accessing your site in order to minimize <bpt id="a0208458-d52c-4c32-9f19-7c79bae81c0e">&lt;linkText&gt;</bpt>latency<ept id="a0208458-d52c-4c32-9f19-7c79bae81c0e">&lt;/linkText&gt;</ept><bpt id="a0208458-d52c-4c32-9f19-7c79bae81c0e">&lt;title&gt;</bpt><ept id="a0208458-d52c-4c32-9f19-7c79bae81c0e">&lt;/title&gt;</ept>.</source>
+          <target state="new">This setting specifies which Azure datacenter your web app will run in. For this tutorial, you can select any region and it won't make a noticeable difference. But for a production web app, you want your web server to be as close as possible to the browsers that are accessing your site in order to minimize <bpt id="a0208458-d52c-4c32-9f19-7c79bae81c0e">&lt;linkText&gt;</bpt>latency<ept id="a0208458-d52c-4c32-9f19-7c79bae81c0e">&lt;/linkText&gt;</ept><bpt id="a0208458-d52c-4c32-9f19-7c79bae81c0e">&lt;title&gt;</bpt><ept id="a0208458-d52c-4c32-9f19-7c79bae81c0e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82c65b7a-c8d0-4e26-be47-f24e523de6a6" xml:space="preserve">
+          <source>Leave the database field unchanged.</source>
+          <target state="new">Leave the database field unchanged.</target>
+        </trans-unit>
+        <trans-unit id="60bb966f-95c4-4d07-9e1d-af0911a2411a" xml:space="preserve">
+          <source>For this tutorial, you aren't using a database.</source>
+          <target state="new">For this tutorial, you aren't using a database.</target>
+        </trans-unit>
+        <trans-unit id="60eb75ff-c7cb-4a44-a96e-68599c642877" xml:space="preserve">
+          <source>The <bpt id="20b95a5c-e14e-4eb8-b1ab-15d3199a1a91">&lt;linkText&gt;</bpt>Next steps<ept id="20b95a5c-e14e-4eb8-b1ab-15d3199a1a91">&lt;/linkText&gt;</ept><bpt id="20b95a5c-e14e-4eb8-b1ab-15d3199a1a91">&lt;title&gt;</bpt><ept id="20b95a5c-e14e-4eb8-b1ab-15d3199a1a91">&lt;/title&gt;</ept> section links to a tutorial that shows how to use a database.</source>
+          <target state="new">The <bpt id="20b95a5c-e14e-4eb8-b1ab-15d3199a1a91">&lt;linkText&gt;</bpt>Next steps<ept id="20b95a5c-e14e-4eb8-b1ab-15d3199a1a91">&lt;/linkText&gt;</ept><bpt id="20b95a5c-e14e-4eb8-b1ab-15d3199a1a91">&lt;title&gt;</bpt><ept id="20b95a5c-e14e-4eb8-b1ab-15d3199a1a91">&lt;/title&gt;</ept> section links to a tutorial that shows how to use a database.</target>
+        </trans-unit>
+        <trans-unit id="72b42564-f5d2-4180-8613-b619d1c9b16a" xml:space="preserve">
+          <source>Click <bpt id="56dc62c1-bb9c-498c-8fa5-ea5f24b25372">&lt;strong&gt;</bpt>OK<ept id="56dc62c1-bb9c-498c-8fa5-ea5f24b25372">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="56dc62c1-bb9c-498c-8fa5-ea5f24b25372">&lt;strong&gt;</bpt>OK<ept id="56dc62c1-bb9c-498c-8fa5-ea5f24b25372">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4da6003-94b1-4efd-acc9-d4f2a260336f" xml:space="preserve">
+          <source><bpt id="7c51992f-f94c-448f-b916-a5ed64eb2a47">&lt;linkText&gt;</bpt><ept id="7c51992f-f94c-448f-b916-a5ed64eb2a47">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7c51992f-f94c-448f-b916-a5ed64eb2a47">&lt;linkText&gt;</bpt><ept id="7c51992f-f94c-448f-b916-a5ed64eb2a47">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16f52ffe-430c-4423-aeb4-beb918cf197f" xml:space="preserve">
+          <source>In a few seconds, Visual Studio creates the web project in the folder that you specified, and it creates the web app in the Azure region that you specified.</source>
+          <target state="new">In a few seconds, Visual Studio creates the web project in the folder that you specified, and it creates the web app in the Azure region that you specified.</target>
+        </trans-unit>
+        <trans-unit id="aac5107f-8293-4393-b681-37c3d6041414" xml:space="preserve">
+          <source>The <bpt id="4c65c157-8867-44d7-a6b9-1308a76cfdd0">&lt;strong&gt;</bpt>Solution Explorer<ept id="4c65c157-8867-44d7-a6b9-1308a76cfdd0">&lt;/strong&gt;</ept> window shows the files and folders in the new project.</source>
+          <target state="new">The <bpt id="4c65c157-8867-44d7-a6b9-1308a76cfdd0">&lt;strong&gt;</bpt>Solution Explorer<ept id="4c65c157-8867-44d7-a6b9-1308a76cfdd0">&lt;/strong&gt;</ept> window shows the files and folders in the new project.</target>
+        </trans-unit>
+        <trans-unit id="28d4f8f0-c957-43fc-ac75-09fe7c5669cd" xml:space="preserve">
+          <source><bpt id="9ef900d7-6523-4211-ad44-5437fbaeeebe">&lt;linkText&gt;</bpt>Solution Explorer<ept id="9ef900d7-6523-4211-ad44-5437fbaeeebe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ef900d7-6523-4211-ad44-5437fbaeeebe">&lt;linkText&gt;</bpt>Solution Explorer<ept id="9ef900d7-6523-4211-ad44-5437fbaeeebe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a700a99-1811-41a9-bef7-3e8f8dbb7400" xml:space="preserve">
+          <source>The <bpt id="c73bc52e-1fe7-49c7-9010-5cc3365aa068">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="c73bc52e-1fe7-49c7-9010-5cc3365aa068">&lt;/strong&gt;</ept> window shows that the web app has been created.</source>
+          <target state="new">The <bpt id="c73bc52e-1fe7-49c7-9010-5cc3365aa068">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="c73bc52e-1fe7-49c7-9010-5cc3365aa068">&lt;/strong&gt;</ept> window shows that the web app has been created.</target>
+        </trans-unit>
+        <trans-unit id="32899cce-5430-4694-8e7d-6eb2cc261a89" xml:space="preserve">
+          <source><bpt id="50283366-5ec4-47c6-8efa-179c4f3a825c">&lt;linkText&gt;</bpt>Web app created<ept id="50283366-5ec4-47c6-8efa-179c4f3a825c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="50283366-5ec4-47c6-8efa-179c4f3a825c">&lt;linkText&gt;</bpt>Web app created<ept id="50283366-5ec4-47c6-8efa-179c4f3a825c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cbd8e921-476a-4a4b-9261-df3f3478420b" xml:space="preserve">
+          <source>And you can see the web app in <bpt id="842c16af-7c80-4a9a-92e3-a4f4ac3a5566">&lt;strong&gt;</bpt>Server Explorer<ept id="842c16af-7c80-4a9a-92e3-a4f4ac3a5566">&lt;/strong&gt;</ept>.</source>
+          <target state="new">And you can see the web app in <bpt id="842c16af-7c80-4a9a-92e3-a4f4ac3a5566">&lt;strong&gt;</bpt>Server Explorer<ept id="842c16af-7c80-4a9a-92e3-a4f4ac3a5566">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97f81d94-e1f4-4f71-8eae-a614c13b814a" xml:space="preserve">
+          <source><bpt id="5a3ae94f-1f2d-48a7-b022-4addb288e854">&lt;linkText&gt;</bpt>Web app created<ept id="5a3ae94f-1f2d-48a7-b022-4addb288e854">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a3ae94f-1f2d-48a7-b022-4addb288e854">&lt;linkText&gt;</bpt>Web app created<ept id="5a3ae94f-1f2d-48a7-b022-4addb288e854">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29084c1c-059c-443c-9607-d5f9e5c75ea7" xml:space="preserve">
+          <source>In the <bpt id="85aa809c-ba97-43b3-a2da-cf487b5d1ffb">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="85aa809c-ba97-43b3-a2da-cf487b5d1ffb">&lt;/strong&gt;</ept> window, click <bpt id="d16be4da-dd81-4baa-b8ca-a2c2d9a94cbc">&lt;strong&gt;</bpt>Publish MyExample to this Web App now<ept id="d16be4da-dd81-4baa-b8ca-a2c2d9a94cbc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="85aa809c-ba97-43b3-a2da-cf487b5d1ffb">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="85aa809c-ba97-43b3-a2da-cf487b5d1ffb">&lt;/strong&gt;</ept> window, click <bpt id="d16be4da-dd81-4baa-b8ca-a2c2d9a94cbc">&lt;strong&gt;</bpt>Publish MyExample to this Web App now<ept id="d16be4da-dd81-4baa-b8ca-a2c2d9a94cbc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd9e1e31-b0a6-40ee-bd12-01982972487b" xml:space="preserve">
+          <source><bpt id="5cbd1851-46be-4670-960a-64df0d411386">&lt;linkText&gt;</bpt>Web app created<ept id="5cbd1851-46be-4670-960a-64df0d411386">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5cbd1851-46be-4670-960a-64df0d411386">&lt;linkText&gt;</bpt>Web app created<ept id="5cbd1851-46be-4670-960a-64df0d411386">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd1a9c58-dcda-4e57-8dc1-7353ac5946ad" xml:space="preserve">
+          <source>In a few seconds, the <bpt id="32ebbb9c-da52-4f26-a629-64bd1a5ff17a">&lt;strong&gt;</bpt>Publish Web<ept id="32ebbb9c-da52-4f26-a629-64bd1a5ff17a">&lt;/strong&gt;</ept> wizard appears.</source>
+          <target state="new">In a few seconds, the <bpt id="32ebbb9c-da52-4f26-a629-64bd1a5ff17a">&lt;strong&gt;</bpt>Publish Web<ept id="32ebbb9c-da52-4f26-a629-64bd1a5ff17a">&lt;/strong&gt;</ept> wizard appears.</target>
+        </trans-unit>
+        <trans-unit id="e3e4ddcf-9afa-4bb4-b578-ab6692929a7d" xml:space="preserve">
+          <source>Settings that Visual Studio needs to deploy your project to Azure have been saved in a <bpt id="7a97a0cc-a734-4961-8977-08120ac0f637">&lt;em&gt;</bpt>publish profile<ept id="7a97a0cc-a734-4961-8977-08120ac0f637">&lt;/em&gt;</ept>.</source>
+          <target state="new">Settings that Visual Studio needs to deploy your project to Azure have been saved in a <bpt id="7a97a0cc-a734-4961-8977-08120ac0f637">&lt;em&gt;</bpt>publish profile<ept id="7a97a0cc-a734-4961-8977-08120ac0f637">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c57ba90-a0ea-4161-91c8-a9371c4aaa40" xml:space="preserve">
+          <source>You can use the wizard to review and change those settings.</source>
+          <target state="new">You can use the wizard to review and change those settings.</target>
+        </trans-unit>
+        <trans-unit id="e379bbd5-ab32-4e43-9978-f98a0818d4f1" xml:space="preserve">
+          <source>On the <bpt id="2c5351b0-2cd6-4f97-bab3-da8b3d713541">&lt;strong&gt;</bpt>Connection<ept id="2c5351b0-2cd6-4f97-bab3-da8b3d713541">&lt;/strong&gt;</ept> tab of the <bpt id="fe3b48e8-b2b8-4eab-9178-66481a683ab5">&lt;strong&gt;</bpt>Publish Web<ept id="fe3b48e8-b2b8-4eab-9178-66481a683ab5">&lt;/strong&gt;</ept> wizard, click <bpt id="b88540b5-44b2-4dda-a3b5-f9160a8385f8">&lt;strong&gt;</bpt>Next<ept id="b88540b5-44b2-4dda-a3b5-f9160a8385f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="2c5351b0-2cd6-4f97-bab3-da8b3d713541">&lt;strong&gt;</bpt>Connection<ept id="2c5351b0-2cd6-4f97-bab3-da8b3d713541">&lt;/strong&gt;</ept> tab of the <bpt id="fe3b48e8-b2b8-4eab-9178-66481a683ab5">&lt;strong&gt;</bpt>Publish Web<ept id="fe3b48e8-b2b8-4eab-9178-66481a683ab5">&lt;/strong&gt;</ept> wizard, click <bpt id="b88540b5-44b2-4dda-a3b5-f9160a8385f8">&lt;strong&gt;</bpt>Next<ept id="b88540b5-44b2-4dda-a3b5-f9160a8385f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="385530a5-7891-4c70-b32b-846d7758eed5" xml:space="preserve">
+          <source>Visual Studio provides all the settings you need to deploy to your Azure web app.</source>
+          <target state="new">Visual Studio provides all the settings you need to deploy to your Azure web app.</target>
+        </trans-unit>
+        <trans-unit id="3d7c3ffc-aa6d-4a98-b671-c7a9c2651b00" xml:space="preserve">
+          <source><bpt id="ceee752d-3eb6-4606-8c46-1d597e5a3af1">&lt;linkText&gt;</bpt>Successfully validated connection<ept id="ceee752d-3eb6-4606-8c46-1d597e5a3af1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ceee752d-3eb6-4606-8c46-1d597e5a3af1">&lt;linkText&gt;</bpt>Successfully validated connection<ept id="ceee752d-3eb6-4606-8c46-1d597e5a3af1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2f772ca-e887-4938-9cb7-0fdcae3f550f" xml:space="preserve">
+          <source>On the <bpt id="dfa60bef-9c33-42d4-9f43-240c52638da3">&lt;strong&gt;</bpt>Settings<ept id="dfa60bef-9c33-42d4-9f43-240c52638da3">&lt;/strong&gt;</ept> tab, click <bpt id="80a331e8-fe5a-45dc-8fca-23956eed4669">&lt;strong&gt;</bpt>Next<ept id="80a331e8-fe5a-45dc-8fca-23956eed4669">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="dfa60bef-9c33-42d4-9f43-240c52638da3">&lt;strong&gt;</bpt>Settings<ept id="dfa60bef-9c33-42d4-9f43-240c52638da3">&lt;/strong&gt;</ept> tab, click <bpt id="80a331e8-fe5a-45dc-8fca-23956eed4669">&lt;strong&gt;</bpt>Next<ept id="80a331e8-fe5a-45dc-8fca-23956eed4669">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e213476-8dea-469a-97cb-7b04db405997" xml:space="preserve">
+          <source>You can accept the default values for <bpt id="a938e608-d9a2-46ab-9bee-f06ce2cff355">&lt;strong&gt;</bpt>Configuration<ept id="a938e608-d9a2-46ab-9bee-f06ce2cff355">&lt;/strong&gt;</ept> and <bpt id="64576be5-f63a-47e1-9501-57624036ce67">&lt;strong&gt;</bpt>File Publish Options<ept id="64576be5-f63a-47e1-9501-57624036ce67">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can accept the default values for <bpt id="a938e608-d9a2-46ab-9bee-f06ce2cff355">&lt;strong&gt;</bpt>Configuration<ept id="a938e608-d9a2-46ab-9bee-f06ce2cff355">&lt;/strong&gt;</ept> and <bpt id="64576be5-f63a-47e1-9501-57624036ce67">&lt;strong&gt;</bpt>File Publish Options<ept id="64576be5-f63a-47e1-9501-57624036ce67">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8904b9d-510d-42b6-92b0-db77da1e6ac7" xml:space="preserve">
+          <source>You can use the <bpt id="e2e8c7ab-548d-4697-814b-444ac54522b4">&lt;strong&gt;</bpt>Configuration<ept id="e2e8c7ab-548d-4697-814b-444ac54522b4">&lt;/strong&gt;</ept> drop-down to deploy a Debug build for remote debugging.</source>
+          <target state="new">You can use the <bpt id="e2e8c7ab-548d-4697-814b-444ac54522b4">&lt;strong&gt;</bpt>Configuration<ept id="e2e8c7ab-548d-4697-814b-444ac54522b4">&lt;/strong&gt;</ept> drop-down to deploy a Debug build for remote debugging.</target>
+        </trans-unit>
+        <trans-unit id="bb9eaf9e-d291-4ac5-bc22-32019beed835" xml:space="preserve">
+          <source>The <bpt id="ff66a0ac-c007-4966-9b72-950a3fa1028a">&lt;linkText&gt;</bpt>Next steps<ept id="ff66a0ac-c007-4966-9b72-950a3fa1028a">&lt;/linkText&gt;</ept><bpt id="ff66a0ac-c007-4966-9b72-950a3fa1028a">&lt;title&gt;</bpt><ept id="ff66a0ac-c007-4966-9b72-950a3fa1028a">&lt;/title&gt;</ept> section links to a tutorial that shows how to run Visual Studio in debug mode remotely.</source>
+          <target state="new">The <bpt id="ff66a0ac-c007-4966-9b72-950a3fa1028a">&lt;linkText&gt;</bpt>Next steps<ept id="ff66a0ac-c007-4966-9b72-950a3fa1028a">&lt;/linkText&gt;</ept><bpt id="ff66a0ac-c007-4966-9b72-950a3fa1028a">&lt;title&gt;</bpt><ept id="ff66a0ac-c007-4966-9b72-950a3fa1028a">&lt;/title&gt;</ept> section links to a tutorial that shows how to run Visual Studio in debug mode remotely.</target>
+        </trans-unit>
+        <trans-unit id="685efd04-9d22-459a-bbc2-190f8cde43c9" xml:space="preserve">
+          <source><bpt id="4cca6c46-395e-416a-a2ce-f26307c232b1">&lt;linkText&gt;</bpt>Settings tab<ept id="4cca6c46-395e-416a-a2ce-f26307c232b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4cca6c46-395e-416a-a2ce-f26307c232b1">&lt;linkText&gt;</bpt>Settings tab<ept id="4cca6c46-395e-416a-a2ce-f26307c232b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fc9fcb9-4075-4345-a427-1f690c142f57" xml:space="preserve">
+          <source>On the <bpt id="1738867a-8e97-479b-9e26-a07b0581531f">&lt;strong&gt;</bpt>Preview<ept id="1738867a-8e97-479b-9e26-a07b0581531f">&lt;/strong&gt;</ept> tab, click <bpt id="4abe7efc-cdcb-4b68-9f7b-55f2cf63720a">&lt;strong&gt;</bpt>Publish<ept id="4abe7efc-cdcb-4b68-9f7b-55f2cf63720a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="1738867a-8e97-479b-9e26-a07b0581531f">&lt;strong&gt;</bpt>Preview<ept id="1738867a-8e97-479b-9e26-a07b0581531f">&lt;/strong&gt;</ept> tab, click <bpt id="4abe7efc-cdcb-4b68-9f7b-55f2cf63720a">&lt;strong&gt;</bpt>Publish<ept id="4abe7efc-cdcb-4b68-9f7b-55f2cf63720a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e89996be-a0eb-4aa7-94c9-6c4e4e523cce" xml:space="preserve">
+          <source>If you want to see what files will be copied to Azure, you can click <bpt id="0f123283-bfa4-4640-9c07-895b61909ff6">&lt;strong&gt;</bpt>Start Preview<ept id="0f123283-bfa4-4640-9c07-895b61909ff6">&lt;/strong&gt;</ept> before clicking <bpt id="f6becaae-2be7-449b-a5a2-8cca84f53295">&lt;strong&gt;</bpt>Publish<ept id="f6becaae-2be7-449b-a5a2-8cca84f53295">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you want to see what files will be copied to Azure, you can click <bpt id="0f123283-bfa4-4640-9c07-895b61909ff6">&lt;strong&gt;</bpt>Start Preview<ept id="0f123283-bfa4-4640-9c07-895b61909ff6">&lt;/strong&gt;</ept> before clicking <bpt id="f6becaae-2be7-449b-a5a2-8cca84f53295">&lt;strong&gt;</bpt>Publish<ept id="f6becaae-2be7-449b-a5a2-8cca84f53295">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="961a5ccf-55a7-41b3-a39a-54e05d95eb00" xml:space="preserve">
+          <source><bpt id="1f8f4535-6c51-46e1-a849-0c8f04af42c3">&lt;linkText&gt;</bpt><ept id="1f8f4535-6c51-46e1-a849-0c8f04af42c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1f8f4535-6c51-46e1-a849-0c8f04af42c3">&lt;linkText&gt;</bpt><ept id="1f8f4535-6c51-46e1-a849-0c8f04af42c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d705e2d1-6849-4490-a89c-7cc6ca173906" xml:space="preserve">
+          <source>Visual Studio begins the process of copying the files to the Azure server.</source>
+          <target state="new">Visual Studio begins the process of copying the files to the Azure server.</target>
+        </trans-unit>
+        <trans-unit id="6e56ea78-c3f2-493c-95e3-4c674a5baf99" xml:space="preserve">
+          <source>The <bpt id="026a934a-842d-4a2d-8d9c-ff30a9d6ce9c">&lt;strong&gt;</bpt>Output<ept id="026a934a-842d-4a2d-8d9c-ff30a9d6ce9c">&lt;/strong&gt;</ept> and <bpt id="9ae66429-7cbe-4ffd-b1dc-3381b31f524c">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="9ae66429-7cbe-4ffd-b1dc-3381b31f524c">&lt;/strong&gt;</ept> windows show what deployment actions were taken and report successful completion of the deployment.</source>
+          <target state="new">The <bpt id="026a934a-842d-4a2d-8d9c-ff30a9d6ce9c">&lt;strong&gt;</bpt>Output<ept id="026a934a-842d-4a2d-8d9c-ff30a9d6ce9c">&lt;/strong&gt;</ept> and <bpt id="9ae66429-7cbe-4ffd-b1dc-3381b31f524c">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="9ae66429-7cbe-4ffd-b1dc-3381b31f524c">&lt;/strong&gt;</ept> windows show what deployment actions were taken and report successful completion of the deployment.</target>
+        </trans-unit>
+        <trans-unit id="cf65945e-65de-4344-8812-5b75749781e3" xml:space="preserve">
+          <source><bpt id="c2cfd10f-4f2c-44a6-b950-af1f1069c9fe">&lt;linkText&gt;</bpt>Output window reporting successful deployment<ept id="c2cfd10f-4f2c-44a6-b950-af1f1069c9fe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c2cfd10f-4f2c-44a6-b950-af1f1069c9fe">&lt;linkText&gt;</bpt>Output window reporting successful deployment<ept id="c2cfd10f-4f2c-44a6-b950-af1f1069c9fe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9137697-110e-4e57-8c8b-1b9662d87d42" xml:space="preserve">
+          <source>Upon successful deployment, the default browser automatically opens to the URL of the deployed web app, and the application that you created is now running in the cloud.</source>
+          <target state="new">Upon successful deployment, the default browser automatically opens to the URL of the deployed web app, and the application that you created is now running in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="4008fb6e-6d54-4d6d-9421-d0bbd90c2970" xml:space="preserve">
+          <source>The URL in the browser address bar shows that the web app is loaded from the Internet.</source>
+          <target state="new">The URL in the browser address bar shows that the web app is loaded from the Internet.</target>
+        </trans-unit>
+        <trans-unit id="340db9b0-f030-4321-9306-f31fb071297b" xml:space="preserve">
+          <source><bpt id="99c847e0-df96-43ca-a3c6-37f8ec5a9250">&lt;linkText&gt;</bpt>Web app running in Azure<ept id="99c847e0-df96-43ca-a3c6-37f8ec5a9250">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99c847e0-df96-43ca-a3c6-37f8ec5a9250">&lt;linkText&gt;</bpt>Web app running in Azure<ept id="99c847e0-df96-43ca-a3c6-37f8ec5a9250">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2e5271b-7399-41cc-a339-e969993ceb1d" xml:space="preserve">
+          <source>Close the browser.</source>
+          <target state="new">Close the browser.</target>
+        </trans-unit>
+        <trans-unit id="86bfca60-b286-47e2-98c6-13a4eadc5d55" xml:space="preserve">
+          <source>This section of the tutorial is optional.</source>
+          <target state="new">This section of the tutorial is optional.</target>
+        </trans-unit>
+        <trans-unit id="abd65f90-50c5-4484-a789-77edc58f8c6b" xml:space="preserve">
+          <source>What you'll do is change the <bpt id="78413eb1-fd84-4b5e-8d22-6e75bd65d7e6">&lt;strong&gt;</bpt>h1<ept id="78413eb1-fd84-4b5e-8d22-6e75bd65d7e6">&lt;/strong&gt;</ept> heading of the home page, run the project locally on your development computer to verify the change, and then deploy the change to Azure.</source>
+          <target state="new">What you'll do is change the <bpt id="78413eb1-fd84-4b5e-8d22-6e75bd65d7e6">&lt;strong&gt;</bpt>h1<ept id="78413eb1-fd84-4b5e-8d22-6e75bd65d7e6">&lt;/strong&gt;</ept> heading of the home page, run the project locally on your development computer to verify the change, and then deploy the change to Azure.</target>
+        </trans-unit>
+        <trans-unit id="5e8cc87e-300e-4a07-8107-fbd3532577dd" xml:space="preserve">
+          <source>Open the <bpt id="0d29aa8f-0621-451b-9e70-a37cc2d71b5d">&lt;strong&gt;</bpt>Views/Home/Index.cshtml<ept id="0d29aa8f-0621-451b-9e70-a37cc2d71b5d">&lt;/strong&gt;</ept> or <bpt id="b7ace21f-0d4a-449a-800d-cccc3133d6a8">&lt;strong&gt;</bpt>.vbhtml<ept id="b7ace21f-0d4a-449a-800d-cccc3133d6a8">&lt;/strong&gt;</ept> file in <bpt id="c66fb174-81d4-44d6-bd23-c13fe90638ee">&lt;strong&gt;</bpt>Solution Explorer<ept id="c66fb174-81d4-44d6-bd23-c13fe90638ee">&lt;/strong&gt;</ept>, change the <bpt id="2cd72c62-c550-4226-937b-670b416eaddc">&lt;strong&gt;</bpt>h1<ept id="2cd72c62-c550-4226-937b-670b416eaddc">&lt;/strong&gt;</ept> heading from "ASP.NET" to "ASP.NET and Azure", and save the file.</source>
+          <target state="new">Open the <bpt id="0d29aa8f-0621-451b-9e70-a37cc2d71b5d">&lt;strong&gt;</bpt>Views/Home/Index.cshtml<ept id="0d29aa8f-0621-451b-9e70-a37cc2d71b5d">&lt;/strong&gt;</ept> or <bpt id="b7ace21f-0d4a-449a-800d-cccc3133d6a8">&lt;strong&gt;</bpt>.vbhtml<ept id="b7ace21f-0d4a-449a-800d-cccc3133d6a8">&lt;/strong&gt;</ept> file in <bpt id="c66fb174-81d4-44d6-bd23-c13fe90638ee">&lt;strong&gt;</bpt>Solution Explorer<ept id="c66fb174-81d4-44d6-bd23-c13fe90638ee">&lt;/strong&gt;</ept>, change the <bpt id="2cd72c62-c550-4226-937b-670b416eaddc">&lt;strong&gt;</bpt>h1<ept id="2cd72c62-c550-4226-937b-670b416eaddc">&lt;/strong&gt;</ept> heading from "ASP.NET" to "ASP.NET and Azure", and save the file.</target>
+        </trans-unit>
+        <trans-unit id="05dfe212-e217-4b0b-9362-28e2f0002e41" xml:space="preserve">
+          <source><bpt id="b589234a-381c-4d60-a97f-ff4a817abd93">&lt;linkText&gt;</bpt>MVC index.cshtml<ept id="b589234a-381c-4d60-a97f-ff4a817abd93">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b589234a-381c-4d60-a97f-ff4a817abd93">&lt;linkText&gt;</bpt>MVC index.cshtml<ept id="b589234a-381c-4d60-a97f-ff4a817abd93">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7081eca9-a19c-4562-9d80-9fdc25dcab12" xml:space="preserve">
+          <source><bpt id="371718b0-1e52-4e86-81be-4d1eefe75d3c">&lt;linkText&gt;</bpt>MVC h1 change<ept id="371718b0-1e52-4e86-81be-4d1eefe75d3c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="371718b0-1e52-4e86-81be-4d1eefe75d3c">&lt;linkText&gt;</bpt>MVC h1 change<ept id="371718b0-1e52-4e86-81be-4d1eefe75d3c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="351bd8ef-3513-4f1a-8ac7-2e684ea78564" xml:space="preserve">
+          <source>Press Ctrl+F5 to see the updated heading by running the web app on your local computer.</source>
+          <target state="new">Press Ctrl+F5 to see the updated heading by running the web app on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="e13ab0f8-4c44-4446-9139-a5bd53f6dc1f" xml:space="preserve">
+          <source><bpt id="f3db93d1-531b-4b2d-8891-05694d4f58ef">&lt;linkText&gt;</bpt>Web app running locally<ept id="f3db93d1-531b-4b2d-8891-05694d4f58ef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f3db93d1-531b-4b2d-8891-05694d4f58ef">&lt;linkText&gt;</bpt>Web app running locally<ept id="f3db93d1-531b-4b2d-8891-05694d4f58ef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de29ab5f-b216-40be-a001-ec8b834ceb87" xml:space="preserve">
+          <source>The <bpt id="d83aad88-3f20-4ccb-9f6f-28a16f105923">&lt;code&gt;</bpt>localhost<ept id="d83aad88-3f20-4ccb-9f6f-28a16f105923">&lt;/code&gt;</ept> URL shows that it's running on your local computer.</source>
+          <target state="new">The <bpt id="d83aad88-3f20-4ccb-9f6f-28a16f105923">&lt;code&gt;</bpt>localhost<ept id="d83aad88-3f20-4ccb-9f6f-28a16f105923">&lt;/code&gt;</ept> URL shows that it's running on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="e5da8eab-4d5a-4208-9f9d-1b8c66ecf738" xml:space="preserve">
+          <source>By default it's running in IIS Express, which is a lightweight version of IIS that's designed for use during web application development.</source>
+          <target state="new">By default it's running in IIS Express, which is a lightweight version of IIS that's designed for use during web application development.</target>
+        </trans-unit>
+        <trans-unit id="b80057eb-16a9-4e5e-b167-104159ad50ba" xml:space="preserve">
+          <source>Close the browser.</source>
+          <target state="new">Close the browser.</target>
+        </trans-unit>
+        <trans-unit id="7f48a263-6548-4933-92a6-00af836d9458" xml:space="preserve">
+          <source>In <bpt id="b9f0854a-416a-4224-a3ac-1c31afa69504">&lt;strong&gt;</bpt>Solution Explorer<ept id="b9f0854a-416a-4224-a3ac-1c31afa69504">&lt;/strong&gt;</ept>, right-click the project, and choose <bpt id="6849de85-e56e-46a5-8cba-d2ec3518b5c2">&lt;strong&gt;</bpt>Publish<ept id="6849de85-e56e-46a5-8cba-d2ec3518b5c2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="b9f0854a-416a-4224-a3ac-1c31afa69504">&lt;strong&gt;</bpt>Solution Explorer<ept id="b9f0854a-416a-4224-a3ac-1c31afa69504">&lt;/strong&gt;</ept>, right-click the project, and choose <bpt id="6849de85-e56e-46a5-8cba-d2ec3518b5c2">&lt;strong&gt;</bpt>Publish<ept id="6849de85-e56e-46a5-8cba-d2ec3518b5c2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ffeaa05-991f-4605-aa56-6d2522974a28" xml:space="preserve">
+          <source><bpt id="21805c6a-9546-4d95-a92a-2daeaf5b2cbd">&lt;linkText&gt;</bpt>Choose Publish<ept id="21805c6a-9546-4d95-a92a-2daeaf5b2cbd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21805c6a-9546-4d95-a92a-2daeaf5b2cbd">&lt;linkText&gt;</bpt>Choose Publish<ept id="21805c6a-9546-4d95-a92a-2daeaf5b2cbd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="502f8bd9-e256-4daf-835e-f82acdce3c78" xml:space="preserve">
+          <source>The <bpt id="3ffae3f3-9a3d-4b49-abe7-433dfe3843c4">&lt;strong&gt;</bpt>Preview<ept id="3ffae3f3-9a3d-4b49-abe7-433dfe3843c4">&lt;/strong&gt;</ept> tab of the <bpt id="1d06258a-c54b-4c23-8cf8-e6b26cd5f3b9">&lt;strong&gt;</bpt>Publish Web<ept id="1d06258a-c54b-4c23-8cf8-e6b26cd5f3b9">&lt;/strong&gt;</ept> wizard appears.</source>
+          <target state="new">The <bpt id="3ffae3f3-9a3d-4b49-abe7-433dfe3843c4">&lt;strong&gt;</bpt>Preview<ept id="3ffae3f3-9a3d-4b49-abe7-433dfe3843c4">&lt;/strong&gt;</ept> tab of the <bpt id="1d06258a-c54b-4c23-8cf8-e6b26cd5f3b9">&lt;strong&gt;</bpt>Publish Web<ept id="1d06258a-c54b-4c23-8cf8-e6b26cd5f3b9">&lt;/strong&gt;</ept> wizard appears.</target>
+        </trans-unit>
+        <trans-unit id="020de39d-186e-4922-8c8b-121f427595b2" xml:space="preserve">
+          <source>If you needed to change any publish settings, you could choose a different tab, but now all you want to do is redeploy with the same settings.</source>
+          <target state="new">If you needed to change any publish settings, you could choose a different tab, but now all you want to do is redeploy with the same settings.</target>
+        </trans-unit>
+        <trans-unit id="20285866-3a79-49eb-9ca1-ec865dbb769b" xml:space="preserve">
+          <source>In the <bpt id="6a830dd8-fe2f-44b3-b7ee-f62fdb6a11bf">&lt;strong&gt;</bpt>Publish Web<ept id="6a830dd8-fe2f-44b3-b7ee-f62fdb6a11bf">&lt;/strong&gt;</ept> wizard, click <bpt id="6b06c2ea-17f2-448b-aff5-14a56cc0db11">&lt;strong&gt;</bpt>Publish<ept id="6b06c2ea-17f2-448b-aff5-14a56cc0db11">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="6a830dd8-fe2f-44b3-b7ee-f62fdb6a11bf">&lt;strong&gt;</bpt>Publish Web<ept id="6a830dd8-fe2f-44b3-b7ee-f62fdb6a11bf">&lt;/strong&gt;</ept> wizard, click <bpt id="6b06c2ea-17f2-448b-aff5-14a56cc0db11">&lt;strong&gt;</bpt>Publish<ept id="6b06c2ea-17f2-448b-aff5-14a56cc0db11">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48402aa9-c364-4226-9db2-3a20efd49f64" xml:space="preserve">
+          <source><bpt id="fbaab951-df77-4dd5-bf42-56dfcc7d7511">&lt;linkText&gt;</bpt>Click Publish<ept id="fbaab951-df77-4dd5-bf42-56dfcc7d7511">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fbaab951-df77-4dd5-bf42-56dfcc7d7511">&lt;linkText&gt;</bpt>Click Publish<ept id="fbaab951-df77-4dd5-bf42-56dfcc7d7511">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6da0cab1-e283-4614-945d-dc679a3b7fc0" xml:space="preserve">
+          <source>Visual Studio deploys the project to Azure and opens the web app in the default browser.</source>
+          <target state="new">Visual Studio deploys the project to Azure and opens the web app in the default browser.</target>
+        </trans-unit>
+        <trans-unit id="220f9c0d-3218-48c9-8013-01716d60d7bd" xml:space="preserve">
+          <source><bpt id="50cc553e-d2e9-4de6-bb26-48c6d9b769bd">&lt;linkText&gt;</bpt>Changed web app deployed<ept id="50cc553e-d2e9-4de6-bb26-48c6d9b769bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="50cc553e-d2e9-4de6-bb26-48c6d9b769bd">&lt;linkText&gt;</bpt>Changed web app deployed<ept id="50cc553e-d2e9-4de6-bb26-48c6d9b769bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8daef0e8-44b7-4574-b04a-7a7f6eb67e17" xml:space="preserve">
+          <source><bpt id="a1d8606a-1ade-4504-89d7-bca0c3b14b51">&lt;strong&gt;</bpt>Tip:<ept id="a1d8606a-1ade-4504-89d7-bca0c3b14b51">&lt;/strong&gt;</ept> You can enable the <bpt id="8aa3564d-5e43-4e08-943b-94b92a2fcd22">&lt;strong&gt;</bpt>Web One Click Publish<ept id="8aa3564d-5e43-4e08-943b-94b92a2fcd22">&lt;/strong&gt;</ept> toolbar for even quicker deployment.</source>
+          <target state="new"><bpt id="a1d8606a-1ade-4504-89d7-bca0c3b14b51">&lt;strong&gt;</bpt>Tip:<ept id="a1d8606a-1ade-4504-89d7-bca0c3b14b51">&lt;/strong&gt;</ept> You can enable the <bpt id="8aa3564d-5e43-4e08-943b-94b92a2fcd22">&lt;strong&gt;</bpt>Web One Click Publish<ept id="8aa3564d-5e43-4e08-943b-94b92a2fcd22">&lt;/strong&gt;</ept> toolbar for even quicker deployment.</target>
+        </trans-unit>
+        <trans-unit id="90e32524-dfb5-4064-abe8-fad470b1bb86" xml:space="preserve">
+          <source>Click <bpt id="4035aa27-c7b4-4a46-9024-24243dcc96bd">&lt;strong&gt;</bpt>View &gt; Toolbars<ept id="4035aa27-c7b4-4a46-9024-24243dcc96bd">&lt;/strong&gt;</ept>, and then select <bpt id="8d0c048e-4cc6-4dea-b813-266b590a3509">&lt;strong&gt;</bpt>Web One Click Publish<ept id="8d0c048e-4cc6-4dea-b813-266b590a3509">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="4035aa27-c7b4-4a46-9024-24243dcc96bd">&lt;strong&gt;</bpt>View &gt; Toolbars<ept id="4035aa27-c7b4-4a46-9024-24243dcc96bd">&lt;/strong&gt;</ept>, and then select <bpt id="8d0c048e-4cc6-4dea-b813-266b590a3509">&lt;strong&gt;</bpt>Web One Click Publish<ept id="8d0c048e-4cc6-4dea-b813-266b590a3509">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02138582-2ed1-48ed-a4c3-e65c74e13019" xml:space="preserve">
+          <source>You can use the toolbar to select a profile, click a button to publish, or click a button to open the <bpt id="abfc6d37-25a3-4139-8b90-f10a18cb818e">&lt;strong&gt;</bpt>Publish Web<ept id="abfc6d37-25a3-4139-8b90-f10a18cb818e">&lt;/strong&gt;</ept> wizard.</source>
+          <target state="new">You can use the toolbar to select a profile, click a button to publish, or click a button to open the <bpt id="abfc6d37-25a3-4139-8b90-f10a18cb818e">&lt;strong&gt;</bpt>Publish Web<ept id="abfc6d37-25a3-4139-8b90-f10a18cb818e">&lt;/strong&gt;</ept> wizard.</target>
+        </trans-unit>
+        <trans-unit id="2e02b374-e147-4ae8-b737-1d9cafa4e0e2" xml:space="preserve">
+          <source><bpt id="aa46c72c-1c46-450d-843e-c6988e1e432e">&lt;linkText&gt;</bpt>Web One Click Publish Toolbar<ept id="aa46c72c-1c46-450d-843e-c6988e1e432e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa46c72c-1c46-450d-843e-c6988e1e432e">&lt;linkText&gt;</bpt>Web One Click Publish Toolbar<ept id="aa46c72c-1c46-450d-843e-c6988e1e432e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="029e683a-b41d-43d4-978f-944e0ccb1d36" xml:space="preserve">
+          <source>The <bpt id="807ff980-9051-44c7-a6f5-8cdcdc86545a">&lt;linkText&gt;</bpt>Azure portal<ept id="807ff980-9051-44c7-a6f5-8cdcdc86545a">&lt;/linkText&gt;</ept><bpt id="807ff980-9051-44c7-a6f5-8cdcdc86545a">&lt;title&gt;</bpt><ept id="807ff980-9051-44c7-a6f5-8cdcdc86545a">&lt;/title&gt;</ept> is a web interface that you can use to manage and monitor your Azure services, such as the web app that you just created.</source>
+          <target state="new">The <bpt id="807ff980-9051-44c7-a6f5-8cdcdc86545a">&lt;linkText&gt;</bpt>Azure portal<ept id="807ff980-9051-44c7-a6f5-8cdcdc86545a">&lt;/linkText&gt;</ept><bpt id="807ff980-9051-44c7-a6f5-8cdcdc86545a">&lt;title&gt;</bpt><ept id="807ff980-9051-44c7-a6f5-8cdcdc86545a">&lt;/title&gt;</ept> is a web interface that you can use to manage and monitor your Azure services, such as the web app that you just created.</target>
+        </trans-unit>
+        <trans-unit id="2fe21c28-a36e-484a-86e5-569b03c5373d" xml:space="preserve">
+          <source>In this section of the tutorial, you look at some of what you can do in the portal.</source>
+          <target state="new">In this section of the tutorial, you look at some of what you can do in the portal.</target>
+        </trans-unit>
+        <trans-unit id="41a2ba18-46e5-45e7-b722-74286415f1a9" xml:space="preserve">
+          <source>In your browser, go to <bpt id="6010670c-9e28-4860-97c7-cef8879c7284">&lt;linkText&gt;</bpt>https://portal.azure.com<ept id="6010670c-9e28-4860-97c7-cef8879c7284">&lt;/linkText&gt;</ept><bpt id="6010670c-9e28-4860-97c7-cef8879c7284">&lt;title&gt;</bpt><ept id="6010670c-9e28-4860-97c7-cef8879c7284">&lt;/title&gt;</ept>, and sign in with your Azure credentials.</source>
+          <target state="new">In your browser, go to <bpt id="6010670c-9e28-4860-97c7-cef8879c7284">&lt;linkText&gt;</bpt>https://portal.azure.com<ept id="6010670c-9e28-4860-97c7-cef8879c7284">&lt;/linkText&gt;</ept><bpt id="6010670c-9e28-4860-97c7-cef8879c7284">&lt;title&gt;</bpt><ept id="6010670c-9e28-4860-97c7-cef8879c7284">&lt;/title&gt;</ept>, and sign in with your Azure credentials.</target>
+        </trans-unit>
+        <trans-unit id="1c618452-deaa-4b37-81b9-f7a43d85b0ac" xml:space="preserve">
+          <source>Click <bpt id="0494df58-20a7-427c-9a00-ddb10b8d9953">&lt;strong&gt;</bpt>Browse All &gt; Web Apps<ept id="0494df58-20a7-427c-9a00-ddb10b8d9953">&lt;/strong&gt;</ept>, and then click the name of your web app.</source>
+          <target state="new">Click <bpt id="0494df58-20a7-427c-9a00-ddb10b8d9953">&lt;strong&gt;</bpt>Browse All &gt; Web Apps<ept id="0494df58-20a7-427c-9a00-ddb10b8d9953">&lt;/strong&gt;</ept>, and then click the name of your web app.</target>
+        </trans-unit>
+        <trans-unit id="0f861c14-759d-4720-ada7-81c83ba783f8" xml:space="preserve">
+          <source>The <bpt id="abb3345d-4963-4bed-831e-886176bc8717">&lt;strong&gt;</bpt>Web app<ept id="abb3345d-4963-4bed-831e-886176bc8717">&lt;/strong&gt;</ept> blade displays an overview of settings and usage statistics for your web app.</source>
+          <target state="new">The <bpt id="abb3345d-4963-4bed-831e-886176bc8717">&lt;strong&gt;</bpt>Web app<ept id="abb3345d-4963-4bed-831e-886176bc8717">&lt;/strong&gt;</ept> blade displays an overview of settings and usage statistics for your web app.</target>
+        </trans-unit>
+        <trans-unit id="7cd7960f-1d85-4f82-8797-491a17f9abe7" xml:space="preserve">
+          <source><bpt id="b3de43b3-6d67-4a0c-ae29-20a8ef8de81b">&lt;linkText&gt;</bpt>Web app blade<ept id="b3de43b3-6d67-4a0c-ae29-20a8ef8de81b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b3de43b3-6d67-4a0c-ae29-20a8ef8de81b">&lt;linkText&gt;</bpt>Web app blade<ept id="b3de43b3-6d67-4a0c-ae29-20a8ef8de81b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9923337-d4b1-43cf-a91c-7a77e2191a35" xml:space="preserve">
+          <source>At this point, your web app hasn't had much traffic and may not show anything in the graph.</source>
+          <target state="new">At this point, your web app hasn't had much traffic and may not show anything in the graph.</target>
+        </trans-unit>
+        <trans-unit id="8ebff8ba-e3f6-41b5-beef-2517c3aa90f1" xml:space="preserve">
+          <source>If you browse to your application, refresh the page a few times, and then refresh the portal page, you'll see some statistics show up.</source>
+          <target state="new">If you browse to your application, refresh the page a few times, and then refresh the portal page, you'll see some statistics show up.</target>
+        </trans-unit>
+        <trans-unit id="a8c14089-e9c2-4aef-8bfe-fd5a873e9a6c" xml:space="preserve">
+          <source>Click <bpt id="b61c6bae-9b1d-4cae-9056-f66426716b25">&lt;strong&gt;</bpt>Settings<ept id="b61c6bae-9b1d-4cae-9056-f66426716b25">&lt;/strong&gt;</ept> to see more options for configuring your web app.</source>
+          <target state="new">Click <bpt id="b61c6bae-9b1d-4cae-9056-f66426716b25">&lt;strong&gt;</bpt>Settings<ept id="b61c6bae-9b1d-4cae-9056-f66426716b25">&lt;/strong&gt;</ept> to see more options for configuring your web app.</target>
+        </trans-unit>
+        <trans-unit id="eca73d7e-e27e-447a-9f55-706f5d562e5e" xml:space="preserve">
+          <source>You see a list of types of settings.</source>
+          <target state="new">You see a list of types of settings.</target>
+        </trans-unit>
+        <trans-unit id="608bdde4-db21-414f-a6a1-2cb2a047e44f" xml:space="preserve">
+          <source><bpt id="3fcf67c6-4318-4f9b-9dff-45bfee6f381f">&lt;linkText&gt;</bpt><ept id="3fcf67c6-4318-4f9b-9dff-45bfee6f381f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3fcf67c6-4318-4f9b-9dff-45bfee6f381f">&lt;linkText&gt;</bpt><ept id="3fcf67c6-4318-4f9b-9dff-45bfee6f381f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0df0349-145d-4fcf-a19a-531d22a918f2" xml:space="preserve">
+          <source>Click <bpt id="8d7be46c-9b93-4561-acd6-9996c89c5fa6">&lt;strong&gt;</bpt>Application settings<ept id="8d7be46c-9b93-4561-acd6-9996c89c5fa6">&lt;/strong&gt;</ept> to see an example of the kinds of settings that you can configure in the portal.</source>
+          <target state="new">Click <bpt id="8d7be46c-9b93-4561-acd6-9996c89c5fa6">&lt;strong&gt;</bpt>Application settings<ept id="8d7be46c-9b93-4561-acd6-9996c89c5fa6">&lt;/strong&gt;</ept> to see an example of the kinds of settings that you can configure in the portal.</target>
+        </trans-unit>
+        <trans-unit id="be37715d-fe8e-468b-b166-8ba7c5e16ef3" xml:space="preserve">
+          <source>For example, you can control the .NET version that's used for the web app, enable features such as <bpt id="a2c75a5f-6d00-4e2f-80f2-f5db043acb00">&lt;linkText&gt;</bpt>WebSockets<ept id="a2c75a5f-6d00-4e2f-80f2-f5db043acb00">&lt;/linkText&gt;</ept><bpt id="a2c75a5f-6d00-4e2f-80f2-f5db043acb00">&lt;title&gt;</bpt><ept id="a2c75a5f-6d00-4e2f-80f2-f5db043acb00">&lt;/title&gt;</ept>, and set <bpt id="e9ac193c-ba0f-4fa6-bc92-18feb701b74d">&lt;linkText&gt;</bpt>connection string values<ept id="e9ac193c-ba0f-4fa6-bc92-18feb701b74d">&lt;/linkText&gt;</ept><bpt id="e9ac193c-ba0f-4fa6-bc92-18feb701b74d">&lt;title&gt;</bpt><ept id="e9ac193c-ba0f-4fa6-bc92-18feb701b74d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For example, you can control the .NET version that's used for the web app, enable features such as <bpt id="a2c75a5f-6d00-4e2f-80f2-f5db043acb00">&lt;linkText&gt;</bpt>WebSockets<ept id="a2c75a5f-6d00-4e2f-80f2-f5db043acb00">&lt;/linkText&gt;</ept><bpt id="a2c75a5f-6d00-4e2f-80f2-f5db043acb00">&lt;title&gt;</bpt><ept id="a2c75a5f-6d00-4e2f-80f2-f5db043acb00">&lt;/title&gt;</ept>, and set <bpt id="e9ac193c-ba0f-4fa6-bc92-18feb701b74d">&lt;linkText&gt;</bpt>connection string values<ept id="e9ac193c-ba0f-4fa6-bc92-18feb701b74d">&lt;/linkText&gt;</ept><bpt id="e9ac193c-ba0f-4fa6-bc92-18feb701b74d">&lt;title&gt;</bpt><ept id="e9ac193c-ba0f-4fa6-bc92-18feb701b74d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9697365-fda4-4f0f-b8aa-9ef2d6dde85c" xml:space="preserve">
+          <source><bpt id="addf0d97-61d0-47b3-86da-4a6dd53b516e">&lt;linkText&gt;</bpt>Portal web app configure tab<ept id="addf0d97-61d0-47b3-86da-4a6dd53b516e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="addf0d97-61d0-47b3-86da-4a6dd53b516e">&lt;linkText&gt;</bpt>Portal web app configure tab<ept id="addf0d97-61d0-47b3-86da-4a6dd53b516e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93715ec2-c9af-4fab-ac65-4829c77d21d2" xml:space="preserve">
+          <source>These are just a few of the portal's features.</source>
+          <target state="new">These are just a few of the portal's features.</target>
+        </trans-unit>
+        <trans-unit id="8f19da10-b483-4047-bc29-af9fdb93df56" xml:space="preserve">
+          <source>You can create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.</source>
+          <target state="new">You can create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="c57be844-e049-47f3-9b3d-0b83650b1456" xml:space="preserve">
+          <source>In this tutorial, you've seen how to create a simple web application and deploy it to an Azure web app.</source>
+          <target state="new">In this tutorial, you've seen how to create a simple web application and deploy it to an Azure web app.</target>
+        </trans-unit>
+        <trans-unit id="c21eea1e-f923-4123-baf6-c0c46c3fa261" xml:space="preserve">
+          <source>Here are some related topics and resources for learning more about web apps in Azure App Service:</source>
+          <target state="new">Here are some related topics and resources for learning more about web apps in Azure App Service:</target>
+        </trans-unit>
+        <trans-unit id="97c04f81-8b88-4f32-a04e-34fb5fa2780f" xml:space="preserve">
+          <source>Other ways to deploy a web project</source>
+          <target state="new">Other ways to deploy a web project</target>
+        </trans-unit>
+        <trans-unit id="0297f239-ee6e-4bc9-a230-9132f8b51cb7" xml:space="preserve">
+          <source>In this tutorial, you saw the quickest way to create a web app and deploy it all in one operation.</source>
+          <target state="new">In this tutorial, you saw the quickest way to create a web app and deploy it all in one operation.</target>
+        </trans-unit>
+        <trans-unit id="a2d2b6c2-74a2-44e1-ba98-de3304be8ffc" xml:space="preserve">
+          <source>For an overview of other ways to deploy, by using Visual Studio or by <bpt id="1b2a07c3-3b0a-43bf-b8c7-ef89f301240f">&lt;linkText&gt;</bpt>automating deployment<ept id="1b2a07c3-3b0a-43bf-b8c7-ef89f301240f">&lt;/linkText&gt;</ept><bpt id="1b2a07c3-3b0a-43bf-b8c7-ef89f301240f">&lt;title&gt;</bpt><ept id="1b2a07c3-3b0a-43bf-b8c7-ef89f301240f">&lt;/title&gt;</ept> from a <bpt id="2b91808f-059e-47e5-bc86-a98cb0d41800">&lt;linkText&gt;</bpt>source control system<ept id="2b91808f-059e-47e5-bc86-a98cb0d41800">&lt;/linkText&gt;</ept><bpt id="2b91808f-059e-47e5-bc86-a98cb0d41800">&lt;title&gt;</bpt><ept id="2b91808f-059e-47e5-bc86-a98cb0d41800">&lt;/title&gt;</ept>, see <bpt id="9dff823b-4b12-4e80-8321-bd45d7050ce5">&lt;linkText&gt;</bpt>How to deploy an Azure web app<ept id="9dff823b-4b12-4e80-8321-bd45d7050ce5">&lt;/linkText&gt;</ept><bpt id="9dff823b-4b12-4e80-8321-bd45d7050ce5">&lt;title&gt;</bpt><ept id="9dff823b-4b12-4e80-8321-bd45d7050ce5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an overview of other ways to deploy, by using Visual Studio or by <bpt id="1b2a07c3-3b0a-43bf-b8c7-ef89f301240f">&lt;linkText&gt;</bpt>automating deployment<ept id="1b2a07c3-3b0a-43bf-b8c7-ef89f301240f">&lt;/linkText&gt;</ept><bpt id="1b2a07c3-3b0a-43bf-b8c7-ef89f301240f">&lt;title&gt;</bpt><ept id="1b2a07c3-3b0a-43bf-b8c7-ef89f301240f">&lt;/title&gt;</ept> from a <bpt id="2b91808f-059e-47e5-bc86-a98cb0d41800">&lt;linkText&gt;</bpt>source control system<ept id="2b91808f-059e-47e5-bc86-a98cb0d41800">&lt;/linkText&gt;</ept><bpt id="2b91808f-059e-47e5-bc86-a98cb0d41800">&lt;title&gt;</bpt><ept id="2b91808f-059e-47e5-bc86-a98cb0d41800">&lt;/title&gt;</ept>, see <bpt id="9dff823b-4b12-4e80-8321-bd45d7050ce5">&lt;linkText&gt;</bpt>How to deploy an Azure web app<ept id="9dff823b-4b12-4e80-8321-bd45d7050ce5">&lt;/linkText&gt;</ept><bpt id="9dff823b-4b12-4e80-8321-bd45d7050ce5">&lt;title&gt;</bpt><ept id="9dff823b-4b12-4e80-8321-bd45d7050ce5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c096d902-571f-4907-bf8f-21d55707b111" xml:space="preserve">
+          <source>Visual Studio can also generate Windows PowerShell scripts that you can use to automate deployment.</source>
+          <target state="new">Visual Studio can also generate Windows PowerShell scripts that you can use to automate deployment.</target>
+        </trans-unit>
+        <trans-unit id="516c3889-6d2b-4c11-af65-f1c64609c1bd" xml:space="preserve">
+          <source>For more information, see <bpt id="4ebfaa14-5734-466c-ad6a-38a62c99289d">&lt;linkText&gt;</bpt>Automate Everything (Building Real-World Cloud Apps with Azure)<ept id="4ebfaa14-5734-466c-ad6a-38a62c99289d">&lt;/linkText&gt;</ept><bpt id="4ebfaa14-5734-466c-ad6a-38a62c99289d">&lt;title&gt;</bpt><ept id="4ebfaa14-5734-466c-ad6a-38a62c99289d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4ebfaa14-5734-466c-ad6a-38a62c99289d">&lt;linkText&gt;</bpt>Automate Everything (Building Real-World Cloud Apps with Azure)<ept id="4ebfaa14-5734-466c-ad6a-38a62c99289d">&lt;/linkText&gt;</ept><bpt id="4ebfaa14-5734-466c-ad6a-38a62c99289d">&lt;title&gt;</bpt><ept id="4ebfaa14-5734-466c-ad6a-38a62c99289d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="590edf27-2491-482b-ac33-a234c74a173b" xml:space="preserve">
+          <source>How to manage a web app in Visual Studio</source>
+          <target state="new">How to manage a web app in Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="15fbc0bd-90f0-4aec-a00d-3c5d0c22b0c0" xml:space="preserve">
+          <source>For information about web app management functions that you can do in <bpt id="a1b26143-bb89-4ad7-bacc-c91691ef90b5">&lt;strong&gt;</bpt>Server Explorer<ept id="a1b26143-bb89-4ad7-bacc-c91691ef90b5">&lt;/strong&gt;</ept>, see <bpt id="7bbf9e8e-b10d-4beb-b6d6-1e71bb7f4713">&lt;linkText&gt;</bpt>Troubleshooting Azure web apps in Visual Studio<ept id="7bbf9e8e-b10d-4beb-b6d6-1e71bb7f4713">&lt;/linkText&gt;</ept><bpt id="7bbf9e8e-b10d-4beb-b6d6-1e71bb7f4713">&lt;title&gt;</bpt><ept id="7bbf9e8e-b10d-4beb-b6d6-1e71bb7f4713">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about web app management functions that you can do in <bpt id="a1b26143-bb89-4ad7-bacc-c91691ef90b5">&lt;strong&gt;</bpt>Server Explorer<ept id="a1b26143-bb89-4ad7-bacc-c91691ef90b5">&lt;/strong&gt;</ept>, see <bpt id="7bbf9e8e-b10d-4beb-b6d6-1e71bb7f4713">&lt;linkText&gt;</bpt>Troubleshooting Azure web apps in Visual Studio<ept id="7bbf9e8e-b10d-4beb-b6d6-1e71bb7f4713">&lt;/linkText&gt;</ept><bpt id="7bbf9e8e-b10d-4beb-b6d6-1e71bb7f4713">&lt;title&gt;</bpt><ept id="7bbf9e8e-b10d-4beb-b6d6-1e71bb7f4713">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c56b2de-80b0-4c2e-abd1-6035a91c0701" xml:space="preserve">
+          <source>How to troubleshoot a web app</source>
+          <target state="new">How to troubleshoot a web app</target>
+        </trans-unit>
+        <trans-unit id="86d390e5-781c-4083-b21f-43138d75efe4" xml:space="preserve">
+          <source>Visual Studio provides features that make it easy to view Azure logs as they are generated in real time.</source>
+          <target state="new">Visual Studio provides features that make it easy to view Azure logs as they are generated in real time.</target>
+        </trans-unit>
+        <trans-unit id="32ae4e64-9b6e-41f5-9be6-303d65760969" xml:space="preserve">
+          <source>You can also run in debug mode remotely in Azure.</source>
+          <target state="new">You can also run in debug mode remotely in Azure.</target>
+        </trans-unit>
+        <trans-unit id="c07126bd-d89d-49cd-8af6-cbf94a34ed90" xml:space="preserve">
+          <source>For more information, see <bpt id="67b1e404-2ae8-40bb-bc7c-e3e6ad14e670">&lt;linkText&gt;</bpt>Troubleshooting Azure web apps in Visual Studio<ept id="67b1e404-2ae8-40bb-bc7c-e3e6ad14e670">&lt;/linkText&gt;</ept><bpt id="67b1e404-2ae8-40bb-bc7c-e3e6ad14e670">&lt;title&gt;</bpt><ept id="67b1e404-2ae8-40bb-bc7c-e3e6ad14e670">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="67b1e404-2ae8-40bb-bc7c-e3e6ad14e670">&lt;linkText&gt;</bpt>Troubleshooting Azure web apps in Visual Studio<ept id="67b1e404-2ae8-40bb-bc7c-e3e6ad14e670">&lt;/linkText&gt;</ept><bpt id="67b1e404-2ae8-40bb-bc7c-e3e6ad14e670">&lt;title&gt;</bpt><ept id="67b1e404-2ae8-40bb-bc7c-e3e6ad14e670">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c8414a3-cf31-4cc0-b4bf-6cb54767f3ce" xml:space="preserve">
+          <source>How to add database and authorization functionality</source>
+          <target state="new">How to add database and authorization functionality</target>
+        </trans-unit>
+        <trans-unit id="d52e266a-3bc5-4f8a-a471-bb3a1aae4422" xml:space="preserve">
+          <source>For a tutorial that shows how to access a database and restrict some application functions to authorized users, see <bpt id="28a69ded-96c4-4f66-be23-dbba08c51434">&lt;linkText&gt;</bpt>Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app<ept id="28a69ded-96c4-4f66-be23-dbba08c51434">&lt;/linkText&gt;</ept><bpt id="28a69ded-96c4-4f66-be23-dbba08c51434">&lt;title&gt;</bpt><ept id="28a69ded-96c4-4f66-be23-dbba08c51434">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a tutorial that shows how to access a database and restrict some application functions to authorized users, see <bpt id="28a69ded-96c4-4f66-be23-dbba08c51434">&lt;linkText&gt;</bpt>Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app<ept id="28a69ded-96c4-4f66-be23-dbba08c51434">&lt;/linkText&gt;</ept><bpt id="28a69ded-96c4-4f66-be23-dbba08c51434">&lt;title&gt;</bpt><ept id="28a69ded-96c4-4f66-be23-dbba08c51434">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="525247d7-7c69-43ff-849c-e295cb081c7d" xml:space="preserve">
+          <source>How to add a custom domain name and SSL</source>
+          <target state="new">How to add a custom domain name and SSL</target>
+        </trans-unit>
+        <trans-unit id="45eba99c-c47d-4141-b961-9ab6b1b15c1b" xml:space="preserve">
+          <source>For information about how to use SSL and your own domain (for example, www.contoso.com instead of contoso.azurewebsites.net), see the following resources:</source>
+          <target state="new">For information about how to use SSL and your own domain (for example, www.contoso.com instead of contoso.azurewebsites.net), see the following resources:</target>
+        </trans-unit>
+        <trans-unit id="3376c556-0111-4fc8-9354-e1af75b4fa3a" xml:space="preserve">
+          <source><bpt id="49b97455-d32d-4f62-b09a-125c52a78944">&lt;linkText&gt;</bpt>Configure a custom domain name in Azure App Service<ept id="49b97455-d32d-4f62-b09a-125c52a78944">&lt;/linkText&gt;</ept><bpt id="49b97455-d32d-4f62-b09a-125c52a78944">&lt;title&gt;</bpt><ept id="49b97455-d32d-4f62-b09a-125c52a78944">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="49b97455-d32d-4f62-b09a-125c52a78944">&lt;linkText&gt;</bpt>Configure a custom domain name in Azure App Service<ept id="49b97455-d32d-4f62-b09a-125c52a78944">&lt;/linkText&gt;</ept><bpt id="49b97455-d32d-4f62-b09a-125c52a78944">&lt;title&gt;</bpt><ept id="49b97455-d32d-4f62-b09a-125c52a78944">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="375d5bb5-9cf3-4543-967a-1c9f28b43d3b" xml:space="preserve">
+          <source><bpt id="790937c3-94d3-49fb-81c4-df7d27805391">&lt;linkText&gt;</bpt>Enable HTTPS for an Azure website<ept id="790937c3-94d3-49fb-81c4-df7d27805391">&lt;/linkText&gt;</ept><bpt id="790937c3-94d3-49fb-81c4-df7d27805391">&lt;title&gt;</bpt><ept id="790937c3-94d3-49fb-81c4-df7d27805391">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="790937c3-94d3-49fb-81c4-df7d27805391">&lt;linkText&gt;</bpt>Enable HTTPS for an Azure website<ept id="790937c3-94d3-49fb-81c4-df7d27805391">&lt;/linkText&gt;</ept><bpt id="790937c3-94d3-49fb-81c4-df7d27805391">&lt;title&gt;</bpt><ept id="790937c3-94d3-49fb-81c4-df7d27805391">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3977e08a-35d5-448e-a11b-f80629dae028" xml:space="preserve">
+          <source>How to avoid wake-up wait time after idle time-outs</source>
+          <target state="new">How to avoid wake-up wait time after idle time-outs</target>
+        </trans-unit>
+        <trans-unit id="8cd8d74b-d048-4444-9dea-4cf661376a63" xml:space="preserve">
+          <source>By default, web apps are unloaded if they have been idle for some period of time.</source>
+          <target state="new">By default, web apps are unloaded if they have been idle for some period of time.</target>
+        </trans-unit>
+        <trans-unit id="81b77273-9348-4087-84c2-6cb592b47c28" xml:space="preserve">
+          <source>The first request after a web app has been unloaded has to wait for the web app to be reloaded.</source>
+          <target state="new">The first request after a web app has been unloaded has to wait for the web app to be reloaded.</target>
+        </trans-unit>
+        <trans-unit id="a8371404-c2be-4bab-9ee9-36fa1c63d870" xml:space="preserve">
+          <source>To avoid that wait time, you can  enable the Always On feature.</source>
+          <target state="new">To avoid that wait time, you can  enable the Always On feature.</target>
+        </trans-unit>
+        <trans-unit id="cfedacbe-7e34-4219-9833-fbac9848da9a" xml:space="preserve">
+          <source>For more information, see the configuration options in <bpt id="e6057df9-ff99-4ec1-a07a-e32f6bc5c876">&lt;linkText&gt;</bpt>How to configure web apps<ept id="e6057df9-ff99-4ec1-a07a-e32f6bc5c876">&lt;/linkText&gt;</ept><bpt id="e6057df9-ff99-4ec1-a07a-e32f6bc5c876">&lt;title&gt;</bpt><ept id="e6057df9-ff99-4ec1-a07a-e32f6bc5c876">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the configuration options in <bpt id="e6057df9-ff99-4ec1-a07a-e32f6bc5c876">&lt;linkText&gt;</bpt>How to configure web apps<ept id="e6057df9-ff99-4ec1-a07a-e32f6bc5c876">&lt;/linkText&gt;</ept><bpt id="e6057df9-ff99-4ec1-a07a-e32f6bc5c876">&lt;title&gt;</bpt><ept id="e6057df9-ff99-4ec1-a07a-e32f6bc5c876">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a7c07d8-a518-4d5c-a76e-ef5ecf76a6c2" xml:space="preserve">
+          <source>How to add real-time features such as chat</source>
+          <target state="new">How to add real-time features such as chat</target>
+        </trans-unit>
+        <trans-unit id="17097d0c-0831-4e16-8f23-a87b04682ca5" xml:space="preserve">
+          <source>If your web app will include real-time features (such as a chat service, a game, or a stock ticker), you can get the best performance by using <bpt id="ffb4de6c-d288-4def-8f3b-926806008653">&lt;linkText&gt;</bpt>ASP.NET SignalR<ept id="ffb4de6c-d288-4def-8f3b-926806008653">&lt;/linkText&gt;</ept><bpt id="ffb4de6c-d288-4def-8f3b-926806008653">&lt;title&gt;</bpt><ept id="ffb4de6c-d288-4def-8f3b-926806008653">&lt;/title&gt;</ept> with the <bpt id="3afd98f0-cca6-4a11-9a67-78f96a6d0d9a">&lt;linkText&gt;</bpt>WebSockets<ept id="3afd98f0-cca6-4a11-9a67-78f96a6d0d9a">&lt;/linkText&gt;</ept><bpt id="3afd98f0-cca6-4a11-9a67-78f96a6d0d9a">&lt;title&gt;</bpt><ept id="3afd98f0-cca6-4a11-9a67-78f96a6d0d9a">&lt;/title&gt;</ept> transport method.</source>
+          <target state="new">If your web app will include real-time features (such as a chat service, a game, or a stock ticker), you can get the best performance by using <bpt id="ffb4de6c-d288-4def-8f3b-926806008653">&lt;linkText&gt;</bpt>ASP.NET SignalR<ept id="ffb4de6c-d288-4def-8f3b-926806008653">&lt;/linkText&gt;</ept><bpt id="ffb4de6c-d288-4def-8f3b-926806008653">&lt;title&gt;</bpt><ept id="ffb4de6c-d288-4def-8f3b-926806008653">&lt;/title&gt;</ept> with the <bpt id="3afd98f0-cca6-4a11-9a67-78f96a6d0d9a">&lt;linkText&gt;</bpt>WebSockets<ept id="3afd98f0-cca6-4a11-9a67-78f96a6d0d9a">&lt;/linkText&gt;</ept><bpt id="3afd98f0-cca6-4a11-9a67-78f96a6d0d9a">&lt;title&gt;</bpt><ept id="3afd98f0-cca6-4a11-9a67-78f96a6d0d9a">&lt;/title&gt;</ept> transport method.</target>
+        </trans-unit>
+        <trans-unit id="405de222-adb0-4f78-a244-4ec3ffc6a598" xml:space="preserve">
+          <source>For more information, see <bpt id="0836194c-de89-4921-bdaf-9290e7d4012e">&lt;linkText&gt;</bpt>Using SignalR with Azure web apps<ept id="0836194c-de89-4921-bdaf-9290e7d4012e">&lt;/linkText&gt;</ept><bpt id="0836194c-de89-4921-bdaf-9290e7d4012e">&lt;title&gt;</bpt><ept id="0836194c-de89-4921-bdaf-9290e7d4012e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="0836194c-de89-4921-bdaf-9290e7d4012e">&lt;linkText&gt;</bpt>Using SignalR with Azure web apps<ept id="0836194c-de89-4921-bdaf-9290e7d4012e">&lt;/linkText&gt;</ept><bpt id="0836194c-de89-4921-bdaf-9290e7d4012e">&lt;title&gt;</bpt><ept id="0836194c-de89-4921-bdaf-9290e7d4012e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfc41f92-1e68-4935-86ae-0494bfb02593" xml:space="preserve">
+          <source>How to choose between App Service, Azure Cloud Services, and Azure Virtual Machines for web applications</source>
+          <target state="new">How to choose between App Service, Azure Cloud Services, and Azure Virtual Machines for web applications</target>
+        </trans-unit>
+        <trans-unit id="e50a15d1-658c-4cd1-9e09-40ca7b85d1b5" xml:space="preserve">
+          <source>In Azure, you can run web applications in App Service Web Apps as shown in this tutorial, or in Cloud Services or in Virtual Machines.</source>
+          <target state="new">In Azure, you can run web applications in App Service Web Apps as shown in this tutorial, or in Cloud Services or in Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="8cabf717-39e0-4c2f-be0a-6ff82b1d6684" xml:space="preserve">
+          <source>For more information, see <bpt id="4e3773c8-f4db-4b65-a87d-378db40d57f3">&lt;linkText&gt;</bpt>Azure web apps, cloud services, and VMs: When to use which?<ept id="4e3773c8-f4db-4b65-a87d-378db40d57f3">&lt;/linkText&gt;</ept><bpt id="4e3773c8-f4db-4b65-a87d-378db40d57f3">&lt;title&gt;</bpt><ept id="4e3773c8-f4db-4b65-a87d-378db40d57f3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4e3773c8-f4db-4b65-a87d-378db40d57f3">&lt;linkText&gt;</bpt>Azure web apps, cloud services, and VMs: When to use which?<ept id="4e3773c8-f4db-4b65-a87d-378db40d57f3">&lt;/linkText&gt;</ept><bpt id="4e3773c8-f4db-4b65-a87d-378db40d57f3">&lt;title&gt;</bpt><ept id="4e3773c8-f4db-4b65-a87d-378db40d57f3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09e93423-583f-43be-b900-774c258e752b" xml:space="preserve">
+          <source><bpt id="12aef73b-7daa-4a9c-96f4-572273dfd6cd">&lt;linkText&gt;</bpt>How to choose or create an App Service plan<ept id="12aef73b-7daa-4a9c-96f4-572273dfd6cd">&lt;/linkText&gt;</ept><bpt id="12aef73b-7daa-4a9c-96f4-572273dfd6cd">&lt;title&gt;</bpt><ept id="12aef73b-7daa-4a9c-96f4-572273dfd6cd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="12aef73b-7daa-4a9c-96f4-572273dfd6cd">&lt;linkText&gt;</bpt>How to choose or create an App Service plan<ept id="12aef73b-7daa-4a9c-96f4-572273dfd6cd">&lt;/linkText&gt;</ept><bpt id="12aef73b-7daa-4a9c-96f4-572273dfd6cd">&lt;title&gt;</bpt><ept id="12aef73b-7daa-4a9c-96f4-572273dfd6cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f5cb6e0-03e6-4317-9ee1-b247f67997ef" xml:space="preserve">
+          <source><bpt id="b7aadcdc-d507-47fa-9478-890938e0a3ad">&lt;linkText&gt;</bpt>How to choose or create a resource group<ept id="b7aadcdc-d507-47fa-9478-890938e0a3ad">&lt;/linkText&gt;</ept><bpt id="b7aadcdc-d507-47fa-9478-890938e0a3ad">&lt;title&gt;</bpt><ept id="b7aadcdc-d507-47fa-9478-890938e0a3ad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b7aadcdc-d507-47fa-9478-890938e0a3ad">&lt;linkText&gt;</bpt>How to choose or create a resource group<ept id="b7aadcdc-d507-47fa-9478-890938e0a3ad">&lt;/linkText&gt;</ept><bpt id="b7aadcdc-d507-47fa-9478-890938e0a3ad">&lt;title&gt;</bpt><ept id="b7aadcdc-d507-47fa-9478-890938e0a3ad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de122fad-1504-4c41-8b7d-926c87bafa36" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service, see <bpt id="8c6763c9-6057-4b4a-a42f-1c2c673ecfde">&lt;linkText&gt;</bpt>Azure App Service and existing Azure services<ept id="8c6763c9-6057-4b4a-a42f-1c2c673ecfde">&lt;/linkText&gt;</ept><bpt id="8c6763c9-6057-4b4a-a42f-1c2c673ecfde">&lt;title&gt;</bpt><ept id="8c6763c9-6057-4b4a-a42f-1c2c673ecfde">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a guide to the change from Websites to App Service, see <bpt id="8c6763c9-6057-4b4a-a42f-1c2c673ecfde">&lt;linkText&gt;</bpt>Azure App Service and existing Azure services<ept id="8c6763c9-6057-4b4a-a42f-1c2c673ecfde">&lt;/linkText&gt;</ept><bpt id="8c6763c9-6057-4b4a-a42f-1c2c673ecfde">&lt;title&gt;</bpt><ept id="8c6763c9-6057-4b4a-a42f-1c2c673ecfde">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9bba88a-594f-4a23-bbb6-d84da8a5e3a8" xml:space="preserve">
+          <source>For a guide to the change from the old portal to the new portal, see <bpt id="6c10aa2f-1732-45c9-8711-cee7ab7c3cd2">&lt;linkText&gt;</bpt>Reference for navigating the Azure portal<ept id="6c10aa2f-1732-45c9-8711-cee7ab7c3cd2">&lt;/linkText&gt;</ept><bpt id="6c10aa2f-1732-45c9-8711-cee7ab7c3cd2">&lt;title&gt;</bpt><ept id="6c10aa2f-1732-45c9-8711-cee7ab7c3cd2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a guide to the change from the old portal to the new portal, see <bpt id="6c10aa2f-1732-45c9-8711-cee7ab7c3cd2">&lt;linkText&gt;</bpt>Reference for navigating the Azure portal<ept id="6c10aa2f-1732-45c9-8711-cee7ab7c3cd2">&lt;/linkText&gt;</ept><bpt id="6c10aa2f-1732-45c9-8711-cee7ab7c3cd2">&lt;title&gt;</bpt><ept id="6c10aa2f-1732-45c9-8711-cee7ab7c3cd2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

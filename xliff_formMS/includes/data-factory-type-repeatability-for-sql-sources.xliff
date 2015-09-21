@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b8bac315-34dd-471b-a85d-fff228a920b8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b8bac315-34dd-471b-a85d-fff228a920b8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="18e0c6e9-3169-4b6e-bd43-01cead3edf40">
+        <trans-unit id="b13b22c6-7e27-45e7-8cdb-0b5001c37f7e" xml:space="preserve">
+          <source>When copying data to Azure SQL/SQL Server from other data stores one needs to keep repeatability in mind to avoid unintended outcomes.</source>
+          <target state="new">When copying data to Azure SQL/SQL Server from other data stores one needs to keep repeatability in mind to avoid unintended outcomes.</target>
+        </trans-unit>
+        <trans-unit id="fe4e84f1-5d4c-418b-b82f-81c5c2ef2c08" xml:space="preserve">
+          <source>When copying data to Azure SQL/SQL Server Database, copy activity will by default APPEND the data set to the sink table by default.</source>
+          <target state="new">When copying data to Azure SQL/SQL Server Database, copy activity will by default APPEND the data set to the sink table by default.</target>
+        </trans-unit>
+        <trans-unit id="3e9273f3-9130-438b-b6f4-566e0e4add23" xml:space="preserve">
+          <source>For example, when copying data from a CSV (comma separated values data) file source containing two records to Azure SQL/SQL Server Database, this is what the table looks like:</source>
+          <target state="new">For example, when copying data from a CSV (comma separated values data) file source containing two records to Azure SQL/SQL Server Database, this is what the table looks like:</target>
+        </trans-unit>
+        <trans-unit id="2fa18e5e-99ec-4525-a8a3-409774f0fe6b" xml:space="preserve">
+          <source>Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4 in the source file.</source>
+          <target state="new">Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4 in the source file.</target>
+        </trans-unit>
+        <trans-unit id="66aa4eea-e246-44d1-9c67-4ccc7a97e0d5" xml:space="preserve">
+          <source>If you re-run the data slice for that period, you’ll find two new records appended to Azure SQL/SQL Server Database.</source>
+          <target state="new">If you re-run the data slice for that period, you’ll find two new records appended to Azure SQL/SQL Server Database.</target>
+        </trans-unit>
+        <trans-unit id="6042119c-9a4d-4f4b-a86f-1be521d156d2" xml:space="preserve">
+          <source>The below assumes none of the columns in the table have the primary key constraint.</source>
+          <target state="new">The below assumes none of the columns in the table have the primary key constraint.</target>
+        </trans-unit>
+        <trans-unit id="783ec867-2ff4-4bf1-b23e-4fce12aa26dd" xml:space="preserve">
+          <source>To avoid this, you will need to specify UPSERT semantics by leveraging one of the below 2 mechanisms stated below.</source>
+          <target state="new">To avoid this, you will need to specify UPSERT semantics by leveraging one of the below 2 mechanisms stated below.</target>
+        </trans-unit>
+        <trans-unit id="912bf7d8-d829-49b6-a31f-cfe153fe4852" xml:space="preserve">
+          <source>A slice can be re-run automatically in Azure Data Factory as per the retry policy specified.</source>
+          <target state="new">A slice can be re-run automatically in Azure Data Factory as per the retry policy specified.</target>
+        </trans-unit>
+        <trans-unit id="d5afb2dd-9cdf-475a-8658-28aea671b0a3" xml:space="preserve">
+          <source>You can leverage <bpt id="2e5cbaf8-e738-4782-8ea8-43e694cbc88c">&lt;strong&gt;</bpt>sqlWriterCleanupScript<ept id="2e5cbaf8-e738-4782-8ea8-43e694cbc88c">&lt;/strong&gt;</ept> property to first perform cleanup action when a slice is run.</source>
+          <target state="new">You can leverage <bpt id="2e5cbaf8-e738-4782-8ea8-43e694cbc88c">&lt;strong&gt;</bpt>sqlWriterCleanupScript<ept id="2e5cbaf8-e738-4782-8ea8-43e694cbc88c">&lt;/strong&gt;</ept> property to first perform cleanup action when a slice is run.</target>
+        </trans-unit>
+        <trans-unit id="eff9b31f-ea2d-4fa5-8737-480763427d34" xml:space="preserve">
+          <source>The cleanup script would be executed first during copy for a given slice which would delete the data from the SQL Table corresponding to that slice.</source>
+          <target state="new">The cleanup script would be executed first during copy for a given slice which would delete the data from the SQL Table corresponding to that slice.</target>
+        </trans-unit>
+        <trans-unit id="27d9cf30-34c0-4580-a539-2a3fa7ac34c9" xml:space="preserve">
+          <source>The activity will subsequently insert the data into the SQL Table.</source>
+          <target state="new">The activity will subsequently insert the data into the SQL Table.</target>
+        </trans-unit>
+        <trans-unit id="6c92fe18-7318-49a1-a78e-68c70174bc1f" xml:space="preserve">
+          <source>If the slice is now re-run, then you will find the quantity is updated as desired.</source>
+          <target state="new">If the slice is now re-run, then you will find the quantity is updated as desired.</target>
+        </trans-unit>
+        <trans-unit id="0cd29ea4-4417-4514-9175-183d20ec1351" xml:space="preserve">
+          <source>Suppose the Flat Washer record is removed from the original csv.</source>
+          <target state="new">Suppose the Flat Washer record is removed from the original csv.</target>
+        </trans-unit>
+        <trans-unit id="c329d487-a140-4617-bc0b-f7d9a525620c" xml:space="preserve">
+          <source>Then re-running the slice would produce the following result:</source>
+          <target state="new">Then re-running the slice would produce the following result:</target>
+        </trans-unit>
+        <trans-unit id="b3dded62-54c1-4bcd-ac28-26cc384b29e1" xml:space="preserve">
+          <source>Nothing new had to be done.</source>
+          <target state="new">Nothing new had to be done.</target>
+        </trans-unit>
+        <trans-unit id="ecd77652-e41d-4d94-b5ba-b31cfa543103" xml:space="preserve">
+          <source>The copy activity ran the cleanup script to delete the corresponding data for that slice.</source>
+          <target state="new">The copy activity ran the cleanup script to delete the corresponding data for that slice.</target>
+        </trans-unit>
+        <trans-unit id="e824bf60-24b0-493e-9e31-e4aa750c0b21" xml:space="preserve">
+          <source>Then it read the input from the csv (which then contained only 1 record) and inserted it into the Table.</source>
+          <target state="new">Then it read the input from the csv (which then contained only 1 record) and inserted it into the Table.</target>
+        </trans-unit>
+        <trans-unit id="76b2585c-c495-411f-90e6-4db809871107" xml:space="preserve">
+          <source>Another mechanism to achieve repeatability is by having a dedicated column (<bpt id="00e3e3b4-e6a5-4fe9-abbe-c271fd8142b2">&lt;strong&gt;</bpt>sliceIdentifierColumnName<ept id="00e3e3b4-e6a5-4fe9-abbe-c271fd8142b2">&lt;/strong&gt;</ept>) in the target Table.</source>
+          <target state="new">Another mechanism to achieve repeatability is by having a dedicated column (<bpt id="00e3e3b4-e6a5-4fe9-abbe-c271fd8142b2">&lt;strong&gt;</bpt>sliceIdentifierColumnName<ept id="00e3e3b4-e6a5-4fe9-abbe-c271fd8142b2">&lt;/strong&gt;</ept>) in the target Table.</target>
+        </trans-unit>
+        <trans-unit id="1862ce10-36a7-480d-9676-86ff1c2a7904" xml:space="preserve">
+          <source>This column would be used by Azure Data Factory to ensure the source and destination stay synchronized.</source>
+          <target state="new">This column would be used by Azure Data Factory to ensure the source and destination stay synchronized.</target>
+        </trans-unit>
+        <trans-unit id="8d646f81-68d0-44d6-bb4f-a66f8b4c1a33" xml:space="preserve">
+          <source>This approach works when there is flexibility in changing or defining the destination SQL Table schema.</source>
+          <target state="new">This approach works when there is flexibility in changing or defining the destination SQL Table schema.</target>
+        </trans-unit>
+        <trans-unit id="2babc410-2c8d-4a6a-8c90-4f7b2cfed6da" xml:space="preserve">
+          <source>This column would be used by Azure Data Factory for repeatability purposes and in the process Azure Data Factory will not make any schema changes to the Table.</source>
+          <target state="new">This column would be used by Azure Data Factory for repeatability purposes and in the process Azure Data Factory will not make any schema changes to the Table.</target>
+        </trans-unit>
+        <trans-unit id="84742f77-4869-42a0-a880-aa6796590339" xml:space="preserve">
+          <source>Way to use this approach:</source>
+          <target state="new">Way to use this approach:</target>
+        </trans-unit>
+        <trans-unit id="c0c6e88b-4bc4-41b1-a24d-9059a7fc85bc" xml:space="preserve">
+          <source>Define a column of type binary (32) in the destination SQL Table.</source>
+          <target state="new">Define a column of type binary (32) in the destination SQL Table.</target>
+        </trans-unit>
+        <trans-unit id="ac3b1db1-6aa6-46ad-b07d-7d80ef6055ed" xml:space="preserve">
+          <source>There should be no constraints on this column.</source>
+          <target state="new">There should be no constraints on this column.</target>
+        </trans-unit>
+        <trans-unit id="ab6e0977-7d47-4be8-b7f6-2fc14f70ad1d" xml:space="preserve">
+          <source>Let's name this column as ‘ColumnForADFuseOnly’ for this example.</source>
+          <target state="new">Let's name this column as ‘ColumnForADFuseOnly’ for this example.</target>
+        </trans-unit>
+        <trans-unit id="11031d0a-5fc1-4ccb-a3c2-11f11dddae98" xml:space="preserve">
+          <source>Use it in the copy activity as follows:</source>
+          <target state="new">Use it in the copy activity as follows:</target>
+        </trans-unit>
+        <trans-unit id="af3aedba-b6e9-40f5-b75a-86ee8ca401ea" xml:space="preserve">
+          <source>Azure Data Factory will populate this column as per its need to ensure the source and destination stay synchronized.</source>
+          <target state="new">Azure Data Factory will populate this column as per its need to ensure the source and destination stay synchronized.</target>
+        </trans-unit>
+        <trans-unit id="4044da95-075c-4e68-acf2-ca001503dcc3" xml:space="preserve">
+          <source>The values of this column should not be used outside of this context by the user.</source>
+          <target state="new">The values of this column should not be used outside of this context by the user.</target>
+        </trans-unit>
+        <trans-unit id="594736eb-3d63-4e25-b3ef-8c453a139980" xml:space="preserve">
+          <source>Similar to mechanism 1, Copy Activity will automatically first clean up the data for the given slice from the destination SQL Table and then run the copy activity normally to insert the data from source to destination for that slice.</source>
+          <target state="new">Similar to mechanism 1, Copy Activity will automatically first clean up the data for the given slice from the destination SQL Table and then run the copy activity normally to insert the data from source to destination for that slice.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

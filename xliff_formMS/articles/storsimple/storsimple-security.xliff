@@ -1,0 +1,904 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9f0f6682-dbb3-4989-92d8-0953f46699c7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9f0f6682-dbb3-4989-92d8-0953f46699c7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3efef889-1e2a-4ea8-9127-8a4603bef139">
+        <trans-unit id="a04b91cf-325c-4c44-800a-3abcf6333370" xml:space="preserve">
+          <source>StorSimple security | Microsoft Azure</source>
+          <target state="new">StorSimple security | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c9befd05-7ee7-4197-af3b-038081b722eb" xml:space="preserve">
+          <source>Describes the security and privacy features that protect your StorSimple service, device, and data on premises and in the cloud.</source>
+          <target state="new">Describes the security and privacy features that protect your StorSimple service, device, and data on premises and in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="bf2b624a-fe57-4ca2-9899-395712a9cd43" xml:space="preserve">
+          <source>Security is a major concern for anyone who is adopting a new technology, especially when the technology is used with confidential or proprietary data.</source>
+          <target state="new">Security is a major concern for anyone who is adopting a new technology, especially when the technology is used with confidential or proprietary data.</target>
+        </trans-unit>
+        <trans-unit id="0f6bba30-2049-4aba-b04f-274e44f2478c" xml:space="preserve">
+          <source>As you evaluate different technologies, you must consider increased risks and costs for data protection.</source>
+          <target state="new">As you evaluate different technologies, you must consider increased risks and costs for data protection.</target>
+        </trans-unit>
+        <trans-unit id="134252e4-32a0-4373-a26a-43cbb9dbcbcd" xml:space="preserve">
+          <source>Microsoft Azure StorSimple provides both a security and privacy solution for data protection, helping to ensure:</source>
+          <target state="new">Microsoft Azure StorSimple provides both a security and privacy solution for data protection, helping to ensure:</target>
+        </trans-unit>
+        <trans-unit id="3b9a3e51-1e52-422c-b435-a5fed5b63112" xml:space="preserve">
+          <source><bpt id="8c53ff81-cdbd-4c85-be14-8b6af0441dd4">&lt;strong&gt;</bpt>Confidentiality<ept id="8c53ff81-cdbd-4c85-be14-8b6af0441dd4">&lt;/strong&gt;</ept> – Only authorized entities can view your data.</source>
+          <target state="new"><bpt id="8c53ff81-cdbd-4c85-be14-8b6af0441dd4">&lt;strong&gt;</bpt>Confidentiality<ept id="8c53ff81-cdbd-4c85-be14-8b6af0441dd4">&lt;/strong&gt;</ept> – Only authorized entities can view your data.</target>
+        </trans-unit>
+        <trans-unit id="ee79d551-8fab-4375-8411-a9a939d9f329" xml:space="preserve">
+          <source><bpt id="7142412c-0be1-4f33-94be-0da317ba035a">&lt;strong&gt;</bpt>Integrity<ept id="7142412c-0be1-4f33-94be-0da317ba035a">&lt;/strong&gt;</ept> – Only authorized entities can modify or delete your data.</source>
+          <target state="new"><bpt id="7142412c-0be1-4f33-94be-0da317ba035a">&lt;strong&gt;</bpt>Integrity<ept id="7142412c-0be1-4f33-94be-0da317ba035a">&lt;/strong&gt;</ept> – Only authorized entities can modify or delete your data.</target>
+        </trans-unit>
+        <trans-unit id="17f95b4b-2781-46b3-8d4f-5dfb523d5ce9" xml:space="preserve">
+          <source>The Microsoft Azure StorSimple solution consists of four main components that interact with each other:</source>
+          <target state="new">The Microsoft Azure StorSimple solution consists of four main components that interact with each other:</target>
+        </trans-unit>
+        <trans-unit id="04db378e-530e-46c8-917e-7ab5d8860114" xml:space="preserve">
+          <source><bpt id="02f3d64d-89d6-4a52-9403-00c640c9c653">&lt;strong&gt;</bpt>StorSimple Manager service hosted in Microsoft Azure<ept id="02f3d64d-89d6-4a52-9403-00c640c9c653">&lt;/strong&gt;</ept> – The management service that you use to configure and provision the StorSimple device.</source>
+          <target state="new"><bpt id="02f3d64d-89d6-4a52-9403-00c640c9c653">&lt;strong&gt;</bpt>StorSimple Manager service hosted in Microsoft Azure<ept id="02f3d64d-89d6-4a52-9403-00c640c9c653">&lt;/strong&gt;</ept> – The management service that you use to configure and provision the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="c1dd86ed-2417-454a-aed0-7d62e387cfa3" xml:space="preserve">
+          <source><bpt id="cc6149cf-6ec7-4d00-bf06-91d47cde797a">&lt;strong&gt;</bpt>StorSimple device<ept id="cc6149cf-6ec7-4d00-bf06-91d47cde797a">&lt;/strong&gt;</ept> – A physical device installed in your datacenter.</source>
+          <target state="new"><bpt id="cc6149cf-6ec7-4d00-bf06-91d47cde797a">&lt;strong&gt;</bpt>StorSimple device<ept id="cc6149cf-6ec7-4d00-bf06-91d47cde797a">&lt;/strong&gt;</ept> – A physical device installed in your datacenter.</target>
+        </trans-unit>
+        <trans-unit id="2ea6c9f1-50b4-442c-af82-e3810eed1161" xml:space="preserve">
+          <source>All hosts and clients that generate data connect to the StorSimple device, and the device manages the data and moves it to the Azure cloud as appropriate.</source>
+          <target state="new">All hosts and clients that generate data connect to the StorSimple device, and the device manages the data and moves it to the Azure cloud as appropriate.</target>
+        </trans-unit>
+        <trans-unit id="c546e270-b938-43e0-9661-515c1daf1154" xml:space="preserve">
+          <source><bpt id="26b57b87-2a03-4b4d-ae28-5ac522b172d0">&lt;strong&gt;</bpt>Clients/hosts connected to the device<ept id="26b57b87-2a03-4b4d-ae28-5ac522b172d0">&lt;/strong&gt;</ept> – The clients in your infrastructure that connect to the StorSimple device and generate data that needs to be protected.</source>
+          <target state="new"><bpt id="26b57b87-2a03-4b4d-ae28-5ac522b172d0">&lt;strong&gt;</bpt>Clients/hosts connected to the device<ept id="26b57b87-2a03-4b4d-ae28-5ac522b172d0">&lt;/strong&gt;</ept> – The clients in your infrastructure that connect to the StorSimple device and generate data that needs to be protected.</target>
+        </trans-unit>
+        <trans-unit id="29399420-b008-438a-9686-391502787727" xml:space="preserve">
+          <source><bpt id="cee35552-53d8-42cf-814f-f176bc850cf9">&lt;strong&gt;</bpt>Cloud storage<ept id="cee35552-53d8-42cf-814f-f176bc850cf9">&lt;/strong&gt;</ept> – The location in the Azure cloud where data is stored.</source>
+          <target state="new"><bpt id="cee35552-53d8-42cf-814f-f176bc850cf9">&lt;strong&gt;</bpt>Cloud storage<ept id="cee35552-53d8-42cf-814f-f176bc850cf9">&lt;/strong&gt;</ept> – The location in the Azure cloud where data is stored.</target>
+        </trans-unit>
+        <trans-unit id="62dca15d-2d08-4a1f-bba9-7bfcd7f84179" xml:space="preserve">
+          <source>The following sections describe the StorSimple security features that help protect each of these components and the data stored on them.</source>
+          <target state="new">The following sections describe the StorSimple security features that help protect each of these components and the data stored on them.</target>
+        </trans-unit>
+        <trans-unit id="d3562c1c-4d52-4bb6-acdc-e817c086faee" xml:space="preserve">
+          <source>It also includes a list of questions that you might have about Microsoft Azure StorSimple security, and the corresponding answers.</source>
+          <target state="new">It also includes a list of questions that you might have about Microsoft Azure StorSimple security, and the corresponding answers.</target>
+        </trans-unit>
+        <trans-unit id="c962c5b2-6663-4913-ab50-387579ffc6eb" xml:space="preserve">
+          <source>The StorSimple Manager service is a management service hosted in Microsoft Azure and used to manage all StorSimple devices that your organization has procured.</source>
+          <target state="new">The StorSimple Manager service is a management service hosted in Microsoft Azure and used to manage all StorSimple devices that your organization has procured.</target>
+        </trans-unit>
+        <trans-unit id="f7c7128f-415f-49b0-876e-c77b8a7a338c" xml:space="preserve">
+          <source>You can access the StorSimple Manager service by using your organizational credentials to log on to the Azure Management Portal through a web browser.</source>
+          <target state="new">You can access the StorSimple Manager service by using your organizational credentials to log on to the Azure Management Portal through a web browser.</target>
+        </trans-unit>
+        <trans-unit id="f2485859-8f04-4267-a0a2-71fed23c39bf" xml:space="preserve">
+          <source>Access to the StorSimple Manager service requires that your organization have an Azure subscription that includes StorSimple.</source>
+          <target state="new">Access to the StorSimple Manager service requires that your organization have an Azure subscription that includes StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="a4450007-a7c6-47fe-bd72-37784588c4b1" xml:space="preserve">
+          <source>Your subscription governs the features that you can access in the Azure portal.</source>
+          <target state="new">Your subscription governs the features that you can access in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="900e2ac3-fcd4-4928-8e60-7441808b4207" xml:space="preserve">
+          <source>If your organization does not have an Azure subscription and you want to learn more about them, see <bpt id="fdf7774f-3ccc-4f29-819f-b3f0299e7f33">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="fdf7774f-3ccc-4f29-819f-b3f0299e7f33">&lt;/linkText&gt;</ept><bpt id="fdf7774f-3ccc-4f29-819f-b3f0299e7f33">&lt;title&gt;</bpt><ept id="fdf7774f-3ccc-4f29-819f-b3f0299e7f33">&lt;/title&gt;</ept>.</source>
+          <target state="new">If your organization does not have an Azure subscription and you want to learn more about them, see <bpt id="fdf7774f-3ccc-4f29-819f-b3f0299e7f33">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="fdf7774f-3ccc-4f29-819f-b3f0299e7f33">&lt;/linkText&gt;</ept><bpt id="fdf7774f-3ccc-4f29-819f-b3f0299e7f33">&lt;title&gt;</bpt><ept id="fdf7774f-3ccc-4f29-819f-b3f0299e7f33">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d124130-ab06-4957-9665-03e15d9f9e8c" xml:space="preserve">
+          <source>Because the StorSimple Manager service is hosted in Azure, it is protected by the Azure security features.</source>
+          <target state="new">Because the StorSimple Manager service is hosted in Azure, it is protected by the Azure security features.</target>
+        </trans-unit>
+        <trans-unit id="1b1b4e4c-b653-46fe-959d-b3cffc7d9901" xml:space="preserve">
+          <source>For more information about the security features provided by Microsoft Azure, go to the <bpt id="5f0434e4-8011-425b-beaa-d00a2bf93d7b">&lt;linkText&gt;</bpt>Microsoft Azure Trust Center<ept id="5f0434e4-8011-425b-beaa-d00a2bf93d7b">&lt;/linkText&gt;</ept><bpt id="5f0434e4-8011-425b-beaa-d00a2bf93d7b">&lt;title&gt;</bpt><ept id="5f0434e4-8011-425b-beaa-d00a2bf93d7b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the security features provided by Microsoft Azure, go to the <bpt id="5f0434e4-8011-425b-beaa-d00a2bf93d7b">&lt;linkText&gt;</bpt>Microsoft Azure Trust Center<ept id="5f0434e4-8011-425b-beaa-d00a2bf93d7b">&lt;/linkText&gt;</ept><bpt id="5f0434e4-8011-425b-beaa-d00a2bf93d7b">&lt;title&gt;</bpt><ept id="5f0434e4-8011-425b-beaa-d00a2bf93d7b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8eb0997c-1a24-48d4-957f-c7f844eacbc6" xml:space="preserve">
+          <source>The StorSimple device is an on-premises hybrid storage device that contains solid state drives (SSDs) and hard disk drives (HDDs), together with redundant controllers and automatic failover capabilities.</source>
+          <target state="new">The StorSimple device is an on-premises hybrid storage device that contains solid state drives (SSDs) and hard disk drives (HDDs), together with redundant controllers and automatic failover capabilities.</target>
+        </trans-unit>
+        <trans-unit id="62f45f6a-82ca-440d-8924-72775d6cbb3b" xml:space="preserve">
+          <source>The controllers manage storage tiering, placing currently used (or hot) data on local storage (in the StorSimple device or on-premises servers), while moving less frequently used data to the cloud.</source>
+          <target state="new">The controllers manage storage tiering, placing currently used (or hot) data on local storage (in the StorSimple device or on-premises servers), while moving less frequently used data to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="c5f58011-399a-418a-88f7-0ed331e2f346" xml:space="preserve">
+          <source>Only authorized StorSimple devices are allowed to join the StorSimple Manager service that you created in your Azure subscription.</source>
+          <target state="new">Only authorized StorSimple devices are allowed to join the StorSimple Manager service that you created in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="d1bd0d6c-6279-474d-a36b-94208bbc4674" xml:space="preserve">
+          <source>To authorize a device, you must register it with the StorSimple Manager service by providing the service registration key.</source>
+          <target state="new">To authorize a device, you must register it with the StorSimple Manager service by providing the service registration key.</target>
+        </trans-unit>
+        <trans-unit id="d18b4066-b73e-451c-bd7b-7453d61f73cf" xml:space="preserve">
+          <source>The service registration key is a 128-bit random key generated in the portal.</source>
+          <target state="new">The service registration key is a 128-bit random key generated in the portal.</target>
+        </trans-unit>
+        <trans-unit id="305388d0-5d57-449c-bc5f-653ee1e1d430" xml:space="preserve">
+          <source>To learn how get a service registration key, go to <bpt id="e7a8ebbe-7b56-48e6-846a-090614283916">&lt;linkText&gt;</bpt>Step 2: Get the service registration key<ept id="e7a8ebbe-7b56-48e6-846a-090614283916">&lt;/linkText&gt;</ept><bpt id="e7a8ebbe-7b56-48e6-846a-090614283916">&lt;title&gt;</bpt><ept id="e7a8ebbe-7b56-48e6-846a-090614283916">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how get a service registration key, go to <bpt id="e7a8ebbe-7b56-48e6-846a-090614283916">&lt;linkText&gt;</bpt>Step 2: Get the service registration key<ept id="e7a8ebbe-7b56-48e6-846a-090614283916">&lt;/linkText&gt;</ept><bpt id="e7a8ebbe-7b56-48e6-846a-090614283916">&lt;title&gt;</bpt><ept id="e7a8ebbe-7b56-48e6-846a-090614283916">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f89aff5e-f548-4175-a22a-18053c10f349" xml:space="preserve">
+          <source>The service registration key is a long key that contains 100+ characters.</source>
+          <target state="new">The service registration key is a long key that contains 100+ characters.</target>
+        </trans-unit>
+        <trans-unit id="f714edc3-7b15-4be4-bce5-778a4d329ddc" xml:space="preserve">
+          <source>We recommend that you copy the key and save it in a text file in a secure location so that you can use it to authorize additional devices as necessary.</source>
+          <target state="new">We recommend that you copy the key and save it in a text file in a secure location so that you can use it to authorize additional devices as necessary.</target>
+        </trans-unit>
+        <trans-unit id="bdd26519-17b4-432b-b78c-4a8345079836" xml:space="preserve">
+          <source>If the service registration key is lost after you register your first device, you can generate a new key from the StorSimple Manager service.</source>
+          <target state="new">If the service registration key is lost after you register your first device, you can generate a new key from the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="189ca0b9-f006-43db-b63b-bf51f71359bb" xml:space="preserve">
+          <source>This will not affect the operation of existing devices.</source>
+          <target state="new">This will not affect the operation of existing devices.</target>
+        </trans-unit>
+        <trans-unit id="687975bc-7e2c-4c00-92e4-c1dc6b4a2dc7" xml:space="preserve">
+          <source>After a device is registered, it uses tokens to communicate with Microsoft Azure.</source>
+          <target state="new">After a device is registered, it uses tokens to communicate with Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="721da963-228b-4ec2-8d16-7a078a63629a" xml:space="preserve">
+          <source>The service registration key is not used after device registration.</source>
+          <target state="new">The service registration key is not used after device registration.</target>
+        </trans-unit>
+        <trans-unit id="43b226c0-2cb9-4f9a-8ee5-3d3aa9a0d3a1" xml:space="preserve">
+          <source>Passwords are an important aspect of computer security and are used extensively in the Microsoft Azure StorSimple solution to help ensure that your data is accessible to authorized users only.</source>
+          <target state="new">Passwords are an important aspect of computer security and are used extensively in the Microsoft Azure StorSimple solution to help ensure that your data is accessible to authorized users only.</target>
+        </trans-unit>
+        <trans-unit id="27824f33-3704-4f94-9491-93b3526c62f7" xml:space="preserve">
+          <source>StorSimple allows you to configure the following passwords:</source>
+          <target state="new">StorSimple allows you to configure the following passwords:</target>
+        </trans-unit>
+        <trans-unit id="7086bab3-e114-4805-95fd-611d01082b68" xml:space="preserve">
+          <source>Windows PowerShell for StorSimple password</source>
+          <target state="new">Windows PowerShell for StorSimple password</target>
+        </trans-unit>
+        <trans-unit id="b6ad2475-d21f-4f22-a663-86d3a943dfdd" xml:space="preserve">
+          <source>StorSimple device administrator password</source>
+          <target state="new">StorSimple device administrator password</target>
+        </trans-unit>
+        <trans-unit id="f32287be-7fa3-4a71-a6b7-483b9ab461c9" xml:space="preserve">
+          <source>Challenge Handshake Authentication Protocol (CHAP) initiator and target passwords</source>
+          <target state="new">Challenge Handshake Authentication Protocol (CHAP) initiator and target passwords</target>
+        </trans-unit>
+        <trans-unit id="fdc4e86b-86ff-4eec-8e3b-f1195ea2d302" xml:space="preserve">
+          <source>StorSimple Snapshot Manager password</source>
+          <target state="new">StorSimple Snapshot Manager password</target>
+        </trans-unit>
+        <trans-unit id="abd9437e-69c7-41ff-9f24-80c1019f6a8c" xml:space="preserve">
+          <source>Windows PowerShell for StorSimple is a command-line interface that you can use to manage the StorSimple device.</source>
+          <target state="new">Windows PowerShell for StorSimple is a command-line interface that you can use to manage the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="2a756fcd-a1ee-4b34-ac39-1e76c60eddb4" xml:space="preserve">
+          <source>Windows PowerShell for StorSimple has features that allow you to register your device, configure the network interface on your device, install certain types of updates, troubleshoot your device by accessing the support session, and change the device state.</source>
+          <target state="new">Windows PowerShell for StorSimple has features that allow you to register your device, configure the network interface on your device, install certain types of updates, troubleshoot your device by accessing the support session, and change the device state.</target>
+        </trans-unit>
+        <trans-unit id="e2ab8cb9-a8d1-4407-a064-26a96f6341db" xml:space="preserve">
+          <source>You can access Windows PowerShell for StorSimple by connecting to the serial console or by using Windows PowerShell remoting.</source>
+          <target state="new">You can access Windows PowerShell for StorSimple by connecting to the serial console or by using Windows PowerShell remoting.</target>
+        </trans-unit>
+        <trans-unit id="9a1e7967-3249-44da-ae68-cf3021d4052c" xml:space="preserve">
+          <source>PowerShell remoting can be done over HTTPS or HTTP.</source>
+          <target state="new">PowerShell remoting can be done over HTTPS or HTTP.</target>
+        </trans-unit>
+        <trans-unit id="299cddf4-f711-4562-adf4-a5033731dcc9" xml:space="preserve">
+          <source>If remote management over HTTPS is enabled, you will need to download the remote management certificate from the device and install it on the remote client.</source>
+          <target state="new">If remote management over HTTPS is enabled, you will need to download the remote management certificate from the device and install it on the remote client.</target>
+        </trans-unit>
+        <trans-unit id="d422d77c-86c8-406d-abed-9909b1303f6e" xml:space="preserve">
+          <source>Remote management is turned off by default.</source>
+          <target state="new">Remote management is turned off by default.</target>
+        </trans-unit>
+        <trans-unit id="965b2d81-5b0d-4fdf-87c0-e1f15f52ce52" xml:space="preserve">
+          <source>You can use the StorSimple Manager service to enable it.</source>
+          <target state="new">You can use the StorSimple Manager service to enable it.</target>
+        </trans-unit>
+        <trans-unit id="aff192fd-3512-48ac-804f-89c176f8d00d" xml:space="preserve">
+          <source>As a security best practice, remote access should be enabled only during the time period that it is actually needed.</source>
+          <target state="new">As a security best practice, remote access should be enabled only during the time period that it is actually needed.</target>
+        </trans-unit>
+        <trans-unit id="09aeba4d-9dca-4a97-858a-8903b0100364" xml:space="preserve">
+          <source>If you change the password, be sure to notify all remote access users so that they do not experience an unexpected connectivity loss.</source>
+          <target state="new">If you change the password, be sure to notify all remote access users so that they do not experience an unexpected connectivity loss.</target>
+        </trans-unit>
+        <trans-unit id="abae7186-b65f-4da2-80e0-84d199c6b1a0" xml:space="preserve">
+          <source>The StorSimple Manager service cannot retrieve existing passwords: it can only reset them.</source>
+          <target state="new">The StorSimple Manager service cannot retrieve existing passwords: it can only reset them.</target>
+        </trans-unit>
+        <trans-unit id="506cc4d6-8f75-4581-a114-7feb162b2364" xml:space="preserve">
+          <source>We recommend that you store all passwords in a secure place so that you do not have to reset a password if it is forgotten.</source>
+          <target state="new">We recommend that you store all passwords in a secure place so that you do not have to reset a password if it is forgotten.</target>
+        </trans-unit>
+        <trans-unit id="50207f19-11ff-4da4-b0fa-4e485ea67ee3" xml:space="preserve">
+          <source>If you do need to reset a password, be sure to notify all users before you reset it.</source>
+          <target state="new">If you do need to reset a password, be sure to notify all users before you reset it.</target>
+        </trans-unit>
+        <trans-unit id="318d7d2c-e8a4-42a6-ac5a-fae364b5c99a" xml:space="preserve">
+          <source>You can access the Windows PowerShell interface by using a serial connection to the device.</source>
+          <target state="new">You can access the Windows PowerShell interface by using a serial connection to the device.</target>
+        </trans-unit>
+        <trans-unit id="c3a784dc-10c6-442c-ac82-167e1d4f77ea" xml:space="preserve">
+          <source>You can also access it remotely by using either HTTP or HTTPS, which provide additional security.</source>
+          <target state="new">You can also access it remotely by using either HTTP or HTTPS, which provide additional security.</target>
+        </trans-unit>
+        <trans-unit id="53d04d9c-aedc-4933-87f5-53f78b718458" xml:space="preserve">
+          <source>HTTPS provides a higher level of security than either a serial or HTTP connection.</source>
+          <target state="new">HTTPS provides a higher level of security than either a serial or HTTP connection.</target>
+        </trans-unit>
+        <trans-unit id="7655052e-e063-4df6-ae0e-c0b0bd570ee9" xml:space="preserve">
+          <source>However, to use HTTPS, you must first install a certificate on the client computer that will access the device.</source>
+          <target state="new">However, to use HTTPS, you must first install a certificate on the client computer that will access the device.</target>
+        </trans-unit>
+        <trans-unit id="719f45d9-df5a-4b71-b349-07ddd2c27130" xml:space="preserve">
+          <source>You can download the remote access certificate from the device configuration page in the StorSimple Manager service.</source>
+          <target state="new">You can download the remote access certificate from the device configuration page in the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="e9777887-0662-46df-a2ce-18ec22a962e0" xml:space="preserve">
+          <source>If the certificate for remote access is lost, you must download a new certificate and propagate it to all clients that are authorized to use remote management.</source>
+          <target state="new">If the certificate for remote access is lost, you must download a new certificate and propagate it to all clients that are authorized to use remote management.</target>
+        </trans-unit>
+        <trans-unit id="d14e5971-f7c1-4fa4-9dce-72acfe9bd363" xml:space="preserve">
+          <source>After you use Windows PowerShell for StorSimple to connect to the device, you will need to provide the device administrator password to log on to the device.</source>
+          <target state="new">After you use Windows PowerShell for StorSimple to connect to the device, you will need to provide the device administrator password to log on to the device.</target>
+        </trans-unit>
+        <trans-unit id="13a84249-338a-4979-b4c0-59c5a0926bfb" xml:space="preserve">
+          <source>CHAP is an authentication scheme used by the StorSimple device to validate the identity of remote clients.</source>
+          <target state="new">CHAP is an authentication scheme used by the StorSimple device to validate the identity of remote clients.</target>
+        </trans-unit>
+        <trans-unit id="fdceaae3-0408-4041-8841-c54f2f4b10e2" xml:space="preserve">
+          <source>The verification is based on a shared password.</source>
+          <target state="new">The verification is based on a shared password.</target>
+        </trans-unit>
+        <trans-unit id="832471f3-7419-47a0-8bfc-6de2da208906" xml:space="preserve">
+          <source>CHAP can be one-way (unidirectional) or mutual (bidirectional).</source>
+          <target state="new">CHAP can be one-way (unidirectional) or mutual (bidirectional).</target>
+        </trans-unit>
+        <trans-unit id="78f38392-0b53-4e12-9f3b-8bf7c98c631f" xml:space="preserve">
+          <source>With one-way CHAP, the target (the StorSimple device) authenticates an initiator (host).</source>
+          <target state="new">With one-way CHAP, the target (the StorSimple device) authenticates an initiator (host).</target>
+        </trans-unit>
+        <trans-unit id="5774ae3c-9061-4d66-bdcf-35c74ba63330" xml:space="preserve">
+          <source>Mutual CHAP requires that the target authenticate the initiator and then the initiator authenticate the target.</source>
+          <target state="new">Mutual CHAP requires that the target authenticate the initiator and then the initiator authenticate the target.</target>
+        </trans-unit>
+        <trans-unit id="aeb51d26-97fc-4c80-8883-4732dd646a0a" xml:space="preserve">
+          <source>Azure StorSimple can be configured to use either method.</source>
+          <target state="new">Azure StorSimple can be configured to use either method.</target>
+        </trans-unit>
+        <trans-unit id="425ddcc7-a0b4-4f60-9d20-c3bbe752c483" xml:space="preserve">
+          <source>The CHAP user name must contain fewer than 233 characters.</source>
+          <target state="new">The CHAP user name must contain fewer than 233 characters.</target>
+        </trans-unit>
+        <trans-unit id="d7e11b42-0fda-42dd-a4e9-5bdbc0fd9a5c" xml:space="preserve">
+          <source>The CHAP password must be between 12 and 16 characters.</source>
+          <target state="new">The CHAP password must be between 12 and 16 characters.</target>
+        </trans-unit>
+        <trans-unit id="facd1b22-d83c-49ed-b6ed-1c35948e635f" xml:space="preserve">
+          <source>Attempting to use a longer user name or password will result in an authentication failure on the Windows host.</source>
+          <target state="new">Attempting to use a longer user name or password will result in an authentication failure on the Windows host.</target>
+        </trans-unit>
+        <trans-unit id="89d4eb1d-b4b5-4324-adab-eb7167cd6347" xml:space="preserve">
+          <source>You cannot use the same password for both the CHAP initiator and the CHAP target.</source>
+          <target state="new">You cannot use the same password for both the CHAP initiator and the CHAP target.</target>
+        </trans-unit>
+        <trans-unit id="ba147ab5-4b39-42ec-9711-e4ae9b82dac7" xml:space="preserve">
+          <source>After you set the password, it can be changed but it cannot be retrieved.</source>
+          <target state="new">After you set the password, it can be changed but it cannot be retrieved.</target>
+        </trans-unit>
+        <trans-unit id="1a483af6-080f-4c0a-b1d9-86e38c5a34f4" xml:space="preserve">
+          <source>If the password is changed, be sure to notify all remote access users so that they can successfully connect to the StorSimple device.</source>
+          <target state="new">If the password is changed, be sure to notify all remote access users so that they can successfully connect to the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="5ea6dd8a-994c-4510-a224-1b99646c781b" xml:space="preserve">
+          <source>For more information and to configure CHAP, go to <bpt id="d18835d8-7b5f-4dcf-b488-a3856b6d63fa">&lt;linkText&gt;</bpt>Configure CHAP for your StorSimple device<ept id="d18835d8-7b5f-4dcf-b488-a3856b6d63fa">&lt;/linkText&gt;</ept><bpt id="d18835d8-7b5f-4dcf-b488-a3856b6d63fa">&lt;title&gt;</bpt><ept id="d18835d8-7b5f-4dcf-b488-a3856b6d63fa">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information and to configure CHAP, go to <bpt id="d18835d8-7b5f-4dcf-b488-a3856b6d63fa">&lt;linkText&gt;</bpt>Configure CHAP for your StorSimple device<ept id="d18835d8-7b5f-4dcf-b488-a3856b6d63fa">&lt;/linkText&gt;</ept><bpt id="d18835d8-7b5f-4dcf-b488-a3856b6d63fa">&lt;title&gt;</bpt><ept id="d18835d8-7b5f-4dcf-b488-a3856b6d63fa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47da8b28-7fc1-4b21-9c56-948b97ffd256" xml:space="preserve">
+          <source>StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that uses volume groups and the Windows Volume Shadow Copy Service to generate application-consistent backups.</source>
+          <target state="new">StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that uses volume groups and the Windows Volume Shadow Copy Service to generate application-consistent backups.</target>
+        </trans-unit>
+        <trans-unit id="681eb60c-d7e7-4212-a03f-0eb6460b585b" xml:space="preserve">
+          <source>In addition, you can use StorSimple Snapshot Manager to create backup schedules and clone or restore volumes.</source>
+          <target state="new">In addition, you can use StorSimple Snapshot Manager to create backup schedules and clone or restore volumes.</target>
+        </trans-unit>
+        <trans-unit id="995ec442-a793-4a4c-98a2-8255dd07be51" xml:space="preserve">
+          <source>When you configure a device to use the StorSimple Snapshot Manager, you will be required to provide the StorSimple Snapshot Manager password.</source>
+          <target state="new">When you configure a device to use the StorSimple Snapshot Manager, you will be required to provide the StorSimple Snapshot Manager password.</target>
+        </trans-unit>
+        <trans-unit id="ca9a9c34-0c95-49c4-a183-a947fd679b0e" xml:space="preserve">
+          <source>This password is first set in the Windows PowerShell for StorSimple during registration.</source>
+          <target state="new">This password is first set in the Windows PowerShell for StorSimple during registration.</target>
+        </trans-unit>
+        <trans-unit id="a9ab21d9-864e-4f88-94e1-ef2b854779e6" xml:space="preserve">
+          <source>The password can also be set and changed from the StorSimple Manager service.</source>
+          <target state="new">The password can also be set and changed from the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="a736c197-40b2-4449-bdc8-e340cc730ea4" xml:space="preserve">
+          <source>This password authenticates the device with StorSimple Snapshot Manager.</source>
+          <target state="new">This password authenticates the device with StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="25d22058-6df3-4e11-98c4-4dc3035e0a52" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;This password must be 14 to 15 characters and must contain 3 or more of a combination of uppercase, lowercase, numeric, and special characters.&lt;/li&gt;&lt;li&gt;After you set the StorSimple Snapshot Manager password, it can be changed but it cannot be retrieved. If you change the password, be sure to notify all remote users.&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;This password must be 14 to 15 characters and must contain 3 or more of a combination of uppercase, lowercase, numeric, and special characters.&lt;/li&gt;&lt;li&gt;After you set the StorSimple Snapshot Manager password, it can be changed but it cannot be retrieved. If you change the password, be sure to notify all remote users.&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="ea5fee1f-9969-454e-9dde-b5d5cc0484ca" xml:space="preserve">
+          <source>We recommend that you use the following guidelines to help ensure that Azure StorSimple passwords are strong and well-protected:</source>
+          <target state="new">We recommend that you use the following guidelines to help ensure that Azure StorSimple passwords are strong and well-protected:</target>
+        </trans-unit>
+        <trans-unit id="76fd7d7d-e40a-4df2-8fef-cff59328778a" xml:space="preserve">
+          <source>Change your passwords every three months.</source>
+          <target state="new">Change your passwords every three months.</target>
+        </trans-unit>
+        <trans-unit id="f1fd477f-a791-4f38-8ade-e1e1434d7714" xml:space="preserve">
+          <source>Use strong passwords.</source>
+          <target state="new">Use strong passwords.</target>
+        </trans-unit>
+        <trans-unit id="80888586-388b-41fb-9f85-f227711aa21a" xml:space="preserve">
+          <source>For more information, go to <bpt id="e32d467f-5d73-4799-8ccc-0aaa4479cb13">&lt;linkText&gt;</bpt>Create stronger passwords and protect them<ept id="e32d467f-5d73-4799-8ccc-0aaa4479cb13">&lt;/linkText&gt;</ept><bpt id="e32d467f-5d73-4799-8ccc-0aaa4479cb13">&lt;title&gt;</bpt><ept id="e32d467f-5d73-4799-8ccc-0aaa4479cb13">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, go to <bpt id="e32d467f-5d73-4799-8ccc-0aaa4479cb13">&lt;linkText&gt;</bpt>Create stronger passwords and protect them<ept id="e32d467f-5d73-4799-8ccc-0aaa4479cb13">&lt;/linkText&gt;</ept><bpt id="e32d467f-5d73-4799-8ccc-0aaa4479cb13">&lt;title&gt;</bpt><ept id="e32d467f-5d73-4799-8ccc-0aaa4479cb13">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7dd52b56-b66e-4e93-9f9a-b80cad106827" xml:space="preserve">
+          <source>Always use different passwords for different access mechanisms; each of the passwords you specify should be unique.</source>
+          <target state="new">Always use different passwords for different access mechanisms; each of the passwords you specify should be unique.</target>
+        </trans-unit>
+        <trans-unit id="60f0dba6-a87f-4c47-86e8-0989358a568f" xml:space="preserve">
+          <source>Do not share passwords with anyone who is not authorized to access the StorSimple device.</source>
+          <target state="new">Do not share passwords with anyone who is not authorized to access the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="3329346f-5e78-4e51-9fb1-81d16023367c" xml:space="preserve">
+          <source>Do not speak about a password in front of others or hint at the format of a password.</source>
+          <target state="new">Do not speak about a password in front of others or hint at the format of a password.</target>
+        </trans-unit>
+        <trans-unit id="01a4b4f8-76e1-4abe-83af-b0df0a2170df" xml:space="preserve">
+          <source>If you suspect that an account or password has been compromised, report the incident to your information security department.</source>
+          <target state="new">If you suspect that an account or password has been compromised, report the incident to your information security department.</target>
+        </trans-unit>
+        <trans-unit id="b38426b1-2aad-4fff-aa93-8e2234978bc2" xml:space="preserve">
+          <source>Treat all passwords as sensitive, confidential information.</source>
+          <target state="new">Treat all passwords as sensitive, confidential information.</target>
+        </trans-unit>
+        <trans-unit id="d60122a9-ad64-476e-88c3-8080688135d4" xml:space="preserve">
+          <source>This section describes the Azure StorSimple security features that protect in-transit and stored data.</source>
+          <target state="new">This section describes the Azure StorSimple security features that protect in-transit and stored data.</target>
+        </trans-unit>
+        <trans-unit id="27ecda82-4ea4-4f5f-86a7-146942a00d4e" xml:space="preserve">
+          <source>As described in other sections, passwords are used to authorize and authenticate users before they can gain access to your Microsoft Azure StorSimple solution.</source>
+          <target state="new">As described in other sections, passwords are used to authorize and authenticate users before they can gain access to your Microsoft Azure StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="1031adb5-0d70-4fbd-be55-781d88c48a03" xml:space="preserve">
+          <source>Another security consideration is protecting data from unauthorized users while it is being transferred between storage systems and while it is being stored.</source>
+          <target state="new">Another security consideration is protecting data from unauthorized users while it is being transferred between storage systems and while it is being stored.</target>
+        </trans-unit>
+        <trans-unit id="550fb7e1-8215-4e1c-b0ab-4139be43d804" xml:space="preserve">
+          <source>The following sections describe the data protection features provided with Azure StorSimple.</source>
+          <target state="new">The following sections describe the data protection features provided with Azure StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="ee9e412e-51e7-4e09-8b8b-c9eabf7d8583" xml:space="preserve">
+          <source>Deduplication provides additional protection for data stored on the StorSimple device and in Microsoft Azure storage.</source>
+          <target state="new">Deduplication provides additional protection for data stored on the StorSimple device and in Microsoft Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="2ad0a0bc-388e-49b7-ba08-fa3693a18515" xml:space="preserve">
+          <source>When data is deduplicated, the data objects are stored separately from the metadata used to map and access them: there is no available storage-level context to reconstruct the data based on volume structure, file system, or file name.</source>
+          <target state="new">When data is deduplicated, the data objects are stored separately from the metadata used to map and access them: there is no available storage-level context to reconstruct the data based on volume structure, file system, or file name.</target>
+        </trans-unit>
+        <trans-unit id="c47b8ca8-13c2-401c-88a0-e0f2be81e457" xml:space="preserve">
+          <source>The primary purpose of the StorSimple Manager service is to manage and configure the StorSimple device.</source>
+          <target state="new">The primary purpose of the StorSimple Manager service is to manage and configure the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="d213c971-4272-4d6d-8490-f27634245aa8" xml:space="preserve">
+          <source>The StorSimple Manager service runs in Microsoft Azure.</source>
+          <target state="new">The StorSimple Manager service runs in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="c2d95fca-a8d9-4b99-b178-72cf24b8dafa" xml:space="preserve">
+          <source>You use the Azure Management Portal to enter device configuration data, and then Microsoft Azure uses the StorSimple Manager service to send the data to the device.</source>
+          <target state="new">You use the Azure Management Portal to enter device configuration data, and then Microsoft Azure uses the StorSimple Manager service to send the data to the device.</target>
+        </trans-unit>
+        <trans-unit id="4ff1b56a-6f8e-4918-b42c-ae456d9749a3" xml:space="preserve">
+          <source>The StorSimple Manager service uses a system of asymmetric key pairs to help ensure that a compromise of the Azure service will not result in a compromise of stored information.</source>
+          <target state="new">The StorSimple Manager service uses a system of asymmetric key pairs to help ensure that a compromise of the Azure service will not result in a compromise of stored information.</target>
+        </trans-unit>
+        <trans-unit id="7549f218-b55c-4a45-ad41-7a66d0f6696b" xml:space="preserve">
+          <source>The asymmetric key system helps protect the data that flows through the service as follows:</source>
+          <target state="new">The asymmetric key system helps protect the data that flows through the service as follows:</target>
+        </trans-unit>
+        <trans-unit id="548cb4a8-f2b2-4d23-9ab0-20177781042f" xml:space="preserve">
+          <source>A data encryption certificate that uses an asymmetric public and private key pair is generated on the device and is used to protect the data.</source>
+          <target state="new">A data encryption certificate that uses an asymmetric public and private key pair is generated on the device and is used to protect the data.</target>
+        </trans-unit>
+        <trans-unit id="3a85104d-37eb-4afe-8878-9d66a37dcd57" xml:space="preserve">
+          <source>The keys are generated when the first device is registered.</source>
+          <target state="new">The keys are generated when the first device is registered.</target>
+        </trans-unit>
+        <trans-unit id="e7cc6674-4749-40f9-8b86-4dce3d64991b" xml:space="preserve">
+          <source>The data encryption certificate keys are exported into a Personal Information Exchange (.pfx) file that is protected by the service data encryption key, which is a strong 128-bit key that is randomly generated by the device during registration.</source>
+          <target state="new">The data encryption certificate keys are exported into a Personal Information Exchange (.pfx) file that is protected by the service data encryption key, which is a strong 128-bit key that is randomly generated by the device during registration.</target>
+        </trans-unit>
+        <trans-unit id="951d53a5-d205-436b-9a4f-a606875f7025" xml:space="preserve">
+          <source>The public key of the certificate is securely made available to the StorSimple Manager service, and the private key remains with the device.</source>
+          <target state="new">The public key of the certificate is securely made available to the StorSimple Manager service, and the private key remains with the device.</target>
+        </trans-unit>
+        <trans-unit id="8fbbd841-3e91-4dc9-83cc-9bac5196002e" xml:space="preserve">
+          <source>Data entering the service is encrypted using the public key and decrypted using the private key stored on the device, ensuring that the Azure service cannot decrypt the data flowing to the device.</source>
+          <target state="new">Data entering the service is encrypted using the public key and decrypted using the private key stored on the device, ensuring that the Azure service cannot decrypt the data flowing to the device.</target>
+        </trans-unit>
+        <trans-unit id="ba15f617-73fe-4eb6-b2e3-9689d02b6476" xml:space="preserve">
+          <source>The service data encryption key is generated only on the first device registered with the service.</source>
+          <target state="new">The service data encryption key is generated only on the first device registered with the service.</target>
+        </trans-unit>
+        <trans-unit id="1552752d-55c0-4e79-929c-cd092edfae9c" xml:space="preserve">
+          <source>All subsequent devices that are registered with the service must use the same service data encryption key.</source>
+          <target state="new">All subsequent devices that are registered with the service must use the same service data encryption key.</target>
+        </trans-unit>
+        <trans-unit id="7734551b-c42d-4edc-94df-9eecb5006818" xml:space="preserve">
+          <source>It is very important to make a copy of this key and save it in a secure location.</source>
+          <target state="new">It is very important to make a copy of this key and save it in a secure location.</target>
+        </trans-unit>
+        <trans-unit id="57b1d72e-0f60-4a47-bb45-0361debf9b1d" xml:space="preserve">
+          <source>A copy of the service data encryption key should be stored in such a way that it can be accessed by an authorized person and can be easily communicated to the device administrator.</source>
+          <target state="new">A copy of the service data encryption key should be stored in such a way that it can be accessed by an authorized person and can be easily communicated to the device administrator.</target>
+        </trans-unit>
+        <trans-unit id="37b71ed9-d246-4624-86ed-d23cf711ab64" xml:space="preserve">
+          <source>You can change the service data encryption key and the corresponding data encryption certificate by selecting the <bpt id="790efba4-738f-4aaf-a143-d2d04174a3db">&lt;strong&gt;</bpt>Change service data encryption key<ept id="790efba4-738f-4aaf-a143-d2d04174a3db">&lt;/strong&gt;</ept> option on the service dashboard.</source>
+          <target state="new">You can change the service data encryption key and the corresponding data encryption certificate by selecting the <bpt id="790efba4-738f-4aaf-a143-d2d04174a3db">&lt;strong&gt;</bpt>Change service data encryption key<ept id="790efba4-738f-4aaf-a143-d2d04174a3db">&lt;/strong&gt;</ept> option on the service dashboard.</target>
+        </trans-unit>
+        <trans-unit id="bdd8aff3-46ec-477b-84d5-ca0e82ca2010" xml:space="preserve">
+          <source>Changing the encryption keys requires that all devices be updated with the new key.</source>
+          <target state="new">Changing the encryption keys requires that all devices be updated with the new key.</target>
+        </trans-unit>
+        <trans-unit id="054edea2-9d5d-455a-9614-e3581cd5652c" xml:space="preserve">
+          <source>Therefore, we recommend that you change the key when all devices are online.</source>
+          <target state="new">Therefore, we recommend that you change the key when all devices are online.</target>
+        </trans-unit>
+        <trans-unit id="9059d059-53e6-4cfe-bb23-1ca508bbc44e" xml:space="preserve">
+          <source>If devices are offline, their keys can be changed at a different time.</source>
+          <target state="new">If devices are offline, their keys can be changed at a different time.</target>
+        </trans-unit>
+        <trans-unit id="cd60aa01-523d-4df0-bdcd-017e059f42ce" xml:space="preserve">
+          <source>The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated.</source>
+          <target state="new">The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated.</target>
+        </trans-unit>
+        <trans-unit id="e0d98439-d5a7-421f-884e-01f15fcec3aa" xml:space="preserve">
+          <source>For more information, go to <bpt id="ab63439e-be8e-43eb-a50e-2d8064e2a752">&lt;linkText&gt;</bpt>Use the StorSimple Manager service dashboard<ept id="ab63439e-be8e-43eb-a50e-2d8064e2a752">&lt;/linkText&gt;</ept><bpt id="ab63439e-be8e-43eb-a50e-2d8064e2a752">&lt;title&gt;</bpt><ept id="ab63439e-be8e-43eb-a50e-2d8064e2a752">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, go to <bpt id="ab63439e-be8e-43eb-a50e-2d8064e2a752">&lt;linkText&gt;</bpt>Use the StorSimple Manager service dashboard<ept id="ab63439e-be8e-43eb-a50e-2d8064e2a752">&lt;/linkText&gt;</ept><bpt id="ab63439e-be8e-43eb-a50e-2d8064e2a752">&lt;title&gt;</bpt><ept id="ab63439e-be8e-43eb-a50e-2d8064e2a752">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e3443c6-c338-41c6-a0f3-0031afafc173" xml:space="preserve">
+          <source>To ensure that data security is not compromised, you must use a physical StorSimple device to change the service data encryption key.</source>
+          <target state="new">To ensure that data security is not compromised, you must use a physical StorSimple device to change the service data encryption key.</target>
+        </trans-unit>
+        <trans-unit id="edfce405-812e-40a4-befc-acf4b7a57448" xml:space="preserve">
+          <source>If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state.</source>
+          <target state="new">If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state.</target>
+        </trans-unit>
+        <trans-unit id="2f1ace7b-fb33-41fb-845e-481336320275" xml:space="preserve">
+          <source>We recommend that you change the service data encryption key after it is retrieved.</source>
+          <target state="new">We recommend that you change the service data encryption key after it is retrieved.</target>
+        </trans-unit>
+        <trans-unit id="1c24d1e4-a025-4dd5-90c5-dd41e76ff4ee" xml:space="preserve">
+          <source>For instructions, go to <bpt id="d730c6bb-b29b-4d61-bc69-66bf5ad2b306">&lt;linkText&gt;</bpt>Change the service data encryption key<ept id="d730c6bb-b29b-4d61-bc69-66bf5ad2b306">&lt;/linkText&gt;</ept><bpt id="d730c6bb-b29b-4d61-bc69-66bf5ad2b306">&lt;title&gt;</bpt><ept id="d730c6bb-b29b-4d61-bc69-66bf5ad2b306">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, go to <bpt id="d730c6bb-b29b-4d61-bc69-66bf5ad2b306">&lt;linkText&gt;</bpt>Change the service data encryption key<ept id="d730c6bb-b29b-4d61-bc69-66bf5ad2b306">&lt;/linkText&gt;</ept><bpt id="d730c6bb-b29b-4d61-bc69-66bf5ad2b306">&lt;title&gt;</bpt><ept id="d730c6bb-b29b-4d61-bc69-66bf5ad2b306">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35981f54-5093-47d6-bf37-5544d3073223" xml:space="preserve">
+          <source>The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key on a regular schedule to help prevent key compromise.&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key on a regular schedule to help prevent key compromise.&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="70d76407-e322-4cf0-a2c0-4cfe1d238a5d" xml:space="preserve">
+          <source>The StorSimple device manages data by storing it in tiers locally and in the cloud, depending on frequency of use.</source>
+          <target state="new">The StorSimple device manages data by storing it in tiers locally and in the cloud, depending on frequency of use.</target>
+        </trans-unit>
+        <trans-unit id="6ce2817d-ceb8-4d1b-b844-6ed7f7792bdc" xml:space="preserve">
+          <source>All host machines that are connected to the device send data to the device, which then moves data to the cloud, as appropriate.</source>
+          <target state="new">All host machines that are connected to the device send data to the device, which then moves data to the cloud, as appropriate.</target>
+        </trans-unit>
+        <trans-unit id="cbc8d5a5-a058-44ee-bc27-a3b607f32ffd" xml:space="preserve">
+          <source>Data is transferred from the device to the cloud over the iSCSI protocol.</source>
+          <target state="new">Data is transferred from the device to the cloud over the iSCSI protocol.</target>
+        </trans-unit>
+        <trans-unit id="25262bc3-d5d5-4da2-8212-d92ac0d5a415" xml:space="preserve">
+          <source>Each device has one iSCSI target that surfaces all shared volumes on that device.</source>
+          <target state="new">Each device has one iSCSI target that surfaces all shared volumes on that device.</target>
+        </trans-unit>
+        <trans-unit id="f70ae07f-4069-41b6-aa17-910b74aad673" xml:space="preserve">
+          <source>All data is encrypted before it is sent to cloud storage.</source>
+          <target state="new">All data is encrypted before it is sent to cloud storage.</target>
+        </trans-unit>
+        <trans-unit id="8ee9d4ea-3246-4df7-ac27-49c697f02ffb" xml:space="preserve">
+          <source>To help ensure the security and integrity of data moved to the cloud, Azure StorSimple allows you to define cloud storage encryption keys as follows:</source>
+          <target state="new">To help ensure the security and integrity of data moved to the cloud, Azure StorSimple allows you to define cloud storage encryption keys as follows:</target>
+        </trans-unit>
+        <trans-unit id="2c499f6b-39f9-4854-9a9c-66cbb511315f" xml:space="preserve">
+          <source>You specify the cloud storage encryption key when you create a volume container.</source>
+          <target state="new">You specify the cloud storage encryption key when you create a volume container.</target>
+        </trans-unit>
+        <trans-unit id="72fe00db-2de5-4e68-bf15-a1bb3bc429ee" xml:space="preserve">
+          <source>The key cannot be modified or added later.</source>
+          <target state="new">The key cannot be modified or added later.</target>
+        </trans-unit>
+        <trans-unit id="1ac6ef6f-05bd-4dce-8aca-04e18e2b7f3a" xml:space="preserve">
+          <source>All volumes in a volume container share the same encryption key.</source>
+          <target state="new">All volumes in a volume container share the same encryption key.</target>
+        </trans-unit>
+        <trans-unit id="d90907f6-b424-45ce-abfa-1924d3e28319" xml:space="preserve">
+          <source>If you want a different form of encryption for a specific volume, we recommend that you create a new volume container to host that volume.</source>
+          <target state="new">If you want a different form of encryption for a specific volume, we recommend that you create a new volume container to host that volume.</target>
+        </trans-unit>
+        <trans-unit id="c8edc838-9904-4fdc-9695-99f2d702b40c" xml:space="preserve">
+          <source>When you enter the cloud storage encryption key in the StorSimple Manager service, the key is encrypted using the public portion of the service data encryption key and then sent to the device.</source>
+          <target state="new">When you enter the cloud storage encryption key in the StorSimple Manager service, the key is encrypted using the public portion of the service data encryption key and then sent to the device.</target>
+        </trans-unit>
+        <trans-unit id="29afcf63-6202-4f65-9f6a-347040bb4dba" xml:space="preserve">
+          <source>The cloud storage encryption key is not stored anywhere in the service and is known only to the device.</source>
+          <target state="new">The cloud storage encryption key is not stored anywhere in the service and is known only to the device.</target>
+        </trans-unit>
+        <trans-unit id="0b233696-370a-478d-bbec-dc65e04391d9" xml:space="preserve">
+          <source>Specifying a cloud storage encryption key is optional.</source>
+          <target state="new">Specifying a cloud storage encryption key is optional.</target>
+        </trans-unit>
+        <trans-unit id="8b8dae0f-3196-4a9c-ae22-73a43fffa9d0" xml:space="preserve">
+          <source>You can send data that has been encrypted at the host to the device.</source>
+          <target state="new">You can send data that has been encrypted at the host to the device.</target>
+        </trans-unit>
+        <trans-unit id="2a0678d3-074e-4f69-a731-0fa456e91459" xml:space="preserve">
+          <source>To implement redundancy, use multipathing (MPIO) to avoid a single point of failure in the iSCSI SAN.</source>
+          <target state="new">To implement redundancy, use multipathing (MPIO) to avoid a single point of failure in the iSCSI SAN.</target>
+        </trans-unit>
+        <trans-unit id="44cc4652-872b-4b6a-8ae9-ba62720444a8" xml:space="preserve">
+          <source>For detailed instructions, see <bpt id="599f20ca-8552-4826-a6a7-89a6849938c8">&lt;linkText&gt;</bpt>Configure MPIO for your StorSimple device<ept id="599f20ca-8552-4826-a6a7-89a6849938c8">&lt;/linkText&gt;</ept><bpt id="599f20ca-8552-4826-a6a7-89a6849938c8">&lt;title&gt;</bpt><ept id="599f20ca-8552-4826-a6a7-89a6849938c8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed instructions, see <bpt id="599f20ca-8552-4826-a6a7-89a6849938c8">&lt;linkText&gt;</bpt>Configure MPIO for your StorSimple device<ept id="599f20ca-8552-4826-a6a7-89a6849938c8">&lt;/linkText&gt;</ept><bpt id="599f20ca-8552-4826-a6a7-89a6849938c8">&lt;title&gt;</bpt><ept id="599f20ca-8552-4826-a6a7-89a6849938c8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6372656-9995-42c2-9d71-a1f9140c4f85" xml:space="preserve">
+          <source>Split traffic: isolate your iSCSI SAN from user traffic on a corporate LAN by deploying a totally separated network and using VLANs where physical isolation is not an option.</source>
+          <target state="new">Split traffic: isolate your iSCSI SAN from user traffic on a corporate LAN by deploying a totally separated network and using VLANs where physical isolation is not an option.</target>
+        </trans-unit>
+        <trans-unit id="c4251855-a7c2-439d-b6f4-e519f3763be3" xml:space="preserve">
+          <source>A dedicated network for iSCSI storage will guarantee the safety and performance of your business-critical data.</source>
+          <target state="new">A dedicated network for iSCSI storage will guarantee the safety and performance of your business-critical data.</target>
+        </trans-unit>
+        <trans-unit id="e5c5a201-092e-4bcb-82ca-91914cab4894" xml:space="preserve">
+          <source>Mixing storage and user traffic over a corporate LAN is not recommended and can increase latency and cause network failures.</source>
+          <target state="new">Mixing storage and user traffic over a corporate LAN is not recommended and can increase latency and cause network failures.</target>
+        </trans-unit>
+        <trans-unit id="ea7336f0-e684-43a2-8502-c44d8fa7312b" xml:space="preserve">
+          <source>For host-side network security, use network interfaces that support TCP/IP Offload Engine (TOE).</source>
+          <target state="new">For host-side network security, use network interfaces that support TCP/IP Offload Engine (TOE).</target>
+        </trans-unit>
+        <trans-unit id="a9829a42-38a9-4628-a4f9-70961b39ff91" xml:space="preserve">
+          <source>TOE reduces CPU load by processing TCP on the network adapter.</source>
+          <target state="new">TOE reduces CPU load by processing TCP on the network adapter.</target>
+        </trans-unit>
+        <trans-unit id="d39a5fc3-75a3-4940-a7d9-45e46426281d" xml:space="preserve">
+          <source>Each Microsoft Azure subscription can create one or more storage accounts.</source>
+          <target state="new">Each Microsoft Azure subscription can create one or more storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="204f185b-ddd9-44a8-8d26-d916fb0a9898" xml:space="preserve">
+          <source>(A storage account provides a unique namespace for working with data stored in the Azure cloud.)</source>
+          <target state="new">(A storage account provides a unique namespace for working with data stored in the Azure cloud.)</target>
+        </trans-unit>
+        <trans-unit id="e136f050-2c31-40f7-b1b3-a1fbf072d033" xml:space="preserve">
+          <source>Access to a storage account is controlled by the subscription and access keys associated with that storage account.</source>
+          <target state="new">Access to a storage account is controlled by the subscription and access keys associated with that storage account.</target>
+        </trans-unit>
+        <trans-unit id="17f564c7-cd5e-4400-b463-beab472a8e37" xml:space="preserve">
+          <source>When you create a storage account, Microsoft Azure generates two 512-bit storage access keys, one of which is used for authentication when the StorSimple device accesses the storage account.</source>
+          <target state="new">When you create a storage account, Microsoft Azure generates two 512-bit storage access keys, one of which is used for authentication when the StorSimple device accesses the storage account.</target>
+        </trans-unit>
+        <trans-unit id="b11749e4-72d1-4248-ac41-15d2243f4225" xml:space="preserve">
+          <source>Note that only one of these keys is in use.</source>
+          <target state="new">Note that only one of these keys is in use.</target>
+        </trans-unit>
+        <trans-unit id="1a261105-0f59-4ca3-a041-1a52d1f7d377" xml:space="preserve">
+          <source>The other key is held in reserve, allowing you to rotate the keys periodically.</source>
+          <target state="new">The other key is held in reserve, allowing you to rotate the keys periodically.</target>
+        </trans-unit>
+        <trans-unit id="1138e78d-481b-44f1-9882-bf145afa7458" xml:space="preserve">
+          <source>To rotate keys, you make the secondary key active, and then delete the primary key.</source>
+          <target state="new">To rotate keys, you make the secondary key active, and then delete the primary key.</target>
+        </trans-unit>
+        <trans-unit id="e57c312f-dd1e-4af2-ae2f-eb2ec4dcf6b7" xml:space="preserve">
+          <source>You can then create a new key for use during the next rotation.</source>
+          <target state="new">You can then create a new key for use during the next rotation.</target>
+        </trans-unit>
+        <trans-unit id="2a39a36d-4d12-4b31-b1e4-783f914b220f" xml:space="preserve">
+          <source>(For security reasons, many datacenters require key rotation.)</source>
+          <target state="new">(For security reasons, many datacenters require key rotation.)</target>
+        </trans-unit>
+        <trans-unit id="3c0ac1d9-f96c-45c2-ab4f-04726cc4389c" xml:space="preserve">
+          <source>We recommend that you follow these best practices for key rotation:</source>
+          <target state="new">We recommend that you follow these best practices for key rotation:</target>
+        </trans-unit>
+        <trans-unit id="b0922d75-b84b-4261-acf9-13f1e78858fc" xml:space="preserve">
+          <source>You should rotate storage account keys regularly to help ensure that your storage account is not accessed by unauthorized users.</source>
+          <target state="new">You should rotate storage account keys regularly to help ensure that your storage account is not accessed by unauthorized users.</target>
+        </trans-unit>
+        <trans-unit id="c7e81256-e6a0-405c-9df3-64074a273260" xml:space="preserve">
+          <source>Periodically, your Azure administrator should change or regenerate the primary or secondary key by using the Storage section of the Management Portal to directly access the storage account.</source>
+          <target state="new">Periodically, your Azure administrator should change or regenerate the primary or secondary key by using the Storage section of the Management Portal to directly access the storage account.</target>
+        </trans-unit>
+        <trans-unit id="454f9928-6543-44cf-a02d-ecbd257e735b" xml:space="preserve">
+          <source>StorSimple uses the following encryption algorithms to protect data stored in or traveling between the components of your StorSimple solution.</source>
+          <target state="new">StorSimple uses the following encryption algorithms to protect data stored in or traveling between the components of your StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="858c4e4a-acac-4dff-944a-c33801f75377" xml:space="preserve">
+          <source>Algorithm</source>
+          <target state="new">Algorithm</target>
+        </trans-unit>
+        <trans-unit id="fc498b4a-1a85-43e4-8cae-60bf032885af" xml:space="preserve">
+          <source>Key length</source>
+          <target state="new">Key length</target>
+        </trans-unit>
+        <trans-unit id="16ad4230-cc3a-4f7a-b180-4278cb7edfee" xml:space="preserve">
+          <source>Protocols/applications/comments</source>
+          <target state="new">Protocols/applications/comments</target>
+        </trans-unit>
+        <trans-unit id="81f40a8a-b39e-4a4b-8778-ad5e4eff067d" xml:space="preserve">
+          <source>RSA</source>
+          <target state="new">RSA</target>
+        </trans-unit>
+        <trans-unit id="f5721ede-7957-4791-a2a2-3a39fb2d3bc0" xml:space="preserve">
+          <source>2048</source>
+          <target state="new">2048</target>
+        </trans-unit>
+        <trans-unit id="b5bb624d-1682-407a-855e-aa76d31ae43f" xml:space="preserve">
+          <source>RSA PKCS 1 v1.5 is used by the Management Portal to encrypt configuration data that is sent to the device: for example, storage account credentials, StorSimple device configuration, and cloud storage encryption keys.</source>
+          <target state="new">RSA PKCS 1 v1.5 is used by the Management Portal to encrypt configuration data that is sent to the device: for example, storage account credentials, StorSimple device configuration, and cloud storage encryption keys.</target>
+        </trans-unit>
+        <trans-unit id="0f6c26dd-95ca-4ded-83d0-056cc687c222" xml:space="preserve">
+          <source>AES</source>
+          <target state="new">AES</target>
+        </trans-unit>
+        <trans-unit id="e67534f4-4044-48c6-84e4-01e135c6de62" xml:space="preserve">
+          <source>256</source>
+          <target state="new">256</target>
+        </trans-unit>
+        <trans-unit id="bc56b2bb-6b63-47ed-b64e-cf5f0547d970" xml:space="preserve">
+          <source>AES with CBC is used to encrypt the public portion of the service data encryption key before it is sent to the Management Portal from the StorSimple device.</source>
+          <target state="new">AES with CBC is used to encrypt the public portion of the service data encryption key before it is sent to the Management Portal from the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="e1606073-bf16-49e0-8527-b9bf600efd31" xml:space="preserve">
+          <source>It is also used by the StorSimple device to encrypt data before the data is sent to the cloud storage account.</source>
+          <target state="new">It is also used by the StorSimple device to encrypt data before the data is sent to the cloud storage account.</target>
+        </trans-unit>
+        <trans-unit id="2bc34e3a-8b82-422f-b0f2-1604f147bb20" xml:space="preserve">
+          <source>RSA</source>
+          <target state="new">RSA</target>
+        </trans-unit>
+        <trans-unit id="6e162292-1291-430d-9d94-6001cc9b1189" xml:space="preserve">
+          <source>2048</source>
+          <target state="new">2048</target>
+        </trans-unit>
+        <trans-unit id="8c99cb49-2e8c-49b7-b27e-b9c5f4d68508" xml:space="preserve">
+          <source>RSA PKCS 1 v1.7 is used by the Management Portal to encrypt the public portion of the service data encryption key before storing it in local portal storage.</source>
+          <target state="new">RSA PKCS 1 v1.7 is used by the Management Portal to encrypt the public portion of the service data encryption key before storing it in local portal storage.</target>
+        </trans-unit>
+        <trans-unit id="3f75764e-f52c-44d1-87ea-93d25b779ecc" xml:space="preserve">
+          <source>The following are some questions and answers about security and Microsoft Azure StorSimple.</source>
+          <target state="new">The following are some questions and answers about security and Microsoft Azure StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="4fc2ffb0-b99b-4cc4-bd82-ca0edcc88731" xml:space="preserve">
+          <source><bpt id="092e5b77-1af7-479b-a79f-f8b432284ad9">&lt;strong&gt;</bpt>Q:<ept id="092e5b77-1af7-479b-a79f-f8b432284ad9">&lt;/strong&gt;</ept> My service is compromised.</source>
+          <target state="new"><bpt id="092e5b77-1af7-479b-a79f-f8b432284ad9">&lt;strong&gt;</bpt>Q:<ept id="092e5b77-1af7-479b-a79f-f8b432284ad9">&lt;/strong&gt;</ept> My service is compromised.</target>
+        </trans-unit>
+        <trans-unit id="2f582ec4-d8a4-4050-93f7-d3134e1eec75" xml:space="preserve">
+          <source>What should be my next steps?</source>
+          <target state="new">What should be my next steps?</target>
+        </trans-unit>
+        <trans-unit id="2a3362bd-0f12-40a4-be9f-72ed89465bd0" xml:space="preserve">
+          <source><bpt id="99bb4bf0-7a8a-4c7b-b456-9e570dd97af5">&lt;strong&gt;</bpt>A:<ept id="99bb4bf0-7a8a-4c7b-b456-9e570dd97af5">&lt;/strong&gt;</ept> You should immediately change the service data encryption key and the storage account keys for the storage account that is being used for tiering data.</source>
+          <target state="new"><bpt id="99bb4bf0-7a8a-4c7b-b456-9e570dd97af5">&lt;strong&gt;</bpt>A:<ept id="99bb4bf0-7a8a-4c7b-b456-9e570dd97af5">&lt;/strong&gt;</ept> You should immediately change the service data encryption key and the storage account keys for the storage account that is being used for tiering data.</target>
+        </trans-unit>
+        <trans-unit id="ecb5e496-86bf-43bc-8637-a2f04286cfab" xml:space="preserve">
+          <source>For instructions, go to:</source>
+          <target state="new">For instructions, go to:</target>
+        </trans-unit>
+        <trans-unit id="42cf8e87-ebc5-4cb0-90d9-a9b33e5ec580" xml:space="preserve">
+          <source><bpt id="7049a203-efb5-4485-be94-703c720f151c">&lt;linkText&gt;</bpt>Change the service data encryption key<ept id="7049a203-efb5-4485-be94-703c720f151c">&lt;/linkText&gt;</ept><bpt id="7049a203-efb5-4485-be94-703c720f151c">&lt;title&gt;</bpt><ept id="7049a203-efb5-4485-be94-703c720f151c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7049a203-efb5-4485-be94-703c720f151c">&lt;linkText&gt;</bpt>Change the service data encryption key<ept id="7049a203-efb5-4485-be94-703c720f151c">&lt;/linkText&gt;</ept><bpt id="7049a203-efb5-4485-be94-703c720f151c">&lt;title&gt;</bpt><ept id="7049a203-efb5-4485-be94-703c720f151c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17b01e2d-8911-40a9-88bc-4d3e66ddcf35" xml:space="preserve">
+          <source><bpt id="538f1b9d-4229-4870-a422-6fb5d2c04abe">&lt;linkText&gt;</bpt>Key rotation of storage accounts<ept id="538f1b9d-4229-4870-a422-6fb5d2c04abe">&lt;/linkText&gt;</ept><bpt id="538f1b9d-4229-4870-a422-6fb5d2c04abe">&lt;title&gt;</bpt><ept id="538f1b9d-4229-4870-a422-6fb5d2c04abe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="538f1b9d-4229-4870-a422-6fb5d2c04abe">&lt;linkText&gt;</bpt>Key rotation of storage accounts<ept id="538f1b9d-4229-4870-a422-6fb5d2c04abe">&lt;/linkText&gt;</ept><bpt id="538f1b9d-4229-4870-a422-6fb5d2c04abe">&lt;title&gt;</bpt><ept id="538f1b9d-4229-4870-a422-6fb5d2c04abe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fee59e2d-9304-4c34-9456-028df4336901" xml:space="preserve">
+          <source><bpt id="302ad78c-e0ce-40d7-9d85-ed7e0d327737">&lt;strong&gt;</bpt>Q:<ept id="302ad78c-e0ce-40d7-9d85-ed7e0d327737">&lt;/strong&gt;</ept> I have a new StorSimple device that is asking for the service registration key.</source>
+          <target state="new"><bpt id="302ad78c-e0ce-40d7-9d85-ed7e0d327737">&lt;strong&gt;</bpt>Q:<ept id="302ad78c-e0ce-40d7-9d85-ed7e0d327737">&lt;/strong&gt;</ept> I have a new StorSimple device that is asking for the service registration key.</target>
+        </trans-unit>
+        <trans-unit id="1da8bb4d-9e58-4bec-9842-17d435b9a889" xml:space="preserve">
+          <source>How do I retrieve it?</source>
+          <target state="new">How do I retrieve it?</target>
+        </trans-unit>
+        <trans-unit id="a38645b7-3206-4df3-a24c-83d50d5380b1" xml:space="preserve">
+          <source><bpt id="9d7fe15d-0cce-49dc-a3ca-ead25fa7edd0">&lt;strong&gt;</bpt>A:<ept id="9d7fe15d-0cce-49dc-a3ca-ead25fa7edd0">&lt;/strong&gt;</ept> This key was created when you first created the StorSimple Manager service.</source>
+          <target state="new"><bpt id="9d7fe15d-0cce-49dc-a3ca-ead25fa7edd0">&lt;strong&gt;</bpt>A:<ept id="9d7fe15d-0cce-49dc-a3ca-ead25fa7edd0">&lt;/strong&gt;</ept> This key was created when you first created the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="3ad575e6-a3b7-44dc-8dd2-fd177b14b934" xml:space="preserve">
+          <source>When you use the StorSimple Manager service to connect to the device, you can use the service quick start page to view or regenerate the service registration key.</source>
+          <target state="new">When you use the StorSimple Manager service to connect to the device, you can use the service quick start page to view or regenerate the service registration key.</target>
+        </trans-unit>
+        <trans-unit id="dac5a644-1de2-46d8-b568-6f0fa670b3ef" xml:space="preserve">
+          <source>Generating a new service registration key will not affect the existing registered devices.</source>
+          <target state="new">Generating a new service registration key will not affect the existing registered devices.</target>
+        </trans-unit>
+        <trans-unit id="4f71420a-8ff6-4620-aea9-88807b9f9e21" xml:space="preserve">
+          <source>For instructions, go to:</source>
+          <target state="new">For instructions, go to:</target>
+        </trans-unit>
+        <trans-unit id="6ad7e26b-c199-451f-a6a5-2b2c45d1677c" xml:space="preserve">
+          <source><bpt id="68ab18d1-efd6-4f21-baba-c38647f5a6f6">&lt;linkText&gt;</bpt>View or regenerate the service registration key<ept id="68ab18d1-efd6-4f21-baba-c38647f5a6f6">&lt;/linkText&gt;</ept><bpt id="68ab18d1-efd6-4f21-baba-c38647f5a6f6">&lt;title&gt;</bpt><ept id="68ab18d1-efd6-4f21-baba-c38647f5a6f6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="68ab18d1-efd6-4f21-baba-c38647f5a6f6">&lt;linkText&gt;</bpt>View or regenerate the service registration key<ept id="68ab18d1-efd6-4f21-baba-c38647f5a6f6">&lt;/linkText&gt;</ept><bpt id="68ab18d1-efd6-4f21-baba-c38647f5a6f6">&lt;title&gt;</bpt><ept id="68ab18d1-efd6-4f21-baba-c38647f5a6f6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49f3a950-423b-436a-becc-38fbab3bf756" xml:space="preserve">
+          <source><bpt id="40fe3381-7e8f-4254-893e-2c6c8229e296">&lt;strong&gt;</bpt>Q:<ept id="40fe3381-7e8f-4254-893e-2c6c8229e296">&lt;/strong&gt;</ept> I lost my service data encryption key.</source>
+          <target state="new"><bpt id="40fe3381-7e8f-4254-893e-2c6c8229e296">&lt;strong&gt;</bpt>Q:<ept id="40fe3381-7e8f-4254-893e-2c6c8229e296">&lt;/strong&gt;</ept> I lost my service data encryption key.</target>
+        </trans-unit>
+        <trans-unit id="7dac92c9-2b2f-4550-a3b1-2856a8fec199" xml:space="preserve">
+          <source>What do I do?</source>
+          <target state="new">What do I do?</target>
+        </trans-unit>
+        <trans-unit id="4f94743c-2068-449a-a2e2-f79e8bd31578" xml:space="preserve">
+          <source><bpt id="3130a8cf-c65c-4d18-9dc0-95a21f8a65bf">&lt;strong&gt;</bpt>A:<ept id="3130a8cf-c65c-4d18-9dc0-95a21f8a65bf">&lt;/strong&gt;</ept> Contact Microsoft Support.</source>
+          <target state="new"><bpt id="3130a8cf-c65c-4d18-9dc0-95a21f8a65bf">&lt;strong&gt;</bpt>A:<ept id="3130a8cf-c65c-4d18-9dc0-95a21f8a65bf">&lt;/strong&gt;</ept> Contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="ffad585f-8aed-4ee7-915d-97ebbdaacd33" xml:space="preserve">
+          <source>They can log on to a support session on your device and help you retrieve the key.</source>
+          <target state="new">They can log on to a support session on your device and help you retrieve the key.</target>
+        </trans-unit>
+        <trans-unit id="39603458-21fa-4775-afe8-51f48d880695" xml:space="preserve">
+          <source>Immediately after you obtain the service data encryption key, you should change it to ensure that the new key is known only to you.</source>
+          <target state="new">Immediately after you obtain the service data encryption key, you should change it to ensure that the new key is known only to you.</target>
+        </trans-unit>
+        <trans-unit id="64b975e6-3f04-46ad-977b-9b0227c6e07b" xml:space="preserve">
+          <source>For instructions, go to:</source>
+          <target state="new">For instructions, go to:</target>
+        </trans-unit>
+        <trans-unit id="d5c211c3-2114-465d-9717-2da03c4db961" xml:space="preserve">
+          <source><bpt id="16b25ced-ec7e-40f8-833f-cb40fc4858e8">&lt;linkText&gt;</bpt>Change the service data encryption key<ept id="16b25ced-ec7e-40f8-833f-cb40fc4858e8">&lt;/linkText&gt;</ept><bpt id="16b25ced-ec7e-40f8-833f-cb40fc4858e8">&lt;title&gt;</bpt><ept id="16b25ced-ec7e-40f8-833f-cb40fc4858e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="16b25ced-ec7e-40f8-833f-cb40fc4858e8">&lt;linkText&gt;</bpt>Change the service data encryption key<ept id="16b25ced-ec7e-40f8-833f-cb40fc4858e8">&lt;/linkText&gt;</ept><bpt id="16b25ced-ec7e-40f8-833f-cb40fc4858e8">&lt;title&gt;</bpt><ept id="16b25ced-ec7e-40f8-833f-cb40fc4858e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="422e4405-c3be-4dc0-8092-f940318f3807" xml:space="preserve">
+          <source><bpt id="26e76956-f451-43ff-b9a0-2bf6f55d31d0">&lt;strong&gt;</bpt>Q:<ept id="26e76956-f451-43ff-b9a0-2bf6f55d31d0">&lt;/strong&gt;</ept>  I authorized a device for a service data encryption key change, but did not start the key change process.</source>
+          <target state="new"><bpt id="26e76956-f451-43ff-b9a0-2bf6f55d31d0">&lt;strong&gt;</bpt>Q:<ept id="26e76956-f451-43ff-b9a0-2bf6f55d31d0">&lt;/strong&gt;</ept>  I authorized a device for a service data encryption key change, but did not start the key change process.</target>
+        </trans-unit>
+        <trans-unit id="36593be0-4bfa-40ff-a5d9-e6301b6c4e86" xml:space="preserve">
+          <source>What should I do?</source>
+          <target state="new">What should I do?</target>
+        </trans-unit>
+        <trans-unit id="20e9a6dc-35c5-492e-97d7-e29b3ec5b73a" xml:space="preserve">
+          <source><bpt id="d7953c29-7fdf-466d-ba75-6bb68bb57ec3">&lt;strong&gt;</bpt>A:<ept id="d7953c29-7fdf-466d-ba75-6bb68bb57ec3">&lt;/strong&gt;</ept> If the time-out period has expired, you will need to reauthorize the device for the service data encryption key change and start the process again.</source>
+          <target state="new"><bpt id="d7953c29-7fdf-466d-ba75-6bb68bb57ec3">&lt;strong&gt;</bpt>A:<ept id="d7953c29-7fdf-466d-ba75-6bb68bb57ec3">&lt;/strong&gt;</ept> If the time-out period has expired, you will need to reauthorize the device for the service data encryption key change and start the process again.</target>
+        </trans-unit>
+        <trans-unit id="8300389b-9f35-416f-a492-0e85542acb5a" xml:space="preserve">
+          <source><bpt id="b259db89-b7e7-4c85-87aa-02a657d94b2c">&lt;strong&gt;</bpt>Q:<ept id="b259db89-b7e7-4c85-87aa-02a657d94b2c">&lt;/strong&gt;</ept>  I changed the service data encryption key, but I was not able to update the other devices within 4 hours.</source>
+          <target state="new"><bpt id="b259db89-b7e7-4c85-87aa-02a657d94b2c">&lt;strong&gt;</bpt>Q:<ept id="b259db89-b7e7-4c85-87aa-02a657d94b2c">&lt;/strong&gt;</ept>  I changed the service data encryption key, but I was not able to update the other devices within 4 hours.</target>
+        </trans-unit>
+        <trans-unit id="c108a996-941f-4bf9-91f1-2b39e77b9999" xml:space="preserve">
+          <source>Do I have to start again?</source>
+          <target state="new">Do I have to start again?</target>
+        </trans-unit>
+        <trans-unit id="df9c2d25-1413-4f75-853b-60c9c40dbd70" xml:space="preserve">
+          <source><bpt id="2f1ed47a-a489-42c5-9963-eb8747762de7">&lt;strong&gt;</bpt>A:<ept id="2f1ed47a-a489-42c5-9963-eb8747762de7">&lt;/strong&gt;</ept> The 4-hour time period is only for initiating the change.</source>
+          <target state="new"><bpt id="2f1ed47a-a489-42c5-9963-eb8747762de7">&lt;strong&gt;</bpt>A:<ept id="2f1ed47a-a489-42c5-9963-eb8747762de7">&lt;/strong&gt;</ept> The 4-hour time period is only for initiating the change.</target>
+        </trans-unit>
+        <trans-unit id="e2658f86-6979-4804-accf-637e6aefc5cc" xml:space="preserve">
+          <source>After you start the update process on the authorized StorSimple device, the authorization is valid until all devices are updated.</source>
+          <target state="new">After you start the update process on the authorized StorSimple device, the authorization is valid until all devices are updated.</target>
+        </trans-unit>
+        <trans-unit id="c209062c-03b0-4900-bda1-44bc8ebbe15b" xml:space="preserve">
+          <source><bpt id="bc397047-23ea-480f-807c-aaa894ca687f">&lt;strong&gt;</bpt>Q:<ept id="bc397047-23ea-480f-807c-aaa894ca687f">&lt;/strong&gt;</ept> Our StorSimple administrator has left the company.</source>
+          <target state="new"><bpt id="bc397047-23ea-480f-807c-aaa894ca687f">&lt;strong&gt;</bpt>Q:<ept id="bc397047-23ea-480f-807c-aaa894ca687f">&lt;/strong&gt;</ept> Our StorSimple administrator has left the company.</target>
+        </trans-unit>
+        <trans-unit id="2ba89e07-a9b1-48dc-9e01-dcc8541e1792" xml:space="preserve">
+          <source>What should I do?</source>
+          <target state="new">What should I do?</target>
+        </trans-unit>
+        <trans-unit id="539926c8-0138-41a8-bf58-4500b9a60f90" xml:space="preserve">
+          <source><bpt id="9cf34682-2655-4b55-b657-c87a47572489">&lt;strong&gt;</bpt>A:<ept id="9cf34682-2655-4b55-b657-c87a47572489">&lt;/strong&gt;</ept> Change and reset the passwords that allow access to the StorSimple device, and change the service data encryption key to ensure that the new information is not known to unauthorized personnel.</source>
+          <target state="new"><bpt id="9cf34682-2655-4b55-b657-c87a47572489">&lt;strong&gt;</bpt>A:<ept id="9cf34682-2655-4b55-b657-c87a47572489">&lt;/strong&gt;</ept> Change and reset the passwords that allow access to the StorSimple device, and change the service data encryption key to ensure that the new information is not known to unauthorized personnel.</target>
+        </trans-unit>
+        <trans-unit id="ebeaccd8-78b6-4f15-a3ec-7295d2434f6b" xml:space="preserve">
+          <source>For instructions, go to:</source>
+          <target state="new">For instructions, go to:</target>
+        </trans-unit>
+        <trans-unit id="d933be7e-5297-4004-9628-0249160389aa" xml:space="preserve">
+          <source><bpt id="2a2b7b61-280c-488a-a847-eef13f84d1fa">&lt;linkText&gt;</bpt>Use the StorSimple Manager service to change your storsimple passwords<ept id="2a2b7b61-280c-488a-a847-eef13f84d1fa">&lt;/linkText&gt;</ept><bpt id="2a2b7b61-280c-488a-a847-eef13f84d1fa">&lt;title&gt;</bpt><ept id="2a2b7b61-280c-488a-a847-eef13f84d1fa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2a2b7b61-280c-488a-a847-eef13f84d1fa">&lt;linkText&gt;</bpt>Use the StorSimple Manager service to change your storsimple passwords<ept id="2a2b7b61-280c-488a-a847-eef13f84d1fa">&lt;/linkText&gt;</ept><bpt id="2a2b7b61-280c-488a-a847-eef13f84d1fa">&lt;title&gt;</bpt><ept id="2a2b7b61-280c-488a-a847-eef13f84d1fa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="763393e2-99af-43af-a203-6d39865736c8" xml:space="preserve">
+          <source><bpt id="5daa5dc5-6977-4511-8c23-bb02cb500a03">&lt;linkText&gt;</bpt>Change the service data encryption key<ept id="5daa5dc5-6977-4511-8c23-bb02cb500a03">&lt;/linkText&gt;</ept><bpt id="5daa5dc5-6977-4511-8c23-bb02cb500a03">&lt;title&gt;</bpt><ept id="5daa5dc5-6977-4511-8c23-bb02cb500a03">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5daa5dc5-6977-4511-8c23-bb02cb500a03">&lt;linkText&gt;</bpt>Change the service data encryption key<ept id="5daa5dc5-6977-4511-8c23-bb02cb500a03">&lt;/linkText&gt;</ept><bpt id="5daa5dc5-6977-4511-8c23-bb02cb500a03">&lt;title&gt;</bpt><ept id="5daa5dc5-6977-4511-8c23-bb02cb500a03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92292f87-c182-4c76-b5ea-66fb96c8d418" xml:space="preserve">
+          <source><bpt id="89ea23b2-18a3-47a8-875d-dbad81bca0d7">&lt;linkText&gt;</bpt>Configure CHAP for your StorSimple device<ept id="89ea23b2-18a3-47a8-875d-dbad81bca0d7">&lt;/linkText&gt;</ept><bpt id="89ea23b2-18a3-47a8-875d-dbad81bca0d7">&lt;title&gt;</bpt><ept id="89ea23b2-18a3-47a8-875d-dbad81bca0d7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="89ea23b2-18a3-47a8-875d-dbad81bca0d7">&lt;linkText&gt;</bpt>Configure CHAP for your StorSimple device<ept id="89ea23b2-18a3-47a8-875d-dbad81bca0d7">&lt;/linkText&gt;</ept><bpt id="89ea23b2-18a3-47a8-875d-dbad81bca0d7">&lt;title&gt;</bpt><ept id="89ea23b2-18a3-47a8-875d-dbad81bca0d7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21950a87-1e59-47e1-9a65-37328ee35e9a" xml:space="preserve">
+          <source><bpt id="f9f31dc9-4106-42a5-a2db-9e27e558b4ca">&lt;strong&gt;</bpt>Q:<ept id="f9f31dc9-4106-42a5-a2db-9e27e558b4ca">&lt;/strong&gt;</ept> I want to provide the StorSimple Snapshot Manager password to a host that is connecting to the StorSimple device, but the password is not available.</source>
+          <target state="new"><bpt id="f9f31dc9-4106-42a5-a2db-9e27e558b4ca">&lt;strong&gt;</bpt>Q:<ept id="f9f31dc9-4106-42a5-a2db-9e27e558b4ca">&lt;/strong&gt;</ept> I want to provide the StorSimple Snapshot Manager password to a host that is connecting to the StorSimple device, but the password is not available.</target>
+        </trans-unit>
+        <trans-unit id="4dbdef20-3939-476c-ad13-be287b2f11bc" xml:space="preserve">
+          <source>What can I do?</source>
+          <target state="new">What can I do?</target>
+        </trans-unit>
+        <trans-unit id="7dca4e2f-0ab7-4f60-bedb-56f26879e873" xml:space="preserve">
+          <source><bpt id="bceafb60-66c3-4d2c-99d8-d9bd7ea7b6b1">&lt;strong&gt;</bpt>A:<ept id="bceafb60-66c3-4d2c-99d8-d9bd7ea7b6b1">&lt;/strong&gt;</ept> If you have forgotten the password, you should create a new one.</source>
+          <target state="new"><bpt id="bceafb60-66c3-4d2c-99d8-d9bd7ea7b6b1">&lt;strong&gt;</bpt>A:<ept id="bceafb60-66c3-4d2c-99d8-d9bd7ea7b6b1">&lt;/strong&gt;</ept> If you have forgotten the password, you should create a new one.</target>
+        </trans-unit>
+        <trans-unit id="6b8e6b0d-1064-4a39-8c9b-f17a8fd552e9" xml:space="preserve">
+          <source>Then, be sure to inform all existing users that the password has been changed and that they should update their clients to use the new password.</source>
+          <target state="new">Then, be sure to inform all existing users that the password has been changed and that they should update their clients to use the new password.</target>
+        </trans-unit>
+        <trans-unit id="251b86df-de31-4aaa-b31d-fb473d1d47ee" xml:space="preserve">
+          <source>For instructions, go to:</source>
+          <target state="new">For instructions, go to:</target>
+        </trans-unit>
+        <trans-unit id="3837b6c1-1f55-4dcc-b64c-579bd9f8a46c" xml:space="preserve">
+          <source><bpt id="9a330350-e97a-4d5a-b3ab-dcb4c0ffcf33">&lt;linkText&gt;</bpt>Change the StorSimple Snapshot Manager password<ept id="9a330350-e97a-4d5a-b3ab-dcb4c0ffcf33">&lt;/linkText&gt;</ept><bpt id="9a330350-e97a-4d5a-b3ab-dcb4c0ffcf33">&lt;title&gt;</bpt><ept id="9a330350-e97a-4d5a-b3ab-dcb4c0ffcf33">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9a330350-e97a-4d5a-b3ab-dcb4c0ffcf33">&lt;linkText&gt;</bpt>Change the StorSimple Snapshot Manager password<ept id="9a330350-e97a-4d5a-b3ab-dcb4c0ffcf33">&lt;/linkText&gt;</ept><bpt id="9a330350-e97a-4d5a-b3ab-dcb4c0ffcf33">&lt;title&gt;</bpt><ept id="9a330350-e97a-4d5a-b3ab-dcb4c0ffcf33">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97de4759-d18a-4d1b-b24b-aa841454f693" xml:space="preserve">
+          <source><bpt id="1e785b72-78e2-46ee-aef2-d3e151589b80">&lt;linkText&gt;</bpt>Authenticate a device<ept id="1e785b72-78e2-46ee-aef2-d3e151589b80">&lt;/linkText&gt;</ept><bpt id="1e785b72-78e2-46ee-aef2-d3e151589b80">&lt;title&gt;</bpt><ept id="1e785b72-78e2-46ee-aef2-d3e151589b80">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e785b72-78e2-46ee-aef2-d3e151589b80">&lt;linkText&gt;</bpt>Authenticate a device<ept id="1e785b72-78e2-46ee-aef2-d3e151589b80">&lt;/linkText&gt;</ept><bpt id="1e785b72-78e2-46ee-aef2-d3e151589b80">&lt;title&gt;</bpt><ept id="1e785b72-78e2-46ee-aef2-d3e151589b80">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e1dcac7-4c58-4a1e-b59e-2d82ea785132" xml:space="preserve">
+          <source><bpt id="ca496a4b-5e12-49b9-8475-3924006c8217">&lt;strong&gt;</bpt>Q:<ept id="ca496a4b-5e12-49b9-8475-3924006c8217">&lt;/strong&gt;</ept> The certificate for remote access to the Windows PowerShell for StorSimple has been changed on the device.</source>
+          <target state="new"><bpt id="ca496a4b-5e12-49b9-8475-3924006c8217">&lt;strong&gt;</bpt>Q:<ept id="ca496a4b-5e12-49b9-8475-3924006c8217">&lt;/strong&gt;</ept> The certificate for remote access to the Windows PowerShell for StorSimple has been changed on the device.</target>
+        </trans-unit>
+        <trans-unit id="c559111a-e3be-40a5-9766-f05825cb63d5" xml:space="preserve">
+          <source>How do I update my remote access clients?</source>
+          <target state="new">How do I update my remote access clients?</target>
+        </trans-unit>
+        <trans-unit id="b0aadbab-32e8-421c-bab2-980433c9a1bf" xml:space="preserve">
+          <source><bpt id="914ec0f0-9b1d-46e3-b699-b2498fd54be5">&lt;strong&gt;</bpt>A:<ept id="914ec0f0-9b1d-46e3-b699-b2498fd54be5">&lt;/strong&gt;</ept> You can download the new certificate from the StorSimple Manager service, and then provide it to be installed in the certificate store of your remote access clients.</source>
+          <target state="new"><bpt id="914ec0f0-9b1d-46e3-b699-b2498fd54be5">&lt;strong&gt;</bpt>A:<ept id="914ec0f0-9b1d-46e3-b699-b2498fd54be5">&lt;/strong&gt;</ept> You can download the new certificate from the StorSimple Manager service, and then provide it to be installed in the certificate store of your remote access clients.</target>
+        </trans-unit>
+        <trans-unit id="2eaba2d7-a56d-4212-89bf-36e946d69b02" xml:space="preserve">
+          <source>For instructions, go to:</source>
+          <target state="new">For instructions, go to:</target>
+        </trans-unit>
+        <trans-unit id="7ec85a42-7019-493a-955d-909a7fc396aa" xml:space="preserve">
+          <source><bpt id="e6760a4c-17b1-4cbe-bcaf-d5a97dcbd811">&lt;linkText&gt;</bpt>Import-Certificate cmdlet<ept id="e6760a4c-17b1-4cbe-bcaf-d5a97dcbd811">&lt;/linkText&gt;</ept><bpt id="e6760a4c-17b1-4cbe-bcaf-d5a97dcbd811">&lt;title&gt;</bpt><ept id="e6760a4c-17b1-4cbe-bcaf-d5a97dcbd811">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e6760a4c-17b1-4cbe-bcaf-d5a97dcbd811">&lt;linkText&gt;</bpt>Import-Certificate cmdlet<ept id="e6760a4c-17b1-4cbe-bcaf-d5a97dcbd811">&lt;/linkText&gt;</ept><bpt id="e6760a4c-17b1-4cbe-bcaf-d5a97dcbd811">&lt;title&gt;</bpt><ept id="e6760a4c-17b1-4cbe-bcaf-d5a97dcbd811">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e3930ee-5572-4c84-bf2b-8aa74e4916a0" xml:space="preserve">
+          <source><bpt id="f779a5dd-7982-4043-b6d6-000332dee42f">&lt;strong&gt;</bpt>Q:<ept id="f779a5dd-7982-4043-b6d6-000332dee42f">&lt;/strong&gt;</ept> Is my data protected if the StorSimple Manager service is compromised?</source>
+          <target state="new"><bpt id="f779a5dd-7982-4043-b6d6-000332dee42f">&lt;strong&gt;</bpt>Q:<ept id="f779a5dd-7982-4043-b6d6-000332dee42f">&lt;/strong&gt;</ept> Is my data protected if the StorSimple Manager service is compromised?</target>
+        </trans-unit>
+        <trans-unit id="924ebcb3-d483-45de-8900-6dace36c1288" xml:space="preserve">
+          <source><bpt id="4643cb61-e1f3-4bce-95c1-8ed80362e687">&lt;strong&gt;</bpt>A:<ept id="4643cb61-e1f3-4bce-95c1-8ed80362e687">&lt;/strong&gt;</ept> Service configuration data is always encrypted with your public key when you view it in a web browser.</source>
+          <target state="new"><bpt id="4643cb61-e1f3-4bce-95c1-8ed80362e687">&lt;strong&gt;</bpt>A:<ept id="4643cb61-e1f3-4bce-95c1-8ed80362e687">&lt;/strong&gt;</ept> Service configuration data is always encrypted with your public key when you view it in a web browser.</target>
+        </trans-unit>
+        <trans-unit id="16ef5b90-6800-4f5a-888e-936369ec5d1c" xml:space="preserve">
+          <source>Because the service doesn’t have access to the private key, the service will not be able to see any data.</source>
+          <target state="new">Because the service doesn’t have access to the private key, the service will not be able to see any data.</target>
+        </trans-unit>
+        <trans-unit id="8c72760b-8536-4d02-ab13-1b2a7e959a5a" xml:space="preserve">
+          <source>If the StorSimple Manager service is compromised, there is no impact, as there are no keys stored in the StorSimple Manager service.</source>
+          <target state="new">If the StorSimple Manager service is compromised, there is no impact, as there are no keys stored in the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="257bc889-46b5-4520-9d41-483620ec8edf" xml:space="preserve">
+          <source><bpt id="9c7df251-93f6-43b6-9115-3ac64edaf571">&lt;strong&gt;</bpt>Q:<ept id="9c7df251-93f6-43b6-9115-3ac64edaf571">&lt;/strong&gt;</ept> If someone gains access to the data encryption certificate, will my data be compromised?</source>
+          <target state="new"><bpt id="9c7df251-93f6-43b6-9115-3ac64edaf571">&lt;strong&gt;</bpt>Q:<ept id="9c7df251-93f6-43b6-9115-3ac64edaf571">&lt;/strong&gt;</ept> If someone gains access to the data encryption certificate, will my data be compromised?</target>
+        </trans-unit>
+        <trans-unit id="740b07b3-e32f-423e-946c-060fb3e07a99" xml:space="preserve">
+          <source><bpt id="b1441d25-af34-4cfa-98a2-27e80295ca8d">&lt;strong&gt;</bpt>A:<ept id="b1441d25-af34-4cfa-98a2-27e80295ca8d">&lt;/strong&gt;</ept> Microsoft Azure stores the customer’s data encryption key (.pfx file) in an encrypted format.</source>
+          <target state="new"><bpt id="b1441d25-af34-4cfa-98a2-27e80295ca8d">&lt;strong&gt;</bpt>A:<ept id="b1441d25-af34-4cfa-98a2-27e80295ca8d">&lt;/strong&gt;</ept> Microsoft Azure stores the customer’s data encryption key (.pfx file) in an encrypted format.</target>
+        </trans-unit>
+        <trans-unit id="8233cb93-5495-41cc-853f-44f0d640bd8d" xml:space="preserve">
+          <source>Because the .pfx file is encrypted and the StorSimple service doesn’t have the service data encryption key to decrypt the .pfx file, simply getting access to the .pfx file will not expose any secrets.</source>
+          <target state="new">Because the .pfx file is encrypted and the StorSimple service doesn’t have the service data encryption key to decrypt the .pfx file, simply getting access to the .pfx file will not expose any secrets.</target>
+        </trans-unit>
+        <trans-unit id="03a3a1b0-4fa8-482b-aa99-2fab314f57fb" xml:space="preserve">
+          <source><bpt id="235f50a1-883c-4ed2-b461-c065b2dea915">&lt;strong&gt;</bpt>Q:<ept id="235f50a1-883c-4ed2-b461-c065b2dea915">&lt;/strong&gt;</ept> What happens if a governmental entity asks Microsoft for my data?</source>
+          <target state="new"><bpt id="235f50a1-883c-4ed2-b461-c065b2dea915">&lt;strong&gt;</bpt>Q:<ept id="235f50a1-883c-4ed2-b461-c065b2dea915">&lt;/strong&gt;</ept> What happens if a governmental entity asks Microsoft for my data?</target>
+        </trans-unit>
+        <trans-unit id="15080985-55d5-4f9a-bb51-a8032f2dc62e" xml:space="preserve">
+          <source><bpt id="708fedcf-faf1-41d6-9011-ae5704cb8057">&lt;strong&gt;</bpt>A:<ept id="708fedcf-faf1-41d6-9011-ae5704cb8057">&lt;/strong&gt;</ept> Because all of the data is encrypted on the service and the private key is kept with the device, the governmental entity must ask the customer for the data.</source>
+          <target state="new"><bpt id="708fedcf-faf1-41d6-9011-ae5704cb8057">&lt;strong&gt;</bpt>A:<ept id="708fedcf-faf1-41d6-9011-ae5704cb8057">&lt;/strong&gt;</ept> Because all of the data is encrypted on the service and the private key is kept with the device, the governmental entity must ask the customer for the data.</target>
+        </trans-unit>
+        <trans-unit id="4405c96c-b481-4c64-a01f-57bff864dee5" xml:space="preserve">
+          <source><bpt id="e027c341-b52e-4bb6-a7f7-301d08b4ff20">&lt;linkText&gt;</bpt>Deploy your StorSimple device<ept id="e027c341-b52e-4bb6-a7f7-301d08b4ff20">&lt;/linkText&gt;</ept><bpt id="e027c341-b52e-4bb6-a7f7-301d08b4ff20">&lt;title&gt;</bpt><ept id="e027c341-b52e-4bb6-a7f7-301d08b4ff20">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="e027c341-b52e-4bb6-a7f7-301d08b4ff20">&lt;linkText&gt;</bpt>Deploy your StorSimple device<ept id="e027c341-b52e-4bb6-a7f7-301d08b4ff20">&lt;/linkText&gt;</ept><bpt id="e027c341-b52e-4bb6-a7f7-301d08b4ff20">&lt;title&gt;</bpt><ept id="e027c341-b52e-4bb6-a7f7-301d08b4ff20">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

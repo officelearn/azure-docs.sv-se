@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a84e980b-7a66-4385-992a-795f26dfaa15" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a84e980b-7a66-4385-992a-795f26dfaa15" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8a67900e-8cbc-4c0c-b349-2a9d987ff282">
+        <trans-unit id="ad4a00d1-f5df-4671-b262-dd69212c5b56" xml:space="preserve">
+          <source>Conditional access device policies for Office 365 services | Microsoft Azure</source>
+          <target state="new">Conditional access device policies for Office 365 services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="44f3486b-e031-48c5-915d-9c6d563b4541" xml:space="preserve">
+          <source>Details on how device-based conditions control access to Office 365 services. While Information Workers (IWs) want to access Office 365 services like Exchange and SharePoint Online at work or school from their personal devices, their IT admin wants the access to be secure.IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing IWs on compliant devices to access the services.</source>
+          <target state="new">Details on how device-based conditions control access to Office 365 services. While Information Workers (IWs) want to access Office 365 services like Exchange and SharePoint Online at work or school from their personal devices, their IT admin wants the access to be secure.IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing IWs on compliant devices to access the services.</target>
+        </trans-unit>
+        <trans-unit id="645acf2e-a80b-4ec0-87a8-71e99b40e4cb" xml:space="preserve">
+          <source>The term, “Conditional access” has many conditions associated with it such as multi-factor authenticated user, authenticated device, compliant device etc. This topic primarily focusses on device-based conditions to control access to Office 365 services.</source>
+          <target state="new">The term, “Conditional access” has many conditions associated with it such as multi-factor authenticated user, authenticated device, compliant device etc. This topic primarily focusses on device-based conditions to control access to Office 365 services.</target>
+        </trans-unit>
+        <trans-unit id="1dc7f834-56e9-4681-bf6a-76ddbfb8c0e2" xml:space="preserve">
+          <source>While Information Workers (IWs) want to access Office 365 services like Exchange and SharePoint Online at work or school from their personal devices, their IT admin wants the access to be secure.</source>
+          <target state="new">While Information Workers (IWs) want to access Office 365 services like Exchange and SharePoint Online at work or school from their personal devices, their IT admin wants the access to be secure.</target>
+        </trans-unit>
+        <trans-unit id="fd8a1b06-8b83-4dc3-9541-d20d8a469821" xml:space="preserve">
+          <source>IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing IWs on compliant devices to access the services.</source>
+          <target state="new">IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing IWs on compliant devices to access the services.</target>
+        </trans-unit>
+        <trans-unit id="747760a4-2f05-4738-b3f5-2ede2c44ddc6" xml:space="preserve">
+          <source>Conditional access policies to Office 365 may be configured from Microsoft Intune conditional access portal.</source>
+          <target state="new">Conditional access policies to Office 365 may be configured from Microsoft Intune conditional access portal.</target>
+        </trans-unit>
+        <trans-unit id="c7305135-262f-4c3e-94c2-a05d8b030884" xml:space="preserve">
+          <source>Azure Active Directory enforces conditional access policies to secure access to Office 365 services.</source>
+          <target state="new">Azure Active Directory enforces conditional access policies to secure access to Office 365 services.</target>
+        </trans-unit>
+        <trans-unit id="3f1793a4-6282-4953-b434-6fe96a0dcb62" xml:space="preserve">
+          <source>A tenant admin can create a conditional access policy that blocks a user on a non-compliant device from accessing an O365 service.</source>
+          <target state="new">A tenant admin can create a conditional access policy that blocks a user on a non-compliant device from accessing an O365 service.</target>
+        </trans-unit>
+        <trans-unit id="5d824f32-9b33-4c8c-81ff-540fa6ee146d" xml:space="preserve">
+          <source>The user must conform to company’s device policies before access can be granted to the service.</source>
+          <target state="new">The user must conform to company’s device policies before access can be granted to the service.</target>
+        </trans-unit>
+        <trans-unit id="fd703a07-7667-4393-8fcb-836339bd0994" xml:space="preserve">
+          <source>Alternately, the admin can also create a policy that requires users to just enroll their devices to gain access to an O365 service.</source>
+          <target state="new">Alternately, the admin can also create a policy that requires users to just enroll their devices to gain access to an O365 service.</target>
+        </trans-unit>
+        <trans-unit id="cbf385bd-811f-4c48-8f51-ab7cc5121887" xml:space="preserve">
+          <source>Policies may be applied to all users of an organization, or limited to a few target groups and enhanced over time to include additional target groups.</source>
+          <target state="new">Policies may be applied to all users of an organization, or limited to a few target groups and enhanced over time to include additional target groups.</target>
+        </trans-unit>
+        <trans-unit id="2d776e0a-ffdb-4d68-a23a-88795a497e46" xml:space="preserve">
+          <source>A prerequisite for enforcing device policies is for users to register their devices with Azure Active Directory Device Registration service.</source>
+          <target state="new">A prerequisite for enforcing device policies is for users to register their devices with Azure Active Directory Device Registration service.</target>
+        </trans-unit>
+        <trans-unit id="db6cd1e9-3415-418d-9724-4d42bda7d0f6" xml:space="preserve">
+          <source>You can opt to enable Multi-factor authentication (MFA) for registering devices with Azure Active Directory Device Registration service.</source>
+          <target state="new">You can opt to enable Multi-factor authentication (MFA) for registering devices with Azure Active Directory Device Registration service.</target>
+        </trans-unit>
+        <trans-unit id="3aacc7c9-c782-401e-bfc9-1768bef8acad" xml:space="preserve">
+          <source>MFA is recommended for Azure Active Directory Device Registration service.</source>
+          <target state="new">MFA is recommended for Azure Active Directory Device Registration service.</target>
+        </trans-unit>
+        <trans-unit id="76412ca0-fa33-425f-b7a0-a42306c5b0b7" xml:space="preserve">
+          <source>When MFA is enabled, users registering their devices with Azure Active Directory Device Registration service are challenged for second factor authentication.</source>
+          <target state="new">When MFA is enabled, users registering their devices with Azure Active Directory Device Registration service are challenged for second factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="c82ed487-722b-466c-97fa-6ceae7edd0d8" xml:space="preserve">
+          <source>When a user requests access to O365 service from a supported device platform, Azure Active Directory authenticates the user and device from which the user launches the request; and grants access to the service only when the user conforms to the policy set for the service.</source>
+          <target state="new">When a user requests access to O365 service from a supported device platform, Azure Active Directory authenticates the user and device from which the user launches the request; and grants access to the service only when the user conforms to the policy set for the service.</target>
+        </trans-unit>
+        <trans-unit id="52728129-4dda-496b-80dd-8747360f6be2" xml:space="preserve">
+          <source>Users that do not have their device enrolled are given remedial instructions on how to enroll and become compliant to access corporate O365 services.</source>
+          <target state="new">Users that do not have their device enrolled are given remedial instructions on how to enroll and become compliant to access corporate O365 services.</target>
+        </trans-unit>
+        <trans-unit id="407e892e-d7ab-4c73-9482-3e20e9b7c134" xml:space="preserve">
+          <source>Users on iOS and Android devices will be required to enroll their devices using Company Portal application.</source>
+          <target state="new">Users on iOS and Android devices will be required to enroll their devices using Company Portal application.</target>
+        </trans-unit>
+        <trans-unit id="ba07d63c-2e9e-4752-afef-d1aad3f91812" xml:space="preserve">
+          <source>When a user enrolls his/her device, the device is registered with Azure Active Directory, and enrolled for device management and compliance.</source>
+          <target state="new">When a user enrolls his/her device, the device is registered with Azure Active Directory, and enrolled for device management and compliance.</target>
+        </trans-unit>
+        <trans-unit id="019c51b2-c0fd-46d7-9f76-8410f982bd06" xml:space="preserve">
+          <source>Customers must use the Azure Active Directory Device Registration service in conjunction with Microsoft Intune to enable mobile device management for Office 365 service.</source>
+          <target state="new">Customers must use the Azure Active Directory Device Registration service in conjunction with Microsoft Intune to enable mobile device management for Office 365 service.</target>
+        </trans-unit>
+        <trans-unit id="ccad0961-1c00-420a-8b95-a0914fff029c" xml:space="preserve">
+          <source>Device enrollment is a pre-requisite for users to access Office 365 services when device policies are enforced.</source>
+          <target state="new">Device enrollment is a pre-requisite for users to access Office 365 services when device policies are enforced.</target>
+        </trans-unit>
+        <trans-unit id="8e4d9835-99ba-4ec3-82a4-d209d7749337" xml:space="preserve">
+          <source>When a user enrolls his/her device successfully, the device becomes trusted.</source>
+          <target state="new">When a user enrolls his/her device successfully, the device becomes trusted.</target>
+        </trans-unit>
+        <trans-unit id="4141e0a3-a78a-4b73-b068-10af75751546" xml:space="preserve">
+          <source>Azure Active Directory provides Single-Sign-On to access company applications and enforces conditional access policy to grant access to a service not only the first time the user requests access, but every time the user requests to renew access.</source>
+          <target state="new">Azure Active Directory provides Single-Sign-On to access company applications and enforces conditional access policy to grant access to a service not only the first time the user requests access, but every time the user requests to renew access.</target>
+        </trans-unit>
+        <trans-unit id="6bcb9583-a6be-4adc-af51-1fb8ce3af621" xml:space="preserve">
+          <source>The user will be denied access to services when sign-in credentials are changed, device is lost/stolen, or the policy is not met at the time of request for renewal.</source>
+          <target state="new">The user will be denied access to services when sign-in credentials are changed, device is lost/stolen, or the policy is not met at the time of request for renewal.</target>
+        </trans-unit>
+        <trans-unit id="684098af-aa62-45c9-a685-3e88565d710c" xml:space="preserve">
+          <source>Must use Azure Active Directory Device Registration service for device registration.</source>
+          <target state="new">Must use Azure Active Directory Device Registration service for device registration.</target>
+        </trans-unit>
+        <trans-unit id="07a99f06-fb74-40f1-a245-dfd2fdb52c32" xml:space="preserve">
+          <source>When users are to be authenticated on premises, Active Directory Federation Services (AD FS) (1.0 and above) is required.</source>
+          <target state="new">When users are to be authenticated on premises, Active Directory Federation Services (AD FS) (1.0 and above) is required.</target>
+        </trans-unit>
+        <trans-unit id="299bbd24-324d-45ea-90d1-dab8503335c7" xml:space="preserve">
+          <source>Multi-Factor Authentication for Workplace Join will fail when the identity provider is not capable of multi-factor authentication.</source>
+          <target state="new">Multi-Factor Authentication for Workplace Join will fail when the identity provider is not capable of multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="6bec1c79-bd99-40e2-afd7-fca329fac131" xml:space="preserve">
+          <source>For example, AD FS 2.0 is not multi-factor authentication-capable.</source>
+          <target state="new">For example, AD FS 2.0 is not multi-factor authentication-capable.</target>
+        </trans-unit>
+        <trans-unit id="ad6b259e-c5bf-42cb-84e2-79eeadf99827" xml:space="preserve">
+          <source>Tenant admin must ensure that the on-premises AD FS is MFA capable and a valid MFA method is enabled, before enabling MFA on Azure Active Directory Device Registration service.</source>
+          <target state="new">Tenant admin must ensure that the on-premises AD FS is MFA capable and a valid MFA method is enabled, before enabling MFA on Azure Active Directory Device Registration service.</target>
+        </trans-unit>
+        <trans-unit id="4591a71e-399e-412b-a4f5-178ee66b8116" xml:space="preserve">
+          <source>For example, AD FS on Windows Server 2012 R2 has MFA capabilities.</source>
+          <target state="new">For example, AD FS on Windows Server 2012 R2 has MFA capabilities.</target>
+        </trans-unit>
+        <trans-unit id="4df1746d-5cb8-49f2-a8af-602735a98600" xml:space="preserve">
+          <source>You must also enable an additional valid authentication (MFA) method on the AD FS server before enabling MFA on Azure Active Directory Device Registration service.</source>
+          <target state="new">You must also enable an additional valid authentication (MFA) method on the AD FS server before enabling MFA on Azure Active Directory Device Registration service.</target>
+        </trans-unit>
+        <trans-unit id="36bf7bda-8fd7-478e-b1e4-86756e5c2615" xml:space="preserve">
+          <source>For more information on supported MFA methods in AD FS, see Configure Additional Authentication Methods for AD FS.</source>
+          <target state="new">For more information on supported MFA methods in AD FS, see Configure Additional Authentication Methods for AD FS.</target>
+        </trans-unit>
+        <trans-unit id="c3621fbd-4e91-41a0-9442-5248623f4edc" xml:space="preserve">
+          <source>Q: What is the default exclusion policy for unsupported device platforms?</source>
+          <target state="new">Q: What is the default exclusion policy for unsupported device platforms?</target>
+        </trans-unit>
+        <trans-unit id="d7702196-d1e3-439d-81a1-eb7817a60598" xml:space="preserve">
+          <source>A: At the present time, conditional access policies are selectively enforced on users on iOS and Android devices.</source>
+          <target state="new">A: At the present time, conditional access policies are selectively enforced on users on iOS and Android devices.</target>
+        </trans-unit>
+        <trans-unit id="8074b514-27d2-45d1-a18b-6d6a6f71527c" xml:space="preserve">
+          <source>Applications on other device platforms are, by default, unaffected by the conditional access policy for iOS and Android devices.</source>
+          <target state="new">Applications on other device platforms are, by default, unaffected by the conditional access policy for iOS and Android devices.</target>
+        </trans-unit>
+        <trans-unit id="fd896a97-71af-40d4-baa8-b13db289716b" xml:space="preserve">
+          <source>Tenant admin may, however, choose to override the global policy to disallow access to users on unsupported platforms.</source>
+          <target state="new">Tenant admin may, however, choose to override the global policy to disallow access to users on unsupported platforms.</target>
+        </trans-unit>
+        <trans-unit id="f8b4d047-8ae7-42d3-b818-a87d6c68cff9" xml:space="preserve">
+          <source>It is on the roadmap to extend conditional access policy to users on other platforms, including Windows.</source>
+          <target state="new">It is on the roadmap to extend conditional access policy to users on other platforms, including Windows.</target>
+        </trans-unit>
+        <trans-unit id="f54b3ae4-eead-4910-8c26-bbb76eb09f2f" xml:space="preserve">
+          <source>Q: When will conditional access policy to Office 365 services be extended to Browser based apps (for example, OWA, browser-based SharePoint).</source>
+          <target state="new">Q: When will conditional access policy to Office 365 services be extended to Browser based apps (for example, OWA, browser-based SharePoint).</target>
+        </trans-unit>
+        <trans-unit id="a6c3e9bd-04f2-4af4-8dcb-492e57616896" xml:space="preserve">
+          <source>A: At the present time, conditional access to Office365 services is limited to rich applications on device.</source>
+          <target state="new">A: At the present time, conditional access to Office365 services is limited to rich applications on device.</target>
+        </trans-unit>
+        <trans-unit id="c1333cea-cb3c-440e-8f46-d380c607cb61" xml:space="preserve">
+          <source>It is on the roadmap to extend conditional access policy to users accessing the services from browsers.</source>
+          <target state="new">It is on the roadmap to extend conditional access policy to users accessing the services from browsers.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

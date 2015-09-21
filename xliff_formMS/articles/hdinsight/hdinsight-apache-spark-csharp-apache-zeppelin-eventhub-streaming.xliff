@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0dfd3096-026a-472a-8e2b-06853119b424" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0dfd3096-026a-472a-8e2b-06853119b424" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="98412baf-09d0-4fc7-b0b9-da06a3c805ba">
+        <trans-unit id="34fd6a13-e80f-4c59-8c60-e74ad7ef7e6c" xml:space="preserve">
+          <source>Use Azure Event Hubs with Apache Spark in HDInsight to process streaming data | Microsoft Azure</source>
+          <target state="new">Use Azure Event Hubs with Apache Spark in HDInsight to process streaming data | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4637532e-770a-4bc3-af46-b9cf4d4ebeb1" xml:space="preserve">
+          <source>Step-by-step instructions on how to send a data stream to Azure Event Hub and then receive those events in Spark using a Zeppelin notebook</source>
+          <target state="new">Step-by-step instructions on how to send a data stream to Azure Event Hub and then receive those events in Spark using a Zeppelin notebook</target>
+        </trans-unit>
+        <trans-unit id="1036864b-c011-4472-9599-79fadd449084" xml:space="preserve">
+          <source>Spark Streaming extends the core Spark API to build scalable, high-throughput, fault-tolerant stream processing applications.</source>
+          <target state="new">Spark Streaming extends the core Spark API to build scalable, high-throughput, fault-tolerant stream processing applications.</target>
+        </trans-unit>
+        <trans-unit id="9ebde025-04ef-4568-8ca3-cb9468384910" xml:space="preserve">
+          <source>Data can be ingested from many sources.</source>
+          <target state="new">Data can be ingested from many sources.</target>
+        </trans-unit>
+        <trans-unit id="063300a7-4ebc-4424-a554-a5a1c7b11b65" xml:space="preserve">
+          <source>In this article we use Event Hubs to ingest data.</source>
+          <target state="new">In this article we use Event Hubs to ingest data.</target>
+        </trans-unit>
+        <trans-unit id="0fdaba12-ef31-4696-a9d5-3f657fc58262" xml:space="preserve">
+          <source>Event Hubs is a highly scalable ingestion system that can intake millions of events per second.</source>
+          <target state="new">Event Hubs is a highly scalable ingestion system that can intake millions of events per second.</target>
+        </trans-unit>
+        <trans-unit id="161b3a4b-8a6a-49f7-b37a-c31232d6b7ff" xml:space="preserve">
+          <source>In this tutorial, you will learn how to create an Azure Event Hub, how to ingest messages into an Event Hub using a console application in C#, and to retrieve them in parallel using a Zeppelin notebook configured for Apache Spark in HDInsight.</source>
+          <target state="new">In this tutorial, you will learn how to create an Azure Event Hub, how to ingest messages into an Event Hub using a console application in C#, and to retrieve them in parallel using a Zeppelin notebook configured for Apache Spark in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="7f936740-7baa-4d65-820b-346e3328080d" xml:space="preserve">
+          <source>To follow the instructions in this article, you will have to use both versions of the Azure portal.</source>
+          <target state="new">To follow the instructions in this article, you will have to use both versions of the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="783da827-f4e1-4626-a67e-f7fffd1fe9e6" xml:space="preserve">
+          <source>To create an Event Hub you will use the <bpt id="0b89a204-130d-4d4c-a59e-9189e9c28f0d">&lt;linkText&gt;</bpt>Azure portal<ept id="0b89a204-130d-4d4c-a59e-9189e9c28f0d">&lt;/linkText&gt;</ept><bpt id="0b89a204-130d-4d4c-a59e-9189e9c28f0d">&lt;title&gt;</bpt><ept id="0b89a204-130d-4d4c-a59e-9189e9c28f0d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create an Event Hub you will use the <bpt id="0b89a204-130d-4d4c-a59e-9189e9c28f0d">&lt;linkText&gt;</bpt>Azure portal<ept id="0b89a204-130d-4d4c-a59e-9189e9c28f0d">&lt;/linkText&gt;</ept><bpt id="0b89a204-130d-4d4c-a59e-9189e9c28f0d">&lt;title&gt;</bpt><ept id="0b89a204-130d-4d4c-a59e-9189e9c28f0d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2cdb1c9a-337a-44e5-b96e-affffc1c5e1b" xml:space="preserve">
+          <source>To work with the HDInsight Spark cluster, you will use the <bpt id="c35e0973-9acf-4246-bd84-19e1fead1b1e">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="c35e0973-9acf-4246-bd84-19e1fead1b1e">&lt;/linkText&gt;</ept><bpt id="c35e0973-9acf-4246-bd84-19e1fead1b1e">&lt;title&gt;</bpt><ept id="c35e0973-9acf-4246-bd84-19e1fead1b1e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To work with the HDInsight Spark cluster, you will use the <bpt id="c35e0973-9acf-4246-bd84-19e1fead1b1e">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="c35e0973-9acf-4246-bd84-19e1fead1b1e">&lt;/linkText&gt;</ept><bpt id="c35e0973-9acf-4246-bd84-19e1fead1b1e">&lt;title&gt;</bpt><ept id="c35e0973-9acf-4246-bd84-19e1fead1b1e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a05fac32-7304-4713-bde3-f8225401cf77" xml:space="preserve">
+          <source><bpt id="1c969e1c-a38d-481b-aa66-f577c66f6a85">&lt;strong&gt;</bpt>Prerequisites:<ept id="1c969e1c-a38d-481b-aa66-f577c66f6a85">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1c969e1c-a38d-481b-aa66-f577c66f6a85">&lt;strong&gt;</bpt>Prerequisites:<ept id="1c969e1c-a38d-481b-aa66-f577c66f6a85">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1586ef5a-c798-4b35-8422-878600eea877" xml:space="preserve">
+          <source>You must have the following:</source>
+          <target state="new">You must have the following:</target>
+        </trans-unit>
+        <trans-unit id="a2c2925a-3aad-4eb3-a4ce-ee47429694ef" xml:space="preserve">
+          <source>An Azure subscription.</source>
+          <target state="new">An Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="27d7f005-e45b-48e2-9a53-9884719e42f6" xml:space="preserve">
+          <source>See <bpt id="a13b4e4c-8985-40d7-9a12-1ce2990c08ea">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="a13b4e4c-8985-40d7-9a12-1ce2990c08ea">&lt;/linkText&gt;</ept><bpt id="a13b4e4c-8985-40d7-9a12-1ce2990c08ea">&lt;title&gt;</bpt><ept id="a13b4e4c-8985-40d7-9a12-1ce2990c08ea">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="a13b4e4c-8985-40d7-9a12-1ce2990c08ea">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="a13b4e4c-8985-40d7-9a12-1ce2990c08ea">&lt;/linkText&gt;</ept><bpt id="a13b4e4c-8985-40d7-9a12-1ce2990c08ea">&lt;title&gt;</bpt><ept id="a13b4e4c-8985-40d7-9a12-1ce2990c08ea">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6832a69f-8b9a-4c8d-bfa2-d13d826602a1" xml:space="preserve">
+          <source>An Apache Spark cluster.</source>
+          <target state="new">An Apache Spark cluster.</target>
+        </trans-unit>
+        <trans-unit id="4e3c7f47-2220-496c-bf8c-6d97d3d4aee7" xml:space="preserve">
+          <source>For instructions, see <bpt id="dcac74b4-c55e-47ed-8995-44a22647349b">&lt;linkText&gt;</bpt>Provision Apache Spark clusters in Azure HDInsight<ept id="dcac74b4-c55e-47ed-8995-44a22647349b">&lt;/linkText&gt;</ept><bpt id="dcac74b4-c55e-47ed-8995-44a22647349b">&lt;title&gt;</bpt><ept id="dcac74b4-c55e-47ed-8995-44a22647349b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="dcac74b4-c55e-47ed-8995-44a22647349b">&lt;linkText&gt;</bpt>Provision Apache Spark clusters in Azure HDInsight<ept id="dcac74b4-c55e-47ed-8995-44a22647349b">&lt;/linkText&gt;</ept><bpt id="dcac74b4-c55e-47ed-8995-44a22647349b">&lt;title&gt;</bpt><ept id="dcac74b4-c55e-47ed-8995-44a22647349b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="940c1e6f-f19b-4da7-a989-841759c16245" xml:space="preserve">
+          <source>An <bpt id="3c822ac6-5aa2-4fc6-bcc4-339cb7f6e0ba">&lt;linkText&gt;</bpt>Azure Event Hub<ept id="3c822ac6-5aa2-4fc6-bcc4-339cb7f6e0ba">&lt;/linkText&gt;</ept><bpt id="3c822ac6-5aa2-4fc6-bcc4-339cb7f6e0ba">&lt;title&gt;</bpt><ept id="3c822ac6-5aa2-4fc6-bcc4-339cb7f6e0ba">&lt;/title&gt;</ept>.</source>
+          <target state="new">An <bpt id="3c822ac6-5aa2-4fc6-bcc4-339cb7f6e0ba">&lt;linkText&gt;</bpt>Azure Event Hub<ept id="3c822ac6-5aa2-4fc6-bcc4-339cb7f6e0ba">&lt;/linkText&gt;</ept><bpt id="3c822ac6-5aa2-4fc6-bcc4-339cb7f6e0ba">&lt;title&gt;</bpt><ept id="3c822ac6-5aa2-4fc6-bcc4-339cb7f6e0ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="539c0634-d907-4e08-8b1a-44f5f5397b68" xml:space="preserve">
+          <source>A workstation with Microsoft Visual Studio 2013.</source>
+          <target state="new">A workstation with Microsoft Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="cd04fce2-af3a-4caf-b213-6eeb7c4eefbf" xml:space="preserve">
+          <source>For instructions, see <bpt id="9aec2fdd-5b25-45bb-b7f3-80595cf5cca3">&lt;linkText&gt;</bpt>Install Visual Studio<ept id="9aec2fdd-5b25-45bb-b7f3-80595cf5cca3">&lt;/linkText&gt;</ept><bpt id="9aec2fdd-5b25-45bb-b7f3-80595cf5cca3">&lt;title&gt;</bpt><ept id="9aec2fdd-5b25-45bb-b7f3-80595cf5cca3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="9aec2fdd-5b25-45bb-b7f3-80595cf5cca3">&lt;linkText&gt;</bpt>Install Visual Studio<ept id="9aec2fdd-5b25-45bb-b7f3-80595cf5cca3">&lt;/linkText&gt;</ept><bpt id="9aec2fdd-5b25-45bb-b7f3-80595cf5cca3">&lt;title&gt;</bpt><ept id="9aec2fdd-5b25-45bb-b7f3-80595cf5cca3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47f7fbc9-8f33-4442-946b-3ed90c7c0912" xml:space="preserve">
+          <source>From the <bpt id="7c6a3dd1-12fb-4498-9df6-2e926d82a3c8">&lt;linkText&gt;</bpt>Azure portal<ept id="7c6a3dd1-12fb-4498-9df6-2e926d82a3c8">&lt;/linkText&gt;</ept><bpt id="7c6a3dd1-12fb-4498-9df6-2e926d82a3c8">&lt;title&gt;</bpt><ept id="7c6a3dd1-12fb-4498-9df6-2e926d82a3c8">&lt;/title&gt;</ept>, select <bpt id="5470be9a-9032-44dd-9e63-3bcc34bc0939">&lt;strong&gt;</bpt>NEW<ept id="5470be9a-9032-44dd-9e63-3bcc34bc0939">&lt;/strong&gt;</ept> &gt; <bpt id="e1548b37-5167-4294-89fc-2a05389d9125">&lt;strong&gt;</bpt>Service Bus<ept id="e1548b37-5167-4294-89fc-2a05389d9125">&lt;/strong&gt;</ept> &gt; <bpt id="0f39460f-1d94-489c-ba1a-fbd9084bfe14">&lt;strong&gt;</bpt>Event Hub<ept id="0f39460f-1d94-489c-ba1a-fbd9084bfe14">&lt;/strong&gt;</ept> &gt; <bpt id="bf5fa2a2-acf4-4c6d-a87e-acf6447bc127">&lt;strong&gt;</bpt>Custom Create<ept id="bf5fa2a2-acf4-4c6d-a87e-acf6447bc127">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="7c6a3dd1-12fb-4498-9df6-2e926d82a3c8">&lt;linkText&gt;</bpt>Azure portal<ept id="7c6a3dd1-12fb-4498-9df6-2e926d82a3c8">&lt;/linkText&gt;</ept><bpt id="7c6a3dd1-12fb-4498-9df6-2e926d82a3c8">&lt;title&gt;</bpt><ept id="7c6a3dd1-12fb-4498-9df6-2e926d82a3c8">&lt;/title&gt;</ept>, select <bpt id="5470be9a-9032-44dd-9e63-3bcc34bc0939">&lt;strong&gt;</bpt>NEW<ept id="5470be9a-9032-44dd-9e63-3bcc34bc0939">&lt;/strong&gt;</ept> &gt; <bpt id="e1548b37-5167-4294-89fc-2a05389d9125">&lt;strong&gt;</bpt>Service Bus<ept id="e1548b37-5167-4294-89fc-2a05389d9125">&lt;/strong&gt;</ept> &gt; <bpt id="0f39460f-1d94-489c-ba1a-fbd9084bfe14">&lt;strong&gt;</bpt>Event Hub<ept id="0f39460f-1d94-489c-ba1a-fbd9084bfe14">&lt;/strong&gt;</ept> &gt; <bpt id="bf5fa2a2-acf4-4c6d-a87e-acf6447bc127">&lt;strong&gt;</bpt>Custom Create<ept id="bf5fa2a2-acf4-4c6d-a87e-acf6447bc127">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc98bb4a-633f-4e61-ab7d-4f96da05be9b" xml:space="preserve">
+          <source>On the <bpt id="919fa85d-0029-45ae-b87e-c66318e81b3e">&lt;strong&gt;</bpt>Add a new Event Hub<ept id="919fa85d-0029-45ae-b87e-c66318e81b3e">&lt;/strong&gt;</ept> screen, enter an <bpt id="ac49c0ae-8b89-472f-9924-e8a9a02fb038">&lt;strong&gt;</bpt>Event Hub Name<ept id="ac49c0ae-8b89-472f-9924-e8a9a02fb038">&lt;/strong&gt;</ept>, select the <bpt id="5dbd93d3-e2e6-41a3-9608-dc3047b61a57">&lt;strong&gt;</bpt>Region<ept id="5dbd93d3-e2e6-41a3-9608-dc3047b61a57">&lt;/strong&gt;</ept> to create the hub in, and create a new namespace or select an existing one.</source>
+          <target state="new">On the <bpt id="919fa85d-0029-45ae-b87e-c66318e81b3e">&lt;strong&gt;</bpt>Add a new Event Hub<ept id="919fa85d-0029-45ae-b87e-c66318e81b3e">&lt;/strong&gt;</ept> screen, enter an <bpt id="ac49c0ae-8b89-472f-9924-e8a9a02fb038">&lt;strong&gt;</bpt>Event Hub Name<ept id="ac49c0ae-8b89-472f-9924-e8a9a02fb038">&lt;/strong&gt;</ept>, select the <bpt id="5dbd93d3-e2e6-41a3-9608-dc3047b61a57">&lt;strong&gt;</bpt>Region<ept id="5dbd93d3-e2e6-41a3-9608-dc3047b61a57">&lt;/strong&gt;</ept> to create the hub in, and create a new namespace or select an existing one.</target>
+        </trans-unit>
+        <trans-unit id="3a6da679-feb7-47b6-8a66-5976a32efe02" xml:space="preserve">
+          <source>Click the <bpt id="d50f877e-9b02-4305-b9e0-6e8bb27a53b6">&lt;strong&gt;</bpt>Arrow<ept id="d50f877e-9b02-4305-b9e0-6e8bb27a53b6">&lt;/strong&gt;</ept> to continue.</source>
+          <target state="new">Click the <bpt id="d50f877e-9b02-4305-b9e0-6e8bb27a53b6">&lt;strong&gt;</bpt>Arrow<ept id="d50f877e-9b02-4305-b9e0-6e8bb27a53b6">&lt;/strong&gt;</ept> to continue.</target>
+        </trans-unit>
+        <trans-unit id="67f016bd-85c8-42ae-9e96-f4f5aaceff33" xml:space="preserve">
+          <source><bpt id="8b39b0a9-e6d5-437e-b6da-aeca5a0e6eb6">&lt;linkText&gt;</bpt>wizard page 1<ept id="8b39b0a9-e6d5-437e-b6da-aeca5a0e6eb6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8b39b0a9-e6d5-437e-b6da-aeca5a0e6eb6">&lt;linkText&gt;</bpt>wizard page 1<ept id="8b39b0a9-e6d5-437e-b6da-aeca5a0e6eb6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="781e2a7c-fa13-4016-a336-5077f70e69b3" xml:space="preserve">
+          <source>You should select the same <bpt id="bb51683f-fc0e-4450-ad9a-b0eb3dca66b3">&lt;strong&gt;</bpt>Location<ept id="bb51683f-fc0e-4450-ad9a-b0eb3dca66b3">&lt;/strong&gt;</ept> as your Apache Spark cluster in HDInsight to reduce latency and costs.</source>
+          <target state="new">You should select the same <bpt id="bb51683f-fc0e-4450-ad9a-b0eb3dca66b3">&lt;strong&gt;</bpt>Location<ept id="bb51683f-fc0e-4450-ad9a-b0eb3dca66b3">&lt;/strong&gt;</ept> as your Apache Spark cluster in HDInsight to reduce latency and costs.</target>
+        </trans-unit>
+        <trans-unit id="eb26be21-0854-49b2-81ac-9636e1e79bf9" xml:space="preserve">
+          <source>On the <bpt id="ab303d4b-80bb-4220-9fa4-064c70cc59fc">&lt;strong&gt;</bpt>Configure Event Hub<ept id="ab303d4b-80bb-4220-9fa4-064c70cc59fc">&lt;/strong&gt;</ept> screen, enter the <bpt id="d838b39f-0244-41ab-aa06-aa34b76764f9">&lt;strong&gt;</bpt>Partition count<ept id="d838b39f-0244-41ab-aa06-aa34b76764f9">&lt;/strong&gt;</ept> and <bpt id="b1f09479-88eb-48ac-b8e4-8988d8ee2d19">&lt;strong&gt;</bpt>Message Retention<ept id="b1f09479-88eb-48ac-b8e4-8988d8ee2d19">&lt;/strong&gt;</ept> values, and then click the check mark.</source>
+          <target state="new">On the <bpt id="ab303d4b-80bb-4220-9fa4-064c70cc59fc">&lt;strong&gt;</bpt>Configure Event Hub<ept id="ab303d4b-80bb-4220-9fa4-064c70cc59fc">&lt;/strong&gt;</ept> screen, enter the <bpt id="d838b39f-0244-41ab-aa06-aa34b76764f9">&lt;strong&gt;</bpt>Partition count<ept id="d838b39f-0244-41ab-aa06-aa34b76764f9">&lt;/strong&gt;</ept> and <bpt id="b1f09479-88eb-48ac-b8e4-8988d8ee2d19">&lt;strong&gt;</bpt>Message Retention<ept id="b1f09479-88eb-48ac-b8e4-8988d8ee2d19">&lt;/strong&gt;</ept> values, and then click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="065eec1a-e030-4a2d-8be9-e1622d501c12" xml:space="preserve">
+          <source>For this example, use a partition count of 10 and a message retention of 1.</source>
+          <target state="new">For this example, use a partition count of 10 and a message retention of 1.</target>
+        </trans-unit>
+        <trans-unit id="6dabda49-4add-40ee-88db-5f87c75df40e" xml:space="preserve">
+          <source>Note the partition count because you will need this value later.</source>
+          <target state="new">Note the partition count because you will need this value later.</target>
+        </trans-unit>
+        <trans-unit id="5b27635e-2448-4926-95ed-722daaf01f87" xml:space="preserve">
+          <source><bpt id="6d14cebd-5a68-46a3-af77-2edbc89590f9">&lt;linkText&gt;</bpt>wizard page 2<ept id="6d14cebd-5a68-46a3-af77-2edbc89590f9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d14cebd-5a68-46a3-af77-2edbc89590f9">&lt;linkText&gt;</bpt>wizard page 2<ept id="6d14cebd-5a68-46a3-af77-2edbc89590f9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="296f576e-e2a1-4deb-8dae-68b2903178ad" xml:space="preserve">
+          <source>Click the Event Hub that you created, click <bpt id="9f1caee5-e875-459b-b2c3-ee6a0eac96ce">&lt;strong&gt;</bpt>Configure<ept id="9f1caee5-e875-459b-b2c3-ee6a0eac96ce">&lt;/strong&gt;</ept>, and then create two access policies for the event hub.</source>
+          <target state="new">Click the Event Hub that you created, click <bpt id="9f1caee5-e875-459b-b2c3-ee6a0eac96ce">&lt;strong&gt;</bpt>Configure<ept id="9f1caee5-e875-459b-b2c3-ee6a0eac96ce">&lt;/strong&gt;</ept>, and then create two access policies for the event hub.</target>
+        </trans-unit>
+        <trans-unit id="38010d0f-3bca-4685-87dc-0a9d16821ecd" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="6d746532-8915-4aa4-8cb1-01fb0ab3529c" xml:space="preserve">
+          <source>Permissions</source>
+          <target state="new">Permissions</target>
+        </trans-unit>
+        <trans-unit id="f0521ed4-0ee6-468a-a77f-8e65999ce5fc" xml:space="preserve">
+          <source>mysendpolicy</source>
+          <target state="new">mysendpolicy</target>
+        </trans-unit>
+        <trans-unit id="cb744d0d-bd1f-4845-b65f-73e69c7f2ec3" xml:space="preserve">
+          <source>Send</source>
+          <target state="new">Send</target>
+        </trans-unit>
+        <trans-unit id="cebd546d-0482-413f-a888-f51b06062b65" xml:space="preserve">
+          <source>myreceivepolicy</source>
+          <target state="new">myreceivepolicy</target>
+        </trans-unit>
+        <trans-unit id="67b1a912-5d2b-4722-bad7-bc7cfaefc1b9" xml:space="preserve">
+          <source>Listen</source>
+          <target state="new">Listen</target>
+        </trans-unit>
+        <trans-unit id="7e274c10-ac4a-439b-a8e3-cd8e4a604a2f" xml:space="preserve">
+          <source>After You create the permissions, select the <bpt id="0d9a85c4-af7a-4bd4-b1a4-b005585f745d">&lt;strong&gt;</bpt>Save<ept id="0d9a85c4-af7a-4bd4-b1a4-b005585f745d">&lt;/strong&gt;</ept> icon at the bottom of the page.</source>
+          <target state="new">After You create the permissions, select the <bpt id="0d9a85c4-af7a-4bd4-b1a4-b005585f745d">&lt;strong&gt;</bpt>Save<ept id="0d9a85c4-af7a-4bd4-b1a4-b005585f745d">&lt;/strong&gt;</ept> icon at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="88aa357e-2796-429c-a818-3d393bd7c170" xml:space="preserve">
+          <source>This creates the shared access policies that will be used to send (<bpt id="bc085464-2a60-4272-b564-b2e0cd5bf967">&lt;strong&gt;</bpt>mysendpolicy<ept id="bc085464-2a60-4272-b564-b2e0cd5bf967">&lt;/strong&gt;</ept>) and listen (<bpt id="3f13727c-b67c-40d0-b33c-f813130aa6ac">&lt;strong&gt;</bpt>myreceivepolicy<ept id="3f13727c-b67c-40d0-b33c-f813130aa6ac">&lt;/strong&gt;</ept>) to this Event Hub.</source>
+          <target state="new">This creates the shared access policies that will be used to send (<bpt id="bc085464-2a60-4272-b564-b2e0cd5bf967">&lt;strong&gt;</bpt>mysendpolicy<ept id="bc085464-2a60-4272-b564-b2e0cd5bf967">&lt;/strong&gt;</ept>) and listen (<bpt id="3f13727c-b67c-40d0-b33c-f813130aa6ac">&lt;strong&gt;</bpt>myreceivepolicy<ept id="3f13727c-b67c-40d0-b33c-f813130aa6ac">&lt;/strong&gt;</ept>) to this Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="0c399dfb-aef8-43db-82e4-b2bdb84cfff5" xml:space="preserve">
+          <source><bpt id="84747a17-63bd-4b7e-85b3-8f40acf2fb8d">&lt;linkText&gt;</bpt>policies<ept id="84747a17-63bd-4b7e-85b3-8f40acf2fb8d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="84747a17-63bd-4b7e-85b3-8f40acf2fb8d">&lt;linkText&gt;</bpt>policies<ept id="84747a17-63bd-4b7e-85b3-8f40acf2fb8d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8dcc8c6-afa8-4e2e-a95e-53c218e384e4" xml:space="preserve">
+          <source>On the same page, take a note of the policy keys generated for the two policies.</source>
+          <target state="new">On the same page, take a note of the policy keys generated for the two policies.</target>
+        </trans-unit>
+        <trans-unit id="3517effb-6af4-46ee-b3e0-c2e930a9322a" xml:space="preserve">
+          <source>Save these keys because they will be used later.</source>
+          <target state="new">Save these keys because they will be used later.</target>
+        </trans-unit>
+        <trans-unit id="cae6088d-3ce5-422e-9647-c118f0203dfd" xml:space="preserve">
+          <source><bpt id="7d89178b-2732-4fb2-9eb1-9caf1389d48b">&lt;linkText&gt;</bpt>policy keys<ept id="7d89178b-2732-4fb2-9eb1-9caf1389d48b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7d89178b-2732-4fb2-9eb1-9caf1389d48b">&lt;linkText&gt;</bpt>policy keys<ept id="7d89178b-2732-4fb2-9eb1-9caf1389d48b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1265176-e488-43e6-b939-a4ca802015a2" xml:space="preserve">
+          <source>On the <bpt id="34fd4220-6d2e-4c12-91c6-8b52644e3ebb">&lt;strong&gt;</bpt>Dashboard<ept id="34fd4220-6d2e-4c12-91c6-8b52644e3ebb">&lt;/strong&gt;</ept> page, click <bpt id="55d70728-3298-432e-9ce9-68d647473ff6">&lt;strong&gt;</bpt>Connection Information<ept id="55d70728-3298-432e-9ce9-68d647473ff6">&lt;/strong&gt;</ept> from the bottom to retrieve and save the connection strings for the Event Hub using the two policies.</source>
+          <target state="new">On the <bpt id="34fd4220-6d2e-4c12-91c6-8b52644e3ebb">&lt;strong&gt;</bpt>Dashboard<ept id="34fd4220-6d2e-4c12-91c6-8b52644e3ebb">&lt;/strong&gt;</ept> page, click <bpt id="55d70728-3298-432e-9ce9-68d647473ff6">&lt;strong&gt;</bpt>Connection Information<ept id="55d70728-3298-432e-9ce9-68d647473ff6">&lt;/strong&gt;</ept> from the bottom to retrieve and save the connection strings for the Event Hub using the two policies.</target>
+        </trans-unit>
+        <trans-unit id="5c59c461-537e-42c4-82df-a3aeace6c796" xml:space="preserve">
+          <source><bpt id="882168de-657e-46f8-a5e0-c3b3a481c206">&lt;linkText&gt;</bpt>policy keys<ept id="882168de-657e-46f8-a5e0-c3b3a481c206">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="882168de-657e-46f8-a5e0-c3b3a481c206">&lt;linkText&gt;</bpt>policy keys<ept id="882168de-657e-46f8-a5e0-c3b3a481c206">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc7cc84b-a80d-4d73-9695-3526a03e5daf" xml:space="preserve">
+          <source><bpt id="96139358-3943-4165-8dd6-22a8aea147cf">&lt;token href="../../includes/service-bus-event-hubs-get-started-send-csharp.md"&gt;</bpt><ept id="96139358-3943-4165-8dd6-22a8aea147cf">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="96139358-3943-4165-8dd6-22a8aea147cf">&lt;token href="../../includes/service-bus-event-hubs-get-started-send-csharp.md"&gt;</bpt><ept id="96139358-3943-4165-8dd6-22a8aea147cf">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb0891e3-96c9-4794-aad7-77925924c637" xml:space="preserve">
+          <source>In this section, you create a <bpt id="4c295a49-6748-4b8d-9cd5-695d0784e266">&lt;linkText&gt;</bpt>Zeppelin<ept id="4c295a49-6748-4b8d-9cd5-695d0784e266">&lt;/linkText&gt;</ept><bpt id="4c295a49-6748-4b8d-9cd5-695d0784e266">&lt;title&gt;</bpt><ept id="4c295a49-6748-4b8d-9cd5-695d0784e266">&lt;/title&gt;</ept> notebook to receive messages from the Event Hub into the Spark cluster in HDInsight.</source>
+          <target state="new">In this section, you create a <bpt id="4c295a49-6748-4b8d-9cd5-695d0784e266">&lt;linkText&gt;</bpt>Zeppelin<ept id="4c295a49-6748-4b8d-9cd5-695d0784e266">&lt;/linkText&gt;</ept><bpt id="4c295a49-6748-4b8d-9cd5-695d0784e266">&lt;title&gt;</bpt><ept id="4c295a49-6748-4b8d-9cd5-695d0784e266">&lt;/title&gt;</ept> notebook to receive messages from the Event Hub into the Spark cluster in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="dfbe1570-4ac5-45e2-8c0c-ad2930d5666d" xml:space="preserve">
+          <source>From the <bpt id="1415878f-6aff-4397-a23c-4a2a4ba8d17f">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="1415878f-6aff-4397-a23c-4a2a4ba8d17f">&lt;/linkText&gt;</ept><bpt id="1415878f-6aff-4397-a23c-4a2a4ba8d17f">&lt;title&gt;</bpt><ept id="1415878f-6aff-4397-a23c-4a2a4ba8d17f">&lt;/title&gt;</ept>, from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).</source>
+          <target state="new">From the <bpt id="1415878f-6aff-4397-a23c-4a2a4ba8d17f">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="1415878f-6aff-4397-a23c-4a2a4ba8d17f">&lt;/linkText&gt;</ept><bpt id="1415878f-6aff-4397-a23c-4a2a4ba8d17f">&lt;title&gt;</bpt><ept id="1415878f-6aff-4397-a23c-4a2a4ba8d17f">&lt;/title&gt;</ept>, from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).</target>
+        </trans-unit>
+        <trans-unit id="5db3d106-435c-4971-a4e9-24d726645442" xml:space="preserve">
+          <source>You can also navigate to your cluster under <bpt id="31d50ac2-a661-4a05-b56b-d27e63bf7d6c">&lt;strong&gt;</bpt>Browse All<ept id="31d50ac2-a661-4a05-b56b-d27e63bf7d6c">&lt;/strong&gt;</ept> &gt; <bpt id="2b1db1b2-1922-47ca-905f-8197ef45866b">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="2b1db1b2-1922-47ca-905f-8197ef45866b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can also navigate to your cluster under <bpt id="31d50ac2-a661-4a05-b56b-d27e63bf7d6c">&lt;strong&gt;</bpt>Browse All<ept id="31d50ac2-a661-4a05-b56b-d27e63bf7d6c">&lt;/strong&gt;</ept> &gt; <bpt id="2b1db1b2-1922-47ca-905f-8197ef45866b">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="2b1db1b2-1922-47ca-905f-8197ef45866b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6f5500b-3e2c-4347-9687-07ad33996fcb" xml:space="preserve">
+          <source>Launch the Zeppelin notebook.</source>
+          <target state="new">Launch the Zeppelin notebook.</target>
+        </trans-unit>
+        <trans-unit id="b39cec80-9d6e-4a6f-84c0-04b53987be6d" xml:space="preserve">
+          <source>From the Spark cluster blade, click <bpt id="4fb0d774-f8ea-452c-98b1-372ac01449f6">&lt;strong&gt;</bpt>Quick Links<ept id="4fb0d774-f8ea-452c-98b1-372ac01449f6">&lt;/strong&gt;</ept>, and then from the <bpt id="bb614fd7-e995-4776-8ede-1abba9b82ef2">&lt;strong&gt;</bpt>Cluster Dashboard<ept id="bb614fd7-e995-4776-8ede-1abba9b82ef2">&lt;/strong&gt;</ept> blade, click <bpt id="f38a451e-dcda-46d4-8c76-7fd8ae27e259">&lt;strong&gt;</bpt>Zeppelin Notebook<ept id="f38a451e-dcda-46d4-8c76-7fd8ae27e259">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Spark cluster blade, click <bpt id="4fb0d774-f8ea-452c-98b1-372ac01449f6">&lt;strong&gt;</bpt>Quick Links<ept id="4fb0d774-f8ea-452c-98b1-372ac01449f6">&lt;/strong&gt;</ept>, and then from the <bpt id="bb614fd7-e995-4776-8ede-1abba9b82ef2">&lt;strong&gt;</bpt>Cluster Dashboard<ept id="bb614fd7-e995-4776-8ede-1abba9b82ef2">&lt;/strong&gt;</ept> blade, click <bpt id="f38a451e-dcda-46d4-8c76-7fd8ae27e259">&lt;strong&gt;</bpt>Zeppelin Notebook<ept id="f38a451e-dcda-46d4-8c76-7fd8ae27e259">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f884fbed-43c9-4283-902f-b8e412324caa" xml:space="preserve">
+          <source>When prompted, enter the admin credentials for the cluster.</source>
+          <target state="new">When prompted, enter the admin credentials for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="7834bdcc-c446-47a5-96fe-e0dc048d8be6" xml:space="preserve">
+          <source>Follow the instructions on the page that opens up to launch the notebook.</source>
+          <target state="new">Follow the instructions on the page that opens up to launch the notebook.</target>
+        </trans-unit>
+        <trans-unit id="fe7114f5-d8e8-4497-bdcc-b91af67d3320" xml:space="preserve">
+          <source>Create a new notebook.</source>
+          <target state="new">Create a new notebook.</target>
+        </trans-unit>
+        <trans-unit id="53d87ad7-da8a-4990-85a4-090aa4283214" xml:space="preserve">
+          <source>From the header pane, click <bpt id="cfd03a43-9747-49e0-a003-b8072fd5d798">&lt;strong&gt;</bpt>Notebook<ept id="cfd03a43-9747-49e0-a003-b8072fd5d798">&lt;/strong&gt;</ept>, and from the drop-down, click <bpt id="1b1c786f-738a-419a-a2f0-80c81766aa4b">&lt;strong&gt;</bpt>Create New Note<ept id="1b1c786f-738a-419a-a2f0-80c81766aa4b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the header pane, click <bpt id="cfd03a43-9747-49e0-a003-b8072fd5d798">&lt;strong&gt;</bpt>Notebook<ept id="cfd03a43-9747-49e0-a003-b8072fd5d798">&lt;/strong&gt;</ept>, and from the drop-down, click <bpt id="1b1c786f-738a-419a-a2f0-80c81766aa4b">&lt;strong&gt;</bpt>Create New Note<ept id="1b1c786f-738a-419a-a2f0-80c81766aa4b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a51e4a4f-253e-45a9-88ab-7a616dce65f0" xml:space="preserve">
+          <source><bpt id="d67243e1-ef9d-459d-90b6-61763576cfe4">&lt;linkText&gt;</bpt>Create a new Zeppelin notebook<ept id="d67243e1-ef9d-459d-90b6-61763576cfe4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d67243e1-ef9d-459d-90b6-61763576cfe4">&lt;linkText&gt;</bpt>Create a new Zeppelin notebook<ept id="d67243e1-ef9d-459d-90b6-61763576cfe4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34837101-30c6-4eff-819c-816cd5215e7e" xml:space="preserve">
+          <source>On the same page, under the <bpt id="713dd7cb-c6ad-45ab-9173-fd01d9803d63">&lt;strong&gt;</bpt>Notebook<ept id="713dd7cb-c6ad-45ab-9173-fd01d9803d63">&lt;/strong&gt;</ept> heading, you should see a new notebook with the name starting with <bpt id="f9c63b93-493e-4d9e-abd9-354dae161f2e">&lt;strong&gt;</bpt>Note XXXXXXXXX<ept id="f9c63b93-493e-4d9e-abd9-354dae161f2e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the same page, under the <bpt id="713dd7cb-c6ad-45ab-9173-fd01d9803d63">&lt;strong&gt;</bpt>Notebook<ept id="713dd7cb-c6ad-45ab-9173-fd01d9803d63">&lt;/strong&gt;</ept> heading, you should see a new notebook with the name starting with <bpt id="f9c63b93-493e-4d9e-abd9-354dae161f2e">&lt;strong&gt;</bpt>Note XXXXXXXXX<ept id="f9c63b93-493e-4d9e-abd9-354dae161f2e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05570e5e-dc4a-4ca0-98de-1f81fda5a350" xml:space="preserve">
+          <source>Click the new notebook.</source>
+          <target state="new">Click the new notebook.</target>
+        </trans-unit>
+        <trans-unit id="c15cab8e-b29f-4d4a-a998-1caa21c5c9a9" xml:space="preserve">
+          <source>On the web page for the new notebook, click the heading, and change the name of the notebook if you want to.</source>
+          <target state="new">On the web page for the new notebook, click the heading, and change the name of the notebook if you want to.</target>
+        </trans-unit>
+        <trans-unit id="3fe07543-8258-46a8-8f02-2668f7e6628e" xml:space="preserve">
+          <source>Press ENTER to save the name change.</source>
+          <target state="new">Press ENTER to save the name change.</target>
+        </trans-unit>
+        <trans-unit id="f79a23c5-74c4-44b0-a5c5-db21d598cb04" xml:space="preserve">
+          <source>Also, make sure the notebook header shows a <bpt id="6bbe1b8b-7191-4ad3-a177-6292c463f5f3">&lt;strong&gt;</bpt>Connected<ept id="6bbe1b8b-7191-4ad3-a177-6292c463f5f3">&lt;/strong&gt;</ept> status in the top-right corner.</source>
+          <target state="new">Also, make sure the notebook header shows a <bpt id="6bbe1b8b-7191-4ad3-a177-6292c463f5f3">&lt;strong&gt;</bpt>Connected<ept id="6bbe1b8b-7191-4ad3-a177-6292c463f5f3">&lt;/strong&gt;</ept> status in the top-right corner.</target>
+        </trans-unit>
+        <trans-unit id="7825715d-977b-4ec2-96cd-4f1190dfae34" xml:space="preserve">
+          <source><bpt id="2ce86c97-ab6e-40a5-b35a-3ecf87d94acc">&lt;linkText&gt;</bpt>Zeppelin notebook status<ept id="2ce86c97-ab6e-40a5-b35a-3ecf87d94acc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ce86c97-ab6e-40a5-b35a-3ecf87d94acc">&lt;linkText&gt;</bpt>Zeppelin notebook status<ept id="2ce86c97-ab6e-40a5-b35a-3ecf87d94acc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4d3d9b6-df7d-4a68-8050-0185a2fe6ed2" xml:space="preserve">
+          <source>In the empty paragraph that is created by default in the new notebook, paste the following snippet and replace the placeholders to use your event hub configuration.</source>
+          <target state="new">In the empty paragraph that is created by default in the new notebook, paste the following snippet and replace the placeholders to use your event hub configuration.</target>
+        </trans-unit>
+        <trans-unit id="963dc833-f175-4d34-b67b-4515b21c90f1" xml:space="preserve">
+          <source>In this snippet, you receive the stream from Event Hub and register the stream into a temporary table, called <bpt id="8c4c68b1-89d2-464f-9e50-fc150c76adc2">&lt;strong&gt;</bpt>mytemptable<ept id="8c4c68b1-89d2-464f-9e50-fc150c76adc2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this snippet, you receive the stream from Event Hub and register the stream into a temporary table, called <bpt id="8c4c68b1-89d2-464f-9e50-fc150c76adc2">&lt;strong&gt;</bpt>mytemptable<ept id="8c4c68b1-89d2-464f-9e50-fc150c76adc2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ead385a-01e4-471c-8023-69173c982684" xml:space="preserve">
+          <source>In the next section, we will start the sender application.</source>
+          <target state="new">In the next section, we will start the sender application.</target>
+        </trans-unit>
+        <trans-unit id="bf346639-ff13-4347-a5cd-7a95e692af7b" xml:space="preserve">
+          <source>You can then read the data directly from the table.</source>
+          <target state="new">You can then read the data directly from the table.</target>
+        </trans-unit>
+        <trans-unit id="5999bb25-67b1-486d-b727-484c09e4a2d4" xml:space="preserve">
+          <source>From the Zeppelin notebook, run the paragraph with the snippet.</source>
+          <target state="new">From the Zeppelin notebook, run the paragraph with the snippet.</target>
+        </trans-unit>
+        <trans-unit id="db0b0788-cd01-43a9-9255-3ed14a9e91f5" xml:space="preserve">
+          <source>Press <bpt id="5611b21f-4d73-441a-a3ce-6ebb2ebe7253">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="5611b21f-4d73-441a-a3ce-6ebb2ebe7253">&lt;/strong&gt;</ept> or the <bpt id="62f3627c-0082-43f6-9b63-274cfbf8739d">&lt;strong&gt;</bpt>Play<ept id="62f3627c-0082-43f6-9b63-274cfbf8739d">&lt;/strong&gt;</ept> button at the top-right corner.</source>
+          <target state="new">Press <bpt id="5611b21f-4d73-441a-a3ce-6ebb2ebe7253">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="5611b21f-4d73-441a-a3ce-6ebb2ebe7253">&lt;/strong&gt;</ept> or the <bpt id="62f3627c-0082-43f6-9b63-274cfbf8739d">&lt;strong&gt;</bpt>Play<ept id="62f3627c-0082-43f6-9b63-274cfbf8739d">&lt;/strong&gt;</ept> button at the top-right corner.</target>
+        </trans-unit>
+        <trans-unit id="1c8b6738-dcca-4343-b5df-9da4340627f5" xml:space="preserve">
+          <source>The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED.</source>
+          <target state="new">The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED.</target>
+        </trans-unit>
+        <trans-unit id="2efed8cb-c77a-4ebe-904d-3706dfafbcc1" xml:space="preserve">
+          <source>The output will show up in the bottom of the same paragraph.</source>
+          <target state="new">The output will show up in the bottom of the same paragraph.</target>
+        </trans-unit>
+        <trans-unit id="848ba2b9-e9ec-4ccc-8ff5-8368e485df5c" xml:space="preserve">
+          <source>The screenshot looks like the following:</source>
+          <target state="new">The screenshot looks like the following:</target>
+        </trans-unit>
+        <trans-unit id="72984324-5e2a-456b-b334-55cb816f3389" xml:space="preserve">
+          <source><bpt id="c8a7a5db-6dd5-45bb-a895-5ecd38794831">&lt;linkText&gt;</bpt>Output of the snippet<ept id="c8a7a5db-6dd5-45bb-a895-5ecd38794831">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c8a7a5db-6dd5-45bb-a895-5ecd38794831">&lt;linkText&gt;</bpt>Output of the snippet<ept id="c8a7a5db-6dd5-45bb-a895-5ecd38794831">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f4d61f0-60e3-4094-93df-5c60d8d19723" xml:space="preserve">
+          <source>Run the <bpt id="3921f29c-2a8a-4d6e-a47d-a074d9c69963">&lt;strong&gt;</bpt>Sender<ept id="3921f29c-2a8a-4d6e-a47d-a074d9c69963">&lt;/strong&gt;</ept> project and press <bpt id="1f686bd0-dc8b-4692-8b66-8796d6b7a35e">&lt;strong&gt;</bpt>Enter<ept id="1f686bd0-dc8b-4692-8b66-8796d6b7a35e">&lt;/strong&gt;</ept> in the console window to start sending messages to the Event Hub.</source>
+          <target state="new">Run the <bpt id="3921f29c-2a8a-4d6e-a47d-a074d9c69963">&lt;strong&gt;</bpt>Sender<ept id="3921f29c-2a8a-4d6e-a47d-a074d9c69963">&lt;/strong&gt;</ept> project and press <bpt id="1f686bd0-dc8b-4692-8b66-8796d6b7a35e">&lt;strong&gt;</bpt>Enter<ept id="1f686bd0-dc8b-4692-8b66-8796d6b7a35e">&lt;/strong&gt;</ept> in the console window to start sending messages to the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="fb178ca9-0ad3-41f2-b2f6-e9d2b6e8d126" xml:space="preserve">
+          <source>From the Zeppelin notebook, in a new paragraph, enter the following snippet to read the messages received in Spark.</source>
+          <target state="new">From the Zeppelin notebook, in a new paragraph, enter the following snippet to read the messages received in Spark.</target>
+        </trans-unit>
+        <trans-unit id="e43041a4-14e5-419c-bd19-d71e4982158c" xml:space="preserve">
+          <source>The following screen capture shows the messages received in the <bpt id="5dbb1aac-7ed9-40af-b248-980d3c2f5acf">&lt;strong&gt;</bpt>mytemptable<ept id="5dbb1aac-7ed9-40af-b248-980d3c2f5acf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following screen capture shows the messages received in the <bpt id="5dbb1aac-7ed9-40af-b248-980d3c2f5acf">&lt;strong&gt;</bpt>mytemptable<ept id="5dbb1aac-7ed9-40af-b248-980d3c2f5acf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6aca9d46-bb0a-4785-bb8b-873bfabb2d0f" xml:space="preserve">
+          <source><bpt id="129434b7-f0a9-45fc-9331-fa602aec47f8">&lt;linkText&gt;</bpt>Receive the messages in Zeppelin<ept id="129434b7-f0a9-45fc-9331-fa602aec47f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="129434b7-f0a9-45fc-9331-fa602aec47f8">&lt;linkText&gt;</bpt>Receive the messages in Zeppelin<ept id="129434b7-f0a9-45fc-9331-fa602aec47f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77e29895-36f4-4a26-b660-879b74f97551" xml:space="preserve">
+          <source>Restart the Spark SQL interpreter to exit the application.</source>
+          <target state="new">Restart the Spark SQL interpreter to exit the application.</target>
+        </trans-unit>
+        <trans-unit id="c9efa7bb-3b45-44ef-9c4f-f01d66d3f827" xml:space="preserve">
+          <source>Click the <bpt id="76ca84cd-3c65-4629-b656-0663c6e7c4f6">&lt;strong&gt;</bpt>Interpreter<ept id="76ca84cd-3c65-4629-b656-0663c6e7c4f6">&lt;/strong&gt;</ept> tab at the top, and for the Spark interpreter, click <bpt id="95d5c0c6-7e99-4625-83c1-370201b89fbe">&lt;strong&gt;</bpt>Restart<ept id="95d5c0c6-7e99-4625-83c1-370201b89fbe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="76ca84cd-3c65-4629-b656-0663c6e7c4f6">&lt;strong&gt;</bpt>Interpreter<ept id="76ca84cd-3c65-4629-b656-0663c6e7c4f6">&lt;/strong&gt;</ept> tab at the top, and for the Spark interpreter, click <bpt id="95d5c0c6-7e99-4625-83c1-370201b89fbe">&lt;strong&gt;</bpt>Restart<ept id="95d5c0c6-7e99-4625-83c1-370201b89fbe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0812e52-e7e6-42b9-8d36-908ab858df06" xml:space="preserve">
+          <source><bpt id="b2156aa5-204f-4556-8ae5-ba2d6af067b2">&lt;linkText&gt;</bpt>Restart the Zeppelin intepreter<ept id="b2156aa5-204f-4556-8ae5-ba2d6af067b2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b2156aa5-204f-4556-8ae5-ba2d6af067b2">&lt;linkText&gt;</bpt>Restart the Zeppelin intepreter<ept id="b2156aa5-204f-4556-8ae5-ba2d6af067b2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="402db75e-dc49-4232-8558-d8a67fe40789" xml:space="preserve">
+          <source>Using Zeppelin to receive streaming data into Spark cluster on HDInsight is a good approach to prototype your application.</source>
+          <target state="new">Using Zeppelin to receive streaming data into Spark cluster on HDInsight is a good approach to prototype your application.</target>
+        </trans-unit>
+        <trans-unit id="b55d9bd2-c7e9-414a-93c1-8d39d5db966c" xml:space="preserve">
+          <source>However, to run your streaming application in a production setup with high-availability and resilience, you need to do the following:</source>
+          <target state="new">However, to run your streaming application in a production setup with high-availability and resilience, you need to do the following:</target>
+        </trans-unit>
+        <trans-unit id="20c504bc-2ad3-483c-b1a7-e2e5f450bfd9" xml:space="preserve">
+          <source>Copy over the dependency jar to the storage account associated with the cluster.</source>
+          <target state="new">Copy over the dependency jar to the storage account associated with the cluster.</target>
+        </trans-unit>
+        <trans-unit id="888bbe34-4cd5-4a6a-9af1-044993dd9646" xml:space="preserve">
+          <source>Build a streaming application.</source>
+          <target state="new">Build a streaming application.</target>
+        </trans-unit>
+        <trans-unit id="aa174427-ae12-4a34-812d-7d8f47d044dd" xml:space="preserve">
+          <source>RDP into the cluster and copy over the application jar to the headnode of the cluster.</source>
+          <target state="new">RDP into the cluster and copy over the application jar to the headnode of the cluster.</target>
+        </trans-unit>
+        <trans-unit id="0c0bef89-0746-4152-a197-a56beebfc29a" xml:space="preserve">
+          <source>RDP into the cluster and run the application on the cluster node.</source>
+          <target state="new">RDP into the cluster and run the application on the cluster node.</target>
+        </trans-unit>
+        <trans-unit id="e0a4fc87-4824-4857-b346-e4383fafdd06" xml:space="preserve">
+          <source>Instructions on how to perform these steps and a sample streaming application can be downloaded from GitHub at <bpt id="023f1417-396a-4f69-8d3f-1dce415c6362">&lt;linkText&gt;</bpt>https://github.com/hdinsight/hdinsight-spark-examples<ept id="023f1417-396a-4f69-8d3f-1dce415c6362">&lt;/linkText&gt;</ept><bpt id="023f1417-396a-4f69-8d3f-1dce415c6362">&lt;title&gt;</bpt><ept id="023f1417-396a-4f69-8d3f-1dce415c6362">&lt;/title&gt;</ept>.</source>
+          <target state="new">Instructions on how to perform these steps and a sample streaming application can be downloaded from GitHub at <bpt id="023f1417-396a-4f69-8d3f-1dce415c6362">&lt;linkText&gt;</bpt>https://github.com/hdinsight/hdinsight-spark-examples<ept id="023f1417-396a-4f69-8d3f-1dce415c6362">&lt;/linkText&gt;</ept><bpt id="023f1417-396a-4f69-8d3f-1dce415c6362">&lt;title&gt;</bpt><ept id="023f1417-396a-4f69-8d3f-1dce415c6362">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="feb85b13-8139-40f9-9d6d-017df34576df" xml:space="preserve">
+          <source><bpt id="055f85cb-4134-4d46-a1a7-12f766015d1c">&lt;linkText&gt;</bpt>Overview: Apache Spark on Azure HDInsight<ept id="055f85cb-4134-4d46-a1a7-12f766015d1c">&lt;/linkText&gt;</ept><bpt id="055f85cb-4134-4d46-a1a7-12f766015d1c">&lt;title&gt;</bpt><ept id="055f85cb-4134-4d46-a1a7-12f766015d1c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="055f85cb-4134-4d46-a1a7-12f766015d1c">&lt;linkText&gt;</bpt>Overview: Apache Spark on Azure HDInsight<ept id="055f85cb-4134-4d46-a1a7-12f766015d1c">&lt;/linkText&gt;</ept><bpt id="055f85cb-4134-4d46-a1a7-12f766015d1c">&lt;title&gt;</bpt><ept id="055f85cb-4134-4d46-a1a7-12f766015d1c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10a87d3c-a4ca-4919-b0d2-55c9ce3116a1" xml:space="preserve">
+          <source><bpt id="f568a385-bc7d-4ea1-8a7a-e6d388aab81e">&lt;linkText&gt;</bpt>Quick Start: Provision Apache Spark on HDInsight and run interactive queries using Spark SQL<ept id="f568a385-bc7d-4ea1-8a7a-e6d388aab81e">&lt;/linkText&gt;</ept><bpt id="f568a385-bc7d-4ea1-8a7a-e6d388aab81e">&lt;title&gt;</bpt><ept id="f568a385-bc7d-4ea1-8a7a-e6d388aab81e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f568a385-bc7d-4ea1-8a7a-e6d388aab81e">&lt;linkText&gt;</bpt>Quick Start: Provision Apache Spark on HDInsight and run interactive queries using Spark SQL<ept id="f568a385-bc7d-4ea1-8a7a-e6d388aab81e">&lt;/linkText&gt;</ept><bpt id="f568a385-bc7d-4ea1-8a7a-e6d388aab81e">&lt;title&gt;</bpt><ept id="f568a385-bc7d-4ea1-8a7a-e6d388aab81e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37fb398c-d2dd-43b2-bfbd-f6743f475f7a" xml:space="preserve">
+          <source><bpt id="c3efd769-5d9e-457e-a406-a125b66d0982">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building machine learning applications<ept id="c3efd769-5d9e-457e-a406-a125b66d0982">&lt;/linkText&gt;</ept><bpt id="c3efd769-5d9e-457e-a406-a125b66d0982">&lt;title&gt;</bpt><ept id="c3efd769-5d9e-457e-a406-a125b66d0982">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c3efd769-5d9e-457e-a406-a125b66d0982">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building machine learning applications<ept id="c3efd769-5d9e-457e-a406-a125b66d0982">&lt;/linkText&gt;</ept><bpt id="c3efd769-5d9e-457e-a406-a125b66d0982">&lt;title&gt;</bpt><ept id="c3efd769-5d9e-457e-a406-a125b66d0982">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ff14fa1-4601-4bd5-83c2-fc60b19b4faa" xml:space="preserve">
+          <source><bpt id="0204892c-a650-42a2-a426-5156acefb01b">&lt;linkText&gt;</bpt>Perform interactive data analysis using Spark in HDInsight with BI tools<ept id="0204892c-a650-42a2-a426-5156acefb01b">&lt;/linkText&gt;</ept><bpt id="0204892c-a650-42a2-a426-5156acefb01b">&lt;title&gt;</bpt><ept id="0204892c-a650-42a2-a426-5156acefb01b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0204892c-a650-42a2-a426-5156acefb01b">&lt;linkText&gt;</bpt>Perform interactive data analysis using Spark in HDInsight with BI tools<ept id="0204892c-a650-42a2-a426-5156acefb01b">&lt;/linkText&gt;</ept><bpt id="0204892c-a650-42a2-a426-5156acefb01b">&lt;title&gt;</bpt><ept id="0204892c-a650-42a2-a426-5156acefb01b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e938b26-ab5f-4592-b467-a188ae3a3368" xml:space="preserve">
+          <source><bpt id="10913485-042e-48c7-9566-2490662c9faa">&lt;linkText&gt;</bpt>Manage resources for the Apache Spark cluster in Azure HDInsight<ept id="10913485-042e-48c7-9566-2490662c9faa">&lt;/linkText&gt;</ept><bpt id="10913485-042e-48c7-9566-2490662c9faa">&lt;title&gt;</bpt><ept id="10913485-042e-48c7-9566-2490662c9faa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="10913485-042e-48c7-9566-2490662c9faa">&lt;linkText&gt;</bpt>Manage resources for the Apache Spark cluster in Azure HDInsight<ept id="10913485-042e-48c7-9566-2490662c9faa">&lt;/linkText&gt;</ept><bpt id="10913485-042e-48c7-9566-2490662c9faa">&lt;title&gt;</bpt><ept id="10913485-042e-48c7-9566-2490662c9faa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f54be06e-bb48-4159-9029-caf529f55454" xml:space="preserve">
+          <source>../hdinsight-component-versioning/</source>
+          <target state="new">../hdinsight-component-versioning/</target>
+        </trans-unit>
+        <trans-unit id="58b09642-11bd-4c71-807e-728cf584a8e2" xml:space="preserve">
+          <source>../hdinsight-upload-data/</source>
+          <target state="new">../hdinsight-upload-data/</target>
+        </trans-unit>
+        <trans-unit id="0e71d94c-e3cd-40b1-9315-c625b5044fcc" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage/</source>
+          <target state="new">../hdinsight-use-blob-storage/</target>
+        </trans-unit>
+        <trans-unit id="939e31db-fc83-4066-8b0f-d4db2c0848fd" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="ab0381c5-a173-450f-9df9-67cebc1e32ac" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="8726b02d-031a-4f45-a554-caf4a80d1c1c" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="7eba50a5-2e0b-48c9-8437-06bbeeb16f63" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="b2fca359-bc00-4358-971e-5f70236fdba6" xml:space="preserve">
+          <source>../storage-create-storage-account/</source>
+          <target state="new">../storage-create-storage-account/</target>
+        </trans-unit>
+      </group>
+      <group id="05ba4d06-8da4-4d2c-8337-816002926d40" />
+    </body>
+  </file>
+</xliff>

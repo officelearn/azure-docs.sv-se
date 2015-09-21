@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="62318c3b-a388-4773-8618-a24ba61b6a4a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="62318c3b-a388-4773-8618-a24ba61b6a4a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="01f2eadd-e868-4a2e-af86-0ca9a7170d98">
+        <trans-unit id="7be0111c-078d-4c38-8fab-ca890943db01" xml:space="preserve">
+          <source><bpt id="4f325149-0d21-4af4-a309-961ee0d18e37">&lt;linkText&gt;</bpt>(Windows Phone Silverlight 8.x | .NET)<ept id="4f325149-0d21-4af4-a309-961ee0d18e37">&lt;/linkText&gt;</ept><bpt id="4f325149-0d21-4af4-a309-961ee0d18e37">&lt;title&gt;</bpt><ept id="4f325149-0d21-4af4-a309-961ee0d18e37">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4f325149-0d21-4af4-a309-961ee0d18e37">&lt;linkText&gt;</bpt>(Windows Phone Silverlight 8.x | .NET)<ept id="4f325149-0d21-4af4-a309-961ee0d18e37">&lt;/linkText&gt;</ept><bpt id="4f325149-0d21-4af4-a309-961ee0d18e37">&lt;title&gt;</bpt><ept id="4f325149-0d21-4af4-a309-961ee0d18e37">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e944d75b-47a3-4747-a2b5-c8f3e98e1642" xml:space="preserve">
+          <source><bpt id="a578db53-68ce-4401-a4b4-9ac723a194b1">&lt;linkText&gt;</bpt>(Windows Phone Silverlight 8.x | Javascript)<ept id="a578db53-68ce-4401-a4b4-9ac723a194b1">&lt;/linkText&gt;</ept><bpt id="a578db53-68ce-4401-a4b4-9ac723a194b1">&lt;title&gt;</bpt><ept id="a578db53-68ce-4401-a4b4-9ac723a194b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a578db53-68ce-4401-a4b4-9ac723a194b1">&lt;linkText&gt;</bpt>(Windows Phone Silverlight 8.x | Javascript)<ept id="a578db53-68ce-4401-a4b4-9ac723a194b1">&lt;/linkText&gt;</ept><bpt id="a578db53-68ce-4401-a4b4-9ac723a194b1">&lt;title&gt;</bpt><ept id="a578db53-68ce-4401-a4b4-9ac723a194b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4593e6f1-ea5d-4f78-bf80-336a3b63efca" xml:space="preserve">
+          <source><bpt id="12fb045f-55c5-4547-ad6f-e1558613ec05">&lt;linkText&gt;</bpt>(Android | .NET)<ept id="12fb045f-55c5-4547-ad6f-e1558613ec05">&lt;/linkText&gt;</ept><bpt id="12fb045f-55c5-4547-ad6f-e1558613ec05">&lt;title&gt;</bpt><ept id="12fb045f-55c5-4547-ad6f-e1558613ec05">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="12fb045f-55c5-4547-ad6f-e1558613ec05">&lt;linkText&gt;</bpt>(Android | .NET)<ept id="12fb045f-55c5-4547-ad6f-e1558613ec05">&lt;/linkText&gt;</ept><bpt id="12fb045f-55c5-4547-ad6f-e1558613ec05">&lt;title&gt;</bpt><ept id="12fb045f-55c5-4547-ad6f-e1558613ec05">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20619dc6-dd39-45b0-bd12-0cd2eba80ee5" xml:space="preserve">
+          <source><bpt id="10bd39e5-22f2-4150-8a86-ad9f91e08c6d">&lt;linkText&gt;</bpt>(Android | Javascript)<ept id="10bd39e5-22f2-4150-8a86-ad9f91e08c6d">&lt;/linkText&gt;</ept><bpt id="10bd39e5-22f2-4150-8a86-ad9f91e08c6d">&lt;title&gt;</bpt><ept id="10bd39e5-22f2-4150-8a86-ad9f91e08c6d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="10bd39e5-22f2-4150-8a86-ad9f91e08c6d">&lt;linkText&gt;</bpt>(Android | Javascript)<ept id="10bd39e5-22f2-4150-8a86-ad9f91e08c6d">&lt;/linkText&gt;</ept><bpt id="10bd39e5-22f2-4150-8a86-ad9f91e08c6d">&lt;title&gt;</bpt><ept id="10bd39e5-22f2-4150-8a86-ad9f91e08c6d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="387f9462-6f3c-4dd1-bab2-55376078788d" xml:space="preserve">
+          <source><bpt id="07c5c116-efa6-41aa-af50-51086ec15399">&lt;linkText&gt;</bpt>(Xamarin.iOS | Javascript)<ept id="07c5c116-efa6-41aa-af50-51086ec15399">&lt;/linkText&gt;</ept><bpt id="07c5c116-efa6-41aa-af50-51086ec15399">&lt;title&gt;</bpt><ept id="07c5c116-efa6-41aa-af50-51086ec15399">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="07c5c116-efa6-41aa-af50-51086ec15399">&lt;linkText&gt;</bpt>(Xamarin.iOS | Javascript)<ept id="07c5c116-efa6-41aa-af50-51086ec15399">&lt;/linkText&gt;</ept><bpt id="07c5c116-efa6-41aa-af50-51086ec15399">&lt;title&gt;</bpt><ept id="07c5c116-efa6-41aa-af50-51086ec15399">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7f158f1-8a94-4001-b658-efb04cf3833c" xml:space="preserve">
+          <source><bpt id="ee330c62-0298-4cc3-b4a6-a3562a556ecb">&lt;linkText&gt;</bpt>(Xamarin.Android | Javascript)<ept id="ee330c62-0298-4cc3-b4a6-a3562a556ecb">&lt;/linkText&gt;</ept><bpt id="ee330c62-0298-4cc3-b4a6-a3562a556ecb">&lt;title&gt;</bpt><ept id="ee330c62-0298-4cc3-b4a6-a3562a556ecb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ee330c62-0298-4cc3-b4a6-a3562a556ecb">&lt;linkText&gt;</bpt>(Xamarin.Android | Javascript)<ept id="ee330c62-0298-4cc3-b4a6-a3562a556ecb">&lt;/linkText&gt;</ept><bpt id="ee330c62-0298-4cc3-b4a6-a3562a556ecb">&lt;title&gt;</bpt><ept id="ee330c62-0298-4cc3-b4a6-a3562a556ecb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a112cfb1-3ac2-4dfe-95a3-2bea523a36ab" xml:space="preserve">
+          <source><bpt id="c54ac729-ad50-45e3-82c0-b66ffea7315c">&lt;linkText&gt;</bpt>(HTML | Javascript)<ept id="c54ac729-ad50-45e3-82c0-b66ffea7315c">&lt;/linkText&gt;</ept><bpt id="c54ac729-ad50-45e3-82c0-b66ffea7315c">&lt;title&gt;</bpt><ept id="c54ac729-ad50-45e3-82c0-b66ffea7315c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c54ac729-ad50-45e3-82c0-b66ffea7315c">&lt;linkText&gt;</bpt>(HTML | Javascript)<ept id="c54ac729-ad50-45e3-82c0-b66ffea7315c">&lt;/linkText&gt;</ept><bpt id="c54ac729-ad50-45e3-82c0-b66ffea7315c">&lt;title&gt;</bpt><ept id="c54ac729-ad50-45e3-82c0-b66ffea7315c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

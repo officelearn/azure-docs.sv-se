@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fd533604-a242-4703-b65e-2df9dbf834af" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fd533604-a242-4703-b65e-2df9dbf834af" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2f7679b8-946c-4803-ad44-93a02fb476aa">
+        <trans-unit id="34657fa9-e82c-4e58-a3d3-406543cc8197" xml:space="preserve">
+          <source>Access an Azure API App using HTML and JavaScript</source>
+          <target state="new">Access an Azure API App using HTML and JavaScript</target>
+        </trans-unit>
+        <trans-unit id="01bd9d78-6151-4f4d-87a2-8998ec061997" xml:space="preserve">
+          <source>Learn how to access your API App back-end using HTML and JavaScript.</source>
+          <target state="new">Learn how to access your API App back-end using HTML and JavaScript.</target>
+        </trans-unit>
+        <trans-unit id="84d5c2c7-0b20-467d-adf8-79e90b40a7f8" xml:space="preserve">
+          <source>This article shows how to create an HTML and JavaScript client for an <bpt id="a0f6bb41-e9d6-475c-ad82-02d9a83c90d9">&lt;linkText&gt;</bpt>API app<ept id="a0f6bb41-e9d6-475c-ad82-02d9a83c90d9">&lt;/linkText&gt;</ept><bpt id="a0f6bb41-e9d6-475c-ad82-02d9a83c90d9">&lt;title&gt;</bpt><ept id="a0f6bb41-e9d6-475c-ad82-02d9a83c90d9">&lt;/title&gt;</ept> in <bpt id="aceeb3cb-a4b7-42bf-9110-3daa59206913">&lt;linkText&gt;</bpt>Azure App Service<ept id="aceeb3cb-a4b7-42bf-9110-3daa59206913">&lt;/linkText&gt;</ept><bpt id="aceeb3cb-a4b7-42bf-9110-3daa59206913">&lt;title&gt;</bpt><ept id="aceeb3cb-a4b7-42bf-9110-3daa59206913">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article shows how to create an HTML and JavaScript client for an <bpt id="a0f6bb41-e9d6-475c-ad82-02d9a83c90d9">&lt;linkText&gt;</bpt>API app<ept id="a0f6bb41-e9d6-475c-ad82-02d9a83c90d9">&lt;/linkText&gt;</ept><bpt id="a0f6bb41-e9d6-475c-ad82-02d9a83c90d9">&lt;title&gt;</bpt><ept id="a0f6bb41-e9d6-475c-ad82-02d9a83c90d9">&lt;/title&gt;</ept> in <bpt id="aceeb3cb-a4b7-42bf-9110-3daa59206913">&lt;linkText&gt;</bpt>Azure App Service<ept id="aceeb3cb-a4b7-42bf-9110-3daa59206913">&lt;/linkText&gt;</ept><bpt id="aceeb3cb-a4b7-42bf-9110-3daa59206913">&lt;title&gt;</bpt><ept id="aceeb3cb-a4b7-42bf-9110-3daa59206913">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="897c5ffd-562b-4dac-940f-e7c703c495d0" xml:space="preserve">
+          <source>The article assumes a working knowledge of HTML and JavaScript, and uses the <bpt id="e9d10b76-f6e5-4bf6-8e3f-e8ef43136f04">&lt;linkText&gt;</bpt>AngularJS<ept id="e9d10b76-f6e5-4bf6-8e3f-e8ef43136f04">&lt;/linkText&gt;</ept><bpt id="e9d10b76-f6e5-4bf6-8e3f-e8ef43136f04">&lt;title&gt;</bpt><ept id="e9d10b76-f6e5-4bf6-8e3f-e8ef43136f04">&lt;/title&gt;</ept> JavaScript framework for making REST calls to the API App.</source>
+          <target state="new">The article assumes a working knowledge of HTML and JavaScript, and uses the <bpt id="e9d10b76-f6e5-4bf6-8e3f-e8ef43136f04">&lt;linkText&gt;</bpt>AngularJS<ept id="e9d10b76-f6e5-4bf6-8e3f-e8ef43136f04">&lt;/linkText&gt;</ept><bpt id="e9d10b76-f6e5-4bf6-8e3f-e8ef43136f04">&lt;title&gt;</bpt><ept id="e9d10b76-f6e5-4bf6-8e3f-e8ef43136f04">&lt;/title&gt;</ept> JavaScript framework for making REST calls to the API App.</target>
+        </trans-unit>
+        <trans-unit id="fbb1b029-b267-4639-b540-bfed6191b360" xml:space="preserve">
+          <source>Some articles to go through before this to help you get started.</source>
+          <target state="new">Some articles to go through before this to help you get started.</target>
+        </trans-unit>
+        <trans-unit id="030846b7-a12b-4ddb-bd04-32c3654aaa0b" xml:space="preserve">
+          <source>In <bpt id="71a2d22b-c7b5-4edd-a252-d494dcc82179">&lt;linkText&gt;</bpt>Create an API App<ept id="71a2d22b-c7b5-4edd-a252-d494dcc82179">&lt;/linkText&gt;</ept><bpt id="71a2d22b-c7b5-4edd-a252-d494dcc82179">&lt;title&gt;</bpt><ept id="71a2d22b-c7b5-4edd-a252-d494dcc82179">&lt;/title&gt;</ept>, you created an API App project.</source>
+          <target state="new">In <bpt id="71a2d22b-c7b5-4edd-a252-d494dcc82179">&lt;linkText&gt;</bpt>Create an API App<ept id="71a2d22b-c7b5-4edd-a252-d494dcc82179">&lt;/linkText&gt;</ept><bpt id="71a2d22b-c7b5-4edd-a252-d494dcc82179">&lt;title&gt;</bpt><ept id="71a2d22b-c7b5-4edd-a252-d494dcc82179">&lt;/title&gt;</ept>, you created an API App project.</target>
+        </trans-unit>
+        <trans-unit id="44cbc153-b469-4fcd-a789-e948467a73ae" xml:space="preserve">
+          <source>In <bpt id="495d5796-0d8d-403b-a274-8240b2eb53b2">&lt;linkText&gt;</bpt>Deploy an API App<ept id="495d5796-0d8d-403b-a274-8240b2eb53b2">&lt;/linkText&gt;</ept><bpt id="495d5796-0d8d-403b-a274-8240b2eb53b2">&lt;title&gt;</bpt><ept id="495d5796-0d8d-403b-a274-8240b2eb53b2">&lt;/title&gt;</ept>, you deploy the API app to your Azure subscription.</source>
+          <target state="new">In <bpt id="495d5796-0d8d-403b-a274-8240b2eb53b2">&lt;linkText&gt;</bpt>Deploy an API App<ept id="495d5796-0d8d-403b-a274-8240b2eb53b2">&lt;/linkText&gt;</ept><bpt id="495d5796-0d8d-403b-a274-8240b2eb53b2">&lt;title&gt;</bpt><ept id="495d5796-0d8d-403b-a274-8240b2eb53b2">&lt;/title&gt;</ept>, you deploy the API app to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="98aaa764-08dd-4dbb-980e-cf165be85708" xml:space="preserve">
+          <source>In <bpt id="c179aebe-6960-4123-88bf-b2e6834f9140">&lt;linkText&gt;</bpt>Debug an API App<ept id="c179aebe-6960-4123-88bf-b2e6834f9140">&lt;/linkText&gt;</ept><bpt id="c179aebe-6960-4123-88bf-b2e6834f9140">&lt;title&gt;</bpt><ept id="c179aebe-6960-4123-88bf-b2e6834f9140">&lt;/title&gt;</ept>, you use Visual Studio to remotely debug the code while it runs in Azure.</source>
+          <target state="new">In <bpt id="c179aebe-6960-4123-88bf-b2e6834f9140">&lt;linkText&gt;</bpt>Debug an API App<ept id="c179aebe-6960-4123-88bf-b2e6834f9140">&lt;/linkText&gt;</ept><bpt id="c179aebe-6960-4123-88bf-b2e6834f9140">&lt;title&gt;</bpt><ept id="c179aebe-6960-4123-88bf-b2e6834f9140">&lt;/title&gt;</ept>, you use Visual Studio to remotely debug the code while it runs in Azure.</target>
+        </trans-unit>
+        <trans-unit id="c5eaab5a-326a-4de2-889e-b4a14eaa8f9b" xml:space="preserve">
+          <source>This article will build upon these previous articles by demonstrating how your HTML applications can use JavaScript to access your back-end API apps.</source>
+          <target state="new">This article will build upon these previous articles by demonstrating how your HTML applications can use JavaScript to access your back-end API apps.</target>
+        </trans-unit>
+        <trans-unit id="479c1777-5c3d-42f6-aa04-34e8571c45db" xml:space="preserve">
+          <source>Typically, CORS (Cross-Origin Resource Sharing) is needed in HTML applications that will be served from different hosts than the API itself.</source>
+          <target state="new">Typically, CORS (Cross-Origin Resource Sharing) is needed in HTML applications that will be served from different hosts than the API itself.</target>
+        </trans-unit>
+        <trans-unit id="a58cd8b8-175d-48cf-a3de-b86634791de0" xml:space="preserve">
+          <source>With API Apps, there are at least two options for enabling CORS.</source>
+          <target state="new">With API Apps, there are at least two options for enabling CORS.</target>
+        </trans-unit>
+        <trans-unit id="f7eafa32-2ed9-43ad-b826-e1bd19efac4a" xml:space="preserve">
+          <source>This section will outline these options.</source>
+          <target state="new">This section will outline these options.</target>
+        </trans-unit>
+        <trans-unit id="82a336a3-2499-42f9-9bea-0d2e47224873" xml:space="preserve">
+          <source>API App Gateways can be configured to enable CORS using the Azure preview portal.</source>
+          <target state="new">API App Gateways can be configured to enable CORS using the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="1b42091c-be4d-4a69-974e-18a50b5db238" xml:space="preserve">
+          <source>By adding the <bpt id="12798a55-d832-4dd0-b286-26a9cb0ea86a">&lt;strong&gt;</bpt>MS_CrossDomainOrigins<ept id="12798a55-d832-4dd0-b286-26a9cb0ea86a">&lt;/strong&gt;</ept> <bpt id="bd20a628-29f8-49be-b9c3-e6954e449c0c">&lt;em&gt;</bpt>appSetting<ept id="bd20a628-29f8-49be-b9c3-e6954e449c0c">&lt;/em&gt;</ept> you can specify which URLs are allowed to call your API App.</source>
+          <target state="new">By adding the <bpt id="12798a55-d832-4dd0-b286-26a9cb0ea86a">&lt;strong&gt;</bpt>MS_CrossDomainOrigins<ept id="12798a55-d832-4dd0-b286-26a9cb0ea86a">&lt;/strong&gt;</ept> <bpt id="bd20a628-29f8-49be-b9c3-e6954e449c0c">&lt;em&gt;</bpt>appSetting<ept id="bd20a628-29f8-49be-b9c3-e6954e449c0c">&lt;/em&gt;</ept> you can specify which URLs are allowed to call your API App.</target>
+        </trans-unit>
+        <trans-unit id="5a0f07fa-b785-45f8-9e49-526f3df92b38" xml:space="preserve">
+          <source>This section will explain how to use this <bpt id="66d17e8b-042b-4801-9c52-83c7414cad4a">&lt;em&gt;</bpt>appSetting<ept id="66d17e8b-042b-4801-9c52-83c7414cad4a">&lt;/em&gt;</ept> to enable CORS at the API Gateway level.</source>
+          <target state="new">This section will explain how to use this <bpt id="66d17e8b-042b-4801-9c52-83c7414cad4a">&lt;em&gt;</bpt>appSetting<ept id="66d17e8b-042b-4801-9c52-83c7414cad4a">&lt;/em&gt;</ept> to enable CORS at the API Gateway level.</target>
+        </trans-unit>
+        <trans-unit id="1af33a58-1389-422f-947d-52340effe7b9" xml:space="preserve">
+          <source>Navigate to the Azure preview portal blade for the API App you want to CORS-enable.</source>
+          <target state="new">Navigate to the Azure preview portal blade for the API App you want to CORS-enable.</target>
+        </trans-unit>
+        <trans-unit id="bb16dfc9-6a43-44ef-8544-902b8ab2a4b4" xml:space="preserve">
+          <source>Once there, click the <bpt id="e082f994-853f-45a5-87cb-ce890db34e51">&lt;em&gt;</bpt>Gateway<ept id="e082f994-853f-45a5-87cb-ce890db34e51">&lt;/em&gt;</ept> icon for your API App.</source>
+          <target state="new">Once there, click the <bpt id="e082f994-853f-45a5-87cb-ce890db34e51">&lt;em&gt;</bpt>Gateway<ept id="e082f994-853f-45a5-87cb-ce890db34e51">&lt;/em&gt;</ept> icon for your API App.</target>
+        </trans-unit>
+        <trans-unit id="724fed69-5a49-49fe-ac33-8152a7893a32" xml:space="preserve">
+          <source><bpt id="5c546c1f-b683-4cbe-98fe-78aadd52c7f9">&lt;linkText&gt;</bpt>Clicking the API App Gateway button<ept id="5c546c1f-b683-4cbe-98fe-78aadd52c7f9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5c546c1f-b683-4cbe-98fe-78aadd52c7f9">&lt;linkText&gt;</bpt>Clicking the API App Gateway button<ept id="5c546c1f-b683-4cbe-98fe-78aadd52c7f9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b898d345-c19a-4ad1-b9d4-5218fd080733" xml:space="preserve">
+          <source>Click the <bpt id="4da8b5e0-9c53-4305-9b27-709fef12d66e">&lt;strong&gt;</bpt>Gateway Host<ept id="4da8b5e0-9c53-4305-9b27-709fef12d66e">&lt;/strong&gt;</ept> link in the portal blade.</source>
+          <target state="new">Click the <bpt id="4da8b5e0-9c53-4305-9b27-709fef12d66e">&lt;strong&gt;</bpt>Gateway Host<ept id="4da8b5e0-9c53-4305-9b27-709fef12d66e">&lt;/strong&gt;</ept> link in the portal blade.</target>
+        </trans-unit>
+        <trans-unit id="1151483e-2300-4e4f-ba62-3c6396bf4731" xml:space="preserve">
+          <source><bpt id="4ff6515f-bc56-4895-8ff2-e8d7d4de4980">&lt;linkText&gt;</bpt>Clicking the API App Gateway host link<ept id="4ff6515f-bc56-4895-8ff2-e8d7d4de4980">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ff6515f-bc56-4895-8ff2-e8d7d4de4980">&lt;linkText&gt;</bpt>Clicking the API App Gateway host link<ept id="4ff6515f-bc56-4895-8ff2-e8d7d4de4980">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ed064ef-bb9f-47bf-9f09-88ebea466727" xml:space="preserve">
+          <source>Click the <bpt id="3758558a-96f2-4e70-b792-f9f2e7f13e44">&lt;strong&gt;</bpt>All Settings<ept id="3758558a-96f2-4e70-b792-f9f2e7f13e44">&lt;/strong&gt;</ept> link in the portal blade.</source>
+          <target state="new">Click the <bpt id="3758558a-96f2-4e70-b792-f9f2e7f13e44">&lt;strong&gt;</bpt>All Settings<ept id="3758558a-96f2-4e70-b792-f9f2e7f13e44">&lt;/strong&gt;</ept> link in the portal blade.</target>
+        </trans-unit>
+        <trans-unit id="89d974a6-ee2c-4f7c-bf7f-b2d4c0f6e03e" xml:space="preserve">
+          <source><bpt id="7275de0b-700a-4f66-9cf9-62263af27e94">&lt;linkText&gt;</bpt>Gateway All Settings link<ept id="7275de0b-700a-4f66-9cf9-62263af27e94">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7275de0b-700a-4f66-9cf9-62263af27e94">&lt;linkText&gt;</bpt>Gateway All Settings link<ept id="7275de0b-700a-4f66-9cf9-62263af27e94">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df528eda-d515-43c3-bf3c-24b6e06336f8" xml:space="preserve">
+          <source>Click the <bpt id="41a9f979-7386-4267-8311-243f9f7679b1">&lt;strong&gt;</bpt>Application Settings<ept id="41a9f979-7386-4267-8311-243f9f7679b1">&lt;/strong&gt;</ept> button in the portal blade.</source>
+          <target state="new">Click the <bpt id="41a9f979-7386-4267-8311-243f9f7679b1">&lt;strong&gt;</bpt>Application Settings<ept id="41a9f979-7386-4267-8311-243f9f7679b1">&lt;/strong&gt;</ept> button in the portal blade.</target>
+        </trans-unit>
+        <trans-unit id="fe3d36e9-f451-4169-b4e5-d6b6dfa89d6c" xml:space="preserve">
+          <source><bpt id="ce04c47e-ca2d-48c9-9daf-305d601b5ad9">&lt;linkText&gt;</bpt>Gateway application settings<ept id="ce04c47e-ca2d-48c9-9daf-305d601b5ad9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce04c47e-ca2d-48c9-9daf-305d601b5ad9">&lt;linkText&gt;</bpt>Gateway application settings<ept id="ce04c47e-ca2d-48c9-9daf-305d601b5ad9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2324ff1f-9940-437c-98e4-ff8b2f8dba38" xml:space="preserve">
+          <source>Add the <bpt id="b36b1fd8-0777-4c8f-ac03-0b68a46b682d">&lt;strong&gt;</bpt>MS_CrossDomainOrigins<ept id="b36b1fd8-0777-4c8f-ac03-0b68a46b682d">&lt;/strong&gt;</ept> application setting.</source>
+          <target state="new">Add the <bpt id="b36b1fd8-0777-4c8f-ac03-0b68a46b682d">&lt;strong&gt;</bpt>MS_CrossDomainOrigins<ept id="b36b1fd8-0777-4c8f-ac03-0b68a46b682d">&lt;/strong&gt;</ept> application setting.</target>
+        </trans-unit>
+        <trans-unit id="711ad6f4-472a-4f8e-887d-555290270d89" xml:space="preserve">
+          <source>Make the value of the setting the comma-separated list of HTTP hosts you want to provide access to your API App.</source>
+          <target state="new">Make the value of the setting the comma-separated list of HTTP hosts you want to provide access to your API App.</target>
+        </trans-unit>
+        <trans-unit id="eaee3cdb-6387-44fe-9fef-73cf934f003c" xml:space="preserve">
+          <source>If you want to provide access to multiple hosts, the value of the <bpt id="e1eb163a-9db2-4603-8162-891c6dd3458c">&lt;em&gt;</bpt>appSetting<ept id="e1eb163a-9db2-4603-8162-891c6dd3458c">&lt;/em&gt;</ept> can be set to something like the code below.</source>
+          <target state="new">If you want to provide access to multiple hosts, the value of the <bpt id="e1eb163a-9db2-4603-8162-891c6dd3458c">&lt;em&gt;</bpt>appSetting<ept id="e1eb163a-9db2-4603-8162-891c6dd3458c">&lt;/em&gt;</ept> can be set to something like the code below.</target>
+        </trans-unit>
+        <trans-unit id="3e76bedc-1362-4c84-ae59-e13cbb2a1e39" xml:space="preserve">
+          <source>The section below will walk through the process of creating a separate web application containing a simple HTML page that calls the API App from a Web App running in the same Azure Resource Group as the API App.</source>
+          <target state="new">The section below will walk through the process of creating a separate web application containing a simple HTML page that calls the API App from a Web App running in the same Azure Resource Group as the API App.</target>
+        </trans-unit>
+        <trans-unit id="eedfe9e9-deda-4fda-bac9-e5e2f795b379" xml:space="preserve">
+          <source>Since this is the only host that will be allowed access to the API App, the setting will be set to contain one host.</source>
+          <target state="new">Since this is the only host that will be allowed access to the API App, the setting will be set to contain one host.</target>
+        </trans-unit>
+        <trans-unit id="5221ae73-131c-4af9-9651-6c66151f63b3" xml:space="preserve">
+          <source>The screen shot below demonstrates how this setting should look once you've saved it in the Azure preview portal.</source>
+          <target state="new">The screen shot below demonstrates how this setting should look once you've saved it in the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="a6250ecc-765d-462b-b794-8606790d16b1" xml:space="preserve">
+          <source><bpt id="0c84c1e1-fffb-4088-b8f1-f76a054bf51e">&lt;linkText&gt;</bpt><ept id="0c84c1e1-fffb-4088-b8f1-f76a054bf51e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c84c1e1-fffb-4088-b8f1-f76a054bf51e">&lt;linkText&gt;</bpt><ept id="0c84c1e1-fffb-4088-b8f1-f76a054bf51e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b681588b-6c80-4e74-a8fc-e3c75a9cb80c" xml:space="preserve">
+          <source>The <bpt id="263c09ee-32d8-4f6f-a0dd-3028608994f3">&lt;strong&gt;</bpt>MS_CrossDomainOrigins<ept id="263c09ee-32d8-4f6f-a0dd-3028608994f3">&lt;/strong&gt;</ept> application setting is discussed in detail in the blog post <bpt id="7b4fa1f8-2408-4a96-8453-edf4eb414088">&lt;linkText&gt;</bpt>Azure Mobile Service .NET Updates<ept id="7b4fa1f8-2408-4a96-8453-edf4eb414088">&lt;/linkText&gt;</ept><bpt id="7b4fa1f8-2408-4a96-8453-edf4eb414088">&lt;title&gt;</bpt><ept id="7b4fa1f8-2408-4a96-8453-edf4eb414088">&lt;/title&gt;</ept>, so check this post for more details on the details of the setting.</source>
+          <target state="new">The <bpt id="263c09ee-32d8-4f6f-a0dd-3028608994f3">&lt;strong&gt;</bpt>MS_CrossDomainOrigins<ept id="263c09ee-32d8-4f6f-a0dd-3028608994f3">&lt;/strong&gt;</ept> application setting is discussed in detail in the blog post <bpt id="7b4fa1f8-2408-4a96-8453-edf4eb414088">&lt;linkText&gt;</bpt>Azure Mobile Service .NET Updates<ept id="7b4fa1f8-2408-4a96-8453-edf4eb414088">&lt;/linkText&gt;</ept><bpt id="7b4fa1f8-2408-4a96-8453-edf4eb414088">&lt;title&gt;</bpt><ept id="7b4fa1f8-2408-4a96-8453-edf4eb414088">&lt;/title&gt;</ept>, so check this post for more details on the details of the setting.</target>
+        </trans-unit>
+        <trans-unit id="13a6ebba-58b6-437a-a2ba-7a0f1a6e836e" xml:space="preserve">
+          <source>The process of enabling CORS in Web API is documented in the ASP.NET article <bpt id="b3d3711c-6635-42c9-a9b6-f0d19b0190d2">&lt;linkText&gt;</bpt>Enabling Cross-Origin Requests in ASP.NET Web API 2<ept id="b3d3711c-6635-42c9-a9b6-f0d19b0190d2">&lt;/linkText&gt;</ept><bpt id="b3d3711c-6635-42c9-a9b6-f0d19b0190d2">&lt;title&gt;</bpt><ept id="b3d3711c-6635-42c9-a9b6-f0d19b0190d2">&lt;/title&gt;</ept> in depth.</source>
+          <target state="new">The process of enabling CORS in Web API is documented in the ASP.NET article <bpt id="b3d3711c-6635-42c9-a9b6-f0d19b0190d2">&lt;linkText&gt;</bpt>Enabling Cross-Origin Requests in ASP.NET Web API 2<ept id="b3d3711c-6635-42c9-a9b6-f0d19b0190d2">&lt;/linkText&gt;</ept><bpt id="b3d3711c-6635-42c9-a9b6-f0d19b0190d2">&lt;title&gt;</bpt><ept id="b3d3711c-6635-42c9-a9b6-f0d19b0190d2">&lt;/title&gt;</ept> in depth.</target>
+        </trans-unit>
+        <trans-unit id="21d197fb-e509-4973-991d-9a2ea9b9aab0" xml:space="preserve">
+          <source>For API Apps built using ASP.NET Web API the process is exactly the same but will be summarized below.</source>
+          <target state="new">For API Apps built using ASP.NET Web API the process is exactly the same but will be summarized below.</target>
+        </trans-unit>
+        <trans-unit id="a4e98f0c-7a7d-4d7d-891e-bbcae83583fc" xml:space="preserve">
+          <source>Skip this section if you've already enabled CORS, as your API App should already be set up properly.</source>
+          <target state="new">Skip this section if you've already enabled CORS, as your API App should already be set up properly.</target>
+        </trans-unit>
+        <trans-unit id="5c95519e-b8e5-4ce0-bac9-7c60ba84f295" xml:space="preserve">
+          <source>CORS functionality is provided by the <bpt id="1d0b1479-bde7-4894-ab11-9148a6ea77e0">&lt;linkText&gt;</bpt>Microsoft.AspNet.WebApi.Cors<ept id="1d0b1479-bde7-4894-ab11-9148a6ea77e0">&lt;/linkText&gt;</ept><bpt id="1d0b1479-bde7-4894-ab11-9148a6ea77e0">&lt;title&gt;</bpt><ept id="1d0b1479-bde7-4894-ab11-9148a6ea77e0">&lt;/title&gt;</ept> NuGet package.</source>
+          <target state="new">CORS functionality is provided by the <bpt id="1d0b1479-bde7-4894-ab11-9148a6ea77e0">&lt;linkText&gt;</bpt>Microsoft.AspNet.WebApi.Cors<ept id="1d0b1479-bde7-4894-ab11-9148a6ea77e0">&lt;/linkText&gt;</ept><bpt id="1d0b1479-bde7-4894-ab11-9148a6ea77e0">&lt;title&gt;</bpt><ept id="1d0b1479-bde7-4894-ab11-9148a6ea77e0">&lt;/title&gt;</ept> NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="0c9b447f-3d43-48da-9a00-d6fa90b6724b" xml:space="preserve">
+          <source>Install it by opening the <bpt id="c05e7ba4-9347-426f-94e3-610fffdf283f">&lt;strong&gt;</bpt>Package Manager Console<ept id="c05e7ba4-9347-426f-94e3-610fffdf283f">&lt;/strong&gt;</ept>, and execute the following PowerShell script.</source>
+          <target state="new">Install it by opening the <bpt id="c05e7ba4-9347-426f-94e3-610fffdf283f">&lt;strong&gt;</bpt>Package Manager Console<ept id="c05e7ba4-9347-426f-94e3-610fffdf283f">&lt;/strong&gt;</ept>, and execute the following PowerShell script.</target>
+        </trans-unit>
+        <trans-unit id="23761974-96fe-4194-b300-c01abfed574e" xml:space="preserve">
+          <source>Once the command executes, the Package Manager Console and <bpt id="ab83bc15-d846-450f-8b0d-ed0bd6ba5a33">&lt;strong&gt;</bpt>packages.config<ept id="ab83bc15-d846-450f-8b0d-ed0bd6ba5a33">&lt;/strong&gt;</ept> will reflect the addition of the new NuGet package.</source>
+          <target state="new">Once the command executes, the Package Manager Console and <bpt id="ab83bc15-d846-450f-8b0d-ed0bd6ba5a33">&lt;strong&gt;</bpt>packages.config<ept id="ab83bc15-d846-450f-8b0d-ed0bd6ba5a33">&lt;/strong&gt;</ept> will reflect the addition of the new NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="094fa751-bd5a-463a-aa29-1d29d0fef7f1" xml:space="preserve">
+          <source><bpt id="2540a45a-1e32-448c-bcf4-1921d8db9bc9">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="2540a45a-1e32-448c-bcf4-1921d8db9bc9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2540a45a-1e32-448c-bcf4-1921d8db9bc9">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="2540a45a-1e32-448c-bcf4-1921d8db9bc9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f29f197-5211-4f94-8f33-6110ddac6aef" xml:space="preserve">
+          <source>Open up the <bpt id="df70add2-918f-4b7f-88e8-fb95a3975c2a">&lt;em&gt;</bpt>App_Start/WebApiConfig.cs<ept id="df70add2-918f-4b7f-88e8-fb95a3975c2a">&lt;/em&gt;</ept> file.</source>
+          <target state="new">Open up the <bpt id="df70add2-918f-4b7f-88e8-fb95a3975c2a">&lt;em&gt;</bpt>App_Start/WebApiConfig.cs<ept id="df70add2-918f-4b7f-88e8-fb95a3975c2a">&lt;/em&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="a2361a9f-7a38-403e-843f-30ee482bb5b7" xml:space="preserve">
+          <source>Add the line of code below to the <bpt id="84950192-b59d-455f-8f66-02f44e481725">&lt;strong&gt;</bpt>Register<ept id="84950192-b59d-455f-8f66-02f44e481725">&lt;/strong&gt;</ept> method of the <bpt id="e685efd5-676e-4c6d-b120-f72dca5fb433">&lt;strong&gt;</bpt>WebApiConfig<ept id="e685efd5-676e-4c6d-b120-f72dca5fb433">&lt;/strong&gt;</ept> class in the file.</source>
+          <target state="new">Add the line of code below to the <bpt id="84950192-b59d-455f-8f66-02f44e481725">&lt;strong&gt;</bpt>Register<ept id="84950192-b59d-455f-8f66-02f44e481725">&lt;/strong&gt;</ept> method of the <bpt id="e685efd5-676e-4c6d-b120-f72dca5fb433">&lt;strong&gt;</bpt>WebApiConfig<ept id="e685efd5-676e-4c6d-b120-f72dca5fb433">&lt;/strong&gt;</ept> class in the file.</target>
+        </trans-unit>
+        <trans-unit id="559ecd66-f65a-41e6-b9d5-fdfa644ee46b" xml:space="preserve">
+          <source>Once the file is updated the code should look like the following:</source>
+          <target state="new">Once the file is updated the code should look like the following:</target>
+        </trans-unit>
+        <trans-unit id="06160e72-1afe-419c-b16e-d75a36ba0f4c" xml:space="preserve">
+          <source>The final step to enable CORS is to demarcate the individual action methods you want to enable.</source>
+          <target state="new">The final step to enable CORS is to demarcate the individual action methods you want to enable.</target>
+        </trans-unit>
+        <trans-unit id="92ab5757-ae43-4228-b2d8-d03f636c0808" xml:space="preserve">
+          <source>Add the <bpt id="52a7190a-68a3-454d-a064-dfa7093352b1">&lt;strong&gt;</bpt>EnableCors<ept id="52a7190a-68a3-454d-a064-dfa7093352b1">&lt;/strong&gt;</ept> attribute over each of the methods or on the entire controller, as demonstrated in the code below.</source>
+          <target state="new">Add the <bpt id="52a7190a-68a3-454d-a064-dfa7093352b1">&lt;strong&gt;</bpt>EnableCors<ept id="52a7190a-68a3-454d-a064-dfa7093352b1">&lt;/strong&gt;</ept> attribute over each of the methods or on the entire controller, as demonstrated in the code below.</target>
+        </trans-unit>
+        <trans-unit id="1bda64ef-0d51-4d42-a047-094a11799a2e" xml:space="preserve">
+          <source><bpt id="b632c65b-13f1-47cb-8983-a63faefa41d3">&lt;strong&gt;</bpt>Note<ept id="b632c65b-13f1-47cb-8983-a63faefa41d3">&lt;/strong&gt;</ept>: Use of wildcards for all of the parameters with the EnableCors attribute is intended only for demonstration purposes, and will open your API up to all origins and all HTTP requests.</source>
+          <target state="new"><bpt id="b632c65b-13f1-47cb-8983-a63faefa41d3">&lt;strong&gt;</bpt>Note<ept id="b632c65b-13f1-47cb-8983-a63faefa41d3">&lt;/strong&gt;</ept>: Use of wildcards for all of the parameters with the EnableCors attribute is intended only for demonstration purposes, and will open your API up to all origins and all HTTP requests.</target>
+        </trans-unit>
+        <trans-unit id="dd318747-8b84-4942-8006-36b6aefc34df" xml:space="preserve">
+          <source>Please use this attribute with caution and understand the implications.</source>
+          <target state="new">Please use this attribute with caution and understand the implications.</target>
+        </trans-unit>
+        <trans-unit id="5f1153bd-0a8c-4532-a55e-2d2e0d0f5df0" xml:space="preserve">
+          <source>If you'd already deployed your API App to Azure prior to adding support for CORS, re-deploy the code so that CORS will be enabled in your Azure-hosted API.</source>
+          <target state="new">If you'd already deployed your API App to Azure prior to adding support for CORS, re-deploy the code so that CORS will be enabled in your Azure-hosted API.</target>
+        </trans-unit>
+        <trans-unit id="0d3fdf8e-3dda-4776-a9d1-97e1a4ebe5f4" xml:space="preserve">
+          <source>In this section, you'll create a new Empty Web Application, install and use AngularJS into it, and bind a simple HTML front end to the API App.</source>
+          <target state="new">In this section, you'll create a new Empty Web Application, install and use AngularJS into it, and bind a simple HTML front end to the API App.</target>
+        </trans-unit>
+        <trans-unit id="78f712fc-5051-4725-a366-e404334c1e2c" xml:space="preserve">
+          <source>You'll deploy the consuming Web App into Azure App Service.</source>
+          <target state="new">You'll deploy the consuming Web App into Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="aa24931b-0788-48d8-818c-98383d557f9e" xml:space="preserve">
+          <source>The HTML Web App will bind to and display the data retrieved from the API App, and provide users a simple UI for the Contacts API.</source>
+          <target state="new">The HTML Web App will bind to and display the data retrieved from the API App, and provide users a simple UI for the Contacts API.</target>
+        </trans-unit>
+        <trans-unit id="a404d0ea-eacf-4b62-acd5-d013ccda16fd" xml:space="preserve">
+          <source>Right-click the solution that you created earlier in <bpt id="7ad3dfeb-fa84-4e50-8a9c-2c9b479ff6c8">&lt;linkText&gt;</bpt>Create an API App<ept id="7ad3dfeb-fa84-4e50-8a9c-2c9b479ff6c8">&lt;/linkText&gt;</ept><bpt id="7ad3dfeb-fa84-4e50-8a9c-2c9b479ff6c8">&lt;title&gt;</bpt><ept id="7ad3dfeb-fa84-4e50-8a9c-2c9b479ff6c8">&lt;/title&gt;</ept>, and select <bpt id="ceda71db-4122-45ae-82b5-6367beb768d4">&lt;strong&gt;</bpt>Add -&gt; New Project<ept id="ceda71db-4122-45ae-82b5-6367beb768d4">&lt;/strong&gt;</ept></source>
+          <target state="new">Right-click the solution that you created earlier in <bpt id="7ad3dfeb-fa84-4e50-8a9c-2c9b479ff6c8">&lt;linkText&gt;</bpt>Create an API App<ept id="7ad3dfeb-fa84-4e50-8a9c-2c9b479ff6c8">&lt;/linkText&gt;</ept><bpt id="7ad3dfeb-fa84-4e50-8a9c-2c9b479ff6c8">&lt;title&gt;</bpt><ept id="7ad3dfeb-fa84-4e50-8a9c-2c9b479ff6c8">&lt;/title&gt;</ept>, and select <bpt id="ceda71db-4122-45ae-82b5-6367beb768d4">&lt;strong&gt;</bpt>Add -&gt; New Project<ept id="ceda71db-4122-45ae-82b5-6367beb768d4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b316588-bbe4-481c-ae02-68ce0fdd06a6" xml:space="preserve">
+          <source><bpt id="d5d06683-8479-4609-ab4e-bb578b6beffc">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="d5d06683-8479-4609-ab4e-bb578b6beffc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d5d06683-8479-4609-ab4e-bb578b6beffc">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="d5d06683-8479-4609-ab4e-bb578b6beffc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd744d88-70bb-4791-af85-3273705da7bb" xml:space="preserve">
+          <source>Select the <bpt id="6f959d52-b554-4459-8df7-f5aa9c177970">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="6f959d52-b554-4459-8df7-f5aa9c177970">&lt;/strong&gt;</ept> template.</source>
+          <target state="new">Select the <bpt id="6f959d52-b554-4459-8df7-f5aa9c177970">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="6f959d52-b554-4459-8df7-f5aa9c177970">&lt;/strong&gt;</ept> template.</target>
+        </trans-unit>
+        <trans-unit id="ffbdb712-6f5e-44c0-9eea-89233cc52425" xml:space="preserve">
+          <source><bpt id="44320475-bba0-416e-8568-d5dace2ec6c6">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="44320475-bba0-416e-8568-d5dace2ec6c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="44320475-bba0-416e-8568-d5dace2ec6c6">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="44320475-bba0-416e-8568-d5dace2ec6c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e6eb990-b026-441c-8e96-8e92d5ab2a05" xml:space="preserve">
+          <source>Select the <bpt id="4d5480f3-9ddc-4d6d-babc-0744554969ef">&lt;strong&gt;</bpt>Empty<ept id="4d5480f3-9ddc-4d6d-babc-0744554969ef">&lt;/strong&gt;</ept> template from the One ASP.NET dialog.</source>
+          <target state="new">Select the <bpt id="4d5480f3-9ddc-4d6d-babc-0744554969ef">&lt;strong&gt;</bpt>Empty<ept id="4d5480f3-9ddc-4d6d-babc-0744554969ef">&lt;/strong&gt;</ept> template from the One ASP.NET dialog.</target>
+        </trans-unit>
+        <trans-unit id="d472d04b-96d0-4510-8cc2-bbe80ebbd8f8" xml:space="preserve">
+          <source><bpt id="a2839a2f-bc9c-4835-9129-faf011d99303">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="a2839a2f-bc9c-4835-9129-faf011d99303">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2839a2f-bc9c-4835-9129-faf011d99303">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="a2839a2f-bc9c-4835-9129-faf011d99303">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23ce20a9-d2b2-4f0c-99b7-5e7027942762" xml:space="preserve">
+          <source>Using either the <bpt id="c852c4cb-1ea5-44a0-858d-49f02b58c29f">&lt;strong&gt;</bpt>Package Manager<ept id="c852c4cb-1ea5-44a0-858d-49f02b58c29f">&lt;/strong&gt;</ept> or by using the <bpt id="df7f7a6a-eda9-40aa-a0a5-a7f458377be4">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="df7f7a6a-eda9-40aa-a0a5-a7f458377be4">&lt;/strong&gt;</ept> context menu item, install the <bpt id="90d30797-3f0f-4f45-9288-eb4dd95011bb">&lt;linkText&gt;</bpt>AngularJS<ept id="90d30797-3f0f-4f45-9288-eb4dd95011bb">&lt;/linkText&gt;</ept><bpt id="90d30797-3f0f-4f45-9288-eb4dd95011bb">&lt;title&gt;</bpt><ept id="90d30797-3f0f-4f45-9288-eb4dd95011bb">&lt;/title&gt;</ept> NuGet package.</source>
+          <target state="new">Using either the <bpt id="c852c4cb-1ea5-44a0-858d-49f02b58c29f">&lt;strong&gt;</bpt>Package Manager<ept id="c852c4cb-1ea5-44a0-858d-49f02b58c29f">&lt;/strong&gt;</ept> or by using the <bpt id="df7f7a6a-eda9-40aa-a0a5-a7f458377be4">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="df7f7a6a-eda9-40aa-a0a5-a7f458377be4">&lt;/strong&gt;</ept> context menu item, install the <bpt id="90d30797-3f0f-4f45-9288-eb4dd95011bb">&lt;linkText&gt;</bpt>AngularJS<ept id="90d30797-3f0f-4f45-9288-eb4dd95011bb">&lt;/linkText&gt;</ept><bpt id="90d30797-3f0f-4f45-9288-eb4dd95011bb">&lt;title&gt;</bpt><ept id="90d30797-3f0f-4f45-9288-eb4dd95011bb">&lt;/title&gt;</ept> NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="04cf7247-acab-44ce-a3ea-6d1190a039c3" xml:space="preserve">
+          <source><bpt id="93541e86-6720-43a1-a677-e776dd9c68da">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="93541e86-6720-43a1-a677-e776dd9c68da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93541e86-6720-43a1-a677-e776dd9c68da">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="93541e86-6720-43a1-a677-e776dd9c68da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d491c4c0-828d-4f88-ba67-af13e13e48d2" xml:space="preserve">
+          <source>Using either the <bpt id="c7752137-70c7-440d-af0e-2c99c615c94b">&lt;strong&gt;</bpt>Package Manager<ept id="c7752137-70c7-440d-af0e-2c99c615c94b">&lt;/strong&gt;</ept> or by using the <bpt id="285edbbf-fdac-4ee1-afc4-62e798fbc692">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="285edbbf-fdac-4ee1-afc4-62e798fbc692">&lt;/strong&gt;</ept> context menu item, install the <bpt id="320d082f-9892-4f3c-a8a2-c325bfe2b1b8">&lt;linkText&gt;</bpt>Bootstrap<ept id="320d082f-9892-4f3c-a8a2-c325bfe2b1b8">&lt;/linkText&gt;</ept><bpt id="320d082f-9892-4f3c-a8a2-c325bfe2b1b8">&lt;title&gt;</bpt><ept id="320d082f-9892-4f3c-a8a2-c325bfe2b1b8">&lt;/title&gt;</ept> NuGet package.</source>
+          <target state="new">Using either the <bpt id="c7752137-70c7-440d-af0e-2c99c615c94b">&lt;strong&gt;</bpt>Package Manager<ept id="c7752137-70c7-440d-af0e-2c99c615c94b">&lt;/strong&gt;</ept> or by using the <bpt id="285edbbf-fdac-4ee1-afc4-62e798fbc692">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="285edbbf-fdac-4ee1-afc4-62e798fbc692">&lt;/strong&gt;</ept> context menu item, install the <bpt id="320d082f-9892-4f3c-a8a2-c325bfe2b1b8">&lt;linkText&gt;</bpt>Bootstrap<ept id="320d082f-9892-4f3c-a8a2-c325bfe2b1b8">&lt;/linkText&gt;</ept><bpt id="320d082f-9892-4f3c-a8a2-c325bfe2b1b8">&lt;title&gt;</bpt><ept id="320d082f-9892-4f3c-a8a2-c325bfe2b1b8">&lt;/title&gt;</ept> NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="def67288-6979-4b92-82b3-7e6e41c13e84" xml:space="preserve">
+          <source><bpt id="c1f78889-7400-482b-a3db-a20a475c891d">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="c1f78889-7400-482b-a3db-a20a475c891d">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="c1f78889-7400-482b-a3db-a20a475c891d">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="c1f78889-7400-482b-a3db-a20a475c891d">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c079c954-8342-4b92-8e57-90659aa0fa35" xml:space="preserve">
+          <source>Add a new HTML file to the Web App project.</source>
+          <target state="new">Add a new HTML file to the Web App project.</target>
+        </trans-unit>
+        <trans-unit id="6c0e7fc1-121e-4ddd-a3e8-5a29e5eb6acb" xml:space="preserve">
+          <source><bpt id="729e1d37-2885-4b8d-bb5c-869613920046">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="729e1d37-2885-4b8d-bb5c-869613920046">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="729e1d37-2885-4b8d-bb5c-869613920046">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="729e1d37-2885-4b8d-bb5c-869613920046">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="fe23d875-154a-4fb9-8193-997fd035cf51" xml:space="preserve">
+          <source>Name the file <bpt id="d30c49c5-46ce-4cbd-8ad6-b89ab7591675">&lt;em&gt;</bpt>index.html<ept id="d30c49c5-46ce-4cbd-8ad6-b89ab7591675">&lt;/em&gt;</ept>.</source>
+          <target state="new">Name the file <bpt id="d30c49c5-46ce-4cbd-8ad6-b89ab7591675">&lt;em&gt;</bpt>index.html<ept id="d30c49c5-46ce-4cbd-8ad6-b89ab7591675">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7201c74-de6c-4145-81f5-60e4d3fd31d2" xml:space="preserve">
+          <source><bpt id="0a8a509e-ba45-4b85-b9df-1c4e841a89d1">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="0a8a509e-ba45-4b85-b9df-1c4e841a89d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0a8a509e-ba45-4b85-b9df-1c4e841a89d1">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="0a8a509e-ba45-4b85-b9df-1c4e841a89d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="778480dc-db3e-49fe-ab94-936c136dfcdc" xml:space="preserve">
+          <source>Add the bootstrap CSS and AngularJS JavaScript files to the HTML page, as well as use a simple Bootstrap template (<bpt id="52bc61b7-1407-4ed8-81db-cd6714d3b06f">&lt;linkText&gt;</bpt>like this one<ept id="52bc61b7-1407-4ed8-81db-cd6714d3b06f">&lt;/linkText&gt;</ept><bpt id="52bc61b7-1407-4ed8-81db-cd6714d3b06f">&lt;title&gt;</bpt><ept id="52bc61b7-1407-4ed8-81db-cd6714d3b06f">&lt;/title&gt;</ept>) and create an empty script tag to prepare the page.</source>
+          <target state="new">Add the bootstrap CSS and AngularJS JavaScript files to the HTML page, as well as use a simple Bootstrap template (<bpt id="52bc61b7-1407-4ed8-81db-cd6714d3b06f">&lt;linkText&gt;</bpt>like this one<ept id="52bc61b7-1407-4ed8-81db-cd6714d3b06f">&lt;/linkText&gt;</ept><bpt id="52bc61b7-1407-4ed8-81db-cd6714d3b06f">&lt;title&gt;</bpt><ept id="52bc61b7-1407-4ed8-81db-cd6714d3b06f">&lt;/title&gt;</ept>) and create an empty script tag to prepare the page.</target>
+        </trans-unit>
+        <trans-unit id="d4ea4892-de0a-4448-bc73-3d22ededf6ab" xml:space="preserve">
+          <source>Note: The comments in the HTML and JavaScript code below are preludes to subsequent steps in this section.</source>
+          <target state="new">Note: The comments in the HTML and JavaScript code below are preludes to subsequent steps in this section.</target>
+        </trans-unit>
+        <trans-unit id="d28dbd35-89fe-4648-ad36-61e8faf7570b" xml:space="preserve">
+          <source>Add the HTML table code shown below to the <bpt id="c7f201a7-0475-4299-bf9e-6329697771b9">&lt;strong&gt;</bpt>container<ept id="c7f201a7-0475-4299-bf9e-6329697771b9">&lt;/strong&gt;</ept> <bpt id="d64c449f-fedd-45de-812c-94a0b88fc70b">&lt;em&gt;</bpt>div<ept id="d64c449f-fedd-45de-812c-94a0b88fc70b">&lt;/em&gt;</ept> element in the HTML.</source>
+          <target state="new">Add the HTML table code shown below to the <bpt id="c7f201a7-0475-4299-bf9e-6329697771b9">&lt;strong&gt;</bpt>container<ept id="c7f201a7-0475-4299-bf9e-6329697771b9">&lt;/strong&gt;</ept> <bpt id="d64c449f-fedd-45de-812c-94a0b88fc70b">&lt;em&gt;</bpt>div<ept id="d64c449f-fedd-45de-812c-94a0b88fc70b">&lt;/em&gt;</ept> element in the HTML.</target>
+        </trans-unit>
+        <trans-unit id="815efa4a-df03-4854-ad7a-8e7a3f7c919a" xml:space="preserve">
+          <source>In the <bpt id="94420743-c3d0-4aca-85fb-9ed098f3ad32">&lt;code&gt;</bpt>tbody<ept id="94420743-c3d0-4aca-85fb-9ed098f3ad32">&lt;/code&gt;</ept> and <bpt id="a2f66170-27f9-455f-b090-b710dd45ba60">&lt;code&gt;</bpt>tfoot<ept id="a2f66170-27f9-455f-b090-b710dd45ba60">&lt;/code&gt;</ept> elements replace each [ with { and each ] with }.</source>
+          <target state="new">In the <bpt id="94420743-c3d0-4aca-85fb-9ed098f3ad32">&lt;code&gt;</bpt>tbody<ept id="94420743-c3d0-4aca-85fb-9ed098f3ad32">&lt;/code&gt;</ept> and <bpt id="a2f66170-27f9-455f-b090-b710dd45ba60">&lt;code&gt;</bpt>tfoot<ept id="a2f66170-27f9-455f-b090-b710dd45ba60">&lt;/code&gt;</ept> elements replace each [ with { and each ] with }.</target>
+        </trans-unit>
+        <trans-unit id="35955fd3-24ca-4eb6-a0ba-9339738fd30e" xml:space="preserve">
+          <source>(This site is currently unable to display double-curly-brace expressions in code blocks.)</source>
+          <target state="new">(This site is currently unable to display double-curly-brace expressions in code blocks.)</target>
+        </trans-unit>
+        <trans-unit id="33e365dc-ad5d-42fa-9e89-4fb6636141f7" xml:space="preserve">
+          <source>Right-click the <bpt id="cfd4fe51-6952-45b4-9ba3-6feecf395e49">&lt;em&gt;</bpt>index.html<ept id="cfd4fe51-6952-45b4-9ba3-6feecf395e49">&lt;/em&gt;</ept> file and click <bpt id="109e2443-c351-4bb0-90d5-ecdcd5c68623">&lt;strong&gt;</bpt>Set as Start Page<ept id="109e2443-c351-4bb0-90d5-ecdcd5c68623">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the <bpt id="cfd4fe51-6952-45b4-9ba3-6feecf395e49">&lt;em&gt;</bpt>index.html<ept id="cfd4fe51-6952-45b4-9ba3-6feecf395e49">&lt;/em&gt;</ept> file and click <bpt id="109e2443-c351-4bb0-90d5-ecdcd5c68623">&lt;strong&gt;</bpt>Set as Start Page<ept id="109e2443-c351-4bb0-90d5-ecdcd5c68623">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3b33695-a952-47df-bf05-39f268a389b1" xml:space="preserve">
+          <source>Right-click the <bpt id="22900421-9206-40e1-8e73-05c701179b8a">&lt;em&gt;</bpt>index.html<ept id="22900421-9206-40e1-8e73-05c701179b8a">&lt;/em&gt;</ept> file and click <bpt id="232e42d6-73a1-4398-8e36-29d8c37bf21a">&lt;strong&gt;</bpt>View in Browser<ept id="232e42d6-73a1-4398-8e36-29d8c37bf21a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the <bpt id="22900421-9206-40e1-8e73-05c701179b8a">&lt;em&gt;</bpt>index.html<ept id="22900421-9206-40e1-8e73-05c701179b8a">&lt;/em&gt;</ept> file and click <bpt id="232e42d6-73a1-4398-8e36-29d8c37bf21a">&lt;strong&gt;</bpt>View in Browser<ept id="232e42d6-73a1-4398-8e36-29d8c37bf21a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c2c7cc13-7566-49f7-8897-3a49fc59a467" xml:space="preserve">
+          <source>Notice the template handlebars in the HTML output.</source>
+          <target state="new">Notice the template handlebars in the HTML output.</target>
+        </trans-unit>
+        <trans-unit id="c8de9921-90ad-4261-b441-5870c10b19a1" xml:space="preserve">
+          <source>You'll data-bind those HTML elements using AngularJS in the next step.</source>
+          <target state="new">You'll data-bind those HTML elements using AngularJS in the next step.</target>
+        </trans-unit>
+        <trans-unit id="d0ae47a6-a3c5-4b84-87cc-d3dcb5d49016" xml:space="preserve">
+          <source><bpt id="0003d643-9154-40d3-b935-d01fe4331852">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="0003d643-9154-40d3-b935-d01fe4331852">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0003d643-9154-40d3-b935-d01fe4331852">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="0003d643-9154-40d3-b935-d01fe4331852">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="731d6145-31ec-4628-aea1-49792683057f" xml:space="preserve">
+          <source>Add the JavaScript code below to the <bpt id="0132ade2-78b6-49ea-b15d-05d778f422be">&lt;em&gt;</bpt>index.html<ept id="0132ade2-78b6-49ea-b15d-05d778f422be">&lt;/em&gt;</ept> file to call the API and databind the HTML UI to the API output.</source>
+          <target state="new">Add the JavaScript code below to the <bpt id="0132ade2-78b6-49ea-b15d-05d778f422be">&lt;em&gt;</bpt>index.html<ept id="0132ade2-78b6-49ea-b15d-05d778f422be">&lt;/em&gt;</ept> file to call the API and databind the HTML UI to the API output.</target>
+        </trans-unit>
+        <trans-unit id="693c85cb-9d7f-4aa3-9262-4d9a4f365696" xml:space="preserve">
+          <source>1, In the code you just added to index.html, replace the port number in the base URL (<bpt id="5936630a-838b-4e82-bca8-94924fb116dd">&lt;code&gt;</bpt>http://localhost:1578<ept id="5936630a-838b-4e82-bca8-94924fb116dd">&lt;/code&gt;</ept>) with the actual port number for your API project.</source>
+          <target state="new">1, In the code you just added to index.html, replace the port number in the base URL (<bpt id="5936630a-838b-4e82-bca8-94924fb116dd">&lt;code&gt;</bpt>http://localhost:1578<ept id="5936630a-838b-4e82-bca8-94924fb116dd">&lt;/code&gt;</ept>) with the actual port number for your API project.</target>
+        </trans-unit>
+        <trans-unit id="bf011283-3a3c-4a17-94c3-4050e0991f05" xml:space="preserve">
+          <source><bpt id="a5c00b79-c598-42fc-9c99-1ab1172a696d">&lt;strong&gt;</bpt>Note<ept id="a5c00b79-c598-42fc-9c99-1ab1172a696d">&lt;/strong&gt;</ept> Don't use the port number of the HTML client project.</source>
+          <target state="new"><bpt id="a5c00b79-c598-42fc-9c99-1ab1172a696d">&lt;strong&gt;</bpt>Note<ept id="a5c00b79-c598-42fc-9c99-1ab1172a696d">&lt;/strong&gt;</ept> Don't use the port number of the HTML client project.</target>
+        </trans-unit>
+        <trans-unit id="09361f0e-c472-4144-a40c-c718adac99a4" xml:space="preserve">
+          <source>You can right-click the API project and click <bpt id="0613c435-fdbe-4b96-bf57-fe37739f2ece">&lt;strong&gt;</bpt>Debug &gt; Start New Instance<ept id="0613c435-fdbe-4b96-bf57-fe37739f2ece">&lt;/strong&gt;</ept> to get a browser window that shows the port number.</source>
+          <target state="new">You can right-click the API project and click <bpt id="0613c435-fdbe-4b96-bf57-fe37739f2ece">&lt;strong&gt;</bpt>Debug &gt; Start New Instance<ept id="0613c435-fdbe-4b96-bf57-fe37739f2ece">&lt;/strong&gt;</ept> to get a browser window that shows the port number.</target>
+        </trans-unit>
+        <trans-unit id="19da2e23-8e9f-4708-b694-990f0ea0f769" xml:space="preserve">
+          <source>Make sure that the API App project is also running when you run the HTML client, or the JavaScript HTML will not function properly.</source>
+          <target state="new">Make sure that the API App project is also running when you run the HTML client, or the JavaScript HTML will not function properly.</target>
+        </trans-unit>
+        <trans-unit id="c8ed241b-948c-4dd5-b974-232dbc8ac9a1" xml:space="preserve">
+          <source>Right-click the solution and select <bpt id="3a31bde4-8a14-4a22-901c-8ef717482b3e">&lt;strong&gt;</bpt>Properties<ept id="3a31bde4-8a14-4a22-901c-8ef717482b3e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the solution and select <bpt id="3a31bde4-8a14-4a22-901c-8ef717482b3e">&lt;strong&gt;</bpt>Properties<ept id="3a31bde4-8a14-4a22-901c-8ef717482b3e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dbca0b55-273d-4c55-a59c-fd226ba9cbcd" xml:space="preserve">
+          <source>Then set both Web projects to <bpt id="58b21121-4dab-41a0-b48b-1ce542c281e0">&lt;strong&gt;</bpt>Start without Debugging<ept id="58b21121-4dab-41a0-b48b-1ce542c281e0">&lt;/strong&gt;</ept>, and that the API project runs first.</source>
+          <target state="new">Then set both Web projects to <bpt id="58b21121-4dab-41a0-b48b-1ce542c281e0">&lt;strong&gt;</bpt>Start without Debugging<ept id="58b21121-4dab-41a0-b48b-1ce542c281e0">&lt;/strong&gt;</ept>, and that the API project runs first.</target>
+        </trans-unit>
+        <trans-unit id="4fced736-3556-4f19-88f9-15f12fc78898" xml:space="preserve">
+          <source><bpt id="8a3bb242-2d8c-4899-8528-0839964f062d">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="8a3bb242-2d8c-4899-8528-0839964f062d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8a3bb242-2d8c-4899-8528-0839964f062d">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="8a3bb242-2d8c-4899-8528-0839964f062d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3f773ed-191d-4b90-b7df-5887214e8541" xml:space="preserve">
+          <source>Run the solution and the HTML/JavaScript client connects to and displays data from the API App project.</source>
+          <target state="new">Run the solution and the HTML/JavaScript client connects to and displays data from the API App project.</target>
+        </trans-unit>
+        <trans-unit id="d3edcc53-1825-40c8-8fb9-8ce883764a3b" xml:space="preserve">
+          <source><bpt id="1b70b624-dbeb-41dd-875b-9320c079b83b">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="1b70b624-dbeb-41dd-875b-9320c079b83b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b70b624-dbeb-41dd-875b-9320c079b83b">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="1b70b624-dbeb-41dd-875b-9320c079b83b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="282a868f-d887-4b2c-a8ec-c196188b8710" xml:space="preserve">
+          <source>In this section you'll deploy the HTML/JavaScript client as an App Service Web App.</source>
+          <target state="new">In this section you'll deploy the HTML/JavaScript client as an App Service Web App.</target>
+        </trans-unit>
+        <trans-unit id="ed407057-f00f-4e38-a827-59646ec3f37f" xml:space="preserve">
+          <source>Once the deployment is complete, you'll change the URL the JavaScript is using to consume the deployed API App.</source>
+          <target state="new">Once the deployment is complete, you'll change the URL the JavaScript is using to consume the deployed API App.</target>
+        </trans-unit>
+        <trans-unit id="edd0cba0-4983-4c00-9e88-2b72bfa6dac1" xml:space="preserve">
+          <source>Note: This section assumes you've read and completed the <bpt id="f9e96488-5cbc-480c-9da9-f91af3504397">&lt;linkText&gt;</bpt>Deploy an API App<ept id="f9e96488-5cbc-480c-9da9-f91af3504397">&lt;/linkText&gt;</ept><bpt id="f9e96488-5cbc-480c-9da9-f91af3504397">&lt;title&gt;</bpt><ept id="f9e96488-5cbc-480c-9da9-f91af3504397">&lt;/title&gt;</ept> article or you've previously deployed your own API App.</source>
+          <target state="new">Note: This section assumes you've read and completed the <bpt id="f9e96488-5cbc-480c-9da9-f91af3504397">&lt;linkText&gt;</bpt>Deploy an API App<ept id="f9e96488-5cbc-480c-9da9-f91af3504397">&lt;/linkText&gt;</ept><bpt id="f9e96488-5cbc-480c-9da9-f91af3504397">&lt;title&gt;</bpt><ept id="f9e96488-5cbc-480c-9da9-f91af3504397">&lt;/title&gt;</ept> article or you've previously deployed your own API App.</target>
+        </trans-unit>
+        <trans-unit id="f15c50d9-662d-475c-94df-b284c8dfab05" xml:space="preserve">
+          <source>Open the API App's blade in the Azure preview portal.</source>
+          <target state="new">Open the API App's blade in the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="65100c8a-d0c2-416f-a2cd-1e8a386fc8f5" xml:space="preserve">
+          <source>Click the URL in the blade to open it up in your browser.</source>
+          <target state="new">Click the URL in the blade to open it up in your browser.</target>
+        </trans-unit>
+        <trans-unit id="63874195-5c83-4e3d-87ba-cfc859cba528" xml:space="preserve">
+          <source>Once it opens, copy out the URL of the API App from the browser address bar.</source>
+          <target state="new">Once it opens, copy out the URL of the API App from the browser address bar.</target>
+        </trans-unit>
+        <trans-unit id="5d2157ec-6ff7-40b9-baf5-7c9910dcbabe" xml:space="preserve">
+          <source><bpt id="c58c9315-6ebc-4c81-aa22-0538a2fd2af7">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="c58c9315-6ebc-4c81-aa22-0538a2fd2af7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c58c9315-6ebc-4c81-aa22-0538a2fd2af7">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="c58c9315-6ebc-4c81-aa22-0538a2fd2af7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bed701d2-c402-4c75-bc92-abc9354cc8c4" xml:space="preserve">
+          <source>Paste the API App's URL to overwrite the previous value for the <bpt id="581de82c-2157-4efa-b1c0-805d00088a0d">&lt;strong&gt;</bpt>$scope.baseUrl<ept id="581de82c-2157-4efa-b1c0-805d00088a0d">&lt;/strong&gt;</ept> property in the JavaScript code.</source>
+          <target state="new">Paste the API App's URL to overwrite the previous value for the <bpt id="581de82c-2157-4efa-b1c0-805d00088a0d">&lt;strong&gt;</bpt>$scope.baseUrl<ept id="581de82c-2157-4efa-b1c0-805d00088a0d">&lt;/strong&gt;</ept> property in the JavaScript code.</target>
+        </trans-unit>
+        <trans-unit id="83e7e9c2-f089-47ea-acd9-204e25a6a246" xml:space="preserve">
+          <source>Notice that the URL specifies HTTPS.</source>
+          <target state="new">Notice that the URL specifies HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="df01945a-dfac-439b-871a-3aa65af360b1" xml:space="preserve">
+          <source>The use of HTTPS is not optional;  API Apps does not support HTTP.</source>
+          <target state="new">The use of HTTPS is not optional;  API Apps does not support HTTP.</target>
+        </trans-unit>
+        <trans-unit id="89c10664-9360-4303-92f5-be73b3beb8ba" xml:space="preserve">
+          <source>Right-click the HTML/JavaScript Web Project and select the <bpt id="f0eea064-5a7a-490f-9688-db68ba4c9bfa">&lt;strong&gt;</bpt>Publish<ept id="f0eea064-5a7a-490f-9688-db68ba4c9bfa">&lt;/strong&gt;</ept> context menu item.</source>
+          <target state="new">Right-click the HTML/JavaScript Web Project and select the <bpt id="f0eea064-5a7a-490f-9688-db68ba4c9bfa">&lt;strong&gt;</bpt>Publish<ept id="f0eea064-5a7a-490f-9688-db68ba4c9bfa">&lt;/strong&gt;</ept> context menu item.</target>
+        </trans-unit>
+        <trans-unit id="2013a973-2b4a-4b4d-acf2-4a9b98cde7db" xml:space="preserve">
+          <source><bpt id="f583642f-54b6-4bbf-9b22-1868dd374429">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="f583642f-54b6-4bbf-9b22-1868dd374429">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f583642f-54b6-4bbf-9b22-1868dd374429">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="f583642f-54b6-4bbf-9b22-1868dd374429">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e54dc3b6-10d7-4fb1-be3a-1f9e7d1c814d" xml:space="preserve">
+          <source>Select the <bpt id="0049e7c5-5b1e-4c23-a5da-753569f4ef27">&lt;strong&gt;</bpt>Microsoft Azure Web Apps<ept id="0049e7c5-5b1e-4c23-a5da-753569f4ef27">&lt;/strong&gt;</ept> option in the Publish Web dialog.</source>
+          <target state="new">Select the <bpt id="0049e7c5-5b1e-4c23-a5da-753569f4ef27">&lt;strong&gt;</bpt>Microsoft Azure Web Apps<ept id="0049e7c5-5b1e-4c23-a5da-753569f4ef27">&lt;/strong&gt;</ept> option in the Publish Web dialog.</target>
+        </trans-unit>
+        <trans-unit id="fa86ed5f-eec5-4a07-83df-254d1008c0b9" xml:space="preserve">
+          <source><bpt id="0040dbf6-ee2b-4487-b1a0-9695e6afe48d">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="0040dbf6-ee2b-4487-b1a0-9695e6afe48d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0040dbf6-ee2b-4487-b1a0-9695e6afe48d">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="0040dbf6-ee2b-4487-b1a0-9695e6afe48d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad7baf7c-6136-4fba-9504-4684884ca0d5" xml:space="preserve">
+          <source>Click the <bpt id="0299090f-23ee-4f40-9b12-7dc41199d764">&lt;strong&gt;</bpt>New<ept id="0299090f-23ee-4f40-9b12-7dc41199d764">&lt;/strong&gt;</ept> button to create a new Web App.</source>
+          <target state="new">Click the <bpt id="0299090f-23ee-4f40-9b12-7dc41199d764">&lt;strong&gt;</bpt>New<ept id="0299090f-23ee-4f40-9b12-7dc41199d764">&lt;/strong&gt;</ept> button to create a new Web App.</target>
+        </trans-unit>
+        <trans-unit id="a5845bf7-d93c-4f57-acd4-cf4f3f70ec67" xml:space="preserve">
+          <source><bpt id="a2a528c6-4083-416e-8a59-f90341f4099a">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="a2a528c6-4083-416e-8a59-f90341f4099a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2a528c6-4083-416e-8a59-f90341f4099a">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="a2a528c6-4083-416e-8a59-f90341f4099a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3dea2724-e2b5-443c-936c-8736f4443632" xml:space="preserve">
+          <source>Select the same App Hosting Plan and Resource Group in which your API App is already running.</source>
+          <target state="new">Select the same App Hosting Plan and Resource Group in which your API App is already running.</target>
+        </trans-unit>
+        <trans-unit id="8369b1b2-6ac1-4d1c-be18-ebbac9cb4286" xml:space="preserve">
+          <source><bpt id="68b7d44a-cdd4-46a8-8a70-5dc9b00ba79b">&lt;strong&gt;</bpt>Note<ept id="68b7d44a-cdd4-46a8-8a70-5dc9b00ba79b">&lt;/strong&gt;</ept>: This isn't a requirement, but for demonstration purposes it makes it easier to clean up your Azure resources later if everything is contained in one Resource Group.</source>
+          <target state="new"><bpt id="68b7d44a-cdd4-46a8-8a70-5dc9b00ba79b">&lt;strong&gt;</bpt>Note<ept id="68b7d44a-cdd4-46a8-8a70-5dc9b00ba79b">&lt;/strong&gt;</ept>: This isn't a requirement, but for demonstration purposes it makes it easier to clean up your Azure resources later if everything is contained in one Resource Group.</target>
+        </trans-unit>
+        <trans-unit id="8597b74b-5f9d-446e-bfaa-5f23afafc850" xml:space="preserve">
+          <source><bpt id="4e03aef0-8d4d-4f6e-827b-68d8351a452d">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="4e03aef0-8d4d-4f6e-827b-68d8351a452d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e03aef0-8d4d-4f6e-827b-68d8351a452d">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="4e03aef0-8d4d-4f6e-827b-68d8351a452d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ac6b93b-cfe9-4ab3-82ba-3184e17920cc" xml:space="preserve">
+          <source>Complete the Web Publish steps to deploy the HTML/JavaScript client to App Service Web Apps.</source>
+          <target state="new">Complete the Web Publish steps to deploy the HTML/JavaScript client to App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="bf7c7653-283a-428c-adba-5f5b5d97bd8a" xml:space="preserve">
+          <source>Once the Web App is deployed it should automatically open in your Web browser and display the data from the API App.</source>
+          <target state="new">Once the Web App is deployed it should automatically open in your Web browser and display the data from the API App.</target>
+        </trans-unit>
+        <trans-unit id="7cd7fe07-b347-4162-b708-f0b67f6e2092" xml:space="preserve">
+          <source><bpt id="4ce6523f-67f3-48d2-8b0e-9b8e31f94a5c">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="4ce6523f-67f3-48d2-8b0e-9b8e31f94a5c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ce6523f-67f3-48d2-8b0e-9b8e31f94a5c">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="4ce6523f-67f3-48d2-8b0e-9b8e31f94a5c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47a5591f-0240-45ea-9950-78c0e98a4623" xml:space="preserve">
+          <source>At this point, if you browse to the Resource Group you'll see the new Web App running alongside the API App.</source>
+          <target state="new">At this point, if you browse to the Resource Group you'll see the new Web App running alongside the API App.</target>
+        </trans-unit>
+        <trans-unit id="b7faf87e-d16c-4961-a1c5-a271a97c96c9" xml:space="preserve">
+          <source><bpt id="24557538-2855-4401-83d5-126c6c06ace1">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="24557538-2855-4401-83d5-126c6c06ace1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24557538-2855-4401-83d5-126c6c06ace1">&lt;linkText&gt;</bpt>apiapp.json and Metadata in Solution Explorer<ept id="24557538-2855-4401-83d5-126c6c06ace1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30f06911-6ff7-43e8-8ce8-1f0477d00acb" xml:space="preserve">
+          <source>This example demonstrated how you can use AngularJS as your JavaScript platform for accessing API App back ends.</source>
+          <target state="new">This example demonstrated how you can use AngularJS as your JavaScript platform for accessing API App back ends.</target>
+        </trans-unit>
+        <trans-unit id="7c9c47cb-9334-4c8e-936f-8365e4044e5c" xml:space="preserve">
+          <source>You can change the REST access functionality to use any other JavaScript framework.</source>
+          <target state="new">You can change the REST access functionality to use any other JavaScript framework.</target>
+        </trans-unit>
+        <trans-unit id="26c66289-b8fd-42ac-8ab5-311ac887bc91" xml:space="preserve">
+          <source>This example shows unauthenticated access to an API app.</source>
+          <target state="new">This example shows unauthenticated access to an API app.</target>
+        </trans-unit>
+        <trans-unit id="140a33ec-863c-4ed8-ab5c-cc39a6fca33b" xml:space="preserve">
+          <source>For information about authentication in App Service, see <bpt id="8d83ef69-612f-4cbd-9ce1-57199ce4be31">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps<ept id="8d83ef69-612f-4cbd-9ce1-57199ce4be31">&lt;/linkText&gt;</ept><bpt id="8d83ef69-612f-4cbd-9ce1-57199ce4be31">&lt;title&gt;</bpt><ept id="8d83ef69-612f-4cbd-9ce1-57199ce4be31">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about authentication in App Service, see <bpt id="8d83ef69-612f-4cbd-9ce1-57199ce4be31">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps<ept id="8d83ef69-612f-4cbd-9ce1-57199ce4be31">&lt;/linkText&gt;</ept><bpt id="8d83ef69-612f-4cbd-9ce1-57199ce4be31">&lt;title&gt;</bpt><ept id="8d83ef69-612f-4cbd-9ce1-57199ce4be31">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

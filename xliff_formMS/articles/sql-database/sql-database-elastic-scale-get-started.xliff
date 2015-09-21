@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="72ac1d19-48ae-410a-bdfb-67133c56d2d3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="72ac1d19-48ae-410a-bdfb-67133c56d2d3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8bfe0df9-4909-47c3-bd7e-bbcd1ba254d7">
+        <trans-unit id="b4e7d642-2561-412f-b820-a6fae684be0c" xml:space="preserve">
+          <source>Get started with elastic database tools</source>
+          <target state="new">Get started with elastic database tools</target>
+        </trans-unit>
+        <trans-unit id="d617dadf-c450-47ab-9004-4bd87aaa3e75" xml:space="preserve">
+          <source>Basic explanation of elastic database tools feature of Azure SQL Database, including easy to run sample app.</source>
+          <target state="new">Basic explanation of elastic database tools feature of Azure SQL Database, including easy to run sample app.</target>
+        </trans-unit>
+        <trans-unit id="d3008804-6b3b-4cd9-bc40-2e512a690ff7" xml:space="preserve">
+          <source>Growing and shrinking capacity on demand is one of the key cloud computing promises.</source>
+          <target state="new">Growing and shrinking capacity on demand is one of the key cloud computing promises.</target>
+        </trans-unit>
+        <trans-unit id="ebe75868-6e4c-4dfb-96b5-a3d33816d29b" xml:space="preserve">
+          <source>For database applications, an important technique for building such scalable solutions is the pattern known as sharding – where data is physically partitioned across a number of identically structured databases.</source>
+          <target state="new">For database applications, an important technique for building such scalable solutions is the pattern known as sharding – where data is physically partitioned across a number of identically structured databases.</target>
+        </trans-unit>
+        <trans-unit id="4e809cb5-45d0-4145-b3b3-a8252e82ed7e" xml:space="preserve">
+          <source>But traditionally, building and managing applications that use sharding has required significant coding outside of the application’s business logic.</source>
+          <target state="new">But traditionally, building and managing applications that use sharding has required significant coding outside of the application’s business logic.</target>
+        </trans-unit>
+        <trans-unit id="819e39d9-1a93-4ad4-a539-2c7e58ff14d0" xml:space="preserve">
+          <source>Elastic database tools simplify creating and managing applications using database sharding in Azure SQL DB.</source>
+          <target state="new">Elastic database tools simplify creating and managing applications using database sharding in Azure SQL DB.</target>
+        </trans-unit>
+        <trans-unit id="7a3f5e88-2830-4ff0-bfef-ba4c159e7be5" xml:space="preserve">
+          <source>The tools include the elastic database client library and split-merge tool.</source>
+          <target state="new">The tools include the elastic database client library and split-merge tool.</target>
+        </trans-unit>
+        <trans-unit id="f2f41d0f-c713-41fe-869f-a4db18d21a50" xml:space="preserve">
+          <source>Together, they implement the infrastructure aspects of sharding and allow you to focus instead on the business logic of your application.</source>
+          <target state="new">Together, they implement the infrastructure aspects of sharding and allow you to focus instead on the business logic of your application.</target>
+        </trans-unit>
+        <trans-unit id="fb13e7e4-607f-4aa1-ab13-1673dd659103" xml:space="preserve">
+          <source>This document introduces you to the developer experience using the elastic database client library.</source>
+          <target state="new">This document introduces you to the developer experience using the elastic database client library.</target>
+        </trans-unit>
+        <trans-unit id="1ba52079-eea4-4444-9bb2-5fbb9ce507aa" xml:space="preserve">
+          <source>For more information about how elastic database tools work, see <bpt id="37ec9e20-b47b-4d89-b9ec-0cd8f40fabf1">&lt;linkText&gt;</bpt>Elastic Database tools overview<ept id="37ec9e20-b47b-4d89-b9ec-0cd8f40fabf1">&lt;/linkText&gt;</ept><bpt id="37ec9e20-b47b-4d89-b9ec-0cd8f40fabf1">&lt;title&gt;</bpt><ept id="37ec9e20-b47b-4d89-b9ec-0cd8f40fabf1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how elastic database tools work, see <bpt id="37ec9e20-b47b-4d89-b9ec-0cd8f40fabf1">&lt;linkText&gt;</bpt>Elastic Database tools overview<ept id="37ec9e20-b47b-4d89-b9ec-0cd8f40fabf1">&lt;/linkText&gt;</ept><bpt id="37ec9e20-b47b-4d89-b9ec-0cd8f40fabf1">&lt;title&gt;</bpt><ept id="37ec9e20-b47b-4d89-b9ec-0cd8f40fabf1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ee588db-0a29-4af5-aaa7-057602342b23" xml:space="preserve">
+          <source>For a list of all topics on elastic database tools, see the <bpt id="868ee5df-eafd-482f-a757-0648b9ea51df">&lt;linkText&gt;</bpt>learning map<ept id="868ee5df-eafd-482f-a757-0648b9ea51df">&lt;/linkText&gt;</ept><bpt id="868ee5df-eafd-482f-a757-0648b9ea51df">&lt;title&gt;</bpt><ept id="868ee5df-eafd-482f-a757-0648b9ea51df">&lt;/title&gt;</ept></source>
+          <target state="new">For a list of all topics on elastic database tools, see the <bpt id="868ee5df-eafd-482f-a757-0648b9ea51df">&lt;linkText&gt;</bpt>learning map<ept id="868ee5df-eafd-482f-a757-0648b9ea51df">&lt;/linkText&gt;</ept><bpt id="868ee5df-eafd-482f-a757-0648b9ea51df">&lt;title&gt;</bpt><ept id="868ee5df-eafd-482f-a757-0648b9ea51df">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe3c0e10-166f-48e3-8159-4f8dafc47245" xml:space="preserve">
+          <source>The sample creates a simple sharded application and explores key capabilities of elastic database tools.</source>
+          <target state="new">The sample creates a simple sharded application and explores key capabilities of elastic database tools.</target>
+        </trans-unit>
+        <trans-unit id="f7eaaa3b-83d0-4997-acd0-4114af6b14b0" xml:space="preserve">
+          <source>To download and run the application, follow the steps shown below or in the video <bpt id="92638970-9287-4a3e-8483-b9beb53013ff">&lt;linkText&gt;</bpt>Elastic Scale - Get Started video<ept id="92638970-9287-4a3e-8483-b9beb53013ff">&lt;/linkText&gt;</ept><bpt id="92638970-9287-4a3e-8483-b9beb53013ff">&lt;title&gt;</bpt><ept id="92638970-9287-4a3e-8483-b9beb53013ff">&lt;/title&gt;</ept>.</source>
+          <target state="new">To download and run the application, follow the steps shown below or in the video <bpt id="92638970-9287-4a3e-8483-b9beb53013ff">&lt;linkText&gt;</bpt>Elastic Scale - Get Started video<ept id="92638970-9287-4a3e-8483-b9beb53013ff">&lt;/linkText&gt;</ept><bpt id="92638970-9287-4a3e-8483-b9beb53013ff">&lt;title&gt;</bpt><ept id="92638970-9287-4a3e-8483-b9beb53013ff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f651e6d-f584-4ec2-9dfd-ce31b9f35e10" xml:space="preserve">
+          <source>To run the sample app, you must use Visual Studio, and you must have access to an Azure SQL Database running on Azure.</source>
+          <target state="new">To run the sample app, you must use Visual Studio, and you must have access to an Azure SQL Database running on Azure.</target>
+        </trans-unit>
+        <trans-unit id="7b506796-9f1c-4fce-b1e2-021f83c9959e" xml:space="preserve">
+          <source>If you do not already have a subscription to Azure, sign up for a <bpt id="32cfb212-0cd3-406b-befb-706cc77f2ec2">&lt;linkText&gt;</bpt>trial subscription<ept id="32cfb212-0cd3-406b-befb-706cc77f2ec2">&lt;/linkText&gt;</ept><bpt id="32cfb212-0cd3-406b-befb-706cc77f2ec2">&lt;title&gt;</bpt><ept id="32cfb212-0cd3-406b-befb-706cc77f2ec2">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not already have a subscription to Azure, sign up for a <bpt id="32cfb212-0cd3-406b-befb-706cc77f2ec2">&lt;linkText&gt;</bpt>trial subscription<ept id="32cfb212-0cd3-406b-befb-706cc77f2ec2">&lt;/linkText&gt;</ept><bpt id="32cfb212-0cd3-406b-befb-706cc77f2ec2">&lt;title&gt;</bpt><ept id="32cfb212-0cd3-406b-befb-706cc77f2ec2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1dcf8163-36c3-4953-8be9-48ac7da36e1d" xml:space="preserve">
+          <source>Visual Studio 2012 or higher with C# is required.</source>
+          <target state="new">Visual Studio 2012 or higher with C# is required.</target>
+        </trans-unit>
+        <trans-unit id="c6caf45a-637c-40e2-aea0-2db5185545b1" xml:space="preserve">
+          <source>Download a free version at <bpt id="735edf41-18d2-462e-beb2-4c6ab1a5a15b">&lt;linkText&gt;</bpt>Visual Studio Downloads<ept id="735edf41-18d2-462e-beb2-4c6ab1a5a15b">&lt;/linkText&gt;</ept><bpt id="735edf41-18d2-462e-beb2-4c6ab1a5a15b">&lt;title&gt;</bpt><ept id="735edf41-18d2-462e-beb2-4c6ab1a5a15b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download a free version at <bpt id="735edf41-18d2-462e-beb2-4c6ab1a5a15b">&lt;linkText&gt;</bpt>Visual Studio Downloads<ept id="735edf41-18d2-462e-beb2-4c6ab1a5a15b">&lt;/linkText&gt;</ept><bpt id="735edf41-18d2-462e-beb2-4c6ab1a5a15b">&lt;title&gt;</bpt><ept id="735edf41-18d2-462e-beb2-4c6ab1a5a15b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac0a539e-755a-48a4-9739-5e4efb0acf82" xml:space="preserve">
+          <source>Nuget 2.7 or higher.</source>
+          <target state="new">Nuget 2.7 or higher.</target>
+        </trans-unit>
+        <trans-unit id="643c78d0-1057-4831-900e-8ed578d298bd" xml:space="preserve">
+          <source>To get the latest version, see <bpt id="ff32e90d-5a8d-4cb6-b9c0-1cf94d0ed0bc">&lt;linkText&gt;</bpt>Installing NuGet<ept id="ff32e90d-5a8d-4cb6-b9c0-1cf94d0ed0bc">&lt;/linkText&gt;</ept><bpt id="ff32e90d-5a8d-4cb6-b9c0-1cf94d0ed0bc">&lt;title&gt;</bpt><ept id="ff32e90d-5a8d-4cb6-b9c0-1cf94d0ed0bc">&lt;/title&gt;</ept></source>
+          <target state="new">To get the latest version, see <bpt id="ff32e90d-5a8d-4cb6-b9c0-1cf94d0ed0bc">&lt;linkText&gt;</bpt>Installing NuGet<ept id="ff32e90d-5a8d-4cb6-b9c0-1cf94d0ed0bc">&lt;/linkText&gt;</ept><bpt id="ff32e90d-5a8d-4cb6-b9c0-1cf94d0ed0bc">&lt;title&gt;</bpt><ept id="ff32e90d-5a8d-4cb6-b9c0-1cf94d0ed0bc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0264070e-c5cf-454d-823e-a37b6fd712d5" xml:space="preserve">
+          <source>See <bpt id="62dfd2a5-3a52-4650-ac97-3095a74df184">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure SQL Database<ept id="62dfd2a5-3a52-4650-ac97-3095a74df184">&lt;/linkText&gt;</ept><bpt id="62dfd2a5-3a52-4650-ac97-3095a74df184">&lt;title&gt;</bpt><ept id="62dfd2a5-3a52-4650-ac97-3095a74df184">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="62dfd2a5-3a52-4650-ac97-3095a74df184">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure SQL Database<ept id="62dfd2a5-3a52-4650-ac97-3095a74df184">&lt;/linkText&gt;</ept><bpt id="62dfd2a5-3a52-4650-ac97-3095a74df184">&lt;title&gt;</bpt><ept id="62dfd2a5-3a52-4650-ac97-3095a74df184">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7ac10d3-cf5f-4da3-9da5-b53983a2110c" xml:space="preserve">
+          <source>The <bpt id="18392a34-7138-4bd0-99ff-3e2d322da8d1">&lt;strong&gt;</bpt>Elastic Database with Azure SQL— Getting Started<ept id="18392a34-7138-4bd0-99ff-3e2d322da8d1">&lt;/strong&gt;</ept> sample application illustrates the most important aspects of the development experience for sharded applications using Azure SQL elastic database tools.</source>
+          <target state="new">The <bpt id="18392a34-7138-4bd0-99ff-3e2d322da8d1">&lt;strong&gt;</bpt>Elastic Database with Azure SQL— Getting Started<ept id="18392a34-7138-4bd0-99ff-3e2d322da8d1">&lt;/strong&gt;</ept> sample application illustrates the most important aspects of the development experience for sharded applications using Azure SQL elastic database tools.</target>
+        </trans-unit>
+        <trans-unit id="e1205b38-ad9c-42a2-ae32-61c1dbd42e33" xml:space="preserve">
+          <source>It focuses on key use cases for <bpt id="4c5ce78b-fb23-4d29-b124-f7e2096664c0">&lt;linkText&gt;</bpt>shard map management<ept id="4c5ce78b-fb23-4d29-b124-f7e2096664c0">&lt;/linkText&gt;</ept><bpt id="4c5ce78b-fb23-4d29-b124-f7e2096664c0">&lt;title&gt;</bpt><ept id="4c5ce78b-fb23-4d29-b124-f7e2096664c0">&lt;/title&gt;</ept>, <bpt id="5280505d-c132-4958-b455-c8b8bb09a7c8">&lt;linkText&gt;</bpt>data dependent routing<ept id="5280505d-c132-4958-b455-c8b8bb09a7c8">&lt;/linkText&gt;</ept><bpt id="5280505d-c132-4958-b455-c8b8bb09a7c8">&lt;title&gt;</bpt><ept id="5280505d-c132-4958-b455-c8b8bb09a7c8">&lt;/title&gt;</ept> and <bpt id="9c1c78fb-6b66-4b61-857d-67ed1c6f114f">&lt;linkText&gt;</bpt>multi-shard querying<ept id="9c1c78fb-6b66-4b61-857d-67ed1c6f114f">&lt;/linkText&gt;</ept><bpt id="9c1c78fb-6b66-4b61-857d-67ed1c6f114f">&lt;title&gt;</bpt><ept id="9c1c78fb-6b66-4b61-857d-67ed1c6f114f">&lt;/title&gt;</ept>.</source>
+          <target state="new">It focuses on key use cases for <bpt id="4c5ce78b-fb23-4d29-b124-f7e2096664c0">&lt;linkText&gt;</bpt>shard map management<ept id="4c5ce78b-fb23-4d29-b124-f7e2096664c0">&lt;/linkText&gt;</ept><bpt id="4c5ce78b-fb23-4d29-b124-f7e2096664c0">&lt;title&gt;</bpt><ept id="4c5ce78b-fb23-4d29-b124-f7e2096664c0">&lt;/title&gt;</ept>, <bpt id="5280505d-c132-4958-b455-c8b8bb09a7c8">&lt;linkText&gt;</bpt>data dependent routing<ept id="5280505d-c132-4958-b455-c8b8bb09a7c8">&lt;/linkText&gt;</ept><bpt id="5280505d-c132-4958-b455-c8b8bb09a7c8">&lt;title&gt;</bpt><ept id="5280505d-c132-4958-b455-c8b8bb09a7c8">&lt;/title&gt;</ept> and <bpt id="9c1c78fb-6b66-4b61-857d-67ed1c6f114f">&lt;linkText&gt;</bpt>multi-shard querying<ept id="9c1c78fb-6b66-4b61-857d-67ed1c6f114f">&lt;/linkText&gt;</ept><bpt id="9c1c78fb-6b66-4b61-857d-67ed1c6f114f">&lt;title&gt;</bpt><ept id="9c1c78fb-6b66-4b61-857d-67ed1c6f114f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="457c4fb2-b096-42c6-8578-bc98403019fb" xml:space="preserve">
+          <source>To download and run the sample, follow these steps:</source>
+          <target state="new">To download and run the sample, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="06819cd3-3a78-4fb8-a769-0fd9dc58d57b" xml:space="preserve">
+          <source>Open Visual Studio and select <bpt id="481a53f6-b27f-443a-9269-39ed96406896">&lt;strong&gt;</bpt>File -&gt; New -&gt; Project<ept id="481a53f6-b27f-443a-9269-39ed96406896">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open Visual Studio and select <bpt id="481a53f6-b27f-443a-9269-39ed96406896">&lt;strong&gt;</bpt>File -&gt; New -&gt; Project<ept id="481a53f6-b27f-443a-9269-39ed96406896">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65f62942-6922-4469-a0fa-d77fe9f00263" xml:space="preserve">
+          <source>In the dialog, click <bpt id="45400080-2fd9-45a2-8b61-3f2ce89789cb">&lt;strong&gt;</bpt>Online<ept id="45400080-2fd9-45a2-8b61-3f2ce89789cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the dialog, click <bpt id="45400080-2fd9-45a2-8b61-3f2ce89789cb">&lt;strong&gt;</bpt>Online<ept id="45400080-2fd9-45a2-8b61-3f2ce89789cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ee74c30-22ac-4d39-bbb9-1de45e66ae7a" xml:space="preserve">
+          <source><bpt id="a4c72bfa-d420-497f-a7c4-15b78d62efea">&lt;linkText&gt;</bpt>New Project&gt;Online<ept id="a4c72bfa-d420-497f-a7c4-15b78d62efea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a4c72bfa-d420-497f-a7c4-15b78d62efea">&lt;linkText&gt;</bpt>New Project&gt;Online<ept id="a4c72bfa-d420-497f-a7c4-15b78d62efea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc75c85c-7e04-4b00-aadc-f0152800c128" xml:space="preserve">
+          <source>Then click <bpt id="419984ac-228d-4ca5-b941-0370ca97d6e8">&lt;strong&gt;</bpt>Visual C#<ept id="419984ac-228d-4ca5-b941-0370ca97d6e8">&lt;/strong&gt;</ept> under <bpt id="8688d11e-e390-4322-b12d-f7476568d37f">&lt;strong&gt;</bpt>Samples<ept id="8688d11e-e390-4322-b12d-f7476568d37f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="419984ac-228d-4ca5-b941-0370ca97d6e8">&lt;strong&gt;</bpt>Visual C#<ept id="419984ac-228d-4ca5-b941-0370ca97d6e8">&lt;/strong&gt;</ept> under <bpt id="8688d11e-e390-4322-b12d-f7476568d37f">&lt;strong&gt;</bpt>Samples<ept id="8688d11e-e390-4322-b12d-f7476568d37f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a99ab7da-e72b-49fc-a56d-bd69eb12005b" xml:space="preserve">
+          <source><bpt id="202e9d5c-9633-4c75-9ec6-da651deac126">&lt;linkText&gt;</bpt>Click Visual C#<ept id="202e9d5c-9633-4c75-9ec6-da651deac126">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="202e9d5c-9633-4c75-9ec6-da651deac126">&lt;linkText&gt;</bpt>Click Visual C#<ept id="202e9d5c-9633-4c75-9ec6-da651deac126">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc63873e-f8fa-464e-b09e-6ebf3c287cb7" xml:space="preserve">
+          <source>In the search box, type <bpt id="a111ff9b-0c36-4450-b8d6-79f4eaafb5d5">&lt;strong&gt;</bpt>elastic db<ept id="a111ff9b-0c36-4450-b8d6-79f4eaafb5d5">&lt;/strong&gt;</ept> to search for the sample.The title <bpt id="5d0ab98c-ee96-42ea-a5ac-15116cd8a223">&lt;strong&gt;</bpt>Elastic DB Tools for Azure SQL - Getting Started<ept id="5d0ab98c-ee96-42ea-a5ac-15116cd8a223">&lt;/strong&gt;</ept> appears.</source>
+          <target state="new">In the search box, type <bpt id="a111ff9b-0c36-4450-b8d6-79f4eaafb5d5">&lt;strong&gt;</bpt>elastic db<ept id="a111ff9b-0c36-4450-b8d6-79f4eaafb5d5">&lt;/strong&gt;</ept> to search for the sample.The title <bpt id="5d0ab98c-ee96-42ea-a5ac-15116cd8a223">&lt;strong&gt;</bpt>Elastic DB Tools for Azure SQL - Getting Started<ept id="5d0ab98c-ee96-42ea-a5ac-15116cd8a223">&lt;/strong&gt;</ept> appears.</target>
+        </trans-unit>
+        <trans-unit id="48ae61f3-e4c7-44b4-bc98-84a5f7fa0f4c" xml:space="preserve">
+          <source><bpt id="d3e75ba6-6ddf-4035-b8d7-4185be7e7416">&lt;linkText&gt;</bpt>Search Box<ept id="d3e75ba6-6ddf-4035-b8d7-4185be7e7416">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d3e75ba6-6ddf-4035-b8d7-4185be7e7416">&lt;linkText&gt;</bpt>Search Box<ept id="d3e75ba6-6ddf-4035-b8d7-4185be7e7416">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="864afa17-0dcc-4a4c-9b4a-2d134737a621" xml:space="preserve">
+          <source>Select the sample, choose a name and a location for the new project and press <bpt id="f1752e50-5850-4df9-b92c-c518b66b3d3b">&lt;strong&gt;</bpt>OK<ept id="f1752e50-5850-4df9-b92c-c518b66b3d3b">&lt;/strong&gt;</ept> to create the project.</source>
+          <target state="new">Select the sample, choose a name and a location for the new project and press <bpt id="f1752e50-5850-4df9-b92c-c518b66b3d3b">&lt;strong&gt;</bpt>OK<ept id="f1752e50-5850-4df9-b92c-c518b66b3d3b">&lt;/strong&gt;</ept> to create the project.</target>
+        </trans-unit>
+        <trans-unit id="fc6b9427-030c-45ad-9a78-8f471c90ee9c" xml:space="preserve">
+          <source>Open the <bpt id="425463ed-18c6-47ad-997d-00978179c6bd">&lt;strong&gt;</bpt>app.config<ept id="425463ed-18c6-47ad-997d-00978179c6bd">&lt;/strong&gt;</ept> file in the solution for the sample project and follow the instructions in the file to add your Azure SQL database server name and your login information (user name and password).</source>
+          <target state="new">Open the <bpt id="425463ed-18c6-47ad-997d-00978179c6bd">&lt;strong&gt;</bpt>app.config<ept id="425463ed-18c6-47ad-997d-00978179c6bd">&lt;/strong&gt;</ept> file in the solution for the sample project and follow the instructions in the file to add your Azure SQL database server name and your login information (user name and password).</target>
+        </trans-unit>
+        <trans-unit id="deeb974f-618a-4963-8c1d-3e94af53f333" xml:space="preserve">
+          <source>Build and run the application.</source>
+          <target state="new">Build and run the application.</target>
+        </trans-unit>
+        <trans-unit id="9a57e05b-bc81-44d3-8258-2435e9d23f56" xml:space="preserve">
+          <source>When asked, please allow Visual Studio to restore the NuGet packages of the solution.</source>
+          <target state="new">When asked, please allow Visual Studio to restore the NuGet packages of the solution.</target>
+        </trans-unit>
+        <trans-unit id="85c1324e-c13f-4ac7-bba8-2e20313eff77" xml:space="preserve">
+          <source>This will download the latest version of the elastic database client library from NuGet.</source>
+          <target state="new">This will download the latest version of the elastic database client library from NuGet.</target>
+        </trans-unit>
+        <trans-unit id="760b8bb1-75e2-4252-b33f-6a55d9890abb" xml:space="preserve">
+          <source>Play with the different options to learn more about the client library capabilities.</source>
+          <target state="new">Play with the different options to learn more about the client library capabilities.</target>
+        </trans-unit>
+        <trans-unit id="566f7942-2738-4486-b6e5-0d864cdd39ef" xml:space="preserve">
+          <source>Note the steps the application takes in the console output and feel free to explore the code behind the scenes.</source>
+          <target state="new">Note the steps the application takes in the console output and feel free to explore the code behind the scenes.</target>
+        </trans-unit>
+        <trans-unit id="a732ff13-860c-4a66-9603-e502bfd6aa4f" xml:space="preserve">
+          <source><bpt id="1ab4d4c8-403d-4409-bab9-1eb1f8d611b4">&lt;linkText&gt;</bpt>progress<ept id="1ab4d4c8-403d-4409-bab9-1eb1f8d611b4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ab4d4c8-403d-4409-bab9-1eb1f8d611b4">&lt;linkText&gt;</bpt>progress<ept id="1ab4d4c8-403d-4409-bab9-1eb1f8d611b4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="392fbf30-7563-46a2-bd89-20568bfe1654" xml:space="preserve">
+          <source>Congratulations – you have successfully built and run your first sharded application using elastic database tools on Azure SQL Database.</source>
+          <target state="new">Congratulations – you have successfully built and run your first sharded application using elastic database tools on Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="1833eeaa-bc7b-4bea-8507-daaa051ae35c" xml:space="preserve">
+          <source>Take a quick look at the shards that the sample created by connecting with Visual Studio or SQL Server Management Studio to your Azure DB Server.</source>
+          <target state="new">Take a quick look at the shards that the sample created by connecting with Visual Studio or SQL Server Management Studio to your Azure DB Server.</target>
+        </trans-unit>
+        <trans-unit id="91df4e62-ae8f-42a5-b3d8-8da6a4b7e9ec" xml:space="preserve">
+          <source>You will notice new sample shard databases and a shard map manager database that the sample has created.</source>
+          <target state="new">You will notice new sample shard databases and a shard map manager database that the sample has created.</target>
+        </trans-unit>
+        <trans-unit id="967d0de7-1b9c-4cb8-b7b3-67ebb48965df" xml:space="preserve">
+          <source><bpt id="846d6ce6-67cf-401b-b9ae-562931dd4b1b">&lt;strong&gt;</bpt>Note<ept id="846d6ce6-67cf-401b-b9ae-562931dd4b1b">&lt;/strong&gt;</ept>   If you do not have SQL Server Management Studio, see <bpt id="3c20c87f-2e2c-4d0e-9db7-70b3fc0f3deb">&lt;linkText&gt;</bpt>Managing Azure SQL Database using SQL Server Management Studio<ept id="3c20c87f-2e2c-4d0e-9db7-70b3fc0f3deb">&lt;/linkText&gt;</ept><bpt id="3c20c87f-2e2c-4d0e-9db7-70b3fc0f3deb">&lt;title&gt;</bpt><ept id="3c20c87f-2e2c-4d0e-9db7-70b3fc0f3deb">&lt;/title&gt;</ept>, which includes instructions for getting the tool.</source>
+          <target state="new"><bpt id="846d6ce6-67cf-401b-b9ae-562931dd4b1b">&lt;strong&gt;</bpt>Note<ept id="846d6ce6-67cf-401b-b9ae-562931dd4b1b">&lt;/strong&gt;</ept>   If you do not have SQL Server Management Studio, see <bpt id="3c20c87f-2e2c-4d0e-9db7-70b3fc0f3deb">&lt;linkText&gt;</bpt>Managing Azure SQL Database using SQL Server Management Studio<ept id="3c20c87f-2e2c-4d0e-9db7-70b3fc0f3deb">&lt;/linkText&gt;</ept><bpt id="3c20c87f-2e2c-4d0e-9db7-70b3fc0f3deb">&lt;title&gt;</bpt><ept id="3c20c87f-2e2c-4d0e-9db7-70b3fc0f3deb">&lt;/title&gt;</ept>, which includes instructions for getting the tool.</target>
+        </trans-unit>
+        <trans-unit id="44b576be-6283-4d29-bb25-1746c19d5517" xml:space="preserve">
+          <source><bpt id="c90865b6-75cf-4ed2-b6e5-55c01004d96b">&lt;strong&gt;</bpt>Managing Shards and Shard Maps<ept id="c90865b6-75cf-4ed2-b6e5-55c01004d96b">&lt;/strong&gt;</ept>: The code illustrates how to work with shards, ranges, and mappings in file <bpt id="da92b7b9-8001-4d68-9492-c80d55eacda9">&lt;strong&gt;</bpt>ShardMapManagerSample.cs<ept id="da92b7b9-8001-4d68-9492-c80d55eacda9">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="c90865b6-75cf-4ed2-b6e5-55c01004d96b">&lt;strong&gt;</bpt>Managing Shards and Shard Maps<ept id="c90865b6-75cf-4ed2-b6e5-55c01004d96b">&lt;/strong&gt;</ept>: The code illustrates how to work with shards, ranges, and mappings in file <bpt id="da92b7b9-8001-4d68-9492-c80d55eacda9">&lt;strong&gt;</bpt>ShardMapManagerSample.cs<ept id="da92b7b9-8001-4d68-9492-c80d55eacda9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="150b736e-005e-4052-904f-684065ce20f6" xml:space="preserve">
+          <source>You can find more information about this topic here: <bpt id="dcbec9e0-ebbd-4818-afb1-33af8b414b13">&lt;linkText&gt;</bpt>Shard Map Management<ept id="dcbec9e0-ebbd-4818-afb1-33af8b414b13">&lt;/linkText&gt;</ept><bpt id="dcbec9e0-ebbd-4818-afb1-33af8b414b13">&lt;title&gt;</bpt><ept id="dcbec9e0-ebbd-4818-afb1-33af8b414b13">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find more information about this topic here: <bpt id="dcbec9e0-ebbd-4818-afb1-33af8b414b13">&lt;linkText&gt;</bpt>Shard Map Management<ept id="dcbec9e0-ebbd-4818-afb1-33af8b414b13">&lt;/linkText&gt;</ept><bpt id="dcbec9e0-ebbd-4818-afb1-33af8b414b13">&lt;title&gt;</bpt><ept id="dcbec9e0-ebbd-4818-afb1-33af8b414b13">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="79c4e89c-e404-4cf6-8bb3-4bba73b2dca2" xml:space="preserve">
+          <source><bpt id="4210e1a2-67ae-4c89-8cc0-2181b7e0137b">&lt;strong&gt;</bpt>Data Dependent Routing<ept id="4210e1a2-67ae-4c89-8cc0-2181b7e0137b">&lt;/strong&gt;</ept>: Routing of transactions to the right shard is shown in <bpt id="f6a144ab-fe80-43f8-900c-170dae8318e9">&lt;strong&gt;</bpt>DataDependentRoutingSample.cs<ept id="f6a144ab-fe80-43f8-900c-170dae8318e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="4210e1a2-67ae-4c89-8cc0-2181b7e0137b">&lt;strong&gt;</bpt>Data Dependent Routing<ept id="4210e1a2-67ae-4c89-8cc0-2181b7e0137b">&lt;/strong&gt;</ept>: Routing of transactions to the right shard is shown in <bpt id="f6a144ab-fe80-43f8-900c-170dae8318e9">&lt;strong&gt;</bpt>DataDependentRoutingSample.cs<ept id="f6a144ab-fe80-43f8-900c-170dae8318e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="342db7c3-fc0b-4c3e-9f88-3f7d5c2c2968" xml:space="preserve">
+          <source>For more details, see <bpt id="3dfefabb-46d9-482b-af01-9f2406f290ce">&lt;linkText&gt;</bpt>Data Dependent Routing<ept id="3dfefabb-46d9-482b-af01-9f2406f290ce">&lt;/linkText&gt;</ept><bpt id="3dfefabb-46d9-482b-af01-9f2406f290ce">&lt;title&gt;</bpt><ept id="3dfefabb-46d9-482b-af01-9f2406f290ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="3dfefabb-46d9-482b-af01-9f2406f290ce">&lt;linkText&gt;</bpt>Data Dependent Routing<ept id="3dfefabb-46d9-482b-af01-9f2406f290ce">&lt;/linkText&gt;</ept><bpt id="3dfefabb-46d9-482b-af01-9f2406f290ce">&lt;title&gt;</bpt><ept id="3dfefabb-46d9-482b-af01-9f2406f290ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de5d0294-e43b-49ae-9983-797281a054ba" xml:space="preserve">
+          <source><bpt id="2a7a8270-9c6d-44b5-ae69-29d7d3cfc1ab">&lt;strong&gt;</bpt>Querying over Multiple Shards<ept id="2a7a8270-9c6d-44b5-ae69-29d7d3cfc1ab">&lt;/strong&gt;</ept>: Querying across shards is illustrated in the file <bpt id="0c920a99-2d02-4714-af73-550472dad8c7">&lt;strong&gt;</bpt>MultiShardQuerySample.cs<ept id="0c920a99-2d02-4714-af73-550472dad8c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="2a7a8270-9c6d-44b5-ae69-29d7d3cfc1ab">&lt;strong&gt;</bpt>Querying over Multiple Shards<ept id="2a7a8270-9c6d-44b5-ae69-29d7d3cfc1ab">&lt;/strong&gt;</ept>: Querying across shards is illustrated in the file <bpt id="0c920a99-2d02-4714-af73-550472dad8c7">&lt;strong&gt;</bpt>MultiShardQuerySample.cs<ept id="0c920a99-2d02-4714-af73-550472dad8c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b349d7a9-e214-4af0-9020-3149b270ca0f" xml:space="preserve">
+          <source>For more details, see <bpt id="3898a034-3e64-40ee-9ffe-f021bdc01fe4">&lt;linkText&gt;</bpt>Multi-Shard Querying<ept id="3898a034-3e64-40ee-9ffe-f021bdc01fe4">&lt;/linkText&gt;</ept><bpt id="3898a034-3e64-40ee-9ffe-f021bdc01fe4">&lt;title&gt;</bpt><ept id="3898a034-3e64-40ee-9ffe-f021bdc01fe4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="3898a034-3e64-40ee-9ffe-f021bdc01fe4">&lt;linkText&gt;</bpt>Multi-Shard Querying<ept id="3898a034-3e64-40ee-9ffe-f021bdc01fe4">&lt;/linkText&gt;</ept><bpt id="3898a034-3e64-40ee-9ffe-f021bdc01fe4">&lt;title&gt;</bpt><ept id="3898a034-3e64-40ee-9ffe-f021bdc01fe4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="daecaa52-dfaa-4e7d-87c4-3d815527ccdc" xml:space="preserve">
+          <source><bpt id="60d5f161-4c14-4ba6-a119-04b6752916b0">&lt;strong&gt;</bpt>Adding empty shards<ept id="60d5f161-4c14-4ba6-a119-04b6752916b0">&lt;/strong&gt;</ept>: The iterative adding of new empty shards is performed by the code in
+file <bpt id="d69abb8f-a3c4-43d5-a521-6ab055854547">&lt;strong&gt;</bpt>AddNewShardsSample.cs<ept id="d69abb8f-a3c4-43d5-a521-6ab055854547">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="60d5f161-4c14-4ba6-a119-04b6752916b0">&lt;strong&gt;</bpt>Adding empty shards<ept id="60d5f161-4c14-4ba6-a119-04b6752916b0">&lt;/strong&gt;</ept>: The iterative adding of new empty shards is performed by the code in
+file <bpt id="d69abb8f-a3c4-43d5-a521-6ab055854547">&lt;strong&gt;</bpt>AddNewShardsSample.cs<ept id="d69abb8f-a3c4-43d5-a521-6ab055854547">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3642b2d-13da-4054-9111-d46fe23d4b69" xml:space="preserve">
+          <source>Details of this topic are covered here: <bpt id="45165a8e-0e4a-41bf-93da-4caf07dc99eb">&lt;linkText&gt;</bpt>Shard Map Management<ept id="45165a8e-0e4a-41bf-93da-4caf07dc99eb">&lt;/linkText&gt;</ept><bpt id="45165a8e-0e4a-41bf-93da-4caf07dc99eb">&lt;title&gt;</bpt><ept id="45165a8e-0e4a-41bf-93da-4caf07dc99eb">&lt;/title&gt;</ept>.</source>
+          <target state="new">Details of this topic are covered here: <bpt id="45165a8e-0e4a-41bf-93da-4caf07dc99eb">&lt;linkText&gt;</bpt>Shard Map Management<ept id="45165a8e-0e4a-41bf-93da-4caf07dc99eb">&lt;/linkText&gt;</ept><bpt id="45165a8e-0e4a-41bf-93da-4caf07dc99eb">&lt;title&gt;</bpt><ept id="45165a8e-0e4a-41bf-93da-4caf07dc99eb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bee7667d-3738-4663-8752-6167acc5d81a" xml:space="preserve">
+          <source><bpt id="0b10c841-d3a5-4434-a01d-f5732318e91d">&lt;strong&gt;</bpt>Splitting an existing shard<ept id="0b10c841-d3a5-4434-a01d-f5732318e91d">&lt;/strong&gt;</ept>: The capability to split shards is provided through the <bpt id="3abff68a-c062-47ae-ac65-4d35c999b19e">&lt;strong&gt;</bpt>split-merge tool<ept id="3abff68a-c062-47ae-ac65-4d35c999b19e">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="0b10c841-d3a5-4434-a01d-f5732318e91d">&lt;strong&gt;</bpt>Splitting an existing shard<ept id="0b10c841-d3a5-4434-a01d-f5732318e91d">&lt;/strong&gt;</ept>: The capability to split shards is provided through the <bpt id="3abff68a-c062-47ae-ac65-4d35c999b19e">&lt;strong&gt;</bpt>split-merge tool<ept id="3abff68a-c062-47ae-ac65-4d35c999b19e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2bd3dec7-0c59-4f9a-a825-7aca72d14ed9" xml:space="preserve">
+          <source>You can find more information on this tool here: <bpt id="24832fda-3cf8-44d9-8aaa-23014c71a754">&lt;linkText&gt;</bpt>split-merge tool overview<ept id="24832fda-3cf8-44d9-8aaa-23014c71a754">&lt;/linkText&gt;</ept><bpt id="24832fda-3cf8-44d9-8aaa-23014c71a754">&lt;title&gt;</bpt><ept id="24832fda-3cf8-44d9-8aaa-23014c71a754">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find more information on this tool here: <bpt id="24832fda-3cf8-44d9-8aaa-23014c71a754">&lt;linkText&gt;</bpt>split-merge tool overview<ept id="24832fda-3cf8-44d9-8aaa-23014c71a754">&lt;/linkText&gt;</ept><bpt id="24832fda-3cf8-44d9-8aaa-23014c71a754">&lt;title&gt;</bpt><ept id="24832fda-3cf8-44d9-8aaa-23014c71a754">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80877c5c-6bc6-48b2-b216-2d1c2741c001" xml:space="preserve">
+          <source><bpt id="395d6058-8676-4549-bc76-433974283808">&lt;strong&gt;</bpt>Merging existing shards<ept id="395d6058-8676-4549-bc76-433974283808">&lt;/strong&gt;</ept>: Shard merges are also performed using the <bpt id="eba08101-3e84-454e-b157-84dbaf335cdd">&lt;strong&gt;</bpt>split-merge tool<ept id="eba08101-3e84-454e-b157-84dbaf335cdd">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="395d6058-8676-4549-bc76-433974283808">&lt;strong&gt;</bpt>Merging existing shards<ept id="395d6058-8676-4549-bc76-433974283808">&lt;/strong&gt;</ept>: Shard merges are also performed using the <bpt id="eba08101-3e84-454e-b157-84dbaf335cdd">&lt;strong&gt;</bpt>split-merge tool<ept id="eba08101-3e84-454e-b157-84dbaf335cdd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="648642bb-177c-4c9e-a2f8-db50f4bc4224" xml:space="preserve">
+          <source>For more information, refer to: <bpt id="55ab20d1-efef-45c4-aa56-ad2d602f9796">&lt;linkText&gt;</bpt>split-merge tool overview<ept id="55ab20d1-efef-45c4-aa56-ad2d602f9796">&lt;/linkText&gt;</ept><bpt id="55ab20d1-efef-45c4-aa56-ad2d602f9796">&lt;title&gt;</bpt><ept id="55ab20d1-efef-45c4-aa56-ad2d602f9796">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, refer to: <bpt id="55ab20d1-efef-45c4-aa56-ad2d602f9796">&lt;linkText&gt;</bpt>split-merge tool overview<ept id="55ab20d1-efef-45c4-aa56-ad2d602f9796">&lt;/linkText&gt;</ept><bpt id="55ab20d1-efef-45c4-aa56-ad2d602f9796">&lt;title&gt;</bpt><ept id="55ab20d1-efef-45c4-aa56-ad2d602f9796">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1abf5bb-9caf-4d21-9681-b55d8ad86a36" xml:space="preserve">
+          <source>The elastic database tools are free of charge.</source>
+          <target state="new">The elastic database tools are free of charge.</target>
+        </trans-unit>
+        <trans-unit id="2d16bc7a-01e6-4941-9241-e990a9ab6186" xml:space="preserve">
+          <source>Elastic database tools does not impose additional charges on top of the cost for your Azure usage.</source>
+          <target state="new">Elastic database tools does not impose additional charges on top of the cost for your Azure usage.</target>
+        </trans-unit>
+        <trans-unit id="d289c588-4a06-4468-8c5e-c2819a4fd1ea" xml:space="preserve">
+          <source>For example, the sample application creates new databases.</source>
+          <target state="new">For example, the sample application creates new databases.</target>
+        </trans-unit>
+        <trans-unit id="33010908-9827-43f9-8b8b-b5edad67e2b2" xml:space="preserve">
+          <source>The cost depends on the Azure SQL DB database edition you choose and the Azure usage of your application.</source>
+          <target state="new">The cost depends on the Azure SQL DB database edition you choose and the Azure usage of your application.</target>
+        </trans-unit>
+        <trans-unit id="9effcef7-70e2-4106-ae89-a279d02887b9" xml:space="preserve">
+          <source>For pricing information see <bpt id="56c75f44-c0a8-46ae-a720-71b75fd10724">&lt;linkText&gt;</bpt>SQL Database Pricing Details<ept id="56c75f44-c0a8-46ae-a720-71b75fd10724">&lt;/linkText&gt;</ept><bpt id="56c75f44-c0a8-46ae-a720-71b75fd10724">&lt;title&gt;</bpt><ept id="56c75f44-c0a8-46ae-a720-71b75fd10724">&lt;/title&gt;</ept>.</source>
+          <target state="new">For pricing information see <bpt id="56c75f44-c0a8-46ae-a720-71b75fd10724">&lt;linkText&gt;</bpt>SQL Database Pricing Details<ept id="56c75f44-c0a8-46ae-a720-71b75fd10724">&lt;/linkText&gt;</ept><bpt id="56c75f44-c0a8-46ae-a720-71b75fd10724">&lt;title&gt;</bpt><ept id="56c75f44-c0a8-46ae-a720-71b75fd10724">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33df4bcc-5f76-4a6b-817a-b7aa172b70e7" xml:space="preserve">
+          <source>For more information about the elastic database tools, see:</source>
+          <target state="new">For more information about the elastic database tools, see:</target>
+        </trans-unit>
+        <trans-unit id="2d9a901e-875b-4cbc-8097-0973607b7687" xml:space="preserve">
+          <source><bpt id="c7026343-d0eb-4bbe-af1a-a89efaa62c4b">&lt;linkText&gt;</bpt>Elastic database tools documentation map<ept id="c7026343-d0eb-4bbe-af1a-a89efaa62c4b">&lt;/linkText&gt;</ept><bpt id="c7026343-d0eb-4bbe-af1a-a89efaa62c4b">&lt;title&gt;</bpt><ept id="c7026343-d0eb-4bbe-af1a-a89efaa62c4b">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="c7026343-d0eb-4bbe-af1a-a89efaa62c4b">&lt;linkText&gt;</bpt>Elastic database tools documentation map<ept id="c7026343-d0eb-4bbe-af1a-a89efaa62c4b">&lt;/linkText&gt;</ept><bpt id="c7026343-d0eb-4bbe-af1a-a89efaa62c4b">&lt;title&gt;</bpt><ept id="c7026343-d0eb-4bbe-af1a-a89efaa62c4b">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="7f434326-0e97-4e88-9836-4b8178f6a7b2" xml:space="preserve">
+          <source>Code Samples: </source>
+          <target state="new">Code Samples: </target>
+        </trans-unit>
+        <trans-unit id="2f397745-5f98-4e21-96b2-1c19216bf349" xml:space="preserve">
+          <source><bpt id="df67eab4-b9cb-4c23-8af6-f30199cdd7e4">&lt;linkText&gt;</bpt>Elastic DB with Azure SQL - Getting Started<ept id="df67eab4-b9cb-4c23-8af6-f30199cdd7e4">&lt;/linkText&gt;</ept><bpt id="df67eab4-b9cb-4c23-8af6-f30199cdd7e4">&lt;title&gt;</bpt><ept id="df67eab4-b9cb-4c23-8af6-f30199cdd7e4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="df67eab4-b9cb-4c23-8af6-f30199cdd7e4">&lt;linkText&gt;</bpt>Elastic DB with Azure SQL - Getting Started<ept id="df67eab4-b9cb-4c23-8af6-f30199cdd7e4">&lt;/linkText&gt;</ept><bpt id="df67eab4-b9cb-4c23-8af6-f30199cdd7e4">&lt;title&gt;</bpt><ept id="df67eab4-b9cb-4c23-8af6-f30199cdd7e4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92091a71-3fc6-4ca4-8efa-74f25287e3c0" xml:space="preserve">
+          <source><bpt id="68ce9d5c-267c-4bc0-aefd-09531ce7effd">&lt;linkText&gt;</bpt>Elastic DB with Azure SQL - Integrating with Entity Framework<ept id="68ce9d5c-267c-4bc0-aefd-09531ce7effd">&lt;/linkText&gt;</ept><bpt id="68ce9d5c-267c-4bc0-aefd-09531ce7effd">&lt;title&gt;</bpt><ept id="68ce9d5c-267c-4bc0-aefd-09531ce7effd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="68ce9d5c-267c-4bc0-aefd-09531ce7effd">&lt;linkText&gt;</bpt>Elastic DB with Azure SQL - Integrating with Entity Framework<ept id="68ce9d5c-267c-4bc0-aefd-09531ce7effd">&lt;/linkText&gt;</ept><bpt id="68ce9d5c-267c-4bc0-aefd-09531ce7effd">&lt;title&gt;</bpt><ept id="68ce9d5c-267c-4bc0-aefd-09531ce7effd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7a89e44-ab01-44ca-974f-82f7d440961c" xml:space="preserve">
+          <source><bpt id="d2841c93-af8e-4df5-bd35-1059016a3ce2">&lt;linkText&gt;</bpt>Shard Elasticity on Script Center<ept id="d2841c93-af8e-4df5-bd35-1059016a3ce2">&lt;/linkText&gt;</ept><bpt id="d2841c93-af8e-4df5-bd35-1059016a3ce2">&lt;title&gt;</bpt><ept id="d2841c93-af8e-4df5-bd35-1059016a3ce2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d2841c93-af8e-4df5-bd35-1059016a3ce2">&lt;linkText&gt;</bpt>Shard Elasticity on Script Center<ept id="d2841c93-af8e-4df5-bd35-1059016a3ce2">&lt;/linkText&gt;</ept><bpt id="d2841c93-af8e-4df5-bd35-1059016a3ce2">&lt;title&gt;</bpt><ept id="d2841c93-af8e-4df5-bd35-1059016a3ce2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2bf8703-0ccc-41ac-ad6f-e8debeb6b184" xml:space="preserve">
+          <source>Blog: <bpt id="02489841-1acf-40d7-8aa3-227d6cb1d1ba">&lt;linkText&gt;</bpt>Elastic Scale Announcement<ept id="02489841-1acf-40d7-8aa3-227d6cb1d1ba">&lt;/linkText&gt;</ept><bpt id="02489841-1acf-40d7-8aa3-227d6cb1d1ba">&lt;title&gt;</bpt><ept id="02489841-1acf-40d7-8aa3-227d6cb1d1ba">&lt;/title&gt;</ept></source>
+          <target state="new">Blog: <bpt id="02489841-1acf-40d7-8aa3-227d6cb1d1ba">&lt;linkText&gt;</bpt>Elastic Scale Announcement<ept id="02489841-1acf-40d7-8aa3-227d6cb1d1ba">&lt;/linkText&gt;</ept><bpt id="02489841-1acf-40d7-8aa3-227d6cb1d1ba">&lt;title&gt;</bpt><ept id="02489841-1acf-40d7-8aa3-227d6cb1d1ba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25526d15-ba5e-4365-bcc2-674e11b2461e" xml:space="preserve">
+          <source>Channel 9: <bpt id="497962b8-c61b-4c9b-91a7-6410063c5812">&lt;linkText&gt;</bpt>Elastic Scale Overview Video<ept id="497962b8-c61b-4c9b-91a7-6410063c5812">&lt;/linkText&gt;</ept><bpt id="497962b8-c61b-4c9b-91a7-6410063c5812">&lt;title&gt;</bpt><ept id="497962b8-c61b-4c9b-91a7-6410063c5812">&lt;/title&gt;</ept></source>
+          <target state="new">Channel 9: <bpt id="497962b8-c61b-4c9b-91a7-6410063c5812">&lt;linkText&gt;</bpt>Elastic Scale Overview Video<ept id="497962b8-c61b-4c9b-91a7-6410063c5812">&lt;/linkText&gt;</ept><bpt id="497962b8-c61b-4c9b-91a7-6410063c5812">&lt;title&gt;</bpt><ept id="497962b8-c61b-4c9b-91a7-6410063c5812">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3f23d59-1bdb-4281-8320-eae40cd75a12" xml:space="preserve">
+          <source>Discussion Forum: <bpt id="e28e5bf3-3fe1-4ec9-ad1e-70880c95cb06">&lt;linkText&gt;</bpt>Azure SQL Database forum<ept id="e28e5bf3-3fe1-4ec9-ad1e-70880c95cb06">&lt;/linkText&gt;</ept><bpt id="e28e5bf3-3fe1-4ec9-ad1e-70880c95cb06">&lt;title&gt;</bpt><ept id="e28e5bf3-3fe1-4ec9-ad1e-70880c95cb06">&lt;/title&gt;</ept></source>
+          <target state="new">Discussion Forum: <bpt id="e28e5bf3-3fe1-4ec9-ad1e-70880c95cb06">&lt;linkText&gt;</bpt>Azure SQL Database forum<ept id="e28e5bf3-3fe1-4ec9-ad1e-70880c95cb06">&lt;/linkText&gt;</ept><bpt id="e28e5bf3-3fe1-4ec9-ad1e-70880c95cb06">&lt;title&gt;</bpt><ept id="e28e5bf3-3fe1-4ec9-ad1e-70880c95cb06">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64c611ef-266a-4aed-8a49-59b06c75c217" xml:space="preserve">
+          <source>#The-Elastic-Scale-Sample-Application</source>
+          <target state="new">#The-Elastic-Scale-Sample-Application</target>
+        </trans-unit>
+        <trans-unit id="dd2ca4b4-38f1-46a2-9086-ffb8d61d8c6c" xml:space="preserve">
+          <source>#Download-and-Run-the-Sample-App</source>
+          <target state="new">#Download-and-Run-the-Sample-App</target>
+        </trans-unit>
+        <trans-unit id="9cbec8fb-e8d1-4c47-b2fc-1eb70e9dfde3" xml:space="preserve">
+          <source>#Cost</source>
+          <target state="new">#Cost</target>
+        </trans-unit>
+        <trans-unit id="41799301-2e52-425c-9908-57d21fcf7d8f" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="ef71141e-2048-4f21-9333-b6dd1c7239d2" xml:space="preserve">
+          <source>./media/sql-database-elastic-scale-get-started/newProject.png</source>
+          <target state="new">./media/sql-database-elastic-scale-get-started/newProject.png</target>
+        </trans-unit>
+        <trans-unit id="314fb2c2-f91a-4299-842f-457be9906bfa" xml:space="preserve">
+          <source>./media/sql-database-elastic-scale-get-started/click-online.png</source>
+          <target state="new">./media/sql-database-elastic-scale-get-started/click-online.png</target>
+        </trans-unit>
+        <trans-unit id="b30eeff6-7cb7-4266-b774-dd3759d67100" xml:space="preserve">
+          <source>./media/sql-database-elastic-scale-get-started/click-CSharp.png</source>
+          <target state="new">./media/sql-database-elastic-scale-get-started/click-CSharp.png</target>
+        </trans-unit>
+        <trans-unit id="192ca338-22d0-467a-bbbf-030e24ef2585" xml:space="preserve">
+          <source>./media/sql-database-elastic-scale-get-started/output2.png</source>
+          <target state="new">./media/sql-database-elastic-scale-get-started/output2.png</target>
+        </trans-unit>
+      </group>
+      <group id="d9e60968-f62d-4aa6-9a8b-75dfd263a096" />
+    </body>
+  </file>
+</xliff>

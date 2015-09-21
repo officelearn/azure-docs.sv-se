@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="84e19cb3-0c27-40a0-ac22-c8168d246ad0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="84e19cb3-0c27-40a0-ac22-c8168d246ad0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f0d3cd68-0573-4ac8-b62b-ce9521bb16a4">
+        <trans-unit id="44539709-2d75-4a29-b484-4dcdb1193a78" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Mozy Enterprise | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Mozy Enterprise | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="70e9024c-191d-479a-bdae-6f537edc2c84" xml:space="preserve">
+          <source>Learn how to use Mozy Enterprise with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Mozy Enterprise with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="4b70a72b-f60d-44e1-add4-f014ada9eb6f" xml:space="preserve">
+          <source>For feedback, click <bpt id="a0d471c7-5a0d-4ac1-8ded-d1b31d38b11b">&lt;linkText&gt;</bpt>here<ept id="a0d471c7-5a0d-4ac1-8ded-d1b31d38b11b">&lt;/linkText&gt;</ept><bpt id="a0d471c7-5a0d-4ac1-8ded-d1b31d38b11b">&lt;title&gt;</bpt><ept id="a0d471c7-5a0d-4ac1-8ded-d1b31d38b11b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="a0d471c7-5a0d-4ac1-8ded-d1b31d38b11b">&lt;linkText&gt;</bpt>here<ept id="a0d471c7-5a0d-4ac1-8ded-d1b31d38b11b">&lt;/linkText&gt;</ept><bpt id="a0d471c7-5a0d-4ac1-8ded-d1b31d38b11b">&lt;title&gt;</bpt><ept id="a0d471c7-5a0d-4ac1-8ded-d1b31d38b11b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c54c504b-2d2f-4af5-b400-5332f9c82a93" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Mozy Enterprise.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Mozy Enterprise.</target>
+        </trans-unit>
+        <trans-unit id="b7832482-8e2d-4c1e-aae4-851db19743f3" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="88fb349f-68f0-4047-aa87-1f926a49675f" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="984a467d-622a-4522-b777-88c318484457" xml:space="preserve">
+          <source>A Mozy Enterprise tenant</source>
+          <target state="new">A Mozy Enterprise tenant</target>
+        </trans-unit>
+        <trans-unit id="e9ebefd5-f877-4e3a-a2c4-f64d1125c407" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Mozy Enterprise will be able to single sign into the application at your Mozy Enterprise company site (service provider initiated sign on), or using the <bpt id="a0a5f0c4-86e9-4d12-b72b-e8dd1f5de6d2">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="a0a5f0c4-86e9-4d12-b72b-e8dd1f5de6d2">&lt;/linkText&gt;</ept><bpt id="a0a5f0c4-86e9-4d12-b72b-e8dd1f5de6d2">&lt;title&gt;</bpt><ept id="a0a5f0c4-86e9-4d12-b72b-e8dd1f5de6d2">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Mozy Enterprise will be able to single sign into the application at your Mozy Enterprise company site (service provider initiated sign on), or using the <bpt id="a0a5f0c4-86e9-4d12-b72b-e8dd1f5de6d2">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="a0a5f0c4-86e9-4d12-b72b-e8dd1f5de6d2">&lt;/linkText&gt;</ept><bpt id="a0a5f0c4-86e9-4d12-b72b-e8dd1f5de6d2">&lt;title&gt;</bpt><ept id="a0a5f0c4-86e9-4d12-b72b-e8dd1f5de6d2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8502d499-e6dc-4362-9431-b8788974579c" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="02b15257-6514-4e89-a511-cfccb88d0e72" xml:space="preserve">
+          <source>Enabling the application integration for Mozy Enterprise</source>
+          <target state="new">Enabling the application integration for Mozy Enterprise</target>
+        </trans-unit>
+        <trans-unit id="d2ba2a45-941f-4f18-a848-9d68795e2652" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="a1f72889-e0fc-4d4e-b3f1-aadf2f2bd7c3" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="16a73648-9582-4bba-8c1c-9241353ac347" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="ad6b99a8-c74e-4787-89f8-c290bb02a8cb" xml:space="preserve">
+          <source><bpt id="d09211d3-c72a-45d7-aa55-db638d20cbe3">&lt;linkText&gt;</bpt>Scenario<ept id="d09211d3-c72a-45d7-aa55-db638d20cbe3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d09211d3-c72a-45d7-aa55-db638d20cbe3">&lt;linkText&gt;</bpt>Scenario<ept id="d09211d3-c72a-45d7-aa55-db638d20cbe3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd395220-595f-47ef-a64d-ba390b6d8565" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Mozy Enterprise.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Mozy Enterprise.</target>
+        </trans-unit>
+        <trans-unit id="3cdf08b3-f4dc-4688-b729-afba6ba2bdb3" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="dc8dbe39-2e01-4e70-b414-5ec377d52491">&lt;strong&gt;</bpt>Active Directory<ept id="dc8dbe39-2e01-4e70-b414-5ec377d52491">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="dc8dbe39-2e01-4e70-b414-5ec377d52491">&lt;strong&gt;</bpt>Active Directory<ept id="dc8dbe39-2e01-4e70-b414-5ec377d52491">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a610dfb-caaa-42df-9955-04177fe2a4cd" xml:space="preserve">
+          <source><bpt id="3fb1809c-5361-4bd7-94a6-1a8048746ed9">&lt;linkText&gt;</bpt>Active Directory<ept id="3fb1809c-5361-4bd7-94a6-1a8048746ed9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3fb1809c-5361-4bd7-94a6-1a8048746ed9">&lt;linkText&gt;</bpt>Active Directory<ept id="3fb1809c-5361-4bd7-94a6-1a8048746ed9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95e82b41-49cb-4353-ad5d-c3ea8b128b75" xml:space="preserve">
+          <source>From the <bpt id="c29b223f-33d0-42c9-bed4-892b11a8124d">&lt;strong&gt;</bpt>Directory<ept id="c29b223f-33d0-42c9-bed4-892b11a8124d">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="c29b223f-33d0-42c9-bed4-892b11a8124d">&lt;strong&gt;</bpt>Directory<ept id="c29b223f-33d0-42c9-bed4-892b11a8124d">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="f0e1232e-c08e-401f-b04d-89393ec75c71" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="1953c32c-d231-4c6a-8756-1341ca9ab515">&lt;strong&gt;</bpt>Applications<ept id="1953c32c-d231-4c6a-8756-1341ca9ab515">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="1953c32c-d231-4c6a-8756-1341ca9ab515">&lt;strong&gt;</bpt>Applications<ept id="1953c32c-d231-4c6a-8756-1341ca9ab515">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="e58d03fe-92c4-42ff-94b8-3728efb48e9e" xml:space="preserve">
+          <source><bpt id="f855a9de-7cf3-4cdc-ac64-be18c4f25694">&lt;linkText&gt;</bpt>Applications<ept id="f855a9de-7cf3-4cdc-ac64-be18c4f25694">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f855a9de-7cf3-4cdc-ac64-be18c4f25694">&lt;linkText&gt;</bpt>Applications<ept id="f855a9de-7cf3-4cdc-ac64-be18c4f25694">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2552af7f-c1e5-4cc8-9415-ae04f5719afc" xml:space="preserve">
+          <source>Click <bpt id="dc6de630-825e-4edd-a272-3fa2adbd1c0c">&lt;strong&gt;</bpt>Add<ept id="dc6de630-825e-4edd-a272-3fa2adbd1c0c">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="dc6de630-825e-4edd-a272-3fa2adbd1c0c">&lt;strong&gt;</bpt>Add<ept id="dc6de630-825e-4edd-a272-3fa2adbd1c0c">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="ae5cb897-6e1e-4901-b719-f7f0a9379e83" xml:space="preserve">
+          <source><bpt id="284c12bc-32a4-44e4-9a48-cc7cc710604c">&lt;linkText&gt;</bpt>Add application<ept id="284c12bc-32a4-44e4-9a48-cc7cc710604c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="284c12bc-32a4-44e4-9a48-cc7cc710604c">&lt;linkText&gt;</bpt>Add application<ept id="284c12bc-32a4-44e4-9a48-cc7cc710604c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="522474ed-8353-4703-ba17-2e9d6178a787" xml:space="preserve">
+          <source>On the <bpt id="c52fc4c2-cbd3-47a1-8038-ee9a68b5ba7a">&lt;strong&gt;</bpt>What do you want to do<ept id="c52fc4c2-cbd3-47a1-8038-ee9a68b5ba7a">&lt;/strong&gt;</ept> dialog, click <bpt id="8f2c059c-ab77-45f9-a948-e5e7a3f23c8b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="8f2c059c-ab77-45f9-a948-e5e7a3f23c8b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c52fc4c2-cbd3-47a1-8038-ee9a68b5ba7a">&lt;strong&gt;</bpt>What do you want to do<ept id="c52fc4c2-cbd3-47a1-8038-ee9a68b5ba7a">&lt;/strong&gt;</ept> dialog, click <bpt id="8f2c059c-ab77-45f9-a948-e5e7a3f23c8b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="8f2c059c-ab77-45f9-a948-e5e7a3f23c8b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17887f01-2e03-4e2c-b9d4-b868089d9f48" xml:space="preserve">
+          <source><bpt id="b7711cb1-23c9-4de9-8044-bc46ab3c84cb">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="b7711cb1-23c9-4de9-8044-bc46ab3c84cb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7711cb1-23c9-4de9-8044-bc46ab3c84cb">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="b7711cb1-23c9-4de9-8044-bc46ab3c84cb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43cdf590-3e25-40f2-8674-a913bea61267" xml:space="preserve">
+          <source>In the <bpt id="ec0657da-175f-47a1-83ea-00b45380f401">&lt;strong&gt;</bpt>search box<ept id="ec0657da-175f-47a1-83ea-00b45380f401">&lt;/strong&gt;</ept>, type <bpt id="b11f3609-db63-4ad9-a320-1dcd17b1df78">&lt;strong&gt;</bpt>mozy enterprise<ept id="b11f3609-db63-4ad9-a320-1dcd17b1df78">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ec0657da-175f-47a1-83ea-00b45380f401">&lt;strong&gt;</bpt>search box<ept id="ec0657da-175f-47a1-83ea-00b45380f401">&lt;/strong&gt;</ept>, type <bpt id="b11f3609-db63-4ad9-a320-1dcd17b1df78">&lt;strong&gt;</bpt>mozy enterprise<ept id="b11f3609-db63-4ad9-a320-1dcd17b1df78">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="019bbe70-edfb-4129-9f3a-2c95a0625e7d" xml:space="preserve">
+          <source><bpt id="1cc45828-ae2b-4b37-a04c-6fac2293bbf7">&lt;linkText&gt;</bpt>Application Gallery<ept id="1cc45828-ae2b-4b37-a04c-6fac2293bbf7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1cc45828-ae2b-4b37-a04c-6fac2293bbf7">&lt;linkText&gt;</bpt>Application Gallery<ept id="1cc45828-ae2b-4b37-a04c-6fac2293bbf7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5811353-cb70-45ea-b4ad-c1d162f4514c" xml:space="preserve">
+          <source>In the results pane, select <bpt id="294c1373-85cb-4fed-ba3f-ade15f9de089">&lt;strong&gt;</bpt>Mozy Enterprise<ept id="294c1373-85cb-4fed-ba3f-ade15f9de089">&lt;/strong&gt;</ept>, and then click <bpt id="d4c0ae31-3131-44b6-9506-88fa6e037b51">&lt;strong&gt;</bpt>Complete<ept id="d4c0ae31-3131-44b6-9506-88fa6e037b51">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="294c1373-85cb-4fed-ba3f-ade15f9de089">&lt;strong&gt;</bpt>Mozy Enterprise<ept id="294c1373-85cb-4fed-ba3f-ade15f9de089">&lt;/strong&gt;</ept>, and then click <bpt id="d4c0ae31-3131-44b6-9506-88fa6e037b51">&lt;strong&gt;</bpt>Complete<ept id="d4c0ae31-3131-44b6-9506-88fa6e037b51">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="dcb86064-cfa9-4c72-aa8c-2f0b616a6fb6" xml:space="preserve">
+          <source><bpt id="504dba2f-ff5b-4853-ace8-7f9e11b910fb">&lt;linkText&gt;</bpt>Mozy Enterprise<ept id="504dba2f-ff5b-4853-ace8-7f9e11b910fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="504dba2f-ff5b-4853-ace8-7f9e11b910fb">&lt;linkText&gt;</bpt>Mozy Enterprise<ept id="504dba2f-ff5b-4853-ace8-7f9e11b910fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff23fb86-a08a-468e-b759-7a9f45c1ed84" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Mozy Enterprise with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Mozy Enterprise with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="e874679c-5117-4857-9056-241fb9e14074" xml:space="preserve">
+          <source>As part of this procedure, you are required to upload a base-64 encoded certificate to your Mozy Enterprise tenant.</source>
+          <target state="new">As part of this procedure, you are required to upload a base-64 encoded certificate to your Mozy Enterprise tenant.</target>
+        </trans-unit>
+        <trans-unit id="7fbb5c79-2a7f-4348-af5c-b65251e354d0" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="e123c3b0-0302-4ded-88bc-e7209c3b83a8">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="e123c3b0-0302-4ded-88bc-e7209c3b83a8">&lt;/linkText&gt;</ept><bpt id="e123c3b0-0302-4ded-88bc-e7209c3b83a8">&lt;title&gt;</bpt><ept id="e123c3b0-0302-4ded-88bc-e7209c3b83a8">&lt;/title&gt;</ept></source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="e123c3b0-0302-4ded-88bc-e7209c3b83a8">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="e123c3b0-0302-4ded-88bc-e7209c3b83a8">&lt;/linkText&gt;</ept><bpt id="e123c3b0-0302-4ded-88bc-e7209c3b83a8">&lt;title&gt;</bpt><ept id="e123c3b0-0302-4ded-88bc-e7209c3b83a8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f20a222a-c626-419c-ba2d-dbe7afa56cc8" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="7d676bd8-2890-4616-bb5e-d6ff78f64879">&lt;strong&gt;</bpt>Mozy Enterprise<ept id="7d676bd8-2890-4616-bb5e-d6ff78f64879">&lt;/strong&gt;</ept> application integration page, click <bpt id="f69772df-867f-4e15-96a8-4417be6f19bb">&lt;strong&gt;</bpt>Configure single sign-on<ept id="f69772df-867f-4e15-96a8-4417be6f19bb">&lt;/strong&gt;</ept> to open the <bpt id="ced35705-c28d-42d5-9c35-6846ced5ca83">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="ced35705-c28d-42d5-9c35-6846ced5ca83">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="7d676bd8-2890-4616-bb5e-d6ff78f64879">&lt;strong&gt;</bpt>Mozy Enterprise<ept id="7d676bd8-2890-4616-bb5e-d6ff78f64879">&lt;/strong&gt;</ept> application integration page, click <bpt id="f69772df-867f-4e15-96a8-4417be6f19bb">&lt;strong&gt;</bpt>Configure single sign-on<ept id="f69772df-867f-4e15-96a8-4417be6f19bb">&lt;/strong&gt;</ept> to open the <bpt id="ced35705-c28d-42d5-9c35-6846ced5ca83">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="ced35705-c28d-42d5-9c35-6846ced5ca83">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="b36f1b2e-e24f-4d43-9bd8-90b93bb123bd" xml:space="preserve">
+          <source><bpt id="04c85cfc-f724-42f2-a46c-1aee5aaf81ca">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="04c85cfc-f724-42f2-a46c-1aee5aaf81ca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="04c85cfc-f724-42f2-a46c-1aee5aaf81ca">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="04c85cfc-f724-42f2-a46c-1aee5aaf81ca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61807d6b-8f31-424c-8c2f-801f24ba52b3" xml:space="preserve">
+          <source>On the <bpt id="2fbcf248-26b3-4b46-9ad8-c35df5f870d8">&lt;strong&gt;</bpt>How would you like users to sign on to Mozy Enterprise<ept id="2fbcf248-26b3-4b46-9ad8-c35df5f870d8">&lt;/strong&gt;</ept> page, select <bpt id="c42cfb66-444f-4627-b900-2cafd686bbfb">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="c42cfb66-444f-4627-b900-2cafd686bbfb">&lt;/strong&gt;</ept>, and then click <bpt id="720bdc6d-f030-4643-9b88-df0232623da3">&lt;strong&gt;</bpt>Next<ept id="720bdc6d-f030-4643-9b88-df0232623da3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="2fbcf248-26b3-4b46-9ad8-c35df5f870d8">&lt;strong&gt;</bpt>How would you like users to sign on to Mozy Enterprise<ept id="2fbcf248-26b3-4b46-9ad8-c35df5f870d8">&lt;/strong&gt;</ept> page, select <bpt id="c42cfb66-444f-4627-b900-2cafd686bbfb">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="c42cfb66-444f-4627-b900-2cafd686bbfb">&lt;/strong&gt;</ept>, and then click <bpt id="720bdc6d-f030-4643-9b88-df0232623da3">&lt;strong&gt;</bpt>Next<ept id="720bdc6d-f030-4643-9b88-df0232623da3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="640e736b-7730-4daa-bd1c-6ec8b6773d7e" xml:space="preserve">
+          <source><bpt id="29e16ce7-4929-4e91-aece-d531349b8082">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="29e16ce7-4929-4e91-aece-d531349b8082">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29e16ce7-4929-4e91-aece-d531349b8082">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="29e16ce7-4929-4e91-aece-d531349b8082">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="786ea439-fa93-4fe5-bacd-5c9910bdf57e" xml:space="preserve">
+          <source>On the <bpt id="aced2f3b-4f98-4ec0-a127-5f2befb08b5f">&lt;strong&gt;</bpt>Configure App URL<ept id="aced2f3b-4f98-4ec0-a127-5f2befb08b5f">&lt;/strong&gt;</ept> page, in the <bpt id="69841b1a-c164-4d40-b87d-c63395712850">&lt;strong&gt;</bpt>Mozy Enterprise Sign In URL<ept id="69841b1a-c164-4d40-b87d-c63395712850">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="107f43b9-db5c-4328-8a07-e8daa8017569">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.Mozyenterprise.com<ept id="107f43b9-db5c-4328-8a07-e8daa8017569">&lt;/em&gt;</ept>", and then click <bpt id="29dac22a-f557-42f7-8931-d722319d507c">&lt;strong&gt;</bpt>Next<ept id="29dac22a-f557-42f7-8931-d722319d507c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="aced2f3b-4f98-4ec0-a127-5f2befb08b5f">&lt;strong&gt;</bpt>Configure App URL<ept id="aced2f3b-4f98-4ec0-a127-5f2befb08b5f">&lt;/strong&gt;</ept> page, in the <bpt id="69841b1a-c164-4d40-b87d-c63395712850">&lt;strong&gt;</bpt>Mozy Enterprise Sign In URL<ept id="69841b1a-c164-4d40-b87d-c63395712850">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="107f43b9-db5c-4328-8a07-e8daa8017569">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.Mozyenterprise.com<ept id="107f43b9-db5c-4328-8a07-e8daa8017569">&lt;/em&gt;</ept>", and then click <bpt id="29dac22a-f557-42f7-8931-d722319d507c">&lt;strong&gt;</bpt>Next<ept id="29dac22a-f557-42f7-8931-d722319d507c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3599dfc-12bf-4082-9824-82e7f9838467" xml:space="preserve">
+          <source><bpt id="869d6a50-ac9c-47b9-9ef0-1901eb0f4a49">&lt;linkText&gt;</bpt>Configure app URL<ept id="869d6a50-ac9c-47b9-9ef0-1901eb0f4a49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="869d6a50-ac9c-47b9-9ef0-1901eb0f4a49">&lt;linkText&gt;</bpt>Configure app URL<ept id="869d6a50-ac9c-47b9-9ef0-1901eb0f4a49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9120ffc-a109-4292-ac3a-e4af6509f7ea" xml:space="preserve">
+          <source>On the <bpt id="1cf556f5-6cd3-4eb1-a078-cb35e29321fd">&lt;strong&gt;</bpt>Configure single sign-on at Mozy Enterprise<ept id="1cf556f5-6cd3-4eb1-a078-cb35e29321fd">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="6b991a28-508f-459c-953e-3a7d251628fd">&lt;strong&gt;</bpt>Download certificate<ept id="6b991a28-508f-459c-953e-3a7d251628fd">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="1cf556f5-6cd3-4eb1-a078-cb35e29321fd">&lt;strong&gt;</bpt>Configure single sign-on at Mozy Enterprise<ept id="1cf556f5-6cd3-4eb1-a078-cb35e29321fd">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="6b991a28-508f-459c-953e-3a7d251628fd">&lt;strong&gt;</bpt>Download certificate<ept id="6b991a28-508f-459c-953e-3a7d251628fd">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="036f8eb7-3e6a-4243-9f5c-7ad86d33c8ac" xml:space="preserve">
+          <source><bpt id="7559ad98-0eeb-4362-82bc-2cd1706c3279">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="7559ad98-0eeb-4362-82bc-2cd1706c3279">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7559ad98-0eeb-4362-82bc-2cd1706c3279">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="7559ad98-0eeb-4362-82bc-2cd1706c3279">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c065a24-2b0d-470c-951f-8f11f7eea7a9" xml:space="preserve">
+          <source>In a different web browser window, log into your Mozy Enterprise company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Mozy Enterprise company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="030ae181-6e48-4091-b27e-cc00e82b587f" xml:space="preserve">
+          <source>In the <bpt id="bde520fb-d8dc-48c6-83c3-f116f71172c5">&lt;strong&gt;</bpt>Configuration<ept id="bde520fb-d8dc-48c6-83c3-f116f71172c5">&lt;/strong&gt;</ept> section, click <bpt id="9946f7a9-dc61-42b1-9b3f-7fd8ed10f2e9">&lt;strong&gt;</bpt>Authentication Policy<ept id="9946f7a9-dc61-42b1-9b3f-7fd8ed10f2e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="bde520fb-d8dc-48c6-83c3-f116f71172c5">&lt;strong&gt;</bpt>Configuration<ept id="bde520fb-d8dc-48c6-83c3-f116f71172c5">&lt;/strong&gt;</ept> section, click <bpt id="9946f7a9-dc61-42b1-9b3f-7fd8ed10f2e9">&lt;strong&gt;</bpt>Authentication Policy<ept id="9946f7a9-dc61-42b1-9b3f-7fd8ed10f2e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fa338d9-d636-4a6f-a8e2-36b20f49ef93" xml:space="preserve">
+          <source><bpt id="50cad4c9-2d92-4237-beb2-eb1f9b13ea93">&lt;linkText&gt;</bpt>Authentication policy<ept id="50cad4c9-2d92-4237-beb2-eb1f9b13ea93">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="50cad4c9-2d92-4237-beb2-eb1f9b13ea93">&lt;linkText&gt;</bpt>Authentication policy<ept id="50cad4c9-2d92-4237-beb2-eb1f9b13ea93">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86965c9b-30f7-4e84-8679-6631f71e914d" xml:space="preserve">
+          <source>On the <bpt id="4b544252-4717-4c68-bac7-0cd4667ef34e">&lt;strong&gt;</bpt>Authentication Policy<ept id="4b544252-4717-4c68-bac7-0cd4667ef34e">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">On the <bpt id="4b544252-4717-4c68-bac7-0cd4667ef34e">&lt;strong&gt;</bpt>Authentication Policy<ept id="4b544252-4717-4c68-bac7-0cd4667ef34e">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="5c1e9248-ab88-4004-8c50-b86f892e801c" xml:space="preserve">
+          <source><bpt id="2cd2a53d-03a7-4617-bcb2-8f7df08ec766">&lt;linkText&gt;</bpt>Authentication policy<ept id="2cd2a53d-03a7-4617-bcb2-8f7df08ec766">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2cd2a53d-03a7-4617-bcb2-8f7df08ec766">&lt;linkText&gt;</bpt>Authentication policy<ept id="2cd2a53d-03a7-4617-bcb2-8f7df08ec766">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0893ff50-7651-4947-a5a5-dcae09da6cc8" xml:space="preserve">
+          <source>Select <bpt id="bd1f3802-72af-4c45-8229-a504f0289428">&lt;strong&gt;</bpt>Directory Service<ept id="bd1f3802-72af-4c45-8229-a504f0289428">&lt;/strong&gt;</ept> as <bpt id="5e8b433a-8f56-46cd-b5db-3d10fb50e7d7">&lt;strong&gt;</bpt>Provider<ept id="5e8b433a-8f56-46cd-b5db-3d10fb50e7d7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="bd1f3802-72af-4c45-8229-a504f0289428">&lt;strong&gt;</bpt>Directory Service<ept id="bd1f3802-72af-4c45-8229-a504f0289428">&lt;/strong&gt;</ept> as <bpt id="5e8b433a-8f56-46cd-b5db-3d10fb50e7d7">&lt;strong&gt;</bpt>Provider<ept id="5e8b433a-8f56-46cd-b5db-3d10fb50e7d7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46bc58d8-978c-4f41-97a1-191c81ec2133" xml:space="preserve">
+          <source>Select <bpt id="e1efec68-f7e8-410a-926b-c42f070174f2">&lt;strong&gt;</bpt>Use LDAP Push<ept id="e1efec68-f7e8-410a-926b-c42f070174f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e1efec68-f7e8-410a-926b-c42f070174f2">&lt;strong&gt;</bpt>Use LDAP Push<ept id="e1efec68-f7e8-410a-926b-c42f070174f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ce35f4d-4a0c-4951-9cf1-ed14f38f4f89" xml:space="preserve">
+          <source>Click the <bpt id="ff463bae-7122-49de-9541-01e34d573d38">&lt;strong&gt;</bpt>SAML Authentication<ept id="ff463bae-7122-49de-9541-01e34d573d38">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="ff463bae-7122-49de-9541-01e34d573d38">&lt;strong&gt;</bpt>SAML Authentication<ept id="ff463bae-7122-49de-9541-01e34d573d38">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="a0e23e43-101b-4a90-bae0-cafe5cd56a9c" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="d9cd6f73-4ee5-4ff8-a178-f42209cd4d65">&lt;strong&gt;</bpt>Configure single sign-on at Mozy Enterprise<ept id="d9cd6f73-4ee5-4ff8-a178-f42209cd4d65">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="490e65d2-9937-400f-949a-3a72406cce6f">&lt;strong&gt;</bpt>Authentication Request URL<ept id="490e65d2-9937-400f-949a-3a72406cce6f">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="fcfcdcd8-11e4-419b-a247-80f36a1719f0">&lt;strong&gt;</bpt>Authentication URL<ept id="fcfcdcd8-11e4-419b-a247-80f36a1719f0">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="d9cd6f73-4ee5-4ff8-a178-f42209cd4d65">&lt;strong&gt;</bpt>Configure single sign-on at Mozy Enterprise<ept id="d9cd6f73-4ee5-4ff8-a178-f42209cd4d65">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="490e65d2-9937-400f-949a-3a72406cce6f">&lt;strong&gt;</bpt>Authentication Request URL<ept id="490e65d2-9937-400f-949a-3a72406cce6f">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="fcfcdcd8-11e4-419b-a247-80f36a1719f0">&lt;strong&gt;</bpt>Authentication URL<ept id="fcfcdcd8-11e4-419b-a247-80f36a1719f0">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="c8d97bbf-08f9-448a-925b-04328cd56446" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="07825450-4b66-4570-b6de-d55568e8d4e0">&lt;strong&gt;</bpt>Configure single sign-on at Mozy Enterprise<ept id="07825450-4b66-4570-b6de-d55568e8d4e0">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="6f6d0ecc-a8da-45dd-a07f-bc8bdf2609cc">&lt;strong&gt;</bpt>Identity Provider ID<ept id="6f6d0ecc-a8da-45dd-a07f-bc8bdf2609cc">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="ae0942e3-6902-4d8c-a090-b0ffa3e19f3c">&lt;strong&gt;</bpt>SAML Endpoint<ept id="ae0942e3-6902-4d8c-a090-b0ffa3e19f3c">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="07825450-4b66-4570-b6de-d55568e8d4e0">&lt;strong&gt;</bpt>Configure single sign-on at Mozy Enterprise<ept id="07825450-4b66-4570-b6de-d55568e8d4e0">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="6f6d0ecc-a8da-45dd-a07f-bc8bdf2609cc">&lt;strong&gt;</bpt>Identity Provider ID<ept id="6f6d0ecc-a8da-45dd-a07f-bc8bdf2609cc">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="ae0942e3-6902-4d8c-a090-b0ffa3e19f3c">&lt;strong&gt;</bpt>SAML Endpoint<ept id="ae0942e3-6902-4d8c-a090-b0ffa3e19f3c">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="c4103b58-c6d2-400a-8e5f-9ec948e53b80" xml:space="preserve">
+          <source>Create a <bpt id="5ada0fc4-ae76-4af7-a386-28b4b1871701">&lt;strong&gt;</bpt>Base-64 encoded<ept id="5ada0fc4-ae76-4af7-a386-28b4b1871701">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="5ada0fc4-ae76-4af7-a386-28b4b1871701">&lt;strong&gt;</bpt>Base-64 encoded<ept id="5ada0fc4-ae76-4af7-a386-28b4b1871701">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="36f10eeb-007b-4e03-99d9-6fc081c3c807" xml:space="preserve">
+          <source>For more details, see <bpt id="c399a9d7-06f9-4a1c-9a60-7dbbd509b0ea">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="c399a9d7-06f9-4a1c-9a60-7dbbd509b0ea">&lt;/linkText&gt;</ept><bpt id="c399a9d7-06f9-4a1c-9a60-7dbbd509b0ea">&lt;title&gt;</bpt><ept id="c399a9d7-06f9-4a1c-9a60-7dbbd509b0ea">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="c399a9d7-06f9-4a1c-9a60-7dbbd509b0ea">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="c399a9d7-06f9-4a1c-9a60-7dbbd509b0ea">&lt;/linkText&gt;</ept><bpt id="c399a9d7-06f9-4a1c-9a60-7dbbd509b0ea">&lt;title&gt;</bpt><ept id="c399a9d7-06f9-4a1c-9a60-7dbbd509b0ea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c476a146-ac73-4c63-b432-27b62dd7a946" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into <bpt id="b41c9267-f333-4613-93c2-e871ba9262f5">&lt;strong&gt;</bpt>SAML Certificate<ept id="b41c9267-f333-4613-93c2-e871ba9262f5">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into <bpt id="b41c9267-f333-4613-93c2-e871ba9262f5">&lt;strong&gt;</bpt>SAML Certificate<ept id="b41c9267-f333-4613-93c2-e871ba9262f5">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="2180b61a-69c8-4065-8846-3f61c99d47c1" xml:space="preserve">
+          <source>Select <bpt id="3e6efac3-ad28-40d8-af87-d82cb4cbcf74">&lt;strong&gt;</bpt>Enable SSO for Admins to log in with their network credentials<ept id="3e6efac3-ad28-40d8-af87-d82cb4cbcf74">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="3e6efac3-ad28-40d8-af87-d82cb4cbcf74">&lt;strong&gt;</bpt>Enable SSO for Admins to log in with their network credentials<ept id="3e6efac3-ad28-40d8-af87-d82cb4cbcf74">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6cb1cc6e-de9b-46dd-b9de-f1e963f438c6" xml:space="preserve">
+          <source>Click <bpt id="0c19658d-39ca-49b3-bbfc-6b5dcf2554ca">&lt;strong&gt;</bpt>Save Changes<ept id="0c19658d-39ca-49b3-bbfc-6b5dcf2554ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0c19658d-39ca-49b3-bbfc-6b5dcf2554ca">&lt;strong&gt;</bpt>Save Changes<ept id="0c19658d-39ca-49b3-bbfc-6b5dcf2554ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a84d5a9-2c0a-439e-bfdf-9ed18e9c258b" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="1825f175-7677-461e-90a5-7a503ba02ba5">&lt;strong&gt;</bpt>Configure single sign-on at Mozy Enterprise<ept id="1825f175-7677-461e-90a5-7a503ba02ba5">&lt;/strong&gt;</ept> dialog page, select the single sign-on configuration confirmation, and then click <bpt id="416ca3cf-086c-4c39-99fa-99b519f52706">&lt;strong&gt;</bpt>Complete<ept id="416ca3cf-086c-4c39-99fa-99b519f52706">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal, on the <bpt id="1825f175-7677-461e-90a5-7a503ba02ba5">&lt;strong&gt;</bpt>Configure single sign-on at Mozy Enterprise<ept id="1825f175-7677-461e-90a5-7a503ba02ba5">&lt;/strong&gt;</ept> dialog page, select the single sign-on configuration confirmation, and then click <bpt id="416ca3cf-086c-4c39-99fa-99b519f52706">&lt;strong&gt;</bpt>Complete<ept id="416ca3cf-086c-4c39-99fa-99b519f52706">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="462e4996-f1ce-4065-95b6-334606690a0f" xml:space="preserve">
+          <source><bpt id="a1323d53-eb95-45eb-a7c6-dd2ab2341077">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a1323d53-eb95-45eb-a7c6-dd2ab2341077">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a1323d53-eb95-45eb-a7c6-dd2ab2341077">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a1323d53-eb95-45eb-a7c6-dd2ab2341077">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67288fa9-4a26-45cc-b7e9-d3df5743b503" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Mozy Enterprise, they must be provisioned into Mozy Enterprise.</source>
+          <target state="new">In order to enable Azure AD users to log into Mozy Enterprise, they must be provisioned into Mozy Enterprise.</target>
+        </trans-unit>
+        <trans-unit id="00ca6735-53e4-452f-b8fc-298a1ecc2634" xml:space="preserve">
+          <source>In the case of Mozy Enterprise, provisioning is a manual task.</source>
+          <target state="new">In the case of Mozy Enterprise, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="e26bb8ca-fc98-42ee-bdff-14232f748d10" xml:space="preserve">
+          <source>Log in to your <bpt id="3c12e097-d668-4fe4-9e82-45a9fe1f3765">&lt;strong&gt;</bpt>Mozy Enterprise<ept id="3c12e097-d668-4fe4-9e82-45a9fe1f3765">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="3c12e097-d668-4fe4-9e82-45a9fe1f3765">&lt;strong&gt;</bpt>Mozy Enterprise<ept id="3c12e097-d668-4fe4-9e82-45a9fe1f3765">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="63e9989b-5646-480d-b54e-a375cbe98378" xml:space="preserve">
+          <source>Click <bpt id="228ffc23-9bd0-435a-b0be-fcc43914abfc">&lt;strong&gt;</bpt>Users<ept id="228ffc23-9bd0-435a-b0be-fcc43914abfc">&lt;/strong&gt;</ept>, and then click <bpt id="f79c66d8-1fdd-45c7-a327-0260d6b35f95">&lt;strong&gt;</bpt>Add New User<ept id="f79c66d8-1fdd-45c7-a327-0260d6b35f95">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="228ffc23-9bd0-435a-b0be-fcc43914abfc">&lt;strong&gt;</bpt>Users<ept id="228ffc23-9bd0-435a-b0be-fcc43914abfc">&lt;/strong&gt;</ept>, and then click <bpt id="f79c66d8-1fdd-45c7-a327-0260d6b35f95">&lt;strong&gt;</bpt>Add New User<ept id="f79c66d8-1fdd-45c7-a327-0260d6b35f95">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d7ceab4-78b9-4731-9068-abb229d07bca" xml:space="preserve">
+          <source><bpt id="b03231e9-8332-44a8-9dcc-3a0d3aa971b4">&lt;linkText&gt;</bpt>Users<ept id="b03231e9-8332-44a8-9dcc-3a0d3aa971b4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b03231e9-8332-44a8-9dcc-3a0d3aa971b4">&lt;linkText&gt;</bpt>Users<ept id="b03231e9-8332-44a8-9dcc-3a0d3aa971b4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac76a6a6-b948-47ce-9754-6389682392ce" xml:space="preserve">
+          <source>The <bpt id="351368fa-2fea-4fdd-922f-cbbaeb4e87ec">&lt;strong&gt;</bpt>Add New User<ept id="351368fa-2fea-4fdd-922f-cbbaeb4e87ec">&lt;/strong&gt;</ept> option is only displayed only if <bpt id="bd935858-4d45-46b9-a3d9-0fc764f825f6">&lt;strong&gt;</bpt>Mozy<ept id="bd935858-4d45-46b9-a3d9-0fc764f825f6">&lt;/strong&gt;</ept> is selected as the provider under <bpt id="82b157c5-2a0c-4d6c-af22-79ce5357c8d1">&lt;strong&gt;</bpt>Authentication policy<ept id="82b157c5-2a0c-4d6c-af22-79ce5357c8d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="351368fa-2fea-4fdd-922f-cbbaeb4e87ec">&lt;strong&gt;</bpt>Add New User<ept id="351368fa-2fea-4fdd-922f-cbbaeb4e87ec">&lt;/strong&gt;</ept> option is only displayed only if <bpt id="bd935858-4d45-46b9-a3d9-0fc764f825f6">&lt;strong&gt;</bpt>Mozy<ept id="bd935858-4d45-46b9-a3d9-0fc764f825f6">&lt;/strong&gt;</ept> is selected as the provider under <bpt id="82b157c5-2a0c-4d6c-af22-79ce5357c8d1">&lt;strong&gt;</bpt>Authentication policy<ept id="82b157c5-2a0c-4d6c-af22-79ce5357c8d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe4ee8cb-2d89-4890-955e-f561a83e9868" xml:space="preserve">
+          <source>If SAML Authentication is configured then the users are added automatically on their first login through Single sign on.</source>
+          <target state="new">If SAML Authentication is configured then the users are added automatically on their first login through Single sign on.</target>
+        </trans-unit>
+        <trans-unit id="7de4277a-f11c-4800-8e8e-f088a6a3d9c2" xml:space="preserve">
+          <source>On the new user dialog, perform the following steps:</source>
+          <target state="new">On the new user dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="17c98273-26ab-4df3-90dc-057684ebc0a3" xml:space="preserve">
+          <source><bpt id="0d0d3fd8-5496-41fe-a737-be148cbaf0ff">&lt;linkText&gt;</bpt>Add Users<ept id="0d0d3fd8-5496-41fe-a737-be148cbaf0ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d0d3fd8-5496-41fe-a737-be148cbaf0ff">&lt;linkText&gt;</bpt>Add Users<ept id="0d0d3fd8-5496-41fe-a737-be148cbaf0ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6819de5e-9f82-4832-99cc-d1de7c49c77c" xml:space="preserve">
+          <source>From the <bpt id="1f754d97-6829-4945-8ca5-6e4bf4cf067f">&lt;strong&gt;</bpt>Choose a Group<ept id="1f754d97-6829-4945-8ca5-6e4bf4cf067f">&lt;/strong&gt;</ept> list, select a group.</source>
+          <target state="new">From the <bpt id="1f754d97-6829-4945-8ca5-6e4bf4cf067f">&lt;strong&gt;</bpt>Choose a Group<ept id="1f754d97-6829-4945-8ca5-6e4bf4cf067f">&lt;/strong&gt;</ept> list, select a group.</target>
+        </trans-unit>
+        <trans-unit id="b6e18ee4-2b0a-4fb3-88e6-9bf41342b22c" xml:space="preserve">
+          <source>From the <bpt id="503e6a63-fcd1-495f-88bb-e4ba8b35aadb">&lt;strong&gt;</bpt>What type of user<ept id="503e6a63-fcd1-495f-88bb-e4ba8b35aadb">&lt;/strong&gt;</ept> list, select a type.</source>
+          <target state="new">From the <bpt id="503e6a63-fcd1-495f-88bb-e4ba8b35aadb">&lt;strong&gt;</bpt>What type of user<ept id="503e6a63-fcd1-495f-88bb-e4ba8b35aadb">&lt;/strong&gt;</ept> list, select a type.</target>
+        </trans-unit>
+        <trans-unit id="4e09caed-9e43-42cf-9abc-5c8313d59024" xml:space="preserve">
+          <source>In the <bpt id="8c9c7592-f7be-4ee9-86fc-6681d4950685">&lt;strong&gt;</bpt>Username<ept id="8c9c7592-f7be-4ee9-86fc-6681d4950685">&lt;/strong&gt;</ept> textbox, type the name of the Azure AD user.</source>
+          <target state="new">In the <bpt id="8c9c7592-f7be-4ee9-86fc-6681d4950685">&lt;strong&gt;</bpt>Username<ept id="8c9c7592-f7be-4ee9-86fc-6681d4950685">&lt;/strong&gt;</ept> textbox, type the name of the Azure AD user.</target>
+        </trans-unit>
+        <trans-unit id="312b4e33-975e-44d2-a10c-c81df496b3f3" xml:space="preserve">
+          <source>In the <bpt id="653a68da-ec8d-4411-b5b9-b4a4cba65277">&lt;strong&gt;</bpt>Email<ept id="653a68da-ec8d-4411-b5b9-b4a4cba65277">&lt;/strong&gt;</ept> textbox, type the email address of the Azure AD user.</source>
+          <target state="new">In the <bpt id="653a68da-ec8d-4411-b5b9-b4a4cba65277">&lt;strong&gt;</bpt>Email<ept id="653a68da-ec8d-4411-b5b9-b4a4cba65277">&lt;/strong&gt;</ept> textbox, type the email address of the Azure AD user.</target>
+        </trans-unit>
+        <trans-unit id="c3ee72bb-f6fc-46a0-9b8e-3eabea1c2f29" xml:space="preserve">
+          <source>Select <bpt id="78b346a6-6ef8-4292-aa34-656eb94b0522">&lt;strong&gt;</bpt>Send user instruction email<ept id="78b346a6-6ef8-4292-aa34-656eb94b0522">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="78b346a6-6ef8-4292-aa34-656eb94b0522">&lt;strong&gt;</bpt>Send user instruction email<ept id="78b346a6-6ef8-4292-aa34-656eb94b0522">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0eb42025-b62e-4f6a-8761-eade35489ebb" xml:space="preserve">
+          <source>Click <bpt id="30e80618-97bc-437e-9ed2-5c5287ff27d8">&lt;strong&gt;</bpt>Add User(s)<ept id="30e80618-97bc-437e-9ed2-5c5287ff27d8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="30e80618-97bc-437e-9ed2-5c5287ff27d8">&lt;strong&gt;</bpt>Add User(s)<ept id="30e80618-97bc-437e-9ed2-5c5287ff27d8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6cfa98f2-999d-45ee-9317-f562120ddb20" xml:space="preserve">
+          <source>After creating the user, an email will be sent to the Azure AD user that includes a link to confirm the account before it becomes active.</source>
+          <target state="new">After creating the user, an email will be sent to the Azure AD user that includes a link to confirm the account before it becomes active.</target>
+        </trans-unit>
+        <trans-unit id="7b937271-0d9c-465b-9ee3-d4ae17f6286e" xml:space="preserve">
+          <source>You can use any other Mozy Enterprise user account creation tools or APIs provided by Mozy Enterprise to provision AAD user accounts.</source>
+          <target state="new">You can use any other Mozy Enterprise user account creation tools or APIs provided by Mozy Enterprise to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="5d3ad25f-9c84-4072-98e0-4d79f1f10de7" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="fa61243c-a264-4148-999d-aba8416b3bb2" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="d918aa66-5841-4855-a3d7-c6544f260656" xml:space="preserve">
+          <source>On the <bpt id="73ea5f95-7d2d-4ce3-bbf7-193bafa32b63">&lt;strong&gt;</bpt>Mozy Enterprise **application integration page, click **Assign users<ept id="73ea5f95-7d2d-4ce3-bbf7-193bafa32b63">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="73ea5f95-7d2d-4ce3-bbf7-193bafa32b63">&lt;strong&gt;</bpt>Mozy Enterprise **application integration page, click **Assign users<ept id="73ea5f95-7d2d-4ce3-bbf7-193bafa32b63">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4383f07-5aac-443b-84ad-85d3ca24d832" xml:space="preserve">
+          <source><bpt id="e1e0a29c-5e80-4560-82fe-da7153f80690">&lt;linkText&gt;</bpt>Assign users<ept id="e1e0a29c-5e80-4560-82fe-da7153f80690">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1e0a29c-5e80-4560-82fe-da7153f80690">&lt;linkText&gt;</bpt>Assign users<ept id="e1e0a29c-5e80-4560-82fe-da7153f80690">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83c483be-416d-46f8-aeb9-0b233dfc1417" xml:space="preserve">
+          <source>Select your test user, click <bpt id="ead39f5e-5f71-442d-891e-1800f35767a8">&lt;strong&gt;</bpt>Assign<ept id="ead39f5e-5f71-442d-891e-1800f35767a8">&lt;/strong&gt;</ept>, and then click <bpt id="03c7b1d2-c24c-48e9-9556-141eeb4c3fa7">&lt;strong&gt;</bpt>Yes<ept id="03c7b1d2-c24c-48e9-9556-141eeb4c3fa7">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="ead39f5e-5f71-442d-891e-1800f35767a8">&lt;strong&gt;</bpt>Assign<ept id="ead39f5e-5f71-442d-891e-1800f35767a8">&lt;/strong&gt;</ept>, and then click <bpt id="03c7b1d2-c24c-48e9-9556-141eeb4c3fa7">&lt;strong&gt;</bpt>Yes<ept id="03c7b1d2-c24c-48e9-9556-141eeb4c3fa7">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="4a20b174-c717-4ce1-acb4-cf8d4404ca40" xml:space="preserve">
+          <source><bpt id="0efa9dfd-91eb-45f1-b16b-56324e534767">&lt;linkText&gt;</bpt>Yes<ept id="0efa9dfd-91eb-45f1-b16b-56324e534767">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0efa9dfd-91eb-45f1-b16b-56324e534767">&lt;linkText&gt;</bpt>Yes<ept id="0efa9dfd-91eb-45f1-b16b-56324e534767">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0ea9b9d-72b7-4b07-8e4e-0003092abd72" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="7b4de57a-9acc-4e0e-ab58-94b881b2265e" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="9899f53b-05ff-4b33-8ae0-f70ecf54156c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="9899f53b-05ff-4b33-8ae0-f70ecf54156c">&lt;/linkText&gt;</ept><bpt id="9899f53b-05ff-4b33-8ae0-f70ecf54156c">&lt;title&gt;</bpt><ept id="9899f53b-05ff-4b33-8ae0-f70ecf54156c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="9899f53b-05ff-4b33-8ae0-f70ecf54156c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="9899f53b-05ff-4b33-8ae0-f70ecf54156c">&lt;/linkText&gt;</ept><bpt id="9899f53b-05ff-4b33-8ae0-f70ecf54156c">&lt;title&gt;</bpt><ept id="9899f53b-05ff-4b33-8ae0-f70ecf54156c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

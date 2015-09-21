@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="94249d9e-d97e-496b-8458-df08b72cc12e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="94249d9e-d97e-496b-8458-df08b72cc12e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c8cfbb09-622b-4b0e-9b3b-bc9e472e62d8">
+        <trans-unit id="372ade1c-12b7-44c3-b458-30bd0e3e7b46" xml:space="preserve">
+          <source>Deploy and configure a SaaS connector API app</source>
+          <target state="new">Deploy and configure a SaaS connector API app</target>
+        </trans-unit>
+        <trans-unit id="887ee5a1-c5e3-49f7-be64-c1f32350aa04" xml:space="preserve">
+          <source>Learn how to configure a SaaS connector that you install in your Azure subscription from the Azure Marketplace.</source>
+          <target state="new">Learn how to configure a SaaS connector that you install in your Azure subscription from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="883bd7d5-4881-4459-9a48-43f6e9e2d7be" xml:space="preserve">
+          <source>This tutorial shows how to install, configure, and test a <bpt id="de46a61d-b72b-450a-aa76-aa26c2e24cba">&lt;linkText&gt;</bpt>Software-as-a-Service (SaaS) connector<ept id="de46a61d-b72b-450a-aa76-aa26c2e24cba">&lt;/linkText&gt;</ept><bpt id="de46a61d-b72b-450a-aa76-aa26c2e24cba">&lt;title&gt;</bpt><ept id="de46a61d-b72b-450a-aa76-aa26c2e24cba">&lt;/title&gt;</ept> in <bpt id="217fe709-e373-4a43-abe8-74cb46e858ff">&lt;linkText&gt;</bpt>Azure App Service<ept id="217fe709-e373-4a43-abe8-74cb46e858ff">&lt;/linkText&gt;</ept><bpt id="217fe709-e373-4a43-abe8-74cb46e858ff">&lt;title&gt;</bpt><ept id="217fe709-e373-4a43-abe8-74cb46e858ff">&lt;/title&gt;</ept> for calling it programmatically, such as from a mobile app.</source>
+          <target state="new">This tutorial shows how to install, configure, and test a <bpt id="de46a61d-b72b-450a-aa76-aa26c2e24cba">&lt;linkText&gt;</bpt>Software-as-a-Service (SaaS) connector<ept id="de46a61d-b72b-450a-aa76-aa26c2e24cba">&lt;/linkText&gt;</ept><bpt id="de46a61d-b72b-450a-aa76-aa26c2e24cba">&lt;title&gt;</bpt><ept id="de46a61d-b72b-450a-aa76-aa26c2e24cba">&lt;/title&gt;</ept> in <bpt id="217fe709-e373-4a43-abe8-74cb46e858ff">&lt;linkText&gt;</bpt>Azure App Service<ept id="217fe709-e373-4a43-abe8-74cb46e858ff">&lt;/linkText&gt;</ept><bpt id="217fe709-e373-4a43-abe8-74cb46e858ff">&lt;title&gt;</bpt><ept id="217fe709-e373-4a43-abe8-74cb46e858ff">&lt;/title&gt;</ept> for calling it programmatically, such as from a mobile app.</target>
+        </trans-unit>
+        <trans-unit id="88d25ad2-5be3-40b4-bae2-2aa37dd830f0" xml:space="preserve">
+          <source>A SaaS connector is an <bpt id="4b8c0104-fb8c-4619-80ba-99c3b58d757d">&lt;linkText&gt;</bpt>API app<ept id="4b8c0104-fb8c-4619-80ba-99c3b58d757d">&lt;/linkText&gt;</ept><bpt id="4b8c0104-fb8c-4619-80ba-99c3b58d757d">&lt;title&gt;</bpt><ept id="4b8c0104-fb8c-4619-80ba-99c3b58d757d">&lt;/title&gt;</ept> that simplifies interaction with a SaaS platform such as Office 365, Salesforce, Facebook, and Dropbox.</source>
+          <target state="new">A SaaS connector is an <bpt id="4b8c0104-fb8c-4619-80ba-99c3b58d757d">&lt;linkText&gt;</bpt>API app<ept id="4b8c0104-fb8c-4619-80ba-99c3b58d757d">&lt;/linkText&gt;</ept><bpt id="4b8c0104-fb8c-4619-80ba-99c3b58d757d">&lt;title&gt;</bpt><ept id="4b8c0104-fb8c-4619-80ba-99c3b58d757d">&lt;/title&gt;</ept> that simplifies interaction with a SaaS platform such as Office 365, Salesforce, Facebook, and Dropbox.</target>
+        </trans-unit>
+        <trans-unit id="5b1bb966-46b2-49a6-846e-e33942f29954" xml:space="preserve">
+          <source>If instead of using a prepackaged connector you want to create a custom .NET API app, see <bpt id="e8161f63-2bbc-4a32-8079-168b8572d570">&lt;linkText&gt;</bpt>Connect to a SaaS platform from an ASP.NET API app<ept id="e8161f63-2bbc-4a32-8079-168b8572d570">&lt;/linkText&gt;</ept><bpt id="e8161f63-2bbc-4a32-8079-168b8572d570">&lt;title&gt;</bpt><ept id="e8161f63-2bbc-4a32-8079-168b8572d570">&lt;/title&gt;</ept>.</source>
+          <target state="new">If instead of using a prepackaged connector you want to create a custom .NET API app, see <bpt id="e8161f63-2bbc-4a32-8079-168b8572d570">&lt;linkText&gt;</bpt>Connect to a SaaS platform from an ASP.NET API app<ept id="e8161f63-2bbc-4a32-8079-168b8572d570">&lt;/linkText&gt;</ept><bpt id="e8161f63-2bbc-4a32-8079-168b8572d570">&lt;title&gt;</bpt><ept id="e8161f63-2bbc-4a32-8079-168b8572d570">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b374e5c5-9d77-4265-bf67-7d49f5652c32" xml:space="preserve">
+          <source>For example, if you want to code HTTP requests to read and write files in your Dropbox account, the authentication process for working directly with Dropbox is complicated.</source>
+          <target state="new">For example, if you want to code HTTP requests to read and write files in your Dropbox account, the authentication process for working directly with Dropbox is complicated.</target>
+        </trans-unit>
+        <trans-unit id="bbb65c4f-00eb-4bff-a656-9be97ea8cc12" xml:space="preserve">
+          <source>A Dropbox connector takes care of the complexity of authentication so that you can focus on writing your business-specific code.</source>
+          <target state="new">A Dropbox connector takes care of the complexity of authentication so that you can focus on writing your business-specific code.</target>
+        </trans-unit>
+        <trans-unit id="d228ee14-24c6-4c20-b969-1c5165812de1" xml:space="preserve">
+          <source>The instructions here are not required if you want to use a SaaS connector from a logic app. For information  about how to use SaaS connectors inside logic apps, see <bpt id="017a8341-136a-439f-bf71-39d7d02334bc">&lt;linkText&gt;</bpt>Create a new logic app<ept id="017a8341-136a-439f-bf71-39d7d02334bc">&lt;/linkText&gt;</ept><bpt id="017a8341-136a-439f-bf71-39d7d02334bc">&lt;title&gt;</bpt><ept id="017a8341-136a-439f-bf71-39d7d02334bc">&lt;/title&gt;</ept> and <bpt id="50569ec4-b871-4656-8c2c-f9beeb40b3d5">&lt;linkText&gt;</bpt>Using custom OAUTH Application in Connectors<ept id="50569ec4-b871-4656-8c2c-f9beeb40b3d5">&lt;/linkText&gt;</ept><bpt id="50569ec4-b871-4656-8c2c-f9beeb40b3d5">&lt;title&gt;</bpt><ept id="50569ec4-b871-4656-8c2c-f9beeb40b3d5">&lt;/title&gt;</ept>.</source>
+          <target state="new">The instructions here are not required if you want to use a SaaS connector from a logic app. For information  about how to use SaaS connectors inside logic apps, see <bpt id="017a8341-136a-439f-bf71-39d7d02334bc">&lt;linkText&gt;</bpt>Create a new logic app<ept id="017a8341-136a-439f-bf71-39d7d02334bc">&lt;/linkText&gt;</ept><bpt id="017a8341-136a-439f-bf71-39d7d02334bc">&lt;title&gt;</bpt><ept id="017a8341-136a-439f-bf71-39d7d02334bc">&lt;/title&gt;</ept> and <bpt id="50569ec4-b871-4656-8c2c-f9beeb40b3d5">&lt;linkText&gt;</bpt>Using custom OAUTH Application in Connectors<ept id="50569ec4-b871-4656-8c2c-f9beeb40b3d5">&lt;/linkText&gt;</ept><bpt id="50569ec4-b871-4656-8c2c-f9beeb40b3d5">&lt;title&gt;</bpt><ept id="50569ec4-b871-4656-8c2c-f9beeb40b3d5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6330af4-be4c-4c6a-9d71-0de557542270" xml:space="preserve">
+          <source>This tutorial uses a DropBox connector as an example and walks you through the following steps:</source>
+          <target state="new">This tutorial uses a DropBox connector as an example and walks you through the following steps:</target>
+        </trans-unit>
+        <trans-unit id="e7ae7b13-a037-4177-b82c-367bdff4ede3" xml:space="preserve">
+          <source>Install the Dropbox connector in a <bpt id="35107dc9-c974-49e2-9cbf-117e21185081">&lt;linkText&gt;</bpt>resource group<ept id="35107dc9-c974-49e2-9cbf-117e21185081">&lt;/linkText&gt;</ept><bpt id="35107dc9-c974-49e2-9cbf-117e21185081">&lt;title&gt;</bpt><ept id="35107dc9-c974-49e2-9cbf-117e21185081">&lt;/title&gt;</ept> in your Azure subscription.</source>
+          <target state="new">Install the Dropbox connector in a <bpt id="35107dc9-c974-49e2-9cbf-117e21185081">&lt;linkText&gt;</bpt>resource group<ept id="35107dc9-c974-49e2-9cbf-117e21185081">&lt;/linkText&gt;</ept><bpt id="35107dc9-c974-49e2-9cbf-117e21185081">&lt;title&gt;</bpt><ept id="35107dc9-c974-49e2-9cbf-117e21185081">&lt;/title&gt;</ept> in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="48688c63-94fc-4a85-a60b-0562e0764e5c" xml:space="preserve">
+          <source>Configure the Dropbox connector so that it can connect to the Dropbox service.</source>
+          <target state="new">Configure the Dropbox connector so that it can connect to the Dropbox service.</target>
+        </trans-unit>
+        <trans-unit id="f1d9264b-df86-4bac-8192-6990d3bc1416" xml:space="preserve">
+          <source>(To complete this step you'll need a Dropbox account.)</source>
+          <target state="new">(To complete this step you'll need a Dropbox account.)</target>
+        </trans-unit>
+        <trans-unit id="4479e204-38d4-42d6-8cde-8bb27db6cc2c" xml:space="preserve">
+          <source>Configure the resource group so that only authenticated users can access API apps that are included in the resource group.</source>
+          <target state="new">Configure the resource group so that only authenticated users can access API apps that are included in the resource group.</target>
+        </trans-unit>
+        <trans-unit id="c206a449-d42e-4ebb-ad7b-9b3cf95e25f2" xml:space="preserve">
+          <source>Test to verify that both user authentication and Dropbox authentication work.</source>
+          <target state="new">Test to verify that both user authentication and Dropbox authentication work.</target>
+        </trans-unit>
+        <trans-unit id="5a097767-ac00-42d9-b011-815d4a1abeff" xml:space="preserve">
+          <source>For more information about authentication in App Service, see <bpt id="3c6d1a4d-06e6-4d20-a9cd-17f583f45ea2">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps<ept id="3c6d1a4d-06e6-4d20-a9cd-17f583f45ea2">&lt;/linkText&gt;</ept><bpt id="3c6d1a4d-06e6-4d20-a9cd-17f583f45ea2">&lt;title&gt;</bpt><ept id="3c6d1a4d-06e6-4d20-a9cd-17f583f45ea2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about authentication in App Service, see <bpt id="3c6d1a4d-06e6-4d20-a9cd-17f583f45ea2">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps<ept id="3c6d1a4d-06e6-4d20-a9cd-17f583f45ea2">&lt;/linkText&gt;</ept><bpt id="3c6d1a4d-06e6-4d20-a9cd-17f583f45ea2">&lt;title&gt;</bpt><ept id="3c6d1a4d-06e6-4d20-a9cd-17f583f45ea2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3770b747-2a10-4c4a-8b06-9743e8204f27" xml:space="preserve">
+          <source>Go to the [Azure preview portal] home page and click <bpt id="e91c9807-d2e4-4e59-99dd-65041c429c59">&lt;strong&gt;</bpt>Marketplace<ept id="e91c9807-d2e4-4e59-99dd-65041c429c59">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to the [Azure preview portal] home page and click <bpt id="e91c9807-d2e4-4e59-99dd-65041c429c59">&lt;strong&gt;</bpt>Marketplace<ept id="e91c9807-d2e4-4e59-99dd-65041c429c59">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7e722d0-6c79-42d4-8af1-f92e9d270f3f" xml:space="preserve">
+          <source><bpt id="9163a1d4-564d-46a6-bbd2-5007756d6bd7">&lt;linkText&gt;</bpt>Marketplace in Azure preview portal<ept id="9163a1d4-564d-46a6-bbd2-5007756d6bd7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9163a1d4-564d-46a6-bbd2-5007756d6bd7">&lt;linkText&gt;</bpt>Marketplace in Azure preview portal<ept id="9163a1d4-564d-46a6-bbd2-5007756d6bd7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc4260a4-648a-4666-9a16-d3509a4bd0c9" xml:space="preserve">
+          <source>Search for Dropbox, and then click the <bpt id="396b62e4-cf8a-4f20-a491-445c9c7876ed">&lt;strong&gt;</bpt>Dropbox Connector<ept id="396b62e4-cf8a-4f20-a491-445c9c7876ed">&lt;/strong&gt;</ept> icon.</source>
+          <target state="new">Search for Dropbox, and then click the <bpt id="396b62e4-cf8a-4f20-a491-445c9c7876ed">&lt;strong&gt;</bpt>Dropbox Connector<ept id="396b62e4-cf8a-4f20-a491-445c9c7876ed">&lt;/strong&gt;</ept> icon.</target>
+        </trans-unit>
+        <trans-unit id="8431149d-0064-4ef0-a58c-4745d5a8f8e2" xml:space="preserve">
+          <source><bpt id="ddf42c19-9786-4e24-ba84-fca747e8c18d">&lt;linkText&gt;</bpt>Click Dropbox Connector<ept id="ddf42c19-9786-4e24-ba84-fca747e8c18d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ddf42c19-9786-4e24-ba84-fca747e8c18d">&lt;linkText&gt;</bpt>Click Dropbox Connector<ept id="ddf42c19-9786-4e24-ba84-fca747e8c18d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="758bf995-cd5d-469c-b43f-0ea64f997757" xml:space="preserve">
+          <source>Click <bpt id="38701506-eee4-461f-97dc-cbb1bb4b5027">&lt;strong&gt;</bpt>Create<ept id="38701506-eee4-461f-97dc-cbb1bb4b5027">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="38701506-eee4-461f-97dc-cbb1bb4b5027">&lt;strong&gt;</bpt>Create<ept id="38701506-eee4-461f-97dc-cbb1bb4b5027">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8040025-829a-4d98-b3b7-8e3e4ed9f4e2" xml:space="preserve">
+          <source><bpt id="b0b203d1-ba76-4b4d-a7fc-00db241746aa">&lt;linkText&gt;</bpt>Click Create<ept id="b0b203d1-ba76-4b4d-a7fc-00db241746aa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b0b203d1-ba76-4b4d-a7fc-00db241746aa">&lt;linkText&gt;</bpt>Click Create<ept id="b0b203d1-ba76-4b4d-a7fc-00db241746aa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfd0ed58-e93c-4686-b0ac-3a56cae0d4d4" xml:space="preserve">
+          <source>In the <bpt id="8a309ca0-7100-4c04-83db-b03f0e7038ae">&lt;strong&gt;</bpt>Dropbox Connector<ept id="8a309ca0-7100-4c04-83db-b03f0e7038ae">&lt;/strong&gt;</ept> blade, under <bpt id="bcbb55e5-5f9a-46e4-a4e7-24c0536f82d9">&lt;strong&gt;</bpt>App Service plan<ept id="bcbb55e5-5f9a-46e4-a4e7-24c0536f82d9">&lt;/strong&gt;</ept> click <bpt id="966bea88-5c8c-4ae6-b78d-d228e6870a14">&lt;strong&gt;</bpt>Create New<ept id="966bea88-5c8c-4ae6-b78d-d228e6870a14">&lt;/strong&gt;</ept>, and then in the <bpt id="da78861d-f3c1-4fba-952e-26b9b3270aa1">&lt;strong&gt;</bpt>Create new App Service plan<ept id="da78861d-f3c1-4fba-952e-26b9b3270aa1">&lt;/strong&gt;</ept> box enter DropBoxPlan.</source>
+          <target state="new">In the <bpt id="8a309ca0-7100-4c04-83db-b03f0e7038ae">&lt;strong&gt;</bpt>Dropbox Connector<ept id="8a309ca0-7100-4c04-83db-b03f0e7038ae">&lt;/strong&gt;</ept> blade, under <bpt id="bcbb55e5-5f9a-46e4-a4e7-24c0536f82d9">&lt;strong&gt;</bpt>App Service plan<ept id="bcbb55e5-5f9a-46e4-a4e7-24c0536f82d9">&lt;/strong&gt;</ept> click <bpt id="966bea88-5c8c-4ae6-b78d-d228e6870a14">&lt;strong&gt;</bpt>Create New<ept id="966bea88-5c8c-4ae6-b78d-d228e6870a14">&lt;/strong&gt;</ept>, and then in the <bpt id="da78861d-f3c1-4fba-952e-26b9b3270aa1">&lt;strong&gt;</bpt>Create new App Service plan<ept id="da78861d-f3c1-4fba-952e-26b9b3270aa1">&lt;/strong&gt;</ept> box enter DropBoxPlan.</target>
+        </trans-unit>
+        <trans-unit id="f245cce7-ab49-4d7d-b27f-a937f6502e97" xml:space="preserve">
+          <source>For more information about App Service plans, see <bpt id="99ca6aa4-90b9-492b-b428-b7e28a570086">&lt;linkText&gt;</bpt>Azure App Service plans in-depth overview<ept id="99ca6aa4-90b9-492b-b428-b7e28a570086">&lt;/linkText&gt;</ept><bpt id="99ca6aa4-90b9-492b-b428-b7e28a570086">&lt;title&gt;</bpt><ept id="99ca6aa4-90b9-492b-b428-b7e28a570086">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about App Service plans, see <bpt id="99ca6aa4-90b9-492b-b428-b7e28a570086">&lt;linkText&gt;</bpt>Azure App Service plans in-depth overview<ept id="99ca6aa4-90b9-492b-b428-b7e28a570086">&lt;/linkText&gt;</ept><bpt id="99ca6aa4-90b9-492b-b428-b7e28a570086">&lt;title&gt;</bpt><ept id="99ca6aa4-90b9-492b-b428-b7e28a570086">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="589eda13-558a-400d-9588-3b964991dab9" xml:space="preserve">
+          <source>Under <bpt id="6df0145b-b7b4-40cc-b359-0d983d0e4141">&lt;strong&gt;</bpt>Resource Group<ept id="6df0145b-b7b4-40cc-b359-0d983d0e4141">&lt;/strong&gt;</ept>, click <bpt id="045e478a-4bbb-4a3e-89cb-a2b9b3dc8424">&lt;strong&gt;</bpt>Create New<ept id="045e478a-4bbb-4a3e-89cb-a2b9b3dc8424">&lt;/strong&gt;</ept>, and then in the <bpt id="ee8b67bf-bc71-4f3a-8a36-1da2bfc1415c">&lt;strong&gt;</bpt>Create New Resource Group<ept id="ee8b67bf-bc71-4f3a-8a36-1da2bfc1415c">&lt;/strong&gt;</ept> box enter DropboxRG.</source>
+          <target state="new">Under <bpt id="6df0145b-b7b4-40cc-b359-0d983d0e4141">&lt;strong&gt;</bpt>Resource Group<ept id="6df0145b-b7b4-40cc-b359-0d983d0e4141">&lt;/strong&gt;</ept>, click <bpt id="045e478a-4bbb-4a3e-89cb-a2b9b3dc8424">&lt;strong&gt;</bpt>Create New<ept id="045e478a-4bbb-4a3e-89cb-a2b9b3dc8424">&lt;/strong&gt;</ept>, and then in the <bpt id="ee8b67bf-bc71-4f3a-8a36-1da2bfc1415c">&lt;strong&gt;</bpt>Create New Resource Group<ept id="ee8b67bf-bc71-4f3a-8a36-1da2bfc1415c">&lt;/strong&gt;</ept> box enter DropboxRG.</target>
+        </trans-unit>
+        <trans-unit id="b5f82d67-7335-4042-919a-0f02df3ceda6" xml:space="preserve">
+          <source>For more information about resource groups, see <bpt id="f9193bde-3f16-462a-ab47-009135e4e436">&lt;linkText&gt;</bpt>Using resource groups to manage your Azure resources<ept id="f9193bde-3f16-462a-ab47-009135e4e436">&lt;/linkText&gt;</ept><bpt id="f9193bde-3f16-462a-ab47-009135e4e436">&lt;title&gt;</bpt><ept id="f9193bde-3f16-462a-ab47-009135e4e436">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about resource groups, see <bpt id="f9193bde-3f16-462a-ab47-009135e4e436">&lt;linkText&gt;</bpt>Using resource groups to manage your Azure resources<ept id="f9193bde-3f16-462a-ab47-009135e4e436">&lt;/linkText&gt;</ept><bpt id="f9193bde-3f16-462a-ab47-009135e4e436">&lt;title&gt;</bpt><ept id="f9193bde-3f16-462a-ab47-009135e4e436">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f6e2712-d698-4825-9851-94666d889ffd" xml:space="preserve">
+          <source>Select the Free <bpt id="3433debb-6df1-45c1-9a39-cfc310b754c7">&lt;strong&gt;</bpt>Pricing Tier<ept id="3433debb-6df1-45c1-9a39-cfc310b754c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the Free <bpt id="3433debb-6df1-45c1-9a39-cfc310b754c7">&lt;strong&gt;</bpt>Pricing Tier<ept id="3433debb-6df1-45c1-9a39-cfc310b754c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6340f669-bdff-46ca-8d3c-f2a6e379a0c3" xml:space="preserve">
+          <source>(If you don't see it in the list, click <bpt id="fb199611-d18a-46b2-b3be-551e9fc5b756">&lt;strong&gt;</bpt>View All<ept id="fb199611-d18a-46b2-b3be-551e9fc5b756">&lt;/strong&gt;</ept>.</source>
+          <target state="new">(If you don't see it in the list, click <bpt id="fb199611-d18a-46b2-b3be-551e9fc5b756">&lt;strong&gt;</bpt>View All<ept id="fb199611-d18a-46b2-b3be-551e9fc5b756">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1046def-37f5-4fe0-a0f4-7674bc327044" xml:space="preserve">
+          <source>After you click <bpt id="1c407cb1-2ecf-447c-b8c1-03af2565ace4">&lt;strong&gt;</bpt>F1 Free<ept id="1c407cb1-2ecf-447c-b8c1-03af2565ace4">&lt;/strong&gt;</ept>, click the <bpt id="2776a07c-05d4-47ad-8cae-265c16c6b14d">&lt;strong&gt;</bpt>Select<ept id="2776a07c-05d4-47ad-8cae-265c16c6b14d">&lt;/strong&gt;</ept> button.)</source>
+          <target state="new">After you click <bpt id="1c407cb1-2ecf-447c-b8c1-03af2565ace4">&lt;strong&gt;</bpt>F1 Free<ept id="1c407cb1-2ecf-447c-b8c1-03af2565ace4">&lt;/strong&gt;</ept>, click the <bpt id="2776a07c-05d4-47ad-8cae-265c16c6b14d">&lt;strong&gt;</bpt>Select<ept id="2776a07c-05d4-47ad-8cae-265c16c6b14d">&lt;/strong&gt;</ept> button.)</target>
+        </trans-unit>
+        <trans-unit id="6c017f88-b16a-4b94-8003-4960ad94a259" xml:space="preserve">
+          <source>You can use a paid pricing tier, but it isn't required for this tutorial.</source>
+          <target state="new">You can use a paid pricing tier, but it isn't required for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="67aa6c88-98a8-441c-82c0-fe7a79c74613" xml:space="preserve">
+          <source>Choose a <bpt id="17eb9880-552e-4b3f-ae4d-d93147f259e9">&lt;strong&gt;</bpt>Location<ept id="17eb9880-552e-4b3f-ae4d-d93147f259e9">&lt;/strong&gt;</ept> close to you.</source>
+          <target state="new">Choose a <bpt id="17eb9880-552e-4b3f-ae4d-d93147f259e9">&lt;strong&gt;</bpt>Location<ept id="17eb9880-552e-4b3f-ae4d-d93147f259e9">&lt;/strong&gt;</ept> close to you.</target>
+        </trans-unit>
+        <trans-unit id="9e97921d-bd8a-4be8-9817-2a8087ac3dce" xml:space="preserve">
+          <source><bpt id="3557ead8-9d3d-4a2d-af07-109e3935bbf6">&lt;bookmark&gt;</bpt><ept id="3557ead8-9d3d-4a2d-af07-109e3935bbf6">&lt;/bookmark&gt;</ept>Keep the default "DropboxConnector" as the <bpt id="f51343ff-a6af-4a9b-b76d-606aa2d4e592">&lt;strong&gt;</bpt>Name<ept id="f51343ff-a6af-4a9b-b76d-606aa2d4e592">&lt;/strong&gt;</ept> of the connector, and then click <bpt id="03c54fdc-3ddd-4a77-9565-9e940bbc68f9">&lt;strong&gt;</bpt>Create<ept id="03c54fdc-3ddd-4a77-9565-9e940bbc68f9">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3557ead8-9d3d-4a2d-af07-109e3935bbf6">&lt;bookmark&gt;</bpt><ept id="3557ead8-9d3d-4a2d-af07-109e3935bbf6">&lt;/bookmark&gt;</ept>Keep the default "DropboxConnector" as the <bpt id="f51343ff-a6af-4a9b-b76d-606aa2d4e592">&lt;strong&gt;</bpt>Name<ept id="f51343ff-a6af-4a9b-b76d-606aa2d4e592">&lt;/strong&gt;</ept> of the connector, and then click <bpt id="03c54fdc-3ddd-4a77-9565-9e940bbc68f9">&lt;strong&gt;</bpt>Create<ept id="03c54fdc-3ddd-4a77-9565-9e940bbc68f9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14d9249f-00d0-4fc2-95b8-b5d9d44836a5" xml:space="preserve">
+          <source><bpt id="41f0fbbf-5a69-41e4-8035-0a89bda2b549">&lt;linkText&gt;</bpt>Click create<ept id="41f0fbbf-5a69-41e4-8035-0a89bda2b549">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="41f0fbbf-5a69-41e4-8035-0a89bda2b549">&lt;linkText&gt;</bpt>Click create<ept id="41f0fbbf-5a69-41e4-8035-0a89bda2b549">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="176943c5-eb75-4c97-af86-606086c528bf" xml:space="preserve">
+          <source>Azure App Service creates a resource group, and in the resource group it creates a Dropbox connector API app, and a <bpt id="069968a1-12a6-4c05-9e7e-30adc493e4eb">&lt;em&gt;</bpt>gateway<ept id="069968a1-12a6-4c05-9e7e-30adc493e4eb">&lt;/em&gt;</ept> web app.</source>
+          <target state="new">Azure App Service creates a resource group, and in the resource group it creates a Dropbox connector API app, and a <bpt id="069968a1-12a6-4c05-9e7e-30adc493e4eb">&lt;em&gt;</bpt>gateway<ept id="069968a1-12a6-4c05-9e7e-30adc493e4eb">&lt;/em&gt;</ept> web app.</target>
+        </trans-unit>
+        <trans-unit id="16e16c91-bd58-4282-bdb9-cb9c074357a2" xml:space="preserve">
+          <source>The gateway's function is to manage access to all API apps in the resource group.</source>
+          <target state="new">The gateway's function is to manage access to all API apps in the resource group.</target>
+        </trans-unit>
+        <trans-unit id="ecfff407-5a62-443c-9ba8-f89f9e522a12" xml:space="preserve">
+          <source>You can check the progress of resource creation by clicking <bpt id="bdb27fc0-eb01-4c29-94c2-411c1e9db8a1">&lt;strong&gt;</bpt>Notifications<ept id="bdb27fc0-eb01-4c29-94c2-411c1e9db8a1">&lt;/strong&gt;</ept> on the Azure preview portal home page.</source>
+          <target state="new">You can check the progress of resource creation by clicking <bpt id="bdb27fc0-eb01-4c29-94c2-411c1e9db8a1">&lt;strong&gt;</bpt>Notifications<ept id="bdb27fc0-eb01-4c29-94c2-411c1e9db8a1">&lt;/strong&gt;</ept> on the Azure preview portal home page.</target>
+        </trans-unit>
+        <trans-unit id="58d9454a-d6cf-403b-b272-e99720bab435" xml:space="preserve">
+          <source>When Azure finishes creating the connector, click <bpt id="df34358f-d2ef-43ea-8323-2fa47f584e18">&lt;strong&gt;</bpt>Browse &gt; Resource groups &gt; DropboxRG<ept id="df34358f-d2ef-43ea-8323-2fa47f584e18">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When Azure finishes creating the connector, click <bpt id="df34358f-d2ef-43ea-8323-2fa47f584e18">&lt;strong&gt;</bpt>Browse &gt; Resource groups &gt; DropboxRG<ept id="df34358f-d2ef-43ea-8323-2fa47f584e18">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5170da6b-9ef7-448a-9830-9880c61f4a39" xml:space="preserve">
+          <source>The <bpt id="13d4b989-50cb-4a8f-9082-aa11f617899c">&lt;strong&gt;</bpt>Resource Group<ept id="13d4b989-50cb-4a8f-9082-aa11f617899c">&lt;/strong&gt;</ept> blade for DropboxRG shows the connector and the gateway in the resource group.</source>
+          <target state="new">The <bpt id="13d4b989-50cb-4a8f-9082-aa11f617899c">&lt;strong&gt;</bpt>Resource Group<ept id="13d4b989-50cb-4a8f-9082-aa11f617899c">&lt;/strong&gt;</ept> blade for DropboxRG shows the connector and the gateway in the resource group.</target>
+        </trans-unit>
+        <trans-unit id="e8186ea2-1e29-44ef-961b-e2a6caeb6184" xml:space="preserve">
+          <source><bpt id="66d56aaf-ec71-4140-b5be-16650501c4df">&lt;linkText&gt;</bpt>Resource group diagram<ept id="66d56aaf-ec71-4140-b5be-16650501c4df">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="66d56aaf-ec71-4140-b5be-16650501c4df">&lt;linkText&gt;</bpt>Resource group diagram<ept id="66d56aaf-ec71-4140-b5be-16650501c4df">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c1c00cc3-c8e1-4535-be61-77556f627375" xml:space="preserve">
+          <source>To enable API access to your Dropbox account, you have to create a Dropbox app on the Dropbox developer site.</source>
+          <target state="new">To enable API access to your Dropbox account, you have to create a Dropbox app on the Dropbox developer site.</target>
+        </trans-unit>
+        <trans-unit id="cfdb74fe-a317-462f-a24a-b9d4828a80ea" xml:space="preserve">
+          <source>Then you copy the client ID and client secret values from that Dropbox app to your Dropbox connector, and you set the connector to accept only authenticated requests.</source>
+          <target state="new">Then you copy the client ID and client secret values from that Dropbox app to your Dropbox connector, and you set the connector to accept only authenticated requests.</target>
+        </trans-unit>
+        <trans-unit id="7a1a578e-9a7e-4631-819a-7d4d7fa6de46" xml:space="preserve">
+          <source><bpt id="31e0411d-5615-4971-a0cb-c790248e4de8">&lt;token href="../../includes/app-service-api-create-dropbox-app.md"&gt;</bpt><ept id="31e0411d-5615-4971-a0cb-c790248e4de8">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="31e0411d-5615-4971-a0cb-c790248e4de8">&lt;token href="../../includes/app-service-api-create-dropbox-app.md"&gt;</bpt><ept id="31e0411d-5615-4971-a0cb-c790248e4de8">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="360367b0-589c-4821-90f8-071936504fe5" xml:space="preserve">
+          <source><bpt id="381fe209-27d2-4678-a31b-1d0b53393f4a">&lt;token href="../../includes/app-service-api-exchange-dropbox-settings.md"&gt;</bpt><ept id="381fe209-27d2-4678-a31b-1d0b53393f4a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="381fe209-27d2-4678-a31b-1d0b53393f4a">&lt;token href="../../includes/app-service-api-exchange-dropbox-settings.md"&gt;</bpt><ept id="381fe209-27d2-4678-a31b-1d0b53393f4a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f544ba47-bff6-4027-b6de-917d1681965c" xml:space="preserve">
+          <source>By default the connector's <bpt id="51a440f5-03e3-4d5e-99d7-f73fbe68f481">&lt;strong&gt;</bpt>Access level<ept id="51a440f5-03e3-4d5e-99d7-f73fbe68f481">&lt;/strong&gt;</ept> is set to <bpt id="20152809-e612-4763-a73f-e1e8904da956">&lt;strong&gt;</bpt>Internal<ept id="20152809-e612-4763-a73f-e1e8904da956">&lt;/strong&gt;</ept>, meaning it can only be called by other API apps and web apps in the same resource group.</source>
+          <target state="new">By default the connector's <bpt id="51a440f5-03e3-4d5e-99d7-f73fbe68f481">&lt;strong&gt;</bpt>Access level<ept id="51a440f5-03e3-4d5e-99d7-f73fbe68f481">&lt;/strong&gt;</ept> is set to <bpt id="20152809-e612-4763-a73f-e1e8904da956">&lt;strong&gt;</bpt>Internal<ept id="20152809-e612-4763-a73f-e1e8904da956">&lt;/strong&gt;</ept>, meaning it can only be called by other API apps and web apps in the same resource group.</target>
+        </trans-unit>
+        <trans-unit id="cdde1369-d806-482b-a747-e2804dda6abe" xml:space="preserve">
+          <source>But Dropbox allows only authenticated users to access your Dropbox account, so you have to change the access level setting to require user authentication.</source>
+          <target state="new">But Dropbox allows only authenticated users to access your Dropbox account, so you have to change the access level setting to require user authentication.</target>
+        </trans-unit>
+        <trans-unit id="3b8cfbd7-514c-4695-9e8f-f0b48ad0a359" xml:space="preserve">
+          <source>Go back to the <bpt id="74faae9a-847e-4caa-9681-69f1227ec0e2">&lt;strong&gt;</bpt>Settings<ept id="74faae9a-847e-4caa-9681-69f1227ec0e2">&lt;/strong&gt;</ept> blade, and click <bpt id="2c9d8dde-532f-414b-aaad-15dab1b8726b">&lt;strong&gt;</bpt>Application settings<ept id="2c9d8dde-532f-414b-aaad-15dab1b8726b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go back to the <bpt id="74faae9a-847e-4caa-9681-69f1227ec0e2">&lt;strong&gt;</bpt>Settings<ept id="74faae9a-847e-4caa-9681-69f1227ec0e2">&lt;/strong&gt;</ept> blade, and click <bpt id="2c9d8dde-532f-414b-aaad-15dab1b8726b">&lt;strong&gt;</bpt>Application settings<ept id="2c9d8dde-532f-414b-aaad-15dab1b8726b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92b138d1-0ef4-4cd3-8e9f-1d0d0e0c2a0c" xml:space="preserve">
+          <source>In the <bpt id="3a73567f-70a9-4b72-9a5e-90f10e4894b1">&lt;strong&gt;</bpt>Application settings<ept id="3a73567f-70a9-4b72-9a5e-90f10e4894b1">&lt;/strong&gt;</ept> blade, set <bpt id="80d6bb33-458e-43bb-8ec7-894c3d8d5cfc">&lt;strong&gt;</bpt>Access level<ept id="80d6bb33-458e-43bb-8ec7-894c3d8d5cfc">&lt;/strong&gt;</ept> to <bpt id="6f2fab55-d0e4-421c-aca2-e618261d443d">&lt;strong&gt;</bpt>Public (authenticated)<ept id="6f2fab55-d0e4-421c-aca2-e618261d443d">&lt;/strong&gt;</ept>, and then click <bpt id="224e80a0-50e6-4540-a364-2350f6e03483">&lt;strong&gt;</bpt>Save<ept id="224e80a0-50e6-4540-a364-2350f6e03483">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="3a73567f-70a9-4b72-9a5e-90f10e4894b1">&lt;strong&gt;</bpt>Application settings<ept id="3a73567f-70a9-4b72-9a5e-90f10e4894b1">&lt;/strong&gt;</ept> blade, set <bpt id="80d6bb33-458e-43bb-8ec7-894c3d8d5cfc">&lt;strong&gt;</bpt>Access level<ept id="80d6bb33-458e-43bb-8ec7-894c3d8d5cfc">&lt;/strong&gt;</ept> to <bpt id="6f2fab55-d0e4-421c-aca2-e618261d443d">&lt;strong&gt;</bpt>Public (authenticated)<ept id="6f2fab55-d0e4-421c-aca2-e618261d443d">&lt;/strong&gt;</ept>, and then click <bpt id="224e80a0-50e6-4540-a364-2350f6e03483">&lt;strong&gt;</bpt>Save<ept id="224e80a0-50e6-4540-a364-2350f6e03483">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f493b304-e7f1-4ad3-bc54-465e3cf48fd7" xml:space="preserve">
+          <source><bpt id="e69591d4-8d6a-4c66-88a5-31b9765a5287">&lt;linkText&gt;</bpt>Set to Public (authenticated)<ept id="e69591d4-8d6a-4c66-88a5-31b9765a5287">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e69591d4-8d6a-4c66-88a5-31b9765a5287">&lt;linkText&gt;</bpt>Set to Public (authenticated)<ept id="e69591d4-8d6a-4c66-88a5-31b9765a5287">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb380a45-80c2-4666-8c95-ff3be98f0a9c" xml:space="preserve">
+          <source>You have now configured the Dropbox Connector so that outgoing calls can access your Dropbox account, and incoming calls must be from authenticated users.</source>
+          <target state="new">You have now configured the Dropbox Connector so that outgoing calls can access your Dropbox account, and incoming calls must be from authenticated users.</target>
+        </trans-unit>
+        <trans-unit id="d6db00e4-baee-4bbd-8c5f-c8597237b5aa" xml:space="preserve">
+          <source>In the next section you specify which authentication provider you want to use to authenticate users.</source>
+          <target state="new">In the next section you specify which authentication provider you want to use to authenticate users.</target>
+        </trans-unit>
+        <trans-unit id="8c6e2303-3583-4cc0-a092-2ccf3ea99a77" xml:space="preserve">
+          <source>As explained <bpt id="cbe4af47-a8b1-4bd8-a13c-a2ecf8f913f8">&lt;linkText&gt;</bpt>earlier<ept id="cbe4af47-a8b1-4bd8-a13c-a2ecf8f913f8">&lt;/linkText&gt;</ept><bpt id="cbe4af47-a8b1-4bd8-a13c-a2ecf8f913f8">&lt;title&gt;</bpt><ept id="cbe4af47-a8b1-4bd8-a13c-a2ecf8f913f8">&lt;/title&gt;</ept>, the gateway is a special web app that manages access to all API apps in a resource group.</source>
+          <target state="new">As explained <bpt id="cbe4af47-a8b1-4bd8-a13c-a2ecf8f913f8">&lt;linkText&gt;</bpt>earlier<ept id="cbe4af47-a8b1-4bd8-a13c-a2ecf8f913f8">&lt;/linkText&gt;</ept><bpt id="cbe4af47-a8b1-4bd8-a13c-a2ecf8f913f8">&lt;title&gt;</bpt><ept id="cbe4af47-a8b1-4bd8-a13c-a2ecf8f913f8">&lt;/title&gt;</ept>, the gateway is a special web app that manages access to all API apps in a resource group.</target>
+        </trans-unit>
+        <trans-unit id="72dee90e-1209-49b4-87c7-66a115dcbf80" xml:space="preserve">
+          <source>To set up the gateway to authenticate users, you choose an authentication provider such as Azure Active Directory, Google, or Twitter.</source>
+          <target state="new">To set up the gateway to authenticate users, you choose an authentication provider such as Azure Active Directory, Google, or Twitter.</target>
+        </trans-unit>
+        <trans-unit id="46a489fe-513b-4566-b961-a8bc4b78bd7b" xml:space="preserve">
+          <source>Users will then have to authenticate with the chosen provider before they can successfully call the Dropbox connector.</source>
+          <target state="new">Users will then have to authenticate with the chosen provider before they can successfully call the Dropbox connector.</target>
+        </trans-unit>
+        <trans-unit id="62729a77-0f54-4b1c-85ca-b3f21a70ea73" xml:space="preserve">
+          <source>To perform this step, go to the <bpt id="faaa2072-432c-4317-b3e3-ccc4be8cf8fa">&lt;linkText&gt;</bpt>Configure the gateway<ept id="faaa2072-432c-4317-b3e3-ccc4be8cf8fa">&lt;/linkText&gt;</ept><bpt id="faaa2072-432c-4317-b3e3-ccc4be8cf8fa">&lt;title&gt;</bpt><ept id="faaa2072-432c-4317-b3e3-ccc4be8cf8fa">&lt;/title&gt;</ept> section of the <bpt id="7fc9ce53-011b-40ec-840f-f0459a75494c">&lt;linkText&gt;</bpt>Protect an API app<ept id="7fc9ce53-011b-40ec-840f-f0459a75494c">&lt;/linkText&gt;</ept><bpt id="7fc9ce53-011b-40ec-840f-f0459a75494c">&lt;title&gt;</bpt><ept id="7fc9ce53-011b-40ec-840f-f0459a75494c">&lt;/title&gt;</ept> tutorial, and follow the directions there to configure the gateway in your DropboxRG resource group.</source>
+          <target state="new">To perform this step, go to the <bpt id="faaa2072-432c-4317-b3e3-ccc4be8cf8fa">&lt;linkText&gt;</bpt>Configure the gateway<ept id="faaa2072-432c-4317-b3e3-ccc4be8cf8fa">&lt;/linkText&gt;</ept><bpt id="faaa2072-432c-4317-b3e3-ccc4be8cf8fa">&lt;title&gt;</bpt><ept id="faaa2072-432c-4317-b3e3-ccc4be8cf8fa">&lt;/title&gt;</ept> section of the <bpt id="7fc9ce53-011b-40ec-840f-f0459a75494c">&lt;linkText&gt;</bpt>Protect an API app<ept id="7fc9ce53-011b-40ec-840f-f0459a75494c">&lt;/linkText&gt;</ept><bpt id="7fc9ce53-011b-40ec-840f-f0459a75494c">&lt;title&gt;</bpt><ept id="7fc9ce53-011b-40ec-840f-f0459a75494c">&lt;/title&gt;</ept> tutorial, and follow the directions there to configure the gateway in your DropboxRG resource group.</target>
+        </trans-unit>
+        <trans-unit id="ffcd255f-52da-4940-b3e2-648540e2caa3" xml:space="preserve">
+          <source>After you have configured the gateway in your DropboxRG resource group to use an authentication provider, you can test your Dropbox connector.</source>
+          <target state="new">After you have configured the gateway in your DropboxRG resource group to use an authentication provider, you can test your Dropbox connector.</target>
+        </trans-unit>
+        <trans-unit id="011dc53d-cad6-477c-bbf1-457450817025" xml:space="preserve">
+          <source>Most of the time you'll use a connector by calling it from code, and we're also writing tutorials that will show how to do that.</source>
+          <target state="new">Most of the time you'll use a connector by calling it from code, and we're also writing tutorials that will show how to do that.</target>
+        </trans-unit>
+        <trans-unit id="51c0cc5d-f321-4500-9ab9-88d75aee6bc9" xml:space="preserve">
+          <source>But sometimes you'll want to validate that the connector is working before wiring up other parts of an app.</source>
+          <target state="new">But sometimes you'll want to validate that the connector is working before wiring up other parts of an app.</target>
+        </trans-unit>
+        <trans-unit id="ca022805-a59f-46e0-88db-46873d988480" xml:space="preserve">
+          <source>This tutorial shows how to use a browser and a simple REST client tool to verify that you can interact with the Dropbox service through the Dropbox connector that you just installed and configured.</source>
+          <target state="new">This tutorial shows how to use a browser and a simple REST client tool to verify that you can interact with the Dropbox service through the Dropbox connector that you just installed and configured.</target>
+        </trans-unit>
+        <trans-unit id="d065d302-8ee3-48e7-9213-b2918856c69c" xml:space="preserve">
+          <source>The following instructions show how to do these steps by using the Chrome browser developer tools and Postman REST client tool.</source>
+          <target state="new">The following instructions show how to do these steps by using the Chrome browser developer tools and Postman REST client tool.</target>
+        </trans-unit>
+        <trans-unit id="b4eaaa3e-4115-423c-9341-6034ee041951" xml:space="preserve">
+          <source>This is just an example, and you can do the same procedures with other browsers and tools.</source>
+          <target state="new">This is just an example, and you can do the same procedures with other browsers and tools.</target>
+        </trans-unit>
+        <trans-unit id="247f8af3-9a27-4fa9-94e1-1c476a5ec44a" xml:space="preserve">
+          <source>"Advanced REST Client" is another Chrome add-in you can use.</source>
+          <target state="new">"Advanced REST Client" is another Chrome add-in you can use.</target>
+        </trans-unit>
+        <trans-unit id="a87fcac7-a23b-475d-8d6a-a6f2b2b6f8e6" xml:space="preserve">
+          <source>Do the following steps in a new browser window.</source>
+          <target state="new">Do the following steps in a new browser window.</target>
+        </trans-unit>
+        <trans-unit id="90434b9a-8897-4d38-ba5a-0790f5441fbe" xml:space="preserve">
+          <source>Depending on what authentication provider you're using, you might find that you need to use a private or incognito window.</source>
+          <target state="new">Depending on what authentication provider you're using, you might find that you need to use a private or incognito window.</target>
+        </trans-unit>
+        <trans-unit id="7e393504-f5e3-4c96-8a69-d94be26943a2" xml:space="preserve">
+          <source>Go to the login URL for the gateway and the authentication provider that you configured.</source>
+          <target state="new">Go to the login URL for the gateway and the authentication provider that you configured.</target>
+        </trans-unit>
+        <trans-unit id="1b0ad7a3-7868-441d-94f1-1a6fe534d5d1" xml:space="preserve">
+          <source>The URL follows this pattern:</source>
+          <target state="new">The URL follows this pattern:</target>
+        </trans-unit>
+        <trans-unit id="e4fcf318-2282-4191-ba07-a219a392e153" xml:space="preserve">
+          <source>You can get the gateway URL from the <bpt id="9573959b-5d4c-4e4e-a499-e4da8e1c719d">&lt;strong&gt;</bpt>Gateway<ept id="9573959b-5d4c-4e4e-a499-e4da8e1c719d">&lt;/strong&gt;</ept> blade in the [Azure preview portal].</source>
+          <target state="new">You can get the gateway URL from the <bpt id="9573959b-5d4c-4e4e-a499-e4da8e1c719d">&lt;strong&gt;</bpt>Gateway<ept id="9573959b-5d4c-4e4e-a499-e4da8e1c719d">&lt;/strong&gt;</ept> blade in the [Azure preview portal].</target>
+        </trans-unit>
+        <trans-unit id="90748870-a807-407f-a4b6-5da5b5e7987e" xml:space="preserve">
+          <source>(To get to the <bpt id="2d26a0a0-af23-475e-8cdf-950fa0bd7831">&lt;strong&gt;</bpt>Gateway<ept id="2d26a0a0-af23-475e-8cdf-950fa0bd7831">&lt;/strong&gt;</ept> blade, click the gateway in the diagram shown on the <bpt id="288500c5-07a8-4ebf-81bd-97e85fab6b81">&lt;strong&gt;</bpt>Resource group<ept id="288500c5-07a8-4ebf-81bd-97e85fab6b81">&lt;/strong&gt;</ept> blade.)</source>
+          <target state="new">(To get to the <bpt id="2d26a0a0-af23-475e-8cdf-950fa0bd7831">&lt;strong&gt;</bpt>Gateway<ept id="2d26a0a0-af23-475e-8cdf-950fa0bd7831">&lt;/strong&gt;</ept> blade, click the gateway in the diagram shown on the <bpt id="288500c5-07a8-4ebf-81bd-97e85fab6b81">&lt;strong&gt;</bpt>Resource group<ept id="288500c5-07a8-4ebf-81bd-97e85fab6b81">&lt;/strong&gt;</ept> blade.)</target>
+        </trans-unit>
+        <trans-unit id="3ac2a3e3-2522-4e3a-a81b-45d6a8771569" xml:space="preserve">
+          <source><bpt id="1be26437-c3d9-4905-9c5e-6e7cb1e9cbd9">&lt;linkText&gt;</bpt>Gateway URL<ept id="1be26437-c3d9-4905-9c5e-6e7cb1e9cbd9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1be26437-c3d9-4905-9c5e-6e7cb1e9cbd9">&lt;linkText&gt;</bpt>Gateway URL<ept id="1be26437-c3d9-4905-9c5e-6e7cb1e9cbd9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c2e07a8-b07d-4b74-83b0-e77213e1d1e1" xml:space="preserve">
+          <source>The [providername] value is "facebook" for Facebook, "twitter" for Twitter, "aad" for Azure Active directory, etc.</source>
+          <target state="new">The [providername] value is "facebook" for Facebook, "twitter" for Twitter, "aad" for Azure Active directory, etc.</target>
+        </trans-unit>
+        <trans-unit id="163c8142-5388-4c8b-8677-a982c0416a72" xml:space="preserve">
+          <source>Here is a sample login URL for Azure Active Directory:</source>
+          <target state="new">Here is a sample login URL for Azure Active Directory:</target>
+        </trans-unit>
+        <trans-unit id="a41fb785-4dd9-47e0-8e2a-dd03a0d5eeb8" xml:space="preserve">
+          <source>Enter your credentials when the browser displays a login page.</source>
+          <target state="new">Enter your credentials when the browser displays a login page.</target>
+        </trans-unit>
+        <trans-unit id="4bdc0cd4-b155-4a48-ad74-652f1093426e" xml:space="preserve">
+          <source>If you configured Azure Active Directory login, log in as one of the users listed in the <bpt id="82671afb-83cd-4402-b72a-21b8b3ecf477">&lt;strong&gt;</bpt>Users<ept id="82671afb-83cd-4402-b72a-21b8b3ecf477">&lt;/strong&gt;</ept> tab for the application you created in the Azure Active Directory tab of the [Azure portal], such as admin@contoso.onmicrosoft.com.</source>
+          <target state="new">If you configured Azure Active Directory login, log in as one of the users listed in the <bpt id="82671afb-83cd-4402-b72a-21b8b3ecf477">&lt;strong&gt;</bpt>Users<ept id="82671afb-83cd-4402-b72a-21b8b3ecf477">&lt;/strong&gt;</ept> tab for the application you created in the Azure Active Directory tab of the [Azure portal], such as admin@contoso.onmicrosoft.com.</target>
+        </trans-unit>
+        <trans-unit id="0765cbda-8782-4ba5-9f17-252950cc5ee1" xml:space="preserve">
+          <source>When login is successful, you get a "Login complete" page.</source>
+          <target state="new">When login is successful, you get a "Login complete" page.</target>
+        </trans-unit>
+        <trans-unit id="f7d03f24-7d9d-4dc2-ad3f-125a62be9334" xml:space="preserve">
+          <source><bpt id="ee9712cd-1cea-40ef-ae31-c1e85569c76c">&lt;linkText&gt;</bpt><ept id="ee9712cd-1cea-40ef-ae31-c1e85569c76c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ee9712cd-1cea-40ef-ae31-c1e85569c76c">&lt;linkText&gt;</bpt><ept id="ee9712cd-1cea-40ef-ae31-c1e85569c76c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b801b97d-bf6b-4d3f-a5bc-c49d648e1487" xml:space="preserve">
+          <source>To get Dropbox authorization to use the Dropbox API, you have to provide the user's credentials to Dropbox.</source>
+          <target state="new">To get Dropbox authorization to use the Dropbox API, you have to provide the user's credentials to Dropbox.</target>
+        </trans-unit>
+        <trans-unit id="3ea1d6f0-5fbb-494f-a0cf-bbe7e9c2a555" xml:space="preserve">
+          <source>Azure will initiate that process for you, but to trigger that process you have to go to a special gateway URL in the browser.</source>
+          <target state="new">Azure will initiate that process for you, but to trigger that process you have to go to a special gateway URL in the browser.</target>
+        </trans-unit>
+        <trans-unit id="f91aae4f-12bd-457e-b88f-635bd54809ea" xml:space="preserve">
+          <source>To get that URL you make an HTTP Post request to the gateway.</source>
+          <target state="new">To get that URL you make an HTTP Post request to the gateway.</target>
+        </trans-unit>
+        <trans-unit id="47528f12-38c4-43e1-a1bc-fbeda5aa56a1" xml:space="preserve">
+          <source>The HTTP Post request to the gateway has to include the authentication token that Azure provided when you logged in.</source>
+          <target state="new">The HTTP Post request to the gateway has to include the authentication token that Azure provided when you logged in.</target>
+        </trans-unit>
+        <trans-unit id="65dc4291-aa1a-4a59-9173-db55e53e2fe1" xml:space="preserve">
+          <source>For browser requests, including the token is automatic because the token is stored in a cookie, but for an HTTP Post request using a REST client tool you have to get the token from the cookie and put it in the request header of the HTTP Post request.</source>
+          <target state="new">For browser requests, including the token is automatic because the token is stored in a cookie, but for an HTTP Post request using a REST client tool you have to get the token from the cookie and put it in the request header of the HTTP Post request.</target>
+        </trans-unit>
+        <trans-unit id="abeedf3e-7ff0-4646-b306-f8378435ca91" xml:space="preserve">
+          <source>In the browser window that has the "Login complete" message, go to the browser's developer tools and find the <bpt id="5b51f2a5-502c-4020-b06b-108de1e934b7">&lt;code&gt;</bpt>x-zumo-auth<ept id="5b51f2a5-502c-4020-b06b-108de1e934b7">&lt;/code&gt;</ept> cookie.</source>
+          <target state="new">In the browser window that has the "Login complete" message, go to the browser's developer tools and find the <bpt id="5b51f2a5-502c-4020-b06b-108de1e934b7">&lt;code&gt;</bpt>x-zumo-auth<ept id="5b51f2a5-502c-4020-b06b-108de1e934b7">&lt;/code&gt;</ept> cookie.</target>
+        </trans-unit>
+        <trans-unit id="687aae03-0cbe-4672-b03d-1e52adec2b80" xml:space="preserve">
+          <source>Keep this window open so you can copy the value of the cookie in the next step.</source>
+          <target state="new">Keep this window open so you can copy the value of the cookie in the next step.</target>
+        </trans-unit>
+        <trans-unit id="a3f65653-f511-47e6-8aeb-a768e68a2d2a" xml:space="preserve">
+          <source>To get the cookie value in Chrome, perform the following steps:</source>
+          <target state="new">To get the cookie value in Chrome, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="73817e53-9cfb-4115-b0c6-c8a9ac79f6d0" xml:space="preserve">
+          <source>Press F12 to open developer tools.</source>
+          <target state="new">Press F12 to open developer tools.</target>
+        </trans-unit>
+        <trans-unit id="a5f2dfe6-4ad3-4306-adcd-dd1135c1a886" xml:space="preserve">
+          <source>Go to the <bpt id="6f54bf14-a390-4a10-849b-3752b2c8edda">&lt;strong&gt;</bpt>Resources<ept id="6f54bf14-a390-4a10-849b-3752b2c8edda">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Go to the <bpt id="6f54bf14-a390-4a10-849b-3752b2c8edda">&lt;strong&gt;</bpt>Resources<ept id="6f54bf14-a390-4a10-849b-3752b2c8edda">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="160ed9bf-26fa-495e-87d1-987ffc54f633" xml:space="preserve">
+          <source>Find the cookies for your gateway site, and triple-click the <bpt id="6646084c-7261-4e38-b050-ab10852eee53">&lt;strong&gt;</bpt>Value<ept id="6646084c-7261-4e38-b050-ab10852eee53">&lt;/strong&gt;</ept> of the <bpt id="2f4a61b9-9778-466a-8f83-62123a545da1">&lt;code&gt;</bpt>x-zumo-auth<ept id="2f4a61b9-9778-466a-8f83-62123a545da1">&lt;/code&gt;</ept> cookie to select all of it.</source>
+          <target state="new">Find the cookies for your gateway site, and triple-click the <bpt id="6646084c-7261-4e38-b050-ab10852eee53">&lt;strong&gt;</bpt>Value<ept id="6646084c-7261-4e38-b050-ab10852eee53">&lt;/strong&gt;</ept> of the <bpt id="2f4a61b9-9778-466a-8f83-62123a545da1">&lt;code&gt;</bpt>x-zumo-auth<ept id="2f4a61b9-9778-466a-8f83-62123a545da1">&lt;/code&gt;</ept> cookie to select all of it.</target>
+        </trans-unit>
+        <trans-unit id="99a293dd-7e69-4703-b074-fd535ac9adab" xml:space="preserve">
+          <source>(Make sure you get all of the cookie's value.</source>
+          <target state="new">(Make sure you get all of the cookie's value.</target>
+        </trans-unit>
+        <trans-unit id="30e1dfb0-7dd8-4058-9928-11a4d7321b22" xml:space="preserve">
+          <source>If you double-click, you might get only the first part of it.)</source>
+          <target state="new">If you double-click, you might get only the first part of it.)</target>
+        </trans-unit>
+        <trans-unit id="15336ebb-3087-43ed-85c0-2571ca7517af" xml:space="preserve">
+          <source><bpt id="e71e402a-625d-4264-ba6b-6b249ec6b9ba">&lt;linkText&gt;</bpt>Copy token<ept id="e71e402a-625d-4264-ba6b-6b249ec6b9ba">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="e71e402a-625d-4264-ba6b-6b249ec6b9ba">&lt;linkText&gt;</bpt>Copy token<ept id="e71e402a-625d-4264-ba6b-6b249ec6b9ba">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="291044f3-6da0-48a1-ae96-9e6fd0c82621" xml:space="preserve">
+          <source>In a new browser tab or window, create and send an HTTP Post request to the gateway to request a consent URL.</source>
+          <target state="new">In a new browser tab or window, create and send an HTTP Post request to the gateway to request a consent URL.</target>
+        </trans-unit>
+        <trans-unit id="3e491319-4ae0-449f-a519-7d870958ddd2" xml:space="preserve">
+          <source>Include the <bpt id="1c0f00d4-8f49-4796-9ec5-3899bfd490f4">&lt;code&gt;</bpt>x-zumo-auth<ept id="1c0f00d4-8f49-4796-9ec5-3899bfd490f4">&lt;/code&gt;</ept> token as an HTTP header.</source>
+          <target state="new">Include the <bpt id="1c0f00d4-8f49-4796-9ec5-3899bfd490f4">&lt;code&gt;</bpt>x-zumo-auth<ept id="1c0f00d4-8f49-4796-9ec5-3899bfd490f4">&lt;/code&gt;</ept> token as an HTTP header.</target>
+        </trans-unit>
+        <trans-unit id="d9bdefc5-35dd-4d5f-abc7-86e539fa2d1c" xml:space="preserve">
+          <source>The URL follows this pattern:</source>
+          <target state="new">The URL follows this pattern:</target>
+        </trans-unit>
+        <trans-unit id="6e5d4730-56d3-474c-be57-8a78a2aa5122" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="f5989ecf-816c-45b4-9d21-11505cea916f" xml:space="preserve">
+          <source>To send the request in Postman in Chrome, perform the following steps:</source>
+          <target state="new">To send the request in Postman in Chrome, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="2593c9a4-2ee0-4e42-af32-509368c5a87c" xml:space="preserve">
+          <source>Enter the <bpt id="001ed821-f02c-4eec-a204-dcabd2e34712">&lt;strong&gt;</bpt>Request URL<ept id="001ed821-f02c-4eec-a204-dcabd2e34712">&lt;/strong&gt;</ept> described above.</source>
+          <target state="new">Enter the <bpt id="001ed821-f02c-4eec-a204-dcabd2e34712">&lt;strong&gt;</bpt>Request URL<ept id="001ed821-f02c-4eec-a204-dcabd2e34712">&lt;/strong&gt;</ept> described above.</target>
+        </trans-unit>
+        <trans-unit id="754b5437-3a5a-4625-b519-768e9f2abb03" xml:space="preserve">
+          <source>Set the method to <bpt id="348b009e-88a4-4703-bf17-2f23485896b3">&lt;strong&gt;</bpt>Post<ept id="348b009e-88a4-4703-bf17-2f23485896b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Set the method to <bpt id="348b009e-88a4-4703-bf17-2f23485896b3">&lt;strong&gt;</bpt>Post<ept id="348b009e-88a4-4703-bf17-2f23485896b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="963ba532-f242-4049-ae68-598005ed1964" xml:space="preserve">
+          <source>Add a header named <bpt id="e738fbfd-88be-4f51-a898-b0ea148bf573">&lt;code&gt;</bpt>x-zumo-auth<ept id="e738fbfd-88be-4f51-a898-b0ea148bf573">&lt;/code&gt;</ept>.</source>
+          <target state="new">Add a header named <bpt id="e738fbfd-88be-4f51-a898-b0ea148bf573">&lt;code&gt;</bpt>x-zumo-auth<ept id="e738fbfd-88be-4f51-a898-b0ea148bf573">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8995496-286a-40a6-9de1-bcc13adc1285" xml:space="preserve">
+          <source>In the header <bpt id="4746d246-1cdc-4923-a28b-a62e19dc7230">&lt;strong&gt;</bpt>Value<ept id="4746d246-1cdc-4923-a28b-a62e19dc7230">&lt;/strong&gt;</ept> field paste the value you copied from the <bpt id="657f427d-b686-4732-a5ed-3a5dde9bd7d9">&lt;code&gt;</bpt>x-zumo-auth<ept id="657f427d-b686-4732-a5ed-3a5dde9bd7d9">&lt;/code&gt;</ept> cookie.</source>
+          <target state="new">In the header <bpt id="4746d246-1cdc-4923-a28b-a62e19dc7230">&lt;strong&gt;</bpt>Value<ept id="4746d246-1cdc-4923-a28b-a62e19dc7230">&lt;/strong&gt;</ept> field paste the value you copied from the <bpt id="657f427d-b686-4732-a5ed-3a5dde9bd7d9">&lt;code&gt;</bpt>x-zumo-auth<ept id="657f427d-b686-4732-a5ed-3a5dde9bd7d9">&lt;/code&gt;</ept> cookie.</target>
+        </trans-unit>
+        <trans-unit id="dcb3c6a8-b4f5-4bc7-8a14-0c6fb3f438b4" xml:space="preserve">
+          <source>Click <bpt id="fadb796d-6111-4d52-9ec6-ef017ed8f3de">&lt;strong&gt;</bpt>Send<ept id="fadb796d-6111-4d52-9ec6-ef017ed8f3de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fadb796d-6111-4d52-9ec6-ef017ed8f3de">&lt;strong&gt;</bpt>Send<ept id="fadb796d-6111-4d52-9ec6-ef017ed8f3de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f178515c-83fe-4cb8-9743-d77761e12c35" xml:space="preserve">
+          <source>The following illustration shows the Postman tool in Chrome:</source>
+          <target state="new">The following illustration shows the Postman tool in Chrome:</target>
+        </trans-unit>
+        <trans-unit id="a9d44bfe-07f4-4a81-bf50-38c60692b366" xml:space="preserve">
+          <source><bpt id="46361071-7c4a-4abd-8abf-1d090e647ac0">&lt;linkText&gt;</bpt>Send for consent URL<ept id="46361071-7c4a-4abd-8abf-1d090e647ac0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46361071-7c4a-4abd-8abf-1d090e647ac0">&lt;linkText&gt;</bpt>Send for consent URL<ept id="46361071-7c4a-4abd-8abf-1d090e647ac0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fedee1b5-90de-4be4-86c5-e51b771d033f" xml:space="preserve">
+          <source>The response includes a URL to use in order to initiate the process of logging in the user with Dropbox.</source>
+          <target state="new">The response includes a URL to use in order to initiate the process of logging in the user with Dropbox.</target>
+        </trans-unit>
+        <trans-unit id="d6dba7af-774e-4562-a66a-2082294f1455" xml:space="preserve">
+          <source>(If you get an error response that indicates the Get method is not supported although you have the method dropdown set to <bpt id="e50b029a-4e12-48b5-9462-6ed21deb7649">&lt;strong&gt;</bpt>Post<ept id="e50b029a-4e12-48b5-9462-6ed21deb7649">&lt;/strong&gt;</ept>, make sure that your gateway URL is HTTPS, not HTTP.)</source>
+          <target state="new">(If you get an error response that indicates the Get method is not supported although you have the method dropdown set to <bpt id="e50b029a-4e12-48b5-9462-6ed21deb7649">&lt;strong&gt;</bpt>Post<ept id="e50b029a-4e12-48b5-9462-6ed21deb7649">&lt;/strong&gt;</ept>, make sure that your gateway URL is HTTPS, not HTTP.)</target>
+        </trans-unit>
+        <trans-unit id="9b9c6bda-7719-4970-9b9f-4803116919e0" xml:space="preserve">
+          <source><bpt id="2dc93e9d-77d8-42bd-8720-497fc06c6eee">&lt;linkText&gt;</bpt>Consent URL<ept id="2dc93e9d-77d8-42bd-8720-497fc06c6eee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2dc93e9d-77d8-42bd-8720-497fc06c6eee">&lt;linkText&gt;</bpt>Consent URL<ept id="2dc93e9d-77d8-42bd-8720-497fc06c6eee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67f91836-595c-4c54-a4f1-42c4adc42c98" xml:space="preserve">
+          <source>Go to the URL that you received in response to the HTTP Post request.</source>
+          <target state="new">Go to the URL that you received in response to the HTTP Post request.</target>
+        </trans-unit>
+        <trans-unit id="10e72f6a-b272-48a0-9faa-691ea4877f5a" xml:space="preserve">
+          <source>The response to this URL redirects the browser to the Dropbox site, where the user logs in and grants consent for the app to access the user's account.</source>
+          <target state="new">The response to this URL redirects the browser to the Dropbox site, where the user logs in and grants consent for the app to access the user's account.</target>
+        </trans-unit>
+        <trans-unit id="3048c404-4a45-4af4-a4cb-85e4d5592199" xml:space="preserve">
+          <source>When the login and consent process is done, Dropbox redirects the browser to the redirect URL that you specified (e.g., the Azure preview portal if you followed the example and used https://portal.azure.com).</source>
+          <target state="new">When the login and consent process is done, Dropbox redirects the browser to the redirect URL that you specified (e.g., the Azure preview portal if you followed the example and used https://portal.azure.com).</target>
+        </trans-unit>
+        <trans-unit id="636bcc65-1aa1-4c93-884f-5453728e518e" xml:space="preserve">
+          <source>If you were calling from a web app, this would be the next page to be displayed in the web app.</source>
+          <target state="new">If you were calling from a web app, this would be the next page to be displayed in the web app.</target>
+        </trans-unit>
+        <trans-unit id="96a6428b-6379-408e-a02f-e217aed0433b" xml:space="preserve">
+          <source>The app should check the URL, because if there was an error in the login or consent process, the redirect URL could include an <bpt id="e988066c-73d5-40a8-962f-5458a8ef56fe">&lt;code&gt;</bpt>error<ept id="e988066c-73d5-40a8-962f-5458a8ef56fe">&lt;/code&gt;</ept> querystring variable.</source>
+          <target state="new">The app should check the URL, because if there was an error in the login or consent process, the redirect URL could include an <bpt id="e988066c-73d5-40a8-962f-5458a8ef56fe">&lt;code&gt;</bpt>error<ept id="e988066c-73d5-40a8-962f-5458a8ef56fe">&lt;/code&gt;</ept> querystring variable.</target>
+        </trans-unit>
+        <trans-unit id="44c35146-f7e5-48d2-aedb-3d80dab6c0ab" xml:space="preserve">
+          <source>Keep this browser window open, as you'll use it in the following section.</source>
+          <target state="new">Keep this browser window open, as you'll use it in the following section.</target>
+        </trans-unit>
+        <trans-unit id="6d091c1e-2ecb-48e8-951b-64144f6f04e7" xml:space="preserve">
+          <source>Azure is now managing three authentication tokens for you:</source>
+          <target state="new">Azure is now managing three authentication tokens for you:</target>
+        </trans-unit>
+        <trans-unit id="ebeeff18-0b59-46dc-a2a8-a7160f22dc6e" xml:space="preserve">
+          <source>One from the authentication provider you configured for the gateway, for example Azure Active Directory.</source>
+          <target state="new">One from the authentication provider you configured for the gateway, for example Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="d697af6f-ecd4-4812-91ac-20c60e5ecf31" xml:space="preserve">
+          <source>One from Dropbox.</source>
+          <target state="new">One from Dropbox.</target>
+        </trans-unit>
+        <trans-unit id="93d6d620-1e38-4e25-a8fa-96a055857ec5" xml:space="preserve">
+          <source>One that Azure creates (the "zumo" token).</source>
+          <target state="new">One that Azure creates (the "zumo" token).</target>
+        </trans-unit>
+        <trans-unit id="7d8757d8-ea4b-4d2c-a4c0-598b6d8643dc" xml:space="preserve">
+          <source>The only one you have to use when making HTTP requests to work with Dropbox is the zumo token.</source>
+          <target state="new">The only one you have to use when making HTTP requests to work with Dropbox is the zumo token.</target>
+        </trans-unit>
+        <trans-unit id="990fe0c1-e8a4-49b0-8d7a-2d4e9d047bf0" xml:space="preserve">
+          <source>Behind the scenes Azure has associated that token with the other two, and the connector provides the other two on your behalf when it makes calls to Dropbox.</source>
+          <target state="new">Behind the scenes Azure has associated that token with the other two, and the connector provides the other two on your behalf when it makes calls to Dropbox.</target>
+        </trans-unit>
+        <trans-unit id="24db022a-aae8-4b66-9557-38ca7eda3716" xml:space="preserve">
+          <source>In the following steps you make a Get request to the Dropbox connector to look at files in your Dropbox account.</source>
+          <target state="new">In the following steps you make a Get request to the Dropbox connector to look at files in your Dropbox account.</target>
+        </trans-unit>
+        <trans-unit id="57207db8-07c0-4977-a656-a2e54202189d" xml:space="preserve">
+          <source>Since you can use a browser window for a Get request, and since your browser window already has the zumo token in a cookie, all you have to do is go to a URL and you get back Dropbox data.</source>
+          <target state="new">Since you can use a browser window for a Get request, and since your browser window already has the zumo token in a cookie, all you have to do is go to a URL and you get back Dropbox data.</target>
+        </trans-unit>
+        <trans-unit id="927d41b4-689d-4db6-95db-30ed1d2607e4" xml:space="preserve">
+          <source>In the browser window that has the Azure preview portal open, go back to the <bpt id="10798f06-d2bd-463c-9c03-b0b1b965c8a1">&lt;strong&gt;</bpt>API App<ept id="10798f06-d2bd-463c-9c03-b0b1b965c8a1">&lt;/strong&gt;</ept> blade for your Dropbox connector.</source>
+          <target state="new">In the browser window that has the Azure preview portal open, go back to the <bpt id="10798f06-d2bd-463c-9c03-b0b1b965c8a1">&lt;strong&gt;</bpt>API App<ept id="10798f06-d2bd-463c-9c03-b0b1b965c8a1">&lt;/strong&gt;</ept> blade for your Dropbox connector.</target>
+        </trans-unit>
+        <trans-unit id="83d96018-ad82-4312-97b1-c24f25d9f71d" xml:space="preserve">
+          <source>Copy the API app's URL.</source>
+          <target state="new">Copy the API app's URL.</target>
+        </trans-unit>
+        <trans-unit id="919afe87-4704-479f-94a7-8fcae9b8bf46" xml:space="preserve">
+          <source>Click the <bpt id="b798c2bc-d3f6-42e1-9d4b-c8689e1d73b0">&lt;strong&gt;</bpt>API definition<ept id="b798c2bc-d3f6-42e1-9d4b-c8689e1d73b0">&lt;/strong&gt;</ept> icon to see the API methods available in the connector.</source>
+          <target state="new">Click the <bpt id="b798c2bc-d3f6-42e1-9d4b-c8689e1d73b0">&lt;strong&gt;</bpt>API definition<ept id="b798c2bc-d3f6-42e1-9d4b-c8689e1d73b0">&lt;/strong&gt;</ept> icon to see the API methods available in the connector.</target>
+        </trans-unit>
+        <trans-unit id="e55fd0be-ed8b-4de0-9099-f775890c3b1a" xml:space="preserve">
+          <source><bpt id="d3826d46-d36a-461c-92ba-3a4c8b728df7">&lt;linkText&gt;</bpt>API App blade<ept id="d3826d46-d36a-461c-92ba-3a4c8b728df7">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="d3826d46-d36a-461c-92ba-3a4c8b728df7">&lt;linkText&gt;</bpt>API App blade<ept id="d3826d46-d36a-461c-92ba-3a4c8b728df7">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a614cf43-3f99-4e9b-b4ab-bccae60a8412" xml:space="preserve">
+          <source><bpt id="ab51059d-f9cf-421f-8d5f-e366e43fa883">&lt;linkText&gt;</bpt>API definition<ept id="ab51059d-f9cf-421f-8d5f-e366e43fa883">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="ab51059d-f9cf-421f-8d5f-e366e43fa883">&lt;linkText&gt;</bpt>API definition<ept id="ab51059d-f9cf-421f-8d5f-e366e43fa883">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="1c6fbde1-3e5d-442f-953d-813ffae6f82a" xml:space="preserve">
+          <source>In the browser window that you used to authenticate to the gateway, call the GET method that retrieves file names from a folder.</source>
+          <target state="new">In the browser window that you used to authenticate to the gateway, call the GET method that retrieves file names from a folder.</target>
+        </trans-unit>
+        <trans-unit id="b512de90-0c2d-4d42-9faa-f4d603e4ab11" xml:space="preserve">
+          <source>Here is the URL pattern:</source>
+          <target state="new">Here is the URL pattern:</target>
+        </trans-unit>
+        <trans-unit id="200e0a7d-31b0-477b-8c63-d69228b949ef" xml:space="preserve">
+          <source>For example, if your connector URL is https://dropboxrg784237ad3e7.azurewebsites.net and you want to see the files in your blog folder, the URL would be:</source>
+          <target state="new">For example, if your connector URL is https://dropboxrg784237ad3e7.azurewebsites.net and you want to see the files in your blog folder, the URL would be:</target>
+        </trans-unit>
+        <trans-unit id="e65451c2-a0e3-45d9-ad98-8c794235f081" xml:space="preserve">
+          <source>Different browsers respond to API calls differently; if you're using Chrome you'll see a response similar to the following example:</source>
+          <target state="new">Different browsers respond to API calls differently; if you're using Chrome you'll see a response similar to the following example:</target>
+        </trans-unit>
+        <trans-unit id="dc0b8af2-fd99-469e-b537-cf4e80e65a8f" xml:space="preserve">
+          <source><bpt id="22e09393-9a76-436e-bdbd-ea9799eb0e95">&lt;linkText&gt;</bpt>Get response to folder request<ept id="22e09393-9a76-436e-bdbd-ea9799eb0e95">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="22e09393-9a76-436e-bdbd-ea9799eb0e95">&lt;linkText&gt;</bpt>Get response to folder request<ept id="22e09393-9a76-436e-bdbd-ea9799eb0e95">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="4023c38d-0f37-4860-b38d-7d070f84fa90" xml:space="preserve">
+          <source>You've seen how to install, configure, and test a SaaS connector.</source>
+          <target state="new">You've seen how to install, configure, and test a SaaS connector.</target>
+        </trans-unit>
+        <trans-unit id="fb4a6690-89b7-4d4c-89ab-2f4169c1ee03" xml:space="preserve">
+          <source>For more information, see these resources:</source>
+          <target state="new">For more information, see these resources:</target>
+        </trans-unit>
+        <trans-unit id="a13826a4-9ab3-48d7-ab61-1be4bfbde9be" xml:space="preserve">
+          <source><bpt id="4a777727-2d5c-4cc1-8cff-27a3f8fbe8f8">&lt;linkText&gt;</bpt>Using connectors<ept id="4a777727-2d5c-4cc1-8cff-27a3f8fbe8f8">&lt;/linkText&gt;</ept><bpt id="4a777727-2d5c-4cc1-8cff-27a3f8fbe8f8">&lt;title&gt;</bpt><ept id="4a777727-2d5c-4cc1-8cff-27a3f8fbe8f8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4a777727-2d5c-4cc1-8cff-27a3f8fbe8f8">&lt;linkText&gt;</bpt>Using connectors<ept id="4a777727-2d5c-4cc1-8cff-27a3f8fbe8f8">&lt;/linkText&gt;</ept><bpt id="4a777727-2d5c-4cc1-8cff-27a3f8fbe8f8">&lt;title&gt;</bpt><ept id="4a777727-2d5c-4cc1-8cff-27a3f8fbe8f8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e00c011f-db34-47c7-b057-53b84279c238" xml:space="preserve">
+          <source><bpt id="488ced7e-6cce-42b6-9985-8db660a4ab20">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps<ept id="488ced7e-6cce-42b6-9985-8db660a4ab20">&lt;/linkText&gt;</ept><bpt id="488ced7e-6cce-42b6-9985-8db660a4ab20">&lt;title&gt;</bpt><ept id="488ced7e-6cce-42b6-9985-8db660a4ab20">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="488ced7e-6cce-42b6-9985-8db660a4ab20">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps<ept id="488ced7e-6cce-42b6-9985-8db660a4ab20">&lt;/linkText&gt;</ept><bpt id="488ced7e-6cce-42b6-9985-8db660a4ab20">&lt;title&gt;</bpt><ept id="488ced7e-6cce-42b6-9985-8db660a4ab20">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="2943f571-a8ec-4579-aab9-24b7f341b3f5" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="4493764a-47e3-476a-ba30-92b57b2271ff" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="b92034ee-3167-48ce-88a1-6e97a8e22ea9" />
+    </body>
+  </file>
+</xliff>

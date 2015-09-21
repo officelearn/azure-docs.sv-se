@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4e9f836d-54ba-47df-a8ba-0231853a1dbc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4e9f836d-54ba-47df-a8ba-0231853a1dbc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2f9db404-7653-4b7c-b893-6b9f81e08a15">
+        <trans-unit id="8b84e3e9-131d-478f-855f-81feb4296be1" xml:space="preserve">
+          <source>Finally, you must update the script registered to the insert operation on the TodoItem table to send notifications.</source>
+          <target state="new">Finally, you must update the script registered to the insert operation on the TodoItem table to send notifications.</target>
+        </trans-unit>
+        <trans-unit id="4365cbbe-aca4-4468-8631-8b01d26cdf85" xml:space="preserve">
+          <source>Click <bpt id="b359a4bd-9be0-4b2a-b2fa-fd3ff9bf184f">&lt;strong&gt;</bpt>TodoItem<ept id="b359a4bd-9be0-4b2a-b2fa-fd3ff9bf184f">&lt;/strong&gt;</ept>, click <bpt id="d155219e-7153-4ba3-888d-f8855125718b">&lt;strong&gt;</bpt>Script<ept id="d155219e-7153-4ba3-888d-f8855125718b">&lt;/strong&gt;</ept> and select <bpt id="0f2ba9f5-422f-4986-b5e6-3fac69ae9354">&lt;strong&gt;</bpt>Insert<ept id="0f2ba9f5-422f-4986-b5e6-3fac69ae9354">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b359a4bd-9be0-4b2a-b2fa-fd3ff9bf184f">&lt;strong&gt;</bpt>TodoItem<ept id="b359a4bd-9be0-4b2a-b2fa-fd3ff9bf184f">&lt;/strong&gt;</ept>, click <bpt id="d155219e-7153-4ba3-888d-f8855125718b">&lt;strong&gt;</bpt>Script<ept id="d155219e-7153-4ba3-888d-f8855125718b">&lt;/strong&gt;</ept> and select <bpt id="0f2ba9f5-422f-4986-b5e6-3fac69ae9354">&lt;strong&gt;</bpt>Insert<ept id="0f2ba9f5-422f-4986-b5e6-3fac69ae9354">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af979731-d134-4db9-8a67-2fe8942ec6ba" xml:space="preserve">
+          <source>Replace the insert function with the following code, and then click <bpt id="0ccf51c6-681c-4c6d-8bdc-359270f11e88">&lt;strong&gt;</bpt>Save<ept id="0ccf51c6-681c-4c6d-8bdc-359270f11e88">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Replace the insert function with the following code, and then click <bpt id="0ccf51c6-681c-4c6d-8bdc-359270f11e88">&lt;strong&gt;</bpt>Save<ept id="0ccf51c6-681c-4c6d-8bdc-359270f11e88">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="453edaa8-04a3-4a0c-b9cf-562f79d6f6b1" xml:space="preserve">
+          <source>This insert script sends a push notification (with the text of the inserted item) to all Windows Store app registrations after the insert succeeds.</source>
+          <target state="new">This insert script sends a push notification (with the text of the inserted item) to all Windows Store app registrations after the insert succeeds.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ab3af4b0-b88e-4567-92c8-207e328156ff" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ab3af4b0-b88e-4567-92c8-207e328156ff" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2c0ea8f9-ae7b-45c8-b254-04b643bdb2e2">
+        <trans-unit id="ce00a329-76df-40fe-8fd7-6c93024f6ad7" xml:space="preserve">
+          <source>StorSimple system limits | Microsoft Azure</source>
+          <target state="new">StorSimple system limits | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e3c51ad5-39ee-4362-969c-36e65f0cbb61" xml:space="preserve">
+          <source>Describes system limits and recommended sizes for StorSimple components and connections.</source>
+          <target state="new">Describes system limits and recommended sizes for StorSimple components and connections.</target>
+        </trans-unit>
+        <trans-unit id="33ab47fd-4902-4fa1-b349-e78e984b36d6" xml:space="preserve">
+          <source>StorSimple provides scalable and flexible storage for your datacenter.</source>
+          <target state="new">StorSimple provides scalable and flexible storage for your datacenter.</target>
+        </trans-unit>
+        <trans-unit id="9c35ca15-9a3b-4dbd-8c7c-0251196ffeb7" xml:space="preserve">
+          <source>However, there are some limits that you should keep in mind as you plan, deploy, and operate your StorSimple solution.</source>
+          <target state="new">However, there are some limits that you should keep in mind as you plan, deploy, and operate your StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="214c6843-703a-458b-a481-a9b404311b71" xml:space="preserve">
+          <source>The following table describes these limits and provides some recommendations so that you can get the most out of your StorSimple solution.</source>
+          <target state="new">The following table describes these limits and provides some recommendations so that you can get the most out of your StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="d8ca22cb-d464-49b8-a49c-516e61c60093" xml:space="preserve">
+          <source><bpt id="105f5441-3cd7-45d9-85c2-c7440d8738d9">&lt;token href="../../includes/storsimple-limits-table.md"&gt;</bpt><ept id="105f5441-3cd7-45d9-85c2-c7440d8738d9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="105f5441-3cd7-45d9-85c2-c7440d8738d9">&lt;token href="../../includes/storsimple-limits-table.md"&gt;</bpt><ept id="105f5441-3cd7-45d9-85c2-c7440d8738d9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b1f0a05-ae96-46df-bc19-83441aa37975" xml:space="preserve">
+          <source>Review the <bpt id="ffae4ad5-ad20-4cda-a4b0-96ed32e5e3f4">&lt;linkText&gt;</bpt>StorSimple system requirements<ept id="ffae4ad5-ad20-4cda-a4b0-96ed32e5e3f4">&lt;/linkText&gt;</ept><bpt id="ffae4ad5-ad20-4cda-a4b0-96ed32e5e3f4">&lt;title&gt;</bpt><ept id="ffae4ad5-ad20-4cda-a4b0-96ed32e5e3f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Review the <bpt id="ffae4ad5-ad20-4cda-a4b0-96ed32e5e3f4">&lt;linkText&gt;</bpt>StorSimple system requirements<ept id="ffae4ad5-ad20-4cda-a4b0-96ed32e5e3f4">&lt;/linkText&gt;</ept><bpt id="ffae4ad5-ad20-4cda-a4b0-96ed32e5e3f4">&lt;title&gt;</bpt><ept id="ffae4ad5-ad20-4cda-a4b0-96ed32e5e3f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

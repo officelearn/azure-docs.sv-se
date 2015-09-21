@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a63a0cd7-2dca-4af8-a1cf-509bb0130978" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a63a0cd7-2dca-4af8-a1cf-509bb0130978" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d3fdd6de-7cef-40b4-b44d-b39e77a88271">
+        <trans-unit id="ce65df5d-3820-4663-8de9-45473ddb366e" xml:space="preserve">
+          <source>With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed.</source>
+          <target state="new">With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed.</target>
+        </trans-unit>
+        <trans-unit id="edae0f84-278e-42bc-b5f0-d0dae775295a" xml:space="preserve">
+          <source>The template includes a section called Parameters that contains all of the parameter values.</source>
+          <target state="new">The template includes a section called Parameters that contains all of the parameter values.</target>
+        </trans-unit>
+        <trans-unit id="de778296-77e1-442d-940f-2064e890e343" xml:space="preserve">
+          <source>You should define a parameter for those values that will vary based on the project you are deploying or based on the 
+environment you are deploying to.</source>
+          <target state="new">You should define a parameter for those values that will vary based on the project you are deploying or based on the 
+environment you are deploying to.</target>
+        </trans-unit>
+        <trans-unit id="d51e27a2-f170-44aa-8b1c-b85c8f5f8172" xml:space="preserve">
+          <source>Do not define parameters for values that will always stay the same.</source>
+          <target state="new">Do not define parameters for values that will always stay the same.</target>
+        </trans-unit>
+        <trans-unit id="7b574e08-55f0-4608-b7a0-fb4f7b168b30" xml:space="preserve">
+          <source>Each parameter value is used in the template to define the resources that are deployed.</source>
+          <target state="new">Each parameter value is used in the template to define the resources that are deployed.</target>
+        </trans-unit>
+        <trans-unit id="c96a545a-df42-4163-b0db-e8dd0dbe2b60" xml:space="preserve">
+          <source>We will describe each parameter in the template.</source>
+          <target state="new">We will describe each parameter in the template.</target>
+        </trans-unit>
+        <trans-unit id="f90e7dfc-4709-4e96-903d-8e5eeef32426" xml:space="preserve">
+          <source>The name of the gateway.</source>
+          <target state="new">The name of the gateway.</target>
+        </trans-unit>
+        <trans-unit id="97802f1a-ea56-41a4-b8be-4b667058cbca" xml:space="preserve">
+          <source>The API app gets registered to this gateway.</source>
+          <target state="new">The API app gets registered to this gateway.</target>
+        </trans-unit>
+        <trans-unit id="b7564a98-7472-479f-a936-9cc43bba02d6" xml:space="preserve">
+          <source>The name of the API app to create.</source>
+          <target state="new">The name of the API app to create.</target>
+        </trans-unit>
+        <trans-unit id="b384e4f7-0c49-4be0-a999-ed57ac2b6131" xml:space="preserve">
+          <source>The name must contain at least 8 characters and no more than 50 characters.</source>
+          <target state="new">The name must contain at least 8 characters and no more than 50 characters.</target>
+        </trans-unit>
+        <trans-unit id="0ecbcc6e-eb7c-46ad-89cb-500d623fd257" xml:space="preserve">
+          <source>The secret for the API app.</source>
+          <target state="new">The secret for the API app.</target>
+        </trans-unit>
+        <trans-unit id="abf3d4b1-f7a2-42f1-8cfe-5d0480dfcd03" xml:space="preserve">
+          <source>This value must be a base64-encoded string.</source>
+          <target state="new">This value must be a base64-encoded string.</target>
+        </trans-unit>
+        <trans-unit id="996e8ef7-6f8d-4997-873f-5a67c7cbd1f6" xml:space="preserve">
+          <source>It should be a random string with 64 characters, and consist of only integers and lowercase characters.</source>
+          <target state="new">It should be a random string with 64 characters, and consist of only integers and lowercase characters.</target>
+        </trans-unit>
+        <trans-unit id="63772158-9aac-4bd7-9fa0-4dc78660634d" xml:space="preserve">
+          <source>The location for the new API app.</source>
+          <target state="new">The location for the new API app.</target>
+        </trans-unit>
+        <trans-unit id="0c9e6a17-1da5-47ca-b343-bc1307545c9c" xml:space="preserve">
+          <source>You can get valid locations by running the PowerShell command <bpt id="837b10fd-e2ad-4bcc-b238-ffc0d3737b1a">&lt;code&gt;</bpt>Get-AzureLocation<ept id="837b10fd-e2ad-4bcc-b238-ffc0d3737b1a">&lt;/code&gt;</ept> or the Azure CLI command <bpt id="907d29e9-19a6-4d28-80b8-8dcf3d35714d">&lt;code&gt;</bpt>azure location list<ept id="907d29e9-19a6-4d28-80b8-8dcf3d35714d">&lt;/code&gt;</ept>.</source>
+          <target state="new">You can get valid locations by running the PowerShell command <bpt id="837b10fd-e2ad-4bcc-b238-ffc0d3737b1a">&lt;code&gt;</bpt>Get-AzureLocation<ept id="837b10fd-e2ad-4bcc-b238-ffc0d3737b1a">&lt;/code&gt;</ept> or the Azure CLI command <bpt id="907d29e9-19a6-4d28-80b8-8dcf3d35714d">&lt;code&gt;</bpt>azure location list<ept id="907d29e9-19a6-4d28-80b8-8dcf3d35714d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

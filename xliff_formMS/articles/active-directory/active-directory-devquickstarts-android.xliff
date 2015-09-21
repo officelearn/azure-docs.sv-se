@@ -1,0 +1,738 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4903c4a4-e3f5-4df6-8191-02107b21fc14" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4903c4a4-e3f5-4df6-8191-02107b21fc14" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cb4d4441-67a4-423c-86b6-338cd4973ce3">
+        <trans-unit id="18742c00-d688-4ceb-931b-77df85a96d27" xml:space="preserve">
+          <source>Azure AD Android Getting Started | Microsoft Azure</source>
+          <target state="new">Azure AD Android Getting Started | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a99f0cdc-3f64-4690-8216-ad95ebc6c38d" xml:space="preserve">
+          <source>How to build an Android application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.</source>
+          <target state="new">How to build an Android application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.</target>
+        </trans-unit>
+        <trans-unit id="c7430d01-ee3b-432d-a7f1-991f27c5da21" xml:space="preserve">
+          <source><bpt id="13559f18-4371-4356-8e3d-543079bee00a">&lt;token href="../../includes/active-directory-devquickstarts-switcher.md"&gt;</bpt><ept id="13559f18-4371-4356-8e3d-543079bee00a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="13559f18-4371-4356-8e3d-543079bee00a">&lt;token href="../../includes/active-directory-devquickstarts-switcher.md"&gt;</bpt><ept id="13559f18-4371-4356-8e3d-543079bee00a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2e11b37-8f0a-4967-8706-00ec9414a8cd" xml:space="preserve">
+          <source><bpt id="fdc4b603-1657-4b78-88e8-866a9663ef35">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="fdc4b603-1657-4b78-88e8-866a9663ef35">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="fdc4b603-1657-4b78-88e8-866a9663ef35">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="fdc4b603-1657-4b78-88e8-866a9663ef35">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2976a86-a501-4392-a309-7d487ec4a2c4" xml:space="preserve">
+          <source>If you're developing a desktop application, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.</source>
+          <target state="new">If you're developing a desktop application, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.</target>
+        </trans-unit>
+        <trans-unit id="f6d1baa6-71e0-4ed3-b670-7753bb83cbc8" xml:space="preserve">
+          <source>It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.</source>
+          <target state="new">It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.</target>
+        </trans-unit>
+        <trans-unit id="0def0d8a-196b-42d1-ac1a-07d36fa50e0c" xml:space="preserve">
+          <source>For Android clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.</source>
+          <target state="new">For Android clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.</target>
+        </trans-unit>
+        <trans-unit id="14baab78-6333-448c-ad4b-89ca7b0c1b00" xml:space="preserve">
+          <source>ADAL’s sole purpose in life is to make it easy for your app to get access tokens.</source>
+          <target state="new">ADAL’s sole purpose in life is to make it easy for your app to get access tokens.</target>
+        </trans-unit>
+        <trans-unit id="9b1edfb5-b9b6-4193-8936-561bc7756d96" xml:space="preserve">
+          <source>To demonstrate just how easy it is, here we’ll build an Android To-Do List application that:</source>
+          <target state="new">To demonstrate just how easy it is, here we’ll build an Android To-Do List application that:</target>
+        </trans-unit>
+        <trans-unit id="29cf5257-cd5f-4f7a-9934-637a45c08e5e" xml:space="preserve">
+          <source>Gets access tokens for calling a To-Do List API using the <bpt id="f4fb17bc-5d27-451b-88cc-53a1bebcb1e8">&lt;linkText&gt;</bpt>OAuth 2.0 authentication protocol<ept id="f4fb17bc-5d27-451b-88cc-53a1bebcb1e8">&lt;/linkText&gt;</ept><bpt id="f4fb17bc-5d27-451b-88cc-53a1bebcb1e8">&lt;title&gt;</bpt><ept id="f4fb17bc-5d27-451b-88cc-53a1bebcb1e8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Gets access tokens for calling a To-Do List API using the <bpt id="f4fb17bc-5d27-451b-88cc-53a1bebcb1e8">&lt;linkText&gt;</bpt>OAuth 2.0 authentication protocol<ept id="f4fb17bc-5d27-451b-88cc-53a1bebcb1e8">&lt;/linkText&gt;</ept><bpt id="f4fb17bc-5d27-451b-88cc-53a1bebcb1e8">&lt;title&gt;</bpt><ept id="f4fb17bc-5d27-451b-88cc-53a1bebcb1e8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfda3b8c-0bb5-4325-939e-db72efc7c159" xml:space="preserve">
+          <source>Gets a user's To-Do List</source>
+          <target state="new">Gets a user's To-Do List</target>
+        </trans-unit>
+        <trans-unit id="c7723934-acd4-4c4c-b031-a6a97eacda60" xml:space="preserve">
+          <source>Signs users out.</source>
+          <target state="new">Signs users out.</target>
+        </trans-unit>
+        <trans-unit id="14459619-04bf-4011-b45e-edef007b3997" xml:space="preserve">
+          <source>To get started, you'll need an Azure AD tenant in which you can create users and register an application.</source>
+          <target state="new">To get started, you'll need an Azure AD tenant in which you can create users and register an application.</target>
+        </trans-unit>
+        <trans-unit id="beefe520-f136-44f5-ade8-2369cc0a520a" xml:space="preserve">
+          <source>If you don't already have a tenant, <bpt id="5f0698dc-e86c-40bf-960c-ec76f84f07cb">&lt;linkText&gt;</bpt>learn how to get one<ept id="5f0698dc-e86c-40bf-960c-ec76f84f07cb">&lt;/linkText&gt;</ept><bpt id="5f0698dc-e86c-40bf-960c-ec76f84f07cb">&lt;title&gt;</bpt><ept id="5f0698dc-e86c-40bf-960c-ec76f84f07cb">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't already have a tenant, <bpt id="5f0698dc-e86c-40bf-960c-ec76f84f07cb">&lt;linkText&gt;</bpt>learn how to get one<ept id="5f0698dc-e86c-40bf-960c-ec76f84f07cb">&lt;/linkText&gt;</ept><bpt id="5f0698dc-e86c-40bf-960c-ec76f84f07cb">&lt;title&gt;</bpt><ept id="5f0698dc-e86c-40bf-960c-ec76f84f07cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80f4f4c2-2d5e-4c9b-bbae-106ac82c6d09" xml:space="preserve">
+          <source>This sample is written specifically to work against our existing sample for building a single tenant To-Do REST API for Microsoft Azure Active Directory.</source>
+          <target state="new">This sample is written specifically to work against our existing sample for building a single tenant To-Do REST API for Microsoft Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="98b5a655-0079-4162-860a-3df10893deba" xml:space="preserve">
+          <source>This is a pre-requisite for the Quick Start.</source>
+          <target state="new">This is a pre-requisite for the Quick Start.</target>
+        </trans-unit>
+        <trans-unit id="1b64c408-0668-42dc-a37e-a1c21c95ca47" xml:space="preserve">
+          <source>For information on how to set this up, visit our existing samples here:</source>
+          <target state="new">For information on how to set this up, visit our existing samples here:</target>
+        </trans-unit>
+        <trans-unit id="c71b84eb-e689-49c9-9c58-96ec9bbe28df" xml:space="preserve">
+          <source><bpt id="3f2a6b37-547e-4364-b5df-05a368460883">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory Sample REST API Service for Node.js<ept id="3f2a6b37-547e-4364-b5df-05a368460883">&lt;/linkText&gt;</ept><bpt id="3f2a6b37-547e-4364-b5df-05a368460883">&lt;title&gt;</bpt><ept id="3f2a6b37-547e-4364-b5df-05a368460883">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3f2a6b37-547e-4364-b5df-05a368460883">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory Sample REST API Service for Node.js<ept id="3f2a6b37-547e-4364-b5df-05a368460883">&lt;/linkText&gt;</ept><bpt id="3f2a6b37-547e-4364-b5df-05a368460883">&lt;title&gt;</bpt><ept id="3f2a6b37-547e-4364-b5df-05a368460883">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff0b7b25-9956-49f2-8563-3f1da785fa88" xml:space="preserve">
+          <source><bpt id="3e01fa23-6679-4c7e-97e5-db33f7cd5382">&lt;strong&gt;</bpt>What am I doing?<ept id="3e01fa23-6679-4c7e-97e5-db33f7cd5382">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3e01fa23-6679-4c7e-97e5-db33f7cd5382">&lt;strong&gt;</bpt>What am I doing?<ept id="3e01fa23-6679-4c7e-97e5-db33f7cd5382">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35cc8b46-631f-410b-b2ac-829729a5cbe6" xml:space="preserve">
+          <source>*Microsoft Active Directory supports adding two types of applications.</source>
+          <target state="new">*Microsoft Active Directory supports adding two types of applications.</target>
+        </trans-unit>
+        <trans-unit id="5e359cfe-fbcd-4e8d-be8a-cb07d7d58cec" xml:space="preserve">
+          <source>Web APIs that offer services to users and applications (either on the web or an applicaiton running on a device) that access those Web APIs.</source>
+          <target state="new">Web APIs that offer services to users and applications (either on the web or an applicaiton running on a device) that access those Web APIs.</target>
+        </trans-unit>
+        <trans-unit id="5f1b1a70-2adf-48d3-a191-b16a0a2e7d6d" xml:space="preserve">
+          <source>In this step you are registering the Web API you are running locally for testing this sample.</source>
+          <target state="new">In this step you are registering the Web API you are running locally for testing this sample.</target>
+        </trans-unit>
+        <trans-unit id="3cd3932b-5a2e-4e48-8552-7d37331e6933" xml:space="preserve">
+          <source>Normally this Web API would be a REST service that is offering functionaltiy you want an app to access.</source>
+          <target state="new">Normally this Web API would be a REST service that is offering functionaltiy you want an app to access.</target>
+        </trans-unit>
+        <trans-unit id="a7ae513f-6aa7-44b9-8751-66676cb1acea" xml:space="preserve">
+          <source>Microsoft Azure Active Directory can protect any endpoint!*</source>
+          <target state="new">Microsoft Azure Active Directory can protect any endpoint!*</target>
+        </trans-unit>
+        <trans-unit id="51b35cc0-cd46-46dc-ae14-9f77bccaf79d" xml:space="preserve">
+          <source><bpt id="48a090ad-1008-41e3-bcaf-f064a52c63b9">&lt;em&gt;</bpt>Here we are assuming you are registering the TODO REST API referenced above, but this works for any Web API you'd want Azure Active Directory to protect.<ept id="48a090ad-1008-41e3-bcaf-f064a52c63b9">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="48a090ad-1008-41e3-bcaf-f064a52c63b9">&lt;em&gt;</bpt>Here we are assuming you are registering the TODO REST API referenced above, but this works for any Web API you'd want Azure Active Directory to protect.<ept id="48a090ad-1008-41e3-bcaf-f064a52c63b9">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63245a9b-eda2-4ffd-9fb4-344b6bc36cc4" xml:space="preserve">
+          <source>Steps to register a Web API with Microsoft Azure AD</source>
+          <target state="new">Steps to register a Web API with Microsoft Azure AD</target>
+        </trans-unit>
+        <trans-unit id="85dd5b4f-54ab-451d-99e8-9f1e1cb873f3" xml:space="preserve">
+          <source>Sign in to the <bpt id="d1279d48-26fb-4bf0-a5ea-87f6a9a01e2c">&lt;linkText&gt;</bpt>Azure management portal<ept id="d1279d48-26fb-4bf0-a5ea-87f6a9a01e2c">&lt;/linkText&gt;</ept><bpt id="d1279d48-26fb-4bf0-a5ea-87f6a9a01e2c">&lt;title&gt;</bpt><ept id="d1279d48-26fb-4bf0-a5ea-87f6a9a01e2c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="d1279d48-26fb-4bf0-a5ea-87f6a9a01e2c">&lt;linkText&gt;</bpt>Azure management portal<ept id="d1279d48-26fb-4bf0-a5ea-87f6a9a01e2c">&lt;/linkText&gt;</ept><bpt id="d1279d48-26fb-4bf0-a5ea-87f6a9a01e2c">&lt;title&gt;</bpt><ept id="d1279d48-26fb-4bf0-a5ea-87f6a9a01e2c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e62daa97-ef88-43fe-a4de-888427002893" xml:space="preserve">
+          <source>Click on Active Directory in the left hand nav.</source>
+          <target state="new">Click on Active Directory in the left hand nav.</target>
+        </trans-unit>
+        <trans-unit id="d796c064-cfbf-4684-b199-84eb6e2b3f67" xml:space="preserve">
+          <source>Click the directory tenant where you wish to register the sample application.</source>
+          <target state="new">Click the directory tenant where you wish to register the sample application.</target>
+        </trans-unit>
+        <trans-unit id="6edaf2cb-1ad2-49ae-83ad-545469d8acb7" xml:space="preserve">
+          <source>Click the Applications tab.</source>
+          <target state="new">Click the Applications tab.</target>
+        </trans-unit>
+        <trans-unit id="9a3500b0-c95c-4c52-8de8-873212e4412a" xml:space="preserve">
+          <source>In the drawer, click Add.</source>
+          <target state="new">In the drawer, click Add.</target>
+        </trans-unit>
+        <trans-unit id="c0efa48a-e470-412e-bb13-12b669860416" xml:space="preserve">
+          <source>Click "Add an application my organization is developing".</source>
+          <target state="new">Click "Add an application my organization is developing".</target>
+        </trans-unit>
+        <trans-unit id="1ddb12da-3766-4a91-a142-9b7e3997e48a" xml:space="preserve">
+          <source>Enter a friendly name for the application, for example "TodoListService", select "Web Application and/or Web API", and click next.</source>
+          <target state="new">Enter a friendly name for the application, for example "TodoListService", select "Web Application and/or Web API", and click next.</target>
+        </trans-unit>
+        <trans-unit id="989f3df3-2aed-46a5-a5b9-d180b89e8b09" xml:space="preserve">
+          <source>For the sign-on URL, enter the base URL for the sample, which is by default <bpt id="2b3d7172-24e7-4231-8fc1-860812f44243">&lt;code&gt;</bpt>https://localhost:8080<ept id="2b3d7172-24e7-4231-8fc1-860812f44243">&lt;/code&gt;</ept>.</source>
+          <target state="new">For the sign-on URL, enter the base URL for the sample, which is by default <bpt id="2b3d7172-24e7-4231-8fc1-860812f44243">&lt;code&gt;</bpt>https://localhost:8080<ept id="2b3d7172-24e7-4231-8fc1-860812f44243">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="243d6ae1-ca4d-40a3-9bee-d0c27bd84808" xml:space="preserve">
+          <source>For the App ID URI, enter <bpt id="bd325d4d-689f-4fc9-b33c-c930911293e2">&lt;code&gt;</bpt>https://&lt;your_tenant_name&gt;/TodoListService<ept id="bd325d4d-689f-4fc9-b33c-c930911293e2">&lt;/code&gt;</ept>, replacing <bpt id="61f8859b-9294-406d-9192-83fa9a8f4e96">&lt;code&gt;</bpt>&lt;your_tenant_name&gt;<ept id="61f8859b-9294-406d-9192-83fa9a8f4e96">&lt;/code&gt;</ept> with the name of your Azure AD tenant.  Click OK to complete the registration.</source>
+          <target state="new">For the App ID URI, enter <bpt id="bd325d4d-689f-4fc9-b33c-c930911293e2">&lt;code&gt;</bpt>https://&lt;your_tenant_name&gt;/TodoListService<ept id="bd325d4d-689f-4fc9-b33c-c930911293e2">&lt;/code&gt;</ept>, replacing <bpt id="61f8859b-9294-406d-9192-83fa9a8f4e96">&lt;code&gt;</bpt>&lt;your_tenant_name&gt;<ept id="61f8859b-9294-406d-9192-83fa9a8f4e96">&lt;/code&gt;</ept> with the name of your Azure AD tenant.  Click OK to complete the registration.</target>
+        </trans-unit>
+        <trans-unit id="8838b080-dadd-4441-a9f5-d00b74fa110d" xml:space="preserve">
+          <source>While still in the Azure portal, click the Configure tab of your application.</source>
+          <target state="new">While still in the Azure portal, click the Configure tab of your application.</target>
+        </trans-unit>
+        <trans-unit id="3026cc4e-6c4a-440b-8f6d-efc994168919" xml:space="preserve">
+          <source><bpt id="c75a3bb3-a268-4437-9f83-da97dba6463a">&lt;strong&gt;</bpt>Find the Client ID value and copy it aside<ept id="c75a3bb3-a268-4437-9f83-da97dba6463a">&lt;/strong&gt;</ept>, you will need this later when configuring your application.</source>
+          <target state="new"><bpt id="c75a3bb3-a268-4437-9f83-da97dba6463a">&lt;strong&gt;</bpt>Find the Client ID value and copy it aside<ept id="c75a3bb3-a268-4437-9f83-da97dba6463a">&lt;/strong&gt;</ept>, you will need this later when configuring your application.</target>
+        </trans-unit>
+        <trans-unit id="a82b28b4-555c-4d3d-855f-397c9db7c854" xml:space="preserve">
+          <source>Registering your web application is the first step.</source>
+          <target state="new">Registering your web application is the first step.</target>
+        </trans-unit>
+        <trans-unit id="e64eaf57-9874-4eb1-8762-2e1eb348b7dc" xml:space="preserve">
+          <source>Next, you'll need to tell Azure Active Directory about your application as well.</source>
+          <target state="new">Next, you'll need to tell Azure Active Directory about your application as well.</target>
+        </trans-unit>
+        <trans-unit id="f22889c7-3978-4ad9-97db-baad8b9a40bb" xml:space="preserve">
+          <source>This allows your application to communicate with the just registered Web API</source>
+          <target state="new">This allows your application to communicate with the just registered Web API</target>
+        </trans-unit>
+        <trans-unit id="bce59ddd-5110-490f-9b8d-5853acfee202" xml:space="preserve">
+          <source><bpt id="83fab5f6-ae57-4f49-a02c-7a0e8959ea7c">&lt;strong&gt;</bpt>What am I doing?<ept id="83fab5f6-ae57-4f49-a02c-7a0e8959ea7c">&lt;/strong&gt;</ept>  </source>
+          <target state="new"><bpt id="83fab5f6-ae57-4f49-a02c-7a0e8959ea7c">&lt;strong&gt;</bpt>What am I doing?<ept id="83fab5f6-ae57-4f49-a02c-7a0e8959ea7c">&lt;/strong&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="e5aa3f93-4551-46ed-8e99-adddd7dce7e7" xml:space="preserve">
+          <source>*As stated above, Microsoft Azure Active Directory supports adding two types of applications.</source>
+          <target state="new">*As stated above, Microsoft Azure Active Directory supports adding two types of applications.</target>
+        </trans-unit>
+        <trans-unit id="e59df59c-2ff5-48f3-81a0-64f880bfeb4d" xml:space="preserve">
+          <source>Web APIs that offer services to users and applications (either on the web or an applicaiton running on a device) that access those Web APIs.</source>
+          <target state="new">Web APIs that offer services to users and applications (either on the web or an applicaiton running on a device) that access those Web APIs.</target>
+        </trans-unit>
+        <trans-unit id="47b0964d-ea5a-4c19-b341-689735f7748a" xml:space="preserve">
+          <source>In this step you are registering the application in this sample.</source>
+          <target state="new">In this step you are registering the application in this sample.</target>
+        </trans-unit>
+        <trans-unit id="37daba5c-6747-4448-9b0c-a4516c2fb807" xml:space="preserve">
+          <source>You must do that in order for this application to be able to request to access the Web API you just registered.</source>
+          <target state="new">You must do that in order for this application to be able to request to access the Web API you just registered.</target>
+        </trans-unit>
+        <trans-unit id="da9fc518-27bd-428a-be5e-c00530daba9b" xml:space="preserve">
+          <source>Azure Active Directory will refuse to even allow your application to ask for sign-in unless it's registered!</source>
+          <target state="new">Azure Active Directory will refuse to even allow your application to ask for sign-in unless it's registered!</target>
+        </trans-unit>
+        <trans-unit id="fc2335fa-5559-433e-ac9e-2bc27d08d85e" xml:space="preserve">
+          <source>That's part of the security of the model.*</source>
+          <target state="new">That's part of the security of the model.*</target>
+        </trans-unit>
+        <trans-unit id="4bde339d-a447-4e53-aa6c-b6a6f621ed88" xml:space="preserve">
+          <source><bpt id="f6ef8a08-ba6c-41fd-82f2-f6ebb69ce97b">&lt;em&gt;</bpt>Here we are assuming you are registering this sample application referenced above, but this works for any app you are developing.<ept id="f6ef8a08-ba6c-41fd-82f2-f6ebb69ce97b">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="f6ef8a08-ba6c-41fd-82f2-f6ebb69ce97b">&lt;em&gt;</bpt>Here we are assuming you are registering this sample application referenced above, but this works for any app you are developing.<ept id="f6ef8a08-ba6c-41fd-82f2-f6ebb69ce97b">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da973c8b-574e-4cc7-89e4-1003830253ae" xml:space="preserve">
+          <source><bpt id="1db6e26c-65fd-4f8a-a1aa-a70e4143a88f">&lt;strong&gt;</bpt>Why am I putting both an application and a Web API in one tenant?<ept id="1db6e26c-65fd-4f8a-a1aa-a70e4143a88f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1db6e26c-65fd-4f8a-a1aa-a70e4143a88f">&lt;strong&gt;</bpt>Why am I putting both an application and a Web API in one tenant?<ept id="1db6e26c-65fd-4f8a-a1aa-a70e4143a88f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09160ff9-5207-4b16-ab9e-831863fe4ad0" xml:space="preserve">
+          <source>*As you might have guessed, you could build an app that accesses an external API that is registered in Azure Active Directory from another tenant.</source>
+          <target state="new">*As you might have guessed, you could build an app that accesses an external API that is registered in Azure Active Directory from another tenant.</target>
+        </trans-unit>
+        <trans-unit id="cafe933d-57e9-42bb-aadf-6293481fc8eb" xml:space="preserve">
+          <source>If you do that, your customers will be prompted to consent to the use of the API in the application.</source>
+          <target state="new">If you do that, your customers will be prompted to consent to the use of the API in the application.</target>
+        </trans-unit>
+        <trans-unit id="cda46d96-2b48-47b5-b02b-97cec898b2f6" xml:space="preserve">
+          <source>The nice part is, Active Directory Authentication Library for iOS takes care of this consent for you!</source>
+          <target state="new">The nice part is, Active Directory Authentication Library for iOS takes care of this consent for you!</target>
+        </trans-unit>
+        <trans-unit id="ed087e23-7c05-4433-abd4-063e83e5e295" xml:space="preserve">
+          <source>As we get in to more advanced features, you'll see this is an important part of the work needed to access the suite of Microsoft APIs from Azure and Office as well as any other service provider.</source>
+          <target state="new">As we get in to more advanced features, you'll see this is an important part of the work needed to access the suite of Microsoft APIs from Azure and Office as well as any other service provider.</target>
+        </trans-unit>
+        <trans-unit id="f8ef5377-8b05-4c77-8c47-a12877d81be0" xml:space="preserve">
+          <source>For now, because you registered both your Web API and application under the same tenant you won't see any prompts for consent.</source>
+          <target state="new">For now, because you registered both your Web API and application under the same tenant you won't see any prompts for consent.</target>
+        </trans-unit>
+        <trans-unit id="8825bba2-32b4-4e0f-af5c-06175bdeb521" xml:space="preserve">
+          <source>This is usually the case if you are developing an application just for your own company to use.*</source>
+          <target state="new">This is usually the case if you are developing an application just for your own company to use.*</target>
+        </trans-unit>
+        <trans-unit id="347ac5cb-3df9-4317-9a6c-f900f4c42f12" xml:space="preserve">
+          <source>Sign in to the <bpt id="8e5c3e84-bd86-4d2d-809f-62a97a4b3503">&lt;linkText&gt;</bpt>Azure management portal<ept id="8e5c3e84-bd86-4d2d-809f-62a97a4b3503">&lt;/linkText&gt;</ept><bpt id="8e5c3e84-bd86-4d2d-809f-62a97a4b3503">&lt;title&gt;</bpt><ept id="8e5c3e84-bd86-4d2d-809f-62a97a4b3503">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="8e5c3e84-bd86-4d2d-809f-62a97a4b3503">&lt;linkText&gt;</bpt>Azure management portal<ept id="8e5c3e84-bd86-4d2d-809f-62a97a4b3503">&lt;/linkText&gt;</ept><bpt id="8e5c3e84-bd86-4d2d-809f-62a97a4b3503">&lt;title&gt;</bpt><ept id="8e5c3e84-bd86-4d2d-809f-62a97a4b3503">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e1de9ba-9e7d-453e-b8e6-40abda40433c" xml:space="preserve">
+          <source>Click on Active Directory in the left hand nav.</source>
+          <target state="new">Click on Active Directory in the left hand nav.</target>
+        </trans-unit>
+        <trans-unit id="daab3f33-9a10-4cc3-81f3-70ce17fe00c2" xml:space="preserve">
+          <source>Click the directory tenant where you wish to register the sample application.</source>
+          <target state="new">Click the directory tenant where you wish to register the sample application.</target>
+        </trans-unit>
+        <trans-unit id="a0504034-66f3-48f8-a8bb-88caa5fd1c79" xml:space="preserve">
+          <source>Click the Applications tab.</source>
+          <target state="new">Click the Applications tab.</target>
+        </trans-unit>
+        <trans-unit id="55dd6b8e-66b1-4d8b-8bae-72adf9f2839e" xml:space="preserve">
+          <source>In the drawer, click Add.</source>
+          <target state="new">In the drawer, click Add.</target>
+        </trans-unit>
+        <trans-unit id="225657f5-b1e3-44f1-ab24-15aab22bc2b0" xml:space="preserve">
+          <source>Click "Add an application my organization is developing".</source>
+          <target state="new">Click "Add an application my organization is developing".</target>
+        </trans-unit>
+        <trans-unit id="866e3b93-1e47-4cd2-90eb-d09a220e18c7" xml:space="preserve">
+          <source>Enter a friendly name for the application, for example "TodoListClient-Android", select "Native Client Application", and click next.</source>
+          <target state="new">Enter a friendly name for the application, for example "TodoListClient-Android", select "Native Client Application", and click next.</target>
+        </trans-unit>
+        <trans-unit id="d2f2b171-abde-47ff-880a-57e4fcf83c1f" xml:space="preserve">
+          <source>For the Redirect URI, enter <bpt id="40880181-d86b-45aa-8c4f-7a7bb8b2e405">&lt;code&gt;</bpt>http://TodoListClient<ept id="40880181-d86b-45aa-8c4f-7a7bb8b2e405">&lt;/code&gt;</ept>.</source>
+          <target state="new">For the Redirect URI, enter <bpt id="40880181-d86b-45aa-8c4f-7a7bb8b2e405">&lt;code&gt;</bpt>http://TodoListClient<ept id="40880181-d86b-45aa-8c4f-7a7bb8b2e405">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2dab14ed-a419-4a4c-9b5b-13f783669314" xml:space="preserve">
+          <source>Click finish.</source>
+          <target state="new">Click finish.</target>
+        </trans-unit>
+        <trans-unit id="4e9e73fa-0d01-46de-bd08-57c845a2c8e4" xml:space="preserve">
+          <source>Click the Configure tab of the application.</source>
+          <target state="new">Click the Configure tab of the application.</target>
+        </trans-unit>
+        <trans-unit id="1d21e4f8-ea0e-415f-8e8a-506578fbbe61" xml:space="preserve">
+          <source>Find the Client ID value and copy it aside, you will need this later when configuring your application.</source>
+          <target state="new">Find the Client ID value and copy it aside, you will need this later when configuring your application.</target>
+        </trans-unit>
+        <trans-unit id="ad4fd1af-05d7-432a-8ee5-ef1da30be009" xml:space="preserve">
+          <source>In "Permissions to Other Applications", click "Add Application."  Select "Other" in the "Show" dropdown, and click the upper check mark.  Locate &amp; click on the TodoListService, and click the bottom check mark to add the application.  Select "Access TodoListService" from the "Delegated Permissions" dropdown, and save the configuration.</source>
+          <target state="new">In "Permissions to Other Applications", click "Add Application."  Select "Other" in the "Show" dropdown, and click the upper check mark.  Locate &amp; click on the TodoListService, and click the bottom check mark to add the application.  Select "Access TodoListService" from the "Delegated Permissions" dropdown, and save the configuration.</target>
+        </trans-unit>
+        <trans-unit id="0edde0f7-13aa-4c8f-a78c-2110bc19bd56" xml:space="preserve">
+          <source>To build with Maven, you can use the pom.xml at top level</source>
+          <target state="new">To build with Maven, you can use the pom.xml at top level</target>
+        </trans-unit>
+        <trans-unit id="b4acd180-00e2-436a-b91f-a5c72c17ec24" xml:space="preserve">
+          <source>Clone this repo in to a directory of your choice:</source>
+          <target state="new">Clone this repo in to a directory of your choice:</target>
+        </trans-unit>
+        <trans-unit id="1465641d-6d55-41d6-a3bb-3eca20b1af94" xml:space="preserve">
+          <source><bpt id="46b4069f-9af6-4d02-8738-533ce45c2ffd">&lt;code&gt;</bpt>$ git clone git@github.com:AzureADSamples/NativeClient-Android.git<ept id="46b4069f-9af6-4d02-8738-533ce45c2ffd">&lt;/code&gt;</ept>  </source>
+          <target state="new"><bpt id="46b4069f-9af6-4d02-8738-533ce45c2ffd">&lt;code&gt;</bpt>$ git clone git@github.com:AzureADSamples/NativeClient-Android.git<ept id="46b4069f-9af6-4d02-8738-533ce45c2ffd">&lt;/code&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="5de2339a-7b2a-43c2-9479-1bd15960d082" xml:space="preserve">
+          <source>Follow the steps at <bpt id="d80c0e7a-a65f-4ec8-804c-a34ca956dc47">&lt;linkText&gt;</bpt>Prerequests section to setup your maven for android<ept id="d80c0e7a-a65f-4ec8-804c-a34ca956dc47">&lt;/linkText&gt;</ept><bpt id="d80c0e7a-a65f-4ec8-804c-a34ca956dc47">&lt;title&gt;</bpt><ept id="d80c0e7a-a65f-4ec8-804c-a34ca956dc47">&lt;/title&gt;</ept></source>
+          <target state="new">Follow the steps at <bpt id="d80c0e7a-a65f-4ec8-804c-a34ca956dc47">&lt;linkText&gt;</bpt>Prerequests section to setup your maven for android<ept id="d80c0e7a-a65f-4ec8-804c-a34ca956dc47">&lt;/linkText&gt;</ept><bpt id="d80c0e7a-a65f-4ec8-804c-a34ca956dc47">&lt;title&gt;</bpt><ept id="d80c0e7a-a65f-4ec8-804c-a34ca956dc47">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="744ba359-72db-450c-9a4c-d31890ed5d85" xml:space="preserve">
+          <source>Setup emulator with SDK 19</source>
+          <target state="new">Setup emulator with SDK 19</target>
+        </trans-unit>
+        <trans-unit id="0095444b-6c5b-40f5-a5ee-bc514496f025" xml:space="preserve">
+          <source>Go to the root folder where you cloned the repo</source>
+          <target state="new">Go to the root folder where you cloned the repo</target>
+        </trans-unit>
+        <trans-unit id="b413955f-5c00-4955-9576-46469b5b97a1" xml:space="preserve">
+          <source>Run the command: mvn clean install</source>
+          <target state="new">Run the command: mvn clean install</target>
+        </trans-unit>
+        <trans-unit id="de93f70c-27b8-4d6d-a4a9-209f47b3192f" xml:space="preserve">
+          <source>Change the directory to the Quick Start sample: cd samples\hello</source>
+          <target state="new">Change the directory to the Quick Start sample: cd samples\hello</target>
+        </trans-unit>
+        <trans-unit id="b2b7bf86-025d-4657-b39d-cf0244f2577c" xml:space="preserve">
+          <source>Run the command: mvn android:deploy android:run</source>
+          <target state="new">Run the command: mvn android:deploy android:run</target>
+        </trans-unit>
+        <trans-unit id="f17a6b61-d2b8-4df4-a2c8-604a0857cd27" xml:space="preserve">
+          <source>You should see app launching</source>
+          <target state="new">You should see app launching</target>
+        </trans-unit>
+        <trans-unit id="794aa57a-a6b6-460c-8f12-14edc4cb00ef" xml:space="preserve">
+          <source>Enter test user credentials to try!</source>
+          <target state="new">Enter test user credentials to try!</target>
+        </trans-unit>
+        <trans-unit id="7c34ce8b-4e5f-46d8-a747-322cefe1c897" xml:space="preserve">
+          <source>Jar packages will be also submitted beside the aar package.</source>
+          <target state="new">Jar packages will be also submitted beside the aar package.</target>
+        </trans-unit>
+        <trans-unit id="93b3ad4c-d27f-42ef-ad28-8e90f3dab9ad" xml:space="preserve">
+          <source>We've made it easy for you to have multiple options to use this library in your Android project:</source>
+          <target state="new">We've made it easy for you to have multiple options to use this library in your Android project:</target>
+        </trans-unit>
+        <trans-unit id="2417cf80-b6cf-4024-9399-b6146f922d5b" xml:space="preserve">
+          <source>You can use the source code to import this library into Eclipse and link to your application.</source>
+          <target state="new">You can use the source code to import this library into Eclipse and link to your application.</target>
+        </trans-unit>
+        <trans-unit id="2f058ba9-3e1e-4d4e-826e-8581d4d6193b" xml:space="preserve">
+          <source>If using Android Studio, you can use <bpt id="077fb4f8-2c9e-432f-a392-54d4b7bb2d6f">&lt;em&gt;</bpt>aar<ept id="077fb4f8-2c9e-432f-a392-54d4b7bb2d6f">&lt;/em&gt;</ept> package format and reference the binaries.</source>
+          <target state="new">If using Android Studio, you can use <bpt id="077fb4f8-2c9e-432f-a392-54d4b7bb2d6f">&lt;em&gt;</bpt>aar<ept id="077fb4f8-2c9e-432f-a392-54d4b7bb2d6f">&lt;/em&gt;</ept> package format and reference the binaries.</target>
+        </trans-unit>
+        <trans-unit id="ed82141a-57b2-4e28-8d28-dee9d0d7c27d" xml:space="preserve">
+          <source>To download a copy of the source code, click "Download ZIP" on the right side of the page or click <bpt id="eec994e7-43a4-4fb9-ba81-c2041f0fcbb0">&lt;linkText&gt;</bpt>here<ept id="eec994e7-43a4-4fb9-ba81-c2041f0fcbb0">&lt;/linkText&gt;</ept><bpt id="eec994e7-43a4-4fb9-ba81-c2041f0fcbb0">&lt;title&gt;</bpt><ept id="eec994e7-43a4-4fb9-ba81-c2041f0fcbb0">&lt;/title&gt;</ept>.</source>
+          <target state="new">To download a copy of the source code, click "Download ZIP" on the right side of the page or click <bpt id="eec994e7-43a4-4fb9-ba81-c2041f0fcbb0">&lt;linkText&gt;</bpt>here<ept id="eec994e7-43a4-4fb9-ba81-c2041f0fcbb0">&lt;/linkText&gt;</ept><bpt id="eec994e7-43a4-4fb9-ba81-c2041f0fcbb0">&lt;title&gt;</bpt><ept id="eec994e7-43a4-4fb9-ba81-c2041f0fcbb0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bea62675-d0d6-4367-9f36-cd81a7b06196" xml:space="preserve">
+          <source>To get the source code of the SDK via git just type:</source>
+          <target state="new">To get the source code of the SDK via git just type:</target>
+        </trans-unit>
+        <trans-unit id="1c13c4f9-dedb-4ec1-9a6f-137ecada6abd" xml:space="preserve">
+          <source>You can get the binaries from Maven central repo.</source>
+          <target state="new">You can get the binaries from Maven central repo.</target>
+        </trans-unit>
+        <trans-unit id="da559e17-a127-49eb-a021-c5b3d9b06e60" xml:space="preserve">
+          <source>AAR package can be included as follows in your project in AndroidStudio:</source>
+          <target state="new">AAR package can be included as follows in your project in AndroidStudio:</target>
+        </trans-unit>
+        <trans-unit id="ad76b6a4-d270-4a91-b8f4-88e619a2a55a" xml:space="preserve">
+          <source>If you are using the m2e plugin in Eclipse, you can specify the dependency in your pom.xml file:</source>
+          <target state="new">If you are using the m2e plugin in Eclipse, you can specify the dependency in your pom.xml file:</target>
+        </trans-unit>
+        <trans-unit id="cb7dbe8b-d197-4e93-983e-0dc2b1d3cb97" xml:space="preserve">
+          <source>You can get the jar file from maven the repo and drop into the <bpt id="a8dd6785-e179-41b2-9ee4-3f4205ae5b2a">&lt;em&gt;</bpt>libs<ept id="a8dd6785-e179-41b2-9ee4-3f4205ae5b2a">&lt;/em&gt;</ept> folder in your project.</source>
+          <target state="new">You can get the jar file from maven the repo and drop into the <bpt id="a8dd6785-e179-41b2-9ee4-3f4205ae5b2a">&lt;em&gt;</bpt>libs<ept id="a8dd6785-e179-41b2-9ee4-3f4205ae5b2a">&lt;/em&gt;</ept> folder in your project.</target>
+        </trans-unit>
+        <trans-unit id="3f177a1b-d1a0-4925-9e8d-cd06d8ce6a42" xml:space="preserve">
+          <source>You need to copy the required resources to your project as well since the jar packages don't include them.</source>
+          <target state="new">You need to copy the required resources to your project as well since the jar packages don't include them.</target>
+        </trans-unit>
+        <trans-unit id="b0ce2e25-16ff-44af-b0b5-5b798e3ef628" xml:space="preserve">
+          <source>Add a reference to your project and specify it as an Android library.</source>
+          <target state="new">Add a reference to your project and specify it as an Android library.</target>
+        </trans-unit>
+        <trans-unit id="d7cc82aa-8a86-49c7-a2e7-353ad7b3971b" xml:space="preserve">
+          <source>If you are uncertain how to do this, [click here for more information] (http://developer.android.com/tools/projects/projects-eclipse.html)</source>
+          <target state="new">If you are uncertain how to do this, [click here for more information] (http://developer.android.com/tools/projects/projects-eclipse.html)</target>
+        </trans-unit>
+        <trans-unit id="c78acc7c-15eb-4c8a-adb3-d78599a97077" xml:space="preserve">
+          <source>Add the project dependency for debugging in to your project settings</source>
+          <target state="new">Add the project dependency for debugging in to your project settings</target>
+        </trans-unit>
+        <trans-unit id="64574a5e-41bb-4381-81aa-f2d602c3f02b" xml:space="preserve">
+          <source>Update your project's AndroidManifest.xml file to include:</source>
+          <target state="new">Update your project's AndroidManifest.xml file to include:</target>
+        </trans-unit>
+        <trans-unit id="1655b29e-d652-4fe2-955f-e6f50f2a48f1" xml:space="preserve">
+          <source>Create an instance of AuthenticationContext at your main Activity.</source>
+          <target state="new">Create an instance of AuthenticationContext at your main Activity.</target>
+        </trans-unit>
+        <trans-unit id="cae863b9-fe37-43fb-b18e-6bcea5c8a113" xml:space="preserve">
+          <source>The details of this call are beyond the scope of this README, but you can get a good start by looking at the <bpt id="88254245-38d9-4ab0-8737-3c3a0f0e79da">&lt;linkText&gt;</bpt>Android Native Client Sample<ept id="88254245-38d9-4ab0-8737-3c3a0f0e79da">&lt;/linkText&gt;</ept><bpt id="88254245-38d9-4ab0-8737-3c3a0f0e79da">&lt;title&gt;</bpt><ept id="88254245-38d9-4ab0-8737-3c3a0f0e79da">&lt;/title&gt;</ept>.</source>
+          <target state="new">The details of this call are beyond the scope of this README, but you can get a good start by looking at the <bpt id="88254245-38d9-4ab0-8737-3c3a0f0e79da">&lt;linkText&gt;</bpt>Android Native Client Sample<ept id="88254245-38d9-4ab0-8737-3c3a0f0e79da">&lt;/linkText&gt;</ept><bpt id="88254245-38d9-4ab0-8737-3c3a0f0e79da">&lt;title&gt;</bpt><ept id="88254245-38d9-4ab0-8737-3c3a0f0e79da">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="114dd683-60f1-4f9e-b446-76f3797428b0" xml:space="preserve">
+          <source>Below is an example:</source>
+          <target state="new">Below is an example:</target>
+        </trans-unit>
+        <trans-unit id="dca4952b-b562-4e10-9e01-135640c7737d" xml:space="preserve">
+          <source>NOTE: mContext is a field in your activity</source>
+          <target state="new">NOTE: mContext is a field in your activity</target>
+        </trans-unit>
+        <trans-unit id="2984f77e-61cc-4f28-88d9-ea42659d1c19" xml:space="preserve">
+          <source>Copy this code block to handle the end of AuthenticationActivity after user enters credentials and receives authorization code:</source>
+          <target state="new">Copy this code block to handle the end of AuthenticationActivity after user enters credentials and receives authorization code:</target>
+        </trans-unit>
+        <trans-unit id="4b4004e4-84d8-4c35-8209-3384771b9b71" xml:space="preserve">
+          <source>To ask for a token, you define a callback</source>
+          <target state="new">To ask for a token, you define a callback</target>
+        </trans-unit>
+        <trans-unit id="020fd894-4080-459d-b233-76d459a62e71" xml:space="preserve">
+          <source>Finally, ask for a token using that callback:</source>
+          <target state="new">Finally, ask for a token using that callback:</target>
+        </trans-unit>
+        <trans-unit id="7ead7b28-53cd-452c-8f96-046868ffe464" xml:space="preserve">
+          <source>Explanation of the parameters:</source>
+          <target state="new">Explanation of the parameters:</target>
+        </trans-unit>
+        <trans-unit id="0fd78bdb-3883-4a77-aa96-5256306b6437" xml:space="preserve">
+          <source>Resource is required and is the resource you are trying to access.</source>
+          <target state="new">Resource is required and is the resource you are trying to access.</target>
+        </trans-unit>
+        <trans-unit id="c08e2841-d658-466e-baff-9e0d39397447" xml:space="preserve">
+          <source>Clientid is required and comes from the AzureAD Portal.</source>
+          <target state="new">Clientid is required and comes from the AzureAD Portal.</target>
+        </trans-unit>
+        <trans-unit id="2cc0740e-46d7-4dac-937c-9e7a5fee4fbf" xml:space="preserve">
+          <source>You can setup redirectUri as your packagename.</source>
+          <target state="new">You can setup redirectUri as your packagename.</target>
+        </trans-unit>
+        <trans-unit id="6873ce29-9288-42e6-b1cd-b56d4d3eb171" xml:space="preserve">
+          <source>It is not required to be provided for the acquireToken call.</source>
+          <target state="new">It is not required to be provided for the acquireToken call.</target>
+        </trans-unit>
+        <trans-unit id="2d6399a8-5fc8-4a5c-ba4a-25d765b25c5e" xml:space="preserve">
+          <source>PromptBehavior helps to ask for credentials to skip cache and cookie.</source>
+          <target state="new">PromptBehavior helps to ask for credentials to skip cache and cookie.</target>
+        </trans-unit>
+        <trans-unit id="be4622c7-ae52-44a1-aa19-59c3599ef547" xml:space="preserve">
+          <source>Callback will be called after authorization code is exchanged for a token.</source>
+          <target state="new">Callback will be called after authorization code is exchanged for a token.</target>
+        </trans-unit>
+        <trans-unit id="6e9b2997-5214-4785-9d46-cf0cfd84e9b8" xml:space="preserve">
+          <source>The Callback will have an object of AuthenticationResult which has accesstoken, date expired, and idtoken info.</source>
+          <target state="new">The Callback will have an object of AuthenticationResult which has accesstoken, date expired, and idtoken info.</target>
+        </trans-unit>
+        <trans-unit id="9edcacc9-7977-45c6-9182-a47f912cf8c9" xml:space="preserve">
+          <source>Optional:  <bpt id="288b4500-17aa-4b82-9790-284aefa39707">&lt;strong&gt;</bpt>acquireTokenSilent<ept id="288b4500-17aa-4b82-9790-284aefa39707">&lt;/strong&gt;</ept></source>
+          <target state="new">Optional:  <bpt id="288b4500-17aa-4b82-9790-284aefa39707">&lt;strong&gt;</bpt>acquireTokenSilent<ept id="288b4500-17aa-4b82-9790-284aefa39707">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d339374-d127-4e09-9097-4c708ac972d1" xml:space="preserve">
+          <source>You can call <bpt id="fe6037e5-53a2-4c41-a9b1-64bdb999a67d">&lt;strong&gt;</bpt>acquireTokenSilent<ept id="fe6037e5-53a2-4c41-a9b1-64bdb999a67d">&lt;/strong&gt;</ept> to handle caching, and token refresh.</source>
+          <target state="new">You can call <bpt id="fe6037e5-53a2-4c41-a9b1-64bdb999a67d">&lt;strong&gt;</bpt>acquireTokenSilent<ept id="fe6037e5-53a2-4c41-a9b1-64bdb999a67d">&lt;/strong&gt;</ept> to handle caching, and token refresh.</target>
+        </trans-unit>
+        <trans-unit id="60064171-6e4c-493d-9527-2279fd66529e" xml:space="preserve">
+          <source>It provides sync version as well.</source>
+          <target state="new">It provides sync version as well.</target>
+        </trans-unit>
+        <trans-unit id="2eb504a9-c426-46fa-aeb4-49692c69d8f9" xml:space="preserve">
+          <source>It accepts userid as paremeter.</source>
+          <target state="new">It accepts userid as paremeter.</target>
+        </trans-unit>
+        <trans-unit id="e9561313-70f1-4690-a61c-fc74e711c7ee" xml:space="preserve">
+          <source><bpt id="ec92009e-6002-4323-9d1d-f308d2280680">&lt;strong&gt;</bpt>Broker<ept id="ec92009e-6002-4323-9d1d-f308d2280680">&lt;/strong&gt;</ept>:
+Microsoft Intune's Company portal app will provide the broker component.</source>
+          <target state="new"><bpt id="ec92009e-6002-4323-9d1d-f308d2280680">&lt;strong&gt;</bpt>Broker<ept id="ec92009e-6002-4323-9d1d-f308d2280680">&lt;/strong&gt;</ept>:
+Microsoft Intune's Company portal app will provide the broker component.</target>
+        </trans-unit>
+        <trans-unit id="9c150483-e54e-48b1-a0c1-a50b41351401" xml:space="preserve">
+          <source>Adal will use the broker account, if there is one user account is created at this authenticator and Developer choose not to skip it.</source>
+          <target state="new">Adal will use the broker account, if there is one user account is created at this authenticator and Developer choose not to skip it.</target>
+        </trans-unit>
+        <trans-unit id="e2e160b0-4303-413d-a7ae-d2c8bf4e4ef7" xml:space="preserve">
+          <source>Developer can skip the broker user with:</source>
+          <target state="new">Developer can skip the broker user with:</target>
+        </trans-unit>
+        <trans-unit id="f667fa70-2533-4805-b204-e717b02e7264" xml:space="preserve">
+          <source>Developer needs to register special redirectUri for broker usage.</source>
+          <target state="new">Developer needs to register special redirectUri for broker usage.</target>
+        </trans-unit>
+        <trans-unit id="d7a3e9e9-799f-4664-a34f-78498c7070ce" xml:space="preserve">
+          <source>RedirectUri is in the format of msauth://packagename/Base64UrlencodedSignature.</source>
+          <target state="new">RedirectUri is in the format of msauth://packagename/Base64UrlencodedSignature.</target>
+        </trans-unit>
+        <trans-unit id="75e94bc3-a5e5-410e-bcfa-68496bbf9a87" xml:space="preserve">
+          <source>You can get your redirecturi for your app using the script "brokerRedirectPrint.ps1" or use API call mContext.getBrokerRedirectUri.</source>
+          <target state="new">You can get your redirecturi for your app using the script "brokerRedirectPrint.ps1" or use API call mContext.getBrokerRedirectUri.</target>
+        </trans-unit>
+        <trans-unit id="bc9af981-1fd9-4281-8d58-51c6b4b4bcbf" xml:space="preserve">
+          <source>Signature is related to your signing certificates.</source>
+          <target state="new">Signature is related to your signing certificates.</target>
+        </trans-unit>
+        <trans-unit id="3227614f-8374-4c95-bf17-f595afe1c332" xml:space="preserve">
+          <source>Current broker model is for one user.</source>
+          <target state="new">Current broker model is for one user.</target>
+        </trans-unit>
+        <trans-unit id="b520cd17-ef9b-492b-a0c0-c3ba972cabfa" xml:space="preserve">
+          <source>AuthenticationContext provides API method to get the broker user.</source>
+          <target state="new">AuthenticationContext provides API method to get the broker user.</target>
+        </trans-unit>
+        <trans-unit id="bee9b89f-4c23-4923-b622-97ae834c8cf9" xml:space="preserve">
+          <source> Broker user will be returned if account is valid.</source>
+          <target state="new"> Broker user will be returned if account is valid.</target>
+        </trans-unit>
+        <trans-unit id="bd7eb757-c4ac-4aee-8b0d-ed2d9e50c717" xml:space="preserve">
+          <source> Your app manifest should have permissions to use AccountManager accounts: http://developer.android.com/reference/android/accounts/AccountManager.html</source>
+          <target state="new"> Your app manifest should have permissions to use AccountManager accounts: http://developer.android.com/reference/android/accounts/AccountManager.html</target>
+        </trans-unit>
+        <trans-unit id="8f73bc41-09d9-45f5-b1a3-3dff40427816" xml:space="preserve">
+          <source>GET_ACCOUNTS</source>
+          <target state="new">GET_ACCOUNTS</target>
+        </trans-unit>
+        <trans-unit id="6422e5f4-9a9a-403f-b949-574e7418c4a9" xml:space="preserve">
+          <source>USE_CREDENTIALS</source>
+          <target state="new">USE_CREDENTIALS</target>
+        </trans-unit>
+        <trans-unit id="ad6f6798-de08-4879-83b0-246da5a0561f" xml:space="preserve">
+          <source>MANAGE_ACCOUNTS</source>
+          <target state="new">MANAGE_ACCOUNTS</target>
+        </trans-unit>
+        <trans-unit id="0c30fc9f-3cc8-4b7c-b351-dd2a807653be" xml:space="preserve">
+          <source>Using this walkthrough, you should have what you need to successfully integrate with Azure Active Directory.</source>
+          <target state="new">Using this walkthrough, you should have what you need to successfully integrate with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="ef824bd8-832e-4400-ba15-72f99cc1b9f7" xml:space="preserve">
+          <source>For more examples of this working, viist the AzureADSamples/ repository on GitHub.</source>
+          <target state="new">For more examples of this working, viist the AzureADSamples/ repository on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="c1ab3b0f-8a70-45ec-963a-38ab0d0744a9" xml:space="preserve">
+          <source>Library project resources can be overwritten by your application resources.</source>
+          <target state="new">Library project resources can be overwritten by your application resources.</target>
+        </trans-unit>
+        <trans-unit id="f82e11db-bda0-415b-909c-daa6fd94f700" xml:space="preserve">
+          <source>This happens when your app is building.</source>
+          <target state="new">This happens when your app is building.</target>
+        </trans-unit>
+        <trans-unit id="658e2851-9a86-4bb7-a9e6-f2925b4eb56b" xml:space="preserve">
+          <source>For this reason, you can customize Authentication Activity layout the way you want.</source>
+          <target state="new">For this reason, you can customize Authentication Activity layout the way you want.</target>
+        </trans-unit>
+        <trans-unit id="660b390a-f075-4d34-ab5b-c674d39b3487" xml:space="preserve">
+          <source>You need to make sure to keep the id of the controls that ADAL uses(Webview).</source>
+          <target state="new">You need to make sure to keep the id of the controls that ADAL uses(Webview).</target>
+        </trans-unit>
+        <trans-unit id="c4a7c9e2-54d5-46cd-b232-0ae264b0493f" xml:space="preserve">
+          <source>Broker component will be delivered with Microsoft Intune's Company portal app.</source>
+          <target state="new">Broker component will be delivered with Microsoft Intune's Company portal app.</target>
+        </trans-unit>
+        <trans-unit id="b22e1ef3-7858-42ec-abe4-fcbc441fdbc8" xml:space="preserve">
+          <source>Account will be created in Account Manager.</source>
+          <target state="new">Account will be created in Account Manager.</target>
+        </trans-unit>
+        <trans-unit id="3da98bfe-ac05-402f-b2b8-d8557d8fd2e9" xml:space="preserve">
+          <source>Account type is "com.microsoft.workaccount".</source>
+          <target state="new">Account type is "com.microsoft.workaccount".</target>
+        </trans-unit>
+        <trans-unit id="c8b1f6b8-1964-4f11-9515-0e17701ea041" xml:space="preserve">
+          <source>It only allows single SSO account.</source>
+          <target state="new">It only allows single SSO account.</target>
+        </trans-unit>
+        <trans-unit id="756b0a63-9a38-4dc8-8935-24277196857f" xml:space="preserve">
+          <source>It will create SSO cookie for this user after completing device challange for one of the apps.</source>
+          <target state="new">It will create SSO cookie for this user after completing device challange for one of the apps.</target>
+        </trans-unit>
+        <trans-unit id="ef08944b-9ba1-43bb-a642-232daf5befd8" xml:space="preserve">
+          <source>ADFS is not recognized as production STS, so you need to turn of instance discovery and pass false at AuthenticationContext constructor.</source>
+          <target state="new">ADFS is not recognized as production STS, so you need to turn of instance discovery and pass false at AuthenticationContext constructor.</target>
+        </trans-unit>
+        <trans-unit id="0edbb055-a0bb-4ffb-ad39-7217102087c0" xml:space="preserve">
+          <source>Authority url needs STS instance and tenant name: https://login.windows.net/yourtenant.onmicrosoft.com</source>
+          <target state="new">Authority url needs STS instance and tenant name: https://login.windows.net/yourtenant.onmicrosoft.com</target>
+        </trans-unit>
+        <trans-unit id="880fe4f2-1b38-42e6-952c-34276ad9e85b" xml:space="preserve">
+          <source>ADAL provides Default cache in SharedPrefrecens with some simple cache query fucntions.</source>
+          <target state="new">ADAL provides Default cache in SharedPrefrecens with some simple cache query fucntions.</target>
+        </trans-unit>
+        <trans-unit id="baf2b752-2351-4415-aca5-3bd7db7c87cb" xml:space="preserve">
+          <source>You can get the current cache from AuthenticationContext with:</source>
+          <target state="new">You can get the current cache from AuthenticationContext with:</target>
+        </trans-unit>
+        <trans-unit id="ed47b159-9486-4a05-bfd8-f32d0e61b020" xml:space="preserve">
+          <source>You can also provide your cache implementation, if you want to customize it.</source>
+          <target state="new">You can also provide your cache implementation, if you want to customize it.</target>
+        </trans-unit>
+        <trans-unit id="d59350bf-85f1-4e4c-88fb-ef04283dc53b" xml:space="preserve">
+          <source>ADAL provides option to specifiy prompt behavior.</source>
+          <target state="new">ADAL provides option to specifiy prompt behavior.</target>
+        </trans-unit>
+        <trans-unit id="55e9c6f5-05bc-485f-ac55-75ea73348e6d" xml:space="preserve">
+          <source>PromptBehavior.Auto will pop up UI if refresh token is invalid and user credentials are required.</source>
+          <target state="new">PromptBehavior.Auto will pop up UI if refresh token is invalid and user credentials are required.</target>
+        </trans-unit>
+        <trans-unit id="228614e3-bdcf-4507-8d8f-3a4e745c6fb8" xml:space="preserve">
+          <source>PromptBehavior.Always will skip the cache usage and always show UI.</source>
+          <target state="new">PromptBehavior.Always will skip the cache usage and always show UI.</target>
+        </trans-unit>
+        <trans-unit id="d9e4b4d3-55e9-45d8-baba-5dfc76ba5a3d" xml:space="preserve">
+          <source>This method does not use UI pop up and not require an activity.</source>
+          <target state="new">This method does not use UI pop up and not require an activity.</target>
+        </trans-unit>
+        <trans-unit id="50050641-0d05-4195-9d9b-07a0ffd91d46" xml:space="preserve">
+          <source>It will return token from cache if available.</source>
+          <target state="new">It will return token from cache if available.</target>
+        </trans-unit>
+        <trans-unit id="6c25ef37-dd78-4774-8a12-e71606e99684" xml:space="preserve">
+          <source>If token is expired, it will try to refresh it.</source>
+          <target state="new">If token is expired, it will try to refresh it.</target>
+        </trans-unit>
+        <trans-unit id="def39391-e830-4fe4-846e-1087fdf83152" xml:space="preserve">
+          <source>If refresh token is expired or failed, it will return AuthenticationException.</source>
+          <target state="new">If refresh token is expired or failed, it will return AuthenticationException.</target>
+        </trans-unit>
+        <trans-unit id="4f28feb0-9d5e-42f8-a0c4-c8da511d55ab" xml:space="preserve">
+          <source>You can also make sync call with this method.</source>
+          <target state="new">You can also make sync call with this method.</target>
+        </trans-unit>
+        <trans-unit id="aef30116-c87f-4aec-a0d4-8a89d8ba60d5" xml:space="preserve">
+          <source>You can set null to callback or use acquireTokenSilentSync.</source>
+          <target state="new">You can set null to callback or use acquireTokenSilentSync.</target>
+        </trans-unit>
+        <trans-unit id="cd89ab62-666e-4840-ae37-993a829d27b3" xml:space="preserve">
+          <source>The following are the primary sources of information for diagnosing issues:</source>
+          <target state="new">The following are the primary sources of information for diagnosing issues:</target>
+        </trans-unit>
+        <trans-unit id="990dfd53-9c9d-42a5-8498-69a558904eb7" xml:space="preserve">
+          <source>Exceptions</source>
+          <target state="new">Exceptions</target>
+        </trans-unit>
+        <trans-unit id="c58bb5a1-8c7c-4392-9200-11780c700a29" xml:space="preserve">
+          <source>Logs</source>
+          <target state="new">Logs</target>
+        </trans-unit>
+        <trans-unit id="deeaf76c-8fd6-4a69-a40f-18694636e0d9" xml:space="preserve">
+          <source>Network traces</source>
+          <target state="new">Network traces</target>
+        </trans-unit>
+        <trans-unit id="a320ed87-89ce-4c8c-b16b-e32c530a6cf4" xml:space="preserve">
+          <source>Also, note that correlation IDs are central to the diagnostics in the library.</source>
+          <target state="new">Also, note that correlation IDs are central to the diagnostics in the library.</target>
+        </trans-unit>
+        <trans-unit id="d3ce2e74-0237-46fe-97f0-46a8820a1da4" xml:space="preserve">
+          <source>You can set your correlation IDs on a per request basis if you want to correlate an ADAL request with other operations in your code.</source>
+          <target state="new">You can set your correlation IDs on a per request basis if you want to correlate an ADAL request with other operations in your code.</target>
+        </trans-unit>
+        <trans-unit id="b67ee53b-8bb3-43e6-965e-f2ec0e47c8f8" xml:space="preserve">
+          <source>If you don't set a correlations id then ADAL will generate a random one and all log messages and network calls will be stamped with the correlation id.</source>
+          <target state="new">If you don't set a correlations id then ADAL will generate a random one and all log messages and network calls will be stamped with the correlation id.</target>
+        </trans-unit>
+        <trans-unit id="ff2cfbfd-cc12-4eab-af3b-ed76dbba0a5b" xml:space="preserve">
+          <source>The self generated id changes on each request.</source>
+          <target state="new">The self generated id changes on each request.</target>
+        </trans-unit>
+        <trans-unit id="28a998e6-0c3d-458f-90ef-2f6dbcc8e573" xml:space="preserve">
+          <source>This is obviously the first diagnostic.</source>
+          <target state="new">This is obviously the first diagnostic.</target>
+        </trans-unit>
+        <trans-unit id="e7f20773-bcb7-4924-b9f7-25f989669632" xml:space="preserve">
+          <source>We try to provide helpful error messages.</source>
+          <target state="new">We try to provide helpful error messages.</target>
+        </trans-unit>
+        <trans-unit id="dbeaf9ac-f355-45a7-9c5d-891552ba6aa3" xml:space="preserve">
+          <source>If you find one that is not helpful please file an issue and let us know.</source>
+          <target state="new">If you find one that is not helpful please file an issue and let us know.</target>
+        </trans-unit>
+        <trans-unit id="23ca5c5e-6e16-4e31-997f-6a472faa0089" xml:space="preserve">
+          <source>Please also provide device information such as model and SDK#.</source>
+          <target state="new">Please also provide device information such as model and SDK#.</target>
+        </trans-unit>
+        <trans-unit id="65447513-5c50-4821-ba7a-55593e4c8aeb" xml:space="preserve">
+          <source>You can configure the library to generate log messages that you can use to help diagnose issues.</source>
+          <target state="new">You can configure the library to generate log messages that you can use to help diagnose issues.</target>
+        </trans-unit>
+        <trans-unit id="e28f46d8-829d-4f81-8ce6-d726a242ea98" xml:space="preserve">
+          <source>You configure logging by making the following call to configure a callback that ADAL will use to hand off each log message as it is generated.</source>
+          <target state="new">You configure logging by making the following call to configure a callback that ADAL will use to hand off each log message as it is generated.</target>
+        </trans-unit>
+        <trans-unit id="03a61672-6f9a-4ca1-b0e9-858aede759bc" xml:space="preserve">
+          <source>Messages can be written to a custom log file as seen below.</source>
+          <target state="new">Messages can be written to a custom log file as seen below.</target>
+        </trans-unit>
+        <trans-unit id="04a12f4e-c3bf-4268-96b7-d4212ae14980" xml:space="preserve">
+          <source>Unfortunately, there is no standard way of getting logs from a device.</source>
+          <target state="new">Unfortunately, there is no standard way of getting logs from a device.</target>
+        </trans-unit>
+        <trans-unit id="d1cd4163-837b-4172-b1d9-aebc4f223faf" xml:space="preserve">
+          <source>There are some services that can help you with this.</source>
+          <target state="new">There are some services that can help you with this.</target>
+        </trans-unit>
+        <trans-unit id="ab858fe9-4823-43da-9cad-5909ba701f93" xml:space="preserve">
+          <source>You can also invent your own, such as sending the file to a server.</source>
+          <target state="new">You can also invent your own, such as sending the file to a server.</target>
+        </trans-unit>
+        <trans-unit id="ba3633be-3964-417e-84d6-1d7f17685b15" xml:space="preserve">
+          <source>Error(Exceptions)</source>
+          <target state="new">Error(Exceptions)</target>
+        </trans-unit>
+        <trans-unit id="1dd7cb01-09b5-4560-8e6c-f6f484e78781" xml:space="preserve">
+          <source>Warn(Warning)</source>
+          <target state="new">Warn(Warning)</target>
+        </trans-unit>
+        <trans-unit id="654cb70d-3cb3-4dd1-b4ef-d37197d42445" xml:space="preserve">
+          <source>Info(Information purposes)</source>
+          <target state="new">Info(Information purposes)</target>
+        </trans-unit>
+        <trans-unit id="ebbe97d1-40ff-4aaf-86f3-2736c986a4bb" xml:space="preserve">
+          <source>Verbose(More details)</source>
+          <target state="new">Verbose(More details)</target>
+        </trans-unit>
+        <trans-unit id="b87cfedb-ac52-45bb-ac34-39519bf47d17" xml:space="preserve">
+          <source>You set the log level like this:</source>
+          <target state="new">You set the log level like this:</target>
+        </trans-unit>
+        <trans-unit id="356a4661-ca0a-4a48-a7c0-e594d11e6dd8" xml:space="preserve">
+          <source>More about cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html</source>
+          <target state="new">More about cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html</target>
+        </trans-unit>
+        <trans-unit id="44ed5e81-9518-46e1-9c76-527779f78bc6" xml:space="preserve">
+          <source>The ADAL library includes English strings for the following two ProgressDialog messages.</source>
+          <target state="new">The ADAL library includes English strings for the following two ProgressDialog messages.</target>
+        </trans-unit>
+        <trans-unit id="85809c32-79bf-4ffc-8286-ad7426f38e71" xml:space="preserve">
+          <source>Your application should overwrite them if localized strings are desired.</source>
+          <target state="new">Your application should overwrite them if localized strings are desired.</target>
+        </trans-unit>
+        <trans-unit id="c74a11f7-a39f-4508-b8ef-219618eb164a" xml:space="preserve">
+          <source>=======</source>
+          <target state="new">=======</target>
+        </trans-unit>
+        <trans-unit id="8bc76b7b-ed4b-48ab-9358-8e2263589c89" xml:space="preserve">
+          <source>Adal version 1.1.0 supports NTLM dialog that is processed through onReceivedHttpAuthRequest event from WebViewClient.</source>
+          <target state="new">Adal version 1.1.0 supports NTLM dialog that is processed through onReceivedHttpAuthRequest event from WebViewClient.</target>
+        </trans-unit>
+        <trans-unit id="30172955-330d-4f59-8f56-7f60ec15e64e" xml:space="preserve">
+          <source>Dialog layout and strings can be customized.### Step 5: Download the iOS Native Client Sample code</source>
+          <target state="new">Dialog layout and strings can be customized.### Step 5: Download the iOS Native Client Sample code</target>
+        </trans-unit>
+        <trans-unit id="2baea7fa-ce9b-4631-ac8b-51342b0f8bba" xml:space="preserve">
+          <source><bpt id="2475a2ac-d469-4c76-8367-45077b1fb1f4">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="2475a2ac-d469-4c76-8367-45077b1fb1f4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2475a2ac-d469-4c76-8367-45077b1fb1f4">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="2475a2ac-d469-4c76-8367-45077b1fb1f4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

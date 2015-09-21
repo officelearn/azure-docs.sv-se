@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c7f52724-63e5-43cb-a4c4-de074aee0c4b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c7f52724-63e5-43cb-a4c4-de074aee0c4b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="14405787-a56b-4d18-84e7-8acaef62fb81">
+        <trans-unit id="1bd4a592-ed72-4e65-8776-ee52fd5e1f49" xml:space="preserve">
+          <source> Limits depend on the <bpt id="e0daa690-4abc-4795-9c8c-d78b60a1af67">&lt;linkText&gt;</bpt>pricing tier<ept id="e0daa690-4abc-4795-9c8c-d78b60a1af67">&lt;/linkText&gt;</ept><bpt id="e0daa690-4abc-4795-9c8c-d78b60a1af67">&lt;title&gt;</bpt><ept id="e0daa690-4abc-4795-9c8c-d78b60a1af67">&lt;/title&gt;</ept> that you choose.</source>
+          <target state="new"> Limits depend on the <bpt id="e0daa690-4abc-4795-9c8c-d78b60a1af67">&lt;linkText&gt;</bpt>pricing tier<ept id="e0daa690-4abc-4795-9c8c-d78b60a1af67">&lt;/linkText&gt;</ept><bpt id="e0daa690-4abc-4795-9c8c-d78b60a1af67">&lt;title&gt;</bpt><ept id="e0daa690-4abc-4795-9c8c-d78b60a1af67">&lt;/title&gt;</ept> that you choose.</target>
+        </trans-unit>
+        <trans-unit id="19f04693-ae75-49e1-84d8-16e1e469e66b" xml:space="preserve">
+          <source><bpt id="e42781e6-b28e-4b44-9924-255479375753">&lt;strong&gt;</bpt>Resource<ept id="e42781e6-b28e-4b44-9924-255479375753">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e42781e6-b28e-4b44-9924-255479375753">&lt;strong&gt;</bpt>Resource<ept id="e42781e6-b28e-4b44-9924-255479375753">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37c77439-02ac-4614-883d-ac9ff339b90d" xml:space="preserve">
+          <source><bpt id="3d58359a-dc24-4d4a-8e87-e1e6706d87da">&lt;strong&gt;</bpt>Default Limit<ept id="3d58359a-dc24-4d4a-8e87-e1e6706d87da">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3d58359a-dc24-4d4a-8e87-e1e6706d87da">&lt;strong&gt;</bpt>Default Limit<ept id="3d58359a-dc24-4d4a-8e87-e1e6706d87da">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47d220c8-4e19-4df9-bb67-cc4b0a5c0240" xml:space="preserve">
+          <source><bpt id="7ae8cec0-8be9-458e-b8a3-15c71ad26562">&lt;strong&gt;</bpt>Maximum Limit<ept id="7ae8cec0-8be9-458e-b8a3-15c71ad26562">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7ae8cec0-8be9-458e-b8a3-15c71ad26562">&lt;strong&gt;</bpt>Maximum Limit<ept id="7ae8cec0-8be9-458e-b8a3-15c71ad26562">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e3544f4-9209-49a5-86ea-03acb04f2ede" xml:space="preserve">
+          <source>Session data points&lt;sup&gt;1&lt;/sup&gt; per month</source>
+          <target state="new">Session data points&lt;sup&gt;1&lt;/sup&gt; per month</target>
+        </trans-unit>
+        <trans-unit id="a5d01edc-9062-4118-a9bf-977424418c36" xml:space="preserve">
+          <source>unlimited</source>
+          <target state="new">unlimited</target>
+        </trans-unit>
+        <trans-unit id="db7d8f69-8ef8-4644-b80f-9df04bffa867" xml:space="preserve">
+          <source>unlimited</source>
+          <target state="new">unlimited</target>
+        </trans-unit>
+        <trans-unit id="a286133f-25cc-4c47-a6e0-ccf7b0282088" xml:space="preserve">
+          <source>Other data points per month</source>
+          <target state="new">Other data points per month</target>
+        </trans-unit>
+        <trans-unit id="78984b33-c00b-4a3e-be27-f446c43945b2" xml:space="preserve">
+          <source>5 million</source>
+          <target state="new">5 million</target>
+        </trans-unit>
+        <trans-unit id="5e8dde26-f42e-48a6-b473-e6c107edf58c" xml:space="preserve">
+          <source>50 million&lt;sup&gt;2&lt;/sup&gt;</source>
+          <target state="new">50 million&lt;sup&gt;2&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="7e2a7e81-9f21-4ea7-9713-5ededa6aa8d4" xml:space="preserve">
+          <source>Trace or Log data rate</source>
+          <target state="new">Trace or Log data rate</target>
+        </trans-unit>
+        <trans-unit id="a3540b12-768b-47b6-b1ce-3f42d507adbb" xml:space="preserve">
+          <source>200 dp/s</source>
+          <target state="new">200 dp/s</target>
+        </trans-unit>
+        <trans-unit id="a249794c-edc4-4c1d-8722-8891305ebaf2" xml:space="preserve">
+          <source>500 dp/s</source>
+          <target state="new">500 dp/s</target>
+        </trans-unit>
+        <trans-unit id="df640fce-8390-4b5c-bad9-41a110e65991" xml:space="preserve">
+          <source>Exception data rate</source>
+          <target state="new">Exception data rate</target>
+        </trans-unit>
+        <trans-unit id="24b3e90b-b1f7-46c8-8d28-533c6fdd0f64" xml:space="preserve">
+          <source>50 dp/s</source>
+          <target state="new">50 dp/s</target>
+        </trans-unit>
+        <trans-unit id="2975dfc9-0b06-4019-bf26-d76c51f36e6b" xml:space="preserve">
+          <source>50 dp/s</source>
+          <target state="new">50 dp/s</target>
+        </trans-unit>
+        <trans-unit id="4b04ae15-5fee-411b-a6ac-892b4d24d76f" xml:space="preserve">
+          <source>Other telemetry data rate</source>
+          <target state="new">Other telemetry data rate</target>
+        </trans-unit>
+        <trans-unit id="83731ba5-94fc-4a28-91bd-03e46a9c39c2" xml:space="preserve">
+          <source>200 dp/s</source>
+          <target state="new">200 dp/s</target>
+        </trans-unit>
+        <trans-unit id="3138c932-63e3-4600-9421-d2d61b67ff20" xml:space="preserve">
+          <source>500 dp/s</source>
+          <target state="new">500 dp/s</target>
+        </trans-unit>
+        <trans-unit id="5fcb7209-6caf-4356-90ce-c94ad19202ab" xml:space="preserve">
+          <source>Raw  data retention</source>
+          <target state="new">Raw  data retention</target>
+        </trans-unit>
+        <trans-unit id="76fe0912-13c5-4604-b34b-bad956f008d5" xml:space="preserve">
+          <source>7 days</source>
+          <target state="new">7 days</target>
+        </trans-unit>
+        <trans-unit id="b6679272-2d31-4a64-a96b-1a7c1b6cd48c" xml:space="preserve">
+          <source>30 days</source>
+          <target state="new">30 days</target>
+        </trans-unit>
+        <trans-unit id="fdb08b3c-7284-4642-a4ad-2f8ca227cdbf" xml:space="preserve">
+          <source>Aggregated data retention</source>
+          <target state="new">Aggregated data retention</target>
+        </trans-unit>
+        <trans-unit id="e91ff95b-105d-4f0e-a095-ffea2a023243" xml:space="preserve">
+          <source>13 months</source>
+          <target state="new">13 months</target>
+        </trans-unit>
+        <trans-unit id="5b75c7fb-9a82-46c5-9ba4-d206872d1f1d" xml:space="preserve">
+          <source>unlimited</source>
+          <target state="new">unlimited</target>
+        </trans-unit>
+        <trans-unit id="6c8ed15f-7cfa-4a5f-a49e-bfb60ee76f82" xml:space="preserve">
+          <source>Property name count across the app</source>
+          <target state="new">Property name count across the app</target>
+        </trans-unit>
+        <trans-unit id="7dcceef1-6229-4129-9c9d-3371c5c19022" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="e2d44265-8e45-405a-a5df-b46138ef9afb" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="fc2495c7-64c9-463b-b11f-56e4bc0c1fda" xml:space="preserve">
+          <source>Property name length</source>
+          <target state="new">Property name length</target>
+        </trans-unit>
+        <trans-unit id="bf921a4a-b700-4466-99f8-47ca9a8845fb" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="80f7a156-fd04-44e6-90f5-0bdf4c67ab2d" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="bc29d3b4-bc82-4e45-85d5-e0415c9afb49" xml:space="preserve">
+          <source>Property value length</source>
+          <target state="new">Property value length</target>
+        </trans-unit>
+        <trans-unit id="778b727a-3d44-4ac3-88c1-7bed1b6c537c" xml:space="preserve">
+          <source>1000</source>
+          <target state="new">1000</target>
+        </trans-unit>
+        <trans-unit id="7db700bd-b45b-4508-9925-fe8e8397c563" xml:space="preserve">
+          <source>1000</source>
+          <target state="new">1000</target>
+        </trans-unit>
+        <trans-unit id="bc05382a-c190-4e8d-97c8-e5c972c6f99f" xml:space="preserve">
+          <source>Trace and Exception message length</source>
+          <target state="new">Trace and Exception message length</target>
+        </trans-unit>
+        <trans-unit id="a1be85a0-ed31-49e3-85d1-41eb80b56a26" xml:space="preserve">
+          <source>10000</source>
+          <target state="new">10000</target>
+        </trans-unit>
+        <trans-unit id="dd68a728-c5f6-4605-af64-8d5f99747688" xml:space="preserve">
+          <source>10000</source>
+          <target state="new">10000</target>
+        </trans-unit>
+        <trans-unit id="590bf3b8-9721-47b0-a68b-9390a67941a3" xml:space="preserve">
+          <source>Metric name length</source>
+          <target state="new">Metric name length</target>
+        </trans-unit>
+        <trans-unit id="70b1f8f6-4233-4411-815f-7689626bbca4" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="f72fea6e-03be-4bae-9a2b-edf747a4309e" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="b9e14046-91c4-4158-b0e8-865beb36019a" xml:space="preserve">
+          <source>&lt;sup&gt;1&lt;/sup&gt; A data point is an individual metric value or event, with attached properties and measurements.</source>
+          <target state="new">&lt;sup&gt;1&lt;/sup&gt; A data point is an individual metric value or event, with attached properties and measurements.</target>
+        </trans-unit>
+        <trans-unit id="c3ebd530-8255-4c4f-b9cf-0d0f1f186832" xml:space="preserve">
+          <source>&lt;sup&gt;2&lt;/sup&gt; You can purchase additional capacity beyond 50 million.</source>
+          <target state="new">&lt;sup&gt;2&lt;/sup&gt; You can purchase additional capacity beyond 50 million.</target>
+        </trans-unit>
+        <trans-unit id="93a600fe-3d9b-46a8-b59c-df08194bffb7" xml:space="preserve">
+          <source><bpt id="fd3a7bbd-f3b4-425f-91a0-33c03601e5d5">&lt;linkText&gt;</bpt>About pricing and quotas in Application Insights<ept id="fd3a7bbd-f3b4-425f-91a0-33c03601e5d5">&lt;/linkText&gt;</ept><bpt id="fd3a7bbd-f3b4-425f-91a0-33c03601e5d5">&lt;title&gt;</bpt><ept id="fd3a7bbd-f3b4-425f-91a0-33c03601e5d5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fd3a7bbd-f3b4-425f-91a0-33c03601e5d5">&lt;linkText&gt;</bpt>About pricing and quotas in Application Insights<ept id="fd3a7bbd-f3b4-425f-91a0-33c03601e5d5">&lt;/linkText&gt;</ept><bpt id="fd3a7bbd-f3b4-425f-91a0-33c03601e5d5">&lt;title&gt;</bpt><ept id="fd3a7bbd-f3b4-425f-91a0-33c03601e5d5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

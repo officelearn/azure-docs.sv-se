@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3fd03152-d439-4d3b-a75e-8f78adb8ee3e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3fd03152-d439-4d3b-a75e-8f78adb8ee3e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="12a23df6-80e5-4da4-b632-6810f603c50d">
+        <trans-unit id="5e2cfd64-d260-4d23-9fbd-00d6cad5f319" xml:space="preserve">
+          <source>How to secure back-end services using mutual certificate authentication in Azure API Management</source>
+          <target state="new">How to secure back-end services using mutual certificate authentication in Azure API Management</target>
+        </trans-unit>
+        <trans-unit id="55791b21-23c4-46e6-9b48-45ec448e881d" xml:space="preserve">
+          <source>Learn how to secure back-end services using mutual certificate authentication in Azure API Management.</source>
+          <target state="new">Learn how to secure back-end services using mutual certificate authentication in Azure API Management.</target>
+        </trans-unit>
+        <trans-unit id="295752ff-9a1d-45e0-ad89-e3fe3216d377" xml:space="preserve">
+          <source>API Management provides the capability to secure access to the back-end service of an API using mutual certificates.</source>
+          <target state="new">API Management provides the capability to secure access to the back-end service of an API using mutual certificates.</target>
+        </trans-unit>
+        <trans-unit id="b4c44241-c93c-440a-96d1-4dbc72d91d35" xml:space="preserve">
+          <source>This guide shows how to manage certificates in the API publisher portal, and how to configure an API to use a certificate to access its back-end service.</source>
+          <target state="new">This guide shows how to manage certificates in the API publisher portal, and how to configure an API to use a certificate to access its back-end service.</target>
+        </trans-unit>
+        <trans-unit id="8890eea0-36b6-4259-8add-b025d8a248f3" xml:space="preserve">
+          <source>For information about managing certificates using the API Management REST API, see <bpt id="60c0c919-09b2-4479-9fce-fdac4436ff80">&lt;linkText&gt;</bpt>Azure API Management REST API Certificate entity<ept id="60c0c919-09b2-4479-9fce-fdac4436ff80">&lt;/linkText&gt;</ept><bpt id="60c0c919-09b2-4479-9fce-fdac4436ff80">&lt;title&gt;</bpt><ept id="60c0c919-09b2-4479-9fce-fdac4436ff80">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about managing certificates using the API Management REST API, see <bpt id="60c0c919-09b2-4479-9fce-fdac4436ff80">&lt;linkText&gt;</bpt>Azure API Management REST API Certificate entity<ept id="60c0c919-09b2-4479-9fce-fdac4436ff80">&lt;/linkText&gt;</ept><bpt id="60c0c919-09b2-4479-9fce-fdac4436ff80">&lt;title&gt;</bpt><ept id="60c0c919-09b2-4479-9fce-fdac4436ff80">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0aadf6f-ff6b-4a49-b6e5-4738acef4908" xml:space="preserve">
+          <source>This guide shows you how to configure your API Management service instance to use mutual certificate authentication to access the back-end service for an API.</source>
+          <target state="new">This guide shows you how to configure your API Management service instance to use mutual certificate authentication to access the back-end service for an API.</target>
+        </trans-unit>
+        <trans-unit id="883fe8d2-f8f4-41c6-af7d-d5d19fe074df" xml:space="preserve">
+          <source>Before following the steps in this topic, you should have your back-end service configured for mutual certificate authentication, and have access to the certificate and the password for the certificate for uploading in the API Management publisher portal.</source>
+          <target state="new">Before following the steps in this topic, you should have your back-end service configured for mutual certificate authentication, and have access to the certificate and the password for the certificate for uploading in the API Management publisher portal.</target>
+        </trans-unit>
+        <trans-unit id="866489f1-7c63-4c5f-9070-32bbc6135602" xml:space="preserve">
+          <source>To get started, click <bpt id="5b6195b5-343f-4285-b1a3-b092de10fb92">&lt;strong&gt;</bpt>Manage<ept id="5b6195b5-343f-4285-b1a3-b092de10fb92">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</source>
+          <target state="new">To get started, click <bpt id="5b6195b5-343f-4285-b1a3-b092de10fb92">&lt;strong&gt;</bpt>Manage<ept id="5b6195b5-343f-4285-b1a3-b092de10fb92">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</target>
+        </trans-unit>
+        <trans-unit id="fc610381-82a3-4c70-98f2-dbad41ef3fb0" xml:space="preserve">
+          <source>This takes you to the API Management publisher portal.</source>
+          <target state="new">This takes you to the API Management publisher portal.</target>
+        </trans-unit>
+        <trans-unit id="c6abbf7b-0c0b-4ee0-94cf-a3ad3f4c9f97" xml:space="preserve">
+          <source><bpt id="e9183c8c-e4ec-427b-8c3f-c59d0e2561a7">&lt;linkText&gt;</bpt>API Publisher portal<ept id="e9183c8c-e4ec-427b-8c3f-c59d0e2561a7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e9183c8c-e4ec-427b-8c3f-c59d0e2561a7">&lt;linkText&gt;</bpt>API Publisher portal<ept id="e9183c8c-e4ec-427b-8c3f-c59d0e2561a7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eec6068a-da00-4474-98db-80845d9193c5" xml:space="preserve">
+          <source>If you have not yet created an API Management service instance, see <bpt id="0ea4f284-c0cb-412a-98ff-54af3a641e46">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="0ea4f284-c0cb-412a-98ff-54af3a641e46">&lt;/linkText&gt;</ept><bpt id="0ea4f284-c0cb-412a-98ff-54af3a641e46">&lt;title&gt;</bpt><ept id="0ea4f284-c0cb-412a-98ff-54af3a641e46">&lt;/title&gt;</ept> in the <bpt id="a6a83bde-d5f1-46bd-876b-d2ae11a7e124">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="a6a83bde-d5f1-46bd-876b-d2ae11a7e124">&lt;/linkText&gt;</ept><bpt id="a6a83bde-d5f1-46bd-876b-d2ae11a7e124">&lt;title&gt;</bpt><ept id="a6a83bde-d5f1-46bd-876b-d2ae11a7e124">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">If you have not yet created an API Management service instance, see <bpt id="0ea4f284-c0cb-412a-98ff-54af3a641e46">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="0ea4f284-c0cb-412a-98ff-54af3a641e46">&lt;/linkText&gt;</ept><bpt id="0ea4f284-c0cb-412a-98ff-54af3a641e46">&lt;title&gt;</bpt><ept id="0ea4f284-c0cb-412a-98ff-54af3a641e46">&lt;/title&gt;</ept> in the <bpt id="a6a83bde-d5f1-46bd-876b-d2ae11a7e124">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="a6a83bde-d5f1-46bd-876b-d2ae11a7e124">&lt;/linkText&gt;</ept><bpt id="a6a83bde-d5f1-46bd-876b-d2ae11a7e124">&lt;title&gt;</bpt><ept id="a6a83bde-d5f1-46bd-876b-d2ae11a7e124">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="eee40e25-0491-4b8d-8bb6-f18489730d17" xml:space="preserve">
+          <source>Click <bpt id="f725e464-cdfc-4ac9-a8de-022adb8991de">&lt;strong&gt;</bpt>Security<ept id="f725e464-cdfc-4ac9-a8de-022adb8991de">&lt;/strong&gt;</ept> from the <bpt id="43ec2376-de9c-4731-9905-507f6de84bda">&lt;strong&gt;</bpt>API Management<ept id="43ec2376-de9c-4731-9905-507f6de84bda">&lt;/strong&gt;</ept> menu on the left, and click <bpt id="a9bcd5af-8926-4318-bd13-add276b92551">&lt;strong&gt;</bpt>Client certificates<ept id="a9bcd5af-8926-4318-bd13-add276b92551">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f725e464-cdfc-4ac9-a8de-022adb8991de">&lt;strong&gt;</bpt>Security<ept id="f725e464-cdfc-4ac9-a8de-022adb8991de">&lt;/strong&gt;</ept> from the <bpt id="43ec2376-de9c-4731-9905-507f6de84bda">&lt;strong&gt;</bpt>API Management<ept id="43ec2376-de9c-4731-9905-507f6de84bda">&lt;/strong&gt;</ept> menu on the left, and click <bpt id="a9bcd5af-8926-4318-bd13-add276b92551">&lt;strong&gt;</bpt>Client certificates<ept id="a9bcd5af-8926-4318-bd13-add276b92551">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eee68aa5-1058-4b62-934a-42285e512348" xml:space="preserve">
+          <source><bpt id="ceda7b0e-1f07-447b-a347-1b10d9ce52b5">&lt;linkText&gt;</bpt>Client certificates<ept id="ceda7b0e-1f07-447b-a347-1b10d9ce52b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ceda7b0e-1f07-447b-a347-1b10d9ce52b5">&lt;linkText&gt;</bpt>Client certificates<ept id="ceda7b0e-1f07-447b-a347-1b10d9ce52b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03a82b2b-a645-44fa-9812-d0c40d71bc64" xml:space="preserve">
+          <source>To upload a new certificate, click <bpt id="fa402b96-27da-4f39-a2e7-1ba89b9d948b">&lt;strong&gt;</bpt>Upload certificate<ept id="fa402b96-27da-4f39-a2e7-1ba89b9d948b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To upload a new certificate, click <bpt id="fa402b96-27da-4f39-a2e7-1ba89b9d948b">&lt;strong&gt;</bpt>Upload certificate<ept id="fa402b96-27da-4f39-a2e7-1ba89b9d948b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9557266-4801-4326-a434-52fd92dd2128" xml:space="preserve">
+          <source><bpt id="12df74b8-4736-4be5-a245-bedfbd45a5b4">&lt;linkText&gt;</bpt>Upload certificate<ept id="12df74b8-4736-4be5-a245-bedfbd45a5b4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="12df74b8-4736-4be5-a245-bedfbd45a5b4">&lt;linkText&gt;</bpt>Upload certificate<ept id="12df74b8-4736-4be5-a245-bedfbd45a5b4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c7781c5-26ce-4b7a-99ce-f1f371244ac1" xml:space="preserve">
+          <source>Browse to your certificate, and then enter the password for the certificate.</source>
+          <target state="new">Browse to your certificate, and then enter the password for the certificate.</target>
+        </trans-unit>
+        <trans-unit id="b0247383-f0b3-4df9-a387-c9843313c73e" xml:space="preserve">
+          <source>The certificate must be in <bpt id="1e1bfa0f-39d2-4f95-a0f1-df392a49c2c3">&lt;strong&gt;</bpt>.pfx<ept id="1e1bfa0f-39d2-4f95-a0f1-df392a49c2c3">&lt;/strong&gt;</ept> format.</source>
+          <target state="new">The certificate must be in <bpt id="1e1bfa0f-39d2-4f95-a0f1-df392a49c2c3">&lt;strong&gt;</bpt>.pfx<ept id="1e1bfa0f-39d2-4f95-a0f1-df392a49c2c3">&lt;/strong&gt;</ept> format.</target>
+        </trans-unit>
+        <trans-unit id="f617014a-6d01-4e94-80a9-7b20a8ca24d6" xml:space="preserve">
+          <source>Self-signed certificates are allowed.</source>
+          <target state="new">Self-signed certificates are allowed.</target>
+        </trans-unit>
+        <trans-unit id="6a2c23a7-cddb-4c9e-9ac6-9325050f3005" xml:space="preserve">
+          <source><bpt id="2401a45f-377e-4750-a92c-8c819136bf9d">&lt;linkText&gt;</bpt>Upload certificate<ept id="2401a45f-377e-4750-a92c-8c819136bf9d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2401a45f-377e-4750-a92c-8c819136bf9d">&lt;linkText&gt;</bpt>Upload certificate<ept id="2401a45f-377e-4750-a92c-8c819136bf9d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7877d43-8e9c-4861-acd4-ec76397ee7d5" xml:space="preserve">
+          <source>Click <bpt id="e5e4a0a3-9063-45f7-a923-254235e87dd7">&lt;strong&gt;</bpt>Upload<ept id="e5e4a0a3-9063-45f7-a923-254235e87dd7">&lt;/strong&gt;</ept> to upload the certificate.</source>
+          <target state="new">Click <bpt id="e5e4a0a3-9063-45f7-a923-254235e87dd7">&lt;strong&gt;</bpt>Upload<ept id="e5e4a0a3-9063-45f7-a923-254235e87dd7">&lt;/strong&gt;</ept> to upload the certificate.</target>
+        </trans-unit>
+        <trans-unit id="31b64ecd-53f8-498f-ba99-717275c0de10" xml:space="preserve">
+          <source>The certificate password is validated at this time.</source>
+          <target state="new">The certificate password is validated at this time.</target>
+        </trans-unit>
+        <trans-unit id="a801357f-9b3c-4391-8626-d59c1c85570b" xml:space="preserve">
+          <source>If it is incorrect an error message is displayed.</source>
+          <target state="new">If it is incorrect an error message is displayed.</target>
+        </trans-unit>
+        <trans-unit id="8cda92bd-e117-463e-90d9-852398deeeff" xml:space="preserve">
+          <source><bpt id="acb79a88-93cb-450d-96fb-707c2a2d744b">&lt;linkText&gt;</bpt>Certificate uploaded<ept id="acb79a88-93cb-450d-96fb-707c2a2d744b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="acb79a88-93cb-450d-96fb-707c2a2d744b">&lt;linkText&gt;</bpt>Certificate uploaded<ept id="acb79a88-93cb-450d-96fb-707c2a2d744b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9390a5c-ec31-47e8-b0e1-24fba7d85306" xml:space="preserve">
+          <source>Once the certificate is uploaded, it appears on the <bpt id="990f0ab0-f8b7-4327-bbb1-04cdc2ddccb3">&lt;strong&gt;</bpt>Client certificates<ept id="990f0ab0-f8b7-4327-bbb1-04cdc2ddccb3">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Once the certificate is uploaded, it appears on the <bpt id="990f0ab0-f8b7-4327-bbb1-04cdc2ddccb3">&lt;strong&gt;</bpt>Client certificates<ept id="990f0ab0-f8b7-4327-bbb1-04cdc2ddccb3">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="e08340b9-6c0a-42fb-a2d8-9ca713f60d8e" xml:space="preserve">
+          <source>If you have multiple certificates, make a note of the subject, or the last four characters of the thumbprint, which are used to select the certificate when configuring an API to use certificates, as covered in the following <bpt id="6a923792-0db7-4226-99e8-2456d312a764">&lt;linkText&gt;</bpt>Configure an API to use a mutual certificate for proxy authentication<ept id="6a923792-0db7-4226-99e8-2456d312a764">&lt;/linkText&gt;</ept><bpt id="6a923792-0db7-4226-99e8-2456d312a764">&lt;title&gt;</bpt><ept id="6a923792-0db7-4226-99e8-2456d312a764">&lt;/title&gt;</ept> section.</source>
+          <target state="new">If you have multiple certificates, make a note of the subject, or the last four characters of the thumbprint, which are used to select the certificate when configuring an API to use certificates, as covered in the following <bpt id="6a923792-0db7-4226-99e8-2456d312a764">&lt;linkText&gt;</bpt>Configure an API to use a mutual certificate for proxy authentication<ept id="6a923792-0db7-4226-99e8-2456d312a764">&lt;/linkText&gt;</ept><bpt id="6a923792-0db7-4226-99e8-2456d312a764">&lt;title&gt;</bpt><ept id="6a923792-0db7-4226-99e8-2456d312a764">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="a51fef8d-3da2-490f-9902-c4d609caa1b5" xml:space="preserve">
+          <source>To delete a certificate, click <bpt id="8b91c28a-7c35-4dc1-ae30-14af72ec4d2e">&lt;strong&gt;</bpt>Delete<ept id="8b91c28a-7c35-4dc1-ae30-14af72ec4d2e">&lt;/strong&gt;</ept> beside the desired certificate.</source>
+          <target state="new">To delete a certificate, click <bpt id="8b91c28a-7c35-4dc1-ae30-14af72ec4d2e">&lt;strong&gt;</bpt>Delete<ept id="8b91c28a-7c35-4dc1-ae30-14af72ec4d2e">&lt;/strong&gt;</ept> beside the desired certificate.</target>
+        </trans-unit>
+        <trans-unit id="e3574b77-06a3-46e2-b20a-2ed2a781d079" xml:space="preserve">
+          <source><bpt id="348671c9-76f1-4290-ac08-076906b920f4">&lt;linkText&gt;</bpt>Delete certificate<ept id="348671c9-76f1-4290-ac08-076906b920f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="348671c9-76f1-4290-ac08-076906b920f4">&lt;linkText&gt;</bpt>Delete certificate<ept id="348671c9-76f1-4290-ac08-076906b920f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13b6d4d9-f9ad-4989-8f44-183bd0895886" xml:space="preserve">
+          <source>Click <bpt id="0aff4f13-5704-423a-9110-d43788921622">&lt;strong&gt;</bpt>Yes, delete it<ept id="0aff4f13-5704-423a-9110-d43788921622">&lt;/strong&gt;</ept> to confirm.</source>
+          <target state="new">Click <bpt id="0aff4f13-5704-423a-9110-d43788921622">&lt;strong&gt;</bpt>Yes, delete it<ept id="0aff4f13-5704-423a-9110-d43788921622">&lt;/strong&gt;</ept> to confirm.</target>
+        </trans-unit>
+        <trans-unit id="a23846e8-38b5-48f8-a779-c6f290bc9fec" xml:space="preserve">
+          <source><bpt id="d53f41eb-eaa0-4362-8b11-4a3efcc40bf5">&lt;linkText&gt;</bpt>Confirm delete<ept id="d53f41eb-eaa0-4362-8b11-4a3efcc40bf5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d53f41eb-eaa0-4362-8b11-4a3efcc40bf5">&lt;linkText&gt;</bpt>Confirm delete<ept id="d53f41eb-eaa0-4362-8b11-4a3efcc40bf5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8eb38cbb-78fb-43fb-b763-a47bc5e72f20" xml:space="preserve">
+          <source>If the certificate is in use by an API, then a warning screen is displayed.</source>
+          <target state="new">If the certificate is in use by an API, then a warning screen is displayed.</target>
+        </trans-unit>
+        <trans-unit id="b43a2e21-ffc1-419f-8218-e5335ec6413a" xml:space="preserve">
+          <source>To delete the certificate you must first remove the certificate from any APIs that are configured to use it.</source>
+          <target state="new">To delete the certificate you must first remove the certificate from any APIs that are configured to use it.</target>
+        </trans-unit>
+        <trans-unit id="346636da-ed9b-45f6-aede-61d1e49ab779" xml:space="preserve">
+          <source><bpt id="34e2be66-86ce-4893-984a-273268cb431c">&lt;linkText&gt;</bpt>Confirm delete<ept id="34e2be66-86ce-4893-984a-273268cb431c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="34e2be66-86ce-4893-984a-273268cb431c">&lt;linkText&gt;</bpt>Confirm delete<ept id="34e2be66-86ce-4893-984a-273268cb431c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63703732-903c-4333-84df-3c3c57100071" xml:space="preserve">
+          <source>Click <bpt id="0db66da8-1169-499a-9e03-c8cd3d4a4efb">&lt;strong&gt;</bpt>APIs<ept id="0db66da8-1169-499a-9e03-c8cd3d4a4efb">&lt;/strong&gt;</ept> from the <bpt id="43671853-84cc-48b4-aa4c-5668fe4c9258">&lt;strong&gt;</bpt>API Management<ept id="43671853-84cc-48b4-aa4c-5668fe4c9258">&lt;/strong&gt;</ept> menu on the left, click the name of the desired API, and click the <bpt id="f5b8aa8d-1d8c-4b75-b6c3-0941cebdd560">&lt;strong&gt;</bpt>Security<ept id="f5b8aa8d-1d8c-4b75-b6c3-0941cebdd560">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click <bpt id="0db66da8-1169-499a-9e03-c8cd3d4a4efb">&lt;strong&gt;</bpt>APIs<ept id="0db66da8-1169-499a-9e03-c8cd3d4a4efb">&lt;/strong&gt;</ept> from the <bpt id="43671853-84cc-48b4-aa4c-5668fe4c9258">&lt;strong&gt;</bpt>API Management<ept id="43671853-84cc-48b4-aa4c-5668fe4c9258">&lt;/strong&gt;</ept> menu on the left, click the name of the desired API, and click the <bpt id="f5b8aa8d-1d8c-4b75-b6c3-0941cebdd560">&lt;strong&gt;</bpt>Security<ept id="f5b8aa8d-1d8c-4b75-b6c3-0941cebdd560">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="c88ab4be-0862-4b5b-a5d2-7c8b136c0c9e" xml:space="preserve">
+          <source><bpt id="dbce3b15-2429-49c2-923e-08e63540f30c">&lt;linkText&gt;</bpt>API security<ept id="dbce3b15-2429-49c2-923e-08e63540f30c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dbce3b15-2429-49c2-923e-08e63540f30c">&lt;linkText&gt;</bpt>API security<ept id="dbce3b15-2429-49c2-923e-08e63540f30c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cd7b1eb-e88b-417d-85d5-c823972827d9" xml:space="preserve">
+          <source>Select <bpt id="030949f7-6b1f-454e-bd37-ce90107fed7d">&lt;strong&gt;</bpt>Mutual certificates<ept id="030949f7-6b1f-454e-bd37-ce90107fed7d">&lt;/strong&gt;</ept> from the <bpt id="4fb9fa36-597a-4bc0-89a8-d487de433bed">&lt;strong&gt;</bpt>With credentials<ept id="4fb9fa36-597a-4bc0-89a8-d487de433bed">&lt;/strong&gt;</ept> drop-down list.</source>
+          <target state="new">Select <bpt id="030949f7-6b1f-454e-bd37-ce90107fed7d">&lt;strong&gt;</bpt>Mutual certificates<ept id="030949f7-6b1f-454e-bd37-ce90107fed7d">&lt;/strong&gt;</ept> from the <bpt id="4fb9fa36-597a-4bc0-89a8-d487de433bed">&lt;strong&gt;</bpt>With credentials<ept id="4fb9fa36-597a-4bc0-89a8-d487de433bed">&lt;/strong&gt;</ept> drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="232b12d3-348e-4eb0-b5ba-b4b7726619ef" xml:space="preserve">
+          <source><bpt id="0b60deae-0839-4f22-a3a1-366192516312">&lt;linkText&gt;</bpt>Mutual certificates<ept id="0b60deae-0839-4f22-a3a1-366192516312">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0b60deae-0839-4f22-a3a1-366192516312">&lt;linkText&gt;</bpt>Mutual certificates<ept id="0b60deae-0839-4f22-a3a1-366192516312">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3e275cf-e8e9-4ac8-8262-43d44408f5fe" xml:space="preserve">
+          <source>Select the desired certificate from the <bpt id="6822601d-1b5d-4381-ab51-6e5d90360d81">&lt;strong&gt;</bpt>Client certificate<ept id="6822601d-1b5d-4381-ab51-6e5d90360d81">&lt;/strong&gt;</ept> drop-down list.</source>
+          <target state="new">Select the desired certificate from the <bpt id="6822601d-1b5d-4381-ab51-6e5d90360d81">&lt;strong&gt;</bpt>Client certificate<ept id="6822601d-1b5d-4381-ab51-6e5d90360d81">&lt;/strong&gt;</ept> drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="b18bfa05-4fa5-4a71-a3ad-98be0d91403e" xml:space="preserve">
+          <source>If there are multiple certificates you can look at the subject or the last four characters of the thumbprint as noted in the previous section to determine the correct certificate.</source>
+          <target state="new">If there are multiple certificates you can look at the subject or the last four characters of the thumbprint as noted in the previous section to determine the correct certificate.</target>
+        </trans-unit>
+        <trans-unit id="fbc07419-31e4-4d49-b963-c67ffd278adc" xml:space="preserve">
+          <source><bpt id="c90c3e73-cf1f-428a-9550-fcfdb2e8abd0">&lt;linkText&gt;</bpt>Select certificate<ept id="c90c3e73-cf1f-428a-9550-fcfdb2e8abd0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c90c3e73-cf1f-428a-9550-fcfdb2e8abd0">&lt;linkText&gt;</bpt>Select certificate<ept id="c90c3e73-cf1f-428a-9550-fcfdb2e8abd0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1fcf166-31bb-421d-b8e0-d78201f5a963" xml:space="preserve">
+          <source>Click <bpt id="0eb25252-25bf-4d62-8e79-59b69264ee38">&lt;strong&gt;</bpt>Save<ept id="0eb25252-25bf-4d62-8e79-59b69264ee38">&lt;/strong&gt;</ept> to save the configuration change to the API.</source>
+          <target state="new">Click <bpt id="0eb25252-25bf-4d62-8e79-59b69264ee38">&lt;strong&gt;</bpt>Save<ept id="0eb25252-25bf-4d62-8e79-59b69264ee38">&lt;/strong&gt;</ept> to save the configuration change to the API.</target>
+        </trans-unit>
+        <trans-unit id="727ce29c-fa8b-4777-9535-1105da7f7399" xml:space="preserve">
+          <source>This change is effective immediately, and calls to operations of that API will use the certificate to authenticate on the back-end server.</source>
+          <target state="new">This change is effective immediately, and calls to operations of that API will use the certificate to authenticate on the back-end server.</target>
+        </trans-unit>
+        <trans-unit id="69870876-726f-428b-9fea-6f7c67cb3ca8" xml:space="preserve">
+          <source><bpt id="c29794c4-c82b-4305-afd5-3b6021bf4980">&lt;linkText&gt;</bpt>Save API changes<ept id="c29794c4-c82b-4305-afd5-3b6021bf4980">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c29794c4-c82b-4305-afd5-3b6021bf4980">&lt;linkText&gt;</bpt>Save API changes<ept id="c29794c4-c82b-4305-afd5-3b6021bf4980">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30381ce6-b301-4cc0-971a-e2f20ed24c6b" xml:space="preserve">
+          <source>When a certificate is specified for proxy authentication for the back-end service of an API, it becomes part of the policy for that API, and can be viewed in the policy editor.</source>
+          <target state="new">When a certificate is specified for proxy authentication for the back-end service of an API, it becomes part of the policy for that API, and can be viewed in the policy editor.</target>
+        </trans-unit>
+        <trans-unit id="3dfb7747-c94e-4f06-930c-1a40c814699d" xml:space="preserve">
+          <source><bpt id="e886ff9c-ddbb-4511-921c-04995759ce34">&lt;linkText&gt;</bpt>Certificate policy<ept id="e886ff9c-ddbb-4511-921c-04995759ce34">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e886ff9c-ddbb-4511-921c-04995759ce34">&lt;linkText&gt;</bpt>Certificate policy<ept id="e886ff9c-ddbb-4511-921c-04995759ce34">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1db641e3-d262-4c7d-9534-227b4b8bec9c" xml:space="preserve">
+          <source>For more information, see the following video.</source>
+          <target state="new">For more information, see the following video.</target>
+        </trans-unit>
+        <trans-unit id="c27b2833-4874-470b-929a-8f4f117a0b6d" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-management-console.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-management-console.png</target>
+        </trans-unit>
+        <trans-unit id="14c9a7dd-5377-43bd-803b-e0b99e3c81ef" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png</target>
+        </trans-unit>
+        <trans-unit id="a640e235-19d1-485a-8945-b9a0ff3d85d6" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-upload-certificate.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-upload-certificate.png</target>
+        </trans-unit>
+        <trans-unit id="2804cbb7-45e8-4aec-a3d1-67df2642a8b7" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-upload-certificate-form.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-upload-certificate-form.png</target>
+        </trans-unit>
+        <trans-unit id="9f7cef3f-c390-46ee-af4a-3dfb3693cb2f" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-certificate-uploaded.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-certificate-uploaded.png</target>
+        </trans-unit>
+        <trans-unit id="dce09749-3325-45e8-b87e-9da13f60e172" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-api-security.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-api-security.png</target>
+        </trans-unit>
+        <trans-unit id="18d7459f-3b0e-4717-a57a-f20092892a0f" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-mutual-certificates.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-mutual-certificates.png</target>
+        </trans-unit>
+        <trans-unit id="61153cbf-3ccd-42e7-95cd-80596edf7165" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-select-certificate.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-select-certificate.png</target>
+        </trans-unit>
+        <trans-unit id="b52b6cae-1486-4e66-b090-020ecc0460cf" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-save-api.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-save-api.png</target>
+        </trans-unit>
+        <trans-unit id="1e4a7067-06e2-482f-8a4f-4a378c6c1e50" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-certificate-policy.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-certificate-policy.png</target>
+        </trans-unit>
+        <trans-unit id="45fae940-9db3-4a3e-8945-ff191647050e" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-certificate-delete.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-certificate-delete.png</target>
+        </trans-unit>
+        <trans-unit id="c021e932-9dcb-4a4c-aa13-daf4e646da77" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-confirm-delete.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-confirm-delete.png</target>
+        </trans-unit>
+        <trans-unit id="b9319566-349e-4907-86d1-44bb2af2319e" xml:space="preserve">
+          <source>./media/api-management-howto-mutual-certificates/api-management-confirm-delete-policy.png</source>
+          <target state="new">./media/api-management-howto-mutual-certificates/api-management-confirm-delete-policy.png</target>
+        </trans-unit>
+        <trans-unit id="6f56e168-c48a-42fd-a7fc-d01257d730b6" xml:space="preserve">
+          <source>api-management-howto-add-operations.md</source>
+          <target state="new">api-management-howto-add-operations.md</target>
+        </trans-unit>
+        <trans-unit id="b26a0b2a-25ec-4dab-8ca0-e551bbd6610c" xml:space="preserve">
+          <source>api-management-howto-add-products.md</source>
+          <target state="new">api-management-howto-add-products.md</target>
+        </trans-unit>
+        <trans-unit id="1a9592df-4a8f-4729-b6ba-963d350df0f0" xml:space="preserve">
+          <source>../api-management-monitoring.md</source>
+          <target state="new">../api-management-monitoring.md</target>
+        </trans-unit>
+        <trans-unit id="b89ca97e-5850-4e84-bbb4-bcedb84a782e" xml:space="preserve">
+          <source>api-management-howto-add-products.md#add-apis</source>
+          <target state="new">api-management-howto-add-products.md#add-apis</target>
+        </trans-unit>
+        <trans-unit id="02b077f4-b096-46fa-bf06-ceafa283b483" xml:space="preserve">
+          <source>api-management-howto-add-products.md#publish-product</source>
+          <target state="new">api-management-howto-add-products.md#publish-product</target>
+        </trans-unit>
+        <trans-unit id="7da71b05-63ea-4b74-92c8-eca9f8b91a62" xml:space="preserve">
+          <source>api-management-get-started.md</source>
+          <target state="new">api-management-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="f93616ca-9301-4b49-95aa-4a5bc8d7243e" xml:space="preserve">
+          <source>api-management-get-started-advanced.md</source>
+          <target state="new">api-management-get-started-advanced.md</target>
+        </trans-unit>
+        <trans-unit id="b064cd03-b87c-4456-8617-c8356a0153dc" xml:space="preserve">
+          <source>api-management-policy-reference.md</source>
+          <target state="new">api-management-policy-reference.md</target>
+        </trans-unit>
+        <trans-unit id="f0730a46-935f-4be0-84f2-e16827fddc77" xml:space="preserve">
+          <source>api-management-policy-reference.md#caching-policies</source>
+          <target state="new">api-management-policy-reference.md#caching-policies</target>
+        </trans-unit>
+        <trans-unit id="81ce20d4-ae63-4060-a4ef-b389db86eae2" xml:space="preserve">
+          <source>api-management-get-started.md#create-service-instance</source>
+          <target state="new">api-management-get-started.md#create-service-instance</target>
+        </trans-unit>
+        <trans-unit id="099cc5cf-cd6d-40eb-8b30-3d06f92c6f5e" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn783483.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn783483.aspx</target>
+        </trans-unit>
+        <trans-unit id="fce4f13a-fe35-4d7c-bc20-593eda466d5d" xml:space="preserve">
+          <source>https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet</source>
+          <target state="new">https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet</target>
+        </trans-unit>
+        <trans-unit id="1b962d98-cc77-4985-a549-b0089f5497c8" xml:space="preserve">
+          <source>#prerequisites</source>
+          <target state="new">#prerequisites</target>
+        </trans-unit>
+        <trans-unit id="9d3318e2-22a6-4657-819e-cdf27e82b860" xml:space="preserve">
+          <source>#step1</source>
+          <target state="new">#step1</target>
+        </trans-unit>
+        <trans-unit id="14d50741-3422-45a2-8456-34b5c393db64" xml:space="preserve">
+          <source>#step1a</source>
+          <target state="new">#step1a</target>
+        </trans-unit>
+        <trans-unit id="5200aacf-a090-4112-b799-6a73bb6ca8d4" xml:space="preserve">
+          <source>#step2</source>
+          <target state="new">#step2</target>
+        </trans-unit>
+        <trans-unit id="af3e441b-1746-46bd-b7c1-07578243cdaf" xml:space="preserve">
+          <source>#step3</source>
+          <target state="new">#step3</target>
+        </trans-unit>
+        <trans-unit id="7a95d1c7-75f9-413a-976f-f82706d972c3" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+      </group>
+      <group id="cb809269-8cf5-41c7-b588-cc4a6c9e8503" />
+    </body>
+  </file>
+</xliff>

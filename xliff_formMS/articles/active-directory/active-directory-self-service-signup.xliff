@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="590c2adf-9d78-42ab-a9db-948ffc4e2053" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="590c2adf-9d78-42ab-a9db-948ffc4e2053" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="443b64d1-f0c4-4cfd-9876-0f19f8f1bb02">
+        <trans-unit id="50fa820c-0139-40a4-8642-f18d5f41d1cb" xml:space="preserve">
+          <source>What is Self-Service Signup for Azure?</source>
+          <target state="new">What is Self-Service Signup for Azure?</target>
+        </trans-unit>
+        <trans-unit id="8c61f436-af18-4892-b20c-fc06d574e8bb" xml:space="preserve">
+          <source>An overview self-service signup for Azure, how to manage the sign up process and how to .</source>
+          <target state="new">An overview self-service signup for Azure, how to manage the sign up process and how to .</target>
+        </trans-unit>
+        <trans-unit id="a078c352-7b51-4031-ab46-29cdff97b4b3" xml:space="preserve">
+          <source>This topic explains the self-service signup process (sometimes known as viral signup) and how to take over a DNS domain name.</source>
+          <target state="new">This topic explains the self-service signup process (sometimes known as viral signup) and how to take over a DNS domain name.</target>
+        </trans-unit>
+        <trans-unit id="8be4186c-075a-4138-af67-f1c4713ce36d" xml:space="preserve">
+          <source>Get customers to services they want faster.</source>
+          <target state="new">Get customers to services they want faster.</target>
+        </trans-unit>
+        <trans-unit id="dd984061-16d7-4b20-87a5-49644760c773" xml:space="preserve">
+          <source>Create email-based (viral) offers for a service.</source>
+          <target state="new">Create email-based (viral) offers for a service.</target>
+        </trans-unit>
+        <trans-unit id="fdea13a1-753b-40e6-b9b7-c388c5a68e30" xml:space="preserve">
+          <source>Create email-based signup flows which quickly allow users to create identities using their easy-to-remember work email aliases.</source>
+          <target state="new">Create email-based signup flows which quickly allow users to create identities using their easy-to-remember work email aliases.</target>
+        </trans-unit>
+        <trans-unit id="b2738c2d-25e6-40b5-941f-6401ccaa323f" xml:space="preserve">
+          <source>Unmanaged Azure tenants can grow and become managed tenants later and be reused for other services.</source>
+          <target state="new">Unmanaged Azure tenants can grow and become managed tenants later and be reused for other services.</target>
+        </trans-unit>
+        <trans-unit id="5f683703-50a7-4ba5-9602-4fb93c7df417" xml:space="preserve">
+          <source><bpt id="e9219f0b-89b9-4ccf-ab60-35cca0b41c48">&lt;strong&gt;</bpt>Self-service sign up<ept id="e9219f0b-89b9-4ccf-ab60-35cca0b41c48">&lt;/strong&gt;</ept>: This is the method by which a user signs up for a cloud service and has an identity automatically created for them in Azure Active Directory based on their email domain.</source>
+          <target state="new"><bpt id="e9219f0b-89b9-4ccf-ab60-35cca0b41c48">&lt;strong&gt;</bpt>Self-service sign up<ept id="e9219f0b-89b9-4ccf-ab60-35cca0b41c48">&lt;/strong&gt;</ept>: This is the method by which a user signs up for a cloud service and has an identity automatically created for them in Azure Active Directory based on their email domain.</target>
+        </trans-unit>
+        <trans-unit id="8f110aae-e876-44cb-ab5d-d289ceaa546f" xml:space="preserve">
+          <source><bpt id="89cf378c-d964-4c3a-adfd-170c81cc983b">&lt;strong&gt;</bpt>Unmanaged Azure tenant<ept id="89cf378c-d964-4c3a-adfd-170c81cc983b">&lt;/strong&gt;</ept>: This is the directory where that identity is created.</source>
+          <target state="new"><bpt id="89cf378c-d964-4c3a-adfd-170c81cc983b">&lt;strong&gt;</bpt>Unmanaged Azure tenant<ept id="89cf378c-d964-4c3a-adfd-170c81cc983b">&lt;/strong&gt;</ept>: This is the directory where that identity is created.</target>
+        </trans-unit>
+        <trans-unit id="6d3bbd6d-f0b6-4c3c-a026-aee70130e707" xml:space="preserve">
+          <source>An unmanaged tenant is a directory that has no global administrator.</source>
+          <target state="new">An unmanaged tenant is a directory that has no global administrator.</target>
+        </trans-unit>
+        <trans-unit id="59291cf2-e955-4305-bd4f-2fb419d6e302" xml:space="preserve">
+          <source><bpt id="c1569dea-0bec-4d78-92ab-cd1f15fc1e45">&lt;strong&gt;</bpt>Email-verified user<ept id="c1569dea-0bec-4d78-92ab-cd1f15fc1e45">&lt;/strong&gt;</ept>: This is a type of user account in Azure AD.</source>
+          <target state="new"><bpt id="c1569dea-0bec-4d78-92ab-cd1f15fc1e45">&lt;strong&gt;</bpt>Email-verified user<ept id="c1569dea-0bec-4d78-92ab-cd1f15fc1e45">&lt;/strong&gt;</ept>: This is a type of user account in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="96d1514f-a785-4c17-82c7-e3561cf89c18" xml:space="preserve">
+          <source>A user who has an identity created automatically after signing up for a self-service offer is known as an email-verified user.</source>
+          <target state="new">A user who has an identity created automatically after signing up for a self-service offer is known as an email-verified user.</target>
+        </trans-unit>
+        <trans-unit id="d2e54628-e806-4fb8-9b0a-f417bacb98e8" xml:space="preserve">
+          <source>An email-verified user is a regular member of a directory tagged with creationmethod=EmailVerified.</source>
+          <target state="new">An email-verified user is a regular member of a directory tagged with creationmethod=EmailVerified.</target>
+        </trans-unit>
+        <trans-unit id="5464ce6f-949c-41a7-89f8-cc07f77de45a" xml:space="preserve">
+          <source>For example, let's say a user whose email is Dan@BellowsCollege.com receives sensitive files via email.</source>
+          <target state="new">For example, let's say a user whose email is Dan@BellowsCollege.com receives sensitive files via email.</target>
+        </trans-unit>
+        <trans-unit id="63a08baa-71f5-433f-a7b5-5fb1314e9c8c" xml:space="preserve">
+          <source>The files have been protected by Azure Rights Management (Azure RMS).</source>
+          <target state="new">The files have been protected by Azure Rights Management (Azure RMS).</target>
+        </trans-unit>
+        <trans-unit id="702dbf89-4633-4a70-8a02-8277c6c89507" xml:space="preserve">
+          <source>But Dan's organization, Bellows College, has not signed up for Azure RMS, nor has it deployed Active Directory RMS.</source>
+          <target state="new">But Dan's organization, Bellows College, has not signed up for Azure RMS, nor has it deployed Active Directory RMS.</target>
+        </trans-unit>
+        <trans-unit id="8d2da44b-c5bf-4c77-bbfd-3d39bcb8e53a" xml:space="preserve">
+          <source>In this case, Dan can sign up for a free subscription to RMS for individuals in order to read the protected files.</source>
+          <target state="new">In this case, Dan can sign up for a free subscription to RMS for individuals in order to read the protected files.</target>
+        </trans-unit>
+        <trans-unit id="57be2ee8-9bf8-49af-98a0-5522356bd3ee" xml:space="preserve">
+          <source>If Dan is the first user with an email address from BellowsCollege.com to sign up for this self-service offering, then an unmanaged tenant will be created for BellowsCollege.com in Azure AD.</source>
+          <target state="new">If Dan is the first user with an email address from BellowsCollege.com to sign up for this self-service offering, then an unmanaged tenant will be created for BellowsCollege.com in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="9b62d108-0455-40be-b248-425ff96802e9" xml:space="preserve">
+          <source>If other users from the BellowsCollege.com domain sign up for this offering or a similar self-service offering, they will also have email-verified user accounts created in the same unmanaged tenant in Azure.</source>
+          <target state="new">If other users from the BellowsCollege.com domain sign up for this offering or a similar self-service offering, they will also have email-verified user accounts created in the same unmanaged tenant in Azure.</target>
+        </trans-unit>
+        <trans-unit id="8c01a193-84da-44e1-af2e-f91fb8b7cc82" xml:space="preserve">
+          <source>An admin who owns the DNS domain name of an unmanaged Azure tenant can take over or merge the tenant after proving ownership.</source>
+          <target state="new">An admin who owns the DNS domain name of an unmanaged Azure tenant can take over or merge the tenant after proving ownership.</target>
+        </trans-unit>
+        <trans-unit id="17359a86-e534-47d6-9991-e2c28c17fc8e" xml:space="preserve">
+          <source>The next sections explain the admin experience in more detail, but here's a summary:</source>
+          <target state="new">The next sections explain the admin experience in more detail, but here's a summary:</target>
+        </trans-unit>
+        <trans-unit id="bc14238e-56ee-45ee-8ebd-511dbe3addc8" xml:space="preserve">
+          <source>When you take over an unmanaged Azure tenant, you simply become the global administrator of the unmanaged tenant.</source>
+          <target state="new">When you take over an unmanaged Azure tenant, you simply become the global administrator of the unmanaged tenant.</target>
+        </trans-unit>
+        <trans-unit id="6c669ffa-105a-41e8-807c-852d7049d60a" xml:space="preserve">
+          <source>This is sometimes called an internal takeover.</source>
+          <target state="new">This is sometimes called an internal takeover.</target>
+        </trans-unit>
+        <trans-unit id="d16aaaa4-35d7-49f3-9882-fe9fa46434f5" xml:space="preserve">
+          <source>When you merge an unmanaged Azure tenant, you add the DNS domain name of the unmanaged tenant to your managed Azure tenant and a mapping of users-to-resources is created so users can continue to access services without interruption.</source>
+          <target state="new">When you merge an unmanaged Azure tenant, you add the DNS domain name of the unmanaged tenant to your managed Azure tenant and a mapping of users-to-resources is created so users can continue to access services without interruption.</target>
+        </trans-unit>
+        <trans-unit id="221cf63e-40f9-4142-901e-3e8d1460bc81" xml:space="preserve">
+          <source>This is sometimes called an external takeover.</source>
+          <target state="new">This is sometimes called an external takeover.</target>
+        </trans-unit>
+        <trans-unit id="3d957079-5875-473f-9a18-098c0e5bec59" xml:space="preserve">
+          <source>An Azure tenant for the domain is created, one tenant per domain.</source>
+          <target state="new">An Azure tenant for the domain is created, one tenant per domain.</target>
+        </trans-unit>
+        <trans-unit id="7dddd842-8464-4867-925e-da3efdc5dee3" xml:space="preserve">
+          <source>The Azure tenant directory has no global admin.</source>
+          <target state="new">The Azure tenant directory has no global admin.</target>
+        </trans-unit>
+        <trans-unit id="e4de36a9-10ee-4ccf-8e91-658724f2f725" xml:space="preserve">
+          <source>For each user who signs up, a user object is created in the Azure tenant.</source>
+          <target state="new">For each user who signs up, a user object is created in the Azure tenant.</target>
+        </trans-unit>
+        <trans-unit id="1656d39b-01a2-43ad-9b26-b952a6d2ee6a" xml:space="preserve">
+          <source>Each user object is marked as viral.</source>
+          <target state="new">Each user object is marked as viral.</target>
+        </trans-unit>
+        <trans-unit id="8d719382-0c1a-4b6f-bbd0-e297c43a0129" xml:space="preserve">
+          <source>Each user is given access to the service that they user signed up for.</source>
+          <target state="new">Each user is given access to the service that they user signed up for.</target>
+        </trans-unit>
+        <trans-unit id="f07980de-7d0f-4377-89fa-dbfddc06d5c8" xml:space="preserve">
+          <source>You can claim a self-service Azure tenant by performing domain validation.</source>
+          <target state="new">You can claim a self-service Azure tenant by performing domain validation.</target>
+        </trans-unit>
+        <trans-unit id="c8476c4c-25a3-4270-965e-ce404b68c10b" xml:space="preserve">
+          <source>Domain validation proves you own the domain by creating DNS records.</source>
+          <target state="new">Domain validation proves you own the domain by creating DNS records.</target>
+        </trans-unit>
+        <trans-unit id="a0c5b25f-08c5-4adf-a863-ed660db40a4e" xml:space="preserve">
+          <source>There are two ways to do a DNS takeover of an Azure tenant:</source>
+          <target state="new">There are two ways to do a DNS takeover of an Azure tenant:</target>
+        </trans-unit>
+        <trans-unit id="3c979a7e-bf3a-484e-ba94-2a82a22a6737" xml:space="preserve">
+          <source>internal takeover (Admin discovers an unmanaged Azure tenant, and wants to turn into a managed tenant)</source>
+          <target state="new">internal takeover (Admin discovers an unmanaged Azure tenant, and wants to turn into a managed tenant)</target>
+        </trans-unit>
+        <trans-unit id="adb45ac3-3827-46e1-a5d3-b6b0d691b4b3" xml:space="preserve">
+          <source>external takeover (Admin tries to add a new domain to their managed Azure tenant)</source>
+          <target state="new">external takeover (Admin tries to add a new domain to their managed Azure tenant)</target>
+        </trans-unit>
+        <trans-unit id="c88c1694-8a3a-4efc-94bf-a86dde0ad6a9" xml:space="preserve">
+          <source>You might be interested in validating that you own a domain because you are taking over an unmanaged tenant after a user performed self-service signup, or you might be adding a new domain to an existing managed tenant.</source>
+          <target state="new">You might be interested in validating that you own a domain because you are taking over an unmanaged tenant after a user performed self-service signup, or you might be adding a new domain to an existing managed tenant.</target>
+        </trans-unit>
+        <trans-unit id="ee044bf7-9ff6-4d19-ba2d-83b90cdfc953" xml:space="preserve">
+          <source>For example, you have a domain named contoso.com and you want to add a new domain named contoso.co.uk or contoso.uk.</source>
+          <target state="new">For example, you have a domain named contoso.com and you want to add a new domain named contoso.co.uk or contoso.uk.</target>
+        </trans-unit>
+        <trans-unit id="31591500-c37f-45bf-b9a3-7e628899ee32" xml:space="preserve">
+          <source>This section covers how to validate that you own a domain</source>
+          <target state="new">This section covers how to validate that you own a domain</target>
+        </trans-unit>
+        <trans-unit id="08ab80fb-afcc-407d-9dc2-9180092e8044" xml:space="preserve">
+          <source>In order to perform operations on a tenant, Azure AD requires that you validate ownership of the DNS domain.</source>
+          <target state="new">In order to perform operations on a tenant, Azure AD requires that you validate ownership of the DNS domain.</target>
+        </trans-unit>
+        <trans-unit id="887273db-f866-4c67-9eb4-40b20b232c4a" xml:space="preserve">
+          <source>Validation of the domain allows you to claim the tenant and either promote the self-service tenant to a managed tenant, or merge the self-service tenant into an existing managed tenant.</source>
+          <target state="new">Validation of the domain allows you to claim the tenant and either promote the self-service tenant to a managed tenant, or merge the self-service tenant into an existing managed tenant.</target>
+        </trans-unit>
+        <trans-unit id="bc4f65a5-5072-4eae-97e8-58dd6bbcaeef" xml:space="preserve">
+          <source>There are two ways to do a DNS takeover of a tenant:</source>
+          <target state="new">There are two ways to do a DNS takeover of a tenant:</target>
+        </trans-unit>
+        <trans-unit id="f43e9e8c-fd97-45ce-8e63-d3b9a766f0b7" xml:space="preserve">
+          <source>internal takeover  (For example, an admin discovers a self-service, unmanaged tenant, and wants to turn into managed tenant)</source>
+          <target state="new">internal takeover  (For example, an admin discovers a self-service, unmanaged tenant, and wants to turn into managed tenant)</target>
+        </trans-unit>
+        <trans-unit id="54d4e62a-24a5-4d3c-9844-3d8172ac10a3" xml:space="preserve">
+          <source>external takeover (For example, a admin tries to add a new domain to a managed tenant)</source>
+          <target state="new">external takeover (For example, a admin tries to add a new domain to a managed tenant)</target>
+        </trans-unit>
+        <trans-unit id="23ffd763-9d7e-4e62-9596-80baf0b3f6bc" xml:space="preserve">
+          <source>When you do internal takeover, the tenant gets converted from an unmanaged tenant to a managed tenant.</source>
+          <target state="new">When you do internal takeover, the tenant gets converted from an unmanaged tenant to a managed tenant.</target>
+        </trans-unit>
+        <trans-unit id="e9a7226a-c6b7-4593-b444-48a41260a1a3" xml:space="preserve">
+          <source>You need to complete DNS domain name validation, where you create an MX record or a TXT record in the DNS zone.</source>
+          <target state="new">You need to complete DNS domain name validation, where you create an MX record or a TXT record in the DNS zone.</target>
+        </trans-unit>
+        <trans-unit id="0fa0caf6-52b7-4c13-8e01-246633c3cc30" xml:space="preserve">
+          <source>That action:</source>
+          <target state="new">That action:</target>
+        </trans-unit>
+        <trans-unit id="97e56ee6-a7a7-45cc-9f51-204e440bef2e" xml:space="preserve">
+          <source>Validates that you own the domain</source>
+          <target state="new">Validates that you own the domain</target>
+        </trans-unit>
+        <trans-unit id="e3f93424-f6d3-43dd-9f3c-431c5ff02202" xml:space="preserve">
+          <source>Makes the tenant managed</source>
+          <target state="new">Makes the tenant managed</target>
+        </trans-unit>
+        <trans-unit id="c93af39d-230c-46c9-baab-7b04c8dc8700" xml:space="preserve">
+          <source>Makes you the global admin of the tenant</source>
+          <target state="new">Makes you the global admin of the tenant</target>
+        </trans-unit>
+        <trans-unit id="17f6f497-6821-4e41-858b-d181f948ff61" xml:space="preserve">
+          <source>Let's say an IT administrator from Bellows College discovers that users from the school have signed up for self-service offerings.</source>
+          <target state="new">Let's say an IT administrator from Bellows College discovers that users from the school have signed up for self-service offerings.</target>
+        </trans-unit>
+        <trans-unit id="dc0936a8-bb3a-4ef1-9478-2fe2fb62dda5" xml:space="preserve">
+          <source>As the registered owner of the DNS name BellowsCollege.com, the IT administrator can validate ownership of the DNS name in Azure and then take over the unmanaged tenant.</source>
+          <target state="new">As the registered owner of the DNS name BellowsCollege.com, the IT administrator can validate ownership of the DNS name in Azure and then take over the unmanaged tenant.</target>
+        </trans-unit>
+        <trans-unit id="e61c2b1c-3a82-4886-bbcb-99f67737f1fb" xml:space="preserve">
+          <source>The tenant then becomes a managed tenant, and the IT administrator is assigned the global administrator role for the BellowsCollege.com directory.</source>
+          <target state="new">The tenant then becomes a managed tenant, and the IT administrator is assigned the global administrator role for the BellowsCollege.com directory.</target>
+        </trans-unit>
+        <trans-unit id="7ff95286-ff9b-4a64-88ff-3640088ee78d" xml:space="preserve">
+          <source>In an external takeover, you already have a managed tenant and you want all users and groups from an unmanaged tenant to join that managed tenant, rather than own two separate tenants.</source>
+          <target state="new">In an external takeover, you already have a managed tenant and you want all users and groups from an unmanaged tenant to join that managed tenant, rather than own two separate tenants.</target>
+        </trans-unit>
+        <trans-unit id="7c07e873-0c0c-4acc-96bf-c84be87fca3a" xml:space="preserve">
+          <source>As an admin of a managed tenant, you add a domain, and that domain happens to have an unmanaged tenant associated with it.</source>
+          <target state="new">As an admin of a managed tenant, you add a domain, and that domain happens to have an unmanaged tenant associated with it.</target>
+        </trans-unit>
+        <trans-unit id="fd1aa70d-6e3f-40bb-9655-a0fa0ce0ac7d" xml:space="preserve">
+          <source>For example, let's say you are an IT administrator and you already have a managed tenant for Contoso.com, a domain name that is registered to your organization.</source>
+          <target state="new">For example, let's say you are an IT administrator and you already have a managed tenant for Contoso.com, a domain name that is registered to your organization.</target>
+        </trans-unit>
+        <trans-unit id="5dff4675-d5bc-4061-8f90-b28c25460cd8" xml:space="preserve">
+          <source>You discover that users from your organization have performed self-service sign up for an offering by using email domain name user@contoso.co.uk, which is another domain name that your organization owns.</source>
+          <target state="new">You discover that users from your organization have performed self-service sign up for an offering by using email domain name user@contoso.co.uk, which is another domain name that your organization owns.</target>
+        </trans-unit>
+        <trans-unit id="595cdb73-ef92-46d1-a5fc-bc9fad72f68f" xml:space="preserve">
+          <source>Those users currently have accounts in an unmanaged tenant for contoso.co.uk.</source>
+          <target state="new">Those users currently have accounts in an unmanaged tenant for contoso.co.uk.</target>
+        </trans-unit>
+        <trans-unit id="3580019e-2843-4e38-928c-81b85622ac97" xml:space="preserve">
+          <source>You don't want to manage two separate tenants, so you merge the unmanaged tenant for contoso.co.uk into your existing IT managed tenant for contoso.com.</source>
+          <target state="new">You don't want to manage two separate tenants, so you merge the unmanaged tenant for contoso.co.uk into your existing IT managed tenant for contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="ccaa8bdc-5ab8-447b-b50f-f39bf5863c9d" xml:space="preserve">
+          <source>External takeover follows the same DNS validation process as internal takeover.</source>
+          <target state="new">External takeover follows the same DNS validation process as internal takeover.</target>
+        </trans-unit>
+        <trans-unit id="1f957ca9-a2f4-4e4d-95e7-4e00419f87f6" xml:space="preserve">
+          <source>Difference being: users and services are remapped to the IT managed tenant.</source>
+          <target state="new">Difference being: users and services are remapped to the IT managed tenant.</target>
+        </trans-unit>
+        <trans-unit id="1c1cce8b-cbde-4424-8e47-2e6752f346df" xml:space="preserve">
+          <source>With an external takeover, a mapping of users-to-resources is created so users can continue to access services without interruption.</source>
+          <target state="new">With an external takeover, a mapping of users-to-resources is created so users can continue to access services without interruption.</target>
+        </trans-unit>
+        <trans-unit id="e8c72bca-34ab-4cc1-a546-997bb6c4e2b9" xml:space="preserve">
+          <source>Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change.</source>
+          <target state="new">Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change.</target>
+        </trans-unit>
+        <trans-unit id="92430bd9-a8df-4398-b8f3-b2adeda99d64" xml:space="preserve">
+          <source>If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience.</source>
+          <target state="new">If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience.</target>
+        </trans-unit>
+        <trans-unit id="e5f4e710-288c-47bb-a891-ab162f1cf4c6" xml:space="preserve">
+          <source>Currently the following services support takeover:</source>
+          <target state="new">Currently the following services support takeover:</target>
+        </trans-unit>
+        <trans-unit id="b212650e-ca25-49e3-b715-56bda05b205c" xml:space="preserve">
+          <source>RMS</source>
+          <target state="new">RMS</target>
+        </trans-unit>
+        <trans-unit id="501ea029-1798-4b16-a035-1d931cc8c232" xml:space="preserve">
+          <source>The following services will soon be supporting takeover:</source>
+          <target state="new">The following services will soon be supporting takeover:</target>
+        </trans-unit>
+        <trans-unit id="213509aa-54fa-4352-aff9-3b051ea20c6e" xml:space="preserve">
+          <source>PowerBI</source>
+          <target state="new">PowerBI</target>
+        </trans-unit>
+        <trans-unit id="1cf93df3-8182-4259-bbb7-a720f566c18a" xml:space="preserve">
+          <source>The following do not and require additional admin action to migrate user data after an external takeover.</source>
+          <target state="new">The following do not and require additional admin action to migrate user data after an external takeover.</target>
+        </trans-unit>
+        <trans-unit id="1ed222ef-b506-4d26-a4e2-8cf7b7027c1b" xml:space="preserve">
+          <source>SharePoint/OneDrive</source>
+          <target state="new">SharePoint/OneDrive</target>
+        </trans-unit>
+        <trans-unit id="5b46104e-655a-4510-ac8a-88b29c6169a3" xml:space="preserve">
+          <source>You have a few options for how to perform a domain validation (and do a takeover if you wish):</source>
+          <target state="new">You have a few options for how to perform a domain validation (and do a takeover if you wish):</target>
+        </trans-unit>
+        <trans-unit id="fd384562-0bc0-4dab-ba90-1b5ecb1dc596" xml:space="preserve">
+          <source>Azure Management Portal</source>
+          <target state="new">Azure Management Portal</target>
+        </trans-unit>
+        <trans-unit id="671b8376-d980-428b-8a60-41cdb27d2174" xml:space="preserve">
+          <source>A takeover is triggered by doing a domain addition.</source>
+          <target state="new">A takeover is triggered by doing a domain addition.</target>
+        </trans-unit>
+        <trans-unit id="4470233c-d59a-43c8-826e-295b183a6c28" xml:space="preserve">
+          <source>If a tenant already exists for the domain, you'll have the option to perform an external takeover.</source>
+          <target state="new">If a tenant already exists for the domain, you'll have the option to perform an external takeover.</target>
+        </trans-unit>
+        <trans-unit id="58b39ef4-c27f-4ef4-a878-2fc998657c4b" xml:space="preserve">
+          <source>Sign in to the Azure portal using your credentials.</source>
+          <target state="new">Sign in to the Azure portal using your credentials.</target>
+        </trans-unit>
+        <trans-unit id="62dda7aa-247e-479b-a19c-44f18c68ca82" xml:space="preserve">
+          <source>Navigate to your existing tenant and then to <bpt id="63f911f6-253c-41b0-9af3-909a385b37cc">&lt;strong&gt;</bpt>Add domain<ept id="63f911f6-253c-41b0-9af3-909a385b37cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to your existing tenant and then to <bpt id="63f911f6-253c-41b0-9af3-909a385b37cc">&lt;strong&gt;</bpt>Add domain<ept id="63f911f6-253c-41b0-9af3-909a385b37cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5037604c-5bd7-4b37-8060-56ae45e4593b" xml:space="preserve">
+          <source>Office 365</source>
+          <target state="new">Office 365</target>
+        </trans-unit>
+        <trans-unit id="201c7578-6634-4355-aa0b-3aefe1f08a76" xml:space="preserve">
+          <source>You can use the options on the <bpt id="30668903-fe3f-47c1-a510-685a6fc91fe5">&lt;linkText&gt;</bpt>Manage domains<ept id="30668903-fe3f-47c1-a510-685a6fc91fe5">&lt;/linkText&gt;</ept><bpt id="30668903-fe3f-47c1-a510-685a6fc91fe5">&lt;title&gt;</bpt><ept id="30668903-fe3f-47c1-a510-685a6fc91fe5">&lt;/title&gt;</ept> page in Office 365 to work with your domains and DNS records.</source>
+          <target state="new">You can use the options on the <bpt id="30668903-fe3f-47c1-a510-685a6fc91fe5">&lt;linkText&gt;</bpt>Manage domains<ept id="30668903-fe3f-47c1-a510-685a6fc91fe5">&lt;/linkText&gt;</ept><bpt id="30668903-fe3f-47c1-a510-685a6fc91fe5">&lt;title&gt;</bpt><ept id="30668903-fe3f-47c1-a510-685a6fc91fe5">&lt;/title&gt;</ept> page in Office 365 to work with your domains and DNS records.</target>
+        </trans-unit>
+        <trans-unit id="b9b76c7c-f17e-4c5b-98cc-9181da64d3b7" xml:space="preserve">
+          <source>See <bpt id="56c9baff-98a4-4898-96b8-f3ebad31717e">&lt;linkText&gt;</bpt>Verify your domain in Office 365<ept id="56c9baff-98a4-4898-96b8-f3ebad31717e">&lt;/linkText&gt;</ept><bpt id="56c9baff-98a4-4898-96b8-f3ebad31717e">&lt;title&gt;</bpt><ept id="56c9baff-98a4-4898-96b8-f3ebad31717e">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="56c9baff-98a4-4898-96b8-f3ebad31717e">&lt;linkText&gt;</bpt>Verify your domain in Office 365<ept id="56c9baff-98a4-4898-96b8-f3ebad31717e">&lt;/linkText&gt;</ept><bpt id="56c9baff-98a4-4898-96b8-f3ebad31717e">&lt;title&gt;</bpt><ept id="56c9baff-98a4-4898-96b8-f3ebad31717e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55541ddf-4d8f-49bd-9468-e3337434f206" xml:space="preserve">
+          <source>Windows PowerShell</source>
+          <target state="new">Windows PowerShell</target>
+        </trans-unit>
+        <trans-unit id="4da39f5d-dc81-4f6a-89e5-67cab123f3fa" xml:space="preserve">
+          <source>The following steps are required to perform a validation using Windows PowerShell.</source>
+          <target state="new">The following steps are required to perform a validation using Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="aac0ece4-ab39-40c1-9e7d-b4186181733a" xml:space="preserve">
+          <source>Step    |   Cmdlet to use
+------- | -------------
+Create a credential object | Get-Credential
+Connect to Azure AD | Connect-MsolService
+get a list of domains   | Get-MsolDomain
+Create a challenge  | Get-MsolDomainVerificationDns
+Create DNS record   | Do this on your DNS server
+Verify the challenge    | Confirm-MsolEmailVerifiedDomain</source>
+          <target state="new">Step    |   Cmdlet to use
+------- | -------------
+Create a credential object | Get-Credential
+Connect to Azure AD | Connect-MsolService
+get a list of domains   | Get-MsolDomain
+Create a challenge  | Get-MsolDomainVerificationDns
+Create DNS record   | Do this on your DNS server
+Verify the challenge    | Confirm-MsolEmailVerifiedDomain</target>
+        </trans-unit>
+        <trans-unit id="2f2b235a-09c7-49a2-bdae-3427e013ede3" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="18362271-932f-41be-bdde-6d5442791c5d" xml:space="preserve">
+          <source>Connect to Azure AD using the credentials that were used to respond to the self-service offering:
+    import-module MSOnline
+    $msolcred = get-credential
+    connect-msolservice -credential $msolcred</source>
+          <target state="new">Connect to Azure AD using the credentials that were used to respond to the self-service offering:
+    import-module MSOnline
+    $msolcred = get-credential
+    connect-msolservice -credential $msolcred</target>
+        </trans-unit>
+        <trans-unit id="eeb3587b-05c6-402f-b984-0b20096d3ff3" xml:space="preserve">
+          <source>Get a list of domains:</source>
+          <target state="new">Get a list of domains:</target>
+        </trans-unit>
+        <trans-unit id="554ea0a3-2e89-45f9-9f1c-cb23dca0a5d4" xml:space="preserve">
+          <source>Get-MsolDomain</source>
+          <target state="new">Get-MsolDomain</target>
+        </trans-unit>
+        <trans-unit id="c9d6526a-10d7-43f9-83c1-74fc78d21110" xml:space="preserve">
+          <source>Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:</source>
+          <target state="new">Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:</target>
+        </trans-unit>
+        <trans-unit id="09851cc9-51a7-4b6c-85bc-a756a6db54c3" xml:space="preserve">
+          <source>Get-MsolDomainVerificationDns –DomainName <bpt id="39c9ef8c-9a7f-4aa8-bfd6-b2607c3be608">&lt;em&gt;</bpt>your_domain_name<ept id="39c9ef8c-9a7f-4aa8-bfd6-b2607c3be608">&lt;/em&gt;</ept> –Mode DnsTxtRecord</source>
+          <target state="new">Get-MsolDomainVerificationDns –DomainName <bpt id="39c9ef8c-9a7f-4aa8-bfd6-b2607c3be608">&lt;em&gt;</bpt>your_domain_name<ept id="39c9ef8c-9a7f-4aa8-bfd6-b2607c3be608">&lt;/em&gt;</ept> –Mode DnsTxtRecord</target>
+        </trans-unit>
+        <trans-unit id="d31211e5-e5b9-4e18-9c48-6b1e7191f4fb" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="21399925-2f4e-4b81-8a29-ce836f381265" xml:space="preserve">
+          <source>Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord</source>
+          <target state="new">Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord</target>
+        </trans-unit>
+        <trans-unit id="dcbfd127-dc5f-4698-b06b-ac3c3562cd9d" xml:space="preserve">
+          <source>Copy the value (the challenge) that is returned from this command.</source>
+          <target state="new">Copy the value (the challenge) that is returned from this command.</target>
+        </trans-unit>
+        <trans-unit id="0690497f-baee-4208-849d-5ee857357b09" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="a875dae4-c040-40d1-8e37-9a59371e421f" xml:space="preserve">
+          <source>MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9</source>
+          <target state="new">MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9</target>
+        </trans-unit>
+        <trans-unit id="0d48883a-37f0-439e-b128-b6c8766cc12d" xml:space="preserve">
+          <source>In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step.</source>
+          <target state="new">In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="0707de81-d896-42b9-8c7b-7cbab6ad0aaf" xml:space="preserve">
+          <source>The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box</source>
+          <target state="new">The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box</target>
+        </trans-unit>
+        <trans-unit id="5ad969d5-8edf-43d2-8a7d-fff51ff4239b" xml:space="preserve">
+          <source>Run the Confirm-MsolDomain cmdlet to verify the challenge:</source>
+          <target state="new">Run the Confirm-MsolDomain cmdlet to verify the challenge:</target>
+        </trans-unit>
+        <trans-unit id="142130e7-a325-4e07-bbee-7a7eca3bdaea" xml:space="preserve">
+          <source>Confirm-MsolEmailVerifiedDomain -DomainName <bpt id="556862e4-fa0a-4b8d-bd64-6b0477a090a3">&lt;em&gt;</bpt>your_domain_name<ept id="556862e4-fa0a-4b8d-bd64-6b0477a090a3">&lt;/em&gt;</ept></source>
+          <target state="new">Confirm-MsolEmailVerifiedDomain -DomainName <bpt id="556862e4-fa0a-4b8d-bd64-6b0477a090a3">&lt;em&gt;</bpt>your_domain_name<ept id="556862e4-fa0a-4b8d-bd64-6b0477a090a3">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae38963c-c67e-491a-b07d-65f0c88b5b8a" xml:space="preserve">
+          <source>for example:</source>
+          <target state="new">for example:</target>
+        </trans-unit>
+        <trans-unit id="49a52576-63f9-4ee3-aafc-7bdf06085412" xml:space="preserve">
+          <source>Confirm-MsolEmailVerifiedDomain -DomainName contoso.com</source>
+          <target state="new">Confirm-MsolEmailVerifiedDomain -DomainName contoso.com</target>
+        </trans-unit>
+        <trans-unit id="1e788716-9bef-4203-9677-2a9d64358e19" xml:space="preserve">
+          <source>A successful challenge returns you to the prompt without an error.</source>
+          <target state="new">A successful challenge returns you to the prompt without an error.</target>
+        </trans-unit>
+        <trans-unit id="0cf07f9a-e158-41d5-a41c-da9a6ea03987" xml:space="preserve">
+          <source>Admins have two self-service controls today.</source>
+          <target state="new">Admins have two self-service controls today.</target>
+        </trans-unit>
+        <trans-unit id="8517f943-026e-427a-aed1-8de458a7033e" xml:space="preserve">
+          <source>They can control:</source>
+          <target state="new">They can control:</target>
+        </trans-unit>
+        <trans-unit id="90266346-b8eb-463a-8a96-745a3e05f686" xml:space="preserve">
+          <source>Whether or not users can join the tenant via email.</source>
+          <target state="new">Whether or not users can join the tenant via email.</target>
+        </trans-unit>
+        <trans-unit id="c58cecb7-f119-496e-b722-a3e93f6a3105" xml:space="preserve">
+          <source>Whether or not users can license themselves for applications and services.</source>
+          <target state="new">Whether or not users can license themselves for applications and services.</target>
+        </trans-unit>
+        <trans-unit id="5cab013e-4e2a-46cc-8690-f9253ecb1b69" xml:space="preserve">
+          <source>An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCompanySettings parameters:</source>
+          <target state="new">An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCompanySettings parameters:</target>
+        </trans-unit>
+        <trans-unit id="f065fb8a-ebcd-43ae-b899-3269e59276b2" xml:space="preserve">
+          <source><bpt id="aa54b841-dbe7-4ac4-a656-b2d311b2c1a3">&lt;strong&gt;</bpt>AllowEmailVerifiedUsers<ept id="aa54b841-dbe7-4ac4-a656-b2d311b2c1a3">&lt;/strong&gt;</ept> controls whether a user can create or join an unmanaged tenant.</source>
+          <target state="new"><bpt id="aa54b841-dbe7-4ac4-a656-b2d311b2c1a3">&lt;strong&gt;</bpt>AllowEmailVerifiedUsers<ept id="aa54b841-dbe7-4ac4-a656-b2d311b2c1a3">&lt;/strong&gt;</ept> controls whether a user can create or join an unmanaged tenant.</target>
+        </trans-unit>
+        <trans-unit id="a61587de-347f-4d43-8776-58a582cf561f" xml:space="preserve">
+          <source>If you set that parameter to $false, no email-verified users can join the tenant.</source>
+          <target state="new">If you set that parameter to $false, no email-verified users can join the tenant.</target>
+        </trans-unit>
+        <trans-unit id="a8300ab0-3aad-40ec-b0ee-775f8e24df1b" xml:space="preserve">
+          <source><bpt id="7477ada7-7811-49d9-b1cc-3f4beccb164d">&lt;strong&gt;</bpt>AllowAdHocSubscriptions<ept id="7477ada7-7811-49d9-b1cc-3f4beccb164d">&lt;/strong&gt;</ept> controls the ability for users to perform self-service sign up.</source>
+          <target state="new"><bpt id="7477ada7-7811-49d9-b1cc-3f4beccb164d">&lt;strong&gt;</bpt>AllowAdHocSubscriptions<ept id="7477ada7-7811-49d9-b1cc-3f4beccb164d">&lt;/strong&gt;</ept> controls the ability for users to perform self-service sign up.</target>
+        </trans-unit>
+        <trans-unit id="73327d9f-ba60-4fb9-852c-a8d8f1d9138d" xml:space="preserve">
+          <source>If you set that parameter to $false, no users can perform self-service signup.</source>
+          <target state="new">If you set that parameter to $false, no users can perform self-service signup.</target>
+        </trans-unit>
+        <trans-unit id="0da8219e-d6e9-4b84-9ac2-28deb1d5e66b" xml:space="preserve">
+          <source>These two parameters can be used in conjunction to define more precise control over self-service sign up.</source>
+          <target state="new">These two parameters can be used in conjunction to define more precise control over self-service sign up.</target>
+        </trans-unit>
+        <trans-unit id="6af3e49f-4d51-485d-adf0-ced7cf79d236" xml:space="preserve">
+          <source>For example, the following command will allow users to perform self-service sign up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service sign up):</source>
+          <target state="new">For example, the following command will allow users to perform self-service sign up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service sign up):</target>
+        </trans-unit>
+        <trans-unit id="bc4a85e6-914a-4e4c-9693-7443d1cdcd55" xml:space="preserve">
+          <source>The following flowchart explains all the different combinations for these parameters and the resulting conditions for the tenant and self-service sign up.</source>
+          <target state="new">The following flowchart explains all the different combinations for these parameters and the resulting conditions for the tenant and self-service sign up.</target>
+        </trans-unit>
+        <trans-unit id="c724f211-0006-4f7c-9728-e674bfb6b326" xml:space="preserve">
+          <source><bpt id="e8cc895c-c427-4410-9a6d-de1638893d8a">&lt;linkText&gt;</bpt><ept id="e8cc895c-c427-4410-9a6d-de1638893d8a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e8cc895c-c427-4410-9a6d-de1638893d8a">&lt;linkText&gt;</bpt><ept id="e8cc895c-c427-4410-9a6d-de1638893d8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26a97a8f-324a-4843-9654-cc87c6b7706b" xml:space="preserve">
+          <source>For more information and examples of how to use these parameters, see <bpt id="c60c9c82-499e-46ab-b0d1-941858841a9a">&lt;linkText&gt;</bpt>Set-MsolCompanySettings<ept id="c60c9c82-499e-46ab-b0d1-941858841a9a">&lt;/linkText&gt;</ept><bpt id="c60c9c82-499e-46ab-b0d1-941858841a9a">&lt;title&gt;</bpt><ept id="c60c9c82-499e-46ab-b0d1-941858841a9a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information and examples of how to use these parameters, see <bpt id="c60c9c82-499e-46ab-b0d1-941858841a9a">&lt;linkText&gt;</bpt>Set-MsolCompanySettings<ept id="c60c9c82-499e-46ab-b0d1-941858841a9a">&lt;/linkText&gt;</ept><bpt id="c60c9c82-499e-46ab-b0d1-941858841a9a">&lt;title&gt;</bpt><ept id="c60c9c82-499e-46ab-b0d1-941858841a9a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ec94f97-0944-4c3c-acd2-0514db0e2bba" xml:space="preserve">
+          <source><bpt id="357a9e8b-c677-4446-afb3-218da8d83948">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="357a9e8b-c677-4446-afb3-218da8d83948">&lt;/linkText&gt;</ept><bpt id="357a9e8b-c677-4446-afb3-218da8d83948">&lt;title&gt;</bpt><ept id="357a9e8b-c677-4446-afb3-218da8d83948">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="357a9e8b-c677-4446-afb3-218da8d83948">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="357a9e8b-c677-4446-afb3-218da8d83948">&lt;/linkText&gt;</ept><bpt id="357a9e8b-c677-4446-afb3-218da8d83948">&lt;title&gt;</bpt><ept id="357a9e8b-c677-4446-afb3-218da8d83948">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c81653c7-2775-4fbb-8bca-2370e3563229" xml:space="preserve">
+          <source><bpt id="853c845a-02dc-4653-8b84-d1e71f8adece">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="853c845a-02dc-4653-8b84-d1e71f8adece">&lt;/linkText&gt;</ept><bpt id="853c845a-02dc-4653-8b84-d1e71f8adece">&lt;title&gt;</bpt><ept id="853c845a-02dc-4653-8b84-d1e71f8adece">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="853c845a-02dc-4653-8b84-d1e71f8adece">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="853c845a-02dc-4653-8b84-d1e71f8adece">&lt;/linkText&gt;</ept><bpt id="853c845a-02dc-4653-8b84-d1e71f8adece">&lt;title&gt;</bpt><ept id="853c845a-02dc-4653-8b84-d1e71f8adece">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cbbe1ef6-2236-4612-85f8-b25295471cfb" xml:space="preserve">
+          <source><bpt id="a11d3acc-d3a1-4910-a54f-e91d160410f6">&lt;linkText&gt;</bpt>Azure Cmdlet Reference<ept id="a11d3acc-d3a1-4910-a54f-e91d160410f6">&lt;/linkText&gt;</ept><bpt id="a11d3acc-d3a1-4910-a54f-e91d160410f6">&lt;title&gt;</bpt><ept id="a11d3acc-d3a1-4910-a54f-e91d160410f6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a11d3acc-d3a1-4910-a54f-e91d160410f6">&lt;linkText&gt;</bpt>Azure Cmdlet Reference<ept id="a11d3acc-d3a1-4910-a54f-e91d160410f6">&lt;/linkText&gt;</ept><bpt id="a11d3acc-d3a1-4910-a54f-e91d160410f6">&lt;title&gt;</bpt><ept id="a11d3acc-d3a1-4910-a54f-e91d160410f6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b729897d-fe3f-4a67-b8f4-03720a8355ea" xml:space="preserve">
+          <source><bpt id="ab9c1e42-d7c2-4437-bc31-ae5e88c1efd5">&lt;linkText&gt;</bpt>Set-MsolCompanySettings<ept id="ab9c1e42-d7c2-4437-bc31-ae5e88c1efd5">&lt;/linkText&gt;</ept><bpt id="ab9c1e42-d7c2-4437-bc31-ae5e88c1efd5">&lt;title&gt;</bpt><ept id="ab9c1e42-d7c2-4437-bc31-ae5e88c1efd5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ab9c1e42-d7c2-4437-bc31-ae5e88c1efd5">&lt;linkText&gt;</bpt>Set-MsolCompanySettings<ept id="ab9c1e42-d7c2-4437-bc31-ae5e88c1efd5">&lt;/linkText&gt;</ept><bpt id="ab9c1e42-d7c2-4437-bc31-ae5e88c1efd5">&lt;title&gt;</bpt><ept id="ab9c1e42-d7c2-4437-bc31-ae5e88c1efd5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02ee4565-390f-4742-b9db-cefdc103966f" xml:space="preserve">
+          <source>./media/active-directory-self-service-signup/SelfServiceSignUpControls.png</source>
+          <target state="new">./media/active-directory-self-service-signup/SelfServiceSignUpControls.png</target>
+        </trans-unit>
+      </group>
+      <group id="ff9348c6-6269-4afc-9ba5-daa939429fcd" />
+    </body>
+  </file>
+</xliff>

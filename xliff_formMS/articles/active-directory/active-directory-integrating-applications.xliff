@@ -1,0 +1,1164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d747e6f1-9d12-4dbf-8a8d-6e45171bc1db" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d747e6f1-9d12-4dbf-8a8d-6e45171bc1db" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="751d9195-a3e3-48cb-8beb-27aa9d9facdf">
+        <trans-unit id="bde28095-8a28-4ce2-9796-7169c7b119ac" xml:space="preserve">
+          <source>Integrating Applications with Azure Active Directory | Microsoft Azure</source>
+          <target state="new">Integrating Applications with Azure Active Directory | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9f71ad14-7a27-47cf-bd82-634f6efd931b" xml:space="preserve">
+          <source>Details on how to add, update, or remove an application in Azure Active Directory (Azure AD).</source>
+          <target state="new">Details on how to add, update, or remove an application in Azure Active Directory (Azure AD).</target>
+        </trans-unit>
+        <trans-unit id="0339ba51-feac-4962-916b-33e9cc38e0a3" xml:space="preserve">
+          <source>Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line of business applications that can be integrated with Azure Active Directory (Azure AD) to provide secure sign in and authorization for their services.</source>
+          <target state="new">Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line of business applications that can be integrated with Azure Active Directory (Azure AD) to provide secure sign in and authorization for their services.</target>
+        </trans-unit>
+        <trans-unit id="0268730f-dd2d-44eb-a40c-7f9b9278101e" xml:space="preserve">
+          <source>To integrate an application or service with Azure AD, a developer must first register the details about their application with Azure AD by using the Azure Management Portal.</source>
+          <target state="new">To integrate an application or service with Azure AD, a developer must first register the details about their application with Azure AD by using the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="48d0cc29-29be-4214-bdce-cae01bf5de18" xml:space="preserve">
+          <source>This article shows you how to add, update, or remove an application in Azure AD.</source>
+          <target state="new">This article shows you how to add, update, or remove an application in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="3b8fea47-0703-4a9a-9de2-e97f8657e55b" xml:space="preserve">
+          <source>You will learn about the different types of applications that can be integrated with Azure AD, how to configure your applications to access other resources such as web APIs, and more.</source>
+          <target state="new">You will learn about the different types of applications that can be integrated with Azure AD, how to configure your applications to access other resources such as web APIs, and more.</target>
+        </trans-unit>
+        <trans-unit id="6e334bec-19f8-4740-973a-e4dfbf7f4bfb" xml:space="preserve">
+          <source>To more information about app properties, see <bpt id="96600b18-8fa9-4548-9a8d-abc364c947ed">&lt;linkText&gt;</bpt>Application Objects and Service Principal Objects<ept id="96600b18-8fa9-4548-9a8d-abc364c947ed">&lt;/linkText&gt;</ept><bpt id="96600b18-8fa9-4548-9a8d-abc364c947ed">&lt;title&gt;</bpt><ept id="96600b18-8fa9-4548-9a8d-abc364c947ed">&lt;/title&gt;</ept>; to learn the branding guidelines you should use when developing applications with Azure Active Directory, see <bpt id="a343b18d-2731-402a-870e-8f9cf996f132">&lt;linkText&gt;</bpt>Branding Guidelines for Integrated Apps<ept id="a343b18d-2731-402a-870e-8f9cf996f132">&lt;/linkText&gt;</ept><bpt id="a343b18d-2731-402a-870e-8f9cf996f132">&lt;title&gt;</bpt><ept id="a343b18d-2731-402a-870e-8f9cf996f132">&lt;/title&gt;</ept>.</source>
+          <target state="new">To more information about app properties, see <bpt id="96600b18-8fa9-4548-9a8d-abc364c947ed">&lt;linkText&gt;</bpt>Application Objects and Service Principal Objects<ept id="96600b18-8fa9-4548-9a8d-abc364c947ed">&lt;/linkText&gt;</ept><bpt id="96600b18-8fa9-4548-9a8d-abc364c947ed">&lt;title&gt;</bpt><ept id="96600b18-8fa9-4548-9a8d-abc364c947ed">&lt;/title&gt;</ept>; to learn the branding guidelines you should use when developing applications with Azure Active Directory, see <bpt id="a343b18d-2731-402a-870e-8f9cf996f132">&lt;linkText&gt;</bpt>Branding Guidelines for Integrated Apps<ept id="a343b18d-2731-402a-870e-8f9cf996f132">&lt;/linkText&gt;</ept><bpt id="a343b18d-2731-402a-870e-8f9cf996f132">&lt;title&gt;</bpt><ept id="a343b18d-2731-402a-870e-8f9cf996f132">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48277aa7-0272-4edd-aa71-173fa68a6a21" xml:space="preserve">
+          <source>Any application that wants to use the capabilities of Azure AD must first be registered in a directory.</source>
+          <target state="new">Any application that wants to use the capabilities of Azure AD must first be registered in a directory.</target>
+        </trans-unit>
+        <trans-unit id="833022dd-befc-4854-8aca-2f41f1add80e" xml:space="preserve">
+          <source>This registration process involves giving Azure AD details about your application, such as the URL where it’s located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.</source>
+          <target state="new">This registration process involves giving Azure AD details about your application, such as the URL where it’s located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.</target>
+        </trans-unit>
+        <trans-unit id="af004ea9-55b8-488e-ae31-847c4846623b" xml:space="preserve">
+          <source>If you’re building a web application that just needs sign-on for users in Azure AD, you can simply follow the instructions below.</source>
+          <target state="new">If you’re building a web application that just needs sign-on for users in Azure AD, you can simply follow the instructions below.</target>
+        </trans-unit>
+        <trans-unit id="124f9ec8-9699-4369-a7bd-1660ac4a02b2" xml:space="preserve">
+          <source>If your application needs access to a web API, you’re building a native application that needs to access a web API, or you want to make your application multi-tenant, you’ll need to continue reading in the <bpt id="bd86f4ca-acc1-4184-8d17-df97f27d3c62">&lt;linkText&gt;</bpt>Updating an Application<ept id="bd86f4ca-acc1-4184-8d17-df97f27d3c62">&lt;/linkText&gt;</ept><bpt id="bd86f4ca-acc1-4184-8d17-df97f27d3c62">&lt;title&gt;</bpt><ept id="bd86f4ca-acc1-4184-8d17-df97f27d3c62">&lt;/title&gt;</ept> section to continue configuring your application.</source>
+          <target state="new">If your application needs access to a web API, you’re building a native application that needs to access a web API, or you want to make your application multi-tenant, you’ll need to continue reading in the <bpt id="bd86f4ca-acc1-4184-8d17-df97f27d3c62">&lt;linkText&gt;</bpt>Updating an Application<ept id="bd86f4ca-acc1-4184-8d17-df97f27d3c62">&lt;/linkText&gt;</ept><bpt id="bd86f4ca-acc1-4184-8d17-df97f27d3c62">&lt;title&gt;</bpt><ept id="bd86f4ca-acc1-4184-8d17-df97f27d3c62">&lt;/title&gt;</ept> section to continue configuring your application.</target>
+        </trans-unit>
+        <trans-unit id="61830ad7-fff1-4cd5-a04b-89b73af51594" xml:space="preserve">
+          <source>If you want to make your application available to other organizations, you will also need to enable external access once the application has been added.</source>
+          <target state="new">If you want to make your application available to other organizations, you will also need to enable external access once the application has been added.</target>
+        </trans-unit>
+        <trans-unit id="c508b2e9-b44c-47d1-b4aa-c0805a7934a5" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal.</source>
+          <target state="new">Sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="f24ef3eb-61a4-4736-bb5c-4c48cad4e1f2" xml:space="preserve">
+          <source>Click on the Active Directory icon on the left menu, and then click on the desired directory.</source>
+          <target state="new">Click on the Active Directory icon on the left menu, and then click on the desired directory.</target>
+        </trans-unit>
+        <trans-unit id="8261dbdf-a2bb-4226-b9bc-718eaa460895" xml:space="preserve">
+          <source>On the top menu, click Applications.</source>
+          <target state="new">On the top menu, click Applications.</target>
+        </trans-unit>
+        <trans-unit id="146d2ba1-119f-49e3-b21c-3b1e98543c52" xml:space="preserve">
+          <source>If no apps have been added to your directory, this page will only show the Add an App link.</source>
+          <target state="new">If no apps have been added to your directory, this page will only show the Add an App link.</target>
+        </trans-unit>
+        <trans-unit id="7cba26d1-2161-42a6-a724-a3b0684f5702" xml:space="preserve">
+          <source>Click on the link, or alternatively you can click on the Add button on the command bar.</source>
+          <target state="new">Click on the link, or alternatively you can click on the Add button on the command bar.</target>
+        </trans-unit>
+        <trans-unit id="9bf6fee2-fd3d-43ad-a1ff-ae819a98a8b4" xml:space="preserve">
+          <source>On the What do you want to do page, click on the link to Add an application my organization is developing.</source>
+          <target state="new">On the What do you want to do page, click on the link to Add an application my organization is developing.</target>
+        </trans-unit>
+        <trans-unit id="1163200c-4008-4631-b5b7-3aa2ef8c42e5" xml:space="preserve">
+          <source>On the Tell us about your application page, you must specify a name for your application as well as indicate the type of application you are registering with Azure AD.</source>
+          <target state="new">On the Tell us about your application page, you must specify a name for your application as well as indicate the type of application you are registering with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="5e373167-a040-43e7-bfb4-c66f2c0f6a9f" xml:space="preserve">
+          <source>You can choose from a web application and/or web API (default) or native client application which represents an application that is installed on a device such as a phone or computer.Once finished, click the arrow icon on the bottom-right corner of the page.</source>
+          <target state="new">You can choose from a web application and/or web API (default) or native client application which represents an application that is installed on a device such as a phone or computer.Once finished, click the arrow icon on the bottom-right corner of the page.</target>
+        </trans-unit>
+        <trans-unit id="01c6f3db-c919-459a-b107-e84934995385" xml:space="preserve">
+          <source>On the App properties page, provide the Sign-on URL and App ID URI for your web application (or just the Redirect URI for a native client application), then click the checkbox in the bottom-right hand corner of the page.</source>
+          <target state="new">On the App properties page, provide the Sign-on URL and App ID URI for your web application (or just the Redirect URI for a native client application), then click the checkbox in the bottom-right hand corner of the page.</target>
+        </trans-unit>
+        <trans-unit id="897be2bd-b75a-475b-953c-69ce497d83fb" xml:space="preserve">
+          <source>Your application has been added, and you will be taken to the Quick Start page for your application.</source>
+          <target state="new">Your application has been added, and you will be taken to the Quick Start page for your application.</target>
+        </trans-unit>
+        <trans-unit id="54b7c0bd-b9b9-4465-85e3-1aa935387afb" xml:space="preserve">
+          <source>Depending on whether your application is a web or native application, you will see different options on how to add additional capabilities to your application.</source>
+          <target state="new">Depending on whether your application is a web or native application, you will see different options on how to add additional capabilities to your application.</target>
+        </trans-unit>
+        <trans-unit id="25952ac9-cbfd-4548-a855-0daa1c026009" xml:space="preserve">
+          <source>Once your application has been added, you can begin updating your application to enable users to sign in, access web APIs in other applications, or configure multi-tenant application (which allows other organizations to access your application).</source>
+          <target state="new">Once your application has been added, you can begin updating your application to enable users to sign in, access web APIs in other applications, or configure multi-tenant application (which allows other organizations to access your application).</target>
+        </trans-unit>
+        <trans-unit id="fadbe33b-8729-42da-bdfa-1efa2861d3e3" xml:space="preserve">
+          <source>By default, the newly created application registration is configured to allow users from your directory to sign in to your application.</source>
+          <target state="new">By default, the newly created application registration is configured to allow users from your directory to sign in to your application.</target>
+        </trans-unit>
+        <trans-unit id="ddbcbe6a-2807-4c61-91cf-cf7f06803eb2" xml:space="preserve">
+          <source>Once your application has been registered with Azure AD, it may need to be updated to provide access to web APIs, be made available in other organizations, and more.</source>
+          <target state="new">Once your application has been registered with Azure AD, it may need to be updated to provide access to web APIs, be made available in other organizations, and more.</target>
+        </trans-unit>
+        <trans-unit id="3807372b-129a-4648-9fe9-4f4ca5c76b79" xml:space="preserve">
+          <source>This section describes how to configure your application further.</source>
+          <target state="new">This section describes how to configure your application further.</target>
+        </trans-unit>
+        <trans-unit id="e0ec0b8e-6091-4343-8ce6-4e87cb12cda7" xml:space="preserve">
+          <source>For more information on the way authentication works in Azure AD, see <bpt id="0c5e4466-57a2-4fa4-b76c-6577e0871fdf">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="0c5e4466-57a2-4fa4-b76c-6577e0871fdf">&lt;/linkText&gt;</ept><bpt id="0c5e4466-57a2-4fa4-b76c-6577e0871fdf">&lt;title&gt;</bpt><ept id="0c5e4466-57a2-4fa4-b76c-6577e0871fdf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the way authentication works in Azure AD, see <bpt id="0c5e4466-57a2-4fa4-b76c-6577e0871fdf">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="0c5e4466-57a2-4fa4-b76c-6577e0871fdf">&lt;/linkText&gt;</ept><bpt id="0c5e4466-57a2-4fa4-b76c-6577e0871fdf">&lt;title&gt;</bpt><ept id="0c5e4466-57a2-4fa4-b76c-6577e0871fdf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8dd58fde-faa5-4f65-875f-9242d072ad27" xml:space="preserve">
+          <source>Azure AD’s new consent framework makes it easy to develop web and native applications that need to access web APIs secured by Azure AD.</source>
+          <target state="new">Azure AD’s new consent framework makes it easy to develop web and native applications that need to access web APIs secured by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="2661d877-294d-4a4b-80f1-c25a6ba38ac5" xml:space="preserve">
+          <source>These web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own web APIs.</source>
+          <target state="new">These web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own web APIs.</target>
+        </trans-unit>
+        <trans-unit id="e3b12622-e172-44e4-a487-a667e452635a" xml:space="preserve">
+          <source>The framework is based on a user or an administrator giving consent to an application to be registered in their directory, which may involve accessing directory data.</source>
+          <target state="new">The framework is based on a user or an administrator giving consent to an application to be registered in their directory, which may involve accessing directory data.</target>
+        </trans-unit>
+        <trans-unit id="570d2eff-b6da-4507-8e68-ea698c8b0611" xml:space="preserve">
+          <source>For example, if a web application needs to call Office 365’s web API to read calendar information about the user, that user will be required to consent to the application.</source>
+          <target state="new">For example, if a web application needs to call Office 365’s web API to read calendar information about the user, that user will be required to consent to the application.</target>
+        </trans-unit>
+        <trans-unit id="d110075a-124c-4300-a59e-ee368964dadd" xml:space="preserve">
+          <source>After consent is given, the web application will be able to call the Office 365 web API on behalf of the user, and use the calendar information as needed.</source>
+          <target state="new">After consent is given, the web application will be able to call the Office 365 web API on behalf of the user, and use the calendar information as needed.</target>
+        </trans-unit>
+        <trans-unit id="41fdea47-387e-4626-a007-b59514512d88" xml:space="preserve">
+          <source>The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients.</source>
+          <target state="new">The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients.</target>
+        </trans-unit>
+        <trans-unit id="1d97f1d2-a164-492a-8e88-f3ac9ef45097" xml:space="preserve">
+          <source>By using OAuth 2.0, Azure AD makes it possible to build many different types of client applications, such as on a phone, tablet, server, or a web application, and gain access to the required resources.</source>
+          <target state="new">By using OAuth 2.0, Azure AD makes it possible to build many different types of client applications, such as on a phone, tablet, server, or a web application, and gain access to the required resources.</target>
+        </trans-unit>
+        <trans-unit id="e7d2eba5-5a17-4779-969d-95a893584e3f" xml:space="preserve">
+          <source>For more detailed information about the consent framework, see <bpt id="2ca03f8b-7daa-4212-842a-2a164ba0bf9c">&lt;linkText&gt;</bpt>OAuth 2.0 in Azure AD<ept id="2ca03f8b-7daa-4212-842a-2a164ba0bf9c">&lt;/linkText&gt;</ept><bpt id="2ca03f8b-7daa-4212-842a-2a164ba0bf9c">&lt;title&gt;</bpt><ept id="2ca03f8b-7daa-4212-842a-2a164ba0bf9c">&lt;/title&gt;</ept>, <bpt id="2da1169b-a450-47df-9ba2-4f8391a22799">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="2da1169b-a450-47df-9ba2-4f8391a22799">&lt;/linkText&gt;</ept><bpt id="2da1169b-a450-47df-9ba2-4f8391a22799">&lt;title&gt;</bpt><ept id="2da1169b-a450-47df-9ba2-4f8391a22799">&lt;/title&gt;</ept>, and Office 365’s topic [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/library/office/dn605895(v=office.15).aspx).</source>
+          <target state="new">For more detailed information about the consent framework, see <bpt id="2ca03f8b-7daa-4212-842a-2a164ba0bf9c">&lt;linkText&gt;</bpt>OAuth 2.0 in Azure AD<ept id="2ca03f8b-7daa-4212-842a-2a164ba0bf9c">&lt;/linkText&gt;</ept><bpt id="2ca03f8b-7daa-4212-842a-2a164ba0bf9c">&lt;title&gt;</bpt><ept id="2ca03f8b-7daa-4212-842a-2a164ba0bf9c">&lt;/title&gt;</ept>, <bpt id="2da1169b-a450-47df-9ba2-4f8391a22799">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="2da1169b-a450-47df-9ba2-4f8391a22799">&lt;/linkText&gt;</ept><bpt id="2da1169b-a450-47df-9ba2-4f8391a22799">&lt;title&gt;</bpt><ept id="2da1169b-a450-47df-9ba2-4f8391a22799">&lt;/title&gt;</ept>, and Office 365’s topic [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/library/office/dn605895(v=office.15).aspx).</target>
+        </trans-unit>
+        <trans-unit id="14c0631a-69fc-40d9-ae72-10d56aa2c38b" xml:space="preserve">
+          <source>The following steps will show you how the consent experience works for both the application developer and user.</source>
+          <target state="new">The following steps will show you how the consent experience works for both the application developer and user.</target>
+        </trans-unit>
+        <trans-unit id="928fcf5a-4907-4418-9ff7-c8c32e0a7cf6" xml:space="preserve">
+          <source>On your application’s configuration page in the Azure Management Portal, set the permissions your application requires by using the drop-down menus in the Permissions to other applications control.</source>
+          <target state="new">On your application’s configuration page in the Azure Management Portal, set the permissions your application requires by using the drop-down menus in the Permissions to other applications control.</target>
+        </trans-unit>
+        <trans-unit id="4fb7c97a-f228-43d9-afab-82933d074d7b" xml:space="preserve">
+          <source><bpt id="4ef10f1d-ed72-4b35-8fed-e1e9703fb680">&lt;linkText&gt;</bpt>Permissions to other applications<ept id="4ef10f1d-ed72-4b35-8fed-e1e9703fb680">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ef10f1d-ed72-4b35-8fed-e1e9703fb680">&lt;linkText&gt;</bpt>Permissions to other applications<ept id="4ef10f1d-ed72-4b35-8fed-e1e9703fb680">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e913f94-8b83-4db0-8e78-377f40c6721c" xml:space="preserve">
+          <source>Consider that your application’s permissions have been updated, the application is running, and a user is about to use it for the first time.</source>
+          <target state="new">Consider that your application’s permissions have been updated, the application is running, and a user is about to use it for the first time.</target>
+        </trans-unit>
+        <trans-unit id="e2b1f044-92c7-49af-b69b-8f8620c49063" xml:space="preserve">
+          <source>If the application has not already acquired an access or refresh token, the application needs to go to Azure AD’s authorization endpoint to obtain an authorization code that can be used to acquire a new access and refresh token.</source>
+          <target state="new">If the application has not already acquired an access or refresh token, the application needs to go to Azure AD’s authorization endpoint to obtain an authorization code that can be used to acquire a new access and refresh token.</target>
+        </trans-unit>
+        <trans-unit id="d4e117ab-0f45-404f-bccf-7a55fbc7d370" xml:space="preserve">
+          <source>If the user is not already authenticated, they’ll be asked to sign in to Azure AD.</source>
+          <target state="new">If the user is not already authenticated, they’ll be asked to sign in to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="c7f8f783-bdee-4736-aebd-0905cd6eb695" xml:space="preserve">
+          <source><bpt id="c756f6b5-ccd9-4c1a-a67a-dd6f31ac4e47">&lt;linkText&gt;</bpt>User or administrator sign in to Azure AD<ept id="c756f6b5-ccd9-4c1a-a67a-dd6f31ac4e47">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c756f6b5-ccd9-4c1a-a67a-dd6f31ac4e47">&lt;linkText&gt;</bpt>User or administrator sign in to Azure AD<ept id="c756f6b5-ccd9-4c1a-a67a-dd6f31ac4e47">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a2f10cd-0001-4f39-8fad-ec5d88633a90" xml:space="preserve">
+          <source>After the user has signed in, Azure AD will determine if the user needs to be shown a consent page.</source>
+          <target state="new">After the user has signed in, Azure AD will determine if the user needs to be shown a consent page.</target>
+        </trans-unit>
+        <trans-unit id="31078150-bfb4-46cf-9a0e-c4c4a533489d" xml:space="preserve">
+          <source>This determination is based on whether the user (or their organization’s administrator) has already granted the application consent.</source>
+          <target state="new">This determination is based on whether the user (or their organization’s administrator) has already granted the application consent.</target>
+        </trans-unit>
+        <trans-unit id="9db02a2c-8a4a-405e-b5f5-dfd8791412e5" xml:space="preserve">
+          <source>If consent has not already been granted, Azure AD will prompt the user for consent and will display the required permissions it needs to function.</source>
+          <target state="new">If consent has not already been granted, Azure AD will prompt the user for consent and will display the required permissions it needs to function.</target>
+        </trans-unit>
+        <trans-unit id="bc945dfc-a16d-4a6f-b802-3ac3ebef3da2" xml:space="preserve">
+          <source>The set of permissions that is displayed in the consent dialog are the same as what was selected in the Permissions to other applications control in the Azure Management Portal.</source>
+          <target state="new">The set of permissions that is displayed in the consent dialog are the same as what was selected in the Permissions to other applications control in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="743c430f-74a1-4c31-a568-37c2e3aea3c5" xml:space="preserve">
+          <source><bpt id="fa020b79-d1c5-4001-b36e-5eb4045a96a4">&lt;linkText&gt;</bpt>User consent experience<ept id="fa020b79-d1c5-4001-b36e-5eb4045a96a4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa020b79-d1c5-4001-b36e-5eb4045a96a4">&lt;linkText&gt;</bpt>User consent experience<ept id="fa020b79-d1c5-4001-b36e-5eb4045a96a4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e547196b-3c5e-482f-afb6-d8498de682b5" xml:space="preserve">
+          <source>After the user grants consent, an authorization code is returned to your application, which can be redeemed to acquire an access token and refresh token.</source>
+          <target state="new">After the user grants consent, an authorization code is returned to your application, which can be redeemed to acquire an access token and refresh token.</target>
+        </trans-unit>
+        <trans-unit id="9727f659-a11a-475b-a054-f5894b476efc" xml:space="preserve">
+          <source>For more information about this flow, see the <bpt id="6e1247fa-194c-4d6c-8a42-37b2fa593fd1">&lt;linkText&gt;</bpt>Web Application to Web API section<ept id="6e1247fa-194c-4d6c-8a42-37b2fa593fd1">&lt;/linkText&gt;</ept><bpt id="6e1247fa-194c-4d6c-8a42-37b2fa593fd1">&lt;title&gt;</bpt><ept id="6e1247fa-194c-4d6c-8a42-37b2fa593fd1">&lt;/title&gt;</ept> section in <bpt id="cf5f457b-5825-469f-a347-f1e7c83c7d59">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="cf5f457b-5825-469f-a347-f1e7c83c7d59">&lt;/linkText&gt;</ept><bpt id="cf5f457b-5825-469f-a347-f1e7c83c7d59">&lt;title&gt;</bpt><ept id="cf5f457b-5825-469f-a347-f1e7c83c7d59">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about this flow, see the <bpt id="6e1247fa-194c-4d6c-8a42-37b2fa593fd1">&lt;linkText&gt;</bpt>Web Application to Web API section<ept id="6e1247fa-194c-4d6c-8a42-37b2fa593fd1">&lt;/linkText&gt;</ept><bpt id="6e1247fa-194c-4d6c-8a42-37b2fa593fd1">&lt;title&gt;</bpt><ept id="6e1247fa-194c-4d6c-8a42-37b2fa593fd1">&lt;/title&gt;</ept> section in <bpt id="cf5f457b-5825-469f-a347-f1e7c83c7d59">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="cf5f457b-5825-469f-a347-f1e7c83c7d59">&lt;/linkText&gt;</ept><bpt id="cf5f457b-5825-469f-a347-f1e7c83c7d59">&lt;title&gt;</bpt><ept id="cf5f457b-5825-469f-a347-f1e7c83c7d59">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="590b09d7-c0dd-4292-9d9d-4ed7a7f19986" xml:space="preserve">
+          <source>Using the consent framework described above, you can configure your application to require permissions to access data exposed by web APIs in your directory.</source>
+          <target state="new">Using the consent framework described above, you can configure your application to require permissions to access data exposed by web APIs in your directory.</target>
+        </trans-unit>
+        <trans-unit id="db414721-93c3-46c4-9e5d-ecc4a77ddb2c" xml:space="preserve">
+          <source>By default, all applications can choose permissions from Azure Active Directory (Graph API) and Azure Service Management API, with the Azure AD “Enable sign on and read user’s profile” permission already selected by default.</source>
+          <target state="new">By default, all applications can choose permissions from Azure Active Directory (Graph API) and Azure Service Management API, with the Azure AD “Enable sign on and read user’s profile” permission already selected by default.</target>
+        </trans-unit>
+        <trans-unit id="2661474a-4663-4388-991c-4f40e0297712" xml:space="preserve">
+          <source>If your directory also has a subscription to Office 365, then web APIs and permissions for SharePoint and Exchange Online will also be available for selection.</source>
+          <target state="new">If your directory also has a subscription to Office 365, then web APIs and permissions for SharePoint and Exchange Online will also be available for selection.</target>
+        </trans-unit>
+        <trans-unit id="de358b2a-d11c-4912-baf7-428016ea2d97" xml:space="preserve">
+          <source>You can select from two types of permissions in the drop-down menus next to the desired web API:</source>
+          <target state="new">You can select from two types of permissions in the drop-down menus next to the desired web API:</target>
+        </trans-unit>
+        <trans-unit id="e1ab8793-9e81-4ed5-b2a8-92e9152c3de7" xml:space="preserve">
+          <source>Application Permissions: Your application needs to access the web API directly as itself (no user context).</source>
+          <target state="new">Application Permissions: Your application needs to access the web API directly as itself (no user context).</target>
+        </trans-unit>
+        <trans-unit id="8f449e47-0a13-41e1-8105-19cc43ca485f" xml:space="preserve">
+          <source>This type of permission requires administrator consent and is also not available for native client applications.</source>
+          <target state="new">This type of permission requires administrator consent and is also not available for native client applications.</target>
+        </trans-unit>
+        <trans-unit id="b1785616-90c5-4979-9da9-22d54d5ebd4b" xml:space="preserve">
+          <source>Delegation Permissions: Your application needs to access the web API as the signed-in user, but with access limited by the selected permission.</source>
+          <target state="new">Delegation Permissions: Your application needs to access the web API as the signed-in user, but with access limited by the selected permission.</target>
+        </trans-unit>
+        <trans-unit id="c29cfa29-4007-497b-8f9f-e57b3ecd1a14" xml:space="preserve">
+          <source>This type of permission can be granted by a user unless the permission is configured as requiring administrator consent.</source>
+          <target state="new">This type of permission can be granted by a user unless the permission is configured as requiring administrator consent.</target>
+        </trans-unit>
+        <trans-unit id="17d64288-131a-42be-912f-8ad22ecb5d17" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal.</source>
+          <target state="new">Sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="6e79bfee-8619-4bf2-b6f0-a77916878adf" xml:space="preserve">
+          <source>Click on the Active Directory icon on the left menu, then click on the desired directory.</source>
+          <target state="new">Click on the Active Directory icon on the left menu, then click on the desired directory.</target>
+        </trans-unit>
+        <trans-unit id="8887e147-f8e0-4f76-bb7f-ab22f6d798e6" xml:space="preserve">
+          <source>On the top menu, click Applications, and then click the application you want to configure.</source>
+          <target state="new">On the top menu, click Applications, and then click the application you want to configure.</target>
+        </trans-unit>
+        <trans-unit id="c8e68f06-0c5f-41f5-a671-9e2e9af49bb2" xml:space="preserve">
+          <source>The Quick Start page will appear with single sign-on and other configuration information.</source>
+          <target state="new">The Quick Start page will appear with single sign-on and other configuration information.</target>
+        </trans-unit>
+        <trans-unit id="b77516a5-c896-412f-96de-c434f043b0c4" xml:space="preserve">
+          <source>Expand the Access Web APIs in Other Applications section of the Quick Start, and then click the Configure it now link under the Select permissions section.</source>
+          <target state="new">Expand the Access Web APIs in Other Applications section of the Quick Start, and then click the Configure it now link under the Select permissions section.</target>
+        </trans-unit>
+        <trans-unit id="b8054db7-3815-42b9-94fc-faf98ac2ae92" xml:space="preserve">
+          <source>The application properties page will appear.</source>
+          <target state="new">The application properties page will appear.</target>
+        </trans-unit>
+        <trans-unit id="09be0d24-765e-4188-b9dc-e967f80db877" xml:space="preserve">
+          <source>Scroll down to the Permissions to other applications section.</source>
+          <target state="new">Scroll down to the Permissions to other applications section.</target>
+        </trans-unit>
+        <trans-unit id="9f7fbd9e-4921-4dbb-bdb3-655d4c5f95e0" xml:space="preserve">
+          <source>The first column allows you to select from the available applications in your directory that expose a web API.</source>
+          <target state="new">The first column allows you to select from the available applications in your directory that expose a web API.</target>
+        </trans-unit>
+        <trans-unit id="5532ad2c-875c-4959-be91-2e338c329b8a" xml:space="preserve">
+          <source>Once selected, you may select application and delegation permissions that the web API exposes.</source>
+          <target state="new">Once selected, you may select application and delegation permissions that the web API exposes.</target>
+        </trans-unit>
+        <trans-unit id="d145267d-f552-4a8b-8cf9-30e86d475690" xml:space="preserve">
+          <source>Once selected, click the Save button on the command bar.</source>
+          <target state="new">Once selected, click the Save button on the command bar.</target>
+        </trans-unit>
+        <trans-unit id="3aa8135f-4bb7-455d-9c25-eb1591d08d61" xml:space="preserve">
+          <source>Clicking the Save button also automatically sets the permissions for your application in your directory based on the Permissions to other applications that you configured.</source>
+          <target state="new">Clicking the Save button also automatically sets the permissions for your application in your directory based on the Permissions to other applications that you configured.</target>
+        </trans-unit>
+        <trans-unit id="28c57693-eea8-4123-8a43-7b3fb86a75c2" xml:space="preserve">
+          <source>You can view these application permissions by looking at the application Properties tab.</source>
+          <target state="new">You can view these application permissions by looking at the application Properties tab.</target>
+        </trans-unit>
+        <trans-unit id="efce6be9-137e-42ac-90b8-ac7962089f38" xml:space="preserve">
+          <source>You can develop a web API and make it available to other organizations by exposing your permission scopes to other application developers.</source>
+          <target state="new">You can develop a web API and make it available to other organizations by exposing your permission scopes to other application developers.</target>
+        </trans-unit>
+        <trans-unit id="3e97d562-c5cc-4bed-9d3a-2237fe3fa3e2" xml:space="preserve">
+          <source>A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs.</source>
+          <target state="new">A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs.</target>
+        </trans-unit>
+        <trans-unit id="19c33beb-db49-483b-922f-4f7615d06ab2" xml:space="preserve">
+          <source>Your web API is made available by configuring an application manifest, which is a JSON file that represents your application’s identity configuration.</source>
+          <target state="new">Your web API is made available by configuring an application manifest, which is a JSON file that represents your application’s identity configuration.</target>
+        </trans-unit>
+        <trans-unit id="98e3c0c0-af5e-4658-9032-1163256049ea" xml:space="preserve">
+          <source>You can expose your permission scopes by navigating to your application in the Azure Management Portal and clicking on the Application Manifest button on the command bar.</source>
+          <target state="new">You can expose your permission scopes by navigating to your application in the Azure Management Portal and clicking on the Application Manifest button on the command bar.</target>
+        </trans-unit>
+        <trans-unit id="17710dbc-4b27-488a-971c-f899211793ad" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal.</source>
+          <target state="new">Sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="affdf686-80e9-463b-bfd1-4d0a104ae186" xml:space="preserve">
+          <source>Click on the Active Directory icon on the left menu, then click on the desired directory.</source>
+          <target state="new">Click on the Active Directory icon on the left menu, then click on the desired directory.</target>
+        </trans-unit>
+        <trans-unit id="aea0b805-3025-46bd-9c27-ea6def2cbdc8" xml:space="preserve">
+          <source>On the top menu, click Applications, and then click the application you want to configure.</source>
+          <target state="new">On the top menu, click Applications, and then click the application you want to configure.</target>
+        </trans-unit>
+        <trans-unit id="99ea7efd-60d7-46be-a39f-60a479655543" xml:space="preserve">
+          <source>The Quick Start page will appear with single sign-on and other configuration information.</source>
+          <target state="new">The Quick Start page will appear with single sign-on and other configuration information.</target>
+        </trans-unit>
+        <trans-unit id="2873e30c-49da-45d1-98a4-f0dbbf8fa566" xml:space="preserve">
+          <source>Click on the Manage manifest button in the command bar, and select Download manifest.</source>
+          <target state="new">Click on the Manage manifest button in the command bar, and select Download manifest.</target>
+        </trans-unit>
+        <trans-unit id="a3c53b88-8c61-4d3f-860e-9c534c2753f9" xml:space="preserve">
+          <source>Open the JSON application manifest file and replace “oauth2Permissions” node with the following JSON snippet.</source>
+          <target state="new">Open the JSON application manifest file and replace “oauth2Permissions” node with the following JSON snippet.</target>
+        </trans-unit>
+        <trans-unit id="00a24dff-b828-4bf3-8f45-b736bcf2e6a3" xml:space="preserve">
+          <source>This snippet is an example of how to expose a permission scope known as user impersonation, make sure that you change the text and values for your own application:</source>
+          <target state="new">This snippet is an example of how to expose a permission scope known as user impersonation, make sure that you change the text and values for your own application:</target>
+        </trans-unit>
+        <trans-unit id="b59c46c1-4826-4d08-bd5a-4824c60ad88c" xml:space="preserve">
+          <source>The id value must be a new generated GUID that you create by using a GUID generation tool or programmatically.</source>
+          <target state="new">The id value must be a new generated GUID that you create by using a GUID generation tool or programmatically.</target>
+        </trans-unit>
+        <trans-unit id="5fcce4a6-52af-42bf-9b57-136cddeef367" xml:space="preserve">
+          <source>It represents a unique identifier for the permission that is exposed by the web API.</source>
+          <target state="new">It represents a unique identifier for the permission that is exposed by the web API.</target>
+        </trans-unit>
+        <trans-unit id="ff340b52-2420-42ab-95e0-e831379b3168" xml:space="preserve">
+          <source>Once your client is appropriately configured to request access to your web API and calls the web API, it will present an OAuth 2.0 JWT token that has the scope (scp) claim set to the value above, which in this case is user_impersonation.</source>
+          <target state="new">Once your client is appropriately configured to request access to your web API and calls the web API, it will present an OAuth 2.0 JWT token that has the scope (scp) claim set to the value above, which in this case is user_impersonation.</target>
+        </trans-unit>
+        <trans-unit id="a8606cb1-32ee-489e-9b5d-351e0cd25427" xml:space="preserve">
+          <source>You can expose additional permission scopes later as necessary.</source>
+          <target state="new">You can expose additional permission scopes later as necessary.</target>
+        </trans-unit>
+        <trans-unit id="ebc699ed-9f81-49d7-b250-4aee863eb729" xml:space="preserve">
+          <source>Consider that your web API might expose multiple permissions associated with a variety of different functions.</source>
+          <target state="new">Consider that your web API might expose multiple permissions associated with a variety of different functions.</target>
+        </trans-unit>
+        <trans-unit id="847e3376-996a-440a-875f-06d52936d966" xml:space="preserve">
+          <source>Now you can control access to the web API by using the scope (scp) claim in the received OAuth 2.0 JWT token.</source>
+          <target state="new">Now you can control access to the web API by using the scope (scp) claim in the received OAuth 2.0 JWT token.</target>
+        </trans-unit>
+        <trans-unit id="f659f614-38b1-43a8-8f6f-badba31fc40c" xml:space="preserve">
+          <source>Save the updated JSON file and upload it by clicking the Manage manifest button in the command bar, selecting Upload manifest, browsing to your updated manifest file and then selecting it.</source>
+          <target state="new">Save the updated JSON file and upload it by clicking the Manage manifest button in the command bar, selecting Upload manifest, browsing to your updated manifest file and then selecting it.</target>
+        </trans-unit>
+        <trans-unit id="6e253949-7566-4946-b0fb-0201b225b510" xml:space="preserve">
+          <source>Once uploaded, your web API is now configured to be used by other applications in your directory.</source>
+          <target state="new">Once uploaded, your web API is now configured to be used by other applications in your directory.</target>
+        </trans-unit>
+        <trans-unit id="52893e6b-f1ad-46d8-886f-3afe6b29053b" xml:space="preserve">
+          <source>On the top menu, click Applications, select the desired application you want to configure access to the web API, and then click Configure.</source>
+          <target state="new">On the top menu, click Applications, select the desired application you want to configure access to the web API, and then click Configure.</target>
+        </trans-unit>
+        <trans-unit id="65ae72db-b780-43a4-ab58-037959373023" xml:space="preserve">
+          <source>Scroll down to the permissions to other applications section.</source>
+          <target state="new">Scroll down to the permissions to other applications section.</target>
+        </trans-unit>
+        <trans-unit id="88b98a1d-623e-49f5-8e08-c9b6347ea662" xml:space="preserve">
+          <source>Click on the Select application drop-down menu and you will be able to select the web API that you just exposed a permission for.</source>
+          <target state="new">Click on the Select application drop-down menu and you will be able to select the web API that you just exposed a permission for.</target>
+        </trans-unit>
+        <trans-unit id="e536773b-9330-4760-be6a-4d641348a5e8" xml:space="preserve">
+          <source>From the Delegation Permissions drop-down menu, select the new permission.</source>
+          <target state="new">From the Delegation Permissions drop-down menu, select the new permission.</target>
+        </trans-unit>
+        <trans-unit id="8030e57a-1052-446d-9a6d-0571e40a2b89" xml:space="preserve">
+          <source><bpt id="7285bfcb-4f78-4c33-bbc9-c8aa7479155a">&lt;linkText&gt;</bpt>Todo List permissions are shown<ept id="7285bfcb-4f78-4c33-bbc9-c8aa7479155a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7285bfcb-4f78-4c33-bbc9-c8aa7479155a">&lt;linkText&gt;</bpt>Todo List permissions are shown<ept id="7285bfcb-4f78-4c33-bbc9-c8aa7479155a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e713646-5445-43ab-a3e3-eb0e2ff8c11a" xml:space="preserve">
+          <source>The following table lists the possible values for the oauth2Permissions portion of the Application Manifest JSON file.</source>
+          <target state="new">The following table lists the possible values for the oauth2Permissions portion of the Application Manifest JSON file.</target>
+        </trans-unit>
+        <trans-unit id="928fab1d-4c80-4356-b8d1-4f749c279d1d" xml:space="preserve">
+          <source>Element</source>
+          <target state="new">Element</target>
+        </trans-unit>
+        <trans-unit id="b89d9b65-ad28-4814-b976-d85565d6d316" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="55a836e8-9d3b-4912-9ac0-0c1052b31e3c" xml:space="preserve">
+          <source>adminConsentDescription</source>
+          <target state="new">adminConsentDescription</target>
+        </trans-unit>
+        <trans-unit id="bb4c1e82-9865-41aa-8060-9b27887ab4f7" xml:space="preserve">
+          <source>The help description in the hover over in the administrator’s consent dialog and in the consented app’s properties page.</source>
+          <target state="new">The help description in the hover over in the administrator’s consent dialog and in the consented app’s properties page.</target>
+        </trans-unit>
+        <trans-unit id="b2323369-4be7-4fae-8d9e-87c0964f4e61" xml:space="preserve">
+          <source>adminConsentDisplayName</source>
+          <target state="new">adminConsentDisplayName</target>
+        </trans-unit>
+        <trans-unit id="32d300c5-15db-432d-a796-3383a1e75ae6" xml:space="preserve">
+          <source>The friendly name for the permission shown in the application and/or delegation permission scope dropdowns, and to administrators during consent, and in the app’s properties page.</source>
+          <target state="new">The friendly name for the permission shown in the application and/or delegation permission scope dropdowns, and to administrators during consent, and in the app’s properties page.</target>
+        </trans-unit>
+        <trans-unit id="99c32e6c-4b6d-40bd-8e4a-d4fe441c55bc" xml:space="preserve">
+          <source>id</source>
+          <target state="new">id</target>
+        </trans-unit>
+        <trans-unit id="01055f5c-2734-49df-9caf-3ad87823628f" xml:space="preserve">
+          <source>Represents a unique internal identifier for the permission scope.</source>
+          <target state="new">Represents a unique internal identifier for the permission scope.</target>
+        </trans-unit>
+        <trans-unit id="8262f738-a001-4b5c-be74-ebfb4ee74a54" xml:space="preserve">
+          <source>It must be unique amongst all permissions for the application, and it must also be a GUID.</source>
+          <target state="new">It must be unique amongst all permissions for the application, and it must also be a GUID.</target>
+        </trans-unit>
+        <trans-unit id="452bdb3b-f206-4c96-862d-49597d0c645f" xml:space="preserve">
+          <source>isEnabled</source>
+          <target state="new">isEnabled</target>
+        </trans-unit>
+        <trans-unit id="72e59810-32fb-4d1f-96c0-8ea9ce3f9009" xml:space="preserve">
+          <source>When creating or updating an OAuth2 permission, always set this to true.</source>
+          <target state="new">When creating or updating an OAuth2 permission, always set this to true.</target>
+        </trans-unit>
+        <trans-unit id="6f8e3e6f-a447-4b00-a09c-62534cde4a38" xml:space="preserve">
+          <source>If you wish to delete a permission, you must first set this value to false, and upload the manifest.</source>
+          <target state="new">If you wish to delete a permission, you must first set this value to false, and upload the manifest.</target>
+        </trans-unit>
+        <trans-unit id="10457720-c2e2-442b-ac43-5be13817a500" xml:space="preserve">
+          <source>Then you may remove the permission in a subsequent manifest upload.</source>
+          <target state="new">Then you may remove the permission in a subsequent manifest upload.</target>
+        </trans-unit>
+        <trans-unit id="9d6d8ec6-6487-4b64-a96c-0e476e28cfb5" xml:space="preserve">
+          <source>origin</source>
+          <target state="new">origin</target>
+        </trans-unit>
+        <trans-unit id="1a6ca8e0-6834-4b2f-97b6-cf930631111e" xml:space="preserve">
+          <source>Reserved for future use.</source>
+          <target state="new">Reserved for future use.</target>
+        </trans-unit>
+        <trans-unit id="d6782c1f-2cab-41d9-8d9e-4fc92924e4c2" xml:space="preserve">
+          <source>Always set to “application”.</source>
+          <target state="new">Always set to “application”.</target>
+        </trans-unit>
+        <trans-unit id="366aef4f-f60e-43ca-991b-6fb8f9b117e9" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="62ededc6-3523-4650-83f0-7750baa9f6ca" xml:space="preserve">
+          <source>Can be one of the following values:“User”: may be consented to by end users“Admin”: must be consented to by a company administrator</source>
+          <target state="new">Can be one of the following values:“User”: may be consented to by end users“Admin”: must be consented to by a company administrator</target>
+        </trans-unit>
+        <trans-unit id="ab9ec110-5c87-40b3-baba-05ecb1cb5caf" xml:space="preserve">
+          <source>userConsentDescription</source>
+          <target state="new">userConsentDescription</target>
+        </trans-unit>
+        <trans-unit id="1be43259-243c-4edb-a4ff-cbc77878f8bd" xml:space="preserve">
+          <source>The help description in the hover over in the user’s consent dialog.</source>
+          <target state="new">The help description in the hover over in the user’s consent dialog.</target>
+        </trans-unit>
+        <trans-unit id="6124b99e-90ec-4daf-9fe8-250d4a2bd76c" xml:space="preserve">
+          <source>userConsentDisplayName</source>
+          <target state="new">userConsentDisplayName</target>
+        </trans-unit>
+        <trans-unit id="a55b7454-8b8c-4d17-b8e5-2eb05ef10599" xml:space="preserve">
+          <source>The friendly name for the permission shown to end-users during consent, and in the app’s properties page in the App Access Panel.</source>
+          <target state="new">The friendly name for the permission shown to end-users during consent, and in the app’s properties page in the App Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="8e650c79-f4e2-4994-8145-9fb7035a1ff3" xml:space="preserve">
+          <source>value</source>
+          <target state="new">value</target>
+        </trans-unit>
+        <trans-unit id="e76c6d46-904d-4cfd-89c9-576bc38ab0bb" xml:space="preserve">
+          <source>This value is placed in the scp claim of the OAuth 2.0 access token if this particular permission has been consented to by the user.</source>
+          <target state="new">This value is placed in the scp claim of the OAuth 2.0 access token if this particular permission has been consented to by the user.</target>
+        </trans-unit>
+        <trans-unit id="ef147099-186c-4722-a1ab-4e422d0b07c5" xml:space="preserve">
+          <source>The web API can use this value to scope the level of access that the application has when impersonating the user.</source>
+          <target state="new">The web API can use this value to scope the level of access that the application has when impersonating the user.</target>
+        </trans-unit>
+        <trans-unit id="5a12ef5b-9ffb-4c98-8ef6-a731f232c1dd" xml:space="preserve">
+          <source>It must not contain any white spaces and must be unique amongst all permissions in the application.</source>
+          <target state="new">It must not contain any white spaces and must be unique amongst all permissions in the application.</target>
+        </trans-unit>
+        <trans-unit id="c9fbe719-ffa7-4735-8885-94741a0219b7" xml:space="preserve">
+          <source>This section describes how to update your application to access the Graph API, which is called “Azure Active Directory” in the list of Permissions to other applications.</source>
+          <target state="new">This section describes how to update your application to access the Graph API, which is called “Azure Active Directory” in the list of Permissions to other applications.</target>
+        </trans-unit>
+        <trans-unit id="d415e3c1-5bf1-4380-9804-25ed4369cf54" xml:space="preserve">
+          <source>It’s available by default for all applications that are registered with Azure AD.</source>
+          <target state="new">It’s available by default for all applications that are registered with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="7cb50ba7-1b46-4306-8b3c-5ef08f9d02fc" xml:space="preserve">
+          <source>You can select from the following permissions with the Graph API:</source>
+          <target state="new">You can select from the following permissions with the Graph API:</target>
+        </trans-unit>
+        <trans-unit id="ff79234d-622c-4f0f-9df7-530c75d22ab2" xml:space="preserve">
+          <source>Permission name</source>
+          <target state="new">Permission name</target>
+        </trans-unit>
+        <trans-unit id="0793ba1a-023c-4325-8c77-c68dc5436599" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="d2fdca6b-f7f5-4edf-b902-9ca7393a9578" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="f2072f87-727f-48f4-b9fd-b6f28d60f26d" xml:space="preserve">
+          <source>Enable sign-on and read users' profiles</source>
+          <target state="new">Enable sign-on and read users' profiles</target>
+        </trans-unit>
+        <trans-unit id="542790e4-750e-46e4-b977-11f8039a0edc" xml:space="preserve">
+          <source>Allow users to sign in to the application with their organizational accounts and let the application read the profiles of signed-in users, such as their email address and contact information.</source>
+          <target state="new">Allow users to sign in to the application with their organizational accounts and let the application read the profiles of signed-in users, such as their email address and contact information.</target>
+        </trans-unit>
+        <trans-unit id="b9fb159c-083c-45c5-9822-00d15b2425bb" xml:space="preserve">
+          <source>Delegation permission only.</source>
+          <target state="new">Delegation permission only.</target>
+        </trans-unit>
+        <trans-unit id="66b0e5b3-72ef-4302-b0eb-3247cf648f31" xml:space="preserve">
+          <source>Can be consented by users.</source>
+          <target state="new">Can be consented by users.</target>
+        </trans-unit>
+        <trans-unit id="41f7df8c-90f1-4dac-b193-14603b5f7545" xml:space="preserve">
+          <source>Access your organization's directory</source>
+          <target state="new">Access your organization's directory</target>
+        </trans-unit>
+        <trans-unit id="bb52dff1-2aec-4f0e-a057-842f02015206" xml:space="preserve">
+          <source>Allow the application to access your organization's directory on behalf of the signed-in user.</source>
+          <target state="new">Allow the application to access your organization's directory on behalf of the signed-in user.</target>
+        </trans-unit>
+        <trans-unit id="02b82b4e-1ee1-4825-aa44-a0886ce24217" xml:space="preserve">
+          <source>Delegation permission only.</source>
+          <target state="new">Delegation permission only.</target>
+        </trans-unit>
+        <trans-unit id="c5b303a3-842c-4c0f-bba1-20bf196287b3" xml:space="preserve">
+          <source>Can be consented by users in a native client and only by an administrator for web applications.</source>
+          <target state="new">Can be consented by users in a native client and only by an administrator for web applications.</target>
+        </trans-unit>
+        <trans-unit id="79704e19-128f-4f50-bc8a-641ec4f50cdd" xml:space="preserve">
+          <source>Read directory data</source>
+          <target state="new">Read directory data</target>
+        </trans-unit>
+        <trans-unit id="614e90df-25b3-4663-a6a5-5b068ade971a" xml:space="preserve">
+          <source>Allow the application to read data in your organization's directory, such as users, groups and applications.</source>
+          <target state="new">Allow the application to read data in your organization's directory, such as users, groups and applications.</target>
+        </trans-unit>
+        <trans-unit id="eb5e2302-fbb4-4ac2-bd9f-706b3544a255" xml:space="preserve">
+          <source>Delegation and application permission.</source>
+          <target state="new">Delegation and application permission.</target>
+        </trans-unit>
+        <trans-unit id="fc7fdaaa-1151-466f-9aab-6b803247b1ca" xml:space="preserve">
+          <source>Must be consented by an administrator.</source>
+          <target state="new">Must be consented by an administrator.</target>
+        </trans-unit>
+        <trans-unit id="1ec54dd3-bb26-45ab-8c22-927edfc5706a" xml:space="preserve">
+          <source>Read and write directory data</source>
+          <target state="new">Read and write directory data</target>
+        </trans-unit>
+        <trans-unit id="ba36fd84-040c-481c-a97b-d4e58a0e7217" xml:space="preserve">
+          <source>Allow the application to read and write data in your organization's directory, such as users and groups.</source>
+          <target state="new">Allow the application to read and write data in your organization's directory, such as users and groups.</target>
+        </trans-unit>
+        <trans-unit id="26c09506-0b10-48a3-83a4-a914084640ec" xml:space="preserve">
+          <source>Delegation and application permission.</source>
+          <target state="new">Delegation and application permission.</target>
+        </trans-unit>
+        <trans-unit id="ba12f2d1-1304-430e-9df4-a18b1c4b7218" xml:space="preserve">
+          <source>Must be consented by an administrator.</source>
+          <target state="new">Must be consented by an administrator.</target>
+        </trans-unit>
+        <trans-unit id="b48e497f-a7e5-4150-9aee-ad1d13046b6c" xml:space="preserve">
+          <source>For existing users of the Azure Management Portal, setting the Read directory data and Read and write directory data application permissions through the new Permissions to other applications control is equivalent to the previous Manage Access wizard.</source>
+          <target state="new">For existing users of the Azure Management Portal, setting the Read directory data and Read and write directory data application permissions through the new Permissions to other applications control is equivalent to the previous Manage Access wizard.</target>
+        </trans-unit>
+        <trans-unit id="c4a017f2-b9dd-4b78-bf6d-76bc174df949" xml:space="preserve">
+          <source>To see the permission scopes exposed by Office 365 please see the <bpt id="eba5e44e-b389-43eb-a991-4c3e49234132">&lt;linkText&gt;</bpt>Authentication and Authorization using Common Consent Framework<ept id="eba5e44e-b389-43eb-a991-4c3e49234132">&lt;/linkText&gt;</ept><bpt id="eba5e44e-b389-43eb-a991-4c3e49234132">&lt;title&gt;</bpt><ept id="eba5e44e-b389-43eb-a991-4c3e49234132">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">To see the permission scopes exposed by Office 365 please see the <bpt id="eba5e44e-b389-43eb-a991-4c3e49234132">&lt;linkText&gt;</bpt>Authentication and Authorization using Common Consent Framework<ept id="eba5e44e-b389-43eb-a991-4c3e49234132">&lt;/linkText&gt;</ept><bpt id="eba5e44e-b389-43eb-a991-4c3e49234132">&lt;title&gt;</bpt><ept id="eba5e44e-b389-43eb-a991-4c3e49234132">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="f11fb897-f5d4-4f2f-bda9-a3d608fc847a" xml:space="preserve">
+          <source>Due to a current limitation, native client applications can only call into the Azure AD Graph API if they use the “Access your organization's directory” permission.</source>
+          <target state="new">Due to a current limitation, native client applications can only call into the Azure AD Graph API if they use the “Access your organization's directory” permission.</target>
+        </trans-unit>
+        <trans-unit id="7cd67d54-db23-46c3-a306-9d5f6535daf0" xml:space="preserve">
+          <source>This restriction does not apply for web applications.</source>
+          <target state="new">This restriction does not apply for web applications.</target>
+        </trans-unit>
+        <trans-unit id="48073963-e158-4c4d-9d9f-49342f71762a" xml:space="preserve">
+          <source>When adding an application to Azure AD, you may want your application to be accessed only by users in your organization.</source>
+          <target state="new">When adding an application to Azure AD, you may want your application to be accessed only by users in your organization.</target>
+        </trans-unit>
+        <trans-unit id="bfb65181-d699-4d05-aae6-ccaf35497c28" xml:space="preserve">
+          <source>Alternatively, you may want your application to be accessed by users in external organizations.</source>
+          <target state="new">Alternatively, you may want your application to be accessed by users in external organizations.</target>
+        </trans-unit>
+        <trans-unit id="6125fad4-f5ae-46e5-953b-f0db47fc1742" xml:space="preserve">
+          <source>These two application types are called single tenant and multi-tenant applications.</source>
+          <target state="new">These two application types are called single tenant and multi-tenant applications.</target>
+        </trans-unit>
+        <trans-unit id="a1975946-db78-4b32-80da-134dfbd28a9b" xml:space="preserve">
+          <source>You can modify the configuration of a single tenant application to make it a multi-tenant application, which this section discusses below.</source>
+          <target state="new">You can modify the configuration of a single tenant application to make it a multi-tenant application, which this section discusses below.</target>
+        </trans-unit>
+        <trans-unit id="29e453ac-8a08-4ca9-80e9-4056ea5506fb" xml:space="preserve">
+          <source>It’s important to note the differences between a single tenant and multi-tenant application.</source>
+          <target state="new">It’s important to note the differences between a single tenant and multi-tenant application.</target>
+        </trans-unit>
+        <trans-unit id="8221e75f-6049-43c4-a54d-867006e2bb13" xml:space="preserve">
+          <source>A single tenant application is intended for use in one organization.</source>
+          <target state="new">A single tenant application is intended for use in one organization.</target>
+        </trans-unit>
+        <trans-unit id="6c9c489e-60da-4ba8-82da-be2ec97be49a" xml:space="preserve">
+          <source>They are typically a line-of-business (LoB) application written by an enterprise developer.</source>
+          <target state="new">They are typically a line-of-business (LoB) application written by an enterprise developer.</target>
+        </trans-unit>
+        <trans-unit id="f3896480-92c2-4566-aabf-9437e3ff9a00" xml:space="preserve">
+          <source>A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory.</source>
+          <target state="new">A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory.</target>
+        </trans-unit>
+        <trans-unit id="3824f29d-7a55-4218-8470-a16c200c8751" xml:space="preserve">
+          <source>A multi-tenant application intended for use in many organizations.</source>
+          <target state="new">A multi-tenant application intended for use in many organizations.</target>
+        </trans-unit>
+        <trans-unit id="6ce9fdc3-ecdd-471c-b212-7a7b24be3ea3" xml:space="preserve">
+          <source>They are typically a software-as-a-service (SaaS) application written by an independent software vendor (ISV).</source>
+          <target state="new">They are typically a software-as-a-service (SaaS) application written by an independent software vendor (ISV).</target>
+        </trans-unit>
+        <trans-unit id="e23bb6e9-bb1c-448b-8b78-21bd9c01e5b0" xml:space="preserve">
+          <source>Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them.</source>
+          <target state="new">Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them.</target>
+        </trans-unit>
+        <trans-unit id="9d49e518-e215-4e1d-8f66-d29b309e4292" xml:space="preserve">
+          <source>If you are writing an application that you want to make available to your customers or partners outside of your organization, you will need to update the application definition in the Azure Management Portal.</source>
+          <target state="new">If you are writing an application that you want to make available to your customers or partners outside of your organization, you will need to update the application definition in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="83aa52fc-2b06-4be5-8da6-32a3a5ab7c72" xml:space="preserve">
+          <source>When enabling external access, you must ensure that your application’s App ID URI belongs in a verified domain.</source>
+          <target state="new">When enabling external access, you must ensure that your application’s App ID URI belongs in a verified domain.</target>
+        </trans-unit>
+        <trans-unit id="54738caa-6499-4d95-9dfe-4e5f159865a8" xml:space="preserve">
+          <source>Additionally, the Return URL must begin with https://.</source>
+          <target state="new">Additionally, the Return URL must begin with https://.</target>
+        </trans-unit>
+        <trans-unit id="4f918a8d-9dc8-4e1f-ba9a-1207e8deca8c" xml:space="preserve">
+          <source>For more information, see <bpt id="4af9826f-5bea-4604-81e2-2d7bfde1bf9c">&lt;linkText&gt;</bpt>Application Objects and Service Principal Objects<ept id="4af9826f-5bea-4604-81e2-2d7bfde1bf9c">&lt;/linkText&gt;</ept><bpt id="4af9826f-5bea-4604-81e2-2d7bfde1bf9c">&lt;title&gt;</bpt><ept id="4af9826f-5bea-4604-81e2-2d7bfde1bf9c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4af9826f-5bea-4604-81e2-2d7bfde1bf9c">&lt;linkText&gt;</bpt>Application Objects and Service Principal Objects<ept id="4af9826f-5bea-4604-81e2-2d7bfde1bf9c">&lt;/linkText&gt;</ept><bpt id="4af9826f-5bea-4604-81e2-2d7bfde1bf9c">&lt;title&gt;</bpt><ept id="4af9826f-5bea-4604-81e2-2d7bfde1bf9c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f53b9195-210e-4be6-a703-e6a62c3e7ef7" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal.</source>
+          <target state="new">Sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="4c0624e7-3c28-4082-a311-dedba3a7db7d" xml:space="preserve">
+          <source>Click on the Active Directory icon on the left menu, then click on the desired directory.</source>
+          <target state="new">Click on the Active Directory icon on the left menu, then click on the desired directory.</target>
+        </trans-unit>
+        <trans-unit id="2318de58-ddb3-4f87-b820-04245e946fdd" xml:space="preserve">
+          <source>On the top menu, click Applications, and then click the application you want to configure.</source>
+          <target state="new">On the top menu, click Applications, and then click the application you want to configure.</target>
+        </trans-unit>
+        <trans-unit id="62bb8f97-0109-46e9-9bed-d403e0845806" xml:space="preserve">
+          <source>The Quick Start page will appear with single sign-on and other configuration information.</source>
+          <target state="new">The Quick Start page will appear with single sign-on and other configuration information.</target>
+        </trans-unit>
+        <trans-unit id="4d8da730-8c7b-4fd8-8b5d-0846265e6a66" xml:space="preserve">
+          <source>Expand the Configure multi-tenant application section of the Quick Start, then click the Configure it now link in the Enable Access section.</source>
+          <target state="new">Expand the Configure multi-tenant application section of the Quick Start, then click the Configure it now link in the Enable Access section.</target>
+        </trans-unit>
+        <trans-unit id="d80df4ae-9270-4ac2-85b5-75f74e29cc61" xml:space="preserve">
+          <source>The application properties page will appear.</source>
+          <target state="new">The application properties page will appear.</target>
+        </trans-unit>
+        <trans-unit id="b00517ee-9d2d-4171-9c02-09a2d20289ff" xml:space="preserve">
+          <source>Click the Yes button next to Application is multi-tenant, then click the Save button on the command bar.</source>
+          <target state="new">Click the Yes button next to Application is multi-tenant, then click the Save button on the command bar.</target>
+        </trans-unit>
+        <trans-unit id="c5066b70-b63d-4e24-a21f-6998c76d3921" xml:space="preserve">
+          <source>Once you have made the change above, users and administrators in other organizations will be able to grant your application access to their directory and other data.</source>
+          <target state="new">Once you have made the change above, users and administrators in other organizations will be able to grant your application access to their directory and other data.</target>
+        </trans-unit>
+        <trans-unit id="2e93fc8f-6931-4306-9863-33620124d8e8" xml:space="preserve">
+          <source>To grant access using the consent framework, the client application must request authorization using OAuth 2.0.</source>
+          <target state="new">To grant access using the consent framework, the client application must request authorization using OAuth 2.0.</target>
+        </trans-unit>
+        <trans-unit id="90c89b32-e482-4e13-9fcf-d5bc78a3a87c" xml:space="preserve">
+          <source><bpt id="c69404a4-ccfe-4bd6-95e5-a6ca5eea36fd">&lt;linkText&gt;</bpt>Code samples<ept id="c69404a4-ccfe-4bd6-95e5-a6ca5eea36fd">&lt;/linkText&gt;</ept><bpt id="c69404a4-ccfe-4bd6-95e5-a6ca5eea36fd">&lt;title&gt;</bpt><ept id="c69404a4-ccfe-4bd6-95e5-a6ca5eea36fd">&lt;/title&gt;</ept> are available to show you how a web application, native application, or server/daemon application requests authorization codes and access tokens to call web APIs.</source>
+          <target state="new"><bpt id="c69404a4-ccfe-4bd6-95e5-a6ca5eea36fd">&lt;linkText&gt;</bpt>Code samples<ept id="c69404a4-ccfe-4bd6-95e5-a6ca5eea36fd">&lt;/linkText&gt;</ept><bpt id="c69404a4-ccfe-4bd6-95e5-a6ca5eea36fd">&lt;title&gt;</bpt><ept id="c69404a4-ccfe-4bd6-95e5-a6ca5eea36fd">&lt;/title&gt;</ept> are available to show you how a web application, native application, or server/daemon application requests authorization codes and access tokens to call web APIs.</target>
+        </trans-unit>
+        <trans-unit id="77f8f69b-9885-4323-8737-13cb38495b1c" xml:space="preserve">
+          <source>Your web application may offer a sign-up experience for users.</source>
+          <target state="new">Your web application may offer a sign-up experience for users.</target>
+        </trans-unit>
+        <trans-unit id="9cf75061-1170-4bc0-9caa-88bf9cc7b31c" xml:space="preserve">
+          <source>If you do offer a sign-up experience, it is expected that the user will click on a sign up (or sign-in button) that will redirect the browser to the Azure AD OAuth2.0 authorize endpoint or an OpenID Connect userinfo endpoint.</source>
+          <target state="new">If you do offer a sign-up experience, it is expected that the user will click on a sign up (or sign-in button) that will redirect the browser to the Azure AD OAuth2.0 authorize endpoint or an OpenID Connect userinfo endpoint.</target>
+        </trans-unit>
+        <trans-unit id="b60a0497-7481-4826-83ac-9e0c5f7884c8" xml:space="preserve">
+          <source>These endpoints allow the application to get information about the new user by inspecting the id_token.</source>
+          <target state="new">These endpoints allow the application to get information about the new user by inspecting the id_token.</target>
+        </trans-unit>
+        <trans-unit id="ed841544-8f3d-4e99-bac3-00d258f3527f" xml:space="preserve">
+          <source>Alternatively, your web application may also offer an experience that allows administrators to “sign up my company”.</source>
+          <target state="new">Alternatively, your web application may also offer an experience that allows administrators to “sign up my company”.</target>
+        </trans-unit>
+        <trans-unit id="69f3c68f-7283-4813-9fa7-d9d2bfc633c4" xml:space="preserve">
+          <source>This experience would also redirect the user to the Azure AD OAuth 2.0 authorize endpoint.</source>
+          <target state="new">This experience would also redirect the user to the Azure AD OAuth 2.0 authorize endpoint.</target>
+        </trans-unit>
+        <trans-unit id="4a4b954b-52d8-4a8d-a036-3ab44d41b5fa" xml:space="preserve">
+          <source>In this case, you can also pass a prompt=admin_consent parameter to trigger the administrator consent experience, where the administrator will grant consent on behalf of their organization.</source>
+          <target state="new">In this case, you can also pass a prompt=admin_consent parameter to trigger the administrator consent experience, where the administrator will grant consent on behalf of their organization.</target>
+        </trans-unit>
+        <trans-unit id="9b1d07f9-da1a-4f1b-9f4c-fa30e3185a76" xml:space="preserve">
+          <source>On successful consent, the response will contain admin_consent=true.</source>
+          <target state="new">On successful consent, the response will contain admin_consent=true.</target>
+        </trans-unit>
+        <trans-unit id="900b9ded-ccd2-4a30-8564-359fb6862c31" xml:space="preserve">
+          <source>When redeeming an access token, you’ll also receive an id_token that will provide information on the organization and the administrator that signed up for your application.</source>
+          <target state="new">When redeeming an access token, you’ll also receive an id_token that will provide information on the organization and the administrator that signed up for your application.</target>
+        </trans-unit>
+        <trans-unit id="453d786d-d899-41ba-afce-6a73b5049d24" xml:space="preserve">
+          <source>Single Page Application’s (SPAs) are typically structured with a JavaScript-heavy front end that runs in the browser, which calls the application’s web API back end to perform its business logic.</source>
+          <target state="new">Single Page Application’s (SPAs) are typically structured with a JavaScript-heavy front end that runs in the browser, which calls the application’s web API back end to perform its business logic.</target>
+        </trans-unit>
+        <trans-unit id="23d47f52-bec5-418d-aacb-352208fa6c80" xml:space="preserve">
+          <source>For SPAs hosted in Azure AD, you use OAuth 2.0 Implicit Grant to authenticate the user with Azure AD and obtain a token that you can use to secure calls from the application's JavaScript client to its back end web API.</source>
+          <target state="new">For SPAs hosted in Azure AD, you use OAuth 2.0 Implicit Grant to authenticate the user with Azure AD and obtain a token that you can use to secure calls from the application's JavaScript client to its back end web API.</target>
+        </trans-unit>
+        <trans-unit id="d604112f-03ee-46ce-835d-732f56283626" xml:space="preserve">
+          <source>After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other web API resources configured for the application.</source>
+          <target state="new">After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other web API resources configured for the application.</target>
+        </trans-unit>
+        <trans-unit id="20082255-5a76-4498-b29c-e85500b3afe8" xml:space="preserve">
+          <source>By default, OAuth 2.0 Implicit Grant is disabled for applications.</source>
+          <target state="new">By default, OAuth 2.0 Implicit Grant is disabled for applications.</target>
+        </trans-unit>
+        <trans-unit id="b3fc21ed-1764-4e07-8fb0-9d042d63ad9c" xml:space="preserve">
+          <source>You can enable OAuth 2.0 Implicit Grant for your application by setting the <bpt id="6a8b19d3-860f-46f2-a74b-c9c929e7d85a">&lt;code&gt;</bpt>oauth2AllowImplicitFlow<ept id="6a8b19d3-860f-46f2-a74b-c9c929e7d85a">&lt;/code&gt;</ept>”` value in its application manifest, which is a JSON file that represents your application's identity configuration.</source>
+          <target state="new">You can enable OAuth 2.0 Implicit Grant for your application by setting the <bpt id="6a8b19d3-860f-46f2-a74b-c9c929e7d85a">&lt;code&gt;</bpt>oauth2AllowImplicitFlow<ept id="6a8b19d3-860f-46f2-a74b-c9c929e7d85a">&lt;/code&gt;</ept>”` value in its application manifest, which is a JSON file that represents your application's identity configuration.</target>
+        </trans-unit>
+        <trans-unit id="9b33804a-8226-4c6f-9ffb-89b4871c6551" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal.</source>
+          <target state="new">Sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="a4fe3a1b-7ca3-47f4-9acd-e349d30db7eb" xml:space="preserve">
+          <source>Click on the <bpt id="dbc9ef49-2c90-4d7f-8ec4-0960dddd2631">&lt;strong&gt;</bpt>Active Directory<ept id="dbc9ef49-2c90-4d7f-8ec4-0960dddd2631">&lt;/strong&gt;</ept> icon on the left menu, then click on the desired directory.</source>
+          <target state="new">Click on the <bpt id="dbc9ef49-2c90-4d7f-8ec4-0960dddd2631">&lt;strong&gt;</bpt>Active Directory<ept id="dbc9ef49-2c90-4d7f-8ec4-0960dddd2631">&lt;/strong&gt;</ept> icon on the left menu, then click on the desired directory.</target>
+        </trans-unit>
+        <trans-unit id="270d27ee-835a-40a2-be92-9ced77a85157" xml:space="preserve">
+          <source>On the top menu, click <bpt id="ede7de64-f07b-483b-87b1-a2ff35515315">&lt;strong&gt;</bpt>Applications<ept id="ede7de64-f07b-483b-87b1-a2ff35515315">&lt;/strong&gt;</ept>, and then click the application you want to configure.</source>
+          <target state="new">On the top menu, click <bpt id="ede7de64-f07b-483b-87b1-a2ff35515315">&lt;strong&gt;</bpt>Applications<ept id="ede7de64-f07b-483b-87b1-a2ff35515315">&lt;/strong&gt;</ept>, and then click the application you want to configure.</target>
+        </trans-unit>
+        <trans-unit id="ff411281-39d9-42e9-a6d9-12b50efd3658" xml:space="preserve">
+          <source>The Quick Start page will appear with single sign-on and other configuration information.</source>
+          <target state="new">The Quick Start page will appear with single sign-on and other configuration information.</target>
+        </trans-unit>
+        <trans-unit id="ebf37a72-5593-4831-8dc6-7a89a54376df" xml:space="preserve">
+          <source>Click on the <bpt id="7d66ae11-56e8-4244-8905-806312d0b45b">&lt;strong&gt;</bpt>Manage manifest<ept id="7d66ae11-56e8-4244-8905-806312d0b45b">&lt;/strong&gt;</ept> button in the command bar, and select <bpt id="e1074cb5-0649-46d7-89c2-d4f90f44d8ab">&lt;strong&gt;</bpt>Download manifest<ept id="e1074cb5-0649-46d7-89c2-d4f90f44d8ab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click on the <bpt id="7d66ae11-56e8-4244-8905-806312d0b45b">&lt;strong&gt;</bpt>Manage manifest<ept id="7d66ae11-56e8-4244-8905-806312d0b45b">&lt;/strong&gt;</ept> button in the command bar, and select <bpt id="e1074cb5-0649-46d7-89c2-d4f90f44d8ab">&lt;strong&gt;</bpt>Download manifest<ept id="e1074cb5-0649-46d7-89c2-d4f90f44d8ab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="71c053be-ca7c-42af-ab3e-8ef08640da28" xml:space="preserve">
+          <source>Open the JSON application manifest file and set the “oauth2AllowImplicitFlow” value to “true”.</source>
+          <target state="new">Open the JSON application manifest file and set the “oauth2AllowImplicitFlow” value to “true”.</target>
+        </trans-unit>
+        <trans-unit id="d81aee92-cbed-4607-8173-0033eae499ca" xml:space="preserve">
+          <source>By default, it is “false”.</source>
+          <target state="new">By default, it is “false”.</target>
+        </trans-unit>
+        <trans-unit id="7037df73-cd6e-467d-a657-52db06726f4d" xml:space="preserve">
+          <source>   "oauth2AllowImplicitFlow": true,</source>
+          <target state="new">   "oauth2AllowImplicitFlow": true,</target>
+        </trans-unit>
+        <trans-unit id="a0458a6d-fbf0-4964-b205-9b71a14db140" xml:space="preserve">
+          <source>Save the updated JSON file and upload it by clicking the <bpt id="483d4239-9c71-4326-aca5-7e7b0916b5a1">&lt;strong&gt;</bpt>Manage manifest<ept id="483d4239-9c71-4326-aca5-7e7b0916b5a1">&lt;/strong&gt;</ept> button in the command bar, selecting <bpt id="96096b35-5062-49a4-8c40-7929def4e401">&lt;strong&gt;</bpt>Upload manifest<ept id="96096b35-5062-49a4-8c40-7929def4e401">&lt;/strong&gt;</ept>, browsing to your updated manifest file and then selecting it.</source>
+          <target state="new">Save the updated JSON file and upload it by clicking the <bpt id="483d4239-9c71-4326-aca5-7e7b0916b5a1">&lt;strong&gt;</bpt>Manage manifest<ept id="483d4239-9c71-4326-aca5-7e7b0916b5a1">&lt;/strong&gt;</ept> button in the command bar, selecting <bpt id="96096b35-5062-49a4-8c40-7929def4e401">&lt;strong&gt;</bpt>Upload manifest<ept id="96096b35-5062-49a4-8c40-7929def4e401">&lt;/strong&gt;</ept>, browsing to your updated manifest file and then selecting it.</target>
+        </trans-unit>
+        <trans-unit id="d40cd4cc-c2d7-4fce-af23-8bf080ca4f9a" xml:space="preserve">
+          <source>Once uploaded, your web API is now configured to use OAuth 2.0 Implicit Grant to authenticate users.</source>
+          <target state="new">Once uploaded, your web API is now configured to use OAuth 2.0 Implicit Grant to authenticate users.</target>
+        </trans-unit>
+        <trans-unit id="9884a20e-f915-4569-b40c-c4f4a11e86ad" xml:space="preserve">
+          <source>This section describes the legacy consent experience prior to March 12, 2014.</source>
+          <target state="new">This section describes the legacy consent experience prior to March 12, 2014.</target>
+        </trans-unit>
+        <trans-unit id="047121db-eff0-4bb5-9b0b-e1a44c62cf9a" xml:space="preserve">
+          <source>This experience is still supported, and is described below.</source>
+          <target state="new">This experience is still supported, and is described below.</target>
+        </trans-unit>
+        <trans-unit id="2ec3bfe2-addb-4a49-8cc3-ed5ddc5ea72e" xml:space="preserve">
+          <source>Prior to the new functionality, you could only grant the following permissions:</source>
+          <target state="new">Prior to the new functionality, you could only grant the following permissions:</target>
+        </trans-unit>
+        <trans-unit id="5eba5b0c-f50d-4a18-9cdb-595ba3d40eb9" xml:space="preserve">
+          <source>Sign on users from their organization</source>
+          <target state="new">Sign on users from their organization</target>
+        </trans-unit>
+        <trans-unit id="2df6b048-3f3b-4e8b-a5b1-a0a1ffb680d8" xml:space="preserve">
+          <source>Sign on users and read the their organization’s directory data (as the application only)</source>
+          <target state="new">Sign on users and read the their organization’s directory data (as the application only)</target>
+        </trans-unit>
+        <trans-unit id="df838797-4e8a-4d2c-a49d-fa592aa4b422" xml:space="preserve">
+          <source>Sign on users and read and write their organization’s directory data (as the application only)</source>
+          <target state="new">Sign on users and read and write their organization’s directory data (as the application only)</target>
+        </trans-unit>
+        <trans-unit id="f964bdb1-3671-45e1-b5cf-d729a30f738c" xml:space="preserve">
+          <source>You can follow the steps in the <bpt id="2b0b194c-6df0-4993-9a1c-fa405f84019b">&lt;linkText&gt;</bpt>Developing Multi-Tenant Web Applications with Azure AD<ept id="2b0b194c-6df0-4993-9a1c-fa405f84019b">&lt;/linkText&gt;</ept><bpt id="2b0b194c-6df0-4993-9a1c-fa405f84019b">&lt;title&gt;</bpt><ept id="2b0b194c-6df0-4993-9a1c-fa405f84019b">&lt;/title&gt;</ept> to grant access for new applications registered in Azure AD.</source>
+          <target state="new">You can follow the steps in the <bpt id="2b0b194c-6df0-4993-9a1c-fa405f84019b">&lt;linkText&gt;</bpt>Developing Multi-Tenant Web Applications with Azure AD<ept id="2b0b194c-6df0-4993-9a1c-fa405f84019b">&lt;/linkText&gt;</ept><bpt id="2b0b194c-6df0-4993-9a1c-fa405f84019b">&lt;title&gt;</bpt><ept id="2b0b194c-6df0-4993-9a1c-fa405f84019b">&lt;/title&gt;</ept> to grant access for new applications registered in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="e44a5f53-7d70-46a5-84a0-2430b57efb1e" xml:space="preserve">
+          <source>It’s important to note that the new consent framework allows much more powerful applications, and also enables users to consent to these applications instead of just administrators.</source>
+          <target state="new">It’s important to note that the new consent framework allows much more powerful applications, and also enables users to consent to these applications instead of just administrators.</target>
+        </trans-unit>
+        <trans-unit id="6e5b29a8-3a12-4d4a-9c39-2646493c865e" xml:space="preserve">
+          <source>In order for external users to sign up for your app using their organizational accounts, you’ll need to update your app to show a button that links to the page on Azure AD that enables them to grant access.</source>
+          <target state="new">In order for external users to sign up for your app using their organizational accounts, you’ll need to update your app to show a button that links to the page on Azure AD that enables them to grant access.</target>
+        </trans-unit>
+        <trans-unit id="5db4f9a9-e85e-4252-b95d-53ff3159ea33" xml:space="preserve">
+          <source>Branding guidance for this sign up button is discussed in the <bpt id="e18a597d-a588-4949-8a23-3d064be8e084">&lt;linkText&gt;</bpt>Branding Guidelines for Integrated Applications<ept id="e18a597d-a588-4949-8a23-3d064be8e084">&lt;/linkText&gt;</ept><bpt id="e18a597d-a588-4949-8a23-3d064be8e084">&lt;title&gt;</bpt><ept id="e18a597d-a588-4949-8a23-3d064be8e084">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">Branding guidance for this sign up button is discussed in the <bpt id="e18a597d-a588-4949-8a23-3d064be8e084">&lt;linkText&gt;</bpt>Branding Guidelines for Integrated Applications<ept id="e18a597d-a588-4949-8a23-3d064be8e084">&lt;/linkText&gt;</ept><bpt id="e18a597d-a588-4949-8a23-3d064be8e084">&lt;title&gt;</bpt><ept id="e18a597d-a588-4949-8a23-3d064be8e084">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="6ad100ed-f76d-4ecb-86d5-6f61eaaf5996" xml:space="preserve">
+          <source>After the user either grants or denies access, the Azure AD grant access page will redirect the browser back to your app with a response.</source>
+          <target state="new">After the user either grants or denies access, the Azure AD grant access page will redirect the browser back to your app with a response.</target>
+        </trans-unit>
+        <trans-unit id="805b6c14-7345-452c-a21c-9105ecd7ff06" xml:space="preserve">
+          <source>For more information about application properties, see <bpt id="368051b0-bcdc-4f7e-ad33-c109297a2a7a">&lt;linkText&gt;</bpt>Application Objects and Service Principles<ept id="368051b0-bcdc-4f7e-ad33-c109297a2a7a">&lt;/linkText&gt;</ept><bpt id="368051b0-bcdc-4f7e-ad33-c109297a2a7a">&lt;title&gt;</bpt><ept id="368051b0-bcdc-4f7e-ad33-c109297a2a7a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about application properties, see <bpt id="368051b0-bcdc-4f7e-ad33-c109297a2a7a">&lt;linkText&gt;</bpt>Application Objects and Service Principles<ept id="368051b0-bcdc-4f7e-ad33-c109297a2a7a">&lt;/linkText&gt;</ept><bpt id="368051b0-bcdc-4f7e-ad33-c109297a2a7a">&lt;title&gt;</bpt><ept id="368051b0-bcdc-4f7e-ad33-c109297a2a7a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b67b3c0-8a77-4fb3-99cf-e5388a4c70fb" xml:space="preserve">
+          <source>The grant access page is created by Azure AD, and you can find a link to it in your app’s Configuration page in the Management Portal.</source>
+          <target state="new">The grant access page is created by Azure AD, and you can find a link to it in your app’s Configuration page in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="8924460e-1027-4254-bed0-60ce55ecd34d" xml:space="preserve">
+          <source>To get to the Configuration page, click on the Applications link in the top menu of your Azure AD tenant, click the app you want to configure, then click on Configure from the top menu of the Quick Start page.</source>
+          <target state="new">To get to the Configuration page, click on the Applications link in the top menu of your Azure AD tenant, click the app you want to configure, then click on Configure from the top menu of the Quick Start page.</target>
+        </trans-unit>
+        <trans-unit id="ae7dceb8-e428-45ff-9c76-666504e21898" xml:space="preserve">
+          <source>The link for your application will look like this: <bpt id="49e5b92a-1cf9-4881-b467-a39a53c7c21d">&lt;code&gt;</bpt>http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&amp;RequestedPermissions=DirectoryReaders&amp;ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456<ept id="49e5b92a-1cf9-4881-b467-a39a53c7c21d">&lt;/code&gt;</ept>. The following table describes the parts of the link:</source>
+          <target state="new">The link for your application will look like this: <bpt id="49e5b92a-1cf9-4881-b467-a39a53c7c21d">&lt;code&gt;</bpt>http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&amp;RequestedPermissions=DirectoryReaders&amp;ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456<ept id="49e5b92a-1cf9-4881-b467-a39a53c7c21d">&lt;/code&gt;</ept>. The following table describes the parts of the link:</target>
+        </trans-unit>
+        <trans-unit id="bf4a6a41-28bd-44b3-95b5-8b2f39475c05" xml:space="preserve">
+          <source>Parameter</source>
+          <target state="new">Parameter</target>
+        </trans-unit>
+        <trans-unit id="8a25bae4-c94d-4bd2-9bbd-198540273e9f" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="8bd4cbbc-0949-411a-80fa-6d0e905ec348" xml:space="preserve">
+          <source>ClientId</source>
+          <target state="new">ClientId</target>
+        </trans-unit>
+        <trans-unit id="606bf83c-cdbf-477a-9345-f4ae03412dc2" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="5a2b324e-8a40-4aab-b4bc-864c904b28d9" xml:space="preserve">
+          <source>The Client ID you obtained as part of adding your app.</source>
+          <target state="new">The Client ID you obtained as part of adding your app.</target>
+        </trans-unit>
+        <trans-unit id="f0bfd638-29d5-4dd2-9b3c-3c1d03035dd6" xml:space="preserve">
+          <source>RequestedPermissions</source>
+          <target state="new">RequestedPermissions</target>
+        </trans-unit>
+        <trans-unit id="f0c21376-1756-4e76-87b9-3f0f616e5653" xml:space="preserve">
+          <source>Optional.</source>
+          <target state="new">Optional.</target>
+        </trans-unit>
+        <trans-unit id="6b69f293-6411-4654-b1e9-cf66112f56f8" xml:space="preserve">
+          <source>Access level that your app is requesting, that will be displayed to the user granting your app access.</source>
+          <target state="new">Access level that your app is requesting, that will be displayed to the user granting your app access.</target>
+        </trans-unit>
+        <trans-unit id="e9cbeac3-8265-418b-be22-2f03535603f8" xml:space="preserve">
+          <source>If not specified, the requested access level will default to single sign-on only.</source>
+          <target state="new">If not specified, the requested access level will default to single sign-on only.</target>
+        </trans-unit>
+        <trans-unit id="ec515d45-af5f-448b-81ec-069b3203b4a1" xml:space="preserve">
+          <source>The other options are DirectoryReaders and DirectoryWriters.</source>
+          <target state="new">The other options are DirectoryReaders and DirectoryWriters.</target>
+        </trans-unit>
+        <trans-unit id="a75ac056-822e-4d88-9ba8-4d186b7ae6ae" xml:space="preserve">
+          <source>See Application Access Levels for more details on these access levels.</source>
+          <target state="new">See Application Access Levels for more details on these access levels.</target>
+        </trans-unit>
+        <trans-unit id="a3df2a67-7fb2-4371-bd6e-3a47babf13f7" xml:space="preserve">
+          <source>ConsentReturnUrl</source>
+          <target state="new">ConsentReturnUrl</target>
+        </trans-unit>
+        <trans-unit id="185fc2ef-d408-4dea-9543-c984fd47c776" xml:space="preserve">
+          <source>Optional.</source>
+          <target state="new">Optional.</target>
+        </trans-unit>
+        <trans-unit id="988ddacd-0f99-498f-88aa-31f985118f81" xml:space="preserve">
+          <source>The URL that you want the grant access response returned to.</source>
+          <target state="new">The URL that you want the grant access response returned to.</target>
+        </trans-unit>
+        <trans-unit id="8aa005c7-ee33-4bd6-ba7a-f3ab78cb2383" xml:space="preserve">
+          <source>This value must be URL-encoded and must be under the same domain as the Reply URL configured in your app definition.</source>
+          <target state="new">This value must be URL-encoded and must be under the same domain as the Reply URL configured in your app definition.</target>
+        </trans-unit>
+        <trans-unit id="b755fcf6-52f1-4e63-ac7b-9cc173c9a987" xml:space="preserve">
+          <source>If not supplied, the grant access response will be redirected to your configured Reply URL.</source>
+          <target state="new">If not supplied, the grant access response will be redirected to your configured Reply URL.</target>
+        </trans-unit>
+        <trans-unit id="1ff861db-9a58-48f2-af23-fc68e77c3f28" xml:space="preserve">
+          <source>Specifying a ConsentReturnUrl separate from the Reply URL will allow your app to implement separate logic that can process the response on a different URL from the Reply URL (which normally processes SAML tokens for sign on).</source>
+          <target state="new">Specifying a ConsentReturnUrl separate from the Reply URL will allow your app to implement separate logic that can process the response on a different URL from the Reply URL (which normally processes SAML tokens for sign on).</target>
+        </trans-unit>
+        <trans-unit id="c4c21590-61cb-4f32-a2c2-eaf360a4c6c9" xml:space="preserve">
+          <source>You may also specify additional parameters in the ConsentReturnURL encoded URL; these will be passed back as query string parameters to your app upon redirection.</source>
+          <target state="new">You may also specify additional parameters in the ConsentReturnURL encoded URL; these will be passed back as query string parameters to your app upon redirection.</target>
+        </trans-unit>
+        <trans-unit id="7208f457-d78b-41e3-83d1-3ea4130de6f8" xml:space="preserve">
+          <source>This mechanism can be used to maintain additional info or to tie your app’s request for an access grant to the response from Azure AD.</source>
+          <target state="new">This mechanism can be used to maintain additional info or to tie your app’s request for an access grant to the response from Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="ee28d19b-dccc-4f29-8cff-011b00d050e0" xml:space="preserve">
+          <source>When an application redirects to the grant access link, the following images demonstrate what the user will experience.</source>
+          <target state="new">When an application redirects to the grant access link, the following images demonstrate what the user will experience.</target>
+        </trans-unit>
+        <trans-unit id="c350f7c0-242a-4889-9dcc-2f2a4da934d6" xml:space="preserve">
+          <source>If the user is not already signed in, they will be prompted to do so:</source>
+          <target state="new">If the user is not already signed in, they will be prompted to do so:</target>
+        </trans-unit>
+        <trans-unit id="404fd1f8-597a-4b27-8291-9a3bdd6342e9" xml:space="preserve">
+          <source><bpt id="8b261018-d519-4d06-96b4-30959eee30ce">&lt;linkText&gt;</bpt>Sign in to AAD<ept id="8b261018-d519-4d06-96b4-30959eee30ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8b261018-d519-4d06-96b4-30959eee30ce">&lt;linkText&gt;</bpt>Sign in to AAD<ept id="8b261018-d519-4d06-96b4-30959eee30ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="782cc434-8009-432a-999e-29619d261387" xml:space="preserve">
+          <source>Once the user is authenticated, Azure AD will redirect the user to the grant access page:</source>
+          <target state="new">Once the user is authenticated, Azure AD will redirect the user to the grant access page:</target>
+        </trans-unit>
+        <trans-unit id="a073f492-d4f4-4d69-909c-3a27b5816c45" xml:space="preserve">
+          <source><bpt id="11332c52-491b-4fdc-8021-519d259c8c34">&lt;linkText&gt;</bpt>Grant Access<ept id="11332c52-491b-4fdc-8021-519d259c8c34">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="11332c52-491b-4fdc-8021-519d259c8c34">&lt;linkText&gt;</bpt>Grant Access<ept id="11332c52-491b-4fdc-8021-519d259c8c34">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="322b3d26-7a19-4325-932e-298359d040d6" xml:space="preserve">
+          <source>Only the company administrator of the external organization can grant access to your app.</source>
+          <target state="new">Only the company administrator of the external organization can grant access to your app.</target>
+        </trans-unit>
+        <trans-unit id="1560e63d-b742-4de1-a301-c81bf3b9e368" xml:space="preserve">
+          <source>If the user is not a company administrator, they will be given the option to send mail to their company administrator to request that this app be granted access.</source>
+          <target state="new">If the user is not a company administrator, they will be given the option to send mail to their company administrator to request that this app be granted access.</target>
+        </trans-unit>
+        <trans-unit id="013cb2a6-9061-4ae1-b4cb-17d424b52b8a" xml:space="preserve">
+          <source>After the customer has granted access for your app by clicking Grant Access, or if they have denied access by clicking Cancel, Azure AD sends a response to the ConsentReturnUrl or to your configured Reply URL.</source>
+          <target state="new">After the customer has granted access for your app by clicking Grant Access, or if they have denied access by clicking Cancel, Azure AD sends a response to the ConsentReturnUrl or to your configured Reply URL.</target>
+        </trans-unit>
+        <trans-unit id="c6150093-109e-470e-8232-c9bdea034adf" xml:space="preserve">
+          <source>This response contains the following parameters:</source>
+          <target state="new">This response contains the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="9a6a5b11-b5d4-49c3-9adf-418a1f9e1f19" xml:space="preserve">
+          <source>Parameter</source>
+          <target state="new">Parameter</target>
+        </trans-unit>
+        <trans-unit id="0991d308-7320-4115-a508-73a69a745c6a" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="96d327ef-1df4-4a0e-8c79-0fe2554b877e" xml:space="preserve">
+          <source>TenantId</source>
+          <target state="new">TenantId</target>
+        </trans-unit>
+        <trans-unit id="5b1b0099-282c-484f-9b4f-0be102b1d433" xml:space="preserve">
+          <source>The unique ID of the organization in Azure AD that has granted access for your app.</source>
+          <target state="new">The unique ID of the organization in Azure AD that has granted access for your app.</target>
+        </trans-unit>
+        <trans-unit id="f04656cd-4d75-4924-9767-c43192166489" xml:space="preserve">
+          <source>This parameter will only be specified if the customer granted access.</source>
+          <target state="new">This parameter will only be specified if the customer granted access.</target>
+        </trans-unit>
+        <trans-unit id="01fd6273-0796-4a04-aeb3-162a2485a86d" xml:space="preserve">
+          <source>Consent</source>
+          <target state="new">Consent</target>
+        </trans-unit>
+        <trans-unit id="9d8ff81e-58a1-4b73-a003-921cc4a8f66d" xml:space="preserve">
+          <source>The value will be set to Granted if the app was granted access, or Denied if the request was rejected.</source>
+          <target state="new">The value will be set to Granted if the app was granted access, or Denied if the request was rejected.</target>
+        </trans-unit>
+        <trans-unit id="e618da8a-efe3-42ba-b18f-a6242d73fa72" xml:space="preserve">
+          <source>Additional parameters will be returned to the app if they were specified as part of the ConsentReturnUrl encoded URL. The following is an example response to a grant access request that indicates the application has been authorized, and it includes a ContextID that was supplied in the grant access request: <bpt id="fc1024db-30d0-409f-a114-dec7d49306a0">&lt;code&gt;</bpt>https://adatum.com/ExpenseReport.aspx?ContextID=123456&amp;Consent=Granted&amp;TenantId=f03dcba3-d693-47ad-9983-011650e64134<ept id="fc1024db-30d0-409f-a114-dec7d49306a0">&lt;/code&gt;</ept>.</source>
+          <target state="new">Additional parameters will be returned to the app if they were specified as part of the ConsentReturnUrl encoded URL. The following is an example response to a grant access request that indicates the application has been authorized, and it includes a ContextID that was supplied in the grant access request: <bpt id="fc1024db-30d0-409f-a114-dec7d49306a0">&lt;code&gt;</bpt>https://adatum.com/ExpenseReport.aspx?ContextID=123456&amp;Consent=Granted&amp;TenantId=f03dcba3-d693-47ad-9983-011650e64134<ept id="fc1024db-30d0-409f-a114-dec7d49306a0">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea98010c-d510-4d8d-af1b-525821ca206d" xml:space="preserve">
+          <source>The access grant response will not contain a security token for the user; the app must sign the user in separately.</source>
+          <target state="new">The access grant response will not contain a security token for the user; the app must sign the user in separately.</target>
+        </trans-unit>
+        <trans-unit id="2094e6d8-2a2a-4d82-8811-104df176c96e" xml:space="preserve">
+          <source>The following is an example response to an access grant request that was denied: <bpt id="f61ae337-016c-40f4-b820-99544ae5a6c5">&lt;code&gt;</bpt>https://adatum.com/ExpenseReport.aspx?ContextID=123456&amp;Consent=Denied<ept id="f61ae337-016c-40f4-b820-99544ae5a6c5">&lt;/code&gt;</ept></source>
+          <target state="new">The following is an example response to an access grant request that was denied: <bpt id="f61ae337-016c-40f4-b820-99544ae5a6c5">&lt;code&gt;</bpt>https://adatum.com/ExpenseReport.aspx?ContextID=123456&amp;Consent=Denied<ept id="f61ae337-016c-40f4-b820-99544ae5a6c5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea205585-812e-4b61-8833-52b8f6172cba" xml:space="preserve">
+          <source>During the lifetime of your app, you may need to change the keys that you use when you call into Azure AD to acquire an access token to call the Graph API.</source>
+          <target state="new">During the lifetime of your app, you may need to change the keys that you use when you call into Azure AD to acquire an access token to call the Graph API.</target>
+        </trans-unit>
+        <trans-unit id="88ea4498-cf4f-4668-8960-6b98a464f28f" xml:space="preserve">
+          <source>Generally changing keys falls into two categories: emergency roll over where your key has been compromised or a roll over when your current key is about to expire.</source>
+          <target state="new">Generally changing keys falls into two categories: emergency roll over where your key has been compromised or a roll over when your current key is about to expire.</target>
+        </trans-unit>
+        <trans-unit id="2ec24426-57e3-4618-bc3d-630562b6adb7" xml:space="preserve">
+          <source>The following procedure should be followed to provide your app with uninterrupted access while you refresh your keys (primarily for the second case).</source>
+          <target state="new">The following procedure should be followed to provide your app with uninterrupted access while you refresh your keys (primarily for the second case).</target>
+        </trans-unit>
+        <trans-unit id="4deef708-2ca7-409f-a6a2-5658a619783a" xml:space="preserve">
+          <source>In the Azure Management Portal, click on your directory tenant, click Applications from the top menu, then click the app you want to configure.</source>
+          <target state="new">In the Azure Management Portal, click on your directory tenant, click Applications from the top menu, then click the app you want to configure.</target>
+        </trans-unit>
+        <trans-unit id="fa3a20a0-2c3f-4de9-8b6c-d31ccb692ac2" xml:space="preserve">
+          <source>The Quick Start page will appear with single sign-on and other configuration information.</source>
+          <target state="new">The Quick Start page will appear with single sign-on and other configuration information.</target>
+        </trans-unit>
+        <trans-unit id="db652165-cd3d-40e6-82be-825cc26041af" xml:space="preserve">
+          <source>Click on Configure in the top menu to see a list of your app’s properties, and you’ll see a list of your keys.</source>
+          <target state="new">Click on Configure in the top menu to see a list of your app’s properties, and you’ll see a list of your keys.</target>
+        </trans-unit>
+        <trans-unit id="816b1215-8a1c-4010-a76f-c0ff8f143126" xml:space="preserve">
+          <source>Under Keys, click on the drop down that says Select duration and pick 1 or 2 years, and then click Save in the command bar.</source>
+          <target state="new">Under Keys, click on the drop down that says Select duration and pick 1 or 2 years, and then click Save in the command bar.</target>
+        </trans-unit>
+        <trans-unit id="5aa1cbb8-0e62-49ec-a5d5-c10021d8a626" xml:space="preserve">
+          <source>This generates a new password key for your app.</source>
+          <target state="new">This generates a new password key for your app.</target>
+        </trans-unit>
+        <trans-unit id="d7cbc8eb-86a0-4bad-bf99-e9d3c8c855fe" xml:space="preserve">
+          <source>Copy this new password key.</source>
+          <target state="new">Copy this new password key.</target>
+        </trans-unit>
+        <trans-unit id="19dd32ce-4252-47ee-828e-ed32ce83bcc0" xml:space="preserve">
+          <source>At this point both the existing and new key can be used by your app to obtain an access token from Azure AD.</source>
+          <target state="new">At this point both the existing and new key can be used by your app to obtain an access token from Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="f2a40cc0-3eb2-415a-9a25-9ebdeae14197" xml:space="preserve">
+          <source>Go back to your app and update the configuration to start using the new password key.</source>
+          <target state="new">Go back to your app and update the configuration to start using the new password key.</target>
+        </trans-unit>
+        <trans-unit id="2f0198f9-4852-47b9-b45c-cd53038a71d1" xml:space="preserve">
+          <source>See <bpt id="89557281-42fb-4f5f-9253-f9923eb6757b">&lt;linkText&gt;</bpt>Using the Graph API to Query Azure AD<ept id="89557281-42fb-4f5f-9253-f9923eb6757b">&lt;/linkText&gt;</ept><bpt id="89557281-42fb-4f5f-9253-f9923eb6757b">&lt;title&gt;</bpt><ept id="89557281-42fb-4f5f-9253-f9923eb6757b">&lt;/title&gt;</ept> for an example of where this update should happen.</source>
+          <target state="new">See <bpt id="89557281-42fb-4f5f-9253-f9923eb6757b">&lt;linkText&gt;</bpt>Using the Graph API to Query Azure AD<ept id="89557281-42fb-4f5f-9253-f9923eb6757b">&lt;/linkText&gt;</ept><bpt id="89557281-42fb-4f5f-9253-f9923eb6757b">&lt;title&gt;</bpt><ept id="89557281-42fb-4f5f-9253-f9923eb6757b">&lt;/title&gt;</ept> for an example of where this update should happen.</target>
+        </trans-unit>
+        <trans-unit id="3c629b6a-b6fc-4107-8bdd-3a8d39848c16" xml:space="preserve">
+          <source>You should now roll this change out across your production environment – verifying it first on one service node, before rolling it out across the rest.</source>
+          <target state="new">You should now roll this change out across your production environment – verifying it first on one service node, before rolling it out across the rest.</target>
+        </trans-unit>
+        <trans-unit id="9fdb04a2-d288-4115-8880-9d0e0b165506" xml:space="preserve">
+          <source>Once the update is complete across your production deployment, you are free to come back to the Azure Management Portal and remove the old key.</source>
+          <target state="new">Once the update is complete across your production deployment, you are free to come back to the Azure Management Portal and remove the old key.</target>
+        </trans-unit>
+        <trans-unit id="02e4f6aa-8b2b-466a-a412-4ee9a90f2bb2" xml:space="preserve">
+          <source>Once you enable access for external users to your app, you may still continue to make changes to your app’s properties in the Azure Management Portal.</source>
+          <target state="new">Once you enable access for external users to your app, you may still continue to make changes to your app’s properties in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="c62d5819-ec09-40ed-bcf5-9a1693055d18" xml:space="preserve">
+          <source>However, customers who have already granted access to your app before you made app changes will not see those changes reflected when viewing details about your app in the Azure Management Portal.</source>
+          <target state="new">However, customers who have already granted access to your app before you made app changes will not see those changes reflected when viewing details about your app in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="e04c5160-2851-4666-9de0-e121c67e40e9" xml:space="preserve">
+          <source>Once the app is made available to customers, you need to be very careful when making certain changes.</source>
+          <target state="new">Once the app is made available to customers, you need to be very careful when making certain changes.</target>
+        </trans-unit>
+        <trans-unit id="bd6c10c5-2f23-40e0-b9af-4080583712cc" xml:space="preserve">
+          <source>For example, if you update the App ID URI, then your existing customers who granted access before this change will be unable to log in to your app using their company or school accounts.</source>
+          <target state="new">For example, if you update the App ID URI, then your existing customers who granted access before this change will be unable to log in to your app using their company or school accounts.</target>
+        </trans-unit>
+        <trans-unit id="3cd69125-ceb9-41f5-bcee-ad9e22853af7" xml:space="preserve">
+          <source>If you make a change to the RequestedPermissions to request a greater access level, existing customers using app functionality that now leverages new API calls using this increased access level may get an access denied response from the Graph API.</source>
+          <target state="new">If you make a change to the RequestedPermissions to request a greater access level, existing customers using app functionality that now leverages new API calls using this increased access level may get an access denied response from the Graph API.</target>
+        </trans-unit>
+        <trans-unit id="ba6c6098-44fb-45e9-9ddc-e5ffe6a950b5" xml:space="preserve">
+          <source>Your app should handle these cases and ask the customer to grant access to your app with the request for an increased access level.</source>
+          <target state="new">Your app should handle these cases and ask the customer to grant access to your app with the request for an increased access level.</target>
+        </trans-unit>
+        <trans-unit id="1b1ff514-4099-462f-8305-5d929f40234a" xml:space="preserve">
+          <source>This section describes how to remove an application from your directory for both single tenant and multi-tenant applications.</source>
+          <target state="new">This section describes how to remove an application from your directory for both single tenant and multi-tenant applications.</target>
+        </trans-unit>
+        <trans-unit id="895d4fe9-8b16-4ea1-bf21-d2d019496784" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal.</source>
+          <target state="new">Sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="14654db8-f0f9-4cd1-8366-f43910f10b92" xml:space="preserve">
+          <source>Click on the Active Directory icon on the left menu, and then click on the desired directory.</source>
+          <target state="new">Click on the Active Directory icon on the left menu, and then click on the desired directory.</target>
+        </trans-unit>
+        <trans-unit id="3579af8c-7ac2-461f-939a-ec2de28517ce" xml:space="preserve">
+          <source>On the top menu, click Applications, and then click the application you want to configure.</source>
+          <target state="new">On the top menu, click Applications, and then click the application you want to configure.</target>
+        </trans-unit>
+        <trans-unit id="2e4c1e19-4c40-4c86-beaa-f70c191e20dd" xml:space="preserve">
+          <source>The Quick Start page will appear with single sign-on and other configuration information.</source>
+          <target state="new">The Quick Start page will appear with single sign-on and other configuration information.</target>
+        </trans-unit>
+        <trans-unit id="0ef3c185-362a-466b-ac09-ae629125c5fc" xml:space="preserve">
+          <source>Click on the Delete button in the command bar.</source>
+          <target state="new">Click on the Delete button in the command bar.</target>
+        </trans-unit>
+        <trans-unit id="f0679999-5512-48b5-9cfa-a6fbee7d3e9d" xml:space="preserve">
+          <source>Click Yes in the confirmation message.</source>
+          <target state="new">Click Yes in the confirmation message.</target>
+        </trans-unit>
+        <trans-unit id="db10febe-4782-470f-baaa-c9fa2b9708c0" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal.</source>
+          <target state="new">Sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="ca69ce2a-7368-48d5-aed5-eb6916b17a27" xml:space="preserve">
+          <source>Click on the Active Directory icon on the left menu, and then click on the desired directory.</source>
+          <target state="new">Click on the Active Directory icon on the left menu, and then click on the desired directory.</target>
+        </trans-unit>
+        <trans-unit id="d9bb835d-5edc-4a39-907e-88098b88ab4e" xml:space="preserve">
+          <source>On the top menu, click Applications, and then click the application you want to configure.</source>
+          <target state="new">On the top menu, click Applications, and then click the application you want to configure.</target>
+        </trans-unit>
+        <trans-unit id="d1421c3f-4b72-47d4-bea9-48cacc216bb2" xml:space="preserve">
+          <source>The Quick Start page will appear with single sign-on and other configuration information.</source>
+          <target state="new">The Quick Start page will appear with single sign-on and other configuration information.</target>
+        </trans-unit>
+        <trans-unit id="966beacf-91d0-4f24-9bb3-49f4133635f5" xml:space="preserve">
+          <source>On the Application is multi-tenant section, click No.</source>
+          <target state="new">On the Application is multi-tenant section, click No.</target>
+        </trans-unit>
+        <trans-unit id="f7c6abe1-12cf-40c4-b026-2b75a3e21b78" xml:space="preserve">
+          <source>This converts your application to be single tenant, but the application will still remain in an organization who has already consented to it.</source>
+          <target state="new">This converts your application to be single tenant, but the application will still remain in an organization who has already consented to it.</target>
+        </trans-unit>
+        <trans-unit id="00b4007d-59d1-409b-bf06-8506b7012639" xml:space="preserve">
+          <source>Click on the Delete button in the command bar.</source>
+          <target state="new">Click on the Delete button in the command bar.</target>
+        </trans-unit>
+        <trans-unit id="fc0d7376-0a8a-4350-afc1-0e55b61ae4ab" xml:space="preserve">
+          <source>Click Yes in the confirmation message.</source>
+          <target state="new">Click Yes in the confirmation message.</target>
+        </trans-unit>
+        <trans-unit id="ff00a218-25eb-4a22-b38b-5d88ecd45944" xml:space="preserve">
+          <source>In order for a company administrator to remove an app’s access to their directory (after having granted consent), the company administrator must have an Azure subscription to remove access through the Azure Management Portal.</source>
+          <target state="new">In order for a company administrator to remove an app’s access to their directory (after having granted consent), the company administrator must have an Azure subscription to remove access through the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="fec56ddb-73a0-455c-8201-926529a01d79" xml:space="preserve">
+          <source>Alternatively, the company administrator can use the <bpt id="0a544271-31e3-49a1-a1a5-983ec0d46378">&lt;linkText&gt;</bpt>Azure AD PowerShell Cmdlets<ept id="0a544271-31e3-49a1-a1a5-983ec0d46378">&lt;/linkText&gt;</ept><bpt id="0a544271-31e3-49a1-a1a5-983ec0d46378">&lt;title&gt;</bpt><ept id="0a544271-31e3-49a1-a1a5-983ec0d46378">&lt;/title&gt;</ept> to remove access.</source>
+          <target state="new">Alternatively, the company administrator can use the <bpt id="0a544271-31e3-49a1-a1a5-983ec0d46378">&lt;linkText&gt;</bpt>Azure AD PowerShell Cmdlets<ept id="0a544271-31e3-49a1-a1a5-983ec0d46378">&lt;/linkText&gt;</ept><bpt id="0a544271-31e3-49a1-a1a5-983ec0d46378">&lt;title&gt;</bpt><ept id="0a544271-31e3-49a1-a1a5-983ec0d46378">&lt;/title&gt;</ept> to remove access.</target>
+        </trans-unit>
+        <trans-unit id="5a2448a3-622b-41a2-93c9-57d2e481ced3" xml:space="preserve">
+          <source>See the <bpt id="9e529675-d5aa-4467-bfa7-35de352a7ed7">&lt;linkText&gt;</bpt>Branding Guidelines for Integrated Apps<ept id="9e529675-d5aa-4467-bfa7-35de352a7ed7">&lt;/linkText&gt;</ept><bpt id="9e529675-d5aa-4467-bfa7-35de352a7ed7">&lt;title&gt;</bpt><ept id="9e529675-d5aa-4467-bfa7-35de352a7ed7">&lt;/title&gt;</ept></source>
+          <target state="new">See the <bpt id="9e529675-d5aa-4467-bfa7-35de352a7ed7">&lt;linkText&gt;</bpt>Branding Guidelines for Integrated Apps<ept id="9e529675-d5aa-4467-bfa7-35de352a7ed7">&lt;/linkText&gt;</ept><bpt id="9e529675-d5aa-4467-bfa7-35de352a7ed7">&lt;title&gt;</bpt><ept id="9e529675-d5aa-4467-bfa7-35de352a7ed7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85d3cd0b-133e-427b-add0-206b0a19a685" xml:space="preserve">
+          <source>Learn about <bpt id="f2ac37e8-1a63-4d60-972c-083562eacd95">&lt;linkText&gt;</bpt>Application Objects and Service Principal Objects<ept id="f2ac37e8-1a63-4d60-972c-083562eacd95">&lt;/linkText&gt;</ept><bpt id="f2ac37e8-1a63-4d60-972c-083562eacd95">&lt;title&gt;</bpt><ept id="f2ac37e8-1a63-4d60-972c-083562eacd95">&lt;/title&gt;</ept></source>
+          <target state="new">Learn about <bpt id="f2ac37e8-1a63-4d60-972c-083562eacd95">&lt;linkText&gt;</bpt>Application Objects and Service Principal Objects<ept id="f2ac37e8-1a63-4d60-972c-083562eacd95">&lt;/linkText&gt;</ept><bpt id="f2ac37e8-1a63-4d60-972c-083562eacd95">&lt;title&gt;</bpt><ept id="f2ac37e8-1a63-4d60-972c-083562eacd95">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee0390ce-9d41-4ead-9fdc-dfd7ec7aad54" xml:space="preserve">
+          <source>Visit the [Active Directory developer's guide](active-directory-developer's guide.md)</source>
+          <target state="new">Visit the [Active Directory developer's guide](active-directory-developer's guide.md)</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4231c88b-9791-4c0d-84e5-158161ff0307" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4231c88b-9791-4c0d-84e5-158161ff0307" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a27b5898-e1b5-428b-bd9e-f6859906256a">
+        <trans-unit id="54cd1db4-8506-454b-ba39-85d3a183ab27" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Boomi | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Boomi | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4c4c87f9-31e9-4f5d-9933-69ee3643f3a2" xml:space="preserve">
+          <source>Learn how to use Boomi with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Boomi with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="26532666-1e45-4194-aac8-7e72721adfe8" xml:space="preserve">
+          <source>For feedback, click <bpt id="4da31ecf-31c3-41e6-a7c9-eb9eb55b4701">&lt;linkText&gt;</bpt>here<ept id="4da31ecf-31c3-41e6-a7c9-eb9eb55b4701">&lt;/linkText&gt;</ept><bpt id="4da31ecf-31c3-41e6-a7c9-eb9eb55b4701">&lt;title&gt;</bpt><ept id="4da31ecf-31c3-41e6-a7c9-eb9eb55b4701">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="4da31ecf-31c3-41e6-a7c9-eb9eb55b4701">&lt;linkText&gt;</bpt>here<ept id="4da31ecf-31c3-41e6-a7c9-eb9eb55b4701">&lt;/linkText&gt;</ept><bpt id="4da31ecf-31c3-41e6-a7c9-eb9eb55b4701">&lt;title&gt;</bpt><ept id="4da31ecf-31c3-41e6-a7c9-eb9eb55b4701">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9160e861-7ac7-49eb-b63a-af7e22a20778" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Boomi.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Boomi.</target>
+        </trans-unit>
+        <trans-unit id="bbe79a09-5582-4580-bf2a-f47528c6e871" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="e20da34b-9c5b-48c2-bb91-d1f91277aa77" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="643bcd30-1fa7-4a5e-9214-f2c862de7135" xml:space="preserve">
+          <source>A Boomi single sign-on enabled subscription</source>
+          <target state="new">A Boomi single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="0b0315e7-745b-4960-93a6-cde8ba99920b" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Boomi will be able to single sign into the application at your Boomi company site (service provider initiated sign on), or using the <bpt id="eb980e15-457b-4269-9e4f-ac47ac4274ad">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="eb980e15-457b-4269-9e4f-ac47ac4274ad">&lt;/linkText&gt;</ept><bpt id="eb980e15-457b-4269-9e4f-ac47ac4274ad">&lt;title&gt;</bpt><ept id="eb980e15-457b-4269-9e4f-ac47ac4274ad">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Boomi will be able to single sign into the application at your Boomi company site (service provider initiated sign on), or using the <bpt id="eb980e15-457b-4269-9e4f-ac47ac4274ad">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="eb980e15-457b-4269-9e4f-ac47ac4274ad">&lt;/linkText&gt;</ept><bpt id="eb980e15-457b-4269-9e4f-ac47ac4274ad">&lt;title&gt;</bpt><ept id="eb980e15-457b-4269-9e4f-ac47ac4274ad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6289c61-d013-413e-8901-67807d230228" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="f8371b49-62e9-46b7-9cb0-1ba6ec7f021f" xml:space="preserve">
+          <source>Enabling the application integration for Boomi</source>
+          <target state="new">Enabling the application integration for Boomi</target>
+        </trans-unit>
+        <trans-unit id="12e4df38-66e1-41d1-b94b-28afa81be506" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="314063c7-ebac-40c3-86f1-b4af08501681" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="1e3ed9a9-c589-43aa-a3ba-1fadffd81b1c" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="b8d46bfb-02d1-475a-830f-942118e2fb19" xml:space="preserve">
+          <source><bpt id="2dbcbee1-23c8-4c33-951b-9c965cfeb8ce">&lt;linkText&gt;</bpt>Scenario<ept id="2dbcbee1-23c8-4c33-951b-9c965cfeb8ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2dbcbee1-23c8-4c33-951b-9c965cfeb8ce">&lt;linkText&gt;</bpt>Scenario<ept id="2dbcbee1-23c8-4c33-951b-9c965cfeb8ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4deff0e7-8ab6-40b0-9a51-5322cca87f6c" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Boomi.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Boomi.</target>
+        </trans-unit>
+        <trans-unit id="cf4ac80f-8d44-4938-9eaa-27fb7c11394e" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="8facbcdc-08fc-4d01-b6c9-1bf46016545f">&lt;strong&gt;</bpt>Active Directory<ept id="8facbcdc-08fc-4d01-b6c9-1bf46016545f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="8facbcdc-08fc-4d01-b6c9-1bf46016545f">&lt;strong&gt;</bpt>Active Directory<ept id="8facbcdc-08fc-4d01-b6c9-1bf46016545f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6041aaf6-04ce-424f-9600-8b41ca79db15" xml:space="preserve">
+          <source><bpt id="3c2ad3f3-f02d-4465-8cbf-0f51cafabe63">&lt;linkText&gt;</bpt>Active Directory<ept id="3c2ad3f3-f02d-4465-8cbf-0f51cafabe63">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3c2ad3f3-f02d-4465-8cbf-0f51cafabe63">&lt;linkText&gt;</bpt>Active Directory<ept id="3c2ad3f3-f02d-4465-8cbf-0f51cafabe63">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba3f6f2f-6053-454b-a0a0-52638cd2681f" xml:space="preserve">
+          <source>From the <bpt id="05003a78-bf29-4122-99e2-ec5661b82644">&lt;strong&gt;</bpt>Directory<ept id="05003a78-bf29-4122-99e2-ec5661b82644">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="05003a78-bf29-4122-99e2-ec5661b82644">&lt;strong&gt;</bpt>Directory<ept id="05003a78-bf29-4122-99e2-ec5661b82644">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="8c14ff2a-a1e1-4363-acf9-999e58ca2dcc" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="472d42e5-2ba8-4bdd-9071-2cd7630e454c">&lt;strong&gt;</bpt>Applications<ept id="472d42e5-2ba8-4bdd-9071-2cd7630e454c">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="472d42e5-2ba8-4bdd-9071-2cd7630e454c">&lt;strong&gt;</bpt>Applications<ept id="472d42e5-2ba8-4bdd-9071-2cd7630e454c">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="ca7d364c-dbbd-4b56-9d31-c673d7ca5f77" xml:space="preserve">
+          <source><bpt id="8c10d4fd-afcb-441d-88e7-3ca4bfb44de7">&lt;linkText&gt;</bpt>Applications<ept id="8c10d4fd-afcb-441d-88e7-3ca4bfb44de7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8c10d4fd-afcb-441d-88e7-3ca4bfb44de7">&lt;linkText&gt;</bpt>Applications<ept id="8c10d4fd-afcb-441d-88e7-3ca4bfb44de7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51318b7b-997e-4a85-923a-8245330fce20" xml:space="preserve">
+          <source>Click <bpt id="aa2269f0-c58a-4543-9cb9-0e22bc54819e">&lt;strong&gt;</bpt>Add<ept id="aa2269f0-c58a-4543-9cb9-0e22bc54819e">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="aa2269f0-c58a-4543-9cb9-0e22bc54819e">&lt;strong&gt;</bpt>Add<ept id="aa2269f0-c58a-4543-9cb9-0e22bc54819e">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="09bad90f-2150-46ee-9e44-be5e7e2bcb30" xml:space="preserve">
+          <source><bpt id="f996043e-b9d2-4ee1-8c52-5eb454398565">&lt;linkText&gt;</bpt>Add application<ept id="f996043e-b9d2-4ee1-8c52-5eb454398565">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f996043e-b9d2-4ee1-8c52-5eb454398565">&lt;linkText&gt;</bpt>Add application<ept id="f996043e-b9d2-4ee1-8c52-5eb454398565">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f369eae-9900-496d-957e-b4815a074303" xml:space="preserve">
+          <source>On the <bpt id="4e6b68fd-ddfc-4949-ab07-053fdce6d77b">&lt;strong&gt;</bpt>What do you want to do<ept id="4e6b68fd-ddfc-4949-ab07-053fdce6d77b">&lt;/strong&gt;</ept> dialog, click <bpt id="492dc5f3-1f35-485c-9775-8da61534fb0a">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="492dc5f3-1f35-485c-9775-8da61534fb0a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="4e6b68fd-ddfc-4949-ab07-053fdce6d77b">&lt;strong&gt;</bpt>What do you want to do<ept id="4e6b68fd-ddfc-4949-ab07-053fdce6d77b">&lt;/strong&gt;</ept> dialog, click <bpt id="492dc5f3-1f35-485c-9775-8da61534fb0a">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="492dc5f3-1f35-485c-9775-8da61534fb0a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdf3647d-c4c4-41ef-96b6-12ba69495eb1" xml:space="preserve">
+          <source><bpt id="4823e254-26dc-4803-a69e-ec1ccd01992d">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="4823e254-26dc-4803-a69e-ec1ccd01992d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4823e254-26dc-4803-a69e-ec1ccd01992d">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="4823e254-26dc-4803-a69e-ec1ccd01992d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b21e2e01-3e18-4052-bf40-a5dc6cdd20d6" xml:space="preserve">
+          <source>In the <bpt id="9c1ffd13-21fd-4611-bf9b-345e7752018c">&lt;strong&gt;</bpt>search box<ept id="9c1ffd13-21fd-4611-bf9b-345e7752018c">&lt;/strong&gt;</ept>, type <bpt id="855e616f-f93a-483d-8b99-e99354d35721">&lt;strong&gt;</bpt>Boomi<ept id="855e616f-f93a-483d-8b99-e99354d35721">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="9c1ffd13-21fd-4611-bf9b-345e7752018c">&lt;strong&gt;</bpt>search box<ept id="9c1ffd13-21fd-4611-bf9b-345e7752018c">&lt;/strong&gt;</ept>, type <bpt id="855e616f-f93a-483d-8b99-e99354d35721">&lt;strong&gt;</bpt>Boomi<ept id="855e616f-f93a-483d-8b99-e99354d35721">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1566ba5-5a8d-408e-a235-76ec071862cc" xml:space="preserve">
+          <source><bpt id="fb4d8b87-6d94-40f3-914f-671ad7529133">&lt;linkText&gt;</bpt>Application Gallery<ept id="fb4d8b87-6d94-40f3-914f-671ad7529133">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb4d8b87-6d94-40f3-914f-671ad7529133">&lt;linkText&gt;</bpt>Application Gallery<ept id="fb4d8b87-6d94-40f3-914f-671ad7529133">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0208bfbf-6cfc-414f-b87e-474309eb9df0" xml:space="preserve">
+          <source>In the results pane, select <bpt id="ad721b68-07f9-4a3d-a015-123642324aaa">&lt;strong&gt;</bpt>Boomi<ept id="ad721b68-07f9-4a3d-a015-123642324aaa">&lt;/strong&gt;</ept>, and then click <bpt id="f87c9913-a530-4571-b3a8-ff78eb734e25">&lt;strong&gt;</bpt>Complete<ept id="f87c9913-a530-4571-b3a8-ff78eb734e25">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="ad721b68-07f9-4a3d-a015-123642324aaa">&lt;strong&gt;</bpt>Boomi<ept id="ad721b68-07f9-4a3d-a015-123642324aaa">&lt;/strong&gt;</ept>, and then click <bpt id="f87c9913-a530-4571-b3a8-ff78eb734e25">&lt;strong&gt;</bpt>Complete<ept id="f87c9913-a530-4571-b3a8-ff78eb734e25">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="d9ffc9d1-199b-4017-9fa9-cbb3b8164ca5" xml:space="preserve">
+          <source><bpt id="4ef49dd1-8c59-4eec-a8b3-775c8754f39a">&lt;linkText&gt;</bpt>Boomi<ept id="4ef49dd1-8c59-4eec-a8b3-775c8754f39a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ef49dd1-8c59-4eec-a8b3-775c8754f39a">&lt;linkText&gt;</bpt>Boomi<ept id="4ef49dd1-8c59-4eec-a8b3-775c8754f39a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c750d94-075a-4157-8b80-793b24604ba7" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Boomi with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Boomi with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="7752a48b-4c88-479a-a75a-944fea273ab4" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="bb18696d-d3c4-424d-9781-0df30b4a741b">&lt;strong&gt;</bpt>Boomi<ept id="bb18696d-d3c4-424d-9781-0df30b4a741b">&lt;/strong&gt;</ept> application integration page, click <bpt id="784d213c-c27f-4d49-bcde-4c0961a2458d">&lt;strong&gt;</bpt>Configure single sign-on<ept id="784d213c-c27f-4d49-bcde-4c0961a2458d">&lt;/strong&gt;</ept> to open the <bpt id="93ce2e86-5119-44bb-9c84-1723054eb8ce">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="93ce2e86-5119-44bb-9c84-1723054eb8ce">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="bb18696d-d3c4-424d-9781-0df30b4a741b">&lt;strong&gt;</bpt>Boomi<ept id="bb18696d-d3c4-424d-9781-0df30b4a741b">&lt;/strong&gt;</ept> application integration page, click <bpt id="784d213c-c27f-4d49-bcde-4c0961a2458d">&lt;strong&gt;</bpt>Configure single sign-on<ept id="784d213c-c27f-4d49-bcde-4c0961a2458d">&lt;/strong&gt;</ept> to open the <bpt id="93ce2e86-5119-44bb-9c84-1723054eb8ce">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="93ce2e86-5119-44bb-9c84-1723054eb8ce">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="9b7dea71-78e1-40de-b0fc-f7ba39991b73" xml:space="preserve">
+          <source><bpt id="f97165fa-ad27-4ee2-8a6a-3fdf18f6a368">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f97165fa-ad27-4ee2-8a6a-3fdf18f6a368">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f97165fa-ad27-4ee2-8a6a-3fdf18f6a368">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f97165fa-ad27-4ee2-8a6a-3fdf18f6a368">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9458757d-86d1-4ef5-bbd8-211ab9540efb" xml:space="preserve">
+          <source>On the <bpt id="0589c7bf-dcc9-4b30-a6ed-b7100efd9e27">&lt;strong&gt;</bpt>How would you like users to sign on to Boomi<ept id="0589c7bf-dcc9-4b30-a6ed-b7100efd9e27">&lt;/strong&gt;</ept> page, select <bpt id="faf63b34-5233-4b4b-abf6-8661d73342ce">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="faf63b34-5233-4b4b-abf6-8661d73342ce">&lt;/strong&gt;</ept>, and then click <bpt id="dbb525c1-60b0-4ef5-8e14-c3628ada55ed">&lt;strong&gt;</bpt>Next<ept id="dbb525c1-60b0-4ef5-8e14-c3628ada55ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="0589c7bf-dcc9-4b30-a6ed-b7100efd9e27">&lt;strong&gt;</bpt>How would you like users to sign on to Boomi<ept id="0589c7bf-dcc9-4b30-a6ed-b7100efd9e27">&lt;/strong&gt;</ept> page, select <bpt id="faf63b34-5233-4b4b-abf6-8661d73342ce">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="faf63b34-5233-4b4b-abf6-8661d73342ce">&lt;/strong&gt;</ept>, and then click <bpt id="dbb525c1-60b0-4ef5-8e14-c3628ada55ed">&lt;strong&gt;</bpt>Next<ept id="dbb525c1-60b0-4ef5-8e14-c3628ada55ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7dd3ab83-fedd-4c58-8a73-9a4221197326" xml:space="preserve">
+          <source><bpt id="59005c62-fcd2-417b-a28b-1587f7bca657">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="59005c62-fcd2-417b-a28b-1587f7bca657">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="59005c62-fcd2-417b-a28b-1587f7bca657">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="59005c62-fcd2-417b-a28b-1587f7bca657">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46a45895-57cc-4b2e-b2fe-d59e96b0416a" xml:space="preserve">
+          <source>On the <bpt id="60b164e0-1a0d-44f8-af55-37d2e261b339">&lt;strong&gt;</bpt>Configure App URL<ept id="60b164e0-1a0d-44f8-af55-37d2e261b339">&lt;/strong&gt;</ept> page, in the <bpt id="16ef3bbe-13d7-427a-a1ee-cd88bf6d8387">&lt;strong&gt;</bpt>Boomi Reply URL<ept id="16ef3bbe-13d7-427a-a1ee-cd88bf6d8387">&lt;/strong&gt;</ept> textbox, type your <bpt id="f973933f-bf2e-44e2-b254-f16a9161f774">&lt;strong&gt;</bpt>Boomi AtomSphere Login URL<ept id="f973933f-bf2e-44e2-b254-f16a9161f774">&lt;/strong&gt;</ept> (e.g.: “<bpt id="b6cd26d6-f29d-4b3d-8b46-9f5a5d2d5ed9">&lt;em&gt;</bpt>https://platform.boomi.com/sso/AccountName/saml<ept id="b6cd26d6-f29d-4b3d-8b46-9f5a5d2d5ed9">&lt;/em&gt;</ept>”), and then click <bpt id="b7567cd4-e19d-4733-a152-44a67307bb52">&lt;strong&gt;</bpt>Next<ept id="b7567cd4-e19d-4733-a152-44a67307bb52">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="60b164e0-1a0d-44f8-af55-37d2e261b339">&lt;strong&gt;</bpt>Configure App URL<ept id="60b164e0-1a0d-44f8-af55-37d2e261b339">&lt;/strong&gt;</ept> page, in the <bpt id="16ef3bbe-13d7-427a-a1ee-cd88bf6d8387">&lt;strong&gt;</bpt>Boomi Reply URL<ept id="16ef3bbe-13d7-427a-a1ee-cd88bf6d8387">&lt;/strong&gt;</ept> textbox, type your <bpt id="f973933f-bf2e-44e2-b254-f16a9161f774">&lt;strong&gt;</bpt>Boomi AtomSphere Login URL<ept id="f973933f-bf2e-44e2-b254-f16a9161f774">&lt;/strong&gt;</ept> (e.g.: “<bpt id="b6cd26d6-f29d-4b3d-8b46-9f5a5d2d5ed9">&lt;em&gt;</bpt>https://platform.boomi.com/sso/AccountName/saml<ept id="b6cd26d6-f29d-4b3d-8b46-9f5a5d2d5ed9">&lt;/em&gt;</ept>”), and then click <bpt id="b7567cd4-e19d-4733-a152-44a67307bb52">&lt;strong&gt;</bpt>Next<ept id="b7567cd4-e19d-4733-a152-44a67307bb52">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4af355e9-4f82-4c3f-ad2e-fb2af321757c" xml:space="preserve">
+          <source><bpt id="6f2c4e17-cc05-41b8-b485-28f672a989e1">&lt;linkText&gt;</bpt>Configure App URL<ept id="6f2c4e17-cc05-41b8-b485-28f672a989e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f2c4e17-cc05-41b8-b485-28f672a989e1">&lt;linkText&gt;</bpt>Configure App URL<ept id="6f2c4e17-cc05-41b8-b485-28f672a989e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d86dba8-e42d-46b2-8e5c-94a5081c9e68" xml:space="preserve">
+          <source>On the <bpt id="913909de-f212-4df4-9d60-a06a2c53c9eb">&lt;strong&gt;</bpt>Configure single sign-on at Boomi<ept id="913909de-f212-4df4-9d60-a06a2c53c9eb">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="b471d033-ce9e-4236-b520-7a91f0d15c54">&lt;strong&gt;</bpt>Download certificate<ept id="b471d033-ce9e-4236-b520-7a91f0d15c54">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</source>
+          <target state="new">On the <bpt id="913909de-f212-4df4-9d60-a06a2c53c9eb">&lt;strong&gt;</bpt>Configure single sign-on at Boomi<ept id="913909de-f212-4df4-9d60-a06a2c53c9eb">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="b471d033-ce9e-4236-b520-7a91f0d15c54">&lt;strong&gt;</bpt>Download certificate<ept id="b471d033-ce9e-4236-b520-7a91f0d15c54">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="3f241b1b-e786-4cfa-af07-efa8e9161085" xml:space="preserve">
+          <source><bpt id="33fb6fc0-40f2-4afa-9ad0-288a857edd6b">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="33fb6fc0-40f2-4afa-9ad0-288a857edd6b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33fb6fc0-40f2-4afa-9ad0-288a857edd6b">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="33fb6fc0-40f2-4afa-9ad0-288a857edd6b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54265717-50bc-424f-b9f2-d24dd23e959a" xml:space="preserve">
+          <source>In a different web browser window, log into your Boomi company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Boomi company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="1849712c-d2b4-43b7-bbd2-eaf9b0bd2141" xml:space="preserve">
+          <source>In the toolbar on the top, click your company name, and then <bpt id="a7a9652e-cf14-47dd-8226-eb31b4c79aa3">&lt;strong&gt;</bpt>Setup<ept id="a7a9652e-cf14-47dd-8226-eb31b4c79aa3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click your company name, and then <bpt id="a7a9652e-cf14-47dd-8226-eb31b4c79aa3">&lt;strong&gt;</bpt>Setup<ept id="a7a9652e-cf14-47dd-8226-eb31b4c79aa3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6e0f073-3012-4556-86a8-6b4d9d4ec3f6" xml:space="preserve">
+          <source><bpt id="e294d4aa-c8cd-4310-bdbe-63b0326ced2c">&lt;linkText&gt;</bpt>Setup<ept id="e294d4aa-c8cd-4310-bdbe-63b0326ced2c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e294d4aa-c8cd-4310-bdbe-63b0326ced2c">&lt;linkText&gt;</bpt>Setup<ept id="e294d4aa-c8cd-4310-bdbe-63b0326ced2c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e25ee52d-eb35-44c4-b1c6-ba8a985e7497" xml:space="preserve">
+          <source>Click <bpt id="478931b2-040f-4320-9733-844d23bb8081">&lt;strong&gt;</bpt>SSO Options<ept id="478931b2-040f-4320-9733-844d23bb8081">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="478931b2-040f-4320-9733-844d23bb8081">&lt;strong&gt;</bpt>SSO Options<ept id="478931b2-040f-4320-9733-844d23bb8081">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff530202-fd09-451c-a90c-df2927e4a8b6" xml:space="preserve">
+          <source><bpt id="96bf6226-8a02-470b-a0e1-7927eedea0b7">&lt;linkText&gt;</bpt>SSO Options<ept id="96bf6226-8a02-470b-a0e1-7927eedea0b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="96bf6226-8a02-470b-a0e1-7927eedea0b7">&lt;linkText&gt;</bpt>SSO Options<ept id="96bf6226-8a02-470b-a0e1-7927eedea0b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b0e2d48-1e4d-40ac-acf2-02c6c23c48ed" xml:space="preserve">
+          <source>In the <bpt id="a75c38b8-f368-49a3-aa19-bd5dad93e630">&lt;strong&gt;</bpt>Single Sign-On Options<ept id="a75c38b8-f368-49a3-aa19-bd5dad93e630">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="a75c38b8-f368-49a3-aa19-bd5dad93e630">&lt;strong&gt;</bpt>Single Sign-On Options<ept id="a75c38b8-f368-49a3-aa19-bd5dad93e630">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="37cb2c87-b4e6-41ce-964b-66aff066103c" xml:space="preserve">
+          <source><bpt id="d801c593-4066-4d2c-9125-fedfb276b7ab">&lt;linkText&gt;</bpt>Single Sign-On Options<ept id="d801c593-4066-4d2c-9125-fedfb276b7ab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d801c593-4066-4d2c-9125-fedfb276b7ab">&lt;linkText&gt;</bpt>Single Sign-On Options<ept id="d801c593-4066-4d2c-9125-fedfb276b7ab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fad61377-f39f-4d80-818f-7ec788d9a37c" xml:space="preserve">
+          <source>Select <bpt id="9e63c30b-ed80-4f0a-a48f-383a97b87b18">&lt;strong&gt;</bpt>Enable SAML Single Sign-On<ept id="9e63c30b-ed80-4f0a-a48f-383a97b87b18">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="9e63c30b-ed80-4f0a-a48f-383a97b87b18">&lt;strong&gt;</bpt>Enable SAML Single Sign-On<ept id="9e63c30b-ed80-4f0a-a48f-383a97b87b18">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="745da0d9-8ef7-4ab0-8560-189a19f8326d" xml:space="preserve">
+          <source>Click <bpt id="a11ca0e7-5147-43a4-afe4-578d7d7e167e">&lt;strong&gt;</bpt>Import<ept id="a11ca0e7-5147-43a4-afe4-578d7d7e167e">&lt;/strong&gt;</ept>, to upload the downloaded certificate.</source>
+          <target state="new">Click <bpt id="a11ca0e7-5147-43a4-afe4-578d7d7e167e">&lt;strong&gt;</bpt>Import<ept id="a11ca0e7-5147-43a4-afe4-578d7d7e167e">&lt;/strong&gt;</ept>, to upload the downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="6dd85f01-03f9-4649-b688-b2f5055e69a0" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="5dd262df-cd21-42c6-8d54-00ea07aea5de">&lt;strong&gt;</bpt>Configure single sign-on at Boomi<ept id="5dd262df-cd21-42c6-8d54-00ea07aea5de">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="5f3c2474-61ad-44ef-b8db-c7ccf0448a45">&lt;strong&gt;</bpt>Remote Login URL<ept id="5f3c2474-61ad-44ef-b8db-c7ccf0448a45">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="633b2a1b-d2b4-4200-8df3-8eee59e2ed83">&lt;strong&gt;</bpt>Identity Provider Login URL<ept id="633b2a1b-d2b4-4200-8df3-8eee59e2ed83">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="5dd262df-cd21-42c6-8d54-00ea07aea5de">&lt;strong&gt;</bpt>Configure single sign-on at Boomi<ept id="5dd262df-cd21-42c6-8d54-00ea07aea5de">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="5f3c2474-61ad-44ef-b8db-c7ccf0448a45">&lt;strong&gt;</bpt>Remote Login URL<ept id="5f3c2474-61ad-44ef-b8db-c7ccf0448a45">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="633b2a1b-d2b4-4200-8df3-8eee59e2ed83">&lt;strong&gt;</bpt>Identity Provider Login URL<ept id="633b2a1b-d2b4-4200-8df3-8eee59e2ed83">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="26fcbd5b-b5bc-482f-85e6-275fcaef8702" xml:space="preserve">
+          <source>As <bpt id="cb3ae136-7137-436b-bc36-f7a44d5205a5">&lt;strong&gt;</bpt>Federation Id Location<ept id="cb3ae136-7137-436b-bc36-f7a44d5205a5">&lt;/strong&gt;</ept>, select <bpt id="5b3b2fee-d744-4bc0-a789-d5e0f7e38317">&lt;strong&gt;</bpt>Federation Id is in NameID element of the Subject<ept id="5b3b2fee-d744-4bc0-a789-d5e0f7e38317">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="cb3ae136-7137-436b-bc36-f7a44d5205a5">&lt;strong&gt;</bpt>Federation Id Location<ept id="cb3ae136-7137-436b-bc36-f7a44d5205a5">&lt;/strong&gt;</ept>, select <bpt id="5b3b2fee-d744-4bc0-a789-d5e0f7e38317">&lt;strong&gt;</bpt>Federation Id is in NameID element of the Subject<ept id="5b3b2fee-d744-4bc0-a789-d5e0f7e38317">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5868e6fd-8fcd-47b1-9ead-fff77c3db2e9" xml:space="preserve">
+          <source>Click <bpt id="a8062409-6317-4a68-ac29-5ff4fdedffa1">&lt;strong&gt;</bpt>Save<ept id="a8062409-6317-4a68-ac29-5ff4fdedffa1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a8062409-6317-4a68-ac29-5ff4fdedffa1">&lt;strong&gt;</bpt>Save<ept id="a8062409-6317-4a68-ac29-5ff4fdedffa1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00c56810-1c90-4fe5-8ad2-cd769167c786" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="d9e98fe0-48ee-404d-a459-139e084fca45">&lt;strong&gt;</bpt>Complete<ept id="d9e98fe0-48ee-404d-a459-139e084fca45">&lt;/strong&gt;</ept> to close the <bpt id="940c0ea1-8342-49d1-8f39-85a9db1b8936">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="940c0ea1-8342-49d1-8f39-85a9db1b8936">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="d9e98fe0-48ee-404d-a459-139e084fca45">&lt;strong&gt;</bpt>Complete<ept id="d9e98fe0-48ee-404d-a459-139e084fca45">&lt;/strong&gt;</ept> to close the <bpt id="940c0ea1-8342-49d1-8f39-85a9db1b8936">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="940c0ea1-8342-49d1-8f39-85a9db1b8936">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="dd0110a6-b7cf-48f8-9474-6e7c02200377" xml:space="preserve">
+          <source><bpt id="450df11e-aa0c-475e-9e3e-52e92299753a">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="450df11e-aa0c-475e-9e3e-52e92299753a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="450df11e-aa0c-475e-9e3e-52e92299753a">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="450df11e-aa0c-475e-9e3e-52e92299753a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a210c65-df07-44de-b69a-88f71ebbc088" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Boomi, they must be provisioned into Boomi.</source>
+          <target state="new">In order to enable Azure AD users to log into Boomi, they must be provisioned into Boomi.</target>
+        </trans-unit>
+        <trans-unit id="672dddb9-e7bc-47cd-a69e-69365fd5f569" xml:space="preserve">
+          <source>In the case of Boomi, provisioning is a manual task.</source>
+          <target state="new">In the case of Boomi, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="46999f5c-52bb-4870-8c88-031eef7287f6" xml:space="preserve">
+          <source>Log in to your <bpt id="31c13d55-40ff-4009-a929-79da75e4bb30">&lt;strong&gt;</bpt>Boomi<ept id="31c13d55-40ff-4009-a929-79da75e4bb30">&lt;/strong&gt;</ept> company site as administrator.</source>
+          <target state="new">Log in to your <bpt id="31c13d55-40ff-4009-a929-79da75e4bb30">&lt;strong&gt;</bpt>Boomi<ept id="31c13d55-40ff-4009-a929-79da75e4bb30">&lt;/strong&gt;</ept> company site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="ae4c35ae-2e94-4d11-a3c7-c9a7ec0a0f3c" xml:space="preserve">
+          <source>Go to <bpt id="8e4da834-dfa9-4def-b185-c5bc5a98ad36">&lt;strong&gt;</bpt>User Management \&gt; Users<ept id="8e4da834-dfa9-4def-b185-c5bc5a98ad36">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="8e4da834-dfa9-4def-b185-c5bc5a98ad36">&lt;strong&gt;</bpt>User Management \&gt; Users<ept id="8e4da834-dfa9-4def-b185-c5bc5a98ad36">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc37bd24-be9e-4fc6-84cf-ab309135a10b" xml:space="preserve">
+          <source><bpt id="c239895f-9f90-48b7-a028-84c2fc2ea6dd">&lt;linkText&gt;</bpt>Users<ept id="c239895f-9f90-48b7-a028-84c2fc2ea6dd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c239895f-9f90-48b7-a028-84c2fc2ea6dd">&lt;linkText&gt;</bpt>Users<ept id="c239895f-9f90-48b7-a028-84c2fc2ea6dd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27feda10-2096-4b82-8c99-5b41a601a58b" xml:space="preserve">
+          <source>Click <bpt id="33c95554-53a0-4a3e-a939-b6d3a687a8df">&lt;strong&gt;</bpt>Add User<ept id="33c95554-53a0-4a3e-a939-b6d3a687a8df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="33c95554-53a0-4a3e-a939-b6d3a687a8df">&lt;strong&gt;</bpt>Add User<ept id="33c95554-53a0-4a3e-a939-b6d3a687a8df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b163c11f-8fde-4f48-b9e7-4713e42cb1e8" xml:space="preserve">
+          <source><bpt id="1d019123-c1e0-4650-a88c-8c72b21c9493">&lt;linkText&gt;</bpt>Add User<ept id="1d019123-c1e0-4650-a88c-8c72b21c9493">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1d019123-c1e0-4650-a88c-8c72b21c9493">&lt;linkText&gt;</bpt>Add User<ept id="1d019123-c1e0-4650-a88c-8c72b21c9493">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="438d7512-fc3c-49d5-98d3-a299e82e767b" xml:space="preserve">
+          <source>On the <bpt id="4d568a6a-348c-4924-b1fe-c1f344ba701c">&lt;strong&gt;</bpt>Add User Roles<ept id="4d568a6a-348c-4924-b1fe-c1f344ba701c">&lt;/strong&gt;</ept> dialog page, perform the following steps:</source>
+          <target state="new">On the <bpt id="4d568a6a-348c-4924-b1fe-c1f344ba701c">&lt;strong&gt;</bpt>Add User Roles<ept id="4d568a6a-348c-4924-b1fe-c1f344ba701c">&lt;/strong&gt;</ept> dialog page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="2bff7825-d97a-4f8c-990f-6ccd3ccac4aa" xml:space="preserve">
+          <source><bpt id="d95acaae-c59c-4df1-b3ae-ac0cbde07c10">&lt;linkText&gt;</bpt>Add User<ept id="d95acaae-c59c-4df1-b3ae-ac0cbde07c10">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d95acaae-c59c-4df1-b3ae-ac0cbde07c10">&lt;linkText&gt;</bpt>Add User<ept id="d95acaae-c59c-4df1-b3ae-ac0cbde07c10">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5385ee7-f6c4-44cb-bde8-b2a190eab749" xml:space="preserve">
+          <source>Type the <bpt id="f5425cfc-1ed2-4995-a412-eb4831c67732">&lt;strong&gt;</bpt>First Name<ept id="f5425cfc-1ed2-4995-a412-eb4831c67732">&lt;/strong&gt;</ept>, <bpt id="8960f9c8-3529-4f07-b2af-3af2ce069cfa">&lt;strong&gt;</bpt>Last Name<ept id="8960f9c8-3529-4f07-b2af-3af2ce069cfa">&lt;/strong&gt;</ept> and <bpt id="79ccb80a-5943-4273-98d4-ba8019fd52ed">&lt;strong&gt;</bpt>Email<ept id="79ccb80a-5943-4273-98d4-ba8019fd52ed">&lt;/strong&gt;</ept> of a valid AAD account you want to provision into the related textboxes.</source>
+          <target state="new">Type the <bpt id="f5425cfc-1ed2-4995-a412-eb4831c67732">&lt;strong&gt;</bpt>First Name<ept id="f5425cfc-1ed2-4995-a412-eb4831c67732">&lt;/strong&gt;</ept>, <bpt id="8960f9c8-3529-4f07-b2af-3af2ce069cfa">&lt;strong&gt;</bpt>Last Name<ept id="8960f9c8-3529-4f07-b2af-3af2ce069cfa">&lt;/strong&gt;</ept> and <bpt id="79ccb80a-5943-4273-98d4-ba8019fd52ed">&lt;strong&gt;</bpt>Email<ept id="79ccb80a-5943-4273-98d4-ba8019fd52ed">&lt;/strong&gt;</ept> of a valid AAD account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="507adb43-bc45-4367-9845-8c323c5dc128" xml:space="preserve">
+          <source>Click OK.</source>
+          <target state="new">Click OK.</target>
+        </trans-unit>
+        <trans-unit id="2a0744dd-f645-4954-bae3-dbf7dde3eb36" xml:space="preserve">
+          <source>You can use any other Boomi user account creation tools or APIs provided by Boomi to provision AAD user accounts.</source>
+          <target state="new">You can use any other Boomi user account creation tools or APIs provided by Boomi to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="148a468d-77de-4fb4-b1a1-c6678243260b" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="6975151b-3aaa-4e22-9f2a-6cb30e1de04d" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="e24c9d2d-f805-4c78-80ce-9879b393df89" xml:space="preserve">
+          <source>On the <bpt id="e276a575-c021-4ce6-9b8c-3132f20636f0">&lt;strong&gt;</bpt>Boomi **application integration page, click **Assign users<ept id="e276a575-c021-4ce6-9b8c-3132f20636f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e276a575-c021-4ce6-9b8c-3132f20636f0">&lt;strong&gt;</bpt>Boomi **application integration page, click **Assign users<ept id="e276a575-c021-4ce6-9b8c-3132f20636f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f63c087-7cc0-411d-9b17-f65df1932f52" xml:space="preserve">
+          <source><bpt id="1a92fc82-e563-4e18-be96-0244cba38f25">&lt;linkText&gt;</bpt>Assign Users<ept id="1a92fc82-e563-4e18-be96-0244cba38f25">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1a92fc82-e563-4e18-be96-0244cba38f25">&lt;linkText&gt;</bpt>Assign Users<ept id="1a92fc82-e563-4e18-be96-0244cba38f25">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d9a8e0a-4d83-4ed5-aac9-f001727f0c37" xml:space="preserve">
+          <source>Select your test user, click <bpt id="2227e487-6c2c-488f-9269-86306e10060c">&lt;strong&gt;</bpt>Assign<ept id="2227e487-6c2c-488f-9269-86306e10060c">&lt;/strong&gt;</ept>, and then click <bpt id="4e47f4be-60d6-452f-8338-0e1f2ed17c42">&lt;strong&gt;</bpt>Yes<ept id="4e47f4be-60d6-452f-8338-0e1f2ed17c42">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="2227e487-6c2c-488f-9269-86306e10060c">&lt;strong&gt;</bpt>Assign<ept id="2227e487-6c2c-488f-9269-86306e10060c">&lt;/strong&gt;</ept>, and then click <bpt id="4e47f4be-60d6-452f-8338-0e1f2ed17c42">&lt;strong&gt;</bpt>Yes<ept id="4e47f4be-60d6-452f-8338-0e1f2ed17c42">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="0cd42b05-c6ba-4ef0-93f1-5a0d2a818835" xml:space="preserve">
+          <source><bpt id="c4c6b3ae-4b7b-4592-b882-75b0ab3bc9e9">&lt;linkText&gt;</bpt>Yes<ept id="c4c6b3ae-4b7b-4592-b882-75b0ab3bc9e9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c4c6b3ae-4b7b-4592-b882-75b0ab3bc9e9">&lt;linkText&gt;</bpt>Yes<ept id="c4c6b3ae-4b7b-4592-b882-75b0ab3bc9e9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f620ede-9a21-4167-8a43-076d577999fa" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="2fb002e1-9d82-479c-beee-d6bf5a233128" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="eab5987a-d5e2-4eb0-b978-946913586bfe">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="eab5987a-d5e2-4eb0-b978-946913586bfe">&lt;/linkText&gt;</ept><bpt id="eab5987a-d5e2-4eb0-b978-946913586bfe">&lt;title&gt;</bpt><ept id="eab5987a-d5e2-4eb0-b978-946913586bfe">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="eab5987a-d5e2-4eb0-b978-946913586bfe">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="eab5987a-d5e2-4eb0-b978-946913586bfe">&lt;/linkText&gt;</ept><bpt id="eab5987a-d5e2-4eb0-b978-946913586bfe">&lt;title&gt;</bpt><ept id="eab5987a-d5e2-4eb0-b978-946913586bfe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

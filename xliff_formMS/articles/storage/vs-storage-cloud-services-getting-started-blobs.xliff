@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3c3eca32-acc5-4c09-ad75-888a70283312" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3c3eca32-acc5-4c09-ad75-888a70283312" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f522a5a6-bbd2-483e-8902-3317f2feed10">
+        <trans-unit id="cb017bfd-cf6f-4024-b1eb-83ad9d51248d" xml:space="preserve">
+          <source>Get started with Azure Blob Storage and Visual Studio connected services | Microsoft Azure</source>
+          <target state="new">Get started with Azure Blob Storage and Visual Studio connected services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="617e2377-d6ca-4f69-b3c8-9cadb7631b07" xml:space="preserve">
+          <source>How to get started using Azure Blob Storage in a cloud service project in Visual Studio</source>
+          <target state="new">How to get started using Azure Blob Storage in a cloud service project in Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="899eabab-1fd6-4459-8cdf-be40f783d67a" xml:space="preserve">
+          <source>This article describes how to get started with Azure Blob Storage after you created or referenced an Azure Storage account by using the Visual Studio <bpt id="9cc6b735-fb07-4ab7-bda3-0546d193a509">&lt;strong&gt;</bpt>Add Connected Services<ept id="9cc6b735-fb07-4ab7-bda3-0546d193a509">&lt;/strong&gt;</ept> dialog in a Visual Studio cloud services project.</source>
+          <target state="new">This article describes how to get started with Azure Blob Storage after you created or referenced an Azure Storage account by using the Visual Studio <bpt id="9cc6b735-fb07-4ab7-bda3-0546d193a509">&lt;strong&gt;</bpt>Add Connected Services<ept id="9cc6b735-fb07-4ab7-bda3-0546d193a509">&lt;/strong&gt;</ept> dialog in a Visual Studio cloud services project.</target>
+        </trans-unit>
+        <trans-unit id="7228a31f-9532-45f7-bc1e-9d05390ba80e" xml:space="preserve">
+          <source>We'll show you how to access and create blob containers, and how to perform common tasks like uploading, listing, and downloading blobs.</source>
+          <target state="new">We'll show you how to access and create blob containers, and how to perform common tasks like uploading, listing, and downloading blobs.</target>
+        </trans-unit>
+        <trans-unit id="b13b018e-d7b7-4ae5-8db3-5a066d0578ba" xml:space="preserve">
+          <source>The samples are written in C\# and use the <bpt id="92cfc018-5d00-4a60-8dbb-c67de5b7c575">&lt;linkText&gt;</bpt>Azure Storage Client Library for .NET<ept id="92cfc018-5d00-4a60-8dbb-c67de5b7c575">&lt;/linkText&gt;</ept><bpt id="92cfc018-5d00-4a60-8dbb-c67de5b7c575">&lt;title&gt;</bpt><ept id="92cfc018-5d00-4a60-8dbb-c67de5b7c575">&lt;/title&gt;</ept>.</source>
+          <target state="new">The samples are written in C\# and use the <bpt id="92cfc018-5d00-4a60-8dbb-c67de5b7c575">&lt;linkText&gt;</bpt>Azure Storage Client Library for .NET<ept id="92cfc018-5d00-4a60-8dbb-c67de5b7c575">&lt;/linkText&gt;</ept><bpt id="92cfc018-5d00-4a60-8dbb-c67de5b7c575">&lt;title&gt;</bpt><ept id="92cfc018-5d00-4a60-8dbb-c67de5b7c575">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b91ad384-3b4d-45cf-b4f7-7fdfad05898d" xml:space="preserve">
+          <source>Azure Blob Storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS.</source>
+          <target state="new">Azure Blob Storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="fc4508cd-429e-48bc-bf55-ceaf2ff4a61a" xml:space="preserve">
+          <source>A single blob can be any size.</source>
+          <target state="new">A single blob can be any size.</target>
+        </trans-unit>
+        <trans-unit id="5587279d-e65b-4db7-bb0f-0cb8f7086199" xml:space="preserve">
+          <source>Blobs can be things like images, audio and video files, raw data, and document files.</source>
+          <target state="new">Blobs can be things like images, audio and video files, raw data, and document files.</target>
+        </trans-unit>
+        <trans-unit id="add2bfad-db5b-4c6a-ab79-af5a381b0da9" xml:space="preserve">
+          <source>Just as files live in folders, storage blobs live in containers.</source>
+          <target state="new">Just as files live in folders, storage blobs live in containers.</target>
+        </trans-unit>
+        <trans-unit id="f0fc0fb7-12fa-42a4-8c84-d3f1d72b1152" xml:space="preserve">
+          <source>After you have created a storage, you create one or more containers in the storage.</source>
+          <target state="new">After you have created a storage, you create one or more containers in the storage.</target>
+        </trans-unit>
+        <trans-unit id="1fc28580-3c0d-486b-9cc7-108b76c583b8" xml:space="preserve">
+          <source>For example, in a storage called “Scrapbook,” you can create containers in the storage called “images” to store pictures and another called “audio” to store audio files.</source>
+          <target state="new">For example, in a storage called “Scrapbook,” you can create containers in the storage called “images” to store pictures and another called “audio” to store audio files.</target>
+        </trans-unit>
+        <trans-unit id="ca62a4f8-1ef8-482a-a152-71c8ec20f733" xml:space="preserve">
+          <source>After you create the containers, you can upload individual blob files to them.</source>
+          <target state="new">After you create the containers, you can upload individual blob files to them.</target>
+        </trans-unit>
+        <trans-unit id="1b2ea00e-ff4c-4348-9490-405981b235a2" xml:space="preserve">
+          <source>For more information on programmatically manipulating blobs, see <bpt id="515ac49b-85c6-4117-8a7f-e36ab047ee53">&lt;linkText&gt;</bpt>How to use blob storage from .NET<ept id="515ac49b-85c6-4117-8a7f-e36ab047ee53">&lt;/linkText&gt;</ept><bpt id="515ac49b-85c6-4117-8a7f-e36ab047ee53">&lt;title&gt;</bpt><ept id="515ac49b-85c6-4117-8a7f-e36ab047ee53">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on programmatically manipulating blobs, see <bpt id="515ac49b-85c6-4117-8a7f-e36ab047ee53">&lt;linkText&gt;</bpt>How to use blob storage from .NET<ept id="515ac49b-85c6-4117-8a7f-e36ab047ee53">&lt;/linkText&gt;</ept><bpt id="515ac49b-85c6-4117-8a7f-e36ab047ee53">&lt;title&gt;</bpt><ept id="515ac49b-85c6-4117-8a7f-e36ab047ee53">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6cdeb64-6323-424e-becd-5eea475de926" xml:space="preserve">
+          <source>For general information about Azure Storage,see <bpt id="6912789f-3a07-4c68-b039-5ff862e615c1">&lt;linkText&gt;</bpt>Storage documentation<ept id="6912789f-3a07-4c68-b039-5ff862e615c1">&lt;/linkText&gt;</ept><bpt id="6912789f-3a07-4c68-b039-5ff862e615c1">&lt;title&gt;</bpt><ept id="6912789f-3a07-4c68-b039-5ff862e615c1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For general information about Azure Storage,see <bpt id="6912789f-3a07-4c68-b039-5ff862e615c1">&lt;linkText&gt;</bpt>Storage documentation<ept id="6912789f-3a07-4c68-b039-5ff862e615c1">&lt;/linkText&gt;</ept><bpt id="6912789f-3a07-4c68-b039-5ff862e615c1">&lt;title&gt;</bpt><ept id="6912789f-3a07-4c68-b039-5ff862e615c1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5034b417-8a38-48b1-ae03-4344ed68f2d7" xml:space="preserve">
+          <source>For general information about Azure Cloud Services, see <bpt id="857f5bf3-e086-480f-88ae-ed50c52876dc">&lt;linkText&gt;</bpt>Cloud Services documentation<ept id="857f5bf3-e086-480f-88ae-ed50c52876dc">&lt;/linkText&gt;</ept><bpt id="857f5bf3-e086-480f-88ae-ed50c52876dc">&lt;title&gt;</bpt><ept id="857f5bf3-e086-480f-88ae-ed50c52876dc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For general information about Azure Cloud Services, see <bpt id="857f5bf3-e086-480f-88ae-ed50c52876dc">&lt;linkText&gt;</bpt>Cloud Services documentation<ept id="857f5bf3-e086-480f-88ae-ed50c52876dc">&lt;/linkText&gt;</ept><bpt id="857f5bf3-e086-480f-88ae-ed50c52876dc">&lt;title&gt;</bpt><ept id="857f5bf3-e086-480f-88ae-ed50c52876dc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e10dca4-e37a-471d-a387-7dffc776bbb2" xml:space="preserve">
+          <source>For more information about programming ASP.NET applications, see <bpt id="bfc78f1f-35d5-44bc-8f90-392126f883f7">&lt;linkText&gt;</bpt>ASP.NET<ept id="bfc78f1f-35d5-44bc-8f90-392126f883f7">&lt;/linkText&gt;</ept><bpt id="bfc78f1f-35d5-44bc-8f90-392126f883f7">&lt;title&gt;</bpt><ept id="bfc78f1f-35d5-44bc-8f90-392126f883f7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about programming ASP.NET applications, see <bpt id="bfc78f1f-35d5-44bc-8f90-392126f883f7">&lt;linkText&gt;</bpt>ASP.NET<ept id="bfc78f1f-35d5-44bc-8f90-392126f883f7">&lt;/linkText&gt;</ept><bpt id="bfc78f1f-35d5-44bc-8f90-392126f883f7">&lt;title&gt;</bpt><ept id="bfc78f1f-35d5-44bc-8f90-392126f883f7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0cadae5-8862-4a34-8415-bb7372d69fdf" xml:space="preserve">
+          <source>To programmatically access blobs in cloud service projects, you need to add the following items, if they're not already present.</source>
+          <target state="new">To programmatically access blobs in cloud service projects, you need to add the following items, if they're not already present.</target>
+        </trans-unit>
+        <trans-unit id="758210c7-e5ce-414f-9e27-06bf745c45cd" xml:space="preserve">
+          <source>Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.</source>
+          <target state="new">Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="2f285bdd-00c6-4859-b10d-0b9054b7281c" xml:space="preserve">
+          <source>Get a <bpt id="fe2a70f4-3f9d-4ead-b641-8a4084b64e64">&lt;code&gt;</bpt>CloudStorageAccount<ept id="fe2a70f4-3f9d-4ead-b641-8a4084b64e64">&lt;/code&gt;</ept> object that represents your storage account information.</source>
+          <target state="new">Get a <bpt id="fe2a70f4-3f9d-4ead-b641-8a4084b64e64">&lt;code&gt;</bpt>CloudStorageAccount<ept id="fe2a70f4-3f9d-4ead-b641-8a4084b64e64">&lt;/code&gt;</ept> object that represents your storage account information.</target>
+        </trans-unit>
+        <trans-unit id="dfbe0b91-e3f4-4d95-a198-77b005506ba2" xml:space="preserve">
+          <source>Use the following code to get the your storage connection string and storage account information from the Azure service configuration.</source>
+          <target state="new">Use the following code to get the your storage connection string and storage account information from the Azure service configuration.</target>
+        </trans-unit>
+        <trans-unit id="ea4a6e11-39db-48c7-bb2b-baf095de4f1b" xml:space="preserve">
+          <source>Get a <bpt id="831c43f5-8d0b-44b3-a94e-9fa1dd246716">&lt;code&gt;</bpt>CloudBlobClient<ept id="831c43f5-8d0b-44b3-a94e-9fa1dd246716">&lt;/code&gt;</ept> object to reference an existing container in your storage account.</source>
+          <target state="new">Get a <bpt id="831c43f5-8d0b-44b3-a94e-9fa1dd246716">&lt;code&gt;</bpt>CloudBlobClient<ept id="831c43f5-8d0b-44b3-a94e-9fa1dd246716">&lt;/code&gt;</ept> object to reference an existing container in your storage account.</target>
+        </trans-unit>
+        <trans-unit id="02360b68-b1c6-4e49-8f91-9572b7dcc49b" xml:space="preserve">
+          <source>Get a <bpt id="7aeb3491-f1f8-4aee-91d0-d8726f3028b4">&lt;code&gt;</bpt>CloudBlobContainer<ept id="7aeb3491-f1f8-4aee-91d0-d8726f3028b4">&lt;/code&gt;</ept> object to reference a specific blob container.</source>
+          <target state="new">Get a <bpt id="7aeb3491-f1f8-4aee-91d0-d8726f3028b4">&lt;code&gt;</bpt>CloudBlobContainer<ept id="7aeb3491-f1f8-4aee-91d0-d8726f3028b4">&lt;/code&gt;</ept> object to reference a specific blob container.</target>
+        </trans-unit>
+        <trans-unit id="ece7d742-e965-4df2-9db3-c1a6729ddc8f" xml:space="preserve">
+          <source>Use all of the code shown in the previous procedure in front of the code shown in the following sections.</source>
+          <target state="new">Use all of the code shown in the previous procedure in front of the code shown in the following sections.</target>
+        </trans-unit>
+        <trans-unit id="6df3ad2e-272a-4295-a574-76894aa63532" xml:space="preserve">
+          <source>Some APIs that perform calls out to Azure Storage in ASP.NET are asynchronous.</source>
+          <target state="new">Some APIs that perform calls out to Azure Storage in ASP.NET are asynchronous.</target>
+        </trans-unit>
+        <trans-unit id="8533c75d-f2d0-423a-ab6d-341b06e39ebf" xml:space="preserve">
+          <source>See <bpt id="802cad61-d10b-408d-aa20-d6e382ce712b">&lt;linkText&gt;</bpt>Asynchronous programming with Async and Await<ept id="802cad61-d10b-408d-aa20-d6e382ce712b">&lt;/linkText&gt;</ept><bpt id="802cad61-d10b-408d-aa20-d6e382ce712b">&lt;title&gt;</bpt><ept id="802cad61-d10b-408d-aa20-d6e382ce712b">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="802cad61-d10b-408d-aa20-d6e382ce712b">&lt;linkText&gt;</bpt>Asynchronous programming with Async and Await<ept id="802cad61-d10b-408d-aa20-d6e382ce712b">&lt;/linkText&gt;</ept><bpt id="802cad61-d10b-408d-aa20-d6e382ce712b">&lt;title&gt;</bpt><ept id="802cad61-d10b-408d-aa20-d6e382ce712b">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="2e3e9f6a-793a-46b4-a32e-a4e12fb7500a" xml:space="preserve">
+          <source>The code in the following example assumes that you are using async programming methods.</source>
+          <target state="new">The code in the following example assumes that you are using async programming methods.</target>
+        </trans-unit>
+        <trans-unit id="2eecec53-e6bf-4baf-b056-5ed8b9ac6ff4" xml:space="preserve">
+          <source>To create a container in your storage account, all you need to do is add a call to <bpt id="464f08ee-1bae-40e0-ab58-2d03d55fb20f">&lt;code&gt;</bpt>CreateIfNotExistsAsync<ept id="464f08ee-1bae-40e0-ab58-2d03d55fb20f">&lt;/code&gt;</ept> as in the following code:</source>
+          <target state="new">To create a container in your storage account, all you need to do is add a call to <bpt id="464f08ee-1bae-40e0-ab58-2d03d55fb20f">&lt;code&gt;</bpt>CreateIfNotExistsAsync<ept id="464f08ee-1bae-40e0-ab58-2d03d55fb20f">&lt;/code&gt;</ept> as in the following code:</target>
+        </trans-unit>
+        <trans-unit id="879624a0-e877-40e5-b2e3-161987734984" xml:space="preserve">
+          <source>To make the files within the container available to everyone, you can set the container to be public by using the following code.</source>
+          <target state="new">To make the files within the container available to everyone, you can set the container to be public by using the following code.</target>
+        </trans-unit>
+        <trans-unit id="589fbbc0-25d7-454f-a847-f6777a27513b" xml:space="preserve">
+          <source>Anyone on the Internet can see blobs in a public container, but you can
+modify or delete them only if you have the appropriate access key.</source>
+          <target state="new">Anyone on the Internet can see blobs in a public container, but you can
+modify or delete them only if you have the appropriate access key.</target>
+        </trans-unit>
+        <trans-unit id="9e96abd5-1105-47a4-97ae-a95c824a1ddd" xml:space="preserve">
+          <source>Azure Storage supports block blobs and page blobs.</source>
+          <target state="new">Azure Storage supports block blobs and page blobs.</target>
+        </trans-unit>
+        <trans-unit id="22cc3c9b-cf81-4919-9c8a-b79684c8a0ed" xml:space="preserve">
+          <source>In the majority of cases, block blob is the recommended type to use.</source>
+          <target state="new">In the majority of cases, block blob is the recommended type to use.</target>
+        </trans-unit>
+        <trans-unit id="f292ec49-027e-4b58-bc76-25268602744c" xml:space="preserve">
+          <source>To upload a file to a block blob, get a container reference and use it to get a block blob reference.</source>
+          <target state="new">To upload a file to a block blob, get a container reference and use it to get a block blob reference.</target>
+        </trans-unit>
+        <trans-unit id="b1a255ba-f93f-4d76-aa48-b4b770eae7e4" xml:space="preserve">
+          <source>Once you have a blob reference, you can upload any stream of data to it by calling the <bpt id="67a2bc0c-54e1-4123-bbbf-c1e25ed10d66">&lt;code&gt;</bpt>UploadFromStream<ept id="67a2bc0c-54e1-4123-bbbf-c1e25ed10d66">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Once you have a blob reference, you can upload any stream of data to it by calling the <bpt id="67a2bc0c-54e1-4123-bbbf-c1e25ed10d66">&lt;code&gt;</bpt>UploadFromStream<ept id="67a2bc0c-54e1-4123-bbbf-c1e25ed10d66">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="7d39f684-d89b-47f4-824b-6de44c2e0c0e" xml:space="preserve">
+          <source>This operation creates the blob if it didn't previously exist, or overwrites it if it does exist.</source>
+          <target state="new">This operation creates the blob if it didn't previously exist, or overwrites it if it does exist.</target>
+        </trans-unit>
+        <trans-unit id="fccf1e4a-9a06-48ab-8930-1eb892ba6241" xml:space="preserve">
+          <source>The following example shows how to upload a blob into a container and assumes that the container was already created.</source>
+          <target state="new">The following example shows how to upload a blob into a container and assumes that the container was already created.</target>
+        </trans-unit>
+        <trans-unit id="53b6514f-9456-48e6-a76e-1f2de648cc7f" xml:space="preserve">
+          <source>To list the blobs in a container, first get a container reference.</source>
+          <target state="new">To list the blobs in a container, first get a container reference.</target>
+        </trans-unit>
+        <trans-unit id="059f563e-5fef-4c7a-b344-9af443b6750d" xml:space="preserve">
+          <source>You can then use the container's <bpt id="2a6b4946-284f-418f-bb06-28eb99f37607">&lt;code&gt;</bpt>ListBlobs<ept id="2a6b4946-284f-418f-bb06-28eb99f37607">&lt;/code&gt;</ept> method to retrieve the blobs and/or directories within it.</source>
+          <target state="new">You can then use the container's <bpt id="2a6b4946-284f-418f-bb06-28eb99f37607">&lt;code&gt;</bpt>ListBlobs<ept id="2a6b4946-284f-418f-bb06-28eb99f37607">&lt;/code&gt;</ept> method to retrieve the blobs and/or directories within it.</target>
+        </trans-unit>
+        <trans-unit id="99366e8a-3a5b-4e7f-b6a2-c1e65dc7defd" xml:space="preserve">
+          <source>To access the rich set of properties and methods for a  returned <bpt id="de7b8e70-1521-4bcb-bdec-701d530e0ef6">&lt;code&gt;</bpt>IListBlobItem<ept id="de7b8e70-1521-4bcb-bdec-701d530e0ef6">&lt;/code&gt;</ept>, you must cast it to a <bpt id="4f2e9c72-d805-49f1-a040-0af671ba84b0">&lt;code&gt;</bpt>CloudBlockBlob<ept id="4f2e9c72-d805-49f1-a040-0af671ba84b0">&lt;/code&gt;</ept>, <bpt id="7cb45537-d1e2-4e88-a269-c04d21252895">&lt;code&gt;</bpt>CloudPageBlob<ept id="7cb45537-d1e2-4e88-a269-c04d21252895">&lt;/code&gt;</ept>, or <bpt id="ced529eb-cb15-40c9-9872-d583f48648bd">&lt;code&gt;</bpt>CloudBlobDirectory<ept id="ced529eb-cb15-40c9-9872-d583f48648bd">&lt;/code&gt;</ept> object.</source>
+          <target state="new">To access the rich set of properties and methods for a  returned <bpt id="de7b8e70-1521-4bcb-bdec-701d530e0ef6">&lt;code&gt;</bpt>IListBlobItem<ept id="de7b8e70-1521-4bcb-bdec-701d530e0ef6">&lt;/code&gt;</ept>, you must cast it to a <bpt id="4f2e9c72-d805-49f1-a040-0af671ba84b0">&lt;code&gt;</bpt>CloudBlockBlob<ept id="4f2e9c72-d805-49f1-a040-0af671ba84b0">&lt;/code&gt;</ept>, <bpt id="7cb45537-d1e2-4e88-a269-c04d21252895">&lt;code&gt;</bpt>CloudPageBlob<ept id="7cb45537-d1e2-4e88-a269-c04d21252895">&lt;/code&gt;</ept>, or <bpt id="ced529eb-cb15-40c9-9872-d583f48648bd">&lt;code&gt;</bpt>CloudBlobDirectory<ept id="ced529eb-cb15-40c9-9872-d583f48648bd">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="f77575fd-d86d-43ce-861c-7f586f2b8587" xml:space="preserve">
+          <source>If the type is unknown, you can use a type check to determine which to cast it to.</source>
+          <target state="new">If the type is unknown, you can use a type check to determine which to cast it to.</target>
+        </trans-unit>
+        <trans-unit id="b82b7b50-5124-4a9f-8f03-3672f9dc99fc" xml:space="preserve">
+          <source>The following code demonstrates how to retrieve and output the URI of each item in the <bpt id="ef5594bd-2015-4181-be2c-1b5a7729a91e">&lt;code&gt;</bpt>photos<ept id="ef5594bd-2015-4181-be2c-1b5a7729a91e">&lt;/code&gt;</ept> container:</source>
+          <target state="new">The following code demonstrates how to retrieve and output the URI of each item in the <bpt id="ef5594bd-2015-4181-be2c-1b5a7729a91e">&lt;code&gt;</bpt>photos<ept id="ef5594bd-2015-4181-be2c-1b5a7729a91e">&lt;/code&gt;</ept> container:</target>
+        </trans-unit>
+        <trans-unit id="b2dff7a6-da21-498c-aeb0-d2ac2d4bbf35" xml:space="preserve">
+          <source>As shown in the previous code sample, the blob service has the concept of directories within containers, as well.</source>
+          <target state="new">As shown in the previous code sample, the blob service has the concept of directories within containers, as well.</target>
+        </trans-unit>
+        <trans-unit id="369e7c96-4a16-4e36-9605-baa9d308979a" xml:space="preserve">
+          <source>This is so that you can organize your blobs in a more folder-like structure.</source>
+          <target state="new">This is so that you can organize your blobs in a more folder-like structure.</target>
+        </trans-unit>
+        <trans-unit id="217b0b78-60df-43c9-be6d-f60da5d3a4c3" xml:space="preserve">
+          <source>For example, consider the following set of block blobs in a container named <bpt id="2147083e-4a8e-450b-84db-5e1f5d1bd624">&lt;code&gt;</bpt>photos<ept id="2147083e-4a8e-450b-84db-5e1f5d1bd624">&lt;/code&gt;</ept>:</source>
+          <target state="new">For example, consider the following set of block blobs in a container named <bpt id="2147083e-4a8e-450b-84db-5e1f5d1bd624">&lt;code&gt;</bpt>photos<ept id="2147083e-4a8e-450b-84db-5e1f5d1bd624">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="1abf8b9b-7298-49e6-89cf-c20981a6d1a0" xml:space="preserve">
+          <source>When you call <bpt id="0b1083e1-503e-4082-bf03-508a769f2d6e">&lt;code&gt;</bpt>ListBlobs<ept id="0b1083e1-503e-4082-bf03-508a769f2d6e">&lt;/code&gt;</ept> on the container (as in the previous sample), the collection returned
+contains <bpt id="5e9823de-1bda-4f28-8fc9-41b7e7ff7138">&lt;code&gt;</bpt>CloudBlobDirectory<ept id="5e9823de-1bda-4f28-8fc9-41b7e7ff7138">&lt;/code&gt;</ept> and <bpt id="e0c70078-1075-4b99-9f6b-506c6a6d3ab9">&lt;code&gt;</bpt>CloudBlockBlob<ept id="e0c70078-1075-4b99-9f6b-506c6a6d3ab9">&lt;/code&gt;</ept> objects representing the directories and blobs contained at the top level.</source>
+          <target state="new">When you call <bpt id="0b1083e1-503e-4082-bf03-508a769f2d6e">&lt;code&gt;</bpt>ListBlobs<ept id="0b1083e1-503e-4082-bf03-508a769f2d6e">&lt;/code&gt;</ept> on the container (as in the previous sample), the collection returned
+contains <bpt id="5e9823de-1bda-4f28-8fc9-41b7e7ff7138">&lt;code&gt;</bpt>CloudBlobDirectory<ept id="5e9823de-1bda-4f28-8fc9-41b7e7ff7138">&lt;/code&gt;</ept> and <bpt id="e0c70078-1075-4b99-9f6b-506c6a6d3ab9">&lt;code&gt;</bpt>CloudBlockBlob<ept id="e0c70078-1075-4b99-9f6b-506c6a6d3ab9">&lt;/code&gt;</ept> objects representing the directories and blobs contained at the top level.</target>
+        </trans-unit>
+        <trans-unit id="2960e7d8-4c39-47ca-9738-9a1c31e4fe02" xml:space="preserve">
+          <source>Here is the resulting output:</source>
+          <target state="new">Here is the resulting output:</target>
+        </trans-unit>
+        <trans-unit id="8eec8058-dab7-4fca-8b74-d4f069c95f27" xml:space="preserve">
+          <source>Optionally, you can set the <bpt id="16d309f7-f6bf-4ee3-a88a-6360a10779b5">&lt;code&gt;</bpt>UseFlatBlobListing<ept id="16d309f7-f6bf-4ee3-a88a-6360a10779b5">&lt;/code&gt;</ept> parameter of of the <bpt id="41d19bde-b587-436b-9264-99aa749e1176">&lt;code&gt;</bpt>ListBlobs<ept id="41d19bde-b587-436b-9264-99aa749e1176">&lt;/code&gt;</ept> method to
+<bpt id="8412e5b2-c03c-44c1-97ec-93ebecaf5848">&lt;code&gt;</bpt>true<ept id="8412e5b2-c03c-44c1-97ec-93ebecaf5848">&lt;/code&gt;</ept>.</source>
+          <target state="new">Optionally, you can set the <bpt id="16d309f7-f6bf-4ee3-a88a-6360a10779b5">&lt;code&gt;</bpt>UseFlatBlobListing<ept id="16d309f7-f6bf-4ee3-a88a-6360a10779b5">&lt;/code&gt;</ept> parameter of of the <bpt id="41d19bde-b587-436b-9264-99aa749e1176">&lt;code&gt;</bpt>ListBlobs<ept id="41d19bde-b587-436b-9264-99aa749e1176">&lt;/code&gt;</ept> method to
+<bpt id="8412e5b2-c03c-44c1-97ec-93ebecaf5848">&lt;code&gt;</bpt>true<ept id="8412e5b2-c03c-44c1-97ec-93ebecaf5848">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d88b68a-06ed-4bef-8ec7-2b9f1dcbfb8d" xml:space="preserve">
+          <source>This results in every blob being returned as a <bpt id="0bdab7ab-7f24-49c3-a516-1008b80ac480">&lt;code&gt;</bpt>CloudBlockBlob<ept id="0bdab7ab-7f24-49c3-a516-1008b80ac480">&lt;/code&gt;</ept>, regardless of directory.</source>
+          <target state="new">This results in every blob being returned as a <bpt id="0bdab7ab-7f24-49c3-a516-1008b80ac480">&lt;code&gt;</bpt>CloudBlockBlob<ept id="0bdab7ab-7f24-49c3-a516-1008b80ac480">&lt;/code&gt;</ept>, regardless of directory.</target>
+        </trans-unit>
+        <trans-unit id="42388684-221b-423c-91c9-e31f8be81f75" xml:space="preserve">
+          <source>Here is the call to <bpt id="b40c85e3-91f1-4bc8-8be7-b3b30f99abac">&lt;code&gt;</bpt>ListBlobs<ept id="b40c85e3-91f1-4bc8-8be7-b3b30f99abac">&lt;/code&gt;</ept>:</source>
+          <target state="new">Here is the call to <bpt id="b40c85e3-91f1-4bc8-8be7-b3b30f99abac">&lt;code&gt;</bpt>ListBlobs<ept id="b40c85e3-91f1-4bc8-8be7-b3b30f99abac">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="bc0c8bec-e253-42b6-a199-4998c83872a1" xml:space="preserve">
+          <source>and here are the results:</source>
+          <target state="new">and here are the results:</target>
+        </trans-unit>
+        <trans-unit id="cec3dd1c-0c64-415e-866c-40790dd6a396" xml:space="preserve">
+          <source>For more information, see <bpt id="6f6a655a-9ecd-454d-8d2b-5afc87ad8264">&lt;linkText&gt;</bpt>CloudBlobContainer.ListBlobs<ept id="6f6a655a-9ecd-454d-8d2b-5afc87ad8264">&lt;/linkText&gt;</ept><bpt id="6f6a655a-9ecd-454d-8d2b-5afc87ad8264">&lt;title&gt;</bpt><ept id="6f6a655a-9ecd-454d-8d2b-5afc87ad8264">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="6f6a655a-9ecd-454d-8d2b-5afc87ad8264">&lt;linkText&gt;</bpt>CloudBlobContainer.ListBlobs<ept id="6f6a655a-9ecd-454d-8d2b-5afc87ad8264">&lt;/linkText&gt;</ept><bpt id="6f6a655a-9ecd-454d-8d2b-5afc87ad8264">&lt;title&gt;</bpt><ept id="6f6a655a-9ecd-454d-8d2b-5afc87ad8264">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03cddb00-a807-4caa-bf2d-cb67b39468c0" xml:space="preserve">
+          <source>To download blobs, first retrieve a blob reference and then call the <bpt id="7755de54-f791-44e5-ba10-4dc3a6f54e61">&lt;code&gt;</bpt>DownloadToStream<ept id="7755de54-f791-44e5-ba10-4dc3a6f54e61">&lt;/code&gt;</ept> method.</source>
+          <target state="new">To download blobs, first retrieve a blob reference and then call the <bpt id="7755de54-f791-44e5-ba10-4dc3a6f54e61">&lt;code&gt;</bpt>DownloadToStream<ept id="7755de54-f791-44e5-ba10-4dc3a6f54e61">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="5f14d54a-a4fb-4afe-8fb1-5437e7a2a123" xml:space="preserve">
+          <source>The following
+example uses the <bpt id="cb0d2e63-4174-441d-9b33-56b35879b24e">&lt;code&gt;</bpt>DownloadToStream<ept id="cb0d2e63-4174-441d-9b33-56b35879b24e">&lt;/code&gt;</ept> method to transfer the blob
+contents to a stream object that you can then persist to a local file.</source>
+          <target state="new">The following
+example uses the <bpt id="cb0d2e63-4174-441d-9b33-56b35879b24e">&lt;code&gt;</bpt>DownloadToStream<ept id="cb0d2e63-4174-441d-9b33-56b35879b24e">&lt;/code&gt;</ept> method to transfer the blob
+contents to a stream object that you can then persist to a local file.</target>
+        </trans-unit>
+        <trans-unit id="78a462b5-fff0-4e0c-8513-79c5c41d7b1e" xml:space="preserve">
+          <source>You can also use the <bpt id="21acddbf-3c66-4358-bb2d-1076503726c5">&lt;code&gt;</bpt>DownloadToStream<ept id="21acddbf-3c66-4358-bb2d-1076503726c5">&lt;/code&gt;</ept> method to download the contents of a blob as a text string.</source>
+          <target state="new">You can also use the <bpt id="21acddbf-3c66-4358-bb2d-1076503726c5">&lt;code&gt;</bpt>DownloadToStream<ept id="21acddbf-3c66-4358-bb2d-1076503726c5">&lt;/code&gt;</ept> method to download the contents of a blob as a text string.</target>
+        </trans-unit>
+        <trans-unit id="a0697e47-bb64-4d7e-bff3-cead047ec9a6" xml:space="preserve">
+          <source>To delete a blob, first get a blob reference and then call the
+<bpt id="25533251-bb68-43e4-b4fc-da08ac4939de">&lt;code&gt;</bpt>Delete<ept id="25533251-bb68-43e4-b4fc-da08ac4939de">&lt;/code&gt;</ept> method.</source>
+          <target state="new">To delete a blob, first get a blob reference and then call the
+<bpt id="25533251-bb68-43e4-b4fc-da08ac4939de">&lt;code&gt;</bpt>Delete<ept id="25533251-bb68-43e4-b4fc-da08ac4939de">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="b7e5deae-23f1-47e0-9684-40e39d58428e" xml:space="preserve">
+          <source>If you are listing a large number of blobs, or you want to control the number of results you return in one listing operation, you can list blobs in pages of results.</source>
+          <target state="new">If you are listing a large number of blobs, or you want to control the number of results you return in one listing operation, you can list blobs in pages of results.</target>
+        </trans-unit>
+        <trans-unit id="7fc842eb-a59e-4c76-9481-84abd9337ec1" xml:space="preserve">
+          <source>This example shows how to return results in pages asynchronously, so that execution is not blocked while waiting to return a large set of results.</source>
+          <target state="new">This example shows how to return results in pages asynchronously, so that execution is not blocked while waiting to return a large set of results.</target>
+        </trans-unit>
+        <trans-unit id="06a4cbdc-1c65-41b4-ab6a-364e720239e6" xml:space="preserve">
+          <source>This example shows a flat blob listing, but you can also perform a hierarchical listing, by setting the <bpt id="8fb3710a-a9f3-4043-b0bf-cf9895ab90b6">&lt;code&gt;</bpt>useFlatBlobListing<ept id="8fb3710a-a9f3-4043-b0bf-cf9895ab90b6">&lt;/code&gt;</ept> parameter of the <bpt id="40e364b6-b32e-49b2-a4ef-dab7781347e1">&lt;code&gt;</bpt>ListBlobsSegmentedAsync<ept id="40e364b6-b32e-49b2-a4ef-dab7781347e1">&lt;/code&gt;</ept> method to <bpt id="6b110076-ef50-4af3-8e5b-0d06dae1b350">&lt;code&gt;</bpt>false<ept id="6b110076-ef50-4af3-8e5b-0d06dae1b350">&lt;/code&gt;</ept>.</source>
+          <target state="new">This example shows a flat blob listing, but you can also perform a hierarchical listing, by setting the <bpt id="8fb3710a-a9f3-4043-b0bf-cf9895ab90b6">&lt;code&gt;</bpt>useFlatBlobListing<ept id="8fb3710a-a9f3-4043-b0bf-cf9895ab90b6">&lt;/code&gt;</ept> parameter of the <bpt id="40e364b6-b32e-49b2-a4ef-dab7781347e1">&lt;code&gt;</bpt>ListBlobsSegmentedAsync<ept id="40e364b6-b32e-49b2-a4ef-dab7781347e1">&lt;/code&gt;</ept> method to <bpt id="6b110076-ef50-4af3-8e5b-0d06dae1b350">&lt;code&gt;</bpt>false<ept id="6b110076-ef50-4af3-8e5b-0d06dae1b350">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="716b0f4f-9816-413f-badb-85ac60bba378" xml:space="preserve">
+          <source>Because the sample method calls an asynchronous method, it must be prefaced with the <bpt id="965e9d81-7a7a-4ad5-8f1a-1cc2aa40c8c9">&lt;code&gt;</bpt>async<ept id="965e9d81-7a7a-4ad5-8f1a-1cc2aa40c8c9">&lt;/code&gt;</ept> keyword, and it must return a <bpt id="c5b310f6-c49c-4cc3-8729-b322940c0052">&lt;code&gt;</bpt>Task<ept id="c5b310f6-c49c-4cc3-8729-b322940c0052">&lt;/code&gt;</ept> object.</source>
+          <target state="new">Because the sample method calls an asynchronous method, it must be prefaced with the <bpt id="965e9d81-7a7a-4ad5-8f1a-1cc2aa40c8c9">&lt;code&gt;</bpt>async<ept id="965e9d81-7a7a-4ad5-8f1a-1cc2aa40c8c9">&lt;/code&gt;</ept> keyword, and it must return a <bpt id="c5b310f6-c49c-4cc3-8729-b322940c0052">&lt;code&gt;</bpt>Task<ept id="c5b310f6-c49c-4cc3-8729-b322940c0052">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="15626ec7-5834-478b-b13d-c731472d3b06" xml:space="preserve">
+          <source>The await keyword specified for the <bpt id="54fc0e5a-4bdd-472a-902c-41283f95c4b2">&lt;code&gt;</bpt>ListBlobsSegmentedAsync<ept id="54fc0e5a-4bdd-472a-902c-41283f95c4b2">&lt;/code&gt;</ept> method suspends execution of the sample method until the listing task completes.</source>
+          <target state="new">The await keyword specified for the <bpt id="54fc0e5a-4bdd-472a-902c-41283f95c4b2">&lt;code&gt;</bpt>ListBlobsSegmentedAsync<ept id="54fc0e5a-4bdd-472a-902c-41283f95c4b2">&lt;/code&gt;</ept> method suspends execution of the sample method until the listing task completes.</target>
+        </trans-unit>
+        <trans-unit id="a26bbef1-ac11-4486-b272-4e3069b2b6a6" xml:space="preserve">
+          <source><bpt id="f1c4d589-9150-4716-a934-b751107c5a03">&lt;token href="../../includes/vs-storage-dotnet-blobs-next-steps.md"&gt;</bpt><ept id="f1c4d589-9150-4716-a934-b751107c5a03">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f1c4d589-9150-4716-a934-b751107c5a03">&lt;token href="../../includes/vs-storage-dotnet-blobs-next-steps.md"&gt;</bpt><ept id="f1c4d589-9150-4716-a934-b751107c5a03">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

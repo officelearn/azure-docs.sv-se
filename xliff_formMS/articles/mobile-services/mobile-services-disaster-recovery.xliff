@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e3b94d87-cc34-4e91-b38d-c55f90763f75" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e3b94d87-cc34-4e91-b38d-c55f90763f75" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="99c424cb-3030-4084-84dd-0a8659c366bb">
+        <trans-unit id="73a94887-d902-44d3-ab40-b3f583853bea" xml:space="preserve">
+          <source>Recover your mobile service in the event of a disaster | Microsoft Azure</source>
+          <target state="new">Recover your mobile service in the event of a disaster | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="12e44be7-25f2-4307-abfd-9ee3d347b89a" xml:space="preserve">
+          <source>Learn how to recover your mobile service in the event of a disaster.</source>
+          <target state="new">Learn how to recover your mobile service in the event of a disaster.</target>
+        </trans-unit>
+        <trans-unit id="881f7ce5-71ae-4245-b3b0-3f776432ccc7" xml:space="preserve">
+          <source>When you use Azure Mobile Services to deploy an app, you can use its built-in features to ensure business continuity in the event of availability problems, such as server failures, network disruptions, data loss, and widespread facilities loss.</source>
+          <target state="new">When you use Azure Mobile Services to deploy an app, you can use its built-in features to ensure business continuity in the event of availability problems, such as server failures, network disruptions, data loss, and widespread facilities loss.</target>
+        </trans-unit>
+        <trans-unit id="e38d3786-059f-4bd1-9686-cf0582659574" xml:space="preserve">
+          <source>By deploying your app using Azure Mobile Services you are taking advantage of many fault tolerance and infrastructure capabilities that you would have to design, implement, and manage if you were to deploy a traditional on-premise solution.</source>
+          <target state="new">By deploying your app using Azure Mobile Services you are taking advantage of many fault tolerance and infrastructure capabilities that you would have to design, implement, and manage if you were to deploy a traditional on-premise solution.</target>
+        </trans-unit>
+        <trans-unit id="45523500-12c6-4e09-bfa2-8579c0250ef0" xml:space="preserve">
+          <source>Azure mitigates a large fraction of potential failures at a fraction of the cost.</source>
+          <target state="new">Azure mitigates a large fraction of potential failures at a fraction of the cost.</target>
+        </trans-unit>
+        <trans-unit id="995ddd38-2802-4470-a26c-fc4b857f9d7a" xml:space="preserve">
+          <source>To make recovery easier in case of an availability problem, you can prepare for it in advance:</source>
+          <target state="new">To make recovery easier in case of an availability problem, you can prepare for it in advance:</target>
+        </trans-unit>
+        <trans-unit id="eb9be1d9-dff2-4dbe-82ba-5821e361418e" xml:space="preserve">
+          <source><bpt id="e3e9a3c5-90b3-4519-bd55-da9960ddab5e">&lt;strong&gt;</bpt>Back up your data in the Azure mobile service SQL Database<ept id="e3e9a3c5-90b3-4519-bd55-da9960ddab5e">&lt;/strong&gt;</ept>
+Your mobile service application data is stored in an Azure SQL Database.</source>
+          <target state="new"><bpt id="e3e9a3c5-90b3-4519-bd55-da9960ddab5e">&lt;strong&gt;</bpt>Back up your data in the Azure mobile service SQL Database<ept id="e3e9a3c5-90b3-4519-bd55-da9960ddab5e">&lt;/strong&gt;</ept>
+Your mobile service application data is stored in an Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="0c493871-227e-4328-89de-140e25909bed" xml:space="preserve">
+          <source>We recommend that you back it up as prescribed in the [SQL Database business continuity guidance].</source>
+          <target state="new">We recommend that you back it up as prescribed in the [SQL Database business continuity guidance].</target>
+        </trans-unit>
+        <trans-unit id="6a0e96f6-4d01-4506-8ebe-bbce9ec103bc" xml:space="preserve">
+          <source><bpt id="bbd5820d-3080-4fa2-b3a5-c1320ba08416">&lt;strong&gt;</bpt>Back up your mobile service scripts<ept id="bbd5820d-3080-4fa2-b3a5-c1320ba08416">&lt;/strong&gt;</ept>
+We recommend that you store your mobile service scripts in a source-control system such as [Team Foundation Service] or [GitHub] and not rely only on the copies in the mobile service itself.</source>
+          <target state="new"><bpt id="bbd5820d-3080-4fa2-b3a5-c1320ba08416">&lt;strong&gt;</bpt>Back up your mobile service scripts<ept id="bbd5820d-3080-4fa2-b3a5-c1320ba08416">&lt;/strong&gt;</ept>
+We recommend that you store your mobile service scripts in a source-control system such as [Team Foundation Service] or [GitHub] and not rely only on the copies in the mobile service itself.</target>
+        </trans-unit>
+        <trans-unit id="694afbef-a6bf-4902-b308-8656c8a3b35f" xml:space="preserve">
+          <source>You can download the scripts via the Azure portal, using the Mobile Services [source control feature], or [using the Azure CLI].</source>
+          <target state="new">You can download the scripts via the Azure portal, using the Mobile Services [source control feature], or [using the Azure CLI].</target>
+        </trans-unit>
+        <trans-unit id="c5cc707d-1982-48cc-9b59-c147dfc1b086" xml:space="preserve">
+          <source>Pay close attention to features labeled as "preview" in the portal, as recovery for those scripts is not guaranteed and you might need to recover them from your own source control original.</source>
+          <target state="new">Pay close attention to features labeled as "preview" in the portal, as recovery for those scripts is not guaranteed and you might need to recover them from your own source control original.</target>
+        </trans-unit>
+        <trans-unit id="91357524-11be-4440-a805-fafb719b2f56" xml:space="preserve">
+          <source><bpt id="a620580b-b5da-4370-9c2e-f02a5b237d6c">&lt;strong&gt;</bpt>Reserve a secondary mobile service<ept id="a620580b-b5da-4370-9c2e-f02a5b237d6c">&lt;/strong&gt;</ept>
+In the event of an availability problem with your mobile service, you may have to redeploy it to an alternate Azure region.</source>
+          <target state="new"><bpt id="a620580b-b5da-4370-9c2e-f02a5b237d6c">&lt;strong&gt;</bpt>Reserve a secondary mobile service<ept id="a620580b-b5da-4370-9c2e-f02a5b237d6c">&lt;/strong&gt;</ept>
+In the event of an availability problem with your mobile service, you may have to redeploy it to an alternate Azure region.</target>
+        </trans-unit>
+        <trans-unit id="83f0a5b2-29e2-443d-b46d-08dec044bc0a" xml:space="preserve">
+          <source>To ensure capacity is available (for example under rare circumstances such as the loss of an entire region), we recommend that you create a secondary mobile service in your alternate region and set its mode the same as or higher than the mode of your primary service.</source>
+          <target state="new">To ensure capacity is available (for example under rare circumstances such as the loss of an entire region), we recommend that you create a secondary mobile service in your alternate region and set its mode the same as or higher than the mode of your primary service.</target>
+        </trans-unit>
+        <trans-unit id="6ad053db-0cba-449a-8cf4-bef266eecfd8" xml:space="preserve">
+          <source>(If your primary service is in Basic mode, you can make the secondary service either Basic or Standard.</source>
+          <target state="new">(If your primary service is in Basic mode, you can make the secondary service either Basic or Standard.</target>
+        </trans-unit>
+        <trans-unit id="88fea998-c7a0-4e5a-9d55-afce1b156805" xml:space="preserve">
+          <source>But if the primary is Standard, then the secondary must also be Standard.)</source>
+          <target state="new">But if the primary is Standard, then the secondary must also be Standard.)</target>
+        </trans-unit>
+        <trans-unit id="388e30e8-265b-4d2d-aa39-0585b3c48357" xml:space="preserve">
+          <source>These circumstances indicate a problem that might require a recovery operation:</source>
+          <target state="new">These circumstances indicate a problem that might require a recovery operation:</target>
+        </trans-unit>
+        <trans-unit id="3b09b08c-0b25-46f4-81ef-3b9233297401" xml:space="preserve">
+          <source>Apps that are connected to your mobile service can't communicate with it for an extended period of time.</source>
+          <target state="new">Apps that are connected to your mobile service can't communicate with it for an extended period of time.</target>
+        </trans-unit>
+        <trans-unit id="e46270ca-1cd5-4691-ae4c-d241bcafecc5" xml:space="preserve">
+          <source>Mobile service status is displayed as <bpt id="8ef594d9-8720-464b-888c-ac9784d674df">&lt;strong&gt;</bpt>Unhealthy<ept id="8ef594d9-8720-464b-888c-ac9784d674df">&lt;/strong&gt;</ept> in the [Azure portal].</source>
+          <target state="new">Mobile service status is displayed as <bpt id="8ef594d9-8720-464b-888c-ac9784d674df">&lt;strong&gt;</bpt>Unhealthy<ept id="8ef594d9-8720-464b-888c-ac9784d674df">&lt;/strong&gt;</ept> in the [Azure portal].</target>
+        </trans-unit>
+        <trans-unit id="945bc3c3-b5a3-4b4b-bc98-376a5ad94758" xml:space="preserve">
+          <source>An <bpt id="3939d525-c0c7-41be-a7d8-258a6e78080c">&lt;strong&gt;</bpt>Unhealthy<ept id="3939d525-c0c7-41be-a7d8-258a6e78080c">&lt;/strong&gt;</ept> banner appears at the top of every tab for your mobile service in the Azure portal, and management operations produce error messages.</source>
+          <target state="new">An <bpt id="3939d525-c0c7-41be-a7d8-258a6e78080c">&lt;strong&gt;</bpt>Unhealthy<ept id="3939d525-c0c7-41be-a7d8-258a6e78080c">&lt;/strong&gt;</ept> banner appears at the top of every tab for your mobile service in the Azure portal, and management operations produce error messages.</target>
+        </trans-unit>
+        <trans-unit id="453d1a9b-d235-44c9-9784-9b090d99b092" xml:space="preserve">
+          <source>The [Azure Service Dashboard] indicates an availability problem.</source>
+          <target state="new">The [Azure Service Dashboard] indicates an availability problem.</target>
+        </trans-unit>
+        <trans-unit id="9aaeb074-e1a0-420d-b489-165cc0224b8c" xml:space="preserve">
+          <source>When a problem occurs, use the Service Dashboard to get guidance and updates.</source>
+          <target state="new">When a problem occurs, use the Service Dashboard to get guidance and updates.</target>
+        </trans-unit>
+        <trans-unit id="d43f8619-7209-4960-b2a1-aa7877d80441" xml:space="preserve">
+          <source>If you're prompted by the Service Dashboard, execute the following steps to restore your mobile service to a running state in an alternate Azure region.</source>
+          <target state="new">If you're prompted by the Service Dashboard, execute the following steps to restore your mobile service to a running state in an alternate Azure region.</target>
+        </trans-unit>
+        <trans-unit id="5d1d8c92-4c43-4d21-bec2-12b26357c705" xml:space="preserve">
+          <source>If you created a secondary service in advance, its capacity will be used to restore the primary service.</source>
+          <target state="new">If you created a secondary service in advance, its capacity will be used to restore the primary service.</target>
+        </trans-unit>
+        <trans-unit id="a24a0346-00bc-48f1-988b-d7b8c3687c57" xml:space="preserve">
+          <source>Because the URL and application key of the primary service is unchanged after recovery, you don't have to update any apps that refer to it.</source>
+          <target state="new">Because the URL and application key of the primary service is unchanged after recovery, you don't have to update any apps that refer to it.</target>
+        </trans-unit>
+        <trans-unit id="2091acf7-4c9b-4438-95e6-406ccde0d853" xml:space="preserve">
+          <source>To recover your mobile service after an outage:</source>
+          <target state="new">To recover your mobile service after an outage:</target>
+        </trans-unit>
+        <trans-unit id="a03852f1-6c26-48a2-9346-072ff2f8d4a8" xml:space="preserve">
+          <source>In the Azure portal, ensure that the status of your service is reported as <bpt id="96bbf7b0-0bd6-4fad-b3bf-608dac7f0536">&lt;strong&gt;</bpt>Unhealthy<ept id="96bbf7b0-0bd6-4fad-b3bf-608dac7f0536">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal, ensure that the status of your service is reported as <bpt id="96bbf7b0-0bd6-4fad-b3bf-608dac7f0536">&lt;strong&gt;</bpt>Unhealthy<ept id="96bbf7b0-0bd6-4fad-b3bf-608dac7f0536">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7402f0ce-a4fd-4acc-b635-05cea8a4824d" xml:space="preserve">
+          <source>If you already reserved a secondary mobile service, you can skip this step.</source>
+          <target state="new">If you already reserved a secondary mobile service, you can skip this step.</target>
+        </trans-unit>
+        <trans-unit id="2144b8c7-a35d-40d7-a966-eb17927ee255" xml:space="preserve">
+          <source>If you haven't already reserved a secondary mobile service, create one now in another Azure region.</source>
+          <target state="new">If you haven't already reserved a secondary mobile service, create one now in another Azure region.</target>
+        </trans-unit>
+        <trans-unit id="b6820de8-30da-491d-b4d7-309d48935985" xml:space="preserve">
+          <source>Set its scale mode the same as the mode of your primary service.</source>
+          <target state="new">Set its scale mode the same as the mode of your primary service.</target>
+        </trans-unit>
+        <trans-unit id="9e097b8c-155c-4879-9cd8-b348c1ab1d02" xml:space="preserve">
+          <source>Configure the Azure Command-Line Interface (Azure CLI) to work with your subscription, as described in [Automate mobile services with the Azure CLI].</source>
+          <target state="new">Configure the Azure Command-Line Interface (Azure CLI) to work with your subscription, as described in [Automate mobile services with the Azure CLI].</target>
+        </trans-unit>
+        <trans-unit id="a345f397-9379-4151-9bf1-b19b98a67f8c" xml:space="preserve">
+          <source>Now you can use your secondary service to recover your primary one.</source>
+          <target state="new">Now you can use your secondary service to recover your primary one.</target>
+        </trans-unit>
+        <trans-unit id="5a63a59c-cf80-42c1-9976-86b1d62c3eae" xml:space="preserve">
+          <source>In addition to migrating your files, the migrate command also updates the host name of your primary service to point to your secondary service so that client applications do not need to be updated.</source>
+          <target state="new">In addition to migrating your files, the migrate command also updates the host name of your primary service to point to your secondary service so that client applications do not need to be updated.</target>
+        </trans-unit>
+        <trans-unit id="92ec9eb0-9126-48aa-84dc-e8b4a68fd353" xml:space="preserve">
+          <source>However, it will take up to 30 minutes for the host name to resolve to the new service.</source>
+          <target state="new">However, it will take up to 30 minutes for the host name to resolve to the new service.</target>
+        </trans-unit>
+        <trans-unit id="a95d8bac-8255-4cd0-aa2b-7f4dac4c0e7b" xml:space="preserve">
+          <source>For this reason, it is recommended that the migrate command only be used in disaster recovery scenarios.</source>
+          <target state="new">For this reason, it is recommended that the migrate command only be used in disaster recovery scenarios.</target>
+        </trans-unit>
+        <trans-unit id="ff7012f9-438b-4e5e-bc25-cefeb0300a9e" xml:space="preserve">
+          <source>When you execute the command in this step, the secondary service is deleted so that its capacity can be used to recover the primary service.</source>
+          <target state="new">When you execute the command in this step, the secondary service is deleted so that its capacity can be used to recover the primary service.</target>
+        </trans-unit>
+        <trans-unit id="eb029ef4-355f-464d-a846-3f9e88ae09c9" xml:space="preserve">
+          <source>We recommend that you back up your scripts and settings before you run the command, if you would like to keep them.</source>
+          <target state="new">We recommend that you back up your scripts and settings before you run the command, if you would like to keep them.</target>
+        </trans-unit>
+        <trans-unit id="680760cf-59d5-4563-86e6-a8adc63e5d12" xml:space="preserve">
+          <source>When you're ready, execute this command:</source>
+          <target state="new">When you're ready, execute this command:</target>
+        </trans-unit>
+        <trans-unit id="5d4e3c15-d0a8-4c49-8ed1-064ea542de65" xml:space="preserve">
+          <source>It may take a few minutes after the command completes until you can see the changes in the portal.</source>
+          <target state="new">It may take a few minutes after the command completes until you can see the changes in the portal.</target>
+        </trans-unit>
+        <trans-unit id="5924d987-9b28-4d97-9098-2abd225218b4" xml:space="preserve">
+          <source>Verify that all scripts have been recovered correctly by comparing them to your originals in source control.</source>
+          <target state="new">Verify that all scripts have been recovered correctly by comparing them to your originals in source control.</target>
+        </trans-unit>
+        <trans-unit id="f37b4c26-674a-4d64-97b0-0ed9630c9904" xml:space="preserve">
+          <source>In most cases, scripts are automatically recovered without data loss, but if you find a discrepancy, you can recover that script manually.</source>
+          <target state="new">In most cases, scripts are automatically recovered without data loss, but if you find a discrepancy, you can recover that script manually.</target>
+        </trans-unit>
+        <trans-unit id="a1b8d2bf-dff0-4104-b5c9-618191adfc15" xml:space="preserve">
+          <source>Make sure that your recovered service is communicating with your Azure SQL Database.</source>
+          <target state="new">Make sure that your recovered service is communicating with your Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="f4a4ac3d-2e3e-4894-b2c5-f71332bbdc74" xml:space="preserve">
+          <source>The recover command recovers the mobile service, but retains the connection to the original database.</source>
+          <target state="new">The recover command recovers the mobile service, but retains the connection to the original database.</target>
+        </trans-unit>
+        <trans-unit id="6aee545c-bbbe-48c0-b2f6-b77a5a1b9e07" xml:space="preserve">
+          <source>If the problem in the primary Azure region also affects the database, the recovered service may still not be running correctly.</source>
+          <target state="new">If the problem in the primary Azure region also affects the database, the recovered service may still not be running correctly.</target>
+        </trans-unit>
+        <trans-unit id="d5fb72b4-5818-4da0-9c8a-a738e36dc23e" xml:space="preserve">
+          <source>You can use the Azure Service Dashboard to examine the database status for a given region.</source>
+          <target state="new">You can use the Azure Service Dashboard to examine the database status for a given region.</target>
+        </trans-unit>
+        <trans-unit id="39d25e40-d50b-4423-8b80-7379ea5247fc" xml:space="preserve">
+          <source>If the original database is not working, you can recover it:</source>
+          <target state="new">If the original database is not working, you can recover it:</target>
+        </trans-unit>
+        <trans-unit id="6d8362f9-981e-4e35-900a-0cafb2089bcf" xml:space="preserve">
+          <source>Recover your Azure SQL Database to the Azure region where you just recovered your mobile service, as described in [SQL Database business continuity guidance].</source>
+          <target state="new">Recover your Azure SQL Database to the Azure region where you just recovered your mobile service, as described in [SQL Database business continuity guidance].</target>
+        </trans-unit>
+        <trans-unit id="5ec7e5a3-a48a-4c48-a2e1-1ccd1e8718f4" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="f33068e9-af7e-42c4-8b72-365166b69430">&lt;strong&gt;</bpt>"Configure"<ept id="f33068e9-af7e-42c4-8b72-365166b69430">&lt;/strong&gt;</ept> tab of your mobile service, choose "Change database" and then select the newly recovered database.</source>
+          <target state="new">In the Azure portal, on the <bpt id="f33068e9-af7e-42c4-8b72-365166b69430">&lt;strong&gt;</bpt>"Configure"<ept id="f33068e9-af7e-42c4-8b72-365166b69430">&lt;/strong&gt;</ept> tab of your mobile service, choose "Change database" and then select the newly recovered database.</target>
+        </trans-unit>
+        <trans-unit id="88aabf38-7880-41e0-a6c5-768fa2691551" xml:space="preserve">
+          <source>Your mobile service is now hosted in a different physical location.</source>
+          <target state="new">Your mobile service is now hosted in a different physical location.</target>
+        </trans-unit>
+        <trans-unit id="1aa0ec08-6886-44a2-9cc2-b87593cc9250" xml:space="preserve">
+          <source>You'll need to update your publishing and/or git credentials to allow for updating your running site.</source>
+          <target state="new">You'll need to update your publishing and/or git credentials to allow for updating your running site.</target>
+        </trans-unit>
+        <trans-unit id="cd1803a3-7455-4a98-8fa4-029d350e03b9" xml:space="preserve">
+          <source>If you are using a <bpt id="c945d5f7-e382-4500-8f66-3dd3cbab5763">&lt;strong&gt;</bpt>.NET backend<ept id="c945d5f7-e382-4500-8f66-3dd3cbab5763">&lt;/strong&gt;</ept>, set up your publishing profile again, as described in <bpt id="629e05c3-730c-4ce7-8982-e5394b5fc368">&lt;linkText&gt;</bpt>Publish your mobile service<ept id="629e05c3-730c-4ce7-8982-e5394b5fc368">&lt;/linkText&gt;</ept><bpt id="629e05c3-730c-4ce7-8982-e5394b5fc368">&lt;title&gt;</bpt><ept id="629e05c3-730c-4ce7-8982-e5394b5fc368">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are using a <bpt id="c945d5f7-e382-4500-8f66-3dd3cbab5763">&lt;strong&gt;</bpt>.NET backend<ept id="c945d5f7-e382-4500-8f66-3dd3cbab5763">&lt;/strong&gt;</ept>, set up your publishing profile again, as described in <bpt id="629e05c3-730c-4ce7-8982-e5394b5fc368">&lt;linkText&gt;</bpt>Publish your mobile service<ept id="629e05c3-730c-4ce7-8982-e5394b5fc368">&lt;/linkText&gt;</ept><bpt id="629e05c3-730c-4ce7-8982-e5394b5fc368">&lt;title&gt;</bpt><ept id="629e05c3-730c-4ce7-8982-e5394b5fc368">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d347ea86-4848-49a2-8e15-83618dd6a464" xml:space="preserve">
+          <source>This will update your publishing details to point to the new service location.</source>
+          <target state="new">This will update your publishing details to point to the new service location.</target>
+        </trans-unit>
+        <trans-unit id="87804c71-1cb7-42a9-ab6e-4cce853953a0" xml:space="preserve">
+          <source>If you are using a <bpt id="f145cd23-b734-4680-8910-0f7bdfab44bb">&lt;strong&gt;</bpt>Javascript backend<ept id="f145cd23-b734-4680-8910-0f7bdfab44bb">&lt;/strong&gt;</ept> and managing your service with the Portal, you don't need to take any extra action.</source>
+          <target state="new">If you are using a <bpt id="f145cd23-b734-4680-8910-0f7bdfab44bb">&lt;strong&gt;</bpt>Javascript backend<ept id="f145cd23-b734-4680-8910-0f7bdfab44bb">&lt;/strong&gt;</ept> and managing your service with the Portal, you don't need to take any extra action.</target>
+        </trans-unit>
+        <trans-unit id="f1619ce6-7381-4f20-b70d-892dcd7c4fa3" xml:space="preserve">
+          <source>If you are using a <bpt id="e399cf62-14c3-4c7b-9156-da9dd81b2992">&lt;strong&gt;</bpt>Javascript backend<ept id="e399cf62-14c3-4c7b-9156-da9dd81b2992">&lt;/strong&gt;</ept> and managing your service with node, update your git remote to point to the new repository.</source>
+          <target state="new">If you are using a <bpt id="e399cf62-14c3-4c7b-9156-da9dd81b2992">&lt;strong&gt;</bpt>Javascript backend<ept id="e399cf62-14c3-4c7b-9156-da9dd81b2992">&lt;/strong&gt;</ept> and managing your service with node, update your git remote to point to the new repository.</target>
+        </trans-unit>
+        <trans-unit id="12903afb-ff24-4c50-90fb-2a41d5a9342b" xml:space="preserve">
+          <source>To do this, you remove the .git file path from your git remote:</source>
+          <target state="new">To do this, you remove the .git file path from your git remote:</target>
+        </trans-unit>
+        <trans-unit id="5e563815-73a3-497d-bf25-3cec217bd2ad" xml:space="preserve">
+          <source>Find your current origin remote:
+    git remote -v
+     origin  https://myservice.scm.azure-mobile.net/myservice.git (fetch)
+     origin  https://myservice.scm.azure-mobile.net/myservice.git (push)</source>
+          <target state="new">Find your current origin remote:
+    git remote -v
+     origin  https://myservice.scm.azure-mobile.net/myservice.git (fetch)
+     origin  https://myservice.scm.azure-mobile.net/myservice.git (push)</target>
+        </trans-unit>
+        <trans-unit id="f8a0905d-b169-40aa-adb2-89ab0a5289b7" xml:space="preserve">
+          <source>Update the remote using with the same url, but without the final .git file path:
+    git remote set-url origin https://myservice.scm.azure-mobile.net</source>
+          <target state="new">Update the remote using with the same url, but without the final .git file path:
+    git remote set-url origin https://myservice.scm.azure-mobile.net</target>
+        </trans-unit>
+        <trans-unit id="2c15e218-a30c-4656-8955-4a6ae2c08b9a" xml:space="preserve">
+          <source>Pull from origin to verify that it is working correctly.</source>
+          <target state="new">Pull from origin to verify that it is working correctly.</target>
+        </trans-unit>
+        <trans-unit id="9436bcb0-ec93-461c-a740-e44384ebe5c7" xml:space="preserve">
+          <source>Now you should be in a state where your mobile service has been recovered to a new Azure region and is now accepting traffic from your store apps using its original URL.</source>
+          <target state="new">Now you should be in a state where your mobile service has been recovered to a new Azure region and is now accepting traffic from your store apps using its original URL.</target>
+        </trans-unit>
+        <trans-unit id="8a3d9c36-a5a1-4aff-9e9b-a01797e88294" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/hh852669.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/hh852669.aspx</target>
+        </trans-unit>
+        <trans-unit id="12ae55c3-abd1-44f6-8acd-c841da06c671" xml:space="preserve">
+          <source>http://tfs.visualstudio.com/</source>
+          <target state="new">http://tfs.visualstudio.com/</target>
+        </trans-unit>
+        <trans-unit id="3622c252-c475-46a5-b6c5-f1a62d1ec92b" xml:space="preserve">
+          <source>http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/</source>
+          <target state="new">http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/</target>
+        </trans-unit>
+        <trans-unit id="522fe549-f50a-4515-80ee-d90ceed4b36c" xml:space="preserve">
+          <source>http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/</source>
+          <target state="new">http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/</target>
+        </trans-unit>
+        <trans-unit id="fe1fee44-eca0-4f70-b180-99bd3c6ff2d4" xml:space="preserve">
+          <source>http://manage.windowsazure.com/</source>
+          <target state="new">http://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="f3cf3626-a336-40eb-97cf-a13528dc9c5e" xml:space="preserve">
+          <source>http://www.windowsazure.com/support/service-dashboard/</source>
+          <target state="new">http://www.windowsazure.com/support/service-dashboard/</target>
+        </trans-unit>
+        <trans-unit id="cc942964-c4c7-4f9a-80e4-d9b7d38c523d" xml:space="preserve">
+          <source>http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/</source>
+          <target state="new">http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/</target>
+        </trans-unit>
+      </group>
+      <group id="9177fb85-43c1-4a39-9030-e777e50ced1b" />
+    </body>
+  </file>
+</xliff>

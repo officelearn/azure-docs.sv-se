@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="418a6bc7-c5b7-4f94-9c2a-385ed8e84f09" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="418a6bc7-c5b7-4f94-9c2a-385ed8e84f09" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="68d4896c-8131-48a1-8b27-2e57e59b00a9">
+        <trans-unit id="1156945f-4503-4e8a-9625-a90b48d90ebc" xml:space="preserve">
+          <source>This data comes from the KDD Cup 2009 customer relationship prediction challenge (&lt;a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange<bpt id="75966ea1-d563-47a1-97b1-eb196fdd3fb8">&lt;em&gt;</bpt>small<ept id="75966ea1-d563-47a1-97b1-eb196fdd3fb8">&lt;/em&gt;</ept>train.data.zip"&gt;orange<bpt id="b0738344-8286-43a1-bad4-c2ef19ee7b78">&lt;em&gt;</bpt>small<ept id="b0738344-8286-43a1-bad4-c2ef19ee7b78">&lt;/em&gt;</ept>train.data.zip&lt;/a&gt;).&lt;p&gt; &lt;/p&gt;The dataset contains 50K customers from the French Telecom company Orange.</source>
+          <target state="new">This data comes from the KDD Cup 2009 customer relationship prediction challenge (&lt;a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange<bpt id="75966ea1-d563-47a1-97b1-eb196fdd3fb8">&lt;em&gt;</bpt>small<ept id="75966ea1-d563-47a1-97b1-eb196fdd3fb8">&lt;/em&gt;</ept>train.data.zip"&gt;orange<bpt id="b0738344-8286-43a1-bad4-c2ef19ee7b78">&lt;em&gt;</bpt>small<ept id="b0738344-8286-43a1-bad4-c2ef19ee7b78">&lt;/em&gt;</ept>train.data.zip&lt;/a&gt;).&lt;p&gt; &lt;/p&gt;The dataset contains 50K customers from the French Telecom company Orange.</target>
+        </trans-unit>
+        <trans-unit id="e22860b2-853d-41f7-b655-583ab05eb90e" xml:space="preserve">
+          <source>Each customer has 230 anonymized features, 190 of which are numeric and 40 are categorical.</source>
+          <target state="new">Each customer has 230 anonymized features, 190 of which are numeric and 40 are categorical.</target>
+        </trans-unit>
+        <trans-unit id="47127ba8-fa3a-43e3-b7c3-6444f524ee9d" xml:space="preserve">
+          <source>The features are very sparse.</source>
+          <target state="new">The features are very sparse.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

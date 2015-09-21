@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bd5eaebf-3eaa-4d96-9faa-a47d49eba970" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bd5eaebf-3eaa-4d96-9faa-a47d49eba970" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="03b8beca-758c-41be-8c62-937e28434742">
+        <trans-unit id="493bc2ed-b498-480b-b92e-7000f3ce198c" xml:space="preserve">
+          <source>Install regular updates via Windows PowerShell for StorSimple</source>
+          <target state="new">Install regular updates via Windows PowerShell for StorSimple</target>
+        </trans-unit>
+        <trans-unit id="8aef5b10-e546-4d3f-bb30-e5f2a8452a16" xml:space="preserve">
+          <source>Explains how to use the StorSimple update feature and Windows PowerShell for StorSimple to install  regular updates.</source>
+          <target state="new">Explains how to use the StorSimple update feature and Windows PowerShell for StorSimple to install  regular updates.</target>
+        </trans-unit>
+        <trans-unit id="ac28ef96-1c79-454e-ab19-7d9732b8deb2" xml:space="preserve">
+          <source>Open the device serial console and select option 1, <bpt id="3be995b2-4e5f-48b0-bb48-0b36e65b122f">&lt;strong&gt;</bpt>Log in with full access<ept id="3be995b2-4e5f-48b0-bb48-0b36e65b122f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the device serial console and select option 1, <bpt id="3be995b2-4e5f-48b0-bb48-0b36e65b122f">&lt;strong&gt;</bpt>Log in with full access<ept id="3be995b2-4e5f-48b0-bb48-0b36e65b122f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9422735-b305-46fe-ac32-5536cf099f25" xml:space="preserve">
+          <source>Type the password.</source>
+          <target state="new">Type the password.</target>
+        </trans-unit>
+        <trans-unit id="56af4be2-ce0d-4fca-add8-9c28302ba3db" xml:space="preserve">
+          <source>The default password is <bpt id="8093e064-de94-4790-b0a2-c8bff4ac197a">&lt;em&gt;</bpt>Password1<ept id="8093e064-de94-4790-b0a2-c8bff4ac197a">&lt;/em&gt;</ept>.</source>
+          <target state="new">The default password is <bpt id="8093e064-de94-4790-b0a2-c8bff4ac197a">&lt;em&gt;</bpt>Password1<ept id="8093e064-de94-4790-b0a2-c8bff4ac197a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb7b8a5e-cdfc-42d7-a81d-32f6bc82cf7a" xml:space="preserve">
+          <source>At the command prompt, type:</source>
+          <target state="new">At the command prompt, type:</target>
+        </trans-unit>
+        <trans-unit id="987861fb-2604-44f6-8950-6232357053e3" xml:space="preserve">
+          <source> <bpt id="1135e62e-05ef-4b47-8e35-30eba65e2716">&lt;code&gt;</bpt>Get-HcsUpdateAvailability<ept id="1135e62e-05ef-4b47-8e35-30eba65e2716">&lt;/code&gt;</ept></source>
+          <target state="new"> <bpt id="1135e62e-05ef-4b47-8e35-30eba65e2716">&lt;code&gt;</bpt>Get-HcsUpdateAvailability<ept id="1135e62e-05ef-4b47-8e35-30eba65e2716">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aee9a865-a80c-4f06-b36e-2d663ca196c0" xml:space="preserve">
+          <source>You will be notified if updates are available and whether the updates are disruptive or non-disruptive.</source>
+          <target state="new">You will be notified if updates are available and whether the updates are disruptive or non-disruptive.</target>
+        </trans-unit>
+        <trans-unit id="bb91b430-4078-4055-ac84-0b2b057fa109" xml:space="preserve">
+          <source>At the command prompt, type:</source>
+          <target state="new">At the command prompt, type:</target>
+        </trans-unit>
+        <trans-unit id="8ac536d2-499d-4814-9e73-728e03418d0a" xml:space="preserve">
+          <source> <bpt id="8b639250-8cfe-437f-97c6-373e078c6b2e">&lt;code&gt;</bpt>Start-HcsUpdate<ept id="8b639250-8cfe-437f-97c6-373e078c6b2e">&lt;/code&gt;</ept></source>
+          <target state="new"> <bpt id="8b639250-8cfe-437f-97c6-373e078c6b2e">&lt;code&gt;</bpt>Start-HcsUpdate<ept id="8b639250-8cfe-437f-97c6-373e078c6b2e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2defa7e1-87aa-46dd-9723-ef8760d7af2d" xml:space="preserve">
+          <source>The update process will start.</source>
+          <target state="new">The update process will start.</target>
+        </trans-unit>
+        <trans-unit id="8a6d99fc-fb18-43da-be4c-6b1e70f49c13" xml:space="preserve">
+          <source>This command applies only to regular updates.</source>
+          <target state="new">This command applies only to regular updates.</target>
+        </trans-unit>
+        <trans-unit id="0d56ce1b-41c7-432e-9e7f-fca274569b79" xml:space="preserve">
+          <source>You run this command on only one controller, but both controllers will be updated.</source>
+          <target state="new">You run this command on only one controller, but both controllers will be updated.</target>
+        </trans-unit>
+        <trans-unit id="2963c115-4ea1-4a2b-902d-bbf74d525585" xml:space="preserve">
+          <source>You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.</source>
+          <target state="new">You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

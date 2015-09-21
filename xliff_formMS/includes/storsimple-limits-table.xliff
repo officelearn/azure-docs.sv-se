@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1b78cac0-e958-4ac5-9334-7a11ceac2e08" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1b78cac0-e958-4ac5-9334-7a11ceac2e08" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="76efa962-4934-486e-ba11-875528b928e9">
+        <trans-unit id="223d7786-3fdf-40eb-bdae-0d84ab7b48fc" xml:space="preserve">
+          <source>StorSimple system limits table</source>
+          <target state="new">StorSimple system limits table</target>
+        </trans-unit>
+        <trans-unit id="20109941-bbd4-4025-8604-d74b5e66aa28" xml:space="preserve">
+          <source>Describes system limits and recommended sizes for StorSimple components and connections.</source>
+          <target state="new">Describes system limits and recommended sizes for StorSimple components and connections.</target>
+        </trans-unit>
+        <trans-unit id="f3e96c0e-fcb7-4e81-9b4f-c8ce10e5c505" xml:space="preserve">
+          <source>Limit identifier</source>
+          <target state="new">Limit identifier</target>
+        </trans-unit>
+        <trans-unit id="d14d2bb3-bdb1-46ad-81ea-93f393027794" xml:space="preserve">
+          <source>Limit</source>
+          <target state="new">Limit</target>
+        </trans-unit>
+        <trans-unit id="0e43ba5e-7b85-402f-9e61-1e35c2567267" xml:space="preserve">
+          <source>Comments</source>
+          <target state="new">Comments</target>
+        </trans-unit>
+        <trans-unit id="21b689e5-24e6-4ce2-b259-a90cf6bfaca1" xml:space="preserve">
+          <source>Maximum number of storage account credentials</source>
+          <target state="new">Maximum number of storage account credentials</target>
+        </trans-unit>
+        <trans-unit id="de5186ee-935c-4c2b-9508-fd4551816b46" xml:space="preserve">
+          <source>64</source>
+          <target state="new">64</target>
+        </trans-unit>
+        <trans-unit id="e0d49d37-344f-40fb-9d34-ce8c38d49eca" xml:space="preserve">
+          <source>Maximum number of volume containers</source>
+          <target state="new">Maximum number of volume containers</target>
+        </trans-unit>
+        <trans-unit id="633ad530-98d9-456d-9058-7cede1328997" xml:space="preserve">
+          <source>64</source>
+          <target state="new">64</target>
+        </trans-unit>
+        <trans-unit id="f5bff8e9-ac51-4afd-8e3d-da6431e87302" xml:space="preserve">
+          <source>Maximum number of volumes</source>
+          <target state="new">Maximum number of volumes</target>
+        </trans-unit>
+        <trans-unit id="36cd48c0-6b0d-4f72-a3b4-e8e2cd2ba29d" xml:space="preserve">
+          <source>255</source>
+          <target state="new">255</target>
+        </trans-unit>
+        <trans-unit id="0ee1b157-c1ba-4e51-b547-b2ccc70f921c" xml:space="preserve">
+          <source>Maximum number of schedules per bandwidth template</source>
+          <target state="new">Maximum number of schedules per bandwidth template</target>
+        </trans-unit>
+        <trans-unit id="ac5f3faa-2786-4154-8a7e-c9244c19f73d" xml:space="preserve">
+          <source>168</source>
+          <target state="new">168</target>
+        </trans-unit>
+        <trans-unit id="546e7a18-84fe-4de0-88fc-689f6b1d64c4" xml:space="preserve">
+          <source>A schedule for every hour, every day of the week (24*7).</source>
+          <target state="new">A schedule for every hour, every day of the week (24*7).</target>
+        </trans-unit>
+        <trans-unit id="01635692-91c4-4a21-9c95-54e149edbeb6" xml:space="preserve">
+          <source>Maximum size of a volume</source>
+          <target state="new">Maximum size of a volume</target>
+        </trans-unit>
+        <trans-unit id="a3b931a0-8fa2-41fb-a924-36d997fa3cda" xml:space="preserve">
+          <source>64 TB</source>
+          <target state="new">64 TB</target>
+        </trans-unit>
+        <trans-unit id="35d394a4-4b67-428d-9864-74040af0b8fc" xml:space="preserve">
+          <source>Maximum number of iSCSI connections</source>
+          <target state="new">Maximum number of iSCSI connections</target>
+        </trans-unit>
+        <trans-unit id="5ce58a7f-1a80-4649-917a-13db71c5abc0" xml:space="preserve">
+          <source>512</source>
+          <target state="new">512</target>
+        </trans-unit>
+        <trans-unit id="50cf706a-e763-4546-a226-a7aab3032890" xml:space="preserve">
+          <source>Maximum number of iSCSI connections from initiators</source>
+          <target state="new">Maximum number of iSCSI connections from initiators</target>
+        </trans-unit>
+        <trans-unit id="01451660-6208-4106-8afc-ca2543bbc480" xml:space="preserve">
+          <source>512</source>
+          <target state="new">512</target>
+        </trans-unit>
+        <trans-unit id="eca269db-5407-4f1a-ac99-37fd32c4cb2c" xml:space="preserve">
+          <source>Maximum number of access control records per device</source>
+          <target state="new">Maximum number of access control records per device</target>
+        </trans-unit>
+        <trans-unit id="fe9f6b7d-c17b-4c5b-8292-30cf34d5e5c2" xml:space="preserve">
+          <source>64</source>
+          <target state="new">64</target>
+        </trans-unit>
+        <trans-unit id="a968274b-9d7c-419f-87d4-6aaac15345a8" xml:space="preserve">
+          <source>Maximum number of volumes per backup policy</source>
+          <target state="new">Maximum number of volumes per backup policy</target>
+        </trans-unit>
+        <trans-unit id="40c3ca9f-4c37-4e2c-b6e0-ba03e75d3e46" xml:space="preserve">
+          <source>24</source>
+          <target state="new">24</target>
+        </trans-unit>
+        <trans-unit id="ae8fc1a4-6587-40c8-ac4c-bba293117b5d" xml:space="preserve">
+          <source>Maximum number of backups retained per backup policy</source>
+          <target state="new">Maximum number of backups retained per backup policy</target>
+        </trans-unit>
+        <trans-unit id="bb2ebd01-fdb4-4721-b547-9a193d12c503" xml:space="preserve">
+          <source>64</source>
+          <target state="new">64</target>
+        </trans-unit>
+        <trans-unit id="c985a122-d0c3-4534-bb08-aaa7c3d0aec2" xml:space="preserve">
+          <source>Maximum number of schedules per backup policy</source>
+          <target state="new">Maximum number of schedules per backup policy</target>
+        </trans-unit>
+        <trans-unit id="43cd7527-acce-4378-b278-7d698d0777cb" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="ca882c6b-5c96-4f27-8e23-874c28c5d69e" xml:space="preserve">
+          <source>Maximum number of snapshots of any type that can be retained per volume</source>
+          <target state="new">Maximum number of snapshots of any type that can be retained per volume</target>
+        </trans-unit>
+        <trans-unit id="b7b17719-d8a7-4fd2-9f73-fd1168f15262" xml:space="preserve">
+          <source>256</source>
+          <target state="new">256</target>
+        </trans-unit>
+        <trans-unit id="111cbf67-956a-480a-9118-3f0854cbe769" xml:space="preserve">
+          <source>This includes local snapshots and cloud snapshots.</source>
+          <target state="new">This includes local snapshots and cloud snapshots.</target>
+        </trans-unit>
+        <trans-unit id="8f41b0a1-6f26-4607-973b-9897fed40dd9" xml:space="preserve">
+          <source>Maximum number of snapshots that can be present in any device</source>
+          <target state="new">Maximum number of snapshots that can be present in any device</target>
+        </trans-unit>
+        <trans-unit id="2ea7ca05-cec3-4771-b414-577d2d9d3cbf" xml:space="preserve">
+          <source>10,000</source>
+          <target state="new">10,000</target>
+        </trans-unit>
+        <trans-unit id="fb5fc199-cd3d-411d-b7c6-7e014519c345" xml:space="preserve">
+          <source>Maximum number of volumes that can be processed in parallel for backup, restore, or clone</source>
+          <target state="new">Maximum number of volumes that can be processed in parallel for backup, restore, or clone</target>
+        </trans-unit>
+        <trans-unit id="d342b7f2-da41-4e0c-ba3f-f641f60ff528" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="b21b3281-5618-40ea-adf4-80ce0f8712f7" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;If there are more than 16 volumes, they will be processed sequentially as processing slots become available.&lt;/li&gt;&lt;li&gt;New backups of a cloned or a restored volume cannot occur until the operation is finished.&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;If there are more than 16 volumes, they will be processed sequentially as processing slots become available.&lt;/li&gt;&lt;li&gt;New backups of a cloned or a restored volume cannot occur until the operation is finished.&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="18d590f4-c127-4969-badf-7240bcba4142" xml:space="preserve">
+          <source>Restore and clone recover time</source>
+          <target state="new">Restore and clone recover time</target>
+        </trans-unit>
+        <trans-unit id="419bfc9c-e48b-4d55-9122-26402d2c84f5" xml:space="preserve">
+          <source>&lt; 2 minutes</source>
+          <target state="new">&lt; 2 minutes</target>
+        </trans-unit>
+        <trans-unit id="6055a774-89e3-4e1e-a620-70361439cb5f" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.&lt;/li&gt;&lt;li&gt;The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.&lt;/li&gt;&lt;li&gt;The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.&lt;/li&gt;&lt;li&gt;The restore or clone operation is complete when all the metadata is on the device.&lt;/li&gt;&lt;li&gt;Backup operations cannot be performed until the restore or clone operation is fully complete.</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.&lt;/li&gt;&lt;li&gt;The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.&lt;/li&gt;&lt;li&gt;The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.&lt;/li&gt;&lt;li&gt;The restore or clone operation is complete when all the metadata is on the device.&lt;/li&gt;&lt;li&gt;Backup operations cannot be performed until the restore or clone operation is fully complete.</target>
+        </trans-unit>
+        <trans-unit id="9b711982-331c-4647-8985-7daefe9c5be2" xml:space="preserve">
+          <source>Thin-restore availability</source>
+          <target state="new">Thin-restore availability</target>
+        </trans-unit>
+        <trans-unit id="3d4f2740-539d-4a84-8214-97e47198783a" xml:space="preserve">
+          <source>Last failover</source>
+          <target state="new">Last failover</target>
+        </trans-unit>
+        <trans-unit id="54dd8119-88b2-4ff5-83e0-ddcbdfdb6a6a" xml:space="preserve">
+          <source>Maximum client read/write throughput (when served from the SSD tier)*</source>
+          <target state="new">Maximum client read/write throughput (when served from the SSD tier)*</target>
+        </trans-unit>
+        <trans-unit id="3314aa69-7442-4cb1-a34b-09c63d80942d" xml:space="preserve">
+          <source>920/720 MB/s with a single 10GbE network interface</source>
+          <target state="new">920/720 MB/s with a single 10GbE network interface</target>
+        </trans-unit>
+        <trans-unit id="5499b951-f345-4305-9482-4eecce10911d" xml:space="preserve">
+          <source>Up to 2x with MPIO and two network interfaces.</source>
+          <target state="new">Up to 2x with MPIO and two network interfaces.</target>
+        </trans-unit>
+        <trans-unit id="a7e9c81f-134d-474d-8cdb-55d3265f841c" xml:space="preserve">
+          <source>Maximum client read/write throughput (when served from the HDD tier)*</source>
+          <target state="new">Maximum client read/write throughput (when served from the HDD tier)*</target>
+        </trans-unit>
+        <trans-unit id="dd2dcc76-8733-4ed1-81c2-d519afdc320c" xml:space="preserve">
+          <source>120/250 MB/s</source>
+          <target state="new">120/250 MB/s</target>
+        </trans-unit>
+        <trans-unit id="a2a02b28-266d-4400-a9cf-8c547d012a7d" xml:space="preserve">
+          <source>Maximum client read/write throughput (when served from the cloud tier)*</source>
+          <target state="new">Maximum client read/write throughput (when served from the cloud tier)*</target>
+        </trans-unit>
+        <trans-unit id="71a2d583-418e-4c79-97a8-078ad9127024" xml:space="preserve">
+          <source>11/41 MB/s</source>
+          <target state="new">11/41 MB/s</target>
+        </trans-unit>
+        <trans-unit id="80833b8c-eb97-485b-a1e1-75c1e087a48c" xml:space="preserve">
+          <source>Read throughput depends on clients generating and maintaining sufficient I/O queue depth.</source>
+          <target state="new">Read throughput depends on clients generating and maintaining sufficient I/O queue depth.</target>
+        </trans-unit>
+        <trans-unit id="9e54e574-c603-49b4-91d4-0b0be8770847" xml:space="preserve">
+          <source>&amp;#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios.</source>
+          <target state="new">&amp;#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios.</target>
+        </trans-unit>
+        <trans-unit id="9c622d80-68ea-4242-b56b-baf7c3804f84" xml:space="preserve">
+          <source>Actual throughput may be lower and depends on I/O mix and network conditions.</source>
+          <target state="new">Actual throughput may be lower and depends on I/O mix and network conditions.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

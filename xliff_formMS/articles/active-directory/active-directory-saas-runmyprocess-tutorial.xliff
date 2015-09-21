@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e60d8472-3f46-4339-9d35-d3991e613b7b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e60d8472-3f46-4339-9d35-d3991e613b7b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bf9ad92e-f987-4e56-8a2e-bd39546dbe4f">
+        <trans-unit id="93449d91-9e94-4f69-9fb4-7664c3cae294" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with RunMyProcess | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with RunMyProcess | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2b9004d2-b21e-43d4-a8ae-40f1f04e00c5" xml:space="preserve">
+          <source>Learn how to use RunMyProcess with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use RunMyProcess with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="fbf59d69-7938-4478-8909-b8f3da0579a8" xml:space="preserve">
+          <source>For feedback, click <bpt id="b4ceefbc-a433-4a4d-b7db-ba0146f5082a">&lt;linkText&gt;</bpt>here<ept id="b4ceefbc-a433-4a4d-b7db-ba0146f5082a">&lt;/linkText&gt;</ept><bpt id="b4ceefbc-a433-4a4d-b7db-ba0146f5082a">&lt;title&gt;</bpt><ept id="b4ceefbc-a433-4a4d-b7db-ba0146f5082a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="b4ceefbc-a433-4a4d-b7db-ba0146f5082a">&lt;linkText&gt;</bpt>here<ept id="b4ceefbc-a433-4a4d-b7db-ba0146f5082a">&lt;/linkText&gt;</ept><bpt id="b4ceefbc-a433-4a4d-b7db-ba0146f5082a">&lt;title&gt;</bpt><ept id="b4ceefbc-a433-4a4d-b7db-ba0146f5082a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4bee150-a214-45d9-9669-73700956cbe5" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and RunMyProcess.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and RunMyProcess.</target>
+        </trans-unit>
+        <trans-unit id="a74e933a-4501-4d6c-b749-daae396d9df2" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="8a79b170-73ed-49fe-8c23-5481a65b1bc2" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="45d93478-b923-4bcb-bb2b-bd1ad14d086b" xml:space="preserve">
+          <source>A RunMyProcess tenant</source>
+          <target state="new">A RunMyProcess tenant</target>
+        </trans-unit>
+        <trans-unit id="dc0fe976-e27c-48dd-935b-36e2987c5d74" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to RunMyProcess will be able to single sign into the application at your RunMyProcess company site (service provider initiated sign on), or using the <bpt id="be0a7342-31f0-4241-937e-0674ec0829c5">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="be0a7342-31f0-4241-937e-0674ec0829c5">&lt;/linkText&gt;</ept><bpt id="be0a7342-31f0-4241-937e-0674ec0829c5">&lt;title&gt;</bpt><ept id="be0a7342-31f0-4241-937e-0674ec0829c5">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to RunMyProcess will be able to single sign into the application at your RunMyProcess company site (service provider initiated sign on), or using the <bpt id="be0a7342-31f0-4241-937e-0674ec0829c5">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="be0a7342-31f0-4241-937e-0674ec0829c5">&lt;/linkText&gt;</ept><bpt id="be0a7342-31f0-4241-937e-0674ec0829c5">&lt;title&gt;</bpt><ept id="be0a7342-31f0-4241-937e-0674ec0829c5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b63c44d4-9a5e-467f-998b-e2c36422d7ec" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="e2655c0a-8468-4bc3-a2f6-9614fdb4d6b4" xml:space="preserve">
+          <source>Enabling the application integration for RunMyProcess</source>
+          <target state="new">Enabling the application integration for RunMyProcess</target>
+        </trans-unit>
+        <trans-unit id="1b241425-ec73-42d8-a34a-c059d992809c" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="6169d955-8e02-4be4-a628-bb9ba877a381" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="d1cf19fb-6612-482c-a42d-be19784a3450" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="315080db-6bc1-4bb6-9660-f93512a62775" xml:space="preserve">
+          <source><bpt id="22f1ad93-38e7-4ad6-b456-24727a3149ba">&lt;linkText&gt;</bpt>Scenario<ept id="22f1ad93-38e7-4ad6-b456-24727a3149ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22f1ad93-38e7-4ad6-b456-24727a3149ba">&lt;linkText&gt;</bpt>Scenario<ept id="22f1ad93-38e7-4ad6-b456-24727a3149ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a01656e-7724-46b9-8ffb-97112b0540e9" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for RunMyProcess.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for RunMyProcess.</target>
+        </trans-unit>
+        <trans-unit id="8c5852b3-b9ec-46cf-be13-79a02aa20373" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="80261da8-a3ad-49db-8dc9-16abeae8bfd3">&lt;strong&gt;</bpt>Active Directory<ept id="80261da8-a3ad-49db-8dc9-16abeae8bfd3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="80261da8-a3ad-49db-8dc9-16abeae8bfd3">&lt;strong&gt;</bpt>Active Directory<ept id="80261da8-a3ad-49db-8dc9-16abeae8bfd3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43333954-1a11-4c31-ad84-14837d48d335" xml:space="preserve">
+          <source><bpt id="fcb2278a-c9f8-440c-9031-31af73b3f061">&lt;linkText&gt;</bpt>Active Directory<ept id="fcb2278a-c9f8-440c-9031-31af73b3f061">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fcb2278a-c9f8-440c-9031-31af73b3f061">&lt;linkText&gt;</bpt>Active Directory<ept id="fcb2278a-c9f8-440c-9031-31af73b3f061">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83ce1ec7-8bd6-4b94-9dd6-955eb30e496b" xml:space="preserve">
+          <source>From the <bpt id="0da03ef0-7889-455c-9ded-b6ecad4402b6">&lt;strong&gt;</bpt>Directory<ept id="0da03ef0-7889-455c-9ded-b6ecad4402b6">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="0da03ef0-7889-455c-9ded-b6ecad4402b6">&lt;strong&gt;</bpt>Directory<ept id="0da03ef0-7889-455c-9ded-b6ecad4402b6">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="1f383faf-e089-47de-8ad8-47b55d898a0e" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="4d9a453c-df15-428d-8672-78bbec2032c1">&lt;strong&gt;</bpt>Applications<ept id="4d9a453c-df15-428d-8672-78bbec2032c1">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="4d9a453c-df15-428d-8672-78bbec2032c1">&lt;strong&gt;</bpt>Applications<ept id="4d9a453c-df15-428d-8672-78bbec2032c1">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="54e8270a-8768-40d8-b217-c87d5ef4f7d6" xml:space="preserve">
+          <source><bpt id="2accd133-f466-4603-b967-30ee894617dc">&lt;linkText&gt;</bpt>Applications<ept id="2accd133-f466-4603-b967-30ee894617dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2accd133-f466-4603-b967-30ee894617dc">&lt;linkText&gt;</bpt>Applications<ept id="2accd133-f466-4603-b967-30ee894617dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49c5450c-30a0-409c-aa57-603ce20eb221" xml:space="preserve">
+          <source>Click <bpt id="6ff3ef05-ad84-4712-8963-fea610027e80">&lt;strong&gt;</bpt>Add<ept id="6ff3ef05-ad84-4712-8963-fea610027e80">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="6ff3ef05-ad84-4712-8963-fea610027e80">&lt;strong&gt;</bpt>Add<ept id="6ff3ef05-ad84-4712-8963-fea610027e80">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="e7823777-ace2-4c1e-8a6a-5e87264151c4" xml:space="preserve">
+          <source><bpt id="eabf2357-50d5-4600-9fa3-5dad2c4c14d5">&lt;linkText&gt;</bpt>Add application<ept id="eabf2357-50d5-4600-9fa3-5dad2c4c14d5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eabf2357-50d5-4600-9fa3-5dad2c4c14d5">&lt;linkText&gt;</bpt>Add application<ept id="eabf2357-50d5-4600-9fa3-5dad2c4c14d5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b65b394-ca7f-4915-8634-679ba9e35f35" xml:space="preserve">
+          <source>On the <bpt id="c49805fe-f267-4ec0-94f6-9903d47d31d7">&lt;strong&gt;</bpt>What do you want to do<ept id="c49805fe-f267-4ec0-94f6-9903d47d31d7">&lt;/strong&gt;</ept> dialog, click <bpt id="0eb14032-bedc-484b-a1e2-3f41bee5033b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="0eb14032-bedc-484b-a1e2-3f41bee5033b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c49805fe-f267-4ec0-94f6-9903d47d31d7">&lt;strong&gt;</bpt>What do you want to do<ept id="c49805fe-f267-4ec0-94f6-9903d47d31d7">&lt;/strong&gt;</ept> dialog, click <bpt id="0eb14032-bedc-484b-a1e2-3f41bee5033b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="0eb14032-bedc-484b-a1e2-3f41bee5033b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d8ad941-99b6-46ea-84f5-77c29b5dad66" xml:space="preserve">
+          <source><bpt id="29ed8794-de6a-491b-b9d4-905a2e343e86">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="29ed8794-de6a-491b-b9d4-905a2e343e86">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29ed8794-de6a-491b-b9d4-905a2e343e86">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="29ed8794-de6a-491b-b9d4-905a2e343e86">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91c5fe53-f41a-4a25-aafe-94dcedcff6d2" xml:space="preserve">
+          <source>In the <bpt id="fe97d300-bfb1-429a-9d8b-33e15dc036ab">&lt;strong&gt;</bpt>search box<ept id="fe97d300-bfb1-429a-9d8b-33e15dc036ab">&lt;/strong&gt;</ept>, type <bpt id="f179594f-f1f2-4716-808f-221d51dc6451">&lt;strong&gt;</bpt>RunMyProcess<ept id="f179594f-f1f2-4716-808f-221d51dc6451">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="fe97d300-bfb1-429a-9d8b-33e15dc036ab">&lt;strong&gt;</bpt>search box<ept id="fe97d300-bfb1-429a-9d8b-33e15dc036ab">&lt;/strong&gt;</ept>, type <bpt id="f179594f-f1f2-4716-808f-221d51dc6451">&lt;strong&gt;</bpt>RunMyProcess<ept id="f179594f-f1f2-4716-808f-221d51dc6451">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a37dbfb-b5e6-49cb-a23a-d96a9d83a09f" xml:space="preserve">
+          <source><bpt id="44888469-a2ef-4b62-a8df-56d51fc6c5cd">&lt;linkText&gt;</bpt>Application Gallery<ept id="44888469-a2ef-4b62-a8df-56d51fc6c5cd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="44888469-a2ef-4b62-a8df-56d51fc6c5cd">&lt;linkText&gt;</bpt>Application Gallery<ept id="44888469-a2ef-4b62-a8df-56d51fc6c5cd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab599c65-d7ad-4341-b0fd-fe9698daf6d9" xml:space="preserve">
+          <source>In the results pane, select <bpt id="a4144704-e63f-4d24-9274-921de9cbfea8">&lt;strong&gt;</bpt>RunMyProcess<ept id="a4144704-e63f-4d24-9274-921de9cbfea8">&lt;/strong&gt;</ept>, and then click <bpt id="b2a97faf-9b8f-4910-a620-f1c1644bf39b">&lt;strong&gt;</bpt>Complete<ept id="b2a97faf-9b8f-4910-a620-f1c1644bf39b">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="a4144704-e63f-4d24-9274-921de9cbfea8">&lt;strong&gt;</bpt>RunMyProcess<ept id="a4144704-e63f-4d24-9274-921de9cbfea8">&lt;/strong&gt;</ept>, and then click <bpt id="b2a97faf-9b8f-4910-a620-f1c1644bf39b">&lt;strong&gt;</bpt>Complete<ept id="b2a97faf-9b8f-4910-a620-f1c1644bf39b">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="4f43ce32-20b9-4e79-82d4-3e35f9f0d299" xml:space="preserve">
+          <source><bpt id="30a076fe-4a26-4d8b-8f3c-f3ed5f7787ad">&lt;linkText&gt;</bpt>RunMyProcess<ept id="30a076fe-4a26-4d8b-8f3c-f3ed5f7787ad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="30a076fe-4a26-4d8b-8f3c-f3ed5f7787ad">&lt;linkText&gt;</bpt>RunMyProcess<ept id="30a076fe-4a26-4d8b-8f3c-f3ed5f7787ad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfd8b6f0-6b3c-4021-aadc-970dc5adb0a5" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to RunMyProcess with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to RunMyProcess with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="66e41c7a-80aa-43c0-b983-65325fa5fb99" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="12c8fd80-232c-45d9-9a17-3143eb3a866f" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="6d063648-521c-4c3d-9308-f117958e4831">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="6d063648-521c-4c3d-9308-f117958e4831">&lt;/linkText&gt;</ept><bpt id="6d063648-521c-4c3d-9308-f117958e4831">&lt;title&gt;</bpt><ept id="6d063648-521c-4c3d-9308-f117958e4831">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="6d063648-521c-4c3d-9308-f117958e4831">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="6d063648-521c-4c3d-9308-f117958e4831">&lt;/linkText&gt;</ept><bpt id="6d063648-521c-4c3d-9308-f117958e4831">&lt;title&gt;</bpt><ept id="6d063648-521c-4c3d-9308-f117958e4831">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="baeb00b0-c49f-4ac6-9892-5fec55d0fd91" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="b2e87750-b987-4e24-9aae-c7d0d80c9fc8">&lt;strong&gt;</bpt>RunMyProcess<ept id="b2e87750-b987-4e24-9aae-c7d0d80c9fc8">&lt;/strong&gt;</ept> application integration page, click <bpt id="f0057fe6-005a-43bc-99ae-010b89c0d03d">&lt;strong&gt;</bpt>Configure single sign-on<ept id="f0057fe6-005a-43bc-99ae-010b89c0d03d">&lt;/strong&gt;</ept> to open the <bpt id="f7b7b741-22f4-4193-b9c9-732b6bf75566">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="f7b7b741-22f4-4193-b9c9-732b6bf75566">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="b2e87750-b987-4e24-9aae-c7d0d80c9fc8">&lt;strong&gt;</bpt>RunMyProcess<ept id="b2e87750-b987-4e24-9aae-c7d0d80c9fc8">&lt;/strong&gt;</ept> application integration page, click <bpt id="f0057fe6-005a-43bc-99ae-010b89c0d03d">&lt;strong&gt;</bpt>Configure single sign-on<ept id="f0057fe6-005a-43bc-99ae-010b89c0d03d">&lt;/strong&gt;</ept> to open the <bpt id="f7b7b741-22f4-4193-b9c9-732b6bf75566">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="f7b7b741-22f4-4193-b9c9-732b6bf75566">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="d854c253-17be-49a7-b385-493d2268c948" xml:space="preserve">
+          <source><bpt id="2437917f-4a01-449b-bb3e-c91569032494">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2437917f-4a01-449b-bb3e-c91569032494">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2437917f-4a01-449b-bb3e-c91569032494">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2437917f-4a01-449b-bb3e-c91569032494">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="032d1de3-ef93-4c9c-becb-662071b8b6d3" xml:space="preserve">
+          <source>On the <bpt id="5e1c7ffb-9b06-4bcd-8739-2143185dd470">&lt;strong&gt;</bpt>How would you like users to sign on to RunMyProcess<ept id="5e1c7ffb-9b06-4bcd-8739-2143185dd470">&lt;/strong&gt;</ept> page, select <bpt id="faf53c0f-a51c-4eae-9491-033cb6dec5cf">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="faf53c0f-a51c-4eae-9491-033cb6dec5cf">&lt;/strong&gt;</ept>, and then click <bpt id="f0394194-9443-4cb7-a637-a56f6b9ef185">&lt;strong&gt;</bpt>Next<ept id="f0394194-9443-4cb7-a637-a56f6b9ef185">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5e1c7ffb-9b06-4bcd-8739-2143185dd470">&lt;strong&gt;</bpt>How would you like users to sign on to RunMyProcess<ept id="5e1c7ffb-9b06-4bcd-8739-2143185dd470">&lt;/strong&gt;</ept> page, select <bpt id="faf53c0f-a51c-4eae-9491-033cb6dec5cf">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="faf53c0f-a51c-4eae-9491-033cb6dec5cf">&lt;/strong&gt;</ept>, and then click <bpt id="f0394194-9443-4cb7-a637-a56f6b9ef185">&lt;strong&gt;</bpt>Next<ept id="f0394194-9443-4cb7-a637-a56f6b9ef185">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b27ead7b-0a0c-4add-8237-c6170fba90df" xml:space="preserve">
+          <source><bpt id="f8c13638-a9d4-47b6-9def-239b4de77e38">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f8c13638-a9d4-47b6-9def-239b4de77e38">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8c13638-a9d4-47b6-9def-239b4de77e38">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f8c13638-a9d4-47b6-9def-239b4de77e38">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f7ae935-845d-4fea-b742-3ff0de21a0c9" xml:space="preserve">
+          <source>On the <bpt id="911464cc-28ae-48d9-86ba-3bc2be6f9453">&lt;strong&gt;</bpt>Configure App URL<ept id="911464cc-28ae-48d9-86ba-3bc2be6f9453">&lt;/strong&gt;</ept> page, in the <bpt id="5258c23b-ec6d-485b-8233-77ccfa65123b">&lt;strong&gt;</bpt>RunMyProcess Sign On URL<ept id="5258c23b-ec6d-485b-8233-77ccfa65123b">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="4121577e-367c-41ea-ac07-9bcecc2c95b1">&lt;em&gt;</bpt>http://company.runmyprocess.com<ept id="4121577e-367c-41ea-ac07-9bcecc2c95b1">&lt;/em&gt;</ept>", and then click <bpt id="2eeb3523-dd7f-40e0-82f9-daffe201de52">&lt;strong&gt;</bpt>Next<ept id="2eeb3523-dd7f-40e0-82f9-daffe201de52">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="911464cc-28ae-48d9-86ba-3bc2be6f9453">&lt;strong&gt;</bpt>Configure App URL<ept id="911464cc-28ae-48d9-86ba-3bc2be6f9453">&lt;/strong&gt;</ept> page, in the <bpt id="5258c23b-ec6d-485b-8233-77ccfa65123b">&lt;strong&gt;</bpt>RunMyProcess Sign On URL<ept id="5258c23b-ec6d-485b-8233-77ccfa65123b">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="4121577e-367c-41ea-ac07-9bcecc2c95b1">&lt;em&gt;</bpt>http://company.runmyprocess.com<ept id="4121577e-367c-41ea-ac07-9bcecc2c95b1">&lt;/em&gt;</ept>", and then click <bpt id="2eeb3523-dd7f-40e0-82f9-daffe201de52">&lt;strong&gt;</bpt>Next<ept id="2eeb3523-dd7f-40e0-82f9-daffe201de52">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be91842b-47a0-4781-891e-ef15ddd7ed65" xml:space="preserve">
+          <source><bpt id="ea310e23-e5fe-481f-97c5-e398f568bc27">&lt;linkText&gt;</bpt>Configure App URL<ept id="ea310e23-e5fe-481f-97c5-e398f568bc27">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea310e23-e5fe-481f-97c5-e398f568bc27">&lt;linkText&gt;</bpt>Configure App URL<ept id="ea310e23-e5fe-481f-97c5-e398f568bc27">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fdbce08-dcf2-417b-8d38-bbe05d8ab17b" xml:space="preserve">
+          <source>On the <bpt id="e648efe0-eb8f-4ea4-b1ee-d0cb571c8f38">&lt;strong&gt;</bpt>Configure single sign-on at RunMyProcess<ept id="e648efe0-eb8f-4ea4-b1ee-d0cb571c8f38">&lt;/strong&gt;</ept> page, click <bpt id="3d7362e9-bee9-4de7-96f4-006c01c75556">&lt;strong&gt;</bpt>Download certificate<ept id="3d7362e9-bee9-4de7-96f4-006c01c75556">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="e648efe0-eb8f-4ea4-b1ee-d0cb571c8f38">&lt;strong&gt;</bpt>Configure single sign-on at RunMyProcess<ept id="e648efe0-eb8f-4ea4-b1ee-d0cb571c8f38">&lt;/strong&gt;</ept> page, click <bpt id="3d7362e9-bee9-4de7-96f4-006c01c75556">&lt;strong&gt;</bpt>Download certificate<ept id="3d7362e9-bee9-4de7-96f4-006c01c75556">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="f84cfbb1-8bbb-4922-a5b3-d1ff59498b92" xml:space="preserve">
+          <source><bpt id="55f9e25e-0983-458a-83ce-5f3c6631a146">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="55f9e25e-0983-458a-83ce-5f3c6631a146">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55f9e25e-0983-458a-83ce-5f3c6631a146">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="55f9e25e-0983-458a-83ce-5f3c6631a146">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fd2699c-b616-49c6-b7d8-c4860f35e28d" xml:space="preserve">
+          <source>In a different web browser window, log into your RunMyProcess company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your RunMyProcess company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="a3320c9f-994a-45b1-b167-12c814077b44" xml:space="preserve">
+          <source>Go to <bpt id="86074325-a6bb-4e2a-b1a7-e6d6cd7db13c">&lt;strong&gt;</bpt>Account \&gt; Configuration<ept id="86074325-a6bb-4e2a-b1a7-e6d6cd7db13c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="86074325-a6bb-4e2a-b1a7-e6d6cd7db13c">&lt;strong&gt;</bpt>Account \&gt; Configuration<ept id="86074325-a6bb-4e2a-b1a7-e6d6cd7db13c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f200aff6-c680-4341-bc27-d7209c58c6f1" xml:space="preserve">
+          <source><bpt id="558e2381-ed44-4aa7-b1be-dca718909990">&lt;linkText&gt;</bpt>Account<ept id="558e2381-ed44-4aa7-b1be-dca718909990">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="558e2381-ed44-4aa7-b1be-dca718909990">&lt;linkText&gt;</bpt>Account<ept id="558e2381-ed44-4aa7-b1be-dca718909990">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbdf4b08-18f1-435c-9a80-bd2197db2c08" xml:space="preserve">
+          <source>Click the <bpt id="8e83b43c-1e0e-4222-858a-79cbb042aa1d">&lt;strong&gt;</bpt>Authentication method<ept id="8e83b43c-1e0e-4222-858a-79cbb042aa1d">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="8e83b43c-1e0e-4222-858a-79cbb042aa1d">&lt;strong&gt;</bpt>Authentication method<ept id="8e83b43c-1e0e-4222-858a-79cbb042aa1d">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2adb568e-60aa-48f8-b87f-474e983622b2" xml:space="preserve">
+          <source>In the <bpt id="d36008b1-9391-4d0d-a5ed-3cc58da88da1">&lt;strong&gt;</bpt>Authentication method<ept id="d36008b1-9391-4d0d-a5ed-3cc58da88da1">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="d36008b1-9391-4d0d-a5ed-3cc58da88da1">&lt;strong&gt;</bpt>Authentication method<ept id="d36008b1-9391-4d0d-a5ed-3cc58da88da1">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="a1fb164d-ed05-4390-ba70-10113a86f780" xml:space="preserve">
+          <source><bpt id="3f293d01-79e4-4dd5-bdf0-2f6923737fa5">&lt;linkText&gt;</bpt>SSO<ept id="3f293d01-79e4-4dd5-bdf0-2f6923737fa5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3f293d01-79e4-4dd5-bdf0-2f6923737fa5">&lt;linkText&gt;</bpt>SSO<ept id="3f293d01-79e4-4dd5-bdf0-2f6923737fa5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38e504fb-972e-49ce-80ad-c5729482fc79" xml:space="preserve">
+          <source>As <bpt id="9a533b88-b217-4b7d-8c17-b270edbf0401">&lt;strong&gt;</bpt>Method<ept id="9a533b88-b217-4b7d-8c17-b270edbf0401">&lt;/strong&gt;</ept>, select <bpt id="10d2c47e-537f-45c8-9171-c5cb1ecb7fa2">&lt;strong&gt;</bpt>SSO with Samlv2<ept id="10d2c47e-537f-45c8-9171-c5cb1ecb7fa2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="9a533b88-b217-4b7d-8c17-b270edbf0401">&lt;strong&gt;</bpt>Method<ept id="9a533b88-b217-4b7d-8c17-b270edbf0401">&lt;/strong&gt;</ept>, select <bpt id="10d2c47e-537f-45c8-9171-c5cb1ecb7fa2">&lt;strong&gt;</bpt>SSO with Samlv2<ept id="10d2c47e-537f-45c8-9171-c5cb1ecb7fa2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f7521c6-d850-458e-86df-e38c1da10ae9" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="7619dcda-1bfa-41fe-bc28-7de00be7e202">&lt;strong&gt;</bpt>Configure single sign-on at RunMyProcess<ept id="7619dcda-1bfa-41fe-bc28-7de00be7e202">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="e853f8ea-b037-47f8-9d15-6552ecbc72e2">&lt;strong&gt;</bpt>SAML SSO URL<ept id="e853f8ea-b037-47f8-9d15-6552ecbc72e2">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="314cf1c7-8c9b-4f87-8ef1-ca63dfe8ff98">&lt;strong&gt;</bpt>SSO redirect<ept id="314cf1c7-8c9b-4f87-8ef1-ca63dfe8ff98">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="7619dcda-1bfa-41fe-bc28-7de00be7e202">&lt;strong&gt;</bpt>Configure single sign-on at RunMyProcess<ept id="7619dcda-1bfa-41fe-bc28-7de00be7e202">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="e853f8ea-b037-47f8-9d15-6552ecbc72e2">&lt;strong&gt;</bpt>SAML SSO URL<ept id="e853f8ea-b037-47f8-9d15-6552ecbc72e2">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="314cf1c7-8c9b-4f87-8ef1-ca63dfe8ff98">&lt;strong&gt;</bpt>SSO redirect<ept id="314cf1c7-8c9b-4f87-8ef1-ca63dfe8ff98">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="647b72bd-d481-4ab5-bfb0-ad61ddfbd643" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="4f09e91c-9e9b-4580-8490-12908b054084">&lt;strong&gt;</bpt>Configure single sign-on at RunMyProcess<ept id="4f09e91c-9e9b-4580-8490-12908b054084">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="110e8a7d-37e3-4155-bbf7-d7de9d23281a">&lt;strong&gt;</bpt>Single Sign-Out Service URL<ept id="110e8a7d-37e3-4155-bbf7-d7de9d23281a">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="473d9f52-5dc7-485a-a78a-5c2919c1e43d">&lt;strong&gt;</bpt>Logout redirect<ept id="473d9f52-5dc7-485a-a78a-5c2919c1e43d">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="4f09e91c-9e9b-4580-8490-12908b054084">&lt;strong&gt;</bpt>Configure single sign-on at RunMyProcess<ept id="4f09e91c-9e9b-4580-8490-12908b054084">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="110e8a7d-37e3-4155-bbf7-d7de9d23281a">&lt;strong&gt;</bpt>Single Sign-Out Service URL<ept id="110e8a7d-37e3-4155-bbf7-d7de9d23281a">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="473d9f52-5dc7-485a-a78a-5c2919c1e43d">&lt;strong&gt;</bpt>Logout redirect<ept id="473d9f52-5dc7-485a-a78a-5c2919c1e43d">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="937e3d20-ec81-4aac-99b2-094bd7134006" xml:space="preserve">
+          <source>In the <bpt id="a281e17b-0dde-4226-8712-92b56e9f4528">&lt;strong&gt;</bpt>Name id Format<ept id="a281e17b-0dde-4226-8712-92b56e9f4528">&lt;/strong&gt;</ept> textbox, type <bpt id="1ffc2d76-8a6d-4b21-a305-4d1f10355ad8">&lt;strong&gt;</bpt>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress<ept id="1ffc2d76-8a6d-4b21-a305-4d1f10355ad8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a281e17b-0dde-4226-8712-92b56e9f4528">&lt;strong&gt;</bpt>Name id Format<ept id="a281e17b-0dde-4226-8712-92b56e9f4528">&lt;/strong&gt;</ept> textbox, type <bpt id="1ffc2d76-8a6d-4b21-a305-4d1f10355ad8">&lt;strong&gt;</bpt>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress<ept id="1ffc2d76-8a6d-4b21-a305-4d1f10355ad8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c1adfbc-9117-4e02-a746-9cf31fa8bd2e" xml:space="preserve">
+          <source>Create a <bpt id="15ea8bb5-c63f-4c29-b244-d19ed6a493d8">&lt;strong&gt;</bpt>base-64 encoded<ept id="15ea8bb5-c63f-4c29-b244-d19ed6a493d8">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="15ea8bb5-c63f-4c29-b244-d19ed6a493d8">&lt;strong&gt;</bpt>base-64 encoded<ept id="15ea8bb5-c63f-4c29-b244-d19ed6a493d8">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="1e9e8306-f38c-42fe-9af4-0e79f19080d4" xml:space="preserve">
+          <source>For more details, see <bpt id="5c5c471b-c32f-4e22-935e-c61fb2a2e458">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="5c5c471b-c32f-4e22-935e-c61fb2a2e458">&lt;/linkText&gt;</ept><bpt id="5c5c471b-c32f-4e22-935e-c61fb2a2e458">&lt;title&gt;</bpt><ept id="5c5c471b-c32f-4e22-935e-c61fb2a2e458">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="5c5c471b-c32f-4e22-935e-c61fb2a2e458">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="5c5c471b-c32f-4e22-935e-c61fb2a2e458">&lt;/linkText&gt;</ept><bpt id="5c5c471b-c32f-4e22-935e-c61fb2a2e458">&lt;title&gt;</bpt><ept id="5c5c471b-c32f-4e22-935e-c61fb2a2e458">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a2baece-c926-4f42-af8c-80ea106d3ff0" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="b28eacdc-e183-409f-ae67-5adbfbd64e77">&lt;strong&gt;</bpt>Certificate<ept id="b28eacdc-e183-409f-ae67-5adbfbd64e77">&lt;/strong&gt;</ept> textbox</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="b28eacdc-e183-409f-ae67-5adbfbd64e77">&lt;strong&gt;</bpt>Certificate<ept id="b28eacdc-e183-409f-ae67-5adbfbd64e77">&lt;/strong&gt;</ept> textbox</target>
+        </trans-unit>
+        <trans-unit id="b608ecb5-40dd-4385-b8f2-0af4bda59f6c" xml:space="preserve">
+          <source>Click <bpt id="17fb2338-59c6-4d72-ba2b-39cde0172e59">&lt;strong&gt;</bpt>Save<ept id="17fb2338-59c6-4d72-ba2b-39cde0172e59">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="17fb2338-59c6-4d72-ba2b-39cde0172e59">&lt;strong&gt;</bpt>Save<ept id="17fb2338-59c6-4d72-ba2b-39cde0172e59">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e31b6af1-aaee-49e1-9d59-025683b90e3b" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="6df8c3af-d629-489f-ac5f-693a80df3742">&lt;strong&gt;</bpt>Complete<ept id="6df8c3af-d629-489f-ac5f-693a80df3742">&lt;/strong&gt;</ept> to close the <bpt id="f1e7fbaf-6602-40d8-a4bb-02827db77082">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="f1e7fbaf-6602-40d8-a4bb-02827db77082">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="6df8c3af-d629-489f-ac5f-693a80df3742">&lt;strong&gt;</bpt>Complete<ept id="6df8c3af-d629-489f-ac5f-693a80df3742">&lt;/strong&gt;</ept> to close the <bpt id="f1e7fbaf-6602-40d8-a4bb-02827db77082">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="f1e7fbaf-6602-40d8-a4bb-02827db77082">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="30aa7384-155a-4187-8f79-543597037bd2" xml:space="preserve">
+          <source><bpt id="7565d42a-c2e1-4931-9e21-cc5b307244b7">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="7565d42a-c2e1-4931-9e21-cc5b307244b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7565d42a-c2e1-4931-9e21-cc5b307244b7">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="7565d42a-c2e1-4931-9e21-cc5b307244b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bde4b39-3a96-4576-a16d-110df389d477" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into RunMyProcess, they must be provisioned into RunMyProcess.</source>
+          <target state="new">In order to enable Azure AD users to log into RunMyProcess, they must be provisioned into RunMyProcess.</target>
+        </trans-unit>
+        <trans-unit id="dd849b1e-f442-49a2-bf38-31b363b36e5d" xml:space="preserve">
+          <source>In the case of RunMyProcess, provisioning is a manual task.</source>
+          <target state="new">In the case of RunMyProcess, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="816b01ab-924b-45f2-844e-3de1d9f13ad1" xml:space="preserve">
+          <source>Log in to your <bpt id="6fcf3603-06b3-43ec-ad29-836fe9524831">&lt;strong&gt;</bpt>RunMyProcess<ept id="6fcf3603-06b3-43ec-ad29-836fe9524831">&lt;/strong&gt;</ept> company site as an administrator.</source>
+          <target state="new">Log in to your <bpt id="6fcf3603-06b3-43ec-ad29-836fe9524831">&lt;strong&gt;</bpt>RunMyProcess<ept id="6fcf3603-06b3-43ec-ad29-836fe9524831">&lt;/strong&gt;</ept> company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="c0bc7c52-8748-4f8a-856f-2ad997ed516c" xml:space="preserve">
+          <source>Go to <bpt id="17ed883a-979d-4141-a5f0-94e8d1c00cec">&lt;strong&gt;</bpt>Account \&gt; Users<ept id="17ed883a-979d-4141-a5f0-94e8d1c00cec">&lt;/strong&gt;</ept>, and then click <bpt id="886e6c24-78ed-4e16-a8b9-ea85f2ce7005">&lt;strong&gt;</bpt>New User<ept id="886e6c24-78ed-4e16-a8b9-ea85f2ce7005">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="17ed883a-979d-4141-a5f0-94e8d1c00cec">&lt;strong&gt;</bpt>Account \&gt; Users<ept id="17ed883a-979d-4141-a5f0-94e8d1c00cec">&lt;/strong&gt;</ept>, and then click <bpt id="886e6c24-78ed-4e16-a8b9-ea85f2ce7005">&lt;strong&gt;</bpt>New User<ept id="886e6c24-78ed-4e16-a8b9-ea85f2ce7005">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="502a9e45-e80e-423b-89c6-2d68149c2bc2" xml:space="preserve">
+          <source><bpt id="e653ff49-27c5-4717-9ddb-1641235900b9">&lt;linkText&gt;</bpt>New User<ept id="e653ff49-27c5-4717-9ddb-1641235900b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e653ff49-27c5-4717-9ddb-1641235900b9">&lt;linkText&gt;</bpt>New User<ept id="e653ff49-27c5-4717-9ddb-1641235900b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d475bc9a-af41-46a0-a004-676d1e8d6e4b" xml:space="preserve">
+          <source>In the <bpt id="93c7d478-7a16-40aa-a71a-9769acbd7f0d">&lt;strong&gt;</bpt>User Settings<ept id="93c7d478-7a16-40aa-a71a-9769acbd7f0d">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="93c7d478-7a16-40aa-a71a-9769acbd7f0d">&lt;strong&gt;</bpt>User Settings<ept id="93c7d478-7a16-40aa-a71a-9769acbd7f0d">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="58aac47a-74a3-4687-a0b6-a34e70b3a82c" xml:space="preserve">
+          <source><bpt id="21327bbb-6dcc-4bc8-b4f9-502d14c27447">&lt;linkText&gt;</bpt>Profile<ept id="21327bbb-6dcc-4bc8-b4f9-502d14c27447">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21327bbb-6dcc-4bc8-b4f9-502d14c27447">&lt;linkText&gt;</bpt>Profile<ept id="21327bbb-6dcc-4bc8-b4f9-502d14c27447">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b465e748-a62f-4a1e-b8ad-3ed789548b6b" xml:space="preserve">
+          <source>Type the <bpt id="4923fd95-4851-4c7b-bee3-0e0b90a6faeb">&lt;strong&gt;</bpt>Name<ept id="4923fd95-4851-4c7b-bee3-0e0b90a6faeb">&lt;/strong&gt;</ept> and <bpt id="007ff591-d109-4d99-a67d-370727ba9303">&lt;strong&gt;</bpt>E-mail<ept id="007ff591-d109-4d99-a67d-370727ba9303">&lt;/strong&gt;</ept> of a valid AAD account you want to provision into the related textboxes.</source>
+          <target state="new">Type the <bpt id="4923fd95-4851-4c7b-bee3-0e0b90a6faeb">&lt;strong&gt;</bpt>Name<ept id="4923fd95-4851-4c7b-bee3-0e0b90a6faeb">&lt;/strong&gt;</ept> and <bpt id="007ff591-d109-4d99-a67d-370727ba9303">&lt;strong&gt;</bpt>E-mail<ept id="007ff591-d109-4d99-a67d-370727ba9303">&lt;/strong&gt;</ept> of a valid AAD account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="37724dda-feac-481b-963a-aeb33a8113f9" xml:space="preserve">
+          <source>Select an <bpt id="15544686-0666-4bce-84d2-f66cc3d1d696">&lt;strong&gt;</bpt>IDE language<ept id="15544686-0666-4bce-84d2-f66cc3d1d696">&lt;/strong&gt;</ept>, a <bpt id="0b12e933-255b-48e1-8530-677f2918fdae">&lt;strong&gt;</bpt>Language<ept id="0b12e933-255b-48e1-8530-677f2918fdae">&lt;/strong&gt;</ept> and a <bpt id="2f7ed3cc-a0e7-45f5-a3f5-9af5aa467a62">&lt;strong&gt;</bpt>Profile<ept id="2f7ed3cc-a0e7-45f5-a3f5-9af5aa467a62">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select an <bpt id="15544686-0666-4bce-84d2-f66cc3d1d696">&lt;strong&gt;</bpt>IDE language<ept id="15544686-0666-4bce-84d2-f66cc3d1d696">&lt;/strong&gt;</ept>, a <bpt id="0b12e933-255b-48e1-8530-677f2918fdae">&lt;strong&gt;</bpt>Language<ept id="0b12e933-255b-48e1-8530-677f2918fdae">&lt;/strong&gt;</ept> and a <bpt id="2f7ed3cc-a0e7-45f5-a3f5-9af5aa467a62">&lt;strong&gt;</bpt>Profile<ept id="2f7ed3cc-a0e7-45f5-a3f5-9af5aa467a62">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a68d79d4-968a-4929-9916-54d451d3555a" xml:space="preserve">
+          <source>Select <bpt id="f3e31d44-24f0-4ae8-940f-d01254b79db2">&lt;strong&gt;</bpt>Send account creation e-mail to me<ept id="f3e31d44-24f0-4ae8-940f-d01254b79db2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="f3e31d44-24f0-4ae8-940f-d01254b79db2">&lt;strong&gt;</bpt>Send account creation e-mail to me<ept id="f3e31d44-24f0-4ae8-940f-d01254b79db2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd218f90-3a3a-45d6-9216-65e3489dde95" xml:space="preserve">
+          <source>Click <bpt id="edb7eac9-33ee-405b-a350-39ecd9b223af">&lt;strong&gt;</bpt>Save<ept id="edb7eac9-33ee-405b-a350-39ecd9b223af">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="edb7eac9-33ee-405b-a350-39ecd9b223af">&lt;strong&gt;</bpt>Save<ept id="edb7eac9-33ee-405b-a350-39ecd9b223af">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5aa1f27c-a133-4b3b-9081-b2cd8eb7e59c" xml:space="preserve">
+          <source>You can use any other RunMyProcess user account creation tools or APIs provided by RunMyProcess to provision Azure Active Directory user accounts.</source>
+          <target state="new">You can use any other RunMyProcess user account creation tools or APIs provided by RunMyProcess to provision Azure Active Directory user accounts.</target>
+        </trans-unit>
+        <trans-unit id="9776348f-0cfe-438d-9998-95affc0cc615" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="f1f89d73-947b-4c64-b353-8a07b2046178" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="85e54b7a-79c9-4951-87da-21c6109cef58" xml:space="preserve">
+          <source>On the <bpt id="7bdba057-4ae9-443a-8874-02eb9aab2053">&lt;strong&gt;</bpt>RunMyProcess **application integration page, click **Assign users<ept id="7bdba057-4ae9-443a-8874-02eb9aab2053">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7bdba057-4ae9-443a-8874-02eb9aab2053">&lt;strong&gt;</bpt>RunMyProcess **application integration page, click **Assign users<ept id="7bdba057-4ae9-443a-8874-02eb9aab2053">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17e1b32d-2b9c-4c74-bffe-7a8b3b2ac5ba" xml:space="preserve">
+          <source><bpt id="e7a48fd9-4fb5-4ed1-8ec0-a579d0cbf490">&lt;linkText&gt;</bpt>Assign Users<ept id="e7a48fd9-4fb5-4ed1-8ec0-a579d0cbf490">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7a48fd9-4fb5-4ed1-8ec0-a579d0cbf490">&lt;linkText&gt;</bpt>Assign Users<ept id="e7a48fd9-4fb5-4ed1-8ec0-a579d0cbf490">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e6510c7-0fa1-45b3-a488-e021aa12ff68" xml:space="preserve">
+          <source>Select your test user, click <bpt id="f84e4b5b-7b51-46d3-8a67-a48e16619ef5">&lt;strong&gt;</bpt>Assign<ept id="f84e4b5b-7b51-46d3-8a67-a48e16619ef5">&lt;/strong&gt;</ept>, and then click <bpt id="9380346b-4197-4a0d-ad41-40da5fcaa87f">&lt;strong&gt;</bpt>Yes<ept id="9380346b-4197-4a0d-ad41-40da5fcaa87f">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="f84e4b5b-7b51-46d3-8a67-a48e16619ef5">&lt;strong&gt;</bpt>Assign<ept id="f84e4b5b-7b51-46d3-8a67-a48e16619ef5">&lt;/strong&gt;</ept>, and then click <bpt id="9380346b-4197-4a0d-ad41-40da5fcaa87f">&lt;strong&gt;</bpt>Yes<ept id="9380346b-4197-4a0d-ad41-40da5fcaa87f">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="c4bc881a-2f25-4509-9b79-3d0ec47582ef" xml:space="preserve">
+          <source><bpt id="0e107b4a-cb81-457e-bbcc-6dd142c60557">&lt;linkText&gt;</bpt>Yes<ept id="0e107b4a-cb81-457e-bbcc-6dd142c60557">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e107b4a-cb81-457e-bbcc-6dd142c60557">&lt;linkText&gt;</bpt>Yes<ept id="0e107b4a-cb81-457e-bbcc-6dd142c60557">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="025c6748-a3c0-4295-8f29-094138f83281" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="7f391f1e-4e7d-4af7-a3d8-875272e38456" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="9486a97a-e0a3-4631-ad50-c274cc0e3814">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="9486a97a-e0a3-4631-ad50-c274cc0e3814">&lt;/linkText&gt;</ept><bpt id="9486a97a-e0a3-4631-ad50-c274cc0e3814">&lt;title&gt;</bpt><ept id="9486a97a-e0a3-4631-ad50-c274cc0e3814">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="9486a97a-e0a3-4631-ad50-c274cc0e3814">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="9486a97a-e0a3-4631-ad50-c274cc0e3814">&lt;/linkText&gt;</ept><bpt id="9486a97a-e0a3-4631-ad50-c274cc0e3814">&lt;title&gt;</bpt><ept id="9486a97a-e0a3-4631-ad50-c274cc0e3814">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

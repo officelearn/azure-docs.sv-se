@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3076a8f1-13a5-4dea-817b-9763b01425bd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3076a8f1-13a5-4dea-817b-9763b01425bd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="694a907d-cc27-49be-aab8-fe9bc505bfdf">
+        <trans-unit id="dcb275cd-932a-4984-80da-7c0dff97db9f" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="4fbf4e8a-a5cf-442b-9023-70ac0d42c096" xml:space="preserve">
+          <source>Default Limit</source>
+          <target state="new">Default Limit</target>
+        </trans-unit>
+        <trans-unit id="3df437e0-32f7-4f48-ac94-1013b9fec360" xml:space="preserve">
+          <source>Maximum Limit</source>
+          <target state="new">Maximum Limit</target>
+        </trans-unit>
+        <trans-unit id="fec4aa74-f984-477d-92ca-671d3e8d1c7c" xml:space="preserve">
+          <source>Resources per <bpt id="e7a61293-387a-4678-89d6-87a2c06e3586">&lt;linkText&gt;</bpt>resource group<ept id="e7a61293-387a-4678-89d6-87a2c06e3586">&lt;/linkText&gt;</ept><bpt id="e7a61293-387a-4678-89d6-87a2c06e3586">&lt;title&gt;</bpt><ept id="e7a61293-387a-4678-89d6-87a2c06e3586">&lt;/title&gt;</ept> (per resource type)</source>
+          <target state="new">Resources per <bpt id="e7a61293-387a-4678-89d6-87a2c06e3586">&lt;linkText&gt;</bpt>resource group<ept id="e7a61293-387a-4678-89d6-87a2c06e3586">&lt;/linkText&gt;</ept><bpt id="e7a61293-387a-4678-89d6-87a2c06e3586">&lt;title&gt;</bpt><ept id="e7a61293-387a-4678-89d6-87a2c06e3586">&lt;/title&gt;</ept> (per resource type)</target>
+        </trans-unit>
+        <trans-unit id="783e1de8-993e-470f-951c-4eb2248070ba" xml:space="preserve">
+          <source>800</source>
+          <target state="new">800</target>
+        </trans-unit>
+        <trans-unit id="2382520e-a258-469f-a143-e8fc9deb0d8b" xml:space="preserve">
+          <source>800</source>
+          <target state="new">800</target>
+        </trans-unit>
+        <trans-unit id="16a83469-1d3e-4dfb-b264-b6c0bd96add3" xml:space="preserve">
+          <source>Deployments per resource group</source>
+          <target state="new">Deployments per resource group</target>
+        </trans-unit>
+        <trans-unit id="bede99ae-f673-4c40-af95-6f749c60eeab" xml:space="preserve">
+          <source>800</source>
+          <target state="new">800</target>
+        </trans-unit>
+        <trans-unit id="576bd9d4-dfe5-4004-a24d-45ca1fa784b2" xml:space="preserve">
+          <source>800</source>
+          <target state="new">800</target>
+        </trans-unit>
+        <trans-unit id="3b509641-711d-4724-9a6e-dfeca0221626" xml:space="preserve">
+          <source>Resources per deployment</source>
+          <target state="new">Resources per deployment</target>
+        </trans-unit>
+        <trans-unit id="724ca1aa-7ecd-4000-aa43-e1c42c1b7d54" xml:space="preserve">
+          <source>800</source>
+          <target state="new">800</target>
+        </trans-unit>
+        <trans-unit id="a3f41028-2f56-40fd-8302-46a6fb5577fa" xml:space="preserve">
+          <source>800</source>
+          <target state="new">800</target>
+        </trans-unit>
+        <trans-unit id="5d10c48d-4350-4b8a-8f32-efa01379daab" xml:space="preserve">
+          <source>Management Locks (per unique scope)</source>
+          <target state="new">Management Locks (per unique scope)</target>
+        </trans-unit>
+        <trans-unit id="733f6fca-3d79-4af6-9373-e5b2a835945f" xml:space="preserve">
+          <source>20</source>
+          <target state="new">20</target>
+        </trans-unit>
+        <trans-unit id="153a2bae-324b-48ff-a8ad-0ddd6f2fa829" xml:space="preserve">
+          <source>20</source>
+          <target state="new">20</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,958 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="78e9bbf6-e26d-4630-b6d9-8e1ed8d9f364" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="78e9bbf6-e26d-4630-b6d9-8e1ed8d9f364" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="72c08bfd-995a-4a46-ac2c-1896af03c579">
+        <trans-unit id="5f27da29-de7f-43b0-b331-acc23884d90e" xml:space="preserve">
+          <source>Understand Your Azure Bill</source>
+          <target state="new">Understand Your Azure Bill</target>
+        </trans-unit>
+        <trans-unit id="325ca78b-fabe-4aea-86a9-36510ab67d27" xml:space="preserve">
+          <source>Understand Your Azure Bill</source>
+          <target state="new">Understand Your Azure Bill</target>
+        </trans-unit>
+        <trans-unit id="feaed21c-1ed6-4857-b75b-4476dcd98f61" xml:space="preserve">
+          <source>The charges for Microsoft Azure subscriptions vary by rate plan.</source>
+          <target state="new">The charges for Microsoft Azure subscriptions vary by rate plan.</target>
+        </trans-unit>
+        <trans-unit id="d6167471-b741-4d08-97df-5bc4dc82ba7f" xml:space="preserve">
+          <source>Some rate plans, such as the Visual Studio Ultimate with MSDN, include monthly credits that you can use on any Azure service based on your needs.</source>
+          <target state="new">Some rate plans, such as the Visual Studio Ultimate with MSDN, include monthly credits that you can use on any Azure service based on your needs.</target>
+        </trans-unit>
+        <trans-unit id="84c63c2b-5fc6-4d30-8dd6-b39c7ac1ddb9" xml:space="preserve">
+          <source>Please note that up to 24 hours of latent usage from your prior billing period can be reported in your current billing period.</source>
+          <target state="new">Please note that up to 24 hours of latent usage from your prior billing period can be reported in your current billing period.</target>
+        </trans-unit>
+        <trans-unit id="5e2ec5b3-318e-4fa0-9498-4bcbc448ad26" xml:space="preserve">
+          <source>For more information about consumption, usage, and rate plans, see the <bpt id="ede98563-d57c-4bd1-90e2-c958ad019295">&lt;linkText&gt;</bpt>Microsoft Azure Purchase Options page<ept id="ede98563-d57c-4bd1-90e2-c958ad019295">&lt;/linkText&gt;</ept><bpt id="ede98563-d57c-4bd1-90e2-c958ad019295">&lt;title&gt;</bpt><ept id="ede98563-d57c-4bd1-90e2-c958ad019295">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about consumption, usage, and rate plans, see the <bpt id="ede98563-d57c-4bd1-90e2-c958ad019295">&lt;linkText&gt;</bpt>Microsoft Azure Purchase Options page<ept id="ede98563-d57c-4bd1-90e2-c958ad019295">&lt;/linkText&gt;</ept><bpt id="ede98563-d57c-4bd1-90e2-c958ad019295">&lt;title&gt;</bpt><ept id="ede98563-d57c-4bd1-90e2-c958ad019295">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9e14678-d23b-4597-a515-41dab7a666fc" xml:space="preserve">
+          <source>This topic helps you with the following tasks when reading your bill.</source>
+          <target state="new">This topic helps you with the following tasks when reading your bill.</target>
+        </trans-unit>
+        <trans-unit id="7caf8eed-a208-4d67-a879-983646b60902" xml:space="preserve">
+          <source>View or Download a Bill for Azure</source>
+          <target state="new">View or Download a Bill for Azure</target>
+        </trans-unit>
+        <trans-unit id="635f0de6-3b37-454b-8a48-6efc81e12979" xml:space="preserve">
+          <source>Customer Information</source>
+          <target state="new">Customer Information</target>
+        </trans-unit>
+        <trans-unit id="4f0d64e3-da5b-4e1f-9721-2ff2a96f741c" xml:space="preserve">
+          <source>Understand the Invoice Summary</source>
+          <target state="new">Understand the Invoice Summary</target>
+        </trans-unit>
+        <trans-unit id="8b791f84-fa75-4c4e-a6fa-34ea2171a9be" xml:space="preserve">
+          <source>Understand the Current Charges</source>
+          <target state="new">Understand the Current Charges</target>
+        </trans-unit>
+        <trans-unit id="edc9ee03-f9b0-4ac8-a4f3-ece32849890e" xml:space="preserve">
+          <source>Footer Information</source>
+          <target state="new">Footer Information</target>
+        </trans-unit>
+        <trans-unit id="6160b970-0782-4264-970d-fb2f917f6758" xml:space="preserve">
+          <source>Understand the Additional Information</source>
+          <target state="new">Understand the Additional Information</target>
+        </trans-unit>
+        <trans-unit id="b934a2ea-9155-44da-b8b5-9798da715c61" xml:space="preserve">
+          <source>Understand Detailed Usage Charges</source>
+          <target state="new">Understand Detailed Usage Charges</target>
+        </trans-unit>
+        <trans-unit id="d5e48547-3551-4a86-8e80-13cbaf8d7889" xml:space="preserve">
+          <source>Analyze Daily Usage Data</source>
+          <target state="new">Analyze Daily Usage Data</target>
+        </trans-unit>
+        <trans-unit id="29e41aed-9e24-4ba0-904d-6cd4668177d1" xml:space="preserve">
+          <source>In the <bpt id="824862f2-e62f-4f96-8860-15e4394ea95e">&lt;linkText&gt;</bpt>Usage and Billing Portal<ept id="824862f2-e62f-4f96-8860-15e4394ea95e">&lt;/linkText&gt;</ept><bpt id="824862f2-e62f-4f96-8860-15e4394ea95e">&lt;title&gt;</bpt><ept id="824862f2-e62f-4f96-8860-15e4394ea95e">&lt;/title&gt;</ept> you can view current and download past bills.</source>
+          <target state="new">In the <bpt id="824862f2-e62f-4f96-8860-15e4394ea95e">&lt;linkText&gt;</bpt>Usage and Billing Portal<ept id="824862f2-e62f-4f96-8860-15e4394ea95e">&lt;/linkText&gt;</ept><bpt id="824862f2-e62f-4f96-8860-15e4394ea95e">&lt;title&gt;</bpt><ept id="824862f2-e62f-4f96-8860-15e4394ea95e">&lt;/title&gt;</ept> you can view current and download past bills.</target>
+        </trans-unit>
+        <trans-unit id="04fb8162-7836-4bf5-a264-cbe623dacef8" xml:space="preserve">
+          <source>To view or download a bill:</source>
+          <target state="new">To view or download a bill:</target>
+        </trans-unit>
+        <trans-unit id="522d9667-400b-4b31-aa77-5db4261ad8c1" xml:space="preserve">
+          <source>Sign in to the <bpt id="36262063-3bb9-4337-9d92-0f46c721d763">&lt;linkText&gt;</bpt>Usage and Billing Portal<ept id="36262063-3bb9-4337-9d92-0f46c721d763">&lt;/linkText&gt;</ept><bpt id="36262063-3bb9-4337-9d92-0f46c721d763">&lt;title&gt;</bpt><ept id="36262063-3bb9-4337-9d92-0f46c721d763">&lt;/title&gt;</ept> using your Microsoft Account ID or Work or School Account ID.</source>
+          <target state="new">Sign in to the <bpt id="36262063-3bb9-4337-9d92-0f46c721d763">&lt;linkText&gt;</bpt>Usage and Billing Portal<ept id="36262063-3bb9-4337-9d92-0f46c721d763">&lt;/linkText&gt;</ept><bpt id="36262063-3bb9-4337-9d92-0f46c721d763">&lt;title&gt;</bpt><ept id="36262063-3bb9-4337-9d92-0f46c721d763">&lt;/title&gt;</ept> using your Microsoft Account ID or Work or School Account ID.</target>
+        </trans-unit>
+        <trans-unit id="bf3a60cb-0c38-440c-9ca8-1a844a6ef728" xml:space="preserve">
+          <source>Click on the subscription in which you would like to see details and usage.</source>
+          <target state="new">Click on the subscription in which you would like to see details and usage.</target>
+        </trans-unit>
+        <trans-unit id="adba70bc-f135-4a71-ba5d-fe3f76930a7b" xml:space="preserve">
+          <source>Click <bpt id="161e67a6-7060-41f6-a68f-d880f0b479c8">&lt;strong&gt;</bpt>Billing<ept id="161e67a6-7060-41f6-a68f-d880f0b479c8">&lt;/strong&gt;</ept> History</source>
+          <target state="new">Click <bpt id="161e67a6-7060-41f6-a68f-d880f0b479c8">&lt;strong&gt;</bpt>Billing<ept id="161e67a6-7060-41f6-a68f-d880f0b479c8">&lt;/strong&gt;</ept> History</target>
+        </trans-unit>
+        <trans-unit id="656b6b17-a155-4d3f-8dbb-5598f411b120" xml:space="preserve">
+          <source><bpt id="1c9e7a12-25e6-4900-908d-acff688f1205">&lt;linkText&gt;</bpt>Summary - billing history -1<ept id="1c9e7a12-25e6-4900-908d-acff688f1205">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1c9e7a12-25e6-4900-908d-acff688f1205">&lt;linkText&gt;</bpt>Summary - billing history -1<ept id="1c9e7a12-25e6-4900-908d-acff688f1205">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcc36c35-ef2d-4f8d-ab33-9b3c113d9f66" xml:space="preserve">
+          <source>The <bpt id="022758cf-dad2-475f-a000-9c62c9ea4c98">&lt;strong&gt;</bpt>Billing History<ept id="022758cf-dad2-475f-a000-9c62c9ea4c98">&lt;/strong&gt;</ept> section lists your statements for the last six billing periods plus the current unbilled period.</source>
+          <target state="new">The <bpt id="022758cf-dad2-475f-a000-9c62c9ea4c98">&lt;strong&gt;</bpt>Billing History<ept id="022758cf-dad2-475f-a000-9c62c9ea4c98">&lt;/strong&gt;</ept> section lists your statements for the last six billing periods plus the current unbilled period.</target>
+        </trans-unit>
+        <trans-unit id="a29c1858-01ea-4f76-9e48-ff53332082b3" xml:space="preserve">
+          <source>The statement for the current period is an estimate of your charges as of the time the estimate was generated.</source>
+          <target state="new">The statement for the current period is an estimate of your charges as of the time the estimate was generated.</target>
+        </trans-unit>
+        <trans-unit id="9b19e6c5-5bbe-4659-9a7a-4ab2675ffd4c" xml:space="preserve">
+          <source>This information is only updated daily and may not include all of your usage incurred to date.</source>
+          <target state="new">This information is only updated daily and may not include all of your usage incurred to date.</target>
+        </trans-unit>
+        <trans-unit id="b7d96c5f-2849-4487-b3d1-58aae45919cf" xml:space="preserve">
+          <source>Your monthly bill may differ from this estimate.</source>
+          <target state="new">Your monthly bill may differ from this estimate.</target>
+        </trans-unit>
+        <trans-unit id="a8950311-7918-423d-8876-4b7b6e2edb6b" xml:space="preserve">
+          <source><bpt id="5a198cc9-c4d7-47c7-8f17-3b34d350aa6d">&lt;linkText&gt;</bpt>Summary-billing history 2<ept id="5a198cc9-c4d7-47c7-8f17-3b34d350aa6d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a198cc9-c4d7-47c7-8f17-3b34d350aa6d">&lt;linkText&gt;</bpt>Summary-billing history 2<ept id="5a198cc9-c4d7-47c7-8f17-3b34d350aa6d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5b5769c-8f80-44ec-9a18-e51d226b2fa9" xml:space="preserve">
+          <source>Click <bpt id="2f3c5e5f-7e34-4e29-9442-837923035f38">&lt;strong&gt;</bpt>View Current Statement<ept id="2f3c5e5f-7e34-4e29-9442-837923035f38">&lt;/strong&gt;</ept> to view an estimate of your charges as of the time the estimate was generated.</source>
+          <target state="new">Click <bpt id="2f3c5e5f-7e34-4e29-9442-837923035f38">&lt;strong&gt;</bpt>View Current Statement<ept id="2f3c5e5f-7e34-4e29-9442-837923035f38">&lt;/strong&gt;</ept> to view an estimate of your charges as of the time the estimate was generated.</target>
+        </trans-unit>
+        <trans-unit id="812fd12e-08c8-479b-a3a1-00cef5854484" xml:space="preserve">
+          <source>This information is only updated daily and may not include all of your usage incurred to date.</source>
+          <target state="new">This information is only updated daily and may not include all of your usage incurred to date.</target>
+        </trans-unit>
+        <trans-unit id="94ecd704-abdb-45d0-becb-7b1041143c5d" xml:space="preserve">
+          <source>Your monthly bill may differ from this estimate.</source>
+          <target state="new">Your monthly bill may differ from this estimate.</target>
+        </trans-unit>
+        <trans-unit id="c0366cb3-efd3-426c-9e2a-d79578277d03" xml:space="preserve">
+          <source><bpt id="5bd25df4-e4ac-4491-82b0-7b7b6545c611">&lt;linkText&gt;</bpt>Summary-billing history 3<ept id="5bd25df4-e4ac-4491-82b0-7b7b6545c611">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5bd25df4-e4ac-4491-82b0-7b7b6545c611">&lt;linkText&gt;</bpt>Summary-billing history 3<ept id="5bd25df4-e4ac-4491-82b0-7b7b6545c611">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7082213-1d1e-4b36-982f-c38a9eb1fd5c" xml:space="preserve">
+          <source><bpt id="69ef390c-846e-413b-bff3-02fe26330aba">&lt;linkText&gt;</bpt>Summary-billing history 4<ept id="69ef390c-846e-413b-bff3-02fe26330aba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="69ef390c-846e-413b-bff3-02fe26330aba">&lt;linkText&gt;</bpt>Summary-billing history 4<ept id="69ef390c-846e-413b-bff3-02fe26330aba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53587730-66b0-4ea8-88ed-c61b55de4a13" xml:space="preserve">
+          <source>Click <bpt id="be136109-3945-49f1-9477-b56060ff9ab9">&lt;strong&gt;</bpt>Download Invoice<ept id="be136109-3945-49f1-9477-b56060ff9ab9">&lt;/strong&gt;</ept> to view a copy of your previous bill.</source>
+          <target state="new">Click <bpt id="be136109-3945-49f1-9477-b56060ff9ab9">&lt;strong&gt;</bpt>Download Invoice<ept id="be136109-3945-49f1-9477-b56060ff9ab9">&lt;/strong&gt;</ept> to view a copy of your previous bill.</target>
+        </trans-unit>
+        <trans-unit id="a3c279a5-1fe8-4a88-98fa-1b036ac4d476" xml:space="preserve">
+          <source><bpt id="1b0e737b-94c8-458c-b935-9586b8ae447d">&lt;linkText&gt;</bpt>Summary-billing history 5<ept id="1b0e737b-94c8-458c-b935-9586b8ae447d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b0e737b-94c8-458c-b935-9586b8ae447d">&lt;linkText&gt;</bpt>Summary-billing history 5<ept id="1b0e737b-94c8-458c-b935-9586b8ae447d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2bfa42f5-089f-4534-98fe-fbc3776a43cd" xml:space="preserve">
+          <source><bpt id="b13d37ca-006b-479e-9729-0b17c52eb83e">&lt;strong&gt;</bpt>Below are some sample statements for two different offers available on Microsoft Azure.<ept id="b13d37ca-006b-479e-9729-0b17c52eb83e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b13d37ca-006b-479e-9729-0b17c52eb83e">&lt;strong&gt;</bpt>Below are some sample statements for two different offers available on Microsoft Azure.<ept id="b13d37ca-006b-479e-9729-0b17c52eb83e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="133b946b-a80a-4a37-9a83-aa94506168cd" xml:space="preserve">
+          <source><bpt id="7cc80d28-6ac4-432c-8ea0-56f58ac4aa30">&lt;strong&gt;</bpt>OFFER TYPE<ept id="7cc80d28-6ac4-432c-8ea0-56f58ac4aa30">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7cc80d28-6ac4-432c-8ea0-56f58ac4aa30">&lt;strong&gt;</bpt>OFFER TYPE<ept id="7cc80d28-6ac4-432c-8ea0-56f58ac4aa30">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bd71a6a-6114-4657-a28b-7fd3da619ba0" xml:space="preserve">
+          <source><bpt id="184d6a3c-2755-4474-94d5-4b8389732292">&lt;strong&gt;</bpt>DESCRIPTION<ept id="184d6a3c-2755-4474-94d5-4b8389732292">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="184d6a3c-2755-4474-94d5-4b8389732292">&lt;strong&gt;</bpt>DESCRIPTION<ept id="184d6a3c-2755-4474-94d5-4b8389732292">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e87bae25-c31c-46e7-a032-cf332b71a91a" xml:space="preserve">
+          <source><bpt id="fa73bee8-39e8-4bbe-8eed-c36139a2247b">&lt;strong&gt;</bpt>DOWNLOAD<ept id="fa73bee8-39e8-4bbe-8eed-c36139a2247b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fa73bee8-39e8-4bbe-8eed-c36139a2247b">&lt;strong&gt;</bpt>DOWNLOAD<ept id="fa73bee8-39e8-4bbe-8eed-c36139a2247b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ed8dbad-470f-4b2f-a6d7-b1a22792ceab" xml:space="preserve">
+          <source>Pay-As-You-Go</source>
+          <target state="new">Pay-As-You-Go</target>
+        </trans-unit>
+        <trans-unit id="6904320f-76b7-4799-b003-b540857e1ce8" xml:space="preserve">
+          <source>Pay in arrears monthly</source>
+          <target state="new">Pay in arrears monthly</target>
+        </trans-unit>
+        <trans-unit id="bfcf4752-4dab-4e16-9080-eb7e5e764da8" xml:space="preserve">
+          <source>[Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft<bpt id="fdf73075-59d9-428f-ad38-46e39750611d">&lt;em&gt;</bpt>Azure<ept id="fdf73075-59d9-428f-ad38-46e39750611d">&lt;/em&gt;</ept>ccinvoice_Sample.pdf)</source>
+          <target state="new">[Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft<bpt id="fdf73075-59d9-428f-ad38-46e39750611d">&lt;em&gt;</bpt>Azure<ept id="fdf73075-59d9-428f-ad38-46e39750611d">&lt;/em&gt;</ept>ccinvoice_Sample.pdf)</target>
+        </trans-unit>
+        <trans-unit id="bb81cf09-38f5-4e26-b61d-96c385f288f6" xml:space="preserve">
+          <source>Commitment offer</source>
+          <target state="new">Commitment offer</target>
+        </trans-unit>
+        <trans-unit id="5efb4b5c-8b7d-4995-bec3-87b1576c7c39" xml:space="preserve">
+          <source>Spend deducted from your prepaid commitment</source>
+          <target state="new">Spend deducted from your prepaid commitment</target>
+        </trans-unit>
+        <trans-unit id="b0022182-72f0-487c-8a17-876443df2a0a" xml:space="preserve">
+          <source>[Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft<bpt id="4a9fba5d-507d-4dbf-a9fe-f979c2ab9f7a">&lt;em&gt;</bpt>Azure<ept id="4a9fba5d-507d-4dbf-a9fe-f979c2ab9f7a">&lt;/em&gt;</ept>invoice_Sample.pdf)</source>
+          <target state="new">[Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft<bpt id="4a9fba5d-507d-4dbf-a9fe-f979c2ab9f7a">&lt;em&gt;</bpt>Azure<ept id="4a9fba5d-507d-4dbf-a9fe-f979c2ab9f7a">&lt;/em&gt;</ept>invoice_Sample.pdf)</target>
+        </trans-unit>
+        <trans-unit id="03cf85c3-5301-43ea-93de-60c3b4c11c40" xml:space="preserve">
+          <source>The customer information section identifies pertinent information in regards to your usage and profile.</source>
+          <target state="new">The customer information section identifies pertinent information in regards to your usage and profile.</target>
+        </trans-unit>
+        <trans-unit id="8a673efa-5764-4ecd-8a1e-3b066b189efe" xml:space="preserve">
+          <source><bpt id="11a44234-f519-46f0-b206-6521c50dd137">&lt;linkText&gt;</bpt>header<ept id="11a44234-f519-46f0-b206-6521c50dd137">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="11a44234-f519-46f0-b206-6521c50dd137">&lt;linkText&gt;</bpt>header<ept id="11a44234-f519-46f0-b206-6521c50dd137">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b3a6092-2477-41a8-83f1-32705262e647" xml:space="preserve">
+          <source>A unique invoice identifier for tracking purposes.</source>
+          <target state="new">A unique invoice identifier for tracking purposes.</target>
+        </trans-unit>
+        <trans-unit id="9315bba0-3eba-4dca-bb67-d3bd816cb897" xml:space="preserve">
+          <source>The time frame in which usage has taken place.</source>
+          <target state="new">The time frame in which usage has taken place.</target>
+        </trans-unit>
+        <trans-unit id="e4560bdf-dbe8-4060-9391-14691fd1e97d" xml:space="preserve">
+          <source>Date that the invoice was generated.</source>
+          <target state="new">Date that the invoice was generated.</target>
+        </trans-unit>
+        <trans-unit id="e5b6cd96-9e71-4b26-b862-5f21b9f0e9f3" xml:space="preserve">
+          <source>Type of payment used on the account (i.e. Invoice or Credit Card).</source>
+          <target state="new">Type of payment used on the account (i.e. Invoice or Credit Card).</target>
+        </trans-unit>
+        <trans-unit id="902b9a9b-2426-430c-aa39-433af47a5728" xml:space="preserve">
+          <source>Microsoft Azure payments address.</source>
+          <target state="new">Microsoft Azure payments address.</target>
+        </trans-unit>
+        <trans-unit id="383ea099-0cd7-4ce2-aa0c-2cf8fbaf75a8" xml:space="preserve">
+          <source>Type of subscription offer that was purchased (i.e. Pay-As-You-Go, MSDN-Vidual Studio Ultimate, etc.)</source>
+          <target state="new">Type of subscription offer that was purchased (i.e. Pay-As-You-Go, MSDN-Vidual Studio Ultimate, etc.)</target>
+        </trans-unit>
+        <trans-unit id="29d64b03-d3fb-44cd-b819-8e812832689e" xml:space="preserve">
+          <source>The account email address that the Microsoft Azure account is registered under.</source>
+          <target state="new">The account email address that the Microsoft Azure account is registered under.</target>
+        </trans-unit>
+        <trans-unit id="79228ee0-c8b0-44d5-98c7-a0c0c848aa3e" xml:space="preserve">
+          <source>The Invoice Summary section of the bill summarizes transactions since your last bill and your current usage charges.</source>
+          <target state="new">The Invoice Summary section of the bill summarizes transactions since your last bill and your current usage charges.</target>
+        </trans-unit>
+        <trans-unit id="0bcb7481-8bbb-4e5d-84f0-142ae946c43d" xml:space="preserve">
+          <source><bpt id="cbc003d1-7191-47e6-8693-63d023866e04">&lt;linkText&gt;</bpt>invoice summary<ept id="cbc003d1-7191-47e6-8693-63d023866e04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cbc003d1-7191-47e6-8693-63d023866e04">&lt;linkText&gt;</bpt>invoice summary<ept id="cbc003d1-7191-47e6-8693-63d023866e04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e91c3d3-9423-4329-af55-d837108350e9" xml:space="preserve">
+          <source>The Balances, Payments &amp; Other Credits section of the bill summarizes transactions since your last bill.</source>
+          <target state="new">The Balances, Payments &amp; Other Credits section of the bill summarizes transactions since your last bill.</target>
+        </trans-unit>
+        <trans-unit id="17ca3b15-a38b-4471-911a-6bf1f96bbf73" xml:space="preserve">
+          <source>Previous balance is the total amount due from your last bill.</source>
+          <target state="new">Previous balance is the total amount due from your last bill.</target>
+        </trans-unit>
+        <trans-unit id="9051315c-0cc5-4e4f-80f6-8c49bfd42165" xml:space="preserve">
+          <source>Payments are your total payments applied to your last bill.</source>
+          <target state="new">Payments are your total payments applied to your last bill.</target>
+        </trans-unit>
+        <trans-unit id="a20b6ac7-3153-4fc7-a39f-6cb4a868879c" xml:space="preserve">
+          <source>Any bill adjustments (credits or balances) applied to your account since your last bill.</source>
+          <target state="new">Any bill adjustments (credits or balances) applied to your account since your last bill.</target>
+        </trans-unit>
+        <trans-unit id="a6d60c64-4737-408e-8972-5a1d3a26e4d1" xml:space="preserve">
+          <source>The Current Charges section of the bill contains details about your monthly charges.</source>
+          <target state="new">The Current Charges section of the bill contains details about your monthly charges.</target>
+        </trans-unit>
+        <trans-unit id="ef5e5214-0026-4dd1-bdd7-f8c9b2a33dbb" xml:space="preserve">
+          <source>The links are organized into the following subsections.</source>
+          <target state="new">The links are organized into the following subsections.</target>
+        </trans-unit>
+        <trans-unit id="cde2eb21-e4f1-4798-824d-c250c8924758" xml:space="preserve">
+          <source>Usage charges are total monthly charges on a subscription.</source>
+          <target state="new">Usage charges are total monthly charges on a subscription.</target>
+        </trans-unit>
+        <trans-unit id="72500b48-d2c0-4b57-89e8-6612c8b2687a" xml:space="preserve">
+          <source>You are billed in arrears for your past month’s usage.</source>
+          <target state="new">You are billed in arrears for your past month’s usage.</target>
+        </trans-unit>
+        <trans-unit id="cb4c185f-319d-48f4-840a-5928390416f2" xml:space="preserve">
+          <source>Service discounts on your usage would be reflected in this line item that are applied to your current bill.</source>
+          <target state="new">Service discounts on your usage would be reflected in this line item that are applied to your current bill.</target>
+        </trans-unit>
+        <trans-unit id="0e108a1e-cef3-4ca6-95f8-0be6c9d2612a" xml:space="preserve">
+          <source>Miscellaneous adjustments are miscellaneous credits or outstanding charges applied to your current bill.</source>
+          <target state="new">Miscellaneous adjustments are miscellaneous credits or outstanding charges applied to your current bill.</target>
+        </trans-unit>
+        <trans-unit id="7373e0c5-7566-4bf2-b341-33fb4018be44" xml:space="preserve">
+          <source>For example, if you have the Visual Studio Ultimate with MSDN offer, you would see a monthly credit in this line item.</source>
+          <target state="new">For example, if you have the Visual Studio Ultimate with MSDN offer, you would see a monthly credit in this line item.</target>
+        </trans-unit>
+        <trans-unit id="7eb22887-1973-4b1d-9cd0-39a663166a22" xml:space="preserve">
+          <source>If you cancel your subscription, you would see charges for monthly usage in excess of the monthly credit included in your offer from the start of your current billing period to your subscription cancellation date.</source>
+          <target state="new">If you cancel your subscription, you would see charges for monthly usage in excess of the monthly credit included in your offer from the start of your current billing period to your subscription cancellation date.</target>
+        </trans-unit>
+        <trans-unit id="fe0e2e15-ae66-4f23-80b5-33cb8c24da0b" xml:space="preserve">
+          <source><bpt id="a36a13c5-5e70-4078-8791-c59b1584bc2e">&lt;linkText&gt;</bpt>footer<ept id="a36a13c5-5e70-4078-8791-c59b1584bc2e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a36a13c5-5e70-4078-8791-c59b1584bc2e">&lt;linkText&gt;</bpt>footer<ept id="a36a13c5-5e70-4078-8791-c59b1584bc2e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d8b46dd-5b24-4a81-ba9b-320d3248c3a2" xml:space="preserve">
+          <source>The additional information page gives you references to other resources to understand your invoice, and links to view your usage as well as other relevant information for your bill.</source>
+          <target state="new">The additional information page gives you references to other resources to understand your invoice, and links to view your usage as well as other relevant information for your bill.</target>
+        </trans-unit>
+        <trans-unit id="4d4832e3-7ec9-4be0-b51a-426cf3cbad74" xml:space="preserve">
+          <source><bpt id="bbd16d09-5bc0-4398-bf03-4ed6d2926645">&lt;linkText&gt;</bpt>additional information<ept id="bbd16d09-5bc0-4398-bf03-4ed6d2926645">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bbd16d09-5bc0-4398-bf03-4ed6d2926645">&lt;linkText&gt;</bpt>additional information<ept id="bbd16d09-5bc0-4398-bf03-4ed6d2926645">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0edc918d-cc8b-4cc4-bd4a-c14d9736e6ad" xml:space="preserve">
+          <source>A link in the description under Detailed Usage directs you the Azure Usage and Billing Portal where you can view your detailed usage for this subscription.</source>
+          <target state="new">A link in the description under Detailed Usage directs you the Azure Usage and Billing Portal where you can view your detailed usage for this subscription.</target>
+        </trans-unit>
+        <trans-unit id="30f6aac6-17e2-4eb4-9dc2-133f1c81ed86" xml:space="preserve">
+          <source>There are now two versions available to download:  <bpt id="7d8ece63-e890-4772-a0f7-469831827ea0">&lt;strong&gt;</bpt>.csv version 1<ept id="7d8ece63-e890-4772-a0f7-469831827ea0">&lt;/strong&gt;</ept> contains the old naming convention and usage fields and <bpt id="095f0493-94da-44c5-85d7-695356b78ae9">&lt;strong&gt;</bpt>.csv version 2<ept id="095f0493-94da-44c5-85d7-695356b78ae9">&lt;/strong&gt;</ept> contains customer friendly names for each of the categories plus additional fields that will help you understand what services you are using on Microsoft Azure.</source>
+          <target state="new">There are now two versions available to download:  <bpt id="7d8ece63-e890-4772-a0f7-469831827ea0">&lt;strong&gt;</bpt>.csv version 1<ept id="7d8ece63-e890-4772-a0f7-469831827ea0">&lt;/strong&gt;</ept> contains the old naming convention and usage fields and <bpt id="095f0493-94da-44c5-85d7-695356b78ae9">&lt;strong&gt;</bpt>.csv version 2<ept id="095f0493-94da-44c5-85d7-695356b78ae9">&lt;/strong&gt;</ept> contains customer friendly names for each of the categories plus additional fields that will help you understand what services you are using on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="90fcd129-4aec-41ee-b2ee-5431bb0856a8" xml:space="preserve">
+          <source>This section has links to simple questions regarding compute instance sizes, SQL DB charges, and useful links to help you answer further questions.</source>
+          <target state="new">This section has links to simple questions regarding compute instance sizes, SQL DB charges, and useful links to help you answer further questions.</target>
+        </trans-unit>
+        <trans-unit id="5272124d-37c6-4bbe-9fda-5847857b6eea" xml:space="preserve">
+          <source>This is prepopulated with the profile address on the account.</source>
+          <target state="new">This is prepopulated with the profile address on the account.</target>
+        </trans-unit>
+        <trans-unit id="0251716d-8d57-413d-90f5-cfd636c66b37" xml:space="preserve">
+          <source>This section is the payment instructions of where to send checks, wire transfers or overnight checks if your payment method is invoice.</source>
+          <target state="new">This section is the payment instructions of where to send checks, wire transfers or overnight checks if your payment method is invoice.</target>
+        </trans-unit>
+        <trans-unit id="8a63b5a1-8850-48d4-8926-a1c3b4c4a79d" xml:space="preserve">
+          <source>As part of our ongoing commitment to help customers easily manage their Azure use, we've enhanced the download usage file that reports on your Azure services usage and costs.</source>
+          <target state="new">As part of our ongoing commitment to help customers easily manage their Azure use, we've enhanced the download usage file that reports on your Azure services usage and costs.</target>
+        </trans-unit>
+        <trans-unit id="60187180-410b-4b83-bcc6-9c4ae391a6d0" xml:space="preserve">
+          <source>The download link contains two versions of the usage file: <bpt id="231379c4-e43f-4b5a-80fb-0e8dea96cb57">&lt;strong&gt;</bpt>Version 1<ept id="231379c4-e43f-4b5a-80fb-0e8dea96cb57">&lt;/strong&gt;</ept> uses the pre-existing format; <bpt id="a88ef287-997b-44bb-8054-739a8840d4fe">&lt;strong&gt;</bpt>Version 2<ept id="a88ef287-997b-44bb-8054-739a8840d4fe">&lt;/strong&gt;</ept> includes additional information and updated column names in the Daily Usage section.</source>
+          <target state="new">The download link contains two versions of the usage file: <bpt id="231379c4-e43f-4b5a-80fb-0e8dea96cb57">&lt;strong&gt;</bpt>Version 1<ept id="231379c4-e43f-4b5a-80fb-0e8dea96cb57">&lt;/strong&gt;</ept> uses the pre-existing format; <bpt id="a88ef287-997b-44bb-8054-739a8840d4fe">&lt;strong&gt;</bpt>Version 2<ept id="a88ef287-997b-44bb-8054-739a8840d4fe">&lt;/strong&gt;</ept> includes additional information and updated column names in the Daily Usage section.</target>
+        </trans-unit>
+        <trans-unit id="d474125f-75d4-4e73-8449-1dcdaa81763a" xml:space="preserve">
+          <source>Usage charges are total <bpt id="550ac53f-4598-4498-8e01-e35b46de6987">&lt;strong&gt;</bpt>monthly<ept id="550ac53f-4598-4498-8e01-e35b46de6987">&lt;/strong&gt;</ept> charges on a subscription less any credit or discount.</source>
+          <target state="new">Usage charges are total <bpt id="550ac53f-4598-4498-8e01-e35b46de6987">&lt;strong&gt;</bpt>monthly<ept id="550ac53f-4598-4498-8e01-e35b46de6987">&lt;/strong&gt;</ept> charges on a subscription less any credit or discount.</target>
+        </trans-unit>
+        <trans-unit id="2a1673d8-319c-412a-aab5-82eb89a551d9" xml:space="preserve">
+          <source>You are billed in arrears for your past month’s usage.</source>
+          <target state="new">You are billed in arrears for your past month’s usage.</target>
+        </trans-unit>
+        <trans-unit id="97a63195-d4d6-42c5-9fa4-8f94257fbf6d" xml:space="preserve">
+          <source>The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.</source>
+          <target state="new">The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.</target>
+        </trans-unit>
+        <trans-unit id="9496816d-3da5-46f2-b5fe-97d9ddf509d2" xml:space="preserve">
+          <source>The table below lists the names of the columns for each of the .csv version files.</source>
+          <target state="new">The table below lists the names of the columns for each of the .csv version files.</target>
+        </trans-unit>
+        <trans-unit id="291125b8-1f87-464b-b971-b2bfca868147" xml:space="preserve">
+          <source><bpt id="ac3d5708-f2b0-4f25-8298-773334d36160">&lt;strong&gt;</bpt>Version 1<ept id="ac3d5708-f2b0-4f25-8298-773334d36160">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ac3d5708-f2b0-4f25-8298-773334d36160">&lt;strong&gt;</bpt>Version 1<ept id="ac3d5708-f2b0-4f25-8298-773334d36160">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e324453-4a94-4ca1-9bb2-157fd09f605e" xml:space="preserve">
+          <source><bpt id="2541bd6d-6991-475f-b48e-9ff4a80a968d">&lt;strong&gt;</bpt>Version 2<ept id="2541bd6d-6991-475f-b48e-9ff4a80a968d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2541bd6d-6991-475f-b48e-9ff4a80a968d">&lt;strong&gt;</bpt>Version 2<ept id="2541bd6d-6991-475f-b48e-9ff4a80a968d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d566ef1-5916-46f6-b3b6-2974b8a3150e" xml:space="preserve">
+          <source><bpt id="71da62bb-c5aa-4106-8aa2-9b7bf7686ea3">&lt;strong&gt;</bpt>Description<ept id="71da62bb-c5aa-4106-8aa2-9b7bf7686ea3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="71da62bb-c5aa-4106-8aa2-9b7bf7686ea3">&lt;strong&gt;</bpt>Description<ept id="71da62bb-c5aa-4106-8aa2-9b7bf7686ea3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8392f04a-3e89-4f0f-a184-4185e3e78241" xml:space="preserve">
+          <source>Billing Period</source>
+          <target state="new">Billing Period</target>
+        </trans-unit>
+        <trans-unit id="f8db8521-27ad-4459-b90f-a16570741a82" xml:space="preserve">
+          <source>Billing Period</source>
+          <target state="new">Billing Period</target>
+        </trans-unit>
+        <trans-unit id="716fafdf-ad9c-4f77-b972-6e9405759e59" xml:space="preserve">
+          <source>The billing period when the resource was consumed.</source>
+          <target state="new">The billing period when the resource was consumed.</target>
+        </trans-unit>
+        <trans-unit id="d22fe37f-9dea-40ef-9e98-e3c3064efe13" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="348cca6b-51ed-434c-ad5a-e2318d8a5a89" xml:space="preserve">
+          <source>Meter Category</source>
+          <target state="new">Meter Category</target>
+        </trans-unit>
+        <trans-unit id="ce31bd03-7d6c-40e7-b41c-913baffc490e" xml:space="preserve">
+          <source>Identifies the top-level service for which this usage belongs.</source>
+          <target state="new">Identifies the top-level service for which this usage belongs.</target>
+        </trans-unit>
+        <trans-unit id="fb2ca6b2-e5fe-4f2a-8ecb-439a5888121d" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="353a6408-5bd9-460c-8c9f-55d8f89be869" xml:space="preserve">
+          <source>Meter Sub-Category</source>
+          <target state="new">Meter Sub-Category</target>
+        </trans-unit>
+        <trans-unit id="fd2babeb-4460-4730-bb1c-e48d62e31edf" xml:space="preserve">
+          <source>Azure service may be further defined by type in this column, which can affect the rate.</source>
+          <target state="new">Azure service may be further defined by type in this column, which can affect the rate.</target>
+        </trans-unit>
+        <trans-unit id="cbe3531d-32e7-476f-a3b0-94229cca757b" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="42364fd8-7adb-4192-b75a-ece7984a583e" xml:space="preserve">
+          <source>Meter Name</source>
+          <target state="new">Meter Name</target>
+        </trans-unit>
+        <trans-unit id="2a8866b7-7313-4e96-b05a-5240167ad982" xml:space="preserve">
+          <source>Identifies the unit of measure for the resource being consumed.</source>
+          <target state="new">Identifies the unit of measure for the resource being consumed.</target>
+        </trans-unit>
+        <trans-unit id="b76965a3-be0b-448b-9dd5-f703f5bdd02a" xml:space="preserve">
+          <source>Region</source>
+          <target state="new">Region</target>
+        </trans-unit>
+        <trans-unit id="47efb89c-eee7-4186-bc52-e6655b8c1f28" xml:space="preserve">
+          <source>Meter Region</source>
+          <target state="new">Meter Region</target>
+        </trans-unit>
+        <trans-unit id="7f0965d3-7eff-41f4-a6db-e0c0c3387112" xml:space="preserve">
+          <source>Identifies the location of the datacenter for certain services that are priced based on datacenter location.</source>
+          <target state="new">Identifies the location of the datacenter for certain services that are priced based on datacenter location.</target>
+        </trans-unit>
+        <trans-unit id="c5ff96ed-205c-4d41-b6fd-e671a46c3845" xml:space="preserve">
+          <source>SKU</source>
+          <target state="new">SKU</target>
+        </trans-unit>
+        <trans-unit id="8616a6ab-f163-4502-ad8d-20583355cb03" xml:space="preserve">
+          <source>SKU</source>
+          <target state="new">SKU</target>
+        </trans-unit>
+        <trans-unit id="05c2bce4-f740-4a10-840f-af188d3ae935" xml:space="preserve">
+          <source>Identifies the unique system identifier for each Azure resource.</source>
+          <target state="new">Identifies the unique system identifier for each Azure resource.</target>
+        </trans-unit>
+        <trans-unit id="7b9cf191-2327-4ba9-81b6-4ff8e51d3ece" xml:space="preserve">
+          <source>Unit</source>
+          <target state="new">Unit</target>
+        </trans-unit>
+        <trans-unit id="ae2d8691-ae42-4f05-be16-949424f07968" xml:space="preserve">
+          <source>Unit</source>
+          <target state="new">Unit</target>
+        </trans-unit>
+        <trans-unit id="6ef22110-5950-4931-a5db-8a6336715d84" xml:space="preserve">
+          <source>Identifies the Unit that the service is charged in.</source>
+          <target state="new">Identifies the Unit that the service is charged in.</target>
+        </trans-unit>
+        <trans-unit id="eabf3642-2e9d-4d9b-9fd5-e14151e69546" xml:space="preserve">
+          <source>For example, GB, hours, 10,000s.</source>
+          <target state="new">For example, GB, hours, 10,000s.</target>
+        </trans-unit>
+        <trans-unit id="c6b4f339-f23a-4c04-8c9a-eba6e83b6557" xml:space="preserve">
+          <source>Consumed</source>
+          <target state="new">Consumed</target>
+        </trans-unit>
+        <trans-unit id="13bd74c7-7b50-4153-a0a2-fe359d19682c" xml:space="preserve">
+          <source>Consumed Quantity</source>
+          <target state="new">Consumed Quantity</target>
+        </trans-unit>
+        <trans-unit id="b84e9509-475c-40ca-b7bc-fd66d8ad39a2" xml:space="preserve">
+          <source>Contains the amount of the resource that has been consumed during the billing period.</source>
+          <target state="new">Contains the amount of the resource that has been consumed during the billing period.</target>
+        </trans-unit>
+        <trans-unit id="8d7e1eb1-65ab-41c9-9209-817a85e142b2" xml:space="preserve">
+          <source>Included</source>
+          <target state="new">Included</target>
+        </trans-unit>
+        <trans-unit id="41915ade-634e-4375-9ee0-763d471faa99" xml:space="preserve">
+          <source>Included Quantity</source>
+          <target state="new">Included Quantity</target>
+        </trans-unit>
+        <trans-unit id="f4fd761a-97b2-4448-9481-a886d4a0fae3" xml:space="preserve">
+          <source>Contains the amount of the resource that is included at no charge in your current billing period.</source>
+          <target state="new">Contains the amount of the resource that is included at no charge in your current billing period.</target>
+        </trans-unit>
+        <trans-unit id="1ec4dfe0-169f-4826-9d2e-c07e3af133e8" xml:space="preserve">
+          <source>Billable</source>
+          <target state="new">Billable</target>
+        </trans-unit>
+        <trans-unit id="dd011946-78a5-461a-a0d3-1585f39af179" xml:space="preserve">
+          <source>Overage Quantity</source>
+          <target state="new">Overage Quantity</target>
+        </trans-unit>
+        <trans-unit id="8d95f50b-9a91-45ce-bac7-fa1ad1dc99ac" xml:space="preserve">
+          <source>If the Consumed amount exceeds the included amount, this column displays the difference.</source>
+          <target state="new">If the Consumed amount exceeds the included amount, this column displays the difference.</target>
+        </trans-unit>
+        <trans-unit id="68685ffa-df84-44b3-8b4d-ecd0512b5758" xml:space="preserve">
+          <source>You are billed for this amount.</source>
+          <target state="new">You are billed for this amount.</target>
+        </trans-unit>
+        <trans-unit id="3d5ea755-a41e-42c9-99ff-5aaa2924a2a5" xml:space="preserve">
+          <source>For Pay-As-You-Go offers with no amount included with the offer, this total will be the same as the Consumed quantity.</source>
+          <target state="new">For Pay-As-You-Go offers with no amount included with the offer, this total will be the same as the Consumed quantity.</target>
+        </trans-unit>
+        <trans-unit id="5f3a452e-2a93-42dc-9f58-073d71af9b88" xml:space="preserve">
+          <source>Within Commitment</source>
+          <target state="new">Within Commitment</target>
+        </trans-unit>
+        <trans-unit id="a706007e-acc9-427b-ad0a-09969c04a1a4" xml:space="preserve">
+          <source>Within Commitment</source>
+          <target state="new">Within Commitment</target>
+        </trans-unit>
+        <trans-unit id="7b423a34-04bc-41cd-a632-a8a58ff9f57e" xml:space="preserve">
+          <source>Contains the resource charges that are decremented from your commitment amount associated with your 6 or 12 month offer.</source>
+          <target state="new">Contains the resource charges that are decremented from your commitment amount associated with your 6 or 12 month offer.</target>
+        </trans-unit>
+        <trans-unit id="dfca8017-1451-40a7-ba3d-6d22980879b7" xml:space="preserve">
+          <source>Note that your resource charges are decremented from your commitment amount in chronological order.</source>
+          <target state="new">Note that your resource charges are decremented from your commitment amount in chronological order.</target>
+        </trans-unit>
+        <trans-unit id="6e75706f-b160-4e0a-b1f1-c6cf0f2ae558" xml:space="preserve">
+          <source>Currency</source>
+          <target state="new">Currency</target>
+        </trans-unit>
+        <trans-unit id="deaa1b41-720f-486e-bb2c-d120ab2d9488" xml:space="preserve">
+          <source>Currency</source>
+          <target state="new">Currency</target>
+        </trans-unit>
+        <trans-unit id="0572e266-85f8-4bdc-877a-c3511f40912b" xml:space="preserve">
+          <source>Identifies the currency reflected in your current billing period.</source>
+          <target state="new">Identifies the currency reflected in your current billing period.</target>
+        </trans-unit>
+        <trans-unit id="4387142f-e1aa-4315-a81e-c5415cf75b7a" xml:space="preserve">
+          <source>Overage</source>
+          <target state="new">Overage</target>
+        </trans-unit>
+        <trans-unit id="024f04f4-5bef-405d-90eb-c1b385a30e7f" xml:space="preserve">
+          <source>Overage</source>
+          <target state="new">Overage</target>
+        </trans-unit>
+        <trans-unit id="5729c0f8-48de-47cc-8be7-5f89a7580e14" xml:space="preserve">
+          <source>Contains the resource charges that exceed your commitment amount associated with your 6 or 12 month offer.</source>
+          <target state="new">Contains the resource charges that exceed your commitment amount associated with your 6 or 12 month offer.</target>
+        </trans-unit>
+        <trans-unit id="9df15ddf-fd2a-4964-9523-c5d31c6aa0a7" xml:space="preserve">
+          <source>Commitment Rate</source>
+          <target state="new">Commitment Rate</target>
+        </trans-unit>
+        <trans-unit id="161ccb14-fbfe-457f-875e-2d5b4bd0863d" xml:space="preserve">
+          <source>Commitment Rate</source>
+          <target state="new">Commitment Rate</target>
+        </trans-unit>
+        <trans-unit id="e72d3355-1537-4fa2-a39e-d32655ecb165" xml:space="preserve">
+          <source>Contains the commitment rate based on your total commitment amount associated with your 6 or 12 month offer.</source>
+          <target state="new">Contains the commitment rate based on your total commitment amount associated with your 6 or 12 month offer.</target>
+        </trans-unit>
+        <trans-unit id="e23f08b2-b7b0-46fd-bd26-a55e4e69abe5" xml:space="preserve">
+          <source>Rate</source>
+          <target state="new">Rate</target>
+        </trans-unit>
+        <trans-unit id="facf8a9e-a16b-4d01-a194-b4c44052c901" xml:space="preserve">
+          <source>Rate</source>
+          <target state="new">Rate</target>
+        </trans-unit>
+        <trans-unit id="9d907c99-2a3f-4b1f-a136-6076a0a514e7" xml:space="preserve">
+          <source>Rate displays the rate you are charged per billable unit.</source>
+          <target state="new">Rate displays the rate you are charged per billable unit.</target>
+        </trans-unit>
+        <trans-unit id="0650e577-c824-45cd-99a0-836e268a11d4" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="dc480c5b-885b-4a88-bf42-0b03f55a81ac" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="591fef31-371c-4652-bc26-aa20eb43ad70" xml:space="preserve">
+          <source>Displays the result of multiplying the Billable column by the Rate column.</source>
+          <target state="new">Displays the result of multiplying the Billable column by the Rate column.</target>
+        </trans-unit>
+        <trans-unit id="fd7a849e-6526-4893-8a8c-7ab5d24841ea" xml:space="preserve">
+          <source>If the Consumed amount does not exceed the included amount, there will be no charge in this column.</source>
+          <target state="new">If the Consumed amount does not exceed the included amount, there will be no charge in this column.</target>
+        </trans-unit>
+        <trans-unit id="617674e2-d9ed-4659-a86f-43b8644d011f" xml:space="preserve">
+          <source>Depending on your usage, there can be thousands of rows of daily usage data.</source>
+          <target state="new">Depending on your usage, there can be thousands of rows of daily usage data.</target>
+        </trans-unit>
+        <trans-unit id="f7c5de8c-7380-4f10-83f0-de4a4f75ad2d" xml:space="preserve">
+          <source>If you want to analyze this data, click <bpt id="c5cdda25-4286-4e67-b778-dd3e3182f860">&lt;strong&gt;</bpt>Download Usage<ept id="c5cdda25-4286-4e67-b778-dd3e3182f860">&lt;/strong&gt;</ept> and choose a comma-separated variable file (.csv) version to see your daily usage data for the appropriate billing period.</source>
+          <target state="new">If you want to analyze this data, click <bpt id="c5cdda25-4286-4e67-b778-dd3e3182f860">&lt;strong&gt;</bpt>Download Usage<ept id="c5cdda25-4286-4e67-b778-dd3e3182f860">&lt;/strong&gt;</ept> and choose a comma-separated variable file (.csv) version to see your daily usage data for the appropriate billing period.</target>
+        </trans-unit>
+        <trans-unit id="a77704a4-0b8a-4851-b8f3-5265c09943e3" xml:space="preserve">
+          <source>For your reference, you can download a sample .csv file for each version below.</source>
+          <target state="new">For your reference, you can download a sample .csv file for each version below.</target>
+        </trans-unit>
+        <trans-unit id="0854b055-a2bf-4a31-a104-60e6d12f1ee6" xml:space="preserve">
+          <source>NAME</source>
+          <target state="new">NAME</target>
+        </trans-unit>
+        <trans-unit id="8a4de33e-b523-405e-899a-40bbfb3c0065" xml:space="preserve">
+          <source>DOWNLOAD</source>
+          <target state="new">DOWNLOAD</target>
+        </trans-unit>
+        <trans-unit id="a84f1fcb-39fb-444c-85b7-1ef5c07dff85" xml:space="preserve">
+          <source>Detailed Usage .csv Version 1</source>
+          <target state="new">Detailed Usage .csv Version 1</target>
+        </trans-unit>
+        <trans-unit id="ea4b4d24-444a-49de-9d7e-b5e9f82c1187" xml:space="preserve">
+          <source>[Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft<bpt id="be55ddd0-0839-4fe1-98f1-94665bad4a11">&lt;em&gt;</bpt>Azure<ept id="be55ddd0-0839-4fe1-98f1-94665bad4a11">&lt;/em&gt;</ept>Detailed<bpt id="762eec4a-029b-41b9-a139-9b30b7e53fe5">&lt;em&gt;</bpt>Usage<ept id="762eec4a-029b-41b9-a139-9b30b7e53fe5">&lt;/em&gt;</ept>v1.csv)</source>
+          <target state="new">[Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft<bpt id="be55ddd0-0839-4fe1-98f1-94665bad4a11">&lt;em&gt;</bpt>Azure<ept id="be55ddd0-0839-4fe1-98f1-94665bad4a11">&lt;/em&gt;</ept>Detailed<bpt id="762eec4a-029b-41b9-a139-9b30b7e53fe5">&lt;em&gt;</bpt>Usage<ept id="762eec4a-029b-41b9-a139-9b30b7e53fe5">&lt;/em&gt;</ept>v1.csv)</target>
+        </trans-unit>
+        <trans-unit id="3cfb0486-85b7-4c0b-9a7b-530f9de6b3cc" xml:space="preserve">
+          <source>Detailed Usage .csv Version 2</source>
+          <target state="new">Detailed Usage .csv Version 2</target>
+        </trans-unit>
+        <trans-unit id="675742ab-a519-4465-8843-b0efaa5e4337" xml:space="preserve">
+          <source>[Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft<bpt id="cacee59f-7df9-4071-8e06-70037457789e">&lt;em&gt;</bpt>Azure<ept id="cacee59f-7df9-4071-8e06-70037457789e">&lt;/em&gt;</ept>Detailed<bpt id="dadebf47-4eb3-408d-8dd2-dc87e3f06678">&lt;em&gt;</bpt>Usage<ept id="dadebf47-4eb3-408d-8dd2-dc87e3f06678">&lt;/em&gt;</ept>v2.csv)</source>
+          <target state="new">[Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft<bpt id="cacee59f-7df9-4071-8e06-70037457789e">&lt;em&gt;</bpt>Azure<ept id="cacee59f-7df9-4071-8e06-70037457789e">&lt;/em&gt;</ept>Detailed<bpt id="dadebf47-4eb3-408d-8dd2-dc87e3f06678">&lt;em&gt;</bpt>Usage<ept id="dadebf47-4eb3-408d-8dd2-dc87e3f06678">&lt;/em&gt;</ept>v2.csv)</target>
+        </trans-unit>
+        <trans-unit id="2cc1c2a7-58dd-4187-b740-d24974df84f8" xml:space="preserve">
+          <source><bpt id="4b833adf-d4a6-452b-8f51-269f9063dd78">&lt;linkText&gt;</bpt>csv2screenshot<ept id="4b833adf-d4a6-452b-8f51-269f9063dd78">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b833adf-d4a6-452b-8f51-269f9063dd78">&lt;linkText&gt;</bpt>csv2screenshot<ept id="4b833adf-d4a6-452b-8f51-269f9063dd78">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6be409d3-7cb0-44b5-9cdd-4d40fd02de5e" xml:space="preserve">
+          <source>In the .csv file, the items are broken down to display a list of how much of each resource was consumed within the current billing period.</source>
+          <target state="new">In the .csv file, the items are broken down to display a list of how much of each resource was consumed within the current billing period.</target>
+        </trans-unit>
+        <trans-unit id="c6c21008-b961-4248-aabf-0be7f8328a1b" xml:space="preserve">
+          <source><bpt id="6eb97c20-4ed2-47bc-ad76-9d9532c9badc">&lt;linkText&gt;</bpt>csv snapshot<ept id="6eb97c20-4ed2-47bc-ad76-9d9532c9badc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6eb97c20-4ed2-47bc-ad76-9d9532c9badc">&lt;linkText&gt;</bpt>csv snapshot<ept id="6eb97c20-4ed2-47bc-ad76-9d9532c9badc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dbe58278-0663-4191-be95-ff8984aad1b7" xml:space="preserve">
+          <source>The following columns display details that affect the rates at the beginning of the billing period:</source>
+          <target state="new">The following columns display details that affect the rates at the beginning of the billing period:</target>
+        </trans-unit>
+        <trans-unit id="76b15541-5323-4941-b5ed-aea7f0af60d6" xml:space="preserve">
+          <source><bpt id="3825445f-2eea-43bc-ab52-5d2630d28494">&lt;strong&gt;</bpt>Version 1<ept id="3825445f-2eea-43bc-ab52-5d2630d28494">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3825445f-2eea-43bc-ab52-5d2630d28494">&lt;strong&gt;</bpt>Version 1<ept id="3825445f-2eea-43bc-ab52-5d2630d28494">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a926eb0-f4cc-466d-abeb-c180eb0b9c0c" xml:space="preserve">
+          <source><bpt id="a6faba52-aee2-4548-9130-88506eeade4a">&lt;strong&gt;</bpt>Version 2<ept id="a6faba52-aee2-4548-9130-88506eeade4a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a6faba52-aee2-4548-9130-88506eeade4a">&lt;strong&gt;</bpt>Version 2<ept id="a6faba52-aee2-4548-9130-88506eeade4a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d07e568-2e84-4290-9269-378f9f342199" xml:space="preserve">
+          <source><bpt id="5d223051-4332-4ba1-9c08-275ee3dda2b1">&lt;strong&gt;</bpt>Description<ept id="5d223051-4332-4ba1-9c08-275ee3dda2b1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5d223051-4332-4ba1-9c08-275ee3dda2b1">&lt;strong&gt;</bpt>Description<ept id="5d223051-4332-4ba1-9c08-275ee3dda2b1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9ab7859-7bfd-4c61-b00c-2c7d8f06b5eb" xml:space="preserve">
+          <source>Usage Date</source>
+          <target state="new">Usage Date</target>
+        </trans-unit>
+        <trans-unit id="3359333a-c708-4bf7-ab43-1835663949f1" xml:space="preserve">
+          <source>Usage Date</source>
+          <target state="new">Usage Date</target>
+        </trans-unit>
+        <trans-unit id="3e48cc48-76f8-4c69-9714-f606af305b31" xml:space="preserve">
+          <source>The date when the resource was emitted.</source>
+          <target state="new">The date when the resource was emitted.</target>
+        </trans-unit>
+        <trans-unit id="22b84901-d414-4293-b3b8-1c094432a966" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="e5a6df3f-9fa4-489d-b6ca-f396e570ac87" xml:space="preserve">
+          <source>Meter Category</source>
+          <target state="new">Meter Category</target>
+        </trans-unit>
+        <trans-unit id="61dd7c13-daaa-4301-bc92-d5174fe18178" xml:space="preserve">
+          <source>Identifies the top-level service for which this usage belongs.</source>
+          <target state="new">Identifies the top-level service for which this usage belongs.</target>
+        </trans-unit>
+        <trans-unit id="cf93a839-e521-43aa-9d3f-de694c4a38ee" xml:space="preserve">
+          <source>Resource GUID</source>
+          <target state="new">Resource GUID</target>
+        </trans-unit>
+        <trans-unit id="6859624e-09db-4b45-9459-8a35a031559f" xml:space="preserve">
+          <source>Meter ID</source>
+          <target state="new">Meter ID</target>
+        </trans-unit>
+        <trans-unit id="21ec9da5-fb08-46ab-934e-4c38acc3a693" xml:space="preserve">
+          <source>The billed meter identifier.</source>
+          <target state="new">The billed meter identifier.</target>
+        </trans-unit>
+        <trans-unit id="3d605336-5cd0-4fc1-ac7d-ef2ba170351c" xml:space="preserve">
+          <source>This is used as the identifier used to price billing usage.</source>
+          <target state="new">This is used as the identifier used to price billing usage.</target>
+        </trans-unit>
+        <trans-unit id="d2841258-4ed1-468d-b037-7555f1689fa2" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="d46676a8-6580-4dd2-b1ad-9b61e8e292e4" xml:space="preserve">
+          <source>Meter Sub-Category</source>
+          <target state="new">Meter Sub-Category</target>
+        </trans-unit>
+        <trans-unit id="5c87b85d-bd9d-4ca6-b8c2-f27fbb9b9927" xml:space="preserve">
+          <source>Azure service may be further defined by type in this column, which can affect the rate.</source>
+          <target state="new">Azure service may be further defined by type in this column, which can affect the rate.</target>
+        </trans-unit>
+        <trans-unit id="c01a8e56-4a6e-41fe-b18e-6c49b509f3c5" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="e1c5940f-3d13-48ae-a603-6e80330a908d" xml:space="preserve">
+          <source>Meter Name</source>
+          <target state="new">Meter Name</target>
+        </trans-unit>
+        <trans-unit id="fb713a57-2b2b-431b-93f0-68e19d853d4d" xml:space="preserve">
+          <source>Identifies the unit of measure for the resource being consumed.</source>
+          <target state="new">Identifies the unit of measure for the resource being consumed.</target>
+        </trans-unit>
+        <trans-unit id="a5b91ab2-2ec4-4fc1-be57-47ff44a5c794" xml:space="preserve">
+          <source>Region</source>
+          <target state="new">Region</target>
+        </trans-unit>
+        <trans-unit id="4eb9db4a-6ea2-4b9b-85c0-a2f18694133b" xml:space="preserve">
+          <source>Meter Region</source>
+          <target state="new">Meter Region</target>
+        </trans-unit>
+        <trans-unit id="85e71500-1835-4306-b485-18d034ab8fd6" xml:space="preserve">
+          <source>Identifies the location of the datacenter for certain services that are priced based on datacenter location.</source>
+          <target state="new">Identifies the location of the datacenter for certain services that are priced based on datacenter location.</target>
+        </trans-unit>
+        <trans-unit id="1a3e3759-e211-4b05-9374-c2f28ac1f87d" xml:space="preserve">
+          <source>Unit</source>
+          <target state="new">Unit</target>
+        </trans-unit>
+        <trans-unit id="a061cedb-28bb-436d-8bbb-2600b918421b" xml:space="preserve">
+          <source>Unit</source>
+          <target state="new">Unit</target>
+        </trans-unit>
+        <trans-unit id="58f21554-f205-4a84-9133-bef85921d910" xml:space="preserve">
+          <source>Identifies the Unit that the service is charged in.</source>
+          <target state="new">Identifies the Unit that the service is charged in.</target>
+        </trans-unit>
+        <trans-unit id="83782b2c-010a-4ade-a9d1-ca8e16f14f61" xml:space="preserve">
+          <source>For example, GB, hours, 10,000s.</source>
+          <target state="new">For example, GB, hours, 10,000s.</target>
+        </trans-unit>
+        <trans-unit id="5d1e3e3b-d258-48f2-ab11-3aebc4a8f5d8" xml:space="preserve">
+          <source>Consumed</source>
+          <target state="new">Consumed</target>
+        </trans-unit>
+        <trans-unit id="e3572731-6b65-4e50-8c4c-582033862497" xml:space="preserve">
+          <source>Consumed Quantity</source>
+          <target state="new">Consumed Quantity</target>
+        </trans-unit>
+        <trans-unit id="f4def059-c6fb-42f2-9119-78f578075dae" xml:space="preserve">
+          <source>Contains the amount of the resource that has been consumed for that day.</source>
+          <target state="new">Contains the amount of the resource that has been consumed for that day.</target>
+        </trans-unit>
+        <trans-unit id="ba1c430a-4472-423c-b4da-01bd67dafe97" xml:space="preserve">
+          <source>Sub Region</source>
+          <target state="new">Sub Region</target>
+        </trans-unit>
+        <trans-unit id="75d1bed4-66e8-4708-9814-cef7af96b2b1" xml:space="preserve">
+          <source>Resource Location</source>
+          <target state="new">Resource Location</target>
+        </trans-unit>
+        <trans-unit id="1504f927-fc72-41dc-8145-c0728d627a08" xml:space="preserve">
+          <source>Identifies the datacenter where the resource is running.</source>
+          <target state="new">Identifies the datacenter where the resource is running.</target>
+        </trans-unit>
+        <trans-unit id="609c034a-d0ab-4768-8168-12d66b88b334" xml:space="preserve">
+          <source>Service</source>
+          <target state="new">Service</target>
+        </trans-unit>
+        <trans-unit id="e55fdf17-b07e-4757-82d7-cf0790b91dab" xml:space="preserve">
+          <source>Consumed Service</source>
+          <target state="new">Consumed Service</target>
+        </trans-unit>
+        <trans-unit id="49fb771b-6347-4620-8a57-6541f848cdc2" xml:space="preserve">
+          <source>This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column.</source>
+          <target state="new">This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column.</target>
+        </trans-unit>
+        <trans-unit id="938c4979-6b0b-46ec-b768-fb4c3cfe61b9" xml:space="preserve">
+          <source>This Service column will indicate which specific service the usage pertains.</source>
+          <target state="new">This Service column will indicate which specific service the usage pertains.</target>
+        </trans-unit>
+        <trans-unit id="c7ebeece-643c-4a53-a57b-763a04110a71" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="16be9a5e-6016-40fb-9e26-e84a8934ac77" xml:space="preserve">
+          <source>Resource Group</source>
+          <target state="new">Resource Group</target>
+        </trans-unit>
+        <trans-unit id="f9be65a1-2847-4047-a947-0dba6c1828ed" xml:space="preserve">
+          <source>_<bpt id="66048095-10f3-463d-887c-d8ea3e0ef4d6">&lt;strong&gt;</bpt>New column addition.<ept id="66048095-10f3-463d-887c-d8ea3e0ef4d6">&lt;/strong&gt;</ept>_ The resource group in which the deployed resource is running in.</source>
+          <target state="new">_<bpt id="66048095-10f3-463d-887c-d8ea3e0ef4d6">&lt;strong&gt;</bpt>New column addition.<ept id="66048095-10f3-463d-887c-d8ea3e0ef4d6">&lt;/strong&gt;</ept>_ The resource group in which the deployed resource is running in.</target>
+        </trans-unit>
+        <trans-unit id="734af6cd-97e3-4ea1-82ba-8b7f2e7a9a7f" xml:space="preserve">
+          <source>Refer to http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/</source>
+          <target state="new">Refer to http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/</target>
+        </trans-unit>
+        <trans-unit id="fcb84c4c-623b-44bc-9785-78a9d786fa23" xml:space="preserve">
+          <source>Component</source>
+          <target state="new">Component</target>
+        </trans-unit>
+        <trans-unit id="61b44006-9cdb-49ec-af80-3aec9d88b177" xml:space="preserve">
+          <source>Instance ID</source>
+          <target state="new">Instance ID</target>
+        </trans-unit>
+        <trans-unit id="11f7ef0a-20e6-4ea6-801c-23c6dc1c8251" xml:space="preserve">
+          <source>The identifier for the running resource.</source>
+          <target state="new">The identifier for the running resource.</target>
+        </trans-unit>
+        <trans-unit id="29ed36b8-18c2-4c58-bafd-a97f843d2200" xml:space="preserve">
+          <source>The identifier contains the name you specify for the resource when it was created.</source>
+          <target state="new">The identifier contains the name you specify for the resource when it was created.</target>
+        </trans-unit>
+        <trans-unit id="2401dcde-1a9f-43df-8ac0-dc6f4fecfc9b" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="d6f59640-898e-449e-88c4-e013225f4b5d" xml:space="preserve">
+          <source>Tags</source>
+          <target state="new">Tags</target>
+        </trans-unit>
+        <trans-unit id="96234c9e-0447-4a94-aed0-b4b59463e8de" xml:space="preserve">
+          <source>_<bpt id="aa2f8dc5-3543-4fc7-bf8e-a984882ace2e">&lt;strong&gt;</bpt>New column addition.<ept id="aa2f8dc5-3543-4fc7-bf8e-a984882ace2e">&lt;/strong&gt;</ept>_ New resource types in Azure allow you to tag resources.</source>
+          <target state="new">_<bpt id="aa2f8dc5-3543-4fc7-bf8e-a984882ace2e">&lt;strong&gt;</bpt>New column addition.<ept id="aa2f8dc5-3543-4fc7-bf8e-a984882ace2e">&lt;/strong&gt;</ept>_ New resource types in Azure allow you to tag resources.</target>
+        </trans-unit>
+        <trans-unit id="106cf542-f63f-4fde-8403-4118d61a4a01" xml:space="preserve">
+          <source>Refer to http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/</source>
+          <target state="new">Refer to http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/</target>
+        </trans-unit>
+        <trans-unit id="ae03ccd8-8f7a-4e28-a627-1015fb33247b" xml:space="preserve">
+          <source>Additional Info</source>
+          <target state="new">Additional Info</target>
+        </trans-unit>
+        <trans-unit id="0fa0b1bc-fe3d-4a1c-a156-5c198b37c05f" xml:space="preserve">
+          <source>Additional Info</source>
+          <target state="new">Additional Info</target>
+        </trans-unit>
+        <trans-unit id="afb2686c-902e-4d02-a861-04a0eebb26b5" xml:space="preserve">
+          <source>Additional metadata related to the service.</source>
+          <target state="new">Additional metadata related to the service.</target>
+        </trans-unit>
+        <trans-unit id="cabf42c8-c214-48ca-9a08-ff0ef4094a85" xml:space="preserve">
+          <source>Service Info 1</source>
+          <target state="new">Service Info 1</target>
+        </trans-unit>
+        <trans-unit id="9f97764f-81ff-42b8-a33b-adc378ab3dcb" xml:space="preserve">
+          <source>Service Info 1</source>
+          <target state="new">Service Info 1</target>
+        </trans-unit>
+        <trans-unit id="9220d698-efe8-45e4-86d7-5c84ed462e79" xml:space="preserve">
+          <source>This column provides the project name that the service belongs to on your subscription.</source>
+          <target state="new">This column provides the project name that the service belongs to on your subscription.</target>
+        </trans-unit>
+        <trans-unit id="777347f1-13cc-4549-8a5f-d402c58d3758" xml:space="preserve">
+          <source>Service Info 2</source>
+          <target state="new">Service Info 2</target>
+        </trans-unit>
+        <trans-unit id="6525117b-fe2e-48be-b409-60ec819daecc" xml:space="preserve">
+          <source>Service Info 2</source>
+          <target state="new">Service Info 2</target>
+        </trans-unit>
+        <trans-unit id="74041974-b61b-4644-9e3a-1dbe165bf542" xml:space="preserve">
+          <source>This is a legacy field that captures optional service specific metadata.</source>
+          <target state="new">This is a legacy field that captures optional service specific metadata.</target>
+        </trans-unit>
+        <trans-unit id="a5d23d9c-4544-4afa-bf1e-97c3524acc9c" xml:space="preserve">
+          <source>In addition to some new fields and name changes to csv Version 2, there will be standardized formatting for the data in the below fields:</source>
+          <target state="new">In addition to some new fields and name changes to csv Version 2, there will be standardized formatting for the data in the below fields:</target>
+        </trans-unit>
+        <trans-unit id="3214ec33-9b26-4db4-b7e3-3f6cbeb31b72" xml:space="preserve">
+          <source><bpt id="0b5c82cc-2239-4845-ab60-ff6e49e6953b">&lt;strong&gt;</bpt>Instance ID<ept id="0b5c82cc-2239-4845-ab60-ff6e49e6953b">&lt;/strong&gt;</ept>: The Instance ID field represents the user specified identifier for the service provisioned. Currently, there are two formats in which the Instance ID is represented: it is either the name of the Resource or the fully qualified Resource ID. Microsoft Azure services are transitioning to represent the Instance ID in a standardized fully qualified Resource ID format _<bpt id="ba010341-9125-4943-a266-2c0f0161b7be">&lt;strong&gt;</bpt>(/subscriptions/&lt;subscription id&gt;/resourcegroups/&lt;resourcegroupname&gt;/providers/&lt;providername&gt;/&lt;resourcename&gt;)<ept id="ba010341-9125-4943-a266-2c0f0161b7be">&lt;/strong&gt;</ept>_. As services transition to the new format you will see the Instance ID data field change from just the resource name to Resource ID. The Resource ID is the format used by the <bpt id="ad198547-df51-4bfe-b4aa-957628bb2e2e">&lt;linkText&gt;</bpt>Azure Resource Manager API<ept id="ad198547-df51-4bfe-b4aa-957628bb2e2e">&lt;/linkText&gt;</ept><bpt id="ad198547-df51-4bfe-b4aa-957628bb2e2e">&lt;title&gt;</bpt><ept id="ad198547-df51-4bfe-b4aa-957628bb2e2e">&lt;/title&gt;</ept> to identify resources in an a subscription.</source>
+          <target state="new"><bpt id="0b5c82cc-2239-4845-ab60-ff6e49e6953b">&lt;strong&gt;</bpt>Instance ID<ept id="0b5c82cc-2239-4845-ab60-ff6e49e6953b">&lt;/strong&gt;</ept>: The Instance ID field represents the user specified identifier for the service provisioned. Currently, there are two formats in which the Instance ID is represented: it is either the name of the Resource or the fully qualified Resource ID. Microsoft Azure services are transitioning to represent the Instance ID in a standardized fully qualified Resource ID format _<bpt id="ba010341-9125-4943-a266-2c0f0161b7be">&lt;strong&gt;</bpt>(/subscriptions/&lt;subscription id&gt;/resourcegroups/&lt;resourcegroupname&gt;/providers/&lt;providername&gt;/&lt;resourcename&gt;)<ept id="ba010341-9125-4943-a266-2c0f0161b7be">&lt;/strong&gt;</ept>_. As services transition to the new format you will see the Instance ID data field change from just the resource name to Resource ID. The Resource ID is the format used by the <bpt id="ad198547-df51-4bfe-b4aa-957628bb2e2e">&lt;linkText&gt;</bpt>Azure Resource Manager API<ept id="ad198547-df51-4bfe-b4aa-957628bb2e2e">&lt;/linkText&gt;</ept><bpt id="ad198547-df51-4bfe-b4aa-957628bb2e2e">&lt;title&gt;</bpt><ept id="ad198547-df51-4bfe-b4aa-957628bb2e2e">&lt;/title&gt;</ept> to identify resources in an a subscription.</target>
+        </trans-unit>
+        <trans-unit id="7a3b90ae-65b8-44e3-a670-c3b062c56028" xml:space="preserve">
+          <source><bpt id="69e442f1-c8eb-4460-9f29-766ca913c14f">&lt;linkText&gt;</bpt>instanceid<ept id="69e442f1-c8eb-4460-9f29-766ca913c14f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="69e442f1-c8eb-4460-9f29-766ca913c14f">&lt;linkText&gt;</bpt>instanceid<ept id="69e442f1-c8eb-4460-9f29-766ca913c14f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4dbd1ac6-ff34-45d4-b487-11d84e08bf7c" xml:space="preserve">
+          <source><bpt id="15903091-8333-49e0-bd0a-81a3c501e44a">&lt;strong&gt;</bpt>Additional Info<ept id="15903091-8333-49e0-bd0a-81a3c501e44a">&lt;/strong&gt;</ept>: The Additional Info column in the usage .csv specifies service specific metadata.</source>
+          <target state="new"><bpt id="15903091-8333-49e0-bd0a-81a3c501e44a">&lt;strong&gt;</bpt>Additional Info<ept id="15903091-8333-49e0-bd0a-81a3c501e44a">&lt;/strong&gt;</ept>: The Additional Info column in the usage .csv specifies service specific metadata.</target>
+        </trans-unit>
+        <trans-unit id="5f88d691-6ba7-46ec-a486-cbdd34857524" xml:space="preserve">
+          <source>For example, an image type for a VM.</source>
+          <target state="new">For example, an image type for a VM.</target>
+        </trans-unit>
+        <trans-unit id="5a2225d1-d65a-4f8d-8846-0eaf3d6d923b" xml:space="preserve">
+          <source>Currently, a service emits service specific metadata in multiple columns: Additional Info, Service Info1, and Service Info 2 fields.</source>
+          <target state="new">Currently, a service emits service specific metadata in multiple columns: Additional Info, Service Info1, and Service Info 2 fields.</target>
+        </trans-unit>
+        <trans-unit id="2fc1af3b-f0f4-4c4b-b018-0f08b0f40ecf" xml:space="preserve">
+          <source>Microsoft Azure services will be standardizing emitting service specific metadata in the Additional Info column only.</source>
+          <target state="new">Microsoft Azure services will be standardizing emitting service specific metadata in the Additional Info column only.</target>
+        </trans-unit>
+        <trans-unit id="21c8b60c-4163-4eae-ad5d-c698a9a39d1c" xml:space="preserve">
+          <source>See the below snapshot of the standardized format:</source>
+          <target state="new">See the below snapshot of the standardized format:</target>
+        </trans-unit>
+        <trans-unit id="94ec1f1e-d08a-44d0-8dfc-1a1855ca3277" xml:space="preserve">
+          <source><bpt id="fee7cee8-d27f-431f-9101-404ee437b4aa">&lt;linkText&gt;</bpt>additionalinfo_csv2<ept id="fee7cee8-d27f-431f-9101-404ee437b4aa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fee7cee8-d27f-431f-9101-404ee437b4aa">&lt;linkText&gt;</bpt>additionalinfo_csv2<ept id="fee7cee8-d27f-431f-9101-404ee437b4aa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="581091d3-7219-46bb-bde3-c3d50548bd2c" xml:space="preserve">
+          <source><bpt id="8655f3bb-c3e7-4040-85f7-9c30aaa11f13">&lt;strong&gt;</bpt>Tags<ept id="8655f3bb-c3e7-4040-85f7-9c30aaa11f13">&lt;/strong&gt;</ept>:  This column contains the user specified resource tags.</source>
+          <target state="new"><bpt id="8655f3bb-c3e7-4040-85f7-9c30aaa11f13">&lt;strong&gt;</bpt>Tags<ept id="8655f3bb-c3e7-4040-85f7-9c30aaa11f13">&lt;/strong&gt;</ept>:  This column contains the user specified resource tags.</target>
+        </trans-unit>
+        <trans-unit id="207a26d2-7ff5-47f0-a635-3e47de784a61" xml:space="preserve">
+          <source>The tags can be used to group billing records.</source>
+          <target state="new">The tags can be used to group billing records.</target>
+        </trans-unit>
+        <trans-unit id="a3d69fe5-f7bf-4c65-b0e4-a247e9655908" xml:space="preserve">
+          <source>For example, you can use tags to distribute costs by department using the service.</source>
+          <target state="new">For example, you can use tags to distribute costs by department using the service.</target>
+        </trans-unit>
+        <trans-unit id="e0b9a251-52ff-4ff5-b231-c10623332be7" xml:space="preserve">
+          <source>Learn more about <bpt id="e05db9f0-131d-433b-a322-9815a921b32c">&lt;linkText&gt;</bpt>using tags to organize Azure Resources<ept id="e05db9f0-131d-433b-a322-9815a921b32c">&lt;/linkText&gt;</ept><bpt id="e05db9f0-131d-433b-a322-9815a921b32c">&lt;title&gt;</bpt><ept id="e05db9f0-131d-433b-a322-9815a921b32c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about <bpt id="e05db9f0-131d-433b-a322-9815a921b32c">&lt;linkText&gt;</bpt>using tags to organize Azure Resources<ept id="e05db9f0-131d-433b-a322-9815a921b32c">&lt;/linkText&gt;</ept><bpt id="e05db9f0-131d-433b-a322-9815a921b32c">&lt;title&gt;</bpt><ept id="e05db9f0-131d-433b-a322-9815a921b32c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3456f9c2-1844-44dc-9f30-a248fb245337" xml:space="preserve">
+          <source>Services that support emitting tags are:</source>
+          <target state="new">Services that support emitting tags are:</target>
+        </trans-unit>
+        <trans-unit id="465cda25-1cfd-4131-ad45-660df6c4a015" xml:space="preserve">
+          <source>Virtual Machines</source>
+          <target state="new">Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="3063989d-c9df-44c9-8e99-cfb14d3e803f" xml:space="preserve">
+          <source>Storage and</source>
+          <target state="new">Storage and</target>
+        </trans-unit>
+        <trans-unit id="e6dcef23-3afa-4830-9821-863016c2683d" xml:space="preserve">
+          <source>Networking services provisioned using the <bpt id="85e65619-1168-4f32-8711-11b41c272d69">&lt;linkText&gt;</bpt>Azure Resource Manager API<ept id="85e65619-1168-4f32-8711-11b41c272d69">&lt;/linkText&gt;</ept><bpt id="85e65619-1168-4f32-8711-11b41c272d69">&lt;title&gt;</bpt><ept id="85e65619-1168-4f32-8711-11b41c272d69">&lt;/title&gt;</ept></source>
+          <target state="new">Networking services provisioned using the <bpt id="85e65619-1168-4f32-8711-11b41c272d69">&lt;linkText&gt;</bpt>Azure Resource Manager API<ept id="85e65619-1168-4f32-8711-11b41c272d69">&lt;/linkText&gt;</ept><bpt id="85e65619-1168-4f32-8711-11b41c272d69">&lt;title&gt;</bpt><ept id="85e65619-1168-4f32-8711-11b41c272d69">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecf554f0-6343-4577-b548-fb3a7c80e340" xml:space="preserve">
+          <source><bpt id="693642e9-f4d3-4095-917e-c565fbeaf698">&lt;linkText&gt;</bpt>tags<ept id="693642e9-f4d3-4095-917e-c565fbeaf698">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="693642e9-f4d3-4095-917e-c565fbeaf698">&lt;linkText&gt;</bpt>tags<ept id="693642e9-f4d3-4095-917e-c565fbeaf698">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2721adcb-b3e8-4986-9a6e-5a9fb70d7794" xml:space="preserve">
+          <source>Please see these additional sources for more details on each service.</source>
+          <target state="new">Please see these additional sources for more details on each service.</target>
+        </trans-unit>
+        <trans-unit id="fd803a15-1e6c-4d06-a6ac-71992f94fc6f" xml:space="preserve">
+          <source>These files are updated on a monthly basis, published on the 25th for the coming month, and are available from <bpt id="8998cd02-247d-4052-993b-43691b12864f">&lt;strong&gt;</bpt>May 2015<ept id="8998cd02-247d-4052-993b-43691b12864f">&lt;/strong&gt;</ept> onwards for .csv Version 1, and from <bpt id="69fa6f5a-e646-41c8-ad9c-91df7b197d6e">&lt;strong&gt;</bpt>June 2015<ept id="69fa6f5a-e646-41c8-ad9c-91df7b197d6e">&lt;/strong&gt;</ept> onward for .csv Version 2.</source>
+          <target state="new">These files are updated on a monthly basis, published on the 25th for the coming month, and are available from <bpt id="8998cd02-247d-4052-993b-43691b12864f">&lt;strong&gt;</bpt>May 2015<ept id="8998cd02-247d-4052-993b-43691b12864f">&lt;/strong&gt;</ept> onwards for .csv Version 1, and from <bpt id="69fa6f5a-e646-41c8-ad9c-91df7b197d6e">&lt;strong&gt;</bpt>June 2015<ept id="69fa6f5a-e646-41c8-ad9c-91df7b197d6e">&lt;/strong&gt;</ept> onward for .csv Version 2.</target>
+        </trans-unit>
+        <trans-unit id="df4072bd-8356-4fd7-88b8-d316a1cb0d0b" xml:space="preserve">
+          <source>Below is the base file URL for the Service Download Fields:</source>
+          <target state="new">Below is the base file URL for the Service Download Fields:</target>
+        </trans-unit>
+        <trans-unit id="e3ccf6fe-ab83-47e8-bcb7-5ea65336fcb5" xml:space="preserve">
+          <source> https://azurepricing.blob.core.windows.net/supplemental/MOSPServices<bpt id="53e6c4c3-0e0a-411c-bf5d-37a61c6358fd">&lt;em&gt;</bpt>v1<ept id="53e6c4c3-0e0a-411c-bf5d-37a61c6358fd">&lt;/em&gt;</ept>MMYYYY.xlsx
+ https://azurepricing.blob.core.windows.net/supplemental/MOSPServices<bpt id="3ea5a53a-08c0-4890-8163-b5091e423a85">&lt;em&gt;</bpt>v2<ept id="3ea5a53a-08c0-4890-8163-b5091e423a85">&lt;/em&gt;</ept>MMYYYY.xlsx</source>
+          <target state="new"> https://azurepricing.blob.core.windows.net/supplemental/MOSPServices<bpt id="53e6c4c3-0e0a-411c-bf5d-37a61c6358fd">&lt;em&gt;</bpt>v1<ept id="53e6c4c3-0e0a-411c-bf5d-37a61c6358fd">&lt;/em&gt;</ept>MMYYYY.xlsx
+ https://azurepricing.blob.core.windows.net/supplemental/MOSPServices<bpt id="3ea5a53a-08c0-4890-8163-b5091e423a85">&lt;em&gt;</bpt>v2<ept id="3ea5a53a-08c0-4890-8163-b5091e423a85">&lt;/em&gt;</ept>MMYYYY.xlsx</target>
+        </trans-unit>
+        <trans-unit id="c6834e06-61ef-4061-b954-2bc8ce9ad014" xml:space="preserve">
+          <source>To find the most current version, enter in the Year and Month (looking for May 2015 file, enter in <bpt id="cc2407f4-4b5c-4f90-9674-657582d83293">&lt;strong&gt;</bpt>052015<ept id="cc2407f4-4b5c-4f90-9674-657582d83293">&lt;/strong&gt;</ept> into the section _<bpt id="6b30a98f-0331-4c1f-9451-0e0fd4e0b158">&lt;strong&gt;</bpt>“MMYYYY”<ept id="6b30a98f-0331-4c1f-9451-0e0fd4e0b158">&lt;/strong&gt;</ept>_ in the above URL).</source>
+          <target state="new">To find the most current version, enter in the Year and Month (looking for May 2015 file, enter in <bpt id="cc2407f4-4b5c-4f90-9674-657582d83293">&lt;strong&gt;</bpt>052015<ept id="cc2407f4-4b5c-4f90-9674-657582d83293">&lt;/strong&gt;</ept> into the section _<bpt id="6b30a98f-0331-4c1f-9451-0e0fd4e0b158">&lt;strong&gt;</bpt>“MMYYYY”<ept id="6b30a98f-0331-4c1f-9451-0e0fd4e0b158">&lt;/strong&gt;</ept>_ in the above URL).</target>
+        </trans-unit>
+        <trans-unit id="b4228a8e-7d85-4561-a384-609122e6b724" xml:space="preserve">
+          <source>This spreadsheet provides a listing of all possible combinations of the service related fields in the <bpt id="b1900cce-8604-4d95-b9be-18a2d318768e">&lt;strong&gt;</bpt>Usage Download Report<ept id="b1900cce-8604-4d95-b9be-18a2d318768e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This spreadsheet provides a listing of all possible combinations of the service related fields in the <bpt id="b1900cce-8604-4d95-b9be-18a2d318768e">&lt;strong&gt;</bpt>Usage Download Report<ept id="b1900cce-8604-4d95-b9be-18a2d318768e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdf8b721-c6e3-40b1-9b94-f01ba01a1bdc" xml:space="preserve">
+          <source>Navigate to the section, <bpt id="0e54b6d8-e2be-40e0-8643-e88886e4ac17">&lt;strong&gt;</bpt>Manage Accounts, Subscriptions, and Admin Roles<ept id="0e54b6d8-e2be-40e0-8643-e88886e4ac17">&lt;/strong&gt;</ept>, under <bpt id="a43d68f1-7111-43dc-b02e-f34cf2940d7b">&lt;linkText&gt;</bpt>Manage your services<ept id="a43d68f1-7111-43dc-b02e-f34cf2940d7b">&lt;/linkText&gt;</ept><bpt id="a43d68f1-7111-43dc-b02e-f34cf2940d7b">&lt;title&gt;</bpt><ept id="a43d68f1-7111-43dc-b02e-f34cf2940d7b">&lt;/title&gt;</ept> for some very helpful links:</source>
+          <target state="new">Navigate to the section, <bpt id="0e54b6d8-e2be-40e0-8643-e88886e4ac17">&lt;strong&gt;</bpt>Manage Accounts, Subscriptions, and Admin Roles<ept id="0e54b6d8-e2be-40e0-8643-e88886e4ac17">&lt;/strong&gt;</ept>, under <bpt id="a43d68f1-7111-43dc-b02e-f34cf2940d7b">&lt;linkText&gt;</bpt>Manage your services<ept id="a43d68f1-7111-43dc-b02e-f34cf2940d7b">&lt;/linkText&gt;</ept><bpt id="a43d68f1-7111-43dc-b02e-f34cf2940d7b">&lt;title&gt;</bpt><ept id="a43d68f1-7111-43dc-b02e-f34cf2940d7b">&lt;/title&gt;</ept> for some very helpful links:</target>
+        </trans-unit>
+        <trans-unit id="18a015dc-07a6-4f39-95b8-2f688fe210d2" xml:space="preserve">
+          <source><bpt id="06080075-8830-4ee0-9ecd-7112614a566f">&lt;linkText&gt;</bpt>Manage your payment method<ept id="06080075-8830-4ee0-9ecd-7112614a566f">&lt;/linkText&gt;</ept><bpt id="06080075-8830-4ee0-9ecd-7112614a566f">&lt;title&gt;</bpt><ept id="06080075-8830-4ee0-9ecd-7112614a566f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="06080075-8830-4ee0-9ecd-7112614a566f">&lt;linkText&gt;</bpt>Manage your payment method<ept id="06080075-8830-4ee0-9ecd-7112614a566f">&lt;/linkText&gt;</ept><bpt id="06080075-8830-4ee0-9ecd-7112614a566f">&lt;title&gt;</bpt><ept id="06080075-8830-4ee0-9ecd-7112614a566f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="793fd294-57b7-40c2-858b-cd1b2338117c" xml:space="preserve">
+          <source><bpt id="bf55a407-b7ce-4d9d-822c-d542b30b968c">&lt;linkText&gt;</bpt>Edit payment information for an existing credit card<ept id="bf55a407-b7ce-4d9d-822c-d542b30b968c">&lt;/linkText&gt;</ept><bpt id="bf55a407-b7ce-4d9d-822c-d542b30b968c">&lt;title&gt;</bpt><ept id="bf55a407-b7ce-4d9d-822c-d542b30b968c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bf55a407-b7ce-4d9d-822c-d542b30b968c">&lt;linkText&gt;</bpt>Edit payment information for an existing credit card<ept id="bf55a407-b7ce-4d9d-822c-d542b30b968c">&lt;/linkText&gt;</ept><bpt id="bf55a407-b7ce-4d9d-822c-d542b30b968c">&lt;title&gt;</bpt><ept id="bf55a407-b7ce-4d9d-822c-d542b30b968c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a347caa4-0354-4f44-bfd1-c7e024377018" xml:space="preserve">
+          <source><bpt id="3fa63711-e658-47cc-a5bc-c20c57d45c11">&lt;linkText&gt;</bpt>Add a new credit card to use as a payment method<ept id="3fa63711-e658-47cc-a5bc-c20c57d45c11">&lt;/linkText&gt;</ept><bpt id="3fa63711-e658-47cc-a5bc-c20c57d45c11">&lt;title&gt;</bpt><ept id="3fa63711-e658-47cc-a5bc-c20c57d45c11">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3fa63711-e658-47cc-a5bc-c20c57d45c11">&lt;linkText&gt;</bpt>Add a new credit card to use as a payment method<ept id="3fa63711-e658-47cc-a5bc-c20c57d45c11">&lt;/linkText&gt;</ept><bpt id="3fa63711-e658-47cc-a5bc-c20c57d45c11">&lt;title&gt;</bpt><ept id="3fa63711-e658-47cc-a5bc-c20c57d45c11">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25da76e8-0193-4ab6-9947-3ff108819860" xml:space="preserve">
+          <source><bpt id="a9adfa3e-11c3-47a4-a3e7-325164b5d09c">&lt;linkText&gt;</bpt>Change the credit card on your Microsoft Azure account<ept id="a9adfa3e-11c3-47a4-a3e7-325164b5d09c">&lt;/linkText&gt;</ept><bpt id="a9adfa3e-11c3-47a4-a3e7-325164b5d09c">&lt;title&gt;</bpt><ept id="a9adfa3e-11c3-47a4-a3e7-325164b5d09c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a9adfa3e-11c3-47a4-a3e7-325164b5d09c">&lt;linkText&gt;</bpt>Change the credit card on your Microsoft Azure account<ept id="a9adfa3e-11c3-47a4-a3e7-325164b5d09c">&lt;/linkText&gt;</ept><bpt id="a9adfa3e-11c3-47a4-a3e7-325164b5d09c">&lt;title&gt;</bpt><ept id="a9adfa3e-11c3-47a4-a3e7-325164b5d09c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32050deb-4fc1-402b-9d22-e7d7c9d82091" xml:space="preserve">
+          <source><bpt id="8c5338f7-ee81-4af4-b567-29e91534d556">&lt;linkText&gt;</bpt>What do I do if my Azure subscription become disabled?<ept id="8c5338f7-ee81-4af4-b567-29e91534d556">&lt;/linkText&gt;</ept><bpt id="8c5338f7-ee81-4af4-b567-29e91534d556">&lt;title&gt;</bpt><ept id="8c5338f7-ee81-4af4-b567-29e91534d556">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8c5338f7-ee81-4af4-b567-29e91534d556">&lt;linkText&gt;</bpt>What do I do if my Azure subscription become disabled?<ept id="8c5338f7-ee81-4af4-b567-29e91534d556">&lt;/linkText&gt;</ept><bpt id="8c5338f7-ee81-4af4-b567-29e91534d556">&lt;title&gt;</bpt><ept id="8c5338f7-ee81-4af4-b567-29e91534d556">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

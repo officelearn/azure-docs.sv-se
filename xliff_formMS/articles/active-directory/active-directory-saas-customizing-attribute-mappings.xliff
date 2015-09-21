@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="07a0ce03-799e-4ec1-8a49-934c76f59063" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="07a0ce03-799e-4ec1-8a49-934c76f59063" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0bba714b-b033-449b-9183-e9feaae1bfc4">
+        <trans-unit id="4575846a-ff9b-4d7a-b941-a5bd090559ba" xml:space="preserve">
+          <source>Customizing Attribute Mappings</source>
+          <target state="new">Customizing Attribute Mappings</target>
+        </trans-unit>
+        <trans-unit id="5f5d5471-9530-42c8-9b17-cbe984a02149" xml:space="preserve">
+          <source>Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.</source>
+          <target state="new">Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.</target>
+        </trans-unit>
+        <trans-unit id="82463cef-df8f-4912-a751-ed5b75d57537" xml:space="preserve">
+          <source>Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others.</source>
+          <target state="new">Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others.</target>
+        </trans-unit>
+        <trans-unit id="897bb2a2-ccd0-4318-99b5-f6e344c97f8e" xml:space="preserve">
+          <source>If you have user provisioning for a third party SaaS application enabled, the Azure Management Portal controls its attribute values in form of a configuration called “attribute mapping”.</source>
+          <target state="new">If you have user provisioning for a third party SaaS application enabled, the Azure Management Portal controls its attribute values in form of a configuration called “attribute mapping”.</target>
+        </trans-unit>
+        <trans-unit id="eba0b3fa-7dec-4bdf-b547-57e2604a2c1d" xml:space="preserve">
+          <source>There is a preconfigured set of attribute mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. &lt;br&gt; 
+ You can customize the default attribute mappings according to your business needs. This means, you can change or delete existing attribute mappings or create new attribute mappings.</source>
+          <target state="new">There is a preconfigured set of attribute mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. &lt;br&gt; 
+ You can customize the default attribute mappings according to your business needs. This means, you can change or delete existing attribute mappings or create new attribute mappings.</target>
+        </trans-unit>
+        <trans-unit id="721e8207-da1d-4330-9625-7532b089bd7a" xml:space="preserve">
+          <source>In the Azure AD portal, you can access this feature by clicking Attributes in the toolbar of a SaaS application.</source>
+          <target state="new">In the Azure AD portal, you can access this feature by clicking Attributes in the toolbar of a SaaS application.</target>
+        </trans-unit>
+        <trans-unit id="94f3fd65-df9a-4333-8709-2f7b0f90c21f" xml:space="preserve">
+          <source>The <bpt id="f1d539ba-5297-4e4e-878b-856c8422a76f">&lt;strong&gt;</bpt>Attributes<ept id="f1d539ba-5297-4e4e-878b-856c8422a76f">&lt;/strong&gt;</ept> link is only available if you have user provisioning enabled for a SaaS application.</source>
+          <target state="new">The <bpt id="f1d539ba-5297-4e4e-878b-856c8422a76f">&lt;strong&gt;</bpt>Attributes<ept id="f1d539ba-5297-4e4e-878b-856c8422a76f">&lt;/strong&gt;</ept> link is only available if you have user provisioning enabled for a SaaS application.</target>
+        </trans-unit>
+        <trans-unit id="4e662d72-aa4e-439c-a0cf-a8263abb53d8" xml:space="preserve">
+          <source><bpt id="870a04a7-62bd-44fd-ba38-f6bf9cb31541">&lt;linkText&gt;</bpt>Salesforce<ept id="870a04a7-62bd-44fd-ba38-f6bf9cb31541">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="870a04a7-62bd-44fd-ba38-f6bf9cb31541">&lt;linkText&gt;</bpt>Salesforce<ept id="870a04a7-62bd-44fd-ba38-f6bf9cb31541">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="8b5ebfe4-7b7c-4906-88a5-9e242d21788a" xml:space="preserve">
+          <source>When you click Attributes in the toolbar, the list of current mappings that are configured for a SaaS application.</source>
+          <target state="new">When you click Attributes in the toolbar, the list of current mappings that are configured for a SaaS application.</target>
+        </trans-unit>
+        <trans-unit id="295dbc0e-a8ef-433c-a299-c265aca5c2c2" xml:space="preserve">
+          <source>The following screenshot shows an example for this:</source>
+          <target state="new">The following screenshot shows an example for this:</target>
+        </trans-unit>
+        <trans-unit id="10597d8d-5333-4c9b-b7cd-cceb3e276ffd" xml:space="preserve">
+          <source><bpt id="7774a583-96d1-44e1-9e48-b5d6e8b6ea54">&lt;linkText&gt;</bpt>Salesforce<ept id="7774a583-96d1-44e1-9e48-b5d6e8b6ea54">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="7774a583-96d1-44e1-9e48-b5d6e8b6ea54">&lt;linkText&gt;</bpt>Salesforce<ept id="7774a583-96d1-44e1-9e48-b5d6e8b6ea54">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="06e2eab4-90b2-4235-bc54-279f39157f25" xml:space="preserve">
+          <source>In the example above, you can see that the <bpt id="7ee66e85-f499-4a98-a5a3-b7faa9ac36f1">&lt;strong&gt;</bpt>firstName<ept id="7ee66e85-f499-4a98-a5a3-b7faa9ac36f1">&lt;/strong&gt;</ept> attribute of a managed object in Salesforce is populated with the <bpt id="35ec0f15-c903-4edd-acf1-47d800c7d44f">&lt;strong&gt;</bpt>givenName<ept id="35ec0f15-c903-4edd-acf1-47d800c7d44f">&lt;/strong&gt;</ept> value of the linked Azure AD object.</source>
+          <target state="new">In the example above, you can see that the <bpt id="7ee66e85-f499-4a98-a5a3-b7faa9ac36f1">&lt;strong&gt;</bpt>firstName<ept id="7ee66e85-f499-4a98-a5a3-b7faa9ac36f1">&lt;/strong&gt;</ept> attribute of a managed object in Salesforce is populated with the <bpt id="35ec0f15-c903-4edd-acf1-47d800c7d44f">&lt;strong&gt;</bpt>givenName<ept id="35ec0f15-c903-4edd-acf1-47d800c7d44f">&lt;/strong&gt;</ept> value of the linked Azure AD object.</target>
+        </trans-unit>
+        <trans-unit id="ec69a2f0-aac1-42fb-931d-df0bc41e66db" xml:space="preserve">
+          <source>If you either want to customize your attribute mappings or if you want to revert customized settings back to the default configuration, you can do this by clicking the related button in the toolbar on the bottom of an application.</source>
+          <target state="new">If you either want to customize your attribute mappings or if you want to revert customized settings back to the default configuration, you can do this by clicking the related button in the toolbar on the bottom of an application.</target>
+        </trans-unit>
+        <trans-unit id="5a7d43ba-23f7-436f-8143-9b45551e0c95" xml:space="preserve">
+          <source><bpt id="11074e4b-07fc-4ec6-b9e2-0cabf864cc28">&lt;linkText&gt;</bpt>Salesforce<ept id="11074e4b-07fc-4ec6-b9e2-0cabf864cc28">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="11074e4b-07fc-4ec6-b9e2-0cabf864cc28">&lt;linkText&gt;</bpt>Salesforce<ept id="11074e4b-07fc-4ec6-b9e2-0cabf864cc28">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="543c3ad8-5d73-497f-8571-c3ed762ec747" xml:space="preserve">
+          <source>There are attribute mappings that are required by a SaaS application to function correctly.</source>
+          <target state="new">There are attribute mappings that are required by a SaaS application to function correctly.</target>
+        </trans-unit>
+        <trans-unit id="bc976b15-b89a-4816-97f1-026ea2100e7e" xml:space="preserve">
+          <source>In the attributes table, the related attribute mappings have <bpt id="fd4d597e-990a-4cd6-ae75-19f0090bbf1e">&lt;strong&gt;</bpt>Yes<ept id="fd4d597e-990a-4cd6-ae75-19f0090bbf1e">&lt;/strong&gt;</ept> as value for the <bpt id="8116d060-1111-4008-896d-eb684bbee100">&lt;strong&gt;</bpt>Required<ept id="8116d060-1111-4008-896d-eb684bbee100">&lt;/strong&gt;</ept> attribute.</source>
+          <target state="new">In the attributes table, the related attribute mappings have <bpt id="fd4d597e-990a-4cd6-ae75-19f0090bbf1e">&lt;strong&gt;</bpt>Yes<ept id="fd4d597e-990a-4cd6-ae75-19f0090bbf1e">&lt;/strong&gt;</ept> as value for the <bpt id="8116d060-1111-4008-896d-eb684bbee100">&lt;strong&gt;</bpt>Required<ept id="8116d060-1111-4008-896d-eb684bbee100">&lt;/strong&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="1ca6a0b1-8006-45da-9f41-7023b97dfbd8" xml:space="preserve">
+          <source>If an attribute mapping is required, you cannot delete it.</source>
+          <target state="new">If an attribute mapping is required, you cannot delete it.</target>
+        </trans-unit>
+        <trans-unit id="812bfe9d-3a19-4861-9614-65d5d78a17d4" xml:space="preserve">
+          <source>In this case, <bpt id="23f71092-b7ea-4c1c-bad2-d7cd1539a9a0">&lt;strong&gt;</bpt>Delete<ept id="23f71092-b7ea-4c1c-bad2-d7cd1539a9a0">&lt;/strong&gt;</ept> feature is unavailable.</source>
+          <target state="new">In this case, <bpt id="23f71092-b7ea-4c1c-bad2-d7cd1539a9a0">&lt;strong&gt;</bpt>Delete<ept id="23f71092-b7ea-4c1c-bad2-d7cd1539a9a0">&lt;/strong&gt;</ept> feature is unavailable.</target>
+        </trans-unit>
+        <trans-unit id="b86e8e86-2221-4499-b453-9970d09600ec" xml:space="preserve">
+          <source>To modify an existing attribute mapping, just select the mapping, and then click <bpt id="f0070238-116b-4e18-a6e5-094aea6a1e80">&lt;strong&gt;</bpt>Edit<ept id="f0070238-116b-4e18-a6e5-094aea6a1e80">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To modify an existing attribute mapping, just select the mapping, and then click <bpt id="f0070238-116b-4e18-a6e5-094aea6a1e80">&lt;strong&gt;</bpt>Edit<ept id="f0070238-116b-4e18-a6e5-094aea6a1e80">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d87a68c-0301-43d5-a7f6-ba2f95e8d86c" xml:space="preserve">
+          <source>This brings up a dialog page that enables you to modify the selected attribute mapping.</source>
+          <target state="new">This brings up a dialog page that enables you to modify the selected attribute mapping.</target>
+        </trans-unit>
+        <trans-unit id="9059a748-28ba-4be2-af67-1c13182a7a5a" xml:space="preserve">
+          <source><bpt id="a62e124e-9b20-4a73-93ce-326c81e531a7">&lt;linkText&gt;</bpt>Edit Attribute Mapping<ept id="a62e124e-9b20-4a73-93ce-326c81e531a7">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="a62e124e-9b20-4a73-93ce-326c81e531a7">&lt;linkText&gt;</bpt>Edit Attribute Mapping<ept id="a62e124e-9b20-4a73-93ce-326c81e531a7">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="7de35204-80db-455c-890f-a44b0cc3510e" xml:space="preserve">
+          <source>With attribute mappings, you control how attributes are populated in a third party SaaS application.</source>
+          <target state="new">With attribute mappings, you control how attributes are populated in a third party SaaS application.</target>
+        </trans-unit>
+        <trans-unit id="33329f18-58d6-4fd0-8fdf-a6909893f777" xml:space="preserve">
+          <source>There are four different mapping types supported:</source>
+          <target state="new">There are four different mapping types supported:</target>
+        </trans-unit>
+        <trans-unit id="2cc5025b-fe8c-4127-9538-8350475e2bbf" xml:space="preserve">
+          <source><bpt id="6f6d16b9-af9d-4d48-b7cc-58b623a9996d">&lt;strong&gt;</bpt>Direct<ept id="6f6d16b9-af9d-4d48-b7cc-58b623a9996d">&lt;/strong&gt;</ept> – the target attribute is populated with the value of an attribute of the linked object in Azure AD.</source>
+          <target state="new"><bpt id="6f6d16b9-af9d-4d48-b7cc-58b623a9996d">&lt;strong&gt;</bpt>Direct<ept id="6f6d16b9-af9d-4d48-b7cc-58b623a9996d">&lt;/strong&gt;</ept> – the target attribute is populated with the value of an attribute of the linked object in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="fdd1fbe5-cbe1-4740-a746-fb2624e92e67" xml:space="preserve">
+          <source><bpt id="5bd8f43d-0bbb-4294-8007-295cb75284f0">&lt;strong&gt;</bpt>Constant<ept id="5bd8f43d-0bbb-4294-8007-295cb75284f0">&lt;/strong&gt;</ept> – the target attribute is populated with a specific string you have specified.</source>
+          <target state="new"><bpt id="5bd8f43d-0bbb-4294-8007-295cb75284f0">&lt;strong&gt;</bpt>Constant<ept id="5bd8f43d-0bbb-4294-8007-295cb75284f0">&lt;/strong&gt;</ept> – the target attribute is populated with a specific string you have specified.</target>
+        </trans-unit>
+        <trans-unit id="37e0aa9c-24ca-49f6-8c52-db25cb16cf31" xml:space="preserve">
+          <source><bpt id="04edf5d1-037a-44d9-9d5b-58e022beed98">&lt;strong&gt;</bpt>Expression<ept id="04edf5d1-037a-44d9-9d5b-58e022beed98">&lt;/strong&gt;</ept> - the target attribute is populated based on the result of a script-like expression.</source>
+          <target state="new"><bpt id="04edf5d1-037a-44d9-9d5b-58e022beed98">&lt;strong&gt;</bpt>Expression<ept id="04edf5d1-037a-44d9-9d5b-58e022beed98">&lt;/strong&gt;</ept> - the target attribute is populated based on the result of a script-like expression.</target>
+        </trans-unit>
+        <trans-unit id="6de8a8a0-26d9-4644-b7cd-bb95c19c64a9" xml:space="preserve">
+          <source>For more details, see <bpt id="b8036866-f501-4ba4-8f61-f3eed5349aec">&lt;linkText&gt;</bpt>Writing Expressions for Attribute Mappings in Azure Active Directory<ept id="b8036866-f501-4ba4-8f61-f3eed5349aec">&lt;/linkText&gt;</ept><bpt id="b8036866-f501-4ba4-8f61-f3eed5349aec">&lt;title&gt;</bpt><ept id="b8036866-f501-4ba4-8f61-f3eed5349aec">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="b8036866-f501-4ba4-8f61-f3eed5349aec">&lt;linkText&gt;</bpt>Writing Expressions for Attribute Mappings in Azure Active Directory<ept id="b8036866-f501-4ba4-8f61-f3eed5349aec">&lt;/linkText&gt;</ept><bpt id="b8036866-f501-4ba4-8f61-f3eed5349aec">&lt;title&gt;</bpt><ept id="b8036866-f501-4ba4-8f61-f3eed5349aec">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98217237-ad7a-4e1d-96d5-a92ebed2cfaf" xml:space="preserve">
+          <source><bpt id="1eb73b9d-a09a-4db8-be90-6e14af57f6a1">&lt;strong&gt;</bpt>None<ept id="1eb73b9d-a09a-4db8-be90-6e14af57f6a1">&lt;/strong&gt;</ept> - the target attribute is left unmodified.</source>
+          <target state="new"><bpt id="1eb73b9d-a09a-4db8-be90-6e14af57f6a1">&lt;strong&gt;</bpt>None<ept id="1eb73b9d-a09a-4db8-be90-6e14af57f6a1">&lt;/strong&gt;</ept> - the target attribute is left unmodified.</target>
+        </trans-unit>
+        <trans-unit id="f7f008f9-2863-4e24-a715-f29b3861d043" xml:space="preserve">
+          <source>However, if the target attribute is ever empty, it will be populated with the Default value that you specify.</source>
+          <target state="new">However, if the target attribute is ever empty, it will be populated with the Default value that you specify.</target>
+        </trans-unit>
+        <trans-unit id="b5197f74-ee63-4b70-8303-94b9bb11da18" xml:space="preserve">
+          <source>In addition to these four basic attribute mapping types, custom attribute mappings support the concept of a <bpt id="d87a3263-a0d9-4207-9d7d-041e1f00e6a1">&lt;strong&gt;</bpt>default<ept id="d87a3263-a0d9-4207-9d7d-041e1f00e6a1">&lt;/strong&gt;</ept> value assignment.</source>
+          <target state="new">In addition to these four basic attribute mapping types, custom attribute mappings support the concept of a <bpt id="d87a3263-a0d9-4207-9d7d-041e1f00e6a1">&lt;strong&gt;</bpt>default<ept id="d87a3263-a0d9-4207-9d7d-041e1f00e6a1">&lt;/strong&gt;</ept> value assignment.</target>
+        </trans-unit>
+        <trans-unit id="770e8560-83d4-4716-a9a1-6fc51aae1899" xml:space="preserve">
+          <source>The default value assignment ensures that a target attribute is populated with a value if there is neither a value in Azure AD nor on the target object.</source>
+          <target state="new">The default value assignment ensures that a target attribute is populated with a value if there is neither a value in Azure AD nor on the target object.</target>
+        </trans-unit>
+        <trans-unit id="cab70f20-90e0-4649-9403-54c564365e20" xml:space="preserve">
+          <source>Microsoft Azure AD provides a very efficient implementation of a synchronization process.</source>
+          <target state="new">Microsoft Azure AD provides a very efficient implementation of a synchronization process.</target>
+        </trans-unit>
+        <trans-unit id="5d7b7ee2-1b5d-4db8-b564-b1ba834a2395" xml:space="preserve">
+          <source>In an initialized environment, only objects requiring updates are processed during a synchronization cycle.</source>
+          <target state="new">In an initialized environment, only objects requiring updates are processed during a synchronization cycle.</target>
+        </trans-unit>
+        <trans-unit id="e1e33705-93ca-4a4b-b507-823e6614a67a" xml:space="preserve">
+          <source>Updating attribute mappings has an impact on the performance of a synchronization cycle.</source>
+          <target state="new">Updating attribute mappings has an impact on the performance of a synchronization cycle.</target>
+        </trans-unit>
+        <trans-unit id="5394652c-6bba-46a9-96e9-364cbf38bcdf" xml:space="preserve">
+          <source>This is because an update to the attribute mapping configuration requires all managed objects to be reevaluated.</source>
+          <target state="new">This is because an update to the attribute mapping configuration requires all managed objects to be reevaluated.</target>
+        </trans-unit>
+        <trans-unit id="104c7bac-51c3-4d88-ad94-20e8800affeb" xml:space="preserve">
+          <source>Because of this, it is a recommended best practice to keep the number of consecutive changes to your attribute mappings at a minimum.</source>
+          <target state="new">Because of this, it is a recommended best practice to keep the number of consecutive changes to your attribute mappings at a minimum.</target>
+        </trans-unit>
+        <trans-unit id="e298be0c-db93-4b05-9acf-198d1e73a02a" xml:space="preserve">
+          <source><bpt id="69248304-5e8d-4114-a09b-03f15aeb4144">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="69248304-5e8d-4114-a09b-03f15aeb4144">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="69248304-5e8d-4114-a09b-03f15aeb4144">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="69248304-5e8d-4114-a09b-03f15aeb4144">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81bda9ed-b235-4ef8-9b4b-3bf0a70675c2" xml:space="preserve">
+          <source>./media/active-directory-saas-customizing-attribute-mappings/ic765497.png</source>
+          <target state="new">./media/active-directory-saas-customizing-attribute-mappings/ic765497.png</target>
+        </trans-unit>
+        <trans-unit id="657b5623-d0e5-4b70-866e-219d358e71d3" xml:space="preserve">
+          <source>./media/active-directory-saas-customizing-attribute-mappings/ic775419.png</source>
+          <target state="new">./media/active-directory-saas-customizing-attribute-mappings/ic775419.png</target>
+        </trans-unit>
+        <trans-unit id="be80df1e-c0f5-4a76-9caf-41dd44c90fbd" xml:space="preserve">
+          <source>./media/active-directory-saas-customizing-attribute-mappings/ic775420.png</source>
+          <target state="new">./media/active-directory-saas-customizing-attribute-mappings/ic775420.png</target>
+        </trans-unit>
+        <trans-unit id="c64c1201-1741-40af-806d-2f8dce66782c" xml:space="preserve">
+          <source>./media/active-directory-saas-customizing-attribute-mappings/ic775421.png</source>
+          <target state="new">./media/active-directory-saas-customizing-attribute-mappings/ic775421.png</target>
+        </trans-unit>
+      </group>
+      <group id="9123ece6-cfaa-4fd6-b4db-4c69888d3f8a" />
+    </body>
+  </file>
+</xliff>

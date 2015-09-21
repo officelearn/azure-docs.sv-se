@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="84b83a1f-d154-4828-a6fb-d83310da59ac" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="84b83a1f-d154-4828-a6fb-d83310da59ac" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="845413e2-729e-4f6d-9c1e-65d54bbdbdda">
+        <trans-unit id="19fa7beb-6951-4bd8-8994-fcbe1ec50b0b" xml:space="preserve">
+          <source>Prepare an Oracle Linux Virtual Machine for Azure</source>
+          <target state="new">Prepare an Oracle Linux Virtual Machine for Azure</target>
+        </trans-unit>
+        <trans-unit id="3750dfca-77ad-430c-a8cb-92b0fd3b019d" xml:space="preserve">
+          <source>Step through the configuration of an Oracle virtual machine running Linux in Microsoft Azure.</source>
+          <target state="new">Step through the configuration of an Oracle virtual machine running Linux in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="25e789dd-8f80-4206-b7bf-b1e60f7f4911" xml:space="preserve">
+          <source><bpt id="ee3809d5-af38-4f2b-8055-6abac76765ce">&lt;linkText&gt;</bpt>Prepare an Oracle Linux 6.4+ virtual machine for Azure<ept id="ee3809d5-af38-4f2b-8055-6abac76765ce">&lt;/linkText&gt;</ept><bpt id="ee3809d5-af38-4f2b-8055-6abac76765ce">&lt;title&gt;</bpt><ept id="ee3809d5-af38-4f2b-8055-6abac76765ce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ee3809d5-af38-4f2b-8055-6abac76765ce">&lt;linkText&gt;</bpt>Prepare an Oracle Linux 6.4+ virtual machine for Azure<ept id="ee3809d5-af38-4f2b-8055-6abac76765ce">&lt;/linkText&gt;</ept><bpt id="ee3809d5-af38-4f2b-8055-6abac76765ce">&lt;title&gt;</bpt><ept id="ee3809d5-af38-4f2b-8055-6abac76765ce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2797cf52-ae20-404c-a4d1-42b21c66eefe" xml:space="preserve">
+          <source><bpt id="a93ffe5c-bc48-4ad6-94db-00a6bd6da603">&lt;linkText&gt;</bpt>Prepare an Oracle Linux 7.0+ virtual machine for Azure<ept id="a93ffe5c-bc48-4ad6-94db-00a6bd6da603">&lt;/linkText&gt;</ept><bpt id="a93ffe5c-bc48-4ad6-94db-00a6bd6da603">&lt;title&gt;</bpt><ept id="a93ffe5c-bc48-4ad6-94db-00a6bd6da603">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a93ffe5c-bc48-4ad6-94db-00a6bd6da603">&lt;linkText&gt;</bpt>Prepare an Oracle Linux 7.0+ virtual machine for Azure<ept id="a93ffe5c-bc48-4ad6-94db-00a6bd6da603">&lt;/linkText&gt;</ept><bpt id="a93ffe5c-bc48-4ad6-94db-00a6bd6da603">&lt;title&gt;</bpt><ept id="a93ffe5c-bc48-4ad6-94db-00a6bd6da603">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="819b62cf-0df7-4816-984d-9cf345c00e16" xml:space="preserve">
+          <source>This article assumes that you have already installed an Oracle Linux operating system to a virtual hard disk.</source>
+          <target state="new">This article assumes that you have already installed an Oracle Linux operating system to a virtual hard disk.</target>
+        </trans-unit>
+        <trans-unit id="a71ccb1b-01de-4a90-824a-087b3b2ae633" xml:space="preserve">
+          <source>Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V.</source>
+          <target state="new">Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V.</target>
+        </trans-unit>
+        <trans-unit id="322e4ffe-3e85-4a5b-88c4-f9af83645c44" xml:space="preserve">
+          <source>For instructions, see <bpt id="26d6e036-c18b-402f-8bf4-bd19993c0335">&lt;linkText&gt;</bpt>Install Hyper-V and create a virtual machine<ept id="26d6e036-c18b-402f-8bf4-bd19993c0335">&lt;/linkText&gt;</ept><bpt id="26d6e036-c18b-402f-8bf4-bd19993c0335">&lt;title&gt;</bpt><ept id="26d6e036-c18b-402f-8bf4-bd19993c0335">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="26d6e036-c18b-402f-8bf4-bd19993c0335">&lt;linkText&gt;</bpt>Install Hyper-V and create a virtual machine<ept id="26d6e036-c18b-402f-8bf4-bd19993c0335">&lt;/linkText&gt;</ept><bpt id="26d6e036-c18b-402f-8bf4-bd19993c0335">&lt;title&gt;</bpt><ept id="26d6e036-c18b-402f-8bf4-bd19993c0335">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9d07ab7-d652-4529-8617-e2f1680091ba" xml:space="preserve">
+          <source><bpt id="469cddd9-7cb2-49b6-aefe-ae2e33ee6c58">&lt;strong&gt;</bpt>Oracle Linux installation notes<ept id="469cddd9-7cb2-49b6-aefe-ae2e33ee6c58">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="469cddd9-7cb2-49b6-aefe-ae2e33ee6c58">&lt;strong&gt;</bpt>Oracle Linux installation notes<ept id="469cddd9-7cb2-49b6-aefe-ae2e33ee6c58">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="471a808f-7f8c-4a3c-a6ab-f908b3b81a55" xml:space="preserve">
+          <source>Oracle's Red Hat compatible kernel and its UEK3 (Unbreakable Enterprise Kernel) are both supported on Hyper-V and Azure.</source>
+          <target state="new">Oracle's Red Hat compatible kernel and its UEK3 (Unbreakable Enterprise Kernel) are both supported on Hyper-V and Azure.</target>
+        </trans-unit>
+        <trans-unit id="5d19ce55-447b-4227-9435-cfab694a656e" xml:space="preserve">
+          <source>For best results, be sure to update to the latest kernel while preparing your Oracle Linux VHD.</source>
+          <target state="new">For best results, be sure to update to the latest kernel while preparing your Oracle Linux VHD.</target>
+        </trans-unit>
+        <trans-unit id="bfabe48e-6510-4b81-9370-c75099c7cf0a" xml:space="preserve">
+          <source>Oracle's UEK2 is not supported on Hyper-V and Azure as it does not include the required drivers.</source>
+          <target state="new">Oracle's UEK2 is not supported on Hyper-V and Azure as it does not include the required drivers.</target>
+        </trans-unit>
+        <trans-unit id="ed0cd4ac-4b5b-4215-bc22-3af903f6894d" xml:space="preserve">
+          <source>The newer VHDX format is not supported in Azure.</source>
+          <target state="new">The newer VHDX format is not supported in Azure.</target>
+        </trans-unit>
+        <trans-unit id="ef6af7bb-6da4-4c72-9b39-f75da8514122" xml:space="preserve">
+          <source>You can convert the disk to VHD format by using Hyper-V Manager or the convert-vhd cmdlet.</source>
+          <target state="new">You can convert the disk to VHD format by using Hyper-V Manager or the convert-vhd cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="3eeacf53-02cd-45c3-b176-a4e6fb4afe4c" xml:space="preserve">
+          <source>When you're installing the Linux system, we recommend that you use standard partitions rather than LVM (often the default for many installations).</source>
+          <target state="new">When you're installing the Linux system, we recommend that you use standard partitions rather than LVM (often the default for many installations).</target>
+        </trans-unit>
+        <trans-unit id="d21b9bc7-8c04-4a60-a6f2-6ec030c9a87c" xml:space="preserve">
+          <source>This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.</source>
+          <target state="new">This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.</target>
+        </trans-unit>
+        <trans-unit id="9314082a-929d-4043-8632-e854778cfb69" xml:space="preserve">
+          <source>LVM or <bpt id="d563f399-b890-4b8f-8e29-665bd4f7371a">&lt;linkText&gt;</bpt>RAID<ept id="d563f399-b890-4b8f-8e29-665bd4f7371a">&lt;/linkText&gt;</ept><bpt id="d563f399-b890-4b8f-8e29-665bd4f7371a">&lt;title&gt;</bpt><ept id="d563f399-b890-4b8f-8e29-665bd4f7371a">&lt;/title&gt;</ept> may be used on data disks if preferred.</source>
+          <target state="new">LVM or <bpt id="d563f399-b890-4b8f-8e29-665bd4f7371a">&lt;linkText&gt;</bpt>RAID<ept id="d563f399-b890-4b8f-8e29-665bd4f7371a">&lt;/linkText&gt;</ept><bpt id="d563f399-b890-4b8f-8e29-665bd4f7371a">&lt;title&gt;</bpt><ept id="d563f399-b890-4b8f-8e29-665bd4f7371a">&lt;/title&gt;</ept> may be used on data disks if preferred.</target>
+        </trans-unit>
+        <trans-unit id="c9fdc0fd-65f2-4073-a6ca-7e080e15860f" xml:space="preserve">
+          <source>NUMA is not supported for larger VM sizes due to a bug in Linux kernel versions below 2.6.37.</source>
+          <target state="new">NUMA is not supported for larger VM sizes due to a bug in Linux kernel versions below 2.6.37.</target>
+        </trans-unit>
+        <trans-unit id="47dbbf36-1544-4ac5-bb78-e6aae2554f81" xml:space="preserve">
+          <source>This issue primarily impacts distributions that use the upstream Red Hat 2.6.32 kernel.</source>
+          <target state="new">This issue primarily impacts distributions that use the upstream Red Hat 2.6.32 kernel.</target>
+        </trans-unit>
+        <trans-unit id="9fb941a0-f473-4f33-bf5e-2b8607e263cc" xml:space="preserve">
+          <source>Manual installation of the Azure Linux agent (waagent) will automatically disable NUMA in the GRUB configuration for the Linux kernel.</source>
+          <target state="new">Manual installation of the Azure Linux agent (waagent) will automatically disable NUMA in the GRUB configuration for the Linux kernel.</target>
+        </trans-unit>
+        <trans-unit id="999da591-1916-4b01-bf48-22cd45a5c40f" xml:space="preserve">
+          <source>More information about this can be found in the steps below.</source>
+          <target state="new">More information about this can be found in the steps below.</target>
+        </trans-unit>
+        <trans-unit id="d0e8c67f-7e3f-4652-958e-8497fffc1e54" xml:space="preserve">
+          <source>Do not configure a swap partition on the OS disk.</source>
+          <target state="new">Do not configure a swap partition on the OS disk.</target>
+        </trans-unit>
+        <trans-unit id="e0838c07-f5f2-4ac0-9009-ddfce24c9727" xml:space="preserve">
+          <source>The Linux agent can be configured to create a swap file on the temporary resource disk.</source>
+          <target state="new">The Linux agent can be configured to create a swap file on the temporary resource disk.</target>
+        </trans-unit>
+        <trans-unit id="5a6daf2a-6b18-42ea-9e4c-a56c8bee308b" xml:space="preserve">
+          <source>More information about this can be found in the steps below.</source>
+          <target state="new">More information about this can be found in the steps below.</target>
+        </trans-unit>
+        <trans-unit id="59e2cd83-66c7-4941-8689-d51870396121" xml:space="preserve">
+          <source>All of the VHDs must have sizes that are multiples of 1 MB.</source>
+          <target state="new">All of the VHDs must have sizes that are multiples of 1 MB.</target>
+        </trans-unit>
+        <trans-unit id="0c309171-a9a6-4fee-8d4e-2f9718d10af9" xml:space="preserve">
+          <source>You must complete specific configuration steps in the operating system for the virtual machine to run in Azure.</source>
+          <target state="new">You must complete specific configuration steps in the operating system for the virtual machine to run in Azure.</target>
+        </trans-unit>
+        <trans-unit id="d5ca8747-f991-494d-a4f5-e2e7a3e6c1df" xml:space="preserve">
+          <source>In the center pane of Hyper-V Manager, select the virtual machine.</source>
+          <target state="new">In the center pane of Hyper-V Manager, select the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="b53458be-2fec-4b97-9e5e-4584996da3c5" xml:space="preserve">
+          <source>Click <bpt id="efc6788f-0c5f-4152-a5cf-0b6dd2773864">&lt;strong&gt;</bpt>Connect<ept id="efc6788f-0c5f-4152-a5cf-0b6dd2773864">&lt;/strong&gt;</ept> to open the window for the virtual machine.</source>
+          <target state="new">Click <bpt id="efc6788f-0c5f-4152-a5cf-0b6dd2773864">&lt;strong&gt;</bpt>Connect<ept id="efc6788f-0c5f-4152-a5cf-0b6dd2773864">&lt;/strong&gt;</ept> to open the window for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="ba12e7e3-68e7-4130-b056-203385f0d8b5" xml:space="preserve">
+          <source>Uninstall NetworkManager by running the following command:</source>
+          <target state="new">Uninstall NetworkManager by running the following command:</target>
+        </trans-unit>
+        <trans-unit id="42be1cd9-6372-4add-b088-9ce4128f17b0" xml:space="preserve">
+          <source>If the package is not already installed, this command will fail with an error message.</source>
+          <target state="new">If the package is not already installed, this command will fail with an error message.</target>
+        </trans-unit>
+        <trans-unit id="5f096db8-a5dc-4c5e-b001-739cee6f0807" xml:space="preserve">
+          <source>This is expected.</source>
+          <target state="new">This is expected.</target>
+        </trans-unit>
+        <trans-unit id="7c6c215a-9d97-4322-aaca-a920cf0dd30b" xml:space="preserve">
+          <source>Create a file named <bpt id="15075506-80e7-4298-af05-6aceaca15d78">&lt;strong&gt;</bpt>network<ept id="15075506-80e7-4298-af05-6aceaca15d78">&lt;/strong&gt;</ept> in the /etc/sysconfig/ directory that contains the following text:</source>
+          <target state="new">Create a file named <bpt id="15075506-80e7-4298-af05-6aceaca15d78">&lt;strong&gt;</bpt>network<ept id="15075506-80e7-4298-af05-6aceaca15d78">&lt;/strong&gt;</ept> in the /etc/sysconfig/ directory that contains the following text:</target>
+        </trans-unit>
+        <trans-unit id="b8c5af35-c566-42db-8741-b704f3e1b8c2" xml:space="preserve">
+          <source><bpt id="c92048c8-fe3f-4eab-983a-2fe5a9827d5f">&lt;code&gt;</bpt>NETWORKING=yes<ept id="c92048c8-fe3f-4eab-983a-2fe5a9827d5f">&lt;/code&gt;</ept>  
+<bpt id="166a1a81-4c28-437b-a66c-55f49e5a8d1b">&lt;code&gt;</bpt>HOSTNAME=localhost.localdomain<ept id="166a1a81-4c28-437b-a66c-55f49e5a8d1b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c92048c8-fe3f-4eab-983a-2fe5a9827d5f">&lt;code&gt;</bpt>NETWORKING=yes<ept id="c92048c8-fe3f-4eab-983a-2fe5a9827d5f">&lt;/code&gt;</ept>  
+<bpt id="166a1a81-4c28-437b-a66c-55f49e5a8d1b">&lt;code&gt;</bpt>HOSTNAME=localhost.localdomain<ept id="166a1a81-4c28-437b-a66c-55f49e5a8d1b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0e25ca4-6dfd-45ea-b07c-22e0b8f214ee" xml:space="preserve">
+          <source>Create a file named <bpt id="1d55f058-487d-4beb-8973-98e3dd0ae884">&lt;strong&gt;</bpt>ifcfg-eth0<ept id="1d55f058-487d-4beb-8973-98e3dd0ae884">&lt;/strong&gt;</ept> in the /etc/sysconfig/network-scripts/ directory that contains the following text:</source>
+          <target state="new">Create a file named <bpt id="1d55f058-487d-4beb-8973-98e3dd0ae884">&lt;strong&gt;</bpt>ifcfg-eth0<ept id="1d55f058-487d-4beb-8973-98e3dd0ae884">&lt;/strong&gt;</ept> in the /etc/sysconfig/network-scripts/ directory that contains the following text:</target>
+        </trans-unit>
+        <trans-unit id="e1fa4303-6423-4176-a30c-eca14f1ad314" xml:space="preserve">
+          <source>Move (or remove) udev rules to avoid generating static rules for the Ethernet interface.</source>
+          <target state="new">Move (or remove) udev rules to avoid generating static rules for the Ethernet interface.</target>
+        </trans-unit>
+        <trans-unit id="1cfb1b55-5518-419a-935f-bfa139a0fbc3" xml:space="preserve">
+          <source>These rules cause problems when you're cloning a virtual machine in Azure or Hyper-V:</source>
+          <target state="new">These rules cause problems when you're cloning a virtual machine in Azure or Hyper-V:</target>
+        </trans-unit>
+        <trans-unit id="7bbcad69-5804-4ad0-aa05-6913bff0cc42" xml:space="preserve">
+          <source>Ensure that the network service will start at boot time by running the following command:</source>
+          <target state="new">Ensure that the network service will start at boot time by running the following command:</target>
+        </trans-unit>
+        <trans-unit id="8227ae44-a959-4d74-934b-2e14777eab50" xml:space="preserve">
+          <source>Install python-pyasn1 by running the following command:</source>
+          <target state="new">Install python-pyasn1 by running the following command:</target>
+        </trans-unit>
+        <trans-unit id="1520c218-2b93-4f04-9463-73dc0aa41235" xml:space="preserve">
+          <source>Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure.</source>
+          <target state="new">Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure.</target>
+        </trans-unit>
+        <trans-unit id="fa00d0f7-5c3d-4ad8-887c-5e8715c5bdba" xml:space="preserve">
+          <source>To do this, open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:</source>
+          <target state="new">To do this, open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="3ca09621-ef07-42c5-8d47-afb695a3bdbf" xml:space="preserve">
+          <source>This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues.</source>
+          <target state="new">This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues.</target>
+        </trans-unit>
+        <trans-unit id="f4f9b95f-8032-4ef0-b297-ef02be9af80d" xml:space="preserve">
+          <source>This will disable NUMA due to a bug in Oracle's Red Hat compatible kernel.</source>
+          <target state="new">This will disable NUMA due to a bug in Oracle's Red Hat compatible kernel.</target>
+        </trans-unit>
+        <trans-unit id="54c1118c-7894-4bf2-a95e-b4e213ae89d7" xml:space="preserve">
+          <source>In addition to the above, we recommend that you <bpt id="2877bac1-f636-4307-afa8-fb14db920636">&lt;em&gt;</bpt>remove<ept id="2877bac1-f636-4307-afa8-fb14db920636">&lt;/em&gt;</ept> the following parameters:</source>
+          <target state="new">In addition to the above, we recommend that you <bpt id="2877bac1-f636-4307-afa8-fb14db920636">&lt;em&gt;</bpt>remove<ept id="2877bac1-f636-4307-afa8-fb14db920636">&lt;/em&gt;</ept> the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="ac31cf9a-916d-4bf9-9422-3517f0cfcfdc" xml:space="preserve">
+          <source>Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.</source>
+          <target state="new">Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.</target>
+        </trans-unit>
+        <trans-unit id="f9a8c5f1-9ad2-4c65-a4f0-e2aede09f548" xml:space="preserve">
+          <source>The <bpt id="e16e8c02-db99-4809-b1d1-8b083ca838da">&lt;code&gt;</bpt>crashkernel<ept id="e16e8c02-db99-4809-b1d1-8b083ca838da">&lt;/code&gt;</ept> option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more.</source>
+          <target state="new">The <bpt id="e16e8c02-db99-4809-b1d1-8b083ca838da">&lt;code&gt;</bpt>crashkernel<ept id="e16e8c02-db99-4809-b1d1-8b083ca838da">&lt;/code&gt;</ept> option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more.</target>
+        </trans-unit>
+        <trans-unit id="97471796-d54e-440b-af15-65a18fe35cb7" xml:space="preserve">
+          <source>This may be problematic on the smaller VM sizes.</source>
+          <target state="new">This may be problematic on the smaller VM sizes.</target>
+        </trans-unit>
+        <trans-unit id="db5b081c-2226-4fa6-ac54-0192017adfcf" xml:space="preserve">
+          <source>Ensure that the SSH server is installed and configured to start at boot time.</source>
+          <target state="new">Ensure that the SSH server is installed and configured to start at boot time.</target>
+        </trans-unit>
+        <trans-unit id="425408b7-36f5-45fa-b77c-241047d044a8" xml:space="preserve">
+          <source>This is usually the default.</source>
+          <target state="new">This is usually the default.</target>
+        </trans-unit>
+        <trans-unit id="4229ca33-a11f-4e56-ad86-7b2495a99e20" xml:space="preserve">
+          <source>Install the Azure Linux Agent by running the following command:</source>
+          <target state="new">Install the Azure Linux Agent by running the following command:</target>
+        </trans-unit>
+        <trans-unit id="2b4cbaa7-9630-4a7d-b09e-4106c81995fc" xml:space="preserve">
+          <source>Note that installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.</source>
+          <target state="new">Note that installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.</target>
+        </trans-unit>
+        <trans-unit id="38b23375-cc3b-4828-964f-bc155d40af31" xml:space="preserve">
+          <source>Do not create swap space on the OS disk.</source>
+          <target state="new">Do not create swap space on the OS disk.</target>
+        </trans-unit>
+        <trans-unit id="2cc59667-3fb4-4fa4-a890-9c7b2f20c6d3" xml:space="preserve">
+          <source>The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after provisioning on Azure.</source>
+          <target state="new">The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after provisioning on Azure.</target>
+        </trans-unit>
+        <trans-unit id="6c28e711-db3b-4716-9ebf-780620b19a1b" xml:space="preserve">
+          <source>Note that the local resource disk is a <bpt id="d21b40d7-8452-4fc5-a50b-15de9850c5f8">&lt;em&gt;</bpt>temporary<ept id="d21b40d7-8452-4fc5-a50b-15de9850c5f8">&lt;/em&gt;</ept> disk, and it might be emptied when the VM is deprovisioned.</source>
+          <target state="new">Note that the local resource disk is a <bpt id="d21b40d7-8452-4fc5-a50b-15de9850c5f8">&lt;em&gt;</bpt>temporary<ept id="d21b40d7-8452-4fc5-a50b-15de9850c5f8">&lt;/em&gt;</ept> disk, and it might be emptied when the VM is deprovisioned.</target>
+        </trans-unit>
+        <trans-unit id="573a622e-28b1-4cac-84b6-2f8e81f6a04b" xml:space="preserve">
+          <source>After you install the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:</source>
+          <target state="new">After you install the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:</target>
+        </trans-unit>
+        <trans-unit id="bd481540-6afa-4955-9812-47d7b07ca891" xml:space="preserve">
+          <source>Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:</source>
+          <target state="new">Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:</target>
+        </trans-unit>
+        <trans-unit id="c2dc4356-c145-4e06-88b0-8dc2f1be4aa4" xml:space="preserve">
+          <source>Click <bpt id="f44b6039-79be-48a7-848a-fb8ea1c79c6e">&lt;strong&gt;</bpt>Action -\&gt; Shut Down<ept id="f44b6039-79be-48a7-848a-fb8ea1c79c6e">&lt;/strong&gt;</ept> in Hyper-V Manager.</source>
+          <target state="new">Click <bpt id="f44b6039-79be-48a7-848a-fb8ea1c79c6e">&lt;strong&gt;</bpt>Action -\&gt; Shut Down<ept id="f44b6039-79be-48a7-848a-fb8ea1c79c6e">&lt;/strong&gt;</ept> in Hyper-V Manager.</target>
+        </trans-unit>
+        <trans-unit id="89cdc2c9-210e-4981-a56d-f337ef9efc5c" xml:space="preserve">
+          <source>Your Linux VHD is now ready to be uploaded to Azure.</source>
+          <target state="new">Your Linux VHD is now ready to be uploaded to Azure.</target>
+        </trans-unit>
+        <trans-unit id="f515b2c7-c6bb-4893-ad52-b8b7c0ad288e" xml:space="preserve">
+          <source><bpt id="3696bf47-d6cd-4af5-9c1a-5ec575d8a9fe">&lt;strong&gt;</bpt>Changes in Oracle Linux 7<ept id="3696bf47-d6cd-4af5-9c1a-5ec575d8a9fe">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3696bf47-d6cd-4af5-9c1a-5ec575d8a9fe">&lt;strong&gt;</bpt>Changes in Oracle Linux 7<ept id="3696bf47-d6cd-4af5-9c1a-5ec575d8a9fe">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7884a51-3d6f-496f-a903-6cf253e6e884" xml:space="preserve">
+          <source>Preparing an Oracle Linux 7 virtual machine for Azure is very similar to the process for Oracle Linux 6.</source>
+          <target state="new">Preparing an Oracle Linux 7 virtual machine for Azure is very similar to the process for Oracle Linux 6.</target>
+        </trans-unit>
+        <trans-unit id="26c76eac-c4de-4542-a77e-afcc8fdd7a05" xml:space="preserve">
+          <source>However, there are several important differences worth noting:</source>
+          <target state="new">However, there are several important differences worth noting:</target>
+        </trans-unit>
+        <trans-unit id="54779359-e5f2-443b-9370-6a5d64fc5fed" xml:space="preserve">
+          <source>Both the Red Hat compatible kernel and Oracle's UEK3 are supported in Azure.</source>
+          <target state="new">Both the Red Hat compatible kernel and Oracle's UEK3 are supported in Azure.</target>
+        </trans-unit>
+        <trans-unit id="db8cc45e-0e13-4934-be52-55a6114b17e7" xml:space="preserve">
+          <source>We recommend the UEK3 kernel.</source>
+          <target state="new">We recommend the UEK3 kernel.</target>
+        </trans-unit>
+        <trans-unit id="2d6733a3-724c-403e-b150-240bf42ef95d" xml:space="preserve">
+          <source>The NetworkManager package no longer conflicts with the Azure Linux agent.</source>
+          <target state="new">The NetworkManager package no longer conflicts with the Azure Linux agent.</target>
+        </trans-unit>
+        <trans-unit id="caffeff3-32f7-4c41-a4e8-c76262b81d84" xml:space="preserve">
+          <source>This package is installed by default, and we recommend that it is not removed.</source>
+          <target state="new">This package is installed by default, and we recommend that it is not removed.</target>
+        </trans-unit>
+        <trans-unit id="cc91ace9-1649-40aa-9e5a-3c7efe6542b9" xml:space="preserve">
+          <source>GRUB2 is now used as the default bootloader, so the procedure for editing kernel parameters has changed (see below).</source>
+          <target state="new">GRUB2 is now used as the default bootloader, so the procedure for editing kernel parameters has changed (see below).</target>
+        </trans-unit>
+        <trans-unit id="7d76466b-cd22-48af-bc03-b94db1894888" xml:space="preserve">
+          <source>XFS is now the default file system.</source>
+          <target state="new">XFS is now the default file system.</target>
+        </trans-unit>
+        <trans-unit id="22d0c1ad-4d42-423d-aff3-1177103b4732" xml:space="preserve">
+          <source>The ext4 file system can still be used if desired.</source>
+          <target state="new">The ext4 file system can still be used if desired.</target>
+        </trans-unit>
+        <trans-unit id="48fbeb9b-de1d-41e8-bdcb-2bd4176b23ed" xml:space="preserve">
+          <source><bpt id="772fab81-adf2-487e-96c2-ed72198fc167">&lt;strong&gt;</bpt>Configuration steps<ept id="772fab81-adf2-487e-96c2-ed72198fc167">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="772fab81-adf2-487e-96c2-ed72198fc167">&lt;strong&gt;</bpt>Configuration steps<ept id="772fab81-adf2-487e-96c2-ed72198fc167">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81305396-591e-4b54-962c-6b026f6f5dac" xml:space="preserve">
+          <source>In Hyper-V Manager, select the virtual machine.</source>
+          <target state="new">In Hyper-V Manager, select the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="cb66b4e7-dfdf-48d8-8483-d720367545d0" xml:space="preserve">
+          <source>Click <bpt id="dabe50c3-fad2-4e30-9688-81ee5948f15d">&lt;strong&gt;</bpt>Connect<ept id="dabe50c3-fad2-4e30-9688-81ee5948f15d">&lt;/strong&gt;</ept> to open a console window for the virtual machine.</source>
+          <target state="new">Click <bpt id="dabe50c3-fad2-4e30-9688-81ee5948f15d">&lt;strong&gt;</bpt>Connect<ept id="dabe50c3-fad2-4e30-9688-81ee5948f15d">&lt;/strong&gt;</ept> to open a console window for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="5add8740-28e7-45e6-aba5-f44cd5287673" xml:space="preserve">
+          <source>Create a file named <bpt id="ad6ab412-43be-4a05-947e-0920138c1883">&lt;strong&gt;</bpt>network<ept id="ad6ab412-43be-4a05-947e-0920138c1883">&lt;/strong&gt;</ept> in the /etc/sysconfig/ directory that contains the following text:</source>
+          <target state="new">Create a file named <bpt id="ad6ab412-43be-4a05-947e-0920138c1883">&lt;strong&gt;</bpt>network<ept id="ad6ab412-43be-4a05-947e-0920138c1883">&lt;/strong&gt;</ept> in the /etc/sysconfig/ directory that contains the following text:</target>
+        </trans-unit>
+        <trans-unit id="18cf8cb6-0f1d-47ff-aaeb-364aaf3e2204" xml:space="preserve">
+          <source>Create a file named <bpt id="43415b91-16cc-480e-955a-0d07ecc64339">&lt;strong&gt;</bpt>ifcfg-eth0<ept id="43415b91-16cc-480e-955a-0d07ecc64339">&lt;/strong&gt;</ept> in the /etc/sysconfig/network-scripts/ directory that contains the following text:</source>
+          <target state="new">Create a file named <bpt id="43415b91-16cc-480e-955a-0d07ecc64339">&lt;strong&gt;</bpt>ifcfg-eth0<ept id="43415b91-16cc-480e-955a-0d07ecc64339">&lt;/strong&gt;</ept> in the /etc/sysconfig/network-scripts/ directory that contains the following text:</target>
+        </trans-unit>
+        <trans-unit id="1f02b82a-3bc5-456a-bcf3-040277abcf5e" xml:space="preserve">
+          <source>Move (or remove) udev rules to avoid generating static rules for the Ethernet interface.</source>
+          <target state="new">Move (or remove) udev rules to avoid generating static rules for the Ethernet interface.</target>
+        </trans-unit>
+        <trans-unit id="76eb6a99-81b1-4773-af10-c9058f9d95e6" xml:space="preserve">
+          <source>These rules cause problems when you're cloning a virtual machine in Microsoft Azure or Hyper-V.</source>
+          <target state="new">These rules cause problems when you're cloning a virtual machine in Microsoft Azure or Hyper-V.</target>
+        </trans-unit>
+        <trans-unit id="21dc78df-d1b1-43fa-a7e5-75796c23e19e" xml:space="preserve">
+          <source>Ensure that the network service will start at boot time by running the following command:</source>
+          <target state="new">Ensure that the network service will start at boot time by running the following command:</target>
+        </trans-unit>
+        <trans-unit id="eda0e9bd-2a15-4194-b8da-9125750f76a4" xml:space="preserve">
+          <source>Install the python-pyasn1 package by running the following command:</source>
+          <target state="new">Install the python-pyasn1 package by running the following command:</target>
+        </trans-unit>
+        <trans-unit id="ac72111d-5c86-4a06-9532-fd524a8f6ab0" xml:space="preserve">
+          <source>Run the following command to clear the current yum metadata and install any updates:</source>
+          <target state="new">Run the following command to clear the current yum metadata and install any updates:</target>
+        </trans-unit>
+        <trans-unit id="3f5ac16c-ce51-407e-9e2b-6a0cf9c4a3c7" xml:space="preserve">
+          <source>Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure.</source>
+          <target state="new">Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure.</target>
+        </trans-unit>
+        <trans-unit id="55e12e7c-8f84-455f-a31f-f6aa98290983" xml:space="preserve">
+          <source>To do this, open "/etc/default/grub" in a text editor and edit the GRUB\<bpt id="367b5ecb-bcac-43a7-b035-28ba4f9fe3c7">&lt;em&gt;</bpt>CMDLINE\<ept id="367b5ecb-bcac-43a7-b035-28ba4f9fe3c7">&lt;/em&gt;</ept>LINUX parameter, for example:</source>
+          <target state="new">To do this, open "/etc/default/grub" in a text editor and edit the GRUB\<bpt id="367b5ecb-bcac-43a7-b035-28ba4f9fe3c7">&lt;em&gt;</bpt>CMDLINE\<ept id="367b5ecb-bcac-43a7-b035-28ba4f9fe3c7">&lt;/em&gt;</ept>LINUX parameter, for example:</target>
+        </trans-unit>
+        <trans-unit id="af155735-c48b-4337-9c98-836e95fa290d" xml:space="preserve">
+          <source>This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.</source>
+          <target state="new">This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.</target>
+        </trans-unit>
+        <trans-unit id="ae647b38-ace1-4326-9b8a-406109f682f3" xml:space="preserve">
+          <source>In addition to the above, we recommend that you <bpt id="0a3343ea-1e65-46b2-971a-c5d914e75241">&lt;em&gt;</bpt>remove<ept id="0a3343ea-1e65-46b2-971a-c5d914e75241">&lt;/em&gt;</ept> the following parameters:</source>
+          <target state="new">In addition to the above, we recommend that you <bpt id="0a3343ea-1e65-46b2-971a-c5d914e75241">&lt;em&gt;</bpt>remove<ept id="0a3343ea-1e65-46b2-971a-c5d914e75241">&lt;/em&gt;</ept> the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="71e92f80-2838-490e-b94d-0608a75597db" xml:space="preserve">
+          <source>Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.</source>
+          <target state="new">Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.</target>
+        </trans-unit>
+        <trans-unit id="6cbc6fe7-a433-4685-8c93-82327f8ae416" xml:space="preserve">
+          <source>The <bpt id="c7d61afd-f9e7-4b81-a2d9-2e70007c1aef">&lt;code&gt;</bpt>crashkernel<ept id="c7d61afd-f9e7-4b81-a2d9-2e70007c1aef">&lt;/code&gt;</ept> option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more.</source>
+          <target state="new">The <bpt id="c7d61afd-f9e7-4b81-a2d9-2e70007c1aef">&lt;code&gt;</bpt>crashkernel<ept id="c7d61afd-f9e7-4b81-a2d9-2e70007c1aef">&lt;/code&gt;</ept> option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more.</target>
+        </trans-unit>
+        <trans-unit id="3e1bf582-5878-4923-b943-4f127d1b9428" xml:space="preserve">
+          <source>This may be problematic on the smaller VM sizes.</source>
+          <target state="new">This may be problematic on the smaller VM sizes.</target>
+        </trans-unit>
+        <trans-unit id="1d35fedd-5880-47a3-9caf-752e44790f09" xml:space="preserve">
+          <source>Once you are done editing "/etc/default/grub", run the following command to rebuild the grub configuration:</source>
+          <target state="new">Once you are done editing "/etc/default/grub", run the following command to rebuild the grub configuration:</target>
+        </trans-unit>
+        <trans-unit id="21afde85-957c-4c32-9539-cb550d7c738b" xml:space="preserve">
+          <source>Ensure that the SSH server is installed and configured to start at boot time.</source>
+          <target state="new">Ensure that the SSH server is installed and configured to start at boot time.</target>
+        </trans-unit>
+        <trans-unit id="69f216f4-74b9-437b-9965-9d04871fe23a" xml:space="preserve">
+          <source>This is usually the default.</source>
+          <target state="new">This is usually the default.</target>
+        </trans-unit>
+        <trans-unit id="f5d487c0-0094-42b5-8851-db59fe2db01b" xml:space="preserve">
+          <source>Install the Azure Linux Agent by running the following command:</source>
+          <target state="new">Install the Azure Linux Agent by running the following command:</target>
+        </trans-unit>
+        <trans-unit id="e42d1f3e-ead2-4064-945c-08487c830d06" xml:space="preserve">
+          <source>Do not create swap space on the OS disk.</source>
+          <target state="new">Do not create swap space on the OS disk.</target>
+        </trans-unit>
+        <trans-unit id="b4ba0aeb-48a0-48a7-ba5d-43cf379c675b" xml:space="preserve">
+          <source>The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after provisioning on Azure.</source>
+          <target state="new">The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after provisioning on Azure.</target>
+        </trans-unit>
+        <trans-unit id="1a1fe2d9-9611-41e3-a8e5-e0430a58e601" xml:space="preserve">
+          <source>Note that the local resource disk is a <bpt id="8939ec88-042d-436c-bf88-2b33f4dd8c6e">&lt;em&gt;</bpt>temporary<ept id="8939ec88-042d-436c-bf88-2b33f4dd8c6e">&lt;/em&gt;</ept> disk, and it might be emptied when the VM is deprovisioned.</source>
+          <target state="new">Note that the local resource disk is a <bpt id="8939ec88-042d-436c-bf88-2b33f4dd8c6e">&lt;em&gt;</bpt>temporary<ept id="8939ec88-042d-436c-bf88-2b33f4dd8c6e">&lt;/em&gt;</ept> disk, and it might be emptied when the VM is deprovisioned.</target>
+        </trans-unit>
+        <trans-unit id="0e0787dc-55d8-4ed6-84b5-913981a11f86" xml:space="preserve">
+          <source>After you install the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:</source>
+          <target state="new">After you install the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:</target>
+        </trans-unit>
+        <trans-unit id="8e61aff8-bc9a-4ae8-aaf7-658dff7ea4a9" xml:space="preserve">
+          <source>Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:</source>
+          <target state="new">Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:</target>
+        </trans-unit>
+        <trans-unit id="ffb922d8-5903-4cb6-b6dc-99588029336e" xml:space="preserve">
+          <source>Click <bpt id="ec7c0639-028d-44a3-84bd-6761e4e16502">&lt;strong&gt;</bpt>Action -\&gt; Shut Down<ept id="ec7c0639-028d-44a3-84bd-6761e4e16502">&lt;/strong&gt;</ept> in Hyper-V Manager.</source>
+          <target state="new">Click <bpt id="ec7c0639-028d-44a3-84bd-6761e4e16502">&lt;strong&gt;</bpt>Action -\&gt; Shut Down<ept id="ec7c0639-028d-44a3-84bd-6761e4e16502">&lt;/strong&gt;</ept> in Hyper-V Manager.</target>
+        </trans-unit>
+        <trans-unit id="34382793-2611-4b5a-986a-2c247a79e02e" xml:space="preserve">
+          <source>Your Linux VHD is now ready to be uploaded to Azure.</source>
+          <target state="new">Your Linux VHD is now ready to be uploaded to Azure.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

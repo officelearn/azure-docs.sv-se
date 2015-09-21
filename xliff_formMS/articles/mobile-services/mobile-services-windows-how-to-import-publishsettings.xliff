@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="94c10e27-b1b4-448a-9a83-ddd8bdb80188" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="94c10e27-b1b4-448a-9a83-ddd8bdb80188" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="00a9429f-7d7a-41a9-83ef-8b340174b281">
+        <trans-unit id="b8b166cc-cc8a-46d9-a00b-b1c0a1b2e012" xml:space="preserve">
+          <source>Import your publish settings file in Visual Studio 2013 | Microsoft Azure</source>
+          <target state="new">Import your publish settings file in Visual Studio 2013 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ce0aaa3c-0078-4414-835f-e8c5ee4698ea" xml:space="preserve">
+          <source>Learn how to import a subscription publish settings file for your Azure Mobile Services application in Visual Studio 2013.</source>
+          <target state="new">Learn how to import a subscription publish settings file for your Azure Mobile Services application in Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="2132e730-8b77-49b1-a923-40853602ec17" xml:space="preserve">
+          <source>Before you can create the mobile service, you must import the publish settings file from your Azure subscription into Visual Studio.</source>
+          <target state="new">Before you can create the mobile service, you must import the publish settings file from your Azure subscription into Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="6b8bbcbf-075a-40d2-850d-1c92b752fd9a" xml:space="preserve">
+          <source>This enables Visual Studio to connect to Azure on your behalf.</source>
+          <target state="new">This enables Visual Studio to connect to Azure on your behalf.</target>
+        </trans-unit>
+        <trans-unit id="2ae61448-f3c7-4d0d-b684-1b2d655bdacc" xml:space="preserve">
+          <source>Beginning with Visual Studio 2013 Update 2, you no longer need to use a publish settings file.</source>
+          <target state="new">Beginning with Visual Studio 2013 Update 2, you no longer need to use a publish settings file.</target>
+        </trans-unit>
+        <trans-unit id="1ce66fcf-e544-4b2a-9ecf-5e9cc34e7b1f" xml:space="preserve">
+          <source>Visual Studio is able to connect directly to Azure using the credentials that you provide.</source>
+          <target state="new">Visual Studio is able to connect directly to Azure using the credentials that you provide.</target>
+        </trans-unit>
+        <trans-unit id="f70f5c1b-df09-4e6b-8574-19e9dff92c41" xml:space="preserve">
+          <source>In Visual Studio 2013, open Solution Explorer, right-click the project then click <bpt id="db7f55e8-bb96-4181-95c9-2b801f9323a6">&lt;strong&gt;</bpt>Add<ept id="db7f55e8-bb96-4181-95c9-2b801f9323a6">&lt;/strong&gt;</ept> and then <bpt id="bb63256b-0f85-46aa-9571-dba7afffdb02">&lt;strong&gt;</bpt>Connected Service...<ept id="bb63256b-0f85-46aa-9571-dba7afffdb02">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio 2013, open Solution Explorer, right-click the project then click <bpt id="db7f55e8-bb96-4181-95c9-2b801f9323a6">&lt;strong&gt;</bpt>Add<ept id="db7f55e8-bb96-4181-95c9-2b801f9323a6">&lt;/strong&gt;</ept> and then <bpt id="bb63256b-0f85-46aa-9571-dba7afffdb02">&lt;strong&gt;</bpt>Connected Service...<ept id="bb63256b-0f85-46aa-9571-dba7afffdb02">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1766da8d-1666-43f0-b119-606797937bda" xml:space="preserve">
+          <source><bpt id="e3e0c946-5d72-4ea1-909b-f9faf38641dc">&lt;linkText&gt;</bpt>add connected service<ept id="e3e0c946-5d72-4ea1-909b-f9faf38641dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3e0c946-5d72-4ea1-909b-f9faf38641dc">&lt;linkText&gt;</bpt>add connected service<ept id="e3e0c946-5d72-4ea1-909b-f9faf38641dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e86107c-2e75-4bf2-b15b-f6218097515a" xml:space="preserve">
+          <source>In the Services Manager dialog, click <bpt id="937e94aa-54d9-4854-9d45-bf6a3d44e76e">&lt;strong&gt;</bpt>Create service...<ept id="937e94aa-54d9-4854-9d45-bf6a3d44e76e">&lt;/strong&gt;</ept>, then select <bpt id="9ea5eeea-cf79-43c1-a599-68f088822653">&lt;strong&gt;</bpt>&amp;lt;Import...&amp;gt;<ept id="9ea5eeea-cf79-43c1-a599-68f088822653">&lt;/strong&gt;</ept> from  <bpt id="2722445b-60de-459b-8680-093ea869f9ef">&lt;strong&gt;</bpt>Subscription<ept id="2722445b-60de-459b-8680-093ea869f9ef">&lt;/strong&gt;</ept> in the Create Mobile Service dialog.</source>
+          <target state="new">In the Services Manager dialog, click <bpt id="937e94aa-54d9-4854-9d45-bf6a3d44e76e">&lt;strong&gt;</bpt>Create service...<ept id="937e94aa-54d9-4854-9d45-bf6a3d44e76e">&lt;/strong&gt;</ept>, then select <bpt id="9ea5eeea-cf79-43c1-a599-68f088822653">&lt;strong&gt;</bpt>&amp;lt;Import...&amp;gt;<ept id="9ea5eeea-cf79-43c1-a599-68f088822653">&lt;/strong&gt;</ept> from  <bpt id="2722445b-60de-459b-8680-093ea869f9ef">&lt;strong&gt;</bpt>Subscription<ept id="2722445b-60de-459b-8680-093ea869f9ef">&lt;/strong&gt;</ept> in the Create Mobile Service dialog.</target>
+        </trans-unit>
+        <trans-unit id="4c9671ed-942d-4b27-8167-4bae3acca851" xml:space="preserve">
+          <source><bpt id="081c8257-5f21-4dc5-bc5e-d18ca7d47665">&lt;linkText&gt;</bpt>create a new mobile service from VS 2013<ept id="081c8257-5f21-4dc5-bc5e-d18ca7d47665">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="081c8257-5f21-4dc5-bc5e-d18ca7d47665">&lt;linkText&gt;</bpt>create a new mobile service from VS 2013<ept id="081c8257-5f21-4dc5-bc5e-d18ca7d47665">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="397f0d6c-bfe0-434b-a6d7-97865c41ee73" xml:space="preserve">
+          <source>In Import Azure Subscriptions, click <bpt id="3453ddc6-0095-436a-9019-d4dbc5101316">&lt;strong&gt;</bpt>Download subscription file<ept id="3453ddc6-0095-436a-9019-d4dbc5101316">&lt;/strong&gt;</ept>, login to your Azure account (if required), click <bpt id="c1907b34-39c0-4bd4-8358-d1ab31aceaa7">&lt;strong&gt;</bpt>Save<ept id="c1907b34-39c0-4bd4-8358-d1ab31aceaa7">&lt;/strong&gt;</ept> when your browser requests to save the file.</source>
+          <target state="new">In Import Azure Subscriptions, click <bpt id="3453ddc6-0095-436a-9019-d4dbc5101316">&lt;strong&gt;</bpt>Download subscription file<ept id="3453ddc6-0095-436a-9019-d4dbc5101316">&lt;/strong&gt;</ept>, login to your Azure account (if required), click <bpt id="c1907b34-39c0-4bd4-8358-d1ab31aceaa7">&lt;strong&gt;</bpt>Save<ept id="c1907b34-39c0-4bd4-8358-d1ab31aceaa7">&lt;/strong&gt;</ept> when your browser requests to save the file.</target>
+        </trans-unit>
+        <trans-unit id="2e485a02-15a3-40f1-96a0-3da2465ca531" xml:space="preserve">
+          <source><bpt id="8c146460-0c3e-4663-81d7-0a6645d5fe74">&lt;linkText&gt;</bpt>download subscription file in VS<ept id="8c146460-0c3e-4663-81d7-0a6645d5fe74">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8c146460-0c3e-4663-81d7-0a6645d5fe74">&lt;linkText&gt;</bpt>download subscription file in VS<ept id="8c146460-0c3e-4663-81d7-0a6645d5fe74">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0fadc13-c6f4-49a6-8053-57125687fc44" xml:space="preserve">
+          <source>The login window is displayed in the browser, which may be behind your Visual Studio window.</source>
+          <target state="new">The login window is displayed in the browser, which may be behind your Visual Studio window.</target>
+        </trans-unit>
+        <trans-unit id="0eea7ea8-d889-4db1-af5d-a326e0a81175" xml:space="preserve">
+          <source>Remember to make a note of where you saved the downloaded .publishsettings file.</source>
+          <target state="new">Remember to make a note of where you saved the downloaded .publishsettings file.</target>
+        </trans-unit>
+        <trans-unit id="724c18a9-3de2-475a-9184-e2f49d30c090" xml:space="preserve">
+          <source>You can skip this step if your project is already connected to your Azure subscription.</source>
+          <target state="new">You can skip this step if your project is already connected to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="b1bef42a-5da4-414f-a890-6af07d10e74e" xml:space="preserve">
+          <source>Click <bpt id="27dde060-97c0-4b8a-b3ec-7e66c5f80eca">&lt;strong&gt;</bpt>Browse<ept id="27dde060-97c0-4b8a-b3ec-7e66c5f80eca">&lt;/strong&gt;</ept>, navigate to the location where you saved the .publishsettings file, select the file, then click <bpt id="f089c362-5d31-49d3-ab82-559d45a02ec9">&lt;strong&gt;</bpt>Open<ept id="f089c362-5d31-49d3-ab82-559d45a02ec9">&lt;/strong&gt;</ept> and then <bpt id="7d8fcee2-98f4-423d-8565-68a4a70dfbbd">&lt;strong&gt;</bpt>Import<ept id="7d8fcee2-98f4-423d-8565-68a4a70dfbbd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="27dde060-97c0-4b8a-b3ec-7e66c5f80eca">&lt;strong&gt;</bpt>Browse<ept id="27dde060-97c0-4b8a-b3ec-7e66c5f80eca">&lt;/strong&gt;</ept>, navigate to the location where you saved the .publishsettings file, select the file, then click <bpt id="f089c362-5d31-49d3-ab82-559d45a02ec9">&lt;strong&gt;</bpt>Open<ept id="f089c362-5d31-49d3-ab82-559d45a02ec9">&lt;/strong&gt;</ept> and then <bpt id="7d8fcee2-98f4-423d-8565-68a4a70dfbbd">&lt;strong&gt;</bpt>Import<ept id="7d8fcee2-98f4-423d-8565-68a4a70dfbbd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27b5965d-8b8d-4546-880a-cffbd682742f" xml:space="preserve">
+          <source><bpt id="9697ddf6-1b55-49f7-ae1c-c937facdb13b">&lt;linkText&gt;</bpt>import subscription in VS<ept id="9697ddf6-1b55-49f7-ae1c-c937facdb13b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9697ddf6-1b55-49f7-ae1c-c937facdb13b">&lt;linkText&gt;</bpt>import subscription in VS<ept id="9697ddf6-1b55-49f7-ae1c-c937facdb13b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e3864e9-6bce-4e62-bca7-bb7db77e7030" xml:space="preserve">
+          <source>Visual Studio imports the data needed to connect to your Azure subscription.</source>
+          <target state="new">Visual Studio imports the data needed to connect to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="7275f404-5810-4148-afe7-5502f16d9bfe" xml:space="preserve">
+          <source>When your subscription already has one or more existing mobile services, the service names are displayed.</source>
+          <target state="new">When your subscription already has one or more existing mobile services, the service names are displayed.</target>
+        </trans-unit>
+        <trans-unit id="aaf8536a-e521-4479-b764-202e388b15c0" xml:space="preserve">
+          <source>After importing the publish settings, consider deleting the downloaded .publishsettings file as it contains information that can be used by others to access your account.</source>
+          <target state="new">After importing the publish settings, consider deleting the downloaded .publishsettings file as it contains information that can be used by others to access your account.</target>
+        </trans-unit>
+        <trans-unit id="3f7e52c6-5acb-4c4e-ab9d-cb8173aa5d6f" xml:space="preserve">
+          <source>Secure the file if you plan to keep it for use in other connected app projects.</source>
+          <target state="new">Secure the file if you plan to keep it for use in other connected app projects.</target>
+        </trans-unit>
+        <trans-unit id="6375c801-a2be-439b-bc78-dbc7bdf1371e" xml:space="preserve">
+          <source>./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png</source>
+          <target state="new">./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png</target>
+        </trans-unit>
+        <trans-unit id="2727face-b90e-4b4a-b2e8-9eea3d83377f" xml:space="preserve">
+          <source>./media/mobile-services-how-to-register-microsoft-authentication/mobile-live-connect-app-api-settings.png</source>
+          <target state="new">./media/mobile-services-how-to-register-microsoft-authentication/mobile-live-connect-app-api-settings.png</target>
+        </trans-unit>
+        <trans-unit id="78769830-bc32-4eb4-8116-a640bd57cca9" xml:space="preserve">
+          <source>/develop/mobile/how-to-guides/register-for-single-sign-on/</source>
+          <target state="new">/develop/mobile/how-to-guides/register-for-single-sign-on/</target>
+        </trans-unit>
+        <trans-unit id="e4461939-a398-4459-ae48-4dd477f6b053" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=266582</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=266582</target>
+        </trans-unit>
+        <trans-unit id="9fc829f7-0574-4e42-9cb6-4fcabeaca861" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="c0c36d8c-9ddc-42ea-ad6d-24589ea1f95b" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started/</source>
+          <target state="new">/develop/mobile/tutorials/get-started/</target>
+        </trans-unit>
+        <trans-unit id="59d0dbc5-1dee-49af-8e01-78fb659bae65" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-users-dotnet/</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-users-dotnet/</target>
+        </trans-unit>
+        <trans-unit id="1e4092a3-7b71-42fa-9b90-5cc080cb570e" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-push-dotnet/</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-push-dotnet/</target>
+        </trans-unit>
+        <trans-unit id="90c2cc10-7aee-41e1-8a67-4f3a16907257" xml:space="preserve">
+          <source>/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/</source>
+          <target state="new">/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/</target>
+        </trans-unit>
+        <trans-unit id="8dc39192-868b-45ad-8249-8cc5132d5a04" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-users-js/</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-users-js/</target>
+        </trans-unit>
+        <trans-unit id="bb7516c0-bdc1-45b2-9262-53ee1aeb5b60" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="b73a561d-554f-47f8-b139-34850e409a67" />
+    </body>
+  </file>
+</xliff>

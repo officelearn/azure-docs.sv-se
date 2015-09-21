@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6a7c34b7-8ec7-4a4e-bdfd-b328cb8df943" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6a7c34b7-8ec7-4a4e-bdfd-b328cb8df943" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b2237181-6511-492b-a552-f372b2c6f523">
+        <trans-unit id="15f5f7e4-8a90-4c13-be41-bd50e38189b2" xml:space="preserve">
+          <source>Related and linked resources in the tile gallery</source>
+          <target state="new">Related and linked resources in the tile gallery</target>
+        </trans-unit>
+        <trans-unit id="c44be6ea-f99e-497c-a90d-e79fd9addef7" xml:space="preserve">
+          <source>Learn about related and linked resources that are displayed in the tile gallery of the Azure preview portal.</source>
+          <target state="new">Learn about related and linked resources that are displayed in the tile gallery of the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="bddeeaa5-b75c-49fa-a114-8d5638ca19ab" xml:space="preserve">
+          <source>The tile gallery enables you to find tiles for a particular resource and drag them onto your current blade.</source>
+          <target state="new">The tile gallery enables you to find tiles for a particular resource and drag them onto your current blade.</target>
+        </trans-unit>
+        <trans-unit id="519081d8-0bfc-42f7-8e9d-71ffaa2b0f7a" xml:space="preserve">
+          <source>Using the tile gallery, you can create management views that span resources.</source>
+          <target state="new">Using the tile gallery, you can create management views that span resources.</target>
+        </trans-unit>
+        <trans-unit id="ba4237b0-9d23-4346-ab98-0b9f975108e5" xml:space="preserve">
+          <source>For any specified resource, the related resources include all of the resources that share the same 
+resource group as the resource, and any resources that link to or from the resource.</source>
+          <target state="new">For any specified resource, the related resources include all of the resources that share the same 
+resource group as the resource, and any resources that link to or from the resource.</target>
+        </trans-unit>
+        <trans-unit id="7a0129bf-acb4-4f7d-ad22-c61a4a3d4347" xml:space="preserve">
+          <source>Linking is a feature of the Azure Resource Manager.</source>
+          <target state="new">Linking is a feature of the Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="2f81d3af-35d2-421b-9f7b-19e1b4b71589" xml:space="preserve">
+          <source>It enables you to declare relationships between 
+resources even if they do not reside in the same resource group.</source>
+          <target state="new">It enables you to declare relationships between 
+resources even if they do not reside in the same resource group.</target>
+        </trans-unit>
+        <trans-unit id="110fb589-3dfd-4e1a-b342-3c9447ecfdac" xml:space="preserve">
+          <source>Linking has no impact on the runtime 
+of your resources, no impact on billing, and no impact on role-based access.</source>
+          <target state="new">Linking has no impact on the runtime 
+of your resources, no impact on billing, and no impact on role-based access.</target>
+        </trans-unit>
+        <trans-unit id="606f10a5-3451-42a4-b5e7-cdc25f81f52c" xml:space="preserve">
+          <source>It's simply a mechanism you can 
+use to represent relationships so that tools like the tile gallery can provide a rich management 
+experience.</source>
+          <target state="new">It's simply a mechanism you can 
+use to represent relationships so that tools like the tile gallery can provide a rich management 
+experience.</target>
+        </trans-unit>
+        <trans-unit id="46d1b41b-aefb-45d7-8220-f106d31930f9" xml:space="preserve">
+          <source>Your tools can inspect the links using the links API and provide custom relationship 
+management experiences as well.</source>
+          <target state="new">Your tools can inspect the links using the links API and provide custom relationship 
+management experiences as well.</target>
+        </trans-unit>
+        <trans-unit id="1b281cbe-6bb3-4c72-a3f1-2a7b0b59aada" xml:space="preserve">
+          <source>When you create resources through the portal or by deploying a template through Azure PowerShell or Azure CLI, links are 
+automatically created for some dependent resources.</source>
+          <target state="new">When you create resources through the portal or by deploying a template through Azure PowerShell or Azure CLI, links are 
+automatically created for some dependent resources.</target>
+        </trans-unit>
+        <trans-unit id="3bdef49c-c469-4395-8524-7ff677be2a28" xml:space="preserve">
+          <source>You can also programmatically link resources by using the 
+<bpt id="52522dad-1905-4aba-a231-b121ab8a0d35">&lt;linkText&gt;</bpt>Linked Resources REST API<ept id="52522dad-1905-4aba-a231-b121ab8a0d35">&lt;/linkText&gt;</ept><bpt id="52522dad-1905-4aba-a231-b121ab8a0d35">&lt;title&gt;</bpt><ept id="52522dad-1905-4aba-a231-b121ab8a0d35">&lt;/title&gt;</ept> or by declaring the relationships in the template.</source>
+          <target state="new">You can also programmatically link resources by using the 
+<bpt id="52522dad-1905-4aba-a231-b121ab8a0d35">&lt;linkText&gt;</bpt>Linked Resources REST API<ept id="52522dad-1905-4aba-a231-b121ab8a0d35">&lt;/linkText&gt;</ept><bpt id="52522dad-1905-4aba-a231-b121ab8a0d35">&lt;title&gt;</bpt><ept id="52522dad-1905-4aba-a231-b121ab8a0d35">&lt;/title&gt;</ept> or by declaring the relationships in the template.</target>
+        </trans-unit>
+        <trans-unit id="2e6cbc77-83d0-4039-9ebd-6b98b3735862" xml:space="preserve">
+          <source>For a complete discussion of working with linked resources, see <bpt id="886bc3d1-1e64-4853-b120-4db805d45975">&lt;linkText&gt;</bpt>Linking resources in Azure Resource Manager<ept id="886bc3d1-1e64-4853-b120-4db805d45975">&lt;/linkText&gt;</ept><bpt id="886bc3d1-1e64-4853-b120-4db805d45975">&lt;title&gt;</bpt><ept id="886bc3d1-1e64-4853-b120-4db805d45975">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a complete discussion of working with linked resources, see <bpt id="886bc3d1-1e64-4853-b120-4db805d45975">&lt;linkText&gt;</bpt>Linking resources in Azure Resource Manager<ept id="886bc3d1-1e64-4853-b120-4db805d45975">&lt;/linkText&gt;</ept><bpt id="886bc3d1-1e64-4853-b120-4db805d45975">&lt;title&gt;</bpt><ept id="886bc3d1-1e64-4853-b120-4db805d45975">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="761211fb-15d7-49ec-ac12-03e079c440f7" xml:space="preserve">
+          <source>If you need an introduction to writing Azure Resource Manager templates, see <bpt id="056f9fb5-498a-45e4-b55a-fde2c31a93ba">&lt;linkText&gt;</bpt>Authoring templates<ept id="056f9fb5-498a-45e4-b55a-fde2c31a93ba">&lt;/linkText&gt;</ept><bpt id="056f9fb5-498a-45e4-b55a-fde2c31a93ba">&lt;title&gt;</bpt><ept id="056f9fb5-498a-45e4-b55a-fde2c31a93ba">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need an introduction to writing Azure Resource Manager templates, see <bpt id="056f9fb5-498a-45e4-b55a-fde2c31a93ba">&lt;linkText&gt;</bpt>Authoring templates<ept id="056f9fb5-498a-45e4-b55a-fde2c31a93ba">&lt;/linkText&gt;</ept><bpt id="056f9fb5-498a-45e4-b55a-fde2c31a93ba">&lt;title&gt;</bpt><ept id="056f9fb5-498a-45e4-b55a-fde2c31a93ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3fedadbc-3365-4ef3-ad45-ecda5d16a502" xml:space="preserve">
+          <source>To dive into greater detail about creating links between resources, see <bpt id="7b019e5d-bf2d-403f-861f-0c817787393e">&lt;linkText&gt;</bpt>Linking resources in Azure Resource Manager<ept id="7b019e5d-bf2d-403f-861f-0c817787393e">&lt;/linkText&gt;</ept><bpt id="7b019e5d-bf2d-403f-861f-0c817787393e">&lt;title&gt;</bpt><ept id="7b019e5d-bf2d-403f-861f-0c817787393e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To dive into greater detail about creating links between resources, see <bpt id="7b019e5d-bf2d-403f-861f-0c817787393e">&lt;linkText&gt;</bpt>Linking resources in Azure Resource Manager<ept id="7b019e5d-bf2d-403f-861f-0c817787393e">&lt;/linkText&gt;</ept><bpt id="7b019e5d-bf2d-403f-861f-0c817787393e">&lt;title&gt;</bpt><ept id="7b019e5d-bf2d-403f-861f-0c817787393e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac053fed-e7a5-4732-bbd7-00e52d27f8fd" xml:space="preserve">
+          <source>To understand more about working with resource groups through the preview portal, see <bpt id="241fb739-70d5-4238-be36-8eea40cf9b7d">&lt;linkText&gt;</bpt>Using the Azure Preview Portal to manage your Azure resources<ept id="241fb739-70d5-4238-be36-8eea40cf9b7d">&lt;/linkText&gt;</ept><bpt id="241fb739-70d5-4238-be36-8eea40cf9b7d">&lt;title&gt;</bpt><ept id="241fb739-70d5-4238-be36-8eea40cf9b7d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To understand more about working with resource groups through the preview portal, see <bpt id="241fb739-70d5-4238-be36-8eea40cf9b7d">&lt;linkText&gt;</bpt>Using the Azure Preview Portal to manage your Azure resources<ept id="241fb739-70d5-4238-be36-8eea40cf9b7d">&lt;/linkText&gt;</ept><bpt id="241fb739-70d5-4238-be36-8eea40cf9b7d">&lt;title&gt;</bpt><ept id="241fb739-70d5-4238-be36-8eea40cf9b7d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a5c1c215-cb61-4335-9db3-2c3834b99dc9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a5c1c215-cb61-4335-9db3-2c3834b99dc9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2552d772-c2ec-4eb5-8c15-4ef327a9b85a">
+        <trans-unit id="89c68bbc-2852-4648-9144-ca722d18d002" xml:space="preserve">
+          <source>Azure RemoteApp FAQ</source>
+          <target state="new">Azure RemoteApp FAQ</target>
+        </trans-unit>
+        <trans-unit id="03ebc5dd-81d7-4273-a825-6c67a1f7e113" xml:space="preserve">
+          <source>Frequently asked questions about Azure RemoteApp.</source>
+          <target state="new">Frequently asked questions about Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="3d1947a0-a6a4-4feb-aa62-a13c858747bd" xml:space="preserve">
+          <source>We've heard the following questions about Azure RemoteApp.</source>
+          <target state="new">We've heard the following questions about Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="1be66c58-6245-47fb-9a33-f9dbd6d533c7" xml:space="preserve">
+          <source>Have others?</source>
+          <target state="new">Have others?</target>
+        </trans-unit>
+        <trans-unit id="d0ded872-7cf9-4f38-9365-99cbf50167f3" xml:space="preserve">
+          <source>Visit the <bpt id="0de1ef77-eb73-435b-ac2e-7f55ef63111b">&lt;linkText&gt;</bpt>RemoteApp forums<ept id="0de1ef77-eb73-435b-ac2e-7f55ef63111b">&lt;/linkText&gt;</ept><bpt id="0de1ef77-eb73-435b-ac2e-7f55ef63111b">&lt;title&gt;</bpt><ept id="0de1ef77-eb73-435b-ac2e-7f55ef63111b">&lt;/title&gt;</ept> and let us know what you need to know.</source>
+          <target state="new">Visit the <bpt id="0de1ef77-eb73-435b-ac2e-7f55ef63111b">&lt;linkText&gt;</bpt>RemoteApp forums<ept id="0de1ef77-eb73-435b-ac2e-7f55ef63111b">&lt;/linkText&gt;</ept><bpt id="0de1ef77-eb73-435b-ac2e-7f55ef63111b">&lt;title&gt;</bpt><ept id="0de1ef77-eb73-435b-ac2e-7f55ef63111b">&lt;/title&gt;</ept> and let us know what you need to know.</target>
+        </trans-unit>
+        <trans-unit id="7258a895-f6bf-4c0d-b298-db2fc44da0c9" xml:space="preserve">
+          <source><bpt id="b7250389-ac66-4785-aa5c-de813112abc2">&lt;strong&gt;</bpt>What is Azure RemoteApp?<ept id="b7250389-ac66-4785-aa5c-de813112abc2">&lt;/strong&gt;</ept> RemoteApp is an Azure service helps you provide secure, remote access to applications from many different user devices.</source>
+          <target state="new"><bpt id="b7250389-ac66-4785-aa5c-de813112abc2">&lt;strong&gt;</bpt>What is Azure RemoteApp?<ept id="b7250389-ac66-4785-aa5c-de813112abc2">&lt;/strong&gt;</ept> RemoteApp is an Azure service helps you provide secure, remote access to applications from many different user devices.</target>
+        </trans-unit>
+        <trans-unit id="c42a42bb-11e1-47d0-9146-6abcab652721" xml:space="preserve">
+          <source>Read more  about <bpt id="a379977a-18d7-4f0b-9b8f-863ef3554d6c">&lt;linkText&gt;</bpt>Azure RemoteApp<ept id="a379977a-18d7-4f0b-9b8f-863ef3554d6c">&lt;/linkText&gt;</ept><bpt id="a379977a-18d7-4f0b-9b8f-863ef3554d6c">&lt;title&gt;</bpt><ept id="a379977a-18d7-4f0b-9b8f-863ef3554d6c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more  about <bpt id="a379977a-18d7-4f0b-9b8f-863ef3554d6c">&lt;linkText&gt;</bpt>Azure RemoteApp<ept id="a379977a-18d7-4f0b-9b8f-863ef3554d6c">&lt;/linkText&gt;</ept><bpt id="a379977a-18d7-4f0b-9b8f-863ef3554d6c">&lt;title&gt;</bpt><ept id="a379977a-18d7-4f0b-9b8f-863ef3554d6c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a1ad835-50a1-49cc-8d12-0a562480882f" xml:space="preserve">
+          <source><bpt id="ae0c762e-20bf-4f5a-a6a7-2605d1e95e1c">&lt;strong&gt;</bpt>What are the two kinds of deployment options?<ept id="ae0c762e-20bf-4f5a-a6a7-2605d1e95e1c">&lt;/strong&gt;</ept> There are two kinds of RemoteApp deployments (or collections): cloud and hybrid.</source>
+          <target state="new"><bpt id="ae0c762e-20bf-4f5a-a6a7-2605d1e95e1c">&lt;strong&gt;</bpt>What are the two kinds of deployment options?<ept id="ae0c762e-20bf-4f5a-a6a7-2605d1e95e1c">&lt;/strong&gt;</ept> There are two kinds of RemoteApp deployments (or collections): cloud and hybrid.</target>
+        </trans-unit>
+        <trans-unit id="fe843318-f1a3-4e71-82d4-99215f21169c" xml:space="preserve">
+          <source>Figure out which <bpt id="aaa69289-e019-4055-8a6b-c5b7774f6099">&lt;linkText&gt;</bpt>deployment option<ept id="aaa69289-e019-4055-8a6b-c5b7774f6099">&lt;/linkText&gt;</ept><bpt id="aaa69289-e019-4055-8a6b-c5b7774f6099">&lt;title&gt;</bpt><ept id="aaa69289-e019-4055-8a6b-c5b7774f6099">&lt;/title&gt;</ept> works best for your organization.</source>
+          <target state="new">Figure out which <bpt id="aaa69289-e019-4055-8a6b-c5b7774f6099">&lt;linkText&gt;</bpt>deployment option<ept id="aaa69289-e019-4055-8a6b-c5b7774f6099">&lt;/linkText&gt;</ept><bpt id="aaa69289-e019-4055-8a6b-c5b7774f6099">&lt;title&gt;</bpt><ept id="aaa69289-e019-4055-8a6b-c5b7774f6099">&lt;/title&gt;</ept> works best for your organization.</target>
+        </trans-unit>
+        <trans-unit id="f2f86ea7-edd7-4156-97da-a753d9258c21" xml:space="preserve">
+          <source><bpt id="6c164e33-6551-456c-b420-db37cd84657b">&lt;strong&gt;</bpt>What are the service limits?<ept id="6c164e33-6551-456c-b420-db37cd84657b">&lt;/strong&gt;</ept> You can learn about the default settings and serivce limits of Azure RemoteApp in <bpt id="6af25d7d-ff42-49b9-a691-d0245d105d8f">&lt;linkText&gt;</bpt>Azure Subscription and Service Limits, Quotas, and Constraints<ept id="6af25d7d-ff42-49b9-a691-d0245d105d8f">&lt;/linkText&gt;</ept><bpt id="6af25d7d-ff42-49b9-a691-d0245d105d8f">&lt;title&gt;</bpt><ept id="6af25d7d-ff42-49b9-a691-d0245d105d8f">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="6c164e33-6551-456c-b420-db37cd84657b">&lt;strong&gt;</bpt>What are the service limits?<ept id="6c164e33-6551-456c-b420-db37cd84657b">&lt;/strong&gt;</ept> You can learn about the default settings and serivce limits of Azure RemoteApp in <bpt id="6af25d7d-ff42-49b9-a691-d0245d105d8f">&lt;linkText&gt;</bpt>Azure Subscription and Service Limits, Quotas, and Constraints<ept id="6af25d7d-ff42-49b9-a691-d0245d105d8f">&lt;/linkText&gt;</ept><bpt id="6af25d7d-ff42-49b9-a691-d0245d105d8f">&lt;title&gt;</bpt><ept id="6af25d7d-ff42-49b9-a691-d0245d105d8f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2b3140e-942a-474a-bacd-0990defb81ab" xml:space="preserve">
+          <source>Let us know if you have more questions.</source>
+          <target state="new">Let us know if you have more questions.</target>
+        </trans-unit>
+        <trans-unit id="9b89fd3a-bd6e-4cfa-b013-d293650742ae" xml:space="preserve">
+          <source><bpt id="0bdfcdb3-f784-4cb4-8b41-fd53552482c6">&lt;strong&gt;</bpt>How many users do I have to have?<ept id="0bdfcdb3-f784-4cb4-8b41-fd53552482c6">&lt;/strong&gt;</ept> There's a minimum of 20 users.</source>
+          <target state="new"><bpt id="0bdfcdb3-f784-4cb4-8b41-fd53552482c6">&lt;strong&gt;</bpt>How many users do I have to have?<ept id="0bdfcdb3-f784-4cb4-8b41-fd53552482c6">&lt;/strong&gt;</ept> There's a minimum of 20 users.</target>
+        </trans-unit>
+        <trans-unit id="55953672-46ba-4f91-a7bb-c1cb63790622" xml:space="preserve">
+          <source>Let me repeat that to be super clear - the MINIMUM is 20.</source>
+          <target state="new">Let me repeat that to be super clear - the MINIMUM is 20.</target>
+        </trans-unit>
+        <trans-unit id="bb4cf334-9113-44f3-89f3-d6541bc9db71" xml:space="preserve">
+          <source>You will be billed for 20.</source>
+          <target state="new">You will be billed for 20.</target>
+        </trans-unit>
+        <trans-unit id="00ab0083-6caa-46d8-856c-21812e423593" xml:space="preserve">
+          <source><bpt id="68b57884-b612-4095-921b-46dd08a3287d">&lt;strong&gt;</bpt>Are custom line-of-business (LOB) applications supported?<ept id="68b57884-b612-4095-921b-46dd08a3287d">&lt;/strong&gt;</ept> Yes.</source>
+          <target state="new"><bpt id="68b57884-b612-4095-921b-46dd08a3287d">&lt;strong&gt;</bpt>Are custom line-of-business (LOB) applications supported?<ept id="68b57884-b612-4095-921b-46dd08a3287d">&lt;/strong&gt;</ept> Yes.</target>
+        </trans-unit>
+        <trans-unit id="16eb3be4-1ba2-4e43-975b-604046c48963" xml:space="preserve">
+          <source>To use a custom application in Azure RemoteApp, create a <bpt id="49fbe5bf-f380-41d4-a7e7-a89337f50741">&lt;linkText&gt;</bpt>custom template image<ept id="49fbe5bf-f380-41d4-a7e7-a89337f50741">&lt;/linkText&gt;</ept><bpt id="49fbe5bf-f380-41d4-a7e7-a89337f50741">&lt;title&gt;</bpt><ept id="49fbe5bf-f380-41d4-a7e7-a89337f50741">&lt;/title&gt;</ept>, and then upload it to the RemoteApp collection.</source>
+          <target state="new">To use a custom application in Azure RemoteApp, create a <bpt id="49fbe5bf-f380-41d4-a7e7-a89337f50741">&lt;linkText&gt;</bpt>custom template image<ept id="49fbe5bf-f380-41d4-a7e7-a89337f50741">&lt;/linkText&gt;</ept><bpt id="49fbe5bf-f380-41d4-a7e7-a89337f50741">&lt;title&gt;</bpt><ept id="49fbe5bf-f380-41d4-a7e7-a89337f50741">&lt;/title&gt;</ept>, and then upload it to the RemoteApp collection.</target>
+        </trans-unit>
+        <trans-unit id="51c80020-c6c7-4861-ab9c-9a71b64bd47a" xml:space="preserve">
+          <source><bpt id="99543380-4634-4cb9-99df-6b70271497e9">&lt;strong&gt;</bpt>Will my custom LOB application work in Azure RemoteApp?<ept id="99543380-4634-4cb9-99df-6b70271497e9">&lt;/strong&gt;</ept> The best way to figure that out is to test it.</source>
+          <target state="new"><bpt id="99543380-4634-4cb9-99df-6b70271497e9">&lt;strong&gt;</bpt>Will my custom LOB application work in Azure RemoteApp?<ept id="99543380-4634-4cb9-99df-6b70271497e9">&lt;/strong&gt;</ept> The best way to figure that out is to test it.</target>
+        </trans-unit>
+        <trans-unit id="efc2568e-05cf-4c64-b186-20d583809687" xml:space="preserve">
+          <source>Review the <bpt id="2fa7a8dd-0910-4c71-93db-beaa3de16d71">&lt;linkText&gt;</bpt>application compatibility requirements<ept id="2fa7a8dd-0910-4c71-93db-beaa3de16d71">&lt;/linkText&gt;</ept><bpt id="2fa7a8dd-0910-4c71-93db-beaa3de16d71">&lt;title&gt;</bpt><ept id="2fa7a8dd-0910-4c71-93db-beaa3de16d71">&lt;/title&gt;</ept> and check out the <bpt id="62da2f0a-84ae-414b-a499-d16b53f61de4">&lt;linkText&gt;</bpt>RD Compatibility Center<ept id="62da2f0a-84ae-414b-a499-d16b53f61de4">&lt;/linkText&gt;</ept><bpt id="62da2f0a-84ae-414b-a499-d16b53f61de4">&lt;title&gt;</bpt><ept id="62da2f0a-84ae-414b-a499-d16b53f61de4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Review the <bpt id="2fa7a8dd-0910-4c71-93db-beaa3de16d71">&lt;linkText&gt;</bpt>application compatibility requirements<ept id="2fa7a8dd-0910-4c71-93db-beaa3de16d71">&lt;/linkText&gt;</ept><bpt id="2fa7a8dd-0910-4c71-93db-beaa3de16d71">&lt;title&gt;</bpt><ept id="2fa7a8dd-0910-4c71-93db-beaa3de16d71">&lt;/title&gt;</ept> and check out the <bpt id="62da2f0a-84ae-414b-a499-d16b53f61de4">&lt;linkText&gt;</bpt>RD Compatibility Center<ept id="62da2f0a-84ae-414b-a499-d16b53f61de4">&lt;/linkText&gt;</ept><bpt id="62da2f0a-84ae-414b-a499-d16b53f61de4">&lt;title&gt;</bpt><ept id="62da2f0a-84ae-414b-a499-d16b53f61de4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d39be175-e1ff-4730-b673-baa2625726e0" xml:space="preserve">
+          <source><bpt id="e9744ac6-0d7b-457c-95d9-c13e5b3cd365">&lt;strong&gt;</bpt>Which deployment method (cloud or hybrid) is best for my organization?<ept id="e9744ac6-0d7b-457c-95d9-c13e5b3cd365">&lt;/strong&gt;</ept> Hybrid collections provide the most complete experience if you want full integration with single sign-on (SSO) and secure on-premises network connectivity.</source>
+          <target state="new"><bpt id="e9744ac6-0d7b-457c-95d9-c13e5b3cd365">&lt;strong&gt;</bpt>Which deployment method (cloud or hybrid) is best for my organization?<ept id="e9744ac6-0d7b-457c-95d9-c13e5b3cd365">&lt;/strong&gt;</ept> Hybrid collections provide the most complete experience if you want full integration with single sign-on (SSO) and secure on-premises network connectivity.</target>
+        </trans-unit>
+        <trans-unit id="cabec887-a7bb-4a89-8111-96dccdc7e27e" xml:space="preserve">
+          <source>Cloud collections provide an agile and easy way to isolate your deployment by using multiple authentication methods.</source>
+          <target state="new">Cloud collections provide an agile and easy way to isolate your deployment by using multiple authentication methods.</target>
+        </trans-unit>
+        <trans-unit id="8d154353-3f5e-460c-89f6-4faa20dfd971" xml:space="preserve">
+          <source>Read more about the <bpt id="b3fead2f-3c77-4b65-8e27-f34dbff48c0a">&lt;linkText&gt;</bpt>deployment options<ept id="b3fead2f-3c77-4b65-8e27-f34dbff48c0a">&lt;/linkText&gt;</ept><bpt id="b3fead2f-3c77-4b65-8e27-f34dbff48c0a">&lt;title&gt;</bpt><ept id="b3fead2f-3c77-4b65-8e27-f34dbff48c0a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more about the <bpt id="b3fead2f-3c77-4b65-8e27-f34dbff48c0a">&lt;linkText&gt;</bpt>deployment options<ept id="b3fead2f-3c77-4b65-8e27-f34dbff48c0a">&lt;/linkText&gt;</ept><bpt id="b3fead2f-3c77-4b65-8e27-f34dbff48c0a">&lt;title&gt;</bpt><ept id="b3fead2f-3c77-4b65-8e27-f34dbff48c0a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f84357e3-49fb-43b6-b098-38dd52b9e8f1" xml:space="preserve">
+          <source>**The hybrid collection requires a VNET.</source>
+          <target state="new">**The hybrid collection requires a VNET.</target>
+        </trans-unit>
+        <trans-unit id="f29af092-1f44-4504-afeb-8643b4d3c07b" xml:space="preserve">
+          <source>Can we use our existing VNET?** You can if the existing VNET is an Azure VNET.</source>
+          <target state="new">Can we use our existing VNET?** You can if the existing VNET is an Azure VNET.</target>
+        </trans-unit>
+        <trans-unit id="4a5be12f-f2ca-42b6-bb05-d018e04d9398" xml:space="preserve">
+          <source>See "Step 1: Set up your virtual network" in the <bpt id="2b5107a7-f83a-4496-ba9c-d389ed86a22f">&lt;linkText&gt;</bpt>hybrid collection instructions<ept id="2b5107a7-f83a-4496-ba9c-d389ed86a22f">&lt;/linkText&gt;</ept><bpt id="2b5107a7-f83a-4496-ba9c-d389ed86a22f">&lt;title&gt;</bpt><ept id="2b5107a7-f83a-4496-ba9c-d389ed86a22f">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See "Step 1: Set up your virtual network" in the <bpt id="2b5107a7-f83a-4496-ba9c-d389ed86a22f">&lt;linkText&gt;</bpt>hybrid collection instructions<ept id="2b5107a7-f83a-4496-ba9c-d389ed86a22f">&lt;/linkText&gt;</ept><bpt id="2b5107a7-f83a-4496-ba9c-d389ed86a22f">&lt;title&gt;</bpt><ept id="2b5107a7-f83a-4496-ba9c-d389ed86a22f">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="76027d7d-91db-4055-b4cf-b8c7537d6679" xml:space="preserve">
+          <source><bpt id="195daa4b-adad-4538-93e1-2212f4d5c130">&lt;strong&gt;</bpt>Can I use a cloud or existing virtual machine as the template for my RemoteApp collection?<ept id="195daa4b-adad-4538-93e1-2212f4d5c130">&lt;/strong&gt;</ept> Yes!</source>
+          <target state="new"><bpt id="195daa4b-adad-4538-93e1-2212f4d5c130">&lt;strong&gt;</bpt>Can I use a cloud or existing virtual machine as the template for my RemoteApp collection?<ept id="195daa4b-adad-4538-93e1-2212f4d5c130">&lt;/strong&gt;</ept> Yes!</target>
+        </trans-unit>
+        <trans-unit id="65105bb3-3a2a-42d7-9451-7a1489887f4b" xml:space="preserve">
+          <source>You can create an image based on an Azure VM, use one of the images included with your subscription, or create a custom image.</source>
+          <target state="new">You can create an image based on an Azure VM, use one of the images included with your subscription, or create a custom image.</target>
+        </trans-unit>
+        <trans-unit id="0f81a758-4d05-4523-8746-109b544e9b0a" xml:space="preserve">
+          <source>Check out the <bpt id="64df260b-6d0e-42e7-865a-dbb402e56141">&lt;linkText&gt;</bpt>RemoteApp image options<ept id="64df260b-6d0e-42e7-865a-dbb402e56141">&lt;/linkText&gt;</ept><bpt id="64df260b-6d0e-42e7-865a-dbb402e56141">&lt;title&gt;</bpt><ept id="64df260b-6d0e-42e7-865a-dbb402e56141">&lt;/title&gt;</ept>.</source>
+          <target state="new">Check out the <bpt id="64df260b-6d0e-42e7-865a-dbb402e56141">&lt;linkText&gt;</bpt>RemoteApp image options<ept id="64df260b-6d0e-42e7-865a-dbb402e56141">&lt;/linkText&gt;</ept><bpt id="64df260b-6d0e-42e7-865a-dbb402e56141">&lt;title&gt;</bpt><ept id="64df260b-6d0e-42e7-865a-dbb402e56141">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20b877e7-2c37-4598-b1cc-32f93ea9e8b9" xml:space="preserve">
+          <source>**We have SQL or another database either on-premises or in Azure.</source>
+          <target state="new">**We have SQL or another database either on-premises or in Azure.</target>
+        </trans-unit>
+        <trans-unit id="220e930e-3e16-4bfa-a52c-1c64d2dc489a" xml:space="preserve">
+          <source>Which deployment type should we use?** That depends on where your SQL or backend database is.</source>
+          <target state="new">Which deployment type should we use?** That depends on where your SQL or backend database is.</target>
+        </trans-unit>
+        <trans-unit id="22fb384d-1449-4427-bcbd-4dce36ee6665" xml:space="preserve">
+          <source>If the database is in a private network, use the hybrid collection.</source>
+          <target state="new">If the database is in a private network, use the hybrid collection.</target>
+        </trans-unit>
+        <trans-unit id="e97f293c-e978-47d2-8dda-af7795d5d415" xml:space="preserve">
+          <source>If the database is exposed to the Internet and allows client connections to connect to it, you can use the cloud collection.</source>
+          <target state="new">If the database is exposed to the Internet and allows client connections to connect to it, you can use the cloud collection.</target>
+        </trans-unit>
+        <trans-unit id="b593e3fc-bd3c-4a5e-ad08-d637a5a1eae6" xml:space="preserve">
+          <source><bpt id="8c0a9d5e-034f-418d-8aaa-727e0d3bef71">&lt;strong&gt;</bpt>What about drive mapping, USB and serial port, clipboard sharing, and printer redirection?<ept id="8c0a9d5e-034f-418d-8aaa-727e0d3bef71">&lt;/strong&gt;</ept> All of those features are supported in Azure RemoteApp.</source>
+          <target state="new"><bpt id="8c0a9d5e-034f-418d-8aaa-727e0d3bef71">&lt;strong&gt;</bpt>What about drive mapping, USB and serial port, clipboard sharing, and printer redirection?<ept id="8c0a9d5e-034f-418d-8aaa-727e0d3bef71">&lt;/strong&gt;</ept> All of those features are supported in Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="772e38b1-3767-4f6d-9843-1a7e669dec52" xml:space="preserve">
+          <source>Clipboard sharing and printer redirection is enabled by default.</source>
+          <target state="new">Clipboard sharing and printer redirection is enabled by default.</target>
+        </trans-unit>
+        <trans-unit id="b948d539-8d73-4ff5-988c-12d164811534" xml:space="preserve">
+          <source>You can learn more about redirection <bpt id="5a6f3bb1-1e85-4f25-9230-f34199b1b1ed">&lt;linkText&gt;</bpt>here<ept id="5a6f3bb1-1e85-4f25-9230-f34199b1b1ed">&lt;/linkText&gt;</ept><bpt id="5a6f3bb1-1e85-4f25-9230-f34199b1b1ed">&lt;title&gt;</bpt><ept id="5a6f3bb1-1e85-4f25-9230-f34199b1b1ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn more about redirection <bpt id="5a6f3bb1-1e85-4f25-9230-f34199b1b1ed">&lt;linkText&gt;</bpt>here<ept id="5a6f3bb1-1e85-4f25-9230-f34199b1b1ed">&lt;/linkText&gt;</ept><bpt id="5a6f3bb1-1e85-4f25-9230-f34199b1b1ed">&lt;title&gt;</bpt><ept id="5a6f3bb1-1e85-4f25-9230-f34199b1b1ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e75e550-c961-4ee6-9f01-b1e42e53778f" xml:space="preserve">
+          <source>**How about authentication?</source>
+          <target state="new">**How about authentication?</target>
+        </trans-unit>
+        <trans-unit id="8c41e22e-7c3a-4a7a-a55d-8842476ec1ab" xml:space="preserve">
+          <source>Which methods are supported?** The cloud collection supports Microsoft accounts and Azure Active Directory accounts, which are Office 365 accounts as well.</source>
+          <target state="new">Which methods are supported?** The cloud collection supports Microsoft accounts and Azure Active Directory accounts, which are Office 365 accounts as well.</target>
+        </trans-unit>
+        <trans-unit id="781c47f7-9f04-4fb7-9234-78aa91b1bfca" xml:space="preserve">
+          <source>The hybrid collection supports only Azure Active Directory accounts that have been synced (using a tool like <bpt id="10ef8a06-add3-40ac-836c-9a35c4f8f8f2">&lt;linkText&gt;</bpt>Azure Active Directory Sync<ept id="10ef8a06-add3-40ac-836c-9a35c4f8f8f2">&lt;/linkText&gt;</ept><bpt id="10ef8a06-add3-40ac-836c-9a35c4f8f8f2">&lt;title&gt;</bpt><ept id="10ef8a06-add3-40ac-836c-9a35c4f8f8f2">&lt;/title&gt;</ept>) from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured.</source>
+          <target state="new">The hybrid collection supports only Azure Active Directory accounts that have been synced (using a tool like <bpt id="10ef8a06-add3-40ac-836c-9a35c4f8f8f2">&lt;linkText&gt;</bpt>Azure Active Directory Sync<ept id="10ef8a06-add3-40ac-836c-9a35c4f8f8f2">&lt;/linkText&gt;</ept><bpt id="10ef8a06-add3-40ac-836c-9a35c4f8f8f2">&lt;title&gt;</bpt><ept id="10ef8a06-add3-40ac-836c-9a35c4f8f8f2">&lt;/title&gt;</ept>) from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured.</target>
+        </trans-unit>
+        <trans-unit id="f42a612b-d8d0-4b23-a61b-2fb36eff3640" xml:space="preserve">
+          <source>You can also configure <bpt id="f5ab224a-a199-4993-8219-ec4b9947ab6f">&lt;linkText&gt;</bpt>Multi-Factor Authentication (MFA)<ept id="f5ab224a-a199-4993-8219-ec4b9947ab6f">&lt;/linkText&gt;</ept><bpt id="f5ab224a-a199-4993-8219-ec4b9947ab6f">&lt;title&gt;</bpt><ept id="f5ab224a-a199-4993-8219-ec4b9947ab6f">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also configure <bpt id="f5ab224a-a199-4993-8219-ec4b9947ab6f">&lt;linkText&gt;</bpt>Multi-Factor Authentication (MFA)<ept id="f5ab224a-a199-4993-8219-ec4b9947ab6f">&lt;/linkText&gt;</ept><bpt id="f5ab224a-a199-4993-8219-ec4b9947ab6f">&lt;title&gt;</bpt><ept id="f5ab224a-a199-4993-8219-ec4b9947ab6f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a13a6b57-1e64-4bb2-8847-3720ef9e769e" xml:space="preserve">
+          <source><bpt id="3681c37f-bb5b-48bb-9302-71d7cc71c699">&lt;strong&gt;</bpt>Note:<ept id="3681c37f-bb5b-48bb-9302-71d7cc71c699">&lt;/strong&gt;</ept> The Azure Active Directory users must be from the tenant that's associated with your subscription.</source>
+          <target state="new"><bpt id="3681c37f-bb5b-48bb-9302-71d7cc71c699">&lt;strong&gt;</bpt>Note:<ept id="3681c37f-bb5b-48bb-9302-71d7cc71c699">&lt;/strong&gt;</ept> The Azure Active Directory users must be from the tenant that's associated with your subscription.</target>
+        </trans-unit>
+        <trans-unit id="e1a7bd67-aaa6-4225-a7c3-e573e85aa252" xml:space="preserve">
+          <source>(You can view and modify your subscription on the <bpt id="5cc956c6-afed-4763-a30c-2f3b01a711cb">&lt;strong&gt;</bpt>Settings<ept id="5cc956c6-afed-4763-a30c-2f3b01a711cb">&lt;/strong&gt;</ept> tab in the portal.</source>
+          <target state="new">(You can view and modify your subscription on the <bpt id="5cc956c6-afed-4763-a30c-2f3b01a711cb">&lt;strong&gt;</bpt>Settings<ept id="5cc956c6-afed-4763-a30c-2f3b01a711cb">&lt;/strong&gt;</ept> tab in the portal.</target>
+        </trans-unit>
+        <trans-unit id="dc2ce277-6818-49db-bdd9-8bedb2c170da" xml:space="preserve">
+          <source>See <bpt id="3d7e6566-e610-4602-bf20-6c3ffbaec958">&lt;linkText&gt;</bpt>Change the Azure Active Directory tenant used by RemoteApp<ept id="3d7e6566-e610-4602-bf20-6c3ffbaec958">&lt;/linkText&gt;</ept><bpt id="3d7e6566-e610-4602-bf20-6c3ffbaec958">&lt;title&gt;</bpt><ept id="3d7e6566-e610-4602-bf20-6c3ffbaec958">&lt;/title&gt;</ept> for more information.)</source>
+          <target state="new">See <bpt id="3d7e6566-e610-4602-bf20-6c3ffbaec958">&lt;linkText&gt;</bpt>Change the Azure Active Directory tenant used by RemoteApp<ept id="3d7e6566-e610-4602-bf20-6c3ffbaec958">&lt;/linkText&gt;</ept><bpt id="3d7e6566-e610-4602-bf20-6c3ffbaec958">&lt;title&gt;</bpt><ept id="3d7e6566-e610-4602-bf20-6c3ffbaec958">&lt;/title&gt;</ept> for more information.)</target>
+        </trans-unit>
+        <trans-unit id="c6532101-9171-46f3-a614-a122eeffd1aa" xml:space="preserve">
+          <source><bpt id="391187ff-ba93-42fd-90c1-5a6c58b51981">&lt;strong&gt;</bpt>Why can't I give my Azure Active Directory account access?<ept id="391187ff-ba93-42fd-90c1-5a6c58b51981">&lt;/strong&gt;</ept> The Azure Active Directory users must be from the directory that's associated with your subscription.</source>
+          <target state="new"><bpt id="391187ff-ba93-42fd-90c1-5a6c58b51981">&lt;strong&gt;</bpt>Why can't I give my Azure Active Directory account access?<ept id="391187ff-ba93-42fd-90c1-5a6c58b51981">&lt;/strong&gt;</ept> The Azure Active Directory users must be from the directory that's associated with your subscription.</target>
+        </trans-unit>
+        <trans-unit id="9504537a-779e-4d8a-b340-04a870fbf9ab" xml:space="preserve">
+          <source>You can view or modify that directory on the Settings tab in the portal.</source>
+          <target state="new">You can view or modify that directory on the Settings tab in the portal.</target>
+        </trans-unit>
+        <trans-unit id="b8266ebf-0f16-46b9-a8a6-10ddb7645516" xml:space="preserve">
+          <source>See <bpt id="8e8f7934-986e-4ac2-aefe-25cde095d90a">&lt;linkText&gt;</bpt>Change the Azure Active Directory tenant used by RemoteApp<ept id="8e8f7934-986e-4ac2-aefe-25cde095d90a">&lt;/linkText&gt;</ept><bpt id="8e8f7934-986e-4ac2-aefe-25cde095d90a">&lt;title&gt;</bpt><ept id="8e8f7934-986e-4ac2-aefe-25cde095d90a">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="8e8f7934-986e-4ac2-aefe-25cde095d90a">&lt;linkText&gt;</bpt>Change the Azure Active Directory tenant used by RemoteApp<ept id="8e8f7934-986e-4ac2-aefe-25cde095d90a">&lt;/linkText&gt;</ept><bpt id="8e8f7934-986e-4ac2-aefe-25cde095d90a">&lt;title&gt;</bpt><ept id="8e8f7934-986e-4ac2-aefe-25cde095d90a">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="caf2a94f-a97a-484c-9bda-ba21a684c916" xml:space="preserve">
+          <source><bpt id="4334fa91-69ba-466f-bf0d-88327e15537f">&lt;strong&gt;</bpt>Which devices and operating systems do the client applications support?<ept id="4334fa91-69ba-466f-bf0d-88327e15537f">&lt;/strong&gt;</ept> Client applications are available for Windows 8.1, Windows 8, Windows 7 Service Pack 1, iOS, Mac OS X, Windows RT, Android devices, and Windows Phone.</source>
+          <target state="new"><bpt id="4334fa91-69ba-466f-bf0d-88327e15537f">&lt;strong&gt;</bpt>Which devices and operating systems do the client applications support?<ept id="4334fa91-69ba-466f-bf0d-88327e15537f">&lt;/strong&gt;</ept> Client applications are available for Windows 8.1, Windows 8, Windows 7 Service Pack 1, iOS, Mac OS X, Windows RT, Android devices, and Windows Phone.</target>
+        </trans-unit>
+        <trans-unit id="eb4e8d06-9885-40a2-89ea-1fdaba8ec49b" xml:space="preserve">
+          <source>We also support the Windows 10 preview.</source>
+          <target state="new">We also support the Windows 10 preview.</target>
+        </trans-unit>
+        <trans-unit id="56a69f6d-da8e-4c80-ad2a-91e562299835" xml:space="preserve">
+          <source><bpt id="68e3e7d1-0d80-4107-a19d-3ef808209cf5">&lt;linkText&gt;</bpt>Download<ept id="68e3e7d1-0d80-4107-a19d-3ef808209cf5">&lt;/linkText&gt;</ept><bpt id="68e3e7d1-0d80-4107-a19d-3ef808209cf5">&lt;title&gt;</bpt><ept id="68e3e7d1-0d80-4107-a19d-3ef808209cf5">&lt;/title&gt;</ept> a RemoteApp client now.</source>
+          <target state="new"><bpt id="68e3e7d1-0d80-4107-a19d-3ef808209cf5">&lt;linkText&gt;</bpt>Download<ept id="68e3e7d1-0d80-4107-a19d-3ef808209cf5">&lt;/linkText&gt;</ept><bpt id="68e3e7d1-0d80-4107-a19d-3ef808209cf5">&lt;title&gt;</bpt><ept id="68e3e7d1-0d80-4107-a19d-3ef808209cf5">&lt;/title&gt;</ept> a RemoteApp client now.</target>
+        </trans-unit>
+        <trans-unit id="20567672-8839-4752-b1d1-27953abf6fdf" xml:space="preserve">
+          <source><bpt id="21fa4484-69bf-45b4-98d3-7aecb42cc730">&lt;strong&gt;</bpt>Does Azure RemoteApp support Thin Clients?<ept id="21fa4484-69bf-45b4-98d3-7aecb42cc730">&lt;/strong&gt;</ept> Yes, the following Windows Embedded thin clients are supported:</source>
+          <target state="new"><bpt id="21fa4484-69bf-45b4-98d3-7aecb42cc730">&lt;strong&gt;</bpt>Does Azure RemoteApp support Thin Clients?<ept id="21fa4484-69bf-45b4-98d3-7aecb42cc730">&lt;/strong&gt;</ept> Yes, the following Windows Embedded thin clients are supported:</target>
+        </trans-unit>
+        <trans-unit id="839674fc-461b-4a3e-8d6c-b26d22c904ef" xml:space="preserve">
+          <source>Windows Embedded Standard 7 with Service Pack 1</source>
+          <target state="new">Windows Embedded Standard 7 with Service Pack 1</target>
+        </trans-unit>
+        <trans-unit id="e498b789-0baf-400d-bd9b-ddcdc966303c" xml:space="preserve">
+          <source>Windows Embedded POSReady7 </source>
+          <target state="new">Windows Embedded POSReady7 </target>
+        </trans-unit>
+        <trans-unit id="cfe80c63-d9f2-4a3f-8149-a6d944fd4856" xml:space="preserve">
+          <source>Windows Embedded Thin PC </source>
+          <target state="new">Windows Embedded Thin PC </target>
+        </trans-unit>
+        <trans-unit id="2fcf9927-098a-4022-8637-518a379225ac" xml:space="preserve">
+          <source>Windows Embedded 8.1 Industry</source>
+          <target state="new">Windows Embedded 8.1 Industry</target>
+        </trans-unit>
+        <trans-unit id="c1079adf-07d2-4865-9545-88c42fcb471f" xml:space="preserve">
+          <source><bpt id="ded73369-3bab-4ae3-8aad-f1c50a264e89">&lt;strong&gt;</bpt>Which version of Windows Server is supported for the Remote Desktop Session Host (RDSH)?<ept id="ded73369-3bab-4ae3-8aad-f1c50a264e89">&lt;/strong&gt;</ept> Windows Server 2012 R2.</source>
+          <target state="new"><bpt id="ded73369-3bab-4ae3-8aad-f1c50a264e89">&lt;strong&gt;</bpt>Which version of Windows Server is supported for the Remote Desktop Session Host (RDSH)?<ept id="ded73369-3bab-4ae3-8aad-f1c50a264e89">&lt;/strong&gt;</ept> Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="ca2ec3df-44fd-4365-b86f-0579583415de" xml:space="preserve">
+          <source><bpt id="c445c076-d628-4e32-811c-ddf1eba8852e">&lt;strong&gt;</bpt>Can I try this service for free?<ept id="c445c076-d628-4e32-811c-ddf1eba8852e">&lt;/strong&gt;</ept> Yes.</source>
+          <target state="new"><bpt id="c445c076-d628-4e32-811c-ddf1eba8852e">&lt;strong&gt;</bpt>Can I try this service for free?<ept id="c445c076-d628-4e32-811c-ddf1eba8852e">&lt;/strong&gt;</ept> Yes.</target>
+        </trans-unit>
+        <trans-unit id="554278ba-2f28-4086-abdc-e58fb4ae63f7" xml:space="preserve">
+          <source>There is a free trial available for 30 days.</source>
+          <target state="new">There is a free trial available for 30 days.</target>
+        </trans-unit>
+        <trans-unit id="ebc309bc-5abe-4143-bf60-830cb30e8a47" xml:space="preserve">
+          <source>After the trial ends, you can transition to a paid account (which you can use in production) or stop using the service.</source>
+          <target state="new">After the trial ends, you can transition to a paid account (which you can use in production) or stop using the service.</target>
+        </trans-unit>
+        <trans-unit id="8ac05d43-21ef-4038-b9cd-a10e0493a707" xml:space="preserve">
+          <source>Start your free trial by going to <bpt id="b26eb854-53d7-405e-9fd5-405aead5753e">&lt;linkText&gt;</bpt>manage.windowsazure.com<ept id="b26eb854-53d7-405e-9fd5-405aead5753e">&lt;/linkText&gt;</ept><bpt id="b26eb854-53d7-405e-9fd5-405aead5753e">&lt;title&gt;</bpt><ept id="b26eb854-53d7-405e-9fd5-405aead5753e">&lt;/title&gt;</ept> - create a new instance of RemoteApp.</source>
+          <target state="new">Start your free trial by going to <bpt id="b26eb854-53d7-405e-9fd5-405aead5753e">&lt;linkText&gt;</bpt>manage.windowsazure.com<ept id="b26eb854-53d7-405e-9fd5-405aead5753e">&lt;/linkText&gt;</ept><bpt id="b26eb854-53d7-405e-9fd5-405aead5753e">&lt;title&gt;</bpt><ept id="b26eb854-53d7-405e-9fd5-405aead5753e">&lt;/title&gt;</ept> - create a new instance of RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="fcd48636-2c07-456f-9c44-263e0a3cd8b2" xml:space="preserve">
+          <source>With the free trial, you can build 2 instances of RemoteApp with 10 users per instance.</source>
+          <target state="new">With the free trial, you can build 2 instances of RemoteApp with 10 users per instance.</target>
+        </trans-unit>
+        <trans-unit id="4c2d53be-c347-46c4-b34a-6e5319d756de" xml:space="preserve">
+          <source>Remember that this trial only lives for 30 days.</source>
+          <target state="new">Remember that this trial only lives for 30 days.</target>
+        </trans-unit>
+        <trans-unit id="578e5cab-d867-42de-a154-fe697b2f21aa" xml:space="preserve">
+          <source><bpt id="e72c3c38-5c5b-49bb-a2a9-7475f0d0837e">&lt;strong&gt;</bpt>What is the support plan for RemoteApp?<ept id="e72c3c38-5c5b-49bb-a2a9-7475f0d0837e">&lt;/strong&gt;</ept> Support for billing and subscription management is provided at no cost.</source>
+          <target state="new"><bpt id="e72c3c38-5c5b-49bb-a2a9-7475f0d0837e">&lt;strong&gt;</bpt>What is the support plan for RemoteApp?<ept id="e72c3c38-5c5b-49bb-a2a9-7475f0d0837e">&lt;/strong&gt;</ept> Support for billing and subscription management is provided at no cost.</target>
+        </trans-unit>
+        <trans-unit id="888fbdc5-c301-45e6-ba07-f5021ddf6f48" xml:space="preserve">
+          <source>Technical support is available through the <bpt id="3c962ad3-29ed-408a-b21f-e2ed370f2d88">&lt;linkText&gt;</bpt>Azure service plans<ept id="3c962ad3-29ed-408a-b21f-e2ed370f2d88">&lt;/linkText&gt;</ept><bpt id="3c962ad3-29ed-408a-b21f-e2ed370f2d88">&lt;title&gt;</bpt><ept id="3c962ad3-29ed-408a-b21f-e2ed370f2d88">&lt;/title&gt;</ept>.</source>
+          <target state="new">Technical support is available through the <bpt id="3c962ad3-29ed-408a-b21f-e2ed370f2d88">&lt;linkText&gt;</bpt>Azure service plans<ept id="3c962ad3-29ed-408a-b21f-e2ed370f2d88">&lt;/linkText&gt;</ept><bpt id="3c962ad3-29ed-408a-b21f-e2ed370f2d88">&lt;title&gt;</bpt><ept id="3c962ad3-29ed-408a-b21f-e2ed370f2d88">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f9c0988-8d88-4804-8a4f-18c3ad7b13c3" xml:space="preserve">
+          <source>You can also get free community support through our <bpt id="7f71eded-7167-4863-84df-aba1c29e0e52">&lt;linkText&gt;</bpt>Azure discussion forum<ept id="7f71eded-7167-4863-84df-aba1c29e0e52">&lt;/linkText&gt;</ept><bpt id="7f71eded-7167-4863-84df-aba1c29e0e52">&lt;title&gt;</bpt><ept id="7f71eded-7167-4863-84df-aba1c29e0e52">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also get free community support through our <bpt id="7f71eded-7167-4863-84df-aba1c29e0e52">&lt;linkText&gt;</bpt>Azure discussion forum<ept id="7f71eded-7167-4863-84df-aba1c29e0e52">&lt;/linkText&gt;</ept><bpt id="7f71eded-7167-4863-84df-aba1c29e0e52">&lt;title&gt;</bpt><ept id="7f71eded-7167-4863-84df-aba1c29e0e52">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bc2068d-e49d-413e-adb7-493c1e3201dc" xml:space="preserve">
+          <source><bpt id="9f6de13d-ede2-4add-a28b-7d98b42f3927">&lt;strong&gt;</bpt>How much does RemoteApp cost?<ept id="9f6de13d-ede2-4add-a28b-7d98b42f3927">&lt;/strong&gt;</ept> Check out <bpt id="2e424d97-821d-48c0-8dec-fd77a01d8e55">&lt;linkText&gt;</bpt>Azure RemoteApp Pricing Details <ept id="2e424d97-821d-48c0-8dec-fd77a01d8e55">&lt;/linkText&gt;</ept><bpt id="2e424d97-821d-48c0-8dec-fd77a01d8e55">&lt;title&gt;</bpt><ept id="2e424d97-821d-48c0-8dec-fd77a01d8e55">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="9f6de13d-ede2-4add-a28b-7d98b42f3927">&lt;strong&gt;</bpt>How much does RemoteApp cost?<ept id="9f6de13d-ede2-4add-a28b-7d98b42f3927">&lt;/strong&gt;</ept> Check out <bpt id="2e424d97-821d-48c0-8dec-fd77a01d8e55">&lt;linkText&gt;</bpt>Azure RemoteApp Pricing Details <ept id="2e424d97-821d-48c0-8dec-fd77a01d8e55">&lt;/linkText&gt;</ept><bpt id="2e424d97-821d-48c0-8dec-fd77a01d8e55">&lt;title&gt;</bpt><ept id="2e424d97-821d-48c0-8dec-fd77a01d8e55">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b61515b-1a7a-4754-9949-4107257e8872" xml:space="preserve">
+          <source><bpt id="014f554f-708b-47e3-8ed6-5d8a8289c107">&lt;strong&gt;</bpt>How do I submit feedback?<ept id="014f554f-708b-47e3-8ed6-5d8a8289c107">&lt;/strong&gt;</ept> Visit the <bpt id="01e0f151-de06-4891-bb8f-86a6e2783ea5">&lt;linkText&gt;</bpt>feedback forum<ept id="01e0f151-de06-4891-bb8f-86a6e2783ea5">&lt;/linkText&gt;</ept><bpt id="01e0f151-de06-4891-bb8f-86a6e2783ea5">&lt;title&gt;</bpt><ept id="01e0f151-de06-4891-bb8f-86a6e2783ea5">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="014f554f-708b-47e3-8ed6-5d8a8289c107">&lt;strong&gt;</bpt>How do I submit feedback?<ept id="014f554f-708b-47e3-8ed6-5d8a8289c107">&lt;/strong&gt;</ept> Visit the <bpt id="01e0f151-de06-4891-bb8f-86a6e2783ea5">&lt;linkText&gt;</bpt>feedback forum<ept id="01e0f151-de06-4891-bb8f-86a6e2783ea5">&lt;/linkText&gt;</ept><bpt id="01e0f151-de06-4891-bb8f-86a6e2783ea5">&lt;title&gt;</bpt><ept id="01e0f151-de06-4891-bb8f-86a6e2783ea5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a922418-350e-40c5-a3af-c8324381d6cb" xml:space="preserve">
+          <source><bpt id="c753bdc3-f5ed-4584-99b9-300d35370155">&lt;strong&gt;</bpt>Who can I talk to learn more about Azure RemoteApp?<ept id="c753bdc3-f5ed-4584-99b9-300d35370155">&lt;/strong&gt;</ept> In addition to our <bpt id="8a4d13f8-e60f-4849-bb4c-2ef5bd23759f">&lt;linkText&gt;</bpt>discussion forum<ept id="8a4d13f8-e60f-4849-bb4c-2ef5bd23759f">&lt;/linkText&gt;</ept><bpt id="8a4d13f8-e60f-4849-bb4c-2ef5bd23759f">&lt;title&gt;</bpt><ept id="8a4d13f8-e60f-4849-bb4c-2ef5bd23759f">&lt;/title&gt;</ept>, which is a great place to post questions, you can join the weekly <bpt id="0ef4092e-3e99-452b-977e-04a9ce8579ba">&lt;linkText&gt;</bpt>Ask the Experts webinar<ept id="0ef4092e-3e99-452b-977e-04a9ce8579ba">&lt;/linkText&gt;</ept><bpt id="0ef4092e-3e99-452b-977e-04a9ce8579ba">&lt;title&gt;</bpt><ept id="0ef4092e-3e99-452b-977e-04a9ce8579ba">&lt;/title&gt;</ept>, where we talk about all things RemoteApp.</source>
+          <target state="new"><bpt id="c753bdc3-f5ed-4584-99b9-300d35370155">&lt;strong&gt;</bpt>Who can I talk to learn more about Azure RemoteApp?<ept id="c753bdc3-f5ed-4584-99b9-300d35370155">&lt;/strong&gt;</ept> In addition to our <bpt id="8a4d13f8-e60f-4849-bb4c-2ef5bd23759f">&lt;linkText&gt;</bpt>discussion forum<ept id="8a4d13f8-e60f-4849-bb4c-2ef5bd23759f">&lt;/linkText&gt;</ept><bpt id="8a4d13f8-e60f-4849-bb4c-2ef5bd23759f">&lt;title&gt;</bpt><ept id="8a4d13f8-e60f-4849-bb4c-2ef5bd23759f">&lt;/title&gt;</ept>, which is a great place to post questions, you can join the weekly <bpt id="0ef4092e-3e99-452b-977e-04a9ce8579ba">&lt;linkText&gt;</bpt>Ask the Experts webinar<ept id="0ef4092e-3e99-452b-977e-04a9ce8579ba">&lt;/linkText&gt;</ept><bpt id="0ef4092e-3e99-452b-977e-04a9ce8579ba">&lt;title&gt;</bpt><ept id="0ef4092e-3e99-452b-977e-04a9ce8579ba">&lt;/title&gt;</ept>, where we talk about all things RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="0187ece3-afc5-4685-8859-316441d47a5f" xml:space="preserve">
+          <source><bpt id="7a94f31b-99fc-4a9b-b708-e464d56177e0">&lt;strong&gt;</bpt>What about RemoteApp documentation?<ept id="7a94f31b-99fc-4a9b-b708-e464d56177e0">&lt;/strong&gt;</ept> We're so glad you asked.</source>
+          <target state="new"><bpt id="7a94f31b-99fc-4a9b-b708-e464d56177e0">&lt;strong&gt;</bpt>What about RemoteApp documentation?<ept id="7a94f31b-99fc-4a9b-b708-e464d56177e0">&lt;/strong&gt;</ept> We're so glad you asked.</target>
+        </trans-unit>
+        <trans-unit id="04766fec-c179-4e79-bbec-ea669ff3d96f" xml:space="preserve">
+          <source>In addition to the help content in the portal help drawer (just click the <bpt id="8d9f6d65-1ca1-4af9-aafb-94c17e8d02ed">&lt;strong&gt;</bpt>?<ept id="8d9f6d65-1ca1-4af9-aafb-94c17e8d02ed">&lt;/strong&gt;</ept> on any page in the portal), the following articles are available to teach you all about RemoteApp:</source>
+          <target state="new">In addition to the help content in the portal help drawer (just click the <bpt id="8d9f6d65-1ca1-4af9-aafb-94c17e8d02ed">&lt;strong&gt;</bpt>?<ept id="8d9f6d65-1ca1-4af9-aafb-94c17e8d02ed">&lt;/strong&gt;</ept> on any page in the portal), the following articles are available to teach you all about RemoteApp:</target>
+        </trans-unit>
+        <trans-unit id="55d0f626-e263-4e6a-a01f-f5c434e491af" xml:space="preserve">
+          <source><bpt id="6b4662c0-ff07-4863-b3b7-43b9ef73a4f1">&lt;strong&gt;</bpt>Get started:<ept id="6b4662c0-ff07-4863-b3b7-43b9ef73a4f1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6b4662c0-ff07-4863-b3b7-43b9ef73a4f1">&lt;strong&gt;</bpt>Get started:<ept id="6b4662c0-ff07-4863-b3b7-43b9ef73a4f1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e877610-bef7-4aaf-bf55-bd3e77868c4c" xml:space="preserve">
+          <source><bpt id="381936cf-9c32-45fe-aafe-4dcc08508f99">&lt;linkText&gt;</bpt>What is RemoteApp?<ept id="381936cf-9c32-45fe-aafe-4dcc08508f99">&lt;/linkText&gt;</ept><bpt id="381936cf-9c32-45fe-aafe-4dcc08508f99">&lt;title&gt;</bpt><ept id="381936cf-9c32-45fe-aafe-4dcc08508f99">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="381936cf-9c32-45fe-aafe-4dcc08508f99">&lt;linkText&gt;</bpt>What is RemoteApp?<ept id="381936cf-9c32-45fe-aafe-4dcc08508f99">&lt;/linkText&gt;</ept><bpt id="381936cf-9c32-45fe-aafe-4dcc08508f99">&lt;title&gt;</bpt><ept id="381936cf-9c32-45fe-aafe-4dcc08508f99">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b2070c0-dd78-4cde-848b-0d7817a44454" xml:space="preserve">
+          <source><bpt id="5afbd74c-8a5d-479c-b760-42119362f24b">&lt;linkText&gt;</bpt>What is in the RemoteApp template images?<ept id="5afbd74c-8a5d-479c-b760-42119362f24b">&lt;/linkText&gt;</ept><bpt id="5afbd74c-8a5d-479c-b760-42119362f24b">&lt;title&gt;</bpt><ept id="5afbd74c-8a5d-479c-b760-42119362f24b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5afbd74c-8a5d-479c-b760-42119362f24b">&lt;linkText&gt;</bpt>What is in the RemoteApp template images?<ept id="5afbd74c-8a5d-479c-b760-42119362f24b">&lt;/linkText&gt;</ept><bpt id="5afbd74c-8a5d-479c-b760-42119362f24b">&lt;title&gt;</bpt><ept id="5afbd74c-8a5d-479c-b760-42119362f24b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="072f8b1b-f6be-4115-a4ce-2ad207b7295d" xml:space="preserve">
+          <source><bpt id="862d208f-b2e7-402f-833c-1517f51f217f">&lt;linkText&gt;</bpt>How does licensing work?<ept id="862d208f-b2e7-402f-833c-1517f51f217f">&lt;/linkText&gt;</ept><bpt id="862d208f-b2e7-402f-833c-1517f51f217f">&lt;title&gt;</bpt><ept id="862d208f-b2e7-402f-833c-1517f51f217f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="862d208f-b2e7-402f-833c-1517f51f217f">&lt;linkText&gt;</bpt>How does licensing work?<ept id="862d208f-b2e7-402f-833c-1517f51f217f">&lt;/linkText&gt;</ept><bpt id="862d208f-b2e7-402f-833c-1517f51f217f">&lt;title&gt;</bpt><ept id="862d208f-b2e7-402f-833c-1517f51f217f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1eba6c82-1051-4f2d-a6b2-ea035dc683d1" xml:space="preserve">
+          <source><bpt id="9020cc0c-0943-46e5-b149-fbfdb32f2480">&lt;linkText&gt;</bpt>How do RemoteApp and Office work together?<ept id="9020cc0c-0943-46e5-b149-fbfdb32f2480">&lt;/linkText&gt;</ept><bpt id="9020cc0c-0943-46e5-b149-fbfdb32f2480">&lt;title&gt;</bpt><ept id="9020cc0c-0943-46e5-b149-fbfdb32f2480">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9020cc0c-0943-46e5-b149-fbfdb32f2480">&lt;linkText&gt;</bpt>How do RemoteApp and Office work together?<ept id="9020cc0c-0943-46e5-b149-fbfdb32f2480">&lt;/linkText&gt;</ept><bpt id="9020cc0c-0943-46e5-b149-fbfdb32f2480">&lt;title&gt;</bpt><ept id="9020cc0c-0943-46e5-b149-fbfdb32f2480">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edf79174-8988-4e90-8573-4ebf6c438dde" xml:space="preserve">
+          <source><bpt id="b2b1af61-b138-4848-b1bf-6cfae857f3d9">&lt;linkText&gt;</bpt>How does redirection work in RemoteApp<ept id="b2b1af61-b138-4848-b1bf-6cfae857f3d9">&lt;/linkText&gt;</ept><bpt id="b2b1af61-b138-4848-b1bf-6cfae857f3d9">&lt;title&gt;</bpt><ept id="b2b1af61-b138-4848-b1bf-6cfae857f3d9">&lt;/title&gt;</ept>?</source>
+          <target state="new"><bpt id="b2b1af61-b138-4848-b1bf-6cfae857f3d9">&lt;linkText&gt;</bpt>How does redirection work in RemoteApp<ept id="b2b1af61-b138-4848-b1bf-6cfae857f3d9">&lt;/linkText&gt;</ept><bpt id="b2b1af61-b138-4848-b1bf-6cfae857f3d9">&lt;title&gt;</bpt><ept id="b2b1af61-b138-4848-b1bf-6cfae857f3d9">&lt;/title&gt;</ept>?</target>
+        </trans-unit>
+        <trans-unit id="c3db288a-6b10-433f-99d9-1221ca70d577" xml:space="preserve">
+          <source><bpt id="1fdcefb5-90e9-468c-9d11-65509985055e">&lt;strong&gt;</bpt>Deploy:<ept id="1fdcefb5-90e9-468c-9d11-65509985055e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1fdcefb5-90e9-468c-9d11-65509985055e">&lt;strong&gt;</bpt>Deploy:<ept id="1fdcefb5-90e9-468c-9d11-65509985055e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7fd2fa5-82a1-41b5-b5f8-b3dce33eeca1" xml:space="preserve">
+          <source><bpt id="48686eb3-e579-4942-8117-0bdf1759e3fc">&lt;linkText&gt;</bpt>Create a custom template image<ept id="48686eb3-e579-4942-8117-0bdf1759e3fc">&lt;/linkText&gt;</ept><bpt id="48686eb3-e579-4942-8117-0bdf1759e3fc">&lt;title&gt;</bpt><ept id="48686eb3-e579-4942-8117-0bdf1759e3fc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="48686eb3-e579-4942-8117-0bdf1759e3fc">&lt;linkText&gt;</bpt>Create a custom template image<ept id="48686eb3-e579-4942-8117-0bdf1759e3fc">&lt;/linkText&gt;</ept><bpt id="48686eb3-e579-4942-8117-0bdf1759e3fc">&lt;title&gt;</bpt><ept id="48686eb3-e579-4942-8117-0bdf1759e3fc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb8de807-56da-4ba1-b62f-eb691101f324" xml:space="preserve">
+          <source><bpt id="0132c5d6-8194-4d92-bb18-a8441dd74cc8">&lt;linkText&gt;</bpt>Create a hybrid collection<ept id="0132c5d6-8194-4d92-bb18-a8441dd74cc8">&lt;/linkText&gt;</ept><bpt id="0132c5d6-8194-4d92-bb18-a8441dd74cc8">&lt;title&gt;</bpt><ept id="0132c5d6-8194-4d92-bb18-a8441dd74cc8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0132c5d6-8194-4d92-bb18-a8441dd74cc8">&lt;linkText&gt;</bpt>Create a hybrid collection<ept id="0132c5d6-8194-4d92-bb18-a8441dd74cc8">&lt;/linkText&gt;</ept><bpt id="0132c5d6-8194-4d92-bb18-a8441dd74cc8">&lt;title&gt;</bpt><ept id="0132c5d6-8194-4d92-bb18-a8441dd74cc8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8668081-6dda-4f7e-aa8f-68bd13648436" xml:space="preserve">
+          <source><bpt id="8173a466-8d22-493f-9e84-cf6499f25374">&lt;linkText&gt;</bpt>Create a cloud collection<ept id="8173a466-8d22-493f-9e84-cf6499f25374">&lt;/linkText&gt;</ept><bpt id="8173a466-8d22-493f-9e84-cf6499f25374">&lt;title&gt;</bpt><ept id="8173a466-8d22-493f-9e84-cf6499f25374">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8173a466-8d22-493f-9e84-cf6499f25374">&lt;linkText&gt;</bpt>Create a cloud collection<ept id="8173a466-8d22-493f-9e84-cf6499f25374">&lt;/linkText&gt;</ept><bpt id="8173a466-8d22-493f-9e84-cf6499f25374">&lt;title&gt;</bpt><ept id="8173a466-8d22-493f-9e84-cf6499f25374">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="163c0a2f-fc81-4370-858b-386331ae3027" xml:space="preserve">
+          <source><bpt id="82441923-6e66-4c2a-80aa-1982a175b424">&lt;linkText&gt;</bpt>Configure Azure Active Directory for RemoteApp<ept id="82441923-6e66-4c2a-80aa-1982a175b424">&lt;/linkText&gt;</ept><bpt id="82441923-6e66-4c2a-80aa-1982a175b424">&lt;title&gt;</bpt><ept id="82441923-6e66-4c2a-80aa-1982a175b424">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="82441923-6e66-4c2a-80aa-1982a175b424">&lt;linkText&gt;</bpt>Configure Azure Active Directory for RemoteApp<ept id="82441923-6e66-4c2a-80aa-1982a175b424">&lt;/linkText&gt;</ept><bpt id="82441923-6e66-4c2a-80aa-1982a175b424">&lt;title&gt;</bpt><ept id="82441923-6e66-4c2a-80aa-1982a175b424">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57197877-577c-4026-96c9-362a23ce63f2" xml:space="preserve">
+          <source><bpt id="02e439b0-3554-4a12-a092-ae9ab07bff1b">&lt;linkText&gt;</bpt>Publish an app in RemoteApp<ept id="02e439b0-3554-4a12-a092-ae9ab07bff1b">&lt;/linkText&gt;</ept><bpt id="02e439b0-3554-4a12-a092-ae9ab07bff1b">&lt;title&gt;</bpt><ept id="02e439b0-3554-4a12-a092-ae9ab07bff1b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="02e439b0-3554-4a12-a092-ae9ab07bff1b">&lt;linkText&gt;</bpt>Publish an app in RemoteApp<ept id="02e439b0-3554-4a12-a092-ae9ab07bff1b">&lt;/linkText&gt;</ept><bpt id="02e439b0-3554-4a12-a092-ae9ab07bff1b">&lt;title&gt;</bpt><ept id="02e439b0-3554-4a12-a092-ae9ab07bff1b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d54b438d-2824-4efe-8c77-cb128c880c6d" xml:space="preserve">
+          <source><bpt id="9f5301da-945b-402c-8899-fd9523092dee">&lt;strong&gt;</bpt>Manage:<ept id="9f5301da-945b-402c-8899-fd9523092dee">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9f5301da-945b-402c-8899-fd9523092dee">&lt;strong&gt;</bpt>Manage:<ept id="9f5301da-945b-402c-8899-fd9523092dee">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d28d09ab-873c-42ce-b485-54b68a77310f" xml:space="preserve">
+          <source><bpt id="232a9d66-8496-495b-94c6-a0052dbdf4dc">&lt;linkText&gt;</bpt>Add users<ept id="232a9d66-8496-495b-94c6-a0052dbdf4dc">&lt;/linkText&gt;</ept><bpt id="232a9d66-8496-495b-94c6-a0052dbdf4dc">&lt;title&gt;</bpt><ept id="232a9d66-8496-495b-94c6-a0052dbdf4dc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="232a9d66-8496-495b-94c6-a0052dbdf4dc">&lt;linkText&gt;</bpt>Add users<ept id="232a9d66-8496-495b-94c6-a0052dbdf4dc">&lt;/linkText&gt;</ept><bpt id="232a9d66-8496-495b-94c6-a0052dbdf4dc">&lt;title&gt;</bpt><ept id="232a9d66-8496-495b-94c6-a0052dbdf4dc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1e6513d-12c3-4037-ad64-1d088620d26d" xml:space="preserve">
+          <source><bpt id="beeac944-9fc9-413f-bbc0-4430612bf75e">&lt;linkText&gt;</bpt>Best practices for configuring and using RemoteApp<ept id="beeac944-9fc9-413f-bbc0-4430612bf75e">&lt;/linkText&gt;</ept><bpt id="beeac944-9fc9-413f-bbc0-4430612bf75e">&lt;title&gt;</bpt><ept id="beeac944-9fc9-413f-bbc0-4430612bf75e">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="beeac944-9fc9-413f-bbc0-4430612bf75e">&lt;linkText&gt;</bpt>Best practices for configuring and using RemoteApp<ept id="beeac944-9fc9-413f-bbc0-4430612bf75e">&lt;/linkText&gt;</ept><bpt id="beeac944-9fc9-413f-bbc0-4430612bf75e">&lt;title&gt;</bpt><ept id="beeac944-9fc9-413f-bbc0-4430612bf75e">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="180343f2-07be-4622-8135-b39c93e388c5" xml:space="preserve">
+          <source>Videos! We also have a number of videos about RemoteApp. Some provide introduction (<bpt id="3cb65724-d556-49a2-857e-6ccfeff7329e">&lt;linkText&gt;</bpt>Introduction to Azure RemoteApp<ept id="3cb65724-d556-49a2-857e-6ccfeff7329e">&lt;/linkText&gt;</ept><bpt id="3cb65724-d556-49a2-857e-6ccfeff7329e">&lt;title&gt;</bpt><ept id="3cb65724-d556-49a2-857e-6ccfeff7329e">&lt;/title&gt;</ept>) while others walk you through deployment (<bpt id="347c914f-5342-49e2-8e44-eb7d3c94851c">&lt;linkText&gt;</bpt>Cloud deployment<ept id="347c914f-5342-49e2-8e44-eb7d3c94851c">&lt;/linkText&gt;</ept><bpt id="347c914f-5342-49e2-8e44-eb7d3c94851c">&lt;title&gt;</bpt><ept id="347c914f-5342-49e2-8e44-eb7d3c94851c">&lt;/title&gt;</ept> and <bpt id="74d03aaa-bfae-42cf-952d-a21c7c77348a">&lt;linkText&gt;</bpt>Hybrid deployment<ept id="74d03aaa-bfae-42cf-952d-a21c7c77348a">&lt;/linkText&gt;</ept><bpt id="74d03aaa-bfae-42cf-952d-a21c7c77348a">&lt;title&gt;</bpt><ept id="74d03aaa-bfae-42cf-952d-a21c7c77348a">&lt;/title&gt;</ept>). Check them out!</source>
+          <target state="new">Videos! We also have a number of videos about RemoteApp. Some provide introduction (<bpt id="3cb65724-d556-49a2-857e-6ccfeff7329e">&lt;linkText&gt;</bpt>Introduction to Azure RemoteApp<ept id="3cb65724-d556-49a2-857e-6ccfeff7329e">&lt;/linkText&gt;</ept><bpt id="3cb65724-d556-49a2-857e-6ccfeff7329e">&lt;title&gt;</bpt><ept id="3cb65724-d556-49a2-857e-6ccfeff7329e">&lt;/title&gt;</ept>) while others walk you through deployment (<bpt id="347c914f-5342-49e2-8e44-eb7d3c94851c">&lt;linkText&gt;</bpt>Cloud deployment<ept id="347c914f-5342-49e2-8e44-eb7d3c94851c">&lt;/linkText&gt;</ept><bpt id="347c914f-5342-49e2-8e44-eb7d3c94851c">&lt;title&gt;</bpt><ept id="347c914f-5342-49e2-8e44-eb7d3c94851c">&lt;/title&gt;</ept> and <bpt id="74d03aaa-bfae-42cf-952d-a21c7c77348a">&lt;linkText&gt;</bpt>Hybrid deployment<ept id="74d03aaa-bfae-42cf-952d-a21c7c77348a">&lt;/linkText&gt;</ept><bpt id="74d03aaa-bfae-42cf-952d-a21c7c77348a">&lt;title&gt;</bpt><ept id="74d03aaa-bfae-42cf-952d-a21c7c77348a">&lt;/title&gt;</ept>). Check them out!</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

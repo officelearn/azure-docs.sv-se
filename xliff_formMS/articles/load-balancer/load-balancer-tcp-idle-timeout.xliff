@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b6319457-e250-466d-8005-86be95eb4a02" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b6319457-e250-466d-8005-86be95eb4a02" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5a8c4c89-0160-4711-9efb-6a328ba758f0">
+        <trans-unit id="05b4f8f0-e25e-47b4-9c53-db5b69e8889a" xml:space="preserve">
+          <source>Configure Load balancer TCP idle timeout | Microsoft Azure</source>
+          <target state="new">Configure Load balancer TCP idle timeout | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e0d7dff1-ab58-4a2b-816c-33f8f0a6ae28" xml:space="preserve">
+          <source>Configure Load balancer TCP idle timeout</source>
+          <target state="new">Configure Load balancer TCP idle timeout</target>
+        </trans-unit>
+        <trans-unit id="24383fbf-e8a8-4271-af6a-1f50b2ebef18" xml:space="preserve">
+          <source>In its default configuration, Azure Load Balancer has an ‘idle timeout’ setting of 4 minutes.</source>
+          <target state="new">In its default configuration, Azure Load Balancer has an ‘idle timeout’ setting of 4 minutes.</target>
+        </trans-unit>
+        <trans-unit id="c1104862-6a29-4aaf-a202-d2410dca0786" xml:space="preserve">
+          <source>This means that if you have a period of inactivity on your tcp or http sessions for more than the timeout value, there is no guarantee to have the connection maintained between the client and your service.</source>
+          <target state="new">This means that if you have a period of inactivity on your tcp or http sessions for more than the timeout value, there is no guarantee to have the connection maintained between the client and your service.</target>
+        </trans-unit>
+        <trans-unit id="6ec3564a-d4c9-449b-9ee6-5432e046a907" xml:space="preserve">
+          <source>When the connection is closed, your client application will get an error message like “The underlying connection was closed: A connection that was expected to be kept alive was closed by the server”.</source>
+          <target state="new">When the connection is closed, your client application will get an error message like “The underlying connection was closed: A connection that was expected to be kept alive was closed by the server”.</target>
+        </trans-unit>
+        <trans-unit id="11993db0-bf8f-4a00-9a3b-7f9af55092e0" xml:space="preserve">
+          <source>A common practice to keep the connection active for a longer period is to use TCP Keep-alive (You can find .NET examples <bpt id="ee6ce4ba-60de-4961-9c4b-3c21fb6148ea">&lt;linkText&gt;</bpt>here<ept id="ee6ce4ba-60de-4961-9c4b-3c21fb6148ea">&lt;/linkText&gt;</ept><bpt id="ee6ce4ba-60de-4961-9c4b-3c21fb6148ea">&lt;title&gt;</bpt><ept id="ee6ce4ba-60de-4961-9c4b-3c21fb6148ea">&lt;/title&gt;</ept>).</source>
+          <target state="new">A common practice to keep the connection active for a longer period is to use TCP Keep-alive (You can find .NET examples <bpt id="ee6ce4ba-60de-4961-9c4b-3c21fb6148ea">&lt;linkText&gt;</bpt>here<ept id="ee6ce4ba-60de-4961-9c4b-3c21fb6148ea">&lt;/linkText&gt;</ept><bpt id="ee6ce4ba-60de-4961-9c4b-3c21fb6148ea">&lt;title&gt;</bpt><ept id="ee6ce4ba-60de-4961-9c4b-3c21fb6148ea">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="0c912f3c-090c-4872-a01f-267eacba3c98" xml:space="preserve">
+          <source>Packets are sent when no activity is detected on the connection.</source>
+          <target state="new">Packets are sent when no activity is detected on the connection.</target>
+        </trans-unit>
+        <trans-unit id="9e62a8c3-211a-45b4-9c9c-313dcfa2bc2d" xml:space="preserve">
+          <source>By keeping on-going network activity, the idle timeout value is never hit and the connection is maintained for a long period.</source>
+          <target state="new">By keeping on-going network activity, the idle timeout value is never hit and the connection is maintained for a long period.</target>
+        </trans-unit>
+        <trans-unit id="6e9c7676-c58d-4d39-83ef-554ae1c6dd46" xml:space="preserve">
+          <source>The idea is to configure the TCP Keep-alive with an interval shorter than the default timeout setting to avoid having the connection dropped or increase the idle timeout value for the TCP connection session stay connected.</source>
+          <target state="new">The idea is to configure the TCP Keep-alive with an interval shorter than the default timeout setting to avoid having the connection dropped or increase the idle timeout value for the TCP connection session stay connected.</target>
+        </trans-unit>
+        <trans-unit id="ffdd1340-33ba-4f77-a5bb-7885a1b2fed8" xml:space="preserve">
+          <source>While TCP Keep-alive works well for scenarios where battery is not a constraint, it is generally not a valid option for mobile applications.</source>
+          <target state="new">While TCP Keep-alive works well for scenarios where battery is not a constraint, it is generally not a valid option for mobile applications.</target>
+        </trans-unit>
+        <trans-unit id="a5427178-1fe0-4f0f-b3b3-d3eae821ee61" xml:space="preserve">
+          <source>Using TCP Keep-alive from a mobile application will likely drain the device battery faster.</source>
+          <target state="new">Using TCP Keep-alive from a mobile application will likely drain the device battery faster.</target>
+        </trans-unit>
+        <trans-unit id="80fc69f0-c6ad-48c6-8808-b1147ae216f9" xml:space="preserve">
+          <source>To support such scenarios, we have added support for a configurable idle timeout.</source>
+          <target state="new">To support such scenarios, we have added support for a configurable idle timeout.</target>
+        </trans-unit>
+        <trans-unit id="b0a981c3-ca57-4599-955e-a605c1bfb27e" xml:space="preserve">
+          <source>You can now set it for a duration between 4 and 30 minutes.</source>
+          <target state="new">You can now set it for a duration between 4 and 30 minutes.</target>
+        </trans-unit>
+        <trans-unit id="8aa1e5fb-e1bd-4a79-812c-953128b1f6e8" xml:space="preserve">
+          <source>This setting works for inbound connections only.</source>
+          <target state="new">This setting works for inbound connections only.</target>
+        </trans-unit>
+        <trans-unit id="3fbdd9f9-c2f1-4f82-83ba-bf11902efc91" xml:space="preserve">
+          <source><bpt id="33e25798-dda1-4aff-bfee-19de02988aaa">&lt;linkText&gt;</bpt>tcptimeout<ept id="33e25798-dda1-4aff-bfee-19de02988aaa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33e25798-dda1-4aff-bfee-19de02988aaa">&lt;linkText&gt;</bpt>tcptimeout<ept id="33e25798-dda1-4aff-bfee-19de02988aaa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcc23b0e-6bc0-41ce-a612-72c009087c57" xml:space="preserve">
+          <source>Configure TCP timeout to an endpoint on a Virtual Machine via PowerShell or Service Management API</source>
+          <target state="new">Configure TCP timeout to an endpoint on a Virtual Machine via PowerShell or Service Management API</target>
+        </trans-unit>
+        <trans-unit id="e2500a9e-5f36-4b84-a765-b700e5244a09" xml:space="preserve">
+          <source>Configure TCP timeout for your Load-Balanced Endpoint Sets via PowerShell or Service Management API.</source>
+          <target state="new">Configure TCP timeout for your Load-Balanced Endpoint Sets via PowerShell or Service Management API.</target>
+        </trans-unit>
+        <trans-unit id="0b221134-ea48-420f-b3e7-2641b54ac1d7" xml:space="preserve">
+          <source>Configure TCP timeout for your Instance-Level Public IP</source>
+          <target state="new">Configure TCP timeout for your Instance-Level Public IP</target>
+        </trans-unit>
+        <trans-unit id="64b53762-aa18-4758-ab49-ecc1b144ad0c" xml:space="preserve">
+          <source>Configure TCP timeout for your Web/Worker roles via the service model.</source>
+          <target state="new">Configure TCP timeout for your Web/Worker roles via the service model.</target>
+        </trans-unit>
+        <trans-unit id="4eade156-ff1b-4ca0-ba62-cd72b2781ca1" xml:space="preserve">
+          <source>Keep in mind some commands will only exist in the latest Azure PowerShell package.</source>
+          <target state="new">Keep in mind some commands will only exist in the latest Azure PowerShell package.</target>
+        </trans-unit>
+        <trans-unit id="7d960009-140a-4448-a5a6-8a827789b31c" xml:space="preserve">
+          <source>If the powershell command doesn't exist, download a latest PowerShell package.</source>
+          <target state="new">If the powershell command doesn't exist, download a latest PowerShell package.</target>
+        </trans-unit>
+        <trans-unit id="45aafaac-df1e-40ab-a282-28f8fe9a2dec" xml:space="preserve">
+          <source>IdleTimeoutInMinutes is optional.</source>
+          <target state="new">IdleTimeoutInMinutes is optional.</target>
+        </trans-unit>
+        <trans-unit id="9de49db0-96b7-427b-b87a-8a2098674909" xml:space="preserve">
+          <source>If not set, the default timeout is 4 minutes.</source>
+          <target state="new">If not set, the default timeout is 4 minutes.</target>
+        </trans-unit>
+        <trans-unit id="2f272fda-8404-40d7-93d2-fdb241023488" xml:space="preserve">
+          <source>The acceptable timeout range is between 4 and 30 minutes.</source>
+          <target state="new">The acceptable timeout range is between 4 and 30 minutes.</target>
+        </trans-unit>
+        <trans-unit id="1d79320c-1090-4ab7-999e-e96d87cd43f2" xml:space="preserve">
+          <source>In order to change the timeout setting for an endpoint</source>
+          <target state="new">In order to change the timeout setting for an endpoint</target>
+        </trans-unit>
+        <trans-unit id="8f3b99da-db45-4167-b0d2-db15ebd7c19b" xml:space="preserve">
+          <source>Retrieve your idle timeout configuration</source>
+          <target state="new">Retrieve your idle timeout configuration</target>
+        </trans-unit>
+        <trans-unit id="2e68f95d-35a7-4180-91cf-eede554b51ff" xml:space="preserve">
+          <source>If endpoints are part of a load balanced endpoint set, the TCP timeout must be set on the load balanced endpoint set:</source>
+          <target state="new">If endpoints are part of a load balanced endpoint set, the TCP timeout must be set on the load balanced endpoint set:</target>
+        </trans-unit>
+        <trans-unit id="67fb6f6e-acb4-4c61-a1d2-eee6ca922c67" xml:space="preserve">
+          <source>You can leverage the Azure SDK for .NET 2.4 to update your Cloud Service.</source>
+          <target state="new">You can leverage the Azure SDK for .NET 2.4 to update your Cloud Service.</target>
+        </trans-unit>
+        <trans-unit id="339099c2-a9df-4832-81a4-ff4799a8364f" xml:space="preserve">
+          <source>Endpoint settings for Cloud Services are made in the .csdef.</source>
+          <target state="new">Endpoint settings for Cloud Services are made in the .csdef.</target>
+        </trans-unit>
+        <trans-unit id="18039255-ea93-40c7-8ebd-c31966b2901c" xml:space="preserve">
+          <source>In order to update the TCP timeout for a Cloud Services deployment, a deployment upgrade is required.</source>
+          <target state="new">In order to update the TCP timeout for a Cloud Services deployment, a deployment upgrade is required.</target>
+        </trans-unit>
+        <trans-unit id="30ceb67c-9333-4852-a6fc-45c09948195d" xml:space="preserve">
+          <source>An exception is if the TCP timeout is only specified for a Public IP.</source>
+          <target state="new">An exception is if the TCP timeout is only specified for a Public IP.</target>
+        </trans-unit>
+        <trans-unit id="329a4adb-4301-40fe-998e-f08e8bf8c0d5" xml:space="preserve">
+          <source>Public IP settings are in the .cscfg, and they can be updated through deployment update and upgrade.</source>
+          <target state="new">Public IP settings are in the .cscfg, and they can be updated through deployment update and upgrade.</target>
+        </trans-unit>
+        <trans-unit id="6df41b0a-8c92-48fd-9a28-c5d5f2f7f56c" xml:space="preserve">
+          <source>The .csdef changes for endpoint settings are:</source>
+          <target state="new">The .csdef changes for endpoint settings are:</target>
+        </trans-unit>
+        <trans-unit id="1561ab22-98ef-4bfb-83ac-9c951661e91e" xml:space="preserve">
+          <source>The .cscfg changes for the timeout setting on Public IPs are:</source>
+          <target state="new">The .cscfg changes for the timeout setting on Public IPs are:</target>
+        </trans-unit>
+        <trans-unit id="088f8f81-92e1-4a07-b6c1-49df82f63f8a" xml:space="preserve">
+          <source>You can configure the TCP idle timeout using the service management API
+Make sure to add the x-ms-version header  is set to version 2014-06-01 or higher.</source>
+          <target state="new">You can configure the TCP idle timeout using the service management API
+Make sure to add the x-ms-version header  is set to version 2014-06-01 or higher.</target>
+        </trans-unit>
+        <trans-unit id="d384b529-f609-41e2-914c-d9338864a4e6" xml:space="preserve">
+          <source>Update the configuration of the specified load-balanced input endpoints on all Virtual Machines in a deployment</source>
+          <target state="new">Update the configuration of the specified load-balanced input endpoints on all Virtual Machines in a deployment</target>
+        </trans-unit>
+        <trans-unit id="53d01b55-97b8-497c-9c95-57830ae33325" xml:space="preserve">
+          <source><bpt id="d3059922-510c-4b62-8e36-ef57271072e4">&lt;linkText&gt;</bpt>Internal load balancer overview<ept id="d3059922-510c-4b62-8e36-ef57271072e4">&lt;/linkText&gt;</ept><bpt id="d3059922-510c-4b62-8e36-ef57271072e4">&lt;title&gt;</bpt><ept id="d3059922-510c-4b62-8e36-ef57271072e4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d3059922-510c-4b62-8e36-ef57271072e4">&lt;linkText&gt;</bpt>Internal load balancer overview<ept id="d3059922-510c-4b62-8e36-ef57271072e4">&lt;/linkText&gt;</ept><bpt id="d3059922-510c-4b62-8e36-ef57271072e4">&lt;title&gt;</bpt><ept id="d3059922-510c-4b62-8e36-ef57271072e4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2213b2af-c0d3-42b6-8741-af23e85d4533" xml:space="preserve">
+          <source><bpt id="2b884870-81ce-42fd-836a-7bf9a0b39f63">&lt;linkText&gt;</bpt>Get started Configuring an Internet facing load balancer<ept id="2b884870-81ce-42fd-836a-7bf9a0b39f63">&lt;/linkText&gt;</ept><bpt id="2b884870-81ce-42fd-836a-7bf9a0b39f63">&lt;title&gt;</bpt><ept id="2b884870-81ce-42fd-836a-7bf9a0b39f63">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2b884870-81ce-42fd-836a-7bf9a0b39f63">&lt;linkText&gt;</bpt>Get started Configuring an Internet facing load balancer<ept id="2b884870-81ce-42fd-836a-7bf9a0b39f63">&lt;/linkText&gt;</ept><bpt id="2b884870-81ce-42fd-836a-7bf9a0b39f63">&lt;title&gt;</bpt><ept id="2b884870-81ce-42fd-836a-7bf9a0b39f63">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6b66ce2-dbb3-453f-93da-9ef39f257239" xml:space="preserve">
+          <source><bpt id="a0a37bb3-d05e-462d-940d-23f2d8994f20">&lt;linkText&gt;</bpt>Configure a Load balancer distribution mode<ept id="a0a37bb3-d05e-462d-940d-23f2d8994f20">&lt;/linkText&gt;</ept><bpt id="a0a37bb3-d05e-462d-940d-23f2d8994f20">&lt;title&gt;</bpt><ept id="a0a37bb3-d05e-462d-940d-23f2d8994f20">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a0a37bb3-d05e-462d-940d-23f2d8994f20">&lt;linkText&gt;</bpt>Configure a Load balancer distribution mode<ept id="a0a37bb3-d05e-462d-940d-23f2d8994f20">&lt;/linkText&gt;</ept><bpt id="a0a37bb3-d05e-462d-940d-23f2d8994f20">&lt;title&gt;</bpt><ept id="a0a37bb3-d05e-462d-940d-23f2d8994f20">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

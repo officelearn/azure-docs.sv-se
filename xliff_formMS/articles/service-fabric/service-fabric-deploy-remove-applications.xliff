@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4996bc4d-1823-415e-871e-9105e42e0689" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4996bc4d-1823-415e-871e-9105e42e0689" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7161335a-b7e6-4041-9b28-688ac9b2d23e">
+        <trans-unit id="81f6b419-a62d-4915-afad-55e6d4c2460f" xml:space="preserve">
+          <source>Service Fabric application deployment</source>
+          <target state="new">Service Fabric application deployment</target>
+        </trans-unit>
+        <trans-unit id="ac617c57-2d45-404a-860b-1406bfdc1ee2" xml:space="preserve">
+          <source>How to deploy and remove applications in Service Fabric</source>
+          <target state="new">How to deploy and remove applications in Service Fabric</target>
+        </trans-unit>
+        <trans-unit id="52de2740-faab-4006-996c-0244f1efdd2c" xml:space="preserve">
+          <source>Once an <bpt id="0e0a1f70-259a-4d85-a08d-c6a7bf2e9f56">&lt;linkText&gt;</bpt>application type has been packaged[10]<ept id="0e0a1f70-259a-4d85-a08d-c6a7bf2e9f56">&lt;/linkText&gt;</ept><bpt id="0e0a1f70-259a-4d85-a08d-c6a7bf2e9f56">&lt;title&gt;</bpt><ept id="0e0a1f70-259a-4d85-a08d-c6a7bf2e9f56">&lt;/title&gt;</ept>, it's ready for deployment into a Service Fabric cluster.</source>
+          <target state="new">Once an <bpt id="0e0a1f70-259a-4d85-a08d-c6a7bf2e9f56">&lt;linkText&gt;</bpt>application type has been packaged[10]<ept id="0e0a1f70-259a-4d85-a08d-c6a7bf2e9f56">&lt;/linkText&gt;</ept><bpt id="0e0a1f70-259a-4d85-a08d-c6a7bf2e9f56">&lt;title&gt;</bpt><ept id="0e0a1f70-259a-4d85-a08d-c6a7bf2e9f56">&lt;/title&gt;</ept>, it's ready for deployment into a Service Fabric cluster.</target>
+        </trans-unit>
+        <trans-unit id="46a1e963-46bb-4f1e-a961-0ee6b4a2c858" xml:space="preserve">
+          <source>Deployment involves the following three steps:</source>
+          <target state="new">Deployment involves the following three steps:</target>
+        </trans-unit>
+        <trans-unit id="a7f05b93-b25a-446c-a78c-9b39056ba117" xml:space="preserve">
+          <source>Uploading the application package</source>
+          <target state="new">Uploading the application package</target>
+        </trans-unit>
+        <trans-unit id="39569ac9-510d-404c-995d-3c7e3be7dbb5" xml:space="preserve">
+          <source>Registering the application type</source>
+          <target state="new">Registering the application type</target>
+        </trans-unit>
+        <trans-unit id="9ad90ed6-05e0-4521-8221-7169a86f6bc8" xml:space="preserve">
+          <source>Creating the application instance</source>
+          <target state="new">Creating the application instance</target>
+        </trans-unit>
+        <trans-unit id="abc4c06e-c3e2-4bda-a986-e03075734957" xml:space="preserve">
+          <source>If you use Visual Studio for deploying and debugging applications on your local development cluster, all of the steps described below are handled automatically by invoking the PowerShell scripts found in the Scripts folder of the application project.</source>
+          <target state="new">If you use Visual Studio for deploying and debugging applications on your local development cluster, all of the steps described below are handled automatically by invoking the PowerShell scripts found in the Scripts folder of the application project.</target>
+        </trans-unit>
+        <trans-unit id="46498ada-0b15-4e8a-a533-256153ad1bd7" xml:space="preserve">
+          <source>This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.</source>
+          <target state="new">This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="04bdea40-9137-4236-be46-637a94a4bcbe" xml:space="preserve">
+          <source>Uploading the application package puts it in a location accessible by internal Service Fabric components and can be performed through PowerShell.</source>
+          <target state="new">Uploading the application package puts it in a location accessible by internal Service Fabric components and can be performed through PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="86a9eeb5-7335-44f1-8cd3-f26d1269f219" xml:space="preserve">
+          <source>Before running any PowerShell commands in this article, always start by first connecting to the Service Fabric cluster using <bpt id="4c7f59ac-35b2-4abd-8dcf-01a9e17bb219">&lt;strong&gt;</bpt>Connect-ServiceFabricCluster<ept id="4c7f59ac-35b2-4abd-8dcf-01a9e17bb219">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Before running any PowerShell commands in this article, always start by first connecting to the Service Fabric cluster using <bpt id="4c7f59ac-35b2-4abd-8dcf-01a9e17bb219">&lt;strong&gt;</bpt>Connect-ServiceFabricCluster<ept id="4c7f59ac-35b2-4abd-8dcf-01a9e17bb219">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="abe3ac3c-ce22-4495-aa15-4b48949eaad8" xml:space="preserve">
+          <source>Suppose you have a folder named <bpt id="839fa343-04c8-4227-8cf1-f2859eb2ce13">&lt;em&gt;</bpt>MyApplicationType<ept id="839fa343-04c8-4227-8cf1-f2859eb2ce13">&lt;/em&gt;</ept> containing the necessary application manifest, service manifest(s), and code/config/data package(s), then the <bpt id="c2950cd8-cc50-40c0-ba18-ae5329109f99">&lt;strong&gt;</bpt>Copy-ServiceFabricApplicationPackage<ept id="c2950cd8-cc50-40c0-ba18-ae5329109f99">&lt;/strong&gt;</ept> command will upload the package.</source>
+          <target state="new">Suppose you have a folder named <bpt id="839fa343-04c8-4227-8cf1-f2859eb2ce13">&lt;em&gt;</bpt>MyApplicationType<ept id="839fa343-04c8-4227-8cf1-f2859eb2ce13">&lt;/em&gt;</ept> containing the necessary application manifest, service manifest(s), and code/config/data package(s), then the <bpt id="c2950cd8-cc50-40c0-ba18-ae5329109f99">&lt;strong&gt;</bpt>Copy-ServiceFabricApplicationPackage<ept id="c2950cd8-cc50-40c0-ba18-ae5329109f99">&lt;/strong&gt;</ept> command will upload the package.</target>
+        </trans-unit>
+        <trans-unit id="6e6fe46c-1334-4dae-bdda-d144c82c0690" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="7ee54dd5-de48-4faa-a013-bc05dc15ded8" xml:space="preserve">
+          <source>~~~
+PS D:\temp&gt; dir</source>
+          <target state="new">~~~
+PS D:\temp&gt; dir</target>
+        </trans-unit>
+        <trans-unit id="3bae719d-cadd-457a-84f9-8de43e42aa74" xml:space="preserve">
+          <source>Mode                LastWriteTime     Length Name
+----                -------------     ------ ----
+d----         3/19/2015   8:11 PM            MyApplicationType</source>
+          <target state="new">Mode                LastWriteTime     Length Name
+----                -------------     ------ ----
+d----         3/19/2015   8:11 PM            MyApplicationType</target>
+        </trans-unit>
+        <trans-unit id="04a0e499-754a-4ec1-b12c-1074edaeb19a" xml:space="preserve">
+          <source>PS D:\temp&gt; tree /f .\MyApplicationType</source>
+          <target state="new">PS D:\temp&gt; tree /f .\MyApplicationType</target>
+        </trans-unit>
+        <trans-unit id="c3eb66a8-7611-4bcc-90fa-bea14e67578b" xml:space="preserve">
+          <source>D:\TEMP\MYAPPLICATIONTYPE
+│   ApplicationManifest.xml
+│
+└───MyServiceManifest
+    │   ServiceManifest.xml
+    │
+    ├───MyCode
+    │       MyServiceHost.exe
+    │       MySetup.bat
+    │
+    ├───MyConfig
+    │       Settings.xml
+    │
+    └───MyData
+            init.dat</source>
+          <target state="new">D:\TEMP\MYAPPLICATIONTYPE
+│   ApplicationManifest.xml
+│
+└───MyServiceManifest
+    │   ServiceManifest.xml
+    │
+    ├───MyCode
+    │       MyServiceHost.exe
+    │       MySetup.bat
+    │
+    ├───MyConfig
+    │       Settings.xml
+    │
+    └───MyData
+            init.dat</target>
+        </trans-unit>
+        <trans-unit id="a4aa434e-a598-4fee-85a5-f6c11c424328" xml:space="preserve">
+          <source>PS D:\temp&gt; Copy-ServiceFabricApplicationPackage MyApplicationType
+Copy application package succeeded</source>
+          <target state="new">PS D:\temp&gt; Copy-ServiceFabricApplicationPackage MyApplicationType
+Copy application package succeeded</target>
+        </trans-unit>
+        <trans-unit id="234d2931-da4a-4031-87d2-df9e2c7e01db" xml:space="preserve">
+          <source>PS D:\temp&gt;
+~~~</source>
+          <target state="new">PS D:\temp&gt;
+~~~</target>
+        </trans-unit>
+        <trans-unit id="e987fbd0-183c-4904-a5b0-d08454c65b5c" xml:space="preserve">
+          <source>Registering the application package, makes the application type and version declared in the application manifest available for use.</source>
+          <target state="new">Registering the application package, makes the application type and version declared in the application manifest available for use.</target>
+        </trans-unit>
+        <trans-unit id="3b7a3c0e-ef9a-4c5a-8237-4aab60658ddd" xml:space="preserve">
+          <source>The system will read the package uploaded in the previous step, verify the package (equivalent to running <bpt id="71a97bb4-7e40-48a1-9f22-aaa964d6f352">&lt;strong&gt;</bpt>Test-ServiceFabricApplicationPackage<ept id="71a97bb4-7e40-48a1-9f22-aaa964d6f352">&lt;/strong&gt;</ept> locally), process the package contents, and copy the processed package to an internal system location.</source>
+          <target state="new">The system will read the package uploaded in the previous step, verify the package (equivalent to running <bpt id="71a97bb4-7e40-48a1-9f22-aaa964d6f352">&lt;strong&gt;</bpt>Test-ServiceFabricApplicationPackage<ept id="71a97bb4-7e40-48a1-9f22-aaa964d6f352">&lt;/strong&gt;</ept> locally), process the package contents, and copy the processed package to an internal system location.</target>
+        </trans-unit>
+        <trans-unit id="446fc4f0-dd10-418b-b024-bf5d93bf88f1" xml:space="preserve">
+          <source>~~~
+PS D:\temp&gt; Register-ServiceFabricApplicationType MyApplicationType
+Register application type succeeded</source>
+          <target state="new">~~~
+PS D:\temp&gt; Register-ServiceFabricApplicationType MyApplicationType
+Register application type succeeded</target>
+        </trans-unit>
+        <trans-unit id="b7e81b0b-a0c0-4a29-994d-7b74c5edff21" xml:space="preserve">
+          <source>PS D:\temp&gt; Get-ServiceFabricApplicationType</source>
+          <target state="new">PS D:\temp&gt; Get-ServiceFabricApplicationType</target>
+        </trans-unit>
+        <trans-unit id="bcad8232-e21b-4900-90fb-8dcbc31d59b0" xml:space="preserve">
+          <source>ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : AppManifestVersion1
+DefaultParameters      : {}</source>
+          <target state="new">ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : AppManifestVersion1
+DefaultParameters      : {}</target>
+        </trans-unit>
+        <trans-unit id="769d21b1-eedf-416c-8c9f-9cd4cb216725" xml:space="preserve">
+          <source>PS D:\temp&gt;
+~~~</source>
+          <target state="new">PS D:\temp&gt;
+~~~</target>
+        </trans-unit>
+        <trans-unit id="af4e33b0-06da-48d9-964f-51911b22349f" xml:space="preserve">
+          <source>The <bpt id="051a8c27-aa26-4c5a-ab95-f658e8704e65">&lt;strong&gt;</bpt>Register-ServiceFabricApplicationType<ept id="051a8c27-aa26-4c5a-ab95-f658e8704e65">&lt;/strong&gt;</ept> command  returns only after the application package has been successfully copied by the system.</source>
+          <target state="new">The <bpt id="051a8c27-aa26-4c5a-ab95-f658e8704e65">&lt;strong&gt;</bpt>Register-ServiceFabricApplicationType<ept id="051a8c27-aa26-4c5a-ab95-f658e8704e65">&lt;/strong&gt;</ept> command  returns only after the application package has been successfully copied by the system.</target>
+        </trans-unit>
+        <trans-unit id="1c47d4a9-206e-46f2-8184-d5a6a7353d88" xml:space="preserve">
+          <source>How long this takes depends on the contents of the application package.</source>
+          <target state="new">How long this takes depends on the contents of the application package.</target>
+        </trans-unit>
+        <trans-unit id="597a0f6e-a247-48c4-b963-daba1c6be6b7" xml:space="preserve">
+          <source>The <bpt id="09f823e1-1bd7-4aae-997d-a63e9dc0a0b0">&lt;strong&gt;</bpt>-TimeoutSec<ept id="09f823e1-1bd7-4aae-997d-a63e9dc0a0b0">&lt;/strong&gt;</ept> parameter can be used to supply a longer timeout if needed (the default timeout is 60 seconds).</source>
+          <target state="new">The <bpt id="09f823e1-1bd7-4aae-997d-a63e9dc0a0b0">&lt;strong&gt;</bpt>-TimeoutSec<ept id="09f823e1-1bd7-4aae-997d-a63e9dc0a0b0">&lt;/strong&gt;</ept> parameter can be used to supply a longer timeout if needed (the default timeout is 60 seconds).</target>
+        </trans-unit>
+        <trans-unit id="5f30c510-31be-4d00-ad53-fcf62edce5b7" xml:space="preserve">
+          <source>The <bpt id="b84da694-32fb-456f-9417-f834ee3a4b8a">&lt;strong&gt;</bpt>Get-ServiceFabricApplicationType<ept id="b84da694-32fb-456f-9417-f834ee3a4b8a">&lt;/strong&gt;</ept> command will list all successfully registered application type versions.</source>
+          <target state="new">The <bpt id="b84da694-32fb-456f-9417-f834ee3a4b8a">&lt;strong&gt;</bpt>Get-ServiceFabricApplicationType<ept id="b84da694-32fb-456f-9417-f834ee3a4b8a">&lt;/strong&gt;</ept> command will list all successfully registered application type versions.</target>
+        </trans-unit>
+        <trans-unit id="7b386400-697c-46e0-bbf1-f587597c4737" xml:space="preserve">
+          <source>An application can be instantiated using any application type version that has been registered successfully using the <bpt id="2eed6f01-4116-4ff7-8aa6-896f87fa03ad">&lt;strong&gt;</bpt>New-ServiceFabricApplication<ept id="2eed6f01-4116-4ff7-8aa6-896f87fa03ad">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">An application can be instantiated using any application type version that has been registered successfully using the <bpt id="2eed6f01-4116-4ff7-8aa6-896f87fa03ad">&lt;strong&gt;</bpt>New-ServiceFabricApplication<ept id="2eed6f01-4116-4ff7-8aa6-896f87fa03ad">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="96f45742-86d5-4961-8d12-88af84245b6c" xml:space="preserve">
+          <source>The name of each application must start with the <bpt id="8c0a3ce0-1245-4567-9bbb-fb35e75055af">&lt;em&gt;</bpt>fabric:<ept id="8c0a3ce0-1245-4567-9bbb-fb35e75055af">&lt;/em&gt;</ept> scheme and be unique for each application instance.</source>
+          <target state="new">The name of each application must start with the <bpt id="8c0a3ce0-1245-4567-9bbb-fb35e75055af">&lt;em&gt;</bpt>fabric:<ept id="8c0a3ce0-1245-4567-9bbb-fb35e75055af">&lt;/em&gt;</ept> scheme and be unique for each application instance.</target>
+        </trans-unit>
+        <trans-unit id="45497854-8fcc-4ec7-aa8c-0dbbfdca0af9" xml:space="preserve">
+          <source>If there were any default services defined in the application manifest of the target application type, then those will also be created at this time.</source>
+          <target state="new">If there were any default services defined in the application manifest of the target application type, then those will also be created at this time.</target>
+        </trans-unit>
+        <trans-unit id="e253eb35-bf27-4d13-b6c7-57e78938ca82" xml:space="preserve">
+          <source>~~~
+PS D:\temp&gt; New-ServiceFabricApplication fabric:/MyApp MyApplicationType AppManifestVersion1</source>
+          <target state="new">~~~
+PS D:\temp&gt; New-ServiceFabricApplication fabric:/MyApp MyApplicationType AppManifestVersion1</target>
+        </trans-unit>
+        <trans-unit id="67ab2d2d-415e-495e-a88e-fca5cbe3f12c" xml:space="preserve">
+          <source>ApplicationName        : fabric:/MyApp
+ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : AppManifestVersion1
+ApplicationParameters  : {}</source>
+          <target state="new">ApplicationName        : fabric:/MyApp
+ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : AppManifestVersion1
+ApplicationParameters  : {}</target>
+        </trans-unit>
+        <trans-unit id="a444398a-5085-4558-8969-72b6c03c060c" xml:space="preserve">
+          <source>PS D:\temp&gt; Get-ServiceFabricApplication  </source>
+          <target state="new">PS D:\temp&gt; Get-ServiceFabricApplication  </target>
+        </trans-unit>
+        <trans-unit id="bb2f5e14-4a5d-4b8f-bba0-5d3d551a99d9" xml:space="preserve">
+          <source>ApplicationName        : fabric:/MyApp
+ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : AppManifestVersion1
+ApplicationStatus      : Ready
+HealthState            : OK
+ApplicationParameters  : {}</source>
+          <target state="new">ApplicationName        : fabric:/MyApp
+ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : AppManifestVersion1
+ApplicationStatus      : Ready
+HealthState            : OK
+ApplicationParameters  : {}</target>
+        </trans-unit>
+        <trans-unit id="08248290-82b5-4fd7-abe1-05899f7c0d49" xml:space="preserve">
+          <source>PS D:\temp&gt; Get-ServiceFabricApplication | Get-ServiceFabricService</source>
+          <target state="new">PS D:\temp&gt; Get-ServiceFabricApplication | Get-ServiceFabricService</target>
+        </trans-unit>
+        <trans-unit id="40954e3f-e668-4cce-964a-407a6710a79f" xml:space="preserve">
+          <source>ServiceName            : fabric:/MyApp/MyService
+ServiceKind            : Stateless
+ServiceTypeName        : MyServiceType
+IsServiceGroup         : False
+ServiceManifestVersion : SvcManifestVersion1
+ServiceStatus          : Active
+HealthState            : Ok</source>
+          <target state="new">ServiceName            : fabric:/MyApp/MyService
+ServiceKind            : Stateless
+ServiceTypeName        : MyServiceType
+IsServiceGroup         : False
+ServiceManifestVersion : SvcManifestVersion1
+ServiceStatus          : Active
+HealthState            : Ok</target>
+        </trans-unit>
+        <trans-unit id="efdd8dfd-e5dc-417a-8354-21274c423ea1" xml:space="preserve">
+          <source>PS D:\temp&gt;
+~~~</source>
+          <target state="new">PS D:\temp&gt;
+~~~</target>
+        </trans-unit>
+        <trans-unit id="72f05e13-90fa-4221-b23f-30cf7e07ca16" xml:space="preserve">
+          <source>The <bpt id="9762a5bc-3475-4cf6-8966-a7c2a21c2bdc">&lt;strong&gt;</bpt>Get-ServiceFabricApplication<ept id="9762a5bc-3475-4cf6-8966-a7c2a21c2bdc">&lt;/strong&gt;</ept> command lists all applications instances that were successfully created along with their overall status.</source>
+          <target state="new">The <bpt id="9762a5bc-3475-4cf6-8966-a7c2a21c2bdc">&lt;strong&gt;</bpt>Get-ServiceFabricApplication<ept id="9762a5bc-3475-4cf6-8966-a7c2a21c2bdc">&lt;/strong&gt;</ept> command lists all applications instances that were successfully created along with their overall status.</target>
+        </trans-unit>
+        <trans-unit id="6bbe9d1c-0f97-4e8d-9523-8e6cb58d8f91" xml:space="preserve">
+          <source>The <bpt id="d7595135-bccd-484e-86a6-7c0cc87a1dc5">&lt;strong&gt;</bpt>Get-ServiceFabricService<ept id="d7595135-bccd-484e-86a6-7c0cc87a1dc5">&lt;/strong&gt;</ept> command lists all service instances that were successfully created within a given application instance.</source>
+          <target state="new">The <bpt id="d7595135-bccd-484e-86a6-7c0cc87a1dc5">&lt;strong&gt;</bpt>Get-ServiceFabricService<ept id="d7595135-bccd-484e-86a6-7c0cc87a1dc5">&lt;/strong&gt;</ept> command lists all service instances that were successfully created within a given application instance.</target>
+        </trans-unit>
+        <trans-unit id="20a04b75-2011-4034-9be7-3f5246e7fb13" xml:space="preserve">
+          <source>Default services (if any) will be listed here.</source>
+          <target state="new">Default services (if any) will be listed here.</target>
+        </trans-unit>
+        <trans-unit id="f16d7c29-5701-454b-93df-4729abbcc556" xml:space="preserve">
+          <source>Multiple application instances can be created for any given version of a registered application type.</source>
+          <target state="new">Multiple application instances can be created for any given version of a registered application type.</target>
+        </trans-unit>
+        <trans-unit id="7c5d3315-7826-4cb4-aef7-fb37d0ddc09f" xml:space="preserve">
+          <source>Each application instance will run in isolation, with its own work directory and process.</source>
+          <target state="new">Each application instance will run in isolation, with its own work directory and process.</target>
+        </trans-unit>
+        <trans-unit id="e52681bc-29d1-407e-8a0e-c971b86ad0bd" xml:space="preserve">
+          <source>When an application instance is no longer needed, it can be permanently removed using the <bpt id="d9b27b04-c0e7-42e9-8ed2-931a599cb954">&lt;strong&gt;</bpt>Remove-ServiceFabricApplication<ept id="d9b27b04-c0e7-42e9-8ed2-931a599cb954">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">When an application instance is no longer needed, it can be permanently removed using the <bpt id="d9b27b04-c0e7-42e9-8ed2-931a599cb954">&lt;strong&gt;</bpt>Remove-ServiceFabricApplication<ept id="d9b27b04-c0e7-42e9-8ed2-931a599cb954">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="50a847d1-2431-496b-a156-6ae706f33dbd" xml:space="preserve">
+          <source>This will automatically remove all services belonging to the application as well, permanently removing all service state.</source>
+          <target state="new">This will automatically remove all services belonging to the application as well, permanently removing all service state.</target>
+        </trans-unit>
+        <trans-unit id="9aabbf82-7f35-4d8c-bc9f-cadd249c3c35" xml:space="preserve">
+          <source>This operation cannot be reversed and application state cannot be recovered.</source>
+          <target state="new">This operation cannot be reversed and application state cannot be recovered.</target>
+        </trans-unit>
+        <trans-unit id="0811a69b-4db0-4dce-b2cf-95f23c54e427" xml:space="preserve">
+          <source>~~~
+PS D:\temp&gt; Remove-ServiceFabricApplication fabric:/MyApp</source>
+          <target state="new">~~~
+PS D:\temp&gt; Remove-ServiceFabricApplication fabric:/MyApp</target>
+        </trans-unit>
+        <trans-unit id="79016a35-1abb-4635-91bd-e838557ba43a" xml:space="preserve">
+          <source>Confirm
+Continue with this operation?</source>
+          <target state="new">Confirm
+Continue with this operation?</target>
+        </trans-unit>
+        <trans-unit id="284babd3-f40d-4edf-82b6-a26e6193983f" xml:space="preserve">
+          <source>[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+Remove application instance succeeded</source>
+          <target state="new">[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+Remove application instance succeeded</target>
+        </trans-unit>
+        <trans-unit id="80447e07-5e93-44ef-8520-b47dcb1cf2f8" xml:space="preserve">
+          <source>PS D:\temp&gt; Get-ServiceFabricApplication
+PS D:\temp&gt;
+~~~</source>
+          <target state="new">PS D:\temp&gt; Get-ServiceFabricApplication
+PS D:\temp&gt;
+~~~</target>
+        </trans-unit>
+        <trans-unit id="b96e377b-461a-4b1f-bdad-3797898a2511" xml:space="preserve">
+          <source>When a particular version of an application type is no longer needed, it should be unregistered using the <bpt id="00e1a85c-e473-4e88-b5b2-6212c155ef41">&lt;strong&gt;</bpt>Unregister-ServiceFabricApplicationType<ept id="00e1a85c-e473-4e88-b5b2-6212c155ef41">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">When a particular version of an application type is no longer needed, it should be unregistered using the <bpt id="00e1a85c-e473-4e88-b5b2-6212c155ef41">&lt;strong&gt;</bpt>Unregister-ServiceFabricApplicationType<ept id="00e1a85c-e473-4e88-b5b2-6212c155ef41">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="a7dae656-4c0b-4d62-85f9-2ed091aac0ba" xml:space="preserve">
+          <source>Unregistering unused types will release storage space used by the application package contents of that type on the Image Store.</source>
+          <target state="new">Unregistering unused types will release storage space used by the application package contents of that type on the Image Store.</target>
+        </trans-unit>
+        <trans-unit id="24449ad7-021f-4261-955f-c7581f97e639" xml:space="preserve">
+          <source>An application type can be unregistered as long as there are no applications instantiated against it or pending application upgrades referencing it.</source>
+          <target state="new">An application type can be unregistered as long as there are no applications instantiated against it or pending application upgrades referencing it.</target>
+        </trans-unit>
+        <trans-unit id="797d8bbf-dd6c-454f-9c8b-cc6b8f146b7e" xml:space="preserve">
+          <source>~~~
+PS D:\temp&gt; Get-ServiceFabricApplicationType</source>
+          <target state="new">~~~
+PS D:\temp&gt; Get-ServiceFabricApplicationType</target>
+        </trans-unit>
+        <trans-unit id="e5aea59f-f26c-49cf-a0c0-e5f244dc71d0" xml:space="preserve">
+          <source>ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v1
+DefaultParameters      : {}</source>
+          <target state="new">ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v1
+DefaultParameters      : {}</target>
+        </trans-unit>
+        <trans-unit id="6c31f7ee-f6cb-4f60-a5b8-da1a7f505faa" xml:space="preserve">
+          <source>ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v2
+DefaultParameters      : {}</source>
+          <target state="new">ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v2
+DefaultParameters      : {}</target>
+        </trans-unit>
+        <trans-unit id="2f0a7b53-ac2c-4961-8cef-369649c7a060" xml:space="preserve">
+          <source>ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : AppManifestVersion1
+DefaultParameters      : {}</source>
+          <target state="new">ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : AppManifestVersion1
+DefaultParameters      : {}</target>
+        </trans-unit>
+        <trans-unit id="9551d273-ed2f-4d66-9e09-6f802d03f675" xml:space="preserve">
+          <source>PS D:\temp&gt; Unregister-ServiceFabricApplicationType MyApplicationType AppManifestVersion1
+Unregister application type succeeded</source>
+          <target state="new">PS D:\temp&gt; Unregister-ServiceFabricApplicationType MyApplicationType AppManifestVersion1
+Unregister application type succeeded</target>
+        </trans-unit>
+        <trans-unit id="69f2c628-b1e5-4322-a1b1-ba5d65477a60" xml:space="preserve">
+          <source>PS D:\temp&gt; Get-ServiceFabricApplicationType</source>
+          <target state="new">PS D:\temp&gt; Get-ServiceFabricApplicationType</target>
+        </trans-unit>
+        <trans-unit id="b83b240e-c1b9-4b3c-a392-c043bfea8541" xml:space="preserve">
+          <source>ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v1
+DefaultParameters      : {}</source>
+          <target state="new">ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v1
+DefaultParameters      : {}</target>
+        </trans-unit>
+        <trans-unit id="d20e1a31-b73b-43f1-9544-14db2edab017" xml:space="preserve">
+          <source>ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v2
+DefaultParameters      : {}</source>
+          <target state="new">ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v2
+DefaultParameters      : {}</target>
+        </trans-unit>
+        <trans-unit id="374fc302-a6b8-4718-831b-6ba33d17bed5" xml:space="preserve">
+          <source>PS D:\temp&gt;
+~~~</source>
+          <target state="new">PS D:\temp&gt;
+~~~</target>
+        </trans-unit>
+        <trans-unit id="0ffda4c6-8107-4920-b715-e250c563f7de" xml:space="preserve">
+          <source>The Service Fabric SDK environment should already have the correct defaults set up.</source>
+          <target state="new">The Service Fabric SDK environment should already have the correct defaults set up.</target>
+        </trans-unit>
+        <trans-unit id="cbc945d5-89f6-465a-9120-0b9b635bf911" xml:space="preserve">
+          <source>But if needed, the ImageStoreConnectionString for all commands should match the value being used by the Service Fabric cluster, which can be found in the cluster manifest retrieved using the <bpt id="d52bd7f8-d73f-4e29-b88e-f821cc22c318">&lt;strong&gt;</bpt>Get-ServiceFabricClusterManifest<ept id="d52bd7f8-d73f-4e29-b88e-f821cc22c318">&lt;/strong&gt;</ept> command:</source>
+          <target state="new">But if needed, the ImageStoreConnectionString for all commands should match the value being used by the Service Fabric cluster, which can be found in the cluster manifest retrieved using the <bpt id="d52bd7f8-d73f-4e29-b88e-f821cc22c318">&lt;strong&gt;</bpt>Get-ServiceFabricClusterManifest<ept id="d52bd7f8-d73f-4e29-b88e-f821cc22c318">&lt;/strong&gt;</ept> command:</target>
+        </trans-unit>
+        <trans-unit id="0a10a99f-e482-4209-a73e-6984937f076f" xml:space="preserve">
+          <source>~~~
+PS D:\temp&gt; Copy-ServiceFabricApplicationPackage .\MyApplicationType</source>
+          <target state="new">~~~
+PS D:\temp&gt; Copy-ServiceFabricApplicationPackage .\MyApplicationType</target>
+        </trans-unit>
+        <trans-unit id="e10c07e9-8166-4c9f-93e1-e6f27ffd3654" xml:space="preserve">
+          <source>cmdlet Copy-ServiceFabricApplicationPackage at command pipeline position 1
+Supply values for the following parameters:
+ImageStoreConnectionString:</source>
+          <target state="new">cmdlet Copy-ServiceFabricApplicationPackage at command pipeline position 1
+Supply values for the following parameters:
+ImageStoreConnectionString:</target>
+        </trans-unit>
+        <trans-unit id="1b34992d-1a19-45d0-a088-08da2cf65e8c" xml:space="preserve">
+          <source>PS D:\temp&gt; Get-ServiceFabricClusterManifest
+&lt;ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric"&gt;</source>
+          <target state="new">PS D:\temp&gt; Get-ServiceFabricClusterManifest
+&lt;ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric"&gt;</target>
+        </trans-unit>
+        <trans-unit id="c9157c57-d644-4e73-818c-a106161a0576" xml:space="preserve">
+          <source>PS D:\temp&gt; Copy-ServiceFabricApplicationPackage .\MyApplicationType -ImageStoreConnectionString file:D:\ServiceFabric\Data\ImageStore
+Copy application package succeeded</source>
+          <target state="new">PS D:\temp&gt; Copy-ServiceFabricApplicationPackage .\MyApplicationType -ImageStoreConnectionString file:D:\ServiceFabric\Data\ImageStore
+Copy application package succeeded</target>
+        </trans-unit>
+        <trans-unit id="c6dd3143-b3c6-46c2-b823-43a344e6be87" xml:space="preserve">
+          <source>PS D:\temp&gt;
+~~~</source>
+          <target state="new">PS D:\temp&gt;
+~~~</target>
+        </trans-unit>
+        <trans-unit id="cf56d373-90b9-4171-9bcd-d488dd7e7feb" xml:space="preserve">
+          <source><bpt id="c6379d60-99a0-4c31-ae6c-b3cd3bd9e913">&lt;linkText&gt;</bpt>Service Fabric Application Upgrade<ept id="c6379d60-99a0-4c31-ae6c-b3cd3bd9e913">&lt;/linkText&gt;</ept><bpt id="c6379d60-99a0-4c31-ae6c-b3cd3bd9e913">&lt;title&gt;</bpt><ept id="c6379d60-99a0-4c31-ae6c-b3cd3bd9e913">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c6379d60-99a0-4c31-ae6c-b3cd3bd9e913">&lt;linkText&gt;</bpt>Service Fabric Application Upgrade<ept id="c6379d60-99a0-4c31-ae6c-b3cd3bd9e913">&lt;/linkText&gt;</ept><bpt id="c6379d60-99a0-4c31-ae6c-b3cd3bd9e913">&lt;title&gt;</bpt><ept id="c6379d60-99a0-4c31-ae6c-b3cd3bd9e913">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2ef314d-6680-46a3-a110-297eda391450" xml:space="preserve">
+          <source><bpt id="211806c7-8339-4c22-a6b4-d3726d35e82d">&lt;linkText&gt;</bpt>Service Fabric Health Introduction<ept id="211806c7-8339-4c22-a6b4-d3726d35e82d">&lt;/linkText&gt;</ept><bpt id="211806c7-8339-4c22-a6b4-d3726d35e82d">&lt;title&gt;</bpt><ept id="211806c7-8339-4c22-a6b4-d3726d35e82d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="211806c7-8339-4c22-a6b4-d3726d35e82d">&lt;linkText&gt;</bpt>Service Fabric Health Introduction<ept id="211806c7-8339-4c22-a6b4-d3726d35e82d">&lt;/linkText&gt;</ept><bpt id="211806c7-8339-4c22-a6b4-d3726d35e82d">&lt;title&gt;</bpt><ept id="211806c7-8339-4c22-a6b4-d3726d35e82d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b6e0d9f-1d30-4012-b395-92a23144d646" xml:space="preserve">
+          <source><bpt id="55771f70-69df-40e4-86ff-56b0b7c9d99b">&lt;linkText&gt;</bpt>Diagnose and troubleshoot a Service Fabric service<ept id="55771f70-69df-40e4-86ff-56b0b7c9d99b">&lt;/linkText&gt;</ept><bpt id="55771f70-69df-40e4-86ff-56b0b7c9d99b">&lt;title&gt;</bpt><ept id="55771f70-69df-40e4-86ff-56b0b7c9d99b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="55771f70-69df-40e4-86ff-56b0b7c9d99b">&lt;linkText&gt;</bpt>Diagnose and troubleshoot a Service Fabric service<ept id="55771f70-69df-40e4-86ff-56b0b7c9d99b">&lt;/linkText&gt;</ept><bpt id="55771f70-69df-40e4-86ff-56b0b7c9d99b">&lt;title&gt;</bpt><ept id="55771f70-69df-40e4-86ff-56b0b7c9d99b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d93a1a45-a64f-482b-9ce3-1457372bed26" xml:space="preserve">
+          <source><bpt id="d0ea4db2-dba5-451b-9afb-030a929f8bfe">&lt;linkText&gt;</bpt>Model an application in Service Fabric<ept id="d0ea4db2-dba5-451b-9afb-030a929f8bfe">&lt;/linkText&gt;</ept><bpt id="d0ea4db2-dba5-451b-9afb-030a929f8bfe">&lt;title&gt;</bpt><ept id="d0ea4db2-dba5-451b-9afb-030a929f8bfe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d0ea4db2-dba5-451b-9afb-030a929f8bfe">&lt;linkText&gt;</bpt>Model an application in Service Fabric<ept id="d0ea4db2-dba5-451b-9afb-030a929f8bfe">&lt;/linkText&gt;</ept><bpt id="d0ea4db2-dba5-451b-9afb-030a929f8bfe">&lt;title&gt;</bpt><ept id="d0ea4db2-dba5-451b-9afb-030a929f8bfe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b84888b-c9fe-42e8-b4db-12029ef89a15" xml:space="preserve">
+          <source>service-fabric-application-model.md</source>
+          <target state="new">service-fabric-application-model.md</target>
+        </trans-unit>
+        <trans-unit id="bf4fd0b6-fd01-41dc-ace1-3dc5c7bedfd6" xml:space="preserve">
+          <source>service-fabric-application-upgrade.md</source>
+          <target state="new">service-fabric-application-upgrade.md</target>
+        </trans-unit>
+      </group>
+      <group id="c45575cf-1431-476f-83da-e06bfcce1379" />
+    </body>
+  </file>
+</xliff>

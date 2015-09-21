@@ -1,0 +1,1108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="05671dda-3c98-418d-a5cb-0d64b7022510" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="05671dda-3c98-418d-a5cb-0d64b7022510" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a953be5d-4d8b-4027-8d29-76fea375d02b">
+        <trans-unit id="45db618b-c184-4d29-9be9-612be2c626ad" xml:space="preserve">
+          <source>Set up protection between an on-premises VMM site and Azure | Microsoft Azure</source>
+          <target state="new">Set up protection between an on-premises VMM site and Azure | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f0d5dfec-a7f9-4083-9d8b-90b7891d13fd" xml:space="preserve">
+          <source>Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to Azure.</source>
+          <target state="new">Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to Azure.</target>
+        </trans-unit>
+        <trans-unit id="d4706590-829d-4868-b3b5-195505c45afb" xml:space="preserve">
+          <source>Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines in a number of deployment scenarios.</source>
+          <target state="new">Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines in a number of deployment scenarios.</target>
+        </trans-unit>
+        <trans-unit id="54081389-807a-460f-aa66-d4ecf4e393ac" xml:space="preserve">
+          <source>For a full list of deployment scenarios see  <bpt id="5f172143-7faa-4340-9a1a-2b7fd11c66e8">&lt;linkText&gt;</bpt>Azure Site Recovery overview<ept id="5f172143-7faa-4340-9a1a-2b7fd11c66e8">&lt;/linkText&gt;</ept><bpt id="5f172143-7faa-4340-9a1a-2b7fd11c66e8">&lt;title&gt;</bpt><ept id="5f172143-7faa-4340-9a1a-2b7fd11c66e8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a full list of deployment scenarios see  <bpt id="5f172143-7faa-4340-9a1a-2b7fd11c66e8">&lt;linkText&gt;</bpt>Azure Site Recovery overview<ept id="5f172143-7faa-4340-9a1a-2b7fd11c66e8">&lt;/linkText&gt;</ept><bpt id="5f172143-7faa-4340-9a1a-2b7fd11c66e8">&lt;title&gt;</bpt><ept id="5f172143-7faa-4340-9a1a-2b7fd11c66e8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a881da32-8a63-4472-8473-80befc906463" xml:space="preserve">
+          <source>This scenario guide describes how to deploy Site Recovery to orchestrate and automate protection for workloads running on virtual machines on Hyper-V host servers that are located in VMM private clouds.</source>
+          <target state="new">This scenario guide describes how to deploy Site Recovery to orchestrate and automate protection for workloads running on virtual machines on Hyper-V host servers that are located in VMM private clouds.</target>
+        </trans-unit>
+        <trans-unit id="47c99d84-56c8-488c-b0dc-cd23856aa65e" xml:space="preserve">
+          <source>In this scenario virtual machines are replicated from a primary VMM site to Azure using Hyper-V Replica.</source>
+          <target state="new">In this scenario virtual machines are replicated from a primary VMM site to Azure using Hyper-V Replica.</target>
+        </trans-unit>
+        <trans-unit id="74204f8e-1f4e-4e33-b726-0f5707f60724" xml:space="preserve">
+          <source>The guide includes prerequisites for the scenario and shows you how to set up a Site Recovery vault, get the Azure Site Recovery Provider installed on the source VMM server, register the server in the vault, add an Azure storage account, install the Azure Recovery Services agent on Hyper-V host servers, configure protection settings for VMM clouds that will be applied to all protected virtual machines, and then enable protection for those virtual machines.</source>
+          <target state="new">The guide includes prerequisites for the scenario and shows you how to set up a Site Recovery vault, get the Azure Site Recovery Provider installed on the source VMM server, register the server in the vault, add an Azure storage account, install the Azure Recovery Services agent on Hyper-V host servers, configure protection settings for VMM clouds that will be applied to all protected virtual machines, and then enable protection for those virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="a6fddc19-3bf5-489a-9cfb-abbeb403f6e0" xml:space="preserve">
+          <source>Finish up by testing the failover to make sure everything is working as expected.</source>
+          <target state="new">Finish up by testing the failover to make sure everything is working as expected.</target>
+        </trans-unit>
+        <trans-unit id="96b434c3-bcf9-4b22-9b8c-7232913febcb" xml:space="preserve">
+          <source>If you run into problems setting up this scenario post your questions on the <bpt id="ff8a33d0-3272-4323-b4a6-6724a47ac735">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="ff8a33d0-3272-4323-b4a6-6724a47ac735">&lt;/linkText&gt;</ept><bpt id="ff8a33d0-3272-4323-b4a6-6724a47ac735">&lt;title&gt;</bpt><ept id="ff8a33d0-3272-4323-b4a6-6724a47ac735">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you run into problems setting up this scenario post your questions on the <bpt id="ff8a33d0-3272-4323-b4a6-6724a47ac735">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="ff8a33d0-3272-4323-b4a6-6724a47ac735">&lt;/linkText&gt;</ept><bpt id="ff8a33d0-3272-4323-b4a6-6724a47ac735">&lt;title&gt;</bpt><ept id="ff8a33d0-3272-4323-b4a6-6724a47ac735">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb0bbe71-029e-4ef3-9a11-192ee547f4f9" xml:space="preserve">
+          <source>Make sure you have the following prerequisites in place.</source>
+          <target state="new">Make sure you have the following prerequisites in place.</target>
+        </trans-unit>
+        <trans-unit id="3d759b97-e190-4723-aa35-da0ca579815e" xml:space="preserve">
+          <source>You'll need a <bpt id="29e0a1c6-0a46-4382-9c43-49c307f71db7">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="29e0a1c6-0a46-4382-9c43-49c307f71db7">&lt;/linkText&gt;</ept><bpt id="29e0a1c6-0a46-4382-9c43-49c307f71db7">&lt;title&gt;</bpt><ept id="29e0a1c6-0a46-4382-9c43-49c307f71db7">&lt;/title&gt;</ept> account.</source>
+          <target state="new">You'll need a <bpt id="29e0a1c6-0a46-4382-9c43-49c307f71db7">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="29e0a1c6-0a46-4382-9c43-49c307f71db7">&lt;/linkText&gt;</ept><bpt id="29e0a1c6-0a46-4382-9c43-49c307f71db7">&lt;title&gt;</bpt><ept id="29e0a1c6-0a46-4382-9c43-49c307f71db7">&lt;/title&gt;</ept> account.</target>
+        </trans-unit>
+        <trans-unit id="4ed3c3bb-caeb-4917-aa4d-72c2eb6695e6" xml:space="preserve">
+          <source>If you don't have one, start with a <bpt id="38c8bf5f-3558-43e4-89ff-0047b7e77c9e">&lt;linkText&gt;</bpt>free trial<ept id="38c8bf5f-3558-43e4-89ff-0047b7e77c9e">&lt;/linkText&gt;</ept><bpt id="38c8bf5f-3558-43e4-89ff-0047b7e77c9e">&lt;title&gt;</bpt><ept id="38c8bf5f-3558-43e4-89ff-0047b7e77c9e">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have one, start with a <bpt id="38c8bf5f-3558-43e4-89ff-0047b7e77c9e">&lt;linkText&gt;</bpt>free trial<ept id="38c8bf5f-3558-43e4-89ff-0047b7e77c9e">&lt;/linkText&gt;</ept><bpt id="38c8bf5f-3558-43e4-89ff-0047b7e77c9e">&lt;title&gt;</bpt><ept id="38c8bf5f-3558-43e4-89ff-0047b7e77c9e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8183ea29-c771-42e5-836d-cbfb71bd13cc" xml:space="preserve">
+          <source>In addition you can read about <bpt id="0a31750d-e231-4ae6-b228-f392d7f683ae">&lt;linkText&gt;</bpt>Azure Site Recovery Manager pricing<ept id="0a31750d-e231-4ae6-b228-f392d7f683ae">&lt;/linkText&gt;</ept><bpt id="0a31750d-e231-4ae6-b228-f392d7f683ae">&lt;title&gt;</bpt><ept id="0a31750d-e231-4ae6-b228-f392d7f683ae">&lt;/title&gt;</ept>.</source>
+          <target state="new">In addition you can read about <bpt id="0a31750d-e231-4ae6-b228-f392d7f683ae">&lt;linkText&gt;</bpt>Azure Site Recovery Manager pricing<ept id="0a31750d-e231-4ae6-b228-f392d7f683ae">&lt;/linkText&gt;</ept><bpt id="0a31750d-e231-4ae6-b228-f392d7f683ae">&lt;title&gt;</bpt><ept id="0a31750d-e231-4ae6-b228-f392d7f683ae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9755cb4-98be-4d13-9fa2-0eda27a71305" xml:space="preserve">
+          <source>You'll need an Azure storage account to store data replicated to Azure.</source>
+          <target state="new">You'll need an Azure storage account to store data replicated to Azure.</target>
+        </trans-unit>
+        <trans-unit id="c3a678ca-abbc-4c89-86b1-3d2412f532cb" xml:space="preserve">
+          <source>The account needs geo-replication enabled.</source>
+          <target state="new">The account needs geo-replication enabled.</target>
+        </trans-unit>
+        <trans-unit id="c0127ccc-8142-41b0-a1a5-55e581174d02" xml:space="preserve">
+          <source>It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription.</source>
+          <target state="new">It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription.</target>
+        </trans-unit>
+        <trans-unit id="53c265cb-ab55-466d-a6b8-4c5ca0570a3a" xml:space="preserve">
+          <source>To learn more about setting up Azure storage, see <bpt id="850daed9-8d0d-4410-936f-35d69e2d2717">&lt;linkText&gt;</bpt>Introduction to Microsoft Azure Storage<ept id="850daed9-8d0d-4410-936f-35d69e2d2717">&lt;/linkText&gt;</ept><bpt id="850daed9-8d0d-4410-936f-35d69e2d2717">&lt;title&gt;</bpt><ept id="850daed9-8d0d-4410-936f-35d69e2d2717">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about setting up Azure storage, see <bpt id="850daed9-8d0d-4410-936f-35d69e2d2717">&lt;linkText&gt;</bpt>Introduction to Microsoft Azure Storage<ept id="850daed9-8d0d-4410-936f-35d69e2d2717">&lt;/linkText&gt;</ept><bpt id="850daed9-8d0d-4410-936f-35d69e2d2717">&lt;title&gt;</bpt><ept id="850daed9-8d0d-4410-936f-35d69e2d2717">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39a05ab4-7fa1-4b7a-8251-61708e166c2c" xml:space="preserve">
+          <source>You'll need to make sure that virtual machines you want to protect comply with Azure requirements.</source>
+          <target state="new">You'll need to make sure that virtual machines you want to protect comply with Azure requirements.</target>
+        </trans-unit>
+        <trans-unit id="e834118e-2e5d-40ce-aa89-34b10975c44f" xml:space="preserve">
+          <source>See <bpt id="880cdebc-e5f1-4c9f-a973-87d1b7cc171f">&lt;linkText&gt;</bpt>Virtual machine support<ept id="880cdebc-e5f1-4c9f-a973-87d1b7cc171f">&lt;/linkText&gt;</ept><bpt id="880cdebc-e5f1-4c9f-a973-87d1b7cc171f">&lt;title&gt;</bpt><ept id="880cdebc-e5f1-4c9f-a973-87d1b7cc171f">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="880cdebc-e5f1-4c9f-a973-87d1b7cc171f">&lt;linkText&gt;</bpt>Virtual machine support<ept id="880cdebc-e5f1-4c9f-a973-87d1b7cc171f">&lt;/linkText&gt;</ept><bpt id="880cdebc-e5f1-4c9f-a973-87d1b7cc171f">&lt;title&gt;</bpt><ept id="880cdebc-e5f1-4c9f-a973-87d1b7cc171f">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="5dc7355d-952c-4e64-966a-d8976548c0fb" xml:space="preserve">
+          <source>You'll need  VMM server running on System Center 2012 R2.</source>
+          <target state="new">You'll need  VMM server running on System Center 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="5cf2aeec-940a-4d51-820d-c1b43653d193" xml:space="preserve">
+          <source>Any VMM server containing virtual machines you want to protect must be running the Azure Site Recovery Provider.</source>
+          <target state="new">Any VMM server containing virtual machines you want to protect must be running the Azure Site Recovery Provider.</target>
+        </trans-unit>
+        <trans-unit id="014011eb-4a64-4f43-b80d-0da56e7cef47" xml:space="preserve">
+          <source>This is installed during the Azure Site Recovery deployment.</source>
+          <target state="new">This is installed during the Azure Site Recovery deployment.</target>
+        </trans-unit>
+        <trans-unit id="ccb6b16c-1c2f-403e-ba98-7aed4bfa5090" xml:space="preserve">
+          <source>You'll need at least one cloud on the VMM server you want to protect.</source>
+          <target state="new">You'll need at least one cloud on the VMM server you want to protect.</target>
+        </trans-unit>
+        <trans-unit id="11375bcd-3861-42d5-87ae-918bc99dac8a" xml:space="preserve">
+          <source>The cloud should contain:</source>
+          <target state="new">The cloud should contain:</target>
+        </trans-unit>
+        <trans-unit id="66f993ee-0489-4791-a40e-42e30844262a" xml:space="preserve">
+          <source>One or more VMM host groups.</source>
+          <target state="new">One or more VMM host groups.</target>
+        </trans-unit>
+        <trans-unit id="e3e9e2df-9ce5-4017-a364-59406bdb673b" xml:space="preserve">
+          <source>One or more Hyper-V host servers or clusters in each host group.</source>
+          <target state="new">One or more Hyper-V host servers or clusters in each host group.</target>
+        </trans-unit>
+        <trans-unit id="c4477c98-5cf0-476f-8d03-a78720aeb9d9" xml:space="preserve">
+          <source>One or more virtual machines on the source Hyper-V server.</source>
+          <target state="new">One or more virtual machines on the source Hyper-V server.</target>
+        </trans-unit>
+        <trans-unit id="e0733cf5-3448-4645-981a-c5879c238e5d" xml:space="preserve">
+          <source>Learn more about setting up VMM clouds:</source>
+          <target state="new">Learn more about setting up VMM clouds:</target>
+        </trans-unit>
+        <trans-unit id="0fdd5971-1d74-452d-9869-a0c31eed143c" xml:space="preserve">
+          <source>Read more about private VMM clouds in <bpt id="efecc2d3-006a-46a3-90ec-95e9b842079c">&lt;linkText&gt;</bpt>What’s New in Private Cloud with System Center 2012 R2 VMM<ept id="efecc2d3-006a-46a3-90ec-95e9b842079c">&lt;/linkText&gt;</ept><bpt id="efecc2d3-006a-46a3-90ec-95e9b842079c">&lt;title&gt;</bpt><ept id="efecc2d3-006a-46a3-90ec-95e9b842079c">&lt;/title&gt;</ept> and in <bpt id="55c33c43-3483-48d8-ad54-18ba5f2eb1a4">&lt;linkText&gt;</bpt>VMM 2012 and the clouds<ept id="55c33c43-3483-48d8-ad54-18ba5f2eb1a4">&lt;/linkText&gt;</ept><bpt id="55c33c43-3483-48d8-ad54-18ba5f2eb1a4">&lt;title&gt;</bpt><ept id="55c33c43-3483-48d8-ad54-18ba5f2eb1a4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more about private VMM clouds in <bpt id="efecc2d3-006a-46a3-90ec-95e9b842079c">&lt;linkText&gt;</bpt>What’s New in Private Cloud with System Center 2012 R2 VMM<ept id="efecc2d3-006a-46a3-90ec-95e9b842079c">&lt;/linkText&gt;</ept><bpt id="efecc2d3-006a-46a3-90ec-95e9b842079c">&lt;title&gt;</bpt><ept id="efecc2d3-006a-46a3-90ec-95e9b842079c">&lt;/title&gt;</ept> and in <bpt id="55c33c43-3483-48d8-ad54-18ba5f2eb1a4">&lt;linkText&gt;</bpt>VMM 2012 and the clouds<ept id="55c33c43-3483-48d8-ad54-18ba5f2eb1a4">&lt;/linkText&gt;</ept><bpt id="55c33c43-3483-48d8-ad54-18ba5f2eb1a4">&lt;title&gt;</bpt><ept id="55c33c43-3483-48d8-ad54-18ba5f2eb1a4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89fe8fec-5c93-4769-9763-6fcd3e24b7ad" xml:space="preserve">
+          <source>Learn about <bpt id="854a5609-c6ed-4d7c-afe2-390ddb6542c7">&lt;linkText&gt;</bpt>Configuring the VMM cloud fabric<ept id="854a5609-c6ed-4d7c-afe2-390ddb6542c7">&lt;/linkText&gt;</ept><bpt id="854a5609-c6ed-4d7c-afe2-390ddb6542c7">&lt;title&gt;</bpt><ept id="854a5609-c6ed-4d7c-afe2-390ddb6542c7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn about <bpt id="854a5609-c6ed-4d7c-afe2-390ddb6542c7">&lt;linkText&gt;</bpt>Configuring the VMM cloud fabric<ept id="854a5609-c6ed-4d7c-afe2-390ddb6542c7">&lt;/linkText&gt;</ept><bpt id="854a5609-c6ed-4d7c-afe2-390ddb6542c7">&lt;title&gt;</bpt><ept id="854a5609-c6ed-4d7c-afe2-390ddb6542c7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dea37da8-609b-4d8d-95e2-b01d7e1ec4f6" xml:space="preserve">
+          <source>After your cloud fabric elements are in place learn about creating private clouds in  <bpt id="0aa6c14a-e66a-478b-abcb-312dce862b22">&lt;linkText&gt;</bpt>Creating a private cloud in VMM<ept id="0aa6c14a-e66a-478b-abcb-312dce862b22">&lt;/linkText&gt;</ept><bpt id="0aa6c14a-e66a-478b-abcb-312dce862b22">&lt;title&gt;</bpt><ept id="0aa6c14a-e66a-478b-abcb-312dce862b22">&lt;/title&gt;</ept> and <bpt id="5a25e434-270a-4048-a7ae-9203f962201b">&lt;linkText&gt;</bpt>Walkthrough: Creating private clouds with System Center 2012 SP1 VMM<ept id="5a25e434-270a-4048-a7ae-9203f962201b">&lt;/linkText&gt;</ept><bpt id="5a25e434-270a-4048-a7ae-9203f962201b">&lt;title&gt;</bpt><ept id="5a25e434-270a-4048-a7ae-9203f962201b">&lt;/title&gt;</ept>.</source>
+          <target state="new">After your cloud fabric elements are in place learn about creating private clouds in  <bpt id="0aa6c14a-e66a-478b-abcb-312dce862b22">&lt;linkText&gt;</bpt>Creating a private cloud in VMM<ept id="0aa6c14a-e66a-478b-abcb-312dce862b22">&lt;/linkText&gt;</ept><bpt id="0aa6c14a-e66a-478b-abcb-312dce862b22">&lt;title&gt;</bpt><ept id="0aa6c14a-e66a-478b-abcb-312dce862b22">&lt;/title&gt;</ept> and <bpt id="5a25e434-270a-4048-a7ae-9203f962201b">&lt;linkText&gt;</bpt>Walkthrough: Creating private clouds with System Center 2012 SP1 VMM<ept id="5a25e434-270a-4048-a7ae-9203f962201b">&lt;/linkText&gt;</ept><bpt id="5a25e434-270a-4048-a7ae-9203f962201b">&lt;title&gt;</bpt><ept id="5a25e434-270a-4048-a7ae-9203f962201b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e767fb9f-f4ba-441e-8c17-4f637e60f855" xml:space="preserve">
+          <source>The host Hyper-V servers must be running at least Windows Server 2012 R2 with Hyper-V role and have the latest updates installed.</source>
+          <target state="new">The host Hyper-V servers must be running at least Windows Server 2012 R2 with Hyper-V role and have the latest updates installed.</target>
+        </trans-unit>
+        <trans-unit id="bfaf0edc-fef6-4864-b1f1-60b9ebcc7b7f" xml:space="preserve">
+          <source>If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster.</source>
+          <target state="new">If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster.</target>
+        </trans-unit>
+        <trans-unit id="2a0e494e-1d0d-46d1-a448-62ec08599cc8" xml:space="preserve">
+          <source>You'll need to configure the cluster broker manually.</source>
+          <target state="new">You'll need to configure the cluster broker manually.</target>
+        </trans-unit>
+        <trans-unit id="d74ae1fe-c0e8-452e-a89d-5b4fc895dd46" xml:space="preserve">
+          <source>For instructions see <bpt id="d8fc028d-6704-463b-9dfb-cceddec399c3">&lt;linkText&gt;</bpt>Configure Hyper-V Replica Broker<ept id="d8fc028d-6704-463b-9dfb-cceddec399c3">&lt;/linkText&gt;</ept><bpt id="d8fc028d-6704-463b-9dfb-cceddec399c3">&lt;title&gt;</bpt><ept id="d8fc028d-6704-463b-9dfb-cceddec399c3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions see <bpt id="d8fc028d-6704-463b-9dfb-cceddec399c3">&lt;linkText&gt;</bpt>Configure Hyper-V Replica Broker<ept id="d8fc028d-6704-463b-9dfb-cceddec399c3">&lt;/linkText&gt;</ept><bpt id="d8fc028d-6704-463b-9dfb-cceddec399c3">&lt;title&gt;</bpt><ept id="d8fc028d-6704-463b-9dfb-cceddec399c3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89b94ed0-3b90-4f27-9052-1149199b4551" xml:space="preserve">
+          <source>Any Hyper-V host server or cluster for which you want to manage protection must be included in a VMM cloud.</source>
+          <target state="new">Any Hyper-V host server or cluster for which you want to manage protection must be included in a VMM cloud.</target>
+        </trans-unit>
+        <trans-unit id="c5f45f3b-c182-4374-b937-ff2b9c7977e0" xml:space="preserve">
+          <source>The following diagram shows the different communication channels and ports used by Azure Site Recovery for orchestration and replication.</source>
+          <target state="new">The following diagram shows the different communication channels and ports used by Azure Site Recovery for orchestration and replication.</target>
+        </trans-unit>
+        <trans-unit id="05b57838-5c7e-40d8-bdb7-da19cb8de8ee" xml:space="preserve">
+          <source><bpt id="d41481f8-e844-479d-afda-d86bbc82020a">&lt;linkText&gt;</bpt>E2A Topology<ept id="d41481f8-e844-479d-afda-d86bbc82020a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d41481f8-e844-479d-afda-d86bbc82020a">&lt;linkText&gt;</bpt>E2A Topology<ept id="d41481f8-e844-479d-afda-d86bbc82020a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c34b3f5c-310e-4e94-be81-841dc7900122" xml:space="preserve">
+          <source>When you protect virtual machines in Azure network mapping maps between VM networks on the source VMM server and target Azure networks to enable the following:</source>
+          <target state="new">When you protect virtual machines in Azure network mapping maps between VM networks on the source VMM server and target Azure networks to enable the following:</target>
+        </trans-unit>
+        <trans-unit id="a1ca85f7-13a2-4a48-b767-58aa363d2f80" xml:space="preserve">
+          <source>All machines which failover on the same network can connect to each other, irrespective of which recovery plan they are in.</source>
+          <target state="new">All machines which failover on the same network can connect to each other, irrespective of which recovery plan they are in.</target>
+        </trans-unit>
+        <trans-unit id="bcb5da67-2dec-4f42-a6d2-c75a047eef2e" xml:space="preserve">
+          <source>If a network gateway is setup on the target Azure network, virtual machines can connect to other on-premises virtual machines.</source>
+          <target state="new">If a network gateway is setup on the target Azure network, virtual machines can connect to other on-premises virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="6d304d38-b11e-4409-9336-794139934cc5" xml:space="preserve">
+          <source>If you don’t configure network mapping only virtual machines that fail over in the same recovery plan will be able to connect to each other after failover to Azure.</source>
+          <target state="new">If you don’t configure network mapping only virtual machines that fail over in the same recovery plan will be able to connect to each other after failover to Azure.</target>
+        </trans-unit>
+        <trans-unit id="37d4d7f5-b59a-42af-9dce-6b33d8ed6726" xml:space="preserve">
+          <source>If you want to deploy network mapping you'll need the following:</source>
+          <target state="new">If you want to deploy network mapping you'll need the following:</target>
+        </trans-unit>
+        <trans-unit id="205c4310-8b96-48d3-9df9-186c1c712378" xml:space="preserve">
+          <source>The virtual machines you want to protect on the source VMM server should be connected to a VM network.</source>
+          <target state="new">The virtual machines you want to protect on the source VMM server should be connected to a VM network.</target>
+        </trans-unit>
+        <trans-unit id="3b5b1619-af67-4c44-affd-2bdeef271a71" xml:space="preserve">
+          <source>That network should be linked to a logical network that is associated with the cloud.</source>
+          <target state="new">That network should be linked to a logical network that is associated with the cloud.</target>
+        </trans-unit>
+        <trans-unit id="613aa8fc-3570-45b1-ada0-2f8391805f9c" xml:space="preserve">
+          <source>An Azure network to which replicated virtual machines can connect after failover.</source>
+          <target state="new">An Azure network to which replicated virtual machines can connect after failover.</target>
+        </trans-unit>
+        <trans-unit id="b3149cf1-b0ff-40d4-b27d-35fff8d09f24" xml:space="preserve">
+          <source>You'll select this network at the time of failover.</source>
+          <target state="new">You'll select this network at the time of failover.</target>
+        </trans-unit>
+        <trans-unit id="3a21265e-8231-4f81-be92-0d4449c43c30" xml:space="preserve">
+          <source>The network should be in the same region as your Azure Site Recovery subscription.</source>
+          <target state="new">The network should be in the same region as your Azure Site Recovery subscription.</target>
+        </trans-unit>
+        <trans-unit id="bf65145b-4641-48c8-b4cd-7b1d257dfae5" xml:space="preserve">
+          <source>Learn more about network mapping:</source>
+          <target state="new">Learn more about network mapping:</target>
+        </trans-unit>
+        <trans-unit id="db2e5c3e-bd7c-43e3-8ed8-d63b2ae1bd60" xml:space="preserve">
+          <source><bpt id="934fe9ea-1258-42b5-b73b-ef3aab45a625">&lt;linkText&gt;</bpt>Configuring logical networking in VMM<ept id="934fe9ea-1258-42b5-b73b-ef3aab45a625">&lt;/linkText&gt;</ept><bpt id="934fe9ea-1258-42b5-b73b-ef3aab45a625">&lt;title&gt;</bpt><ept id="934fe9ea-1258-42b5-b73b-ef3aab45a625">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="934fe9ea-1258-42b5-b73b-ef3aab45a625">&lt;linkText&gt;</bpt>Configuring logical networking in VMM<ept id="934fe9ea-1258-42b5-b73b-ef3aab45a625">&lt;/linkText&gt;</ept><bpt id="934fe9ea-1258-42b5-b73b-ef3aab45a625">&lt;title&gt;</bpt><ept id="934fe9ea-1258-42b5-b73b-ef3aab45a625">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a01b922f-b541-448a-949f-4014da56561e" xml:space="preserve">
+          <source><bpt id="a34f3f0c-ad63-4234-8bec-bf339c6a19c6">&lt;linkText&gt;</bpt>Configuring VM networks and gateways in VMM<ept id="a34f3f0c-ad63-4234-8bec-bf339c6a19c6">&lt;/linkText&gt;</ept><bpt id="a34f3f0c-ad63-4234-8bec-bf339c6a19c6">&lt;title&gt;</bpt><ept id="a34f3f0c-ad63-4234-8bec-bf339c6a19c6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a34f3f0c-ad63-4234-8bec-bf339c6a19c6">&lt;linkText&gt;</bpt>Configuring VM networks and gateways in VMM<ept id="a34f3f0c-ad63-4234-8bec-bf339c6a19c6">&lt;/linkText&gt;</ept><bpt id="a34f3f0c-ad63-4234-8bec-bf339c6a19c6">&lt;title&gt;</bpt><ept id="a34f3f0c-ad63-4234-8bec-bf339c6a19c6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="104defda-1043-49ab-b940-9bf7e8367957" xml:space="preserve">
+          <source><bpt id="47faa3d0-06cd-4331-b870-f1f0f4639778">&lt;linkText&gt;</bpt>Configure and monitor virtual networks in Azure<ept id="47faa3d0-06cd-4331-b870-f1f0f4639778">&lt;/linkText&gt;</ept><bpt id="47faa3d0-06cd-4331-b870-f1f0f4639778">&lt;title&gt;</bpt><ept id="47faa3d0-06cd-4331-b870-f1f0f4639778">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="47faa3d0-06cd-4331-b870-f1f0f4639778">&lt;linkText&gt;</bpt>Configure and monitor virtual networks in Azure<ept id="47faa3d0-06cd-4331-b870-f1f0f4639778">&lt;/linkText&gt;</ept><bpt id="47faa3d0-06cd-4331-b870-f1f0f4639778">&lt;title&gt;</bpt><ept id="47faa3d0-06cd-4331-b870-f1f0f4639778">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a922fd87-4303-4651-95bd-a0b0390cb07d" xml:space="preserve">
+          <source>Sign in to the <bpt id="3d8c4c63-3bc0-4c5e-9a0e-29ca83d3c075">&lt;linkText&gt;</bpt>Azure portal<ept id="3d8c4c63-3bc0-4c5e-9a0e-29ca83d3c075">&lt;/linkText&gt;</ept><bpt id="3d8c4c63-3bc0-4c5e-9a0e-29ca83d3c075">&lt;title&gt;</bpt><ept id="3d8c4c63-3bc0-4c5e-9a0e-29ca83d3c075">&lt;/title&gt;</ept> from the VMM server you want to register.</source>
+          <target state="new">Sign in to the <bpt id="3d8c4c63-3bc0-4c5e-9a0e-29ca83d3c075">&lt;linkText&gt;</bpt>Azure portal<ept id="3d8c4c63-3bc0-4c5e-9a0e-29ca83d3c075">&lt;/linkText&gt;</ept><bpt id="3d8c4c63-3bc0-4c5e-9a0e-29ca83d3c075">&lt;title&gt;</bpt><ept id="3d8c4c63-3bc0-4c5e-9a0e-29ca83d3c075">&lt;/title&gt;</ept> from the VMM server you want to register.</target>
+        </trans-unit>
+        <trans-unit id="fe6e2fbd-e2e6-49f4-b22d-a1f3005eb29d" xml:space="preserve">
+          <source>Expand <bpt id="1ba8b49f-dce9-416a-9f3f-0174afc6e8b0">&lt;strong&gt;</bpt>Data Services<ept id="1ba8b49f-dce9-416a-9f3f-0174afc6e8b0">&lt;/strong&gt;</ept>, expand <bpt id="3a282020-68c3-453f-b25b-b1801e04b636">&lt;strong&gt;</bpt>Recovery Services<ept id="3a282020-68c3-453f-b25b-b1801e04b636">&lt;/strong&gt;</ept>, and then click <bpt id="6b533f60-cb24-4e87-a7a7-cdf25a0ca11f">&lt;strong&gt;</bpt>Site Recovery Vault<ept id="6b533f60-cb24-4e87-a7a7-cdf25a0ca11f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand <bpt id="1ba8b49f-dce9-416a-9f3f-0174afc6e8b0">&lt;strong&gt;</bpt>Data Services<ept id="1ba8b49f-dce9-416a-9f3f-0174afc6e8b0">&lt;/strong&gt;</ept>, expand <bpt id="3a282020-68c3-453f-b25b-b1801e04b636">&lt;strong&gt;</bpt>Recovery Services<ept id="3a282020-68c3-453f-b25b-b1801e04b636">&lt;/strong&gt;</ept>, and then click <bpt id="6b533f60-cb24-4e87-a7a7-cdf25a0ca11f">&lt;strong&gt;</bpt>Site Recovery Vault<ept id="6b533f60-cb24-4e87-a7a7-cdf25a0ca11f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="874d8fd6-1d48-404f-baae-a6bd07d76e2a" xml:space="preserve">
+          <source>Click <bpt id="53c4c964-7544-489b-878e-7db83a173d66">&lt;strong&gt;</bpt>Create New<ept id="53c4c964-7544-489b-878e-7db83a173d66">&lt;/strong&gt;</ept> and then click <bpt id="cad15992-b8ca-4338-a087-f2981f9da0ca">&lt;strong&gt;</bpt>Quick Create<ept id="cad15992-b8ca-4338-a087-f2981f9da0ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="53c4c964-7544-489b-878e-7db83a173d66">&lt;strong&gt;</bpt>Create New<ept id="53c4c964-7544-489b-878e-7db83a173d66">&lt;/strong&gt;</ept> and then click <bpt id="cad15992-b8ca-4338-a087-f2981f9da0ca">&lt;strong&gt;</bpt>Quick Create<ept id="cad15992-b8ca-4338-a087-f2981f9da0ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f757e977-810d-4d72-a46a-b26c8b43521e" xml:space="preserve">
+          <source>In <bpt id="b461148d-ba29-4295-a3f8-96a86fc7a0cc">&lt;strong&gt;</bpt>Name<ept id="b461148d-ba29-4295-a3f8-96a86fc7a0cc">&lt;/strong&gt;</ept>, enter a friendly name to identify the vault.</source>
+          <target state="new">In <bpt id="b461148d-ba29-4295-a3f8-96a86fc7a0cc">&lt;strong&gt;</bpt>Name<ept id="b461148d-ba29-4295-a3f8-96a86fc7a0cc">&lt;/strong&gt;</ept>, enter a friendly name to identify the vault.</target>
+        </trans-unit>
+        <trans-unit id="e3c3ff87-5b3d-4ed0-9f34-3b8dd6e746cc" xml:space="preserve">
+          <source>In <bpt id="07d1de6e-d90f-4f27-aeda-b941a468f2d1">&lt;strong&gt;</bpt>Region<ept id="07d1de6e-d90f-4f27-aeda-b941a468f2d1">&lt;/strong&gt;</ept>, select the geographic region for the vault.</source>
+          <target state="new">In <bpt id="07d1de6e-d90f-4f27-aeda-b941a468f2d1">&lt;strong&gt;</bpt>Region<ept id="07d1de6e-d90f-4f27-aeda-b941a468f2d1">&lt;/strong&gt;</ept>, select the geographic region for the vault.</target>
+        </trans-unit>
+        <trans-unit id="03436910-028f-4e14-a99d-fe879b99e2d3" xml:space="preserve">
+          <source>Available geographic regions include East Asia, West Europe, West US, East US, North Europe, and Southeast Asia.</source>
+          <target state="new">Available geographic regions include East Asia, West Europe, West US, East US, North Europe, and Southeast Asia.</target>
+        </trans-unit>
+        <trans-unit id="eb7394ec-d0df-49b0-8f57-6bf2dcbd685f" xml:space="preserve">
+          <source>Click <bpt id="a2b12e33-b16d-430d-80e9-d147e9c8fb6d">&lt;strong&gt;</bpt>Create vault<ept id="a2b12e33-b16d-430d-80e9-d147e9c8fb6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a2b12e33-b16d-430d-80e9-d147e9c8fb6d">&lt;strong&gt;</bpt>Create vault<ept id="a2b12e33-b16d-430d-80e9-d147e9c8fb6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b835d5d4-9410-4cb5-803f-aa1bb1c177da" xml:space="preserve">
+          <source><bpt id="45e20278-1bad-4c50-b813-14a5c3aa5ebc">&lt;linkText&gt;</bpt>New Vault<ept id="45e20278-1bad-4c50-b813-14a5c3aa5ebc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="45e20278-1bad-4c50-b813-14a5c3aa5ebc">&lt;linkText&gt;</bpt>New Vault<ept id="45e20278-1bad-4c50-b813-14a5c3aa5ebc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c5f7c6b-3e50-4def-86e0-47e0851ba352" xml:space="preserve">
+          <source>&lt;P&gt;Check the status bar to confirm that the vault was successfully created. The vault will be listed as <bpt id="6a3dca45-a2ef-4b2e-b6f6-5a3c35d453bd">&lt;em&gt;</bpt>Active<ept id="6a3dca45-a2ef-4b2e-b6f6-5a3c35d453bd">&lt;/em&gt;</ept> on the main Recovery Services page.&lt;/P&gt;</source>
+          <target state="new">&lt;P&gt;Check the status bar to confirm that the vault was successfully created. The vault will be listed as <bpt id="6a3dca45-a2ef-4b2e-b6f6-5a3c35d453bd">&lt;em&gt;</bpt>Active<ept id="6a3dca45-a2ef-4b2e-b6f6-5a3c35d453bd">&lt;/em&gt;</ept> on the main Recovery Services page.&lt;/P&gt;</target>
+        </trans-unit>
+        <trans-unit id="ac8f4bc4-0dbe-4372-82b7-b81c4149d700" xml:space="preserve">
+          <source>Generate a registration key in the vault.</source>
+          <target state="new">Generate a registration key in the vault.</target>
+        </trans-unit>
+        <trans-unit id="7d91e3c8-062c-43f6-ab8e-a149e44c69e2" xml:space="preserve">
+          <source>After you download the Azure Site Recovery Provider and install it on the VMM server, you'll use this key to register the VMM server in the vault.</source>
+          <target state="new">After you download the Azure Site Recovery Provider and install it on the VMM server, you'll use this key to register the VMM server in the vault.</target>
+        </trans-unit>
+        <trans-unit id="002e8c64-55a4-4c90-8060-ea5385d1f761" xml:space="preserve">
+          <source>In the <bpt id="09383a9f-b7e1-44e9-8e15-c909e7698969">&lt;strong&gt;</bpt>Recovery Services<ept id="09383a9f-b7e1-44e9-8e15-c909e7698969">&lt;/strong&gt;</ept> page, click the vault to open the <bpt id="8b8b8d9b-403b-44ca-a41e-ca38dbb8b60c">&lt;strong&gt;</bpt>Quick Start<ept id="8b8b8d9b-403b-44ca-a41e-ca38dbb8b60c">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">In the <bpt id="09383a9f-b7e1-44e9-8e15-c909e7698969">&lt;strong&gt;</bpt>Recovery Services<ept id="09383a9f-b7e1-44e9-8e15-c909e7698969">&lt;/strong&gt;</ept> page, click the vault to open the <bpt id="8b8b8d9b-403b-44ca-a41e-ca38dbb8b60c">&lt;strong&gt;</bpt>Quick Start<ept id="8b8b8d9b-403b-44ca-a41e-ca38dbb8b60c">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="12ef1b70-eb48-4c8e-8a58-519820605467" xml:space="preserve">
+          <source><bpt id="8dc3a89d-5b3b-484a-b1de-223c25aa6876">&lt;strong&gt;</bpt>Quick Start<ept id="8dc3a89d-5b3b-484a-b1de-223c25aa6876">&lt;/strong&gt;</ept> can also be opened at any time using the icon.</source>
+          <target state="new"><bpt id="8dc3a89d-5b3b-484a-b1de-223c25aa6876">&lt;strong&gt;</bpt>Quick Start<ept id="8dc3a89d-5b3b-484a-b1de-223c25aa6876">&lt;/strong&gt;</ept> can also be opened at any time using the icon.</target>
+        </trans-unit>
+        <trans-unit id="1c2c0ef4-1ff5-466d-a1c2-2d71057e832c" xml:space="preserve">
+          <source><bpt id="2cde8cb2-00a3-4c5a-8ba5-111916bfac1d">&lt;linkText&gt;</bpt>Quick Start Icon<ept id="2cde8cb2-00a3-4c5a-8ba5-111916bfac1d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2cde8cb2-00a3-4c5a-8ba5-111916bfac1d">&lt;linkText&gt;</bpt>Quick Start Icon<ept id="2cde8cb2-00a3-4c5a-8ba5-111916bfac1d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb549bd8-0f79-4047-87a5-f71b52b54fda" xml:space="preserve">
+          <source>In the shortcut menu, select <bpt id="ecbf3828-0c05-473b-a315-778f43e75c2e">&lt;strong&gt;</bpt>Between an on-premises Hyper-V site and Microsoft Azure<ept id="ecbf3828-0c05-473b-a315-778f43e75c2e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the shortcut menu, select <bpt id="ecbf3828-0c05-473b-a315-778f43e75c2e">&lt;strong&gt;</bpt>Between an on-premises Hyper-V site and Microsoft Azure<ept id="ecbf3828-0c05-473b-a315-778f43e75c2e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d29a167-e123-47d3-9196-9459441fb9a7" xml:space="preserve">
+          <source>In <bpt id="3328fe78-2bfa-4677-8716-52af7e36d823">&lt;strong&gt;</bpt>Prepare VMM Servers<ept id="3328fe78-2bfa-4677-8716-52af7e36d823">&lt;/strong&gt;</ept>, click <bpt id="b842a574-6664-4df5-962e-7d9c130093d7">&lt;strong&gt;</bpt>Generate registration key<ept id="b842a574-6664-4df5-962e-7d9c130093d7">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">In <bpt id="3328fe78-2bfa-4677-8716-52af7e36d823">&lt;strong&gt;</bpt>Prepare VMM Servers<ept id="3328fe78-2bfa-4677-8716-52af7e36d823">&lt;/strong&gt;</ept>, click <bpt id="b842a574-6664-4df5-962e-7d9c130093d7">&lt;strong&gt;</bpt>Generate registration key<ept id="b842a574-6664-4df5-962e-7d9c130093d7">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="659b4e8d-58de-4459-8050-7917d9754685" xml:space="preserve">
+          <source>The key file is generated automatically and is valid for 5 days after it's generated.</source>
+          <target state="new">The key file is generated automatically and is valid for 5 days after it's generated.</target>
+        </trans-unit>
+        <trans-unit id="e4a58784-7b28-4200-8521-91db5d349d30" xml:space="preserve">
+          <source>If you're not accessing the Azure portal from the VMM server you'll need to copy this file to the server.</source>
+          <target state="new">If you're not accessing the Azure portal from the VMM server you'll need to copy this file to the server.</target>
+        </trans-unit>
+        <trans-unit id="627d58ce-3718-475c-a309-d1729effa877" xml:space="preserve">
+          <source><bpt id="547063ca-9acc-4aa8-936c-6898e9f8565b">&lt;linkText&gt;</bpt>Registration key<ept id="547063ca-9acc-4aa8-936c-6898e9f8565b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="547063ca-9acc-4aa8-936c-6898e9f8565b">&lt;linkText&gt;</bpt>Registration key<ept id="547063ca-9acc-4aa8-936c-6898e9f8565b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf3fc3be-fec8-49b4-8c7a-89daf60c0ab3" xml:space="preserve">
+          <source>On the <bpt id="93113f35-9c6d-480f-bf19-9ebbe0f4aa56">&lt;strong&gt;</bpt>Quick Start<ept id="93113f35-9c6d-480f-bf19-9ebbe0f4aa56">&lt;/strong&gt;</ept> page, in <bpt id="52d5e8e7-95bf-4720-836c-5f03006e35f4">&lt;strong&gt;</bpt>Prepare VMM servers<ept id="52d5e8e7-95bf-4720-836c-5f03006e35f4">&lt;/strong&gt;</ept>, click <bpt id="0eec95ac-ead7-4c53-9181-c0aa19672402">&lt;strong&gt;</bpt>Download Microsoft Azure Site Recovery Provider for installation on VMM servers<ept id="0eec95ac-ead7-4c53-9181-c0aa19672402">&lt;/strong&gt;</ept> to obtain the latest version of the Provider installation file.</source>
+          <target state="new">On the <bpt id="93113f35-9c6d-480f-bf19-9ebbe0f4aa56">&lt;strong&gt;</bpt>Quick Start<ept id="93113f35-9c6d-480f-bf19-9ebbe0f4aa56">&lt;/strong&gt;</ept> page, in <bpt id="52d5e8e7-95bf-4720-836c-5f03006e35f4">&lt;strong&gt;</bpt>Prepare VMM servers<ept id="52d5e8e7-95bf-4720-836c-5f03006e35f4">&lt;/strong&gt;</ept>, click <bpt id="0eec95ac-ead7-4c53-9181-c0aa19672402">&lt;strong&gt;</bpt>Download Microsoft Azure Site Recovery Provider for installation on VMM servers<ept id="0eec95ac-ead7-4c53-9181-c0aa19672402">&lt;/strong&gt;</ept> to obtain the latest version of the Provider installation file.</target>
+        </trans-unit>
+        <trans-unit id="7a5bb3e6-8512-4c2f-ae78-22dff5ff10e5" xml:space="preserve">
+          <source>Run this file on the source VMM server.</source>
+          <target state="new">Run this file on the source VMM server.</target>
+        </trans-unit>
+        <trans-unit id="51360f25-f965-463b-be1b-b2a7f1a59d47" xml:space="preserve">
+          <source>If VMM is deployed in a cluster and you're installing the Provider for the first time install it on an active node and finish the installation to register the VMM server in the vault.</source>
+          <target state="new">If VMM is deployed in a cluster and you're installing the Provider for the first time install it on an active node and finish the installation to register the VMM server in the vault.</target>
+        </trans-unit>
+        <trans-unit id="d0d018d0-0348-4bf7-aaf4-5e84cdd381c1" xml:space="preserve">
+          <source>Then install the Provider on the other nodes.</source>
+          <target state="new">Then install the Provider on the other nodes.</target>
+        </trans-unit>
+        <trans-unit id="23976836-2ea1-4ab1-86cc-c909e35fbe24" xml:space="preserve">
+          <source>Note that if you're upgrading the Provider you'll need to upgrade on all nodes because they should all be running the same Provider version.</source>
+          <target state="new">Note that if you're upgrading the Provider you'll need to upgrade on all nodes because they should all be running the same Provider version.</target>
+        </trans-unit>
+        <trans-unit id="569cffb2-f085-46e5-8e2a-b8a8ce4269b4" xml:space="preserve">
+          <source>In <bpt id="45c44c80-7dc7-4739-9c35-0fa404d9ecb7">&lt;strong&gt;</bpt>Pre-requirements Check<ept id="45c44c80-7dc7-4739-9c35-0fa404d9ecb7">&lt;/strong&gt;</ept> select to stop the VMM service to begin Provider setup.</source>
+          <target state="new">In <bpt id="45c44c80-7dc7-4739-9c35-0fa404d9ecb7">&lt;strong&gt;</bpt>Pre-requirements Check<ept id="45c44c80-7dc7-4739-9c35-0fa404d9ecb7">&lt;/strong&gt;</ept> select to stop the VMM service to begin Provider setup.</target>
+        </trans-unit>
+        <trans-unit id="9ceaea2a-94d6-480c-a351-383e0a045d57" xml:space="preserve">
+          <source>The service stops and will restart automatically when setup finishes.</source>
+          <target state="new">The service stops and will restart automatically when setup finishes.</target>
+        </trans-unit>
+        <trans-unit id="bae0845a-6a4b-487c-81d7-2659df235e46" xml:space="preserve">
+          <source>If you're installing on a VMM cluster you'll be prompted to stop the Cluster role.</source>
+          <target state="new">If you're installing on a VMM cluster you'll be prompted to stop the Cluster role.</target>
+        </trans-unit>
+        <trans-unit id="e4b7913b-e412-4a73-a8d5-1987b779e9fd" xml:space="preserve">
+          <source><bpt id="30cd5320-8a11-44a7-899d-ab119c14aefe">&lt;linkText&gt;</bpt>Prerequisites<ept id="30cd5320-8a11-44a7-899d-ab119c14aefe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="30cd5320-8a11-44a7-899d-ab119c14aefe">&lt;linkText&gt;</bpt>Prerequisites<ept id="30cd5320-8a11-44a7-899d-ab119c14aefe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a0446b2-19cf-4f74-bb0d-c2724640b051" xml:space="preserve">
+          <source>In <bpt id="8177db2d-3034-482d-a07c-a4efa9086782">&lt;strong&gt;</bpt>Microsoft Update<ept id="8177db2d-3034-482d-a07c-a4efa9086782">&lt;/strong&gt;</ept> you can opt in for updates.</source>
+          <target state="new">In <bpt id="8177db2d-3034-482d-a07c-a4efa9086782">&lt;strong&gt;</bpt>Microsoft Update<ept id="8177db2d-3034-482d-a07c-a4efa9086782">&lt;/strong&gt;</ept> you can opt in for updates.</target>
+        </trans-unit>
+        <trans-unit id="1efe47e4-0a80-4f87-bb33-30e1f05fa957" xml:space="preserve">
+          <source>With this setting enabled Provider updates will be installed according to your Microsoft Update policy.</source>
+          <target state="new">With this setting enabled Provider updates will be installed according to your Microsoft Update policy.</target>
+        </trans-unit>
+        <trans-unit id="60f39bcb-b36d-46b0-869f-1e084838cab8" xml:space="preserve">
+          <source><bpt id="0ea7c072-5b13-4caf-a80f-c3b867ead217">&lt;linkText&gt;</bpt>Microsoft Updates<ept id="0ea7c072-5b13-4caf-a80f-c3b867ead217">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ea7c072-5b13-4caf-a80f-c3b867ead217">&lt;linkText&gt;</bpt>Microsoft Updates<ept id="0ea7c072-5b13-4caf-a80f-c3b867ead217">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1148bf9-f663-4cb9-a10c-ef2f6a526c33" xml:space="preserve">
+          <source>After the Provider is installed continue setup to register the server in the vault.</source>
+          <target state="new">After the Provider is installed continue setup to register the server in the vault.</target>
+        </trans-unit>
+        <trans-unit id="07984413-f73d-402e-998f-dba8103e0b90" xml:space="preserve">
+          <source>In <bpt id="c0b7f038-4515-4d13-b42f-8fd3bb5a2a4d">&lt;strong&gt;</bpt>Internet Connection<ept id="c0b7f038-4515-4d13-b42f-8fd3bb5a2a4d">&lt;/strong&gt;</ept> specify how the Provider running on the VMM server connects to the Internet.</source>
+          <target state="new">In <bpt id="c0b7f038-4515-4d13-b42f-8fd3bb5a2a4d">&lt;strong&gt;</bpt>Internet Connection<ept id="c0b7f038-4515-4d13-b42f-8fd3bb5a2a4d">&lt;/strong&gt;</ept> specify how the Provider running on the VMM server connects to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="efc4ac69-cd89-4c09-86c3-61992b81d2e9" xml:space="preserve">
+          <source>Select <bpt id="88cc773a-2807-40df-9bf4-db922369415b">&lt;strong&gt;</bpt>Use default system proxy settings<ept id="88cc773a-2807-40df-9bf4-db922369415b">&lt;/strong&gt;</ept> to use the default Internet connection settings configured on the server.</source>
+          <target state="new">Select <bpt id="88cc773a-2807-40df-9bf4-db922369415b">&lt;strong&gt;</bpt>Use default system proxy settings<ept id="88cc773a-2807-40df-9bf4-db922369415b">&lt;/strong&gt;</ept> to use the default Internet connection settings configured on the server.</target>
+        </trans-unit>
+        <trans-unit id="0b31830e-1961-4c89-851c-1cedbd5a6309" xml:space="preserve">
+          <source><bpt id="7a840441-3b39-48fb-801a-67225cf4cfc5">&lt;linkText&gt;</bpt>Internet Settings<ept id="7a840441-3b39-48fb-801a-67225cf4cfc5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7a840441-3b39-48fb-801a-67225cf4cfc5">&lt;linkText&gt;</bpt>Internet Settings<ept id="7a840441-3b39-48fb-801a-67225cf4cfc5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7263197b-cda9-4b75-884f-b2db14fdc610" xml:space="preserve">
+          <source>If you want to use a custom proxy you should set it up before you install the Provider.</source>
+          <target state="new">If you want to use a custom proxy you should set it up before you install the Provider.</target>
+        </trans-unit>
+        <trans-unit id="2525bf20-86a8-425d-b952-ab33d9198045" xml:space="preserve">
+          <source>When you configure custom proxy settings a test will run to check the proxy connection.</source>
+          <target state="new">When you configure custom proxy settings a test will run to check the proxy connection.</target>
+        </trans-unit>
+        <trans-unit id="71f95627-a104-467e-a36c-3ce902abb8b4" xml:space="preserve">
+          <source>If you do use a custom proxy, or your default proxy requires authentication you'll need to enter the proxy details, including the proxy address and port.</source>
+          <target state="new">If you do use a custom proxy, or your default proxy requires authentication you'll need to enter the proxy details, including the proxy address and port.</target>
+        </trans-unit>
+        <trans-unit id="442d8012-2a59-4014-9710-606ef9054a8d" xml:space="preserve">
+          <source>The following urls should be accessible from the VMM Server and the Hyper-v hosts:</source>
+          <target state="new">The following urls should be accessible from the VMM Server and the Hyper-v hosts:</target>
+        </trans-unit>
+        <trans-unit id="b7a3b7e4-425b-4c9a-b923-8a2ee372d5d7" xml:space="preserve">
+          <source>*.hypervrecoverymanager.windowsazure.com</source>
+          <target state="new">*.hypervrecoverymanager.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="36fc8175-e119-4de1-8cf3-5e43621d1444" xml:space="preserve">
+          <source>*.accesscontrol.windows.net</source>
+          <target state="new">*.accesscontrol.windows.net</target>
+        </trans-unit>
+        <trans-unit id="e05d4f25-5db1-4fd4-bf21-b3ffa0d9ab1b" xml:space="preserve">
+          <source>*.backup.windowsazure.com</source>
+          <target state="new">*.backup.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="5340f628-5528-48ea-a45b-720bd94f5eaa" xml:space="preserve">
+          <source>*.blob.core.windows.net</source>
+          <target state="new">*.blob.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="4751a215-ecfb-4cc5-a366-3222e92c90f5" xml:space="preserve">
+          <source>*.store.core.windows.net</source>
+          <target state="new">*.store.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="bd938841-d54e-4f4a-a689-697c5ea6b19d" xml:space="preserve">
+          <source>Allow the IP addresses described in <bpt id="55f84328-693b-4914-924a-3eafc24480a3">&lt;linkText&gt;</bpt>Azure Datacenter IP Ranges<ept id="55f84328-693b-4914-924a-3eafc24480a3">&lt;/linkText&gt;</ept><bpt id="55f84328-693b-4914-924a-3eafc24480a3">&lt;title&gt;</bpt><ept id="55f84328-693b-4914-924a-3eafc24480a3">&lt;/title&gt;</ept> and HTTPS (443) protocol.</source>
+          <target state="new">Allow the IP addresses described in <bpt id="55f84328-693b-4914-924a-3eafc24480a3">&lt;linkText&gt;</bpt>Azure Datacenter IP Ranges<ept id="55f84328-693b-4914-924a-3eafc24480a3">&lt;/linkText&gt;</ept><bpt id="55f84328-693b-4914-924a-3eafc24480a3">&lt;title&gt;</bpt><ept id="55f84328-693b-4914-924a-3eafc24480a3">&lt;/title&gt;</ept> and HTTPS (443) protocol.</target>
+        </trans-unit>
+        <trans-unit id="59d16476-8dee-4dcd-b449-223f8395c9e9" xml:space="preserve">
+          <source>You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.</source>
+          <target state="new">You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.</target>
+        </trans-unit>
+        <trans-unit id="da5076da-94a3-49b9-a0a8-eea267215644" xml:space="preserve">
+          <source>If you use a custom proxy, a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials.</source>
+          <target state="new">If you use a custom proxy, a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials.</target>
+        </trans-unit>
+        <trans-unit id="f800ed47-54e7-49d9-b955-405abcba409c" xml:space="preserve">
+          <source>Configure the proxy server so that this account can authenticate successfully.</source>
+          <target state="new">Configure the proxy server so that this account can authenticate successfully.</target>
+        </trans-unit>
+        <trans-unit id="aea764af-c659-466f-8273-d3175c452850" xml:space="preserve">
+          <source>The VMM RunAs account settings can be modified in the VMM console.</source>
+          <target state="new">The VMM RunAs account settings can be modified in the VMM console.</target>
+        </trans-unit>
+        <trans-unit id="9f0d1ed8-25f6-403e-989a-1fcece4e3e1a" xml:space="preserve">
+          <source>To do this, open the <bpt id="508c2a69-3fdb-46b2-a9ec-fdc4a592f9f8">&lt;strong&gt;</bpt>Settings<ept id="508c2a69-3fdb-46b2-a9ec-fdc4a592f9f8">&lt;/strong&gt;</ept> workspace, expand <bpt id="f1c4aac9-539a-42e7-85e4-f01c2d8a59e0">&lt;strong&gt;</bpt>Security<ept id="f1c4aac9-539a-42e7-85e4-f01c2d8a59e0">&lt;/strong&gt;</ept>, click <bpt id="87377fa4-4862-4546-94b4-c0d937cbe430">&lt;strong&gt;</bpt>Run As Accounts<ept id="87377fa4-4862-4546-94b4-c0d937cbe430">&lt;/strong&gt;</ept>, and then modify the password for DRAProxyAccount.</source>
+          <target state="new">To do this, open the <bpt id="508c2a69-3fdb-46b2-a9ec-fdc4a592f9f8">&lt;strong&gt;</bpt>Settings<ept id="508c2a69-3fdb-46b2-a9ec-fdc4a592f9f8">&lt;/strong&gt;</ept> workspace, expand <bpt id="f1c4aac9-539a-42e7-85e4-f01c2d8a59e0">&lt;strong&gt;</bpt>Security<ept id="f1c4aac9-539a-42e7-85e4-f01c2d8a59e0">&lt;/strong&gt;</ept>, click <bpt id="87377fa4-4862-4546-94b4-c0d937cbe430">&lt;strong&gt;</bpt>Run As Accounts<ept id="87377fa4-4862-4546-94b4-c0d937cbe430">&lt;/strong&gt;</ept>, and then modify the password for DRAProxyAccount.</target>
+        </trans-unit>
+        <trans-unit id="b20987f7-b1b4-43a5-b02f-1d99ab98fbaa" xml:space="preserve">
+          <source>You’ll need to restart the VMM service so that this setting takes effect.</source>
+          <target state="new">You’ll need to restart the VMM service so that this setting takes effect.</target>
+        </trans-unit>
+        <trans-unit id="dd9186a7-8c8d-4239-a499-8d655a364e08" xml:space="preserve">
+          <source>In <bpt id="e9128cc7-71b4-467b-badb-e8e883135d66">&lt;strong&gt;</bpt>Registration Key<ept id="e9128cc7-71b4-467b-badb-e8e883135d66">&lt;/strong&gt;</ept>, select that you downloaded from Azure Site Recovery and copied to the VMM server.</source>
+          <target state="new">In <bpt id="e9128cc7-71b4-467b-badb-e8e883135d66">&lt;strong&gt;</bpt>Registration Key<ept id="e9128cc7-71b4-467b-badb-e8e883135d66">&lt;/strong&gt;</ept>, select that you downloaded from Azure Site Recovery and copied to the VMM server.</target>
+        </trans-unit>
+        <trans-unit id="8c5f8a8e-556b-4a6f-9762-005d8413f128" xml:space="preserve">
+          <source>In <bpt id="c0ecbb20-e5c6-4c8f-b915-95af68e6cfd1">&lt;strong&gt;</bpt>Vault name<ept id="c0ecbb20-e5c6-4c8f-b915-95af68e6cfd1">&lt;/strong&gt;</ept>, verify the name of the vault in which the server will be registered.</source>
+          <target state="new">In <bpt id="c0ecbb20-e5c6-4c8f-b915-95af68e6cfd1">&lt;strong&gt;</bpt>Vault name<ept id="c0ecbb20-e5c6-4c8f-b915-95af68e6cfd1">&lt;/strong&gt;</ept>, verify the name of the vault in which the server will be registered.</target>
+        </trans-unit>
+        <trans-unit id="fa78fa3d-e2ca-48d3-9866-bf21811d2849" xml:space="preserve">
+          <source>In <bpt id="fabe8d36-771a-42ca-be7c-3616872ea0f0">&lt;strong&gt;</bpt>Server name<ept id="fabe8d36-771a-42ca-be7c-3616872ea0f0">&lt;/strong&gt;</ept>, specify a friendly name to identify the VMM server in the vault.</source>
+          <target state="new">In <bpt id="fabe8d36-771a-42ca-be7c-3616872ea0f0">&lt;strong&gt;</bpt>Server name<ept id="fabe8d36-771a-42ca-be7c-3616872ea0f0">&lt;/strong&gt;</ept>, specify a friendly name to identify the VMM server in the vault.</target>
+        </trans-unit>
+        <trans-unit id="c167e932-22b4-4aa4-a051-d0b541f1b6a0" xml:space="preserve">
+          <source>In a cluster configuration specify the VMM cluster role name.</source>
+          <target state="new">In a cluster configuration specify the VMM cluster role name.</target>
+        </trans-unit>
+        <trans-unit id="5fd20893-69af-4eef-8294-1574ada6bfb9" xml:space="preserve">
+          <source><bpt id="78b09632-ccfa-4001-bbf1-861c82b5f542">&lt;linkText&gt;</bpt>Server registration<ept id="78b09632-ccfa-4001-bbf1-861c82b5f542">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78b09632-ccfa-4001-bbf1-861c82b5f542">&lt;linkText&gt;</bpt>Server registration<ept id="78b09632-ccfa-4001-bbf1-861c82b5f542">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09e98a90-d618-478a-a3e5-c2f5b7d035e3" xml:space="preserve">
+          <source>In <bpt id="7a8e584e-49e0-4108-84f8-4447d9bd9ca3">&lt;strong&gt;</bpt>Initial cloud metadata<ept id="7a8e584e-49e0-4108-84f8-4447d9bd9ca3">&lt;/strong&gt;</ept> sync select whether you want to synchronize metadata for all clouds on the VMM server with the vault.</source>
+          <target state="new">In <bpt id="7a8e584e-49e0-4108-84f8-4447d9bd9ca3">&lt;strong&gt;</bpt>Initial cloud metadata<ept id="7a8e584e-49e0-4108-84f8-4447d9bd9ca3">&lt;/strong&gt;</ept> sync select whether you want to synchronize metadata for all clouds on the VMM server with the vault.</target>
+        </trans-unit>
+        <trans-unit id="1e6c54cc-ad32-4f88-8ad9-c113b7409536" xml:space="preserve">
+          <source>This action only needs to happen once on each server.</source>
+          <target state="new">This action only needs to happen once on each server.</target>
+        </trans-unit>
+        <trans-unit id="83053603-69d8-4d6e-85f5-2cc4c9d849d2" xml:space="preserve">
+          <source>If you don't want to synchronize all clouds, you can leave this setting cleared and synchronize each cloud individually in the cloud properties in the VMM console.</source>
+          <target state="new">If you don't want to synchronize all clouds, you can leave this setting cleared and synchronize each cloud individually in the cloud properties in the VMM console.</target>
+        </trans-unit>
+        <trans-unit id="c504902b-fbe8-4e70-8767-7fb1b0b917c5" xml:space="preserve">
+          <source>In <bpt id="d98ba1fe-e395-4e70-b178-f8b1848de7c4">&lt;strong&gt;</bpt>Data Encryption for VMs protected to Azure<ept id="d98ba1fe-e395-4e70-b178-f8b1848de7c4">&lt;/strong&gt;</ept> you specify a location to save an SSL certificate that’s automatically generated for data encryption.</source>
+          <target state="new">In <bpt id="d98ba1fe-e395-4e70-b178-f8b1848de7c4">&lt;strong&gt;</bpt>Data Encryption for VMs protected to Azure<ept id="d98ba1fe-e395-4e70-b178-f8b1848de7c4">&lt;/strong&gt;</ept> you specify a location to save an SSL certificate that’s automatically generated for data encryption.</target>
+        </trans-unit>
+        <trans-unit id="2890d3b7-4cf0-42ed-ad8a-c174d856cf67" xml:space="preserve">
+          <source>This certificate is used if you enable data encryption for a cloud protected by Azure in the Azure Site Recovery portal.</source>
+          <target state="new">This certificate is used if you enable data encryption for a cloud protected by Azure in the Azure Site Recovery portal.</target>
+        </trans-unit>
+        <trans-unit id="36be3ed7-82f4-4f2e-920f-b7ade9601b85" xml:space="preserve">
+          <source>Keep this certificate safe.</source>
+          <target state="new">Keep this certificate safe.</target>
+        </trans-unit>
+        <trans-unit id="e36697d7-b741-4cfb-ada4-1ad43590a490" xml:space="preserve">
+          <source>When you run a failover to Azure you’ll select it in order to decrypt encrypted data.</source>
+          <target state="new">When you run a failover to Azure you’ll select it in order to decrypt encrypted data.</target>
+        </trans-unit>
+        <trans-unit id="1357d715-e34a-48a4-b4b9-e17cfe50e2bf" xml:space="preserve">
+          <source><bpt id="33f2cd87-1742-4c2d-b8f0-99edfd86e9db">&lt;linkText&gt;</bpt>Server registration<ept id="33f2cd87-1742-4c2d-b8f0-99edfd86e9db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33f2cd87-1742-4c2d-b8f0-99edfd86e9db">&lt;linkText&gt;</bpt>Server registration<ept id="33f2cd87-1742-4c2d-b8f0-99edfd86e9db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15e6ab27-1389-4300-9a60-d7d1dd7700f6" xml:space="preserve">
+          <source>Click <bpt id="c587bcea-c95d-403e-9c87-3326bdc1000c">&lt;strong&gt;</bpt>Register<ept id="c587bcea-c95d-403e-9c87-3326bdc1000c">&lt;/strong&gt;</ept> to complete the process.</source>
+          <target state="new">Click <bpt id="c587bcea-c95d-403e-9c87-3326bdc1000c">&lt;strong&gt;</bpt>Register<ept id="c587bcea-c95d-403e-9c87-3326bdc1000c">&lt;/strong&gt;</ept> to complete the process.</target>
+        </trans-unit>
+        <trans-unit id="b7eceae3-2085-4e5c-9686-3fbd76de9080" xml:space="preserve">
+          <source>After registration, metadata from the VMM server is retrieved by Azure Site Recovery.</source>
+          <target state="new">After registration, metadata from the VMM server is retrieved by Azure Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="c71bd611-e078-4753-ad88-3f573ee8cd7f" xml:space="preserve">
+          <source>The server is displayed on the <bpt id="e5cc5620-8bc6-41ae-b096-cd0238f84902">&lt;strong&gt;</bpt>Resources<ept id="e5cc5620-8bc6-41ae-b096-cd0238f84902">&lt;/strong&gt;</ept> tab on the <bpt id="4bd484c1-0119-4ef0-9871-373d7bcce139">&lt;strong&gt;</bpt>Servers<ept id="4bd484c1-0119-4ef0-9871-373d7bcce139">&lt;/strong&gt;</ept> page in the vault.</source>
+          <target state="new">The server is displayed on the <bpt id="e5cc5620-8bc6-41ae-b096-cd0238f84902">&lt;strong&gt;</bpt>Resources<ept id="e5cc5620-8bc6-41ae-b096-cd0238f84902">&lt;/strong&gt;</ept> tab on the <bpt id="4bd484c1-0119-4ef0-9871-373d7bcce139">&lt;strong&gt;</bpt>Servers<ept id="4bd484c1-0119-4ef0-9871-373d7bcce139">&lt;/strong&gt;</ept> page in the vault.</target>
+        </trans-unit>
+        <trans-unit id="ed8d5ce6-b879-4009-9fde-3af0eb42007e" xml:space="preserve">
+          <source>If you don't have an Azure storage account, click <bpt id="ef04bade-2342-448d-81ce-5f6f46656256">&lt;strong&gt;</bpt>Add an Azure Storage Account<ept id="ef04bade-2342-448d-81ce-5f6f46656256">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you don't have an Azure storage account, click <bpt id="ef04bade-2342-448d-81ce-5f6f46656256">&lt;strong&gt;</bpt>Add an Azure Storage Account<ept id="ef04bade-2342-448d-81ce-5f6f46656256">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d6b2483-24c3-4136-a910-c6395535003c" xml:space="preserve">
+          <source>The account should have geo-replication enabled.</source>
+          <target state="new">The account should have geo-replication enabled.</target>
+        </trans-unit>
+        <trans-unit id="dacdbe60-0f7b-41f2-9144-6223db5dd2d9" xml:space="preserve">
+          <source>It must in the same region as the Azure Site Recovery service, and be associated with the same subscription.</source>
+          <target state="new">It must in the same region as the Azure Site Recovery service, and be associated with the same subscription.</target>
+        </trans-unit>
+        <trans-unit id="a8dfd04a-62cb-40c3-a41a-e17434623c7f" xml:space="preserve">
+          <source><bpt id="4d4b5f44-4bf4-4dde-8a73-5f23d4ca511b">&lt;linkText&gt;</bpt>Storage account<ept id="4d4b5f44-4bf4-4dde-8a73-5f23d4ca511b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d4b5f44-4bf4-4dde-8a73-5f23d4ca511b">&lt;linkText&gt;</bpt>Storage account<ept id="4d4b5f44-4bf4-4dde-8a73-5f23d4ca511b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62b3f08c-8509-4369-b216-306eb8420bf5" xml:space="preserve">
+          <source>Install the Azure Recovery Services agent on each Hyper-V host server located in the VMM clouds you want to protect.</source>
+          <target state="new">Install the Azure Recovery Services agent on each Hyper-V host server located in the VMM clouds you want to protect.</target>
+        </trans-unit>
+        <trans-unit id="613bcbda-cbd8-496e-96a5-c5ae144e3750" xml:space="preserve">
+          <source>On the <bpt id="56e4d805-5e34-4124-b721-6b6c62454367">&lt;strong&gt;</bpt>Quick Start<ept id="56e4d805-5e34-4124-b721-6b6c62454367">&lt;/strong&gt;</ept> page, click &lt;b&gt;Download Azure Site Recovery Services Agent and install on hosts&lt;/b&gt; to obtain the latest version of the agent installation file.</source>
+          <target state="new">On the <bpt id="56e4d805-5e34-4124-b721-6b6c62454367">&lt;strong&gt;</bpt>Quick Start<ept id="56e4d805-5e34-4124-b721-6b6c62454367">&lt;/strong&gt;</ept> page, click &lt;b&gt;Download Azure Site Recovery Services Agent and install on hosts&lt;/b&gt; to obtain the latest version of the agent installation file.</target>
+        </trans-unit>
+        <trans-unit id="b6f328be-a3c4-41bd-aacf-2060ea7042f1" xml:space="preserve">
+          <source><bpt id="1a6097fb-5b88-4edb-a108-ac23d32bcac4">&lt;linkText&gt;</bpt>Install Recovery Services Agent<ept id="1a6097fb-5b88-4edb-a108-ac23d32bcac4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1a6097fb-5b88-4edb-a108-ac23d32bcac4">&lt;linkText&gt;</bpt>Install Recovery Services Agent<ept id="1a6097fb-5b88-4edb-a108-ac23d32bcac4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfacb4d6-1966-4649-983f-ee1effc08220" xml:space="preserve">
+          <source>Run the installation file on each Hyper-V host server that's located in VMM clouds you want to protect.</source>
+          <target state="new">Run the installation file on each Hyper-V host server that's located in VMM clouds you want to protect.</target>
+        </trans-unit>
+        <trans-unit id="87586c6d-bec0-4485-aad3-d1b07eced468" xml:space="preserve">
+          <source>On the <bpt id="98862179-09fb-475e-8437-48db1a611e59">&lt;strong&gt;</bpt>Prerequisites Check<ept id="98862179-09fb-475e-8437-48db1a611e59">&lt;/strong&gt;</ept> page click &lt;b&gt;Next&lt;/b&gt;.</source>
+          <target state="new">On the <bpt id="98862179-09fb-475e-8437-48db1a611e59">&lt;strong&gt;</bpt>Prerequisites Check<ept id="98862179-09fb-475e-8437-48db1a611e59">&lt;/strong&gt;</ept> page click &lt;b&gt;Next&lt;/b&gt;.</target>
+        </trans-unit>
+        <trans-unit id="b03d60c1-dd4c-4e48-b056-fdc2d4ff128e" xml:space="preserve">
+          <source>Any missing prerequisites will be automatically installed.</source>
+          <target state="new">Any missing prerequisites will be automatically installed.</target>
+        </trans-unit>
+        <trans-unit id="c80ca4d0-0d5f-471e-9e26-c1adde2df651" xml:space="preserve">
+          <source><bpt id="336c42be-d419-4331-a198-9232769fce17">&lt;linkText&gt;</bpt>Prerequisites Recovery Services Agent<ept id="336c42be-d419-4331-a198-9232769fce17">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="336c42be-d419-4331-a198-9232769fce17">&lt;linkText&gt;</bpt>Prerequisites Recovery Services Agent<ept id="336c42be-d419-4331-a198-9232769fce17">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5b3271a-20a1-40f3-9638-5cdc398f0666" xml:space="preserve">
+          <source>On the <bpt id="da86ea5a-6fa2-4782-b14e-0ca3cf149339">&lt;strong&gt;</bpt>Installation Settings<ept id="da86ea5a-6fa2-4782-b14e-0ca3cf149339">&lt;/strong&gt;</ept> page, specify where you want to install the Agent and select the cache location in which backup metadata will be installed.</source>
+          <target state="new">On the <bpt id="da86ea5a-6fa2-4782-b14e-0ca3cf149339">&lt;strong&gt;</bpt>Installation Settings<ept id="da86ea5a-6fa2-4782-b14e-0ca3cf149339">&lt;/strong&gt;</ept> page, specify where you want to install the Agent and select the cache location in which backup metadata will be installed.</target>
+        </trans-unit>
+        <trans-unit id="b070d45e-858a-4f1c-9614-438fe8374c87" xml:space="preserve">
+          <source>Then click &lt;b&gt;Install&lt;/b&gt;.</source>
+          <target state="new">Then click &lt;b&gt;Install&lt;/b&gt;.</target>
+        </trans-unit>
+        <trans-unit id="250e36c5-3d75-4d40-b27a-cc6977fb1b57" xml:space="preserve">
+          <source>After the VMM server is registered, you can configure cloud protection settings.</source>
+          <target state="new">After the VMM server is registered, you can configure cloud protection settings.</target>
+        </trans-unit>
+        <trans-unit id="681a9aa7-6c6b-4507-ac8a-c69ff0fa3a26" xml:space="preserve">
+          <source>You enabled the option <bpt id="9d723473-cf58-4b2a-ae2b-eda7fb556187">&lt;strong&gt;</bpt>Synchronize cloud data with the vault<ept id="9d723473-cf58-4b2a-ae2b-eda7fb556187">&lt;/strong&gt;</ept> when you installed the Provider so all clouds on the VMM server will appear in the &lt;b&gt;Protected Items&lt;/b&gt; tab in the vault.</source>
+          <target state="new">You enabled the option <bpt id="9d723473-cf58-4b2a-ae2b-eda7fb556187">&lt;strong&gt;</bpt>Synchronize cloud data with the vault<ept id="9d723473-cf58-4b2a-ae2b-eda7fb556187">&lt;/strong&gt;</ept> when you installed the Provider so all clouds on the VMM server will appear in the &lt;b&gt;Protected Items&lt;/b&gt; tab in the vault.</target>
+        </trans-unit>
+        <trans-unit id="14291099-a05a-4d4a-b320-83ce47e0576e" xml:space="preserve">
+          <source><bpt id="1235d37f-096b-4fa5-956f-1823750505eb">&lt;linkText&gt;</bpt>Published Cloud<ept id="1235d37f-096b-4fa5-956f-1823750505eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1235d37f-096b-4fa5-956f-1823750505eb">&lt;linkText&gt;</bpt>Published Cloud<ept id="1235d37f-096b-4fa5-956f-1823750505eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c72d481-c8be-42c3-becc-5b6b4767678f" xml:space="preserve">
+          <source>On the <bpt id="23b2b35f-46d1-4fc8-aff6-abffd802a6a1">&lt;strong&gt;</bpt>Quick Start<ept id="23b2b35f-46d1-4fc8-aff6-abffd802a6a1">&lt;/strong&gt;</ept> page, click <bpt id="bfb380ad-b8d0-4722-a097-f0f1cc513073">&lt;strong&gt;</bpt>Set up protection for VMM clouds<ept id="bfb380ad-b8d0-4722-a097-f0f1cc513073">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="23b2b35f-46d1-4fc8-aff6-abffd802a6a1">&lt;strong&gt;</bpt>Quick Start<ept id="23b2b35f-46d1-4fc8-aff6-abffd802a6a1">&lt;/strong&gt;</ept> page, click <bpt id="bfb380ad-b8d0-4722-a097-f0f1cc513073">&lt;strong&gt;</bpt>Set up protection for VMM clouds<ept id="bfb380ad-b8d0-4722-a097-f0f1cc513073">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ae2095f-fc03-4bf2-a077-3436cfc4a0ac" xml:space="preserve">
+          <source>On the <bpt id="61b3536b-71c6-4952-a065-92ed3cd4fd3d">&lt;strong&gt;</bpt>Protected Items<ept id="61b3536b-71c6-4952-a065-92ed3cd4fd3d">&lt;/strong&gt;</ept> tab, click the cloud you want to configure and go to the <bpt id="f955a82e-4aac-4db3-b463-2c7c0dc169c5">&lt;strong&gt;</bpt>Configuration<ept id="f955a82e-4aac-4db3-b463-2c7c0dc169c5">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the <bpt id="61b3536b-71c6-4952-a065-92ed3cd4fd3d">&lt;strong&gt;</bpt>Protected Items<ept id="61b3536b-71c6-4952-a065-92ed3cd4fd3d">&lt;/strong&gt;</ept> tab, click the cloud you want to configure and go to the <bpt id="f955a82e-4aac-4db3-b463-2c7c0dc169c5">&lt;strong&gt;</bpt>Configuration<ept id="f955a82e-4aac-4db3-b463-2c7c0dc169c5">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="9750a0b0-1bfc-4801-a936-ba6bd2ae2fc4" xml:space="preserve">
+          <source>In &lt;b&gt;Target&lt;/b&gt;, select &lt;b&gt;Microsoft Azure&lt;/b&gt;.</source>
+          <target state="new">In &lt;b&gt;Target&lt;/b&gt;, select &lt;b&gt;Microsoft Azure&lt;/b&gt;.</target>
+        </trans-unit>
+        <trans-unit id="9b3fcc17-e5f1-4453-87a9-33069418753f" xml:space="preserve">
+          <source>In &lt;b&gt;Storage Account&lt;/b&gt;, select the Azure storage account you want to use to replicate your virtual machines to.</source>
+          <target state="new">In &lt;b&gt;Storage Account&lt;/b&gt;, select the Azure storage account you want to use to replicate your virtual machines to.</target>
+        </trans-unit>
+        <trans-unit id="44eeffa5-cd8a-4c7e-8cb0-22ec4f8dd550" xml:space="preserve">
+          <source>Set &lt;b&gt;Encrypt stored data&lt;/b&gt; to &lt;b&gt;Off&lt;/b&gt;.</source>
+          <target state="new">Set &lt;b&gt;Encrypt stored data&lt;/b&gt; to &lt;b&gt;Off&lt;/b&gt;.</target>
+        </trans-unit>
+        <trans-unit id="62f6d990-2424-4752-a96f-1ae71f4519ae" xml:space="preserve">
+          <source>This setting specifies that data should be encrypted between the on-premises site and Azure.</source>
+          <target state="new">This setting specifies that data should be encrypted between the on-premises site and Azure.</target>
+        </trans-unit>
+        <trans-unit id="610ea693-d618-45fa-82dd-7728a4faebdc" xml:space="preserve">
+          <source>In &lt;b&gt;Copy frequency&lt;/b&gt; leave the default setting.</source>
+          <target state="new">In &lt;b&gt;Copy frequency&lt;/b&gt; leave the default setting.</target>
+        </trans-unit>
+        <trans-unit id="d457e331-8440-445e-af0b-3a322d309487" xml:space="preserve">
+          <source>This value specifies how frequently data should be synchronized between source and target locations.</source>
+          <target state="new">This value specifies how frequently data should be synchronized between source and target locations.</target>
+        </trans-unit>
+        <trans-unit id="97435c6e-3a83-4256-8af5-012850ff348e" xml:space="preserve">
+          <source>In &lt;b&gt;Retain recovery points for&lt;/b&gt;, leave the default setting.</source>
+          <target state="new">In &lt;b&gt;Retain recovery points for&lt;/b&gt;, leave the default setting.</target>
+        </trans-unit>
+        <trans-unit id="459552a3-6a95-4f94-ac44-ad49d405eab7" xml:space="preserve">
+          <source>With a default value of zero, only the latest recovery point for a primary virtual machine is stored on a replica host server.</source>
+          <target state="new">With a default value of zero, only the latest recovery point for a primary virtual machine is stored on a replica host server.</target>
+        </trans-unit>
+        <trans-unit id="286cbde8-2dfc-40b9-a25c-dfc807f9bc96" xml:space="preserve">
+          <source>In &lt;b&gt;Frequency of application-consistent snapshots&lt;/b&gt;, leave the default setting.</source>
+          <target state="new">In &lt;b&gt;Frequency of application-consistent snapshots&lt;/b&gt;, leave the default setting.</target>
+        </trans-unit>
+        <trans-unit id="f69f46ce-d1bb-4a2a-a4c0-1219816ac7b3" xml:space="preserve">
+          <source>This value specifies how often to create snapshots.</source>
+          <target state="new">This value specifies how often to create snapshots.</target>
+        </trans-unit>
+        <trans-unit id="9d949efd-71ef-44a3-89a1-8da757427523" xml:space="preserve">
+          <source>Snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken.</source>
+          <target state="new">Snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken.</target>
+        </trans-unit>
+        <trans-unit id="1984c98c-71e1-48ee-810b-2267b1071672" xml:space="preserve">
+          <source>If you do set a value, make sure it's less than the number of additional recovery points you configure.</source>
+          <target state="new">If you do set a value, make sure it's less than the number of additional recovery points you configure.</target>
+        </trans-unit>
+        <trans-unit id="6c05bae1-9568-4fa0-a9b4-74078abd9209" xml:space="preserve">
+          <source>In &lt;b&gt;Replication start time&lt;/b&gt;, specify when initial replication of data to Azure should start.</source>
+          <target state="new">In &lt;b&gt;Replication start time&lt;/b&gt;, specify when initial replication of data to Azure should start.</target>
+        </trans-unit>
+        <trans-unit id="90999786-d7b9-4770-8c16-a087b8f5ab04" xml:space="preserve">
+          <source>The timezone on the Hyper-V host server will be used.</source>
+          <target state="new">The timezone on the Hyper-V host server will be used.</target>
+        </trans-unit>
+        <trans-unit id="d6f5c507-cd9d-4b94-b3ff-6e4b2f13c196" xml:space="preserve">
+          <source>We recommend that you schedule the initial replication during off-peak hours.</source>
+          <target state="new">We recommend that you schedule the initial replication during off-peak hours.</target>
+        </trans-unit>
+        <trans-unit id="04c38369-b554-4bfc-8e39-fc77aedb0a59" xml:space="preserve">
+          <source><bpt id="a0b70a9a-2af8-409f-ad7d-83a12748003f">&lt;linkText&gt;</bpt>Cloud replication settings<ept id="a0b70a9a-2af8-409f-ad7d-83a12748003f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a0b70a9a-2af8-409f-ad7d-83a12748003f">&lt;linkText&gt;</bpt>Cloud replication settings<ept id="a0b70a9a-2af8-409f-ad7d-83a12748003f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="becdae3b-adfe-434d-bab8-81bf8986079e" xml:space="preserve">
+          <source>After you save the settings a job will be created and can be monitored on the &lt;b&gt;Jobs&lt;/b&gt; tab.</source>
+          <target state="new">After you save the settings a job will be created and can be monitored on the &lt;b&gt;Jobs&lt;/b&gt; tab.</target>
+        </trans-unit>
+        <trans-unit id="46e76b69-1353-4304-ae65-e72903ccc012" xml:space="preserve">
+          <source>All Hyper-V host servers in the VMM source cloud will be configured for replication.</source>
+          <target state="new">All Hyper-V host servers in the VMM source cloud will be configured for replication.</target>
+        </trans-unit>
+        <trans-unit id="5a1ff62a-e31c-4f1d-8030-d58f7f15baaa" xml:space="preserve">
+          <source>After saving, cloud settings can be modified on the &lt;b&gt;Configure&lt;/b&gt; tab. To modify the target location or target storage account you'll need to remove the cloud configuration, and then reconfigure the cloud. Note that if you change the storage account the change is only applied for virtual machines that are enabled for protection after the storage account has been modified. Existing virtual machines are not migrated to the new storage account.&lt;/p&gt;</source>
+          <target state="new">After saving, cloud settings can be modified on the &lt;b&gt;Configure&lt;/b&gt; tab. To modify the target location or target storage account you'll need to remove the cloud configuration, and then reconfigure the cloud. Note that if you change the storage account the change is only applied for virtual machines that are enabled for protection after the storage account has been modified. Existing virtual machines are not migrated to the new storage account.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="dee237b4-bb18-43a7-aeb7-2b4cbe293feb" xml:space="preserve">
+          <source>Before you begin network mapping verify that virtual machines on the source VMM server are connected to a VM network.</source>
+          <target state="new">Before you begin network mapping verify that virtual machines on the source VMM server are connected to a VM network.</target>
+        </trans-unit>
+        <trans-unit id="ac8a77ee-c96d-44c4-9417-340759438062" xml:space="preserve">
+          <source>In addition, create one or more Azure virtual networks.</source>
+          <target state="new">In addition, create one or more Azure virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="1f3906ed-f803-40e0-83f9-1ae3f9c1483d" xml:space="preserve">
+          <source>Note that multiple VM networks can be mapped to a single Azure network.</source>
+          <target state="new">Note that multiple VM networks can be mapped to a single Azure network.</target>
+        </trans-unit>
+        <trans-unit id="f9bfba42-40e0-409e-9bdb-bcde91cb1f6d" xml:space="preserve">
+          <source>On the <bpt id="99b2b720-d31c-4978-915e-2d93ded48896">&lt;strong&gt;</bpt>Quick Start<ept id="99b2b720-d31c-4978-915e-2d93ded48896">&lt;/strong&gt;</ept> page, click <bpt id="5b8b161d-4133-4b2b-a275-68ebacfaba8e">&lt;strong&gt;</bpt>Map networks<ept id="5b8b161d-4133-4b2b-a275-68ebacfaba8e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="99b2b720-d31c-4978-915e-2d93ded48896">&lt;strong&gt;</bpt>Quick Start<ept id="99b2b720-d31c-4978-915e-2d93ded48896">&lt;/strong&gt;</ept> page, click <bpt id="5b8b161d-4133-4b2b-a275-68ebacfaba8e">&lt;strong&gt;</bpt>Map networks<ept id="5b8b161d-4133-4b2b-a275-68ebacfaba8e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="338bd8cf-6fc1-43a2-9748-429c8bb214d4" xml:space="preserve">
+          <source>On the <bpt id="1e7613a1-a374-4e8d-bca5-eeff928d3bf3">&lt;strong&gt;</bpt>Networks<ept id="1e7613a1-a374-4e8d-bca5-eeff928d3bf3">&lt;/strong&gt;</ept> tab, in <bpt id="9451cafc-6040-40fb-9143-d4f39f66a044">&lt;strong&gt;</bpt>Source location<ept id="9451cafc-6040-40fb-9143-d4f39f66a044">&lt;/strong&gt;</ept>, select the source VMM server.</source>
+          <target state="new">On the <bpt id="1e7613a1-a374-4e8d-bca5-eeff928d3bf3">&lt;strong&gt;</bpt>Networks<ept id="1e7613a1-a374-4e8d-bca5-eeff928d3bf3">&lt;/strong&gt;</ept> tab, in <bpt id="9451cafc-6040-40fb-9143-d4f39f66a044">&lt;strong&gt;</bpt>Source location<ept id="9451cafc-6040-40fb-9143-d4f39f66a044">&lt;/strong&gt;</ept>, select the source VMM server.</target>
+        </trans-unit>
+        <trans-unit id="82ea39f9-41c1-4e52-b960-1544368b24dd" xml:space="preserve">
+          <source>In <bpt id="e8dd2f90-a185-49a8-9586-283865289518">&lt;strong&gt;</bpt>Target location<ept id="e8dd2f90-a185-49a8-9586-283865289518">&lt;/strong&gt;</ept> select <bpt id="515e7cfe-d524-4946-93ce-855e4cbd51f3">&lt;strong&gt;</bpt>Azure<ept id="515e7cfe-d524-4946-93ce-855e4cbd51f3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="e8dd2f90-a185-49a8-9586-283865289518">&lt;strong&gt;</bpt>Target location<ept id="e8dd2f90-a185-49a8-9586-283865289518">&lt;/strong&gt;</ept> select <bpt id="515e7cfe-d524-4946-93ce-855e4cbd51f3">&lt;strong&gt;</bpt>Azure<ept id="515e7cfe-d524-4946-93ce-855e4cbd51f3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c816613-7b7f-4dfd-ae73-ab6908d7f2aa" xml:space="preserve">
+          <source>In <bpt id="d31edef4-06a8-4d0c-b03b-7ed21e3674d2">&lt;strong&gt;</bpt>Source<ept id="d31edef4-06a8-4d0c-b03b-7ed21e3674d2">&lt;/strong&gt;</ept> networks a list of VM networks associated with the VMM server are displayed.</source>
+          <target state="new">In <bpt id="d31edef4-06a8-4d0c-b03b-7ed21e3674d2">&lt;strong&gt;</bpt>Source<ept id="d31edef4-06a8-4d0c-b03b-7ed21e3674d2">&lt;/strong&gt;</ept> networks a list of VM networks associated with the VMM server are displayed.</target>
+        </trans-unit>
+        <trans-unit id="f06ba899-5554-4685-8af6-f3d92cdeba97" xml:space="preserve">
+          <source>In <bpt id="119bbe2e-3b1e-4b7d-aaf5-b13e99ff0096">&lt;strong&gt;</bpt>Target<ept id="119bbe2e-3b1e-4b7d-aaf5-b13e99ff0096">&lt;/strong&gt;</ept> networks the Azure networks associated with the subscription are displayed.</source>
+          <target state="new">In <bpt id="119bbe2e-3b1e-4b7d-aaf5-b13e99ff0096">&lt;strong&gt;</bpt>Target<ept id="119bbe2e-3b1e-4b7d-aaf5-b13e99ff0096">&lt;/strong&gt;</ept> networks the Azure networks associated with the subscription are displayed.</target>
+        </trans-unit>
+        <trans-unit id="96d0e344-fb76-4d37-9d0e-16c50a7aef35" xml:space="preserve">
+          <source>Select the source VM network and then click <bpt id="9e86860a-9d6c-436d-af24-daa35b53bae7">&lt;strong&gt;</bpt>Map<ept id="9e86860a-9d6c-436d-af24-daa35b53bae7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the source VM network and then click <bpt id="9e86860a-9d6c-436d-af24-daa35b53bae7">&lt;strong&gt;</bpt>Map<ept id="9e86860a-9d6c-436d-af24-daa35b53bae7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ddb0ac3-ace0-40a4-babe-e9671c713794" xml:space="preserve">
+          <source>On the <bpt id="53eb7c46-2089-47dd-a321-e61af3fda41b">&lt;strong&gt;</bpt>Select a Target Network<ept id="53eb7c46-2089-47dd-a321-e61af3fda41b">&lt;/strong&gt;</ept> page, select the target Azure network you want to use.</source>
+          <target state="new">On the <bpt id="53eb7c46-2089-47dd-a321-e61af3fda41b">&lt;strong&gt;</bpt>Select a Target Network<ept id="53eb7c46-2089-47dd-a321-e61af3fda41b">&lt;/strong&gt;</ept> page, select the target Azure network you want to use.</target>
+        </trans-unit>
+        <trans-unit id="37956fb3-5712-412f-ab3d-8b5c014dfb3d" xml:space="preserve">
+          <source>Click the check mark to complete the mapping process.</source>
+          <target state="new">Click the check mark to complete the mapping process.</target>
+        </trans-unit>
+        <trans-unit id="daeaa5e7-bdb3-4048-a3db-fc4a1215bee3" xml:space="preserve">
+          <source><bpt id="c720d7a3-bc26-4f90-8bc9-ec4b7c419783">&lt;linkText&gt;</bpt>Cloud replication settings<ept id="c720d7a3-bc26-4f90-8bc9-ec4b7c419783">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c720d7a3-bc26-4f90-8bc9-ec4b7c419783">&lt;linkText&gt;</bpt>Cloud replication settings<ept id="c720d7a3-bc26-4f90-8bc9-ec4b7c419783">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0930809-a606-4bba-9712-0cb4d7b3953f" xml:space="preserve">
+          <source>After you save the settings a job starts to track the mapping progress and it can be monitored on the <bpt id="edadbac8-7d17-4ff3-8ffa-2d26c6e867c9">&lt;strong&gt;</bpt>Jobs<ept id="edadbac8-7d17-4ff3-8ffa-2d26c6e867c9">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">After you save the settings a job starts to track the mapping progress and it can be monitored on the <bpt id="edadbac8-7d17-4ff3-8ffa-2d26c6e867c9">&lt;strong&gt;</bpt>Jobs<ept id="edadbac8-7d17-4ff3-8ffa-2d26c6e867c9">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="d5a1430c-4495-4b4e-8403-99fdc39b32e2" xml:space="preserve">
+          <source>Any existing replica virtual machines that correspond to the source VM network will be connected to the target Azure networks.</source>
+          <target state="new">Any existing replica virtual machines that correspond to the source VM network will be connected to the target Azure networks.</target>
+        </trans-unit>
+        <trans-unit id="334aba74-521b-4cc3-aced-3b52fed8bd5b" xml:space="preserve">
+          <source>New virtual machines that are connected to the source VM network will be connected to the mapped Azure network after replication.</source>
+          <target state="new">New virtual machines that are connected to the source VM network will be connected to the mapped Azure network after replication.</target>
+        </trans-unit>
+        <trans-unit id="1767039c-1b61-4e98-a808-bc92422cdf4c" xml:space="preserve">
+          <source>If you modify an existing mapping with a new network, replica virtual machines will be connected using the new settings.</source>
+          <target state="new">If you modify an existing mapping with a new network, replica virtual machines will be connected using the new settings.</target>
+        </trans-unit>
+        <trans-unit id="3e35d74d-0760-48cf-86aa-ad7360cc1dbd" xml:space="preserve">
+          <source>Note that if the target network has multiple subnets and one of those subnets has the same name as the subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover.</source>
+          <target state="new">Note that if the target network has multiple subnets and one of those subnets has the same name as the subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover.</target>
+        </trans-unit>
+        <trans-unit id="b12497f4-a34f-43bd-9420-63ff75e9ffdb" xml:space="preserve">
+          <source>If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.</source>
+          <target state="new">If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.</target>
+        </trans-unit>
+        <trans-unit id="a9e73e23-6272-4183-95bd-7725c604613b" xml:space="preserve">
+          <source>After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud.</source>
+          <target state="new">After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="47462cd2-1eea-4e28-a146-a5c699cb26a1" xml:space="preserve">
+          <source>Note the following:</source>
+          <target state="new">Note the following:</target>
+        </trans-unit>
+        <trans-unit id="0174f5fd-d95d-4bfc-bddd-2d6fe3377502" xml:space="preserve">
+          <source>Virtual machines must meet Azure requirements.</source>
+          <target state="new">Virtual machines must meet Azure requirements.</target>
+        </trans-unit>
+        <trans-unit id="b3c3f173-15fc-4f96-8464-4dc82034c5ac" xml:space="preserve">
+          <source>Check these in &lt;a href="http://go.microsoft.com/fwlink/?LinkId=402602"&gt;Prerequisites and support&lt;/a&gt; in the Planning guide.</source>
+          <target state="new">Check these in &lt;a href="http://go.microsoft.com/fwlink/?LinkId=402602"&gt;Prerequisites and support&lt;/a&gt; in the Planning guide.</target>
+        </trans-unit>
+        <trans-unit id="d15cce95-693b-4301-b0f0-3dfc6d0e6e1b" xml:space="preserve">
+          <source>To enable protection the operating system and operating system disk properties must be set for the virtual machine.</source>
+          <target state="new">To enable protection the operating system and operating system disk properties must be set for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="aac00804-9908-41d7-a9f3-18429e52e229" xml:space="preserve">
+          <source>When you create a virtual machine in VMM using a virtual machine template you can set the property.</source>
+          <target state="new">When you create a virtual machine in VMM using a virtual machine template you can set the property.</target>
+        </trans-unit>
+        <trans-unit id="88c4874e-2565-462f-81d4-7c389017fd03" xml:space="preserve">
+          <source>You can also set these properties for existing virtual machines on the <bpt id="aa221fe1-91ef-4b41-93f0-57d22540f2a6">&lt;strong&gt;</bpt>General<ept id="aa221fe1-91ef-4b41-93f0-57d22540f2a6">&lt;/strong&gt;</ept> and <bpt id="90200848-be5b-436d-a51f-523ea3b5706e">&lt;strong&gt;</bpt>Hardware Configuration<ept id="90200848-be5b-436d-a51f-523ea3b5706e">&lt;/strong&gt;</ept> tabs of the virtual machine properties.</source>
+          <target state="new">You can also set these properties for existing virtual machines on the <bpt id="aa221fe1-91ef-4b41-93f0-57d22540f2a6">&lt;strong&gt;</bpt>General<ept id="aa221fe1-91ef-4b41-93f0-57d22540f2a6">&lt;/strong&gt;</ept> and <bpt id="90200848-be5b-436d-a51f-523ea3b5706e">&lt;strong&gt;</bpt>Hardware Configuration<ept id="90200848-be5b-436d-a51f-523ea3b5706e">&lt;/strong&gt;</ept> tabs of the virtual machine properties.</target>
+        </trans-unit>
+        <trans-unit id="9fe82dcd-6b2d-4713-9a13-649321de0793" xml:space="preserve">
+          <source>If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.</source>
+          <target state="new">If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.</target>
+        </trans-unit>
+        <trans-unit id="3a870326-aebc-4377-809e-45a6451b07be" xml:space="preserve">
+          <source><bpt id="c3808a78-6cc1-440c-ba13-ac6aac0cc9c6">&lt;linkText&gt;</bpt>Create virtual machine<ept id="c3808a78-6cc1-440c-ba13-ac6aac0cc9c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c3808a78-6cc1-440c-ba13-ac6aac0cc9c6">&lt;linkText&gt;</bpt>Create virtual machine<ept id="c3808a78-6cc1-440c-ba13-ac6aac0cc9c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5050ec38-347a-4a69-b63a-27676b472101" xml:space="preserve">
+          <source><bpt id="474abea9-beeb-4b80-827f-47654980e64a">&lt;linkText&gt;</bpt>Modify virtual machine properties<ept id="474abea9-beeb-4b80-827f-47654980e64a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="474abea9-beeb-4b80-827f-47654980e64a">&lt;linkText&gt;</bpt>Modify virtual machine properties<ept id="474abea9-beeb-4b80-827f-47654980e64a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="030b8ee5-334b-45b0-a325-2cd762646c79" xml:space="preserve">
+          <source>To enable protection, on the &lt;b&gt;Virtual Machines&lt;/b&gt; tab in the cloud in which the virtual machine is located, click &lt;b&gt;Enable protection&lt;/b&gt; and then select &lt;b&gt;Add virtual machines&lt;/b&gt;.</source>
+          <target state="new">To enable protection, on the &lt;b&gt;Virtual Machines&lt;/b&gt; tab in the cloud in which the virtual machine is located, click &lt;b&gt;Enable protection&lt;/b&gt; and then select &lt;b&gt;Add virtual machines&lt;/b&gt;.</target>
+        </trans-unit>
+        <trans-unit id="9074054e-b733-4c4e-b56a-5f436f776861" xml:space="preserve">
+          <source>From the list of virtual machines in the cloud, select the one you want to protect.</source>
+          <target state="new">From the list of virtual machines in the cloud, select the one you want to protect.</target>
+        </trans-unit>
+        <trans-unit id="087cab05-4944-433c-9b1d-e725ac24dcf1" xml:space="preserve">
+          <source><bpt id="86789d1a-d5a8-47ac-8d6e-a5d48a37f989">&lt;linkText&gt;</bpt>Enable virtual machine protection<ept id="86789d1a-d5a8-47ac-8d6e-a5d48a37f989">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="86789d1a-d5a8-47ac-8d6e-a5d48a37f989">&lt;linkText&gt;</bpt>Enable virtual machine protection<ept id="86789d1a-d5a8-47ac-8d6e-a5d48a37f989">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1061b29e-ab82-48d1-9eb7-731438456114" xml:space="preserve">
+          <source>Track progress of the Enable Protection action in the <bpt id="230614e9-f19f-4049-af79-51b3123f583d">&lt;strong&gt;</bpt>Jobs<ept id="230614e9-f19f-4049-af79-51b3123f583d">&lt;/strong&gt;</ept> tab, including the initial replication.</source>
+          <target state="new">Track progress of the Enable Protection action in the <bpt id="230614e9-f19f-4049-af79-51b3123f583d">&lt;strong&gt;</bpt>Jobs<ept id="230614e9-f19f-4049-af79-51b3123f583d">&lt;/strong&gt;</ept> tab, including the initial replication.</target>
+        </trans-unit>
+        <trans-unit id="700ce757-cc26-4a6e-a060-4032f9f9a865" xml:space="preserve">
+          <source>After the Finalize Protection job runs the virtual machine is ready for failover.</source>
+          <target state="new">After the Finalize Protection job runs the virtual machine is ready for failover.</target>
+        </trans-unit>
+        <trans-unit id="a79502e4-372a-4f67-b847-558fa0c72e95" xml:space="preserve">
+          <source>After protection is enabled and virtual machines are replicated, you’ll be able to view them in Azure.</source>
+          <target state="new">After protection is enabled and virtual machines are replicated, you’ll be able to view them in Azure.</target>
+        </trans-unit>
+        <trans-unit id="53ab3661-9744-406f-b29e-e217a18263f8" xml:space="preserve">
+          <source><bpt id="c957991d-7a2d-4a92-b60c-2a40ffcf5b53">&lt;linkText&gt;</bpt>Virtual machine protection job<ept id="c957991d-7a2d-4a92-b60c-2a40ffcf5b53">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c957991d-7a2d-4a92-b60c-2a40ffcf5b53">&lt;linkText&gt;</bpt>Virtual machine protection job<ept id="c957991d-7a2d-4a92-b60c-2a40ffcf5b53">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aab5f3e6-80ca-435e-9674-a08b6d6d834d" xml:space="preserve">
+          <source>Verify the virtual machine properties and modify as required.</source>
+          <target state="new">Verify the virtual machine properties and modify as required.</target>
+        </trans-unit>
+        <trans-unit id="82667f2c-2340-435f-90a1-16122c4e1dd7" xml:space="preserve">
+          <source><bpt id="3bd62fb3-ce94-4e94-ae04-7e49d80d1df8">&lt;linkText&gt;</bpt>Verify virtual machines<ept id="3bd62fb3-ce94-4e94-ae04-7e49d80d1df8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3bd62fb3-ce94-4e94-ae04-7e49d80d1df8">&lt;linkText&gt;</bpt>Verify virtual machines<ept id="3bd62fb3-ce94-4e94-ae04-7e49d80d1df8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37c0dd94-1711-4d55-949e-0fd57f4f94ac" xml:space="preserve">
+          <source>On the configure tab of the virtual machine, you can modify the following network properties.</source>
+          <target state="new">On the configure tab of the virtual machine, you can modify the following network properties.</target>
+        </trans-unit>
+        <trans-unit id="aa1b9db7-d86c-4b8b-97f1-25e8d4bac3d7" xml:space="preserve">
+          <source>Number of network adapters of target virtual machine - Number of network adapters on target virtual machine depends on the size of the virtual machine chosen.</source>
+          <target state="new">Number of network adapters of target virtual machine - Number of network adapters on target virtual machine depends on the size of the virtual machine chosen.</target>
+        </trans-unit>
+        <trans-unit id="aa1fbb70-6dad-47aa-80ba-4c965084794e" xml:space="preserve">
+          <source>The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virutal machine chosen.</source>
+          <target state="new">The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virutal machine chosen.</target>
+        </trans-unit>
+        <trans-unit id="f64fbde8-3661-4ab5-9e9c-2461e42ab501" xml:space="preserve">
+          <source>Network of the target virtual machine - The network to which the virtual machine connects to is determined by network mapping of the network of the source virtual machine.</source>
+          <target state="new">Network of the target virtual machine - The network to which the virtual machine connects to is determined by network mapping of the network of the source virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="4c7eebf2-0414-4a08-824b-0c1f0427ed74" xml:space="preserve">
+          <source>In case the source virtual machine has more than one network adapter and source networks are mapped to different networks on target, then the user would have to choose between one of the target networks.</source>
+          <target state="new">In case the source virtual machine has more than one network adapter and source networks are mapped to different networks on target, then the user would have to choose between one of the target networks.</target>
+        </trans-unit>
+        <trans-unit id="6a3a9948-0a16-4ba8-a837-ac2a96271b58" xml:space="preserve">
+          <source>Subnet of each of the network adapters - For each network adapter the user can choose the subnet to which the failed over virtual machine would connect to.</source>
+          <target state="new">Subnet of each of the network adapters - For each network adapter the user can choose the subnet to which the failed over virtual machine would connect to.</target>
+        </trans-unit>
+        <trans-unit id="0f874f2c-7bfc-4dd9-9d11-dbfc7b59a177" xml:space="preserve">
+          <source>Target IP - If the network adapter of source virtual machine is configured to use static IP, then the user can provide the IP for the target virtual machine.</source>
+          <target state="new">Target IP - If the network adapter of source virtual machine is configured to use static IP, then the user can provide the IP for the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="191b27f1-95bb-4ed2-befc-348ae88e0689" xml:space="preserve">
+          <source>User can use this capability to retain the IP of the source virtual machine after a failover.</source>
+          <target state="new">User can use this capability to retain the IP of the source virtual machine after a failover.</target>
+        </trans-unit>
+        <trans-unit id="ee45c931-88a9-41e3-b05b-cbcc03a88271" xml:space="preserve">
+          <source>If no IP is provided any available IP would be given to network adapter at the time of failover.</source>
+          <target state="new">If no IP is provided any available IP would be given to network adapter at the time of failover.</target>
+        </trans-unit>
+        <trans-unit id="6f76aedd-a436-4b19-bfae-206eb85d39a0" xml:space="preserve">
+          <source>In case the target IP provided by user is already used by some other virtual machine that is already running in Azure, then the failover would fail.</source>
+          <target state="new">In case the target IP provided by user is already used by some other virtual machine that is already running in Azure, then the failover would fail.</target>
+        </trans-unit>
+        <trans-unit id="cc717160-21c2-4aa0-93e8-7e1611284bef" xml:space="preserve">
+          <source><bpt id="b669018d-be7e-4a5f-a260-8d56d9dc3105">&lt;linkText&gt;</bpt>Modify network properties<ept id="b669018d-be7e-4a5f-a260-8d56d9dc3105">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b669018d-be7e-4a5f-a260-8d56d9dc3105">&lt;linkText&gt;</bpt>Modify network properties<ept id="b669018d-be7e-4a5f-a260-8d56d9dc3105">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d90805db-dfba-4310-88d3-0d9955010433" xml:space="preserve">
+          <source>To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan.</source>
+          <target state="new">To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan.</target>
+        </trans-unit>
+        <trans-unit id="de37d3f9-58d3-478d-830b-be93b2c734d8" xml:space="preserve">
+          <source>Test failover simulates your failover and recovery mechanism in an isolated network.</source>
+          <target state="new">Test failover simulates your failover and recovery mechanism in an isolated network.</target>
+        </trans-unit>
+        <trans-unit id="ee3ca8a8-9a49-4015-8267-4ef38319f3ae" xml:space="preserve">
+          <source>Note that:</source>
+          <target state="new">Note that:</target>
+        </trans-unit>
+        <trans-unit id="d357025c-5898-44a9-92d8-8096dd3bda29" xml:space="preserve">
+          <source>If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.</source>
+          <target state="new">If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.</target>
+        </trans-unit>
+        <trans-unit id="b102698c-5cdf-4a50-aba3-5e85e867c29f" xml:space="preserve">
+          <source>After failover you'll use a public IP address to connect to the virtual machine in Azure using Remote Desktop.</source>
+          <target state="new">After failover you'll use a public IP address to connect to the virtual machine in Azure using Remote Desktop.</target>
+        </trans-unit>
+        <trans-unit id="2b0c0515-375c-4601-b691-376d95108439" xml:space="preserve">
+          <source>If you want to do this, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.</source>
+          <target state="new">If you want to do this, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.</target>
+        </trans-unit>
+        <trans-unit id="8673c6c4-31ff-4d17-a2f7-fcda3fe3ab60" xml:space="preserve">
+          <source>On the <bpt id="2c0399cc-ded8-4513-bcca-20aba3dc0086">&lt;strong&gt;</bpt>Recovery Plans<ept id="2c0399cc-ded8-4513-bcca-20aba3dc0086">&lt;/strong&gt;</ept> tab, add a new plan.</source>
+          <target state="new">On the <bpt id="2c0399cc-ded8-4513-bcca-20aba3dc0086">&lt;strong&gt;</bpt>Recovery Plans<ept id="2c0399cc-ded8-4513-bcca-20aba3dc0086">&lt;/strong&gt;</ept> tab, add a new plan.</target>
+        </trans-unit>
+        <trans-unit id="b7b49fbf-e9a9-47d9-a000-da53cb83aee1" xml:space="preserve">
+          <source>Specify a name, <bpt id="aa3caa96-8e92-40be-9188-bd10a762ceb9">&lt;strong&gt;</bpt>VMM<ept id="aa3caa96-8e92-40be-9188-bd10a762ceb9">&lt;/strong&gt;</ept> in <bpt id="b388943b-72af-4163-958b-a093823e33d0">&lt;strong&gt;</bpt>Source type<ept id="b388943b-72af-4163-958b-a093823e33d0">&lt;/strong&gt;</ept>, and the source VMM server in <bpt id="7dbba0d4-6cba-4ce0-9b03-116d22a4ba57">&lt;strong&gt;</bpt>Source<ept id="7dbba0d4-6cba-4ce0-9b03-116d22a4ba57">&lt;/strong&gt;</ept>, The target will be Azure.</source>
+          <target state="new">Specify a name, <bpt id="aa3caa96-8e92-40be-9188-bd10a762ceb9">&lt;strong&gt;</bpt>VMM<ept id="aa3caa96-8e92-40be-9188-bd10a762ceb9">&lt;/strong&gt;</ept> in <bpt id="b388943b-72af-4163-958b-a093823e33d0">&lt;strong&gt;</bpt>Source type<ept id="b388943b-72af-4163-958b-a093823e33d0">&lt;/strong&gt;</ept>, and the source VMM server in <bpt id="7dbba0d4-6cba-4ce0-9b03-116d22a4ba57">&lt;strong&gt;</bpt>Source<ept id="7dbba0d4-6cba-4ce0-9b03-116d22a4ba57">&lt;/strong&gt;</ept>, The target will be Azure.</target>
+        </trans-unit>
+        <trans-unit id="29cd19cf-192f-45ca-b748-f40be547f825" xml:space="preserve">
+          <source><bpt id="be1bde11-08d3-4f49-8f06-a2db9ddc4541">&lt;linkText&gt;</bpt>Create recovery plan<ept id="be1bde11-08d3-4f49-8f06-a2db9ddc4541">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be1bde11-08d3-4f49-8f06-a2db9ddc4541">&lt;linkText&gt;</bpt>Create recovery plan<ept id="be1bde11-08d3-4f49-8f06-a2db9ddc4541">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="270b1f97-0f13-4342-bb42-a5579c3dd21f" xml:space="preserve">
+          <source>In the <bpt id="f73c6a7a-4b5a-407b-b0c8-950f2b55fac2">&lt;strong&gt;</bpt>Select Virtual Machines<ept id="f73c6a7a-4b5a-407b-b0c8-950f2b55fac2">&lt;/strong&gt;</ept> page, select virtual machines to add to the recovery plan.</source>
+          <target state="new">In the <bpt id="f73c6a7a-4b5a-407b-b0c8-950f2b55fac2">&lt;strong&gt;</bpt>Select Virtual Machines<ept id="f73c6a7a-4b5a-407b-b0c8-950f2b55fac2">&lt;/strong&gt;</ept> page, select virtual machines to add to the recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="7072f94f-c24c-4fdc-83b4-dcb9c0596918" xml:space="preserve">
+          <source>These virtual machines are added to the recovery plan default group—Group 1.</source>
+          <target state="new">These virtual machines are added to the recovery plan default group—Group 1.</target>
+        </trans-unit>
+        <trans-unit id="946e6e82-456d-4e2d-a908-64f3885852f4" xml:space="preserve">
+          <source>A maximum of 100 virtual machines in a single recovery plan have been tested.</source>
+          <target state="new">A maximum of 100 virtual machines in a single recovery plan have been tested.</target>
+        </trans-unit>
+        <trans-unit id="611b0eb4-97f7-4736-941b-48d850ea1b41" xml:space="preserve">
+          <source>If you want to verify the virtual machine properties before adding them to the plan, click the virtual machine on the properties page of the cloud in which it’s located.</source>
+          <target state="new">If you want to verify the virtual machine properties before adding them to the plan, click the virtual machine on the properties page of the cloud in which it’s located.</target>
+        </trans-unit>
+        <trans-unit id="a0bca038-1499-4add-b697-8cf87bc67c9c" xml:space="preserve">
+          <source>You can also configure the virtual machine properties in the VMM console.</source>
+          <target state="new">You can also configure the virtual machine properties in the VMM console.</target>
+        </trans-unit>
+        <trans-unit id="5c8b9dc4-a6af-4811-8bf2-7c32a923c9a1" xml:space="preserve">
+          <source>All of the virtual machines that are displayed have been enabled for protection.</source>
+          <target state="new">All of the virtual machines that are displayed have been enabled for protection.</target>
+        </trans-unit>
+        <trans-unit id="e950b7e9-6b74-4d1b-8f9e-c4b80acfc55b" xml:space="preserve">
+          <source>The list includes both virtual machines that are enabled for protection and initial replication has completed, and those that are enabled for protection with initial replication pending.</source>
+          <target state="new">The list includes both virtual machines that are enabled for protection and initial replication has completed, and those that are enabled for protection with initial replication pending.</target>
+        </trans-unit>
+        <trans-unit id="010ace69-5308-40c0-b935-c9125e7843c3" xml:space="preserve">
+          <source>Only virtual machines with initial replication completed can fail over as part of a recovery plan.</source>
+          <target state="new">Only virtual machines with initial replication completed can fail over as part of a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="3a4bf0cc-02ea-4de1-84f7-6bbebb7a739f" xml:space="preserve">
+          <source>Therefore, verify the initial replication status of virtual machines in the plan before starting recovery plan failover.</source>
+          <target state="new">Therefore, verify the initial replication status of virtual machines in the plan before starting recovery plan failover.</target>
+        </trans-unit>
+        <trans-unit id="a6f8b0fc-57c7-453c-81a1-d3615215169a" xml:space="preserve">
+          <source><bpt id="2ab18b62-44c5-4ef3-8730-1a39342501a8">&lt;linkText&gt;</bpt>Create recovery plan<ept id="2ab18b62-44c5-4ef3-8730-1a39342501a8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ab18b62-44c5-4ef3-8730-1a39342501a8">&lt;linkText&gt;</bpt>Create recovery plan<ept id="2ab18b62-44c5-4ef3-8730-1a39342501a8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9da2c701-72e0-4aa0-b0b0-2bf9332b0fbb" xml:space="preserve">
+          <source>After a recovery plan has been created it appears in the <bpt id="01aa25d2-2a87-4335-ac9c-f37f7d531550">&lt;strong&gt;</bpt>Recovery Plans<ept id="01aa25d2-2a87-4335-ac9c-f37f7d531550">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">After a recovery plan has been created it appears in the <bpt id="01aa25d2-2a87-4335-ac9c-f37f7d531550">&lt;strong&gt;</bpt>Recovery Plans<ept id="01aa25d2-2a87-4335-ac9c-f37f7d531550">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="0367acb5-5194-4b73-9d74-5c4126536663" xml:space="preserve">
+          <source>You can also add <bpt id="30a4e46d-f213-4944-b0c8-81f0ce349112">&lt;linkText&gt;</bpt>Azure Automation Runbooks<ept id="30a4e46d-f213-4944-b0c8-81f0ce349112">&lt;/linkText&gt;</ept><bpt id="30a4e46d-f213-4944-b0c8-81f0ce349112">&lt;title&gt;</bpt><ept id="30a4e46d-f213-4944-b0c8-81f0ce349112">&lt;/title&gt;</ept> to the recovery plan to automate failover time actions.</source>
+          <target state="new">You can also add <bpt id="30a4e46d-f213-4944-b0c8-81f0ce349112">&lt;linkText&gt;</bpt>Azure Automation Runbooks<ept id="30a4e46d-f213-4944-b0c8-81f0ce349112">&lt;/linkText&gt;</ept><bpt id="30a4e46d-f213-4944-b0c8-81f0ce349112">&lt;title&gt;</bpt><ept id="30a4e46d-f213-4944-b0c8-81f0ce349112">&lt;/title&gt;</ept> to the recovery plan to automate failover time actions.</target>
+        </trans-unit>
+        <trans-unit id="19d4de45-ae35-4b60-860a-f4dfda67b58d" xml:space="preserve">
+          <source>There are two ways to run a test failover to Azure.</source>
+          <target state="new">There are two ways to run a test failover to Azure.</target>
+        </trans-unit>
+        <trans-unit id="2892046d-8954-4391-98d0-f16083f0db12" xml:space="preserve">
+          <source>Test failover without an Azure network—This type of test failover checks that the virtual machine comes up correctly in Azure.</source>
+          <target state="new">Test failover without an Azure network—This type of test failover checks that the virtual machine comes up correctly in Azure.</target>
+        </trans-unit>
+        <trans-unit id="e7be8a22-209b-4708-9190-136f42948b70" xml:space="preserve">
+          <source>The virtual machine won’t be connected to any Azure network after failover.</source>
+          <target state="new">The virtual machine won’t be connected to any Azure network after failover.</target>
+        </trans-unit>
+        <trans-unit id="afec9b95-73f6-427b-9a5d-d53e1381a442" xml:space="preserve">
+          <source>Test failover with an Azure network—This type of failover checks that the entire replication environment comes up as expected and that failed over the virtual machines will be connected to the specified target Azure network.</source>
+          <target state="new">Test failover with an Azure network—This type of failover checks that the entire replication environment comes up as expected and that failed over the virtual machines will be connected to the specified target Azure network.</target>
+        </trans-unit>
+        <trans-unit id="41f641ef-6ee1-4e10-ae8d-2514f84c4f08" xml:space="preserve">
+          <source>For subnet handling, for test failover, the subnet of the test virtual machine will be figured out based on the subnet of the replica virtual machine.</source>
+          <target state="new">For subnet handling, for test failover, the subnet of the test virtual machine will be figured out based on the subnet of the replica virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7c0f26fc-a166-4868-be8c-4e0b060327de" xml:space="preserve">
+          <source>This is different to regular replication when the subnet of a replica virtual machine is based on the subnet of the source virtual machine.</source>
+          <target state="new">This is different to regular replication when the subnet of a replica virtual machine is based on the subnet of the source virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="a2b9bec7-5bbe-49a8-92dc-2ae9573f7a34" xml:space="preserve">
+          <source>If you want to run a test failover for a virtual machine enabled for protection to Azure without specifying an Azure target network you don’t need to prepare anything.</source>
+          <target state="new">If you want to run a test failover for a virtual machine enabled for protection to Azure without specifying an Azure target network you don’t need to prepare anything.</target>
+        </trans-unit>
+        <trans-unit id="fd2dc944-d74c-443a-bf90-7c70b5cb4fb8" xml:space="preserve">
+          <source>To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure), and set up the infrastructure for the replicated virtual machine to work as expected.</source>
+          <target state="new">To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure), and set up the infrastructure for the replicated virtual machine to work as expected.</target>
+        </trans-unit>
+        <trans-unit id="787978d6-8351-4cdb-a237-f4eb60be654f" xml:space="preserve">
+          <source>For example, a virtual machine with Domain Controller and DNS can be replicated to Azure using Azure Site Recovery and can be created in the test network using Test Failover.</source>
+          <target state="new">For example, a virtual machine with Domain Controller and DNS can be replicated to Azure using Azure Site Recovery and can be created in the test network using Test Failover.</target>
+        </trans-unit>
+        <trans-unit id="f1b2ef98-195d-428e-aeda-f0b7b8704f65" xml:space="preserve">
+          <source>To run a test failover complete the following steps:</source>
+          <target state="new">To run a test failover complete the following steps:</target>
+        </trans-unit>
+        <trans-unit id="ca57855e-e259-4ce8-8cc9-32a787fb1a8a" xml:space="preserve">
+          <source>Do a test failover of the virtual machine with Domain Controller and DNS in the same network that you’ll be using for the actual test failover of the on-premises virtual machine.</source>
+          <target state="new">Do a test failover of the virtual machine with Domain Controller and DNS in the same network that you’ll be using for the actual test failover of the on-premises virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="8ec497fe-e4b8-4e2e-b39c-a841329cd2f8" xml:space="preserve">
+          <source>Save the name of the IP addresses that were allocated to the failed over DNS virtual machine.</source>
+          <target state="new">Save the name of the IP addresses that were allocated to the failed over DNS virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="595af89e-1c55-4f0f-b569-abd5261bfc0d" xml:space="preserve">
+          <source>In the Azure virtual network that will be used for the failover, add the IP address as the address of the DNS server.</source>
+          <target state="new">In the Azure virtual network that will be used for the failover, add the IP address as the address of the DNS server.</target>
+        </trans-unit>
+        <trans-unit id="c4eed7c3-21e4-4cce-b1bf-6881fb6ef7ad" xml:space="preserve">
+          <source>Run the test failover of the source on-premises virtual machines, specifying the Azure test network.</source>
+          <target state="new">Run the test failover of the source on-premises virtual machines, specifying the Azure test network.</target>
+        </trans-unit>
+        <trans-unit id="afd6ce8d-ed63-4cce-a218-d294613cae74" xml:space="preserve">
+          <source>After validating that the test failure worked as expected, mark the test failover as complete for the recovery plan, and then mark the test failover as complete for the Domain Controller and DNS virtual machines.</source>
+          <target state="new">After validating that the test failure worked as expected, mark the test failover as complete for the recovery plan, and then mark the test failover as complete for the Domain Controller and DNS virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="be48f78b-1b6d-456f-b329-38227f01d9ce" xml:space="preserve">
+          <source>To run a test failover do the following:</source>
+          <target state="new">To run a test failover do the following:</target>
+        </trans-unit>
+        <trans-unit id="cac20ea5-bdf7-49bb-867d-4bcac3e03c3b" xml:space="preserve">
+          <source>On the <bpt id="156b43d6-6267-4119-83c8-fa1f147ac5f8">&lt;strong&gt;</bpt>Recovery Plans<ept id="156b43d6-6267-4119-83c8-fa1f147ac5f8">&lt;/strong&gt;</ept> tab, select the plan and click <bpt id="933522c8-fc19-4b89-8cb8-1d5a7c349811">&lt;strong&gt;</bpt>Test Failover<ept id="933522c8-fc19-4b89-8cb8-1d5a7c349811">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="156b43d6-6267-4119-83c8-fa1f147ac5f8">&lt;strong&gt;</bpt>Recovery Plans<ept id="156b43d6-6267-4119-83c8-fa1f147ac5f8">&lt;/strong&gt;</ept> tab, select the plan and click <bpt id="933522c8-fc19-4b89-8cb8-1d5a7c349811">&lt;strong&gt;</bpt>Test Failover<ept id="933522c8-fc19-4b89-8cb8-1d5a7c349811">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fdaffd5-15b3-4eb8-af9a-b662c9b44a0d" xml:space="preserve">
+          <source>On the <bpt id="871a372f-00fc-4fc4-aec8-753665589f1f">&lt;strong&gt;</bpt>Confirm Test Failover<ept id="871a372f-00fc-4fc4-aec8-753665589f1f">&lt;/strong&gt;</ept> page select <bpt id="b9973818-9979-4936-b213-7fd14afc95d5">&lt;strong&gt;</bpt>None<ept id="b9973818-9979-4936-b213-7fd14afc95d5">&lt;/strong&gt;</ept> or a specific Azure network.</source>
+          <target state="new">On the <bpt id="871a372f-00fc-4fc4-aec8-753665589f1f">&lt;strong&gt;</bpt>Confirm Test Failover<ept id="871a372f-00fc-4fc4-aec8-753665589f1f">&lt;/strong&gt;</ept> page select <bpt id="b9973818-9979-4936-b213-7fd14afc95d5">&lt;strong&gt;</bpt>None<ept id="b9973818-9979-4936-b213-7fd14afc95d5">&lt;/strong&gt;</ept> or a specific Azure network.</target>
+        </trans-unit>
+        <trans-unit id="454d41d6-4be7-4fe9-8e69-d9afe6c856fc" xml:space="preserve">
+          <source>Note that if you select <bpt id="c3c8605a-f1b8-42ee-9169-148def5c5a22">&lt;strong&gt;</bpt>None<ept id="c3c8605a-f1b8-42ee-9169-148def5c5a22">&lt;/strong&gt;</ept> the test failover will check that the virtual machine replicated correctly to Azure but doesn't check your replication network configuration.</source>
+          <target state="new">Note that if you select <bpt id="c3c8605a-f1b8-42ee-9169-148def5c5a22">&lt;strong&gt;</bpt>None<ept id="c3c8605a-f1b8-42ee-9169-148def5c5a22">&lt;/strong&gt;</ept> the test failover will check that the virtual machine replicated correctly to Azure but doesn't check your replication network configuration.</target>
+        </trans-unit>
+        <trans-unit id="c600ff35-fd8b-42d7-a5c0-cfb0f768095d" xml:space="preserve">
+          <source><bpt id="af0c822d-5f12-474d-a243-e721255dfaf4">&lt;linkText&gt;</bpt>No network<ept id="af0c822d-5f12-474d-a243-e721255dfaf4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af0c822d-5f12-474d-a243-e721255dfaf4">&lt;linkText&gt;</bpt>No network<ept id="af0c822d-5f12-474d-a243-e721255dfaf4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2098b5f6-4814-4597-925d-bc3b400962b2" xml:space="preserve">
+          <source>If data encryption is enabled for the cloud, in <bpt id="9b492bf3-2cbd-44ce-88a4-62f710831fba">&lt;strong&gt;</bpt>Encryption Key<ept id="9b492bf3-2cbd-44ce-88a4-62f710831fba">&lt;/strong&gt;</ept> select the certificate that was issued during installation of the Provider on the VMM server, when you turned on the option to enable data encryption for a cloud.</source>
+          <target state="new">If data encryption is enabled for the cloud, in <bpt id="9b492bf3-2cbd-44ce-88a4-62f710831fba">&lt;strong&gt;</bpt>Encryption Key<ept id="9b492bf3-2cbd-44ce-88a4-62f710831fba">&lt;/strong&gt;</ept> select the certificate that was issued during installation of the Provider on the VMM server, when you turned on the option to enable data encryption for a cloud.</target>
+        </trans-unit>
+        <trans-unit id="32f264c6-342c-4b17-921b-da4c87ae5fbc" xml:space="preserve">
+          <source>On the <bpt id="e64dfc54-0ab7-4eb6-a7d1-30b13b1d73e5">&lt;strong&gt;</bpt>Jobs<ept id="e64dfc54-0ab7-4eb6-a7d1-30b13b1d73e5">&lt;/strong&gt;</ept> tab you can track failover progress.</source>
+          <target state="new">On the <bpt id="e64dfc54-0ab7-4eb6-a7d1-30b13b1d73e5">&lt;strong&gt;</bpt>Jobs<ept id="e64dfc54-0ab7-4eb6-a7d1-30b13b1d73e5">&lt;/strong&gt;</ept> tab you can track failover progress.</target>
+        </trans-unit>
+        <trans-unit id="8dde9744-be46-4f3b-9275-e3bcde7cb0f7" xml:space="preserve">
+          <source>You should also be able to see the virtual machine test replica in the Azure portal.</source>
+          <target state="new">You should also be able to see the virtual machine test replica in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="3152a1e3-f8d1-49cb-915c-0da175ccf913" xml:space="preserve">
+          <source>If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.</source>
+          <target state="new">If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="8a5fd9b0-98be-4007-82a7-5550d0fff48c" xml:space="preserve">
+          <source>When the failover reaches the <bpt id="0e6e3ce1-bc8c-4315-b090-034942516130">&lt;strong&gt;</bpt>Complete testing<ept id="0e6e3ce1-bc8c-4315-b090-034942516130">&lt;/strong&gt;</ept> phase, click <bpt id="b21fc0e6-f892-4a0f-ad8c-7a68431a6ae4">&lt;strong&gt;</bpt>Complete Test<ept id="b21fc0e6-f892-4a0f-ad8c-7a68431a6ae4">&lt;/strong&gt;</ept> to finish the test failover.</source>
+          <target state="new">When the failover reaches the <bpt id="0e6e3ce1-bc8c-4315-b090-034942516130">&lt;strong&gt;</bpt>Complete testing<ept id="0e6e3ce1-bc8c-4315-b090-034942516130">&lt;/strong&gt;</ept> phase, click <bpt id="b21fc0e6-f892-4a0f-ad8c-7a68431a6ae4">&lt;strong&gt;</bpt>Complete Test<ept id="b21fc0e6-f892-4a0f-ad8c-7a68431a6ae4">&lt;/strong&gt;</ept> to finish the test failover.</target>
+        </trans-unit>
+        <trans-unit id="13982791-bdc8-4fa0-8de2-2dfc33117de3" xml:space="preserve">
+          <source>You can drill down to the <bpt id="877568e6-1301-4d53-a67f-468072809d39">&lt;strong&gt;</bpt>Job<ept id="877568e6-1301-4d53-a67f-468072809d39">&lt;/strong&gt;</ept> tab to track failover progress and status, and to perform any actions that are needed.</source>
+          <target state="new">You can drill down to the <bpt id="877568e6-1301-4d53-a67f-468072809d39">&lt;strong&gt;</bpt>Job<ept id="877568e6-1301-4d53-a67f-468072809d39">&lt;/strong&gt;</ept> tab to track failover progress and status, and to perform any actions that are needed.</target>
+        </trans-unit>
+        <trans-unit id="8989d507-006d-48ec-b3c9-c3d34ea3d378" xml:space="preserve">
+          <source>After  failover you'll be able to see the virtual machine test replica in the Azure portal.</source>
+          <target state="new">After  failover you'll be able to see the virtual machine test replica in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="7d81d3d7-0abb-4d35-823f-45100010f262" xml:space="preserve">
+          <source>If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.</source>
+          <target state="new">If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3342a06a-061d-4711-abea-5938a8f90dd0" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="0ea31c99-6d48-4986-8f25-7a54c97f3e28" xml:space="preserve">
+          <source>Verify that the virtual machines start successfully.</source>
+          <target state="new">Verify that the virtual machines start successfully.</target>
+        </trans-unit>
+        <trans-unit id="ad8545e8-3b67-4e71-9d02-a3d0a4f49b72" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="55f68619-4998-4707-ab96-44a01992936e" xml:space="preserve">
+          <source>If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.</source>
+          <target state="new">If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.</target>
+        </trans-unit>
+        <trans-unit id="7cee4bb0-6c95-40cd-a8df-89a6802af552" xml:space="preserve">
+          <source>You will also need to add an RDP endpoint on the virtual machine.</source>
+          <target state="new">You will also need to add an RDP endpoint on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="718db4db-a9cb-46b8-9925-a51503a25a64" xml:space="preserve">
+          <source>You can leverage an <bpt id="ca6acac4-c11b-4000-8126-c776c5c76051">&lt;linkText&gt;</bpt>Azure Automation Runbooks<ept id="ca6acac4-c11b-4000-8126-c776c5c76051">&lt;/linkText&gt;</ept><bpt id="ca6acac4-c11b-4000-8126-c776c5c76051">&lt;title&gt;</bpt><ept id="ca6acac4-c11b-4000-8126-c776c5c76051">&lt;/title&gt;</ept> to do that.</source>
+          <target state="new">You can leverage an <bpt id="ca6acac4-c11b-4000-8126-c776c5c76051">&lt;linkText&gt;</bpt>Azure Automation Runbooks<ept id="ca6acac4-c11b-4000-8126-c776c5c76051">&lt;/linkText&gt;</ept><bpt id="ca6acac4-c11b-4000-8126-c776c5c76051">&lt;title&gt;</bpt><ept id="ca6acac4-c11b-4000-8126-c776c5c76051">&lt;/title&gt;</ept> to do that.</target>
+        </trans-unit>
+        <trans-unit id="f3bf95a8-4c58-492f-812c-10d7695a3fc5" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="f697de91-624e-4e11-b05f-a989da7ccd75" xml:space="preserve">
+          <source>After failover, if you use a public IP address to connect to the virtual machine in Azure using Remote Desktop, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.</source>
+          <target state="new">After failover, if you use a public IP address to connect to the virtual machine in Azure using Remote Desktop, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.</target>
+        </trans-unit>
+        <trans-unit id="07083441-8b2d-4d31-ac14-c35529605818" xml:space="preserve">
+          <source>After the testing is complete do the following:</source>
+          <target state="new">After the testing is complete do the following:</target>
+        </trans-unit>
+        <trans-unit id="2dc5b068-3dff-41a0-9e2e-a204c773bd4f" xml:space="preserve">
+          <source>Click <bpt id="483f3b49-96fe-4ea8-8955-6395a22af0e3">&lt;strong&gt;</bpt>The test failover is complete<ept id="483f3b49-96fe-4ea8-8955-6395a22af0e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="483f3b49-96fe-4ea8-8955-6395a22af0e3">&lt;strong&gt;</bpt>The test failover is complete<ept id="483f3b49-96fe-4ea8-8955-6395a22af0e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d8af313-ca6f-44b7-988c-c21c5c553589" xml:space="preserve">
+          <source>Clean up the test environment to automatically power off and delete the test virtual machines.</source>
+          <target state="new">Clean up the test environment to automatically power off and delete the test virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="ca571bd0-e8ad-4b07-88e7-4e71af504ca4" xml:space="preserve">
+          <source>Click <bpt id="a51b3ac2-1a7e-41a2-93a7-0c991ecd44cb">&lt;strong&gt;</bpt>Notes<ept id="a51b3ac2-1a7e-41a2-93a7-0c991ecd44cb">&lt;/strong&gt;</ept> to record and save any observations associated with the test failover.</source>
+          <target state="new">Click <bpt id="a51b3ac2-1a7e-41a2-93a7-0c991ecd44cb">&lt;strong&gt;</bpt>Notes<ept id="a51b3ac2-1a7e-41a2-93a7-0c991ecd44cb">&lt;/strong&gt;</ept> to record and save any observations associated with the test failover.</target>
+        </trans-unit>
+        <trans-unit id="5b9b74c2-eb29-4e59-92c1-bb3f2b2b24eb" xml:space="preserve">
+          <source>You can use the **Jobs** tab and **Dashboard** to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</source>
+          <target state="new">You can use the **Jobs** tab and **Dashboard** to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</target>
+        </trans-unit>
+        <trans-unit id="df6123c4-cec5-457e-a7ca-676849432d85" xml:space="preserve">
+          <source>From the **Jobs** tab you view jobs, drill down into job details and errors, run job queries to retrieve jobs that match specific criteria, export jobs to Excel, and restart failed jobs.</source>
+          <target state="new">From the **Jobs** tab you view jobs, drill down into job details and errors, run job queries to retrieve jobs that match specific criteria, export jobs to Excel, and restart failed jobs.</target>
+        </trans-unit>
+        <trans-unit id="90d2061a-1b97-4d85-b293-b06e4e22fec4" xml:space="preserve">
+          <source>From the **Dashboard** you can download the latest versions of Provider and Agent installation files, get configuration information for the vault, see the number of virtual machines that have protection managed by the vault, see recent jobs, manage the vault certificate, and resynchronize virtual machines.</source>
+          <target state="new">From the **Dashboard** you can download the latest versions of Provider and Agent installation files, get configuration information for the vault, see the number of virtual machines that have protection managed by the vault, see recent jobs, manage the vault certificate, and resynchronize virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="cc9a5f04-930c-45a8-86b0-d4cedbf721b5" xml:space="preserve">
+          <source>For more information about interacting with jobs and the dashboard, see the </source>
+          <target state="new">For more information about interacting with jobs and the dashboard, see the </target>
+        </trans-unit>
+        <trans-unit id="5e897c50-16e8-4a87-9098-9e52b0c93b70" xml:space="preserve">
+          <source>Operations and Monitoring Guide</source>
+          <target state="new">Operations and Monitoring Guide</target>
+        </trans-unit>
+        <trans-unit id="72a77399-9044-4e3e-aefa-71913a42ca62" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="41ad8abb-b3ed-4497-81e9-8b9768d23bbd" xml:space="preserve">
+          <source>&lt;UL&gt;
+&lt;LI&gt;To plan and deploy Azure Site Recovery in a full production environment, see &lt;a href="http://go.microsoft.com/fwlink/?LinkId=321294"&gt;Planning Guide for Azure Site Recovery&lt;/a&gt; and &lt;a href="http://go.microsoft.com/fwlink/?LinkId=321295"&gt;Deployment Guide for Azure Site Recovery&lt;/a&gt;.&lt;/LI&gt;</source>
+          <target state="new">&lt;UL&gt;
+&lt;LI&gt;To plan and deploy Azure Site Recovery in a full production environment, see &lt;a href="http://go.microsoft.com/fwlink/?LinkId=321294"&gt;Planning Guide for Azure Site Recovery&lt;/a&gt; and &lt;a href="http://go.microsoft.com/fwlink/?LinkId=321295"&gt;Deployment Guide for Azure Site Recovery&lt;/a&gt;.&lt;/LI&gt;</target>
+        </trans-unit>
+        <trans-unit id="acacc585-f32a-48e9-a351-b83c4b10b09e" xml:space="preserve">
+          <source>&lt;LI&gt;For questions, visit the &lt;a href="http://go.microsoft.com/fwlink/?LinkId=313628"&gt;Azure Recovery Services Forum&lt;/a&gt;.&lt;/LI&gt;
+&lt;/UL&gt;</source>
+          <target state="new">&lt;LI&gt;For questions, visit the &lt;a href="http://go.microsoft.com/fwlink/?LinkId=313628"&gt;Azure Recovery Services Forum&lt;/a&gt;.&lt;/LI&gt;
+&lt;/UL&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

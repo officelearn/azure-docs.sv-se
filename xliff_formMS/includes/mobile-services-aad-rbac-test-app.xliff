@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a77f19b9-6362-40f7-a55d-7d35f16b480c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a77f19b9-6362-40f7-a55d-7d35f16b480c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a3e24dab-bbef-49e0-aa3c-cda8a87619f7">
+        <trans-unit id="23885d56-24ba-4000-ae14-ed85f61fba7c" xml:space="preserve">
+          <source>The instructions and screenshots below apply to testing a Windows Store client but, you can test this on any of the other platforms supported by Azure Mobile Services.</source>
+          <target state="new">The instructions and screenshots below apply to testing a Windows Store client but, you can test this on any of the other platforms supported by Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="7ec7b66c-c33c-4a92-ac78-a4cd4e4c6605" xml:space="preserve">
+          <source>In Visual Studio,run the client app and attempt to authenticate with the user account we created named Dave.</source>
+          <target state="new">In Visual Studio,run the client app and attempt to authenticate with the user account we created named Dave.</target>
+        </trans-unit>
+        <trans-unit id="f4531eec-d5ca-4348-a0d5-3374297dad59" xml:space="preserve">
+          <source><bpt id="d793b9f2-8d06-4349-a8b9-ec692a19cf00">&lt;linkText&gt;</bpt><ept id="d793b9f2-8d06-4349-a8b9-ec692a19cf00">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d793b9f2-8d06-4349-a8b9-ec692a19cf00">&lt;linkText&gt;</bpt><ept id="d793b9f2-8d06-4349-a8b9-ec692a19cf00">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bb29ea8-2009-4319-ba94-61941e90bbec" xml:space="preserve">
+          <source>Dave doesn't have membership to the Sales group.</source>
+          <target state="new">Dave doesn't have membership to the Sales group.</target>
+        </trans-unit>
+        <trans-unit id="85b25276-f7a8-49f7-b926-d4657083ddd2" xml:space="preserve">
+          <source>So the role based access check will denied access to the table operations.</source>
+          <target state="new">So the role based access check will denied access to the table operations.</target>
+        </trans-unit>
+        <trans-unit id="f295eb25-c881-4eaa-83f3-3dcc11e72306" xml:space="preserve">
+          <source>Close the client app.</source>
+          <target state="new">Close the client app.</target>
+        </trans-unit>
+        <trans-unit id="aa74a63a-4a7d-4090-a2bc-b5d066ebfb70" xml:space="preserve">
+          <source><bpt id="1c89835d-c21c-454f-92bd-205759f4064a">&lt;linkText&gt;</bpt><ept id="1c89835d-c21c-454f-92bd-205759f4064a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1c89835d-c21c-454f-92bd-205759f4064a">&lt;linkText&gt;</bpt><ept id="1c89835d-c21c-454f-92bd-205759f4064a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee533e9e-d9ce-4390-a7b0-30cba8eafba3" xml:space="preserve">
+          <source>In Visual Studio, run the client app again.</source>
+          <target state="new">In Visual Studio, run the client app again.</target>
+        </trans-unit>
+        <trans-unit id="de466522-e5cd-48f3-b58e-6ca98407ac67" xml:space="preserve">
+          <source>This time authenticate with the user account we created named Bob.</source>
+          <target state="new">This time authenticate with the user account we created named Bob.</target>
+        </trans-unit>
+        <trans-unit id="87b5b209-fcf8-4835-a1e5-51b801788fba" xml:space="preserve">
+          <source><bpt id="507c109a-077f-4528-8535-f22de018cb3c">&lt;linkText&gt;</bpt><ept id="507c109a-077f-4528-8535-f22de018cb3c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="507c109a-077f-4528-8535-f22de018cb3c">&lt;linkText&gt;</bpt><ept id="507c109a-077f-4528-8535-f22de018cb3c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24084900-6838-46ec-a4cb-97efd0aac517" xml:space="preserve">
+          <source>Bob does have membership to the Sales group.</source>
+          <target state="new">Bob does have membership to the Sales group.</target>
+        </trans-unit>
+        <trans-unit id="fd1a78fb-d528-46f6-aec1-598de8847042" xml:space="preserve">
+          <source>So the role based access check will allow access to the table operations.</source>
+          <target state="new">So the role based access check will allow access to the table operations.</target>
+        </trans-unit>
+        <trans-unit id="c17a74a2-236c-458c-bf04-9b6908de581c" xml:space="preserve">
+          <source><bpt id="96d9853c-950c-4672-a438-611f6e31e277">&lt;linkText&gt;</bpt><ept id="96d9853c-950c-4672-a438-611f6e31e277">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="96d9853c-950c-4672-a438-611f6e31e277">&lt;linkText&gt;</bpt><ept id="96d9853c-950c-4672-a438-611f6e31e277">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

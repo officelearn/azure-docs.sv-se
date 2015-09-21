@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c9eab813-ee18-4fa4-aad1-8b2080da3df1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c9eab813-ee18-4fa4-aad1-8b2080da3df1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a689efd7-41a4-4b10-ac78-85cd08c362d2">
+        <trans-unit id="4bed75de-69e3-4b60-8ba4-03ae88a5a1df" xml:space="preserve">
+          <source>Manage DNS record sets and records on Azure DNS | Microsoft Azure</source>
+          <target state="new">Manage DNS record sets and records on Azure DNS | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="afb94de1-d905-46d3-b9ca-5fb9934c8d3a" xml:space="preserve">
+          <source>Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All PowerShell commands for operations on record sets and records.</source>
+          <target state="new">Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All PowerShell commands for operations on record sets and records.</target>
+        </trans-unit>
+        <trans-unit id="2c3785ef-f5ae-4130-ab6e-50eaa7382d28" xml:space="preserve">
+          <source>This guide will show how to manage record sets and records for your DNS zone.</source>
+          <target state="new">This guide will show how to manage record sets and records for your DNS zone.</target>
+        </trans-unit>
+        <trans-unit id="e5383d72-d69b-49c2-8b9b-d98f70d6ce2d" xml:space="preserve">
+          <source>It is important to understand the distinction between DNS record sets and individual DNS records.</source>
+          <target state="new">It is important to understand the distinction between DNS record sets and individual DNS records.</target>
+        </trans-unit>
+        <trans-unit id="7e39dce4-9e1d-4ff2-af70-4b39341a045e" xml:space="preserve">
+          <source>A record set is the collection of records in a zone with the same name and the same type.</source>
+          <target state="new">A record set is the collection of records in a zone with the same name and the same type.</target>
+        </trans-unit>
+        <trans-unit id="c7bb8d34-65aa-43c5-8538-0fc8cac5fbe2" xml:space="preserve">
+          <source>For more details, see <bpt id="4ba60493-17c5-474a-83ae-f68285c6256f">&lt;linkText&gt;</bpt>Understanding record sets and records<ept id="4ba60493-17c5-474a-83ae-f68285c6256f">&lt;/linkText&gt;</ept><bpt id="4ba60493-17c5-474a-83ae-f68285c6256f">&lt;title&gt;</bpt><ept id="4ba60493-17c5-474a-83ae-f68285c6256f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="4ba60493-17c5-474a-83ae-f68285c6256f">&lt;linkText&gt;</bpt>Understanding record sets and records<ept id="4ba60493-17c5-474a-83ae-f68285c6256f">&lt;/linkText&gt;</ept><bpt id="4ba60493-17c5-474a-83ae-f68285c6256f">&lt;title&gt;</bpt><ept id="4ba60493-17c5-474a-83ae-f68285c6256f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7a0ec32-33f1-4c56-aa88-7892776e9409" xml:space="preserve">
+          <source>Record sets are created using the <bpt id="1a71b56e-a96b-4469-9f91-2c34cb36dbdb">&lt;code&gt;</bpt>azure network record-set create<ept id="1a71b56e-a96b-4469-9f91-2c34cb36dbdb">&lt;/code&gt;</ept> command .</source>
+          <target state="new">Record sets are created using the <bpt id="1a71b56e-a96b-4469-9f91-2c34cb36dbdb">&lt;code&gt;</bpt>azure network record-set create<ept id="1a71b56e-a96b-4469-9f91-2c34cb36dbdb">&lt;/code&gt;</ept> command .</target>
+        </trans-unit>
+        <trans-unit id="e4a099a7-f7f3-4b59-a96a-eeb5a5b9dbd7" xml:space="preserve">
+          <source>You need to specify the record set name, the zone, the Time-to-Live (TTL) and the record type.</source>
+          <target state="new">You need to specify the record set name, the zone, the Time-to-Live (TTL) and the record type.</target>
+        </trans-unit>
+        <trans-unit id="31521ea6-f719-4aa7-8a40-0c669ff8cb90" xml:space="preserve">
+          <source>The record set name must be a relative name, excluding the zone name.</source>
+          <target state="new">The record set name must be a relative name, excluding the zone name.</target>
+        </trans-unit>
+        <trans-unit id="dcbb2487-d127-4e4b-8f5a-499d349f280b" xml:space="preserve">
+          <source>For example, the record set name ‘www’ in zone ‘contoso.com’ will create a record set with the fully-qualified name ‘www.contoso.com’.</source>
+          <target state="new">For example, the record set name ‘www’ in zone ‘contoso.com’ will create a record set with the fully-qualified name ‘www.contoso.com’.</target>
+        </trans-unit>
+        <trans-unit id="3ce68467-7c0a-469e-9ab2-9eaf4a3b5447" xml:space="preserve">
+          <source>For a record set at the zone apex, use "@" as the record set name, including quotation marks.</source>
+          <target state="new">For a record set at the zone apex, use "@" as the record set name, including quotation marks.</target>
+        </trans-unit>
+        <trans-unit id="4e10017e-b743-4164-aab4-dd7155bd8bab" xml:space="preserve">
+          <source>The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".</source>
+          <target state="new">The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".</target>
+        </trans-unit>
+        <trans-unit id="5d262008-11c4-4809-a295-a881f457793e" xml:space="preserve">
+          <source>Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.</source>
+          <target state="new">Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.</target>
+        </trans-unit>
+        <trans-unit id="9a2f3694-e919-49d1-816c-452ad89c9197" xml:space="preserve">
+          <source>Record sets of type SOA are created automatically with each zone, they cannot be created separately.</source>
+          <target state="new">Record sets of type SOA are created automatically with each zone, they cannot be created separately.</target>
+        </trans-unit>
+        <trans-unit id="5973951b-4835-4124-9eea-494da62579e5" xml:space="preserve">
+          <source>CNAME record sets cannot co-exist with other record sets with the same name.</source>
+          <target state="new">CNAME record sets cannot co-exist with other record sets with the same name.</target>
+        </trans-unit>
+        <trans-unit id="d1bdf391-a3de-4f0f-b41c-e644002a5a52" xml:space="preserve">
+          <source>For example, you cannot create a CNAME with the relative name ‘www’ and an A record with the relative name ‘www’ at the same time.</source>
+          <target state="new">For example, you cannot create a CNAME with the relative name ‘www’ and an A record with the relative name ‘www’ at the same time.</target>
+        </trans-unit>
+        <trans-unit id="02db884b-6c54-4cac-af3f-d23de76aee35" xml:space="preserve">
+          <source>Since the zone apex (name = ‘@’) always contains the NS and SOA record sets created when the zone is created, this means you cannot create a CNAME record set at the zone apex.</source>
+          <target state="new">Since the zone apex (name = ‘@’) always contains the NS and SOA record sets created when the zone is created, this means you cannot create a CNAME record set at the zone apex.</target>
+        </trans-unit>
+        <trans-unit id="dee231b1-ce28-4708-8d03-6dcbd76a5780" xml:space="preserve">
+          <source>These constraints arise from the DNS standards, they are not limitations of Azure DNS.</source>
+          <target state="new">These constraints arise from the DNS standards, they are not limitations of Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="cdd9a657-5bb1-4238-8ba9-e5ced6fbeaee" xml:space="preserve">
+          <source>Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard<bpt id="9298bb18-3a71-47c7-a6c0-165674aa24df">&lt;em&gt;</bpt>DNS<ept id="9298bb18-3a71-47c7-a6c0-165674aa24df">&lt;/em&gt;</ept>record).</source>
+          <target state="new">Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard<bpt id="9298bb18-3a71-47c7-a6c0-165674aa24df">&lt;em&gt;</bpt>DNS<ept id="9298bb18-3a71-47c7-a6c0-165674aa24df">&lt;/em&gt;</ept>record).</target>
+        </trans-unit>
+        <trans-unit id="9c416a6e-bbf0-434b-8927-2942997a77de" xml:space="preserve">
+          <source>These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set).</source>
+          <target state="new">These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set).</target>
+        </trans-unit>
+        <trans-unit id="6d82fbc8-c297-4e25-bab8-13788af61bcc" xml:space="preserve">
+          <source>To create a wildcard record set, use the record set name "\<bpt id="20459fae-74ba-4b9e-b0f2-4daa7113dc72">&lt;em&gt;</bpt>", or a name whose first label is "\<ept id="20459fae-74ba-4b9e-b0f2-4daa7113dc72">&lt;/em&gt;</ept>", e.g. "\*.foo".</source>
+          <target state="new">To create a wildcard record set, use the record set name "\<bpt id="20459fae-74ba-4b9e-b0f2-4daa7113dc72">&lt;em&gt;</bpt>", or a name whose first label is "\<ept id="20459fae-74ba-4b9e-b0f2-4daa7113dc72">&lt;/em&gt;</ept>", e.g. "\*.foo".</target>
+        </trans-unit>
+        <trans-unit id="4f11a503-6132-40b4-a901-277a2e45392c" xml:space="preserve">
+          <source>Wildcard record sets are supported for all record types except NS and SOA.</source>
+          <target state="new">Wildcard record sets are supported for all record types except NS and SOA.</target>
+        </trans-unit>
+        <trans-unit id="3f7456cb-1b90-4d43-ad1e-52fe36c56b97" xml:space="preserve">
+          <source>To retrieve an existing record set, use <bpt id="252e314a-5e3e-4788-92d8-d706481d5938">&lt;code&gt;</bpt>azure network dns-record-set show<ept id="252e314a-5e3e-4788-92d8-d706481d5938">&lt;/code&gt;</ept>, specifying resource group, zone name, record set relative name and the record type:</source>
+          <target state="new">To retrieve an existing record set, use <bpt id="252e314a-5e3e-4788-92d8-d706481d5938">&lt;code&gt;</bpt>azure network dns-record-set show<ept id="252e314a-5e3e-4788-92d8-d706481d5938">&lt;/code&gt;</ept>, specifying resource group, zone name, record set relative name and the record type:</target>
+        </trans-unit>
+        <trans-unit id="49db633a-a794-45a4-9d2c-8cd8ff3d8a63" xml:space="preserve">
+          <source>You can list all records in a DNS Zone using <bpt id="a84e7022-097a-44c6-b5c4-136c5c6b0b1d">&lt;code&gt;</bpt>azure network dns-record-set list<ept id="a84e7022-097a-44c6-b5c4-136c5c6b0b1d">&lt;/code&gt;</ept> command:</source>
+          <target state="new">You can list all records in a DNS Zone using <bpt id="a84e7022-097a-44c6-b5c4-136c5c6b0b1d">&lt;code&gt;</bpt>azure network dns-record-set list<ept id="a84e7022-097a-44c6-b5c4-136c5c6b0b1d">&lt;/code&gt;</ept> command:</target>
+        </trans-unit>
+        <trans-unit id="48ab424a-c6d2-43e1-907f-f232571cbb35" xml:space="preserve">
+          <source>List all record sets.</source>
+          <target state="new">List all record sets.</target>
+        </trans-unit>
+        <trans-unit id="16930f71-1d2c-485e-a45e-1017f09351b6" xml:space="preserve">
+          <source>This will return all record sets, regardless of name or record type:</source>
+          <target state="new">This will return all record sets, regardless of name or record type:</target>
+        </trans-unit>
+        <trans-unit id="e27791eb-5114-46f8-99a9-715c90113369" xml:space="preserve">
+          <source>List record sets of a given record type.</source>
+          <target state="new">List record sets of a given record type.</target>
+        </trans-unit>
+        <trans-unit id="85e2d021-4061-4a73-848a-65114559a41e" xml:space="preserve">
+          <source>This will return all record sets matching the given record type (in this case, A records):</source>
+          <target state="new">This will return all record sets matching the given record type (in this case, A records):</target>
+        </trans-unit>
+        <trans-unit id="9f4d8245-5940-4dc9-bfb8-061be997a98e" xml:space="preserve">
+          <source>In both cases you will specify the resource group name and zone name.</source>
+          <target state="new">In both cases you will specify the resource group name and zone name.</target>
+        </trans-unit>
+        <trans-unit id="21a31619-0ce5-48a6-a939-1dc15c0373a6" xml:space="preserve">
+          <source>Records are added to record sets using the <bpt id="d1f6c082-9a7c-43dd-9ad9-fc5438670bb5">&lt;code&gt;</bpt>azure network dns-record-set add-record<ept id="d1f6c082-9a7c-43dd-9ad9-fc5438670bb5">&lt;/code&gt;</ept>.</source>
+          <target state="new">Records are added to record sets using the <bpt id="d1f6c082-9a7c-43dd-9ad9-fc5438670bb5">&lt;code&gt;</bpt>azure network dns-record-set add-record<ept id="d1f6c082-9a7c-43dd-9ad9-fc5438670bb5">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c1e05aa-d08b-460d-be5b-e07ad0995d53" xml:space="preserve">
+          <source>The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type 'A' you will only be able to specify records with the parameter "-a <bpt id="57c0d156-44ee-42e1-8bbd-fd7610f4ea76">&lt;code&gt;</bpt>&lt;IPv4 address&gt;<ept id="57c0d156-44ee-42e1-8bbd-fd7610f4ea76">&lt;/code&gt;</ept>".</source>
+          <target state="new">The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type 'A' you will only be able to specify records with the parameter "-a <bpt id="57c0d156-44ee-42e1-8bbd-fd7610f4ea76">&lt;code&gt;</bpt>&lt;IPv4 address&gt;<ept id="57c0d156-44ee-42e1-8bbd-fd7610f4ea76">&lt;/code&gt;</ept>".</target>
+        </trans-unit>
+        <trans-unit id="565c2ee6-9262-4485-ab1c-9e14027c0546" xml:space="preserve">
+          <source>The following examples show how to create a record set of each record type containing a single record.</source>
+          <target state="new">The following examples show how to create a record set of each record type containing a single record.</target>
+        </trans-unit>
+        <trans-unit id="8f112817-04ce-40fa-ba6e-6461160e7231" xml:space="preserve">
+          <source>To create record set, use <bpt id="e8437939-d8e0-4edd-9a13-633ecd81224f">&lt;code&gt;</bpt>azure network dns-record-set create<ept id="e8437939-d8e0-4edd-9a13-633ecd81224f">&lt;/code&gt;</ept>, specifying resource group, zone name, record set relative name, the record type and time to live (TTL):</source>
+          <target state="new">To create record set, use <bpt id="e8437939-d8e0-4edd-9a13-633ecd81224f">&lt;code&gt;</bpt>azure network dns-record-set create<ept id="e8437939-d8e0-4edd-9a13-633ecd81224f">&lt;/code&gt;</ept>, specifying resource group, zone name, record set relative name, the record type and time to live (TTL):</target>
+        </trans-unit>
+        <trans-unit id="44fab994-71e9-4182-9b35-7b3f858ca274" xml:space="preserve">
+          <source>If --ttl parameter is not defined, the value defaults to 4 (in seconds).</source>
+          <target state="new">If --ttl parameter is not defined, the value defaults to 4 (in seconds).</target>
+        </trans-unit>
+        <trans-unit id="c3ceb9bc-c5b4-480e-8c12-7cf36f7feb3b" xml:space="preserve">
+          <source>After creating the A record set, add IPv4 address to record set with <bpt id="725861c1-3297-44cb-a2b4-4dcdfe6224b0">&lt;code&gt;</bpt>azure network dns-record-set add-record<ept id="725861c1-3297-44cb-a2b4-4dcdfe6224b0">&lt;/code&gt;</ept>:</source>
+          <target state="new">After creating the A record set, add IPv4 address to record set with <bpt id="725861c1-3297-44cb-a2b4-4dcdfe6224b0">&lt;code&gt;</bpt>azure network dns-record-set add-record<ept id="725861c1-3297-44cb-a2b4-4dcdfe6224b0">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="8345ef2f-a645-4153-9584-84534490c59f" xml:space="preserve">
+          <source>CNAME records only allows one single string value.</source>
+          <target state="new">CNAME records only allows one single string value.</target>
+        </trans-unit>
+        <trans-unit id="eb5e330d-8649-4dba-a782-31745af6dd8b" xml:space="preserve">
+          <source>In this example, we use the record set name "@" to create the MX record at the zone apex (e.g. "contoso.com").</source>
+          <target state="new">In this example, we use the record set name "@" to create the MX record at the zone apex (e.g. "contoso.com").</target>
+        </trans-unit>
+        <trans-unit id="a97f1987-31b5-4d3e-b311-7adb9dfb7d33" xml:space="preserve">
+          <source>This is common for MX records.</source>
+          <target state="new">This is common for MX records.</target>
+        </trans-unit>
+        <trans-unit id="d6a8730e-63ed-4b45-baf8-498af88d85dd" xml:space="preserve">
+          <source>If creating an SRV record in root of zone, just specify _service and _protocol in the record name—there is no need to also include ‘.@’ in the record name</source>
+          <target state="new">If creating an SRV record in root of zone, just specify _service and _protocol in the record name—there is no need to also include ‘.@’ in the record name</target>
+        </trans-unit>
+        <trans-unit id="d9a61be6-9a11-4528-9f93-edec794e48ee" xml:space="preserve">
+          <source>This is shown by the following examples:</source>
+          <target state="new">This is shown by the following examples:</target>
+        </trans-unit>
+        <trans-unit id="9469d6ba-4649-4824-ab59-f26c5ec2311f" xml:space="preserve">
+          <source>For this example we will add another IP address (1.2.3.4) to an existing A record set (www): </source>
+          <target state="new">For this example we will add another IP address (1.2.3.4) to an existing A record set (www): </target>
+        </trans-unit>
+        <trans-unit id="7cad4e05-887c-4000-9e47-8dc7507e7f50" xml:space="preserve">
+          <source>You will use <bpt id="fc5f272c-d55f-4a33-a6eb-52311f82a0b8">&lt;code&gt;</bpt>azure network dns-record-set delete-record<ept id="fc5f272c-d55f-4a33-a6eb-52311f82a0b8">&lt;/code&gt;</ept> to remove an existing value from a record set:</source>
+          <target state="new">You will use <bpt id="fc5f272c-d55f-4a33-a6eb-52311f82a0b8">&lt;code&gt;</bpt>azure network dns-record-set delete-record<ept id="fc5f272c-d55f-4a33-a6eb-52311f82a0b8">&lt;/code&gt;</ept> to remove an existing value from a record set:</target>
+        </trans-unit>
+        <trans-unit id="5e5bb064-56b0-4e7e-90db-3161cf47ade9" xml:space="preserve">
+          <source>Records can be removed from a record set using <bpt id="c478c006-aa8b-4788-920a-89928ac0d8ed">&lt;code&gt;</bpt>azure network dns-record-set delete-record<ept id="c478c006-aa8b-4788-920a-89928ac0d8ed">&lt;/code&gt;</ept> Note that the record being removed must be an exact match with an existing record, across all parameters.</source>
+          <target state="new">Records can be removed from a record set using <bpt id="c478c006-aa8b-4788-920a-89928ac0d8ed">&lt;code&gt;</bpt>azure network dns-record-set delete-record<ept id="c478c006-aa8b-4788-920a-89928ac0d8ed">&lt;/code&gt;</ept> Note that the record being removed must be an exact match with an existing record, across all parameters.</target>
+        </trans-unit>
+        <trans-unit id="bdb84632-b0b0-49a2-9a97-509312130b02" xml:space="preserve">
+          <source>Removing the last record from a record set does not delete the record set.</source>
+          <target state="new">Removing the last record from a record set does not delete the record set.</target>
+        </trans-unit>
+        <trans-unit id="4b20d0cb-e436-44de-97ee-e2e97c730f55" xml:space="preserve">
+          <source>See <bpt id="e546c9b5-b7d9-4ae5-9217-c8e19454bf0a">&lt;linkText&gt;</bpt>Delete a record set<ept id="e546c9b5-b7d9-4ae5-9217-c8e19454bf0a">&lt;/linkText&gt;</ept><bpt id="e546c9b5-b7d9-4ae5-9217-c8e19454bf0a">&lt;title&gt;</bpt><ept id="e546c9b5-b7d9-4ae5-9217-c8e19454bf0a">&lt;/title&gt;</ept> below for more.</source>
+          <target state="new">See <bpt id="e546c9b5-b7d9-4ae5-9217-c8e19454bf0a">&lt;linkText&gt;</bpt>Delete a record set<ept id="e546c9b5-b7d9-4ae5-9217-c8e19454bf0a">&lt;/linkText&gt;</ept><bpt id="e546c9b5-b7d9-4ae5-9217-c8e19454bf0a">&lt;title&gt;</bpt><ept id="e546c9b5-b7d9-4ae5-9217-c8e19454bf0a">&lt;/title&gt;</ept> below for more.</target>
+        </trans-unit>
+        <trans-unit id="b36f0a45-a401-4917-880f-20a26477fd56" xml:space="preserve">
+          <source>Record sets can be deleted using the Remove-AzureDnsRecordSet cmdlet.</source>
+          <target state="new">Record sets can be deleted using the Remove-AzureDnsRecordSet cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="7643f8a4-10d4-4b89-9054-b9f81cf2dd6a" xml:space="preserve">
+          <source>You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) that are created automatically when the zone is created.</source>
+          <target state="new">You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) that are created automatically when the zone is created.</target>
+        </trans-unit>
+        <trans-unit id="f12e1c7a-d739-4450-8812-3d2017ea2f67" xml:space="preserve">
+          <source>They will be deleted automatically when deleting the zone.</source>
+          <target state="new">They will be deleted automatically when deleting the zone.</target>
+        </trans-unit>
+        <trans-unit id="cf2c939f-f8cc-4ef8-810e-622ea979242f" xml:space="preserve">
+          <source>In the example below, the A record set "test-a" will be removed from contoso.com DNS zone:</source>
+          <target state="new">In the example below, the A record set "test-a" will be removed from contoso.com DNS zone:</target>
+        </trans-unit>
+        <trans-unit id="1ab3a6a3-cae3-4ce2-8cce-2033c3be97e1" xml:space="preserve">
+          <source>The optional ‘-q’ switch can be used to suppress the confirmation prompt.</source>
+          <target state="new">The optional ‘-q’ switch can be used to suppress the confirmation prompt.</target>
+        </trans-unit>
+        <trans-unit id="2ac8759e-e7d7-4e0a-b85b-ae9d30b93554" xml:space="preserve">
+          <source><bpt id="8e523ae8-99b5-4db1-97f1-9e170333666c">&lt;linkText&gt;</bpt>Get started creating record sets and records<ept id="8e523ae8-99b5-4db1-97f1-9e170333666c">&lt;/linkText&gt;</ept><bpt id="8e523ae8-99b5-4db1-97f1-9e170333666c">&lt;title&gt;</bpt><ept id="8e523ae8-99b5-4db1-97f1-9e170333666c">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="8d9d11c1-5df7-4787-97c5-c20fa6157da9">&lt;linkText&gt;</bpt>Perform operations on DNS zones<ept id="8d9d11c1-5df7-4787-97c5-c20fa6157da9">&lt;/linkText&gt;</ept><bpt id="8d9d11c1-5df7-4787-97c5-c20fa6157da9">&lt;title&gt;</bpt><ept id="8d9d11c1-5df7-4787-97c5-c20fa6157da9">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="38a3deee-a9f6-4166-aba7-47773fa13d12">&lt;linkText&gt;</bpt>Automate operations using .NET SDK<ept id="38a3deee-a9f6-4166-aba7-47773fa13d12">&lt;/linkText&gt;</ept><bpt id="38a3deee-a9f6-4166-aba7-47773fa13d12">&lt;title&gt;</bpt><ept id="38a3deee-a9f6-4166-aba7-47773fa13d12">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8e523ae8-99b5-4db1-97f1-9e170333666c">&lt;linkText&gt;</bpt>Get started creating record sets and records<ept id="8e523ae8-99b5-4db1-97f1-9e170333666c">&lt;/linkText&gt;</ept><bpt id="8e523ae8-99b5-4db1-97f1-9e170333666c">&lt;title&gt;</bpt><ept id="8e523ae8-99b5-4db1-97f1-9e170333666c">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="8d9d11c1-5df7-4787-97c5-c20fa6157da9">&lt;linkText&gt;</bpt>Perform operations on DNS zones<ept id="8d9d11c1-5df7-4787-97c5-c20fa6157da9">&lt;/linkText&gt;</ept><bpt id="8d9d11c1-5df7-4787-97c5-c20fa6157da9">&lt;title&gt;</bpt><ept id="8d9d11c1-5df7-4787-97c5-c20fa6157da9">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="38a3deee-a9f6-4166-aba7-47773fa13d12">&lt;linkText&gt;</bpt>Automate operations using .NET SDK<ept id="38a3deee-a9f6-4166-aba7-47773fa13d12">&lt;/linkText&gt;</ept><bpt id="38a3deee-a9f6-4166-aba7-47773fa13d12">&lt;title&gt;</bpt><ept id="38a3deee-a9f6-4166-aba7-47773fa13d12">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

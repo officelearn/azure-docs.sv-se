@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9fc8602b-13ba-43c5-a492-7ad354b05193" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9fc8602b-13ba-43c5-a492-7ad354b05193" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e24e7e4d-84dc-4326-b8e2-8ef82bbb4f41">
+        <trans-unit id="c3d1c856-5c63-4a79-80bd-5bde07e44242" xml:space="preserve">
+          <source>Automated Patching for SQL Server in Azure Virtual Machines</source>
+          <target state="new">Automated Patching for SQL Server in Azure Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="69e8b23a-8d2d-425f-a376-ccd8b5677be8" xml:space="preserve">
+          <source>Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure.</source>
+          <target state="new">Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="9eeee277-451d-41bb-8415-10d31165f2e3" xml:space="preserve">
+          <source>Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server 2012 or 2014.</source>
+          <target state="new">Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server 2012 or 2014.</target>
+        </trans-unit>
+        <trans-unit id="ffa1934b-b122-43aa-a5b0-f1590ba3e27d" xml:space="preserve">
+          <source>Automated Updates can only be installed during this maintenance window.</source>
+          <target state="new">Automated Updates can only be installed during this maintenance window.</target>
+        </trans-unit>
+        <trans-unit id="ee898449-cac8-4cbb-830d-13ed056a7134" xml:space="preserve">
+          <source>For SQL Server, this ensures that system updates and any associated restarts occur at the best possible time for the database.</source>
+          <target state="new">For SQL Server, this ensures that system updates and any associated restarts occur at the best possible time for the database.</target>
+        </trans-unit>
+        <trans-unit id="f05d0124-df64-4332-abfc-66a70a0d623a" xml:space="preserve">
+          <source>It depends on the SQL Server IaaS Agent.</source>
+          <target state="new">It depends on the SQL Server IaaS Agent.</target>
+        </trans-unit>
+        <trans-unit id="34c11e9f-7cc8-4302-9f70-de98a70edfe5" xml:space="preserve">
+          <source>Automated Patching relies on the SQL Server IaaS Agent.</source>
+          <target state="new">Automated Patching relies on the SQL Server IaaS Agent.</target>
+        </trans-unit>
+        <trans-unit id="62be2831-3594-4a1f-9fae-de821947656f" xml:space="preserve">
+          <source>To install and configure the agent, you must have the Azure VM Agent running on the target virtual machine.</source>
+          <target state="new">To install and configure the agent, you must have the Azure VM Agent running on the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="aeac1cee-6536-4d44-8a2f-06f6099ec895" xml:space="preserve">
+          <source>Newer virtual machine gallery images have this option enabled by default, but the Azure VM Agent might be missing on existing VMs.</source>
+          <target state="new">Newer virtual machine gallery images have this option enabled by default, but the Azure VM Agent might be missing on existing VMs.</target>
+        </trans-unit>
+        <trans-unit id="b3a8e328-f6ae-4c82-934e-ea3fdfc40922" xml:space="preserve">
+          <source>If you are using your own VM image, you will also need to install the SQL Server IaaS Agent.</source>
+          <target state="new">If you are using your own VM image, you will also need to install the SQL Server IaaS Agent.</target>
+        </trans-unit>
+        <trans-unit id="9e2b95f8-7096-4ae5-b915-95589c376048" xml:space="preserve">
+          <source>For more information, see <bpt id="213ad28a-c399-48c3-b2ed-51779c5a4abe">&lt;linkText&gt;</bpt>VM Agent and Extensions<ept id="213ad28a-c399-48c3-b2ed-51779c5a4abe">&lt;/linkText&gt;</ept><bpt id="213ad28a-c399-48c3-b2ed-51779c5a4abe">&lt;title&gt;</bpt><ept id="213ad28a-c399-48c3-b2ed-51779c5a4abe">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="213ad28a-c399-48c3-b2ed-51779c5a4abe">&lt;linkText&gt;</bpt>VM Agent and Extensions<ept id="213ad28a-c399-48c3-b2ed-51779c5a4abe">&lt;/linkText&gt;</ept><bpt id="213ad28a-c399-48c3-b2ed-51779c5a4abe">&lt;title&gt;</bpt><ept id="213ad28a-c399-48c3-b2ed-51779c5a4abe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="562c01db-dfe8-47be-9e0f-9506227ad645" xml:space="preserve">
+          <source>You can use the <bpt id="abcff0f4-052a-472b-ace4-f7a8eef2f3f8">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="abcff0f4-052a-472b-ace4-f7a8eef2f3f8">&lt;/linkText&gt;</ept><bpt id="abcff0f4-052a-472b-ace4-f7a8eef2f3f8">&lt;title&gt;</bpt><ept id="abcff0f4-052a-472b-ace4-f7a8eef2f3f8">&lt;/title&gt;</ept> to configure Automated Patching when you create a new SQL Server Virtual Machine. The following screenshot shows these options under <bpt id="5134db1d-4716-4602-b811-5ad1cb6b5d24">&lt;strong&gt;</bpt>OPTIONAL CONFIGURATION<ept id="5134db1d-4716-4602-b811-5ad1cb6b5d24">&lt;/strong&gt;</ept> | <bpt id="5331cd7a-538a-41c4-bc65-8ab418dabbb7">&lt;strong&gt;</bpt>SQL AUTOMATED PATCHING<ept id="5331cd7a-538a-41c4-bc65-8ab418dabbb7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can use the <bpt id="abcff0f4-052a-472b-ace4-f7a8eef2f3f8">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="abcff0f4-052a-472b-ace4-f7a8eef2f3f8">&lt;/linkText&gt;</ept><bpt id="abcff0f4-052a-472b-ace4-f7a8eef2f3f8">&lt;title&gt;</bpt><ept id="abcff0f4-052a-472b-ace4-f7a8eef2f3f8">&lt;/title&gt;</ept> to configure Automated Patching when you create a new SQL Server Virtual Machine. The following screenshot shows these options under <bpt id="5134db1d-4716-4602-b811-5ad1cb6b5d24">&lt;strong&gt;</bpt>OPTIONAL CONFIGURATION<ept id="5134db1d-4716-4602-b811-5ad1cb6b5d24">&lt;/strong&gt;</ept> | <bpt id="5331cd7a-538a-41c4-bc65-8ab418dabbb7">&lt;strong&gt;</bpt>SQL AUTOMATED PATCHING<ept id="5331cd7a-538a-41c4-bc65-8ab418dabbb7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be7e10b4-2fa6-42c6-98da-c28db0979288" xml:space="preserve">
+          <source><bpt id="60873ab7-f5d5-405e-a3a8-4c543fae9dc6">&lt;linkText&gt;</bpt>SQL Automatic Patching in Azure Portal<ept id="60873ab7-f5d5-405e-a3a8-4c543fae9dc6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60873ab7-f5d5-405e-a3a8-4c543fae9dc6">&lt;linkText&gt;</bpt>SQL Automatic Patching in Azure Portal<ept id="60873ab7-f5d5-405e-a3a8-4c543fae9dc6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb2a97ac-c99d-4c6b-b307-83cd122f45f8" xml:space="preserve">
+          <source>For existing SQL Server 2012 or 2014 virtual machines, select the <bpt id="8b1cf92c-873f-4d50-9b1f-3b3cf99dc2bf">&lt;strong&gt;</bpt>Auto patching<ept id="8b1cf92c-873f-4d50-9b1f-3b3cf99dc2bf">&lt;/strong&gt;</ept> settings in the <bpt id="a975d9dd-6455-4b90-addf-3e65b3b96aff">&lt;strong&gt;</bpt>Configuration<ept id="a975d9dd-6455-4b90-addf-3e65b3b96aff">&lt;/strong&gt;</ept> section of the virtual machine properties.</source>
+          <target state="new">For existing SQL Server 2012 or 2014 virtual machines, select the <bpt id="8b1cf92c-873f-4d50-9b1f-3b3cf99dc2bf">&lt;strong&gt;</bpt>Auto patching<ept id="8b1cf92c-873f-4d50-9b1f-3b3cf99dc2bf">&lt;/strong&gt;</ept> settings in the <bpt id="a975d9dd-6455-4b90-addf-3e65b3b96aff">&lt;strong&gt;</bpt>Configuration<ept id="a975d9dd-6455-4b90-addf-3e65b3b96aff">&lt;/strong&gt;</ept> section of the virtual machine properties.</target>
+        </trans-unit>
+        <trans-unit id="123a9a85-e070-4558-9f2b-8f71eabcf034" xml:space="preserve">
+          <source>In the <bpt id="f864ad84-c743-4551-836b-84274c3fb207">&lt;strong&gt;</bpt>Automated patching<ept id="f864ad84-c743-4551-836b-84274c3fb207">&lt;/strong&gt;</ept> window, you can enable the feature, set the maintenance schedule and start hour, and choose the maintenance window duration.</source>
+          <target state="new">In the <bpt id="f864ad84-c743-4551-836b-84274c3fb207">&lt;strong&gt;</bpt>Automated patching<ept id="f864ad84-c743-4551-836b-84274c3fb207">&lt;/strong&gt;</ept> window, you can enable the feature, set the maintenance schedule and start hour, and choose the maintenance window duration.</target>
+        </trans-unit>
+        <trans-unit id="bf33a9d6-376b-4ef3-b11f-9a386e4703af" xml:space="preserve">
+          <source>This is shown in the following screenshot.</source>
+          <target state="new">This is shown in the following screenshot.</target>
+        </trans-unit>
+        <trans-unit id="7e8fda4b-befa-47ba-ba3a-c625d57a590e" xml:space="preserve">
+          <source><bpt id="21c5cd3c-8450-48e1-a0f5-243976b7c63c">&lt;linkText&gt;</bpt>Automated Patching Configuration in Azure Portal<ept id="21c5cd3c-8450-48e1-a0f5-243976b7c63c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21c5cd3c-8450-48e1-a0f5-243976b7c63c">&lt;linkText&gt;</bpt>Automated Patching Configuration in Azure Portal<ept id="21c5cd3c-8450-48e1-a0f5-243976b7c63c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="040ff82c-11bc-4990-b8c2-46831a7de6ed" xml:space="preserve">
+          <source>When you enable Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background.</source>
+          <target state="new">When you enable Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background.</target>
+        </trans-unit>
+        <trans-unit id="4fd5f7c8-2cda-494a-8cf5-8d6a788f8306" xml:space="preserve">
+          <source>During this time, the portal will not show that Automated Patching is configured.</source>
+          <target state="new">During this time, the portal will not show that Automated Patching is configured.</target>
+        </trans-unit>
+        <trans-unit id="2da0eef8-1736-44c5-b9b9-7dbf558fece8" xml:space="preserve">
+          <source>Wait several minutes for the agent to be installed, configured.</source>
+          <target state="new">Wait several minutes for the agent to be installed, configured.</target>
+        </trans-unit>
+        <trans-unit id="3b890626-6309-44d0-a877-5e21271ec304" xml:space="preserve">
+          <source>After that the portal will reflect the new settings.</source>
+          <target state="new">After that the portal will reflect the new settings.</target>
+        </trans-unit>
+        <trans-unit id="723079fc-eee1-4cc4-9148-1ad9896a04d0" xml:space="preserve">
+          <source>You can also use PowerShell to configure Automated Patching.</source>
+          <target state="new">You can also use PowerShell to configure Automated Patching.</target>
+        </trans-unit>
+        <trans-unit id="e5e081b2-ce72-4ec3-9b9d-a887c5b6566f" xml:space="preserve">
+          <source>In the following example, PowerShell is used to configure Automated Patching on an existing SQL Server VM.</source>
+          <target state="new">In the following example, PowerShell is used to configure Automated Patching on an existing SQL Server VM.</target>
+        </trans-unit>
+        <trans-unit id="158f56e9-62bd-43c2-94cf-66bb7b9f8360" xml:space="preserve">
+          <source>The <bpt id="44bb2fe8-ad7a-4c31-9a34-2e134c11486d">&lt;strong&gt;</bpt>New-AzureVMSqlServerAutoPatchingConfig<ept id="44bb2fe8-ad7a-4c31-9a34-2e134c11486d">&lt;/strong&gt;</ept> command configures a new maintenance window for automatic updates.</source>
+          <target state="new">The <bpt id="44bb2fe8-ad7a-4c31-9a34-2e134c11486d">&lt;strong&gt;</bpt>New-AzureVMSqlServerAutoPatchingConfig<ept id="44bb2fe8-ad7a-4c31-9a34-2e134c11486d">&lt;/strong&gt;</ept> command configures a new maintenance window for automatic updates.</target>
+        </trans-unit>
+        <trans-unit id="9228737b-d54f-4567-8bcb-899a3c8b6515" xml:space="preserve">
+          <source>Based on this example, the following table describes the practical effect on the target Azure VM:</source>
+          <target state="new">Based on this example, the following table describes the practical effect on the target Azure VM:</target>
+        </trans-unit>
+        <trans-unit id="e962657c-5732-4809-a8a7-31d6c121b6f8" xml:space="preserve">
+          <source>Parameter</source>
+          <target state="new">Parameter</target>
+        </trans-unit>
+        <trans-unit id="4b662a47-b701-48da-a009-ecea3f01b047" xml:space="preserve">
+          <source>Effect</source>
+          <target state="new">Effect</target>
+        </trans-unit>
+        <trans-unit id="7f59efb5-160e-4f0d-b5c1-db032b637d36" xml:space="preserve">
+          <source><bpt id="34e6f282-f142-4322-935f-684c05ba229f">&lt;strong&gt;</bpt>DayOfWeek<ept id="34e6f282-f142-4322-935f-684c05ba229f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="34e6f282-f142-4322-935f-684c05ba229f">&lt;strong&gt;</bpt>DayOfWeek<ept id="34e6f282-f142-4322-935f-684c05ba229f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c97bed9f-5586-4976-854b-9a9d74b86bc8" xml:space="preserve">
+          <source>Patches installed every Thursday.</source>
+          <target state="new">Patches installed every Thursday.</target>
+        </trans-unit>
+        <trans-unit id="dc9b485a-7627-4199-8603-293cd469d957" xml:space="preserve">
+          <source><bpt id="3f356c31-21bc-4984-aa27-b066a6252b71">&lt;strong&gt;</bpt>MaintenanceWindowStartingHour<ept id="3f356c31-21bc-4984-aa27-b066a6252b71">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3f356c31-21bc-4984-aa27-b066a6252b71">&lt;strong&gt;</bpt>MaintenanceWindowStartingHour<ept id="3f356c31-21bc-4984-aa27-b066a6252b71">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c87035a-ad93-4ac6-b4c5-7687c668c34b" xml:space="preserve">
+          <source>Begin updates at 11:00am.</source>
+          <target state="new">Begin updates at 11:00am.</target>
+        </trans-unit>
+        <trans-unit id="c0305525-6488-4eec-af61-a5ff2a158e31" xml:space="preserve">
+          <source><bpt id="108377b2-bcb1-4b79-88d2-21b6f1fbe16f">&lt;strong&gt;</bpt>MaintenanceWindowsDuration<ept id="108377b2-bcb1-4b79-88d2-21b6f1fbe16f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="108377b2-bcb1-4b79-88d2-21b6f1fbe16f">&lt;strong&gt;</bpt>MaintenanceWindowsDuration<ept id="108377b2-bcb1-4b79-88d2-21b6f1fbe16f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bcbc8ff-e097-46f8-8367-0d0cc0c618c7" xml:space="preserve">
+          <source>Patches must be installed within 120 minutes.</source>
+          <target state="new">Patches must be installed within 120 minutes.</target>
+        </trans-unit>
+        <trans-unit id="d7c5fe5d-6b5b-4cce-986c-673b4140ec86" xml:space="preserve">
+          <source>Based on the start time, they must complete by 1:00pm.</source>
+          <target state="new">Based on the start time, they must complete by 1:00pm.</target>
+        </trans-unit>
+        <trans-unit id="455aba7f-b5f3-4f78-bedd-0c35d5dfa8f9" xml:space="preserve">
+          <source><bpt id="5fcfb197-5f4a-42d0-8470-d36f7ea7a15d">&lt;strong&gt;</bpt>PatchCategory<ept id="5fcfb197-5f4a-42d0-8470-d36f7ea7a15d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5fcfb197-5f4a-42d0-8470-d36f7ea7a15d">&lt;strong&gt;</bpt>PatchCategory<ept id="5fcfb197-5f4a-42d0-8470-d36f7ea7a15d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70d29046-90c1-4871-9fac-ef2eb0b13c20" xml:space="preserve">
+          <source>The only possible setting for this parameter is “Important”.</source>
+          <target state="new">The only possible setting for this parameter is “Important”.</target>
+        </trans-unit>
+        <trans-unit id="36204385-12ee-4e5d-929c-a6040697d1af" xml:space="preserve">
+          <source>It could take several minutes to install and configure the SQL Server IaaS Agent.</source>
+          <target state="new">It could take several minutes to install and configure the SQL Server IaaS Agent.</target>
+        </trans-unit>
+        <trans-unit id="c33a5d23-08c9-4b87-84a2-7c1f366e0bc8" xml:space="preserve">
+          <source>To disable Automated Patching, run the same script without the -Enable parameter to the New-AzureVMSqlServerAutoPatchingConfig.</source>
+          <target state="new">To disable Automated Patching, run the same script without the -Enable parameter to the New-AzureVMSqlServerAutoPatchingConfig.</target>
+        </trans-unit>
+        <trans-unit id="f3224404-14ae-479d-af16-63e806f23478" xml:space="preserve">
+          <source>As with installation, it can take several minutes to disable Automated Patching.</source>
+          <target state="new">As with installation, it can take several minutes to disable Automated Patching.</target>
+        </trans-unit>
+        <trans-unit id="c72bde4a-08b1-4e5b-99d6-feffb94418eb" xml:space="preserve">
+          <source>If you want to disable the SQL Server IaaS Agent for Automated Backup and Patching, use the following command:</source>
+          <target state="new">If you want to disable the SQL Server IaaS Agent for Automated Backup and Patching, use the following command:</target>
+        </trans-unit>
+        <trans-unit id="7c0e488e-fbec-4769-a4b2-abac3ba54991" xml:space="preserve">
+          <source>To uninstall the SQL Server IaaS Agent, use the following syntax:</source>
+          <target state="new">To uninstall the SQL Server IaaS Agent, use the following syntax:</target>
+        </trans-unit>
+        <trans-unit id="fd1b3496-bd0c-412a-a3a6-3bfdf6c41ce9" xml:space="preserve">
+          <source>You can also uninstall the extension using the <bpt id="3e3b8c99-db43-4b0d-826f-4c6a5f184233">&lt;strong&gt;</bpt>Remove-AzureVMSqlServerExtension<ept id="3e3b8c99-db43-4b0d-826f-4c6a5f184233">&lt;/strong&gt;</ept> command:</source>
+          <target state="new">You can also uninstall the extension using the <bpt id="3e3b8c99-db43-4b0d-826f-4c6a5f184233">&lt;strong&gt;</bpt>Remove-AzureVMSqlServerExtension<ept id="3e3b8c99-db43-4b0d-826f-4c6a5f184233">&lt;/strong&gt;</ept> command:</target>
+        </trans-unit>
+        <trans-unit id="d1a83e6f-65fd-4c42-ab1f-7e80b3042a18" xml:space="preserve">
+          <source>The following products are compatible with the SQL Server IaaS Agent features for Automated Patching:</source>
+          <target state="new">The following products are compatible with the SQL Server IaaS Agent features for Automated Patching:</target>
+        </trans-unit>
+        <trans-unit id="56e856db-bdc7-4fd6-b5a4-f877de1c8a53" xml:space="preserve">
+          <source>Windows Server 2012</source>
+          <target state="new">Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="534b6055-7161-4235-8697-63884f265f5f" xml:space="preserve">
+          <source>Windows Server 2012 R2</source>
+          <target state="new">Windows Server 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="a105a991-de6c-4dcf-9ea2-af497c402a1f" xml:space="preserve">
+          <source>SQL Server 2012</source>
+          <target state="new">SQL Server 2012</target>
+        </trans-unit>
+        <trans-unit id="420b7b1b-ee6b-4ff1-ab12-243eecd1252f" xml:space="preserve">
+          <source>SQL Server 2014</source>
+          <target state="new">SQL Server 2014</target>
+        </trans-unit>
+        <trans-unit id="f17f4858-03a9-4d10-8b20-c78711cb2fbf" xml:space="preserve">
+          <source>A related feature for SQL Server VMs in Azure is <bpt id="8fb52d81-237d-44c2-a8d9-09e614857148">&lt;linkText&gt;</bpt>Automated Backup for SQL Server in Azure Virtual Machines<ept id="8fb52d81-237d-44c2-a8d9-09e614857148">&lt;/linkText&gt;</ept><bpt id="8fb52d81-237d-44c2-a8d9-09e614857148">&lt;title&gt;</bpt><ept id="8fb52d81-237d-44c2-a8d9-09e614857148">&lt;/title&gt;</ept>.</source>
+          <target state="new">A related feature for SQL Server VMs in Azure is <bpt id="8fb52d81-237d-44c2-a8d9-09e614857148">&lt;linkText&gt;</bpt>Automated Backup for SQL Server in Azure Virtual Machines<ept id="8fb52d81-237d-44c2-a8d9-09e614857148">&lt;/linkText&gt;</ept><bpt id="8fb52d81-237d-44c2-a8d9-09e614857148">&lt;title&gt;</bpt><ept id="8fb52d81-237d-44c2-a8d9-09e614857148">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b068da8-77bd-4e2f-b0d9-76569e5eae49" xml:space="preserve">
+          <source>Review other <bpt id="71d6e4ac-f020-4de7-9adb-41376f96cdd3">&lt;linkText&gt;</bpt>resources for running SQL Server in Azure Virtual Machines<ept id="71d6e4ac-f020-4de7-9adb-41376f96cdd3">&lt;/linkText&gt;</ept><bpt id="71d6e4ac-f020-4de7-9adb-41376f96cdd3">&lt;title&gt;</bpt><ept id="71d6e4ac-f020-4de7-9adb-41376f96cdd3">&lt;/title&gt;</ept>.</source>
+          <target state="new">Review other <bpt id="71d6e4ac-f020-4de7-9adb-41376f96cdd3">&lt;linkText&gt;</bpt>resources for running SQL Server in Azure Virtual Machines<ept id="71d6e4ac-f020-4de7-9adb-41376f96cdd3">&lt;/linkText&gt;</ept><bpt id="71d6e4ac-f020-4de7-9adb-41376f96cdd3">&lt;title&gt;</bpt><ept id="71d6e4ac-f020-4de7-9adb-41376f96cdd3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

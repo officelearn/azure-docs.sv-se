@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0c67760e-c131-4c42-a01d-fc9e64b5fa33" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0c67760e-c131-4c42-a01d-fc9e64b5fa33" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f41704b0-608d-40ab-b91d-f56ca14f7c27">
+        <trans-unit id="b4f65a6a-58b9-4477-814f-e5f6de7b6cde" xml:space="preserve">
+          <source>Migrating a Database to Azure SQL Database</source>
+          <target state="new">Migrating a Database to Azure SQL Database</target>
+        </trans-unit>
+        <trans-unit id="91159276-61e2-421e-a338-5ea0ee2bbd30" xml:space="preserve">
+          <source>Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard</source>
+          <target state="new">Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard</target>
+        </trans-unit>
+        <trans-unit id="cea7df80-d4e0-40ab-abfd-558be860804d" xml:space="preserve">
+          <source>Azure SQL Database V12 brings near-complete engine compatibility with SQL Server 2014 and later.</source>
+          <target state="new">Azure SQL Database V12 brings near-complete engine compatibility with SQL Server 2014 and later.</target>
+        </trans-unit>
+        <trans-unit id="dd7a8e18-5302-44fa-b7e2-0f76b95ad730" xml:space="preserve">
+          <source>As such, the task of migrating most databases from an on-premises instance of SQL Server 2005 or greater to an Azure SQL database is much simpler.</source>
+          <target state="new">As such, the task of migrating most databases from an on-premises instance of SQL Server 2005 or greater to an Azure SQL database is much simpler.</target>
+        </trans-unit>
+        <trans-unit id="827d4d8e-b562-4c3d-96ea-7ba07ef9349c" xml:space="preserve">
+          <source>Migration for many databases is a straightforward schema and data movement operation requiring few, if any, changes to the schema and little or no re-engineering of applications.</source>
+          <target state="new">Migration for many databases is a straightforward schema and data movement operation requiring few, if any, changes to the schema and little or no re-engineering of applications.</target>
+        </trans-unit>
+        <trans-unit id="817a4efd-3880-4fbb-bd6f-ead366b0f91d" xml:space="preserve">
+          <source>Where databases need to be changed, the scope of these changes is more confined.</source>
+          <target state="new">Where databases need to be changed, the scope of these changes is more confined.</target>
+        </trans-unit>
+        <trans-unit id="847e6927-4e31-450d-a399-4e1765173c1f" xml:space="preserve">
+          <source>By design, server-scoped features of SQL Server are not supported by Azure SQL Database V12.</source>
+          <target state="new">By design, server-scoped features of SQL Server are not supported by Azure SQL Database V12.</target>
+        </trans-unit>
+        <trans-unit id="9afa42c6-9f5c-4fae-8da6-0b16ce5b66e4" xml:space="preserve">
+          <source>Databases and applications that rely on these features will need some re-engineering before they can be migrated.</source>
+          <target state="new">Databases and applications that rely on these features will need some re-engineering before they can be migrated.</target>
+        </trans-unit>
+        <trans-unit id="529c4d43-bd82-4d05-a9be-36e205110816" xml:space="preserve">
+          <source>While Azure SQL Database V12 improves compatibility with an on-premises SQL Server database, migration still needs to be planned and executed carefully, particularly for large and complex databases.</source>
+          <target state="new">While Azure SQL Database V12 improves compatibility with an on-premises SQL Server database, migration still needs to be planned and executed carefully, particularly for large and complex databases.</target>
+        </trans-unit>
+        <trans-unit id="8d4d2316-1c7d-4c21-a30a-57c30534cfdd" xml:space="preserve">
+          <source>To determine if your on-premises SQL Server database is compatible with Azure SQL Database V12, you can either begin the migration using one of the two methods discussed under option #1 below and see if the schema validation routines detect an incompatibility or you can use SQL Server Data Tools in Visual Studio as discussed in option #2 below to validate compatibility.</source>
+          <target state="new">To determine if your on-premises SQL Server database is compatible with Azure SQL Database V12, you can either begin the migration using one of the two methods discussed under option #1 below and see if the schema validation routines detect an incompatibility or you can use SQL Server Data Tools in Visual Studio as discussed in option #2 below to validate compatibility.</target>
+        </trans-unit>
+        <trans-unit id="5da57aff-5c87-467c-ab22-aa4feecb169a" xml:space="preserve">
+          <source>If your on-premises SQL Server database has compatibility issues, you can use SQL Server Data Tools in Visual Studio or SQL Server Management Studio to address and resolve the compatibility issues.</source>
+          <target state="new">If your on-premises SQL Server database has compatibility issues, you can use SQL Server Data Tools in Visual Studio or SQL Server Management Studio to address and resolve the compatibility issues.</target>
+        </trans-unit>
+        <trans-unit id="645690bc-7126-43fd-9080-0cdc0cc1d5d9" xml:space="preserve">
+          <source>There are a number of methods for migrating a compatible on-premises SQL Server database to Azure SQL Database V12.</source>
+          <target state="new">There are a number of methods for migrating a compatible on-premises SQL Server database to Azure SQL Database V12.</target>
+        </trans-unit>
+        <trans-unit id="61bdf578-aaec-449c-af19-15c02a149128" xml:space="preserve">
+          <source>For small to medium databases, migrating compatible SQL Server 2005 or later databases is as simple as running the Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio, provided you do not have connectivity challenges (no connectivity, low bandwidth, or timeout issues).</source>
+          <target state="new">For small to medium databases, migrating compatible SQL Server 2005 or later databases is as simple as running the Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio, provided you do not have connectivity challenges (no connectivity, low bandwidth, or timeout issues).</target>
+        </trans-unit>
+        <trans-unit id="134448f3-a19a-4eb1-9170-4cadb7eb1f55" xml:space="preserve">
+          <source>For medium to large databases or when you have connectivity challenges, you can use SQL Server Management Studio to export the data and schema to a BACPAC file (stored locally or in an Azure blob) and then import the BACPAC file into your Azure SQL instance.</source>
+          <target state="new">For medium to large databases or when you have connectivity challenges, you can use SQL Server Management Studio to export the data and schema to a BACPAC file (stored locally or in an Azure blob) and then import the BACPAC file into your Azure SQL instance.</target>
+        </trans-unit>
+        <trans-unit id="ad5976b2-6ff4-4ab2-bacc-eaee5fd0c9c6" xml:space="preserve">
+          <source>If you store the BACPAC in an Azure blob, you can also import the BACPAC file from within the Azure portal.</source>
+          <target state="new">If you store the BACPAC in an Azure blob, you can also import the BACPAC file from within the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="d45e16c1-4463-47f5-aab1-05f943149934" xml:space="preserve">
+          <source>For more information on a BACPAC file, see <bpt id="2c104fa9-ab8c-4ea7-bd24-1cb708b91653">&lt;linkText&gt;</bpt>Data-tier Applications<ept id="2c104fa9-ab8c-4ea7-bd24-1cb708b91653">&lt;/linkText&gt;</ept><bpt id="2c104fa9-ab8c-4ea7-bd24-1cb708b91653">&lt;title&gt;</bpt><ept id="2c104fa9-ab8c-4ea7-bd24-1cb708b91653">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on a BACPAC file, see <bpt id="2c104fa9-ab8c-4ea7-bd24-1cb708b91653">&lt;linkText&gt;</bpt>Data-tier Applications<ept id="2c104fa9-ab8c-4ea7-bd24-1cb708b91653">&lt;/linkText&gt;</ept><bpt id="2c104fa9-ab8c-4ea7-bd24-1cb708b91653">&lt;title&gt;</bpt><ept id="2c104fa9-ab8c-4ea7-bd24-1cb708b91653">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dea1d578-dc9f-4c2c-959d-0f1f60c77616" xml:space="preserve">
+          <source>For larger databases, you will achieve the best performance by migrating the schema and the data separately.</source>
+          <target state="new">For larger databases, you will achieve the best performance by migrating the schema and the data separately.</target>
+        </trans-unit>
+        <trans-unit id="e5d81fcf-b06b-4e72-bad1-505f7d2b4703" xml:space="preserve">
+          <source>You can extract the schema into a database project using SQL Server Management Studio or Visual Studio and then deploy the schema to create the Azure SQL database.</source>
+          <target state="new">You can extract the schema into a database project using SQL Server Management Studio or Visual Studio and then deploy the schema to create the Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="f30fd2a0-527c-4aa5-956a-65f090f925e4" xml:space="preserve">
+          <source>You can then extract the data using BCP and then use BCP to import the data using parallel streams into the Azure SQL database.</source>
+          <target state="new">You can then extract the data using BCP and then use BCP to import the data using parallel streams into the Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="56873bd6-2f53-4e59-a21a-bcfd2a57fee1" xml:space="preserve">
+          <source>Migrating a large, complex database will take many hours regardless of the method you choose.</source>
+          <target state="new">Migrating a large, complex database will take many hours regardless of the method you choose.</target>
+        </trans-unit>
+        <trans-unit id="7905b8a1-9b36-485c-bf51-312f53583d0d" xml:space="preserve">
+          <source><bpt id="d5a494b0-bfe7-4c13-8478-c1cfe0073260">&lt;strong&gt;</bpt>*Migrating a compatible database using SQL Server Management Studio *<ept id="d5a494b0-bfe7-4c13-8478-c1cfe0073260">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d5a494b0-bfe7-4c13-8478-c1cfe0073260">&lt;strong&gt;</bpt>*Migrating a compatible database using SQL Server Management Studio *<ept id="d5a494b0-bfe7-4c13-8478-c1cfe0073260">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f59c16bc-f405-4cfd-a0a6-cd5968ba8807" xml:space="preserve">
+          <source>SQL Server Management Studio provides two methods for migrating your compatible on-premises SQL Server database to an Azure SQL database.</source>
+          <target state="new">SQL Server Management Studio provides two methods for migrating your compatible on-premises SQL Server database to an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="9ae037c6-1fc4-420a-8a59-f052e380df2a" xml:space="preserve">
+          <source>You can either use the Deploy Database to Microsoft Azure SQL Database wizard or export the database to a BACPAC file, which can then be imported to create a new Azure SQL database.</source>
+          <target state="new">You can either use the Deploy Database to Microsoft Azure SQL Database wizard or export the database to a BACPAC file, which can then be imported to create a new Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="f4baaac1-dfd4-4643-9f43-651ed92c4565" xml:space="preserve">
+          <source>The wizard validates Azure SQL Database V12 compatibility, extracts the schema and data into a BACPAC file and then imports it into the Azure SQL database instance specified.</source>
+          <target state="new">The wizard validates Azure SQL Database V12 compatibility, extracts the schema and data into a BACPAC file and then imports it into the Azure SQL database instance specified.</target>
+        </trans-unit>
+        <trans-unit id="49359f8d-58d6-4f45-8b44-8ac324ab01d6" xml:space="preserve">
+          <source>To use this option, see <bpt id="60dda848-69a3-4e5d-9611-2168060eacaa">&lt;linkText&gt;</bpt>Use SSMS<ept id="60dda848-69a3-4e5d-9611-2168060eacaa">&lt;/linkText&gt;</ept><bpt id="60dda848-69a3-4e5d-9611-2168060eacaa">&lt;title&gt;</bpt><ept id="60dda848-69a3-4e5d-9611-2168060eacaa">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use this option, see <bpt id="60dda848-69a3-4e5d-9611-2168060eacaa">&lt;linkText&gt;</bpt>Use SSMS<ept id="60dda848-69a3-4e5d-9611-2168060eacaa">&lt;/linkText&gt;</ept><bpt id="60dda848-69a3-4e5d-9611-2168060eacaa">&lt;title&gt;</bpt><ept id="60dda848-69a3-4e5d-9611-2168060eacaa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="959b9b0d-59b7-4aaa-abf8-fc3ff96af311" xml:space="preserve">
+          <source><bpt id="cadb9ee1-1975-407d-bb3e-b945f0a67314">&lt;strong&gt;</bpt>*Update the database schema off-line using Visual Studio and then deploy with SQL Server Management Studio*<ept id="cadb9ee1-1975-407d-bb3e-b945f0a67314">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cadb9ee1-1975-407d-bb3e-b945f0a67314">&lt;strong&gt;</bpt>*Update the database schema off-line using Visual Studio and then deploy with SQL Server Management Studio*<ept id="cadb9ee1-1975-407d-bb3e-b945f0a67314">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6259ed9-b6bd-4218-b589-513812065aed" xml:space="preserve">
+          <source>If your on-premises SQL Server database is not compatible or to determine if it is compatible, you can import the database schema into a Visual Studio database project for analysis.</source>
+          <target state="new">If your on-premises SQL Server database is not compatible or to determine if it is compatible, you can import the database schema into a Visual Studio database project for analysis.</target>
+        </trans-unit>
+        <trans-unit id="db74cb19-52cb-4fc3-aa1d-ccd2b1848de5" xml:space="preserve">
+          <source>To analyze, you specify the target platform for the project as SQL Database V12 and then build the project.</source>
+          <target state="new">To analyze, you specify the target platform for the project as SQL Database V12 and then build the project.</target>
+        </trans-unit>
+        <trans-unit id="c368f602-b02c-40c2-9ff2-031ab27f5ea6" xml:space="preserve">
+          <source>If the build is successful, the database is compatible.</source>
+          <target state="new">If the build is successful, the database is compatible.</target>
+        </trans-unit>
+        <trans-unit id="656953bb-0e0e-45a1-b6b3-6182b6ceeaf9" xml:space="preserve">
+          <source>If the build fails, you can resolve the errors in SQL Server Data Tools for Visual Studio ("SSDT").</source>
+          <target state="new">If the build fails, you can resolve the errors in SQL Server Data Tools for Visual Studio ("SSDT").</target>
+        </trans-unit>
+        <trans-unit id="899fe8d8-8f13-4e1d-ab09-90bba75923f3" xml:space="preserve">
+          <source>Once the project builds successfully, you can publish it back as a copy of the source database and then use the data compare feature in SSDT to copy the data from the source database to the Azure SQL V12 compatible database.</source>
+          <target state="new">Once the project builds successfully, you can publish it back as a copy of the source database and then use the data compare feature in SSDT to copy the data from the source database to the Azure SQL V12 compatible database.</target>
+        </trans-unit>
+        <trans-unit id="98c1b0dd-c153-4944-bbc8-2074a4e2d747" xml:space="preserve">
+          <source>This updated database is then deployed to Azure SQL Database using option #1.</source>
+          <target state="new">This updated database is then deployed to Azure SQL Database using option #1.</target>
+        </trans-unit>
+        <trans-unit id="26cfb3b9-d52b-4e8d-991b-928f4761a24b" xml:space="preserve">
+          <source>If schema-only migration is required, the schema can be published directly from Visual Studio directly to Azure SQL Database.</source>
+          <target state="new">If schema-only migration is required, the schema can be published directly from Visual Studio directly to Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="10c7c961-d5fc-4a9e-890d-8a2ba26826c1" xml:space="preserve">
+          <source>Use this method when the database schema requires more changes than can be handled by the migration wizard alone.</source>
+          <target state="new">Use this method when the database schema requires more changes than can be handled by the migration wizard alone.</target>
+        </trans-unit>
+        <trans-unit id="4e9939b8-fa69-445e-99db-b4b6795cd585" xml:space="preserve">
+          <source>To use this option, see <bpt id="0ebaaa15-2113-4e10-8618-709cffbcbea4">&lt;linkText&gt;</bpt>Use Visual Studio<ept id="0ebaaa15-2113-4e10-8618-709cffbcbea4">&lt;/linkText&gt;</ept><bpt id="0ebaaa15-2113-4e10-8618-709cffbcbea4">&lt;title&gt;</bpt><ept id="0ebaaa15-2113-4e10-8618-709cffbcbea4">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use this option, see <bpt id="0ebaaa15-2113-4e10-8618-709cffbcbea4">&lt;linkText&gt;</bpt>Use Visual Studio<ept id="0ebaaa15-2113-4e10-8618-709cffbcbea4">&lt;/linkText&gt;</ept><bpt id="0ebaaa15-2113-4e10-8618-709cffbcbea4">&lt;title&gt;</bpt><ept id="0ebaaa15-2113-4e10-8618-709cffbcbea4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a12c8f11-5d24-4b66-98c5-fb50e7859e15" xml:space="preserve">
+          <source>If you anticipate that a database can be migrated without change you should use option #1, which is quick and easy.</source>
+          <target state="new">If you anticipate that a database can be migrated without change you should use option #1, which is quick and easy.</target>
+        </trans-unit>
+        <trans-unit id="2880eb23-632e-4b4f-a712-ccf63e60f69b" xml:space="preserve">
+          <source>If you are uncertain, start by exporting a schema-only BACPAC from the database as described in option #1.</source>
+          <target state="new">If you are uncertain, start by exporting a schema-only BACPAC from the database as described in option #1.</target>
+        </trans-unit>
+        <trans-unit id="886bb347-75de-4b3e-a0cf-4cc7d46e9148" xml:space="preserve">
+          <source>If the export succeeds with no errors, you can use option #1 to migrate the database with its data.</source>
+          <target state="new">If the export succeeds with no errors, you can use option #1 to migrate the database with its data.</target>
+        </trans-unit>
+        <trans-unit id="69b72207-49b1-4dfc-baf5-fc898c5ed283" xml:space="preserve">
+          <source>If you encounter errors during the export of option#1, use option #2 and correct the database schema offline in Visual Studio using a combination of the migration wizard and manually applied schema changes.</source>
+          <target state="new">If you encounter errors during the export of option#1, use option #2 and correct the database schema offline in Visual Studio using a combination of the migration wizard and manually applied schema changes.</target>
+        </trans-unit>
+        <trans-unit id="aab20524-105c-4ee5-8315-adf102954d83" xml:space="preserve">
+          <source>A copy of the source database is then updated in situ and then migrated to Azure using option #1.</source>
+          <target state="new">A copy of the source database is then updated in situ and then migrated to Azure using option #1.</target>
+        </trans-unit>
+        <trans-unit id="e9df9309-336f-472b-b75c-8fbec233024a" xml:space="preserve">
+          <source>Tools used include SQL Server Management Studio (SSMS) and the SQL Server tooling in Visual Studio (VS, SSDT), as well the Azure portal.</source>
+          <target state="new">Tools used include SQL Server Management Studio (SSMS) and the SQL Server tooling in Visual Studio (VS, SSDT), as well the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="da6ac70b-c961-48bf-a1ce-024ec5467d27" xml:space="preserve">
+          <source>Be sure to install the latest versions of the client tools as earlier versions are not compatible with the Azure SQL Database V12.</source>
+          <target state="new">Be sure to install the latest versions of the client tools as earlier versions are not compatible with the Azure SQL Database V12.</target>
+        </trans-unit>
+        <trans-unit id="f369fa18-b63a-4182-8606-8d448817b364" xml:space="preserve">
+          <source>SSMS can be used to deploy a compatible database directly to Azure SQL Database or to export a logical backup of the database as a BACPAC, which can then be imported, still using SSMS, to create a new Azure SQL Database.</source>
+          <target state="new">SSMS can be used to deploy a compatible database directly to Azure SQL Database or to export a logical backup of the database as a BACPAC, which can then be imported, still using SSMS, to create a new Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="1424590b-0d24-43ef-ba9c-fd1f5fd4c572" xml:space="preserve">
+          <source><bpt id="479c69b9-6833-4268-972e-d0e3326ee3e2">&lt;linkText&gt;</bpt>Download the latest version of SSMS<ept id="479c69b9-6833-4268-972e-d0e3326ee3e2">&lt;/linkText&gt;</ept><bpt id="479c69b9-6833-4268-972e-d0e3326ee3e2">&lt;title&gt;</bpt><ept id="479c69b9-6833-4268-972e-d0e3326ee3e2">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="479c69b9-6833-4268-972e-d0e3326ee3e2">&lt;linkText&gt;</bpt>Download the latest version of SSMS<ept id="479c69b9-6833-4268-972e-d0e3326ee3e2">&lt;/linkText&gt;</ept><bpt id="479c69b9-6833-4268-972e-d0e3326ee3e2">&lt;title&gt;</bpt><ept id="479c69b9-6833-4268-972e-d0e3326ee3e2">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="c9ae0617-8596-4761-bce1-119461845314" xml:space="preserve">
+          <source>The SQL Server tooling in Visual Studio can be used to create and manage a database project comprising a set of Transact-SQL files for each object in the schema.</source>
+          <target state="new">The SQL Server tooling in Visual Studio can be used to create and manage a database project comprising a set of Transact-SQL files for each object in the schema.</target>
+        </trans-unit>
+        <trans-unit id="5d53f8c8-4607-47b3-94b2-60cacccf9bf2" xml:space="preserve">
+          <source>The project can be imported from a database or from a script file.</source>
+          <target state="new">The project can be imported from a database or from a script file.</target>
+        </trans-unit>
+        <trans-unit id="d9445cb0-c36f-4890-8f6f-fed0a55e6c3b" xml:space="preserve">
+          <source>Once created, the project can be to Azure SQL Database v12; building the project then validates schema compatibility.</source>
+          <target state="new">Once created, the project can be to Azure SQL Database v12; building the project then validates schema compatibility.</target>
+        </trans-unit>
+        <trans-unit id="e434319b-e525-4c3a-8a3e-2c5ec0e78baa" xml:space="preserve">
+          <source>Clicking on an error opens the corresponding Transact-SQL file allowing it to be edited and the error corrected.</source>
+          <target state="new">Clicking on an error opens the corresponding Transact-SQL file allowing it to be edited and the error corrected.</target>
+        </trans-unit>
+        <trans-unit id="7795459e-e383-45ae-8bb2-7ae3d5b791af" xml:space="preserve">
+          <source>Once all the errors are fixed the project can be published, either directly to SQL Database to create an empty database or back to (a copy of) the original SQL Server database to update its schema, which allows the database to be deployed with its data using SSMS as above.</source>
+          <target state="new">Once all the errors are fixed the project can be published, either directly to SQL Database to create an empty database or back to (a copy of) the original SQL Server database to update its schema, which allows the database to be deployed with its data using SSMS as above.</target>
+        </trans-unit>
+        <trans-unit id="c44a948d-2ad5-4f9e-b9cf-dd92aa2186d7" xml:space="preserve">
+          <source>Use the <bpt id="e3294b0e-696d-4a25-98ad-6a5ccf3fe8fd">&lt;linkText&gt;</bpt>latest SQL Server Data Tools for Visual Studio<ept id="e3294b0e-696d-4a25-98ad-6a5ccf3fe8fd">&lt;/linkText&gt;</ept><bpt id="e3294b0e-696d-4a25-98ad-6a5ccf3fe8fd">&lt;title&gt;</bpt><ept id="e3294b0e-696d-4a25-98ad-6a5ccf3fe8fd">&lt;/title&gt;</ept> with Visual Studio 2013 Update 4 or later.</source>
+          <target state="new">Use the <bpt id="e3294b0e-696d-4a25-98ad-6a5ccf3fe8fd">&lt;linkText&gt;</bpt>latest SQL Server Data Tools for Visual Studio<ept id="e3294b0e-696d-4a25-98ad-6a5ccf3fe8fd">&lt;/linkText&gt;</ept><bpt id="e3294b0e-696d-4a25-98ad-6a5ccf3fe8fd">&lt;title&gt;</bpt><ept id="e3294b0e-696d-4a25-98ad-6a5ccf3fe8fd">&lt;/title&gt;</ept> with Visual Studio 2013 Update 4 or later.</target>
+        </trans-unit>
+        <trans-unit id="f01d88a2-2c8f-4e39-9f02-48d4e823366d" xml:space="preserve">
+          <source>Option #1</source>
+          <target state="new">Option #1</target>
+        </trans-unit>
+        <trans-unit id="6523fc59-4a2b-45b5-a03d-a07b7e8b40a5" xml:space="preserve">
+          <source>Option #2</source>
+          <target state="new">Option #2</target>
+        </trans-unit>
+        <trans-unit id="9806e467-4682-4e2c-9716-4328a737f38e" xml:space="preserve">
+          <source>Deploy a compatible database to Azure SQL Database</source>
+          <target state="new">Deploy a compatible database to Azure SQL Database</target>
+        </trans-unit>
+        <trans-unit id="c991a3e8-0aee-4f46-8ec0-dfe4f8252a5c" xml:space="preserve">
+          <source>Update database in-place then deploy to Azure SQL Database</source>
+          <target state="new">Update database in-place then deploy to Azure SQL Database</target>
+        </trans-unit>
+        <trans-unit id="ec4b65c3-8cad-40f3-b9f3-07db811396a6" xml:space="preserve">
+          <source><bpt id="39e945ce-db97-4e31-aea6-1bce46585f23">&lt;linkText&gt;</bpt>SSMS<ept id="39e945ce-db97-4e31-aea6-1bce46585f23">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="39e945ce-db97-4e31-aea6-1bce46585f23">&lt;linkText&gt;</bpt>SSMS<ept id="39e945ce-db97-4e31-aea6-1bce46585f23">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ac75fb7-6ac3-44b5-b781-0248a95ace75" xml:space="preserve">
+          <source><bpt id="c3e2151b-1658-4edf-85c9-49702da13ec2">&lt;linkText&gt;</bpt>Offline Edit<ept id="c3e2151b-1658-4edf-85c9-49702da13ec2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c3e2151b-1658-4edf-85c9-49702da13ec2">&lt;linkText&gt;</bpt>Offline Edit<ept id="c3e2151b-1658-4edf-85c9-49702da13ec2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f47d291-4de1-4e27-ad96-610326b87abc" xml:space="preserve">
+          <source>Uses SSMS</source>
+          <target state="new">Uses SSMS</target>
+        </trans-unit>
+        <trans-unit id="b1e86b4b-5d13-444b-af2c-f0952fc00d59" xml:space="preserve">
+          <source>Uses VS and SSMS</source>
+          <target state="new">Uses VS and SSMS</target>
+        </trans-unit>
+        <trans-unit id="7e5b5382-991a-4b42-af20-67ec585bf5e7" xml:space="preserve">
+          <source>Simple process requires that schema is compatible.</source>
+          <target state="new">Simple process requires that schema is compatible.</target>
+        </trans-unit>
+        <trans-unit id="ece120f7-2690-4db1-9ab0-e34df4fc97de" xml:space="preserve">
+          <source>Schema is migrated unchanged.</source>
+          <target state="new">Schema is migrated unchanged.</target>
+        </trans-unit>
+        <trans-unit id="c122bd5b-4172-45c4-922b-a37a3ed29a80" xml:space="preserve">
+          <source>Schema is imported into a database project in Visual Studio.</source>
+          <target state="new">Schema is imported into a database project in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="711ba6fe-4fc7-4385-b532-b7ceb102eccd" xml:space="preserve">
+          <source>Additional updates are made using SSDT for Visual Studio and final schema used to update the database in situ.</source>
+          <target state="new">Additional updates are made using SSDT for Visual Studio and final schema used to update the database in situ.</target>
+        </trans-unit>
+        <trans-unit id="a870c2a1-f887-4bc3-b49c-41fa9b45fb06" xml:space="preserve">
+          <source>Always deploys or exports the entire database.</source>
+          <target state="new">Always deploys or exports the entire database.</target>
+        </trans-unit>
+        <trans-unit id="1c928915-576f-436c-863e-7583ec17338d" xml:space="preserve">
+          <source>Full control of the objects that are included in the migration.</source>
+          <target state="new">Full control of the objects that are included in the migration.</target>
+        </trans-unit>
+        <trans-unit id="e7fdd816-8192-40e2-8916-bcfc5e8edf30" xml:space="preserve">
+          <source>No provision for changing the output if there are errors, the source schema must be compatible.</source>
+          <target state="new">No provision for changing the output if there are errors, the source schema must be compatible.</target>
+        </trans-unit>
+        <trans-unit id="4c434bf0-c772-46fc-8cff-eb56b55008c7" xml:space="preserve">
+          <source>Full features of SSDT for Visual Studio available.</source>
+          <target state="new">Full features of SSDT for Visual Studio available.</target>
+        </trans-unit>
+        <trans-unit id="5d430787-8316-452e-b031-22ad3167c065" xml:space="preserve">
+          <source>Schema is changed offline.</source>
+          <target state="new">Schema is changed offline.</target>
+        </trans-unit>
+        <trans-unit id="4e0f87ed-a063-4bce-bd77-c56ff58e417b" xml:space="preserve">
+          <source>Application validation occurs in Azure.</source>
+          <target state="new">Application validation occurs in Azure.</target>
+        </trans-unit>
+        <trans-unit id="9d2e6e7a-86b9-4122-83db-5833e806441c" xml:space="preserve">
+          <source>Should be minimal as schema is migrated without change.</source>
+          <target state="new">Should be minimal as schema is migrated without change.</target>
+        </trans-unit>
+        <trans-unit id="12f49de8-67d0-4fea-9398-3f0ec29737aa" xml:space="preserve">
+          <source>Application validation can be done in SQL Server before the database is deployed to Azure.</source>
+          <target state="new">Application validation can be done in SQL Server before the database is deployed to Azure.</target>
+        </trans-unit>
+        <trans-unit id="37ba393c-01c7-4d47-8c80-ca35492457f2" xml:space="preserve">
+          <source>Simple, easily configured one- or two-step process.</source>
+          <target state="new">Simple, easily configured one- or two-step process.</target>
+        </trans-unit>
+        <trans-unit id="c6e402b5-3d4f-4304-8ad3-b52fcfd0b118" xml:space="preserve">
+          <source>More complex multi-step process (easier if only deploying schema).</source>
+          <target state="new">More complex multi-step process (easier if only deploying schema).</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

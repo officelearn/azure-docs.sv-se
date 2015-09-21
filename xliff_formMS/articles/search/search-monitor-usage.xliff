@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6cf5d332-144d-44e4-8d1f-1cec0f5d6ac4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6cf5d332-144d-44e4-8d1f-1cec0f5d6ac4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6f03669e-12aa-460c-a5c9-5edcd8e9b085">
+        <trans-unit id="87cbce20-e79f-4f26-86b1-32c53227127f" xml:space="preserve">
+          <source>Monitor usage and statistics in an Azure Search service</source>
+          <target state="new">Monitor usage and statistics in an Azure Search service</target>
+        </trans-unit>
+        <trans-unit id="bbd20ff5-8e1a-43e0-b4bd-c155f8e9ccd2" xml:space="preserve">
+          <source>Track resource consumption and index size for Azure Search</source>
+          <target state="new">Track resource consumption and index size for Azure Search</target>
+        </trans-unit>
+        <trans-unit id="c592ad04-19d6-43a3-9283-fe8cd3190aa2" xml:space="preserve">
+          <source>Tracking the growth of indexes and document size can help you proactively adjust capacity before hitting the upper limit you've established for your service.</source>
+          <target state="new">Tracking the growth of indexes and document size can help you proactively adjust capacity before hitting the upper limit you've established for your service.</target>
+        </trans-unit>
+        <trans-unit id="666222b6-f84b-4cdf-870c-eeb1b7aa4a94" xml:space="preserve">
+          <source>To monitor resource usage, counts and statistics are easily viewed in the <bpt id="0fcefeb3-1cf3-4c19-bbc9-4057a657ffdf">&lt;linkText&gt;</bpt>Azure portal<ept id="0fcefeb3-1cf3-4c19-bbc9-4057a657ffdf">&lt;/linkText&gt;</ept><bpt id="0fcefeb3-1cf3-4c19-bbc9-4057a657ffdf">&lt;title&gt;</bpt><ept id="0fcefeb3-1cf3-4c19-bbc9-4057a657ffdf">&lt;/title&gt;</ept>, but you can also obtain the information programmatically if you are building a custom service administration tool.</source>
+          <target state="new">To monitor resource usage, counts and statistics are easily viewed in the <bpt id="0fcefeb3-1cf3-4c19-bbc9-4057a657ffdf">&lt;linkText&gt;</bpt>Azure portal<ept id="0fcefeb3-1cf3-4c19-bbc9-4057a657ffdf">&lt;/linkText&gt;</ept><bpt id="0fcefeb3-1cf3-4c19-bbc9-4057a657ffdf">&lt;title&gt;</bpt><ept id="0fcefeb3-1cf3-4c19-bbc9-4057a657ffdf">&lt;/title&gt;</ept>, but you can also obtain the information programmatically if you are building a custom service administration tool.</target>
+        </trans-unit>
+        <trans-unit id="bda07d5b-1436-450b-b02a-7633be8b86d1" xml:space="preserve">
+          <source>This article covers the steps for both techniques.</source>
+          <target state="new">This article covers the steps for both techniques.</target>
+        </trans-unit>
+        <trans-unit id="6f4fb2ca-7e2c-435a-8188-d96e758f8c18" xml:space="preserve">
+          <source>Sign in to the <bpt id="fdc35afa-664a-4a9f-87aa-dc934f2d0bde">&lt;linkText&gt;</bpt>Azure portal<ept id="fdc35afa-664a-4a9f-87aa-dc934f2d0bde">&lt;/linkText&gt;</ept><bpt id="fdc35afa-664a-4a9f-87aa-dc934f2d0bde">&lt;title&gt;</bpt><ept id="fdc35afa-664a-4a9f-87aa-dc934f2d0bde">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="fdc35afa-664a-4a9f-87aa-dc934f2d0bde">&lt;linkText&gt;</bpt>Azure portal<ept id="fdc35afa-664a-4a9f-87aa-dc934f2d0bde">&lt;/linkText&gt;</ept><bpt id="fdc35afa-664a-4a9f-87aa-dc934f2d0bde">&lt;title&gt;</bpt><ept id="fdc35afa-664a-4a9f-87aa-dc934f2d0bde">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c3f17470-eed5-4f14-bca9-fa294a32ce03" xml:space="preserve">
+          <source>Open the service dashboard of your Azure Search service.</source>
+          <target state="new">Open the service dashboard of your Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="de09b319-c2ff-4073-843d-dd9825fe8aba" xml:space="preserve">
+          <source>Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar.</source>
+          <target state="new">Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar.</target>
+        </trans-unit>
+        <trans-unit id="5ad8410c-217b-438f-a590-12f20a814aec" xml:space="preserve">
+          <source>See <bpt id="2c97f158-8f5b-4f28-a067-bf94ea27262e">&lt;linkText&gt;</bpt>Create a service<ept id="2c97f158-8f5b-4f28-a067-bf94ea27262e">&lt;/linkText&gt;</ept><bpt id="2c97f158-8f5b-4f28-a067-bf94ea27262e">&lt;title&gt;</bpt><ept id="2c97f158-8f5b-4f28-a067-bf94ea27262e">&lt;/title&gt;</ept> for step-by-step instructions.</source>
+          <target state="new">See <bpt id="2c97f158-8f5b-4f28-a067-bf94ea27262e">&lt;linkText&gt;</bpt>Create a service<ept id="2c97f158-8f5b-4f28-a067-bf94ea27262e">&lt;/linkText&gt;</ept><bpt id="2c97f158-8f5b-4f28-a067-bf94ea27262e">&lt;title&gt;</bpt><ept id="2c97f158-8f5b-4f28-a067-bf94ea27262e">&lt;/title&gt;</ept> for step-by-step instructions.</target>
+        </trans-unit>
+        <trans-unit id="6e7bf492-9bf5-4d11-b172-0412c5e0b0ee" xml:space="preserve">
+          <source>The Usage section includes a meter that tells you what portion of available resources are currently in use.</source>
+          <target state="new">The Usage section includes a meter that tells you what portion of available resources are currently in use.</target>
+        </trans-unit>
+        <trans-unit id="7edd43c8-681d-40d2-b3cb-1894922fdeab" xml:space="preserve">
+          <source>  <bpt id="42f2ad13-573c-48d1-9d14-823cbde0bf34">&lt;linkText&gt;</bpt><ept id="42f2ad13-573c-48d1-9d14-823cbde0bf34">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="42f2ad13-573c-48d1-9d14-823cbde0bf34">&lt;linkText&gt;</bpt><ept id="42f2ad13-573c-48d1-9d14-823cbde0bf34">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="202a6bb4-24f8-462e-88fd-1f2c21a521b6" xml:space="preserve">
+          <source>Recall that the shared service has a maximum of one replica and partition each.</source>
+          <target state="new">Recall that the shared service has a maximum of one replica and partition each.</target>
+        </trans-unit>
+        <trans-unit id="39b4d604-743e-49ff-b480-08bfb19c439e" xml:space="preserve">
+          <source>Additionally, it can only support 10,000 documents in total or 50 MB of data, whichever comes first.</source>
+          <target state="new">Additionally, it can only support 10,000 documents in total or 50 MB of data, whichever comes first.</target>
+        </trans-unit>
+        <trans-unit id="5130e208-a3ec-4d92-93c5-c55714c071a4" xml:space="preserve">
+          <source>Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics.</source>
+          <target state="new">Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics.</target>
+        </trans-unit>
+        <trans-unit id="cdaf902e-1884-41ef-8608-a23425ff0500" xml:space="preserve">
+          <source>If you are using <bpt id="a2f20907-a8f2-4418-a359-ccc051e1adf1">&lt;linkText&gt;</bpt>indexers<ept id="a2f20907-a8f2-4418-a359-ccc051e1adf1">&lt;/linkText&gt;</ept><bpt id="a2f20907-a8f2-4418-a359-ccc051e1adf1">&lt;title&gt;</bpt><ept id="a2f20907-a8f2-4418-a359-ccc051e1adf1">&lt;/title&gt;</ept> to load an index from Azure SQL Database or DocumentDB, an additional API is available to get the numbers you require.</source>
+          <target state="new">If you are using <bpt id="a2f20907-a8f2-4418-a359-ccc051e1adf1">&lt;linkText&gt;</bpt>indexers<ept id="a2f20907-a8f2-4418-a359-ccc051e1adf1">&lt;/linkText&gt;</ept><bpt id="a2f20907-a8f2-4418-a359-ccc051e1adf1">&lt;title&gt;</bpt><ept id="a2f20907-a8f2-4418-a359-ccc051e1adf1">&lt;/title&gt;</ept> to load an index from Azure SQL Database or DocumentDB, an additional API is available to get the numbers you require.</target>
+        </trans-unit>
+        <trans-unit id="33736748-26ab-4455-a985-a684fea62ffb" xml:space="preserve">
+          <source><bpt id="b2d08eaa-bf85-4764-85bc-d330a5c3adb0">&lt;linkText&gt;</bpt>Get Index Statistics<ept id="b2d08eaa-bf85-4764-85bc-d330a5c3adb0">&lt;/linkText&gt;</ept><bpt id="b2d08eaa-bf85-4764-85bc-d330a5c3adb0">&lt;title&gt;</bpt><ept id="b2d08eaa-bf85-4764-85bc-d330a5c3adb0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b2d08eaa-bf85-4764-85bc-d330a5c3adb0">&lt;linkText&gt;</bpt>Get Index Statistics<ept id="b2d08eaa-bf85-4764-85bc-d330a5c3adb0">&lt;/linkText&gt;</ept><bpt id="b2d08eaa-bf85-4764-85bc-d330a5c3adb0">&lt;title&gt;</bpt><ept id="b2d08eaa-bf85-4764-85bc-d330a5c3adb0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fce9ebe5-35bd-43af-8e86-b21976d8cc16" xml:space="preserve">
+          <source><bpt id="c02802a0-caa0-47e6-8d82-9af24b3eb66a">&lt;linkText&gt;</bpt>Count Documents<ept id="c02802a0-caa0-47e6-8d82-9af24b3eb66a">&lt;/linkText&gt;</ept><bpt id="c02802a0-caa0-47e6-8d82-9af24b3eb66a">&lt;title&gt;</bpt><ept id="c02802a0-caa0-47e6-8d82-9af24b3eb66a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c02802a0-caa0-47e6-8d82-9af24b3eb66a">&lt;linkText&gt;</bpt>Count Documents<ept id="c02802a0-caa0-47e6-8d82-9af24b3eb66a">&lt;/linkText&gt;</ept><bpt id="c02802a0-caa0-47e6-8d82-9af24b3eb66a">&lt;title&gt;</bpt><ept id="c02802a0-caa0-47e6-8d82-9af24b3eb66a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b10d9bad-e1e0-4bd8-bfde-424992be7296" xml:space="preserve">
+          <source><bpt id="61c46a7a-b54f-48de-886a-20aa409b6794">&lt;linkText&gt;</bpt>Get Indexer Status<ept id="61c46a7a-b54f-48de-886a-20aa409b6794">&lt;/linkText&gt;</ept><bpt id="61c46a7a-b54f-48de-886a-20aa409b6794">&lt;title&gt;</bpt><ept id="61c46a7a-b54f-48de-886a-20aa409b6794">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="61c46a7a-b54f-48de-886a-20aa409b6794">&lt;linkText&gt;</bpt>Get Indexer Status<ept id="61c46a7a-b54f-48de-886a-20aa409b6794">&lt;/linkText&gt;</ept><bpt id="61c46a7a-b54f-48de-886a-20aa409b6794">&lt;title&gt;</bpt><ept id="61c46a7a-b54f-48de-886a-20aa409b6794">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca250ec9-d58f-45f2-a1c0-bc0f36a4869b" xml:space="preserve">
+          <source>Review <bpt id="eef9cec7-ec55-4de8-86c1-b71e10f762b0">&lt;linkText&gt;</bpt>Limits and capacity<ept id="eef9cec7-ec55-4de8-86c1-b71e10f762b0">&lt;/linkText&gt;</ept><bpt id="eef9cec7-ec55-4de8-86c1-b71e10f762b0">&lt;title&gt;</bpt><ept id="eef9cec7-ec55-4de8-86c1-b71e10f762b0">&lt;/title&gt;</ept> to determine the combination of partitions and replicas you'll need if existing capacity is insufficient.</source>
+          <target state="new">Review <bpt id="eef9cec7-ec55-4de8-86c1-b71e10f762b0">&lt;linkText&gt;</bpt>Limits and capacity<ept id="eef9cec7-ec55-4de8-86c1-b71e10f762b0">&lt;/linkText&gt;</ept><bpt id="eef9cec7-ec55-4de8-86c1-b71e10f762b0">&lt;title&gt;</bpt><ept id="eef9cec7-ec55-4de8-86c1-b71e10f762b0">&lt;/title&gt;</ept> to determine the combination of partitions and replicas you'll need if existing capacity is insufficient.</target>
+        </trans-unit>
+        <trans-unit id="d4bd6b99-1066-4bf5-8405-4536bc84a733" xml:space="preserve">
+          <source>Visit <bpt id="66a18bcb-e011-4b71-af22-83a84c4018b5">&lt;linkText&gt;</bpt>Manage your Search service on Microsoft Azure<ept id="66a18bcb-e011-4b71-af22-83a84c4018b5">&lt;/linkText&gt;</ept><bpt id="66a18bcb-e011-4b71-af22-83a84c4018b5">&lt;title&gt;</bpt><ept id="66a18bcb-e011-4b71-af22-83a84c4018b5">&lt;/title&gt;</ept> for more information on service administration.</source>
+          <target state="new">Visit <bpt id="66a18bcb-e011-4b71-af22-83a84c4018b5">&lt;linkText&gt;</bpt>Manage your Search service on Microsoft Azure<ept id="66a18bcb-e011-4b71-af22-83a84c4018b5">&lt;/linkText&gt;</ept><bpt id="66a18bcb-e011-4b71-af22-83a84c4018b5">&lt;title&gt;</bpt><ept id="66a18bcb-e011-4b71-af22-83a84c4018b5">&lt;/title&gt;</ept> for more information on service administration.</target>
+        </trans-unit>
+        <trans-unit id="e52480eb-4376-45d4-b7b4-c3aa2635ede6" xml:space="preserve">
+          <source>./media/search-monitor-usage/AzureSearch-Monitor1.PNG</source>
+          <target state="new">./media/search-monitor-usage/AzureSearch-Monitor1.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="b1a04ab8-241a-4d8e-9470-bc4dbaeb8975" />
+    </body>
+  </file>
+</xliff>

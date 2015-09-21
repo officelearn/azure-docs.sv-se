@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bc745d93-70d1-4627-9b57-28833ea7b42d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bc745d93-70d1-4627-9b57-28833ea7b42d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bce2e5a7-dedb-41e8-9918-7add0374125f">
+        <trans-unit id="5c04bb26-244d-4626-baa1-a64901ecf5aa" xml:space="preserve">
+          <source>Manage Azure HDInsight using Azure Automation</source>
+          <target state="new">Manage Azure HDInsight using Azure Automation</target>
+        </trans-unit>
+        <trans-unit id="548f8153-e3ec-4dbe-a68f-b10c1395e9f6" xml:space="preserve">
+          <source>Learn about how the Azure Automation service can be used to manage Azure HDInsight.</source>
+          <target state="new">Learn about how the Azure Automation service can be used to manage Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="16fa093f-8a07-414c-ab7c-a379784f6f28" xml:space="preserve">
+          <source>This guide will introduce you to the Azure Automation service and how it can be used to simplify management of your clusters and automate common tasks in Azure HDInsight.</source>
+          <target state="new">This guide will introduce you to the Azure Automation service and how it can be used to simplify management of your clusters and automate common tasks in Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="2cfe7305-ca8a-4a4b-8649-4d7dddde84b1" xml:space="preserve">
+          <source><bpt id="6d8582ec-5977-4c5d-88f2-5b07978657d1">&lt;linkText&gt;</bpt>Azure Automation<ept id="6d8582ec-5977-4c5d-88f2-5b07978657d1">&lt;/linkText&gt;</ept><bpt id="6d8582ec-5977-4c5d-88f2-5b07978657d1">&lt;title&gt;</bpt><ept id="6d8582ec-5977-4c5d-88f2-5b07978657d1">&lt;/title&gt;</ept> is an Azure service for simplifying cloud management through process automation.</source>
+          <target state="new"><bpt id="6d8582ec-5977-4c5d-88f2-5b07978657d1">&lt;linkText&gt;</bpt>Azure Automation<ept id="6d8582ec-5977-4c5d-88f2-5b07978657d1">&lt;/linkText&gt;</ept><bpt id="6d8582ec-5977-4c5d-88f2-5b07978657d1">&lt;title&gt;</bpt><ept id="6d8582ec-5977-4c5d-88f2-5b07978657d1">&lt;/title&gt;</ept> is an Azure service for simplifying cloud management through process automation.</target>
+        </trans-unit>
+        <trans-unit id="49e541cf-6cc8-409c-b9d5-1d07a1f963ed" xml:space="preserve">
+          <source>Using Azure Automation, manual, frequently-repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.</source>
+          <target state="new">Using Azure Automation, manual, frequently-repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.</target>
+        </trans-unit>
+        <trans-unit id="af18c3b4-ba2c-4a41-a882-525c740c5176" xml:space="preserve">
+          <source>Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs.</source>
+          <target state="new">Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs.</target>
+        </trans-unit>
+        <trans-unit id="31eb9a4e-d604-41a3-a241-566ace4ac642" xml:space="preserve">
+          <source>In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.</source>
+          <target state="new">In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.</target>
+        </trans-unit>
+        <trans-unit id="0cc7ad63-d6d2-40a7-9e79-f1e8f1807ac4" xml:space="preserve">
+          <source>Reduce operational overhead and free up IT and DevOps staff to focus on work that adds business value by scheduling your cloud management tasks to run automatically on Azure Automation.</source>
+          <target state="new">Reduce operational overhead and free up IT and DevOps staff to focus on work that adds business value by scheduling your cloud management tasks to run automatically on Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="c1bc0557-2eda-43fc-ac5c-3206cfad2b12" xml:space="preserve">
+          <source>HDInsight can be managed in Azure Automation by using the <bpt id="08a20939-a085-48b4-aca0-e4f6fcdaddc1">&lt;linkText&gt;</bpt>Azure HDInsight cmdlets<ept id="08a20939-a085-48b4-aca0-e4f6fcdaddc1">&lt;/linkText&gt;</ept><bpt id="08a20939-a085-48b4-aca0-e4f6fcdaddc1">&lt;title&gt;</bpt><ept id="08a20939-a085-48b4-aca0-e4f6fcdaddc1">&lt;/title&gt;</ept> that are available in the <bpt id="19ae23e3-dc66-411c-9bfd-55c1e77ea7e5">&lt;linkText&gt;</bpt>Azure PowerShell tools<ept id="19ae23e3-dc66-411c-9bfd-55c1e77ea7e5">&lt;/linkText&gt;</ept><bpt id="19ae23e3-dc66-411c-9bfd-55c1e77ea7e5">&lt;title&gt;</bpt><ept id="19ae23e3-dc66-411c-9bfd-55c1e77ea7e5">&lt;/title&gt;</ept>.</source>
+          <target state="new">HDInsight can be managed in Azure Automation by using the <bpt id="08a20939-a085-48b4-aca0-e4f6fcdaddc1">&lt;linkText&gt;</bpt>Azure HDInsight cmdlets<ept id="08a20939-a085-48b4-aca0-e4f6fcdaddc1">&lt;/linkText&gt;</ept><bpt id="08a20939-a085-48b4-aca0-e4f6fcdaddc1">&lt;title&gt;</bpt><ept id="08a20939-a085-48b4-aca0-e4f6fcdaddc1">&lt;/title&gt;</ept> that are available in the <bpt id="19ae23e3-dc66-411c-9bfd-55c1e77ea7e5">&lt;linkText&gt;</bpt>Azure PowerShell tools<ept id="19ae23e3-dc66-411c-9bfd-55c1e77ea7e5">&lt;/linkText&gt;</ept><bpt id="19ae23e3-dc66-411c-9bfd-55c1e77ea7e5">&lt;title&gt;</bpt><ept id="19ae23e3-dc66-411c-9bfd-55c1e77ea7e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54ebfa38-9807-44e0-a4bf-5779ed9c2dfb" xml:space="preserve">
+          <source>Azure Automation has these cmdlets available out of the box, so that you can perform your HDInsight management tasks within the service.</source>
+          <target state="new">Azure Automation has these cmdlets available out of the box, so that you can perform your HDInsight management tasks within the service.</target>
+        </trans-unit>
+        <trans-unit id="a099baf3-e8ba-4423-9201-04786644370b" xml:space="preserve">
+          <source>You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.</source>
+          <target state="new">You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.</target>
+        </trans-unit>
+        <trans-unit id="f041f61e-e093-442a-8b77-79bbee54aab7" xml:space="preserve">
+          <source>With the Azure HDInsight cmdlets you can automate tasks such as provisioning HDInsight clusters on Linux or Windows, scaling clusters, managing clusters, and submitting MapReduce jobs.</source>
+          <target state="new">With the Azure HDInsight cmdlets you can automate tasks such as provisioning HDInsight clusters on Linux or Windows, scaling clusters, managing clusters, and submitting MapReduce jobs.</target>
+        </trans-unit>
+        <trans-unit id="2a521dec-5669-45b2-9cb9-662ac6b04117" xml:space="preserve">
+          <source>These are just a few of the many tasks that you can automate using PowerShell in Azure Automation.</source>
+          <target state="new">These are just a few of the many tasks that you can automate using PowerShell in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="a677b54b-0a48-4d2e-abed-107498bae28a" xml:space="preserve">
+          <source>Now that you've learned the basics of Azure Automation and how it can be used to manage Azure HDInsight, follow this link to learn more about Azure Automation.</source>
+          <target state="new">Now that you've learned the basics of Azure Automation and how it can be used to manage Azure HDInsight, follow this link to learn more about Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="3159bf3f-6bbf-4ea2-a7f8-cfd256abd1ed" xml:space="preserve">
+          <source>See the Azure Automation <bpt id="6f370af0-b44e-4c3a-8074-e84e6b25c7b2">&lt;linkText&gt;</bpt>Getting Started Tutorial<ept id="6f370af0-b44e-4c3a-8074-e84e6b25c7b2">&lt;/linkText&gt;</ept><bpt id="6f370af0-b44e-4c3a-8074-e84e6b25c7b2">&lt;title&gt;</bpt><ept id="6f370af0-b44e-4c3a-8074-e84e6b25c7b2">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the Azure Automation <bpt id="6f370af0-b44e-4c3a-8074-e84e6b25c7b2">&lt;linkText&gt;</bpt>Getting Started Tutorial<ept id="6f370af0-b44e-4c3a-8074-e84e6b25c7b2">&lt;/linkText&gt;</ept><bpt id="6f370af0-b44e-4c3a-8074-e84e6b25c7b2">&lt;title&gt;</bpt><ept id="6f370af0-b44e-4c3a-8074-e84e6b25c7b2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2496a42-8692-4b03-9138-a1a5f21333cd" xml:space="preserve">
+          <source>View examples in <bpt id="6291bd42-af6d-460f-b002-6f93a47421fa">&lt;linkText&gt;</bpt>Script Center<ept id="6291bd42-af6d-460f-b002-6f93a47421fa">&lt;/linkText&gt;</ept><bpt id="6291bd42-af6d-460f-b002-6f93a47421fa">&lt;title&gt;</bpt><ept id="6291bd42-af6d-460f-b002-6f93a47421fa">&lt;/title&gt;</ept>.</source>
+          <target state="new">View examples in <bpt id="6291bd42-af6d-460f-b002-6f93a47421fa">&lt;linkText&gt;</bpt>Script Center<ept id="6291bd42-af6d-460f-b002-6f93a47421fa">&lt;/linkText&gt;</ept><bpt id="6291bd42-af6d-460f-b002-6f93a47421fa">&lt;title&gt;</bpt><ept id="6291bd42-af6d-460f-b002-6f93a47421fa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

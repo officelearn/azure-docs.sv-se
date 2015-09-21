@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="44909c1a-f575-4e78-b501-596fb643c86d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="44909c1a-f575-4e78-b501-596fb643c86d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="67f8abc8-0527-46df-b0d7-9dce03cda143">
+        <trans-unit id="b69998e8-7ab9-448e-9511-8cd3afc7e98a" xml:space="preserve">
+          <source>Using the POP3 Connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the POP3 Connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="9c0612ae-71d4-4718-8999-cb7a939ecf4a" xml:space="preserve">
+          <source>How to create and configure the POP3 Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the POP3 Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="123eea8a-e77a-43b7-87ed-4e6b277e8112" xml:space="preserve">
+          <source>Connect to a POP3 server to retrieve emails, including emails with attachments.</source>
+          <target state="new">Connect to a POP3 server to retrieve emails, including emails with attachments.</target>
+        </trans-unit>
+        <trans-unit id="15c80884-7c08-4b1c-b0f4-3ecb90277a36" xml:space="preserve">
+          <source>Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</source>
+          <target state="new">Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</target>
+        </trans-unit>
+        <trans-unit id="1f77ac94-8744-4055-9570-5d43d4999b41" xml:space="preserve">
+          <source>You can add the POP3 Connector to your business workflow and process data as part of this workflow within a Logic App.</source>
+          <target state="new">You can add the POP3 Connector to your business workflow and process data as part of this workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="692c3019-c44c-4008-9083-db53b0f46efe" xml:space="preserve">
+          <source>To use the POP3 connector, you need to first create an instance of the POP3 connector API app.</source>
+          <target state="new">To use the POP3 connector, you need to first create an instance of the POP3 connector API app.</target>
+        </trans-unit>
+        <trans-unit id="f436da08-f96b-4d90-beea-fa265e29c533" xml:space="preserve">
+          <source>This can be done from either the logic app designer directly or outside it.</source>
+          <target state="new">This can be done from either the logic app designer directly or outside it.</target>
+        </trans-unit>
+        <trans-unit id="f8f3046e-92f1-4b02-a441-f144f96af048" xml:space="preserve">
+          <source>Creating an instance outside the designer can be done as follows:</source>
+          <target state="new">Creating an instance outside the designer can be done as follows:</target>
+        </trans-unit>
+        <trans-unit id="5860ce0e-1ba0-4602-a42d-7c85f8b49f3f" xml:space="preserve">
+          <source>Open the Azure Marketplace from the homepage of Azure Portal.</source>
+          <target state="new">Open the Azure Marketplace from the homepage of Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="49ee4086-bbca-489e-86c3-cbab78ba4815" xml:space="preserve">
+          <source>Under "Everything", search for “POP3 connector”.</source>
+          <target state="new">Under "Everything", search for “POP3 connector”.</target>
+        </trans-unit>
+        <trans-unit id="198e91f5-e35c-4bf8-8464-7b0c17a62158" xml:space="preserve">
+          <source>Configure the POP3 connector as follows:</source>
+          <target state="new">Configure the POP3 connector as follows:</target>
+        </trans-unit>
+        <trans-unit id="61c48164-f6cd-46f6-803b-eb312df15545" xml:space="preserve">
+          <source><bpt id="29581aef-f7b3-46fb-9030-54bfd7db240f">&lt;linkText&gt;</bpt><ept id="29581aef-f7b3-46fb-9030-54bfd7db240f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29581aef-f7b3-46fb-9030-54bfd7db240f">&lt;linkText&gt;</bpt><ept id="29581aef-f7b3-46fb-9030-54bfd7db240f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a020e5b-1b11-47b2-a3a1-714fc8f97e44" xml:space="preserve">
+          <source><bpt id="23152e21-cd24-499f-8353-8d5508683aeb">&lt;strong&gt;</bpt>Location<ept id="23152e21-cd24-499f-8353-8d5508683aeb">&lt;/strong&gt;</ept> - choose the geographic location where you would like the connector to be deployed</source>
+          <target state="new"><bpt id="23152e21-cd24-499f-8353-8d5508683aeb">&lt;strong&gt;</bpt>Location<ept id="23152e21-cd24-499f-8353-8d5508683aeb">&lt;/strong&gt;</ept> - choose the geographic location where you would like the connector to be deployed</target>
+        </trans-unit>
+        <trans-unit id="a4948e9e-9721-43fe-9525-d735da0a1af0" xml:space="preserve">
+          <source><bpt id="9501df50-8927-429a-a583-0e3af178c8b6">&lt;strong&gt;</bpt>Subscription<ept id="9501df50-8927-429a-a583-0e3af178c8b6">&lt;/strong&gt;</ept> - choose a subscription you want this connector to be created in</source>
+          <target state="new"><bpt id="9501df50-8927-429a-a583-0e3af178c8b6">&lt;strong&gt;</bpt>Subscription<ept id="9501df50-8927-429a-a583-0e3af178c8b6">&lt;/strong&gt;</ept> - choose a subscription you want this connector to be created in</target>
+        </trans-unit>
+        <trans-unit id="1a32aba5-9bd4-4afd-bffb-f98ad3a43d6b" xml:space="preserve">
+          <source><bpt id="623f01a1-7c90-42b3-936d-56e3ec265e5a">&lt;strong&gt;</bpt>Resource group<ept id="623f01a1-7c90-42b3-936d-56e3ec265e5a">&lt;/strong&gt;</ept> - select or create a resource group where the connector should reside</source>
+          <target state="new"><bpt id="623f01a1-7c90-42b3-936d-56e3ec265e5a">&lt;strong&gt;</bpt>Resource group<ept id="623f01a1-7c90-42b3-936d-56e3ec265e5a">&lt;/strong&gt;</ept> - select or create a resource group where the connector should reside</target>
+        </trans-unit>
+        <trans-unit id="d16e839c-1906-4606-987e-0615115a7660" xml:space="preserve">
+          <source><bpt id="bb2918a9-0680-4672-91db-066c08340349">&lt;strong&gt;</bpt>Web hosting plan<ept id="bb2918a9-0680-4672-91db-066c08340349">&lt;/strong&gt;</ept> - select or create a web hosting plan</source>
+          <target state="new"><bpt id="bb2918a9-0680-4672-91db-066c08340349">&lt;strong&gt;</bpt>Web hosting plan<ept id="bb2918a9-0680-4672-91db-066c08340349">&lt;/strong&gt;</ept> - select or create a web hosting plan</target>
+        </trans-unit>
+        <trans-unit id="89c48fe2-506d-4e53-9625-dbbf48c4af5e" xml:space="preserve">
+          <source><bpt id="bb29dc9a-207f-4c61-ad9e-4de0604fb41e">&lt;strong&gt;</bpt>Pricing tier<ept id="bb29dc9a-207f-4c61-ad9e-4de0604fb41e">&lt;/strong&gt;</ept> - choose a pricing tier for the connector</source>
+          <target state="new"><bpt id="bb29dc9a-207f-4c61-ad9e-4de0604fb41e">&lt;strong&gt;</bpt>Pricing tier<ept id="bb29dc9a-207f-4c61-ad9e-4de0604fb41e">&lt;/strong&gt;</ept> - choose a pricing tier for the connector</target>
+        </trans-unit>
+        <trans-unit id="29542e9a-3d57-44ea-9b54-157e143dabbc" xml:space="preserve">
+          <source><bpt id="e2a7f556-1883-4278-b586-b64a9e3f6ce1">&lt;strong&gt;</bpt>Name<ept id="e2a7f556-1883-4278-b586-b64a9e3f6ce1">&lt;/strong&gt;</ept> - give a name for your POP3 Connector</source>
+          <target state="new"><bpt id="e2a7f556-1883-4278-b586-b64a9e3f6ce1">&lt;strong&gt;</bpt>Name<ept id="e2a7f556-1883-4278-b586-b64a9e3f6ce1">&lt;/strong&gt;</ept> - give a name for your POP3 Connector</target>
+        </trans-unit>
+        <trans-unit id="9a6cef17-4143-4ef4-9a27-67e87fd68fb9" xml:space="preserve">
+          <source><bpt id="73d00063-5283-48de-8dcd-a68c422bad05">&lt;strong&gt;</bpt>Package settings<ept id="73d00063-5283-48de-8dcd-a68c422bad05">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="73d00063-5283-48de-8dcd-a68c422bad05">&lt;strong&gt;</bpt>Package settings<ept id="73d00063-5283-48de-8dcd-a68c422bad05">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca4c84b2-4585-45ea-8ab4-d235531528b9" xml:space="preserve">
+          <source><bpt id="81709b69-bd18-4f7b-97d8-a360c487eb08">&lt;strong&gt;</bpt>User Name<ept id="81709b69-bd18-4f7b-97d8-a360c487eb08">&lt;/strong&gt;</ept> Specify the user name to connect to the POP3 Server</source>
+          <target state="new"><bpt id="81709b69-bd18-4f7b-97d8-a360c487eb08">&lt;strong&gt;</bpt>User Name<ept id="81709b69-bd18-4f7b-97d8-a360c487eb08">&lt;/strong&gt;</ept> Specify the user name to connect to the POP3 Server</target>
+        </trans-unit>
+        <trans-unit id="91e4f3e0-618d-4ca7-a979-902b895f5d25" xml:space="preserve">
+          <source><bpt id="7d639c23-2331-4f4d-933f-1ed315f0b493">&lt;strong&gt;</bpt>Password<ept id="7d639c23-2331-4f4d-933f-1ed315f0b493">&lt;/strong&gt;</ept> Specify the password to connect to the POP3 Server</source>
+          <target state="new"><bpt id="7d639c23-2331-4f4d-933f-1ed315f0b493">&lt;strong&gt;</bpt>Password<ept id="7d639c23-2331-4f4d-933f-1ed315f0b493">&lt;/strong&gt;</ept> Specify the password to connect to the POP3 Server</target>
+        </trans-unit>
+        <trans-unit id="009fb5f4-1134-441d-a13b-3a8352ba6ade" xml:space="preserve">
+          <source><bpt id="b440a832-8f76-441c-9196-e60145019773">&lt;strong&gt;</bpt>Server Address<ept id="b440a832-8f76-441c-9196-e60145019773">&lt;/strong&gt;</ept> Specify the POP3 Server name or IP address</source>
+          <target state="new"><bpt id="b440a832-8f76-441c-9196-e60145019773">&lt;strong&gt;</bpt>Server Address<ept id="b440a832-8f76-441c-9196-e60145019773">&lt;/strong&gt;</ept> Specify the POP3 Server name or IP address</target>
+        </trans-unit>
+        <trans-unit id="85d9ccb2-1163-48f8-bbfc-bf42039cf6dd" xml:space="preserve">
+          <source><bpt id="2dbd20cf-a197-4d35-8752-5d8b7b236e61">&lt;strong&gt;</bpt>Server Port<ept id="2dbd20cf-a197-4d35-8752-5d8b7b236e61">&lt;/strong&gt;</ept> Specify the POP3 Server port number</source>
+          <target state="new"><bpt id="2dbd20cf-a197-4d35-8752-5d8b7b236e61">&lt;strong&gt;</bpt>Server Port<ept id="2dbd20cf-a197-4d35-8752-5d8b7b236e61">&lt;/strong&gt;</ept> Specify the POP3 Server port number</target>
+        </trans-unit>
+        <trans-unit id="98969a29-7012-4f21-a837-fe9e7109c7f3" xml:space="preserve">
+          <source><bpt id="27266fe6-01cf-4b51-aaf8-eebc425ec7bf">&lt;strong&gt;</bpt>Enable SSL<ept id="27266fe6-01cf-4b51-aaf8-eebc425ec7bf">&lt;/strong&gt;</ept> Specify true to use POP3 over a secure SSL/TLS channel</source>
+          <target state="new"><bpt id="27266fe6-01cf-4b51-aaf8-eebc425ec7bf">&lt;strong&gt;</bpt>Enable SSL<ept id="27266fe6-01cf-4b51-aaf8-eebc425ec7bf">&lt;/strong&gt;</ept> Specify true to use POP3 over a secure SSL/TLS channel</target>
+        </trans-unit>
+        <trans-unit id="5e917192-fa38-4f9a-8c27-aec99aa0a0f4" xml:space="preserve">
+          <source>Click on Create.</source>
+          <target state="new">Click on Create.</target>
+        </trans-unit>
+        <trans-unit id="a5e76116-b776-4408-ac44-b183892be15f" xml:space="preserve">
+          <source>A new POP3 Connector will be created.</source>
+          <target state="new">A new POP3 Connector will be created.</target>
+        </trans-unit>
+        <trans-unit id="859df006-0e00-4a64-bef5-f2f7c4e17c61" xml:space="preserve">
+          <source>Once the API app instance is created, you can create a logic App in the same resource group to use the POP3 connector.</source>
+          <target state="new">Once the API app instance is created, you can create a logic App in the same resource group to use the POP3 connector.</target>
+        </trans-unit>
+        <trans-unit id="4b5eb8f7-7632-4aef-a07b-4c6bc4fe8bc1" xml:space="preserve">
+          <source>Once your API app is created, you can now use the POP3 connector as a trigger for your Logic App.</source>
+          <target state="new">Once your API app is created, you can now use the POP3 connector as a trigger for your Logic App.</target>
+        </trans-unit>
+        <trans-unit id="813931e3-da80-4443-b32a-742d3c35f5c7" xml:space="preserve">
+          <source>To do this, you need to:</source>
+          <target state="new">To do this, you need to:</target>
+        </trans-unit>
+        <trans-unit id="3156e6a7-a2e4-436f-98a3-92a87fdfa9ba" xml:space="preserve">
+          <source>Create a new Logic App and choose the same resource group which has the POP3 connector.</source>
+          <target state="new">Create a new Logic App and choose the same resource group which has the POP3 connector.</target>
+        </trans-unit>
+        <trans-unit id="b768c050-6f1c-4d21-aca4-a446fc8c54d2" xml:space="preserve">
+          <source><bpt id="39352825-3d9b-42b1-9c44-0fd287ea5e0e">&lt;linkText&gt;</bpt><ept id="39352825-3d9b-42b1-9c44-0fd287ea5e0e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="39352825-3d9b-42b1-9c44-0fd287ea5e0e">&lt;linkText&gt;</bpt><ept id="39352825-3d9b-42b1-9c44-0fd287ea5e0e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6cdc192b-6a97-40e0-b0c4-c5b916dcb80c" xml:space="preserve">
+          <source>Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow.</source>
+          <target state="new">Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow.</target>
+        </trans-unit>
+        <trans-unit id="37223f94-c354-451f-9d31-0242c78b856c" xml:space="preserve">
+          <source><bpt id="95fc0ec6-e461-4b03-a840-ba7e1cf4630e">&lt;linkText&gt;</bpt><ept id="95fc0ec6-e461-4b03-a840-ba7e1cf4630e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="95fc0ec6-e461-4b03-a840-ba7e1cf4630e">&lt;linkText&gt;</bpt><ept id="95fc0ec6-e461-4b03-a840-ba7e1cf4630e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02fc43eb-764b-45af-a5da-f56c77417fe4" xml:space="preserve">
+          <source>The POP3 connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.</source>
+          <target state="new">The POP3 connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.</target>
+        </trans-unit>
+        <trans-unit id="3b417d61-0db0-417a-8515-5a500653604b" xml:space="preserve">
+          <source>Select that.</source>
+          <target state="new">Select that.</target>
+        </trans-unit>
+        <trans-unit id="7539d0fb-e710-4801-819f-fffc2e21b239" xml:space="preserve">
+          <source><bpt id="6111b73e-3db6-468f-b5f8-dd858ab6cfd7">&lt;linkText&gt;</bpt><ept id="6111b73e-3db6-468f-b5f8-dd858ab6cfd7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6111b73e-3db6-468f-b5f8-dd858ab6cfd7">&lt;linkText&gt;</bpt><ept id="6111b73e-3db6-468f-b5f8-dd858ab6cfd7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d969a3df-cb40-4bf3-9a03-65ba5811f912" xml:space="preserve">
+          <source>You can drop the POP3 Connector API app into the editor by clicking on the “POP3 Connector”.</source>
+          <target state="new">You can drop the POP3 Connector API app into the editor by clicking on the “POP3 Connector”.</target>
+        </trans-unit>
+        <trans-unit id="97c27733-40d5-4cba-b03c-8b4e1176c551" xml:space="preserve">
+          <source>You can now use POP3 connector in the flow.</source>
+          <target state="new">You can now use POP3 connector in the flow.</target>
+        </trans-unit>
+        <trans-unit id="4e842c56-3f54-4e4a-a1d3-64acd01fc2a6" xml:space="preserve">
+          <source>Select "Get Email" trigger and configure frequency and interval.</source>
+          <target state="new">Select "Get Email" trigger and configure frequency and interval.</target>
+        </trans-unit>
+        <trans-unit id="be982803-1d90-4a07-ab78-37c51f535cd1" xml:space="preserve">
+          <source>You can use the email retrieved from the POP3 trigger in other actions in the flow.</source>
+          <target state="new">You can use the email retrieved from the POP3 trigger in other actions in the flow.</target>
+        </trans-unit>
+        <trans-unit id="7407dab7-9349-4a56-b59f-b0e6b71fede0" xml:space="preserve">
+          <source><bpt id="963ec59d-5357-40e2-a813-733ee0f168ed">&lt;linkText&gt;</bpt><ept id="963ec59d-5357-40e2-a813-733ee0f168ed">&lt;/linkText&gt;</ept>
+<bpt id="3c8c1261-3f5a-42d9-85d9-89ba1d249aa0">&lt;linkText&gt;</bpt><ept id="3c8c1261-3f5a-42d9-85d9-89ba1d249aa0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="963ec59d-5357-40e2-a813-733ee0f168ed">&lt;linkText&gt;</bpt><ept id="963ec59d-5357-40e2-a813-733ee0f168ed">&lt;/linkText&gt;</ept>
+<bpt id="3c8c1261-3f5a-42d9-85d9-89ba1d249aa0">&lt;linkText&gt;</bpt><ept id="3c8c1261-3f5a-42d9-85d9-89ba1d249aa0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="641aa538-58d1-4ca3-a490-2cad418b82f8" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business workflow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business workflow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="669b96d8-8dc2-4a84-85f2-284d2486c457" xml:space="preserve">
+          <source>See <bpt id="bbc1efc9-6365-4f95-8705-63e9987a2e85">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="bbc1efc9-6365-4f95-8705-63e9987a2e85">&lt;/linkText&gt;</ept><bpt id="bbc1efc9-6365-4f95-8705-63e9987a2e85">&lt;title&gt;</bpt><ept id="bbc1efc9-6365-4f95-8705-63e9987a2e85">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="bbc1efc9-6365-4f95-8705-63e9987a2e85">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="bbc1efc9-6365-4f95-8705-63e9987a2e85">&lt;/linkText&gt;</ept><bpt id="bbc1efc9-6365-4f95-8705-63e9987a2e85">&lt;title&gt;</bpt><ept id="bbc1efc9-6365-4f95-8705-63e9987a2e85">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b05e4fef-21ad-4a8a-9f6f-73b43fb437fa" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="3b453552-a085-418f-8dbf-92d8eb64d3e5">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="3b453552-a085-418f-8dbf-92d8eb64d3e5">&lt;/linkText&gt;</ept><bpt id="3b453552-a085-418f-8dbf-92d8eb64d3e5">&lt;title&gt;</bpt><ept id="3b453552-a085-418f-8dbf-92d8eb64d3e5">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="3b453552-a085-418f-8dbf-92d8eb64d3e5">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="3b453552-a085-418f-8dbf-92d8eb64d3e5">&lt;/linkText&gt;</ept><bpt id="3b453552-a085-418f-8dbf-92d8eb64d3e5">&lt;title&gt;</bpt><ept id="3b453552-a085-418f-8dbf-92d8eb64d3e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43a301e2-2155-42bd-9922-b4bd5ae6c2ca" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="666b9f8f-4d82-4362-89d1-225d8894cc2e" xml:space="preserve">
+          <source>See <bpt id="66ddb903-e9e0-4176-9856-51e1eebd25c7">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="66ddb903-e9e0-4176-9856-51e1eebd25c7">&lt;/linkText&gt;</ept><bpt id="66ddb903-e9e0-4176-9856-51e1eebd25c7">&lt;title&gt;</bpt><ept id="66ddb903-e9e0-4176-9856-51e1eebd25c7">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="66ddb903-e9e0-4176-9856-51e1eebd25c7">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="66ddb903-e9e0-4176-9856-51e1eebd25c7">&lt;/linkText&gt;</ept><bpt id="66ddb903-e9e0-4176-9856-51e1eebd25c7">&lt;title&gt;</bpt><ept id="66ddb903-e9e0-4176-9856-51e1eebd25c7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="beb9b5b2-8209-4f46-b699-690e4321fa36" xml:space="preserve">
+          <source>./media/app-service-logic-connector-pop3/img1.PNG</source>
+          <target state="new">./media/app-service-logic-connector-pop3/img1.PNG</target>
+        </trans-unit>
+        <trans-unit id="61eecd1f-1522-4e20-a913-b1401a382c63" xml:space="preserve">
+          <source>./media/app-service-logic-connector-pop3/img2.PNG</source>
+          <target state="new">./media/app-service-logic-connector-pop3/img2.PNG</target>
+        </trans-unit>
+        <trans-unit id="a83c6fb6-6fee-4252-a333-192537b2897b" xml:space="preserve">
+          <source>./media/app-service-logic-connector-pop3/img3.png</source>
+          <target state="new">./media/app-service-logic-connector-pop3/img3.png</target>
+        </trans-unit>
+        <trans-unit id="626d111e-362c-4716-a7db-f6510bcf94e8" xml:space="preserve">
+          <source>./media/app-service-logic-connector-pop3/img4.PNG</source>
+          <target state="new">./media/app-service-logic-connector-pop3/img4.PNG</target>
+        </trans-unit>
+        <trans-unit id="37bd0f78-b46e-4dba-959b-e0b186b8bead" xml:space="preserve">
+          <source>./media/app-service-logic-connector-pop3/img5.PNG</source>
+          <target state="new">./media/app-service-logic-connector-pop3/img5.PNG</target>
+        </trans-unit>
+        <trans-unit id="bb2d7233-b443-4ed5-ab00-ae4ba43ff0b6" xml:space="preserve">
+          <source>./media/app-service-logic-connector-pop3/img6.PNG</source>
+          <target state="new">./media/app-service-logic-connector-pop3/img6.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="735861b9-64cb-4509-bdd1-87d5cf00726d" />
+    </body>
+  </file>
+</xliff>

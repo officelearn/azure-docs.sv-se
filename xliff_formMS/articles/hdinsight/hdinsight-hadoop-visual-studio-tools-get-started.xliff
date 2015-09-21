@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2130a1af-d7e7-4d5c-ab53-03d5fdea1ab5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2130a1af-d7e7-4d5c-ab53-03d5fdea1ab5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d9671540-521c-4f36-b849-d8edd0cb1ee1">
+        <trans-unit id="f2ffeae2-4340-49f2-96a3-18d4b633b10f" xml:space="preserve">
+          <source>Learn to use Visual Studio Hadoop tools for HDInsight | Microsoft Azure</source>
+          <target state="new">Learn to use Visual Studio Hadoop tools for HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="fdb7e2e2-fa69-4b27-83ad-646a0bf71214" xml:space="preserve">
+          <source>Learn how to install and use Visual Studio Hadoop tools for HDInsight to connect to a Hadoop cluster and run a Hive query.</source>
+          <target state="new">Learn how to install and use Visual Studio Hadoop tools for HDInsight to connect to a Hadoop cluster and run a Hive query.</target>
+        </trans-unit>
+        <trans-unit id="6ebfb73a-3dd5-48a1-87ab-542bee335a6b" xml:space="preserve">
+          <source>Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clusters and submit Hive queries.</source>
+          <target state="new">Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clusters and submit Hive queries.</target>
+        </trans-unit>
+        <trans-unit id="3ea97783-690f-4816-bea0-a9af3bb30f85" xml:space="preserve">
+          <source>For more information about using HDInsight, see <bpt id="e23716ca-b237-4904-9dd4-9859f10b7d50">&lt;linkText&gt;</bpt>Introduction to HDInsight[hdinsight.introduction]<ept id="e23716ca-b237-4904-9dd4-9859f10b7d50">&lt;/linkText&gt;</ept><bpt id="e23716ca-b237-4904-9dd4-9859f10b7d50">&lt;title&gt;</bpt><ept id="e23716ca-b237-4904-9dd4-9859f10b7d50">&lt;/title&gt;</ept> and <bpt id="a077ed35-88be-4962-b235-1c8a0cbf860a">&lt;linkText&gt;</bpt>Get started with HDInsight[hdinsight.get.started]<ept id="a077ed35-88be-4962-b235-1c8a0cbf860a">&lt;/linkText&gt;</ept><bpt id="a077ed35-88be-4962-b235-1c8a0cbf860a">&lt;title&gt;</bpt><ept id="a077ed35-88be-4962-b235-1c8a0cbf860a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using HDInsight, see <bpt id="e23716ca-b237-4904-9dd4-9859f10b7d50">&lt;linkText&gt;</bpt>Introduction to HDInsight[hdinsight.introduction]<ept id="e23716ca-b237-4904-9dd4-9859f10b7d50">&lt;/linkText&gt;</ept><bpt id="e23716ca-b237-4904-9dd4-9859f10b7d50">&lt;title&gt;</bpt><ept id="e23716ca-b237-4904-9dd4-9859f10b7d50">&lt;/title&gt;</ept> and <bpt id="a077ed35-88be-4962-b235-1c8a0cbf860a">&lt;linkText&gt;</bpt>Get started with HDInsight[hdinsight.get.started]<ept id="a077ed35-88be-4962-b235-1c8a0cbf860a">&lt;/linkText&gt;</ept><bpt id="a077ed35-88be-4962-b235-1c8a0cbf860a">&lt;title&gt;</bpt><ept id="a077ed35-88be-4962-b235-1c8a0cbf860a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4c4d279-68d1-4035-935a-a8803c2e1554" xml:space="preserve">
+          <source>For more information about connecting to a Storm cluster, see <bpt id="25f8ea7e-d11b-4478-8e0d-d98bf7a7b600">&lt;linkText&gt;</bpt>Develop C# topologies for Apache Storm on HDInsight using Visual Studio[hdinsight.storm.visual.studio.tools]<ept id="25f8ea7e-d11b-4478-8e0d-d98bf7a7b600">&lt;/linkText&gt;</ept><bpt id="25f8ea7e-d11b-4478-8e0d-d98bf7a7b600">&lt;title&gt;</bpt><ept id="25f8ea7e-d11b-4478-8e0d-d98bf7a7b600">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about connecting to a Storm cluster, see <bpt id="25f8ea7e-d11b-4478-8e0d-d98bf7a7b600">&lt;linkText&gt;</bpt>Develop C# topologies for Apache Storm on HDInsight using Visual Studio[hdinsight.storm.visual.studio.tools]<ept id="25f8ea7e-d11b-4478-8e0d-d98bf7a7b600">&lt;/linkText&gt;</ept><bpt id="25f8ea7e-d11b-4478-8e0d-d98bf7a7b600">&lt;title&gt;</bpt><ept id="25f8ea7e-d11b-4478-8e0d-d98bf7a7b600">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9805577c-b385-4e9e-aa65-f9aa702da98c" xml:space="preserve">
+          <source>The most recent release introduced some new features, such as Hive editor
+support, Hive script local validation, and YARN log access.</source>
+          <target state="new">The most recent release introduced some new features, such as Hive editor
+support, Hive script local validation, and YARN log access.</target>
+        </trans-unit>
+        <trans-unit id="2280b988-450c-4e19-9df2-cfddd5eb0cab" xml:space="preserve">
+          <source>To complete this tutorial and use the Hadoop tools in Visual Studio, you'll need the following:</source>
+          <target state="new">To complete this tutorial and use the Hadoop tools in Visual Studio, you'll need the following:</target>
+        </trans-unit>
+        <trans-unit id="060c79a9-8c74-405a-8baa-7479153c6207" xml:space="preserve">
+          <source>An Azure HDInsight cluster: Either a Linux-based or Windows-based cluster will work with the steps in this document.</source>
+          <target state="new">An Azure HDInsight cluster: Either a Linux-based or Windows-based cluster will work with the steps in this document.</target>
+        </trans-unit>
+        <trans-unit id="36d9f299-7ba5-4cbd-8b3f-8795475df8d2" xml:space="preserve">
+          <source>See one of the following for information on creating a cluster:</source>
+          <target state="new">See one of the following for information on creating a cluster:</target>
+        </trans-unit>
+        <trans-unit id="af2bb592-6f2c-457c-a82d-ea12fe15fff7" xml:space="preserve">
+          <source><bpt id="8315cfad-5382-4b35-9e97-c429eb61cff4">&lt;linkText&gt;</bpt>Get started using Linux-based HDInsight<ept id="8315cfad-5382-4b35-9e97-c429eb61cff4">&lt;/linkText&gt;</ept><bpt id="8315cfad-5382-4b35-9e97-c429eb61cff4">&lt;title&gt;</bpt><ept id="8315cfad-5382-4b35-9e97-c429eb61cff4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8315cfad-5382-4b35-9e97-c429eb61cff4">&lt;linkText&gt;</bpt>Get started using Linux-based HDInsight<ept id="8315cfad-5382-4b35-9e97-c429eb61cff4">&lt;/linkText&gt;</ept><bpt id="8315cfad-5382-4b35-9e97-c429eb61cff4">&lt;title&gt;</bpt><ept id="8315cfad-5382-4b35-9e97-c429eb61cff4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6158c531-ba7c-4b2e-bbd9-7f46036a80e3" xml:space="preserve">
+          <source><bpt id="d6fd61f4-ee4c-4807-b862-11595e564ef9">&lt;linkText&gt;</bpt>Get started using Windows-based HDInsight<ept id="d6fd61f4-ee4c-4807-b862-11595e564ef9">&lt;/linkText&gt;</ept><bpt id="d6fd61f4-ee4c-4807-b862-11595e564ef9">&lt;title&gt;</bpt><ept id="d6fd61f4-ee4c-4807-b862-11595e564ef9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d6fd61f4-ee4c-4807-b862-11595e564ef9">&lt;linkText&gt;</bpt>Get started using Windows-based HDInsight<ept id="d6fd61f4-ee4c-4807-b862-11595e564ef9">&lt;/linkText&gt;</ept><bpt id="d6fd61f4-ee4c-4807-b862-11595e564ef9">&lt;title&gt;</bpt><ept id="d6fd61f4-ee4c-4807-b862-11595e564ef9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7f6d105-e220-43dc-9c3f-19404c17e171" xml:space="preserve">
+          <source>A workstation with the following software:</source>
+          <target state="new">A workstation with the following software:</target>
+        </trans-unit>
+        <trans-unit id="9a9d67b6-0164-4cd3-bafd-25fc8ea2cf49" xml:space="preserve">
+          <source>Windows 8.1, Windows 8, or Windows 7</source>
+          <target state="new">Windows 8.1, Windows 8, or Windows 7</target>
+        </trans-unit>
+        <trans-unit id="4e0f1677-ed93-47f7-a491-895ae30e4823" xml:space="preserve">
+          <source>Visual Studio (one of the following versions):</source>
+          <target state="new">Visual Studio (one of the following versions):</target>
+        </trans-unit>
+        <trans-unit id="0ae8c969-0beb-4c62-887c-d96179992341" xml:space="preserve">
+          <source>Visual Studio 2012 Professional/Premium/Ultimate with <bpt id="d15ea850-80b9-4f53-bbbb-6ad198d5a5be">&lt;linkText&gt;</bpt>Update 4<ept id="d15ea850-80b9-4f53-bbbb-6ad198d5a5be">&lt;/linkText&gt;</ept><bpt id="d15ea850-80b9-4f53-bbbb-6ad198d5a5be">&lt;title&gt;</bpt><ept id="d15ea850-80b9-4f53-bbbb-6ad198d5a5be">&lt;/title&gt;</ept></source>
+          <target state="new">Visual Studio 2012 Professional/Premium/Ultimate with <bpt id="d15ea850-80b9-4f53-bbbb-6ad198d5a5be">&lt;linkText&gt;</bpt>Update 4<ept id="d15ea850-80b9-4f53-bbbb-6ad198d5a5be">&lt;/linkText&gt;</ept><bpt id="d15ea850-80b9-4f53-bbbb-6ad198d5a5be">&lt;title&gt;</bpt><ept id="d15ea850-80b9-4f53-bbbb-6ad198d5a5be">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0385411-dc23-43bb-8651-1b8c07681a9d" xml:space="preserve">
+          <source>Visual Studio 2013 Community/Professional/Premium/Ultimate with <bpt id="63ec5d4b-f3cf-4426-8944-b509aa7ad033">&lt;linkText&gt;</bpt>Update 4<ept id="63ec5d4b-f3cf-4426-8944-b509aa7ad033">&lt;/linkText&gt;</ept><bpt id="63ec5d4b-f3cf-4426-8944-b509aa7ad033">&lt;title&gt;</bpt><ept id="63ec5d4b-f3cf-4426-8944-b509aa7ad033">&lt;/title&gt;</ept></source>
+          <target state="new">Visual Studio 2013 Community/Professional/Premium/Ultimate with <bpt id="63ec5d4b-f3cf-4426-8944-b509aa7ad033">&lt;linkText&gt;</bpt>Update 4<ept id="63ec5d4b-f3cf-4426-8944-b509aa7ad033">&lt;/linkText&gt;</ept><bpt id="63ec5d4b-f3cf-4426-8944-b509aa7ad033">&lt;title&gt;</bpt><ept id="63ec5d4b-f3cf-4426-8944-b509aa7ad033">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88f0710b-b2b0-4808-96cb-c897b0f41a10" xml:space="preserve">
+          <source>Visual Studio 2015 (Community/Enterprise)</source>
+          <target state="new">Visual Studio 2015 (Community/Enterprise)</target>
+        </trans-unit>
+        <trans-unit id="1d6e59e7-b07c-47e8-9d01-1a016aabaec0" xml:space="preserve">
+          <source>Currently, the HDInsight Tools for Visual Studio only come with the English version.</source>
+          <target state="new">Currently, the HDInsight Tools for Visual Studio only come with the English version.</target>
+        </trans-unit>
+        <trans-unit id="3fe1d542-6b03-42e7-9c89-a5f1b958a8e5" xml:space="preserve">
+          <source>HDInsight Tools for Visual Studio is packaged with Microsoft Azure SDK for .NET version 2.5.1 or later.</source>
+          <target state="new">HDInsight Tools for Visual Studio is packaged with Microsoft Azure SDK for .NET version 2.5.1 or later.</target>
+        </trans-unit>
+        <trans-unit id="2c712768-b8de-426e-af14-bc7a2a6179cc" xml:space="preserve">
+          <source>It can be installed by using the <bpt id="77b4f5e7-4acc-49ee-9bac-3a4b99e71344">&lt;linkText&gt;</bpt>Web Platform Installer<ept id="77b4f5e7-4acc-49ee-9bac-3a4b99e71344">&lt;/linkText&gt;</ept><bpt id="77b4f5e7-4acc-49ee-9bac-3a4b99e71344">&lt;title&gt;</bpt><ept id="77b4f5e7-4acc-49ee-9bac-3a4b99e71344">&lt;/title&gt;</ept>.</source>
+          <target state="new">It can be installed by using the <bpt id="77b4f5e7-4acc-49ee-9bac-3a4b99e71344">&lt;linkText&gt;</bpt>Web Platform Installer<ept id="77b4f5e7-4acc-49ee-9bac-3a4b99e71344">&lt;/linkText&gt;</ept><bpt id="77b4f5e7-4acc-49ee-9bac-3a4b99e71344">&lt;title&gt;</bpt><ept id="77b4f5e7-4acc-49ee-9bac-3a4b99e71344">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83075e33-83c7-4d86-8589-605b59975004" xml:space="preserve">
+          <source>You must choose the one that matches your version of Visual Studio.</source>
+          <target state="new">You must choose the one that matches your version of Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="3d170a05-5b2a-49c9-b0a3-f6efe6d5d6ba" xml:space="preserve">
+          <source>This Hadoop tools package also installs the Microsoft Hive ODBC Driver (32-bit and 64-bit).</source>
+          <target state="new">This Hadoop tools package also installs the Microsoft Hive ODBC Driver (32-bit and 64-bit).</target>
+        </trans-unit>
+        <trans-unit id="e998f1d8-4e34-4ef3-bc9c-da3ad3ccef68" xml:space="preserve">
+          <source><bpt id="769a0afd-e71f-43f5-ac8d-2d6bbd16e6a1">&lt;linkText&gt;</bpt>Hadoop tools: HDinsight Tools for Visual Studio Web Platform installer.<ept id="769a0afd-e71f-43f5-ac8d-2d6bbd16e6a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="769a0afd-e71f-43f5-ac8d-2d6bbd16e6a1">&lt;linkText&gt;</bpt>Hadoop tools: HDinsight Tools for Visual Studio Web Platform installer.<ept id="769a0afd-e71f-43f5-ac8d-2d6bbd16e6a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="188831e0-69df-46dd-89be-65cf5552a0aa" xml:space="preserve">
+          <source>If you have Visual Studio 2015 or 2012, and you have installed Azure SDK 2.5, you must manually remove the older version before installing the latest version.</source>
+          <target state="new">If you have Visual Studio 2015 or 2012, and you have installed Azure SDK 2.5, you must manually remove the older version before installing the latest version.</target>
+        </trans-unit>
+        <trans-unit id="146331fe-1f70-4c7e-bab7-09fea7e65ec1" xml:space="preserve">
+          <source>Visual Studio 2013 supports a direct update.</source>
+          <target state="new">Visual Studio 2013 supports a direct update.</target>
+        </trans-unit>
+        <trans-unit id="ebec53ee-809c-4d7f-b967-2ac1b1379322" xml:space="preserve">
+          <source>The HDInsight Tools for Visual Studio allows you to connect to your HDInsight clusters, perform some basic management operations, and run Hive queries.</source>
+          <target state="new">The HDInsight Tools for Visual Studio allows you to connect to your HDInsight clusters, perform some basic management operations, and run Hive queries.</target>
+        </trans-unit>
+        <trans-unit id="9b65526c-1283-428e-a8b2-dd3b38cc8734" xml:space="preserve">
+          <source>For information on connecting to HDInsight Emulator, see <bpt id="e5113c7c-7bbd-441b-8c60-b2268581d767">&lt;linkText&gt;</bpt>Get started with the HDInsight Emulator<ept id="e5113c7c-7bbd-441b-8c60-b2268581d767">&lt;/linkText&gt;</ept><bpt id="e5113c7c-7bbd-441b-8c60-b2268581d767">&lt;title&gt;</bpt><ept id="e5113c7c-7bbd-441b-8c60-b2268581d767">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on connecting to HDInsight Emulator, see <bpt id="e5113c7c-7bbd-441b-8c60-b2268581d767">&lt;linkText&gt;</bpt>Get started with the HDInsight Emulator<ept id="e5113c7c-7bbd-441b-8c60-b2268581d767">&lt;/linkText&gt;</ept><bpt id="e5113c7c-7bbd-441b-8c60-b2268581d767">&lt;title&gt;</bpt><ept id="e5113c7c-7bbd-441b-8c60-b2268581d767">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="322d886b-f77c-4585-bba6-456269e277c8" xml:space="preserve">
+          <source>For information on connecting to a generic Hadoop cluster (preview), see <bpt id="1b5b18df-82df-4155-a4b1-b09c59e968e0">&lt;linkText&gt;</bpt>Write and submit Hive queries using Visual Studio<ept id="1b5b18df-82df-4155-a4b1-b09c59e968e0">&lt;/linkText&gt;</ept><bpt id="1b5b18df-82df-4155-a4b1-b09c59e968e0">&lt;title&gt;</bpt><ept id="1b5b18df-82df-4155-a4b1-b09c59e968e0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on connecting to a generic Hadoop cluster (preview), see <bpt id="1b5b18df-82df-4155-a4b1-b09c59e968e0">&lt;linkText&gt;</bpt>Write and submit Hive queries using Visual Studio<ept id="1b5b18df-82df-4155-a4b1-b09c59e968e0">&lt;/linkText&gt;</ept><bpt id="1b5b18df-82df-4155-a4b1-b09c59e968e0">&lt;title&gt;</bpt><ept id="1b5b18df-82df-4155-a4b1-b09c59e968e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c8f9771-75a2-4a77-a836-6870552bd3b4" xml:space="preserve">
+          <source><bpt id="b2c7d78c-5f72-4780-a3d7-620cc70d99eb">&lt;strong&gt;</bpt>To connect to your Azure subscription<ept id="b2c7d78c-5f72-4780-a3d7-620cc70d99eb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b2c7d78c-5f72-4780-a3d7-620cc70d99eb">&lt;strong&gt;</bpt>To connect to your Azure subscription<ept id="b2c7d78c-5f72-4780-a3d7-620cc70d99eb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b4f38af-b03a-4adc-9851-1fc1fcf8c327" xml:space="preserve">
+          <source>Open Visual Studio.</source>
+          <target state="new">Open Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="fe17fde0-91a8-4779-b9af-6ac586f2e0a6" xml:space="preserve">
+          <source>From the <bpt id="211ead20-2c3d-472c-9ba8-3c8bfb819f70">&lt;strong&gt;</bpt>View<ept id="211ead20-2c3d-472c-9ba8-3c8bfb819f70">&lt;/strong&gt;</ept> menu, click <bpt id="3f770200-17cd-4fed-9167-e60a53b76ac0">&lt;strong&gt;</bpt>Server Explorer<ept id="3f770200-17cd-4fed-9167-e60a53b76ac0">&lt;/strong&gt;</ept> to open the Server Explorer window.</source>
+          <target state="new">From the <bpt id="211ead20-2c3d-472c-9ba8-3c8bfb819f70">&lt;strong&gt;</bpt>View<ept id="211ead20-2c3d-472c-9ba8-3c8bfb819f70">&lt;/strong&gt;</ept> menu, click <bpt id="3f770200-17cd-4fed-9167-e60a53b76ac0">&lt;strong&gt;</bpt>Server Explorer<ept id="3f770200-17cd-4fed-9167-e60a53b76ac0">&lt;/strong&gt;</ept> to open the Server Explorer window.</target>
+        </trans-unit>
+        <trans-unit id="f77d8b10-f450-4e0b-88c7-19d8d1bf3d4e" xml:space="preserve">
+          <source>Expand <bpt id="3de20509-6036-4943-935f-01262fa273e3">&lt;strong&gt;</bpt>Azure<ept id="3de20509-6036-4943-935f-01262fa273e3">&lt;/strong&gt;</ept>, and then expand <bpt id="5252a970-6627-44c4-a872-111f0c87511f">&lt;strong&gt;</bpt>HDInsight<ept id="5252a970-6627-44c4-a872-111f0c87511f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand <bpt id="3de20509-6036-4943-935f-01262fa273e3">&lt;strong&gt;</bpt>Azure<ept id="3de20509-6036-4943-935f-01262fa273e3">&lt;/strong&gt;</ept>, and then expand <bpt id="5252a970-6627-44c4-a872-111f0c87511f">&lt;strong&gt;</bpt>HDInsight<ept id="5252a970-6627-44c4-a872-111f0c87511f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d704632-6bce-47d6-b98a-6bde0990b154" xml:space="preserve">
+          <source>Notice the <bpt id="a3e6ae31-7258-4a4f-bb9e-2d5b6a0b0eaf">&lt;strong&gt;</bpt>HDInsight Task List<ept id="a3e6ae31-7258-4a4f-bb9e-2d5b6a0b0eaf">&lt;/strong&gt;</ept> window should be open.</source>
+          <target state="new">Notice the <bpt id="a3e6ae31-7258-4a4f-bb9e-2d5b6a0b0eaf">&lt;strong&gt;</bpt>HDInsight Task List<ept id="a3e6ae31-7258-4a4f-bb9e-2d5b6a0b0eaf">&lt;/strong&gt;</ept> window should be open.</target>
+        </trans-unit>
+        <trans-unit id="7ca987f6-5cb8-417a-b16f-2cfab25fe0e4" xml:space="preserve">
+          <source>If you don't see it, click <bpt id="9505a8ae-6ae1-44a4-a91b-f4e37582245d">&lt;strong&gt;</bpt>Other Windows<ept id="9505a8ae-6ae1-44a4-a91b-f4e37582245d">&lt;/strong&gt;</ept> from the <bpt id="4e2552dd-fb55-4c01-ab55-12ffd9a10a91">&lt;strong&gt;</bpt>View<ept id="4e2552dd-fb55-4c01-ab55-12ffd9a10a91">&lt;/strong&gt;</ept> menu, and then click <bpt id="e6148591-5b8f-42a7-a92c-0435a8f0556b">&lt;strong&gt;</bpt>HDInsight Task List Window<ept id="e6148591-5b8f-42a7-a92c-0435a8f0556b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you don't see it, click <bpt id="9505a8ae-6ae1-44a4-a91b-f4e37582245d">&lt;strong&gt;</bpt>Other Windows<ept id="9505a8ae-6ae1-44a4-a91b-f4e37582245d">&lt;/strong&gt;</ept> from the <bpt id="4e2552dd-fb55-4c01-ab55-12ffd9a10a91">&lt;strong&gt;</bpt>View<ept id="4e2552dd-fb55-4c01-ab55-12ffd9a10a91">&lt;/strong&gt;</ept> menu, and then click <bpt id="e6148591-5b8f-42a7-a92c-0435a8f0556b">&lt;strong&gt;</bpt>HDInsight Task List Window<ept id="e6148591-5b8f-42a7-a92c-0435a8f0556b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ed046b5-0d26-4e55-81e3-0ee314ada0c4" xml:space="preserve">
+          <source>Enter your Azure subscription credentials, and then click <bpt id="66e87b19-d989-4a7b-8faa-43ab59dbcefc">&lt;strong&gt;</bpt>Sign In<ept id="66e87b19-d989-4a7b-8faa-43ab59dbcefc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter your Azure subscription credentials, and then click <bpt id="66e87b19-d989-4a7b-8faa-43ab59dbcefc">&lt;strong&gt;</bpt>Sign In<ept id="66e87b19-d989-4a7b-8faa-43ab59dbcefc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f1d3899-78b5-436a-9156-fd68c379e4cb" xml:space="preserve">
+          <source>This is only required if you have never connected to the Azure subscription from Visual Studio on this workstation.</source>
+          <target state="new">This is only required if you have never connected to the Azure subscription from Visual Studio on this workstation.</target>
+        </trans-unit>
+        <trans-unit id="156997da-0cd6-43f8-9065-edfccde875b0" xml:space="preserve">
+          <source>In Server Explorer, you'll see a list of existing HDInsight clusters.</source>
+          <target state="new">In Server Explorer, you'll see a list of existing HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="e75dcf54-d6cb-4fd5-a0dc-647294a88228" xml:space="preserve">
+          <source>If you don't have any clusters, you can provision one by using the Azure preview portal, Azure PowerShell, or the HDInsight SDK.</source>
+          <target state="new">If you don't have any clusters, you can provision one by using the Azure preview portal, Azure PowerShell, or the HDInsight SDK.</target>
+        </trans-unit>
+        <trans-unit id="3511e34b-410d-418b-a0d8-c3b516c0326c" xml:space="preserve">
+          <source>For more information, see <bpt id="a3d0c82b-61cb-44ba-acef-9cd24b2e5155">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="a3d0c82b-61cb-44ba-acef-9cd24b2e5155">&lt;/linkText&gt;</ept><bpt id="a3d0c82b-61cb-44ba-acef-9cd24b2e5155">&lt;title&gt;</bpt><ept id="a3d0c82b-61cb-44ba-acef-9cd24b2e5155">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="a3d0c82b-61cb-44ba-acef-9cd24b2e5155">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="a3d0c82b-61cb-44ba-acef-9cd24b2e5155">&lt;/linkText&gt;</ept><bpt id="a3d0c82b-61cb-44ba-acef-9cd24b2e5155">&lt;title&gt;</bpt><ept id="a3d0c82b-61cb-44ba-acef-9cd24b2e5155">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d45134c9-c1c9-4c2f-9c8b-38aea7b8fb0f" xml:space="preserve">
+          <source><bpt id="2e8c6907-8c39-4fa5-a7f6-ce43d9d05bc4">&lt;linkText&gt;</bpt>Hadoop tools: HDInsight Tools for Visual Studio Server Explorer cluster list<ept id="2e8c6907-8c39-4fa5-a7f6-ce43d9d05bc4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e8c6907-8c39-4fa5-a7f6-ce43d9d05bc4">&lt;linkText&gt;</bpt>Hadoop tools: HDInsight Tools for Visual Studio Server Explorer cluster list<ept id="2e8c6907-8c39-4fa5-a7f6-ce43d9d05bc4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04e9194c-867b-491d-8825-e34372b22ec8" xml:space="preserve">
+          <source>Expand an HDInsight cluster.</source>
+          <target state="new">Expand an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="92f739e9-663c-4272-a2f0-d1702159412e" xml:space="preserve">
+          <source>You'll see <bpt id="509f13be-07ae-44a9-b037-a42bc09f9ba0">&lt;strong&gt;</bpt>Hive Databases<ept id="509f13be-07ae-44a9-b037-a42bc09f9ba0">&lt;/strong&gt;</ept>, a default storage account, linked storage accounts, and <bpt id="43a145a3-7e96-4092-b580-918a9611318f">&lt;strong&gt;</bpt>Hadoop Service log<ept id="43a145a3-7e96-4092-b580-918a9611318f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You'll see <bpt id="509f13be-07ae-44a9-b037-a42bc09f9ba0">&lt;strong&gt;</bpt>Hive Databases<ept id="509f13be-07ae-44a9-b037-a42bc09f9ba0">&lt;/strong&gt;</ept>, a default storage account, linked storage accounts, and <bpt id="43a145a3-7e96-4092-b580-918a9611318f">&lt;strong&gt;</bpt>Hadoop Service log<ept id="43a145a3-7e96-4092-b580-918a9611318f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cb2554f-5f68-48c6-802d-718da0e2b030" xml:space="preserve">
+          <source>You can further expand the entities.</source>
+          <target state="new">You can further expand the entities.</target>
+        </trans-unit>
+        <trans-unit id="f8787d5e-29d4-4a6f-bfd1-fbf88ad6de59" xml:space="preserve">
+          <source>After you've connected to your Azure subscription, you'll be able to do the following:</source>
+          <target state="new">After you've connected to your Azure subscription, you'll be able to do the following:</target>
+        </trans-unit>
+        <trans-unit id="63ac9bee-5402-4c7e-84b1-7444c6fcb053" xml:space="preserve">
+          <source><bpt id="94d94b5b-d095-463e-9af6-0d97b8e14920">&lt;strong&gt;</bpt>To connect to the Azure portal from Visual Studio<ept id="94d94b5b-d095-463e-9af6-0d97b8e14920">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="94d94b5b-d095-463e-9af6-0d97b8e14920">&lt;strong&gt;</bpt>To connect to the Azure portal from Visual Studio<ept id="94d94b5b-d095-463e-9af6-0d97b8e14920">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f51ef4d-2f50-4413-8680-a264af2238cb" xml:space="preserve">
+          <source>From Server Explorer, expand <bpt id="12925006-5aba-4a4c-a826-16efe8162db2">&lt;strong&gt;</bpt>Azure<ept id="12925006-5aba-4a4c-a826-16efe8162db2">&lt;/strong&gt;</ept> &gt; <bpt id="792739e8-a6c9-48b7-8e7b-ca8497973c0e">&lt;strong&gt;</bpt>HDInsight<ept id="792739e8-a6c9-48b7-8e7b-ca8497973c0e">&lt;/strong&gt;</ept>, right-click an HDInsight cluster, and then click <bpt id="3770e2a9-d26a-4d34-adf7-8d38b4d0b3e6">&lt;strong&gt;</bpt>Manage Cluster in Azure Portal<ept id="3770e2a9-d26a-4d34-adf7-8d38b4d0b3e6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Server Explorer, expand <bpt id="12925006-5aba-4a4c-a826-16efe8162db2">&lt;strong&gt;</bpt>Azure<ept id="12925006-5aba-4a4c-a826-16efe8162db2">&lt;/strong&gt;</ept> &gt; <bpt id="792739e8-a6c9-48b7-8e7b-ca8497973c0e">&lt;strong&gt;</bpt>HDInsight<ept id="792739e8-a6c9-48b7-8e7b-ca8497973c0e">&lt;/strong&gt;</ept>, right-click an HDInsight cluster, and then click <bpt id="3770e2a9-d26a-4d34-adf7-8d38b4d0b3e6">&lt;strong&gt;</bpt>Manage Cluster in Azure Portal<ept id="3770e2a9-d26a-4d34-adf7-8d38b4d0b3e6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7ca38b6-71b7-43d9-82d8-0e18a97c873c" xml:space="preserve">
+          <source><bpt id="173921bc-c13a-4a92-ac53-049c4124d192">&lt;strong&gt;</bpt>To ask questions and provide feedback from Visual Studio<ept id="173921bc-c13a-4a92-ac53-049c4124d192">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="173921bc-c13a-4a92-ac53-049c4124d192">&lt;strong&gt;</bpt>To ask questions and provide feedback from Visual Studio<ept id="173921bc-c13a-4a92-ac53-049c4124d192">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f4063f3-8153-4b49-b1ee-e671639359b9" xml:space="preserve">
+          <source>From the <bpt id="7ecb70db-4866-4101-8b33-9ff562c3d61b">&lt;strong&gt;</bpt>Tools<ept id="7ecb70db-4866-4101-8b33-9ff562c3d61b">&lt;/strong&gt;</ept> menu, click <bpt id="b675fad6-d766-4b04-86c8-3112301ac090">&lt;strong&gt;</bpt>HDInsight<ept id="b675fad6-d766-4b04-86c8-3112301ac090">&lt;/strong&gt;</ept>, and then click <bpt id="a8d5c464-8d81-4ae8-82b8-bdef83507480">&lt;strong&gt;</bpt>MSDN Forum<ept id="a8d5c464-8d81-4ae8-82b8-bdef83507480">&lt;/strong&gt;</ept> to ask questions, or click <bpt id="0979fb44-eeeb-4c67-9996-fb05c4e3839b">&lt;strong&gt;</bpt>Give Feedback<ept id="0979fb44-eeeb-4c67-9996-fb05c4e3839b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="7ecb70db-4866-4101-8b33-9ff562c3d61b">&lt;strong&gt;</bpt>Tools<ept id="7ecb70db-4866-4101-8b33-9ff562c3d61b">&lt;/strong&gt;</ept> menu, click <bpt id="b675fad6-d766-4b04-86c8-3112301ac090">&lt;strong&gt;</bpt>HDInsight<ept id="b675fad6-d766-4b04-86c8-3112301ac090">&lt;/strong&gt;</ept>, and then click <bpt id="a8d5c464-8d81-4ae8-82b8-bdef83507480">&lt;strong&gt;</bpt>MSDN Forum<ept id="a8d5c464-8d81-4ae8-82b8-bdef83507480">&lt;/strong&gt;</ept> to ask questions, or click <bpt id="0979fb44-eeeb-4c67-9996-fb05c4e3839b">&lt;strong&gt;</bpt>Give Feedback<ept id="0979fb44-eeeb-4c67-9996-fb05c4e3839b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8021d7a-bfa7-4c75-b8c2-25c721fdd876" xml:space="preserve">
+          <source>From Server Explorer, you can see the default storage account and any linked storage accounts.</source>
+          <target state="new">From Server Explorer, you can see the default storage account and any linked storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="82a39a46-7f6f-48a0-90fe-64f0711e2df1" xml:space="preserve">
+          <source>If you expand the default storage account, you can see the containers on the storage account.</source>
+          <target state="new">If you expand the default storage account, you can see the containers on the storage account.</target>
+        </trans-unit>
+        <trans-unit id="9c700a11-23ab-4990-b5e8-08ffff2d0aee" xml:space="preserve">
+          <source>The default storage account and the default container are marked.</source>
+          <target state="new">The default storage account and the default container are marked.</target>
+        </trans-unit>
+        <trans-unit id="4ddc6712-e0ea-445e-8d81-81b94da8c10a" xml:space="preserve">
+          <source>You can also right-click any of the containers to view the contents.</source>
+          <target state="new">You can also right-click any of the containers to view the contents.</target>
+        </trans-unit>
+        <trans-unit id="b109af15-9714-45b8-a87e-e451013b44ad" xml:space="preserve">
+          <source><bpt id="9183b3a6-9215-4a8e-a5ea-3db396dc6db7">&lt;linkText&gt;</bpt>HDInsight Tools for Visual Studio server explorer cluster list<ept id="9183b3a6-9215-4a8e-a5ea-3db396dc6db7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9183b3a6-9215-4a8e-a5ea-3db396dc6db7">&lt;linkText&gt;</bpt>HDInsight Tools for Visual Studio server explorer cluster list<ept id="9183b3a6-9215-4a8e-a5ea-3db396dc6db7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99909e6f-de69-4ba0-90c6-a1b70c6207cb" xml:space="preserve">
+          <source><bpt id="9aeac982-7b47-44fb-adda-0924b1e892f7">&lt;linkText&gt;</bpt>Apache Hive[apache.hive]<ept id="9aeac982-7b47-44fb-adda-0924b1e892f7">&lt;/linkText&gt;</ept><bpt id="9aeac982-7b47-44fb-adda-0924b1e892f7">&lt;title&gt;</bpt><ept id="9aeac982-7b47-44fb-adda-0924b1e892f7">&lt;/title&gt;</ept> is a data warehouse infrastructure built on Hadoop for providing data summarization, queries, and analysis.</source>
+          <target state="new"><bpt id="9aeac982-7b47-44fb-adda-0924b1e892f7">&lt;linkText&gt;</bpt>Apache Hive[apache.hive]<ept id="9aeac982-7b47-44fb-adda-0924b1e892f7">&lt;/linkText&gt;</ept><bpt id="9aeac982-7b47-44fb-adda-0924b1e892f7">&lt;title&gt;</bpt><ept id="9aeac982-7b47-44fb-adda-0924b1e892f7">&lt;/title&gt;</ept> is a data warehouse infrastructure built on Hadoop for providing data summarization, queries, and analysis.</target>
+        </trans-unit>
+        <trans-unit id="7e14ef9a-0b0a-4679-8680-96605d6178d2" xml:space="preserve">
+          <source>HDInsight Tools for Visual Studio supports running Hive queries from Visual Studio.</source>
+          <target state="new">HDInsight Tools for Visual Studio supports running Hive queries from Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="533a167c-743f-4fd7-9173-fb1f96b04f6b" xml:space="preserve">
+          <source>For more information about Hive, see <bpt id="fd474667-1509-4707-8456-bf15ccf51c3b">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight.hive]<ept id="fd474667-1509-4707-8456-bf15ccf51c3b">&lt;/linkText&gt;</ept><bpt id="fd474667-1509-4707-8456-bf15ccf51c3b">&lt;title&gt;</bpt><ept id="fd474667-1509-4707-8456-bf15ccf51c3b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Hive, see <bpt id="fd474667-1509-4707-8456-bf15ccf51c3b">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight.hive]<ept id="fd474667-1509-4707-8456-bf15ccf51c3b">&lt;/linkText&gt;</ept><bpt id="fd474667-1509-4707-8456-bf15ccf51c3b">&lt;title&gt;</bpt><ept id="fd474667-1509-4707-8456-bf15ccf51c3b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2462fd97-7df5-47c6-811a-afe96b33620f" xml:space="preserve">
+          <source>It is time consuming to test Hive script against an HDInsight cluster.</source>
+          <target state="new">It is time consuming to test Hive script against an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="12b84eca-7640-4285-9cd2-b2d07a52f2ed" xml:space="preserve">
+          <source>It could take several minutes or more.</source>
+          <target state="new">It could take several minutes or more.</target>
+        </trans-unit>
+        <trans-unit id="6545ebb7-9776-4e03-a94e-f72a78ac0e1f" xml:space="preserve">
+          <source>HDInsight Tools for Visual Studio is capable of validating Hive script locally without connecting to a live cluster.</source>
+          <target state="new">HDInsight Tools for Visual Studio is capable of validating Hive script locally without connecting to a live cluster.</target>
+        </trans-unit>
+        <trans-unit id="d400b825-353c-4f4a-9094-2999b9cd9972" xml:space="preserve">
+          <source>HDInsight Tools for Visual Studio also enables users to see what’s inside the Hive job by collecting and surfacing the YARN logs of certain Hive jobs.</source>
+          <target state="new">HDInsight Tools for Visual Studio also enables users to see what’s inside the Hive job by collecting and surfacing the YARN logs of certain Hive jobs.</target>
+        </trans-unit>
+        <trans-unit id="8b93f04c-781b-46bf-8997-202b1eddf3d2" xml:space="preserve">
+          <source>All HDInsight clusters come with a sample Hive table called <bpt id="849a9f40-8f57-40ca-bbf0-f2596268b6f7">&lt;em&gt;</bpt>hivesampletable<ept id="849a9f40-8f57-40ca-bbf0-f2596268b6f7">&lt;/em&gt;</ept>.</source>
+          <target state="new">All HDInsight clusters come with a sample Hive table called <bpt id="849a9f40-8f57-40ca-bbf0-f2596268b6f7">&lt;em&gt;</bpt>hivesampletable<ept id="849a9f40-8f57-40ca-bbf0-f2596268b6f7">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66c7681b-7191-4212-bdc5-132b459bbdb6" xml:space="preserve">
+          <source>We'll use this table to show you how to list Hive tables, view the table schemas, and list the rows in the Hive table.</source>
+          <target state="new">We'll use this table to show you how to list Hive tables, view the table schemas, and list the rows in the Hive table.</target>
+        </trans-unit>
+        <trans-unit id="daf419f3-d6d7-442d-a025-43db076a224c" xml:space="preserve">
+          <source><bpt id="800b794a-f292-4d37-813b-dbc5f83f6968">&lt;strong&gt;</bpt>To list Hive tables and view Hive table schema<ept id="800b794a-f292-4d37-813b-dbc5f83f6968">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="800b794a-f292-4d37-813b-dbc5f83f6968">&lt;strong&gt;</bpt>To list Hive tables and view Hive table schema<ept id="800b794a-f292-4d37-813b-dbc5f83f6968">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7477457-a353-4fe4-8c95-e6e185e9dafb" xml:space="preserve">
+          <source>From <bpt id="b4ec4954-f45f-4bda-9273-6f4a63db85db">&lt;strong&gt;</bpt>Server Explorer<ept id="b4ec4954-f45f-4bda-9273-6f4a63db85db">&lt;/strong&gt;</ept>, expand <bpt id="50aabb9b-7021-400c-a627-cbd79017a58f">&lt;strong&gt;</bpt>Azure<ept id="50aabb9b-7021-400c-a627-cbd79017a58f">&lt;/strong&gt;</ept> &gt; <bpt id="708e2a69-13de-4859-8346-6f913c98fca3">&lt;strong&gt;</bpt>HDInsight<ept id="708e2a69-13de-4859-8346-6f913c98fca3">&lt;/strong&gt;</ept> &gt; the cluster of your choice &gt; <bpt id="e0b9ed3d-7ce9-45eb-a5e2-19988928cf6b">&lt;strong&gt;</bpt>Hive Databases<ept id="e0b9ed3d-7ce9-45eb-a5e2-19988928cf6b">&lt;/strong&gt;</ept> &gt; <bpt id="34a7dce3-1db8-4e5d-94f9-e671fb04ae62">&lt;strong&gt;</bpt>Default<ept id="34a7dce3-1db8-4e5d-94f9-e671fb04ae62">&lt;/strong&gt;</ept> &gt; <bpt id="4fc8476b-fb19-43a3-92af-f5de4fbecfd7">&lt;strong&gt;</bpt>hivesampletable<ept id="4fc8476b-fb19-43a3-92af-f5de4fbecfd7">&lt;/strong&gt;</ept> to see the table schema.</source>
+          <target state="new">From <bpt id="b4ec4954-f45f-4bda-9273-6f4a63db85db">&lt;strong&gt;</bpt>Server Explorer<ept id="b4ec4954-f45f-4bda-9273-6f4a63db85db">&lt;/strong&gt;</ept>, expand <bpt id="50aabb9b-7021-400c-a627-cbd79017a58f">&lt;strong&gt;</bpt>Azure<ept id="50aabb9b-7021-400c-a627-cbd79017a58f">&lt;/strong&gt;</ept> &gt; <bpt id="708e2a69-13de-4859-8346-6f913c98fca3">&lt;strong&gt;</bpt>HDInsight<ept id="708e2a69-13de-4859-8346-6f913c98fca3">&lt;/strong&gt;</ept> &gt; the cluster of your choice &gt; <bpt id="e0b9ed3d-7ce9-45eb-a5e2-19988928cf6b">&lt;strong&gt;</bpt>Hive Databases<ept id="e0b9ed3d-7ce9-45eb-a5e2-19988928cf6b">&lt;/strong&gt;</ept> &gt; <bpt id="34a7dce3-1db8-4e5d-94f9-e671fb04ae62">&lt;strong&gt;</bpt>Default<ept id="34a7dce3-1db8-4e5d-94f9-e671fb04ae62">&lt;/strong&gt;</ept> &gt; <bpt id="4fc8476b-fb19-43a3-92af-f5de4fbecfd7">&lt;strong&gt;</bpt>hivesampletable<ept id="4fc8476b-fb19-43a3-92af-f5de4fbecfd7">&lt;/strong&gt;</ept> to see the table schema.</target>
+        </trans-unit>
+        <trans-unit id="b0645acb-c4fe-46da-8075-8ade9e8f5f4b" xml:space="preserve">
+          <source>Right-click <bpt id="7ec40058-43f0-4ba9-9e75-fdc32b87bc14">&lt;strong&gt;</bpt>hivesampletable<ept id="7ec40058-43f0-4ba9-9e75-fdc32b87bc14">&lt;/strong&gt;</ept>, and then click <bpt id="389b4abc-e9bc-433c-9d5b-0775b695eb92">&lt;strong&gt;</bpt>View Top 100 Rows<ept id="389b4abc-e9bc-433c-9d5b-0775b695eb92">&lt;/strong&gt;</ept> to list the rows.</source>
+          <target state="new">Right-click <bpt id="7ec40058-43f0-4ba9-9e75-fdc32b87bc14">&lt;strong&gt;</bpt>hivesampletable<ept id="7ec40058-43f0-4ba9-9e75-fdc32b87bc14">&lt;/strong&gt;</ept>, and then click <bpt id="389b4abc-e9bc-433c-9d5b-0775b695eb92">&lt;strong&gt;</bpt>View Top 100 Rows<ept id="389b4abc-e9bc-433c-9d5b-0775b695eb92">&lt;/strong&gt;</ept> to list the rows.</target>
+        </trans-unit>
+        <trans-unit id="17ae6627-524b-4560-a45a-04eae05b613c" xml:space="preserve">
+          <source>It is equivalent to running the following Hive query using Hive ODBC driver:</source>
+          <target state="new">It is equivalent to running the following Hive query using Hive ODBC driver:</target>
+        </trans-unit>
+        <trans-unit id="e7764bcf-65a6-4bda-aab5-7de31508443e" xml:space="preserve">
+          <source>You can customize the row count.</source>
+          <target state="new">You can customize the row count.</target>
+        </trans-unit>
+        <trans-unit id="223acc8a-16df-4274-a918-f0a097fb96d1" xml:space="preserve">
+          <source><bpt id="ba6f598c-1259-4920-8903-54459b4486cf">&lt;linkText&gt;</bpt>Hadoop tools: HDinsight Hive Visual Studio schema query<ept id="ba6f598c-1259-4920-8903-54459b4486cf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ba6f598c-1259-4920-8903-54459b4486cf">&lt;linkText&gt;</bpt>Hadoop tools: HDinsight Hive Visual Studio schema query<ept id="ba6f598c-1259-4920-8903-54459b4486cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39e0e6ff-1945-4aef-b406-c41b222fd802" xml:space="preserve">
+          <source>You can use the GUI to create a Hive table or use Hive queries.</source>
+          <target state="new">You can use the GUI to create a Hive table or use Hive queries.</target>
+        </trans-unit>
+        <trans-unit id="328f9c0f-8c92-4606-92b2-2e5510da2755" xml:space="preserve">
+          <source>For information about using Hive queries, see <bpt id="26f900e1-4d44-4ddc-aaf6-9136c717a37f">&lt;linkText&gt;</bpt>Run Hive queries<ept id="26f900e1-4d44-4ddc-aaf6-9136c717a37f">&lt;/linkText&gt;</ept><bpt id="26f900e1-4d44-4ddc-aaf6-9136c717a37f">&lt;title&gt;</bpt><ept id="26f900e1-4d44-4ddc-aaf6-9136c717a37f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using Hive queries, see <bpt id="26f900e1-4d44-4ddc-aaf6-9136c717a37f">&lt;linkText&gt;</bpt>Run Hive queries<ept id="26f900e1-4d44-4ddc-aaf6-9136c717a37f">&lt;/linkText&gt;</ept><bpt id="26f900e1-4d44-4ddc-aaf6-9136c717a37f">&lt;title&gt;</bpt><ept id="26f900e1-4d44-4ddc-aaf6-9136c717a37f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48ce2841-7751-4f32-b6f3-6c9c885e05b6" xml:space="preserve">
+          <source><bpt id="5c6f7276-9361-4ba4-b319-b52f7d92ced3">&lt;strong&gt;</bpt>To create a Hive table<ept id="5c6f7276-9361-4ba4-b319-b52f7d92ced3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5c6f7276-9361-4ba4-b319-b52f7d92ced3">&lt;strong&gt;</bpt>To create a Hive table<ept id="5c6f7276-9361-4ba4-b319-b52f7d92ced3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17414617-8b93-442e-a06e-018e9f3040dc" xml:space="preserve">
+          <source>From <bpt id="e40557fd-5294-401b-8925-d4ad64a1a5db">&lt;strong&gt;</bpt>Server Explorer<ept id="e40557fd-5294-401b-8925-d4ad64a1a5db">&lt;/strong&gt;</ept>, expand <bpt id="f9b740f4-1938-4599-9166-b9323b7092f3">&lt;strong&gt;</bpt>Azure<ept id="f9b740f4-1938-4599-9166-b9323b7092f3">&lt;/strong&gt;</ept> &gt; <bpt id="edf4d62a-ef57-4446-8f87-e0115533d2c1">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="edf4d62a-ef57-4446-8f87-e0115533d2c1">&lt;/strong&gt;</ept> an HDInsight cluster &gt; <bpt id="b96a27c4-4f32-4b11-b71d-2e24131f57bd">&lt;strong&gt;</bpt>Hive Databases<ept id="b96a27c4-4f32-4b11-b71d-2e24131f57bd">&lt;/strong&gt;</ept>, then right-click <bpt id="dc03cbaf-9d0b-490e-a4e3-3fbcff7cc36b">&lt;strong&gt;</bpt>default<ept id="dc03cbaf-9d0b-490e-a4e3-3fbcff7cc36b">&lt;/strong&gt;</ept>, and click <bpt id="a2cb410b-2f8d-44fb-9029-8f4463820438">&lt;strong&gt;</bpt>Create Table<ept id="a2cb410b-2f8d-44fb-9029-8f4463820438">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="e40557fd-5294-401b-8925-d4ad64a1a5db">&lt;strong&gt;</bpt>Server Explorer<ept id="e40557fd-5294-401b-8925-d4ad64a1a5db">&lt;/strong&gt;</ept>, expand <bpt id="f9b740f4-1938-4599-9166-b9323b7092f3">&lt;strong&gt;</bpt>Azure<ept id="f9b740f4-1938-4599-9166-b9323b7092f3">&lt;/strong&gt;</ept> &gt; <bpt id="edf4d62a-ef57-4446-8f87-e0115533d2c1">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="edf4d62a-ef57-4446-8f87-e0115533d2c1">&lt;/strong&gt;</ept> an HDInsight cluster &gt; <bpt id="b96a27c4-4f32-4b11-b71d-2e24131f57bd">&lt;strong&gt;</bpt>Hive Databases<ept id="b96a27c4-4f32-4b11-b71d-2e24131f57bd">&lt;/strong&gt;</ept>, then right-click <bpt id="dc03cbaf-9d0b-490e-a4e3-3fbcff7cc36b">&lt;strong&gt;</bpt>default<ept id="dc03cbaf-9d0b-490e-a4e3-3fbcff7cc36b">&lt;/strong&gt;</ept>, and click <bpt id="a2cb410b-2f8d-44fb-9029-8f4463820438">&lt;strong&gt;</bpt>Create Table<ept id="a2cb410b-2f8d-44fb-9029-8f4463820438">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b994766c-143d-4bcd-8965-30f519a0efaf" xml:space="preserve">
+          <source>Configure the table.</source>
+          <target state="new">Configure the table.</target>
+        </trans-unit>
+        <trans-unit id="588e063e-ed42-4db7-83d3-9c4caffd74c3" xml:space="preserve">
+          <source>Click <bpt id="1ad5d6f6-94f7-4ce7-97e8-22cb5a33086d">&lt;strong&gt;</bpt>Create Table<ept id="1ad5d6f6-94f7-4ce7-97e8-22cb5a33086d">&lt;/strong&gt;</ept> to submit the job to create the new Hive table.</source>
+          <target state="new">Click <bpt id="1ad5d6f6-94f7-4ce7-97e8-22cb5a33086d">&lt;strong&gt;</bpt>Create Table<ept id="1ad5d6f6-94f7-4ce7-97e8-22cb5a33086d">&lt;/strong&gt;</ept> to submit the job to create the new Hive table.</target>
+        </trans-unit>
+        <trans-unit id="e75e89ab-4783-4a33-b38a-a011090468bd" xml:space="preserve">
+          <source><bpt id="7d151174-8b80-4c2a-bdcc-23d341ecc59b">&lt;linkText&gt;</bpt>Hadoop tools: hdinsight visual studio tools create hive table<ept id="7d151174-8b80-4c2a-bdcc-23d341ecc59b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7d151174-8b80-4c2a-bdcc-23d341ecc59b">&lt;linkText&gt;</bpt>Hadoop tools: hdinsight visual studio tools create hive table<ept id="7d151174-8b80-4c2a-bdcc-23d341ecc59b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6387a4e2-1924-4380-a54d-552b3bf5a941" xml:space="preserve">
+          <source>There are two ways to create and run Hive queries:</source>
+          <target state="new">There are two ways to create and run Hive queries:</target>
+        </trans-unit>
+        <trans-unit id="ee26f6bb-5d22-499a-afc5-a0ff2f4fe066" xml:space="preserve">
+          <source>Create ad-hoc queries</source>
+          <target state="new">Create ad-hoc queries</target>
+        </trans-unit>
+        <trans-unit id="d0ee89a4-a814-45c6-af0a-6bc671520055" xml:space="preserve">
+          <source>Create a Hive application</source>
+          <target state="new">Create a Hive application</target>
+        </trans-unit>
+        <trans-unit id="56300bc9-aac9-4b8b-a5d4-e2c31a60d3e6" xml:space="preserve">
+          <source><bpt id="891f7133-5693-4f24-b2e3-31e26611ce56">&lt;strong&gt;</bpt>To create, validate, and run ad-hoc queries<ept id="891f7133-5693-4f24-b2e3-31e26611ce56">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="891f7133-5693-4f24-b2e3-31e26611ce56">&lt;strong&gt;</bpt>To create, validate, and run ad-hoc queries<ept id="891f7133-5693-4f24-b2e3-31e26611ce56">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="452ec5d0-8d07-4b2a-9c3e-966edaa69ae8" xml:space="preserve">
+          <source>From <bpt id="c23d41b9-878e-4722-92b6-130c0d3e4aed">&lt;strong&gt;</bpt>Server Explorer<ept id="c23d41b9-878e-4722-92b6-130c0d3e4aed">&lt;/strong&gt;</ept>, expand <bpt id="00fb550a-1d98-4a70-aff2-f85b354d93d5">&lt;strong&gt;</bpt>Azure<ept id="00fb550a-1d98-4a70-aff2-f85b354d93d5">&lt;/strong&gt;</ept>, and then expand <bpt id="bb140f97-2951-4b3a-9b28-e50e997a5805">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="bb140f97-2951-4b3a-9b28-e50e997a5805">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="c23d41b9-878e-4722-92b6-130c0d3e4aed">&lt;strong&gt;</bpt>Server Explorer<ept id="c23d41b9-878e-4722-92b6-130c0d3e4aed">&lt;/strong&gt;</ept>, expand <bpt id="00fb550a-1d98-4a70-aff2-f85b354d93d5">&lt;strong&gt;</bpt>Azure<ept id="00fb550a-1d98-4a70-aff2-f85b354d93d5">&lt;/strong&gt;</ept>, and then expand <bpt id="bb140f97-2951-4b3a-9b28-e50e997a5805">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="bb140f97-2951-4b3a-9b28-e50e997a5805">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1890ae3-92ac-4ce6-b9e7-293b2587f667" xml:space="preserve">
+          <source>Right-click the cluster where you want to run the query, and then click <bpt id="f28fa16d-2406-4d49-bcf7-a061c6752547">&lt;strong&gt;</bpt>Write a Hive Query<ept id="f28fa16d-2406-4d49-bcf7-a061c6752547">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the cluster where you want to run the query, and then click <bpt id="f28fa16d-2406-4d49-bcf7-a061c6752547">&lt;strong&gt;</bpt>Write a Hive Query<ept id="f28fa16d-2406-4d49-bcf7-a061c6752547">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f312afe-9afc-4483-82ef-ba8db7755a36" xml:space="preserve">
+          <source>Enter the Hive queries.</source>
+          <target state="new">Enter the Hive queries.</target>
+        </trans-unit>
+        <trans-unit id="ca2cff2b-2caf-487d-aae5-4e58e5c6ba76" xml:space="preserve">
+          <source>Notice the Hive editor supports IntelliSense.</source>
+          <target state="new">Notice the Hive editor supports IntelliSense.</target>
+        </trans-unit>
+        <trans-unit id="0439cbfe-9638-488f-90df-a4a60ea0c008" xml:space="preserve">
+          <source>HDInsight Tools for Visual Studio supports loading the remote metadata when you are editing your Hive script.</source>
+          <target state="new">HDInsight Tools for Visual Studio supports loading the remote metadata when you are editing your Hive script.</target>
+        </trans-unit>
+        <trans-unit id="085bf178-927e-488c-81ad-d07456ace870" xml:space="preserve">
+          <source>For example, when you type "SELECT * FROM", the IntelliSense lists all the suggested table names.</source>
+          <target state="new">For example, when you type "SELECT * FROM", the IntelliSense lists all the suggested table names.</target>
+        </trans-unit>
+        <trans-unit id="3579a8d6-8dda-4587-989d-45ced655896f" xml:space="preserve">
+          <source>When a table name is specified, the column names are listed by the IntelliSense.</source>
+          <target state="new">When a table name is specified, the column names are listed by the IntelliSense.</target>
+        </trans-unit>
+        <trans-unit id="d12ece09-0231-4a5c-ab1f-a3e5c65fca45" xml:space="preserve">
+          <source>The tool supports almost all Hive DML statements, subqueries, and the built-in UDFs.</source>
+          <target state="new">The tool supports almost all Hive DML statements, subqueries, and the built-in UDFs.</target>
+        </trans-unit>
+        <trans-unit id="160e023c-dbd0-4b44-b5eb-dddc8732b651" xml:space="preserve">
+          <source><bpt id="c60fd0c5-fc34-44d6-bb5c-6208bd29b1a7">&lt;linkText&gt;</bpt>Hadoop tools: HDInsight Visual Studio Tools IntelliSense<ept id="c60fd0c5-fc34-44d6-bb5c-6208bd29b1a7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c60fd0c5-fc34-44d6-bb5c-6208bd29b1a7">&lt;linkText&gt;</bpt>Hadoop tools: HDInsight Visual Studio Tools IntelliSense<ept id="c60fd0c5-fc34-44d6-bb5c-6208bd29b1a7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d33067b3-3cbd-4ab2-a5bc-2383725cbdc6" xml:space="preserve">
+          <source><bpt id="c0803a95-34e6-4474-b37d-0e864b5db015">&lt;linkText&gt;</bpt>Hadoop tools: HDInsight Visual Studio Tools IntelliSense<ept id="c0803a95-34e6-4474-b37d-0e864b5db015">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c0803a95-34e6-4474-b37d-0e864b5db015">&lt;linkText&gt;</bpt>Hadoop tools: HDInsight Visual Studio Tools IntelliSense<ept id="c0803a95-34e6-4474-b37d-0e864b5db015">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed4132df-587e-4606-8787-2c2a558cc7b0" xml:space="preserve">
+          <source>Only the metadata of the clusters that is selected in HDInsight Toolbar will be suggested.</source>
+          <target state="new">Only the metadata of the clusters that is selected in HDInsight Toolbar will be suggested.</target>
+        </trans-unit>
+        <trans-unit id="26171e35-a83d-41c6-8e19-b2ab192cf7bf" xml:space="preserve">
+          <source>(Optional): Click <bpt id="50b0ad32-0d8e-4412-b9e0-5b56c08fc830">&lt;strong&gt;</bpt>Validate Script<ept id="50b0ad32-0d8e-4412-b9e0-5b56c08fc830">&lt;/strong&gt;</ept> to check the script syntax errors.</source>
+          <target state="new">(Optional): Click <bpt id="50b0ad32-0d8e-4412-b9e0-5b56c08fc830">&lt;strong&gt;</bpt>Validate Script<ept id="50b0ad32-0d8e-4412-b9e0-5b56c08fc830">&lt;/strong&gt;</ept> to check the script syntax errors.</target>
+        </trans-unit>
+        <trans-unit id="6b56323e-9eb5-4d47-9ef7-0000c08cc0b0" xml:space="preserve">
+          <source><bpt id="3a3a258b-fb20-484c-ac9a-b8f4e1775628">&lt;linkText&gt;</bpt>Hadoop tools: hdinsight tools for Visual Studio local validation<ept id="3a3a258b-fb20-484c-ac9a-b8f4e1775628">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a3a258b-fb20-484c-ac9a-b8f4e1775628">&lt;linkText&gt;</bpt>Hadoop tools: hdinsight tools for Visual Studio local validation<ept id="3a3a258b-fb20-484c-ac9a-b8f4e1775628">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cce6d96-5972-4432-b996-c53d80ec88fb" xml:space="preserve">
+          <source>Click <bpt id="30eb4817-1187-419a-9934-9c2cfb99121a">&lt;strong&gt;</bpt>Submit<ept id="30eb4817-1187-419a-9934-9c2cfb99121a">&lt;/strong&gt;</ept> or <bpt id="07e954bb-b385-4fe0-80ed-47af72ffb07d">&lt;strong&gt;</bpt>Submit (Advanced)<ept id="07e954bb-b385-4fe0-80ed-47af72ffb07d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="30eb4817-1187-419a-9934-9c2cfb99121a">&lt;strong&gt;</bpt>Submit<ept id="30eb4817-1187-419a-9934-9c2cfb99121a">&lt;/strong&gt;</ept> or <bpt id="07e954bb-b385-4fe0-80ed-47af72ffb07d">&lt;strong&gt;</bpt>Submit (Advanced)<ept id="07e954bb-b385-4fe0-80ed-47af72ffb07d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7c975c5-f477-4cb0-8a29-778398e51c0e" xml:space="preserve">
+          <source>With the advanced submit option, you'll configure <bpt id="4b96b482-5b81-4202-a17a-db88f0f08e3a">&lt;strong&gt;</bpt>Job Name<ept id="4b96b482-5b81-4202-a17a-db88f0f08e3a">&lt;/strong&gt;</ept>, <bpt id="bb830605-2d12-467d-80e4-5cea54ba2d9d">&lt;strong&gt;</bpt>Arguments<ept id="bb830605-2d12-467d-80e4-5cea54ba2d9d">&lt;/strong&gt;</ept>, <bpt id="c3717e1a-1269-4a8f-afdc-87f74736e853">&lt;strong&gt;</bpt>Additional Configurations<ept id="c3717e1a-1269-4a8f-afdc-87f74736e853">&lt;/strong&gt;</ept>, and <bpt id="a30d9670-a20c-46b9-8810-dc6e088e1a99">&lt;strong&gt;</bpt>Status Directory<ept id="a30d9670-a20c-46b9-8810-dc6e088e1a99">&lt;/strong&gt;</ept> for the script:</source>
+          <target state="new">With the advanced submit option, you'll configure <bpt id="4b96b482-5b81-4202-a17a-db88f0f08e3a">&lt;strong&gt;</bpt>Job Name<ept id="4b96b482-5b81-4202-a17a-db88f0f08e3a">&lt;/strong&gt;</ept>, <bpt id="bb830605-2d12-467d-80e4-5cea54ba2d9d">&lt;strong&gt;</bpt>Arguments<ept id="bb830605-2d12-467d-80e4-5cea54ba2d9d">&lt;/strong&gt;</ept>, <bpt id="c3717e1a-1269-4a8f-afdc-87f74736e853">&lt;strong&gt;</bpt>Additional Configurations<ept id="c3717e1a-1269-4a8f-afdc-87f74736e853">&lt;/strong&gt;</ept>, and <bpt id="a30d9670-a20c-46b9-8810-dc6e088e1a99">&lt;strong&gt;</bpt>Status Directory<ept id="a30d9670-a20c-46b9-8810-dc6e088e1a99">&lt;/strong&gt;</ept> for the script:</target>
+        </trans-unit>
+        <trans-unit id="dd4ad814-6d9d-4f56-8ed9-5bed2cae315a" xml:space="preserve">
+          <source><bpt id="70e2b1e3-5db9-4db2-893a-082def58e036">&lt;linkText&gt;</bpt>hdinsight hadoop hive query<ept id="70e2b1e3-5db9-4db2-893a-082def58e036">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="70e2b1e3-5db9-4db2-893a-082def58e036">&lt;linkText&gt;</bpt>hdinsight hadoop hive query<ept id="70e2b1e3-5db9-4db2-893a-082def58e036">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29e8916e-9112-46f7-b3c7-db705ac5bede" xml:space="preserve">
+          <source>After you submit the job, you see a <bpt id="d8ba737b-9e99-4f12-a32a-a6e0c81edeeb">&lt;strong&gt;</bpt>Hive Job Summary<ept id="d8ba737b-9e99-4f12-a32a-a6e0c81edeeb">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">After you submit the job, you see a <bpt id="d8ba737b-9e99-4f12-a32a-a6e0c81edeeb">&lt;strong&gt;</bpt>Hive Job Summary<ept id="d8ba737b-9e99-4f12-a32a-a6e0c81edeeb">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="7677d091-083b-4092-a42a-81b866b915fc" xml:space="preserve">
+          <source><bpt id="369c7628-3ecf-4472-95a4-954e963b1524">&lt;linkText&gt;</bpt>Summary of an HDInsight Hadoop Hive query<ept id="369c7628-3ecf-4472-95a4-954e963b1524">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="369c7628-3ecf-4472-95a4-954e963b1524">&lt;linkText&gt;</bpt>Summary of an HDInsight Hadoop Hive query<ept id="369c7628-3ecf-4472-95a4-954e963b1524">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="637aa288-570b-4f76-8ff4-6e9612786574" xml:space="preserve">
+          <source>Use the <bpt id="5c6a8a51-497e-4ac4-bffa-3e2bed291c37">&lt;strong&gt;</bpt>Refresh<ept id="5c6a8a51-497e-4ac4-bffa-3e2bed291c37">&lt;/strong&gt;</ept> button to update the status until the job status changes to <bpt id="d8b4f336-b98f-41f1-889a-ece993ad8b6c">&lt;strong&gt;</bpt>Completed<ept id="d8b4f336-b98f-41f1-889a-ece993ad8b6c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Use the <bpt id="5c6a8a51-497e-4ac4-bffa-3e2bed291c37">&lt;strong&gt;</bpt>Refresh<ept id="5c6a8a51-497e-4ac4-bffa-3e2bed291c37">&lt;/strong&gt;</ept> button to update the status until the job status changes to <bpt id="d8b4f336-b98f-41f1-889a-ece993ad8b6c">&lt;strong&gt;</bpt>Completed<ept id="d8b4f336-b98f-41f1-889a-ece993ad8b6c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f841c9b-6cb9-4beb-b2b0-d9a987e8ab06" xml:space="preserve">
+          <source>Click the links at the bottom to see the following: <bpt id="b0dd342e-e0dc-406c-b7ba-b4fa43fa8cf8">&lt;strong&gt;</bpt>Job Query<ept id="b0dd342e-e0dc-406c-b7ba-b4fa43fa8cf8">&lt;/strong&gt;</ept>, <bpt id="bc220477-fd27-4e59-98a6-6581d5cafd61">&lt;strong&gt;</bpt>Job Output<ept id="bc220477-fd27-4e59-98a6-6581d5cafd61">&lt;/strong&gt;</ept>, <bpt id="6a97efcd-470e-4ab2-98ee-aaab2d9c912a">&lt;strong&gt;</bpt>Job log<ept id="6a97efcd-470e-4ab2-98ee-aaab2d9c912a">&lt;/strong&gt;</ept>, or <bpt id="924788d4-35cb-47d9-9b60-34c67e8576b3">&lt;strong&gt;</bpt>Yarn log<ept id="924788d4-35cb-47d9-9b60-34c67e8576b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the links at the bottom to see the following: <bpt id="b0dd342e-e0dc-406c-b7ba-b4fa43fa8cf8">&lt;strong&gt;</bpt>Job Query<ept id="b0dd342e-e0dc-406c-b7ba-b4fa43fa8cf8">&lt;/strong&gt;</ept>, <bpt id="bc220477-fd27-4e59-98a6-6581d5cafd61">&lt;strong&gt;</bpt>Job Output<ept id="bc220477-fd27-4e59-98a6-6581d5cafd61">&lt;/strong&gt;</ept>, <bpt id="6a97efcd-470e-4ab2-98ee-aaab2d9c912a">&lt;strong&gt;</bpt>Job log<ept id="6a97efcd-470e-4ab2-98ee-aaab2d9c912a">&lt;/strong&gt;</ept>, or <bpt id="924788d4-35cb-47d9-9b60-34c67e8576b3">&lt;strong&gt;</bpt>Yarn log<ept id="924788d4-35cb-47d9-9b60-34c67e8576b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bcf7ce4-d284-45c1-a65e-1c26c84935dc" xml:space="preserve">
+          <source><bpt id="283d3ef8-2c13-4aad-ba27-aa139c3e2e15">&lt;strong&gt;</bpt>To create and run a Hive solution<ept id="283d3ef8-2c13-4aad-ba27-aa139c3e2e15">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="283d3ef8-2c13-4aad-ba27-aa139c3e2e15">&lt;strong&gt;</bpt>To create and run a Hive solution<ept id="283d3ef8-2c13-4aad-ba27-aa139c3e2e15">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7afb7a8-18bc-4d95-a517-de4158013db0" xml:space="preserve">
+          <source>From the <bpt id="ba6c3ad8-d30e-4e28-9a05-3e41cc574319">&lt;strong&gt;</bpt>FILE<ept id="ba6c3ad8-d30e-4e28-9a05-3e41cc574319">&lt;/strong&gt;</ept> menu, click <bpt id="07e7f019-7512-4b8e-b59a-11f6cebe84a3">&lt;strong&gt;</bpt>New<ept id="07e7f019-7512-4b8e-b59a-11f6cebe84a3">&lt;/strong&gt;</ept>, and then click <bpt id="d7738a23-4f66-4303-aa0d-f64e86afa86b">&lt;strong&gt;</bpt>Project<ept id="d7738a23-4f66-4303-aa0d-f64e86afa86b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="ba6c3ad8-d30e-4e28-9a05-3e41cc574319">&lt;strong&gt;</bpt>FILE<ept id="ba6c3ad8-d30e-4e28-9a05-3e41cc574319">&lt;/strong&gt;</ept> menu, click <bpt id="07e7f019-7512-4b8e-b59a-11f6cebe84a3">&lt;strong&gt;</bpt>New<ept id="07e7f019-7512-4b8e-b59a-11f6cebe84a3">&lt;/strong&gt;</ept>, and then click <bpt id="d7738a23-4f66-4303-aa0d-f64e86afa86b">&lt;strong&gt;</bpt>Project<ept id="d7738a23-4f66-4303-aa0d-f64e86afa86b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6dc8115-19b1-45a0-8858-f5446af021e8" xml:space="preserve">
+          <source>Select <bpt id="0bfbe093-1cee-487e-a8de-756e90bca614">&lt;strong&gt;</bpt>HDInsight<ept id="0bfbe093-1cee-487e-a8de-756e90bca614">&lt;/strong&gt;</ept> from the left pane, select <bpt id="0430aefa-eaf7-49f9-9bd9-f037b28f20fc">&lt;strong&gt;</bpt>Hive Application<ept id="0430aefa-eaf7-49f9-9bd9-f037b28f20fc">&lt;/strong&gt;</ept> in the middle pane, enter the properties, and then click <bpt id="c4a575cc-0f06-4f6a-80c5-d13364340865">&lt;strong&gt;</bpt>OK<ept id="c4a575cc-0f06-4f6a-80c5-d13364340865">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="0bfbe093-1cee-487e-a8de-756e90bca614">&lt;strong&gt;</bpt>HDInsight<ept id="0bfbe093-1cee-487e-a8de-756e90bca614">&lt;/strong&gt;</ept> from the left pane, select <bpt id="0430aefa-eaf7-49f9-9bd9-f037b28f20fc">&lt;strong&gt;</bpt>Hive Application<ept id="0430aefa-eaf7-49f9-9bd9-f037b28f20fc">&lt;/strong&gt;</ept> in the middle pane, enter the properties, and then click <bpt id="c4a575cc-0f06-4f6a-80c5-d13364340865">&lt;strong&gt;</bpt>OK<ept id="c4a575cc-0f06-4f6a-80c5-d13364340865">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23bed4a7-aa03-4c76-aa80-0d08424e4a42" xml:space="preserve">
+          <source><bpt id="5f46eb3e-891c-4d0f-8ed6-aa3c83de5d43">&lt;linkText&gt;</bpt>Hadoop tools: hdinsight visual studio tools new hive project<ept id="5f46eb3e-891c-4d0f-8ed6-aa3c83de5d43">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f46eb3e-891c-4d0f-8ed6-aa3c83de5d43">&lt;linkText&gt;</bpt>Hadoop tools: hdinsight visual studio tools new hive project<ept id="5f46eb3e-891c-4d0f-8ed6-aa3c83de5d43">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f43fa2ac-5a8f-40a5-ba8e-8fd1400272b9" xml:space="preserve">
+          <source>From <bpt id="509ab8f8-49aa-4c15-aef9-c14899d05aab">&lt;strong&gt;</bpt>Solution Explorer<ept id="509ab8f8-49aa-4c15-aef9-c14899d05aab">&lt;/strong&gt;</ept>, double-click <bpt id="27d607d9-b5f3-4a4b-9abd-28056c6a6a3f">&lt;strong&gt;</bpt>Script.hql<ept id="27d607d9-b5f3-4a4b-9abd-28056c6a6a3f">&lt;/strong&gt;</ept> to open it.</source>
+          <target state="new">From <bpt id="509ab8f8-49aa-4c15-aef9-c14899d05aab">&lt;strong&gt;</bpt>Solution Explorer<ept id="509ab8f8-49aa-4c15-aef9-c14899d05aab">&lt;/strong&gt;</ept>, double-click <bpt id="27d607d9-b5f3-4a4b-9abd-28056c6a6a3f">&lt;strong&gt;</bpt>Script.hql<ept id="27d607d9-b5f3-4a4b-9abd-28056c6a6a3f">&lt;/strong&gt;</ept> to open it.</target>
+        </trans-unit>
+        <trans-unit id="f2b67b56-3a69-47c2-83e5-36385709df83" xml:space="preserve">
+          <source>To validate the Hive script, you can click the <bpt id="041efd8c-8d30-4ada-af10-65a75b31b135">&lt;strong&gt;</bpt>Validate Script<ept id="041efd8c-8d30-4ada-af10-65a75b31b135">&lt;/strong&gt;</ept> button, or right-click the script in the Hive editor, and then click <bpt id="685c63d0-bc06-4b57-ba99-bf2b96daf10e">&lt;strong&gt;</bpt>Validate Script<ept id="685c63d0-bc06-4b57-ba99-bf2b96daf10e">&lt;/strong&gt;</ept> from the context menu.</source>
+          <target state="new">To validate the Hive script, you can click the <bpt id="041efd8c-8d30-4ada-af10-65a75b31b135">&lt;strong&gt;</bpt>Validate Script<ept id="041efd8c-8d30-4ada-af10-65a75b31b135">&lt;/strong&gt;</ept> button, or right-click the script in the Hive editor, and then click <bpt id="685c63d0-bc06-4b57-ba99-bf2b96daf10e">&lt;strong&gt;</bpt>Validate Script<ept id="685c63d0-bc06-4b57-ba99-bf2b96daf10e">&lt;/strong&gt;</ept> from the context menu.</target>
+        </trans-unit>
+        <trans-unit id="641d272c-18b8-431e-980f-dd91bf65463b" xml:space="preserve">
+          <source>You can view job queries, job output, job logs, and Yarn logs for Hive jobs.</source>
+          <target state="new">You can view job queries, job output, job logs, and Yarn logs for Hive jobs.</target>
+        </trans-unit>
+        <trans-unit id="11d59c40-84a0-4742-b1ca-2cd3131a9141" xml:space="preserve">
+          <source>For more information, see the previous screenshot.</source>
+          <target state="new">For more information, see the previous screenshot.</target>
+        </trans-unit>
+        <trans-unit id="022e5aff-3420-42cf-9447-cd2730251f1f" xml:space="preserve">
+          <source>The most recent release of the tool allows you to see what’s inside your Hive jobs by collecting and surfacing  YARN logs.</source>
+          <target state="new">The most recent release of the tool allows you to see what’s inside your Hive jobs by collecting and surfacing  YARN logs.</target>
+        </trans-unit>
+        <trans-unit id="6ad44444-ec16-4b85-8166-56b7034620f6" xml:space="preserve">
+          <source>A YARN log can help you investigating performance issues.</source>
+          <target state="new">A YARN log can help you investigating performance issues.</target>
+        </trans-unit>
+        <trans-unit id="7207b1ff-7356-49c3-b433-7dfa452ff7fb" xml:space="preserve">
+          <source>For more information about how HDInsight collects YARN logs, see <bpt id="2f5b00c0-ac04-41ec-9ca8-06690f279eb1">&lt;linkText&gt;</bpt>Access HDInsight Application Logs Programmatically[hdinsight.access.application.logs]<ept id="2f5b00c0-ac04-41ec-9ca8-06690f279eb1">&lt;/linkText&gt;</ept><bpt id="2f5b00c0-ac04-41ec-9ca8-06690f279eb1">&lt;title&gt;</bpt><ept id="2f5b00c0-ac04-41ec-9ca8-06690f279eb1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how HDInsight collects YARN logs, see <bpt id="2f5b00c0-ac04-41ec-9ca8-06690f279eb1">&lt;linkText&gt;</bpt>Access HDInsight Application Logs Programmatically[hdinsight.access.application.logs]<ept id="2f5b00c0-ac04-41ec-9ca8-06690f279eb1">&lt;/linkText&gt;</ept><bpt id="2f5b00c0-ac04-41ec-9ca8-06690f279eb1">&lt;title&gt;</bpt><ept id="2f5b00c0-ac04-41ec-9ca8-06690f279eb1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbf3831b-95aa-4dcd-acf1-1c3c01becc22" xml:space="preserve">
+          <source><bpt id="9e4c6eed-4022-4140-8273-e97806960a24">&lt;strong&gt;</bpt>To view Hive jobs<ept id="9e4c6eed-4022-4140-8273-e97806960a24">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9e4c6eed-4022-4140-8273-e97806960a24">&lt;strong&gt;</bpt>To view Hive jobs<ept id="9e4c6eed-4022-4140-8273-e97806960a24">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28715758-b63f-4451-a830-576efb211213" xml:space="preserve">
+          <source>From <bpt id="22c96622-09b2-47b3-8bd6-3d61fa33cbe8">&lt;strong&gt;</bpt>Server Explorer<ept id="22c96622-09b2-47b3-8bd6-3d61fa33cbe8">&lt;/strong&gt;</ept>, expand <bpt id="57a85d67-7428-4919-8b80-927a00afc310">&lt;strong&gt;</bpt>Azure<ept id="57a85d67-7428-4919-8b80-927a00afc310">&lt;/strong&gt;</ept>, and then expand <bpt id="4dfe6b8f-5ddf-40f1-98d0-51d8e2c5ab17">&lt;strong&gt;</bpt>HDInsight<ept id="4dfe6b8f-5ddf-40f1-98d0-51d8e2c5ab17">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="22c96622-09b2-47b3-8bd6-3d61fa33cbe8">&lt;strong&gt;</bpt>Server Explorer<ept id="22c96622-09b2-47b3-8bd6-3d61fa33cbe8">&lt;/strong&gt;</ept>, expand <bpt id="57a85d67-7428-4919-8b80-927a00afc310">&lt;strong&gt;</bpt>Azure<ept id="57a85d67-7428-4919-8b80-927a00afc310">&lt;/strong&gt;</ept>, and then expand <bpt id="4dfe6b8f-5ddf-40f1-98d0-51d8e2c5ab17">&lt;strong&gt;</bpt>HDInsight<ept id="4dfe6b8f-5ddf-40f1-98d0-51d8e2c5ab17">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88e44db9-0768-431c-8df0-338ab2e86d4d" xml:space="preserve">
+          <source>Right-click an HDInsight cluster, and then click <bpt id="294b45f3-65ba-4692-b964-6c434b092851">&lt;strong&gt;</bpt>View Hive Jobs<ept id="294b45f3-65ba-4692-b964-6c434b092851">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click an HDInsight cluster, and then click <bpt id="294b45f3-65ba-4692-b964-6c434b092851">&lt;strong&gt;</bpt>View Hive Jobs<ept id="294b45f3-65ba-4692-b964-6c434b092851">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dcc229c8-fccf-46cc-883b-3201032bd42d" xml:space="preserve">
+          <source>You'll see a list of the Hive jobs that ran on the cluster.</source>
+          <target state="new">You'll see a list of the Hive jobs that ran on the cluster.</target>
+        </trans-unit>
+        <trans-unit id="1dd94778-3e28-4c6b-868e-39418f2528d1" xml:space="preserve">
+          <source>Click a job in the job list to select it, and then use the <bpt id="91e9f384-8955-44f8-928b-bccff360becc">&lt;strong&gt;</bpt>Hive Job Summary<ept id="91e9f384-8955-44f8-928b-bccff360becc">&lt;/strong&gt;</ept> window to open <bpt id="ef23896d-03a2-4030-a857-765d4818706d">&lt;strong&gt;</bpt>Job Query<ept id="ef23896d-03a2-4030-a857-765d4818706d">&lt;/strong&gt;</ept>, <bpt id="01e3a798-c6cd-4775-bdc7-4daeca62474c">&lt;strong&gt;</bpt>Job Output<ept id="01e3a798-c6cd-4775-bdc7-4daeca62474c">&lt;/strong&gt;</ept>, <bpt id="a17f0331-08be-4711-880a-cc9089be9a33">&lt;strong&gt;</bpt>Job Log<ept id="a17f0331-08be-4711-880a-cc9089be9a33">&lt;/strong&gt;</ept>, or <bpt id="91a94488-5fb9-4b4c-a5fb-6c182debcf3d">&lt;strong&gt;</bpt>Yarn log<ept id="91a94488-5fb9-4b4c-a5fb-6c182debcf3d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click a job in the job list to select it, and then use the <bpt id="91e9f384-8955-44f8-928b-bccff360becc">&lt;strong&gt;</bpt>Hive Job Summary<ept id="91e9f384-8955-44f8-928b-bccff360becc">&lt;/strong&gt;</ept> window to open <bpt id="ef23896d-03a2-4030-a857-765d4818706d">&lt;strong&gt;</bpt>Job Query<ept id="ef23896d-03a2-4030-a857-765d4818706d">&lt;/strong&gt;</ept>, <bpt id="01e3a798-c6cd-4775-bdc7-4daeca62474c">&lt;strong&gt;</bpt>Job Output<ept id="01e3a798-c6cd-4775-bdc7-4daeca62474c">&lt;/strong&gt;</ept>, <bpt id="a17f0331-08be-4711-880a-cc9089be9a33">&lt;strong&gt;</bpt>Job Log<ept id="a17f0331-08be-4711-880a-cc9089be9a33">&lt;/strong&gt;</ept>, or <bpt id="91a94488-5fb9-4b4c-a5fb-6c182debcf3d">&lt;strong&gt;</bpt>Yarn log<ept id="91a94488-5fb9-4b4c-a5fb-6c182debcf3d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d93f4f28-0ab0-48a8-aca4-bca0a3b43ffe" xml:space="preserve">
+          <source><bpt id="dabf3902-3e35-45b4-8d9b-de8e9324f9fe">&lt;linkText&gt;</bpt>Hadoop tools: HDInsight Visual Studio Tools view Hive jobs<ept id="dabf3902-3e35-45b4-8d9b-de8e9324f9fe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dabf3902-3e35-45b4-8d9b-de8e9324f9fe">&lt;linkText&gt;</bpt>Hadoop tools: HDInsight Visual Studio Tools view Hive jobs<ept id="dabf3902-3e35-45b4-8d9b-de8e9324f9fe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="025fda87-59f9-488f-94a6-0775abc39739" xml:space="preserve">
+          <source>The HDInsight Visual Studio Tools support showing performance graphs for the Hive jobs ran by the Tez execution engine.</source>
+          <target state="new">The HDInsight Visual Studio Tools support showing performance graphs for the Hive jobs ran by the Tez execution engine.</target>
+        </trans-unit>
+        <trans-unit id="141314b0-9fa9-4db9-bc56-1ff26e96aaec" xml:space="preserve">
+          <source>For information on enabling Tez, see <bpt id="6c888b29-c0b8-4e5d-a939-42f7c1793b91">&lt;linkText&gt;</bpt>use Hive in HDInsight[hdinsight.hive]<ept id="6c888b29-c0b8-4e5d-a939-42f7c1793b91">&lt;/linkText&gt;</ept><bpt id="6c888b29-c0b8-4e5d-a939-42f7c1793b91">&lt;title&gt;</bpt><ept id="6c888b29-c0b8-4e5d-a939-42f7c1793b91">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on enabling Tez, see <bpt id="6c888b29-c0b8-4e5d-a939-42f7c1793b91">&lt;linkText&gt;</bpt>use Hive in HDInsight[hdinsight.hive]<ept id="6c888b29-c0b8-4e5d-a939-42f7c1793b91">&lt;/linkText&gt;</ept><bpt id="6c888b29-c0b8-4e5d-a939-42f7c1793b91">&lt;title&gt;</bpt><ept id="6c888b29-c0b8-4e5d-a939-42f7c1793b91">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a06e1a73-c3d4-4780-ab23-6ac7b403e8be" xml:space="preserve">
+          <source>After you submit a Hive job in Visual Studio, Visual Studio shows you the graph when the job is completed.</source>
+          <target state="new">After you submit a Hive job in Visual Studio, Visual Studio shows you the graph when the job is completed.</target>
+        </trans-unit>
+        <trans-unit id="f74d961b-b2b3-4582-b3f4-7aedbd9fd530" xml:space="preserve">
+          <source>You might need to click the <bpt id="d4ded2d4-edcc-4a06-8d60-5575ba2fb66f">&lt;strong&gt;</bpt>Refresh<ept id="d4ded2d4-edcc-4a06-8d60-5575ba2fb66f">&lt;/strong&gt;</ept> button to get the latest job status.</source>
+          <target state="new">You might need to click the <bpt id="d4ded2d4-edcc-4a06-8d60-5575ba2fb66f">&lt;strong&gt;</bpt>Refresh<ept id="d4ded2d4-edcc-4a06-8d60-5575ba2fb66f">&lt;/strong&gt;</ept> button to get the latest job status.</target>
+        </trans-unit>
+        <trans-unit id="2860d1f3-9dba-4ea9-a00f-25fa63020b5d" xml:space="preserve">
+          <source>This feature is only available for HDInsight cluster version above 3.2.4.593, and can only work for completed jobs.</source>
+          <target state="new">This feature is only available for HDInsight cluster version above 3.2.4.593, and can only work for completed jobs.</target>
+        </trans-unit>
+        <trans-unit id="8ec6e383-953d-4924-9382-b5daba17a0de" xml:space="preserve">
+          <source>This works for both Windows and Linux based clusters.</source>
+          <target state="new">This works for both Windows and Linux based clusters.</target>
+        </trans-unit>
+        <trans-unit id="6f92e246-641b-4a79-ba1e-012f90e9e62c" xml:space="preserve">
+          <source><bpt id="22bbf46b-e8bd-4048-a3f2-f2e15d63755f">&lt;linkText&gt;</bpt>hadoop hive tez performance graph<ept id="22bbf46b-e8bd-4048-a3f2-f2e15d63755f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22bbf46b-e8bd-4048-a3f2-f2e15d63755f">&lt;linkText&gt;</bpt>hadoop hive tez performance graph<ept id="22bbf46b-e8bd-4048-a3f2-f2e15d63755f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27d878d5-01e2-415b-a61b-96bdcd473f6b" xml:space="preserve">
+          <source>HDInsight Tools for Visual Studio supports creating and submit Pig scripts to HDInsight clusters.</source>
+          <target state="new">HDInsight Tools for Visual Studio supports creating and submit Pig scripts to HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="66909620-685f-4bbb-9524-9d39c66b6db8" xml:space="preserve">
+          <source>Users can create a Pig project from template, and then submit the script to HDInsight clusters.</source>
+          <target state="new">Users can create a Pig project from template, and then submit the script to HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="c2c5c6e8-aefc-4cf7-8365-809afd536e5a" xml:space="preserve">
+          <source>In this article, you learned how to connect to HDInsight clusters from Visual Studio, using the Hadoop tools package, and how to run a Hive query.</source>
+          <target state="new">In this article, you learned how to connect to HDInsight clusters from Visual Studio, using the Hadoop tools package, and how to run a Hive query.</target>
+        </trans-unit>
+        <trans-unit id="dafb265c-1b45-4f8d-99e4-2862cbcd2c58" xml:space="preserve">
+          <source>For more information, see:</source>
+          <target state="new">For more information, see:</target>
+        </trans-unit>
+        <trans-unit id="185a4e0f-c917-461d-a890-404b43a2ac80" xml:space="preserve">
+          <source><bpt id="0f2d4939-25a8-4bcc-99b4-3d8e7b5114be">&lt;linkText&gt;</bpt>Use Hadoop Hive in HDInsight[hdinsight.hive]<ept id="0f2d4939-25a8-4bcc-99b4-3d8e7b5114be">&lt;/linkText&gt;</ept><bpt id="0f2d4939-25a8-4bcc-99b4-3d8e7b5114be">&lt;title&gt;</bpt><ept id="0f2d4939-25a8-4bcc-99b4-3d8e7b5114be">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0f2d4939-25a8-4bcc-99b4-3d8e7b5114be">&lt;linkText&gt;</bpt>Use Hadoop Hive in HDInsight[hdinsight.hive]<ept id="0f2d4939-25a8-4bcc-99b4-3d8e7b5114be">&lt;/linkText&gt;</ept><bpt id="0f2d4939-25a8-4bcc-99b4-3d8e7b5114be">&lt;title&gt;</bpt><ept id="0f2d4939-25a8-4bcc-99b4-3d8e7b5114be">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a9aa679-ec57-47e9-bbfb-ea5f331fbea8" xml:space="preserve">
+          <source><bpt id="0fb5c36b-f4cb-45b4-8b27-88b76332c913">&lt;linkText&gt;</bpt>Get started using Hadoop in HDInsight[hdinsight.get.started]<ept id="0fb5c36b-f4cb-45b4-8b27-88b76332c913">&lt;/linkText&gt;</ept><bpt id="0fb5c36b-f4cb-45b4-8b27-88b76332c913">&lt;title&gt;</bpt><ept id="0fb5c36b-f4cb-45b4-8b27-88b76332c913">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0fb5c36b-f4cb-45b4-8b27-88b76332c913">&lt;linkText&gt;</bpt>Get started using Hadoop in HDInsight[hdinsight.get.started]<ept id="0fb5c36b-f4cb-45b4-8b27-88b76332c913">&lt;/linkText&gt;</ept><bpt id="0fb5c36b-f4cb-45b4-8b27-88b76332c913">&lt;title&gt;</bpt><ept id="0fb5c36b-f4cb-45b4-8b27-88b76332c913">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd5cbf08-6e2e-4a5e-82a2-479fa7830ace" xml:space="preserve">
+          <source><bpt id="dc48e0b8-aa10-4646-a3d7-7c6f1f6ff57d">&lt;linkText&gt;</bpt>Submit Hadoop jobs in HDInsight[hdinsight.submit.jobs]<ept id="dc48e0b8-aa10-4646-a3d7-7c6f1f6ff57d">&lt;/linkText&gt;</ept><bpt id="dc48e0b8-aa10-4646-a3d7-7c6f1f6ff57d">&lt;title&gt;</bpt><ept id="dc48e0b8-aa10-4646-a3d7-7c6f1f6ff57d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dc48e0b8-aa10-4646-a3d7-7c6f1f6ff57d">&lt;linkText&gt;</bpt>Submit Hadoop jobs in HDInsight[hdinsight.submit.jobs]<ept id="dc48e0b8-aa10-4646-a3d7-7c6f1f6ff57d">&lt;/linkText&gt;</ept><bpt id="dc48e0b8-aa10-4646-a3d7-7c6f1f6ff57d">&lt;title&gt;</bpt><ept id="dc48e0b8-aa10-4646-a3d7-7c6f1f6ff57d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fea415c9-60b0-4fbc-ae94-197a2d669534" xml:space="preserve">
+          <source><bpt id="46774753-b4a2-4f98-9243-080d1b071ea3">&lt;linkText&gt;</bpt>Analyze Twitter data with Hadoop in HDInsight[hdinsight.analyze.twitter.data]<ept id="46774753-b4a2-4f98-9243-080d1b071ea3">&lt;/linkText&gt;</ept><bpt id="46774753-b4a2-4f98-9243-080d1b071ea3">&lt;title&gt;</bpt><ept id="46774753-b4a2-4f98-9243-080d1b071ea3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="46774753-b4a2-4f98-9243-080d1b071ea3">&lt;linkText&gt;</bpt>Analyze Twitter data with Hadoop in HDInsight[hdinsight.analyze.twitter.data]<ept id="46774753-b4a2-4f98-9243-080d1b071ea3">&lt;/linkText&gt;</ept><bpt id="46774753-b4a2-4f98-9243-080d1b071ea3">&lt;title&gt;</bpt><ept id="46774753-b4a2-4f98-9243-080d1b071ea3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f63cb4c0-bc82-4531-9c29-859df5412517" xml:space="preserve">
+          <source>#installation</source>
+          <target state="new">#installation</target>
+        </trans-unit>
+        <trans-unit id="2bd6bafe-5fa9-491f-a161-52f5745812ef" xml:space="preserve">
+          <source>#connect-to-your-azure-subscription</source>
+          <target state="new">#connect-to-your-azure-subscription</target>
+        </trans-unit>
+        <trans-unit id="949f1028-3938-4b08-adbd-2f389452c56e" xml:space="preserve">
+          <source>#navigate-the-linked-resources</source>
+          <target state="new">#navigate-the-linked-resources</target>
+        </trans-unit>
+        <trans-unit id="812c5690-b40e-465d-9205-80e669b6554d" xml:space="preserve">
+          <source>#run-hive-queries</source>
+          <target state="new">#run-hive-queries</target>
+        </trans-unit>
+        <trans-unit id="50a7d45f-e6ef-40b2-838b-e0e206195b67" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="3d916ecb-41a5-4649-84d7-3d5a179d4dc8" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png</target>
+        </trans-unit>
+        <trans-unit id="bed4eb27-567b-4240-9771-fec86bd31383" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.linked.resources.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.linked.resources.png</target>
+        </trans-unit>
+        <trans-unit id="2835df03-75fd-41eb-907d-b07403025d19" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.server.explorer.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.server.explorer.png</target>
+        </trans-unit>
+        <trans-unit id="4e25a848-841c-49fa-9c1a-bcb8a2ea6172" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png</target>
+        </trans-unit>
+        <trans-unit id="b343bd51-68f3-4fd7-b417-e767e5caade4" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.create.hive.table.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.create.hive.table.png</target>
+        </trans-unit>
+        <trans-unit id="553c4b61-e1fb-4dce-a525-3c18e074b3f5" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.run.hive.job.summary.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.run.hive.job.summary.png</target>
+        </trans-unit>
+        <trans-unit id="3835ad65-3a18-4940-a7e6-0c76ac70dcc6" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png</target>
+        </trans-unit>
+        <trans-unit id="4a5a53b3-5ad8-496d-a861-684f7f16474a" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.validate.hive.script.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.validate.hive.script.png</target>
+        </trans-unit>
+        <trans-unit id="6955e34b-d9ce-49e7-b150-b60531b7ed7f" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png</target>
+        </trans-unit>
+        <trans-unit id="7cf8c62d-f960-4e72-8008-a7dbc36ad3b7" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png</target>
+        </trans-unit>
+        <trans-unit id="30c610b5-c597-4601-a245-ac1009e96b57" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.table.names.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.table.names.png</target>
+        </trans-unit>
+        <trans-unit id="ddd35b02-4d91-4f5a-9344-e7316f68e835" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png</source>
+          <target state="new">./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png</target>
+        </trans-unit>
+        <trans-unit id="bbabcdd3-689a-4c99-91e1-5aa93c01da17" xml:space="preserve">
+          <source>../hdinsight/hdinsight-provision-clusters.md</source>
+          <target state="new">../hdinsight/hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="51b2913f-3fe3-4557-8be1-399d7531f47f" xml:space="preserve">
+          <source>../hdinsight-introduction.md</source>
+          <target state="new">../hdinsight-introduction.md</target>
+        </trans-unit>
+        <trans-unit id="e5dc6d53-b8f9-4131-9b4d-5f0f2438795d" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="0d3172a8-9fc5-471b-a2fb-eff5d24e1f75" xml:space="preserve">
+          <source>../hdinsight/hdinsight-use-hive.md</source>
+          <target state="new">../hdinsight/hdinsight-use-hive.md</target>
+        </trans-unit>
+        <trans-unit id="05f8a414-efaf-4afe-b4ea-b6082b2dabc1" xml:space="preserve">
+          <source>../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md</source>
+          <target state="new">../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md</target>
+        </trans-unit>
+        <trans-unit id="0d2d24f0-cd44-423d-83b7-44c415b38f57" xml:space="preserve">
+          <source>../hdinsight/hdinsight-analyze-twitter-data.md</source>
+          <target state="new">../hdinsight/hdinsight-analyze-twitter-data.md</target>
+        </trans-unit>
+        <trans-unit id="df781a62-1800-4142-af1d-f5c28595a1cf" xml:space="preserve">
+          <source>../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md</source>
+          <target state="new">../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md</target>
+        </trans-unit>
+        <trans-unit id="9fd15397-1616-4876-813f-88a9e58a5cc5" xml:space="preserve">
+          <source>../hdinsight/hdinsight-hadoop-access-yarn-app-logs.md</source>
+          <target state="new">../hdinsight/hdinsight-hadoop-access-yarn-app-logs.md</target>
+        </trans-unit>
+        <trans-unit id="b651bb56-ac40-401a-9628-9e7b939c7cc2" xml:space="preserve">
+          <source>http://hive.apache.org</source>
+          <target state="new">http://hive.apache.org</target>
+        </trans-unit>
+      </group>
+      <group id="c1927e5a-e760-4bf8-9caa-75e43b10882c" />
+    </body>
+  </file>
+</xliff>

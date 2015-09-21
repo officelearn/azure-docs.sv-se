@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a15e0691-eefc-4c92-9228-3772e12d99b8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a15e0691-eefc-4c92-9228-3772e12d99b8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a8c84499-ec10-47d5-94b7-6ce76a0e3c8d">
+        <trans-unit id="a3141373-d18e-428d-86e0-442053dc6116" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with SumoLogic | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with SumoLogic | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4fcc5d20-22ed-4987-a9a4-a8c8d4aed4f5" xml:space="preserve">
+          <source>Learn how to use SumoLogic with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use SumoLogic with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="12f86a7b-5f88-4071-8331-5ecadc244c34" xml:space="preserve">
+          <source>For feedback, click <bpt id="62f4e966-fe24-4d43-95a0-b03e43c7d210">&lt;linkText&gt;</bpt>here<ept id="62f4e966-fe24-4d43-95a0-b03e43c7d210">&lt;/linkText&gt;</ept><bpt id="62f4e966-fe24-4d43-95a0-b03e43c7d210">&lt;title&gt;</bpt><ept id="62f4e966-fe24-4d43-95a0-b03e43c7d210">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="62f4e966-fe24-4d43-95a0-b03e43c7d210">&lt;linkText&gt;</bpt>here<ept id="62f4e966-fe24-4d43-95a0-b03e43c7d210">&lt;/linkText&gt;</ept><bpt id="62f4e966-fe24-4d43-95a0-b03e43c7d210">&lt;title&gt;</bpt><ept id="62f4e966-fe24-4d43-95a0-b03e43c7d210">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96b36de0-c6c3-46b5-97d0-157306cc8a09" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and SumoLogic.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and SumoLogic.</target>
+        </trans-unit>
+        <trans-unit id="01079e04-2595-4c88-9c07-a3df245ec053" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="224ba81d-1f7c-435a-a761-4a4460b4abb5" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="f6a3d2d5-942d-4dcf-80b7-9f5082276cac" xml:space="preserve">
+          <source>A SumoLogic tenant</source>
+          <target state="new">A SumoLogic tenant</target>
+        </trans-unit>
+        <trans-unit id="a446d050-1d0e-46a4-8895-0cb3b8484aa6" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to SumoLogicwill be able to single sign into the application at your SumoLogic company site (service provider initiated sign on), or using the <bpt id="5353a165-dacf-4120-9c95-0d44163f3509">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="5353a165-dacf-4120-9c95-0d44163f3509">&lt;/linkText&gt;</ept><bpt id="5353a165-dacf-4120-9c95-0d44163f3509">&lt;title&gt;</bpt><ept id="5353a165-dacf-4120-9c95-0d44163f3509">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to SumoLogicwill be able to single sign into the application at your SumoLogic company site (service provider initiated sign on), or using the <bpt id="5353a165-dacf-4120-9c95-0d44163f3509">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="5353a165-dacf-4120-9c95-0d44163f3509">&lt;/linkText&gt;</ept><bpt id="5353a165-dacf-4120-9c95-0d44163f3509">&lt;title&gt;</bpt><ept id="5353a165-dacf-4120-9c95-0d44163f3509">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0effa7ee-a184-4e2f-a6c6-4f60d3af087a" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="60bf73cd-4c6d-4720-8e88-8431627ce4b1" xml:space="preserve">
+          <source>Enabling the application integration for SumoLogic</source>
+          <target state="new">Enabling the application integration for SumoLogic</target>
+        </trans-unit>
+        <trans-unit id="acd6a067-f266-43ff-a36b-833bbcaaaaae" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="15d527ec-e47f-4740-a418-ba79e211aaab" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="0fdc04c3-25cd-45df-82be-96dfbfb5dba7" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="513bb206-ddc4-442b-a6ff-df4a2a38cd92" xml:space="preserve">
+          <source><bpt id="d07d4b1d-65fe-45ee-b281-410a9004f60b">&lt;linkText&gt;</bpt>Scenario<ept id="d07d4b1d-65fe-45ee-b281-410a9004f60b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d07d4b1d-65fe-45ee-b281-410a9004f60b">&lt;linkText&gt;</bpt>Scenario<ept id="d07d4b1d-65fe-45ee-b281-410a9004f60b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="345951db-64ab-4376-bf02-c5b6f695d48e" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for SumoLogic.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for SumoLogic.</target>
+        </trans-unit>
+        <trans-unit id="9c18032b-17b9-44aa-a461-692e69b21214" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="eebaa6f5-60c6-4108-a85b-b4089be86e28">&lt;strong&gt;</bpt>Active Directory<ept id="eebaa6f5-60c6-4108-a85b-b4089be86e28">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="eebaa6f5-60c6-4108-a85b-b4089be86e28">&lt;strong&gt;</bpt>Active Directory<ept id="eebaa6f5-60c6-4108-a85b-b4089be86e28">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd081910-7651-43ba-9f26-bb7944bd1cb4" xml:space="preserve">
+          <source><bpt id="60754f30-c1d2-4dc2-abfb-138f7d4d7622">&lt;linkText&gt;</bpt>Active Directory<ept id="60754f30-c1d2-4dc2-abfb-138f7d4d7622">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60754f30-c1d2-4dc2-abfb-138f7d4d7622">&lt;linkText&gt;</bpt>Active Directory<ept id="60754f30-c1d2-4dc2-abfb-138f7d4d7622">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85d8dc45-8149-475e-838f-919dbbfd79a4" xml:space="preserve">
+          <source>From the <bpt id="fbeb1e0a-cbb6-4936-8dea-6a93b8295033">&lt;strong&gt;</bpt>Directory<ept id="fbeb1e0a-cbb6-4936-8dea-6a93b8295033">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="fbeb1e0a-cbb6-4936-8dea-6a93b8295033">&lt;strong&gt;</bpt>Directory<ept id="fbeb1e0a-cbb6-4936-8dea-6a93b8295033">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="fcca4592-1ac1-4818-b0c0-bd20b47b1ca6" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="181082bd-560b-46d0-96d2-b1b638f438f4">&lt;strong&gt;</bpt>Applications<ept id="181082bd-560b-46d0-96d2-b1b638f438f4">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="181082bd-560b-46d0-96d2-b1b638f438f4">&lt;strong&gt;</bpt>Applications<ept id="181082bd-560b-46d0-96d2-b1b638f438f4">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="f0e5610b-b55f-44b8-a243-df2bd35b308c" xml:space="preserve">
+          <source><bpt id="41a16c7c-0ff0-4449-9c49-8b8abbc2df2d">&lt;linkText&gt;</bpt>Applications<ept id="41a16c7c-0ff0-4449-9c49-8b8abbc2df2d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="41a16c7c-0ff0-4449-9c49-8b8abbc2df2d">&lt;linkText&gt;</bpt>Applications<ept id="41a16c7c-0ff0-4449-9c49-8b8abbc2df2d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59cfb9c5-0b77-4699-aec7-796822a7cf40" xml:space="preserve">
+          <source>Click <bpt id="1b346d79-a4cf-4054-a1b5-52477a8a38e4">&lt;strong&gt;</bpt>Add<ept id="1b346d79-a4cf-4054-a1b5-52477a8a38e4">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="1b346d79-a4cf-4054-a1b5-52477a8a38e4">&lt;strong&gt;</bpt>Add<ept id="1b346d79-a4cf-4054-a1b5-52477a8a38e4">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="d4466e64-501d-4a6f-93a0-50d732ebca13" xml:space="preserve">
+          <source><bpt id="39418372-f39a-49de-b193-85d003f4f734">&lt;linkText&gt;</bpt>Add application<ept id="39418372-f39a-49de-b193-85d003f4f734">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="39418372-f39a-49de-b193-85d003f4f734">&lt;linkText&gt;</bpt>Add application<ept id="39418372-f39a-49de-b193-85d003f4f734">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5fe521b0-29fe-4d49-b02b-a5075f3a58b8" xml:space="preserve">
+          <source>On the <bpt id="6f822dcb-901d-4002-9918-135f1dfeeb54">&lt;strong&gt;</bpt>What do you want to do<ept id="6f822dcb-901d-4002-9918-135f1dfeeb54">&lt;/strong&gt;</ept> dialog, click <bpt id="c3a8699f-5c78-4a3d-b54d-940d603c3985">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="c3a8699f-5c78-4a3d-b54d-940d603c3985">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6f822dcb-901d-4002-9918-135f1dfeeb54">&lt;strong&gt;</bpt>What do you want to do<ept id="6f822dcb-901d-4002-9918-135f1dfeeb54">&lt;/strong&gt;</ept> dialog, click <bpt id="c3a8699f-5c78-4a3d-b54d-940d603c3985">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="c3a8699f-5c78-4a3d-b54d-940d603c3985">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a21c326-20ae-44e2-ab45-2e48d3633ad5" xml:space="preserve">
+          <source><bpt id="e3a4b6dc-f74d-4001-ba5a-57c6fd3de9e5">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="e3a4b6dc-f74d-4001-ba5a-57c6fd3de9e5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3a4b6dc-f74d-4001-ba5a-57c6fd3de9e5">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="e3a4b6dc-f74d-4001-ba5a-57c6fd3de9e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e0ec8ec-1916-4eb5-9346-a1c68f18acda" xml:space="preserve">
+          <source>In the <bpt id="b2bd57b7-3bcd-42aa-881e-8bf441b9253a">&lt;strong&gt;</bpt>search box<ept id="b2bd57b7-3bcd-42aa-881e-8bf441b9253a">&lt;/strong&gt;</ept>, type <bpt id="c418de98-0dd8-4d1e-8ea2-74305c4a5514">&lt;strong&gt;</bpt>sumologic<ept id="c418de98-0dd8-4d1e-8ea2-74305c4a5514">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b2bd57b7-3bcd-42aa-881e-8bf441b9253a">&lt;strong&gt;</bpt>search box<ept id="b2bd57b7-3bcd-42aa-881e-8bf441b9253a">&lt;/strong&gt;</ept>, type <bpt id="c418de98-0dd8-4d1e-8ea2-74305c4a5514">&lt;strong&gt;</bpt>sumologic<ept id="c418de98-0dd8-4d1e-8ea2-74305c4a5514">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7f4fbed-6173-450d-9fd1-1f7e93aee23f" xml:space="preserve">
+          <source><bpt id="e721dc4a-abb5-4a9c-958a-b0b52b4a0d8a">&lt;linkText&gt;</bpt>Application gallery<ept id="e721dc4a-abb5-4a9c-958a-b0b52b4a0d8a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e721dc4a-abb5-4a9c-958a-b0b52b4a0d8a">&lt;linkText&gt;</bpt>Application gallery<ept id="e721dc4a-abb5-4a9c-958a-b0b52b4a0d8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41d8d580-9701-4e1f-9638-3f0603f1fefa" xml:space="preserve">
+          <source>In the results pane, select <bpt id="e10b3065-facd-4306-b695-2b10c020f5a8">&lt;strong&gt;</bpt>SumoLogic<ept id="e10b3065-facd-4306-b695-2b10c020f5a8">&lt;/strong&gt;</ept>, and then click <bpt id="9d4c91cb-dbe9-4947-877d-7bbfd22daa8d">&lt;strong&gt;</bpt>Complete<ept id="9d4c91cb-dbe9-4947-877d-7bbfd22daa8d">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="e10b3065-facd-4306-b695-2b10c020f5a8">&lt;strong&gt;</bpt>SumoLogic<ept id="e10b3065-facd-4306-b695-2b10c020f5a8">&lt;/strong&gt;</ept>, and then click <bpt id="9d4c91cb-dbe9-4947-877d-7bbfd22daa8d">&lt;strong&gt;</bpt>Complete<ept id="9d4c91cb-dbe9-4947-877d-7bbfd22daa8d">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="71eae27e-7447-4e41-b55e-767eff6a9350" xml:space="preserve">
+          <source><bpt id="1ddd18c5-ad5e-4ff1-8a1f-9ff6154d7e3a">&lt;linkText&gt;</bpt>SumoLogic<ept id="1ddd18c5-ad5e-4ff1-8a1f-9ff6154d7e3a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ddd18c5-ad5e-4ff1-8a1f-9ff6154d7e3a">&lt;linkText&gt;</bpt>SumoLogic<ept id="1ddd18c5-ad5e-4ff1-8a1f-9ff6154d7e3a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec86fbbe-a383-4758-bd04-74a6c8fdfa86" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to SumoLogic with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to SumoLogic with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="0bbe5cd9-4e2e-4c30-97da-4b41d54621b1" xml:space="preserve">
+          <source>As part of this procedure, you are required to upload a base-64 encoded certificate to your SumoLogictenant.</source>
+          <target state="new">As part of this procedure, you are required to upload a base-64 encoded certificate to your SumoLogictenant.</target>
+        </trans-unit>
+        <trans-unit id="5d2a68f9-6e72-4192-bf46-ee7ba6014735" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="049ce519-bdcb-461d-ba2e-4a61e722553b">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="049ce519-bdcb-461d-ba2e-4a61e722553b">&lt;/linkText&gt;</ept><bpt id="049ce519-bdcb-461d-ba2e-4a61e722553b">&lt;title&gt;</bpt><ept id="049ce519-bdcb-461d-ba2e-4a61e722553b">&lt;/title&gt;</ept></source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="049ce519-bdcb-461d-ba2e-4a61e722553b">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="049ce519-bdcb-461d-ba2e-4a61e722553b">&lt;/linkText&gt;</ept><bpt id="049ce519-bdcb-461d-ba2e-4a61e722553b">&lt;title&gt;</bpt><ept id="049ce519-bdcb-461d-ba2e-4a61e722553b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f516033-c3dd-4177-830c-9a084dbc4ad4" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="ad71164c-7134-4ff9-8a8b-ee3537f54211">&lt;strong&gt;</bpt>SumoLogic<ept id="ad71164c-7134-4ff9-8a8b-ee3537f54211">&lt;/strong&gt;</ept> application integration page, click <bpt id="79723e00-653d-4f14-a188-59f0219cd71a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="79723e00-653d-4f14-a188-59f0219cd71a">&lt;/strong&gt;</ept> to open the <bpt id="c2758389-e17f-4cf6-bc2e-b72219f21a7b">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="c2758389-e17f-4cf6-bc2e-b72219f21a7b">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="ad71164c-7134-4ff9-8a8b-ee3537f54211">&lt;strong&gt;</bpt>SumoLogic<ept id="ad71164c-7134-4ff9-8a8b-ee3537f54211">&lt;/strong&gt;</ept> application integration page, click <bpt id="79723e00-653d-4f14-a188-59f0219cd71a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="79723e00-653d-4f14-a188-59f0219cd71a">&lt;/strong&gt;</ept> to open the <bpt id="c2758389-e17f-4cf6-bc2e-b72219f21a7b">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="c2758389-e17f-4cf6-bc2e-b72219f21a7b">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="95429882-58f3-418e-95ca-d1d964ea5d0e" xml:space="preserve">
+          <source><bpt id="cc453cd9-626a-4223-b6d6-fb0d343ae321">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="cc453cd9-626a-4223-b6d6-fb0d343ae321">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cc453cd9-626a-4223-b6d6-fb0d343ae321">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="cc453cd9-626a-4223-b6d6-fb0d343ae321">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da79430e-936d-4733-9729-a62919152f18" xml:space="preserve">
+          <source>On the <bpt id="60223d45-c45f-4025-8908-4fccb59c02b3">&lt;strong&gt;</bpt>How would you like users to sign on to SumoLogic<ept id="60223d45-c45f-4025-8908-4fccb59c02b3">&lt;/strong&gt;</ept> page, select <bpt id="0bdf764d-e3ee-47ed-beb1-1c126b54353d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0bdf764d-e3ee-47ed-beb1-1c126b54353d">&lt;/strong&gt;</ept>, and then click <bpt id="517fd709-c395-45fb-8e8a-864a82ebba1f">&lt;strong&gt;</bpt>Next<ept id="517fd709-c395-45fb-8e8a-864a82ebba1f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="60223d45-c45f-4025-8908-4fccb59c02b3">&lt;strong&gt;</bpt>How would you like users to sign on to SumoLogic<ept id="60223d45-c45f-4025-8908-4fccb59c02b3">&lt;/strong&gt;</ept> page, select <bpt id="0bdf764d-e3ee-47ed-beb1-1c126b54353d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0bdf764d-e3ee-47ed-beb1-1c126b54353d">&lt;/strong&gt;</ept>, and then click <bpt id="517fd709-c395-45fb-8e8a-864a82ebba1f">&lt;strong&gt;</bpt>Next<ept id="517fd709-c395-45fb-8e8a-864a82ebba1f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db60c24f-00d0-46fb-a822-3a7328f9db86" xml:space="preserve">
+          <source><bpt id="1453e7a7-02de-4723-b103-616cd4a6aaac">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="1453e7a7-02de-4723-b103-616cd4a6aaac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1453e7a7-02de-4723-b103-616cd4a6aaac">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="1453e7a7-02de-4723-b103-616cd4a6aaac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c59e52c8-19b1-40c9-a0e2-c38167c11315" xml:space="preserve">
+          <source>On the <bpt id="9d7aa603-fa5c-4761-8357-3ac33da608dd">&lt;strong&gt;</bpt>Configure App URL<ept id="9d7aa603-fa5c-4761-8357-3ac33da608dd">&lt;/strong&gt;</ept> page, in the <bpt id="e87d41ca-7afe-48cb-b594-25e7a6a761ff">&lt;strong&gt;</bpt>SumoLogic Sign In URL<ept id="e87d41ca-7afe-48cb-b594-25e7a6a761ff">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="167d9ea5-1461-4426-8e84-e682ac0be097">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.SumoLogic.com<ept id="167d9ea5-1461-4426-8e84-e682ac0be097">&lt;/em&gt;</ept>", and then click <bpt id="bb699f7a-0410-456b-8518-d28376da694e">&lt;strong&gt;</bpt>Next<ept id="bb699f7a-0410-456b-8518-d28376da694e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="9d7aa603-fa5c-4761-8357-3ac33da608dd">&lt;strong&gt;</bpt>Configure App URL<ept id="9d7aa603-fa5c-4761-8357-3ac33da608dd">&lt;/strong&gt;</ept> page, in the <bpt id="e87d41ca-7afe-48cb-b594-25e7a6a761ff">&lt;strong&gt;</bpt>SumoLogic Sign In URL<ept id="e87d41ca-7afe-48cb-b594-25e7a6a761ff">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="167d9ea5-1461-4426-8e84-e682ac0be097">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.SumoLogic.com<ept id="167d9ea5-1461-4426-8e84-e682ac0be097">&lt;/em&gt;</ept>", and then click <bpt id="bb699f7a-0410-456b-8518-d28376da694e">&lt;strong&gt;</bpt>Next<ept id="bb699f7a-0410-456b-8518-d28376da694e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72a195ab-f11c-476e-a8a8-0cf4138e72ec" xml:space="preserve">
+          <source><bpt id="ebe781fb-27e3-4c8d-afbc-fb73bb4ba5c4">&lt;linkText&gt;</bpt>Configure aoo URL<ept id="ebe781fb-27e3-4c8d-afbc-fb73bb4ba5c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ebe781fb-27e3-4c8d-afbc-fb73bb4ba5c4">&lt;linkText&gt;</bpt>Configure aoo URL<ept id="ebe781fb-27e3-4c8d-afbc-fb73bb4ba5c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5747fe46-07f8-4865-aa82-2cc330730e86" xml:space="preserve">
+          <source>On the <bpt id="3478b671-6909-4b14-b04e-93c529947b46">&lt;strong&gt;</bpt>Configure single sign-on at SumoLogic<ept id="3478b671-6909-4b14-b04e-93c529947b46">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="1a29d9bd-8ce0-4f7e-93bd-143c74e253c2">&lt;strong&gt;</bpt>Download certificate<ept id="1a29d9bd-8ce0-4f7e-93bd-143c74e253c2">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="3478b671-6909-4b14-b04e-93c529947b46">&lt;strong&gt;</bpt>Configure single sign-on at SumoLogic<ept id="3478b671-6909-4b14-b04e-93c529947b46">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="1a29d9bd-8ce0-4f7e-93bd-143c74e253c2">&lt;strong&gt;</bpt>Download certificate<ept id="1a29d9bd-8ce0-4f7e-93bd-143c74e253c2">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="ff3e22f3-8d72-48dc-ac02-cf21f609fb51" xml:space="preserve">
+          <source><bpt id="6e8a5304-33b4-4c04-a4f1-db119c48d9ad">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="6e8a5304-33b4-4c04-a4f1-db119c48d9ad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e8a5304-33b4-4c04-a4f1-db119c48d9ad">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="6e8a5304-33b4-4c04-a4f1-db119c48d9ad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e19a9f20-054c-47f5-b446-9f9513707dc9" xml:space="preserve">
+          <source>In a different web browser window, log into your SumoLogic company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your SumoLogic company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="85ff0feb-58c1-46d3-811e-556acb90cb8a" xml:space="preserve">
+          <source>Go to <bpt id="ffe13993-20a1-48fc-b259-166d1d0840e6">&lt;strong&gt;</bpt>Manage \&gt; Security<ept id="ffe13993-20a1-48fc-b259-166d1d0840e6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="ffe13993-20a1-48fc-b259-166d1d0840e6">&lt;strong&gt;</bpt>Manage \&gt; Security<ept id="ffe13993-20a1-48fc-b259-166d1d0840e6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="980205a6-fc0e-4a4e-8c5d-2217af67e63d" xml:space="preserve">
+          <source><bpt id="5038e7c0-aecf-4692-adac-0ac9ade8034e">&lt;linkText&gt;</bpt>Manage<ept id="5038e7c0-aecf-4692-adac-0ac9ade8034e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5038e7c0-aecf-4692-adac-0ac9ade8034e">&lt;linkText&gt;</bpt>Manage<ept id="5038e7c0-aecf-4692-adac-0ac9ade8034e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="705d06d2-a45f-453f-874f-9f5875ef57a2" xml:space="preserve">
+          <source>Click <bpt id="71da1aea-345f-4b1a-a575-8ed8c5617aad">&lt;strong&gt;</bpt>SAML<ept id="71da1aea-345f-4b1a-a575-8ed8c5617aad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="71da1aea-345f-4b1a-a575-8ed8c5617aad">&lt;strong&gt;</bpt>SAML<ept id="71da1aea-345f-4b1a-a575-8ed8c5617aad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae6050da-118a-4a76-a148-0289cb9efd1e" xml:space="preserve">
+          <source><bpt id="aff4a4ae-cef0-4421-801e-ff8f34346697">&lt;linkText&gt;</bpt>Global security settings<ept id="aff4a4ae-cef0-4421-801e-ff8f34346697">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aff4a4ae-cef0-4421-801e-ff8f34346697">&lt;linkText&gt;</bpt>Global security settings<ept id="aff4a4ae-cef0-4421-801e-ff8f34346697">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5dc7c7bd-fb23-435e-83c9-95200d8e3d62" xml:space="preserve">
+          <source>From the <bpt id="c9d0c742-270e-44a8-ad9f-1f17d63c9a84">&lt;strong&gt;</bpt>Select a configuration or create a new one<ept id="c9d0c742-270e-44a8-ad9f-1f17d63c9a84">&lt;/strong&gt;</ept> list, select <bpt id="b284b18f-7f92-41f9-9652-954ddb10977c">&lt;strong&gt;</bpt>Azure AD<ept id="b284b18f-7f92-41f9-9652-954ddb10977c">&lt;/strong&gt;</ept>, and then click <bpt id="00d43b80-ac2e-4f60-ad05-a2cac62ea6db">&lt;strong&gt;</bpt>Configure<ept id="00d43b80-ac2e-4f60-ad05-a2cac62ea6db">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="c9d0c742-270e-44a8-ad9f-1f17d63c9a84">&lt;strong&gt;</bpt>Select a configuration or create a new one<ept id="c9d0c742-270e-44a8-ad9f-1f17d63c9a84">&lt;/strong&gt;</ept> list, select <bpt id="b284b18f-7f92-41f9-9652-954ddb10977c">&lt;strong&gt;</bpt>Azure AD<ept id="b284b18f-7f92-41f9-9652-954ddb10977c">&lt;/strong&gt;</ept>, and then click <bpt id="00d43b80-ac2e-4f60-ad05-a2cac62ea6db">&lt;strong&gt;</bpt>Configure<ept id="00d43b80-ac2e-4f60-ad05-a2cac62ea6db">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4b56769-992f-451e-91d5-a917ebda8af9" xml:space="preserve">
+          <source><bpt id="41cde1ff-06b1-449e-b637-188f67568006">&lt;linkText&gt;</bpt>Configure SAML 2.0<ept id="41cde1ff-06b1-449e-b637-188f67568006">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="41cde1ff-06b1-449e-b637-188f67568006">&lt;linkText&gt;</bpt>Configure SAML 2.0<ept id="41cde1ff-06b1-449e-b637-188f67568006">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="def68ebb-c065-4d90-92d4-0222a4ef3417" xml:space="preserve">
+          <source>On the <bpt id="81192104-d189-449a-a8cc-acb8d9db5c60">&lt;strong&gt;</bpt>Configure SAML 2.0<ept id="81192104-d189-449a-a8cc-acb8d9db5c60">&lt;/strong&gt;</ept> dialog, perform the following steps:</source>
+          <target state="new">On the <bpt id="81192104-d189-449a-a8cc-acb8d9db5c60">&lt;strong&gt;</bpt>Configure SAML 2.0<ept id="81192104-d189-449a-a8cc-acb8d9db5c60">&lt;/strong&gt;</ept> dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="3d48b8e6-14d7-41cf-a9e0-55c452dcb06d" xml:space="preserve">
+          <source><bpt id="652c9936-23dd-46ba-890c-14cbe09507c0">&lt;linkText&gt;</bpt>Configure SAML 2.0<ept id="652c9936-23dd-46ba-890c-14cbe09507c0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="652c9936-23dd-46ba-890c-14cbe09507c0">&lt;linkText&gt;</bpt>Configure SAML 2.0<ept id="652c9936-23dd-46ba-890c-14cbe09507c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b16f8bd2-d0a0-4949-b4ba-20fceb2e108d" xml:space="preserve">
+          <source>In the <bpt id="94de8e4b-9171-4d1d-a2f9-53f752f93b03">&lt;strong&gt;</bpt>Configuration Name<ept id="94de8e4b-9171-4d1d-a2f9-53f752f93b03">&lt;/strong&gt;</ept> textbox, type <bpt id="e8e5139b-c3d5-4175-ab96-9e6298654984">&lt;strong&gt;</bpt>Azure AD<ept id="e8e5139b-c3d5-4175-ab96-9e6298654984">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="94de8e4b-9171-4d1d-a2f9-53f752f93b03">&lt;strong&gt;</bpt>Configuration Name<ept id="94de8e4b-9171-4d1d-a2f9-53f752f93b03">&lt;/strong&gt;</ept> textbox, type <bpt id="e8e5139b-c3d5-4175-ab96-9e6298654984">&lt;strong&gt;</bpt>Azure AD<ept id="e8e5139b-c3d5-4175-ab96-9e6298654984">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c203b124-dc46-45de-aa0d-babaf98d3c82" xml:space="preserve">
+          <source>Select <bpt id="1f0a16a9-6eda-46f3-ba26-755edd881ec5">&lt;strong&gt;</bpt>Debug Mode<ept id="1f0a16a9-6eda-46f3-ba26-755edd881ec5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="1f0a16a9-6eda-46f3-ba26-755edd881ec5">&lt;strong&gt;</bpt>Debug Mode<ept id="1f0a16a9-6eda-46f3-ba26-755edd881ec5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56668b69-4956-4398-91f3-4227aff31fa3" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="2f2d506c-c157-45f2-84af-2f015d90cb50">&lt;strong&gt;</bpt>Configure single sign-on at SumoLogic<ept id="2f2d506c-c157-45f2-84af-2f015d90cb50">&lt;/strong&gt;</ept> dialogue page, copy the <bpt id="bbfba647-1515-4ac8-b3da-cc418820d9b9">&lt;strong&gt;</bpt>Issuer URL<ept id="bbfba647-1515-4ac8-b3da-cc418820d9b9">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="2e504939-cf90-4a1b-82ed-d5c758c1c5a7">&lt;strong&gt;</bpt>Issuer<ept id="2e504939-cf90-4a1b-82ed-d5c758c1c5a7">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="2f2d506c-c157-45f2-84af-2f015d90cb50">&lt;strong&gt;</bpt>Configure single sign-on at SumoLogic<ept id="2f2d506c-c157-45f2-84af-2f015d90cb50">&lt;/strong&gt;</ept> dialogue page, copy the <bpt id="bbfba647-1515-4ac8-b3da-cc418820d9b9">&lt;strong&gt;</bpt>Issuer URL<ept id="bbfba647-1515-4ac8-b3da-cc418820d9b9">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="2e504939-cf90-4a1b-82ed-d5c758c1c5a7">&lt;strong&gt;</bpt>Issuer<ept id="2e504939-cf90-4a1b-82ed-d5c758c1c5a7">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="b32177f1-bc3c-4d0a-97b8-e06144a3527e" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="48868cf7-5e8e-4b70-baac-f2bce45bd30f">&lt;strong&gt;</bpt>Configure single sign-on at SumoLogic<ept id="48868cf7-5e8e-4b70-baac-f2bce45bd30f">&lt;/strong&gt;</ept> dialogue page, copy the <bpt id="5015f928-029d-406a-bf79-80866c3b58b8">&lt;strong&gt;</bpt>Authentication Request URL<ept id="5015f928-029d-406a-bf79-80866c3b58b8">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="e7ee8fc9-c7e5-4c4b-a3cd-27f75556ecd1">&lt;strong&gt;</bpt>Authn Request URL<ept id="e7ee8fc9-c7e5-4c4b-a3cd-27f75556ecd1">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="48868cf7-5e8e-4b70-baac-f2bce45bd30f">&lt;strong&gt;</bpt>Configure single sign-on at SumoLogic<ept id="48868cf7-5e8e-4b70-baac-f2bce45bd30f">&lt;/strong&gt;</ept> dialogue page, copy the <bpt id="5015f928-029d-406a-bf79-80866c3b58b8">&lt;strong&gt;</bpt>Authentication Request URL<ept id="5015f928-029d-406a-bf79-80866c3b58b8">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="e7ee8fc9-c7e5-4c4b-a3cd-27f75556ecd1">&lt;strong&gt;</bpt>Authn Request URL<ept id="e7ee8fc9-c7e5-4c4b-a3cd-27f75556ecd1">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="0478c454-5bb8-46b5-9500-4aff3bd51c43" xml:space="preserve">
+          <source>Create a <bpt id="baa654ef-0617-4a4c-b71c-874c504d7839">&lt;strong&gt;</bpt>Base-64 encoded<ept id="baa654ef-0617-4a4c-b71c-874c504d7839">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="baa654ef-0617-4a4c-b71c-874c504d7839">&lt;strong&gt;</bpt>Base-64 encoded<ept id="baa654ef-0617-4a4c-b71c-874c504d7839">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="a092b1f3-4279-4cb3-8a44-e23864e746a3" xml:space="preserve">
+          <source>For more details, see <bpt id="26e5c4cc-39fa-4c2b-be9e-81774c559b21">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="26e5c4cc-39fa-4c2b-be9e-81774c559b21">&lt;/linkText&gt;</ept><bpt id="26e5c4cc-39fa-4c2b-be9e-81774c559b21">&lt;title&gt;</bpt><ept id="26e5c4cc-39fa-4c2b-be9e-81774c559b21">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="26e5c4cc-39fa-4c2b-be9e-81774c559b21">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="26e5c4cc-39fa-4c2b-be9e-81774c559b21">&lt;/linkText&gt;</ept><bpt id="26e5c4cc-39fa-4c2b-be9e-81774c559b21">&lt;title&gt;</bpt><ept id="26e5c4cc-39fa-4c2b-be9e-81774c559b21">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="207aefe1-1030-4dc1-b465-ea602983ea55" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into <bpt id="6371d177-89e8-40e4-8bd7-44192fdd57da">&lt;strong&gt;</bpt>X.509 Certificate<ept id="6371d177-89e8-40e4-8bd7-44192fdd57da">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into <bpt id="6371d177-89e8-40e4-8bd7-44192fdd57da">&lt;strong&gt;</bpt>X.509 Certificate<ept id="6371d177-89e8-40e4-8bd7-44192fdd57da">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="94fc9cf8-6b90-40df-b25d-d274b8fdec2c" xml:space="preserve">
+          <source>As <bpt id="1b0d6067-10d6-40de-9e92-18b1e06ce3ad">&lt;strong&gt;</bpt>Email Attribute<ept id="1b0d6067-10d6-40de-9e92-18b1e06ce3ad">&lt;/strong&gt;</ept>, select <bpt id="7dc4666c-b5a1-498f-aa99-1d598bfbeefb">&lt;strong&gt;</bpt>Use SAML subject<ept id="7dc4666c-b5a1-498f-aa99-1d598bfbeefb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="1b0d6067-10d6-40de-9e92-18b1e06ce3ad">&lt;strong&gt;</bpt>Email Attribute<ept id="1b0d6067-10d6-40de-9e92-18b1e06ce3ad">&lt;/strong&gt;</ept>, select <bpt id="7dc4666c-b5a1-498f-aa99-1d598bfbeefb">&lt;strong&gt;</bpt>Use SAML subject<ept id="7dc4666c-b5a1-498f-aa99-1d598bfbeefb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16794434-85e7-47ba-8f5e-088c310f9c06" xml:space="preserve">
+          <source>Select <bpt id="8927a649-2a42-4964-9173-261211b357e0">&lt;strong&gt;</bpt>SP initiated Login Configuration<ept id="8927a649-2a42-4964-9173-261211b357e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="8927a649-2a42-4964-9173-261211b357e0">&lt;strong&gt;</bpt>SP initiated Login Configuration<ept id="8927a649-2a42-4964-9173-261211b357e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6a44d71-447e-484b-955b-ee66c281d30d" xml:space="preserve">
+          <source>In the <bpt id="12331440-9cb6-4185-bf38-ec00050cdbf5">&lt;strong&gt;</bpt>Login Path<ept id="12331440-9cb6-4185-bf38-ec00050cdbf5">&lt;/strong&gt;</ept> textbox, type <bpt id="fd4feee3-3b44-4a79-b371-6450afbae798">&lt;strong&gt;</bpt>Azure<ept id="fd4feee3-3b44-4a79-b371-6450afbae798">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="12331440-9cb6-4185-bf38-ec00050cdbf5">&lt;strong&gt;</bpt>Login Path<ept id="12331440-9cb6-4185-bf38-ec00050cdbf5">&lt;/strong&gt;</ept> textbox, type <bpt id="fd4feee3-3b44-4a79-b371-6450afbae798">&lt;strong&gt;</bpt>Azure<ept id="fd4feee3-3b44-4a79-b371-6450afbae798">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f201f7e-9444-482c-97e8-4747a7582fa3" xml:space="preserve">
+          <source>Click <bpt id="d3b54ca5-1870-42de-8792-4e86202587f8">&lt;strong&gt;</bpt>Save<ept id="d3b54ca5-1870-42de-8792-4e86202587f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d3b54ca5-1870-42de-8792-4e86202587f8">&lt;strong&gt;</bpt>Save<ept id="d3b54ca5-1870-42de-8792-4e86202587f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a061dcca-64e1-48fc-8ca7-f95876ddf18e" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="303fdcf3-39ba-41cf-ae32-346a83406dde">&lt;strong&gt;</bpt>Configure single sign-on at SumoLogic<ept id="303fdcf3-39ba-41cf-ae32-346a83406dde">&lt;/strong&gt;</ept> dialogue page, select the single sign-on configuration confirmation, and then click <bpt id="bc5b4e28-aa2e-451e-9ace-fbff6ab07d82">&lt;strong&gt;</bpt>Complete<ept id="bc5b4e28-aa2e-451e-9ace-fbff6ab07d82">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal, on the <bpt id="303fdcf3-39ba-41cf-ae32-346a83406dde">&lt;strong&gt;</bpt>Configure single sign-on at SumoLogic<ept id="303fdcf3-39ba-41cf-ae32-346a83406dde">&lt;/strong&gt;</ept> dialogue page, select the single sign-on configuration confirmation, and then click <bpt id="bc5b4e28-aa2e-451e-9ace-fbff6ab07d82">&lt;strong&gt;</bpt>Complete<ept id="bc5b4e28-aa2e-451e-9ace-fbff6ab07d82">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4366a4bd-cf6c-4bfa-91a6-3234c97ff69f" xml:space="preserve">
+          <source><bpt id="f550ff4e-ecd1-430e-b6f8-a8bee1468755">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="f550ff4e-ecd1-430e-b6f8-a8bee1468755">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f550ff4e-ecd1-430e-b6f8-a8bee1468755">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="f550ff4e-ecd1-430e-b6f8-a8bee1468755">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb519b6e-a342-4cfe-8ee1-a998a80e903e" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into SumoLogic, they must be provisioned to SumoLogic.</source>
+          <target state="new">In order to enable Azure AD users to log into SumoLogic, they must be provisioned to SumoLogic.</target>
+        </trans-unit>
+        <trans-unit id="efde14f7-78a0-42c3-9886-4780dc0e07e2" xml:space="preserve">
+          <source>In the case of SumoLogic, provisioning is a manual task.</source>
+          <target state="new">In the case of SumoLogic, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="65609d71-3504-4c43-9717-b12a2425213d" xml:space="preserve">
+          <source>Log in to your <bpt id="3dc54948-7992-4d73-a019-65b1308175d7">&lt;strong&gt;</bpt>SumoLogic<ept id="3dc54948-7992-4d73-a019-65b1308175d7">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="3dc54948-7992-4d73-a019-65b1308175d7">&lt;strong&gt;</bpt>SumoLogic<ept id="3dc54948-7992-4d73-a019-65b1308175d7">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="2e380b9c-c5f4-44b5-b7ac-6d5b5b3bb9e8" xml:space="preserve">
+          <source>Go to <bpt id="bd72e61b-d0fc-4bc9-81b6-3bf89d42781e">&lt;strong&gt;</bpt>Manage \&gt; Users<ept id="bd72e61b-d0fc-4bc9-81b6-3bf89d42781e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="bd72e61b-d0fc-4bc9-81b6-3bf89d42781e">&lt;strong&gt;</bpt>Manage \&gt; Users<ept id="bd72e61b-d0fc-4bc9-81b6-3bf89d42781e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f2157102-4784-4a75-aaec-26b450f5ed70" xml:space="preserve">
+          <source><bpt id="a6349c23-12f9-4fb9-9c3e-b0711a54c80a">&lt;linkText&gt;</bpt>Users<ept id="a6349c23-12f9-4fb9-9c3e-b0711a54c80a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6349c23-12f9-4fb9-9c3e-b0711a54c80a">&lt;linkText&gt;</bpt>Users<ept id="a6349c23-12f9-4fb9-9c3e-b0711a54c80a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1aae7e5c-7944-4417-822f-2581145fdc1e" xml:space="preserve">
+          <source>Click <bpt id="d6ba5c17-fef4-4a74-a0ed-af0e464bfeae">&lt;strong&gt;</bpt>Add<ept id="d6ba5c17-fef4-4a74-a0ed-af0e464bfeae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d6ba5c17-fef4-4a74-a0ed-af0e464bfeae">&lt;strong&gt;</bpt>Add<ept id="d6ba5c17-fef4-4a74-a0ed-af0e464bfeae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3861b4ec-c150-4b56-89ef-f9df5469c0b8" xml:space="preserve">
+          <source><bpt id="93071a13-409f-46b8-aa7d-f2bfea5f4597">&lt;linkText&gt;</bpt>Users<ept id="93071a13-409f-46b8-aa7d-f2bfea5f4597">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93071a13-409f-46b8-aa7d-f2bfea5f4597">&lt;linkText&gt;</bpt>Users<ept id="93071a13-409f-46b8-aa7d-f2bfea5f4597">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f971015-53c1-47ec-b084-09b773a4e150" xml:space="preserve">
+          <source>On the <bpt id="786fa246-0358-4216-a19f-dcdbf358e3f0">&lt;strong&gt;</bpt>New User<ept id="786fa246-0358-4216-a19f-dcdbf358e3f0">&lt;/strong&gt;</ept> dialog, perform the following steps:</source>
+          <target state="new">On the <bpt id="786fa246-0358-4216-a19f-dcdbf358e3f0">&lt;strong&gt;</bpt>New User<ept id="786fa246-0358-4216-a19f-dcdbf358e3f0">&lt;/strong&gt;</ept> dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="c79e4a65-15c3-43fd-87e8-6a41cadd61f4" xml:space="preserve">
+          <source><bpt id="2866ce9a-b5b8-4814-bd51-91ea1f13ed8f">&lt;linkText&gt;</bpt>New User<ept id="2866ce9a-b5b8-4814-bd51-91ea1f13ed8f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2866ce9a-b5b8-4814-bd51-91ea1f13ed8f">&lt;linkText&gt;</bpt>New User<ept id="2866ce9a-b5b8-4814-bd51-91ea1f13ed8f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e829873d-2926-4083-8fd8-4bc02f5ac9ce" xml:space="preserve">
+          <source>Type the related information of the Azure AD account you want to provision into the <bpt id="70a6e12b-e83b-4e93-958b-e0d6a186e25a">&lt;strong&gt;</bpt>First Name<ept id="70a6e12b-e83b-4e93-958b-e0d6a186e25a">&lt;/strong&gt;</ept>, <bpt id="5ea11ab4-93aa-47c7-80b6-0e882d00b3a3">&lt;strong&gt;</bpt>Last Name<ept id="5ea11ab4-93aa-47c7-80b6-0e882d00b3a3">&lt;/strong&gt;</ept> and <bpt id="8f59c950-b4c0-4b5c-8ce0-3451a7fb50b9">&lt;strong&gt;</bpt>Email<ept id="8f59c950-b4c0-4b5c-8ce0-3451a7fb50b9">&lt;/strong&gt;</ept> textboxes.</source>
+          <target state="new">Type the related information of the Azure AD account you want to provision into the <bpt id="70a6e12b-e83b-4e93-958b-e0d6a186e25a">&lt;strong&gt;</bpt>First Name<ept id="70a6e12b-e83b-4e93-958b-e0d6a186e25a">&lt;/strong&gt;</ept>, <bpt id="5ea11ab4-93aa-47c7-80b6-0e882d00b3a3">&lt;strong&gt;</bpt>Last Name<ept id="5ea11ab4-93aa-47c7-80b6-0e882d00b3a3">&lt;/strong&gt;</ept> and <bpt id="8f59c950-b4c0-4b5c-8ce0-3451a7fb50b9">&lt;strong&gt;</bpt>Email<ept id="8f59c950-b4c0-4b5c-8ce0-3451a7fb50b9">&lt;/strong&gt;</ept> textboxes.</target>
+        </trans-unit>
+        <trans-unit id="c0dbdb0b-f163-403f-b08a-316921625857" xml:space="preserve">
+          <source>Select a role.</source>
+          <target state="new">Select a role.</target>
+        </trans-unit>
+        <trans-unit id="35e29852-d49b-4442-ac6c-68c9feb14b18" xml:space="preserve">
+          <source>As <bpt id="b9d48d86-8acd-49a2-975a-d9c5d24e87d9">&lt;strong&gt;</bpt>Status<ept id="b9d48d86-8acd-49a2-975a-d9c5d24e87d9">&lt;/strong&gt;</ept>, select <bpt id="53eef175-38f5-4269-b41e-ac9e65343ce6">&lt;strong&gt;</bpt>Active<ept id="53eef175-38f5-4269-b41e-ac9e65343ce6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="b9d48d86-8acd-49a2-975a-d9c5d24e87d9">&lt;strong&gt;</bpt>Status<ept id="b9d48d86-8acd-49a2-975a-d9c5d24e87d9">&lt;/strong&gt;</ept>, select <bpt id="53eef175-38f5-4269-b41e-ac9e65343ce6">&lt;strong&gt;</bpt>Active<ept id="53eef175-38f5-4269-b41e-ac9e65343ce6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a2bdd1a-521d-4451-999a-f715a758f577" xml:space="preserve">
+          <source>Click <bpt id="1a388d0a-d308-46fc-a52c-e31407fb34b4">&lt;strong&gt;</bpt>Save<ept id="1a388d0a-d308-46fc-a52c-e31407fb34b4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1a388d0a-d308-46fc-a52c-e31407fb34b4">&lt;strong&gt;</bpt>Save<ept id="1a388d0a-d308-46fc-a52c-e31407fb34b4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f7839b4-26a5-45b1-aaa7-93ed567a9351" xml:space="preserve">
+          <source>You can use any other SumoLogic user account creation tools or APIs provided by SumoLogic to provision AAD user accounts.</source>
+          <target state="new">You can use any other SumoLogic user account creation tools or APIs provided by SumoLogic to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="894e24b8-f5d7-453b-a17d-aa1ce8111e1d" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="7cbf7f6a-65f7-40d4-88b3-36b30a4ca5e3" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="cb46662f-f301-4d63-8c00-73339da333e0" xml:space="preserve">
+          <source>On the <bpt id="e655d54c-743b-4450-9279-2619cf089cb8">&lt;strong&gt;</bpt>SumoLogic<ept id="e655d54c-743b-4450-9279-2619cf089cb8">&lt;/strong&gt;</ept> application integration page, click <bpt id="bfdd7cf3-74b6-48c4-9853-20a4f282394c">&lt;strong&gt;</bpt>Assign users<ept id="bfdd7cf3-74b6-48c4-9853-20a4f282394c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e655d54c-743b-4450-9279-2619cf089cb8">&lt;strong&gt;</bpt>SumoLogic<ept id="e655d54c-743b-4450-9279-2619cf089cb8">&lt;/strong&gt;</ept> application integration page, click <bpt id="bfdd7cf3-74b6-48c4-9853-20a4f282394c">&lt;strong&gt;</bpt>Assign users<ept id="bfdd7cf3-74b6-48c4-9853-20a4f282394c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="702249a8-2ef9-4c52-833a-25685b7607d9" xml:space="preserve">
+          <source><bpt id="efb58c02-2897-4682-8973-2a1f812e367f">&lt;linkText&gt;</bpt>Assign users<ept id="efb58c02-2897-4682-8973-2a1f812e367f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="efb58c02-2897-4682-8973-2a1f812e367f">&lt;linkText&gt;</bpt>Assign users<ept id="efb58c02-2897-4682-8973-2a1f812e367f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c4e288a-1554-40cf-8845-714edbb4b293" xml:space="preserve">
+          <source>Select your test user, click <bpt id="d824a6f7-90fc-40ab-a973-71877e480374">&lt;strong&gt;</bpt>Assign<ept id="d824a6f7-90fc-40ab-a973-71877e480374">&lt;/strong&gt;</ept>, and then click <bpt id="c6504ac5-b94b-4182-8029-841f0e3092ea">&lt;strong&gt;</bpt>Yes<ept id="c6504ac5-b94b-4182-8029-841f0e3092ea">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="d824a6f7-90fc-40ab-a973-71877e480374">&lt;strong&gt;</bpt>Assign<ept id="d824a6f7-90fc-40ab-a973-71877e480374">&lt;/strong&gt;</ept>, and then click <bpt id="c6504ac5-b94b-4182-8029-841f0e3092ea">&lt;strong&gt;</bpt>Yes<ept id="c6504ac5-b94b-4182-8029-841f0e3092ea">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="7fc8ba76-1252-4b03-b5ff-e1c3f3985a9f" xml:space="preserve">
+          <source><bpt id="91b2e874-14c7-4022-a256-dccb991f9a0e">&lt;linkText&gt;</bpt>Yes<ept id="91b2e874-14c7-4022-a256-dccb991f9a0e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="91b2e874-14c7-4022-a256-dccb991f9a0e">&lt;linkText&gt;</bpt>Yes<ept id="91b2e874-14c7-4022-a256-dccb991f9a0e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5afb0e3f-c192-417d-9225-c42b00ee72e2" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="12fab4ee-d0c8-4074-9046-aae8ee959fda" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="7a3ab2a6-4392-470f-9eea-b112c204a48b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="7a3ab2a6-4392-470f-9eea-b112c204a48b">&lt;/linkText&gt;</ept><bpt id="7a3ab2a6-4392-470f-9eea-b112c204a48b">&lt;title&gt;</bpt><ept id="7a3ab2a6-4392-470f-9eea-b112c204a48b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="7a3ab2a6-4392-470f-9eea-b112c204a48b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="7a3ab2a6-4392-470f-9eea-b112c204a48b">&lt;/linkText&gt;</ept><bpt id="7a3ab2a6-4392-470f-9eea-b112c204a48b">&lt;title&gt;</bpt><ept id="7a3ab2a6-4392-470f-9eea-b112c204a48b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

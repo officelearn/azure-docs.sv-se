@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="438a50e1-55d6-4019-ac69-f12be3cdec0a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="438a50e1-55d6-4019-ac69-f12be3cdec0a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9f4341b1-82df-431a-8f05-7bf9c71db691">
+        <trans-unit id="42afa0de-2975-4113-b0c3-9b4fdfe5c8f0" xml:space="preserve">
+          <source>IIS Authentication and Azure Multi-Factor Authentication Server</source>
+          <target state="new">IIS Authentication and Azure Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="79b188ad-1cf7-4c2f-8ca7-83f208a6fc52" xml:space="preserve">
+          <source>This is the Azure Multi-factor authentication page that will assist in deploying IIS Authentication and Azure Multi-Factor Authentication Server.</source>
+          <target state="new">This is the Azure Multi-factor authentication page that will assist in deploying IIS Authentication and Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="6cc089e2-56c2-4560-8481-9e7604439ed2" xml:space="preserve">
+          <source>The IIS Authentication section of the Azure Multi-Factor Authentication Server allows you to enable and configure IIS authentication for integration with Microsoft IIS web applications.</source>
+          <target state="new">The IIS Authentication section of the Azure Multi-Factor Authentication Server allows you to enable and configure IIS authentication for integration with Microsoft IIS web applications.</target>
+        </trans-unit>
+        <trans-unit id="e78a9f76-8100-4176-8529-645ef91588cc" xml:space="preserve">
+          <source>The Azure Multi-Factor Authentication Server installs a plug-in which can filter requests being made to the IIS web server in order to add Azure Multi-Factor Authentication.</source>
+          <target state="new">The Azure Multi-Factor Authentication Server installs a plug-in which can filter requests being made to the IIS web server in order to add Azure Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="8b287a22-4eb2-44af-82c8-3713330ef7e4" xml:space="preserve">
+          <source>The IIS plug-in provides support for Form-Based Authentication and Integrated Windows HTTP Authentication.</source>
+          <target state="new">The IIS plug-in provides support for Form-Based Authentication and Integrated Windows HTTP Authentication.</target>
+        </trans-unit>
+        <trans-unit id="f991f3d4-add0-4803-b246-0299206ffd53" xml:space="preserve">
+          <source>Trusted IPs can also be configured to exempt internal IP addresses from two-factor authentication.</source>
+          <target state="new">Trusted IPs can also be configured to exempt internal IP addresses from two-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="5988f955-b2fd-4a05-8adc-a2a2773fe539" xml:space="preserve">
+          <source><bpt id="5d3d37ee-5403-4a34-bda3-bba9ace5df37">&lt;linkText&gt;</bpt>IIS Authentication<ept id="5d3d37ee-5403-4a34-bda3-bba9ace5df37">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5d3d37ee-5403-4a34-bda3-bba9ace5df37">&lt;linkText&gt;</bpt>IIS Authentication<ept id="5d3d37ee-5403-4a34-bda3-bba9ace5df37">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="361622ba-e141-4a38-8545-d65c5a98ed64" xml:space="preserve">
+          <source>To secure an IIS web application that uses form-based authentication, install the Azure Multi-Factor Authentication Server on the IIS web server and configure the Server per the following procedure.</source>
+          <target state="new">To secure an IIS web application that uses form-based authentication, install the Azure Multi-Factor Authentication Server on the IIS web server and configure the Server per the following procedure.</target>
+        </trans-unit>
+        <trans-unit id="0c4ecff4-e4fd-4721-9315-58055ff473ab" xml:space="preserve">
+          <source>Within the Azure Multi-Factor Authentication Server click the IIS Authentication icon in the left menu.</source>
+          <target state="new">Within the Azure Multi-Factor Authentication Server click the IIS Authentication icon in the left menu.</target>
+        </trans-unit>
+        <trans-unit id="5a3b62ee-5829-43a5-8c3d-f20c3f3f9963" xml:space="preserve">
+          <source>Click the Form-Based tab.</source>
+          <target state="new">Click the Form-Based tab.</target>
+        </trans-unit>
+        <trans-unit id="6598f2c5-586b-42ff-8bc0-55d0bc361c93" xml:space="preserve">
+          <source>Click the Add…</source>
+          <target state="new">Click the Add…</target>
+        </trans-unit>
+        <trans-unit id="3634152f-1922-4872-8cf7-3e631703a805" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="27c9a54a-b0e1-463a-9da9-5a7b430f0137" xml:space="preserve">
+          <source>To detect username, password and domain variables automatically, enter the Login URL (e.g. https://localhost/contoso/auth/login.aspx) within the Auto-Configure Form-Based Website dialog box and click OK.</source>
+          <target state="new">To detect username, password and domain variables automatically, enter the Login URL (e.g. https://localhost/contoso/auth/login.aspx) within the Auto-Configure Form-Based Website dialog box and click OK.</target>
+        </trans-unit>
+        <trans-unit id="8fe29641-f8ab-40fb-aef4-895bc96d8231" xml:space="preserve">
+          <source>Check the Require Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</source>
+          <target state="new">Check the Require Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="19b9c12d-824e-427f-af98-990f94befe85" xml:space="preserve">
+          <source>If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</source>
+          <target state="new">If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</target>
+        </trans-unit>
+        <trans-unit id="fe759ceb-a533-4a09-862c-d9111d5b72d1" xml:space="preserve">
+          <source>If the page variables cannot be detected automatically, click the Specify Manually…</source>
+          <target state="new">If the page variables cannot be detected automatically, click the Specify Manually…</target>
+        </trans-unit>
+        <trans-unit id="84745f35-de78-4f3d-a032-b35ac002ea8d" xml:space="preserve">
+          <source>button in the Auto-Configure Form-Based Website dialog box.</source>
+          <target state="new">button in the Auto-Configure Form-Based Website dialog box.</target>
+        </trans-unit>
+        <trans-unit id="de5eba85-3468-4cad-8dc8-8481f45e1ded" xml:space="preserve">
+          <source>In the Add Form-Based Website dialog box, enter the URL to the login page in the Submit URL field and enter an Application name (optional).</source>
+          <target state="new">In the Add Form-Based Website dialog box, enter the URL to the login page in the Submit URL field and enter an Application name (optional).</target>
+        </trans-unit>
+        <trans-unit id="1ef21105-260f-42c3-9b2c-162c7b7d1894" xml:space="preserve">
+          <source>The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</source>
+          <target state="new">The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</target>
+        </trans-unit>
+        <trans-unit id="ea0caa29-c51a-4069-b18f-8c67f79306bc" xml:space="preserve">
+          <source>See the help file for more information on the Submit URL.</source>
+          <target state="new">See the help file for more information on the Submit URL.</target>
+        </trans-unit>
+        <trans-unit id="e24375a5-537d-4cc5-a5de-d2163ab728f8" xml:space="preserve">
+          <source>Select the correct Request format.</source>
+          <target state="new">Select the correct Request format.</target>
+        </trans-unit>
+        <trans-unit id="088ceefc-08d9-44b6-ad7a-d743f7a10f90" xml:space="preserve">
+          <source>This is set to “POST or GET” for most web applications.</source>
+          <target state="new">This is set to “POST or GET” for most web applications.</target>
+        </trans-unit>
+        <trans-unit id="7d5b834c-46ed-4364-94e9-8552a15af56f" xml:space="preserve">
+          <source>Enter the Username variable, Password variable and Domain variable (if it appears on the login page).</source>
+          <target state="new">Enter the Username variable, Password variable and Domain variable (if it appears on the login page).</target>
+        </trans-unit>
+        <trans-unit id="b5b20e8b-4724-4f0c-93f0-d6a7cf0915c5" xml:space="preserve">
+          <source>You may need to navigate to the login page in a web browser, right-click on the page and select “View Source” to find the names of the input boxes within the page.</source>
+          <target state="new">You may need to navigate to the login page in a web browser, right-click on the page and select “View Source” to find the names of the input boxes within the page.</target>
+        </trans-unit>
+        <trans-unit id="3bf131ca-b40f-4c88-85e5-eff79b7b4587" xml:space="preserve">
+          <source>Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</source>
+          <target state="new">Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="b7f6f6de-6fc5-4527-afa6-b3f1cf016f92" xml:space="preserve">
+          <source>If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</source>
+          <target state="new">If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</target>
+        </trans-unit>
+        <trans-unit id="ed645b7a-3549-499c-a6d3-1565575748c6" xml:space="preserve">
+          <source>See the help file for additional information on this feature.</source>
+          <target state="new">See the help file for additional information on this feature.</target>
+        </trans-unit>
+        <trans-unit id="caf65702-5a80-4d92-bf2f-f8823675a8f7" xml:space="preserve">
+          <source>Click the Advanced…</source>
+          <target state="new">Click the Advanced…</target>
+        </trans-unit>
+        <trans-unit id="968519a4-8b4f-4e2a-b37a-1ae7cfdffa6b" xml:space="preserve">
+          <source>button to review advanced settings, including the ability to select a custom denial page file, to cache successful authentications to the website for a period of time using cookies and to select whether to authenticate the primary credentials against the Windows Domain, an LDAP directory or a RADIUS server.</source>
+          <target state="new">button to review advanced settings, including the ability to select a custom denial page file, to cache successful authentications to the website for a period of time using cookies and to select whether to authenticate the primary credentials against the Windows Domain, an LDAP directory or a RADIUS server.</target>
+        </trans-unit>
+        <trans-unit id="f2fbf5af-c805-4a2f-8d68-1e6a1fdf9005" xml:space="preserve">
+          <source>When complete click the OK button to return to the Add Form-Based Website dialog box.</source>
+          <target state="new">When complete click the OK button to return to the Add Form-Based Website dialog box.</target>
+        </trans-unit>
+        <trans-unit id="06f22af7-a490-4869-be8d-40801361cc16" xml:space="preserve">
+          <source>See the help file for more information on the advanced settings.</source>
+          <target state="new">See the help file for more information on the advanced settings.</target>
+        </trans-unit>
+        <trans-unit id="cd0b9d5b-3429-4851-ab9e-bdfeb8b6c761" xml:space="preserve">
+          <source>Click the OK button.</source>
+          <target state="new">Click the OK button.</target>
+        </trans-unit>
+        <trans-unit id="b6dcd5e6-4b8f-4cc6-9d8b-50955f2321d8" xml:space="preserve">
+          <source>Once the URL and page variables have been detected or entered, the website data will display in the Form-Based panel.</source>
+          <target state="new">Once the URL and page variables have been detected or entered, the website data will display in the Form-Based panel.</target>
+        </trans-unit>
+        <trans-unit id="44acbba3-b668-4dd9-8509-ecda87f5640e" xml:space="preserve">
+          <source>See the Enable IIS Plug-ins for Azure Multi-Factor Authentication Server section directly below to complete the IIS authentication configuration.</source>
+          <target state="new">See the Enable IIS Plug-ins for Azure Multi-Factor Authentication Server section directly below to complete the IIS authentication configuration.</target>
+        </trans-unit>
+        <trans-unit id="04c7a80e-6f19-4ff9-9f45-4e76a485b53d" xml:space="preserve">
+          <source>To secure an IIS web application that uses Integrated Windows HTTP authentication, install the Azure Multi-Factor Authentication Server on the IIS web server and configure the Server per the following procedure.</source>
+          <target state="new">To secure an IIS web application that uses Integrated Windows HTTP authentication, install the Azure Multi-Factor Authentication Server on the IIS web server and configure the Server per the following procedure.</target>
+        </trans-unit>
+        <trans-unit id="983ab282-68e6-4256-abe2-b9c6bdd222e8" xml:space="preserve">
+          <source>Within the Azure Multi-Factor Authentication Server click the IIS Authentication icon in the left menu.</source>
+          <target state="new">Within the Azure Multi-Factor Authentication Server click the IIS Authentication icon in the left menu.</target>
+        </trans-unit>
+        <trans-unit id="5a7f83fd-bd6d-41e3-b270-f551fb648885" xml:space="preserve">
+          <source>Click the HTTP tab.</source>
+          <target state="new">Click the HTTP tab.</target>
+        </trans-unit>
+        <trans-unit id="4bc99399-93ac-4a6e-9b8a-7b60717aa35c" xml:space="preserve">
+          <source>Click the Form-Based tab.</source>
+          <target state="new">Click the Form-Based tab.</target>
+        </trans-unit>
+        <trans-unit id="d93aa882-8faf-4765-8beb-b9ac628080bd" xml:space="preserve">
+          <source>Click the Add…</source>
+          <target state="new">Click the Add…</target>
+        </trans-unit>
+        <trans-unit id="c8aa5d8b-4f11-410f-9f54-497d4d90aa8e" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="ae74a29e-1fe4-4fc4-b640-5f73e2ba7213" xml:space="preserve">
+          <source>In the Add Base URL dialogue box, enter the URL for the website where HTTP authentication is performed (e.g. http://localhost/owa) into the Base URL field and enter an Application name (optional).</source>
+          <target state="new">In the Add Base URL dialogue box, enter the URL for the website where HTTP authentication is performed (e.g. http://localhost/owa) into the Base URL field and enter an Application name (optional).</target>
+        </trans-unit>
+        <trans-unit id="0b68bdaf-9675-41c3-8710-ff2cb71da1f9" xml:space="preserve">
+          <source>The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</source>
+          <target state="new">The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</target>
+        </trans-unit>
+        <trans-unit id="bcce3ec6-ca7a-4327-ae4b-f64dea1bf8a1" xml:space="preserve">
+          <source>Adjust the Idle timeout and Maximum session times if the default is not sufficient.</source>
+          <target state="new">Adjust the Idle timeout and Maximum session times if the default is not sufficient.</target>
+        </trans-unit>
+        <trans-unit id="b4d97459-1fec-4229-8f1e-aeca40b66322" xml:space="preserve">
+          <source>Check the Require Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</source>
+          <target state="new">Check the Require Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="95414d72-3774-4df4-a7c7-b423b98274cf" xml:space="preserve">
+          <source>If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</source>
+          <target state="new">If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</target>
+        </trans-unit>
+        <trans-unit id="1042c5f9-4858-4097-b96a-73b6fed2b31d" xml:space="preserve">
+          <source>See the help file for additional information on this feature.</source>
+          <target state="new">See the help file for additional information on this feature.</target>
+        </trans-unit>
+        <trans-unit id="b3c4e130-2580-4d77-9331-551c03f4f981" xml:space="preserve">
+          <source>Check the cookie cache box if desired.</source>
+          <target state="new">Check the cookie cache box if desired.</target>
+        </trans-unit>
+        <trans-unit id="f8639b79-86c3-401d-a3bf-56be8dcf7e56" xml:space="preserve">
+          <source>Click the OK button.</source>
+          <target state="new">Click the OK button.</target>
+        </trans-unit>
+        <trans-unit id="6ceb357d-d1bc-42df-b103-3949bb4dfb47" xml:space="preserve">
+          <source>See the <bpt id="155ff121-8c52-48f2-ac31-085897a23e98">&lt;linkText&gt;</bpt>Enable IIS Plug-ins for Azure Multi-Factor Authentication Server<ept id="155ff121-8c52-48f2-ac31-085897a23e98">&lt;/linkText&gt;</ept><bpt id="155ff121-8c52-48f2-ac31-085897a23e98">&lt;title&gt;</bpt><ept id="155ff121-8c52-48f2-ac31-085897a23e98">&lt;/title&gt;</ept> section directly below to complete the IIS authentication configuration.</source>
+          <target state="new">See the <bpt id="155ff121-8c52-48f2-ac31-085897a23e98">&lt;linkText&gt;</bpt>Enable IIS Plug-ins for Azure Multi-Factor Authentication Server<ept id="155ff121-8c52-48f2-ac31-085897a23e98">&lt;/linkText&gt;</ept><bpt id="155ff121-8c52-48f2-ac31-085897a23e98">&lt;title&gt;</bpt><ept id="155ff121-8c52-48f2-ac31-085897a23e98">&lt;/title&gt;</ept> section directly below to complete the IIS authentication configuration.</target>
+        </trans-unit>
+        <trans-unit id="4bffcef0-fb90-44e9-bea6-0a6c2df5dbe5" xml:space="preserve">
+          <source>Once you have configured the Form-Based or HTTP authentication URLs and settings, you must select the locations where the Azure Multi-Factor Authentication IIS plug-ins should be loaded and enabled in IIS.</source>
+          <target state="new">Once you have configured the Form-Based or HTTP authentication URLs and settings, you must select the locations where the Azure Multi-Factor Authentication IIS plug-ins should be loaded and enabled in IIS.</target>
+        </trans-unit>
+        <trans-unit id="fdb3d42e-1543-4397-9e88-41cd439ed879" xml:space="preserve">
+          <source>Use the following procedure:</source>
+          <target state="new">Use the following procedure:</target>
+        </trans-unit>
+        <trans-unit id="dd84af16-a198-4622-b8c1-f979a52be168" xml:space="preserve">
+          <source>If running on IIS 6, click the ISAPI tab and select the website that the web application is running under (e.g. Default Web Site) to enable the Azure Multi-Factor Authentication ISAPI filter plug-in for that site.</source>
+          <target state="new">If running on IIS 6, click the ISAPI tab and select the website that the web application is running under (e.g. Default Web Site) to enable the Azure Multi-Factor Authentication ISAPI filter plug-in for that site.</target>
+        </trans-unit>
+        <trans-unit id="add28fba-7632-4a20-a246-2df1ef19df95" xml:space="preserve">
+          <source>If running on IIS 7 or higher, click the Native Module tab and select the server, website(s) or application(s) to enable the IIS plug-in at the desired level(s).</source>
+          <target state="new">If running on IIS 7 or higher, click the Native Module tab and select the server, website(s) or application(s) to enable the IIS plug-in at the desired level(s).</target>
+        </trans-unit>
+        <trans-unit id="0165cf82-cc99-482d-b8e0-50069cf02486" xml:space="preserve">
+          <source>Click the Enable IIS authentication box at the top of the screen.</source>
+          <target state="new">Click the Enable IIS authentication box at the top of the screen.</target>
+        </trans-unit>
+        <trans-unit id="6aa979b4-a41a-4472-87e6-0e9033008512" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication is now securing the selected IIS application.</source>
+          <target state="new">Azure Multi-Factor Authentication is now securing the selected IIS application.</target>
+        </trans-unit>
+        <trans-unit id="ea04e81a-6605-45c9-a8ee-a9a0e3774f7b" xml:space="preserve">
+          <source>Ensure that users have been imported into the Server.</source>
+          <target state="new">Ensure that users have been imported into the Server.</target>
+        </trans-unit>
+        <trans-unit id="3d524375-9384-446f-b7d5-c2aa10d167ad" xml:space="preserve">
+          <source>See the Trusted IPs section below if you would like to whitelist internal IP addresses so that two- factor authentication is not required when logging into the website from those locations.</source>
+          <target state="new">See the Trusted IPs section below if you would like to whitelist internal IP addresses so that two- factor authentication is not required when logging into the website from those locations.</target>
+        </trans-unit>
+        <trans-unit id="d212ffd4-9b9f-4d28-a1f6-c50fe9088560" xml:space="preserve">
+          <source>The Trusted IPs allows users to bypass Azure Multi-Factor Authentication for website requests originating from specific IP addresses or subnets.</source>
+          <target state="new">The Trusted IPs allows users to bypass Azure Multi-Factor Authentication for website requests originating from specific IP addresses or subnets.</target>
+        </trans-unit>
+        <trans-unit id="2d616e51-77c1-4b6b-8f31-fad19d7b41f9" xml:space="preserve">
+          <source>For example, you may want to exempt users from Azure Multi-Factor Authentication while logging in from the office.</source>
+          <target state="new">For example, you may want to exempt users from Azure Multi-Factor Authentication while logging in from the office.</target>
+        </trans-unit>
+        <trans-unit id="15d05726-16aa-4da2-93c1-7565fd474900" xml:space="preserve">
+          <source>For this, you would specify the office subnet as an Trusted IPs entry.</source>
+          <target state="new">For this, you would specify the office subnet as an Trusted IPs entry.</target>
+        </trans-unit>
+        <trans-unit id="7d028f98-d97c-4b4b-8eff-2b1f2c3738ae" xml:space="preserve">
+          <source>To configure Trusted IPs use the following procedure:</source>
+          <target state="new">To configure Trusted IPs use the following procedure:</target>
+        </trans-unit>
+        <trans-unit id="2bc11f66-8d08-4a56-aa15-4ee80fc1f49e" xml:space="preserve">
+          <source>In the IIS Authentication section, click the Trusted IPs tab.</source>
+          <target state="new">In the IIS Authentication section, click the Trusted IPs tab.</target>
+        </trans-unit>
+        <trans-unit id="7972b7bb-f347-4eb0-995b-5a2db6e0fb66" xml:space="preserve">
+          <source>Click the Add…</source>
+          <target state="new">Click the Add…</target>
+        </trans-unit>
+        <trans-unit id="d4ce8c7d-cce1-4d13-adfd-3059a9d62d68" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="1b19e0dd-c2a4-4e85-8e63-f971c8e8f2d9" xml:space="preserve">
+          <source>When the Add Trusted IPs dialog box appears, select the Single IP, IP range or Subnet radio button.</source>
+          <target state="new">When the Add Trusted IPs dialog box appears, select the Single IP, IP range or Subnet radio button.</target>
+        </trans-unit>
+        <trans-unit id="61f70845-5afa-4ef9-975b-6ff43a54ce77" xml:space="preserve">
+          <source>nter the IP address, range of IP addresses or subnet that should be whitelisted.</source>
+          <target state="new">nter the IP address, range of IP addresses or subnet that should be whitelisted.</target>
+        </trans-unit>
+        <trans-unit id="fae0cca9-2fe1-4c6c-8d98-4aeb6d724144" xml:space="preserve">
+          <source>If entering a subnet, select the appropriate Netmask and click the OK button.</source>
+          <target state="new">If entering a subnet, select the appropriate Netmask and click the OK button.</target>
+        </trans-unit>
+        <trans-unit id="65125429-5210-4c5b-8058-e5cfe6cfe2d8" xml:space="preserve">
+          <source>The whitelist has now been added.</source>
+          <target state="new">The whitelist has now been added.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

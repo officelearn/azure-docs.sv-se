@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5e204e4b-a6cf-407a-8764-4dc7a8eee566" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5e204e4b-a6cf-407a-8764-4dc7a8eee566" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bff5a3ed-48a9-423c-81d6-233b9c6461e7">
+        <trans-unit id="c6905aa6-c9f5-4465-95ec-29433ac0e09d" xml:space="preserve">
+          <source>&lt;properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" /&gt;</source>
+          <target state="new">&lt;properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="bd9f136b-b107-49c5-bd42-495b86ffb42a" xml:space="preserve">
+          <source>If you haven't already done so, sign in to the <bpt id="cd277581-bb1c-4b17-9bad-b222fd1a0d45">&lt;linkText&gt;</bpt>Azure portal<ept id="cd277581-bb1c-4b17-9bad-b222fd1a0d45">&lt;/linkText&gt;</ept><bpt id="cd277581-bb1c-4b17-9bad-b222fd1a0d45">&lt;title&gt;</bpt><ept id="cd277581-bb1c-4b17-9bad-b222fd1a0d45">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you haven't already done so, sign in to the <bpt id="cd277581-bb1c-4b17-9bad-b222fd1a0d45">&lt;linkText&gt;</bpt>Azure portal<ept id="cd277581-bb1c-4b17-9bad-b222fd1a0d45">&lt;/linkText&gt;</ept><bpt id="cd277581-bb1c-4b17-9bad-b222fd1a0d45">&lt;title&gt;</bpt><ept id="cd277581-bb1c-4b17-9bad-b222fd1a0d45">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="241010e8-c2b9-4048-9405-eb7091df2e03" xml:space="preserve">
+          <source>Click <bpt id="93956cc5-824f-41e5-ae8b-eda428a7656a">&lt;strong&gt;</bpt>Virtual Machines<ept id="93956cc5-824f-41e5-ae8b-eda428a7656a">&lt;/strong&gt;</ept>, and then select the appropriate virtual machine.</source>
+          <target state="new">Click <bpt id="93956cc5-824f-41e5-ae8b-eda428a7656a">&lt;strong&gt;</bpt>Virtual Machines<ept id="93956cc5-824f-41e5-ae8b-eda428a7656a">&lt;/strong&gt;</ept>, and then select the appropriate virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="6610d2eb-737e-4f8c-afae-d73ac5095771" xml:space="preserve">
+          <source>On the command bar, click <bpt id="025dd3e8-7658-4826-9209-0dbfd1c6f3ea">&lt;strong&gt;</bpt>Connect<ept id="025dd3e8-7658-4826-9209-0dbfd1c6f3ea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the command bar, click <bpt id="025dd3e8-7658-4826-9209-0dbfd1c6f3ea">&lt;strong&gt;</bpt>Connect<ept id="025dd3e8-7658-4826-9209-0dbfd1c6f3ea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b14b2ab-fdac-488c-aa16-d861a1d79e7c" xml:space="preserve">
+          <source><bpt id="748bc5d7-4fa6-4b39-8534-546976fd72e4">&lt;linkText&gt;</bpt>Log on to the virtual machine<ept id="748bc5d7-4fa6-4b39-8534-546976fd72e4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="748bc5d7-4fa6-4b39-8534-546976fd72e4">&lt;linkText&gt;</bpt>Log on to the virtual machine<ept id="748bc5d7-4fa6-4b39-8534-546976fd72e4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0564268-4092-4c53-ac1c-e33afddab00d" xml:space="preserve">
+          <source>Click <bpt id="b3016cb0-54ab-4fa1-9f37-1806e5454dbc">&lt;strong&gt;</bpt>Open<ept id="b3016cb0-54ab-4fa1-9f37-1806e5454dbc">&lt;/strong&gt;</ept> to use the Remote Desktop Protocol file that's automatically created for the virtual machine.</source>
+          <target state="new">Click <bpt id="b3016cb0-54ab-4fa1-9f37-1806e5454dbc">&lt;strong&gt;</bpt>Open<ept id="b3016cb0-54ab-4fa1-9f37-1806e5454dbc">&lt;/strong&gt;</ept> to use the Remote Desktop Protocol file that's automatically created for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3ff16545-71ce-4f6e-8502-a3d037963cce" xml:space="preserve">
+          <source>Click <bpt id="9c6d349f-a355-48f3-a42f-bf3eaad088eb">&lt;strong&gt;</bpt>Connect<ept id="9c6d349f-a355-48f3-a42f-bf3eaad088eb">&lt;/strong&gt;</ept> to continue.</source>
+          <target state="new">Click <bpt id="9c6d349f-a355-48f3-a42f-bf3eaad088eb">&lt;strong&gt;</bpt>Connect<ept id="9c6d349f-a355-48f3-a42f-bf3eaad088eb">&lt;/strong&gt;</ept> to continue.</target>
+        </trans-unit>
+        <trans-unit id="95171326-35de-467b-a73c-cd84f7287602" xml:space="preserve">
+          <source><bpt id="a894e7bd-ef33-4860-ae6a-8f69902f3e6f">&lt;linkText&gt;</bpt>Continue with connecting<ept id="a894e7bd-ef33-4860-ae6a-8f69902f3e6f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a894e7bd-ef33-4860-ae6a-8f69902f3e6f">&lt;linkText&gt;</bpt>Continue with connecting<ept id="a894e7bd-ef33-4860-ae6a-8f69902f3e6f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e7aa232-d9d2-4699-b12e-9800d2647925" xml:space="preserve">
+          <source>Type the credentials for the administrative account on the virtual machine, and then click <bpt id="ccb840cb-8598-41bc-b90c-b93468ec4de7">&lt;strong&gt;</bpt>OK<ept id="ccb840cb-8598-41bc-b90c-b93468ec4de7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type the credentials for the administrative account on the virtual machine, and then click <bpt id="ccb840cb-8598-41bc-b90c-b93468ec4de7">&lt;strong&gt;</bpt>OK<ept id="ccb840cb-8598-41bc-b90c-b93468ec4de7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb5120e1-25f7-4e1c-936d-17275b23b05c" xml:space="preserve">
+          <source>In most cases, you'll use the user name and password that was specified when the virtual machine was created.</source>
+          <target state="new">In most cases, you'll use the user name and password that was specified when the virtual machine was created.</target>
+        </trans-unit>
+        <trans-unit id="bd62f7bf-0c17-4479-b1fa-1a640ccee3d6" xml:space="preserve">
+          <source>Check the user name to make sure it has the correct domain information:</source>
+          <target state="new">Check the user name to make sure it has the correct domain information:</target>
+        </trans-unit>
+        <trans-unit id="aa190620-1b01-4b72-a539-2fb54e4d0aa7" xml:space="preserve">
+          <source>If the VM belongs to a domain at your organization, make sure the user name includes the name of that domain.</source>
+          <target state="new">If the VM belongs to a domain at your organization, make sure the user name includes the name of that domain.</target>
+        </trans-unit>
+        <trans-unit id="44cbcbaa-9ccb-4e4d-a0db-c9aec15ba9ce" xml:space="preserve">
+          <source>If the VM doesn't belong to a domain, either remove any domain information by starting the line with '\' or use the VM name as the domain name.</source>
+          <target state="new">If the VM doesn't belong to a domain, either remove any domain information by starting the line with '\' or use the VM name as the domain name.</target>
+        </trans-unit>
+        <trans-unit id="6fe27b40-e2de-44d0-9b9d-5cfb92ff8d08" xml:space="preserve">
+          <source>For example, <bpt id="ece60969-b2d1-48c0-93a3-255d6ddfc5ca">&lt;code&gt;</bpt>\MyUserName<ept id="ece60969-b2d1-48c0-93a3-255d6ddfc5ca">&lt;/code&gt;</ept> or <bpt id="98478bf5-6b77-4f11-aa8b-9b73222339ec">&lt;code&gt;</bpt>MyTestVM\MyUserName<ept id="98478bf5-6b77-4f11-aa8b-9b73222339ec">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="ece60969-b2d1-48c0-93a3-255d6ddfc5ca">&lt;code&gt;</bpt>\MyUserName<ept id="ece60969-b2d1-48c0-93a3-255d6ddfc5ca">&lt;/code&gt;</ept> or <bpt id="98478bf5-6b77-4f11-aa8b-9b73222339ec">&lt;code&gt;</bpt>MyTestVM\MyUserName<ept id="98478bf5-6b77-4f11-aa8b-9b73222339ec">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ac7e8fe-36b6-4dff-8bce-0d857ff77fec" xml:space="preserve">
+          <source>If the VM is a domain controller, type the user name and password of a domain administrator account for that domain.</source>
+          <target state="new">If the VM is a domain controller, type the user name and password of a domain administrator account for that domain.</target>
+        </trans-unit>
+        <trans-unit id="274450ad-a79e-4af5-b77f-6ddae2481858" xml:space="preserve">
+          <source>Click <bpt id="9beffca3-85a0-40d2-884b-503efdaf4169">&lt;strong&gt;</bpt>Yes<ept id="9beffca3-85a0-40d2-884b-503efdaf4169">&lt;/strong&gt;</ept> to verify the identity of the virtual machine.</source>
+          <target state="new">Click <bpt id="9beffca3-85a0-40d2-884b-503efdaf4169">&lt;strong&gt;</bpt>Yes<ept id="9beffca3-85a0-40d2-884b-503efdaf4169">&lt;/strong&gt;</ept> to verify the identity of the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f797bd4f-1379-40e4-b940-66180072e1dc" xml:space="preserve">
+          <source><bpt id="03d7e52e-57ab-410b-a10f-fcf48060e57b">&lt;linkText&gt;</bpt>Verify the identity of the machine<ept id="03d7e52e-57ab-410b-a10f-fcf48060e57b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="03d7e52e-57ab-410b-a10f-fcf48060e57b">&lt;linkText&gt;</bpt>Verify the identity of the machine<ept id="03d7e52e-57ab-410b-a10f-fcf48060e57b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b9dc145-b9c3-4c01-8cb3-26241b2e02c2" xml:space="preserve">
+          <source>You can now work with the virtual machine remotely.</source>
+          <target state="new">You can now work with the virtual machine remotely.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

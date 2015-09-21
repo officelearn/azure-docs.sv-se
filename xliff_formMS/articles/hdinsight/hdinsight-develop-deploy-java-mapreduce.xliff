@@ -1,0 +1,897 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="605c1293-1469-4fe3-bbeb-4a210941bdac" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="605c1293-1469-4fe3-bbeb-4a210941bdac" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="760d3003-6e9a-4da5-9051-8c9b72e93685">
+        <trans-unit id="ad1c5405-e21b-4312-9122-230185d33ec6" xml:space="preserve">
+          <source>Develop Java MapReduce programs for Hadoop | Microsoft Azure</source>
+          <target state="new">Develop Java MapReduce programs for Hadoop | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ea4a0d9c-773c-43cb-88f4-34d5d8f96a99" xml:space="preserve">
+          <source>Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight.</source>
+          <target state="new">Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="7817b355-64ad-4868-905c-505e5a050ddb" xml:space="preserve">
+          <source><bpt id="d525e384-ce56-416a-b4c1-ed2121b1feb3">&lt;token href="../../includes/hdinsight-maven-mapreduce-selector.md"&gt;</bpt><ept id="d525e384-ce56-416a-b4c1-ed2121b1feb3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d525e384-ce56-416a-b4c1-ed2121b1feb3">&lt;token href="../../includes/hdinsight-maven-mapreduce-selector.md"&gt;</bpt><ept id="d525e384-ce56-416a-b4c1-ed2121b1feb3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01e93504-0bb5-445c-8e94-7f75866175ac" xml:space="preserve">
+          <source>This tutorial walks you through an end-to-end scenario for developing a word-counting Hadoop MapReduce job in Java by using Apache Maven.</source>
+          <target state="new">This tutorial walks you through an end-to-end scenario for developing a word-counting Hadoop MapReduce job in Java by using Apache Maven.</target>
+        </trans-unit>
+        <trans-unit id="aa734e03-881c-45fe-8b7e-8ba8542ccd31" xml:space="preserve">
+          <source>The tutorial also shows how to test the application on the HDInsight Emulator for Azure and then deploy and run it on an Windows-based HDInsight cluster.</source>
+          <target state="new">The tutorial also shows how to test the application on the HDInsight Emulator for Azure and then deploy and run it on an Windows-based HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="e3892ab9-f0a3-43b6-857c-2514c1d42b80" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have completed the following:</source>
+          <target state="new">Before you begin this tutorial, you must have completed the following:</target>
+        </trans-unit>
+        <trans-unit id="7885977c-50d5-42bc-a31d-fbae9e885bfd" xml:space="preserve">
+          <source>Install the HDInsight Emulator.</source>
+          <target state="new">Install the HDInsight Emulator.</target>
+        </trans-unit>
+        <trans-unit id="ba115984-76b6-4215-902f-3e0538d921af" xml:space="preserve">
+          <source>For instructions, see <bpt id="ed30c396-0b8c-41ac-ae93-80598e0bfd1f">&lt;linkText&gt;</bpt>Get started using HDInsight Emulator[hdinsight-emulator]<ept id="ed30c396-0b8c-41ac-ae93-80598e0bfd1f">&lt;/linkText&gt;</ept><bpt id="ed30c396-0b8c-41ac-ae93-80598e0bfd1f">&lt;title&gt;</bpt><ept id="ed30c396-0b8c-41ac-ae93-80598e0bfd1f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="ed30c396-0b8c-41ac-ae93-80598e0bfd1f">&lt;linkText&gt;</bpt>Get started using HDInsight Emulator[hdinsight-emulator]<ept id="ed30c396-0b8c-41ac-ae93-80598e0bfd1f">&lt;/linkText&gt;</ept><bpt id="ed30c396-0b8c-41ac-ae93-80598e0bfd1f">&lt;title&gt;</bpt><ept id="ed30c396-0b8c-41ac-ae93-80598e0bfd1f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75e4fff8-1643-4e14-b57a-2b47a2d24a8a" xml:space="preserve">
+          <source>Make sure all the required services are running.</source>
+          <target state="new">Make sure all the required services are running.</target>
+        </trans-unit>
+        <trans-unit id="352a9043-968b-4e57-9364-68370284f386" xml:space="preserve">
+          <source>On the computer that has HDInsight Emulator installed, launch the Hadoop Command line from the Desktop shortcut, navigate to <bpt id="9450f9dd-cb1d-4f06-b17a-e120cd975e81">&lt;strong&gt;</bpt>C:\hdp<ept id="9450f9dd-cb1d-4f06-b17a-e120cd975e81">&lt;/strong&gt;</ept>, and run the command <bpt id="fa482414-e223-4cc0-8b14-1fb41b155d38">&lt;strong&gt;</bpt>start_local_hdp_services.cmd<ept id="fa482414-e223-4cc0-8b14-1fb41b155d38">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the computer that has HDInsight Emulator installed, launch the Hadoop Command line from the Desktop shortcut, navigate to <bpt id="9450f9dd-cb1d-4f06-b17a-e120cd975e81">&lt;strong&gt;</bpt>C:\hdp<ept id="9450f9dd-cb1d-4f06-b17a-e120cd975e81">&lt;/strong&gt;</ept>, and run the command <bpt id="fa482414-e223-4cc0-8b14-1fb41b155d38">&lt;strong&gt;</bpt>start_local_hdp_services.cmd<ept id="fa482414-e223-4cc0-8b14-1fb41b155d38">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fab704eb-4495-43d2-b97e-5f3b02bd571c" xml:space="preserve">
+          <source>Install Azure PowerShell on the emulator computer.</source>
+          <target state="new">Install Azure PowerShell on the emulator computer.</target>
+        </trans-unit>
+        <trans-unit id="bedb69f8-72da-4af5-af24-cc258bb5f28b" xml:space="preserve">
+          <source>For instructions, see <bpt id="5174cab6-9b42-48dc-b7ba-0badb30b4a23">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell[powershell-install-configure]<ept id="5174cab6-9b42-48dc-b7ba-0badb30b4a23">&lt;/linkText&gt;</ept><bpt id="5174cab6-9b42-48dc-b7ba-0badb30b4a23">&lt;title&gt;</bpt><ept id="5174cab6-9b42-48dc-b7ba-0badb30b4a23">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="5174cab6-9b42-48dc-b7ba-0badb30b4a23">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell[powershell-install-configure]<ept id="5174cab6-9b42-48dc-b7ba-0badb30b4a23">&lt;/linkText&gt;</ept><bpt id="5174cab6-9b42-48dc-b7ba-0badb30b4a23">&lt;title&gt;</bpt><ept id="5174cab6-9b42-48dc-b7ba-0badb30b4a23">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b416951-e40d-48e9-82ca-b3b4ca58f273" xml:space="preserve">
+          <source>Install Java platform JDK 7 or higher on the emulator computer.</source>
+          <target state="new">Install Java platform JDK 7 or higher on the emulator computer.</target>
+        </trans-unit>
+        <trans-unit id="7a2bf5eb-0a32-4c95-ab97-0114f46b7384" xml:space="preserve">
+          <source>This is already available on the emulator computer.</source>
+          <target state="new">This is already available on the emulator computer.</target>
+        </trans-unit>
+        <trans-unit id="56f2097f-42c4-4430-9b4a-11864380091e" xml:space="preserve">
+          <source>Install and configure <bpt id="1cd55fd5-9c8a-4825-9162-a6913002c0ba">&lt;linkText&gt;</bpt>Apache Maven<ept id="1cd55fd5-9c8a-4825-9162-a6913002c0ba">&lt;/linkText&gt;</ept><bpt id="1cd55fd5-9c8a-4825-9162-a6913002c0ba">&lt;title&gt;</bpt><ept id="1cd55fd5-9c8a-4825-9162-a6913002c0ba">&lt;/title&gt;</ept>.</source>
+          <target state="new">Install and configure <bpt id="1cd55fd5-9c8a-4825-9162-a6913002c0ba">&lt;linkText&gt;</bpt>Apache Maven<ept id="1cd55fd5-9c8a-4825-9162-a6913002c0ba">&lt;/linkText&gt;</ept><bpt id="1cd55fd5-9c8a-4825-9162-a6913002c0ba">&lt;title&gt;</bpt><ept id="1cd55fd5-9c8a-4825-9162-a6913002c0ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b8a79ed-2adf-408a-809a-b6ba45174741" xml:space="preserve">
+          <source>Obtain an Azure subscription.</source>
+          <target state="new">Obtain an Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="0a3ac383-881d-4872-83f6-c79e16e1c80f" xml:space="preserve">
+          <source>For instructions, see <bpt id="b99c1244-72e1-4d77-9d19-120d75b1cb8e">&lt;linkText&gt;</bpt>Purchase Options[azure-purchase-options]<ept id="b99c1244-72e1-4d77-9d19-120d75b1cb8e">&lt;/linkText&gt;</ept><bpt id="b99c1244-72e1-4d77-9d19-120d75b1cb8e">&lt;title&gt;</bpt><ept id="b99c1244-72e1-4d77-9d19-120d75b1cb8e">&lt;/title&gt;</ept>, <bpt id="2fa2fa2c-4566-474d-a923-d275721b9d80">&lt;linkText&gt;</bpt>Member Offers[azure-member-offers]<ept id="2fa2fa2c-4566-474d-a923-d275721b9d80">&lt;/linkText&gt;</ept><bpt id="2fa2fa2c-4566-474d-a923-d275721b9d80">&lt;title&gt;</bpt><ept id="2fa2fa2c-4566-474d-a923-d275721b9d80">&lt;/title&gt;</ept>, or <bpt id="129460ba-5fbe-49da-b0a3-7538e64af2b3">&lt;linkText&gt;</bpt>Free Trial[azure-free-trial]<ept id="129460ba-5fbe-49da-b0a3-7538e64af2b3">&lt;/linkText&gt;</ept><bpt id="129460ba-5fbe-49da-b0a3-7538e64af2b3">&lt;title&gt;</bpt><ept id="129460ba-5fbe-49da-b0a3-7538e64af2b3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="b99c1244-72e1-4d77-9d19-120d75b1cb8e">&lt;linkText&gt;</bpt>Purchase Options[azure-purchase-options]<ept id="b99c1244-72e1-4d77-9d19-120d75b1cb8e">&lt;/linkText&gt;</ept><bpt id="b99c1244-72e1-4d77-9d19-120d75b1cb8e">&lt;title&gt;</bpt><ept id="b99c1244-72e1-4d77-9d19-120d75b1cb8e">&lt;/title&gt;</ept>, <bpt id="2fa2fa2c-4566-474d-a923-d275721b9d80">&lt;linkText&gt;</bpt>Member Offers[azure-member-offers]<ept id="2fa2fa2c-4566-474d-a923-d275721b9d80">&lt;/linkText&gt;</ept><bpt id="2fa2fa2c-4566-474d-a923-d275721b9d80">&lt;title&gt;</bpt><ept id="2fa2fa2c-4566-474d-a923-d275721b9d80">&lt;/title&gt;</ept>, or <bpt id="129460ba-5fbe-49da-b0a3-7538e64af2b3">&lt;linkText&gt;</bpt>Free Trial[azure-free-trial]<ept id="129460ba-5fbe-49da-b0a3-7538e64af2b3">&lt;/linkText&gt;</ept><bpt id="129460ba-5fbe-49da-b0a3-7538e64af2b3">&lt;title&gt;</bpt><ept id="129460ba-5fbe-49da-b0a3-7538e64af2b3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfc77f4f-8af8-4884-abdf-5665c55d203b" xml:space="preserve">
+          <source>Create a word-counting MapReduce application.</source>
+          <target state="new">Create a word-counting MapReduce application.</target>
+        </trans-unit>
+        <trans-unit id="5471af6b-1172-40c1-824f-0bd68d458043" xml:space="preserve">
+          <source>It is a simple application that counts the occurrences of each word in a given input set.</source>
+          <target state="new">It is a simple application that counts the occurrences of each word in a given input set.</target>
+        </trans-unit>
+        <trans-unit id="631e4756-e6e5-4f0e-982a-4600d5c1e663" xml:space="preserve">
+          <source>In this section, we will performing the following tasks:</source>
+          <target state="new">In this section, we will performing the following tasks:</target>
+        </trans-unit>
+        <trans-unit id="a486cfb3-78ec-4cce-9f0d-77ea9f8cf8ea" xml:space="preserve">
+          <source>Create a project by using Apache Maven</source>
+          <target state="new">Create a project by using Apache Maven</target>
+        </trans-unit>
+        <trans-unit id="32ab4d38-223b-4074-b027-fe6bd52d50b8" xml:space="preserve">
+          <source>Update the Project Object Model (POM)</source>
+          <target state="new">Update the Project Object Model (POM)</target>
+        </trans-unit>
+        <trans-unit id="708d449f-8be5-489d-b126-a7b3ce2ca346" xml:space="preserve">
+          <source>Create the word-counting MapReduce application</source>
+          <target state="new">Create the word-counting MapReduce application</target>
+        </trans-unit>
+        <trans-unit id="bd53646f-c885-40d4-83c0-46b491f60435" xml:space="preserve">
+          <source>Build and package the application</source>
+          <target state="new">Build and package the application</target>
+        </trans-unit>
+        <trans-unit id="28f37edd-88fc-4501-8893-392cffe3ea91" xml:space="preserve">
+          <source><bpt id="23da9752-135a-4da8-a994-402dc496b0d7">&lt;strong&gt;</bpt>To create a project by using Maven<ept id="23da9752-135a-4da8-a994-402dc496b0d7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="23da9752-135a-4da8-a994-402dc496b0d7">&lt;strong&gt;</bpt>To create a project by using Maven<ept id="23da9752-135a-4da8-a994-402dc496b0d7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f0147f3-2d48-4a87-a668-5cf5ee1f7823" xml:space="preserve">
+          <source>Create a directory <bpt id="c6baa699-ffd3-4614-95bc-b80ff75ace7d">&lt;strong&gt;</bpt>C:\Tutorials\WordCountJava\<ept id="c6baa699-ffd3-4614-95bc-b80ff75ace7d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a directory <bpt id="c6baa699-ffd3-4614-95bc-b80ff75ace7d">&lt;strong&gt;</bpt>C:\Tutorials\WordCountJava\<ept id="c6baa699-ffd3-4614-95bc-b80ff75ace7d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c8f812f-e178-4846-a4cd-4dbdd3785b8e" xml:space="preserve">
+          <source>From the command line in your development environment, change directories to the location you created.</source>
+          <target state="new">From the command line in your development environment, change directories to the location you created.</target>
+        </trans-unit>
+        <trans-unit id="9336ad8b-eaae-44be-bec2-3f96a533ce03" xml:space="preserve">
+          <source>Use the <bpt id="b3849786-c4f8-4f21-963e-91795f56aed5">&lt;strong&gt;</bpt>mvn<ept id="b3849786-c4f8-4f21-963e-91795f56aed5">&lt;/strong&gt;</ept> command, which is installed with Maven, to generate the scaffolding for the project.</source>
+          <target state="new">Use the <bpt id="b3849786-c4f8-4f21-963e-91795f56aed5">&lt;strong&gt;</bpt>mvn<ept id="b3849786-c4f8-4f21-963e-91795f56aed5">&lt;/strong&gt;</ept> command, which is installed with Maven, to generate the scaffolding for the project.</target>
+        </trans-unit>
+        <trans-unit id="72718df5-3af1-473e-91d8-a34566f47e9c" xml:space="preserve">
+          <source>This will create a new directory in the current directory, with the name specified by the <bpt id="1df9083d-cf55-4d9a-bd52-4e4e13544757">&lt;strong&gt;</bpt>artifactID<ept id="1df9083d-cf55-4d9a-bd52-4e4e13544757">&lt;/strong&gt;</ept> parameter (<bpt id="c82c1886-5f4f-4f83-896c-609d630b1bff">&lt;strong&gt;</bpt>wordcountjava<ept id="c82c1886-5f4f-4f83-896c-609d630b1bff">&lt;/strong&gt;</ept> in this example.)</source>
+          <target state="new">This will create a new directory in the current directory, with the name specified by the <bpt id="1df9083d-cf55-4d9a-bd52-4e4e13544757">&lt;strong&gt;</bpt>artifactID<ept id="1df9083d-cf55-4d9a-bd52-4e4e13544757">&lt;/strong&gt;</ept> parameter (<bpt id="c82c1886-5f4f-4f83-896c-609d630b1bff">&lt;strong&gt;</bpt>wordcountjava<ept id="c82c1886-5f4f-4f83-896c-609d630b1bff">&lt;/strong&gt;</ept> in this example.)</target>
+        </trans-unit>
+        <trans-unit id="68c84da6-0524-44e3-ada2-1186cfecd852" xml:space="preserve">
+          <source>This directory will contain the following items:</source>
+          <target state="new">This directory will contain the following items:</target>
+        </trans-unit>
+        <trans-unit id="29d94ec4-792f-4d3e-9945-b942c842759f" xml:space="preserve">
+          <source><bpt id="5be148cd-13f8-48e4-81ad-6931e1cc847a">&lt;strong&gt;</bpt>pom.xml<ept id="5be148cd-13f8-48e4-81ad-6931e1cc847a">&lt;/strong&gt;</ept> - The <bpt id="5c491e06-2781-4d60-9566-28f5dbab735e">&lt;linkText&gt;</bpt>Project Object Model (POM)<ept id="5c491e06-2781-4d60-9566-28f5dbab735e">&lt;/linkText&gt;</ept><bpt id="5c491e06-2781-4d60-9566-28f5dbab735e">&lt;title&gt;</bpt><ept id="5c491e06-2781-4d60-9566-28f5dbab735e">&lt;/title&gt;</ept> that contains information and configuration details used to build the project.</source>
+          <target state="new"><bpt id="5be148cd-13f8-48e4-81ad-6931e1cc847a">&lt;strong&gt;</bpt>pom.xml<ept id="5be148cd-13f8-48e4-81ad-6931e1cc847a">&lt;/strong&gt;</ept> - The <bpt id="5c491e06-2781-4d60-9566-28f5dbab735e">&lt;linkText&gt;</bpt>Project Object Model (POM)<ept id="5c491e06-2781-4d60-9566-28f5dbab735e">&lt;/linkText&gt;</ept><bpt id="5c491e06-2781-4d60-9566-28f5dbab735e">&lt;title&gt;</bpt><ept id="5c491e06-2781-4d60-9566-28f5dbab735e">&lt;/title&gt;</ept> that contains information and configuration details used to build the project.</target>
+        </trans-unit>
+        <trans-unit id="ee0c6b57-2c6d-4c01-a064-7f786a7d8f7f" xml:space="preserve">
+          <source><bpt id="5cd4a766-3ae6-4f04-8beb-2eeb67fe2189">&lt;strong&gt;</bpt>src<ept id="5cd4a766-3ae6-4f04-8beb-2eeb67fe2189">&lt;/strong&gt;</ept> - The directory that contains the <bpt id="53c1a30f-4094-4a03-a92d-8b4ba19ed140">&lt;strong&gt;</bpt>main\java\org\apache\hadoop\examples<ept id="53c1a30f-4094-4a03-a92d-8b4ba19ed140">&lt;/strong&gt;</ept> directory, where you will author the application.</source>
+          <target state="new"><bpt id="5cd4a766-3ae6-4f04-8beb-2eeb67fe2189">&lt;strong&gt;</bpt>src<ept id="5cd4a766-3ae6-4f04-8beb-2eeb67fe2189">&lt;/strong&gt;</ept> - The directory that contains the <bpt id="53c1a30f-4094-4a03-a92d-8b4ba19ed140">&lt;strong&gt;</bpt>main\java\org\apache\hadoop\examples<ept id="53c1a30f-4094-4a03-a92d-8b4ba19ed140">&lt;/strong&gt;</ept> directory, where you will author the application.</target>
+        </trans-unit>
+        <trans-unit id="98aa5620-6df9-40d3-a25d-9bb10369ffac" xml:space="preserve">
+          <source>Delete the <bpt id="356a0474-3dbb-4b3d-8549-464448c34c5a">&lt;strong&gt;</bpt>src\test\java\org\apache\hadoop\examples\apptest.java<ept id="356a0474-3dbb-4b3d-8549-464448c34c5a">&lt;/strong&gt;</ept> file, as it will not be used in this example.</source>
+          <target state="new">Delete the <bpt id="356a0474-3dbb-4b3d-8549-464448c34c5a">&lt;strong&gt;</bpt>src\test\java\org\apache\hadoop\examples\apptest.java<ept id="356a0474-3dbb-4b3d-8549-464448c34c5a">&lt;/strong&gt;</ept> file, as it will not be used in this example.</target>
+        </trans-unit>
+        <trans-unit id="0e1df720-52ab-464e-ad09-5b43327a3d02" xml:space="preserve">
+          <source><bpt id="f59f2631-189d-4f0c-8644-8d4732567d5f">&lt;strong&gt;</bpt>To update the POM<ept id="f59f2631-189d-4f0c-8644-8d4732567d5f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f59f2631-189d-4f0c-8644-8d4732567d5f">&lt;strong&gt;</bpt>To update the POM<ept id="f59f2631-189d-4f0c-8644-8d4732567d5f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76b5a66f-813c-4bf2-aed7-5befb3e9d6e1" xml:space="preserve">
+          <source>Edit the <bpt id="e50c73d7-0a34-4f90-a64d-cdaf0bc612b3">&lt;strong&gt;</bpt>pom.xml<ept id="e50c73d7-0a34-4f90-a64d-cdaf0bc612b3">&lt;/strong&gt;</ept> file and add the following inside the <bpt id="b8e11039-d256-464b-878e-84b920bbd3dc">&lt;code&gt;</bpt>&lt;dependencies&gt;<ept id="b8e11039-d256-464b-878e-84b920bbd3dc">&lt;/code&gt;</ept> section:</source>
+          <target state="new">Edit the <bpt id="e50c73d7-0a34-4f90-a64d-cdaf0bc612b3">&lt;strong&gt;</bpt>pom.xml<ept id="e50c73d7-0a34-4f90-a64d-cdaf0bc612b3">&lt;/strong&gt;</ept> file and add the following inside the <bpt id="b8e11039-d256-464b-878e-84b920bbd3dc">&lt;code&gt;</bpt>&lt;dependencies&gt;<ept id="b8e11039-d256-464b-878e-84b920bbd3dc">&lt;/code&gt;</ept> section:</target>
+        </trans-unit>
+        <trans-unit id="b6ffaf85-83a5-444a-889d-de339eaada57" xml:space="preserve">
+          <source>This tells Maven that the project requires the libraries (listed within &lt;artifactId\&gt;) with a specific version (listed within &lt;version\&gt;). At compile time, this will be downloaded from the default Maven repository. You can use the <bpt id="72dbf355-a78a-418a-aee2-d95e80fd8bd6">&lt;linkText&gt;</bpt>Maven repository search<ept id="72dbf355-a78a-418a-aee2-d95e80fd8bd6">&lt;/linkText&gt;</ept><bpt id="72dbf355-a78a-418a-aee2-d95e80fd8bd6">&lt;title&gt;</bpt><ept id="72dbf355-a78a-418a-aee2-d95e80fd8bd6">&lt;/title&gt;</ept> to view more.</source>
+          <target state="new">This tells Maven that the project requires the libraries (listed within &lt;artifactId\&gt;) with a specific version (listed within &lt;version\&gt;). At compile time, this will be downloaded from the default Maven repository. You can use the <bpt id="72dbf355-a78a-418a-aee2-d95e80fd8bd6">&lt;linkText&gt;</bpt>Maven repository search<ept id="72dbf355-a78a-418a-aee2-d95e80fd8bd6">&lt;/linkText&gt;</ept><bpt id="72dbf355-a78a-418a-aee2-d95e80fd8bd6">&lt;title&gt;</bpt><ept id="72dbf355-a78a-418a-aee2-d95e80fd8bd6">&lt;/title&gt;</ept> to view more.</target>
+        </trans-unit>
+        <trans-unit id="74359028-0e14-4ed5-8e28-800c1ac0e4c4" xml:space="preserve">
+          <source>Add the following to the <bpt id="f841bd1b-4f95-4193-a37d-4645e2d32831">&lt;strong&gt;</bpt>pom.xml<ept id="f841bd1b-4f95-4193-a37d-4645e2d32831">&lt;/strong&gt;</ept> file. This must be inside the <bpt id="30d08b78-5704-4ce5-bdd5-bf74892a8b0d">&lt;code&gt;</bpt>&lt;project&gt;...&lt;/project&gt;<ept id="30d08b78-5704-4ce5-bdd5-bf74892a8b0d">&lt;/code&gt;</ept> tags in the file; for example, between <bpt id="62e5ab10-a076-4190-9d46-77e8e6f40401">&lt;code&gt;</bpt>&lt;/dependencies&gt;<ept id="62e5ab10-a076-4190-9d46-77e8e6f40401">&lt;/code&gt;</ept> and <bpt id="a2209def-418d-4da5-9119-1353ec8a2af3">&lt;code&gt;</bpt>&lt;/project&gt;<ept id="a2209def-418d-4da5-9119-1353ec8a2af3">&lt;/code&gt;</ept>.</source>
+          <target state="new">Add the following to the <bpt id="f841bd1b-4f95-4193-a37d-4645e2d32831">&lt;strong&gt;</bpt>pom.xml<ept id="f841bd1b-4f95-4193-a37d-4645e2d32831">&lt;/strong&gt;</ept> file. This must be inside the <bpt id="30d08b78-5704-4ce5-bdd5-bf74892a8b0d">&lt;code&gt;</bpt>&lt;project&gt;...&lt;/project&gt;<ept id="30d08b78-5704-4ce5-bdd5-bf74892a8b0d">&lt;/code&gt;</ept> tags in the file; for example, between <bpt id="62e5ab10-a076-4190-9d46-77e8e6f40401">&lt;code&gt;</bpt>&lt;/dependencies&gt;<ept id="62e5ab10-a076-4190-9d46-77e8e6f40401">&lt;/code&gt;</ept> and <bpt id="a2209def-418d-4da5-9119-1353ec8a2af3">&lt;code&gt;</bpt>&lt;/project&gt;<ept id="a2209def-418d-4da5-9119-1353ec8a2af3">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3996b19-4840-4dbc-9617-49afa7d69294" xml:space="preserve">
+          <source>This configures the <bpt id="ac68e4c0-0153-4a5c-8d0d-4884b9ffd44f">&lt;linkText&gt;</bpt>Maven Shade Plugin<ept id="ac68e4c0-0153-4a5c-8d0d-4884b9ffd44f">&lt;/linkText&gt;</ept><bpt id="ac68e4c0-0153-4a5c-8d0d-4884b9ffd44f">&lt;title&gt;</bpt><ept id="ac68e4c0-0153-4a5c-8d0d-4884b9ffd44f">&lt;/title&gt;</ept>, which is used to prevent license duplication in the JAR file that is built by Maven.</source>
+          <target state="new">This configures the <bpt id="ac68e4c0-0153-4a5c-8d0d-4884b9ffd44f">&lt;linkText&gt;</bpt>Maven Shade Plugin<ept id="ac68e4c0-0153-4a5c-8d0d-4884b9ffd44f">&lt;/linkText&gt;</ept><bpt id="ac68e4c0-0153-4a5c-8d0d-4884b9ffd44f">&lt;title&gt;</bpt><ept id="ac68e4c0-0153-4a5c-8d0d-4884b9ffd44f">&lt;/title&gt;</ept>, which is used to prevent license duplication in the JAR file that is built by Maven.</target>
+        </trans-unit>
+        <trans-unit id="435e6c73-da56-4c60-814c-a13d3ecfc108" xml:space="preserve">
+          <source>The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster.</source>
+          <target state="new">The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="3a092888-8a34-44e7-9a7a-b7ac23ef9387" xml:space="preserve">
+          <source>Using the Maven Shade Plugin with the <bpt id="8f1351ce-e8c8-44a7-979e-cbe5352d769f">&lt;code&gt;</bpt>ApacheLicenseResourceTransformer<ept id="8f1351ce-e8c8-44a7-979e-cbe5352d769f">&lt;/code&gt;</ept> implementation prevents this error.</source>
+          <target state="new">Using the Maven Shade Plugin with the <bpt id="8f1351ce-e8c8-44a7-979e-cbe5352d769f">&lt;code&gt;</bpt>ApacheLicenseResourceTransformer<ept id="8f1351ce-e8c8-44a7-979e-cbe5352d769f">&lt;/code&gt;</ept> implementation prevents this error.</target>
+        </trans-unit>
+        <trans-unit id="8f2c5f26-6d21-4ea9-bd60-fd18fb5bbe37" xml:space="preserve">
+          <source>The Maven Shade Plugin will also produce an uberjar (sometimes called a fatjar), which contains all the dependencies required by the application.</source>
+          <target state="new">The Maven Shade Plugin will also produce an uberjar (sometimes called a fatjar), which contains all the dependencies required by the application.</target>
+        </trans-unit>
+        <trans-unit id="7f08b8c1-b127-4e78-b59d-0fb7af44a915" xml:space="preserve">
+          <source>Save the <bpt id="6bd08059-f847-439d-ad0b-5657a17a4784">&lt;strong&gt;</bpt>pom.xml<ept id="6bd08059-f847-439d-ad0b-5657a17a4784">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save the <bpt id="6bd08059-f847-439d-ad0b-5657a17a4784">&lt;strong&gt;</bpt>pom.xml<ept id="6bd08059-f847-439d-ad0b-5657a17a4784">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="f23a54f8-2cad-4d70-9b50-71d11fd5165d" xml:space="preserve">
+          <source><bpt id="eec3b511-874e-44d2-ad3b-e36c10494fb9">&lt;strong&gt;</bpt>To create the word-counting application<ept id="eec3b511-874e-44d2-ad3b-e36c10494fb9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="eec3b511-874e-44d2-ad3b-e36c10494fb9">&lt;strong&gt;</bpt>To create the word-counting application<ept id="eec3b511-874e-44d2-ad3b-e36c10494fb9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecf62fa0-67d3-4261-8777-a94c78e56aaa" xml:space="preserve">
+          <source>Go to the <bpt id="b4984e10-cc44-4afc-b9c8-360dcda3846f">&lt;strong&gt;</bpt>wordcountjava\src\main\java\org\apache\hadoop\examples<ept id="b4984e10-cc44-4afc-b9c8-360dcda3846f">&lt;/strong&gt;</ept> directory and rename the <bpt id="147f8e20-3e23-4432-b5a7-43fc0a3d8685">&lt;strong&gt;</bpt>app.java<ept id="147f8e20-3e23-4432-b5a7-43fc0a3d8685">&lt;/strong&gt;</ept> file to <bpt id="30be3671-060c-4a22-91bc-1497848c648c">&lt;strong&gt;</bpt>WordCount.java<ept id="30be3671-060c-4a22-91bc-1497848c648c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to the <bpt id="b4984e10-cc44-4afc-b9c8-360dcda3846f">&lt;strong&gt;</bpt>wordcountjava\src\main\java\org\apache\hadoop\examples<ept id="b4984e10-cc44-4afc-b9c8-360dcda3846f">&lt;/strong&gt;</ept> directory and rename the <bpt id="147f8e20-3e23-4432-b5a7-43fc0a3d8685">&lt;strong&gt;</bpt>app.java<ept id="147f8e20-3e23-4432-b5a7-43fc0a3d8685">&lt;/strong&gt;</ept> file to <bpt id="30be3671-060c-4a22-91bc-1497848c648c">&lt;strong&gt;</bpt>WordCount.java<ept id="30be3671-060c-4a22-91bc-1497848c648c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3afe1ecc-9b98-4443-a379-54faee3b585d" xml:space="preserve">
+          <source>Open Notepad.</source>
+          <target state="new">Open Notepad.</target>
+        </trans-unit>
+        <trans-unit id="519add2c-8381-4d98-ab0a-e88720d627c4" xml:space="preserve">
+          <source>Copy and paste the following program into Notepad:</source>
+          <target state="new">Copy and paste the following program into Notepad:</target>
+        </trans-unit>
+        <trans-unit id="d9cec6c8-731c-4b20-a3a9-4fe3407f9602" xml:space="preserve">
+          <source>Notice the package name is <bpt id="c73fb4c6-35e2-4af4-9859-2f650031d146">&lt;strong&gt;</bpt>org.apache.hadoop.examples<ept id="c73fb4c6-35e2-4af4-9859-2f650031d146">&lt;/strong&gt;</ept> and the class name is <bpt id="675721b4-1187-48ce-bc8e-3ab4268fe928">&lt;strong&gt;</bpt>WordCount<ept id="675721b4-1187-48ce-bc8e-3ab4268fe928">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice the package name is <bpt id="c73fb4c6-35e2-4af4-9859-2f650031d146">&lt;strong&gt;</bpt>org.apache.hadoop.examples<ept id="c73fb4c6-35e2-4af4-9859-2f650031d146">&lt;/strong&gt;</ept> and the class name is <bpt id="675721b4-1187-48ce-bc8e-3ab4268fe928">&lt;strong&gt;</bpt>WordCount<ept id="675721b4-1187-48ce-bc8e-3ab4268fe928">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75104461-3dec-4558-96c4-3bae6a900eb3" xml:space="preserve">
+          <source>You will use these names when you submit the MapReduce job.</source>
+          <target state="new">You will use these names when you submit the MapReduce job.</target>
+        </trans-unit>
+        <trans-unit id="565e95d0-3819-4896-a2b1-4e190b54fdf9" xml:space="preserve">
+          <source>Save the file.</source>
+          <target state="new">Save the file.</target>
+        </trans-unit>
+        <trans-unit id="3b4db0ab-65ca-4b1c-a295-ebd636169eaa" xml:space="preserve">
+          <source><bpt id="eca01c09-aaec-41a2-a96b-d0aaa33676ae">&lt;strong&gt;</bpt>To build and package the application<ept id="eca01c09-aaec-41a2-a96b-d0aaa33676ae">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="eca01c09-aaec-41a2-a96b-d0aaa33676ae">&lt;strong&gt;</bpt>To build and package the application<ept id="eca01c09-aaec-41a2-a96b-d0aaa33676ae">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="315e079b-f09c-4b40-9111-2249d6383c29" xml:space="preserve">
+          <source>Open a command prompt and change directories to the <bpt id="64ec80d1-b6c7-4fe4-bf3a-0deb521d420f">&lt;strong&gt;</bpt>wordcountjava<ept id="64ec80d1-b6c7-4fe4-bf3a-0deb521d420f">&lt;/strong&gt;</ept> directory.</source>
+          <target state="new">Open a command prompt and change directories to the <bpt id="64ec80d1-b6c7-4fe4-bf3a-0deb521d420f">&lt;strong&gt;</bpt>wordcountjava<ept id="64ec80d1-b6c7-4fe4-bf3a-0deb521d420f">&lt;/strong&gt;</ept> directory.</target>
+        </trans-unit>
+        <trans-unit id="599c6ff3-01db-418a-816e-fb87e68f4720" xml:space="preserve">
+          <source>Use the following command to build a JAR file containing the application:</source>
+          <target state="new">Use the following command to build a JAR file containing the application:</target>
+        </trans-unit>
+        <trans-unit id="28129051-e1fd-4115-aa86-0c178bf79846" xml:space="preserve">
+          <source>This will clean any previous build artifacts, download any dependencies that have not already been installed, and then build and package the application.</source>
+          <target state="new">This will clean any previous build artifacts, download any dependencies that have not already been installed, and then build and package the application.</target>
+        </trans-unit>
+        <trans-unit id="1c97fc12-b096-4360-96f3-c53d94ce90c0" xml:space="preserve">
+          <source>Once the command finishes, the <bpt id="0ad12c7c-d5c0-4860-a058-c811543f377a">&lt;strong&gt;</bpt>wordcountjava\target<ept id="0ad12c7c-d5c0-4860-a058-c811543f377a">&lt;/strong&gt;</ept> directory will contain a file named <bpt id="2057c523-1b9c-489c-8550-0fd380e87fc1">&lt;strong&gt;</bpt>wordcountjava-1.0-SNAPSHOT.jar<ept id="2057c523-1b9c-489c-8550-0fd380e87fc1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the command finishes, the <bpt id="0ad12c7c-d5c0-4860-a058-c811543f377a">&lt;strong&gt;</bpt>wordcountjava\target<ept id="0ad12c7c-d5c0-4860-a058-c811543f377a">&lt;/strong&gt;</ept> directory will contain a file named <bpt id="2057c523-1b9c-489c-8550-0fd380e87fc1">&lt;strong&gt;</bpt>wordcountjava-1.0-SNAPSHOT.jar<ept id="2057c523-1b9c-489c-8550-0fd380e87fc1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="766355d1-444e-4525-8e7f-b0b86506a2a9" xml:space="preserve">
+          <source>The <bpt id="52fff0e5-9b16-4ebb-9cf2-04bb7844804e">&lt;strong&gt;</bpt>wordcountjava-1.0-SNAPSHOT.jar<ept id="52fff0e5-9b16-4ebb-9cf2-04bb7844804e">&lt;/strong&gt;</ept> file is an uberjar.</source>
+          <target state="new">The <bpt id="52fff0e5-9b16-4ebb-9cf2-04bb7844804e">&lt;strong&gt;</bpt>wordcountjava-1.0-SNAPSHOT.jar<ept id="52fff0e5-9b16-4ebb-9cf2-04bb7844804e">&lt;/strong&gt;</ept> file is an uberjar.</target>
+        </trans-unit>
+        <trans-unit id="9341ea70-d8f2-4fc7-b1a9-a26e48ce5eff" xml:space="preserve">
+          <source>Testing the MapReduce job on the HDInsight Emulator includes the following procedures:</source>
+          <target state="new">Testing the MapReduce job on the HDInsight Emulator includes the following procedures:</target>
+        </trans-unit>
+        <trans-unit id="cff1b589-558e-4720-bf1f-5561d026ce66" xml:space="preserve">
+          <source>Upload the data files to the Hadoop Distributed File System (HDFS) on the emulator</source>
+          <target state="new">Upload the data files to the Hadoop Distributed File System (HDFS) on the emulator</target>
+        </trans-unit>
+        <trans-unit id="5f6a9191-fbfe-4a9c-9aa2-90b3db79b48b" xml:space="preserve">
+          <source>Create a local user group</source>
+          <target state="new">Create a local user group</target>
+        </trans-unit>
+        <trans-unit id="749b5b82-78ed-4875-b711-aca02b4a31b0" xml:space="preserve">
+          <source>Run a word-counting MapReduce job</source>
+          <target state="new">Run a word-counting MapReduce job</target>
+        </trans-unit>
+        <trans-unit id="2f998bf9-8dec-403b-9346-45058172675e" xml:space="preserve">
+          <source>Retrieve the job results</source>
+          <target state="new">Retrieve the job results</target>
+        </trans-unit>
+        <trans-unit id="7737b3c4-dd6c-457c-94b7-c93924947526" xml:space="preserve">
+          <source>By default, the HDInsight Emulator uses HDFS as the file system.</source>
+          <target state="new">By default, the HDInsight Emulator uses HDFS as the file system.</target>
+        </trans-unit>
+        <trans-unit id="bdc20ac7-9296-4c37-8e4b-9538e3def789" xml:space="preserve">
+          <source>Optionally, you can configure the HDInsight Emulator to use Azure Blob storage.</source>
+          <target state="new">Optionally, you can configure the HDInsight Emulator to use Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="05a7c2ef-a535-45b1-b8dd-87ce17b9ab76" xml:space="preserve">
+          <source>For details, see <bpt id="4e90d8c8-87b2-40aa-90ed-685033d6bd0e">&lt;linkText&gt;</bpt>Get started with HDInsight Emulator[hdinsight-emulator-wasb]<ept id="4e90d8c8-87b2-40aa-90ed-685033d6bd0e">&lt;/linkText&gt;</ept><bpt id="4e90d8c8-87b2-40aa-90ed-685033d6bd0e">&lt;title&gt;</bpt><ept id="4e90d8c8-87b2-40aa-90ed-685033d6bd0e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="4e90d8c8-87b2-40aa-90ed-685033d6bd0e">&lt;linkText&gt;</bpt>Get started with HDInsight Emulator[hdinsight-emulator-wasb]<ept id="4e90d8c8-87b2-40aa-90ed-685033d6bd0e">&lt;/linkText&gt;</ept><bpt id="4e90d8c8-87b2-40aa-90ed-685033d6bd0e">&lt;title&gt;</bpt><ept id="4e90d8c8-87b2-40aa-90ed-685033d6bd0e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfa8ea3b-ad8e-4d56-a912-4b12823f85c4" xml:space="preserve">
+          <source>In this tutorial, you will use the HDFS <bpt id="d890a782-069b-4805-8ce4-06e467634a4b">&lt;strong&gt;</bpt>copyFromLocal<ept id="d890a782-069b-4805-8ce4-06e467634a4b">&lt;/strong&gt;</ept> command to upload the data files to HDFS.</source>
+          <target state="new">In this tutorial, you will use the HDFS <bpt id="d890a782-069b-4805-8ce4-06e467634a4b">&lt;strong&gt;</bpt>copyFromLocal<ept id="d890a782-069b-4805-8ce4-06e467634a4b">&lt;/strong&gt;</ept> command to upload the data files to HDFS.</target>
+        </trans-unit>
+        <trans-unit id="836cba39-a273-4db7-a384-6c05a19e560e" xml:space="preserve">
+          <source>The next section shows you how to upload files to Azure Blob storage by using Azure PowerShell.</source>
+          <target state="new">The next section shows you how to upload files to Azure Blob storage by using Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="f48e455c-fb63-4b51-8b69-cb0cf6b90699" xml:space="preserve">
+          <source>For other methods for uploading files to Azure Blob storage, see <bpt id="0ab1bb2d-ee0c-4613-9646-a1ce6273b162">&lt;linkText&gt;</bpt>Upload data to HDInsight[hdinsight-upload-data]<ept id="0ab1bb2d-ee0c-4613-9646-a1ce6273b162">&lt;/linkText&gt;</ept><bpt id="0ab1bb2d-ee0c-4613-9646-a1ce6273b162">&lt;title&gt;</bpt><ept id="0ab1bb2d-ee0c-4613-9646-a1ce6273b162">&lt;/title&gt;</ept>.</source>
+          <target state="new">For other methods for uploading files to Azure Blob storage, see <bpt id="0ab1bb2d-ee0c-4613-9646-a1ce6273b162">&lt;linkText&gt;</bpt>Upload data to HDInsight[hdinsight-upload-data]<ept id="0ab1bb2d-ee0c-4613-9646-a1ce6273b162">&lt;/linkText&gt;</ept><bpt id="0ab1bb2d-ee0c-4613-9646-a1ce6273b162">&lt;title&gt;</bpt><ept id="0ab1bb2d-ee0c-4613-9646-a1ce6273b162">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="336e3f7c-7b5d-4b3b-bace-bb19b31b6017" xml:space="preserve">
+          <source>This tutorial uses the following HDFS folder structure:</source>
+          <target state="new">This tutorial uses the following HDFS folder structure:</target>
+        </trans-unit>
+        <trans-unit id="66e7e70c-bb82-441d-93ab-a969bd7fc87f" xml:space="preserve">
+          <source>Folder</source>
+          <target state="new">Folder</target>
+        </trans-unit>
+        <trans-unit id="e5b649c4-a53e-4d68-af0a-23f85cc1552c" xml:space="preserve">
+          <source>Note</source>
+          <target state="new">Note</target>
+        </trans-unit>
+        <trans-unit id="904b2310-f50b-4f6c-976c-ec4b11fb1213" xml:space="preserve">
+          <source>/WordCount</source>
+          <target state="new">/WordCount</target>
+        </trans-unit>
+        <trans-unit id="73db7023-69ae-4455-9b4e-cc30bef0c4b3" xml:space="preserve">
+          <source>The root folder for the word-counting project.</source>
+          <target state="new">The root folder for the word-counting project.</target>
+        </trans-unit>
+        <trans-unit id="9980d4f4-0eab-4e5b-933d-a154f3307fe5" xml:space="preserve">
+          <source>/WordCount/Apps</source>
+          <target state="new">/WordCount/Apps</target>
+        </trans-unit>
+        <trans-unit id="e30a1fcd-9012-431c-ae08-39a208d18a81" xml:space="preserve">
+          <source>The folder for the mapper and reducer executables.</source>
+          <target state="new">The folder for the mapper and reducer executables.</target>
+        </trans-unit>
+        <trans-unit id="2e63ec43-4545-45d1-8196-46e0bbd5d61e" xml:space="preserve">
+          <source>/WordCount/Input</source>
+          <target state="new">/WordCount/Input</target>
+        </trans-unit>
+        <trans-unit id="cd0b9403-f6b9-494f-bf2e-69a3418c495f" xml:space="preserve">
+          <source>The MapReduce source file folder.</source>
+          <target state="new">The MapReduce source file folder.</target>
+        </trans-unit>
+        <trans-unit id="d383b524-61a4-4992-abd4-f109c9df5d9d" xml:space="preserve">
+          <source>/WordCount/Output</source>
+          <target state="new">/WordCount/Output</target>
+        </trans-unit>
+        <trans-unit id="f62336ec-d87a-4faa-bb52-88a5d2677426" xml:space="preserve">
+          <source>The MapReduce output file folder.</source>
+          <target state="new">The MapReduce output file folder.</target>
+        </trans-unit>
+        <trans-unit id="dd87233e-6b72-48f1-bdec-12832cf291ef" xml:space="preserve">
+          <source>/WordCount/MRStatusOutput</source>
+          <target state="new">/WordCount/MRStatusOutput</target>
+        </trans-unit>
+        <trans-unit id="33f5c56d-3f78-4820-8c07-d4e4092dbfdc" xml:space="preserve">
+          <source>The job output folder.</source>
+          <target state="new">The job output folder.</target>
+        </trans-unit>
+        <trans-unit id="28f091bb-7d8e-45e4-8b02-a5b398ef81c4" xml:space="preserve">
+          <source>This tutorial uses the .txt files located in the %hadoop_home% directory as the data files.</source>
+          <target state="new">This tutorial uses the .txt files located in the %hadoop_home% directory as the data files.</target>
+        </trans-unit>
+        <trans-unit id="fe093bd4-db5d-4fa7-8d02-9e08685d23a9" xml:space="preserve">
+          <source>The Hadoop HDFS commands are case sensitive.</source>
+          <target state="new">The Hadoop HDFS commands are case sensitive.</target>
+        </trans-unit>
+        <trans-unit id="b94cbf21-62c2-4582-b08f-e4a7ad3711d9" xml:space="preserve">
+          <source><bpt id="dcc6746a-a73c-4720-9e5c-fc2dea2d4ded">&lt;strong&gt;</bpt>To copy the data files to the emulator HDFS<ept id="dcc6746a-a73c-4720-9e5c-fc2dea2d4ded">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dcc6746a-a73c-4720-9e5c-fc2dea2d4ded">&lt;strong&gt;</bpt>To copy the data files to the emulator HDFS<ept id="dcc6746a-a73c-4720-9e5c-fc2dea2d4ded">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a00b13d-cd88-4901-829b-6e44d3b60e28" xml:space="preserve">
+          <source>Open the Hadoop command line from your desktop.</source>
+          <target state="new">Open the Hadoop command line from your desktop.</target>
+        </trans-unit>
+        <trans-unit id="cfbc5422-52c6-4647-b239-f47edd55fe8d" xml:space="preserve">
+          <source>The Hadoop command line is installed by the emulator installer.</source>
+          <target state="new">The Hadoop command line is installed by the emulator installer.</target>
+        </trans-unit>
+        <trans-unit id="f38f25f2-f36c-4bb3-b4c7-39a387c5c47a" xml:space="preserve">
+          <source>From the Hadoop command-line window, run the following command to make a directory for the input files:</source>
+          <target state="new">From the Hadoop command-line window, run the following command to make a directory for the input files:</target>
+        </trans-unit>
+        <trans-unit id="bbe5a98d-348a-44fe-bcc8-0e74b264737e" xml:space="preserve">
+          <source>The path used here is the relative path.</source>
+          <target state="new">The path used here is the relative path.</target>
+        </trans-unit>
+        <trans-unit id="c06b730d-29b1-49c8-9890-8f4a1c957355" xml:space="preserve">
+          <source>It is equivalent to the following:</source>
+          <target state="new">It is equivalent to the following:</target>
+        </trans-unit>
+        <trans-unit id="7cb7cee7-0bdb-43cb-a84e-bfb225aad069" xml:space="preserve">
+          <source>Run the following command to copy some text files to the input folder on HDFS:</source>
+          <target state="new">Run the following command to copy some text files to the input folder on HDFS:</target>
+        </trans-unit>
+        <trans-unit id="54f3225e-e4b0-40c7-bc48-225acbec383a" xml:space="preserve">
+          <source>The MapReduce job will count the words in these files.</source>
+          <target state="new">The MapReduce job will count the words in these files.</target>
+        </trans-unit>
+        <trans-unit id="cdd08add-f4a4-4c2e-abc2-7a00ae093ccd" xml:space="preserve">
+          <source>Run the following command to list and verify the uploaded files:</source>
+          <target state="new">Run the following command to list and verify the uploaded files:</target>
+        </trans-unit>
+        <trans-unit id="1fa64ef6-f923-4103-8928-b01f41619e46" xml:space="preserve">
+          <source><bpt id="61d0927e-5808-4e1d-968f-76365468b7e7">&lt;strong&gt;</bpt>To create a local user group<ept id="61d0927e-5808-4e1d-968f-76365468b7e7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="61d0927e-5808-4e1d-968f-76365468b7e7">&lt;strong&gt;</bpt>To create a local user group<ept id="61d0927e-5808-4e1d-968f-76365468b7e7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e88bb69-9115-481f-820f-fb591f724e9c" xml:space="preserve">
+          <source>To successfully run the MapReduce job on the cluster, you must create a user group called hdfs.</source>
+          <target state="new">To successfully run the MapReduce job on the cluster, you must create a user group called hdfs.</target>
+        </trans-unit>
+        <trans-unit id="d7f053dd-1007-49cb-a1e4-bc6ce4eecdd3" xml:space="preserve">
+          <source>To this group, you must also add a user called hadoop and the local user with which you log on to the emulator.</source>
+          <target state="new">To this group, you must also add a user called hadoop and the local user with which you log on to the emulator.</target>
+        </trans-unit>
+        <trans-unit id="bb5eec43-4c16-43f4-b439-24962351e238" xml:space="preserve">
+          <source>Use the following commands from an elevated command prompt:</source>
+          <target state="new">Use the following commands from an elevated command prompt:</target>
+        </trans-unit>
+        <trans-unit id="483c9f8e-ba15-4efc-b911-df67262d83c6" xml:space="preserve">
+          <source><bpt id="705ba2f4-cc29-4a88-b447-06b1a7e1ff21">&lt;strong&gt;</bpt>To run the MapReduce job by using the Hadoop command line<ept id="705ba2f4-cc29-4a88-b447-06b1a7e1ff21">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="705ba2f4-cc29-4a88-b447-06b1a7e1ff21">&lt;strong&gt;</bpt>To run the MapReduce job by using the Hadoop command line<ept id="705ba2f4-cc29-4a88-b447-06b1a7e1ff21">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa5d925e-b280-463e-8e0d-644d48b84df4" xml:space="preserve">
+          <source>Open the Hadoop command line from your desktop.</source>
+          <target state="new">Open the Hadoop command line from your desktop.</target>
+        </trans-unit>
+        <trans-unit id="9294bac9-6835-49d5-913a-6a01e9948508" xml:space="preserve">
+          <source>Run the following command to delete the /WordCount/Output folder structure from HDFS.</source>
+          <target state="new">Run the following command to delete the /WordCount/Output folder structure from HDFS.</target>
+        </trans-unit>
+        <trans-unit id="1ca860ff-1ddd-4b2a-aa04-962e0103bcd7" xml:space="preserve">
+          <source>/WordCount/Output is the output folder of the word-counting MapReduce job.</source>
+          <target state="new">/WordCount/Output is the output folder of the word-counting MapReduce job.</target>
+        </trans-unit>
+        <trans-unit id="dfbe7196-f53b-4559-854c-1b8c0c8e3b16" xml:space="preserve">
+          <source>The MapReduce job will fail if the folder already exists.</source>
+          <target state="new">The MapReduce job will fail if the folder already exists.</target>
+        </trans-unit>
+        <trans-unit id="c597866e-3eb8-4d0c-bb7e-f537cd1387c8" xml:space="preserve">
+          <source>This step is necessary if this is the second time you're running the job.</source>
+          <target state="new">This step is necessary if this is the second time you're running the job.</target>
+        </trans-unit>
+        <trans-unit id="05206053-afa5-4762-82c3-b2bee9a89ca5" xml:space="preserve">
+          <source>Run the following command:</source>
+          <target state="new">Run the following command:</target>
+        </trans-unit>
+        <trans-unit id="fce2b6c7-28eb-43c9-b405-eb61237ac4a2" xml:space="preserve">
+          <source>If the job finishes successfully, you should get an output similar to the following screenshot:</source>
+          <target state="new">If the job finishes successfully, you should get an output similar to the following screenshot:</target>
+        </trans-unit>
+        <trans-unit id="bf0e35c4-2f06-43b0-bcc4-2f15bc9e0a26" xml:space="preserve">
+          <source><bpt id="f3476e53-932c-46a2-876f-8d610312c940">&lt;linkText&gt;</bpt>HDI.EMulator.WordCount.Run<ept id="f3476e53-932c-46a2-876f-8d610312c940">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f3476e53-932c-46a2-876f-8d610312c940">&lt;linkText&gt;</bpt>HDI.EMulator.WordCount.Run<ept id="f3476e53-932c-46a2-876f-8d610312c940">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c30ae3b5-b90f-49b5-a8c1-c8b5c7eadc33" xml:space="preserve">
+          <source>From the screenshot, you can see both map and reduce finished 100%.</source>
+          <target state="new">From the screenshot, you can see both map and reduce finished 100%.</target>
+        </trans-unit>
+        <trans-unit id="5071e11d-b3ad-433f-9773-4222e523056d" xml:space="preserve">
+          <source>It also lists the job ID.</source>
+          <target state="new">It also lists the job ID.</target>
+        </trans-unit>
+        <trans-unit id="e562c348-398d-4771-b9be-82c05dc99df3" xml:space="preserve">
+          <source>The same report can be retrieved by opening the <bpt id="9f248eea-77d0-4b54-95bf-7c096c6150ec">&lt;strong&gt;</bpt>Hadoop MapReduce status<ept id="9f248eea-77d0-4b54-95bf-7c096c6150ec">&lt;/strong&gt;</ept> shortcut from your desktop, and looking for the same job ID.</source>
+          <target state="new">The same report can be retrieved by opening the <bpt id="9f248eea-77d0-4b54-95bf-7c096c6150ec">&lt;strong&gt;</bpt>Hadoop MapReduce status<ept id="9f248eea-77d0-4b54-95bf-7c096c6150ec">&lt;/strong&gt;</ept> shortcut from your desktop, and looking for the same job ID.</target>
+        </trans-unit>
+        <trans-unit id="96ae0e83-874f-4337-afc4-f18ae3a4d445" xml:space="preserve">
+          <source>The other option for running a MapReduce job is using Azure PowerShell.</source>
+          <target state="new">The other option for running a MapReduce job is using Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="a033a1b5-5b65-414e-b013-4bec8895249c" xml:space="preserve">
+          <source>For instructions, see <bpt id="0b9aaf19-6f6d-4a9c-aef3-d0d3f8cbceac">&lt;linkText&gt;</bpt>Get started with the HDInsight Emulator[hdinsight-emulator]<ept id="0b9aaf19-6f6d-4a9c-aef3-d0d3f8cbceac">&lt;/linkText&gt;</ept><bpt id="0b9aaf19-6f6d-4a9c-aef3-d0d3f8cbceac">&lt;title&gt;</bpt><ept id="0b9aaf19-6f6d-4a9c-aef3-d0d3f8cbceac">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="0b9aaf19-6f6d-4a9c-aef3-d0d3f8cbceac">&lt;linkText&gt;</bpt>Get started with the HDInsight Emulator[hdinsight-emulator]<ept id="0b9aaf19-6f6d-4a9c-aef3-d0d3f8cbceac">&lt;/linkText&gt;</ept><bpt id="0b9aaf19-6f6d-4a9c-aef3-d0d3f8cbceac">&lt;title&gt;</bpt><ept id="0b9aaf19-6f6d-4a9c-aef3-d0d3f8cbceac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6f4553c-642a-4879-878a-52da900dcb53" xml:space="preserve">
+          <source><bpt id="ce5e8024-7f5c-46df-9da9-209525be16aa">&lt;strong&gt;</bpt>To display the output from HDFS<ept id="ce5e8024-7f5c-46df-9da9-209525be16aa">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ce5e8024-7f5c-46df-9da9-209525be16aa">&lt;strong&gt;</bpt>To display the output from HDFS<ept id="ce5e8024-7f5c-46df-9da9-209525be16aa">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c916ca1-64eb-44dc-bf20-e75b5efe4952" xml:space="preserve">
+          <source>Open the Hadoop command line.</source>
+          <target state="new">Open the Hadoop command line.</target>
+        </trans-unit>
+        <trans-unit id="706c068a-4968-4a81-a493-5a2a9b588876" xml:space="preserve">
+          <source>Run the following commands to display the output:</source>
+          <target state="new">Run the following commands to display the output:</target>
+        </trans-unit>
+        <trans-unit id="f629d4df-e39b-432c-a7ec-05956810c112" xml:space="preserve">
+          <source>You can append "|more" at the end of the command to get the page view.</source>
+          <target state="new">You can append "|more" at the end of the command to get the page view.</target>
+        </trans-unit>
+        <trans-unit id="2b146b7a-c9cc-4e3a-911c-546e62ee6573" xml:space="preserve">
+          <source>Or use the <bpt id="cf03f52e-fc42-44a5-b2c0-84caa8fad857">&lt;strong&gt;</bpt>findstr<ept id="cf03f52e-fc42-44a5-b2c0-84caa8fad857">&lt;/strong&gt;</ept> command to find a string pattern:</source>
+          <target state="new">Or use the <bpt id="cf03f52e-fc42-44a5-b2c0-84caa8fad857">&lt;strong&gt;</bpt>findstr<ept id="cf03f52e-fc42-44a5-b2c0-84caa8fad857">&lt;/strong&gt;</ept> command to find a string pattern:</target>
+        </trans-unit>
+        <trans-unit id="3b0f63d9-97f3-4d0b-bc62-a9da1d921861" xml:space="preserve">
+          <source>You have now developed a word-counting MapReduce job and tested it successfully on the emulator.</source>
+          <target state="new">You have now developed a word-counting MapReduce job and tested it successfully on the emulator.</target>
+        </trans-unit>
+        <trans-unit id="961f3c1a-399b-4cb4-b465-d625c4bff3b4" xml:space="preserve">
+          <source>The next step is to deploy and run it on Azure HDInsight.</source>
+          <target state="new">The next step is to deploy and run it on Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="f4ab41d7-0b9d-4649-9049-cbb54d497c4f" xml:space="preserve">
+          <source>Azure HDInsight uses Azure Blob storage for data storage.</source>
+          <target state="new">Azure HDInsight uses Azure Blob storage for data storage.</target>
+        </trans-unit>
+        <trans-unit id="d5dff49f-3232-415d-aaaa-f356f1d3ab22" xml:space="preserve">
+          <source>When an HDInsight cluster is provisioned, an Azure Blob storage container is used to store the system files.</source>
+          <target state="new">When an HDInsight cluster is provisioned, an Azure Blob storage container is used to store the system files.</target>
+        </trans-unit>
+        <trans-unit id="d9e64265-3793-4d84-a51d-2752e39a6f0b" xml:space="preserve">
+          <source>You can use either this default container or a different container (either on the same Azure Storage account or on a different Storage account located in the same datacenter as the cluster) for storing the data files.</source>
+          <target state="new">You can use either this default container or a different container (either on the same Azure Storage account or on a different Storage account located in the same datacenter as the cluster) for storing the data files.</target>
+        </trans-unit>
+        <trans-unit id="65ccdf2f-8478-40b3-830b-99c114c0e201" xml:space="preserve">
+          <source>In this tutorial, you will create a container on a separate Storage account for the data files and the MapReduce application.</source>
+          <target state="new">In this tutorial, you will create a container on a separate Storage account for the data files and the MapReduce application.</target>
+        </trans-unit>
+        <trans-unit id="e4c56ecd-8121-44e5-ad49-f79babd3dab1" xml:space="preserve">
+          <source>The data files are the text files in the <bpt id="a5b19012-6e7b-499c-b4cd-ea3206e2ad50">&lt;strong&gt;</bpt>C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common<ept id="a5b19012-6e7b-499c-b4cd-ea3206e2ad50">&lt;/strong&gt;</ept> directory on your emulator workstation.</source>
+          <target state="new">The data files are the text files in the <bpt id="a5b19012-6e7b-499c-b4cd-ea3206e2ad50">&lt;strong&gt;</bpt>C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common<ept id="a5b19012-6e7b-499c-b4cd-ea3206e2ad50">&lt;/strong&gt;</ept> directory on your emulator workstation.</target>
+        </trans-unit>
+        <trans-unit id="eaf5903e-ae42-4f81-bc38-735d03944487" xml:space="preserve">
+          <source><bpt id="e36f2109-11ee-46cf-81cc-35e8df9c6ea8">&lt;strong&gt;</bpt>To create a Blob storage account and a container<ept id="e36f2109-11ee-46cf-81cc-35e8df9c6ea8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e36f2109-11ee-46cf-81cc-35e8df9c6ea8">&lt;strong&gt;</bpt>To create a Blob storage account and a container<ept id="e36f2109-11ee-46cf-81cc-35e8df9c6ea8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e72e8d1-829c-4573-a8bb-ad392cf8aa73" xml:space="preserve">
+          <source>Open Azure PowerShell.</source>
+          <target state="new">Open Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="31925264-55ba-4155-ba7f-8e567231d33f" xml:space="preserve">
+          <source>Set the variables, and then run the commands:</source>
+          <target state="new">Set the variables, and then run the commands:</target>
+        </trans-unit>
+        <trans-unit id="4ba74c1a-d7b6-474e-9a64-a69f14d49e3a" xml:space="preserve">
+          <source>The <bpt id="c16018af-c39c-4feb-9988-d19b1c1aa69d">&lt;strong&gt;</bpt>$subscripionName<ept id="c16018af-c39c-4feb-9988-d19b1c1aa69d">&lt;/strong&gt;</ept> variable is associated with your Azure subscription.</source>
+          <target state="new">The <bpt id="c16018af-c39c-4feb-9988-d19b1c1aa69d">&lt;strong&gt;</bpt>$subscripionName<ept id="c16018af-c39c-4feb-9988-d19b1c1aa69d">&lt;/strong&gt;</ept> variable is associated with your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="1eb1a24f-c9b8-4201-832a-74f1685e0828" xml:space="preserve">
+          <source>You must name <bpt id="3800fe47-1fbb-4182-83e2-2e95e2d685b2">&lt;strong&gt;</bpt>$storageAccountName\_Data<ept id="3800fe47-1fbb-4182-83e2-2e95e2d685b2">&lt;/strong&gt;</ept> and <bpt id="d13be54f-a07f-4caa-ad5f-19e77267fc64">&lt;strong&gt;</bpt>$containerName\_Data<ept id="d13be54f-a07f-4caa-ad5f-19e77267fc64">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You must name <bpt id="3800fe47-1fbb-4182-83e2-2e95e2d685b2">&lt;strong&gt;</bpt>$storageAccountName\_Data<ept id="3800fe47-1fbb-4182-83e2-2e95e2d685b2">&lt;/strong&gt;</ept> and <bpt id="d13be54f-a07f-4caa-ad5f-19e77267fc64">&lt;strong&gt;</bpt>$containerName\_Data<ept id="d13be54f-a07f-4caa-ad5f-19e77267fc64">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdbd9abd-f068-4321-8a69-017b50041b14" xml:space="preserve">
+          <source>For the naming restrictions, see <bpt id="fb8fabe7-bbfc-4453-b32b-089f34394fff">&lt;linkText&gt;</bpt>Naming and Referencing Containers, Blobs, and Metadata<ept id="fb8fabe7-bbfc-4453-b32b-089f34394fff">&lt;/linkText&gt;</ept><bpt id="fb8fabe7-bbfc-4453-b32b-089f34394fff">&lt;title&gt;</bpt><ept id="fb8fabe7-bbfc-4453-b32b-089f34394fff">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the naming restrictions, see <bpt id="fb8fabe7-bbfc-4453-b32b-089f34394fff">&lt;linkText&gt;</bpt>Naming and Referencing Containers, Blobs, and Metadata<ept id="fb8fabe7-bbfc-4453-b32b-089f34394fff">&lt;/linkText&gt;</ept><bpt id="fb8fabe7-bbfc-4453-b32b-089f34394fff">&lt;title&gt;</bpt><ept id="fb8fabe7-bbfc-4453-b32b-089f34394fff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65dfbbe6-64cb-4d01-bfe8-4c0bedce9d74" xml:space="preserve">
+          <source>Run the following commands to create a Storage account and a Blob storage container on the account:</source>
+          <target state="new">Run the following commands to create a Storage account and a Blob storage container on the account:</target>
+        </trans-unit>
+        <trans-unit id="54c8404f-5c5e-49c7-8858-262248cd7757" xml:space="preserve">
+          <source>Run the following commands to verify the Storage account and the container:</source>
+          <target state="new">Run the following commands to verify the Storage account and the container:</target>
+        </trans-unit>
+        <trans-unit id="8e417f4d-d30f-4332-b27f-09e23ef9151e" xml:space="preserve">
+          <source><bpt id="da03f38d-a8fb-4c54-9136-6bb56222db3c">&lt;strong&gt;</bpt>To upload the data files<ept id="da03f38d-a8fb-4c54-9136-6bb56222db3c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="da03f38d-a8fb-4c54-9136-6bb56222db3c">&lt;strong&gt;</bpt>To upload the data files<ept id="da03f38d-a8fb-4c54-9136-6bb56222db3c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78b708b2-0bf7-4a92-8d06-6d70ae50921f" xml:space="preserve">
+          <source>Open Azure PowerShell.</source>
+          <target state="new">Open Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="e3c3a018-c0cc-45df-ab7b-c035304a8fd3" xml:space="preserve">
+          <source>Set the first three variables, and then run the commands:</source>
+          <target state="new">Set the first three variables, and then run the commands:</target>
+        </trans-unit>
+        <trans-unit id="4c9ec6ab-93a8-43d2-a64f-ec4a2b4c2da9" xml:space="preserve">
+          <source>The <bpt id="830897b0-4fcf-4c09-b49f-c026bfe5811b">&lt;strong&gt;</bpt>$storageAccountName\_Data<ept id="830897b0-4fcf-4c09-b49f-c026bfe5811b">&lt;/strong&gt;</ept> and <bpt id="7e6d1bab-72a7-45e1-a9f7-0c976cc2a89d">&lt;strong&gt;</bpt>$containerName\_Data<ept id="7e6d1bab-72a7-45e1-a9f7-0c976cc2a89d">&lt;/strong&gt;</ept> variables are the same as you defined in the last procedure.</source>
+          <target state="new">The <bpt id="830897b0-4fcf-4c09-b49f-c026bfe5811b">&lt;strong&gt;</bpt>$storageAccountName\_Data<ept id="830897b0-4fcf-4c09-b49f-c026bfe5811b">&lt;/strong&gt;</ept> and <bpt id="7e6d1bab-72a7-45e1-a9f7-0c976cc2a89d">&lt;strong&gt;</bpt>$containerName\_Data<ept id="7e6d1bab-72a7-45e1-a9f7-0c976cc2a89d">&lt;/strong&gt;</ept> variables are the same as you defined in the last procedure.</target>
+        </trans-unit>
+        <trans-unit id="85e1d002-2a31-4622-80c0-9a22c4b5b31d" xml:space="preserve">
+          <source>Notice the source file folder is <bpt id="44ada70b-5ac4-4b90-824f-02293c80f004">&lt;strong&gt;</bpt>c:\Hadoop\hadoop-1.1.0-SNAPSHOT<ept id="44ada70b-5ac4-4b90-824f-02293c80f004">&lt;/strong&gt;</ept>, and the destination folder is <bpt id="40002123-2996-4c71-a526-d5ebf166345c">&lt;strong&gt;</bpt>WordCount/Input<ept id="40002123-2996-4c71-a526-d5ebf166345c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice the source file folder is <bpt id="44ada70b-5ac4-4b90-824f-02293c80f004">&lt;strong&gt;</bpt>c:\Hadoop\hadoop-1.1.0-SNAPSHOT<ept id="44ada70b-5ac4-4b90-824f-02293c80f004">&lt;/strong&gt;</ept>, and the destination folder is <bpt id="40002123-2996-4c71-a526-d5ebf166345c">&lt;strong&gt;</bpt>WordCount/Input<ept id="40002123-2996-4c71-a526-d5ebf166345c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2fd5c4f4-b024-48e0-8c75-c34b71f6e680" xml:space="preserve">
+          <source>Run the following commands to get a list of the .txt files in the source file folder:</source>
+          <target state="new">Run the following commands to get a list of the .txt files in the source file folder:</target>
+        </trans-unit>
+        <trans-unit id="5dbb0859-3933-4543-ab30-1930ddefa3c4" xml:space="preserve">
+          <source>Run the following commands to create a storage context object:</source>
+          <target state="new">Run the following commands to create a storage context object:</target>
+        </trans-unit>
+        <trans-unit id="69035132-f345-4f7e-b1c2-dc3ad2e101e4" xml:space="preserve">
+          <source>Run the following commands to copy the files:</source>
+          <target state="new">Run the following commands to copy the files:</target>
+        </trans-unit>
+        <trans-unit id="1c044dd5-cbbc-4b98-b52f-f5dbc646048a" xml:space="preserve">
+          <source>Run the following commands to list the uploaded files:</source>
+          <target state="new">Run the following commands to list the uploaded files:</target>
+        </trans-unit>
+        <trans-unit id="8d458f25-075d-4ec6-8ba2-eeda3c173ed6" xml:space="preserve">
+          <source>You should see about the uploaded text data files.</source>
+          <target state="new">You should see about the uploaded text data files.</target>
+        </trans-unit>
+        <trans-unit id="e3039e05-e840-4cb4-8cd9-fe91bc3378c3" xml:space="preserve">
+          <source><bpt id="6d6a4177-855b-476e-a4c1-45125f3af0b3">&lt;strong&gt;</bpt>To upload the word-counting application<ept id="6d6a4177-855b-476e-a4c1-45125f3af0b3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6d6a4177-855b-476e-a4c1-45125f3af0b3">&lt;strong&gt;</bpt>To upload the word-counting application<ept id="6d6a4177-855b-476e-a4c1-45125f3af0b3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="634fbcca-0c86-462a-a03a-b808d9da201e" xml:space="preserve">
+          <source>Open Azure PowerShell.</source>
+          <target state="new">Open Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="11950f5e-a102-4d61-a783-7cb12659bbc9" xml:space="preserve">
+          <source>Set the first three variables, and then run the commands:</source>
+          <target state="new">Set the first three variables, and then run the commands:</target>
+        </trans-unit>
+        <trans-unit id="75f920c8-0753-401e-afc1-cd077f78ee19" xml:space="preserve">
+          <source>The <bpt id="b917fa1e-8489-44cf-b18e-ea9039271e29">&lt;strong&gt;</bpt>$storageAccountName\_Data<ept id="b917fa1e-8489-44cf-b18e-ea9039271e29">&lt;/strong&gt;</ept> and <bpt id="2ec9a4e0-c75a-4675-94b9-fa00d79a5233">&lt;strong&gt;</bpt>$containerName\_Data<ept id="2ec9a4e0-c75a-4675-94b9-fa00d79a5233">&lt;/strong&gt;</ept> variables are the same as you defined in the last procedure, which means you will upload both the data file and the application to the same container on the same Storage account.</source>
+          <target state="new">The <bpt id="b917fa1e-8489-44cf-b18e-ea9039271e29">&lt;strong&gt;</bpt>$storageAccountName\_Data<ept id="b917fa1e-8489-44cf-b18e-ea9039271e29">&lt;/strong&gt;</ept> and <bpt id="2ec9a4e0-c75a-4675-94b9-fa00d79a5233">&lt;strong&gt;</bpt>$containerName\_Data<ept id="2ec9a4e0-c75a-4675-94b9-fa00d79a5233">&lt;/strong&gt;</ept> variables are the same as you defined in the last procedure, which means you will upload both the data file and the application to the same container on the same Storage account.</target>
+        </trans-unit>
+        <trans-unit id="ade7d2c7-73fd-43b1-a9df-786c29534a3f" xml:space="preserve">
+          <source>Notice the destination folder is <bpt id="69a6d6ae-1162-464e-8fd9-83804a993845">&lt;strong&gt;</bpt>WordCount/jars<ept id="69a6d6ae-1162-464e-8fd9-83804a993845">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice the destination folder is <bpt id="69a6d6ae-1162-464e-8fd9-83804a993845">&lt;strong&gt;</bpt>WordCount/jars<ept id="69a6d6ae-1162-464e-8fd9-83804a993845">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7ab26f8-cdcf-4ff2-a179-286dca170ac1" xml:space="preserve">
+          <source>Run the following commands to create a storage context object:</source>
+          <target state="new">Run the following commands to create a storage context object:</target>
+        </trans-unit>
+        <trans-unit id="e1f50e29-7d3c-48df-b43b-51d786a1ad90" xml:space="preserve">
+          <source>Run the following command to copy the applications:</source>
+          <target state="new">Run the following command to copy the applications:</target>
+        </trans-unit>
+        <trans-unit id="de699e28-edda-4bbf-84bb-926191191d7c" xml:space="preserve">
+          <source>Run the following commands to list the uploaded files:</source>
+          <target state="new">Run the following commands to list the uploaded files:</target>
+        </trans-unit>
+        <trans-unit id="f0314f9e-59b4-4c28-bacc-37bf615f709f" xml:space="preserve">
+          <source>You should see the JAR file listed there.</source>
+          <target state="new">You should see the JAR file listed there.</target>
+        </trans-unit>
+        <trans-unit id="4c1fadaa-3a8c-4dd0-bc0e-ca9f3ec280b0" xml:space="preserve">
+          <source>In this section, you will create an Azure PowerShell script that performs the following tasks:</source>
+          <target state="new">In this section, you will create an Azure PowerShell script that performs the following tasks:</target>
+        </trans-unit>
+        <trans-unit id="8cbff8be-8b4c-4cae-a380-89a3115e5fd7" xml:space="preserve">
+          <source>Provisions an HDInsight cluster</source>
+          <target state="new">Provisions an HDInsight cluster</target>
+        </trans-unit>
+        <trans-unit id="3dd09f1a-1c5a-4455-937a-fc930b3ee9ea" xml:space="preserve">
+          <source>Create a Storage account that will be used as the default HDInsight cluster file system</source>
+          <target state="new">Create a Storage account that will be used as the default HDInsight cluster file system</target>
+        </trans-unit>
+        <trans-unit id="4d691e98-f975-4930-a160-c9bff53ef884" xml:space="preserve">
+          <source>Create a Blob storage container</source>
+          <target state="new">Create a Blob storage container</target>
+        </trans-unit>
+        <trans-unit id="adb957d9-e8c7-48d2-94c2-ed94b5e322df" xml:space="preserve">
+          <source>Create an HDInsight cluster</source>
+          <target state="new">Create an HDInsight cluster</target>
+        </trans-unit>
+        <trans-unit id="465a9c99-1a7a-4877-b990-70575a9284ec" xml:space="preserve">
+          <source>Submits the MapReduce job</source>
+          <target state="new">Submits the MapReduce job</target>
+        </trans-unit>
+        <trans-unit id="18964c5f-5fd5-480a-94f1-c2efddd248ff" xml:space="preserve">
+          <source>Create a MapReduce job definition</source>
+          <target state="new">Create a MapReduce job definition</target>
+        </trans-unit>
+        <trans-unit id="494045ec-6dcc-4bb9-986d-4836a1ce64da" xml:space="preserve">
+          <source>Submit a MapReduce job</source>
+          <target state="new">Submit a MapReduce job</target>
+        </trans-unit>
+        <trans-unit id="d3820335-d820-439a-8e15-47cd5898d701" xml:space="preserve">
+          <source>Wait for the job to finish</source>
+          <target state="new">Wait for the job to finish</target>
+        </trans-unit>
+        <trans-unit id="385651b1-1af4-4578-bba8-0b5ba023c94b" xml:space="preserve">
+          <source>Display standard error</source>
+          <target state="new">Display standard error</target>
+        </trans-unit>
+        <trans-unit id="67bd167d-49bc-4467-b607-f625516eafc1" xml:space="preserve">
+          <source>Display standard output</source>
+          <target state="new">Display standard output</target>
+        </trans-unit>
+        <trans-unit id="e7bfaa90-6658-4d13-a0ef-752777b58d2d" xml:space="preserve">
+          <source>Deletes the cluster</source>
+          <target state="new">Deletes the cluster</target>
+        </trans-unit>
+        <trans-unit id="6c52bd7b-4d3d-4f2a-ad67-65147d64948a" xml:space="preserve">
+          <source>Delete the HDInsight cluster</source>
+          <target state="new">Delete the HDInsight cluster</target>
+        </trans-unit>
+        <trans-unit id="7fe2e86b-5324-42ce-91dc-3e0a27cdc70f" xml:space="preserve">
+          <source>Delete the Storage account used as the default HDInsight cluster file system</source>
+          <target state="new">Delete the Storage account used as the default HDInsight cluster file system</target>
+        </trans-unit>
+        <trans-unit id="5b1b27c0-eb2f-42fa-a9b4-f5cd5168e019" xml:space="preserve">
+          <source><bpt id="12e2ec1e-e3d6-4b64-8d1f-90c287134475">&lt;strong&gt;</bpt>To run the Azure PowerShell script<ept id="12e2ec1e-e3d6-4b64-8d1f-90c287134475">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="12e2ec1e-e3d6-4b64-8d1f-90c287134475">&lt;strong&gt;</bpt>To run the Azure PowerShell script<ept id="12e2ec1e-e3d6-4b64-8d1f-90c287134475">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97833c6a-d63b-49ff-937a-4dcdc39d1a2a" xml:space="preserve">
+          <source>Open Notepad.</source>
+          <target state="new">Open Notepad.</target>
+        </trans-unit>
+        <trans-unit id="a1d2f094-bf6e-40c8-bfbb-3579fe02c498" xml:space="preserve">
+          <source>Copy and paste the following code:</source>
+          <target state="new">Copy and paste the following code:</target>
+        </trans-unit>
+        <trans-unit id="81458c48-0c70-45b1-ae22-3c56fbce2e28" xml:space="preserve">
+          <source>Set the first six variables in the script.</source>
+          <target state="new">Set the first six variables in the script.</target>
+        </trans-unit>
+        <trans-unit id="d4c4c2c0-e2d7-45e8-962b-7427795429d7" xml:space="preserve">
+          <source>The <bpt id="946eda35-c151-46b6-bb78-6e1e5fafd653">&lt;strong&gt;</bpt>$stringPrefix<ept id="946eda35-c151-46b6-bb78-6e1e5fafd653">&lt;/strong&gt;</ept> variable is used to prefix the specified string to the HDInsight cluster name, the Storage account name, and the Blob storage container name.</source>
+          <target state="new">The <bpt id="946eda35-c151-46b6-bb78-6e1e5fafd653">&lt;strong&gt;</bpt>$stringPrefix<ept id="946eda35-c151-46b6-bb78-6e1e5fafd653">&lt;/strong&gt;</ept> variable is used to prefix the specified string to the HDInsight cluster name, the Storage account name, and the Blob storage container name.</target>
+        </trans-unit>
+        <trans-unit id="d2aadd3a-db42-4445-b791-eaf4b00c7a3e" xml:space="preserve">
+          <source>Because the names for these must be 3 to 24 characters, make sure the string you specify and the names this script uses, together, do not exceed the character limit for the name.</source>
+          <target state="new">Because the names for these must be 3 to 24 characters, make sure the string you specify and the names this script uses, together, do not exceed the character limit for the name.</target>
+        </trans-unit>
+        <trans-unit id="da869e38-76bb-4cdb-9111-86e39e6b564c" xml:space="preserve">
+          <source>You must use all lowercase for <bpt id="f622b4ae-d7d3-44c5-b475-5653c25c1e1d">&lt;strong&gt;</bpt>$stringPrefix<ept id="f622b4ae-d7d3-44c5-b475-5653c25c1e1d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You must use all lowercase for <bpt id="f622b4ae-d7d3-44c5-b475-5653c25c1e1d">&lt;strong&gt;</bpt>$stringPrefix<ept id="f622b4ae-d7d3-44c5-b475-5653c25c1e1d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8228c9ba-6910-4f29-91e8-3fac511865ff" xml:space="preserve">
+          <source>The <bpt id="27cfd55e-69a6-467c-a447-99b18aebed69">&lt;strong&gt;</bpt>$storageAccountName\_Data<ept id="27cfd55e-69a6-467c-a447-99b18aebed69">&lt;/strong&gt;</ept> and <bpt id="0e86e350-d8e4-46b2-9914-db0cb4448418">&lt;strong&gt;</bpt>$containerName\_Data<ept id="0e86e350-d8e4-46b2-9914-db0cb4448418">&lt;/strong&gt;</ept> variables are the Storage account and container that are used for storing the data files and the application.</source>
+          <target state="new">The <bpt id="27cfd55e-69a6-467c-a447-99b18aebed69">&lt;strong&gt;</bpt>$storageAccountName\_Data<ept id="27cfd55e-69a6-467c-a447-99b18aebed69">&lt;/strong&gt;</ept> and <bpt id="0e86e350-d8e4-46b2-9914-db0cb4448418">&lt;strong&gt;</bpt>$containerName\_Data<ept id="0e86e350-d8e4-46b2-9914-db0cb4448418">&lt;/strong&gt;</ept> variables are the Storage account and container that are used for storing the data files and the application.</target>
+        </trans-unit>
+        <trans-unit id="036637c2-a3f8-4fe2-b3a1-92edd0097902" xml:space="preserve">
+          <source>The <bpt id="b173dc5d-cd6e-45df-9466-d83a4d271a28">&lt;strong&gt;</bpt>$location<ept id="b173dc5d-cd6e-45df-9466-d83a4d271a28">&lt;/strong&gt;</ept> variable must match the data Storage account location.</source>
+          <target state="new">The <bpt id="b173dc5d-cd6e-45df-9466-d83a4d271a28">&lt;strong&gt;</bpt>$location<ept id="b173dc5d-cd6e-45df-9466-d83a4d271a28">&lt;/strong&gt;</ept> variable must match the data Storage account location.</target>
+        </trans-unit>
+        <trans-unit id="79e75655-3ade-4962-a03e-eba674f1e520" xml:space="preserve">
+          <source>Review the rest of the variables.</source>
+          <target state="new">Review the rest of the variables.</target>
+        </trans-unit>
+        <trans-unit id="401f0d4b-16f2-4419-ade3-8c6eb790740e" xml:space="preserve">
+          <source>Save the script file.</source>
+          <target state="new">Save the script file.</target>
+        </trans-unit>
+        <trans-unit id="a6753dd6-5341-421f-9093-9174df157f8c" xml:space="preserve">
+          <source>Open Azure PowerShell.</source>
+          <target state="new">Open Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="cb432eb1-61b0-4c5e-ad57-32ead9c2f5c5" xml:space="preserve">
+          <source>Run the following command to set the execution policy to RemoteSigned:</source>
+          <target state="new">Run the following command to set the execution policy to RemoteSigned:</target>
+        </trans-unit>
+        <trans-unit id="f4442e9a-74b3-4c5e-892d-3f978ba315c3" xml:space="preserve">
+          <source>When prompted, enter the user name and password for the HDInsight cluster.</source>
+          <target state="new">When prompted, enter the user name and password for the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="47a0b6ba-98b9-4509-903c-c9a1446c1a7f" xml:space="preserve">
+          <source>Because you will delete the cluster at the end of the script and you will not need the user name and password anymore, the user name and password can be any strings.</source>
+          <target state="new">Because you will delete the cluster at the end of the script and you will not need the user name and password anymore, the user name and password can be any strings.</target>
+        </trans-unit>
+        <trans-unit id="7d5d21e9-894b-4570-9391-f19c23485717" xml:space="preserve">
+          <source>If you don't want to get prompted for the credentials, see <bpt id="d0972d06-1446-41a8-8f95-00315f00bdaf">&lt;linkText&gt;</bpt>Working with Passwords, Secure Strings and Credentials in Windows PowerShell[powershell-pscredential]<ept id="d0972d06-1446-41a8-8f95-00315f00bdaf">&lt;/linkText&gt;</ept><bpt id="d0972d06-1446-41a8-8f95-00315f00bdaf">&lt;title&gt;</bpt><ept id="d0972d06-1446-41a8-8f95-00315f00bdaf">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't want to get prompted for the credentials, see <bpt id="d0972d06-1446-41a8-8f95-00315f00bdaf">&lt;linkText&gt;</bpt>Working with Passwords, Secure Strings and Credentials in Windows PowerShell[powershell-pscredential]<ept id="d0972d06-1446-41a8-8f95-00315f00bdaf">&lt;/linkText&gt;</ept><bpt id="d0972d06-1446-41a8-8f95-00315f00bdaf">&lt;title&gt;</bpt><ept id="d0972d06-1446-41a8-8f95-00315f00bdaf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="427e09b5-7e5a-4b33-839c-5098a35a0301" xml:space="preserve">
+          <source>This section shows you how to download and display the output.</source>
+          <target state="new">This section shows you how to download and display the output.</target>
+        </trans-unit>
+        <trans-unit id="438ac214-80c9-4d4e-a1e8-871870c4b997" xml:space="preserve">
+          <source>For the information on displaying the results in Excel, see <bpt id="c5117be5-ef0e-482f-bd5a-e82adc5f8a58">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with the Microsoft Hive ODBC Driver[hdinsight-odbc]<ept id="c5117be5-ef0e-482f-bd5a-e82adc5f8a58">&lt;/linkText&gt;</ept><bpt id="c5117be5-ef0e-482f-bd5a-e82adc5f8a58">&lt;title&gt;</bpt><ept id="c5117be5-ef0e-482f-bd5a-e82adc5f8a58">&lt;/title&gt;</ept> and <bpt id="e818e6f6-7a8b-43b3-b47f-105cc5d2b309">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with Power Query[hdinsight-power-query]<ept id="e818e6f6-7a8b-43b3-b47f-105cc5d2b309">&lt;/linkText&gt;</ept><bpt id="e818e6f6-7a8b-43b3-b47f-105cc5d2b309">&lt;title&gt;</bpt><ept id="e818e6f6-7a8b-43b3-b47f-105cc5d2b309">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the information on displaying the results in Excel, see <bpt id="c5117be5-ef0e-482f-bd5a-e82adc5f8a58">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with the Microsoft Hive ODBC Driver[hdinsight-odbc]<ept id="c5117be5-ef0e-482f-bd5a-e82adc5f8a58">&lt;/linkText&gt;</ept><bpt id="c5117be5-ef0e-482f-bd5a-e82adc5f8a58">&lt;title&gt;</bpt><ept id="c5117be5-ef0e-482f-bd5a-e82adc5f8a58">&lt;/title&gt;</ept> and <bpt id="e818e6f6-7a8b-43b3-b47f-105cc5d2b309">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with Power Query[hdinsight-power-query]<ept id="e818e6f6-7a8b-43b3-b47f-105cc5d2b309">&lt;/linkText&gt;</ept><bpt id="e818e6f6-7a8b-43b3-b47f-105cc5d2b309">&lt;title&gt;</bpt><ept id="e818e6f6-7a8b-43b3-b47f-105cc5d2b309">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e778690-9baf-4c83-81ca-240cbb2036e6" xml:space="preserve">
+          <source><bpt id="273a02f5-3ead-4409-92b1-dc5f965753b2">&lt;strong&gt;</bpt>To retrieve the output<ept id="273a02f5-3ead-4409-92b1-dc5f965753b2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="273a02f5-3ead-4409-92b1-dc5f965753b2">&lt;strong&gt;</bpt>To retrieve the output<ept id="273a02f5-3ead-4409-92b1-dc5f965753b2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="58e86429-4431-4aa4-9b43-dfab6f743307" xml:space="preserve">
+          <source>Open the Azure PowerShell window.</source>
+          <target state="new">Open the Azure PowerShell window.</target>
+        </trans-unit>
+        <trans-unit id="a7ddfe71-6cd2-4858-a7be-8d6e4698149a" xml:space="preserve">
+          <source>Change the directory to <bpt id="43ad453c-fdf4-4779-9474-ea4f81fc9781">&lt;strong&gt;</bpt>C:\Tutorials\WordCountJava<ept id="43ad453c-fdf4-4779-9474-ea4f81fc9781">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Change the directory to <bpt id="43ad453c-fdf4-4779-9474-ea4f81fc9781">&lt;strong&gt;</bpt>C:\Tutorials\WordCountJava<ept id="43ad453c-fdf4-4779-9474-ea4f81fc9781">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed9bf7fb-756b-4418-84ea-dedd7569165b" xml:space="preserve">
+          <source>The default Azure PowerShell folder is <bpt id="2a68512d-b6df-46a5-b452-d9bab80a2c66">&lt;strong&gt;</bpt>C:\Windows\System32\WindowsPowerShell\v1.0<ept id="2a68512d-b6df-46a5-b452-d9bab80a2c66">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default Azure PowerShell folder is <bpt id="2a68512d-b6df-46a5-b452-d9bab80a2c66">&lt;strong&gt;</bpt>C:\Windows\System32\WindowsPowerShell\v1.0<ept id="2a68512d-b6df-46a5-b452-d9bab80a2c66">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ed45850-83f1-462d-a0cf-9d6b8085b260" xml:space="preserve">
+          <source>The cmdlets you will run will download the output file to the current folder.</source>
+          <target state="new">The cmdlets you will run will download the output file to the current folder.</target>
+        </trans-unit>
+        <trans-unit id="ca8210bf-7507-4aec-ad99-844532233757" xml:space="preserve">
+          <source>You don't have permissions to download the files to the system folders.</source>
+          <target state="new">You don't have permissions to download the files to the system folders.</target>
+        </trans-unit>
+        <trans-unit id="046f645f-44ef-4c2e-bcd3-85d220bfb6f5" xml:space="preserve">
+          <source>Run the following commands to set the values:</source>
+          <target state="new">Run the following commands to set the values:</target>
+        </trans-unit>
+        <trans-unit id="f158cdbf-6be5-494c-85c8-ec4bfbab1c1a" xml:space="preserve">
+          <source>Run the following commands to create an Azure storage context object:</source>
+          <target state="new">Run the following commands to create an Azure storage context object:</target>
+        </trans-unit>
+        <trans-unit id="755f35a6-e9ab-47d6-816a-d507eacb3e6a" xml:space="preserve">
+          <source>Run the following commands to download and display the output:</source>
+          <target state="new">Run the following commands to download and display the output:</target>
+        </trans-unit>
+        <trans-unit id="c36082e4-d28b-4704-b625-02ef59717fcc" xml:space="preserve">
+          <source>After the job is completed, you have the option to export the data to SQL Server or Azure SQL Database by using <bpt id="2ec8c8b2-2412-46aa-a20f-fc43cacb8aee">&lt;linkText&gt;</bpt>Sqoop[hdinsight-use-sqoop]<ept id="2ec8c8b2-2412-46aa-a20f-fc43cacb8aee">&lt;/linkText&gt;</ept><bpt id="2ec8c8b2-2412-46aa-a20f-fc43cacb8aee">&lt;title&gt;</bpt><ept id="2ec8c8b2-2412-46aa-a20f-fc43cacb8aee">&lt;/title&gt;</ept>, or to export the data to Excel.</source>
+          <target state="new">After the job is completed, you have the option to export the data to SQL Server or Azure SQL Database by using <bpt id="2ec8c8b2-2412-46aa-a20f-fc43cacb8aee">&lt;linkText&gt;</bpt>Sqoop[hdinsight-use-sqoop]<ept id="2ec8c8b2-2412-46aa-a20f-fc43cacb8aee">&lt;/linkText&gt;</ept><bpt id="2ec8c8b2-2412-46aa-a20f-fc43cacb8aee">&lt;title&gt;</bpt><ept id="2ec8c8b2-2412-46aa-a20f-fc43cacb8aee">&lt;/title&gt;</ept>, or to export the data to Excel.</target>
+        </trans-unit>
+        <trans-unit id="39dd2d67-0f80-4e16-8f9c-37be00416845" xml:space="preserve">
+          <source>In this tutorial, you have learned how to develop a Java MapReduce job, how to test the application on the HDInsight Emulator, and how to write an Azure PowerShell script to provision an HDInsight cluster and run a MapReduce job on the cluster.</source>
+          <target state="new">In this tutorial, you have learned how to develop a Java MapReduce job, how to test the application on the HDInsight Emulator, and how to write an Azure PowerShell script to provision an HDInsight cluster and run a MapReduce job on the cluster.</target>
+        </trans-unit>
+        <trans-unit id="3a4ee201-74e0-4cf0-a73b-1d70ba9f10f6" xml:space="preserve">
+          <source>To learn more, see the following articles:</source>
+          <target state="new">To learn more, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="29445ab4-ebd8-4901-8c01-99f7924080db" xml:space="preserve">
+          <source><bpt id="50bbab64-f759-4341-be07-88a12b5170f2">&lt;linkText&gt;</bpt>Develop C# Hadoop streaming MapReduce programs for HDInsight[hdinsight-develop-streaming]<ept id="50bbab64-f759-4341-be07-88a12b5170f2">&lt;/linkText&gt;</ept><bpt id="50bbab64-f759-4341-be07-88a12b5170f2">&lt;title&gt;</bpt><ept id="50bbab64-f759-4341-be07-88a12b5170f2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="50bbab64-f759-4341-be07-88a12b5170f2">&lt;linkText&gt;</bpt>Develop C# Hadoop streaming MapReduce programs for HDInsight[hdinsight-develop-streaming]<ept id="50bbab64-f759-4341-be07-88a12b5170f2">&lt;/linkText&gt;</ept><bpt id="50bbab64-f759-4341-be07-88a12b5170f2">&lt;title&gt;</bpt><ept id="50bbab64-f759-4341-be07-88a12b5170f2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e27b26c-392f-4768-a569-5d74ccdce0f5" xml:space="preserve">
+          <source><bpt id="34e1e19a-96cd-4ef9-97e9-4f276741fa84">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="34e1e19a-96cd-4ef9-97e9-4f276741fa84">&lt;/linkText&gt;</ept><bpt id="34e1e19a-96cd-4ef9-97e9-4f276741fa84">&lt;title&gt;</bpt><ept id="34e1e19a-96cd-4ef9-97e9-4f276741fa84">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="34e1e19a-96cd-4ef9-97e9-4f276741fa84">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="34e1e19a-96cd-4ef9-97e9-4f276741fa84">&lt;/linkText&gt;</ept><bpt id="34e1e19a-96cd-4ef9-97e9-4f276741fa84">&lt;title&gt;</bpt><ept id="34e1e19a-96cd-4ef9-97e9-4f276741fa84">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57bc6cf7-3994-4397-b0bd-7d941f97f023" xml:space="preserve">
+          <source><bpt id="04c483bd-bb53-4feb-91eb-a7f75e152078">&lt;linkText&gt;</bpt>Get started with the HDInsight Emulator[hdinsight-emulator]<ept id="04c483bd-bb53-4feb-91eb-a7f75e152078">&lt;/linkText&gt;</ept><bpt id="04c483bd-bb53-4feb-91eb-a7f75e152078">&lt;title&gt;</bpt><ept id="04c483bd-bb53-4feb-91eb-a7f75e152078">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="04c483bd-bb53-4feb-91eb-a7f75e152078">&lt;linkText&gt;</bpt>Get started with the HDInsight Emulator[hdinsight-emulator]<ept id="04c483bd-bb53-4feb-91eb-a7f75e152078">&lt;/linkText&gt;</ept><bpt id="04c483bd-bb53-4feb-91eb-a7f75e152078">&lt;title&gt;</bpt><ept id="04c483bd-bb53-4feb-91eb-a7f75e152078">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90d7ef65-d5e7-4226-9acf-3cad956eb1e3" xml:space="preserve">
+          <source><bpt id="70d743ed-044b-44e6-9660-7045dbefc708">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="70d743ed-044b-44e6-9660-7045dbefc708">&lt;/linkText&gt;</ept><bpt id="70d743ed-044b-44e6-9660-7045dbefc708">&lt;title&gt;</bpt><ept id="70d743ed-044b-44e6-9660-7045dbefc708">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="70d743ed-044b-44e6-9660-7045dbefc708">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="70d743ed-044b-44e6-9660-7045dbefc708">&lt;/linkText&gt;</ept><bpt id="70d743ed-044b-44e6-9660-7045dbefc708">&lt;title&gt;</bpt><ept id="70d743ed-044b-44e6-9660-7045dbefc708">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d67b85fe-2242-4fd4-9786-ba9ae3ff3615" xml:space="preserve">
+          <source><bpt id="09cade13-0b54-47f1-843c-f584acf8483a">&lt;linkText&gt;</bpt>Administer HDInsight using Azure PowerShell[hdinsight-admin-powershell]<ept id="09cade13-0b54-47f1-843c-f584acf8483a">&lt;/linkText&gt;</ept><bpt id="09cade13-0b54-47f1-843c-f584acf8483a">&lt;title&gt;</bpt><ept id="09cade13-0b54-47f1-843c-f584acf8483a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="09cade13-0b54-47f1-843c-f584acf8483a">&lt;linkText&gt;</bpt>Administer HDInsight using Azure PowerShell[hdinsight-admin-powershell]<ept id="09cade13-0b54-47f1-843c-f584acf8483a">&lt;/linkText&gt;</ept><bpt id="09cade13-0b54-47f1-843c-f584acf8483a">&lt;title&gt;</bpt><ept id="09cade13-0b54-47f1-843c-f584acf8483a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2de862e-4ee9-4120-9810-d8f986ecd792" xml:space="preserve">
+          <source><bpt id="5d8d39d5-dd1d-4996-968a-8d4fb3e32d58">&lt;linkText&gt;</bpt>Upload data to HDInsight[hdinsight-upload-data]<ept id="5d8d39d5-dd1d-4996-968a-8d4fb3e32d58">&lt;/linkText&gt;</ept><bpt id="5d8d39d5-dd1d-4996-968a-8d4fb3e32d58">&lt;title&gt;</bpt><ept id="5d8d39d5-dd1d-4996-968a-8d4fb3e32d58">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5d8d39d5-dd1d-4996-968a-8d4fb3e32d58">&lt;linkText&gt;</bpt>Upload data to HDInsight[hdinsight-upload-data]<ept id="5d8d39d5-dd1d-4996-968a-8d4fb3e32d58">&lt;/linkText&gt;</ept><bpt id="5d8d39d5-dd1d-4996-968a-8d4fb3e32d58">&lt;title&gt;</bpt><ept id="5d8d39d5-dd1d-4996-968a-8d4fb3e32d58">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b68f178-9a80-4950-97e9-73d322d345cb" xml:space="preserve">
+          <source><bpt id="ae06caea-b3ca-4eb8-aa4e-e971bf1a0094">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="ae06caea-b3ca-4eb8-aa4e-e971bf1a0094">&lt;/linkText&gt;</ept><bpt id="ae06caea-b3ca-4eb8-aa4e-e971bf1a0094">&lt;title&gt;</bpt><ept id="ae06caea-b3ca-4eb8-aa4e-e971bf1a0094">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ae06caea-b3ca-4eb8-aa4e-e971bf1a0094">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="ae06caea-b3ca-4eb8-aa4e-e971bf1a0094">&lt;/linkText&gt;</ept><bpt id="ae06caea-b3ca-4eb8-aa4e-e971bf1a0094">&lt;title&gt;</bpt><ept id="ae06caea-b3ca-4eb8-aa4e-e971bf1a0094">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5024790-8deb-4ee2-a80c-db033e5e6c09" xml:space="preserve">
+          <source><bpt id="96dd559b-e83d-4634-87db-2fa33418b9ac">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="96dd559b-e83d-4634-87db-2fa33418b9ac">&lt;/linkText&gt;</ept><bpt id="96dd559b-e83d-4634-87db-2fa33418b9ac">&lt;title&gt;</bpt><ept id="96dd559b-e83d-4634-87db-2fa33418b9ac">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="96dd559b-e83d-4634-87db-2fa33418b9ac">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="96dd559b-e83d-4634-87db-2fa33418b9ac">&lt;/linkText&gt;</ept><bpt id="96dd559b-e83d-4634-87db-2fa33418b9ac">&lt;title&gt;</bpt><ept id="96dd559b-e83d-4634-87db-2fa33418b9ac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17278d8a-c903-47e0-9ed8-902ce70ef70f" xml:space="preserve">
+          <source><bpt id="06bc4a3c-c3df-4363-9002-497c0007a51a">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with Power Query[hdinsight-power-query]<ept id="06bc4a3c-c3df-4363-9002-497c0007a51a">&lt;/linkText&gt;</ept><bpt id="06bc4a3c-c3df-4363-9002-497c0007a51a">&lt;title&gt;</bpt><ept id="06bc4a3c-c3df-4363-9002-497c0007a51a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="06bc4a3c-c3df-4363-9002-497c0007a51a">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with Power Query[hdinsight-power-query]<ept id="06bc4a3c-c3df-4363-9002-497c0007a51a">&lt;/linkText&gt;</ept><bpt id="06bc4a3c-c3df-4363-9002-497c0007a51a">&lt;title&gt;</bpt><ept id="06bc4a3c-c3df-4363-9002-497c0007a51a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="625efd08-1a41-419f-93d0-fc398d4e4c80" xml:space="preserve">
+          <source><bpt id="fab75c93-dce6-461a-bfc4-62d569cb8b96">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with the Microsoft Hive ODBC Driver[hdinsight-odbc]<ept id="fab75c93-dce6-461a-bfc4-62d569cb8b96">&lt;/linkText&gt;</ept><bpt id="fab75c93-dce6-461a-bfc4-62d569cb8b96">&lt;title&gt;</bpt><ept id="fab75c93-dce6-461a-bfc4-62d569cb8b96">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fab75c93-dce6-461a-bfc4-62d569cb8b96">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with the Microsoft Hive ODBC Driver[hdinsight-odbc]<ept id="fab75c93-dce6-461a-bfc4-62d569cb8b96">&lt;/linkText&gt;</ept><bpt id="fab75c93-dce6-461a-bfc4-62d569cb8b96">&lt;title&gt;</bpt><ept id="fab75c93-dce6-461a-bfc4-62d569cb8b96">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2b9e083-df9c-450a-af44-cd2a134b3082" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="b0f72224-ce09-4370-be7a-c985cfa1baa2" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="0db72643-1272-4bee-9ee1-77e423bedd90" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="fffb3244-4115-45d6-a318-f386594781ac" xml:space="preserve">
+          <source>hdinsight-use-sqoop.md</source>
+          <target state="new">hdinsight-use-sqoop.md</target>
+        </trans-unit>
+        <trans-unit id="ac4eebf5-a7df-474b-9b31-018dafcc8aa2" xml:space="preserve">
+          <source>hdinsight-connect-excel-hive-ODBC-driver.md</source>
+          <target state="new">hdinsight-connect-excel-hive-ODBC-driver.md</target>
+        </trans-unit>
+        <trans-unit id="baf50b62-e392-4fad-8ab5-1a17a1981387" xml:space="preserve">
+          <source>hdinsight-connect-excel-power-query.md</source>
+          <target state="new">hdinsight-connect-excel-power-query.md</target>
+        </trans-unit>
+        <trans-unit id="28916e4e-f716-4f5d-8c0b-490a9cd6da45" xml:space="preserve">
+          <source>hdinsight-hadoop-develop-deploy-streaming-jobs.md</source>
+          <target state="new">hdinsight-hadoop-develop-deploy-streaming-jobs.md</target>
+        </trans-unit>
+        <trans-unit id="19db4aae-641f-46d6-8c59-f55953744e74" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="ad624ef8-8ac2-44a0-8bc9-596dad3167db" xml:space="preserve">
+          <source>../hdinsight-get-started-emulator.md</source>
+          <target state="new">../hdinsight-get-started-emulator.md</target>
+        </trans-unit>
+        <trans-unit id="07c6f81d-66cb-40f4-bca7-b9faa2957db3" xml:space="preserve">
+          <source>../hdinsight-get-started-emulator.md#blobstorage</source>
+          <target state="new">../hdinsight-get-started-emulator.md#blobstorage</target>
+        </trans-unit>
+        <trans-unit id="8ff88b7d-b8b7-4b53-abd7-527828975eb9" xml:space="preserve">
+          <source>hdinsight-upload-data.md</source>
+          <target state="new">hdinsight-upload-data.md</target>
+        </trans-unit>
+        <trans-unit id="a3f03b19-a1cb-40d4-9fcc-320d4285e107" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="3738b90e-2293-437f-ae8c-dca41d566a4f" xml:space="preserve">
+          <source>hdinsight-administer-use-powershell.md</source>
+          <target state="new">hdinsight-administer-use-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="4afa74ae-b3e3-4a3a-8e57-df2998a97bfb" xml:space="preserve">
+          <source>hdinsight-use-hive.md</source>
+          <target state="new">hdinsight-use-hive.md</target>
+        </trans-unit>
+        <trans-unit id="aef86bdc-0020-42f9-9707-10092c140dde" xml:space="preserve">
+          <source>hdinsight-use-pig.md</source>
+          <target state="new">hdinsight-use-pig.md</target>
+        </trans-unit>
+        <trans-unit id="e0edeb1e-2305-4624-81c0-5fae7ca22845" xml:space="preserve">
+          <source>hdinsight-connect-excel-power-query.md</source>
+          <target state="new">hdinsight-connect-excel-power-query.md</target>
+        </trans-unit>
+        <trans-unit id="fe749693-88c6-4925-bfb3-2c2deeed9b36" xml:space="preserve">
+          <source>http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx</source>
+          <target state="new">http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx</target>
+        </trans-unit>
+        <trans-unit id="ca772774-3516-4b29-8b65-6d7ef63eab6a" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="7d1c3cea-4877-4b9c-a3ac-4d1168ca8e3a" xml:space="preserve">
+          <source>./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png</source>
+          <target state="new">./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png</target>
+        </trans-unit>
+        <trans-unit id="89e9d11c-c8f6-4f93-a40c-97853fe8751a" xml:space="preserve">
+          <source>./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png</source>
+          <target state="new">./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png</target>
+        </trans-unit>
+      </group>
+      <group id="f7a2a3f1-f898-4908-8c55-88bfb5904377" />
+    </body>
+  </file>
+</xliff>

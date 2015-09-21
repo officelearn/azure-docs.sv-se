@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d962d47c-65d7-4037-805c-005c81d39bf9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d962d47c-65d7-4037-805c-005c81d39bf9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="20c169c6-a423-459a-9e14-8dc7c62e9ea3">
+        <trans-unit id="2c3d155b-c0cf-48cd-aceb-804abb4b283f" xml:space="preserve">
+          <source>Loops in SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Loops in SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8799d10d-b4dd-4cbb-adfc-1080c00f7ca8" xml:space="preserve">
+          <source>Tips for Transact-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tips for Transact-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="4605014b-794d-4532-b879-e703c5270374" xml:space="preserve">
+          <source>SQL Data Warehouse supports the <bpt id="76ebee87-d7a1-4665-b3a4-c9a5ffdb9bcf">&lt;linkText&gt;</bpt>WHILE<ept id="76ebee87-d7a1-4665-b3a4-c9a5ffdb9bcf">&lt;/linkText&gt;</ept><bpt id="76ebee87-d7a1-4665-b3a4-c9a5ffdb9bcf">&lt;title&gt;</bpt><ept id="76ebee87-d7a1-4665-b3a4-c9a5ffdb9bcf">&lt;/title&gt;</ept> loop for repeatedly executing statement blocks.</source>
+          <target state="new">SQL Data Warehouse supports the <bpt id="76ebee87-d7a1-4665-b3a4-c9a5ffdb9bcf">&lt;linkText&gt;</bpt>WHILE<ept id="76ebee87-d7a1-4665-b3a4-c9a5ffdb9bcf">&lt;/linkText&gt;</ept><bpt id="76ebee87-d7a1-4665-b3a4-c9a5ffdb9bcf">&lt;title&gt;</bpt><ept id="76ebee87-d7a1-4665-b3a4-c9a5ffdb9bcf">&lt;/title&gt;</ept> loop for repeatedly executing statement blocks.</target>
+        </trans-unit>
+        <trans-unit id="4e0c894c-9c88-4af8-985a-6b372bc3937f" xml:space="preserve">
+          <source>This will continue for as long as the specified conditions are true or until the code specifically terminates the loop using the <bpt id="eedd1e42-dea6-4acd-89f7-5018dd617f6c">&lt;code&gt;</bpt>BREAK<ept id="eedd1e42-dea6-4acd-89f7-5018dd617f6c">&lt;/code&gt;</ept> keyword.</source>
+          <target state="new">This will continue for as long as the specified conditions are true or until the code specifically terminates the loop using the <bpt id="eedd1e42-dea6-4acd-89f7-5018dd617f6c">&lt;code&gt;</bpt>BREAK<ept id="eedd1e42-dea6-4acd-89f7-5018dd617f6c">&lt;/code&gt;</ept> keyword.</target>
+        </trans-unit>
+        <trans-unit id="18d46e13-43b7-4daf-a18d-89e6ebf8960e" xml:space="preserve">
+          <source>Loops are particularly useful for replacing cursors defined in SQL code.</source>
+          <target state="new">Loops are particularly useful for replacing cursors defined in SQL code.</target>
+        </trans-unit>
+        <trans-unit id="322d493f-bcfb-49fb-97e8-c0d786ce4a57" xml:space="preserve">
+          <source>Fortunately, almost all cursors that are written in SQL code are of the fast forward, read only variety.</source>
+          <target state="new">Fortunately, almost all cursors that are written in SQL code are of the fast forward, read only variety.</target>
+        </trans-unit>
+        <trans-unit id="17dd4f56-dad6-4a51-b71d-201f6a757d17" xml:space="preserve">
+          <source>Therefore [WHILE] loops are a great alternative if you find yourself having to replace one.</source>
+          <target state="new">Therefore [WHILE] loops are a great alternative if you find yourself having to replace one.</target>
+        </trans-unit>
+        <trans-unit id="af9d347f-856c-4af0-a91a-b43e16d5e05b" xml:space="preserve">
+          <source>However, before diving in head first you should ask yourself the following question: "Could this cursor be re-written to use set based operations?".</source>
+          <target state="new">However, before diving in head first you should ask yourself the following question: "Could this cursor be re-written to use set based operations?".</target>
+        </trans-unit>
+        <trans-unit id="9152bfac-8d48-41d0-8335-547f36c2e8a3" xml:space="preserve">
+          <source>In many cases the answer will be yes.</source>
+          <target state="new">In many cases the answer will be yes.</target>
+        </trans-unit>
+        <trans-unit id="afe081c8-0704-45dd-9bb4-9db807852d97" xml:space="preserve">
+          <source>More often than not the best approach is to do just that.</source>
+          <target state="new">More often than not the best approach is to do just that.</target>
+        </trans-unit>
+        <trans-unit id="ff096926-29f2-427b-a7a9-762f6c645440" xml:space="preserve">
+          <source>A set based operation will often perform significantly faster than an iterative row by row approach.</source>
+          <target state="new">A set based operation will often perform significantly faster than an iterative row by row approach.</target>
+        </trans-unit>
+        <trans-unit id="7ede64d9-c557-482a-94fc-4691f0eb72a4" xml:space="preserve">
+          <source>Fast forward read only cursors can be easily replaced with a looping construct.</source>
+          <target state="new">Fast forward read only cursors can be easily replaced with a looping construct.</target>
+        </trans-unit>
+        <trans-unit id="b31da8ed-2c8f-48ca-ade4-be1d94d71e21" xml:space="preserve">
+          <source>Below is a simple example to convey the approach.</source>
+          <target state="new">Below is a simple example to convey the approach.</target>
+        </trans-unit>
+        <trans-unit id="9cf7c05b-d746-4d00-a1d3-d922163806a7" xml:space="preserve">
+          <source>The code example updates the statistics for every table in the database.</source>
+          <target state="new">The code example updates the statistics for every table in the database.</target>
+        </trans-unit>
+        <trans-unit id="6d96f260-3492-4588-8dc9-8d6b7f44f8f9" xml:space="preserve">
+          <source>By iterating over the tables in the loop we are able to execute each command in sequence.</source>
+          <target state="new">By iterating over the tables in the loop we are able to execute each command in sequence.</target>
+        </trans-unit>
+        <trans-unit id="b4f0ade5-1eea-4ec7-a527-392ffd0de6db" xml:space="preserve">
+          <source>Firstly, create a temporary table containing a unique row number used to identify the individual statements:</source>
+          <target state="new">Firstly, create a temporary table containing a unique row number used to identify the individual statements:</target>
+        </trans-unit>
+        <trans-unit id="459a180b-190a-4850-aaec-a9818e709ced" xml:space="preserve">
+          <source>Secondly, initialize the variables required to perform the loop:</source>
+          <target state="new">Secondly, initialize the variables required to perform the loop:</target>
+        </trans-unit>
+        <trans-unit id="f18ac296-6b6e-4f43-a902-60ce0bc27884" xml:space="preserve">
+          <source>Now loop over statements executing them one at a time:</source>
+          <target state="new">Now loop over statements executing them one at a time:</target>
+        </trans-unit>
+        <trans-unit id="a4af91e7-404d-4db1-b02a-ab1c707eab30" xml:space="preserve">
+          <source>Finally drop the temporary table created in the first step</source>
+          <target state="new">Finally drop the temporary table created in the first step</target>
+        </trans-unit>
+        <trans-unit id="1d3425c4-da84-4fe8-8be5-82f6aab42663" xml:space="preserve">
+          <source>For more development tips, see <bpt id="fdabf3f8-5545-4517-a7e6-15e9bb25d4f0">&lt;linkText&gt;</bpt>development overview<ept id="fdabf3f8-5545-4517-a7e6-15e9bb25d4f0">&lt;/linkText&gt;</ept><bpt id="fdabf3f8-5545-4517-a7e6-15e9bb25d4f0">&lt;title&gt;</bpt><ept id="fdabf3f8-5545-4517-a7e6-15e9bb25d4f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="fdabf3f8-5545-4517-a7e6-15e9bb25d4f0">&lt;linkText&gt;</bpt>development overview<ept id="fdabf3f8-5545-4517-a7e6-15e9bb25d4f0">&lt;/linkText&gt;</ept><bpt id="fdabf3f8-5545-4517-a7e6-15e9bb25d4f0">&lt;title&gt;</bpt><ept id="fdabf3f8-5545-4517-a7e6-15e9bb25d4f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87b96c7e-f8ed-4973-a565-f932106b139d" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+        <trans-unit id="3917d078-696f-4e47-bbe4-26a0ff536856" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/ms178642.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/ms178642.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="3007447c-d4dd-46b7-9f08-5e1ece1e9785" />
+    </body>
+  </file>
+</xliff>

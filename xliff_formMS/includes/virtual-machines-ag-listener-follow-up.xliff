@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ea9eab05-8a9f-41d2-9304-ebe9ca81d142" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ea9eab05-8a9f-41d2-9304-ebe9ca81d142" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cb27dad1-fa25-4d6b-8011-a565b43d54e2">
+        <trans-unit id="8f23efc3-57b4-401e-bd5b-90b6de4e0971" xml:space="preserve">
+          <source>After the availability group listener is created, it may be necessary to adjust the <bpt id="65398191-a597-49d8-aa8b-128083c9bbda">&lt;strong&gt;</bpt>RegisterAllProvidersIP<ept id="65398191-a597-49d8-aa8b-128083c9bbda">&lt;/strong&gt;</ept> and <bpt id="08d4ef68-32f6-427d-8cfa-30de988b40e0">&lt;strong&gt;</bpt>HostRecordTTL<ept id="08d4ef68-32f6-427d-8cfa-30de988b40e0">&lt;/strong&gt;</ept> cluster parameters for the listener resource.</source>
+          <target state="new">After the availability group listener is created, it may be necessary to adjust the <bpt id="65398191-a597-49d8-aa8b-128083c9bbda">&lt;strong&gt;</bpt>RegisterAllProvidersIP<ept id="65398191-a597-49d8-aa8b-128083c9bbda">&lt;/strong&gt;</ept> and <bpt id="08d4ef68-32f6-427d-8cfa-30de988b40e0">&lt;strong&gt;</bpt>HostRecordTTL<ept id="08d4ef68-32f6-427d-8cfa-30de988b40e0">&lt;/strong&gt;</ept> cluster parameters for the listener resource.</target>
+        </trans-unit>
+        <trans-unit id="969bfa54-7ab0-4557-b83f-1bf3d3143e29" xml:space="preserve">
+          <source>These parameters may reduce reconnection time after a failover which may prevent connection timeouts.</source>
+          <target state="new">These parameters may reduce reconnection time after a failover which may prevent connection timeouts.</target>
+        </trans-unit>
+        <trans-unit id="3533ffb0-2b06-424e-a6cf-80dbc3a8186c" xml:space="preserve">
+          <source>For more information on these parameters, as well as sample code, see <bpt id="245112a2-ade6-4d63-94ca-eb345a6ab067">&lt;linkText&gt;</bpt>Create or Configure an Availability Group Listener<ept id="245112a2-ade6-4d63-94ca-eb345a6ab067">&lt;/linkText&gt;</ept><bpt id="245112a2-ade6-4d63-94ca-eb345a6ab067">&lt;title&gt;</bpt><ept id="245112a2-ade6-4d63-94ca-eb345a6ab067">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on these parameters, as well as sample code, see <bpt id="245112a2-ade6-4d63-94ca-eb345a6ab067">&lt;linkText&gt;</bpt>Create or Configure an Availability Group Listener<ept id="245112a2-ade6-4d63-94ca-eb345a6ab067">&lt;/linkText&gt;</ept><bpt id="245112a2-ade6-4d63-94ca-eb345a6ab067">&lt;title&gt;</bpt><ept id="245112a2-ade6-4d63-94ca-eb345a6ab067">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

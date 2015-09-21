@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="41948570-09fb-4523-bd9c-2d467c533ab9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="41948570-09fb-4523-bd9c-2d467c533ab9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="da7005d3-d577-46f4-849e-593cdb2f6bf8">
+        <trans-unit id="343f0468-667c-4925-a94c-999dd12fd696" xml:space="preserve">
+          <source>Getting Started with Active Directory Authentication - What Happened</source>
+          <target state="new">Getting Started with Active Directory Authentication - What Happened</target>
+        </trans-unit>
+        <trans-unit id="a8341e89-70c9-4b62-a478-ceea19d8c1cb" xml:space="preserve">
+          <source>Describes what happened to your Azure Active Directory project in Visual Studio</source>
+          <target state="new">Describes what happened to your Azure Active Directory project in Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="f367d772-131b-4fbd-8392-6313f0ec54a7" xml:space="preserve">
+          <source><bpt id="e33e9380-76f2-4084-acb3-c2d1b7fbc0fb">&lt;code&gt;</bpt>Microsoft.IdentityModel.Protocol.Extensions<ept id="e33e9380-76f2-4084-acb3-c2d1b7fbc0fb">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e33e9380-76f2-4084-acb3-c2d1b7fbc0fb">&lt;code&gt;</bpt>Microsoft.IdentityModel.Protocol.Extensions<ept id="e33e9380-76f2-4084-acb3-c2d1b7fbc0fb">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d567c7d-758a-4cf3-933a-74c58274a87c" xml:space="preserve">
+          <source><bpt id="3345601f-85f1-4060-9a7c-c5ea91647314">&lt;code&gt;</bpt>Microsoft.Owin<ept id="3345601f-85f1-4060-9a7c-c5ea91647314">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3345601f-85f1-4060-9a7c-c5ea91647314">&lt;code&gt;</bpt>Microsoft.Owin<ept id="3345601f-85f1-4060-9a7c-c5ea91647314">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19d71ab2-739e-4fbd-9af8-58cce97aec43" xml:space="preserve">
+          <source><bpt id="3ecec599-17bb-4469-8222-7e8def075bc6">&lt;code&gt;</bpt>Microsoft.Owin.Host.SystemWeb<ept id="3ecec599-17bb-4469-8222-7e8def075bc6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3ecec599-17bb-4469-8222-7e8def075bc6">&lt;code&gt;</bpt>Microsoft.Owin.Host.SystemWeb<ept id="3ecec599-17bb-4469-8222-7e8def075bc6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e3cd39c-7ca5-45d5-aeac-279b0510ecd7" xml:space="preserve">
+          <source><bpt id="3bb04af8-31d2-4ba3-9dbe-1b6cadbb44d9">&lt;code&gt;</bpt>Microsoft.Owin.Security<ept id="3bb04af8-31d2-4ba3-9dbe-1b6cadbb44d9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3bb04af8-31d2-4ba3-9dbe-1b6cadbb44d9">&lt;code&gt;</bpt>Microsoft.Owin.Security<ept id="3bb04af8-31d2-4ba3-9dbe-1b6cadbb44d9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a53cf083-126b-490f-bd42-785abcefd146" xml:space="preserve">
+          <source><bpt id="c7be99f3-e115-4258-b78e-7a68f8331d17">&lt;code&gt;</bpt>Microsoft.Owin.Security.Cookies<ept id="c7be99f3-e115-4258-b78e-7a68f8331d17">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c7be99f3-e115-4258-b78e-7a68f8331d17">&lt;code&gt;</bpt>Microsoft.Owin.Security.Cookies<ept id="c7be99f3-e115-4258-b78e-7a68f8331d17">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39e78d2a-64e3-472c-8bb6-083261bd70ff" xml:space="preserve">
+          <source><bpt id="5351251c-eed6-4fc3-ac7b-1edea0ba2158">&lt;code&gt;</bpt>Microsoft.Owin.Security.OpenIdConnect<ept id="5351251c-eed6-4fc3-ac7b-1edea0ba2158">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="5351251c-eed6-4fc3-ac7b-1edea0ba2158">&lt;code&gt;</bpt>Microsoft.Owin.Security.OpenIdConnect<ept id="5351251c-eed6-4fc3-ac7b-1edea0ba2158">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="253cff7e-fb2b-4ad0-b720-a75943573c37" xml:space="preserve">
+          <source><bpt id="1689d379-f000-4bbb-aee9-b6fd307aa9a0">&lt;code&gt;</bpt>Owin<ept id="1689d379-f000-4bbb-aee9-b6fd307aa9a0">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1689d379-f000-4bbb-aee9-b6fd307aa9a0">&lt;code&gt;</bpt>Owin<ept id="1689d379-f000-4bbb-aee9-b6fd307aa9a0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="184bbc91-83b4-4e55-a4f7-622cd572caa5" xml:space="preserve">
+          <source><bpt id="68246b7a-0465-43ad-9b3b-4224b89f0dc8">&lt;code&gt;</bpt>System.IdentityModel.Tokens.Jwt<ept id="68246b7a-0465-43ad-9b3b-4224b89f0dc8">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="68246b7a-0465-43ad-9b3b-4224b89f0dc8">&lt;code&gt;</bpt>System.IdentityModel.Tokens.Jwt<ept id="68246b7a-0465-43ad-9b3b-4224b89f0dc8">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15c877e9-0ba1-41ab-8ac8-d4ca9d76a9cf" xml:space="preserve">
+          <source><bpt id="dcbb639c-7820-44d0-a03d-647e9a7026a4">&lt;code&gt;</bpt>Microsoft.IdentityModel.Protocol.Extensions<ept id="dcbb639c-7820-44d0-a03d-647e9a7026a4">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="dcbb639c-7820-44d0-a03d-647e9a7026a4">&lt;code&gt;</bpt>Microsoft.IdentityModel.Protocol.Extensions<ept id="dcbb639c-7820-44d0-a03d-647e9a7026a4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf1e7d41-b11f-44c4-8017-9d3820bcc5a4" xml:space="preserve">
+          <source><bpt id="8035c586-68e4-412d-aaa3-bea2d3b0d6a1">&lt;code&gt;</bpt>Microsoft.Owin<ept id="8035c586-68e4-412d-aaa3-bea2d3b0d6a1">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="8035c586-68e4-412d-aaa3-bea2d3b0d6a1">&lt;code&gt;</bpt>Microsoft.Owin<ept id="8035c586-68e4-412d-aaa3-bea2d3b0d6a1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8536e368-04d1-4068-9365-d86f90591cdb" xml:space="preserve">
+          <source><bpt id="e375a141-e100-41c2-8b3f-2dcab0bc9122">&lt;code&gt;</bpt>Microsoft.Owin.Host.SystemWeb<ept id="e375a141-e100-41c2-8b3f-2dcab0bc9122">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e375a141-e100-41c2-8b3f-2dcab0bc9122">&lt;code&gt;</bpt>Microsoft.Owin.Host.SystemWeb<ept id="e375a141-e100-41c2-8b3f-2dcab0bc9122">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10c039e8-cfa4-4357-8987-0cfafbe64b15" xml:space="preserve">
+          <source><bpt id="1530c634-a77b-457b-aebd-9bbb83947910">&lt;code&gt;</bpt>Microsoft.Owin.Security<ept id="1530c634-a77b-457b-aebd-9bbb83947910">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1530c634-a77b-457b-aebd-9bbb83947910">&lt;code&gt;</bpt>Microsoft.Owin.Security<ept id="1530c634-a77b-457b-aebd-9bbb83947910">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a299c36-c1db-4409-a77e-286247e372e0" xml:space="preserve">
+          <source><bpt id="240394cf-6f65-420b-819e-992ee63c9faf">&lt;code&gt;</bpt>Microsoft.Owin.Security.Cookies<ept id="240394cf-6f65-420b-819e-992ee63c9faf">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="240394cf-6f65-420b-819e-992ee63c9faf">&lt;code&gt;</bpt>Microsoft.Owin.Security.Cookies<ept id="240394cf-6f65-420b-819e-992ee63c9faf">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9e4c672-0d3f-4d7d-a33f-35eef6cdb191" xml:space="preserve">
+          <source><bpt id="527bfbed-31e5-4b9e-9222-c28cdcfb6834">&lt;code&gt;</bpt>Microsoft.Owin.Security.OpenIdConnect<ept id="527bfbed-31e5-4b9e-9222-c28cdcfb6834">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="527bfbed-31e5-4b9e-9222-c28cdcfb6834">&lt;code&gt;</bpt>Microsoft.Owin.Security.OpenIdConnect<ept id="527bfbed-31e5-4b9e-9222-c28cdcfb6834">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82bda0a2-d745-4862-851a-873def7f7fae" xml:space="preserve">
+          <source><bpt id="a24792be-18f4-4b81-b937-b7ba9624ce58">&lt;code&gt;</bpt>Owin<ept id="a24792be-18f4-4b81-b937-b7ba9624ce58">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="a24792be-18f4-4b81-b937-b7ba9624ce58">&lt;code&gt;</bpt>Owin<ept id="a24792be-18f4-4b81-b937-b7ba9624ce58">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4e22cae-63ce-40a6-bc02-8cbeadca3b12" xml:space="preserve">
+          <source><bpt id="e6ff5bfe-aa58-4505-bb7d-5880d9abdcb4">&lt;code&gt;</bpt>System.IdentityModel<ept id="e6ff5bfe-aa58-4505-bb7d-5880d9abdcb4">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e6ff5bfe-aa58-4505-bb7d-5880d9abdcb4">&lt;code&gt;</bpt>System.IdentityModel<ept id="e6ff5bfe-aa58-4505-bb7d-5880d9abdcb4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88938a41-4015-468b-ad15-cc1c415ed3c6" xml:space="preserve">
+          <source><bpt id="9f367517-7971-45e9-9ed3-a9bfaf4f4324">&lt;code&gt;</bpt>System.IdentityModel.Tokens.Jwt<ept id="9f367517-7971-45e9-9ed3-a9bfaf4f4324">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="9f367517-7971-45e9-9ed3-a9bfaf4f4324">&lt;code&gt;</bpt>System.IdentityModel.Tokens.Jwt<ept id="9f367517-7971-45e9-9ed3-a9bfaf4f4324">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c9d9415-8439-4edc-9613-12455371e04b" xml:space="preserve">
+          <source><bpt id="34c57028-d96f-40ed-a53c-2cefd8dad30e">&lt;code&gt;</bpt>System.Runtime.Serialization<ept id="34c57028-d96f-40ed-a53c-2cefd8dad30e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="34c57028-d96f-40ed-a53c-2cefd8dad30e">&lt;code&gt;</bpt>System.Runtime.Serialization<ept id="34c57028-d96f-40ed-a53c-2cefd8dad30e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="317ac83d-74ef-4c1f-aa6d-2839402c7ce8" xml:space="preserve">
+          <source>An authentication startup class, <bpt id="c29f82c2-8cd6-4a78-b4f1-a284ac0863fb">&lt;code&gt;</bpt>App_Start/Startup.Auth.cs<ept id="c29f82c2-8cd6-4a78-b4f1-a284ac0863fb">&lt;/code&gt;</ept> was added to your project containing startup logic for Azure AD authentication.</source>
+          <target state="new">An authentication startup class, <bpt id="c29f82c2-8cd6-4a78-b4f1-a284ac0863fb">&lt;code&gt;</bpt>App_Start/Startup.Auth.cs<ept id="c29f82c2-8cd6-4a78-b4f1-a284ac0863fb">&lt;/code&gt;</ept> was added to your project containing startup logic for Azure AD authentication.</target>
+        </trans-unit>
+        <trans-unit id="c151649a-a4d3-4e33-b1e1-7a995b95a581" xml:space="preserve">
+          <source>Also, a controller class, Controllers/AccountController.cs was added which contains <bpt id="4ecb30be-0ed5-4380-b238-092f8a451528">&lt;code&gt;</bpt>SignIn()<ept id="4ecb30be-0ed5-4380-b238-092f8a451528">&lt;/code&gt;</ept> and <bpt id="33d60cdb-e3a6-4de3-88b4-102fc46f4758">&lt;code&gt;</bpt>SignOut()<ept id="33d60cdb-e3a6-4de3-88b4-102fc46f4758">&lt;/code&gt;</ept> methods.</source>
+          <target state="new">Also, a controller class, Controllers/AccountController.cs was added which contains <bpt id="4ecb30be-0ed5-4380-b238-092f8a451528">&lt;code&gt;</bpt>SignIn()<ept id="4ecb30be-0ed5-4380-b238-092f8a451528">&lt;/code&gt;</ept> and <bpt id="33d60cdb-e3a6-4de3-88b4-102fc46f4758">&lt;code&gt;</bpt>SignOut()<ept id="33d60cdb-e3a6-4de3-88b4-102fc46f4758">&lt;/code&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="53690806-ff3f-48bd-aec8-ed197b5d5678" xml:space="preserve">
+          <source>Finally, a partial view, <bpt id="4d20ef8b-6b6e-48d7-97bf-ff228f4a8bc9">&lt;code&gt;</bpt>Views/Shared/_LoginPartial.cshtml<ept id="4d20ef8b-6b6e-48d7-97bf-ff228f4a8bc9">&lt;/code&gt;</ept> was added containing an action link for SignIn/SignOut.</source>
+          <target state="new">Finally, a partial view, <bpt id="4d20ef8b-6b6e-48d7-97bf-ff228f4a8bc9">&lt;code&gt;</bpt>Views/Shared/_LoginPartial.cshtml<ept id="4d20ef8b-6b6e-48d7-97bf-ff228f4a8bc9">&lt;/code&gt;</ept> was added containing an action link for SignIn/SignOut.</target>
+        </trans-unit>
+        <trans-unit id="4a7fef23-9e4d-4a0e-bba4-ff13514b8e29" xml:space="preserve">
+          <source>If you already had a Startup class in your project, the <bpt id="fdd030fa-aaf3-44c1-ad0b-8f88a1758c45">&lt;strong&gt;</bpt>Configuration<ept id="fdd030fa-aaf3-44c1-ad0b-8f88a1758c45">&lt;/strong&gt;</ept> method was updated to include a call to <bpt id="b0691615-c988-42c8-bc88-33871fa1e66d">&lt;code&gt;</bpt>ConfigureAuth(app)<ept id="b0691615-c988-42c8-bc88-33871fa1e66d">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you already had a Startup class in your project, the <bpt id="fdd030fa-aaf3-44c1-ad0b-8f88a1758c45">&lt;strong&gt;</bpt>Configuration<ept id="fdd030fa-aaf3-44c1-ad0b-8f88a1758c45">&lt;/strong&gt;</ept> method was updated to include a call to <bpt id="b0691615-c988-42c8-bc88-33871fa1e66d">&lt;code&gt;</bpt>ConfigureAuth(app)<ept id="b0691615-c988-42c8-bc88-33871fa1e66d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81bcef9e-9bc4-4ad7-92d0-43aac621551e" xml:space="preserve">
+          <source>Otherwise, a Startup class was added to your project.</source>
+          <target state="new">Otherwise, a Startup class was added to your project.</target>
+        </trans-unit>
+        <trans-unit id="896f912f-8ae4-4fc7-b1e6-4d20c8b6df4d" xml:space="preserve">
+          <source>The following configuration entries have been added.</source>
+          <target state="new">The following configuration entries have been added.</target>
+        </trans-unit>
+        <trans-unit id="baa27070-38e9-4f83-8d7d-1362d76c2445" xml:space="preserve">
+          <source>&lt;pre&gt;
+    <bpt id="d8e614d0-0ace-4a8d-9828-30a1d014a457">&lt;code&gt;</bpt>&lt;appSettings&gt;
+        &lt;add key="ida:ClientId" value="ClientId from the new Azure AD App" /&gt;
+        &lt;add key="ida:AADInstance" value="https://login.microsoftonline.com/" /&gt;
+        &lt;add key="ida:Domain" value="The selected Azure AD Domain" /&gt;
+        &lt;add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" /&gt;
+        &lt;add key="ida:PostLogoutRedirectUri" value="Your project start page" /&gt;
+    &lt;/appSettings&gt;<ept id="d8e614d0-0ace-4a8d-9828-30a1d014a457">&lt;/code&gt;</ept> &lt;/pre&gt;</source>
+          <target state="new">&lt;pre&gt;
+    <bpt id="d8e614d0-0ace-4a8d-9828-30a1d014a457">&lt;code&gt;</bpt>&lt;appSettings&gt;
+        &lt;add key="ida:ClientId" value="ClientId from the new Azure AD App" /&gt;
+        &lt;add key="ida:AADInstance" value="https://login.microsoftonline.com/" /&gt;
+        &lt;add key="ida:Domain" value="The selected Azure AD Domain" /&gt;
+        &lt;add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" /&gt;
+        &lt;add key="ida:PostLogoutRedirectUri" value="Your project start page" /&gt;
+    &lt;/appSettings&gt;<ept id="d8e614d0-0ace-4a8d-9828-30a1d014a457">&lt;/code&gt;</ept> &lt;/pre&gt;</target>
+        </trans-unit>
+        <trans-unit id="a0f616c5-b2f5-4d18-82b6-38d26d25beab" xml:space="preserve">
+          <source>An Azure AD Application was created in the directory that you selected in the wizard.</source>
+          <target state="new">An Azure AD Application was created in the directory that you selected in the wizard.</target>
+        </trans-unit>
+        <trans-unit id="28af0405-140e-424d-86d5-db48a80d4f19" xml:space="preserve">
+          <source>NuGet package references were removed, and files were removed and backed up.</source>
+          <target state="new">NuGet package references were removed, and files were removed and backed up.</target>
+        </trans-unit>
+        <trans-unit id="5a9bcf3f-ec4d-4569-9bb8-b247fe9f2f50" xml:space="preserve">
+          <source>Depending on the state of your project, you may have to manually remove additional references or files, or modify code as appropriate.</source>
+          <target state="new">Depending on the state of your project, you may have to manually remove additional references or files, or modify code as appropriate.</target>
+        </trans-unit>
+        <trans-unit id="f7631e66-4f49-461f-b569-8f9db3a02d28" xml:space="preserve">
+          <source><bpt id="c5f66d6d-5f0a-4540-b6b7-b1f556e43edb">&lt;code&gt;</bpt>Microsoft.AspNet.Identity.Core<ept id="c5f66d6d-5f0a-4540-b6b7-b1f556e43edb">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c5f66d6d-5f0a-4540-b6b7-b1f556e43edb">&lt;code&gt;</bpt>Microsoft.AspNet.Identity.Core<ept id="c5f66d6d-5f0a-4540-b6b7-b1f556e43edb">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c05bdb8-0c7b-4b0c-b883-c4b2207a336e" xml:space="preserve">
+          <source><bpt id="983a77d9-8fb4-4ee9-89a3-c525d67e209b">&lt;code&gt;</bpt>Microsoft.AspNet.Identity.EntityFramework<ept id="983a77d9-8fb4-4ee9-89a3-c525d67e209b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="983a77d9-8fb4-4ee9-89a3-c525d67e209b">&lt;code&gt;</bpt>Microsoft.AspNet.Identity.EntityFramework<ept id="983a77d9-8fb4-4ee9-89a3-c525d67e209b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac6448d7-0721-4630-8de5-a86379f6540a" xml:space="preserve">
+          <source><bpt id="805f96a3-2639-4464-b72f-ca4309fa73a3">&lt;code&gt;</bpt>Microsoft.AspNet.Identity.Owin<ept id="805f96a3-2639-4464-b72f-ca4309fa73a3">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="805f96a3-2639-4464-b72f-ca4309fa73a3">&lt;code&gt;</bpt>Microsoft.AspNet.Identity.Owin<ept id="805f96a3-2639-4464-b72f-ca4309fa73a3">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b9a0081-c51a-45fb-ba95-a120598c9291" xml:space="preserve">
+          <source>Each of following files was backed up and removed from the project.</source>
+          <target state="new">Each of following files was backed up and removed from the project.</target>
+        </trans-unit>
+        <trans-unit id="5e899868-c0a6-4f7b-8b84-4be369284f1b" xml:space="preserve">
+          <source>Backup files are located in a 'Backup' folder at the root of the project's directory.</source>
+          <target state="new">Backup files are located in a 'Backup' folder at the root of the project's directory.</target>
+        </trans-unit>
+        <trans-unit id="d16ada15-42f4-4a54-a879-774f75baa426" xml:space="preserve">
+          <source><bpt id="bcdc41ac-86fb-49a0-a32b-856d0116baa5">&lt;code&gt;</bpt>App_Start\IdentityConfig.cs<ept id="bcdc41ac-86fb-49a0-a32b-856d0116baa5">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="bcdc41ac-86fb-49a0-a32b-856d0116baa5">&lt;code&gt;</bpt>App_Start\IdentityConfig.cs<ept id="bcdc41ac-86fb-49a0-a32b-856d0116baa5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2dce671f-18ba-4714-8383-554419d81688" xml:space="preserve">
+          <source><bpt id="c9f0fed9-9c39-4963-b2b3-15ac5cdca4f9">&lt;code&gt;</bpt>Controllers\ManageController.cs<ept id="c9f0fed9-9c39-4963-b2b3-15ac5cdca4f9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c9f0fed9-9c39-4963-b2b3-15ac5cdca4f9">&lt;code&gt;</bpt>Controllers\ManageController.cs<ept id="c9f0fed9-9c39-4963-b2b3-15ac5cdca4f9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b67b2514-1084-4788-8542-27f3cc91b6c4" xml:space="preserve">
+          <source><bpt id="f0ff7ce7-b266-4ad4-bc36-0d95ef2f0a30">&lt;code&gt;</bpt>Models\IdentityModels.cs<ept id="f0ff7ce7-b266-4ad4-bc36-0d95ef2f0a30">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="f0ff7ce7-b266-4ad4-bc36-0d95ef2f0a30">&lt;code&gt;</bpt>Models\IdentityModels.cs<ept id="f0ff7ce7-b266-4ad4-bc36-0d95ef2f0a30">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a340a96-7bdb-4246-af5f-03ae909aabde" xml:space="preserve">
+          <source><bpt id="a06b24ce-47ea-43e5-b39b-bd192e76287a">&lt;code&gt;</bpt>Models\ManageViewModels.cs<ept id="a06b24ce-47ea-43e5-b39b-bd192e76287a">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="a06b24ce-47ea-43e5-b39b-bd192e76287a">&lt;code&gt;</bpt>Models\ManageViewModels.cs<ept id="a06b24ce-47ea-43e5-b39b-bd192e76287a">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1afb9fe-dbff-4a2b-9fdf-d242d1a5933b" xml:space="preserve">
+          <source>Each of following files was backed up before being replaced.</source>
+          <target state="new">Each of following files was backed up before being replaced.</target>
+        </trans-unit>
+        <trans-unit id="90c22093-d999-4df2-a766-14b8b6674538" xml:space="preserve">
+          <source>Backup files are located in a 'Backup' folder at the root of the project's directory.</source>
+          <target state="new">Backup files are located in a 'Backup' folder at the root of the project's directory.</target>
+        </trans-unit>
+        <trans-unit id="66d929b0-e550-4bed-9063-8e6c06d01110" xml:space="preserve">
+          <source><bpt id="4d6c163b-a3d9-4188-92ed-da8254bc37b2">&lt;code&gt;</bpt>Startup.cs<ept id="4d6c163b-a3d9-4188-92ed-da8254bc37b2">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="4d6c163b-a3d9-4188-92ed-da8254bc37b2">&lt;code&gt;</bpt>Startup.cs<ept id="4d6c163b-a3d9-4188-92ed-da8254bc37b2">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e90e888-278f-4e49-8af7-04218fce44f2" xml:space="preserve">
+          <source><bpt id="c36f64a8-f110-4cdf-a3b6-122fa989ebd0">&lt;code&gt;</bpt>App_Start\Startup.Auth.cs<ept id="c36f64a8-f110-4cdf-a3b6-122fa989ebd0">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c36f64a8-f110-4cdf-a3b6-122fa989ebd0">&lt;code&gt;</bpt>App_Start\Startup.Auth.cs<ept id="c36f64a8-f110-4cdf-a3b6-122fa989ebd0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfd81be3-3aa2-4e9e-804f-f8b2bc608e91" xml:space="preserve">
+          <source><bpt id="2719ce62-4cf4-4580-80b5-6f2fa41f4ee3">&lt;code&gt;</bpt>Controllers\AccountController.cs<ept id="2719ce62-4cf4-4580-80b5-6f2fa41f4ee3">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="2719ce62-4cf4-4580-80b5-6f2fa41f4ee3">&lt;code&gt;</bpt>Controllers\AccountController.cs<ept id="2719ce62-4cf4-4580-80b5-6f2fa41f4ee3">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f82ebaa2-49a8-421e-b732-d29ef1185b03" xml:space="preserve">
+          <source><bpt id="170707ea-92c2-4b73-9f07-a4456fbfec57">&lt;code&gt;</bpt>Views\Shared\_LoginPartial.cshtml<ept id="170707ea-92c2-4b73-9f07-a4456fbfec57">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="170707ea-92c2-4b73-9f07-a4456fbfec57">&lt;code&gt;</bpt>Views\Shared\_LoginPartial.cshtml<ept id="170707ea-92c2-4b73-9f07-a4456fbfec57">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96110ca7-2b86-4e43-ad71-d8cd7e33fa3f" xml:space="preserve">
+          <source>Additional references have been added.</source>
+          <target state="new">Additional references have been added.</target>
+        </trans-unit>
+        <trans-unit id="30d7c150-87f3-48bf-9ca3-a903e15ac708" xml:space="preserve">
+          <source><bpt id="450a9d2d-4ca6-475e-bbf7-d841c6722be7">&lt;code&gt;</bpt>EntityFramework<ept id="450a9d2d-4ca6-475e-bbf7-d841c6722be7">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="450a9d2d-4ca6-475e-bbf7-d841c6722be7">&lt;code&gt;</bpt>EntityFramework<ept id="450a9d2d-4ca6-475e-bbf7-d841c6722be7">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc590f21-07da-4cc6-bcad-822b7b853b15" xml:space="preserve">
+          <source><bpt id="fc01f7ac-38b0-4ce4-963d-06bbbe7dbdc0">&lt;code&gt;</bpt>Microsoft.Azure.ActiveDirectory.GraphClient<ept id="fc01f7ac-38b0-4ce4-963d-06bbbe7dbdc0">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="fc01f7ac-38b0-4ce4-963d-06bbbe7dbdc0">&lt;code&gt;</bpt>Microsoft.Azure.ActiveDirectory.GraphClient<ept id="fc01f7ac-38b0-4ce4-963d-06bbbe7dbdc0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c25946ee-b9a4-421d-b84d-c733a6a7cc11" xml:space="preserve">
+          <source><bpt id="e44af3be-2d48-4739-b7be-266c10f53b1c">&lt;code&gt;</bpt>Microsoft.Data.Edm<ept id="e44af3be-2d48-4739-b7be-266c10f53b1c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e44af3be-2d48-4739-b7be-266c10f53b1c">&lt;code&gt;</bpt>Microsoft.Data.Edm<ept id="e44af3be-2d48-4739-b7be-266c10f53b1c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e572953-ca6a-4f71-894d-368de795dc19" xml:space="preserve">
+          <source><bpt id="904b33d4-e214-4d63-8d22-25c4ebfb99a4">&lt;code&gt;</bpt>Microsoft.Data.OData<ept id="904b33d4-e214-4d63-8d22-25c4ebfb99a4">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="904b33d4-e214-4d63-8d22-25c4ebfb99a4">&lt;code&gt;</bpt>Microsoft.Data.OData<ept id="904b33d4-e214-4d63-8d22-25c4ebfb99a4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b78ace12-fde5-43fc-9c55-cf1131e4e79c" xml:space="preserve">
+          <source><bpt id="96bf2617-5b98-44b6-90ca-30de1e7822f9">&lt;code&gt;</bpt>Microsoft.Data.Services.Client<ept id="96bf2617-5b98-44b6-90ca-30de1e7822f9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="96bf2617-5b98-44b6-90ca-30de1e7822f9">&lt;code&gt;</bpt>Microsoft.Data.Services.Client<ept id="96bf2617-5b98-44b6-90ca-30de1e7822f9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b27fb7fe-5ab4-49f4-b094-63391c426463" xml:space="preserve">
+          <source><bpt id="b2ac79eb-6fe5-4830-ac69-d7c0a878b99a">&lt;code&gt;</bpt>Microsoft.IdentityModel.Clients.ActiveDirectory<ept id="b2ac79eb-6fe5-4830-ac69-d7c0a878b99a">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="b2ac79eb-6fe5-4830-ac69-d7c0a878b99a">&lt;code&gt;</bpt>Microsoft.IdentityModel.Clients.ActiveDirectory<ept id="b2ac79eb-6fe5-4830-ac69-d7c0a878b99a">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d0833b8-b2a3-494a-ac65-56c6af67ee68" xml:space="preserve">
+          <source><bpt id="3cdfa69f-1d84-44c2-9819-c23ebb6d7906">&lt;code&gt;</bpt>System.Spatial<ept id="3cdfa69f-1d84-44c2-9819-c23ebb6d7906">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3cdfa69f-1d84-44c2-9819-c23ebb6d7906">&lt;code&gt;</bpt>System.Spatial<ept id="3cdfa69f-1d84-44c2-9819-c23ebb6d7906">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85674f98-c48d-4693-b6d0-65cabf4755ae" xml:space="preserve">
+          <source><bpt id="901e014b-cc9d-4e41-9472-7f388aedf467">&lt;code&gt;</bpt>EntityFramework<ept id="901e014b-cc9d-4e41-9472-7f388aedf467">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="901e014b-cc9d-4e41-9472-7f388aedf467">&lt;code&gt;</bpt>EntityFramework<ept id="901e014b-cc9d-4e41-9472-7f388aedf467">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34253d8a-7ff8-49ae-b63e-1a92362e7050" xml:space="preserve">
+          <source><bpt id="c634542c-fe1b-4e1d-ace9-48d66ecfbf71">&lt;code&gt;</bpt>EntityFramework.SqlServer<ept id="c634542c-fe1b-4e1d-ace9-48d66ecfbf71">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c634542c-fe1b-4e1d-ace9-48d66ecfbf71">&lt;code&gt;</bpt>EntityFramework.SqlServer<ept id="c634542c-fe1b-4e1d-ace9-48d66ecfbf71">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92e2b4cf-47c8-42b9-bb4e-15976ef8b3dc" xml:space="preserve">
+          <source><bpt id="62e13852-5759-4489-9fea-c3d4114e5698">&lt;code&gt;</bpt>Microsoft.Azure.ActiveDirectory.GraphClient<ept id="62e13852-5759-4489-9fea-c3d4114e5698">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="62e13852-5759-4489-9fea-c3d4114e5698">&lt;code&gt;</bpt>Microsoft.Azure.ActiveDirectory.GraphClient<ept id="62e13852-5759-4489-9fea-c3d4114e5698">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0dde94f-a362-4d23-bc3c-fd7abf12a002" xml:space="preserve">
+          <source><bpt id="0e882769-a417-420a-b734-588cb742269e">&lt;code&gt;</bpt>Microsoft.Data.Edm<ept id="0e882769-a417-420a-b734-588cb742269e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="0e882769-a417-420a-b734-588cb742269e">&lt;code&gt;</bpt>Microsoft.Data.Edm<ept id="0e882769-a417-420a-b734-588cb742269e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="495243c3-f776-42ec-ad97-a522aa1f8545" xml:space="preserve">
+          <source><bpt id="9551d4e4-9303-431f-a139-768c9b9631e1">&lt;code&gt;</bpt>Microsoft.Data.OData<ept id="9551d4e4-9303-431f-a139-768c9b9631e1">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="9551d4e4-9303-431f-a139-768c9b9631e1">&lt;code&gt;</bpt>Microsoft.Data.OData<ept id="9551d4e4-9303-431f-a139-768c9b9631e1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df8f6307-54b5-4199-9b1e-f30e0cb573e6" xml:space="preserve">
+          <source><bpt id="63f16745-22f8-43d1-ab56-88a6143711d4">&lt;code&gt;</bpt>Microsoft.Data.Services.Client<ept id="63f16745-22f8-43d1-ab56-88a6143711d4">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="63f16745-22f8-43d1-ab56-88a6143711d4">&lt;code&gt;</bpt>Microsoft.Data.Services.Client<ept id="63f16745-22f8-43d1-ab56-88a6143711d4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ded19793-2b3b-4410-9ffc-fee02d6118f4" xml:space="preserve">
+          <source><bpt id="e70d8785-e72a-4402-a7e7-53e75ac23c31">&lt;code&gt;</bpt>Microsoft.IdentityModel.Clients.ActiveDirectory<ept id="e70d8785-e72a-4402-a7e7-53e75ac23c31">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e70d8785-e72a-4402-a7e7-53e75ac23c31">&lt;code&gt;</bpt>Microsoft.IdentityModel.Clients.ActiveDirectory<ept id="e70d8785-e72a-4402-a7e7-53e75ac23c31">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1244f33-ca53-437d-b61c-5e5cca9cec9b" xml:space="preserve">
+          <source><bpt id="186ed063-b1d9-41d6-bd85-54e522ffb1bc">&lt;code&gt;</bpt>Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<ept id="186ed063-b1d9-41d6-bd85-54e522ffb1bc">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="186ed063-b1d9-41d6-bd85-54e522ffb1bc">&lt;code&gt;</bpt>Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<ept id="186ed063-b1d9-41d6-bd85-54e522ffb1bc">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4b36129-9977-4609-809a-43cfda18e891" xml:space="preserve">
+          <source><bpt id="10b6e04d-f04c-45a0-8028-a0b0e7383188">&lt;code&gt;</bpt>System.Spatial<ept id="10b6e04d-f04c-45a0-8028-a0b0e7383188">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="10b6e04d-f04c-45a0-8028-a0b0e7383188">&lt;code&gt;</bpt>System.Spatial<ept id="10b6e04d-f04c-45a0-8028-a0b0e7383188">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="326dfbbb-1403-49b6-bcff-bfd483774c9c" xml:space="preserve">
+          <source>Two files were added to support token caching: <bpt id="8144689b-08a2-497e-bc4e-0bb9ae12c8b3">&lt;code&gt;</bpt>Models\ADALTokenCache.cs<ept id="8144689b-08a2-497e-bc4e-0bb9ae12c8b3">&lt;/code&gt;</ept> and <bpt id="d9dd40b7-fda7-460c-9bdd-b83eb169882a">&lt;code&gt;</bpt>Models\ApplicationDbContext.cs<ept id="d9dd40b7-fda7-460c-9bdd-b83eb169882a">&lt;/code&gt;</ept>.</source>
+          <target state="new">Two files were added to support token caching: <bpt id="8144689b-08a2-497e-bc4e-0bb9ae12c8b3">&lt;code&gt;</bpt>Models\ADALTokenCache.cs<ept id="8144689b-08a2-497e-bc4e-0bb9ae12c8b3">&lt;/code&gt;</ept> and <bpt id="d9dd40b7-fda7-460c-9bdd-b83eb169882a">&lt;code&gt;</bpt>Models\ApplicationDbContext.cs<ept id="d9dd40b7-fda7-460c-9bdd-b83eb169882a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65ad16e8-d83c-40bc-8ec9-82288ea6acd8" xml:space="preserve">
+          <source>An additional controller and view were added to illustrate accessing user profile information using Azure graph APIs.</source>
+          <target state="new">An additional controller and view were added to illustrate accessing user profile information using Azure graph APIs.</target>
+        </trans-unit>
+        <trans-unit id="53b1f60a-e61a-41f0-ab4f-ed6bc56e7555" xml:space="preserve">
+          <source>These files are <bpt id="d0c7892a-fe23-443d-a6bc-2b7ad0e9a47f">&lt;code&gt;</bpt>Controllers\UserProfileController.cs<ept id="d0c7892a-fe23-443d-a6bc-2b7ad0e9a47f">&lt;/code&gt;</ept> and <bpt id="532ea802-fdde-46b5-a231-8f0c281726b5">&lt;code&gt;</bpt>Views\UserProfile\Index.cshtml<ept id="532ea802-fdde-46b5-a231-8f0c281726b5">&lt;/code&gt;</ept>.</source>
+          <target state="new">These files are <bpt id="d0c7892a-fe23-443d-a6bc-2b7ad0e9a47f">&lt;code&gt;</bpt>Controllers\UserProfileController.cs<ept id="d0c7892a-fe23-443d-a6bc-2b7ad0e9a47f">&lt;/code&gt;</ept> and <bpt id="532ea802-fdde-46b5-a231-8f0c281726b5">&lt;code&gt;</bpt>Views\UserProfile\Index.cshtml<ept id="532ea802-fdde-46b5-a231-8f0c281726b5">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="760fd303-e918-45d5-858d-d2800c76d255" xml:space="preserve">
+          <source>In the <bpt id="d4e5e8a6-19b4-4ae8-ba04-5aedb1789e82">&lt;code&gt;</bpt>startup.auth.cs<ept id="d4e5e8a6-19b4-4ae8-ba04-5aedb1789e82">&lt;/code&gt;</ept> file, a new <bpt id="78ffb6b0-0295-4808-920c-5afdb3aa4a9f">&lt;code&gt;</bpt>OpenIdConnectAuthenticationNotifications<ept id="78ffb6b0-0295-4808-920c-5afdb3aa4a9f">&lt;/code&gt;</ept> object was added to the <bpt id="e25fa894-1858-4daa-a2cf-bae816e9d0c9">&lt;code&gt;</bpt>Notifications<ept id="e25fa894-1858-4daa-a2cf-bae816e9d0c9">&lt;/code&gt;</ept> member of the <bpt id="b164da33-6b9b-4382-81dc-842b66774644">&lt;code&gt;</bpt>OpenIdConnectAuthenticationOptions<ept id="b164da33-6b9b-4382-81dc-842b66774644">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d4e5e8a6-19b4-4ae8-ba04-5aedb1789e82">&lt;code&gt;</bpt>startup.auth.cs<ept id="d4e5e8a6-19b4-4ae8-ba04-5aedb1789e82">&lt;/code&gt;</ept> file, a new <bpt id="78ffb6b0-0295-4808-920c-5afdb3aa4a9f">&lt;code&gt;</bpt>OpenIdConnectAuthenticationNotifications<ept id="78ffb6b0-0295-4808-920c-5afdb3aa4a9f">&lt;/code&gt;</ept> object was added to the <bpt id="e25fa894-1858-4daa-a2cf-bae816e9d0c9">&lt;code&gt;</bpt>Notifications<ept id="e25fa894-1858-4daa-a2cf-bae816e9d0c9">&lt;/code&gt;</ept> member of the <bpt id="b164da33-6b9b-4382-81dc-842b66774644">&lt;code&gt;</bpt>OpenIdConnectAuthenticationOptions<ept id="b164da33-6b9b-4382-81dc-842b66774644">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07f68d91-f05b-42e0-9e3d-477f75c975e9" xml:space="preserve">
+          <source>This is to enable receiving the OAuth code and exchange it for an access token.</source>
+          <target state="new">This is to enable receiving the OAuth code and exchange it for an access token.</target>
+        </trans-unit>
+        <trans-unit id="1acdf435-a3af-4da5-a0bb-2ddcf7b96923" xml:space="preserve">
+          <source>The following additional configuration entries have been added.</source>
+          <target state="new">The following additional configuration entries have been added.</target>
+        </trans-unit>
+        <trans-unit id="86474809-0144-4923-95af-7167f21a44e6" xml:space="preserve">
+          <source>&lt;pre&gt;
+    <bpt id="19b66ac5-91c4-4a02-a8e0-7bfa67bbe215">&lt;code&gt;</bpt>&lt;appSettings&gt;
+        &lt;add key="ida:ClientSecret" value="Your Azure AD App's new client secret" /&gt;
+    &lt;/appSettings&gt;<ept id="19b66ac5-91c4-4a02-a8e0-7bfa67bbe215">&lt;/code&gt;</ept> &lt;/pre&gt;</source>
+          <target state="new">&lt;pre&gt;
+    <bpt id="19b66ac5-91c4-4a02-a8e0-7bfa67bbe215">&lt;code&gt;</bpt>&lt;appSettings&gt;
+        &lt;add key="ida:ClientSecret" value="Your Azure AD App's new client secret" /&gt;
+    &lt;/appSettings&gt;<ept id="19b66ac5-91c4-4a02-a8e0-7bfa67bbe215">&lt;/code&gt;</ept> &lt;/pre&gt;</target>
+        </trans-unit>
+        <trans-unit id="edaf0346-d768-4145-a8d7-1b1efe262d34" xml:space="preserve">
+          <source>The following configuration sections and connection string have been added.</source>
+          <target state="new">The following configuration sections and connection string have been added.</target>
+        </trans-unit>
+        <trans-unit id="d8a4f829-a959-4405-9dc7-f105b4ded12e" xml:space="preserve">
+          <source>&lt;pre&gt;
+    <bpt id="d48d96ad-4a0c-4f9f-949f-5bf1b04e266c">&lt;code&gt;</bpt>&lt;configSections&gt;
+        
+        &lt;section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" /&gt;
+    &lt;/configSections&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" /&gt;
+    &lt;/connectionStrings&gt;
+    &lt;entityFramework&gt;
+        &lt;defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework"&gt;
+          &lt;parameters&gt;
+            &lt;parameter value="mssqllocaldb" /&gt;
+          &lt;/parameters&gt;
+        &lt;/defaultConnectionFactory&gt;
+        &lt;providers&gt;
+          &lt;provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" /&gt;
+        &lt;/providers&gt;
+    &lt;/entityFramework&gt;<ept id="d48d96ad-4a0c-4f9f-949f-5bf1b04e266c">&lt;/code&gt;</ept>&lt;/pre&gt;</source>
+          <target state="new">&lt;pre&gt;
+    <bpt id="d48d96ad-4a0c-4f9f-949f-5bf1b04e266c">&lt;code&gt;</bpt>&lt;configSections&gt;
+        
+        &lt;section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" /&gt;
+    &lt;/configSections&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" /&gt;
+    &lt;/connectionStrings&gt;
+    &lt;entityFramework&gt;
+        &lt;defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework"&gt;
+          &lt;parameters&gt;
+            &lt;parameter value="mssqllocaldb" /&gt;
+          &lt;/parameters&gt;
+        &lt;/defaultConnectionFactory&gt;
+        &lt;providers&gt;
+          &lt;provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" /&gt;
+        &lt;/providers&gt;
+    &lt;/entityFramework&gt;<ept id="d48d96ad-4a0c-4f9f-949f-5bf1b04e266c">&lt;/code&gt;</ept>&lt;/pre&gt;</target>
+        </trans-unit>
+        <trans-unit id="84496a10-02f9-4657-a78f-273a172e317c" xml:space="preserve">
+          <source>Your Azure Active Directory App was updated to include the <bpt id="4e20f058-58e9-4b71-90e9-a123dc5eb51f">&lt;em&gt;</bpt>Read directory data<ept id="4e20f058-58e9-4b71-90e9-a123dc5eb51f">&lt;/em&gt;</ept> permission and an additional key was created which was then used as the <bpt id="f055c0e5-afa6-4eb9-ae98-e189de0ebb79">&lt;em&gt;</bpt>ida:ClientSecret<ept id="f055c0e5-afa6-4eb9-ae98-e189de0ebb79">&lt;/em&gt;</ept> in the <bpt id="d84a0963-2af1-4742-93e5-abfea849cee5">&lt;code&gt;</bpt>web.config<ept id="d84a0963-2af1-4742-93e5-abfea849cee5">&lt;/code&gt;</ept> file.</source>
+          <target state="new">Your Azure Active Directory App was updated to include the <bpt id="4e20f058-58e9-4b71-90e9-a123dc5eb51f">&lt;em&gt;</bpt>Read directory data<ept id="4e20f058-58e9-4b71-90e9-a123dc5eb51f">&lt;/em&gt;</ept> permission and an additional key was created which was then used as the <bpt id="f055c0e5-afa6-4eb9-ae98-e189de0ebb79">&lt;em&gt;</bpt>ida:ClientSecret<ept id="f055c0e5-afa6-4eb9-ae98-e189de0ebb79">&lt;/em&gt;</ept> in the <bpt id="d84a0963-2af1-4742-93e5-abfea849cee5">&lt;code&gt;</bpt>web.config<ept id="d84a0963-2af1-4742-93e5-abfea849cee5">&lt;/code&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="150e8524-5752-44ea-a95d-30cb8d6a0b85" xml:space="preserve">
+          <source><bpt id="bef6eb7f-e097-4f42-b0a3-010fbbffb858">&lt;linkText&gt;</bpt>Learn more about Azure Active Directory<ept id="bef6eb7f-e097-4f42-b0a3-010fbbffb858">&lt;/linkText&gt;</ept><bpt id="bef6eb7f-e097-4f42-b0a3-010fbbffb858">&lt;title&gt;</bpt><ept id="bef6eb7f-e097-4f42-b0a3-010fbbffb858">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bef6eb7f-e097-4f42-b0a3-010fbbffb858">&lt;linkText&gt;</bpt>Learn more about Azure Active Directory<ept id="bef6eb7f-e097-4f42-b0a3-010fbbffb858">&lt;/linkText&gt;</ept><bpt id="bef6eb7f-e097-4f42-b0a3-010fbbffb858">&lt;title&gt;</bpt><ept id="bef6eb7f-e097-4f42-b0a3-010fbbffb858">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

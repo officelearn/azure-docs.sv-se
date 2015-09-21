@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="71387cad-69ee-4f0b-a1e4-20892b7c686f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="71387cad-69ee-4f0b-a1e4-20892b7c686f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9999096c-cb8d-44b6-a0e2-16fb5d12348a">
+        <trans-unit id="b8d17064-3893-4b5b-a891-0d5821ca36c2" xml:space="preserve">
+          <source>In Visual Studio <bpt id="e682253d-c19e-4146-86bb-dfdfa896a947">&lt;strong&gt;</bpt>Solution Explorer<ept id="e682253d-c19e-4146-86bb-dfdfa896a947">&lt;/strong&gt;</ept>, expand the <bpt id="302c3b03-5343-4db1-9742-c2394c20a492">&lt;strong&gt;</bpt>Controllers<ept id="302c3b03-5343-4db1-9742-c2394c20a492">&lt;/strong&gt;</ept> folder in the mobile backend project.</source>
+          <target state="new">In Visual Studio <bpt id="e682253d-c19e-4146-86bb-dfdfa896a947">&lt;strong&gt;</bpt>Solution Explorer<ept id="e682253d-c19e-4146-86bb-dfdfa896a947">&lt;/strong&gt;</ept>, expand the <bpt id="302c3b03-5343-4db1-9742-c2394c20a492">&lt;strong&gt;</bpt>Controllers<ept id="302c3b03-5343-4db1-9742-c2394c20a492">&lt;/strong&gt;</ept> folder in the mobile backend project.</target>
+        </trans-unit>
+        <trans-unit id="945e7292-da05-44d5-bb22-9c7ead42e213" xml:space="preserve">
+          <source>Open <bpt id="8b757907-7a2a-440e-a1b0-26ae7ccaed23">&lt;strong&gt;</bpt>TodoItemController.cs<ept id="8b757907-7a2a-440e-a1b0-26ae7ccaed23">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="8b757907-7a2a-440e-a1b0-26ae7ccaed23">&lt;strong&gt;</bpt>TodoItemController.cs<ept id="8b757907-7a2a-440e-a1b0-26ae7ccaed23">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfc0cbf7-d244-48c4-844d-6f7c1dcbc58f" xml:space="preserve">
+          <source>At the top of the file, add the following <bpt id="225d0e8f-19e6-48eb-8268-479fc8c78188">&lt;code&gt;</bpt>using<ept id="225d0e8f-19e6-48eb-8268-479fc8c78188">&lt;/code&gt;</ept> statements:</source>
+          <target state="new">At the top of the file, add the following <bpt id="225d0e8f-19e6-48eb-8268-479fc8c78188">&lt;code&gt;</bpt>using<ept id="225d0e8f-19e6-48eb-8268-479fc8c78188">&lt;/code&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="4bc08265-212e-42c3-87c4-8a7b36211d3e" xml:space="preserve">
+          <source>Replace the <bpt id="8058ff58-e81e-4d51-871b-d30e178e4cba">&lt;code&gt;</bpt>PostTodoItem<ept id="8058ff58-e81e-4d51-871b-d30e178e4cba">&lt;/code&gt;</ept> method with the following code:  </source>
+          <target state="new">Replace the <bpt id="8058ff58-e81e-4d51-871b-d30e178e4cba">&lt;code&gt;</bpt>PostTodoItem<ept id="8058ff58-e81e-4d51-871b-d30e178e4cba">&lt;/code&gt;</ept> method with the following code:  </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

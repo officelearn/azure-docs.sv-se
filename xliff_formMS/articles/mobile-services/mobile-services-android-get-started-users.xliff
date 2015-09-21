@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="449c0586-ef75-4c1d-bee7-8ec2c2dfaeb3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="449c0586-ef75-4c1d-bee7-8ec2c2dfaeb3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b4645497-f4fb-4a25-be53-f64bdfda659e">
+        <trans-unit id="89d1eaa7-ea38-4b2a-8234-332208b640ed" xml:space="preserve">
+          <source>Get started with authentication (Android) | Microsoft Azure</source>
+          <target state="new">Get started with authentication (Android) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f1b72f59-2f05-480c-b72b-bbb438d67e16" xml:space="preserve">
+          <source>Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft.</source>
+          <target state="new">Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="844269b2-8a21-43e9-a2dc-5c9bcfef03ad" xml:space="preserve">
+          <source><bpt id="6a2ef619-726d-4bc9-af0e-b45e06b86f48">&lt;token href="../../includes/mobile-services-selector-get-started-users.md"&gt;</bpt><ept id="6a2ef619-726d-4bc9-af0e-b45e06b86f48">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6a2ef619-726d-4bc9-af0e-b45e06b86f48">&lt;token href="../../includes/mobile-services-selector-get-started-users.md"&gt;</bpt><ept id="6a2ef619-726d-4bc9-af0e-b45e06b86f48">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd3c0ecd-a975-40d2-b54e-fe2fd7736c8c" xml:space="preserve">
+          <source>This topic shows you how to authenticate users in Azure Mobile Services from your app.</source>
+          <target state="new">This topic shows you how to authenticate users in Azure Mobile Services from your app.</target>
+        </trans-unit>
+        <trans-unit id="f52b8a08-9b81-46a8-b1b8-4c4b906dc79d" xml:space="preserve">
+          <source>In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services.</source>
+          <target state="new">In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="20e64607-2b62-4ff4-af29-f3429a57aacc" xml:space="preserve">
+          <source>After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.</source>
+          <target state="new">After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.</target>
+        </trans-unit>
+        <trans-unit id="6c19280d-3a14-482f-8986-849eb58e45b3" xml:space="preserve">
+          <source>This tutorial walks you through the basic steps to enable authentication in your app.</source>
+          <target state="new">This tutorial walks you through the basic steps to enable authentication in your app.</target>
+        </trans-unit>
+        <trans-unit id="0a47e003-13b9-48c0-8673-b500a729b29f" xml:space="preserve">
+          <source><bpt id="b0e610fa-50cc-4498-8dfe-b422b364ebb0">&lt;token href="../../includes/mobile-services-android-prerequisites.md"&gt;</bpt><ept id="b0e610fa-50cc-4498-8dfe-b422b364ebb0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b0e610fa-50cc-4498-8dfe-b422b364ebb0">&lt;token href="../../includes/mobile-services-android-prerequisites.md"&gt;</bpt><ept id="b0e610fa-50cc-4498-8dfe-b422b364ebb0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="476ecb48-6c13-417a-aedb-ae9f385936d7" xml:space="preserve">
+          <source><bpt id="4a532322-a0af-4c9f-b20e-91b58c08df56">&lt;token href="../../includes/mobile-services-register-authentication.md"&gt;</bpt><ept id="4a532322-a0af-4c9f-b20e-91b58c08df56">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4a532322-a0af-4c9f-b20e-91b58c08df56">&lt;token href="../../includes/mobile-services-register-authentication.md"&gt;</bpt><ept id="4a532322-a0af-4c9f-b20e-91b58c08df56">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a97c24f-9310-4e1d-9ba7-aa60e7706afd" xml:space="preserve">
+          <source><bpt id="6dd7299f-a87b-4ce3-bb82-4e711ff8800a">&lt;token href="../../includes/mobile-services-restrict-permissions-javascript-backend.md"&gt;</bpt><ept id="6dd7299f-a87b-4ce3-bb82-4e711ff8800a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6dd7299f-a87b-4ce3-bb82-4e711ff8800a">&lt;token href="../../includes/mobile-services-restrict-permissions-javascript-backend.md"&gt;</bpt><ept id="6dd7299f-a87b-4ce3-bb82-4e711ff8800a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb43e5c1-0854-41b7-a58c-8a30b643fe7d" xml:space="preserve">
+          <source>In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services].</source>
+          <target state="new">In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services].</target>
+        </trans-unit>
+        <trans-unit id="238c4635-4799-430f-a4b7-0c18f058f2c7" xml:space="preserve">
+          <source>From the <bpt id="3c9fd606-5a01-447a-a1db-836305d30b95">&lt;strong&gt;</bpt>Run<ept id="3c9fd606-5a01-447a-a1db-836305d30b95">&lt;/strong&gt;</ept> menu, then click <bpt id="54420d67-a6bc-4974-aa99-6a31bdce219f">&lt;strong&gt;</bpt>Run app<ept id="54420d67-a6bc-4974-aa99-6a31bdce219f">&lt;/strong&gt;</ept>; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</source>
+          <target state="new">From the <bpt id="3c9fd606-5a01-447a-a1db-836305d30b95">&lt;strong&gt;</bpt>Run<ept id="3c9fd606-5a01-447a-a1db-836305d30b95">&lt;/strong&gt;</ept> menu, then click <bpt id="54420d67-a6bc-4974-aa99-6a31bdce219f">&lt;strong&gt;</bpt>Run app<ept id="54420d67-a6bc-4974-aa99-6a31bdce219f">&lt;/strong&gt;</ept>; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</target>
+        </trans-unit>
+        <trans-unit id="5da33b23-3f22-43c9-aedb-c49d713f2a35" xml:space="preserve">
+          <source> This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <bpt id="ca1155e4-ec97-4091-b1d5-28dd38ecb3f0">&lt;em&gt;</bpt>TodoItem<ept id="ca1155e4-ec97-4091-b1d5-28dd38ecb3f0">&lt;/em&gt;</ept> table now requires authentication.</source>
+          <target state="new"> This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <bpt id="ca1155e4-ec97-4091-b1d5-28dd38ecb3f0">&lt;em&gt;</bpt>TodoItem<ept id="ca1155e4-ec97-4091-b1d5-28dd38ecb3f0">&lt;/em&gt;</ept> table now requires authentication.</target>
+        </trans-unit>
+        <trans-unit id="6f343feb-fc88-4590-a25f-dd2fd59a5c7f" xml:space="preserve">
+          <source>Next, you will update the app to authenticate users before requesting resources from the mobile service.</source>
+          <target state="new">Next, you will update the app to authenticate users before requesting resources from the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="9419d268-164b-4277-845c-f4e8eb4f6e3f" xml:space="preserve">
+          <source><bpt id="bf887d60-736d-4ec2-832f-bc6f50ab5a6f">&lt;token href="../../includes/mobile-services-android-authenticate-app.md"&gt;</bpt><ept id="bf887d60-736d-4ec2-832f-bc6f50ab5a6f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="bf887d60-736d-4ec2-832f-bc6f50ab5a6f">&lt;token href="../../includes/mobile-services-android-authenticate-app.md"&gt;</bpt><ept id="bf887d60-736d-4ec2-832f-bc6f50ab5a6f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3869f4d-e040-4e62-8c20-42a925370699" xml:space="preserve">
+          <source><bpt id="eb43c1ff-e333-4715-a6fd-82eaf9d53823">&lt;token href="../../includes/mobile-services-android-authenticate-app-with-token.md"&gt;</bpt><ept id="eb43c1ff-e333-4715-a6fd-82eaf9d53823">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="eb43c1ff-e333-4715-a6fd-82eaf9d53823">&lt;token href="../../includes/mobile-services-android-authenticate-app-with-token.md"&gt;</bpt><ept id="eb43c1ff-e333-4715-a6fd-82eaf9d53823">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa60dba4-782b-425f-9f01-cc93cb276c2c" xml:space="preserve">
+          <source><bpt id="6a93b084-3251-4deb-a6ca-9500f2d48d0f">&lt;token href="../../includes/mobile-services-android-authenticate-app-refresh-token.md"&gt;</bpt><ept id="6a93b084-3251-4deb-a6ca-9500f2d48d0f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6a93b084-3251-4deb-a6ca-9500f2d48d0f">&lt;token href="../../includes/mobile-services-android-authenticate-app-refresh-token.md"&gt;</bpt><ept id="6a93b084-3251-4deb-a6ca-9500f2d48d0f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b341fbbc-3732-4dd7-964f-e5903e719c58" xml:space="preserve">
+          <source>In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.</source>
+          <target state="new">In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="6cca9b79-a2ae-46d3-a612-bdc64b4ec530" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="d7d87b90-a513-4f76-bf28-08d9568c710e" xml:space="preserve">
+          <source>#permissions</source>
+          <target state="new">#permissions</target>
+        </trans-unit>
+        <trans-unit id="0914a2e0-9307-46c7-98b3-180c96b16d97" xml:space="preserve">
+          <source>#add-authentication</source>
+          <target state="new">#add-authentication</target>
+        </trans-unit>
+        <trans-unit id="4cc2f165-334b-4f91-80b9-52454c959bf5" xml:space="preserve">
+          <source>#cache-tokens</source>
+          <target state="new">#cache-tokens</target>
+        </trans-unit>
+        <trans-unit id="79653703-9de8-4acd-aaad-68b667fc5449" xml:space="preserve">
+          <source>#refresh-tokens</source>
+          <target state="new">#refresh-tokens</target>
+        </trans-unit>
+        <trans-unit id="62fbe7a6-3818-452b-99ed-5caef05f6cab" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="b6b0445a-f1da-4e30-8bdd-76f2dd0930d5" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started-users/mobile-services-selection.png</source>
+          <target state="new">./media/mobile-services-android-get-started-users/mobile-services-selection.png</target>
+        </trans-unit>
+        <trans-unit id="f94ab9d0-3609-486d-8965-1b976bd5086a" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started-users/mobile-service-uri.png</source>
+          <target state="new">./media/mobile-services-android-get-started-users/mobile-service-uri.png</target>
+        </trans-unit>
+        <trans-unit id="f012fee1-5908-4f6d-919c-611a773b700a" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started-users/mobile-identity-tab.png</source>
+          <target state="new">./media/mobile-services-android-get-started-users/mobile-identity-tab.png</target>
+        </trans-unit>
+        <trans-unit id="c5edca45-b86c-48c7-b341-782ea7ae1d00" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started-users/mobile-portal-data-tables.png</source>
+          <target state="new">./media/mobile-services-android-get-started-users/mobile-portal-data-tables.png</target>
+        </trans-unit>
+        <trans-unit id="32aef75f-ac18-4c5e-b40c-24c9c0468c48" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started-users/mobile-portal-change-table-perms.png</source>
+          <target state="new">./media/mobile-services-android-get-started-users/mobile-portal-change-table-perms.png</target>
+        </trans-unit>
+        <trans-unit id="4c886340-119c-4440-a889-a86a7f107714" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=266582</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=266582</target>
+        </trans-unit>
+        <trans-unit id="851c1f16-8564-4cd4-ad75-16ccf6608900" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="d5ee2f5a-8fde-4822-8acb-6be47c07df66" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262253</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262253</target>
+        </trans-unit>
+        <trans-unit id="da4f4f86-750b-4d8b-9c37-5740cb1a3558" xml:space="preserve">
+          <source>/develop/mobile/tutorials/single-sign-on-windows-8-dotnet</source>
+          <target state="new">/develop/mobile/tutorials/single-sign-on-windows-8-dotnet</target>
+        </trans-unit>
+        <trans-unit id="123f721a-d719-487a-b35d-a57263d1c4e8" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-android</source>
+          <target state="new">/develop/mobile/tutorials/get-started-android</target>
+        </trans-unit>
+        <trans-unit id="c57f5b0e-da68-41ab-bdb9-9fae9bfec170" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-data-android</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-data-android</target>
+        </trans-unit>
+        <trans-unit id="f6d2f21a-f111-443a-a5b7-081a26f0f2e4" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-users-android</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-users-android</target>
+        </trans-unit>
+        <trans-unit id="5052b8a5-76c0-4b5e-8d41-107748a32fea" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-push-android</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-push-android</target>
+        </trans-unit>
+        <trans-unit id="e29fd342-b081-4ef9-9e47-c8f542daf28f" xml:space="preserve">
+          <source>/develop/mobile/tutorials/authorize-users-in-scripts-android</source>
+          <target state="new">/develop/mobile/tutorials/authorize-users-in-scripts-android</target>
+        </trans-unit>
+        <trans-unit id="c7420ba1-920c-4cd8-82bb-bc73da7d65fe" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="1032dd36-c6a3-4938-864b-09b03f45622c" />
+    </body>
+  </file>
+</xliff>

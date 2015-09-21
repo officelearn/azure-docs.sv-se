@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0b3d7b08-fc6e-49c1-91b7-b0e19ccb6397" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0b3d7b08-fc6e-49c1-91b7-b0e19ccb6397" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c0c23b89-7d2a-461b-902c-f66cecf005fe">
+        <trans-unit id="3c24c940-9c5f-463f-a6fa-c65a5d8a2a47" xml:space="preserve">
+          <source>Planned maintenance for Azure virtual machines</source>
+          <target state="new">Planned maintenance for Azure virtual machines</target>
+        </trans-unit>
+        <trans-unit id="3c0f73a5-83f4-4107-9f47-b4056d3f15c0" xml:space="preserve">
+          <source>Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure.</source>
+          <target state="new">Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="be68c807-90f0-4375-afe4-be7ba0c6749b" xml:space="preserve">
+          <source>&lt;p&gt; Microsoft Azure periodically performs updates across the globe to improve the reliability, performance, and security of the host infrastructure that underlies virtual machines. Many of these updates are performed without any impact to your virtual machines or Cloud Services, including memory-preserving updates.</source>
+          <target state="new">&lt;p&gt; Microsoft Azure periodically performs updates across the globe to improve the reliability, performance, and security of the host infrastructure that underlies virtual machines. Many of these updates are performed without any impact to your virtual machines or Cloud Services, including memory-preserving updates.</target>
+        </trans-unit>
+        <trans-unit id="dc164618-32c5-4a2c-b556-efd26ed33132" xml:space="preserve">
+          <source>However, some updates do require a reboot to your virtual machines to apply the required updates to the infrastructure.</source>
+          <target state="new">However, some updates do require a reboot to your virtual machines to apply the required updates to the infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="1a3f4b7d-57a8-4761-ba6c-74614755488c" xml:space="preserve">
+          <source>The virtual machines are shut down while we patch the infrastructure, and then the virtual machines are restarted.</source>
+          <target state="new">The virtual machines are shut down while we patch the infrastructure, and then the virtual machines are restarted.</target>
+        </trans-unit>
+        <trans-unit id="7c7bb3ba-b654-4425-9d13-f41c0683dae3" xml:space="preserve">
+          <source>Please note that there are two types of maintenance that can impact the availability of your virtual machines: planned and unplanned.</source>
+          <target state="new">Please note that there are two types of maintenance that can impact the availability of your virtual machines: planned and unplanned.</target>
+        </trans-unit>
+        <trans-unit id="28904a1d-8374-41e0-8039-cce8815054c0" xml:space="preserve">
+          <source>This page describes how Microsoft Azure performs planned maintenance.</source>
+          <target state="new">This page describes how Microsoft Azure performs planned maintenance.</target>
+        </trans-unit>
+        <trans-unit id="5ca8918b-f0d2-4751-b24e-9040d9814101" xml:space="preserve">
+          <source>For more information about unplanned maintenance, see <bpt id="ca4c43ee-1b5a-442c-ad63-d640a882fc9a">&lt;linkText&gt;</bpt>Understand planned versus unplanned maintenance<ept id="ca4c43ee-1b5a-442c-ad63-d640a882fc9a">&lt;/linkText&gt;</ept><bpt id="ca4c43ee-1b5a-442c-ad63-d640a882fc9a">&lt;title&gt;</bpt><ept id="ca4c43ee-1b5a-442c-ad63-d640a882fc9a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about unplanned maintenance, see <bpt id="ca4c43ee-1b5a-442c-ad63-d640a882fc9a">&lt;linkText&gt;</bpt>Understand planned versus unplanned maintenance<ept id="ca4c43ee-1b5a-442c-ad63-d640a882fc9a">&lt;/linkText&gt;</ept><bpt id="ca4c43ee-1b5a-442c-ad63-d640a882fc9a">&lt;title&gt;</bpt><ept id="ca4c43ee-1b5a-442c-ad63-d640a882fc9a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48e37433-831b-443c-a7ae-94ed179d9b7b" xml:space="preserve">
+          <source>For a class of updates in Microsoft Azure, customers will not see any impact to their running virtual machines.</source>
+          <target state="new">For a class of updates in Microsoft Azure, customers will not see any impact to their running virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="57cc9832-891b-4b56-85fa-7efab7bb5d6d" xml:space="preserve">
+          <source>Many of these updates are to components or services that can be updated without interfering with the running instance.</source>
+          <target state="new">Many of these updates are to components or services that can be updated without interfering with the running instance.</target>
+        </trans-unit>
+        <trans-unit id="8798030a-84e0-4e4c-aabd-f8e67103b597" xml:space="preserve">
+          <source>Some of these updates are platform infrastructure updates on the host operating system that can be applied without requiring a full reboot of the virtual machines.</source>
+          <target state="new">Some of these updates are platform infrastructure updates on the host operating system that can be applied without requiring a full reboot of the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="6b4a57d5-26fd-44fa-8be7-00614b6fc820" xml:space="preserve">
+          <source>These updates are accomplished with technology that enables live migration (a “memory-preserving” update).</source>
+          <target state="new">These updates are accomplished with technology that enables live migration (a “memory-preserving” update).</target>
+        </trans-unit>
+        <trans-unit id="ade2b5fb-24fa-4ed7-93b7-702f07f242a2" xml:space="preserve">
+          <source>When updating, the virtual machine is placed into a “paused” state, preserving the memory in RAM, while the underlying host operating system receives the necessary updates and patches.</source>
+          <target state="new">When updating, the virtual machine is placed into a “paused” state, preserving the memory in RAM, while the underlying host operating system receives the necessary updates and patches.</target>
+        </trans-unit>
+        <trans-unit id="94da4bdc-f9cd-480f-8bc6-7060e57b0642" xml:space="preserve">
+          <source>The virtual machine is resumed within 30 seconds of being paused.</source>
+          <target state="new">The virtual machine is resumed within 30 seconds of being paused.</target>
+        </trans-unit>
+        <trans-unit id="7f1aa308-4fd7-47e8-b56f-68b4f1e45c11" xml:space="preserve">
+          <source>After resuming, the clock of the virtual machine is automatically synchronized.</source>
+          <target state="new">After resuming, the clock of the virtual machine is automatically synchronized.</target>
+        </trans-unit>
+        <trans-unit id="968b8e03-fc0d-4dc8-89b0-62b4566090e0" xml:space="preserve">
+          <source>Not all updates can be deployed by using this mechanism, but given the short pause period, deploying updates in this way greatly reduces impact to virtual machines.</source>
+          <target state="new">Not all updates can be deployed by using this mechanism, but given the short pause period, deploying updates in this way greatly reduces impact to virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="0d7c0ba4-6154-4bce-8373-f268c9effe73" xml:space="preserve">
+          <source>Multi-instance updates (for virtual machines in an availability set) are applied one update domain at a time.</source>
+          <target state="new">Multi-instance updates (for virtual machines in an availability set) are applied one update domain at a time.</target>
+        </trans-unit>
+        <trans-unit id="84cf6aaa-680c-46d9-b10f-5647feadbe04" xml:space="preserve">
+          <source>There are two kinds of virtual machine configurations: multi-instance and single-instance.</source>
+          <target state="new">There are two kinds of virtual machine configurations: multi-instance and single-instance.</target>
+        </trans-unit>
+        <trans-unit id="b87e58cf-4b23-4aa6-8144-b5cac619bea2" xml:space="preserve">
+          <source>In a multi-instance configuration, similar virtual machines are placed in an availability set.</source>
+          <target state="new">In a multi-instance configuration, similar virtual machines are placed in an availability set.</target>
+        </trans-unit>
+        <trans-unit id="80810af5-a64e-4f0f-a55a-44611d1dc27b" xml:space="preserve">
+          <source>The multi-instance configuration provides redundancy, and it is recommended to ensure the availability of your application.</source>
+          <target state="new">The multi-instance configuration provides redundancy, and it is recommended to ensure the availability of your application.</target>
+        </trans-unit>
+        <trans-unit id="72be6bc6-32da-4b04-8276-022dd6352753" xml:space="preserve">
+          <source>All virtual machines in the availability set should be nearly identical and serve the same purpose to your application.</source>
+          <target state="new">All virtual machines in the availability set should be nearly identical and serve the same purpose to your application.</target>
+        </trans-unit>
+        <trans-unit id="4fa9c0ff-7a8d-431e-bacf-2b7b31f398fc" xml:space="preserve">
+          <source>For more information about configuring your virtual machines for high availability, refer to <bpt id="6921ad3c-1060-4dd1-a03c-ddaa18610ff1">&lt;linkText&gt;</bpt>Manage the Availability of your Virtual Machines<ept id="6921ad3c-1060-4dd1-a03c-ddaa18610ff1">&lt;/linkText&gt;</ept><bpt id="6921ad3c-1060-4dd1-a03c-ddaa18610ff1">&lt;title&gt;</bpt><ept id="6921ad3c-1060-4dd1-a03c-ddaa18610ff1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about configuring your virtual machines for high availability, refer to <bpt id="6921ad3c-1060-4dd1-a03c-ddaa18610ff1">&lt;linkText&gt;</bpt>Manage the Availability of your Virtual Machines<ept id="6921ad3c-1060-4dd1-a03c-ddaa18610ff1">&lt;/linkText&gt;</ept><bpt id="6921ad3c-1060-4dd1-a03c-ddaa18610ff1">&lt;title&gt;</bpt><ept id="6921ad3c-1060-4dd1-a03c-ddaa18610ff1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="59f0e2bc-c496-431b-a5d3-aaa0245a04f7" xml:space="preserve">
+          <source>By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set.</source>
+          <target state="new">By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set.</target>
+        </trans-unit>
+        <trans-unit id="c2ada734-10d8-46f9-a618-b272c60c3768" xml:space="preserve">
+          <source>These virtual machines do not qualify for the service level agreement (SLA), which requires that two or more virtual machines are deployed under the same availability set.</source>
+          <target state="new">These virtual machines do not qualify for the service level agreement (SLA), which requires that two or more virtual machines are deployed under the same availability set.</target>
+        </trans-unit>
+        <trans-unit id="c532bd4e-3e97-4264-82ff-e809e70975b9" xml:space="preserve">
+          <source>For more information about SLAs, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of <bpt id="0c8ae508-7a2f-438b-b924-2a43ec7da1a8">&lt;linkText&gt;</bpt>Service Level Agreements<ept id="0c8ae508-7a2f-438b-b924-2a43ec7da1a8">&lt;/linkText&gt;</ept><bpt id="0c8ae508-7a2f-438b-b924-2a43ec7da1a8">&lt;title&gt;</bpt><ept id="0c8ae508-7a2f-438b-b924-2a43ec7da1a8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about SLAs, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of <bpt id="0c8ae508-7a2f-438b-b924-2a43ec7da1a8">&lt;linkText&gt;</bpt>Service Level Agreements<ept id="0c8ae508-7a2f-438b-b924-2a43ec7da1a8">&lt;/linkText&gt;</ept><bpt id="0c8ae508-7a2f-438b-b924-2a43ec7da1a8">&lt;title&gt;</bpt><ept id="0c8ae508-7a2f-438b-b924-2a43ec7da1a8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88932365-3ea6-4b17-871d-d4200db8b989" xml:space="preserve">
+          <source>During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration.</source>
+          <target state="new">During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration.</target>
+        </trans-unit>
+        <trans-unit id="375be289-34c1-4bd7-82f1-293af41070b2" xml:space="preserve">
+          <source>This causes a reboot to these virtual machines.</source>
+          <target state="new">This causes a reboot to these virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="b74c1a90-2a88-4713-a897-7d0ebe1d4eab" xml:space="preserve">
+          <source>In a multi-instance configuration update, virtual machines are updated in way that preserves availability throughout the process, assuming that each virtual machine serves a similar function as the others in the set.</source>
+          <target state="new">In a multi-instance configuration update, virtual machines are updated in way that preserves availability throughout the process, assuming that each virtual machine serves a similar function as the others in the set.</target>
+        </trans-unit>
+        <trans-unit id="86511df7-2d9f-443f-b602-425ceb1541e0" xml:space="preserve">
+          <source>Each virtual machine in your availability set is assigned an update domain and a fault domain by the underlying Azure platform.</source>
+          <target state="new">Each virtual machine in your availability set is assigned an update domain and a fault domain by the underlying Azure platform.</target>
+        </trans-unit>
+        <trans-unit id="df58ab02-6ab2-432b-ae6c-7a189d2d6e16" xml:space="preserve">
+          <source>Each update domain is a group of virtual machines that will be rebooted in the same time window.</source>
+          <target state="new">Each update domain is a group of virtual machines that will be rebooted in the same time window.</target>
+        </trans-unit>
+        <trans-unit id="45aa83ef-6ea8-4dea-9c11-373ef3dd12f6" xml:space="preserve">
+          <source>Each fault domain is a group of virtual machines that share a common power source and network switch.</source>
+          <target state="new">Each fault domain is a group of virtual machines that share a common power source and network switch.</target>
+        </trans-unit>
+        <trans-unit id="9efc91d2-af72-497e-9a63-dc1efee415e5" xml:space="preserve">
+          <source>For more information about update domains and fault domains, see <bpt id="72b1d54d-3a40-4db9-9a87-e7c48902ee5e">&lt;linkText&gt;</bpt>Configure multiple virtual machines in an availability set for redundancy<ept id="72b1d54d-3a40-4db9-9a87-e7c48902ee5e">&lt;/linkText&gt;</ept><bpt id="72b1d54d-3a40-4db9-9a87-e7c48902ee5e">&lt;title&gt;</bpt><ept id="72b1d54d-3a40-4db9-9a87-e7c48902ee5e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about update domains and fault domains, see <bpt id="72b1d54d-3a40-4db9-9a87-e7c48902ee5e">&lt;linkText&gt;</bpt>Configure multiple virtual machines in an availability set for redundancy<ept id="72b1d54d-3a40-4db9-9a87-e7c48902ee5e">&lt;/linkText&gt;</ept><bpt id="72b1d54d-3a40-4db9-9a87-e7c48902ee5e">&lt;title&gt;</bpt><ept id="72b1d54d-3a40-4db9-9a87-e7c48902ee5e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52d5bd25-89ff-4540-9182-5728584cf8bb" xml:space="preserve">
+          <source>To prevent update domains from going offline at the same time, the maintenance is performed by shutting down each virtual machine in an update domain, applying the update to the host machines, restarting the virtual machines, and moving on to the next update domain.</source>
+          <target state="new">To prevent update domains from going offline at the same time, the maintenance is performed by shutting down each virtual machine in an update domain, applying the update to the host machines, restarting the virtual machines, and moving on to the next update domain.</target>
+        </trans-unit>
+        <trans-unit id="c945c410-a8bd-4be4-8bc0-9796ceff8ab7" xml:space="preserve">
+          <source>The planned maintenance event ends after all update domains have been updated.</source>
+          <target state="new">The planned maintenance event ends after all update domains have been updated.</target>
+        </trans-unit>
+        <trans-unit id="4c7c5fa6-095e-4159-a394-2b59166aa69a" xml:space="preserve">
+          <source>The order of the update domains that are being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time.</source>
+          <target state="new">The order of the update domains that are being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time.</target>
+        </trans-unit>
+        <trans-unit id="52ef6bac-789b-4fff-bf4e-364a0e05294f" xml:space="preserve">
+          <source>Today, Azure offers 48-hour advanced notification for planned maintenance of virtual machines in the multi-instance configuration.</source>
+          <target state="new">Today, Azure offers 48-hour advanced notification for planned maintenance of virtual machines in the multi-instance configuration.</target>
+        </trans-unit>
+        <trans-unit id="12e3985c-e9ac-4362-b942-5a6fb9f8fe5c" xml:space="preserve">
+          <source>After a virtual machine is restored, here is an example of what your Windows Event Viewer might display:</source>
+          <target state="new">After a virtual machine is restored, here is an example of what your Windows Event Viewer might display:</target>
+        </trans-unit>
+        <trans-unit id="579513ff-4f89-4743-934c-f57f7871479e" xml:space="preserve">
+          <source><bpt id="b1c7f082-c6a5-4b90-a07b-b1fd38ac900b">&lt;linkText&gt;</bpt><ept id="b1c7f082-c6a5-4b90-a07b-b1fd38ac900b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1c7f082-c6a5-4b90-a07b-b1fd38ac900b">&lt;linkText&gt;</bpt><ept id="b1c7f082-c6a5-4b90-a07b-b1fd38ac900b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e59a911e-ea72-4362-b2de-345bc1d633d8" xml:space="preserve">
+          <source>After the multi-instance configuration updates are complete, Azure will perform single-instance configuration updates.</source>
+          <target state="new">After the multi-instance configuration updates are complete, Azure will perform single-instance configuration updates.</target>
+        </trans-unit>
+        <trans-unit id="3db7f123-b936-4dd4-b7a8-921ea3c663f1" xml:space="preserve">
+          <source>This update also causes a reboot to your virtual machines that are not running in availability sets.</source>
+          <target state="new">This update also causes a reboot to your virtual machines that are not running in availability sets.</target>
+        </trans-unit>
+        <trans-unit id="c9945cd9-d041-4f19-8020-287f003b4b95" xml:space="preserve">
+          <source>Please note that even if you have only one instance running in an availability set, the Azure platform treats it as a multi-instance configuration update.</source>
+          <target state="new">Please note that even if you have only one instance running in an availability set, the Azure platform treats it as a multi-instance configuration update.</target>
+        </trans-unit>
+        <trans-unit id="f9035bd3-c2fe-4d4d-8643-da046cae69d2" xml:space="preserve">
+          <source>For virtual machines in a single-instance configuration, virtual machines are updated by shutting down the virtual machines, applying the update to the host machine, and restarting the virtual machines.</source>
+          <target state="new">For virtual machines in a single-instance configuration, virtual machines are updated by shutting down the virtual machines, applying the update to the host machine, and restarting the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="497ea44f-7390-4c06-ae06-00d5ac7bcfa8" xml:space="preserve">
+          <source>These updates are run across all virtual machines in a region in a single maintenance window.</source>
+          <target state="new">These updates are run across all virtual machines in a region in a single maintenance window.</target>
+        </trans-unit>
+        <trans-unit id="da15693f-5ec6-404a-9815-fa0e7685a9c1" xml:space="preserve">
+          <source>This planned maintenance event will impact the availability of your application for this type of virtual machine configuration.</source>
+          <target state="new">This planned maintenance event will impact the availability of your application for this type of virtual machine configuration.</target>
+        </trans-unit>
+        <trans-unit id="80bd2575-2b04-4e8c-9c09-73421f731e72" xml:space="preserve">
+          <source>Azure offers a 1-week advanced notification for planned maintenance of  virtual machines in the single-instance configuration.</source>
+          <target state="new">Azure offers a 1-week advanced notification for planned maintenance of  virtual machines in the single-instance configuration.</target>
+        </trans-unit>
+        <trans-unit id="a1593f46-ba9a-4276-9619-ef15b869ef91" xml:space="preserve">
+          <source>For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance for single-instance and 48-hours in advance for multi-instance).</source>
+          <target state="new">For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance for single-instance and 48-hours in advance for multi-instance).</target>
+        </trans-unit>
+        <trans-unit id="5256fef9-8bf3-4b38-802a-560b3f9d0e04" xml:space="preserve">
+          <source>This email will be sent to the primary email account provided by the subscription.</source>
+          <target state="new">This email will be sent to the primary email account provided by the subscription.</target>
+        </trans-unit>
+        <trans-unit id="8e9c0d80-57ee-448e-9138-c146e78c046f" xml:space="preserve">
+          <source>Here is an example of this type of email:</source>
+          <target state="new">Here is an example of this type of email:</target>
+        </trans-unit>
+        <trans-unit id="364024bb-1e5d-4bdb-95bb-0cfd84568b44" xml:space="preserve">
+          <source><bpt id="1322bed1-658e-4a02-aae1-9dd15ffa33e1">&lt;linkText&gt;</bpt><ept id="1322bed1-658e-4a02-aae1-9dd15ffa33e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1322bed1-658e-4a02-aae1-9dd15ffa33e1">&lt;linkText&gt;</bpt><ept id="1322bed1-658e-4a02-aae1-9dd15ffa33e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bf9c950-cd92-45c8-b5f1-010751ef109a" xml:space="preserve">
+          <source>Azure organizes a set of region pairs.</source>
+          <target state="new">Azure organizes a set of region pairs.</target>
+        </trans-unit>
+        <trans-unit id="2587cc36-f610-4981-bb6f-2d825c7e2a84" xml:space="preserve">
+          <source>Azure will not roll out an update on paired regions simultaneously during a planned maintenance of virtual machines with single-instance configurations.</source>
+          <target state="new">Azure will not roll out an update on paired regions simultaneously during a planned maintenance of virtual machines with single-instance configurations.</target>
+        </trans-unit>
+        <trans-unit id="40223ee5-8130-41c3-8498-ff211f8f8c96" xml:space="preserve">
+          <source>Please refer to the following table for information regarding current region pairs:</source>
+          <target state="new">Please refer to the following table for information regarding current region pairs:</target>
+        </trans-unit>
+        <trans-unit id="fc26d4f9-53ae-4b75-bf82-c6b778a00bb3" xml:space="preserve">
+          <source>Region 1</source>
+          <target state="new">Region 1</target>
+        </trans-unit>
+        <trans-unit id="aa390c68-dff1-4360-94b3-c4e9ff0f2cba" xml:space="preserve">
+          <source>Region 2</source>
+          <target state="new">Region 2</target>
+        </trans-unit>
+        <trans-unit id="db67688f-af2f-4509-98f2-5c84b0b332e8" xml:space="preserve">
+          <source>North Central US</source>
+          <target state="new">North Central US</target>
+        </trans-unit>
+        <trans-unit id="8c76f97c-24df-46f2-b58c-db81d06997c3" xml:space="preserve">
+          <source>South Central US</source>
+          <target state="new">South Central US</target>
+        </trans-unit>
+        <trans-unit id="5c1cc974-5d10-4298-a72c-a982a962bc56" xml:space="preserve">
+          <source>East US</source>
+          <target state="new">East US</target>
+        </trans-unit>
+        <trans-unit id="3b74b787-d19f-42fb-9747-5596d50498d3" xml:space="preserve">
+          <source>West US</source>
+          <target state="new">West US</target>
+        </trans-unit>
+        <trans-unit id="69db63ab-bd27-4b62-a0e6-ae3e35af56c8" xml:space="preserve">
+          <source>US East 2</source>
+          <target state="new">US East 2</target>
+        </trans-unit>
+        <trans-unit id="730bbfdd-29d2-4a27-819a-115b53897ee2" xml:space="preserve">
+          <source>Central US</source>
+          <target state="new">Central US</target>
+        </trans-unit>
+        <trans-unit id="0125556c-b540-4776-9026-3bd47406806c" xml:space="preserve">
+          <source>North Europe</source>
+          <target state="new">North Europe</target>
+        </trans-unit>
+        <trans-unit id="00b0b5ae-28fd-4f4c-80c1-ce2b7b675967" xml:space="preserve">
+          <source>West Europe</source>
+          <target state="new">West Europe</target>
+        </trans-unit>
+        <trans-unit id="8e49e51e-c1f7-4530-91a5-a72ad7452bae" xml:space="preserve">
+          <source>South East Asia</source>
+          <target state="new">South East Asia</target>
+        </trans-unit>
+        <trans-unit id="8b9aa976-476e-433c-8c1d-fff5b5b92c27" xml:space="preserve">
+          <source>East Asia</source>
+          <target state="new">East Asia</target>
+        </trans-unit>
+        <trans-unit id="5bbdc54b-bc14-4523-8773-a2e9265933de" xml:space="preserve">
+          <source>East China</source>
+          <target state="new">East China</target>
+        </trans-unit>
+        <trans-unit id="d4c574c8-88c7-4110-923a-a15b1db34935" xml:space="preserve">
+          <source>North China</source>
+          <target state="new">North China</target>
+        </trans-unit>
+        <trans-unit id="ce2c4e06-f281-4fd3-a6a2-9878eb311532" xml:space="preserve">
+          <source>Japan East</source>
+          <target state="new">Japan East</target>
+        </trans-unit>
+        <trans-unit id="8a0f7c9b-2988-4293-9577-bece383f60cb" xml:space="preserve">
+          <source>Japan West</source>
+          <target state="new">Japan West</target>
+        </trans-unit>
+        <trans-unit id="ffc3f18e-0e46-46b1-8ff4-e21d21a0f7ac" xml:space="preserve">
+          <source>Brazil South</source>
+          <target state="new">Brazil South</target>
+        </trans-unit>
+        <trans-unit id="2207295c-73c1-42d5-a450-ea91f8fd698e" xml:space="preserve">
+          <source>South Central US</source>
+          <target state="new">South Central US</target>
+        </trans-unit>
+        <trans-unit id="b862249b-5d31-4bee-b4fc-f2f3ad75c1a5" xml:space="preserve">
+          <source>Australia Southeast</source>
+          <target state="new">Australia Southeast</target>
+        </trans-unit>
+        <trans-unit id="ddda822d-e04c-438b-a064-ef8446a8c280" xml:space="preserve">
+          <source>Australia East</source>
+          <target state="new">Australia East</target>
+        </trans-unit>
+        <trans-unit id="a444a3c6-a37b-41c6-9cd5-144fa149f17b" xml:space="preserve">
+          <source>US Gov Iowa</source>
+          <target state="new">US Gov Iowa</target>
+        </trans-unit>
+        <trans-unit id="b764d398-289f-4e40-b055-c105efc54856" xml:space="preserve">
+          <source>US Gov Virginia</source>
+          <target state="new">US Gov Virginia</target>
+        </trans-unit>
+        <trans-unit id="e880aed5-26c0-476b-a456-77f948b67239" xml:space="preserve">
+          <source>For example, during a planned maintenance, Azure will not roll out an update to West US if East US is under maintenance at the same time.</source>
+          <target state="new">For example, during a planned maintenance, Azure will not roll out an update to West US if East US is under maintenance at the same time.</target>
+        </trans-unit>
+        <trans-unit id="6747b6bf-bf69-4ff2-8692-0a32693776bd" xml:space="preserve">
+          <source>However, other regions such as North Europe can be under maintenance at the same time as East US.</source>
+          <target state="new">However, other regions such as North Europe can be under maintenance at the same time as East US.</target>
+        </trans-unit>
+        <trans-unit id="8e8daf30-624a-4c3f-a360-06012015006f" xml:space="preserve">
+          <source>./media/virtual-machines-planned-maintenance/vmplanned1.png</source>
+          <target state="new">./media/virtual-machines-planned-maintenance/vmplanned1.png</target>
+        </trans-unit>
+        <trans-unit id="b499a732-640c-4477-a160-59fda409a0f6" xml:space="preserve">
+          <source>./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png</source>
+          <target state="new">./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png</target>
+        </trans-unit>
+        <trans-unit id="607c7d4f-755d-48b6-9be9-eddf5cf38fcc" xml:space="preserve">
+          <source>./media/virtual-machines-planned-maintenance/RegionPairs.PNG</source>
+          <target state="new">./media/virtual-machines-planned-maintenance/RegionPairs.PNG</target>
+        </trans-unit>
+        <trans-unit id="6a13586d-a164-4f92-997d-749d19d59a9f" xml:space="preserve">
+          <source>virtual-machines-windows-tutorial.md</source>
+          <target state="new">virtual-machines-windows-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="cdafd293-db17-44dd-afa9-3ae1ad32fecc" xml:space="preserve">
+          <source>virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/</source>
+          <target state="new">virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/</target>
+        </trans-unit>
+      </group>
+      <group id="1488512d-6b55-4023-aa44-54d763dae4c7" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,1051 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d174b6f3-c1d4-40e4-ba6a-a1c76fcad490" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d174b6f3-c1d4-40e4-ba6a-a1c76fcad490" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a5945257-a4a4-42c0-b306-233a106abaea">
+        <trans-unit id="62df3149-af67-487e-92c9-f545b25f3800" xml:space="preserve">
+          <source>Introduction to Service Fabric Health Monitoring</source>
+          <target state="new">Introduction to Service Fabric Health Monitoring</target>
+        </trans-unit>
+        <trans-unit id="85c4ffae-6f3f-4429-a54a-40e00b7f4da1" xml:space="preserve">
+          <source>This article describes the Azure Service Fabric Health Monitoring model, including health entities, reporting and evaluation.</source>
+          <target state="new">This article describes the Azure Service Fabric Health Monitoring model, including health entities, reporting and evaluation.</target>
+        </trans-unit>
+        <trans-unit id="84f2988b-e60d-48b2-80a7-bc27c75c8903" xml:space="preserve">
+          <source>Service Fabric introduces a health model that provides rich, flexible and extensible health evaluation and reporting.</source>
+          <target state="new">Service Fabric introduces a health model that provides rich, flexible and extensible health evaluation and reporting.</target>
+        </trans-unit>
+        <trans-unit id="cb381252-15d9-4df7-8c9b-cae37a5f0c1c" xml:space="preserve">
+          <source>This includes near real-time monitoring of the state of the cluster and of the services running in it.</source>
+          <target state="new">This includes near real-time monitoring of the state of the cluster and of the services running in it.</target>
+        </trans-unit>
+        <trans-unit id="206756b9-be3f-475b-984a-49044a5a4714" xml:space="preserve">
+          <source>You  can easily obtain the health information and take actions to correct potential issues before they cascade and cause massive outages.</source>
+          <target state="new">You  can easily obtain the health information and take actions to correct potential issues before they cascade and cause massive outages.</target>
+        </trans-unit>
+        <trans-unit id="751db01b-9e0d-443f-853f-a2e84aa5629d" xml:space="preserve">
+          <source>The typical model is that services send reports based on their local view and the information is aggregated to provide an overall cluster level view.</source>
+          <target state="new">The typical model is that services send reports based on their local view and the information is aggregated to provide an overall cluster level view.</target>
+        </trans-unit>
+        <trans-unit id="ac05c80d-5f44-4b78-bc1d-1b5a2537c49a" xml:space="preserve">
+          <source>Service Fabric components use this health model to report their current state.</source>
+          <target state="new">Service Fabric components use this health model to report their current state.</target>
+        </trans-unit>
+        <trans-unit id="75904be5-2da5-4ad1-ba51-c949aefc78cc" xml:space="preserve">
+          <source>And you can use the same mechanism to report health from your applications.</source>
+          <target state="new">And you can use the same mechanism to report health from your applications.</target>
+        </trans-unit>
+        <trans-unit id="afcfd8d0-9864-4c3b-b0fc-d8da168dd716" xml:space="preserve">
+          <source>The quality and richness of health reporting specific to your custom conditions will determine how easily you will be able to detect and fix issues for your running application.</source>
+          <target state="new">The quality and richness of health reporting specific to your custom conditions will determine how easily you will be able to detect and fix issues for your running application.</target>
+        </trans-unit>
+        <trans-unit id="4106c33a-241f-4c85-8376-811efb8d65d8" xml:space="preserve">
+          <source>We started the Health subsystem as a need for monitored upgrades.</source>
+          <target state="new">We started the Health subsystem as a need for monitored upgrades.</target>
+        </trans-unit>
+        <trans-unit id="339b2b4e-d761-450e-bde8-544ec1710e1c" xml:space="preserve">
+          <source>Service Fabric provides monitored upgrades that know how to upgrade a cluster or an application with no down time, minimum to no user intervention and with full cluster and application availability.</source>
+          <target state="new">Service Fabric provides monitored upgrades that know how to upgrade a cluster or an application with no down time, minimum to no user intervention and with full cluster and application availability.</target>
+        </trans-unit>
+        <trans-unit id="893e2787-2bc6-48c8-bc9c-f0f95d5ffdba" xml:space="preserve">
+          <source>To do this, the upgrade checks health based on configured upgrade policies and allows upgrade to proceed only when health respects desired thresholds.</source>
+          <target state="new">To do this, the upgrade checks health based on configured upgrade policies and allows upgrade to proceed only when health respects desired thresholds.</target>
+        </trans-unit>
+        <trans-unit id="5c938611-c123-4e3e-8928-582d6b4265c2" xml:space="preserve">
+          <source>Otherwise, the upgrade is either automatically rolled back or paused to give administrators a chance to fix the issues.</source>
+          <target state="new">Otherwise, the upgrade is either automatically rolled back or paused to give administrators a chance to fix the issues.</target>
+        </trans-unit>
+        <trans-unit id="a9944cf7-6a09-4d66-8282-b6a9b86b7576" xml:space="preserve">
+          <source>To learn more about application upgrades see <bpt id="f4c345ac-6a7a-49c9-aac8-1c5c201c5f86">&lt;linkText&gt;</bpt>this article<ept id="f4c345ac-6a7a-49c9-aac8-1c5c201c5f86">&lt;/linkText&gt;</ept><bpt id="f4c345ac-6a7a-49c9-aac8-1c5c201c5f86">&lt;title&gt;</bpt><ept id="f4c345ac-6a7a-49c9-aac8-1c5c201c5f86">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about application upgrades see <bpt id="f4c345ac-6a7a-49c9-aac8-1c5c201c5f86">&lt;linkText&gt;</bpt>this article<ept id="f4c345ac-6a7a-49c9-aac8-1c5c201c5f86">&lt;/linkText&gt;</ept><bpt id="f4c345ac-6a7a-49c9-aac8-1c5c201c5f86">&lt;title&gt;</bpt><ept id="f4c345ac-6a7a-49c9-aac8-1c5c201c5f86">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb3d6008-489e-46f4-a37c-bfe91a9e0b4b" xml:space="preserve">
+          <source>The Health Store keeps health related information about entities in the cluster for easy retrieval and evaluation.</source>
+          <target state="new">The Health Store keeps health related information about entities in the cluster for easy retrieval and evaluation.</target>
+        </trans-unit>
+        <trans-unit id="30f8b8e3-9150-45a2-a86b-fab143d66ac2" xml:space="preserve">
+          <source>It is implemented as a Service Fabric persisted stateful service to ensure high availability and scalability.</source>
+          <target state="new">It is implemented as a Service Fabric persisted stateful service to ensure high availability and scalability.</target>
+        </trans-unit>
+        <trans-unit id="a3fd33c8-1231-4fcd-ab80-86c00ec33139" xml:space="preserve">
+          <source>It is part of the fabric:/System application and is available as soon as the cluster is up and running.</source>
+          <target state="new">It is part of the fabric:/System application and is available as soon as the cluster is up and running.</target>
+        </trans-unit>
+        <trans-unit id="9c7b6045-7376-4fe5-8892-de46c840c551" xml:space="preserve">
+          <source>The health entities are organized in a logical hierarchy that captures interactions and dependencies between different entities.</source>
+          <target state="new">The health entities are organized in a logical hierarchy that captures interactions and dependencies between different entities.</target>
+        </trans-unit>
+        <trans-unit id="e00b701b-c4b0-4845-b4a6-04290667434e" xml:space="preserve">
+          <source>The entities and the hierarchy are automatically built by the Health Store based on reports received from the Service Fabric components.</source>
+          <target state="new">The entities and the hierarchy are automatically built by the Health Store based on reports received from the Service Fabric components.</target>
+        </trans-unit>
+        <trans-unit id="1ee12337-e3a0-47fb-9b71-57ab3120d20b" xml:space="preserve">
+          <source>The health entities mirror the Service Fabric entities (eg.</source>
+          <target state="new">The health entities mirror the Service Fabric entities (eg.</target>
+        </trans-unit>
+        <trans-unit id="a0b3934d-10b3-4b9c-a1b6-30ce364beab2" xml:space="preserve">
+          <source>health application entity matches an application instance deployed in the cluster, health node entity matches a Service Fabric cluster node).</source>
+          <target state="new">health application entity matches an application instance deployed in the cluster, health node entity matches a Service Fabric cluster node).</target>
+        </trans-unit>
+        <trans-unit id="372eaf74-e70f-43c0-84a7-cdf2eddecf1e" xml:space="preserve">
+          <source>The health hierarchy captures the interactions of the system entities and is the basis for advanced health evaluation.</source>
+          <target state="new">The health hierarchy captures the interactions of the system entities and is the basis for advanced health evaluation.</target>
+        </trans-unit>
+        <trans-unit id="dd108dd4-5496-466d-94ec-8e4ce8392215" xml:space="preserve">
+          <source>You can learn about the key Service Fabric concepts at <bpt id="ba757f17-170f-4b1b-b67b-d1be2b47b7c9">&lt;linkText&gt;</bpt>Service Fabric technical overview<ept id="ba757f17-170f-4b1b-b67b-d1be2b47b7c9">&lt;/linkText&gt;</ept><bpt id="ba757f17-170f-4b1b-b67b-d1be2b47b7c9">&lt;title&gt;</bpt><ept id="ba757f17-170f-4b1b-b67b-d1be2b47b7c9">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn about the key Service Fabric concepts at <bpt id="ba757f17-170f-4b1b-b67b-d1be2b47b7c9">&lt;linkText&gt;</bpt>Service Fabric technical overview<ept id="ba757f17-170f-4b1b-b67b-d1be2b47b7c9">&lt;/linkText&gt;</ept><bpt id="ba757f17-170f-4b1b-b67b-d1be2b47b7c9">&lt;title&gt;</bpt><ept id="ba757f17-170f-4b1b-b67b-d1be2b47b7c9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7ac000e-9392-4f77-ae29-0e2c1ac18ded" xml:space="preserve">
+          <source>For more on application, go to <bpt id="62592afa-1fc8-4e4e-9d82-414aa5af8d0e">&lt;linkText&gt;</bpt>Service Fabric application model<ept id="62592afa-1fc8-4e4e-9d82-414aa5af8d0e">&lt;/linkText&gt;</ept><bpt id="62592afa-1fc8-4e4e-9d82-414aa5af8d0e">&lt;title&gt;</bpt><ept id="62592afa-1fc8-4e4e-9d82-414aa5af8d0e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more on application, go to <bpt id="62592afa-1fc8-4e4e-9d82-414aa5af8d0e">&lt;linkText&gt;</bpt>Service Fabric application model<ept id="62592afa-1fc8-4e4e-9d82-414aa5af8d0e">&lt;/linkText&gt;</ept><bpt id="62592afa-1fc8-4e4e-9d82-414aa5af8d0e">&lt;title&gt;</bpt><ept id="62592afa-1fc8-4e4e-9d82-414aa5af8d0e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec1a2342-8ba5-4690-8ab3-490f1143e81c" xml:space="preserve">
+          <source>The health entities and hierarchy allow for effective reporting, debugging and monitoring of the cluster and applications.</source>
+          <target state="new">The health entities and hierarchy allow for effective reporting, debugging and monitoring of the cluster and applications.</target>
+        </trans-unit>
+        <trans-unit id="e57ff51b-f745-47c6-9535-7d7d7605433d" xml:space="preserve">
+          <source>The health model allows an accurate, <bpt id="ddf9b477-a58d-449d-94dd-034403ee60fa">&lt;strong&gt;</bpt>granular<ept id="ddf9b477-a58d-449d-94dd-034403ee60fa">&lt;/strong&gt;</ept> representation of the health of the many moving pieces in the cluster.</source>
+          <target state="new">The health model allows an accurate, <bpt id="ddf9b477-a58d-449d-94dd-034403ee60fa">&lt;strong&gt;</bpt>granular<ept id="ddf9b477-a58d-449d-94dd-034403ee60fa">&lt;/strong&gt;</ept> representation of the health of the many moving pieces in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="fe2ed87e-ed13-4523-8b07-da55e68ece6e" xml:space="preserve">
+          <source><bpt id="f4f50beb-1ef0-4a36-86f0-4d069d4dec3f">&lt;linkText&gt;</bpt>Health Entities.<ept id="f4f50beb-1ef0-4a36-86f0-4d069d4dec3f">&lt;/linkText&gt;</ept>
+The health entities, organized in an hierarchy based on parent-children relationships.</source>
+          <target state="new"><bpt id="f4f50beb-1ef0-4a36-86f0-4d069d4dec3f">&lt;linkText&gt;</bpt>Health Entities.<ept id="f4f50beb-1ef0-4a36-86f0-4d069d4dec3f">&lt;/linkText&gt;</ept>
+The health entities, organized in an hierarchy based on parent-children relationships.</target>
+        </trans-unit>
+        <trans-unit id="bc08aeaa-b1b1-4c08-a6a8-4a2fa1e233f8" xml:space="preserve">
+          <source>The health entities are:</source>
+          <target state="new">The health entities are:</target>
+        </trans-unit>
+        <trans-unit id="0dfd5a59-c7a1-47a2-bfbd-b5fce2a6017c" xml:space="preserve">
+          <source><bpt id="884d57d2-27dc-49de-a091-e1ec67e70473">&lt;strong&gt;</bpt>Cluster<ept id="884d57d2-27dc-49de-a091-e1ec67e70473">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="884d57d2-27dc-49de-a091-e1ec67e70473">&lt;strong&gt;</bpt>Cluster<ept id="884d57d2-27dc-49de-a091-e1ec67e70473">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5762c9f-6215-4794-b3e9-813eecaea844" xml:space="preserve">
+          <source>Represents the health of a Service Fabric cluster.</source>
+          <target state="new">Represents the health of a Service Fabric cluster.</target>
+        </trans-unit>
+        <trans-unit id="c7e52cbf-67e5-4ac6-a491-4d77ee3b41db" xml:space="preserve">
+          <source>Cluster health reports describe conditions that affect the entire cluster and can't be narrowed down to one or more unhealthy children.</source>
+          <target state="new">Cluster health reports describe conditions that affect the entire cluster and can't be narrowed down to one or more unhealthy children.</target>
+        </trans-unit>
+        <trans-unit id="ca7a615b-e714-4aa3-a075-e7f980d551fc" xml:space="preserve">
+          <source>Example: split-brain of the cluster due to network partitioning or communication issues.</source>
+          <target state="new">Example: split-brain of the cluster due to network partitioning or communication issues.</target>
+        </trans-unit>
+        <trans-unit id="a26357dc-74c4-4664-beac-4fd51c87f95a" xml:space="preserve">
+          <source><bpt id="45838538-4e1a-414e-9be8-377286c29600">&lt;strong&gt;</bpt>Node<ept id="45838538-4e1a-414e-9be8-377286c29600">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="45838538-4e1a-414e-9be8-377286c29600">&lt;strong&gt;</bpt>Node<ept id="45838538-4e1a-414e-9be8-377286c29600">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="012544ea-6446-4f43-ae41-7737f8c0309c" xml:space="preserve">
+          <source>Represents the health of a Service Fabric node.</source>
+          <target state="new">Represents the health of a Service Fabric node.</target>
+        </trans-unit>
+        <trans-unit id="bbf459ff-ead6-4594-997c-eef9c2b11a20" xml:space="preserve">
+          <source>Node health reports describe conditions that affect the node functionality and typically affect all the deployed entities running on it.</source>
+          <target state="new">Node health reports describe conditions that affect the node functionality and typically affect all the deployed entities running on it.</target>
+        </trans-unit>
+        <trans-unit id="f2890a47-e92c-4710-9531-1de5a3a57e4e" xml:space="preserve">
+          <source>Example: node is out of disk space (or other machine wide property such as memory, connections, etc.)</source>
+          <target state="new">Example: node is out of disk space (or other machine wide property such as memory, connections, etc.)</target>
+        </trans-unit>
+        <trans-unit id="adf4bcd0-a347-441e-bd14-2b9c27a4e640" xml:space="preserve">
+          <source>or node is down.</source>
+          <target state="new">or node is down.</target>
+        </trans-unit>
+        <trans-unit id="0bd4e7a2-a6cc-4b33-8a82-1717b555e542" xml:space="preserve">
+          <source>The node entity is identified by the node name (string).</source>
+          <target state="new">The node entity is identified by the node name (string).</target>
+        </trans-unit>
+        <trans-unit id="7af99b4a-2cb4-4431-a38e-2132320d24f1" xml:space="preserve">
+          <source><bpt id="752276f3-70c2-4946-8f7f-07670e693cd4">&lt;strong&gt;</bpt>Application<ept id="752276f3-70c2-4946-8f7f-07670e693cd4">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="752276f3-70c2-4946-8f7f-07670e693cd4">&lt;strong&gt;</bpt>Application<ept id="752276f3-70c2-4946-8f7f-07670e693cd4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2449e722-c744-4c38-80bc-e45f4a5b6f45" xml:space="preserve">
+          <source>Represents the health of an application instance running in the cluster.</source>
+          <target state="new">Represents the health of an application instance running in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="a93e770b-961b-499e-a0d3-d965fad57db8" xml:space="preserve">
+          <source>Application health reports describe conditions that affect the overall health of the application and can't be narrowed down to individual children (services or deployed applications).</source>
+          <target state="new">Application health reports describe conditions that affect the overall health of the application and can't be narrowed down to individual children (services or deployed applications).</target>
+        </trans-unit>
+        <trans-unit id="b5da87ec-9bb8-4b03-b6ee-11e44a89b2ba" xml:space="preserve">
+          <source>Example: the end to end interaction between different services in the application.</source>
+          <target state="new">Example: the end to end interaction between different services in the application.</target>
+        </trans-unit>
+        <trans-unit id="f332f83d-a9fb-4566-af4d-8648eca652fd" xml:space="preserve">
+          <source>The application entity is identified by the application name (Uri).</source>
+          <target state="new">The application entity is identified by the application name (Uri).</target>
+        </trans-unit>
+        <trans-unit id="ef06c310-9cfb-4545-83d3-5d27c097caa4" xml:space="preserve">
+          <source><bpt id="67087633-9735-46d5-80b1-80a1744f597f">&lt;strong&gt;</bpt>Service<ept id="67087633-9735-46d5-80b1-80a1744f597f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="67087633-9735-46d5-80b1-80a1744f597f">&lt;strong&gt;</bpt>Service<ept id="67087633-9735-46d5-80b1-80a1744f597f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="413a6dfc-cf0e-4df6-8aa7-55426fa4e2a7" xml:space="preserve">
+          <source>Represents the health of a service running in the cluster.</source>
+          <target state="new">Represents the health of a service running in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="76376902-7334-4ed7-9ba3-5fc0c2f6521a" xml:space="preserve">
+          <source>Service health reports describe conditions that affect the overall health of the service, and can't be narrowed down to a partition or a replica.</source>
+          <target state="new">Service health reports describe conditions that affect the overall health of the service, and can't be narrowed down to a partition or a replica.</target>
+        </trans-unit>
+        <trans-unit id="7aa33999-f718-47f2-b0ed-20a1b2c6ed52" xml:space="preserve">
+          <source>Example: a service configuration (such as port or external file share) that is causing issues for all partitions.</source>
+          <target state="new">Example: a service configuration (such as port or external file share) that is causing issues for all partitions.</target>
+        </trans-unit>
+        <trans-unit id="0f88c59c-366b-4e40-a7fd-e92244e4daa8" xml:space="preserve">
+          <source>The service entity is identified by the service name (Uri).</source>
+          <target state="new">The service entity is identified by the service name (Uri).</target>
+        </trans-unit>
+        <trans-unit id="913fc9f3-fb92-4f02-b427-731d351fa69f" xml:space="preserve">
+          <source><bpt id="e860f77c-3d6a-424f-979e-be0c7bc3c9ca">&lt;strong&gt;</bpt>Partition<ept id="e860f77c-3d6a-424f-979e-be0c7bc3c9ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="e860f77c-3d6a-424f-979e-be0c7bc3c9ca">&lt;strong&gt;</bpt>Partition<ept id="e860f77c-3d6a-424f-979e-be0c7bc3c9ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7ea2376-76cf-4e3b-88ae-4c49658a7e0f" xml:space="preserve">
+          <source>Represents the health of a service partition.</source>
+          <target state="new">Represents the health of a service partition.</target>
+        </trans-unit>
+        <trans-unit id="5f501185-4a04-4108-81a3-0991a55e4c74" xml:space="preserve">
+          <source>Partition health reports describe conditions that affect the entire replica set.</source>
+          <target state="new">Partition health reports describe conditions that affect the entire replica set.</target>
+        </trans-unit>
+        <trans-unit id="31335f67-c537-4e73-ac35-ad5029d771b9" xml:space="preserve">
+          <source>Example: the number of replicas is below target count or partition is in quorum loss.</source>
+          <target state="new">Example: the number of replicas is below target count or partition is in quorum loss.</target>
+        </trans-unit>
+        <trans-unit id="dd86832b-9587-40c6-a65e-a04c4757e48c" xml:space="preserve">
+          <source>The partition entity is identified by the partition id (Guid).</source>
+          <target state="new">The partition entity is identified by the partition id (Guid).</target>
+        </trans-unit>
+        <trans-unit id="980277eb-f878-4cfb-91ce-f7c7538e1535" xml:space="preserve">
+          <source><bpt id="8b6e00cf-f8bd-43a9-a16e-bcaa5a1a7720">&lt;strong&gt;</bpt>Replica<ept id="8b6e00cf-f8bd-43a9-a16e-bcaa5a1a7720">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="8b6e00cf-f8bd-43a9-a16e-bcaa5a1a7720">&lt;strong&gt;</bpt>Replica<ept id="8b6e00cf-f8bd-43a9-a16e-bcaa5a1a7720">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a23d7aaf-032e-4b50-8e09-8bfd77014f68" xml:space="preserve">
+          <source>Represents the health of a stateful service replica or a stateless service instance.</source>
+          <target state="new">Represents the health of a stateful service replica or a stateless service instance.</target>
+        </trans-unit>
+        <trans-unit id="1d1db0b6-524b-4320-8a6e-c5b4a818dc36" xml:space="preserve">
+          <source>This is the smallest unit watchdogs and system components can report on for an application.</source>
+          <target state="new">This is the smallest unit watchdogs and system components can report on for an application.</target>
+        </trans-unit>
+        <trans-unit id="ac1a2186-fd93-4b2b-bc38-5ff47d943969" xml:space="preserve">
+          <source>Example: For stateful services, primary replica can report if it can't replicate operations to secondaries or replication is not proceeding at the expected pace.</source>
+          <target state="new">Example: For stateful services, primary replica can report if it can't replicate operations to secondaries or replication is not proceeding at the expected pace.</target>
+        </trans-unit>
+        <trans-unit id="bb73af8b-9937-431e-be5a-951bba901392" xml:space="preserve">
+          <source>A stateless instance can report if it is running out of resources or has connectivity issues.</source>
+          <target state="new">A stateless instance can report if it is running out of resources or has connectivity issues.</target>
+        </trans-unit>
+        <trans-unit id="610b2544-0269-40df-9c17-88b84593a17c" xml:space="preserve">
+          <source>The replica entity is identified by the partition id (Guid) and the replica or instance id (long).</source>
+          <target state="new">The replica entity is identified by the partition id (Guid) and the replica or instance id (long).</target>
+        </trans-unit>
+        <trans-unit id="7f193659-b337-4a48-b276-f92f99d4f06e" xml:space="preserve">
+          <source><bpt id="065f6e0a-e6d9-4156-ade8-2f914661cb2d">&lt;strong&gt;</bpt>DeployedApplication<ept id="065f6e0a-e6d9-4156-ade8-2f914661cb2d">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="065f6e0a-e6d9-4156-ade8-2f914661cb2d">&lt;strong&gt;</bpt>DeployedApplication<ept id="065f6e0a-e6d9-4156-ade8-2f914661cb2d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20f45426-2d64-4382-b5e5-c374cddb2b24" xml:space="preserve">
+          <source>Represents the health of an <bpt id="ae30b98f-c3e3-4e3c-8ceb-fdea38b51a27">&lt;em&gt;</bpt>application running on a node<ept id="ae30b98f-c3e3-4e3c-8ceb-fdea38b51a27">&lt;/em&gt;</ept>.</source>
+          <target state="new">Represents the health of an <bpt id="ae30b98f-c3e3-4e3c-8ceb-fdea38b51a27">&lt;em&gt;</bpt>application running on a node<ept id="ae30b98f-c3e3-4e3c-8ceb-fdea38b51a27">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="546934d2-9b2e-4f79-91bb-eece72e197f5" xml:space="preserve">
+          <source>Deployed application health reports describe conditions specific to the application on the node that can't be narrowed down to service packages deployed on the same node.</source>
+          <target state="new">Deployed application health reports describe conditions specific to the application on the node that can't be narrowed down to service packages deployed on the same node.</target>
+        </trans-unit>
+        <trans-unit id="d953944e-099c-44be-b7a9-112a5d03cf39" xml:space="preserve">
+          <source>Example: the application package can't be downloaded on that node or there is an issue setting up application security principals on the node.</source>
+          <target state="new">Example: the application package can't be downloaded on that node or there is an issue setting up application security principals on the node.</target>
+        </trans-unit>
+        <trans-unit id="e2b1030b-fb6d-45d5-a789-b909d8e03d0d" xml:space="preserve">
+          <source>The deployed application is identified by application name (Uri) and node name (string).</source>
+          <target state="new">The deployed application is identified by application name (Uri) and node name (string).</target>
+        </trans-unit>
+        <trans-unit id="f71ed8c8-c2bd-47a6-8694-38b74faaa427" xml:space="preserve">
+          <source><bpt id="3eac533a-de04-449e-ac12-3a03b28ce3c3">&lt;strong&gt;</bpt>DeployedServicePackage<ept id="3eac533a-de04-449e-ac12-3a03b28ce3c3">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3eac533a-de04-449e-ac12-3a03b28ce3c3">&lt;strong&gt;</bpt>DeployedServicePackage<ept id="3eac533a-de04-449e-ac12-3a03b28ce3c3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2998c182-9d87-472a-9080-d0d7e3ed7774" xml:space="preserve">
+          <source>Represents the health of a service package of an application running in a node in the cluster.</source>
+          <target state="new">Represents the health of a service package of an application running in a node in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="9cbeaa5e-625a-4a12-97bd-3fdf3c818530" xml:space="preserve">
+          <source>It describes conditions specific to a service package that do not affect the other service packages on the same node for the same application.</source>
+          <target state="new">It describes conditions specific to a service package that do not affect the other service packages on the same node for the same application.</target>
+        </trans-unit>
+        <trans-unit id="73765f8c-c9ff-4470-8be2-7088f707e3f3" xml:space="preserve">
+          <source>Example: a code package in the service package cannot be started or configuration package cannot be read.</source>
+          <target state="new">Example: a code package in the service package cannot be started or configuration package cannot be read.</target>
+        </trans-unit>
+        <trans-unit id="eeeed766-7e69-4b3a-8a98-cc66cf329666" xml:space="preserve">
+          <source>The deployed service package is identified by application name (Uri), node name (string) and service manifest name (string).</source>
+          <target state="new">The deployed service package is identified by application name (Uri), node name (string) and service manifest name (string).</target>
+        </trans-unit>
+        <trans-unit id="b291888e-06d2-4c0a-bf42-2b6ae42ec2f6" xml:space="preserve">
+          <source>The granularity of the health model makes it easy to detect and correct issues.</source>
+          <target state="new">The granularity of the health model makes it easy to detect and correct issues.</target>
+        </trans-unit>
+        <trans-unit id="8458f1c6-877a-4454-b6ba-66e101b0ea49" xml:space="preserve">
+          <source>For example, if a service is not responding, it is feasible to report that the application instance is unhealthy; however, it is not ideal because the issue might not be affecting all services within that application.</source>
+          <target state="new">For example, if a service is not responding, it is feasible to report that the application instance is unhealthy; however, it is not ideal because the issue might not be affecting all services within that application.</target>
+        </trans-unit>
+        <trans-unit id="3d15a41f-f22b-4054-929b-41a6fb9627d0" xml:space="preserve">
+          <source>The report should be applied on the unhealthy service, or, if more information points to a specific child partition, on that partition.</source>
+          <target state="new">The report should be applied on the unhealthy service, or, if more information points to a specific child partition, on that partition.</target>
+        </trans-unit>
+        <trans-unit id="4fc04006-812e-4fb8-a87d-8d41cfdc9d93" xml:space="preserve">
+          <source>The data will automatically surface through the hierarchy: an unhealthy partition will be made visible at service and application levels.</source>
+          <target state="new">The data will automatically surface through the hierarchy: an unhealthy partition will be made visible at service and application levels.</target>
+        </trans-unit>
+        <trans-unit id="3147fa63-4362-4079-8d5a-6f866e6d68d6" xml:space="preserve">
+          <source>This will help pinpoint and resolve the root cause of the issues faster.</source>
+          <target state="new">This will help pinpoint and resolve the root cause of the issues faster.</target>
+        </trans-unit>
+        <trans-unit id="5065b2c2-7ad3-4f64-9938-ed3831194822" xml:space="preserve">
+          <source>The health hierarchy is composed of parent-children relationships.</source>
+          <target state="new">The health hierarchy is composed of parent-children relationships.</target>
+        </trans-unit>
+        <trans-unit id="69cdca83-5a86-4304-818e-117fcfe9e055" xml:space="preserve">
+          <source>Cluster is composed of nodes and applications; applications have services and deployed applications; deployed applications have deployed service packages.</source>
+          <target state="new">Cluster is composed of nodes and applications; applications have services and deployed applications; deployed applications have deployed service packages.</target>
+        </trans-unit>
+        <trans-unit id="c5b8e964-1456-4f7c-b82e-71d64aecbd00" xml:space="preserve">
+          <source>Services have partitions, and each partition has one or more replicas.</source>
+          <target state="new">Services have partitions, and each partition has one or more replicas.</target>
+        </trans-unit>
+        <trans-unit id="857e067a-7a80-442f-8502-32021fa73387" xml:space="preserve">
+          <source>There is a special relationship between nodes and deployed entities.</source>
+          <target state="new">There is a special relationship between nodes and deployed entities.</target>
+        </trans-unit>
+        <trans-unit id="e4fad017-f55f-40cd-9573-afd4ffe58e85" xml:space="preserve">
+          <source>If a node is unhealthy as reported by its authority System component (Failover Manager Service), it will affect the deployed applications, service packages and replicas deployed on it.</source>
+          <target state="new">If a node is unhealthy as reported by its authority System component (Failover Manager Service), it will affect the deployed applications, service packages and replicas deployed on it.</target>
+        </trans-unit>
+        <trans-unit id="852129d4-f34b-41c6-aee9-5ae38406d4b3" xml:space="preserve">
+          <source>The health hierarchy represents the latest state of the system based on the latest health reports, which is almost real-time information.</source>
+          <target state="new">The health hierarchy represents the latest state of the system based on the latest health reports, which is almost real-time information.</target>
+        </trans-unit>
+        <trans-unit id="a37c7549-6478-437e-aac3-1d709edab171" xml:space="preserve">
+          <source>Internal and external watchdogs can report on the same entities based on application specific logic or custom monitored conditions.</source>
+          <target state="new">Internal and external watchdogs can report on the same entities based on application specific logic or custom monitored conditions.</target>
+        </trans-unit>
+        <trans-unit id="421d394a-c2c4-4088-a0f4-2705e0b6aa1c" xml:space="preserve">
+          <source>The user reports co-exist with the system reports.</source>
+          <target state="new">The user reports co-exist with the system reports.</target>
+        </trans-unit>
+        <trans-unit id="d39383f2-a637-44fd-b485-8f6a3dac24a5" xml:space="preserve">
+          <source>Investing time on planning how to report and respond to health while designing the service makes large cloud services easier to debug, monitor, and subsequently operate.</source>
+          <target state="new">Investing time on planning how to report and respond to health while designing the service makes large cloud services easier to debug, monitor, and subsequently operate.</target>
+        </trans-unit>
+        <trans-unit id="11b919c7-1ee3-4829-a888-a5e527b55adb" xml:space="preserve">
+          <source>Service Fabric uses three health states to describe whether an entity is healthy or not: Ok, Warning and Error.</source>
+          <target state="new">Service Fabric uses three health states to describe whether an entity is healthy or not: Ok, Warning and Error.</target>
+        </trans-unit>
+        <trans-unit id="c8b10796-dc13-4394-9149-416bd405feef" xml:space="preserve">
+          <source>Any report sent to the Health Store must specify one of these states.</source>
+          <target state="new">Any report sent to the Health Store must specify one of these states.</target>
+        </trans-unit>
+        <trans-unit id="30ec701b-765d-42f9-8a32-c55e5afe4220" xml:space="preserve">
+          <source>The health evaluation result is one of these states.</source>
+          <target state="new">The health evaluation result is one of these states.</target>
+        </trans-unit>
+        <trans-unit id="99f54218-02f3-4666-8cf3-aa7be6b0c289" xml:space="preserve">
+          <source>The possible health states are:</source>
+          <target state="new">The possible health states are:</target>
+        </trans-unit>
+        <trans-unit id="df7b010c-d30f-4cd4-a523-849f0e9ca8e9" xml:space="preserve">
+          <source>Ok: The entity is healthy.</source>
+          <target state="new">Ok: The entity is healthy.</target>
+        </trans-unit>
+        <trans-unit id="a67ef9e0-54af-49b4-9db6-90de21d9449d" xml:space="preserve">
+          <source>There are no known issues reported on it or its children (when applicable).</source>
+          <target state="new">There are no known issues reported on it or its children (when applicable).</target>
+        </trans-unit>
+        <trans-unit id="4b38e043-407a-470a-a422-8841cdf3d583" xml:space="preserve">
+          <source>Warning: The entity experiences some issues but it is not yet unhealthy (i.e., unexpected delay that it is not causing any functional issue).</source>
+          <target state="new">Warning: The entity experiences some issues but it is not yet unhealthy (i.e., unexpected delay that it is not causing any functional issue).</target>
+        </trans-unit>
+        <trans-unit id="3d05605f-dd33-4e71-bdd3-8c77cf258d08" xml:space="preserve">
+          <source>In some cases, the warning condition may fix itself without any special intervention, and it is useful to provide visibility into what is going on.</source>
+          <target state="new">In some cases, the warning condition may fix itself without any special intervention, and it is useful to provide visibility into what is going on.</target>
+        </trans-unit>
+        <trans-unit id="172624f3-4f6c-4dd4-ad4b-f7b4351bc4f1" xml:space="preserve">
+          <source>In other cases, the Warning condition may degrade into a severe problem without user intervention.</source>
+          <target state="new">In other cases, the Warning condition may degrade into a severe problem without user intervention.</target>
+        </trans-unit>
+        <trans-unit id="a6234ed5-07bd-41e3-9e03-fdff8e78c323" xml:space="preserve">
+          <source>Error: The entity is unhealthy.</source>
+          <target state="new">Error: The entity is unhealthy.</target>
+        </trans-unit>
+        <trans-unit id="78b7d533-3cea-48b0-94fc-7f7ed1e7b05d" xml:space="preserve">
+          <source>Action should be taken to fix the state of the entity, as it can't function properly.</source>
+          <target state="new">Action should be taken to fix the state of the entity, as it can't function properly.</target>
+        </trans-unit>
+        <trans-unit id="623bef49-1391-4756-b66a-4f2d847f8250" xml:space="preserve">
+          <source>Unknown: The entity doesn't exist in the health store.</source>
+          <target state="new">Unknown: The entity doesn't exist in the health store.</target>
+        </trans-unit>
+        <trans-unit id="e29fa6ed-f7ee-46b1-884e-07b5ce1b2ee3" xml:space="preserve">
+          <source>This result can be obtained from distributed queries like get the Service Fabric nodes or applications.</source>
+          <target state="new">This result can be obtained from distributed queries like get the Service Fabric nodes or applications.</target>
+        </trans-unit>
+        <trans-unit id="c4dd5ab8-ec66-4fe4-b6d6-e64a4c80276d" xml:space="preserve">
+          <source>These queries merge results from multiple system components.</source>
+          <target state="new">These queries merge results from multiple system components.</target>
+        </trans-unit>
+        <trans-unit id="d54ee627-a7db-40c9-a889-b60669676293" xml:space="preserve">
+          <source>If another system component has an entity that has not reached the health store yet or that has been cleaned up from health store, the merged query will populate health result with 'Unknown' health state.</source>
+          <target state="new">If another system component has an entity that has not reached the health store yet or that has been cleaned up from health store, the merged query will populate health result with 'Unknown' health state.</target>
+        </trans-unit>
+        <trans-unit id="d6a3f4da-a82f-48da-ada8-fdd4eaa0a945" xml:space="preserve">
+          <source>The Health Store applies health policies to determine whether an entity is healthy based on its reports and its children.</source>
+          <target state="new">The Health Store applies health policies to determine whether an entity is healthy based on its reports and its children.</target>
+        </trans-unit>
+        <trans-unit id="ca9f0c10-5e9a-42dd-9817-7a693ea493af" xml:space="preserve">
+          <source>The health policies can be specified in the cluster manifest (for cluster and node health evaluation) or the application manifest (for application evaluation and any of its children).</source>
+          <target state="new">The health policies can be specified in the cluster manifest (for cluster and node health evaluation) or the application manifest (for application evaluation and any of its children).</target>
+        </trans-unit>
+        <trans-unit id="d9f851d9-4505-4aef-8857-4be5f05e475c" xml:space="preserve">
+          <source>The health evaluation requests can also pass in custom health evaluation policies, which will only be used for that evaluation.</source>
+          <target state="new">The health evaluation requests can also pass in custom health evaluation policies, which will only be used for that evaluation.</target>
+        </trans-unit>
+        <trans-unit id="33ef2970-7068-4b68-91b1-7b613fb4c3d2" xml:space="preserve">
+          <source>By default, Service Fabric applies strict rules (everything must be healthy) for the parent-children hierarchical relationship; as long as one of the children has one unhealthy event, the parent is considered unhealthy.</source>
+          <target state="new">By default, Service Fabric applies strict rules (everything must be healthy) for the parent-children hierarchical relationship; as long as one of the children has one unhealthy event, the parent is considered unhealthy.</target>
+        </trans-unit>
+        <trans-unit id="79e85d5a-d7af-4ce3-8cd0-53aec71cc62a" xml:space="preserve">
+          <source>The cluster health policy is used to evaluate cluster health state and node health states.</source>
+          <target state="new">The cluster health policy is used to evaluate cluster health state and node health states.</target>
+        </trans-unit>
+        <trans-unit id="ecd58aba-fa42-40f6-b460-98544a89dba1" xml:space="preserve">
+          <source>It can be defined in the cluster manifest.</source>
+          <target state="new">It can be defined in the cluster manifest.</target>
+        </trans-unit>
+        <trans-unit id="109b4ba6-7588-4d88-b30d-ca5c312ec05e" xml:space="preserve">
+          <source>If not present, it defaults to the default policy (0 tolerated failures).</source>
+          <target state="new">If not present, it defaults to the default policy (0 tolerated failures).</target>
+        </trans-unit>
+        <trans-unit id="f2014a43-a203-442a-9d74-ecda62033059" xml:space="preserve">
+          <source>Contains:</source>
+          <target state="new">Contains:</target>
+        </trans-unit>
+        <trans-unit id="e6dc127f-7c60-45d2-8ac3-c258b3bd1bae" xml:space="preserve">
+          <source><bpt id="7c22d8e7-6747-4237-8d57-0268534d2d8f">&lt;strong&gt;</bpt>ConsiderWarningAsError<ept id="7c22d8e7-6747-4237-8d57-0268534d2d8f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="7c22d8e7-6747-4237-8d57-0268534d2d8f">&lt;strong&gt;</bpt>ConsiderWarningAsError<ept id="7c22d8e7-6747-4237-8d57-0268534d2d8f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="661d4fbc-7ba0-45fa-b73c-2a7e33bfb09b" xml:space="preserve">
+          <source>Specifies whether to treat Warning health reports as errors during health evaluation.</source>
+          <target state="new">Specifies whether to treat Warning health reports as errors during health evaluation.</target>
+        </trans-unit>
+        <trans-unit id="83477c15-f1a8-4e43-b3d6-7e5fdba702a5" xml:space="preserve">
+          <source>Default: False.</source>
+          <target state="new">Default: False.</target>
+        </trans-unit>
+        <trans-unit id="7885a9bd-025b-4341-a586-d9deff9521a0" xml:space="preserve">
+          <source><bpt id="ba7d082a-3b97-4120-a96d-73a240ff9e21">&lt;strong&gt;</bpt>MaxPercentUnhealthyApplications<ept id="ba7d082a-3b97-4120-a96d-73a240ff9e21">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ba7d082a-3b97-4120-a96d-73a240ff9e21">&lt;strong&gt;</bpt>MaxPercentUnhealthyApplications<ept id="ba7d082a-3b97-4120-a96d-73a240ff9e21">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e550f16e-155f-4bd8-8403-509e71ab4603" xml:space="preserve">
+          <source>Maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in Error.</source>
+          <target state="new">Maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in Error.</target>
+        </trans-unit>
+        <trans-unit id="bdd64d9b-4acd-4e23-9119-dbd523e86828" xml:space="preserve">
+          <source><bpt id="194054ba-c8f0-4ea4-8606-3202e2781bc2">&lt;strong&gt;</bpt>MaxPercentUnhealthyNodes<ept id="194054ba-c8f0-4ea4-8606-3202e2781bc2">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="194054ba-c8f0-4ea4-8606-3202e2781bc2">&lt;strong&gt;</bpt>MaxPercentUnhealthyNodes<ept id="194054ba-c8f0-4ea4-8606-3202e2781bc2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="649db73e-2f29-4fee-9982-a9ea93f55c16" xml:space="preserve">
+          <source>Maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in Error.</source>
+          <target state="new">Maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in Error.</target>
+        </trans-unit>
+        <trans-unit id="c4196f6c-22ea-4891-bc8c-be4bb9f1da1e" xml:space="preserve">
+          <source>In large clusters, there will always be nodes down or out for repairs, so this percentage should be configured to tolerate that.</source>
+          <target state="new">In large clusters, there will always be nodes down or out for repairs, so this percentage should be configured to tolerate that.</target>
+        </trans-unit>
+        <trans-unit id="a99b2ef7-0d68-453d-8c11-3a5f7a832f85" xml:space="preserve">
+          <source>The following is an excerpt from a cluster manifest:</source>
+          <target state="new">The following is an excerpt from a cluster manifest:</target>
+        </trans-unit>
+        <trans-unit id="c5bc91bd-8be0-4c4d-b9d0-447df59857e0" xml:space="preserve">
+          <source>The application health policy describes how evaluation of events and children states aggregation is done for application and its children.</source>
+          <target state="new">The application health policy describes how evaluation of events and children states aggregation is done for application and its children.</target>
+        </trans-unit>
+        <trans-unit id="0fee62f5-7b15-4364-aa55-6b051d294bb2" xml:space="preserve">
+          <source>It can be defined in the application manifest, ApplicationManifest.xml in the application package.</source>
+          <target state="new">It can be defined in the application manifest, ApplicationManifest.xml in the application package.</target>
+        </trans-unit>
+        <trans-unit id="316c8876-cbeb-48f5-91c5-c8b8c56df9c7" xml:space="preserve">
+          <source>If not specified, Service Fabric assumes the entity to be unhealthy if is has a health report or a child at Warning or Error health state.</source>
+          <target state="new">If not specified, Service Fabric assumes the entity to be unhealthy if is has a health report or a child at Warning or Error health state.</target>
+        </trans-unit>
+        <trans-unit id="51f0aae0-f151-4b3e-8bdf-bd46b4cc22b1" xml:space="preserve">
+          <source>The configurable policies are:</source>
+          <target state="new">The configurable policies are:</target>
+        </trans-unit>
+        <trans-unit id="c1e82df5-12b8-4a76-8a57-8456fade0340" xml:space="preserve">
+          <source><bpt id="ca02708d-1275-4e60-86d1-6d1eeecbfca2">&lt;strong&gt;</bpt>ConsiderWarningAsError<ept id="ca02708d-1275-4e60-86d1-6d1eeecbfca2">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ca02708d-1275-4e60-86d1-6d1eeecbfca2">&lt;strong&gt;</bpt>ConsiderWarningAsError<ept id="ca02708d-1275-4e60-86d1-6d1eeecbfca2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c219a1aa-82c0-4bb2-a5ac-621539b523da" xml:space="preserve">
+          <source>Specifies whether to treat Warning health reports as errors during health evaluation.</source>
+          <target state="new">Specifies whether to treat Warning health reports as errors during health evaluation.</target>
+        </trans-unit>
+        <trans-unit id="5047fde5-2757-4d5c-91c9-3eed24c46986" xml:space="preserve">
+          <source>Default: False.</source>
+          <target state="new">Default: False.</target>
+        </trans-unit>
+        <trans-unit id="ab9e037e-d61b-4fe3-a86c-bf78b7334f79" xml:space="preserve">
+          <source><bpt id="3495d2ec-9080-4d46-8b88-3adfcedb0caf">&lt;strong&gt;</bpt>MaxPercentUnhealthyDeployedApplications<ept id="3495d2ec-9080-4d46-8b88-3adfcedb0caf">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3495d2ec-9080-4d46-8b88-3adfcedb0caf">&lt;strong&gt;</bpt>MaxPercentUnhealthyDeployedApplications<ept id="3495d2ec-9080-4d46-8b88-3adfcedb0caf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="459abf1b-3fdc-40fc-8293-72f675509027" xml:space="preserve">
+          <source>Maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in Error.</source>
+          <target state="new">Maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in Error.</target>
+        </trans-unit>
+        <trans-unit id="0a915535-a26b-4352-937d-b1a903238257" xml:space="preserve">
+          <source>This is calculated by dividing the number of unhealthy deployed applications over the number of nodes that the applications is currently deployed on in the cluster.</source>
+          <target state="new">This is calculated by dividing the number of unhealthy deployed applications over the number of nodes that the applications is currently deployed on in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="2e44a716-b84f-4eec-8cc3-d28e7359e383" xml:space="preserve">
+          <source>The computation rounds up to tolerate one failure on small number of nodes.</source>
+          <target state="new">The computation rounds up to tolerate one failure on small number of nodes.</target>
+        </trans-unit>
+        <trans-unit id="98249932-f99d-4145-8035-c4a2384d732b" xml:space="preserve">
+          <source>Default: 0%.</source>
+          <target state="new">Default: 0%.</target>
+        </trans-unit>
+        <trans-unit id="141357cc-ab73-459b-904f-70810ded8405" xml:space="preserve">
+          <source><bpt id="401d9aa7-f1d5-44ee-9184-123eb99fb0e9">&lt;strong&gt;</bpt>DefaultServiceTypeHealthPolicy<ept id="401d9aa7-f1d5-44ee-9184-123eb99fb0e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="401d9aa7-f1d5-44ee-9184-123eb99fb0e9">&lt;strong&gt;</bpt>DefaultServiceTypeHealthPolicy<ept id="401d9aa7-f1d5-44ee-9184-123eb99fb0e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="316eceaf-6bbc-40b1-aa50-a4ef7fe9f438" xml:space="preserve">
+          <source>Specifies the default service type health policy, which will replace the default health policy for all service types in the application.</source>
+          <target state="new">Specifies the default service type health policy, which will replace the default health policy for all service types in the application.</target>
+        </trans-unit>
+        <trans-unit id="e6b32da2-686a-498b-82a5-baf91b535aaa" xml:space="preserve">
+          <source><bpt id="ea2fc568-6be6-4780-8a4a-cef504234732">&lt;strong&gt;</bpt>ServiceTypeHealthPolicyMap<ept id="ea2fc568-6be6-4780-8a4a-cef504234732">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ea2fc568-6be6-4780-8a4a-cef504234732">&lt;strong&gt;</bpt>ServiceTypeHealthPolicyMap<ept id="ea2fc568-6be6-4780-8a4a-cef504234732">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5230954-b563-44d1-868f-87ded093e144" xml:space="preserve">
+          <source>Map with service health policies per service type, which replace the default service type health policy for the specified service types.</source>
+          <target state="new">Map with service health policies per service type, which replace the default service type health policy for the specified service types.</target>
+        </trans-unit>
+        <trans-unit id="a712f33f-e679-4632-ad4b-3988d0581805" xml:space="preserve">
+          <source>For example, in an application that contains a stateless Gateway service type and a stateful Engine service type, the health policy for the stateless and stateful service can be configured differently.</source>
+          <target state="new">For example, in an application that contains a stateless Gateway service type and a stateful Engine service type, the health policy for the stateless and stateful service can be configured differently.</target>
+        </trans-unit>
+        <trans-unit id="00fc7fb4-fd8a-4527-850f-103c87430c60" xml:space="preserve">
+          <source>Specifying policy per service types allows a more granular control of the health of the service.</source>
+          <target state="new">Specifying policy per service types allows a more granular control of the health of the service.</target>
+        </trans-unit>
+        <trans-unit id="50cc4f5e-b386-4a0d-b248-22a6516728df" xml:space="preserve">
+          <source>The service type health policy specifies how to evaluate and aggregate children of service.</source>
+          <target state="new">The service type health policy specifies how to evaluate and aggregate children of service.</target>
+        </trans-unit>
+        <trans-unit id="51073574-5d41-475a-a1c3-7c47c7025b12" xml:space="preserve">
+          <source>Contains:</source>
+          <target state="new">Contains:</target>
+        </trans-unit>
+        <trans-unit id="e07c608b-4a4d-422c-9fc9-9e89a64b67e3" xml:space="preserve">
+          <source><bpt id="5ae9f264-3f8f-4c27-808d-0837db88e6f5">&lt;strong&gt;</bpt>MaxPercentUnhealthyPartitionsPerService<ept id="5ae9f264-3f8f-4c27-808d-0837db88e6f5">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="5ae9f264-3f8f-4c27-808d-0837db88e6f5">&lt;strong&gt;</bpt>MaxPercentUnhealthyPartitionsPerService<ept id="5ae9f264-3f8f-4c27-808d-0837db88e6f5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb3f2421-3abc-4651-b306-501e4da623a4" xml:space="preserve">
+          <source>Maximum tolerated percentage of unhealthy partitions before a service is considered unhealthy.</source>
+          <target state="new">Maximum tolerated percentage of unhealthy partitions before a service is considered unhealthy.</target>
+        </trans-unit>
+        <trans-unit id="e5dcd4b0-6835-4435-b5b2-858867c1f85e" xml:space="preserve">
+          <source>Default: 0%.</source>
+          <target state="new">Default: 0%.</target>
+        </trans-unit>
+        <trans-unit id="05faa141-7234-4309-b88f-d699bae394d9" xml:space="preserve">
+          <source><bpt id="49838a18-4766-4701-b42c-687382b5c649">&lt;strong&gt;</bpt>MaxPercentUnhealthyReplicasPerPartition<ept id="49838a18-4766-4701-b42c-687382b5c649">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="49838a18-4766-4701-b42c-687382b5c649">&lt;strong&gt;</bpt>MaxPercentUnhealthyReplicasPerPartition<ept id="49838a18-4766-4701-b42c-687382b5c649">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f548f571-f3c2-4ad4-ac05-705fcf2f9fd6" xml:space="preserve">
+          <source>Maximum tolerated percentage of unhealthy replicas before a partition is considered unhealthy.</source>
+          <target state="new">Maximum tolerated percentage of unhealthy replicas before a partition is considered unhealthy.</target>
+        </trans-unit>
+        <trans-unit id="fc6e9d73-84be-4079-ad7e-c38845884ad9" xml:space="preserve">
+          <source>Default: 0%.</source>
+          <target state="new">Default: 0%.</target>
+        </trans-unit>
+        <trans-unit id="9dbbcef4-c196-4e37-923b-1bc954b89bc1" xml:space="preserve">
+          <source><bpt id="3bf34957-7791-4d82-a179-29363686e06f">&lt;strong&gt;</bpt>MaxPercentUnhealthyServices<ept id="3bf34957-7791-4d82-a179-29363686e06f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3bf34957-7791-4d82-a179-29363686e06f">&lt;strong&gt;</bpt>MaxPercentUnhealthyServices<ept id="3bf34957-7791-4d82-a179-29363686e06f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60e5a73f-42de-4204-8fbc-1ae8f07408c5" xml:space="preserve">
+          <source>Maximum tolerated percentage of unhealthy services before the application is considered unhealthy.</source>
+          <target state="new">Maximum tolerated percentage of unhealthy services before the application is considered unhealthy.</target>
+        </trans-unit>
+        <trans-unit id="8e386e8b-874f-4f3b-bd5c-c41a698c1992" xml:space="preserve">
+          <source>Default: 0%</source>
+          <target state="new">Default: 0%</target>
+        </trans-unit>
+        <trans-unit id="87e13044-017b-48e1-ae02-30183c285b0f" xml:space="preserve">
+          <source>The following is an excerpt from an application manifest:</source>
+          <target state="new">The following is an excerpt from an application manifest:</target>
+        </trans-unit>
+        <trans-unit id="dc08351c-85c0-4f45-8fec-46cf73a53c65" xml:space="preserve">
+          <source>Users or automated services can evaluate health for any entity at any point in time.</source>
+          <target state="new">Users or automated services can evaluate health for any entity at any point in time.</target>
+        </trans-unit>
+        <trans-unit id="31974261-a6bb-4f83-9b21-f74fafcb54a1" xml:space="preserve">
+          <source>To evaluate an entity health, the Health Store aggregates all health reports on the entity and evaluates all its children (when applicable).</source>
+          <target state="new">To evaluate an entity health, the Health Store aggregates all health reports on the entity and evaluates all its children (when applicable).</target>
+        </trans-unit>
+        <trans-unit id="b6d2d928-90aa-4a0a-bcf2-5a3cab476d33" xml:space="preserve">
+          <source>The health aggregation algorithm uses health policies that specify how to evaluate health reports as well as how to aggregate children health states (when applicable).</source>
+          <target state="new">The health aggregation algorithm uses health policies that specify how to evaluate health reports as well as how to aggregate children health states (when applicable).</target>
+        </trans-unit>
+        <trans-unit id="900b45d9-a7b7-4566-8d28-d818d61c0e77" xml:space="preserve">
+          <source>One entity can have multiple health reports sent by different reporters (system components or watchdogs) on different properties.</source>
+          <target state="new">One entity can have multiple health reports sent by different reporters (system components or watchdogs) on different properties.</target>
+        </trans-unit>
+        <trans-unit id="c832b4e4-4d79-4a7f-b224-7493991060d8" xml:space="preserve">
+          <source>The aggregation uses the associated health policies, in particular the ConsiderWarningAsError member of application or cluster health policy, which specifies how to evaluate warnings.</source>
+          <target state="new">The aggregation uses the associated health policies, in particular the ConsiderWarningAsError member of application or cluster health policy, which specifies how to evaluate warnings.</target>
+        </trans-unit>
+        <trans-unit id="21f6ccef-ebe5-4317-8c4a-337a1c93d943" xml:space="preserve">
+          <source>The aggregated health state is triggered by the <bpt id="f9d3f24f-cb62-441b-aac4-071252a78072">&lt;strong&gt;</bpt>worst<ept id="f9d3f24f-cb62-441b-aac4-071252a78072">&lt;/strong&gt;</ept> health reports on the entity.</source>
+          <target state="new">The aggregated health state is triggered by the <bpt id="f9d3f24f-cb62-441b-aac4-071252a78072">&lt;strong&gt;</bpt>worst<ept id="f9d3f24f-cb62-441b-aac4-071252a78072">&lt;/strong&gt;</ept> health reports on the entity.</target>
+        </trans-unit>
+        <trans-unit id="f0819152-8e26-4f3d-bf13-4cd7ff26409c" xml:space="preserve">
+          <source>If there is at least one Error health report, the aggregated health state is Error.</source>
+          <target state="new">If there is at least one Error health report, the aggregated health state is Error.</target>
+        </trans-unit>
+        <trans-unit id="f87106b7-0f63-431d-84fd-598c2a9b110d" xml:space="preserve">
+          <source><bpt id="1307c15a-44cd-45db-8124-7392fa676cdc">&lt;linkText&gt;</bpt>Health Report Aggregation with Error Report.<ept id="1307c15a-44cd-45db-8124-7392fa676cdc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1307c15a-44cd-45db-8124-7392fa676cdc">&lt;linkText&gt;</bpt>Health Report Aggregation with Error Report.<ept id="1307c15a-44cd-45db-8124-7392fa676cdc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1555f06-5075-4d37-bbd5-5b6dae547392" xml:space="preserve">
+          <source>Error health report triggers the health entity to be in Error state.</source>
+          <target state="new">Error health report triggers the health entity to be in Error state.</target>
+        </trans-unit>
+        <trans-unit id="987d870f-8be6-4f05-897b-b2b12890c991" xml:space="preserve">
+          <source>If there are no Error reports, and one or more Warning, the aggregated health state is either Warning or Error, depending on the ConsiderWarningAsError policy flag.</source>
+          <target state="new">If there are no Error reports, and one or more Warning, the aggregated health state is either Warning or Error, depending on the ConsiderWarningAsError policy flag.</target>
+        </trans-unit>
+        <trans-unit id="1ea1209e-95d7-4254-a0a5-a38fba95de8d" xml:space="preserve">
+          <source><bpt id="62162584-6e24-4d85-995a-a42fd49abee9">&lt;linkText&gt;</bpt>Health Report Aggregation with Warning Report and ConsiderWarningAsError false.<ept id="62162584-6e24-4d85-995a-a42fd49abee9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62162584-6e24-4d85-995a-a42fd49abee9">&lt;linkText&gt;</bpt>Health Report Aggregation with Warning Report and ConsiderWarningAsError false.<ept id="62162584-6e24-4d85-995a-a42fd49abee9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0dc4523a-6412-4169-bd05-59b4500cdccc" xml:space="preserve">
+          <source>Health Report Aggregation with Warning Report and ConsiderWarningAsError false (default).</source>
+          <target state="new">Health Report Aggregation with Warning Report and ConsiderWarningAsError false (default).</target>
+        </trans-unit>
+        <trans-unit id="ee2ea082-f8fd-4ce6-b558-662e9cb1a9b4" xml:space="preserve">
+          <source>The aggregated health state of an entity reflects the children health states (when applicable).</source>
+          <target state="new">The aggregated health state of an entity reflects the children health states (when applicable).</target>
+        </trans-unit>
+        <trans-unit id="50eeb9fe-01c6-45b6-9c65-07af770e35a8" xml:space="preserve">
+          <source>The algorithm for aggregating children health states uses the health policies applicable based on the entity type.</source>
+          <target state="new">The algorithm for aggregating children health states uses the health policies applicable based on the entity type.</target>
+        </trans-unit>
+        <trans-unit id="4757d2e5-31f5-4312-b389-82b6d3170c7a" xml:space="preserve">
+          <source><bpt id="c75a7475-8455-4d16-bfc3-60da27c15b53">&lt;linkText&gt;</bpt>Children entities health aggregation.<ept id="c75a7475-8455-4d16-bfc3-60da27c15b53">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c75a7475-8455-4d16-bfc3-60da27c15b53">&lt;linkText&gt;</bpt>Children entities health aggregation.<ept id="c75a7475-8455-4d16-bfc3-60da27c15b53">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12bcf494-1220-47fc-96d8-49012a91dd4d" xml:space="preserve">
+          <source>Children aggregation based on health policies.</source>
+          <target state="new">Children aggregation based on health policies.</target>
+        </trans-unit>
+        <trans-unit id="d25d76ee-8d48-4d26-9a9c-18085e08988b" xml:space="preserve">
+          <source>After evaluating all children, the Health Store aggregates the health states based on the configured max percent unhealthy taken from the policy based on the entity and child type.</source>
+          <target state="new">After evaluating all children, the Health Store aggregates the health states based on the configured max percent unhealthy taken from the policy based on the entity and child type.</target>
+        </trans-unit>
+        <trans-unit id="537b6d07-ccea-48eb-934b-9bfe49343085" xml:space="preserve">
+          <source>If all children have Ok states, the children aggregated health state is Ok.</source>
+          <target state="new">If all children have Ok states, the children aggregated health state is Ok.</target>
+        </trans-unit>
+        <trans-unit id="a821c5e7-a874-4698-899e-22242a578b12" xml:space="preserve">
+          <source>If children have Ok and Warning states, the children aggregated health state is Warning.</source>
+          <target state="new">If children have Ok and Warning states, the children aggregated health state is Warning.</target>
+        </trans-unit>
+        <trans-unit id="410298b8-00dd-4d49-b03d-7d181fc91077" xml:space="preserve">
+          <source>If there are children with Error states that do not respect max allowed percentage of unhealthy children, the aggregated health state is error.</source>
+          <target state="new">If there are children with Error states that do not respect max allowed percentage of unhealthy children, the aggregated health state is error.</target>
+        </trans-unit>
+        <trans-unit id="362c580e-d7b0-4cb5-9be3-41735823d2aa" xml:space="preserve">
+          <source>If the children with Error states respect the max allowed percentage of unhealthy children, the aggregated health state is Warning.</source>
+          <target state="new">If the children with Error states respect the max allowed percentage of unhealthy children, the aggregated health state is Warning.</target>
+        </trans-unit>
+        <trans-unit id="de4d3ef2-2bd9-408c-bad8-800cdce347bf" xml:space="preserve">
+          <source>System components and internal/external watchdogs can report against the Service Fabric entities.</source>
+          <target state="new">System components and internal/external watchdogs can report against the Service Fabric entities.</target>
+        </trans-unit>
+        <trans-unit id="fa4ed59a-09a1-4c77-8ae2-14ec92286403" xml:space="preserve">
+          <source>The <bpt id="975d7a32-c236-44c5-97c4-9e5a122ab3dc">&lt;em&gt;</bpt>reporters<ept id="975d7a32-c236-44c5-97c4-9e5a122ab3dc">&lt;/em&gt;</ept> make a <bpt id="9f322ab2-4a96-4de1-b22d-ef9a1c158aec">&lt;strong&gt;</bpt>local<ept id="9f322ab2-4a96-4de1-b22d-ef9a1c158aec">&lt;/strong&gt;</ept> determination of the health of the monitored entity based on some conditions they are monitoring.</source>
+          <target state="new">The <bpt id="975d7a32-c236-44c5-97c4-9e5a122ab3dc">&lt;em&gt;</bpt>reporters<ept id="975d7a32-c236-44c5-97c4-9e5a122ab3dc">&lt;/em&gt;</ept> make a <bpt id="9f322ab2-4a96-4de1-b22d-ef9a1c158aec">&lt;strong&gt;</bpt>local<ept id="9f322ab2-4a96-4de1-b22d-ef9a1c158aec">&lt;/strong&gt;</ept> determination of the health of the monitored entity based on some conditions they are monitoring.</target>
+        </trans-unit>
+        <trans-unit id="9d499019-7c90-4209-bc07-792ea8cc91cf" xml:space="preserve">
+          <source>They don't need to look at any global state and aggregate data.</source>
+          <target state="new">They don't need to look at any global state and aggregate data.</target>
+        </trans-unit>
+        <trans-unit id="08cca1d3-5f46-49e3-b803-b84264516a75" xml:space="preserve">
+          <source>This is not desired, as it would make the reporters complex organisms that need to look at many things in order to infer what information to send.</source>
+          <target state="new">This is not desired, as it would make the reporters complex organisms that need to look at many things in order to infer what information to send.</target>
+        </trans-unit>
+        <trans-unit id="b87cee8c-4ec1-45c4-bc22-0d933168d647" xml:space="preserve">
+          <source>To send health data to the health store, the reporters need to identify the affected entity and create a health report.</source>
+          <target state="new">To send health data to the health store, the reporters need to identify the affected entity and create a health report.</target>
+        </trans-unit>
+        <trans-unit id="77ec65d6-5111-457c-b454-45b498f93805" xml:space="preserve">
+          <source>The report can then be sent through API with FabricClient.HealthManager.ReportHealth, through Powershell or through REST.</source>
+          <target state="new">The report can then be sent through API with FabricClient.HealthManager.ReportHealth, through Powershell or through REST.</target>
+        </trans-unit>
+        <trans-unit id="6248d8cb-96d3-4fbe-a608-fa90e8ee7db7" xml:space="preserve">
+          <source>The health reports for each of the entities in the cluster contain the following information:</source>
+          <target state="new">The health reports for each of the entities in the cluster contain the following information:</target>
+        </trans-unit>
+        <trans-unit id="59aaa490-5f83-47c9-85cd-a78af6210b70" xml:space="preserve">
+          <source>SourceId.</source>
+          <target state="new">SourceId.</target>
+        </trans-unit>
+        <trans-unit id="b0c684f7-7d2f-43f4-8568-12c0c035db47" xml:space="preserve">
+          <source>A string that uniquely identifies the reporter of the health event.</source>
+          <target state="new">A string that uniquely identifies the reporter of the health event.</target>
+        </trans-unit>
+        <trans-unit id="8f545090-1f96-40e1-8507-3019b2d1a565" xml:space="preserve">
+          <source>Entity identifier.</source>
+          <target state="new">Entity identifier.</target>
+        </trans-unit>
+        <trans-unit id="52b84661-ada5-43d6-b6f4-0a94c446bd03" xml:space="preserve">
+          <source>Identifies the entity on which the report is applied on.</source>
+          <target state="new">Identifies the entity on which the report is applied on.</target>
+        </trans-unit>
+        <trans-unit id="f97c225f-d03b-4c76-91ed-3b2ba8861030" xml:space="preserve">
+          <source>It differs based on the <bpt id="e989b872-4ddf-4082-b71a-33e91d6e5548">&lt;linkText&gt;</bpt>entity type<ept id="e989b872-4ddf-4082-b71a-33e91d6e5548">&lt;/linkText&gt;</ept><bpt id="e989b872-4ddf-4082-b71a-33e91d6e5548">&lt;title&gt;</bpt><ept id="e989b872-4ddf-4082-b71a-33e91d6e5548">&lt;/title&gt;</ept>:</source>
+          <target state="new">It differs based on the <bpt id="e989b872-4ddf-4082-b71a-33e91d6e5548">&lt;linkText&gt;</bpt>entity type<ept id="e989b872-4ddf-4082-b71a-33e91d6e5548">&lt;/linkText&gt;</ept><bpt id="e989b872-4ddf-4082-b71a-33e91d6e5548">&lt;title&gt;</bpt><ept id="e989b872-4ddf-4082-b71a-33e91d6e5548">&lt;/title&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="f991f563-68b2-4b4d-83f5-309f0fe14b7d" xml:space="preserve">
+          <source>Cluster: none</source>
+          <target state="new">Cluster: none</target>
+        </trans-unit>
+        <trans-unit id="0e5efb60-c999-477a-bc67-4f3de1c58c06" xml:space="preserve">
+          <source>Node: node name  (string).</source>
+          <target state="new">Node: node name  (string).</target>
+        </trans-unit>
+        <trans-unit id="d96b1348-eb63-408a-bda1-2d178c8d182e" xml:space="preserve">
+          <source>Application:  application name (URI).</source>
+          <target state="new">Application:  application name (URI).</target>
+        </trans-unit>
+        <trans-unit id="21828909-db58-4175-b3fb-bcfb51d90321" xml:space="preserve">
+          <source>Represents the name of the application instance deployed in the cluster.</source>
+          <target state="new">Represents the name of the application instance deployed in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="d8d060fc-0ce9-4a65-ba40-2a2b240c7759" xml:space="preserve">
+          <source>Service: service name (URI).</source>
+          <target state="new">Service: service name (URI).</target>
+        </trans-unit>
+        <trans-unit id="ed31968d-9a23-4f7c-a44c-7aa49add273f" xml:space="preserve">
+          <source>Represents the name of the service instance deployed in the cluster.</source>
+          <target state="new">Represents the name of the service instance deployed in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="e3705caf-f8b8-4e9e-abf3-618e4dfbc02f" xml:space="preserve">
+          <source>Partition: partition id (GUID).</source>
+          <target state="new">Partition: partition id (GUID).</target>
+        </trans-unit>
+        <trans-unit id="abaa8daa-7e9b-4cb9-94ae-e7b399f8470f" xml:space="preserve">
+          <source>Represents the partition unique identifier.</source>
+          <target state="new">Represents the partition unique identifier.</target>
+        </trans-unit>
+        <trans-unit id="0a2bb314-8b78-446e-814a-126827848454" xml:space="preserve">
+          <source>Replica: the sateful service replica id or the stateless service instance id (Int64).</source>
+          <target state="new">Replica: the sateful service replica id or the stateless service instance id (Int64).</target>
+        </trans-unit>
+        <trans-unit id="8b7b1fb3-c354-477a-98fe-c43787eee563" xml:space="preserve">
+          <source>DeployedApplication: application name (URI) and node name (string).</source>
+          <target state="new">DeployedApplication: application name (URI) and node name (string).</target>
+        </trans-unit>
+        <trans-unit id="69ed7ce2-b34b-4fa8-aaa3-681f9b6fb0d7" xml:space="preserve">
+          <source>DeployedServicePackage: application name (URI), node name (string) and service manifest name (string).</source>
+          <target state="new">DeployedServicePackage: application name (URI), node name (string) and service manifest name (string).</target>
+        </trans-unit>
+        <trans-unit id="a2d62e81-7de2-41d0-9517-197760296fd4" xml:space="preserve">
+          <source>Property.</source>
+          <target state="new">Property.</target>
+        </trans-unit>
+        <trans-unit id="ee79f339-0573-497a-ad5b-fd92eccd984e" xml:space="preserve">
+          <source>A <bpt id="5b0058f1-0b36-459b-a067-7ad013521d50">&lt;em&gt;</bpt>string<ept id="5b0058f1-0b36-459b-a067-7ad013521d50">&lt;/em&gt;</ept> (not a fixed enumeration) that allows the reporter to categorize the health event for a specific property of the entity.</source>
+          <target state="new">A <bpt id="5b0058f1-0b36-459b-a067-7ad013521d50">&lt;em&gt;</bpt>string<ept id="5b0058f1-0b36-459b-a067-7ad013521d50">&lt;/em&gt;</ept> (not a fixed enumeration) that allows the reporter to categorize the health event for a specific property of the entity.</target>
+        </trans-unit>
+        <trans-unit id="fccbed6b-0fee-4bf1-b15f-c4830d47770a" xml:space="preserve">
+          <source>For example, reporter A can report health on Node01 "storage" property and reporter B can report health on Node01 "connectivity" property.</source>
+          <target state="new">For example, reporter A can report health on Node01 "storage" property and reporter B can report health on Node01 "connectivity" property.</target>
+        </trans-unit>
+        <trans-unit id="9865af2f-40ab-4b64-8930-bfe9ab28e986" xml:space="preserve">
+          <source>Both these reports are treated as separate health events in the health store for the Node01 entity.</source>
+          <target state="new">Both these reports are treated as separate health events in the health store for the Node01 entity.</target>
+        </trans-unit>
+        <trans-unit id="2e55c0b2-9112-4bf2-83a4-300235b3f86d" xml:space="preserve">
+          <source>Description.</source>
+          <target state="new">Description.</target>
+        </trans-unit>
+        <trans-unit id="257a6250-eacf-4db0-a166-205075bea630" xml:space="preserve">
+          <source>A string that allows the reporter to provide detail information about the health event.</source>
+          <target state="new">A string that allows the reporter to provide detail information about the health event.</target>
+        </trans-unit>
+        <trans-unit id="2a1ab365-031b-4eb0-b371-9869ab590148" xml:space="preserve">
+          <source>SourceId, Property and HealthState should fully describe the report.</source>
+          <target state="new">SourceId, Property and HealthState should fully describe the report.</target>
+        </trans-unit>
+        <trans-unit id="4c4a87de-aa62-454d-aba0-b05d02baff1b" xml:space="preserve">
+          <source>The description adds human readable information about the report to make it easier for administrators and users to understand.</source>
+          <target state="new">The description adds human readable information about the report to make it easier for administrators and users to understand.</target>
+        </trans-unit>
+        <trans-unit id="816ce4a2-73f6-4073-8dae-d63e816da74e" xml:space="preserve">
+          <source>HealthState.</source>
+          <target state="new">HealthState.</target>
+        </trans-unit>
+        <trans-unit id="a4245a39-8683-42c2-b7ed-a4f0fefb033c" xml:space="preserve">
+          <source>An <bpt id="9f4903b7-5c5d-47b4-af3b-efe23e3516aa">&lt;linkText&gt;</bpt>enumeration<ept id="9f4903b7-5c5d-47b4-af3b-efe23e3516aa">&lt;/linkText&gt;</ept><bpt id="9f4903b7-5c5d-47b4-af3b-efe23e3516aa">&lt;title&gt;</bpt><ept id="9f4903b7-5c5d-47b4-af3b-efe23e3516aa">&lt;/title&gt;</ept> that describes the health state of the report.</source>
+          <target state="new">An <bpt id="9f4903b7-5c5d-47b4-af3b-efe23e3516aa">&lt;linkText&gt;</bpt>enumeration<ept id="9f4903b7-5c5d-47b4-af3b-efe23e3516aa">&lt;/linkText&gt;</ept><bpt id="9f4903b7-5c5d-47b4-af3b-efe23e3516aa">&lt;title&gt;</bpt><ept id="9f4903b7-5c5d-47b4-af3b-efe23e3516aa">&lt;/title&gt;</ept> that describes the health state of the report.</target>
+        </trans-unit>
+        <trans-unit id="fe3e6314-9bce-4ef9-bc7c-94138bdf7396" xml:space="preserve">
+          <source>The accepted values are OK, Warning, and Error.</source>
+          <target state="new">The accepted values are OK, Warning, and Error.</target>
+        </trans-unit>
+        <trans-unit id="fd882c77-fe90-438c-8ad0-03bc0350ecd6" xml:space="preserve">
+          <source>TimeToLive.</source>
+          <target state="new">TimeToLive.</target>
+        </trans-unit>
+        <trans-unit id="21420f90-5c55-4f05-b834-b06d629ef0c0" xml:space="preserve">
+          <source>A timespan that indicates how long the health report is valid.</source>
+          <target state="new">A timespan that indicates how long the health report is valid.</target>
+        </trans-unit>
+        <trans-unit id="68b067cd-f413-4232-87b7-8218d38e4f57" xml:space="preserve">
+          <source>Coupled with RemoveWhenExpired, it lets the HealthStore know how to evaluate expired events.</source>
+          <target state="new">Coupled with RemoveWhenExpired, it lets the HealthStore know how to evaluate expired events.</target>
+        </trans-unit>
+        <trans-unit id="4329f77d-c12e-40a1-8728-58525b0d2e2f" xml:space="preserve">
+          <source>By default, the value is infinite and the report is valid forever.</source>
+          <target state="new">By default, the value is infinite and the report is valid forever.</target>
+        </trans-unit>
+        <trans-unit id="870b2f45-c94a-473d-a804-0097ded5133b" xml:space="preserve">
+          <source>RemoveWhenExpired.</source>
+          <target state="new">RemoveWhenExpired.</target>
+        </trans-unit>
+        <trans-unit id="db45ff96-651b-408b-a9d2-d14e1d661e1a" xml:space="preserve">
+          <source>A boolean.</source>
+          <target state="new">A boolean.</target>
+        </trans-unit>
+        <trans-unit id="511edb07-163e-4440-b9cd-5f1d74d7fdc5" xml:space="preserve">
+          <source>If set to true, the expired health report is automatically removed from health store and it doesn't impact entity health evaluation.</source>
+          <target state="new">If set to true, the expired health report is automatically removed from health store and it doesn't impact entity health evaluation.</target>
+        </trans-unit>
+        <trans-unit id="b4edd7ea-8b72-4241-9b79-049ad83f504c" xml:space="preserve">
+          <source>This is used when the report is valid for a period of time only and the reporter doesn't need to explicitly clear it out.</source>
+          <target state="new">This is used when the report is valid for a period of time only and the reporter doesn't need to explicitly clear it out.</target>
+        </trans-unit>
+        <trans-unit id="560749ac-70e1-4cbc-9b37-6837897c0e73" xml:space="preserve">
+          <source>It's also used to delete reports from health store. Eg. a watchdog is changed and stops sending reports with previous source and property.</source>
+          <target state="new">It's also used to delete reports from health store. Eg. a watchdog is changed and stops sending reports with previous source and property.</target>
+        </trans-unit>
+        <trans-unit id="013818d2-8a68-40a1-9a17-62e06e4ecf82" xml:space="preserve">
+          <source>So it can send a report with small TTL and RemoveWhenExpired to clear up any previous state from Health Store.</source>
+          <target state="new">So it can send a report with small TTL and RemoveWhenExpired to clear up any previous state from Health Store.</target>
+        </trans-unit>
+        <trans-unit id="068996c6-3619-458f-aa2d-c59242522a94" xml:space="preserve">
+          <source>If set to false, the expired report is treated as an error on health evaluation.</source>
+          <target state="new">If set to false, the expired report is treated as an error on health evaluation.</target>
+        </trans-unit>
+        <trans-unit id="a9b2134c-c8cc-4d8b-a012-ce92f5ca1afa" xml:space="preserve">
+          <source>It signals to the health store that the source should report periodically on this property; if it doesn't, then there must be something wrong with the watchdog.</source>
+          <target state="new">It signals to the health store that the source should report periodically on this property; if it doesn't, then there must be something wrong with the watchdog.</target>
+        </trans-unit>
+        <trans-unit id="3b7af1ba-99f5-486c-b881-527c16220c5b" xml:space="preserve">
+          <source>The watchdog health is captured by considering the event as error.</source>
+          <target state="new">The watchdog health is captured by considering the event as error.</target>
+        </trans-unit>
+        <trans-unit id="283ae21a-31c3-4945-be70-6be2456508bd" xml:space="preserve">
+          <source>SequenceNumber.</source>
+          <target state="new">SequenceNumber.</target>
+        </trans-unit>
+        <trans-unit id="433e597d-20c9-4fcb-8442-be8749572d40" xml:space="preserve">
+          <source>A positive integer that needs to be ever increasing, as it represents the order of the reports.</source>
+          <target state="new">A positive integer that needs to be ever increasing, as it represents the order of the reports.</target>
+        </trans-unit>
+        <trans-unit id="2886b892-9ffa-4378-8ae9-ff3a7ad383cf" xml:space="preserve">
+          <source>It is used by Health Store to detect stale reports, received late because of network delays or other issues.</source>
+          <target state="new">It is used by Health Store to detect stale reports, received late because of network delays or other issues.</target>
+        </trans-unit>
+        <trans-unit id="c0286e31-6b7c-4f43-a681-ee36028ad8ca" xml:space="preserve">
+          <source>Reports are rejected if the sequence number is less or equal the latest applied one for the same entity, source and property.</source>
+          <target state="new">Reports are rejected if the sequence number is less or equal the latest applied one for the same entity, source and property.</target>
+        </trans-unit>
+        <trans-unit id="8de233b5-ef51-4913-a227-b79492364646" xml:space="preserve">
+          <source>The sequence number is auto-generated if not specified.</source>
+          <target state="new">The sequence number is auto-generated if not specified.</target>
+        </trans-unit>
+        <trans-unit id="adb5c7c4-c20f-4017-b203-fee089da7bfa" xml:space="preserve">
+          <source>It is only necessary to put in the sequence number when reporting on state transitions: the source needs to remember what reports it sent and persist the information for recovery on failover.</source>
+          <target state="new">It is only necessary to put in the sequence number when reporting on state transitions: the source needs to remember what reports it sent and persist the information for recovery on failover.</target>
+        </trans-unit>
+        <trans-unit id="ad4b3fc6-738f-4636-9673-a804f7ebe803" xml:space="preserve">
+          <source>The SourceId, entity identifier, Property and HealthState are required for every health report.</source>
+          <target state="new">The SourceId, entity identifier, Property and HealthState are required for every health report.</target>
+        </trans-unit>
+        <trans-unit id="dcc180a3-7254-43a0-95d4-068dd94772e8" xml:space="preserve">
+          <source>The SourceId string is not allowed to start with prefix "System.", which is reserved for System reports.</source>
+          <target state="new">The SourceId string is not allowed to start with prefix "System.", which is reserved for System reports.</target>
+        </trans-unit>
+        <trans-unit id="bdf54b2b-9e4f-4839-bc63-c74c6127a536" xml:space="preserve">
+          <source>For the same entity, there is only one report for the same source and property; if multiple reports are generated for the same source and property, they override each other, either on health client side (if they are batched) or on the health store side.</source>
+          <target state="new">For the same entity, there is only one report for the same source and property; if multiple reports are generated for the same source and property, they override each other, either on health client side (if they are batched) or on the health store side.</target>
+        </trans-unit>
+        <trans-unit id="0acb7bb9-6f74-4cff-9eec-2377ebf5d7b0" xml:space="preserve">
+          <source>The replacement is done based on sequence number: newer reports (with higher sequence number) replace older reports.</source>
+          <target state="new">The replacement is done based on sequence number: newer reports (with higher sequence number) replace older reports.</target>
+        </trans-unit>
+        <trans-unit id="d1fe81d5-1ac9-4e3d-a205-28e5d800f38a" xml:space="preserve">
+          <source>Internally, the Health Store keeps health events, which contain all the information from the reports plus additional metadata, such as time the report was given to the health client and time it was modified on the server side.</source>
+          <target state="new">Internally, the Health Store keeps health events, which contain all the information from the reports plus additional metadata, such as time the report was given to the health client and time it was modified on the server side.</target>
+        </trans-unit>
+        <trans-unit id="ebb99cb7-7d51-4058-b052-e1db07372e44" xml:space="preserve">
+          <source>The health events are returned by the <bpt id="cfb751d1-3a9a-49de-b72a-7231400040b1">&lt;linkText&gt;</bpt>health queries<ept id="cfb751d1-3a9a-49de-b72a-7231400040b1">&lt;/linkText&gt;</ept><bpt id="cfb751d1-3a9a-49de-b72a-7231400040b1">&lt;title&gt;</bpt><ept id="cfb751d1-3a9a-49de-b72a-7231400040b1">&lt;/title&gt;</ept>.</source>
+          <target state="new">The health events are returned by the <bpt id="cfb751d1-3a9a-49de-b72a-7231400040b1">&lt;linkText&gt;</bpt>health queries<ept id="cfb751d1-3a9a-49de-b72a-7231400040b1">&lt;/linkText&gt;</ept><bpt id="cfb751d1-3a9a-49de-b72a-7231400040b1">&lt;title&gt;</bpt><ept id="cfb751d1-3a9a-49de-b72a-7231400040b1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54b1eb27-699e-4e50-a07b-5ed87cf9d11c" xml:space="preserve">
+          <source>The added metadata contains:</source>
+          <target state="new">The added metadata contains:</target>
+        </trans-unit>
+        <trans-unit id="adddf134-dced-4ad4-a943-b6711caf4f9a" xml:space="preserve">
+          <source>SourceUtcTimestamp: the time the report was given to the health client (Utc)</source>
+          <target state="new">SourceUtcTimestamp: the time the report was given to the health client (Utc)</target>
+        </trans-unit>
+        <trans-unit id="c997bdff-bfda-4772-8537-2a641ac56c5c" xml:space="preserve">
+          <source>LastModifiedUtcTimestamp: the time the report was last modified on the server side (Utc)</source>
+          <target state="new">LastModifiedUtcTimestamp: the time the report was last modified on the server side (Utc)</target>
+        </trans-unit>
+        <trans-unit id="f2696cf9-9d4d-4d7b-931a-4dbbf7f2d136" xml:space="preserve">
+          <source>IsExpired: flag to indicate whether the report was expired at the time the query was executed by the Health Store.</source>
+          <target state="new">IsExpired: flag to indicate whether the report was expired at the time the query was executed by the Health Store.</target>
+        </trans-unit>
+        <trans-unit id="dadb5173-b42b-45ad-ac2b-8037803dd30a" xml:space="preserve">
+          <source>An event can be expired only if RemoveWhenExpired is false; otherwise, the event is not returned by query, it is removed from store.</source>
+          <target state="new">An event can be expired only if RemoveWhenExpired is false; otherwise, the event is not returned by query, it is removed from store.</target>
+        </trans-unit>
+        <trans-unit id="dddd7ffb-b26a-4e92-8826-8bcc324561c5" xml:space="preserve">
+          <source>LastOkTransitionAt, LastWarningTransitionAt, LastErrorTransitionAt: last time for Ok/Warning/Error transitions.</source>
+          <target state="new">LastOkTransitionAt, LastWarningTransitionAt, LastErrorTransitionAt: last time for Ok/Warning/Error transitions.</target>
+        </trans-unit>
+        <trans-unit id="f42e745f-8ab2-4e3c-ae50-2e8048e67e01" xml:space="preserve">
+          <source>These fields give the history of the transition of the health states for the event.</source>
+          <target state="new">These fields give the history of the transition of the health states for the event.</target>
+        </trans-unit>
+        <trans-unit id="8170b448-e1f8-4b4c-8010-5875fe93b65d" xml:space="preserve">
+          <source>The state transition fields can be used for smarter alerting or "historical" health event information.</source>
+          <target state="new">The state transition fields can be used for smarter alerting or "historical" health event information.</target>
+        </trans-unit>
+        <trans-unit id="383db294-8554-4f25-bce5-46fd9dd1305a" xml:space="preserve">
+          <source>They enable scenarios like:</source>
+          <target state="new">They enable scenarios like:</target>
+        </trans-unit>
+        <trans-unit id="ba4cab70-1bcb-4932-82f8-3c97408496ee" xml:space="preserve">
+          <source>Alert when a property has been at Warning/Error for more than X minutes.</source>
+          <target state="new">Alert when a property has been at Warning/Error for more than X minutes.</target>
+        </trans-unit>
+        <trans-unit id="8a2cca21-e53f-4c0a-8055-1d067a03ffdf" xml:space="preserve">
+          <source>This avoids alerting on temporary conditions.</source>
+          <target state="new">This avoids alerting on temporary conditions.</target>
+        </trans-unit>
+        <trans-unit id="1a252ea0-8c12-45d2-a163-7d15c8ebe418" xml:space="preserve">
+          <source>Eg: alert if the health state has been Warning for more than 5 minutes can be translated into (HealthState == Warning and Now - LastWarningTransitionTime</source>
+          <target state="new">Eg: alert if the health state has been Warning for more than 5 minutes can be translated into (HealthState == Warning and Now - LastWarningTransitionTime</target>
+        </trans-unit>
+        <trans-unit id="169f110b-8243-4db1-8dad-7ba4b030ae86" xml:space="preserve">
+          <source>5 minutes).</source>
+          <target state="new">5 minutes).</target>
+        </trans-unit>
+        <trans-unit id="2a2c121f-c482-4642-a677-b672575cfd48" xml:space="preserve">
+          <source>Alert only on conditions that changed in the last X minutes.</source>
+          <target state="new">Alert only on conditions that changed in the last X minutes.</target>
+        </trans-unit>
+        <trans-unit id="7c0cdd54-5f84-401d-9962-638ce90f5184" xml:space="preserve">
+          <source>If a report is at Error since before that, it can be ignored (because it was already signaled previously).</source>
+          <target state="new">If a report is at Error since before that, it can be ignored (because it was already signaled previously).</target>
+        </trans-unit>
+        <trans-unit id="3bb4752a-8a97-41bf-a462-ad2848abdac3" xml:space="preserve">
+          <source>If a property is toggling between Warning and Error, determine how long it has been unhealthy (i.e. not Ok).</source>
+          <target state="new">If a property is toggling between Warning and Error, determine how long it has been unhealthy (i.e. not Ok).</target>
+        </trans-unit>
+        <trans-unit id="c92512ae-b23e-493d-8b37-89694b9c1381" xml:space="preserve">
+          <source>Eg: alert if the property wasn't healthy for more than 5 minutes can be translated into: (HealthState != Ok and Now - LastOkTransitionTime &gt; 5 minutes).</source>
+          <target state="new">Eg: alert if the property wasn't healthy for more than 5 minutes can be translated into: (HealthState != Ok and Now - LastOkTransitionTime &gt; 5 minutes).</target>
+        </trans-unit>
+        <trans-unit id="72359bbc-09c4-403d-81be-6d66278a734b" xml:space="preserve">
+          <source>The following example sends a health report through Powershell on the application named fabric:/WordCount from the source MyWatchdog.</source>
+          <target state="new">The following example sends a health report through Powershell on the application named fabric:/WordCount from the source MyWatchdog.</target>
+        </trans-unit>
+        <trans-unit id="ceab48f0-586d-414a-bd29-a55e0e94c4b6" xml:space="preserve">
+          <source>The health report contains information about the health property Availability in an Error health state, with infinite TTL.</source>
+          <target state="new">The health report contains information about the health property Availability in an Error health state, with infinite TTL.</target>
+        </trans-unit>
+        <trans-unit id="69629029-eff0-4358-8d91-6bc7f9141804" xml:space="preserve">
+          <source>Then it queries the application health, which will return aggregated health state error and the reported health event as part of the list of health events.</source>
+          <target state="new">Then it queries the application health, which will return aggregated health state error and the reported health event as part of the list of health events.</target>
+        </trans-unit>
+        <trans-unit id="f6359940-64d9-4330-9a7c-ec4a92556065" xml:space="preserve">
+          <source>The health model allows the cloud services and the underlying Service Fabric platform to scale, because the monitoring and health determination is distributed among the different monitors within the cluster.</source>
+          <target state="new">The health model allows the cloud services and the underlying Service Fabric platform to scale, because the monitoring and health determination is distributed among the different monitors within the cluster.</target>
+        </trans-unit>
+        <trans-unit id="94318603-3ee9-45d3-8e84-391fc0aa5977" xml:space="preserve">
+          <source>Other systems have a single centralized service at the cluster level parsing all the <bpt id="b619d107-f256-4d93-a5ef-113fac32bc1b">&lt;em&gt;</bpt>potentially<ept id="b619d107-f256-4d93-a5ef-113fac32bc1b">&lt;/em&gt;</ept> useful information emitted by services.</source>
+          <target state="new">Other systems have a single centralized service at the cluster level parsing all the <bpt id="b619d107-f256-4d93-a5ef-113fac32bc1b">&lt;em&gt;</bpt>potentially<ept id="b619d107-f256-4d93-a5ef-113fac32bc1b">&lt;/em&gt;</ept> useful information emitted by services.</target>
+        </trans-unit>
+        <trans-unit id="200c5bf8-0730-4b36-8c29-2ca69dd9a4ea" xml:space="preserve">
+          <source>This hinders their scalability and it doesn't allow them to collect very specific information to help identify issues and potential issues as close to the root cause as possible.</source>
+          <target state="new">This hinders their scalability and it doesn't allow them to collect very specific information to help identify issues and potential issues as close to the root cause as possible.</target>
+        </trans-unit>
+        <trans-unit id="0d84a9e5-edae-4522-8c7c-03af10687093" xml:space="preserve">
+          <source>The health model is heavily used for monitoring and diagnosis, for evaluating the cluster and application health, and for monitored upgrades.</source>
+          <target state="new">The health model is heavily used for monitoring and diagnosis, for evaluating the cluster and application health, and for monitored upgrades.</target>
+        </trans-unit>
+        <trans-unit id="0ada465c-54a6-4077-83d8-3f908602ed8b" xml:space="preserve">
+          <source>Other services use the health data to perform automatic repairs, to build cluster health history and to issue alerts on certain conditions.</source>
+          <target state="new">Other services use the health data to perform automatic repairs, to build cluster health history and to issue alerts on certain conditions.</target>
+        </trans-unit>
+        <trans-unit id="b25c175a-1afb-4da8-8d07-03667ebc67eb" xml:space="preserve">
+          <source><bpt id="bf0bc2d3-9084-4344-8f5b-beb2715373ec">&lt;linkText&gt;</bpt>How to view Service Fabric health reports<ept id="bf0bc2d3-9084-4344-8f5b-beb2715373ec">&lt;/linkText&gt;</ept><bpt id="bf0bc2d3-9084-4344-8f5b-beb2715373ec">&lt;title&gt;</bpt><ept id="bf0bc2d3-9084-4344-8f5b-beb2715373ec">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bf0bc2d3-9084-4344-8f5b-beb2715373ec">&lt;linkText&gt;</bpt>How to view Service Fabric health reports<ept id="bf0bc2d3-9084-4344-8f5b-beb2715373ec">&lt;/linkText&gt;</ept><bpt id="bf0bc2d3-9084-4344-8f5b-beb2715373ec">&lt;title&gt;</bpt><ept id="bf0bc2d3-9084-4344-8f5b-beb2715373ec">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d14f996-332c-453c-8317-2d982f4bbe0c" xml:space="preserve">
+          <source><bpt id="dc930e6f-b1b2-42fc-b45f-829cd198f9b2">&lt;linkText&gt;</bpt>Using System health reports for troubleshooting<ept id="dc930e6f-b1b2-42fc-b45f-829cd198f9b2">&lt;/linkText&gt;</ept><bpt id="dc930e6f-b1b2-42fc-b45f-829cd198f9b2">&lt;title&gt;</bpt><ept id="dc930e6f-b1b2-42fc-b45f-829cd198f9b2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dc930e6f-b1b2-42fc-b45f-829cd198f9b2">&lt;linkText&gt;</bpt>Using System health reports for troubleshooting<ept id="dc930e6f-b1b2-42fc-b45f-829cd198f9b2">&lt;/linkText&gt;</ept><bpt id="dc930e6f-b1b2-42fc-b45f-829cd198f9b2">&lt;title&gt;</bpt><ept id="dc930e6f-b1b2-42fc-b45f-829cd198f9b2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bde053d-3efa-49b3-aae8-4d9b8d9209f7" xml:space="preserve">
+          <source><bpt id="fea5407b-3b0b-4377-93c9-977fd4704180">&lt;linkText&gt;</bpt>Adding custom Service Fabric health reports<ept id="fea5407b-3b0b-4377-93c9-977fd4704180">&lt;/linkText&gt;</ept><bpt id="fea5407b-3b0b-4377-93c9-977fd4704180">&lt;title&gt;</bpt><ept id="fea5407b-3b0b-4377-93c9-977fd4704180">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fea5407b-3b0b-4377-93c9-977fd4704180">&lt;linkText&gt;</bpt>Adding custom Service Fabric health reports<ept id="fea5407b-3b0b-4377-93c9-977fd4704180">&lt;/linkText&gt;</ept><bpt id="fea5407b-3b0b-4377-93c9-977fd4704180">&lt;title&gt;</bpt><ept id="fea5407b-3b0b-4377-93c9-977fd4704180">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ae92a7c-f665-4060-9236-827e1ae3af50" xml:space="preserve">
+          <source><bpt id="b2ea7a7f-bf14-43b1-bdc5-58e47e2b5ae0">&lt;linkText&gt;</bpt>How to Monitor and Diagnose Services locally<ept id="b2ea7a7f-bf14-43b1-bdc5-58e47e2b5ae0">&lt;/linkText&gt;</ept><bpt id="b2ea7a7f-bf14-43b1-bdc5-58e47e2b5ae0">&lt;title&gt;</bpt><ept id="b2ea7a7f-bf14-43b1-bdc5-58e47e2b5ae0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b2ea7a7f-bf14-43b1-bdc5-58e47e2b5ae0">&lt;linkText&gt;</bpt>How to Monitor and Diagnose Services locally<ept id="b2ea7a7f-bf14-43b1-bdc5-58e47e2b5ae0">&lt;/linkText&gt;</ept><bpt id="b2ea7a7f-bf14-43b1-bdc5-58e47e2b5ae0">&lt;title&gt;</bpt><ept id="b2ea7a7f-bf14-43b1-bdc5-58e47e2b5ae0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8186a991-291d-4aaa-8c00-b8c288ba28ae" xml:space="preserve">
+          <source><bpt id="e99f9a24-75b2-423b-b854-04205551640d">&lt;linkText&gt;</bpt>Service Fabric Application Upgrade<ept id="e99f9a24-75b2-423b-b854-04205551640d">&lt;/linkText&gt;</ept><bpt id="e99f9a24-75b2-423b-b854-04205551640d">&lt;title&gt;</bpt><ept id="e99f9a24-75b2-423b-b854-04205551640d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e99f9a24-75b2-423b-b854-04205551640d">&lt;linkText&gt;</bpt>Service Fabric Application Upgrade<ept id="e99f9a24-75b2-423b-b854-04205551640d">&lt;/linkText&gt;</ept><bpt id="e99f9a24-75b2-423b-b854-04205551640d">&lt;title&gt;</bpt><ept id="e99f9a24-75b2-423b-b854-04205551640d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42d2417b-cc6b-47b2-8167-6114af32c85e" xml:space="preserve">
+          <source>./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png</source>
+          <target state="new">./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png</target>
+        </trans-unit>
+        <trans-unit id="7eb9793a-4d88-4a93-b1ca-82f898f380eb" xml:space="preserve">
+          <source>./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png</source>
+          <target state="new">./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png</target>
+        </trans-unit>
+        <trans-unit id="67b4607d-efa5-4119-83b1-f5f8210e87e0" xml:space="preserve">
+          <source>./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png</source>
+          <target state="new">./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png</target>
+        </trans-unit>
+        <trans-unit id="12c977f4-6a8e-4183-99be-a107ec540709" xml:space="preserve">
+          <source>./media/service-fabric-health-introduction/servicefabric-health-hierarchy-eval.png</source>
+          <target state="new">./media/service-fabric-health-introduction/servicefabric-health-hierarchy-eval.png</target>
+        </trans-unit>
+      </group>
+      <group id="e0527ed7-3459-4c97-8af7-cac6e1f607b8" />
+    </body>
+  </file>
+</xliff>

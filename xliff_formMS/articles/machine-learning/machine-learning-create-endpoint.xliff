@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="98a3b0db-9e5b-4675-9ddc-23d243a86474" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="98a3b0db-9e5b-4675-9ddc-23d243a86474" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="53eb3781-6a90-46a0-9553-e3fae4f2708c">
+        <trans-unit id="b74a884f-c338-40bf-bf12-a3047db43afc" xml:space="preserve">
+          <source>Creating web service endpoints in Machine Learning | Microsoft Azure</source>
+          <target state="new">Creating web service endpoints in Machine Learning | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b2df153b-e252-4046-bba3-ca63111ba2f8" xml:space="preserve">
+          <source>Creating web service endpoints in Azure Machine Learning</source>
+          <target state="new">Creating web service endpoints in Azure Machine Learning</target>
+        </trans-unit>
+        <trans-unit id="158da697-70dc-40e1-9104-d9a40caad5f3" xml:space="preserve">
+          <source>Azure Machine Learning allows you to create multiple endpoints for a published web service.</source>
+          <target state="new">Azure Machine Learning allows you to create multiple endpoints for a published web service.</target>
+        </trans-unit>
+        <trans-unit id="474186b8-ea23-4bea-9952-66241803f232" xml:space="preserve">
+          <source>Each endpoint is individually addressed, throttled and managed, independently of the other endpoints of that web service.</source>
+          <target state="new">Each endpoint is individually addressed, throttled and managed, independently of the other endpoints of that web service.</target>
+        </trans-unit>
+        <trans-unit id="4822ee5a-eb26-4031-8dc2-eeb72587f3b5" xml:space="preserve">
+          <source>There is a unique URL and authorization key for each endpoint.</source>
+          <target state="new">There is a unique URL and authorization key for each endpoint.</target>
+        </trans-unit>
+        <trans-unit id="4c57987a-bfb8-490d-97f9-1abfea7212f3" xml:space="preserve">
+          <source>This allows Azure Machine Learning users to create web services that they can then sell forward to their customers.</source>
+          <target state="new">This allows Azure Machine Learning users to create web services that they can then sell forward to their customers.</target>
+        </trans-unit>
+        <trans-unit id="f8f35f76-79fe-4c77-94c8-b2ebc3ce2965" xml:space="preserve">
+          <source>Each endpoint can be individually customized with its own trained models while still being linked to the experiment which created this webservice.</source>
+          <target state="new">Each endpoint can be individually customized with its own trained models while still being linked to the experiment which created this webservice.</target>
+        </trans-unit>
+        <trans-unit id="1dac179e-abc4-4e40-b3f3-d86801610807" xml:space="preserve">
+          <source>In addition, any updates to the experiment can be selectively applied to an endpoint without overwriting the customizations.</source>
+          <target state="new">In addition, any updates to the experiment can be selectively applied to an endpoint without overwriting the customizations.</target>
+        </trans-unit>
+        <trans-unit id="6143f7a4-7337-412a-9ac0-5bedccf217d9" xml:space="preserve">
+          <source><bpt id="61097ce4-3774-4741-9ff6-ab324690f6fa">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="61097ce4-3774-4741-9ff6-ab324690f6fa">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="61097ce4-3774-4741-9ff6-ab324690f6fa">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="61097ce4-3774-4741-9ff6-ab324690f6fa">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68085f97-a69a-4cd2-b7e5-9a206c1cb5ec" xml:space="preserve">
+          <source>Open <bpt id="d4e7aead-23e7-4f76-9866-0082ea29dbaa">&lt;linkText&gt;</bpt>http://manage.windowsazure.com<ept id="d4e7aead-23e7-4f76-9866-0082ea29dbaa">&lt;/linkText&gt;</ept><bpt id="d4e7aead-23e7-4f76-9866-0082ea29dbaa">&lt;title&gt;</bpt><ept id="d4e7aead-23e7-4f76-9866-0082ea29dbaa">&lt;/title&gt;</ept>, click <bpt id="7ea24927-fbc9-4c41-884c-f1f1b53d7ae3">&lt;strong&gt;</bpt>Machine Learning<ept id="7ea24927-fbc9-4c41-884c-f1f1b53d7ae3">&lt;/strong&gt;</ept> in the left column.</source>
+          <target state="new">Open <bpt id="d4e7aead-23e7-4f76-9866-0082ea29dbaa">&lt;linkText&gt;</bpt>http://manage.windowsazure.com<ept id="d4e7aead-23e7-4f76-9866-0082ea29dbaa">&lt;/linkText&gt;</ept><bpt id="d4e7aead-23e7-4f76-9866-0082ea29dbaa">&lt;title&gt;</bpt><ept id="d4e7aead-23e7-4f76-9866-0082ea29dbaa">&lt;/title&gt;</ept>, click <bpt id="7ea24927-fbc9-4c41-884c-f1f1b53d7ae3">&lt;strong&gt;</bpt>Machine Learning<ept id="7ea24927-fbc9-4c41-884c-f1f1b53d7ae3">&lt;/strong&gt;</ept> in the left column.</target>
+        </trans-unit>
+        <trans-unit id="01aa37e3-5154-4e2e-bb44-36965a75b2d9" xml:space="preserve">
+          <source>Click the workspace which has the web service you’re interested in.</source>
+          <target state="new">Click the workspace which has the web service you’re interested in.</target>
+        </trans-unit>
+        <trans-unit id="01cea43e-b1dc-437a-805d-4a931c6fb624" xml:space="preserve">
+          <source><bpt id="2c37f4c6-6af8-418f-9a5b-304377232049">&lt;linkText&gt;</bpt>Navigate to workspace<ept id="2c37f4c6-6af8-418f-9a5b-304377232049">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c37f4c6-6af8-418f-9a5b-304377232049">&lt;linkText&gt;</bpt>Navigate to workspace<ept id="2c37f4c6-6af8-418f-9a5b-304377232049">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93929111-e6b5-4c2f-9b41-7bff83cdde0c" xml:space="preserve">
+          <source>Click the <bpt id="1c7c04d1-250b-4bc1-aa11-95cd2223d77b">&lt;strong&gt;</bpt>Web Services<ept id="1c7c04d1-250b-4bc1-aa11-95cd2223d77b">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="1c7c04d1-250b-4bc1-aa11-95cd2223d77b">&lt;strong&gt;</bpt>Web Services<ept id="1c7c04d1-250b-4bc1-aa11-95cd2223d77b">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="623a522e-df1f-457f-919e-9dad981de666" xml:space="preserve">
+          <source><bpt id="6fd7212b-71b9-43dc-9ac8-e9e21cac5d30">&lt;linkText&gt;</bpt>Navigate to web services<ept id="6fd7212b-71b9-43dc-9ac8-e9e21cac5d30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6fd7212b-71b9-43dc-9ac8-e9e21cac5d30">&lt;linkText&gt;</bpt>Navigate to web services<ept id="6fd7212b-71b9-43dc-9ac8-e9e21cac5d30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8fedae4f-4ea7-4c49-a283-35df5910dc84" xml:space="preserve">
+          <source>Click the web service you're interested in to see the list of available endpoints.</source>
+          <target state="new">Click the web service you're interested in to see the list of available endpoints.</target>
+        </trans-unit>
+        <trans-unit id="754b02d9-fd9d-4ae2-9abe-0f86c2992f0d" xml:space="preserve">
+          <source><bpt id="35d533a7-c766-4ce0-9030-104cfaaca8f8">&lt;linkText&gt;</bpt>Navigate to endpoint<ept id="35d533a7-c766-4ce0-9030-104cfaaca8f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35d533a7-c766-4ce0-9030-104cfaaca8f8">&lt;linkText&gt;</bpt>Navigate to endpoint<ept id="35d533a7-c766-4ce0-9030-104cfaaca8f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c43bddd9-9608-4ac7-8709-ea90c7bf46ab" xml:space="preserve">
+          <source>Click the <bpt id="11789fdb-1304-4e25-ab6b-fcdce251c57a">&lt;strong&gt;</bpt>Add Endpoint<ept id="11789fdb-1304-4e25-ab6b-fcdce251c57a">&lt;/strong&gt;</ept> button at the bottom.</source>
+          <target state="new">Click the <bpt id="11789fdb-1304-4e25-ab6b-fcdce251c57a">&lt;strong&gt;</bpt>Add Endpoint<ept id="11789fdb-1304-4e25-ab6b-fcdce251c57a">&lt;/strong&gt;</ept> button at the bottom.</target>
+        </trans-unit>
+        <trans-unit id="ed52f262-cc0c-4aaf-924a-ce68d98a254f" xml:space="preserve">
+          <source>Fill in a name and description, ensure there are no other endpoints with the same name in this web service.</source>
+          <target state="new">Fill in a name and description, ensure there are no other endpoints with the same name in this web service.</target>
+        </trans-unit>
+        <trans-unit id="ffb6999c-6d71-4dc1-bdb5-40f0e0c0b4a0" xml:space="preserve">
+          <source>Leave the throttle level with its default value unless you have special requirements.</source>
+          <target state="new">Leave the throttle level with its default value unless you have special requirements.</target>
+        </trans-unit>
+        <trans-unit id="22f359ef-542a-4960-b01e-bb7d048a5ef0" xml:space="preserve">
+          <source>To learn more about throttling, see <bpt id="0dc9f1b9-6699-4e52-8596-05182a47ce72">&lt;linkText&gt;</bpt>Scaling API Endpoints<ept id="0dc9f1b9-6699-4e52-8596-05182a47ce72">&lt;/linkText&gt;</ept><bpt id="0dc9f1b9-6699-4e52-8596-05182a47ce72">&lt;title&gt;</bpt><ept id="0dc9f1b9-6699-4e52-8596-05182a47ce72">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about throttling, see <bpt id="0dc9f1b9-6699-4e52-8596-05182a47ce72">&lt;linkText&gt;</bpt>Scaling API Endpoints<ept id="0dc9f1b9-6699-4e52-8596-05182a47ce72">&lt;/linkText&gt;</ept><bpt id="0dc9f1b9-6699-4e52-8596-05182a47ce72">&lt;title&gt;</bpt><ept id="0dc9f1b9-6699-4e52-8596-05182a47ce72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d7caffc-8e03-4603-8aa8-1f56a5f276f6" xml:space="preserve">
+          <source><bpt id="2351b054-2dd8-4f7e-b532-1893055cb932">&lt;linkText&gt;</bpt>Create endpoint<ept id="2351b054-2dd8-4f7e-b532-1893055cb932">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2351b054-2dd8-4f7e-b532-1893055cb932">&lt;linkText&gt;</bpt>Create endpoint<ept id="2351b054-2dd8-4f7e-b532-1893055cb932">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e52e23e4-aff1-4822-86a2-16296fd6c5be" xml:space="preserve">
+          <source>Once the endpoint is created, you can consume it through synchronous APIs, batch APIs, and excel worksheets.</source>
+          <target state="new">Once the endpoint is created, you can consume it through synchronous APIs, batch APIs, and excel worksheets.</target>
+        </trans-unit>
+        <trans-unit id="0b490ae7-0567-40f3-9b7b-ed11b0f787dc" xml:space="preserve">
+          <source>For more information about using Machine Learning web services, see <bpt id="1afa122a-57e8-4db5-bc5b-7e8c174b9077">&lt;linkText&gt;</bpt>How to consume a published Azure Machine Learning web service<ept id="1afa122a-57e8-4db5-bc5b-7e8c174b9077">&lt;/linkText&gt;</ept><bpt id="1afa122a-57e8-4db5-bc5b-7e8c174b9077">&lt;title&gt;</bpt><ept id="1afa122a-57e8-4db5-bc5b-7e8c174b9077">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using Machine Learning web services, see <bpt id="1afa122a-57e8-4db5-bc5b-7e8c174b9077">&lt;linkText&gt;</bpt>How to consume a published Azure Machine Learning web service<ept id="1afa122a-57e8-4db5-bc5b-7e8c174b9077">&lt;/linkText&gt;</ept><bpt id="1afa122a-57e8-4db5-bc5b-7e8c174b9077">&lt;title&gt;</bpt><ept id="1afa122a-57e8-4db5-bc5b-7e8c174b9077">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

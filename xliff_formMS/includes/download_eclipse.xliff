@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d406681a-0741-4c00-a594-ed4a830c72fb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d406681a-0741-4c00-a594-ed4a830c72fb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4928c77e-5996-4699-8514-53e6f8eb8570">
+        <trans-unit id="67ef8a9a-028b-4468-93d4-66e12f008cb8" xml:space="preserve">
+          <source>Prerequisites:</source>
+          <target state="new">Prerequisites:</target>
+        </trans-unit>
+        <trans-unit id="b86b3e93-2888-4d0b-938d-571e8500612c" xml:space="preserve">
+          <source>Windows 7, Windows 8, Windows Server 2008, or Windows Server 2012.</source>
+          <target state="new">Windows 7, Windows 8, Windows Server 2008, or Windows Server 2012.</target>
+        </trans-unit>
+        <trans-unit id="785bd879-b069-4644-989c-cfd9c10334ab" xml:space="preserve">
+          <source>Eclipse Indigo or later.</source>
+          <target state="new">Eclipse Indigo or later.</target>
+        </trans-unit>
+        <trans-unit id="41e739ba-bf36-44a3-aac0-ed282447974c" xml:space="preserve">
+          <source>Installation steps:</source>
+          <target state="new">Installation steps:</target>
+        </trans-unit>
+        <trans-unit id="9bc199fe-a716-40f9-a9b9-8859fd9f20b1" xml:space="preserve">
+          <source>In Eclipse, from the <bpt id="19d9eb1a-0a73-44f4-bce8-4063750f5b69">&lt;strong&gt;</bpt>Help<ept id="19d9eb1a-0a73-44f4-bce8-4063750f5b69">&lt;/strong&gt;</ept> menu, select <bpt id="400eafce-aae0-4bc8-aee9-175cd17c9298">&lt;strong&gt;</bpt>Install New Software<ept id="400eafce-aae0-4bc8-aee9-175cd17c9298">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Eclipse, from the <bpt id="19d9eb1a-0a73-44f4-bce8-4063750f5b69">&lt;strong&gt;</bpt>Help<ept id="19d9eb1a-0a73-44f4-bce8-4063750f5b69">&lt;/strong&gt;</ept> menu, select <bpt id="400eafce-aae0-4bc8-aee9-175cd17c9298">&lt;strong&gt;</bpt>Install New Software<ept id="400eafce-aae0-4bc8-aee9-175cd17c9298">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7818c201-701e-45f2-829c-7d1cc3b40066" xml:space="preserve">
+          <source>Enter the site location &lt;http://dl.msopentech.com/eclipse&gt; and press <bpt id="7963b54d-3480-4328-8f1b-67aa044565f0">&lt;strong&gt;</bpt>Enter<ept id="7963b54d-3480-4328-8f1b-67aa044565f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the site location &lt;http://dl.msopentech.com/eclipse&gt; and press <bpt id="7963b54d-3480-4328-8f1b-67aa044565f0">&lt;strong&gt;</bpt>Enter<ept id="7963b54d-3480-4328-8f1b-67aa044565f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d278ee6-66af-47e1-aec8-94328667289b" xml:space="preserve">
+          <source>Select the items to be installed and click <bpt id="1541ad17-44c7-402c-bffa-76ede480e891">&lt;strong&gt;</bpt>Finish<ept id="1541ad17-44c7-402c-bffa-76ede480e891">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the items to be installed and click <bpt id="1541ad17-44c7-402c-bffa-76ede480e891">&lt;strong&gt;</bpt>Finish<ept id="1541ad17-44c7-402c-bffa-76ede480e891">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94058c92-dbe3-4837-a8e7-8d5f0c1bb05a" xml:space="preserve">
+          <source>This plugin uses the latest version of the Azure SDK. This can be downloaded using the Web Platform Installer (WebPI) at &lt;http://go.microsoft.com/fwlink/?LinkID=252838&gt;. However, if you don't have it installed, when you create your first Azure deployment project, the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies) will automatically install the appropriate version of the Azure SDK.</source>
+          <target state="new">This plugin uses the latest version of the Azure SDK. This can be downloaded using the Web Platform Installer (WebPI) at &lt;http://go.microsoft.com/fwlink/?LinkID=252838&gt;. However, if you don't have it installed, when you create your first Azure deployment project, the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies) will automatically install the appropriate version of the Azure SDK.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

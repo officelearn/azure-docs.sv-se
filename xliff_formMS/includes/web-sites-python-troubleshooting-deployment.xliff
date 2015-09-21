@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="01bc18c6-ed02-4aef-8d0c-202a804b3749" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="01bc18c6-ed02-4aef-8d0c-202a804b3749" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="96457202-5232-407f-b228-001bb84e2d09">
+        <trans-unit id="052dcaa7-4436-4bf7-b60a-710aacb443c4" xml:space="preserve">
+          <source>If you need to review the deployment output, including the custom deployment script output, navigate to the  <bpt id="c1b75fe8-4ccf-4c03-bd7c-af5a87af4acd">&lt;strong&gt;</bpt>DEPLOYMENTS<ept id="c1b75fe8-4ccf-4c03-bd7c-af5a87af4acd">&lt;/strong&gt;</ept> page on the Azure portal.</source>
+          <target state="new">If you need to review the deployment output, including the custom deployment script output, navigate to the  <bpt id="c1b75fe8-4ccf-4c03-bd7c-af5a87af4acd">&lt;strong&gt;</bpt>DEPLOYMENTS<ept id="c1b75fe8-4ccf-4c03-bd7c-af5a87af4acd">&lt;/strong&gt;</ept> page on the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="1421fbec-c787-483a-9624-c1c7a9435aba" xml:space="preserve">
+          <source>Expand the desired deployment:</source>
+          <target state="new">Expand the desired deployment:</target>
+        </trans-unit>
+        <trans-unit id="554e3f73-cd7e-49ad-8fd5-f08a86587f38" xml:space="preserve">
+          <source><bpt id="9ffed8c0-3c90-4a42-8ef3-1febf1a05451">&lt;linkText&gt;</bpt><ept id="9ffed8c0-3c90-4a42-8ef3-1febf1a05451">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ffed8c0-3c90-4a42-8ef3-1febf1a05451">&lt;linkText&gt;</bpt><ept id="9ffed8c0-3c90-4a42-8ef3-1febf1a05451">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c08d924-bc1c-4ab5-8540-43eeb0bb12b9" xml:space="preserve">
+          <source>Click on <bpt id="6a6ac1c2-97da-49e4-99ae-9b5a05ae2d42">&lt;strong&gt;</bpt>View Log<ept id="6a6ac1c2-97da-49e4-99ae-9b5a05ae2d42">&lt;/strong&gt;</ept> to see the output of the custom deployment script:</source>
+          <target state="new">Click on <bpt id="6a6ac1c2-97da-49e4-99ae-9b5a05ae2d42">&lt;strong&gt;</bpt>View Log<ept id="6a6ac1c2-97da-49e4-99ae-9b5a05ae2d42">&lt;/strong&gt;</ept> to see the output of the custom deployment script:</target>
+        </trans-unit>
+        <trans-unit id="a6022c17-772e-47d8-b25a-68e4abb0cf1f" xml:space="preserve">
+          <source><bpt id="c0ebac50-fc1c-4546-aac7-a1b4d985d829">&lt;linkText&gt;</bpt><ept id="c0ebac50-fc1c-4546-aac7-a1b4d985d829">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c0ebac50-fc1c-4546-aac7-a1b4d985d829">&lt;linkText&gt;</bpt><ept id="c0ebac50-fc1c-4546-aac7-a1b4d985d829">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

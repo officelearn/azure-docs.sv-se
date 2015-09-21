@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="aad50c01-ea6a-4b6d-be82-89e5a678c1e4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="aad50c01-ea6a-4b6d-be82-89e5a678c1e4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="85c0d56d-bc54-4d43-b3a1-aa2e4866d8e2">
+        <trans-unit id="131935ee-2d12-4f50-930c-51d20b559770" xml:space="preserve">
+          <source>Windows Universal Apps SDK Release Notes</source>
+          <target state="new">Windows Universal Apps SDK Release Notes</target>
+        </trans-unit>
+        <trans-unit id="9fde6235-2d66-418e-8e48-b2bf81de5bd8" xml:space="preserve">
+          <source>Azure Mobile Engagement - Windows Universal Apps SDK Release Notes</source>
+          <target state="new">Azure Mobile Engagement - Windows Universal Apps SDK Release Notes</target>
+        </trans-unit>
+        <trans-unit id="1bae400a-5347-4125-a916-02edd18d196c" xml:space="preserve">
+          <source>The Mobile Engagement device id is now based on a GUID generated at installation time</source>
+          <target state="new">The Mobile Engagement device id is now based on a GUID generated at installation time</target>
+        </trans-unit>
+        <trans-unit id="162f6127-4361-4fc1-aa57-6d41a64bf3da" xml:space="preserve">
+          <source>Fixed a bug affecting the SDK initialization on some Windows Phone WinRT apps.</source>
+          <target state="new">Fixed a bug affecting the SDK initialization on some Windows Phone WinRT apps.</target>
+        </trans-unit>
+        <trans-unit id="0ba5d6f4-e75f-41b3-8954-9e0271e0df50" xml:space="preserve">
+          <source>Introducing the Mobile Engagement SDK for Universal App (Windows and Windows Phone WinRT).</source>
+          <target state="new">Introducing the Mobile Engagement SDK for Universal App (Windows and Windows Phone WinRT).</target>
+        </trans-unit>
+        <trans-unit id="f38b5ee5-fd36-43ad-a783-b6c80fdca3a8" xml:space="preserve">
+          <source>Default notification icon updated.</source>
+          <target state="new">Default notification icon updated.</target>
+        </trans-unit>
+        <trans-unit id="5877e310-84aa-4365-9dff-990f1ebd933d" xml:space="preserve">
+          <source>Send back system notification action feedback when a notification is clicked.</source>
+          <target state="new">Send back system notification action feedback when a notification is clicked.</target>
+        </trans-unit>
+        <trans-unit id="7797dbb4-1eb8-4d1f-983c-cb89d467961a" xml:space="preserve">
+          <source>Fixed system notification which is sometimes replayed in-app after being clicked.</source>
+          <target state="new">Fixed system notification which is sometimes replayed in-app after being clicked.</target>
+        </trans-unit>
+        <trans-unit id="c71bd97e-5856-4ccd-8358-c38c52466732" xml:space="preserve">
+          <source>Initial Release of Azure Mobile Engagement</source>
+          <target state="new">Initial Release of Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="f3cb9028-2a6f-4d38-8b92-53c69367f22a" xml:space="preserve">
+          <source>appId/sdkKey configuration is replaced by a connection string configuration.</source>
+          <target state="new">appId/sdkKey configuration is replaced by a connection string configuration.</target>
+        </trans-unit>
+        <trans-unit id="6dac1d4b-c71c-4f29-ae95-aea40f36780a" xml:space="preserve">
+          <source>Security improvements.</source>
+          <target state="new">Security improvements.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

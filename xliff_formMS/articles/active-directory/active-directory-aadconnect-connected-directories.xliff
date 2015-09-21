@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8df1dfbc-1236-4805-b419-19bd6ade4630" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8df1dfbc-1236-4805-b419-19bd6ade4630" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2526f55d-bc1e-48b9-81a4-b0ef7cce75a5">
+        <trans-unit id="e800fb8c-1c52-4344-89b8-b51fa7679c7a" xml:space="preserve">
+          <source>Connect your directories with Azure AD Connect</source>
+          <target state="new">Connect your directories with Azure AD Connect</target>
+        </trans-unit>
+        <trans-unit id="957f5768-3659-4b4b-b193-f230df651abb" xml:space="preserve">
+          <source>Custom settings description of Azure AD Connect connected directories.</source>
+          <target state="new">Custom settings description of Azure AD Connect connected directories.</target>
+        </trans-unit>
+        <trans-unit id="c3533832-464f-481c-9a6f-56232a0d1ab5" xml:space="preserve">
+          <source>For Custom Settings, an enterprise administrator account is not required to connect to your Active Directory forests.</source>
+          <target state="new">For Custom Settings, an enterprise administrator account is not required to connect to your Active Directory forests.</target>
+        </trans-unit>
+        <trans-unit id="1b533beb-d779-41c3-9cc4-48d66b6c53a1" xml:space="preserve">
+          <source>The wizard will accept a domain or local user account.</source>
+          <target state="new">The wizard will accept a domain or local user account.</target>
+        </trans-unit>
+        <trans-unit id="3cc9a5d5-d504-4525-af05-e776143ad8d3" xml:space="preserve">
+          <source>However, the account is used as the local AD Connector account, that is, it is the account that reads and writes the directory information for synchronization.</source>
+          <target state="new">However, the account is used as the local AD Connector account, that is, it is the account that reads and writes the directory information for synchronization.</target>
+        </trans-unit>
+        <trans-unit id="41fef778-03f9-41c3-9ed2-6478cb5a039c" xml:space="preserve">
+          <source>This means you will need to assign additional permissions to enable the following scenarios: </source>
+          <target state="new">This means you will need to assign additional permissions to enable the following scenarios: </target>
+        </trans-unit>
+        <trans-unit id="14c10e2d-48e0-43d4-9c6f-7aa3a8d78b60" xml:space="preserve">
+          <source>Scenario</source>
+          <target state="new">Scenario</target>
+        </trans-unit>
+        <trans-unit id="559ac554-432d-4382-9f7f-aa69ed9956c7" xml:space="preserve">
+          <source>Permission</source>
+          <target state="new">Permission</target>
+        </trans-unit>
+        <trans-unit id="73c0d1ca-96da-46bb-bcbe-6570aedc1fba" xml:space="preserve">
+          <source>Password Sync</source>
+          <target state="new">Password Sync</target>
+        </trans-unit>
+        <trans-unit id="6dbe5250-df4f-4f26-9638-7f53ace5a5e3" xml:space="preserve">
+          <source>&lt;li&gt;Replicate Directory Changes.&lt;/li&gt;  &lt;li&gt;Replicate Directory Changes All.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Replicate Directory Changes.&lt;/li&gt;  &lt;li&gt;Replicate Directory Changes All.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="69377582-0beb-48cb-8fcc-3946d8e79527" xml:space="preserve">
+          <source>Exchange Hybrid Deployment</source>
+          <target state="new">Exchange Hybrid Deployment</target>
+        </trans-unit>
+        <trans-unit id="d614afca-5012-4014-9b43-5eec24ef19fe" xml:space="preserve">
+          <source>See <bpt id="de7f8b47-abf9-4889-86b1-2e59e44f751c">&lt;linkText&gt;</bpt>Office 365 Exchange Hybrid AAD Sync write-back attributes and permissions<ept id="de7f8b47-abf9-4889-86b1-2e59e44f751c">&lt;/linkText&gt;</ept><bpt id="de7f8b47-abf9-4889-86b1-2e59e44f751c">&lt;title&gt;</bpt><ept id="de7f8b47-abf9-4889-86b1-2e59e44f751c">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="de7f8b47-abf9-4889-86b1-2e59e44f751c">&lt;linkText&gt;</bpt>Office 365 Exchange Hybrid AAD Sync write-back attributes and permissions<ept id="de7f8b47-abf9-4889-86b1-2e59e44f751c">&lt;/linkText&gt;</ept><bpt id="de7f8b47-abf9-4889-86b1-2e59e44f751c">&lt;title&gt;</bpt><ept id="de7f8b47-abf9-4889-86b1-2e59e44f751c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5fc2821-1f7d-4924-97d7-74a324997719" xml:space="preserve">
+          <source>Password Write-back</source>
+          <target state="new">Password Write-back</target>
+        </trans-unit>
+        <trans-unit id="0769a02b-b5e7-43d7-a435-78f6dd40bb26" xml:space="preserve">
+          <source>&lt;li&gt;Change Password&lt;/li&gt;&lt;li&gt;Reset password&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Change Password&lt;/li&gt;&lt;li&gt;Reset password&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="6910c88f-b600-457d-912d-f02301e70dce" xml:space="preserve">
+          <source>User, Group, and Device Write-back</source>
+          <target state="new">User, Group, and Device Write-back</target>
+        </trans-unit>
+        <trans-unit id="e4094cff-aff5-48f4-b997-702506efec4b" xml:space="preserve">
+          <source>Write permissions to the directory objects and attributes that you wish to 'write-back'</source>
+          <target state="new">Write permissions to the directory objects and attributes that you wish to 'write-back'</target>
+        </trans-unit>
+        <trans-unit id="280f3742-fd40-40c8-bcc4-aa6d32eddd31" xml:space="preserve">
+          <source>Single Sign-On and AD FS</source>
+          <target state="new">Single Sign-On and AD FS</target>
+        </trans-unit>
+        <trans-unit id="ad36a427-11f3-45b8-84ed-0a791f41d796" xml:space="preserve">
+          <source>Domain admin permissions in the domain in which your federated servers are located.</source>
+          <target state="new">Domain admin permissions in the domain in which your federated servers are located.</target>
+        </trans-unit>
+        <trans-unit id="d186793f-a958-473c-a8a0-f6998da9f7f8" xml:space="preserve">
+          <source><bpt id="a80abb16-689f-46b9-beac-137ba4f1d262">&lt;strong&gt;</bpt>Additional Resources<ept id="a80abb16-689f-46b9-beac-137ba4f1d262">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a80abb16-689f-46b9-beac-137ba4f1d262">&lt;strong&gt;</bpt>Additional Resources<ept id="a80abb16-689f-46b9-beac-137ba4f1d262">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05f4e6c7-c47c-4cb0-9100-08c505897576" xml:space="preserve">
+          <source><bpt id="7b67c92c-54da-452b-a875-a34d545880ed">&lt;linkText&gt;</bpt>More on Azure AD Connect accounts and permissions<ept id="7b67c92c-54da-452b-a875-a34d545880ed">&lt;/linkText&gt;</ept><bpt id="7b67c92c-54da-452b-a875-a34d545880ed">&lt;title&gt;</bpt><ept id="7b67c92c-54da-452b-a875-a34d545880ed">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7b67c92c-54da-452b-a875-a34d545880ed">&lt;linkText&gt;</bpt>More on Azure AD Connect accounts and permissions<ept id="7b67c92c-54da-452b-a875-a34d545880ed">&lt;/linkText&gt;</ept><bpt id="7b67c92c-54da-452b-a875-a34d545880ed">&lt;title&gt;</bpt><ept id="7b67c92c-54da-452b-a875-a34d545880ed">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77dd3d2d-725b-496a-a294-128d86ae0251" xml:space="preserve">
+          <source><bpt id="113e67da-589a-4711-96ff-251238f88d6f">&lt;linkText&gt;</bpt>Permissions for password synchronization<ept id="113e67da-589a-4711-96ff-251238f88d6f">&lt;/linkText&gt;</ept><bpt id="113e67da-589a-4711-96ff-251238f88d6f">&lt;title&gt;</bpt><ept id="113e67da-589a-4711-96ff-251238f88d6f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="113e67da-589a-4711-96ff-251238f88d6f">&lt;linkText&gt;</bpt>Permissions for password synchronization<ept id="113e67da-589a-4711-96ff-251238f88d6f">&lt;/linkText&gt;</ept><bpt id="113e67da-589a-4711-96ff-251238f88d6f">&lt;title&gt;</bpt><ept id="113e67da-589a-4711-96ff-251238f88d6f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3373ee8d-be61-400d-882f-a01b8958432f" xml:space="preserve">
+          <source><bpt id="47234dac-e2ec-4a0a-8515-c59e12212ef4">&lt;linkText&gt;</bpt>Permissions for Exchange Hybrid<ept id="47234dac-e2ec-4a0a-8515-c59e12212ef4">&lt;/linkText&gt;</ept><bpt id="47234dac-e2ec-4a0a-8515-c59e12212ef4">&lt;title&gt;</bpt><ept id="47234dac-e2ec-4a0a-8515-c59e12212ef4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="47234dac-e2ec-4a0a-8515-c59e12212ef4">&lt;linkText&gt;</bpt>Permissions for Exchange Hybrid<ept id="47234dac-e2ec-4a0a-8515-c59e12212ef4">&lt;/linkText&gt;</ept><bpt id="47234dac-e2ec-4a0a-8515-c59e12212ef4">&lt;title&gt;</bpt><ept id="47234dac-e2ec-4a0a-8515-c59e12212ef4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97307923-a1ec-4544-ad0e-488a81a0c3c0" xml:space="preserve">
+          <source><bpt id="8cde78e3-c079-4140-bd72-57c6c1a507ea">&lt;linkText&gt;</bpt>Permissions for password writeback<ept id="8cde78e3-c079-4140-bd72-57c6c1a507ea">&lt;/linkText&gt;</ept><bpt id="8cde78e3-c079-4140-bd72-57c6c1a507ea">&lt;title&gt;</bpt><ept id="8cde78e3-c079-4140-bd72-57c6c1a507ea">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8cde78e3-c079-4140-bd72-57c6c1a507ea">&lt;linkText&gt;</bpt>Permissions for password writeback<ept id="8cde78e3-c079-4140-bd72-57c6c1a507ea">&lt;/linkText&gt;</ept><bpt id="8cde78e3-c079-4140-bd72-57c6c1a507ea">&lt;title&gt;</bpt><ept id="8cde78e3-c079-4140-bd72-57c6c1a507ea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe48b3de-31aa-452e-8fbf-753bf8dba4c9" xml:space="preserve">
+          <source><bpt id="f45d631b-697c-4e02-9760-26244782a022">&lt;linkText&gt;</bpt>Custom installation of Azure AD Connect<ept id="f45d631b-697c-4e02-9760-26244782a022">&lt;/linkText&gt;</ept><bpt id="f45d631b-697c-4e02-9760-26244782a022">&lt;title&gt;</bpt><ept id="f45d631b-697c-4e02-9760-26244782a022">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f45d631b-697c-4e02-9760-26244782a022">&lt;linkText&gt;</bpt>Custom installation of Azure AD Connect<ept id="f45d631b-697c-4e02-9760-26244782a022">&lt;/linkText&gt;</ept><bpt id="f45d631b-697c-4e02-9760-26244782a022">&lt;title&gt;</bpt><ept id="f45d631b-697c-4e02-9760-26244782a022">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7dab0e3a-7317-41f5-ad9f-c1a6c0434afd" xml:space="preserve">
+          <source><bpt id="b290703c-7cf7-4b86-8862-bb83ee23cfc4">&lt;linkText&gt;</bpt>Azure AD Connect on MSDN<ept id="b290703c-7cf7-4b86-8862-bb83ee23cfc4">&lt;/linkText&gt;</ept><bpt id="b290703c-7cf7-4b86-8862-bb83ee23cfc4">&lt;title&gt;</bpt><ept id="b290703c-7cf7-4b86-8862-bb83ee23cfc4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b290703c-7cf7-4b86-8862-bb83ee23cfc4">&lt;linkText&gt;</bpt>Azure AD Connect on MSDN<ept id="b290703c-7cf7-4b86-8862-bb83ee23cfc4">&lt;/linkText&gt;</ept><bpt id="b290703c-7cf7-4b86-8862-bb83ee23cfc4">&lt;title&gt;</bpt><ept id="b290703c-7cf7-4b86-8862-bb83ee23cfc4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c7d02e22-aa13-4e94-a094-639395c33923" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c7d02e22-aa13-4e94-a094-639395c33923" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bd216f15-f1f9-4f9b-bc42-5e56cdefe411">
+        <trans-unit id="ac65ebad-6073-4246-b9ff-f0ac9f0220e5" xml:space="preserve">
+          <source>Now that the app has been updated to use Mobile Services for back end storage, you can test it against Mobile Services, using either the Android emulator or an Android phone.</source>
+          <target state="new">Now that the app has been updated to use Mobile Services for back end storage, you can test it against Mobile Services, using either the Android emulator or an Android phone.</target>
+        </trans-unit>
+        <trans-unit id="d470c065-eeea-47a7-9cf1-0e6580606790" xml:space="preserve">
+          <source>From the <bpt id="03ca4851-01a4-48ec-a2c9-2a6cc03e989b">&lt;strong&gt;</bpt>Run<ept id="03ca4851-01a4-48ec-a2c9-2a6cc03e989b">&lt;/strong&gt;</ept> menu, click <bpt id="e21229d1-252d-45f5-a210-5616032ab084">&lt;strong&gt;</bpt>Run<ept id="e21229d1-252d-45f5-a210-5616032ab084">&lt;/strong&gt;</ept> to start the project.</source>
+          <target state="new">From the <bpt id="03ca4851-01a4-48ec-a2c9-2a6cc03e989b">&lt;strong&gt;</bpt>Run<ept id="03ca4851-01a4-48ec-a2c9-2a6cc03e989b">&lt;/strong&gt;</ept> menu, click <bpt id="e21229d1-252d-45f5-a210-5616032ab084">&lt;strong&gt;</bpt>Run<ept id="e21229d1-252d-45f5-a210-5616032ab084">&lt;/strong&gt;</ept> to start the project.</target>
+        </trans-unit>
+        <trans-unit id="4c35e6f1-2402-485f-9bd9-9c9a189fc003" xml:space="preserve">
+          <source>This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.</source>
+          <target state="new">This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="b697e1d0-a296-4be8-9bac-8e66ac71d8e3" xml:space="preserve">
+          <source>As before, type meaningful text, then click <bpt id="a29e95be-d448-40fb-a4cd-ee9cea048511">&lt;strong&gt;</bpt>Add<ept id="a29e95be-d448-40fb-a4cd-ee9cea048511">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As before, type meaningful text, then click <bpt id="a29e95be-d448-40fb-a4cd-ee9cea048511">&lt;strong&gt;</bpt>Add<ept id="a29e95be-d448-40fb-a4cd-ee9cea048511">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8750322-bba3-47cf-a2ae-b02f1ef1f092" xml:space="preserve">
+          <source>This sends a new item as an insert to the mobile service.</source>
+          <target state="new">This sends a new item as an insert to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="faac0f69-ce13-499c-9e46-cab1970c30ed" xml:space="preserve">
+          <source>You can restart the app to see that the changes were persisted to the database in Azure.</source>
+          <target state="new">You can restart the app to see that the changes were persisted to the database in Azure.</target>
+        </trans-unit>
+        <trans-unit id="8fba3e73-a2b8-48e0-ab5a-bd7acb7e6281" xml:space="preserve">
+          <source>You can also examine the database using the Azure Management portal:  the next two steps do this to view the changes in your database.</source>
+          <target state="new">You can also examine the database using the Azure Management portal:  the next two steps do this to view the changes in your database.</target>
+        </trans-unit>
+        <trans-unit id="9a12dd38-d9a4-4c73-ba03-d49ea14a85a5" xml:space="preserve">
+          <source>In the Azure Management Portal, click manage for the database associated with your mobile service.</source>
+          <target state="new">In the Azure Management Portal, click manage for the database associated with your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="71ab45b7-fa84-456c-a8b6-335038595b90" xml:space="preserve">
+          <source><bpt id="f9801091-d42e-4b86-9dfb-4cba1c491d8a">&lt;linkText&gt;</bpt><ept id="f9801091-d42e-4b86-9dfb-4cba1c491d8a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f9801091-d42e-4b86-9dfb-4cba1c491d8a">&lt;linkText&gt;</bpt><ept id="f9801091-d42e-4b86-9dfb-4cba1c491d8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a4a5569-cecb-4a83-838a-2653455dda2f" xml:space="preserve">
+          <source>In the Management portal execute a query to view the changes made by the Windows Store app.</source>
+          <target state="new">In the Management portal execute a query to view the changes made by the Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="4dbfa836-d5d9-4500-8af8-e0d363139c10" xml:space="preserve">
+          <source>Your query will be similar to the following query but use your database name instead of <bpt id="485bd76c-c45b-44e4-b3ef-2bbe538b0a6b">&lt;code&gt;</bpt>todolist<ept id="485bd76c-c45b-44e4-b3ef-2bbe538b0a6b">&lt;/code&gt;</ept>.</source>
+          <target state="new">Your query will be similar to the following query but use your database name instead of <bpt id="485bd76c-c45b-44e4-b3ef-2bbe538b0a6b">&lt;code&gt;</bpt>todolist<ept id="485bd76c-c45b-44e4-b3ef-2bbe538b0a6b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d51d8f7-c8f4-4bd7-906f-461f0e9f29bb" xml:space="preserve">
+          <source><bpt id="730e6a28-cbe9-4dd3-bfc0-201bc751f6cc">&lt;linkText&gt;</bpt><ept id="730e6a28-cbe9-4dd3-bfc0-201bc751f6cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="730e6a28-cbe9-4dd3-bfc0-201bc751f6cc">&lt;linkText&gt;</bpt><ept id="730e6a28-cbe9-4dd3-bfc0-201bc751f6cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ef755fa-70c1-4a30-bc0a-418a5aa5fc3a" xml:space="preserve">
+          <source>This concludes the <bpt id="01b0956f-9e20-4a01-a7a4-75a364b45fa7">&lt;strong&gt;</bpt>Get started with data<ept id="01b0956f-9e20-4a01-a7a4-75a364b45fa7">&lt;/strong&gt;</ept> tutorial for Android.</source>
+          <target state="new">This concludes the <bpt id="01b0956f-9e20-4a01-a7a4-75a364b45fa7">&lt;strong&gt;</bpt>Get started with data<ept id="01b0956f-9e20-4a01-a7a4-75a364b45fa7">&lt;/strong&gt;</ept> tutorial for Android.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

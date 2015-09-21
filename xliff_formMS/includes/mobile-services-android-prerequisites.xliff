@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="996842bc-2a58-438a-b92d-db449248e4d3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="996842bc-2a58-438a-b92d-db449248e4d3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0d8ac14b-3b5a-454d-be31-0274cc74bfde">
+        <trans-unit id="4feea45b-7d05-455a-b2bb-6c7a28a5dfbd" xml:space="preserve">
+          <source>This tutorial is based on the code you download in the Mobile Services quickstart.</source>
+          <target state="new">This tutorial is based on the code you download in the Mobile Services quickstart.</target>
+        </trans-unit>
+        <trans-unit id="3eea07bb-f36b-43ce-a78d-7f3a4d957812" xml:space="preserve">
+          <source>Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Add Mobile Services to an existing app].</source>
+          <target state="new">Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Add Mobile Services to an existing app].</target>
+        </trans-unit>
+        <trans-unit id="651f9caa-17a2-406b-aaeb-45499981aef4" xml:space="preserve">
+          <source>If you completed the quickstart tutorial prior to the release of Azure Mobile Services Android SDK 2.0, you must re-do it, because the SDK is not backwards compatible.</source>
+          <target state="new">If you completed the quickstart tutorial prior to the release of Azure Mobile Services Android SDK 2.0, you must re-do it, because the SDK is not backwards compatible.</target>
+        </trans-unit>
+        <trans-unit id="7639c683-e15a-4b96-9077-b49ec23123b6" xml:space="preserve">
+          <source>To verify the version, check the <bpt id="dd0ac154-3532-492c-91ff-13eca2ca1202">&lt;strong&gt;</bpt>dependencies<ept id="dd0ac154-3532-492c-91ff-13eca2ca1202">&lt;/strong&gt;</ept> section of your project's <bpt id="83ed5228-ab75-4f16-a800-b29ac4e8368f">&lt;strong&gt;</bpt>build.gradle<ept id="83ed5228-ab75-4f16-a800-b29ac4e8368f">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">To verify the version, check the <bpt id="dd0ac154-3532-492c-91ff-13eca2ca1202">&lt;strong&gt;</bpt>dependencies<ept id="dd0ac154-3532-492c-91ff-13eca2ca1202">&lt;/strong&gt;</ept> section of your project's <bpt id="83ed5228-ab75-4f16-a800-b29ac4e8368f">&lt;strong&gt;</bpt>build.gradle<ept id="83ed5228-ab75-4f16-a800-b29ac4e8368f">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="6b4d8f2f-7a41-44c2-8445-7ef77bde95a3" xml:space="preserve">
+          <source>../articles/mobile-services-android-get-started.md</source>
+          <target state="new">../articles/mobile-services-android-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="0ea76b69-3db6-4014-8d04-bac3f76a2204" xml:space="preserve">
+          <source>../articles/mobile-services-android-get-started-data.md</source>
+          <target state="new">../articles/mobile-services-android-get-started-data.md</target>
+        </trans-unit>
+      </group>
+      <group id="83892a34-b2ab-4387-b483-97e6ad44c202" />
+    </body>
+  </file>
+</xliff>

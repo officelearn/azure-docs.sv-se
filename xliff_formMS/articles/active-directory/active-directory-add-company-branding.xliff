@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1ec75945-853c-495b-b651-9d74cfa1bcab" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1ec75945-853c-495b-b651-9d74cfa1bcab" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cd4cfe93-256c-43dd-a725-bef8d459a153">
+        <trans-unit id="e02ec294-6316-47eb-80d4-927432f6067f" xml:space="preserve">
+          <source>Add company branding to your Sign In and Access Panel pages</source>
+          <target state="new">Add company branding to your Sign In and Access Panel pages</target>
+        </trans-unit>
+        <trans-unit id="db8943c8-ec4d-4bce-9af2-8f649650e6bd" xml:space="preserve">
+          <source>A topic that explains how an organization can apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites.</source>
+          <target state="new">A topic that explains how an organization can apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites.</target>
+        </trans-unit>
+        <trans-unit id="e0b36756-92be-4000-874b-3c873642b22c" xml:space="preserve">
+          <source>Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</source>
+          <target state="new">Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="17f84e9a-8b74-4de0-bc5a-59f2df9a90b7" xml:space="preserve">
+          <source>For more information, see <bpt id="23744ba2-420f-4028-9dcd-d9e80b42a6d4">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="23744ba2-420f-4028-9dcd-d9e80b42a6d4">&lt;/linkText&gt;</ept><bpt id="23744ba2-420f-4028-9dcd-d9e80b42a6d4">&lt;title&gt;</bpt><ept id="23744ba2-420f-4028-9dcd-d9e80b42a6d4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="23744ba2-420f-4028-9dcd-d9e80b42a6d4">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="23744ba2-420f-4028-9dcd-d9e80b42a6d4">&lt;/linkText&gt;</ept><bpt id="23744ba2-420f-4028-9dcd-d9e80b42a6d4">&lt;title&gt;</bpt><ept id="23744ba2-420f-4028-9dcd-d9e80b42a6d4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d5565b1-e61f-4e4e-919d-6f79d9919669" xml:space="preserve">
+          <source>Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory.</source>
+          <target state="new">Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="0a7332a4-8754-432a-b512-c2f8210ca54e" xml:space="preserve">
+          <source>Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China.</source>
+          <target state="new">Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China.</target>
+        </trans-unit>
+        <trans-unit id="d5e1ce3f-6ebf-401d-8e9f-8a914c6867e0" xml:space="preserve">
+          <source>For more information, contact us at the <bpt id="f413eec5-325a-4cbf-9d3d-82f8400122a1">&lt;linkText&gt;</bpt>Azure Active Directory Forum<ept id="f413eec5-325a-4cbf-9d3d-82f8400122a1">&lt;/linkText&gt;</ept><bpt id="f413eec5-325a-4cbf-9d3d-82f8400122a1">&lt;title&gt;</bpt><ept id="f413eec5-325a-4cbf-9d3d-82f8400122a1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, contact us at the <bpt id="f413eec5-325a-4cbf-9d3d-82f8400122a1">&lt;linkText&gt;</bpt>Azure Active Directory Forum<ept id="f413eec5-325a-4cbf-9d3d-82f8400122a1">&lt;/linkText&gt;</ept><bpt id="f413eec5-325a-4cbf-9d3d-82f8400122a1">&lt;title&gt;</bpt><ept id="f413eec5-325a-4cbf-9d3d-82f8400122a1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1fbc0216-50cd-49ee-b218-f20dcb7fd033" xml:space="preserve">
+          <source>Many companies want to apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites.</source>
+          <target state="new">Many companies want to apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites.</target>
+        </trans-unit>
+        <trans-unit id="a062aed2-1e15-4810-98ee-ffa57943a338" xml:space="preserve">
+          <source>Azure Active Directory provides this capability by allowing you to customize the appearance of the following end user-facing web pages so that they include your company logo and color schemes:</source>
+          <target state="new">Azure Active Directory provides this capability by allowing you to customize the appearance of the following end user-facing web pages so that they include your company logo and color schemes:</target>
+        </trans-unit>
+        <trans-unit id="b352cce1-096b-4189-9f81-c98511e32ef3" xml:space="preserve">
+          <source><bpt id="7271e73e-6d41-4cb5-baf5-710e141cc098">&lt;strong&gt;</bpt>Sign In page<ept id="7271e73e-6d41-4cb5-baf5-710e141cc098">&lt;/strong&gt;</ept> - This page is where users are redirected when they are signing in to Office 365 or other web-based and modern applications that use Azure AD as your identity provider.</source>
+          <target state="new"><bpt id="7271e73e-6d41-4cb5-baf5-710e141cc098">&lt;strong&gt;</bpt>Sign In page<ept id="7271e73e-6d41-4cb5-baf5-710e141cc098">&lt;/strong&gt;</ept> - This page is where users are redirected when they are signing in to Office 365 or other web-based and modern applications that use Azure AD as your identity provider.</target>
+        </trans-unit>
+        <trans-unit id="02240973-81b8-4471-94ea-b850cd2fbdaf" xml:space="preserve">
+          <source>Most users will interact with this page whether it’s to go through Home Realm Discovery, which allows the system to redirect federated users to their on-premises STS (such as AD FS), or to enter their credentials.</source>
+          <target state="new">Most users will interact with this page whether it’s to go through Home Realm Discovery, which allows the system to redirect federated users to their on-premises STS (such as AD FS), or to enter their credentials.</target>
+        </trans-unit>
+        <trans-unit id="45d49fa2-172c-452b-a532-894c6cd83037" xml:space="preserve">
+          <source><bpt id="c821a7c7-f87d-4a32-ac8f-9e3bc59d9cdc">&lt;strong&gt;</bpt>Access Panel page<ept id="c821a7c7-f87d-4a32-ac8f-9e3bc59d9cdc">&lt;/strong&gt;</ept> - The Access Panel is a web-based portal that allows an end user with a work or school account in an Azure AD directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator.</source>
+          <target state="new"><bpt id="c821a7c7-f87d-4a32-ac8f-9e3bc59d9cdc">&lt;strong&gt;</bpt>Access Panel page<ept id="c821a7c7-f87d-4a32-ac8f-9e3bc59d9cdc">&lt;/strong&gt;</ept> - The Access Panel is a web-based portal that allows an end user with a work or school account in an Azure AD directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator.</target>
+        </trans-unit>
+        <trans-unit id="9a6d3a1b-f43e-45f8-bfbc-756d7bd19452" xml:space="preserve">
+          <source>The Access Panel is accessible to all users in your organization at myapps.microsoft.com.</source>
+          <target state="new">The Access Panel is accessible to all users in your organization at myapps.microsoft.com.</target>
+        </trans-unit>
+        <trans-unit id="c8a1d67e-c8f9-4649-848e-7c4d88c55bca" xml:space="preserve">
+          <source>The Sign In page is typically the most frequently used web page by end users that need browser-based access to the cloud apps and services that your organization subscribes to, so making sure it looks right is paramount.</source>
+          <target state="new">The Sign In page is typically the most frequently used web page by end users that need browser-based access to the cloud apps and services that your organization subscribes to, so making sure it looks right is paramount.</target>
+        </trans-unit>
+        <trans-unit id="1bd67b92-c78c-42bb-8bc9-f32f5d6a5d40" xml:space="preserve">
+          <source>If you want to use the default non-branded Sign In page experience, you need do nothing.</source>
+          <target state="new">If you want to use the default non-branded Sign In page experience, you need do nothing.</target>
+        </trans-unit>
+        <trans-unit id="75f86f52-a68f-4aaa-848e-f151179379c1" xml:space="preserve">
+          <source>It can take up to an hour for users to see any new change you made to the sign in page branding.</source>
+          <target state="new">It can take up to an hour for users to see any new change you made to the sign in page branding.</target>
+        </trans-unit>
+        <trans-unit id="8a75ac3f-965d-47b5-aca5-0c242fbb76a7" xml:space="preserve">
+          <source>User will see a branded sign in page when they visit a service with a tenant-specific URL such as https://outlook.com/<bpt id="f51774eb-7fc0-4d4c-b924-ce0f1a0f24d8">&lt;strong&gt;</bpt>contoso<ept id="f51774eb-7fc0-4d4c-b924-ce0f1a0f24d8">&lt;/strong&gt;</ept>.com, or https://mail.<bpt id="5a1ad3b5-512e-4dbf-b123-fc7125619de5">&lt;strong&gt;</bpt>contoso<ept id="5a1ad3b5-512e-4dbf-b123-fc7125619de5">&lt;/strong&gt;</ept>.com (if you’ve created a CNAME).</source>
+          <target state="new">User will see a branded sign in page when they visit a service with a tenant-specific URL such as https://outlook.com/<bpt id="f51774eb-7fc0-4d4c-b924-ce0f1a0f24d8">&lt;strong&gt;</bpt>contoso<ept id="f51774eb-7fc0-4d4c-b924-ce0f1a0f24d8">&lt;/strong&gt;</ept>.com, or https://mail.<bpt id="5a1ad3b5-512e-4dbf-b123-fc7125619de5">&lt;strong&gt;</bpt>contoso<ept id="5a1ad3b5-512e-4dbf-b123-fc7125619de5">&lt;/strong&gt;</ept>.com (if you’ve created a CNAME).</target>
+        </trans-unit>
+        <trans-unit id="7b20a09b-364d-482e-8332-6583e3d4e325" xml:space="preserve">
+          <source>If they visit a service with non-tenant specific URLs (such as https://mail.office365.com) they will see a non-branded sign in page.</source>
+          <target state="new">If they visit a service with non-tenant specific URLs (such as https://mail.office365.com) they will see a non-branded sign in page.</target>
+        </trans-unit>
+        <trans-unit id="52e8b077-2b10-453d-921e-6d4e694c128c" xml:space="preserve">
+          <source>The sign in page will refresh to show your branding once users have entered their user ID or selected a user tile.</source>
+          <target state="new">The sign in page will refresh to show your branding once users have entered their user ID or selected a user tile.</target>
+        </trans-unit>
+        <trans-unit id="49b8deba-1e9a-4128-8254-f76a8ff2b407" xml:space="preserve">
+          <source>Your domain name must appear as “Active” in the <bpt id="39e99912-3961-4688-8114-162d024d83a7">&lt;strong&gt;</bpt>Active Directory<ept id="39e99912-3961-4688-8114-162d024d83a7">&lt;/strong&gt;</ept> &gt; <bpt id="f0684a3f-2005-44b3-81af-1acd7ef786c8">&lt;strong&gt;</bpt>Directory<ept id="f0684a3f-2005-44b3-81af-1acd7ef786c8">&lt;/strong&gt;</ept> &gt; <bpt id="a31cd09b-9843-4c5d-a4a5-c7d21e973576">&lt;strong&gt;</bpt>Domains<ept id="a31cd09b-9843-4c5d-a4a5-c7d21e973576">&lt;/strong&gt;</ept> section of the Azure Management Portal where you have configured branding.</source>
+          <target state="new">Your domain name must appear as “Active” in the <bpt id="39e99912-3961-4688-8114-162d024d83a7">&lt;strong&gt;</bpt>Active Directory<ept id="39e99912-3961-4688-8114-162d024d83a7">&lt;/strong&gt;</ept> &gt; <bpt id="f0684a3f-2005-44b3-81af-1acd7ef786c8">&lt;strong&gt;</bpt>Directory<ept id="f0684a3f-2005-44b3-81af-1acd7ef786c8">&lt;/strong&gt;</ept> &gt; <bpt id="a31cd09b-9843-4c5d-a4a5-c7d21e973576">&lt;strong&gt;</bpt>Domains<ept id="a31cd09b-9843-4c5d-a4a5-c7d21e973576">&lt;/strong&gt;</ept> section of the Azure Management Portal where you have configured branding.</target>
+        </trans-unit>
+        <trans-unit id="8d26595c-4647-435a-8669-43dcdffe7cab" xml:space="preserve">
+          <source>Sign in page branding doesn’t carry over to Microsoft’s consumer sign in page.</source>
+          <target state="new">Sign in page branding doesn’t carry over to Microsoft’s consumer sign in page.</target>
+        </trans-unit>
+        <trans-unit id="f4072cfd-ffc0-4f5a-9a83-e1cd7f7620ff" xml:space="preserve">
+          <source>This means that users who sign in with a personal Microsoft account (formerly Windows Live ID) may see a branded list of user tiles rendered by Azure AD, but your organization’s branding will not apply to the Microsoft account sign-in page.</source>
+          <target state="new">This means that users who sign in with a personal Microsoft account (formerly Windows Live ID) may see a branded list of user tiles rendered by Azure AD, but your organization’s branding will not apply to the Microsoft account sign-in page.</target>
+        </trans-unit>
+        <trans-unit id="1470bbb7-3027-45cc-838d-183cfd3941f1" xml:space="preserve">
+          <source>If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.</source>
+          <target state="new">If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.</target>
+        </trans-unit>
+        <trans-unit id="5bfdd4cc-767f-4bd5-adf5-cc81b47ddf8e" xml:space="preserve">
+          <source>When a user attempts to sign in from a desktop computer, here is an example of what the user would see on the Office 365 Sign In page <bpt id="de56205d-3a2b-4edf-a97f-cf472baa3c83">&lt;em&gt;</bpt>before<ept id="de56205d-3a2b-4edf-a97f-cf472baa3c83">&lt;/em&gt;</ept> customization:</source>
+          <target state="new">When a user attempts to sign in from a desktop computer, here is an example of what the user would see on the Office 365 Sign In page <bpt id="de56205d-3a2b-4edf-a97f-cf472baa3c83">&lt;em&gt;</bpt>before<ept id="de56205d-3a2b-4edf-a97f-cf472baa3c83">&lt;/em&gt;</ept> customization:</target>
+        </trans-unit>
+        <trans-unit id="d8204cef-c2e7-4de2-8a45-9ecb16421c1b" xml:space="preserve">
+          <source><bpt id="da74c170-4c8e-4bd8-bf69-06586c60e980">&lt;linkText&gt;</bpt><ept id="da74c170-4c8e-4bd8-bf69-06586c60e980">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da74c170-4c8e-4bd8-bf69-06586c60e980">&lt;linkText&gt;</bpt><ept id="da74c170-4c8e-4bd8-bf69-06586c60e980">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ecf88e6-d5b8-443e-8392-1209ecc0ad71" xml:space="preserve">
+          <source>And here is what the same user would see <bpt id="1f4fbf5f-a2d0-4a22-a916-981c0ef26e3e">&lt;em&gt;</bpt>after<ept id="1f4fbf5f-a2d0-4a22-a916-981c0ef26e3e">&lt;/em&gt;</ept> customization:</source>
+          <target state="new">And here is what the same user would see <bpt id="1f4fbf5f-a2d0-4a22-a916-981c0ef26e3e">&lt;em&gt;</bpt>after<ept id="1f4fbf5f-a2d0-4a22-a916-981c0ef26e3e">&lt;/em&gt;</ept> customization:</target>
+        </trans-unit>
+        <trans-unit id="90aba8a4-18d8-464c-b53f-b4d7de27edde" xml:space="preserve">
+          <source><bpt id="a85d7921-96a5-4afa-adbc-a86afb34f1bc">&lt;linkText&gt;</bpt><ept id="a85d7921-96a5-4afa-adbc-a86afb34f1bc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a85d7921-96a5-4afa-adbc-a86afb34f1bc">&lt;linkText&gt;</bpt><ept id="a85d7921-96a5-4afa-adbc-a86afb34f1bc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b91720aa-77d2-4764-8f64-fd0419c018eb" xml:space="preserve">
+          <source>When a user attempts to sign in from a mobile device, here is an example of what the user would see on the Office 365 Sign In page <bpt id="f265bc3f-9a35-41fa-9203-0d237e8a73b2">&lt;em&gt;</bpt>before<ept id="f265bc3f-9a35-41fa-9203-0d237e8a73b2">&lt;/em&gt;</ept> customization:</source>
+          <target state="new">When a user attempts to sign in from a mobile device, here is an example of what the user would see on the Office 365 Sign In page <bpt id="f265bc3f-9a35-41fa-9203-0d237e8a73b2">&lt;em&gt;</bpt>before<ept id="f265bc3f-9a35-41fa-9203-0d237e8a73b2">&lt;/em&gt;</ept> customization:</target>
+        </trans-unit>
+        <trans-unit id="07e8cec5-ae22-419a-b76b-15b952b678e6" xml:space="preserve">
+          <source><bpt id="5e781559-afb0-4bb9-8521-a072eb5f5d50">&lt;linkText&gt;</bpt><ept id="5e781559-afb0-4bb9-8521-a072eb5f5d50">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5e781559-afb0-4bb9-8521-a072eb5f5d50">&lt;linkText&gt;</bpt><ept id="5e781559-afb0-4bb9-8521-a072eb5f5d50">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2dbb248-a96a-4fc6-8d29-33ffed0f0ddd" xml:space="preserve">
+          <source>And here is what the same user would see <bpt id="a3db74f9-0b82-4f78-8ba4-f375b4234f7c">&lt;em&gt;</bpt>after<ept id="a3db74f9-0b82-4f78-8ba4-f375b4234f7c">&lt;/em&gt;</ept> customization:</source>
+          <target state="new">And here is what the same user would see <bpt id="a3db74f9-0b82-4f78-8ba4-f375b4234f7c">&lt;em&gt;</bpt>after<ept id="a3db74f9-0b82-4f78-8ba4-f375b4234f7c">&lt;/em&gt;</ept> customization:</target>
+        </trans-unit>
+        <trans-unit id="64ce91e0-86a3-4248-adcd-d43af527aa4c" xml:space="preserve">
+          <source><bpt id="8256cb78-0da3-498d-b5b3-9af04bec9574">&lt;linkText&gt;</bpt><ept id="8256cb78-0da3-498d-b5b3-9af04bec9574">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8256cb78-0da3-498d-b5b3-9af04bec9574">&lt;linkText&gt;</bpt><ept id="8256cb78-0da3-498d-b5b3-9af04bec9574">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c47fe719-c8ef-4104-adea-84eeb2798b3d" xml:space="preserve">
+          <source>You can customize the following elements on the Sign In page:</source>
+          <target state="new">You can customize the following elements on the Sign In page:</target>
+        </trans-unit>
+        <trans-unit id="4fde7ae1-fbcd-4949-9146-9312f6cb4cf1" xml:space="preserve">
+          <source><bpt id="6875e3dc-ef0e-4a77-8205-f86c8ba9c999">&lt;linkText&gt;</bpt><ept id="6875e3dc-ef0e-4a77-8205-f86c8ba9c999">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6875e3dc-ef0e-4a77-8205-f86c8ba9c999">&lt;linkText&gt;</bpt><ept id="6875e3dc-ef0e-4a77-8205-f86c8ba9c999">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6600a32a-6879-45f2-af29-75e19e885b29" xml:space="preserve">
+          <source>Page element</source>
+          <target state="new">Page element</target>
+        </trans-unit>
+        <trans-unit id="dfbe3543-0220-4697-aa46-e1cbb9e2b1b1" xml:space="preserve">
+          <source>Location on the page</source>
+          <target state="new">Location on the page</target>
+        </trans-unit>
+        <trans-unit id="7919a288-58c6-4607-b3b3-5c774d8a347f" xml:space="preserve">
+          <source>Banner Logo</source>
+          <target state="new">Banner Logo</target>
+        </trans-unit>
+        <trans-unit id="b306afa6-c5aa-4b18-8660-41a3c527355c" xml:space="preserve">
+          <source>Shown at the top-right of the page.</source>
+          <target state="new">Shown at the top-right of the page.</target>
+        </trans-unit>
+        <trans-unit id="24aaa618-2239-4a19-bc60-35b80edde0c6" xml:space="preserve">
+          <source>Replaces the logo that would normally be displayed by the destination site that your users are signing in to (For example.</source>
+          <target state="new">Replaces the logo that would normally be displayed by the destination site that your users are signing in to (For example.</target>
+        </trans-unit>
+        <trans-unit id="d5cc5bad-7bf4-4145-943c-8bcb2d023202" xml:space="preserve">
+          <source>Office 365 or Azure).</source>
+          <target state="new">Office 365 or Azure).</target>
+        </trans-unit>
+        <trans-unit id="b65b00a0-ccc7-4b46-9475-9dda27abb9d0" xml:space="preserve">
+          <source>Large Illustration / Background Color</source>
+          <target state="new">Large Illustration / Background Color</target>
+        </trans-unit>
+        <trans-unit id="69e6fe94-6ad5-409d-95c7-1b2c45979566" xml:space="preserve">
+          <source>Shown at the left of the page.</source>
+          <target state="new">Shown at the left of the page.</target>
+        </trans-unit>
+        <trans-unit id="a739ee93-ebff-44b9-af3b-94fbddddd6ee" xml:space="preserve">
+          <source>Replaces the image that would normally be displayed by the destination site that your users are signing in to.</source>
+          <target state="new">Replaces the image that would normally be displayed by the destination site that your users are signing in to.</target>
+        </trans-unit>
+        <trans-unit id="ed2410cf-ec66-40f3-bf03-9d61c75f3310" xml:space="preserve">
+          <source>The Background Color may be shown in place of the Large Illustration on low bandwidth connections, or on very narrow screens.</source>
+          <target state="new">The Background Color may be shown in place of the Large Illustration on low bandwidth connections, or on very narrow screens.</target>
+        </trans-unit>
+        <trans-unit id="ae9c93fb-9730-4f3a-8a7e-7119b32e6d0c" xml:space="preserve">
+          <source>Sign In Page Text</source>
+          <target state="new">Sign In Page Text</target>
+        </trans-unit>
+        <trans-unit id="eed3c134-4fd7-4e70-aca3-a9068df161b8" xml:space="preserve">
+          <source>Shown above the page footer when you need to convey helpful information to your users before they sign in with their work or school account.</source>
+          <target state="new">Shown above the page footer when you need to convey helpful information to your users before they sign in with their work or school account.</target>
+        </trans-unit>
+        <trans-unit id="40419256-0995-4074-a643-891b5cd9bb4e" xml:space="preserve">
+          <source>For example, you may want to include the phone number to your help desk, or a legal statement.</source>
+          <target state="new">For example, you may want to include the phone number to your help desk, or a legal statement.</target>
+        </trans-unit>
+        <trans-unit id="781b5650-6e4b-4683-a2f4-42206525579e" xml:space="preserve">
+          <source>All elements are optional.</source>
+          <target state="new">All elements are optional.</target>
+        </trans-unit>
+        <trans-unit id="1f963d27-069a-4a02-b799-885dca18006d" xml:space="preserve">
+          <source>For example, if you specify a Banner Logo but no Large Illustration, the Sign In page will show your logo and the illustration for the destination site (that is, the Office 365 California highway image).</source>
+          <target state="new">For example, if you specify a Banner Logo but no Large Illustration, the Sign In page will show your logo and the illustration for the destination site (that is, the Office 365 California highway image).</target>
+        </trans-unit>
+        <trans-unit id="dc847fea-53da-4ba9-aff2-986303729b52" xml:space="preserve">
+          <source>You can also localize all elements on this page.</source>
+          <target state="new">You can also localize all elements on this page.</target>
+        </trans-unit>
+        <trans-unit id="8a935214-6020-4471-b3ed-11b7b593d5bb" xml:space="preserve">
+          <source>Once you’ve configured a “default” set of customization elements, you can configure additional versions for different locales.</source>
+          <target state="new">Once you’ve configured a “default” set of customization elements, you can configure additional versions for different locales.</target>
+        </trans-unit>
+        <trans-unit id="6575ab46-d9a2-4288-9ae5-c1b06c993dcc" xml:space="preserve">
+          <source>You can also mix and match various elements.</source>
+          <target state="new">You can also mix and match various elements.</target>
+        </trans-unit>
+        <trans-unit id="58c052ef-b92e-4bad-a4bb-0734edf7a14c" xml:space="preserve">
+          <source>For example, you can:</source>
+          <target state="new">For example, you can:</target>
+        </trans-unit>
+        <trans-unit id="4f113bc0-1886-41ab-aa26-cb04bebec347" xml:space="preserve">
+          <source>Create a “default” Large Illustration that works for all cultures, then create specific versions for English and French.</source>
+          <target state="new">Create a “default” Large Illustration that works for all cultures, then create specific versions for English and French.</target>
+        </trans-unit>
+        <trans-unit id="00819ba1-ea0e-4614-8d7b-972db8369bd2" xml:space="preserve">
+          <source>Users with browsers set to one of these two languages will see the specific image, while everyone else will see the default one.</source>
+          <target state="new">Users with browsers set to one of these two languages will see the specific image, while everyone else will see the default one.</target>
+        </trans-unit>
+        <trans-unit id="253e474d-1460-4a7c-9f94-5a6d1dfc5a8d" xml:space="preserve">
+          <source>Configure different logos for your organization (e.g. Japanese or Hebrew versions).</source>
+          <target state="new">Configure different logos for your organization (e.g. Japanese or Hebrew versions).</target>
+        </trans-unit>
+        <trans-unit id="b04170af-9bff-42ea-8237-cdf7fd10b568" xml:space="preserve">
+          <source>During a browser window resizing, the large Illustration, like the one shown previously, will almost always be cropped to accommodate different screen aspect ratios.</source>
+          <target state="new">During a browser window resizing, the large Illustration, like the one shown previously, will almost always be cropped to accommodate different screen aspect ratios.</target>
+        </trans-unit>
+        <trans-unit id="8e7cae21-c3e9-44cd-9267-3389bcbbd97f" xml:space="preserve">
+          <source>With this in mind, you should try to keep the key visual elements in the illustration so that they will always show in the top-left corner (top-right for right-to-left languages).</source>
+          <target state="new">With this in mind, you should try to keep the key visual elements in the illustration so that they will always show in the top-left corner (top-right for right-to-left languages).</target>
+        </trans-unit>
+        <trans-unit id="1ead6c0f-c340-4500-be3c-2e1ab923c010" xml:space="preserve">
+          <source>This is important because resizing typically occurs from the bottom-right corner going towards the top/left or from the bottom towards the top.</source>
+          <target state="new">This is important because resizing typically occurs from the bottom-right corner going towards the top/left or from the bottom towards the top.</target>
+        </trans-unit>
+        <trans-unit id="e4d2cd66-7a47-401f-b888-3a99e29a521b" xml:space="preserve">
+          <source>The following picture shows how the illustration will be cropped when the browser is resized to the left:</source>
+          <target state="new">The following picture shows how the illustration will be cropped when the browser is resized to the left:</target>
+        </trans-unit>
+        <trans-unit id="2e389af5-38f4-4c02-9682-3f1116d9d392" xml:space="preserve">
+          <source><bpt id="135261b8-9eae-498a-877f-c7b08defb58b">&lt;linkText&gt;</bpt><ept id="135261b8-9eae-498a-877f-c7b08defb58b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="135261b8-9eae-498a-877f-c7b08defb58b">&lt;linkText&gt;</bpt><ept id="135261b8-9eae-498a-877f-c7b08defb58b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="066fb886-7eec-49ae-9b79-5e689cd226c7" xml:space="preserve">
+          <source>And here is how it will appear after the browser is resized toward the top:</source>
+          <target state="new">And here is how it will appear after the browser is resized toward the top:</target>
+        </trans-unit>
+        <trans-unit id="ccd37c0f-0031-4978-baa7-8b0652b5d682" xml:space="preserve">
+          <source><bpt id="4b27dad7-a845-4a9f-b802-1319b6b1771b">&lt;linkText&gt;</bpt><ept id="4b27dad7-a845-4a9f-b802-1319b6b1771b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b27dad7-a845-4a9f-b802-1319b6b1771b">&lt;linkText&gt;</bpt><ept id="4b27dad7-a845-4a9f-b802-1319b6b1771b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19ab32de-1f5c-48ff-a404-8f9689c7df14" xml:space="preserve">
+          <source>The Access Panel page is essentially a portal page for all end users that need quick access, via clickable application tiles, to the various cloud apps that you’ve granted them access to.</source>
+          <target state="new">The Access Panel page is essentially a portal page for all end users that need quick access, via clickable application tiles, to the various cloud apps that you’ve granted them access to.</target>
+        </trans-unit>
+        <trans-unit id="f5195305-7658-40b7-8564-c7dfdc65d0ca" xml:space="preserve">
+          <source>If you want to use the default non-branded Access Panel page experience, you need do nothing.</source>
+          <target state="new">If you want to use the default non-branded Access Panel page experience, you need do nothing.</target>
+        </trans-unit>
+        <trans-unit id="cd98cacd-3eff-4d36-a403-e576c9e4f227" xml:space="preserve">
+          <source><bpt id="17e7b4c6-68b8-4ae7-bcf9-3ca403d55851">&lt;linkText&gt;</bpt><ept id="17e7b4c6-68b8-4ae7-bcf9-3ca403d55851">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="17e7b4c6-68b8-4ae7-bcf9-3ca403d55851">&lt;linkText&gt;</bpt><ept id="17e7b4c6-68b8-4ae7-bcf9-3ca403d55851">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1beeaa34-fcd7-4e10-a0df-03cd81cfdde7" xml:space="preserve">
+          <source>One default set of customizable elements can be configured per directory in the Management Portal.</source>
+          <target state="new">One default set of customizable elements can be configured per directory in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="439e14d3-1b31-412a-8c10-75411cae2de3" xml:space="preserve">
+          <source>After defaults have been saved, an administrator also has the option to add localized versions of each element, for different languages/locales.</source>
+          <target state="new">After defaults have been saved, an administrator also has the option to add localized versions of each element, for different languages/locales.</target>
+        </trans-unit>
+        <trans-unit id="97038523-7eb1-41b6-a400-5c7b9766b305" xml:space="preserve">
+          <source>All customizable elements are optional.</source>
+          <target state="new">All customizable elements are optional.</target>
+        </trans-unit>
+        <trans-unit id="3a350b68-2f06-48ec-8c0f-e489e82fd34a" xml:space="preserve">
+          <source>For example, if you configure a default Banner Logo but no Large Illustration, the Sign In page will display your logo in the upper-right corner, however the site’s default illustration will be displayed.</source>
+          <target state="new">For example, if you configure a default Banner Logo but no Large Illustration, the Sign In page will display your logo in the upper-right corner, however the site’s default illustration will be displayed.</target>
+        </trans-unit>
+        <trans-unit id="194b09a6-792e-4317-94b1-eb1567312f50" xml:space="preserve">
+          <source>If you configure a default Banner Logo and Sign In Page Text in English, and configure language-specific Sign In Page Text for German, then users with a German language preference will see your default Banner Logo but the German text.</source>
+          <target state="new">If you configure a default Banner Logo and Sign In Page Text in English, and configure language-specific Sign In Page Text for German, then users with a German language preference will see your default Banner Logo but the German text.</target>
+        </trans-unit>
+        <trans-unit id="70a323cb-a46f-4b69-8f41-10597075175c" xml:space="preserve">
+          <source>While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.</source>
+          <target state="new">While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.</target>
+        </trans-unit>
+        <trans-unit id="5f319277-e3b9-4597-8d9c-63e3200be05b" xml:space="preserve">
+          <source>To add company branding to your directory:</source>
+          <target state="new">To add company branding to your directory:</target>
+        </trans-unit>
+        <trans-unit id="cc380eb3-df04-4648-96a0-81fd4a0da572" xml:space="preserve">
+          <source>Sign into the <bpt id="9d70f35a-9ce7-4734-bb34-76887a90bc47">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="9d70f35a-9ce7-4734-bb34-76887a90bc47">&lt;/linkText&gt;</ept><bpt id="9d70f35a-9ce7-4734-bb34-76887a90bc47">&lt;title&gt;</bpt><ept id="9d70f35a-9ce7-4734-bb34-76887a90bc47">&lt;/title&gt;</ept> as the administrator of the directory you wish to customize.</source>
+          <target state="new">Sign into the <bpt id="9d70f35a-9ce7-4734-bb34-76887a90bc47">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="9d70f35a-9ce7-4734-bb34-76887a90bc47">&lt;/linkText&gt;</ept><bpt id="9d70f35a-9ce7-4734-bb34-76887a90bc47">&lt;title&gt;</bpt><ept id="9d70f35a-9ce7-4734-bb34-76887a90bc47">&lt;/title&gt;</ept> as the administrator of the directory you wish to customize.</target>
+        </trans-unit>
+        <trans-unit id="35a7c273-969d-43cd-a53e-b2be5df33822" xml:space="preserve">
+          <source>Select the directory you wish to customize.</source>
+          <target state="new">Select the directory you wish to customize.</target>
+        </trans-unit>
+        <trans-unit id="dc276b45-e95c-4f9d-9116-ba8c1568b781" xml:space="preserve">
+          <source>Select the <bpt id="51c8ae02-53dc-46d1-ae23-b29e62b74a1c">&lt;strong&gt;</bpt>Configure<ept id="51c8ae02-53dc-46d1-ae23-b29e62b74a1c">&lt;/strong&gt;</ept> tab, and then select <bpt id="46bcc259-9d20-4eb3-a24f-69345d83086a">&lt;strong&gt;</bpt>Customize Branding<ept id="46bcc259-9d20-4eb3-a24f-69345d83086a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="51c8ae02-53dc-46d1-ae23-b29e62b74a1c">&lt;strong&gt;</bpt>Configure<ept id="51c8ae02-53dc-46d1-ae23-b29e62b74a1c">&lt;/strong&gt;</ept> tab, and then select <bpt id="46bcc259-9d20-4eb3-a24f-69345d83086a">&lt;strong&gt;</bpt>Customize Branding<ept id="46bcc259-9d20-4eb3-a24f-69345d83086a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="479fbb66-535f-44f2-8e99-7708a8668990" xml:space="preserve">
+          <source>Modify the elements you wish to customize.</source>
+          <target state="new">Modify the elements you wish to customize.</target>
+        </trans-unit>
+        <trans-unit id="753e6837-ba5d-4cab-82d5-8f1230439440" xml:space="preserve">
+          <source>Note that all fields are optional.</source>
+          <target state="new">Note that all fields are optional.</target>
+        </trans-unit>
+        <trans-unit id="c4c9ae3c-79de-429b-bfc4-af109a91459c" xml:space="preserve">
+          <source>Click <bpt id="f21df6bd-b5e7-4bc6-adef-f2dc65ef6afa">&lt;strong&gt;</bpt>Save<ept id="f21df6bd-b5e7-4bc6-adef-f2dc65ef6afa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f21df6bd-b5e7-4bc6-adef-f2dc65ef6afa">&lt;strong&gt;</bpt>Save<ept id="f21df6bd-b5e7-4bc6-adef-f2dc65ef6afa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="06b228b4-ae5e-4943-acaf-71ecf7a96bef" xml:space="preserve">
+          <source>It can take up to an hour for users to see any new change you made to the sign in page branding.</source>
+          <target state="new">It can take up to an hour for users to see any new change you made to the sign in page branding.</target>
+        </trans-unit>
+        <trans-unit id="8903b883-1db7-48a9-9ee4-b8bdfa820096" xml:space="preserve">
+          <source>To add language-specific company branding:</source>
+          <target state="new">To add language-specific company branding:</target>
+        </trans-unit>
+        <trans-unit id="8cf02abf-111b-47a2-88f9-2fe57a859231" xml:space="preserve">
+          <source>In the <bpt id="b645dd21-0ae2-46b5-8bc9-e8b8ac069f77">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="b645dd21-0ae2-46b5-8bc9-e8b8ac069f77">&lt;/linkText&gt;</ept><bpt id="b645dd21-0ae2-46b5-8bc9-e8b8ac069f77">&lt;title&gt;</bpt><ept id="b645dd21-0ae2-46b5-8bc9-e8b8ac069f77">&lt;/title&gt;</ept>, under the <bpt id="ba594ab0-0f7e-45a7-a7ac-c9af924adb0c">&lt;strong&gt;</bpt>Configure<ept id="ba594ab0-0f7e-45a7-a7ac-c9af924adb0c">&lt;/strong&gt;</ept> tab, select <bpt id="309d4519-4665-43ca-be50-9d0743f65b64">&lt;strong&gt;</bpt>Customize Branding<ept id="309d4519-4665-43ca-be50-9d0743f65b64">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b645dd21-0ae2-46b5-8bc9-e8b8ac069f77">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="b645dd21-0ae2-46b5-8bc9-e8b8ac069f77">&lt;/linkText&gt;</ept><bpt id="b645dd21-0ae2-46b5-8bc9-e8b8ac069f77">&lt;title&gt;</bpt><ept id="b645dd21-0ae2-46b5-8bc9-e8b8ac069f77">&lt;/title&gt;</ept>, under the <bpt id="ba594ab0-0f7e-45a7-a7ac-c9af924adb0c">&lt;strong&gt;</bpt>Configure<ept id="ba594ab0-0f7e-45a7-a7ac-c9af924adb0c">&lt;/strong&gt;</ept> tab, select <bpt id="309d4519-4665-43ca-be50-9d0743f65b64">&lt;strong&gt;</bpt>Customize Branding<ept id="309d4519-4665-43ca-be50-9d0743f65b64">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2152e8d7-4b76-41c6-8f73-48f3e69dc7a3" xml:space="preserve">
+          <source>Select <bpt id="be0bf54e-74c5-41dd-9d00-9dc3ec3e486c">&lt;strong&gt;</bpt>Add branding for a specific language<ept id="be0bf54e-74c5-41dd-9d00-9dc3ec3e486c">&lt;/strong&gt;</ept>, select the language you want to customize the logo for, and then click <bpt id="efc73584-55f4-4c58-9f95-b7f2cade89c4">&lt;strong&gt;</bpt>Next<ept id="efc73584-55f4-4c58-9f95-b7f2cade89c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="be0bf54e-74c5-41dd-9d00-9dc3ec3e486c">&lt;strong&gt;</bpt>Add branding for a specific language<ept id="be0bf54e-74c5-41dd-9d00-9dc3ec3e486c">&lt;/strong&gt;</ept>, select the language you want to customize the logo for, and then click <bpt id="efc73584-55f4-4c58-9f95-b7f2cade89c4">&lt;strong&gt;</bpt>Next<ept id="efc73584-55f4-4c58-9f95-b7f2cade89c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a364769-e7d3-4cf7-8a19-3e5617b167bb" xml:space="preserve">
+          <source>Edit only the elements for which you wish to configure language-specific overrides.</source>
+          <target state="new">Edit only the elements for which you wish to configure language-specific overrides.</target>
+        </trans-unit>
+        <trans-unit id="f5671aa0-e0f1-4712-830a-08260c80ace7" xml:space="preserve">
+          <source>Note that all fields are optional.</source>
+          <target state="new">Note that all fields are optional.</target>
+        </trans-unit>
+        <trans-unit id="41e5a3ea-5b23-44bd-9098-fc2de597a8bb" xml:space="preserve">
+          <source>If a field is left blank, then the custom default value will be displayed instead (or the Microsoft default if a custom default is not configured).</source>
+          <target state="new">If a field is left blank, then the custom default value will be displayed instead (or the Microsoft default if a custom default is not configured).</target>
+        </trans-unit>
+        <trans-unit id="fa9cc870-36ea-4f94-9c8e-df34146eea3e" xml:space="preserve">
+          <source>Click <bpt id="dee1e6a5-2684-431e-8233-11511211fb0c">&lt;strong&gt;</bpt>Save<ept id="dee1e6a5-2684-431e-8233-11511211fb0c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="dee1e6a5-2684-431e-8233-11511211fb0c">&lt;strong&gt;</bpt>Save<ept id="dee1e6a5-2684-431e-8233-11511211fb0c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93648558-ddf2-42c7-ae8f-887bd683e8c0" xml:space="preserve">
+          <source>To remove company branding from your directory</source>
+          <target state="new">To remove company branding from your directory</target>
+        </trans-unit>
+        <trans-unit id="a3c9a3d4-eadd-4f17-9ecb-74735f1bfcd5" xml:space="preserve">
+          <source>In the <bpt id="92ac3aea-dd2a-48a2-bc05-9a523e904a8b">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="92ac3aea-dd2a-48a2-bc05-9a523e904a8b">&lt;/linkText&gt;</ept><bpt id="92ac3aea-dd2a-48a2-bc05-9a523e904a8b">&lt;title&gt;</bpt><ept id="92ac3aea-dd2a-48a2-bc05-9a523e904a8b">&lt;/title&gt;</ept>, under the <bpt id="fcf614fe-9899-48d6-ad52-d29ae22d8e00">&lt;strong&gt;</bpt>Configure<ept id="fcf614fe-9899-48d6-ad52-d29ae22d8e00">&lt;/strong&gt;</ept> tab, select <bpt id="8515b924-2afe-469f-b950-d3406f28b07a">&lt;strong&gt;</bpt>Customize Branding<ept id="8515b924-2afe-469f-b950-d3406f28b07a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="92ac3aea-dd2a-48a2-bc05-9a523e904a8b">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="92ac3aea-dd2a-48a2-bc05-9a523e904a8b">&lt;/linkText&gt;</ept><bpt id="92ac3aea-dd2a-48a2-bc05-9a523e904a8b">&lt;title&gt;</bpt><ept id="92ac3aea-dd2a-48a2-bc05-9a523e904a8b">&lt;/title&gt;</ept>, under the <bpt id="fcf614fe-9899-48d6-ad52-d29ae22d8e00">&lt;strong&gt;</bpt>Configure<ept id="fcf614fe-9899-48d6-ad52-d29ae22d8e00">&lt;/strong&gt;</ept> tab, select <bpt id="8515b924-2afe-469f-b950-d3406f28b07a">&lt;strong&gt;</bpt>Customize Branding<ept id="8515b924-2afe-469f-b950-d3406f28b07a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19ec1edd-75f8-44c9-a292-e5900ee90662" xml:space="preserve">
+          <source>On the Customize Branding page, select <bpt id="01b56b8e-977f-44d4-8103-092df880e635">&lt;strong&gt;</bpt>Edit Existing Branding Settings<ept id="01b56b8e-977f-44d4-8103-092df880e635">&lt;/strong&gt;</ept> and then go to the next page.</source>
+          <target state="new">On the Customize Branding page, select <bpt id="01b56b8e-977f-44d4-8103-092df880e635">&lt;strong&gt;</bpt>Edit Existing Branding Settings<ept id="01b56b8e-977f-44d4-8103-092df880e635">&lt;/strong&gt;</ept> and then go to the next page.</target>
+        </trans-unit>
+        <trans-unit id="b4456493-7218-4da3-a999-4a7d0f8faaf6" xml:space="preserve">
+          <source>Depending on which elements you want to remove, do one or more of the following:</source>
+          <target state="new">Depending on which elements you want to remove, do one or more of the following:</target>
+        </trans-unit>
+        <trans-unit id="d80b7671-e612-400f-9301-612f223c7e70" xml:space="preserve">
+          <source>For Banner Logo, click on the check box to <bpt id="a63ef319-e212-4c2e-9e2e-a61ee631f01d">&lt;strong&gt;</bpt>Remove uploaded logo<ept id="a63ef319-e212-4c2e-9e2e-a61ee631f01d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For Banner Logo, click on the check box to <bpt id="a63ef319-e212-4c2e-9e2e-a61ee631f01d">&lt;strong&gt;</bpt>Remove uploaded logo<ept id="a63ef319-e212-4c2e-9e2e-a61ee631f01d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="244cdb7b-1a7f-4bdb-bbdc-e5b8b8371737" xml:space="preserve">
+          <source>For Tile Logo, click on the check box to <bpt id="3c140efa-9e4b-4b9f-8b1e-b25af00e0ab7">&lt;strong&gt;</bpt>Remove uploaded logo<ept id="3c140efa-9e4b-4b9f-8b1e-b25af00e0ab7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For Tile Logo, click on the check box to <bpt id="3c140efa-9e4b-4b9f-8b1e-b25af00e0ab7">&lt;strong&gt;</bpt>Remove uploaded logo<ept id="3c140efa-9e4b-4b9f-8b1e-b25af00e0ab7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0be3c3b0-eed0-459d-87fd-9083456c85a3" xml:space="preserve">
+          <source>For Sign In Page User Name Label, clear all text.</source>
+          <target state="new">For Sign In Page User Name Label, clear all text.</target>
+        </trans-unit>
+        <trans-unit id="706d704f-783f-4e54-af4a-f104870a7939" xml:space="preserve">
+          <source>For Sign In Page Text, clear all text.</source>
+          <target state="new">For Sign In Page Text, clear all text.</target>
+        </trans-unit>
+        <trans-unit id="f704bd2c-71bf-45d7-9b78-8f012d19d222" xml:space="preserve">
+          <source>For Sign In Page Illustration, click on the check box to <bpt id="69d47114-c313-422e-a2f1-a7336ed9ce59">&lt;strong&gt;</bpt>Remove illustration<ept id="69d47114-c313-422e-a2f1-a7336ed9ce59">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For Sign In Page Illustration, click on the check box to <bpt id="69d47114-c313-422e-a2f1-a7336ed9ce59">&lt;strong&gt;</bpt>Remove illustration<ept id="69d47114-c313-422e-a2f1-a7336ed9ce59">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c8f62f7-cb56-48a9-9ce2-7a34c2633eb6" xml:space="preserve">
+          <source>For Sign In Page Background Color, clear all text.</source>
+          <target state="new">For Sign In Page Background Color, clear all text.</target>
+        </trans-unit>
+        <trans-unit id="569b7335-8c25-4769-8a1d-5663c4d8b917" xml:space="preserve">
+          <source>Click <bpt id="d29b0e1e-34ee-4083-a1c4-069decd8637a">&lt;strong&gt;</bpt>Save<ept id="d29b0e1e-34ee-4083-a1c4-069decd8637a">&lt;/strong&gt;</ept> to remove the elements.</source>
+          <target state="new">Click <bpt id="d29b0e1e-34ee-4083-a1c4-069decd8637a">&lt;strong&gt;</bpt>Save<ept id="d29b0e1e-34ee-4083-a1c4-069decd8637a">&lt;/strong&gt;</ept> to remove the elements.</target>
+        </trans-unit>
+        <trans-unit id="74fe1246-8d7c-4635-ad76-7ca79cc23148" xml:space="preserve">
+          <source>If necessary, click <bpt id="120a8fa6-036c-4f3c-9622-9319ce6400bc">&lt;strong&gt;</bpt>Customize Branding<ept id="120a8fa6-036c-4f3c-9622-9319ce6400bc">&lt;/strong&gt;</ept> again and repeat these steps for all language-specific branding that needs to be removed.</source>
+          <target state="new">If necessary, click <bpt id="120a8fa6-036c-4f3c-9622-9319ce6400bc">&lt;strong&gt;</bpt>Customize Branding<ept id="120a8fa6-036c-4f3c-9622-9319ce6400bc">&lt;/strong&gt;</ept> again and repeat these steps for all language-specific branding that needs to be removed.</target>
+        </trans-unit>
+        <trans-unit id="b6c2b8fc-a0f0-4172-9aec-e709c085560d" xml:space="preserve">
+          <source>All branding settings have been removed when you click <bpt id="62e2fead-d4e4-48fd-8c8c-0ba11933f25d">&lt;strong&gt;</bpt>Customize Branding<ept id="62e2fead-d4e4-48fd-8c8c-0ba11933f25d">&lt;/strong&gt;</ept> and see the <bpt id="27bd47ea-041d-42f8-90f2-444f3ce86f65">&lt;strong&gt;</bpt>Customize Default Branding<ept id="27bd47ea-041d-42f8-90f2-444f3ce86f65">&lt;/strong&gt;</ept> form with no existing settings configured.</source>
+          <target state="new">All branding settings have been removed when you click <bpt id="62e2fead-d4e4-48fd-8c8c-0ba11933f25d">&lt;strong&gt;</bpt>Customize Branding<ept id="62e2fead-d4e4-48fd-8c8c-0ba11933f25d">&lt;/strong&gt;</ept> and see the <bpt id="27bd47ea-041d-42f8-90f2-444f3ce86f65">&lt;strong&gt;</bpt>Customize Default Branding<ept id="27bd47ea-041d-42f8-90f2-444f3ce86f65">&lt;/strong&gt;</ept> form with no existing settings configured.</target>
+        </trans-unit>
+        <trans-unit id="72a2824f-eb3c-4932-a9a7-72cbe6ad934e" xml:space="preserve">
+          <source>We recommend that you experiment with a test tenant before making changes in your production environment.</source>
+          <target state="new">We recommend that you experiment with a test tenant before making changes in your production environment.</target>
+        </trans-unit>
+        <trans-unit id="3a805aba-9309-4c38-948c-4418adcdca86" xml:space="preserve">
+          <source>The simplest way to verify if your branding has been applied is to open an InPrivate or Incognito browser session and then visit https://outlook.com/contoso.com, replacing contoso.com with the domain you’ve customized.</source>
+          <target state="new">The simplest way to verify if your branding has been applied is to open an InPrivate or Incognito browser session and then visit https://outlook.com/contoso.com, replacing contoso.com with the domain you’ve customized.</target>
+        </trans-unit>
+        <trans-unit id="85e5980b-b431-4d63-9189-bb0c87b10874" xml:space="preserve">
+          <source>Note that this also works with domains that look like contoso.onmicrosoft.com.</source>
+          <target state="new">Note that this also works with domains that look like contoso.onmicrosoft.com.</target>
+        </trans-unit>
+        <trans-unit id="61beb383-a192-457b-809d-c3bba43c09d0" xml:space="preserve">
+          <source>To help you create effective customization sets, we have customized the following two fictitious sign in pages:</source>
+          <target state="new">To help you create effective customization sets, we have customized the following two fictitious sign in pages:</target>
+        </trans-unit>
+        <trans-unit id="a98e824e-5951-46ac-95c3-e8ff0f1e1cc6" xml:space="preserve">
+          <source><bpt id="f41d3f56-21e1-42f7-818e-cb8f9a9c5e4e">&lt;linkText&gt;</bpt>http://aka.ms/aaddemo001<ept id="f41d3f56-21e1-42f7-818e-cb8f9a9c5e4e">&lt;/linkText&gt;</ept><bpt id="f41d3f56-21e1-42f7-818e-cb8f9a9c5e4e">&lt;title&gt;</bpt><ept id="f41d3f56-21e1-42f7-818e-cb8f9a9c5e4e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f41d3f56-21e1-42f7-818e-cb8f9a9c5e4e">&lt;linkText&gt;</bpt>http://aka.ms/aaddemo001<ept id="f41d3f56-21e1-42f7-818e-cb8f9a9c5e4e">&lt;/linkText&gt;</ept><bpt id="f41d3f56-21e1-42f7-818e-cb8f9a9c5e4e">&lt;title&gt;</bpt><ept id="f41d3f56-21e1-42f7-818e-cb8f9a9c5e4e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af03456b-44a6-406f-b847-75d530f2363a" xml:space="preserve">
+          <source><bpt id="9501ff42-eac9-4510-b4ff-e2b2b3208d20">&lt;linkText&gt;</bpt>http://aka.ms/aaddemo002<ept id="9501ff42-eac9-4510-b4ff-e2b2b3208d20">&lt;/linkText&gt;</ept><bpt id="9501ff42-eac9-4510-b4ff-e2b2b3208d20">&lt;title&gt;</bpt><ept id="9501ff42-eac9-4510-b4ff-e2b2b3208d20">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9501ff42-eac9-4510-b4ff-e2b2b3208d20">&lt;linkText&gt;</bpt>http://aka.ms/aaddemo002<ept id="9501ff42-eac9-4510-b4ff-e2b2b3208d20">&lt;/linkText&gt;</ept><bpt id="9501ff42-eac9-4510-b4ff-e2b2b3208d20">&lt;title&gt;</bpt><ept id="9501ff42-eac9-4510-b4ff-e2b2b3208d20">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b92acb6-c5b7-4f9b-88a1-45b6b3ecb7c9" xml:space="preserve">
+          <source>To test the language-specific settings, you will need to modify the default language preferences in your web browser to a language you have set in your customization.</source>
+          <target state="new">To test the language-specific settings, you will need to modify the default language preferences in your web browser to a language you have set in your customization.</target>
+        </trans-unit>
+        <trans-unit id="1c43c5ae-e90f-4ece-843e-0077f9dd1635" xml:space="preserve">
+          <source>In Internet Explorer, this is configured in the <bpt id="c636088e-25a9-4c04-af93-a8af50b5c08f">&lt;strong&gt;</bpt>Internet Options<ept id="c636088e-25a9-4c04-af93-a8af50b5c08f">&lt;/strong&gt;</ept> menu.</source>
+          <target state="new">In Internet Explorer, this is configured in the <bpt id="c636088e-25a9-4c04-af93-a8af50b5c08f">&lt;strong&gt;</bpt>Internet Options<ept id="c636088e-25a9-4c04-af93-a8af50b5c08f">&lt;/strong&gt;</ept> menu.</target>
+        </trans-unit>
+        <trans-unit id="b4ff39b7-a289-4f43-ac4a-2574ec685815" xml:space="preserve">
+          <source>Some customizable elements in Azure AD have multiple use cases.</source>
+          <target state="new">Some customizable elements in Azure AD have multiple use cases.</target>
+        </trans-unit>
+        <trans-unit id="09bd9aa3-8af1-4f4c-b328-ec2a99921c04" xml:space="preserve">
+          <source>Company logos can be configured once per directory and is used on both the Sign In and Access Panel pages, where as some customizable elements are specific only to the Sign In page.</source>
+          <target state="new">Company logos can be configured once per directory and is used on both the Sign In and Access Panel pages, where as some customizable elements are specific only to the Sign In page.</target>
+        </trans-unit>
+        <trans-unit id="ddd3af31-5744-4253-9f1d-2083297a93c4" xml:space="preserve">
+          <source>The following table provides details for the different customizable elements.</source>
+          <target state="new">The following table provides details for the different customizable elements.</target>
+        </trans-unit>
+        <trans-unit id="4e7e7cc9-3e7a-4ec5-bfdd-98030690e8ab" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="a33f129e-bed6-4ea7-892d-852a67999a00" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="61233c8d-4c1d-4653-a8f2-cde8894d5000" xml:space="preserve">
+          <source>Constraints</source>
+          <target state="new">Constraints</target>
+        </trans-unit>
+        <trans-unit id="b4a9954f-26c2-48a8-b8a6-060e81551820" xml:space="preserve">
+          <source>Recommendations</source>
+          <target state="new">Recommendations</target>
+        </trans-unit>
+        <trans-unit id="f9fb7285-7b11-4617-9216-8cbdfaef4df2" xml:space="preserve">
+          <source>Banner Logo</source>
+          <target state="new">Banner Logo</target>
+        </trans-unit>
+        <trans-unit id="a6b9a85b-2e6f-42cd-957c-da0d24c36ace" xml:space="preserve">
+          <source>The Banner Logo is displayed on the Sign In page and the Access panel.</source>
+          <target state="new">The Banner Logo is displayed on the Sign In page and the Access panel.</target>
+        </trans-unit>
+        <trans-unit id="6adfba3a-9db1-451b-ba70-55f1d9d4e472" xml:space="preserve">
+          <source>&lt;p&gt;JPG or PNG&lt;/p&gt;&lt;p&gt;60x280 pixels&lt;/p&gt;&lt;p&gt;10 KB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;JPG or PNG&lt;/p&gt;&lt;p&gt;60x280 pixels&lt;/p&gt;&lt;p&gt;10 KB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="e52143db-9fdf-4311-a378-085a9ae392c1" xml:space="preserve">
+          <source>&lt;p&gt;Use your organization’s full logo (including pictogram and logotype)&lt;/p&gt;&lt;p&gt;Keep it under 30 pixels high to avoid introducing scrollbars on mobile devices&lt;/p&gt;&lt;p&gt;Keep it under 4 KB&lt;/p&gt;&lt;p&gt;Use a transparent PNG (don’t assume that the Sign In page will always have a white background)&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Use your organization’s full logo (including pictogram and logotype)&lt;/p&gt;&lt;p&gt;Keep it under 30 pixels high to avoid introducing scrollbars on mobile devices&lt;/p&gt;&lt;p&gt;Keep it under 4 KB&lt;/p&gt;&lt;p&gt;Use a transparent PNG (don’t assume that the Sign In page will always have a white background)&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="bf94c07c-fe79-4161-979f-1755ecd6df41" xml:space="preserve">
+          <source>Tile Logo</source>
+          <target state="new">Tile Logo</target>
+        </trans-unit>
+        <trans-unit id="9ff648d4-1edb-4e6a-9dea-efbba75c328a" xml:space="preserve">
+          <source>(currently not used in the Sign In page) In the future, this text may be used to replace the generic “work or school account” pictogram in different places of the experience.</source>
+          <target state="new">(currently not used in the Sign In page) In the future, this text may be used to replace the generic “work or school account” pictogram in different places of the experience.</target>
+        </trans-unit>
+        <trans-unit id="915f7488-70a1-44fd-8b2e-90de9c3771d6" xml:space="preserve">
+          <source>&lt;p&gt;JPG or PNG&lt;/p&gt;&lt;p&gt;120x120 pixels&lt;/p&gt;&lt;p&gt;10 KB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;JPG or PNG&lt;/p&gt;&lt;p&gt;120x120 pixels&lt;/p&gt;&lt;p&gt;10 KB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="4ba441fb-e59d-4c64-9df9-9145affe8015" xml:space="preserve">
+          <source>&lt;p&gt;Keep it simple (no small text), as this image may be resized to 50%</source>
+          <target state="new">&lt;p&gt;Keep it simple (no small text), as this image may be resized to 50%</target>
+        </trans-unit>
+        <trans-unit id="5317c91b-bbe1-47a3-b192-eaa3567c7498" xml:space="preserve">
+          <source>&lt;/p&gt;</source>
+          <target state="new">&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="58c8bcc9-3f06-4559-8380-1be74e341785" xml:space="preserve">
+          <source>Sign In Page User Name Label</source>
+          <target state="new">Sign In Page User Name Label</target>
+        </trans-unit>
+        <trans-unit id="18674b8b-2ff7-4730-9482-d1905b20f263" xml:space="preserve">
+          <source>(currently not used in the Sign In page) In the future, this text may be used to replace the generic “work or school account” string in different places of the experience.</source>
+          <target state="new">(currently not used in the Sign In page) In the future, this text may be used to replace the generic “work or school account” string in different places of the experience.</target>
+        </trans-unit>
+        <trans-unit id="bd970c60-308d-4939-84f9-39ace2193744" xml:space="preserve">
+          <source>You can set it to something like “Contoso account” or “Contoso ID”.</source>
+          <target state="new">You can set it to something like “Contoso account” or “Contoso ID”.</target>
+        </trans-unit>
+        <trans-unit id="77b81648-c4e6-4d65-a8c7-4fd9e570fbd5" xml:space="preserve">
+          <source>&lt;p&gt;Unicode text, up to 50 characters&lt;/p&gt;&lt;p&gt;Plain text only (no links or HTML tags)&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Unicode text, up to 50 characters&lt;/p&gt;&lt;p&gt;Plain text only (no links or HTML tags)&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="402cc580-d099-41fa-a0f3-cc6975bc202f" xml:space="preserve">
+          <source>&lt;p&gt;Keep it short and simple&lt;/p&gt;&lt;p&gt;Ask your users how they usually refer to the work or school account you provide them with.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Keep it short and simple&lt;/p&gt;&lt;p&gt;Ask your users how they usually refer to the work or school account you provide them with.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="306ccefe-f060-414a-9b55-6163bfc8058d" xml:space="preserve">
+          <source>Sign In Page Text</source>
+          <target state="new">Sign In Page Text</target>
+        </trans-unit>
+        <trans-unit id="dded3824-ee1b-4f61-94c8-78859f16aebd" xml:space="preserve">
+          <source>This “boilerplate” text appears below the Sign In page form and can be used to communicate additional instructions, or where to get help and support.</source>
+          <target state="new">This “boilerplate” text appears below the Sign In page form and can be used to communicate additional instructions, or where to get help and support.</target>
+        </trans-unit>
+        <trans-unit id="d3564327-655c-45d9-bf7f-317aa6c9946a" xml:space="preserve">
+          <source>&lt;p&gt;Unicode text, up to 256 characters&lt;/p&gt;&lt;p&gt;Plain text only (no links or HTML tags)&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Unicode text, up to 256 characters&lt;/p&gt;&lt;p&gt;Plain text only (no links or HTML tags)&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="45e52639-a7ff-4af0-b07b-dde7d7276c22" xml:space="preserve">
+          <source>Keep it under 250 characters (approximately 3 lines of text)</source>
+          <target state="new">Keep it under 250 characters (approximately 3 lines of text)</target>
+        </trans-unit>
+        <trans-unit id="ee7451ac-3b72-42c5-96dc-ed24d3e5c36f" xml:space="preserve">
+          <source>Sign In Page Illustration</source>
+          <target state="new">Sign In Page Illustration</target>
+        </trans-unit>
+        <trans-unit id="e334115a-bd82-4a31-b238-6c676166d4d8" xml:space="preserve">
+          <source>The illustration is a large image that is displayed on the Sign In page to the left of the Sign In page form.</source>
+          <target state="new">The illustration is a large image that is displayed on the Sign In page to the left of the Sign In page form.</target>
+        </trans-unit>
+        <trans-unit id="753455c7-7ad6-4326-a512-1c8e828466d3" xml:space="preserve">
+          <source>&lt;p&gt;JPG or PNG&lt;/p&gt;&lt;p&gt;1420x1200&lt;/p&gt;&lt;p&gt;500 KB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;JPG or PNG&lt;/p&gt;&lt;p&gt;1420x1200&lt;/p&gt;&lt;p&gt;500 KB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="58a0c24c-a1f9-4b32-afe3-3d1cffcd6cec" xml:space="preserve">
+          <source>&lt;p&gt;1420x1200 pixels&lt;/p&gt;&lt;p&gt;Important: Keep it as small as possible, ideally under 200 KB. If this image is too large, it will impact the performance of the Sign In page when the image isn’t cached&lt;/p&gt;&lt;p&gt;This image WILL almost always be cropped, to accommodate different screen ratios. Keep the primary visual elements in the top left corner (top right for RTL languages), because resizing will occur from the bottom/right corner, going towards the top/left, as the browser window shrinks.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;1420x1200 pixels&lt;/p&gt;&lt;p&gt;Important: Keep it as small as possible, ideally under 200 KB. If this image is too large, it will impact the performance of the Sign In page when the image isn’t cached&lt;/p&gt;&lt;p&gt;This image WILL almost always be cropped, to accommodate different screen ratios. Keep the primary visual elements in the top left corner (top right for RTL languages), because resizing will occur from the bottom/right corner, going towards the top/left, as the browser window shrinks.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="6061d624-3a4f-4530-be4d-00dcea9b7bb4" xml:space="preserve">
+          <source>Sign In Page Background Color</source>
+          <target state="new">Sign In Page Background Color</target>
+        </trans-unit>
+        <trans-unit id="2b998730-5dbc-48b3-bfa6-9921648becbc" xml:space="preserve">
+          <source>The Sign In page background color is used in the area to the left of the Sign In page form.</source>
+          <target state="new">The Sign In page background color is used in the area to the left of the Sign In page form.</target>
+        </trans-unit>
+        <trans-unit id="2897ee8a-4c22-49a4-9682-412d92e0077b" xml:space="preserve">
+          <source>This is visible either when there is no Sign In page illustration present.</source>
+          <target state="new">This is visible either when there is no Sign In page illustration present.</target>
+        </trans-unit>
+        <trans-unit id="1c7d7b25-cc58-449f-a412-075a4d0844a7" xml:space="preserve">
+          <source>Must be a RGB color in hexadecimal form (example: #FFFFFF)</source>
+          <target state="new">Must be a RGB color in hexadecimal form (example: #FFFFFF)</target>
+        </trans-unit>
+        <trans-unit id="f7151279-f2eb-4aee-a331-0ced3bbdab89" xml:space="preserve">
+          <source>&lt;p&gt;The background color may be shown in place of the Large Illustration on low bandwidth connections&lt;/p&gt;&lt;p&gt;We suggest to pick the primary color of the Banner Logo&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;The background color may be shown in place of the Large Illustration on low bandwidth connections&lt;/p&gt;&lt;p&gt;We suggest to pick the primary color of the Banner Logo&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="fbdd48dc-fb00-4f6a-9839-bc8ad1ba50d2" xml:space="preserve">
+          <source><bpt id="94b933d4-9267-479e-b604-ea572d346988">&lt;linkText&gt;</bpt>Getting started with Azure Active Directory Premium<ept id="94b933d4-9267-479e-b604-ea572d346988">&lt;/linkText&gt;</ept><bpt id="94b933d4-9267-479e-b604-ea572d346988">&lt;title&gt;</bpt><ept id="94b933d4-9267-479e-b604-ea572d346988">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="94b933d4-9267-479e-b604-ea572d346988">&lt;linkText&gt;</bpt>Getting started with Azure Active Directory Premium<ept id="94b933d4-9267-479e-b604-ea572d346988">&lt;/linkText&gt;</ept><bpt id="94b933d4-9267-479e-b604-ea572d346988">&lt;title&gt;</bpt><ept id="94b933d4-9267-479e-b604-ea572d346988">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31906817-4848-49cf-8839-38dd173d77e9" xml:space="preserve">
+          <source><bpt id="640f5c91-ad0e-4e7c-8823-57be7cdb15ab">&lt;linkText&gt;</bpt>View your access and usage reports<ept id="640f5c91-ad0e-4e7c-8823-57be7cdb15ab">&lt;/linkText&gt;</ept><bpt id="640f5c91-ad0e-4e7c-8823-57be7cdb15ab">&lt;title&gt;</bpt><ept id="640f5c91-ad0e-4e7c-8823-57be7cdb15ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="640f5c91-ad0e-4e7c-8823-57be7cdb15ab">&lt;linkText&gt;</bpt>View your access and usage reports<ept id="640f5c91-ad0e-4e7c-8823-57be7cdb15ab">&lt;/linkText&gt;</ept><bpt id="640f5c91-ad0e-4e7c-8823-57be7cdb15ab">&lt;title&gt;</bpt><ept id="640f5c91-ad0e-4e7c-8823-57be7cdb15ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b7df249-7ddc-4f96-ad1e-e21a3831c1b7" xml:space="preserve">
+          <source>./media/active-directory-add-company-branding/SignInPage_beforecustomization.png</source>
+          <target state="new">./media/active-directory-add-company-branding/SignInPage_beforecustomization.png</target>
+        </trans-unit>
+        <trans-unit id="67f83c12-29a3-403c-be79-572cfcc69ebd" xml:space="preserve">
+          <source>./media/active-directory-add-company-branding/SignInPage_aftercustomization.png</source>
+          <target state="new">./media/active-directory-add-company-branding/SignInPage_aftercustomization.png</target>
+        </trans-unit>
+        <trans-unit id="8e84dac4-ff78-4faa-86cc-88d00ad88aef" xml:space="preserve">
+          <source>./media/active-directory-add-company-branding/SignInPage_mobile_beforecustomization.png</source>
+          <target state="new">./media/active-directory-add-company-branding/SignInPage_mobile_beforecustomization.png</target>
+        </trans-unit>
+        <trans-unit id="3d07cae2-c57b-427d-9272-76b9dbd15c94" xml:space="preserve">
+          <source>./media/active-directory-add-company-branding/SignInPage_mobile_aftercustomization.png</source>
+          <target state="new">./media/active-directory-add-company-branding/SignInPage_mobile_aftercustomization.png</target>
+        </trans-unit>
+        <trans-unit id="0e1cd376-edc1-4b68-99d0-dfa96cb67e2e" xml:space="preserve">
+          <source>./media/active-directory-add-company-branding/SignInPage_aftercustomization_elements.png</source>
+          <target state="new">./media/active-directory-add-company-branding/SignInPage_aftercustomization_elements.png</target>
+        </trans-unit>
+        <trans-unit id="a5a54de3-6bc6-4150-8420-ff4e03fc4729" xml:space="preserve">
+          <source>./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png</source>
+          <target state="new">./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png</target>
+        </trans-unit>
+        <trans-unit id="dc0de77b-dbe4-48a0-b916-4c644cb3485e" xml:space="preserve">
+          <source>./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png</source>
+          <target state="new">./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png</target>
+        </trans-unit>
+        <trans-unit id="07fd0b93-0a6e-4b27-9dff-3d11bc5a0e55" xml:space="preserve">
+          <source>./media/active-directory-add-company-branding/APBranding.png</source>
+          <target state="new">./media/active-directory-add-company-branding/APBranding.png</target>
+        </trans-unit>
+      </group>
+      <group id="b40bc433-9427-4d77-a8bf-0d79a296cdd3" />
+    </body>
+  </file>
+</xliff>

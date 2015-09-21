@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7cf6438a-527a-4eb9-b1c1-d69fcd587a7f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7cf6438a-527a-4eb9-b1c1-d69fcd587a7f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9891239e-0d1c-49ae-8add-fbc9c025b365">
+        <trans-unit id="3e8ade45-9b1b-4997-9b32-45885f630d48" xml:space="preserve">
+          <source>Clone your StorSimple volume | Microsoft Azure</source>
+          <target state="new">Clone your StorSimple volume | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9523c39c-e434-4fbf-b491-c126a3ece54d" xml:space="preserve">
+          <source>Describes the different clone types and when to use them, and explains how you can use a backup set to clone an individual volume.</source>
+          <target state="new">Describes the different clone types and when to use them, and explains how you can use a backup set to clone an individual volume.</target>
+        </trans-unit>
+        <trans-unit id="7329a4cd-b5e3-493f-8bc6-be204057089e" xml:space="preserve">
+          <source>The StorSimple Manager service <bpt id="e0595448-fb9f-4767-b5c6-bfad795c7fb2">&lt;strong&gt;</bpt>Backup Catalog<ept id="e0595448-fb9f-4767-b5c6-bfad795c7fb2">&lt;/strong&gt;</ept> page displays all the backup sets that are created when manual or automated backups are taken.</source>
+          <target state="new">The StorSimple Manager service <bpt id="e0595448-fb9f-4767-b5c6-bfad795c7fb2">&lt;strong&gt;</bpt>Backup Catalog<ept id="e0595448-fb9f-4767-b5c6-bfad795c7fb2">&lt;/strong&gt;</ept> page displays all the backup sets that are created when manual or automated backups are taken.</target>
+        </trans-unit>
+        <trans-unit id="bfdabdd8-cd4b-4309-bfcf-16e97e50513a" xml:space="preserve">
+          <source>You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.</source>
+          <target state="new">You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.</target>
+        </trans-unit>
+        <trans-unit id="efbbf53e-c22f-4044-b47a-e4e9e816f547" xml:space="preserve">
+          <source>  <bpt id="ceaeff69-e862-4481-ad48-6ab38f6d616b">&lt;linkText&gt;</bpt>Backup catalog page<ept id="ceaeff69-e862-4481-ad48-6ab38f6d616b">&lt;/linkText&gt;</ept>  </source>
+          <target state="new">  <bpt id="ceaeff69-e862-4481-ad48-6ab38f6d616b">&lt;linkText&gt;</bpt>Backup catalog page<ept id="ceaeff69-e862-4481-ad48-6ab38f6d616b">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="999159b9-fa5a-475b-952a-2c35797cca54" xml:space="preserve">
+          <source>This tutorial describes how you can use a backup set to clone an individual volume.</source>
+          <target state="new">This tutorial describes how you can use a backup set to clone an individual volume.</target>
+        </trans-unit>
+        <trans-unit id="41e4f72d-74b2-4442-a113-0786f52a64de" xml:space="preserve">
+          <source>It also explains the difference between <bpt id="62e4f69e-7f36-4ea6-bc5f-63d1adc22b8d">&lt;em&gt;</bpt>transient<ept id="62e4f69e-7f36-4ea6-bc5f-63d1adc22b8d">&lt;/em&gt;</ept> and <bpt id="009bac91-23b6-427b-818a-bcc5380628d5">&lt;em&gt;</bpt>permanent<ept id="009bac91-23b6-427b-818a-bcc5380628d5">&lt;/em&gt;</ept> clones.</source>
+          <target state="new">It also explains the difference between <bpt id="62e4f69e-7f36-4ea6-bc5f-63d1adc22b8d">&lt;em&gt;</bpt>transient<ept id="62e4f69e-7f36-4ea6-bc5f-63d1adc22b8d">&lt;/em&gt;</ept> and <bpt id="009bac91-23b6-427b-818a-bcc5380628d5">&lt;em&gt;</bpt>permanent<ept id="009bac91-23b6-427b-818a-bcc5380628d5">&lt;/em&gt;</ept> clones.</target>
+        </trans-unit>
+        <trans-unit id="f63b5cb3-7ed2-4687-9f7c-66feec3cc2bc" xml:space="preserve">
+          <source>You can create a clone on the same device, another device, or even a virtual machine by using a local or a cloud snapshot.</source>
+          <target state="new">You can create a clone on the same device, another device, or even a virtual machine by using a local or a cloud snapshot.</target>
+        </trans-unit>
+        <trans-unit id="99290114-5a00-41ea-8d22-7f904d90e33b" xml:space="preserve">
+          <source>On the StorSimple Manager service page, click the <bpt id="c78f5d05-0128-480e-bcb8-d659c01d59d4">&lt;strong&gt;</bpt>Backup catalog<ept id="c78f5d05-0128-480e-bcb8-d659c01d59d4">&lt;/strong&gt;</ept> tab and select a backup set.</source>
+          <target state="new">On the StorSimple Manager service page, click the <bpt id="c78f5d05-0128-480e-bcb8-d659c01d59d4">&lt;strong&gt;</bpt>Backup catalog<ept id="c78f5d05-0128-480e-bcb8-d659c01d59d4">&lt;/strong&gt;</ept> tab and select a backup set.</target>
+        </trans-unit>
+        <trans-unit id="e34f36f9-4fbc-4e90-8256-e743f60f4293" xml:space="preserve">
+          <source>Expand the backup set to view the associated volumes.</source>
+          <target state="new">Expand the backup set to view the associated volumes.</target>
+        </trans-unit>
+        <trans-unit id="3975c414-0571-429f-a0cf-9a72024af939" xml:space="preserve">
+          <source>Click and select a volume from the backup set.</source>
+          <target state="new">Click and select a volume from the backup set.</target>
+        </trans-unit>
+        <trans-unit id="34070ebf-5d16-447f-840e-d49408d9e5cd" xml:space="preserve">
+          <source> <bpt id="74102c0f-96dc-44d7-addd-61e281255fb8">&lt;linkText&gt;</bpt>Clone a volume<ept id="74102c0f-96dc-44d7-addd-61e281255fb8">&lt;/linkText&gt;</ept> </source>
+          <target state="new"> <bpt id="74102c0f-96dc-44d7-addd-61e281255fb8">&lt;linkText&gt;</bpt>Clone a volume<ept id="74102c0f-96dc-44d7-addd-61e281255fb8">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="938af240-6e8c-4fab-970c-90014d05cfa4" xml:space="preserve">
+          <source>Click <bpt id="9549ffc1-5333-45d0-9c9b-3f0d9b482570">&lt;strong&gt;</bpt>Clone<ept id="9549ffc1-5333-45d0-9c9b-3f0d9b482570">&lt;/strong&gt;</ept> to begin cloning the selected volume.</source>
+          <target state="new">Click <bpt id="9549ffc1-5333-45d0-9c9b-3f0d9b482570">&lt;strong&gt;</bpt>Clone<ept id="9549ffc1-5333-45d0-9c9b-3f0d9b482570">&lt;/strong&gt;</ept> to begin cloning the selected volume.</target>
+        </trans-unit>
+        <trans-unit id="2021b33a-914a-4973-b940-9f645d1ecb1b" xml:space="preserve">
+          <source>In the Clone Volume wizard, under <bpt id="adeb96f6-6f93-491e-92a7-1a9166ead7e7">&lt;strong&gt;</bpt>Specify name and location<ept id="adeb96f6-6f93-491e-92a7-1a9166ead7e7">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In the Clone Volume wizard, under <bpt id="adeb96f6-6f93-491e-92a7-1a9166ead7e7">&lt;strong&gt;</bpt>Specify name and location<ept id="adeb96f6-6f93-491e-92a7-1a9166ead7e7">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="14afea4f-1f27-46e9-8b06-471a7fb45ced" xml:space="preserve">
+          <source>Identify a target device.</source>
+          <target state="new">Identify a target device.</target>
+        </trans-unit>
+        <trans-unit id="0a55f207-fe2c-4b30-9727-caeece175631" xml:space="preserve">
+          <source>This is the location where the clone will be created.</source>
+          <target state="new">This is the location where the clone will be created.</target>
+        </trans-unit>
+        <trans-unit id="1b9b6d9d-c3a9-4ec6-8e95-b43db75485af" xml:space="preserve">
+          <source>You can choose the same device or specify another device.</source>
+          <target state="new">You can choose the same device or specify another device.</target>
+        </trans-unit>
+        <trans-unit id="da7ea25d-c1a1-45fc-a005-1bb3054281cc" xml:space="preserve">
+          <source>If you choose a volume associated with other cloud service providers (not Azure), the dropdown list for the target device will only show physical devices.</source>
+          <target state="new">If you choose a volume associated with other cloud service providers (not Azure), the dropdown list for the target device will only show physical devices.</target>
+        </trans-unit>
+        <trans-unit id="9bba5554-bedb-4087-a8dd-0334ee588f97" xml:space="preserve">
+          <source>You cannot clone a volume associated with other cloud service providers on to a virtual device.</source>
+          <target state="new">You cannot clone a volume associated with other cloud service providers on to a virtual device.</target>
+        </trans-unit>
+        <trans-unit id="bc59c5ef-621c-4ada-bd91-9926dac2d8f5" xml:space="preserve">
+          <source>Make sure that the capacity required for the clone is lower than the capacity available on the target device.</source>
+          <target state="new">Make sure that the capacity required for the clone is lower than the capacity available on the target device.</target>
+        </trans-unit>
+        <trans-unit id="8f52f7db-a569-49bc-9b21-745244215927" xml:space="preserve">
+          <source>Specify a unique volume name for your clone.</source>
+          <target state="new">Specify a unique volume name for your clone.</target>
+        </trans-unit>
+        <trans-unit id="43ed90d2-5500-4e63-bcca-f8a3b9329e4a" xml:space="preserve">
+          <source>The name must contain between 3 and 127 characters.</source>
+          <target state="new">The name must contain between 3 and 127 characters.</target>
+        </trans-unit>
+        <trans-unit id="6f81ddb0-26f3-4b05-9b85-687e7af3beaa" xml:space="preserve">
+          <source>Click the arrow icon <bpt id="a73c9553-552a-4b7c-838f-fbb983c4ff8e">&lt;linkText&gt;</bpt>arrow-icon<ept id="a73c9553-552a-4b7c-838f-fbb983c4ff8e">&lt;/linkText&gt;</ept>to proceed to the next page.</source>
+          <target state="new">Click the arrow icon <bpt id="a73c9553-552a-4b7c-838f-fbb983c4ff8e">&lt;linkText&gt;</bpt>arrow-icon<ept id="a73c9553-552a-4b7c-838f-fbb983c4ff8e">&lt;/linkText&gt;</ept>to proceed to the next page.</target>
+        </trans-unit>
+        <trans-unit id="dff4f315-632d-4044-9486-5d016038033f" xml:space="preserve">
+          <source>Under <bpt id="a1c717b2-ae2a-418d-b135-d020d653ffe6">&lt;strong&gt;</bpt>Specify hosts that can use this volume<ept id="a1c717b2-ae2a-418d-b135-d020d653ffe6">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Under <bpt id="a1c717b2-ae2a-418d-b135-d020d653ffe6">&lt;strong&gt;</bpt>Specify hosts that can use this volume<ept id="a1c717b2-ae2a-418d-b135-d020d653ffe6">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="ab9c1a58-4808-4b4f-99aa-3ffbce0231fa" xml:space="preserve">
+          <source>Specify an access control record (ACR) for the clone.</source>
+          <target state="new">Specify an access control record (ACR) for the clone.</target>
+        </trans-unit>
+        <trans-unit id="5db95002-aa64-4762-98ef-1f189136d524" xml:space="preserve">
+          <source>You can add a new ACR or choose from the existing list.</source>
+          <target state="new">You can add a new ACR or choose from the existing list.</target>
+        </trans-unit>
+        <trans-unit id="975a0d5d-23e8-48d5-8543-328a0b8a33eb" xml:space="preserve">
+          <source>Click the check icon <bpt id="25aca167-5605-4768-ab0f-b27513d0da44">&lt;linkText&gt;</bpt>check-icon<ept id="25aca167-5605-4768-ab0f-b27513d0da44">&lt;/linkText&gt;</ept>to complete the operation.</source>
+          <target state="new">Click the check icon <bpt id="25aca167-5605-4768-ab0f-b27513d0da44">&lt;linkText&gt;</bpt>check-icon<ept id="25aca167-5605-4768-ab0f-b27513d0da44">&lt;/linkText&gt;</ept>to complete the operation.</target>
+        </trans-unit>
+        <trans-unit id="48deddc6-f54e-41cc-940c-517650d4d5a9" xml:space="preserve">
+          <source>A clone job will be initiated and you will be notified when the clone is successfully created.</source>
+          <target state="new">A clone job will be initiated and you will be notified when the clone is successfully created.</target>
+        </trans-unit>
+        <trans-unit id="d19754e2-295b-4a2c-a4f6-89f87f6a7138" xml:space="preserve">
+          <source>Click <bpt id="ffcc389f-14f9-47a2-9316-65431c977e5d">&lt;strong&gt;</bpt>View Job<ept id="ffcc389f-14f9-47a2-9316-65431c977e5d">&lt;/strong&gt;</ept> to monitor the clone job on the <bpt id="85b49cbf-28ff-435e-a380-276b0576d9b1">&lt;strong&gt;</bpt>Jobs<ept id="85b49cbf-28ff-435e-a380-276b0576d9b1">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Click <bpt id="ffcc389f-14f9-47a2-9316-65431c977e5d">&lt;strong&gt;</bpt>View Job<ept id="ffcc389f-14f9-47a2-9316-65431c977e5d">&lt;/strong&gt;</ept> to monitor the clone job on the <bpt id="85b49cbf-28ff-435e-a380-276b0576d9b1">&lt;strong&gt;</bpt>Jobs<ept id="85b49cbf-28ff-435e-a380-276b0576d9b1">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="e9072873-fc0c-4edb-894b-938dfb94e838" xml:space="preserve">
+          <source>After the clone job is completed:</source>
+          <target state="new">After the clone job is completed:</target>
+        </trans-unit>
+        <trans-unit id="f73b57bb-5ea3-42f3-850e-8e397ce499d1" xml:space="preserve">
+          <source>Go to the <bpt id="7ccdbbef-0ee4-42dd-bd52-63aa51f08677">&lt;strong&gt;</bpt>Devices<ept id="7ccdbbef-0ee4-42dd-bd52-63aa51f08677">&lt;/strong&gt;</ept> page, and select the <bpt id="70141118-9c6d-49e3-8703-91a0b9c552d2">&lt;strong&gt;</bpt>Volume Containers<ept id="70141118-9c6d-49e3-8703-91a0b9c552d2">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Go to the <bpt id="7ccdbbef-0ee4-42dd-bd52-63aa51f08677">&lt;strong&gt;</bpt>Devices<ept id="7ccdbbef-0ee4-42dd-bd52-63aa51f08677">&lt;/strong&gt;</ept> page, and select the <bpt id="70141118-9c6d-49e3-8703-91a0b9c552d2">&lt;strong&gt;</bpt>Volume Containers<ept id="70141118-9c6d-49e3-8703-91a0b9c552d2">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="6a839b02-ab85-4563-a862-209b159a9ed9" xml:space="preserve">
+          <source>Select the volume container that is associated with the source volume that you cloned.</source>
+          <target state="new">Select the volume container that is associated with the source volume that you cloned.</target>
+        </trans-unit>
+        <trans-unit id="6333b38b-7862-4099-ac06-a919ff5ecad2" xml:space="preserve">
+          <source>In the list of volumes, you should see the clone that was just created.</source>
+          <target state="new">In the list of volumes, you should see the clone that was just created.</target>
+        </trans-unit>
+        <trans-unit id="763aed05-e6e3-4989-8e71-ba085650eea8" xml:space="preserve">
+          <source>Monitoring and default backup are automatically disabled on a cloned volume.</source>
+          <target state="new">Monitoring and default backup are automatically disabled on a cloned volume.</target>
+        </trans-unit>
+        <trans-unit id="5828b079-8627-453d-993a-2b78bd94a57b" xml:space="preserve">
+          <source>A clone that is created this way is a transient clone.</source>
+          <target state="new">A clone that is created this way is a transient clone.</target>
+        </trans-unit>
+        <trans-unit id="1701d0a9-4967-421e-adb4-45b214ac1a95" xml:space="preserve">
+          <source>For more information about clone types, see <bpt id="ac81c2fb-bcde-4f83-8d90-725162f3f3ed">&lt;linkText&gt;</bpt>Transient vs. permanent clones<ept id="ac81c2fb-bcde-4f83-8d90-725162f3f3ed">&lt;/linkText&gt;</ept><bpt id="ac81c2fb-bcde-4f83-8d90-725162f3f3ed">&lt;title&gt;</bpt><ept id="ac81c2fb-bcde-4f83-8d90-725162f3f3ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about clone types, see <bpt id="ac81c2fb-bcde-4f83-8d90-725162f3f3ed">&lt;linkText&gt;</bpt>Transient vs. permanent clones<ept id="ac81c2fb-bcde-4f83-8d90-725162f3f3ed">&lt;/linkText&gt;</ept><bpt id="ac81c2fb-bcde-4f83-8d90-725162f3f3ed">&lt;title&gt;</bpt><ept id="ac81c2fb-bcde-4f83-8d90-725162f3f3ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d73a860-4077-42b6-b0fd-fc27d4527a90" xml:space="preserve">
+          <source>This clone is now a regular volume, and any operation that is possible on a volume will be available for the clone.</source>
+          <target state="new">This clone is now a regular volume, and any operation that is possible on a volume will be available for the clone.</target>
+        </trans-unit>
+        <trans-unit id="7db4ecf0-9850-468c-a498-4b89e8d19612" xml:space="preserve">
+          <source>You will need to configure this volume for any backups.</source>
+          <target state="new">You will need to configure this volume for any backups.</target>
+        </trans-unit>
+        <trans-unit id="b719894c-5849-4547-a1c7-1bc030004e39" xml:space="preserve">
+          <source>You can clone a specific volume from a backup set.</source>
+          <target state="new">You can clone a specific volume from a backup set.</target>
+        </trans-unit>
+        <trans-unit id="cb4fa3da-76ec-4876-8476-869b1958fe04" xml:space="preserve">
+          <source>A clone created in this way is a <bpt id="056a47e5-6265-44be-a17a-63ccbb09ae31">&lt;em&gt;</bpt>transient<ept id="056a47e5-6265-44be-a17a-63ccbb09ae31">&lt;/em&gt;</ept> clone.</source>
+          <target state="new">A clone created in this way is a <bpt id="056a47e5-6265-44be-a17a-63ccbb09ae31">&lt;em&gt;</bpt>transient<ept id="056a47e5-6265-44be-a17a-63ccbb09ae31">&lt;/em&gt;</ept> clone.</target>
+        </trans-unit>
+        <trans-unit id="4c00da7a-ee22-436f-87b2-1109b0ef6af4" xml:space="preserve">
+          <source>The transient clone will have references to the original volume and will use that volume to read while writing locally.</source>
+          <target state="new">The transient clone will have references to the original volume and will use that volume to read while writing locally.</target>
+        </trans-unit>
+        <trans-unit id="2644cb41-f52a-4ab8-8bcf-73de31b48e8f" xml:space="preserve">
+          <source>This could result in slow performance, especially if the cloned volume is large.</source>
+          <target state="new">This could result in slow performance, especially if the cloned volume is large.</target>
+        </trans-unit>
+        <trans-unit id="b2b34795-f54c-49ec-8e5d-6336cb2a526c" xml:space="preserve">
+          <source>After you take a cloud snapshot of a transient clone, the resulting clone will be a <bpt id="ed00eced-fa53-412a-b9fc-cb29c83aff21">&lt;em&gt;</bpt>permanent<ept id="ed00eced-fa53-412a-b9fc-cb29c83aff21">&lt;/em&gt;</ept> clone.</source>
+          <target state="new">After you take a cloud snapshot of a transient clone, the resulting clone will be a <bpt id="ed00eced-fa53-412a-b9fc-cb29c83aff21">&lt;em&gt;</bpt>permanent<ept id="ed00eced-fa53-412a-b9fc-cb29c83aff21">&lt;/em&gt;</ept> clone.</target>
+        </trans-unit>
+        <trans-unit id="311f5583-8405-4678-b573-30ea59a477f9" xml:space="preserve">
+          <source>The permanent clone is independent and doesn’t have any references to the original volume that it was cloned from.</source>
+          <target state="new">The permanent clone is independent and doesn’t have any references to the original volume that it was cloned from.</target>
+        </trans-unit>
+        <trans-unit id="ddcb45a8-186d-423d-9862-b22cad78f752" xml:space="preserve">
+          <source>For faster performance, we recommend that you create permanent clones.</source>
+          <target state="new">For faster performance, we recommend that you create permanent clones.</target>
+        </trans-unit>
+        <trans-unit id="35012963-1c1f-451a-b8b4-6c687bd5811f" xml:space="preserve">
+          <source>The following sections describe example situations in which transient and permanent clones can be used.</source>
+          <target state="new">The following sections describe example situations in which transient and permanent clones can be used.</target>
+        </trans-unit>
+        <trans-unit id="6e1c17fb-9c75-45fb-92ea-c81dd1770783" xml:space="preserve">
+          <source>You need to recover a one-year-old Microsoft PowerPoint presentation file.</source>
+          <target state="new">You need to recover a one-year-old Microsoft PowerPoint presentation file.</target>
+        </trans-unit>
+        <trans-unit id="71f5f822-2672-4388-a26a-75941f79ca11" xml:space="preserve">
+          <source>Your IT administrator identifies the specific backup from that time frame, and then filters the volume.</source>
+          <target state="new">Your IT administrator identifies the specific backup from that time frame, and then filters the volume.</target>
+        </trans-unit>
+        <trans-unit id="dd42d9f5-2b7a-4efd-8b37-c694a03210d2" xml:space="preserve">
+          <source>The administrator then clones the volume, locates the file that you are looking for, and provides it to you.</source>
+          <target state="new">The administrator then clones the volume, locates the file that you are looking for, and provides it to you.</target>
+        </trans-unit>
+        <trans-unit id="0d1295df-1651-4b9d-a4ef-a4dd02dfc0e8" xml:space="preserve">
+          <source>In this scenario, a transient clone is used.</source>
+          <target state="new">In this scenario, a transient clone is used.</target>
+        </trans-unit>
+        <trans-unit id="bf72803c-8113-4315-b602-5b8f93565c05" xml:space="preserve">
+          <source>You need to verify a testing bug in the production environment.</source>
+          <target state="new">You need to verify a testing bug in the production environment.</target>
+        </trans-unit>
+        <trans-unit id="cd64e467-f9a8-4a4f-a95c-39310cab2dff" xml:space="preserve">
+          <source>You create a clone of the volume in the production environment.</source>
+          <target state="new">You create a clone of the volume in the production environment.</target>
+        </trans-unit>
+        <trans-unit id="8f9ec39d-9cdc-4858-b10a-ce680fd4108c" xml:space="preserve">
+          <source>For increased performance, you need to take a cloud snapshot of this clone.</source>
+          <target state="new">For increased performance, you need to take a cloud snapshot of this clone.</target>
+        </trans-unit>
+        <trans-unit id="42588e85-5cf0-41f6-8476-0fe8c621f7b6" xml:space="preserve">
+          <source>The cloned volume is now independent, which results in faster performance.</source>
+          <target state="new">The cloned volume is now independent, which results in faster performance.</target>
+        </trans-unit>
+        <trans-unit id="fd04f8fa-b4f4-49c5-8d10-1a6000a7b997" xml:space="preserve">
+          <source>In this scenario, a permanent clone is used.</source>
+          <target state="new">In this scenario, a permanent clone is used.</target>
+        </trans-unit>
+        <trans-unit id="e0a44264-4a4a-42e3-9188-2ab398dc6e43" xml:space="preserve">
+          <source>Learn how to <bpt id="04b83912-1eb6-4048-adb8-b6ec78de15a0">&lt;linkText&gt;</bpt>restore a StorSimple volume from a backup set<ept id="04b83912-1eb6-4048-adb8-b6ec78de15a0">&lt;/linkText&gt;</ept><bpt id="04b83912-1eb6-4048-adb8-b6ec78de15a0">&lt;title&gt;</bpt><ept id="04b83912-1eb6-4048-adb8-b6ec78de15a0">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn how to <bpt id="04b83912-1eb6-4048-adb8-b6ec78de15a0">&lt;linkText&gt;</bpt>restore a StorSimple volume from a backup set<ept id="04b83912-1eb6-4048-adb8-b6ec78de15a0">&lt;/linkText&gt;</ept><bpt id="04b83912-1eb6-4048-adb8-b6ec78de15a0">&lt;title&gt;</bpt><ept id="04b83912-1eb6-4048-adb8-b6ec78de15a0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

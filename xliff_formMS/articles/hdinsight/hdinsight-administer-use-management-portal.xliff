@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0022ae7a-4e52-44b2-932d-5771cb0f4545" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0022ae7a-4e52-44b2-932d-5771cb0f4545" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="53f57072-8d30-4738-9c2f-ab11233a0076">
+        <trans-unit id="32eebeff-ed4d-4c6d-abb6-290c52c58ebb" xml:space="preserve">
+          <source>Manage Hadoop clusters in HDInsight using the Azure preview portal | Microsoft Azure</source>
+          <target state="new">Manage Hadoop clusters in HDInsight using the Azure preview portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c60b84d8-bc11-435a-89ce-2eb8a93e18f7" xml:space="preserve">
+          <source>Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console.</source>
+          <target state="new">Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console.</target>
+        </trans-unit>
+        <trans-unit id="92469d2f-42df-41d6-b7f5-fd3a4a30b1e3" xml:space="preserve">
+          <source><bpt id="b935f8b5-8190-4402-8b0a-e3ed10bed3c8">&lt;token href="../../includes/hdinsight-portal-management-selector.md"&gt;</bpt><ept id="b935f8b5-8190-4402-8b0a-e3ed10bed3c8">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b935f8b5-8190-4402-8b0a-e3ed10bed3c8">&lt;token href="../../includes/hdinsight-portal-management-selector.md"&gt;</bpt><ept id="b935f8b5-8190-4402-8b0a-e3ed10bed3c8">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c93cee9-4539-49e5-844f-9cb0861465bb" xml:space="preserve">
+          <source>Using the <bpt id="98776398-dd82-4bef-ac8a-6e585e3f4e9b">&lt;linkText&gt;</bpt>Azure preview portal[azure-portal]<ept id="98776398-dd82-4bef-ac8a-6e585e3f4e9b">&lt;/linkText&gt;</ept><bpt id="98776398-dd82-4bef-ac8a-6e585e3f4e9b">&lt;title&gt;</bpt><ept id="98776398-dd82-4bef-ac8a-6e585e3f4e9b">&lt;/title&gt;</ept>, you can provision Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.</source>
+          <target state="new">Using the <bpt id="98776398-dd82-4bef-ac8a-6e585e3f4e9b">&lt;linkText&gt;</bpt>Azure preview portal[azure-portal]<ept id="98776398-dd82-4bef-ac8a-6e585e3f4e9b">&lt;/linkText&gt;</ept><bpt id="98776398-dd82-4bef-ac8a-6e585e3f4e9b">&lt;title&gt;</bpt><ept id="98776398-dd82-4bef-ac8a-6e585e3f4e9b">&lt;/title&gt;</ept>, you can provision Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.</target>
+        </trans-unit>
+        <trans-unit id="c3636e60-49c9-4f02-b7d3-59b5ee6ca6f7" xml:space="preserve">
+          <source><bpt id="4bf5f6ed-75f4-4095-8742-622a6f12d212">&lt;token href="../../includes/hdinsight-azure-preview-portal.md"&gt;</bpt><ept id="4bf5f6ed-75f4-4095-8742-622a6f12d212">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4bf5f6ed-75f4-4095-8742-622a6f12d212">&lt;token href="../../includes/hdinsight-azure-preview-portal.md"&gt;</bpt><ept id="4bf5f6ed-75f4-4095-8742-622a6f12d212">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a600f3fc-b059-4e21-808f-f04aa330a176" xml:space="preserve">
+          <source><bpt id="132dd813-79ed-4760-a2ee-db4bf997e995">&lt;linkText&gt;</bpt>Manage Hadoop clusters in HDInsight by using the Azure portal<ept id="132dd813-79ed-4760-a2ee-db4bf997e995">&lt;/linkText&gt;</ept><bpt id="132dd813-79ed-4760-a2ee-db4bf997e995">&lt;title&gt;</bpt><ept id="132dd813-79ed-4760-a2ee-db4bf997e995">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="132dd813-79ed-4760-a2ee-db4bf997e995">&lt;linkText&gt;</bpt>Manage Hadoop clusters in HDInsight by using the Azure portal<ept id="132dd813-79ed-4760-a2ee-db4bf997e995">&lt;/linkText&gt;</ept><bpt id="132dd813-79ed-4760-a2ee-db4bf997e995">&lt;title&gt;</bpt><ept id="132dd813-79ed-4760-a2ee-db4bf997e995">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d547379-7f99-4f76-9a89-137e77f77374" xml:space="preserve">
+          <source>The steps in this document are specific to working with Windows-based Hadoop clusters.</source>
+          <target state="new">The steps in this document are specific to working with Windows-based Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="7208fb16-c705-4ba6-83f3-1e38c71b394c" xml:space="preserve">
+          <source>For information on working with Linux-based clusters, see <bpt id="0769d4c0-ab58-4718-ad11-3c29c52d3fd2">&lt;linkText&gt;</bpt>Manage Hadoop clusters in HDInsight by using the Azure preview portal<ept id="0769d4c0-ab58-4718-ad11-3c29c52d3fd2">&lt;/linkText&gt;</ept><bpt id="0769d4c0-ab58-4718-ad11-3c29c52d3fd2">&lt;title&gt;</bpt><ept id="0769d4c0-ab58-4718-ad11-3c29c52d3fd2">&lt;/title&gt;</ept></source>
+          <target state="new">For information on working with Linux-based clusters, see <bpt id="0769d4c0-ab58-4718-ad11-3c29c52d3fd2">&lt;linkText&gt;</bpt>Manage Hadoop clusters in HDInsight by using the Azure preview portal<ept id="0769d4c0-ab58-4718-ad11-3c29c52d3fd2">&lt;/linkText&gt;</ept><bpt id="0769d4c0-ab58-4718-ad11-3c29c52d3fd2">&lt;title&gt;</bpt><ept id="0769d4c0-ab58-4718-ad11-3c29c52d3fd2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f2b4bb4-6348-4712-9f13-a4709cff77f1" xml:space="preserve">
+          <source>There are also other tools available for administering HDInsight in addition to the preview portal.</source>
+          <target state="new">There are also other tools available for administering HDInsight in addition to the preview portal.</target>
+        </trans-unit>
+        <trans-unit id="a16c5417-8b7e-4839-a1fe-8dfd12aebcb4" xml:space="preserve">
+          <source><bpt id="ca7fb2e7-a290-419b-8163-c1807dcd0b05">&lt;linkText&gt;</bpt>Administer HDInsight Using Azure PowerShell<ept id="ca7fb2e7-a290-419b-8163-c1807dcd0b05">&lt;/linkText&gt;</ept><bpt id="ca7fb2e7-a290-419b-8163-c1807dcd0b05">&lt;title&gt;</bpt><ept id="ca7fb2e7-a290-419b-8163-c1807dcd0b05">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ca7fb2e7-a290-419b-8163-c1807dcd0b05">&lt;linkText&gt;</bpt>Administer HDInsight Using Azure PowerShell<ept id="ca7fb2e7-a290-419b-8163-c1807dcd0b05">&lt;/linkText&gt;</ept><bpt id="ca7fb2e7-a290-419b-8163-c1807dcd0b05">&lt;title&gt;</bpt><ept id="ca7fb2e7-a290-419b-8163-c1807dcd0b05">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ffde79f-0896-4f8d-a620-2a5069ec535f" xml:space="preserve">
+          <source><bpt id="4335d0c7-4df2-4537-9c38-5c4fa9804f42">&lt;linkText&gt;</bpt>Administer HDInsight Using Azure CLI<ept id="4335d0c7-4df2-4537-9c38-5c4fa9804f42">&lt;/linkText&gt;</ept><bpt id="4335d0c7-4df2-4537-9c38-5c4fa9804f42">&lt;title&gt;</bpt><ept id="4335d0c7-4df2-4537-9c38-5c4fa9804f42">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4335d0c7-4df2-4537-9c38-5c4fa9804f42">&lt;linkText&gt;</bpt>Administer HDInsight Using Azure CLI<ept id="4335d0c7-4df2-4537-9c38-5c4fa9804f42">&lt;/linkText&gt;</ept><bpt id="4335d0c7-4df2-4537-9c38-5c4fa9804f42">&lt;title&gt;</bpt><ept id="4335d0c7-4df2-4537-9c38-5c4fa9804f42">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9e6e350-e815-4750-8b03-45dc73b2b23a" xml:space="preserve">
+          <source><bpt id="bbbf71ff-3a6a-46b4-92a7-af44621f2424">&lt;strong&gt;</bpt>Prerequisites<ept id="bbbf71ff-3a6a-46b4-92a7-af44621f2424">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bbbf71ff-3a6a-46b4-92a7-af44621f2424">&lt;strong&gt;</bpt>Prerequisites<ept id="bbbf71ff-3a6a-46b4-92a7-af44621f2424">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a391867d-c4c9-45b4-a64d-18b467549e3e" xml:space="preserve">
+          <source>Before you begin this article, you must have the following:</source>
+          <target state="new">Before you begin this article, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="9fd2f2fa-6571-46f8-a200-1aac0faba1ac" xml:space="preserve">
+          <source><bpt id="46aea35d-de8f-42e2-9919-d49059a8f188">&lt;strong&gt;</bpt>An Azure subscription<ept id="46aea35d-de8f-42e2-9919-d49059a8f188">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="46aea35d-de8f-42e2-9919-d49059a8f188">&lt;strong&gt;</bpt>An Azure subscription<ept id="46aea35d-de8f-42e2-9919-d49059a8f188">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49dc4cc1-4ece-464e-aab4-343e0477c8ef" xml:space="preserve">
+          <source>See <bpt id="2ef4296e-1b51-4b96-a41e-d14b6678d3f4">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="2ef4296e-1b51-4b96-a41e-d14b6678d3f4">&lt;/linkText&gt;</ept><bpt id="2ef4296e-1b51-4b96-a41e-d14b6678d3f4">&lt;title&gt;</bpt><ept id="2ef4296e-1b51-4b96-a41e-d14b6678d3f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="2ef4296e-1b51-4b96-a41e-d14b6678d3f4">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="2ef4296e-1b51-4b96-a41e-d14b6678d3f4">&lt;/linkText&gt;</ept><bpt id="2ef4296e-1b51-4b96-a41e-d14b6678d3f4">&lt;title&gt;</bpt><ept id="2ef4296e-1b51-4b96-a41e-d14b6678d3f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c6eb44e-e2dc-442d-8934-2ad0eb566b51" xml:space="preserve">
+          <source><bpt id="d768c2e9-8b1c-4761-9525-d0e72461e2ba">&lt;strong&gt;</bpt>Azure Storage account<ept id="d768c2e9-8b1c-4761-9525-d0e72461e2ba">&lt;/strong&gt;</ept> - An HDInsight cluster uses an Azure Blob storage container as the default file system.</source>
+          <target state="new"><bpt id="d768c2e9-8b1c-4761-9525-d0e72461e2ba">&lt;strong&gt;</bpt>Azure Storage account<ept id="d768c2e9-8b1c-4761-9525-d0e72461e2ba">&lt;/strong&gt;</ept> - An HDInsight cluster uses an Azure Blob storage container as the default file system.</target>
+        </trans-unit>
+        <trans-unit id="3d3a952d-2c3f-487a-8705-d0790eaaa691" xml:space="preserve">
+          <source>For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see <bpt id="9bcb4fdf-e724-40d9-aa44-d0ca0200ae43">&lt;linkText&gt;</bpt>Use Azure Blob Storage with HDInsight<ept id="9bcb4fdf-e724-40d9-aa44-d0ca0200ae43">&lt;/linkText&gt;</ept><bpt id="9bcb4fdf-e724-40d9-aa44-d0ca0200ae43">&lt;title&gt;</bpt><ept id="9bcb4fdf-e724-40d9-aa44-d0ca0200ae43">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see <bpt id="9bcb4fdf-e724-40d9-aa44-d0ca0200ae43">&lt;linkText&gt;</bpt>Use Azure Blob Storage with HDInsight<ept id="9bcb4fdf-e724-40d9-aa44-d0ca0200ae43">&lt;/linkText&gt;</ept><bpt id="9bcb4fdf-e724-40d9-aa44-d0ca0200ae43">&lt;title&gt;</bpt><ept id="9bcb4fdf-e724-40d9-aa44-d0ca0200ae43">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58979fbe-a480-44fb-b092-32bf45744a76" xml:space="preserve">
+          <source>For details on creating an Azure Storage account, see <bpt id="cb9f6e2f-6220-41fa-85ba-50c94b1a187d">&lt;linkText&gt;</bpt>How to Create a Storage Account<ept id="cb9f6e2f-6220-41fa-85ba-50c94b1a187d">&lt;/linkText&gt;</ept><bpt id="cb9f6e2f-6220-41fa-85ba-50c94b1a187d">&lt;title&gt;</bpt><ept id="cb9f6e2f-6220-41fa-85ba-50c94b1a187d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on creating an Azure Storage account, see <bpt id="cb9f6e2f-6220-41fa-85ba-50c94b1a187d">&lt;linkText&gt;</bpt>How to Create a Storage Account<ept id="cb9f6e2f-6220-41fa-85ba-50c94b1a187d">&lt;/linkText&gt;</ept><bpt id="cb9f6e2f-6220-41fa-85ba-50c94b1a187d">&lt;title&gt;</bpt><ept id="cb9f6e2f-6220-41fa-85ba-50c94b1a187d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d4c5f82-a0ec-40d5-be61-add3b607517f" xml:space="preserve">
+          <source>For the provision instructions using the preview portal, see <bpt id="24bcf1de-8129-4e6f-b851-744f7398472c">&lt;linkText&gt;</bpt>Provision HDInsight clusters<ept id="24bcf1de-8129-4e6f-b851-744f7398472c">&lt;/linkText&gt;</ept><bpt id="24bcf1de-8129-4e6f-b851-744f7398472c">&lt;title&gt;</bpt><ept id="24bcf1de-8129-4e6f-b851-744f7398472c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the provision instructions using the preview portal, see <bpt id="24bcf1de-8129-4e6f-b851-744f7398472c">&lt;linkText&gt;</bpt>Provision HDInsight clusters<ept id="24bcf1de-8129-4e6f-b851-744f7398472c">&lt;/linkText&gt;</ept><bpt id="24bcf1de-8129-4e6f-b851-744f7398472c">&lt;title&gt;</bpt><ept id="24bcf1de-8129-4e6f-b851-744f7398472c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94f04ffd-5cbc-47b2-b805-c6667f5dd5c2" xml:space="preserve">
+          <source>HDInsight works with a wide range of Hadoop components.</source>
+          <target state="new">HDInsight works with a wide range of Hadoop components.</target>
+        </trans-unit>
+        <trans-unit id="1b4b7ffd-8069-4e18-b9c5-300def099123" xml:space="preserve">
+          <source>For the list of the components that have been verified and supported, see <bpt id="8417318a-730b-4b13-a7f5-23d4b202e686">&lt;linkText&gt;</bpt>What version of Hadoop is in Azure HDInsight<ept id="8417318a-730b-4b13-a7f5-23d4b202e686">&lt;/linkText&gt;</ept><bpt id="8417318a-730b-4b13-a7f5-23d4b202e686">&lt;title&gt;</bpt><ept id="8417318a-730b-4b13-a7f5-23d4b202e686">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the list of the components that have been verified and supported, see <bpt id="8417318a-730b-4b13-a7f5-23d4b202e686">&lt;linkText&gt;</bpt>What version of Hadoop is in Azure HDInsight<ept id="8417318a-730b-4b13-a7f5-23d4b202e686">&lt;/linkText&gt;</ept><bpt id="8417318a-730b-4b13-a7f5-23d4b202e686">&lt;title&gt;</bpt><ept id="8417318a-730b-4b13-a7f5-23d4b202e686">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4763601-035e-44fd-adae-f67e5035ab31" xml:space="preserve">
+          <source>You can customize HDInsight by using one of the following options:</source>
+          <target state="new">You can customize HDInsight by using one of the following options:</target>
+        </trans-unit>
+        <trans-unit id="78c33304-9957-4157-b1f6-8e3467de927e" xml:space="preserve">
+          <source>Use Script Action to run custom scripts that can customize a cluster to either change cluster configuration or install custom components such as Giraph or Solr.</source>
+          <target state="new">Use Script Action to run custom scripts that can customize a cluster to either change cluster configuration or install custom components such as Giraph or Solr.</target>
+        </trans-unit>
+        <trans-unit id="d3e1967b-e3b6-45cb-a469-959dffea562e" xml:space="preserve">
+          <source>For more information, see <bpt id="5ae11c5d-fb76-462d-bcdd-d6d3cb9973b1">&lt;linkText&gt;</bpt>Customize HDInsight cluster using Script Action<ept id="5ae11c5d-fb76-462d-bcdd-d6d3cb9973b1">&lt;/linkText&gt;</ept><bpt id="5ae11c5d-fb76-462d-bcdd-d6d3cb9973b1">&lt;title&gt;</bpt><ept id="5ae11c5d-fb76-462d-bcdd-d6d3cb9973b1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="5ae11c5d-fb76-462d-bcdd-d6d3cb9973b1">&lt;linkText&gt;</bpt>Customize HDInsight cluster using Script Action<ept id="5ae11c5d-fb76-462d-bcdd-d6d3cb9973b1">&lt;/linkText&gt;</ept><bpt id="5ae11c5d-fb76-462d-bcdd-d6d3cb9973b1">&lt;title&gt;</bpt><ept id="5ae11c5d-fb76-462d-bcdd-d6d3cb9973b1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3cc5f91e-e528-4b75-96a1-e8023ce9bc44" xml:space="preserve">
+          <source>Use the cluster customization parameters in the HDInsight .NET SDK or Azure PowerShell during cluster provisioning.</source>
+          <target state="new">Use the cluster customization parameters in the HDInsight .NET SDK or Azure PowerShell during cluster provisioning.</target>
+        </trans-unit>
+        <trans-unit id="8186bf12-da74-484b-83cd-bd88b966575d" xml:space="preserve">
+          <source>These configuration changes are then preserved through the lifetime of the cluster and are not affected by cluster node reimages that Azure platform periodically performs for maintenance.</source>
+          <target state="new">These configuration changes are then preserved through the lifetime of the cluster and are not affected by cluster node reimages that Azure platform periodically performs for maintenance.</target>
+        </trans-unit>
+        <trans-unit id="3f5059b2-510b-44a0-97c6-c8cc8ae24bac" xml:space="preserve">
+          <source>For more information on using the cluster customization parameters, see <bpt id="de01f940-5f0c-4216-967e-5e4bda7a231a">&lt;linkText&gt;</bpt>Provision HDInsight clusters<ept id="de01f940-5f0c-4216-967e-5e4bda7a231a">&lt;/linkText&gt;</ept><bpt id="de01f940-5f0c-4216-967e-5e4bda7a231a">&lt;title&gt;</bpt><ept id="de01f940-5f0c-4216-967e-5e4bda7a231a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on using the cluster customization parameters, see <bpt id="de01f940-5f0c-4216-967e-5e4bda7a231a">&lt;linkText&gt;</bpt>Provision HDInsight clusters<ept id="de01f940-5f0c-4216-967e-5e4bda7a231a">&lt;/linkText&gt;</ept><bpt id="de01f940-5f0c-4216-967e-5e4bda7a231a">&lt;title&gt;</bpt><ept id="de01f940-5f0c-4216-967e-5e4bda7a231a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1228d8f5-c44a-4673-af2d-3d87b8c5be67" xml:space="preserve">
+          <source>Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files.</source>
+          <target state="new">Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files.</target>
+        </trans-unit>
+        <trans-unit id="6b187410-42b7-4cee-85a2-1e39aeda77a6" xml:space="preserve">
+          <source>These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms.</source>
+          <target state="new">These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms.</target>
+        </trans-unit>
+        <trans-unit id="a9df4b97-d2d2-47c4-9e22-092c36b9467e" xml:space="preserve">
+          <source>For more information, see <bpt id="a2ade212-1d32-4e2c-90d6-e5ad899e3e34">&lt;linkText&gt;</bpt>Submit Hadoop jobs programmatically<ept id="a2ade212-1d32-4e2c-90d6-e5ad899e3e34">&lt;/linkText&gt;</ept><bpt id="a2ade212-1d32-4e2c-90d6-e5ad899e3e34">&lt;title&gt;</bpt><ept id="a2ade212-1d32-4e2c-90d6-e5ad899e3e34">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="a2ade212-1d32-4e2c-90d6-e5ad899e3e34">&lt;linkText&gt;</bpt>Submit Hadoop jobs programmatically<ept id="a2ade212-1d32-4e2c-90d6-e5ad899e3e34">&lt;/linkText&gt;</ept><bpt id="a2ade212-1d32-4e2c-90d6-e5ad899e3e34">&lt;title&gt;</bpt><ept id="a2ade212-1d32-4e2c-90d6-e5ad899e3e34">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="afdc7d5c-d663-4cda-a93e-95c283ea0380" xml:space="preserve">
+          <source>If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact <bpt id="246e0ccd-8b58-47e9-b44b-546540177417">&lt;linkText&gt;</bpt>Microsoft Support<ept id="246e0ccd-8b58-47e9-b44b-546540177417">&lt;/linkText&gt;</ept><bpt id="246e0ccd-8b58-47e9-b44b-546540177417">&lt;title&gt;</bpt><ept id="246e0ccd-8b58-47e9-b44b-546540177417">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact <bpt id="246e0ccd-8b58-47e9-b44b-546540177417">&lt;linkText&gt;</bpt>Microsoft Support<ept id="246e0ccd-8b58-47e9-b44b-546540177417">&lt;/linkText&gt;</ept><bpt id="246e0ccd-8b58-47e9-b44b-546540177417">&lt;title&gt;</bpt><ept id="246e0ccd-8b58-47e9-b44b-546540177417">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b94d0440-9009-425e-b965-1b50eab7c1be" xml:space="preserve">
+          <source>Cascading is not supported by HDInsight, and is not eligible for Microsoft Support.</source>
+          <target state="new">Cascading is not supported by HDInsight, and is not eligible for Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="7dcb9133-7523-4751-8da4-e5d67545942f" xml:space="preserve">
+          <source>For lists of supported components, see <bpt id="7d7bcefe-8efd-415b-a396-8419208ba17c">&lt;linkText&gt;</bpt>What's new in the cluster versions provided by HDInsight?<ept id="7d7bcefe-8efd-415b-a396-8419208ba17c">&lt;/linkText&gt;</ept><bpt id="7d7bcefe-8efd-415b-a396-8419208ba17c">&lt;title&gt;</bpt><ept id="7d7bcefe-8efd-415b-a396-8419208ba17c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For lists of supported components, see <bpt id="7d7bcefe-8efd-415b-a396-8419208ba17c">&lt;linkText&gt;</bpt>What's new in the cluster versions provided by HDInsight?<ept id="7d7bcefe-8efd-415b-a396-8419208ba17c">&lt;/linkText&gt;</ept><bpt id="7d7bcefe-8efd-415b-a396-8419208ba17c">&lt;title&gt;</bpt><ept id="7d7bcefe-8efd-415b-a396-8419208ba17c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ad9a63e-fa7a-415e-a073-771640779188" xml:space="preserve">
+          <source>Installation of custom software on the cluster by using Remote Desktop Connection is not supported.</source>
+          <target state="new">Installation of custom software on the cluster by using Remote Desktop Connection is not supported.</target>
+        </trans-unit>
+        <trans-unit id="f38fde56-e25a-40e7-b8d7-f28100c725a6" xml:space="preserve">
+          <source>You should avoid storing any files on the drives of the head node, as they will be lost if you need to re-create the clusters.</source>
+          <target state="new">You should avoid storing any files on the drives of the head node, as they will be lost if you need to re-create the clusters.</target>
+        </trans-unit>
+        <trans-unit id="9c19c5a9-dadf-4459-a5e9-9845db79ad85" xml:space="preserve">
+          <source>We recommend storing files on Azure Blob storage.</source>
+          <target state="new">We recommend storing files on Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="109b5d87-3b26-407b-ba45-d096e23e059b" xml:space="preserve">
+          <source>Blob storage is persistent.</source>
+          <target state="new">Blob storage is persistent.</target>
+        </trans-unit>
+        <trans-unit id="37cb30cf-2e07-4f88-8090-d20d27553676" xml:space="preserve">
+          <source><bpt id="95e7a3ad-4564-4884-9c96-95e870c13f9a">&lt;strong&gt;</bpt>To access the cluster<ept id="95e7a3ad-4564-4884-9c96-95e870c13f9a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="95e7a3ad-4564-4884-9c96-95e870c13f9a">&lt;strong&gt;</bpt>To access the cluster<ept id="95e7a3ad-4564-4884-9c96-95e870c13f9a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46b9f888-4efc-430a-a2ea-ec8941f16c8a" xml:space="preserve">
+          <source>Sign in to the <bpt id="815f40bb-bc59-43a8-acfb-dd7f996b71a6">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="815f40bb-bc59-43a8-acfb-dd7f996b71a6">&lt;/linkText&gt;</ept><bpt id="815f40bb-bc59-43a8-acfb-dd7f996b71a6">&lt;title&gt;</bpt><ept id="815f40bb-bc59-43a8-acfb-dd7f996b71a6">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="815f40bb-bc59-43a8-acfb-dd7f996b71a6">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="815f40bb-bc59-43a8-acfb-dd7f996b71a6">&lt;/linkText&gt;</ept><bpt id="815f40bb-bc59-43a8-acfb-dd7f996b71a6">&lt;title&gt;</bpt><ept id="815f40bb-bc59-43a8-acfb-dd7f996b71a6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed098f98-a8ce-4b53-9aba-11ceb2d763ed" xml:space="preserve">
+          <source>Click <bpt id="7cd18432-bbf3-4db0-9491-214d0bf948e4">&lt;strong&gt;</bpt>Browse All<ept id="7cd18432-bbf3-4db0-9491-214d0bf948e4">&lt;/strong&gt;</ept> from the left menu to open the <bpt id="f845082e-5c74-4a73-aa9f-20a42090ce09">&lt;strong&gt;</bpt>Browse<ept id="f845082e-5c74-4a73-aa9f-20a42090ce09">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click <bpt id="7cd18432-bbf3-4db0-9491-214d0bf948e4">&lt;strong&gt;</bpt>Browse All<ept id="7cd18432-bbf3-4db0-9491-214d0bf948e4">&lt;/strong&gt;</ept> from the left menu to open the <bpt id="f845082e-5c74-4a73-aa9f-20a42090ce09">&lt;strong&gt;</bpt>Browse<ept id="f845082e-5c74-4a73-aa9f-20a42090ce09">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="062c4e62-cc4a-445d-b04c-942429d25ae6" xml:space="preserve">
+          <source>Click <bpt id="667ed380-60b0-45ed-9c71-25a75e8373c8">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="667ed380-60b0-45ed-9c71-25a75e8373c8">&lt;/strong&gt;</ept> to open the <bpt id="a3508b57-feaa-4984-817f-4aff5ce0de40">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="a3508b57-feaa-4984-817f-4aff5ce0de40">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click <bpt id="667ed380-60b0-45ed-9c71-25a75e8373c8">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="667ed380-60b0-45ed-9c71-25a75e8373c8">&lt;/strong&gt;</ept> to open the <bpt id="a3508b57-feaa-4984-817f-4aff5ce0de40">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="a3508b57-feaa-4984-817f-4aff5ce0de40">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="28c605da-072b-428d-a4f1-262311c98282" xml:space="preserve">
+          <source>Click one of the clusters from the list to open the cluster blade:</source>
+          <target state="new">Click one of the clusters from the list to open the cluster blade:</target>
+        </trans-unit>
+        <trans-unit id="8e4f2827-f292-4305-a36c-10776c42ce8b" xml:space="preserve">
+          <source><bpt id="61e5be9f-f2f3-4bb9-97bc-12565e04ad79">&lt;linkText&gt;</bpt>HDInsight portal<ept id="61e5be9f-f2f3-4bb9-97bc-12565e04ad79">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="61e5be9f-f2f3-4bb9-97bc-12565e04ad79">&lt;linkText&gt;</bpt>HDInsight portal<ept id="61e5be9f-f2f3-4bb9-97bc-12565e04ad79">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3306959-902a-4b71-a18c-c381eac9196d" xml:space="preserve">
+          <source>Click <bpt id="7928a4d8-a4a5-47a7-99d4-0d9f9ad9c0ff">&lt;strong&gt;</bpt>Settings<ept id="7928a4d8-a4a5-47a7-99d4-0d9f9ad9c0ff">&lt;/strong&gt;</ept> to see the configuration details and to configure the cluster:</source>
+          <target state="new">Click <bpt id="7928a4d8-a4a5-47a7-99d4-0d9f9ad9c0ff">&lt;strong&gt;</bpt>Settings<ept id="7928a4d8-a4a5-47a7-99d4-0d9f9ad9c0ff">&lt;/strong&gt;</ept> to see the configuration details and to configure the cluster:</target>
+        </trans-unit>
+        <trans-unit id="9f3cb931-3417-493c-a611-a96cb32f0aaf" xml:space="preserve">
+          <source><bpt id="aea395eb-1545-4096-83d9-dad8db62f2a5">&lt;linkText&gt;</bpt>HDInsight portal cluster settings<ept id="aea395eb-1545-4096-83d9-dad8db62f2a5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aea395eb-1545-4096-83d9-dad8db62f2a5">&lt;linkText&gt;</bpt>HDInsight portal cluster settings<ept id="aea395eb-1545-4096-83d9-dad8db62f2a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7913c540-748a-419e-aa10-5b13e4226729" xml:space="preserve">
+          <source>|Setting|Description|
+|-----|-----|
+|Properties| Display the cluster properties.|
+|Azure Storage Keys| Display the default Azure storage account information.</source>
+          <target state="new">|Setting|Description|
+|-----|-----|
+|Properties| Display the cluster properties.|
+|Azure Storage Keys| Display the default Azure storage account information.</target>
+        </trans-unit>
+        <trans-unit id="e8ae4662-71ee-462d-ac9a-f2750cffd534" xml:space="preserve">
+          <source>|
+|Cluster Login| Grant/revoke the HTTP web services access, and configure the cluster login information.</source>
+          <target state="new">|
+|Cluster Login| Grant/revoke the HTTP web services access, and configure the cluster login information.</target>
+        </trans-unit>
+        <trans-unit id="f9453df4-bd72-4b4f-936e-a137b05c337c" xml:space="preserve">
+          <source>|
+|External Metastores| Display the Hive/Oozie metastore information.|
+|Scale cluster| Increase/decrease the number of workers nodes of the cluster.|
+|Remote Desktop| Enable/disable the Remote Desktop connectivity, connect to the cluster via Remote Desktop.|</source>
+          <target state="new">|
+|External Metastores| Display the Hive/Oozie metastore information.|
+|Scale cluster| Increase/decrease the number of workers nodes of the cluster.|
+|Remote Desktop| Enable/disable the Remote Desktop connectivity, connect to the cluster via Remote Desktop.|</target>
+        </trans-unit>
+        <trans-unit id="4556c99b-26ec-4e8b-8811-2d4b644f5ba0" xml:space="preserve">
+          <source>HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):</source>
+          <target state="new">HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):</target>
+        </trans-unit>
+        <trans-unit id="c6c21327-e398-46d5-91ce-7951d16058ee" xml:space="preserve">
+          <source>ODBC</source>
+          <target state="new">ODBC</target>
+        </trans-unit>
+        <trans-unit id="2edf96c1-3e86-425a-8ed3-139a306f7fd6" xml:space="preserve">
+          <source>JDBC</source>
+          <target state="new">JDBC</target>
+        </trans-unit>
+        <trans-unit id="4289ff83-13ab-405c-87f8-409c2c9bd4e8" xml:space="preserve">
+          <source>Ambari</source>
+          <target state="new">Ambari</target>
+        </trans-unit>
+        <trans-unit id="3304dd5d-7688-4baa-90f5-58b3fb5d8f59" xml:space="preserve">
+          <source>Oozie</source>
+          <target state="new">Oozie</target>
+        </trans-unit>
+        <trans-unit id="869fd340-650c-4fd9-a60e-c3be6e0a7b3b" xml:space="preserve">
+          <source>Templeton</source>
+          <target state="new">Templeton</target>
+        </trans-unit>
+        <trans-unit id="92a46985-8171-418f-aabd-5687bb830282" xml:space="preserve">
+          <source>By default, these services are granted for access.</source>
+          <target state="new">By default, these services are granted for access.</target>
+        </trans-unit>
+        <trans-unit id="3f8b2924-42d1-421e-bc57-9fc2449dd1ab" xml:space="preserve">
+          <source>You can revoke/grant the access from the Azure portal.</source>
+          <target state="new">You can revoke/grant the access from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="469b9129-6957-4d42-b46c-7b8bf4461d0f" xml:space="preserve">
+          <source>By granting/revoking the access, you will reset the cluster user name and password.</source>
+          <target state="new">By granting/revoking the access, you will reset the cluster user name and password.</target>
+        </trans-unit>
+        <trans-unit id="7f3bd37f-6e20-488c-8136-33a81ab0c115" xml:space="preserve">
+          <source><bpt id="a949aff3-67ae-4ba5-bb24-4fddfa11d227">&lt;strong&gt;</bpt>To grant/revoke HTTP web services access<ept id="a949aff3-67ae-4ba5-bb24-4fddfa11d227">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a949aff3-67ae-4ba5-bb24-4fddfa11d227">&lt;strong&gt;</bpt>To grant/revoke HTTP web services access<ept id="a949aff3-67ae-4ba5-bb24-4fddfa11d227">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d6095f7-c0ba-4c7c-9797-02174daac5c8" xml:space="preserve">
+          <source>Sign in to the <bpt id="7b8d4572-f881-41d8-b2db-be30f3679e9f">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="7b8d4572-f881-41d8-b2db-be30f3679e9f">&lt;/linkText&gt;</ept><bpt id="7b8d4572-f881-41d8-b2db-be30f3679e9f">&lt;title&gt;</bpt><ept id="7b8d4572-f881-41d8-b2db-be30f3679e9f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="7b8d4572-f881-41d8-b2db-be30f3679e9f">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="7b8d4572-f881-41d8-b2db-be30f3679e9f">&lt;/linkText&gt;</ept><bpt id="7b8d4572-f881-41d8-b2db-be30f3679e9f">&lt;title&gt;</bpt><ept id="7b8d4572-f881-41d8-b2db-be30f3679e9f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1271a4d-cbb6-4c99-a58b-ff754e9011c5" xml:space="preserve">
+          <source>Click <bpt id="e838f562-c725-435d-a108-c8410cefdc6e">&lt;strong&gt;</bpt>Browse All<ept id="e838f562-c725-435d-a108-c8410cefdc6e">&lt;/strong&gt;</ept> from the left menu, click <bpt id="e36f8bd5-976b-45c9-8981-67f1c4443cbb">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="e36f8bd5-976b-45c9-8981-67f1c4443cbb">&lt;/strong&gt;</ept>, click your cluster name.</source>
+          <target state="new">Click <bpt id="e838f562-c725-435d-a108-c8410cefdc6e">&lt;strong&gt;</bpt>Browse All<ept id="e838f562-c725-435d-a108-c8410cefdc6e">&lt;/strong&gt;</ept> from the left menu, click <bpt id="e36f8bd5-976b-45c9-8981-67f1c4443cbb">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="e36f8bd5-976b-45c9-8981-67f1c4443cbb">&lt;/strong&gt;</ept>, click your cluster name.</target>
+        </trans-unit>
+        <trans-unit id="04d7c2d7-2d0d-4e04-95d2-7d1b5d8b1fa3" xml:space="preserve">
+          <source>Click <bpt id="660698fa-2bac-402c-8713-113015b5fc2a">&lt;strong&gt;</bpt>Settings<ept id="660698fa-2bac-402c-8713-113015b5fc2a">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="0097edca-96ce-4c19-b4f1-86e4a3d761a2">&lt;strong&gt;</bpt>Cluster Login<ept id="0097edca-96ce-4c19-b4f1-86e4a3d761a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="660698fa-2bac-402c-8713-113015b5fc2a">&lt;strong&gt;</bpt>Settings<ept id="660698fa-2bac-402c-8713-113015b5fc2a">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="0097edca-96ce-4c19-b4f1-86e4a3d761a2">&lt;strong&gt;</bpt>Cluster Login<ept id="0097edca-96ce-4c19-b4f1-86e4a3d761a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="287e4503-5ef6-46ba-8019-9ca84439d80a" xml:space="preserve">
+          <source>Click <bpt id="ad839f2d-331d-4138-ae39-a4fd81d8203e">&lt;strong&gt;</bpt>ON<ept id="ad839f2d-331d-4138-ae39-a4fd81d8203e">&lt;/strong&gt;</ept> or <bpt id="2b539a5e-4f15-4701-ae5d-69579189993e">&lt;strong&gt;</bpt>OFF<ept id="2b539a5e-4f15-4701-ae5d-69579189993e">&lt;/strong&gt;</ept> on <bpt id="4d9e890c-5611-41a7-bf18-ddac72cffcd9">&lt;strong&gt;</bpt>Cluster Login Access<ept id="4d9e890c-5611-41a7-bf18-ddac72cffcd9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ad839f2d-331d-4138-ae39-a4fd81d8203e">&lt;strong&gt;</bpt>ON<ept id="ad839f2d-331d-4138-ae39-a4fd81d8203e">&lt;/strong&gt;</ept> or <bpt id="2b539a5e-4f15-4701-ae5d-69579189993e">&lt;strong&gt;</bpt>OFF<ept id="2b539a5e-4f15-4701-ae5d-69579189993e">&lt;/strong&gt;</ept> on <bpt id="4d9e890c-5611-41a7-bf18-ddac72cffcd9">&lt;strong&gt;</bpt>Cluster Login Access<ept id="4d9e890c-5611-41a7-bf18-ddac72cffcd9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b4d4acc-642b-4ca4-aa2c-7cb8cb963d10" xml:space="preserve">
+          <source>For <bpt id="81370853-4f4f-4ef7-833b-9626624aab6e">&lt;strong&gt;</bpt>Cluster Login Username<ept id="81370853-4f4f-4ef7-833b-9626624aab6e">&lt;/strong&gt;</ept> and <bpt id="47c7f237-7d8b-4948-888d-e77399482e12">&lt;strong&gt;</bpt>Cluster Login Password<ept id="47c7f237-7d8b-4948-888d-e77399482e12">&lt;/strong&gt;</ept>, enter the new user name and password (respectively) for the cluster.</source>
+          <target state="new">For <bpt id="81370853-4f4f-4ef7-833b-9626624aab6e">&lt;strong&gt;</bpt>Cluster Login Username<ept id="81370853-4f4f-4ef7-833b-9626624aab6e">&lt;/strong&gt;</ept> and <bpt id="47c7f237-7d8b-4948-888d-e77399482e12">&lt;strong&gt;</bpt>Cluster Login Password<ept id="47c7f237-7d8b-4948-888d-e77399482e12">&lt;/strong&gt;</ept>, enter the new user name and password (respectively) for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="3a272303-c7dd-4734-b696-0994adb75a52" xml:space="preserve">
+          <source>Click <bpt id="5d1a0e52-1acf-4675-a46d-de1213fe8dd8">&lt;strong&gt;</bpt>SAVE<ept id="5d1a0e52-1acf-4675-a46d-de1213fe8dd8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5d1a0e52-1acf-4675-a46d-de1213fe8dd8">&lt;strong&gt;</bpt>SAVE<ept id="5d1a0e52-1acf-4675-a46d-de1213fe8dd8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98e459ce-4f99-42f8-b930-80c73484b731" xml:space="preserve">
+          <source><bpt id="06adf9cc-4a77-441d-ab9a-0c3d064ce147">&lt;linkText&gt;</bpt>hdinsight grand remove http web service access<ept id="06adf9cc-4a77-441d-ab9a-0c3d064ce147">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06adf9cc-4a77-441d-ab9a-0c3d064ce147">&lt;linkText&gt;</bpt>hdinsight grand remove http web service access<ept id="06adf9cc-4a77-441d-ab9a-0c3d064ce147">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2926905e-854b-4275-9a45-7f03c9f0d7ad" xml:space="preserve">
+          <source>This can also be done through the Azure PowerShell cmdlets:</source>
+          <target state="new">This can also be done through the Azure PowerShell cmdlets:</target>
+        </trans-unit>
+        <trans-unit id="1dd901e9-513f-4df5-8496-8dc865ff30fd" xml:space="preserve">
+          <source>Grant-AzureHDInsightHttpServicesAccess</source>
+          <target state="new">Grant-AzureHDInsightHttpServicesAccess</target>
+        </trans-unit>
+        <trans-unit id="3852f4a9-3f04-4a93-b7a4-d929deb2b15d" xml:space="preserve">
+          <source>Revoke-AzureHDInsightHttpServicesAccess</source>
+          <target state="new">Revoke-AzureHDInsightHttpServicesAccess</target>
+        </trans-unit>
+        <trans-unit id="70ae9da3-e99b-4bc5-a3c7-e688708d1cbd" xml:space="preserve">
+          <source>See <bpt id="47707877-ae23-46c0-bcce-3d74216c4b4d">&lt;linkText&gt;</bpt>Administer HDInsight using Azure PowerShell<ept id="47707877-ae23-46c0-bcce-3d74216c4b4d">&lt;/linkText&gt;</ept><bpt id="47707877-ae23-46c0-bcce-3d74216c4b4d">&lt;title&gt;</bpt><ept id="47707877-ae23-46c0-bcce-3d74216c4b4d">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="47707877-ae23-46c0-bcce-3d74216c4b4d">&lt;linkText&gt;</bpt>Administer HDInsight using Azure PowerShell<ept id="47707877-ae23-46c0-bcce-3d74216c4b4d">&lt;/linkText&gt;</ept><bpt id="47707877-ae23-46c0-bcce-3d74216c4b4d">&lt;title&gt;</bpt><ept id="47707877-ae23-46c0-bcce-3d74216c4b4d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bad2aa6a-d3cc-46f7-8e91-c0fc9704c581" xml:space="preserve">
+          <source>An HDInsight cluster can have two user accounts.</source>
+          <target state="new">An HDInsight cluster can have two user accounts.</target>
+        </trans-unit>
+        <trans-unit id="a723cf73-a9da-48bd-abfb-ffbf0b51a7d8" xml:space="preserve">
+          <source>The HDInsight cluster user account is created during the provisioning process.</source>
+          <target state="new">The HDInsight cluster user account is created during the provisioning process.</target>
+        </trans-unit>
+        <trans-unit id="1b0df35b-b2f2-4568-b81a-d830a477875a" xml:space="preserve">
+          <source>You can also create an RDP user account for accessing the cluster via RDP.</source>
+          <target state="new">You can also create an RDP user account for accessing the cluster via RDP.</target>
+        </trans-unit>
+        <trans-unit id="756ccf0f-05f7-4fab-8765-064acb762d89" xml:space="preserve">
+          <source>See <bpt id="3135dba1-6db7-4dbf-a02b-23667a98523d">&lt;linkText&gt;</bpt>Enable remote desktop<ept id="3135dba1-6db7-4dbf-a02b-23667a98523d">&lt;/linkText&gt;</ept><bpt id="3135dba1-6db7-4dbf-a02b-23667a98523d">&lt;title&gt;</bpt><ept id="3135dba1-6db7-4dbf-a02b-23667a98523d">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="3135dba1-6db7-4dbf-a02b-23667a98523d">&lt;linkText&gt;</bpt>Enable remote desktop<ept id="3135dba1-6db7-4dbf-a02b-23667a98523d">&lt;/linkText&gt;</ept><bpt id="3135dba1-6db7-4dbf-a02b-23667a98523d">&lt;title&gt;</bpt><ept id="3135dba1-6db7-4dbf-a02b-23667a98523d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b3e41e6-673f-4917-b02e-f79de5106012" xml:space="preserve">
+          <source><bpt id="b69e55fc-8d62-4792-a64c-515c3f7630b7">&lt;strong&gt;</bpt>To change the HDInsight cluster user name and password<ept id="b69e55fc-8d62-4792-a64c-515c3f7630b7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b69e55fc-8d62-4792-a64c-515c3f7630b7">&lt;strong&gt;</bpt>To change the HDInsight cluster user name and password<ept id="b69e55fc-8d62-4792-a64c-515c3f7630b7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3c27587-4dcd-491d-99d3-31d4720477fe" xml:space="preserve">
+          <source>Sign in to the <bpt id="f4e3a067-b385-42f1-8cc7-5c4dcf1b8254">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="f4e3a067-b385-42f1-8cc7-5c4dcf1b8254">&lt;/linkText&gt;</ept><bpt id="f4e3a067-b385-42f1-8cc7-5c4dcf1b8254">&lt;title&gt;</bpt><ept id="f4e3a067-b385-42f1-8cc7-5c4dcf1b8254">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="f4e3a067-b385-42f1-8cc7-5c4dcf1b8254">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="f4e3a067-b385-42f1-8cc7-5c4dcf1b8254">&lt;/linkText&gt;</ept><bpt id="f4e3a067-b385-42f1-8cc7-5c4dcf1b8254">&lt;title&gt;</bpt><ept id="f4e3a067-b385-42f1-8cc7-5c4dcf1b8254">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4739ab8-7440-46ef-84a9-72dd39865862" xml:space="preserve">
+          <source>Click <bpt id="fab587a3-b27e-46fc-800c-56d6b66c3ca4">&lt;strong&gt;</bpt>Browse All<ept id="fab587a3-b27e-46fc-800c-56d6b66c3ca4">&lt;/strong&gt;</ept> from the left menu, click <bpt id="85aca041-0635-4046-b8fd-ead0d26becfd">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="85aca041-0635-4046-b8fd-ead0d26becfd">&lt;/strong&gt;</ept>, click your cluster name.</source>
+          <target state="new">Click <bpt id="fab587a3-b27e-46fc-800c-56d6b66c3ca4">&lt;strong&gt;</bpt>Browse All<ept id="fab587a3-b27e-46fc-800c-56d6b66c3ca4">&lt;/strong&gt;</ept> from the left menu, click <bpt id="85aca041-0635-4046-b8fd-ead0d26becfd">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="85aca041-0635-4046-b8fd-ead0d26becfd">&lt;/strong&gt;</ept>, click your cluster name.</target>
+        </trans-unit>
+        <trans-unit id="5798e182-fb38-4f71-a80a-4b660ad6050d" xml:space="preserve">
+          <source>Click <bpt id="e4bb72d8-ea7c-4ab3-b8f0-3822b57d1dea">&lt;strong&gt;</bpt>Settings<ept id="e4bb72d8-ea7c-4ab3-b8f0-3822b57d1dea">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="c89058b5-b59b-45a2-8b97-30df59a4b321">&lt;strong&gt;</bpt>Cluster Login<ept id="c89058b5-b59b-45a2-8b97-30df59a4b321">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e4bb72d8-ea7c-4ab3-b8f0-3822b57d1dea">&lt;strong&gt;</bpt>Settings<ept id="e4bb72d8-ea7c-4ab3-b8f0-3822b57d1dea">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="c89058b5-b59b-45a2-8b97-30df59a4b321">&lt;strong&gt;</bpt>Cluster Login<ept id="c89058b5-b59b-45a2-8b97-30df59a4b321">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5d1120f-33d3-4fc5-b159-bb317f8fe065" xml:space="preserve">
+          <source>Change the <bpt id="acb7db6b-06c9-4875-9b56-f1e1b7a344af">&lt;strong&gt;</bpt>Cluster Login Name<ept id="acb7db6b-06c9-4875-9b56-f1e1b7a344af">&lt;/strong&gt;</ept> and/or the <bpt id="dace662e-223e-45a3-836c-d03c394c9cff">&lt;strong&gt;</bpt>Cluster Login Password<ept id="dace662e-223e-45a3-836c-d03c394c9cff">&lt;/strong&gt;</ept>, and then click <bpt id="bb304c37-4fca-456a-9129-9cc6b8af70d5">&lt;strong&gt;</bpt>Save<ept id="bb304c37-4fca-456a-9129-9cc6b8af70d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Change the <bpt id="acb7db6b-06c9-4875-9b56-f1e1b7a344af">&lt;strong&gt;</bpt>Cluster Login Name<ept id="acb7db6b-06c9-4875-9b56-f1e1b7a344af">&lt;/strong&gt;</ept> and/or the <bpt id="dace662e-223e-45a3-836c-d03c394c9cff">&lt;strong&gt;</bpt>Cluster Login Password<ept id="dace662e-223e-45a3-836c-d03c394c9cff">&lt;/strong&gt;</ept>, and then click <bpt id="bb304c37-4fca-456a-9129-9cc6b8af70d5">&lt;strong&gt;</bpt>Save<ept id="bb304c37-4fca-456a-9129-9cc6b8af70d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d88ee34-5ec0-4e31-881c-383884bbf50c" xml:space="preserve">
+          <source><bpt id="a5352438-7243-4238-8507-fae5d361f5ce">&lt;linkText&gt;</bpt>hdinsight change cluster user username password http user<ept id="a5352438-7243-4238-8507-fae5d361f5ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a5352438-7243-4238-8507-fae5d361f5ce">&lt;linkText&gt;</bpt>hdinsight change cluster user username password http user<ept id="a5352438-7243-4238-8507-fae5d361f5ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ddf691c-0fc2-45e5-8938-37134f793d35" xml:space="preserve">
+          <source>The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.</source>
+          <target state="new">The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.</target>
+        </trans-unit>
+        <trans-unit id="0a7203dc-0ff3-4801-9077-a9fbd597d293" xml:space="preserve">
+          <source>Only clusters with HDInsight version 3.1.3 or higher are supported.</source>
+          <target state="new">Only clusters with HDInsight version 3.1.3 or higher are supported.</target>
+        </trans-unit>
+        <trans-unit id="bceff651-3b98-47d3-b54b-859e518b9d48" xml:space="preserve">
+          <source>If you are unsure of the version of your cluster, you can check the Properties page.</source>
+          <target state="new">If you are unsure of the version of your cluster, you can check the Properties page.</target>
+        </trans-unit>
+        <trans-unit id="1fa40e4b-525b-4a12-b60e-d5b8654488e8" xml:space="preserve">
+          <source>See <bpt id="ae489e0d-1cd2-4587-9f74-177139595f9b">&lt;linkText&gt;</bpt>Get familiar with the cluster portal interface<ept id="ae489e0d-1cd2-4587-9f74-177139595f9b">&lt;/linkText&gt;</ept><bpt id="ae489e0d-1cd2-4587-9f74-177139595f9b">&lt;title&gt;</bpt><ept id="ae489e0d-1cd2-4587-9f74-177139595f9b">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="ae489e0d-1cd2-4587-9f74-177139595f9b">&lt;linkText&gt;</bpt>Get familiar with the cluster portal interface<ept id="ae489e0d-1cd2-4587-9f74-177139595f9b">&lt;/linkText&gt;</ept><bpt id="ae489e0d-1cd2-4587-9f74-177139595f9b">&lt;title&gt;</bpt><ept id="ae489e0d-1cd2-4587-9f74-177139595f9b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="734901a1-65cb-45e7-b375-ce83253ceead" xml:space="preserve">
+          <source>The impact of changing the number of data nodes for each type of cluster supported by HDInsight:</source>
+          <target state="new">The impact of changing the number of data nodes for each type of cluster supported by HDInsight:</target>
+        </trans-unit>
+        <trans-unit id="3be69b23-f8a4-4f9f-8e6e-0f1748907e3e" xml:space="preserve">
+          <source>Hadoop</source>
+          <target state="new">Hadoop</target>
+        </trans-unit>
+        <trans-unit id="c9eccccf-4d94-4a72-a40c-ec9829987c59" xml:space="preserve">
+          <source>You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs.</source>
+          <target state="new">You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs.</target>
+        </trans-unit>
+        <trans-unit id="3fa2bc49-1fe4-4d12-9378-86c04acfcf1b" xml:space="preserve">
+          <source>New jobs can also be submitted while the operation is in progress.</source>
+          <target state="new">New jobs can also be submitted while the operation is in progress.</target>
+        </trans-unit>
+        <trans-unit id="08e64488-2081-40f2-98ae-ea8ce48ff170" xml:space="preserve">
+          <source>Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.</source>
+          <target state="new">Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.</target>
+        </trans-unit>
+        <trans-unit id="9d0c9016-d936-4c22-a499-8cb018931dc2" xml:space="preserve">
+          <source>When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted.</source>
+          <target state="new">When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted.</target>
+        </trans-unit>
+        <trans-unit id="a984a59c-c827-45be-89de-d7b30c8105b1" xml:space="preserve">
+          <source>This causes all running and pending jobs to fail at the completion of the scaling operation.</source>
+          <target state="new">This causes all running and pending jobs to fail at the completion of the scaling operation.</target>
+        </trans-unit>
+        <trans-unit id="8087123f-290e-4057-95de-2bf12f862a5a" xml:space="preserve">
+          <source>You can, however, resubmit the jobs once the operation is complete.</source>
+          <target state="new">You can, however, resubmit the jobs once the operation is complete.</target>
+        </trans-unit>
+        <trans-unit id="1421f625-ec14-4123-979e-b763fb2c7206" xml:space="preserve">
+          <source>HBase</source>
+          <target state="new">HBase</target>
+        </trans-unit>
+        <trans-unit id="ef936c1e-d0e8-4a54-aed7-29ae5c332b07" xml:space="preserve">
+          <source>You can seamlessly add or remove nodes to your HBase cluster while it is running.</source>
+          <target state="new">You can seamlessly add or remove nodes to your HBase cluster while it is running.</target>
+        </trans-unit>
+        <trans-unit id="70740573-1ebd-4954-8d4d-440841bdce41" xml:space="preserve">
+          <source>Regional Servers are automatically balanced within a few minutes of completing the scaling operation.</source>
+          <target state="new">Regional Servers are automatically balanced within a few minutes of completing the scaling operation.</target>
+        </trans-unit>
+        <trans-unit id="3aa72224-91bc-4a5e-8d7b-1dad4923e48e" xml:space="preserve">
+          <source>However, you can also manually balance the regional servers by logging into the headnode of cluster and running the following commands from a command prompt window:</source>
+          <target state="new">However, you can also manually balance the regional servers by logging into the headnode of cluster and running the following commands from a command prompt window:</target>
+        </trans-unit>
+        <trans-unit id="0457c07c-1004-4d2c-8a06-fbfa59285956" xml:space="preserve">
+          <source>pushd %HBASE_HOME%\bin
+hbase shell
+balancer</source>
+          <target state="new">pushd %HBASE_HOME%\bin
+hbase shell
+balancer</target>
+        </trans-unit>
+        <trans-unit id="0cecad20-6086-43f7-977a-3305006556a7" xml:space="preserve">
+          <source>For more information on using the HBase shell, see []</source>
+          <target state="new">For more information on using the HBase shell, see []</target>
+        </trans-unit>
+        <trans-unit id="fbe06a7b-daae-489d-bcaa-31f995e60b97" xml:space="preserve">
+          <source>Storm</source>
+          <target state="new">Storm</target>
+        </trans-unit>
+        <trans-unit id="a572f50a-5d4b-4432-9d0d-b20ac7a812c4" xml:space="preserve">
+          <source>You can seamlessly add or remove data nodes to your Storm cluster while it is running.</source>
+          <target state="new">You can seamlessly add or remove data nodes to your Storm cluster while it is running.</target>
+        </trans-unit>
+        <trans-unit id="d1c861c0-79b3-44bd-8379-6bf2e14e85d3" xml:space="preserve">
+          <source>But after a successful completion of the scaling operation, you will need to rebalance the topology.</source>
+          <target state="new">But after a successful completion of the scaling operation, you will need to rebalance the topology.</target>
+        </trans-unit>
+        <trans-unit id="3e39673f-cd7d-46e9-b514-9621038ee5de" xml:space="preserve">
+          <source>Rebalancing can be accomplished in two ways:</source>
+          <target state="new">Rebalancing can be accomplished in two ways:</target>
+        </trans-unit>
+        <trans-unit id="2e9f2eef-2671-4322-88e0-93c11fe1d8a6" xml:space="preserve">
+          <source>Storm web UI</source>
+          <target state="new">Storm web UI</target>
+        </trans-unit>
+        <trans-unit id="07ca9d59-0f58-4b27-bb26-74f06e1513a7" xml:space="preserve">
+          <source>Command-line interface (CLI) tool</source>
+          <target state="new">Command-line interface (CLI) tool</target>
+        </trans-unit>
+        <trans-unit id="1eefa6dc-68e2-4839-8f44-e5f9b22051e6" xml:space="preserve">
+          <source>Please refer to the <bpt id="d1b4e38a-50c2-4824-bc2d-13030bf6803a">&lt;linkText&gt;</bpt>Apache Storm documentation<ept id="d1b4e38a-50c2-4824-bc2d-13030bf6803a">&lt;/linkText&gt;</ept><bpt id="d1b4e38a-50c2-4824-bc2d-13030bf6803a">&lt;title&gt;</bpt><ept id="d1b4e38a-50c2-4824-bc2d-13030bf6803a">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">Please refer to the <bpt id="d1b4e38a-50c2-4824-bc2d-13030bf6803a">&lt;linkText&gt;</bpt>Apache Storm documentation<ept id="d1b4e38a-50c2-4824-bc2d-13030bf6803a">&lt;/linkText&gt;</ept><bpt id="d1b4e38a-50c2-4824-bc2d-13030bf6803a">&lt;title&gt;</bpt><ept id="d1b4e38a-50c2-4824-bc2d-13030bf6803a">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="54e0e780-e129-491c-ba4d-0cd44fba4ee2" xml:space="preserve">
+          <source>The Storm web UI is available on the HDInsight cluster:</source>
+          <target state="new">The Storm web UI is available on the HDInsight cluster:</target>
+        </trans-unit>
+        <trans-unit id="e47c9e3a-289c-426c-9983-7c49db2a0137" xml:space="preserve">
+          <source><bpt id="5971652a-d727-4caf-a34b-6cc6a6119cf3">&lt;linkText&gt;</bpt>hdinsight storm scale rebalance<ept id="5971652a-d727-4caf-a34b-6cc6a6119cf3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5971652a-d727-4caf-a34b-6cc6a6119cf3">&lt;linkText&gt;</bpt>hdinsight storm scale rebalance<ept id="5971652a-d727-4caf-a34b-6cc6a6119cf3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a20e51af-626f-44df-8dcf-f6f3ad75c3d3" xml:space="preserve">
+          <source>Here is an example how to use the CLI command to rebalance the Storm topology:</source>
+          <target state="new">Here is an example how to use the CLI command to rebalance the Storm topology:</target>
+        </trans-unit>
+        <trans-unit id="c9b624bc-ce7a-4911-95ba-0da2fb262803" xml:space="preserve">
+          <source><bpt id="580c6ad6-bbeb-4934-93ed-2b914c980523">&lt;strong&gt;</bpt>To scale clusters<ept id="580c6ad6-bbeb-4934-93ed-2b914c980523">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="580c6ad6-bbeb-4934-93ed-2b914c980523">&lt;strong&gt;</bpt>To scale clusters<ept id="580c6ad6-bbeb-4934-93ed-2b914c980523">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff5a25a4-aa07-43bd-b2be-6ba7c9ecd43a" xml:space="preserve">
+          <source>Sign in to the <bpt id="acffe845-8880-4ea7-824a-4f4687ba5603">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="acffe845-8880-4ea7-824a-4f4687ba5603">&lt;/linkText&gt;</ept><bpt id="acffe845-8880-4ea7-824a-4f4687ba5603">&lt;title&gt;</bpt><ept id="acffe845-8880-4ea7-824a-4f4687ba5603">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="acffe845-8880-4ea7-824a-4f4687ba5603">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="acffe845-8880-4ea7-824a-4f4687ba5603">&lt;/linkText&gt;</ept><bpt id="acffe845-8880-4ea7-824a-4f4687ba5603">&lt;title&gt;</bpt><ept id="acffe845-8880-4ea7-824a-4f4687ba5603">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d71c201f-cebe-45dd-b896-6dbdc8d16084" xml:space="preserve">
+          <source>Click <bpt id="28046262-5595-4eec-b294-d5cd12192e32">&lt;strong&gt;</bpt>Browse All<ept id="28046262-5595-4eec-b294-d5cd12192e32">&lt;/strong&gt;</ept> from the left menu, click <bpt id="fbad0be0-313a-4eb9-94a1-563ca2624f00">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="fbad0be0-313a-4eb9-94a1-563ca2624f00">&lt;/strong&gt;</ept>, click your cluster name.</source>
+          <target state="new">Click <bpt id="28046262-5595-4eec-b294-d5cd12192e32">&lt;strong&gt;</bpt>Browse All<ept id="28046262-5595-4eec-b294-d5cd12192e32">&lt;/strong&gt;</ept> from the left menu, click <bpt id="fbad0be0-313a-4eb9-94a1-563ca2624f00">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="fbad0be0-313a-4eb9-94a1-563ca2624f00">&lt;/strong&gt;</ept>, click your cluster name.</target>
+        </trans-unit>
+        <trans-unit id="38f6ad8c-d8f2-4b5e-9bca-a0c1f7ed8d76" xml:space="preserve">
+          <source>Click <bpt id="79e684d1-8519-4cc6-b2df-ae26e193774b">&lt;strong&gt;</bpt>Settings<ept id="79e684d1-8519-4cc6-b2df-ae26e193774b">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="5de4c970-41ee-4309-a8fd-7270c335bd94">&lt;strong&gt;</bpt>Scale Cluster<ept id="5de4c970-41ee-4309-a8fd-7270c335bd94">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="79e684d1-8519-4cc6-b2df-ae26e193774b">&lt;strong&gt;</bpt>Settings<ept id="79e684d1-8519-4cc6-b2df-ae26e193774b">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="5de4c970-41ee-4309-a8fd-7270c335bd94">&lt;strong&gt;</bpt>Scale Cluster<ept id="5de4c970-41ee-4309-a8fd-7270c335bd94">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1caa087d-4cb4-4ce2-87d4-d6164c145c4f" xml:space="preserve">
+          <source>Enter <bpt id="0176e1b5-10be-4f4b-9c36-fba25e999ec6">&lt;strong&gt;</bpt>Number of Worker nodes<ept id="0176e1b5-10be-4f4b-9c36-fba25e999ec6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter <bpt id="0176e1b5-10be-4f4b-9c36-fba25e999ec6">&lt;strong&gt;</bpt>Number of Worker nodes<ept id="0176e1b5-10be-4f4b-9c36-fba25e999ec6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="689e61a7-c868-40ca-859e-2beadb9829dd" xml:space="preserve">
+          <source>The limit on the number of cluster node varies among Azure subscriptions.</source>
+          <target state="new">The limit on the number of cluster node varies among Azure subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="118a2aa6-cc7b-4de9-aa0b-692c5df7a204" xml:space="preserve">
+          <source>You can contact billing support to increase the limit.</source>
+          <target state="new">You can contact billing support to increase the limit.</target>
+        </trans-unit>
+        <trans-unit id="e7a45aa6-7b71-4bf4-b55c-2e262f15375e" xml:space="preserve">
+          <source>The cost information will reflect the changes you have made to the number of nodes.</source>
+          <target state="new">The cost information will reflect the changes you have made to the number of nodes.</target>
+        </trans-unit>
+        <trans-unit id="8f4031f8-c386-44b9-9868-ae26672fe0e1" xml:space="preserve">
+          <source><bpt id="11756c57-9fd0-4daa-a3d4-26278a0098a2">&lt;linkText&gt;</bpt>hdinsight hadoop hbase storm spark scale<ept id="11756c57-9fd0-4daa-a3d4-26278a0098a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="11756c57-9fd0-4daa-a3d4-26278a0098a2">&lt;linkText&gt;</bpt>hdinsight hadoop hbase storm spark scale<ept id="11756c57-9fd0-4daa-a3d4-26278a0098a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78a7ae9a-ad5c-46a1-85ca-2f07658ec7bf" xml:space="preserve">
+          <source>The credentials for the cluster that you provided at its creation give access to the services on the cluster, but not to the cluster itself through Remote Desktop.</source>
+          <target state="new">The credentials for the cluster that you provided at its creation give access to the services on the cluster, but not to the cluster itself through Remote Desktop.</target>
+        </trans-unit>
+        <trans-unit id="39dcff86-b800-46a7-b5fb-77c9894ca9c3" xml:space="preserve">
+          <source>You can turn on Remote Desktop access when you provision a cluster or after a cluster is provisioned.</source>
+          <target state="new">You can turn on Remote Desktop access when you provision a cluster or after a cluster is provisioned.</target>
+        </trans-unit>
+        <trans-unit id="861c69aa-aa70-4dab-a260-f4b9d9504c40" xml:space="preserve">
+          <source>For the instructions about enabling Remote Desktop at provision, see <bpt id="476fd42f-ce61-4aa8-9729-69516248d1a6">&lt;linkText&gt;</bpt>Provision HDInsight cluster<ept id="476fd42f-ce61-4aa8-9729-69516248d1a6">&lt;/linkText&gt;</ept><bpt id="476fd42f-ce61-4aa8-9729-69516248d1a6">&lt;title&gt;</bpt><ept id="476fd42f-ce61-4aa8-9729-69516248d1a6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the instructions about enabling Remote Desktop at provision, see <bpt id="476fd42f-ce61-4aa8-9729-69516248d1a6">&lt;linkText&gt;</bpt>Provision HDInsight cluster<ept id="476fd42f-ce61-4aa8-9729-69516248d1a6">&lt;/linkText&gt;</ept><bpt id="476fd42f-ce61-4aa8-9729-69516248d1a6">&lt;title&gt;</bpt><ept id="476fd42f-ce61-4aa8-9729-69516248d1a6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="162ae660-bc6c-4693-b906-5acce1ece42d" xml:space="preserve">
+          <source><bpt id="847d7614-c812-40ba-acea-e275a1cfcd0b">&lt;strong&gt;</bpt>To enable Remote Desktop<ept id="847d7614-c812-40ba-acea-e275a1cfcd0b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="847d7614-c812-40ba-acea-e275a1cfcd0b">&lt;strong&gt;</bpt>To enable Remote Desktop<ept id="847d7614-c812-40ba-acea-e275a1cfcd0b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cdc93de-a37e-49f6-9af9-1bf0f0539cbc" xml:space="preserve">
+          <source>Sign in to the <bpt id="d877aa24-cb7e-4965-ac79-74a3221e4100">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="d877aa24-cb7e-4965-ac79-74a3221e4100">&lt;/linkText&gt;</ept><bpt id="d877aa24-cb7e-4965-ac79-74a3221e4100">&lt;title&gt;</bpt><ept id="d877aa24-cb7e-4965-ac79-74a3221e4100">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="d877aa24-cb7e-4965-ac79-74a3221e4100">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="d877aa24-cb7e-4965-ac79-74a3221e4100">&lt;/linkText&gt;</ept><bpt id="d877aa24-cb7e-4965-ac79-74a3221e4100">&lt;title&gt;</bpt><ept id="d877aa24-cb7e-4965-ac79-74a3221e4100">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e63d397-f1e5-47b6-ae5c-7002aeb0bc4a" xml:space="preserve">
+          <source>Click <bpt id="daf1d8bf-df94-4f6e-a954-67445d770ea3">&lt;strong&gt;</bpt>Browse All<ept id="daf1d8bf-df94-4f6e-a954-67445d770ea3">&lt;/strong&gt;</ept> from the left menu, click <bpt id="8dac29f4-cb26-4e7c-ab0d-c397e67a21f5">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="8dac29f4-cb26-4e7c-ab0d-c397e67a21f5">&lt;/strong&gt;</ept>, click your cluster name.</source>
+          <target state="new">Click <bpt id="daf1d8bf-df94-4f6e-a954-67445d770ea3">&lt;strong&gt;</bpt>Browse All<ept id="daf1d8bf-df94-4f6e-a954-67445d770ea3">&lt;/strong&gt;</ept> from the left menu, click <bpt id="8dac29f4-cb26-4e7c-ab0d-c397e67a21f5">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="8dac29f4-cb26-4e7c-ab0d-c397e67a21f5">&lt;/strong&gt;</ept>, click your cluster name.</target>
+        </trans-unit>
+        <trans-unit id="a63a3ec5-4188-4784-9fd8-a05c65330bda" xml:space="preserve">
+          <source>Click <bpt id="e552c3a4-a8b1-4dab-b1db-a854230d24f6">&lt;strong&gt;</bpt>Settings<ept id="e552c3a4-a8b1-4dab-b1db-a854230d24f6">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="e7564266-aa57-4b5e-9cfb-82b007079366">&lt;strong&gt;</bpt>Remote Desktop<ept id="e7564266-aa57-4b5e-9cfb-82b007079366">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e552c3a4-a8b1-4dab-b1db-a854230d24f6">&lt;strong&gt;</bpt>Settings<ept id="e552c3a4-a8b1-4dab-b1db-a854230d24f6">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="e7564266-aa57-4b5e-9cfb-82b007079366">&lt;strong&gt;</bpt>Remote Desktop<ept id="e7564266-aa57-4b5e-9cfb-82b007079366">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eec65bdf-326e-4fe0-b67a-b1017166014a" xml:space="preserve">
+          <source>Enter <bpt id="f3f50503-eca9-4cb3-8585-c50bf1e918aa">&lt;strong&gt;</bpt>Expires On<ept id="f3f50503-eca9-4cb3-8585-c50bf1e918aa">&lt;/strong&gt;</ept>, <bpt id="673594a2-5a49-4348-944c-d34f4b555a82">&lt;strong&gt;</bpt>Remote Desktop Username<ept id="673594a2-5a49-4348-944c-d34f4b555a82">&lt;/strong&gt;</ept> and <bpt id="820ea899-c75b-4ef0-9643-3f6ef52cb784">&lt;strong&gt;</bpt>Remote Desktop Password<ept id="820ea899-c75b-4ef0-9643-3f6ef52cb784">&lt;/strong&gt;</ept>, and then click <bpt id="9cb6ed80-a6d6-4f27-b248-77618b172450">&lt;strong&gt;</bpt>Enable<ept id="9cb6ed80-a6d6-4f27-b248-77618b172450">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter <bpt id="f3f50503-eca9-4cb3-8585-c50bf1e918aa">&lt;strong&gt;</bpt>Expires On<ept id="f3f50503-eca9-4cb3-8585-c50bf1e918aa">&lt;/strong&gt;</ept>, <bpt id="673594a2-5a49-4348-944c-d34f4b555a82">&lt;strong&gt;</bpt>Remote Desktop Username<ept id="673594a2-5a49-4348-944c-d34f4b555a82">&lt;/strong&gt;</ept> and <bpt id="820ea899-c75b-4ef0-9643-3f6ef52cb784">&lt;strong&gt;</bpt>Remote Desktop Password<ept id="820ea899-c75b-4ef0-9643-3f6ef52cb784">&lt;/strong&gt;</ept>, and then click <bpt id="9cb6ed80-a6d6-4f27-b248-77618b172450">&lt;strong&gt;</bpt>Enable<ept id="9cb6ed80-a6d6-4f27-b248-77618b172450">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2fd7c574-af63-4e40-bc45-32b72ba71893" xml:space="preserve">
+          <source><bpt id="533445dc-1471-4dd7-94b0-aa2f62c3b266">&lt;linkText&gt;</bpt>hdinsight enable disable configure remote desktop<ept id="533445dc-1471-4dd7-94b0-aa2f62c3b266">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="533445dc-1471-4dd7-94b0-aa2f62c3b266">&lt;linkText&gt;</bpt>hdinsight enable disable configure remote desktop<ept id="533445dc-1471-4dd7-94b0-aa2f62c3b266">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="171d137c-1e83-4496-8584-2fba1743add2" xml:space="preserve">
+          <source>The default valus for Expires On is a week.</source>
+          <target state="new">The default valus for Expires On is a week.</target>
+        </trans-unit>
+        <trans-unit id="3d3b4333-3fed-43c3-9be0-cf8678099330" xml:space="preserve">
+          <source>You can also use the HDInsight .NET SDK to enable Remote Desktop on a cluster.</source>
+          <target state="new">You can also use the HDInsight .NET SDK to enable Remote Desktop on a cluster.</target>
+        </trans-unit>
+        <trans-unit id="5931c3e4-3d38-48af-b58f-65bfca63d5d3" xml:space="preserve">
+          <source>Use the <bpt id="a2a2b4eb-6ddd-4182-9b7e-a60d0ce9a0be">&lt;strong&gt;</bpt>EnableRdp<ept id="a2a2b4eb-6ddd-4182-9b7e-a60d0ce9a0be">&lt;/strong&gt;</ept> method on the HDInsight client object in the following manner: <bpt id="1eb74df8-8e4b-4a7f-acb1-986af48db48d">&lt;strong&gt;</bpt>client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))<ept id="1eb74df8-8e4b-4a7f-acb1-986af48db48d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Use the <bpt id="a2a2b4eb-6ddd-4182-9b7e-a60d0ce9a0be">&lt;strong&gt;</bpt>EnableRdp<ept id="a2a2b4eb-6ddd-4182-9b7e-a60d0ce9a0be">&lt;/strong&gt;</ept> method on the HDInsight client object in the following manner: <bpt id="1eb74df8-8e4b-4a7f-acb1-986af48db48d">&lt;strong&gt;</bpt>client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))<ept id="1eb74df8-8e4b-4a7f-acb1-986af48db48d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3ebc69b-034d-40f9-b60d-bc7d32714456" xml:space="preserve">
+          <source>Similarly, to disable Remote Desktop on the cluster, you can use <bpt id="0aa630c8-b0e7-4304-ae17-c69f8d836053">&lt;strong&gt;</bpt>client.DisableRdp(clustername, location)<ept id="0aa630c8-b0e7-4304-ae17-c69f8d836053">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Similarly, to disable Remote Desktop on the cluster, you can use <bpt id="0aa630c8-b0e7-4304-ae17-c69f8d836053">&lt;strong&gt;</bpt>client.DisableRdp(clustername, location)<ept id="0aa630c8-b0e7-4304-ae17-c69f8d836053">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67fbe3d8-757d-483e-a7b0-ad48d206f31c" xml:space="preserve">
+          <source>For more information on these methods, see <bpt id="5d2a0137-f5fd-47a8-9ce8-2b5417f6571a">&lt;linkText&gt;</bpt>HDInsight .NET SDK Reference<ept id="5d2a0137-f5fd-47a8-9ce8-2b5417f6571a">&lt;/linkText&gt;</ept><bpt id="5d2a0137-f5fd-47a8-9ce8-2b5417f6571a">&lt;title&gt;</bpt><ept id="5d2a0137-f5fd-47a8-9ce8-2b5417f6571a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on these methods, see <bpt id="5d2a0137-f5fd-47a8-9ce8-2b5417f6571a">&lt;linkText&gt;</bpt>HDInsight .NET SDK Reference<ept id="5d2a0137-f5fd-47a8-9ce8-2b5417f6571a">&lt;/linkText&gt;</ept><bpt id="5d2a0137-f5fd-47a8-9ce8-2b5417f6571a">&lt;title&gt;</bpt><ept id="5d2a0137-f5fd-47a8-9ce8-2b5417f6571a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="625496ed-f12a-45c2-a247-0821a9ae559b" xml:space="preserve">
+          <source>This is applicable only for HDInsight clusters running on Windows.</source>
+          <target state="new">This is applicable only for HDInsight clusters running on Windows.</target>
+        </trans-unit>
+        <trans-unit id="ec189b27-4981-4efe-a62f-15091d1f803a" xml:space="preserve">
+          <source><bpt id="842fd320-4a8b-48af-93d3-dbf2f5f91c8b">&lt;strong&gt;</bpt>To connect to a cluster by using RDP<ept id="842fd320-4a8b-48af-93d3-dbf2f5f91c8b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="842fd320-4a8b-48af-93d3-dbf2f5f91c8b">&lt;strong&gt;</bpt>To connect to a cluster by using RDP<ept id="842fd320-4a8b-48af-93d3-dbf2f5f91c8b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5548b24-50be-41d2-9369-ae39e4c402ad" xml:space="preserve">
+          <source>Sign in to the <bpt id="bbd8a121-754d-4e69-b610-0113a451aa35">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="bbd8a121-754d-4e69-b610-0113a451aa35">&lt;/linkText&gt;</ept><bpt id="bbd8a121-754d-4e69-b610-0113a451aa35">&lt;title&gt;</bpt><ept id="bbd8a121-754d-4e69-b610-0113a451aa35">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="bbd8a121-754d-4e69-b610-0113a451aa35">&lt;linkText&gt;</bpt>preview portal[azure-portal]<ept id="bbd8a121-754d-4e69-b610-0113a451aa35">&lt;/linkText&gt;</ept><bpt id="bbd8a121-754d-4e69-b610-0113a451aa35">&lt;title&gt;</bpt><ept id="bbd8a121-754d-4e69-b610-0113a451aa35">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cb6a3f9-2517-49f5-8e3f-4cc88cd60654" xml:space="preserve">
+          <source>Click <bpt id="9bb6418c-c0d6-48b9-a331-8b14a3d11d3c">&lt;strong&gt;</bpt>Browse All<ept id="9bb6418c-c0d6-48b9-a331-8b14a3d11d3c">&lt;/strong&gt;</ept> from the left menu, click <bpt id="7ff1f387-54a8-41e1-8b3d-bec8fdf3f29f">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="7ff1f387-54a8-41e1-8b3d-bec8fdf3f29f">&lt;/strong&gt;</ept>, click your cluster name.</source>
+          <target state="new">Click <bpt id="9bb6418c-c0d6-48b9-a331-8b14a3d11d3c">&lt;strong&gt;</bpt>Browse All<ept id="9bb6418c-c0d6-48b9-a331-8b14a3d11d3c">&lt;/strong&gt;</ept> from the left menu, click <bpt id="7ff1f387-54a8-41e1-8b3d-bec8fdf3f29f">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="7ff1f387-54a8-41e1-8b3d-bec8fdf3f29f">&lt;/strong&gt;</ept>, click your cluster name.</target>
+        </trans-unit>
+        <trans-unit id="b3c47be1-b3b8-4bec-8003-1a2b40b3fe75" xml:space="preserve">
+          <source>Click <bpt id="13df0ace-2ba0-4bb1-b514-f630d896d525">&lt;strong&gt;</bpt>Settings<ept id="13df0ace-2ba0-4bb1-b514-f630d896d525">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="e6b68fb6-d383-4888-b42f-9b93a7c7c787">&lt;strong&gt;</bpt>Remote Desktop<ept id="e6b68fb6-d383-4888-b42f-9b93a7c7c787">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="13df0ace-2ba0-4bb1-b514-f630d896d525">&lt;strong&gt;</bpt>Settings<ept id="13df0ace-2ba0-4bb1-b514-f630d896d525">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="e6b68fb6-d383-4888-b42f-9b93a7c7c787">&lt;strong&gt;</bpt>Remote Desktop<ept id="e6b68fb6-d383-4888-b42f-9b93a7c7c787">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e059fd0c-cf46-4611-aebc-5da018980cbc" xml:space="preserve">
+          <source>Click <bpt id="acf66524-a732-491c-ab25-4f13dcc53545">&lt;strong&gt;</bpt>Connect<ept id="acf66524-a732-491c-ab25-4f13dcc53545">&lt;/strong&gt;</ept> and follow the instructions.</source>
+          <target state="new">Click <bpt id="acf66524-a732-491c-ab25-4f13dcc53545">&lt;strong&gt;</bpt>Connect<ept id="acf66524-a732-491c-ab25-4f13dcc53545">&lt;/strong&gt;</ept> and follow the instructions.</target>
+        </trans-unit>
+        <trans-unit id="b17b0fdb-c29e-4fcb-8dbf-8aceebb7676f" xml:space="preserve">
+          <source>If Connect is disable, you must enable it first.</source>
+          <target state="new">If Connect is disable, you must enable it first.</target>
+        </trans-unit>
+        <trans-unit id="094c0390-354d-4e9d-9dbf-57526fbf044e" xml:space="preserve">
+          <source>Make sure using the Remote Desktop user username and password.</source>
+          <target state="new">Make sure using the Remote Desktop user username and password.</target>
+        </trans-unit>
+        <trans-unit id="c077cdaa-24b5-4db5-9fb8-b41d25272586" xml:space="preserve">
+          <source>You can't use the Cluster user credentials.</source>
+          <target state="new">You can't use the Cluster user credentials.</target>
+        </trans-unit>
+        <trans-unit id="68f577f6-b220-46a4-93ae-94cf2bdc62ee" xml:space="preserve">
+          <source>To connect to the cluster by using Remote Desktop and use the Hadoop command line, you must first have enabled Remote Desktop access to the cluster as described in the previous section.</source>
+          <target state="new">To connect to the cluster by using Remote Desktop and use the Hadoop command line, you must first have enabled Remote Desktop access to the cluster as described in the previous section.</target>
+        </trans-unit>
+        <trans-unit id="c0992d09-2337-48e9-9859-96db193b28d3" xml:space="preserve">
+          <source><bpt id="9f192f2e-fc5f-4098-8cea-f0a54d452688">&lt;strong&gt;</bpt>To open a Hadoop command line<ept id="9f192f2e-fc5f-4098-8cea-f0a54d452688">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9f192f2e-fc5f-4098-8cea-f0a54d452688">&lt;strong&gt;</bpt>To open a Hadoop command line<ept id="9f192f2e-fc5f-4098-8cea-f0a54d452688">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97e8fc29-a14d-411c-a738-249879f270d0" xml:space="preserve">
+          <source>Connect to the cluster using Remote Desktop.</source>
+          <target state="new">Connect to the cluster using Remote Desktop.</target>
+        </trans-unit>
+        <trans-unit id="c42b1837-29f5-4817-ba96-cbe9f5d63bff" xml:space="preserve">
+          <source>From the desktop, double-click <bpt id="b4203f53-0dd5-4753-9e67-57b3b2b55d1b">&lt;strong&gt;</bpt>Hadoop Command Line<ept id="b4203f53-0dd5-4753-9e67-57b3b2b55d1b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the desktop, double-click <bpt id="b4203f53-0dd5-4753-9e67-57b3b2b55d1b">&lt;strong&gt;</bpt>Hadoop Command Line<ept id="b4203f53-0dd5-4753-9e67-57b3b2b55d1b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ed954e0-30a5-4fe3-abf6-9cf1fea1ee7e" xml:space="preserve">
+          <source><bpt id="78faf64e-c00a-465a-813a-adb7f7f300cc">&lt;linkText&gt;</bpt>HDI.HadoopCommandLine<ept id="78faf64e-c00a-465a-813a-adb7f7f300cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78faf64e-c00a-465a-813a-adb7f7f300cc">&lt;linkText&gt;</bpt>HDI.HadoopCommandLine<ept id="78faf64e-c00a-465a-813a-adb7f7f300cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="120c4269-a082-48d4-8aa2-db405900d17c" xml:space="preserve">
+          <source>For more information on Hadoop commands, see <bpt id="e6560252-3fbd-4fdc-aae9-8b131a5f2edc">&lt;linkText&gt;</bpt>Hadoop commands reference<ept id="e6560252-3fbd-4fdc-aae9-8b131a5f2edc">&lt;/linkText&gt;</ept><bpt id="e6560252-3fbd-4fdc-aae9-8b131a5f2edc">&lt;title&gt;</bpt><ept id="e6560252-3fbd-4fdc-aae9-8b131a5f2edc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on Hadoop commands, see <bpt id="e6560252-3fbd-4fdc-aae9-8b131a5f2edc">&lt;linkText&gt;</bpt>Hadoop commands reference<ept id="e6560252-3fbd-4fdc-aae9-8b131a5f2edc">&lt;/linkText&gt;</ept><bpt id="e6560252-3fbd-4fdc-aae9-8b131a5f2edc">&lt;title&gt;</bpt><ept id="e6560252-3fbd-4fdc-aae9-8b131a5f2edc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4dff7ce9-46f9-4ab7-8a4e-fba29db49be5" xml:space="preserve">
+          <source>In the previous screenshot, the folder name has the Hadoop version number embedded.</source>
+          <target state="new">In the previous screenshot, the folder name has the Hadoop version number embedded.</target>
+        </trans-unit>
+        <trans-unit id="93744aff-ae1d-4814-b7d1-bb9d2005ae41" xml:space="preserve">
+          <source>The version number can changed based on the version of the Hadoop components installed on the cluster.</source>
+          <target state="new">The version number can changed based on the version of the Hadoop components installed on the cluster.</target>
+        </trans-unit>
+        <trans-unit id="857cae95-9a02-4f88-9b56-c78d9dac3641" xml:space="preserve">
+          <source>You can use Hadoop environment variables to refer to those folders.</source>
+          <target state="new">You can use Hadoop environment variables to refer to those folders.</target>
+        </trans-unit>
+        <trans-unit id="307c8381-3d65-432c-977a-16b893d737f5" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="0302d9b1-ca5a-4753-b3f5-ad723fcc5685" xml:space="preserve">
+          <source>In this article, you have learned how to create an HDInsight cluster by using the preview portal, and how to open the Hadoop command-line tool.</source>
+          <target state="new">In this article, you have learned how to create an HDInsight cluster by using the preview portal, and how to open the Hadoop command-line tool.</target>
+        </trans-unit>
+        <trans-unit id="4181ef84-c1ed-4efd-af8c-daa438a606a9" xml:space="preserve">
+          <source>To learn more, see the following articles:</source>
+          <target state="new">To learn more, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="06aa00aa-a1d3-4e8e-ac33-94200dd1d162" xml:space="preserve">
+          <source><bpt id="3e8b8a10-e8fb-433d-b6b1-39eed8acb6d3">&lt;linkText&gt;</bpt>Administer HDInsight Using Azure PowerShell<ept id="3e8b8a10-e8fb-433d-b6b1-39eed8acb6d3">&lt;/linkText&gt;</ept><bpt id="3e8b8a10-e8fb-433d-b6b1-39eed8acb6d3">&lt;title&gt;</bpt><ept id="3e8b8a10-e8fb-433d-b6b1-39eed8acb6d3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3e8b8a10-e8fb-433d-b6b1-39eed8acb6d3">&lt;linkText&gt;</bpt>Administer HDInsight Using Azure PowerShell<ept id="3e8b8a10-e8fb-433d-b6b1-39eed8acb6d3">&lt;/linkText&gt;</ept><bpt id="3e8b8a10-e8fb-433d-b6b1-39eed8acb6d3">&lt;title&gt;</bpt><ept id="3e8b8a10-e8fb-433d-b6b1-39eed8acb6d3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0fa09a68-51ac-4e32-8f1e-03193a2ef5de" xml:space="preserve">
+          <source><bpt id="060414c4-607b-405d-80ae-160828405b12">&lt;linkText&gt;</bpt>Administer HDInsight Using Azure CLI<ept id="060414c4-607b-405d-80ae-160828405b12">&lt;/linkText&gt;</ept><bpt id="060414c4-607b-405d-80ae-160828405b12">&lt;title&gt;</bpt><ept id="060414c4-607b-405d-80ae-160828405b12">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="060414c4-607b-405d-80ae-160828405b12">&lt;linkText&gt;</bpt>Administer HDInsight Using Azure CLI<ept id="060414c4-607b-405d-80ae-160828405b12">&lt;/linkText&gt;</ept><bpt id="060414c4-607b-405d-80ae-160828405b12">&lt;title&gt;</bpt><ept id="060414c4-607b-405d-80ae-160828405b12">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="939efb40-aaae-4997-a19a-e3ce785c9b98" xml:space="preserve">
+          <source><bpt id="d29b8d04-149a-489c-ae35-df6e1da5c49a">&lt;linkText&gt;</bpt>Provision HDInsight clusters<ept id="d29b8d04-149a-489c-ae35-df6e1da5c49a">&lt;/linkText&gt;</ept><bpt id="d29b8d04-149a-489c-ae35-df6e1da5c49a">&lt;title&gt;</bpt><ept id="d29b8d04-149a-489c-ae35-df6e1da5c49a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d29b8d04-149a-489c-ae35-df6e1da5c49a">&lt;linkText&gt;</bpt>Provision HDInsight clusters<ept id="d29b8d04-149a-489c-ae35-df6e1da5c49a">&lt;/linkText&gt;</ept><bpt id="d29b8d04-149a-489c-ae35-df6e1da5c49a">&lt;title&gt;</bpt><ept id="d29b8d04-149a-489c-ae35-df6e1da5c49a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fd4fd58-6ee5-4e28-a6ac-bff4400cd072" xml:space="preserve">
+          <source><bpt id="8ad11e97-84e8-405f-b5f7-ddda2aa5feda">&lt;linkText&gt;</bpt>Submit Hadoop jobs programmatically<ept id="8ad11e97-84e8-405f-b5f7-ddda2aa5feda">&lt;/linkText&gt;</ept><bpt id="8ad11e97-84e8-405f-b5f7-ddda2aa5feda">&lt;title&gt;</bpt><ept id="8ad11e97-84e8-405f-b5f7-ddda2aa5feda">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8ad11e97-84e8-405f-b5f7-ddda2aa5feda">&lt;linkText&gt;</bpt>Submit Hadoop jobs programmatically<ept id="8ad11e97-84e8-405f-b5f7-ddda2aa5feda">&lt;/linkText&gt;</ept><bpt id="8ad11e97-84e8-405f-b5f7-ddda2aa5feda">&lt;title&gt;</bpt><ept id="8ad11e97-84e8-405f-b5f7-ddda2aa5feda">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0b2913f-f46f-4f9d-bb0b-7975c7c6dda8" xml:space="preserve">
+          <source><bpt id="78e2e39f-cfe5-4881-a0ab-95089588cc2e">&lt;linkText&gt;</bpt>Get Started with Azure HDInsight<ept id="78e2e39f-cfe5-4881-a0ab-95089588cc2e">&lt;/linkText&gt;</ept><bpt id="78e2e39f-cfe5-4881-a0ab-95089588cc2e">&lt;title&gt;</bpt><ept id="78e2e39f-cfe5-4881-a0ab-95089588cc2e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="78e2e39f-cfe5-4881-a0ab-95089588cc2e">&lt;linkText&gt;</bpt>Get Started with Azure HDInsight<ept id="78e2e39f-cfe5-4881-a0ab-95089588cc2e">&lt;/linkText&gt;</ept><bpt id="78e2e39f-cfe5-4881-a0ab-95089588cc2e">&lt;title&gt;</bpt><ept id="78e2e39f-cfe5-4881-a0ab-95089588cc2e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b3338bf-834d-4146-a6e5-7bb7090756ab" xml:space="preserve">
+          <source><bpt id="accc8921-bb8a-48e2-86e7-87770b423735">&lt;linkText&gt;</bpt>What version of Hadoop is in Azure HDInsight?<ept id="accc8921-bb8a-48e2-86e7-87770b423735">&lt;/linkText&gt;</ept><bpt id="accc8921-bb8a-48e2-86e7-87770b423735">&lt;title&gt;</bpt><ept id="accc8921-bb8a-48e2-86e7-87770b423735">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="accc8921-bb8a-48e2-86e7-87770b423735">&lt;linkText&gt;</bpt>What version of Hadoop is in Azure HDInsight?<ept id="accc8921-bb8a-48e2-86e7-87770b423735">&lt;/linkText&gt;</ept><bpt id="accc8921-bb8a-48e2-86e7-87770b423735">&lt;title&gt;</bpt><ept id="accc8921-bb8a-48e2-86e7-87770b423735">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a68cc87a-1dc2-40bc-b6c6-97e7b5815eaa" xml:space="preserve">
+          <source>https://portal.azure.com</source>
+          <target state="new">https://portal.azure.com</target>
+        </trans-unit>
+        <trans-unit id="1c0023c3-8b67-4caf-a9c4-03c85fc09a2c" xml:space="preserve">
+          <source>./media/hdinsight-administer-use-management-portal/HDI.QuickCreateCluster.png</source>
+          <target state="new">./media/hdinsight-administer-use-management-portal/HDI.QuickCreateCluster.png</target>
+        </trans-unit>
+        <trans-unit id="e569593d-805e-4d47-a6b5-65ebf6773937" xml:space="preserve">
+          <source>./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG</source>
+          <target state="new">./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG</target>
+        </trans-unit>
+        <trans-unit id="fb8df7dd-cf21-479c-b954-2c862f0671ee" xml:space="preserve">
+          <source>./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png</source>
+          <target state="new">./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png</target>
+        </trans-unit>
+        <trans-unit id="b4b548c3-2aa8-4fd0-8086-7c8ab32a8941" xml:space="preserve">
+          <source>./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG</source>
+          <target state="new">./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG</target>
+        </trans-unit>
+        <trans-unit id="b0ffed8f-90ea-4caf-946e-1cfbd6f1f158" xml:space="preserve">
+          <source>./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png</source>
+          <target state="new">./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png</target>
+        </trans-unit>
+      </group>
+      <group id="1faf90c5-9034-4454-824b-6453fd290770" />
+    </body>
+  </file>
+</xliff>

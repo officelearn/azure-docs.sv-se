@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="04ce7655-68d8-4a82-ba7a-4fa71db0cddd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="04ce7655-68d8-4a82-ba7a-4fa71db0cddd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8495956e-d82b-4729-a38d-ecfd57112da0">
+        <trans-unit id="98bfb769-73db-4a9e-82ed-59fe040970d2" xml:space="preserve">
+          <source>To call this custom API from an iOS client, use the <bpt id="3bbad865-0e59-483d-ab07-0f6ea707a43a">&lt;code&gt;</bpt>MSClient invokeAPI<ept id="3bbad865-0e59-483d-ab07-0f6ea707a43a">&lt;/code&gt;</ept> method.</source>
+          <target state="new">To call this custom API from an iOS client, use the <bpt id="3bbad865-0e59-483d-ab07-0f6ea707a43a">&lt;code&gt;</bpt>MSClient invokeAPI<ept id="3bbad865-0e59-483d-ab07-0f6ea707a43a">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="7429f581-3fbb-42ea-a0d6-69dce278209d" xml:space="preserve">
+          <source>There are two versions of this method, one for JSON-formatted requests, and one for any data type:</source>
+          <target state="new">There are two versions of this method, one for JSON-formatted requests, and one for any data type:</target>
+        </trans-unit>
+        <trans-unit id="6f412478-653b-42fb-b96d-590745f0fc06" xml:space="preserve">
+          <source>For example, to send a JSON request to a custom API named "sendEmail", pass an <bpt id="2a363c73-a8d5-4cf1-b33f-e8967a9ecbcb">&lt;code&gt;</bpt>NSDictionary<ept id="2a363c73-a8d5-4cf1-b33f-e8967a9ecbcb">&lt;/code&gt;</ept> for the request parameters:</source>
+          <target state="new">For example, to send a JSON request to a custom API named "sendEmail", pass an <bpt id="2a363c73-a8d5-4cf1-b33f-e8967a9ecbcb">&lt;code&gt;</bpt>NSDictionary<ept id="2a363c73-a8d5-4cf1-b33f-e8967a9ecbcb">&lt;/code&gt;</ept> for the request parameters:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="427f9d06-c2d6-4bc7-81c9-f1dfbb5762e8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="427f9d06-c2d6-4bc7-81c9-f1dfbb5762e8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e6ecf796-cff4-4168-895b-9d6c9d14a39f">
+        <trans-unit id="e6e38163-5911-4273-a401-194b0f447dd3" xml:space="preserve">
+          <source>Offline Data Sync in Azure Mobile Apps | Microsoft Azure</source>
+          <target state="new">Offline Data Sync in Azure Mobile Apps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5b24756d-2941-42ba-ab07-7d5b92815cf1" xml:space="preserve">
+          <source>Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps</source>
+          <target state="new">Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps</target>
+        </trans-unit>
+        <trans-unit id="5b8bd57b-e578-442b-9a0f-28ce6bdca2d9" xml:space="preserve">
+          <source><bpt id="301c57b4-8a1a-4cb3-be10-81f3c2e828d9">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="301c57b4-8a1a-4cb3-be10-81f3c2e828d9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="301c57b4-8a1a-4cb3-be10-81f3c2e828d9">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="301c57b4-8a1a-4cb3-be10-81f3c2e828d9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b678b0c-776a-468c-ad06-a1365322dbb8" xml:space="preserve">
+          <source>Offline data sync is a client and server SDK feature of Azure Mobile Apps that makes it easy for developers to create apps that are functional without a network connection.</source>
+          <target state="new">Offline data sync is a client and server SDK feature of Azure Mobile Apps that makes it easy for developers to create apps that are functional without a network connection.</target>
+        </trans-unit>
+        <trans-unit id="7e3650ab-289b-4508-bcbd-db9d8ea8311c" xml:space="preserve">
+          <source>When your app is in offline mode, users can still create and modify data, which will be saved to a local store.</source>
+          <target state="new">When your app is in offline mode, users can still create and modify data, which will be saved to a local store.</target>
+        </trans-unit>
+        <trans-unit id="8dd5861c-f4ae-4f94-b91f-8aef543006e3" xml:space="preserve">
+          <source>When the app is back online, it can synchronize local changes with your Azure Mobile App backend.</source>
+          <target state="new">When the app is back online, it can synchronize local changes with your Azure Mobile App backend.</target>
+        </trans-unit>
+        <trans-unit id="15a304a8-6044-410d-a526-dd5b2659d988" xml:space="preserve">
+          <source>The feature also includes support for detecting conflicts when the same record is changed on both the client and the backend.</source>
+          <target state="new">The feature also includes support for detecting conflicts when the same record is changed on both the client and the backend.</target>
+        </trans-unit>
+        <trans-unit id="9fb8215b-f2de-44b3-bbf9-af7f534cb537" xml:space="preserve">
+          <source>Conflicts can then be handled either on the server or the client.</source>
+          <target state="new">Conflicts can then be handled either on the server or the client.</target>
+        </trans-unit>
+        <trans-unit id="700666ab-1693-4977-9385-57551711ba2c" xml:space="preserve">
+          <source>Offline sync has a number of benefits:</source>
+          <target state="new">Offline sync has a number of benefits:</target>
+        </trans-unit>
+        <trans-unit id="f36b63c8-feac-4f82-a2b0-5fa31cb42975" xml:space="preserve">
+          <source>Improve app responsiveness by caching server data locally on the device</source>
+          <target state="new">Improve app responsiveness by caching server data locally on the device</target>
+        </trans-unit>
+        <trans-unit id="df3f7d5e-957a-41b4-a71e-8950b33fe970" xml:space="preserve">
+          <source>Create robust apps that remain useful when there are network issues</source>
+          <target state="new">Create robust apps that remain useful when there are network issues</target>
+        </trans-unit>
+        <trans-unit id="22d769dd-1730-44bb-a10c-12f32ba6ee2c" xml:space="preserve">
+          <source>Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity</source>
+          <target state="new">Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity</target>
+        </trans-unit>
+        <trans-unit id="52a96d49-af77-4d4a-8312-5083b38c44f2" xml:space="preserve">
+          <source>Sync data across multiple devices and detect conflicts when the same record is modified by two devices</source>
+          <target state="new">Sync data across multiple devices and detect conflicts when the same record is modified by two devices</target>
+        </trans-unit>
+        <trans-unit id="898ab817-e2ae-4e9f-949b-e75264439973" xml:space="preserve">
+          <source>Limit network use on high-latency or metered networks</source>
+          <target state="new">Limit network use on high-latency or metered networks</target>
+        </trans-unit>
+        <trans-unit id="04a54be0-cc59-4e0d-9ac7-947e4b550186" xml:space="preserve">
+          <source>The following tutorials show how to add offline sync to your mobile clients using Azure Mobile Apps:</source>
+          <target state="new">The following tutorials show how to add offline sync to your mobile clients using Azure Mobile Apps:</target>
+        </trans-unit>
+        <trans-unit id="4c042f84-771b-4218-bdd6-975bc6deb38f" xml:space="preserve">
+          <source>[iOS: Enable offline sync]            </source>
+          <target state="new">[iOS: Enable offline sync]            </target>
+        </trans-unit>
+        <trans-unit id="65b286a4-b0b9-4450-88a2-41193e8f7e70" xml:space="preserve">
+          <source>[Xamarin iOS: Enable offline sync]    </source>
+          <target state="new">[Xamarin iOS: Enable offline sync]    </target>
+        </trans-unit>
+        <trans-unit id="6340be33-89c4-46a2-bcfa-de931d3b55f5" xml:space="preserve">
+          <source>[Xamarin Android: Enable offline sync]</source>
+          <target state="new">[Xamarin Android: Enable offline sync]</target>
+        </trans-unit>
+        <trans-unit id="3e7da09d-2c24-4ccb-9f60-e8f6059bcbc5" xml:space="preserve">
+          <source>[Windows 8.1: Enable offline sync]    </source>
+          <target state="new">[Windows 8.1: Enable offline sync]    </target>
+        </trans-unit>
+        <trans-unit id="087873ef-eb4e-4240-a077-f6bf9ff729cc" xml:space="preserve">
+          <source>To access the "/tables" endpoint, the Azure Mobile client SDKs provide interfaces such as <bpt id="ec06bfa0-4037-4ae0-af84-1809af9243a3">&lt;code&gt;</bpt>IMobileServiceTable<ept id="ec06bfa0-4037-4ae0-af84-1809af9243a3">&lt;/code&gt;</ept> (.NET client SDK) or <bpt id="a0f43ecb-266d-45d0-80fc-493a7578bd9e">&lt;code&gt;</bpt>MSTable<ept id="a0f43ecb-266d-45d0-80fc-493a7578bd9e">&lt;/code&gt;</ept> (iOS client).</source>
+          <target state="new">To access the "/tables" endpoint, the Azure Mobile client SDKs provide interfaces such as <bpt id="ec06bfa0-4037-4ae0-af84-1809af9243a3">&lt;code&gt;</bpt>IMobileServiceTable<ept id="ec06bfa0-4037-4ae0-af84-1809af9243a3">&lt;/code&gt;</ept> (.NET client SDK) or <bpt id="a0f43ecb-266d-45d0-80fc-493a7578bd9e">&lt;code&gt;</bpt>MSTable<ept id="a0f43ecb-266d-45d0-80fc-493a7578bd9e">&lt;/code&gt;</ept> (iOS client).</target>
+        </trans-unit>
+        <trans-unit id="8225ee86-5ef2-43d0-a44e-2a753f496624" xml:space="preserve">
+          <source>These APIs connect directly to the Azure Mobile App backend and will fail if the client device does not have a network connection.</source>
+          <target state="new">These APIs connect directly to the Azure Mobile App backend and will fail if the client device does not have a network connection.</target>
+        </trans-unit>
+        <trans-unit id="73d8e25a-8f9d-41c7-b6f5-43e6a5bd3062" xml:space="preserve">
+          <source>To support offline use, your app should instead use the <bpt id="65bfc771-2344-469e-b766-865b0d0d6a31">&lt;em&gt;</bpt>sync table<ept id="65bfc771-2344-469e-b766-865b0d0d6a31">&lt;/em&gt;</ept> APIs, such as <bpt id="f2fde33e-c429-4463-afbb-88decabc920b">&lt;code&gt;</bpt>IMobileServiceSyncTable<ept id="f2fde33e-c429-4463-afbb-88decabc920b">&lt;/code&gt;</ept> (.NET client SDK) or <bpt id="d6d0ef05-b473-4fe0-b2ef-bace1417d6e5">&lt;code&gt;</bpt>MSSyncTable<ept id="d6d0ef05-b473-4fe0-b2ef-bace1417d6e5">&lt;/code&gt;</ept> (iOS client).</source>
+          <target state="new">To support offline use, your app should instead use the <bpt id="65bfc771-2344-469e-b766-865b0d0d6a31">&lt;em&gt;</bpt>sync table<ept id="65bfc771-2344-469e-b766-865b0d0d6a31">&lt;/em&gt;</ept> APIs, such as <bpt id="f2fde33e-c429-4463-afbb-88decabc920b">&lt;code&gt;</bpt>IMobileServiceSyncTable<ept id="f2fde33e-c429-4463-afbb-88decabc920b">&lt;/code&gt;</ept> (.NET client SDK) or <bpt id="d6d0ef05-b473-4fe0-b2ef-bace1417d6e5">&lt;code&gt;</bpt>MSSyncTable<ept id="d6d0ef05-b473-4fe0-b2ef-bace1417d6e5">&lt;/code&gt;</ept> (iOS client).</target>
+        </trans-unit>
+        <trans-unit id="aac50099-d42d-458d-8b26-52ec6457ac26" xml:space="preserve">
+          <source>All the same CRUD operations (Create, Read, Update, Delete) work against sync table APIs, except now they will read from or write to a <bpt id="c2b26c67-8126-4fdd-a776-813185bb91f0">&lt;em&gt;</bpt>local store<ept id="c2b26c67-8126-4fdd-a776-813185bb91f0">&lt;/em&gt;</ept>.</source>
+          <target state="new">All the same CRUD operations (Create, Read, Update, Delete) work against sync table APIs, except now they will read from or write to a <bpt id="c2b26c67-8126-4fdd-a776-813185bb91f0">&lt;em&gt;</bpt>local store<ept id="c2b26c67-8126-4fdd-a776-813185bb91f0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e14ea68a-2276-483b-a7db-ac809892894c" xml:space="preserve">
+          <source>Before any sync table operations can be performed, the local store must be initialized.</source>
+          <target state="new">Before any sync table operations can be performed, the local store must be initialized.</target>
+        </trans-unit>
+        <trans-unit id="319b4e88-da53-4380-aede-af6b5700d776" xml:space="preserve">
+          <source>A local store is the data persistence layer on the client device.</source>
+          <target state="new">A local store is the data persistence layer on the client device.</target>
+        </trans-unit>
+        <trans-unit id="eb992147-4738-45ba-ab6a-cbd6ffb514a7" xml:space="preserve">
+          <source>The Azure Mobile Apps client SDKs provide a default local store implementation.</source>
+          <target state="new">The Azure Mobile Apps client SDKs provide a default local store implementation.</target>
+        </trans-unit>
+        <trans-unit id="d227f1a3-b65c-4ff7-8588-703a18eefe1d" xml:space="preserve">
+          <source>On Windows, Xamarin and Android, it is based on SQLite; on iOS, it is based on Core Data.</source>
+          <target state="new">On Windows, Xamarin and Android, it is based on SQLite; on iOS, it is based on Core Data.</target>
+        </trans-unit>
+        <trans-unit id="02662249-c348-486c-be14-a60ff16ca9ac" xml:space="preserve">
+          <source>To use the SQLite-based implementation on Windows Phone or Windows Store 8.1, you need to install a SQLite extension.</source>
+          <target state="new">To use the SQLite-based implementation on Windows Phone or Windows Store 8.1, you need to install a SQLite extension.</target>
+        </trans-unit>
+        <trans-unit id="29f3c34d-797e-4287-9f58-2a631c27ad82" xml:space="preserve">
+          <source>For more details, see [Windows 8.1: Enable offline sync].</source>
+          <target state="new">For more details, see [Windows 8.1: Enable offline sync].</target>
+        </trans-unit>
+        <trans-unit id="69beb3d6-c414-4b9b-9c5c-74fd50bd5b20" xml:space="preserve">
+          <source>Android and iOS ship with a version of SQLite in the device operating system itself, so it is not necessary to reference your own version of SQLite.</source>
+          <target state="new">Android and iOS ship with a version of SQLite in the device operating system itself, so it is not necessary to reference your own version of SQLite.</target>
+        </trans-unit>
+        <trans-unit id="95693133-a16b-4434-836c-eef1b95c94c6" xml:space="preserve">
+          <source>Developers can also implement their own local store.</source>
+          <target state="new">Developers can also implement their own local store.</target>
+        </trans-unit>
+        <trans-unit id="23b01e24-688d-4434-82a6-f24281a06278" xml:space="preserve">
+          <source>For instance, if you wish to store data in an encrypted format on the mobile client, you can define a local store that uses SQLCipher for encryption.</source>
+          <target state="new">For instance, if you wish to store data in an encrypted format on the mobile client, you can define a local store that uses SQLCipher for encryption.</target>
+        </trans-unit>
+        <trans-unit id="c352441e-1572-4a74-a408-29a8e010f95b" xml:space="preserve">
+          <source>A <bpt id="523b6c68-7a45-4749-a718-3b21a740b653">&lt;em&gt;</bpt>sync context<ept id="523b6c68-7a45-4749-a718-3b21a740b653">&lt;/em&gt;</ept> is associated with a mobile client object (such as <bpt id="056dcd09-edfd-4b63-85af-aef3eac663ba">&lt;code&gt;</bpt>IMobileServiceClient<ept id="056dcd09-edfd-4b63-85af-aef3eac663ba">&lt;/code&gt;</ept> or <bpt id="5ca10f5f-ed3e-47ba-962f-3f8cd5d9c5ae">&lt;code&gt;</bpt>MSClient<ept id="5ca10f5f-ed3e-47ba-962f-3f8cd5d9c5ae">&lt;/code&gt;</ept>) and tracks changes that are made with sync tables.</source>
+          <target state="new">A <bpt id="523b6c68-7a45-4749-a718-3b21a740b653">&lt;em&gt;</bpt>sync context<ept id="523b6c68-7a45-4749-a718-3b21a740b653">&lt;/em&gt;</ept> is associated with a mobile client object (such as <bpt id="056dcd09-edfd-4b63-85af-aef3eac663ba">&lt;code&gt;</bpt>IMobileServiceClient<ept id="056dcd09-edfd-4b63-85af-aef3eac663ba">&lt;/code&gt;</ept> or <bpt id="5ca10f5f-ed3e-47ba-962f-3f8cd5d9c5ae">&lt;code&gt;</bpt>MSClient<ept id="5ca10f5f-ed3e-47ba-962f-3f8cd5d9c5ae">&lt;/code&gt;</ept>) and tracks changes that are made with sync tables.</target>
+        </trans-unit>
+        <trans-unit id="718c057f-4e5f-40e8-be69-6a4d5d2dd4ad" xml:space="preserve">
+          <source>The sync context maintains an <bpt id="4b9d8825-0f9a-4bf5-97d7-fb4a896fa105">&lt;em&gt;</bpt>operation queue<ept id="4b9d8825-0f9a-4bf5-97d7-fb4a896fa105">&lt;/em&gt;</ept> which keeps an ordered list of CUD operations (Create, Update, Delete)  that will later be sent to the server.</source>
+          <target state="new">The sync context maintains an <bpt id="4b9d8825-0f9a-4bf5-97d7-fb4a896fa105">&lt;em&gt;</bpt>operation queue<ept id="4b9d8825-0f9a-4bf5-97d7-fb4a896fa105">&lt;/em&gt;</ept> which keeps an ordered list of CUD operations (Create, Update, Delete)  that will later be sent to the server.</target>
+        </trans-unit>
+        <trans-unit id="e0602901-0c1f-4d8f-bccf-ed1bdedcaa76" xml:space="preserve">
+          <source>A local store is associated with the sync context using an initialize method such as <bpt id="0ff0157f-f7e7-4abf-9af7-128fe92cca8d">&lt;code&gt;</bpt>IMobileServicesSyncContext.InitializeAsync(localstore)<ept id="0ff0157f-f7e7-4abf-9af7-128fe92cca8d">&lt;/code&gt;</ept> in the .NET client SDK.</source>
+          <target state="new">A local store is associated with the sync context using an initialize method such as <bpt id="0ff0157f-f7e7-4abf-9af7-128fe92cca8d">&lt;code&gt;</bpt>IMobileServicesSyncContext.InitializeAsync(localstore)<ept id="0ff0157f-f7e7-4abf-9af7-128fe92cca8d">&lt;/code&gt;</ept> in the .NET client SDK.</target>
+        </trans-unit>
+        <trans-unit id="b9981aeb-ebc2-48f5-847f-01ea03cfecaa" xml:space="preserve">
+          <source>When using sync tables, your client code controls when local changes will be synchronized with an Azure Mobile App backend.</source>
+          <target state="new">When using sync tables, your client code controls when local changes will be synchronized with an Azure Mobile App backend.</target>
+        </trans-unit>
+        <trans-unit id="05ba4156-ab8b-4678-8815-60f3ccbb729a" xml:space="preserve">
+          <source>Nothing is sent to the backend until there is a call to <bpt id="85793a83-9fbe-46dd-9fd2-6edac7b993cf">&lt;em&gt;</bpt>push<ept id="85793a83-9fbe-46dd-9fd2-6edac7b993cf">&lt;/em&gt;</ept> local changes.</source>
+          <target state="new">Nothing is sent to the backend until there is a call to <bpt id="85793a83-9fbe-46dd-9fd2-6edac7b993cf">&lt;em&gt;</bpt>push<ept id="85793a83-9fbe-46dd-9fd2-6edac7b993cf">&lt;/em&gt;</ept> local changes.</target>
+        </trans-unit>
+        <trans-unit id="ca905a82-580e-45ae-a570-cfea79764661" xml:space="preserve">
+          <source>Similarly, the local store is populated with new data only when there is a call to <bpt id="4bbbca91-314f-45ca-9fbb-68c3a182a095">&lt;em&gt;</bpt>pull<ept id="4bbbca91-314f-45ca-9fbb-68c3a182a095">&lt;/em&gt;</ept> data.</source>
+          <target state="new">Similarly, the local store is populated with new data only when there is a call to <bpt id="4bbbca91-314f-45ca-9fbb-68c3a182a095">&lt;em&gt;</bpt>pull<ept id="4bbbca91-314f-45ca-9fbb-68c3a182a095">&lt;/em&gt;</ept> data.</target>
+        </trans-unit>
+        <trans-unit id="0f67d4ac-6933-4fad-9de7-b5501d599ce7" xml:space="preserve">
+          <source><bpt id="6357cdb8-893c-48d1-ab15-b96770805c91">&lt;strong&gt;</bpt>Push<ept id="6357cdb8-893c-48d1-ab15-b96770805c91">&lt;/strong&gt;</ept>: Push is an operation on the sync context and sends all CUD changes since the last push.</source>
+          <target state="new"><bpt id="6357cdb8-893c-48d1-ab15-b96770805c91">&lt;strong&gt;</bpt>Push<ept id="6357cdb8-893c-48d1-ab15-b96770805c91">&lt;/strong&gt;</ept>: Push is an operation on the sync context and sends all CUD changes since the last push.</target>
+        </trans-unit>
+        <trans-unit id="a1c6d114-496d-45f6-8f85-44c32c279d8d" xml:space="preserve">
+          <source>Note that it is not possible to send only an individual table's changes, because otherwise operations could be sent out of order.</source>
+          <target state="new">Note that it is not possible to send only an individual table's changes, because otherwise operations could be sent out of order.</target>
+        </trans-unit>
+        <trans-unit id="08bb8f56-2a54-49f8-a438-d68389526057" xml:space="preserve">
+          <source>Push executes a series of REST calls to your Azure Mobile App backend, which in turn will modify your server database.</source>
+          <target state="new">Push executes a series of REST calls to your Azure Mobile App backend, which in turn will modify your server database.</target>
+        </trans-unit>
+        <trans-unit id="ebb78237-cef8-44e5-96f9-d85cc44726c9" xml:space="preserve">
+          <source><bpt id="eb4bb66a-d704-4330-baae-fe29f6def3ea">&lt;strong&gt;</bpt>Pull<ept id="eb4bb66a-d704-4330-baae-fe29f6def3ea">&lt;/strong&gt;</ept>: Pull is performed on a per-table basis and can be customized with a query to retrieve only a subset of the server data.</source>
+          <target state="new"><bpt id="eb4bb66a-d704-4330-baae-fe29f6def3ea">&lt;strong&gt;</bpt>Pull<ept id="eb4bb66a-d704-4330-baae-fe29f6def3ea">&lt;/strong&gt;</ept>: Pull is performed on a per-table basis and can be customized with a query to retrieve only a subset of the server data.</target>
+        </trans-unit>
+        <trans-unit id="9dcdbfad-235a-4a94-8fe0-ad531c3dbbb7" xml:space="preserve">
+          <source>The Azure Mobile client SDKs then insert the resulting data into the local store.</source>
+          <target state="new">The Azure Mobile client SDKs then insert the resulting data into the local store.</target>
+        </trans-unit>
+        <trans-unit id="e7efff63-6159-4669-a355-3741487f008a" xml:space="preserve">
+          <source><bpt id="46aafedb-7292-4c37-8893-ad4cdf92fc87">&lt;strong&gt;</bpt>Implicit Pushes<ept id="46aafedb-7292-4c37-8893-ad4cdf92fc87">&lt;/strong&gt;</ept>: If a pull is executed against a table that has pending local updates, the pull will first execute a push on the sync context.</source>
+          <target state="new"><bpt id="46aafedb-7292-4c37-8893-ad4cdf92fc87">&lt;strong&gt;</bpt>Implicit Pushes<ept id="46aafedb-7292-4c37-8893-ad4cdf92fc87">&lt;/strong&gt;</ept>: If a pull is executed against a table that has pending local updates, the pull will first execute a push on the sync context.</target>
+        </trans-unit>
+        <trans-unit id="76c46b60-85eb-4f0e-9b73-8ea3b734bb31" xml:space="preserve">
+          <source>This helps minimize conflicts between changes that are already queued and new data from the server.</source>
+          <target state="new">This helps minimize conflicts between changes that are already queued and new data from the server.</target>
+        </trans-unit>
+        <trans-unit id="e27c013b-8ca2-4752-82ea-3313f144189b" xml:space="preserve">
+          <source><bpt id="e423de0d-4b06-4472-abdf-24dc9224568e">&lt;strong&gt;</bpt>Incremental Sync<ept id="e423de0d-4b06-4472-abdf-24dc9224568e">&lt;/strong&gt;</ept>: the first parameter to the pull operation is a <bpt id="bddbdd42-b51a-4bba-81d7-4d4e666576c4">&lt;em&gt;</bpt>query name<ept id="bddbdd42-b51a-4bba-81d7-4d4e666576c4">&lt;/em&gt;</ept> that is used only on the client.</source>
+          <target state="new"><bpt id="e423de0d-4b06-4472-abdf-24dc9224568e">&lt;strong&gt;</bpt>Incremental Sync<ept id="e423de0d-4b06-4472-abdf-24dc9224568e">&lt;/strong&gt;</ept>: the first parameter to the pull operation is a <bpt id="bddbdd42-b51a-4bba-81d7-4d4e666576c4">&lt;em&gt;</bpt>query name<ept id="bddbdd42-b51a-4bba-81d7-4d4e666576c4">&lt;/em&gt;</ept> that is used only on the client.</target>
+        </trans-unit>
+        <trans-unit id="2fac54d2-af25-4bca-b927-fe9e81197a30" xml:space="preserve">
+          <source>If you use a non-null query name, the Azure Mobile SDK will perform an <bpt id="35951cb8-d479-4726-bb51-c8c218c7bf0a">&lt;em&gt;</bpt>incremental sync<ept id="35951cb8-d479-4726-bb51-c8c218c7bf0a">&lt;/em&gt;</ept>.</source>
+          <target state="new">If you use a non-null query name, the Azure Mobile SDK will perform an <bpt id="35951cb8-d479-4726-bb51-c8c218c7bf0a">&lt;em&gt;</bpt>incremental sync<ept id="35951cb8-d479-4726-bb51-c8c218c7bf0a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7c41b3e-8ebd-4726-94a0-3144eef18521" xml:space="preserve">
+          <source>Each time a pull operation returns a set of results, the latest <bpt id="b75108ff-628d-403e-8b9c-724954c8be12">&lt;code&gt;</bpt>__updatedAt<ept id="b75108ff-628d-403e-8b9c-724954c8be12">&lt;/code&gt;</ept> timestamp from that result set is stored in the SDK local system tables.</source>
+          <target state="new">Each time a pull operation returns a set of results, the latest <bpt id="b75108ff-628d-403e-8b9c-724954c8be12">&lt;code&gt;</bpt>__updatedAt<ept id="b75108ff-628d-403e-8b9c-724954c8be12">&lt;/code&gt;</ept> timestamp from that result set is stored in the SDK local system tables.</target>
+        </trans-unit>
+        <trans-unit id="362c98ed-4979-4898-96d4-a3f42aca3df6" xml:space="preserve">
+          <source>Subsequent pull operations will only retrieve records after that timestamp.</source>
+          <target state="new">Subsequent pull operations will only retrieve records after that timestamp.</target>
+        </trans-unit>
+        <trans-unit id="3af83829-6785-4a76-8087-d4affc0f76c9" xml:space="preserve">
+          <source>To use incremental sync, your server must return meaningful <bpt id="2145ee5e-4215-4edd-9753-24d801c85bd5">&lt;code&gt;</bpt>__updatedAt<ept id="2145ee5e-4215-4edd-9753-24d801c85bd5">&lt;/code&gt;</ept> values and must also support sorting by this field.</source>
+          <target state="new">To use incremental sync, your server must return meaningful <bpt id="2145ee5e-4215-4edd-9753-24d801c85bd5">&lt;code&gt;</bpt>__updatedAt<ept id="2145ee5e-4215-4edd-9753-24d801c85bd5">&lt;/code&gt;</ept> values and must also support sorting by this field.</target>
+        </trans-unit>
+        <trans-unit id="1336edd6-181b-44ed-9131-6c6a67ae91c2" xml:space="preserve">
+          <source>However, since the SDK adds its own sort on the updatedAt field, you cannot use a pull query that has its own <bpt id="dd26f1a6-9dee-419b-aa8b-274500f792d3">&lt;code&gt;</bpt>$orderBy$<ept id="dd26f1a6-9dee-419b-aa8b-274500f792d3">&lt;/code&gt;</ept> clause.</source>
+          <target state="new">However, since the SDK adds its own sort on the updatedAt field, you cannot use a pull query that has its own <bpt id="dd26f1a6-9dee-419b-aa8b-274500f792d3">&lt;code&gt;</bpt>$orderBy$<ept id="dd26f1a6-9dee-419b-aa8b-274500f792d3">&lt;/code&gt;</ept> clause.</target>
+        </trans-unit>
+        <trans-unit id="f6ad980f-9e35-4a23-9009-38a48c80bece" xml:space="preserve">
+          <source>The query name can be any string you choose, but it must be unique for each logical query in your app.</source>
+          <target state="new">The query name can be any string you choose, but it must be unique for each logical query in your app.</target>
+        </trans-unit>
+        <trans-unit id="66bbe380-046c-42b8-bffb-54abdd534b3c" xml:space="preserve">
+          <source>Otherwise, different pull operations could overwrite the same incremental sync timestamp and your queries can return incorrect results.</source>
+          <target state="new">Otherwise, different pull operations could overwrite the same incremental sync timestamp and your queries can return incorrect results.</target>
+        </trans-unit>
+        <trans-unit id="d7021794-6d14-4fa1-a13a-ffa2a08a6dd9" xml:space="preserve">
+          <source>If the query has a parameter, one way to create a unique query name is to incorporate the parameter value.</source>
+          <target state="new">If the query has a parameter, one way to create a unique query name is to incorporate the parameter value.</target>
+        </trans-unit>
+        <trans-unit id="47f58652-cef7-43d1-8f22-406d42a8095d" xml:space="preserve">
+          <source>For instance, if you are filtering on userid, your query name could be as follows:</source>
+          <target state="new">For instance, if you are filtering on userid, your query name could be as follows:</target>
+        </trans-unit>
+        <trans-unit id="bfa1e656-455c-4c41-9f2d-eddfff325969" xml:space="preserve">
+          <source>If you want to opt out of incremental sync, pass <bpt id="55b4fbae-cbfa-4c20-929a-82781077fa10">&lt;code&gt;</bpt>null<ept id="55b4fbae-cbfa-4c20-929a-82781077fa10">&lt;/code&gt;</ept> as the query ID.</source>
+          <target state="new">If you want to opt out of incremental sync, pass <bpt id="55b4fbae-cbfa-4c20-929a-82781077fa10">&lt;code&gt;</bpt>null<ept id="55b4fbae-cbfa-4c20-929a-82781077fa10">&lt;/code&gt;</ept> as the query ID.</target>
+        </trans-unit>
+        <trans-unit id="d6ba4034-5219-41ef-b331-47b086d2847e" xml:space="preserve">
+          <source>In this case, all records will be retrieved on every call to <bpt id="45ac4ef0-ff3e-4032-b041-ee9c800095a8">&lt;code&gt;</bpt>PullAsync<ept id="45ac4ef0-ff3e-4032-b041-ee9c800095a8">&lt;/code&gt;</ept>, which is potentially inefficient.</source>
+          <target state="new">In this case, all records will be retrieved on every call to <bpt id="45ac4ef0-ff3e-4032-b041-ee9c800095a8">&lt;code&gt;</bpt>PullAsync<ept id="45ac4ef0-ff3e-4032-b041-ee9c800095a8">&lt;/code&gt;</ept>, which is potentially inefficient.</target>
+        </trans-unit>
+        <trans-unit id="20f126d3-91f2-4a29-970a-e3e4c873a308" xml:space="preserve">
+          <source><bpt id="9753e800-7a90-4771-9d7d-03ea37618824">&lt;strong&gt;</bpt>Purging<ept id="9753e800-7a90-4771-9d7d-03ea37618824">&lt;/strong&gt;</ept>: You can clear the contents of the local store using <bpt id="4d0059d1-0d51-4ce4-b6a7-58a38f092e7d">&lt;code&gt;</bpt>IMobileServiceSyncTable.PurgeAsync<ept id="4d0059d1-0d51-4ce4-b6a7-58a38f092e7d">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="9753e800-7a90-4771-9d7d-03ea37618824">&lt;strong&gt;</bpt>Purging<ept id="9753e800-7a90-4771-9d7d-03ea37618824">&lt;/strong&gt;</ept>: You can clear the contents of the local store using <bpt id="4d0059d1-0d51-4ce4-b6a7-58a38f092e7d">&lt;code&gt;</bpt>IMobileServiceSyncTable.PurgeAsync<ept id="4d0059d1-0d51-4ce4-b6a7-58a38f092e7d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="699aabd0-3bef-4308-973a-5bfb1c5260a5" xml:space="preserve">
+          <source>This may be necessary if you have stale data in the client database, or if you wish to discard all pending changes.</source>
+          <target state="new">This may be necessary if you have stale data in the client database, or if you wish to discard all pending changes.</target>
+        </trans-unit>
+        <trans-unit id="7e6ef862-cc94-4dee-8618-5ee026d88a1c" xml:space="preserve">
+          <source>A purge will clear a table from the local store.</source>
+          <target state="new">A purge will clear a table from the local store.</target>
+        </trans-unit>
+        <trans-unit id="5ced2b2f-dcf4-4bc5-8c2c-c353d317840d" xml:space="preserve">
+          <source>If there are operations pending synchronization with the server database, the purge will throw an exception unless the <bpt id="9433dbae-eae1-4126-b6b6-5145c3f67594">&lt;em&gt;</bpt>force purge<ept id="9433dbae-eae1-4126-b6b6-5145c3f67594">&lt;/em&gt;</ept> parameter is set.</source>
+          <target state="new">If there are operations pending synchronization with the server database, the purge will throw an exception unless the <bpt id="9433dbae-eae1-4126-b6b6-5145c3f67594">&lt;em&gt;</bpt>force purge<ept id="9433dbae-eae1-4126-b6b6-5145c3f67594">&lt;/em&gt;</ept> parameter is set.</target>
+        </trans-unit>
+        <trans-unit id="0ade6e5f-9cd0-48e6-a99f-d5b2c4c48f5a" xml:space="preserve">
+          <source>As an example of stale data on the client, suppose in the "todo list" example, Device1 only pulls items that are not completed.</source>
+          <target state="new">As an example of stale data on the client, suppose in the "todo list" example, Device1 only pulls items that are not completed.</target>
+        </trans-unit>
+        <trans-unit id="a8e60ec1-7f1c-4bd8-aa45-5e05da14e05d" xml:space="preserve">
+          <source>Then, a todoitem "Buy milk" is marked completed on the server by another device.</source>
+          <target state="new">Then, a todoitem "Buy milk" is marked completed on the server by another device.</target>
+        </trans-unit>
+        <trans-unit id="7fd36f5b-670c-48e6-9cd5-55130b36a25f" xml:space="preserve">
+          <source>However, Device1 will still have the "Buy milk" todoitem in local store because it is only pulling items that are not marked complete.</source>
+          <target state="new">However, Device1 will still have the "Buy milk" todoitem in local store because it is only pulling items that are not marked complete.</target>
+        </trans-unit>
+        <trans-unit id="905bae2b-cf5e-493f-b74b-c22e6f792262" xml:space="preserve">
+          <source>A purge will clear this stale item.</source>
+          <target state="new">A purge will clear this stale item.</target>
+        </trans-unit>
+        <trans-unit id="761c62bd-0e81-432a-ad23-fe51c392088e" xml:space="preserve">
+          <source>[iOS: Enable offline sync]            </source>
+          <target state="new">[iOS: Enable offline sync]            </target>
+        </trans-unit>
+        <trans-unit id="6b2f504a-f883-44c4-aeb8-66d063c55323" xml:space="preserve">
+          <source>[Xamarin iOS: Enable offline sync]    </source>
+          <target state="new">[Xamarin iOS: Enable offline sync]    </target>
+        </trans-unit>
+        <trans-unit id="0f166110-6ecc-4125-b019-f7f31717a8f5" xml:space="preserve">
+          <source>[Xamarin Android: Enable offline sync]</source>
+          <target state="new">[Xamarin Android: Enable offline sync]</target>
+        </trans-unit>
+        <trans-unit id="e0b09964-f3da-4e9f-9668-85e1addc2219" xml:space="preserve">
+          <source>[Windows 8.1: Enable offline sync]    </source>
+          <target state="new">[Windows 8.1: Enable offline sync]    </target>
+        </trans-unit>
+        <trans-unit id="f9a5bb94-2213-447f-b644-33c36b97e651" xml:space="preserve">
+          <source>../app-service-mobile-ios-get-started-offline-data-preview.md</source>
+          <target state="new">../app-service-mobile-ios-get-started-offline-data-preview.md</target>
+        </trans-unit>
+        <trans-unit id="3bca2483-d6b7-4ead-9f46-0c0490a9fe89" xml:space="preserve">
+          <source>../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md</source>
+          <target state="new">../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md</target>
+        </trans-unit>
+        <trans-unit id="57b2d574-439f-4cfe-8f8e-e675896f13de" xml:space="preserve">
+          <source>../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md</source>
+          <target state="new">../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md</target>
+        </trans-unit>
+        <trans-unit id="ada4963f-6472-4e90-9d04-00a7f181be07" xml:space="preserve">
+          <source>../app-service-mobile-windows-store-dotnet-get-started-offline-data-preview.md</source>
+          <target state="new">../app-service-mobile-windows-store-dotnet-get-started-offline-data-preview.md</target>
+        </trans-unit>
+      </group>
+      <group id="6ca1113c-4728-4ba1-bfdc-8bfc91f63e31" />
+    </body>
+  </file>
+</xliff>

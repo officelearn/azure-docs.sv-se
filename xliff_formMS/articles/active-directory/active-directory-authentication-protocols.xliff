@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dfc923b7-0876-4c7c-9323-d66a6a5e9aee" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dfc923b7-0876-4c7c-9323-d66a6a5e9aee" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cccca5cc-5b9e-4e49-9beb-97a51a27f52f">
+        <trans-unit id="e95a567c-5567-4c7b-ac7e-92e32a18e17b" xml:space="preserve">
+          <source>Azure Active Directory Authentication Protocols</source>
+          <target state="new">Azure Active Directory Authentication Protocols</target>
+        </trans-unit>
+        <trans-unit id="3a8f7353-42e4-4cf2-9e08-589bf7188cee" xml:space="preserve">
+          <source>An overview of the authentication protocols supported by Azure Active Directory (AD)</source>
+          <target state="new">An overview of the authentication protocols supported by Azure Active Directory (AD)</target>
+        </trans-unit>
+        <trans-unit id="0b945e0e-d599-4b76-a350-8f175a2d46ed" xml:space="preserve">
+          <source>Azure Active Directory (Azure AD) supports several of the most widely used authentication and authorization protocols.</source>
+          <target state="new">Azure Active Directory (Azure AD) supports several of the most widely used authentication and authorization protocols.</target>
+        </trans-unit>
+        <trans-unit id="099f6270-c51d-458b-9e82-f8bcd106bce3" xml:space="preserve">
+          <source>The topics in this section describe the supported protocols and their implementation in Azure AD.</source>
+          <target state="new">The topics in this section describe the supported protocols and their implementation in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="0b659252-8982-41bf-a687-0ee602219fc0" xml:space="preserve">
+          <source>The topics included a review of supported claim types, an introduction to the use of federation metadata, detailed OAuth 2.0.</source>
+          <target state="new">The topics included a review of supported claim types, an introduction to the use of federation metadata, detailed OAuth 2.0.</target>
+        </trans-unit>
+        <trans-unit id="8476608a-6d3b-4d89-8c9f-700afbfe391e" xml:space="preserve">
+          <source>and SAML 2.0 protocol reference documentation, and a troubleshooting section.</source>
+          <target state="new">and SAML 2.0 protocol reference documentation, and a troubleshooting section.</target>
+        </trans-unit>
+        <trans-unit id="7a127750-98c9-4ab2-bb2f-558c858b3cc5" xml:space="preserve">
+          <source><bpt id="f5d460c9-c30e-4bac-8aca-9993d28247b6">&lt;linkText&gt;</bpt>Important Information About Signing Key Rollover in Azure AD<ept id="f5d460c9-c30e-4bac-8aca-9993d28247b6">&lt;/linkText&gt;</ept><bpt id="f5d460c9-c30e-4bac-8aca-9993d28247b6">&lt;title&gt;</bpt><ept id="f5d460c9-c30e-4bac-8aca-9993d28247b6">&lt;/title&gt;</ept> – Learn about Azure AD’s signing key rollover cadence, changes you can make to update the key automatically, and discussion for how to update the most common application scenarios.</source>
+          <target state="new"><bpt id="f5d460c9-c30e-4bac-8aca-9993d28247b6">&lt;linkText&gt;</bpt>Important Information About Signing Key Rollover in Azure AD<ept id="f5d460c9-c30e-4bac-8aca-9993d28247b6">&lt;/linkText&gt;</ept><bpt id="f5d460c9-c30e-4bac-8aca-9993d28247b6">&lt;title&gt;</bpt><ept id="f5d460c9-c30e-4bac-8aca-9993d28247b6">&lt;/title&gt;</ept> – Learn about Azure AD’s signing key rollover cadence, changes you can make to update the key automatically, and discussion for how to update the most common application scenarios.</target>
+        </trans-unit>
+        <trans-unit id="6b31aeef-cdca-40c6-bdc4-98491a410d66" xml:space="preserve">
+          <source><bpt id="99885764-8d21-443a-9472-353f2d272464">&lt;linkText&gt;</bpt>Supported Token and Claim Types<ept id="99885764-8d21-443a-9472-353f2d272464">&lt;/linkText&gt;</ept><bpt id="99885764-8d21-443a-9472-353f2d272464">&lt;title&gt;</bpt><ept id="99885764-8d21-443a-9472-353f2d272464">&lt;/title&gt;</ept> - Learn about the claims in the tokens that Azure AD issue.</source>
+          <target state="new"><bpt id="99885764-8d21-443a-9472-353f2d272464">&lt;linkText&gt;</bpt>Supported Token and Claim Types<ept id="99885764-8d21-443a-9472-353f2d272464">&lt;/linkText&gt;</ept><bpt id="99885764-8d21-443a-9472-353f2d272464">&lt;title&gt;</bpt><ept id="99885764-8d21-443a-9472-353f2d272464">&lt;/title&gt;</ept> - Learn about the claims in the tokens that Azure AD issue.</target>
+        </trans-unit>
+        <trans-unit id="eff54459-2ec0-4608-9cad-3508553ce1b1" xml:space="preserve">
+          <source><bpt id="a15d3137-7331-4274-9c7a-ab6ea984fe64">&lt;linkText&gt;</bpt>Federation Metadata<ept id="a15d3137-7331-4274-9c7a-ab6ea984fe64">&lt;/linkText&gt;</ept><bpt id="a15d3137-7331-4274-9c7a-ab6ea984fe64">&lt;title&gt;</bpt><ept id="a15d3137-7331-4274-9c7a-ab6ea984fe64">&lt;/title&gt;</ept> - Learn how to find and interpret the metadata documents that Azure AD generates.</source>
+          <target state="new"><bpt id="a15d3137-7331-4274-9c7a-ab6ea984fe64">&lt;linkText&gt;</bpt>Federation Metadata<ept id="a15d3137-7331-4274-9c7a-ab6ea984fe64">&lt;/linkText&gt;</ept><bpt id="a15d3137-7331-4274-9c7a-ab6ea984fe64">&lt;title&gt;</bpt><ept id="a15d3137-7331-4274-9c7a-ab6ea984fe64">&lt;/title&gt;</ept> - Learn how to find and interpret the metadata documents that Azure AD generates.</target>
+        </trans-unit>
+        <trans-unit id="c08c59e8-1db4-4f1a-b6eb-f73e3e28ac32" xml:space="preserve">
+          <source><bpt id="2d3cfcaf-8bc1-4514-a13f-e3df22c3c856">&lt;linkText&gt;</bpt>OAuth 2.0 in Azure AD<ept id="2d3cfcaf-8bc1-4514-a13f-e3df22c3c856">&lt;/linkText&gt;</ept><bpt id="2d3cfcaf-8bc1-4514-a13f-e3df22c3c856">&lt;title&gt;</bpt><ept id="2d3cfcaf-8bc1-4514-a13f-e3df22c3c856">&lt;/title&gt;</ept> - Learn about the implementation of OAuth 2.0 in Azure AD.</source>
+          <target state="new"><bpt id="2d3cfcaf-8bc1-4514-a13f-e3df22c3c856">&lt;linkText&gt;</bpt>OAuth 2.0 in Azure AD<ept id="2d3cfcaf-8bc1-4514-a13f-e3df22c3c856">&lt;/linkText&gt;</ept><bpt id="2d3cfcaf-8bc1-4514-a13f-e3df22c3c856">&lt;title&gt;</bpt><ept id="2d3cfcaf-8bc1-4514-a13f-e3df22c3c856">&lt;/title&gt;</ept> - Learn about the implementation of OAuth 2.0 in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="c3744b7c-d30e-4a17-a816-79ad651f9d02" xml:space="preserve">
+          <source><bpt id="da664755-2368-42c9-90c1-3723cc5334d0">&lt;linkText&gt;</bpt>OpenID Connect 1.0<ept id="da664755-2368-42c9-90c1-3723cc5334d0">&lt;/linkText&gt;</ept><bpt id="da664755-2368-42c9-90c1-3723cc5334d0">&lt;title&gt;</bpt><ept id="da664755-2368-42c9-90c1-3723cc5334d0">&lt;/title&gt;</ept> - Learn how to use OAuth 2.0, an authorization protocol, for authentication.</source>
+          <target state="new"><bpt id="da664755-2368-42c9-90c1-3723cc5334d0">&lt;linkText&gt;</bpt>OpenID Connect 1.0<ept id="da664755-2368-42c9-90c1-3723cc5334d0">&lt;/linkText&gt;</ept><bpt id="da664755-2368-42c9-90c1-3723cc5334d0">&lt;title&gt;</bpt><ept id="da664755-2368-42c9-90c1-3723cc5334d0">&lt;/title&gt;</ept> - Learn how to use OAuth 2.0, an authorization protocol, for authentication.</target>
+        </trans-unit>
+        <trans-unit id="9235de7e-bb38-4784-9008-cec18fa64e31" xml:space="preserve">
+          <source><bpt id="82ba593f-0d60-4873-956b-44d39424e6e3">&lt;linkText&gt;</bpt>SAML Protocol Reference<ept id="82ba593f-0d60-4873-956b-44d39424e6e3">&lt;/linkText&gt;</ept><bpt id="82ba593f-0d60-4873-956b-44d39424e6e3">&lt;title&gt;</bpt><ept id="82ba593f-0d60-4873-956b-44d39424e6e3">&lt;/title&gt;</ept> - Learn about the Single Sign-On and Single Sign-out SAML profiles of Azure AD.</source>
+          <target state="new"><bpt id="82ba593f-0d60-4873-956b-44d39424e6e3">&lt;linkText&gt;</bpt>SAML Protocol Reference<ept id="82ba593f-0d60-4873-956b-44d39424e6e3">&lt;/linkText&gt;</ept><bpt id="82ba593f-0d60-4873-956b-44d39424e6e3">&lt;title&gt;</bpt><ept id="82ba593f-0d60-4873-956b-44d39424e6e3">&lt;/title&gt;</ept> - Learn about the Single Sign-On and Single Sign-out SAML profiles of Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="edee79bf-924e-4e2f-a71c-a1bed4699253" xml:space="preserve">
+          <source><bpt id="b50494e3-0370-4e4e-a7e3-2650cf212f40">&lt;linkText&gt;</bpt>WS-Federation 1.2<ept id="b50494e3-0370-4e4e-a7e3-2650cf212f40">&lt;/linkText&gt;</ept><bpt id="b50494e3-0370-4e4e-a7e3-2650cf212f40">&lt;title&gt;</bpt><ept id="b50494e3-0370-4e4e-a7e3-2650cf212f40">&lt;/title&gt;</ept> - Learn about WS-Federation 1.2 in Azure AD.</source>
+          <target state="new"><bpt id="b50494e3-0370-4e4e-a7e3-2650cf212f40">&lt;linkText&gt;</bpt>WS-Federation 1.2<ept id="b50494e3-0370-4e4e-a7e3-2650cf212f40">&lt;/linkText&gt;</ept><bpt id="b50494e3-0370-4e4e-a7e3-2650cf212f40">&lt;title&gt;</bpt><ept id="b50494e3-0370-4e4e-a7e3-2650cf212f40">&lt;/title&gt;</ept> - Learn about WS-Federation 1.2 in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="2a8632c7-0e99-4543-9950-eb30a50a6360" xml:space="preserve">
+          <source><bpt id="7993b223-7743-434a-9313-929150b14575">&lt;linkText&gt;</bpt>Troubleshooting Authentication Protocols<ept id="7993b223-7743-434a-9313-929150b14575">&lt;/linkText&gt;</ept><bpt id="7993b223-7743-434a-9313-929150b14575">&lt;title&gt;</bpt><ept id="7993b223-7743-434a-9313-929150b14575">&lt;/title&gt;</ept> - Learn how to prevent problems and interpret and resolve errors when using Azure AD.</source>
+          <target state="new"><bpt id="7993b223-7743-434a-9313-929150b14575">&lt;linkText&gt;</bpt>Troubleshooting Authentication Protocols<ept id="7993b223-7743-434a-9313-929150b14575">&lt;/linkText&gt;</ept><bpt id="7993b223-7743-434a-9313-929150b14575">&lt;title&gt;</bpt><ept id="7993b223-7743-434a-9313-929150b14575">&lt;/title&gt;</ept> - Learn how to prevent problems and interpret and resolve errors when using Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="1f588164-9062-4d8f-98ef-90713f540dd3" xml:space="preserve">
+          <source><bpt id="62664320-7aa7-4ebc-8b1f-c4bf06471692">&lt;linkText&gt;</bpt>Azure Active Directory Developer's Guide<ept id="62664320-7aa7-4ebc-8b1f-c4bf06471692">&lt;/linkText&gt;</ept><bpt id="62664320-7aa7-4ebc-8b1f-c4bf06471692">&lt;title&gt;</bpt><ept id="62664320-7aa7-4ebc-8b1f-c4bf06471692">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="62664320-7aa7-4ebc-8b1f-c4bf06471692">&lt;linkText&gt;</bpt>Azure Active Directory Developer's Guide<ept id="62664320-7aa7-4ebc-8b1f-c4bf06471692">&lt;/linkText&gt;</ept><bpt id="62664320-7aa7-4ebc-8b1f-c4bf06471692">&lt;title&gt;</bpt><ept id="62664320-7aa7-4ebc-8b1f-c4bf06471692">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18cf7150-29c8-43b7-aeaf-3c09fc678d2c" xml:space="preserve">
+          <source><bpt id="cb77e996-1aa5-404e-aadb-64a7c4eb520b">&lt;linkText&gt;</bpt>Using Azure AD for Authentication<ept id="cb77e996-1aa5-404e-aadb-64a7c4eb520b">&lt;/linkText&gt;</ept><bpt id="cb77e996-1aa5-404e-aadb-64a7c4eb520b">&lt;title&gt;</bpt><ept id="cb77e996-1aa5-404e-aadb-64a7c4eb520b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cb77e996-1aa5-404e-aadb-64a7c4eb520b">&lt;linkText&gt;</bpt>Using Azure AD for Authentication<ept id="cb77e996-1aa5-404e-aadb-64a7c4eb520b">&lt;/linkText&gt;</ept><bpt id="cb77e996-1aa5-404e-aadb-64a7c4eb520b">&lt;title&gt;</bpt><ept id="cb77e996-1aa5-404e-aadb-64a7c4eb520b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1494e19e-c24a-463a-b761-d3a433b569db" xml:space="preserve">
+          <source><bpt id="e3c9dca6-462e-4e43-99cb-2555696f6198">&lt;linkText&gt;</bpt>Active Directory Code Samples<ept id="e3c9dca6-462e-4e43-99cb-2555696f6198">&lt;/linkText&gt;</ept><bpt id="e3c9dca6-462e-4e43-99cb-2555696f6198">&lt;title&gt;</bpt><ept id="e3c9dca6-462e-4e43-99cb-2555696f6198">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e3c9dca6-462e-4e43-99cb-2555696f6198">&lt;linkText&gt;</bpt>Active Directory Code Samples<ept id="e3c9dca6-462e-4e43-99cb-2555696f6198">&lt;/linkText&gt;</ept><bpt id="e3c9dca6-462e-4e43-99cb-2555696f6198">&lt;title&gt;</bpt><ept id="e3c9dca6-462e-4e43-99cb-2555696f6198">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

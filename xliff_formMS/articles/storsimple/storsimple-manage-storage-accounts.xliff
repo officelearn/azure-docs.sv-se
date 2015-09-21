@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ceddddaf-1e63-4aa4-95cc-2b3668ed4941" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ceddddaf-1e63-4aa4-95cc-2b3668ed4941" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="41dc6b3f-be46-4769-a4b8-d17ecf0ca59b">
+        <trans-unit id="4c9b62cf-8ed6-4544-80a7-5689d4e9d8c1" xml:space="preserve">
+          <source>Manage your StorSimple storage account | Microsoft Azure</source>
+          <target state="new">Manage your StorSimple storage account | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="dda800bc-70a3-4bbe-97f6-b8dc1d52e0cc" xml:space="preserve">
+          <source>Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for a storage account.</source>
+          <target state="new">Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for a storage account.</target>
+        </trans-unit>
+        <trans-unit id="02e9b7be-0e8c-4033-9742-4d76f5303938" xml:space="preserve">
+          <source>The <bpt id="c48d8f25-8523-40e5-be05-1f4bb1d4d8cc">&lt;strong&gt;</bpt>Configure<ept id="c48d8f25-8523-40e5-be05-1f4bb1d4d8cc">&lt;/strong&gt;</ept> page presents all the global service parameters that can be created in the StorSimple Manager service.</source>
+          <target state="new">The <bpt id="c48d8f25-8523-40e5-be05-1f4bb1d4d8cc">&lt;strong&gt;</bpt>Configure<ept id="c48d8f25-8523-40e5-be05-1f4bb1d4d8cc">&lt;/strong&gt;</ept> page presents all the global service parameters that can be created in the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="b2af5b76-a79f-418f-ab8a-e8304c998f13" xml:space="preserve">
+          <source>These parameters can be applied to all the devices connected to the service, and include:</source>
+          <target state="new">These parameters can be applied to all the devices connected to the service, and include:</target>
+        </trans-unit>
+        <trans-unit id="290893e8-b3b0-49fb-a418-aa53a5fa631e" xml:space="preserve">
+          <source>Storage accounts </source>
+          <target state="new">Storage accounts </target>
+        </trans-unit>
+        <trans-unit id="eb6c1755-6f3c-4d66-a51e-411e4c847b8d" xml:space="preserve">
+          <source>Bandwidth templates </source>
+          <target state="new">Bandwidth templates </target>
+        </trans-unit>
+        <trans-unit id="df682d6d-0bf6-4ac2-878c-6011a7d6b528" xml:space="preserve">
+          <source>Access control records </source>
+          <target state="new">Access control records </target>
+        </trans-unit>
+        <trans-unit id="be6bdea1-adec-451d-8c7c-36308ae32136" xml:space="preserve">
+          <source>This tutorial explains how you can use the <bpt id="90981e28-eb92-4fa5-b380-954b9241e3fa">&lt;strong&gt;</bpt>Configure<ept id="90981e28-eb92-4fa5-b380-954b9241e3fa">&lt;/strong&gt;</ept> page to add, edit, or delete storage accounts, or rotate the security keys for a storage account.</source>
+          <target state="new">This tutorial explains how you can use the <bpt id="90981e28-eb92-4fa5-b380-954b9241e3fa">&lt;strong&gt;</bpt>Configure<ept id="90981e28-eb92-4fa5-b380-954b9241e3fa">&lt;/strong&gt;</ept> page to add, edit, or delete storage accounts, or rotate the security keys for a storage account.</target>
+        </trans-unit>
+        <trans-unit id="2d964d13-cfca-404e-a30c-17d27bf6aaa5" xml:space="preserve">
+          <source> <bpt id="1111b72b-481f-4eca-972c-8b77e858992b">&lt;linkText&gt;</bpt>Configure page<ept id="1111b72b-481f-4eca-972c-8b77e858992b">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"> <bpt id="1111b72b-481f-4eca-972c-8b77e858992b">&lt;linkText&gt;</bpt>Configure page<ept id="1111b72b-481f-4eca-972c-8b77e858992b">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="b285a115-7612-4a06-8b1d-ca3d2dfcc53a" xml:space="preserve">
+          <source>Storage accounts contain the credentials that the device uses to access your storage account with your cloud service provider.</source>
+          <target state="new">Storage accounts contain the credentials that the device uses to access your storage account with your cloud service provider.</target>
+        </trans-unit>
+        <trans-unit id="bdaca1d8-39bd-432d-874b-3ec256ec4636" xml:space="preserve">
+          <source>For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key.</source>
+          <target state="new">For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key.</target>
+        </trans-unit>
+        <trans-unit id="5a36e6ed-fc27-4b1d-a083-6172b1bb6aff" xml:space="preserve">
+          <source>On the <bpt id="ee1937cf-6449-4b59-b9fc-7b55d2275f1e">&lt;strong&gt;</bpt>Configure<ept id="ee1937cf-6449-4b59-b9fc-7b55d2275f1e">&lt;/strong&gt;</ept> page, all storage accounts that are created for the billing subscription are displayed in a tabular format containing the following information:</source>
+          <target state="new">On the <bpt id="ee1937cf-6449-4b59-b9fc-7b55d2275f1e">&lt;strong&gt;</bpt>Configure<ept id="ee1937cf-6449-4b59-b9fc-7b55d2275f1e">&lt;/strong&gt;</ept> page, all storage accounts that are created for the billing subscription are displayed in a tabular format containing the following information:</target>
+        </trans-unit>
+        <trans-unit id="37020155-d979-475c-a9a0-0e06a5a6858a" xml:space="preserve">
+          <source><bpt id="cb29d87f-56ea-41ca-b752-210e45ae5469">&lt;strong&gt;</bpt>Name<ept id="cb29d87f-56ea-41ca-b752-210e45ae5469">&lt;/strong&gt;</ept> – The unique name assigned to the account when it was created.</source>
+          <target state="new"><bpt id="cb29d87f-56ea-41ca-b752-210e45ae5469">&lt;strong&gt;</bpt>Name<ept id="cb29d87f-56ea-41ca-b752-210e45ae5469">&lt;/strong&gt;</ept> – The unique name assigned to the account when it was created.</target>
+        </trans-unit>
+        <trans-unit id="95a1aa9b-9d5c-412f-a53e-803b6636df5b" xml:space="preserve">
+          <source><bpt id="fe5a073a-e4ae-4f20-85d5-b05a6c666b77">&lt;strong&gt;</bpt>SSL enabled<ept id="fe5a073a-e4ae-4f20-85d5-b05a6c666b77">&lt;/strong&gt;</ept> – Whether the SSL is enabled and device-to-cloud communication is over the secure channel.</source>
+          <target state="new"><bpt id="fe5a073a-e4ae-4f20-85d5-b05a6c666b77">&lt;strong&gt;</bpt>SSL enabled<ept id="fe5a073a-e4ae-4f20-85d5-b05a6c666b77">&lt;/strong&gt;</ept> – Whether the SSL is enabled and device-to-cloud communication is over the secure channel.</target>
+        </trans-unit>
+        <trans-unit id="bd45cbad-7530-443e-80eb-ff07ae5b7bbf" xml:space="preserve">
+          <source><bpt id="2e083a95-5c4c-4966-8103-c118099fb035">&lt;strong&gt;</bpt>Used by<ept id="2e083a95-5c4c-4966-8103-c118099fb035">&lt;/strong&gt;</ept> – The number of volumes using the storage account.</source>
+          <target state="new"><bpt id="2e083a95-5c4c-4966-8103-c118099fb035">&lt;strong&gt;</bpt>Used by<ept id="2e083a95-5c4c-4966-8103-c118099fb035">&lt;/strong&gt;</ept> – The number of volumes using the storage account.</target>
+        </trans-unit>
+        <trans-unit id="578ad13a-0b11-4276-bb28-7509662c4136" xml:space="preserve">
+          <source>The most common tasks related to storage accounts that can be performed on the <bpt id="27c7fc23-5543-4bb7-a80f-d292a92afcef">&lt;strong&gt;</bpt>Configure<ept id="27c7fc23-5543-4bb7-a80f-d292a92afcef">&lt;/strong&gt;</ept> page are:</source>
+          <target state="new">The most common tasks related to storage accounts that can be performed on the <bpt id="27c7fc23-5543-4bb7-a80f-d292a92afcef">&lt;strong&gt;</bpt>Configure<ept id="27c7fc23-5543-4bb7-a80f-d292a92afcef">&lt;/strong&gt;</ept> page are:</target>
+        </trans-unit>
+        <trans-unit id="51954bd4-ae41-4fb3-bb0f-c2ef3cb7781b" xml:space="preserve">
+          <source>Add a storage account </source>
+          <target state="new">Add a storage account </target>
+        </trans-unit>
+        <trans-unit id="b0c8222e-af90-49fc-9b0d-d53c621b5ef0" xml:space="preserve">
+          <source>Edit a storage account </source>
+          <target state="new">Edit a storage account </target>
+        </trans-unit>
+        <trans-unit id="03654825-7a7e-4a07-a8f1-960a9376ceda" xml:space="preserve">
+          <source>Delete a storage account </source>
+          <target state="new">Delete a storage account </target>
+        </trans-unit>
+        <trans-unit id="032bda09-5b68-4c02-99c7-1abbedd4d840" xml:space="preserve">
+          <source>Key rotation of storage accounts </source>
+          <target state="new">Key rotation of storage accounts </target>
+        </trans-unit>
+        <trans-unit id="17c18f27-5f18-4f94-9d1e-2075cd65ad4b" xml:space="preserve">
+          <source>There are three types of storage accounts that can be used with your StorSimple device.</source>
+          <target state="new">There are three types of storage accounts that can be used with your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="fb783e40-bc69-4ebd-9800-123691b51d04" xml:space="preserve">
+          <source><bpt id="4c388814-a842-4a64-bb57-9f29b58975ec">&lt;strong&gt;</bpt>Auto-generated storage accounts<ept id="4c388814-a842-4a64-bb57-9f29b58975ec">&lt;/strong&gt;</ept> – As the name suggests, this type of storage account is automatically generated when the service is first created.</source>
+          <target state="new"><bpt id="4c388814-a842-4a64-bb57-9f29b58975ec">&lt;strong&gt;</bpt>Auto-generated storage accounts<ept id="4c388814-a842-4a64-bb57-9f29b58975ec">&lt;/strong&gt;</ept> – As the name suggests, this type of storage account is automatically generated when the service is first created.</target>
+        </trans-unit>
+        <trans-unit id="8c9670c4-5d90-4bb2-96fb-21f39d139e12" xml:space="preserve">
+          <source>To learn more about how this storage account is created, see <bpt id="a518f583-02d1-4bb3-a668-37000c29cb37">&lt;linkText&gt;</bpt>Step 1: Create a new service<ept id="a518f583-02d1-4bb3-a668-37000c29cb37">&lt;/linkText&gt;</ept><bpt id="a518f583-02d1-4bb3-a668-37000c29cb37">&lt;title&gt;</bpt><ept id="a518f583-02d1-4bb3-a668-37000c29cb37">&lt;/title&gt;</ept> in <bpt id="7b9a3a70-fdb5-4032-9fb8-3945ecf37908">&lt;linkText&gt;</bpt>Deploy your on-premises StorSimple device<ept id="7b9a3a70-fdb5-4032-9fb8-3945ecf37908">&lt;/linkText&gt;</ept><bpt id="7b9a3a70-fdb5-4032-9fb8-3945ecf37908">&lt;title&gt;</bpt><ept id="7b9a3a70-fdb5-4032-9fb8-3945ecf37908">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about how this storage account is created, see <bpt id="a518f583-02d1-4bb3-a668-37000c29cb37">&lt;linkText&gt;</bpt>Step 1: Create a new service<ept id="a518f583-02d1-4bb3-a668-37000c29cb37">&lt;/linkText&gt;</ept><bpt id="a518f583-02d1-4bb3-a668-37000c29cb37">&lt;title&gt;</bpt><ept id="a518f583-02d1-4bb3-a668-37000c29cb37">&lt;/title&gt;</ept> in <bpt id="7b9a3a70-fdb5-4032-9fb8-3945ecf37908">&lt;linkText&gt;</bpt>Deploy your on-premises StorSimple device<ept id="7b9a3a70-fdb5-4032-9fb8-3945ecf37908">&lt;/linkText&gt;</ept><bpt id="7b9a3a70-fdb5-4032-9fb8-3945ecf37908">&lt;title&gt;</bpt><ept id="7b9a3a70-fdb5-4032-9fb8-3945ecf37908">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c9bf29a-b4d1-4aa5-a9f5-3931f41bd653" xml:space="preserve">
+          <source><bpt id="72cae531-6f98-44f7-acb6-313de2c9820e">&lt;strong&gt;</bpt>Storage accounts in the service subscription<ept id="72cae531-6f98-44f7-acb6-313de2c9820e">&lt;/strong&gt;</ept> – These are the Azure storage accounts that are associated with the same subscription as that of the service.</source>
+          <target state="new"><bpt id="72cae531-6f98-44f7-acb6-313de2c9820e">&lt;strong&gt;</bpt>Storage accounts in the service subscription<ept id="72cae531-6f98-44f7-acb6-313de2c9820e">&lt;/strong&gt;</ept> – These are the Azure storage accounts that are associated with the same subscription as that of the service.</target>
+        </trans-unit>
+        <trans-unit id="d3ecd3c2-7611-49d9-ba58-42b1bfdb1210" xml:space="preserve">
+          <source>To learn more about how these storage accounts are created, see <bpt id="3267dabb-3f29-4736-bf0f-0a15d59d4dd5">&lt;linkText&gt;</bpt>About Azure Storage Accounts<ept id="3267dabb-3f29-4736-bf0f-0a15d59d4dd5">&lt;/linkText&gt;</ept><bpt id="3267dabb-3f29-4736-bf0f-0a15d59d4dd5">&lt;title&gt;</bpt><ept id="3267dabb-3f29-4736-bf0f-0a15d59d4dd5">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about how these storage accounts are created, see <bpt id="3267dabb-3f29-4736-bf0f-0a15d59d4dd5">&lt;linkText&gt;</bpt>About Azure Storage Accounts<ept id="3267dabb-3f29-4736-bf0f-0a15d59d4dd5">&lt;/linkText&gt;</ept><bpt id="3267dabb-3f29-4736-bf0f-0a15d59d4dd5">&lt;title&gt;</bpt><ept id="3267dabb-3f29-4736-bf0f-0a15d59d4dd5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7c14b10-ec7d-4df5-b1fa-79e0408f528e" xml:space="preserve">
+          <source><bpt id="88b97c52-4fa8-4832-a3c9-407f1a191dd7">&lt;strong&gt;</bpt>Storage accounts outside of the service subscription<ept id="88b97c52-4fa8-4832-a3c9-407f1a191dd7">&lt;/strong&gt;</ept> – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.</source>
+          <target state="new"><bpt id="88b97c52-4fa8-4832-a3c9-407f1a191dd7">&lt;strong&gt;</bpt>Storage accounts outside of the service subscription<ept id="88b97c52-4fa8-4832-a3c9-407f1a191dd7">&lt;/strong&gt;</ept> – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.</target>
+        </trans-unit>
+        <trans-unit id="60d7c92b-42e4-47b8-8aab-300a91f4eda6" xml:space="preserve">
+          <source>You can add a storage account by providing a unique friendly name and access credentials that are linked to the storage account (with the specified cloud service provider).</source>
+          <target state="new">You can add a storage account by providing a unique friendly name and access credentials that are linked to the storage account (with the specified cloud service provider).</target>
+        </trans-unit>
+        <trans-unit id="f1110de0-0b06-4381-a22a-e4c6546cfa2a" xml:space="preserve">
+          <source>You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.</source>
+          <target state="new">You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.</target>
+        </trans-unit>
+        <trans-unit id="8aa32cec-b000-430b-b16e-aa66c2e459c3" xml:space="preserve">
+          <source>You can create multiple accounts for a given cloud service provider.</source>
+          <target state="new">You can create multiple accounts for a given cloud service provider.</target>
+        </trans-unit>
+        <trans-unit id="00f5c79a-e233-4a02-a8a9-6ee43688745a" xml:space="preserve">
+          <source>Be aware, however, that after a storage account is created, you cannot change the cloud service provider.</source>
+          <target state="new">Be aware, however, that after a storage account is created, you cannot change the cloud service provider.</target>
+        </trans-unit>
+        <trans-unit id="f2b4e20a-65ca-47d0-89f3-29484a5621e3" xml:space="preserve">
+          <source>While the storage account is being saved, the service attempts to communicate with your cloud service provider.</source>
+          <target state="new">While the storage account is being saved, the service attempts to communicate with your cloud service provider.</target>
+        </trans-unit>
+        <trans-unit id="1857cef9-a34e-4b3b-a188-6e5dc6e5e416" xml:space="preserve">
+          <source>The credentials and the access material that you supplied will be authenticated at this time.</source>
+          <target state="new">The credentials and the access material that you supplied will be authenticated at this time.</target>
+        </trans-unit>
+        <trans-unit id="bc766e0d-7fa1-4d58-b51b-2a7d52e2c32a" xml:space="preserve">
+          <source>A storage account is created only if the authentication succeeds.</source>
+          <target state="new">A storage account is created only if the authentication succeeds.</target>
+        </trans-unit>
+        <trans-unit id="d24ce7bb-d74d-45c9-a5b8-2393ad5e157f" xml:space="preserve">
+          <source>If the authentication fails, then an appropriate error message will be displayed.</source>
+          <target state="new">If the authentication fails, then an appropriate error message will be displayed.</target>
+        </trans-unit>
+        <trans-unit id="69e69b98-9ea4-420f-a596-fd1f0d82f9b9" xml:space="preserve">
+          <source>The procedure for adding a storage account differs based on the StorSimple software version you are using.</source>
+          <target state="new">The procedure for adding a storage account differs based on the StorSimple software version you are using.</target>
+        </trans-unit>
+        <trans-unit id="87a62fa3-a406-4b5f-8c64-8ff5866da24c" xml:space="preserve">
+          <source>Be sure to follow the correct procedure for your StorSimple version.</source>
+          <target state="new">Be sure to follow the correct procedure for your StorSimple version.</target>
+        </trans-unit>
+        <trans-unit id="b2827eb2-105c-4eb2-a86a-ce57b52d6f08" xml:space="preserve">
+          <source><bpt id="8c420ebe-0e9b-430b-8303-ca4d2429917b">&lt;token href="../../includes/storsimple-configure-new-storage-account-u1.md"&gt;</bpt><ept id="8c420ebe-0e9b-430b-8303-ca4d2429917b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8c420ebe-0e9b-430b-8303-ca4d2429917b">&lt;token href="../../includes/storsimple-configure-new-storage-account-u1.md"&gt;</bpt><ept id="8c420ebe-0e9b-430b-8303-ca4d2429917b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="719db21a-89fa-4252-bb97-f05a9219ee3a" xml:space="preserve">
+          <source><bpt id="323b54d6-c436-42b5-a722-4bcdb1cfb86e">&lt;token href="../../includes/storsimple-configure-new-storage-account.md"&gt;</bpt><ept id="323b54d6-c436-42b5-a722-4bcdb1cfb86e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="323b54d6-c436-42b5-a722-4bcdb1cfb86e">&lt;token href="../../includes/storsimple-configure-new-storage-account.md"&gt;</bpt><ept id="323b54d6-c436-42b5-a722-4bcdb1cfb86e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="788b76bc-f5b2-417d-9172-a669a87acd12" xml:space="preserve">
+          <source>You can edit a storage account that is used by a volume container.</source>
+          <target state="new">You can edit a storage account that is used by a volume container.</target>
+        </trans-unit>
+        <trans-unit id="a596e6f9-1b2e-4f83-b9a7-e16f23f84a57" xml:space="preserve">
+          <source>If you edit a storage account that is currently in use, the only field available to modify is the access key for the storage account.</source>
+          <target state="new">If you edit a storage account that is currently in use, the only field available to modify is the access key for the storage account.</target>
+        </trans-unit>
+        <trans-unit id="ce24a662-3614-4721-b7a3-1055446f7d2d" xml:space="preserve">
+          <source>You can supply the new storage access key and save the updated settings.</source>
+          <target state="new">You can supply the new storage access key and save the updated settings.</target>
+        </trans-unit>
+        <trans-unit id="191e6c45-a06e-461a-8505-47b4dc5eadb0" xml:space="preserve">
+          <source>On the service landing page, select your service, double-click the service name, and then click <bpt id="4d2faa45-cf54-48c0-b4c9-d581c071b2cf">&lt;strong&gt;</bpt>Configure<ept id="4d2faa45-cf54-48c0-b4c9-d581c071b2cf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the service landing page, select your service, double-click the service name, and then click <bpt id="4d2faa45-cf54-48c0-b4c9-d581c071b2cf">&lt;strong&gt;</bpt>Configure<ept id="4d2faa45-cf54-48c0-b4c9-d581c071b2cf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d391fbfd-f3ff-4fdc-83d2-50d43ea8abd8" xml:space="preserve">
+          <source>Click <bpt id="b6a1cdf7-ccb6-4ecc-8b60-b2e4c037c6f5">&lt;strong&gt;</bpt>Add/Edit Storage Accounts<ept id="b6a1cdf7-ccb6-4ecc-8b60-b2e4c037c6f5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b6a1cdf7-ccb6-4ecc-8b60-b2e4c037c6f5">&lt;strong&gt;</bpt>Add/Edit Storage Accounts<ept id="b6a1cdf7-ccb6-4ecc-8b60-b2e4c037c6f5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f74a655-6296-49b0-a62a-76f064a7c558" xml:space="preserve">
+          <source>In the <bpt id="7755a9db-e01e-44df-bf30-c82035b68ca0">&lt;strong&gt;</bpt>Add/Edit Storage Accounts<ept id="7755a9db-e01e-44df-bf30-c82035b68ca0">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="7755a9db-e01e-44df-bf30-c82035b68ca0">&lt;strong&gt;</bpt>Add/Edit Storage Accounts<ept id="7755a9db-e01e-44df-bf30-c82035b68ca0">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="039ab65e-9172-4b0a-9d2b-9e293b8e4eb9" xml:space="preserve">
+          <source>In the drop-down list of <bpt id="043b29d0-d9d1-4144-8da7-6d4fc79e76f6">&lt;strong&gt;</bpt>Storage Accounts<ept id="043b29d0-d9d1-4144-8da7-6d4fc79e76f6">&lt;/strong&gt;</ept>, choose an existing account that you would like to modify.</source>
+          <target state="new">In the drop-down list of <bpt id="043b29d0-d9d1-4144-8da7-6d4fc79e76f6">&lt;strong&gt;</bpt>Storage Accounts<ept id="043b29d0-d9d1-4144-8da7-6d4fc79e76f6">&lt;/strong&gt;</ept>, choose an existing account that you would like to modify.</target>
+        </trans-unit>
+        <trans-unit id="6b93764d-b50d-4f52-8294-d501e12d2c9a" xml:space="preserve">
+          <source>This could also include the storage accounts that were automatically generated when the service was first created.</source>
+          <target state="new">This could also include the storage accounts that were automatically generated when the service was first created.</target>
+        </trans-unit>
+        <trans-unit id="db98c2db-63b0-43eb-9408-f765774c7956" xml:space="preserve">
+          <source>If necessary, you can modify the <bpt id="0e03a091-1f26-4f0d-ab9a-da8df11ef01a">&lt;strong&gt;</bpt>Enable SSL Mode<ept id="0e03a091-1f26-4f0d-ab9a-da8df11ef01a">&lt;/strong&gt;</ept> selection.</source>
+          <target state="new">If necessary, you can modify the <bpt id="0e03a091-1f26-4f0d-ab9a-da8df11ef01a">&lt;strong&gt;</bpt>Enable SSL Mode<ept id="0e03a091-1f26-4f0d-ab9a-da8df11ef01a">&lt;/strong&gt;</ept> selection.</target>
+        </trans-unit>
+        <trans-unit id="047ce6a3-3950-457b-9648-af209c3218cb" xml:space="preserve">
+          <source>You can choose to rotate your storage account access keys.</source>
+          <target state="new">You can choose to rotate your storage account access keys.</target>
+        </trans-unit>
+        <trans-unit id="cafdc198-af64-47ef-b593-7f2a56373123" xml:space="preserve">
+          <source>See <bpt id="1a8a3221-10fe-4967-bdb5-e2fca42e9be1">&lt;linkText&gt;</bpt>Key rotation of storage accounts<ept id="1a8a3221-10fe-4967-bdb5-e2fca42e9be1">&lt;/linkText&gt;</ept><bpt id="1a8a3221-10fe-4967-bdb5-e2fca42e9be1">&lt;title&gt;</bpt><ept id="1a8a3221-10fe-4967-bdb5-e2fca42e9be1">&lt;/title&gt;</ept> for more information about how to perform key rotation.</source>
+          <target state="new">See <bpt id="1a8a3221-10fe-4967-bdb5-e2fca42e9be1">&lt;linkText&gt;</bpt>Key rotation of storage accounts<ept id="1a8a3221-10fe-4967-bdb5-e2fca42e9be1">&lt;/linkText&gt;</ept><bpt id="1a8a3221-10fe-4967-bdb5-e2fca42e9be1">&lt;title&gt;</bpt><ept id="1a8a3221-10fe-4967-bdb5-e2fca42e9be1">&lt;/title&gt;</ept> for more information about how to perform key rotation.</target>
+        </trans-unit>
+        <trans-unit id="791f167e-8ae4-43f0-9a51-ae5d6f646263" xml:space="preserve">
+          <source>Click the check icon <bpt id="ef4d58a1-320c-4969-8573-544c1a2a5ac2">&lt;linkText&gt;</bpt>check icon<ept id="ef4d58a1-320c-4969-8573-544c1a2a5ac2">&lt;/linkText&gt;</ept> to save the settings.</source>
+          <target state="new">Click the check icon <bpt id="ef4d58a1-320c-4969-8573-544c1a2a5ac2">&lt;linkText&gt;</bpt>check icon<ept id="ef4d58a1-320c-4969-8573-544c1a2a5ac2">&lt;/linkText&gt;</ept> to save the settings.</target>
+        </trans-unit>
+        <trans-unit id="74615d48-e0d7-433f-80df-53cd4da43ca1" xml:space="preserve">
+          <source>The settings will be updated on the <bpt id="d495c8d9-e43f-422c-8bbd-e626e3ec8eba">&lt;strong&gt;</bpt>Configure<ept id="d495c8d9-e43f-422c-8bbd-e626e3ec8eba">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">The settings will be updated on the <bpt id="d495c8d9-e43f-422c-8bbd-e626e3ec8eba">&lt;strong&gt;</bpt>Configure<ept id="d495c8d9-e43f-422c-8bbd-e626e3ec8eba">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="73de1acf-ff52-4704-a448-6fafe57c4999" xml:space="preserve">
+          <source>Click <bpt id="04ad0500-0d35-4079-9885-b54c5d2289a6">&lt;strong&gt;</bpt>Save<ept id="04ad0500-0d35-4079-9885-b54c5d2289a6">&lt;/strong&gt;</ept> to save the newly updated settings.</source>
+          <target state="new">Click <bpt id="04ad0500-0d35-4079-9885-b54c5d2289a6">&lt;strong&gt;</bpt>Save<ept id="04ad0500-0d35-4079-9885-b54c5d2289a6">&lt;/strong&gt;</ept> to save the newly updated settings.</target>
+        </trans-unit>
+        <trans-unit id="165ab1e5-67ad-4236-b13e-c57948c35cb9" xml:space="preserve">
+          <source><bpt id="132c662c-21b3-4029-8013-b8278c60d5a3">&lt;linkText&gt;</bpt>Edit a storage account<ept id="132c662c-21b3-4029-8013-b8278c60d5a3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="132c662c-21b3-4029-8013-b8278c60d5a3">&lt;linkText&gt;</bpt>Edit a storage account<ept id="132c662c-21b3-4029-8013-b8278c60d5a3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b23b71b-4121-4e29-8099-88604e00221e" xml:space="preserve">
+          <source>You can delete a storage account only if it is not used by a volume container.</source>
+          <target state="new">You can delete a storage account only if it is not used by a volume container.</target>
+        </trans-unit>
+        <trans-unit id="560e48d6-e62a-4396-aeb3-510a70e828cb" xml:space="preserve">
+          <source>If a storage account is being used by a volume container, first delete the volume container and then delete the associated storage account.</source>
+          <target state="new">If a storage account is being used by a volume container, first delete the volume container and then delete the associated storage account.</target>
+        </trans-unit>
+        <trans-unit id="c6d35c2b-1397-4c0b-8e93-f8e18b8eb7b4" xml:space="preserve">
+          <source>On the StorSimple Manager service landing page, select your service, double-click the service name, and then click <bpt id="c5ae1578-c172-4452-befd-d1a66ce203fc">&lt;strong&gt;</bpt>Configure<ept id="c5ae1578-c172-4452-befd-d1a66ce203fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the StorSimple Manager service landing page, select your service, double-click the service name, and then click <bpt id="c5ae1578-c172-4452-befd-d1a66ce203fc">&lt;strong&gt;</bpt>Configure<ept id="c5ae1578-c172-4452-befd-d1a66ce203fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="943ccb16-7781-4217-b306-b742c890bb45" xml:space="preserve">
+          <source>In the tabular list of storage accounts, hover over the account that you wish to delete.</source>
+          <target state="new">In the tabular list of storage accounts, hover over the account that you wish to delete.</target>
+        </trans-unit>
+        <trans-unit id="93b1047a-8b2f-4630-8db3-92c9118f5259" xml:space="preserve">
+          <source>A delete icon (<bpt id="ca050c24-df02-4c95-8346-02e8a9643cf3">&lt;strong&gt;</bpt>x<ept id="ca050c24-df02-4c95-8346-02e8a9643cf3">&lt;/strong&gt;</ept>) will appear in the extreme right column for that storage account.</source>
+          <target state="new">A delete icon (<bpt id="ca050c24-df02-4c95-8346-02e8a9643cf3">&lt;strong&gt;</bpt>x<ept id="ca050c24-df02-4c95-8346-02e8a9643cf3">&lt;/strong&gt;</ept>) will appear in the extreme right column for that storage account.</target>
+        </trans-unit>
+        <trans-unit id="3c3941bd-becf-4186-8d12-bce75e356483" xml:space="preserve">
+          <source>Click the <bpt id="30214cb1-6fbf-4797-8403-dbd6e0022956">&lt;strong&gt;</bpt>x<ept id="30214cb1-6fbf-4797-8403-dbd6e0022956">&lt;/strong&gt;</ept> icon to delete the credentials.</source>
+          <target state="new">Click the <bpt id="30214cb1-6fbf-4797-8403-dbd6e0022956">&lt;strong&gt;</bpt>x<ept id="30214cb1-6fbf-4797-8403-dbd6e0022956">&lt;/strong&gt;</ept> icon to delete the credentials.</target>
+        </trans-unit>
+        <trans-unit id="7b8ac4ad-29ed-45d3-8c75-b7fd173483fc" xml:space="preserve">
+          <source>When prompted for confirmation, click <bpt id="271759c8-c05e-4ac3-ad78-00e0634cdfde">&lt;strong&gt;</bpt>Yes<ept id="271759c8-c05e-4ac3-ad78-00e0634cdfde">&lt;/strong&gt;</ept> to continue with the deletion.</source>
+          <target state="new">When prompted for confirmation, click <bpt id="271759c8-c05e-4ac3-ad78-00e0634cdfde">&lt;strong&gt;</bpt>Yes<ept id="271759c8-c05e-4ac3-ad78-00e0634cdfde">&lt;/strong&gt;</ept> to continue with the deletion.</target>
+        </trans-unit>
+        <trans-unit id="74c21ca2-01dc-4281-a75d-b1ebce3c782e" xml:space="preserve">
+          <source>The tabular listing will be updated to reflect the changes.</source>
+          <target state="new">The tabular listing will be updated to reflect the changes.</target>
+        </trans-unit>
+        <trans-unit id="ec02a4f8-7d10-4d7e-a737-92bcb6ebe4ed" xml:space="preserve">
+          <source>For security reasons, key rotation is often a requirement in data centers.</source>
+          <target state="new">For security reasons, key rotation is often a requirement in data centers.</target>
+        </trans-unit>
+        <trans-unit id="7f36a4c7-6bce-4961-a046-413510622367" xml:space="preserve">
+          <source>The following key rotation information and the rotation procedure apply to Microsoft Azure storage accounts only.</source>
+          <target state="new">The following key rotation information and the rotation procedure apply to Microsoft Azure storage accounts only.</target>
+        </trans-unit>
+        <trans-unit id="3ca573db-c2df-4f99-8063-535bf4c622b9" xml:space="preserve">
+          <source>If you are using another cloud service provider, you can manage storage account keys through that provider's dashboard.</source>
+          <target state="new">If you are using another cloud service provider, you can manage storage account keys through that provider's dashboard.</target>
+        </trans-unit>
+        <trans-unit id="d0765a99-3bdb-47b4-924b-682fe31c88f2" xml:space="preserve">
+          <source>Each Microsoft Azure subscription can have one or more associated storage accounts.</source>
+          <target state="new">Each Microsoft Azure subscription can have one or more associated storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="1546fe83-6544-45a5-a344-bc3e6905dfa8" xml:space="preserve">
+          <source>The access to these accounts is controlled by the subscription and access keys for each storage account.</source>
+          <target state="new">The access to these accounts is controlled by the subscription and access keys for each storage account.</target>
+        </trans-unit>
+        <trans-unit id="5d8d81c1-5bb9-4f01-b046-2895fe2526c5" xml:space="preserve">
+          <source>When you create a storage account, Microsoft Azure generates two 512-bit storage access keys that are used for authentication when the storage account is accessed.</source>
+          <target state="new">When you create a storage account, Microsoft Azure generates two 512-bit storage access keys that are used for authentication when the storage account is accessed.</target>
+        </trans-unit>
+        <trans-unit id="f0a3cdbf-b85b-411a-9643-0024dc68799d" xml:space="preserve">
+          <source>Having two storage access keys allows you to regenerate the keys with no interruption to your storage service or access to that service.</source>
+          <target state="new">Having two storage access keys allows you to regenerate the keys with no interruption to your storage service or access to that service.</target>
+        </trans-unit>
+        <trans-unit id="68eb6e20-5218-4a39-b2f6-3166951f84cb" xml:space="preserve">
+          <source>The key that is currently in use is the <bpt id="cdf31a1e-89f7-44d4-9cdd-71e0611d8ede">&lt;em&gt;</bpt>primary<ept id="cdf31a1e-89f7-44d4-9cdd-71e0611d8ede">&lt;/em&gt;</ept> key and the backup key is referred to as the <bpt id="4843288a-9e48-4955-bb66-4f8981b91ad7">&lt;em&gt;</bpt>secondary<ept id="4843288a-9e48-4955-bb66-4f8981b91ad7">&lt;/em&gt;</ept> key.</source>
+          <target state="new">The key that is currently in use is the <bpt id="cdf31a1e-89f7-44d4-9cdd-71e0611d8ede">&lt;em&gt;</bpt>primary<ept id="cdf31a1e-89f7-44d4-9cdd-71e0611d8ede">&lt;/em&gt;</ept> key and the backup key is referred to as the <bpt id="4843288a-9e48-4955-bb66-4f8981b91ad7">&lt;em&gt;</bpt>secondary<ept id="4843288a-9e48-4955-bb66-4f8981b91ad7">&lt;/em&gt;</ept> key.</target>
+        </trans-unit>
+        <trans-unit id="fa949b7e-8d70-4a7d-8fc2-9dc770d5fd30" xml:space="preserve">
+          <source>One of these two keys must be supplied when your Microsoft Azure StorSimple device accesses your cloud storage service provider.</source>
+          <target state="new">One of these two keys must be supplied when your Microsoft Azure StorSimple device accesses your cloud storage service provider.</target>
+        </trans-unit>
+        <trans-unit id="0b627b64-ed72-4bc1-a436-45072691d3bc" xml:space="preserve">
+          <source>Typically, applications use only one of the keys to access your data.</source>
+          <target state="new">Typically, applications use only one of the keys to access your data.</target>
+        </trans-unit>
+        <trans-unit id="871cad28-3b2c-460d-951f-9746995527dc" xml:space="preserve">
+          <source>After a certain period of time, you can have your applications switch over to using the second key.</source>
+          <target state="new">After a certain period of time, you can have your applications switch over to using the second key.</target>
+        </trans-unit>
+        <trans-unit id="2b173e6a-4d9a-428b-ac1f-ff636256f583" xml:space="preserve">
+          <source>After you have switched your applications to the secondary key, you can retire the first key and then generate a new key.</source>
+          <target state="new">After you have switched your applications to the secondary key, you can retire the first key and then generate a new key.</target>
+        </trans-unit>
+        <trans-unit id="a3aedb9b-1221-4e0b-b125-26bc59ef2397" xml:space="preserve">
+          <source>Using the two keys this way allows your applications access to the data without incurring any downtime.</source>
+          <target state="new">Using the two keys this way allows your applications access to the data without incurring any downtime.</target>
+        </trans-unit>
+        <trans-unit id="150e18ba-f267-486f-a7ca-c47f606cc5aa" xml:space="preserve">
+          <source>The storage account keys are always stored in the service in an encrypted form.</source>
+          <target state="new">The storage account keys are always stored in the service in an encrypted form.</target>
+        </trans-unit>
+        <trans-unit id="72175dc8-9b34-496e-9349-9eda0ffd7c01" xml:space="preserve">
+          <source>However, these can be reset via the StorSimple Manager service.</source>
+          <target state="new">However, these can be reset via the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="023f0244-d542-4075-9881-2458f9729cfc" xml:space="preserve">
+          <source>The service can get the primary key and secondary key for all the storage accounts in the same subscription, including accounts created in the Storage service as well as the default storage accounts generated when the StorSimple Manager service service was first created.</source>
+          <target state="new">The service can get the primary key and secondary key for all the storage accounts in the same subscription, including accounts created in the Storage service as well as the default storage accounts generated when the StorSimple Manager service service was first created.</target>
+        </trans-unit>
+        <trans-unit id="eb827f7a-6273-4704-916b-81b4e0327a67" xml:space="preserve">
+          <source>The StorSimple Manager service service will always get these keys from the Management Portal and then store them in an encrypted manner.</source>
+          <target state="new">The StorSimple Manager service service will always get these keys from the Management Portal and then store them in an encrypted manner.</target>
+        </trans-unit>
+        <trans-unit id="b9969e5d-7405-4c81-984e-280fb363b0ec" xml:space="preserve">
+          <source>A Microsoft Azure administrator can regenerate or change the primary or secondary key by directly accessing the storage account (via the Microsoft Azure Storage service).</source>
+          <target state="new">A Microsoft Azure administrator can regenerate or change the primary or secondary key by directly accessing the storage account (via the Microsoft Azure Storage service).</target>
+        </trans-unit>
+        <trans-unit id="295bf2fb-dd74-485f-873f-284d596a74fb" xml:space="preserve">
+          <source>The StorSimple Manager service does not see this change automatically.</source>
+          <target state="new">The StorSimple Manager service does not see this change automatically.</target>
+        </trans-unit>
+        <trans-unit id="0ac3532a-e33f-485b-b159-48c93d27e9c8" xml:space="preserve">
+          <source>To inform the StorSimple Manager service of the change, you will need to access the StorSimple Manager service, access the storage account, and then synchronize the primary or secondary key (depending on which one was changed).</source>
+          <target state="new">To inform the StorSimple Manager service of the change, you will need to access the StorSimple Manager service, access the storage account, and then synchronize the primary or secondary key (depending on which one was changed).</target>
+        </trans-unit>
+        <trans-unit id="4a478a9a-9d86-4a68-87df-a92aea55a088" xml:space="preserve">
+          <source>The service then gets the latest key, encrypts the keys, and sends the encrypted key to the device.</source>
+          <target state="new">The service then gets the latest key, encrypts the keys, and sends the encrypted key to the device.</target>
+        </trans-unit>
+        <trans-unit id="31f9e4d3-1e21-4cb8-8c83-475d6056ec15" xml:space="preserve">
+          <source>On the <bpt id="f3c5c526-0753-4e0e-8309-29d2a781e5ac">&lt;strong&gt;</bpt>Services<ept id="f3c5c526-0753-4e0e-8309-29d2a781e5ac">&lt;/strong&gt;</ept> page, click the <bpt id="c0de2428-a28d-43b8-b2a3-b69d5dfc5a73">&lt;strong&gt;</bpt>Configure<ept id="c0de2428-a28d-43b8-b2a3-b69d5dfc5a73">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the <bpt id="f3c5c526-0753-4e0e-8309-29d2a781e5ac">&lt;strong&gt;</bpt>Services<ept id="f3c5c526-0753-4e0e-8309-29d2a781e5ac">&lt;/strong&gt;</ept> page, click the <bpt id="c0de2428-a28d-43b8-b2a3-b69d5dfc5a73">&lt;strong&gt;</bpt>Configure<ept id="c0de2428-a28d-43b8-b2a3-b69d5dfc5a73">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="6a32a3ff-52f4-42ad-bee9-7897326359bd" xml:space="preserve">
+          <source>Click <bpt id="9406794c-aa67-4635-9215-aaa31c3fbd4f">&lt;strong&gt;</bpt>Add/Edit Storage Accounts<ept id="9406794c-aa67-4635-9215-aaa31c3fbd4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9406794c-aa67-4635-9215-aaa31c3fbd4f">&lt;strong&gt;</bpt>Add/Edit Storage Accounts<ept id="9406794c-aa67-4635-9215-aaa31c3fbd4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85c13ac8-4ca8-4eca-8d54-6f2e75c362b0" xml:space="preserve">
+          <source>In the dialog box, do the following:</source>
+          <target state="new">In the dialog box, do the following:</target>
+        </trans-unit>
+        <trans-unit id="1ab7887f-de60-4fcd-a1fe-85ba82a043c1" xml:space="preserve">
+          <source>Select the storage account with the key that you want to synchronize.</source>
+          <target state="new">Select the storage account with the key that you want to synchronize.</target>
+        </trans-unit>
+        <trans-unit id="5af40232-f343-4dd5-a0b0-a8bff303e47c" xml:space="preserve">
+          <source>The storage account keys are encrypted when they are displayed.</source>
+          <target state="new">The storage account keys are encrypted when they are displayed.</target>
+        </trans-unit>
+        <trans-unit id="1192aabe-33b4-4453-bc7b-b0bd618c124a" xml:space="preserve">
+          <source>In the StorSimple Manager service, you need to update the key that was previously changed in the Microsoft Azure Storage service.</source>
+          <target state="new">In the StorSimple Manager service, you need to update the key that was previously changed in the Microsoft Azure Storage service.</target>
+        </trans-unit>
+        <trans-unit id="52e1fe9a-b241-4704-8a0d-958ddd695e4d" xml:space="preserve">
+          <source>If the primary access key was changed (regenerated), click <bpt id="d6a4767f-720a-4ac2-8008-2b6d7b58c078">&lt;strong&gt;</bpt>synchronize primary key<ept id="d6a4767f-720a-4ac2-8008-2b6d7b58c078">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the primary access key was changed (regenerated), click <bpt id="d6a4767f-720a-4ac2-8008-2b6d7b58c078">&lt;strong&gt;</bpt>synchronize primary key<ept id="d6a4767f-720a-4ac2-8008-2b6d7b58c078">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5b64021-0ed4-467b-bbea-a91b1556e9f2" xml:space="preserve">
+          <source>If the secondary key was changed, click <bpt id="b72ec2af-1c72-4bbd-a2b2-cb10201ec15e">&lt;strong&gt;</bpt>synchronize secondary key<ept id="b72ec2af-1c72-4bbd-a2b2-cb10201ec15e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the secondary key was changed, click <bpt id="b72ec2af-1c72-4bbd-a2b2-cb10201ec15e">&lt;strong&gt;</bpt>synchronize secondary key<ept id="b72ec2af-1c72-4bbd-a2b2-cb10201ec15e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93859525-56f0-47d5-a170-71a897423720" xml:space="preserve">
+          <source><bpt id="4a5d6919-3efa-4718-a6d1-7815dcccfaf6">&lt;linkText&gt;</bpt>synchronize keys<ept id="4a5d6919-3efa-4718-a6d1-7815dcccfaf6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4a5d6919-3efa-4718-a6d1-7815dcccfaf6">&lt;linkText&gt;</bpt>synchronize keys<ept id="4a5d6919-3efa-4718-a6d1-7815dcccfaf6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03e36612-aba8-4988-8cbf-60bf366089cf" xml:space="preserve">
+          <source>On the <bpt id="ff3d235a-ebad-4298-adf9-67cb436a7c7a">&lt;strong&gt;</bpt>Services<ept id="ff3d235a-ebad-4298-adf9-67cb436a7c7a">&lt;/strong&gt;</ept> page, click the <bpt id="b2cfa6ed-a979-4bab-a9b5-6902b44f4b11">&lt;strong&gt;</bpt>Configure<ept id="b2cfa6ed-a979-4bab-a9b5-6902b44f4b11">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the <bpt id="ff3d235a-ebad-4298-adf9-67cb436a7c7a">&lt;strong&gt;</bpt>Services<ept id="ff3d235a-ebad-4298-adf9-67cb436a7c7a">&lt;/strong&gt;</ept> page, click the <bpt id="b2cfa6ed-a979-4bab-a9b5-6902b44f4b11">&lt;strong&gt;</bpt>Configure<ept id="b2cfa6ed-a979-4bab-a9b5-6902b44f4b11">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="fedb4297-3e0e-461d-ade6-9f6b5c0eb646" xml:space="preserve">
+          <source>Click <bpt id="eb47de10-1c8e-4312-9b36-b3a2ff8cbc07">&lt;strong&gt;</bpt>Add/Edit Storage Accounts<ept id="eb47de10-1c8e-4312-9b36-b3a2ff8cbc07">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="eb47de10-1c8e-4312-9b36-b3a2ff8cbc07">&lt;strong&gt;</bpt>Add/Edit Storage Accounts<ept id="eb47de10-1c8e-4312-9b36-b3a2ff8cbc07">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="882904fc-b594-4618-994a-b35620645e8e" xml:space="preserve">
+          <source>In the dialog box, do the following:</source>
+          <target state="new">In the dialog box, do the following:</target>
+        </trans-unit>
+        <trans-unit id="ef450095-90a1-42db-a8c1-583832ff3fc4" xml:space="preserve">
+          <source>Select the storage account with the access key that you want to update.</source>
+          <target state="new">Select the storage account with the access key that you want to update.</target>
+        </trans-unit>
+        <trans-unit id="6216e1d7-550c-4114-a3b9-ea560b4ff275" xml:space="preserve">
+          <source>You will need to update the storage access key in the StorSimple Manager service.</source>
+          <target state="new">You will need to update the storage access key in the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="df4f95b5-7b9b-49a3-9bfd-4066eebb90a1" xml:space="preserve">
+          <source>In this case, you can see the storage access key.</source>
+          <target state="new">In this case, you can see the storage access key.</target>
+        </trans-unit>
+        <trans-unit id="63c4e1c6-0648-47bd-bb5b-cb6e05a483b9" xml:space="preserve">
+          <source>Enter the new key in the <bpt id="47dadf5a-64c6-4329-80cc-e13c745544fe">&lt;strong&gt;</bpt>Storage Account Access Key<ept id="47dadf5a-64c6-4329-80cc-e13c745544fe">&lt;/strong&gt;</ept>y box.</source>
+          <target state="new">Enter the new key in the <bpt id="47dadf5a-64c6-4329-80cc-e13c745544fe">&lt;strong&gt;</bpt>Storage Account Access Key<ept id="47dadf5a-64c6-4329-80cc-e13c745544fe">&lt;/strong&gt;</ept>y box.</target>
+        </trans-unit>
+        <trans-unit id="4ff2825a-6bb8-483f-b29b-f2203b2501c8" xml:space="preserve">
+          <source>Save your changes.</source>
+          <target state="new">Save your changes.</target>
+        </trans-unit>
+        <trans-unit id="430d9e77-e51d-42fa-b8c1-83d0a9cff3a1" xml:space="preserve">
+          <source>Your storage account access key should now be updated.</source>
+          <target state="new">Your storage account access key should now be updated.</target>
+        </trans-unit>
+        <trans-unit id="106ae6f4-8d4c-46f5-b8af-65884b6d82a8" xml:space="preserve">
+          <source>Learn more about <bpt id="e200f4f4-4abf-4388-b38e-0b07d557e0f8">&lt;linkText&gt;</bpt>StorSimple security<ept id="e200f4f4-4abf-4388-b38e-0b07d557e0f8">&lt;/linkText&gt;</ept><bpt id="e200f4f4-4abf-4388-b38e-0b07d557e0f8">&lt;title&gt;</bpt><ept id="e200f4f4-4abf-4388-b38e-0b07d557e0f8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about <bpt id="e200f4f4-4abf-4388-b38e-0b07d557e0f8">&lt;linkText&gt;</bpt>StorSimple security<ept id="e200f4f4-4abf-4388-b38e-0b07d557e0f8">&lt;/linkText&gt;</ept><bpt id="e200f4f4-4abf-4388-b38e-0b07d557e0f8">&lt;title&gt;</bpt><ept id="e200f4f4-4abf-4388-b38e-0b07d557e0f8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3d1ff272-bc3d-4308-9e2a-1f0b076ba74a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3d1ff272-bc3d-4308-9e2a-1f0b076ba74a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bf9929d5-ddc1-40a2-ae01-f6a99afdd530">
+        <trans-unit id="c9417cb0-c2ee-4d6b-a70c-e8fcfd1165c5" xml:space="preserve">
+          <source>Changing Database Service Tiers and Performance Levels</source>
+          <target state="new">Changing Database Service Tiers and Performance Levels</target>
+        </trans-unit>
+        <trans-unit id="f8a549c3-f1f5-478f-b9d1-b4d70531f255" xml:space="preserve">
+          <source>Learn to dynamically scale a cloud database up and down using Azure SQL Database’s service tiers, which you can use to dial performance up and down based on business and cost requirements without application downtime.</source>
+          <target state="new">Learn to dynamically scale a cloud database up and down using Azure SQL Database’s service tiers, which you can use to dial performance up and down based on business and cost requirements without application downtime.</target>
+        </trans-unit>
+        <trans-unit id="a683b3e9-41a9-4939-bc97-40fa55be74e4" xml:space="preserve">
+          <source>This topic describes the steps involved in moving an Azure SQL Database between service tiers and performance levels.</source>
+          <target state="new">This topic describes the steps involved in moving an Azure SQL Database between service tiers and performance levels.</target>
+        </trans-unit>
+        <trans-unit id="fb55eab2-c730-400e-ba1e-c41ecdc75b7f" xml:space="preserve">
+          <source>Use the information in <bpt id="40ccc9e4-176d-46d3-8a88-c604b82fd942">&lt;linkText&gt;</bpt>Upgrade SQL Database Web/Business Databases to New Service Tiers<ept id="40ccc9e4-176d-46d3-8a88-c604b82fd942">&lt;/linkText&gt;</ept><bpt id="40ccc9e4-176d-46d3-8a88-c604b82fd942">&lt;title&gt;</bpt><ept id="40ccc9e4-176d-46d3-8a88-c604b82fd942">&lt;/title&gt;</ept> and <bpt id="e7370e0c-18e4-457c-9ab2-94f7109f0eaf">&lt;linkText&gt;</bpt>Azure SQL Database Service Tiers and Performance Levels<ept id="e7370e0c-18e4-457c-9ab2-94f7109f0eaf">&lt;/linkText&gt;</ept><bpt id="e7370e0c-18e4-457c-9ab2-94f7109f0eaf">&lt;title&gt;</bpt><ept id="e7370e0c-18e4-457c-9ab2-94f7109f0eaf">&lt;/title&gt;</ept> to determine the appropriate service tier and performance level for your Azure SQL Database.</source>
+          <target state="new">Use the information in <bpt id="40ccc9e4-176d-46d3-8a88-c604b82fd942">&lt;linkText&gt;</bpt>Upgrade SQL Database Web/Business Databases to New Service Tiers<ept id="40ccc9e4-176d-46d3-8a88-c604b82fd942">&lt;/linkText&gt;</ept><bpt id="40ccc9e4-176d-46d3-8a88-c604b82fd942">&lt;title&gt;</bpt><ept id="40ccc9e4-176d-46d3-8a88-c604b82fd942">&lt;/title&gt;</ept> and <bpt id="e7370e0c-18e4-457c-9ab2-94f7109f0eaf">&lt;linkText&gt;</bpt>Azure SQL Database Service Tiers and Performance Levels<ept id="e7370e0c-18e4-457c-9ab2-94f7109f0eaf">&lt;/linkText&gt;</ept><bpt id="e7370e0c-18e4-457c-9ab2-94f7109f0eaf">&lt;title&gt;</bpt><ept id="e7370e0c-18e4-457c-9ab2-94f7109f0eaf">&lt;/title&gt;</ept> to determine the appropriate service tier and performance level for your Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="10cc1292-23a7-4841-bbac-c116c3e5bca4" xml:space="preserve">
+          <source>You can easily move between any of the service tiers using Azure Management Portal, <bpt id="7538a784-8f53-487c-9da4-c267ae64d7b2">&lt;linkText&gt;</bpt>PowerShell<ept id="7538a784-8f53-487c-9da4-c267ae64d7b2">&lt;/linkText&gt;</ept><bpt id="7538a784-8f53-487c-9da4-c267ae64d7b2">&lt;title&gt;</bpt><ept id="7538a784-8f53-487c-9da4-c267ae64d7b2">&lt;/title&gt;</ept>, or <bpt id="d814f49b-203c-4e16-9dcb-e583986b9b4a">&lt;linkText&gt;</bpt>REST API<ept id="d814f49b-203c-4e16-9dcb-e583986b9b4a">&lt;/linkText&gt;</ept><bpt id="d814f49b-203c-4e16-9dcb-e583986b9b4a">&lt;title&gt;</bpt><ept id="d814f49b-203c-4e16-9dcb-e583986b9b4a">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can easily move between any of the service tiers using Azure Management Portal, <bpt id="7538a784-8f53-487c-9da4-c267ae64d7b2">&lt;linkText&gt;</bpt>PowerShell<ept id="7538a784-8f53-487c-9da4-c267ae64d7b2">&lt;/linkText&gt;</ept><bpt id="7538a784-8f53-487c-9da4-c267ae64d7b2">&lt;title&gt;</bpt><ept id="7538a784-8f53-487c-9da4-c267ae64d7b2">&lt;/title&gt;</ept>, or <bpt id="d814f49b-203c-4e16-9dcb-e583986b9b4a">&lt;linkText&gt;</bpt>REST API<ept id="d814f49b-203c-4e16-9dcb-e583986b9b4a">&lt;/linkText&gt;</ept><bpt id="d814f49b-203c-4e16-9dcb-e583986b9b4a">&lt;title&gt;</bpt><ept id="d814f49b-203c-4e16-9dcb-e583986b9b4a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1646ef3-c003-4d3e-a30d-cedb8b72cc94" xml:space="preserve">
+          <source>When moving between service tiers, consider the following:</source>
+          <target state="new">When moving between service tiers, consider the following:</target>
+        </trans-unit>
+        <trans-unit id="257456bd-fcbd-46de-8d05-6003546aabff" xml:space="preserve">
+          <source>Before upgrading between service tiers or performance levels, make sure you have available quota on the server.</source>
+          <target state="new">Before upgrading between service tiers or performance levels, make sure you have available quota on the server.</target>
+        </trans-unit>
+        <trans-unit id="99422cca-b5bd-4c16-a48e-67d8d0848c50" xml:space="preserve">
+          <source>If you need additional quota, call customer support.</source>
+          <target state="new">If you need additional quota, call customer support.</target>
+        </trans-unit>
+        <trans-unit id="8093bc9f-9d57-4f05-b692-ad7b064f85e4" xml:space="preserve">
+          <source>Federated databases cannot be upgraded to Basic, Standard or Premium service tiers.</source>
+          <target state="new">Federated databases cannot be upgraded to Basic, Standard or Premium service tiers.</target>
+        </trans-unit>
+        <trans-unit id="e87c5ed1-37b2-484c-9e66-79c855b78845" xml:space="preserve">
+          <source>To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier.</source>
+          <target state="new">To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier.</target>
+        </trans-unit>
+        <trans-unit id="903ade4c-a005-4521-bb77-194847ca530e" xml:space="preserve">
+          <source>For more information on the allowed sized for each service tier, see the service tier and database size table later in this section.</source>
+          <target state="new">For more information on the allowed sized for each service tier, see the service tier and database size table later in this section.</target>
+        </trans-unit>
+        <trans-unit id="51f67483-1dee-48f1-b57a-6038c156ff8b" xml:space="preserve">
+          <source>When upgrading a database with <bpt id="2b29bced-a43c-4eae-b6ec-61c3dc1bd3e2">&lt;linkText&gt;</bpt>Standard Geo-Replication<ept id="2b29bced-a43c-4eae-b6ec-61c3dc1bd3e2">&lt;/linkText&gt;</ept><bpt id="2b29bced-a43c-4eae-b6ec-61c3dc1bd3e2">&lt;title&gt;</bpt><ept id="2b29bced-a43c-4eae-b6ec-61c3dc1bd3e2">&lt;/title&gt;</ept> or <bpt id="3a8e60f1-2b3f-45d3-85ac-eeed8a34106f">&lt;linkText&gt;</bpt>Active Geo-Replication<ept id="3a8e60f1-2b3f-45d3-85ac-eeed8a34106f">&lt;/linkText&gt;</ept><bpt id="3a8e60f1-2b3f-45d3-85ac-eeed8a34106f">&lt;title&gt;</bpt><ept id="3a8e60f1-2b3f-45d3-85ac-eeed8a34106f">&lt;/title&gt;</ept> enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.</source>
+          <target state="new">When upgrading a database with <bpt id="2b29bced-a43c-4eae-b6ec-61c3dc1bd3e2">&lt;linkText&gt;</bpt>Standard Geo-Replication<ept id="2b29bced-a43c-4eae-b6ec-61c3dc1bd3e2">&lt;/linkText&gt;</ept><bpt id="2b29bced-a43c-4eae-b6ec-61c3dc1bd3e2">&lt;title&gt;</bpt><ept id="2b29bced-a43c-4eae-b6ec-61c3dc1bd3e2">&lt;/title&gt;</ept> or <bpt id="3a8e60f1-2b3f-45d3-85ac-eeed8a34106f">&lt;linkText&gt;</bpt>Active Geo-Replication<ept id="3a8e60f1-2b3f-45d3-85ac-eeed8a34106f">&lt;/linkText&gt;</ept><bpt id="3a8e60f1-2b3f-45d3-85ac-eeed8a34106f">&lt;title&gt;</bpt><ept id="3a8e60f1-2b3f-45d3-85ac-eeed8a34106f">&lt;/title&gt;</ept> enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.</target>
+        </trans-unit>
+        <trans-unit id="38bc64bd-414e-4487-a24d-6ccf65da54fa" xml:space="preserve">
+          <source>When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships.</source>
+          <target state="new">When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships.</target>
+        </trans-unit>
+        <trans-unit id="ede4682f-d17c-4734-8f13-77836e8c7cf5" xml:space="preserve">
+          <source>You can follow the steps described in the <bpt id="e93af305-478b-4a56-9e1f-0eed251c15ff">&lt;linkText&gt;</bpt>Terminate a Continuous Copy Relationship<ept id="e93af305-478b-4a56-9e1f-0eed251c15ff">&lt;/linkText&gt;</ept><bpt id="e93af305-478b-4a56-9e1f-0eed251c15ff">&lt;title&gt;</bpt><ept id="e93af305-478b-4a56-9e1f-0eed251c15ff">&lt;/title&gt;</ept> topic to stop the replication process between the primary and the active secondary databases.</source>
+          <target state="new">You can follow the steps described in the <bpt id="e93af305-478b-4a56-9e1f-0eed251c15ff">&lt;linkText&gt;</bpt>Terminate a Continuous Copy Relationship<ept id="e93af305-478b-4a56-9e1f-0eed251c15ff">&lt;/linkText&gt;</ept><bpt id="e93af305-478b-4a56-9e1f-0eed251c15ff">&lt;title&gt;</bpt><ept id="e93af305-478b-4a56-9e1f-0eed251c15ff">&lt;/title&gt;</ept> topic to stop the replication process between the primary and the active secondary databases.</target>
+        </trans-unit>
+        <trans-unit id="6736e2fe-c0d1-43b8-8b14-d12f9aee4a5d" xml:space="preserve">
+          <source>The restore service offerings are different for the various service tiers.</source>
+          <target state="new">The restore service offerings are different for the various service tiers.</target>
+        </trans-unit>
+        <trans-unit id="84e36196-7e7c-4484-95be-cd871419976f" xml:space="preserve">
+          <source>If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period.</source>
+          <target state="new">If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period.</target>
+        </trans-unit>
+        <trans-unit id="e1ef2905-c591-4b83-84fa-b8d8be791a34" xml:space="preserve">
+          <source>For more information, see <bpt id="65796ee3-c5a7-4965-a304-499e029c3b7c">&lt;linkText&gt;</bpt>Azure SQL Database Backup and Restore<ept id="65796ee3-c5a7-4965-a304-499e029c3b7c">&lt;/linkText&gt;</ept><bpt id="65796ee3-c5a7-4965-a304-499e029c3b7c">&lt;title&gt;</bpt><ept id="65796ee3-c5a7-4965-a304-499e029c3b7c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="65796ee3-c5a7-4965-a304-499e029c3b7c">&lt;linkText&gt;</bpt>Azure SQL Database Backup and Restore<ept id="65796ee3-c5a7-4965-a304-499e029c3b7c">&lt;/linkText&gt;</ept><bpt id="65796ee3-c5a7-4965-a304-499e029c3b7c">&lt;title&gt;</bpt><ept id="65796ee3-c5a7-4965-a304-499e029c3b7c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="344b7af3-ef40-4f10-8d54-e034d80a4d54" xml:space="preserve">
+          <source>You can make up to four individual database changes (service tier or performance levels) within a 24 hour period.</source>
+          <target state="new">You can make up to four individual database changes (service tier or performance levels) within a 24 hour period.</target>
+        </trans-unit>
+        <trans-unit id="7d4e6761-3d77-4657-b4ff-822cbd0f9085" xml:space="preserve">
+          <source>The new properties for the database are not applied until the changes are complete.</source>
+          <target state="new">The new properties for the database are not applied until the changes are complete.</target>
+        </trans-unit>
+        <trans-unit id="72c7af6d-faae-4fc5-b87b-c7ffffff6609" xml:space="preserve">
+          <source>Please note the following:</source>
+          <target state="new">Please note the following:</target>
+        </trans-unit>
+        <trans-unit id="b2379065-fb7a-4d6e-a484-785530ffcf69" xml:space="preserve">
+          <source>Business and Web service tiers will be retired September 2015.</source>
+          <target state="new">Business and Web service tiers will be retired September 2015.</target>
+        </trans-unit>
+        <trans-unit id="da26d084-8b13-41b3-ae25-fc33be816271" xml:space="preserve">
+          <source>For more information, see <bpt id="09c49fcd-b862-41bd-9094-22f85ef1be30">&lt;linkText&gt;</bpt>Web and Business Edition Sunset FAQ<ept id="09c49fcd-b862-41bd-9094-22f85ef1be30">&lt;/linkText&gt;</ept><bpt id="09c49fcd-b862-41bd-9094-22f85ef1be30">&lt;title&gt;</bpt><ept id="09c49fcd-b862-41bd-9094-22f85ef1be30">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="09c49fcd-b862-41bd-9094-22f85ef1be30">&lt;linkText&gt;</bpt>Web and Business Edition Sunset FAQ<ept id="09c49fcd-b862-41bd-9094-22f85ef1be30">&lt;/linkText&gt;</ept><bpt id="09c49fcd-b862-41bd-9094-22f85ef1be30">&lt;title&gt;</bpt><ept id="09c49fcd-b862-41bd-9094-22f85ef1be30">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33a7af16-fd99-40fc-a822-9e44cbfea71e" xml:space="preserve">
+          <source>&lt;note included&gt;</source>
+          <target state="new">&lt;note included&gt;</target>
+        </trans-unit>
+        <trans-unit id="7feb26eb-7672-44d5-b35c-720ba71ef48e" xml:space="preserve">
+          <source>It is important to note that the current implementation of <bpt id="37ca6598-c912-452a-acbb-f804248c2efc">&lt;linkText&gt;</bpt>Federations will be retired with Web and Business<ept id="37ca6598-c912-452a-acbb-f804248c2efc">&lt;/linkText&gt;</ept><bpt id="37ca6598-c912-452a-acbb-f804248c2efc">&lt;title&gt;</bpt><ept id="37ca6598-c912-452a-acbb-f804248c2efc">&lt;/title&gt;</ept> service tiers.</source>
+          <target state="new">It is important to note that the current implementation of <bpt id="37ca6598-c912-452a-acbb-f804248c2efc">&lt;linkText&gt;</bpt>Federations will be retired with Web and Business<ept id="37ca6598-c912-452a-acbb-f804248c2efc">&lt;/linkText&gt;</ept><bpt id="37ca6598-c912-452a-acbb-f804248c2efc">&lt;title&gt;</bpt><ept id="37ca6598-c912-452a-acbb-f804248c2efc">&lt;/title&gt;</ept> service tiers.</target>
+        </trans-unit>
+        <trans-unit id="0681f721-71cf-4e86-961f-e39d073920e0" xml:space="preserve">
+          <source>It is recommended that you use <bpt id="9fbc7b03-d4a4-4775-b16f-90a6135e48cc">&lt;linkText&gt;</bpt>Elastic Scale for Azure SQL Database<ept id="9fbc7b03-d4a4-4775-b16f-90a6135e48cc">&lt;/linkText&gt;</ept><bpt id="9fbc7b03-d4a4-4775-b16f-90a6135e48cc">&lt;title&gt;</bpt><ept id="9fbc7b03-d4a4-4775-b16f-90a6135e48cc">&lt;/title&gt;</ept> to build a sharded, scale-out solution on Azure SQL Database.</source>
+          <target state="new">It is recommended that you use <bpt id="9fbc7b03-d4a4-4775-b16f-90a6135e48cc">&lt;linkText&gt;</bpt>Elastic Scale for Azure SQL Database<ept id="9fbc7b03-d4a4-4775-b16f-90a6135e48cc">&lt;/linkText&gt;</ept><bpt id="9fbc7b03-d4a4-4775-b16f-90a6135e48cc">&lt;title&gt;</bpt><ept id="9fbc7b03-d4a4-4775-b16f-90a6135e48cc">&lt;/title&gt;</ept> to build a sharded, scale-out solution on Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="9f4df8a0-cfd0-4df3-ad41-75ef9d2fd6b9" xml:space="preserve">
+          <source>To try it, see Get Started with Azure SQL Database Elastic Scale Preview.</source>
+          <target state="new">To try it, see Get Started with Azure SQL Database Elastic Scale Preview.</target>
+        </trans-unit>
+        <trans-unit id="26c0aca7-9cd6-4e27-9d91-ff6d650542fa" xml:space="preserve">
+          <source>Use one of the following methods to upgrade a database.</source>
+          <target state="new">Use one of the following methods to upgrade a database.</target>
+        </trans-unit>
+        <trans-unit id="cbd13a2a-f361-4691-87e5-a02d7fff2244" xml:space="preserve">
+          <source>The steps are specific to upgrading to a Premium service tier, but apply to all upgrades.</source>
+          <target state="new">The steps are specific to upgrading to a Premium service tier, but apply to all upgrades.</target>
+        </trans-unit>
+        <trans-unit id="c867b952-7b6b-42bf-a779-5638fd049e42" xml:space="preserve">
+          <source>Use your Microsoft account to sign in to the Azure Management Portal.</source>
+          <target state="new">Use your Microsoft account to sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="63c14b59-b533-4b1e-a437-ea8f3f0a9e29" xml:space="preserve">
+          <source>Navigate to the <bpt id="0069d22d-7a0b-457a-be18-96d02e66d134">&lt;strong&gt;</bpt>SQL DATABASES<ept id="0069d22d-7a0b-457a-be18-96d02e66d134">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Navigate to the <bpt id="0069d22d-7a0b-457a-be18-96d02e66d134">&lt;strong&gt;</bpt>SQL DATABASES<ept id="0069d22d-7a0b-457a-be18-96d02e66d134">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="d2fb75a0-8321-4b1a-b5c2-0201cac18dc6" xml:space="preserve">
+          <source>Select a database from the <bpt id="4f378794-d9c8-4f39-9df6-59624b2777f4">&lt;strong&gt;</bpt>Databases<ept id="4f378794-d9c8-4f39-9df6-59624b2777f4">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">Select a database from the <bpt id="4f378794-d9c8-4f39-9df6-59624b2777f4">&lt;strong&gt;</bpt>Databases<ept id="4f378794-d9c8-4f39-9df6-59624b2777f4">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="6f64a483-d4ad-4f8d-a3a9-0bbb9e126e42" xml:space="preserve">
+          <source>This opens the database on the <bpt id="9fa9ae01-5c90-408b-8f75-b162e9743273">&lt;strong&gt;</bpt>Database Dashboard<ept id="9fa9ae01-5c90-408b-8f75-b162e9743273">&lt;/strong&gt;</ept> or the <bpt id="6e1f3d25-04f9-43f7-bfda-4983af5bae2a">&lt;strong&gt;</bpt>Quick Start<ept id="6e1f3d25-04f9-43f7-bfda-4983af5bae2a">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">This opens the database on the <bpt id="9fa9ae01-5c90-408b-8f75-b162e9743273">&lt;strong&gt;</bpt>Database Dashboard<ept id="9fa9ae01-5c90-408b-8f75-b162e9743273">&lt;/strong&gt;</ept> or the <bpt id="6e1f3d25-04f9-43f7-bfda-4983af5bae2a">&lt;strong&gt;</bpt>Quick Start<ept id="6e1f3d25-04f9-43f7-bfda-4983af5bae2a">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="00791c5e-1634-47c7-ac03-502ebec26ed4" xml:space="preserve">
+          <source>Select the <bpt id="4d8f6e7c-c674-425b-be0e-2106f3761ef0">&lt;strong&gt;</bpt>Scale<ept id="4d8f6e7c-c674-425b-be0e-2106f3761ef0">&lt;/strong&gt;</ept> tab for the database.</source>
+          <target state="new">Select the <bpt id="4d8f6e7c-c674-425b-be0e-2106f3761ef0">&lt;strong&gt;</bpt>Scale<ept id="4d8f6e7c-c674-425b-be0e-2106f3761ef0">&lt;/strong&gt;</ept> tab for the database.</target>
+        </trans-unit>
+        <trans-unit id="3ec7c916-e064-44a3-964f-10641fbea5d3" xml:space="preserve">
+          <source>Under the <bpt id="461293ac-55ad-45e2-ab52-ea6b5861f2c1">&lt;strong&gt;</bpt>General<ept id="461293ac-55ad-45e2-ab52-ea6b5861f2c1">&lt;/strong&gt;</ept> section, select <bpt id="eb2f6c03-dc4a-4592-9521-cadfad33e522">&lt;strong&gt;</bpt>PREMIUM<ept id="eb2f6c03-dc4a-4592-9521-cadfad33e522">&lt;/strong&gt;</ept> for the service tier.</source>
+          <target state="new">Under the <bpt id="461293ac-55ad-45e2-ab52-ea6b5861f2c1">&lt;strong&gt;</bpt>General<ept id="461293ac-55ad-45e2-ab52-ea6b5861f2c1">&lt;/strong&gt;</ept> section, select <bpt id="eb2f6c03-dc4a-4592-9521-cadfad33e522">&lt;strong&gt;</bpt>PREMIUM<ept id="eb2f6c03-dc4a-4592-9521-cadfad33e522">&lt;/strong&gt;</ept> for the service tier.</target>
+        </trans-unit>
+        <trans-unit id="57999379-d54a-4efd-aeea-77d5c350f1ff" xml:space="preserve">
+          <source>For <bpt id="8caf0625-9db2-433e-b7d7-8d6c5bd17cd9">&lt;strong&gt;</bpt>Performance Level<ept id="8caf0625-9db2-433e-b7d7-8d6c5bd17cd9">&lt;/strong&gt;</ept>, select <bpt id="09f5fb3c-6bfc-4d60-8e96-4aa540de9ce7">&lt;strong&gt;</bpt>P1<ept id="09f5fb3c-6bfc-4d60-8e96-4aa540de9ce7">&lt;/strong&gt;</ept>, <bpt id="e95b5d07-0d84-4c87-9848-7034b221a5b0">&lt;strong&gt;</bpt>P2<ept id="e95b5d07-0d84-4c87-9848-7034b221a5b0">&lt;/strong&gt;</ept>, or <bpt id="c17b8cc3-f80b-4581-a119-0845ce66044b">&lt;strong&gt;</bpt>P3<ept id="c17b8cc3-f80b-4581-a119-0845ce66044b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="8caf0625-9db2-433e-b7d7-8d6c5bd17cd9">&lt;strong&gt;</bpt>Performance Level<ept id="8caf0625-9db2-433e-b7d7-8d6c5bd17cd9">&lt;/strong&gt;</ept>, select <bpt id="09f5fb3c-6bfc-4d60-8e96-4aa540de9ce7">&lt;strong&gt;</bpt>P1<ept id="09f5fb3c-6bfc-4d60-8e96-4aa540de9ce7">&lt;/strong&gt;</ept>, <bpt id="e95b5d07-0d84-4c87-9848-7034b221a5b0">&lt;strong&gt;</bpt>P2<ept id="e95b5d07-0d84-4c87-9848-7034b221a5b0">&lt;/strong&gt;</ept>, or <bpt id="c17b8cc3-f80b-4581-a119-0845ce66044b">&lt;strong&gt;</bpt>P3<ept id="c17b8cc3-f80b-4581-a119-0845ce66044b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c3374ad-dbf0-49a4-8d35-8da2df567cb7" xml:space="preserve">
+          <source>The resources powering each performance level is represented in DTUs.</source>
+          <target state="new">The resources powering each performance level is represented in DTUs.</target>
+        </trans-unit>
+        <trans-unit id="f0670504-fc89-4ced-8862-99ea4a93a0fc" xml:space="preserve">
+          <source>For more information on performance levels and DTUs, see Azure SQL Database Service Tiers and Performance Levels</source>
+          <target state="new">For more information on performance levels and DTUs, see Azure SQL Database Service Tiers and Performance Levels</target>
+        </trans-unit>
+        <trans-unit id="c4fd7d5d-6bc1-49b1-9781-5d9295a5d737" xml:space="preserve">
+          <source>In the command bar at the bottom of the screen, click the <bpt id="6a93d888-174c-4a2a-9272-3420bede7f67">&lt;strong&gt;</bpt>Save<ept id="6a93d888-174c-4a2a-9272-3420bede7f67">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the command bar at the bottom of the screen, click the <bpt id="6a93d888-174c-4a2a-9272-3420bede7f67">&lt;strong&gt;</bpt>Save<ept id="6a93d888-174c-4a2a-9272-3420bede7f67">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="b2ff0f60-0ff0-455d-b8cc-68f58149a30e" xml:space="preserve">
+          <source>You will be presented with a <bpt id="882245e3-2cee-471d-96ce-9550ab03322b">&lt;strong&gt;</bpt>Confirmation<ept id="882245e3-2cee-471d-96ce-9550ab03322b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You will be presented with a <bpt id="882245e3-2cee-471d-96ce-9550ab03322b">&lt;strong&gt;</bpt>Confirmation<ept id="882245e3-2cee-471d-96ce-9550ab03322b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4af814e8-bd14-4cfa-ad26-7e03fb648136" xml:space="preserve">
+          <source>Read the information provided and select the checkbox to confirm.</source>
+          <target state="new">Read the information provided and select the checkbox to confirm.</target>
+        </trans-unit>
+        <trans-unit id="e47ec4d2-1294-4c30-92a3-2af27f83d14e" xml:space="preserve">
+          <source>Use Set-AzureSqlDatabase to specify the performance level, maximum database size and the service tier for the database.</source>
+          <target state="new">Use Set-AzureSqlDatabase to specify the performance level, maximum database size and the service tier for the database.</target>
+        </trans-unit>
+        <trans-unit id="b58c740c-2463-42ab-af5e-69497d74b4a0" xml:space="preserve">
+          <source>For a list of database sizes supported by the different service tiers, see Azure SQL Database Service Tiers (Editions).</source>
+          <target state="new">For a list of database sizes supported by the different service tiers, see Azure SQL Database Service Tiers (Editions).</target>
+        </trans-unit>
+        <trans-unit id="083b2f26-99b0-4314-bba2-fd3c0c210560" xml:space="preserve">
+          <source>Set the server context with the New-AzureSqlDatabaseServerContext cmdlet.</source>
+          <target state="new">Set the server context with the New-AzureSqlDatabaseServerContext cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="301e53bd-b719-4a56-856f-267fd82f9eef" xml:space="preserve">
+          <source>The sample syntax is provided in the Using Azure PowerShell Commands section.</source>
+          <target state="new">The sample syntax is provided in the Using Azure PowerShell Commands section.</target>
+        </trans-unit>
+        <trans-unit id="c508af40-d540-40d9-8304-d47f22b952dd" xml:space="preserve">
+          <source>Get a handle to the database, and target performance level.</source>
+          <target state="new">Get a handle to the database, and target performance level.</target>
+        </trans-unit>
+        <trans-unit id="9c76d140-e18e-4121-b84e-1c69a5b4ab38" xml:space="preserve">
+          <source>Specify the performance level by using Set-AzureSqlDatabase –ServiceObjective</source>
+          <target state="new">Specify the performance level by using Set-AzureSqlDatabase –ServiceObjective</target>
+        </trans-unit>
+        <trans-unit id="0f9ad58f-d527-4eeb-87fc-f21211081f6a" xml:space="preserve">
+          <source><bpt id="635091d7-6a76-456c-9c2f-8bee0b22d2fd">&lt;strong&gt;</bpt>Usage Example<ept id="635091d7-6a76-456c-9c2f-8bee0b22d2fd">&lt;/strong&gt;</ept>
+In this example:</source>
+          <target state="new"><bpt id="635091d7-6a76-456c-9c2f-8bee0b22d2fd">&lt;strong&gt;</bpt>Usage Example<ept id="635091d7-6a76-456c-9c2f-8bee0b22d2fd">&lt;/strong&gt;</ept>
+In this example:</target>
+        </trans-unit>
+        <trans-unit id="ed8027ab-2ea1-408f-b205-6b9618a15017" xml:space="preserve">
+          <source>This example demonstrates upgrading to a Premium Service Tier.</source>
+          <target state="new">This example demonstrates upgrading to a Premium Service Tier.</target>
+        </trans-unit>
+        <trans-unit id="2ebf61b7-ddbe-47e8-a277-70f1708b5da8" xml:space="preserve">
+          <source>The $db handle is created which points to the database name "somedb".</source>
+          <target state="new">The $db handle is created which points to the database name "somedb".</target>
+        </trans-unit>
+        <trans-unit id="0477211d-ecd2-4261-b1e2-4c4a982b18c5" xml:space="preserve">
+          <source>The $P1 handle is created which points to the Premium performance level 1.</source>
+          <target state="new">The $P1 handle is created which points to the Premium performance level 1.</target>
+        </trans-unit>
+        <trans-unit id="84a32375-9aad-4550-b7af-4aae0355283c" xml:space="preserve">
+          <source>The performance level for the database $db is set to $P1.</source>
+          <target state="new">The performance level for the database $db is set to $P1.</target>
+        </trans-unit>
+        <trans-unit id="03e90bdc-6f56-405c-a4d4-980928b1f553" xml:space="preserve">
+          <source>Use one of the following methods to downgrade a database to a lower service tier:</source>
+          <target state="new">Use one of the following methods to downgrade a database to a lower service tier:</target>
+        </trans-unit>
+        <trans-unit id="956c4824-a1d0-45a2-bbef-621fcbfd1257" xml:space="preserve">
+          <source>Use your Microsoft account to sign in to the Azure Management Portal.</source>
+          <target state="new">Use your Microsoft account to sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="6146600f-de69-4dd7-a084-7c83a27e0236" xml:space="preserve">
+          <source>Navigate to the <bpt id="da124536-ef71-4ac8-834a-ce429d9529d2">&lt;strong&gt;</bpt>SQL DATABASES<ept id="da124536-ef71-4ac8-834a-ce429d9529d2">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Navigate to the <bpt id="da124536-ef71-4ac8-834a-ce429d9529d2">&lt;strong&gt;</bpt>SQL DATABASES<ept id="da124536-ef71-4ac8-834a-ce429d9529d2">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="8e7135e5-a95a-4b97-bff7-0ba2cb1c042f" xml:space="preserve">
+          <source>Select the <bpt id="dd6a09c7-9910-409f-b2fd-016ac3cb099c">&lt;strong&gt;</bpt>SCALE<ept id="dd6a09c7-9910-409f-b2fd-016ac3cb099c">&lt;/strong&gt;</ept> tab for the desired database.</source>
+          <target state="new">Select the <bpt id="dd6a09c7-9910-409f-b2fd-016ac3cb099c">&lt;strong&gt;</bpt>SCALE<ept id="dd6a09c7-9910-409f-b2fd-016ac3cb099c">&lt;/strong&gt;</ept> tab for the desired database.</target>
+        </trans-unit>
+        <trans-unit id="e8ad0137-1609-486e-a6f3-7f39fa255c64" xml:space="preserve">
+          <source>Under the <bpt id="14d0ce03-46cf-497e-9215-e50abf48dc0c">&lt;strong&gt;</bpt>General<ept id="14d0ce03-46cf-497e-9215-e50abf48dc0c">&lt;/strong&gt;</ept> section, select the service tier you want to downgrade to.</source>
+          <target state="new">Under the <bpt id="14d0ce03-46cf-497e-9215-e50abf48dc0c">&lt;strong&gt;</bpt>General<ept id="14d0ce03-46cf-497e-9215-e50abf48dc0c">&lt;/strong&gt;</ept> section, select the service tier you want to downgrade to.</target>
+        </trans-unit>
+        <trans-unit id="01e9f7af-2c96-4502-a4a4-e425ff6aca5a" xml:space="preserve">
+          <source>In the command bar at the bottom of the screen, click the <bpt id="ecc717f5-700b-4c67-959d-c9cf039cacdc">&lt;strong&gt;</bpt>Save<ept id="ecc717f5-700b-4c67-959d-c9cf039cacdc">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the command bar at the bottom of the screen, click the <bpt id="ecc717f5-700b-4c67-959d-c9cf039cacdc">&lt;strong&gt;</bpt>Save<ept id="ecc717f5-700b-4c67-959d-c9cf039cacdc">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="2ef96e5a-07df-4d03-a0da-0daf0f19e462" xml:space="preserve">
+          <source>If applicable, from the <bpt id="77668d19-4f5c-47e0-8c75-b7a8d6e90af2">&lt;strong&gt;</bpt>Confirmation<ept id="77668d19-4f5c-47e0-8c75-b7a8d6e90af2">&lt;/strong&gt;</ept> page, read the information provided and select the checkbox to confirm the change.</source>
+          <target state="new">If applicable, from the <bpt id="77668d19-4f5c-47e0-8c75-b7a8d6e90af2">&lt;strong&gt;</bpt>Confirmation<ept id="77668d19-4f5c-47e0-8c75-b7a8d6e90af2">&lt;/strong&gt;</ept> page, read the information provided and select the checkbox to confirm the change.</target>
+        </trans-unit>
+        <trans-unit id="aa53045f-80c8-4b89-a724-bbd6e86460e7" xml:space="preserve">
+          <source>Use Set-AzureSqlDatabase to specify the service tier, the performance level, and the Max Size for the database.</source>
+          <target state="new">Use Set-AzureSqlDatabase to specify the service tier, the performance level, and the Max Size for the database.</target>
+        </trans-unit>
+        <trans-unit id="dbe992c3-43e5-4b37-aa98-9ff201024018" xml:space="preserve">
+          <source>Set the server context by using New-AzureSqlDatabaseServerContext from the sample syntax provided in the Using Azure PowerShell Commands section.</source>
+          <target state="new">Set the server context by using New-AzureSqlDatabaseServerContext from the sample syntax provided in the Using Azure PowerShell Commands section.</target>
+        </trans-unit>
+        <trans-unit id="86c5250d-5265-4615-b297-a1dcf920805a" xml:space="preserve">
+          <source>Do the following:</source>
+          <target state="new">Do the following:</target>
+        </trans-unit>
+        <trans-unit id="c96d6a93-c7f2-463c-abd3-a6f138f65294" xml:space="preserve">
+          <source>Get a handle to the database.</source>
+          <target state="new">Get a handle to the database.</target>
+        </trans-unit>
+        <trans-unit id="6068eb49-cd07-4c80-8e3d-f21c14ef2cb3" xml:space="preserve">
+          <source>Get a handle to the performance level.</source>
+          <target state="new">Get a handle to the performance level.</target>
+        </trans-unit>
+        <trans-unit id="8f07c5d4-5dac-4008-b30b-21154aa529a0" xml:space="preserve">
+          <source>Specify the service tier, the performance level, and the maximum size for the database by using Set-AzureSqlDatabase –ServiceObjective.</source>
+          <target state="new">Specify the service tier, the performance level, and the maximum size for the database by using Set-AzureSqlDatabase –ServiceObjective.</target>
+        </trans-unit>
+        <trans-unit id="ea1c3506-91bf-4cfc-8018-cb3d255f8b9a" xml:space="preserve">
+          <source><bpt id="2505d810-2d39-4777-8409-70edba5e3828">&lt;strong&gt;</bpt>Usage Example<ept id="2505d810-2d39-4777-8409-70edba5e3828">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2505d810-2d39-4777-8409-70edba5e3828">&lt;strong&gt;</bpt>Usage Example<ept id="2505d810-2d39-4777-8409-70edba5e3828">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4f46376-72ee-460a-8d12-61e97432e965" xml:space="preserve">
+          <source>This example demonstrates how to downgrade from a Premium service tier database to a Standard service tier database:</source>
+          <target state="new">This example demonstrates how to downgrade from a Premium service tier database to a Standard service tier database:</target>
+        </trans-unit>
+        <trans-unit id="7af88249-aa1e-442f-8f5e-d3402d0ae678" xml:space="preserve">
+          <source>The $db handle is created which points to the database name "somedb".</source>
+          <target state="new">The $db handle is created which points to the database name "somedb".</target>
+        </trans-unit>
+        <trans-unit id="15c46161-d388-4835-b958-b9a63a6f36d8" xml:space="preserve">
+          <source>The variable $S2 is created which points to the Standard performance level S2.</source>
+          <target state="new">The variable $S2 is created which points to the Standard performance level S2.</target>
+        </trans-unit>
+        <trans-unit id="be3d270e-626c-45f6-9086-8e7bfc0f4629" xml:space="preserve">
+          <source>The performance level for the database $db is set to $S2.</source>
+          <target state="new">The performance level for the database $db is set to $S2.</target>
+        </trans-unit>
+        <trans-unit id="2dc26f84-0fbd-4862-86c7-3ba76d94d487" xml:space="preserve">
+          <source>Specify the database service tier, and the maximum size for the database using the –Edition and –MaxSizeGB parameters.</source>
+          <target state="new">Specify the database service tier, and the maximum size for the database using the –Edition and –MaxSizeGB parameters.</target>
+        </trans-unit>
+        <trans-unit id="217b4a58-0b16-4ed1-bdf8-d1c8e3c00c02" xml:space="preserve">
+          <source>The value specified for the –MaxSizeGB parameter must be valid for the target service tier.</source>
+          <target state="new">The value specified for the –MaxSizeGB parameter must be valid for the target service tier.</target>
+        </trans-unit>
+        <trans-unit id="2339be7f-78a0-4193-87eb-0af4510a1d51" xml:space="preserve">
+          <source>A table with the MaxSize values for each service tier is available earlier in this topic.</source>
+          <target state="new">A table with the MaxSize values for each service tier is available earlier in this topic.</target>
+        </trans-unit>
+        <trans-unit id="1bc4057d-c7a9-4e3f-a5ea-3578b0395440" xml:space="preserve">
+          <source>You can raise or lower performance levels of a Standard or Premium database by using one of the following methods.</source>
+          <target state="new">You can raise or lower performance levels of a Standard or Premium database by using one of the following methods.</target>
+        </trans-unit>
+        <trans-unit id="386968c0-44cd-450b-92ae-e2fa45b69747" xml:space="preserve">
+          <source>It may take time to change the performance level of the database.</source>
+          <target state="new">It may take time to change the performance level of the database.</target>
+        </trans-unit>
+        <trans-unit id="be09d24f-e2fa-42f6-a145-3603dbf96f2b" xml:space="preserve">
+          <source>For more information, see the section <bpt id="0e125a70-0ed9-4665-a40c-8f356d9aed59">&lt;linkText&gt;</bpt>Impact of Premium Database Changes<ept id="0e125a70-0ed9-4665-a40c-8f356d9aed59">&lt;/linkText&gt;</ept><bpt id="0e125a70-0ed9-4665-a40c-8f356d9aed59">&lt;title&gt;</bpt><ept id="0e125a70-0ed9-4665-a40c-8f356d9aed59">&lt;/title&gt;</ept> that follows.</source>
+          <target state="new">For more information, see the section <bpt id="0e125a70-0ed9-4665-a40c-8f356d9aed59">&lt;linkText&gt;</bpt>Impact of Premium Database Changes<ept id="0e125a70-0ed9-4665-a40c-8f356d9aed59">&lt;/linkText&gt;</ept><bpt id="0e125a70-0ed9-4665-a40c-8f356d9aed59">&lt;title&gt;</bpt><ept id="0e125a70-0ed9-4665-a40c-8f356d9aed59">&lt;/title&gt;</ept> that follows.</target>
+        </trans-unit>
+        <trans-unit id="c79215d6-ef6d-4d32-aa17-fefe9bad946a" xml:space="preserve">
+          <source>If you are changing the performance level of a Premium Database that has Active Geo-Replication relationships configured, use the following order for primary and active secondary databases:</source>
+          <target state="new">If you are changing the performance level of a Premium Database that has Active Geo-Replication relationships configured, use the following order for primary and active secondary databases:</target>
+        </trans-unit>
+        <trans-unit id="0ded3642-584c-4e11-8e22-0ceb420a3dd9" xml:space="preserve">
+          <source>This is because the active secondary databases must be of equal or greater performance level than the primary.</source>
+          <target state="new">This is because the active secondary databases must be of equal or greater performance level than the primary.</target>
+        </trans-unit>
+        <trans-unit id="a282b07c-e20b-4a01-b657-38095c85ccdf" xml:space="preserve">
+          <source>If you are changing from a higher performance level to a lower performance level, start with the primary database first followed by one or more active secondary databases.</source>
+          <target state="new">If you are changing from a higher performance level to a lower performance level, start with the primary database first followed by one or more active secondary databases.</target>
+        </trans-unit>
+        <trans-unit id="3cb7da08-6b82-4e0c-b54f-40805b756ce5" xml:space="preserve">
+          <source>If you are changing from a lower performance level to a higher performance level, start with the active secondary databases, and finally the primary.</source>
+          <target state="new">If you are changing from a lower performance level to a higher performance level, start with the active secondary databases, and finally the primary.</target>
+        </trans-unit>
+        <trans-unit id="b25a67e2-2f23-4d0e-84e0-b2d75f80d7f8" xml:space="preserve">
+          <source>Use your Microsoft account to sign in to the Azure Management Portal.</source>
+          <target state="new">Use your Microsoft account to sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="4eae1598-d2cc-4432-8fbc-e8242a268bb4" xml:space="preserve">
+          <source>Navigate to the <bpt id="e132796f-85ba-4471-b714-088013be0bf4">&lt;strong&gt;</bpt>SQL DATABASES<ept id="e132796f-85ba-4471-b714-088013be0bf4">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Navigate to the <bpt id="e132796f-85ba-4471-b714-088013be0bf4">&lt;strong&gt;</bpt>SQL DATABASES<ept id="e132796f-85ba-4471-b714-088013be0bf4">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="fddc7708-731b-457e-a820-974879fe9372" xml:space="preserve">
+          <source>Select a database from the <bpt id="64c0b981-6ba0-40fd-a010-5ac175b39063">&lt;strong&gt;</bpt>Databases<ept id="64c0b981-6ba0-40fd-a010-5ac175b39063">&lt;/strong&gt;</ept> list, either for the account or for a specific server.</source>
+          <target state="new">Select a database from the <bpt id="64c0b981-6ba0-40fd-a010-5ac175b39063">&lt;strong&gt;</bpt>Databases<ept id="64c0b981-6ba0-40fd-a010-5ac175b39063">&lt;/strong&gt;</ept> list, either for the account or for a specific server.</target>
+        </trans-unit>
+        <trans-unit id="a7d609e9-8e1d-48c7-8d7f-a3e8b9a0a4c9" xml:space="preserve">
+          <source>This opens the database on the <bpt id="4b745a21-a7dd-440d-9cb2-96e4ebdf5ba2">&lt;strong&gt;</bpt>Database Dashboard<ept id="4b745a21-a7dd-440d-9cb2-96e4ebdf5ba2">&lt;/strong&gt;</ept> or the <bpt id="3bff88d1-aba9-4f56-a016-a521e59360e5">&lt;strong&gt;</bpt>Quick Start<ept id="3bff88d1-aba9-4f56-a016-a521e59360e5">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">This opens the database on the <bpt id="4b745a21-a7dd-440d-9cb2-96e4ebdf5ba2">&lt;strong&gt;</bpt>Database Dashboard<ept id="4b745a21-a7dd-440d-9cb2-96e4ebdf5ba2">&lt;/strong&gt;</ept> or the <bpt id="3bff88d1-aba9-4f56-a016-a521e59360e5">&lt;strong&gt;</bpt>Quick Start<ept id="3bff88d1-aba9-4f56-a016-a521e59360e5">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="ba557ccd-eb36-4580-8b26-e5050db5ba01" xml:space="preserve">
+          <source>Select the <bpt id="ce6d45ef-4c00-4143-a88b-b63b405af150">&lt;strong&gt;</bpt>Scale<ept id="ce6d45ef-4c00-4143-a88b-b63b405af150">&lt;/strong&gt;</ept> tab for the database.</source>
+          <target state="new">Select the <bpt id="ce6d45ef-4c00-4143-a88b-b63b405af150">&lt;strong&gt;</bpt>Scale<ept id="ce6d45ef-4c00-4143-a88b-b63b405af150">&lt;/strong&gt;</ept> tab for the database.</target>
+        </trans-unit>
+        <trans-unit id="8b1475db-f984-40ab-8977-758870a585c4" xml:space="preserve">
+          <source>For the <bpt id="ad4bec92-271d-47c1-baaa-c6ceca8ad28e">&lt;strong&gt;</bpt>performance level<ept id="ad4bec92-271d-47c1-baaa-c6ceca8ad28e">&lt;/strong&gt;</ept> option, select a performance level.</source>
+          <target state="new">For the <bpt id="ad4bec92-271d-47c1-baaa-c6ceca8ad28e">&lt;strong&gt;</bpt>performance level<ept id="ad4bec92-271d-47c1-baaa-c6ceca8ad28e">&lt;/strong&gt;</ept> option, select a performance level.</target>
+        </trans-unit>
+        <trans-unit id="6383d45d-2437-470c-a662-39b50894081e" xml:space="preserve">
+          <source>In the command bar at the bottom of the screen, click the <bpt id="b658d8aa-3181-4b68-bfd6-37f9b4331b09">&lt;strong&gt;</bpt>Save<ept id="b658d8aa-3181-4b68-bfd6-37f9b4331b09">&lt;/strong&gt;</ept> button</source>
+          <target state="new">In the command bar at the bottom of the screen, click the <bpt id="b658d8aa-3181-4b68-bfd6-37f9b4331b09">&lt;strong&gt;</bpt>Save<ept id="b658d8aa-3181-4b68-bfd6-37f9b4331b09">&lt;/strong&gt;</ept> button</target>
+        </trans-unit>
+        <trans-unit id="d8a398a9-65ae-49ab-915d-af8dffb22ef5" xml:space="preserve">
+          <source>Use Set-AzureSqlDatabase to specify the performance level for the database.</source>
+          <target state="new">Use Set-AzureSqlDatabase to specify the performance level for the database.</target>
+        </trans-unit>
+        <trans-unit id="dd134513-8347-424b-b40a-7dfe542ffd0b" xml:space="preserve">
+          <source>Set the server context by using New-AzureSqlDatabaseServerContext cmdlet.</source>
+          <target state="new">Set the server context by using New-AzureSqlDatabaseServerContext cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="f6292fa8-0817-4cd6-812e-e34f39304f7c" xml:space="preserve">
+          <source>The sample syntax is provided in the Using Azure PowerShell Commands section.</source>
+          <target state="new">The sample syntax is provided in the Using Azure PowerShell Commands section.</target>
+        </trans-unit>
+        <trans-unit id="33a63ef2-95fa-43b0-8c25-2c2ce47b3f0b" xml:space="preserve">
+          <source>Do the following:</source>
+          <target state="new">Do the following:</target>
+        </trans-unit>
+        <trans-unit id="cf8ef4ca-6341-49f9-b9c7-ffd026667564" xml:space="preserve">
+          <source>Get a handle to the database.</source>
+          <target state="new">Get a handle to the database.</target>
+        </trans-unit>
+        <trans-unit id="8d1a438d-0085-4822-8db2-094786e9f798" xml:space="preserve">
+          <source>Get a handle to the performance level.</source>
+          <target state="new">Get a handle to the performance level.</target>
+        </trans-unit>
+        <trans-unit id="3efebf76-725c-4b2b-b4f9-81c3c6b0a2ed" xml:space="preserve">
+          <source>Specify the performance level by using Set-AzureSqlDatabase –ServiceObjective.</source>
+          <target state="new">Specify the performance level by using Set-AzureSqlDatabase –ServiceObjective.</target>
+        </trans-unit>
+        <trans-unit id="f143064d-4b03-44ab-a9ef-2381dae391a9" xml:space="preserve">
+          <source><bpt id="5333a20e-e497-4d2c-9110-b219a139a373">&lt;strong&gt;</bpt>Usage Example<ept id="5333a20e-e497-4d2c-9110-b219a139a373">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5333a20e-e497-4d2c-9110-b219a139a373">&lt;strong&gt;</bpt>Usage Example<ept id="5333a20e-e497-4d2c-9110-b219a139a373">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91491b59-33e9-4e64-8770-7d29cfa9dee3" xml:space="preserve">
+          <source>In this example:</source>
+          <target state="new">In this example:</target>
+        </trans-unit>
+        <trans-unit id="09d83d08-7524-4be5-a3c9-22bfd7ae457a" xml:space="preserve">
+          <source>The $db handle is created which points to the database name "somedb".</source>
+          <target state="new">The $db handle is created which points to the database name "somedb".</target>
+        </trans-unit>
+        <trans-unit id="e0ce3d00-efb4-4f14-8c59-b6e37e8c662a" xml:space="preserve">
+          <source>The $P2 handle is created which points to the Premium performance level 2.</source>
+          <target state="new">The $P2 handle is created which points to the Premium performance level 2.</target>
+        </trans-unit>
+        <trans-unit id="72287899-9d18-4dc1-84cf-024f3e425138" xml:space="preserve">
+          <source>The performance level for the database $db is set to $P2.</source>
+          <target state="new">The performance level for the database $db is set to $P2.</target>
+        </trans-unit>
+        <trans-unit id="f945b88b-6aa7-442f-98f7-7c6f588c93e4" xml:space="preserve">
+          <source>This section provides information about the effects of upgrading to a Standard or Premium service tier or making performance level changes to your database.</source>
+          <target state="new">This section provides information about the effects of upgrading to a Standard or Premium service tier or making performance level changes to your database.</target>
+        </trans-unit>
+        <trans-unit id="fe47da74-b2ae-478d-968b-4c4e440c5a2d" xml:space="preserve">
+          <source>Connections to the database may be temporarily dropped when a performance level change or upgrade/downgrade completes, and a few seconds may elapse before connections can be re-established.</source>
+          <target state="new">Connections to the database may be temporarily dropped when a performance level change or upgrade/downgrade completes, and a few seconds may elapse before connections can be re-established.</target>
+        </trans-unit>
+        <trans-unit id="d0ae687b-2c9e-4874-8ef0-b8c2d625274b" xml:space="preserve">
+          <source>SQL Database applications should be coded to be resilient to dropped connections as this can occur anytime in SQL Database when a computer fails in the data center and the SQL Database service fails over the database.</source>
+          <target state="new">SQL Database applications should be coded to be resilient to dropped connections as this can occur anytime in SQL Database when a computer fails in the data center and the SQL Database service fails over the database.</target>
+        </trans-unit>
+        <trans-unit id="bce91f9d-1780-41b1-b746-48e44079228e" xml:space="preserve">
+          <source>There is no implementation change required by the application to use a Premium database or to make changes to a Premium database performance level.</source>
+          <target state="new">There is no implementation change required by the application to use a Premium database or to make changes to a Premium database performance level.</target>
+        </trans-unit>
+        <trans-unit id="65c55d7c-58e2-4f04-8b75-9186d8a807c1" xml:space="preserve">
+          <source>A SLO change for a database often involves data movement and therefore many hours may elapse before the change request completes and the associated billing change becomes effective.</source>
+          <target state="new">A SLO change for a database often involves data movement and therefore many hours may elapse before the change request completes and the associated billing change becomes effective.</target>
+        </trans-unit>
+        <trans-unit id="fb16a1c5-b912-45d4-9636-2194ab491a29" xml:space="preserve">
+          <source>Data movement occurs for changes when upgrading downgrading a database and may also occur when changing performance level of the database.</source>
+          <target state="new">Data movement occurs for changes when upgrading downgrading a database and may also occur when changing performance level of the database.</target>
+        </trans-unit>
+        <trans-unit id="e43bd24a-471b-4e2d-bc82-8077a431e232" xml:space="preserve">
+          <source><bpt id="1d86d9d7-761a-41c9-9964-2c9b6ec637a5">&lt;strong&gt;</bpt>Latency for SLO changes involving data movement<ept id="1d86d9d7-761a-41c9-9964-2c9b6ec637a5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1d86d9d7-761a-41c9-9964-2c9b6ec637a5">&lt;strong&gt;</bpt>Latency for SLO changes involving data movement<ept id="1d86d9d7-761a-41c9-9964-2c9b6ec637a5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="974b79dd-0e13-483a-9628-6e9cfe47419f" xml:space="preserve">
+          <source>After determining the storage size of the database, the latency of a SLO change request can be estimated by the following heuristic:</source>
+          <target state="new">After determining the storage size of the database, the latency of a SLO change request can be estimated by the following heuristic:</target>
+        </trans-unit>
+        <trans-unit id="1b7d738b-b277-422c-9d73-2bdde200f10c" xml:space="preserve">
+          <source>3 x (5 minutes + database size / 150 MB/minute)</source>
+          <target state="new">3 x (5 minutes + database size / 150 MB/minute)</target>
+        </trans-unit>
+        <trans-unit id="fbd67872-bf8d-45ed-8c34-124dd2b3694e" xml:space="preserve">
+          <source>For example, if the database size is 50 GB, then the latency of the SLO change request is estimated by the following heuristic:</source>
+          <target state="new">For example, if the database size is 50 GB, then the latency of the SLO change request is estimated by the following heuristic:</target>
+        </trans-unit>
+        <trans-unit id="0eef539b-d904-446a-b468-0a3da0fc18fe" xml:space="preserve">
+          <source>3 x (5 minutes + 50 GB x 1024 MB/GB / 150 MB/minute) ≈17 hours</source>
+          <target state="new">3 x (5 minutes + 50 GB x 1024 MB/GB / 150 MB/minute) ≈17 hours</target>
+        </trans-unit>
+        <trans-unit id="b3504ded-d6d8-43cb-89b5-1e007260444e" xml:space="preserve">
+          <source>Lower and upper bound estimates using this heuristic vary between 15 minutes for an empty database and approximately 2 days for a 150 GB database.</source>
+          <target state="new">Lower and upper bound estimates using this heuristic vary between 15 minutes for an empty database and approximately 2 days for a 150 GB database.</target>
+        </trans-unit>
+        <trans-unit id="2a417ab1-040a-433e-8106-e701b088eebe" xml:space="preserve">
+          <source>Estimates can further vary depending on conditions in the data center.</source>
+          <target state="new">Estimates can further vary depending on conditions in the data center.</target>
+        </trans-unit>
+        <trans-unit id="1f516f7a-b12d-400c-a0d1-82e314c75e4a" xml:space="preserve">
+          <source><bpt id="0e14cfc1-a72c-4b3e-a6e7-6c8cb4aa119b">&lt;strong&gt;</bpt>Latency for changing from a higher performance level to a smaller performance level<ept id="0e14cfc1-a72c-4b3e-a6e7-6c8cb4aa119b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0e14cfc1-a72c-4b3e-a6e7-6c8cb4aa119b">&lt;strong&gt;</bpt>Latency for changing from a higher performance level to a smaller performance level<ept id="0e14cfc1-a72c-4b3e-a6e7-6c8cb4aa119b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f734606-53ba-44eb-8fe6-1dd20f162784" xml:space="preserve">
+          <source>Generally, there is no data movement if the database performance level is changed from a higher performance level to a smaller size.</source>
+          <target state="new">Generally, there is no data movement if the database performance level is changed from a higher performance level to a smaller size.</target>
+        </trans-unit>
+        <trans-unit id="b47c09c0-b5bc-4a51-bfa0-700cb8e6711e" xml:space="preserve">
+          <source>In such cases, the latency of the SLO change is much faster and typically completes in the order of seconds.</source>
+          <target state="new">In such cases, the latency of the SLO change is much faster and typically completes in the order of seconds.</target>
+        </trans-unit>
+        <trans-unit id="6d54be12-c41d-4077-b99c-ae12827fdad5" xml:space="preserve">
+          <source>Warning, the above statement only applies to downgrades between Premium and Standard service tiers.</source>
+          <target state="new">Warning, the above statement only applies to downgrades between Premium and Standard service tiers.</target>
+        </trans-unit>
+        <trans-unit id="075549e5-3cd8-4136-8696-cb6c91736ab8" xml:space="preserve">
+          <source>Downgrading to a Web, Business, or Basic service tier involves data movement.</source>
+          <target state="new">Downgrading to a Web, Business, or Basic service tier involves data movement.</target>
+        </trans-unit>
+        <trans-unit id="ee7cdca9-bcfe-4f2b-8973-ad9d8577eb75" xml:space="preserve">
+          <source>You can check the status of your database during an upgrade or downgrade between service tiers, or when changing the performance level using one of the following methods.</source>
+          <target state="new">You can check the status of your database during an upgrade or downgrade between service tiers, or when changing the performance level using one of the following methods.</target>
+        </trans-unit>
+        <trans-unit id="57a115dc-6d08-46f0-ba25-de099cf55ab7" xml:space="preserve">
+          <source>Use your Microsoft account to sign in to the Azure Management Portal.</source>
+          <target state="new">Use your Microsoft account to sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="d3550dc2-620c-46ff-a76d-b92a838d9235" xml:space="preserve">
+          <source>Select a database from the <bpt id="119ffe82-dc03-4a01-89fd-48531764f619">&lt;strong&gt;</bpt>Databases<ept id="119ffe82-dc03-4a01-89fd-48531764f619">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">Select a database from the <bpt id="119ffe82-dc03-4a01-89fd-48531764f619">&lt;strong&gt;</bpt>Databases<ept id="119ffe82-dc03-4a01-89fd-48531764f619">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="f0f79bf8-8b5a-4689-b39d-13379a4f2bcf" xml:space="preserve">
+          <source>This opens the database on the <bpt id="a1ee0e3e-a8a9-4c81-aa76-87fa80bcb739">&lt;strong&gt;</bpt>Database Dashboard<ept id="a1ee0e3e-a8a9-4c81-aa76-87fa80bcb739">&lt;/strong&gt;</ept> or the <bpt id="d79aea04-06ff-4490-8651-528c968c3b3f">&lt;strong&gt;</bpt>Quick Start<ept id="d79aea04-06ff-4490-8651-528c968c3b3f">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">This opens the database on the <bpt id="a1ee0e3e-a8a9-4c81-aa76-87fa80bcb739">&lt;strong&gt;</bpt>Database Dashboard<ept id="a1ee0e3e-a8a9-4c81-aa76-87fa80bcb739">&lt;/strong&gt;</ept> or the <bpt id="d79aea04-06ff-4490-8651-528c968c3b3f">&lt;strong&gt;</bpt>Quick Start<ept id="d79aea04-06ff-4490-8651-528c968c3b3f">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="128f9b11-0cbc-44bc-b5df-9ba045c30344" xml:space="preserve">
+          <source>On the <bpt id="a6a567d4-960d-49c2-8e15-bae91d4658dc">&lt;strong&gt;</bpt>Database Dashboard<ept id="a6a567d4-960d-49c2-8e15-bae91d4658dc">&lt;/strong&gt;</ept>, see the <bpt id="792484b2-caa1-482a-a4b1-003ed2e0ba3b">&lt;strong&gt;</bpt>Quick Glance<ept id="792484b2-caa1-482a-a4b1-003ed2e0ba3b">&lt;/strong&gt;</ept> area for status information in the <bpt id="aaf3162c-23bb-4504-9d65-d98c6c0399f5">&lt;strong&gt;</bpt>Edition<ept id="aaf3162c-23bb-4504-9d65-d98c6c0399f5">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">On the <bpt id="a6a567d4-960d-49c2-8e15-bae91d4658dc">&lt;strong&gt;</bpt>Database Dashboard<ept id="a6a567d4-960d-49c2-8e15-bae91d4658dc">&lt;/strong&gt;</ept>, see the <bpt id="792484b2-caa1-482a-a4b1-003ed2e0ba3b">&lt;strong&gt;</bpt>Quick Glance<ept id="792484b2-caa1-482a-a4b1-003ed2e0ba3b">&lt;/strong&gt;</ept> area for status information in the <bpt id="aaf3162c-23bb-4504-9d65-d98c6c0399f5">&lt;strong&gt;</bpt>Edition<ept id="aaf3162c-23bb-4504-9d65-d98c6c0399f5">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="6a1b7c43-14de-476a-a754-029a7fa97400" xml:space="preserve">
+          <source>Service Level Objective (SLO) represents the performance level within a service tier.</source>
+          <target state="new">Service Level Objective (SLO) represents the performance level within a service tier.</target>
+        </trans-unit>
+        <trans-unit id="589c3a56-b262-4829-bc9c-c3590ada6538" xml:space="preserve">
+          <source>This section provides the prerequisites for using Azure PowerShell commands.</source>
+          <target state="new">This section provides the prerequisites for using Azure PowerShell commands.</target>
+        </trans-unit>
+        <trans-unit id="56b656ed-864e-483f-a954-df67151dd35a" xml:space="preserve">
+          <source><bpt id="a2e083c4-cce9-4e4d-9b25-b131746615b9">&lt;strong&gt;</bpt>Prerequisites<ept id="a2e083c4-cce9-4e4d-9b25-b131746615b9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a2e083c4-cce9-4e4d-9b25-b131746615b9">&lt;strong&gt;</bpt>Prerequisites<ept id="a2e083c4-cce9-4e4d-9b25-b131746615b9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d1a2321-07f6-4e67-8856-ad3ea0ececd7" xml:space="preserve">
+          <source>To use the Azure PowerShell cmdlets described in this topic, you must have the following software installed on the computer where PowerShell is run.</source>
+          <target state="new">To use the Azure PowerShell cmdlets described in this topic, you must have the following software installed on the computer where PowerShell is run.</target>
+        </trans-unit>
+        <trans-unit id="8b48075b-d13d-433b-81a4-b68c890df661" xml:space="preserve">
+          <source>Download a Windows PowerShell version that’s at least 3.0 at http://www.microsoft.com/en-us/download/details.aspx?id=34595.</source>
+          <target state="new">Download a Windows PowerShell version that’s at least 3.0 at http://www.microsoft.com/en-us/download/details.aspx?id=34595.</target>
+        </trans-unit>
+        <trans-unit id="fade4bc7-9baa-4a89-a122-b9219ebfa359" xml:space="preserve">
+          <source>Download Azure PowerShell from the Command-line tool section at <bpt id="eee93b40-0917-4df4-88ed-27df9c49b577">&lt;linkText&gt;</bpt>Azure SDK and Tool Downloads<ept id="eee93b40-0917-4df4-88ed-27df9c49b577">&lt;/linkText&gt;</ept><bpt id="eee93b40-0917-4df4-88ed-27df9c49b577">&lt;title&gt;</bpt><ept id="eee93b40-0917-4df4-88ed-27df9c49b577">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download Azure PowerShell from the Command-line tool section at <bpt id="eee93b40-0917-4df4-88ed-27df9c49b577">&lt;linkText&gt;</bpt>Azure SDK and Tool Downloads<ept id="eee93b40-0917-4df4-88ed-27df9c49b577">&lt;/linkText&gt;</ept><bpt id="eee93b40-0917-4df4-88ed-27df9c49b577">&lt;title&gt;</bpt><ept id="eee93b40-0917-4df4-88ed-27df9c49b577">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c94fb48-250c-4204-bf13-d478266fa299" xml:space="preserve">
+          <source>Do the following:
+From your <bpt id="7c1c33db-a021-4cd8-b841-8bdcfcd392bc">&lt;strong&gt;</bpt>Start<ept id="7c1c33db-a021-4cd8-b841-8bdcfcd392bc">&lt;/strong&gt;</ept> screen or <bpt id="3e703743-ee33-4cac-b83f-c7aca5af038b">&lt;strong&gt;</bpt>Start<ept id="3e703743-ee33-4cac-b83f-c7aca5af038b">&lt;/strong&gt;</ept> menu, navigate to and start Azure PowerShell.</source>
+          <target state="new">Do the following:
+From your <bpt id="7c1c33db-a021-4cd8-b841-8bdcfcd392bc">&lt;strong&gt;</bpt>Start<ept id="7c1c33db-a021-4cd8-b841-8bdcfcd392bc">&lt;/strong&gt;</ept> screen or <bpt id="3e703743-ee33-4cac-b83f-c7aca5af038b">&lt;strong&gt;</bpt>Start<ept id="3e703743-ee33-4cac-b83f-c7aca5af038b">&lt;/strong&gt;</ept> menu, navigate to and start Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="da5fe64a-25c5-4d73-83a7-9199fc4b209d" xml:space="preserve">
+          <source>Type in the user name and password for the server.</source>
+          <target state="new">Type in the user name and password for the server.</target>
+        </trans-unit>
+        <trans-unit id="55992ca6-ffc6-44ad-89eb-3cbc9b554c4a" xml:space="preserve">
+          <source>Create server context by using <bpt id="57db0fcb-b8cf-4378-b7e7-1282cfe8e3f8">&lt;strong&gt;</bpt>New-AzureSqlDatabaseServerContext<ept id="57db0fcb-b8cf-4378-b7e7-1282cfe8e3f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create server context by using <bpt id="57db0fcb-b8cf-4378-b7e7-1282cfe8e3f8">&lt;strong&gt;</bpt>New-AzureSqlDatabaseServerContext<ept id="57db0fcb-b8cf-4378-b7e7-1282cfe8e3f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="117ea2ef-0894-4929-9a07-29861dc346a1" xml:space="preserve">
+          <source><bpt id="39182519-b8bd-4585-a1ba-88eddd7e6d69">&lt;strong&gt;</bpt>Example<ept id="39182519-b8bd-4585-a1ba-88eddd7e6d69">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="39182519-b8bd-4585-a1ba-88eddd7e6d69">&lt;strong&gt;</bpt>Example<ept id="39182519-b8bd-4585-a1ba-88eddd7e6d69">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aab0cc8f-e2a5-477e-abfe-7b67ea29885a" xml:space="preserve">
+          <source><bpt id="153f3fcb-6edd-4135-8587-31ae6d79f3a0">&lt;strong&gt;</bpt>Azure PowerShell Reference<ept id="153f3fcb-6edd-4135-8587-31ae6d79f3a0">&lt;/strong&gt;</ept>
+To see detailed information about the Azure PowerShell cmdlets used in this topic, see <bpt id="134a4c9c-30b7-4d38-be81-82565eeaee2e">&lt;linkText&gt;</bpt>Azure SQL Database Cmdlets<ept id="134a4c9c-30b7-4d38-be81-82565eeaee2e">&lt;/linkText&gt;</ept><bpt id="134a4c9c-30b7-4d38-be81-82565eeaee2e">&lt;title&gt;</bpt><ept id="134a4c9c-30b7-4d38-be81-82565eeaee2e">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="153f3fcb-6edd-4135-8587-31ae6d79f3a0">&lt;strong&gt;</bpt>Azure PowerShell Reference<ept id="153f3fcb-6edd-4135-8587-31ae6d79f3a0">&lt;/strong&gt;</ept>
+To see detailed information about the Azure PowerShell cmdlets used in this topic, see <bpt id="134a4c9c-30b7-4d38-be81-82565eeaee2e">&lt;linkText&gt;</bpt>Azure SQL Database Cmdlets<ept id="134a4c9c-30b7-4d38-be81-82565eeaee2e">&lt;/linkText&gt;</ept><bpt id="134a4c9c-30b7-4d38-be81-82565eeaee2e">&lt;title&gt;</bpt><ept id="134a4c9c-30b7-4d38-be81-82565eeaee2e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3f01926-8a55-48ea-9d37-406fc0758e76" xml:space="preserve">
+          <source><bpt id="f6ddff7c-5982-480b-946c-1013f6d5969c">&lt;linkText&gt;</bpt>New-AzureSqlDatabaseServerContext<ept id="f6ddff7c-5982-480b-946c-1013f6d5969c">&lt;/linkText&gt;</ept><bpt id="f6ddff7c-5982-480b-946c-1013f6d5969c">&lt;title&gt;</bpt><ept id="f6ddff7c-5982-480b-946c-1013f6d5969c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f6ddff7c-5982-480b-946c-1013f6d5969c">&lt;linkText&gt;</bpt>New-AzureSqlDatabaseServerContext<ept id="f6ddff7c-5982-480b-946c-1013f6d5969c">&lt;/linkText&gt;</ept><bpt id="f6ddff7c-5982-480b-946c-1013f6d5969c">&lt;title&gt;</bpt><ept id="f6ddff7c-5982-480b-946c-1013f6d5969c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23e61682-438d-443e-94ee-e4e8d5593c22" xml:space="preserve">
+          <source><bpt id="e5f5ee95-af32-4142-957b-ff703c724f5f">&lt;linkText&gt;</bpt>New-AzureSqlDatabase<ept id="e5f5ee95-af32-4142-957b-ff703c724f5f">&lt;/linkText&gt;</ept><bpt id="e5f5ee95-af32-4142-957b-ff703c724f5f">&lt;title&gt;</bpt><ept id="e5f5ee95-af32-4142-957b-ff703c724f5f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e5f5ee95-af32-4142-957b-ff703c724f5f">&lt;linkText&gt;</bpt>New-AzureSqlDatabase<ept id="e5f5ee95-af32-4142-957b-ff703c724f5f">&lt;/linkText&gt;</ept><bpt id="e5f5ee95-af32-4142-957b-ff703c724f5f">&lt;title&gt;</bpt><ept id="e5f5ee95-af32-4142-957b-ff703c724f5f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c32e9e7-cb95-4f7c-a5c9-1ae354265f77" xml:space="preserve">
+          <source><bpt id="a1c8ccd1-5e47-4b0e-8da9-1d4b0bada622">&lt;linkText&gt;</bpt>Set-AzureSqlDatabase<ept id="a1c8ccd1-5e47-4b0e-8da9-1d4b0bada622">&lt;/linkText&gt;</ept><bpt id="a1c8ccd1-5e47-4b0e-8da9-1d4b0bada622">&lt;title&gt;</bpt><ept id="a1c8ccd1-5e47-4b0e-8da9-1d4b0bada622">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a1c8ccd1-5e47-4b0e-8da9-1d4b0bada622">&lt;linkText&gt;</bpt>Set-AzureSqlDatabase<ept id="a1c8ccd1-5e47-4b0e-8da9-1d4b0bada622">&lt;/linkText&gt;</ept><bpt id="a1c8ccd1-5e47-4b0e-8da9-1d4b0bada622">&lt;title&gt;</bpt><ept id="a1c8ccd1-5e47-4b0e-8da9-1d4b0bada622">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

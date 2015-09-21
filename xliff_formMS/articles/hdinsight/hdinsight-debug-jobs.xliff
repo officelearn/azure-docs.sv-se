@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bec38d8f-01cc-4047-be65-5fe28b263cb1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bec38d8f-01cc-4047-be65-5fe28b263cb1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e5e7463f-866d-4281-998e-c583596439fb">
+        <trans-unit id="2aa555dc-7212-4a40-aa03-63b822f24d10" xml:space="preserve">
+          <source>Debug Hadoop in HDInsight: Error messages | Microsoft Azure</source>
+          <target state="new">Debug Hadoop in HDInsight: Error messages | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="704eb83a-ff62-4f1a-aba0-65b083356c6f" xml:space="preserve">
+          <source>Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.</source>
+          <target state="new">Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.</target>
+        </trans-unit>
+        <trans-unit id="e58dfa87-5759-4976-b24d-91ed89174727" xml:space="preserve">
+          <source>The error messages itemized in this topic are provided to help the users of Hadoop in Azure HDInsight understand possible error conditions that they can encounter when administering the service using Azure PowerShell and to advise them on the steps which can be taken to recover from the error.</source>
+          <target state="new">The error messages itemized in this topic are provided to help the users of Hadoop in Azure HDInsight understand possible error conditions that they can encounter when administering the service using Azure PowerShell and to advise them on the steps which can be taken to recover from the error.</target>
+        </trans-unit>
+        <trans-unit id="90c21cdb-05c7-440f-96d2-6b1c99f1fbb0" xml:space="preserve">
+          <source>Some of these error messages could also be seen in the Azure preview portal when it is used to manage HDInsight clusters.</source>
+          <target state="new">Some of these error messages could also be seen in the Azure preview portal when it is used to manage HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="a938f6f2-ccde-4e42-8b93-52ddcbc39d25" xml:space="preserve">
+          <source>But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context.</source>
+          <target state="new">But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context.</target>
+        </trans-unit>
+        <trans-unit id="1662c14a-8414-409a-9578-f83b46765f65" xml:space="preserve">
+          <source>Other error messages are provided in the contexts where the mitigation is obvious.</source>
+          <target state="new">Other error messages are provided in the contexts where the mitigation is obvious.</target>
+        </trans-unit>
+        <trans-unit id="30fa2151-f067-42ab-b465-fd5a7c3d44c3" xml:space="preserve">
+          <source>If the constraints on parameters are violated, for example, the message pops-up in on the right side of the box where the value was entered.</source>
+          <target state="new">If the constraints on parameters are violated, for example, the message pops-up in on the right side of the box where the value was entered.</target>
+        </trans-unit>
+        <trans-unit id="7269c667-d8d7-41c5-a8fc-9dd8ee8f0426" xml:space="preserve">
+          <source>Here is a case where too many data nodes have been requested.</source>
+          <target state="new">Here is a case where too many data nodes have been requested.</target>
+        </trans-unit>
+        <trans-unit id="835ebd17-c67c-4002-9789-3950c345329d" xml:space="preserve">
+          <source>The remedy is to reduce the number to an allowed value that is 33 or less.</source>
+          <target state="new">The remedy is to reduce the number to an allowed value that is 33 or less.</target>
+        </trans-unit>
+        <trans-unit id="cfc7ccc9-87c3-4d1c-8ff7-93961d524949" xml:space="preserve">
+          <source><bpt id="da017ce2-72b6-4783-a4e8-7d612fdac3e5">&lt;linkText&gt;</bpt>HDInsight preview portal error message<ept id="da017ce2-72b6-4783-a4e8-7d612fdac3e5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da017ce2-72b6-4783-a4e8-7d612fdac3e5">&lt;linkText&gt;</bpt>HDInsight preview portal error message<ept id="da017ce2-72b6-4783-a4e8-7d612fdac3e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc6b6d5c-f6d3-495c-902d-6c856dd24564" xml:space="preserve">
+          <source>The errors a user can encounter in Azure PowerShell or in the preview portal are listed alphabetically by name in the <bpt id="148085fd-c7bb-4768-94ea-b902723ae65d">&lt;linkText&gt;</bpt>HDInsight Errors<ept id="148085fd-c7bb-4768-94ea-b902723ae65d">&lt;/linkText&gt;</ept><bpt id="148085fd-c7bb-4768-94ea-b902723ae65d">&lt;title&gt;</bpt><ept id="148085fd-c7bb-4768-94ea-b902723ae65d">&lt;/title&gt;</ept> section where they are linked to an entry in the <bpt id="fa713e71-771c-490c-b780-0169a409fafc">&lt;linkText&gt;</bpt>Discription and Mitigation of Errors<ept id="fa713e71-771c-490c-b780-0169a409fafc">&lt;/linkText&gt;</ept><bpt id="fa713e71-771c-490c-b780-0169a409fafc">&lt;title&gt;</bpt><ept id="fa713e71-771c-490c-b780-0169a409fafc">&lt;/title&gt;</ept> section that provide the following information for the error:</source>
+          <target state="new">The errors a user can encounter in Azure PowerShell or in the preview portal are listed alphabetically by name in the <bpt id="148085fd-c7bb-4768-94ea-b902723ae65d">&lt;linkText&gt;</bpt>HDInsight Errors<ept id="148085fd-c7bb-4768-94ea-b902723ae65d">&lt;/linkText&gt;</ept><bpt id="148085fd-c7bb-4768-94ea-b902723ae65d">&lt;title&gt;</bpt><ept id="148085fd-c7bb-4768-94ea-b902723ae65d">&lt;/title&gt;</ept> section where they are linked to an entry in the <bpt id="fa713e71-771c-490c-b780-0169a409fafc">&lt;linkText&gt;</bpt>Discription and Mitigation of Errors<ept id="fa713e71-771c-490c-b780-0169a409fafc">&lt;/linkText&gt;</ept><bpt id="fa713e71-771c-490c-b780-0169a409fafc">&lt;title&gt;</bpt><ept id="fa713e71-771c-490c-b780-0169a409fafc">&lt;/title&gt;</ept> section that provide the following information for the error:</target>
+        </trans-unit>
+        <trans-unit id="9c060674-bd46-4326-b64e-bd3617677f45" xml:space="preserve">
+          <source><bpt id="a40f17e9-ff20-4234-90ba-694c76d3b666">&lt;strong&gt;</bpt>Description<ept id="a40f17e9-ff20-4234-90ba-694c76d3b666">&lt;/strong&gt;</ept>: the error message users see</source>
+          <target state="new"><bpt id="a40f17e9-ff20-4234-90ba-694c76d3b666">&lt;strong&gt;</bpt>Description<ept id="a40f17e9-ff20-4234-90ba-694c76d3b666">&lt;/strong&gt;</ept>: the error message users see</target>
+        </trans-unit>
+        <trans-unit id="1b053571-507e-4012-98db-27733287bf0f" xml:space="preserve">
+          <source><bpt id="c8b42c5c-470d-48d2-ae50-6823303452d6">&lt;strong&gt;</bpt>Mitigation<ept id="c8b42c5c-470d-48d2-ae50-6823303452d6">&lt;/strong&gt;</ept>: what steps can be taken to recover from the error.</source>
+          <target state="new"><bpt id="c8b42c5c-470d-48d2-ae50-6823303452d6">&lt;strong&gt;</bpt>Mitigation<ept id="c8b42c5c-470d-48d2-ae50-6823303452d6">&lt;/strong&gt;</ept>: what steps can be taken to recover from the error.</target>
+        </trans-unit>
+        <trans-unit id="bb86ab5b-59cc-4dd4-bfec-d979c37dd1a3" xml:space="preserve">
+          <source><bpt id="fd1b0adb-0f0b-4c22-be0b-70c5e11bdbcb">&lt;linkText&gt;</bpt>AtleastOneSqlMetastoreMustBeProvided<ept id="fd1b0adb-0f0b-4c22-be0b-70c5e11bdbcb">&lt;/linkText&gt;</ept><bpt id="fd1b0adb-0f0b-4c22-be0b-70c5e11bdbcb">&lt;title&gt;</bpt><ept id="fd1b0adb-0f0b-4c22-be0b-70c5e11bdbcb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fd1b0adb-0f0b-4c22-be0b-70c5e11bdbcb">&lt;linkText&gt;</bpt>AtleastOneSqlMetastoreMustBeProvided<ept id="fd1b0adb-0f0b-4c22-be0b-70c5e11bdbcb">&lt;/linkText&gt;</ept><bpt id="fd1b0adb-0f0b-4c22-be0b-70c5e11bdbcb">&lt;title&gt;</bpt><ept id="fd1b0adb-0f0b-4c22-be0b-70c5e11bdbcb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90407d0b-795b-47b7-b4fd-4291c59513d4" xml:space="preserve">
+          <source><bpt id="f5aa8928-8774-4152-b531-ded56a7fe8d6">&lt;linkText&gt;</bpt>AzureRegionNotSupported<ept id="f5aa8928-8774-4152-b531-ded56a7fe8d6">&lt;/linkText&gt;</ept><bpt id="f5aa8928-8774-4152-b531-ded56a7fe8d6">&lt;title&gt;</bpt><ept id="f5aa8928-8774-4152-b531-ded56a7fe8d6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f5aa8928-8774-4152-b531-ded56a7fe8d6">&lt;linkText&gt;</bpt>AzureRegionNotSupported<ept id="f5aa8928-8774-4152-b531-ded56a7fe8d6">&lt;/linkText&gt;</ept><bpt id="f5aa8928-8774-4152-b531-ded56a7fe8d6">&lt;title&gt;</bpt><ept id="f5aa8928-8774-4152-b531-ded56a7fe8d6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f94c694-948f-4f61-955c-2c4711812806" xml:space="preserve">
+          <source><bpt id="055a46dd-62e1-4d2c-8139-1a467b6f6e15">&lt;linkText&gt;</bpt>ClusterContainerRecordNotFound<ept id="055a46dd-62e1-4d2c-8139-1a467b6f6e15">&lt;/linkText&gt;</ept><bpt id="055a46dd-62e1-4d2c-8139-1a467b6f6e15">&lt;title&gt;</bpt><ept id="055a46dd-62e1-4d2c-8139-1a467b6f6e15">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="055a46dd-62e1-4d2c-8139-1a467b6f6e15">&lt;linkText&gt;</bpt>ClusterContainerRecordNotFound<ept id="055a46dd-62e1-4d2c-8139-1a467b6f6e15">&lt;/linkText&gt;</ept><bpt id="055a46dd-62e1-4d2c-8139-1a467b6f6e15">&lt;title&gt;</bpt><ept id="055a46dd-62e1-4d2c-8139-1a467b6f6e15">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bbd4549-da97-46b9-933b-62a4abad6dbc" xml:space="preserve">
+          <source><bpt id="6f459ed0-f15a-48cc-8985-e01db72b6066">&lt;linkText&gt;</bpt>ClusterDnsNameInvalidReservedWord<ept id="6f459ed0-f15a-48cc-8985-e01db72b6066">&lt;/linkText&gt;</ept><bpt id="6f459ed0-f15a-48cc-8985-e01db72b6066">&lt;title&gt;</bpt><ept id="6f459ed0-f15a-48cc-8985-e01db72b6066">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6f459ed0-f15a-48cc-8985-e01db72b6066">&lt;linkText&gt;</bpt>ClusterDnsNameInvalidReservedWord<ept id="6f459ed0-f15a-48cc-8985-e01db72b6066">&lt;/linkText&gt;</ept><bpt id="6f459ed0-f15a-48cc-8985-e01db72b6066">&lt;title&gt;</bpt><ept id="6f459ed0-f15a-48cc-8985-e01db72b6066">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba221929-96b7-4ba3-8553-24f786b251b3" xml:space="preserve">
+          <source><bpt id="7a2d8e3a-b765-4314-a0ee-8387d84ceaf6">&lt;linkText&gt;</bpt>ClusterNameUnavailable<ept id="7a2d8e3a-b765-4314-a0ee-8387d84ceaf6">&lt;/linkText&gt;</ept><bpt id="7a2d8e3a-b765-4314-a0ee-8387d84ceaf6">&lt;title&gt;</bpt><ept id="7a2d8e3a-b765-4314-a0ee-8387d84ceaf6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7a2d8e3a-b765-4314-a0ee-8387d84ceaf6">&lt;linkText&gt;</bpt>ClusterNameUnavailable<ept id="7a2d8e3a-b765-4314-a0ee-8387d84ceaf6">&lt;/linkText&gt;</ept><bpt id="7a2d8e3a-b765-4314-a0ee-8387d84ceaf6">&lt;title&gt;</bpt><ept id="7a2d8e3a-b765-4314-a0ee-8387d84ceaf6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2c2470e-76be-4ae5-9523-c5d531d07e0a" xml:space="preserve">
+          <source><bpt id="dcb55ae5-244d-4c2a-ad51-8667f61f2159">&lt;linkText&gt;</bpt>ClusterUserNameInvalid<ept id="dcb55ae5-244d-4c2a-ad51-8667f61f2159">&lt;/linkText&gt;</ept><bpt id="dcb55ae5-244d-4c2a-ad51-8667f61f2159">&lt;title&gt;</bpt><ept id="dcb55ae5-244d-4c2a-ad51-8667f61f2159">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dcb55ae5-244d-4c2a-ad51-8667f61f2159">&lt;linkText&gt;</bpt>ClusterUserNameInvalid<ept id="dcb55ae5-244d-4c2a-ad51-8667f61f2159">&lt;/linkText&gt;</ept><bpt id="dcb55ae5-244d-4c2a-ad51-8667f61f2159">&lt;title&gt;</bpt><ept id="dcb55ae5-244d-4c2a-ad51-8667f61f2159">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d63fec7-1109-4f7b-8139-a4ee2a44db5c" xml:space="preserve">
+          <source><bpt id="fa014d75-c381-47ba-af7f-7b87b5c48171">&lt;linkText&gt;</bpt>ClusterUserNameInvalidReservedWord<ept id="fa014d75-c381-47ba-af7f-7b87b5c48171">&lt;/linkText&gt;</ept><bpt id="fa014d75-c381-47ba-af7f-7b87b5c48171">&lt;title&gt;</bpt><ept id="fa014d75-c381-47ba-af7f-7b87b5c48171">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fa014d75-c381-47ba-af7f-7b87b5c48171">&lt;linkText&gt;</bpt>ClusterUserNameInvalidReservedWord<ept id="fa014d75-c381-47ba-af7f-7b87b5c48171">&lt;/linkText&gt;</ept><bpt id="fa014d75-c381-47ba-af7f-7b87b5c48171">&lt;title&gt;</bpt><ept id="fa014d75-c381-47ba-af7f-7b87b5c48171">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b65d646-f49a-49ce-9922-fa62b3ad0129" xml:space="preserve">
+          <source><bpt id="089c5d0b-2a9e-4991-b479-8d518321cbcf">&lt;linkText&gt;</bpt>ContainerNameMisMatchWithDnsName<ept id="089c5d0b-2a9e-4991-b479-8d518321cbcf">&lt;/linkText&gt;</ept><bpt id="089c5d0b-2a9e-4991-b479-8d518321cbcf">&lt;title&gt;</bpt><ept id="089c5d0b-2a9e-4991-b479-8d518321cbcf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="089c5d0b-2a9e-4991-b479-8d518321cbcf">&lt;linkText&gt;</bpt>ContainerNameMisMatchWithDnsName<ept id="089c5d0b-2a9e-4991-b479-8d518321cbcf">&lt;/linkText&gt;</ept><bpt id="089c5d0b-2a9e-4991-b479-8d518321cbcf">&lt;title&gt;</bpt><ept id="089c5d0b-2a9e-4991-b479-8d518321cbcf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9024fb7b-2ac4-4963-863b-ca07e4e65592" xml:space="preserve">
+          <source><bpt id="be548d85-34b9-4099-8105-ba9f4c18dd61">&lt;linkText&gt;</bpt>DataNodeDefinitionNotFound<ept id="be548d85-34b9-4099-8105-ba9f4c18dd61">&lt;/linkText&gt;</ept><bpt id="be548d85-34b9-4099-8105-ba9f4c18dd61">&lt;title&gt;</bpt><ept id="be548d85-34b9-4099-8105-ba9f4c18dd61">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="be548d85-34b9-4099-8105-ba9f4c18dd61">&lt;linkText&gt;</bpt>DataNodeDefinitionNotFound<ept id="be548d85-34b9-4099-8105-ba9f4c18dd61">&lt;/linkText&gt;</ept><bpt id="be548d85-34b9-4099-8105-ba9f4c18dd61">&lt;title&gt;</bpt><ept id="be548d85-34b9-4099-8105-ba9f4c18dd61">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bbaaf8fd-e416-454c-8f25-2de711f314f1" xml:space="preserve">
+          <source><bpt id="42988b84-a541-49cb-a2eb-7a91e1299d65">&lt;linkText&gt;</bpt>DeploymentDeletionFailure<ept id="42988b84-a541-49cb-a2eb-7a91e1299d65">&lt;/linkText&gt;</ept><bpt id="42988b84-a541-49cb-a2eb-7a91e1299d65">&lt;title&gt;</bpt><ept id="42988b84-a541-49cb-a2eb-7a91e1299d65">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="42988b84-a541-49cb-a2eb-7a91e1299d65">&lt;linkText&gt;</bpt>DeploymentDeletionFailure<ept id="42988b84-a541-49cb-a2eb-7a91e1299d65">&lt;/linkText&gt;</ept><bpt id="42988b84-a541-49cb-a2eb-7a91e1299d65">&lt;title&gt;</bpt><ept id="42988b84-a541-49cb-a2eb-7a91e1299d65">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12aee14e-2387-4083-8636-cf9016facedd" xml:space="preserve">
+          <source><bpt id="fdb17f92-df09-4c8a-9112-176e1aedd76a">&lt;linkText&gt;</bpt>DnsMappingNotFound<ept id="fdb17f92-df09-4c8a-9112-176e1aedd76a">&lt;/linkText&gt;</ept><bpt id="fdb17f92-df09-4c8a-9112-176e1aedd76a">&lt;title&gt;</bpt><ept id="fdb17f92-df09-4c8a-9112-176e1aedd76a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fdb17f92-df09-4c8a-9112-176e1aedd76a">&lt;linkText&gt;</bpt>DnsMappingNotFound<ept id="fdb17f92-df09-4c8a-9112-176e1aedd76a">&lt;/linkText&gt;</ept><bpt id="fdb17f92-df09-4c8a-9112-176e1aedd76a">&lt;title&gt;</bpt><ept id="fdb17f92-df09-4c8a-9112-176e1aedd76a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5aa7a4cf-2772-4563-9045-8d2c1401ba4a" xml:space="preserve">
+          <source><bpt id="422148c2-4a02-4077-bb1f-4e823f76d8a4">&lt;linkText&gt;</bpt>DuplicateClusterContainerRequest<ept id="422148c2-4a02-4077-bb1f-4e823f76d8a4">&lt;/linkText&gt;</ept><bpt id="422148c2-4a02-4077-bb1f-4e823f76d8a4">&lt;title&gt;</bpt><ept id="422148c2-4a02-4077-bb1f-4e823f76d8a4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="422148c2-4a02-4077-bb1f-4e823f76d8a4">&lt;linkText&gt;</bpt>DuplicateClusterContainerRequest<ept id="422148c2-4a02-4077-bb1f-4e823f76d8a4">&lt;/linkText&gt;</ept><bpt id="422148c2-4a02-4077-bb1f-4e823f76d8a4">&lt;title&gt;</bpt><ept id="422148c2-4a02-4077-bb1f-4e823f76d8a4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f94df249-e49a-41fd-9131-cd871652ce9f" xml:space="preserve">
+          <source><bpt id="d7e9c582-87d9-4d17-b72e-b0b25849b7c9">&lt;linkText&gt;</bpt>DuplicateClusterInHostedService<ept id="d7e9c582-87d9-4d17-b72e-b0b25849b7c9">&lt;/linkText&gt;</ept><bpt id="d7e9c582-87d9-4d17-b72e-b0b25849b7c9">&lt;title&gt;</bpt><ept id="d7e9c582-87d9-4d17-b72e-b0b25849b7c9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d7e9c582-87d9-4d17-b72e-b0b25849b7c9">&lt;linkText&gt;</bpt>DuplicateClusterInHostedService<ept id="d7e9c582-87d9-4d17-b72e-b0b25849b7c9">&lt;/linkText&gt;</ept><bpt id="d7e9c582-87d9-4d17-b72e-b0b25849b7c9">&lt;title&gt;</bpt><ept id="d7e9c582-87d9-4d17-b72e-b0b25849b7c9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="023319af-e8e0-4451-847a-363393226316" xml:space="preserve">
+          <source><bpt id="75ef974d-71b5-424d-a14c-babad9145089">&lt;linkText&gt;</bpt>FailureToUpdateDeploymentStatus<ept id="75ef974d-71b5-424d-a14c-babad9145089">&lt;/linkText&gt;</ept><bpt id="75ef974d-71b5-424d-a14c-babad9145089">&lt;title&gt;</bpt><ept id="75ef974d-71b5-424d-a14c-babad9145089">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="75ef974d-71b5-424d-a14c-babad9145089">&lt;linkText&gt;</bpt>FailureToUpdateDeploymentStatus<ept id="75ef974d-71b5-424d-a14c-babad9145089">&lt;/linkText&gt;</ept><bpt id="75ef974d-71b5-424d-a14c-babad9145089">&lt;title&gt;</bpt><ept id="75ef974d-71b5-424d-a14c-babad9145089">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b847d74-82b9-4af1-afea-88a446d6a2a5" xml:space="preserve">
+          <source><bpt id="d3e8fe95-ff6c-454f-a906-2c1a32ea7e24">&lt;linkText&gt;</bpt>HdiRestoreClusterAltered<ept id="d3e8fe95-ff6c-454f-a906-2c1a32ea7e24">&lt;/linkText&gt;</ept><bpt id="d3e8fe95-ff6c-454f-a906-2c1a32ea7e24">&lt;title&gt;</bpt><ept id="d3e8fe95-ff6c-454f-a906-2c1a32ea7e24">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d3e8fe95-ff6c-454f-a906-2c1a32ea7e24">&lt;linkText&gt;</bpt>HdiRestoreClusterAltered<ept id="d3e8fe95-ff6c-454f-a906-2c1a32ea7e24">&lt;/linkText&gt;</ept><bpt id="d3e8fe95-ff6c-454f-a906-2c1a32ea7e24">&lt;title&gt;</bpt><ept id="d3e8fe95-ff6c-454f-a906-2c1a32ea7e24">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6406fb5-ae19-4438-888f-9b8c40107af6" xml:space="preserve">
+          <source><bpt id="222a1782-2239-41d8-affd-a7315a6eb96c">&lt;linkText&gt;</bpt>HeadNodeConfigNotFound<ept id="222a1782-2239-41d8-affd-a7315a6eb96c">&lt;/linkText&gt;</ept><bpt id="222a1782-2239-41d8-affd-a7315a6eb96c">&lt;title&gt;</bpt><ept id="222a1782-2239-41d8-affd-a7315a6eb96c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="222a1782-2239-41d8-affd-a7315a6eb96c">&lt;linkText&gt;</bpt>HeadNodeConfigNotFound<ept id="222a1782-2239-41d8-affd-a7315a6eb96c">&lt;/linkText&gt;</ept><bpt id="222a1782-2239-41d8-affd-a7315a6eb96c">&lt;title&gt;</bpt><ept id="222a1782-2239-41d8-affd-a7315a6eb96c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04be5e96-0e98-41d3-aa5e-a18da4b7d72b" xml:space="preserve">
+          <source><bpt id="3a24a738-9290-4dd5-b6db-ac33e8d76a82">&lt;linkText&gt;</bpt>HeadNodeConfigNotFound<ept id="3a24a738-9290-4dd5-b6db-ac33e8d76a82">&lt;/linkText&gt;</ept><bpt id="3a24a738-9290-4dd5-b6db-ac33e8d76a82">&lt;title&gt;</bpt><ept id="3a24a738-9290-4dd5-b6db-ac33e8d76a82">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3a24a738-9290-4dd5-b6db-ac33e8d76a82">&lt;linkText&gt;</bpt>HeadNodeConfigNotFound<ept id="3a24a738-9290-4dd5-b6db-ac33e8d76a82">&lt;/linkText&gt;</ept><bpt id="3a24a738-9290-4dd5-b6db-ac33e8d76a82">&lt;title&gt;</bpt><ept id="3a24a738-9290-4dd5-b6db-ac33e8d76a82">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b97ba900-0aac-46e5-9409-0ee293fa1a8a" xml:space="preserve">
+          <source><bpt id="e6898165-c5fb-4b59-8b30-a5886e54f27c">&lt;linkText&gt;</bpt>HostedServiceCreationFailure<ept id="e6898165-c5fb-4b59-8b30-a5886e54f27c">&lt;/linkText&gt;</ept><bpt id="e6898165-c5fb-4b59-8b30-a5886e54f27c">&lt;title&gt;</bpt><ept id="e6898165-c5fb-4b59-8b30-a5886e54f27c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e6898165-c5fb-4b59-8b30-a5886e54f27c">&lt;linkText&gt;</bpt>HostedServiceCreationFailure<ept id="e6898165-c5fb-4b59-8b30-a5886e54f27c">&lt;/linkText&gt;</ept><bpt id="e6898165-c5fb-4b59-8b30-a5886e54f27c">&lt;title&gt;</bpt><ept id="e6898165-c5fb-4b59-8b30-a5886e54f27c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6947ee1-0395-4e0c-b25a-c3ec54e56682" xml:space="preserve">
+          <source><bpt id="9e791ade-6d09-4795-bd90-636064329fa9">&lt;linkText&gt;</bpt>HostedServiceHasProductionDeployment<ept id="9e791ade-6d09-4795-bd90-636064329fa9">&lt;/linkText&gt;</ept><bpt id="9e791ade-6d09-4795-bd90-636064329fa9">&lt;title&gt;</bpt><ept id="9e791ade-6d09-4795-bd90-636064329fa9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9e791ade-6d09-4795-bd90-636064329fa9">&lt;linkText&gt;</bpt>HostedServiceHasProductionDeployment<ept id="9e791ade-6d09-4795-bd90-636064329fa9">&lt;/linkText&gt;</ept><bpt id="9e791ade-6d09-4795-bd90-636064329fa9">&lt;title&gt;</bpt><ept id="9e791ade-6d09-4795-bd90-636064329fa9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26bc6f76-2141-44b8-afe3-fba1a2e044c0" xml:space="preserve">
+          <source><bpt id="025d69f4-f0ca-49b7-83ce-8b46a576848d">&lt;linkText&gt;</bpt>HostedServiceNotFound<ept id="025d69f4-f0ca-49b7-83ce-8b46a576848d">&lt;/linkText&gt;</ept><bpt id="025d69f4-f0ca-49b7-83ce-8b46a576848d">&lt;title&gt;</bpt><ept id="025d69f4-f0ca-49b7-83ce-8b46a576848d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="025d69f4-f0ca-49b7-83ce-8b46a576848d">&lt;linkText&gt;</bpt>HostedServiceNotFound<ept id="025d69f4-f0ca-49b7-83ce-8b46a576848d">&lt;/linkText&gt;</ept><bpt id="025d69f4-f0ca-49b7-83ce-8b46a576848d">&lt;title&gt;</bpt><ept id="025d69f4-f0ca-49b7-83ce-8b46a576848d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa681f82-2ffb-4d98-a7c8-f383a8ca6beb" xml:space="preserve">
+          <source><bpt id="b0b255f2-4895-4192-86f8-3068670ac5a1">&lt;linkText&gt;</bpt>HostedServiceWithNoDeployment<ept id="b0b255f2-4895-4192-86f8-3068670ac5a1">&lt;/linkText&gt;</ept><bpt id="b0b255f2-4895-4192-86f8-3068670ac5a1">&lt;title&gt;</bpt><ept id="b0b255f2-4895-4192-86f8-3068670ac5a1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b0b255f2-4895-4192-86f8-3068670ac5a1">&lt;linkText&gt;</bpt>HostedServiceWithNoDeployment<ept id="b0b255f2-4895-4192-86f8-3068670ac5a1">&lt;/linkText&gt;</ept><bpt id="b0b255f2-4895-4192-86f8-3068670ac5a1">&lt;title&gt;</bpt><ept id="b0b255f2-4895-4192-86f8-3068670ac5a1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5248d638-4996-4fa1-80a4-c6687211a627" xml:space="preserve">
+          <source><bpt id="d3d4a860-24fc-4eb5-90d3-781354555345">&lt;linkText&gt;</bpt>InsufficientResourcesCores<ept id="d3d4a860-24fc-4eb5-90d3-781354555345">&lt;/linkText&gt;</ept><bpt id="d3d4a860-24fc-4eb5-90d3-781354555345">&lt;title&gt;</bpt><ept id="d3d4a860-24fc-4eb5-90d3-781354555345">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d3d4a860-24fc-4eb5-90d3-781354555345">&lt;linkText&gt;</bpt>InsufficientResourcesCores<ept id="d3d4a860-24fc-4eb5-90d3-781354555345">&lt;/linkText&gt;</ept><bpt id="d3d4a860-24fc-4eb5-90d3-781354555345">&lt;title&gt;</bpt><ept id="d3d4a860-24fc-4eb5-90d3-781354555345">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fc5e222-0100-4b5c-b237-68187ec2680b" xml:space="preserve">
+          <source><bpt id="cc87fe6c-1c4f-4528-a0cd-9ad4ac69559f">&lt;linkText&gt;</bpt>InsufficientResourcesHostedServices<ept id="cc87fe6c-1c4f-4528-a0cd-9ad4ac69559f">&lt;/linkText&gt;</ept><bpt id="cc87fe6c-1c4f-4528-a0cd-9ad4ac69559f">&lt;title&gt;</bpt><ept id="cc87fe6c-1c4f-4528-a0cd-9ad4ac69559f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cc87fe6c-1c4f-4528-a0cd-9ad4ac69559f">&lt;linkText&gt;</bpt>InsufficientResourcesHostedServices<ept id="cc87fe6c-1c4f-4528-a0cd-9ad4ac69559f">&lt;/linkText&gt;</ept><bpt id="cc87fe6c-1c4f-4528-a0cd-9ad4ac69559f">&lt;title&gt;</bpt><ept id="cc87fe6c-1c4f-4528-a0cd-9ad4ac69559f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25ddbd4e-7a22-4b05-8a30-866118c78ecd" xml:space="preserve">
+          <source><bpt id="2de0ee71-2496-41d3-a35e-f9c0ba3ba944">&lt;linkText&gt;</bpt>InternalErrorRetryRequest<ept id="2de0ee71-2496-41d3-a35e-f9c0ba3ba944">&lt;/linkText&gt;</ept><bpt id="2de0ee71-2496-41d3-a35e-f9c0ba3ba944">&lt;title&gt;</bpt><ept id="2de0ee71-2496-41d3-a35e-f9c0ba3ba944">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2de0ee71-2496-41d3-a35e-f9c0ba3ba944">&lt;linkText&gt;</bpt>InternalErrorRetryRequest<ept id="2de0ee71-2496-41d3-a35e-f9c0ba3ba944">&lt;/linkText&gt;</ept><bpt id="2de0ee71-2496-41d3-a35e-f9c0ba3ba944">&lt;title&gt;</bpt><ept id="2de0ee71-2496-41d3-a35e-f9c0ba3ba944">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45a87a95-8de7-43c7-9dc3-9230d6827100" xml:space="preserve">
+          <source><bpt id="404aa232-cbc8-4a18-be60-23eedf0c9201">&lt;linkText&gt;</bpt>InvalidAzureStorageLocation<ept id="404aa232-cbc8-4a18-be60-23eedf0c9201">&lt;/linkText&gt;</ept><bpt id="404aa232-cbc8-4a18-be60-23eedf0c9201">&lt;title&gt;</bpt><ept id="404aa232-cbc8-4a18-be60-23eedf0c9201">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="404aa232-cbc8-4a18-be60-23eedf0c9201">&lt;linkText&gt;</bpt>InvalidAzureStorageLocation<ept id="404aa232-cbc8-4a18-be60-23eedf0c9201">&lt;/linkText&gt;</ept><bpt id="404aa232-cbc8-4a18-be60-23eedf0c9201">&lt;title&gt;</bpt><ept id="404aa232-cbc8-4a18-be60-23eedf0c9201">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1dbf84d-289a-48d5-b416-904a96556056" xml:space="preserve">
+          <source><bpt id="0a7cf3bb-006c-4874-96cd-4e85d5a628a4">&lt;linkText&gt;</bpt>InvalidNodeSizeForDataNode<ept id="0a7cf3bb-006c-4874-96cd-4e85d5a628a4">&lt;/linkText&gt;</ept><bpt id="0a7cf3bb-006c-4874-96cd-4e85d5a628a4">&lt;title&gt;</bpt><ept id="0a7cf3bb-006c-4874-96cd-4e85d5a628a4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0a7cf3bb-006c-4874-96cd-4e85d5a628a4">&lt;linkText&gt;</bpt>InvalidNodeSizeForDataNode<ept id="0a7cf3bb-006c-4874-96cd-4e85d5a628a4">&lt;/linkText&gt;</ept><bpt id="0a7cf3bb-006c-4874-96cd-4e85d5a628a4">&lt;title&gt;</bpt><ept id="0a7cf3bb-006c-4874-96cd-4e85d5a628a4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a97d5f27-d818-4625-8c8c-65e821463b1e" xml:space="preserve">
+          <source><bpt id="14d44b49-2167-4855-b74d-3d583612c99e">&lt;linkText&gt;</bpt>InvalidNodeSizeForHeadNode<ept id="14d44b49-2167-4855-b74d-3d583612c99e">&lt;/linkText&gt;</ept><bpt id="14d44b49-2167-4855-b74d-3d583612c99e">&lt;title&gt;</bpt><ept id="14d44b49-2167-4855-b74d-3d583612c99e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="14d44b49-2167-4855-b74d-3d583612c99e">&lt;linkText&gt;</bpt>InvalidNodeSizeForHeadNode<ept id="14d44b49-2167-4855-b74d-3d583612c99e">&lt;/linkText&gt;</ept><bpt id="14d44b49-2167-4855-b74d-3d583612c99e">&lt;title&gt;</bpt><ept id="14d44b49-2167-4855-b74d-3d583612c99e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb58ca47-d562-4d35-9788-37f868f667c9" xml:space="preserve">
+          <source><bpt id="0b1feca3-70c1-42f8-8d45-5cb7e76ec802">&lt;linkText&gt;</bpt>InvalidRightsForDeploymentDeletion<ept id="0b1feca3-70c1-42f8-8d45-5cb7e76ec802">&lt;/linkText&gt;</ept><bpt id="0b1feca3-70c1-42f8-8d45-5cb7e76ec802">&lt;title&gt;</bpt><ept id="0b1feca3-70c1-42f8-8d45-5cb7e76ec802">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0b1feca3-70c1-42f8-8d45-5cb7e76ec802">&lt;linkText&gt;</bpt>InvalidRightsForDeploymentDeletion<ept id="0b1feca3-70c1-42f8-8d45-5cb7e76ec802">&lt;/linkText&gt;</ept><bpt id="0b1feca3-70c1-42f8-8d45-5cb7e76ec802">&lt;title&gt;</bpt><ept id="0b1feca3-70c1-42f8-8d45-5cb7e76ec802">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c0c011f-ae99-4d9a-b050-a8874875b2ac" xml:space="preserve">
+          <source><bpt id="0a2a9099-0fec-4f7b-a5cb-e27b42ca7b87">&lt;linkText&gt;</bpt>InvalidStorageAccountBlobContainerName<ept id="0a2a9099-0fec-4f7b-a5cb-e27b42ca7b87">&lt;/linkText&gt;</ept><bpt id="0a2a9099-0fec-4f7b-a5cb-e27b42ca7b87">&lt;title&gt;</bpt><ept id="0a2a9099-0fec-4f7b-a5cb-e27b42ca7b87">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0a2a9099-0fec-4f7b-a5cb-e27b42ca7b87">&lt;linkText&gt;</bpt>InvalidStorageAccountBlobContainerName<ept id="0a2a9099-0fec-4f7b-a5cb-e27b42ca7b87">&lt;/linkText&gt;</ept><bpt id="0a2a9099-0fec-4f7b-a5cb-e27b42ca7b87">&lt;title&gt;</bpt><ept id="0a2a9099-0fec-4f7b-a5cb-e27b42ca7b87">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61b74ab8-0e6e-4cc0-a848-cbfa929a7609" xml:space="preserve">
+          <source><bpt id="801fcbdb-f359-41c5-a2af-9f4d48afbd57">&lt;linkText&gt;</bpt>InvalidStorageAccountConfigurationSecretKey<ept id="801fcbdb-f359-41c5-a2af-9f4d48afbd57">&lt;/linkText&gt;</ept><bpt id="801fcbdb-f359-41c5-a2af-9f4d48afbd57">&lt;title&gt;</bpt><ept id="801fcbdb-f359-41c5-a2af-9f4d48afbd57">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="801fcbdb-f359-41c5-a2af-9f4d48afbd57">&lt;linkText&gt;</bpt>InvalidStorageAccountConfigurationSecretKey<ept id="801fcbdb-f359-41c5-a2af-9f4d48afbd57">&lt;/linkText&gt;</ept><bpt id="801fcbdb-f359-41c5-a2af-9f4d48afbd57">&lt;title&gt;</bpt><ept id="801fcbdb-f359-41c5-a2af-9f4d48afbd57">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a965be96-eb10-4e7b-929a-b5e522db9b97" xml:space="preserve">
+          <source><bpt id="f197d412-0207-41b1-ac74-cae31ba82d4c">&lt;linkText&gt;</bpt>InvalidVersionHeaderFormat<ept id="f197d412-0207-41b1-ac74-cae31ba82d4c">&lt;/linkText&gt;</ept><bpt id="f197d412-0207-41b1-ac74-cae31ba82d4c">&lt;title&gt;</bpt><ept id="f197d412-0207-41b1-ac74-cae31ba82d4c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f197d412-0207-41b1-ac74-cae31ba82d4c">&lt;linkText&gt;</bpt>InvalidVersionHeaderFormat<ept id="f197d412-0207-41b1-ac74-cae31ba82d4c">&lt;/linkText&gt;</ept><bpt id="f197d412-0207-41b1-ac74-cae31ba82d4c">&lt;title&gt;</bpt><ept id="f197d412-0207-41b1-ac74-cae31ba82d4c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b078a8bc-80c0-4f0b-8c09-5648b5a61428" xml:space="preserve">
+          <source><bpt id="c9bedb29-174e-4a93-baee-9ce528931960">&lt;linkText&gt;</bpt>MoreThanOneHeadNode<ept id="c9bedb29-174e-4a93-baee-9ce528931960">&lt;/linkText&gt;</ept><bpt id="c9bedb29-174e-4a93-baee-9ce528931960">&lt;title&gt;</bpt><ept id="c9bedb29-174e-4a93-baee-9ce528931960">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c9bedb29-174e-4a93-baee-9ce528931960">&lt;linkText&gt;</bpt>MoreThanOneHeadNode<ept id="c9bedb29-174e-4a93-baee-9ce528931960">&lt;/linkText&gt;</ept><bpt id="c9bedb29-174e-4a93-baee-9ce528931960">&lt;title&gt;</bpt><ept id="c9bedb29-174e-4a93-baee-9ce528931960">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb88309b-deb1-49ab-89f9-11da85261c94" xml:space="preserve">
+          <source><bpt id="ff8f24c2-6629-4bc6-a3db-c8a09c195a2d">&lt;linkText&gt;</bpt>OperationTimedOutRetryRequest<ept id="ff8f24c2-6629-4bc6-a3db-c8a09c195a2d">&lt;/linkText&gt;</ept><bpt id="ff8f24c2-6629-4bc6-a3db-c8a09c195a2d">&lt;title&gt;</bpt><ept id="ff8f24c2-6629-4bc6-a3db-c8a09c195a2d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ff8f24c2-6629-4bc6-a3db-c8a09c195a2d">&lt;linkText&gt;</bpt>OperationTimedOutRetryRequest<ept id="ff8f24c2-6629-4bc6-a3db-c8a09c195a2d">&lt;/linkText&gt;</ept><bpt id="ff8f24c2-6629-4bc6-a3db-c8a09c195a2d">&lt;title&gt;</bpt><ept id="ff8f24c2-6629-4bc6-a3db-c8a09c195a2d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2aeceb09-b38a-47bc-a574-a7e4dcb9b3db" xml:space="preserve">
+          <source><bpt id="b1cc01e5-327b-437c-b9fe-4ba0fef618ce">&lt;linkText&gt;</bpt>ParameterNullOrEmpty<ept id="b1cc01e5-327b-437c-b9fe-4ba0fef618ce">&lt;/linkText&gt;</ept><bpt id="b1cc01e5-327b-437c-b9fe-4ba0fef618ce">&lt;title&gt;</bpt><ept id="b1cc01e5-327b-437c-b9fe-4ba0fef618ce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b1cc01e5-327b-437c-b9fe-4ba0fef618ce">&lt;linkText&gt;</bpt>ParameterNullOrEmpty<ept id="b1cc01e5-327b-437c-b9fe-4ba0fef618ce">&lt;/linkText&gt;</ept><bpt id="b1cc01e5-327b-437c-b9fe-4ba0fef618ce">&lt;title&gt;</bpt><ept id="b1cc01e5-327b-437c-b9fe-4ba0fef618ce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6597336-bcc4-44f7-829b-655c8fa8bfc5" xml:space="preserve">
+          <source><bpt id="16b9187b-1150-4608-8548-7957cae97c7c">&lt;linkText&gt;</bpt>PreClusterCreationValidationFailure<ept id="16b9187b-1150-4608-8548-7957cae97c7c">&lt;/linkText&gt;</ept><bpt id="16b9187b-1150-4608-8548-7957cae97c7c">&lt;title&gt;</bpt><ept id="16b9187b-1150-4608-8548-7957cae97c7c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="16b9187b-1150-4608-8548-7957cae97c7c">&lt;linkText&gt;</bpt>PreClusterCreationValidationFailure<ept id="16b9187b-1150-4608-8548-7957cae97c7c">&lt;/linkText&gt;</ept><bpt id="16b9187b-1150-4608-8548-7957cae97c7c">&lt;title&gt;</bpt><ept id="16b9187b-1150-4608-8548-7957cae97c7c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bdd9419-b312-421e-acaa-f7920991f361" xml:space="preserve">
+          <source><bpt id="6b7a2ad8-2efb-47c2-a121-c8a34b939d25">&lt;linkText&gt;</bpt>RegionCapabilityNotAvailable<ept id="6b7a2ad8-2efb-47c2-a121-c8a34b939d25">&lt;/linkText&gt;</ept><bpt id="6b7a2ad8-2efb-47c2-a121-c8a34b939d25">&lt;title&gt;</bpt><ept id="6b7a2ad8-2efb-47c2-a121-c8a34b939d25">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b7a2ad8-2efb-47c2-a121-c8a34b939d25">&lt;linkText&gt;</bpt>RegionCapabilityNotAvailable<ept id="6b7a2ad8-2efb-47c2-a121-c8a34b939d25">&lt;/linkText&gt;</ept><bpt id="6b7a2ad8-2efb-47c2-a121-c8a34b939d25">&lt;title&gt;</bpt><ept id="6b7a2ad8-2efb-47c2-a121-c8a34b939d25">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9270d17-4c0e-421b-aed4-da40a649a403" xml:space="preserve">
+          <source><bpt id="1c9ba10f-0a5b-4a6c-923d-6bae8cd63c1a">&lt;linkText&gt;</bpt>StorageAccountNotColocated<ept id="1c9ba10f-0a5b-4a6c-923d-6bae8cd63c1a">&lt;/linkText&gt;</ept><bpt id="1c9ba10f-0a5b-4a6c-923d-6bae8cd63c1a">&lt;title&gt;</bpt><ept id="1c9ba10f-0a5b-4a6c-923d-6bae8cd63c1a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1c9ba10f-0a5b-4a6c-923d-6bae8cd63c1a">&lt;linkText&gt;</bpt>StorageAccountNotColocated<ept id="1c9ba10f-0a5b-4a6c-923d-6bae8cd63c1a">&lt;/linkText&gt;</ept><bpt id="1c9ba10f-0a5b-4a6c-923d-6bae8cd63c1a">&lt;title&gt;</bpt><ept id="1c9ba10f-0a5b-4a6c-923d-6bae8cd63c1a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4062384-e060-4008-bd55-dd7e86e3af54" xml:space="preserve">
+          <source><bpt id="a1db3295-a83d-47e5-a883-4ffba7b9ef90">&lt;linkText&gt;</bpt>SubscriptionIdNotActive<ept id="a1db3295-a83d-47e5-a883-4ffba7b9ef90">&lt;/linkText&gt;</ept><bpt id="a1db3295-a83d-47e5-a883-4ffba7b9ef90">&lt;title&gt;</bpt><ept id="a1db3295-a83d-47e5-a883-4ffba7b9ef90">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a1db3295-a83d-47e5-a883-4ffba7b9ef90">&lt;linkText&gt;</bpt>SubscriptionIdNotActive<ept id="a1db3295-a83d-47e5-a883-4ffba7b9ef90">&lt;/linkText&gt;</ept><bpt id="a1db3295-a83d-47e5-a883-4ffba7b9ef90">&lt;title&gt;</bpt><ept id="a1db3295-a83d-47e5-a883-4ffba7b9ef90">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0fbba3f-7475-4500-8b76-0ec2394790be" xml:space="preserve">
+          <source><bpt id="3bc6ec0d-6af8-4baa-aa08-2e9e77a615fc">&lt;linkText&gt;</bpt>SubscriptionIdNotFound<ept id="3bc6ec0d-6af8-4baa-aa08-2e9e77a615fc">&lt;/linkText&gt;</ept><bpt id="3bc6ec0d-6af8-4baa-aa08-2e9e77a615fc">&lt;title&gt;</bpt><ept id="3bc6ec0d-6af8-4baa-aa08-2e9e77a615fc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3bc6ec0d-6af8-4baa-aa08-2e9e77a615fc">&lt;linkText&gt;</bpt>SubscriptionIdNotFound<ept id="3bc6ec0d-6af8-4baa-aa08-2e9e77a615fc">&lt;/linkText&gt;</ept><bpt id="3bc6ec0d-6af8-4baa-aa08-2e9e77a615fc">&lt;title&gt;</bpt><ept id="3bc6ec0d-6af8-4baa-aa08-2e9e77a615fc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa447eca-c284-4b3c-95eb-04f2aff9cd60" xml:space="preserve">
+          <source><bpt id="a4f1fdc2-db2b-4d4b-b7d8-a2e7b2afc6f9">&lt;linkText&gt;</bpt>UnableToResolveDNS<ept id="a4f1fdc2-db2b-4d4b-b7d8-a2e7b2afc6f9">&lt;/linkText&gt;</ept><bpt id="a4f1fdc2-db2b-4d4b-b7d8-a2e7b2afc6f9">&lt;title&gt;</bpt><ept id="a4f1fdc2-db2b-4d4b-b7d8-a2e7b2afc6f9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a4f1fdc2-db2b-4d4b-b7d8-a2e7b2afc6f9">&lt;linkText&gt;</bpt>UnableToResolveDNS<ept id="a4f1fdc2-db2b-4d4b-b7d8-a2e7b2afc6f9">&lt;/linkText&gt;</ept><bpt id="a4f1fdc2-db2b-4d4b-b7d8-a2e7b2afc6f9">&lt;title&gt;</bpt><ept id="a4f1fdc2-db2b-4d4b-b7d8-a2e7b2afc6f9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82a1f55a-58cc-4048-abfa-0a78f87de4a1" xml:space="preserve">
+          <source><bpt id="5016c5d9-4607-4d2b-96b0-e7f88dfb66b0">&lt;linkText&gt;</bpt>UnableToVerifyLocationOfResource<ept id="5016c5d9-4607-4d2b-96b0-e7f88dfb66b0">&lt;/linkText&gt;</ept><bpt id="5016c5d9-4607-4d2b-96b0-e7f88dfb66b0">&lt;title&gt;</bpt><ept id="5016c5d9-4607-4d2b-96b0-e7f88dfb66b0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5016c5d9-4607-4d2b-96b0-e7f88dfb66b0">&lt;linkText&gt;</bpt>UnableToVerifyLocationOfResource<ept id="5016c5d9-4607-4d2b-96b0-e7f88dfb66b0">&lt;/linkText&gt;</ept><bpt id="5016c5d9-4607-4d2b-96b0-e7f88dfb66b0">&lt;title&gt;</bpt><ept id="5016c5d9-4607-4d2b-96b0-e7f88dfb66b0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8220c095-1d99-4076-b5f5-8ed08c18d4c6" xml:space="preserve">
+          <source><bpt id="5bdca325-6a7c-460f-b322-091caf68fdae">&lt;linkText&gt;</bpt>VersionCapabilityNotAvailable<ept id="5bdca325-6a7c-460f-b322-091caf68fdae">&lt;/linkText&gt;</ept><bpt id="5bdca325-6a7c-460f-b322-091caf68fdae">&lt;title&gt;</bpt><ept id="5bdca325-6a7c-460f-b322-091caf68fdae">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5bdca325-6a7c-460f-b322-091caf68fdae">&lt;linkText&gt;</bpt>VersionCapabilityNotAvailable<ept id="5bdca325-6a7c-460f-b322-091caf68fdae">&lt;/linkText&gt;</ept><bpt id="5bdca325-6a7c-460f-b322-091caf68fdae">&lt;title&gt;</bpt><ept id="5bdca325-6a7c-460f-b322-091caf68fdae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a12e640-af8f-4f73-a452-4e50bdc7838b" xml:space="preserve">
+          <source><bpt id="3540fef4-40b4-4e51-9a10-c728ceafaa3b">&lt;linkText&gt;</bpt>VersionNotSupported<ept id="3540fef4-40b4-4e51-9a10-c728ceafaa3b">&lt;/linkText&gt;</ept><bpt id="3540fef4-40b4-4e51-9a10-c728ceafaa3b">&lt;title&gt;</bpt><ept id="3540fef4-40b4-4e51-9a10-c728ceafaa3b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3540fef4-40b4-4e51-9a10-c728ceafaa3b">&lt;linkText&gt;</bpt>VersionNotSupported<ept id="3540fef4-40b4-4e51-9a10-c728ceafaa3b">&lt;/linkText&gt;</ept><bpt id="3540fef4-40b4-4e51-9a10-c728ceafaa3b">&lt;title&gt;</bpt><ept id="3540fef4-40b4-4e51-9a10-c728ceafaa3b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="087233bd-da9e-48fc-bf4f-670a851b9b6c" xml:space="preserve">
+          <source><bpt id="0b52cd78-2932-46a8-9f41-97a04aa9d4b6">&lt;linkText&gt;</bpt>VersionNotSupportedInRegion<ept id="0b52cd78-2932-46a8-9f41-97a04aa9d4b6">&lt;/linkText&gt;</ept><bpt id="0b52cd78-2932-46a8-9f41-97a04aa9d4b6">&lt;title&gt;</bpt><ept id="0b52cd78-2932-46a8-9f41-97a04aa9d4b6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0b52cd78-2932-46a8-9f41-97a04aa9d4b6">&lt;linkText&gt;</bpt>VersionNotSupportedInRegion<ept id="0b52cd78-2932-46a8-9f41-97a04aa9d4b6">&lt;/linkText&gt;</ept><bpt id="0b52cd78-2932-46a8-9f41-97a04aa9d4b6">&lt;title&gt;</bpt><ept id="0b52cd78-2932-46a8-9f41-97a04aa9d4b6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9f623f2-73e4-428f-910f-1362a6effd11" xml:space="preserve">
+          <source><bpt id="09b9c27d-7bfd-4d91-9348-091f1c228c30">&lt;linkText&gt;</bpt>WasbAccountConfigNotFound<ept id="09b9c27d-7bfd-4d91-9348-091f1c228c30">&lt;/linkText&gt;</ept><bpt id="09b9c27d-7bfd-4d91-9348-091f1c228c30">&lt;title&gt;</bpt><ept id="09b9c27d-7bfd-4d91-9348-091f1c228c30">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="09b9c27d-7bfd-4d91-9348-091f1c228c30">&lt;linkText&gt;</bpt>WasbAccountConfigNotFound<ept id="09b9c27d-7bfd-4d91-9348-091f1c228c30">&lt;/linkText&gt;</ept><bpt id="09b9c27d-7bfd-4d91-9348-091f1c228c30">&lt;title&gt;</bpt><ept id="09b9c27d-7bfd-4d91-9348-091f1c228c30">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de552104-7c04-44e9-9501-641f7d29a4b5" xml:space="preserve">
+          <source><bpt id="2d4d1232-0165-42a3-ae73-f57ea282865d">&lt;strong&gt;</bpt>Description<ept id="2d4d1232-0165-42a3-ae73-f57ea282865d">&lt;/strong&gt;</ept>: Please provide Azure SQL database details for at least one component in order to use custom settings for Hive and Oozie metastores.</source>
+          <target state="new"><bpt id="2d4d1232-0165-42a3-ae73-f57ea282865d">&lt;strong&gt;</bpt>Description<ept id="2d4d1232-0165-42a3-ae73-f57ea282865d">&lt;/strong&gt;</ept>: Please provide Azure SQL database details for at least one component in order to use custom settings for Hive and Oozie metastores.</target>
+        </trans-unit>
+        <trans-unit id="b115e3ad-f637-4098-beb4-31b326aa374a" xml:space="preserve">
+          <source><bpt id="23f8fe62-73a5-4096-aa2f-a4bdbfcad834">&lt;strong&gt;</bpt>Mitigation<ept id="23f8fe62-73a5-4096-aa2f-a4bdbfcad834">&lt;/strong&gt;</ept>: The user needs to supply a valid SQL Azure metastore and retry the request.</source>
+          <target state="new"><bpt id="23f8fe62-73a5-4096-aa2f-a4bdbfcad834">&lt;strong&gt;</bpt>Mitigation<ept id="23f8fe62-73a5-4096-aa2f-a4bdbfcad834">&lt;/strong&gt;</ept>: The user needs to supply a valid SQL Azure metastore and retry the request.</target>
+        </trans-unit>
+        <trans-unit id="f1038d6e-6f79-4f0b-85a8-26344dff3603" xml:space="preserve">
+          <source><bpt id="c92da91b-5471-4c18-a2f7-77536cdc7db3">&lt;strong&gt;</bpt>Description<ept id="c92da91b-5471-4c18-a2f7-77536cdc7db3">&lt;/strong&gt;</ept>: Could not create cluster in region <bpt id="86657f49-6b7a-4a6c-821c-1330e985d106">&lt;em&gt;</bpt>nameOfYourRegion<ept id="86657f49-6b7a-4a6c-821c-1330e985d106">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="c92da91b-5471-4c18-a2f7-77536cdc7db3">&lt;strong&gt;</bpt>Description<ept id="c92da91b-5471-4c18-a2f7-77536cdc7db3">&lt;/strong&gt;</ept>: Could not create cluster in region <bpt id="86657f49-6b7a-4a6c-821c-1330e985d106">&lt;em&gt;</bpt>nameOfYourRegion<ept id="86657f49-6b7a-4a6c-821c-1330e985d106">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24229f8b-dd63-44d1-bda4-962f7b7b7eb1" xml:space="preserve">
+          <source>Use a valid HDInsight region and retry request.</source>
+          <target state="new">Use a valid HDInsight region and retry request.</target>
+        </trans-unit>
+        <trans-unit id="1f5ed91b-1240-44dd-8af0-c23b78feacea" xml:space="preserve">
+          <source><bpt id="2941d9c0-842d-4778-bd3c-7390b31f05a0">&lt;strong&gt;</bpt>Mitigation<ept id="2941d9c0-842d-4778-bd3c-7390b31f05a0">&lt;/strong&gt;</ept>: Customer should create the cluster region that currently supports them: Southeast Asia, West Europe, North Europe, East US, or West US.</source>
+          <target state="new"><bpt id="2941d9c0-842d-4778-bd3c-7390b31f05a0">&lt;strong&gt;</bpt>Mitigation<ept id="2941d9c0-842d-4778-bd3c-7390b31f05a0">&lt;/strong&gt;</ept>: Customer should create the cluster region that currently supports them: Southeast Asia, West Europe, North Europe, East US, or West US.</target>
+        </trans-unit>
+        <trans-unit id="ceb40fde-938a-4b2c-b23b-8f23a7fa4162" xml:space="preserve">
+          <source><bpt id="3a800ee3-ee58-4b74-bdfe-0be975613a47">&lt;strong&gt;</bpt>Description<ept id="3a800ee3-ee58-4b74-bdfe-0be975613a47">&lt;/strong&gt;</ept>: The server could not find the requested cluster record.</source>
+          <target state="new"><bpt id="3a800ee3-ee58-4b74-bdfe-0be975613a47">&lt;strong&gt;</bpt>Description<ept id="3a800ee3-ee58-4b74-bdfe-0be975613a47">&lt;/strong&gt;</ept>: The server could not find the requested cluster record.</target>
+        </trans-unit>
+        <trans-unit id="f3b9f644-dc82-473e-9ff9-7a83a860b0f3" xml:space="preserve">
+          <source><bpt id="1150997f-5f1c-45aa-bbde-9178d2df768e">&lt;strong&gt;</bpt>Mitigation<ept id="1150997f-5f1c-45aa-bbde-9178d2df768e">&lt;/strong&gt;</ept>: Retry the operation.</source>
+          <target state="new"><bpt id="1150997f-5f1c-45aa-bbde-9178d2df768e">&lt;strong&gt;</bpt>Mitigation<ept id="1150997f-5f1c-45aa-bbde-9178d2df768e">&lt;/strong&gt;</ept>: Retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="d845fb15-aa5c-42f8-8c07-6273c03e5231" xml:space="preserve">
+          <source><bpt id="a04cd4a2-55df-417f-ba16-ff487c5e78a5">&lt;strong&gt;</bpt>Description<ept id="a04cd4a2-55df-417f-ba16-ff487c5e78a5">&lt;/strong&gt;</ept>: Cluster DNS name <bpt id="f8527a63-e623-497e-9726-289fba5eb39d">&lt;em&gt;</bpt>yourDnsName<ept id="f8527a63-e623-497e-9726-289fba5eb39d">&lt;/em&gt;</ept> is invalid.</source>
+          <target state="new"><bpt id="a04cd4a2-55df-417f-ba16-ff487c5e78a5">&lt;strong&gt;</bpt>Description<ept id="a04cd4a2-55df-417f-ba16-ff487c5e78a5">&lt;/strong&gt;</ept>: Cluster DNS name <bpt id="f8527a63-e623-497e-9726-289fba5eb39d">&lt;em&gt;</bpt>yourDnsName<ept id="f8527a63-e623-497e-9726-289fba5eb39d">&lt;/em&gt;</ept> is invalid.</target>
+        </trans-unit>
+        <trans-unit id="90421728-ef96-40a0-b253-1f6c9b11e11e" xml:space="preserve">
+          <source>Please ensure name starts and ends with alphanumeric and can only contain '-' special character</source>
+          <target state="new">Please ensure name starts and ends with alphanumeric and can only contain '-' special character</target>
+        </trans-unit>
+        <trans-unit id="70d190ac-bc8f-4a98-80cc-0dc6c6dac760" xml:space="preserve">
+          <source><bpt id="f4db900e-2640-497e-b5e7-05a67b2683d7">&lt;strong&gt;</bpt>Mitigation<ept id="f4db900e-2640-497e-b5e7-05a67b2683d7">&lt;/strong&gt;</ept>: Make sure that you have used a valid DNS name for your cluster that starts and ends with alphanumeric and contains no special characters other than the dash '-' and then retry the operation.</source>
+          <target state="new"><bpt id="f4db900e-2640-497e-b5e7-05a67b2683d7">&lt;strong&gt;</bpt>Mitigation<ept id="f4db900e-2640-497e-b5e7-05a67b2683d7">&lt;/strong&gt;</ept>: Make sure that you have used a valid DNS name for your cluster that starts and ends with alphanumeric and contains no special characters other than the dash '-' and then retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="fa790128-88ea-480b-933e-cc03e309ee2b" xml:space="preserve">
+          <source><bpt id="82c16d04-5fb1-43d0-848d-bdf635f9421a">&lt;strong&gt;</bpt>Description<ept id="82c16d04-5fb1-43d0-848d-bdf635f9421a">&lt;/strong&gt;</ept>: Cluster name <bpt id="2c473df1-b35d-49cc-ad8e-077616a4eb1b">&lt;em&gt;</bpt>yourClusterName<ept id="2c473df1-b35d-49cc-ad8e-077616a4eb1b">&lt;/em&gt;</ept> is unavailable.</source>
+          <target state="new"><bpt id="82c16d04-5fb1-43d0-848d-bdf635f9421a">&lt;strong&gt;</bpt>Description<ept id="82c16d04-5fb1-43d0-848d-bdf635f9421a">&lt;/strong&gt;</ept>: Cluster name <bpt id="2c473df1-b35d-49cc-ad8e-077616a4eb1b">&lt;em&gt;</bpt>yourClusterName<ept id="2c473df1-b35d-49cc-ad8e-077616a4eb1b">&lt;/em&gt;</ept> is unavailable.</target>
+        </trans-unit>
+        <trans-unit id="5aabdf9f-6a4d-4200-9779-c412d39d432f" xml:space="preserve">
+          <source>Please pick another name.</source>
+          <target state="new">Please pick another name.</target>
+        </trans-unit>
+        <trans-unit id="a5c14913-1cb5-47ee-850f-007e6aad9c26" xml:space="preserve">
+          <source><bpt id="9082e708-3d2b-4aae-92e4-f365c61d28d6">&lt;strong&gt;</bpt>Mitigation<ept id="9082e708-3d2b-4aae-92e4-f365c61d28d6">&lt;/strong&gt;</ept>: The user should specify a clustername that is unique and does not exist and retry.</source>
+          <target state="new"><bpt id="9082e708-3d2b-4aae-92e4-f365c61d28d6">&lt;strong&gt;</bpt>Mitigation<ept id="9082e708-3d2b-4aae-92e4-f365c61d28d6">&lt;/strong&gt;</ept>: The user should specify a clustername that is unique and does not exist and retry.</target>
+        </trans-unit>
+        <trans-unit id="181f3386-a80c-4f94-b1d2-5ea7575255cb" xml:space="preserve">
+          <source>If the user is using the preview portal, the UI will notify them if a cluster name is already being used during the create steps.</source>
+          <target state="new">If the user is using the preview portal, the UI will notify them if a cluster name is already being used during the create steps.</target>
+        </trans-unit>
+        <trans-unit id="233fd76d-47a5-47f7-a1d6-e8eba234da62" xml:space="preserve">
+          <source><bpt id="da475505-dcbe-4772-8a83-6601c6d2ed20">&lt;strong&gt;</bpt>Description<ept id="da475505-dcbe-4772-8a83-6601c6d2ed20">&lt;/strong&gt;</ept>: Cluster password is invalid.</source>
+          <target state="new"><bpt id="da475505-dcbe-4772-8a83-6601c6d2ed20">&lt;strong&gt;</bpt>Description<ept id="da475505-dcbe-4772-8a83-6601c6d2ed20">&lt;/strong&gt;</ept>: Cluster password is invalid.</target>
+        </trans-unit>
+        <trans-unit id="6032b4b9-0be2-408f-830d-fe879bd5d4af" xml:space="preserve">
+          <source>Password must be at least 10 characters long and must contain at least one number, uppercase letter, lowercase letter and special character with no spaces and should not contain the username as part of it.</source>
+          <target state="new">Password must be at least 10 characters long and must contain at least one number, uppercase letter, lowercase letter and special character with no spaces and should not contain the username as part of it.</target>
+        </trans-unit>
+        <trans-unit id="c04b6720-130e-4c95-9645-2e0241e478a7" xml:space="preserve">
+          <source><bpt id="6fb9bd6a-ec3a-4509-8b38-15e0aaa8be6e">&lt;strong&gt;</bpt>Mitigation<ept id="6fb9bd6a-ec3a-4509-8b38-15e0aaa8be6e">&lt;/strong&gt;</ept>: Provide a valid cluster password and retry the operation.</source>
+          <target state="new"><bpt id="6fb9bd6a-ec3a-4509-8b38-15e0aaa8be6e">&lt;strong&gt;</bpt>Mitigation<ept id="6fb9bd6a-ec3a-4509-8b38-15e0aaa8be6e">&lt;/strong&gt;</ept>: Provide a valid cluster password and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="2c3498d8-cc40-4433-9041-67e4fcac73e0" xml:space="preserve">
+          <source><bpt id="1ac5f93b-7aa5-4de7-b5fe-fe6e711e7317">&lt;strong&gt;</bpt>Description<ept id="1ac5f93b-7aa5-4de7-b5fe-fe6e711e7317">&lt;/strong&gt;</ept>: Cluster username is invalid.</source>
+          <target state="new"><bpt id="1ac5f93b-7aa5-4de7-b5fe-fe6e711e7317">&lt;strong&gt;</bpt>Description<ept id="1ac5f93b-7aa5-4de7-b5fe-fe6e711e7317">&lt;/strong&gt;</ept>: Cluster username is invalid.</target>
+        </trans-unit>
+        <trans-unit id="60faf068-8a94-43d7-a9b6-e7031e6aaf38" xml:space="preserve">
+          <source>Please ensure username doesn't contain special characters or spaces.</source>
+          <target state="new">Please ensure username doesn't contain special characters or spaces.</target>
+        </trans-unit>
+        <trans-unit id="939893d0-58f4-4187-9e94-348f43cf94b1" xml:space="preserve">
+          <source><bpt id="d6bfd763-739b-48f7-ad67-ab7da2f1f8ee">&lt;strong&gt;</bpt>Mitigation<ept id="d6bfd763-739b-48f7-ad67-ab7da2f1f8ee">&lt;/strong&gt;</ept>: Provide a valid cluster username and retry the operation.</source>
+          <target state="new"><bpt id="d6bfd763-739b-48f7-ad67-ab7da2f1f8ee">&lt;strong&gt;</bpt>Mitigation<ept id="d6bfd763-739b-48f7-ad67-ab7da2f1f8ee">&lt;/strong&gt;</ept>: Provide a valid cluster username and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="df83bd01-3bb3-4af6-a37c-e91ef190c234" xml:space="preserve">
+          <source><bpt id="79da4530-088e-41fd-98d5-418220479349">&lt;strong&gt;</bpt>Description<ept id="79da4530-088e-41fd-98d5-418220479349">&lt;/strong&gt;</ept>: Cluster DNS name <bpt id="7c769970-3cae-425b-8722-e1fbdfa283dc">&lt;em&gt;</bpt>yourDnsClusterName<ept id="7c769970-3cae-425b-8722-e1fbdfa283dc">&lt;/em&gt;</ept> is invalid.</source>
+          <target state="new"><bpt id="79da4530-088e-41fd-98d5-418220479349">&lt;strong&gt;</bpt>Description<ept id="79da4530-088e-41fd-98d5-418220479349">&lt;/strong&gt;</ept>: Cluster DNS name <bpt id="7c769970-3cae-425b-8722-e1fbdfa283dc">&lt;em&gt;</bpt>yourDnsClusterName<ept id="7c769970-3cae-425b-8722-e1fbdfa283dc">&lt;/em&gt;</ept> is invalid.</target>
+        </trans-unit>
+        <trans-unit id="8dc031a8-0128-428b-a793-944dea1f06d5" xml:space="preserve">
+          <source>Please ensure name starts and ends with alphanumeric and can only contain '-' special character</source>
+          <target state="new">Please ensure name starts and ends with alphanumeric and can only contain '-' special character</target>
+        </trans-unit>
+        <trans-unit id="4a2f880b-4c4a-4b15-80cc-764f44b38291" xml:space="preserve">
+          <source><bpt id="953814d5-bbc5-49fa-8735-271b72cb7197">&lt;strong&gt;</bpt>Mitigation<ept id="953814d5-bbc5-49fa-8735-271b72cb7197">&lt;/strong&gt;</ept>: Provide a valid DNS cluster username and retry the operation.</source>
+          <target state="new"><bpt id="953814d5-bbc5-49fa-8735-271b72cb7197">&lt;strong&gt;</bpt>Mitigation<ept id="953814d5-bbc5-49fa-8735-271b72cb7197">&lt;/strong&gt;</ept>: Provide a valid DNS cluster username and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="fb943d27-6e62-4439-910b-e750b10b7e0d" xml:space="preserve">
+          <source><bpt id="7b031f0e-9f51-4b21-8829-30b200157706">&lt;strong&gt;</bpt>Description<ept id="7b031f0e-9f51-4b21-8829-30b200157706">&lt;/strong&gt;</ept>: Container name in URI <bpt id="5d82ccd7-aee6-4c96-a40b-66a86e0969fb">&lt;em&gt;</bpt>yourcontainerURI<ept id="5d82ccd7-aee6-4c96-a40b-66a86e0969fb">&lt;/em&gt;</ept> and DNS name <bpt id="944beccc-7566-4453-bc4c-33b9124f3d79">&lt;em&gt;</bpt>yourDnsName<ept id="944beccc-7566-4453-bc4c-33b9124f3d79">&lt;/em&gt;</ept> in request body must be the same.</source>
+          <target state="new"><bpt id="7b031f0e-9f51-4b21-8829-30b200157706">&lt;strong&gt;</bpt>Description<ept id="7b031f0e-9f51-4b21-8829-30b200157706">&lt;/strong&gt;</ept>: Container name in URI <bpt id="5d82ccd7-aee6-4c96-a40b-66a86e0969fb">&lt;em&gt;</bpt>yourcontainerURI<ept id="5d82ccd7-aee6-4c96-a40b-66a86e0969fb">&lt;/em&gt;</ept> and DNS name <bpt id="944beccc-7566-4453-bc4c-33b9124f3d79">&lt;em&gt;</bpt>yourDnsName<ept id="944beccc-7566-4453-bc4c-33b9124f3d79">&lt;/em&gt;</ept> in request body must be the same.</target>
+        </trans-unit>
+        <trans-unit id="30007802-5aad-42b2-85da-ecc86426bc34" xml:space="preserve">
+          <source><bpt id="274c2b4a-4b1d-4a4d-90ef-0f57fe662c82">&lt;strong&gt;</bpt>Mitigation<ept id="274c2b4a-4b1d-4a4d-90ef-0f57fe662c82">&lt;/strong&gt;</ept>: Make sure that your container Name and your DNS name are the same and retry the operation.</source>
+          <target state="new"><bpt id="274c2b4a-4b1d-4a4d-90ef-0f57fe662c82">&lt;strong&gt;</bpt>Mitigation<ept id="274c2b4a-4b1d-4a4d-90ef-0f57fe662c82">&lt;/strong&gt;</ept>: Make sure that your container Name and your DNS name are the same and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="20a81630-9d58-4b2a-a115-2000c3aa41ab" xml:space="preserve">
+          <source><bpt id="e41690fc-66a3-4e46-a152-60fb62d18e4b">&lt;strong&gt;</bpt>Description<ept id="e41690fc-66a3-4e46-a152-60fb62d18e4b">&lt;/strong&gt;</ept>: Invalid cluster configuration.</source>
+          <target state="new"><bpt id="e41690fc-66a3-4e46-a152-60fb62d18e4b">&lt;strong&gt;</bpt>Description<ept id="e41690fc-66a3-4e46-a152-60fb62d18e4b">&lt;/strong&gt;</ept>: Invalid cluster configuration.</target>
+        </trans-unit>
+        <trans-unit id="e8341266-8bd2-4868-9e41-ff4c194e4b9f" xml:space="preserve">
+          <source>Unable to find any data node definitions in node size.</source>
+          <target state="new">Unable to find any data node definitions in node size.</target>
+        </trans-unit>
+        <trans-unit id="70441af9-f6e0-434c-a43d-bec95f3820f9" xml:space="preserve">
+          <source><bpt id="88ca69c9-dedb-456e-8bc4-bceae5c89483">&lt;strong&gt;</bpt>Mitigation<ept id="88ca69c9-dedb-456e-8bc4-bceae5c89483">&lt;/strong&gt;</ept>: Retry the operation.</source>
+          <target state="new"><bpt id="88ca69c9-dedb-456e-8bc4-bceae5c89483">&lt;strong&gt;</bpt>Mitigation<ept id="88ca69c9-dedb-456e-8bc4-bceae5c89483">&lt;/strong&gt;</ept>: Retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="23eb34a6-9751-4b01-a919-28b9e3cd0779" xml:space="preserve">
+          <source><bpt id="0ced2432-c43f-420e-bac8-928ea5f70a5d">&lt;strong&gt;</bpt>Description<ept id="0ced2432-c43f-420e-bac8-928ea5f70a5d">&lt;/strong&gt;</ept>: Deletion of deployment failed for the Cluster  </source>
+          <target state="new"><bpt id="0ced2432-c43f-420e-bac8-928ea5f70a5d">&lt;strong&gt;</bpt>Description<ept id="0ced2432-c43f-420e-bac8-928ea5f70a5d">&lt;/strong&gt;</ept>: Deletion of deployment failed for the Cluster  </target>
+        </trans-unit>
+        <trans-unit id="753348f1-ef0d-49d3-a8f6-c9fcb79585b7" xml:space="preserve">
+          <source><bpt id="949a4842-7a22-4c99-bfe6-c0020cc2f450">&lt;strong&gt;</bpt>Mitigation<ept id="949a4842-7a22-4c99-bfe6-c0020cc2f450">&lt;/strong&gt;</ept>: Retry the delete operation.</source>
+          <target state="new"><bpt id="949a4842-7a22-4c99-bfe6-c0020cc2f450">&lt;strong&gt;</bpt>Mitigation<ept id="949a4842-7a22-4c99-bfe6-c0020cc2f450">&lt;/strong&gt;</ept>: Retry the delete operation.</target>
+        </trans-unit>
+        <trans-unit id="9e37b415-a821-468a-9a7f-5fd86e34f9eb" xml:space="preserve">
+          <source><bpt id="92b7fbb6-23ae-47e1-a819-6132633f10d6">&lt;strong&gt;</bpt>Description<ept id="92b7fbb6-23ae-47e1-a819-6132633f10d6">&lt;/strong&gt;</ept>: Service configuration error.</source>
+          <target state="new"><bpt id="92b7fbb6-23ae-47e1-a819-6132633f10d6">&lt;strong&gt;</bpt>Description<ept id="92b7fbb6-23ae-47e1-a819-6132633f10d6">&lt;/strong&gt;</ept>: Service configuration error.</target>
+        </trans-unit>
+        <trans-unit id="332a8608-4d24-4504-86ba-740fd28d7eba" xml:space="preserve">
+          <source>Required DNS mapping information not found.</source>
+          <target state="new">Required DNS mapping information not found.</target>
+        </trans-unit>
+        <trans-unit id="f766be84-fae2-49cc-ad38-aa0c80dd2efa" xml:space="preserve">
+          <source><bpt id="ae26e791-bf4b-44db-82d7-6fca90844457">&lt;strong&gt;</bpt>Mitigation<ept id="ae26e791-bf4b-44db-82d7-6fca90844457">&lt;/strong&gt;</ept>: Delete cluster and create a new cluster.</source>
+          <target state="new"><bpt id="ae26e791-bf4b-44db-82d7-6fca90844457">&lt;strong&gt;</bpt>Mitigation<ept id="ae26e791-bf4b-44db-82d7-6fca90844457">&lt;/strong&gt;</ept>: Delete cluster and create a new cluster.</target>
+        </trans-unit>
+        <trans-unit id="b1ed0485-3e69-480b-993d-7f9a7372aa33" xml:space="preserve">
+          <source><bpt id="78fa36d0-d06e-4132-9f52-6e538ea5f017">&lt;strong&gt;</bpt>Description<ept id="78fa36d0-d06e-4132-9f52-6e538ea5f017">&lt;/strong&gt;</ept>: Duplicate cluster container creation attempt.</source>
+          <target state="new"><bpt id="78fa36d0-d06e-4132-9f52-6e538ea5f017">&lt;strong&gt;</bpt>Description<ept id="78fa36d0-d06e-4132-9f52-6e538ea5f017">&lt;/strong&gt;</ept>: Duplicate cluster container creation attempt.</target>
+        </trans-unit>
+        <trans-unit id="8079acc4-51d7-404d-b51d-1e58ccf74dbd" xml:space="preserve">
+          <source>Record exists for <bpt id="79c7e0cd-d375-455d-9316-ca9f9283b48e">&lt;em&gt;</bpt>nameOfYourContainer<ept id="79c7e0cd-d375-455d-9316-ca9f9283b48e">&lt;/em&gt;</ept> but Etags do not match.</source>
+          <target state="new">Record exists for <bpt id="79c7e0cd-d375-455d-9316-ca9f9283b48e">&lt;em&gt;</bpt>nameOfYourContainer<ept id="79c7e0cd-d375-455d-9316-ca9f9283b48e">&lt;/em&gt;</ept> but Etags do not match.</target>
+        </trans-unit>
+        <trans-unit id="f39c6056-fa6a-4207-8dd1-8e8674fbacab" xml:space="preserve">
+          <source><bpt id="d8ef0525-9053-4732-beb8-0c890a92f1fa">&lt;strong&gt;</bpt>Mitigation<ept id="d8ef0525-9053-4732-beb8-0c890a92f1fa">&lt;/strong&gt;</ept>: Provide a unique name for the container and retry the create operation.</source>
+          <target state="new"><bpt id="d8ef0525-9053-4732-beb8-0c890a92f1fa">&lt;strong&gt;</bpt>Mitigation<ept id="d8ef0525-9053-4732-beb8-0c890a92f1fa">&lt;/strong&gt;</ept>: Provide a unique name for the container and retry the create operation.</target>
+        </trans-unit>
+        <trans-unit id="3464b5dd-6495-4b53-9f35-e97b07ea581a" xml:space="preserve">
+          <source><bpt id="fc728ad9-8664-46c0-96e2-352b1addde09">&lt;strong&gt;</bpt>Description<ept id="fc728ad9-8664-46c0-96e2-352b1addde09">&lt;/strong&gt;</ept>: Hosted service <bpt id="64a02661-b733-4623-88d9-fd0487ce888f">&lt;em&gt;</bpt>nameOfYourHostedService<ept id="64a02661-b733-4623-88d9-fd0487ce888f">&lt;/em&gt;</ept> already contains a cluster.</source>
+          <target state="new"><bpt id="fc728ad9-8664-46c0-96e2-352b1addde09">&lt;strong&gt;</bpt>Description<ept id="fc728ad9-8664-46c0-96e2-352b1addde09">&lt;/strong&gt;</ept>: Hosted service <bpt id="64a02661-b733-4623-88d9-fd0487ce888f">&lt;em&gt;</bpt>nameOfYourHostedService<ept id="64a02661-b733-4623-88d9-fd0487ce888f">&lt;/em&gt;</ept> already contains a cluster.</target>
+        </trans-unit>
+        <trans-unit id="b2ed1c95-c55c-4eef-90ee-0c008cf8368b" xml:space="preserve">
+          <source>A hosted service cannot contain multiple clusters</source>
+          <target state="new">A hosted service cannot contain multiple clusters</target>
+        </trans-unit>
+        <trans-unit id="75fef9ac-dcd4-42d8-bf07-c104c9b0d617" xml:space="preserve">
+          <source><bpt id="fa6bfb45-5178-4ed8-9e11-2641b2c6a293">&lt;strong&gt;</bpt>Mitigation<ept id="fa6bfb45-5178-4ed8-9e11-2641b2c6a293">&lt;/strong&gt;</ept>: Host the cluster in another hosted service.</source>
+          <target state="new"><bpt id="fa6bfb45-5178-4ed8-9e11-2641b2c6a293">&lt;strong&gt;</bpt>Mitigation<ept id="fa6bfb45-5178-4ed8-9e11-2641b2c6a293">&lt;/strong&gt;</ept>: Host the cluster in another hosted service.</target>
+        </trans-unit>
+        <trans-unit id="3e9c6470-0b95-4c4a-b6e0-617e9184880c" xml:space="preserve">
+          <source><bpt id="0d2de5f1-8729-47e7-bfe2-ab30db5177ee">&lt;strong&gt;</bpt>Description<ept id="0d2de5f1-8729-47e7-bfe2-ab30db5177ee">&lt;/strong&gt;</ept>: The server could not update the state of the cluster deployment.</source>
+          <target state="new"><bpt id="0d2de5f1-8729-47e7-bfe2-ab30db5177ee">&lt;strong&gt;</bpt>Description<ept id="0d2de5f1-8729-47e7-bfe2-ab30db5177ee">&lt;/strong&gt;</ept>: The server could not update the state of the cluster deployment.</target>
+        </trans-unit>
+        <trans-unit id="8e6d7fa9-f223-49df-ac44-ec00e11daeff" xml:space="preserve">
+          <source><bpt id="69e7568b-925c-4e5e-a948-b125d70a517c">&lt;strong&gt;</bpt>Mitigation<ept id="69e7568b-925c-4e5e-a948-b125d70a517c">&lt;/strong&gt;</ept>: Retry the operation.</source>
+          <target state="new"><bpt id="69e7568b-925c-4e5e-a948-b125d70a517c">&lt;strong&gt;</bpt>Mitigation<ept id="69e7568b-925c-4e5e-a948-b125d70a517c">&lt;/strong&gt;</ept>: Retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="88a58958-7f67-4256-aee1-053261ecb0bf" xml:space="preserve">
+          <source>If this happens multiple times, contact CSS.</source>
+          <target state="new">If this happens multiple times, contact CSS.</target>
+        </trans-unit>
+        <trans-unit id="40f67d13-32f5-4c63-b6fe-f59899515b19" xml:space="preserve">
+          <source><bpt id="da78b993-1cbd-464d-b8d7-800904ca6f27">&lt;strong&gt;</bpt>Description<ept id="da78b993-1cbd-464d-b8d7-800904ca6f27">&lt;/strong&gt;</ept>: Cluster <bpt id="06f7db3f-6c23-4f23-b032-cd76940c5bce">&lt;em&gt;</bpt>yourClusterName<ept id="06f7db3f-6c23-4f23-b032-cd76940c5bce">&lt;/em&gt;</ept> was deleted as part of maintenance.</source>
+          <target state="new"><bpt id="da78b993-1cbd-464d-b8d7-800904ca6f27">&lt;strong&gt;</bpt>Description<ept id="da78b993-1cbd-464d-b8d7-800904ca6f27">&lt;/strong&gt;</ept>: Cluster <bpt id="06f7db3f-6c23-4f23-b032-cd76940c5bce">&lt;em&gt;</bpt>yourClusterName<ept id="06f7db3f-6c23-4f23-b032-cd76940c5bce">&lt;/em&gt;</ept> was deleted as part of maintenance.</target>
+        </trans-unit>
+        <trans-unit id="e9cde590-026a-4ae9-b57b-d9852c00aa81" xml:space="preserve">
+          <source>Please recreate the cluster.</source>
+          <target state="new">Please recreate the cluster.</target>
+        </trans-unit>
+        <trans-unit id="771bbf7d-6bda-4209-b99c-bb4018a6d9d4" xml:space="preserve">
+          <source><bpt id="2e176ad4-e47b-492a-9dcd-e59c96455a05">&lt;strong&gt;</bpt>Mitigation<ept id="2e176ad4-e47b-492a-9dcd-e59c96455a05">&lt;/strong&gt;</ept>: Recreate the cluster.</source>
+          <target state="new"><bpt id="2e176ad4-e47b-492a-9dcd-e59c96455a05">&lt;strong&gt;</bpt>Mitigation<ept id="2e176ad4-e47b-492a-9dcd-e59c96455a05">&lt;/strong&gt;</ept>: Recreate the cluster.</target>
+        </trans-unit>
+        <trans-unit id="1fbb5936-68c6-4052-8efb-6fae04180801" xml:space="preserve">
+          <source><bpt id="83d004b3-aa74-49cf-97a4-91e7d8a200b3">&lt;strong&gt;</bpt>Description<ept id="83d004b3-aa74-49cf-97a4-91e7d8a200b3">&lt;/strong&gt;</ept>: Invalid cluster configuration.</source>
+          <target state="new"><bpt id="83d004b3-aa74-49cf-97a4-91e7d8a200b3">&lt;strong&gt;</bpt>Description<ept id="83d004b3-aa74-49cf-97a4-91e7d8a200b3">&lt;/strong&gt;</ept>: Invalid cluster configuration.</target>
+        </trans-unit>
+        <trans-unit id="ab042e16-8d90-4a2c-bdc9-95791380622d" xml:space="preserve">
+          <source>Required head node configuration not found in node sizes.</source>
+          <target state="new">Required head node configuration not found in node sizes.</target>
+        </trans-unit>
+        <trans-unit id="dc4af715-e72f-4e93-bdfe-897ca2b5ff0c" xml:space="preserve">
+          <source><bpt id="430095b6-e076-4bc8-b8bf-c5abf3208fd4">&lt;strong&gt;</bpt>Mitigation<ept id="430095b6-e076-4bc8-b8bf-c5abf3208fd4">&lt;/strong&gt;</ept>: Retry the operation.</source>
+          <target state="new"><bpt id="430095b6-e076-4bc8-b8bf-c5abf3208fd4">&lt;strong&gt;</bpt>Mitigation<ept id="430095b6-e076-4bc8-b8bf-c5abf3208fd4">&lt;/strong&gt;</ept>: Retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="593e2d88-6b51-4d47-87bb-35bd809d2381" xml:space="preserve">
+          <source><bpt id="0d4b35bc-6da7-431a-8e45-185419334ec0">&lt;strong&gt;</bpt>Description<ept id="0d4b35bc-6da7-431a-8e45-185419334ec0">&lt;/strong&gt;</ept>: Unable to create hosted service <bpt id="82f55b77-e8e6-425d-93b1-7414f2fedb07">&lt;em&gt;</bpt>nameOfYourHostedService<ept id="82f55b77-e8e6-425d-93b1-7414f2fedb07">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="0d4b35bc-6da7-431a-8e45-185419334ec0">&lt;strong&gt;</bpt>Description<ept id="0d4b35bc-6da7-431a-8e45-185419334ec0">&lt;/strong&gt;</ept>: Unable to create hosted service <bpt id="82f55b77-e8e6-425d-93b1-7414f2fedb07">&lt;em&gt;</bpt>nameOfYourHostedService<ept id="82f55b77-e8e6-425d-93b1-7414f2fedb07">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ccaff5d8-e81c-41d4-a62b-5f223787c3ac" xml:space="preserve">
+          <source>Please retry request.</source>
+          <target state="new">Please retry request.</target>
+        </trans-unit>
+        <trans-unit id="374c0cf6-30ec-4dc9-910a-f8ab68aff519" xml:space="preserve">
+          <source><bpt id="c9a5e189-50f8-4dfe-9b1b-1c9501b2e8c6">&lt;strong&gt;</bpt>Mitigation<ept id="c9a5e189-50f8-4dfe-9b1b-1c9501b2e8c6">&lt;/strong&gt;</ept>: Retry the request.</source>
+          <target state="new"><bpt id="c9a5e189-50f8-4dfe-9b1b-1c9501b2e8c6">&lt;strong&gt;</bpt>Mitigation<ept id="c9a5e189-50f8-4dfe-9b1b-1c9501b2e8c6">&lt;/strong&gt;</ept>: Retry the request.</target>
+        </trans-unit>
+        <trans-unit id="835ea02f-f164-4e97-bffe-d9de26bbcb9f" xml:space="preserve">
+          <source><bpt id="6070531f-3aed-43ec-b6a5-b242d379bbc9">&lt;strong&gt;</bpt>Description<ept id="6070531f-3aed-43ec-b6a5-b242d379bbc9">&lt;/strong&gt;</ept>: Hosted Service <bpt id="2e496597-a9ff-42ee-a620-797392e7fefe">&lt;em&gt;</bpt>nameOfYourHostedService<ept id="2e496597-a9ff-42ee-a620-797392e7fefe">&lt;/em&gt;</ept> already has a production deployment.</source>
+          <target state="new"><bpt id="6070531f-3aed-43ec-b6a5-b242d379bbc9">&lt;strong&gt;</bpt>Description<ept id="6070531f-3aed-43ec-b6a5-b242d379bbc9">&lt;/strong&gt;</ept>: Hosted Service <bpt id="2e496597-a9ff-42ee-a620-797392e7fefe">&lt;em&gt;</bpt>nameOfYourHostedService<ept id="2e496597-a9ff-42ee-a620-797392e7fefe">&lt;/em&gt;</ept> already has a production deployment.</target>
+        </trans-unit>
+        <trans-unit id="b9475e62-0871-495d-bcba-20e71ca88940" xml:space="preserve">
+          <source>A hosted service cannot contain multiple production deployments.</source>
+          <target state="new">A hosted service cannot contain multiple production deployments.</target>
+        </trans-unit>
+        <trans-unit id="0515ebf4-080f-49dd-aa9b-1a6f9a6beb14" xml:space="preserve">
+          <source>Retry the request with a different cluster name.</source>
+          <target state="new">Retry the request with a different cluster name.</target>
+        </trans-unit>
+        <trans-unit id="308a8fcf-36ad-47ff-a3d6-6e3d5110ca41" xml:space="preserve">
+          <source><bpt id="4aa1429d-f33f-4438-9495-55258af6c4de">&lt;strong&gt;</bpt>Mitigation<ept id="4aa1429d-f33f-4438-9495-55258af6c4de">&lt;/strong&gt;</ept>: Use a different cluster name and retry the request.</source>
+          <target state="new"><bpt id="4aa1429d-f33f-4438-9495-55258af6c4de">&lt;strong&gt;</bpt>Mitigation<ept id="4aa1429d-f33f-4438-9495-55258af6c4de">&lt;/strong&gt;</ept>: Use a different cluster name and retry the request.</target>
+        </trans-unit>
+        <trans-unit id="bd70822b-e998-43b7-828c-9f2a11b2e715" xml:space="preserve">
+          <source><bpt id="2c897daf-a68b-4e62-8e30-377bbb596fb4">&lt;strong&gt;</bpt>Description<ept id="2c897daf-a68b-4e62-8e30-377bbb596fb4">&lt;/strong&gt;</ept>: Hosted Service <bpt id="731793ca-892b-44ec-9b28-d5e62139932a">&lt;em&gt;</bpt>nameOfYourHostedService<ept id="731793ca-892b-44ec-9b28-d5e62139932a">&lt;/em&gt;</ept> for the cluster could not be found.</source>
+          <target state="new"><bpt id="2c897daf-a68b-4e62-8e30-377bbb596fb4">&lt;strong&gt;</bpt>Description<ept id="2c897daf-a68b-4e62-8e30-377bbb596fb4">&lt;/strong&gt;</ept>: Hosted Service <bpt id="731793ca-892b-44ec-9b28-d5e62139932a">&lt;em&gt;</bpt>nameOfYourHostedService<ept id="731793ca-892b-44ec-9b28-d5e62139932a">&lt;/em&gt;</ept> for the cluster could not be found.</target>
+        </trans-unit>
+        <trans-unit id="5df88c80-d002-485b-9b6b-c5dde47ca959" xml:space="preserve">
+          <source><bpt id="7d725f00-37ee-4ede-8cf6-e7cf93c6934a">&lt;strong&gt;</bpt>Mitigation<ept id="7d725f00-37ee-4ede-8cf6-e7cf93c6934a">&lt;/strong&gt;</ept>: If the cluster is in error state, delete it and then try again.</source>
+          <target state="new"><bpt id="7d725f00-37ee-4ede-8cf6-e7cf93c6934a">&lt;strong&gt;</bpt>Mitigation<ept id="7d725f00-37ee-4ede-8cf6-e7cf93c6934a">&lt;/strong&gt;</ept>: If the cluster is in error state, delete it and then try again.</target>
+        </trans-unit>
+        <trans-unit id="b2721cfd-33f8-46b4-8342-2180dc1f8747" xml:space="preserve">
+          <source><bpt id="65273edb-3aa3-443f-8189-c4ed2b3d3b4b">&lt;strong&gt;</bpt>Description<ept id="65273edb-3aa3-443f-8189-c4ed2b3d3b4b">&lt;/strong&gt;</ept>: Hosted Service <bpt id="c92c8495-0c70-4eb4-984b-cee735f1c58c">&lt;em&gt;</bpt>nameOfYourHostedService<ept id="c92c8495-0c70-4eb4-984b-cee735f1c58c">&lt;/em&gt;</ept> has no associated deployment.</source>
+          <target state="new"><bpt id="65273edb-3aa3-443f-8189-c4ed2b3d3b4b">&lt;strong&gt;</bpt>Description<ept id="65273edb-3aa3-443f-8189-c4ed2b3d3b4b">&lt;/strong&gt;</ept>: Hosted Service <bpt id="c92c8495-0c70-4eb4-984b-cee735f1c58c">&lt;em&gt;</bpt>nameOfYourHostedService<ept id="c92c8495-0c70-4eb4-984b-cee735f1c58c">&lt;/em&gt;</ept> has no associated deployment.</target>
+        </trans-unit>
+        <trans-unit id="da154277-8966-40a1-8ac4-463486a3707e" xml:space="preserve">
+          <source><bpt id="11f36e46-f737-445a-89f2-f62a4b6c862d">&lt;strong&gt;</bpt>Mitigation<ept id="11f36e46-f737-445a-89f2-f62a4b6c862d">&lt;/strong&gt;</ept>: If the cluster is in error state, delete it and then try again.</source>
+          <target state="new"><bpt id="11f36e46-f737-445a-89f2-f62a4b6c862d">&lt;strong&gt;</bpt>Mitigation<ept id="11f36e46-f737-445a-89f2-f62a4b6c862d">&lt;/strong&gt;</ept>: If the cluster is in error state, delete it and then try again.</target>
+        </trans-unit>
+        <trans-unit id="49504c92-be7a-424c-8ef0-db7aa0fef191" xml:space="preserve">
+          <source><bpt id="90dcecc3-46f3-412f-9fb4-0066712311f2">&lt;strong&gt;</bpt>Description<ept id="90dcecc3-46f3-412f-9fb4-0066712311f2">&lt;/strong&gt;</ept>: The SubscriptionId <bpt id="0f18f793-90d7-4ad9-a152-ede7a4626e49">&lt;em&gt;</bpt>yourSubscriptionId<ept id="0f18f793-90d7-4ad9-a152-ede7a4626e49">&lt;/em&gt;</ept> does not have cores left to create cluster <bpt id="8667a44e-4a63-45f3-8312-eb2302818dce">&lt;em&gt;</bpt>yourClusterName<ept id="8667a44e-4a63-45f3-8312-eb2302818dce">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="90dcecc3-46f3-412f-9fb4-0066712311f2">&lt;strong&gt;</bpt>Description<ept id="90dcecc3-46f3-412f-9fb4-0066712311f2">&lt;/strong&gt;</ept>: The SubscriptionId <bpt id="0f18f793-90d7-4ad9-a152-ede7a4626e49">&lt;em&gt;</bpt>yourSubscriptionId<ept id="0f18f793-90d7-4ad9-a152-ede7a4626e49">&lt;/em&gt;</ept> does not have cores left to create cluster <bpt id="8667a44e-4a63-45f3-8312-eb2302818dce">&lt;em&gt;</bpt>yourClusterName<ept id="8667a44e-4a63-45f3-8312-eb2302818dce">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea6c2650-cda7-4cd6-bf71-d6ab9460fcab" xml:space="preserve">
+          <source>Required: <bpt id="0779ea0e-861e-47b6-ad0f-73550a5f67fd">&lt;em&gt;</bpt>resourcesRequired<ept id="0779ea0e-861e-47b6-ad0f-73550a5f67fd">&lt;/em&gt;</ept>, Available: <bpt id="0cca3eca-f50e-490c-a01a-4b132789f2c5">&lt;em&gt;</bpt>resourcesAvailable<ept id="0cca3eca-f50e-490c-a01a-4b132789f2c5">&lt;/em&gt;</ept>.</source>
+          <target state="new">Required: <bpt id="0779ea0e-861e-47b6-ad0f-73550a5f67fd">&lt;em&gt;</bpt>resourcesRequired<ept id="0779ea0e-861e-47b6-ad0f-73550a5f67fd">&lt;/em&gt;</ept>, Available: <bpt id="0cca3eca-f50e-490c-a01a-4b132789f2c5">&lt;em&gt;</bpt>resourcesAvailable<ept id="0cca3eca-f50e-490c-a01a-4b132789f2c5">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e30a2c7d-e78a-49de-96e7-67b24460fbc1" xml:space="preserve">
+          <source><bpt id="87c8668f-e64e-4a94-ae66-1a48d3978bcb">&lt;strong&gt;</bpt>Mitigation<ept id="87c8668f-e64e-4a94-ae66-1a48d3978bcb">&lt;/strong&gt;</ept>: Free up resources in your subscription or increase the resources available to the subscription and try to create the cluster again.</source>
+          <target state="new"><bpt id="87c8668f-e64e-4a94-ae66-1a48d3978bcb">&lt;strong&gt;</bpt>Mitigation<ept id="87c8668f-e64e-4a94-ae66-1a48d3978bcb">&lt;/strong&gt;</ept>: Free up resources in your subscription or increase the resources available to the subscription and try to create the cluster again.</target>
+        </trans-unit>
+        <trans-unit id="7b4608cb-962a-4b51-88bc-6d529330aeb9" xml:space="preserve">
+          <source><bpt id="1a05f6ef-5772-4742-84e9-4c8aa2d06a05">&lt;strong&gt;</bpt>Description<ept id="1a05f6ef-5772-4742-84e9-4c8aa2d06a05">&lt;/strong&gt;</ept>: Subscription ID <bpt id="643beece-d8dc-439c-a6fd-5e509c0bd21d">&lt;em&gt;</bpt>yourSubscriptionId<ept id="643beece-d8dc-439c-a6fd-5e509c0bd21d">&lt;/em&gt;</ept> does not have quota for a new HostedService to create cluster <bpt id="74a3d7a3-5988-43a4-b450-589d80fd8eb2">&lt;em&gt;</bpt>yourClusterName<ept id="74a3d7a3-5988-43a4-b450-589d80fd8eb2">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="1a05f6ef-5772-4742-84e9-4c8aa2d06a05">&lt;strong&gt;</bpt>Description<ept id="1a05f6ef-5772-4742-84e9-4c8aa2d06a05">&lt;/strong&gt;</ept>: Subscription ID <bpt id="643beece-d8dc-439c-a6fd-5e509c0bd21d">&lt;em&gt;</bpt>yourSubscriptionId<ept id="643beece-d8dc-439c-a6fd-5e509c0bd21d">&lt;/em&gt;</ept> does not have quota for a new HostedService to create cluster <bpt id="74a3d7a3-5988-43a4-b450-589d80fd8eb2">&lt;em&gt;</bpt>yourClusterName<ept id="74a3d7a3-5988-43a4-b450-589d80fd8eb2">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86c7e6d8-f723-464e-aa0b-3c2bd65349da" xml:space="preserve">
+          <source><bpt id="faf362e5-4c7a-425e-a490-8dbc0960aec6">&lt;strong&gt;</bpt>Mitigation<ept id="faf362e5-4c7a-425e-a490-8dbc0960aec6">&lt;/strong&gt;</ept>: Free up resources in your subscription or increase the resources available to the subscription and try to create the cluster again.</source>
+          <target state="new"><bpt id="faf362e5-4c7a-425e-a490-8dbc0960aec6">&lt;strong&gt;</bpt>Mitigation<ept id="faf362e5-4c7a-425e-a490-8dbc0960aec6">&lt;/strong&gt;</ept>: Free up resources in your subscription or increase the resources available to the subscription and try to create the cluster again.</target>
+        </trans-unit>
+        <trans-unit id="c2ae300c-3fa2-4ea6-a052-903c84120e52" xml:space="preserve">
+          <source><bpt id="984f72d1-c04c-4207-b133-6015fad5b840">&lt;strong&gt;</bpt>Description<ept id="984f72d1-c04c-4207-b133-6015fad5b840">&lt;/strong&gt;</ept>: The server encountered an internal error.</source>
+          <target state="new"><bpt id="984f72d1-c04c-4207-b133-6015fad5b840">&lt;strong&gt;</bpt>Description<ept id="984f72d1-c04c-4207-b133-6015fad5b840">&lt;/strong&gt;</ept>: The server encountered an internal error.</target>
+        </trans-unit>
+        <trans-unit id="f23e700f-1d78-4902-b7b2-b4f5d1c5d4ee" xml:space="preserve">
+          <source>Please retry request.</source>
+          <target state="new">Please retry request.</target>
+        </trans-unit>
+        <trans-unit id="e2ad5b36-3048-481f-9a85-c8ef7a727699" xml:space="preserve">
+          <source><bpt id="f5c62fb4-5202-4275-9fff-ff9f37f1a41d">&lt;strong&gt;</bpt>Mitigation<ept id="f5c62fb4-5202-4275-9fff-ff9f37f1a41d">&lt;/strong&gt;</ept>: Retry the request.</source>
+          <target state="new"><bpt id="f5c62fb4-5202-4275-9fff-ff9f37f1a41d">&lt;strong&gt;</bpt>Mitigation<ept id="f5c62fb4-5202-4275-9fff-ff9f37f1a41d">&lt;/strong&gt;</ept>: Retry the request.</target>
+        </trans-unit>
+        <trans-unit id="1069880c-36a1-45e1-8f1f-a9e43eb6131b" xml:space="preserve">
+          <source><bpt id="b183cb1a-7f30-4a6d-a315-79deda943528">&lt;strong&gt;</bpt>Description<ept id="b183cb1a-7f30-4a6d-a315-79deda943528">&lt;/strong&gt;</ept>: Azure Storage location <bpt id="9b6409b8-8456-4220-8318-baec08e54c03">&lt;em&gt;</bpt>dataRegionName<ept id="9b6409b8-8456-4220-8318-baec08e54c03">&lt;/em&gt;</ept> is not a valid location.</source>
+          <target state="new"><bpt id="b183cb1a-7f30-4a6d-a315-79deda943528">&lt;strong&gt;</bpt>Description<ept id="b183cb1a-7f30-4a6d-a315-79deda943528">&lt;/strong&gt;</ept>: Azure Storage location <bpt id="9b6409b8-8456-4220-8318-baec08e54c03">&lt;em&gt;</bpt>dataRegionName<ept id="9b6409b8-8456-4220-8318-baec08e54c03">&lt;/em&gt;</ept> is not a valid location.</target>
+        </trans-unit>
+        <trans-unit id="f932253f-dc38-4909-9574-5e3f91ae665b" xml:space="preserve">
+          <source>Make sure the region is correct and retry request.</source>
+          <target state="new">Make sure the region is correct and retry request.</target>
+        </trans-unit>
+        <trans-unit id="60e77688-24c8-4015-81d5-14719cb5ced4" xml:space="preserve">
+          <source><bpt id="d24795dc-416f-4218-b11b-779f94b5e84e">&lt;strong&gt;</bpt>Mitigation<ept id="d24795dc-416f-4218-b11b-779f94b5e84e">&lt;/strong&gt;</ept>: Select a Storage location that supports HDInsight, check that your cluster is co-located and retry the operation.</source>
+          <target state="new"><bpt id="d24795dc-416f-4218-b11b-779f94b5e84e">&lt;strong&gt;</bpt>Mitigation<ept id="d24795dc-416f-4218-b11b-779f94b5e84e">&lt;/strong&gt;</ept>: Select a Storage location that supports HDInsight, check that your cluster is co-located and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="f47879e9-fc1e-406b-b9a0-32d205e5b0aa" xml:space="preserve">
+          <source><bpt id="6aa9eb7b-050a-489d-a3dc-150457b16187">&lt;strong&gt;</bpt>Description<ept id="6aa9eb7b-050a-489d-a3dc-150457b16187">&lt;/strong&gt;</ept>: Invalid VM size for data nodes.</source>
+          <target state="new"><bpt id="6aa9eb7b-050a-489d-a3dc-150457b16187">&lt;strong&gt;</bpt>Description<ept id="6aa9eb7b-050a-489d-a3dc-150457b16187">&lt;/strong&gt;</ept>: Invalid VM size for data nodes.</target>
+        </trans-unit>
+        <trans-unit id="6c692fe5-ce0a-4b03-bf4d-ce9b18e05e81" xml:space="preserve">
+          <source>Only 'Large VM' size is supported for all data nodes.</source>
+          <target state="new">Only 'Large VM' size is supported for all data nodes.</target>
+        </trans-unit>
+        <trans-unit id="a782310c-ce2c-40fd-b8e8-3d46105e2a6e" xml:space="preserve">
+          <source><bpt id="0e4120cb-d607-4f26-b135-a6af4c5ce0b1">&lt;strong&gt;</bpt>Mitigation<ept id="0e4120cb-d607-4f26-b135-a6af4c5ce0b1">&lt;/strong&gt;</ept>: Specify the supported node size for the data node and retry the operation.</source>
+          <target state="new"><bpt id="0e4120cb-d607-4f26-b135-a6af4c5ce0b1">&lt;strong&gt;</bpt>Mitigation<ept id="0e4120cb-d607-4f26-b135-a6af4c5ce0b1">&lt;/strong&gt;</ept>: Specify the supported node size for the data node and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="4f6ba7d4-7dea-4f50-8a92-c3b99469035f" xml:space="preserve">
+          <source><bpt id="45839501-4d9a-4f8c-8170-257704e504fd">&lt;strong&gt;</bpt>Description<ept id="45839501-4d9a-4f8c-8170-257704e504fd">&lt;/strong&gt;</ept>: Invalid VM size for head node.</source>
+          <target state="new"><bpt id="45839501-4d9a-4f8c-8170-257704e504fd">&lt;strong&gt;</bpt>Description<ept id="45839501-4d9a-4f8c-8170-257704e504fd">&lt;/strong&gt;</ept>: Invalid VM size for head node.</target>
+        </trans-unit>
+        <trans-unit id="55d24b5f-59da-427a-8826-e37e990d26f4" xml:space="preserve">
+          <source>Only 'ExtraLarge VM' size is supported for head node.</source>
+          <target state="new">Only 'ExtraLarge VM' size is supported for head node.</target>
+        </trans-unit>
+        <trans-unit id="d9046a66-9a62-4e25-ac51-723977952c5a" xml:space="preserve">
+          <source><bpt id="21ce841d-c7f5-4d70-8b64-5ea5d67de80b">&lt;strong&gt;</bpt>Mitigation<ept id="21ce841d-c7f5-4d70-8b64-5ea5d67de80b">&lt;/strong&gt;</ept>: Specify the supported node size for the head node and retry the operation</source>
+          <target state="new"><bpt id="21ce841d-c7f5-4d70-8b64-5ea5d67de80b">&lt;strong&gt;</bpt>Mitigation<ept id="21ce841d-c7f5-4d70-8b64-5ea5d67de80b">&lt;/strong&gt;</ept>: Specify the supported node size for the head node and retry the operation</target>
+        </trans-unit>
+        <trans-unit id="e8646510-bc4e-4d36-b8d7-2cc4b120aa47" xml:space="preserve">
+          <source><bpt id="c7f89fc7-b99d-441b-9fc1-31803840eaed">&lt;strong&gt;</bpt>Description<ept id="c7f89fc7-b99d-441b-9fc1-31803840eaed">&lt;/strong&gt;</ept>: Subscription ID <bpt id="7a4f380b-ad96-4f4b-8139-13d82e61bd03">&lt;em&gt;</bpt>yourSubscriptionId<ept id="7a4f380b-ad96-4f4b-8139-13d82e61bd03">&lt;/em&gt;</ept> being used does not have sufficient permissions to execute delete operation for cluster <bpt id="461184d8-4b7e-4d05-a943-879ca8e661b5">&lt;em&gt;</bpt>yourClusterName<ept id="461184d8-4b7e-4d05-a943-879ca8e661b5">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="c7f89fc7-b99d-441b-9fc1-31803840eaed">&lt;strong&gt;</bpt>Description<ept id="c7f89fc7-b99d-441b-9fc1-31803840eaed">&lt;/strong&gt;</ept>: Subscription ID <bpt id="7a4f380b-ad96-4f4b-8139-13d82e61bd03">&lt;em&gt;</bpt>yourSubscriptionId<ept id="7a4f380b-ad96-4f4b-8139-13d82e61bd03">&lt;/em&gt;</ept> being used does not have sufficient permissions to execute delete operation for cluster <bpt id="461184d8-4b7e-4d05-a943-879ca8e661b5">&lt;em&gt;</bpt>yourClusterName<ept id="461184d8-4b7e-4d05-a943-879ca8e661b5">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d844f644-56ef-4214-a48d-2c74fbc34012" xml:space="preserve">
+          <source><bpt id="01bab3cc-efae-494f-b3ad-472b9ba7e745">&lt;strong&gt;</bpt>Mitigation<ept id="01bab3cc-efae-494f-b3ad-472b9ba7e745">&lt;/strong&gt;</ept>: If the cluster is in error state, drop it and then try again.</source>
+          <target state="new"><bpt id="01bab3cc-efae-494f-b3ad-472b9ba7e745">&lt;strong&gt;</bpt>Mitigation<ept id="01bab3cc-efae-494f-b3ad-472b9ba7e745">&lt;/strong&gt;</ept>: If the cluster is in error state, drop it and then try again.</target>
+        </trans-unit>
+        <trans-unit id="8e13edce-9a73-4a8f-a72b-62985f99303c" xml:space="preserve">
+          <source><bpt id="120b3ceb-eb0e-4f80-9e53-990f7b8b43f2">&lt;strong&gt;</bpt>Description<ept id="120b3ceb-eb0e-4f80-9e53-990f7b8b43f2">&lt;/strong&gt;</ept>: External storage account blob container name <bpt id="4056e4d1-5496-467d-bbce-e3fe1b4bad2f">&lt;em&gt;</bpt>yourContainerName<ept id="4056e4d1-5496-467d-bbce-e3fe1b4bad2f">&lt;/em&gt;</ept> is invalid.</source>
+          <target state="new"><bpt id="120b3ceb-eb0e-4f80-9e53-990f7b8b43f2">&lt;strong&gt;</bpt>Description<ept id="120b3ceb-eb0e-4f80-9e53-990f7b8b43f2">&lt;/strong&gt;</ept>: External storage account blob container name <bpt id="4056e4d1-5496-467d-bbce-e3fe1b4bad2f">&lt;em&gt;</bpt>yourContainerName<ept id="4056e4d1-5496-467d-bbce-e3fe1b4bad2f">&lt;/em&gt;</ept> is invalid.</target>
+        </trans-unit>
+        <trans-unit id="10dc7677-c3ef-4d1c-98e1-4051caca3a27" xml:space="preserve">
+          <source>Make sure name starts with a letter and contains only lowercase letters, numbers and dash.</source>
+          <target state="new">Make sure name starts with a letter and contains only lowercase letters, numbers and dash.</target>
+        </trans-unit>
+        <trans-unit id="c215d12a-7445-4d44-8274-2dbce2251ac1" xml:space="preserve">
+          <source><bpt id="83a08575-3c76-4119-af43-2d788025553e">&lt;strong&gt;</bpt>Mitigation<ept id="83a08575-3c76-4119-af43-2d788025553e">&lt;/strong&gt;</ept>: Specify a valid storage account blob container name and retry the operation.</source>
+          <target state="new"><bpt id="83a08575-3c76-4119-af43-2d788025553e">&lt;strong&gt;</bpt>Mitigation<ept id="83a08575-3c76-4119-af43-2d788025553e">&lt;/strong&gt;</ept>: Specify a valid storage account blob container name and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="61f8bca9-6162-4dbf-8e60-e07dfc66649a" xml:space="preserve">
+          <source><bpt id="6746da76-ce95-4e43-bbb4-b83e1cefb862">&lt;strong&gt;</bpt>Description<ept id="6746da76-ce95-4e43-bbb4-b83e1cefb862">&lt;/strong&gt;</ept>: Configuration for external storage account <bpt id="bcb2303e-5431-4dd8-a7ef-761a16961352">&lt;em&gt;</bpt>yourStorageAccountName<ept id="bcb2303e-5431-4dd8-a7ef-761a16961352">&lt;/em&gt;</ept> is required to have secret key details to be set.</source>
+          <target state="new"><bpt id="6746da76-ce95-4e43-bbb4-b83e1cefb862">&lt;strong&gt;</bpt>Description<ept id="6746da76-ce95-4e43-bbb4-b83e1cefb862">&lt;/strong&gt;</ept>: Configuration for external storage account <bpt id="bcb2303e-5431-4dd8-a7ef-761a16961352">&lt;em&gt;</bpt>yourStorageAccountName<ept id="bcb2303e-5431-4dd8-a7ef-761a16961352">&lt;/em&gt;</ept> is required to have secret key details to be set.</target>
+        </trans-unit>
+        <trans-unit id="390c0c65-6d3c-4c39-ba38-4c0d8e4a1393" xml:space="preserve">
+          <source><bpt id="7a58871a-86fd-4dc0-a18f-32b54cce5c9c">&lt;strong&gt;</bpt>Mitigation<ept id="7a58871a-86fd-4dc0-a18f-32b54cce5c9c">&lt;/strong&gt;</ept>: Specify a valid secret key for the storage account and retry the operation.</source>
+          <target state="new"><bpt id="7a58871a-86fd-4dc0-a18f-32b54cce5c9c">&lt;strong&gt;</bpt>Mitigation<ept id="7a58871a-86fd-4dc0-a18f-32b54cce5c9c">&lt;/strong&gt;</ept>: Specify a valid secret key for the storage account and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="0a7a8e83-34f7-4e2b-99ec-6e78e3e65184" xml:space="preserve">
+          <source><bpt id="4408ae29-9425-41d0-b7bf-f6ac797262db">&lt;strong&gt;</bpt>Description<ept id="4408ae29-9425-41d0-b7bf-f6ac797262db">&lt;/strong&gt;</ept>: Version header <bpt id="51e87ed1-8210-4e26-8c91-94170b901888">&lt;em&gt;</bpt>yourVersionHeader<ept id="51e87ed1-8210-4e26-8c91-94170b901888">&lt;/em&gt;</ept> is not in valid format of yyyy-mm-dd.</source>
+          <target state="new"><bpt id="4408ae29-9425-41d0-b7bf-f6ac797262db">&lt;strong&gt;</bpt>Description<ept id="4408ae29-9425-41d0-b7bf-f6ac797262db">&lt;/strong&gt;</ept>: Version header <bpt id="51e87ed1-8210-4e26-8c91-94170b901888">&lt;em&gt;</bpt>yourVersionHeader<ept id="51e87ed1-8210-4e26-8c91-94170b901888">&lt;/em&gt;</ept> is not in valid format of yyyy-mm-dd.</target>
+        </trans-unit>
+        <trans-unit id="6c65a6fa-b89d-4811-9b59-cc58c93b261c" xml:space="preserve">
+          <source><bpt id="01277a98-e58b-4f9d-950d-04876c22cfce">&lt;strong&gt;</bpt>Mitigation<ept id="01277a98-e58b-4f9d-950d-04876c22cfce">&lt;/strong&gt;</ept>: Specify a valid format for the version-header and retry the request.</source>
+          <target state="new"><bpt id="01277a98-e58b-4f9d-950d-04876c22cfce">&lt;strong&gt;</bpt>Mitigation<ept id="01277a98-e58b-4f9d-950d-04876c22cfce">&lt;/strong&gt;</ept>: Specify a valid format for the version-header and retry the request.</target>
+        </trans-unit>
+        <trans-unit id="1d3132d5-f53f-40ec-bcc0-66f5c0ee0b2e" xml:space="preserve">
+          <source><bpt id="5c789591-e9dd-4d3c-b65b-e7667d72eeba">&lt;strong&gt;</bpt>Description<ept id="5c789591-e9dd-4d3c-b65b-e7667d72eeba">&lt;/strong&gt;</ept>: Invalid cluster configuration.</source>
+          <target state="new"><bpt id="5c789591-e9dd-4d3c-b65b-e7667d72eeba">&lt;strong&gt;</bpt>Description<ept id="5c789591-e9dd-4d3c-b65b-e7667d72eeba">&lt;/strong&gt;</ept>: Invalid cluster configuration.</target>
+        </trans-unit>
+        <trans-unit id="e76b9263-8fa8-4b5f-99ba-fad4a0352e25" xml:space="preserve">
+          <source>Found more than one head node configuration.</source>
+          <target state="new">Found more than one head node configuration.</target>
+        </trans-unit>
+        <trans-unit id="5d505e2a-6592-4b85-a1eb-5be8a7b5310a" xml:space="preserve">
+          <source><bpt id="8db4df49-b800-4414-9665-76557984feef">&lt;strong&gt;</bpt>Mitigation<ept id="8db4df49-b800-4414-9665-76557984feef">&lt;/strong&gt;</ept>: Edit the configuration so that onloy one head node is specified.</source>
+          <target state="new"><bpt id="8db4df49-b800-4414-9665-76557984feef">&lt;strong&gt;</bpt>Mitigation<ept id="8db4df49-b800-4414-9665-76557984feef">&lt;/strong&gt;</ept>: Edit the configuration so that onloy one head node is specified.</target>
+        </trans-unit>
+        <trans-unit id="1f70a42b-8777-4f96-9527-ac71e36812bb" xml:space="preserve">
+          <source><bpt id="b5bc0aa0-f1be-4c9f-823e-52d4474ab28b">&lt;strong&gt;</bpt>Description<ept id="b5bc0aa0-f1be-4c9f-823e-52d4474ab28b">&lt;/strong&gt;</ept>: The operation could not be completed within the permitted time or the maximum retry attempts possible.</source>
+          <target state="new"><bpt id="b5bc0aa0-f1be-4c9f-823e-52d4474ab28b">&lt;strong&gt;</bpt>Description<ept id="b5bc0aa0-f1be-4c9f-823e-52d4474ab28b">&lt;/strong&gt;</ept>: The operation could not be completed within the permitted time or the maximum retry attempts possible.</target>
+        </trans-unit>
+        <trans-unit id="31ded36b-b2d4-4050-a120-48a483b2a31d" xml:space="preserve">
+          <source>Please retry request.</source>
+          <target state="new">Please retry request.</target>
+        </trans-unit>
+        <trans-unit id="712aec28-279c-4d6a-9a17-678910b6a76d" xml:space="preserve">
+          <source><bpt id="3ec45c54-a80d-43d8-9b9b-f03bfded2a65">&lt;strong&gt;</bpt>Mitigation<ept id="3ec45c54-a80d-43d8-9b9b-f03bfded2a65">&lt;/strong&gt;</ept>: Retry the request.</source>
+          <target state="new"><bpt id="3ec45c54-a80d-43d8-9b9b-f03bfded2a65">&lt;strong&gt;</bpt>Mitigation<ept id="3ec45c54-a80d-43d8-9b9b-f03bfded2a65">&lt;/strong&gt;</ept>: Retry the request.</target>
+        </trans-unit>
+        <trans-unit id="7c138ac6-dbd0-46ce-a6cd-68d9d7c41b96" xml:space="preserve">
+          <source><bpt id="ded2e595-5970-4a04-b3ba-f499b3d037f4">&lt;strong&gt;</bpt>Description<ept id="ded2e595-5970-4a04-b3ba-f499b3d037f4">&lt;/strong&gt;</ept>: Parameter <bpt id="8d7d8704-45c3-40b9-9391-59c3f38ee4a0">&lt;em&gt;</bpt>yourParameterName<ept id="8d7d8704-45c3-40b9-9391-59c3f38ee4a0">&lt;/em&gt;</ept> cannot be null or empty.</source>
+          <target state="new"><bpt id="ded2e595-5970-4a04-b3ba-f499b3d037f4">&lt;strong&gt;</bpt>Description<ept id="ded2e595-5970-4a04-b3ba-f499b3d037f4">&lt;/strong&gt;</ept>: Parameter <bpt id="8d7d8704-45c3-40b9-9391-59c3f38ee4a0">&lt;em&gt;</bpt>yourParameterName<ept id="8d7d8704-45c3-40b9-9391-59c3f38ee4a0">&lt;/em&gt;</ept> cannot be null or empty.</target>
+        </trans-unit>
+        <trans-unit id="af9bc94b-a09f-453f-9fe1-6a0878d04bc0" xml:space="preserve">
+          <source><bpt id="11d4d841-6d50-44db-a30a-030604ff17c5">&lt;strong&gt;</bpt>Mitigation<ept id="11d4d841-6d50-44db-a30a-030604ff17c5">&lt;/strong&gt;</ept>: Specify a valid value for the parameter.</source>
+          <target state="new"><bpt id="11d4d841-6d50-44db-a30a-030604ff17c5">&lt;strong&gt;</bpt>Mitigation<ept id="11d4d841-6d50-44db-a30a-030604ff17c5">&lt;/strong&gt;</ept>: Specify a valid value for the parameter.</target>
+        </trans-unit>
+        <trans-unit id="da3f4618-d219-4d3c-8e20-70c1941b98a2" xml:space="preserve">
+          <source><bpt id="a6d7e87f-e0c8-4c51-966b-a737e72140a4">&lt;strong&gt;</bpt>Description<ept id="a6d7e87f-e0c8-4c51-966b-a737e72140a4">&lt;/strong&gt;</ept>: One or more of the cluster creation request inputs is not valid.</source>
+          <target state="new"><bpt id="a6d7e87f-e0c8-4c51-966b-a737e72140a4">&lt;strong&gt;</bpt>Description<ept id="a6d7e87f-e0c8-4c51-966b-a737e72140a4">&lt;/strong&gt;</ept>: One or more of the cluster creation request inputs is not valid.</target>
+        </trans-unit>
+        <trans-unit id="782a3d0f-c559-40a1-8f33-e2c018fcd235" xml:space="preserve">
+          <source>Make sure the input values are correct and retry request.</source>
+          <target state="new">Make sure the input values are correct and retry request.</target>
+        </trans-unit>
+        <trans-unit id="72f594fc-9a59-48f4-8b82-787abddd8d92" xml:space="preserve">
+          <source><bpt id="313e69b6-1966-46f3-b9a5-04b0cc9a9f6a">&lt;strong&gt;</bpt>Mitigation<ept id="313e69b6-1966-46f3-b9a5-04b0cc9a9f6a">&lt;/strong&gt;</ept>: Make sure the input values are correct and retry request.</source>
+          <target state="new"><bpt id="313e69b6-1966-46f3-b9a5-04b0cc9a9f6a">&lt;strong&gt;</bpt>Mitigation<ept id="313e69b6-1966-46f3-b9a5-04b0cc9a9f6a">&lt;/strong&gt;</ept>: Make sure the input values are correct and retry request.</target>
+        </trans-unit>
+        <trans-unit id="69795c13-657e-4c94-a044-70fe7a35000c" xml:space="preserve">
+          <source><bpt id="403a8324-e2c3-4553-8a3a-39eabffa9d3b">&lt;strong&gt;</bpt>Description<ept id="403a8324-e2c3-4553-8a3a-39eabffa9d3b">&lt;/strong&gt;</ept>: Region capability not available for region <bpt id="ed0a472b-7443-4edf-8040-b4a606f87488">&lt;em&gt;</bpt>yourRegionName<ept id="ed0a472b-7443-4edf-8040-b4a606f87488">&lt;/em&gt;</ept> and Subscription ID <bpt id="a3f39d87-56b1-4b96-b506-4057ed618f3b">&lt;em&gt;</bpt>yourSubscriptionId<ept id="a3f39d87-56b1-4b96-b506-4057ed618f3b">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="403a8324-e2c3-4553-8a3a-39eabffa9d3b">&lt;strong&gt;</bpt>Description<ept id="403a8324-e2c3-4553-8a3a-39eabffa9d3b">&lt;/strong&gt;</ept>: Region capability not available for region <bpt id="ed0a472b-7443-4edf-8040-b4a606f87488">&lt;em&gt;</bpt>yourRegionName<ept id="ed0a472b-7443-4edf-8040-b4a606f87488">&lt;/em&gt;</ept> and Subscription ID <bpt id="a3f39d87-56b1-4b96-b506-4057ed618f3b">&lt;em&gt;</bpt>yourSubscriptionId<ept id="a3f39d87-56b1-4b96-b506-4057ed618f3b">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50eb4b8c-20a8-4218-ad13-d01cad659b6c" xml:space="preserve">
+          <source><bpt id="85064f2f-c19e-4279-9128-bdf9658c1d75">&lt;strong&gt;</bpt>Mitigation<ept id="85064f2f-c19e-4279-9128-bdf9658c1d75">&lt;/strong&gt;</ept>: Specify a region that supports HDInsight clusters.</source>
+          <target state="new"><bpt id="85064f2f-c19e-4279-9128-bdf9658c1d75">&lt;strong&gt;</bpt>Mitigation<ept id="85064f2f-c19e-4279-9128-bdf9658c1d75">&lt;/strong&gt;</ept>: Specify a region that supports HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="f4377a4f-34cd-4dbd-87a3-0b8b3ab3f5ea" xml:space="preserve">
+          <source>The publicly supported regions are: Southeast Asia, West Europe, North Europe, East US, or West US.</source>
+          <target state="new">The publicly supported regions are: Southeast Asia, West Europe, North Europe, East US, or West US.</target>
+        </trans-unit>
+        <trans-unit id="ec33c567-c8b5-40ef-b593-fdca5d90038a" xml:space="preserve">
+          <source><bpt id="bff044dd-32c5-48c4-9a12-a0c57ffb3d1e">&lt;strong&gt;</bpt>Description<ept id="bff044dd-32c5-48c4-9a12-a0c57ffb3d1e">&lt;/strong&gt;</ept>: Storage account <bpt id="088579db-65da-4eee-88e8-ab101d066ad5">&lt;em&gt;</bpt>yourStorageAccountName<ept id="088579db-65da-4eee-88e8-ab101d066ad5">&lt;/em&gt;</ept> is in region <bpt id="625a354f-6598-435e-b210-dc7b2995a30b">&lt;em&gt;</bpt>currentRegionName<ept id="625a354f-6598-435e-b210-dc7b2995a30b">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="bff044dd-32c5-48c4-9a12-a0c57ffb3d1e">&lt;strong&gt;</bpt>Description<ept id="bff044dd-32c5-48c4-9a12-a0c57ffb3d1e">&lt;/strong&gt;</ept>: Storage account <bpt id="088579db-65da-4eee-88e8-ab101d066ad5">&lt;em&gt;</bpt>yourStorageAccountName<ept id="088579db-65da-4eee-88e8-ab101d066ad5">&lt;/em&gt;</ept> is in region <bpt id="625a354f-6598-435e-b210-dc7b2995a30b">&lt;em&gt;</bpt>currentRegionName<ept id="625a354f-6598-435e-b210-dc7b2995a30b">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5688ca2b-d13a-41d5-aac1-698559f736b3" xml:space="preserve">
+          <source>It should be same as the cluster region <bpt id="992f7b60-1f7d-4c68-8822-680db6505fe7">&lt;em&gt;</bpt>yourClusterRegionName<ept id="992f7b60-1f7d-4c68-8822-680db6505fe7">&lt;/em&gt;</ept>.</source>
+          <target state="new">It should be same as the cluster region <bpt id="992f7b60-1f7d-4c68-8822-680db6505fe7">&lt;em&gt;</bpt>yourClusterRegionName<ept id="992f7b60-1f7d-4c68-8822-680db6505fe7">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4c8e7c5-334a-4cbd-ac30-558e2f4dba3a" xml:space="preserve">
+          <source><bpt id="dd7ade77-f19f-4a6c-a052-5d3e6cf5ed47">&lt;strong&gt;</bpt>Mitigation<ept id="dd7ade77-f19f-4a6c-a052-5d3e6cf5ed47">&lt;/strong&gt;</ept>: Either specify a storage account in the same region that your cluster is in or if your data is already in the storage account, create a new cluster in the same region as the existing storage account.</source>
+          <target state="new"><bpt id="dd7ade77-f19f-4a6c-a052-5d3e6cf5ed47">&lt;strong&gt;</bpt>Mitigation<ept id="dd7ade77-f19f-4a6c-a052-5d3e6cf5ed47">&lt;/strong&gt;</ept>: Either specify a storage account in the same region that your cluster is in or if your data is already in the storage account, create a new cluster in the same region as the existing storage account.</target>
+        </trans-unit>
+        <trans-unit id="4bb424e1-7dcf-477e-b376-69d9dd8b59ce" xml:space="preserve">
+          <source>If you are using the preview portal, the UI will notify them of this issue in advance.</source>
+          <target state="new">If you are using the preview portal, the UI will notify them of this issue in advance.</target>
+        </trans-unit>
+        <trans-unit id="0037c822-5a70-45ad-bfbd-cb23ee3e4399" xml:space="preserve">
+          <source><bpt id="7f6dd061-b177-47bd-aa4a-ad5b10bdf10d">&lt;strong&gt;</bpt>Description<ept id="7f6dd061-b177-47bd-aa4a-ad5b10bdf10d">&lt;/strong&gt;</ept>: Given Subscription ID <bpt id="11964a72-4323-4dec-bbb5-22156683318d">&lt;em&gt;</bpt>yourSubscriptionId<ept id="11964a72-4323-4dec-bbb5-22156683318d">&lt;/em&gt;</ept> is not active.</source>
+          <target state="new"><bpt id="7f6dd061-b177-47bd-aa4a-ad5b10bdf10d">&lt;strong&gt;</bpt>Description<ept id="7f6dd061-b177-47bd-aa4a-ad5b10bdf10d">&lt;/strong&gt;</ept>: Given Subscription ID <bpt id="11964a72-4323-4dec-bbb5-22156683318d">&lt;em&gt;</bpt>yourSubscriptionId<ept id="11964a72-4323-4dec-bbb5-22156683318d">&lt;/em&gt;</ept> is not active.</target>
+        </trans-unit>
+        <trans-unit id="61aec841-9fbd-4d08-88d5-f82434aed7e1" xml:space="preserve">
+          <source><bpt id="6c97d62a-86f7-42a3-b773-95ab0ebbf935">&lt;strong&gt;</bpt>Mitigation<ept id="6c97d62a-86f7-42a3-b773-95ab0ebbf935">&lt;/strong&gt;</ept>: Re-activate your subscription or get a new valid subscription.</source>
+          <target state="new"><bpt id="6c97d62a-86f7-42a3-b773-95ab0ebbf935">&lt;strong&gt;</bpt>Mitigation<ept id="6c97d62a-86f7-42a3-b773-95ab0ebbf935">&lt;/strong&gt;</ept>: Re-activate your subscription or get a new valid subscription.</target>
+        </trans-unit>
+        <trans-unit id="6baec6cb-957a-48fa-9c65-da6823e43568" xml:space="preserve">
+          <source><bpt id="764d9064-685e-4a74-a5f6-ece73222be71">&lt;strong&gt;</bpt>Description<ept id="764d9064-685e-4a74-a5f6-ece73222be71">&lt;/strong&gt;</ept>: Subscription ID <bpt id="90371ca2-419c-4c4c-81cd-17e0479771a1">&lt;em&gt;</bpt>yourSubscriptionId<ept id="90371ca2-419c-4c4c-81cd-17e0479771a1">&lt;/em&gt;</ept> could not be found.</source>
+          <target state="new"><bpt id="764d9064-685e-4a74-a5f6-ece73222be71">&lt;strong&gt;</bpt>Description<ept id="764d9064-685e-4a74-a5f6-ece73222be71">&lt;/strong&gt;</ept>: Subscription ID <bpt id="90371ca2-419c-4c4c-81cd-17e0479771a1">&lt;em&gt;</bpt>yourSubscriptionId<ept id="90371ca2-419c-4c4c-81cd-17e0479771a1">&lt;/em&gt;</ept> could not be found.</target>
+        </trans-unit>
+        <trans-unit id="975f4f88-f491-4014-b45e-b066c4b7db5c" xml:space="preserve">
+          <source><bpt id="d1ea1cdb-9741-4844-8a50-5621eb9f4199">&lt;strong&gt;</bpt>Mitigation<ept id="d1ea1cdb-9741-4844-8a50-5621eb9f4199">&lt;/strong&gt;</ept>: Check that your subscription ID is valid and retry the operation.</source>
+          <target state="new"><bpt id="d1ea1cdb-9741-4844-8a50-5621eb9f4199">&lt;strong&gt;</bpt>Mitigation<ept id="d1ea1cdb-9741-4844-8a50-5621eb9f4199">&lt;/strong&gt;</ept>: Check that your subscription ID is valid and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="ec16154b-2b76-459d-8ad1-40269e1958a5" xml:space="preserve">
+          <source><bpt id="6ada9248-08b9-4dba-893e-0af7a90d3c35">&lt;strong&gt;</bpt>Description<ept id="6ada9248-08b9-4dba-893e-0af7a90d3c35">&lt;/strong&gt;</ept>: Unable to resolve DNS <bpt id="4ffc50f2-fda8-451c-a29b-6dc708b84366">&lt;em&gt;</bpt>yourDnsUrl<ept id="4ffc50f2-fda8-451c-a29b-6dc708b84366">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="6ada9248-08b9-4dba-893e-0af7a90d3c35">&lt;strong&gt;</bpt>Description<ept id="6ada9248-08b9-4dba-893e-0af7a90d3c35">&lt;/strong&gt;</ept>: Unable to resolve DNS <bpt id="4ffc50f2-fda8-451c-a29b-6dc708b84366">&lt;em&gt;</bpt>yourDnsUrl<ept id="4ffc50f2-fda8-451c-a29b-6dc708b84366">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee8f8eb0-ca72-4844-b6ee-a3e8eaec9bbf" xml:space="preserve">
+          <source>Please ensure the fully qualified URL for the blob endpoint is provided.</source>
+          <target state="new">Please ensure the fully qualified URL for the blob endpoint is provided.</target>
+        </trans-unit>
+        <trans-unit id="3d4836a1-3084-4a6b-ab1c-84006d8107f9" xml:space="preserve">
+          <source><bpt id="3120a462-4170-41f4-b083-c1b566871569">&lt;strong&gt;</bpt>Mitigation<ept id="3120a462-4170-41f4-b083-c1b566871569">&lt;/strong&gt;</ept>: Supply a valid blob URL.</source>
+          <target state="new"><bpt id="3120a462-4170-41f4-b083-c1b566871569">&lt;strong&gt;</bpt>Mitigation<ept id="3120a462-4170-41f4-b083-c1b566871569">&lt;/strong&gt;</ept>: Supply a valid blob URL.</target>
+        </trans-unit>
+        <trans-unit id="206657cd-440d-4bc4-a960-fe5ba79871b2" xml:space="preserve">
+          <source>The URL MUST be fully valid, including starting with <bpt id="6845ace2-f8fc-4b5b-bdcf-44679c1ff6f2">&lt;em&gt;</bpt>http://<ept id="6845ace2-f8fc-4b5b-bdcf-44679c1ff6f2">&lt;/em&gt;</ept> and ending in <bpt id="fc497511-3381-44ee-9e80-eef3537c5710">&lt;em&gt;</bpt>.com<ept id="fc497511-3381-44ee-9e80-eef3537c5710">&lt;/em&gt;</ept>.</source>
+          <target state="new">The URL MUST be fully valid, including starting with <bpt id="6845ace2-f8fc-4b5b-bdcf-44679c1ff6f2">&lt;em&gt;</bpt>http://<ept id="6845ace2-f8fc-4b5b-bdcf-44679c1ff6f2">&lt;/em&gt;</ept> and ending in <bpt id="fc497511-3381-44ee-9e80-eef3537c5710">&lt;em&gt;</bpt>.com<ept id="fc497511-3381-44ee-9e80-eef3537c5710">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="597e75f2-3a92-4834-a53a-df9defda1d50" xml:space="preserve">
+          <source><bpt id="3e462994-d54b-4578-8bf5-2aba4844b5b7">&lt;strong&gt;</bpt>Description<ept id="3e462994-d54b-4578-8bf5-2aba4844b5b7">&lt;/strong&gt;</ept>: Unable to verify location of resource <bpt id="7c4c3d34-6476-4b81-82c7-12c754172e5e">&lt;em&gt;</bpt>yourDnsUrl<ept id="7c4c3d34-6476-4b81-82c7-12c754172e5e">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="3e462994-d54b-4578-8bf5-2aba4844b5b7">&lt;strong&gt;</bpt>Description<ept id="3e462994-d54b-4578-8bf5-2aba4844b5b7">&lt;/strong&gt;</ept>: Unable to verify location of resource <bpt id="7c4c3d34-6476-4b81-82c7-12c754172e5e">&lt;em&gt;</bpt>yourDnsUrl<ept id="7c4c3d34-6476-4b81-82c7-12c754172e5e">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="674af21f-9ea8-403c-8327-98b7a511808e" xml:space="preserve">
+          <source>Please ensure the fully qualified URL for the blob endpoint is provided.</source>
+          <target state="new">Please ensure the fully qualified URL for the blob endpoint is provided.</target>
+        </trans-unit>
+        <trans-unit id="49219344-320e-4741-b2a1-2a3b9e5d3cc8" xml:space="preserve">
+          <source><bpt id="36fddbf7-a92d-4403-90ae-1ebc537f53d7">&lt;strong&gt;</bpt>Mitigation<ept id="36fddbf7-a92d-4403-90ae-1ebc537f53d7">&lt;/strong&gt;</ept>: Supply a valid blob URL.</source>
+          <target state="new"><bpt id="36fddbf7-a92d-4403-90ae-1ebc537f53d7">&lt;strong&gt;</bpt>Mitigation<ept id="36fddbf7-a92d-4403-90ae-1ebc537f53d7">&lt;/strong&gt;</ept>: Supply a valid blob URL.</target>
+        </trans-unit>
+        <trans-unit id="103c5871-dbf7-488e-b8c7-21a718887c4b" xml:space="preserve">
+          <source>The URL MUST be fully valid, including starting with <bpt id="b6c1fb3f-767a-48dc-a539-2dc32b49f1ae">&lt;em&gt;</bpt>http://<ept id="b6c1fb3f-767a-48dc-a539-2dc32b49f1ae">&lt;/em&gt;</ept> and ending in <bpt id="4efaa98d-69e9-4fe5-91ff-b28c2ee41e0b">&lt;em&gt;</bpt>.com<ept id="4efaa98d-69e9-4fe5-91ff-b28c2ee41e0b">&lt;/em&gt;</ept>.</source>
+          <target state="new">The URL MUST be fully valid, including starting with <bpt id="b6c1fb3f-767a-48dc-a539-2dc32b49f1ae">&lt;em&gt;</bpt>http://<ept id="b6c1fb3f-767a-48dc-a539-2dc32b49f1ae">&lt;/em&gt;</ept> and ending in <bpt id="4efaa98d-69e9-4fe5-91ff-b28c2ee41e0b">&lt;em&gt;</bpt>.com<ept id="4efaa98d-69e9-4fe5-91ff-b28c2ee41e0b">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8c61443-4ebf-4d25-93d9-ecd7ea8a0510" xml:space="preserve">
+          <source><bpt id="6a62345f-4cc3-4f1a-b92e-7522a565ed4f">&lt;strong&gt;</bpt>Description<ept id="6a62345f-4cc3-4f1a-b92e-7522a565ed4f">&lt;/strong&gt;</ept>: Version capability not available for version <bpt id="28724a85-1416-4ddd-a625-9a5a0336febc">&lt;em&gt;</bpt>specifiedVersion<ept id="28724a85-1416-4ddd-a625-9a5a0336febc">&lt;/em&gt;</ept> and Subscription ID <bpt id="115a1a33-1280-48bc-a784-8fb10dd24a7f">&lt;em&gt;</bpt>yourSubscriptionId<ept id="115a1a33-1280-48bc-a784-8fb10dd24a7f">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="6a62345f-4cc3-4f1a-b92e-7522a565ed4f">&lt;strong&gt;</bpt>Description<ept id="6a62345f-4cc3-4f1a-b92e-7522a565ed4f">&lt;/strong&gt;</ept>: Version capability not available for version <bpt id="28724a85-1416-4ddd-a625-9a5a0336febc">&lt;em&gt;</bpt>specifiedVersion<ept id="28724a85-1416-4ddd-a625-9a5a0336febc">&lt;/em&gt;</ept> and Subscription ID <bpt id="115a1a33-1280-48bc-a784-8fb10dd24a7f">&lt;em&gt;</bpt>yourSubscriptionId<ept id="115a1a33-1280-48bc-a784-8fb10dd24a7f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b8dabf9-3e43-4fde-afb4-48eff918a383" xml:space="preserve">
+          <source><bpt id="5d4e9762-63d9-4220-8581-8932365d8603">&lt;strong&gt;</bpt>Mitigation<ept id="5d4e9762-63d9-4220-8581-8932365d8603">&lt;/strong&gt;</ept>: Choose a version that is available and retry the operation.</source>
+          <target state="new"><bpt id="5d4e9762-63d9-4220-8581-8932365d8603">&lt;strong&gt;</bpt>Mitigation<ept id="5d4e9762-63d9-4220-8581-8932365d8603">&lt;/strong&gt;</ept>: Choose a version that is available and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="ccc1fa18-fccb-4828-947f-cf366a1c2731" xml:space="preserve">
+          <source><bpt id="3c76dcf0-5b54-4dfa-bf02-344884f8c7ad">&lt;strong&gt;</bpt>Description<ept id="3c76dcf0-5b54-4dfa-bf02-344884f8c7ad">&lt;/strong&gt;</ept>: Version <bpt id="238831b5-a332-4b22-ad62-3cec1c2c1f78">&lt;em&gt;</bpt>specifiedVersion<ept id="238831b5-a332-4b22-ad62-3cec1c2c1f78">&lt;/em&gt;</ept> not supported.</source>
+          <target state="new"><bpt id="3c76dcf0-5b54-4dfa-bf02-344884f8c7ad">&lt;strong&gt;</bpt>Description<ept id="3c76dcf0-5b54-4dfa-bf02-344884f8c7ad">&lt;/strong&gt;</ept>: Version <bpt id="238831b5-a332-4b22-ad62-3cec1c2c1f78">&lt;em&gt;</bpt>specifiedVersion<ept id="238831b5-a332-4b22-ad62-3cec1c2c1f78">&lt;/em&gt;</ept> not supported.</target>
+        </trans-unit>
+        <trans-unit id="540859be-fc1a-4a1b-9dbc-8f419afa49e3" xml:space="preserve">
+          <source><bpt id="75bfa17e-ead0-451b-b009-ecc860f44808">&lt;strong&gt;</bpt>Mitigation<ept id="75bfa17e-ead0-451b-b009-ecc860f44808">&lt;/strong&gt;</ept>: Choose a version that is supported and retry the operation.</source>
+          <target state="new"><bpt id="75bfa17e-ead0-451b-b009-ecc860f44808">&lt;strong&gt;</bpt>Mitigation<ept id="75bfa17e-ead0-451b-b009-ecc860f44808">&lt;/strong&gt;</ept>: Choose a version that is supported and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="c2e7b6e9-3298-4ee7-8631-dd63256c08a4" xml:space="preserve">
+          <source><bpt id="b7bf9afc-bb1c-46ff-b2cc-3bc684c83c92">&lt;strong&gt;</bpt>Description<ept id="b7bf9afc-bb1c-46ff-b2cc-3bc684c83c92">&lt;/strong&gt;</ept>: Version <bpt id="ce04fab8-0b92-4d9a-aa4a-62a29fe7c1ab">&lt;em&gt;</bpt>specifiedVersion<ept id="ce04fab8-0b92-4d9a-aa4a-62a29fe7c1ab">&lt;/em&gt;</ept> is not available in Azure region <bpt id="07956df6-bc15-4d1a-b67a-8e1c7fc9c016">&lt;em&gt;</bpt>specifiedRegion<ept id="07956df6-bc15-4d1a-b67a-8e1c7fc9c016">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="b7bf9afc-bb1c-46ff-b2cc-3bc684c83c92">&lt;strong&gt;</bpt>Description<ept id="b7bf9afc-bb1c-46ff-b2cc-3bc684c83c92">&lt;/strong&gt;</ept>: Version <bpt id="ce04fab8-0b92-4d9a-aa4a-62a29fe7c1ab">&lt;em&gt;</bpt>specifiedVersion<ept id="ce04fab8-0b92-4d9a-aa4a-62a29fe7c1ab">&lt;/em&gt;</ept> is not available in Azure region <bpt id="07956df6-bc15-4d1a-b67a-8e1c7fc9c016">&lt;em&gt;</bpt>specifiedRegion<ept id="07956df6-bc15-4d1a-b67a-8e1c7fc9c016">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bdc447bb-1a5f-45bb-936f-bf7fd60eb789" xml:space="preserve">
+          <source><bpt id="fc8ff3c9-0c1a-4858-a1ef-6e5602c4b287">&lt;strong&gt;</bpt>Mitigation<ept id="fc8ff3c9-0c1a-4858-a1ef-6e5602c4b287">&lt;/strong&gt;</ept>: Choose a version that is supported in the region specified and retry the operation.</source>
+          <target state="new"><bpt id="fc8ff3c9-0c1a-4858-a1ef-6e5602c4b287">&lt;strong&gt;</bpt>Mitigation<ept id="fc8ff3c9-0c1a-4858-a1ef-6e5602c4b287">&lt;/strong&gt;</ept>: Choose a version that is supported in the region specified and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="c8a23f97-497d-4222-a83e-f7e36c7ed69b" xml:space="preserve">
+          <source><bpt id="8423ece3-8f21-40c6-8a16-b805723ff68f">&lt;strong&gt;</bpt>Description<ept id="8423ece3-8f21-40c6-8a16-b805723ff68f">&lt;/strong&gt;</ept>: Invalid cluster configuration.</source>
+          <target state="new"><bpt id="8423ece3-8f21-40c6-8a16-b805723ff68f">&lt;strong&gt;</bpt>Description<ept id="8423ece3-8f21-40c6-8a16-b805723ff68f">&lt;/strong&gt;</ept>: Invalid cluster configuration.</target>
+        </trans-unit>
+        <trans-unit id="b61cbb80-03e3-44a0-8c41-48b96bea2bae" xml:space="preserve">
+          <source>Required WASB account configuration not found in external accounts.</source>
+          <target state="new">Required WASB account configuration not found in external accounts.</target>
+        </trans-unit>
+        <trans-unit id="720f4c44-d557-41fe-b6e2-eaeab28cf561" xml:space="preserve">
+          <source><bpt id="5613e699-02c3-4f08-ada7-92887103b249">&lt;strong&gt;</bpt>Mitigation<ept id="5613e699-02c3-4f08-ada7-92887103b249">&lt;/strong&gt;</ept>: Verify that the account exists and is properly specified in configuration and retry the operation.</source>
+          <target state="new"><bpt id="5613e699-02c3-4f08-ada7-92887103b249">&lt;strong&gt;</bpt>Mitigation<ept id="5613e699-02c3-4f08-ada7-92887103b249">&lt;/strong&gt;</ept>: Verify that the account exists and is properly specified in configuration and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="94f56f1f-81d6-412e-94e6-d21e89a55663" xml:space="preserve">
+          <source><bpt id="19e6c889-e3b5-41bd-8b01-a60245ed0712">&lt;linkText&gt;</bpt>Azure HDInsight SDK documentation[hdinsight-sdk-documentation]<ept id="19e6c889-e3b5-41bd-8b01-a60245ed0712">&lt;/linkText&gt;</ept><bpt id="19e6c889-e3b5-41bd-8b01-a60245ed0712">&lt;title&gt;</bpt><ept id="19e6c889-e3b5-41bd-8b01-a60245ed0712">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="19e6c889-e3b5-41bd-8b01-a60245ed0712">&lt;linkText&gt;</bpt>Azure HDInsight SDK documentation[hdinsight-sdk-documentation]<ept id="19e6c889-e3b5-41bd-8b01-a60245ed0712">&lt;/linkText&gt;</ept><bpt id="19e6c889-e3b5-41bd-8b01-a60245ed0712">&lt;title&gt;</bpt><ept id="19e6c889-e3b5-41bd-8b01-a60245ed0712">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7b4167b-c731-48a9-8ab6-263bdb85c57c" xml:space="preserve">
+          <source>http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx</source>
+          <target state="new">http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx</target>
+        </trans-unit>
+        <trans-unit id="a8f1480e-2d54-4a95-bc44-6eed9f7c46ba" xml:space="preserve">
+          <source>./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png</source>
+          <target state="new">./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png</target>
+        </trans-unit>
+      </group>
+      <group id="b0a18332-1f1b-46a8-b3aa-d9529adcb554" />
+    </body>
+  </file>
+</xliff>

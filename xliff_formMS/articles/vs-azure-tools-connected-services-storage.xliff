@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7e8abaed-6df8-4024-9df2-793ae99d0ac3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7e8abaed-6df8-4024-9df2-793ae99d0ac3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b730dc1f-ee49-4ce5-a808-be046af47c07">
+        <trans-unit id="394d8eef-6838-41c4-9707-c02395423eaf" xml:space="preserve">
+          <source>Add Azure Storage by using Connected Services in Visual Studio | Microsoft Azure</source>
+          <target state="new">Add Azure Storage by using Connected Services in Visual Studio | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b007c9bf-1907-488d-86fe-797280a37367" xml:space="preserve">
+          <source>Add Azure Storage to your app by using the Visual Studio Add Connected Services dialog box</source>
+          <target state="new">Add Azure Storage to your app by using the Visual Studio Add Connected Services dialog box</target>
+        </trans-unit>
+        <trans-unit id="18ae17d4-5234-4c70-8e76-524b26e263b2" xml:space="preserve">
+          <source>With Visual Studio 2015, you can connect any C# cloud service, .NET backend mobile service, ASP.NET website or service, ASP.NET 5 service, or Azure WebJob service to Azure Storage by using the <bpt id="21ecb7a4-51ec-4c89-b63b-1093db419d80">&lt;strong&gt;</bpt>Add Connected Services<ept id="21ecb7a4-51ec-4c89-b63b-1093db419d80">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">With Visual Studio 2015, you can connect any C# cloud service, .NET backend mobile service, ASP.NET website or service, ASP.NET 5 service, or Azure WebJob service to Azure Storage by using the <bpt id="21ecb7a4-51ec-4c89-b63b-1093db419d80">&lt;strong&gt;</bpt>Add Connected Services<ept id="21ecb7a4-51ec-4c89-b63b-1093db419d80">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="53808940-8bdb-4208-804f-5b3736e3b0f4" xml:space="preserve">
+          <source>The connected service functionality adds all the needed references and connection code, and modifies your configuration files appropriately.</source>
+          <target state="new">The connected service functionality adds all the needed references and connection code, and modifies your configuration files appropriately.</target>
+        </trans-unit>
+        <trans-unit id="01beda51-6abc-4c1c-8b39-2cc26f984150" xml:space="preserve">
+          <source>The dialog also takes you to documentation that tells you what the next steps are to start blob storage, queues, and tables.</source>
+          <target state="new">The dialog also takes you to documentation that tells you what the next steps are to start blob storage, queues, and tables.</target>
+        </trans-unit>
+        <trans-unit id="0e0d2d72-03df-491f-81f0-8290e6546156" xml:space="preserve">
+          <source>You can use the Connected Services dialog to connect to Azure Storage in the following project types.</source>
+          <target state="new">You can use the Connected Services dialog to connect to Azure Storage in the following project types.</target>
+        </trans-unit>
+        <trans-unit id="ddbdc388-f870-428d-98e5-cdddf6a647b2" xml:space="preserve">
+          <source>ASP.NET Web Projects</source>
+          <target state="new">ASP.NET Web Projects</target>
+        </trans-unit>
+        <trans-unit id="0f76a567-f3ab-464d-b3eb-fff4b3698f51" xml:space="preserve">
+          <source>ASP.NET 5 Projects</source>
+          <target state="new">ASP.NET 5 Projects</target>
+        </trans-unit>
+        <trans-unit id="eac6da23-c4b0-4d50-8c3f-bd9883d56f4f" xml:space="preserve">
+          <source>.NET Cloud Service Web Role and Worker Role Projects</source>
+          <target state="new">.NET Cloud Service Web Role and Worker Role Projects</target>
+        </trans-unit>
+        <trans-unit id="85726846-6889-49cd-9c19-d4b225f76c94" xml:space="preserve">
+          <source>.NET Mobile Services Projects</source>
+          <target state="new">.NET Mobile Services Projects</target>
+        </trans-unit>
+        <trans-unit id="71b26f49-40ba-4ce7-b438-14f65d66beee" xml:space="preserve">
+          <source>Azure WebJob Projects</source>
+          <target state="new">Azure WebJob Projects</target>
+        </trans-unit>
+        <trans-unit id="f0ec13ef-f456-429c-8595-f5362fdaf7df" xml:space="preserve">
+          <source>Make sure you have an Azure account.</source>
+          <target state="new">Make sure you have an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="bb5a40ee-e411-43d7-b6de-7b53ae79e638" xml:space="preserve">
+          <source>If you don't have an Azure account, you can sign up for a <bpt id="622028c4-4fbe-4603-a3e5-e11e45dea7ff">&lt;linkText&gt;</bpt>free trial<ept id="622028c4-4fbe-4603-a3e5-e11e45dea7ff">&lt;/linkText&gt;</ept><bpt id="622028c4-4fbe-4603-a3e5-e11e45dea7ff">&lt;title&gt;</bpt><ept id="622028c4-4fbe-4603-a3e5-e11e45dea7ff">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have an Azure account, you can sign up for a <bpt id="622028c4-4fbe-4603-a3e5-e11e45dea7ff">&lt;linkText&gt;</bpt>free trial<ept id="622028c4-4fbe-4603-a3e5-e11e45dea7ff">&lt;/linkText&gt;</ept><bpt id="622028c4-4fbe-4603-a3e5-e11e45dea7ff">&lt;title&gt;</bpt><ept id="622028c4-4fbe-4603-a3e5-e11e45dea7ff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02fab776-ab3a-4c7e-a399-ff4204d74129" xml:space="preserve">
+          <source>Once you have an Azure account, you can create storage accounts, create mobile services, and configure Azure Active Directory.</source>
+          <target state="new">Once you have an Azure account, you can create storage accounts, create mobile services, and configure Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="e5520c29-2b48-4971-b6e4-1ebec95b1a5c" xml:space="preserve">
+          <source>Open your project in Visual Studio, open the context menu for the <bpt id="69d7a0cb-ad52-4326-bdf3-89d661e41ab6">&lt;strong&gt;</bpt>References<ept id="69d7a0cb-ad52-4326-bdf3-89d661e41ab6">&lt;/strong&gt;</ept> node in Solution Explorer, and then choose <bpt id="6b44d3cb-45fc-4396-a9e7-20228ac2e0db">&lt;strong&gt;</bpt>Add Connected Service<ept id="6b44d3cb-45fc-4396-a9e7-20228ac2e0db">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open your project in Visual Studio, open the context menu for the <bpt id="69d7a0cb-ad52-4326-bdf3-89d661e41ab6">&lt;strong&gt;</bpt>References<ept id="69d7a0cb-ad52-4326-bdf3-89d661e41ab6">&lt;/strong&gt;</ept> node in Solution Explorer, and then choose <bpt id="6b44d3cb-45fc-4396-a9e7-20228ac2e0db">&lt;strong&gt;</bpt>Add Connected Service<ept id="6b44d3cb-45fc-4396-a9e7-20228ac2e0db">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e34076a8-431b-44b4-a67c-889ee5896006" xml:space="preserve">
+          <source><bpt id="6b2eba97-d846-418b-b452-2ca24043d29f">&lt;linkText&gt;</bpt>Adding a connected service<ept id="6b2eba97-d846-418b-b452-2ca24043d29f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6b2eba97-d846-418b-b452-2ca24043d29f">&lt;linkText&gt;</bpt>Adding a connected service<ept id="6b2eba97-d846-418b-b452-2ca24043d29f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65c14638-925d-4fef-b120-f972173429ce" xml:space="preserve">
+          <source>In the <bpt id="eee86f36-5002-4cf3-a7a9-4698e77041b1">&lt;strong&gt;</bpt>Add Connected Service<ept id="eee86f36-5002-4cf3-a7a9-4698e77041b1">&lt;/strong&gt;</ept> dialog box, choose <bpt id="da0ed4ac-bca0-4cab-a427-5424d93dadee">&lt;strong&gt;</bpt>Azure Storage<ept id="da0ed4ac-bca0-4cab-a427-5424d93dadee">&lt;/strong&gt;</ept>, and then choose the <bpt id="a61d4360-5e31-49b0-81b9-7da35d75c6ab">&lt;strong&gt;</bpt>Configure<ept id="a61d4360-5e31-49b0-81b9-7da35d75c6ab">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the <bpt id="eee86f36-5002-4cf3-a7a9-4698e77041b1">&lt;strong&gt;</bpt>Add Connected Service<ept id="eee86f36-5002-4cf3-a7a9-4698e77041b1">&lt;/strong&gt;</ept> dialog box, choose <bpt id="da0ed4ac-bca0-4cab-a427-5424d93dadee">&lt;strong&gt;</bpt>Azure Storage<ept id="da0ed4ac-bca0-4cab-a427-5424d93dadee">&lt;/strong&gt;</ept>, and then choose the <bpt id="a61d4360-5e31-49b0-81b9-7da35d75c6ab">&lt;strong&gt;</bpt>Configure<ept id="a61d4360-5e31-49b0-81b9-7da35d75c6ab">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="40935c22-4e6f-4c32-b8cd-5131acf428c8" xml:space="preserve">
+          <source>You may be prompted to log into Azure if you haven't already done so.</source>
+          <target state="new">You may be prompted to log into Azure if you haven't already done so.</target>
+        </trans-unit>
+        <trans-unit id="017e6dc7-26d8-4acd-93df-5c7fca6bf267" xml:space="preserve">
+          <source><bpt id="500eedab-545c-4fc2-aca8-232f315befe9">&lt;linkText&gt;</bpt>Add Connected Service dialog box - Storage<ept id="500eedab-545c-4fc2-aca8-232f315befe9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="500eedab-545c-4fc2-aca8-232f315befe9">&lt;linkText&gt;</bpt>Add Connected Service dialog box - Storage<ept id="500eedab-545c-4fc2-aca8-232f315befe9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f470759-e4b2-49de-9c23-50639932a4cc" xml:space="preserve">
+          <source>In the <bpt id="8184f505-04c8-400e-a4ed-3f04b0b0c59e">&lt;strong&gt;</bpt>Azure Storage<ept id="8184f505-04c8-400e-a4ed-3f04b0b0c59e">&lt;/strong&gt;</ept> dialog box, choose an existing storage account and then click <bpt id="8e5e096b-02f2-4ff6-8d96-c006a71f5ba7">&lt;strong&gt;</bpt>Add<ept id="8e5e096b-02f2-4ff6-8d96-c006a71f5ba7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="8184f505-04c8-400e-a4ed-3f04b0b0c59e">&lt;strong&gt;</bpt>Azure Storage<ept id="8184f505-04c8-400e-a4ed-3f04b0b0c59e">&lt;/strong&gt;</ept> dialog box, choose an existing storage account and then click <bpt id="8e5e096b-02f2-4ff6-8d96-c006a71f5ba7">&lt;strong&gt;</bpt>Add<ept id="8e5e096b-02f2-4ff6-8d96-c006a71f5ba7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6593e26d-9f28-49c8-90b4-646ad66059f0" xml:space="preserve">
+          <source>If you need to create a new storage account, go to the next step.</source>
+          <target state="new">If you need to create a new storage account, go to the next step.</target>
+        </trans-unit>
+        <trans-unit id="042469e1-fe25-4af3-8842-c6a5baf0b7df" xml:space="preserve">
+          <source>Otherwise, skip to step 6.</source>
+          <target state="new">Otherwise, skip to step 6.</target>
+        </trans-unit>
+        <trans-unit id="b9bd0bf7-d847-41ea-a83c-220842a2b73e" xml:space="preserve">
+          <source><bpt id="c8a4d54d-d76d-4c7c-9d75-87b99454f015">&lt;linkText&gt;</bpt>Azure Storage dialog box<ept id="c8a4d54d-d76d-4c7c-9d75-87b99454f015">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c8a4d54d-d76d-4c7c-9d75-87b99454f015">&lt;linkText&gt;</bpt>Azure Storage dialog box<ept id="c8a4d54d-d76d-4c7c-9d75-87b99454f015">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01985a9f-d16d-40c5-9a48-f9f86a63c12f" xml:space="preserve">
+          <source>To create a new storage account: </source>
+          <target state="new">To create a new storage account: </target>
+        </trans-unit>
+        <trans-unit id="912ae8b9-fb45-4cbb-8e19-109dc280bfba" xml:space="preserve">
+          <source>Choose the <bpt id="4a9bf3c8-28e9-4d8a-b5b6-545f805e3de7">&lt;strong&gt;</bpt>Create a New Storage Account<ept id="4a9bf3c8-28e9-4d8a-b5b6-545f805e3de7">&lt;/strong&gt;</ept> button at the bottom of the Azure Storage dialog box.</source>
+          <target state="new">Choose the <bpt id="4a9bf3c8-28e9-4d8a-b5b6-545f805e3de7">&lt;strong&gt;</bpt>Create a New Storage Account<ept id="4a9bf3c8-28e9-4d8a-b5b6-545f805e3de7">&lt;/strong&gt;</ept> button at the bottom of the Azure Storage dialog box.</target>
+        </trans-unit>
+        <trans-unit id="f70255b7-4698-4cef-88a2-c87c276ccb2f" xml:space="preserve">
+          <source>Fill out the <bpt id="c74095b7-9505-4578-aa88-56d231793a38">&lt;strong&gt;</bpt>Create Storage Account<ept id="c74095b7-9505-4578-aa88-56d231793a38">&lt;/strong&gt;</ept> dialog box and then choose the <bpt id="02058010-ba3f-4899-b655-9e13c22d2979">&lt;strong&gt;</bpt>Create<ept id="02058010-ba3f-4899-b655-9e13c22d2979">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Fill out the <bpt id="c74095b7-9505-4578-aa88-56d231793a38">&lt;strong&gt;</bpt>Create Storage Account<ept id="c74095b7-9505-4578-aa88-56d231793a38">&lt;/strong&gt;</ept> dialog box and then choose the <bpt id="02058010-ba3f-4899-b655-9e13c22d2979">&lt;strong&gt;</bpt>Create<ept id="02058010-ba3f-4899-b655-9e13c22d2979">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="7e2f65c1-8a46-4d67-a541-dc1f97cce768" xml:space="preserve">
+          <source><bpt id="45a45a41-e256-427a-b144-97ce88082345">&lt;linkText&gt;</bpt>Azure Storage dialog box<ept id="45a45a41-e256-427a-b144-97ce88082345">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="45a45a41-e256-427a-b144-97ce88082345">&lt;linkText&gt;</bpt>Azure Storage dialog box<ept id="45a45a41-e256-427a-b144-97ce88082345">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ffeada31-ca14-46e8-b253-8a7e3d6692d6" xml:space="preserve">
+          <source>When you're back in the <bpt id="e3256d02-ba4d-4726-a7ce-54c510b898fb">&lt;strong&gt;</bpt>Azure Storage<ept id="e3256d02-ba4d-4726-a7ce-54c510b898fb">&lt;/strong&gt;</ept> dialog box, the new storage appears in the list.</source>
+          <target state="new">When you're back in the <bpt id="e3256d02-ba4d-4726-a7ce-54c510b898fb">&lt;strong&gt;</bpt>Azure Storage<ept id="e3256d02-ba4d-4726-a7ce-54c510b898fb">&lt;/strong&gt;</ept> dialog box, the new storage appears in the list.</target>
+        </trans-unit>
+        <trans-unit id="8c05f98e-82fc-4684-92cf-33cf3f8306fe" xml:space="preserve">
+          <source>Select the new storage in the list and click <bpt id="1bdba253-f5ce-4de6-9451-80e4fa2a74a6">&lt;strong&gt;</bpt>Add<ept id="1bdba253-f5ce-4de6-9451-80e4fa2a74a6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the new storage in the list and click <bpt id="1bdba253-f5ce-4de6-9451-80e4fa2a74a6">&lt;strong&gt;</bpt>Add<ept id="1bdba253-f5ce-4de6-9451-80e4fa2a74a6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="511bd307-1b39-458b-bfd1-4331979560d6" xml:space="preserve">
+          <source>The  storage connected service appears under the Service References node of your WebJob project.</source>
+          <target state="new">The  storage connected service appears under the Service References node of your WebJob project.</target>
+        </trans-unit>
+        <trans-unit id="af769bdc-8384-4ed5-ade2-fec2988f8980" xml:space="preserve">
+          <source><bpt id="2385302c-a9ab-4175-a9e2-731953c782f6">&lt;linkText&gt;</bpt>Azure storage in web jobs project<ept id="2385302c-a9ab-4175-a9e2-731953c782f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2385302c-a9ab-4175-a9e2-731953c782f6">&lt;linkText&gt;</bpt>Azure storage in web jobs project<ept id="2385302c-a9ab-4175-a9e2-731953c782f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cc3d70f-ac10-4a78-bbbe-9ff0c0776617" xml:space="preserve">
+          <source>Review the Getting Started page that appears and find out how your project was modified.</source>
+          <target state="new">Review the Getting Started page that appears and find out how your project was modified.</target>
+        </trans-unit>
+        <trans-unit id="4bde5905-eec4-4ae5-b969-977e6e7f0baf" xml:space="preserve">
+          <source>A Getting Started page appears in your browser whenever you add a connected service.</source>
+          <target state="new">A Getting Started page appears in your browser whenever you add a connected service.</target>
+        </trans-unit>
+        <trans-unit id="02bfc868-8ebe-4b34-8980-f54e4dd2c9e2" xml:space="preserve">
+          <source>You can review the suggested next steps and code examples, or switch to the What Happened page to see what references were added to your project, and how your code and configuration files were modified.</source>
+          <target state="new">You can review the suggested next steps and code examples, or switch to the What Happened page to see what references were added to your project, and how your code and configuration files were modified.</target>
+        </trans-unit>
+        <trans-unit id="86f0db5e-8ca9-4d93-996f-17ae697c380d" xml:space="preserve">
+          <source>When you finish the dialog, Visual Studio adds references and modifies certain configuration files.</source>
+          <target state="new">When you finish the dialog, Visual Studio adds references and modifies certain configuration files.</target>
+        </trans-unit>
+        <trans-unit id="7ce49d85-b9dc-4ebb-80ad-69e3ef7cfa11" xml:space="preserve">
+          <source>The specific changes depend on the project type.</source>
+          <target state="new">The specific changes depend on the project type.</target>
+        </trans-unit>
+        <trans-unit id="f79b6d0c-6ce4-4673-b276-91587b5618dc" xml:space="preserve">
+          <source>For ASP.NET projects, see <bpt id="bd408bbb-0e87-4de0-bcc2-4e4fdc690377">&lt;linkText&gt;</bpt>What happened – ASP.NET Projects<ept id="bd408bbb-0e87-4de0-bcc2-4e4fdc690377">&lt;/linkText&gt;</ept><bpt id="bd408bbb-0e87-4de0-bcc2-4e4fdc690377">&lt;title&gt;</bpt><ept id="bd408bbb-0e87-4de0-bcc2-4e4fdc690377">&lt;/title&gt;</ept>.</source>
+          <target state="new">For ASP.NET projects, see <bpt id="bd408bbb-0e87-4de0-bcc2-4e4fdc690377">&lt;linkText&gt;</bpt>What happened – ASP.NET Projects<ept id="bd408bbb-0e87-4de0-bcc2-4e4fdc690377">&lt;/linkText&gt;</ept><bpt id="bd408bbb-0e87-4de0-bcc2-4e4fdc690377">&lt;title&gt;</bpt><ept id="bd408bbb-0e87-4de0-bcc2-4e4fdc690377">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08e8b05c-f11a-46d9-bc3b-157e24243e5c" xml:space="preserve">
+          <source>For ASP.NET 5 projects, see <bpt id="b27cf9b5-62f8-4eb8-87ff-b921a05897e2">&lt;linkText&gt;</bpt>What happened – ASP.NET 5 Projects<ept id="b27cf9b5-62f8-4eb8-87ff-b921a05897e2">&lt;/linkText&gt;</ept><bpt id="b27cf9b5-62f8-4eb8-87ff-b921a05897e2">&lt;title&gt;</bpt><ept id="b27cf9b5-62f8-4eb8-87ff-b921a05897e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For ASP.NET 5 projects, see <bpt id="b27cf9b5-62f8-4eb8-87ff-b921a05897e2">&lt;linkText&gt;</bpt>What happened – ASP.NET 5 Projects<ept id="b27cf9b5-62f8-4eb8-87ff-b921a05897e2">&lt;/linkText&gt;</ept><bpt id="b27cf9b5-62f8-4eb8-87ff-b921a05897e2">&lt;title&gt;</bpt><ept id="b27cf9b5-62f8-4eb8-87ff-b921a05897e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="919e963c-5250-4ade-862a-7d0e0dd8622a" xml:space="preserve">
+          <source>For cloud service projects (web roles and worker roles), see <bpt id="2f67fbfc-1c9f-4c23-9af8-723edc59aaed">&lt;linkText&gt;</bpt>What happened – Cloud Service projects<ept id="2f67fbfc-1c9f-4c23-9af8-723edc59aaed">&lt;/linkText&gt;</ept><bpt id="2f67fbfc-1c9f-4c23-9af8-723edc59aaed">&lt;title&gt;</bpt><ept id="2f67fbfc-1c9f-4c23-9af8-723edc59aaed">&lt;/title&gt;</ept>.</source>
+          <target state="new">For cloud service projects (web roles and worker roles), see <bpt id="2f67fbfc-1c9f-4c23-9af8-723edc59aaed">&lt;linkText&gt;</bpt>What happened – Cloud Service projects<ept id="2f67fbfc-1c9f-4c23-9af8-723edc59aaed">&lt;/linkText&gt;</ept><bpt id="2f67fbfc-1c9f-4c23-9af8-723edc59aaed">&lt;title&gt;</bpt><ept id="2f67fbfc-1c9f-4c23-9af8-723edc59aaed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="361dce28-c98b-4373-916a-f24de7322d36" xml:space="preserve">
+          <source>For WebJob projects, see <bpt id="103a4da1-53c1-497e-b6c8-f1098aa07f4b">&lt;linkText&gt;</bpt>What
+happened - WebJob projects<ept id="103a4da1-53c1-497e-b6c8-f1098aa07f4b">&lt;/linkText&gt;</ept><bpt id="103a4da1-53c1-497e-b6c8-f1098aa07f4b">&lt;title&gt;</bpt><ept id="103a4da1-53c1-497e-b6c8-f1098aa07f4b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For WebJob projects, see <bpt id="103a4da1-53c1-497e-b6c8-f1098aa07f4b">&lt;linkText&gt;</bpt>What
+happened - WebJob projects<ept id="103a4da1-53c1-497e-b6c8-f1098aa07f4b">&lt;/linkText&gt;</ept><bpt id="103a4da1-53c1-497e-b6c8-f1098aa07f4b">&lt;title&gt;</bpt><ept id="103a4da1-53c1-497e-b6c8-f1098aa07f4b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24a91b15-90bd-42ed-9d31-2c485e8e0b2e" xml:space="preserve">
+          <source>Using the Getting Started code samples as a guide, create the type of storage that you want, and then start writing code to access your storage account!</source>
+          <target state="new">Using the Getting Started code samples as a guide, create the type of storage that you want, and then start writing code to access your storage account!</target>
+        </trans-unit>
+        <trans-unit id="57d24c94-f715-46fe-8583-7f48a1fbd82a" xml:space="preserve">
+          <source>Ask questions and get help</source>
+          <target state="new">Ask questions and get help</target>
+        </trans-unit>
+        <trans-unit id="5cd0bb95-7afa-494d-b103-b4f8618ef7af" xml:space="preserve">
+          <source><bpt id="b2e0ea67-cdd4-41dc-a0fd-99f5e667ad99">&lt;linkText&gt;</bpt>MSDN Forum: Azure Storage<ept id="b2e0ea67-cdd4-41dc-a0fd-99f5e667ad99">&lt;/linkText&gt;</ept><bpt id="b2e0ea67-cdd4-41dc-a0fd-99f5e667ad99">&lt;title&gt;</bpt><ept id="b2e0ea67-cdd4-41dc-a0fd-99f5e667ad99">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b2e0ea67-cdd4-41dc-a0fd-99f5e667ad99">&lt;linkText&gt;</bpt>MSDN Forum: Azure Storage<ept id="b2e0ea67-cdd4-41dc-a0fd-99f5e667ad99">&lt;/linkText&gt;</ept><bpt id="b2e0ea67-cdd4-41dc-a0fd-99f5e667ad99">&lt;title&gt;</bpt><ept id="b2e0ea67-cdd4-41dc-a0fd-99f5e667ad99">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6dc6a33-776c-42e8-b34c-cc0d45e2c0ff" xml:space="preserve">
+          <source><bpt id="fb60d7e7-97bb-4dcd-8bc3-39387f5b9a2c">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="fb60d7e7-97bb-4dcd-8bc3-39387f5b9a2c">&lt;/linkText&gt;</ept><bpt id="fb60d7e7-97bb-4dcd-8bc3-39387f5b9a2c">&lt;title&gt;</bpt><ept id="fb60d7e7-97bb-4dcd-8bc3-39387f5b9a2c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fb60d7e7-97bb-4dcd-8bc3-39387f5b9a2c">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="fb60d7e7-97bb-4dcd-8bc3-39387f5b9a2c">&lt;/linkText&gt;</ept><bpt id="fb60d7e7-97bb-4dcd-8bc3-39387f5b9a2c">&lt;title&gt;</bpt><ept id="fb60d7e7-97bb-4dcd-8bc3-39387f5b9a2c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3ea71ba-da96-4d6d-b5d0-0ef2f8bb1b19" xml:space="preserve">
+          <source><bpt id="e147ad12-f2e0-4861-bfdd-c66911851977">&lt;linkText&gt;</bpt>Storage at azure.microsoft.com<ept id="e147ad12-f2e0-4861-bfdd-c66911851977">&lt;/linkText&gt;</ept><bpt id="e147ad12-f2e0-4861-bfdd-c66911851977">&lt;title&gt;</bpt><ept id="e147ad12-f2e0-4861-bfdd-c66911851977">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e147ad12-f2e0-4861-bfdd-c66911851977">&lt;linkText&gt;</bpt>Storage at azure.microsoft.com<ept id="e147ad12-f2e0-4861-bfdd-c66911851977">&lt;/linkText&gt;</ept><bpt id="e147ad12-f2e0-4861-bfdd-c66911851977">&lt;title&gt;</bpt><ept id="e147ad12-f2e0-4861-bfdd-c66911851977">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61b1b4fc-ae9f-4961-a074-6d2a8b98a18e" xml:space="preserve">
+          <source><bpt id="bcadd4e6-110d-4fd6-a27c-76c29deb8037">&lt;linkText&gt;</bpt>Storage Documentation at azure.microsoft.com<ept id="bcadd4e6-110d-4fd6-a27c-76c29deb8037">&lt;/linkText&gt;</ept><bpt id="bcadd4e6-110d-4fd6-a27c-76c29deb8037">&lt;title&gt;</bpt><ept id="bcadd4e6-110d-4fd6-a27c-76c29deb8037">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bcadd4e6-110d-4fd6-a27c-76c29deb8037">&lt;linkText&gt;</bpt>Storage Documentation at azure.microsoft.com<ept id="bcadd4e6-110d-4fd6-a27c-76c29deb8037">&lt;/linkText&gt;</ept><bpt id="bcadd4e6-110d-4fd6-a27c-76c29deb8037">&lt;title&gt;</bpt><ept id="bcadd4e6-110d-4fd6-a27c-76c29deb8037">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

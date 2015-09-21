@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="42760713-0d6c-4de1-9c0b-8a6441baa529" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="42760713-0d6c-4de1-9c0b-8a6441baa529" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="be49f055-7987-42d8-82d7-e57c4ce5a23c">
+        <trans-unit id="00760940-ee58-4193-93b6-c83b8bb0fb1d" xml:space="preserve">
+          <source>Authentication in Azure App Service API apps and mobile apps</source>
+          <target state="new">Authentication in Azure App Service API apps and mobile apps</target>
+        </trans-unit>
+        <trans-unit id="1bebae27-093c-4b8a-acd0-5654b35973d7" xml:space="preserve">
+          <source>Learn how to configure and use authentication for API apps and mobile apps in Azure app service.</source>
+          <target state="new">Learn how to configure and use authentication for API apps and mobile apps in Azure app service.</target>
+        </trans-unit>
+        <trans-unit id="e0c52d05-f562-4ca9-930e-4c0e6dd8135c" xml:space="preserve">
+          <source>This article explains the built-in authentication features for <bpt id="830b7abe-05b9-41a9-a5a7-09dd4efb921b">&lt;linkText&gt;</bpt>API apps<ept id="830b7abe-05b9-41a9-a5a7-09dd4efb921b">&lt;/linkText&gt;</ept><bpt id="830b7abe-05b9-41a9-a5a7-09dd4efb921b">&lt;title&gt;</bpt><ept id="830b7abe-05b9-41a9-a5a7-09dd4efb921b">&lt;/title&gt;</ept> and <bpt id="bffde72b-0fa9-404a-9a73-835139dde16c">&lt;linkText&gt;</bpt>mobile apps<ept id="bffde72b-0fa9-404a-9a73-835139dde16c">&lt;/linkText&gt;</ept><bpt id="bffde72b-0fa9-404a-9a73-835139dde16c">&lt;title&gt;</bpt><ept id="bffde72b-0fa9-404a-9a73-835139dde16c">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article explains the built-in authentication features for <bpt id="830b7abe-05b9-41a9-a5a7-09dd4efb921b">&lt;linkText&gt;</bpt>API apps<ept id="830b7abe-05b9-41a9-a5a7-09dd4efb921b">&lt;/linkText&gt;</ept><bpt id="830b7abe-05b9-41a9-a5a7-09dd4efb921b">&lt;title&gt;</bpt><ept id="830b7abe-05b9-41a9-a5a7-09dd4efb921b">&lt;/title&gt;</ept> and <bpt id="bffde72b-0fa9-404a-9a73-835139dde16c">&lt;linkText&gt;</bpt>mobile apps<ept id="bffde72b-0fa9-404a-9a73-835139dde16c">&lt;/linkText&gt;</ept><bpt id="bffde72b-0fa9-404a-9a73-835139dde16c">&lt;title&gt;</bpt><ept id="bffde72b-0fa9-404a-9a73-835139dde16c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53bc06d6-2de5-44d1-b636-b762c3511453" xml:space="preserve">
+          <source>The <bpt id="93ef63df-e180-4095-aee1-784082f7ebf3">&lt;linkText&gt;</bpt>Next steps<ept id="93ef63df-e180-4095-aee1-784082f7ebf3">&lt;/linkText&gt;</ept><bpt id="93ef63df-e180-4095-aee1-784082f7ebf3">&lt;title&gt;</bpt><ept id="93ef63df-e180-4095-aee1-784082f7ebf3">&lt;/title&gt;</ept> section at the end of the article provides links to related how-to documentation.</source>
+          <target state="new">The <bpt id="93ef63df-e180-4095-aee1-784082f7ebf3">&lt;linkText&gt;</bpt>Next steps<ept id="93ef63df-e180-4095-aee1-784082f7ebf3">&lt;/linkText&gt;</ept><bpt id="93ef63df-e180-4095-aee1-784082f7ebf3">&lt;title&gt;</bpt><ept id="93ef63df-e180-4095-aee1-784082f7ebf3">&lt;/title&gt;</ept> section at the end of the article provides links to related how-to documentation.</target>
+        </trans-unit>
+        <trans-unit id="c475b569-c516-4a2e-be81-a724eaa8e9ab" xml:space="preserve">
+          <source>Azure App Service offers built-in authentication services that implement <bpt id="fae6ffb3-ce51-40c8-9a8a-ef557c4c13f5">&lt;linkText&gt;</bpt>OAuth 2.0<ept id="fae6ffb3-ce51-40c8-9a8a-ef557c4c13f5">&lt;/linkText&gt;</ept><bpt id="fae6ffb3-ce51-40c8-9a8a-ef557c4c13f5">&lt;title&gt;</bpt><ept id="fae6ffb3-ce51-40c8-9a8a-ef557c4c13f5">&lt;/title&gt;</ept> and <bpt id="b6411a02-d080-429b-a022-cdcc782dbb03">&lt;linkText&gt;</bpt>OpenID Connect<ept id="b6411a02-d080-429b-a022-cdcc782dbb03">&lt;/linkText&gt;</ept><bpt id="b6411a02-d080-429b-a022-cdcc782dbb03">&lt;title&gt;</bpt><ept id="b6411a02-d080-429b-a022-cdcc782dbb03">&lt;/title&gt;</ept> and work with multiple <bpt id="9dd32c87-d503-4967-a8cc-a14eac828641">&lt;em&gt;</bpt>identity providers<ept id="9dd32c87-d503-4967-a8cc-a14eac828641">&lt;/em&gt;</ept>.</source>
+          <target state="new">Azure App Service offers built-in authentication services that implement <bpt id="fae6ffb3-ce51-40c8-9a8a-ef557c4c13f5">&lt;linkText&gt;</bpt>OAuth 2.0<ept id="fae6ffb3-ce51-40c8-9a8a-ef557c4c13f5">&lt;/linkText&gt;</ept><bpt id="fae6ffb3-ce51-40c8-9a8a-ef557c4c13f5">&lt;title&gt;</bpt><ept id="fae6ffb3-ce51-40c8-9a8a-ef557c4c13f5">&lt;/title&gt;</ept> and <bpt id="b6411a02-d080-429b-a022-cdcc782dbb03">&lt;linkText&gt;</bpt>OpenID Connect<ept id="b6411a02-d080-429b-a022-cdcc782dbb03">&lt;/linkText&gt;</ept><bpt id="b6411a02-d080-429b-a022-cdcc782dbb03">&lt;title&gt;</bpt><ept id="b6411a02-d080-429b-a022-cdcc782dbb03">&lt;/title&gt;</ept> and work with multiple <bpt id="9dd32c87-d503-4967-a8cc-a14eac828641">&lt;em&gt;</bpt>identity providers<ept id="9dd32c87-d503-4967-a8cc-a14eac828641">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ac4f873-c698-43bb-81f6-826239d0fcda" xml:space="preserve">
+          <source>An identity provider is an external service, trusted by Azure App Service, that authenticates your app's users.</source>
+          <target state="new">An identity provider is an external service, trusted by Azure App Service, that authenticates your app's users.</target>
+        </trans-unit>
+        <trans-unit id="b36781ed-be01-4138-bc43-e429c5fc4090" xml:space="preserve">
+          <source>App Service supports the most popular identity providers:</source>
+          <target state="new">App Service supports the most popular identity providers:</target>
+        </trans-unit>
+        <trans-unit id="ac63dfe2-38a8-41db-95e7-7138d8d3f52f" xml:space="preserve">
+          <source>Azure Active Directory</source>
+          <target state="new">Azure Active Directory</target>
+        </trans-unit>
+        <trans-unit id="249b18fa-06f0-4ae5-936a-5197c1449449" xml:space="preserve">
+          <source>Microsoft Account</source>
+          <target state="new">Microsoft Account</target>
+        </trans-unit>
+        <trans-unit id="62f4d952-5a7e-43e4-a6ba-211af3d6087d" xml:space="preserve">
+          <source>Google</source>
+          <target state="new">Google</target>
+        </trans-unit>
+        <trans-unit id="6f818bd1-219f-4833-8cd1-5fcbeb4c6e66" xml:space="preserve">
+          <source>Twitter</source>
+          <target state="new">Twitter</target>
+        </trans-unit>
+        <trans-unit id="d2e5381e-058d-4851-81cb-9b8521ecf5a3" xml:space="preserve">
+          <source>Facebook</source>
+          <target state="new">Facebook</target>
+        </trans-unit>
+        <trans-unit id="2c185e32-3aff-4a58-bb13-8cbaa85b1623" xml:space="preserve">
+          <source>Any Azure resource group that contains API apps or mobile apps includes a <bpt id="202a64b1-ad67-418d-ada0-7e0289c1f39e">&lt;em&gt;</bpt>gateway<ept id="202a64b1-ad67-418d-ada0-7e0289c1f39e">&lt;/em&gt;</ept>.</source>
+          <target state="new">Any Azure resource group that contains API apps or mobile apps includes a <bpt id="202a64b1-ad67-418d-ada0-7e0289c1f39e">&lt;em&gt;</bpt>gateway<ept id="202a64b1-ad67-418d-ada0-7e0289c1f39e">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5027f21-b569-498a-a6dd-40e6884d1e1b" xml:space="preserve">
+          <source>The gateway is an Azure resource that runs in a web app and handles administrative tasks including authentication for API apps and mobile apps in the resource group.</source>
+          <target state="new">The gateway is an Azure resource that runs in a web app and handles administrative tasks including authentication for API apps and mobile apps in the resource group.</target>
+        </trans-unit>
+        <trans-unit id="7441f972-31c4-42a4-a1d8-83e4939d69fc" xml:space="preserve">
+          <source>The gateway handles login procedures, manages tokens, and prevents unauthenticated calls from reaching API apps that are <bpt id="f148364c-0321-4468-889d-b34cd9e24fd6">&lt;linkText&gt;</bpt>configured to require authenticated access<ept id="f148364c-0321-4468-889d-b34cd9e24fd6">&lt;/linkText&gt;</ept><bpt id="f148364c-0321-4468-889d-b34cd9e24fd6">&lt;title&gt;</bpt><ept id="f148364c-0321-4468-889d-b34cd9e24fd6">&lt;/title&gt;</ept>.</source>
+          <target state="new">The gateway handles login procedures, manages tokens, and prevents unauthenticated calls from reaching API apps that are <bpt id="f148364c-0321-4468-889d-b34cd9e24fd6">&lt;linkText&gt;</bpt>configured to require authenticated access<ept id="f148364c-0321-4468-889d-b34cd9e24fd6">&lt;/linkText&gt;</ept><bpt id="f148364c-0321-4468-889d-b34cd9e24fd6">&lt;title&gt;</bpt><ept id="f148364c-0321-4468-889d-b34cd9e24fd6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2369eebc-819e-4803-9444-6a80c06b92e1" xml:space="preserve">
+          <source>The gateway can control access to API apps because all incoming HTTP requests destined for API apps in the resource group are routed through the gateway.</source>
+          <target state="new">The gateway can control access to API apps because all incoming HTTP requests destined for API apps in the resource group are routed through the gateway.</target>
+        </trans-unit>
+        <trans-unit id="85e5c586-9a6a-48c9-b390-cd512517d19e" xml:space="preserve">
+          <source>The following diagram illustrates these gateway functions.</source>
+          <target state="new">The following diagram illustrates these gateway functions.</target>
+        </trans-unit>
+        <trans-unit id="7b5c4fb2-66c8-4650-9c50-71f0ea828d5f" xml:space="preserve">
+          <source><bpt id="eb903118-41c8-4d40-ba12-31315acc3ddd">&lt;linkText&gt;</bpt><ept id="eb903118-41c8-4d40-ba12-31315acc3ddd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb903118-41c8-4d40-ba12-31315acc3ddd">&lt;linkText&gt;</bpt><ept id="eb903118-41c8-4d40-ba12-31315acc3ddd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="526da09f-3cca-43e9-b2a7-26e0b6000bd1" xml:space="preserve">
+          <source>The gateway authentication services offer several advantages over running your own implementation of OAuth 2.0:</source>
+          <target state="new">The gateway authentication services offer several advantages over running your own implementation of OAuth 2.0:</target>
+        </trans-unit>
+        <trans-unit id="c3fd6740-6af2-4fe6-bdbb-1dc6e62b4a5a" xml:space="preserve">
+          <source>Microsoft provides SDKs that enable you to perform authentication and authorization tasks using a simplified syntax.</source>
+          <target state="new">Microsoft provides SDKs that enable you to perform authentication and authorization tasks using a simplified syntax.</target>
+        </trans-unit>
+        <trans-unit id="1ec97223-616c-466c-9a8a-ff56d9ffb471" xml:space="preserve">
+          <source>Because App Service handles more authentication tasks, your development and testing time is minimized, and you avoid most or all of the impact of changes in provider implementations of OAuth.</source>
+          <target state="new">Because App Service handles more authentication tasks, your development and testing time is minimized, and you avoid most or all of the impact of changes in provider implementations of OAuth.</target>
+        </trans-unit>
+        <trans-unit id="b162b8b9-49fb-47cf-9c09-fa940cc2bca6" xml:space="preserve">
+          <source>If you have multiple applications to protect and you keep them in one resource group, you only need one client ID and client secret for each authentication provider, because there is only one redirect URL for the gateway.</source>
+          <target state="new">If you have multiple applications to protect and you keep them in one resource group, you only need one client ID and client secret for each authentication provider, because there is only one redirect URL for the gateway.</target>
+        </trans-unit>
+        <trans-unit id="cf54cca4-49e5-4f51-a338-d1e7ed8a08b5" xml:space="preserve">
+          <source>Monitoring and troubleshooting are easier because you can monitor authentication-related traffic for an entire resource group by monitoring the gateway.</source>
+          <target state="new">Monitoring and troubleshooting are easier because you can monitor authentication-related traffic for an entire resource group by monitoring the gateway.</target>
+        </trans-unit>
+        <trans-unit id="ea146bdc-03b2-41a2-963c-f294d6b243bb" xml:space="preserve">
+          <source>Debugging is easier because you can configure a program to use the gateway while running in debug mode locally, and you don't have to change redirect URLs in your identity provider account.</source>
+          <target state="new">Debugging is easier because you can configure a program to use the gateway while running in debug mode locally, and you don't have to change redirect URLs in your identity provider account.</target>
+        </trans-unit>
+        <trans-unit id="85d323bb-cfe0-40e2-8bc2-7d365ddf717c" xml:space="preserve">
+          <source>The App Service gateway offers two ways to authenticate clients:  <bpt id="8b4f7153-63f8-4765-bc75-bcf8aad0c617">&lt;em&gt;</bpt>client flow<ept id="8b4f7153-63f8-4765-bc75-bcf8aad0c617">&lt;/em&gt;</ept> and <bpt id="79272a92-119b-4738-993c-92ada356fc83">&lt;em&gt;</bpt>server flow<ept id="79272a92-119b-4738-993c-92ada356fc83">&lt;/em&gt;</ept>.</source>
+          <target state="new">The App Service gateway offers two ways to authenticate clients:  <bpt id="8b4f7153-63f8-4765-bc75-bcf8aad0c617">&lt;em&gt;</bpt>client flow<ept id="8b4f7153-63f8-4765-bc75-bcf8aad0c617">&lt;/em&gt;</ept> and <bpt id="79272a92-119b-4738-993c-92ada356fc83">&lt;em&gt;</bpt>server flow<ept id="79272a92-119b-4738-993c-92ada356fc83">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d57d269-cb63-4729-90c0-09f836751805" xml:space="preserve">
+          <source>In both flows, the client application sends the user credentials (typically, user name and password) directly to the identity provider.</source>
+          <target state="new">In both flows, the client application sends the user credentials (typically, user name and password) directly to the identity provider.</target>
+        </trans-unit>
+        <trans-unit id="55fea67d-58d4-47ea-81c8-0a97ffaff161" xml:space="preserve">
+          <source>Neither the gateway nor your application receives user credentials in either flow.</source>
+          <target state="new">Neither the gateway nor your application receives user credentials in either flow.</target>
+        </trans-unit>
+        <trans-unit id="e3d1e4b5-147f-477b-84ad-53c44754cf90" xml:space="preserve">
+          <source>Client flow means the client application communicates directly with the identity provider to get the provider's access token.</source>
+          <target state="new">Client flow means the client application communicates directly with the identity provider to get the provider's access token.</target>
+        </trans-unit>
+        <trans-unit id="373d42bc-2b87-45d5-abb9-c0218603be9d" xml:space="preserve">
+          <source>The client application sends the provider's access token to the gateway.</source>
+          <target state="new">The client application sends the provider's access token to the gateway.</target>
+        </trans-unit>
+        <trans-unit id="c0bf468c-6276-4fb7-938d-c4222ca7ff5e" xml:space="preserve">
+          <source>The gateway creates and sends to the client a user context token.</source>
+          <target state="new">The gateway creates and sends to the client a user context token.</target>
+        </trans-unit>
+        <trans-unit id="09f708ad-e005-417c-90a6-3366ff8354f5" xml:space="preserve">
+          <source>This user context token is also known as a Zumo token, from the original code name for <bpt id="c6ac086f-2d27-459f-ad28-2850d054507e">&lt;linkText&gt;</bpt>Azure Mobile Services<ept id="c6ac086f-2d27-459f-ad28-2850d054507e">&lt;/linkText&gt;</ept><bpt id="c6ac086f-2d27-459f-ad28-2850d054507e">&lt;title&gt;</bpt><ept id="c6ac086f-2d27-459f-ad28-2850d054507e">&lt;/title&gt;</ept>.</source>
+          <target state="new">This user context token is also known as a Zumo token, from the original code name for <bpt id="c6ac086f-2d27-459f-ad28-2850d054507e">&lt;linkText&gt;</bpt>Azure Mobile Services<ept id="c6ac086f-2d27-459f-ad28-2850d054507e">&lt;/linkText&gt;</ept><bpt id="c6ac086f-2d27-459f-ad28-2850d054507e">&lt;title&gt;</bpt><ept id="c6ac086f-2d27-459f-ad28-2850d054507e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a72534bf-4c59-4f8f-b298-3d472f1e5f7a" xml:space="preserve">
+          <source>(Authentication services for API Apps and Mobile Apps are built on the same architecture originally developed for Mobile Services.)</source>
+          <target state="new">(Authentication services for API Apps and Mobile Apps are built on the same architecture originally developed for Mobile Services.)</target>
+        </trans-unit>
+        <trans-unit id="6de35b16-fbd9-468f-8a03-ef070c2d08e8" xml:space="preserve">
+          <source>The following diagram illustrates this flow.</source>
+          <target state="new">The following diagram illustrates this flow.</target>
+        </trans-unit>
+        <trans-unit id="95118544-854f-4b9b-8b34-0fed76ff0efe" xml:space="preserve">
+          <source><bpt id="96b3b57a-b7c2-4091-86f1-0994c90ab79e">&lt;linkText&gt;</bpt><ept id="96b3b57a-b7c2-4091-86f1-0994c90ab79e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="96b3b57a-b7c2-4091-86f1-0994c90ab79e">&lt;linkText&gt;</bpt><ept id="96b3b57a-b7c2-4091-86f1-0994c90ab79e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="812610cc-a46a-4256-80c7-f334c6d8ba85" xml:space="preserve">
+          <source>The client then provides the Zumo token in HTTP requests when it calls protected API apps or mobile apps.</source>
+          <target state="new">The client then provides the Zumo token in HTTP requests when it calls protected API apps or mobile apps.</target>
+        </trans-unit>
+        <trans-unit id="fe33276f-7830-41b3-89ff-d7947cbff9fa" xml:space="preserve">
+          <source>The gateway stores the provider tokens and keeps track of which ones are associated with which Zumo tokens.</source>
+          <target state="new">The gateway stores the provider tokens and keeps track of which ones are associated with which Zumo tokens.</target>
+        </trans-unit>
+        <trans-unit id="db08162f-6314-4a42-861d-82a82ee5c83d" xml:space="preserve">
+          <source>Server flow means the client application relies on the gateway to communicate with the identity provider to initiate login.</source>
+          <target state="new">Server flow means the client application relies on the gateway to communicate with the identity provider to initiate login.</target>
+        </trans-unit>
+        <trans-unit id="c2aa1b85-c6ad-4ecf-b0ea-600a0bb02084" xml:space="preserve">
+          <source>The client browser goes to a gateway URL, and the gateway redirects the request to the identity provider's login page.</source>
+          <target state="new">The client browser goes to a gateway URL, and the gateway redirects the request to the identity provider's login page.</target>
+        </trans-unit>
+        <trans-unit id="1d6a1482-70ff-46a4-9c11-9a74055ef623" xml:space="preserve">
+          <source>After the user logs in, the gateway gets the identity provider's token, creates the Zumo token, and sends the Zumo token to the client.</source>
+          <target state="new">After the user logs in, the gateway gets the identity provider's token, creates the Zumo token, and sends the Zumo token to the client.</target>
+        </trans-unit>
+        <trans-unit id="c6c709fb-3628-43e9-acb4-5328a29ea4cc" xml:space="preserve">
+          <source><bpt id="78acab32-0b75-497c-a15a-47429795fe49">&lt;linkText&gt;</bpt><ept id="78acab32-0b75-497c-a15a-47429795fe49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78acab32-0b75-497c-a15a-47429795fe49">&lt;linkText&gt;</bpt><ept id="78acab32-0b75-497c-a15a-47429795fe49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3ce039a-4683-485c-a22b-86f589383cf3" xml:space="preserve">
+          <source>Subsequent interaction between the client application and protected API apps or mobile apps is handled the same as for client flow:  the client provides the Zumo token in HTTP requests.</source>
+          <target state="new">Subsequent interaction between the client application and protected API apps or mobile apps is handled the same as for client flow:  the client provides the Zumo token in HTTP requests.</target>
+        </trans-unit>
+        <trans-unit id="d1d4d336-b8df-4c5f-beb8-ded4c38d95fb" xml:space="preserve">
+          <source>The client flow is typically the best choice if the identity provider that you want to use has an SDK for the client platform that you want to support.</source>
+          <target state="new">The client flow is typically the best choice if the identity provider that you want to use has an SDK for the client platform that you want to support.</target>
+        </trans-unit>
+        <trans-unit id="43f212fe-f881-4e5c-9c11-e620277d18a4" xml:space="preserve">
+          <source>Client flow provides the best user experience because it reduces the number of times the user has to enter credentials.</source>
+          <target state="new">Client flow provides the best user experience because it reduces the number of times the user has to enter credentials.</target>
+        </trans-unit>
+        <trans-unit id="f2a2c3d7-6ab7-4c28-9038-77df797d3f6b" xml:space="preserve">
+          <source>For example, if your user has an android device, they probably have a Google account associated with their device, so if they can use that account without having to re-enter their user name and password, that makes for a better user experience.</source>
+          <target state="new">For example, if your user has an android device, they probably have a Google account associated with their device, so if they can use that account without having to re-enter their user name and password, that makes for a better user experience.</target>
+        </trans-unit>
+        <trans-unit id="e5d973d0-398c-4bbc-89f2-e51db0654d9d" xml:space="preserve">
+          <source>Same thing with a Facebook account in an Android, iOS, or Windows Phone device, or a Microsoft account on a Windows desktop or Windows Phone.</source>
+          <target state="new">Same thing with a Facebook account in an Android, iOS, or Windows Phone device, or a Microsoft account on a Windows desktop or Windows Phone.</target>
+        </trans-unit>
+        <trans-unit id="8b3a73f3-4148-4578-8877-e98a6c4a0067" xml:space="preserve">
+          <source>In other scenarios the server flow may be a better choice: </source>
+          <target state="new">In other scenarios the server flow may be a better choice: </target>
+        </trans-unit>
+        <trans-unit id="956de509-c740-4cc5-813f-3c8793cc4c08" xml:space="preserve">
+          <source>There is no native client SDK for the identity provider and client platform you want to support.</source>
+          <target state="new">There is no native client SDK for the identity provider and client platform you want to support.</target>
+        </trans-unit>
+        <trans-unit id="6920f938-6b74-4930-9b10-66656662268f" xml:space="preserve">
+          <source>You want to get something into production quickly and improve the user experience as time permits later.</source>
+          <target state="new">You want to get something into production quickly and improve the user experience as time permits later.</target>
+        </trans-unit>
+        <trans-unit id="52f97776-c8e6-4c46-8a35-b66524f28f2c" xml:space="preserve">
+          <source>The server flow lets Azure App Service do more of the authentication work, which minimizes the amount of development and testing you have to do.</source>
+          <target state="new">The server flow lets Azure App Service do more of the authentication work, which minimizes the amount of development and testing you have to do.</target>
+        </trans-unit>
+        <trans-unit id="d8da186a-8d46-41cc-9d4e-80f8a5a86368" xml:space="preserve">
+          <source>You can write code to make outgoing calls to Software-as-a-Service (SaaS) platforms on behalf of a logged-in user or you can use a <bpt id="876cd523-66f5-4ba0-8ac3-bc906733496e">&lt;linkText&gt;</bpt>connector API app<ept id="876cd523-66f5-4ba0-8ac3-bc906733496e">&lt;/linkText&gt;</ept><bpt id="876cd523-66f5-4ba0-8ac3-bc906733496e">&lt;title&gt;</bpt><ept id="876cd523-66f5-4ba0-8ac3-bc906733496e">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can write code to make outgoing calls to Software-as-a-Service (SaaS) platforms on behalf of a logged-in user or you can use a <bpt id="876cd523-66f5-4ba0-8ac3-bc906733496e">&lt;linkText&gt;</bpt>connector API app<ept id="876cd523-66f5-4ba0-8ac3-bc906733496e">&lt;/linkText&gt;</ept><bpt id="876cd523-66f5-4ba0-8ac3-bc906733496e">&lt;title&gt;</bpt><ept id="876cd523-66f5-4ba0-8ac3-bc906733496e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ddfee13-8076-4b66-a94f-86609aabf5ad" xml:space="preserve">
+          <source>For example, to post a tweet from the user's Twitter account you can use <bpt id="01b7af58-12b8-43be-ab7b-d1a5c85313aa">&lt;linkText&gt;</bpt>a Twitter SDK<ept id="01b7af58-12b8-43be-ab7b-d1a5c85313aa">&lt;/linkText&gt;</ept><bpt id="01b7af58-12b8-43be-ab7b-d1a5c85313aa">&lt;title&gt;</bpt><ept id="01b7af58-12b8-43be-ab7b-d1a5c85313aa">&lt;/title&gt;</ept>, or provision a <bpt id="df04775d-734b-4ab4-9557-2680b9dd2c25">&lt;linkText&gt;</bpt>Twitter connector<ept id="df04775d-734b-4ab4-9557-2680b9dd2c25">&lt;/linkText&gt;</ept><bpt id="df04775d-734b-4ab4-9557-2680b9dd2c25">&lt;title&gt;</bpt><ept id="df04775d-734b-4ab4-9557-2680b9dd2c25">&lt;/title&gt;</ept> in your Azure subscription and call that.</source>
+          <target state="new">For example, to post a tweet from the user's Twitter account you can use <bpt id="01b7af58-12b8-43be-ab7b-d1a5c85313aa">&lt;linkText&gt;</bpt>a Twitter SDK<ept id="01b7af58-12b8-43be-ab7b-d1a5c85313aa">&lt;/linkText&gt;</ept><bpt id="01b7af58-12b8-43be-ab7b-d1a5c85313aa">&lt;title&gt;</bpt><ept id="01b7af58-12b8-43be-ab7b-d1a5c85313aa">&lt;/title&gt;</ept>, or provision a <bpt id="df04775d-734b-4ab4-9557-2680b9dd2c25">&lt;linkText&gt;</bpt>Twitter connector<ept id="df04775d-734b-4ab4-9557-2680b9dd2c25">&lt;/linkText&gt;</ept><bpt id="df04775d-734b-4ab4-9557-2680b9dd2c25">&lt;title&gt;</bpt><ept id="df04775d-734b-4ab4-9557-2680b9dd2c25">&lt;/title&gt;</ept> in your Azure subscription and call that.</target>
+        </trans-unit>
+        <trans-unit id="3ffbe8ee-2a90-497c-8cd7-a05400cf9a53" xml:space="preserve">
+          <source>This section is about accessing a SaaS platform from code that runs in an API app or mobile app.</source>
+          <target state="new">This section is about accessing a SaaS platform from code that runs in an API app or mobile app.</target>
+        </trans-unit>
+        <trans-unit id="a0adc0ba-6f9f-4bcf-9670-81847d47fb73" xml:space="preserve">
+          <source>The gateway maintains a <bpt id="7d6677a9-ea86-460b-88e6-a13149433aa2">&lt;em&gt;</bpt>token store<ept id="7d6677a9-ea86-460b-88e6-a13149433aa2">&lt;/em&gt;</ept> in which it associates a Zumo token with one or more identity provider access tokens and refresh tokens.</source>
+          <target state="new">The gateway maintains a <bpt id="7d6677a9-ea86-460b-88e6-a13149433aa2">&lt;em&gt;</bpt>token store<ept id="7d6677a9-ea86-460b-88e6-a13149433aa2">&lt;/em&gt;</ept> in which it associates a Zumo token with one or more identity provider access tokens and refresh tokens.</target>
+        </trans-unit>
+        <trans-unit id="dd17f490-762d-48ff-8fc4-ea6ce8d5e100" xml:space="preserve">
+          <source>When an HTTP request with a valid Zumo token is received, the gateway knows which identity provider tokens pertain to that user.</source>
+          <target state="new">When an HTTP request with a valid Zumo token is received, the gateway knows which identity provider tokens pertain to that user.</target>
+        </trans-unit>
+        <trans-unit id="44559029-2e7d-4078-aca4-b32be74aa76a" xml:space="preserve">
+          <source>When the code running in your API app or mobile app needs to make a call to a protected resource on behalf of the logged-on user, it can retrieve and use the identity provider's token from the gateway's token store, as shown in the following diagram.</source>
+          <target state="new">When the code running in your API app or mobile app needs to make a call to a protected resource on behalf of the logged-on user, it can retrieve and use the identity provider's token from the gateway's token store, as shown in the following diagram.</target>
+        </trans-unit>
+        <trans-unit id="01f2a78f-8277-4796-8071-96a813c6133d" xml:space="preserve">
+          <source>The diagram assumes that the client has already authenticated with the gateway and has the Zumo token.</source>
+          <target state="new">The diagram assumes that the client has already authenticated with the gateway and has the Zumo token.</target>
+        </trans-unit>
+        <trans-unit id="65f1edbe-1cff-4013-b3af-95a2ace9e953" xml:space="preserve">
+          <source><bpt id="b620b5dc-0b1c-4bbe-9ab4-412fb87fe82d">&lt;linkText&gt;</bpt><ept id="b620b5dc-0b1c-4bbe-9ab4-412fb87fe82d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b620b5dc-0b1c-4bbe-9ab4-412fb87fe82d">&lt;linkText&gt;</bpt><ept id="b620b5dc-0b1c-4bbe-9ab4-412fb87fe82d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9aa60bd6-9b76-40fe-a4b4-77c580f24d9e" xml:space="preserve">
+          <source>For example, suppose the identity provider is Azure Active Directory (AAD), and your API app wants to use the AAD access token to call the AAD Graph API or request access to a SharePoint site that the user has permissions for.</source>
+          <target state="new">For example, suppose the identity provider is Azure Active Directory (AAD), and your API app wants to use the AAD access token to call the AAD Graph API or request access to a SharePoint site that the user has permissions for.</target>
+        </trans-unit>
+        <trans-unit id="6d447f70-e48c-4897-9d44-59e65b0bed99" xml:space="preserve">
+          <source>You can send a request to the gateway to retrieve the AAD token, then use the AAD token to call the Graph API or to get an access token for the SharePoint site.</source>
+          <target state="new">You can send a request to the gateway to retrieve the AAD token, then use the AAD token to call the Graph API or to get an access token for the SharePoint site.</target>
+        </trans-unit>
+        <trans-unit id="05ba561f-8f3d-4411-9134-6712e5c44cde" xml:space="preserve">
+          <source>The gateway also has built-in features for getting user consent when you want to access resources secured by a provider other than the original identity provider.</source>
+          <target state="new">The gateway also has built-in features for getting user consent when you want to access resources secured by a provider other than the original identity provider.</target>
+        </trans-unit>
+        <trans-unit id="0b180166-0b4d-416d-ab02-283aa6689aa1" xml:space="preserve">
+          <source>For example, for a user who signs in using Azure Active Directory, you might want to access files in the user's Dropbox account.</source>
+          <target state="new">For example, for a user who signs in using Azure Active Directory, you might want to access files in the user's Dropbox account.</target>
+        </trans-unit>
+        <trans-unit id="92bc7f2e-b20a-480d-a594-354930b583ae" xml:space="preserve">
+          <source>The app service gateway includes built-in support for getting the user's consent to such access from the following providers:</source>
+          <target state="new">The app service gateway includes built-in support for getting the user's consent to such access from the following providers:</target>
+        </trans-unit>
+        <trans-unit id="7a8ffb8f-b5f8-4806-8f04-1310c092a515" xml:space="preserve">
+          <source>Box</source>
+          <target state="new">Box</target>
+        </trans-unit>
+        <trans-unit id="f4f7995d-e4c8-4121-8a84-7cb518e4162c" xml:space="preserve">
+          <source>DropBox</source>
+          <target state="new">DropBox</target>
+        </trans-unit>
+        <trans-unit id="bf3fd1e2-d945-4b55-8772-e962be689e9e" xml:space="preserve">
+          <source>Facebook</source>
+          <target state="new">Facebook</target>
+        </trans-unit>
+        <trans-unit id="021949cc-586a-4569-b681-ce372e4ec039" xml:space="preserve">
+          <source>Google</source>
+          <target state="new">Google</target>
+        </trans-unit>
+        <trans-unit id="ad335ef7-a767-4268-a891-b41201a58fee" xml:space="preserve">
+          <source>Office365</source>
+          <target state="new">Office365</target>
+        </trans-unit>
+        <trans-unit id="df431a96-c88d-48e7-93f7-6054ade54aa1" xml:space="preserve">
+          <source>OneDrive</source>
+          <target state="new">OneDrive</target>
+        </trans-unit>
+        <trans-unit id="189a4ec4-e965-4d93-a591-165909e1fc68" xml:space="preserve">
+          <source>QuickBooks</source>
+          <target state="new">QuickBooks</target>
+        </trans-unit>
+        <trans-unit id="d1bc7bd2-bb5e-49f5-b0e8-d5441d4b0443" xml:space="preserve">
+          <source>Salesforce</source>
+          <target state="new">Salesforce</target>
+        </trans-unit>
+        <trans-unit id="004c1cce-61e6-469f-9b5b-39d3dff11410" xml:space="preserve">
+          <source>SharePointOnline</source>
+          <target state="new">SharePointOnline</target>
+        </trans-unit>
+        <trans-unit id="3b209529-3013-401c-8bf5-3523773fb8ee" xml:space="preserve">
+          <source>Twitter</source>
+          <target state="new">Twitter</target>
+        </trans-unit>
+        <trans-unit id="91387fed-8eb8-43b9-853d-47fe9e950494" xml:space="preserve">
+          <source>Yammer</source>
+          <target state="new">Yammer</target>
+        </trans-unit>
+        <trans-unit id="15866d3c-8a6b-45c7-a1c1-ac7688223b35" xml:space="preserve">
+          <source>Azure Active Directory</source>
+          <target state="new">Azure Active Directory</target>
+        </trans-unit>
+        <trans-unit id="d5aa65c4-2236-426e-aaad-425efed47164" xml:space="preserve">
+          <source>Microsoft Account</source>
+          <target state="new">Microsoft Account</target>
+        </trans-unit>
+        <trans-unit id="6f8abed1-d5b0-4a63-8ba7-eca11d3c7986" xml:space="preserve">
+          <source>For these providers, the gateway maintains access tokens and associates them with the Zumo token, as it does for the identity provider access token.</source>
+          <target state="new">For these providers, the gateway maintains access tokens and associates them with the Zumo token, as it does for the identity provider access token.</target>
+        </trans-unit>
+        <trans-unit id="9126863e-5e9d-47bf-b099-2ccb8ce75f82" xml:space="preserve">
+          <source>The process of getting user consent and calling a SaaS platform is illustrated in the following diagram.</source>
+          <target state="new">The process of getting user consent and calling a SaaS platform is illustrated in the following diagram.</target>
+        </trans-unit>
+        <trans-unit id="ff60b238-fbe9-4309-b7ce-54c9180a3ebd" xml:space="preserve">
+          <source>The diagram assumes that the client has already authenticated with the gateway and has the Zumo token.</source>
+          <target state="new">The diagram assumes that the client has already authenticated with the gateway and has the Zumo token.</target>
+        </trans-unit>
+        <trans-unit id="2d7a6b4a-ef05-4e4c-9cfc-95c6c3d1ad28" xml:space="preserve">
+          <source><bpt id="2bd3d4fd-95ef-4afe-8f51-968073722f79">&lt;linkText&gt;</bpt><ept id="2bd3d4fd-95ef-4afe-8f51-968073722f79">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2bd3d4fd-95ef-4afe-8f51-968073722f79">&lt;linkText&gt;</bpt><ept id="2bd3d4fd-95ef-4afe-8f51-968073722f79">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="135e0b2c-591f-445c-a35a-1854db913e11" xml:space="preserve">
+          <source>The App Service runtime support and SDKs make it relatively easy to write code that accesses resources secured by one of these providers.</source>
+          <target state="new">The App Service runtime support and SDKs make it relatively easy to write code that accesses resources secured by one of these providers.</target>
+        </trans-unit>
+        <trans-unit id="7a6ab2fb-2ccc-4f7e-9274-10b38f268026" xml:space="preserve">
+          <source>There is a preliminary step not shown in the diagram: you have to set up an account with the provider and configure the provider's client ID and client secret settings in Azure App Service.</source>
+          <target state="new">There is a preliminary step not shown in the diagram: you have to set up an account with the provider and configure the provider's client ID and client secret settings in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="a8e22731-7808-40c3-bcbd-117ce6aed376" xml:space="preserve">
+          <source>For these and many other providers you can also access secured resources by using a prepackaged <bpt id="ce15afec-aa19-4128-8bef-0205a600e3bd">&lt;linkText&gt;</bpt>connector API app<ept id="ce15afec-aa19-4128-8bef-0205a600e3bd">&lt;/linkText&gt;</ept><bpt id="ce15afec-aa19-4128-8bef-0205a600e3bd">&lt;title&gt;</bpt><ept id="ce15afec-aa19-4128-8bef-0205a600e3bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For these and many other providers you can also access secured resources by using a prepackaged <bpt id="ce15afec-aa19-4128-8bef-0205a600e3bd">&lt;linkText&gt;</bpt>connector API app<ept id="ce15afec-aa19-4128-8bef-0205a600e3bd">&lt;/linkText&gt;</ept><bpt id="ce15afec-aa19-4128-8bef-0205a600e3bd">&lt;title&gt;</bpt><ept id="ce15afec-aa19-4128-8bef-0205a600e3bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbe5e3e6-66a8-4f9b-b0fb-c6635d254663" xml:space="preserve">
+          <source>For API apps, The SDK for .NET provides authentication functionality:</source>
+          <target state="new">For API apps, The SDK for .NET provides authentication functionality:</target>
+        </trans-unit>
+        <trans-unit id="91cbba7e-61df-49d1-9182-74e310d5f273" xml:space="preserve">
+          <source><bpt id="9ca9da0b-a33b-4498-90d1-493a58d6c53b">&lt;linkText&gt;</bpt>Microsoft.Azure.AppService<ept id="9ca9da0b-a33b-4498-90d1-493a58d6c53b">&lt;/linkText&gt;</ept><bpt id="9ca9da0b-a33b-4498-90d1-493a58d6c53b">&lt;title&gt;</bpt><ept id="9ca9da0b-a33b-4498-90d1-493a58d6c53b">&lt;/title&gt;</ept> - For use in an API app client.</source>
+          <target state="new"><bpt id="9ca9da0b-a33b-4498-90d1-493a58d6c53b">&lt;linkText&gt;</bpt>Microsoft.Azure.AppService<ept id="9ca9da0b-a33b-4498-90d1-493a58d6c53b">&lt;/linkText&gt;</ept><bpt id="9ca9da0b-a33b-4498-90d1-493a58d6c53b">&lt;title&gt;</bpt><ept id="9ca9da0b-a33b-4498-90d1-493a58d6c53b">&lt;/title&gt;</ept> - For use in an API app client.</target>
+        </trans-unit>
+        <trans-unit id="16ee4a9b-7019-416c-83c9-3438204c0611" xml:space="preserve">
+          <source><bpt id="dcc71d6e-617e-4be9-820d-721c57b5ec7b">&lt;linkText&gt;</bpt>Microsoft.Azure.AppService.ApiApps.Service<ept id="dcc71d6e-617e-4be9-820d-721c57b5ec7b">&lt;/linkText&gt;</ept><bpt id="dcc71d6e-617e-4be9-820d-721c57b5ec7b">&lt;title&gt;</bpt><ept id="dcc71d6e-617e-4be9-820d-721c57b5ec7b">&lt;/title&gt;</ept> - For use in a Web API project that runs in an API app.</source>
+          <target state="new"><bpt id="dcc71d6e-617e-4be9-820d-721c57b5ec7b">&lt;linkText&gt;</bpt>Microsoft.Azure.AppService.ApiApps.Service<ept id="dcc71d6e-617e-4be9-820d-721c57b5ec7b">&lt;/linkText&gt;</ept><bpt id="dcc71d6e-617e-4be9-820d-721c57b5ec7b">&lt;title&gt;</bpt><ept id="dcc71d6e-617e-4be9-820d-721c57b5ec7b">&lt;/title&gt;</ept> - For use in a Web API project that runs in an API app.</target>
+        </trans-unit>
+        <trans-unit id="d4553c84-6ec8-4564-828d-a1f4841793a0" xml:space="preserve">
+          <source>In addition, Visual Studio can automatically generate code that works with the SDK for .NET to further simplify the code you write to call your API app.</source>
+          <target state="new">In addition, Visual Studio can automatically generate code that works with the SDK for .NET to further simplify the code you write to call your API app.</target>
+        </trans-unit>
+        <trans-unit id="1b14bc5a-7fad-480b-b589-1033e2b7be6c" xml:space="preserve">
+          <source>For more information, see <bpt id="7f72f47f-f900-4d6f-8fbd-a35a9cd2e366">&lt;linkText&gt;</bpt>Consume an API app in Azure App Service from a .NET client<ept id="7f72f47f-f900-4d6f-8fbd-a35a9cd2e366">&lt;/linkText&gt;</ept><bpt id="7f72f47f-f900-4d6f-8fbd-a35a9cd2e366">&lt;title&gt;</bpt><ept id="7f72f47f-f900-4d6f-8fbd-a35a9cd2e366">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7f72f47f-f900-4d6f-8fbd-a35a9cd2e366">&lt;linkText&gt;</bpt>Consume an API app in Azure App Service from a .NET client<ept id="7f72f47f-f900-4d6f-8fbd-a35a9cd2e366">&lt;/linkText&gt;</ept><bpt id="7f72f47f-f900-4d6f-8fbd-a35a9cd2e366">&lt;title&gt;</bpt><ept id="7f72f47f-f900-4d6f-8fbd-a35a9cd2e366">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6290c922-15a1-49b1-a98f-b036a52e7ca0" xml:space="preserve">
+          <source>For Mobile Apps, SDKs are available for the following platforms:</source>
+          <target state="new">For Mobile Apps, SDKs are available for the following platforms:</target>
+        </trans-unit>
+        <trans-unit id="0371c7cd-4bd4-46a5-bad5-fcb411d7f661" xml:space="preserve">
+          <source><bpt id="cd20d6c9-925b-4d02-a391-a354bd288d18">&lt;linkText&gt;</bpt>.NET Server<ept id="cd20d6c9-925b-4d02-a391-a354bd288d18">&lt;/linkText&gt;</ept><bpt id="cd20d6c9-925b-4d02-a391-a354bd288d18">&lt;title&gt;</bpt><ept id="cd20d6c9-925b-4d02-a391-a354bd288d18">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="cd20d6c9-925b-4d02-a391-a354bd288d18">&lt;linkText&gt;</bpt>.NET Server<ept id="cd20d6c9-925b-4d02-a391-a354bd288d18">&lt;/linkText&gt;</ept><bpt id="cd20d6c9-925b-4d02-a391-a354bd288d18">&lt;title&gt;</bpt><ept id="cd20d6c9-925b-4d02-a391-a354bd288d18">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="82c03d88-ad34-49e7-aaf0-85773aa735f4" xml:space="preserve">
+          <source><bpt id="f5800c40-3041-4a31-9783-f33aa0956de2">&lt;linkText&gt;</bpt>iOS<ept id="f5800c40-3041-4a31-9783-f33aa0956de2">&lt;/linkText&gt;</ept><bpt id="f5800c40-3041-4a31-9783-f33aa0956de2">&lt;title&gt;</bpt><ept id="f5800c40-3041-4a31-9783-f33aa0956de2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f5800c40-3041-4a31-9783-f33aa0956de2">&lt;linkText&gt;</bpt>iOS<ept id="f5800c40-3041-4a31-9783-f33aa0956de2">&lt;/linkText&gt;</ept><bpt id="f5800c40-3041-4a31-9783-f33aa0956de2">&lt;title&gt;</bpt><ept id="f5800c40-3041-4a31-9783-f33aa0956de2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="432f0886-65bf-43a7-a5ff-d468403e48bb" xml:space="preserve">
+          <source><bpt id="14d939ee-f64f-4ab8-8ef9-f990728c75c0">&lt;linkText&gt;</bpt>Xamarin iOS<ept id="14d939ee-f64f-4ab8-8ef9-f990728c75c0">&lt;/linkText&gt;</ept><bpt id="14d939ee-f64f-4ab8-8ef9-f990728c75c0">&lt;title&gt;</bpt><ept id="14d939ee-f64f-4ab8-8ef9-f990728c75c0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="14d939ee-f64f-4ab8-8ef9-f990728c75c0">&lt;linkText&gt;</bpt>Xamarin iOS<ept id="14d939ee-f64f-4ab8-8ef9-f990728c75c0">&lt;/linkText&gt;</ept><bpt id="14d939ee-f64f-4ab8-8ef9-f990728c75c0">&lt;title&gt;</bpt><ept id="14d939ee-f64f-4ab8-8ef9-f990728c75c0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3704ed9c-21ea-4a6d-b030-f259d40d99c1" xml:space="preserve">
+          <source><bpt id="1aa63848-9496-4f11-90de-6e4d7142dfc0">&lt;linkText&gt;</bpt>Xamarin Android<ept id="1aa63848-9496-4f11-90de-6e4d7142dfc0">&lt;/linkText&gt;</ept><bpt id="1aa63848-9496-4f11-90de-6e4d7142dfc0">&lt;title&gt;</bpt><ept id="1aa63848-9496-4f11-90de-6e4d7142dfc0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1aa63848-9496-4f11-90de-6e4d7142dfc0">&lt;linkText&gt;</bpt>Xamarin Android<ept id="1aa63848-9496-4f11-90de-6e4d7142dfc0">&lt;/linkText&gt;</ept><bpt id="1aa63848-9496-4f11-90de-6e4d7142dfc0">&lt;title&gt;</bpt><ept id="1aa63848-9496-4f11-90de-6e4d7142dfc0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56a8e6fa-b66d-4325-9dfb-49846a7ae465" xml:space="preserve">
+          <source><bpt id="7aee9177-d388-40fb-a2fb-89568fbb083d">&lt;linkText&gt;</bpt>Windows<ept id="7aee9177-d388-40fb-a2fb-89568fbb083d">&lt;/linkText&gt;</ept><bpt id="7aee9177-d388-40fb-a2fb-89568fbb083d">&lt;title&gt;</bpt><ept id="7aee9177-d388-40fb-a2fb-89568fbb083d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7aee9177-d388-40fb-a2fb-89568fbb083d">&lt;linkText&gt;</bpt>Windows<ept id="7aee9177-d388-40fb-a2fb-89568fbb083d">&lt;/linkText&gt;</ept><bpt id="7aee9177-d388-40fb-a2fb-89568fbb083d">&lt;title&gt;</bpt><ept id="7aee9177-d388-40fb-a2fb-89568fbb083d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c46a282-c89e-4c72-a100-25326af0bf0f" xml:space="preserve">
+          <source>JavaScript (tutorial in development)</source>
+          <target state="new">JavaScript (tutorial in development)</target>
+        </trans-unit>
+        <trans-unit id="eb79eb3a-64c9-45e4-afb9-c8442ef52e6d" xml:space="preserve">
+          <source>If the gateway authentication services don't meet the needs of your app, you can handle authentication yourself, or use the Azure API Management service.</source>
+          <target state="new">If the gateway authentication services don't meet the needs of your app, you can handle authentication yourself, or use the Azure API Management service.</target>
+        </trans-unit>
+        <trans-unit id="cb079ddc-cccd-43eb-a484-854ed78cc8ed" xml:space="preserve">
+          <source>You can run an authentication framework such as <bpt id="2f4ce0c0-694c-46d3-abd6-26965839c9cc">&lt;linkText&gt;</bpt>ASP.NET Identity<ept id="2f4ce0c0-694c-46d3-abd6-26965839c9cc">&lt;/linkText&gt;</ept><bpt id="2f4ce0c0-694c-46d3-abd6-26965839c9cc">&lt;title&gt;</bpt><ept id="2f4ce0c0-694c-46d3-abd6-26965839c9cc">&lt;/title&gt;</ept> or <bpt id="4873be03-5baa-429b-ad36-c7e03aa71f43">&lt;linkText&gt;</bpt>Thinktecture<ept id="4873be03-5baa-429b-ad36-c7e03aa71f43">&lt;/linkText&gt;</ept><bpt id="4873be03-5baa-429b-ad36-c7e03aa71f43">&lt;title&gt;</bpt><ept id="4873be03-5baa-429b-ad36-c7e03aa71f43">&lt;/title&gt;</ept> on Azure.</source>
+          <target state="new">You can run an authentication framework such as <bpt id="2f4ce0c0-694c-46d3-abd6-26965839c9cc">&lt;linkText&gt;</bpt>ASP.NET Identity<ept id="2f4ce0c0-694c-46d3-abd6-26965839c9cc">&lt;/linkText&gt;</ept><bpt id="2f4ce0c0-694c-46d3-abd6-26965839c9cc">&lt;title&gt;</bpt><ept id="2f4ce0c0-694c-46d3-abd6-26965839c9cc">&lt;/title&gt;</ept> or <bpt id="4873be03-5baa-429b-ad36-c7e03aa71f43">&lt;linkText&gt;</bpt>Thinktecture<ept id="4873be03-5baa-429b-ad36-c7e03aa71f43">&lt;/linkText&gt;</ept><bpt id="4873be03-5baa-429b-ad36-c7e03aa71f43">&lt;title&gt;</bpt><ept id="4873be03-5baa-429b-ad36-c7e03aa71f43">&lt;/title&gt;</ept> on Azure.</target>
+        </trans-unit>
+        <trans-unit id="b6b67c53-75ee-451a-ad5a-532c6b072609" xml:space="preserve">
+          <source>This gives you control over how everything works, but you also have to spend more time developing and testing authentication functionality.</source>
+          <target state="new">This gives you control over how everything works, but you also have to spend more time developing and testing authentication functionality.</target>
+        </trans-unit>
+        <trans-unit id="f54cddfc-95fd-4a9c-b154-7b4f900df6da" xml:space="preserve">
+          <source>Also, if you have multiple apps to protect with multiple redirect URLs, you have to configure multiple client IDs and client secrets with third-party authentication providers such as Facebook, Google, and Twitter.</source>
+          <target state="new">Also, if you have multiple apps to protect with multiple redirect URLs, you have to configure multiple client IDs and client secrets with third-party authentication providers such as Facebook, Google, and Twitter.</target>
+        </trans-unit>
+        <trans-unit id="df8aa29d-ba62-4170-8c52-c3fd3db3de6b" xml:space="preserve">
+          <source>At present App Service does not support using a do-it-yourself solution alongside gateway authentication, as is possible in <bpt id="0fff2fcc-46e7-40b5-91bb-a99f205ef640">&lt;linkText&gt;</bpt>Mobile Services<ept id="0fff2fcc-46e7-40b5-91bb-a99f205ef640">&lt;/linkText&gt;</ept><bpt id="0fff2fcc-46e7-40b5-91bb-a99f205ef640">&lt;title&gt;</bpt><ept id="0fff2fcc-46e7-40b5-91bb-a99f205ef640">&lt;/title&gt;</ept>.</source>
+          <target state="new">At present App Service does not support using a do-it-yourself solution alongside gateway authentication, as is possible in <bpt id="0fff2fcc-46e7-40b5-91bb-a99f205ef640">&lt;linkText&gt;</bpt>Mobile Services<ept id="0fff2fcc-46e7-40b5-91bb-a99f205ef640">&lt;/linkText&gt;</ept><bpt id="0fff2fcc-46e7-40b5-91bb-a99f205ef640">&lt;title&gt;</bpt><ept id="0fff2fcc-46e7-40b5-91bb-a99f205ef640">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb3712c8-910c-4405-9dac-3198231c1454" xml:space="preserve">
+          <source>If you have existing APIs that you want to protect with authentication, you can do that with the Azure API Management service.</source>
+          <target state="new">If you have existing APIs that you want to protect with authentication, you can do that with the Azure API Management service.</target>
+        </trans-unit>
+        <trans-unit id="cea67200-21fe-4f30-9306-ed1941b34759" xml:space="preserve">
+          <source>For information about using API Management with API apps, see this blog post by Panos Kefalidis: <bpt id="ce254c37-0f53-4eba-a0af-c142d8272f28">&lt;linkText&gt;</bpt>Taking advantage of API Management for API Apps<ept id="ce254c37-0f53-4eba-a0af-c142d8272f28">&lt;/linkText&gt;</ept><bpt id="ce254c37-0f53-4eba-a0af-c142d8272f28">&lt;title&gt;</bpt><ept id="ce254c37-0f53-4eba-a0af-c142d8272f28">&lt;/title&gt;</ept></source>
+          <target state="new">For information about using API Management with API apps, see this blog post by Panos Kefalidis: <bpt id="ce254c37-0f53-4eba-a0af-c142d8272f28">&lt;linkText&gt;</bpt>Taking advantage of API Management for API Apps<ept id="ce254c37-0f53-4eba-a0af-c142d8272f28">&lt;/linkText&gt;</ept><bpt id="ce254c37-0f53-4eba-a0af-c142d8272f28">&lt;title&gt;</bpt><ept id="ce254c37-0f53-4eba-a0af-c142d8272f28">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b78a8da-f198-4e46-a734-b85609d19ad7" xml:space="preserve">
+          <source>This article has explained the authentication services provided by Azure App Service for API Apps and Mobile Apps.</source>
+          <target state="new">This article has explained the authentication services provided by Azure App Service for API Apps and Mobile Apps.</target>
+        </trans-unit>
+        <trans-unit id="e5f94214-6f70-4b9d-8814-897adab9c128" xml:space="preserve">
+          <source>Here are some links to resources for learning about the underlying authentication protocols, and documentation about how to use the App Service authentication features.</source>
+          <target state="new">Here are some links to resources for learning about the underlying authentication protocols, and documentation about how to use the App Service authentication features.</target>
+        </trans-unit>
+        <trans-unit id="5fe78f99-3ec2-4968-b5df-26189381a4a9" xml:space="preserve">
+          <source><bpt id="28c5fd86-df75-440b-9967-ec7e3236c593">&lt;linkText&gt;</bpt>OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT)<ept id="28c5fd86-df75-440b-9967-ec7e3236c593">&lt;/linkText&gt;</ept><bpt id="28c5fd86-df75-440b-9967-ec7e3236c593">&lt;title&gt;</bpt><ept id="28c5fd86-df75-440b-9967-ec7e3236c593">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="28c5fd86-df75-440b-9967-ec7e3236c593">&lt;linkText&gt;</bpt>OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT)<ept id="28c5fd86-df75-440b-9967-ec7e3236c593">&lt;/linkText&gt;</ept><bpt id="28c5fd86-df75-440b-9967-ec7e3236c593">&lt;title&gt;</bpt><ept id="28c5fd86-df75-440b-9967-ec7e3236c593">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="228e12fe-28cf-47d5-8112-5ce534698f33" xml:space="preserve">
+          <source>API Apps resources</source>
+          <target state="new">API Apps resources</target>
+        </trans-unit>
+        <trans-unit id="471335e3-73d0-4fce-abfd-6b4b8872ddf4" xml:space="preserve">
+          <source><bpt id="940efe14-bbc3-42dd-8a83-a93aa5e9d4e6">&lt;linkText&gt;</bpt>API Apps client flow<ept id="940efe14-bbc3-42dd-8a83-a93aa5e9d4e6">&lt;/linkText&gt;</ept><bpt id="940efe14-bbc3-42dd-8a83-a93aa5e9d4e6">&lt;title&gt;</bpt><ept id="940efe14-bbc3-42dd-8a83-a93aa5e9d4e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="940efe14-bbc3-42dd-8a83-a93aa5e9d4e6">&lt;linkText&gt;</bpt>API Apps client flow<ept id="940efe14-bbc3-42dd-8a83-a93aa5e9d4e6">&lt;/linkText&gt;</ept><bpt id="940efe14-bbc3-42dd-8a83-a93aa5e9d4e6">&lt;title&gt;</bpt><ept id="940efe14-bbc3-42dd-8a83-a93aa5e9d4e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="daf82ba1-7748-4162-b233-bf3d35615875" xml:space="preserve">
+          <source><bpt id="90b50211-c8f3-4816-a372-b76dbee2cfc6">&lt;linkText&gt;</bpt>API Apps server flow<ept id="90b50211-c8f3-4816-a372-b76dbee2cfc6">&lt;/linkText&gt;</ept><bpt id="90b50211-c8f3-4816-a372-b76dbee2cfc6">&lt;title&gt;</bpt><ept id="90b50211-c8f3-4816-a372-b76dbee2cfc6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="90b50211-c8f3-4816-a372-b76dbee2cfc6">&lt;linkText&gt;</bpt>API Apps server flow<ept id="90b50211-c8f3-4816-a372-b76dbee2cfc6">&lt;/linkText&gt;</ept><bpt id="90b50211-c8f3-4816-a372-b76dbee2cfc6">&lt;title&gt;</bpt><ept id="90b50211-c8f3-4816-a372-b76dbee2cfc6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abfff158-a1ca-4a84-95e2-78e72b1fda86" xml:space="preserve">
+          <source><bpt id="fdc2e6ab-b775-478f-83f4-75d495b47d71">&lt;linkText&gt;</bpt>API Apps on-behalf-of calls<ept id="fdc2e6ab-b775-478f-83f4-75d495b47d71">&lt;/linkText&gt;</ept><bpt id="fdc2e6ab-b775-478f-83f4-75d495b47d71">&lt;title&gt;</bpt><ept id="fdc2e6ab-b775-478f-83f4-75d495b47d71">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fdc2e6ab-b775-478f-83f4-75d495b47d71">&lt;linkText&gt;</bpt>API Apps on-behalf-of calls<ept id="fdc2e6ab-b775-478f-83f4-75d495b47d71">&lt;/linkText&gt;</ept><bpt id="fdc2e6ab-b775-478f-83f4-75d495b47d71">&lt;title&gt;</bpt><ept id="fdc2e6ab-b775-478f-83f4-75d495b47d71">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed60f413-2918-496e-b191-31c201fdf960" xml:space="preserve">
+          <source>Mobile Apps resources</source>
+          <target state="new">Mobile Apps resources</target>
+        </trans-unit>
+        <trans-unit id="316bbcbf-6a5e-433c-aaf4-add805d0bab2" xml:space="preserve">
+          <source><bpt id="c31dc91e-2f0f-459d-9e2a-16358a598008">&lt;linkText&gt;</bpt>Mobile Apps client flow<ept id="c31dc91e-2f0f-459d-9e2a-16358a598008">&lt;/linkText&gt;</ept><bpt id="c31dc91e-2f0f-459d-9e2a-16358a598008">&lt;title&gt;</bpt><ept id="c31dc91e-2f0f-459d-9e2a-16358a598008">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c31dc91e-2f0f-459d-9e2a-16358a598008">&lt;linkText&gt;</bpt>Mobile Apps client flow<ept id="c31dc91e-2f0f-459d-9e2a-16358a598008">&lt;/linkText&gt;</ept><bpt id="c31dc91e-2f0f-459d-9e2a-16358a598008">&lt;title&gt;</bpt><ept id="c31dc91e-2f0f-459d-9e2a-16358a598008">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd2a2035-8ec5-414a-98fc-39e2cd79eb99" xml:space="preserve">
+          <source><bpt id="605731f3-b958-4854-b28a-7303c0589340">&lt;linkText&gt;</bpt>Mobile Apps server flow<ept id="605731f3-b958-4854-b28a-7303c0589340">&lt;/linkText&gt;</ept><bpt id="605731f3-b958-4854-b28a-7303c0589340">&lt;title&gt;</bpt><ept id="605731f3-b958-4854-b28a-7303c0589340">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="605731f3-b958-4854-b28a-7303c0589340">&lt;linkText&gt;</bpt>Mobile Apps server flow<ept id="605731f3-b958-4854-b28a-7303c0589340">&lt;/linkText&gt;</ept><bpt id="605731f3-b958-4854-b28a-7303c0589340">&lt;title&gt;</bpt><ept id="605731f3-b958-4854-b28a-7303c0589340">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dbafb36b-11cf-46fb-a4b3-228c5a266505" xml:space="preserve">
+          <source><bpt id="eb3632cd-d593-489c-a9bd-b7f6c189111e">&lt;linkText&gt;</bpt>Mobile Apps on-behalf-of calls<ept id="eb3632cd-d593-489c-a9bd-b7f6c189111e">&lt;/linkText&gt;</ept><bpt id="eb3632cd-d593-489c-a9bd-b7f6c189111e">&lt;title&gt;</bpt><ept id="eb3632cd-d593-489c-a9bd-b7f6c189111e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eb3632cd-d593-489c-a9bd-b7f6c189111e">&lt;linkText&gt;</bpt>Mobile Apps on-behalf-of calls<ept id="eb3632cd-d593-489c-a9bd-b7f6c189111e">&lt;/linkText&gt;</ept><bpt id="eb3632cd-d593-489c-a9bd-b7f6c189111e">&lt;title&gt;</bpt><ept id="eb3632cd-d593-489c-a9bd-b7f6c189111e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="561d4314-a6ac-4524-89f7-ee7a541390b0" xml:space="preserve">
+          <source><bpt id="7b077245-bdcf-45ec-9979-102123153243">&lt;linkText&gt;</bpt>Getting started with OAuth 2.0<ept id="7b077245-bdcf-45ec-9979-102123153243">&lt;/linkText&gt;</ept><bpt id="7b077245-bdcf-45ec-9979-102123153243">&lt;title&gt;</bpt>Getting Started with OAuth 2.0<ept id="7b077245-bdcf-45ec-9979-102123153243">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="7b077245-bdcf-45ec-9979-102123153243">&lt;linkText&gt;</bpt>Getting started with OAuth 2.0<ept id="7b077245-bdcf-45ec-9979-102123153243">&lt;/linkText&gt;</ept><bpt id="7b077245-bdcf-45ec-9979-102123153243">&lt;title&gt;</bpt>Getting Started with OAuth 2.0<ept id="7b077245-bdcf-45ec-9979-102123153243">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f294f32d-137a-4875-aea0-66fe48925e25" xml:space="preserve">
+          <source><bpt id="d94e22f0-5aa2-451c-84b6-f463061fc5e2">&lt;linkText&gt;</bpt>Introduction to OAuth2, OpenID Connect and JSON Web Tokens (JWT) - PluralSight Course<ept id="d94e22f0-5aa2-451c-84b6-f463061fc5e2">&lt;/linkText&gt;</ept><bpt id="d94e22f0-5aa2-451c-84b6-f463061fc5e2">&lt;title&gt;</bpt><ept id="d94e22f0-5aa2-451c-84b6-f463061fc5e2">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="d94e22f0-5aa2-451c-84b6-f463061fc5e2">&lt;linkText&gt;</bpt>Introduction to OAuth2, OpenID Connect and JSON Web Tokens (JWT) - PluralSight Course<ept id="d94e22f0-5aa2-451c-84b6-f463061fc5e2">&lt;/linkText&gt;</ept><bpt id="d94e22f0-5aa2-451c-84b6-f463061fc5e2">&lt;title&gt;</bpt><ept id="d94e22f0-5aa2-451c-84b6-f463061fc5e2">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f71f0c09-d7d4-45b4-aa01-d57714c92f46" xml:space="preserve">
+          <source><bpt id="6291ef06-314f-43cc-b870-d605715a1759">&lt;linkText&gt;</bpt>Building and Securing a RESTful API for Multiple Clients in ASP.NET - PluralSight course<ept id="6291ef06-314f-43cc-b870-d605715a1759">&lt;/linkText&gt;</ept><bpt id="6291ef06-314f-43cc-b870-d605715a1759">&lt;title&gt;</bpt><ept id="6291ef06-314f-43cc-b870-d605715a1759">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6291ef06-314f-43cc-b870-d605715a1759">&lt;linkText&gt;</bpt>Building and Securing a RESTful API for Multiple Clients in ASP.NET - PluralSight course<ept id="6291ef06-314f-43cc-b870-d605715a1759">&lt;/linkText&gt;</ept><bpt id="6291ef06-314f-43cc-b870-d605715a1759">&lt;title&gt;</bpt><ept id="6291ef06-314f-43cc-b870-d605715a1759">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa6959bf-8f37-4495-9507-bed2706dbb9b" xml:space="preserve">
+          <source><bpt id="39207546-b6a3-4687-9ca9-2e2746c3f3f8">&lt;linkText&gt;</bpt>Protect an API app<ept id="39207546-b6a3-4687-9ca9-2e2746c3f3f8">&lt;/linkText&gt;</ept><bpt id="39207546-b6a3-4687-9ca9-2e2746c3f3f8">&lt;title&gt;</bpt><ept id="39207546-b6a3-4687-9ca9-2e2746c3f3f8">&lt;/title&gt;</ept> - The API app configuration part applies to both client and server flow, but the test-in-browser part illustrates server flow.</source>
+          <target state="new"><bpt id="39207546-b6a3-4687-9ca9-2e2746c3f3f8">&lt;linkText&gt;</bpt>Protect an API app<ept id="39207546-b6a3-4687-9ca9-2e2746c3f3f8">&lt;/linkText&gt;</ept><bpt id="39207546-b6a3-4687-9ca9-2e2746c3f3f8">&lt;title&gt;</bpt><ept id="39207546-b6a3-4687-9ca9-2e2746c3f3f8">&lt;/title&gt;</ept> - The API app configuration part applies to both client and server flow, but the test-in-browser part illustrates server flow.</target>
+        </trans-unit>
+        <trans-unit id="53596c23-432e-48b6-8dad-be085b2520e1" xml:space="preserve">
+          <source><bpt id="4b2ef074-c759-4f1f-ba77-8e77ffe69884">&lt;linkText&gt;</bpt>Consume an API app in Azure App Service from a .NET client<ept id="4b2ef074-c759-4f1f-ba77-8e77ffe69884">&lt;/linkText&gt;</ept><bpt id="4b2ef074-c759-4f1f-ba77-8e77ffe69884">&lt;title&gt;</bpt><ept id="4b2ef074-c759-4f1f-ba77-8e77ffe69884">&lt;/title&gt;</ept> - The sample app for an authenticated call illustrates server flow, but it is followed by a <bpt id="9d0f0fb4-ceed-4a8b-a4c0-7099121d2138">&lt;linkText&gt;</bpt>client flow<ept id="9d0f0fb4-ceed-4a8b-a4c0-7099121d2138">&lt;/linkText&gt;</ept><bpt id="9d0f0fb4-ceed-4a8b-a4c0-7099121d2138">&lt;title&gt;</bpt><ept id="9d0f0fb4-ceed-4a8b-a4c0-7099121d2138">&lt;/title&gt;</ept> section with sample code.</source>
+          <target state="new"><bpt id="4b2ef074-c759-4f1f-ba77-8e77ffe69884">&lt;linkText&gt;</bpt>Consume an API app in Azure App Service from a .NET client<ept id="4b2ef074-c759-4f1f-ba77-8e77ffe69884">&lt;/linkText&gt;</ept><bpt id="4b2ef074-c759-4f1f-ba77-8e77ffe69884">&lt;title&gt;</bpt><ept id="4b2ef074-c759-4f1f-ba77-8e77ffe69884">&lt;/title&gt;</ept> - The sample app for an authenticated call illustrates server flow, but it is followed by a <bpt id="9d0f0fb4-ceed-4a8b-a4c0-7099121d2138">&lt;linkText&gt;</bpt>client flow<ept id="9d0f0fb4-ceed-4a8b-a4c0-7099121d2138">&lt;/linkText&gt;</ept><bpt id="9d0f0fb4-ceed-4a8b-a4c0-7099121d2138">&lt;title&gt;</bpt><ept id="9d0f0fb4-ceed-4a8b-a4c0-7099121d2138">&lt;/title&gt;</ept> section with sample code.</target>
+        </trans-unit>
+        <trans-unit id="da043f93-638f-424f-a9e4-59019f07d05d" xml:space="preserve">
+          <source><bpt id="c43cc968-c08f-4187-99b1-29ed7bc1656d">&lt;linkText&gt;</bpt>Protect an API app<ept id="c43cc968-c08f-4187-99b1-29ed7bc1656d">&lt;/linkText&gt;</ept><bpt id="c43cc968-c08f-4187-99b1-29ed7bc1656d">&lt;title&gt;</bpt><ept id="c43cc968-c08f-4187-99b1-29ed7bc1656d">&lt;/title&gt;</ept> - The API app configuration part applies to both client and server flow, and the test-in-browser part illustrates server flow.</source>
+          <target state="new"><bpt id="c43cc968-c08f-4187-99b1-29ed7bc1656d">&lt;linkText&gt;</bpt>Protect an API app<ept id="c43cc968-c08f-4187-99b1-29ed7bc1656d">&lt;/linkText&gt;</ept><bpt id="c43cc968-c08f-4187-99b1-29ed7bc1656d">&lt;title&gt;</bpt><ept id="c43cc968-c08f-4187-99b1-29ed7bc1656d">&lt;/title&gt;</ept> - The API app configuration part applies to both client and server flow, and the test-in-browser part illustrates server flow.</target>
+        </trans-unit>
+        <trans-unit id="f15dfabb-ef3b-457e-bb61-bbd97483d43f" xml:space="preserve">
+          <source><bpt id="58a6079b-44a4-46c8-820a-8969786c26af">&lt;linkText&gt;</bpt>Consume an API app in Azure App Service from a .NET client<ept id="58a6079b-44a4-46c8-820a-8969786c26af">&lt;/linkText&gt;</ept><bpt id="58a6079b-44a4-46c8-820a-8969786c26af">&lt;title&gt;</bpt><ept id="58a6079b-44a4-46c8-820a-8969786c26af">&lt;/title&gt;</ept> - The sample code for an authenticated call illustrates server flow.</source>
+          <target state="new"><bpt id="58a6079b-44a4-46c8-820a-8969786c26af">&lt;linkText&gt;</bpt>Consume an API app in Azure App Service from a .NET client<ept id="58a6079b-44a4-46c8-820a-8969786c26af">&lt;/linkText&gt;</ept><bpt id="58a6079b-44a4-46c8-820a-8969786c26af">&lt;title&gt;</bpt><ept id="58a6079b-44a4-46c8-820a-8969786c26af">&lt;/title&gt;</ept> - The sample code for an authenticated call illustrates server flow.</target>
+        </trans-unit>
+        <trans-unit id="e66ce59b-50d4-4a77-a512-c04da9a248b0" xml:space="preserve">
+          <source><bpt id="7f264342-4cb6-49f6-9ee9-e50804f0c257">&lt;linkText&gt;</bpt>Deploy and configure a SaaS connector API app in Azure App Service<ept id="7f264342-4cb6-49f6-9ee9-e50804f0c257">&lt;/linkText&gt;</ept><bpt id="7f264342-4cb6-49f6-9ee9-e50804f0c257">&lt;title&gt;</bpt><ept id="7f264342-4cb6-49f6-9ee9-e50804f0c257">&lt;/title&gt;</ept> - Illustrates how to provision a prepackaged connector API app, configure it, and call it using browser tools.</source>
+          <target state="new"><bpt id="7f264342-4cb6-49f6-9ee9-e50804f0c257">&lt;linkText&gt;</bpt>Deploy and configure a SaaS connector API app in Azure App Service<ept id="7f264342-4cb6-49f6-9ee9-e50804f0c257">&lt;/linkText&gt;</ept><bpt id="7f264342-4cb6-49f6-9ee9-e50804f0c257">&lt;title&gt;</bpt><ept id="7f264342-4cb6-49f6-9ee9-e50804f0c257">&lt;/title&gt;</ept> - Illustrates how to provision a prepackaged connector API app, configure it, and call it using browser tools.</target>
+        </trans-unit>
+        <trans-unit id="397ecb84-37b9-4a37-b10d-6e212d6deec4" xml:space="preserve">
+          <source><bpt id="687d18db-4994-419d-a831-13406c4477c3">&lt;linkText&gt;</bpt>Connect to a SaaS platform from an ASP.NET API app in Azure App Service<ept id="687d18db-4994-419d-a831-13406c4477c3">&lt;/linkText&gt;</ept><bpt id="687d18db-4994-419d-a831-13406c4477c3">&lt;title&gt;</bpt><ept id="687d18db-4994-419d-a831-13406c4477c3">&lt;/title&gt;</ept> - Illustrates how to write your own connector -- that is, provision, configure, and write code for a custom API app that makes on-behalf-of calls to a SaaS provider.</source>
+          <target state="new"><bpt id="687d18db-4994-419d-a831-13406c4477c3">&lt;linkText&gt;</bpt>Connect to a SaaS platform from an ASP.NET API app in Azure App Service<ept id="687d18db-4994-419d-a831-13406c4477c3">&lt;/linkText&gt;</ept><bpt id="687d18db-4994-419d-a831-13406c4477c3">&lt;title&gt;</bpt><ept id="687d18db-4994-419d-a831-13406c4477c3">&lt;/title&gt;</ept> - Illustrates how to write your own connector -- that is, provision, configure, and write code for a custom API app that makes on-behalf-of calls to a SaaS provider.</target>
+        </trans-unit>
+        <trans-unit id="7facaaee-9515-4805-ba8f-db9c5e4a207d" xml:space="preserve">
+          <source><bpt id="d9a55d04-834d-45d4-906d-9e9f1c21111f">&lt;linkText&gt;</bpt>Add Azure Active Directory single sign-on to your iOS app<ept id="d9a55d04-834d-45d4-906d-9e9f1c21111f">&lt;/linkText&gt;</ept><bpt id="d9a55d04-834d-45d4-906d-9e9f1c21111f">&lt;title&gt;</bpt><ept id="d9a55d04-834d-45d4-906d-9e9f1c21111f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d9a55d04-834d-45d4-906d-9e9f1c21111f">&lt;linkText&gt;</bpt>Add Azure Active Directory single sign-on to your iOS app<ept id="d9a55d04-834d-45d4-906d-9e9f1c21111f">&lt;/linkText&gt;</ept><bpt id="d9a55d04-834d-45d4-906d-9e9f1c21111f">&lt;title&gt;</bpt><ept id="d9a55d04-834d-45d4-906d-9e9f1c21111f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09d1c381-0cbc-49bc-ba1b-745da5114404" xml:space="preserve">
+          <source><bpt id="70ebd8b2-95a4-4329-9286-a7e5d07e314d">&lt;linkText&gt;</bpt>Add authentication to your iOS app<ept id="70ebd8b2-95a4-4329-9286-a7e5d07e314d">&lt;/linkText&gt;</ept><bpt id="70ebd8b2-95a4-4329-9286-a7e5d07e314d">&lt;title&gt;</bpt><ept id="70ebd8b2-95a4-4329-9286-a7e5d07e314d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="70ebd8b2-95a4-4329-9286-a7e5d07e314d">&lt;linkText&gt;</bpt>Add authentication to your iOS app<ept id="70ebd8b2-95a4-4329-9286-a7e5d07e314d">&lt;/linkText&gt;</ept><bpt id="70ebd8b2-95a4-4329-9286-a7e5d07e314d">&lt;title&gt;</bpt><ept id="70ebd8b2-95a4-4329-9286-a7e5d07e314d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79494cae-c1c8-45de-9bfd-9408b3425f8e" xml:space="preserve">
+          <source><bpt id="45c58884-b0c3-4fbe-8b99-fa82501aa079">&lt;linkText&gt;</bpt>Add authentication to your Xamarin.iOS app<ept id="45c58884-b0c3-4fbe-8b99-fa82501aa079">&lt;/linkText&gt;</ept><bpt id="45c58884-b0c3-4fbe-8b99-fa82501aa079">&lt;title&gt;</bpt><ept id="45c58884-b0c3-4fbe-8b99-fa82501aa079">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="45c58884-b0c3-4fbe-8b99-fa82501aa079">&lt;linkText&gt;</bpt>Add authentication to your Xamarin.iOS app<ept id="45c58884-b0c3-4fbe-8b99-fa82501aa079">&lt;/linkText&gt;</ept><bpt id="45c58884-b0c3-4fbe-8b99-fa82501aa079">&lt;title&gt;</bpt><ept id="45c58884-b0c3-4fbe-8b99-fa82501aa079">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2338c8fd-ad22-4f7b-aa0d-a81dc3a54f96" xml:space="preserve">
+          <source><bpt id="9fc98ffd-7f0d-459c-9ae2-1ef8476771f1">&lt;linkText&gt;</bpt>Add authentication to your Xamarin.Android app<ept id="9fc98ffd-7f0d-459c-9ae2-1ef8476771f1">&lt;/linkText&gt;</ept><bpt id="9fc98ffd-7f0d-459c-9ae2-1ef8476771f1">&lt;title&gt;</bpt><ept id="9fc98ffd-7f0d-459c-9ae2-1ef8476771f1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9fc98ffd-7f0d-459c-9ae2-1ef8476771f1">&lt;linkText&gt;</bpt>Add authentication to your Xamarin.Android app<ept id="9fc98ffd-7f0d-459c-9ae2-1ef8476771f1">&lt;/linkText&gt;</ept><bpt id="9fc98ffd-7f0d-459c-9ae2-1ef8476771f1">&lt;title&gt;</bpt><ept id="9fc98ffd-7f0d-459c-9ae2-1ef8476771f1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cf6d1da-1d2f-4930-b6d5-eaeff9a21d51" xml:space="preserve">
+          <source><bpt id="96818ec8-7ce0-4114-a464-d16c1b021ecd">&lt;linkText&gt;</bpt>Add authentication to your Windows app<ept id="96818ec8-7ce0-4114-a464-d16c1b021ecd">&lt;/linkText&gt;</ept><bpt id="96818ec8-7ce0-4114-a464-d16c1b021ecd">&lt;title&gt;</bpt><ept id="96818ec8-7ce0-4114-a464-d16c1b021ecd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="96818ec8-7ce0-4114-a464-d16c1b021ecd">&lt;linkText&gt;</bpt>Add authentication to your Windows app<ept id="96818ec8-7ce0-4114-a464-d16c1b021ecd">&lt;/linkText&gt;</ept><bpt id="96818ec8-7ce0-4114-a464-d16c1b021ecd">&lt;title&gt;</bpt><ept id="96818ec8-7ce0-4114-a464-d16c1b021ecd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0821230b-40a4-4f6a-90fa-4c860fb3e51b" xml:space="preserve">
+          <source><bpt id="8cd5d03a-d472-4517-b07f-f6ed7a18dcb5">&lt;linkText&gt;</bpt>Obtain an access token and call the SharePoint API in a mobile app<ept id="8cd5d03a-d472-4517-b07f-f6ed7a18dcb5">&lt;/linkText&gt;</ept><bpt id="8cd5d03a-d472-4517-b07f-f6ed7a18dcb5">&lt;title&gt;</bpt><ept id="8cd5d03a-d472-4517-b07f-f6ed7a18dcb5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8cd5d03a-d472-4517-b07f-f6ed7a18dcb5">&lt;linkText&gt;</bpt>Obtain an access token and call the SharePoint API in a mobile app<ept id="8cd5d03a-d472-4517-b07f-f6ed7a18dcb5">&lt;/linkText&gt;</ept><bpt id="8cd5d03a-d472-4517-b07f-f6ed7a18dcb5">&lt;title&gt;</bpt><ept id="8cd5d03a-d472-4517-b07f-f6ed7a18dcb5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

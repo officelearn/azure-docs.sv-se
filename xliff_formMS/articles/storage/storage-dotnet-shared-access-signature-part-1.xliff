@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ad376c75-0f68-4c0d-a67a-040db10170d0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ad376c75-0f68-4c0d-a67a-040db10170d0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="dd7adcf9-22fa-4bf9-ad2d-6b2275dbde68">
+        <trans-unit id="6dbd458b-4043-4081-9ed3-cb9fbedd56b0" xml:space="preserve">
+          <source>Shared Access Signatures: Understanding the SAS Model | Microsoft Azure</source>
+          <target state="new">Shared Access Signatures: Understanding the SAS Model | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="459a75a7-4672-417c-a5f8-8e27da9813a8" xml:space="preserve">
+          <source>Learn about delegating access to Azure Storage resources, including blobs, queues, tables, and files, using shared access signatures (SAS). With shared access signatures, you can protect your storage account key while granting access to resources in your account to other users. You can control the permissions that you grant and the interval over which the SAS is valid. If you also establish a stored access policy, you can revoke the SAS should you fear your account security is compromised.</source>
+          <target state="new">Learn about delegating access to Azure Storage resources, including blobs, queues, tables, and files, using shared access signatures (SAS). With shared access signatures, you can protect your storage account key while granting access to resources in your account to other users. You can control the permissions that you grant and the interval over which the SAS is valid. If you also establish a stored access policy, you can revoke the SAS should you fear your account security is compromised.</target>
+        </trans-unit>
+        <trans-unit id="7d8a01eb-f91d-43f0-b80a-e0dbd6b62d78" xml:space="preserve">
+          <source>Using a shared access signature (SAS) is a powerful way to grant limited access to objects in your storage account to other clients, without having to expose your account key.</source>
+          <target state="new">Using a shared access signature (SAS) is a powerful way to grant limited access to objects in your storage account to other clients, without having to expose your account key.</target>
+        </trans-unit>
+        <trans-unit id="a58c3bf7-1056-4ea0-b351-d23321e8d1f5" xml:space="preserve">
+          <source>In Part 1 of this tutorial on shared access signatures, we'll provide an overview of the SAS model and review SAS best practices.</source>
+          <target state="new">In Part 1 of this tutorial on shared access signatures, we'll provide an overview of the SAS model and review SAS best practices.</target>
+        </trans-unit>
+        <trans-unit id="f2eb9672-165e-43ec-a8b4-a8bbc7486ca8" xml:space="preserve">
+          <source><bpt id="2705a73c-9e6d-458e-b588-ad628aeb20a1">&lt;linkText&gt;</bpt>Part 2<ept id="2705a73c-9e6d-458e-b588-ad628aeb20a1">&lt;/linkText&gt;</ept><bpt id="2705a73c-9e6d-458e-b588-ad628aeb20a1">&lt;title&gt;</bpt><ept id="2705a73c-9e6d-458e-b588-ad628aeb20a1">&lt;/title&gt;</ept> of the tutorial walks you through the process of creating shared access signatures with the Blob service.</source>
+          <target state="new"><bpt id="2705a73c-9e6d-458e-b588-ad628aeb20a1">&lt;linkText&gt;</bpt>Part 2<ept id="2705a73c-9e6d-458e-b588-ad628aeb20a1">&lt;/linkText&gt;</ept><bpt id="2705a73c-9e6d-458e-b588-ad628aeb20a1">&lt;title&gt;</bpt><ept id="2705a73c-9e6d-458e-b588-ad628aeb20a1">&lt;/title&gt;</ept> of the tutorial walks you through the process of creating shared access signatures with the Blob service.</target>
+        </trans-unit>
+        <trans-unit id="49ee0978-26b5-4b2d-8c49-323eae4ceedb" xml:space="preserve">
+          <source>A shared access signature provides delegated access to resources in your storage account.</source>
+          <target state="new">A shared access signature provides delegated access to resources in your storage account.</target>
+        </trans-unit>
+        <trans-unit id="0e721e79-7f5b-4adf-80c4-76903f7c523b" xml:space="preserve">
+          <source>This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys.</source>
+          <target state="new">This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys.</target>
+        </trans-unit>
+        <trans-unit id="987503c7-0861-4b25-ba90-5980c6a551aa" xml:space="preserve">
+          <source>The SAS is a URI that encompasses in its query parameters all of the information necessary for authenticated access to a storage resource.</source>
+          <target state="new">The SAS is a URI that encompasses in its query parameters all of the information necessary for authenticated access to a storage resource.</target>
+        </trans-unit>
+        <trans-unit id="7ef90da2-f92a-47a2-996d-b8382e4c89ef" xml:space="preserve">
+          <source>To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method.</source>
+          <target state="new">To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method.</target>
+        </trans-unit>
+        <trans-unit id="17c4fa5a-48de-4f29-9475-0f06819b659f" xml:space="preserve">
+          <source>You can use a SAS when you want to provide access to resources in your storage account to a client that can't be trusted with the account key.</source>
+          <target state="new">You can use a SAS when you want to provide access to resources in your storage account to a client that can't be trusted with the account key.</target>
+        </trans-unit>
+        <trans-unit id="e20b9475-479a-4340-b1ac-d40cf1deece7" xml:space="preserve">
+          <source>Your storage account keys include both a primary and secondary key, both of which grant administrative access to your account and all of the resources in it.</source>
+          <target state="new">Your storage account keys include both a primary and secondary key, both of which grant administrative access to your account and all of the resources in it.</target>
+        </trans-unit>
+        <trans-unit id="6d81c177-1cc7-43f2-bcfb-3c1a142e20d5" xml:space="preserve">
+          <source>Exposing either of your account keys opens your account to the possibility of malicious or negligent use.</source>
+          <target state="new">Exposing either of your account keys opens your account to the possibility of malicious or negligent use.</target>
+        </trans-unit>
+        <trans-unit id="b3e2714e-636b-4251-94f8-4694c66e4dad" xml:space="preserve">
+          <source>Shared access signatures provide a safe alternative that allows other clients to read, write, and delete data in your storage account according to the permissions you've granted, and without need for the account key.</source>
+          <target state="new">Shared access signatures provide a safe alternative that allows other clients to read, write, and delete data in your storage account according to the permissions you've granted, and without need for the account key.</target>
+        </trans-unit>
+        <trans-unit id="e39f9461-222f-44d9-989e-92cf16c82887" xml:space="preserve">
+          <source>A common scenario where a SAS is useful is a service where users read and write their own data to your storage account.</source>
+          <target state="new">A common scenario where a SAS is useful is a service where users read and write their own data to your storage account.</target>
+        </trans-unit>
+        <trans-unit id="71c70a7c-7140-40fe-9af7-79e29671c678" xml:space="preserve">
+          <source>In a scenario where a storage account stores user data, there are two typical design patterns:</source>
+          <target state="new">In a scenario where a storage account stores user data, there are two typical design patterns:</target>
+        </trans-unit>
+        <trans-unit id="71ef5ce4-3ed0-4fd4-88f2-c5b2e1b5d864" xml:space="preserve">
+          <source>1\.</source>
+          <target state="new">1\.</target>
+        </trans-unit>
+        <trans-unit id="32c170a7-8bb8-44c8-b75a-f97c250b34fd" xml:space="preserve">
+          <source>Clients upload and download data via a front-end proxy service, which performs authentication.</source>
+          <target state="new">Clients upload and download data via a front-end proxy service, which performs authentication.</target>
+        </trans-unit>
+        <trans-unit id="956a6991-5c0d-4147-b4ba-023b19a8fb5d" xml:space="preserve">
+          <source>This front-end proxy service has the advantage of allowing validation of business rules, but for large amounts of data or high-volume transactions, creating a service that can scale to match demand may be expensive or difficult.</source>
+          <target state="new">This front-end proxy service has the advantage of allowing validation of business rules, but for large amounts of data or high-volume transactions, creating a service that can scale to match demand may be expensive or difficult.</target>
+        </trans-unit>
+        <trans-unit id="710cec75-3537-44ee-9c9c-59d8cf625f51" xml:space="preserve">
+          <source><bpt id="325edfd7-02e1-40f7-a8ae-59896194657f">&lt;linkText&gt;</bpt>sas-storage-fe-proxy-service<ept id="325edfd7-02e1-40f7-a8ae-59896194657f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="325edfd7-02e1-40f7-a8ae-59896194657f">&lt;linkText&gt;</bpt>sas-storage-fe-proxy-service<ept id="325edfd7-02e1-40f7-a8ae-59896194657f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d8a3107f-2a70-45c0-92eb-55de943f1c11" xml:space="preserve">
+          <source>2\.</source>
+          <target state="new">2\.</target>
+        </trans-unit>
+        <trans-unit id="4c684d50-f9b3-483c-9d16-ca6d535e7f3f" xml:space="preserve">
+          <source>A lightweight service authenticates the client as needed and then generates a SAS.</source>
+          <target state="new">A lightweight service authenticates the client as needed and then generates a SAS.</target>
+        </trans-unit>
+        <trans-unit id="09ce14b1-c02c-4435-b7a0-6c468050608a" xml:space="preserve">
+          <source>Once the client receives the SAS, they can access storage account resources directly with the permissions defined by the SAS and for the interval allowed by the SAS.</source>
+          <target state="new">Once the client receives the SAS, they can access storage account resources directly with the permissions defined by the SAS and for the interval allowed by the SAS.</target>
+        </trans-unit>
+        <trans-unit id="54e081e2-d028-4d9a-bbad-10d3a42055be" xml:space="preserve">
+          <source>The SAS mitigates the need for routing all data through the front-end proxy service.</source>
+          <target state="new">The SAS mitigates the need for routing all data through the front-end proxy service.</target>
+        </trans-unit>
+        <trans-unit id="776aecf4-4054-4ea1-8530-3838e1002e04" xml:space="preserve">
+          <source><bpt id="9b400558-4aa5-460f-b055-c9ef608ffa67">&lt;linkText&gt;</bpt>sas-storage-provider-service<ept id="9b400558-4aa5-460f-b055-c9ef608ffa67">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b400558-4aa5-460f-b055-c9ef608ffa67">&lt;linkText&gt;</bpt>sas-storage-provider-service<ept id="9b400558-4aa5-460f-b055-c9ef608ffa67">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b20f063-0908-451a-8f75-f2c956b8ef16" xml:space="preserve">
+          <source>Many real-world services may use a hybrid of these two approaches, depending on the scenario involved, with some data processed and validated via the front-end proxy while other data is saved and/or read directly using SAS.</source>
+          <target state="new">Many real-world services may use a hybrid of these two approaches, depending on the scenario involved, with some data processed and validated via the front-end proxy while other data is saved and/or read directly using SAS.</target>
+        </trans-unit>
+        <trans-unit id="e5340a63-6e53-44d5-a0f7-b231d6aeb201" xml:space="preserve">
+          <source>Additionally, you will need to use a SAS to authenticate the source object in a copy operation in certain scenarios:</source>
+          <target state="new">Additionally, you will need to use a SAS to authenticate the source object in a copy operation in certain scenarios:</target>
+        </trans-unit>
+        <trans-unit id="dd85408e-7c97-4725-b5ea-a468343b5150" xml:space="preserve">
+          <source>When you copy a blob to another blob that resides in a different storage account, you must use a SAS to authenticate the source blob.</source>
+          <target state="new">When you copy a blob to another blob that resides in a different storage account, you must use a SAS to authenticate the source blob.</target>
+        </trans-unit>
+        <trans-unit id="31865777-a6ae-4559-98e6-b2d07a405e82" xml:space="preserve">
+          <source>You can optionally use a SAS to authenticate the destination blob, so long as you are using version 2013-08-15 of the storage services or later.</source>
+          <target state="new">You can optionally use a SAS to authenticate the destination blob, so long as you are using version 2013-08-15 of the storage services or later.</target>
+        </trans-unit>
+        <trans-unit id="d0b4f260-32ac-4c21-b926-8330df7593ac" xml:space="preserve">
+          <source>When you copy a file to another file that resides in a different storage account, you must use a SAS to authenticate the source file.</source>
+          <target state="new">When you copy a file to another file that resides in a different storage account, you must use a SAS to authenticate the source file.</target>
+        </trans-unit>
+        <trans-unit id="2cfa80e2-965d-4c4e-826c-a6d1ebf9456e" xml:space="preserve">
+          <source>You can optionally use a SAS to authenticate the destination file.</source>
+          <target state="new">You can optionally use a SAS to authenticate the destination file.</target>
+        </trans-unit>
+        <trans-unit id="b126ae59-366b-498b-ba9a-b7e2d7097c26" xml:space="preserve">
+          <source>When you copy a blob to a file, or a file to a blob, you must use a SAS to authenticate the source object, even if the source and destination objects reside within the same storage account.</source>
+          <target state="new">When you copy a blob to a file, or a file to a blob, you must use a SAS to authenticate the source object, even if the source and destination objects reside within the same storage account.</target>
+        </trans-unit>
+        <trans-unit id="04540f09-4e8c-4398-b4cf-b105166fa4c7" xml:space="preserve">
+          <source>A shared access signature is a URI that points to a storage resource and includes a special set of query parameters that indicate how the resource may be accessed by the client.</source>
+          <target state="new">A shared access signature is a URI that points to a storage resource and includes a special set of query parameters that indicate how the resource may be accessed by the client.</target>
+        </trans-unit>
+        <trans-unit id="0b23cbd2-f37c-4e24-bcb2-f7550be5728a" xml:space="preserve">
+          <source>One of these parameters, the signature, is constructed from the SAS parameters and signed with the account key.</source>
+          <target state="new">One of these parameters, the signature, is constructed from the SAS parameters and signed with the account key.</target>
+        </trans-unit>
+        <trans-unit id="93d9ac2e-6f12-4439-bdf7-d7bac886a0ba" xml:space="preserve">
+          <source>This signature is used by Azure Storage to authenticate the SAS.</source>
+          <target state="new">This signature is used by Azure Storage to authenticate the SAS.</target>
+        </trans-unit>
+        <trans-unit id="9d335336-be65-44f2-af1a-a672923e1b61" xml:space="preserve">
+          <source>A shared access signature has the following constraints that define it, each of which is represented as a parameter on the URI:</source>
+          <target state="new">A shared access signature has the following constraints that define it, each of which is represented as a parameter on the URI:</target>
+        </trans-unit>
+        <trans-unit id="e85df94e-853e-4313-b6ce-de70fa2850e5" xml:space="preserve">
+          <source><bpt id="b0fa4854-298e-4d7e-a2ab-6f61fa13fefb">&lt;strong&gt;</bpt>The storage resource.<ept id="b0fa4854-298e-4d7e-a2ab-6f61fa13fefb">&lt;/strong&gt;</ept> Storage resources for which you can delegate access include:</source>
+          <target state="new"><bpt id="b0fa4854-298e-4d7e-a2ab-6f61fa13fefb">&lt;strong&gt;</bpt>The storage resource.<ept id="b0fa4854-298e-4d7e-a2ab-6f61fa13fefb">&lt;/strong&gt;</ept> Storage resources for which you can delegate access include:</target>
+        </trans-unit>
+        <trans-unit id="9c92bd1e-a93e-4440-b2c6-58c9ed86a384" xml:space="preserve">
+          <source>Containers and blobs</source>
+          <target state="new">Containers and blobs</target>
+        </trans-unit>
+        <trans-unit id="a1b73693-7ad0-48a2-94de-578c85d1da5d" xml:space="preserve">
+          <source>File shares and files</source>
+          <target state="new">File shares and files</target>
+        </trans-unit>
+        <trans-unit id="8cda3d7d-55cb-40f8-ba8a-b3aa8e99abf8" xml:space="preserve">
+          <source>Queues</source>
+          <target state="new">Queues</target>
+        </trans-unit>
+        <trans-unit id="dc545895-06b7-4d7b-85ee-26889a7eacf3" xml:space="preserve">
+          <source>Tables and ranges of table entities.</source>
+          <target state="new">Tables and ranges of table entities.</target>
+        </trans-unit>
+        <trans-unit id="69d9eb39-b508-4b7c-8d9e-59f8126f6b42" xml:space="preserve">
+          <source><bpt id="198df964-6832-4063-b9af-11a6ba297eb7">&lt;strong&gt;</bpt>Start time.<ept id="198df964-6832-4063-b9af-11a6ba297eb7">&lt;/strong&gt;</ept> This is the time at which the SAS becomes valid.</source>
+          <target state="new"><bpt id="198df964-6832-4063-b9af-11a6ba297eb7">&lt;strong&gt;</bpt>Start time.<ept id="198df964-6832-4063-b9af-11a6ba297eb7">&lt;/strong&gt;</ept> This is the time at which the SAS becomes valid.</target>
+        </trans-unit>
+        <trans-unit id="105a4f86-d43b-40c7-adb9-32c774c9a344" xml:space="preserve">
+          <source>The start time for a shared access signature is optional; if omitted, the SAS is effective immediately.</source>
+          <target state="new">The start time for a shared access signature is optional; if omitted, the SAS is effective immediately.</target>
+        </trans-unit>
+        <trans-unit id="9aec2b11-6e9c-4b37-b11b-89c862263109" xml:space="preserve">
+          <source><bpt id="2edec98e-5eab-4c5f-8d1f-1d2e00d2af05">&lt;strong&gt;</bpt>Expiry time.<ept id="2edec98e-5eab-4c5f-8d1f-1d2e00d2af05">&lt;/strong&gt;</ept> This is the time after which the SAS is no longer valid.</source>
+          <target state="new"><bpt id="2edec98e-5eab-4c5f-8d1f-1d2e00d2af05">&lt;strong&gt;</bpt>Expiry time.<ept id="2edec98e-5eab-4c5f-8d1f-1d2e00d2af05">&lt;/strong&gt;</ept> This is the time after which the SAS is no longer valid.</target>
+        </trans-unit>
+        <trans-unit id="ccf5e8f3-9a5c-463d-9425-b2b4de2aee73" xml:space="preserve">
+          <source>Best practices recommend that you either specify an expiry time for a SAS, or associate it with a stored access policy (see more below).</source>
+          <target state="new">Best practices recommend that you either specify an expiry time for a SAS, or associate it with a stored access policy (see more below).</target>
+        </trans-unit>
+        <trans-unit id="47479cae-562e-4375-87dd-d692031dfc2d" xml:space="preserve">
+          <source><bpt id="1a2bb49f-b8c8-476e-a8d8-621e4dbc095c">&lt;strong&gt;</bpt>Permissions.<ept id="1a2bb49f-b8c8-476e-a8d8-621e4dbc095c">&lt;/strong&gt;</ept> The permissions specified on the SAS indicate what operations the client can perform against the storage resource using the SAS.</source>
+          <target state="new"><bpt id="1a2bb49f-b8c8-476e-a8d8-621e4dbc095c">&lt;strong&gt;</bpt>Permissions.<ept id="1a2bb49f-b8c8-476e-a8d8-621e4dbc095c">&lt;/strong&gt;</ept> The permissions specified on the SAS indicate what operations the client can perform against the storage resource using the SAS.</target>
+        </trans-unit>
+        <trans-unit id="a44d50f6-a300-49df-aad7-6e4dce065bbe" xml:space="preserve">
+          <source>Here is an example of a SAS URI that provides read and write permissions to a blob.</source>
+          <target state="new">Here is an example of a SAS URI that provides read and write permissions to a blob.</target>
+        </trans-unit>
+        <trans-unit id="904f58bf-ac23-4732-89ad-3e80a6e2c752" xml:space="preserve">
+          <source>The table breaks down each part of the URI to understand how it contributes to the SAS:</source>
+          <target state="new">The table breaks down each part of the URI to understand how it contributes to the SAS:</target>
+        </trans-unit>
+        <trans-unit id="edc4973b-5590-454a-910d-521cff3dbeed" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="6f195260-f786-481f-83cd-7d18c4e3ef9d" xml:space="preserve">
+          <source>Link section</source>
+          <target state="new">Link section</target>
+        </trans-unit>
+        <trans-unit id="51c485e6-cb14-4fe7-b907-797899fc90e2" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="59d53080-a29b-4dc7-a3e0-cda4cee6bcec" xml:space="preserve">
+          <source>Blob URI</source>
+          <target state="new">Blob URI</target>
+        </trans-unit>
+        <trans-unit id="5bff4dda-101e-44a9-b559-00baeb509aea" xml:space="preserve">
+          <source>https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt</source>
+          <target state="new">https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt</target>
+        </trans-unit>
+        <trans-unit id="dc357087-761e-4b23-835f-772fec1e0853" xml:space="preserve">
+          <source>The address of the blob.</source>
+          <target state="new">The address of the blob.</target>
+        </trans-unit>
+        <trans-unit id="805eec9c-230e-4bfc-b617-2288bd64bdbc" xml:space="preserve">
+          <source>Note that using HTTPS is highly recommended.</source>
+          <target state="new">Note that using HTTPS is highly recommended.</target>
+        </trans-unit>
+        <trans-unit id="8639bcc7-da54-4a97-9c3c-d198129d9506" xml:space="preserve">
+          <source>Storage services version</source>
+          <target state="new">Storage services version</target>
+        </trans-unit>
+        <trans-unit id="76fdc48c-1a18-4b86-a655-128db1a6ecfb" xml:space="preserve">
+          <source>sv=2012-02-12</source>
+          <target state="new">sv=2012-02-12</target>
+        </trans-unit>
+        <trans-unit id="7edb34b5-9362-4751-8167-c61b8f4a5971" xml:space="preserve">
+          <source>For storage services version 2012-02-12 and later, this parameter indicates the version to use.</source>
+          <target state="new">For storage services version 2012-02-12 and later, this parameter indicates the version to use.</target>
+        </trans-unit>
+        <trans-unit id="42e600b2-e12c-4cfd-84ba-abf78cec4894" xml:space="preserve">
+          <source>Start time</source>
+          <target state="new">Start time</target>
+        </trans-unit>
+        <trans-unit id="24611585-48a9-45b3-870e-97856947074f" xml:space="preserve">
+          <source>st=2013-04-29T22%3A18%3A26Z</source>
+          <target state="new">st=2013-04-29T22%3A18%3A26Z</target>
+        </trans-unit>
+        <trans-unit id="1900e20f-ca0d-472e-8e84-33c3fd32626e" xml:space="preserve">
+          <source>Specified in an ISO 8061 format.</source>
+          <target state="new">Specified in an ISO 8061 format.</target>
+        </trans-unit>
+        <trans-unit id="2cd57533-0e71-40c3-a2ea-f3be8d04e16b" xml:space="preserve">
+          <source>If you want the SAS to be valid immediately, omit the start time.</source>
+          <target state="new">If you want the SAS to be valid immediately, omit the start time.</target>
+        </trans-unit>
+        <trans-unit id="82cfc981-dec3-4acd-92cf-4cb666a96f98" xml:space="preserve">
+          <source>Expiry time</source>
+          <target state="new">Expiry time</target>
+        </trans-unit>
+        <trans-unit id="598128ef-2c1c-4e16-a787-65905f09b51d" xml:space="preserve">
+          <source>se=2013-04-30T02%3A23%3A26Z</source>
+          <target state="new">se=2013-04-30T02%3A23%3A26Z</target>
+        </trans-unit>
+        <trans-unit id="b46085ff-899b-4d2b-a7fa-639ad6d44ed1" xml:space="preserve">
+          <source>Specified in an ISO 8061 format.</source>
+          <target state="new">Specified in an ISO 8061 format.</target>
+        </trans-unit>
+        <trans-unit id="67310da9-3f46-44d2-85e3-5b56af66691a" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="1ca483e7-fadd-450a-898a-707ff34660bb" xml:space="preserve">
+          <source>sr=b</source>
+          <target state="new">sr=b</target>
+        </trans-unit>
+        <trans-unit id="7c01eb3e-11a3-4699-bbcb-96f5a10e0ea9" xml:space="preserve">
+          <source>The resource is a blob.</source>
+          <target state="new">The resource is a blob.</target>
+        </trans-unit>
+        <trans-unit id="06d1737f-8056-4ba9-9575-10a5ec9d1fa6" xml:space="preserve">
+          <source>Permissions</source>
+          <target state="new">Permissions</target>
+        </trans-unit>
+        <trans-unit id="48212daf-7c64-43c3-b92f-308851ba870f" xml:space="preserve">
+          <source>sp=rw</source>
+          <target state="new">sp=rw</target>
+        </trans-unit>
+        <trans-unit id="f7ec2b79-2e15-4798-ace5-35e6711d6435" xml:space="preserve">
+          <source>The permissions granted by the SAS include Read (r) and Write (w).</source>
+          <target state="new">The permissions granted by the SAS include Read (r) and Write (w).</target>
+        </trans-unit>
+        <trans-unit id="90357dd7-de24-4f3f-b054-418fc048eae7" xml:space="preserve">
+          <source>Signature</source>
+          <target state="new">Signature</target>
+        </trans-unit>
+        <trans-unit id="0e11ce03-befd-425f-9bfc-e60cab1c50da" xml:space="preserve">
+          <source>sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D</source>
+          <target state="new">sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D</target>
+        </trans-unit>
+        <trans-unit id="c451e3a6-8f83-49dd-848a-f795e856c417" xml:space="preserve">
+          <source>Used to authenticate access to the blob.</source>
+          <target state="new">Used to authenticate access to the blob.</target>
+        </trans-unit>
+        <trans-unit id="702de16d-a310-4aea-88b5-4de1957bf881" xml:space="preserve">
+          <source>The signature is an HMAC computed over a string-to-sign and key using the SHA256 algorithm, and then encoded using Base64 encoding.</source>
+          <target state="new">The signature is an HMAC computed over a string-to-sign and key using the SHA256 algorithm, and then encoded using Base64 encoding.</target>
+        </trans-unit>
+        <trans-unit id="0bf17afd-f105-4d78-9550-25e6234246b7" xml:space="preserve">
+          <source>A shared access signature can take one of two forms:</source>
+          <target state="new">A shared access signature can take one of two forms:</target>
+        </trans-unit>
+        <trans-unit id="174a9e64-5c96-48d4-b42b-83a66979a06c" xml:space="preserve">
+          <source><bpt id="353fbff0-7443-47ae-9d70-68408429bd09">&lt;strong&gt;</bpt>Ad hoc SAS:<ept id="353fbff0-7443-47ae-9d70-68408429bd09">&lt;/strong&gt;</ept> When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI (or implied, in the case where start time is omitted).</source>
+          <target state="new"><bpt id="353fbff0-7443-47ae-9d70-68408429bd09">&lt;strong&gt;</bpt>Ad hoc SAS:<ept id="353fbff0-7443-47ae-9d70-68408429bd09">&lt;/strong&gt;</ept> When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI (or implied, in the case where start time is omitted).</target>
+        </trans-unit>
+        <trans-unit id="185a21bf-4b67-4fd2-bcc5-eafd0970af0c" xml:space="preserve">
+          <source>This type of SAS may be created on a container, blob, file share, file, table, or queue.</source>
+          <target state="new">This type of SAS may be created on a container, blob, file share, file, table, or queue.</target>
+        </trans-unit>
+        <trans-unit id="084a3e09-3f2b-405d-8d5e-5df1ff8ef9af" xml:space="preserve">
+          <source><bpt id="ad344e56-5ac7-455a-8b86-8bf6bfb9c1b4">&lt;strong&gt;</bpt>SAS with stored access policy:<ept id="ad344e56-5ac7-455a-8b86-8bf6bfb9c1b4">&lt;/strong&gt;</ept> A stored access policy is defined on a resource container - a blob container, table, queue, or file share - and can be used to manage constraints for one or more shared access signatures.</source>
+          <target state="new"><bpt id="ad344e56-5ac7-455a-8b86-8bf6bfb9c1b4">&lt;strong&gt;</bpt>SAS with stored access policy:<ept id="ad344e56-5ac7-455a-8b86-8bf6bfb9c1b4">&lt;/strong&gt;</ept> A stored access policy is defined on a resource container - a blob container, table, queue, or file share - and can be used to manage constraints for one or more shared access signatures.</target>
+        </trans-unit>
+        <trans-unit id="cdf3cb43-643e-4738-bd5f-6e725e0301fd" xml:space="preserve">
+          <source>When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy.</source>
+          <target state="new">When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy.</target>
+        </trans-unit>
+        <trans-unit id="51995041-94cf-4b8f-bc15-60d304ed8392" xml:space="preserve">
+          <source>The difference between the two forms is important for one key scenario: revocation.</source>
+          <target state="new">The difference between the two forms is important for one key scenario: revocation.</target>
+        </trans-unit>
+        <trans-unit id="0dd6178f-0a77-4620-843d-26c7daea797c" xml:space="preserve">
+          <source>A SAS is a URL, so anyone who obtains the SAS can use it, regardless of who requested it to begin with.</source>
+          <target state="new">A SAS is a URL, so anyone who obtains the SAS can use it, regardless of who requested it to begin with.</target>
+        </trans-unit>
+        <trans-unit id="34c16431-6e2e-4be5-9ea6-b2b0f50edf36" xml:space="preserve">
+          <source>If a SAS is published publically, it can be used by anyone in the world.</source>
+          <target state="new">If a SAS is published publically, it can be used by anyone in the world.</target>
+        </trans-unit>
+        <trans-unit id="7df21c77-360e-4692-aee0-f4414ee019a6" xml:space="preserve">
+          <source>A SAS that is distributed is valid until one of four things happens:</source>
+          <target state="new">A SAS that is distributed is valid until one of four things happens:</target>
+        </trans-unit>
+        <trans-unit id="b0dfb6f9-2bd7-46f4-a52b-2ecf13c6c688" xml:space="preserve">
+          <source>The expiry time specified on the SAS is reached.</source>
+          <target state="new">The expiry time specified on the SAS is reached.</target>
+        </trans-unit>
+        <trans-unit id="8e5dc9d2-57d9-434e-87dd-969e4a5cea9a" xml:space="preserve">
+          <source>The expiry time specified on the stored access policy referenced by the SAS is reached (if a stored access policy is referenced, and if it specifies an expiry time).</source>
+          <target state="new">The expiry time specified on the stored access policy referenced by the SAS is reached (if a stored access policy is referenced, and if it specifies an expiry time).</target>
+        </trans-unit>
+        <trans-unit id="6677f565-8a5b-47ae-b2f8-e44aac6516d7" xml:space="preserve">
+          <source>This can either occur because the interval elapses, or because you have modified the stored access policy to have an expiry time in the past, which is one way to revoke the SAS.</source>
+          <target state="new">This can either occur because the interval elapses, or because you have modified the stored access policy to have an expiry time in the past, which is one way to revoke the SAS.</target>
+        </trans-unit>
+        <trans-unit id="c98cd954-d782-496e-92f9-3cae2793940d" xml:space="preserve">
+          <source>The stored access policy referenced by the SAS is deleted, which is another way to revoke the SAS.</source>
+          <target state="new">The stored access policy referenced by the SAS is deleted, which is another way to revoke the SAS.</target>
+        </trans-unit>
+        <trans-unit id="161156d3-94c7-4f8f-b252-999bda950fc6" xml:space="preserve">
+          <source>Note that if you recreate the stored access policy with exactly the same name, all existing SAS tokens will again be valid according to the permissions associated with that stored access policy (assuming that the expiry time on the SAS has not passed).</source>
+          <target state="new">Note that if you recreate the stored access policy with exactly the same name, all existing SAS tokens will again be valid according to the permissions associated with that stored access policy (assuming that the expiry time on the SAS has not passed).</target>
+        </trans-unit>
+        <trans-unit id="cb01482a-60b9-41f6-8feb-e0bef745a392" xml:space="preserve">
+          <source>If you are intending to revoke the SAS, be sure to use a different name if you recreate the access policy with an expiry time in the future.</source>
+          <target state="new">If you are intending to revoke the SAS, be sure to use a different name if you recreate the access policy with an expiry time in the future.</target>
+        </trans-unit>
+        <trans-unit id="43da9f4c-ab6b-4e49-86c3-b80fbebbbc68" xml:space="preserve">
+          <source>The account key that was used to create the SAS is regenerated.</source>
+          <target state="new">The account key that was used to create the SAS is regenerated.</target>
+        </trans-unit>
+        <trans-unit id="e9fad745-7da0-49c5-a548-4158a2bbef9c" xml:space="preserve">
+          <source>Note that doing this will cause all application components using that account key to fail to authenticate until they are updated to use either the other valid account key or the newly regenerated account key.</source>
+          <target state="new">Note that doing this will cause all application components using that account key to fail to authenticate until they are updated to use either the other valid account key or the newly regenerated account key.</target>
+        </trans-unit>
+        <trans-unit id="17aa14cf-1eee-44a4-989e-0c85b8bf4f5f" xml:space="preserve">
+          <source>When you use shared access signatures in your applications, you need to be aware of two potential risks:</source>
+          <target state="new">When you use shared access signatures in your applications, you need to be aware of two potential risks:</target>
+        </trans-unit>
+        <trans-unit id="9cf30d3f-106f-4213-8387-7960efd9cb9c" xml:space="preserve">
+          <source>If a SAS is leaked, it can be used by anyone who obtains it, which can potentially compromise your storage account.</source>
+          <target state="new">If a SAS is leaked, it can be used by anyone who obtains it, which can potentially compromise your storage account.</target>
+        </trans-unit>
+        <trans-unit id="078d41fa-c96a-4f98-a071-10b9fa3e41af" xml:space="preserve">
+          <source>If a SAS provided to a client application expires and the application is unable to retrieve a new SAS from your service, then the application's functionality may be hindered.</source>
+          <target state="new">If a SAS provided to a client application expires and the application is unable to retrieve a new SAS from your service, then the application's functionality may be hindered.</target>
+        </trans-unit>
+        <trans-unit id="a53e838b-bf41-48d5-bbaa-8c041c88a62d" xml:space="preserve">
+          <source>The following recommendations for using shared access signatures will help balance these risks:</source>
+          <target state="new">The following recommendations for using shared access signatures will help balance these risks:</target>
+        </trans-unit>
+        <trans-unit id="319db90f-dacb-40b7-8c6f-423fc1e42297" xml:space="preserve">
+          <source><bpt id="58a4f978-1f72-429b-ac1a-c2931b9b1363">&lt;strong&gt;</bpt>Always use HTTPS<ept id="58a4f978-1f72-429b-ac1a-c2931b9b1363">&lt;/strong&gt;</ept> to create a SAS or to distribute a SAS.</source>
+          <target state="new"><bpt id="58a4f978-1f72-429b-ac1a-c2931b9b1363">&lt;strong&gt;</bpt>Always use HTTPS<ept id="58a4f978-1f72-429b-ac1a-c2931b9b1363">&lt;/strong&gt;</ept> to create a SAS or to distribute a SAS.</target>
+        </trans-unit>
+        <trans-unit id="1690b7e7-9bdb-4dcc-8f56-ee352d6bfc0b" xml:space="preserve">
+          <source>If a SAS is passed over HTTP and intercepted, an attacker performing a man-in-the-middle attack will be able to read the SAS and then use it just as the intended user could have, potentially compromising sensitive data or allowing for data corruption by the malicious user.</source>
+          <target state="new">If a SAS is passed over HTTP and intercepted, an attacker performing a man-in-the-middle attack will be able to read the SAS and then use it just as the intended user could have, potentially compromising sensitive data or allowing for data corruption by the malicious user.</target>
+        </trans-unit>
+        <trans-unit id="a0d1fb58-337e-4357-ac0a-89086d58214b" xml:space="preserve">
+          <source><bpt id="71d996a8-0a98-448d-b37f-e870393b44d2">&lt;strong&gt;</bpt>Reference stored access policies where possible.<ept id="71d996a8-0a98-448d-b37f-e870393b44d2">&lt;/strong&gt;</ept> Stored access policies give you the option to revoke permissions without having to regenerate the storage account keys.</source>
+          <target state="new"><bpt id="71d996a8-0a98-448d-b37f-e870393b44d2">&lt;strong&gt;</bpt>Reference stored access policies where possible.<ept id="71d996a8-0a98-448d-b37f-e870393b44d2">&lt;/strong&gt;</ept> Stored access policies give you the option to revoke permissions without having to regenerate the storage account keys.</target>
+        </trans-unit>
+        <trans-unit id="1a348bd8-1b84-464b-a2a1-84234b92df30" xml:space="preserve">
+          <source>Set the expiration on these to be a very long time (or infinite)  and make sure that it is regularly updated to move it farther into the future.</source>
+          <target state="new">Set the expiration on these to be a very long time (or infinite)  and make sure that it is regularly updated to move it farther into the future.</target>
+        </trans-unit>
+        <trans-unit id="3ca6784e-70ec-49d3-9570-afcfd8cb419e" xml:space="preserve">
+          <source><bpt id="74d0653f-7785-4bc1-9b3d-93ec8c24861e">&lt;strong&gt;</bpt>Use near-term expiration times on an ad hoc SAS.<ept id="74d0653f-7785-4bc1-9b3d-93ec8c24861e">&lt;/strong&gt;</ept> In this way, even if a SAS is compromised unknowingly, it will only be viable for a short time duration.</source>
+          <target state="new"><bpt id="74d0653f-7785-4bc1-9b3d-93ec8c24861e">&lt;strong&gt;</bpt>Use near-term expiration times on an ad hoc SAS.<ept id="74d0653f-7785-4bc1-9b3d-93ec8c24861e">&lt;/strong&gt;</ept> In this way, even if a SAS is compromised unknowingly, it will only be viable for a short time duration.</target>
+        </trans-unit>
+        <trans-unit id="fe8709b9-c78b-4223-afaa-4af06ed47761" xml:space="preserve">
+          <source>This practice is especially important if you cannot reference a stored access policy.</source>
+          <target state="new">This practice is especially important if you cannot reference a stored access policy.</target>
+        </trans-unit>
+        <trans-unit id="98fe5a61-a5e4-4d55-a50e-c76ab6a972e0" xml:space="preserve">
+          <source>This practice also helps limit the amount of data that can be written to a blob by limiting the time available to upload to it.</source>
+          <target state="new">This practice also helps limit the amount of data that can be written to a blob by limiting the time available to upload to it.</target>
+        </trans-unit>
+        <trans-unit id="7ceb0279-c87e-4aad-9f9d-04831571b7e2" xml:space="preserve">
+          <source><bpt id="472f191c-80e7-43e1-9738-957be7324eff">&lt;strong&gt;</bpt>Have clients automatically renew the SAS if necessary.<ept id="472f191c-80e7-43e1-9738-957be7324eff">&lt;/strong&gt;</ept> Clients should renew the SAS well before the expected expiration, in order to allow time for retries if the service providing the SAS is unavailable.</source>
+          <target state="new"><bpt id="472f191c-80e7-43e1-9738-957be7324eff">&lt;strong&gt;</bpt>Have clients automatically renew the SAS if necessary.<ept id="472f191c-80e7-43e1-9738-957be7324eff">&lt;/strong&gt;</ept> Clients should renew the SAS well before the expected expiration, in order to allow time for retries if the service providing the SAS is unavailable.</target>
+        </trans-unit>
+        <trans-unit id="389c6b8f-1446-48cc-aef4-a581fbd11aa5" xml:space="preserve">
+          <source>If your SAS is meant to be used for a small number of immediate, short-lived operations, which are expected to be completed within the expiration time given, then this may not be necessary, as the SAS is not expected be renewed.</source>
+          <target state="new">If your SAS is meant to be used for a small number of immediate, short-lived operations, which are expected to be completed within the expiration time given, then this may not be necessary, as the SAS is not expected be renewed.</target>
+        </trans-unit>
+        <trans-unit id="063f1e02-7e24-4f84-97dc-22aa5f4f615f" xml:space="preserve">
+          <source>However, if you have client that is routinely making requests via SAS, then the possibility of expiration comes into play.</source>
+          <target state="new">However, if you have client that is routinely making requests via SAS, then the possibility of expiration comes into play.</target>
+        </trans-unit>
+        <trans-unit id="f154a338-d77c-4b56-9276-865c54b9f60a" xml:space="preserve">
+          <source>The key consideration is to balance the need for the SAS to be short-lived (as stated above) with the need to ensure that the client is requesting renewal early enough to avoid disruption due to the SAS expiring prior to successful renewal.</source>
+          <target state="new">The key consideration is to balance the need for the SAS to be short-lived (as stated above) with the need to ensure that the client is requesting renewal early enough to avoid disruption due to the SAS expiring prior to successful renewal.</target>
+        </trans-unit>
+        <trans-unit id="a4dfb3a4-5bb6-4481-807b-a57def02e917" xml:space="preserve">
+          <source><bpt id="349363af-7dec-4d4c-b58b-a10e59311a59">&lt;strong&gt;</bpt>Be careful with SAS start time.<ept id="349363af-7dec-4d4c-b58b-a10e59311a59">&lt;/strong&gt;</ept> If you set the start time for a SAS to <bpt id="6bada2fb-29a9-4234-a165-0aa8d2bb8508">&lt;strong&gt;</bpt>now<ept id="6bada2fb-29a9-4234-a165-0aa8d2bb8508">&lt;/strong&gt;</ept>, then due to clock skew (differences in current time according to different machines), failures may be observed intermittently for the first few minutes.</source>
+          <target state="new"><bpt id="349363af-7dec-4d4c-b58b-a10e59311a59">&lt;strong&gt;</bpt>Be careful with SAS start time.<ept id="349363af-7dec-4d4c-b58b-a10e59311a59">&lt;/strong&gt;</ept> If you set the start time for a SAS to <bpt id="6bada2fb-29a9-4234-a165-0aa8d2bb8508">&lt;strong&gt;</bpt>now<ept id="6bada2fb-29a9-4234-a165-0aa8d2bb8508">&lt;/strong&gt;</ept>, then due to clock skew (differences in current time according to different machines), failures may be observed intermittently for the first few minutes.</target>
+        </trans-unit>
+        <trans-unit id="623bf49b-90e6-4173-aff5-4e2011dffc4f" xml:space="preserve">
+          <source>In general, set the start time to be at least 15 minutes ago, or don't set it at all, which will make it valid immediately in all cases.</source>
+          <target state="new">In general, set the start time to be at least 15 minutes ago, or don't set it at all, which will make it valid immediately in all cases.</target>
+        </trans-unit>
+        <trans-unit id="c6792b9d-686d-4931-b7aa-49b37f488f1d" xml:space="preserve">
+          <source>The same generally applies to expiry time as well - remember that you may observe up to 15 minutes of clock skew in either direction on any request.</source>
+          <target state="new">The same generally applies to expiry time as well - remember that you may observe up to 15 minutes of clock skew in either direction on any request.</target>
+        </trans-unit>
+        <trans-unit id="0330aa69-fc65-4d74-a206-512375210ae7" xml:space="preserve">
+          <source>Note for clients using a REST version prior to 2012-02-12, the maximum duration for a SAS that does not reference a stored access policy is 1 hour, and any policies specifying longer term than that will fail.</source>
+          <target state="new">Note for clients using a REST version prior to 2012-02-12, the maximum duration for a SAS that does not reference a stored access policy is 1 hour, and any policies specifying longer term than that will fail.</target>
+        </trans-unit>
+        <trans-unit id="5a689a71-6c90-4364-a198-9281ce6537f2" xml:space="preserve">
+          <source><bpt id="dac81e2f-cac1-491b-82a0-03d76e66b3c2">&lt;strong&gt;</bpt>Be specific with the resource to be accessed.<ept id="dac81e2f-cac1-491b-82a0-03d76e66b3c2">&lt;/strong&gt;</ept> A typical security best practice is to provide a user with the minimum required privileges.</source>
+          <target state="new"><bpt id="dac81e2f-cac1-491b-82a0-03d76e66b3c2">&lt;strong&gt;</bpt>Be specific with the resource to be accessed.<ept id="dac81e2f-cac1-491b-82a0-03d76e66b3c2">&lt;/strong&gt;</ept> A typical security best practice is to provide a user with the minimum required privileges.</target>
+        </trans-unit>
+        <trans-unit id="ad96015d-acd5-4e70-803d-fab8b2397c7e" xml:space="preserve">
+          <source>If a user only needs read access to a single entity, then grant them read access to that single entity, and not read/write/delete access to all entities.</source>
+          <target state="new">If a user only needs read access to a single entity, then grant them read access to that single entity, and not read/write/delete access to all entities.</target>
+        </trans-unit>
+        <trans-unit id="3be13d0c-d050-46e3-897e-55e35e42d67d" xml:space="preserve">
+          <source>This also helps mitigate the threat of the SAS being compromised, as the SAS has less power in the hands of an attacker.</source>
+          <target state="new">This also helps mitigate the threat of the SAS being compromised, as the SAS has less power in the hands of an attacker.</target>
+        </trans-unit>
+        <trans-unit id="8f49a1b2-57bf-4d04-97fe-695d3754e959" xml:space="preserve">
+          <source><bpt id="114ceaf7-78fe-492f-8c22-a45c61280c8b">&lt;strong&gt;</bpt>Understand that your account will be billed for any usage, including that done with SAS.<ept id="114ceaf7-78fe-492f-8c22-a45c61280c8b">&lt;/strong&gt;</ept> If you provide write access to a blob, a user may choose to upload a 200GB blob.</source>
+          <target state="new"><bpt id="114ceaf7-78fe-492f-8c22-a45c61280c8b">&lt;strong&gt;</bpt>Understand that your account will be billed for any usage, including that done with SAS.<ept id="114ceaf7-78fe-492f-8c22-a45c61280c8b">&lt;/strong&gt;</ept> If you provide write access to a blob, a user may choose to upload a 200GB blob.</target>
+        </trans-unit>
+        <trans-unit id="2dbe8dac-b12a-4c59-bbf4-12a8577d7051" xml:space="preserve">
+          <source>If you've given them read access as well, they may choose do download it 10 times, incurring 2TB in egress costs for you.</source>
+          <target state="new">If you've given them read access as well, they may choose do download it 10 times, incurring 2TB in egress costs for you.</target>
+        </trans-unit>
+        <trans-unit id="565f1eed-7c0e-40d8-a5f9-8101c98de6b1" xml:space="preserve">
+          <source>Again, provide limited permissions, to help mitigate the potential of malicious users.</source>
+          <target state="new">Again, provide limited permissions, to help mitigate the potential of malicious users.</target>
+        </trans-unit>
+        <trans-unit id="a1d61b19-ff7b-4f3d-8320-0e2219622919" xml:space="preserve">
+          <source>Use short-lived SAS to reduce this threat (but be mindful of clock skew on the end time).</source>
+          <target state="new">Use short-lived SAS to reduce this threat (but be mindful of clock skew on the end time).</target>
+        </trans-unit>
+        <trans-unit id="e499338a-dc0f-4d7b-ab11-3967fee49c6b" xml:space="preserve">
+          <source><bpt id="9a0bc19b-6a60-41fc-a0bb-eb26684d1351">&lt;strong&gt;</bpt>Validate data written using SAS.<ept id="9a0bc19b-6a60-41fc-a0bb-eb26684d1351">&lt;/strong&gt;</ept> When a client application writes data to your storage account, keep in mind that there can be problems with that data.</source>
+          <target state="new"><bpt id="9a0bc19b-6a60-41fc-a0bb-eb26684d1351">&lt;strong&gt;</bpt>Validate data written using SAS.<ept id="9a0bc19b-6a60-41fc-a0bb-eb26684d1351">&lt;/strong&gt;</ept> When a client application writes data to your storage account, keep in mind that there can be problems with that data.</target>
+        </trans-unit>
+        <trans-unit id="b9fc6bfc-a3be-4bf5-a1dc-7fa8f193063c" xml:space="preserve">
+          <source>If your application requires that that data be validated or authorized before it is ready to use, you should perform this validation after the data is written and before it is used by your application.</source>
+          <target state="new">If your application requires that that data be validated or authorized before it is ready to use, you should perform this validation after the data is written and before it is used by your application.</target>
+        </trans-unit>
+        <trans-unit id="9b2bbc85-a770-43a0-a7e6-4baf66a2d3d0" xml:space="preserve">
+          <source>This practice also protects against corrupt or malicious data being written to your account, either by a user who properly acquired the SAS, or by a user exploiting a leaked SAS.</source>
+          <target state="new">This practice also protects against corrupt or malicious data being written to your account, either by a user who properly acquired the SAS, or by a user exploiting a leaked SAS.</target>
+        </trans-unit>
+        <trans-unit id="230a3290-5ddc-4d2e-88dc-f5cdaa737d54" xml:space="preserve">
+          <source><bpt id="4cabb88d-48dd-46cb-a4f9-2aa2247b07c7">&lt;strong&gt;</bpt>Don't always use SAS.<ept id="4cabb88d-48dd-46cb-a4f9-2aa2247b07c7">&lt;/strong&gt;</ept> Sometimes the risks associated with a particular operation against your storage account outweigh the benefits of SAS.</source>
+          <target state="new"><bpt id="4cabb88d-48dd-46cb-a4f9-2aa2247b07c7">&lt;strong&gt;</bpt>Don't always use SAS.<ept id="4cabb88d-48dd-46cb-a4f9-2aa2247b07c7">&lt;/strong&gt;</ept> Sometimes the risks associated with a particular operation against your storage account outweigh the benefits of SAS.</target>
+        </trans-unit>
+        <trans-unit id="94b21184-37c8-4bfb-86d1-386d6c587bed" xml:space="preserve">
+          <source>For such operations, create a middle-tier service that writes to your storage account after performing business rule validation, authentication, and auditing.</source>
+          <target state="new">For such operations, create a middle-tier service that writes to your storage account after performing business rule validation, authentication, and auditing.</target>
+        </trans-unit>
+        <trans-unit id="55c49161-5bd4-4577-81b4-e6e3e16cbf7e" xml:space="preserve">
+          <source>Also, sometimes it's simpler to manage access in other ways.</source>
+          <target state="new">Also, sometimes it's simpler to manage access in other ways.</target>
+        </trans-unit>
+        <trans-unit id="99b40ad9-4bf2-4b9d-afc3-bf7ba811f7b9" xml:space="preserve">
+          <source>For example, if you want to make all blobs in a container publically readable, you can make the container Public, rather than providing a SAS to every client for access.</source>
+          <target state="new">For example, if you want to make all blobs in a container publically readable, you can make the container Public, rather than providing a SAS to every client for access.</target>
+        </trans-unit>
+        <trans-unit id="fbf5a66f-7c90-4e12-92bf-802c9bbf52b1" xml:space="preserve">
+          <source><bpt id="16335587-9d3b-4488-bc7b-3bc7107766fa">&lt;strong&gt;</bpt>Use Storage Analytics to monitor your application.<ept id="16335587-9d3b-4488-bc7b-3bc7107766fa">&lt;/strong&gt;</ept> You can use logging and metrics to observe any spike in authentication failures due to an outage in your SAS provider service or or to the inadvertent removal of a stored access policy.</source>
+          <target state="new"><bpt id="16335587-9d3b-4488-bc7b-3bc7107766fa">&lt;strong&gt;</bpt>Use Storage Analytics to monitor your application.<ept id="16335587-9d3b-4488-bc7b-3bc7107766fa">&lt;/strong&gt;</ept> You can use logging and metrics to observe any spike in authentication failures due to an outage in your SAS provider service or or to the inadvertent removal of a stored access policy.</target>
+        </trans-unit>
+        <trans-unit id="4cbf6355-7d12-4f01-9439-df7362665490" xml:space="preserve">
+          <source>See the <bpt id="27d688a5-afb5-47d0-a6e0-ef0eafe4e4cc">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="27d688a5-afb5-47d0-a6e0-ef0eafe4e4cc">&lt;/linkText&gt;</ept><bpt id="27d688a5-afb5-47d0-a6e0-ef0eafe4e4cc">&lt;title&gt;</bpt><ept id="27d688a5-afb5-47d0-a6e0-ef0eafe4e4cc">&lt;/title&gt;</ept> for additional information.</source>
+          <target state="new">See the <bpt id="27d688a5-afb5-47d0-a6e0-ef0eafe4e4cc">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="27d688a5-afb5-47d0-a6e0-ef0eafe4e4cc">&lt;/linkText&gt;</ept><bpt id="27d688a5-afb5-47d0-a6e0-ef0eafe4e4cc">&lt;title&gt;</bpt><ept id="27d688a5-afb5-47d0-a6e0-ef0eafe4e4cc">&lt;/title&gt;</ept> for additional information.</target>
+        </trans-unit>
+        <trans-unit id="74572257-76d2-40b3-a510-84cd919a0b4d" xml:space="preserve">
+          <source>Shared access signatures are useful for providing limited permissions to your storage account to clients that should not have the account key.</source>
+          <target state="new">Shared access signatures are useful for providing limited permissions to your storage account to clients that should not have the account key.</target>
+        </trans-unit>
+        <trans-unit id="ddacc4a9-9166-40ae-ba2d-85db44f76e5a" xml:space="preserve">
+          <source>As such, they are a vital part of the security model for any application using Azure Storage.</source>
+          <target state="new">As such, they are a vital part of the security model for any application using Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="a6aea3a0-f8c4-4ac8-8594-627f67e8f83f" xml:space="preserve">
+          <source>If you follow the best practices listed here, you can use SAS to provide greater flexibility of access to resources in your storage account, without compromising the security of your application.</source>
+          <target state="new">If you follow the best practices listed here, you can use SAS to provide greater flexibility of access to resources in your storage account, without compromising the security of your application.</target>
+        </trans-unit>
+        <trans-unit id="aa9b252b-a980-4ab0-b29f-d40b4f3c1a46" xml:space="preserve">
+          <source><bpt id="09a537fd-8c9d-4f45-9f65-d1e8d4ba3e4c">&lt;linkText&gt;</bpt>Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service<ept id="09a537fd-8c9d-4f45-9f65-d1e8d4ba3e4c">&lt;/linkText&gt;</ept><bpt id="09a537fd-8c9d-4f45-9f65-d1e8d4ba3e4c">&lt;title&gt;</bpt><ept id="09a537fd-8c9d-4f45-9f65-d1e8d4ba3e4c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="09a537fd-8c9d-4f45-9f65-d1e8d4ba3e4c">&lt;linkText&gt;</bpt>Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service<ept id="09a537fd-8c9d-4f45-9f65-d1e8d4ba3e4c">&lt;/linkText&gt;</ept><bpt id="09a537fd-8c9d-4f45-9f65-d1e8d4ba3e4c">&lt;title&gt;</bpt><ept id="09a537fd-8c9d-4f45-9f65-d1e8d4ba3e4c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb21b160-3133-4024-8cdf-950c1a470daa" xml:space="preserve">
+          <source><bpt id="56681621-6e89-42ad-8a8c-a8c9de73e265">&lt;linkText&gt;</bpt>How to use Azure File storage with PowerShell and .NET<ept id="56681621-6e89-42ad-8a8c-a8c9de73e265">&lt;/linkText&gt;</ept><bpt id="56681621-6e89-42ad-8a8c-a8c9de73e265">&lt;title&gt;</bpt><ept id="56681621-6e89-42ad-8a8c-a8c9de73e265">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="56681621-6e89-42ad-8a8c-a8c9de73e265">&lt;linkText&gt;</bpt>How to use Azure File storage with PowerShell and .NET<ept id="56681621-6e89-42ad-8a8c-a8c9de73e265">&lt;/linkText&gt;</ept><bpt id="56681621-6e89-42ad-8a8c-a8c9de73e265">&lt;title&gt;</bpt><ept id="56681621-6e89-42ad-8a8c-a8c9de73e265">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a69015e3-951a-4171-b661-d9be3f5a0f65" xml:space="preserve">
+          <source><bpt id="252055b5-4a42-4335-91cb-3e9c5691d5e0">&lt;linkText&gt;</bpt>Manage Access to Azure Storage Resources<ept id="252055b5-4a42-4335-91cb-3e9c5691d5e0">&lt;/linkText&gt;</ept><bpt id="252055b5-4a42-4335-91cb-3e9c5691d5e0">&lt;title&gt;</bpt><ept id="252055b5-4a42-4335-91cb-3e9c5691d5e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="252055b5-4a42-4335-91cb-3e9c5691d5e0">&lt;linkText&gt;</bpt>Manage Access to Azure Storage Resources<ept id="252055b5-4a42-4335-91cb-3e9c5691d5e0">&lt;/linkText&gt;</ept><bpt id="252055b5-4a42-4335-91cb-3e9c5691d5e0">&lt;title&gt;</bpt><ept id="252055b5-4a42-4335-91cb-3e9c5691d5e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb1eefbf-cc30-42b2-a2cc-c1fb8c47898e" xml:space="preserve">
+          <source><bpt id="1ef409ba-8b6e-4f87-bea0-7c985b44a0e1">&lt;linkText&gt;</bpt>Delegating Access with a Shared Access Signature (REST API)<ept id="1ef409ba-8b6e-4f87-bea0-7c985b44a0e1">&lt;/linkText&gt;</ept><bpt id="1ef409ba-8b6e-4f87-bea0-7c985b44a0e1">&lt;title&gt;</bpt><ept id="1ef409ba-8b6e-4f87-bea0-7c985b44a0e1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1ef409ba-8b6e-4f87-bea0-7c985b44a0e1">&lt;linkText&gt;</bpt>Delegating Access with a Shared Access Signature (REST API)<ept id="1ef409ba-8b6e-4f87-bea0-7c985b44a0e1">&lt;/linkText&gt;</ept><bpt id="1ef409ba-8b6e-4f87-bea0-7c985b44a0e1">&lt;title&gt;</bpt><ept id="1ef409ba-8b6e-4f87-bea0-7c985b44a0e1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e8c2b0d-a61b-4a16-9818-cf078b4a4c27" xml:space="preserve">
+          <source><bpt id="d2a2a89e-d0d4-4c0e-8ae4-96b2c26420d0">&lt;linkText&gt;</bpt>Introducing Table and Queue SAS<ept id="d2a2a89e-d0d4-4c0e-8ae4-96b2c26420d0">&lt;/linkText&gt;</ept><bpt id="d2a2a89e-d0d4-4c0e-8ae4-96b2c26420d0">&lt;title&gt;</bpt><ept id="d2a2a89e-d0d4-4c0e-8ae4-96b2c26420d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d2a2a89e-d0d4-4c0e-8ae4-96b2c26420d0">&lt;linkText&gt;</bpt>Introducing Table and Queue SAS<ept id="d2a2a89e-d0d4-4c0e-8ae4-96b2c26420d0">&lt;/linkText&gt;</ept><bpt id="d2a2a89e-d0d4-4c0e-8ae4-96b2c26420d0">&lt;title&gt;</bpt><ept id="d2a2a89e-d0d4-4c0e-8ae4-96b2c26420d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2decbe1f-ca73-444e-a776-a73835727d03" xml:space="preserve">
+          <source>./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png</source>
+          <target state="new">./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png</target>
+        </trans-unit>
+        <trans-unit id="08b164ee-6fb2-4b5d-8c05-68c09f085d49" xml:space="preserve">
+          <source>./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png</source>
+          <target state="new">./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png</target>
+        </trans-unit>
+      </group>
+      <group id="c6f6f36a-38c5-41f3-aafd-72e67307d83c" />
+    </body>
+  </file>
+</xliff>

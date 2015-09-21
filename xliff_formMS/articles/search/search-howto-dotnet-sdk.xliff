@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c84d60c1-6e9b-4d10-a311-14615adcbe13" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c84d60c1-6e9b-4d10-a311-14615adcbe13" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="35c3a031-d0eb-4262-a76e-a39cb1bee0be">
+        <trans-unit id="2a8260d0-fdc8-4a9a-917b-776fab388620" xml:space="preserve">
+          <source>How to use Azure Search from a .NET Application | Microsoft Azure</source>
+          <target state="new">How to use Azure Search from a .NET Application | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="bc988bbe-9623-476d-93d6-41710b55c7d9" xml:space="preserve">
+          <source>How to use Azure Search from a .NET Application</source>
+          <target state="new">How to use Azure Search from a .NET Application</target>
+        </trans-unit>
+        <trans-unit id="9ecd3489-76a6-4f89-9fe9-62eaa88c0e8a" xml:space="preserve">
+          <source>This article is a walkthrough to get you up and running with the <bpt id="a12a20ab-38d1-4a72-abf4-b3e5017d59b2">&lt;linkText&gt;</bpt>Azure Search .NET SDK<ept id="a12a20ab-38d1-4a72-abf4-b3e5017d59b2">&lt;/linkText&gt;</ept><bpt id="a12a20ab-38d1-4a72-abf4-b3e5017d59b2">&lt;title&gt;</bpt><ept id="a12a20ab-38d1-4a72-abf4-b3e5017d59b2">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article is a walkthrough to get you up and running with the <bpt id="a12a20ab-38d1-4a72-abf4-b3e5017d59b2">&lt;linkText&gt;</bpt>Azure Search .NET SDK<ept id="a12a20ab-38d1-4a72-abf4-b3e5017d59b2">&lt;/linkText&gt;</ept><bpt id="a12a20ab-38d1-4a72-abf4-b3e5017d59b2">&lt;title&gt;</bpt><ept id="a12a20ab-38d1-4a72-abf4-b3e5017d59b2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5efbb2ec-e1df-4e34-972e-7bb8e4a2aa2e" xml:space="preserve">
+          <source>You can use the .NET SDK to implement a rich search experience in your application using Azure Search.</source>
+          <target state="new">You can use the .NET SDK to implement a rich search experience in your application using Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="1fe5191e-52d0-4dee-bdf9-90dc0c659fdf" xml:space="preserve">
+          <source>The SDK consists of a client library, <bpt id="e7b4db2a-14cb-41d0-b08c-361d42f01f23">&lt;code&gt;</bpt>Microsoft.Azure.Search<ept id="e7b4db2a-14cb-41d0-b08c-361d42f01f23">&lt;/code&gt;</ept>.</source>
+          <target state="new">The SDK consists of a client library, <bpt id="e7b4db2a-14cb-41d0-b08c-361d42f01f23">&lt;code&gt;</bpt>Microsoft.Azure.Search<ept id="e7b4db2a-14cb-41d0-b08c-361d42f01f23">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b8f4889-cb81-46ba-802b-62851f218e78" xml:space="preserve">
+          <source>It enables you to manage your indexes, data sources, and indexers, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON.</source>
+          <target state="new">It enables you to manage your indexes, data sources, and indexers, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON.</target>
+        </trans-unit>
+        <trans-unit id="1248efa2-53ea-4ba3-be54-8b3cb6c5e90e" xml:space="preserve">
+          <source>The client library defines classes like <bpt id="42c3767b-ed04-4e31-967e-99596eb5757c">&lt;code&gt;</bpt>Index<ept id="42c3767b-ed04-4e31-967e-99596eb5757c">&lt;/code&gt;</ept>, <bpt id="6316966e-6a64-4a36-92f9-8e188984000c">&lt;code&gt;</bpt>Field<ept id="6316966e-6a64-4a36-92f9-8e188984000c">&lt;/code&gt;</ept>, and <bpt id="169eac01-4d00-4f2f-8af7-5ce6542ae42e">&lt;code&gt;</bpt>Document<ept id="169eac01-4d00-4f2f-8af7-5ce6542ae42e">&lt;/code&gt;</ept>, as well as operations like <bpt id="48badf27-2576-4aff-b9e7-a859ba3523e8">&lt;code&gt;</bpt>Indexes.Create<ept id="48badf27-2576-4aff-b9e7-a859ba3523e8">&lt;/code&gt;</ept> and <bpt id="55c529ab-67b3-4abc-8713-33a8ee9c77f8">&lt;code&gt;</bpt>Documents.Search<ept id="55c529ab-67b3-4abc-8713-33a8ee9c77f8">&lt;/code&gt;</ept> on the <bpt id="2f88077a-be67-44e7-87b3-4fac8546f9a8">&lt;code&gt;</bpt>SearchServiceClient<ept id="2f88077a-be67-44e7-87b3-4fac8546f9a8">&lt;/code&gt;</ept> and <bpt id="d602712a-b9e0-42cc-b4d4-9797e12039da">&lt;code&gt;</bpt>SearchIndexClient<ept id="d602712a-b9e0-42cc-b4d4-9797e12039da">&lt;/code&gt;</ept> classes.</source>
+          <target state="new">The client library defines classes like <bpt id="42c3767b-ed04-4e31-967e-99596eb5757c">&lt;code&gt;</bpt>Index<ept id="42c3767b-ed04-4e31-967e-99596eb5757c">&lt;/code&gt;</ept>, <bpt id="6316966e-6a64-4a36-92f9-8e188984000c">&lt;code&gt;</bpt>Field<ept id="6316966e-6a64-4a36-92f9-8e188984000c">&lt;/code&gt;</ept>, and <bpt id="169eac01-4d00-4f2f-8af7-5ce6542ae42e">&lt;code&gt;</bpt>Document<ept id="169eac01-4d00-4f2f-8af7-5ce6542ae42e">&lt;/code&gt;</ept>, as well as operations like <bpt id="48badf27-2576-4aff-b9e7-a859ba3523e8">&lt;code&gt;</bpt>Indexes.Create<ept id="48badf27-2576-4aff-b9e7-a859ba3523e8">&lt;/code&gt;</ept> and <bpt id="55c529ab-67b3-4abc-8713-33a8ee9c77f8">&lt;code&gt;</bpt>Documents.Search<ept id="55c529ab-67b3-4abc-8713-33a8ee9c77f8">&lt;/code&gt;</ept> on the <bpt id="2f88077a-be67-44e7-87b3-4fac8546f9a8">&lt;code&gt;</bpt>SearchServiceClient<ept id="2f88077a-be67-44e7-87b3-4fac8546f9a8">&lt;/code&gt;</ept> and <bpt id="d602712a-b9e0-42cc-b4d4-9797e12039da">&lt;code&gt;</bpt>SearchIndexClient<ept id="d602712a-b9e0-42cc-b4d4-9797e12039da">&lt;/code&gt;</ept> classes.</target>
+        </trans-unit>
+        <trans-unit id="9942f4ea-5388-44c8-a1b5-1fedea5515f9" xml:space="preserve">
+          <source>These classes are organized into the following namespaces:</source>
+          <target state="new">These classes are organized into the following namespaces:</target>
+        </trans-unit>
+        <trans-unit id="69006368-d1f5-4d69-ba28-a624483c8a2a" xml:space="preserve">
+          <source><bpt id="5c185165-8bcd-4fa2-977e-7d86f908a3d0">&lt;linkText&gt;</bpt>Microsoft.Azure.Search<ept id="5c185165-8bcd-4fa2-977e-7d86f908a3d0">&lt;/linkText&gt;</ept><bpt id="5c185165-8bcd-4fa2-977e-7d86f908a3d0">&lt;title&gt;</bpt><ept id="5c185165-8bcd-4fa2-977e-7d86f908a3d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5c185165-8bcd-4fa2-977e-7d86f908a3d0">&lt;linkText&gt;</bpt>Microsoft.Azure.Search<ept id="5c185165-8bcd-4fa2-977e-7d86f908a3d0">&lt;/linkText&gt;</ept><bpt id="5c185165-8bcd-4fa2-977e-7d86f908a3d0">&lt;title&gt;</bpt><ept id="5c185165-8bcd-4fa2-977e-7d86f908a3d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0fde6f1-04df-4812-ac65-cf7d81b402b1" xml:space="preserve">
+          <source><bpt id="3884fc82-fd4a-45b6-98b9-b0d77ba1deae">&lt;linkText&gt;</bpt>Microsoft.Azure.Search.Models<ept id="3884fc82-fd4a-45b6-98b9-b0d77ba1deae">&lt;/linkText&gt;</ept><bpt id="3884fc82-fd4a-45b6-98b9-b0d77ba1deae">&lt;title&gt;</bpt><ept id="3884fc82-fd4a-45b6-98b9-b0d77ba1deae">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3884fc82-fd4a-45b6-98b9-b0d77ba1deae">&lt;linkText&gt;</bpt>Microsoft.Azure.Search.Models<ept id="3884fc82-fd4a-45b6-98b9-b0d77ba1deae">&lt;/linkText&gt;</ept><bpt id="3884fc82-fd4a-45b6-98b9-b0d77ba1deae">&lt;title&gt;</bpt><ept id="3884fc82-fd4a-45b6-98b9-b0d77ba1deae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22e49f0b-61c0-4df3-80d8-f10760ecad87" xml:space="preserve">
+          <source>The current version of the Azure Search .NET SDK is a pre-release version.</source>
+          <target state="new">The current version of the Azure Search .NET SDK is a pre-release version.</target>
+        </trans-unit>
+        <trans-unit id="49f286ca-36d7-4cee-9738-3cf45c279d70" xml:space="preserve">
+          <source>If you would like to provide feedback for us to incorporate in the first stable version, please visit our <bpt id="c109c964-70b9-4fae-aea0-354d5a07f849">&lt;linkText&gt;</bpt>feedback page<ept id="c109c964-70b9-4fae-aea0-354d5a07f849">&lt;/linkText&gt;</ept><bpt id="c109c964-70b9-4fae-aea0-354d5a07f849">&lt;title&gt;</bpt><ept id="c109c964-70b9-4fae-aea0-354d5a07f849">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you would like to provide feedback for us to incorporate in the first stable version, please visit our <bpt id="c109c964-70b9-4fae-aea0-354d5a07f849">&lt;linkText&gt;</bpt>feedback page<ept id="c109c964-70b9-4fae-aea0-354d5a07f849">&lt;/linkText&gt;</ept><bpt id="c109c964-70b9-4fae-aea0-354d5a07f849">&lt;title&gt;</bpt><ept id="c109c964-70b9-4fae-aea0-354d5a07f849">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0531296c-0733-4aa4-a720-973e01a3645a" xml:space="preserve">
+          <source>The .NET SDK supports version <bpt id="fd1ae222-f289-49fc-9965-03213fcd9a5c">&lt;code&gt;</bpt>2015-02-28<ept id="fd1ae222-f289-49fc-9965-03213fcd9a5c">&lt;/code&gt;</ept> of the Azure Search REST API, documented on <bpt id="6418b357-4757-4b1d-bebc-fa8837a44c38">&lt;linkText&gt;</bpt>MSDN<ept id="6418b357-4757-4b1d-bebc-fa8837a44c38">&lt;/linkText&gt;</ept><bpt id="6418b357-4757-4b1d-bebc-fa8837a44c38">&lt;title&gt;</bpt><ept id="6418b357-4757-4b1d-bebc-fa8837a44c38">&lt;/title&gt;</ept>.</source>
+          <target state="new">The .NET SDK supports version <bpt id="fd1ae222-f289-49fc-9965-03213fcd9a5c">&lt;code&gt;</bpt>2015-02-28<ept id="fd1ae222-f289-49fc-9965-03213fcd9a5c">&lt;/code&gt;</ept> of the Azure Search REST API, documented on <bpt id="6418b357-4757-4b1d-bebc-fa8837a44c38">&lt;linkText&gt;</bpt>MSDN<ept id="6418b357-4757-4b1d-bebc-fa8837a44c38">&lt;/linkText&gt;</ept><bpt id="6418b357-4757-4b1d-bebc-fa8837a44c38">&lt;title&gt;</bpt><ept id="6418b357-4757-4b1d-bebc-fa8837a44c38">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f7ae816-1ae6-46f0-9c67-80970ed4dfa3" xml:space="preserve">
+          <source>New features that are <bpt id="0b610306-393f-4467-a7d7-a4a9d53761b4">&lt;em&gt;</bpt>not<ept id="0b610306-393f-4467-a7d7-a4a9d53761b4">&lt;/em&gt;</ept> part of this version, such as support for Microsoft's natural language processors or the <bpt id="4e458b7d-0bd5-4648-912e-853bb4d02e26">&lt;code&gt;</bpt>moreLikeThis<ept id="4e458b7d-0bd5-4648-912e-853bb4d02e26">&lt;/code&gt;</ept> search parameter, are in <bpt id="4a1b4543-631f-439d-a898-1f0a3d491109">&lt;linkText&gt;</bpt>preview<ept id="4a1b4543-631f-439d-a898-1f0a3d491109">&lt;/linkText&gt;</ept><bpt id="4a1b4543-631f-439d-a898-1f0a3d491109">&lt;title&gt;</bpt><ept id="4a1b4543-631f-439d-a898-1f0a3d491109">&lt;/title&gt;</ept> and not yet available in the SDK.</source>
+          <target state="new">New features that are <bpt id="0b610306-393f-4467-a7d7-a4a9d53761b4">&lt;em&gt;</bpt>not<ept id="0b610306-393f-4467-a7d7-a4a9d53761b4">&lt;/em&gt;</ept> part of this version, such as support for Microsoft's natural language processors or the <bpt id="4e458b7d-0bd5-4648-912e-853bb4d02e26">&lt;code&gt;</bpt>moreLikeThis<ept id="4e458b7d-0bd5-4648-912e-853bb4d02e26">&lt;/code&gt;</ept> search parameter, are in <bpt id="4a1b4543-631f-439d-a898-1f0a3d491109">&lt;linkText&gt;</bpt>preview<ept id="4a1b4543-631f-439d-a898-1f0a3d491109">&lt;/linkText&gt;</ept><bpt id="4a1b4543-631f-439d-a898-1f0a3d491109">&lt;title&gt;</bpt><ept id="4a1b4543-631f-439d-a898-1f0a3d491109">&lt;/title&gt;</ept> and not yet available in the SDK.</target>
+        </trans-unit>
+        <trans-unit id="e6fb4eee-e6de-4243-b9ba-d1ecdb89af35" xml:space="preserve">
+          <source>You can check back on <bpt id="aa57a89e-79f6-4918-952a-1806e5b8a8fa">&lt;linkText&gt;</bpt>Search service versioning<ept id="aa57a89e-79f6-4918-952a-1806e5b8a8fa">&lt;/linkText&gt;</ept><bpt id="aa57a89e-79f6-4918-952a-1806e5b8a8fa">&lt;title&gt;</bpt><ept id="aa57a89e-79f6-4918-952a-1806e5b8a8fa">&lt;/title&gt;</ept> or <bpt id="862012c1-7417-4484-b6d3-45c67e9d2c37">&lt;linkText&gt;</bpt>Latest updates to Azure Search<ept id="862012c1-7417-4484-b6d3-45c67e9d2c37">&lt;/linkText&gt;</ept><bpt id="862012c1-7417-4484-b6d3-45c67e9d2c37">&lt;title&gt;</bpt><ept id="862012c1-7417-4484-b6d3-45c67e9d2c37">&lt;/title&gt;</ept> for status updates on either feature.</source>
+          <target state="new">You can check back on <bpt id="aa57a89e-79f6-4918-952a-1806e5b8a8fa">&lt;linkText&gt;</bpt>Search service versioning<ept id="aa57a89e-79f6-4918-952a-1806e5b8a8fa">&lt;/linkText&gt;</ept><bpt id="aa57a89e-79f6-4918-952a-1806e5b8a8fa">&lt;title&gt;</bpt><ept id="aa57a89e-79f6-4918-952a-1806e5b8a8fa">&lt;/title&gt;</ept> or <bpt id="862012c1-7417-4484-b6d3-45c67e9d2c37">&lt;linkText&gt;</bpt>Latest updates to Azure Search<ept id="862012c1-7417-4484-b6d3-45c67e9d2c37">&lt;/linkText&gt;</ept><bpt id="862012c1-7417-4484-b6d3-45c67e9d2c37">&lt;title&gt;</bpt><ept id="862012c1-7417-4484-b6d3-45c67e9d2c37">&lt;/title&gt;</ept> for status updates on either feature.</target>
+        </trans-unit>
+        <trans-unit id="2dab50a9-382c-4c14-84d7-ebaf9d86d4f9" xml:space="preserve">
+          <source>Other features not supported in this SDK include:</source>
+          <target state="new">Other features not supported in this SDK include:</target>
+        </trans-unit>
+        <trans-unit id="b41141a5-f656-402c-aa38-bdb8ce75c8b4" xml:space="preserve">
+          <source><bpt id="d1001134-349d-4c85-bdfc-d78dc57cda88">&lt;linkText&gt;</bpt>Management Operations<ept id="d1001134-349d-4c85-bdfc-d78dc57cda88">&lt;/linkText&gt;</ept><bpt id="d1001134-349d-4c85-bdfc-d78dc57cda88">&lt;title&gt;</bpt><ept id="d1001134-349d-4c85-bdfc-d78dc57cda88">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d1001134-349d-4c85-bdfc-d78dc57cda88">&lt;linkText&gt;</bpt>Management Operations<ept id="d1001134-349d-4c85-bdfc-d78dc57cda88">&lt;/linkText&gt;</ept><bpt id="d1001134-349d-4c85-bdfc-d78dc57cda88">&lt;title&gt;</bpt><ept id="d1001134-349d-4c85-bdfc-d78dc57cda88">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6ca9aaf-3baa-4427-9f27-ad7d2b75cd8e" xml:space="preserve">
+          <source>Management operations include provisioning Azure Search services and managing API keys.</source>
+          <target state="new">Management operations include provisioning Azure Search services and managing API keys.</target>
+        </trans-unit>
+        <trans-unit id="3083ca2d-66f8-40b5-8b1d-7b9bf9a73a40" xml:space="preserve">
+          <source>These will be supported in a separate Azure Search .NET Management SDK in the future.</source>
+          <target state="new">These will be supported in a separate Azure Search .NET Management SDK in the future.</target>
+        </trans-unit>
+        <trans-unit id="3de0fe0a-8a82-4631-b0dc-f2d047401aa2" xml:space="preserve">
+          <source>Visual Studio 2013 or a newer version.</source>
+          <target state="new">Visual Studio 2013 or a newer version.</target>
+        </trans-unit>
+        <trans-unit id="9a77b81e-4ae0-41d3-8dfb-726865d67779" xml:space="preserve">
+          <source>Your own Azure Search service.</source>
+          <target state="new">Your own Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="fb60849f-57e8-49ce-88c9-d9e1fb6c3a07" xml:space="preserve">
+          <source>In order to use the SDK, you will need the name of your service and one or more API keys.</source>
+          <target state="new">In order to use the SDK, you will need the name of your service and one or more API keys.</target>
+        </trans-unit>
+        <trans-unit id="e52e9fd8-6f97-4886-b3ea-b9b6f2872cf1" xml:space="preserve">
+          <source><bpt id="c1e48150-952a-4dbf-a426-03f2e844964e">&lt;linkText&gt;</bpt>Create a service in the portal<ept id="c1e48150-952a-4dbf-a426-03f2e844964e">&lt;/linkText&gt;</ept><bpt id="c1e48150-952a-4dbf-a426-03f2e844964e">&lt;title&gt;</bpt><ept id="c1e48150-952a-4dbf-a426-03f2e844964e">&lt;/title&gt;</ept> will help you through these steps.</source>
+          <target state="new"><bpt id="c1e48150-952a-4dbf-a426-03f2e844964e">&lt;linkText&gt;</bpt>Create a service in the portal<ept id="c1e48150-952a-4dbf-a426-03f2e844964e">&lt;/linkText&gt;</ept><bpt id="c1e48150-952a-4dbf-a426-03f2e844964e">&lt;title&gt;</bpt><ept id="c1e48150-952a-4dbf-a426-03f2e844964e">&lt;/title&gt;</ept> will help you through these steps.</target>
+        </trans-unit>
+        <trans-unit id="b58147d6-84f2-4a37-b8dd-9d899f7c20cb" xml:space="preserve">
+          <source>Download the Azure Search .NET SDK <bpt id="c58c2fd0-8728-42d1-986a-53d2b9fbb5d3">&lt;linkText&gt;</bpt>NuGet package<ept id="c58c2fd0-8728-42d1-986a-53d2b9fbb5d3">&lt;/linkText&gt;</ept><bpt id="c58c2fd0-8728-42d1-986a-53d2b9fbb5d3">&lt;title&gt;</bpt><ept id="c58c2fd0-8728-42d1-986a-53d2b9fbb5d3">&lt;/title&gt;</ept> by using "Manage NuGet Packages" in Visual Studio.</source>
+          <target state="new">Download the Azure Search .NET SDK <bpt id="c58c2fd0-8728-42d1-986a-53d2b9fbb5d3">&lt;linkText&gt;</bpt>NuGet package<ept id="c58c2fd0-8728-42d1-986a-53d2b9fbb5d3">&lt;/linkText&gt;</ept><bpt id="c58c2fd0-8728-42d1-986a-53d2b9fbb5d3">&lt;title&gt;</bpt><ept id="c58c2fd0-8728-42d1-986a-53d2b9fbb5d3">&lt;/title&gt;</ept> by using "Manage NuGet Packages" in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="d9206da3-5c1e-4fbc-b357-13d15a5336b8" xml:space="preserve">
+          <source>Just search for the package name <bpt id="3acebb66-23db-4d73-8da5-05a0ef37c699">&lt;code&gt;</bpt>Microsoft.Azure.Search<ept id="3acebb66-23db-4d73-8da5-05a0ef37c699">&lt;/code&gt;</ept> on NuGet.org.</source>
+          <target state="new">Just search for the package name <bpt id="3acebb66-23db-4d73-8da5-05a0ef37c699">&lt;code&gt;</bpt>Microsoft.Azure.Search<ept id="3acebb66-23db-4d73-8da5-05a0ef37c699">&lt;/code&gt;</ept> on NuGet.org.</target>
+        </trans-unit>
+        <trans-unit id="3a288122-0a4b-40ed-853a-0a1fc8423655" xml:space="preserve">
+          <source>Make sure to select "Include Prerelease" to ensure that the pre-release SDK will appear in the search results.</source>
+          <target state="new">Make sure to select "Include Prerelease" to ensure that the pre-release SDK will appear in the search results.</target>
+        </trans-unit>
+        <trans-unit id="09d6fd13-0ed0-4b12-b7cb-d76ffd4e9e76" xml:space="preserve">
+          <source>The Azure Search .NET SDK supports applications targeting the .NET Framework 4.0 or higher, as well as Windows Store apps targeting Windows 8.1 and Windows Phone 8.1.</source>
+          <target state="new">The Azure Search .NET SDK supports applications targeting the .NET Framework 4.0 or higher, as well as Windows Store apps targeting Windows 8.1 and Windows Phone 8.1.</target>
+        </trans-unit>
+        <trans-unit id="2e2a9d83-1ecb-4e63-b8ae-8dda2c133f8e" xml:space="preserve">
+          <source>Silverlight is not supported.</source>
+          <target state="new">Silverlight is not supported.</target>
+        </trans-unit>
+        <trans-unit id="654b42aa-75fc-4f14-afa8-26da33b83ebf" xml:space="preserve">
+          <source>There are several things you'll need to do in your search application.</source>
+          <target state="new">There are several things you'll need to do in your search application.</target>
+        </trans-unit>
+        <trans-unit id="08318f2d-a0f5-46c0-8f91-80bf4b5e1151" xml:space="preserve">
+          <source>In this tutorial, we'll cover these core scenarios:</source>
+          <target state="new">In this tutorial, we'll cover these core scenarios:</target>
+        </trans-unit>
+        <trans-unit id="9d47276e-e52e-4d62-bce0-574894f6ceba" xml:space="preserve">
+          <source>Creating an index</source>
+          <target state="new">Creating an index</target>
+        </trans-unit>
+        <trans-unit id="1d6d826c-8208-4231-98db-6baab2577a1b" xml:space="preserve">
+          <source>Populating the index with documents</source>
+          <target state="new">Populating the index with documents</target>
+        </trans-unit>
+        <trans-unit id="c3a49425-e041-4dc9-a398-631004e104af" xml:space="preserve">
+          <source>Searching for documents using full-text search and filters</source>
+          <target state="new">Searching for documents using full-text search and filters</target>
+        </trans-unit>
+        <trans-unit id="8e8a6843-27f2-4406-aa61-42264b2e36ee" xml:space="preserve">
+          <source>The sample code that follows illustrates each of these.</source>
+          <target state="new">The sample code that follows illustrates each of these.</target>
+        </trans-unit>
+        <trans-unit id="ae30ca02-6935-4c74-a2fe-db3365a75dcc" xml:space="preserve">
+          <source>Feel free to use the code snippets in your own application.</source>
+          <target state="new">Feel free to use the code snippets in your own application.</target>
+        </trans-unit>
+        <trans-unit id="205b9a1f-c30b-4c1e-b789-2943d63b63ac" xml:space="preserve">
+          <source>The sample application we'll be exploring creates a new index named "hotels", populates it with a few documents, then executes some search queries.</source>
+          <target state="new">The sample application we'll be exploring creates a new index named "hotels", populates it with a few documents, then executes some search queries.</target>
+        </trans-unit>
+        <trans-unit id="205ff23f-cf4f-4ad8-bbad-184cfaeb23e2" xml:space="preserve">
+          <source>Here is the main program, showing the overall flow:</source>
+          <target state="new">Here is the main program, showing the overall flow:</target>
+        </trans-unit>
+        <trans-unit id="bd097bcd-2f08-402d-a8d4-c83f3384961b" xml:space="preserve">
+          <source>We'll walk through this step by step.</source>
+          <target state="new">We'll walk through this step by step.</target>
+        </trans-unit>
+        <trans-unit id="ae31373a-27d5-421e-8a85-83c7e27fc1e8" xml:space="preserve">
+          <source>First we need to create a new <bpt id="72fa66b7-8c90-4edd-83ed-8b7874b2abc8">&lt;code&gt;</bpt>SearchServiceClient<ept id="72fa66b7-8c90-4edd-83ed-8b7874b2abc8">&lt;/code&gt;</ept>.</source>
+          <target state="new">First we need to create a new <bpt id="72fa66b7-8c90-4edd-83ed-8b7874b2abc8">&lt;code&gt;</bpt>SearchServiceClient<ept id="72fa66b7-8c90-4edd-83ed-8b7874b2abc8">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2cbc26c6-3095-452d-8e3c-80ae33efdf77" xml:space="preserve">
+          <source>This object allows you to manage indexes.</source>
+          <target state="new">This object allows you to manage indexes.</target>
+        </trans-unit>
+        <trans-unit id="362e84c0-6836-461d-b351-6e543c61ee5c" xml:space="preserve">
+          <source>In order to construct one, you need to provide your Azure Search service name as well as an admin API key.</source>
+          <target state="new">In order to construct one, you need to provide your Azure Search service name as well as an admin API key.</target>
+        </trans-unit>
+        <trans-unit id="9da01055-143c-4d50-bf55-a3047d305cc5" xml:space="preserve">
+          <source>If you provide an incorrect key (for example, a query key where an admin key was required), the <bpt id="bc084e41-120b-4d0b-891a-bc93478dd124">&lt;code&gt;</bpt>SearchServiceClient<ept id="bc084e41-120b-4d0b-891a-bc93478dd124">&lt;/code&gt;</ept> will throw a <bpt id="795970f6-8603-495f-ab40-c78a1bd8f8b7">&lt;code&gt;</bpt>CloudException<ept id="795970f6-8603-495f-ab40-c78a1bd8f8b7">&lt;/code&gt;</ept> with the error message "Forbidden" the first time you call an operation method on it, such as <bpt id="10a8920a-bb67-42c9-b2a3-a2a50a5ce7ae">&lt;code&gt;</bpt>Indexes.Create<ept id="10a8920a-bb67-42c9-b2a3-a2a50a5ce7ae">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you provide an incorrect key (for example, a query key where an admin key was required), the <bpt id="bc084e41-120b-4d0b-891a-bc93478dd124">&lt;code&gt;</bpt>SearchServiceClient<ept id="bc084e41-120b-4d0b-891a-bc93478dd124">&lt;/code&gt;</ept> will throw a <bpt id="795970f6-8603-495f-ab40-c78a1bd8f8b7">&lt;code&gt;</bpt>CloudException<ept id="795970f6-8603-495f-ab40-c78a1bd8f8b7">&lt;/code&gt;</ept> with the error message "Forbidden" the first time you call an operation method on it, such as <bpt id="10a8920a-bb67-42c9-b2a3-a2a50a5ce7ae">&lt;code&gt;</bpt>Indexes.Create<ept id="10a8920a-bb67-42c9-b2a3-a2a50a5ce7ae">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="335a271c-ecca-42e3-b93d-aaef146e90c1" xml:space="preserve">
+          <source>If this happens to you, double-check our API key.</source>
+          <target state="new">If this happens to you, double-check our API key.</target>
+        </trans-unit>
+        <trans-unit id="e9df847d-a18e-4554-9263-190f03094694" xml:space="preserve">
+          <source>The next few lines call methods to create an index named "hotels", deleting it first if it already exists.</source>
+          <target state="new">The next few lines call methods to create an index named "hotels", deleting it first if it already exists.</target>
+        </trans-unit>
+        <trans-unit id="2c67aa56-cdc2-4ef9-862e-5ecc3c298dd9" xml:space="preserve">
+          <source>We will walk through these methods a little later.</source>
+          <target state="new">We will walk through these methods a little later.</target>
+        </trans-unit>
+        <trans-unit id="1afdb709-cd2c-4517-9556-f77ff375f166" xml:space="preserve">
+          <source>Next, the index needs to be populated.</source>
+          <target state="new">Next, the index needs to be populated.</target>
+        </trans-unit>
+        <trans-unit id="4b73ef3b-6d45-4f92-89a0-5c0881e6c5b2" xml:space="preserve">
+          <source>To do this, we will need a <bpt id="0118569f-9af8-4f8f-b1d0-6efaf43c224f">&lt;code&gt;</bpt>SearchIndexClient<ept id="0118569f-9af8-4f8f-b1d0-6efaf43c224f">&lt;/code&gt;</ept>.</source>
+          <target state="new">To do this, we will need a <bpt id="0118569f-9af8-4f8f-b1d0-6efaf43c224f">&lt;code&gt;</bpt>SearchIndexClient<ept id="0118569f-9af8-4f8f-b1d0-6efaf43c224f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9240187-e876-44be-8e25-388ce1feecee" xml:space="preserve">
+          <source>There are two ways to obtain one: by constructing it, or by calling <bpt id="722469ce-90f8-4699-a9fc-242a31b5d7a6">&lt;code&gt;</bpt>Indexes.GetClient<ept id="722469ce-90f8-4699-a9fc-242a31b5d7a6">&lt;/code&gt;</ept> on the <bpt id="d8307e26-c5a2-4435-bd2a-22e34ce4d1e7">&lt;code&gt;</bpt>SearchServiceClient<ept id="d8307e26-c5a2-4435-bd2a-22e34ce4d1e7">&lt;/code&gt;</ept>.</source>
+          <target state="new">There are two ways to obtain one: by constructing it, or by calling <bpt id="722469ce-90f8-4699-a9fc-242a31b5d7a6">&lt;code&gt;</bpt>Indexes.GetClient<ept id="722469ce-90f8-4699-a9fc-242a31b5d7a6">&lt;/code&gt;</ept> on the <bpt id="d8307e26-c5a2-4435-bd2a-22e34ce4d1e7">&lt;code&gt;</bpt>SearchServiceClient<ept id="d8307e26-c5a2-4435-bd2a-22e34ce4d1e7">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fae7a5b2-1e5e-4ed9-a201-86784922d0f6" xml:space="preserve">
+          <source>We use the latter for convenience.</source>
+          <target state="new">We use the latter for convenience.</target>
+        </trans-unit>
+        <trans-unit id="56e6dc7f-af5c-4952-9a17-6094c188984c" xml:space="preserve">
+          <source>In a typical search application, index management and population is handled by a separate component from search queries.</source>
+          <target state="new">In a typical search application, index management and population is handled by a separate component from search queries.</target>
+        </trans-unit>
+        <trans-unit id="6abe18b9-866f-4859-bbe9-b3625f33eabf" xml:space="preserve">
+          <source><bpt id="755916fb-dfda-49aa-b6a6-b9ffd4fa21c4">&lt;code&gt;</bpt>Indexes.GetClient<ept id="755916fb-dfda-49aa-b6a6-b9ffd4fa21c4">&lt;/code&gt;</ept> is convenient for populating an index because it saves you the trouble of providing another <bpt id="b3047c05-f3a0-4c34-ac10-3d79a2e2b6ab">&lt;code&gt;</bpt>SearchCredentials<ept id="b3047c05-f3a0-4c34-ac10-3d79a2e2b6ab">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="755916fb-dfda-49aa-b6a6-b9ffd4fa21c4">&lt;code&gt;</bpt>Indexes.GetClient<ept id="755916fb-dfda-49aa-b6a6-b9ffd4fa21c4">&lt;/code&gt;</ept> is convenient for populating an index because it saves you the trouble of providing another <bpt id="b3047c05-f3a0-4c34-ac10-3d79a2e2b6ab">&lt;code&gt;</bpt>SearchCredentials<ept id="b3047c05-f3a0-4c34-ac10-3d79a2e2b6ab">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61be444b-7bef-4d31-a838-36a8f2f34d36" xml:space="preserve">
+          <source>It does this by passing the admin key that you used to create the <bpt id="124aacd0-81b8-4a72-a1cc-e988d87d756f">&lt;code&gt;</bpt>SearchServiceClient<ept id="124aacd0-81b8-4a72-a1cc-e988d87d756f">&lt;/code&gt;</ept> to the new <bpt id="a91980eb-9c41-4516-89fa-c903ba80ec9b">&lt;code&gt;</bpt>SearchIndexClient<ept id="a91980eb-9c41-4516-89fa-c903ba80ec9b">&lt;/code&gt;</ept>.</source>
+          <target state="new">It does this by passing the admin key that you used to create the <bpt id="124aacd0-81b8-4a72-a1cc-e988d87d756f">&lt;code&gt;</bpt>SearchServiceClient<ept id="124aacd0-81b8-4a72-a1cc-e988d87d756f">&lt;/code&gt;</ept> to the new <bpt id="a91980eb-9c41-4516-89fa-c903ba80ec9b">&lt;code&gt;</bpt>SearchIndexClient<ept id="a91980eb-9c41-4516-89fa-c903ba80ec9b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cac2a308-b2f2-4cde-904d-b5d30ff63aa4" xml:space="preserve">
+          <source>However, in the part of your application that executes queries, it is better to create the <bpt id="e7c9896e-419b-4bac-ba30-b3090443bd57">&lt;code&gt;</bpt>SearchIndexClient<ept id="e7c9896e-419b-4bac-ba30-b3090443bd57">&lt;/code&gt;</ept> directly so that you can pass in a query key instead of an admin key.</source>
+          <target state="new">However, in the part of your application that executes queries, it is better to create the <bpt id="e7c9896e-419b-4bac-ba30-b3090443bd57">&lt;code&gt;</bpt>SearchIndexClient<ept id="e7c9896e-419b-4bac-ba30-b3090443bd57">&lt;/code&gt;</ept> directly so that you can pass in a query key instead of an admin key.</target>
+        </trans-unit>
+        <trans-unit id="fd9cead7-e878-465e-8d26-f18e08d43cc9" xml:space="preserve">
+          <source>This is consistent with the principle of least privilege and will help to make your application more secure.</source>
+          <target state="new">This is consistent with the principle of least privilege and will help to make your application more secure.</target>
+        </trans-unit>
+        <trans-unit id="0016ee80-ca22-4e51-90af-295046e66323" xml:space="preserve">
+          <source>You can find out more about admin keys and query keys <bpt id="b0c12932-482e-4483-9407-7f87a14dce80">&lt;linkText&gt;</bpt>here<ept id="b0c12932-482e-4483-9407-7f87a14dce80">&lt;/linkText&gt;</ept><bpt id="b0c12932-482e-4483-9407-7f87a14dce80">&lt;title&gt;</bpt><ept id="b0c12932-482e-4483-9407-7f87a14dce80">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find out more about admin keys and query keys <bpt id="b0c12932-482e-4483-9407-7f87a14dce80">&lt;linkText&gt;</bpt>here<ept id="b0c12932-482e-4483-9407-7f87a14dce80">&lt;/linkText&gt;</ept><bpt id="b0c12932-482e-4483-9407-7f87a14dce80">&lt;title&gt;</bpt><ept id="b0c12932-482e-4483-9407-7f87a14dce80">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="063e93f2-8c2d-4417-b565-61f463c68e17" xml:space="preserve">
+          <source>Now that we have a <bpt id="209e75e6-a767-4023-9805-503dfe950fb1">&lt;code&gt;</bpt>SearchIndexClient<ept id="209e75e6-a767-4023-9805-503dfe950fb1">&lt;/code&gt;</ept>, we can populate the index.</source>
+          <target state="new">Now that we have a <bpt id="209e75e6-a767-4023-9805-503dfe950fb1">&lt;code&gt;</bpt>SearchIndexClient<ept id="209e75e6-a767-4023-9805-503dfe950fb1">&lt;/code&gt;</ept>, we can populate the index.</target>
+        </trans-unit>
+        <trans-unit id="c1dfe84a-0fb5-4d22-acf6-1d19a14fbeb1" xml:space="preserve">
+          <source>This is done by another method that we will walk through later.</source>
+          <target state="new">This is done by another method that we will walk through later.</target>
+        </trans-unit>
+        <trans-unit id="0269a3dc-13ce-44fd-8757-2ac95a7698fe" xml:space="preserve">
+          <source>Finally, we execute a few search queries and display the results, again using the <bpt id="91dde23f-b8d3-4672-8007-603ff9bb1b27">&lt;code&gt;</bpt>SearchIndexClient<ept id="91dde23f-b8d3-4672-8007-603ff9bb1b27">&lt;/code&gt;</ept>:</source>
+          <target state="new">Finally, we execute a few search queries and display the results, again using the <bpt id="91dde23f-b8d3-4672-8007-603ff9bb1b27">&lt;code&gt;</bpt>SearchIndexClient<ept id="91dde23f-b8d3-4672-8007-603ff9bb1b27">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="95c11363-b0cb-4d44-9e09-a4707994bd41" xml:space="preserve">
+          <source>If you run this application with a valid service name and API key, the output should look like this:</source>
+          <target state="new">If you run this application with a valid service name and API key, the output should look like this:</target>
+        </trans-unit>
+        <trans-unit id="224bd18f-0af1-4092-aba9-7fc61bdf98dd" xml:space="preserve">
+          <source>The full source code of the application is provided at the end of this article.</source>
+          <target state="new">The full source code of the application is provided at the end of this article.</target>
+        </trans-unit>
+        <trans-unit id="14329ab4-e0ab-417e-85b5-982c9390afc7" xml:space="preserve">
+          <source>Next, we will take a closer look at each of the methods called by <bpt id="0e96bfb4-bb97-492a-9948-1e6bb01aad2c">&lt;code&gt;</bpt>Main<ept id="0e96bfb4-bb97-492a-9948-1e6bb01aad2c">&lt;/code&gt;</ept>.</source>
+          <target state="new">Next, we will take a closer look at each of the methods called by <bpt id="0e96bfb4-bb97-492a-9948-1e6bb01aad2c">&lt;code&gt;</bpt>Main<ept id="0e96bfb4-bb97-492a-9948-1e6bb01aad2c">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8232457-fc24-4d96-aa08-f2611865eb7a" xml:space="preserve">
+          <source>After creating a <bpt id="ed71c8ac-ecf3-445b-87e2-4b54e68f4edb">&lt;code&gt;</bpt>SearchServiceClient<ept id="ed71c8ac-ecf3-445b-87e2-4b54e68f4edb">&lt;/code&gt;</ept>, the next thing <bpt id="2bd68bc0-7e2d-41af-893a-b0b4843b5aaa">&lt;code&gt;</bpt>Main<ept id="2bd68bc0-7e2d-41af-893a-b0b4843b5aaa">&lt;/code&gt;</ept> does is delete the "hotels" index if it already exists.</source>
+          <target state="new">After creating a <bpt id="ed71c8ac-ecf3-445b-87e2-4b54e68f4edb">&lt;code&gt;</bpt>SearchServiceClient<ept id="ed71c8ac-ecf3-445b-87e2-4b54e68f4edb">&lt;/code&gt;</ept>, the next thing <bpt id="2bd68bc0-7e2d-41af-893a-b0b4843b5aaa">&lt;code&gt;</bpt>Main<ept id="2bd68bc0-7e2d-41af-893a-b0b4843b5aaa">&lt;/code&gt;</ept> does is delete the "hotels" index if it already exists.</target>
+        </trans-unit>
+        <trans-unit id="2f9e9fbe-afde-432c-8da7-1b7a8a896b32" xml:space="preserve">
+          <source>That is done by the following method:</source>
+          <target state="new">That is done by the following method:</target>
+        </trans-unit>
+        <trans-unit id="1e7b82c1-dc9a-4215-b972-8d9286381e35" xml:space="preserve">
+          <source>This method uses the given <bpt id="2f3c440c-897a-4126-818c-1ca3accd7511">&lt;code&gt;</bpt>SearchServiceClient<ept id="2f3c440c-897a-4126-818c-1ca3accd7511">&lt;/code&gt;</ept> to check if the index exists, and if so, delete it.</source>
+          <target state="new">This method uses the given <bpt id="2f3c440c-897a-4126-818c-1ca3accd7511">&lt;code&gt;</bpt>SearchServiceClient<ept id="2f3c440c-897a-4126-818c-1ca3accd7511">&lt;/code&gt;</ept> to check if the index exists, and if so, delete it.</target>
+        </trans-unit>
+        <trans-unit id="a282d1e2-8d52-428e-97c6-34578e1b97a6" xml:space="preserve">
+          <source>The example code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity.</source>
+          <target state="new">The example code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity.</target>
+        </trans-unit>
+        <trans-unit id="6f08e13e-a112-4702-beaa-4a00e7fc8568" xml:space="preserve">
+          <source>We recommend that you use the asynchronous methods in your own applications to keep them scalable and responsive.</source>
+          <target state="new">We recommend that you use the asynchronous methods in your own applications to keep them scalable and responsive.</target>
+        </trans-unit>
+        <trans-unit id="721a55cd-c338-41da-8bbe-38190bb833b9" xml:space="preserve">
+          <source>For example, in the method above you could use <bpt id="f1236521-1173-4635-b21a-280fba4f84ed">&lt;code&gt;</bpt>ExistsAsync<ept id="f1236521-1173-4635-b21a-280fba4f84ed">&lt;/code&gt;</ept> and <bpt id="19867b7c-a0c1-4ca2-bbb8-032539a8582e">&lt;code&gt;</bpt>DeleteAsync<ept id="19867b7c-a0c1-4ca2-bbb8-032539a8582e">&lt;/code&gt;</ept> instead of <bpt id="12fa8237-46d4-427e-b0e5-ba1de82eb3f3">&lt;code&gt;</bpt>Exists<ept id="12fa8237-46d4-427e-b0e5-ba1de82eb3f3">&lt;/code&gt;</ept> and <bpt id="88154f6d-368d-461b-9cda-aa8664861a3a">&lt;code&gt;</bpt>Delete<ept id="88154f6d-368d-461b-9cda-aa8664861a3a">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, in the method above you could use <bpt id="f1236521-1173-4635-b21a-280fba4f84ed">&lt;code&gt;</bpt>ExistsAsync<ept id="f1236521-1173-4635-b21a-280fba4f84ed">&lt;/code&gt;</ept> and <bpt id="19867b7c-a0c1-4ca2-bbb8-032539a8582e">&lt;code&gt;</bpt>DeleteAsync<ept id="19867b7c-a0c1-4ca2-bbb8-032539a8582e">&lt;/code&gt;</ept> instead of <bpt id="12fa8237-46d4-427e-b0e5-ba1de82eb3f3">&lt;code&gt;</bpt>Exists<ept id="12fa8237-46d4-427e-b0e5-ba1de82eb3f3">&lt;/code&gt;</ept> and <bpt id="88154f6d-368d-461b-9cda-aa8664861a3a">&lt;code&gt;</bpt>Delete<ept id="88154f6d-368d-461b-9cda-aa8664861a3a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f3ea0b9-bb38-41b5-864c-8853a82104c5" xml:space="preserve">
+          <source>Next, <bpt id="f9671eea-2d8b-40f4-a992-8a364ed18c85">&lt;code&gt;</bpt>Main<ept id="f9671eea-2d8b-40f4-a992-8a364ed18c85">&lt;/code&gt;</ept> creates a new "hotels" index by calling this method:</source>
+          <target state="new">Next, <bpt id="f9671eea-2d8b-40f4-a992-8a364ed18c85">&lt;code&gt;</bpt>Main<ept id="f9671eea-2d8b-40f4-a992-8a364ed18c85">&lt;/code&gt;</ept> creates a new "hotels" index by calling this method:</target>
+        </trans-unit>
+        <trans-unit id="88b7425e-323d-4419-8307-c8384fd881c0" xml:space="preserve">
+          <source>This method creates a new <bpt id="f7cbfab7-fe82-40fe-8aee-dbe83739c530">&lt;code&gt;</bpt>Index<ept id="f7cbfab7-fe82-40fe-8aee-dbe83739c530">&lt;/code&gt;</ept> object with a list of <bpt id="485a7467-a681-40d7-851c-d22047388f1e">&lt;code&gt;</bpt>Field<ept id="485a7467-a681-40d7-851c-d22047388f1e">&lt;/code&gt;</ept> objects that defines the schema of the new index.</source>
+          <target state="new">This method creates a new <bpt id="f7cbfab7-fe82-40fe-8aee-dbe83739c530">&lt;code&gt;</bpt>Index<ept id="f7cbfab7-fe82-40fe-8aee-dbe83739c530">&lt;/code&gt;</ept> object with a list of <bpt id="485a7467-a681-40d7-851c-d22047388f1e">&lt;code&gt;</bpt>Field<ept id="485a7467-a681-40d7-851c-d22047388f1e">&lt;/code&gt;</ept> objects that defines the schema of the new index.</target>
+        </trans-unit>
+        <trans-unit id="c58084ce-5378-4340-ac6d-e2f8ba0d1c64" xml:space="preserve">
+          <source>Each field has a name, data type, and several attributes that define its search behavior.</source>
+          <target state="new">Each field has a name, data type, and several attributes that define its search behavior.</target>
+        </trans-unit>
+        <trans-unit id="8e515c2a-b26f-4811-9896-217c56dcd417" xml:space="preserve">
+          <source>In addition to fields, you can also add scoring profiles, suggesters, or CORS options to the Index (these are omitted from the sample for brevity).</source>
+          <target state="new">In addition to fields, you can also add scoring profiles, suggesters, or CORS options to the Index (these are omitted from the sample for brevity).</target>
+        </trans-unit>
+        <trans-unit id="06c0a01f-6b69-4515-9f0f-cee6d7cc9084" xml:space="preserve">
+          <source>You can find more information about the Index object and its constituent parts in the SDK reference on <bpt id="5660c76e-fd87-4c48-8e9c-0a3e8d5239dc">&lt;linkText&gt;</bpt>MSDN<ept id="5660c76e-fd87-4c48-8e9c-0a3e8d5239dc">&lt;/linkText&gt;</ept><bpt id="5660c76e-fd87-4c48-8e9c-0a3e8d5239dc">&lt;title&gt;</bpt><ept id="5660c76e-fd87-4c48-8e9c-0a3e8d5239dc">&lt;/title&gt;</ept>, as well as in the <bpt id="8081c358-3e82-4ac0-811a-e9ac1d787841">&lt;linkText&gt;</bpt>Azure Search REST API reference<ept id="8081c358-3e82-4ac0-811a-e9ac1d787841">&lt;/linkText&gt;</ept><bpt id="8081c358-3e82-4ac0-811a-e9ac1d787841">&lt;title&gt;</bpt><ept id="8081c358-3e82-4ac0-811a-e9ac1d787841">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find more information about the Index object and its constituent parts in the SDK reference on <bpt id="5660c76e-fd87-4c48-8e9c-0a3e8d5239dc">&lt;linkText&gt;</bpt>MSDN<ept id="5660c76e-fd87-4c48-8e9c-0a3e8d5239dc">&lt;/linkText&gt;</ept><bpt id="5660c76e-fd87-4c48-8e9c-0a3e8d5239dc">&lt;title&gt;</bpt><ept id="5660c76e-fd87-4c48-8e9c-0a3e8d5239dc">&lt;/title&gt;</ept>, as well as in the <bpt id="8081c358-3e82-4ac0-811a-e9ac1d787841">&lt;linkText&gt;</bpt>Azure Search REST API reference<ept id="8081c358-3e82-4ac0-811a-e9ac1d787841">&lt;/linkText&gt;</ept><bpt id="8081c358-3e82-4ac0-811a-e9ac1d787841">&lt;title&gt;</bpt><ept id="8081c358-3e82-4ac0-811a-e9ac1d787841">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7bffc09d-53e3-45ad-907d-6d0542e25483" xml:space="preserve">
+          <source>The next step in <bpt id="0b62b045-a94d-4439-9cdd-f00f4fbe3007">&lt;code&gt;</bpt>Main<ept id="0b62b045-a94d-4439-9cdd-f00f4fbe3007">&lt;/code&gt;</ept> is to populate the newly-created index.</source>
+          <target state="new">The next step in <bpt id="0b62b045-a94d-4439-9cdd-f00f4fbe3007">&lt;code&gt;</bpt>Main<ept id="0b62b045-a94d-4439-9cdd-f00f4fbe3007">&lt;/code&gt;</ept> is to populate the newly-created index.</target>
+        </trans-unit>
+        <trans-unit id="d14ae487-f703-490a-82ff-1ea9dd482f78" xml:space="preserve">
+          <source>This is done in the following method:</source>
+          <target state="new">This is done in the following method:</target>
+        </trans-unit>
+        <trans-unit id="e05d1d2d-dace-4586-bb32-9a76ac7df4bc" xml:space="preserve">
+          <source>This method has four parts.</source>
+          <target state="new">This method has four parts.</target>
+        </trans-unit>
+        <trans-unit id="37b5b486-574b-489d-ba65-c07b36d254e4" xml:space="preserve">
+          <source>The first creates an array of <bpt id="d48ad7d5-1444-4ff1-a0d7-ebd64c54e6d8">&lt;code&gt;</bpt>Hotel<ept id="d48ad7d5-1444-4ff1-a0d7-ebd64c54e6d8">&lt;/code&gt;</ept> objects that will serve as our input data to upload to the index.</source>
+          <target state="new">The first creates an array of <bpt id="d48ad7d5-1444-4ff1-a0d7-ebd64c54e6d8">&lt;code&gt;</bpt>Hotel<ept id="d48ad7d5-1444-4ff1-a0d7-ebd64c54e6d8">&lt;/code&gt;</ept> objects that will serve as our input data to upload to the index.</target>
+        </trans-unit>
+        <trans-unit id="35b8412c-e932-4674-a5a7-362a30fad67c" xml:space="preserve">
+          <source>This data is hard-coded for simplicity.</source>
+          <target state="new">This data is hard-coded for simplicity.</target>
+        </trans-unit>
+        <trans-unit id="1de640b3-1668-4e48-b789-f7f57538a5cc" xml:space="preserve">
+          <source>In your own application, your data will likely come from an external data source such as a SQL database.</source>
+          <target state="new">In your own application, your data will likely come from an external data source such as a SQL database.</target>
+        </trans-unit>
+        <trans-unit id="86951974-151c-407f-a897-2d1e25c8b2cc" xml:space="preserve">
+          <source>The second part creates an <bpt id="1c0ec6f6-f6f3-4bab-b26a-1b1771585dcd">&lt;code&gt;</bpt>IndexAction<ept id="1c0ec6f6-f6f3-4bab-b26a-1b1771585dcd">&lt;/code&gt;</ept> for each <bpt id="6c61ead6-c6ca-434b-b8a2-fed0e14db529">&lt;code&gt;</bpt>Hotel<ept id="6c61ead6-c6ca-434b-b8a2-fed0e14db529">&lt;/code&gt;</ept>, then groups those together in a new <bpt id="3fa82a04-d23f-4ad3-a585-b06b7beb2f2b">&lt;code&gt;</bpt>IndexBatch<ept id="3fa82a04-d23f-4ad3-a585-b06b7beb2f2b">&lt;/code&gt;</ept>.</source>
+          <target state="new">The second part creates an <bpt id="1c0ec6f6-f6f3-4bab-b26a-1b1771585dcd">&lt;code&gt;</bpt>IndexAction<ept id="1c0ec6f6-f6f3-4bab-b26a-1b1771585dcd">&lt;/code&gt;</ept> for each <bpt id="6c61ead6-c6ca-434b-b8a2-fed0e14db529">&lt;code&gt;</bpt>Hotel<ept id="6c61ead6-c6ca-434b-b8a2-fed0e14db529">&lt;/code&gt;</ept>, then groups those together in a new <bpt id="3fa82a04-d23f-4ad3-a585-b06b7beb2f2b">&lt;code&gt;</bpt>IndexBatch<ept id="3fa82a04-d23f-4ad3-a585-b06b7beb2f2b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef83b8c8-e206-45e8-a8a9-ab644f578428" xml:space="preserve">
+          <source>The batch is then uploaded to the Azure Search index by the <bpt id="c9840083-2a72-4697-96cc-3b19f8be7dde">&lt;code&gt;</bpt>Documents.Index<ept id="c9840083-2a72-4697-96cc-3b19f8be7dde">&lt;/code&gt;</ept> method.</source>
+          <target state="new">The batch is then uploaded to the Azure Search index by the <bpt id="c9840083-2a72-4697-96cc-3b19f8be7dde">&lt;code&gt;</bpt>Documents.Index<ept id="c9840083-2a72-4697-96cc-3b19f8be7dde">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="bd58e04e-f150-477c-bdc4-6ad6b3b8abbb" xml:space="preserve">
+          <source>In this example, we are just uploading documents.</source>
+          <target state="new">In this example, we are just uploading documents.</target>
+        </trans-unit>
+        <trans-unit id="721b5386-917e-44cb-a481-ff39632a2346" xml:space="preserve">
+          <source>If you wanted to merge changes into an existing document or a delete a document, you could create an <bpt id="dc35d1b9-c078-42fd-9c8f-1171ffc6bfab">&lt;code&gt;</bpt>IndexAction<ept id="dc35d1b9-c078-42fd-9c8f-1171ffc6bfab">&lt;/code&gt;</ept> with the corresponding <bpt id="6aa6a0e5-c3fc-4e68-9777-4541e2b6a2dc">&lt;code&gt;</bpt>IndexActionType<ept id="6aa6a0e5-c3fc-4e68-9777-4541e2b6a2dc">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you wanted to merge changes into an existing document or a delete a document, you could create an <bpt id="dc35d1b9-c078-42fd-9c8f-1171ffc6bfab">&lt;code&gt;</bpt>IndexAction<ept id="dc35d1b9-c078-42fd-9c8f-1171ffc6bfab">&lt;/code&gt;</ept> with the corresponding <bpt id="6aa6a0e5-c3fc-4e68-9777-4541e2b6a2dc">&lt;code&gt;</bpt>IndexActionType<ept id="6aa6a0e5-c3fc-4e68-9777-4541e2b6a2dc">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c2215b1-9c58-405a-baf6-86502bd56b02" xml:space="preserve">
+          <source>We don't need to specify <bpt id="16b01f97-dc35-4dd7-bc09-e47d95e70597">&lt;code&gt;</bpt>IndexActionType<ept id="16b01f97-dc35-4dd7-bc09-e47d95e70597">&lt;/code&gt;</ept> in this example because the default is <bpt id="59d35e4e-4602-47d5-a980-bfac7bc7b9b8">&lt;code&gt;</bpt>Upload<ept id="59d35e4e-4602-47d5-a980-bfac7bc7b9b8">&lt;/code&gt;</ept>.</source>
+          <target state="new">We don't need to specify <bpt id="16b01f97-dc35-4dd7-bc09-e47d95e70597">&lt;code&gt;</bpt>IndexActionType<ept id="16b01f97-dc35-4dd7-bc09-e47d95e70597">&lt;/code&gt;</ept> in this example because the default is <bpt id="59d35e4e-4602-47d5-a980-bfac7bc7b9b8">&lt;code&gt;</bpt>Upload<ept id="59d35e4e-4602-47d5-a980-bfac7bc7b9b8">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f78cfc8-214b-436c-b369-601a8ea4c0fd" xml:space="preserve">
+          <source>The third part of this method is a catch block that handles an important error case for indexing.</source>
+          <target state="new">The third part of this method is a catch block that handles an important error case for indexing.</target>
+        </trans-unit>
+        <trans-unit id="eb8059a5-6ec3-49d7-bb1c-a55d3a595c5d" xml:space="preserve">
+          <source>If your Azure Search service fails to index some of the documents in the batch, an <bpt id="71a7d668-b5c9-4c58-a5b7-7a8e72ca310c">&lt;code&gt;</bpt>IndexBatchException<ept id="71a7d668-b5c9-4c58-a5b7-7a8e72ca310c">&lt;/code&gt;</ept> is thrown by <bpt id="43bdaccf-b6d4-42c5-8238-a82e39f47110">&lt;code&gt;</bpt>Documents.Index<ept id="43bdaccf-b6d4-42c5-8238-a82e39f47110">&lt;/code&gt;</ept>.</source>
+          <target state="new">If your Azure Search service fails to index some of the documents in the batch, an <bpt id="71a7d668-b5c9-4c58-a5b7-7a8e72ca310c">&lt;code&gt;</bpt>IndexBatchException<ept id="71a7d668-b5c9-4c58-a5b7-7a8e72ca310c">&lt;/code&gt;</ept> is thrown by <bpt id="43bdaccf-b6d4-42c5-8238-a82e39f47110">&lt;code&gt;</bpt>Documents.Index<ept id="43bdaccf-b6d4-42c5-8238-a82e39f47110">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c658acb5-54e5-45ec-a103-d2a239d6cd5c" xml:space="preserve">
+          <source>This can happen if you are indexing documents while your service is under heavy load.</source>
+          <target state="new">This can happen if you are indexing documents while your service is under heavy load.</target>
+        </trans-unit>
+        <trans-unit id="71596203-788f-4644-ba46-127737432aaf" xml:space="preserve">
+          <source><bpt id="4643e344-5c1e-47c5-8b5c-5c70ffb2b18f">&lt;strong&gt;</bpt>We strongly recommend explicitly handling this case in your code.<ept id="4643e344-5c1e-47c5-8b5c-5c70ffb2b18f">&lt;/strong&gt;</ept> You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements.</source>
+          <target state="new"><bpt id="4643e344-5c1e-47c5-8b5c-5c70ffb2b18f">&lt;strong&gt;</bpt>We strongly recommend explicitly handling this case in your code.<ept id="4643e344-5c1e-47c5-8b5c-5c70ffb2b18f">&lt;/strong&gt;</ept> You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements.</target>
+        </trans-unit>
+        <trans-unit id="68af603b-fef2-4fa4-981b-124c93f96449" xml:space="preserve">
+          <source>Finally, the method delays for two seconds.</source>
+          <target state="new">Finally, the method delays for two seconds.</target>
+        </trans-unit>
+        <trans-unit id="09a61b18-a694-4c6f-bc14-0e7d770781af" xml:space="preserve">
+          <source>Indexing happens asynchronously in your Azure Search service, so the sample application needs to wait a short time to ensure that the documents are available for searching.</source>
+          <target state="new">Indexing happens asynchronously in your Azure Search service, so the sample application needs to wait a short time to ensure that the documents are available for searching.</target>
+        </trans-unit>
+        <trans-unit id="8c8e6c7d-0f14-450b-9502-b9ab64ba78d3" xml:space="preserve">
+          <source>Delays like this are typically only necessary in demos, tests, and sample applications.</source>
+          <target state="new">Delays like this are typically only necessary in demos, tests, and sample applications.</target>
+        </trans-unit>
+        <trans-unit id="2792aabc-9671-440c-8ab3-02fd2f9c5657" xml:space="preserve">
+          <source>You may be wondering how the Azure Search .NET SDK is able to upload instances of a user-defined class like <bpt id="8ea28ec4-85f4-49d5-a059-d0d1f6ac5048">&lt;code&gt;</bpt>Hotel<ept id="8ea28ec4-85f4-49d5-a059-d0d1f6ac5048">&lt;/code&gt;</ept> to the index.</source>
+          <target state="new">You may be wondering how the Azure Search .NET SDK is able to upload instances of a user-defined class like <bpt id="8ea28ec4-85f4-49d5-a059-d0d1f6ac5048">&lt;code&gt;</bpt>Hotel<ept id="8ea28ec4-85f4-49d5-a059-d0d1f6ac5048">&lt;/code&gt;</ept> to the index.</target>
+        </trans-unit>
+        <trans-unit id="b8aa70bb-4183-490d-8341-a0f1cb20d4c9" xml:space="preserve">
+          <source>To help answer that question, let's look at the <bpt id="384fcb85-52f9-4cf0-8c80-5daa04a2355f">&lt;code&gt;</bpt>Hotel<ept id="384fcb85-52f9-4cf0-8c80-5daa04a2355f">&lt;/code&gt;</ept> class:</source>
+          <target state="new">To help answer that question, let's look at the <bpt id="384fcb85-52f9-4cf0-8c80-5daa04a2355f">&lt;code&gt;</bpt>Hotel<ept id="384fcb85-52f9-4cf0-8c80-5daa04a2355f">&lt;/code&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="96bfeedf-d892-4c9b-a5a6-f3cc300f398a" xml:space="preserve">
+          <source>The first thing to notice is that each public property of <bpt id="89edd69a-2459-4118-9917-8872a476f0fd">&lt;code&gt;</bpt>Hotel<ept id="89edd69a-2459-4118-9917-8872a476f0fd">&lt;/code&gt;</ept> corresponds to a field in the index definition, but with one crucial difference: The name of each field starts with a lower-case letter ("camel case"), while the name of each public property of <bpt id="e2b45a00-afcf-44a1-a489-d2ad116a4339">&lt;code&gt;</bpt>Hotel<ept id="e2b45a00-afcf-44a1-a489-d2ad116a4339">&lt;/code&gt;</ept> starts with an upper-case letter ("Pascal case").</source>
+          <target state="new">The first thing to notice is that each public property of <bpt id="89edd69a-2459-4118-9917-8872a476f0fd">&lt;code&gt;</bpt>Hotel<ept id="89edd69a-2459-4118-9917-8872a476f0fd">&lt;/code&gt;</ept> corresponds to a field in the index definition, but with one crucial difference: The name of each field starts with a lower-case letter ("camel case"), while the name of each public property of <bpt id="e2b45a00-afcf-44a1-a489-d2ad116a4339">&lt;code&gt;</bpt>Hotel<ept id="e2b45a00-afcf-44a1-a489-d2ad116a4339">&lt;/code&gt;</ept> starts with an upper-case letter ("Pascal case").</target>
+        </trans-unit>
+        <trans-unit id="e2170470-d3f9-4182-b19f-5c36fc97270d" xml:space="preserve">
+          <source>This is a common scenario in .NET applications that perform data-binding where the target schema is outside the control of the application developer.</source>
+          <target state="new">This is a common scenario in .NET applications that perform data-binding where the target schema is outside the control of the application developer.</target>
+        </trans-unit>
+        <trans-unit id="f144966a-42eb-45a8-8e27-11b0c95438d0" xml:space="preserve">
+          <source>Rather than having to violate the .NET naming guidelines by making property names camel-case, you can tell the SDK to map the property names to camel-case automatically with the <bpt id="b34fe689-2e02-42cc-bef6-79eedeb74408">&lt;code&gt;</bpt>[SerializePropertyNamesAsCamelCase]<ept id="b34fe689-2e02-42cc-bef6-79eedeb74408">&lt;/code&gt;</ept> attribute.</source>
+          <target state="new">Rather than having to violate the .NET naming guidelines by making property names camel-case, you can tell the SDK to map the property names to camel-case automatically with the <bpt id="b34fe689-2e02-42cc-bef6-79eedeb74408">&lt;code&gt;</bpt>[SerializePropertyNamesAsCamelCase]<ept id="b34fe689-2e02-42cc-bef6-79eedeb74408">&lt;/code&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="fae702cf-4d87-4bdc-acd5-1a5d081f4cfe" xml:space="preserve">
+          <source>The second important thing about the <bpt id="636c4229-ff1b-4d55-915c-517d3b4bf890">&lt;code&gt;</bpt>Hotel<ept id="636c4229-ff1b-4d55-915c-517d3b4bf890">&lt;/code&gt;</ept> class are the data types of the public properties.</source>
+          <target state="new">The second important thing about the <bpt id="636c4229-ff1b-4d55-915c-517d3b4bf890">&lt;code&gt;</bpt>Hotel<ept id="636c4229-ff1b-4d55-915c-517d3b4bf890">&lt;/code&gt;</ept> class are the data types of the public properties.</target>
+        </trans-unit>
+        <trans-unit id="8de098e8-aa8d-49c5-9d77-ee317fbe4cec" xml:space="preserve">
+          <source>The .NET types of  these properties map to their equivalent field types in the index definition.</source>
+          <target state="new">The .NET types of  these properties map to their equivalent field types in the index definition.</target>
+        </trans-unit>
+        <trans-unit id="e1765f69-6145-48e1-94eb-802898d7a9bf" xml:space="preserve">
+          <source>For example, the <bpt id="ce83c3bd-cf36-4c8a-990b-4b49fbfb9ab9">&lt;code&gt;</bpt>Category<ept id="ce83c3bd-cf36-4c8a-990b-4b49fbfb9ab9">&lt;/code&gt;</ept> string property maps to the <bpt id="2a4474fd-6d87-499a-8ac5-f1236df92cfc">&lt;code&gt;</bpt>category<ept id="2a4474fd-6d87-499a-8ac5-f1236df92cfc">&lt;/code&gt;</ept> field, which is of type <bpt id="faee94a7-93a6-4822-aafc-8db2bd90e64f">&lt;code&gt;</bpt>Edm.String<ept id="faee94a7-93a6-4822-aafc-8db2bd90e64f">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, the <bpt id="ce83c3bd-cf36-4c8a-990b-4b49fbfb9ab9">&lt;code&gt;</bpt>Category<ept id="ce83c3bd-cf36-4c8a-990b-4b49fbfb9ab9">&lt;/code&gt;</ept> string property maps to the <bpt id="2a4474fd-6d87-499a-8ac5-f1236df92cfc">&lt;code&gt;</bpt>category<ept id="2a4474fd-6d87-499a-8ac5-f1236df92cfc">&lt;/code&gt;</ept> field, which is of type <bpt id="faee94a7-93a6-4822-aafc-8db2bd90e64f">&lt;code&gt;</bpt>Edm.String<ept id="faee94a7-93a6-4822-aafc-8db2bd90e64f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9aae00b-d227-42ab-bc91-a247878321b8" xml:space="preserve">
+          <source>There are similar type mappings between <bpt id="cbc760f8-0410-4e8e-94bd-28f7b651d486">&lt;code&gt;</bpt>bool?<ept id="cbc760f8-0410-4e8e-94bd-28f7b651d486">&lt;/code&gt;</ept> and <bpt id="3910c8e8-188d-4574-ab1c-129354a350e1">&lt;code&gt;</bpt>Edm.Boolean<ept id="3910c8e8-188d-4574-ab1c-129354a350e1">&lt;/code&gt;</ept>, <bpt id="86c1c646-211d-4594-b951-5458dced8cb3">&lt;code&gt;</bpt>DateTimeOffset?<ept id="86c1c646-211d-4594-b951-5458dced8cb3">&lt;/code&gt;</ept> and <bpt id="9b3b3b13-e4ee-4c07-875b-25aa2c631fea">&lt;code&gt;</bpt>Edm.DateTimeOffset<ept id="9b3b3b13-e4ee-4c07-875b-25aa2c631fea">&lt;/code&gt;</ept>, etc. The specific rules for the type mapping are documented with the <bpt id="c898a041-c0a7-4b2d-9f1b-76a53992e8eb">&lt;code&gt;</bpt>Documents.Get<ept id="c898a041-c0a7-4b2d-9f1b-76a53992e8eb">&lt;/code&gt;</ept> method on <bpt id="6b8630e0-afa6-490e-830a-6c313e20ee4a">&lt;linkText&gt;</bpt>MSDN<ept id="6b8630e0-afa6-490e-830a-6c313e20ee4a">&lt;/linkText&gt;</ept><bpt id="6b8630e0-afa6-490e-830a-6c313e20ee4a">&lt;title&gt;</bpt><ept id="6b8630e0-afa6-490e-830a-6c313e20ee4a">&lt;/title&gt;</ept>.</source>
+          <target state="new">There are similar type mappings between <bpt id="cbc760f8-0410-4e8e-94bd-28f7b651d486">&lt;code&gt;</bpt>bool?<ept id="cbc760f8-0410-4e8e-94bd-28f7b651d486">&lt;/code&gt;</ept> and <bpt id="3910c8e8-188d-4574-ab1c-129354a350e1">&lt;code&gt;</bpt>Edm.Boolean<ept id="3910c8e8-188d-4574-ab1c-129354a350e1">&lt;/code&gt;</ept>, <bpt id="86c1c646-211d-4594-b951-5458dced8cb3">&lt;code&gt;</bpt>DateTimeOffset?<ept id="86c1c646-211d-4594-b951-5458dced8cb3">&lt;/code&gt;</ept> and <bpt id="9b3b3b13-e4ee-4c07-875b-25aa2c631fea">&lt;code&gt;</bpt>Edm.DateTimeOffset<ept id="9b3b3b13-e4ee-4c07-875b-25aa2c631fea">&lt;/code&gt;</ept>, etc. The specific rules for the type mapping are documented with the <bpt id="c898a041-c0a7-4b2d-9f1b-76a53992e8eb">&lt;code&gt;</bpt>Documents.Get<ept id="c898a041-c0a7-4b2d-9f1b-76a53992e8eb">&lt;/code&gt;</ept> method on <bpt id="6b8630e0-afa6-490e-830a-6c313e20ee4a">&lt;linkText&gt;</bpt>MSDN<ept id="6b8630e0-afa6-490e-830a-6c313e20ee4a">&lt;/linkText&gt;</ept><bpt id="6b8630e0-afa6-490e-830a-6c313e20ee4a">&lt;title&gt;</bpt><ept id="6b8630e0-afa6-490e-830a-6c313e20ee4a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bce825b0-053d-43c1-bc2a-db477d43347c" xml:space="preserve">
+          <source>Note that value types such as <bpt id="637724b9-d26d-4d36-8bc8-2b16a06bb84d">&lt;code&gt;</bpt>bool<ept id="637724b9-d26d-4d36-8bc8-2b16a06bb84d">&lt;/code&gt;</ept> and <bpt id="6502f331-c766-4c7d-9c16-4e26ccfbac39">&lt;code&gt;</bpt>int<ept id="6502f331-c766-4c7d-9c16-4e26ccfbac39">&lt;/code&gt;</ept> are nullable in the <bpt id="dffb859e-9a7e-45c4-8ba4-f6d8919c88de">&lt;code&gt;</bpt>Hotel<ept id="dffb859e-9a7e-45c4-8ba4-f6d8919c88de">&lt;/code&gt;</ept> class because all primitive field types in Azure Search are nullable.</source>
+          <target state="new">Note that value types such as <bpt id="637724b9-d26d-4d36-8bc8-2b16a06bb84d">&lt;code&gt;</bpt>bool<ept id="637724b9-d26d-4d36-8bc8-2b16a06bb84d">&lt;/code&gt;</ept> and <bpt id="6502f331-c766-4c7d-9c16-4e26ccfbac39">&lt;code&gt;</bpt>int<ept id="6502f331-c766-4c7d-9c16-4e26ccfbac39">&lt;/code&gt;</ept> are nullable in the <bpt id="dffb859e-9a7e-45c4-8ba4-f6d8919c88de">&lt;code&gt;</bpt>Hotel<ept id="dffb859e-9a7e-45c4-8ba4-f6d8919c88de">&lt;/code&gt;</ept> class because all primitive field types in Azure Search are nullable.</target>
+        </trans-unit>
+        <trans-unit id="4bb89e85-7468-4690-9e08-a253c7a8e8c9" xml:space="preserve">
+          <source>This ability to use your own classes as documents works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as we will see in the next section.</source>
+          <target state="new">This ability to use your own classes as documents works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as we will see in the next section.</target>
+        </trans-unit>
+        <trans-unit id="9eca9904-9d77-43b5-8d09-8b50b6e4d2a9" xml:space="preserve">
+          <source>The Azure Search .NET SDK also supports dynamically-typed documents using the <bpt id="26f5c8e1-05a2-4a95-90a3-7b0b7889c0ae">&lt;code&gt;</bpt>Document<ept id="26f5c8e1-05a2-4a95-90a3-7b0b7889c0ae">&lt;/code&gt;</ept> class, which is a key/value mapping of field names to field values.</source>
+          <target state="new">The Azure Search .NET SDK also supports dynamically-typed documents using the <bpt id="26f5c8e1-05a2-4a95-90a3-7b0b7889c0ae">&lt;code&gt;</bpt>Document<ept id="26f5c8e1-05a2-4a95-90a3-7b0b7889c0ae">&lt;/code&gt;</ept> class, which is a key/value mapping of field names to field values.</target>
+        </trans-unit>
+        <trans-unit id="02fe2422-09db-42db-bdbc-5dabbcbaf9f4" xml:space="preserve">
+          <source>This is useful in scenarios where you don't know the index schema at design-time, or where it would be inconvenient to bind to specific model classes.</source>
+          <target state="new">This is useful in scenarios where you don't know the index schema at design-time, or where it would be inconvenient to bind to specific model classes.</target>
+        </trans-unit>
+        <trans-unit id="3af524a2-1490-48a5-a751-5613460b95ea" xml:space="preserve">
+          <source>All the methods in the SDK that deal with documents have overloads that work with the <bpt id="09cbf048-7975-4573-9c87-f0ac8595fab6">&lt;code&gt;</bpt>Document<ept id="09cbf048-7975-4573-9c87-f0ac8595fab6">&lt;/code&gt;</ept> class, as well as strongly-typed overloads that take a generic type parameter.</source>
+          <target state="new">All the methods in the SDK that deal with documents have overloads that work with the <bpt id="09cbf048-7975-4573-9c87-f0ac8595fab6">&lt;code&gt;</bpt>Document<ept id="09cbf048-7975-4573-9c87-f0ac8595fab6">&lt;/code&gt;</ept> class, as well as strongly-typed overloads that take a generic type parameter.</target>
+        </trans-unit>
+        <trans-unit id="55ccae46-6a13-4ffd-bc24-2e1ca2e65f3a" xml:space="preserve">
+          <source>Only the latter are used in the sample code in this tutorial.</source>
+          <target state="new">Only the latter are used in the sample code in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="6ba45c50-933d-4bde-94a4-da1e511a12c7" xml:space="preserve">
+          <source>You can find out more about the <bpt id="68b978c4-8300-4747-8d1c-f29ec9658c07">&lt;code&gt;</bpt>Document<ept id="68b978c4-8300-4747-8d1c-f29ec9658c07">&lt;/code&gt;</ept> class <bpt id="7445e636-accd-4ccd-b03d-6bfb93a7a5b3">&lt;linkText&gt;</bpt>here<ept id="7445e636-accd-4ccd-b03d-6bfb93a7a5b3">&lt;/linkText&gt;</ept><bpt id="7445e636-accd-4ccd-b03d-6bfb93a7a5b3">&lt;title&gt;</bpt><ept id="7445e636-accd-4ccd-b03d-6bfb93a7a5b3">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find out more about the <bpt id="68b978c4-8300-4747-8d1c-f29ec9658c07">&lt;code&gt;</bpt>Document<ept id="68b978c4-8300-4747-8d1c-f29ec9658c07">&lt;/code&gt;</ept> class <bpt id="7445e636-accd-4ccd-b03d-6bfb93a7a5b3">&lt;linkText&gt;</bpt>here<ept id="7445e636-accd-4ccd-b03d-6bfb93a7a5b3">&lt;/linkText&gt;</ept><bpt id="7445e636-accd-4ccd-b03d-6bfb93a7a5b3">&lt;title&gt;</bpt><ept id="7445e636-accd-4ccd-b03d-6bfb93a7a5b3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc170749-291f-4129-8df8-00f049cb48ec" xml:space="preserve">
+          <source>The last step in the sample application is to search for some documents in the index.</source>
+          <target state="new">The last step in the sample application is to search for some documents in the index.</target>
+        </trans-unit>
+        <trans-unit id="a361bfe5-1efc-4c18-88e4-d5daca439b84" xml:space="preserve">
+          <source>The following method does this:</source>
+          <target state="new">The following method does this:</target>
+        </trans-unit>
+        <trans-unit id="93d42e6e-4c23-40a7-9aad-a7e99d98b6fb" xml:space="preserve">
+          <source>First, this method creates a new <bpt id="47a4af28-ff6a-4b8e-b438-e4fe37663d79">&lt;code&gt;</bpt>SearchParameters<ept id="47a4af28-ff6a-4b8e-b438-e4fe37663d79">&lt;/code&gt;</ept> object.</source>
+          <target state="new">First, this method creates a new <bpt id="47a4af28-ff6a-4b8e-b438-e4fe37663d79">&lt;code&gt;</bpt>SearchParameters<ept id="47a4af28-ff6a-4b8e-b438-e4fe37663d79">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="9e82d597-44e0-44ea-beef-31a6300fbc4a" xml:space="preserve">
+          <source>This is used to specify additional options for the query such as sorting, filtering, paging, and faceting.</source>
+          <target state="new">This is used to specify additional options for the query such as sorting, filtering, paging, and faceting.</target>
+        </trans-unit>
+        <trans-unit id="8e051593-4188-49ed-9df7-32b886a25aa7" xml:space="preserve">
+          <source>In this example, we're only setting the <bpt id="ed455379-58a8-4f36-afcc-72845cdf4a8f">&lt;code&gt;</bpt>Filter<ept id="ed455379-58a8-4f36-afcc-72845cdf4a8f">&lt;/code&gt;</ept> property.</source>
+          <target state="new">In this example, we're only setting the <bpt id="ed455379-58a8-4f36-afcc-72845cdf4a8f">&lt;code&gt;</bpt>Filter<ept id="ed455379-58a8-4f36-afcc-72845cdf4a8f">&lt;/code&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="c29d352d-e0d5-43aa-a91c-4319b1d43e57" xml:space="preserve">
+          <source>The next step is to actually execute the search query.</source>
+          <target state="new">The next step is to actually execute the search query.</target>
+        </trans-unit>
+        <trans-unit id="f0dfa9fd-fdaf-4e1d-a0d3-d75a97bd868e" xml:space="preserve">
+          <source>This is done using the <bpt id="7e8c6bd4-4eb1-4736-aa33-e9ce593e900d">&lt;code&gt;</bpt>Documents.Search<ept id="7e8c6bd4-4eb1-4736-aa33-e9ce593e900d">&lt;/code&gt;</ept> method.</source>
+          <target state="new">This is done using the <bpt id="7e8c6bd4-4eb1-4736-aa33-e9ce593e900d">&lt;code&gt;</bpt>Documents.Search<ept id="7e8c6bd4-4eb1-4736-aa33-e9ce593e900d">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="3396314a-83e5-499f-bedb-1396394c726f" xml:space="preserve">
+          <source>In this case, we pass the search text to use as a string, plus the search parameters created earlier.</source>
+          <target state="new">In this case, we pass the search text to use as a string, plus the search parameters created earlier.</target>
+        </trans-unit>
+        <trans-unit id="f97e4ba9-a5d9-4fe7-b451-4e8a44c09cc1" xml:space="preserve">
+          <source>We also specify <bpt id="e9ab2751-03b1-490b-a22c-40267d87467c">&lt;code&gt;</bpt>Hotel<ept id="e9ab2751-03b1-490b-a22c-40267d87467c">&lt;/code&gt;</ept> as the type parameter for <bpt id="6ff05726-db4e-4c73-8051-2ed22fa6c84d">&lt;code&gt;</bpt>Documents.Search<ept id="6ff05726-db4e-4c73-8051-2ed22fa6c84d">&lt;/code&gt;</ept>, which tells the SDK to deserialize documents in the search results into objects of type <bpt id="e7d5dbd8-6bc4-4436-be67-83cec712d6d6">&lt;code&gt;</bpt>Hotel<ept id="e7d5dbd8-6bc4-4436-be67-83cec712d6d6">&lt;/code&gt;</ept>.</source>
+          <target state="new">We also specify <bpt id="e9ab2751-03b1-490b-a22c-40267d87467c">&lt;code&gt;</bpt>Hotel<ept id="e9ab2751-03b1-490b-a22c-40267d87467c">&lt;/code&gt;</ept> as the type parameter for <bpt id="6ff05726-db4e-4c73-8051-2ed22fa6c84d">&lt;code&gt;</bpt>Documents.Search<ept id="6ff05726-db4e-4c73-8051-2ed22fa6c84d">&lt;/code&gt;</ept>, which tells the SDK to deserialize documents in the search results into objects of type <bpt id="e7d5dbd8-6bc4-4436-be67-83cec712d6d6">&lt;code&gt;</bpt>Hotel<ept id="e7d5dbd8-6bc4-4436-be67-83cec712d6d6">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1bf398e5-d0fa-4e79-a406-ec6be835427b" xml:space="preserve">
+          <source>Finally, this method iterates through all the matches in the search results, printing each document to the console.</source>
+          <target state="new">Finally, this method iterates through all the matches in the search results, printing each document to the console.</target>
+        </trans-unit>
+        <trans-unit id="df853d3f-a413-4115-822d-0cd95bcf54c3" xml:space="preserve">
+          <source>Let's take a closer look at how this method is called:</source>
+          <target state="new">Let's take a closer look at how this method is called:</target>
+        </trans-unit>
+        <trans-unit id="5bbcc39c-a96e-4ed0-b85b-c6e036b3d556" xml:space="preserve">
+          <source>In the first call, we're looking for all documents containing the query terms "fancy" or "wifi".</source>
+          <target state="new">In the first call, we're looking for all documents containing the query terms "fancy" or "wifi".</target>
+        </trans-unit>
+        <trans-unit id="689b29d2-9102-4644-a6d3-edeae53ad853" xml:space="preserve">
+          <source>In the second call, the search text is set to "*", which means "find everything".</source>
+          <target state="new">In the second call, the search text is set to "*", which means "find everything".</target>
+        </trans-unit>
+        <trans-unit id="e276593d-05e0-4b1d-84f3-50bd802ff059" xml:space="preserve">
+          <source>You can find more information about the search query expression syntax <bpt id="10e73b00-9a7d-4b36-b7eb-8b901a1a49ca">&lt;linkText&gt;</bpt>here<ept id="10e73b00-9a7d-4b36-b7eb-8b901a1a49ca">&lt;/linkText&gt;</ept><bpt id="10e73b00-9a7d-4b36-b7eb-8b901a1a49ca">&lt;title&gt;</bpt><ept id="10e73b00-9a7d-4b36-b7eb-8b901a1a49ca">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find more information about the search query expression syntax <bpt id="10e73b00-9a7d-4b36-b7eb-8b901a1a49ca">&lt;linkText&gt;</bpt>here<ept id="10e73b00-9a7d-4b36-b7eb-8b901a1a49ca">&lt;/linkText&gt;</ept><bpt id="10e73b00-9a7d-4b36-b7eb-8b901a1a49ca">&lt;title&gt;</bpt><ept id="10e73b00-9a7d-4b36-b7eb-8b901a1a49ca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e58f4f9-cef4-43ab-a2b7-4773a121e33d" xml:space="preserve">
+          <source>The second call uses an OData <bpt id="87bf9ebd-63a2-49cf-87a0-cb19da11e3f7">&lt;code&gt;</bpt>$filter<ept id="87bf9ebd-63a2-49cf-87a0-cb19da11e3f7">&lt;/code&gt;</ept> expression, <bpt id="1a355e4e-95d6-4fb3-ab23-13d9bff2e557">&lt;code&gt;</bpt>category eq 'Luxury'<ept id="1a355e4e-95d6-4fb3-ab23-13d9bff2e557">&lt;/code&gt;</ept>.</source>
+          <target state="new">The second call uses an OData <bpt id="87bf9ebd-63a2-49cf-87a0-cb19da11e3f7">&lt;code&gt;</bpt>$filter<ept id="87bf9ebd-63a2-49cf-87a0-cb19da11e3f7">&lt;/code&gt;</ept> expression, <bpt id="1a355e4e-95d6-4fb3-ab23-13d9bff2e557">&lt;code&gt;</bpt>category eq 'Luxury'<ept id="1a355e4e-95d6-4fb3-ab23-13d9bff2e557">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="628bc184-9c87-4800-b79d-0e5da766f21b" xml:space="preserve">
+          <source>This constrains the search to only return documents where the <bpt id="cd432aa4-a04b-464c-b675-d6e1f24909e0">&lt;code&gt;</bpt>category<ept id="cd432aa4-a04b-464c-b675-d6e1f24909e0">&lt;/code&gt;</ept> field exactly matches the string "Luxury".</source>
+          <target state="new">This constrains the search to only return documents where the <bpt id="cd432aa4-a04b-464c-b675-d6e1f24909e0">&lt;code&gt;</bpt>category<ept id="cd432aa4-a04b-464c-b675-d6e1f24909e0">&lt;/code&gt;</ept> field exactly matches the string "Luxury".</target>
+        </trans-unit>
+        <trans-unit id="7d119a67-ebe9-43f1-bf1f-358675587c44" xml:space="preserve">
+          <source>You can find out more about the OData syntax that Azure Search supports <bpt id="d8cf5986-a534-461e-952d-283ee738d530">&lt;linkText&gt;</bpt>here<ept id="d8cf5986-a534-461e-952d-283ee738d530">&lt;/linkText&gt;</ept><bpt id="d8cf5986-a534-461e-952d-283ee738d530">&lt;title&gt;</bpt><ept id="d8cf5986-a534-461e-952d-283ee738d530">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find out more about the OData syntax that Azure Search supports <bpt id="d8cf5986-a534-461e-952d-283ee738d530">&lt;linkText&gt;</bpt>here<ept id="d8cf5986-a534-461e-952d-283ee738d530">&lt;/linkText&gt;</ept><bpt id="d8cf5986-a534-461e-952d-283ee738d530">&lt;title&gt;</bpt><ept id="d8cf5986-a534-461e-952d-283ee738d530">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5553e35-1823-41e5-bfa0-87bbdb90eb53" xml:space="preserve">
+          <source>Now that you know what these two calls do, it should be easier to see why their output looks like this:</source>
+          <target state="new">Now that you know what these two calls do, it should be easier to see why their output looks like this:</target>
+        </trans-unit>
+        <trans-unit id="3b343a0d-a266-4009-ab11-2efbc7712211" xml:space="preserve">
+          <source>The first search returns two documents.</source>
+          <target state="new">The first search returns two documents.</target>
+        </trans-unit>
+        <trans-unit id="6e1981b1-26ac-4932-a001-99c19d2492d9" xml:space="preserve">
+          <source>The first has "Fancy" in the name, while the second has "wifi" in the <bpt id="ec6af97c-fea4-49e7-8584-ca3f96db43d1">&lt;code&gt;</bpt>tags<ept id="ec6af97c-fea4-49e7-8584-ca3f96db43d1">&lt;/code&gt;</ept> field.</source>
+          <target state="new">The first has "Fancy" in the name, while the second has "wifi" in the <bpt id="ec6af97c-fea4-49e7-8584-ca3f96db43d1">&lt;code&gt;</bpt>tags<ept id="ec6af97c-fea4-49e7-8584-ca3f96db43d1">&lt;/code&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="e6488cc0-a691-4747-8789-c63a1e672796" xml:space="preserve">
+          <source>The second search returns two documents, which happen to be the only documents in the index that have the <bpt id="ff951ec5-172a-4688-bd6f-d863cf7bcb13">&lt;code&gt;</bpt>category<ept id="ff951ec5-172a-4688-bd6f-d863cf7bcb13">&lt;/code&gt;</ept> field set to "Luxury".</source>
+          <target state="new">The second search returns two documents, which happen to be the only documents in the index that have the <bpt id="ff951ec5-172a-4688-bd6f-d863cf7bcb13">&lt;code&gt;</bpt>category<ept id="ff951ec5-172a-4688-bd6f-d863cf7bcb13">&lt;/code&gt;</ept> field set to "Luxury".</target>
+        </trans-unit>
+        <trans-unit id="2a631dc2-7f77-4742-93c6-4cbcf82ea882" xml:space="preserve">
+          <source>This step completes the tutorial, but don't stop here.</source>
+          <target state="new">This step completes the tutorial, but don't stop here.</target>
+        </trans-unit>
+        <trans-unit id="b7bb95b4-f483-493e-ba07-805ba3c61d86" xml:space="preserve">
+          <source><bpt id="b97f6833-4d2c-47af-96c8-28b877805b5d">&lt;strong&gt;</bpt>Next steps<ept id="b97f6833-4d2c-47af-96c8-28b877805b5d">&lt;/strong&gt;</ept> provides additional resources for learning more about Azure Search.</source>
+          <target state="new"><bpt id="b97f6833-4d2c-47af-96c8-28b877805b5d">&lt;strong&gt;</bpt>Next steps<ept id="b97f6833-4d2c-47af-96c8-28b877805b5d">&lt;/strong&gt;</ept> provides additional resources for learning more about Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="67fd7134-1da1-43e5-a3b3-cd16e7099c85" xml:space="preserve">
+          <source>Deepen your knowledge through <bpt id="f8f26fbd-f003-476d-b15b-ae228bcdc492">&lt;linkText&gt;</bpt>videos and other samples and tutorials<ept id="f8f26fbd-f003-476d-b15b-ae228bcdc492">&lt;/linkText&gt;</ept><bpt id="f8f26fbd-f003-476d-b15b-ae228bcdc492">&lt;title&gt;</bpt><ept id="f8f26fbd-f003-476d-b15b-ae228bcdc492">&lt;/title&gt;</ept>.</source>
+          <target state="new">Deepen your knowledge through <bpt id="f8f26fbd-f003-476d-b15b-ae228bcdc492">&lt;linkText&gt;</bpt>videos and other samples and tutorials<ept id="f8f26fbd-f003-476d-b15b-ae228bcdc492">&lt;/linkText&gt;</ept><bpt id="f8f26fbd-f003-476d-b15b-ae228bcdc492">&lt;title&gt;</bpt><ept id="f8f26fbd-f003-476d-b15b-ae228bcdc492">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3624b286-2488-470d-8741-1ca032ae6f92" xml:space="preserve">
+          <source>Read about features and capabilities in this version of the Azure Search SDK: <bpt id="03abc565-d0ff-438e-9f71-c134521b7e08">&lt;linkText&gt;</bpt>Azure Search Overview<ept id="03abc565-d0ff-438e-9f71-c134521b7e08">&lt;/linkText&gt;</ept><bpt id="03abc565-d0ff-438e-9f71-c134521b7e08">&lt;title&gt;</bpt><ept id="03abc565-d0ff-438e-9f71-c134521b7e08">&lt;/title&gt;</ept></source>
+          <target state="new">Read about features and capabilities in this version of the Azure Search SDK: <bpt id="03abc565-d0ff-438e-9f71-c134521b7e08">&lt;linkText&gt;</bpt>Azure Search Overview<ept id="03abc565-d0ff-438e-9f71-c134521b7e08">&lt;/linkText&gt;</ept><bpt id="03abc565-d0ff-438e-9f71-c134521b7e08">&lt;title&gt;</bpt><ept id="03abc565-d0ff-438e-9f71-c134521b7e08">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c667954-b998-4cb8-bf9b-12127d8a45a6" xml:space="preserve">
+          <source>Review <bpt id="7cc6c083-8ac6-4b12-a100-0577d7b1b616">&lt;linkText&gt;</bpt>naming conventions<ept id="7cc6c083-8ac6-4b12-a100-0577d7b1b616">&lt;/linkText&gt;</ept><bpt id="7cc6c083-8ac6-4b12-a100-0577d7b1b616">&lt;title&gt;</bpt><ept id="7cc6c083-8ac6-4b12-a100-0577d7b1b616">&lt;/title&gt;</ept> to learn the rules for naming various objects.</source>
+          <target state="new">Review <bpt id="7cc6c083-8ac6-4b12-a100-0577d7b1b616">&lt;linkText&gt;</bpt>naming conventions<ept id="7cc6c083-8ac6-4b12-a100-0577d7b1b616">&lt;/linkText&gt;</ept><bpt id="7cc6c083-8ac6-4b12-a100-0577d7b1b616">&lt;title&gt;</bpt><ept id="7cc6c083-8ac6-4b12-a100-0577d7b1b616">&lt;/title&gt;</ept> to learn the rules for naming various objects.</target>
+        </trans-unit>
+        <trans-unit id="c039325f-4de7-452e-99b3-3ace271e6427" xml:space="preserve">
+          <source>Review <bpt id="c8373d8b-36aa-4c72-b280-958a9739e437">&lt;linkText&gt;</bpt>supported data types<ept id="c8373d8b-36aa-4c72-b280-958a9739e437">&lt;/linkText&gt;</ept><bpt id="c8373d8b-36aa-4c72-b280-958a9739e437">&lt;title&gt;</bpt><ept id="c8373d8b-36aa-4c72-b280-958a9739e437">&lt;/title&gt;</ept> in Azure Search.</source>
+          <target state="new">Review <bpt id="c8373d8b-36aa-4c72-b280-958a9739e437">&lt;linkText&gt;</bpt>supported data types<ept id="c8373d8b-36aa-4c72-b280-958a9739e437">&lt;/linkText&gt;</ept><bpt id="c8373d8b-36aa-4c72-b280-958a9739e437">&lt;title&gt;</bpt><ept id="c8373d8b-36aa-4c72-b280-958a9739e437">&lt;/title&gt;</ept> in Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="e2a5970e-0682-4909-945b-e32416ec7271" xml:space="preserve">
+          <source>Here is the full source code of the sample application used in this walk through.</source>
+          <target state="new">Here is the full source code of the sample application used in this walk through.</target>
+        </trans-unit>
+        <trans-unit id="73f0a35a-e194-41bb-b6fe-fd2aff3fe25d" xml:space="preserve">
+          <source>Note that you will need to replace the service name and API key placeholders in Program.cs with your own values if you want to build and run the sample.</source>
+          <target state="new">Note that you will need to replace the service name and API key placeholders in Program.cs with your own values if you want to build and run the sample.</target>
+        </trans-unit>
+        <trans-unit id="563c6d82-8e31-41b4-9212-96fc35a554f0" xml:space="preserve">
+          <source>Program.cs:</source>
+          <target state="new">Program.cs:</target>
+        </trans-unit>
+        <trans-unit id="ec522a0f-27f3-4ed0-9205-cfe8ded0fc7e" xml:space="preserve">
+          <source>Hotel.cs:</source>
+          <target state="new">Hotel.cs:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

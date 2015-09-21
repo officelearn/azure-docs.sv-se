@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1c742e2a-ba5e-4b1a-b0d1-8432a091a17b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1c742e2a-ba5e-4b1a-b0d1-8432a091a17b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6d0e67c7-15c4-4e94-8fa6-3b46758ae28e">
+        <trans-unit id="5e5299a2-8a16-4055-a14a-5232320e315c" xml:space="preserve">
+          <source>This tutorial is built on <bpt id="7690398f-e263-4a86-973c-607b54190dfa">&lt;strong&gt;</bpt>GetStartedWithData<ept id="7690398f-e263-4a86-973c-607b54190dfa">&lt;/strong&gt;</ept>, which is an Android app.</source>
+          <target state="new">This tutorial is built on <bpt id="7690398f-e263-4a86-973c-607b54190dfa">&lt;strong&gt;</bpt>GetStartedWithData<ept id="7690398f-e263-4a86-973c-607b54190dfa">&lt;/strong&gt;</ept>, which is an Android app.</target>
+        </trans-unit>
+        <trans-unit id="aeafad00-6e1d-4ea4-a33e-c74f08440d33" xml:space="preserve">
+          <source>The UI for this app is identical to the one in the Mobile Services Android quickstart, except that items that are added to the list are stored locally in memory.</source>
+          <target state="new">The UI for this app is identical to the one in the Mobile Services Android quickstart, except that items that are added to the list are stored locally in memory.</target>
+        </trans-unit>
+        <trans-unit id="e99316dc-a3db-4735-a160-b241af5ca99a" xml:space="preserve">
+          <source>You will add the code needed to persist the data to storage.</source>
+          <target state="new">You will add the code needed to persist the data to storage.</target>
+        </trans-unit>
+        <trans-unit id="14bc0494-a92a-4966-95be-697ff0e44367" xml:space="preserve">
+          <source>Download the samples repository from gitHub by clicking &lt;a href="https://github.com/Azure/mobile-services-samples" target="blank"&gt;here&lt;/a&gt; and then Click <bpt id="bcba740b-5df3-4604-87a2-42cb3202103a">&lt;strong&gt;</bpt>Download ZIP<ept id="bcba740b-5df3-4604-87a2-42cb3202103a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Download the samples repository from gitHub by clicking &lt;a href="https://github.com/Azure/mobile-services-samples" target="blank"&gt;here&lt;/a&gt; and then Click <bpt id="bcba740b-5df3-4604-87a2-42cb3202103a">&lt;strong&gt;</bpt>Download ZIP<ept id="bcba740b-5df3-4604-87a2-42cb3202103a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f896ae3c-0265-415c-a475-ddaaaaf33fe2" xml:space="preserve">
+          <source>Unzip the downloaded file and make a note of its location, or move it to your Android Studio projects directory.</source>
+          <target state="new">Unzip the downloaded file and make a note of its location, or move it to your Android Studio projects directory.</target>
+        </trans-unit>
+        <trans-unit id="d58b4c93-5120-46a2-92f6-7250267c6b32" xml:space="preserve">
+          <source>Open Android Studio.</source>
+          <target state="new">Open Android Studio.</target>
+        </trans-unit>
+        <trans-unit id="7b786975-8250-4f03-b6f4-7604a40beecb" xml:space="preserve">
+          <source>If you are working with a different project and it appears, close the project (<bpt id="bfba1a71-4e24-410b-ae6c-89b2a91d145d">&lt;strong&gt;</bpt>File =&gt; Close Project<ept id="bfba1a71-4e24-410b-ae6c-89b2a91d145d">&lt;/strong&gt;</ept>).</source>
+          <target state="new">If you are working with a different project and it appears, close the project (<bpt id="bfba1a71-4e24-410b-ae6c-89b2a91d145d">&lt;strong&gt;</bpt>File =&gt; Close Project<ept id="bfba1a71-4e24-410b-ae6c-89b2a91d145d">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="50e7538c-b4bb-4412-92b7-3bbff76bbebc" xml:space="preserve">
+          <source>Select <bpt id="fb5a79ee-057b-45bc-8862-8a95b70ba21d">&lt;strong&gt;</bpt>Open an existing Android Studio project<ept id="fb5a79ee-057b-45bc-8862-8a95b70ba21d">&lt;/strong&gt;</ept>, browse to the project location in the <bpt id="0b563f00-0b7d-47fc-b79b-5cdb78bddedf">&lt;em&gt;</bpt>AndroidStudio<ept id="0b563f00-0b7d-47fc-b79b-5cdb78bddedf">&lt;/em&gt;</ept> folder of <bpt id="99b22a78-84bb-49f3-99be-1bf7716b29b3">&lt;em&gt;</bpt>GettingStartedWithData<ept id="99b22a78-84bb-49f3-99be-1bf7716b29b3">&lt;/em&gt;</ept>, and then click <bpt id="50a33e06-e658-4eac-aec5-d999801d2769">&lt;strong&gt;</bpt>OK.<ept id="50a33e06-e658-4eac-aec5-d999801d2769">&lt;/strong&gt;</ept> </source>
+          <target state="new">Select <bpt id="fb5a79ee-057b-45bc-8862-8a95b70ba21d">&lt;strong&gt;</bpt>Open an existing Android Studio project<ept id="fb5a79ee-057b-45bc-8862-8a95b70ba21d">&lt;/strong&gt;</ept>, browse to the project location in the <bpt id="0b563f00-0b7d-47fc-b79b-5cdb78bddedf">&lt;em&gt;</bpt>AndroidStudio<ept id="0b563f00-0b7d-47fc-b79b-5cdb78bddedf">&lt;/em&gt;</ept> folder of <bpt id="99b22a78-84bb-49f3-99be-1bf7716b29b3">&lt;em&gt;</bpt>GettingStartedWithData<ept id="99b22a78-84bb-49f3-99be-1bf7716b29b3">&lt;/em&gt;</ept>, and then click <bpt id="50a33e06-e658-4eac-aec5-d999801d2769">&lt;strong&gt;</bpt>OK.<ept id="50a33e06-e658-4eac-aec5-d999801d2769">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="401ee23d-7de1-44e5-bf21-81fa15ef59ca" xml:space="preserve">
+          <source><bpt id="04937f3c-e099-471b-b63a-8742f12b96ff">&lt;linkText&gt;</bpt><ept id="04937f3c-e099-471b-b63a-8742f12b96ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="04937f3c-e099-471b-b63a-8742f12b96ff">&lt;linkText&gt;</bpt><ept id="04937f3c-e099-471b-b63a-8742f12b96ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00d59617-b98a-4a3e-b01d-f6e40214282a" xml:space="preserve">
+          <source>The project is now ready for you to work with.</source>
+          <target state="new">The project is now ready for you to work with.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="06414393-74b7-4995-b18f-9310279022ef" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="06414393-74b7-4995-b18f-9310279022ef" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2b6e8807-1619-4572-b310-4a4e7886daca">
+        <trans-unit id="4266223d-6fd2-4ef7-af3f-9619c2759cf1" xml:space="preserve">
+          <source>Polling Long-Running Operations</source>
+          <target state="new">Polling Long-Running Operations</target>
+        </trans-unit>
+        <trans-unit id="9272b31c-67e5-424e-b341-e9b09ba1e878" xml:space="preserve">
+          <source>This topic shows how to poll long-running operations.</source>
+          <target state="new">This topic shows how to poll long-running operations.</target>
+        </trans-unit>
+        <trans-unit id="e4d3e6e8-1544-452a-a7e8-e97469c4797f" xml:space="preserve">
+          <source>Microsoft Azure Media Services offers APIs that send requests to Media Services to start operations (for example: create, start, stop, or delete a channel).</source>
+          <target state="new">Microsoft Azure Media Services offers APIs that send requests to Media Services to start operations (for example: create, start, stop, or delete a channel).</target>
+        </trans-unit>
+        <trans-unit id="4a6d4cd9-e7e8-4ea3-8734-66ca4ea2ba53" xml:space="preserve">
+          <source>These operations are long-running.</source>
+          <target state="new">These operations are long-running.</target>
+        </trans-unit>
+        <trans-unit id="28506a02-dc46-4f50-8ba0-e4e6da8fcfae" xml:space="preserve">
+          <source>The Media Services .NET SDK provides APIs that send the request and wait for the operation to complete (internally, the APIs are polling for operation progress at some intervals).</source>
+          <target state="new">The Media Services .NET SDK provides APIs that send the request and wait for the operation to complete (internally, the APIs are polling for operation progress at some intervals).</target>
+        </trans-unit>
+        <trans-unit id="803e35ed-a13f-4aa5-b3bd-856d69db8c7e" xml:space="preserve">
+          <source>For example, when you call channel.Start(), the method returns after the channel is started.</source>
+          <target state="new">For example, when you call channel.Start(), the method returns after the channel is started.</target>
+        </trans-unit>
+        <trans-unit id="09ceb2d9-a049-4a11-a718-8b35b936e94e" xml:space="preserve">
+          <source>You can also use the asynchronous version: await channel.StartAsync() (for information about Task-based Asynchronous Pattern, see [TAP](https://msdn.microsoft.com/library/hh873175(v=vs.110).aspx)).</source>
+          <target state="new">You can also use the asynchronous version: await channel.StartAsync() (for information about Task-based Asynchronous Pattern, see [TAP](https://msdn.microsoft.com/library/hh873175(v=vs.110).aspx)).</target>
+        </trans-unit>
+        <trans-unit id="545aab7b-5ce9-4179-a78d-c256b32aa7a9" xml:space="preserve">
+          <source>APIs that send an operation request and then poll for the status until the operation is complete are called “polling methods”.</source>
+          <target state="new">APIs that send an operation request and then poll for the status until the operation is complete are called “polling methods”.</target>
+        </trans-unit>
+        <trans-unit id="37fa5ddb-a69b-44a9-a015-20a28b19417f" xml:space="preserve">
+          <source>These methods (especially the Async version) are recommended for rich client applications and/or stateful services.</source>
+          <target state="new">These methods (especially the Async version) are recommended for rich client applications and/or stateful services.</target>
+        </trans-unit>
+        <trans-unit id="d59cbea3-a784-4700-8388-c9b8d77548e4" xml:space="preserve">
+          <source>There are scenarios where an application cannot wait for a long running http request and wants to poll for the operation progress manually. A typical example would be a browser interacting with a stateless web service: when the browser requests to create a channel, the web service initiates a long running operation and returns the operation ID to the browser. The browser could then ask the web service to get the operation status based on the ID. The Media Services .NET SDK provides APIs that are useful for this scenario. These APIs are called “non-polling methods”.
+The “non-polling methods” have the following naming pattern: Send<bpt id="991c326e-78d4-44eb-b22c-40130548a04e">&lt;em&gt;</bpt>OperationName<ept id="991c326e-78d4-44eb-b22c-40130548a04e">&lt;/em&gt;</ept>Operation (for example, SendCreateOperation). Send<bpt id="8b7a2fda-4cd2-4673-9c59-3e943d496e96">&lt;em&gt;</bpt>OperationName<ept id="8b7a2fda-4cd2-4673-9c59-3e943d496e96">&lt;/em&gt;</ept>Operation methods return the <bpt id="e3732ae5-52f1-4b05-9172-babd590c59d6">&lt;strong&gt;</bpt>IOperation<ept id="e3732ae5-52f1-4b05-9172-babd590c59d6">&lt;/strong&gt;</ept> object; the returned object contains information that can be used to track the operation. The Send<bpt id="8f387ec1-64ff-4914-9576-fe38837fcf2f">&lt;em&gt;</bpt>OperationName<ept id="8f387ec1-64ff-4914-9576-fe38837fcf2f">&lt;/em&gt;</ept>OperationAsync methods return <bpt id="edd37128-3d3b-4a0d-9c59-f8fe8e56d852">&lt;strong&gt;</bpt>Task&lt;IOperation&gt;<ept id="edd37128-3d3b-4a0d-9c59-f8fe8e56d852">&lt;/strong&gt;</ept>.</source>
+          <target state="new">There are scenarios where an application cannot wait for a long running http request and wants to poll for the operation progress manually. A typical example would be a browser interacting with a stateless web service: when the browser requests to create a channel, the web service initiates a long running operation and returns the operation ID to the browser. The browser could then ask the web service to get the operation status based on the ID. The Media Services .NET SDK provides APIs that are useful for this scenario. These APIs are called “non-polling methods”.
+The “non-polling methods” have the following naming pattern: Send<bpt id="991c326e-78d4-44eb-b22c-40130548a04e">&lt;em&gt;</bpt>OperationName<ept id="991c326e-78d4-44eb-b22c-40130548a04e">&lt;/em&gt;</ept>Operation (for example, SendCreateOperation). Send<bpt id="8b7a2fda-4cd2-4673-9c59-3e943d496e96">&lt;em&gt;</bpt>OperationName<ept id="8b7a2fda-4cd2-4673-9c59-3e943d496e96">&lt;/em&gt;</ept>Operation methods return the <bpt id="e3732ae5-52f1-4b05-9172-babd590c59d6">&lt;strong&gt;</bpt>IOperation<ept id="e3732ae5-52f1-4b05-9172-babd590c59d6">&lt;/strong&gt;</ept> object; the returned object contains information that can be used to track the operation. The Send<bpt id="8f387ec1-64ff-4914-9576-fe38837fcf2f">&lt;em&gt;</bpt>OperationName<ept id="8f387ec1-64ff-4914-9576-fe38837fcf2f">&lt;/em&gt;</ept>OperationAsync methods return <bpt id="edd37128-3d3b-4a0d-9c59-f8fe8e56d852">&lt;strong&gt;</bpt>Task&lt;IOperation&gt;<ept id="edd37128-3d3b-4a0d-9c59-f8fe8e56d852">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d4fb248-ae35-4788-b5a5-90d89e00160b" xml:space="preserve">
+          <source>Currently, the following classes support non-polling methods:  <bpt id="f3353f1d-0c8f-4fa1-9d2e-9d5b23d8e12a">&lt;strong&gt;</bpt>Channel<ept id="f3353f1d-0c8f-4fa1-9d2e-9d5b23d8e12a">&lt;/strong&gt;</ept>, <bpt id="ec199ad0-ebd2-4e04-a76e-c783110b1e98">&lt;strong&gt;</bpt>StreamingEndpoint<ept id="ec199ad0-ebd2-4e04-a76e-c783110b1e98">&lt;/strong&gt;</ept>, and <bpt id="4476224a-ba10-4e55-a178-48384935f30d">&lt;strong&gt;</bpt>Program<ept id="4476224a-ba10-4e55-a178-48384935f30d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Currently, the following classes support non-polling methods:  <bpt id="f3353f1d-0c8f-4fa1-9d2e-9d5b23d8e12a">&lt;strong&gt;</bpt>Channel<ept id="f3353f1d-0c8f-4fa1-9d2e-9d5b23d8e12a">&lt;/strong&gt;</ept>, <bpt id="ec199ad0-ebd2-4e04-a76e-c783110b1e98">&lt;strong&gt;</bpt>StreamingEndpoint<ept id="ec199ad0-ebd2-4e04-a76e-c783110b1e98">&lt;/strong&gt;</ept>, and <bpt id="4476224a-ba10-4e55-a178-48384935f30d">&lt;strong&gt;</bpt>Program<ept id="4476224a-ba10-4e55-a178-48384935f30d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5513bcde-2259-47fc-a632-540a020d138f" xml:space="preserve">
+          <source>To poll for the operation status, use the <bpt id="e78d3269-697e-4953-9366-55db0e4cc6d1">&lt;strong&gt;</bpt>GetOperation<ept id="e78d3269-697e-4953-9366-55db0e4cc6d1">&lt;/strong&gt;</ept> method on the <bpt id="c6309a02-04aa-4a53-a023-03d3fe48f803">&lt;strong&gt;</bpt>OperationBaseCollection<ept id="c6309a02-04aa-4a53-a023-03d3fe48f803">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">To poll for the operation status, use the <bpt id="e78d3269-697e-4953-9366-55db0e4cc6d1">&lt;strong&gt;</bpt>GetOperation<ept id="e78d3269-697e-4953-9366-55db0e4cc6d1">&lt;/strong&gt;</ept> method on the <bpt id="c6309a02-04aa-4a53-a023-03d3fe48f803">&lt;strong&gt;</bpt>OperationBaseCollection<ept id="c6309a02-04aa-4a53-a023-03d3fe48f803">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="7a9fed08-4a82-4388-8d2f-c911221f3551" xml:space="preserve">
+          <source>Use the following intervals to check the operation status: for <bpt id="d4771f4f-f412-4829-b57d-34bb3f4130e5">&lt;strong&gt;</bpt>Channel<ept id="d4771f4f-f412-4829-b57d-34bb3f4130e5">&lt;/strong&gt;</ept> and <bpt id="8eb794b1-ce9b-4ee4-b617-a387fcf0f373">&lt;strong&gt;</bpt>StreamingEndpoint<ept id="8eb794b1-ce9b-4ee4-b617-a387fcf0f373">&lt;/strong&gt;</ept> operations, use 30 seconds; for <bpt id="fef2961c-fc49-415a-8146-acba75c5f995">&lt;strong&gt;</bpt>Program<ept id="fef2961c-fc49-415a-8146-acba75c5f995">&lt;/strong&gt;</ept> operations, use 10 seconds.</source>
+          <target state="new">Use the following intervals to check the operation status: for <bpt id="d4771f4f-f412-4829-b57d-34bb3f4130e5">&lt;strong&gt;</bpt>Channel<ept id="d4771f4f-f412-4829-b57d-34bb3f4130e5">&lt;/strong&gt;</ept> and <bpt id="8eb794b1-ce9b-4ee4-b617-a387fcf0f373">&lt;strong&gt;</bpt>StreamingEndpoint<ept id="8eb794b1-ce9b-4ee4-b617-a387fcf0f373">&lt;/strong&gt;</ept> operations, use 30 seconds; for <bpt id="fef2961c-fc49-415a-8146-acba75c5f995">&lt;strong&gt;</bpt>Program<ept id="fef2961c-fc49-415a-8146-acba75c5f995">&lt;/strong&gt;</ept> operations, use 10 seconds.</target>
+        </trans-unit>
+        <trans-unit id="de8cd389-b53f-44b6-9328-6e543fee26f9" xml:space="preserve">
+          <source>The following example defines a class called <bpt id="0f655313-1d5a-4663-82ee-9a7ca536483b">&lt;strong&gt;</bpt>ChannelOperations<ept id="0f655313-1d5a-4663-82ee-9a7ca536483b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following example defines a class called <bpt id="0f655313-1d5a-4663-82ee-9a7ca536483b">&lt;strong&gt;</bpt>ChannelOperations<ept id="0f655313-1d5a-4663-82ee-9a7ca536483b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="acf67e1b-1cbd-4547-9386-85f170c04b42" xml:space="preserve">
+          <source>This class definition could be a starting point for your web service class definition.</source>
+          <target state="new">This class definition could be a starting point for your web service class definition.</target>
+        </trans-unit>
+        <trans-unit id="1da86aae-e868-419d-ae32-fe174912bb36" xml:space="preserve">
+          <source>For simplicity, the following examples use the non-async versions of methods.</source>
+          <target state="new">For simplicity, the following examples use the non-async versions of methods.</target>
+        </trans-unit>
+        <trans-unit id="94478fe6-8988-47b4-94e5-ff5bdba5251e" xml:space="preserve">
+          <source>The example also shows how the client might use this class.</source>
+          <target state="new">The example also shows how the client might use this class.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

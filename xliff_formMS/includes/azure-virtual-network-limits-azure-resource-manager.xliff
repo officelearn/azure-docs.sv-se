@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="48dc806e-8d76-4f74-943e-7f15700fa9e4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="48dc806e-8d76-4f74-943e-7f15700fa9e4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eeddc416-7a20-4eb1-baca-8507664e1bc4">
+        <trans-unit id="fac5ff18-ca4d-4d17-8001-ca44ddbe3b9b" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="b91830cf-72a7-4e0c-a768-7b00c9adbfd2" xml:space="preserve">
+          <source>Default Limit</source>
+          <target state="new">Default Limit</target>
+        </trans-unit>
+        <trans-unit id="b067dadf-734c-4d78-a701-b8e13de23909" xml:space="preserve">
+          <source>Virtual networks</source>
+          <target state="new">Virtual networks</target>
+        </trans-unit>
+        <trans-unit id="0b022154-bf4b-4bff-aaf5-d8e0f12ffef1" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="e7552e20-9bc3-4328-87be-efdce018f4a0" xml:space="preserve">
+          <source> per subscription</source>
+          <target state="new"> per subscription</target>
+        </trans-unit>
+        <trans-unit id="a3e197df-478f-4c90-bfaa-01b3da63f4d9" xml:space="preserve">
+          <source>50 per Region</source>
+          <target state="new">50 per Region</target>
+        </trans-unit>
+        <trans-unit id="cc56a29c-89f4-49a3-a5b3-3b6f33bbd141" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="98900056-7e7b-49be-b9b6-78d4f610ba8f" xml:space="preserve">
+          <source>DNS Servers per virtual network</source>
+          <target state="new">DNS Servers per virtual network</target>
+        </trans-unit>
+        <trans-unit id="1e0fa0a7-214c-4946-b19a-110bf4c8f915" xml:space="preserve">
+          <source>9</source>
+          <target state="new">9</target>
+        </trans-unit>
+        <trans-unit id="2c75d356-3ac2-47d2-b873-c38392cec7dd" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="dcd474d2-2c70-4934-8875-f2d30938e2f4" xml:space="preserve">
+          <source>Internal Load Balancers per Availability Set</source>
+          <target state="new">Internal Load Balancers per Availability Set</target>
+        </trans-unit>
+        <trans-unit id="e8ab7da7-f54f-40d6-85d2-d1b63f94918d" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="0cd1b8a4-2e83-447a-b9c2-46d45f77cb19" xml:space="preserve">
+          <source>Internet Facing Load Balancers per Availability Set</source>
+          <target state="new">Internet Facing Load Balancers per Availability Set</target>
+        </trans-unit>
+        <trans-unit id="4c65be10-b232-4ead-94c6-8239bcc88914" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="76b95ec8-57e7-4b5b-83ee-6aabe4801217" xml:space="preserve">
+          <source>Load Balancer (Internal and Internet facing) per subscription</source>
+          <target state="new">Load Balancer (Internal and Internet facing) per subscription</target>
+        </trans-unit>
+        <trans-unit id="4ef838a3-824c-40fe-93cb-260662326709" xml:space="preserve">
+          <source>100 per Region</source>
+          <target state="new">100 per Region</target>
+        </trans-unit>
+        <trans-unit id="00d8737d-1a8d-407f-8cfa-4feca00c4c99" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="b4039ebf-3cba-43c3-b60c-8425c5c67193" xml:space="preserve">
+          <source>Load Balancer (Internal Or Internet facing) rules per Load Balancer</source>
+          <target state="new">Load Balancer (Internal Or Internet facing) rules per Load Balancer</target>
+        </trans-unit>
+        <trans-unit id="bec5efea-27ca-44b8-b2b0-5cd381800b64" xml:space="preserve">
+          <source>150</source>
+          <target state="new">150</target>
+        </trans-unit>
+        <trans-unit id="606c8049-240c-4892-9017-4aa9f44f8018" xml:space="preserve">
+          <source>Public IP Addresses (Dynamic) per subscription</source>
+          <target state="new">Public IP Addresses (Dynamic) per subscription</target>
+        </trans-unit>
+        <trans-unit id="9abd8071-8980-4a6e-8332-c53b48665347" xml:space="preserve">
+          <source>60 per Region</source>
+          <target state="new">60 per Region</target>
+        </trans-unit>
+        <trans-unit id="84842b3c-c0fc-42fc-90ee-5b92db1578ce" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="9fc1e93b-f125-49ca-9016-d00bd481e50b" xml:space="preserve">
+          <source>Public IP Addresses (Static) per subscription</source>
+          <target state="new">Public IP Addresses (Static) per subscription</target>
+        </trans-unit>
+        <trans-unit id="7ac65c95-e270-4c34-a007-49a8b83eff69" xml:space="preserve">
+          <source>20 per Region</source>
+          <target state="new">20 per Region</target>
+        </trans-unit>
+        <trans-unit id="d540720d-3100-47c2-b9c6-9c3cae8426c3" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="880c3322-4f94-40a7-afc2-1678f41cc02c" xml:space="preserve">
+          <source>Network Security Groups per Subscription</source>
+          <target state="new">Network Security Groups per Subscription</target>
+        </trans-unit>
+        <trans-unit id="b0a946fd-dbdb-48d4-b15e-9375f8429c54" xml:space="preserve">
+          <source>100 per Region</source>
+          <target state="new">100 per Region</target>
+        </trans-unit>
+        <trans-unit id="9056a880-8b22-481a-874c-546dfecd573e" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="6b5fe168-abdb-4248-a087-dcd28206398b" xml:space="preserve">
+          <source>Network Security Group Rules per Security Group</source>
+          <target state="new">Network Security Group Rules per Security Group</target>
+        </trans-unit>
+        <trans-unit id="b1f3df3d-77fb-4b22-8775-03041606bd26" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="dd57c9eb-25b5-40df-9cd1-525463825c91" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="85555df9-b87e-4d99-931b-64504cbd5b6e" xml:space="preserve">
+          <source>Network Interfaces per Subscription</source>
+          <target state="new">Network Interfaces per Subscription</target>
+        </trans-unit>
+        <trans-unit id="53aebbde-8ee4-4aaa-9133-d90f0d8e1f0f" xml:space="preserve">
+          <source>300 per Region</source>
+          <target state="new">300 per Region</target>
+        </trans-unit>
+        <trans-unit id="aff64862-285f-4547-97e9-c064277a605f" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="119ab141-983a-480c-92e5-0c1f10bee6aa" xml:space="preserve">
+          <source>&lt;sup&gt;1&lt;/sup&gt;Limit can be increased by contacting support.</source>
+          <target state="new">&lt;sup&gt;1&lt;/sup&gt;Limit can be increased by contacting support.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

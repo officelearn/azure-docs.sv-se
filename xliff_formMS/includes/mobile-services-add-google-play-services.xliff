@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6a7b75db-7972-43ee-a2fc-9ee00a8a18f3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6a7b75db-7972-43ee-a2fc-9ee00a8a18f3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4c323082-bf1b-4cbe-80bc-815ee9263365">
+        <trans-unit id="064ecfdb-1a9c-4765-aab1-717cf74b1bbc" xml:space="preserve">
+          <source>Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio or by clicking <bpt id="f2aabe14-ebad-487b-a4cb-a9f3af4fdf88">&lt;strong&gt;</bpt>Tools<ept id="f2aabe14-ebad-487b-a4cb-a9f3af4fdf88">&lt;/strong&gt;</ept> -&gt; <bpt id="f814ede8-ee86-45f9-a497-37e1c0aefc9c">&lt;strong&gt;</bpt>Android<ept id="f814ede8-ee86-45f9-a497-37e1c0aefc9c">&lt;/strong&gt;</ept> -&gt; <bpt id="92e5eae7-ef14-44ff-beea-6ead9a11005b">&lt;strong&gt;</bpt>SDK Manager<ept id="92e5eae7-ef14-44ff-beea-6ead9a11005b">&lt;/strong&gt;</ept> on the menu.</source>
+          <target state="new">Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio or by clicking <bpt id="f2aabe14-ebad-487b-a4cb-a9f3af4fdf88">&lt;strong&gt;</bpt>Tools<ept id="f2aabe14-ebad-487b-a4cb-a9f3af4fdf88">&lt;/strong&gt;</ept> -&gt; <bpt id="f814ede8-ee86-45f9-a497-37e1c0aefc9c">&lt;strong&gt;</bpt>Android<ept id="f814ede8-ee86-45f9-a497-37e1c0aefc9c">&lt;/strong&gt;</ept> -&gt; <bpt id="92e5eae7-ef14-44ff-beea-6ead9a11005b">&lt;strong&gt;</bpt>SDK Manager<ept id="92e5eae7-ef14-44ff-beea-6ead9a11005b">&lt;/strong&gt;</ept> on the menu.</target>
+        </trans-unit>
+        <trans-unit id="34670d94-dbc7-49b1-b7c9-c5b310f35c72" xml:space="preserve">
+          <source>Locate the target version of the Android SDK that is used in your project , open it, and choose <bpt id="dac71a30-ab33-40b3-9d71-12e40ce78caf">&lt;strong&gt;</bpt>Google APIs<ept id="dac71a30-ab33-40b3-9d71-12e40ce78caf">&lt;/strong&gt;</ept>, if it is not already installed.</source>
+          <target state="new">Locate the target version of the Android SDK that is used in your project , open it, and choose <bpt id="dac71a30-ab33-40b3-9d71-12e40ce78caf">&lt;strong&gt;</bpt>Google APIs<ept id="dac71a30-ab33-40b3-9d71-12e40ce78caf">&lt;/strong&gt;</ept>, if it is not already installed.</target>
+        </trans-unit>
+        <trans-unit id="a79b4168-a110-4f4e-83f2-696f16069f7b" xml:space="preserve">
+          <source>Scroll down to <bpt id="5e35d6a0-a029-4942-b7f4-3ec5333d30db">&lt;strong&gt;</bpt>Extras<ept id="5e35d6a0-a029-4942-b7f4-3ec5333d30db">&lt;/strong&gt;</ept>, expand it, and choose <bpt id="4921f50f-f1ea-4851-bfd3-5b69fb46e431">&lt;strong&gt;</bpt>Google Play Services<ept id="4921f50f-f1ea-4851-bfd3-5b69fb46e431">&lt;/strong&gt;</ept>, as shown below.</source>
+          <target state="new">Scroll down to <bpt id="5e35d6a0-a029-4942-b7f4-3ec5333d30db">&lt;strong&gt;</bpt>Extras<ept id="5e35d6a0-a029-4942-b7f4-3ec5333d30db">&lt;/strong&gt;</ept>, expand it, and choose <bpt id="4921f50f-f1ea-4851-bfd3-5b69fb46e431">&lt;strong&gt;</bpt>Google Play Services<ept id="4921f50f-f1ea-4851-bfd3-5b69fb46e431">&lt;/strong&gt;</ept>, as shown below.</target>
+        </trans-unit>
+        <trans-unit id="2c8873e7-24dd-45de-9e01-1f1d6c11eb39" xml:space="preserve">
+          <source>Click <bpt id="09240412-96a4-4694-a2f9-f7122f489feb">&lt;strong&gt;</bpt>Install Packages<ept id="09240412-96a4-4694-a2f9-f7122f489feb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="09240412-96a4-4694-a2f9-f7122f489feb">&lt;strong&gt;</bpt>Install Packages<ept id="09240412-96a4-4694-a2f9-f7122f489feb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec3c9361-72fc-4947-a8b1-2d9ddbbc0b9c" xml:space="preserve">
+          <source>Note the SDK path, for use in the following step.</source>
+          <target state="new">Note the SDK path, for use in the following step.</target>
+        </trans-unit>
+        <trans-unit id="dc715e74-f238-4b83-a9ab-7189d5dffe60" xml:space="preserve">
+          <source><bpt id="440ff328-867b-425e-a5a8-09e16947fddd">&lt;linkText&gt;</bpt><ept id="440ff328-867b-425e-a5a8-09e16947fddd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="440ff328-867b-425e-a5a8-09e16947fddd">&lt;linkText&gt;</bpt><ept id="440ff328-867b-425e-a5a8-09e16947fddd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9956be8-e0f7-4d18-8d9e-8106f8979b6c" xml:space="preserve">
+          <source>Open the <bpt id="7b3cc928-8bf8-4e22-8c79-7149e5660585">&lt;strong&gt;</bpt>build.gradle<ept id="7b3cc928-8bf8-4e22-8c79-7149e5660585">&lt;/strong&gt;</ept> file in the app directory.</source>
+          <target state="new">Open the <bpt id="7b3cc928-8bf8-4e22-8c79-7149e5660585">&lt;strong&gt;</bpt>build.gradle<ept id="7b3cc928-8bf8-4e22-8c79-7149e5660585">&lt;/strong&gt;</ept> file in the app directory.</target>
+        </trans-unit>
+        <trans-unit id="0237100b-ba54-4cf0-9d84-4b9adbde5919" xml:space="preserve">
+          <source><bpt id="b8b2709e-1a76-4112-959f-28aa13667034">&lt;linkText&gt;</bpt><ept id="b8b2709e-1a76-4112-959f-28aa13667034">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8b2709e-1a76-4112-959f-28aa13667034">&lt;linkText&gt;</bpt><ept id="b8b2709e-1a76-4112-959f-28aa13667034">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d482ca08-f416-4252-9cac-dea968b30a75" xml:space="preserve">
+          <source>Add this line under <bpt id="aa2d86f9-2fb7-4305-9ed9-618e25bafbeb">&lt;em&gt;</bpt>dependencies<ept id="aa2d86f9-2fb7-4305-9ed9-618e25bafbeb">&lt;/em&gt;</ept>: </source>
+          <target state="new">Add this line under <bpt id="aa2d86f9-2fb7-4305-9ed9-618e25bafbeb">&lt;em&gt;</bpt>dependencies<ept id="aa2d86f9-2fb7-4305-9ed9-618e25bafbeb">&lt;/em&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="2d8b645f-2598-496a-8cdf-7efc18011159" xml:space="preserve">
+          <source>Under <bpt id="8b42f4c9-f277-433b-9571-0b04dcbe2fb9">&lt;em&gt;</bpt>defaultConfig<ept id="8b42f4c9-f277-433b-9571-0b04dcbe2fb9">&lt;/em&gt;</ept>, change <bpt id="841318ec-732f-4384-b3b3-f241424d005d">&lt;em&gt;</bpt>minSdkVersion<ept id="841318ec-732f-4384-b3b3-f241424d005d">&lt;/em&gt;</ept> to 9.</source>
+          <target state="new">Under <bpt id="8b42f4c9-f277-433b-9571-0b04dcbe2fb9">&lt;em&gt;</bpt>defaultConfig<ept id="8b42f4c9-f277-433b-9571-0b04dcbe2fb9">&lt;/em&gt;</ept>, change <bpt id="841318ec-732f-4384-b3b3-f241424d005d">&lt;em&gt;</bpt>minSdkVersion<ept id="841318ec-732f-4384-b3b3-f241424d005d">&lt;/em&gt;</ept> to 9.</target>
+        </trans-unit>
+        <trans-unit id="b742b96b-1c16-42d3-991f-acfc4653672d" xml:space="preserve">
+          <source>Click the <bpt id="dfaf2056-b174-4bc4-a005-790f7f3b0b1d">&lt;strong&gt;</bpt>Sync Project with Gradle Files<ept id="dfaf2056-b174-4bc4-a005-790f7f3b0b1d">&lt;/strong&gt;</ept> icon in the tool bar.</source>
+          <target state="new">Click the <bpt id="dfaf2056-b174-4bc4-a005-790f7f3b0b1d">&lt;strong&gt;</bpt>Sync Project with Gradle Files<ept id="dfaf2056-b174-4bc4-a005-790f7f3b0b1d">&lt;/strong&gt;</ept> icon in the tool bar.</target>
+        </trans-unit>
+        <trans-unit id="e8208b63-fee6-4a50-9f3e-54e0ff13beda" xml:space="preserve">
+          <source>Open <bpt id="b7983346-5957-4e2e-8c7a-ce81a72920a0">&lt;strong&gt;</bpt>AndroidManifest.xml<ept id="b7983346-5957-4e2e-8c7a-ce81a72920a0">&lt;/strong&gt;</ept> and add this tag to the <bpt id="d30fbfc7-80ff-46f2-95b1-ff37a4212c42">&lt;em&gt;</bpt>application<ept id="d30fbfc7-80ff-46f2-95b1-ff37a4212c42">&lt;/em&gt;</ept> tag.</source>
+          <target state="new">Open <bpt id="b7983346-5957-4e2e-8c7a-ce81a72920a0">&lt;strong&gt;</bpt>AndroidManifest.xml<ept id="b7983346-5957-4e2e-8c7a-ce81a72920a0">&lt;/strong&gt;</ept> and add this tag to the <bpt id="d30fbfc7-80ff-46f2-95b1-ff37a4212c42">&lt;em&gt;</bpt>application<ept id="d30fbfc7-80ff-46f2-95b1-ff37a4212c42">&lt;/em&gt;</ept> tag.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

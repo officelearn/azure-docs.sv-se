@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="536a9d35-6925-42fb-a7a6-a8654975e1c3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="536a9d35-6925-42fb-a7a6-a8654975e1c3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3bc60d6b-5ad5-4863-8cf3-3ca1f5552fe5">
+        <trans-unit id="830fea1c-7774-4a15-b6f9-c73dfcf81798" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Spring CM | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Spring CM | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="94b0e855-3223-4de2-b73e-4a69c75d5f39" xml:space="preserve">
+          <source>Learn how to use Spring CM with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Spring CM with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="a6716939-b3c0-4821-8bd2-2c9338700a5e" xml:space="preserve">
+          <source>For feedback, click <bpt id="9e9f8091-c606-408d-aa20-8f679f72b3df">&lt;linkText&gt;</bpt>here<ept id="9e9f8091-c606-408d-aa20-8f679f72b3df">&lt;/linkText&gt;</ept><bpt id="9e9f8091-c606-408d-aa20-8f679f72b3df">&lt;title&gt;</bpt><ept id="9e9f8091-c606-408d-aa20-8f679f72b3df">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="9e9f8091-c606-408d-aa20-8f679f72b3df">&lt;linkText&gt;</bpt>here<ept id="9e9f8091-c606-408d-aa20-8f679f72b3df">&lt;/linkText&gt;</ept><bpt id="9e9f8091-c606-408d-aa20-8f679f72b3df">&lt;title&gt;</bpt><ept id="9e9f8091-c606-408d-aa20-8f679f72b3df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb745418-6cad-4e20-b106-ba4599a0628d" xml:space="preserve">
+          <source>The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory and SpringCM.</source>
+          <target state="new">The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory and SpringCM.</target>
+        </trans-unit>
+        <trans-unit id="3c618dd0-896e-498e-8f14-b8d11364b0e6" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="f8691271-5ef8-41c2-93c2-47b4e6d1c3be" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="3729e9ac-b81b-451a-b049-bc1f0c2492e1" xml:space="preserve">
+          <source>A SpringCM single sign-on enabled subscription</source>
+          <target state="new">A SpringCM single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="ac429026-4252-4326-9cbd-c0661bbf7ffc" xml:space="preserve">
+          <source>After completing this tutorial, the Azure Active Directory users you have assigned to SpringCM will be able to single sign-on using the AAD Access Panel.</source>
+          <target state="new">After completing this tutorial, the Azure Active Directory users you have assigned to SpringCM will be able to single sign-on using the AAD Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="b0e79991-7cb2-4b22-9a0a-af9b0aa089de" xml:space="preserve">
+          <source>Enabling the application integration for SpringCM</source>
+          <target state="new">Enabling the application integration for SpringCM</target>
+        </trans-unit>
+        <trans-unit id="7eecbde0-c71d-4473-b3fe-2f950906e785" xml:space="preserve">
+          <source>Configuring Single Sign-On</source>
+          <target state="new">Configuring Single Sign-On</target>
+        </trans-unit>
+        <trans-unit id="0c82a84d-5123-41a5-a700-31ae35373f5d" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="0a0df9f0-eb98-4c9a-82cb-9ccbe05bfced" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="e8162c64-5359-4ce7-ab07-6632da394ef0" xml:space="preserve">
+          <source><bpt id="b8f1b95c-f55d-4811-8dca-bb131bf7c3e7">&lt;linkText&gt;</bpt>Scenario<ept id="b8f1b95c-f55d-4811-8dca-bb131bf7c3e7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8f1b95c-f55d-4811-8dca-bb131bf7c3e7">&lt;linkText&gt;</bpt>Scenario<ept id="b8f1b95c-f55d-4811-8dca-bb131bf7c3e7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d295d3d-b9a1-4df9-81a5-0830210c4afb" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for SpringCM.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for SpringCM.</target>
+        </trans-unit>
+        <trans-unit id="84325d06-f7bc-42ee-8b79-1cf4b3394e31" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="bc180565-3e46-4f07-afb2-e644854c422b">&lt;strong&gt;</bpt>Active Directory<ept id="bc180565-3e46-4f07-afb2-e644854c422b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="bc180565-3e46-4f07-afb2-e644854c422b">&lt;strong&gt;</bpt>Active Directory<ept id="bc180565-3e46-4f07-afb2-e644854c422b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11c7f632-496e-4b14-9c1f-64daf2dbd2c9" xml:space="preserve">
+          <source><bpt id="bffc6669-be6b-4ea8-9049-fbdf8930af59">&lt;linkText&gt;</bpt>Active Directory<ept id="bffc6669-be6b-4ea8-9049-fbdf8930af59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bffc6669-be6b-4ea8-9049-fbdf8930af59">&lt;linkText&gt;</bpt>Active Directory<ept id="bffc6669-be6b-4ea8-9049-fbdf8930af59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92ba80b0-e75c-432c-b3aa-4470a2189aae" xml:space="preserve">
+          <source>From the <bpt id="ae2bdcda-f0d6-4d37-a928-457d4cc27044">&lt;strong&gt;</bpt>Directory<ept id="ae2bdcda-f0d6-4d37-a928-457d4cc27044">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="ae2bdcda-f0d6-4d37-a928-457d4cc27044">&lt;strong&gt;</bpt>Directory<ept id="ae2bdcda-f0d6-4d37-a928-457d4cc27044">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="7341ab48-962a-4f37-9995-97e9c87ed545" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="72ab6eba-150e-4720-a3e8-7b30094d3722">&lt;strong&gt;</bpt>Applications<ept id="72ab6eba-150e-4720-a3e8-7b30094d3722">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="72ab6eba-150e-4720-a3e8-7b30094d3722">&lt;strong&gt;</bpt>Applications<ept id="72ab6eba-150e-4720-a3e8-7b30094d3722">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="2be40f41-c701-43fc-9398-8519273054e4" xml:space="preserve">
+          <source><bpt id="4d9922ee-3777-436f-afd5-2a9196dc772f">&lt;linkText&gt;</bpt>Applications<ept id="4d9922ee-3777-436f-afd5-2a9196dc772f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d9922ee-3777-436f-afd5-2a9196dc772f">&lt;linkText&gt;</bpt>Applications<ept id="4d9922ee-3777-436f-afd5-2a9196dc772f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35f9206f-6b04-4ec8-b48a-88680de7d2dd" xml:space="preserve">
+          <source>Click <bpt id="f28197b1-cbee-401e-b051-59725c32fc41">&lt;strong&gt;</bpt>Add<ept id="f28197b1-cbee-401e-b051-59725c32fc41">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="f28197b1-cbee-401e-b051-59725c32fc41">&lt;strong&gt;</bpt>Add<ept id="f28197b1-cbee-401e-b051-59725c32fc41">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="2423976c-a16c-48ad-92e7-981b9a28d2ac" xml:space="preserve">
+          <source><bpt id="0c616989-d09d-4248-a9fb-4a23d2c0f936">&lt;linkText&gt;</bpt>Add application<ept id="0c616989-d09d-4248-a9fb-4a23d2c0f936">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c616989-d09d-4248-a9fb-4a23d2c0f936">&lt;linkText&gt;</bpt>Add application<ept id="0c616989-d09d-4248-a9fb-4a23d2c0f936">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="288be47a-e375-4083-9024-2256d8a8d082" xml:space="preserve">
+          <source>On the <bpt id="76c7d40e-cfad-4051-b2dc-2a69fbacddd6">&lt;strong&gt;</bpt>What do you want to do<ept id="76c7d40e-cfad-4051-b2dc-2a69fbacddd6">&lt;/strong&gt;</ept> dialog, click <bpt id="43cdd089-ba04-41ee-b3da-ce07e53a90bc">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="43cdd089-ba04-41ee-b3da-ce07e53a90bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="76c7d40e-cfad-4051-b2dc-2a69fbacddd6">&lt;strong&gt;</bpt>What do you want to do<ept id="76c7d40e-cfad-4051-b2dc-2a69fbacddd6">&lt;/strong&gt;</ept> dialog, click <bpt id="43cdd089-ba04-41ee-b3da-ce07e53a90bc">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="43cdd089-ba04-41ee-b3da-ce07e53a90bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a488e3fb-570c-4a06-a8d2-9b25485df829" xml:space="preserve">
+          <source><bpt id="2ade29ce-5509-481b-853a-a641e8e0efb6">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="2ade29ce-5509-481b-853a-a641e8e0efb6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ade29ce-5509-481b-853a-a641e8e0efb6">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="2ade29ce-5509-481b-853a-a641e8e0efb6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d26953e-4eb6-4486-9e75-a2f7a71fefa2" xml:space="preserve">
+          <source>In the <bpt id="4f6ae4ae-7ea8-4681-8ab8-fe9fa071357a">&lt;strong&gt;</bpt>search box<ept id="4f6ae4ae-7ea8-4681-8ab8-fe9fa071357a">&lt;/strong&gt;</ept>, type <bpt id="d08a17c7-0af9-4d16-8404-a0b75b35f271">&lt;strong&gt;</bpt>SpringCM<ept id="d08a17c7-0af9-4d16-8404-a0b75b35f271">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4f6ae4ae-7ea8-4681-8ab8-fe9fa071357a">&lt;strong&gt;</bpt>search box<ept id="4f6ae4ae-7ea8-4681-8ab8-fe9fa071357a">&lt;/strong&gt;</ept>, type <bpt id="d08a17c7-0af9-4d16-8404-a0b75b35f271">&lt;strong&gt;</bpt>SpringCM<ept id="d08a17c7-0af9-4d16-8404-a0b75b35f271">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46e1884d-b316-4488-ba6b-23d02518404d" xml:space="preserve">
+          <source><bpt id="3fd8e586-0f87-4c3e-8d94-0a1f60a1c00e">&lt;linkText&gt;</bpt>Application Gallery<ept id="3fd8e586-0f87-4c3e-8d94-0a1f60a1c00e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3fd8e586-0f87-4c3e-8d94-0a1f60a1c00e">&lt;linkText&gt;</bpt>Application Gallery<ept id="3fd8e586-0f87-4c3e-8d94-0a1f60a1c00e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01a49171-bc65-44fb-93b2-fa9a3d8a6e75" xml:space="preserve">
+          <source>In the results pane, select <bpt id="99fc82ad-edfa-44bb-bee3-a204d5028a67">&lt;strong&gt;</bpt>SpringCM<ept id="99fc82ad-edfa-44bb-bee3-a204d5028a67">&lt;/strong&gt;</ept>, and then click <bpt id="84aecb1e-9f98-4a59-b7b6-1fdeeaf3e0ee">&lt;strong&gt;</bpt>Complete<ept id="84aecb1e-9f98-4a59-b7b6-1fdeeaf3e0ee">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="99fc82ad-edfa-44bb-bee3-a204d5028a67">&lt;strong&gt;</bpt>SpringCM<ept id="99fc82ad-edfa-44bb-bee3-a204d5028a67">&lt;/strong&gt;</ept>, and then click <bpt id="84aecb1e-9f98-4a59-b7b6-1fdeeaf3e0ee">&lt;strong&gt;</bpt>Complete<ept id="84aecb1e-9f98-4a59-b7b6-1fdeeaf3e0ee">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="231f8523-50e0-414a-9afe-e06a394d40a8" xml:space="preserve">
+          <source><bpt id="fc3f42e6-f344-4784-a75b-1092112abea4">&lt;linkText&gt;</bpt>SpringCM<ept id="fc3f42e6-f344-4784-a75b-1092112abea4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fc3f42e6-f344-4784-a75b-1092112abea4">&lt;linkText&gt;</bpt>SpringCM<ept id="fc3f42e6-f344-4784-a75b-1092112abea4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="511040ba-9af1-4085-b648-86175d65e0fc" xml:space="preserve">
+          <source>This section outlines how to enable users to authenticate to SpringCM with their account in Azure Active Directory, using federation based on the SAML protocol.</source>
+          <target state="new">This section outlines how to enable users to authenticate to SpringCM with their account in Azure Active Directory, using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="ee0ae7cd-07c6-4023-838f-d5e3eb60b973" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="9b00a958-df9c-498c-8539-b36d9b4e30cc">&lt;strong&gt;</bpt>SpringCM<ept id="9b00a958-df9c-498c-8539-b36d9b4e30cc">&lt;/strong&gt;</ept> application integration page, click <bpt id="fbc1adb5-7d01-4a02-90aa-0558198f75ef">&lt;strong&gt;</bpt>Configure single sign-on<ept id="fbc1adb5-7d01-4a02-90aa-0558198f75ef">&lt;/strong&gt;</ept> to open the <bpt id="c3c0da57-d017-40c7-b4c9-dd407a33fd72">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="c3c0da57-d017-40c7-b4c9-dd407a33fd72">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="9b00a958-df9c-498c-8539-b36d9b4e30cc">&lt;strong&gt;</bpt>SpringCM<ept id="9b00a958-df9c-498c-8539-b36d9b4e30cc">&lt;/strong&gt;</ept> application integration page, click <bpt id="fbc1adb5-7d01-4a02-90aa-0558198f75ef">&lt;strong&gt;</bpt>Configure single sign-on<ept id="fbc1adb5-7d01-4a02-90aa-0558198f75ef">&lt;/strong&gt;</ept> to open the <bpt id="c3c0da57-d017-40c7-b4c9-dd407a33fd72">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="c3c0da57-d017-40c7-b4c9-dd407a33fd72">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="8faa38b7-3f9b-4fec-a788-663e676c9d4d" xml:space="preserve">
+          <source><bpt id="ffe36c43-0998-488c-ad4d-f38ae2e6ddd3">&lt;linkText&gt;</bpt>Configure single Sign-On<ept id="ffe36c43-0998-488c-ad4d-f38ae2e6ddd3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ffe36c43-0998-488c-ad4d-f38ae2e6ddd3">&lt;linkText&gt;</bpt>Configure single Sign-On<ept id="ffe36c43-0998-488c-ad4d-f38ae2e6ddd3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="315ac3b1-9e5c-4578-832e-f2b1ce0117f9" xml:space="preserve">
+          <source>On the <bpt id="e562d6a9-1d9a-44e4-afbf-827bdc105ff6">&lt;strong&gt;</bpt>How would you like users to sign on to SpringCM<ept id="e562d6a9-1d9a-44e4-afbf-827bdc105ff6">&lt;/strong&gt;</ept> page, select <bpt id="c2499991-74e8-4705-85ee-965e01f1d031">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="c2499991-74e8-4705-85ee-965e01f1d031">&lt;/strong&gt;</ept>, and then click <bpt id="2fcd8080-b641-46f1-8498-7c3839c00641">&lt;strong&gt;</bpt>Next<ept id="2fcd8080-b641-46f1-8498-7c3839c00641">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e562d6a9-1d9a-44e4-afbf-827bdc105ff6">&lt;strong&gt;</bpt>How would you like users to sign on to SpringCM<ept id="e562d6a9-1d9a-44e4-afbf-827bdc105ff6">&lt;/strong&gt;</ept> page, select <bpt id="c2499991-74e8-4705-85ee-965e01f1d031">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="c2499991-74e8-4705-85ee-965e01f1d031">&lt;/strong&gt;</ept>, and then click <bpt id="2fcd8080-b641-46f1-8498-7c3839c00641">&lt;strong&gt;</bpt>Next<ept id="2fcd8080-b641-46f1-8498-7c3839c00641">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e59a60f0-8bb3-41d6-90c9-6cb998818083" xml:space="preserve">
+          <source><bpt id="88526d28-afc9-4fca-84c4-0d7c2ec79097">&lt;linkText&gt;</bpt>Configure single Sign-On<ept id="88526d28-afc9-4fca-84c4-0d7c2ec79097">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="88526d28-afc9-4fca-84c4-0d7c2ec79097">&lt;linkText&gt;</bpt>Configure single Sign-On<ept id="88526d28-afc9-4fca-84c4-0d7c2ec79097">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2134ef9-f001-41b7-8eed-d81de486ccc9" xml:space="preserve">
+          <source>On the <bpt id="2445e60e-10f7-4c0c-8317-aeb6827811eb">&lt;strong&gt;</bpt>Configure App URL<ept id="2445e60e-10f7-4c0c-8317-aeb6827811eb">&lt;/strong&gt;</ept> page, in the <bpt id="5d716455-734d-4698-9808-0f5f96da299e">&lt;strong&gt;</bpt>SpringCM Sign On URL<ept id="5d716455-734d-4698-9808-0f5f96da299e">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to your SpringCM application, and then click <bpt id="1cdd9c30-8d9c-4221-bc84-ae021ee1189d">&lt;strong&gt;</bpt>Next<ept id="1cdd9c30-8d9c-4221-bc84-ae021ee1189d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="2445e60e-10f7-4c0c-8317-aeb6827811eb">&lt;strong&gt;</bpt>Configure App URL<ept id="2445e60e-10f7-4c0c-8317-aeb6827811eb">&lt;/strong&gt;</ept> page, in the <bpt id="5d716455-734d-4698-9808-0f5f96da299e">&lt;strong&gt;</bpt>SpringCM Sign On URL<ept id="5d716455-734d-4698-9808-0f5f96da299e">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to your SpringCM application, and then click <bpt id="1cdd9c30-8d9c-4221-bc84-ae021ee1189d">&lt;strong&gt;</bpt>Next<ept id="1cdd9c30-8d9c-4221-bc84-ae021ee1189d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b26bdc5e-80fa-4d93-8d35-827ad3418545" xml:space="preserve">
+          <source>The app URL is your SpringCM tenant URL (e.g.: <bpt id="1d1b1b6c-b664-46f6-99cd-7c6339d4b474">&lt;em&gt;</bpt>https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=16826<ept id="1d1b1b6c-b664-46f6-99cd-7c6339d4b474">&lt;/em&gt;</ept>):</source>
+          <target state="new">The app URL is your SpringCM tenant URL (e.g.: <bpt id="1d1b1b6c-b664-46f6-99cd-7c6339d4b474">&lt;em&gt;</bpt>https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=16826<ept id="1d1b1b6c-b664-46f6-99cd-7c6339d4b474">&lt;/em&gt;</ept>):</target>
+        </trans-unit>
+        <trans-unit id="2f11b0ec-0991-4098-861d-1e45968f151d" xml:space="preserve">
+          <source><bpt id="e9fc4856-3b9e-4330-ac95-b456ce17c946">&lt;linkText&gt;</bpt>Configure App URL<ept id="e9fc4856-3b9e-4330-ac95-b456ce17c946">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e9fc4856-3b9e-4330-ac95-b456ce17c946">&lt;linkText&gt;</bpt>Configure App URL<ept id="e9fc4856-3b9e-4330-ac95-b456ce17c946">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3cecc12c-51f6-42f0-918b-4383eac82525" xml:space="preserve">
+          <source>On the <bpt id="b0c5d561-cd17-4bef-bbed-29d4fdbc5449">&lt;strong&gt;</bpt>Configure single sign-on at SpringCM<ept id="b0c5d561-cd17-4bef-bbed-29d4fdbc5449">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="8288a7a6-5982-4ebe-8d75-762f65f7b178">&lt;strong&gt;</bpt>Download certificate<ept id="8288a7a6-5982-4ebe-8d75-762f65f7b178">&lt;/strong&gt;</ept>, and then save the certificate file locally to your computer.</source>
+          <target state="new">On the <bpt id="b0c5d561-cd17-4bef-bbed-29d4fdbc5449">&lt;strong&gt;</bpt>Configure single sign-on at SpringCM<ept id="b0c5d561-cd17-4bef-bbed-29d4fdbc5449">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="8288a7a6-5982-4ebe-8d75-762f65f7b178">&lt;strong&gt;</bpt>Download certificate<ept id="8288a7a6-5982-4ebe-8d75-762f65f7b178">&lt;/strong&gt;</ept>, and then save the certificate file locally to your computer.</target>
+        </trans-unit>
+        <trans-unit id="301c447b-64ab-4437-a949-161415449eb8" xml:space="preserve">
+          <source><bpt id="e5b93492-3671-4031-b60c-d67bd8870cec">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="e5b93492-3671-4031-b60c-d67bd8870cec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e5b93492-3671-4031-b60c-d67bd8870cec">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="e5b93492-3671-4031-b60c-d67bd8870cec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7f2d18c-201b-400f-8187-540513fecad3" xml:space="preserve">
+          <source>In a different web browser window, sign on to your <bpt id="d8e3e811-3bd9-46d1-b3fb-e949f1bd632b">&lt;strong&gt;</bpt>SpringCM<ept id="d8e3e811-3bd9-46d1-b3fb-e949f1bd632b">&lt;/strong&gt;</ept> company site as administrator.</source>
+          <target state="new">In a different web browser window, sign on to your <bpt id="d8e3e811-3bd9-46d1-b3fb-e949f1bd632b">&lt;strong&gt;</bpt>SpringCM<ept id="d8e3e811-3bd9-46d1-b3fb-e949f1bd632b">&lt;/strong&gt;</ept> company site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="bb0c0e0c-fa36-48bb-87e2-0d6dc7390c30" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="9e7446a4-5e00-4b6c-ad4d-a6472a86ef66">&lt;strong&gt;</bpt>GO TO<ept id="9e7446a4-5e00-4b6c-ad4d-a6472a86ef66">&lt;/strong&gt;</ept>, click <bpt id="63e49c38-7e7c-4d68-bfc3-6f766c7a0ff1">&lt;strong&gt;</bpt>Preferences<ept id="63e49c38-7e7c-4d68-bfc3-6f766c7a0ff1">&lt;/strong&gt;</ept>, and then, in the <bpt id="53b25fa9-5c9a-4521-b2ff-0d41c1b53909">&lt;strong&gt;</bpt>Account Preferences<ept id="53b25fa9-5c9a-4521-b2ff-0d41c1b53909">&lt;/strong&gt;</ept> section, click <bpt id="eed57af0-9684-4d34-9176-b00009568741">&lt;strong&gt;</bpt>SAML SSO<ept id="eed57af0-9684-4d34-9176-b00009568741">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="9e7446a4-5e00-4b6c-ad4d-a6472a86ef66">&lt;strong&gt;</bpt>GO TO<ept id="9e7446a4-5e00-4b6c-ad4d-a6472a86ef66">&lt;/strong&gt;</ept>, click <bpt id="63e49c38-7e7c-4d68-bfc3-6f766c7a0ff1">&lt;strong&gt;</bpt>Preferences<ept id="63e49c38-7e7c-4d68-bfc3-6f766c7a0ff1">&lt;/strong&gt;</ept>, and then, in the <bpt id="53b25fa9-5c9a-4521-b2ff-0d41c1b53909">&lt;strong&gt;</bpt>Account Preferences<ept id="53b25fa9-5c9a-4521-b2ff-0d41c1b53909">&lt;/strong&gt;</ept> section, click <bpt id="eed57af0-9684-4d34-9176-b00009568741">&lt;strong&gt;</bpt>SAML SSO<ept id="eed57af0-9684-4d34-9176-b00009568741">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16aa3daa-f595-4887-8d6b-a1c47236fd6f" xml:space="preserve">
+          <source><bpt id="cc0f2170-520e-4709-b3d9-a26336c0dd97">&lt;linkText&gt;</bpt>SAML SSO<ept id="cc0f2170-520e-4709-b3d9-a26336c0dd97">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cc0f2170-520e-4709-b3d9-a26336c0dd97">&lt;linkText&gt;</bpt>SAML SSO<ept id="cc0f2170-520e-4709-b3d9-a26336c0dd97">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e57ff23d-10cc-4d01-b740-474af92b249c" xml:space="preserve">
+          <source>In the Identity Provider Configuration section, perform the following steps:</source>
+          <target state="new">In the Identity Provider Configuration section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="3bcc5176-706a-4000-ba0c-2e7e1443eef2" xml:space="preserve">
+          <source><bpt id="ff2016d4-e2e5-4657-8c09-3cf7887279c6">&lt;linkText&gt;</bpt>Identity Provider Configuration<ept id="ff2016d4-e2e5-4657-8c09-3cf7887279c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff2016d4-e2e5-4657-8c09-3cf7887279c6">&lt;linkText&gt;</bpt>Identity Provider Configuration<ept id="ff2016d4-e2e5-4657-8c09-3cf7887279c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76e57325-8a85-438b-b763-63785867523f" xml:space="preserve">
+          <source>To upload your downloaded Azure Active Directory certificate, click <bpt id="c59c6d06-6b93-4fe8-8f52-ef819a61ee09">&lt;strong&gt;</bpt>Select Issuer Certificate<ept id="c59c6d06-6b93-4fe8-8f52-ef819a61ee09">&lt;/strong&gt;</ept> or <bpt id="200e20a5-1738-4435-992a-33b4d0fb5bd5">&lt;strong&gt;</bpt>Change Issuer Certificate<ept id="200e20a5-1738-4435-992a-33b4d0fb5bd5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To upload your downloaded Azure Active Directory certificate, click <bpt id="c59c6d06-6b93-4fe8-8f52-ef819a61ee09">&lt;strong&gt;</bpt>Select Issuer Certificate<ept id="c59c6d06-6b93-4fe8-8f52-ef819a61ee09">&lt;/strong&gt;</ept> or <bpt id="200e20a5-1738-4435-992a-33b4d0fb5bd5">&lt;strong&gt;</bpt>Change Issuer Certificate<ept id="200e20a5-1738-4435-992a-33b4d0fb5bd5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73f38834-13a3-4196-a445-cfab8e6bfe1a" xml:space="preserve">
+          <source>In the Microsoft Azure portal, on the <bpt id="966b3f14-7599-4b1d-8c7d-e025770ae1e9">&lt;strong&gt;</bpt>Configure single sign-on at SpringCM<ept id="966b3f14-7599-4b1d-8c7d-e025770ae1e9">&lt;/strong&gt;</ept> page, copy the <bpt id="68d3a811-ccaa-4ae3-9d5c-01053fb1d807">&lt;strong&gt;</bpt>Issuer URL<ept id="68d3a811-ccaa-4ae3-9d5c-01053fb1d807">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="013c80d6-37be-4310-b7f6-5a91c684cdfb">&lt;strong&gt;</bpt>Issuer<ept id="013c80d6-37be-4310-b7f6-5a91c684cdfb">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Microsoft Azure portal, on the <bpt id="966b3f14-7599-4b1d-8c7d-e025770ae1e9">&lt;strong&gt;</bpt>Configure single sign-on at SpringCM<ept id="966b3f14-7599-4b1d-8c7d-e025770ae1e9">&lt;/strong&gt;</ept> page, copy the <bpt id="68d3a811-ccaa-4ae3-9d5c-01053fb1d807">&lt;strong&gt;</bpt>Issuer URL<ept id="68d3a811-ccaa-4ae3-9d5c-01053fb1d807">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="013c80d6-37be-4310-b7f6-5a91c684cdfb">&lt;strong&gt;</bpt>Issuer<ept id="013c80d6-37be-4310-b7f6-5a91c684cdfb">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="94ca46e5-725a-4555-88ce-14a835f2e1dd" xml:space="preserve">
+          <source>In the Microsoft Azure portal, on the <bpt id="f75c59cd-b29a-4aab-aea6-b20c129e96b6">&lt;strong&gt;</bpt>Configure single sign-on at SpringCM<ept id="f75c59cd-b29a-4aab-aea6-b20c129e96b6">&lt;/strong&gt;</ept> page, copy the <bpt id="352f5e1d-2fa8-4ab8-a660-1d345a6919c7">&lt;strong&gt;</bpt>Singel Sign-On Service URL<ept id="352f5e1d-2fa8-4ab8-a660-1d345a6919c7">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="451d6c07-7650-499c-bb89-d6233337c595">&lt;strong&gt;</bpt>Service Provider (SP) Initiated Endpoint<ept id="451d6c07-7650-499c-bb89-d6233337c595">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Microsoft Azure portal, on the <bpt id="f75c59cd-b29a-4aab-aea6-b20c129e96b6">&lt;strong&gt;</bpt>Configure single sign-on at SpringCM<ept id="f75c59cd-b29a-4aab-aea6-b20c129e96b6">&lt;/strong&gt;</ept> page, copy the <bpt id="352f5e1d-2fa8-4ab8-a660-1d345a6919c7">&lt;strong&gt;</bpt>Singel Sign-On Service URL<ept id="352f5e1d-2fa8-4ab8-a660-1d345a6919c7">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="451d6c07-7650-499c-bb89-d6233337c595">&lt;strong&gt;</bpt>Service Provider (SP) Initiated Endpoint<ept id="451d6c07-7650-499c-bb89-d6233337c595">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="f0937dc4-f79b-4b4d-94f4-c2a691358c75" xml:space="preserve">
+          <source>As <bpt id="d02a21fa-1a73-412b-b5a2-f256c9da3e07">&lt;strong&gt;</bpt>SAML Enabled<ept id="d02a21fa-1a73-412b-b5a2-f256c9da3e07">&lt;/strong&gt;</ept>, select <bpt id="dc470c31-2a4b-435d-b9bf-2156b93cb2d0">&lt;strong&gt;</bpt>Enable<ept id="dc470c31-2a4b-435d-b9bf-2156b93cb2d0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="d02a21fa-1a73-412b-b5a2-f256c9da3e07">&lt;strong&gt;</bpt>SAML Enabled<ept id="d02a21fa-1a73-412b-b5a2-f256c9da3e07">&lt;/strong&gt;</ept>, select <bpt id="dc470c31-2a4b-435d-b9bf-2156b93cb2d0">&lt;strong&gt;</bpt>Enable<ept id="dc470c31-2a4b-435d-b9bf-2156b93cb2d0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86416a43-1d4b-4a8a-8d8f-045d8ed5ff49" xml:space="preserve">
+          <source>Click <bpt id="e37fdec2-3cd1-43b9-ba69-848716267a68">&lt;strong&gt;</bpt>Save<ept id="e37fdec2-3cd1-43b9-ba69-848716267a68">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e37fdec2-3cd1-43b9-ba69-848716267a68">&lt;strong&gt;</bpt>Save<ept id="e37fdec2-3cd1-43b9-ba69-848716267a68">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="755f3ad8-1c07-4a76-aec6-aa5896af3bd0" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="d1d6f1b7-7b27-4240-81ba-c5852288a7fb">&lt;strong&gt;</bpt>Complete<ept id="d1d6f1b7-7b27-4240-81ba-c5852288a7fb">&lt;/strong&gt;</ept> to close the <bpt id="78c19ccf-f985-4e42-abe6-40aec01cc3a6">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="78c19ccf-f985-4e42-abe6-40aec01cc3a6">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="d1d6f1b7-7b27-4240-81ba-c5852288a7fb">&lt;strong&gt;</bpt>Complete<ept id="d1d6f1b7-7b27-4240-81ba-c5852288a7fb">&lt;/strong&gt;</ept> to close the <bpt id="78c19ccf-f985-4e42-abe6-40aec01cc3a6">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="78c19ccf-f985-4e42-abe6-40aec01cc3a6">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="0dfa9da4-38cb-481d-af34-bd1a785a9547" xml:space="preserve">
+          <source><bpt id="1d996d3c-51da-49f6-979a-aa22ee9417d8">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="1d996d3c-51da-49f6-979a-aa22ee9417d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1d996d3c-51da-49f6-979a-aa22ee9417d8">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="1d996d3c-51da-49f6-979a-aa22ee9417d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94de3497-38e6-4bfe-9db3-797f6af54449" xml:space="preserve">
+          <source>In order to enable Azure Active Directory users to log into SpringCM, they must be provisioned into SpringCM.</source>
+          <target state="new">In order to enable Azure Active Directory users to log into SpringCM, they must be provisioned into SpringCM.</target>
+        </trans-unit>
+        <trans-unit id="8415bb7f-7a18-4a13-839a-d51cb1004ee1" xml:space="preserve">
+          <source>In the case of SpringCM, provisioning is a manual task.</source>
+          <target state="new">In the case of SpringCM, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="bbbcf854-fd97-4c02-810e-f3e8fad263db" xml:space="preserve">
+          <source>For more details, see <bpt id="d230089f-9ddb-4e92-acae-ef4db32e3545">&lt;linkText&gt;</bpt>Create and Edit a SpringCM User<ept id="d230089f-9ddb-4e92-acae-ef4db32e3545">&lt;/linkText&gt;</ept><bpt id="d230089f-9ddb-4e92-acae-ef4db32e3545">&lt;title&gt;</bpt><ept id="d230089f-9ddb-4e92-acae-ef4db32e3545">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="d230089f-9ddb-4e92-acae-ef4db32e3545">&lt;linkText&gt;</bpt>Create and Edit a SpringCM User<ept id="d230089f-9ddb-4e92-acae-ef4db32e3545">&lt;/linkText&gt;</ept><bpt id="d230089f-9ddb-4e92-acae-ef4db32e3545">&lt;title&gt;</bpt><ept id="d230089f-9ddb-4e92-acae-ef4db32e3545">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c513375d-8d22-4663-bb66-a6cfefee10c0" xml:space="preserve">
+          <source>Log in to your <bpt id="0d0f2760-8c75-4e0f-9fd6-e8bb8eac72ab">&lt;strong&gt;</bpt>SpringCM<ept id="0d0f2760-8c75-4e0f-9fd6-e8bb8eac72ab">&lt;/strong&gt;</ept> company site as administrator.</source>
+          <target state="new">Log in to your <bpt id="0d0f2760-8c75-4e0f-9fd6-e8bb8eac72ab">&lt;strong&gt;</bpt>SpringCM<ept id="0d0f2760-8c75-4e0f-9fd6-e8bb8eac72ab">&lt;/strong&gt;</ept> company site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="f4f3f469-d78a-49cf-9c93-354e321cefc3" xml:space="preserve">
+          <source>Click <bpt id="710e0c83-f635-4ebf-8099-aa4351191023">&lt;strong&gt;</bpt>GOTO<ept id="710e0c83-f635-4ebf-8099-aa4351191023">&lt;/strong&gt;</ept>, and then click <bpt id="8907e9a6-c048-4b2d-807e-31384cd99295">&lt;strong&gt;</bpt>Address Book<ept id="8907e9a6-c048-4b2d-807e-31384cd99295">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="710e0c83-f635-4ebf-8099-aa4351191023">&lt;strong&gt;</bpt>GOTO<ept id="710e0c83-f635-4ebf-8099-aa4351191023">&lt;/strong&gt;</ept>, and then click <bpt id="8907e9a6-c048-4b2d-807e-31384cd99295">&lt;strong&gt;</bpt>Address Book<ept id="8907e9a6-c048-4b2d-807e-31384cd99295">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cbaafa9d-d23a-4bb2-9bab-6326f3a25871" xml:space="preserve">
+          <source><bpt id="5a01c326-f2ab-4123-ad68-f25e993d686f">&lt;linkText&gt;</bpt>Create User<ept id="5a01c326-f2ab-4123-ad68-f25e993d686f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a01c326-f2ab-4123-ad68-f25e993d686f">&lt;linkText&gt;</bpt>Create User<ept id="5a01c326-f2ab-4123-ad68-f25e993d686f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd9791c6-b397-4534-bb13-f8b53e2b7a76" xml:space="preserve">
+          <source>Click <bpt id="67c531e9-7777-4732-b020-52ba9d3c7bea">&lt;strong&gt;</bpt>Create User<ept id="67c531e9-7777-4732-b020-52ba9d3c7bea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="67c531e9-7777-4732-b020-52ba9d3c7bea">&lt;strong&gt;</bpt>Create User<ept id="67c531e9-7777-4732-b020-52ba9d3c7bea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c08ac43f-4449-4c4d-b8c3-dead25cde8f4" xml:space="preserve">
+          <source>Select a <bpt id="587f0b39-7d5f-4039-b7bb-c118427b8c1c">&lt;strong&gt;</bpt>User Role<ept id="587f0b39-7d5f-4039-b7bb-c118427b8c1c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select a <bpt id="587f0b39-7d5f-4039-b7bb-c118427b8c1c">&lt;strong&gt;</bpt>User Role<ept id="587f0b39-7d5f-4039-b7bb-c118427b8c1c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb35cc3a-77ad-4b06-ac8b-d5b2ec54d597" xml:space="preserve">
+          <source>Select <bpt id="e80f5664-b2c5-422b-9bd7-35296a8a781c">&lt;strong&gt;</bpt>Send Activation Email<ept id="e80f5664-b2c5-422b-9bd7-35296a8a781c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e80f5664-b2c5-422b-9bd7-35296a8a781c">&lt;strong&gt;</bpt>Send Activation Email<ept id="e80f5664-b2c5-422b-9bd7-35296a8a781c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="908c49b6-f102-4088-b8ff-de459c3b4b89" xml:space="preserve">
+          <source>Type the first name, last name and email address of a valid Azure Active Directory user account you want to provision into the related textboxes.</source>
+          <target state="new">Type the first name, last name and email address of a valid Azure Active Directory user account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="37314069-ca0d-4e3f-9835-f80c038d7c7f" xml:space="preserve">
+          <source>Add the user to a <bpt id="14784913-662b-47df-a7c2-f216cbae6353">&lt;strong&gt;</bpt>Security group<ept id="14784913-662b-47df-a7c2-f216cbae6353">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add the user to a <bpt id="14784913-662b-47df-a7c2-f216cbae6353">&lt;strong&gt;</bpt>Security group<ept id="14784913-662b-47df-a7c2-f216cbae6353">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b7b22f4-74b1-4628-80da-e472f8c7a56c" xml:space="preserve">
+          <source>Click <bpt id="5e5a1afa-3634-42f8-b3eb-eb866a525345">&lt;strong&gt;</bpt>Save<ept id="5e5a1afa-3634-42f8-b3eb-eb866a525345">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5e5a1afa-3634-42f8-b3eb-eb866a525345">&lt;strong&gt;</bpt>Save<ept id="5e5a1afa-3634-42f8-b3eb-eb866a525345">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e390384f-3127-4270-aa22-4d5bc2e12900" xml:space="preserve">
+          <source>You can use any other SpringCM user account creation tools or APIs provided by SpringCM to provision AAD user accounts.</source>
+          <target state="new">You can use any other SpringCM user account creation tools or APIs provided by SpringCM to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="215ab0e7-aedf-4867-8a5a-a31d06514e2e" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="bea21df2-8da8-4efb-855e-60141189696d" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="ee501aba-9b3a-4bb1-aa0f-183413c68710" xml:space="preserve">
+          <source>On the <bpt id="6ce2e7d0-bb7b-4db2-98ef-f0dd618e9337">&lt;strong&gt;</bpt>SpringCM<ept id="6ce2e7d0-bb7b-4db2-98ef-f0dd618e9337">&lt;/strong&gt;</ept> application integration page, click <bpt id="063c8219-29d7-401d-b340-5b75c723e7ee">&lt;strong&gt;</bpt>Assign users<ept id="063c8219-29d7-401d-b340-5b75c723e7ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6ce2e7d0-bb7b-4db2-98ef-f0dd618e9337">&lt;strong&gt;</bpt>SpringCM<ept id="6ce2e7d0-bb7b-4db2-98ef-f0dd618e9337">&lt;/strong&gt;</ept> application integration page, click <bpt id="063c8219-29d7-401d-b340-5b75c723e7ee">&lt;strong&gt;</bpt>Assign users<ept id="063c8219-29d7-401d-b340-5b75c723e7ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d4991b2-dac9-476d-ad76-11349f8088e9" xml:space="preserve">
+          <source><bpt id="8132ecc6-dade-44ac-b4eb-159e0e87c569">&lt;linkText&gt;</bpt>Assign Users<ept id="8132ecc6-dade-44ac-b4eb-159e0e87c569">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8132ecc6-dade-44ac-b4eb-159e0e87c569">&lt;linkText&gt;</bpt>Assign Users<ept id="8132ecc6-dade-44ac-b4eb-159e0e87c569">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9e4ed22-0162-47b0-84c8-87e15d59ce63" xml:space="preserve">
+          <source>Select your test user, click <bpt id="34da7a4d-39c4-4878-8cd7-d739910628a8">&lt;strong&gt;</bpt>Assign<ept id="34da7a4d-39c4-4878-8cd7-d739910628a8">&lt;/strong&gt;</ept>, and then click <bpt id="d8ee73d6-f7be-4f6b-8b95-9eca58985f0e">&lt;strong&gt;</bpt>Yes<ept id="d8ee73d6-f7be-4f6b-8b95-9eca58985f0e">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="34da7a4d-39c4-4878-8cd7-d739910628a8">&lt;strong&gt;</bpt>Assign<ept id="34da7a4d-39c4-4878-8cd7-d739910628a8">&lt;/strong&gt;</ept>, and then click <bpt id="d8ee73d6-f7be-4f6b-8b95-9eca58985f0e">&lt;strong&gt;</bpt>Yes<ept id="d8ee73d6-f7be-4f6b-8b95-9eca58985f0e">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="d96cd2c2-2818-4efb-b593-552ca7e1f44c" xml:space="preserve">
+          <source><bpt id="0d780700-db43-49a1-b31e-3167a4fa3bb6">&lt;linkText&gt;</bpt>Yes<ept id="0d780700-db43-49a1-b31e-3167a4fa3bb6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d780700-db43-49a1-b31e-3167a4fa3bb6">&lt;linkText&gt;</bpt>Yes<ept id="0d780700-db43-49a1-b31e-3167a4fa3bb6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a5cba9b-76c7-4c45-8b76-2a654257a33f" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="52579380-6988-4f12-82a3-5f2cd602e66c" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="0059c51d-b776-4bf2-93bc-208cf65cbfb1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="0059c51d-b776-4bf2-93bc-208cf65cbfb1">&lt;/linkText&gt;</ept><bpt id="0059c51d-b776-4bf2-93bc-208cf65cbfb1">&lt;title&gt;</bpt><ept id="0059c51d-b776-4bf2-93bc-208cf65cbfb1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="0059c51d-b776-4bf2-93bc-208cf65cbfb1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="0059c51d-b776-4bf2-93bc-208cf65cbfb1">&lt;/linkText&gt;</ept><bpt id="0059c51d-b776-4bf2-93bc-208cf65cbfb1">&lt;title&gt;</bpt><ept id="0059c51d-b776-4bf2-93bc-208cf65cbfb1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

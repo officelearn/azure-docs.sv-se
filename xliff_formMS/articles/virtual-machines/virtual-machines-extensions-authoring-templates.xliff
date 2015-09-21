@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ee6cf8e5-09be-49e4-87f3-43e29ad43476" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ee6cf8e5-09be-49e4-87f3-43e29ad43476" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="29deb7f8-42da-473f-bb39-13584e2f35aa">
+        <trans-unit id="beb489a0-ccd8-4f28-9bc6-74425dc9453f" xml:space="preserve">
+          <source>Authoring Templates with Azure VM Extensions | Microsoft Azure</source>
+          <target state="new">Authoring Templates with Azure VM Extensions | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5f513bd0-1b1d-4145-a7f6-6c090c3d1e1a" xml:space="preserve">
+          <source>Learn more about authoring Templates with Extensions</source>
+          <target state="new">Learn more about authoring Templates with Extensions</target>
+        </trans-unit>
+        <trans-unit id="e8142edb-5019-4a3d-ad2e-7b6964cf8dd9" xml:space="preserve">
+          <source>Azure Resource Manager Template allows you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources.</source>
+          <target state="new">Azure Resource Manager Template allows you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources.</target>
+        </trans-unit>
+        <trans-unit id="f073ff2a-af33-4040-8596-043c62058d62" xml:space="preserve">
+          <source>For a detailed overview of Azure Resource Manager Templates, please refer to the articles below:</source>
+          <target state="new">For a detailed overview of Azure Resource Manager Templates, please refer to the articles below:</target>
+        </trans-unit>
+        <trans-unit id="6a98852e-8c8b-452c-9cb7-2938f308700a" xml:space="preserve">
+          <source>&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/" target="_blank"&gt;Resource Group Overview&lt;/a&gt;.</source>
+          <target state="new">&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/" target="_blank"&gt;Resource Group Overview&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="d44a6a84-623e-4547-9757-f7c1ca943846" xml:space="preserve">
+          <source>&lt;br/&gt;
+&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank"&gt;Deploying Templates with Azure CLI&lt;/a&gt;.</source>
+          <target state="new">&lt;br/&gt;
+&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank"&gt;Deploying Templates with Azure CLI&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="37dbaef1-53c6-40e5-9a16-9184f772221b" xml:space="preserve">
+          <source>&lt;br/&gt;
+&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank"&gt;Deploying Templates with Azure Powershell&lt;/a&gt;.</source>
+          <target state="new">&lt;br/&gt;
+&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank"&gt;Deploying Templates with Azure Powershell&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="e714c057-96a9-444b-99d5-2ddbb5ac881d" xml:space="preserve">
+          <source>The template snippet for Deploying extensions looks as following:</source>
+          <target state="new">The template snippet for Deploying extensions looks as following:</target>
+        </trans-unit>
+        <trans-unit id="f358c6ad-7106-49f1-9adf-74ebfb4abbdd" xml:space="preserve">
+          <source>Azure VM Extensions are published by Microsoft and trusted 3rd party publishers and each extension is uniquely identified by its publisher,type and the typeHandlerVersion.</source>
+          <target state="new">Azure VM Extensions are published by Microsoft and trusted 3rd party publishers and each extension is uniquely identified by its publisher,type and the typeHandlerVersion.</target>
+        </trans-unit>
+        <trans-unit id="bdcdf793-358d-4733-8145-a398a0a9139a" xml:space="preserve">
+          <source>These can be determined as following:</source>
+          <target state="new">These can be determined as following:</target>
+        </trans-unit>
+        <trans-unit id="24c48ab0-3cbd-44dc-b553-89f224a54579" xml:space="preserve">
+          <source>From Azure PowerShell, run the following Azure PowerShell cmdlet:</source>
+          <target state="new">From Azure PowerShell, run the following Azure PowerShell cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="1c1c69c9-d1d6-46dc-929e-f1531d759601" xml:space="preserve">
+          <source>From Azure CLI, run the following Azure PowerShell cmdlet:</source>
+          <target state="new">From Azure CLI, run the following Azure PowerShell cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="f6024ec4-67b1-4f3c-b852-24329b64688c" xml:space="preserve">
+          <source>This cmdlet returns the publisher name, extension name and version as following:</source>
+          <target state="new">This cmdlet returns the publisher name, extension name and version as following:</target>
+        </trans-unit>
+        <trans-unit id="be2960b1-9fa1-40a1-b821-125670bec8e7" xml:space="preserve">
+          <source>These three properties map to "publisher", "type" &amp; "typeHandlerVersion" respectively in the above template snippet.
+Note : Its always recommended to use the latest extension version to get the most updated functionality.</source>
+          <target state="new">These three properties map to "publisher", "type" &amp; "typeHandlerVersion" respectively in the above template snippet.
+Note : Its always recommended to use the latest extension version to get the most updated functionality.</target>
+        </trans-unit>
+        <trans-unit id="61785ac5-6d77-41f3-841f-311ed3116b0e" xml:space="preserve">
+          <source>The next step with authoring extension template is to identify the format for providing configuration parameters.</source>
+          <target state="new">The next step with authoring extension template is to identify the format for providing configuration parameters.</target>
+        </trans-unit>
+        <trans-unit id="c6a17fc6-f443-44ce-8e6d-83f94dad9cde" xml:space="preserve">
+          <source>Each extension supports its own set of parameters.</source>
+          <target state="new">Each extension supports its own set of parameters.</target>
+        </trans-unit>
+        <trans-unit id="0f2bfca2-f577-413b-9748-25a79d95fca1" xml:space="preserve">
+          <source>To look at some sample configuration for Windows Extensions, click the documentation <bpt id="343270b3-0c16-4c4f-a81b-2e9f943eb595">&lt;linkText&gt;</bpt>Windows Extensions Samples<ept id="343270b3-0c16-4c4f-a81b-2e9f943eb595">&lt;/linkText&gt;</ept><bpt id="343270b3-0c16-4c4f-a81b-2e9f943eb595">&lt;title&gt;</bpt><ept id="343270b3-0c16-4c4f-a81b-2e9f943eb595">&lt;/title&gt;</ept>.</source>
+          <target state="new">To look at some sample configuration for Windows Extensions, click the documentation <bpt id="343270b3-0c16-4c4f-a81b-2e9f943eb595">&lt;linkText&gt;</bpt>Windows Extensions Samples<ept id="343270b3-0c16-4c4f-a81b-2e9f943eb595">&lt;/linkText&gt;</ept><bpt id="343270b3-0c16-4c4f-a81b-2e9f943eb595">&lt;title&gt;</bpt><ept id="343270b3-0c16-4c4f-a81b-2e9f943eb595">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da319fea-defe-4cd9-bc33-a6eb744311ea" xml:space="preserve">
+          <source>To look at some sample configuration for Linux Extensions, click the documentation for  <bpt id="2db75e9d-a834-43ea-a004-6692409f6a17">&lt;linkText&gt;</bpt>Linux Extensions Samples <ept id="2db75e9d-a834-43ea-a004-6692409f6a17">&lt;/linkText&gt;</ept><bpt id="2db75e9d-a834-43ea-a004-6692409f6a17">&lt;title&gt;</bpt><ept id="2db75e9d-a834-43ea-a004-6692409f6a17">&lt;/title&gt;</ept>.</source>
+          <target state="new">To look at some sample configuration for Linux Extensions, click the documentation for  <bpt id="2db75e9d-a834-43ea-a004-6692409f6a17">&lt;linkText&gt;</bpt>Linux Extensions Samples <ept id="2db75e9d-a834-43ea-a004-6692409f6a17">&lt;/linkText&gt;</ept><bpt id="2db75e9d-a834-43ea-a004-6692409f6a17">&lt;title&gt;</bpt><ept id="2db75e9d-a834-43ea-a004-6692409f6a17">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5b6ce04-61a3-4845-a154-9a44a3681bbf" xml:space="preserve">
+          <source>Please refer to the following to the VM Templates to get a fully complete Template with VM Extensions.</source>
+          <target state="new">Please refer to the following to the VM Templates to get a fully complete Template with VM Extensions.</target>
+        </trans-unit>
+        <trans-unit id="c00cd624-1234-411a-b234-1bf8caf2b55e" xml:space="preserve">
+          <source>&lt;a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="<bpt id="7d7550f9-5efb-46d9-ad84-b47b9dfb2664">&lt;em&gt;</bpt>blank"&gt;Custom Script Extension on a Linux VM&lt;/a&gt;.
+&lt;/br&gt;
+&lt;a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="<ept id="7d7550f9-5efb-46d9-ad84-b47b9dfb2664">&lt;/em&gt;</ept>blank"&gt;Custom Script Extension on a Windows VM&lt;/a&gt;.</source>
+          <target state="new">&lt;a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="<bpt id="7d7550f9-5efb-46d9-ad84-b47b9dfb2664">&lt;em&gt;</bpt>blank"&gt;Custom Script Extension on a Linux VM&lt;/a&gt;.
+&lt;/br&gt;
+&lt;a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="<ept id="7d7550f9-5efb-46d9-ad84-b47b9dfb2664">&lt;/em&gt;</ept>blank"&gt;Custom Script Extension on a Windows VM&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="2e0c063f-ea12-4dd1-87b8-e729b2eeda11" xml:space="preserve">
+          <source>After authoring the template, you can deploy them using Azure CLI or Azure Powershell.</source>
+          <target state="new">After authoring the template, you can deploy them using Azure CLI or Azure Powershell.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

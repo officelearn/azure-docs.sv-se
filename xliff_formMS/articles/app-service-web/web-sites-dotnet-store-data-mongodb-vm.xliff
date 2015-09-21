@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5dc1a730-3238-437c-b081-ce39e40bdcc0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5dc1a730-3238-437c-b081-ce39e40bdcc0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="675a0e64-092f-4fc3-ba3e-f3e727aa254d">
+        <trans-unit id="9be7353f-52ff-4d5f-af8f-9f000c5e4c35" xml:space="preserve">
+          <source>Create a web app in Azure that connects to MongoDB running on a virtual machine</source>
+          <target state="new">Create a web app in Azure that connects to MongoDB running on a virtual machine</target>
+        </trans-unit>
+        <trans-unit id="d41c12a5-68c4-4d9a-bf9c-7480b79cdd88" xml:space="preserve">
+          <source>A tutorial that teaches you how to use Git to deploy an ASP.NET app to Azure App Service, connected to MongoDB on an Azure Virtual Machine.</source>
+          <target state="new">A tutorial that teaches you how to use Git to deploy an ASP.NET app to Azure App Service, connected to MongoDB on an Azure Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="bca92d0c-1d79-414c-8cfa-1361c80ae281" xml:space="preserve">
+          <source>Using Git, you can deploy an ASP.NET application to Azure App Service Web Apps.</source>
+          <target state="new">Using Git, you can deploy an ASP.NET application to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="4391208e-c0d6-4b79-a827-a575d8b57f20" xml:space="preserve">
+          <source>In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running on a virtual machine in Azure.</source>
+          <target state="new">In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running on a virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="856a405e-b31d-4ed8-8024-cf6be8ddab8f" xml:space="preserve">
+          <source><bpt id="f28c8dec-530d-4f55-9c0a-fa082a57f63d">&lt;linkText&gt;</bpt>MongoDB[mongodb]<ept id="f28c8dec-530d-4f55-9c0a-fa082a57f63d">&lt;/linkText&gt;</ept><bpt id="f28c8dec-530d-4f55-9c0a-fa082a57f63d">&lt;title&gt;</bpt><ept id="f28c8dec-530d-4f55-9c0a-fa082a57f63d">&lt;/title&gt;</ept> is a popular open source, high performance NoSQL database.</source>
+          <target state="new"><bpt id="f28c8dec-530d-4f55-9c0a-fa082a57f63d">&lt;linkText&gt;</bpt>MongoDB[mongodb]<ept id="f28c8dec-530d-4f55-9c0a-fa082a57f63d">&lt;/linkText&gt;</ept><bpt id="f28c8dec-530d-4f55-9c0a-fa082a57f63d">&lt;title&gt;</bpt><ept id="f28c8dec-530d-4f55-9c0a-fa082a57f63d">&lt;/title&gt;</ept> is a popular open source, high performance NoSQL database.</target>
+        </trans-unit>
+        <trans-unit id="04428948-7816-4057-8134-20cccadb0751" xml:space="preserve">
+          <source>After running and testing the ASP.NET application on your development computer, you will upload the application to App Service Web Apps using Git.</source>
+          <target state="new">After running and testing the ASP.NET application on your development computer, you will upload the application to App Service Web Apps using Git.</target>
+        </trans-unit>
+        <trans-unit id="ac0af760-0fcd-4dcd-8273-04d8d2f5b522" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="e53b01c7-ccd5-47fa-84f5-e3e4082f460b">&lt;linkText&gt;</bpt>Try App Service<ept id="e53b01c7-ccd5-47fa-84f5-e3e4082f460b">&lt;/linkText&gt;</ept><bpt id="e53b01c7-ccd5-47fa-84f5-e3e4082f460b">&lt;title&gt;</bpt><ept id="e53b01c7-ccd5-47fa-84f5-e3e4082f460b">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="e53b01c7-ccd5-47fa-84f5-e3e4082f460b">&lt;linkText&gt;</bpt>Try App Service<ept id="e53b01c7-ccd5-47fa-84f5-e3e4082f460b">&lt;/linkText&gt;</ept><bpt id="e53b01c7-ccd5-47fa-84f5-e3e4082f460b">&lt;title&gt;</bpt><ept id="e53b01c7-ccd5-47fa-84f5-e3e4082f460b">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="c59c8dd3-c7fb-4d89-bd84-475f84a9dbcf" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="c21b156a-6913-449a-b121-d6f86b782c1a" xml:space="preserve">
+          <source>Knowledge of the following is useful for this tutorial, though not required:</source>
+          <target state="new">Knowledge of the following is useful for this tutorial, though not required:</target>
+        </trans-unit>
+        <trans-unit id="02edffa9-8bb6-43a1-ae1f-f406b010ef89" xml:space="preserve">
+          <source>The C# driver for MongoDB.</source>
+          <target state="new">The C# driver for MongoDB.</target>
+        </trans-unit>
+        <trans-unit id="603b2f90-4af2-4eaa-a293-4114e4fd0cd3" xml:space="preserve">
+          <source>For more information on developing C# applications against MongoDB, see the MongoDB <bpt id="b82aa1f1-63af-43e7-a0e6-8a344cf6ccda">&lt;linkText&gt;</bpt>CSharp Language Center[mongoc#langcenter]<ept id="b82aa1f1-63af-43e7-a0e6-8a344cf6ccda">&lt;/linkText&gt;</ept><bpt id="b82aa1f1-63af-43e7-a0e6-8a344cf6ccda">&lt;title&gt;</bpt><ept id="b82aa1f1-63af-43e7-a0e6-8a344cf6ccda">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on developing C# applications against MongoDB, see the MongoDB <bpt id="b82aa1f1-63af-43e7-a0e6-8a344cf6ccda">&lt;linkText&gt;</bpt>CSharp Language Center[mongoc#langcenter]<ept id="b82aa1f1-63af-43e7-a0e6-8a344cf6ccda">&lt;/linkText&gt;</ept><bpt id="b82aa1f1-63af-43e7-a0e6-8a344cf6ccda">&lt;title&gt;</bpt><ept id="b82aa1f1-63af-43e7-a0e6-8a344cf6ccda">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a46294c6-00a2-43cc-af89-c8360d48221f" xml:space="preserve">
+          <source>The ASP .NET web application framework.</source>
+          <target state="new">The ASP .NET web application framework.</target>
+        </trans-unit>
+        <trans-unit id="6555811e-6374-45d0-b785-19ecf26c5d60" xml:space="preserve">
+          <source>You can learn all about it at the <bpt id="1f029ed1-81bd-4919-a9d8-21467f5f43b3">&lt;linkText&gt;</bpt>ASP.net website[asp.net]<ept id="1f029ed1-81bd-4919-a9d8-21467f5f43b3">&lt;/linkText&gt;</ept><bpt id="1f029ed1-81bd-4919-a9d8-21467f5f43b3">&lt;title&gt;</bpt><ept id="1f029ed1-81bd-4919-a9d8-21467f5f43b3">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn all about it at the <bpt id="1f029ed1-81bd-4919-a9d8-21467f5f43b3">&lt;linkText&gt;</bpt>ASP.net website[asp.net]<ept id="1f029ed1-81bd-4919-a9d8-21467f5f43b3">&lt;/linkText&gt;</ept><bpt id="1f029ed1-81bd-4919-a9d8-21467f5f43b3">&lt;title&gt;</bpt><ept id="1f029ed1-81bd-4919-a9d8-21467f5f43b3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f055112-c8be-445c-a618-dacd919ebf0b" xml:space="preserve">
+          <source>The ASP .NET MVC web application framework.</source>
+          <target state="new">The ASP .NET MVC web application framework.</target>
+        </trans-unit>
+        <trans-unit id="0d76eb59-1cd0-4500-abf9-b2b5a3aa5fd4" xml:space="preserve">
+          <source>You can learn all about it at the <bpt id="cf1e9c0c-58e3-481c-98ac-98066fd12569">&lt;linkText&gt;</bpt>ASP.NET MVC website[mvcwebsite]<ept id="cf1e9c0c-58e3-481c-98ac-98066fd12569">&lt;/linkText&gt;</ept><bpt id="cf1e9c0c-58e3-481c-98ac-98066fd12569">&lt;title&gt;</bpt><ept id="cf1e9c0c-58e3-481c-98ac-98066fd12569">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn all about it at the <bpt id="cf1e9c0c-58e3-481c-98ac-98066fd12569">&lt;linkText&gt;</bpt>ASP.NET MVC website[mvcwebsite]<ept id="cf1e9c0c-58e3-481c-98ac-98066fd12569">&lt;/linkText&gt;</ept><bpt id="cf1e9c0c-58e3-481c-98ac-98066fd12569">&lt;title&gt;</bpt><ept id="cf1e9c0c-58e3-481c-98ac-98066fd12569">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d32f6a5-68c0-4bf5-8c83-02f0179a723e" xml:space="preserve">
+          <source>Azure.</source>
+          <target state="new">Azure.</target>
+        </trans-unit>
+        <trans-unit id="b01fbbdb-54d7-4af3-9684-9bfa711b2f3d" xml:space="preserve">
+          <source>You can get started reading at <bpt id="08c10fbe-57d6-4c9b-b739-f99ef3e120b1">&lt;linkText&gt;</bpt>Azure[windowsazure]<ept id="08c10fbe-57d6-4c9b-b739-f99ef3e120b1">&lt;/linkText&gt;</ept><bpt id="08c10fbe-57d6-4c9b-b739-f99ef3e120b1">&lt;title&gt;</bpt><ept id="08c10fbe-57d6-4c9b-b739-f99ef3e120b1">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get started reading at <bpt id="08c10fbe-57d6-4c9b-b739-f99ef3e120b1">&lt;linkText&gt;</bpt>Azure[windowsazure]<ept id="08c10fbe-57d6-4c9b-b739-f99ef3e120b1">&lt;/linkText&gt;</ept><bpt id="08c10fbe-57d6-4c9b-b739-f99ef3e120b1">&lt;title&gt;</bpt><ept id="08c10fbe-57d6-4c9b-b739-f99ef3e120b1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f976b3b0-5912-4d6b-95dc-a171c36929ac" xml:space="preserve">
+          <source><bpt id="752fc9a8-cb58-4875-b1af-4b7e74d1adca">&lt;linkText&gt;</bpt>Visual Studio Express 2013 for Web[vseweb]<ept id="752fc9a8-cb58-4875-b1af-4b7e74d1adca">&lt;/linkText&gt;</ept><bpt id="752fc9a8-cb58-4875-b1af-4b7e74d1adca">&lt;title&gt;</bpt><ept id="752fc9a8-cb58-4875-b1af-4b7e74d1adca">&lt;/title&gt;</ept> or <bpt id="3a57070b-3130-4f91-8a6b-b51a24a16902">&lt;linkText&gt;</bpt>Visual Studio 2013[vsult]<ept id="3a57070b-3130-4f91-8a6b-b51a24a16902">&lt;/linkText&gt;</ept><bpt id="3a57070b-3130-4f91-8a6b-b51a24a16902">&lt;title&gt;</bpt><ept id="3a57070b-3130-4f91-8a6b-b51a24a16902">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="752fc9a8-cb58-4875-b1af-4b7e74d1adca">&lt;linkText&gt;</bpt>Visual Studio Express 2013 for Web[vseweb]<ept id="752fc9a8-cb58-4875-b1af-4b7e74d1adca">&lt;/linkText&gt;</ept><bpt id="752fc9a8-cb58-4875-b1af-4b7e74d1adca">&lt;title&gt;</bpt><ept id="752fc9a8-cb58-4875-b1af-4b7e74d1adca">&lt;/title&gt;</ept> or <bpt id="3a57070b-3130-4f91-8a6b-b51a24a16902">&lt;linkText&gt;</bpt>Visual Studio 2013[vsult]<ept id="3a57070b-3130-4f91-8a6b-b51a24a16902">&lt;/linkText&gt;</ept><bpt id="3a57070b-3130-4f91-8a6b-b51a24a16902">&lt;title&gt;</bpt><ept id="3a57070b-3130-4f91-8a6b-b51a24a16902">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb146e64-efd4-4dfe-a450-d7880e9b9130" xml:space="preserve">
+          <source><bpt id="985bc20b-6eba-47b3-bd21-fbbdbff897a9">&lt;linkText&gt;</bpt>Azure SDK for .NET<ept id="985bc20b-6eba-47b3-bd21-fbbdbff897a9">&lt;/linkText&gt;</ept><bpt id="985bc20b-6eba-47b3-bd21-fbbdbff897a9">&lt;title&gt;</bpt><ept id="985bc20b-6eba-47b3-bd21-fbbdbff897a9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="985bc20b-6eba-47b3-bd21-fbbdbff897a9">&lt;linkText&gt;</bpt>Azure SDK for .NET<ept id="985bc20b-6eba-47b3-bd21-fbbdbff897a9">&lt;/linkText&gt;</ept><bpt id="985bc20b-6eba-47b3-bd21-fbbdbff897a9">&lt;title&gt;</bpt><ept id="985bc20b-6eba-47b3-bd21-fbbdbff897a9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e6d2c0e-0a96-43b7-b3e9-215d4e998726" xml:space="preserve">
+          <source>An active Microsoft Azure subscription</source>
+          <target state="new">An active Microsoft Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="a737c845-4a08-4413-bcbf-7086971625ca" xml:space="preserve">
+          <source><bpt id="95ff6a3b-48c5-4c20-ba42-051e5f703baa">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="95ff6a3b-48c5-4c20-ba42-051e5f703baa">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="95ff6a3b-48c5-4c20-ba42-051e5f703baa">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="95ff6a3b-48c5-4c20-ba42-051e5f703baa">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf3f8ed5-6ca5-4d8f-8d13-0275ebfc3813" xml:space="preserve">
+          <source><bpt id="efeb93ea-2404-4744-bfc1-123041a4dfb8">&lt;bookmark&gt;</bpt><ept id="efeb93ea-2404-4744-bfc1-123041a4dfb8">&lt;/bookmark&gt;</ept> </source>
+          <target state="new"><bpt id="efeb93ea-2404-4744-bfc1-123041a4dfb8">&lt;bookmark&gt;</bpt><ept id="efeb93ea-2404-4744-bfc1-123041a4dfb8">&lt;/bookmark&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c509e88a-a245-41b0-8f28-2ea7aaca1006" xml:space="preserve">
+          <source>This tutorial assumes you have created a virtual machine in Azure.</source>
+          <target state="new">This tutorial assumes you have created a virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="dabb2e8b-2650-4fde-ac80-ee07f532286b" xml:space="preserve">
+          <source>After creating the virtual machine you need to install MongoDB on the virtual machine:</source>
+          <target state="new">After creating the virtual machine you need to install MongoDB on the virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="7f2a17ff-45b8-4158-a18c-74bf7d5cc533" xml:space="preserve">
+          <source>To create a Windows virtual machine and install MongoDB, see <bpt id="4f2e760e-213c-4a12-999a-68ce26608331">&lt;linkText&gt;</bpt>Install MongoDB on a virtual machine running Windows Server in Azure[installmongoonwindowsvm]<ept id="4f2e760e-213c-4a12-999a-68ce26608331">&lt;/linkText&gt;</ept><bpt id="4f2e760e-213c-4a12-999a-68ce26608331">&lt;title&gt;</bpt><ept id="4f2e760e-213c-4a12-999a-68ce26608331">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a Windows virtual machine and install MongoDB, see <bpt id="4f2e760e-213c-4a12-999a-68ce26608331">&lt;linkText&gt;</bpt>Install MongoDB on a virtual machine running Windows Server in Azure[installmongoonwindowsvm]<ept id="4f2e760e-213c-4a12-999a-68ce26608331">&lt;/linkText&gt;</ept><bpt id="4f2e760e-213c-4a12-999a-68ce26608331">&lt;title&gt;</bpt><ept id="4f2e760e-213c-4a12-999a-68ce26608331">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd77a9db-c60d-46c1-8a8d-786e99a1ea51" xml:space="preserve">
+          <source>Alternatively, to create a Linux virtual machine and install MongoDB, see <bpt id="243a9a5c-1784-4cba-a495-7da57d0eda0b">&lt;linkText&gt;</bpt>Install MongoDB on a virtual machine running CentOS Linux in Azure[installmongooncentoslinuxvm]<ept id="243a9a5c-1784-4cba-a495-7da57d0eda0b">&lt;/linkText&gt;</ept><bpt id="243a9a5c-1784-4cba-a495-7da57d0eda0b">&lt;title&gt;</bpt><ept id="243a9a5c-1784-4cba-a495-7da57d0eda0b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Alternatively, to create a Linux virtual machine and install MongoDB, see <bpt id="243a9a5c-1784-4cba-a495-7da57d0eda0b">&lt;linkText&gt;</bpt>Install MongoDB on a virtual machine running CentOS Linux in Azure[installmongooncentoslinuxvm]<ept id="243a9a5c-1784-4cba-a495-7da57d0eda0b">&lt;/linkText&gt;</ept><bpt id="243a9a5c-1784-4cba-a495-7da57d0eda0b">&lt;title&gt;</bpt><ept id="243a9a5c-1784-4cba-a495-7da57d0eda0b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce6cff40-5456-439e-8881-0c990f58ebb6" xml:space="preserve">
+          <source>After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.</source>
+          <target state="new">After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="3c6e2773-ea11-4db0-a824-0e29dc404155" xml:space="preserve">
+          <source>You will need this information later in the tutorial.</source>
+          <target state="new">You will need this information later in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="468b0bb6-4c16-4ade-b4f0-e52326447bc8" xml:space="preserve">
+          <source><bpt id="7ed70f92-87d1-4bcc-8035-a3f3d596d848">&lt;bookmark&gt;</bpt><ept id="7ed70f92-87d1-4bcc-8035-a3f3d596d848">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="7ed70f92-87d1-4bcc-8035-a3f3d596d848">&lt;bookmark&gt;</bpt><ept id="7ed70f92-87d1-4bcc-8035-a3f3d596d848">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fabf2b5-93e1-42ac-8dd7-adaea7d43b2e" xml:space="preserve">
+          <source>In this section you will create an ASP.NET application called "My Task List" by using Visual Studio and perform an initial deployment to Azure App Service Web Apps.</source>
+          <target state="new">In this section you will create an ASP.NET application called "My Task List" by using Visual Studio and perform an initial deployment to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="771c2598-c41a-4673-9e22-11fafaf31116" xml:space="preserve">
+          <source>You will run the application locally, but it will connect to your virtual machine on Azure and use the MongoDB instance that you created there.</source>
+          <target state="new">You will run the application locally, but it will connect to your virtual machine on Azure and use the MongoDB instance that you created there.</target>
+        </trans-unit>
+        <trans-unit id="8bc04776-47f6-4f6e-af11-8ec021aac556" xml:space="preserve">
+          <source>In Visual Studio, click <bpt id="8235b6ef-38d6-4d6c-9b25-4a9009016af3">&lt;strong&gt;</bpt>New Project<ept id="8235b6ef-38d6-4d6c-9b25-4a9009016af3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, click <bpt id="8235b6ef-38d6-4d6c-9b25-4a9009016af3">&lt;strong&gt;</bpt>New Project<ept id="8235b6ef-38d6-4d6c-9b25-4a9009016af3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84c5b05e-54df-444a-b1da-3692a12af492" xml:space="preserve">
+          <source><bpt id="970f26ad-c5fe-40f6-ab63-34b0e40bc33f">&lt;linkText&gt;</bpt>Start Page New Project<ept id="970f26ad-c5fe-40f6-ab63-34b0e40bc33f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="970f26ad-c5fe-40f6-ab63-34b0e40bc33f">&lt;linkText&gt;</bpt>Start Page New Project<ept id="970f26ad-c5fe-40f6-ab63-34b0e40bc33f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c775a52b-e8a2-4c43-9bd0-c1b0bca85207" xml:space="preserve">
+          <source>In the <bpt id="6c4d2eca-49b2-42a0-afeb-58c1de44c71c">&lt;strong&gt;</bpt>New Project<ept id="6c4d2eca-49b2-42a0-afeb-58c1de44c71c">&lt;/strong&gt;</ept> window, in the left pane, select <bpt id="41ee66fe-e8fb-48a9-b138-b80bd416908f">&lt;strong&gt;</bpt>Visual C#<ept id="41ee66fe-e8fb-48a9-b138-b80bd416908f">&lt;/strong&gt;</ept>, and then select <bpt id="d30938a5-0aaf-4942-aee0-2ddb4eaf81fc">&lt;strong&gt;</bpt>Web<ept id="d30938a5-0aaf-4942-aee0-2ddb4eaf81fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="6c4d2eca-49b2-42a0-afeb-58c1de44c71c">&lt;strong&gt;</bpt>New Project<ept id="6c4d2eca-49b2-42a0-afeb-58c1de44c71c">&lt;/strong&gt;</ept> window, in the left pane, select <bpt id="41ee66fe-e8fb-48a9-b138-b80bd416908f">&lt;strong&gt;</bpt>Visual C#<ept id="41ee66fe-e8fb-48a9-b138-b80bd416908f">&lt;/strong&gt;</ept>, and then select <bpt id="d30938a5-0aaf-4942-aee0-2ddb4eaf81fc">&lt;strong&gt;</bpt>Web<ept id="d30938a5-0aaf-4942-aee0-2ddb4eaf81fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0cd514e-bbf2-49d3-b61a-f52b4616e5f0" xml:space="preserve">
+          <source>In the middle pane, select <bpt id="20f45d97-198d-439f-a654-0b563b2accf8">&lt;strong&gt;</bpt>ASP.NET  Web Application<ept id="20f45d97-198d-439f-a654-0b563b2accf8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the middle pane, select <bpt id="20f45d97-198d-439f-a654-0b563b2accf8">&lt;strong&gt;</bpt>ASP.NET  Web Application<ept id="20f45d97-198d-439f-a654-0b563b2accf8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a08136b1-b203-41e3-8557-a48dc599a2e3" xml:space="preserve">
+          <source>At the bottom, name your project "MyTaskListApp," and then click <bpt id="e72eee4e-d02d-4d28-a963-342633ddeaf9">&lt;strong&gt;</bpt>OK<ept id="e72eee4e-d02d-4d28-a963-342633ddeaf9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom, name your project "MyTaskListApp," and then click <bpt id="e72eee4e-d02d-4d28-a963-342633ddeaf9">&lt;strong&gt;</bpt>OK<ept id="e72eee4e-d02d-4d28-a963-342633ddeaf9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="41db3d66-3918-4fe8-aa3c-8fcc33cc37c1" xml:space="preserve">
+          <source><bpt id="7ba439aa-d26d-4a40-aeff-3b24598517e6">&lt;linkText&gt;</bpt>New Project Dialog<ept id="7ba439aa-d26d-4a40-aeff-3b24598517e6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ba439aa-d26d-4a40-aeff-3b24598517e6">&lt;linkText&gt;</bpt>New Project Dialog<ept id="7ba439aa-d26d-4a40-aeff-3b24598517e6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="600418de-8f7f-495f-8e49-5db02b8c5e9f" xml:space="preserve">
+          <source>In the <bpt id="fb75cf90-fd3e-4846-bc27-a60b824f70cf">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="fb75cf90-fd3e-4846-bc27-a60b824f70cf">&lt;/strong&gt;</ept> dialog box, select <bpt id="335ea918-5a61-456f-abb8-6479954e0c5a">&lt;strong&gt;</bpt>MVC<ept id="335ea918-5a61-456f-abb8-6479954e0c5a">&lt;/strong&gt;</ept>, and then click <bpt id="d37e7fb9-67ac-4d7d-bb04-66ff59793bc1">&lt;strong&gt;</bpt>OK<ept id="d37e7fb9-67ac-4d7d-bb04-66ff59793bc1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="fb75cf90-fd3e-4846-bc27-a60b824f70cf">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="fb75cf90-fd3e-4846-bc27-a60b824f70cf">&lt;/strong&gt;</ept> dialog box, select <bpt id="335ea918-5a61-456f-abb8-6479954e0c5a">&lt;strong&gt;</bpt>MVC<ept id="335ea918-5a61-456f-abb8-6479954e0c5a">&lt;/strong&gt;</ept>, and then click <bpt id="d37e7fb9-67ac-4d7d-bb04-66ff59793bc1">&lt;strong&gt;</bpt>OK<ept id="d37e7fb9-67ac-4d7d-bb04-66ff59793bc1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10ee513e-d01a-49d4-8fdb-a18b176fe5dc" xml:space="preserve">
+          <source><bpt id="901e79cc-ae5f-4816-8860-ec11bfe06e37">&lt;linkText&gt;</bpt>Select MVC Template<ept id="901e79cc-ae5f-4816-8860-ec11bfe06e37">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="901e79cc-ae5f-4816-8860-ec11bfe06e37">&lt;linkText&gt;</bpt>Select MVC Template<ept id="901e79cc-ae5f-4816-8860-ec11bfe06e37">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6789b92-03d9-431e-b2c1-8b182599e512" xml:space="preserve">
+          <source>If you aren't already signed into Microsoft Azure, you will be prompted to sign in.</source>
+          <target state="new">If you aren't already signed into Microsoft Azure, you will be prompted to sign in.</target>
+        </trans-unit>
+        <trans-unit id="c4b9ea95-0477-47e7-996c-7890e7e0d077" xml:space="preserve">
+          <source>Follow the prompts to sign into Azure.</source>
+          <target state="new">Follow the prompts to sign into Azure.</target>
+        </trans-unit>
+        <trans-unit id="e17e2100-fe08-4c94-87bf-df08573b7e63" xml:space="preserve">
+          <source>Once you are signed in, you can start configuring your App Service web app.</source>
+          <target state="new">Once you are signed in, you can start configuring your App Service web app.</target>
+        </trans-unit>
+        <trans-unit id="4156be08-667b-4d86-8b5b-b96e4734f2d5" xml:space="preserve">
+          <source>Specify the <bpt id="05d8c554-4be8-4a3a-9d3d-ffd658bc498e">&lt;strong&gt;</bpt>Web App name<ept id="05d8c554-4be8-4a3a-9d3d-ffd658bc498e">&lt;/strong&gt;</ept>, <bpt id="1fd16954-22b8-4e15-93eb-d334122b2ec1">&lt;strong&gt;</bpt>App Service plan<ept id="1fd16954-22b8-4e15-93eb-d334122b2ec1">&lt;/strong&gt;</ept>, <bpt id="e44fdc1e-d627-4e44-b670-58c0fd56b225">&lt;strong&gt;</bpt>Resource group<ept id="e44fdc1e-d627-4e44-b670-58c0fd56b225">&lt;/strong&gt;</ept>, and <bpt id="97a7dc6d-1e12-4575-b6b0-190e217b5106">&lt;strong&gt;</bpt>Region<ept id="97a7dc6d-1e12-4575-b6b0-190e217b5106">&lt;/strong&gt;</ept>, then click <bpt id="3fa53ce6-c038-41ca-8e8b-45d710a06fa7">&lt;strong&gt;</bpt>OK<ept id="3fa53ce6-c038-41ca-8e8b-45d710a06fa7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify the <bpt id="05d8c554-4be8-4a3a-9d3d-ffd658bc498e">&lt;strong&gt;</bpt>Web App name<ept id="05d8c554-4be8-4a3a-9d3d-ffd658bc498e">&lt;/strong&gt;</ept>, <bpt id="1fd16954-22b8-4e15-93eb-d334122b2ec1">&lt;strong&gt;</bpt>App Service plan<ept id="1fd16954-22b8-4e15-93eb-d334122b2ec1">&lt;/strong&gt;</ept>, <bpt id="e44fdc1e-d627-4e44-b670-58c0fd56b225">&lt;strong&gt;</bpt>Resource group<ept id="e44fdc1e-d627-4e44-b670-58c0fd56b225">&lt;/strong&gt;</ept>, and <bpt id="97a7dc6d-1e12-4575-b6b0-190e217b5106">&lt;strong&gt;</bpt>Region<ept id="97a7dc6d-1e12-4575-b6b0-190e217b5106">&lt;/strong&gt;</ept>, then click <bpt id="3fa53ce6-c038-41ca-8e8b-45d710a06fa7">&lt;strong&gt;</bpt>OK<ept id="3fa53ce6-c038-41ca-8e8b-45d710a06fa7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ef77cdc-f47b-48c4-9bfd-de6918d12535" xml:space="preserve">
+          <source><bpt id="34d5816f-9a03-4f38-bce7-193312594fa3">&lt;linkText&gt;</bpt><ept id="34d5816f-9a03-4f38-bce7-193312594fa3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="34d5816f-9a03-4f38-bce7-193312594fa3">&lt;linkText&gt;</bpt><ept id="34d5816f-9a03-4f38-bce7-193312594fa3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f997368-525e-4816-8af4-24264303363f" xml:space="preserve">
+          <source>After the project creation completes, wait for the web app to be created in Azure App Service as indicated in the <bpt id="6f84d687-db1a-461b-826b-c1721a22f365">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="6f84d687-db1a-461b-826b-c1721a22f365">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">After the project creation completes, wait for the web app to be created in Azure App Service as indicated in the <bpt id="6f84d687-db1a-461b-826b-c1721a22f365">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="6f84d687-db1a-461b-826b-c1721a22f365">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="84afda77-8e25-4f4f-9bcb-bd168d5a0852" xml:space="preserve">
+          <source>Then, click <bpt id="615b179a-5128-4cb7-b626-180520f55abf">&lt;strong&gt;</bpt>Publish MyTaskListApp to this Web App now<ept id="615b179a-5128-4cb7-b626-180520f55abf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, click <bpt id="615b179a-5128-4cb7-b626-180520f55abf">&lt;strong&gt;</bpt>Publish MyTaskListApp to this Web App now<ept id="615b179a-5128-4cb7-b626-180520f55abf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0f691c2-5c80-450a-b069-bba19605630c" xml:space="preserve">
+          <source>Click <bpt id="d6e23935-3404-485e-bf25-6f9976da7eae">&lt;strong&gt;</bpt>Publish<ept id="d6e23935-3404-485e-bf25-6f9976da7eae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d6e23935-3404-485e-bf25-6f9976da7eae">&lt;strong&gt;</bpt>Publish<ept id="d6e23935-3404-485e-bf25-6f9976da7eae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8bb5e758-25ba-4994-84bf-66571e8b9a54" xml:space="preserve">
+          <source><bpt id="62fab581-4ac6-4b8e-9b69-5a36084455e9">&lt;linkText&gt;</bpt><ept id="62fab581-4ac6-4b8e-9b69-5a36084455e9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62fab581-4ac6-4b8e-9b69-5a36084455e9">&lt;linkText&gt;</bpt><ept id="62fab581-4ac6-4b8e-9b69-5a36084455e9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="080d310a-56e0-477b-b775-e4ed4b176f09" xml:space="preserve">
+          <source>Once your default ASP.NET application is published to Azure App Service Web Apps, it will be launched in the browser.</source>
+          <target state="new">Once your default ASP.NET application is published to Azure App Service Web Apps, it will be launched in the browser.</target>
+        </trans-unit>
+        <trans-unit id="1f1010eb-f469-4feb-91c4-9bedba252eac" xml:space="preserve">
+          <source>MongoDB offers client-side support for C# applications through a driver, which you need to install on your local development computer.</source>
+          <target state="new">MongoDB offers client-side support for C# applications through a driver, which you need to install on your local development computer.</target>
+        </trans-unit>
+        <trans-unit id="73e08f3c-1a84-4680-aa7c-05e9eb5fcd2d" xml:space="preserve">
+          <source>The C# driver is available through NuGet.</source>
+          <target state="new">The C# driver is available through NuGet.</target>
+        </trans-unit>
+        <trans-unit id="b0f1b9d3-fd0d-486c-8a43-2110f9eae8b1" xml:space="preserve">
+          <source>To install the MongoDB C# driver:</source>
+          <target state="new">To install the MongoDB C# driver:</target>
+        </trans-unit>
+        <trans-unit id="d3235548-6a90-4f03-9054-21977d27e6b2" xml:space="preserve">
+          <source>In <bpt id="73e41a35-38ba-452c-8247-cab1b9b2f8a2">&lt;strong&gt;</bpt>Solution Explorer<ept id="73e41a35-38ba-452c-8247-cab1b9b2f8a2">&lt;/strong&gt;</ept>, right-click the <bpt id="1411dcce-5f5a-45b3-b932-47b88daaa415">&lt;strong&gt;</bpt>MyTaskListApp<ept id="1411dcce-5f5a-45b3-b932-47b88daaa415">&lt;/strong&gt;</ept> project and select <bpt id="8d249006-a675-4aa1-90f7-624ca13996a3">&lt;strong&gt;</bpt>Manage NuGetPackages<ept id="8d249006-a675-4aa1-90f7-624ca13996a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="73e41a35-38ba-452c-8247-cab1b9b2f8a2">&lt;strong&gt;</bpt>Solution Explorer<ept id="73e41a35-38ba-452c-8247-cab1b9b2f8a2">&lt;/strong&gt;</ept>, right-click the <bpt id="1411dcce-5f5a-45b3-b932-47b88daaa415">&lt;strong&gt;</bpt>MyTaskListApp<ept id="1411dcce-5f5a-45b3-b932-47b88daaa415">&lt;/strong&gt;</ept> project and select <bpt id="8d249006-a675-4aa1-90f7-624ca13996a3">&lt;strong&gt;</bpt>Manage NuGetPackages<ept id="8d249006-a675-4aa1-90f7-624ca13996a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4fafe6d-efd6-42d5-bca1-21422b359a85" xml:space="preserve">
+          <source><bpt id="c219c9e0-7bad-469b-9366-afe44e9f445d">&lt;linkText&gt;</bpt>Manage NuGet Packages<ept id="c219c9e0-7bad-469b-9366-afe44e9f445d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c219c9e0-7bad-469b-9366-afe44e9f445d">&lt;linkText&gt;</bpt>Manage NuGet Packages<ept id="c219c9e0-7bad-469b-9366-afe44e9f445d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3601e395-119a-48fd-98c4-26cd1394b3cd" xml:space="preserve">
+          <source>In the <bpt id="390a569a-3d54-4c8f-822f-9d6ec109b449">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="390a569a-3d54-4c8f-822f-9d6ec109b449">&lt;/strong&gt;</ept> window, in the left pane, click <bpt id="214cbfef-11ce-46d3-8441-e23433b684c6">&lt;strong&gt;</bpt>Online<ept id="214cbfef-11ce-46d3-8441-e23433b684c6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="390a569a-3d54-4c8f-822f-9d6ec109b449">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="390a569a-3d54-4c8f-822f-9d6ec109b449">&lt;/strong&gt;</ept> window, in the left pane, click <bpt id="214cbfef-11ce-46d3-8441-e23433b684c6">&lt;strong&gt;</bpt>Online<ept id="214cbfef-11ce-46d3-8441-e23433b684c6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7546d003-09aa-4633-9b16-d6c29313f5d5" xml:space="preserve">
+          <source>In the <bpt id="06819b7f-a041-4d57-9ff4-e6c326b1063e">&lt;strong&gt;</bpt>Search Online<ept id="06819b7f-a041-4d57-9ff4-e6c326b1063e">&lt;/strong&gt;</ept> box on the right, type "mongodb.driver".</source>
+          <target state="new">In the <bpt id="06819b7f-a041-4d57-9ff4-e6c326b1063e">&lt;strong&gt;</bpt>Search Online<ept id="06819b7f-a041-4d57-9ff4-e6c326b1063e">&lt;/strong&gt;</ept> box on the right, type "mongodb.driver".</target>
+        </trans-unit>
+        <trans-unit id="bea7d6d0-8eb4-491c-bc05-2fb4833af86b" xml:space="preserve">
+          <source>Click <bpt id="ad6fd40e-b13d-4b79-9d87-0251432b7cd7">&lt;strong&gt;</bpt>Install<ept id="ad6fd40e-b13d-4b79-9d87-0251432b7cd7">&lt;/strong&gt;</ept> to install the driver.</source>
+          <target state="new">Click <bpt id="ad6fd40e-b13d-4b79-9d87-0251432b7cd7">&lt;strong&gt;</bpt>Install<ept id="ad6fd40e-b13d-4b79-9d87-0251432b7cd7">&lt;/strong&gt;</ept> to install the driver.</target>
+        </trans-unit>
+        <trans-unit id="0d650fd8-1c75-40b1-870a-f26566877d03" xml:space="preserve">
+          <source><bpt id="4e0d2f70-5a80-4a08-88ff-d32dbc25ed92">&lt;linkText&gt;</bpt>Search for MongoDB C# Driver<ept id="4e0d2f70-5a80-4a08-88ff-d32dbc25ed92">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e0d2f70-5a80-4a08-88ff-d32dbc25ed92">&lt;linkText&gt;</bpt>Search for MongoDB C# Driver<ept id="4e0d2f70-5a80-4a08-88ff-d32dbc25ed92">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65535047-5f4a-4785-899e-301d937aa6cd" xml:space="preserve">
+          <source>Click <bpt id="3d6ee6fa-c4ce-4908-b503-ea05302e0cdf">&lt;strong&gt;</bpt>I Accept<ept id="3d6ee6fa-c4ce-4908-b503-ea05302e0cdf">&lt;/strong&gt;</ept> to accept the 10gen, Inc. license terms.</source>
+          <target state="new">Click <bpt id="3d6ee6fa-c4ce-4908-b503-ea05302e0cdf">&lt;strong&gt;</bpt>I Accept<ept id="3d6ee6fa-c4ce-4908-b503-ea05302e0cdf">&lt;/strong&gt;</ept> to accept the 10gen, Inc. license terms.</target>
+        </trans-unit>
+        <trans-unit id="18b6f3f8-2469-4811-96cf-d2374def2504" xml:space="preserve">
+          <source>Click <bpt id="529fffbd-c1ce-4fb7-b29d-40074d4bb7df">&lt;strong&gt;</bpt>Close<ept id="529fffbd-c1ce-4fb7-b29d-40074d4bb7df">&lt;/strong&gt;</ept> after the driver has installed.</source>
+          <target state="new">Click <bpt id="529fffbd-c1ce-4fb7-b29d-40074d4bb7df">&lt;strong&gt;</bpt>Close<ept id="529fffbd-c1ce-4fb7-b29d-40074d4bb7df">&lt;/strong&gt;</ept> after the driver has installed.</target>
+        </trans-unit>
+        <trans-unit id="030a4c98-b41f-442c-bbf3-a91b4dd3a21a" xml:space="preserve">
+          <source><bpt id="32eb1b62-2525-41ec-b452-e0805910d9bc">&lt;linkText&gt;</bpt>MongoDB C# Driver Installed<ept id="32eb1b62-2525-41ec-b452-e0805910d9bc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="32eb1b62-2525-41ec-b452-e0805910d9bc">&lt;linkText&gt;</bpt>MongoDB C# Driver Installed<ept id="32eb1b62-2525-41ec-b452-e0805910d9bc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e48b3d41-1a2d-4c16-b779-de9e7fb44c0c" xml:space="preserve">
+          <source>The MongoDB C# driver is now installed.</source>
+          <target state="new">The MongoDB C# driver is now installed.</target>
+        </trans-unit>
+        <trans-unit id="b16c91c9-7576-405a-a401-22a93d958a03" xml:space="preserve">
+          <source>References to the <bpt id="7a4f475c-c976-4aa5-b714-aae2808213a8">&lt;strong&gt;</bpt>MongoDB.Bson<ept id="7a4f475c-c976-4aa5-b714-aae2808213a8">&lt;/strong&gt;</ept>, <bpt id="7266b721-e576-4a41-b492-3d15b53c9bd9">&lt;strong&gt;</bpt>MongoDB.Driver<ept id="7266b721-e576-4a41-b492-3d15b53c9bd9">&lt;/strong&gt;</ept>, and <bpt id="05724f2a-f647-442c-b47b-bd124deeb146">&lt;strong&gt;</bpt>MongoDB.Driver.Core<ept id="05724f2a-f647-442c-b47b-bd124deeb146">&lt;/strong&gt;</ept>  libraries have been added to the project.</source>
+          <target state="new">References to the <bpt id="7a4f475c-c976-4aa5-b714-aae2808213a8">&lt;strong&gt;</bpt>MongoDB.Bson<ept id="7a4f475c-c976-4aa5-b714-aae2808213a8">&lt;/strong&gt;</ept>, <bpt id="7266b721-e576-4a41-b492-3d15b53c9bd9">&lt;strong&gt;</bpt>MongoDB.Driver<ept id="7266b721-e576-4a41-b492-3d15b53c9bd9">&lt;/strong&gt;</ept>, and <bpt id="05724f2a-f647-442c-b47b-bd124deeb146">&lt;strong&gt;</bpt>MongoDB.Driver.Core<ept id="05724f2a-f647-442c-b47b-bd124deeb146">&lt;/strong&gt;</ept>  libraries have been added to the project.</target>
+        </trans-unit>
+        <trans-unit id="fc3171a5-c99d-416e-986d-73dc913df93c" xml:space="preserve">
+          <source><bpt id="5b4a95c0-9da6-46a1-a196-d245d4b2a4b6">&lt;linkText&gt;</bpt>MongoDB C# Driver References<ept id="5b4a95c0-9da6-46a1-a196-d245d4b2a4b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b4a95c0-9da6-46a1-a196-d245d4b2a4b6">&lt;linkText&gt;</bpt>MongoDB C# Driver References<ept id="5b4a95c0-9da6-46a1-a196-d245d4b2a4b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ea27412-04f9-435f-b709-5a181e576322" xml:space="preserve">
+          <source>In <bpt id="b9dbcc98-2eaf-4fbb-a52c-3587aef759d5">&lt;strong&gt;</bpt>Solution Explorer<ept id="b9dbcc98-2eaf-4fbb-a52c-3587aef759d5">&lt;/strong&gt;</ept>, right-click the <bpt id="e81b5275-bb05-46b8-abae-ea45e91291bd">&lt;em&gt;</bpt>Models<ept id="e81b5275-bb05-46b8-abae-ea45e91291bd">&lt;/em&gt;</ept> folder and <bpt id="e8f7bcab-a333-4a71-85fe-93a3d42ac88a">&lt;strong&gt;</bpt>Add<ept id="e8f7bcab-a333-4a71-85fe-93a3d42ac88a">&lt;/strong&gt;</ept> a new <bpt id="f5f525f7-411d-414c-8cf1-c8422279c9e6">&lt;strong&gt;</bpt>Class<ept id="f5f525f7-411d-414c-8cf1-c8422279c9e6">&lt;/strong&gt;</ept> and name it <bpt id="12b5b5e2-d301-4cec-b617-e37d9f762ffa">&lt;em&gt;</bpt>TaskModel.cs<ept id="12b5b5e2-d301-4cec-b617-e37d9f762ffa">&lt;/em&gt;</ept>.</source>
+          <target state="new">In <bpt id="b9dbcc98-2eaf-4fbb-a52c-3587aef759d5">&lt;strong&gt;</bpt>Solution Explorer<ept id="b9dbcc98-2eaf-4fbb-a52c-3587aef759d5">&lt;/strong&gt;</ept>, right-click the <bpt id="e81b5275-bb05-46b8-abae-ea45e91291bd">&lt;em&gt;</bpt>Models<ept id="e81b5275-bb05-46b8-abae-ea45e91291bd">&lt;/em&gt;</ept> folder and <bpt id="e8f7bcab-a333-4a71-85fe-93a3d42ac88a">&lt;strong&gt;</bpt>Add<ept id="e8f7bcab-a333-4a71-85fe-93a3d42ac88a">&lt;/strong&gt;</ept> a new <bpt id="f5f525f7-411d-414c-8cf1-c8422279c9e6">&lt;strong&gt;</bpt>Class<ept id="f5f525f7-411d-414c-8cf1-c8422279c9e6">&lt;/strong&gt;</ept> and name it <bpt id="12b5b5e2-d301-4cec-b617-e37d9f762ffa">&lt;em&gt;</bpt>TaskModel.cs<ept id="12b5b5e2-d301-4cec-b617-e37d9f762ffa">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58a78d40-5284-4a43-a3d8-359c7683c9b3" xml:space="preserve">
+          <source>In <bpt id="e3980087-0faa-4b4d-bebb-09c3ca29597d">&lt;em&gt;</bpt>TaskModel.cs<ept id="e3980087-0faa-4b4d-bebb-09c3ca29597d">&lt;/em&gt;</ept>, replace the existing code with the following code:</source>
+          <target state="new">In <bpt id="e3980087-0faa-4b4d-bebb-09c3ca29597d">&lt;em&gt;</bpt>TaskModel.cs<ept id="e3980087-0faa-4b4d-bebb-09c3ca29597d">&lt;/em&gt;</ept>, replace the existing code with the following code:</target>
+        </trans-unit>
+        <trans-unit id="61a9d8d5-8b59-452c-a6b0-276151ed0f55" xml:space="preserve">
+          <source>In <bpt id="877fb521-aad4-4f06-a651-9db454ec63db">&lt;strong&gt;</bpt>Solution Explorer<ept id="877fb521-aad4-4f06-a651-9db454ec63db">&lt;/strong&gt;</ept>, right-click the <bpt id="bb5a48f6-97d2-4b74-be1a-d6f97784aa2f">&lt;em&gt;</bpt>MyTaskListApp<ept id="bb5a48f6-97d2-4b74-be1a-d6f97784aa2f">&lt;/em&gt;</ept> project and <bpt id="fa34a699-8277-4e65-8b88-7e915f742b8a">&lt;strong&gt;</bpt>Add<ept id="fa34a699-8277-4e65-8b88-7e915f742b8a">&lt;/strong&gt;</ept> a <bpt id="39b33df5-73cd-4b5f-86ea-bb85daafbae7">&lt;strong&gt;</bpt>New Folder<ept id="39b33df5-73cd-4b5f-86ea-bb85daafbae7">&lt;/strong&gt;</ept> named <bpt id="3becbb4a-9b90-483d-a7be-d77d3f77a7ca">&lt;em&gt;</bpt>DAL<ept id="3becbb4a-9b90-483d-a7be-d77d3f77a7ca">&lt;/em&gt;</ept>.</source>
+          <target state="new">In <bpt id="877fb521-aad4-4f06-a651-9db454ec63db">&lt;strong&gt;</bpt>Solution Explorer<ept id="877fb521-aad4-4f06-a651-9db454ec63db">&lt;/strong&gt;</ept>, right-click the <bpt id="bb5a48f6-97d2-4b74-be1a-d6f97784aa2f">&lt;em&gt;</bpt>MyTaskListApp<ept id="bb5a48f6-97d2-4b74-be1a-d6f97784aa2f">&lt;/em&gt;</ept> project and <bpt id="fa34a699-8277-4e65-8b88-7e915f742b8a">&lt;strong&gt;</bpt>Add<ept id="fa34a699-8277-4e65-8b88-7e915f742b8a">&lt;/strong&gt;</ept> a <bpt id="39b33df5-73cd-4b5f-86ea-bb85daafbae7">&lt;strong&gt;</bpt>New Folder<ept id="39b33df5-73cd-4b5f-86ea-bb85daafbae7">&lt;/strong&gt;</ept> named <bpt id="3becbb4a-9b90-483d-a7be-d77d3f77a7ca">&lt;em&gt;</bpt>DAL<ept id="3becbb4a-9b90-483d-a7be-d77d3f77a7ca">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92f77af3-1864-4f84-b85b-f43519afcf65" xml:space="preserve">
+          <source>Right-click the <bpt id="72264ee9-e461-4c0c-b375-cacb6d898051">&lt;em&gt;</bpt>DAL<ept id="72264ee9-e461-4c0c-b375-cacb6d898051">&lt;/em&gt;</ept> folder and <bpt id="cd94c603-fd4e-48d9-b3a8-3576d004a753">&lt;strong&gt;</bpt>Add<ept id="cd94c603-fd4e-48d9-b3a8-3576d004a753">&lt;/strong&gt;</ept> a new <bpt id="5a31032e-bd57-432c-ba6e-63c50c50fd38">&lt;strong&gt;</bpt>Class<ept id="5a31032e-bd57-432c-ba6e-63c50c50fd38">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the <bpt id="72264ee9-e461-4c0c-b375-cacb6d898051">&lt;em&gt;</bpt>DAL<ept id="72264ee9-e461-4c0c-b375-cacb6d898051">&lt;/em&gt;</ept> folder and <bpt id="cd94c603-fd4e-48d9-b3a8-3576d004a753">&lt;strong&gt;</bpt>Add<ept id="cd94c603-fd4e-48d9-b3a8-3576d004a753">&lt;/strong&gt;</ept> a new <bpt id="5a31032e-bd57-432c-ba6e-63c50c50fd38">&lt;strong&gt;</bpt>Class<ept id="5a31032e-bd57-432c-ba6e-63c50c50fd38">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13018961-6fb8-42ea-9730-ce7c9aac4b79" xml:space="preserve">
+          <source>Name the class file <bpt id="efa0604a-e1b7-447e-be4e-2116e3295e1e">&lt;em&gt;</bpt>Dal.cs<ept id="efa0604a-e1b7-447e-be4e-2116e3295e1e">&lt;/em&gt;</ept>.</source>
+          <target state="new">Name the class file <bpt id="efa0604a-e1b7-447e-be4e-2116e3295e1e">&lt;em&gt;</bpt>Dal.cs<ept id="efa0604a-e1b7-447e-be4e-2116e3295e1e">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f79c2ad-0d76-47d1-9cd4-b2637ce3df76" xml:space="preserve">
+          <source>In <bpt id="36b1e177-b02b-48c9-ad07-6cc51390a6a6">&lt;em&gt;</bpt>Dal.cs<ept id="36b1e177-b02b-48c9-ad07-6cc51390a6a6">&lt;/em&gt;</ept>, replace the existing code with the following code:</source>
+          <target state="new">In <bpt id="36b1e177-b02b-48c9-ad07-6cc51390a6a6">&lt;em&gt;</bpt>Dal.cs<ept id="36b1e177-b02b-48c9-ad07-6cc51390a6a6">&lt;/em&gt;</ept>, replace the existing code with the following code:</target>
+        </trans-unit>
+        <trans-unit id="f2ef9dac-9f41-4042-9fe7-3318acfbb0de" xml:space="preserve">
+          <source>Open the <bpt id="23ffc921-742b-4b27-9138-7f593ba67750">&lt;em&gt;</bpt>Controllers\HomeController.cs<ept id="23ffc921-742b-4b27-9138-7f593ba67750">&lt;/em&gt;</ept> file in <bpt id="765ee9cb-4e54-486f-921f-ad59b1c07fc5">&lt;strong&gt;</bpt>Solution Explorer<ept id="765ee9cb-4e54-486f-921f-ad59b1c07fc5">&lt;/strong&gt;</ept> and replace the existing code with the following:</source>
+          <target state="new">Open the <bpt id="23ffc921-742b-4b27-9138-7f593ba67750">&lt;em&gt;</bpt>Controllers\HomeController.cs<ept id="23ffc921-742b-4b27-9138-7f593ba67750">&lt;/em&gt;</ept> file in <bpt id="765ee9cb-4e54-486f-921f-ad59b1c07fc5">&lt;strong&gt;</bpt>Solution Explorer<ept id="765ee9cb-4e54-486f-921f-ad59b1c07fc5">&lt;/strong&gt;</ept> and replace the existing code with the following:</target>
+        </trans-unit>
+        <trans-unit id="ebd2a879-dd5a-442a-9890-0e4ee5856d8b" xml:space="preserve">
+          <source>To change the title at the top of the page, open the <bpt id="2616b2ae-7ffd-442e-853b-e49277fcab68">&lt;em&gt;</bpt>Views\Shared\\_Layout.cshtml<ept id="2616b2ae-7ffd-442e-853b-e49277fcab68">&lt;/em&gt;</ept> file in <bpt id="e0d99723-f68e-490b-96f4-7e32685bffa6">&lt;strong&gt;</bpt>Solution Explorer<ept id="e0d99723-f68e-490b-96f4-7e32685bffa6">&lt;/strong&gt;</ept> and replace "Application name" in the navbar header with "My Task List Application" so that it looks like this:</source>
+          <target state="new">To change the title at the top of the page, open the <bpt id="2616b2ae-7ffd-442e-853b-e49277fcab68">&lt;em&gt;</bpt>Views\Shared\\_Layout.cshtml<ept id="2616b2ae-7ffd-442e-853b-e49277fcab68">&lt;/em&gt;</ept> file in <bpt id="e0d99723-f68e-490b-96f4-7e32685bffa6">&lt;strong&gt;</bpt>Solution Explorer<ept id="e0d99723-f68e-490b-96f4-7e32685bffa6">&lt;/strong&gt;</ept> and replace "Application name" in the navbar header with "My Task List Application" so that it looks like this:</target>
+        </trans-unit>
+        <trans-unit id="d57faed0-fde1-4f06-95ad-26e407e9b326" xml:space="preserve">
+          <source>In order to set up the Task List menu, open the <bpt id="311df2dc-2aa5-49c5-92ce-89ad8c0e56c7">&lt;em&gt;</bpt>\Views\Home\Index.cshtml<ept id="311df2dc-2aa5-49c5-92ce-89ad8c0e56c7">&lt;/em&gt;</ept> file and replace the existing code with the following code:</source>
+          <target state="new">In order to set up the Task List menu, open the <bpt id="311df2dc-2aa5-49c5-92ce-89ad8c0e56c7">&lt;em&gt;</bpt>\Views\Home\Index.cshtml<ept id="311df2dc-2aa5-49c5-92ce-89ad8c0e56c7">&lt;/em&gt;</ept> file and replace the existing code with the following code:</target>
+        </trans-unit>
+        <trans-unit id="00bf0a5f-0a71-4919-83b7-b02d357f07dc" xml:space="preserve">
+          <source>To add the ability to create a new task, right-click the <bpt id="79714fbf-6f7c-44a3-bbe8-484d4d3e6ab1">&lt;em&gt;</bpt>Views\Home\\<ept id="79714fbf-6f7c-44a3-bbe8-484d4d3e6ab1">&lt;/em&gt;</ept> folder and <bpt id="9ee94110-abca-4929-b5ea-8c48af868179">&lt;strong&gt;</bpt>Add<ept id="9ee94110-abca-4929-b5ea-8c48af868179">&lt;/strong&gt;</ept> a <bpt id="fe97697d-adbc-458a-9e69-a7c8e8de2bcf">&lt;strong&gt;</bpt>View<ept id="fe97697d-adbc-458a-9e69-a7c8e8de2bcf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To add the ability to create a new task, right-click the <bpt id="79714fbf-6f7c-44a3-bbe8-484d4d3e6ab1">&lt;em&gt;</bpt>Views\Home\\<ept id="79714fbf-6f7c-44a3-bbe8-484d4d3e6ab1">&lt;/em&gt;</ept> folder and <bpt id="9ee94110-abca-4929-b5ea-8c48af868179">&lt;strong&gt;</bpt>Add<ept id="9ee94110-abca-4929-b5ea-8c48af868179">&lt;/strong&gt;</ept> a <bpt id="fe97697d-adbc-458a-9e69-a7c8e8de2bcf">&lt;strong&gt;</bpt>View<ept id="fe97697d-adbc-458a-9e69-a7c8e8de2bcf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d50d267-186e-4ccb-895e-8bddf642b683" xml:space="preserve">
+          <source>Name the view <bpt id="c3e91326-9773-461d-87cb-131c4fa5a1ca">&lt;em&gt;</bpt>Create<ept id="c3e91326-9773-461d-87cb-131c4fa5a1ca">&lt;/em&gt;</ept>.</source>
+          <target state="new">Name the view <bpt id="c3e91326-9773-461d-87cb-131c4fa5a1ca">&lt;em&gt;</bpt>Create<ept id="c3e91326-9773-461d-87cb-131c4fa5a1ca">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e931733a-fe71-4d33-ab95-79f356ba5059" xml:space="preserve">
+          <source>Replace the code with the following:</source>
+          <target state="new">Replace the code with the following:</target>
+        </trans-unit>
+        <trans-unit id="16b56cfb-8565-4a45-b081-fdafea6b1939" xml:space="preserve">
+          <source><bpt id="777f2364-c30f-47df-b751-98805d204cb2">&lt;strong&gt;</bpt>Solution Explorer<ept id="777f2364-c30f-47df-b751-98805d204cb2">&lt;/strong&gt;</ept> should look like this:</source>
+          <target state="new"><bpt id="777f2364-c30f-47df-b751-98805d204cb2">&lt;strong&gt;</bpt>Solution Explorer<ept id="777f2364-c30f-47df-b751-98805d204cb2">&lt;/strong&gt;</ept> should look like this:</target>
+        </trans-unit>
+        <trans-unit id="ab7025ad-824e-4437-9826-fd1fd3ec9f5e" xml:space="preserve">
+          <source><bpt id="0cdde8c6-2845-4355-b697-3be358909e89">&lt;linkText&gt;</bpt>Solution Explorer<ept id="0cdde8c6-2845-4355-b697-3be358909e89">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0cdde8c6-2845-4355-b697-3be358909e89">&lt;linkText&gt;</bpt>Solution Explorer<ept id="0cdde8c6-2845-4355-b697-3be358909e89">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd722f5e-89fc-4c19-83c6-8d4f60ac3dbd" xml:space="preserve">
+          <source>In <bpt id="c1e7cfca-2400-4bb1-b08f-b28e9f1b3373">&lt;strong&gt;</bpt>Solution Explorer<ept id="c1e7cfca-2400-4bb1-b08f-b28e9f1b3373">&lt;/strong&gt;</ept>, open the <bpt id="3063f340-4dcc-44bf-9ee3-af03b12a58aa">&lt;em&gt;</bpt>DAL/Dal.cs<ept id="3063f340-4dcc-44bf-9ee3-af03b12a58aa">&lt;/em&gt;</ept> file.</source>
+          <target state="new">In <bpt id="c1e7cfca-2400-4bb1-b08f-b28e9f1b3373">&lt;strong&gt;</bpt>Solution Explorer<ept id="c1e7cfca-2400-4bb1-b08f-b28e9f1b3373">&lt;/strong&gt;</ept>, open the <bpt id="3063f340-4dcc-44bf-9ee3-af03b12a58aa">&lt;em&gt;</bpt>DAL/Dal.cs<ept id="3063f340-4dcc-44bf-9ee3-af03b12a58aa">&lt;/em&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="c13fac42-8c23-48a3-a2e9-0b41d9763a9c" xml:space="preserve">
+          <source>Find the following line of code:</source>
+          <target state="new">Find the following line of code:</target>
+        </trans-unit>
+        <trans-unit id="97709649-c872-4bad-93a2-2bec26078aff" xml:space="preserve">
+          <source>Replace <bpt id="db0b459a-363b-4b3f-be0c-7d9faeb52459">&lt;code&gt;</bpt>&lt;vm-dns-name&gt;<ept id="db0b459a-363b-4b3f-be0c-7d9faeb52459">&lt;/code&gt;</ept> with the DNS name of the virtual machine running MongoDB you created in the <bpt id="0dc57839-6d50-4345-a0da-87ec6677cf89">&lt;linkText&gt;</bpt>Create a virtual machine and install MongoDB<ept id="0dc57839-6d50-4345-a0da-87ec6677cf89">&lt;/linkText&gt;</ept><bpt id="0dc57839-6d50-4345-a0da-87ec6677cf89">&lt;title&gt;</bpt><ept id="0dc57839-6d50-4345-a0da-87ec6677cf89">&lt;/title&gt;</ept> step of this tutorial.  To find the DNS name of your virtual machine, go to the Azure portal, select <bpt id="1db79813-b980-4084-89c0-8cf860cc9867">&lt;strong&gt;</bpt>Virtual Machines<ept id="1db79813-b980-4084-89c0-8cf860cc9867">&lt;/strong&gt;</ept>, and find <bpt id="15421fb0-a592-420e-811b-670f4f37f89a">&lt;strong&gt;</bpt>DNS Name<ept id="15421fb0-a592-420e-811b-670f4f37f89a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Replace <bpt id="db0b459a-363b-4b3f-be0c-7d9faeb52459">&lt;code&gt;</bpt>&lt;vm-dns-name&gt;<ept id="db0b459a-363b-4b3f-be0c-7d9faeb52459">&lt;/code&gt;</ept> with the DNS name of the virtual machine running MongoDB you created in the <bpt id="0dc57839-6d50-4345-a0da-87ec6677cf89">&lt;linkText&gt;</bpt>Create a virtual machine and install MongoDB<ept id="0dc57839-6d50-4345-a0da-87ec6677cf89">&lt;/linkText&gt;</ept><bpt id="0dc57839-6d50-4345-a0da-87ec6677cf89">&lt;title&gt;</bpt><ept id="0dc57839-6d50-4345-a0da-87ec6677cf89">&lt;/title&gt;</ept> step of this tutorial.  To find the DNS name of your virtual machine, go to the Azure portal, select <bpt id="1db79813-b980-4084-89c0-8cf860cc9867">&lt;strong&gt;</bpt>Virtual Machines<ept id="1db79813-b980-4084-89c0-8cf860cc9867">&lt;/strong&gt;</ept>, and find <bpt id="15421fb0-a592-420e-811b-670f4f37f89a">&lt;strong&gt;</bpt>DNS Name<ept id="15421fb0-a592-420e-811b-670f4f37f89a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78e19777-a582-41e0-9859-d7ddc6076a4a" xml:space="preserve">
+          <source>If the DNS name of the virtual machine is "testlinuxvm.cloudapp.net" and MongoDB is listening on the default port 27017, the connection string line of code will look like:</source>
+          <target state="new">If the DNS name of the virtual machine is "testlinuxvm.cloudapp.net" and MongoDB is listening on the default port 27017, the connection string line of code will look like:</target>
+        </trans-unit>
+        <trans-unit id="9bdfa114-ccb9-422e-8055-05b582090385" xml:space="preserve">
+          <source>If the virtual machine endpoint specifies a different external port for MongoDB, you can specifiy the port in the connection string:</source>
+          <target state="new">If the virtual machine endpoint specifies a different external port for MongoDB, you can specifiy the port in the connection string:</target>
+        </trans-unit>
+        <trans-unit id="e4bd9075-2288-47c4-9417-e253fa6620b8" xml:space="preserve">
+          <source>For more information on MongoDB connection strings, see <bpt id="caacaa69-1b60-4a2a-8a1d-fc8083c3f37b">&lt;linkText&gt;</bpt>Connections[mongoconnectionstrings]<ept id="caacaa69-1b60-4a2a-8a1d-fc8083c3f37b">&lt;/linkText&gt;</ept><bpt id="caacaa69-1b60-4a2a-8a1d-fc8083c3f37b">&lt;title&gt;</bpt><ept id="caacaa69-1b60-4a2a-8a1d-fc8083c3f37b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on MongoDB connection strings, see <bpt id="caacaa69-1b60-4a2a-8a1d-fc8083c3f37b">&lt;linkText&gt;</bpt>Connections[mongoconnectionstrings]<ept id="caacaa69-1b60-4a2a-8a1d-fc8083c3f37b">&lt;/linkText&gt;</ept><bpt id="caacaa69-1b60-4a2a-8a1d-fc8083c3f37b">&lt;title&gt;</bpt><ept id="caacaa69-1b60-4a2a-8a1d-fc8083c3f37b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86d11720-e8a5-4b9a-baa1-32fb2d37c789" xml:space="preserve">
+          <source>To run your application on your development computer, select <bpt id="c1a982e0-8fff-40f7-a706-ceb4fb28a982">&lt;strong&gt;</bpt>Start Debugging<ept id="c1a982e0-8fff-40f7-a706-ceb4fb28a982">&lt;/strong&gt;</ept> from the <bpt id="6e480404-221c-46f2-801e-faad9dac1395">&lt;strong&gt;</bpt>Debug<ept id="6e480404-221c-46f2-801e-faad9dac1395">&lt;/strong&gt;</ept> menu or hit <bpt id="64624bed-29c5-4097-971c-2c09f8e2d3a5">&lt;strong&gt;</bpt>F5<ept id="64624bed-29c5-4097-971c-2c09f8e2d3a5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To run your application on your development computer, select <bpt id="c1a982e0-8fff-40f7-a706-ceb4fb28a982">&lt;strong&gt;</bpt>Start Debugging<ept id="c1a982e0-8fff-40f7-a706-ceb4fb28a982">&lt;/strong&gt;</ept> from the <bpt id="6e480404-221c-46f2-801e-faad9dac1395">&lt;strong&gt;</bpt>Debug<ept id="6e480404-221c-46f2-801e-faad9dac1395">&lt;/strong&gt;</ept> menu or hit <bpt id="64624bed-29c5-4097-971c-2c09f8e2d3a5">&lt;strong&gt;</bpt>F5<ept id="64624bed-29c5-4097-971c-2c09f8e2d3a5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1507ec40-38a6-487e-ac9c-ead723b00e9f" xml:space="preserve">
+          <source>IIS Express starts and a browser opens and launches the application's home page.</source>
+          <target state="new">IIS Express starts and a browser opens and launches the application's home page.</target>
+        </trans-unit>
+        <trans-unit id="5c3bf8cb-9f49-4ebf-84bc-ece35770ee95" xml:space="preserve">
+          <source>You can add a new task, which will be added to the MongoDB database running on your virtual machine in Azure.</source>
+          <target state="new">You can add a new task, which will be added to the MongoDB database running on your virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="f1353686-9366-43b6-b6d2-48e14f028b08" xml:space="preserve">
+          <source><bpt id="ee7871e9-d67e-411c-a885-b5c0e2c1f4d8">&lt;linkText&gt;</bpt>My Task List Application<ept id="ee7871e9-d67e-411c-a885-b5c0e2c1f4d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ee7871e9-d67e-411c-a885-b5c0e2c1f4d8">&lt;linkText&gt;</bpt>My Task List Application<ept id="ee7871e9-d67e-411c-a885-b5c0e2c1f4d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa79901c-c7e4-4c2b-b1db-591e1d7b3de2" xml:space="preserve">
+          <source>In this section you will publish your changes to Azure App Service Web Apps.</source>
+          <target state="new">In this section you will publish your changes to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="9daa4e60-763f-41ff-97d4-99dadad6fe41" xml:space="preserve">
+          <source>In Solution Explorer, right-click <bpt id="2d610c33-51ee-46c6-98f9-d965f049c1ce">&lt;strong&gt;</bpt>MyTaskListApp<ept id="2d610c33-51ee-46c6-98f9-d965f049c1ce">&lt;/strong&gt;</ept> again and click <bpt id="406079d5-b759-4356-9dce-95bab5e776de">&lt;strong&gt;</bpt>Publish<ept id="406079d5-b759-4356-9dce-95bab5e776de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, right-click <bpt id="2d610c33-51ee-46c6-98f9-d965f049c1ce">&lt;strong&gt;</bpt>MyTaskListApp<ept id="2d610c33-51ee-46c6-98f9-d965f049c1ce">&lt;/strong&gt;</ept> again and click <bpt id="406079d5-b759-4356-9dce-95bab5e776de">&lt;strong&gt;</bpt>Publish<ept id="406079d5-b759-4356-9dce-95bab5e776de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aff5a743-e14a-47f8-889a-2408c18172a4" xml:space="preserve">
+          <source>Click <bpt id="7333e560-2d25-4877-a92f-d54162d910ec">&lt;strong&gt;</bpt>Publish<ept id="7333e560-2d25-4877-a92f-d54162d910ec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7333e560-2d25-4877-a92f-d54162d910ec">&lt;strong&gt;</bpt>Publish<ept id="7333e560-2d25-4877-a92f-d54162d910ec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="942f350a-0cad-423c-92bd-090a3c7fbe03" xml:space="preserve">
+          <source>You should now see your web app running in Azure App Service and accessing the MongoDB database in Azure Virtual Machines.</source>
+          <target state="new">You should now see your web app running in Azure App Service and accessing the MongoDB database in Azure Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="38138a95-079b-42fb-824b-def38ad3839c" xml:space="preserve">
+          <source>You have now successfully deployed your ASP.NET application to Azure App Service Web Apps.</source>
+          <target state="new">You have now successfully deployed your ASP.NET application to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="d8928ec1-dd5b-4b7a-b33c-0d1cea384f88" xml:space="preserve">
+          <source>To view the web app:</source>
+          <target state="new">To view the web app:</target>
+        </trans-unit>
+        <trans-unit id="2541e5b6-30b5-4327-a127-e8d2b427638a" xml:space="preserve">
+          <source>Log into the Azure portal.</source>
+          <target state="new">Log into the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="5722a487-b5fd-4ef1-84a9-ec46b9c424ff" xml:space="preserve">
+          <source>Click <bpt id="11ce3d50-498f-46d2-86ff-5c9baf66b440">&lt;strong&gt;</bpt>Web apps<ept id="11ce3d50-498f-46d2-86ff-5c9baf66b440">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="11ce3d50-498f-46d2-86ff-5c9baf66b440">&lt;strong&gt;</bpt>Web apps<ept id="11ce3d50-498f-46d2-86ff-5c9baf66b440">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ac06f1c-90a0-42ad-aa1a-a24ebf2d5bf1" xml:space="preserve">
+          <source>Select your web app in the <bpt id="77020497-3845-4ffb-b0a4-e1a4495075b0">&lt;strong&gt;</bpt>Web Apps<ept id="77020497-3845-4ffb-b0a4-e1a4495075b0">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">Select your web app in the <bpt id="77020497-3845-4ffb-b0a4-e1a4495075b0">&lt;strong&gt;</bpt>Web Apps<ept id="77020497-3845-4ffb-b0a4-e1a4495075b0">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="161355ac-4aa1-4cd3-b8f2-47c5801f7be7" xml:space="preserve">
+          <source>For more information on developing C# applications against MongoDB, see <bpt id="42925b65-d748-45aa-9723-2282ce504606">&lt;linkText&gt;</bpt>CSharp Language Center[mongoc#langcenter]<ept id="42925b65-d748-45aa-9723-2282ce504606">&lt;/linkText&gt;</ept><bpt id="42925b65-d748-45aa-9723-2282ce504606">&lt;title&gt;</bpt><ept id="42925b65-d748-45aa-9723-2282ce504606">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on developing C# applications against MongoDB, see <bpt id="42925b65-d748-45aa-9723-2282ce504606">&lt;linkText&gt;</bpt>CSharp Language Center[mongoc#langcenter]<ept id="42925b65-d748-45aa-9723-2282ce504606">&lt;/linkText&gt;</ept><bpt id="42925b65-d748-45aa-9723-2282ce504606">&lt;title&gt;</bpt><ept id="42925b65-d748-45aa-9723-2282ce504606">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7cdb031f-ec34-4311-a8d4-6dd91ca98437" xml:space="preserve">
+          <source><bpt id="adf67ba7-692a-483a-ab76-9567229a002f">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="adf67ba7-692a-483a-ab76-9567229a002f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="adf67ba7-692a-483a-ab76-9567229a002f">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="adf67ba7-692a-483a-ab76-9567229a002f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db8a1fd2-e0f6-43e7-a5b6-0cf80d7f6733" xml:space="preserve">
+          <source>http://manage.windowsazure.com</source>
+          <target state="new">http://manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="82cdf192-11fb-458d-ad66-d758f8b46eb6" xml:space="preserve">
+          <source>http://www.windowsazure.com</source>
+          <target state="new">http://www.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="f74ab794-3dda-4d19-8a6e-e81af8c6b0a7" xml:space="preserve">
+          <source>http://docs.mongodb.org/ecosystem/drivers/csharp/</source>
+          <target state="new">http://docs.mongodb.org/ecosystem/drivers/csharp/</target>
+        </trans-unit>
+        <trans-unit id="60564639-009b-48a4-a079-848b2642eb33" xml:space="preserve">
+          <source>http://www.asp.net/mvc</source>
+          <target state="new">http://www.asp.net/mvc</target>
+        </trans-unit>
+        <trans-unit id="a51bbcdf-bc2c-4c1a-8f7c-955af214132a" xml:space="preserve">
+          <source>http://www.asp.net/</source>
+          <target state="new">http://www.asp.net/</target>
+        </trans-unit>
+        <trans-unit id="e5567969-5820-434b-bc95-a83c29eb14f9" xml:space="preserve">
+          <source>http://www.mongodb.org/display/DOCS/Connections</source>
+          <target state="new">http://www.mongodb.org/display/DOCS/Connections</target>
+        </trans-unit>
+        <trans-unit id="fdfcc7d9-b968-488a-8afc-03fa66650c56" xml:space="preserve">
+          <source>http://www.mongodb.org</source>
+          <target state="new">http://www.mongodb.org</target>
+        </trans-unit>
+        <trans-unit id="0ac531d9-c721-4aee-9571-a4143785b003" xml:space="preserve">
+          <source>/manage/linux/common-tasks/mongodb-on-a-linux-vm/</source>
+          <target state="new">/manage/linux/common-tasks/mongodb-on-a-linux-vm/</target>
+        </trans-unit>
+        <trans-unit id="e15a1f37-0cf6-409e-acb5-1b81b2d205bf" xml:space="preserve">
+          <source>/manage/windows/common-tasks/install-mongodb/</source>
+          <target state="new">/manage/windows/common-tasks/install-mongodb/</target>
+        </trans-unit>
+        <trans-unit id="4b690423-c2b5-49e8-9649-d8422bafcc3d" xml:space="preserve">
+          <source>http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express</source>
+          <target state="new">http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express</target>
+        </trans-unit>
+        <trans-unit id="6339d5d3-eeeb-4d97-8691-6f59742619dc" xml:space="preserve">
+          <source>http://www.microsoft.com/visualstudio/eng/2013-downloads</source>
+          <target state="new">http://www.microsoft.com/visualstudio/eng/2013-downloads</target>
+        </trans-unit>
+        <trans-unit id="67dfaad6-515d-49b2-a65f-14decd298e29" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/NewProject.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/NewProject.png</target>
+        </trans-unit>
+        <trans-unit id="97c5152b-4cab-4b95-8a4d-e4fb08f9f850" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/NewProjectMyTaskListApp.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/NewProjectMyTaskListApp.png</target>
+        </trans-unit>
+        <trans-unit id="33caa2ef-bde3-4253-8d16-dd7c442b9ad8" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/VS2013SelectMVCTemplate.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/VS2013SelectMVCTemplate.png</target>
+        </trans-unit>
+        <trans-unit id="6da1f386-916f-49f9-aae5-c4fdb6ef89b8" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/VS2013DefaultMVCApplication.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/VS2013DefaultMVCApplication.png</target>
+        </trans-unit>
+        <trans-unit id="f0310af0-6a1b-422b-80ce-7dd2f83cf4fd" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/VS2013ManageNuGetPackages.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/VS2013ManageNuGetPackages.png</target>
+        </trans-unit>
+        <trans-unit id="45ed3a82-5329-4c0f-938c-0983401ab85d" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/SearchforMongoDBCSharpDriver.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/SearchforMongoDBCSharpDriver.png</target>
+        </trans-unit>
+        <trans-unit id="36ac7786-7b52-4a92-b9b8-41ccb8c94e11" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCsharpDriverInstalled.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCsharpDriverInstalled.png</target>
+        </trans-unit>
+        <trans-unit id="96fb543b-0f76-4cd4-affc-c339690b4337" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCSharpDriverReferences.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCSharpDriverReferences.png</target>
+        </trans-unit>
+        <trans-unit id="0df35317-187a-46dd-82e5-18c1d1adabd1" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/SolutionExplorerMyTaskListApp.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/SolutionExplorerMyTaskListApp.png</target>
+        </trans-unit>
+        <trans-unit id="6a367f54-1935-4661-8ed8-0da3fbd2c424" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/TaskListAppBlank.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/TaskListAppBlank.png</target>
+        </trans-unit>
+        <trans-unit id="e7453923-f7b8-40fa-9a28-a78c55a33566" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/WAWSCreateWebSite.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/WAWSCreateWebSite.png</target>
+        </trans-unit>
+        <trans-unit id="3e4839e6-0622-4879-a477-e71aa5c3a4d5" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/WAWSDashboardMyTaskListApp.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/WAWSDashboardMyTaskListApp.png</target>
+        </trans-unit>
+        <trans-unit id="b1f5cce7-33f6-4f13-a8af-7f4210945a80" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/RepoReady.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/RepoReady.png</target>
+        </trans-unit>
+        <trans-unit id="b8f90294-cb8c-4353-bec3-508425764f87" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/GitInstructions.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/GitInstructions.png</target>
+        </trans-unit>
+        <trans-unit id="3b682e20-18d7-49fd-ba3e-aa5dc832f2d3" xml:space="preserve">
+          <source>./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png</source>
+          <target state="new">./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png</target>
+        </trans-unit>
+        <trans-unit id="5c311db4-be42-4bdf-af69-bcab207fa903" xml:space="preserve">
+          <source>#virtualmachine</source>
+          <target state="new">#virtualmachine</target>
+        </trans-unit>
+        <trans-unit id="da52e12e-17df-4b38-9f3e-1d624f531b0d" xml:space="preserve">
+          <source>#createapp</source>
+          <target state="new">#createapp</target>
+        </trans-unit>
+        <trans-unit id="cfbc7602-e4a6-4716-9c3d-18a6b4c0d8c0" xml:space="preserve">
+          <source>#createwebsite</source>
+          <target state="new">#createwebsite</target>
+        </trans-unit>
+        <trans-unit id="e23bacc9-dc89-4de1-9847-4f0e7795cabf" xml:space="preserve">
+          <source>#deployapp</source>
+          <target state="new">#deployapp</target>
+        </trans-unit>
+      </group>
+      <group id="581a9f9f-94ac-4eb1-ba79-7bae549882d8" />
+    </body>
+  </file>
+</xliff>

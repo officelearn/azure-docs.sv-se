@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="78380bf5-f191-4072-bd8f-e49243d95ca0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="78380bf5-f191-4072-bd8f-e49243d95ca0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9fb1548f-ecf3-4b1d-b022-d8becc1a11b0">
+        <trans-unit id="4ac3fc58-693c-4d09-b72e-cf6f03b579b7" xml:space="preserve">
+          <source>Deploy the StorSimple Manager service | Microsoft Azure</source>
+          <target state="new">Deploy the StorSimple Manager service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="553e98cb-cb12-42a6-bcc1-cfc9cc4294b4" xml:space="preserve">
+          <source>Explains how to create and delete the StorSimple Manager service in the Management Portal, and describes how to manage the service registration key.</source>
+          <target state="new">Explains how to create and delete the StorSimple Manager service in the Management Portal, and describes how to manage the service registration key.</target>
+        </trans-unit>
+        <trans-unit id="bbeb004a-734e-4b3b-9a2f-63cd1c0cbfd1" xml:space="preserve">
+          <source>The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices.</source>
+          <target state="new">The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices.</target>
+        </trans-unit>
+        <trans-unit id="cba31666-c8e2-482d-9739-c7279ab343da" xml:space="preserve">
+          <source>After you create the service, you can use it to manage the devices from the Microsoft Azure Management Portal running in a browser.</source>
+          <target state="new">After you create the service, you can use it to manage the devices from the Microsoft Azure Management Portal running in a browser.</target>
+        </trans-unit>
+        <trans-unit id="6f42a440-2a15-48f1-9a57-87cb565c7bd4" xml:space="preserve">
+          <source>This allows you to monitor all the devices that are connected to the StorSimple Manager service from a single, central location, thereby minimizing administrative burden.</source>
+          <target state="new">This allows you to monitor all the devices that are connected to the StorSimple Manager service from a single, central location, thereby minimizing administrative burden.</target>
+        </trans-unit>
+        <trans-unit id="72e97205-f74e-4786-b04f-6e53ee83b283" xml:space="preserve">
+          <source>The StorSimple Manager landing page lists all the StorSimple Manager services that you can use to manage your StorSimple storage devices.</source>
+          <target state="new">The StorSimple Manager landing page lists all the StorSimple Manager services that you can use to manage your StorSimple storage devices.</target>
+        </trans-unit>
+        <trans-unit id="3827dec0-1e0f-4226-baad-07f569ecb53a" xml:space="preserve">
+          <source>For each StorSimple Manager service, the following information is presented on the StorSimple Manager page:</source>
+          <target state="new">For each StorSimple Manager service, the following information is presented on the StorSimple Manager page:</target>
+        </trans-unit>
+        <trans-unit id="33e0cf44-d53a-4df1-9175-9b558ee35547" xml:space="preserve">
+          <source><bpt id="3216812a-2675-4b20-84e0-13d9b12761cc">&lt;strong&gt;</bpt>Name<ept id="3216812a-2675-4b20-84e0-13d9b12761cc">&lt;/strong&gt;</ept> – The name that was assigned to your StorSimple Manager service when it was created.</source>
+          <target state="new"><bpt id="3216812a-2675-4b20-84e0-13d9b12761cc">&lt;strong&gt;</bpt>Name<ept id="3216812a-2675-4b20-84e0-13d9b12761cc">&lt;/strong&gt;</ept> – The name that was assigned to your StorSimple Manager service when it was created.</target>
+        </trans-unit>
+        <trans-unit id="bc081859-0b7e-420f-8967-936ee4ce8d74" xml:space="preserve">
+          <source>The service name cannot be changed after the service is created.</source>
+          <target state="new">The service name cannot be changed after the service is created.</target>
+        </trans-unit>
+        <trans-unit id="b9ef096d-8ddb-463d-810f-ae332c8fe2a0" xml:space="preserve">
+          <source><bpt id="dee6831b-21aa-4c65-ac38-c0600ebe50a6">&lt;strong&gt;</bpt>Status<ept id="dee6831b-21aa-4c65-ac38-c0600ebe50a6">&lt;/strong&gt;</ept> – The status of the service, which can be <bpt id="7141e59d-c010-4a56-80ba-bda55660d9f9">&lt;strong&gt;</bpt>Active<ept id="7141e59d-c010-4a56-80ba-bda55660d9f9">&lt;/strong&gt;</ept>, <bpt id="701603ad-70e2-48de-8257-1eac800756a7">&lt;strong&gt;</bpt>Creating<ept id="701603ad-70e2-48de-8257-1eac800756a7">&lt;/strong&gt;</ept>, or <bpt id="a42bef5f-9803-4ad4-9368-a17c618f1c7e">&lt;strong&gt;</bpt>Online<ept id="a42bef5f-9803-4ad4-9368-a17c618f1c7e">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="dee6831b-21aa-4c65-ac38-c0600ebe50a6">&lt;strong&gt;</bpt>Status<ept id="dee6831b-21aa-4c65-ac38-c0600ebe50a6">&lt;/strong&gt;</ept> – The status of the service, which can be <bpt id="7141e59d-c010-4a56-80ba-bda55660d9f9">&lt;strong&gt;</bpt>Active<ept id="7141e59d-c010-4a56-80ba-bda55660d9f9">&lt;/strong&gt;</ept>, <bpt id="701603ad-70e2-48de-8257-1eac800756a7">&lt;strong&gt;</bpt>Creating<ept id="701603ad-70e2-48de-8257-1eac800756a7">&lt;/strong&gt;</ept>, or <bpt id="a42bef5f-9803-4ad4-9368-a17c618f1c7e">&lt;strong&gt;</bpt>Online<ept id="a42bef5f-9803-4ad4-9368-a17c618f1c7e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a23d287-407f-48e1-8371-894a3f82a54a" xml:space="preserve">
+          <source><bpt id="4bde84ec-1208-4260-932c-3e3133f92802">&lt;strong&gt;</bpt>Location<ept id="4bde84ec-1208-4260-932c-3e3133f92802">&lt;/strong&gt;</ept> – The geographical location in which the StorSimple device will be deployed.</source>
+          <target state="new"><bpt id="4bde84ec-1208-4260-932c-3e3133f92802">&lt;strong&gt;</bpt>Location<ept id="4bde84ec-1208-4260-932c-3e3133f92802">&lt;/strong&gt;</ept> – The geographical location in which the StorSimple device will be deployed.</target>
+        </trans-unit>
+        <trans-unit id="f5261782-b4a7-464b-9a61-b81401b844c7" xml:space="preserve">
+          <source><bpt id="0da2f821-1571-460b-a6e2-7b945e72bc14">&lt;strong&gt;</bpt>Subscription<ept id="0da2f821-1571-460b-a6e2-7b945e72bc14">&lt;/strong&gt;</ept> – The billing subscription that is associated with your service.</source>
+          <target state="new"><bpt id="0da2f821-1571-460b-a6e2-7b945e72bc14">&lt;strong&gt;</bpt>Subscription<ept id="0da2f821-1571-460b-a6e2-7b945e72bc14">&lt;/strong&gt;</ept> – The billing subscription that is associated with your service.</target>
+        </trans-unit>
+        <trans-unit id="eb7630b4-8216-4360-8ae1-48c184a1f4f5" xml:space="preserve">
+          <source>The common tasks that can be performed through the StorSimple Manager page are:</source>
+          <target state="new">The common tasks that can be performed through the StorSimple Manager page are:</target>
+        </trans-unit>
+        <trans-unit id="75499439-4831-4a41-9a28-a8b0590e30c1" xml:space="preserve">
+          <source>Create a service</source>
+          <target state="new">Create a service</target>
+        </trans-unit>
+        <trans-unit id="f6ec69a0-4689-4780-9660-585a7b919136" xml:space="preserve">
+          <source>Delete a service</source>
+          <target state="new">Delete a service</target>
+        </trans-unit>
+        <trans-unit id="4bcfcdba-da34-44ab-a7e9-a937926ecb9a" xml:space="preserve">
+          <source>Get the service registration key</source>
+          <target state="new">Get the service registration key</target>
+        </trans-unit>
+        <trans-unit id="a55f4cdb-3609-434a-8add-46030bcaae20" xml:space="preserve">
+          <source>Regenerate the service registration key</source>
+          <target state="new">Regenerate the service registration key</target>
+        </trans-unit>
+        <trans-unit id="31f472e3-006e-4f19-9b2a-8af50aa267f5" xml:space="preserve">
+          <source>This tutorial describes how to perform each of these tasks.</source>
+          <target state="new">This tutorial describes how to perform each of these tasks.</target>
+        </trans-unit>
+        <trans-unit id="b8710006-5456-4a7e-8a20-cf0f02b2a04d" xml:space="preserve">
+          <source>Use the <bpt id="e75dfb9a-4709-4719-be32-97ebc42a8496">&lt;strong&gt;</bpt>Quick Create<ept id="e75dfb9a-4709-4719-be32-97ebc42a8496">&lt;/strong&gt;</ept> option to create a StorSimple Manager service if you want to deploy your StorSimple device.</source>
+          <target state="new">Use the <bpt id="e75dfb9a-4709-4719-be32-97ebc42a8496">&lt;strong&gt;</bpt>Quick Create<ept id="e75dfb9a-4709-4719-be32-97ebc42a8496">&lt;/strong&gt;</ept> option to create a StorSimple Manager service if you want to deploy your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="040844c1-69b4-42c9-a756-cb41c5d88379" xml:space="preserve">
+          <source>To create a service, you need to have:</source>
+          <target state="new">To create a service, you need to have:</target>
+        </trans-unit>
+        <trans-unit id="79969bda-1b49-4e02-9ed0-2377562bdb6a" xml:space="preserve">
+          <source>A subscription with an Enterprise Agreement</source>
+          <target state="new">A subscription with an Enterprise Agreement</target>
+        </trans-unit>
+        <trans-unit id="9ca0d14e-debb-485b-b312-231a6314493e" xml:space="preserve">
+          <source>An active Microsoft Azure storage account</source>
+          <target state="new">An active Microsoft Azure storage account</target>
+        </trans-unit>
+        <trans-unit id="d4891c49-3dc9-4d26-83af-97b664db7d00" xml:space="preserve">
+          <source>The billing information that is used for access management</source>
+          <target state="new">The billing information that is used for access management</target>
+        </trans-unit>
+        <trans-unit id="62fa1832-71c3-4a39-900e-9ca6e8453d1c" xml:space="preserve">
+          <source>You can also choose to generate a default storage account when you create the service.</source>
+          <target state="new">You can also choose to generate a default storage account when you create the service.</target>
+        </trans-unit>
+        <trans-unit id="ae62d627-932d-4cf1-8809-38f4f7c3c467" xml:space="preserve">
+          <source>A single service can manage multiple devices.</source>
+          <target state="new">A single service can manage multiple devices.</target>
+        </trans-unit>
+        <trans-unit id="02ab7248-97c9-480f-bf0a-df0cd6f9d072" xml:space="preserve">
+          <source>However, a device cannot span multiple services.</source>
+          <target state="new">However, a device cannot span multiple services.</target>
+        </trans-unit>
+        <trans-unit id="58367bd4-3036-49e6-81ec-fd9f566601bf" xml:space="preserve">
+          <source>A large enterprise can have multiple service instances to work with different subscriptions, organizations, or even deployment locations.</source>
+          <target state="new">A large enterprise can have multiple service instances to work with different subscriptions, organizations, or even deployment locations.</target>
+        </trans-unit>
+        <trans-unit id="2af05abf-ac92-43bb-8f38-793dabc1f197" xml:space="preserve">
+          <source>Perform the following steps to create a service.</source>
+          <target state="new">Perform the following steps to create a service.</target>
+        </trans-unit>
+        <trans-unit id="b335b8f7-c535-45fb-9a59-7c73331d0b30" xml:space="preserve">
+          <source><bpt id="c57a4ea5-6db0-4067-b928-ff961cf10baf">&lt;token href="../../includes/storsimple-create-new-service.md"&gt;</bpt><ept id="c57a4ea5-6db0-4067-b928-ff961cf10baf">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c57a4ea5-6db0-4067-b928-ff961cf10baf">&lt;token href="../../includes/storsimple-create-new-service.md"&gt;</bpt><ept id="c57a4ea5-6db0-4067-b928-ff961cf10baf">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebb9d5ec-e39c-4f6f-a003-9b0f5ffd866f" xml:space="preserve">
+          <source>Before you delete a service, make sure that no connected devices are using it.</source>
+          <target state="new">Before you delete a service, make sure that no connected devices are using it.</target>
+        </trans-unit>
+        <trans-unit id="ba77ff3e-025c-4e8c-8242-7662811fdd69" xml:space="preserve">
+          <source>If the service is in use, deactivate the connected devices.</source>
+          <target state="new">If the service is in use, deactivate the connected devices.</target>
+        </trans-unit>
+        <trans-unit id="362f3fd2-91c0-4523-845d-bcb31f013491" xml:space="preserve">
+          <source>The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud.</source>
+          <target state="new">The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="775e0dc9-f862-426f-94dd-3bc5414dc900" xml:space="preserve">
+          <source>After a service is deleted, the operation cannot be reversed.</source>
+          <target state="new">After a service is deleted, the operation cannot be reversed.</target>
+        </trans-unit>
+        <trans-unit id="517ea979-abea-4fac-abde-2eaa2322e72d" xml:space="preserve">
+          <source>Any device that was using the service will need to be factory reset before it can be used with another service.</source>
+          <target state="new">Any device that was using the service will need to be factory reset before it can be used with another service.</target>
+        </trans-unit>
+        <trans-unit id="f1e5c2df-b274-4790-827a-0063eb1a8f4a" xml:space="preserve">
+          <source>In this scenario, the local data on the device, as well as the configuration, will be lost.</source>
+          <target state="new">In this scenario, the local data on the device, as well as the configuration, will be lost.</target>
+        </trans-unit>
+        <trans-unit id="1d4fe448-f9ff-4a62-bddc-076a8a8406a9" xml:space="preserve">
+          <source>Perform the following steps to delete a service.</source>
+          <target state="new">Perform the following steps to delete a service.</target>
+        </trans-unit>
+        <trans-unit id="24bfdf4f-348b-44e5-9cda-46dc6ad79a1c" xml:space="preserve">
+          <source>On the <bpt id="15bb4d5d-a098-4efd-80d4-5e16b4d04387">&lt;strong&gt;</bpt>StorSimple Manager service<ept id="15bb4d5d-a098-4efd-80d4-5e16b4d04387">&lt;/strong&gt;</ept> page, select the service that you wish to delete.</source>
+          <target state="new">On the <bpt id="15bb4d5d-a098-4efd-80d4-5e16b4d04387">&lt;strong&gt;</bpt>StorSimple Manager service<ept id="15bb4d5d-a098-4efd-80d4-5e16b4d04387">&lt;/strong&gt;</ept> page, select the service that you wish to delete.</target>
+        </trans-unit>
+        <trans-unit id="8a6f223f-1950-4645-b446-46dc5b6246c9" xml:space="preserve">
+          <source>Click <bpt id="f0461c27-d096-4cfa-9c47-6e85ddb927f1">&lt;strong&gt;</bpt>Delete<ept id="f0461c27-d096-4cfa-9c47-6e85ddb927f1">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="f0461c27-d096-4cfa-9c47-6e85ddb927f1">&lt;strong&gt;</bpt>Delete<ept id="f0461c27-d096-4cfa-9c47-6e85ddb927f1">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="f7a70a4e-3ea7-4f2a-b292-d472abbd722d" xml:space="preserve">
+          <source>Click <bpt id="86d931d7-a368-4479-8beb-054ce2ec91d1">&lt;strong&gt;</bpt>Yes<ept id="86d931d7-a368-4479-8beb-054ce2ec91d1">&lt;/strong&gt;</ept> in the confirmation notification.</source>
+          <target state="new">Click <bpt id="86d931d7-a368-4479-8beb-054ce2ec91d1">&lt;strong&gt;</bpt>Yes<ept id="86d931d7-a368-4479-8beb-054ce2ec91d1">&lt;/strong&gt;</ept> in the confirmation notification.</target>
+        </trans-unit>
+        <trans-unit id="5ae29a29-0a65-4bdf-8fe4-156de872a72d" xml:space="preserve">
+          <source>It may take a few minutes for the service to be deleted.</source>
+          <target state="new">It may take a few minutes for the service to be deleted.</target>
+        </trans-unit>
+        <trans-unit id="04ffeb51-9780-4c02-aa7a-988953f449c4" xml:space="preserve">
+          <source>After you have successfully created a service, you will need to register your StorSimple device with the service.</source>
+          <target state="new">After you have successfully created a service, you will need to register your StorSimple device with the service.</target>
+        </trans-unit>
+        <trans-unit id="b295aac0-5a20-4c59-a265-7fc7f06294db" xml:space="preserve">
+          <source>To register your first StorSimple device, you will need the service registration key.</source>
+          <target state="new">To register your first StorSimple device, you will need the service registration key.</target>
+        </trans-unit>
+        <trans-unit id="78130168-795a-4b0b-9778-00ff5ef47fe7" xml:space="preserve">
+          <source>To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration).</source>
+          <target state="new">To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration).</target>
+        </trans-unit>
+        <trans-unit id="04c09b18-53d7-4f40-b15e-9166dbb591de" xml:space="preserve">
+          <source>For more information about the service data encryption key, see <bpt id="4146d0ef-d6ac-4726-83e6-c04304b22726">&lt;linkText&gt;</bpt>StorSimple security<ept id="4146d0ef-d6ac-4726-83e6-c04304b22726">&lt;/linkText&gt;</ept><bpt id="4146d0ef-d6ac-4726-83e6-c04304b22726">&lt;title&gt;</bpt><ept id="4146d0ef-d6ac-4726-83e6-c04304b22726">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the service data encryption key, see <bpt id="4146d0ef-d6ac-4726-83e6-c04304b22726">&lt;linkText&gt;</bpt>StorSimple security<ept id="4146d0ef-d6ac-4726-83e6-c04304b22726">&lt;/linkText&gt;</ept><bpt id="4146d0ef-d6ac-4726-83e6-c04304b22726">&lt;title&gt;</bpt><ept id="4146d0ef-d6ac-4726-83e6-c04304b22726">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4239784-6eb1-4f76-938a-da77c40c355f" xml:space="preserve">
+          <source>You can get the registration key by accessing <bpt id="bcb145c6-4859-40f6-9cdd-5ddc584b62a9">&lt;strong&gt;</bpt>Registration Key<ept id="bcb145c6-4859-40f6-9cdd-5ddc584b62a9">&lt;/strong&gt;</ept> on the <bpt id="63159408-3b93-4c64-a9b2-84eb7ce4fd43">&lt;strong&gt;</bpt>Services<ept id="63159408-3b93-4c64-a9b2-84eb7ce4fd43">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">You can get the registration key by accessing <bpt id="bcb145c6-4859-40f6-9cdd-5ddc584b62a9">&lt;strong&gt;</bpt>Registration Key<ept id="bcb145c6-4859-40f6-9cdd-5ddc584b62a9">&lt;/strong&gt;</ept> on the <bpt id="63159408-3b93-4c64-a9b2-84eb7ce4fd43">&lt;strong&gt;</bpt>Services<ept id="63159408-3b93-4c64-a9b2-84eb7ce4fd43">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="b7815133-ecb2-4e97-8779-3e551cee6fc2" xml:space="preserve">
+          <source>Perform the following steps to get the service registration key.</source>
+          <target state="new">Perform the following steps to get the service registration key.</target>
+        </trans-unit>
+        <trans-unit id="7019ca40-4905-4856-b3f0-fb325e3f08fb" xml:space="preserve">
+          <source><bpt id="60257cc1-75df-4fb7-b924-59dc8e7f2804">&lt;token href="../../includes/storsimple-get-service-registration-key.md"&gt;</bpt><ept id="60257cc1-75df-4fb7-b924-59dc8e7f2804">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="60257cc1-75df-4fb7-b924-59dc8e7f2804">&lt;token href="../../includes/storsimple-get-service-registration-key.md"&gt;</bpt><ept id="60257cc1-75df-4fb7-b924-59dc8e7f2804">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="920732ab-8e96-4b6c-9053-2678d4157790" xml:space="preserve">
+          <source>Keep the service registration key in a safe location.</source>
+          <target state="new">Keep the service registration key in a safe location.</target>
+        </trans-unit>
+        <trans-unit id="47dfa2d0-82d8-472f-b52d-f2487c5d83c1" xml:space="preserve">
+          <source>You will need this key, as well as the service data encryption key, to register additional devices with this service.</source>
+          <target state="new">You will need this key, as well as the service data encryption key, to register additional devices with this service.</target>
+        </trans-unit>
+        <trans-unit id="9b10a638-3018-4559-a412-4179360acd3b" xml:space="preserve">
+          <source>After obtaining the service registration key, you will need to configure your device through the Windows PowerShell for StorSimple interface.</source>
+          <target state="new">After obtaining the service registration key, you will need to configure your device through the Windows PowerShell for StorSimple interface.</target>
+        </trans-unit>
+        <trans-unit id="9a07dad1-fd18-4870-bb4a-571173181ce0" xml:space="preserve">
+          <source>For details on how to use this registration key, see <bpt id="46a98622-4e99-469d-a923-16f1ad324cb6">&lt;linkText&gt;</bpt>Step 3: Configure and register the device through Windows PowerShell for StorSimple<ept id="46a98622-4e99-469d-a923-16f1ad324cb6">&lt;/linkText&gt;</ept><bpt id="46a98622-4e99-469d-a923-16f1ad324cb6">&lt;title&gt;</bpt><ept id="46a98622-4e99-469d-a923-16f1ad324cb6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on how to use this registration key, see <bpt id="46a98622-4e99-469d-a923-16f1ad324cb6">&lt;linkText&gt;</bpt>Step 3: Configure and register the device through Windows PowerShell for StorSimple<ept id="46a98622-4e99-469d-a923-16f1ad324cb6">&lt;/linkText&gt;</ept><bpt id="46a98622-4e99-469d-a923-16f1ad324cb6">&lt;title&gt;</bpt><ept id="46a98622-4e99-469d-a923-16f1ad324cb6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35aaa579-2c9b-4053-9700-90629c069b3e" xml:space="preserve">
+          <source>You will need to regenerate a service registration key if you are required to perform key rotation or if the list of service administrators has changed.</source>
+          <target state="new">You will need to regenerate a service registration key if you are required to perform key rotation or if the list of service administrators has changed.</target>
+        </trans-unit>
+        <trans-unit id="be733180-f7fe-4d10-8aac-13aa0a4620cb" xml:space="preserve">
+          <source>When you regenerate the key, the new key is used only for registering subsequent devices.</source>
+          <target state="new">When you regenerate the key, the new key is used only for registering subsequent devices.</target>
+        </trans-unit>
+        <trans-unit id="f84ab650-1de6-4abb-bcb1-d228bef68f6f" xml:space="preserve">
+          <source>The devices that were already registered are unaffected by this process.</source>
+          <target state="new">The devices that were already registered are unaffected by this process.</target>
+        </trans-unit>
+        <trans-unit id="2f368eba-792e-4a34-b93b-a410bb8d5f12" xml:space="preserve">
+          <source>Perform the following steps to regenerate a service registration key.</source>
+          <target state="new">Perform the following steps to regenerate a service registration key.</target>
+        </trans-unit>
+        <trans-unit id="01a0f9b7-f981-47f5-a24a-3f2cad218baa" xml:space="preserve">
+          <source>On the <bpt id="ccaabe68-d617-45e8-89cc-57d33d3d7380">&lt;strong&gt;</bpt>StorSimple Manager service<ept id="ccaabe68-d617-45e8-89cc-57d33d3d7380">&lt;/strong&gt;</ept> page, click <bpt id="cf599f4c-c675-4caa-969d-2b2ae98f0060">&lt;strong&gt;</bpt>Registration Key<ept id="cf599f4c-c675-4caa-969d-2b2ae98f0060">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ccaabe68-d617-45e8-89cc-57d33d3d7380">&lt;strong&gt;</bpt>StorSimple Manager service<ept id="ccaabe68-d617-45e8-89cc-57d33d3d7380">&lt;/strong&gt;</ept> page, click <bpt id="cf599f4c-c675-4caa-969d-2b2ae98f0060">&lt;strong&gt;</bpt>Registration Key<ept id="cf599f4c-c675-4caa-969d-2b2ae98f0060">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f92acb1-6556-4bd4-a946-4bc602205ba6" xml:space="preserve">
+          <source>In the <bpt id="d3705c44-d82f-4ecc-ae40-abb5e8409998">&lt;strong&gt;</bpt>Service Registration Key<ept id="d3705c44-d82f-4ecc-ae40-abb5e8409998">&lt;/strong&gt;</ept> dialog box, click <bpt id="eeb36571-7668-464b-8888-5706f96400cb">&lt;strong&gt;</bpt>Regenerate<ept id="eeb36571-7668-464b-8888-5706f96400cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d3705c44-d82f-4ecc-ae40-abb5e8409998">&lt;strong&gt;</bpt>Service Registration Key<ept id="d3705c44-d82f-4ecc-ae40-abb5e8409998">&lt;/strong&gt;</ept> dialog box, click <bpt id="eeb36571-7668-464b-8888-5706f96400cb">&lt;strong&gt;</bpt>Regenerate<ept id="eeb36571-7668-464b-8888-5706f96400cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="045018c9-5453-4bb2-a3fd-74d4c895910f" xml:space="preserve">
+          <source>You will see a confirmation message.</source>
+          <target state="new">You will see a confirmation message.</target>
+        </trans-unit>
+        <trans-unit id="52f25f83-af13-4a02-be99-29a5f6ee05ca" xml:space="preserve">
+          <source>Click <bpt id="60ad70f0-8fdc-4161-926e-841dbc02d635">&lt;strong&gt;</bpt>OK<ept id="60ad70f0-8fdc-4161-926e-841dbc02d635">&lt;/strong&gt;</ept> to continue with the regeneration.</source>
+          <target state="new">Click <bpt id="60ad70f0-8fdc-4161-926e-841dbc02d635">&lt;strong&gt;</bpt>OK<ept id="60ad70f0-8fdc-4161-926e-841dbc02d635">&lt;/strong&gt;</ept> to continue with the regeneration.</target>
+        </trans-unit>
+        <trans-unit id="4e1d3186-f5de-464f-b197-8c42c2b95ce4" xml:space="preserve">
+          <source>A new service registration key will appear.</source>
+          <target state="new">A new service registration key will appear.</target>
+        </trans-unit>
+        <trans-unit id="b0915bb9-f600-4441-9698-caf7d5123cc1" xml:space="preserve">
+          <source>Copy this key and save it for registering any new devices with this service.</source>
+          <target state="new">Copy this key and save it for registering any new devices with this service.</target>
+        </trans-unit>
+        <trans-unit id="754645ed-fc59-4ff4-a33f-c665ff348d8c" xml:space="preserve">
+          <source>Click the check icon <bpt id="fe2dc3fc-10b9-4817-91ca-39740bab1f00">&lt;linkText&gt;</bpt>Check icon<ept id="fe2dc3fc-10b9-4817-91ca-39740bab1f00">&lt;/linkText&gt;</ept> to close this dialog box.</source>
+          <target state="new">Click the check icon <bpt id="fe2dc3fc-10b9-4817-91ca-39740bab1f00">&lt;linkText&gt;</bpt>Check icon<ept id="fe2dc3fc-10b9-4817-91ca-39740bab1f00">&lt;/linkText&gt;</ept> to close this dialog box.</target>
+        </trans-unit>
+        <trans-unit id="1a08ecc5-a031-4783-a485-977a9f34485d" xml:space="preserve">
+          <source><bpt id="86553bd4-f1ed-4047-95b7-1d94ac5ba321">&lt;linkText&gt;</bpt>Learn more about the StorSimple deployment process<ept id="86553bd4-f1ed-4047-95b7-1d94ac5ba321">&lt;/linkText&gt;</ept><bpt id="86553bd4-f1ed-4047-95b7-1d94ac5ba321">&lt;title&gt;</bpt><ept id="86553bd4-f1ed-4047-95b7-1d94ac5ba321">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="86553bd4-f1ed-4047-95b7-1d94ac5ba321">&lt;linkText&gt;</bpt>Learn more about the StorSimple deployment process<ept id="86553bd4-f1ed-4047-95b7-1d94ac5ba321">&lt;/linkText&gt;</ept><bpt id="86553bd4-f1ed-4047-95b7-1d94ac5ba321">&lt;title&gt;</bpt><ept id="86553bd4-f1ed-4047-95b7-1d94ac5ba321">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6d45dd0-e6e1-443c-952d-93e8700068db" xml:space="preserve">
+          <source><bpt id="0efa3133-70b0-459e-80ff-6800b08b602d">&lt;linkText&gt;</bpt>Learn more about managing your StorSimple storage account<ept id="0efa3133-70b0-459e-80ff-6800b08b602d">&lt;/linkText&gt;</ept><bpt id="0efa3133-70b0-459e-80ff-6800b08b602d">&lt;title&gt;</bpt><ept id="0efa3133-70b0-459e-80ff-6800b08b602d">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="0efa3133-70b0-459e-80ff-6800b08b602d">&lt;linkText&gt;</bpt>Learn more about managing your StorSimple storage account<ept id="0efa3133-70b0-459e-80ff-6800b08b602d">&lt;/linkText&gt;</ept><bpt id="0efa3133-70b0-459e-80ff-6800b08b602d">&lt;title&gt;</bpt><ept id="0efa3133-70b0-459e-80ff-6800b08b602d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

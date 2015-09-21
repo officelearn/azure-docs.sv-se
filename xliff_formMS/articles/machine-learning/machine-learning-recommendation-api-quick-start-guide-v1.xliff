@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="184b31e5-72a5-4e1d-ae2f-3cd9a5bfe5b8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="184b31e5-72a5-4e1d-ae2f-3cd9a5bfe5b8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="af8749b7-7712-4fb6-ad09-a2ed8521ffb9">
+        <trans-unit id="fadd1d4b-207f-4d5f-8bba-d21406178563" xml:space="preserve">
+          <source>Quick start guide for the Machine Learning Recommendations API | Microsoft Azure</source>
+          <target state="new">Quick start guide for the Machine Learning Recommendations API | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="20c99082-eb11-44b0-8651-0706d26e92cb" xml:space="preserve">
+          <source>Azure Machine Learning Recommendations - Quick Start Guide</source>
+          <target state="new">Azure Machine Learning Recommendations - Quick Start Guide</target>
+        </trans-unit>
+        <trans-unit id="8b650ce9-e901-4642-a1db-d282352f370f" xml:space="preserve">
+          <source>Version: 1.0&lt;br&gt;
+Latest version can be found <bpt id="06c8568b-ee85-48c7-a6a4-6ba79ed97186">&lt;linkText&gt;</bpt>here<ept id="06c8568b-ee85-48c7-a6a4-6ba79ed97186">&lt;/linkText&gt;</ept><bpt id="06c8568b-ee85-48c7-a6a4-6ba79ed97186">&lt;title&gt;</bpt><ept id="06c8568b-ee85-48c7-a6a4-6ba79ed97186">&lt;/title&gt;</ept></source>
+          <target state="new">Version: 1.0&lt;br&gt;
+Latest version can be found <bpt id="06c8568b-ee85-48c7-a6a4-6ba79ed97186">&lt;linkText&gt;</bpt>here<ept id="06c8568b-ee85-48c7-a6a4-6ba79ed97186">&lt;/linkText&gt;</ept><bpt id="06c8568b-ee85-48c7-a6a4-6ba79ed97186">&lt;title&gt;</bpt><ept id="06c8568b-ee85-48c7-a6a4-6ba79ed97186">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b398babf-3174-4b21-af3b-4abbd450e0d2" xml:space="preserve">
+          <source>This document depicts how to onboard your service or application to use Azure ML Recommendations.</source>
+          <target state="new">This document depicts how to onboard your service or application to use Azure ML Recommendations.</target>
+        </trans-unit>
+        <trans-unit id="d674b92b-01a8-4ca1-8850-c712a2c74053" xml:space="preserve">
+          <source><bpt id="b17f12ea-527a-428e-8165-bad237a6685e">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="b17f12ea-527a-428e-8165-bad237a6685e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b17f12ea-527a-428e-8165-bad237a6685e">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="b17f12ea-527a-428e-8165-bad237a6685e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a7630b9-647f-4faf-b221-7a091219b529" xml:space="preserve">
+          <source>To use Azure ML Recommendations you need to do the following steps:</source>
+          <target state="new">To use Azure ML Recommendations you need to do the following steps:</target>
+        </trans-unit>
+        <trans-unit id="399f4498-8df0-4f41-8a93-c6d9957c2b81" xml:space="preserve">
+          <source>Create a Model - A model is a container of your usage data, catalog data and the recommendation model.</source>
+          <target state="new">Create a Model - A model is a container of your usage data, catalog data and the recommendation model.</target>
+        </trans-unit>
+        <trans-unit id="220862eb-96ea-4346-9abc-057d3ebf15ca" xml:space="preserve">
+          <source>Import catalog data - This is an optional step.</source>
+          <target state="new">Import catalog data - This is an optional step.</target>
+        </trans-unit>
+        <trans-unit id="1e550e61-9151-4255-afdf-f8a8c9e150a0" xml:space="preserve">
+          <source>A catalog contains meta-data information on the items.</source>
+          <target state="new">A catalog contains meta-data information on the items.</target>
+        </trans-unit>
+        <trans-unit id="97c39471-47aa-4934-bb79-52da65b9b2c5" xml:space="preserve">
+          <source>If you do not upload catalog data, the recommendations services will learn about your catalog implicitly from the usage data.</source>
+          <target state="new">If you do not upload catalog data, the recommendations services will learn about your catalog implicitly from the usage data.</target>
+        </trans-unit>
+        <trans-unit id="76f3f9fd-37a2-4ae7-be05-2cd270b355dc" xml:space="preserve">
+          <source>Import usage data - Usage data can be uploaded in one of 2 ways (or both):</source>
+          <target state="new">Import usage data - Usage data can be uploaded in one of 2 ways (or both):</target>
+        </trans-unit>
+        <trans-unit id="27318095-04b8-4e44-a6cc-9c9c754e992d" xml:space="preserve">
+          <source>By uploading a file that contains the usage data.</source>
+          <target state="new">By uploading a file that contains the usage data.</target>
+        </trans-unit>
+        <trans-unit id="0abd22d1-408c-4f3a-965d-f1ea7856aa56" xml:space="preserve">
+          <source>By sending Data Acquisition events.</source>
+          <target state="new">By sending Data Acquisition events.</target>
+        </trans-unit>
+        <trans-unit id="6f538c7a-0d92-4a56-b32a-1f6d85198298" xml:space="preserve">
+          <source>Usually you upload a usage file in order to be able to create an initial recommendation model (bootstrap) and use it until the system gathers enough data using the data acquisition format.</source>
+          <target state="new">Usually you upload a usage file in order to be able to create an initial recommendation model (bootstrap) and use it until the system gathers enough data using the data acquisition format.</target>
+        </trans-unit>
+        <trans-unit id="b4406b00-00d1-4298-9076-6834f97dc702" xml:space="preserve">
+          <source>Build a recommendation model - this is an asynchronous operation in which the recommendation system takes all the usage data and creates a recommendation model.</source>
+          <target state="new">Build a recommendation model - this is an asynchronous operation in which the recommendation system takes all the usage data and creates a recommendation model.</target>
+        </trans-unit>
+        <trans-unit id="d6b788e3-684b-4896-b799-48085f2498c4" xml:space="preserve">
+          <source>This operation can take several minutes or several hours depending on the size of the data and the build configuration parameters.</source>
+          <target state="new">This operation can take several minutes or several hours depending on the size of the data and the build configuration parameters.</target>
+        </trans-unit>
+        <trans-unit id="ea6e4114-0cb9-4614-8ee7-cf265fc6a88c" xml:space="preserve">
+          <source>When triggering the build you will get a build id, use it to check when the build process has ended before starting to consume recommendations.</source>
+          <target state="new">When triggering the build you will get a build id, use it to check when the build process has ended before starting to consume recommendations.</target>
+        </trans-unit>
+        <trans-unit id="977ffca1-5790-46ec-b81b-7f72298cf7ad" xml:space="preserve">
+          <source>Recommendations consumption - get recommendations for a specific item or list of items.</source>
+          <target state="new">Recommendations consumption - get recommendations for a specific item or list of items.</target>
+        </trans-unit>
+        <trans-unit id="f9a2c93d-8c7d-446c-b3f4-9388e9d14ac7" xml:space="preserve">
+          <source>All the steps above are done through Azure ML Recommendations API.</source>
+          <target state="new">All the steps above are done through Azure ML Recommendations API.</target>
+        </trans-unit>
+        <trans-unit id="0572c0dc-2804-4ca2-af95-45da83e50bd3" xml:space="preserve">
+          <source>Maximum number of models per subscription: 10</source>
+          <target state="new">Maximum number of models per subscription: 10</target>
+        </trans-unit>
+        <trans-unit id="d67fbf90-8af3-4703-969c-8c39db255b57" xml:space="preserve">
+          <source>Maximum number of items that a catalog can hold: 100,000</source>
+          <target state="new">Maximum number of items that a catalog can hold: 100,000</target>
+        </trans-unit>
+        <trans-unit id="cb3b5b62-087b-418f-8b0c-f72460e02de8" xml:space="preserve">
+          <source>The maximum amount of usage points that are kept is ~5,000,000.</source>
+          <target state="new">The maximum amount of usage points that are kept is ~5,000,000.</target>
+        </trans-unit>
+        <trans-unit id="c6582a9f-fa0c-42da-8536-595fa42e53d3" xml:space="preserve">
+          <source>The oldest will be deleted if new ones will be uploaded or reported.</source>
+          <target state="new">The oldest will be deleted if new ones will be uploaded or reported.</target>
+        </trans-unit>
+        <trans-unit id="cd0315c3-dfc7-499f-9e3d-4479ac318e8d" xml:space="preserve">
+          <source>Maximum size of data can be sent in POST (e.g. Import catalog data, import usage data) is 200MB.</source>
+          <target state="new">Maximum size of data can be sent in POST (e.g. Import catalog data, import usage data) is 200MB.</target>
+        </trans-unit>
+        <trans-unit id="98d04faf-8131-4361-8bda-0f4b1eaef14e" xml:space="preserve">
+          <source>The number of transactions per second for a recommendation model build that is not active is ~2TPS, only recommendation model build that is active can hold up to 20TPS.</source>
+          <target state="new">The number of transactions per second for a recommendation model build that is not active is ~2TPS, only recommendation model build that is active can hold up to 20TPS.</target>
+        </trans-unit>
+        <trans-unit id="a27c16ad-5b2d-4cc5-8c93-72cb6250a4f6" xml:space="preserve">
+          <source>Please follow the Microsoft Azure Marketplace guidelines regarding authentication.</source>
+          <target state="new">Please follow the Microsoft Azure Marketplace guidelines regarding authentication.</target>
+        </trans-unit>
+        <trans-unit id="53bcfb52-95f9-4682-b8e0-cbf11e6ca4dc" xml:space="preserve">
+          <source>The marketplace supports either Basic or OAuth authentication methods.</source>
+          <target state="new">The marketplace supports either Basic or OAuth authentication methods.</target>
+        </trans-unit>
+        <trans-unit id="708217ae-8890-4f90-9362-3aedfdf77d5b" xml:space="preserve">
+          <source>The service root URIs for each of the Azure ML Recommendations APIs is <bpt id="6a94a9a1-75b8-4a2b-ae82-a5cd8e8085c2">&lt;linkText&gt;</bpt>here.<ept id="6a94a9a1-75b8-4a2b-ae82-a5cd8e8085c2">&lt;/linkText&gt;</ept><bpt id="6a94a9a1-75b8-4a2b-ae82-a5cd8e8085c2">&lt;title&gt;</bpt><ept id="6a94a9a1-75b8-4a2b-ae82-a5cd8e8085c2">&lt;/title&gt;</ept></source>
+          <target state="new">The service root URIs for each of the Azure ML Recommendations APIs is <bpt id="6a94a9a1-75b8-4a2b-ae82-a5cd8e8085c2">&lt;linkText&gt;</bpt>here.<ept id="6a94a9a1-75b8-4a2b-ae82-a5cd8e8085c2">&lt;/linkText&gt;</ept><bpt id="6a94a9a1-75b8-4a2b-ae82-a5cd8e8085c2">&lt;title&gt;</bpt><ept id="6a94a9a1-75b8-4a2b-ae82-a5cd8e8085c2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27509a56-c531-43d2-b13e-e28aeebfe8ee" xml:space="preserve">
+          <source>The full service URI is expressed using elements of the OData specification.</source>
+          <target state="new">The full service URI is expressed using elements of the OData specification.</target>
+        </trans-unit>
+        <trans-unit id="ffabc016-515e-43b9-ac49-d00660c8442c" xml:space="preserve">
+          <source>Each API call will have at the end query parameter called apiVersion that should be set to "1.0".</source>
+          <target state="new">Each API call will have at the end query parameter called apiVersion that should be set to "1.0".</target>
+        </trans-unit>
+        <trans-unit id="c73132fa-c446-429f-9b63-dcc487dfe166" xml:space="preserve">
+          <source>Creating a “create model” request:</source>
+          <target state="new">Creating a “create model” request:</target>
+        </trans-unit>
+        <trans-unit id="03691191-1ae3-4342-923e-f8a700670f53" xml:space="preserve">
+          <source>HTTP Method</source>
+          <target state="new">HTTP Method</target>
+        </trans-unit>
+        <trans-unit id="9e582eeb-8f67-48cc-8853-a59c0753c8cc" xml:space="preserve">
+          <source>URI</source>
+          <target state="new">URI</target>
+        </trans-unit>
+        <trans-unit id="b7ff7f60-9ed4-4a4e-bab0-fac749f7a310" xml:space="preserve">
+          <source>POST</source>
+          <target state="new">POST</target>
+        </trans-unit>
+        <trans-unit id="72aee4db-3327-4b83-8058-a2e19b77a39a" xml:space="preserve">
+          <source><bpt id="1354868b-5653-4f1a-959e-cb923875ec10">&lt;code&gt;</bpt>&lt;rootURI&gt;/CreateModel?modelName=%27&lt;model_name&gt;%27&amp;apiVersion=%271.0%27<ept id="1354868b-5653-4f1a-959e-cb923875ec10">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="7aa1e5fd-3904-43de-888f-c7ea687352a3">&lt;code&gt;</bpt>&lt;rootURI&gt;/CreateModel?modelName=%27MyFirstModel%27&amp;apiVersion=%271.0%27<ept id="7aa1e5fd-3904-43de-888f-c7ea687352a3">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1354868b-5653-4f1a-959e-cb923875ec10">&lt;code&gt;</bpt>&lt;rootURI&gt;/CreateModel?modelName=%27&lt;model_name&gt;%27&amp;apiVersion=%271.0%27<ept id="1354868b-5653-4f1a-959e-cb923875ec10">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="7aa1e5fd-3904-43de-888f-c7ea687352a3">&lt;code&gt;</bpt>&lt;rootURI&gt;/CreateModel?modelName=%27MyFirstModel%27&amp;apiVersion=%271.0%27<ept id="7aa1e5fd-3904-43de-888f-c7ea687352a3">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b323835b-4af3-4e19-b584-7a366103592f" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="a67c9e3e-8bd7-46a0-addb-7e07963bd2f0" xml:space="preserve">
+          <source>Valid Values</source>
+          <target state="new">Valid Values</target>
+        </trans-unit>
+        <trans-unit id="57f0ead4-550f-4b62-ab82-2d86b207f15a" xml:space="preserve">
+          <source>modelName</source>
+          <target state="new">modelName</target>
+        </trans-unit>
+        <trans-unit id="e4d9dc6c-8798-4713-9c6e-7ceb09670134" xml:space="preserve">
+          <source>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.&lt;br&gt;Max length: 20</source>
+          <target state="new">Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.&lt;br&gt;Max length: 20</target>
+        </trans-unit>
+        <trans-unit id="7ce5b993-2765-46c2-bdea-64e28cdf280c" xml:space="preserve">
+          <source>apiVersion</source>
+          <target state="new">apiVersion</target>
+        </trans-unit>
+        <trans-unit id="6d36f8bf-bb09-489c-aa1d-ecb565159c7c" xml:space="preserve">
+          <source>1.0</source>
+          <target state="new">1.0</target>
+        </trans-unit>
+        <trans-unit id="ad33a1f9-de35-4471-b2b2-ce7b15ac0a48" xml:space="preserve">
+          <source>Request Body</source>
+          <target state="new">Request Body</target>
+        </trans-unit>
+        <trans-unit id="67781338-9aca-4e63-aeaf-0715101d46ad" xml:space="preserve">
+          <source>NONE</source>
+          <target state="new">NONE</target>
+        </trans-unit>
+        <trans-unit id="68d7745c-d604-4f2e-9fe1-77897210cba3" xml:space="preserve">
+          <source><bpt id="d642d495-842c-44c4-a83f-40e68f089014">&lt;strong&gt;</bpt>Response<ept id="d642d495-842c-44c4-a83f-40e68f089014">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="d642d495-842c-44c4-a83f-40e68f089014">&lt;strong&gt;</bpt>Response<ept id="d642d495-842c-44c4-a83f-40e68f089014">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="dc96f12e-4498-4818-aac1-b3d545f2cb78" xml:space="preserve">
+          <source>HTTP Status code: 200</source>
+          <target state="new">HTTP Status code: 200</target>
+        </trans-unit>
+        <trans-unit id="f449b8cb-d216-4697-ab4b-9131b5c441ca" xml:space="preserve">
+          <source>OData XML</source>
+          <target state="new">OData XML</target>
+        </trans-unit>
+        <trans-unit id="b29304fe-a142-4113-978a-2a1fde761374" xml:space="preserve">
+          <source>If you upload several catalog files to the same model with several calls we will insert only the new catalog items.</source>
+          <target state="new">If you upload several catalog files to the same model with several calls we will insert only the new catalog items.</target>
+        </trans-unit>
+        <trans-unit id="89acdcbc-f673-4a15-ac37-6bb2339939c6" xml:space="preserve">
+          <source>Existing items will remain with the original values.</source>
+          <target state="new">Existing items will remain with the original values.</target>
+        </trans-unit>
+        <trans-unit id="852628eb-e456-4c4e-8dc1-136a936c8b8b" xml:space="preserve">
+          <source>HTTP Method</source>
+          <target state="new">HTTP Method</target>
+        </trans-unit>
+        <trans-unit id="4626f162-c1a1-491a-9715-d305d3713cf6" xml:space="preserve">
+          <source>URI</source>
+          <target state="new">URI</target>
+        </trans-unit>
+        <trans-unit id="9a5c85d4-88df-41fd-8837-668073bbeaa5" xml:space="preserve">
+          <source>POST</source>
+          <target state="new">POST</target>
+        </trans-unit>
+        <trans-unit id="52fe5865-09ec-4da5-addb-02422d202d55" xml:space="preserve">
+          <source><bpt id="15112c36-c38b-4511-8668-1e3094c664ea">&lt;code&gt;</bpt>&lt;rootURI&gt;/ImportCatalogFile?modelId=%27&lt;modelId&gt;%27&amp;filename=%27&lt;fileName&gt;%27&amp;apiVersion=%271.0%27<ept id="15112c36-c38b-4511-8668-1e3094c664ea">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="1e768484-4de0-4d5f-8a85-ba6ef5d387fa">&lt;code&gt;</bpt>&lt;rootURI&gt;/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&amp;filename=%27catalog10_small.txt%27&amp;apiVersion=%271.0%27<ept id="1e768484-4de0-4d5f-8a85-ba6ef5d387fa">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="15112c36-c38b-4511-8668-1e3094c664ea">&lt;code&gt;</bpt>&lt;rootURI&gt;/ImportCatalogFile?modelId=%27&lt;modelId&gt;%27&amp;filename=%27&lt;fileName&gt;%27&amp;apiVersion=%271.0%27<ept id="15112c36-c38b-4511-8668-1e3094c664ea">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="1e768484-4de0-4d5f-8a85-ba6ef5d387fa">&lt;code&gt;</bpt>&lt;rootURI&gt;/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&amp;filename=%27catalog10_small.txt%27&amp;apiVersion=%271.0%27<ept id="1e768484-4de0-4d5f-8a85-ba6ef5d387fa">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af29521d-bc03-40cd-b0a8-d4f0431b7c8d" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="da5663f3-d084-4246-ad8f-ff36364b9f8b" xml:space="preserve">
+          <source>Valid Values</source>
+          <target state="new">Valid Values</target>
+        </trans-unit>
+        <trans-unit id="5955ef0c-4a74-44ce-817f-ccb22a301e04" xml:space="preserve">
+          <source>modelId</source>
+          <target state="new">modelId</target>
+        </trans-unit>
+        <trans-unit id="7f5d944e-d4f6-495f-9a10-ccf21cf57951" xml:space="preserve">
+          <source>The unique identifier of the model.</source>
+          <target state="new">The unique identifier of the model.</target>
+        </trans-unit>
+        <trans-unit id="9634be0c-a761-4f94-8c3e-855c31efac1e" xml:space="preserve">
+          <source>filename</source>
+          <target state="new">filename</target>
+        </trans-unit>
+        <trans-unit id="664807ad-a8a3-4527-8ae4-f7c1bd3524aa" xml:space="preserve">
+          <source>Textual identifier of the catalog.&lt;br&gt;Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed&lt;br&gt;Max length: 50</source>
+          <target state="new">Textual identifier of the catalog.&lt;br&gt;Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed&lt;br&gt;Max length: 50</target>
+        </trans-unit>
+        <trans-unit id="d878d448-c809-4f30-bb1d-d1717888bc11" xml:space="preserve">
+          <source>apiVersion</source>
+          <target state="new">apiVersion</target>
+        </trans-unit>
+        <trans-unit id="083cedf1-0c4d-4001-ad7e-4343b3e17ea2" xml:space="preserve">
+          <source>1.0</source>
+          <target state="new">1.0</target>
+        </trans-unit>
+        <trans-unit id="5a8f66ef-d012-464a-b81a-a08eb22c0523" xml:space="preserve">
+          <source>Request Body</source>
+          <target state="new">Request Body</target>
+        </trans-unit>
+        <trans-unit id="0604d977-78f2-4157-9a51-49290bc09e0c" xml:space="preserve">
+          <source>The catalog data. Format:&lt;br&gt;<bpt id="ffb54ff7-6245-44ca-bd57-6bd7fb5ea64b">&lt;code&gt;</bpt>&lt;Item Id&gt;,&lt;Item Name&gt;,&lt;Item Category&gt;[,&lt;description&gt;]<ept id="ffb54ff7-6245-44ca-bd57-6bd7fb5ea64b">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Mandatory&lt;/th&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Item Id&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Alphanumeric, Max Length 50&lt;/td&gt;&lt;td&gt;Unique identifier of an Item&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Item Name&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Alphanumeric, Max Length 255&lt;/td&gt;&lt;td&gt;The Item Name&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Item Category&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Alphanumeric, Max Length 255&lt;/td&gt;&lt;td&gt;The category to which this item belongs (e.g. Cooking Books, Drama…)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Description&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;Alphanumeric, Max Length 4000&lt;/td&gt;&lt;td&gt;A description of this item&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;Maximum file size 200MB&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;&lt;pre&gt;2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book&lt;br&gt;21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book&lt;br&gt;3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book&lt;br&gt;552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book&lt;/pre&gt;</source>
+          <target state="new">The catalog data. Format:&lt;br&gt;<bpt id="ffb54ff7-6245-44ca-bd57-6bd7fb5ea64b">&lt;code&gt;</bpt>&lt;Item Id&gt;,&lt;Item Name&gt;,&lt;Item Category&gt;[,&lt;description&gt;]<ept id="ffb54ff7-6245-44ca-bd57-6bd7fb5ea64b">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Mandatory&lt;/th&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Item Id&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Alphanumeric, Max Length 50&lt;/td&gt;&lt;td&gt;Unique identifier of an Item&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Item Name&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Alphanumeric, Max Length 255&lt;/td&gt;&lt;td&gt;The Item Name&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Item Category&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Alphanumeric, Max Length 255&lt;/td&gt;&lt;td&gt;The category to which this item belongs (e.g. Cooking Books, Drama…)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Description&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;Alphanumeric, Max Length 4000&lt;/td&gt;&lt;td&gt;A description of this item&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;Maximum file size 200MB&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;&lt;pre&gt;2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book&lt;br&gt;21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book&lt;br&gt;3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book&lt;br&gt;552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book&lt;/pre&gt;</target>
+        </trans-unit>
+        <trans-unit id="4890f2db-5a56-4d75-9561-49901f848b55" xml:space="preserve">
+          <source><bpt id="3a54f5dd-cf05-49fc-b240-166bada0622c">&lt;strong&gt;</bpt>Response<ept id="3a54f5dd-cf05-49fc-b240-166bada0622c">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="3a54f5dd-cf05-49fc-b240-166bada0622c">&lt;strong&gt;</bpt>Response<ept id="3a54f5dd-cf05-49fc-b240-166bada0622c">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="bcd3efb2-ff09-4b73-8f91-a4c2fcaa4753" xml:space="preserve">
+          <source>HTTP Status code: 200</source>
+          <target state="new">HTTP Status code: 200</target>
+        </trans-unit>
+        <trans-unit id="ab4e4d46-4c2e-40d6-887b-83a5284464a8" xml:space="preserve">
+          <source>OData XML   </source>
+          <target state="new">OData XML   </target>
+        </trans-unit>
+        <trans-unit id="e83bf9d6-35ef-4933-b0d6-c39f4e75ec06" xml:space="preserve">
+          <source>This sections shows how to upload usage data using a file.</source>
+          <target state="new">This sections shows how to upload usage data using a file.</target>
+        </trans-unit>
+        <trans-unit id="ae07baca-d086-49ae-b677-3c4212adddc7" xml:space="preserve">
+          <source>You can call this API several times with usage data.</source>
+          <target state="new">You can call this API several times with usage data.</target>
+        </trans-unit>
+        <trans-unit id="95d8be6a-86c5-46c7-bffc-d6cd7d8e1c3c" xml:space="preserve">
+          <source>All usage data will be saved for all calls.</source>
+          <target state="new">All usage data will be saved for all calls.</target>
+        </trans-unit>
+        <trans-unit id="823ac696-cacd-4e88-a159-a0a89a1174f9" xml:space="preserve">
+          <source>HTTP Method</source>
+          <target state="new">HTTP Method</target>
+        </trans-unit>
+        <trans-unit id="1bc8d1f1-0d95-4674-bfce-61d666f4d2c4" xml:space="preserve">
+          <source>URI</source>
+          <target state="new">URI</target>
+        </trans-unit>
+        <trans-unit id="3c0650ad-1f31-43fd-b121-2491793b749a" xml:space="preserve">
+          <source>POST</source>
+          <target state="new">POST</target>
+        </trans-unit>
+        <trans-unit id="933683c8-c635-4020-aa10-37db1c1b636f" xml:space="preserve">
+          <source><bpt id="4c28e495-480f-4fe3-8fb7-036e574bf208">&lt;code&gt;</bpt>&lt;rootURI&gt;/ImportUsageFile?modelId=%27&lt;modelId&gt;%27&amp;filename=%27&lt;fileName&gt;%27&amp;apiVersion=%271.0%27<ept id="4c28e495-480f-4fe3-8fb7-036e574bf208">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="5e6386c6-207e-42df-8a15-294defc09048">&lt;code&gt;</bpt>&lt;rootURI&gt;/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&amp;filename=%27ImplicitMatrix10_Guid_small.txt%27&amp;apiVersion=%271.0%27<ept id="5e6386c6-207e-42df-8a15-294defc09048">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="4c28e495-480f-4fe3-8fb7-036e574bf208">&lt;code&gt;</bpt>&lt;rootURI&gt;/ImportUsageFile?modelId=%27&lt;modelId&gt;%27&amp;filename=%27&lt;fileName&gt;%27&amp;apiVersion=%271.0%27<ept id="4c28e495-480f-4fe3-8fb7-036e574bf208">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="5e6386c6-207e-42df-8a15-294defc09048">&lt;code&gt;</bpt>&lt;rootURI&gt;/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&amp;filename=%27ImplicitMatrix10_Guid_small.txt%27&amp;apiVersion=%271.0%27<ept id="5e6386c6-207e-42df-8a15-294defc09048">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62a8e9c7-fab8-47ce-9d7e-68886713089d" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="6284a403-f8f7-41d8-bb02-ec856a073fe5" xml:space="preserve">
+          <source>Valid Values</source>
+          <target state="new">Valid Values</target>
+        </trans-unit>
+        <trans-unit id="c50151f4-99bb-4d53-b4ae-f97b61677f11" xml:space="preserve">
+          <source>modelId</source>
+          <target state="new">modelId</target>
+        </trans-unit>
+        <trans-unit id="652b4d1a-90b2-4b4d-9f97-4fb33dcaba9d" xml:space="preserve">
+          <source>The unique identifier of the model.</source>
+          <target state="new">The unique identifier of the model.</target>
+        </trans-unit>
+        <trans-unit id="8686909c-e5bb-4d94-9789-dc0d3483bedc" xml:space="preserve">
+          <source>filename</source>
+          <target state="new">filename</target>
+        </trans-unit>
+        <trans-unit id="4f0163c0-636e-4426-ae3e-3f75fec7b026" xml:space="preserve">
+          <source>Textual identifier of the catalog.&lt;br&gt;Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed&lt;br&gt;Max length: 50</source>
+          <target state="new">Textual identifier of the catalog.&lt;br&gt;Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed&lt;br&gt;Max length: 50</target>
+        </trans-unit>
+        <trans-unit id="99113c55-d713-4f93-bbaa-9e295d9700ec" xml:space="preserve">
+          <source>apiVersion</source>
+          <target state="new">apiVersion</target>
+        </trans-unit>
+        <trans-unit id="e09bf99c-57ff-46a5-aeb1-188335695f94" xml:space="preserve">
+          <source>1.0</source>
+          <target state="new">1.0</target>
+        </trans-unit>
+        <trans-unit id="2ff820ea-0694-4b1d-90f1-9029167e9328" xml:space="preserve">
+          <source>Request Body</source>
+          <target state="new">Request Body</target>
+        </trans-unit>
+        <trans-unit id="f5ea1983-2418-460e-a8d0-8e7711dfb68f" xml:space="preserve">
+          <source>The usage data. Format:&lt;br&gt;<bpt id="3ae78470-31eb-4bbe-9231-2a7fde459137">&lt;code&gt;</bpt>&lt;User Id&gt;,&lt;Item Id&gt;[,&lt;Time&gt;,&lt;Event&gt;]<ept id="3ae78470-31eb-4bbe-9231-2a7fde459137">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Mandatory&lt;/th&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;User Id&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Alphanumeric&lt;/td&gt;&lt;td&gt;Unique identifier of a User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Item Id&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Alphanumeric, Max Length 50&lt;/td&gt;&lt;td&gt;Unique identifier of an Item&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)&lt;/td&gt;&lt;td&gt;Time of data&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Event&lt;/td&gt;&lt;td&gt;No, if supplied then must also put date&lt;/td&gt;&lt;td&gt;One of the following:&lt;br&gt;• Click&lt;br&gt;• RecommendationClick&lt;br&gt;• AddShopCart&lt;br&gt;• RemoveShopCart&lt;br&gt;• Purchase&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;Maximum file size 200MB&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;&lt;pre&gt;149452,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;6360,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;50321,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;71285,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;224450,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;236645,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;107951,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;/pre&gt;</source>
+          <target state="new">The usage data. Format:&lt;br&gt;<bpt id="3ae78470-31eb-4bbe-9231-2a7fde459137">&lt;code&gt;</bpt>&lt;User Id&gt;,&lt;Item Id&gt;[,&lt;Time&gt;,&lt;Event&gt;]<ept id="3ae78470-31eb-4bbe-9231-2a7fde459137">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Mandatory&lt;/th&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;User Id&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Alphanumeric&lt;/td&gt;&lt;td&gt;Unique identifier of a User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Item Id&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Alphanumeric, Max Length 50&lt;/td&gt;&lt;td&gt;Unique identifier of an Item&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)&lt;/td&gt;&lt;td&gt;Time of data&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Event&lt;/td&gt;&lt;td&gt;No, if supplied then must also put date&lt;/td&gt;&lt;td&gt;One of the following:&lt;br&gt;• Click&lt;br&gt;• RecommendationClick&lt;br&gt;• AddShopCart&lt;br&gt;• RemoveShopCart&lt;br&gt;• Purchase&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;Maximum file size 200MB&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;&lt;pre&gt;149452,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;6360,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;50321,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;71285,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;224450,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;236645,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;br&gt;107951,1b3d95e2-84e4-414c-bb38-be9cf461c347&lt;/pre&gt;</target>
+        </trans-unit>
+        <trans-unit id="7a8e481f-8604-49af-9367-2ad4797a75fa" xml:space="preserve">
+          <source><bpt id="5a178ccc-3709-49f9-9196-0eb30b78f51d">&lt;strong&gt;</bpt>Response<ept id="5a178ccc-3709-49f9-9196-0eb30b78f51d">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="5a178ccc-3709-49f9-9196-0eb30b78f51d">&lt;strong&gt;</bpt>Response<ept id="5a178ccc-3709-49f9-9196-0eb30b78f51d">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="0fb63166-0d27-4ade-8ea0-167b971cc75a" xml:space="preserve">
+          <source>HTTP Status code: 200</source>
+          <target state="new">HTTP Status code: 200</target>
+        </trans-unit>
+        <trans-unit id="d03d2834-d16f-4f64-ba7e-efacc5631fb8" xml:space="preserve">
+          <source>OData XML   </source>
+          <target state="new">OData XML   </target>
+        </trans-unit>
+        <trans-unit id="befc7764-32c3-41a4-8286-1a3261ee336e" xml:space="preserve">
+          <source>This section shows how to send events in real time to Azure ML Recommendations usually from your web site.</source>
+          <target state="new">This section shows how to send events in real time to Azure ML Recommendations usually from your web site.</target>
+        </trans-unit>
+        <trans-unit id="c8abca49-fec4-43e7-8625-aaf3b9a451a5" xml:space="preserve">
+          <source>HTTP Method</source>
+          <target state="new">HTTP Method</target>
+        </trans-unit>
+        <trans-unit id="700a6027-8e23-4573-8330-17df20e4ada3" xml:space="preserve">
+          <source>URI</source>
+          <target state="new">URI</target>
+        </trans-unit>
+        <trans-unit id="8d90ae02-182c-4a3c-ba60-833a5250d4a2" xml:space="preserve">
+          <source>POST</source>
+          <target state="new">POST</target>
+        </trans-unit>
+        <trans-unit id="13a2eaa3-32a1-4135-9f79-37c6468fc32b" xml:space="preserve">
+          <source><bpt id="866d3c91-6847-485b-bde8-7abc72e2ec3c">&lt;code&gt;</bpt>&lt;rootURI&gt;/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&amp;filename=%27catalog10_small.txt%27&amp;apiVersion=%271.0%27<ept id="866d3c91-6847-485b-bde8-7abc72e2ec3c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="866d3c91-6847-485b-bde8-7abc72e2ec3c">&lt;code&gt;</bpt>&lt;rootURI&gt;/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&amp;filename=%27catalog10_small.txt%27&amp;apiVersion=%271.0%27<ept id="866d3c91-6847-485b-bde8-7abc72e2ec3c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64ac331d-dab4-4f6d-aab1-cee4ef47c28d" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="97284e2d-c598-488f-9aaa-c23d61ca6ff9" xml:space="preserve">
+          <source>Valid Values</source>
+          <target state="new">Valid Values</target>
+        </trans-unit>
+        <trans-unit id="479c9383-3668-4366-86d5-2d3ae86b4770" xml:space="preserve">
+          <source>apiVersion</source>
+          <target state="new">apiVersion</target>
+        </trans-unit>
+        <trans-unit id="7ae54051-342f-406e-bbd0-7f61d63640f8" xml:space="preserve">
+          <source>1.0</source>
+          <target state="new">1.0</target>
+        </trans-unit>
+        <trans-unit id="34c08967-01dd-4214-ae74-56627f57d0c2" xml:space="preserve">
+          <source>Request body</source>
+          <target state="new">Request body</target>
+        </trans-unit>
+        <trans-unit id="8726c1bc-0fa8-4d0e-ac94-fa2f81138bfd" xml:space="preserve">
+          <source><bpt id="71b0fc1d-7d6d-4837-b2c3-11daa93980d3">&lt;strong&gt;</bpt>Response<ept id="71b0fc1d-7d6d-4837-b2c3-11daa93980d3">&lt;/strong&gt;</ept>:
+HTTP Status code: 200</source>
+          <target state="new"><bpt id="71b0fc1d-7d6d-4837-b2c3-11daa93980d3">&lt;strong&gt;</bpt>Response<ept id="71b0fc1d-7d6d-4837-b2c3-11daa93980d3">&lt;/strong&gt;</ept>:
+HTTP Status code: 200</target>
+        </trans-unit>
+        <trans-unit id="bcbc1bd7-a5eb-48fc-8f66-6afd006b2f70" xml:space="preserve">
+          <source>HTTP Method</source>
+          <target state="new">HTTP Method</target>
+        </trans-unit>
+        <trans-unit id="da38f67e-1c3c-4047-802c-c82b4f9fdbd2" xml:space="preserve">
+          <source>URI</source>
+          <target state="new">URI</target>
+        </trans-unit>
+        <trans-unit id="463e8e6a-4cec-4bdb-85e0-c15f015e1783" xml:space="preserve">
+          <source>POST</source>
+          <target state="new">POST</target>
+        </trans-unit>
+        <trans-unit id="b740b7af-e7db-42c8-8bfd-d05cd304b8d0" xml:space="preserve">
+          <source><bpt id="c342b664-7cb4-47f6-abb7-18d8e14b54a6">&lt;code&gt;</bpt>&lt;rootURI&gt;/BuildModel?modelId=%27&lt;modelId&gt;%27&amp;userDescription=%27&lt;description&gt;%27&amp;apiVersion=%271.0%27<ept id="c342b664-7cb4-47f6-abb7-18d8e14b54a6">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="6ee84dd3-d70b-4883-8601-208e9f8ccd5c">&lt;code&gt;</bpt>&lt;rootURI&gt;/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&amp;userDescription=%27First%20build%27&amp;apiVersion=%271.0%27<ept id="6ee84dd3-d70b-4883-8601-208e9f8ccd5c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c342b664-7cb4-47f6-abb7-18d8e14b54a6">&lt;code&gt;</bpt>&lt;rootURI&gt;/BuildModel?modelId=%27&lt;modelId&gt;%27&amp;userDescription=%27&lt;description&gt;%27&amp;apiVersion=%271.0%27<ept id="c342b664-7cb4-47f6-abb7-18d8e14b54a6">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="6ee84dd3-d70b-4883-8601-208e9f8ccd5c">&lt;code&gt;</bpt>&lt;rootURI&gt;/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&amp;userDescription=%27First%20build%27&amp;apiVersion=%271.0%27<ept id="6ee84dd3-d70b-4883-8601-208e9f8ccd5c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d00c3158-115c-4972-addb-5acfc17afdab" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="f091554f-c661-4933-b21b-cce8593d26ad" xml:space="preserve">
+          <source>Valid Values</source>
+          <target state="new">Valid Values</target>
+        </trans-unit>
+        <trans-unit id="cc8162ff-bb0f-44ea-9bbf-0e0d68d69805" xml:space="preserve">
+          <source>modelId</source>
+          <target state="new">modelId</target>
+        </trans-unit>
+        <trans-unit id="cd5b5779-6b74-448d-9152-8d3217edf51f" xml:space="preserve">
+          <source>The unique identifier of the model.</source>
+          <target state="new">The unique identifier of the model.</target>
+        </trans-unit>
+        <trans-unit id="fb357f3e-4f0f-446a-b888-338eb9889dd3" xml:space="preserve">
+          <source>userDescription</source>
+          <target state="new">userDescription</target>
+        </trans-unit>
+        <trans-unit id="0ffddf5f-4ef9-4e88-a235-751a338dba29" xml:space="preserve">
+          <source>Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.&lt;br&gt;Max length: 50</source>
+          <target state="new">Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.&lt;br&gt;Max length: 50</target>
+        </trans-unit>
+        <trans-unit id="018c9748-3fa5-4867-b5af-81842e6c403c" xml:space="preserve">
+          <source>apiVersion</source>
+          <target state="new">apiVersion</target>
+        </trans-unit>
+        <trans-unit id="f577a33e-a438-4505-bd8e-4c7421a4f9fd" xml:space="preserve">
+          <source>1.0</source>
+          <target state="new">1.0</target>
+        </trans-unit>
+        <trans-unit id="ecc9c087-ca31-485b-911d-2e973fc13617" xml:space="preserve">
+          <source>Request Body</source>
+          <target state="new">Request Body</target>
+        </trans-unit>
+        <trans-unit id="c66493f8-c9cb-4045-a961-873934235a4e" xml:space="preserve">
+          <source>NONE</source>
+          <target state="new">NONE</target>
+        </trans-unit>
+        <trans-unit id="3e3423b0-e183-4edf-beca-df6472391a29" xml:space="preserve">
+          <source><bpt id="976a6cff-a82f-4d0e-b4cb-32663696b274">&lt;strong&gt;</bpt>Response<ept id="976a6cff-a82f-4d0e-b4cb-32663696b274">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="976a6cff-a82f-4d0e-b4cb-32663696b274">&lt;strong&gt;</bpt>Response<ept id="976a6cff-a82f-4d0e-b4cb-32663696b274">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="bef57d75-462c-466a-9a91-31d3424ed293" xml:space="preserve">
+          <source>HTTP Status code: 200</source>
+          <target state="new">HTTP Status code: 200</target>
+        </trans-unit>
+        <trans-unit id="830ad017-f99b-4d86-ab8c-a12330b7f95e" xml:space="preserve">
+          <source>HTTP Method</source>
+          <target state="new">HTTP Method</target>
+        </trans-unit>
+        <trans-unit id="0d3927ec-1608-4e42-8838-2d0db3d2db84" xml:space="preserve">
+          <source>URI</source>
+          <target state="new">URI</target>
+        </trans-unit>
+        <trans-unit id="5c3119c1-bc63-448e-a315-e648e27c8aa7" xml:space="preserve">
+          <source>GET</source>
+          <target state="new">GET</target>
+        </trans-unit>
+        <trans-unit id="99efc0e4-72c2-445d-924f-b8d53d2d31a7" xml:space="preserve">
+          <source><bpt id="fc5dee6c-7359-4af2-aab7-73b89e91644a">&lt;code&gt;</bpt>&lt;rootURI&gt;/GetModelBuildsStatus?modelId=%27&lt;modelId&gt;%27&amp;onlyLastBuild=&lt;bool&gt;&amp;apiVersion=%271.0%27<ept id="fc5dee6c-7359-4af2-aab7-73b89e91644a">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="a1031070-e261-4469-9cc9-dea83739a8f6">&lt;code&gt;</bpt>&lt;rootURI&gt;/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&amp;onlyLastBuild=true&amp;apiVersion=%271.0%27<ept id="a1031070-e261-4469-9cc9-dea83739a8f6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="fc5dee6c-7359-4af2-aab7-73b89e91644a">&lt;code&gt;</bpt>&lt;rootURI&gt;/GetModelBuildsStatus?modelId=%27&lt;modelId&gt;%27&amp;onlyLastBuild=&lt;bool&gt;&amp;apiVersion=%271.0%27<ept id="fc5dee6c-7359-4af2-aab7-73b89e91644a">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="a1031070-e261-4469-9cc9-dea83739a8f6">&lt;code&gt;</bpt>&lt;rootURI&gt;/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&amp;onlyLastBuild=true&amp;apiVersion=%271.0%27<ept id="a1031070-e261-4469-9cc9-dea83739a8f6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15442110-d6f3-47fa-bafe-e581ec23ee08" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="6c6c69a7-7507-4e3d-a994-fb5f4ebb1098" xml:space="preserve">
+          <source>Valid Values</source>
+          <target state="new">Valid Values</target>
+        </trans-unit>
+        <trans-unit id="8e73d315-c541-4b2a-9449-7733d9ead438" xml:space="preserve">
+          <source>modelId</source>
+          <target state="new">modelId</target>
+        </trans-unit>
+        <trans-unit id="6e0f835e-a37c-4c47-bb5e-18a35c43c6a4" xml:space="preserve">
+          <source>The unique identifier of the model.</source>
+          <target state="new">The unique identifier of the model.</target>
+        </trans-unit>
+        <trans-unit id="238e035f-ae6a-4008-948d-a23d8a5ab385" xml:space="preserve">
+          <source>onlyLastBuild</source>
+          <target state="new">onlyLastBuild</target>
+        </trans-unit>
+        <trans-unit id="c2c266a8-c893-4d58-a8ea-c5fc558b5398" xml:space="preserve">
+          <source>Indicates whether to return all the build history of the model or only the status of the most recent build.</source>
+          <target state="new">Indicates whether to return all the build history of the model or only the status of the most recent build.</target>
+        </trans-unit>
+        <trans-unit id="0309ce41-dbf0-478a-b618-cb2328ae3e4f" xml:space="preserve">
+          <source>apiVersion</source>
+          <target state="new">apiVersion</target>
+        </trans-unit>
+        <trans-unit id="5713a2ff-9f81-491a-82d0-9ed377b7aa89" xml:space="preserve">
+          <source>1.0</source>
+          <target state="new">1.0</target>
+        </trans-unit>
+        <trans-unit id="04235a93-ae39-490b-a2d8-a313e79076d0" xml:space="preserve">
+          <source><bpt id="b4e95771-831e-45ed-99ab-5e6abf5911c3">&lt;strong&gt;</bpt>Response<ept id="b4e95771-831e-45ed-99ab-5e6abf5911c3">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="b4e95771-831e-45ed-99ab-5e6abf5911c3">&lt;strong&gt;</bpt>Response<ept id="b4e95771-831e-45ed-99ab-5e6abf5911c3">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="012d3d02-1eac-4db0-bdc2-0d30952e0383" xml:space="preserve">
+          <source>HTTP Status code: 200</source>
+          <target state="new">HTTP Status code: 200</target>
+        </trans-unit>
+        <trans-unit id="93b76feb-fba4-495e-9810-2eb6bd4376f3" xml:space="preserve">
+          <source>HTTP Method</source>
+          <target state="new">HTTP Method</target>
+        </trans-unit>
+        <trans-unit id="8a9608a3-7397-4818-8a3d-f02f316bd123" xml:space="preserve">
+          <source>URI</source>
+          <target state="new">URI</target>
+        </trans-unit>
+        <trans-unit id="45e69078-5cfc-4308-9b39-915ef5624f33" xml:space="preserve">
+          <source>GET</source>
+          <target state="new">GET</target>
+        </trans-unit>
+        <trans-unit id="10074852-cd49-4a6c-9c5f-1a239d4f5e92" xml:space="preserve">
+          <source><bpt id="58da38cf-7499-437b-a9fb-791f38763427">&lt;code&gt;</bpt>&lt;rootURI&gt;/ItemRecommend?modelId=%27&lt;modelId&gt;%27&amp;itemIds=%27&lt;itemId&gt;%27&amp;numberOfResults=&lt;int&gt;&amp;includeMetadata=&lt;bool&gt;&amp;apiVersion=%271.0%27<ept id="58da38cf-7499-437b-a9fb-791f38763427">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="5bb9fd84-54ec-43a3-8be7-94ed7d8e08c5">&lt;code&gt;</bpt>&lt;rootURI&gt;/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&amp;itemIds=%271003%27&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion=%271.0%27<ept id="5bb9fd84-54ec-43a3-8be7-94ed7d8e08c5">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="58da38cf-7499-437b-a9fb-791f38763427">&lt;code&gt;</bpt>&lt;rootURI&gt;/ItemRecommend?modelId=%27&lt;modelId&gt;%27&amp;itemIds=%27&lt;itemId&gt;%27&amp;numberOfResults=&lt;int&gt;&amp;includeMetadata=&lt;bool&gt;&amp;apiVersion=%271.0%27<ept id="58da38cf-7499-437b-a9fb-791f38763427">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="5bb9fd84-54ec-43a3-8be7-94ed7d8e08c5">&lt;code&gt;</bpt>&lt;rootURI&gt;/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&amp;itemIds=%271003%27&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion=%271.0%27<ept id="5bb9fd84-54ec-43a3-8be7-94ed7d8e08c5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7f5aaf2-965d-4a9d-ac9f-be078439ff48" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="7e10b4d2-30bd-4388-8ee5-d7b41c2f2e85" xml:space="preserve">
+          <source>Valid Values</source>
+          <target state="new">Valid Values</target>
+        </trans-unit>
+        <trans-unit id="99019b9b-2ba0-4c11-86a8-40399b88a7fb" xml:space="preserve">
+          <source>modelId</source>
+          <target state="new">modelId</target>
+        </trans-unit>
+        <trans-unit id="b67792fa-ccd3-4bf7-bb92-3847b529ddb5" xml:space="preserve">
+          <source>The unique identifier of the model.</source>
+          <target state="new">The unique identifier of the model.</target>
+        </trans-unit>
+        <trans-unit id="ea873e2b-6ff5-45c5-b934-2474404aeab1" xml:space="preserve">
+          <source>itemIds</source>
+          <target state="new">itemIds</target>
+        </trans-unit>
+        <trans-unit id="00b2beca-c725-471c-afb6-2ae05d269669" xml:space="preserve">
+          <source>Comma separated list of the items to recommend for.&lt;br&gt;Max length: 200</source>
+          <target state="new">Comma separated list of the items to recommend for.&lt;br&gt;Max length: 200</target>
+        </trans-unit>
+        <trans-unit id="7eeb0a03-0482-4817-be0d-20f2e760e007" xml:space="preserve">
+          <source>numberOfResults</source>
+          <target state="new">numberOfResults</target>
+        </trans-unit>
+        <trans-unit id="bd6e349d-3e54-4d98-8a77-101080603b4d" xml:space="preserve">
+          <source>The number of required results.</source>
+          <target state="new">The number of required results.</target>
+        </trans-unit>
+        <trans-unit id="0ad082c0-1f7c-4e76-83f5-2af7ae6a4b9d" xml:space="preserve">
+          <source>includeMetatadata</source>
+          <target state="new">includeMetatadata</target>
+        </trans-unit>
+        <trans-unit id="fd91dda5-e4ab-4ccc-be68-9431409cb517" xml:space="preserve">
+          <source>Future use, put always false.</source>
+          <target state="new">Future use, put always false.</target>
+        </trans-unit>
+        <trans-unit id="eb18ab7d-bbaa-4dee-88d8-a55d63a58c52" xml:space="preserve">
+          <source>apiVersion</source>
+          <target state="new">apiVersion</target>
+        </trans-unit>
+        <trans-unit id="410882cf-369c-46e3-bc61-f719e6f6a06e" xml:space="preserve">
+          <source>1.0</source>
+          <target state="new">1.0</target>
+        </trans-unit>
+        <trans-unit id="0d1d3b74-de79-4378-999d-46e874097b05" xml:space="preserve">
+          <source><bpt id="7b78aaa8-a621-42fe-9675-ab205e6739e7">&lt;strong&gt;</bpt>Response:<ept id="7b78aaa8-a621-42fe-9675-ab205e6739e7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7b78aaa8-a621-42fe-9675-ab205e6739e7">&lt;strong&gt;</bpt>Response:<ept id="7b78aaa8-a621-42fe-9675-ab205e6739e7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f244187e-f0be-4288-962d-ee34ee0232fa" xml:space="preserve">
+          <source>HTTP Status code: 200</source>
+          <target state="new">HTTP Status code: 200</target>
+        </trans-unit>
+        <trans-unit id="fbd62e50-f34d-4206-b093-e7d271568fd6" xml:space="preserve">
+          <source>You can update the model description or the active build id.</source>
+          <target state="new">You can update the model description or the active build id.</target>
+        </trans-unit>
+        <trans-unit id="b731d8c3-f129-4d3c-9dc9-3018708de5e4" xml:space="preserve">
+          <source><bpt id="989b35fa-90d5-41ba-a739-457266fe7546">&lt;em&gt;</bpt>Active Build Id<ept id="989b35fa-90d5-41ba-a739-457266fe7546">&lt;/em&gt;</ept> - Every build for every model has a “build id”.</source>
+          <target state="new"><bpt id="989b35fa-90d5-41ba-a739-457266fe7546">&lt;em&gt;</bpt>Active Build Id<ept id="989b35fa-90d5-41ba-a739-457266fe7546">&lt;/em&gt;</ept> - Every build for every model has a “build id”.</target>
+        </trans-unit>
+        <trans-unit id="63afe56e-e5ce-458f-b279-86cec53dcd46" xml:space="preserve">
+          <source>The active “build id” is the first successfully build of every new model.</source>
+          <target state="new">The active “build id” is the first successfully build of every new model.</target>
+        </trans-unit>
+        <trans-unit id="1ef4efc4-7ba2-4293-90ee-20628957d229" xml:space="preserve">
+          <source>Once you have an active build Id and you do additional builds for the same model you need to explicitly set it as the default build id if you want to.</source>
+          <target state="new">Once you have an active build Id and you do additional builds for the same model you need to explicitly set it as the default build id if you want to.</target>
+        </trans-unit>
+        <trans-unit id="307dfe10-a827-4b24-867b-4cba5529edd4" xml:space="preserve">
+          <source>When you consume recommendations, if you do not specify the build id that you want to use - the default one will be used automatically.</source>
+          <target state="new">When you consume recommendations, if you do not specify the build id that you want to use - the default one will be used automatically.</target>
+        </trans-unit>
+        <trans-unit id="edd9a683-e2ae-4840-b23f-9197627a5ed1" xml:space="preserve">
+          <source>This mechanism enables you once you have a recommendation model in production to build new models and test them before you promote them to production.</source>
+          <target state="new">This mechanism enables you once you have a recommendation model in production to build new models and test them before you promote them to production.</target>
+        </trans-unit>
+        <trans-unit id="f1425648-4b62-4f28-9fb9-ec9ebd469607" xml:space="preserve">
+          <source>HTTP Method</source>
+          <target state="new">HTTP Method</target>
+        </trans-unit>
+        <trans-unit id="33618113-64bd-4ef6-bbcb-c328e1ae0697" xml:space="preserve">
+          <source>URI</source>
+          <target state="new">URI</target>
+        </trans-unit>
+        <trans-unit id="1f7ac294-f624-445c-98c7-86107472b22c" xml:space="preserve">
+          <source>PUT</source>
+          <target state="new">PUT</target>
+        </trans-unit>
+        <trans-unit id="f2fbd62e-43ae-4de6-8cc5-731c6baf327e" xml:space="preserve">
+          <source><bpt id="d5da0f73-f043-4c5b-8223-f822a5c288f2">&lt;code&gt;</bpt>&lt;rootURI&gt;/UpdateModel?id=%27&lt;modelId&gt;%27&amp;apiVersion=%271.0%27<ept id="d5da0f73-f043-4c5b-8223-f822a5c288f2">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="d8d46299-8dac-4f08-8d3e-bfd670f222cb">&lt;code&gt;</bpt>&lt;rootURI&gt;/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&amp;apiVersion=%271.0%27<ept id="d8d46299-8dac-4f08-8d3e-bfd670f222cb">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d5da0f73-f043-4c5b-8223-f822a5c288f2">&lt;code&gt;</bpt>&lt;rootURI&gt;/UpdateModel?id=%27&lt;modelId&gt;%27&amp;apiVersion=%271.0%27<ept id="d5da0f73-f043-4c5b-8223-f822a5c288f2">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Example:&lt;br&gt;<bpt id="d8d46299-8dac-4f08-8d3e-bfd670f222cb">&lt;code&gt;</bpt>&lt;rootURI&gt;/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&amp;apiVersion=%271.0%27<ept id="d8d46299-8dac-4f08-8d3e-bfd670f222cb">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b95aa25-5d1e-4b78-b08f-c309ae6959de" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="01ff4e11-b7b1-4809-91b3-cce5b2c3ee41" xml:space="preserve">
+          <source>Valid Values</source>
+          <target state="new">Valid Values</target>
+        </trans-unit>
+        <trans-unit id="ec51c35a-cadd-48ff-bee4-16c2bafec5f6" xml:space="preserve">
+          <source>id</source>
+          <target state="new">id</target>
+        </trans-unit>
+        <trans-unit id="472dfb38-58b8-4642-874a-105523cb349e" xml:space="preserve">
+          <source>The unique identifier of the model.</source>
+          <target state="new">The unique identifier of the model.</target>
+        </trans-unit>
+        <trans-unit id="dca607cd-a6bb-4dea-b15e-e05214f98041" xml:space="preserve">
+          <source>apiVersion</source>
+          <target state="new">apiVersion</target>
+        </trans-unit>
+        <trans-unit id="b330e3de-b7e0-4542-8482-9dfa7f0b616d" xml:space="preserve">
+          <source>1.0</source>
+          <target state="new">1.0</target>
+        </trans-unit>
+        <trans-unit id="48f82b89-565d-4c24-bd8f-6918bd81ea8a" xml:space="preserve">
+          <source>Request Body</source>
+          <target state="new">Request Body</target>
+        </trans-unit>
+        <trans-unit id="9d881278-3d51-4605-b863-3435148a3ceb" xml:space="preserve">
+          <source><bpt id="9a90a23e-8810-4840-9c2e-3e302116c15b">&lt;code&gt;</bpt>&lt;ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;<ept id="9a90a23e-8810-4840-9c2e-3e302116c15b">&lt;/code&gt;</ept>&lt;br&gt;<bpt id="cf1d3b8f-48d1-49c3-99ea-462c61c71a6f">&lt;code&gt;</bpt>   &lt;Description&gt;New Description&lt;/Description&gt;<ept id="cf1d3b8f-48d1-49c3-99ea-462c61c71a6f">&lt;/code&gt;</ept>&lt;br&gt;<bpt id="0c58cc8b-2ec9-4639-b687-0666d11b75f3">&lt;code&gt;</bpt>          &lt;ActiveBuildId&gt;-1&lt;/ActiveBuildId&gt;<ept id="0c58cc8b-2ec9-4639-b687-0666d11b75f3">&lt;/code&gt;</ept>&lt;br&gt;<bpt id="cee78969-e396-4ac2-86fd-76f2d473f0e7">&lt;code&gt;</bpt>&lt;/ModelUpdateParams&gt;<ept id="cee78969-e396-4ac2-86fd-76f2d473f0e7">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Note that the xml tags Description and ActiveBuildId are optional, If you do not want to set Description or ActiveBuildId remove the entire tag.</source>
+          <target state="new"><bpt id="9a90a23e-8810-4840-9c2e-3e302116c15b">&lt;code&gt;</bpt>&lt;ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;<ept id="9a90a23e-8810-4840-9c2e-3e302116c15b">&lt;/code&gt;</ept>&lt;br&gt;<bpt id="cf1d3b8f-48d1-49c3-99ea-462c61c71a6f">&lt;code&gt;</bpt>   &lt;Description&gt;New Description&lt;/Description&gt;<ept id="cf1d3b8f-48d1-49c3-99ea-462c61c71a6f">&lt;/code&gt;</ept>&lt;br&gt;<bpt id="0c58cc8b-2ec9-4639-b687-0666d11b75f3">&lt;code&gt;</bpt>          &lt;ActiveBuildId&gt;-1&lt;/ActiveBuildId&gt;<ept id="0c58cc8b-2ec9-4639-b687-0666d11b75f3">&lt;/code&gt;</ept>&lt;br&gt;<bpt id="cee78969-e396-4ac2-86fd-76f2d473f0e7">&lt;code&gt;</bpt>&lt;/ModelUpdateParams&gt;<ept id="cee78969-e396-4ac2-86fd-76f2d473f0e7">&lt;/code&gt;</ept>&lt;br&gt;&lt;br&gt;Note that the xml tags Description and ActiveBuildId are optional, If you do not want to set Description or ActiveBuildId remove the entire tag.</target>
+        </trans-unit>
+        <trans-unit id="9dda3c49-fde5-49f8-89db-bf00c59d343b" xml:space="preserve">
+          <source><bpt id="a7fde676-47c1-4ce0-8cef-1b6ad173673f">&lt;strong&gt;</bpt>Response<ept id="a7fde676-47c1-4ce0-8cef-1b6ad173673f">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="a7fde676-47c1-4ce0-8cef-1b6ad173673f">&lt;strong&gt;</bpt>Response<ept id="a7fde676-47c1-4ce0-8cef-1b6ad173673f">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="757e69d8-0a2d-478d-ab60-5014837c9fa8" xml:space="preserve">
+          <source>HTTP Status code: 200</source>
+          <target state="new">HTTP Status code: 200</target>
+        </trans-unit>
+        <trans-unit id="2e3279d7-7c26-43c0-93b1-838d855a144c" xml:space="preserve">
+          <source>This document is provided “as-is”.</source>
+          <target state="new">This document is provided “as-is”.</target>
+        </trans-unit>
+        <trans-unit id="e3129362-7581-4f49-8f7b-3f219064d213" xml:space="preserve">
+          <source>Information and views expressed in this document, including URL and other Internet Web site references, may change without notice.</source>
+          <target state="new">Information and views expressed in this document, including URL and other Internet Web site references, may change without notice.</target>
+        </trans-unit>
+        <trans-unit id="1fe98c05-dbe8-48d0-a557-e4b12ebc2e1c" xml:space="preserve">
+          <source>Some examples depicted herein are provided for illustration only and are fictitious.</source>
+          <target state="new">Some examples depicted herein are provided for illustration only and are fictitious.</target>
+        </trans-unit>
+        <trans-unit id="7546f0a4-6642-4d73-96aa-b909ffe955cc" xml:space="preserve">
+          <source>No real association or connection is intended or should be inferred.</source>
+          <target state="new">No real association or connection is intended or should be inferred.</target>
+        </trans-unit>
+        <trans-unit id="ff08b2d9-203c-4a14-91fe-7eeab353f9eb" xml:space="preserve">
+          <source>This document does not provide you with any legal rights to any intellectual property in any Microsoft product.</source>
+          <target state="new">This document does not provide you with any legal rights to any intellectual property in any Microsoft product.</target>
+        </trans-unit>
+        <trans-unit id="c100b792-96ba-4e30-bd92-040713f5244a" xml:space="preserve">
+          <source>You may copy and use this document for your internal, reference purposes.</source>
+          <target state="new">You may copy and use this document for your internal, reference purposes.</target>
+        </trans-unit>
+        <trans-unit id="15de063f-0665-4486-abbf-727f17351505" xml:space="preserve">
+          <source>© 2014 Microsoft.</source>
+          <target state="new">© 2014 Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="86b28f79-644d-409e-802b-c5d8d966d896" xml:space="preserve">
+          <source>All rights reserved.</source>
+          <target state="new">All rights reserved.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

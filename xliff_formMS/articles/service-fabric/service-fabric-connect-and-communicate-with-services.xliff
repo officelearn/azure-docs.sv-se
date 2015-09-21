@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5f5b9bad-4e39-4b11-8045-363e65860740" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5f5b9bad-4e39-4b11-8045-363e65860740" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8722e599-bb71-42a1-a39b-19dfbd620a29">
+        <trans-unit id="8fc0c08b-db7e-413f-95d1-b1d1240d98c4" xml:space="preserve">
+          <source>Microsoft Azure Service Fabric How to communicate with services</source>
+          <target state="new">Microsoft Azure Service Fabric How to communicate with services</target>
+        </trans-unit>
+        <trans-unit id="12a3e10e-0de7-473d-97c0-79dd2218c256" xml:space="preserve">
+          <source>This article describes how you can connect to and communicate with services in Service Fabric applications.</source>
+          <target state="new">This article describes how you can connect to and communicate with services in Service Fabric applications.</target>
+        </trans-unit>
+        <trans-unit id="2a5f8dfc-684d-4ed1-a0c4-b4ec7c8e3f22" xml:space="preserve">
+          <source>In the microservices world the overall solution is composed of many different services where each one performs a specialized task.</source>
+          <target state="new">In the microservices world the overall solution is composed of many different services where each one performs a specialized task.</target>
+        </trans-unit>
+        <trans-unit id="670966b3-600b-4a43-951e-44243d53602c" xml:space="preserve">
+          <source>These microservices communicate with each other to enable the end-end workflow.</source>
+          <target state="new">These microservices communicate with each other to enable the end-end workflow.</target>
+        </trans-unit>
+        <trans-unit id="fbc6a109-0569-4b83-aaf8-afea784ab62d" xml:space="preserve">
+          <source>There are also client applications that connect to and communicate with services.</source>
+          <target state="new">There are also client applications that connect to and communicate with services.</target>
+        </trans-unit>
+        <trans-unit id="2bc5f86d-59b0-4d4a-879e-371a7d339bf9" xml:space="preserve">
+          <source>This document discusses how Service Fabric makes it easy for you to setup communication with services that you write with Service Fabric.</source>
+          <target state="new">This document discusses how Service Fabric makes it easy for you to setup communication with services that you write with Service Fabric.</target>
+        </trans-unit>
+        <trans-unit id="42473983-167e-4c83-b570-19de5352ee1c" xml:space="preserve">
+          <source>These are some of the key concepts that you need to be aware of as you setup communication to services.</source>
+          <target state="new">These are some of the key concepts that you need to be aware of as you setup communication to services.</target>
+        </trans-unit>
+        <trans-unit id="07e05a37-6e1c-4436-a5ef-471b5c8f7c7c" xml:space="preserve">
+          <source>Service Fabric Communication APIs represent client-service type of interaction, even in the case where it is between two services running in the same cluster.</source>
+          <target state="new">Service Fabric Communication APIs represent client-service type of interaction, even in the case where it is between two services running in the same cluster.</target>
+        </trans-unit>
+        <trans-unit id="564a33d4-1010-4fd5-a31f-b8d3347b122f" xml:space="preserve">
+          <source>A target service that will be connected to from a client or another service acts as a server and listens for incoming requests.</source>
+          <target state="new">A target service that will be connected to from a client or another service acts as a server and listens for incoming requests.</target>
+        </trans-unit>
+        <trans-unit id="2168ecc3-2d94-4e97-a847-86c8810d927e" xml:space="preserve">
+          <source>The client, which can be just another service in the cluster, connects to the server and makes calls to it.</source>
+          <target state="new">The client, which can be just another service in the cluster, connects to the server and makes calls to it.</target>
+        </trans-unit>
+        <trans-unit id="7ca0c6a8-ba4c-4885-9f11-a2b4d1ec3df3" xml:space="preserve">
+          <source>In a distributed system the service instances that you run may move from one machine to another over time for various reasons such as load balancing when configured with load metrics for resource balancing or due to upgrades, failovers, scale-out, and other various situations.</source>
+          <target state="new">In a distributed system the service instances that you run may move from one machine to another over time for various reasons such as load balancing when configured with load metrics for resource balancing or due to upgrades, failovers, scale-out, and other various situations.</target>
+        </trans-unit>
+        <trans-unit id="fb2a5c44-4720-4e1b-9118-22801ef3d8bc" xml:space="preserve">
+          <source>The impact of this is that the endpoint addresses of a service instance can change and to setup communication with the service instance the following loop needs to be executed.</source>
+          <target state="new">The impact of this is that the endpoint addresses of a service instance can change and to setup communication with the service instance the following loop needs to be executed.</target>
+        </trans-unit>
+        <trans-unit id="850d7446-0462-4052-adf7-ec58044adc81" xml:space="preserve">
+          <source>These details are abstracted from you if you use the Communication APIs provided by Service Fabric.</source>
+          <target state="new">These details are abstracted from you if you use the Communication APIs provided by Service Fabric.</target>
+        </trans-unit>
+        <trans-unit id="ceb627bb-aeae-4955-ac1d-65a3ea91903b" xml:space="preserve">
+          <source><bpt id="1912aa08-3ae0-4c43-97a5-f773b1e44446">&lt;strong&gt;</bpt>Resolve<ept id="1912aa08-3ae0-4c43-97a5-f773b1e44446">&lt;/strong&gt;</ept>: All services instances in Service Fabric have unique URIs, for example "fabric:/MyApplication/MyService" and these URIs do not change over time.</source>
+          <target state="new"><bpt id="1912aa08-3ae0-4c43-97a5-f773b1e44446">&lt;strong&gt;</bpt>Resolve<ept id="1912aa08-3ae0-4c43-97a5-f773b1e44446">&lt;/strong&gt;</ept>: All services instances in Service Fabric have unique URIs, for example "fabric:/MyApplication/MyService" and these URIs do not change over time.</target>
+        </trans-unit>
+        <trans-unit id="b3c40bfd-1130-4c9f-aa57-e0db52ea9a99" xml:space="preserve">
+          <source>Each service instance also exposes endpoints which can change when service instances are moved.</source>
+          <target state="new">Each service instance also exposes endpoints which can change when service instances are moved.</target>
+        </trans-unit>
+        <trans-unit id="8db915e0-e1b7-4aab-a037-703e09151271" xml:space="preserve">
+          <source>This is analogous to websites which have constant URLs but the IP Address may change.</source>
+          <target state="new">This is analogous to websites which have constant URLs but the IP Address may change.</target>
+        </trans-unit>
+        <trans-unit id="fb193bcf-49d7-43f2-afc4-ac5f263e615c" xml:space="preserve">
+          <source>And similar to the DNS in the world wide web which resolves website URLs to IP Addresses the Service Fabric platform also has a system service that resolves the URIs to the endpoints.</source>
+          <target state="new">And similar to the DNS in the world wide web which resolves website URLs to IP Addresses the Service Fabric platform also has a system service that resolves the URIs to the endpoints.</target>
+        </trans-unit>
+        <trans-unit id="5b186479-de4b-48ee-9778-3b6fb1691dfa" xml:space="preserve">
+          <source>This step involves resolving the URI of the service instance to an endpoint.</source>
+          <target state="new">This step involves resolving the URI of the service instance to an endpoint.</target>
+        </trans-unit>
+        <trans-unit id="647e1716-16fd-4aa2-8999-9e16950be056" xml:space="preserve">
+          <source><bpt id="0fa6daf7-c378-4a0d-b3fd-5703e26b7489">&lt;strong&gt;</bpt>Connect<ept id="0fa6daf7-c378-4a0d-b3fd-5703e26b7489">&lt;/strong&gt;</ept>: Once the Service URI has been resolved to endpoint addresses the next step is to attempt a connection with that service.</source>
+          <target state="new"><bpt id="0fa6daf7-c378-4a0d-b3fd-5703e26b7489">&lt;strong&gt;</bpt>Connect<ept id="0fa6daf7-c378-4a0d-b3fd-5703e26b7489">&lt;/strong&gt;</ept>: Once the Service URI has been resolved to endpoint addresses the next step is to attempt a connection with that service.</target>
+        </trans-unit>
+        <trans-unit id="4e7452c3-c78b-40df-a880-dd73ab2c4857" xml:space="preserve">
+          <source>This connection may fail if the endpoint address has changed due to a service movement, which, for example, may have been caused by a machine failure or due to load balancing.</source>
+          <target state="new">This connection may fail if the endpoint address has changed due to a service movement, which, for example, may have been caused by a machine failure or due to load balancing.</target>
+        </trans-unit>
+        <trans-unit id="94de28bb-d3f9-4536-b154-f6dbb24257c0" xml:space="preserve">
+          <source><bpt id="a5a4c590-a64f-4eea-9de0-a9aad2ea0bc3">&lt;strong&gt;</bpt>Retry<ept id="a5a4c590-a64f-4eea-9de0-a9aad2ea0bc3">&lt;/strong&gt;</ept>: If the connection attempt fails the preceding resolve and connect steps need to be retried and this cycle is repeated until the connection succeeds.</source>
+          <target state="new"><bpt id="a5a4c590-a64f-4eea-9de0-a9aad2ea0bc3">&lt;strong&gt;</bpt>Retry<ept id="a5a4c590-a64f-4eea-9de0-a9aad2ea0bc3">&lt;/strong&gt;</ept>: If the connection attempt fails the preceding resolve and connect steps need to be retried and this cycle is repeated until the connection succeeds.</target>
+        </trans-unit>
+        <trans-unit id="6cf90f19-1cdf-45a1-b157-52101a07331e" xml:space="preserve">
+          <source>As part of Service Fabric we provide a few different options for Communication APIs and the decision for which one will work best for you depends on the choice of the programming model, communication framework and programming language that your services are written in.</source>
+          <target state="new">As part of Service Fabric we provide a few different options for Communication APIs and the decision for which one will work best for you depends on the choice of the programming model, communication framework and programming language that your services are written in.</target>
+        </trans-unit>
+        <trans-unit id="df4d0a97-9ff6-43ae-a48d-49bda3af4b94" xml:space="preserve">
+          <source>For services written using Reliable Actors API all the communication details are abstracted and the communication happens as method calls on the ActorProxy and you can stop reading here.</source>
+          <target state="new">For services written using Reliable Actors API all the communication details are abstracted and the communication happens as method calls on the ActorProxy and you can stop reading here.</target>
+        </trans-unit>
+        <trans-unit id="603ce0b7-eec0-4dc7-8f73-ae9bc1fb586f" xml:space="preserve">
+          <source>There are a couple of different options if your service was written using Reliable Services API.</source>
+          <target state="new">There are a couple of different options if your service was written using Reliable Services API.</target>
+        </trans-unit>
+        <trans-unit id="5e33baef-4bfc-4275-bb03-1681529686f0" xml:space="preserve">
+          <source>Your choice of a communication protocol will guide as to what Service Fabric communication APIs you may use.</source>
+          <target state="new">Your choice of a communication protocol will guide as to what Service Fabric communication APIs you may use.</target>
+        </trans-unit>
+        <trans-unit id="07ac38f5-0738-44ae-9792-1891b1075f42" xml:space="preserve">
+          <source><bpt id="2c78e9a4-015f-42ac-a540-8dd12fbba80e">&lt;strong&gt;</bpt>There isn't a specific communication protocol that I need to use and I want something up and running quickly<ept id="2c78e9a4-015f-42ac-a540-8dd12fbba80e">&lt;/strong&gt;</ept>: If you don't have a particular choice of communication framework then the ideal option for you is to use the <bpt id="ed6d4b32-ad0d-45c1-aa73-71f4d9950f25">&lt;linkText&gt;</bpt>Default stack<ept id="ed6d4b32-ad0d-45c1-aa73-71f4d9950f25">&lt;/linkText&gt;</ept><bpt id="ed6d4b32-ad0d-45c1-aa73-71f4d9950f25">&lt;title&gt;</bpt><ept id="ed6d4b32-ad0d-45c1-aa73-71f4d9950f25">&lt;/title&gt;</ept> that allows for a similar model as the Actor communication model.</source>
+          <target state="new"><bpt id="2c78e9a4-015f-42ac-a540-8dd12fbba80e">&lt;strong&gt;</bpt>There isn't a specific communication protocol that I need to use and I want something up and running quickly<ept id="2c78e9a4-015f-42ac-a540-8dd12fbba80e">&lt;/strong&gt;</ept>: If you don't have a particular choice of communication framework then the ideal option for you is to use the <bpt id="ed6d4b32-ad0d-45c1-aa73-71f4d9950f25">&lt;linkText&gt;</bpt>Default stack<ept id="ed6d4b32-ad0d-45c1-aa73-71f4d9950f25">&lt;/linkText&gt;</ept><bpt id="ed6d4b32-ad0d-45c1-aa73-71f4d9950f25">&lt;title&gt;</bpt><ept id="ed6d4b32-ad0d-45c1-aa73-71f4d9950f25">&lt;/title&gt;</ept> that allows for a similar model as the Actor communication model.</target>
+        </trans-unit>
+        <trans-unit id="b51757f6-c41f-45c2-a15b-12301537d4e4" xml:space="preserve">
+          <source>This is the easiest and fastest way to get started with service communication.</source>
+          <target state="new">This is the easiest and fastest way to get started with service communication.</target>
+        </trans-unit>
+        <trans-unit id="3ea61ca7-e66f-4ad7-b462-0dfd35f1d4d2" xml:space="preserve">
+          <source>It provides strongly typed RPC communication that abstracts most of the communication details away so that invoking a method on a remote service in your code looks like calling a method on a local object instance.</source>
+          <target state="new">It provides strongly typed RPC communication that abstracts most of the communication details away so that invoking a method on a remote service in your code looks like calling a method on a local object instance.</target>
+        </trans-unit>
+        <trans-unit id="8a7d3768-fecd-4728-8f06-89a866a1e53f" xml:space="preserve">
+          <source>These classes abstract the resolution, connection, retry and error handling while setting up the communication channel and allows for a method call based communication model.</source>
+          <target state="new">These classes abstract the resolution, connection, retry and error handling while setting up the communication channel and allows for a method call based communication model.</target>
+        </trans-unit>
+        <trans-unit id="bbcf367b-d344-4908-b7a6-a79dcc54508f" xml:space="preserve">
+          <source>For this the <bpt id="44449f4d-dd2a-4422-a0cc-5fe463b37376">&lt;code&gt;</bpt>ServiceCommunicationListener<ept id="44449f4d-dd2a-4422-a0cc-5fe463b37376">&lt;/code&gt;</ept> class is to be used for the server side and the <bpt id="c47af6a7-9934-4d8f-bccf-a65fb0e960be">&lt;code&gt;</bpt>ServiceProxy<ept id="c47af6a7-9934-4d8f-bccf-a65fb0e960be">&lt;/code&gt;</ept> class on the client side of the communication.</source>
+          <target state="new">For this the <bpt id="44449f4d-dd2a-4422-a0cc-5fe463b37376">&lt;code&gt;</bpt>ServiceCommunicationListener<ept id="44449f4d-dd2a-4422-a0cc-5fe463b37376">&lt;/code&gt;</ept> class is to be used for the server side and the <bpt id="c47af6a7-9934-4d8f-bccf-a65fb0e960be">&lt;code&gt;</bpt>ServiceProxy<ept id="c47af6a7-9934-4d8f-bccf-a65fb0e960be">&lt;/code&gt;</ept> class on the client side of the communication.</target>
+        </trans-unit>
+        <trans-unit id="2080a34d-7b52-41c9-bbf4-95cb3e4715ed" xml:space="preserve">
+          <source><bpt id="5b888006-d824-4cdd-b652-1307aa21cb79">&lt;strong&gt;</bpt>HTTP<ept id="5b888006-d824-4cdd-b652-1307aa21cb79">&lt;/strong&gt;</ept>: To leverage the flexibility that HTTP based communication provides you can use Service Fabric communication APIs that allow the communication mechanism to be defined while resolution, connection and retry logic is still abstracted from you.</source>
+          <target state="new"><bpt id="5b888006-d824-4cdd-b652-1307aa21cb79">&lt;strong&gt;</bpt>HTTP<ept id="5b888006-d824-4cdd-b652-1307aa21cb79">&lt;/strong&gt;</ept>: To leverage the flexibility that HTTP based communication provides you can use Service Fabric communication APIs that allow the communication mechanism to be defined while resolution, connection and retry logic is still abstracted from you.</target>
+        </trans-unit>
+        <trans-unit id="4c59fcf2-9952-4de1-9d73-57bffc7c76e9" xml:space="preserve">
+          <source>For example you can use Web API for specifying the communication mechanism and leverage the [<bpt id="6598e5e3-c38c-4cd5-8e59-5e47d3d55e96">&lt;code&gt;</bpt>ICommunicationClient<ept id="6598e5e3-c38c-4cd5-8e59-5e47d3d55e96">&lt;/code&gt;</ept> and <bpt id="0669de2b-b269-4bc7-b862-bd1d280b3393">&lt;code&gt;</bpt>ServicePartitionClient<ept id="0669de2b-b269-4bc7-b862-bd1d280b3393">&lt;/code&gt;</ept> classes](service-fabric-reliable-services-communication.md) to setup communication.</source>
+          <target state="new">For example you can use Web API for specifying the communication mechanism and leverage the [<bpt id="6598e5e3-c38c-4cd5-8e59-5e47d3d55e96">&lt;code&gt;</bpt>ICommunicationClient<ept id="6598e5e3-c38c-4cd5-8e59-5e47d3d55e96">&lt;/code&gt;</ept> and <bpt id="0669de2b-b269-4bc7-b862-bd1d280b3393">&lt;code&gt;</bpt>ServicePartitionClient<ept id="0669de2b-b269-4bc7-b862-bd1d280b3393">&lt;/code&gt;</ept> classes](service-fabric-reliable-services-communication.md) to setup communication.</target>
+        </trans-unit>
+        <trans-unit id="cc5ec257-caac-4de6-b120-1e4a1697b574" xml:space="preserve">
+          <source><bpt id="07ee6f38-8fba-495c-87e4-1cffad657491">&lt;strong&gt;</bpt>WCF<ept id="07ee6f38-8fba-495c-87e4-1cffad657491">&lt;/strong&gt;</ept>: If you have existing code that uses WCF as your communication framework then you can use the WcfCommunicationListener for the server side, and WcfCommunicationClient and ServicePartitionClient classes for the client.</source>
+          <target state="new"><bpt id="07ee6f38-8fba-495c-87e4-1cffad657491">&lt;strong&gt;</bpt>WCF<ept id="07ee6f38-8fba-495c-87e4-1cffad657491">&lt;/strong&gt;</ept>: If you have existing code that uses WCF as your communication framework then you can use the WcfCommunicationListener for the server side, and WcfCommunicationClient and ServicePartitionClient classes for the client.</target>
+        </trans-unit>
+        <trans-unit id="51aa8933-11cc-4d77-95d6-5c11bc4e1375" xml:space="preserve">
+          <source>For more details see <bpt id="bab4eb87-0454-4698-85ef-d4000dbcd797">&lt;linkText&gt;</bpt>this article<ept id="bab4eb87-0454-4698-85ef-d4000dbcd797">&lt;/linkText&gt;</ept><bpt id="bab4eb87-0454-4698-85ef-d4000dbcd797">&lt;title&gt;</bpt><ept id="bab4eb87-0454-4698-85ef-d4000dbcd797">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details see <bpt id="bab4eb87-0454-4698-85ef-d4000dbcd797">&lt;linkText&gt;</bpt>this article<ept id="bab4eb87-0454-4698-85ef-d4000dbcd797">&lt;/linkText&gt;</ept><bpt id="bab4eb87-0454-4698-85ef-d4000dbcd797">&lt;title&gt;</bpt><ept id="bab4eb87-0454-4698-85ef-d4000dbcd797">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0593402e-1571-45ea-870f-bb2294645223" xml:space="preserve">
+          <source><bpt id="6c06cdbd-a066-4f15-bba7-2e23af58278e">&lt;strong&gt;</bpt>Other communication frameworks including custom  protocols<ept id="6c06cdbd-a066-4f15-bba7-2e23af58278e">&lt;/strong&gt;</ept>: If you are planning on using any other communication framework including custom communication protocols there are Service Fabric communication APIs which you can plugin your communication stack into while all the work to discover and connect is abstracted from you.</source>
+          <target state="new"><bpt id="6c06cdbd-a066-4f15-bba7-2e23af58278e">&lt;strong&gt;</bpt>Other communication frameworks including custom  protocols<ept id="6c06cdbd-a066-4f15-bba7-2e23af58278e">&lt;/strong&gt;</ept>: If you are planning on using any other communication framework including custom communication protocols there are Service Fabric communication APIs which you can plugin your communication stack into while all the work to discover and connect is abstracted from you.</target>
+        </trans-unit>
+        <trans-unit id="73c9247c-3b37-49b8-9406-2faada7f0cbe" xml:space="preserve">
+          <source>See <bpt id="4cb9a811-0367-403c-bc8c-33e4cbdbd7ea">&lt;linkText&gt;</bpt>this article<ept id="4cb9a811-0367-403c-bc8c-33e4cbdbd7ea">&lt;/linkText&gt;</ept><bpt id="4cb9a811-0367-403c-bc8c-33e4cbdbd7ea">&lt;title&gt;</bpt><ept id="4cb9a811-0367-403c-bc8c-33e4cbdbd7ea">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See <bpt id="4cb9a811-0367-403c-bc8c-33e4cbdbd7ea">&lt;linkText&gt;</bpt>this article<ept id="4cb9a811-0367-403c-bc8c-33e4cbdbd7ea">&lt;/linkText&gt;</ept><bpt id="4cb9a811-0367-403c-bc8c-33e4cbdbd7ea">&lt;title&gt;</bpt><ept id="4cb9a811-0367-403c-bc8c-33e4cbdbd7ea">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="fa3f16a7-c699-46b2-86e8-3e384b246b09" xml:space="preserve">
+          <source>All ServiceFabric communication APIs are currently only available in C# so if have a service that is written in some other programming language such as Java or Node.JS then you will have to write your own communication mechanism.</source>
+          <target state="new">All ServiceFabric communication APIs are currently only available in C# so if have a service that is written in some other programming language such as Java or Node.JS then you will have to write your own communication mechanism.</target>
+        </trans-unit>
+        <trans-unit id="7a00cf87-cf17-42d3-849e-637be0d25ad9" xml:space="preserve">
+          <source><bpt id="c90e9323-3fdb-4ef3-b6fc-11d5497baff2">&lt;linkText&gt;</bpt>Default communication stack provided by Reliable Services Framework <ept id="c90e9323-3fdb-4ef3-b6fc-11d5497baff2">&lt;/linkText&gt;</ept><bpt id="c90e9323-3fdb-4ef3-b6fc-11d5497baff2">&lt;title&gt;</bpt><ept id="c90e9323-3fdb-4ef3-b6fc-11d5497baff2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c90e9323-3fdb-4ef3-b6fc-11d5497baff2">&lt;linkText&gt;</bpt>Default communication stack provided by Reliable Services Framework <ept id="c90e9323-3fdb-4ef3-b6fc-11d5497baff2">&lt;/linkText&gt;</ept><bpt id="c90e9323-3fdb-4ef3-b6fc-11d5497baff2">&lt;title&gt;</bpt><ept id="c90e9323-3fdb-4ef3-b6fc-11d5497baff2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09f74c59-6458-47c7-93b2-f78b4d6c59de" xml:space="preserve">
+          <source><bpt id="bd4270b2-0eca-42c8-acb3-076ab8a06e24">&lt;linkText&gt;</bpt>Reliable Services communication model<ept id="bd4270b2-0eca-42c8-acb3-076ab8a06e24">&lt;/linkText&gt;</ept><bpt id="bd4270b2-0eca-42c8-acb3-076ab8a06e24">&lt;title&gt;</bpt><ept id="bd4270b2-0eca-42c8-acb3-076ab8a06e24">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bd4270b2-0eca-42c8-acb3-076ab8a06e24">&lt;linkText&gt;</bpt>Reliable Services communication model<ept id="bd4270b2-0eca-42c8-acb3-076ab8a06e24">&lt;/linkText&gt;</ept><bpt id="bd4270b2-0eca-42c8-acb3-076ab8a06e24">&lt;title&gt;</bpt><ept id="bd4270b2-0eca-42c8-acb3-076ab8a06e24">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa3be4af-ea5e-4ce4-aea7-8425994173e0" xml:space="preserve">
+          <source><bpt id="3a256f3f-0b51-489d-90c9-f04e6c826136">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host<ept id="3a256f3f-0b51-489d-90c9-f04e6c826136">&lt;/linkText&gt;</ept><bpt id="3a256f3f-0b51-489d-90c9-f04e6c826136">&lt;title&gt;</bpt><ept id="3a256f3f-0b51-489d-90c9-f04e6c826136">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3a256f3f-0b51-489d-90c9-f04e6c826136">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host<ept id="3a256f3f-0b51-489d-90c9-f04e6c826136">&lt;/linkText&gt;</ept><bpt id="3a256f3f-0b51-489d-90c9-f04e6c826136">&lt;title&gt;</bpt><ept id="3a256f3f-0b51-489d-90c9-f04e6c826136">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef526299-76e1-4c65-bf3f-977751679721" xml:space="preserve">
+          <source><bpt id="b2377951-4370-4cc0-813b-be2b889f95d5">&lt;linkText&gt;</bpt>WCF based communication stack for Reliable Services<ept id="b2377951-4370-4cc0-813b-be2b889f95d5">&lt;/linkText&gt;</ept><bpt id="b2377951-4370-4cc0-813b-be2b889f95d5">&lt;title&gt;</bpt><ept id="b2377951-4370-4cc0-813b-be2b889f95d5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b2377951-4370-4cc0-813b-be2b889f95d5">&lt;linkText&gt;</bpt>WCF based communication stack for Reliable Services<ept id="b2377951-4370-4cc0-813b-be2b889f95d5">&lt;/linkText&gt;</ept><bpt id="b2377951-4370-4cc0-813b-be2b889f95d5">&lt;title&gt;</bpt><ept id="b2377951-4370-4cc0-813b-be2b889f95d5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

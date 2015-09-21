@@ -1,0 +1,1200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="de481087-be3f-41a5-acd4-894848337e54" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="de481087-be3f-41a5-acd4-894848337e54" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7aa80184-fcbe-4ca4-8ad4-755cb32084fe">
+        <trans-unit id="9d36b337-6acb-49b2-96b9-a83453a6321b" xml:space="preserve">
+          <source>Azure SQL elastic database pool reference</source>
+          <target state="new">Azure SQL elastic database pool reference</target>
+        </trans-unit>
+        <trans-unit id="552e7427-2a46-4a83-8b38-3f5cebe5cea8" xml:space="preserve">
+          <source>This reference provides links and details to elastic database pool articles and programmability information.</source>
+          <target state="new">This reference provides links and details to elastic database pool articles and programmability information.</target>
+        </trans-unit>
+        <trans-unit id="50216c4c-cf99-4cda-bfde-12037cdcfa52" xml:space="preserve">
+          <source>For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases.</source>
+          <target state="new">For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases.</target>
+        </trans-unit>
+        <trans-unit id="325e307f-ca16-4b8a-b6c5-861c25f5c8da" xml:space="preserve">
+          <source>This reference provides links and details to elastic database pool articles and programmability information.</source>
+          <target state="new">This reference provides links and details to elastic database pool articles and programmability information.</target>
+        </trans-unit>
+        <trans-unit id="1005e86b-9b6e-4024-87d8-8b5c02a42fd7" xml:space="preserve">
+          <source>An elastic database pool is a collection of elastic database throughput units (eDTUs), and storage (GBs) that are shared by multiple databases.</source>
+          <target state="new">An elastic database pool is a collection of elastic database throughput units (eDTUs), and storage (GBs) that are shared by multiple databases.</target>
+        </trans-unit>
+        <trans-unit id="e07f5ecf-bcd2-4515-9ad3-fcc5eaa3237d" xml:space="preserve">
+          <source>Elastic databases can be added to, and removed from the pool at any time.</source>
+          <target state="new">Elastic databases can be added to, and removed from the pool at any time.</target>
+        </trans-unit>
+        <trans-unit id="e1070f8a-fce3-49ae-aa51-19af4e825cc7" xml:space="preserve">
+          <source>Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them.</source>
+          <target state="new">Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them.</target>
+        </trans-unit>
+        <trans-unit id="67ac2357-e606-4d3d-a143-a9f26768e0f7" xml:space="preserve">
+          <source>For assistance in determining if your databases would benefit in an elastic database pool, see <bpt id="b684925f-e2f9-49b6-a1c9-959315a9770c">&lt;linkText&gt;</bpt>Price and performance considerations for an elastic database pool<ept id="b684925f-e2f9-49b6-a1c9-959315a9770c">&lt;/linkText&gt;</ept><bpt id="b684925f-e2f9-49b6-a1c9-959315a9770c">&lt;title&gt;</bpt><ept id="b684925f-e2f9-49b6-a1c9-959315a9770c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For assistance in determining if your databases would benefit in an elastic database pool, see <bpt id="b684925f-e2f9-49b6-a1c9-959315a9770c">&lt;linkText&gt;</bpt>Price and performance considerations for an elastic database pool<ept id="b684925f-e2f9-49b6-a1c9-959315a9770c">&lt;/linkText&gt;</ept><bpt id="b684925f-e2f9-49b6-a1c9-959315a9770c">&lt;title&gt;</bpt><ept id="b684925f-e2f9-49b6-a1c9-959315a9770c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68722224-da5a-4d5a-96f7-370d24889c5b" xml:space="preserve">
+          <source>Elastic database pools are only available in Azure SQL Database V12 servers.</source>
+          <target state="new">Elastic database pools are only available in Azure SQL Database V12 servers.</target>
+        </trans-unit>
+        <trans-unit id="5c559ac7-c1c7-46a8-a2fd-ed5ccd5c4499" xml:space="preserve">
+          <source>Creating and managing elastic database pools is supported using the <bpt id="3ea54b31-592f-41f5-954d-6787042ebd64">&lt;linkText&gt;</bpt>preview portal<ept id="3ea54b31-592f-41f5-954d-6787042ebd64">&lt;/linkText&gt;</ept><bpt id="3ea54b31-592f-41f5-954d-6787042ebd64">&lt;title&gt;</bpt><ept id="3ea54b31-592f-41f5-954d-6787042ebd64">&lt;/title&gt;</ept>, PowerShell, and a .NET Client Library (wrapper for REST APIs) for Azure Resource Manager only; the <bpt id="10a0274d-a596-461b-8ecb-29817789280b">&lt;linkText&gt;</bpt>portal<ept id="10a0274d-a596-461b-8ecb-29817789280b">&lt;/linkText&gt;</ept><bpt id="10a0274d-a596-461b-8ecb-29817789280b">&lt;title&gt;</bpt><ept id="10a0274d-a596-461b-8ecb-29817789280b">&lt;/title&gt;</ept> and service management commands are not supported.</source>
+          <target state="new">Creating and managing elastic database pools is supported using the <bpt id="3ea54b31-592f-41f5-954d-6787042ebd64">&lt;linkText&gt;</bpt>preview portal<ept id="3ea54b31-592f-41f5-954d-6787042ebd64">&lt;/linkText&gt;</ept><bpt id="3ea54b31-592f-41f5-954d-6787042ebd64">&lt;title&gt;</bpt><ept id="3ea54b31-592f-41f5-954d-6787042ebd64">&lt;/title&gt;</ept>, PowerShell, and a .NET Client Library (wrapper for REST APIs) for Azure Resource Manager only; the <bpt id="10a0274d-a596-461b-8ecb-29817789280b">&lt;linkText&gt;</bpt>portal<ept id="10a0274d-a596-461b-8ecb-29817789280b">&lt;/linkText&gt;</ept><bpt id="10a0274d-a596-461b-8ecb-29817789280b">&lt;title&gt;</bpt><ept id="10a0274d-a596-461b-8ecb-29817789280b">&lt;/title&gt;</ept> and service management commands are not supported.</target>
+        </trans-unit>
+        <trans-unit id="e1492bf9-0acf-4de8-ae63-743e25f762d3" xml:space="preserve">
+          <source>Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using Transact-SQL.</source>
+          <target state="new">Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using Transact-SQL.</target>
+        </trans-unit>
+        <trans-unit id="cdfbb49a-0525-40c3-9c4e-7e189348aff1" xml:space="preserve">
+          <source>Each pool has a maximum number of databases and pool eDTUs:</source>
+          <target state="new">Each pool has a maximum number of databases and pool eDTUs:</target>
+        </trans-unit>
+        <trans-unit id="4ccb2172-7a08-41c9-b627-8d8ea53d2d90" xml:space="preserve">
+          <source>| Service tier | Max databases per pool* | Max eDTUs per pool* |
+| :-- | :-- | :-- |
+| Basic | 200 | 1200 | 
+| Standard | 200 | 1200 |
+| Premium | 50 | 1500 |</source>
+          <target state="new">| Service tier | Max databases per pool* | Max eDTUs per pool* |
+| :-- | :-- | :-- |
+| Basic | 200 | 1200 | 
+| Standard | 200 | 1200 |
+| Premium | 50 | 1500 |</target>
+        </trans-unit>
+        <trans-unit id="bbbe27cc-649c-450c-a4bd-c4216b7cdbce" xml:space="preserve">
+          <source><bpt id="615107c2-b4d6-45af-8b33-4203755f00f3">&lt;strong&gt;</bpt>**The current limits for the number of databases per pool and number of pool eDTUs is expected to increase.*<ept id="615107c2-b4d6-45af-8b33-4203755f00f3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="615107c2-b4d6-45af-8b33-4203755f00f3">&lt;strong&gt;</bpt>**The current limits for the number of databases per pool and number of pool eDTUs is expected to increase.*<ept id="615107c2-b4d6-45af-8b33-4203755f00f3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b876e9b-e352-42f3-a987-245f2b0bcca0" xml:space="preserve">
+          <source>The following articles will help you get started using elastic databases and elastic jobs:</source>
+          <target state="new">The following articles will help you get started using elastic databases and elastic jobs:</target>
+        </trans-unit>
+        <trans-unit id="ebd57ffb-6472-4e63-b464-71e0db7ebf1f" xml:space="preserve">
+          <source>Article</source>
+          <target state="new">Article</target>
+        </trans-unit>
+        <trans-unit id="f087a37e-9eca-4f8f-bfcb-5a829b312bf1" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="2a33a1d7-08e6-4da1-8fa9-05681504a82e" xml:space="preserve">
+          <source><bpt id="786df5dd-2ba0-49fd-b3f1-68c6867139ef">&lt;linkText&gt;</bpt>SQL Database elastic database pools<ept id="786df5dd-2ba0-49fd-b3f1-68c6867139ef">&lt;/linkText&gt;</ept><bpt id="786df5dd-2ba0-49fd-b3f1-68c6867139ef">&lt;title&gt;</bpt><ept id="786df5dd-2ba0-49fd-b3f1-68c6867139ef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="786df5dd-2ba0-49fd-b3f1-68c6867139ef">&lt;linkText&gt;</bpt>SQL Database elastic database pools<ept id="786df5dd-2ba0-49fd-b3f1-68c6867139ef">&lt;/linkText&gt;</ept><bpt id="786df5dd-2ba0-49fd-b3f1-68c6867139ef">&lt;title&gt;</bpt><ept id="786df5dd-2ba0-49fd-b3f1-68c6867139ef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b9adc20-f72c-42c9-8109-3247c11db1e1" xml:space="preserve">
+          <source>Overview of elastic  database pools</source>
+          <target state="new">Overview of elastic  database pools</target>
+        </trans-unit>
+        <trans-unit id="ed987235-51ef-4922-a2dd-a1ab1ad80535" xml:space="preserve">
+          <source><bpt id="8a67a90a-2ec6-46ce-a2e7-68d9a9949291">&lt;linkText&gt;</bpt>Price and performance considerations<ept id="8a67a90a-2ec6-46ce-a2e7-68d9a9949291">&lt;/linkText&gt;</ept><bpt id="8a67a90a-2ec6-46ce-a2e7-68d9a9949291">&lt;title&gt;</bpt><ept id="8a67a90a-2ec6-46ce-a2e7-68d9a9949291">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8a67a90a-2ec6-46ce-a2e7-68d9a9949291">&lt;linkText&gt;</bpt>Price and performance considerations<ept id="8a67a90a-2ec6-46ce-a2e7-68d9a9949291">&lt;/linkText&gt;</ept><bpt id="8a67a90a-2ec6-46ce-a2e7-68d9a9949291">&lt;title&gt;</bpt><ept id="8a67a90a-2ec6-46ce-a2e7-68d9a9949291">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae977ae0-93c3-46fd-9c34-57766ada9cf7" xml:space="preserve">
+          <source>How to assess if using an elastic database pool is cost efficient</source>
+          <target state="new">How to assess if using an elastic database pool is cost efficient</target>
+        </trans-unit>
+        <trans-unit id="0bb0a6b7-5756-4c85-bce3-649c646c4614" xml:space="preserve">
+          <source><bpt id="ba4ac8bf-26bb-4988-b9b7-4f1837227570">&lt;linkText&gt;</bpt>Create and manage a SQL Database elastic database pool with the Azure portal<ept id="ba4ac8bf-26bb-4988-b9b7-4f1837227570">&lt;/linkText&gt;</ept><bpt id="ba4ac8bf-26bb-4988-b9b7-4f1837227570">&lt;title&gt;</bpt><ept id="ba4ac8bf-26bb-4988-b9b7-4f1837227570">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba4ac8bf-26bb-4988-b9b7-4f1837227570">&lt;linkText&gt;</bpt>Create and manage a SQL Database elastic database pool with the Azure portal<ept id="ba4ac8bf-26bb-4988-b9b7-4f1837227570">&lt;/linkText&gt;</ept><bpt id="ba4ac8bf-26bb-4988-b9b7-4f1837227570">&lt;title&gt;</bpt><ept id="ba4ac8bf-26bb-4988-b9b7-4f1837227570">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90d903eb-87dd-4846-8ee3-95de1aaac34f" xml:space="preserve">
+          <source>How to create and manage an elastic database pool using the Azure portal</source>
+          <target state="new">How to create and manage an elastic database pool using the Azure portal</target>
+        </trans-unit>
+        <trans-unit id="00b681a1-e570-47b8-9d83-001cc32fb2af" xml:space="preserve">
+          <source><bpt id="63ad0662-4cf5-41aa-8b03-44578b0cf6f6">&lt;linkText&gt;</bpt>Create and manage a SQL Database elastic database pool with PowerShell<ept id="63ad0662-4cf5-41aa-8b03-44578b0cf6f6">&lt;/linkText&gt;</ept><bpt id="63ad0662-4cf5-41aa-8b03-44578b0cf6f6">&lt;title&gt;</bpt><ept id="63ad0662-4cf5-41aa-8b03-44578b0cf6f6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="63ad0662-4cf5-41aa-8b03-44578b0cf6f6">&lt;linkText&gt;</bpt>Create and manage a SQL Database elastic database pool with PowerShell<ept id="63ad0662-4cf5-41aa-8b03-44578b0cf6f6">&lt;/linkText&gt;</ept><bpt id="63ad0662-4cf5-41aa-8b03-44578b0cf6f6">&lt;title&gt;</bpt><ept id="63ad0662-4cf5-41aa-8b03-44578b0cf6f6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4768be57-5b71-4049-8cc6-070d8748153c" xml:space="preserve">
+          <source>How to create and manage an elastic database pool using PowerShell cmdlets</source>
+          <target state="new">How to create and manage an elastic database pool using PowerShell cmdlets</target>
+        </trans-unit>
+        <trans-unit id="12977cef-049b-4186-8f5c-2514b0001481" xml:space="preserve">
+          <source><bpt id="779616f7-1e85-4b72-ac0e-515acb3a9404">&lt;linkText&gt;</bpt>Create and manage a SQL Database with the Azure SQL Database Library for .NET<ept id="779616f7-1e85-4b72-ac0e-515acb3a9404">&lt;/linkText&gt;</ept><bpt id="779616f7-1e85-4b72-ac0e-515acb3a9404">&lt;title&gt;</bpt><ept id="779616f7-1e85-4b72-ac0e-515acb3a9404">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="779616f7-1e85-4b72-ac0e-515acb3a9404">&lt;linkText&gt;</bpt>Create and manage a SQL Database with the Azure SQL Database Library for .NET<ept id="779616f7-1e85-4b72-ac0e-515acb3a9404">&lt;/linkText&gt;</ept><bpt id="779616f7-1e85-4b72-ac0e-515acb3a9404">&lt;title&gt;</bpt><ept id="779616f7-1e85-4b72-ac0e-515acb3a9404">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9b6a9c7-20d8-422d-b985-a65c07893a72" xml:space="preserve">
+          <source>How to create and manage an elastic database pool using C#</source>
+          <target state="new">How to create and manage an elastic database pool using C#</target>
+        </trans-unit>
+        <trans-unit id="e0dc5b83-aa92-4cd8-b68d-609613ae5511" xml:space="preserve">
+          <source><bpt id="ec20689e-6fbc-45ec-945d-99e9da67bc11">&lt;linkText&gt;</bpt>Elastic database jobs overview<ept id="ec20689e-6fbc-45ec-945d-99e9da67bc11">&lt;/linkText&gt;</ept><bpt id="ec20689e-6fbc-45ec-945d-99e9da67bc11">&lt;title&gt;</bpt><ept id="ec20689e-6fbc-45ec-945d-99e9da67bc11">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ec20689e-6fbc-45ec-945d-99e9da67bc11">&lt;linkText&gt;</bpt>Elastic database jobs overview<ept id="ec20689e-6fbc-45ec-945d-99e9da67bc11">&lt;/linkText&gt;</ept><bpt id="ec20689e-6fbc-45ec-945d-99e9da67bc11">&lt;title&gt;</bpt><ept id="ec20689e-6fbc-45ec-945d-99e9da67bc11">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb1a0a9f-4717-493f-81c3-bebebe23cf60" xml:space="preserve">
+          <source>An overview of the elastic jobs service, that enables running T-SQL scripts across all elastic databases in a pool</source>
+          <target state="new">An overview of the elastic jobs service, that enables running T-SQL scripts across all elastic databases in a pool</target>
+        </trans-unit>
+        <trans-unit id="1224a4db-f023-42ff-9807-504291537575" xml:space="preserve">
+          <source><bpt id="4a3c3be5-0893-4c7c-a377-9f737faef01a">&lt;linkText&gt;</bpt>Installing the elastic database job component<ept id="4a3c3be5-0893-4c7c-a377-9f737faef01a">&lt;/linkText&gt;</ept><bpt id="4a3c3be5-0893-4c7c-a377-9f737faef01a">&lt;title&gt;</bpt><ept id="4a3c3be5-0893-4c7c-a377-9f737faef01a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4a3c3be5-0893-4c7c-a377-9f737faef01a">&lt;linkText&gt;</bpt>Installing the elastic database job component<ept id="4a3c3be5-0893-4c7c-a377-9f737faef01a">&lt;/linkText&gt;</ept><bpt id="4a3c3be5-0893-4c7c-a377-9f737faef01a">&lt;title&gt;</bpt><ept id="4a3c3be5-0893-4c7c-a377-9f737faef01a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b7052a0-e065-41a8-b10a-86d370f1a7bb" xml:space="preserve">
+          <source>How to install the elastic database job service</source>
+          <target state="new">How to install the elastic database job service</target>
+        </trans-unit>
+        <trans-unit id="04cb1cc9-9018-4e2f-bc50-d5d77a0de73e" xml:space="preserve">
+          <source><bpt id="0c16e537-6bf2-43e5-a384-cd2e2d3e4dcc">&lt;linkText&gt;</bpt>Creating the required user for the elastic jobs service<ept id="0c16e537-6bf2-43e5-a384-cd2e2d3e4dcc">&lt;/linkText&gt;</ept><bpt id="0c16e537-6bf2-43e5-a384-cd2e2d3e4dcc">&lt;title&gt;</bpt><ept id="0c16e537-6bf2-43e5-a384-cd2e2d3e4dcc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0c16e537-6bf2-43e5-a384-cd2e2d3e4dcc">&lt;linkText&gt;</bpt>Creating the required user for the elastic jobs service<ept id="0c16e537-6bf2-43e5-a384-cd2e2d3e4dcc">&lt;/linkText&gt;</ept><bpt id="0c16e537-6bf2-43e5-a384-cd2e2d3e4dcc">&lt;title&gt;</bpt><ept id="0c16e537-6bf2-43e5-a384-cd2e2d3e4dcc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59f7e8d0-8766-4222-830e-a9f54c341973" xml:space="preserve">
+          <source>To run an elastic database job script, a user with the appropriate permissions must be added to every database in the pool.</source>
+          <target state="new">To run an elastic database job script, a user with the appropriate permissions must be added to every database in the pool.</target>
+        </trans-unit>
+        <trans-unit id="340f960c-ddc0-466d-93b4-898b4a5b5908" xml:space="preserve">
+          <source><bpt id="3ffa17e5-e5cd-4936-9fc7-efbde3270870">&lt;linkText&gt;</bpt>How to uninstall the elastic database job components<ept id="3ffa17e5-e5cd-4936-9fc7-efbde3270870">&lt;/linkText&gt;</ept><bpt id="3ffa17e5-e5cd-4936-9fc7-efbde3270870">&lt;title&gt;</bpt><ept id="3ffa17e5-e5cd-4936-9fc7-efbde3270870">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3ffa17e5-e5cd-4936-9fc7-efbde3270870">&lt;linkText&gt;</bpt>How to uninstall the elastic database job components<ept id="3ffa17e5-e5cd-4936-9fc7-efbde3270870">&lt;/linkText&gt;</ept><bpt id="3ffa17e5-e5cd-4936-9fc7-efbde3270870">&lt;title&gt;</bpt><ept id="3ffa17e5-e5cd-4936-9fc7-efbde3270870">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="594aac6c-4c00-4d5a-81af-460794dd8f3f" xml:space="preserve">
+          <source>Recover from failures when attempting to install the elastic database job service</source>
+          <target state="new">Recover from failures when attempting to install the elastic database job service</target>
+        </trans-unit>
+        <trans-unit id="522d2786-c03b-45f0-88af-6004610ec9d0" xml:space="preserve">
+          <source>An elastic database pool is an Azure Resource Manager resource of type “ElasticPool” in the Microsoft Azure SQL Database.</source>
+          <target state="new">An elastic database pool is an Azure Resource Manager resource of type “ElasticPool” in the Microsoft Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="44a37b20-c71b-4a98-8f1e-a63e38eca652" xml:space="preserve">
+          <source><bpt id="eeffa605-b8fc-4196-adc5-b414be447a77">&lt;strong&gt;</bpt>namespace<ept id="eeffa605-b8fc-4196-adc5-b414be447a77">&lt;/strong&gt;</ept>: Microsoft.Sql/ElasticPool</source>
+          <target state="new"><bpt id="eeffa605-b8fc-4196-adc5-b414be447a77">&lt;strong&gt;</bpt>namespace<ept id="eeffa605-b8fc-4196-adc5-b414be447a77">&lt;/strong&gt;</ept>: Microsoft.Sql/ElasticPool</target>
+        </trans-unit>
+        <trans-unit id="a4ecb721-ab66-4b25-92b4-d52d4cca191e" xml:space="preserve">
+          <source><bpt id="61c695b4-695e-424a-bd03-e71f703d0c70">&lt;strong&gt;</bpt>management-endpoint<ept id="61c695b4-695e-424a-bd03-e71f703d0c70">&lt;/strong&gt;</ept> for REST API calls (Resource Manager): https://management.azure.com</source>
+          <target state="new"><bpt id="61c695b4-695e-424a-bd03-e71f703d0c70">&lt;strong&gt;</bpt>management-endpoint<ept id="61c695b4-695e-424a-bd03-e71f703d0c70">&lt;/strong&gt;</ept> for REST API calls (Resource Manager): https://management.azure.com</target>
+        </trans-unit>
+        <trans-unit id="57a2a053-e78d-46c0-b0b0-12854506e234" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="453bd244-f084-4ef2-a9e2-d9543aa70052" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="639366b3-0c5e-401d-9c3e-4b6a2d0c3268" xml:space="preserve">
+          <source>creationDate</source>
+          <target state="new">creationDate</target>
+        </trans-unit>
+        <trans-unit id="06ae5b2a-5ba8-4730-8179-7496801b4238" xml:space="preserve">
+          <source>Date the pool is created.</source>
+          <target state="new">Date the pool is created.</target>
+        </trans-unit>
+        <trans-unit id="53b6dbed-daec-4027-8af1-141540bd06ee" xml:space="preserve">
+          <source>databaseDtuMax</source>
+          <target state="new">databaseDtuMax</target>
+        </trans-unit>
+        <trans-unit id="7525d7e0-6c90-4214-91fe-d16dbd143a35" xml:space="preserve">
+          <source>Maximum number of eDTUs that a single database in the pool may use.</source>
+          <target state="new">Maximum number of eDTUs that a single database in the pool may use.</target>
+        </trans-unit>
+        <trans-unit id="e076c6bf-141d-4ba4-84ab-e58c4383c6ff" xml:space="preserve">
+          <source>The database eDTU max is not a resource guarantee.</source>
+          <target state="new">The database eDTU max is not a resource guarantee.</target>
+        </trans-unit>
+        <trans-unit id="3f3ce667-9f13-47aa-9c6d-f33a6d2e540f" xml:space="preserve">
+          <source>The eDTU max applies to all databases in the pool.</source>
+          <target state="new">The eDTU max applies to all databases in the pool.</target>
+        </trans-unit>
+        <trans-unit id="e02d6625-307d-4cd3-aaef-f9314027c8f9" xml:space="preserve">
+          <source>databaseDtuMin</source>
+          <target state="new">databaseDtuMin</target>
+        </trans-unit>
+        <trans-unit id="c00660b0-5ef5-4d1d-b9ce-00d6839d2f2d" xml:space="preserve">
+          <source>Minimum number of eDTUs that a single database in the pool is guaranteed.</source>
+          <target state="new">Minimum number of eDTUs that a single database in the pool is guaranteed.</target>
+        </trans-unit>
+        <trans-unit id="07b062fd-0ffb-49fd-a59f-f2c34291eada" xml:space="preserve">
+          <source>The database eDTU min may be set to 0.</source>
+          <target state="new">The database eDTU min may be set to 0.</target>
+        </trans-unit>
+        <trans-unit id="b12041f8-124e-4a00-b925-d5ae8571e14d" xml:space="preserve">
+          <source>The eDTU min applies to all databases in the pool.</source>
+          <target state="new">The eDTU min applies to all databases in the pool.</target>
+        </trans-unit>
+        <trans-unit id="dd1c1a0b-7ef1-4a3c-87fd-c15a922ca739" xml:space="preserve">
+          <source>Note that the product of the number of databases in the pool and the database eDTU min cannot exceed the eDTUs of the pool itself.</source>
+          <target state="new">Note that the product of the number of databases in the pool and the database eDTU min cannot exceed the eDTUs of the pool itself.</target>
+        </trans-unit>
+        <trans-unit id="a02b6c8f-f6b1-4979-be15-cf2ef7fb6f2c" xml:space="preserve">
+          <source>Dtu</source>
+          <target state="new">Dtu</target>
+        </trans-unit>
+        <trans-unit id="8c451365-d795-4d9f-9783-36147a46a042" xml:space="preserve">
+          <source>Number of eDTUs shared by all databases in the pool.</source>
+          <target state="new">Number of eDTUs shared by all databases in the pool.</target>
+        </trans-unit>
+        <trans-unit id="2dce0fce-87cb-4368-a287-3539d9460248" xml:space="preserve">
+          <source>edition</source>
+          <target state="new">edition</target>
+        </trans-unit>
+        <trans-unit id="888f749f-037e-4a8e-9e5e-67cb615136de" xml:space="preserve">
+          <source>Service tier of the pool.</source>
+          <target state="new">Service tier of the pool.</target>
+        </trans-unit>
+        <trans-unit id="9a4eae51-dec5-42b1-85e6-a351058d35af" xml:space="preserve">
+          <source>Every database within the pool has this edition.</source>
+          <target state="new">Every database within the pool has this edition.</target>
+        </trans-unit>
+        <trans-unit id="c6e4e4cd-aa1a-43b1-8f8d-c1706c93dfc0" xml:space="preserve">
+          <source>elasticPoolId</source>
+          <target state="new">elasticPoolId</target>
+        </trans-unit>
+        <trans-unit id="20e1db16-77d8-4329-886f-b4921f5fb123" xml:space="preserve">
+          <source>GUID of the instance of the pool.</source>
+          <target state="new">GUID of the instance of the pool.</target>
+        </trans-unit>
+        <trans-unit id="b19e52b7-53d0-4192-aad6-c3bbee9cc83c" xml:space="preserve">
+          <source>elasticPoolName</source>
+          <target state="new">elasticPoolName</target>
+        </trans-unit>
+        <trans-unit id="961dacab-bfcb-4733-abd5-d28f2986677e" xml:space="preserve">
+          <source>Name of the pool.</source>
+          <target state="new">Name of the pool.</target>
+        </trans-unit>
+        <trans-unit id="560f8a2c-3e09-49f8-90ca-5fc848cf45ff" xml:space="preserve">
+          <source>The name is unique relative to its parent server.</source>
+          <target state="new">The name is unique relative to its parent server.</target>
+        </trans-unit>
+        <trans-unit id="f66eaf91-6b47-4182-ba34-b98f8e256ced" xml:space="preserve">
+          <source>location</source>
+          <target state="new">location</target>
+        </trans-unit>
+        <trans-unit id="c0648bdf-dc86-487b-99b2-8e6f777cf797" xml:space="preserve">
+          <source>Data center location where the pool was created.</source>
+          <target state="new">Data center location where the pool was created.</target>
+        </trans-unit>
+        <trans-unit id="7e248bdf-aad4-4e27-bced-9d9f0697a67e" xml:space="preserve">
+          <source>state</source>
+          <target state="new">state</target>
+        </trans-unit>
+        <trans-unit id="b036ce0c-6862-4314-8f9d-74ead1906dd0" xml:space="preserve">
+          <source>State is “Disabled” if payment of the bill for subscription is delinquent, and “Ready” otherwise.</source>
+          <target state="new">State is “Disabled” if payment of the bill for subscription is delinquent, and “Ready” otherwise.</target>
+        </trans-unit>
+        <trans-unit id="088b6868-ec8c-4cf4-85fa-798fde226baf" xml:space="preserve">
+          <source>storageMB</source>
+          <target state="new">storageMB</target>
+        </trans-unit>
+        <trans-unit id="2cc04a7d-f613-40c9-83f0-b9f2935c9928" xml:space="preserve">
+          <source>Storage limit in MB for the pool.</source>
+          <target state="new">Storage limit in MB for the pool.</target>
+        </trans-unit>
+        <trans-unit id="9d15bb25-35c3-4a2c-83a4-4dbedc8d8250" xml:space="preserve">
+          <source>Any single database in the pool can use up to Standard Edition storage limit (250 GB), but the total of storage used by all databases in the pool cannot exceed this pool limit.</source>
+          <target state="new">Any single database in the pool can use up to Standard Edition storage limit (250 GB), but the total of storage used by all databases in the pool cannot exceed this pool limit.</target>
+        </trans-unit>
+        <trans-unit id="9fff6925-8a4b-4839-9a5c-73df23668955" xml:space="preserve">
+          <source>The storage limit of the pool is determined by the amount of eDTUs of the pool.</source>
+          <target state="new">The storage limit of the pool is determined by the amount of eDTUs of the pool.</target>
+        </trans-unit>
+        <trans-unit id="90e89f67-c870-415c-b94c-986c509783b3" xml:space="preserve">
+          <source>property</source>
+          <target state="new">property</target>
+        </trans-unit>
+        <trans-unit id="1077c83c-ad7a-404d-b746-370c57e18df3" xml:space="preserve">
+          <source>Basic</source>
+          <target state="new">Basic</target>
+        </trans-unit>
+        <trans-unit id="1af44c5e-6163-4b74-80d4-0202aa5b6f6e" xml:space="preserve">
+          <source>Standard</source>
+          <target state="new">Standard</target>
+        </trans-unit>
+        <trans-unit id="d8f6e81a-6757-44b9-8514-dad06f74cb0d" xml:space="preserve">
+          <source>Premium</source>
+          <target state="new">Premium</target>
+        </trans-unit>
+        <trans-unit id="4e34dd88-469d-4e6a-9f1a-1a62ec77b953" xml:space="preserve">
+          <source>dtu</source>
+          <target state="new">dtu</target>
+        </trans-unit>
+        <trans-unit id="409ce176-6e02-477b-83f0-34ff5f2f819a" xml:space="preserve">
+          <source><bpt id="2ebbf067-dbe3-4d69-87ad-1d0184b0f1e9">&lt;strong&gt;</bpt>100<ept id="2ebbf067-dbe3-4d69-87ad-1d0184b0f1e9">&lt;/strong&gt;</ept>, 200, 400, 800, 1200</source>
+          <target state="new"><bpt id="2ebbf067-dbe3-4d69-87ad-1d0184b0f1e9">&lt;strong&gt;</bpt>100<ept id="2ebbf067-dbe3-4d69-87ad-1d0184b0f1e9">&lt;/strong&gt;</ept>, 200, 400, 800, 1200</target>
+        </trans-unit>
+        <trans-unit id="4c125e9f-6070-4369-a927-19f17ed265c2" xml:space="preserve">
+          <source><bpt id="c023ffb7-c88c-46c8-9c20-7600b410ca23">&lt;strong&gt;</bpt>100<ept id="c023ffb7-c88c-46c8-9c20-7600b410ca23">&lt;/strong&gt;</ept>, 200, 400, 800, 1200</source>
+          <target state="new"><bpt id="c023ffb7-c88c-46c8-9c20-7600b410ca23">&lt;strong&gt;</bpt>100<ept id="c023ffb7-c88c-46c8-9c20-7600b410ca23">&lt;/strong&gt;</ept>, 200, 400, 800, 1200</target>
+        </trans-unit>
+        <trans-unit id="57240b6a-2232-4e86-92c0-affe21e1743e" xml:space="preserve">
+          <source><bpt id="8b996633-63a1-47a1-9f7f-d519c1f2a291">&lt;strong&gt;</bpt>125<ept id="8b996633-63a1-47a1-9f7f-d519c1f2a291">&lt;/strong&gt;</ept>, 250, 500, 1000, 1500</source>
+          <target state="new"><bpt id="8b996633-63a1-47a1-9f7f-d519c1f2a291">&lt;strong&gt;</bpt>125<ept id="8b996633-63a1-47a1-9f7f-d519c1f2a291">&lt;/strong&gt;</ept>, 250, 500, 1000, 1500</target>
+        </trans-unit>
+        <trans-unit id="03dad38e-861d-44a1-80ea-3038d7defb3e" xml:space="preserve">
+          <source>databaseDtuMax</source>
+          <target state="new">databaseDtuMax</target>
+        </trans-unit>
+        <trans-unit id="e811389b-2667-4968-9a4f-cf1ed64f5d2c" xml:space="preserve">
+          <source><bpt id="05d45449-9b9a-4ab5-abd5-50163ad4f7b1">&lt;strong&gt;</bpt>5<ept id="05d45449-9b9a-4ab5-abd5-50163ad4f7b1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="05d45449-9b9a-4ab5-abd5-50163ad4f7b1">&lt;strong&gt;</bpt>5<ept id="05d45449-9b9a-4ab5-abd5-50163ad4f7b1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a4eba2e-b5a4-49f5-b76e-7bff2489d71a" xml:space="preserve">
+          <source>10, 20, 50, <bpt id="9c427a0b-267a-4148-8df0-8625a7fecd70">&lt;strong&gt;</bpt>100<ept id="9c427a0b-267a-4148-8df0-8625a7fecd70">&lt;/strong&gt;</ept></source>
+          <target state="new">10, 20, 50, <bpt id="9c427a0b-267a-4148-8df0-8625a7fecd70">&lt;strong&gt;</bpt>100<ept id="9c427a0b-267a-4148-8df0-8625a7fecd70">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="793d2d1d-abf3-431f-af15-11db96ce79fb" xml:space="preserve">
+          <source><bpt id="3ff76795-453e-43aa-9548-f0216537c623">&lt;strong&gt;</bpt>125<ept id="3ff76795-453e-43aa-9548-f0216537c623">&lt;/strong&gt;</ept>, 250, 500, 1000</source>
+          <target state="new"><bpt id="3ff76795-453e-43aa-9548-f0216537c623">&lt;strong&gt;</bpt>125<ept id="3ff76795-453e-43aa-9548-f0216537c623">&lt;/strong&gt;</ept>, 250, 500, 1000</target>
+        </trans-unit>
+        <trans-unit id="3a60b915-9485-40a5-8e6a-36f2db7d9bd0" xml:space="preserve">
+          <source>databaseDtuMin</source>
+          <target state="new">databaseDtuMin</target>
+        </trans-unit>
+        <trans-unit id="80547280-dbf2-4224-b851-bf61c956a6d5" xml:space="preserve">
+          <source><bpt id="fa62fc15-4ab4-4a8a-9bd6-8748fd6ea410">&lt;strong&gt;</bpt>0<ept id="fa62fc15-4ab4-4a8a-9bd6-8748fd6ea410">&lt;/strong&gt;</ept>, 5</source>
+          <target state="new"><bpt id="fa62fc15-4ab4-4a8a-9bd6-8748fd6ea410">&lt;strong&gt;</bpt>0<ept id="fa62fc15-4ab4-4a8a-9bd6-8748fd6ea410">&lt;/strong&gt;</ept>, 5</target>
+        </trans-unit>
+        <trans-unit id="ce972e70-c0ef-42d5-b090-1d4b92c611c6" xml:space="preserve">
+          <source><bpt id="7f1df974-ebe7-4758-81b3-4e35a1e2e863">&lt;strong&gt;</bpt>0<ept id="7f1df974-ebe7-4758-81b3-4e35a1e2e863">&lt;/strong&gt;</ept>, 10, 20, 50, 100</source>
+          <target state="new"><bpt id="7f1df974-ebe7-4758-81b3-4e35a1e2e863">&lt;strong&gt;</bpt>0<ept id="7f1df974-ebe7-4758-81b3-4e35a1e2e863">&lt;/strong&gt;</ept>, 10, 20, 50, 100</target>
+        </trans-unit>
+        <trans-unit id="f5e865cc-acef-49f0-84a8-7917c4bc1f40" xml:space="preserve">
+          <source><bpt id="94e0dcad-8af8-4863-b73e-e5a811a4bc02">&lt;strong&gt;</bpt>0<ept id="94e0dcad-8af8-4863-b73e-e5a811a4bc02">&lt;/strong&gt;</ept>, 125, 250, 500, 1000</source>
+          <target state="new"><bpt id="94e0dcad-8af8-4863-b73e-e5a811a4bc02">&lt;strong&gt;</bpt>0<ept id="94e0dcad-8af8-4863-b73e-e5a811a4bc02">&lt;/strong&gt;</ept>, 125, 250, 500, 1000</target>
+        </trans-unit>
+        <trans-unit id="7b9768a1-cdcc-4bad-ace7-3e12cf8b93bd" xml:space="preserve">
+          <source>storageMB*</source>
+          <target state="new">storageMB*</target>
+        </trans-unit>
+        <trans-unit id="03da8282-e55c-4de3-b7af-e36544523e31" xml:space="preserve">
+          <source><bpt id="341dc2ab-d88c-48b9-8895-86613be64365">&lt;strong&gt;</bpt>10000 MB<ept id="341dc2ab-d88c-48b9-8895-86613be64365">&lt;/strong&gt;</ept>, 20000 MB, 40000 MB, 80000 MB, 120000 MB</source>
+          <target state="new"><bpt id="341dc2ab-d88c-48b9-8895-86613be64365">&lt;strong&gt;</bpt>10000 MB<ept id="341dc2ab-d88c-48b9-8895-86613be64365">&lt;/strong&gt;</ept>, 20000 MB, 40000 MB, 80000 MB, 120000 MB</target>
+        </trans-unit>
+        <trans-unit id="befd544a-55e1-44f7-aebe-c5e6266ffaa7" xml:space="preserve">
+          <source><bpt id="cdb28088-5fe7-4d8b-870d-0987b2b04a70">&lt;strong&gt;</bpt>100 GB<ept id="cdb28088-5fe7-4d8b-870d-0987b2b04a70">&lt;/strong&gt;</ept>, 200 GB, 400 GB, 800 GB, 1200 GB</source>
+          <target state="new"><bpt id="cdb28088-5fe7-4d8b-870d-0987b2b04a70">&lt;strong&gt;</bpt>100 GB<ept id="cdb28088-5fe7-4d8b-870d-0987b2b04a70">&lt;/strong&gt;</ept>, 200 GB, 400 GB, 800 GB, 1200 GB</target>
+        </trans-unit>
+        <trans-unit id="731c31f0-8d0d-457b-b4b1-186889b59db3" xml:space="preserve">
+          <source><bpt id="292655f2-15d5-4e5d-b41a-dbb20928f653">&lt;strong&gt;</bpt>62.5 GB<ept id="292655f2-15d5-4e5d-b41a-dbb20928f653">&lt;/strong&gt;</ept>, 125 GB, 250 GB, 500 GB, 750 GB</source>
+          <target state="new"><bpt id="292655f2-15d5-4e5d-b41a-dbb20928f653">&lt;strong&gt;</bpt>62.5 GB<ept id="292655f2-15d5-4e5d-b41a-dbb20928f653">&lt;/strong&gt;</ept>, 125 GB, 250 GB, 500 GB, 750 GB</target>
+        </trans-unit>
+        <trans-unit id="be3d8a5b-62eb-4c63-9370-f98d4b5ef520" xml:space="preserve">
+          <source>storage per DTU</source>
+          <target state="new">storage per DTU</target>
+        </trans-unit>
+        <trans-unit id="4a757d9c-51b3-42c2-ba23-137360adced1" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="d2034846-c46e-4e43-9d33-e9accede8d80" xml:space="preserve">
+          <source>1 GB</source>
+          <target state="new">1 GB</target>
+        </trans-unit>
+        <trans-unit id="5ff19aab-d365-4310-8ba9-8ec097340abe" xml:space="preserve">
+          <source>.5 GB</source>
+          <target state="new">.5 GB</target>
+        </trans-unit>
+        <trans-unit id="d593d413-1012-4865-a6d5-255f10500294" xml:space="preserve">
+          <source>max databases per pool</source>
+          <target state="new">max databases per pool</target>
+        </trans-unit>
+        <trans-unit id="9df47a9f-740b-4adb-8083-218af80cf986" xml:space="preserve">
+          <source>200</source>
+          <target state="new">200</target>
+        </trans-unit>
+        <trans-unit id="4f522fa8-87c4-4fea-8465-919c99826352" xml:space="preserve">
+          <source>200</source>
+          <target state="new">200</target>
+        </trans-unit>
+        <trans-unit id="67204dab-a814-4683-aa53-ed095a250284" xml:space="preserve">
+          <source>50</source>
+          <target state="new">50</target>
+        </trans-unit>
+        <trans-unit id="2ef11025-d98f-4520-9cdf-ae77844579bc" xml:space="preserve">
+          <source>Default values are <bpt id="21b127d8-fdb7-4ff0-b370-57b2ece08d28">&lt;strong&gt;</bpt>bold<ept id="21b127d8-fdb7-4ff0-b370-57b2ece08d28">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Default values are <bpt id="21b127d8-fdb7-4ff0-b370-57b2ece08d28">&lt;strong&gt;</bpt>bold<ept id="21b127d8-fdb7-4ff0-b370-57b2ece08d28">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e4eec4b-d430-4c03-9aa1-1a74c17002fa" xml:space="preserve">
+          <source>*units in API are MB, not GB.</source>
+          <target state="new">*units in API are MB, not GB.</target>
+        </trans-unit>
+        <trans-unit id="3854031c-9df6-4f69-ae7d-a7703167d65b" xml:space="preserve">
+          <source>The maximum number of concurrent workers and concurrent sessions supported for all databases in an elastic pool depends on the eDTU setting for the pool: </source>
+          <target state="new">The maximum number of concurrent workers and concurrent sessions supported for all databases in an elastic pool depends on the eDTU setting for the pool: </target>
+        </trans-unit>
+        <trans-unit id="53b4da08-2ea1-452f-9ca8-e5b2651def93" xml:space="preserve">
+          <source>eDTUs</source>
+          <target state="new">eDTUs</target>
+        </trans-unit>
+        <trans-unit id="c2e949f1-8d07-43af-a665-94d285a94796" xml:space="preserve">
+          <source>Max concurrent workers</source>
+          <target state="new">Max concurrent workers</target>
+        </trans-unit>
+        <trans-unit id="b681aac4-81f8-4046-81f9-995d6b30641a" xml:space="preserve">
+          <source>Max concurrent sessions</source>
+          <target state="new">Max concurrent sessions</target>
+        </trans-unit>
+        <trans-unit id="f0ac4524-345d-492c-ac0f-529d950e1fa5" xml:space="preserve">
+          <source>100 (Basic/Standard), 125 (Premium)</source>
+          <target state="new">100 (Basic/Standard), 125 (Premium)</target>
+        </trans-unit>
+        <trans-unit id="06d52ed1-6461-4b9d-9492-77a28fe8266d" xml:space="preserve">
+          <source>200</source>
+          <target state="new">200</target>
+        </trans-unit>
+        <trans-unit id="a03f2830-989e-4eae-b94e-b4e69b271dcf" xml:space="preserve">
+          <source>2,400</source>
+          <target state="new">2,400</target>
+        </trans-unit>
+        <trans-unit id="0b0f472f-fe07-4bfd-869f-ee4896f6ab3f" xml:space="preserve">
+          <source>200 (Basic/Standard), 250 (Premium)</source>
+          <target state="new">200 (Basic/Standard), 250 (Premium)</target>
+        </trans-unit>
+        <trans-unit id="23a99cd8-2016-486a-9568-3f9cda317c18" xml:space="preserve">
+          <source>400</source>
+          <target state="new">400</target>
+        </trans-unit>
+        <trans-unit id="560bc863-d54b-4dec-8103-22a92629472e" xml:space="preserve">
+          <source>4,800</source>
+          <target state="new">4,800</target>
+        </trans-unit>
+        <trans-unit id="48e5d7fe-2729-443f-87a8-a30c630718ec" xml:space="preserve">
+          <source>400 (Basic/Standard), 500 (Premium)</source>
+          <target state="new">400 (Basic/Standard), 500 (Premium)</target>
+        </trans-unit>
+        <trans-unit id="852208cf-db76-4c73-a934-4b9eef6886dd" xml:space="preserve">
+          <source>800</source>
+          <target state="new">800</target>
+        </trans-unit>
+        <trans-unit id="7e17754a-5878-4ad5-83d8-92c1033b5e75" xml:space="preserve">
+          <source>9,600</source>
+          <target state="new">9,600</target>
+        </trans-unit>
+        <trans-unit id="3ba47be0-9669-4863-8b5d-ab96d23bbe71" xml:space="preserve">
+          <source>800 (Basic/Standard), 1,000 (Premium)</source>
+          <target state="new">800 (Basic/Standard), 1,000 (Premium)</target>
+        </trans-unit>
+        <trans-unit id="679b0353-fc3c-4c6b-ae3f-4276fd4295fe" xml:space="preserve">
+          <source>1,600</source>
+          <target state="new">1,600</target>
+        </trans-unit>
+        <trans-unit id="be8e2270-4acb-47ea-892a-6a8cc4696567" xml:space="preserve">
+          <source>19,200</source>
+          <target state="new">19,200</target>
+        </trans-unit>
+        <trans-unit id="a469579c-a3df-4179-8f0e-648a1b374792" xml:space="preserve">
+          <source>1,200 (Basic/Standard), 1,500 (Premium)</source>
+          <target state="new">1,200 (Basic/Standard), 1,500 (Premium)</target>
+        </trans-unit>
+        <trans-unit id="d1f7cd41-c2e2-4878-892d-8a8179b6420b" xml:space="preserve">
+          <source>2,400</source>
+          <target state="new">2,400</target>
+        </trans-unit>
+        <trans-unit id="0b5603f4-aa79-4dad-9b01-eff324865097" xml:space="preserve">
+          <source>28,800</source>
+          <target state="new">28,800</target>
+        </trans-unit>
+        <trans-unit id="5dce0d71-8a9e-40fe-be1e-ec1db98a2a3c" xml:space="preserve">
+          <source>Azure SQL Database V12 servers are located in resource groups.</source>
+          <target state="new">Azure SQL Database V12 servers are located in resource groups.</target>
+        </trans-unit>
+        <trans-unit id="afe6877a-a2ad-46c7-9642-a272ef5fa507" xml:space="preserve">
+          <source>Each resource group can have a maximum 800 servers.</source>
+          <target state="new">Each resource group can have a maximum 800 servers.</target>
+        </trans-unit>
+        <trans-unit id="aa4acf44-ff33-4392-a435-7b558901ad91" xml:space="preserve">
+          <source>Each server can have a maximum 800 elastic pools.</source>
+          <target state="new">Each server can have a maximum 800 elastic pools.</target>
+        </trans-unit>
+        <trans-unit id="8f819ecb-aa04-4e11-9c36-9d2ecb1ccf1a" xml:space="preserve">
+          <source>Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.</source>
+          <target state="new">Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.</target>
+        </trans-unit>
+        <trans-unit id="40bd6e93-57ce-434f-87e8-5c1f218c9559" xml:space="preserve">
+          <source>Changing the eDTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool.</source>
+          <target state="new">Changing the eDTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool.</target>
+        </trans-unit>
+        <trans-unit id="b7250aac-d5aa-4ab7-9fe8-bc7e0a167abd" xml:space="preserve">
+          <source>Changes average 90 minutes or less per 100 GB.</source>
+          <target state="new">Changes average 90 minutes or less per 100 GB.</target>
+        </trans-unit>
+        <trans-unit id="d36ce607-15e3-4841-a322-913a5b1ede71" xml:space="preserve">
+          <source>For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.</source>
+          <target state="new">For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.</target>
+        </trans-unit>
+        <trans-unit id="187dec60-c82d-499a-a331-f547c516b86f" xml:space="preserve">
+          <source>Several PowerShell cmdlets and REST API commands are available for creating and managing elastic pools.</source>
+          <target state="new">Several PowerShell cmdlets and REST API commands are available for creating and managing elastic pools.</target>
+        </trans-unit>
+        <trans-unit id="61e60dd9-58a3-4dcd-aa03-ad28109b1ec3" xml:space="preserve">
+          <source>For details and code examples, see <bpt id="900b8faf-a204-4442-a99a-18d528fcd511">&lt;linkText&gt;</bpt>Create and manage a SQL Database elastic database pool using PowerShell<ept id="900b8faf-a204-4442-a99a-18d528fcd511">&lt;/linkText&gt;</ept><bpt id="900b8faf-a204-4442-a99a-18d528fcd511">&lt;title&gt;</bpt><ept id="900b8faf-a204-4442-a99a-18d528fcd511">&lt;/title&gt;</ept>, and <bpt id="836d74c4-133a-4f6b-ae68-0f2e11540704">&lt;linkText&gt;</bpt>Create and manage SQL Database with C#<ept id="836d74c4-133a-4f6b-ae68-0f2e11540704">&lt;/linkText&gt;</ept><bpt id="836d74c4-133a-4f6b-ae68-0f2e11540704">&lt;title&gt;</bpt><ept id="836d74c4-133a-4f6b-ae68-0f2e11540704">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details and code examples, see <bpt id="900b8faf-a204-4442-a99a-18d528fcd511">&lt;linkText&gt;</bpt>Create and manage a SQL Database elastic database pool using PowerShell<ept id="900b8faf-a204-4442-a99a-18d528fcd511">&lt;/linkText&gt;</ept><bpt id="900b8faf-a204-4442-a99a-18d528fcd511">&lt;title&gt;</bpt><ept id="900b8faf-a204-4442-a99a-18d528fcd511">&lt;/title&gt;</ept>, and <bpt id="836d74c4-133a-4f6b-ae68-0f2e11540704">&lt;linkText&gt;</bpt>Create and manage SQL Database with C#<ept id="836d74c4-133a-4f6b-ae68-0f2e11540704">&lt;/linkText&gt;</ept><bpt id="836d74c4-133a-4f6b-ae68-0f2e11540704">&lt;title&gt;</bpt><ept id="836d74c4-133a-4f6b-ae68-0f2e11540704">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25b445a1-0d00-4a80-bc6e-3bdea6aa5e3c" xml:space="preserve">
+          <source><bpt id="4ebe3797-ad4e-441d-bdda-89ca7abc3955">&lt;linkText&gt;</bpt>PowerShell cmdlets<ept id="4ebe3797-ad4e-441d-bdda-89ca7abc3955">&lt;/linkText&gt;</ept><bpt id="4ebe3797-ad4e-441d-bdda-89ca7abc3955">&lt;title&gt;</bpt><ept id="4ebe3797-ad4e-441d-bdda-89ca7abc3955">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4ebe3797-ad4e-441d-bdda-89ca7abc3955">&lt;linkText&gt;</bpt>PowerShell cmdlets<ept id="4ebe3797-ad4e-441d-bdda-89ca7abc3955">&lt;/linkText&gt;</ept><bpt id="4ebe3797-ad4e-441d-bdda-89ca7abc3955">&lt;title&gt;</bpt><ept id="4ebe3797-ad4e-441d-bdda-89ca7abc3955">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1037c73-429a-40ed-b008-11b698354963" xml:space="preserve">
+          <source><bpt id="e6c0248d-6fa1-423e-a263-af854285c8aa">&lt;linkText&gt;</bpt>REST API commands<ept id="e6c0248d-6fa1-423e-a263-af854285c8aa">&lt;/linkText&gt;</ept><bpt id="e6c0248d-6fa1-423e-a263-af854285c8aa">&lt;title&gt;</bpt><ept id="e6c0248d-6fa1-423e-a263-af854285c8aa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e6c0248d-6fa1-423e-a263-af854285c8aa">&lt;linkText&gt;</bpt>REST API commands<ept id="e6c0248d-6fa1-423e-a263-af854285c8aa">&lt;/linkText&gt;</ept><bpt id="e6c0248d-6fa1-423e-a263-af854285c8aa">&lt;title&gt;</bpt><ept id="e6c0248d-6fa1-423e-a263-af854285c8aa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="141ddd71-fdc9-49a9-ac70-bb950fa15bfd" xml:space="preserve">
+          <source><bpt id="a3c2ddac-68cb-4812-a22f-699a09e4dfb6">&lt;linkText&gt;</bpt>New-AzureSqlElasticPool<ept id="a3c2ddac-68cb-4812-a22f-699a09e4dfb6">&lt;/linkText&gt;</ept><bpt id="a3c2ddac-68cb-4812-a22f-699a09e4dfb6">&lt;title&gt;</bpt><ept id="a3c2ddac-68cb-4812-a22f-699a09e4dfb6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a3c2ddac-68cb-4812-a22f-699a09e4dfb6">&lt;linkText&gt;</bpt>New-AzureSqlElasticPool<ept id="a3c2ddac-68cb-4812-a22f-699a09e4dfb6">&lt;/linkText&gt;</ept><bpt id="a3c2ddac-68cb-4812-a22f-699a09e4dfb6">&lt;title&gt;</bpt><ept id="a3c2ddac-68cb-4812-a22f-699a09e4dfb6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18d1ff86-06c8-4aa5-882f-b7939f163af5" xml:space="preserve">
+          <source><bpt id="1eda3185-ed87-41d3-a697-e258c9d53720">&lt;linkText&gt;</bpt>Create an elastic database pool<ept id="1eda3185-ed87-41d3-a697-e258c9d53720">&lt;/linkText&gt;</ept><bpt id="1eda3185-ed87-41d3-a697-e258c9d53720">&lt;title&gt;</bpt><ept id="1eda3185-ed87-41d3-a697-e258c9d53720">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1eda3185-ed87-41d3-a697-e258c9d53720">&lt;linkText&gt;</bpt>Create an elastic database pool<ept id="1eda3185-ed87-41d3-a697-e258c9d53720">&lt;/linkText&gt;</ept><bpt id="1eda3185-ed87-41d3-a697-e258c9d53720">&lt;title&gt;</bpt><ept id="1eda3185-ed87-41d3-a697-e258c9d53720">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="878300d9-7530-4928-852d-a4570fd07fde" xml:space="preserve">
+          <source><bpt id="afe8a361-6f2f-4328-b116-d674337c2528">&lt;linkText&gt;</bpt>Set-AzureSqlElasticPool<ept id="afe8a361-6f2f-4328-b116-d674337c2528">&lt;/linkText&gt;</ept><bpt id="afe8a361-6f2f-4328-b116-d674337c2528">&lt;title&gt;</bpt><ept id="afe8a361-6f2f-4328-b116-d674337c2528">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="afe8a361-6f2f-4328-b116-d674337c2528">&lt;linkText&gt;</bpt>Set-AzureSqlElasticPool<ept id="afe8a361-6f2f-4328-b116-d674337c2528">&lt;/linkText&gt;</ept><bpt id="afe8a361-6f2f-4328-b116-d674337c2528">&lt;title&gt;</bpt><ept id="afe8a361-6f2f-4328-b116-d674337c2528">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37495388-a47a-474f-886c-fb87a01cc402" xml:space="preserve">
+          <source><bpt id="62859a32-417d-4164-92d9-9581ec14bfbc">&lt;linkText&gt;</bpt>Set Performance Settings of an Elastic Database Pool<ept id="62859a32-417d-4164-92d9-9581ec14bfbc">&lt;/linkText&gt;</ept><bpt id="62859a32-417d-4164-92d9-9581ec14bfbc">&lt;title&gt;</bpt><ept id="62859a32-417d-4164-92d9-9581ec14bfbc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="62859a32-417d-4164-92d9-9581ec14bfbc">&lt;linkText&gt;</bpt>Set Performance Settings of an Elastic Database Pool<ept id="62859a32-417d-4164-92d9-9581ec14bfbc">&lt;/linkText&gt;</ept><bpt id="62859a32-417d-4164-92d9-9581ec14bfbc">&lt;title&gt;</bpt><ept id="62859a32-417d-4164-92d9-9581ec14bfbc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="221adbcb-3211-46ab-ba29-3fbd4aa93012" xml:space="preserve">
+          <source><bpt id="411662e1-38e1-4430-b48f-bf196e4f7140">&lt;linkText&gt;</bpt>Remove-AzureSqlElasticPool<ept id="411662e1-38e1-4430-b48f-bf196e4f7140">&lt;/linkText&gt;</ept><bpt id="411662e1-38e1-4430-b48f-bf196e4f7140">&lt;title&gt;</bpt><ept id="411662e1-38e1-4430-b48f-bf196e4f7140">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="411662e1-38e1-4430-b48f-bf196e4f7140">&lt;linkText&gt;</bpt>Remove-AzureSqlElasticPool<ept id="411662e1-38e1-4430-b48f-bf196e4f7140">&lt;/linkText&gt;</ept><bpt id="411662e1-38e1-4430-b48f-bf196e4f7140">&lt;title&gt;</bpt><ept id="411662e1-38e1-4430-b48f-bf196e4f7140">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe4535e7-df37-48f5-8a8b-61c299e33cd1" xml:space="preserve">
+          <source><bpt id="2c2e3ba8-ea42-410b-b294-29eef10c6999">&lt;linkText&gt;</bpt>Delete an elastic database pool<ept id="2c2e3ba8-ea42-410b-b294-29eef10c6999">&lt;/linkText&gt;</ept><bpt id="2c2e3ba8-ea42-410b-b294-29eef10c6999">&lt;title&gt;</bpt><ept id="2c2e3ba8-ea42-410b-b294-29eef10c6999">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c2e3ba8-ea42-410b-b294-29eef10c6999">&lt;linkText&gt;</bpt>Delete an elastic database pool<ept id="2c2e3ba8-ea42-410b-b294-29eef10c6999">&lt;/linkText&gt;</ept><bpt id="2c2e3ba8-ea42-410b-b294-29eef10c6999">&lt;title&gt;</bpt><ept id="2c2e3ba8-ea42-410b-b294-29eef10c6999">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ae37f88-f3f3-439d-804c-a77db95da54c" xml:space="preserve">
+          <source><bpt id="92f9cd94-2721-41ab-a88a-d7084d3b26ba">&lt;linkText&gt;</bpt>Get-AzureSqlElasticPool<ept id="92f9cd94-2721-41ab-a88a-d7084d3b26ba">&lt;/linkText&gt;</ept><bpt id="92f9cd94-2721-41ab-a88a-d7084d3b26ba">&lt;title&gt;</bpt><ept id="92f9cd94-2721-41ab-a88a-d7084d3b26ba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="92f9cd94-2721-41ab-a88a-d7084d3b26ba">&lt;linkText&gt;</bpt>Get-AzureSqlElasticPool<ept id="92f9cd94-2721-41ab-a88a-d7084d3b26ba">&lt;/linkText&gt;</ept><bpt id="92f9cd94-2721-41ab-a88a-d7084d3b26ba">&lt;title&gt;</bpt><ept id="92f9cd94-2721-41ab-a88a-d7084d3b26ba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afbcad22-37f5-47e7-8646-cd30c1a6deb9" xml:space="preserve">
+          <source><bpt id="26f162e5-db4a-4c7a-97dc-3a3f36382b65">&lt;linkText&gt;</bpt>Gets elastic  database pools and their property values<ept id="26f162e5-db4a-4c7a-97dc-3a3f36382b65">&lt;/linkText&gt;</ept><bpt id="26f162e5-db4a-4c7a-97dc-3a3f36382b65">&lt;title&gt;</bpt><ept id="26f162e5-db4a-4c7a-97dc-3a3f36382b65">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="26f162e5-db4a-4c7a-97dc-3a3f36382b65">&lt;linkText&gt;</bpt>Gets elastic  database pools and their property values<ept id="26f162e5-db4a-4c7a-97dc-3a3f36382b65">&lt;/linkText&gt;</ept><bpt id="26f162e5-db4a-4c7a-97dc-3a3f36382b65">&lt;title&gt;</bpt><ept id="26f162e5-db4a-4c7a-97dc-3a3f36382b65">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3c5eb2e-0122-4f42-89c4-7c01d535248e" xml:space="preserve">
+          <source><bpt id="9a6ffe6e-d4ba-4095-afe2-9baf476c8689">&lt;linkText&gt;</bpt>Get-AzureSqlElasticPoolActivity<ept id="9a6ffe6e-d4ba-4095-afe2-9baf476c8689">&lt;/linkText&gt;</ept><bpt id="9a6ffe6e-d4ba-4095-afe2-9baf476c8689">&lt;title&gt;</bpt><ept id="9a6ffe6e-d4ba-4095-afe2-9baf476c8689">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9a6ffe6e-d4ba-4095-afe2-9baf476c8689">&lt;linkText&gt;</bpt>Get-AzureSqlElasticPoolActivity<ept id="9a6ffe6e-d4ba-4095-afe2-9baf476c8689">&lt;/linkText&gt;</ept><bpt id="9a6ffe6e-d4ba-4095-afe2-9baf476c8689">&lt;title&gt;</bpt><ept id="9a6ffe6e-d4ba-4095-afe2-9baf476c8689">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a16dfb25-a751-4d29-b3e0-075bb7bf7da1" xml:space="preserve">
+          <source><bpt id="a58066f6-59d6-493c-823d-24d5ccd36b16">&lt;linkText&gt;</bpt>Get Status of Elastic Database Pool Operations<ept id="a58066f6-59d6-493c-823d-24d5ccd36b16">&lt;/linkText&gt;</ept><bpt id="a58066f6-59d6-493c-823d-24d5ccd36b16">&lt;title&gt;</bpt><ept id="a58066f6-59d6-493c-823d-24d5ccd36b16">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a58066f6-59d6-493c-823d-24d5ccd36b16">&lt;linkText&gt;</bpt>Get Status of Elastic Database Pool Operations<ept id="a58066f6-59d6-493c-823d-24d5ccd36b16">&lt;/linkText&gt;</ept><bpt id="a58066f6-59d6-493c-823d-24d5ccd36b16">&lt;title&gt;</bpt><ept id="a58066f6-59d6-493c-823d-24d5ccd36b16">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1f001d0-672a-47a1-b666-e6f334b73707" xml:space="preserve">
+          <source><bpt id="32e20d63-bbbf-4c95-a2a7-4ed9e33425bb">&lt;linkText&gt;</bpt>Get-AzureSqlElasticPoolDatabase<ept id="32e20d63-bbbf-4c95-a2a7-4ed9e33425bb">&lt;/linkText&gt;</ept><bpt id="32e20d63-bbbf-4c95-a2a7-4ed9e33425bb">&lt;title&gt;</bpt><ept id="32e20d63-bbbf-4c95-a2a7-4ed9e33425bb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="32e20d63-bbbf-4c95-a2a7-4ed9e33425bb">&lt;linkText&gt;</bpt>Get-AzureSqlElasticPoolDatabase<ept id="32e20d63-bbbf-4c95-a2a7-4ed9e33425bb">&lt;/linkText&gt;</ept><bpt id="32e20d63-bbbf-4c95-a2a7-4ed9e33425bb">&lt;title&gt;</bpt><ept id="32e20d63-bbbf-4c95-a2a7-4ed9e33425bb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f1bab50-d566-404c-b3fe-20b9ab79eda9" xml:space="preserve">
+          <source><bpt id="467014c8-be10-4ea5-9038-5002cc32e598">&lt;linkText&gt;</bpt>Get Databases in an Elastic Database Pool<ept id="467014c8-be10-4ea5-9038-5002cc32e598">&lt;/linkText&gt;</ept><bpt id="467014c8-be10-4ea5-9038-5002cc32e598">&lt;title&gt;</bpt><ept id="467014c8-be10-4ea5-9038-5002cc32e598">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="467014c8-be10-4ea5-9038-5002cc32e598">&lt;linkText&gt;</bpt>Get Databases in an Elastic Database Pool<ept id="467014c8-be10-4ea5-9038-5002cc32e598">&lt;/linkText&gt;</ept><bpt id="467014c8-be10-4ea5-9038-5002cc32e598">&lt;title&gt;</bpt><ept id="467014c8-be10-4ea5-9038-5002cc32e598">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89c877fb-466d-4247-b820-465a8b136c28" xml:space="preserve">
+          <source><bpt id="22dea9cd-9b6d-43b5-b0dd-8388aac1eae6">&lt;linkText&gt;</bpt>Get-AzureSqlElasticPoolDatabaseActivity<ept id="22dea9cd-9b6d-43b5-b0dd-8388aac1eae6">&lt;/linkText&gt;</ept><bpt id="22dea9cd-9b6d-43b5-b0dd-8388aac1eae6">&lt;title&gt;</bpt><ept id="22dea9cd-9b6d-43b5-b0dd-8388aac1eae6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="22dea9cd-9b6d-43b5-b0dd-8388aac1eae6">&lt;linkText&gt;</bpt>Get-AzureSqlElasticPoolDatabaseActivity<ept id="22dea9cd-9b6d-43b5-b0dd-8388aac1eae6">&lt;/linkText&gt;</ept><bpt id="22dea9cd-9b6d-43b5-b0dd-8388aac1eae6">&lt;title&gt;</bpt><ept id="22dea9cd-9b6d-43b5-b0dd-8388aac1eae6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5afa25fb-d96f-4246-903c-6249741398ab" xml:space="preserve">
+          <source><bpt id="c759f6c2-2679-4475-b645-551fdb604a5f">&lt;linkText&gt;</bpt>Gets the status of moving databases in and out of a pool<ept id="c759f6c2-2679-4475-b645-551fdb604a5f">&lt;/linkText&gt;</ept><bpt id="c759f6c2-2679-4475-b645-551fdb604a5f">&lt;title&gt;</bpt><ept id="c759f6c2-2679-4475-b645-551fdb604a5f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c759f6c2-2679-4475-b645-551fdb604a5f">&lt;linkText&gt;</bpt>Gets the status of moving databases in and out of a pool<ept id="c759f6c2-2679-4475-b645-551fdb604a5f">&lt;/linkText&gt;</ept><bpt id="c759f6c2-2679-4475-b645-551fdb604a5f">&lt;title&gt;</bpt><ept id="c759f6c2-2679-4475-b645-551fdb604a5f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="657a68aa-4aca-4d1a-a446-63e0ac5a389c" xml:space="preserve">
+          <source>You can use Transact-SQL to do the following elastic database management tasks:</source>
+          <target state="new">You can use Transact-SQL to do the following elastic database management tasks:</target>
+        </trans-unit>
+        <trans-unit id="c75f710c-37e4-4c94-872d-7418f9bae3ac" xml:space="preserve">
+          <source>Task</source>
+          <target state="new">Task</target>
+        </trans-unit>
+        <trans-unit id="0e279f4c-8f56-4f42-a772-1870f5d3c1d3" xml:space="preserve">
+          <source>Details</source>
+          <target state="new">Details</target>
+        </trans-unit>
+        <trans-unit id="0b896fc6-ccdd-43cc-93f2-d3f2136eb9ff" xml:space="preserve">
+          <source>Create a new elastic database (directly in a pool)</source>
+          <target state="new">Create a new elastic database (directly in a pool)</target>
+        </trans-unit>
+        <trans-unit id="d1ddb82c-dd78-40b1-a7d1-7e576fe21b93" xml:space="preserve">
+          <source><bpt id="b95bac68-ff58-4bc6-b054-ef0c865c52ac">&lt;linkText&gt;</bpt>CREATE DATABASE (Azure SQL Database)<ept id="b95bac68-ff58-4bc6-b054-ef0c865c52ac">&lt;/linkText&gt;</ept><bpt id="b95bac68-ff58-4bc6-b054-ef0c865c52ac">&lt;title&gt;</bpt><ept id="b95bac68-ff58-4bc6-b054-ef0c865c52ac">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b95bac68-ff58-4bc6-b054-ef0c865c52ac">&lt;linkText&gt;</bpt>CREATE DATABASE (Azure SQL Database)<ept id="b95bac68-ff58-4bc6-b054-ef0c865c52ac">&lt;/linkText&gt;</ept><bpt id="b95bac68-ff58-4bc6-b054-ef0c865c52ac">&lt;title&gt;</bpt><ept id="b95bac68-ff58-4bc6-b054-ef0c865c52ac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90fb33bf-85af-41af-bab5-ccb55260d2f9" xml:space="preserve">
+          <source>Move existing databases in and out of a pool</source>
+          <target state="new">Move existing databases in and out of a pool</target>
+        </trans-unit>
+        <trans-unit id="b3b7704a-5ede-4ce2-ab19-0f801019ebed" xml:space="preserve">
+          <source><bpt id="95b406e0-a0e4-4c57-a217-f1489d910557">&lt;linkText&gt;</bpt>ALTER DATABASE (Transact-SQL)<ept id="95b406e0-a0e4-4c57-a217-f1489d910557">&lt;/linkText&gt;</ept><bpt id="95b406e0-a0e4-4c57-a217-f1489d910557">&lt;title&gt;</bpt><ept id="95b406e0-a0e4-4c57-a217-f1489d910557">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="95b406e0-a0e4-4c57-a217-f1489d910557">&lt;linkText&gt;</bpt>ALTER DATABASE (Transact-SQL)<ept id="95b406e0-a0e4-4c57-a217-f1489d910557">&lt;/linkText&gt;</ept><bpt id="95b406e0-a0e4-4c57-a217-f1489d910557">&lt;title&gt;</bpt><ept id="95b406e0-a0e4-4c57-a217-f1489d910557">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53d4b2ea-bb36-4029-b37b-152a0379541e" xml:space="preserve">
+          <source>Get a pool's resource usage statistics</source>
+          <target state="new">Get a pool's resource usage statistics</target>
+        </trans-unit>
+        <trans-unit id="75d1c8c2-4794-4a26-894c-5b3f83926cd6" xml:space="preserve">
+          <source>[sys.elastic<bpt id="15494970-4147-4a44-a58e-694be9c42b85">&lt;em&gt;</bpt>pool<ept id="15494970-4147-4a44-a58e-694be9c42b85">&lt;/em&gt;</ept>resource_stats (Azure SQL Database)](https://msdn.microsoft.com/library/mt280062.aspx)</source>
+          <target state="new">[sys.elastic<bpt id="15494970-4147-4a44-a58e-694be9c42b85">&lt;em&gt;</bpt>pool<ept id="15494970-4147-4a44-a58e-694be9c42b85">&lt;/em&gt;</ept>resource_stats (Azure SQL Database)](https://msdn.microsoft.com/library/mt280062.aspx)</target>
+        </trans-unit>
+        <trans-unit id="e342406c-df5e-47a3-a66a-4ea3467e6c04" xml:space="preserve">
+          <source>Elastic database pools are billed per the following characteristics:</source>
+          <target state="new">Elastic database pools are billed per the following characteristics:</target>
+        </trans-unit>
+        <trans-unit id="3fa412eb-86de-4e82-b6ad-a7eb8550a524" xml:space="preserve">
+          <source>An elastic pool is billed upon its creation, even when there are no databases in the pool.</source>
+          <target state="new">An elastic pool is billed upon its creation, even when there are no databases in the pool.</target>
+        </trans-unit>
+        <trans-unit id="716131a4-1f81-40f1-b5f8-494464de52b4" xml:space="preserve">
+          <source>An elastic pool is billed hourly.</source>
+          <target state="new">An elastic pool is billed hourly.</target>
+        </trans-unit>
+        <trans-unit id="2e5a5d79-4d0e-46d6-a70a-7a898eed77be" xml:space="preserve">
+          <source>This is the same metering frequency as for performance levels of standalone databases.</source>
+          <target state="new">This is the same metering frequency as for performance levels of standalone databases.</target>
+        </trans-unit>
+        <trans-unit id="07187db8-b3a3-4f54-8442-5155b4b6d59e" xml:space="preserve">
+          <source>If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes.</source>
+          <target state="new">If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes.</target>
+        </trans-unit>
+        <trans-unit id="67f0359a-0fca-44e7-ae28-3081bb7c6a5c" xml:space="preserve">
+          <source>This follows the same pattern as changing the performance level of standalone databases.</source>
+          <target state="new">This follows the same pattern as changing the performance level of standalone databases.</target>
+        </trans-unit>
+        <trans-unit id="a222a1fd-1448-419f-a3bd-995631104747" xml:space="preserve">
+          <source>The price of an elastic pool is based on the number of eDTUs of the pool, and the number of databases in the pool.</source>
+          <target state="new">The price of an elastic pool is based on the number of eDTUs of the pool, and the number of databases in the pool.</target>
+        </trans-unit>
+        <trans-unit id="56456aa3-cf2a-4c8b-8492-b20b2cf34ca3" xml:space="preserve">
+          <source>The price of an elastic pool is independent of the utilization of the elastic databases within it.</source>
+          <target state="new">The price of an elastic pool is independent of the utilization of the elastic databases within it.</target>
+        </trans-unit>
+        <trans-unit id="a21dbed8-0041-45de-b141-cbbde645a9e1" xml:space="preserve">
+          <source>Price is computed by (number of pool eDTUs)x(unit price per eDTU) + (number of databases)x(unit price per database)</source>
+          <target state="new">Price is computed by (number of pool eDTUs)x(unit price per eDTU) + (number of databases)x(unit price per database)</target>
+        </trans-unit>
+        <trans-unit id="06eb6a20-bc8b-45cc-a62c-8718565f9968" xml:space="preserve">
+          <source>The unit eDTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier.</source>
+          <target state="new">The unit eDTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier.</target>
+        </trans-unit>
+        <trans-unit id="b817715f-2f36-497e-a008-93f69ea9f2d0" xml:space="preserve">
+          <source>For details, see <bpt id="5343d933-0e78-4fae-af1e-deef7b868c86">&lt;linkText&gt;</bpt>SQL Database pricing<ept id="5343d933-0e78-4fae-af1e-deef7b868c86">&lt;/linkText&gt;</ept><bpt id="5343d933-0e78-4fae-af1e-deef7b868c86">&lt;title&gt;</bpt><ept id="5343d933-0e78-4fae-af1e-deef7b868c86">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="5343d933-0e78-4fae-af1e-deef7b868c86">&lt;linkText&gt;</bpt>SQL Database pricing<ept id="5343d933-0e78-4fae-af1e-deef7b868c86">&lt;/linkText&gt;</ept><bpt id="5343d933-0e78-4fae-af1e-deef7b868c86">&lt;title&gt;</bpt><ept id="5343d933-0e78-4fae-af1e-deef7b868c86">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d94c78fa-d6fa-49d9-be6e-b21cb3ea1b51" xml:space="preserve">
+          <source>ErrorNumber</source>
+          <target state="new">ErrorNumber</target>
+        </trans-unit>
+        <trans-unit id="a12aa0dc-308f-4173-ae0e-1f87c8810201" xml:space="preserve">
+          <source>ErrorSeverity</source>
+          <target state="new">ErrorSeverity</target>
+        </trans-unit>
+        <trans-unit id="72dd9836-b4bd-4aec-9310-7869a1a4ffb2" xml:space="preserve">
+          <source>ErrorFormat</source>
+          <target state="new">ErrorFormat</target>
+        </trans-unit>
+        <trans-unit id="8479fde8-f416-426d-b4b9-03a6a4c5c7fe" xml:space="preserve">
+          <source>ErrorInserts</source>
+          <target state="new">ErrorInserts</target>
+        </trans-unit>
+        <trans-unit id="b29e5f12-31a3-4c8e-814c-392b39bbea39" xml:space="preserve">
+          <source>ErrorCause</source>
+          <target state="new">ErrorCause</target>
+        </trans-unit>
+        <trans-unit id="7582e7f9-b13b-4164-9c50-f98f8efb3b04" xml:space="preserve">
+          <source>ErrorCorrectiveAction</source>
+          <target state="new">ErrorCorrectiveAction</target>
+        </trans-unit>
+        <trans-unit id="f095d849-9b7f-4d8d-a25d-830d5c0dc513" xml:space="preserve">
+          <source>1132</source>
+          <target state="new">1132</target>
+        </trans-unit>
+        <trans-unit id="f01107dc-b663-4217-a700-7b73a67903ae" xml:space="preserve">
+          <source>EX_RESOURCE</source>
+          <target state="new">EX_RESOURCE</target>
+        </trans-unit>
+        <trans-unit id="4cd8b439-e9ae-4cf8-85db-3273272e216a" xml:space="preserve">
+          <source>The elastic pool has reached its storage limit.</source>
+          <target state="new">The elastic pool has reached its storage limit.</target>
+        </trans-unit>
+        <trans-unit id="e5fc0516-a985-4c7c-ab38-6bf5bf68283b" xml:space="preserve">
+          <source>The storage usage for the elastic pool cannot exceed (%d) MBs.</source>
+          <target state="new">The storage usage for the elastic pool cannot exceed (%d) MBs.</target>
+        </trans-unit>
+        <trans-unit id="6635da19-379e-43ed-a98c-dc8184d7c575" xml:space="preserve">
+          <source>Elastic pool space limit in MBs.</source>
+          <target state="new">Elastic pool space limit in MBs.</target>
+        </trans-unit>
+        <trans-unit id="9061d49f-afa1-4b64-921e-25d50ecd079e" xml:space="preserve">
+          <source>Attempting to write data to a database when the storage limit of the elastic pool has been reached.</source>
+          <target state="new">Attempting to write data to a database when the storage limit of the elastic pool has been reached.</target>
+        </trans-unit>
+        <trans-unit id="0b5f23c6-2824-48c7-9434-685c3950c89c" xml:space="preserve">
+          <source>Please consider increasing the DTUs of the elastic pool if possible in order to increase its storage limit, reduce the storage used by individual databases within the elastic pool, or remove databases from the elastic pool.</source>
+          <target state="new">Please consider increasing the DTUs of the elastic pool if possible in order to increase its storage limit, reduce the storage used by individual databases within the elastic pool, or remove databases from the elastic pool.</target>
+        </trans-unit>
+        <trans-unit id="7d88a085-8e08-4b8e-ac91-b6e593272100" xml:space="preserve">
+          <source>10929</source>
+          <target state="new">10929</target>
+        </trans-unit>
+        <trans-unit id="632179ee-d48e-4e2c-ab17-c9f16d77f7c2" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="c994a1ee-2c87-435e-9bcb-fd8d416fcd18" xml:space="preserve">
+          <source>The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d.</source>
+          <target state="new">The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d.</target>
+        </trans-unit>
+        <trans-unit id="43d53eae-5743-4b94-9f01-263e2ad133c9" xml:space="preserve">
+          <source>However, the server is currently too busy to support requests greater than %d for this database.</source>
+          <target state="new">However, the server is currently too busy to support requests greater than %d for this database.</target>
+        </trans-unit>
+        <trans-unit id="d28bfeee-87bc-4747-b4bb-a9662124578a" xml:space="preserve">
+          <source>See <bpt id="4d6fb784-d290-40e7-93a6-34a47f0739c7">&lt;linkText&gt;</bpt>http://go.microsoft.com/fwlink/?LinkId=267637<ept id="4d6fb784-d290-40e7-93a6-34a47f0739c7">&lt;/linkText&gt;</ept><bpt id="4d6fb784-d290-40e7-93a6-34a47f0739c7">&lt;title&gt;</bpt><ept id="4d6fb784-d290-40e7-93a6-34a47f0739c7">&lt;/title&gt;</ept> for assistance.</source>
+          <target state="new">See <bpt id="4d6fb784-d290-40e7-93a6-34a47f0739c7">&lt;linkText&gt;</bpt>http://go.microsoft.com/fwlink/?LinkId=267637<ept id="4d6fb784-d290-40e7-93a6-34a47f0739c7">&lt;/linkText&gt;</ept><bpt id="4d6fb784-d290-40e7-93a6-34a47f0739c7">&lt;title&gt;</bpt><ept id="4d6fb784-d290-40e7-93a6-34a47f0739c7">&lt;/title&gt;</ept> for assistance.</target>
+        </trans-unit>
+        <trans-unit id="baabd8e3-96f6-493b-a9c8-0223c7b3ec98" xml:space="preserve">
+          <source>Otherwise, please try again later.</source>
+          <target state="new">Otherwise, please try again later.</target>
+        </trans-unit>
+        <trans-unit id="dcad7179-e1c0-459b-8458-0b01a4eafb4a" xml:space="preserve">
+          <source>DTU min per database; DTU max per database</source>
+          <target state="new">DTU min per database; DTU max per database</target>
+        </trans-unit>
+        <trans-unit id="15ec69b3-1cd0-40c1-a470-c2197b1035fb" xml:space="preserve">
+          <source>The total number of concurrent workers (requests) across all databases in the elastic pool attempted to exceed the pool limit.</source>
+          <target state="new">The total number of concurrent workers (requests) across all databases in the elastic pool attempted to exceed the pool limit.</target>
+        </trans-unit>
+        <trans-unit id="373ccebb-1447-411b-a9c1-bfa9b0fb42c9" xml:space="preserve">
+          <source>Please consider increasing the DTUs of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool.</source>
+          <target state="new">Please consider increasing the DTUs of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool.</target>
+        </trans-unit>
+        <trans-unit id="0ddeeb3a-1a82-46aa-b64c-91ee1ec372d9" xml:space="preserve">
+          <source>40844</source>
+          <target state="new">40844</target>
+        </trans-unit>
+        <trans-unit id="d8c702ee-19b6-430f-afdc-2bfb9699ddad" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="6537b84d-6b91-4a6d-a9d4-115d9fab00ca" xml:space="preserve">
+          <source>Database '%ls' on Server '%ls' is a '%ls' edition database in an elastic pool and cannot have a continuous copy relationship.</source>
+          <target state="new">Database '%ls' on Server '%ls' is a '%ls' edition database in an elastic pool and cannot have a continuous copy relationship.</target>
+        </trans-unit>
+        <trans-unit id="60b898f5-9fd1-48ab-87b4-6320cf172dfe" xml:space="preserve">
+          <source>database name, database edition, server name</source>
+          <target state="new">database name, database edition, server name</target>
+        </trans-unit>
+        <trans-unit id="996a4de3-2572-4914-91bc-9162a7be1666" xml:space="preserve">
+          <source>A StartDatabaseCopy command is issued for a non-premium db in an elastic pool.</source>
+          <target state="new">A StartDatabaseCopy command is issued for a non-premium db in an elastic pool.</target>
+        </trans-unit>
+        <trans-unit id="6c2b4ec9-dec3-4699-9ece-2ec3acbff27f" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="2b793b76-1e67-4e32-ad43-cd916c7c4ec1" xml:space="preserve">
+          <source>40857</source>
+          <target state="new">40857</target>
+        </trans-unit>
+        <trans-unit id="821fd54c-1cdd-40cb-9127-5b75b5f852c4" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="3dde2431-f1b1-4b73-a529-53ed143dbc80" xml:space="preserve">
+          <source>Elastic pool not found for server: '%ls', elastic pool name: '%ls'.</source>
+          <target state="new">Elastic pool not found for server: '%ls', elastic pool name: '%ls'.</target>
+        </trans-unit>
+        <trans-unit id="7ed5af0c-a4aa-4867-86b3-41df2fdf0c49" xml:space="preserve">
+          <source>name of server; elastic pool name</source>
+          <target state="new">name of server; elastic pool name</target>
+        </trans-unit>
+        <trans-unit id="199d18ea-0879-483e-9f62-c6132a446b99" xml:space="preserve">
+          <source>Specified elastic pool does not exist in the specified server.</source>
+          <target state="new">Specified elastic pool does not exist in the specified server.</target>
+        </trans-unit>
+        <trans-unit id="af1d285d-87dd-413b-a33d-55bd6a495ba4" xml:space="preserve">
+          <source>Please provide a valid elastic pool name.</source>
+          <target state="new">Please provide a valid elastic pool name.</target>
+        </trans-unit>
+        <trans-unit id="3cf82011-8841-4db3-a874-2ba5053ec126" xml:space="preserve">
+          <source>40858</source>
+          <target state="new">40858</target>
+        </trans-unit>
+        <trans-unit id="a84bc6ff-7fc6-4c37-91c4-c72cb5069676" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="ba06b0c3-bf84-442f-96e3-2c055d9e0542" xml:space="preserve">
+          <source>Elastic pool '%ls' already exists in server: '%ls'</source>
+          <target state="new">Elastic pool '%ls' already exists in server: '%ls'</target>
+        </trans-unit>
+        <trans-unit id="b674563d-9938-4d24-961b-f3ca98616ba3" xml:space="preserve">
+          <source>elastic pool name, server name</source>
+          <target state="new">elastic pool name, server name</target>
+        </trans-unit>
+        <trans-unit id="b5016fb0-9a6e-48f5-94a9-a4a53dfbba24" xml:space="preserve">
+          <source>Specified elastic pool already exists in the specified logical server.</source>
+          <target state="new">Specified elastic pool already exists in the specified logical server.</target>
+        </trans-unit>
+        <trans-unit id="f4438a12-9fdb-492c-a585-30d0d8349e87" xml:space="preserve">
+          <source>Provide new elastic pool name.</source>
+          <target state="new">Provide new elastic pool name.</target>
+        </trans-unit>
+        <trans-unit id="c72e5937-0f8e-4946-a0ad-b816c926a268" xml:space="preserve">
+          <source>40859</source>
+          <target state="new">40859</target>
+        </trans-unit>
+        <trans-unit id="43ca9273-4a59-44cf-802d-943cd422b591" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="5c587555-91ac-4f66-8309-9a29e1070c9e" xml:space="preserve">
+          <source>Elastic pool does not support service tier '%ls'.</source>
+          <target state="new">Elastic pool does not support service tier '%ls'.</target>
+        </trans-unit>
+        <trans-unit id="447cfbab-da9c-45ae-8f68-da95272a9aa1" xml:space="preserve">
+          <source>elastic pool service tier</source>
+          <target state="new">elastic pool service tier</target>
+        </trans-unit>
+        <trans-unit id="24f01721-ffc0-4a7d-8625-4c64b563b080" xml:space="preserve">
+          <source>Specified service tier is not supported for elastic pool provisioning.</source>
+          <target state="new">Specified service tier is not supported for elastic pool provisioning.</target>
+        </trans-unit>
+        <trans-unit id="dc68a125-c889-4db3-8fd7-85193e392251" xml:space="preserve">
+          <source>Provide the correct edition or leave service tier blank to use the default service tier.</source>
+          <target state="new">Provide the correct edition or leave service tier blank to use the default service tier.</target>
+        </trans-unit>
+        <trans-unit id="7422c299-f327-486b-a56f-a0ec21a3755a" xml:space="preserve">
+          <source>40860</source>
+          <target state="new">40860</target>
+        </trans-unit>
+        <trans-unit id="449a1742-3eac-4685-9aac-c5d1566c5ce4" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="a7b7e94d-b3fb-4fc4-b333-67f627a25f83" xml:space="preserve">
+          <source>Elastic pool '%ls' and service objective '%ls' combination is invalid.</source>
+          <target state="new">Elastic pool '%ls' and service objective '%ls' combination is invalid.</target>
+        </trans-unit>
+        <trans-unit id="70165a97-234a-412a-b818-c6c57aadf155" xml:space="preserve">
+          <source>elastic pool name; service level objective name</source>
+          <target state="new">elastic pool name; service level objective name</target>
+        </trans-unit>
+        <trans-unit id="cc9be14c-4836-4ade-8ffc-c05550d3e882" xml:space="preserve">
+          <source>Elastic pool and service objective can be specified together only if service objective is specified as 'ElasticPool'.</source>
+          <target state="new">Elastic pool and service objective can be specified together only if service objective is specified as 'ElasticPool'.</target>
+        </trans-unit>
+        <trans-unit id="4f2df6e8-a5bc-4d17-9163-010fcee77035" xml:space="preserve">
+          <source>Please specify correct combination of elastic pool and service objective.</source>
+          <target state="new">Please specify correct combination of elastic pool and service objective.</target>
+        </trans-unit>
+        <trans-unit id="1a94d2a0-2109-4909-8ba5-c923668449bc" xml:space="preserve">
+          <source>40861</source>
+          <target state="new">40861</target>
+        </trans-unit>
+        <trans-unit id="db8e1713-6ede-47b8-961d-175148c599b6" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="e2b62eb8-4648-4aa8-bb80-28f17e96c114" xml:space="preserve">
+          <source>The database edition '%.<bpt id="d0072ecf-3dbb-4303-ba07-586436e63acb">&lt;em&gt;</bpt>ls' cannot be different than the elastic pool service tier which is '%.<ept id="d0072ecf-3dbb-4303-ba07-586436e63acb">&lt;/em&gt;</ept>ls'.</source>
+          <target state="new">The database edition '%.<bpt id="d0072ecf-3dbb-4303-ba07-586436e63acb">&lt;em&gt;</bpt>ls' cannot be different than the elastic pool service tier which is '%.<ept id="d0072ecf-3dbb-4303-ba07-586436e63acb">&lt;/em&gt;</ept>ls'.</target>
+        </trans-unit>
+        <trans-unit id="5f90cb91-737e-48da-adec-e73c0c9e5d36" xml:space="preserve">
+          <source>database edition, elastic pool service tier</source>
+          <target state="new">database edition, elastic pool service tier</target>
+        </trans-unit>
+        <trans-unit id="06ac2d59-5935-4f1e-8fd2-d09ec24823e6" xml:space="preserve">
+          <source>The database edition is different than the elastic pool service tier.</source>
+          <target state="new">The database edition is different than the elastic pool service tier.</target>
+        </trans-unit>
+        <trans-unit id="77ecfe9f-0ab3-42db-a284-b608189ffbc0" xml:space="preserve">
+          <source>Please do not specify a database edition which is different than the elastic pool service tier.</source>
+          <target state="new">Please do not specify a database edition which is different than the elastic pool service tier.</target>
+        </trans-unit>
+        <trans-unit id="a785feb2-c80b-4058-9897-a910dcb16b39" xml:space="preserve">
+          <source>Note that the database edition does not need to be specified.</source>
+          <target state="new">Note that the database edition does not need to be specified.</target>
+        </trans-unit>
+        <trans-unit id="333b1927-6bab-49c6-968b-38a5ecf7c644" xml:space="preserve">
+          <source>40862</source>
+          <target state="new">40862</target>
+        </trans-unit>
+        <trans-unit id="912a1ced-1fa4-4dc1-96df-f7eccb051e13" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="ee39ce7d-5f8c-4352-b49f-04c8a73f700a" xml:space="preserve">
+          <source>Elastic pool name must be specified if the elastic pool service objective is specified.</source>
+          <target state="new">Elastic pool name must be specified if the elastic pool service objective is specified.</target>
+        </trans-unit>
+        <trans-unit id="a7498fa4-a60c-4111-8dc5-0cc7b1c35c04" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="c14f939b-fb7b-4a5c-9565-2060fcd21279" xml:space="preserve">
+          <source>Elastic pool service objective does not uniquely identify an elastic pool.</source>
+          <target state="new">Elastic pool service objective does not uniquely identify an elastic pool.</target>
+        </trans-unit>
+        <trans-unit id="bdc72222-3b6e-45bb-ac54-a828b985f347" xml:space="preserve">
+          <source>Please specify the elastic pool name if using the elastic pool service objective.</source>
+          <target state="new">Please specify the elastic pool name if using the elastic pool service objective.</target>
+        </trans-unit>
+        <trans-unit id="465850b6-151b-40b4-9e70-4c52a4738030" xml:space="preserve">
+          <source>40864</source>
+          <target state="new">40864</target>
+        </trans-unit>
+        <trans-unit id="157f5e9e-c18d-432a-a527-45e36c19b03b" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="b554e53d-450a-4de4-819e-28f7145eff84" xml:space="preserve">
+          <source>The DTUs for the elastic pool must be at least (%d) DTUs for service tier '%.*ls'.</source>
+          <target state="new">The DTUs for the elastic pool must be at least (%d) DTUs for service tier '%.*ls'.</target>
+        </trans-unit>
+        <trans-unit id="25072bfd-af7c-4872-93a6-a6581e2208fe" xml:space="preserve">
+          <source>DTUs for elastic pool; elastic pool service tier.</source>
+          <target state="new">DTUs for elastic pool; elastic pool service tier.</target>
+        </trans-unit>
+        <trans-unit id="feef8f14-13f2-4ec5-a033-71610b03346e" xml:space="preserve">
+          <source>Attempting to set the DTUs for the elastic pool below the minimum limit.</source>
+          <target state="new">Attempting to set the DTUs for the elastic pool below the minimum limit.</target>
+        </trans-unit>
+        <trans-unit id="fd49444d-35da-4182-97b1-61d6706f9496" xml:space="preserve">
+          <source>Please retry setting the DTUs for the elastic pool to at least the minimum limit.</source>
+          <target state="new">Please retry setting the DTUs for the elastic pool to at least the minimum limit.</target>
+        </trans-unit>
+        <trans-unit id="90a8c3f2-cc28-437a-9444-c23d0ae3d0e1" xml:space="preserve">
+          <source>40865</source>
+          <target state="new">40865</target>
+        </trans-unit>
+        <trans-unit id="ac19052b-d39a-4678-9ff2-3e3fcc1bbd0d" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="eb1d78e8-ba4f-4758-8078-a7c2c3a03392" xml:space="preserve">
+          <source>The DTUs for the elastic pool cannot exceed (%d) DTUs for service tier '%.*ls'.</source>
+          <target state="new">The DTUs for the elastic pool cannot exceed (%d) DTUs for service tier '%.*ls'.</target>
+        </trans-unit>
+        <trans-unit id="2aa682fe-613f-4e3f-be11-85e91f72bc5b" xml:space="preserve">
+          <source>DTUs for elastic pool; elastic pool service tier.</source>
+          <target state="new">DTUs for elastic pool; elastic pool service tier.</target>
+        </trans-unit>
+        <trans-unit id="adb2b987-0f6d-47a6-8a55-348886b45df0" xml:space="preserve">
+          <source>Attempting to set the DTUs for the elastic pool above the maximum limit.</source>
+          <target state="new">Attempting to set the DTUs for the elastic pool above the maximum limit.</target>
+        </trans-unit>
+        <trans-unit id="158f6c6d-0ad6-439a-8bcf-b54e0a236152" xml:space="preserve">
+          <source>Please retry setting the DTUs for the elastic pool to no greater than the maximum limit.</source>
+          <target state="new">Please retry setting the DTUs for the elastic pool to no greater than the maximum limit.</target>
+        </trans-unit>
+        <trans-unit id="70633071-657c-4e94-8034-74f1ce4f956d" xml:space="preserve">
+          <source>40867</source>
+          <target state="new">40867</target>
+        </trans-unit>
+        <trans-unit id="133958ff-4eeb-454b-aa53-d7cec7878007" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="85dc5501-198d-4313-84f3-5a917cbb5255" xml:space="preserve">
+          <source>The DTU max per database must be at least (%d) for service tier '%.*ls'.</source>
+          <target state="new">The DTU max per database must be at least (%d) for service tier '%.*ls'.</target>
+        </trans-unit>
+        <trans-unit id="d246760f-3b8c-4681-9199-a2e7d55a9de8" xml:space="preserve">
+          <source>DTU max per database; elastic pool service tier</source>
+          <target state="new">DTU max per database; elastic pool service tier</target>
+        </trans-unit>
+        <trans-unit id="a35180f5-5b8e-4668-8fc2-683f67120bbb" xml:space="preserve">
+          <source>Attempting to set the DTU max per database below the supported limit.</source>
+          <target state="new">Attempting to set the DTU max per database below the supported limit.</target>
+        </trans-unit>
+        <trans-unit id="0b75f869-2ad1-4a97-8b79-366edd773fd4" xml:space="preserve">
+          <source>Please consider using the elastic pool service tier that supports the desired setting.</source>
+          <target state="new">Please consider using the elastic pool service tier that supports the desired setting.</target>
+        </trans-unit>
+        <trans-unit id="97537032-1ee1-49df-9085-c42624c7553e" xml:space="preserve">
+          <source>40868</source>
+          <target state="new">40868</target>
+        </trans-unit>
+        <trans-unit id="5692f265-33a0-41fa-b658-4d0c276f819f" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="c0ef30e5-9cad-4121-a5c5-1864b77fe168" xml:space="preserve">
+          <source>The DTU max per database cannot exceed (%d) for service tier '%.*ls'.</source>
+          <target state="new">The DTU max per database cannot exceed (%d) for service tier '%.*ls'.</target>
+        </trans-unit>
+        <trans-unit id="446cdbef-802f-4d25-b86e-3d1ef1870fed" xml:space="preserve">
+          <source>DTU max per database; elastic pool service tier.</source>
+          <target state="new">DTU max per database; elastic pool service tier.</target>
+        </trans-unit>
+        <trans-unit id="d1f6e3e4-5d6d-4714-b5b9-2f8bb470811e" xml:space="preserve">
+          <source>Attempting to set the DTU max per database beyond the supported limit.</source>
+          <target state="new">Attempting to set the DTU max per database beyond the supported limit.</target>
+        </trans-unit>
+        <trans-unit id="0872a64d-55cf-4267-882a-12cd18cbfdb1" xml:space="preserve">
+          <source>Please consider using the elastic pool service tier that supports the desired setting.</source>
+          <target state="new">Please consider using the elastic pool service tier that supports the desired setting.</target>
+        </trans-unit>
+        <trans-unit id="ea5e984b-090e-4384-8f00-c9cbe326697c" xml:space="preserve">
+          <source>40870</source>
+          <target state="new">40870</target>
+        </trans-unit>
+        <trans-unit id="72cabb70-8d9a-4750-a489-ef1985777d5c" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="59b4e674-8f74-45a8-a934-e764ec75e352" xml:space="preserve">
+          <source>The DTU min per database cannot exceed (%d) for service tier '%.*ls'.</source>
+          <target state="new">The DTU min per database cannot exceed (%d) for service tier '%.*ls'.</target>
+        </trans-unit>
+        <trans-unit id="c4dd7c5d-1ab4-4bb9-821d-3649e058e8ea" xml:space="preserve">
+          <source>DTU min per database; elastic pool service tier.</source>
+          <target state="new">DTU min per database; elastic pool service tier.</target>
+        </trans-unit>
+        <trans-unit id="e76864e5-2ab0-4734-ac31-129afba6c368" xml:space="preserve">
+          <source>Attempting to set the DTU min per database beyond the supported limit.</source>
+          <target state="new">Attempting to set the DTU min per database beyond the supported limit.</target>
+        </trans-unit>
+        <trans-unit id="e48664e7-7345-481c-a27d-ec75af80027d" xml:space="preserve">
+          <source>Please consider using the elastic pool service tier that supports the desired setting.</source>
+          <target state="new">Please consider using the elastic pool service tier that supports the desired setting.</target>
+        </trans-unit>
+        <trans-unit id="f4a5e475-8d8b-4497-ae6a-0ba00ca0e574" xml:space="preserve">
+          <source>40873</source>
+          <target state="new">40873</target>
+        </trans-unit>
+        <trans-unit id="be6c130b-18c8-4798-ab91-85480b4af0ad" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="e3939f77-8d0c-4fba-9c32-4e281ec5b9fd" xml:space="preserve">
+          <source>The number of databases (%d) and DTU min per database (%d) cannot exceed the DTUs of the elastic pool (%d).</source>
+          <target state="new">The number of databases (%d) and DTU min per database (%d) cannot exceed the DTUs of the elastic pool (%d).</target>
+        </trans-unit>
+        <trans-unit id="59bda7d5-1a63-4830-a8e1-4e1a4687be6a" xml:space="preserve">
+          <source>Number databases in elastic pool; DTU min per database; DTUs of elastic pool.</source>
+          <target state="new">Number databases in elastic pool; DTU min per database; DTUs of elastic pool.</target>
+        </trans-unit>
+        <trans-unit id="50b44baa-f075-4428-b086-89db436e8d30" xml:space="preserve">
+          <source>Attempting to specify DTU min for databases in the elastic pool that exceeds the DTUs of the elastic pool.</source>
+          <target state="new">Attempting to specify DTU min for databases in the elastic pool that exceeds the DTUs of the elastic pool.</target>
+        </trans-unit>
+        <trans-unit id="74524f35-5ae1-4dd4-b921-afd1b8a5479b" xml:space="preserve">
+          <source>Please consider increasing the DTUs of the elastic pool, or decrease the DTU min per database, or decrease the number of databases in the elastic pool.</source>
+          <target state="new">Please consider increasing the DTUs of the elastic pool, or decrease the DTU min per database, or decrease the number of databases in the elastic pool.</target>
+        </trans-unit>
+        <trans-unit id="9e1a4ef5-8ed0-49c1-bc39-320408efc484" xml:space="preserve">
+          <source>40877</source>
+          <target state="new">40877</target>
+        </trans-unit>
+        <trans-unit id="d02fecf9-e3b0-42e9-97e0-2f2a4b2c5853" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="ec2d8f26-497a-4f7b-be11-328ad8a8e854" xml:space="preserve">
+          <source>An elastic pool cannot be deleted unless it does not contain any databases.</source>
+          <target state="new">An elastic pool cannot be deleted unless it does not contain any databases.</target>
+        </trans-unit>
+        <trans-unit id="567016bb-354a-4734-bdb1-a2fab63f2bb4" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="56bc76ab-e0ca-4e42-ab0c-02f9e8791d95" xml:space="preserve">
+          <source>The elastic pool contains one or more databases and therefore cannot be deleted.</source>
+          <target state="new">The elastic pool contains one or more databases and therefore cannot be deleted.</target>
+        </trans-unit>
+        <trans-unit id="ef2bc69c-e39b-48ec-918d-b5e7484b74ce" xml:space="preserve">
+          <source>Please remove databases from the elastic pool in order to delete it.</source>
+          <target state="new">Please remove databases from the elastic pool in order to delete it.</target>
+        </trans-unit>
+        <trans-unit id="cc864217-cae8-4518-8304-ba1e62e963cf" xml:space="preserve">
+          <source>40881</source>
+          <target state="new">40881</target>
+        </trans-unit>
+        <trans-unit id="68cf3a36-62ff-4fdd-9f5d-44b933428c94" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="9f9ab719-66af-46d9-a1eb-6368c1c0dccf" xml:space="preserve">
+          <source>The elastic pool '%.*ls' has reached its database count limit.</source>
+          <target state="new">The elastic pool '%.*ls' has reached its database count limit.</target>
+        </trans-unit>
+        <trans-unit id="4ea20bfe-5c5f-45eb-b8ec-1e355197a73f" xml:space="preserve">
+          <source>The database count limit for the elastic pool cannot exceed (%d) for an elastic pool with (%d) DTUs.</source>
+          <target state="new">The database count limit for the elastic pool cannot exceed (%d) for an elastic pool with (%d) DTUs.</target>
+        </trans-unit>
+        <trans-unit id="9edb25ad-f230-484b-8968-ff4205668d31" xml:space="preserve">
+          <source>Name of elastic pool; database count limit of elastic pool;e DTUs for resource pool.</source>
+          <target state="new">Name of elastic pool; database count limit of elastic pool;e DTUs for resource pool.</target>
+        </trans-unit>
+        <trans-unit id="f785289b-8737-4ee8-85d6-aa36d432cf71" xml:space="preserve">
+          <source>Attempting to create or add database to elastic pool when the database count limit of the elastic pool has been reached.</source>
+          <target state="new">Attempting to create or add database to elastic pool when the database count limit of the elastic pool has been reached.</target>
+        </trans-unit>
+        <trans-unit id="c4133eaf-e1c6-4803-890c-ce0d3b8556d2" xml:space="preserve">
+          <source>Please consider increasing the DTUs of the elastic pool if possible in order to increase its database limit, or remove databases from the elastic pool.</source>
+          <target state="new">Please consider increasing the DTUs of the elastic pool if possible in order to increase its database limit, or remove databases from the elastic pool.</target>
+        </trans-unit>
+        <trans-unit id="044e87ab-dd0a-492e-9fda-147ca8084813" xml:space="preserve">
+          <source>40889</source>
+          <target state="new">40889</target>
+        </trans-unit>
+        <trans-unit id="b44cee30-a9ba-4b82-b15b-6e5381187756" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="8329845e-e9b0-49f8-8d7c-533d539f1aca" xml:space="preserve">
+          <source>The DTUs or storage limit for the elastic pool '%.*ls' cannot be decreased since that would not provide sufficient storage space for its databases.</source>
+          <target state="new">The DTUs or storage limit for the elastic pool '%.*ls' cannot be decreased since that would not provide sufficient storage space for its databases.</target>
+        </trans-unit>
+        <trans-unit id="64b99a65-6114-415c-b9ea-944927ae64d1" xml:space="preserve">
+          <source>Name of elastic pool.</source>
+          <target state="new">Name of elastic pool.</target>
+        </trans-unit>
+        <trans-unit id="dfd8abf2-4ad0-4703-bada-cfb546ca9e36" xml:space="preserve">
+          <source>Attempting to decrease the storage limit of the elastic pool below its storage usage.</source>
+          <target state="new">Attempting to decrease the storage limit of the elastic pool below its storage usage.</target>
+        </trans-unit>
+        <trans-unit id="d1763df8-2a18-407a-b92b-7e3d45d57b33" xml:space="preserve">
+          <source>Please consider reducing the storage usage of individual databases in the elastic pool or remove databases from the pool in order to reduce its DTUs or storage limit.</source>
+          <target state="new">Please consider reducing the storage usage of individual databases in the elastic pool or remove databases from the pool in order to reduce its DTUs or storage limit.</target>
+        </trans-unit>
+        <trans-unit id="0bb7cffe-a7e0-4fea-bcdf-85b2df5ca3fa" xml:space="preserve">
+          <source>40891</source>
+          <target state="new">40891</target>
+        </trans-unit>
+        <trans-unit id="ea0647dd-ee63-48e0-be27-4933cc29f446" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="83c4edca-a430-4f4a-ad05-10215efeb62f" xml:space="preserve">
+          <source>The DTU min per database (%d) cannot exceed the DTU max per database (%d).</source>
+          <target state="new">The DTU min per database (%d) cannot exceed the DTU max per database (%d).</target>
+        </trans-unit>
+        <trans-unit id="95ac15b5-92a8-4a32-b869-86628f80e3d0" xml:space="preserve">
+          <source>DTU min per database; DTU max per database.</source>
+          <target state="new">DTU min per database; DTU max per database.</target>
+        </trans-unit>
+        <trans-unit id="11eeb6eb-53bd-4bdb-b874-8f59aeef399b" xml:space="preserve">
+          <source>Attempting to set the DTU min per database higher than the DTU max per database.</source>
+          <target state="new">Attempting to set the DTU min per database higher than the DTU max per database.</target>
+        </trans-unit>
+        <trans-unit id="a4af0859-9e90-4433-b413-1073c4cfe6b2" xml:space="preserve">
+          <source>Please ensure the DTU min per databases does not exceed the DTU max per database.</source>
+          <target state="new">Please ensure the DTU min per databases does not exceed the DTU max per database.</target>
+        </trans-unit>
+        <trans-unit id="63afc938-4d52-459a-b21c-07ed30a9b5da" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="516ba655-f895-4eb1-8fe0-70c93dcf0f73" xml:space="preserve">
+          <source>EX_USER</source>
+          <target state="new">EX_USER</target>
+        </trans-unit>
+        <trans-unit id="7b9a5e39-0428-40d1-a1c4-3d8d6c4e20ad" xml:space="preserve">
+          <source>The storage size for an individual database in a elastic pool cannot exceed the max size allowed by '%.*ls' service tier elastic pool.</source>
+          <target state="new">The storage size for an individual database in a elastic pool cannot exceed the max size allowed by '%.*ls' service tier elastic pool.</target>
+        </trans-unit>
+        <trans-unit id="09e06833-1c8d-49e7-913c-557665a1e5bb" xml:space="preserve">
+          <source>elastic pool service tier</source>
+          <target state="new">elastic pool service tier</target>
+        </trans-unit>
+        <trans-unit id="661a14b7-028f-4322-9806-fddd1f1dc503" xml:space="preserve">
+          <source>The max size for the database exceeds the max size allowed by the elastic pool service tier.</source>
+          <target state="new">The max size for the database exceeds the max size allowed by the elastic pool service tier.</target>
+        </trans-unit>
+        <trans-unit id="98530d61-aafe-4f56-b4aa-fa0477f53a3c" xml:space="preserve">
+          <source>Please set the max size of the database within the limits of the max size allowed by the elastic pool service tier.</source>
+          <target state="new">Please set the max size of the database within the limits of the max size allowed by the elastic pool service tier.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

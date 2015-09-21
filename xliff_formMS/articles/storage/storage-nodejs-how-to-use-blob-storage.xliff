@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="71151f1b-049a-4c34-a90c-f8e3c707ec51" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="71151f1b-049a-4c34-a90c-f8e3c707ec51" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1732df76-cd87-4227-a027-0618bdb58797">
+        <trans-unit id="e38de2cd-51fe-4097-9d8c-576460eba907" xml:space="preserve">
+          <source>How to use blob storage from Node.js | Microsoft Azure</source>
+          <target state="new">How to use blob storage from Node.js | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f8f55c7a-e2f6-428b-9dbd-4c6e7ee8447f" xml:space="preserve">
+          <source>Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples written in Node.js.</source>
+          <target state="new">Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples written in Node.js.</target>
+        </trans-unit>
+        <trans-unit id="c3393085-0281-40de-917d-8d7d55480369" xml:space="preserve">
+          <source><bpt id="75f8cbb6-215b-4faf-a81a-b431a1d6ce1d">&lt;token href="../../includes/storage-selector-blob-include.md"&gt;</bpt><ept id="75f8cbb6-215b-4faf-a81a-b431a1d6ce1d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="75f8cbb6-215b-4faf-a81a-b431a1d6ce1d">&lt;token href="../../includes/storage-selector-blob-include.md"&gt;</bpt><ept id="75f8cbb6-215b-4faf-a81a-b431a1d6ce1d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa4e16b7-8bca-409a-8f73-69ddd722e62d" xml:space="preserve">
+          <source>This article shows you how to perform common scenarios using the Azure Blob service.</source>
+          <target state="new">This article shows you how to perform common scenarios using the Azure Blob service.</target>
+        </trans-unit>
+        <trans-unit id="3e795913-756c-40b4-839b-ed776aa79ec1" xml:space="preserve">
+          <source>The samples are written using the Node.js API.</source>
+          <target state="new">The samples are written using the Node.js API.</target>
+        </trans-unit>
+        <trans-unit id="d5917406-3255-4ec8-942c-a6dd35490b94" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="326c9290-a119-4ba3-ae66-72096b916c49">&lt;strong&gt;</bpt>uploading<ept id="326c9290-a119-4ba3-ae66-72096b916c49">&lt;/strong&gt;</ept>, <bpt id="63cb448e-b359-4887-96f1-87e27b862be5">&lt;strong&gt;</bpt>listing<ept id="63cb448e-b359-4887-96f1-87e27b862be5">&lt;/strong&gt;</ept>, <bpt id="4ac3e4f2-a79b-46cd-b2eb-3e7c8b76365c">&lt;strong&gt;</bpt>downloading<ept id="4ac3e4f2-a79b-46cd-b2eb-3e7c8b76365c">&lt;/strong&gt;</ept>, and <bpt id="1a88a9e5-7477-4f28-8758-1bbca6457e2a">&lt;strong&gt;</bpt>deleting<ept id="1a88a9e5-7477-4f28-8758-1bbca6457e2a">&lt;/strong&gt;</ept> blobs.</source>
+          <target state="new">The scenarios covered include <bpt id="326c9290-a119-4ba3-ae66-72096b916c49">&lt;strong&gt;</bpt>uploading<ept id="326c9290-a119-4ba3-ae66-72096b916c49">&lt;/strong&gt;</ept>, <bpt id="63cb448e-b359-4887-96f1-87e27b862be5">&lt;strong&gt;</bpt>listing<ept id="63cb448e-b359-4887-96f1-87e27b862be5">&lt;/strong&gt;</ept>, <bpt id="4ac3e4f2-a79b-46cd-b2eb-3e7c8b76365c">&lt;strong&gt;</bpt>downloading<ept id="4ac3e4f2-a79b-46cd-b2eb-3e7c8b76365c">&lt;/strong&gt;</ept>, and <bpt id="1a88a9e5-7477-4f28-8758-1bbca6457e2a">&lt;strong&gt;</bpt>deleting<ept id="1a88a9e5-7477-4f28-8758-1bbca6457e2a">&lt;/strong&gt;</ept> blobs.</target>
+        </trans-unit>
+        <trans-unit id="8642c922-a25e-4e0f-90d3-fb3acbbbf82b" xml:space="preserve">
+          <source><bpt id="41188b9a-be94-497f-91d4-163b3206b992">&lt;token href="../../includes/storage-blob-concepts-include.md"&gt;</bpt><ept id="41188b9a-be94-497f-91d4-163b3206b992">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="41188b9a-be94-497f-91d4-163b3206b992">&lt;token href="../../includes/storage-blob-concepts-include.md"&gt;</bpt><ept id="41188b9a-be94-497f-91d4-163b3206b992">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36a83ad6-3477-4ada-bad3-8afb12d4b4bf" xml:space="preserve">
+          <source><bpt id="2994e8cc-094f-4450-97e1-d16a94876650">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="2994e8cc-094f-4450-97e1-d16a94876650">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2994e8cc-094f-4450-97e1-d16a94876650">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="2994e8cc-094f-4450-97e1-d16a94876650">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="947f06c6-46df-47a8-b54f-c9446585a9b5" xml:space="preserve">
+          <source>Create a blank Node.js application.</source>
+          <target state="new">Create a blank Node.js application.</target>
+        </trans-unit>
+        <trans-unit id="f04b567e-87af-476e-a9cf-d73ca1b5431f" xml:space="preserve">
+          <source>For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure web site], <bpt id="ed427992-c611-4993-9d80-498d610cc18b">&lt;linkText&gt;</bpt>Node.js Cloud Service[node.js cloud service]<ept id="ed427992-c611-4993-9d80-498d610cc18b">&lt;/linkText&gt;</ept><bpt id="ed427992-c611-4993-9d80-498d610cc18b">&lt;title&gt;</bpt><ept id="ed427992-c611-4993-9d80-498d610cc18b">&lt;/title&gt;</ept> (using Windows PowerShell), or [Web Site with WebMatrix].</source>
+          <target state="new">For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure web site], <bpt id="ed427992-c611-4993-9d80-498d610cc18b">&lt;linkText&gt;</bpt>Node.js Cloud Service[node.js cloud service]<ept id="ed427992-c611-4993-9d80-498d610cc18b">&lt;/linkText&gt;</ept><bpt id="ed427992-c611-4993-9d80-498d610cc18b">&lt;title&gt;</bpt><ept id="ed427992-c611-4993-9d80-498d610cc18b">&lt;/title&gt;</ept> (using Windows PowerShell), or [Web Site with WebMatrix].</target>
+        </trans-unit>
+        <trans-unit id="91d540da-e6e7-4fc2-b7f0-c17123c1f881" xml:space="preserve">
+          <source>To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that communicate with the storage REST services.</source>
+          <target state="new">To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that communicate with the storage REST services.</target>
+        </trans-unit>
+        <trans-unit id="90286d9c-726f-4230-8b21-514c769b9629" xml:space="preserve">
+          <source>Use a command-line interface such as <bpt id="23cc5794-d20e-4041-91f3-65d64b7cfc6e">&lt;strong&gt;</bpt>PowerShell<ept id="23cc5794-d20e-4041-91f3-65d64b7cfc6e">&lt;/strong&gt;</ept> (Windows), <bpt id="0ad5a17a-973e-4314-83e6-c690865a2baa">&lt;strong&gt;</bpt>Terminal<ept id="0ad5a17a-973e-4314-83e6-c690865a2baa">&lt;/strong&gt;</ept> (Mac), or <bpt id="a4c2934f-f39e-4b07-aaca-6d265323ae5e">&lt;strong&gt;</bpt>Bash<ept id="a4c2934f-f39e-4b07-aaca-6d265323ae5e">&lt;/strong&gt;</ept> (Unix), to navigate to the folder where you created your sample application.</source>
+          <target state="new">Use a command-line interface such as <bpt id="23cc5794-d20e-4041-91f3-65d64b7cfc6e">&lt;strong&gt;</bpt>PowerShell<ept id="23cc5794-d20e-4041-91f3-65d64b7cfc6e">&lt;/strong&gt;</ept> (Windows), <bpt id="0ad5a17a-973e-4314-83e6-c690865a2baa">&lt;strong&gt;</bpt>Terminal<ept id="0ad5a17a-973e-4314-83e6-c690865a2baa">&lt;/strong&gt;</ept> (Mac), or <bpt id="a4c2934f-f39e-4b07-aaca-6d265323ae5e">&lt;strong&gt;</bpt>Bash<ept id="a4c2934f-f39e-4b07-aaca-6d265323ae5e">&lt;/strong&gt;</ept> (Unix), to navigate to the folder where you created your sample application.</target>
+        </trans-unit>
+        <trans-unit id="3c7e7ffb-898b-476f-8fd4-6e7f56835bd4" xml:space="preserve">
+          <source>Type <bpt id="0cfe97b5-5b29-4592-8a7e-f782b9bb5b52">&lt;strong&gt;</bpt>npm install azure-storage<ept id="0cfe97b5-5b29-4592-8a7e-f782b9bb5b52">&lt;/strong&gt;</ept> in the command window.</source>
+          <target state="new">Type <bpt id="0cfe97b5-5b29-4592-8a7e-f782b9bb5b52">&lt;strong&gt;</bpt>npm install azure-storage<ept id="0cfe97b5-5b29-4592-8a7e-f782b9bb5b52">&lt;/strong&gt;</ept> in the command window.</target>
+        </trans-unit>
+        <trans-unit id="9eaa11c3-3a7d-4e67-ad65-f574335cbfac" xml:space="preserve">
+          <source>Output from the command is similar to the following code example.</source>
+          <target state="new">Output from the command is similar to the following code example.</target>
+        </trans-unit>
+        <trans-unit id="80a147ad-b945-4821-a9e5-a1a5d26a8957" xml:space="preserve">
+          <source>You can manually run the <bpt id="cbda7656-588a-4079-9080-c0e287e100ae">&lt;strong&gt;</bpt>ls<ept id="cbda7656-588a-4079-9080-c0e287e100ae">&lt;/strong&gt;</ept> command to verify that a <bpt id="15a9b081-214e-4550-a510-74671c2faa64">&lt;strong&gt;</bpt>node\_modules<ept id="15a9b081-214e-4550-a510-74671c2faa64">&lt;/strong&gt;</ept> folder was created.</source>
+          <target state="new">You can manually run the <bpt id="cbda7656-588a-4079-9080-c0e287e100ae">&lt;strong&gt;</bpt>ls<ept id="cbda7656-588a-4079-9080-c0e287e100ae">&lt;/strong&gt;</ept> command to verify that a <bpt id="15a9b081-214e-4550-a510-74671c2faa64">&lt;strong&gt;</bpt>node\_modules<ept id="15a9b081-214e-4550-a510-74671c2faa64">&lt;/strong&gt;</ept> folder was created.</target>
+        </trans-unit>
+        <trans-unit id="2814b575-ea25-4052-8144-91d24f811606" xml:space="preserve">
+          <source>Inside that folder find the <bpt id="e535faf0-21a9-48a5-9ba5-1557598de030">&lt;strong&gt;</bpt>azure-storage<ept id="e535faf0-21a9-48a5-9ba5-1557598de030">&lt;/strong&gt;</ept> package, which contains the libraries you need to access storage.</source>
+          <target state="new">Inside that folder find the <bpt id="e535faf0-21a9-48a5-9ba5-1557598de030">&lt;strong&gt;</bpt>azure-storage<ept id="e535faf0-21a9-48a5-9ba5-1557598de030">&lt;/strong&gt;</ept> package, which contains the libraries you need to access storage.</target>
+        </trans-unit>
+        <trans-unit id="061224c5-5f6b-4331-b620-2cebdcfb684e" xml:space="preserve">
+          <source>Using Notepad or another text editor, add the following to the top the
+<bpt id="d97650e3-283a-4323-8147-0922e1780656">&lt;strong&gt;</bpt>server.js<ept id="d97650e3-283a-4323-8147-0922e1780656">&lt;/strong&gt;</ept> file of the application where you intend to use storage:</source>
+          <target state="new">Using Notepad or another text editor, add the following to the top the
+<bpt id="d97650e3-283a-4323-8147-0922e1780656">&lt;strong&gt;</bpt>server.js<ept id="d97650e3-283a-4323-8147-0922e1780656">&lt;/strong&gt;</ept> file of the application where you intend to use storage:</target>
+        </trans-unit>
+        <trans-unit id="281f855b-28bd-49e7-aa69-67ceead8cb80" xml:space="preserve">
+          <source>The Azure module will read the environment variables <bpt id="60d35f73-a059-49f3-b0b1-1b44525db50f">&lt;code&gt;</bpt>AZURE_STORAGE_ACCOUNT<ept id="60d35f73-a059-49f3-b0b1-1b44525db50f">&lt;/code&gt;</ept> and <bpt id="ad5e3c53-940b-4642-950f-a2233e4327b4">&lt;code&gt;</bpt>AZURE_STORAGE_ACCESS_KEY<ept id="ad5e3c53-940b-4642-950f-a2233e4327b4">&lt;/code&gt;</ept>, or <bpt id="e11c99e9-aff7-487f-b013-73ef5db0a5e5">&lt;code&gt;</bpt>AZURE_STORAGE_CONNECTION_STRING<ept id="e11c99e9-aff7-487f-b013-73ef5db0a5e5">&lt;/code&gt;</ept> for information required to connect to your Azure storage account.</source>
+          <target state="new">The Azure module will read the environment variables <bpt id="60d35f73-a059-49f3-b0b1-1b44525db50f">&lt;code&gt;</bpt>AZURE_STORAGE_ACCOUNT<ept id="60d35f73-a059-49f3-b0b1-1b44525db50f">&lt;/code&gt;</ept> and <bpt id="ad5e3c53-940b-4642-950f-a2233e4327b4">&lt;code&gt;</bpt>AZURE_STORAGE_ACCESS_KEY<ept id="ad5e3c53-940b-4642-950f-a2233e4327b4">&lt;/code&gt;</ept>, or <bpt id="e11c99e9-aff7-487f-b013-73ef5db0a5e5">&lt;code&gt;</bpt>AZURE_STORAGE_CONNECTION_STRING<ept id="e11c99e9-aff7-487f-b013-73ef5db0a5e5">&lt;/code&gt;</ept> for information required to connect to your Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="4d04b1ba-1599-4770-aebb-4cd0b6205546" xml:space="preserve">
+          <source>If these environment variables are not set, you must specify the account information when calling <bpt id="6a34c02f-03d3-42aa-b2c1-b9105109cbb8">&lt;strong&gt;</bpt>createBlobService<ept id="6a34c02f-03d3-42aa-b2c1-b9105109cbb8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If these environment variables are not set, you must specify the account information when calling <bpt id="6a34c02f-03d3-42aa-b2c1-b9105109cbb8">&lt;strong&gt;</bpt>createBlobService<ept id="6a34c02f-03d3-42aa-b2c1-b9105109cbb8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70f9b083-e918-4661-9453-6636f6614dab" xml:space="preserve">
+          <source>For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]</source>
+          <target state="new">For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]</target>
+        </trans-unit>
+        <trans-unit id="d39bf6fd-25ab-4579-a9d2-f8256e6e0415" xml:space="preserve">
+          <source>The <bpt id="493662da-c6e2-4f93-93b9-67136e06bdca">&lt;strong&gt;</bpt>BlobService<ept id="493662da-c6e2-4f93-93b9-67136e06bdca">&lt;/strong&gt;</ept> object lets you work with containers and blobs.</source>
+          <target state="new">The <bpt id="493662da-c6e2-4f93-93b9-67136e06bdca">&lt;strong&gt;</bpt>BlobService<ept id="493662da-c6e2-4f93-93b9-67136e06bdca">&lt;/strong&gt;</ept> object lets you work with containers and blobs.</target>
+        </trans-unit>
+        <trans-unit id="f19b4d98-d6ac-48de-a976-12f1ef634b8c" xml:space="preserve">
+          <source>The following code creates a <bpt id="60d7df1b-9ca9-4311-9840-3810ed6e1c9e">&lt;strong&gt;</bpt>BlobService<ept id="60d7df1b-9ca9-4311-9840-3810ed6e1c9e">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">The following code creates a <bpt id="60d7df1b-9ca9-4311-9840-3810ed6e1c9e">&lt;strong&gt;</bpt>BlobService<ept id="60d7df1b-9ca9-4311-9840-3810ed6e1c9e">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="0a1fc9b3-fd93-4ab6-9e62-7fa5e22c6b8e" xml:space="preserve">
+          <source>Add the following near the top of <bpt id="7e91ca9b-5bf0-45bc-99ed-65752d05c9c0">&lt;strong&gt;</bpt>server.js<ept id="7e91ca9b-5bf0-45bc-99ed-65752d05c9c0">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Add the following near the top of <bpt id="7e91ca9b-5bf0-45bc-99ed-65752d05c9c0">&lt;strong&gt;</bpt>server.js<ept id="7e91ca9b-5bf0-45bc-99ed-65752d05c9c0">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="c78bbc97-e90f-4b92-9a41-6c8b67e8b3e4" xml:space="preserve">
+          <source>You can access a blob anonymously by using <bpt id="456df2cd-69ca-4e9a-8408-6db1a351a84a">&lt;strong&gt;</bpt>createBlobServiceAnonymous<ept id="456df2cd-69ca-4e9a-8408-6db1a351a84a">&lt;/strong&gt;</ept> and providing the host address.</source>
+          <target state="new">You can access a blob anonymously by using <bpt id="456df2cd-69ca-4e9a-8408-6db1a351a84a">&lt;strong&gt;</bpt>createBlobServiceAnonymous<ept id="456df2cd-69ca-4e9a-8408-6db1a351a84a">&lt;/strong&gt;</ept> and providing the host address.</target>
+        </trans-unit>
+        <trans-unit id="4cf075be-c492-4513-ad24-e57c213f8a4b" xml:space="preserve">
+          <source>For example, <bpt id="468f7d20-bd7c-4a9b-a4d4-c87eb9e3c4ea">&lt;code&gt;</bpt>var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');<ept id="468f7d20-bd7c-4a9b-a4d4-c87eb9e3c4ea">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="468f7d20-bd7c-4a9b-a4d4-c87eb9e3c4ea">&lt;code&gt;</bpt>var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');<ept id="468f7d20-bd7c-4a9b-a4d4-c87eb9e3c4ea">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9783fbe5-7228-4a34-be77-9aea2b1f41b0" xml:space="preserve">
+          <source><bpt id="b62be022-f537-4d00-8e3c-a8e9f633cd15">&lt;token href="../../includes/storage-container-naming-rules-include.md"&gt;</bpt><ept id="b62be022-f537-4d00-8e3c-a8e9f633cd15">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b62be022-f537-4d00-8e3c-a8e9f633cd15">&lt;token href="../../includes/storage-container-naming-rules-include.md"&gt;</bpt><ept id="b62be022-f537-4d00-8e3c-a8e9f633cd15">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9bcccac-26a0-44dd-8c52-61db46b334fb" xml:space="preserve">
+          <source>To create a new container, use <bpt id="33408cc4-bdbd-4d28-84f6-3456863c1fe1">&lt;strong&gt;</bpt>createContainerIfNotExists<ept id="33408cc4-bdbd-4d28-84f6-3456863c1fe1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To create a new container, use <bpt id="33408cc4-bdbd-4d28-84f6-3456863c1fe1">&lt;strong&gt;</bpt>createContainerIfNotExists<ept id="33408cc4-bdbd-4d28-84f6-3456863c1fe1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d08b78ef-6b2f-4bb3-a8a0-d049cc32d3a5" xml:space="preserve">
+          <source>The following code example creates a new container named 'mycontainer'</source>
+          <target state="new">The following code example creates a new container named 'mycontainer'</target>
+        </trans-unit>
+        <trans-unit id="2bb33fd1-d3d3-47b8-99ae-020ae2953bdd" xml:space="preserve">
+          <source>If the container is newly created, <bpt id="cf11d421-f58a-4ef7-8a87-a124214afdf0">&lt;code&gt;</bpt>result<ept id="cf11d421-f58a-4ef7-8a87-a124214afdf0">&lt;/code&gt;</ept> is true.</source>
+          <target state="new">If the container is newly created, <bpt id="cf11d421-f58a-4ef7-8a87-a124214afdf0">&lt;code&gt;</bpt>result<ept id="cf11d421-f58a-4ef7-8a87-a124214afdf0">&lt;/code&gt;</ept> is true.</target>
+        </trans-unit>
+        <trans-unit id="cd7824dd-5340-42bc-8d8a-f0c5a84ae556" xml:space="preserve">
+          <source>If the container already exists, <bpt id="d3e7bd95-936c-4f1e-8283-f14f6be7d6c4">&lt;code&gt;</bpt>result<ept id="d3e7bd95-936c-4f1e-8283-f14f6be7d6c4">&lt;/code&gt;</ept> is false.</source>
+          <target state="new">If the container already exists, <bpt id="d3e7bd95-936c-4f1e-8283-f14f6be7d6c4">&lt;code&gt;</bpt>result<ept id="d3e7bd95-936c-4f1e-8283-f14f6be7d6c4">&lt;/code&gt;</ept> is false.</target>
+        </trans-unit>
+        <trans-unit id="c37cbea3-d65c-4c0e-b9ee-354f3db49500" xml:space="preserve">
+          <source><bpt id="8da9bda4-d21d-47d4-8dfa-5748adce71b1">&lt;code&gt;</bpt>response<ept id="8da9bda4-d21d-47d4-8dfa-5748adce71b1">&lt;/code&gt;</ept> contains information about the operation, including the <bpt id="edb02277-5d93-4f2a-b097-41dbadf6fe21">&lt;linkText&gt;</bpt>ETag<ept id="edb02277-5d93-4f2a-b097-41dbadf6fe21">&lt;/linkText&gt;</ept><bpt id="edb02277-5d93-4f2a-b097-41dbadf6fe21">&lt;title&gt;</bpt><ept id="edb02277-5d93-4f2a-b097-41dbadf6fe21">&lt;/title&gt;</ept> information for the container.</source>
+          <target state="new"><bpt id="8da9bda4-d21d-47d4-8dfa-5748adce71b1">&lt;code&gt;</bpt>response<ept id="8da9bda4-d21d-47d4-8dfa-5748adce71b1">&lt;/code&gt;</ept> contains information about the operation, including the <bpt id="edb02277-5d93-4f2a-b097-41dbadf6fe21">&lt;linkText&gt;</bpt>ETag<ept id="edb02277-5d93-4f2a-b097-41dbadf6fe21">&lt;/linkText&gt;</ept><bpt id="edb02277-5d93-4f2a-b097-41dbadf6fe21">&lt;title&gt;</bpt><ept id="edb02277-5d93-4f2a-b097-41dbadf6fe21">&lt;/title&gt;</ept> information for the container.</target>
+        </trans-unit>
+        <trans-unit id="2ca61819-8611-4966-9abe-58b188a9933c" xml:space="preserve">
+          <source>By default, new containers are private and cannot be accessed anonymously.</source>
+          <target state="new">By default, new containers are private and cannot be accessed anonymously.</target>
+        </trans-unit>
+        <trans-unit id="9d60e42a-0270-4fd9-81e3-313b5a870b90" xml:space="preserve">
+          <source>To make the container public so that you can access them anonymously, you can set the container's access level to <bpt id="e0117d7e-5249-4728-a7ab-f0c69bd25149">&lt;strong&gt;</bpt>blob<ept id="e0117d7e-5249-4728-a7ab-f0c69bd25149">&lt;/strong&gt;</ept> or <bpt id="cd684bc6-359a-48c7-b498-dd0b0b99f982">&lt;strong&gt;</bpt>container<ept id="cd684bc6-359a-48c7-b498-dd0b0b99f982">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To make the container public so that you can access them anonymously, you can set the container's access level to <bpt id="e0117d7e-5249-4728-a7ab-f0c69bd25149">&lt;strong&gt;</bpt>blob<ept id="e0117d7e-5249-4728-a7ab-f0c69bd25149">&lt;/strong&gt;</ept> or <bpt id="cd684bc6-359a-48c7-b498-dd0b0b99f982">&lt;strong&gt;</bpt>container<ept id="cd684bc6-359a-48c7-b498-dd0b0b99f982">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04d8854c-7d8f-4c9d-9629-192b25fc31bb" xml:space="preserve">
+          <source><bpt id="fea45fea-f0c5-4d4a-9e9f-bfb319c12749">&lt;strong&gt;</bpt>blob<ept id="fea45fea-f0c5-4d4a-9e9f-bfb319c12749">&lt;/strong&gt;</ept> - allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container</source>
+          <target state="new"><bpt id="fea45fea-f0c5-4d4a-9e9f-bfb319c12749">&lt;strong&gt;</bpt>blob<ept id="fea45fea-f0c5-4d4a-9e9f-bfb319c12749">&lt;/strong&gt;</ept> - allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container</target>
+        </trans-unit>
+        <trans-unit id="fda4dbc0-3939-47fb-81df-6ea6f51345e3" xml:space="preserve">
+          <source><bpt id="8b8b4a26-c816-4e37-95f1-44cfc65a0c57">&lt;strong&gt;</bpt>container<ept id="8b8b4a26-c816-4e37-95f1-44cfc65a0c57">&lt;/strong&gt;</ept> - allows anonymous read access to blob content and metadata as well as container metadata</source>
+          <target state="new"><bpt id="8b8b4a26-c816-4e37-95f1-44cfc65a0c57">&lt;strong&gt;</bpt>container<ept id="8b8b4a26-c816-4e37-95f1-44cfc65a0c57">&lt;/strong&gt;</ept> - allows anonymous read access to blob content and metadata as well as container metadata</target>
+        </trans-unit>
+        <trans-unit id="f6759eba-7e19-40ea-ab6c-33bd463c3ae8" xml:space="preserve">
+          <source>The following code example demonstrates setting the access level to <bpt id="f6dab142-bca4-4819-a7e0-114476ea52ef">&lt;strong&gt;</bpt>blob<ept id="f6dab142-bca4-4819-a7e0-114476ea52ef">&lt;/strong&gt;</ept>:</source>
+          <target state="new">The following code example demonstrates setting the access level to <bpt id="f6dab142-bca4-4819-a7e0-114476ea52ef">&lt;strong&gt;</bpt>blob<ept id="f6dab142-bca4-4819-a7e0-114476ea52ef">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="9b9c940c-3b2a-4aa4-9619-021bbffd888c" xml:space="preserve">
+          <source>Alternatively, you can modify the access level of a container by using <bpt id="37ebf6e8-a75a-47ea-957e-f278240ac8fa">&lt;strong&gt;</bpt>setContainerAcl<ept id="37ebf6e8-a75a-47ea-957e-f278240ac8fa">&lt;/strong&gt;</ept> to specify the access level.</source>
+          <target state="new">Alternatively, you can modify the access level of a container by using <bpt id="37ebf6e8-a75a-47ea-957e-f278240ac8fa">&lt;strong&gt;</bpt>setContainerAcl<ept id="37ebf6e8-a75a-47ea-957e-f278240ac8fa">&lt;/strong&gt;</ept> to specify the access level.</target>
+        </trans-unit>
+        <trans-unit id="79d5d113-bd31-4cd7-b850-67384765eec6" xml:space="preserve">
+          <source>The following code example changes the access level to container:</source>
+          <target state="new">The following code example changes the access level to container:</target>
+        </trans-unit>
+        <trans-unit id="9cf03ac3-087a-4ee9-83b2-40de062757e3" xml:space="preserve">
+          <source>The result contains information about the operation, including the current <bpt id="b1b21cd6-9d0f-4036-8de6-0520148078ed">&lt;strong&gt;</bpt>ETag<ept id="b1b21cd6-9d0f-4036-8de6-0520148078ed">&lt;/strong&gt;</ept> for the container.</source>
+          <target state="new">The result contains information about the operation, including the current <bpt id="b1b21cd6-9d0f-4036-8de6-0520148078ed">&lt;strong&gt;</bpt>ETag<ept id="b1b21cd6-9d0f-4036-8de6-0520148078ed">&lt;/strong&gt;</ept> for the container.</target>
+        </trans-unit>
+        <trans-unit id="b60b420f-0e99-451b-9580-26c318a43415" xml:space="preserve">
+          <source>You can apply optional filtering operations to operations performed using <bpt id="8d94631d-3077-42e3-89ea-e827acc2b839">&lt;strong&gt;</bpt>BlobService<ept id="8d94631d-3077-42e3-89ea-e827acc2b839">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can apply optional filtering operations to operations performed using <bpt id="8d94631d-3077-42e3-89ea-e827acc2b839">&lt;strong&gt;</bpt>BlobService<ept id="8d94631d-3077-42e3-89ea-e827acc2b839">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d717853c-fb38-44a0-ba69-252ce809b35e" xml:space="preserve">
+          <source>Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:</source>
+          <target state="new">Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:</target>
+        </trans-unit>
+        <trans-unit id="70790365-d62d-47b1-9303-bd5c683f75a4" xml:space="preserve">
+          <source>After doing its preprocessing on the request options, the method needs to call "next" passing a callback with the following signature:</source>
+          <target state="new">After doing its preprocessing on the request options, the method needs to call "next" passing a callback with the following signature:</target>
+        </trans-unit>
+        <trans-unit id="d7800bdd-5943-4a15-8f4b-f77319bb3421" xml:space="preserve">
+          <source>In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback to end the service invocation.</source>
+          <target state="new">In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback to end the service invocation.</target>
+        </trans-unit>
+        <trans-unit id="25bf4539-e2bb-4032-8907-d8ccd42f2288" xml:space="preserve">
+          <source>Two filters that implement retry logic are included with the Azure SDK for Node.js, <bpt id="11250774-b63b-40b4-b7ca-2ff781a4d021">&lt;strong&gt;</bpt>ExponentialRetryPolicyFilter<ept id="11250774-b63b-40b4-b7ca-2ff781a4d021">&lt;/strong&gt;</ept> and <bpt id="92dbcaa6-662f-4da9-9e5b-c51515d0e6e7">&lt;strong&gt;</bpt>LinearRetryPolicyFilter<ept id="92dbcaa6-662f-4da9-9e5b-c51515d0e6e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Two filters that implement retry logic are included with the Azure SDK for Node.js, <bpt id="11250774-b63b-40b4-b7ca-2ff781a4d021">&lt;strong&gt;</bpt>ExponentialRetryPolicyFilter<ept id="11250774-b63b-40b4-b7ca-2ff781a4d021">&lt;/strong&gt;</ept> and <bpt id="92dbcaa6-662f-4da9-9e5b-c51515d0e6e7">&lt;strong&gt;</bpt>LinearRetryPolicyFilter<ept id="92dbcaa6-662f-4da9-9e5b-c51515d0e6e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fffadbb-c174-4ecf-ae6b-50349f246ded" xml:space="preserve">
+          <source>The following creates a <bpt id="74d42c06-939b-4cb4-b6a1-2f75d3559658">&lt;strong&gt;</bpt>BlobService<ept id="74d42c06-939b-4cb4-b6a1-2f75d3559658">&lt;/strong&gt;</ept> object that uses the <bpt id="533b09c1-71a0-4d07-8cf1-ba2b590c358e">&lt;strong&gt;</bpt>ExponentialRetryPolicyFilter<ept id="533b09c1-71a0-4d07-8cf1-ba2b590c358e">&lt;/strong&gt;</ept>:</source>
+          <target state="new">The following creates a <bpt id="74d42c06-939b-4cb4-b6a1-2f75d3559658">&lt;strong&gt;</bpt>BlobService<ept id="74d42c06-939b-4cb4-b6a1-2f75d3559658">&lt;/strong&gt;</ept> object that uses the <bpt id="533b09c1-71a0-4d07-8cf1-ba2b590c358e">&lt;strong&gt;</bpt>ExponentialRetryPolicyFilter<ept id="533b09c1-71a0-4d07-8cf1-ba2b590c358e">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="dbdde45a-349e-441b-a30b-71d3acd538a8" xml:space="preserve">
+          <source>A blob can be either block or page based.</source>
+          <target state="new">A blob can be either block or page based.</target>
+        </trans-unit>
+        <trans-unit id="336e6d8a-c0e9-432b-aa07-3d1428a82b06" xml:space="preserve">
+          <source>Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations.</source>
+          <target state="new">Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations.</target>
+        </trans-unit>
+        <trans-unit id="644305e9-7f2b-4743-bba5-c3cc5d867db3" xml:space="preserve">
+          <source>For more information, see <bpt id="0c1f8cbc-2193-4c94-93f1-217f9194337d">&lt;linkText&gt;</bpt>Understanding block blobs and page blobs<ept id="0c1f8cbc-2193-4c94-93f1-217f9194337d">&lt;/linkText&gt;</ept><bpt id="0c1f8cbc-2193-4c94-93f1-217f9194337d">&lt;title&gt;</bpt><ept id="0c1f8cbc-2193-4c94-93f1-217f9194337d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="0c1f8cbc-2193-4c94-93f1-217f9194337d">&lt;linkText&gt;</bpt>Understanding block blobs and page blobs<ept id="0c1f8cbc-2193-4c94-93f1-217f9194337d">&lt;/linkText&gt;</ept><bpt id="0c1f8cbc-2193-4c94-93f1-217f9194337d">&lt;title&gt;</bpt><ept id="0c1f8cbc-2193-4c94-93f1-217f9194337d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a74c62f1-e6b7-4c9a-9d3d-c61df1f643af" xml:space="preserve">
+          <source>To upload data to a block blob, use the following:</source>
+          <target state="new">To upload data to a block blob, use the following:</target>
+        </trans-unit>
+        <trans-unit id="50936e58-fa58-40e5-becb-ed482fb4d43a" xml:space="preserve">
+          <source><bpt id="0cee6f42-848d-4af3-ad62-429e5018056c">&lt;strong&gt;</bpt>createBlockBlobFromLocalFile<ept id="0cee6f42-848d-4af3-ad62-429e5018056c">&lt;/strong&gt;</ept> - creates a new block blob and uploads the contents of a file</source>
+          <target state="new"><bpt id="0cee6f42-848d-4af3-ad62-429e5018056c">&lt;strong&gt;</bpt>createBlockBlobFromLocalFile<ept id="0cee6f42-848d-4af3-ad62-429e5018056c">&lt;/strong&gt;</ept> - creates a new block blob and uploads the contents of a file</target>
+        </trans-unit>
+        <trans-unit id="80ab3160-8f4c-4d4a-b0db-a92bb9a29fdc" xml:space="preserve">
+          <source><bpt id="6e069c15-fc7a-4573-9c47-a3b31f756bf2">&lt;strong&gt;</bpt>createBlockBlobFromStream<ept id="6e069c15-fc7a-4573-9c47-a3b31f756bf2">&lt;/strong&gt;</ept> - creates a new block blob and uploads the contents of a stream</source>
+          <target state="new"><bpt id="6e069c15-fc7a-4573-9c47-a3b31f756bf2">&lt;strong&gt;</bpt>createBlockBlobFromStream<ept id="6e069c15-fc7a-4573-9c47-a3b31f756bf2">&lt;/strong&gt;</ept> - creates a new block blob and uploads the contents of a stream</target>
+        </trans-unit>
+        <trans-unit id="0f868511-4e77-40d8-83e9-aeafd773cb79" xml:space="preserve">
+          <source><bpt id="1ffd7007-4ab8-49a1-9e90-a91e3b7795be">&lt;strong&gt;</bpt>createBlockBlobFromText<ept id="1ffd7007-4ab8-49a1-9e90-a91e3b7795be">&lt;/strong&gt;</ept> - creates a new block blob and uploads the contents of a string</source>
+          <target state="new"><bpt id="1ffd7007-4ab8-49a1-9e90-a91e3b7795be">&lt;strong&gt;</bpt>createBlockBlobFromText<ept id="1ffd7007-4ab8-49a1-9e90-a91e3b7795be">&lt;/strong&gt;</ept> - creates a new block blob and uploads the contents of a string</target>
+        </trans-unit>
+        <trans-unit id="fc34c4b3-b50c-462e-93e9-226dff57e417" xml:space="preserve">
+          <source><bpt id="a8a31168-0e6a-4c13-a522-3f50eb017e75">&lt;strong&gt;</bpt>createWriteStreamToBlockBlob<ept id="a8a31168-0e6a-4c13-a522-3f50eb017e75">&lt;/strong&gt;</ept> - provides a write stream to a block blob</source>
+          <target state="new"><bpt id="a8a31168-0e6a-4c13-a522-3f50eb017e75">&lt;strong&gt;</bpt>createWriteStreamToBlockBlob<ept id="a8a31168-0e6a-4c13-a522-3f50eb017e75">&lt;/strong&gt;</ept> - provides a write stream to a block blob</target>
+        </trans-unit>
+        <trans-unit id="3d2bb070-e281-4305-b5ca-b3c5e050d62c" xml:space="preserve">
+          <source>The following code example uploads the contents of the <bpt id="c1f99131-e580-4594-84de-256a24e5d1c3">&lt;strong&gt;</bpt>test.txt<ept id="c1f99131-e580-4594-84de-256a24e5d1c3">&lt;/strong&gt;</ept> file into <bpt id="36012fdf-5656-4004-ace6-e9765e056077">&lt;strong&gt;</bpt>myblob<ept id="36012fdf-5656-4004-ace6-e9765e056077">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following code example uploads the contents of the <bpt id="c1f99131-e580-4594-84de-256a24e5d1c3">&lt;strong&gt;</bpt>test.txt<ept id="c1f99131-e580-4594-84de-256a24e5d1c3">&lt;/strong&gt;</ept> file into <bpt id="36012fdf-5656-4004-ace6-e9765e056077">&lt;strong&gt;</bpt>myblob<ept id="36012fdf-5656-4004-ace6-e9765e056077">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70f05a58-1cde-43d1-b2cb-698746b3673c" xml:space="preserve">
+          <source>The <bpt id="0b51a096-3360-48ea-a833-40f7090e2b36">&lt;code&gt;</bpt>result<ept id="0b51a096-3360-48ea-a833-40f7090e2b36">&lt;/code&gt;</ept> returned by these methods contains information on the operation, such as the <bpt id="656e12db-87fb-4f8a-8bcd-23cefd987ade">&lt;strong&gt;</bpt>ETag<ept id="656e12db-87fb-4f8a-8bcd-23cefd987ade">&lt;/strong&gt;</ept> of the blob.</source>
+          <target state="new">The <bpt id="0b51a096-3360-48ea-a833-40f7090e2b36">&lt;code&gt;</bpt>result<ept id="0b51a096-3360-48ea-a833-40f7090e2b36">&lt;/code&gt;</ept> returned by these methods contains information on the operation, such as the <bpt id="656e12db-87fb-4f8a-8bcd-23cefd987ade">&lt;strong&gt;</bpt>ETag<ept id="656e12db-87fb-4f8a-8bcd-23cefd987ade">&lt;/strong&gt;</ept> of the blob.</target>
+        </trans-unit>
+        <trans-unit id="6c2eff2d-339c-4a74-b51c-6300ef7d8573" xml:space="preserve">
+          <source>To upload data to a page blob, use the following:</source>
+          <target state="new">To upload data to a page blob, use the following:</target>
+        </trans-unit>
+        <trans-unit id="69b97562-f2f0-4279-a402-bf5dbbbfea91" xml:space="preserve">
+          <source><bpt id="e5f10cfd-feb2-4275-a35b-a86462c191f6">&lt;strong&gt;</bpt>createPageBlob<ept id="e5f10cfd-feb2-4275-a35b-a86462c191f6">&lt;/strong&gt;</ept> - creates a new page blob of a specific length</source>
+          <target state="new"><bpt id="e5f10cfd-feb2-4275-a35b-a86462c191f6">&lt;strong&gt;</bpt>createPageBlob<ept id="e5f10cfd-feb2-4275-a35b-a86462c191f6">&lt;/strong&gt;</ept> - creates a new page blob of a specific length</target>
+        </trans-unit>
+        <trans-unit id="a11ae918-2087-4c81-8453-12fa471c4a3c" xml:space="preserve">
+          <source><bpt id="fb8f4021-82c0-4000-bead-f895c2bc5af8">&lt;strong&gt;</bpt>createPageBlobFromLocalFile<ept id="fb8f4021-82c0-4000-bead-f895c2bc5af8">&lt;/strong&gt;</ept> - creates a new page blob and uploads the contents of a file</source>
+          <target state="new"><bpt id="fb8f4021-82c0-4000-bead-f895c2bc5af8">&lt;strong&gt;</bpt>createPageBlobFromLocalFile<ept id="fb8f4021-82c0-4000-bead-f895c2bc5af8">&lt;/strong&gt;</ept> - creates a new page blob and uploads the contents of a file</target>
+        </trans-unit>
+        <trans-unit id="685ad0b0-23df-426a-95e7-e587f9aa465f" xml:space="preserve">
+          <source><bpt id="ba305cad-93fb-487e-b303-84129aaf6f79">&lt;strong&gt;</bpt>createPageBlobFromStream<ept id="ba305cad-93fb-487e-b303-84129aaf6f79">&lt;/strong&gt;</ept> - creates a new page blob and uploads the contents of a stream</source>
+          <target state="new"><bpt id="ba305cad-93fb-487e-b303-84129aaf6f79">&lt;strong&gt;</bpt>createPageBlobFromStream<ept id="ba305cad-93fb-487e-b303-84129aaf6f79">&lt;/strong&gt;</ept> - creates a new page blob and uploads the contents of a stream</target>
+        </trans-unit>
+        <trans-unit id="34a5a0d5-3ced-4332-834e-70e3334bd81e" xml:space="preserve">
+          <source><bpt id="294dd44c-7437-4e1f-a523-4a46a0c66d44">&lt;strong&gt;</bpt>createWriteStreamToExistingPageBlob<ept id="294dd44c-7437-4e1f-a523-4a46a0c66d44">&lt;/strong&gt;</ept> - provides a write stream to an existing page blob</source>
+          <target state="new"><bpt id="294dd44c-7437-4e1f-a523-4a46a0c66d44">&lt;strong&gt;</bpt>createWriteStreamToExistingPageBlob<ept id="294dd44c-7437-4e1f-a523-4a46a0c66d44">&lt;/strong&gt;</ept> - provides a write stream to an existing page blob</target>
+        </trans-unit>
+        <trans-unit id="0aaeb644-4037-4d25-b39e-ab23ff600cd1" xml:space="preserve">
+          <source><bpt id="a20e6210-660d-4973-9ade-6cb1db3a7d13">&lt;strong&gt;</bpt>createWriteStreamToNewPageBlob<ept id="a20e6210-660d-4973-9ade-6cb1db3a7d13">&lt;/strong&gt;</ept> - creates a new blob and then provides a stream to write to it</source>
+          <target state="new"><bpt id="a20e6210-660d-4973-9ade-6cb1db3a7d13">&lt;strong&gt;</bpt>createWriteStreamToNewPageBlob<ept id="a20e6210-660d-4973-9ade-6cb1db3a7d13">&lt;/strong&gt;</ept> - creates a new blob and then provides a stream to write to it</target>
+        </trans-unit>
+        <trans-unit id="51fd38bf-aa13-4289-92b5-e91693ac2661" xml:space="preserve">
+          <source>The following code example uploads the contents of the <bpt id="044e5933-c809-4c8e-b818-7ae27628aaa6">&lt;strong&gt;</bpt>test.txt<ept id="044e5933-c809-4c8e-b818-7ae27628aaa6">&lt;/strong&gt;</ept> file into <bpt id="cb8f16e2-5479-42ae-9192-e835ee662ed6">&lt;strong&gt;</bpt>mypageblob<ept id="cb8f16e2-5479-42ae-9192-e835ee662ed6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following code example uploads the contents of the <bpt id="044e5933-c809-4c8e-b818-7ae27628aaa6">&lt;strong&gt;</bpt>test.txt<ept id="044e5933-c809-4c8e-b818-7ae27628aaa6">&lt;/strong&gt;</ept> file into <bpt id="cb8f16e2-5479-42ae-9192-e835ee662ed6">&lt;strong&gt;</bpt>mypageblob<ept id="cb8f16e2-5479-42ae-9192-e835ee662ed6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b51e312e-2202-4976-b5ec-ca134b2afc34" xml:space="preserve">
+          <source>Page blobs consist of 512-byte 'pages'.</source>
+          <target state="new">Page blobs consist of 512-byte 'pages'.</target>
+        </trans-unit>
+        <trans-unit id="f0a8d535-4ec1-418a-8266-337158ee4cc5" xml:space="preserve">
+          <source>You may receive an error when uploading data with a size that is not a multiple of 512.</source>
+          <target state="new">You may receive an error when uploading data with a size that is not a multiple of 512.</target>
+        </trans-unit>
+        <trans-unit id="62def420-6001-4724-9f01-06aaca370eb5" xml:space="preserve">
+          <source>To list the blobs in a container, use the <bpt id="22a12b10-b025-426a-831c-442f2ee7ecd6">&lt;strong&gt;</bpt>listBlobsSegmented<ept id="22a12b10-b025-426a-831c-442f2ee7ecd6">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To list the blobs in a container, use the <bpt id="22a12b10-b025-426a-831c-442f2ee7ecd6">&lt;strong&gt;</bpt>listBlobsSegmented<ept id="22a12b10-b025-426a-831c-442f2ee7ecd6">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="f8f2a6cb-9b72-446f-9585-ad069b05aaaa" xml:space="preserve">
+          <source>If you would like to return blobs with a specific prefix, use <bpt id="f67ff82a-aba2-4a2f-ae0b-cab21c687ecd">&lt;strong&gt;</bpt>listBlobsSegmentedWithPrefix<ept id="f67ff82a-aba2-4a2f-ae0b-cab21c687ecd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you would like to return blobs with a specific prefix, use <bpt id="f67ff82a-aba2-4a2f-ae0b-cab21c687ecd">&lt;strong&gt;</bpt>listBlobsSegmentedWithPrefix<ept id="f67ff82a-aba2-4a2f-ae0b-cab21c687ecd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64bbe2df-6584-4b78-830f-f4c2cf1ec379" xml:space="preserve">
+          <source>The <bpt id="94e6724a-5d81-457d-98d1-9de09b50dc52">&lt;code&gt;</bpt>result<ept id="94e6724a-5d81-457d-98d1-9de09b50dc52">&lt;/code&gt;</ept> contains an <bpt id="29455136-5d31-4902-b566-0f4bf7c33a7d">&lt;code&gt;</bpt>entries<ept id="29455136-5d31-4902-b566-0f4bf7c33a7d">&lt;/code&gt;</ept> collection, which is an array of objects describing each blob.</source>
+          <target state="new">The <bpt id="94e6724a-5d81-457d-98d1-9de09b50dc52">&lt;code&gt;</bpt>result<ept id="94e6724a-5d81-457d-98d1-9de09b50dc52">&lt;/code&gt;</ept> contains an <bpt id="29455136-5d31-4902-b566-0f4bf7c33a7d">&lt;code&gt;</bpt>entries<ept id="29455136-5d31-4902-b566-0f4bf7c33a7d">&lt;/code&gt;</ept> collection, which is an array of objects describing each blob.</target>
+        </trans-unit>
+        <trans-unit id="53863550-227e-4f85-bab4-f5d7ef0b330f" xml:space="preserve">
+          <source>If all blobs cannot be returned, the <bpt id="c58a78d3-0f46-4162-809b-5197be5448c4">&lt;code&gt;</bpt>result<ept id="c58a78d3-0f46-4162-809b-5197be5448c4">&lt;/code&gt;</ept> also provides a <bpt id="1aa2d3d1-18c1-4a16-8c50-d4ba04dd3b55">&lt;code&gt;</bpt>continuationToken<ept id="1aa2d3d1-18c1-4a16-8c50-d4ba04dd3b55">&lt;/code&gt;</ept>, which you may use as the second parameter to retrieve additional entries.</source>
+          <target state="new">If all blobs cannot be returned, the <bpt id="c58a78d3-0f46-4162-809b-5197be5448c4">&lt;code&gt;</bpt>result<ept id="c58a78d3-0f46-4162-809b-5197be5448c4">&lt;/code&gt;</ept> also provides a <bpt id="1aa2d3d1-18c1-4a16-8c50-d4ba04dd3b55">&lt;code&gt;</bpt>continuationToken<ept id="1aa2d3d1-18c1-4a16-8c50-d4ba04dd3b55">&lt;/code&gt;</ept>, which you may use as the second parameter to retrieve additional entries.</target>
+        </trans-unit>
+        <trans-unit id="453cacb8-b6d3-47ee-b793-b068ed74a3f7" xml:space="preserve">
+          <source>To download data from a blob, use the following:</source>
+          <target state="new">To download data from a blob, use the following:</target>
+        </trans-unit>
+        <trans-unit id="7a4c7962-3200-4b12-889f-f58854dbe1b3" xml:space="preserve">
+          <source><bpt id="40b63303-d841-4b30-9360-d403b8a037ec">&lt;strong&gt;</bpt>getBlobToFile<ept id="40b63303-d841-4b30-9360-d403b8a037ec">&lt;/strong&gt;</ept> - writes the blob contents to file</source>
+          <target state="new"><bpt id="40b63303-d841-4b30-9360-d403b8a037ec">&lt;strong&gt;</bpt>getBlobToFile<ept id="40b63303-d841-4b30-9360-d403b8a037ec">&lt;/strong&gt;</ept> - writes the blob contents to file</target>
+        </trans-unit>
+        <trans-unit id="0f7eb2b5-e888-4cd9-80d6-72eef724908c" xml:space="preserve">
+          <source><bpt id="0d628428-34fe-4b7f-80ec-32ebb1a2cad8">&lt;strong&gt;</bpt>getBlobToStream<ept id="0d628428-34fe-4b7f-80ec-32ebb1a2cad8">&lt;/strong&gt;</ept> - writes the blob contents to a stream</source>
+          <target state="new"><bpt id="0d628428-34fe-4b7f-80ec-32ebb1a2cad8">&lt;strong&gt;</bpt>getBlobToStream<ept id="0d628428-34fe-4b7f-80ec-32ebb1a2cad8">&lt;/strong&gt;</ept> - writes the blob contents to a stream</target>
+        </trans-unit>
+        <trans-unit id="09ef253f-513f-4bd6-801e-af8ad0de2e68" xml:space="preserve">
+          <source><bpt id="939ba43e-01b3-47e1-8823-3ebd21fbc393">&lt;strong&gt;</bpt>getBlobToText<ept id="939ba43e-01b3-47e1-8823-3ebd21fbc393">&lt;/strong&gt;</ept> - writes the blob contents to a string</source>
+          <target state="new"><bpt id="939ba43e-01b3-47e1-8823-3ebd21fbc393">&lt;strong&gt;</bpt>getBlobToText<ept id="939ba43e-01b3-47e1-8823-3ebd21fbc393">&lt;/strong&gt;</ept> - writes the blob contents to a string</target>
+        </trans-unit>
+        <trans-unit id="f1da9f30-f3b7-4b1c-a349-8670f96f167c" xml:space="preserve">
+          <source><bpt id="a9224363-ca82-4e23-b937-f1329cfb8ce4">&lt;strong&gt;</bpt>createReadStream<ept id="a9224363-ca82-4e23-b937-f1329cfb8ce4">&lt;/strong&gt;</ept> - provides a stream to read from the blob</source>
+          <target state="new"><bpt id="a9224363-ca82-4e23-b937-f1329cfb8ce4">&lt;strong&gt;</bpt>createReadStream<ept id="a9224363-ca82-4e23-b937-f1329cfb8ce4">&lt;/strong&gt;</ept> - provides a stream to read from the blob</target>
+        </trans-unit>
+        <trans-unit id="0dda1e7c-4694-4be0-88a5-c9464f3f9c11" xml:space="preserve">
+          <source>The following code example demonstrates using <bpt id="58eb6bb7-338c-464b-8c35-d49bef452c77">&lt;strong&gt;</bpt>getBlobToStream<ept id="58eb6bb7-338c-464b-8c35-d49bef452c77">&lt;/strong&gt;</ept> to download the contents of the <bpt id="5071b512-e6e7-445b-badc-08f10f691a5c">&lt;strong&gt;</bpt>myblob<ept id="5071b512-e6e7-445b-badc-08f10f691a5c">&lt;/strong&gt;</ept> blob and store it to the <bpt id="93714eaa-a062-42f1-88c1-6201b110d441">&lt;strong&gt;</bpt>output.txt<ept id="93714eaa-a062-42f1-88c1-6201b110d441">&lt;/strong&gt;</ept> file using a stream:</source>
+          <target state="new">The following code example demonstrates using <bpt id="58eb6bb7-338c-464b-8c35-d49bef452c77">&lt;strong&gt;</bpt>getBlobToStream<ept id="58eb6bb7-338c-464b-8c35-d49bef452c77">&lt;/strong&gt;</ept> to download the contents of the <bpt id="5071b512-e6e7-445b-badc-08f10f691a5c">&lt;strong&gt;</bpt>myblob<ept id="5071b512-e6e7-445b-badc-08f10f691a5c">&lt;/strong&gt;</ept> blob and store it to the <bpt id="93714eaa-a062-42f1-88c1-6201b110d441">&lt;strong&gt;</bpt>output.txt<ept id="93714eaa-a062-42f1-88c1-6201b110d441">&lt;/strong&gt;</ept> file using a stream:</target>
+        </trans-unit>
+        <trans-unit id="96f0d6e8-148e-454e-a805-1d346d703b48" xml:space="preserve">
+          <source>The <bpt id="0a90c916-e618-4e9f-97dc-abe7dfbbb1ea">&lt;code&gt;</bpt>result<ept id="0a90c916-e618-4e9f-97dc-abe7dfbbb1ea">&lt;/code&gt;</ept> contains information about the blob, including <bpt id="11c19d4e-e54c-4f39-8f7a-a5a517e143f7">&lt;strong&gt;</bpt>ETag<ept id="11c19d4e-e54c-4f39-8f7a-a5a517e143f7">&lt;/strong&gt;</ept> information.</source>
+          <target state="new">The <bpt id="0a90c916-e618-4e9f-97dc-abe7dfbbb1ea">&lt;code&gt;</bpt>result<ept id="0a90c916-e618-4e9f-97dc-abe7dfbbb1ea">&lt;/code&gt;</ept> contains information about the blob, including <bpt id="11c19d4e-e54c-4f39-8f7a-a5a517e143f7">&lt;strong&gt;</bpt>ETag<ept id="11c19d4e-e54c-4f39-8f7a-a5a517e143f7">&lt;/strong&gt;</ept> information.</target>
+        </trans-unit>
+        <trans-unit id="f2cca552-ecdb-445b-8fd1-926939bdca94" xml:space="preserve">
+          <source>Finally, to delete a blob, call <bpt id="dbc06f74-cb5a-4e6c-977f-df9153796abe">&lt;strong&gt;</bpt>deleteBlob<ept id="dbc06f74-cb5a-4e6c-977f-df9153796abe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Finally, to delete a blob, call <bpt id="dbc06f74-cb5a-4e6c-977f-df9153796abe">&lt;strong&gt;</bpt>deleteBlob<ept id="dbc06f74-cb5a-4e6c-977f-df9153796abe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88892d62-9b86-44fc-bdf6-c6c474adb8ef" xml:space="preserve">
+          <source>The following code example deletes the blob named <bpt id="c00ddd40-3deb-4054-8900-a47b4a938064">&lt;strong&gt;</bpt>myblob<ept id="c00ddd40-3deb-4054-8900-a47b4a938064">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following code example deletes the blob named <bpt id="c00ddd40-3deb-4054-8900-a47b4a938064">&lt;strong&gt;</bpt>myblob<ept id="c00ddd40-3deb-4054-8900-a47b4a938064">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a32b25c8-257f-4e9b-92cb-1b93e642401a" xml:space="preserve">
+          <source>To support concurrent access to a blob from multiple clients or multiple process instances, you can use <bpt id="e4aefa01-8dcc-4c4b-bda5-4130232ebae9">&lt;strong&gt;</bpt>ETags<ept id="e4aefa01-8dcc-4c4b-bda5-4130232ebae9">&lt;/strong&gt;</ept> or <bpt id="8a4340fb-176a-49a7-abcc-b0ac35b8cdc0">&lt;strong&gt;</bpt>leases<ept id="8a4340fb-176a-49a7-abcc-b0ac35b8cdc0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To support concurrent access to a blob from multiple clients or multiple process instances, you can use <bpt id="e4aefa01-8dcc-4c4b-bda5-4130232ebae9">&lt;strong&gt;</bpt>ETags<ept id="e4aefa01-8dcc-4c4b-bda5-4130232ebae9">&lt;/strong&gt;</ept> or <bpt id="8a4340fb-176a-49a7-abcc-b0ac35b8cdc0">&lt;strong&gt;</bpt>leases<ept id="8a4340fb-176a-49a7-abcc-b0ac35b8cdc0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e019879b-a93f-4fd5-9a47-c9f8d157be7e" xml:space="preserve">
+          <source><bpt id="b33ab8a5-d0cd-4988-864c-3281b61dba46">&lt;strong&gt;</bpt>Etag<ept id="b33ab8a5-d0cd-4988-864c-3281b61dba46">&lt;/strong&gt;</ept> - provides a way to detect that the blob or container has been modified by another process</source>
+          <target state="new"><bpt id="b33ab8a5-d0cd-4988-864c-3281b61dba46">&lt;strong&gt;</bpt>Etag<ept id="b33ab8a5-d0cd-4988-864c-3281b61dba46">&lt;/strong&gt;</ept> - provides a way to detect that the blob or container has been modified by another process</target>
+        </trans-unit>
+        <trans-unit id="91a63370-f884-41c1-b076-01bdbb35f4ed" xml:space="preserve">
+          <source><bpt id="7e23f7f3-d6fd-41a2-be11-8f0437adfbb9">&lt;strong&gt;</bpt>Lease<ept id="7e23f7f3-d6fd-41a2-be11-8f0437adfbb9">&lt;/strong&gt;</ept> - provides a way to obtain exclusive, renewable, write or delete access to a blob for a period of time</source>
+          <target state="new"><bpt id="7e23f7f3-d6fd-41a2-be11-8f0437adfbb9">&lt;strong&gt;</bpt>Lease<ept id="7e23f7f3-d6fd-41a2-be11-8f0437adfbb9">&lt;/strong&gt;</ept> - provides a way to obtain exclusive, renewable, write or delete access to a blob for a period of time</target>
+        </trans-unit>
+        <trans-unit id="e7d025e3-924e-4250-941a-38eb44919469" xml:space="preserve">
+          <source>Use ETags if you need to allow multiple clients or instances to write to the blob simultaneously.</source>
+          <target state="new">Use ETags if you need to allow multiple clients or instances to write to the blob simultaneously.</target>
+        </trans-unit>
+        <trans-unit id="326f41f8-2465-467e-9741-1fd69ef7cedf" xml:space="preserve">
+          <source>The ETag allows you to determine if the container or blob has been modified since you initially read or created it, which allows you to avoid overwriting changes committed by another client or process.</source>
+          <target state="new">The ETag allows you to determine if the container or blob has been modified since you initially read or created it, which allows you to avoid overwriting changes committed by another client or process.</target>
+        </trans-unit>
+        <trans-unit id="33cb0b19-2e36-4693-8885-8ab6dc5505d7" xml:space="preserve">
+          <source>You can set ETag conditions by using the optional <bpt id="024f1050-06c2-4208-895d-4a881cae0196">&lt;code&gt;</bpt>options.accessConditions<ept id="024f1050-06c2-4208-895d-4a881cae0196">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">You can set ETag conditions by using the optional <bpt id="024f1050-06c2-4208-895d-4a881cae0196">&lt;code&gt;</bpt>options.accessConditions<ept id="024f1050-06c2-4208-895d-4a881cae0196">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="93c0f92e-3258-4bec-bd0b-507b691cb06d" xml:space="preserve">
+          <source>The following code example only uploads the <bpt id="4bdf3518-a3a2-4481-9ebe-212657d64e22">&lt;strong&gt;</bpt>test.txt<ept id="4bdf3518-a3a2-4481-9ebe-212657d64e22">&lt;/strong&gt;</ept> file if the blob already exists and has the ETag value contained by <bpt id="f0400c0a-d4e5-482a-a732-0e05516079ea">&lt;code&gt;</bpt>etagToMatch<ept id="f0400c0a-d4e5-482a-a732-0e05516079ea">&lt;/code&gt;</ept>.</source>
+          <target state="new">The following code example only uploads the <bpt id="4bdf3518-a3a2-4481-9ebe-212657d64e22">&lt;strong&gt;</bpt>test.txt<ept id="4bdf3518-a3a2-4481-9ebe-212657d64e22">&lt;/strong&gt;</ept> file if the blob already exists and has the ETag value contained by <bpt id="f0400c0a-d4e5-482a-a732-0e05516079ea">&lt;code&gt;</bpt>etagToMatch<ept id="f0400c0a-d4e5-482a-a732-0e05516079ea">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0e1cf7e-0bef-4057-8852-a9a29aec639f" xml:space="preserve">
+          <source>The general pattern when using ETags is:</source>
+          <target state="new">The general pattern when using ETags is:</target>
+        </trans-unit>
+        <trans-unit id="cbcfbc64-a7cd-4be9-bda2-8c5935b307e4" xml:space="preserve">
+          <source>Obtain the ETag as the result of a create, list, or get operation.</source>
+          <target state="new">Obtain the ETag as the result of a create, list, or get operation.</target>
+        </trans-unit>
+        <trans-unit id="a12adb32-c72a-4d32-bfe0-0c7972acebaf" xml:space="preserve">
+          <source>Perform an action, checking that the ETag value has not been modified.</source>
+          <target state="new">Perform an action, checking that the ETag value has not been modified.</target>
+        </trans-unit>
+        <trans-unit id="cd534af2-063e-46d4-812b-0d0f8598c88b" xml:space="preserve">
+          <source>If the value has been modified, this indicates that another client or instance has modified the blob or container since you obtained the ETag value.</source>
+          <target state="new">If the value has been modified, this indicates that another client or instance has modified the blob or container since you obtained the ETag value.</target>
+        </trans-unit>
+        <trans-unit id="692a96c8-f348-478e-aafe-c1249bf7c1e5" xml:space="preserve">
+          <source>You can acquire a new lease by using the <bpt id="edec742f-fa5e-4f61-8a8f-1cf2569e764b">&lt;strong&gt;</bpt>acquireLease<ept id="edec742f-fa5e-4f61-8a8f-1cf2569e764b">&lt;/strong&gt;</ept> method, specifying the blob or container that you wish to obtain a lease on.</source>
+          <target state="new">You can acquire a new lease by using the <bpt id="edec742f-fa5e-4f61-8a8f-1cf2569e764b">&lt;strong&gt;</bpt>acquireLease<ept id="edec742f-fa5e-4f61-8a8f-1cf2569e764b">&lt;/strong&gt;</ept> method, specifying the blob or container that you wish to obtain a lease on.</target>
+        </trans-unit>
+        <trans-unit id="1b89b97c-3995-449e-bd90-3dd4fc7585d7" xml:space="preserve">
+          <source>For example, the following code acquires a lease on <bpt id="5dbac8e7-dc6f-425a-9ab3-93cc2f927033">&lt;strong&gt;</bpt>myblob<ept id="5dbac8e7-dc6f-425a-9ab3-93cc2f927033">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, the following code acquires a lease on <bpt id="5dbac8e7-dc6f-425a-9ab3-93cc2f927033">&lt;strong&gt;</bpt>myblob<ept id="5dbac8e7-dc6f-425a-9ab3-93cc2f927033">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b6f5534-0266-4de1-b671-b3cba048d3dc" xml:space="preserve">
+          <source>Subsequent operations on <bpt id="8266791a-2740-48ad-bc4f-eb7d860a3aef">&lt;strong&gt;</bpt>myblob<ept id="8266791a-2740-48ad-bc4f-eb7d860a3aef">&lt;/strong&gt;</ept> must provide <bpt id="9cf87499-2dc5-43ca-bf43-fc4f75e83220">&lt;code&gt;</bpt>options.leaseId<ept id="9cf87499-2dc5-43ca-bf43-fc4f75e83220">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">Subsequent operations on <bpt id="8266791a-2740-48ad-bc4f-eb7d860a3aef">&lt;strong&gt;</bpt>myblob<ept id="8266791a-2740-48ad-bc4f-eb7d860a3aef">&lt;/strong&gt;</ept> must provide <bpt id="9cf87499-2dc5-43ca-bf43-fc4f75e83220">&lt;code&gt;</bpt>options.leaseId<ept id="9cf87499-2dc5-43ca-bf43-fc4f75e83220">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="3675b51a-f6ca-4333-82b9-18f5c125fbcb" xml:space="preserve">
+          <source>The lease ID is returned as <bpt id="05dc9bda-4345-4994-8c0a-fd9e1da6ad98">&lt;code&gt;</bpt>result.id<ept id="05dc9bda-4345-4994-8c0a-fd9e1da6ad98">&lt;/code&gt;</ept> from <bpt id="4f6cfb03-f19e-400c-aa3d-cb86c37d9c67">&lt;strong&gt;</bpt>acquireLease<ept id="4f6cfb03-f19e-400c-aa3d-cb86c37d9c67">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The lease ID is returned as <bpt id="05dc9bda-4345-4994-8c0a-fd9e1da6ad98">&lt;code&gt;</bpt>result.id<ept id="05dc9bda-4345-4994-8c0a-fd9e1da6ad98">&lt;/code&gt;</ept> from <bpt id="4f6cfb03-f19e-400c-aa3d-cb86c37d9c67">&lt;strong&gt;</bpt>acquireLease<ept id="4f6cfb03-f19e-400c-aa3d-cb86c37d9c67">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24cc9f41-f451-48af-845e-0126cabbcff9" xml:space="preserve">
+          <source>By default, the lease duration is infinite.</source>
+          <target state="new">By default, the lease duration is infinite.</target>
+        </trans-unit>
+        <trans-unit id="276802eb-f0b3-4752-9e79-ccefc22c1c99" xml:space="preserve">
+          <source>You can specify a non-infinite duration (between 15 and 60 seconds,) by providing the <bpt id="eee18c2c-69fc-4379-a430-61806c6ee1b1">&lt;code&gt;</bpt>options.leaseDuration<ept id="eee18c2c-69fc-4379-a430-61806c6ee1b1">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">You can specify a non-infinite duration (between 15 and 60 seconds,) by providing the <bpt id="eee18c2c-69fc-4379-a430-61806c6ee1b1">&lt;code&gt;</bpt>options.leaseDuration<ept id="eee18c2c-69fc-4379-a430-61806c6ee1b1">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="19d2ce50-a07d-4c96-b2c1-09c7ad154c2a" xml:space="preserve">
+          <source>To remove a lease, use <bpt id="c11d8029-2a88-4c9e-bf2e-54d8e151ea33">&lt;strong&gt;</bpt>releaseLease<ept id="c11d8029-2a88-4c9e-bf2e-54d8e151ea33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To remove a lease, use <bpt id="c11d8029-2a88-4c9e-bf2e-54d8e151ea33">&lt;strong&gt;</bpt>releaseLease<ept id="c11d8029-2a88-4c9e-bf2e-54d8e151ea33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="064134e4-1513-4aee-a3a8-4281626355fe" xml:space="preserve">
+          <source>To break a lease, but prevent others from obtaining a new lease until the original duration has expired, use <bpt id="bc6fb7aa-b3b8-41cd-9197-7065ec06066c">&lt;strong&gt;</bpt>breakLease<ept id="bc6fb7aa-b3b8-41cd-9197-7065ec06066c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To break a lease, but prevent others from obtaining a new lease until the original duration has expired, use <bpt id="bc6fb7aa-b3b8-41cd-9197-7065ec06066c">&lt;strong&gt;</bpt>breakLease<ept id="bc6fb7aa-b3b8-41cd-9197-7065ec06066c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec88380f-170a-4665-b9be-68f84612e548" xml:space="preserve">
+          <source>Shared Access Signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys.</source>
+          <target state="new">Shared Access Signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys.</target>
+        </trans-unit>
+        <trans-unit id="a218d767-280d-4482-8551-a43553c03de1" xml:space="preserve">
+          <source>SAS are often used to provide limited access to your data, such as allowing a mobile app to access blobs.</source>
+          <target state="new">SAS are often used to provide limited access to your data, such as allowing a mobile app to access blobs.</target>
+        </trans-unit>
+        <trans-unit id="dfc04b33-9797-4d1d-8ae8-056dba90c0a1" xml:space="preserve">
+          <source>While you can also allow anonymous access to blobs, SAS allows you to provide more controlled access, as you must generate the SAS.</source>
+          <target state="new">While you can also allow anonymous access to blobs, SAS allows you to provide more controlled access, as you must generate the SAS.</target>
+        </trans-unit>
+        <trans-unit id="856291af-14c1-4c81-9483-0e8dc1c4ff3d" xml:space="preserve">
+          <source>A trusted application such as a cloud-based service generates a SAS using the <bpt id="edb5fc5b-fc2c-4135-993c-ad360d036dae">&lt;strong&gt;</bpt>generateSharedAccessSignature<ept id="edb5fc5b-fc2c-4135-993c-ad360d036dae">&lt;/strong&gt;</ept> of the <bpt id="0497a625-fcf6-4b03-a703-f135287cb87b">&lt;strong&gt;</bpt>BlobService<ept id="0497a625-fcf6-4b03-a703-f135287cb87b">&lt;/strong&gt;</ept>, and provides it to an untrusted or semi-trusted application such as a mobile app.</source>
+          <target state="new">A trusted application such as a cloud-based service generates a SAS using the <bpt id="edb5fc5b-fc2c-4135-993c-ad360d036dae">&lt;strong&gt;</bpt>generateSharedAccessSignature<ept id="edb5fc5b-fc2c-4135-993c-ad360d036dae">&lt;/strong&gt;</ept> of the <bpt id="0497a625-fcf6-4b03-a703-f135287cb87b">&lt;strong&gt;</bpt>BlobService<ept id="0497a625-fcf6-4b03-a703-f135287cb87b">&lt;/strong&gt;</ept>, and provides it to an untrusted or semi-trusted application such as a mobile app.</target>
+        </trans-unit>
+        <trans-unit id="643dca9d-b9fc-4b87-9e95-ea3d9dea2f15" xml:space="preserve">
+          <source>The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.</source>
+          <target state="new">The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.</target>
+        </trans-unit>
+        <trans-unit id="e7cbb518-e970-4f2b-9bc0-9197d805bbb2" xml:space="preserve">
+          <source>The following code example generates a new shared access policy that allows the SAS holder to perform read operations on the <bpt id="0e8fb013-2eee-40d4-b177-591cd1373ef2">&lt;strong&gt;</bpt>myblob<ept id="0e8fb013-2eee-40d4-b177-591cd1373ef2">&lt;/strong&gt;</ept> blob, and expires 100 minutes after the time it is created.</source>
+          <target state="new">The following code example generates a new shared access policy that allows the SAS holder to perform read operations on the <bpt id="0e8fb013-2eee-40d4-b177-591cd1373ef2">&lt;strong&gt;</bpt>myblob<ept id="0e8fb013-2eee-40d4-b177-591cd1373ef2">&lt;/strong&gt;</ept> blob, and expires 100 minutes after the time it is created.</target>
+        </trans-unit>
+        <trans-unit id="95fa5525-f11b-40af-a542-ed28cba2689f" xml:space="preserve">
+          <source>Note that the host information must be provided also, as it is required when the SAS holder attempts to access the container.</source>
+          <target state="new">Note that the host information must be provided also, as it is required when the SAS holder attempts to access the container.</target>
+        </trans-unit>
+        <trans-unit id="2977ddf6-4ad0-4ea7-9897-baabc86665cc" xml:space="preserve">
+          <source>The client application then uses the SAS with <bpt id="463712b3-6e3e-49cd-b24e-5164b6386ccf">&lt;strong&gt;</bpt>BlobServiceWithSAS<ept id="463712b3-6e3e-49cd-b24e-5164b6386ccf">&lt;/strong&gt;</ept> to perform operations against the blob.</source>
+          <target state="new">The client application then uses the SAS with <bpt id="463712b3-6e3e-49cd-b24e-5164b6386ccf">&lt;strong&gt;</bpt>BlobServiceWithSAS<ept id="463712b3-6e3e-49cd-b24e-5164b6386ccf">&lt;/strong&gt;</ept> to perform operations against the blob.</target>
+        </trans-unit>
+        <trans-unit id="aeaf6f8a-a1de-4266-b775-e72486c48512" xml:space="preserve">
+          <source>The following gets information about <bpt id="5b7d7d1b-5033-47ec-94c3-50af956cf132">&lt;strong&gt;</bpt>myblob<ept id="5b7d7d1b-5033-47ec-94c3-50af956cf132">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following gets information about <bpt id="5b7d7d1b-5033-47ec-94c3-50af956cf132">&lt;strong&gt;</bpt>myblob<ept id="5b7d7d1b-5033-47ec-94c3-50af956cf132">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="28e4f0c1-368d-44f6-8c24-343ad2aae0ba" xml:space="preserve">
+          <source>Since the SAS was generated with only read access, if an attempt were made to modify the blob, an error would be returned.</source>
+          <target state="new">Since the SAS was generated with only read access, if an attempt were made to modify the blob, an error would be returned.</target>
+        </trans-unit>
+        <trans-unit id="981ed4c3-c830-4a07-853d-ff1f122fdc35" xml:space="preserve">
+          <source>You can also use an Access Control List (ACL) to set the access policy for a SAS.</source>
+          <target state="new">You can also use an Access Control List (ACL) to set the access policy for a SAS.</target>
+        </trans-unit>
+        <trans-unit id="aa120558-7809-437a-89ea-e3b95fc37eb3" xml:space="preserve">
+          <source>This is useful if you wish to allow multiple clients to access a container, but provide different access policies for each client.</source>
+          <target state="new">This is useful if you wish to allow multiple clients to access a container, but provide different access policies for each client.</target>
+        </trans-unit>
+        <trans-unit id="723fc67c-e7ef-4ad5-a352-94c255981177" xml:space="preserve">
+          <source>An ACL is implemented using an array of access policies, with an ID associated with each policy.</source>
+          <target state="new">An ACL is implemented using an array of access policies, with an ID associated with each policy.</target>
+        </trans-unit>
+        <trans-unit id="b554d0d0-bb12-4d9e-b159-f3dc1f4dec53" xml:space="preserve">
+          <source>The following code example defines two policies; one for 'user1' and one for 'user2':</source>
+          <target state="new">The following code example defines two policies; one for 'user1' and one for 'user2':</target>
+        </trans-unit>
+        <trans-unit id="55db5928-bfc3-4854-82ae-643a3a382798" xml:space="preserve">
+          <source>The following code example gets the current ACL for <bpt id="34c6a132-9c46-487d-9493-272d95adc46f">&lt;strong&gt;</bpt>mycontainer<ept id="34c6a132-9c46-487d-9493-272d95adc46f">&lt;/strong&gt;</ept>, then adds the new policies using <bpt id="96a071d2-5e76-48df-9422-7e4e672ce7d0">&lt;strong&gt;</bpt>setBlobAcl<ept id="96a071d2-5e76-48df-9422-7e4e672ce7d0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following code example gets the current ACL for <bpt id="34c6a132-9c46-487d-9493-272d95adc46f">&lt;strong&gt;</bpt>mycontainer<ept id="34c6a132-9c46-487d-9493-272d95adc46f">&lt;/strong&gt;</ept>, then adds the new policies using <bpt id="96a071d2-5e76-48df-9422-7e4e672ce7d0">&lt;strong&gt;</bpt>setBlobAcl<ept id="96a071d2-5e76-48df-9422-7e4e672ce7d0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="257854c2-bf39-4649-8861-1d999dbdd362" xml:space="preserve">
+          <source>This approach allows:</source>
+          <target state="new">This approach allows:</target>
+        </trans-unit>
+        <trans-unit id="e57fb019-6302-468e-93fd-cf2077235df1" xml:space="preserve">
+          <source>Once the ACL has been set, you can then create a SAS based on the ID for a policy.</source>
+          <target state="new">Once the ACL has been set, you can then create a SAS based on the ID for a policy.</target>
+        </trans-unit>
+        <trans-unit id="8bbcc6d6-4731-4313-bed0-de1e95aca9ad" xml:space="preserve">
+          <source>The following code example creates a new SAS for 'user2':</source>
+          <target state="new">The following code example creates a new SAS for 'user2':</target>
+        </trans-unit>
+        <trans-unit id="37df1045-e253-40dc-9bd0-2bb4843ee7ca" xml:space="preserve">
+          <source>Now that you've learned the basics of blob storage, follow these links
+to learn how to do more complex storage tasks.</source>
+          <target state="new">Now that you've learned the basics of blob storage, follow these links
+to learn how to do more complex storage tasks.</target>
+        </trans-unit>
+        <trans-unit id="71d69242-c369-4f43-a3d7-f4f2a26a1ead" xml:space="preserve">
+          <source>Read the <bpt id="ab66e033-8aae-48fc-980f-3fa75edf1754">&lt;linkText&gt;</bpt>Azure Storage SDK for Node API Reference<ept id="ab66e033-8aae-48fc-980f-3fa75edf1754">&lt;/linkText&gt;</ept><bpt id="ab66e033-8aae-48fc-980f-3fa75edf1754">&lt;title&gt;</bpt><ept id="ab66e033-8aae-48fc-980f-3fa75edf1754">&lt;/title&gt;</ept></source>
+          <target state="new">Read the <bpt id="ab66e033-8aae-48fc-980f-3fa75edf1754">&lt;linkText&gt;</bpt>Azure Storage SDK for Node API Reference<ept id="ab66e033-8aae-48fc-980f-3fa75edf1754">&lt;/linkText&gt;</ept><bpt id="ab66e033-8aae-48fc-980f-3fa75edf1754">&lt;title&gt;</bpt><ept id="ab66e033-8aae-48fc-980f-3fa75edf1754">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2deec5a2-b593-49c8-ae23-01535ad0a8ce" xml:space="preserve">
+          <source>See the MSDN Reference: <bpt id="2e994c02-a2c8-4508-9271-e67bcdc91482">&lt;linkText&gt;</bpt>Storing and accessing data in Azure<ept id="2e994c02-a2c8-4508-9271-e67bcdc91482">&lt;/linkText&gt;</ept><bpt id="2e994c02-a2c8-4508-9271-e67bcdc91482">&lt;title&gt;</bpt><ept id="2e994c02-a2c8-4508-9271-e67bcdc91482">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the MSDN Reference: <bpt id="2e994c02-a2c8-4508-9271-e67bcdc91482">&lt;linkText&gt;</bpt>Storing and accessing data in Azure<ept id="2e994c02-a2c8-4508-9271-e67bcdc91482">&lt;/linkText&gt;</ept><bpt id="2e994c02-a2c8-4508-9271-e67bcdc91482">&lt;title&gt;</bpt><ept id="2e994c02-a2c8-4508-9271-e67bcdc91482">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a4bfbe1-adca-4cb9-9aa5-bde06708d704" xml:space="preserve">
+          <source>Visit the <bpt id="45bba2eb-e794-4951-be53-250c206390d0">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="45bba2eb-e794-4951-be53-250c206390d0">&lt;/linkText&gt;</ept><bpt id="45bba2eb-e794-4951-be53-250c206390d0">&lt;title&gt;</bpt><ept id="45bba2eb-e794-4951-be53-250c206390d0">&lt;/title&gt;</ept>.</source>
+          <target state="new">Visit the <bpt id="45bba2eb-e794-4951-be53-250c206390d0">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="45bba2eb-e794-4951-be53-250c206390d0">&lt;/linkText&gt;</ept><bpt id="45bba2eb-e794-4951-be53-250c206390d0">&lt;title&gt;</bpt><ept id="45bba2eb-e794-4951-be53-250c206390d0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c379979-a8b9-4df1-ac66-68b14fa5e989" xml:space="preserve">
+          <source>Visit the <bpt id="a9561a81-eb80-4f59-942f-e0e05f6b3295">&lt;linkText&gt;</bpt>Azure Storage SDK for Node<ept id="a9561a81-eb80-4f59-942f-e0e05f6b3295">&lt;/linkText&gt;</ept><bpt id="a9561a81-eb80-4f59-942f-e0e05f6b3295">&lt;title&gt;</bpt><ept id="a9561a81-eb80-4f59-942f-e0e05f6b3295">&lt;/title&gt;</ept> repository on GitHub.</source>
+          <target state="new">Visit the <bpt id="a9561a81-eb80-4f59-942f-e0e05f6b3295">&lt;linkText&gt;</bpt>Azure Storage SDK for Node<ept id="a9561a81-eb80-4f59-942f-e0e05f6b3295">&lt;/linkText&gt;</ept><bpt id="a9561a81-eb80-4f59-942f-e0e05f6b3295">&lt;title&gt;</bpt><ept id="a9561a81-eb80-4f59-942f-e0e05f6b3295">&lt;/title&gt;</ept> repository on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="63af35db-64ee-4745-be86-018cde6d4bcd" xml:space="preserve">
+          <source>https://github.com/Azure/azure-storage-node</source>
+          <target state="new">https://github.com/Azure/azure-storage-node</target>
+        </trans-unit>
+        <trans-unit id="a710bd00-2c25-4b6b-94e8-a9ea23a9f669" xml:space="preserve">
+          <source>/develop/nodejs/tutorials/create-a-website-(mac)/</source>
+          <target state="new">/develop/nodejs/tutorials/create-a-website-(mac)/</target>
+        </trans-unit>
+        <trans-unit id="f1ec111c-3d25-4dd2-8d11-1a7817808b29" xml:space="preserve">
+          <source>../storage-nodejs-use-table-storage-cloud-service-app.md</source>
+          <target state="new">../storage-nodejs-use-table-storage-cloud-service-app.md</target>
+        </trans-unit>
+        <trans-unit id="01eb7959-d9e7-4b34-b45e-c6540517ef5a" xml:space="preserve">
+          <source>../storage-nodejs-use-table-storage-web-site.md</source>
+          <target state="new">../storage-nodejs-use-table-storage-web-site.md</target>
+        </trans-unit>
+        <trans-unit id="6a284791-5b7c-46ff-b2fd-3916f71619e2" xml:space="preserve">
+          <source>../web-sites-nodejs-use-webmatrix.md</source>
+          <target state="new">../web-sites-nodejs-use-webmatrix.md</target>
+        </trans-unit>
+        <trans-unit id="f4f93cd6-bbf9-4bb7-ae5c-38537a7f27b3" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/hh264518.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/hh264518.aspx</target>
+        </trans-unit>
+        <trans-unit id="5c84e5e9-bdfb-43df-bcdb-eeec05b46c3d" xml:space="preserve">
+          <source>http://manage.windowsazure.com</source>
+          <target state="new">http://manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="76f0f69e-f503-4dc3-90cb-f718a378b01e" xml:space="preserve">
+          <source>../cloud-services-nodejs-develop-deploy-app.md</source>
+          <target state="new">../cloud-services-nodejs-develop-deploy-app.md</target>
+        </trans-unit>
+        <trans-unit id="5e1199c3-bc0c-447c-be79-19bb1964a8b3" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/gg433040.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/gg433040.aspx</target>
+        </trans-unit>
+        <trans-unit id="1db60ff0-b1ef-488a-a9a3-0678aa30afea" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/windowsazurestorage/</source>
+          <target state="new">http://blogs.msdn.com/b/windowsazurestorage/</target>
+        </trans-unit>
+        <trans-unit id="01525276-fe1d-41ab-b5cd-587614a5b621" xml:space="preserve">
+          <source>http://dl.windowsazure.com/nodestoragedocs/index.html</source>
+          <target state="new">http://dl.windowsazure.com/nodestoragedocs/index.html</target>
+        </trans-unit>
+      </group>
+      <group id="64f9ca30-5d6f-4eaf-a7a9-acb1e77e0505" />
+    </body>
+  </file>
+</xliff>

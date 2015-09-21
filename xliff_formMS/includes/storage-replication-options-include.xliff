@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6d5291d4-e548-4165-bac8-bb80be098719" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6d5291d4-e548-4165-bac8-bb80be098719" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f349e303-55d8-4f05-b2fe-f28c33d319f7">
+        <trans-unit id="7e15e4f5-def3-45c8-90fc-50bb44a4fec7" xml:space="preserve">
+          <source>The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the <bpt id="836c7a63-4200-42b5-a3b1-d01cf75855fe">&lt;linkText&gt;</bpt>Azure Storage SLA<ept id="836c7a63-4200-42b5-a3b1-d01cf75855fe">&lt;/linkText&gt;</ept><bpt id="836c7a63-4200-42b5-a3b1-d01cf75855fe">&lt;title&gt;</bpt><ept id="836c7a63-4200-42b5-a3b1-d01cf75855fe">&lt;/title&gt;</ept> even in the face of transient hardware failures.</source>
+          <target state="new">The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the <bpt id="836c7a63-4200-42b5-a3b1-d01cf75855fe">&lt;linkText&gt;</bpt>Azure Storage SLA<ept id="836c7a63-4200-42b5-a3b1-d01cf75855fe">&lt;/linkText&gt;</ept><bpt id="836c7a63-4200-42b5-a3b1-d01cf75855fe">&lt;title&gt;</bpt><ept id="836c7a63-4200-42b5-a3b1-d01cf75855fe">&lt;/title&gt;</ept> even in the face of transient hardware failures.</target>
+        </trans-unit>
+        <trans-unit id="18c9a250-52c1-47aa-867b-06c523bae6f1" xml:space="preserve">
+          <source>When you create a storage account, you must select one of the following replication options:</source>
+          <target state="new">When you create a storage account, you must select one of the following replication options:</target>
+        </trans-unit>
+        <trans-unit id="dc6eb073-83ac-45c1-a246-0efb6272e441" xml:space="preserve">
+          <source><bpt id="968ca2ae-5be9-4d60-8ec5-56fdc4a846ae">&lt;strong&gt;</bpt>Locally redundant storage (LRS).<ept id="968ca2ae-5be9-4d60-8ec5-56fdc4a846ae">&lt;/strong&gt;</ept> Locally redundant storage maintains three copies of your data.</source>
+          <target state="new"><bpt id="968ca2ae-5be9-4d60-8ec5-56fdc4a846ae">&lt;strong&gt;</bpt>Locally redundant storage (LRS).<ept id="968ca2ae-5be9-4d60-8ec5-56fdc4a846ae">&lt;/strong&gt;</ept> Locally redundant storage maintains three copies of your data.</target>
+        </trans-unit>
+        <trans-unit id="549d1e19-d941-4bfe-a21a-7ac2b43d8094" xml:space="preserve">
+          <source>LRS is replicated three times within a single facility in a single region.</source>
+          <target state="new">LRS is replicated three times within a single facility in a single region.</target>
+        </trans-unit>
+        <trans-unit id="fd627270-8cb3-4a97-ad11-69e4007e6eba" xml:space="preserve">
+          <source>LRS protects your data from normal hardware failures, but not from the failure of a single facility.</source>
+          <target state="new">LRS protects your data from normal hardware failures, but not from the failure of a single facility.</target>
+        </trans-unit>
+        <trans-unit id="31fffe02-bff4-49da-9d08-24d71006b7db" xml:space="preserve">
+          <source>LRS is offered at a discount.</source>
+          <target state="new">LRS is offered at a discount.</target>
+        </trans-unit>
+        <trans-unit id="5a42b8e7-3e71-42ec-b66c-b439d16d8206" xml:space="preserve">
+          <source>For maximum durability, we recommend that you use geo-redundant storage, described below.</source>
+          <target state="new">For maximum durability, we recommend that you use geo-redundant storage, described below.</target>
+        </trans-unit>
+        <trans-unit id="972ede24-2d26-4962-9fee-cbbc0750bda1" xml:space="preserve">
+          <source><bpt id="9489a332-8aac-41da-b3ff-e27608b47389">&lt;strong&gt;</bpt>Zone-redundant storage (ZRS).<ept id="9489a332-8aac-41da-b3ff-e27608b47389">&lt;/strong&gt;</ept> Zone-redundant storage maintains three copies of your data.</source>
+          <target state="new"><bpt id="9489a332-8aac-41da-b3ff-e27608b47389">&lt;strong&gt;</bpt>Zone-redundant storage (ZRS).<ept id="9489a332-8aac-41da-b3ff-e27608b47389">&lt;/strong&gt;</ept> Zone-redundant storage maintains three copies of your data.</target>
+        </trans-unit>
+        <trans-unit id="40b56c1c-a698-47a5-9aba-e9bcfd5d46bd" xml:space="preserve">
+          <source>ZRS is replicated three times across two to three facilities, either within a single region or across two regions, providing higher durability than LRS.</source>
+          <target state="new">ZRS is replicated three times across two to three facilities, either within a single region or across two regions, providing higher durability than LRS.</target>
+        </trans-unit>
+        <trans-unit id="16d29dfd-d8e5-44d9-8261-3823021b7e5e" xml:space="preserve">
+          <source>ZRS ensures that your data is durable within a single region.</source>
+          <target state="new">ZRS ensures that your data is durable within a single region.</target>
+        </trans-unit>
+        <trans-unit id="e93cbd78-6680-4ec3-99ee-678f4aba2025" xml:space="preserve">
+          <source>ZRS provides a higher level of durability than LRS; however, for maximum durability, we recommend that you use geo-redundant storage, described below.</source>
+          <target state="new">ZRS provides a higher level of durability than LRS; however, for maximum durability, we recommend that you use geo-redundant storage, described below.</target>
+        </trans-unit>
+        <trans-unit id="5ec1df38-9967-4391-9ecd-9f34a06c2a00" xml:space="preserve">
+          <source>ZRS is currently available only for block blobs.</source>
+          <target state="new">ZRS is currently available only for block blobs.</target>
+        </trans-unit>
+        <trans-unit id="c761e9c3-be54-42d4-a554-06655728d106" xml:space="preserve">
+          <source>Once you have created your storage account and selected ZRS, you cannot convert it to use to any other type of replication, or vice versa.</source>
+          <target state="new">Once you have created your storage account and selected ZRS, you cannot convert it to use to any other type of replication, or vice versa.</target>
+        </trans-unit>
+        <trans-unit id="9fb05f2f-43c1-4703-be67-2fbce6ee5a9d" xml:space="preserve">
+          <source><bpt id="005aafce-88a4-4892-9c12-3428ccc8c2c7">&lt;strong&gt;</bpt>Geo-redundant storage (GRS)<ept id="005aafce-88a4-4892-9c12-3428ccc8c2c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="005aafce-88a4-4892-9c12-3428ccc8c2c7">&lt;strong&gt;</bpt>Geo-redundant storage (GRS)<ept id="005aafce-88a4-4892-9c12-3428ccc8c2c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ee9921d-c418-4441-b218-18214c58cb26" xml:space="preserve">
+          <source>Geo-redundant storage is enabled for your storage account by default when you create it.</source>
+          <target state="new">Geo-redundant storage is enabled for your storage account by default when you create it.</target>
+        </trans-unit>
+        <trans-unit id="7c34bd16-034b-414e-b867-c8edd44620a3" xml:space="preserve">
+          <source>GRS maintains six copies of your data.</source>
+          <target state="new">GRS maintains six copies of your data.</target>
+        </trans-unit>
+        <trans-unit id="f9e2519c-802b-4440-8c56-f25450d0bfa3" xml:space="preserve">
+          <source>With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability.</source>
+          <target state="new">With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability.</target>
+        </trans-unit>
+        <trans-unit id="b159ec55-6555-4d55-a95e-63866bb0dfcc" xml:space="preserve">
+          <source>In the event of a failure at the primary region, Azure Storage will failover to the secondary region.</source>
+          <target state="new">In the event of a failure at the primary region, Azure Storage will failover to the secondary region.</target>
+        </trans-unit>
+        <trans-unit id="4e6d1525-c00d-4375-926a-aa28799cc352" xml:space="preserve">
+          <source>GRS ensures that your data is durable in two separate regions.</source>
+          <target state="new">GRS ensures that your data is durable in two separate regions.</target>
+        </trans-unit>
+        <trans-unit id="3732e78d-ada0-41c7-987e-a9b17bfcc876" xml:space="preserve">
+          <source><bpt id="b3f06445-637d-493f-81e6-61606a637b4f">&lt;strong&gt;</bpt>Read access geo-redundant storage (RA-GRS)<ept id="b3f06445-637d-493f-81e6-61606a637b4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="b3f06445-637d-493f-81e6-61606a637b4f">&lt;strong&gt;</bpt>Read access geo-redundant storage (RA-GRS)<ept id="b3f06445-637d-493f-81e6-61606a637b4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e6dd981-2c21-49b8-9b5b-e94f930f3987" xml:space="preserve">
+          <source>Read access geo-redundant storage replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location.</source>
+          <target state="new">Read access geo-redundant storage replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location.</target>
+        </trans-unit>
+        <trans-unit id="18f9eb6b-6a85-4bc8-be20-e735b5305954" xml:space="preserve">
+          <source>Read-access geo-redundant storage allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.</source>
+          <target state="new">Read-access geo-redundant storage allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.</target>
+        </trans-unit>
+        <trans-unit id="505e242e-d036-43f8-ac4c-5617c7b80d2f" xml:space="preserve">
+          <source>You can change how your data is replicated after your storage account has been created, unless you specified ZRS when you created the account.</source>
+          <target state="new">You can change how your data is replicated after your storage account has been created, unless you specified ZRS when you created the account.</target>
+        </trans-unit>
+        <trans-unit id="b1c12903-ee26-4934-9f22-6d8c9f29aec3" xml:space="preserve">
+          <source>However, note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS.</source>
+          <target state="new">However, note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS.</target>
+        </trans-unit>
+        <trans-unit id="bbd67e5e-83ab-4ee3-b058-3948040868e4" xml:space="preserve">
+          <source>See <bpt id="e1c07e16-0187-4f2e-b418-cc325914332b">&lt;linkText&gt;</bpt>Azure Storage Replication<ept id="e1c07e16-0187-4f2e-b418-cc325914332b">&lt;/linkText&gt;</ept><bpt id="e1c07e16-0187-4f2e-b418-cc325914332b">&lt;title&gt;</bpt><ept id="e1c07e16-0187-4f2e-b418-cc325914332b">&lt;/title&gt;</ept> for additional details about storage replication options.</source>
+          <target state="new">See <bpt id="e1c07e16-0187-4f2e-b418-cc325914332b">&lt;linkText&gt;</bpt>Azure Storage Replication<ept id="e1c07e16-0187-4f2e-b418-cc325914332b">&lt;/linkText&gt;</ept><bpt id="e1c07e16-0187-4f2e-b418-cc325914332b">&lt;title&gt;</bpt><ept id="e1c07e16-0187-4f2e-b418-cc325914332b">&lt;/title&gt;</ept> for additional details about storage replication options.</target>
+        </trans-unit>
+        <trans-unit id="599c7697-d6c7-45d7-b9d6-f826a7079ee3" xml:space="preserve">
+          <source>For pricing information for storage account replication, see <bpt id="e6e11ae6-b1e1-42b8-8d42-a9f3b30b5423">&lt;linkText&gt;</bpt>Storage Pricing Details<ept id="e6e11ae6-b1e1-42b8-8d42-a9f3b30b5423">&lt;/linkText&gt;</ept><bpt id="e6e11ae6-b1e1-42b8-8d42-a9f3b30b5423">&lt;title&gt;</bpt><ept id="e6e11ae6-b1e1-42b8-8d42-a9f3b30b5423">&lt;/title&gt;</ept>.</source>
+          <target state="new">For pricing information for storage account replication, see <bpt id="e6e11ae6-b1e1-42b8-8d42-a9f3b30b5423">&lt;linkText&gt;</bpt>Storage Pricing Details<ept id="e6e11ae6-b1e1-42b8-8d42-a9f3b30b5423">&lt;/linkText&gt;</ept><bpt id="e6e11ae6-b1e1-42b8-8d42-a9f3b30b5423">&lt;title&gt;</bpt><ept id="e6e11ae6-b1e1-42b8-8d42-a9f3b30b5423">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c3fdb65-370c-4155-95a3-3b6d188260b5" xml:space="preserve">
+          <source>For architectural details about durability with Azure Storage, see the <bpt id="14042c8f-d3a1-4d22-be0e-22d6c6321ae9">&lt;linkText&gt;</bpt>Azure Storage SOSP Paper<ept id="14042c8f-d3a1-4d22-be0e-22d6c6321ae9">&lt;/linkText&gt;</ept><bpt id="14042c8f-d3a1-4d22-be0e-22d6c6321ae9">&lt;title&gt;</bpt><ept id="14042c8f-d3a1-4d22-be0e-22d6c6321ae9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For architectural details about durability with Azure Storage, see the <bpt id="14042c8f-d3a1-4d22-be0e-22d6c6321ae9">&lt;linkText&gt;</bpt>Azure Storage SOSP Paper<ept id="14042c8f-d3a1-4d22-be0e-22d6c6321ae9">&lt;/linkText&gt;</ept><bpt id="14042c8f-d3a1-4d22-be0e-22d6c6321ae9">&lt;title&gt;</bpt><ept id="14042c8f-d3a1-4d22-be0e-22d6c6321ae9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

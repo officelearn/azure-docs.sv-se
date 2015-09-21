@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5b08b985-49dc-4e31-8acc-9e52d19444d9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5b08b985-49dc-4e31-8acc-9e52d19444d9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5035dfe1-df03-4330-b8bc-9d78779cc5ad">
+        <trans-unit id="46674685-ce0c-47b5-a777-ccc08006f8d4" xml:space="preserve">
+          <source>Delete a StorSimple backup policy</source>
+          <target state="new">Delete a StorSimple backup policy</target>
+        </trans-unit>
+        <trans-unit id="d81f2b11-e69f-4829-8ea9-2a044b94cef7" xml:space="preserve">
+          <source>Explains how you can use the StorSimple Manager service to delete a backup policy.</source>
+          <target state="new">Explains how you can use the StorSimple Manager service to delete a backup policy.</target>
+        </trans-unit>
+        <trans-unit id="7815ad54-9468-4b1c-9043-caf71f555ce9" xml:space="preserve">
+          <source>On the device <bpt id="c86040ad-45da-4f13-a84e-41305186a9e3">&lt;strong&gt;</bpt>Quick Start<ept id="c86040ad-45da-4f13-a84e-41305186a9e3">&lt;/strong&gt;</ept> page, click the <bpt id="46cb2ad8-17f4-4ed9-9dbd-1ed9f74bf818">&lt;strong&gt;</bpt>Backup Policies<ept id="46cb2ad8-17f4-4ed9-9dbd-1ed9f74bf818">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the device <bpt id="c86040ad-45da-4f13-a84e-41305186a9e3">&lt;strong&gt;</bpt>Quick Start<ept id="c86040ad-45da-4f13-a84e-41305186a9e3">&lt;/strong&gt;</ept> page, click the <bpt id="46cb2ad8-17f4-4ed9-9dbd-1ed9f74bf818">&lt;strong&gt;</bpt>Backup Policies<ept id="46cb2ad8-17f4-4ed9-9dbd-1ed9f74bf818">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="4528aff5-9a59-465e-944a-ffd374cd1f9a" xml:space="preserve">
+          <source>This will take you to the <bpt id="deaf8840-72ca-4137-b33b-96bd774faf3c">&lt;strong&gt;</bpt>Backup Policies<ept id="deaf8840-72ca-4137-b33b-96bd774faf3c">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">This will take you to the <bpt id="deaf8840-72ca-4137-b33b-96bd774faf3c">&lt;strong&gt;</bpt>Backup Policies<ept id="deaf8840-72ca-4137-b33b-96bd774faf3c">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="2f0d38c2-0811-4f63-9fd3-2e7f68bee993" xml:space="preserve">
+          <source>Select the policy you want to delete, and then click <bpt id="bdda9887-6506-4d51-aba8-3adb0b1de2d6">&lt;strong&gt;</bpt>Delete<ept id="bdda9887-6506-4d51-aba8-3adb0b1de2d6">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Select the policy you want to delete, and then click <bpt id="bdda9887-6506-4d51-aba8-3adb0b1de2d6">&lt;strong&gt;</bpt>Delete<ept id="bdda9887-6506-4d51-aba8-3adb0b1de2d6">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="b6f7fc31-058b-4667-8108-a058e4e78170" xml:space="preserve">
+          <source>You will be prompted for confirmation.</source>
+          <target state="new">You will be prompted for confirmation.</target>
+        </trans-unit>
+        <trans-unit id="3f5f6e43-7737-403c-9ec0-3b74acfff4f0" xml:space="preserve">
+          <source>Keep in mind that deleting a backup policy will delete all the associated backups.</source>
+          <target state="new">Keep in mind that deleting a backup policy will delete all the associated backups.</target>
+        </trans-unit>
+        <trans-unit id="c86f695d-4c45-4bca-b8e0-4c24061eee16" xml:space="preserve">
+          <source>Click <bpt id="25aae5a7-42ac-46b8-b21d-17b19108555c">&lt;strong&gt;</bpt>OK<ept id="25aae5a7-42ac-46b8-b21d-17b19108555c">&lt;/strong&gt;</ept> to delete.</source>
+          <target state="new">Click <bpt id="25aae5a7-42ac-46b8-b21d-17b19108555c">&lt;strong&gt;</bpt>OK<ept id="25aae5a7-42ac-46b8-b21d-17b19108555c">&lt;/strong&gt;</ept> to delete.</target>
+        </trans-unit>
+        <trans-unit id="0de2dc97-0812-4072-ae8e-4f2dc48753a8" xml:space="preserve">
+          <source>The <bpt id="eba79e2a-a69c-4e26-986a-364e75c753c1">&lt;strong&gt;</bpt>Backup Policies<ept id="eba79e2a-a69c-4e26-986a-364e75c753c1">&lt;/strong&gt;</ept> page will be updated to display the new list of policies.</source>
+          <target state="new">The <bpt id="eba79e2a-a69c-4e26-986a-364e75c753c1">&lt;strong&gt;</bpt>Backup Policies<ept id="eba79e2a-a69c-4e26-986a-364e75c753c1">&lt;/strong&gt;</ept> page will be updated to display the new list of policies.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

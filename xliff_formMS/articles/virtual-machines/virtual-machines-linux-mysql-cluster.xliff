@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="359a1d6a-4073-43e2-918d-c0fefe2546cd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="359a1d6a-4073-43e2-918d-c0fefe2546cd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a4881456-9671-4372-a51e-e305ddf5fd7f">
+        <trans-unit id="9b9dc426-15a5-4acc-aa21-ad24c13b7669" xml:space="preserve">
+          <source>Using load-balanced sets to clusterize MySQL on Linux</source>
+          <target state="new">Using load-balanced sets to clusterize MySQL on Linux</target>
+        </trans-unit>
+        <trans-unit id="8491a1df-9beb-4aef-aeed-100255e875bd" xml:space="preserve">
+          <source>An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example</source>
+          <target state="new">An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example</target>
+        </trans-unit>
+        <trans-unit id="5242e48f-d481-452d-99f9-f3f6b1efae8b" xml:space="preserve">
+          <source><bpt id="b05fd7b2-5db8-4ad9-b814-ec62b1f1b830">&lt;linkText&gt;</bpt>Getting ready<ept id="b05fd7b2-5db8-4ad9-b814-ec62b1f1b830">&lt;/linkText&gt;</ept><bpt id="b05fd7b2-5db8-4ad9-b814-ec62b1f1b830">&lt;title&gt;</bpt><ept id="b05fd7b2-5db8-4ad9-b814-ec62b1f1b830">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b05fd7b2-5db8-4ad9-b814-ec62b1f1b830">&lt;linkText&gt;</bpt>Getting ready<ept id="b05fd7b2-5db8-4ad9-b814-ec62b1f1b830">&lt;/linkText&gt;</ept><bpt id="b05fd7b2-5db8-4ad9-b814-ec62b1f1b830">&lt;title&gt;</bpt><ept id="b05fd7b2-5db8-4ad9-b814-ec62b1f1b830">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81387d6b-e86a-4f0f-8e56-23ae33111454" xml:space="preserve">
+          <source><bpt id="762484f9-da8d-427a-b52f-4a24e99ebe8d">&lt;linkText&gt;</bpt>Setting up the cluster<ept id="762484f9-da8d-427a-b52f-4a24e99ebe8d">&lt;/linkText&gt;</ept><bpt id="762484f9-da8d-427a-b52f-4a24e99ebe8d">&lt;title&gt;</bpt><ept id="762484f9-da8d-427a-b52f-4a24e99ebe8d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="762484f9-da8d-427a-b52f-4a24e99ebe8d">&lt;linkText&gt;</bpt>Setting up the cluster<ept id="762484f9-da8d-427a-b52f-4a24e99ebe8d">&lt;/linkText&gt;</ept><bpt id="762484f9-da8d-427a-b52f-4a24e99ebe8d">&lt;title&gt;</bpt><ept id="762484f9-da8d-427a-b52f-4a24e99ebe8d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00b42aa5-b1d6-4b1d-9147-9e2375a664b1" xml:space="preserve">
+          <source><bpt id="86b1f051-35a8-4228-a463-ce9088b69d16">&lt;linkText&gt;</bpt>Setting up MySQL<ept id="86b1f051-35a8-4228-a463-ce9088b69d16">&lt;/linkText&gt;</ept><bpt id="86b1f051-35a8-4228-a463-ce9088b69d16">&lt;title&gt;</bpt><ept id="86b1f051-35a8-4228-a463-ce9088b69d16">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="86b1f051-35a8-4228-a463-ce9088b69d16">&lt;linkText&gt;</bpt>Setting up MySQL<ept id="86b1f051-35a8-4228-a463-ce9088b69d16">&lt;/linkText&gt;</ept><bpt id="86b1f051-35a8-4228-a463-ce9088b69d16">&lt;title&gt;</bpt><ept id="86b1f051-35a8-4228-a463-ce9088b69d16">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b0a6f47-5b4e-416e-8b7a-030c15ee5a19" xml:space="preserve">
+          <source><bpt id="4e289c7d-9482-481f-98eb-946dce7546ab">&lt;linkText&gt;</bpt>Setting up Corosync<ept id="4e289c7d-9482-481f-98eb-946dce7546ab">&lt;/linkText&gt;</ept><bpt id="4e289c7d-9482-481f-98eb-946dce7546ab">&lt;title&gt;</bpt><ept id="4e289c7d-9482-481f-98eb-946dce7546ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4e289c7d-9482-481f-98eb-946dce7546ab">&lt;linkText&gt;</bpt>Setting up Corosync<ept id="4e289c7d-9482-481f-98eb-946dce7546ab">&lt;/linkText&gt;</ept><bpt id="4e289c7d-9482-481f-98eb-946dce7546ab">&lt;title&gt;</bpt><ept id="4e289c7d-9482-481f-98eb-946dce7546ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b57b477f-5b7f-46fe-830d-e632380a076b" xml:space="preserve">
+          <source><bpt id="5abfc898-3cca-43af-9fac-ffd2f87725ac">&lt;linkText&gt;</bpt>Setting up Pacemaker<ept id="5abfc898-3cca-43af-9fac-ffd2f87725ac">&lt;/linkText&gt;</ept><bpt id="5abfc898-3cca-43af-9fac-ffd2f87725ac">&lt;title&gt;</bpt><ept id="5abfc898-3cca-43af-9fac-ffd2f87725ac">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5abfc898-3cca-43af-9fac-ffd2f87725ac">&lt;linkText&gt;</bpt>Setting up Pacemaker<ept id="5abfc898-3cca-43af-9fac-ffd2f87725ac">&lt;/linkText&gt;</ept><bpt id="5abfc898-3cca-43af-9fac-ffd2f87725ac">&lt;title&gt;</bpt><ept id="5abfc898-3cca-43af-9fac-ffd2f87725ac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7198fcd2-e73c-413f-96bb-af81f85b75fc" xml:space="preserve">
+          <source><bpt id="1fc219c5-ea34-4f6c-9ece-dbf6bc49e39d">&lt;linkText&gt;</bpt>Testing<ept id="1fc219c5-ea34-4f6c-9ece-dbf6bc49e39d">&lt;/linkText&gt;</ept><bpt id="1fc219c5-ea34-4f6c-9ece-dbf6bc49e39d">&lt;title&gt;</bpt><ept id="1fc219c5-ea34-4f6c-9ece-dbf6bc49e39d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1fc219c5-ea34-4f6c-9ece-dbf6bc49e39d">&lt;linkText&gt;</bpt>Testing<ept id="1fc219c5-ea34-4f6c-9ece-dbf6bc49e39d">&lt;/linkText&gt;</ept><bpt id="1fc219c5-ea34-4f6c-9ece-dbf6bc49e39d">&lt;title&gt;</bpt><ept id="1fc219c5-ea34-4f6c-9ece-dbf6bc49e39d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66d1b6ef-f935-40c5-a5a5-d9311669b3c1" xml:space="preserve">
+          <source><bpt id="d597f432-2afe-4bf5-b910-b9157db899e4">&lt;linkText&gt;</bpt>STONITH<ept id="d597f432-2afe-4bf5-b910-b9157db899e4">&lt;/linkText&gt;</ept><bpt id="d597f432-2afe-4bf5-b910-b9157db899e4">&lt;title&gt;</bpt><ept id="d597f432-2afe-4bf5-b910-b9157db899e4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d597f432-2afe-4bf5-b910-b9157db899e4">&lt;linkText&gt;</bpt>STONITH<ept id="d597f432-2afe-4bf5-b910-b9157db899e4">&lt;/linkText&gt;</ept><bpt id="d597f432-2afe-4bf5-b910-b9157db899e4">&lt;title&gt;</bpt><ept id="d597f432-2afe-4bf5-b910-b9157db899e4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c35f4cf1-a3ce-4502-9ed6-7e00e0125a2d" xml:space="preserve">
+          <source><bpt id="3ca6cb3c-45dd-4669-bda6-b93ee0d6f8f2">&lt;linkText&gt;</bpt>Limitations<ept id="3ca6cb3c-45dd-4669-bda6-b93ee0d6f8f2">&lt;/linkText&gt;</ept><bpt id="3ca6cb3c-45dd-4669-bda6-b93ee0d6f8f2">&lt;title&gt;</bpt><ept id="3ca6cb3c-45dd-4669-bda6-b93ee0d6f8f2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3ca6cb3c-45dd-4669-bda6-b93ee0d6f8f2">&lt;linkText&gt;</bpt>Limitations<ept id="3ca6cb3c-45dd-4669-bda6-b93ee0d6f8f2">&lt;/linkText&gt;</ept><bpt id="3ca6cb3c-45dd-4669-bda6-b93ee0d6f8f2">&lt;title&gt;</bpt><ept id="3ca6cb3c-45dd-4669-bda6-b93ee0d6f8f2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48939f58-d9dd-408b-b121-7cbb2806b2cb" xml:space="preserve">
+          <source>The purpose of this article is to explore and illustrate the different approaches available to deploy highly available Linux-based services on Microsoft Azure, exploring MySQL Server high availability as a primer.</source>
+          <target state="new">The purpose of this article is to explore and illustrate the different approaches available to deploy highly available Linux-based services on Microsoft Azure, exploring MySQL Server high availability as a primer.</target>
+        </trans-unit>
+        <trans-unit id="bc9ac547-2af0-4c7e-818a-720fa7d54173" xml:space="preserve">
+          <source>A video illustrating this approach is available on <bpt id="24a6de96-1a35-47d0-83ee-27c68e19479c">&lt;linkText&gt;</bpt>Channel 9<ept id="24a6de96-1a35-47d0-83ee-27c68e19479c">&lt;/linkText&gt;</ept><bpt id="24a6de96-1a35-47d0-83ee-27c68e19479c">&lt;title&gt;</bpt><ept id="24a6de96-1a35-47d0-83ee-27c68e19479c">&lt;/title&gt;</ept>.</source>
+          <target state="new">A video illustrating this approach is available on <bpt id="24a6de96-1a35-47d0-83ee-27c68e19479c">&lt;linkText&gt;</bpt>Channel 9<ept id="24a6de96-1a35-47d0-83ee-27c68e19479c">&lt;/linkText&gt;</ept><bpt id="24a6de96-1a35-47d0-83ee-27c68e19479c">&lt;title&gt;</bpt><ept id="24a6de96-1a35-47d0-83ee-27c68e19479c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="203a32e2-6b0f-4eae-bf27-09b58a39702f" xml:space="preserve">
+          <source>We outline a shared-nothing two-node single-master MySQL high availability solution based on DRBD, Corosync and Pacemaker.</source>
+          <target state="new">We outline a shared-nothing two-node single-master MySQL high availability solution based on DRBD, Corosync and Pacemaker.</target>
+        </trans-unit>
+        <trans-unit id="6b9f06af-1f52-404d-98bd-9aceceab53f1" xml:space="preserve">
+          <source>Only one node is running MySQL at a time.</source>
+          <target state="new">Only one node is running MySQL at a time.</target>
+        </trans-unit>
+        <trans-unit id="8df00b69-8cd0-48c5-989b-295b02092126" xml:space="preserve">
+          <source>Reading and writing from the DRBD resource is also limited to only one node at a time.</source>
+          <target state="new">Reading and writing from the DRBD resource is also limited to only one node at a time.</target>
+        </trans-unit>
+        <trans-unit id="3cbdc62d-1da9-4f01-8c7a-d5bba3b08eca" xml:space="preserve">
+          <source>There is no need for a VIP solution like LVS since we use Microsoft Azure's Load Balanced Sets to provide both the round-robin functionality and the endpoint detection, removal and graceful recovery of the VIP.</source>
+          <target state="new">There is no need for a VIP solution like LVS since we use Microsoft Azure's Load Balanced Sets to provide both the round-robin functionality and the endpoint detection, removal and graceful recovery of the VIP.</target>
+        </trans-unit>
+        <trans-unit id="18549855-92f4-4e67-8e21-4c3778ba88e0" xml:space="preserve">
+          <source>The VIP is a globally routable IPv4 address assigned by Microsoft Azure when we first create the cloud service.</source>
+          <target state="new">The VIP is a globally routable IPv4 address assigned by Microsoft Azure when we first create the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="915d10bd-73a6-4529-9744-9530d85436e0" xml:space="preserve">
+          <source>There are other possible architectures for MySQL including NBD Cluster, Percona and Galera as well as several middleware solutions, including at least one available as a VM on <bpt id="cf356bce-5617-495c-8add-f3ff1aa7035a">&lt;linkText&gt;</bpt>VM Depot<ept id="cf356bce-5617-495c-8add-f3ff1aa7035a">&lt;/linkText&gt;</ept><bpt id="cf356bce-5617-495c-8add-f3ff1aa7035a">&lt;title&gt;</bpt><ept id="cf356bce-5617-495c-8add-f3ff1aa7035a">&lt;/title&gt;</ept>.</source>
+          <target state="new">There are other possible architectures for MySQL including NBD Cluster, Percona and Galera as well as several middleware solutions, including at least one available as a VM on <bpt id="cf356bce-5617-495c-8add-f3ff1aa7035a">&lt;linkText&gt;</bpt>VM Depot<ept id="cf356bce-5617-495c-8add-f3ff1aa7035a">&lt;/linkText&gt;</ept><bpt id="cf356bce-5617-495c-8add-f3ff1aa7035a">&lt;title&gt;</bpt><ept id="cf356bce-5617-495c-8add-f3ff1aa7035a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0163213b-d8a3-434a-a415-a670558b6945" xml:space="preserve">
+          <source>As long as these solutions can replicate on unicast vs. multicast or broadcast and don't rely on shared storage or multiple network interfaces, the scenarios should be easy to deploy on Microsoft Azure.</source>
+          <target state="new">As long as these solutions can replicate on unicast vs. multicast or broadcast and don't rely on shared storage or multiple network interfaces, the scenarios should be easy to deploy on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="916ad2ee-8132-44e6-8299-421e29e414b2" xml:space="preserve">
+          <source>Of course these clustering architectures can be extended to other products like PostgreSQL and OpenLDAP on a similar fashion.</source>
+          <target state="new">Of course these clustering architectures can be extended to other products like PostgreSQL and OpenLDAP on a similar fashion.</target>
+        </trans-unit>
+        <trans-unit id="53cadbea-ad39-43c5-80b1-8f94b6244e82" xml:space="preserve">
+          <source>For example, this load balancing procedure with shared nothing was successfully tested with multi-master OpenLDAP, and you can watch it on our Channel 9 blog.</source>
+          <target state="new">For example, this load balancing procedure with shared nothing was successfully tested with multi-master OpenLDAP, and you can watch it on our Channel 9 blog.</target>
+        </trans-unit>
+        <trans-unit id="73148cee-cddc-4c6d-b71b-a10f549b31c8" xml:space="preserve">
+          <source>You will need a Microsoft Azure account with a valid subscription able to create at least two (2) VMs (XS was used in this example), a network and a subnet, an affinity group and an availability set, as well as the ability to create new VHDs in the same region as the cloud service, and to attach them to the Linux VMs.</source>
+          <target state="new">You will need a Microsoft Azure account with a valid subscription able to create at least two (2) VMs (XS was used in this example), a network and a subnet, an affinity group and an availability set, as well as the ability to create new VHDs in the same region as the cloud service, and to attach them to the Linux VMs.</target>
+        </trans-unit>
+        <trans-unit id="111ceaf2-4c48-4d64-acff-4bbb74f8df40" xml:space="preserve">
+          <source>Ubuntu 13.10</source>
+          <target state="new">Ubuntu 13.10</target>
+        </trans-unit>
+        <trans-unit id="9b5d909b-e4f7-41d3-8de1-ab5e4ba07580" xml:space="preserve">
+          <source>DRBD</source>
+          <target state="new">DRBD</target>
+        </trans-unit>
+        <trans-unit id="849536fb-3dc9-477a-bca0-153d74fb4947" xml:space="preserve">
+          <source>MySQL Server</source>
+          <target state="new">MySQL Server</target>
+        </trans-unit>
+        <trans-unit id="a7504f2b-16a5-4c64-a5a2-4f6b5e43d981" xml:space="preserve">
+          <source>Corosync and Pacemaker</source>
+          <target state="new">Corosync and Pacemaker</target>
+        </trans-unit>
+        <trans-unit id="40becb04-a345-42de-ae1b-6217e8c8619d" xml:space="preserve">
+          <source>An affinity group for the solution is created by logging into the Azure Portal scrolling down to Settings and creating a new affinity group.</source>
+          <target state="new">An affinity group for the solution is created by logging into the Azure Portal scrolling down to Settings and creating a new affinity group.</target>
+        </trans-unit>
+        <trans-unit id="7f6e4aa5-ccfd-42f8-a3c1-1c1b15cd6722" xml:space="preserve">
+          <source>Allocated resources created later will be assigned to this affinity group.</source>
+          <target state="new">Allocated resources created later will be assigned to this affinity group.</target>
+        </trans-unit>
+        <trans-unit id="49b8f2b2-ad16-4fc7-abf3-134c6722b106" xml:space="preserve">
+          <source>A new network is created, and a subnet is created inside the network.</source>
+          <target state="new">A new network is created, and a subnet is created inside the network.</target>
+        </trans-unit>
+        <trans-unit id="cd45501b-c9dd-4d14-be7c-db5204119142" xml:space="preserve">
+          <source>We chose a 10.10.10.0/24 network with only one /24 subnet inside.</source>
+          <target state="new">We chose a 10.10.10.0/24 network with only one /24 subnet inside.</target>
+        </trans-unit>
+        <trans-unit id="cf31c900-6132-4da6-9f50-722fb70d08df" xml:space="preserve">
+          <source>The first Ubuntu 13.10 VM is created using an Endorsed Ubuntu Gallery image, and called <bpt id="32429c76-2cec-4e5e-a10d-f54c0b008fb3">&lt;code&gt;</bpt>hadb01<ept id="32429c76-2cec-4e5e-a10d-f54c0b008fb3">&lt;/code&gt;</ept>.</source>
+          <target state="new">The first Ubuntu 13.10 VM is created using an Endorsed Ubuntu Gallery image, and called <bpt id="32429c76-2cec-4e5e-a10d-f54c0b008fb3">&lt;code&gt;</bpt>hadb01<ept id="32429c76-2cec-4e5e-a10d-f54c0b008fb3">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e7e6c1d-7072-497b-b81f-31ecf1191e94" xml:space="preserve">
+          <source>A new cloud service is created in the process, called hadb.</source>
+          <target state="new">A new cloud service is created in the process, called hadb.</target>
+        </trans-unit>
+        <trans-unit id="e85ff702-0748-4a33-a1c0-1a54e4a55dc6" xml:space="preserve">
+          <source>We call it this way to illustrate the shared, load-balanced nature that the service will have when we add more resources.</source>
+          <target state="new">We call it this way to illustrate the shared, load-balanced nature that the service will have when we add more resources.</target>
+        </trans-unit>
+        <trans-unit id="f88a639f-164a-4f5a-a3b0-f7f177a5e0c6" xml:space="preserve">
+          <source>The creation of <bpt id="1ad19c21-f501-4ae6-88c1-13afa6ff82da">&lt;code&gt;</bpt>hadb01<ept id="1ad19c21-f501-4ae6-88c1-13afa6ff82da">&lt;/code&gt;</ept> is uneventful and completed using the portal.</source>
+          <target state="new">The creation of <bpt id="1ad19c21-f501-4ae6-88c1-13afa6ff82da">&lt;code&gt;</bpt>hadb01<ept id="1ad19c21-f501-4ae6-88c1-13afa6ff82da">&lt;/code&gt;</ept> is uneventful and completed using the portal.</target>
+        </trans-unit>
+        <trans-unit id="3690c81c-cfa9-4513-acf9-cb1192a7f261" xml:space="preserve">
+          <source>An endpoint for SSH is automatically created, and our created network is selected.</source>
+          <target state="new">An endpoint for SSH is automatically created, and our created network is selected.</target>
+        </trans-unit>
+        <trans-unit id="3713ef72-cf92-47ba-8ad6-4359bf1dab3f" xml:space="preserve">
+          <source>We also choose to create a new availability set for the VMs.</source>
+          <target state="new">We also choose to create a new availability set for the VMs.</target>
+        </trans-unit>
+        <trans-unit id="8a2859cf-9c6d-4ae8-981f-57e8be5de27d" xml:space="preserve">
+          <source>Once the first VM is created (technically, when the cloud service is created) we proceed to create the second VM, <bpt id="a2a8572b-903c-4e2e-a2be-f4ca01442285">&lt;code&gt;</bpt>hadb02<ept id="a2a8572b-903c-4e2e-a2be-f4ca01442285">&lt;/code&gt;</ept>.</source>
+          <target state="new">Once the first VM is created (technically, when the cloud service is created) we proceed to create the second VM, <bpt id="a2a8572b-903c-4e2e-a2be-f4ca01442285">&lt;code&gt;</bpt>hadb02<ept id="a2a8572b-903c-4e2e-a2be-f4ca01442285">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78842211-a9b5-4374-b376-8f9b220fb864" xml:space="preserve">
+          <source>For the second VM we will also use Ubuntu 13.10 VM from the Gallery using the Portal but we will choose to use an existing cloud service, <bpt id="4b6474b6-f579-4f69-87a3-3ff77febb563">&lt;code&gt;</bpt>hadb.cloudapp.net<ept id="4b6474b6-f579-4f69-87a3-3ff77febb563">&lt;/code&gt;</ept>, instead of creating a new one.</source>
+          <target state="new">For the second VM we will also use Ubuntu 13.10 VM from the Gallery using the Portal but we will choose to use an existing cloud service, <bpt id="4b6474b6-f579-4f69-87a3-3ff77febb563">&lt;code&gt;</bpt>hadb.cloudapp.net<ept id="4b6474b6-f579-4f69-87a3-3ff77febb563">&lt;/code&gt;</ept>, instead of creating a new one.</target>
+        </trans-unit>
+        <trans-unit id="a9379913-46a2-4e73-bd4f-89af2628b782" xml:space="preserve">
+          <source>The network and availability set should be automatically selected for us.</source>
+          <target state="new">The network and availability set should be automatically selected for us.</target>
+        </trans-unit>
+        <trans-unit id="085ef9ca-0472-472d-96cf-93b5f648c0f5" xml:space="preserve">
+          <source>An SSH endpoint will be created, too.</source>
+          <target state="new">An SSH endpoint will be created, too.</target>
+        </trans-unit>
+        <trans-unit id="366cd301-8e4e-45c2-9846-e3e1901d1124" xml:space="preserve">
+          <source>After both VMs have been created, we will take note of the SSH port for <bpt id="edc2209a-ff9f-4591-b6f6-3bef5c3a8c54">&lt;code&gt;</bpt>hadb01<ept id="edc2209a-ff9f-4591-b6f6-3bef5c3a8c54">&lt;/code&gt;</ept> (TCP 22) and <bpt id="da16a65d-bbbd-4e34-926f-91ee848e0571">&lt;code&gt;</bpt>hadb02<ept id="da16a65d-bbbd-4e34-926f-91ee848e0571">&lt;/code&gt;</ept> (automatically assigned by Azure)</source>
+          <target state="new">After both VMs have been created, we will take note of the SSH port for <bpt id="edc2209a-ff9f-4591-b6f6-3bef5c3a8c54">&lt;code&gt;</bpt>hadb01<ept id="edc2209a-ff9f-4591-b6f6-3bef5c3a8c54">&lt;/code&gt;</ept> (TCP 22) and <bpt id="da16a65d-bbbd-4e34-926f-91ee848e0571">&lt;code&gt;</bpt>hadb02<ept id="da16a65d-bbbd-4e34-926f-91ee848e0571">&lt;/code&gt;</ept> (automatically assigned by Azure)</target>
+        </trans-unit>
+        <trans-unit id="97c2b3c9-b0a8-4dc4-8e01-2678e4322f49" xml:space="preserve">
+          <source>We attach a new disk to both VMs, and create new 5 GB disks in the process.</source>
+          <target state="new">We attach a new disk to both VMs, and create new 5 GB disks in the process.</target>
+        </trans-unit>
+        <trans-unit id="fda4d5bc-a240-459d-b688-2eed443ec12a" xml:space="preserve">
+          <source>The disks will be hosted in the VHD container in use for our main operating system disks.</source>
+          <target state="new">The disks will be hosted in the VHD container in use for our main operating system disks.</target>
+        </trans-unit>
+        <trans-unit id="2ad250dc-89b1-4b6d-a624-76510bbfda84" xml:space="preserve">
+          <source>Once disks are created and attached there is no need for us to restart Linux as the kernel will see the new device (usually <bpt id="182ae8c8-20ba-4d49-901a-f291f9c95085">&lt;code&gt;</bpt>/dev/sdc<ept id="182ae8c8-20ba-4d49-901a-f291f9c95085">&lt;/code&gt;</ept>, you can check <bpt id="c7c513a0-61a3-4a77-8b6d-e60c586793fa">&lt;code&gt;</bpt>dmesg<ept id="c7c513a0-61a3-4a77-8b6d-e60c586793fa">&lt;/code&gt;</ept> for the output)</source>
+          <target state="new">Once disks are created and attached there is no need for us to restart Linux as the kernel will see the new device (usually <bpt id="182ae8c8-20ba-4d49-901a-f291f9c95085">&lt;code&gt;</bpt>/dev/sdc<ept id="182ae8c8-20ba-4d49-901a-f291f9c95085">&lt;/code&gt;</ept>, you can check <bpt id="c7c513a0-61a3-4a77-8b6d-e60c586793fa">&lt;code&gt;</bpt>dmesg<ept id="c7c513a0-61a3-4a77-8b6d-e60c586793fa">&lt;/code&gt;</ept> for the output)</target>
+        </trans-unit>
+        <trans-unit id="9c9cc92c-dcbb-495d-8c1c-52c0f4261e4f" xml:space="preserve">
+          <source>On each VM we proceed to create a new partition using <bpt id="b265cac0-eda1-4826-9559-c53ddbf166f0">&lt;code&gt;</bpt>cfdisk<ept id="b265cac0-eda1-4826-9559-c53ddbf166f0">&lt;/code&gt;</ept> (primary, Linux partition) and write the new partition table.</source>
+          <target state="new">On each VM we proceed to create a new partition using <bpt id="b265cac0-eda1-4826-9559-c53ddbf166f0">&lt;code&gt;</bpt>cfdisk<ept id="b265cac0-eda1-4826-9559-c53ddbf166f0">&lt;/code&gt;</ept> (primary, Linux partition) and write the new partition table.</target>
+        </trans-unit>
+        <trans-unit id="14a44a3c-9251-420a-b7a1-2fc7787f1943" xml:space="preserve">
+          <source><bpt id="10d53ec9-1760-45a6-ae5e-6dc787dc8019">&lt;strong&gt;</bpt>Do not create a filesystem on this partition<ept id="10d53ec9-1760-45a6-ae5e-6dc787dc8019">&lt;/strong&gt;</ept> .</source>
+          <target state="new"><bpt id="10d53ec9-1760-45a6-ae5e-6dc787dc8019">&lt;strong&gt;</bpt>Do not create a filesystem on this partition<ept id="10d53ec9-1760-45a6-ae5e-6dc787dc8019">&lt;/strong&gt;</ept> .</target>
+        </trans-unit>
+        <trans-unit id="7801b4b6-7056-444c-9d9a-45e3edcb7cf0" xml:space="preserve">
+          <source>In both Ubuntu VMs, we need to use APT to install Corosync, Pacemaker and DRBD.</source>
+          <target state="new">In both Ubuntu VMs, we need to use APT to install Corosync, Pacemaker and DRBD.</target>
+        </trans-unit>
+        <trans-unit id="79f77d65-7f8c-42d5-ba5a-b4c76da1bca2" xml:space="preserve">
+          <source>Using <bpt id="f97929eb-438f-472a-81ac-e082eaee2690">&lt;code&gt;</bpt>apt-get<ept id="f97929eb-438f-472a-81ac-e082eaee2690">&lt;/code&gt;</ept>:</source>
+          <target state="new">Using <bpt id="f97929eb-438f-472a-81ac-e082eaee2690">&lt;code&gt;</bpt>apt-get<ept id="f97929eb-438f-472a-81ac-e082eaee2690">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="83757b0a-62a0-4d28-aeca-0200e3d7fbc9" xml:space="preserve">
+          <source><bpt id="eb654460-02b2-47d4-9188-edf9b3036f02">&lt;strong&gt;</bpt>Do not install MySQL at this time<ept id="eb654460-02b2-47d4-9188-edf9b3036f02">&lt;/strong&gt;</ept> .</source>
+          <target state="new"><bpt id="eb654460-02b2-47d4-9188-edf9b3036f02">&lt;strong&gt;</bpt>Do not install MySQL at this time<ept id="eb654460-02b2-47d4-9188-edf9b3036f02">&lt;/strong&gt;</ept> .</target>
+        </trans-unit>
+        <trans-unit id="036b7408-7963-4256-acb3-d5087ff7d51b" xml:space="preserve">
+          <source>Debian and Ubuntu installation scripts will initialize a MySQL data directory on <bpt id="4fc57ec6-e425-4084-8a7a-aa0748b3074b">&lt;code&gt;</bpt>/var/lib/mysql<ept id="4fc57ec6-e425-4084-8a7a-aa0748b3074b">&lt;/code&gt;</ept>, but since the directory will be superseded by a DRBD filesystem, we need to do this later.</source>
+          <target state="new">Debian and Ubuntu installation scripts will initialize a MySQL data directory on <bpt id="4fc57ec6-e425-4084-8a7a-aa0748b3074b">&lt;code&gt;</bpt>/var/lib/mysql<ept id="4fc57ec6-e425-4084-8a7a-aa0748b3074b">&lt;/code&gt;</ept>, but since the directory will be superseded by a DRBD filesystem, we need to do this later.</target>
+        </trans-unit>
+        <trans-unit id="6d7fe92e-d05b-4ca6-a377-0c6e85800072" xml:space="preserve">
+          <source>At this point we should also verify (using <bpt id="4f97ddcb-8a13-4335-9846-9ab463fa4f71">&lt;code&gt;</bpt>/sbin/ifconfig<ept id="4f97ddcb-8a13-4335-9846-9ab463fa4f71">&lt;/code&gt;</ept>) that both VMs are using addresses in the 10.10.10.0/24 subnet and that they can ping each other by name.</source>
+          <target state="new">At this point we should also verify (using <bpt id="4f97ddcb-8a13-4335-9846-9ab463fa4f71">&lt;code&gt;</bpt>/sbin/ifconfig<ept id="4f97ddcb-8a13-4335-9846-9ab463fa4f71">&lt;/code&gt;</ept>) that both VMs are using addresses in the 10.10.10.0/24 subnet and that they can ping each other by name.</target>
+        </trans-unit>
+        <trans-unit id="71a939ac-bd3e-41dd-b0d4-0812f12a7b82" xml:space="preserve">
+          <source>If desired you can also use <bpt id="0025e247-1d7e-44a8-ac5f-2aabbe4da15b">&lt;code&gt;</bpt>ssh-keygen<ept id="0025e247-1d7e-44a8-ac5f-2aabbe4da15b">&lt;/code&gt;</ept> and <bpt id="13c59b39-f0b5-405a-98b0-18476fbafa69">&lt;code&gt;</bpt>ssh-copy-id<ept id="13c59b39-f0b5-405a-98b0-18476fbafa69">&lt;/code&gt;</ept> to make sure both VMs can communicate via SSH without requiring a password.</source>
+          <target state="new">If desired you can also use <bpt id="0025e247-1d7e-44a8-ac5f-2aabbe4da15b">&lt;code&gt;</bpt>ssh-keygen<ept id="0025e247-1d7e-44a8-ac5f-2aabbe4da15b">&lt;/code&gt;</ept> and <bpt id="13c59b39-f0b5-405a-98b0-18476fbafa69">&lt;code&gt;</bpt>ssh-copy-id<ept id="13c59b39-f0b5-405a-98b0-18476fbafa69">&lt;/code&gt;</ept> to make sure both VMs can communicate via SSH without requiring a password.</target>
+        </trans-unit>
+        <trans-unit id="f288076d-e930-4551-aa92-ba9da1c262d9" xml:space="preserve">
+          <source>We will create a DRBD resource that uses the underlying <bpt id="496c8303-a32d-4a77-90d9-b26b10607ecd">&lt;code&gt;</bpt>/dev/sdc1<ept id="496c8303-a32d-4a77-90d9-b26b10607ecd">&lt;/code&gt;</ept> partition to produce a <bpt id="67f504cb-e1db-4f18-8150-7de27264422d">&lt;code&gt;</bpt>/dev/drbd1<ept id="67f504cb-e1db-4f18-8150-7de27264422d">&lt;/code&gt;</ept> resource able to be formatted using ext3 and used in both primary and secondary nodes.</source>
+          <target state="new">We will create a DRBD resource that uses the underlying <bpt id="496c8303-a32d-4a77-90d9-b26b10607ecd">&lt;code&gt;</bpt>/dev/sdc1<ept id="496c8303-a32d-4a77-90d9-b26b10607ecd">&lt;/code&gt;</ept> partition to produce a <bpt id="67f504cb-e1db-4f18-8150-7de27264422d">&lt;code&gt;</bpt>/dev/drbd1<ept id="67f504cb-e1db-4f18-8150-7de27264422d">&lt;/code&gt;</ept> resource able to be formatted using ext3 and used in both primary and secondary nodes.</target>
+        </trans-unit>
+        <trans-unit id="b5fab7c6-5978-4701-b8b1-5ba587406287" xml:space="preserve">
+          <source>To do this, open <bpt id="5409f7f4-3666-4bdf-979e-4ec75654703b">&lt;code&gt;</bpt>/etc/drbd.d/r0.res<ept id="5409f7f4-3666-4bdf-979e-4ec75654703b">&lt;/code&gt;</ept> and copy the following resource definition.</source>
+          <target state="new">To do this, open <bpt id="5409f7f4-3666-4bdf-979e-4ec75654703b">&lt;code&gt;</bpt>/etc/drbd.d/r0.res<ept id="5409f7f4-3666-4bdf-979e-4ec75654703b">&lt;/code&gt;</ept> and copy the following resource definition.</target>
+        </trans-unit>
+        <trans-unit id="4df45d64-3311-47a3-94f1-9ef4717e21d4" xml:space="preserve">
+          <source>Do this in both VMs:</source>
+          <target state="new">Do this in both VMs:</target>
+        </trans-unit>
+        <trans-unit id="f4495d46-3bae-45cc-adc3-52e7225dcd55" xml:space="preserve">
+          <source>After doing this, initialize the resource using <bpt id="6686ddb3-60a6-46c5-943b-0ed80007dfa8">&lt;code&gt;</bpt>drbdadm<ept id="6686ddb3-60a6-46c5-943b-0ed80007dfa8">&lt;/code&gt;</ept> in both VMs:</source>
+          <target state="new">After doing this, initialize the resource using <bpt id="6686ddb3-60a6-46c5-943b-0ed80007dfa8">&lt;code&gt;</bpt>drbdadm<ept id="6686ddb3-60a6-46c5-943b-0ed80007dfa8">&lt;/code&gt;</ept> in both VMs:</target>
+        </trans-unit>
+        <trans-unit id="9129a558-3886-4111-81ca-65e731edbc25" xml:space="preserve">
+          <source>And finally, on the primary (<bpt id="cde6a749-9397-49eb-90b1-490c45634da5">&lt;code&gt;</bpt>hadb01<ept id="cde6a749-9397-49eb-90b1-490c45634da5">&lt;/code&gt;</ept>) force ownership (primary) of the DRBD resource:</source>
+          <target state="new">And finally, on the primary (<bpt id="cde6a749-9397-49eb-90b1-490c45634da5">&lt;code&gt;</bpt>hadb01<ept id="cde6a749-9397-49eb-90b1-490c45634da5">&lt;/code&gt;</ept>) force ownership (primary) of the DRBD resource:</target>
+        </trans-unit>
+        <trans-unit id="4f4fcb07-70d1-48ca-8eda-872d4cbb937e" xml:space="preserve">
+          <source>If you examine the contents of /proc/drbd (<bpt id="c5e9adc4-39a7-42c9-8d00-c8e73a261abe">&lt;code&gt;</bpt>sudo cat /proc/drbd<ept id="c5e9adc4-39a7-42c9-8d00-c8e73a261abe">&lt;/code&gt;</ept>) on both VMs, you should see <bpt id="2b4e811d-1bc9-4ba0-824f-80ccacc97460">&lt;code&gt;</bpt>Primary/Secondary<ept id="2b4e811d-1bc9-4ba0-824f-80ccacc97460">&lt;/code&gt;</ept> on <bpt id="910527f1-b8c8-4385-8c70-563eeb7fc536">&lt;code&gt;</bpt>hadb01<ept id="910527f1-b8c8-4385-8c70-563eeb7fc536">&lt;/code&gt;</ept> and <bpt id="ba9db453-55c5-47c1-8847-130063f00921">&lt;code&gt;</bpt>Secondary/Primary<ept id="ba9db453-55c5-47c1-8847-130063f00921">&lt;/code&gt;</ept> on <bpt id="3d4ba361-6fa6-4637-a88e-99081ec6b98e">&lt;code&gt;</bpt>hadb02<ept id="3d4ba361-6fa6-4637-a88e-99081ec6b98e">&lt;/code&gt;</ept>, consistent with the solution at this point.</source>
+          <target state="new">If you examine the contents of /proc/drbd (<bpt id="c5e9adc4-39a7-42c9-8d00-c8e73a261abe">&lt;code&gt;</bpt>sudo cat /proc/drbd<ept id="c5e9adc4-39a7-42c9-8d00-c8e73a261abe">&lt;/code&gt;</ept>) on both VMs, you should see <bpt id="2b4e811d-1bc9-4ba0-824f-80ccacc97460">&lt;code&gt;</bpt>Primary/Secondary<ept id="2b4e811d-1bc9-4ba0-824f-80ccacc97460">&lt;/code&gt;</ept> on <bpt id="910527f1-b8c8-4385-8c70-563eeb7fc536">&lt;code&gt;</bpt>hadb01<ept id="910527f1-b8c8-4385-8c70-563eeb7fc536">&lt;/code&gt;</ept> and <bpt id="ba9db453-55c5-47c1-8847-130063f00921">&lt;code&gt;</bpt>Secondary/Primary<ept id="ba9db453-55c5-47c1-8847-130063f00921">&lt;/code&gt;</ept> on <bpt id="3d4ba361-6fa6-4637-a88e-99081ec6b98e">&lt;code&gt;</bpt>hadb02<ept id="3d4ba361-6fa6-4637-a88e-99081ec6b98e">&lt;/code&gt;</ept>, consistent with the solution at this point.</target>
+        </trans-unit>
+        <trans-unit id="e294c773-50ec-4020-8383-5f6ee604679a" xml:space="preserve">
+          <source>The 5 GB disk will be synchronized over the 10.10.10.0/24 network at no charge to customers.</source>
+          <target state="new">The 5 GB disk will be synchronized over the 10.10.10.0/24 network at no charge to customers.</target>
+        </trans-unit>
+        <trans-unit id="0f4e2c71-52b9-4cfc-bcaa-dd3036054b88" xml:space="preserve">
+          <source>Once the disk is synchronized you can create the filesystem on <bpt id="e61f4e06-9a34-4741-b9b3-5b76e834e086">&lt;code&gt;</bpt>hadb01<ept id="e61f4e06-9a34-4741-b9b3-5b76e834e086">&lt;/code&gt;</ept>.</source>
+          <target state="new">Once the disk is synchronized you can create the filesystem on <bpt id="e61f4e06-9a34-4741-b9b3-5b76e834e086">&lt;code&gt;</bpt>hadb01<ept id="e61f4e06-9a34-4741-b9b3-5b76e834e086">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea361e0f-213f-4e40-bf1b-e3b4696ee70c" xml:space="preserve">
+          <source>For testing purposes we used ext2 but the following instruction will create an ext3 filesystem:</source>
+          <target state="new">For testing purposes we used ext2 but the following instruction will create an ext3 filesystem:</target>
+        </trans-unit>
+        <trans-unit id="c87492e6-a2f1-4729-a035-0ba43d171782" xml:space="preserve">
+          <source>On <bpt id="3b00047f-d863-44b2-9a6a-3a9a5314f3ed">&lt;code&gt;</bpt>hadb01<ept id="3b00047f-d863-44b2-9a6a-3a9a5314f3ed">&lt;/code&gt;</ept> we're now ready to mount the DRBD resources.</source>
+          <target state="new">On <bpt id="3b00047f-d863-44b2-9a6a-3a9a5314f3ed">&lt;code&gt;</bpt>hadb01<ept id="3b00047f-d863-44b2-9a6a-3a9a5314f3ed">&lt;/code&gt;</ept> we're now ready to mount the DRBD resources.</target>
+        </trans-unit>
+        <trans-unit id="1b36c13e-09b0-43ac-9681-f569ad6a94b0" xml:space="preserve">
+          <source>Debian and derivatives use <bpt id="1156033e-e72e-4bb8-8a74-c40f2e00df8c">&lt;code&gt;</bpt>/var/lib/mysql<ept id="1156033e-e72e-4bb8-8a74-c40f2e00df8c">&lt;/code&gt;</ept> as MySQL's data directory.</source>
+          <target state="new">Debian and derivatives use <bpt id="1156033e-e72e-4bb8-8a74-c40f2e00df8c">&lt;code&gt;</bpt>/var/lib/mysql<ept id="1156033e-e72e-4bb8-8a74-c40f2e00df8c">&lt;/code&gt;</ept> as MySQL's data directory.</target>
+        </trans-unit>
+        <trans-unit id="93243660-8d11-432e-b34f-a8db135729d0" xml:space="preserve">
+          <source>Since we haven't installed MySQL, we'll create the directory and mount the DRBD resource.</source>
+          <target state="new">Since we haven't installed MySQL, we'll create the directory and mount the DRBD resource.</target>
+        </trans-unit>
+        <trans-unit id="97e043db-825f-4159-a63f-2e0cebe0cae1" xml:space="preserve">
+          <source>On <bpt id="45b09196-31da-48b6-982f-9d48e68773dc">&lt;code&gt;</bpt>hadb01<ept id="45b09196-31da-48b6-982f-9d48e68773dc">&lt;/code&gt;</ept>:</source>
+          <target state="new">On <bpt id="45b09196-31da-48b6-982f-9d48e68773dc">&lt;code&gt;</bpt>hadb01<ept id="45b09196-31da-48b6-982f-9d48e68773dc">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="05006d28-8151-4980-9cfe-f8e6eee2613e" xml:space="preserve">
+          <source>Now you're ready to install MySQL on <bpt id="e221134d-8c51-4acd-b903-05377093b0c2">&lt;code&gt;</bpt>hadb01<ept id="e221134d-8c51-4acd-b903-05377093b0c2">&lt;/code&gt;</ept>:</source>
+          <target state="new">Now you're ready to install MySQL on <bpt id="e221134d-8c51-4acd-b903-05377093b0c2">&lt;code&gt;</bpt>hadb01<ept id="e221134d-8c51-4acd-b903-05377093b0c2">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="ce46d1d8-eaf4-45d4-b1ec-5d09a30a089d" xml:space="preserve">
+          <source>For <bpt id="c35deecb-d953-457d-a8b0-34c0099796e4">&lt;code&gt;</bpt>hadb02<ept id="c35deecb-d953-457d-a8b0-34c0099796e4">&lt;/code&gt;</ept>, you have two options.</source>
+          <target state="new">For <bpt id="c35deecb-d953-457d-a8b0-34c0099796e4">&lt;code&gt;</bpt>hadb02<ept id="c35deecb-d953-457d-a8b0-34c0099796e4">&lt;/code&gt;</ept>, you have two options.</target>
+        </trans-unit>
+        <trans-unit id="e136d398-0dfe-42bf-8670-97203a9ec1a1" xml:space="preserve">
+          <source>You can install mysql-server now, which will create /var/lib/mysql and fill it with a new data directory, and then proceed to remove the contents.</source>
+          <target state="new">You can install mysql-server now, which will create /var/lib/mysql and fill it with a new data directory, and then proceed to remove the contents.</target>
+        </trans-unit>
+        <trans-unit id="f94d64b7-9597-459e-bb0b-e0eaba0e492f" xml:space="preserve">
+          <source>On <bpt id="6496405d-bc2e-4dbc-aa40-c9f0dbe3683c">&lt;code&gt;</bpt>hadb02<ept id="6496405d-bc2e-4dbc-aa40-c9f0dbe3683c">&lt;/code&gt;</ept>:</source>
+          <target state="new">On <bpt id="6496405d-bc2e-4dbc-aa40-c9f0dbe3683c">&lt;code&gt;</bpt>hadb02<ept id="6496405d-bc2e-4dbc-aa40-c9f0dbe3683c">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="f456fa6b-b48d-4acf-8165-12f8f40b8a04" xml:space="preserve">
+          <source>The second option is to failover to <bpt id="318f02ec-46b7-411a-9651-3d9a6a7c8b42">&lt;code&gt;</bpt>hadb02<ept id="318f02ec-46b7-411a-9651-3d9a6a7c8b42">&lt;/code&gt;</ept> and then install mysql-server there (installation scripts will notice the existing installation and won't touch it)</source>
+          <target state="new">The second option is to failover to <bpt id="318f02ec-46b7-411a-9651-3d9a6a7c8b42">&lt;code&gt;</bpt>hadb02<ept id="318f02ec-46b7-411a-9651-3d9a6a7c8b42">&lt;/code&gt;</ept> and then install mysql-server there (installation scripts will notice the existing installation and won't touch it)</target>
+        </trans-unit>
+        <trans-unit id="94123099-afa2-4603-9a21-75f7c25d9801" xml:space="preserve">
+          <source>On <bpt id="60842993-cf6f-4284-84b4-3f2660a561d7">&lt;code&gt;</bpt>hadb01<ept id="60842993-cf6f-4284-84b4-3f2660a561d7">&lt;/code&gt;</ept>:</source>
+          <target state="new">On <bpt id="60842993-cf6f-4284-84b4-3f2660a561d7">&lt;code&gt;</bpt>hadb01<ept id="60842993-cf6f-4284-84b4-3f2660a561d7">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="5ae4e72b-797b-477e-b601-a2cbca4f6cec" xml:space="preserve">
+          <source>On <bpt id="e85f46c4-e026-4ca4-a11d-2276dfc46316">&lt;code&gt;</bpt>hadb02<ept id="e85f46c4-e026-4ca4-a11d-2276dfc46316">&lt;/code&gt;</ept>:</source>
+          <target state="new">On <bpt id="e85f46c4-e026-4ca4-a11d-2276dfc46316">&lt;code&gt;</bpt>hadb02<ept id="e85f46c4-e026-4ca4-a11d-2276dfc46316">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="e8277a39-9c78-434f-8501-e50d621118c5" xml:space="preserve">
+          <source>If you don't plan to failover DRBD now, the first option is easier although arguably less elegant.</source>
+          <target state="new">If you don't plan to failover DRBD now, the first option is easier although arguably less elegant.</target>
+        </trans-unit>
+        <trans-unit id="f718fc81-4125-4734-85f8-1ffbc92f33b2" xml:space="preserve">
+          <source>After you set this up, you can start working on your MySQL database.</source>
+          <target state="new">After you set this up, you can start working on your MySQL database.</target>
+        </trans-unit>
+        <trans-unit id="36ea9e20-5d26-4c37-88cf-65dc5f786688" xml:space="preserve">
+          <source>On <bpt id="d37ba183-8195-47e4-97aa-0d903027d5fd">&lt;code&gt;</bpt>hadb02<ept id="d37ba183-8195-47e4-97aa-0d903027d5fd">&lt;/code&gt;</ept> (or whichever one of the servers is active, according to DRBD):</source>
+          <target state="new">On <bpt id="d37ba183-8195-47e4-97aa-0d903027d5fd">&lt;code&gt;</bpt>hadb02<ept id="d37ba183-8195-47e4-97aa-0d903027d5fd">&lt;/code&gt;</ept> (or whichever one of the servers is active, according to DRBD):</target>
+        </trans-unit>
+        <trans-unit id="a6751f5f-0580-4ec1-9bab-ad18af4c88b0" xml:space="preserve">
+          <source><bpt id="dcbbd7b6-5b94-4a53-b740-6f90976b2e58">&lt;strong&gt;</bpt>Warning<ept id="dcbbd7b6-5b94-4a53-b740-6f90976b2e58">&lt;/strong&gt;</ept>: this last statement effectively disables authentication for the root user in this table.</source>
+          <target state="new"><bpt id="dcbbd7b6-5b94-4a53-b740-6f90976b2e58">&lt;strong&gt;</bpt>Warning<ept id="dcbbd7b6-5b94-4a53-b740-6f90976b2e58">&lt;/strong&gt;</ept>: this last statement effectively disables authentication for the root user in this table.</target>
+        </trans-unit>
+        <trans-unit id="6d8f728f-2857-4adf-8fd2-c8d31d41f4ea" xml:space="preserve">
+          <source>This should be replaced by your production-grade GRANT statements and is included only for illustrative purposes.</source>
+          <target state="new">This should be replaced by your production-grade GRANT statements and is included only for illustrative purposes.</target>
+        </trans-unit>
+        <trans-unit id="489d9e70-910e-4e27-8e0d-579f169ba826" xml:space="preserve">
+          <source>You also need to enable networking for MySQL if you want to make queries from outside the VMs, which is the purpose of this guide.</source>
+          <target state="new">You also need to enable networking for MySQL if you want to make queries from outside the VMs, which is the purpose of this guide.</target>
+        </trans-unit>
+        <trans-unit id="10809d44-c2e3-4dac-97d0-6e4fe6f2587e" xml:space="preserve">
+          <source>On both VMs, open <bpt id="cd2118d0-5bc7-4de3-8923-8fab113e7148">&lt;code&gt;</bpt>/etc/mysql/my.cnf<ept id="cd2118d0-5bc7-4de3-8923-8fab113e7148">&lt;/code&gt;</ept> and browse to <bpt id="0fc6ce77-5cea-48e3-b3bc-23e35443947c">&lt;code&gt;</bpt>bind-address<ept id="0fc6ce77-5cea-48e3-b3bc-23e35443947c">&lt;/code&gt;</ept>, changing it from 127.0.0.1 to 0.0.0.0.</source>
+          <target state="new">On both VMs, open <bpt id="cd2118d0-5bc7-4de3-8923-8fab113e7148">&lt;code&gt;</bpt>/etc/mysql/my.cnf<ept id="cd2118d0-5bc7-4de3-8923-8fab113e7148">&lt;/code&gt;</ept> and browse to <bpt id="0fc6ce77-5cea-48e3-b3bc-23e35443947c">&lt;code&gt;</bpt>bind-address<ept id="0fc6ce77-5cea-48e3-b3bc-23e35443947c">&lt;/code&gt;</ept>, changing it from 127.0.0.1 to 0.0.0.0.</target>
+        </trans-unit>
+        <trans-unit id="03115443-a5c3-48c8-8ecf-0865a6c5023a" xml:space="preserve">
+          <source>After saving the file, issue a <bpt id="5c6d6296-3690-475f-a2aa-69e708ebe810">&lt;code&gt;</bpt>sudo service mysql restart<ept id="5c6d6296-3690-475f-a2aa-69e708ebe810">&lt;/code&gt;</ept> on your current primary.</source>
+          <target state="new">After saving the file, issue a <bpt id="5c6d6296-3690-475f-a2aa-69e708ebe810">&lt;code&gt;</bpt>sudo service mysql restart<ept id="5c6d6296-3690-475f-a2aa-69e708ebe810">&lt;/code&gt;</ept> on your current primary.</target>
+        </trans-unit>
+        <trans-unit id="223d547d-9629-492c-ade7-984303331075" xml:space="preserve">
+          <source>We will go back to the Azure Portal and browse to the <bpt id="d267aafd-803e-4e2c-bde2-05bc68bb2609">&lt;code&gt;</bpt>hadb01<ept id="d267aafd-803e-4e2c-bde2-05bc68bb2609">&lt;/code&gt;</ept> VM, then Endpoints.</source>
+          <target state="new">We will go back to the Azure Portal and browse to the <bpt id="d267aafd-803e-4e2c-bde2-05bc68bb2609">&lt;code&gt;</bpt>hadb01<ept id="d267aafd-803e-4e2c-bde2-05bc68bb2609">&lt;/code&gt;</ept> VM, then Endpoints.</target>
+        </trans-unit>
+        <trans-unit id="a840ff22-cb73-4bcb-b355-7888d4116ba2" xml:space="preserve">
+          <source>We will create a new Endpoint, choose MySQL (TCP 3306) from the dropdown and tick on the <bpt id="b504c302-17ce-4af1-bc19-c80ec35bcc19">&lt;em&gt;</bpt>Create new load balanced set<ept id="b504c302-17ce-4af1-bc19-c80ec35bcc19">&lt;/em&gt;</ept> box.</source>
+          <target state="new">We will create a new Endpoint, choose MySQL (TCP 3306) from the dropdown and tick on the <bpt id="b504c302-17ce-4af1-bc19-c80ec35bcc19">&lt;em&gt;</bpt>Create new load balanced set<ept id="b504c302-17ce-4af1-bc19-c80ec35bcc19">&lt;/em&gt;</ept> box.</target>
+        </trans-unit>
+        <trans-unit id="8139fe9c-9d1e-4a03-983e-27c7ae5dcc28" xml:space="preserve">
+          <source>We will call our load balanced endpoint <bpt id="2b54be42-5fc9-4243-b9fd-442221a3e5c2">&lt;code&gt;</bpt>lb-mysql<ept id="2b54be42-5fc9-4243-b9fd-442221a3e5c2">&lt;/code&gt;</ept>.</source>
+          <target state="new">We will call our load balanced endpoint <bpt id="2b54be42-5fc9-4243-b9fd-442221a3e5c2">&lt;code&gt;</bpt>lb-mysql<ept id="2b54be42-5fc9-4243-b9fd-442221a3e5c2">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c756f9fc-ec01-4ff2-9721-81744cf9f279" xml:space="preserve">
+          <source>We will leave most of the options alone except for time which we'll reduce to 5 (seconds, minimum)</source>
+          <target state="new">We will leave most of the options alone except for time which we'll reduce to 5 (seconds, minimum)</target>
+        </trans-unit>
+        <trans-unit id="9539de3f-a173-4268-908f-4b81f0d55810" xml:space="preserve">
+          <source>After the endpoint is created we go to <bpt id="c1e96ee8-2a2d-4288-87e7-5be49f2dd50d">&lt;code&gt;</bpt>hadb02<ept id="c1e96ee8-2a2d-4288-87e7-5be49f2dd50d">&lt;/code&gt;</ept>, Endpoints, and create a new endpoint but we will choose <bpt id="27308159-93f0-4e52-821f-3d83dc197970">&lt;code&gt;</bpt>lb-mysql<ept id="27308159-93f0-4e52-821f-3d83dc197970">&lt;/code&gt;</ept>, then select MySQL from the dropdown menu.</source>
+          <target state="new">After the endpoint is created we go to <bpt id="c1e96ee8-2a2d-4288-87e7-5be49f2dd50d">&lt;code&gt;</bpt>hadb02<ept id="c1e96ee8-2a2d-4288-87e7-5be49f2dd50d">&lt;/code&gt;</ept>, Endpoints, and create a new endpoint but we will choose <bpt id="27308159-93f0-4e52-821f-3d83dc197970">&lt;code&gt;</bpt>lb-mysql<ept id="27308159-93f0-4e52-821f-3d83dc197970">&lt;/code&gt;</ept>, then select MySQL from the dropdown menu.</target>
+        </trans-unit>
+        <trans-unit id="da0703ac-f842-454f-a3cd-42e49dcc21da" xml:space="preserve">
+          <source>You can also use the Azure CLI for this step.</source>
+          <target state="new">You can also use the Azure CLI for this step.</target>
+        </trans-unit>
+        <trans-unit id="6ad73931-f0c3-4209-a156-2389f9da5e3a" xml:space="preserve">
+          <source>At this moment we have everything we need for a manual operation of the cluster.</source>
+          <target state="new">At this moment we have everything we need for a manual operation of the cluster.</target>
+        </trans-unit>
+        <trans-unit id="b5a165f2-fbd4-46a2-8596-2674527a4036" xml:space="preserve">
+          <source>Tests can be performed from an outside machine, by using any MySQL client, as well as applications (for example, phpMyAdmin running as an Azure Website) In this case we used MySQL's command line tool on another Linux box:</source>
+          <target state="new">Tests can be performed from an outside machine, by using any MySQL client, as well as applications (for example, phpMyAdmin running as an Azure Website) In this case we used MySQL's command line tool on another Linux box:</target>
+        </trans-unit>
+        <trans-unit id="98860975-23fa-4285-8c4b-f194dd3fd83f" xml:space="preserve">
+          <source>You can simulate failovers now by shutting MySQL down, switching DRBD's primary, and starting MySQL again.</source>
+          <target state="new">You can simulate failovers now by shutting MySQL down, switching DRBD's primary, and starting MySQL again.</target>
+        </trans-unit>
+        <trans-unit id="23d487af-3456-4e41-add0-e9cf61048f1b" xml:space="preserve">
+          <source>On hadb01:</source>
+          <target state="new">On hadb01:</target>
+        </trans-unit>
+        <trans-unit id="afe5a4f5-4607-459a-83ea-91d883f70745" xml:space="preserve">
+          <source>Then, on hadb02:</source>
+          <target state="new">Then, on hadb02:</target>
+        </trans-unit>
+        <trans-unit id="6d43a5b3-0c30-4c52-84dd-1b81d278d67b" xml:space="preserve">
+          <source>Once you failover manually you can repeat your remote query and it should be working perfectly.</source>
+          <target state="new">Once you failover manually you can repeat your remote query and it should be working perfectly.</target>
+        </trans-unit>
+        <trans-unit id="0fa440cf-06c2-4b96-ba77-5a5821034d63" xml:space="preserve">
+          <source>Corosync is the underlying cluster infrastructure required for Pacemaker to work.</source>
+          <target state="new">Corosync is the underlying cluster infrastructure required for Pacemaker to work.</target>
+        </trans-unit>
+        <trans-unit id="c7eed542-eab7-4ccc-831c-6a93da49e1ee" xml:space="preserve">
+          <source>For Heartbeat v1 and v2 users (and other methodologies like Ultramonkey) Corosync is a split of the CRM functionalities, while Pacemaker remains more similar to Hearbeat in functionality.</source>
+          <target state="new">For Heartbeat v1 and v2 users (and other methodologies like Ultramonkey) Corosync is a split of the CRM functionalities, while Pacemaker remains more similar to Hearbeat in functionality.</target>
+        </trans-unit>
+        <trans-unit id="e42a4d28-48c4-4f8e-a576-b026ec48c89d" xml:space="preserve">
+          <source>The main constraint for Corosync on Azure is that Corosync prefers multicast over broadcast over unicast communications, but Microsoft Azure networking only supports unicast.</source>
+          <target state="new">The main constraint for Corosync on Azure is that Corosync prefers multicast over broadcast over unicast communications, but Microsoft Azure networking only supports unicast.</target>
+        </trans-unit>
+        <trans-unit id="ae839372-ee49-473e-baa6-ab0ea8bc03ff" xml:space="preserve">
+          <source>Fortunately, Corosync has a working unicast mode and the only real constraint is that, since all nodes are not communicating among themselves <bpt id="924ef26f-e748-4231-8aa3-ae2703d61632">&lt;em&gt;</bpt>automagically<ept id="924ef26f-e748-4231-8aa3-ae2703d61632">&lt;/em&gt;</ept>, you need to define the nodes in your configuration files, including their IP addresses.</source>
+          <target state="new">Fortunately, Corosync has a working unicast mode and the only real constraint is that, since all nodes are not communicating among themselves <bpt id="924ef26f-e748-4231-8aa3-ae2703d61632">&lt;em&gt;</bpt>automagically<ept id="924ef26f-e748-4231-8aa3-ae2703d61632">&lt;/em&gt;</ept>, you need to define the nodes in your configuration files, including their IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="76d20d0d-de38-4f00-b13b-fedeb8481b18" xml:space="preserve">
+          <source>We can use the Corosync example files for Unicast and just change bind address, node lists and logging directory (Ubuntu uses <bpt id="93b1e9b1-d82f-4286-8336-da2d58feb897">&lt;code&gt;</bpt>/var/log/corosync<ept id="93b1e9b1-d82f-4286-8336-da2d58feb897">&lt;/code&gt;</ept> while the example files use <bpt id="2eb1358f-6169-4bd6-9676-93f1d7a990a7">&lt;code&gt;</bpt>/var/log/cluster<ept id="2eb1358f-6169-4bd6-9676-93f1d7a990a7">&lt;/code&gt;</ept>) and enabling quorum tools.</source>
+          <target state="new">We can use the Corosync example files for Unicast and just change bind address, node lists and logging directory (Ubuntu uses <bpt id="93b1e9b1-d82f-4286-8336-da2d58feb897">&lt;code&gt;</bpt>/var/log/corosync<ept id="93b1e9b1-d82f-4286-8336-da2d58feb897">&lt;/code&gt;</ept> while the example files use <bpt id="2eb1358f-6169-4bd6-9676-93f1d7a990a7">&lt;code&gt;</bpt>/var/log/cluster<ept id="2eb1358f-6169-4bd6-9676-93f1d7a990a7">&lt;/code&gt;</ept>) and enabling quorum tools.</target>
+        </trans-unit>
+        <trans-unit id="421fd74f-2fbe-4262-b998-abead00e5f0c" xml:space="preserve">
+          <source>**Note the <bpt id="39ff9756-bbb2-4904-a028-2a687c39c6fe">&lt;code&gt;</bpt>transport: udpu<ept id="39ff9756-bbb2-4904-a028-2a687c39c6fe">&lt;/code&gt;</ept> directive below and the manually defined IP addresses for the nodes**.</source>
+          <target state="new">**Note the <bpt id="39ff9756-bbb2-4904-a028-2a687c39c6fe">&lt;code&gt;</bpt>transport: udpu<ept id="39ff9756-bbb2-4904-a028-2a687c39c6fe">&lt;/code&gt;</ept> directive below and the manually defined IP addresses for the nodes**.</target>
+        </trans-unit>
+        <trans-unit id="c60410c2-c520-45f3-bc74-3f5d93cc391d" xml:space="preserve">
+          <source>On <bpt id="f5ca698d-2b34-4308-a22d-fdfda75377c4">&lt;code&gt;</bpt>/etc/corosync/corosync.conf<ept id="f5ca698d-2b34-4308-a22d-fdfda75377c4">&lt;/code&gt;</ept> for both nodes:</source>
+          <target state="new">On <bpt id="f5ca698d-2b34-4308-a22d-fdfda75377c4">&lt;code&gt;</bpt>/etc/corosync/corosync.conf<ept id="f5ca698d-2b34-4308-a22d-fdfda75377c4">&lt;/code&gt;</ept> for both nodes:</target>
+        </trans-unit>
+        <trans-unit id="03d5f000-5205-4901-b8fb-cef18791a778" xml:space="preserve">
+          <source>We copy this configuration file in both VMs and start Corosync in both nodes:</source>
+          <target state="new">We copy this configuration file in both VMs and start Corosync in both nodes:</target>
+        </trans-unit>
+        <trans-unit id="33b8b4b5-57e4-47c8-ad90-7c6eb2bdb087" xml:space="preserve">
+          <source>Shortly after starting the service the cluster should be established in the current ring and quorum should be constituted.</source>
+          <target state="new">Shortly after starting the service the cluster should be established in the current ring and quorum should be constituted.</target>
+        </trans-unit>
+        <trans-unit id="bbb21303-f4a0-48bb-8cad-1c057a41b91f" xml:space="preserve">
+          <source>We can check this functionality by reviewing logs or:</source>
+          <target state="new">We can check this functionality by reviewing logs or:</target>
+        </trans-unit>
+        <trans-unit id="59c46718-8cd7-46d9-8e0f-63af7b07141b" xml:space="preserve">
+          <source>An output similar to the image below should follow:</source>
+          <target state="new">An output similar to the image below should follow:</target>
+        </trans-unit>
+        <trans-unit id="2895c16f-1691-4e97-8f11-71bd2addf6de" xml:space="preserve">
+          <source><bpt id="684b024a-3321-44ab-a542-f51bce2527f3">&lt;linkText&gt;</bpt>corosync-quorumtool -l sample output<ept id="684b024a-3321-44ab-a542-f51bce2527f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="684b024a-3321-44ab-a542-f51bce2527f3">&lt;linkText&gt;</bpt>corosync-quorumtool -l sample output<ept id="684b024a-3321-44ab-a542-f51bce2527f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e73e4e4c-4fa6-4059-b557-bc76edddd03c" xml:space="preserve">
+          <source>Pacemaker uses the cluster to monitor for resources, define when primaries go down and switch those resources to secondaries.</source>
+          <target state="new">Pacemaker uses the cluster to monitor for resources, define when primaries go down and switch those resources to secondaries.</target>
+        </trans-unit>
+        <trans-unit id="f20248ff-5e60-4bc9-93a1-e926b8b431d3" xml:space="preserve">
+          <source>Resources can be defined from a set of available scripts or from LSB (init-like) scripts, among other choices.</source>
+          <target state="new">Resources can be defined from a set of available scripts or from LSB (init-like) scripts, among other choices.</target>
+        </trans-unit>
+        <trans-unit id="398c7b4b-2ac5-417e-915e-1eead019a6a2" xml:space="preserve">
+          <source>We want Pacemaker to "own" the DRBD resource, the mountpoint and the MySQL service.</source>
+          <target state="new">We want Pacemaker to "own" the DRBD resource, the mountpoint and the MySQL service.</target>
+        </trans-unit>
+        <trans-unit id="61edabe9-8ed6-4934-a016-630c1210b2a3" xml:space="preserve">
+          <source>If Pacemaker can turn on and off DRBD, mount it/umount it and start/stop MySQL in the right order when something bad happens with the primary, our setup is complete.</source>
+          <target state="new">If Pacemaker can turn on and off DRBD, mount it/umount it and start/stop MySQL in the right order when something bad happens with the primary, our setup is complete.</target>
+        </trans-unit>
+        <trans-unit id="09f1c648-63aa-46ae-874c-7b0b45ea1c99" xml:space="preserve">
+          <source>When you first install Pacemaker, your configuration should be simple enough, something like:</source>
+          <target state="new">When you first install Pacemaker, your configuration should be simple enough, something like:</target>
+        </trans-unit>
+        <trans-unit id="f7aad95e-da7b-465b-be95-ca6295526268" xml:space="preserve">
+          <source>Check it by running <bpt id="317a4661-2411-43b3-8555-a7a17e4febc1">&lt;code&gt;</bpt>sudo crm configure show<ept id="317a4661-2411-43b3-8555-a7a17e4febc1">&lt;/code&gt;</ept>.</source>
+          <target state="new">Check it by running <bpt id="317a4661-2411-43b3-8555-a7a17e4febc1">&lt;code&gt;</bpt>sudo crm configure show<ept id="317a4661-2411-43b3-8555-a7a17e4febc1">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bc376b0-4d93-4b94-bf32-1c6a9a1c1d4d" xml:space="preserve">
+          <source>Now, create a file (say, <bpt id="eae0381c-66b6-4542-9938-f4c13deaf99f">&lt;code&gt;</bpt>/tmp/cluster.conf<ept id="eae0381c-66b6-4542-9938-f4c13deaf99f">&lt;/code&gt;</ept>) with the following resources:</source>
+          <target state="new">Now, create a file (say, <bpt id="eae0381c-66b6-4542-9938-f4c13deaf99f">&lt;code&gt;</bpt>/tmp/cluster.conf<ept id="eae0381c-66b6-4542-9938-f4c13deaf99f">&lt;/code&gt;</ept>) with the following resources:</target>
+        </trans-unit>
+        <trans-unit id="098a4932-a27f-4dd1-bbad-f83740c01389" xml:space="preserve">
+          <source>And now load it into the configuration (you only need to do this in one node):</source>
+          <target state="new">And now load it into the configuration (you only need to do this in one node):</target>
+        </trans-unit>
+        <trans-unit id="12dfd5b9-a402-4b6d-b3f0-024ccab5d4db" xml:space="preserve">
+          <source>Also, make sure that Pacemaker starts at boot in both nodes:</source>
+          <target state="new">Also, make sure that Pacemaker starts at boot in both nodes:</target>
+        </trans-unit>
+        <trans-unit id="2154f49d-57df-4265-bf89-429534f19422" xml:space="preserve">
+          <source>After a few seconds, and using <bpt id="66678c62-b74a-48f5-8736-3d677e8d5667">&lt;code&gt;</bpt>sudo crm_mon –L<ept id="66678c62-b74a-48f5-8736-3d677e8d5667">&lt;/code&gt;</ept>, verify that one of your nodes has become the master for the cluster, and is running all the resources.</source>
+          <target state="new">After a few seconds, and using <bpt id="66678c62-b74a-48f5-8736-3d677e8d5667">&lt;code&gt;</bpt>sudo crm_mon –L<ept id="66678c62-b74a-48f5-8736-3d677e8d5667">&lt;/code&gt;</ept>, verify that one of your nodes has become the master for the cluster, and is running all the resources.</target>
+        </trans-unit>
+        <trans-unit id="700a939e-c06b-4f9a-9774-d3e6ff3f2e1c" xml:space="preserve">
+          <source>You can use mount and ps to check that the resources are running.</source>
+          <target state="new">You can use mount and ps to check that the resources are running.</target>
+        </trans-unit>
+        <trans-unit id="f4663d99-f703-4f42-99be-ae5fcca96eba" xml:space="preserve">
+          <source>The following screenshot shows <bpt id="3ce82e7b-35c9-48fd-953b-abf4f8f172c8">&lt;code&gt;</bpt>crm_mon<ept id="3ce82e7b-35c9-48fd-953b-abf4f8f172c8">&lt;/code&gt;</ept> with one node stopped (exit using Control-C)</source>
+          <target state="new">The following screenshot shows <bpt id="3ce82e7b-35c9-48fd-953b-abf4f8f172c8">&lt;code&gt;</bpt>crm_mon<ept id="3ce82e7b-35c9-48fd-953b-abf4f8f172c8">&lt;/code&gt;</ept> with one node stopped (exit using Control-C)</target>
+        </trans-unit>
+        <trans-unit id="ffb2a84b-58cb-4b6a-aac1-632cfa0197ac" xml:space="preserve">
+          <source><bpt id="bcfd7107-600c-4391-be25-7da0f1784a62">&lt;linkText&gt;</bpt>crm_mon node stopped<ept id="bcfd7107-600c-4391-be25-7da0f1784a62">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bcfd7107-600c-4391-be25-7da0f1784a62">&lt;linkText&gt;</bpt>crm_mon node stopped<ept id="bcfd7107-600c-4391-be25-7da0f1784a62">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b1679ad-9caf-40c6-849c-81d36b1b853f" xml:space="preserve">
+          <source>And this screenshot shows both nodes, with one master and one slave:</source>
+          <target state="new">And this screenshot shows both nodes, with one master and one slave:</target>
+        </trans-unit>
+        <trans-unit id="f79949c1-93e5-4bb5-8909-d15c4dfff5b2" xml:space="preserve">
+          <source><bpt id="3c10f87f-9f12-4e9b-84c3-9c75445b37bd">&lt;linkText&gt;</bpt>crm_mon operational master/slave<ept id="3c10f87f-9f12-4e9b-84c3-9c75445b37bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3c10f87f-9f12-4e9b-84c3-9c75445b37bd">&lt;linkText&gt;</bpt>crm_mon operational master/slave<ept id="3c10f87f-9f12-4e9b-84c3-9c75445b37bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9f6642d-a723-4423-92ac-eb6bb2543e67" xml:space="preserve">
+          <source>We're ready for an automatic failover simulation.</source>
+          <target state="new">We're ready for an automatic failover simulation.</target>
+        </trans-unit>
+        <trans-unit id="78975d4e-0375-4665-9fe0-5fd559a81262" xml:space="preserve">
+          <source>There are two ways to doing this: soft and hard.</source>
+          <target state="new">There are two ways to doing this: soft and hard.</target>
+        </trans-unit>
+        <trans-unit id="f0248c5a-f778-45c8-be73-248576bfff82" xml:space="preserve">
+          <source>The soft way is using the cluster's shutdown function: <bpt id="9e7f4019-3575-43fd-b17a-ebbd6e6c5723">&lt;code&gt;</bpt>crm_standby -U `uname -n` -v on<ept id="9e7f4019-3575-43fd-b17a-ebbd6e6c5723">&lt;/code&gt;</ept>.</source>
+          <target state="new">The soft way is using the cluster's shutdown function: <bpt id="9e7f4019-3575-43fd-b17a-ebbd6e6c5723">&lt;code&gt;</bpt>crm_standby -U `uname -n` -v on<ept id="9e7f4019-3575-43fd-b17a-ebbd6e6c5723">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="987aec56-2c8e-49f2-9cde-f2f37f37c6d2" xml:space="preserve">
+          <source>Using this on the master, the slave will take over.</source>
+          <target state="new">Using this on the master, the slave will take over.</target>
+        </trans-unit>
+        <trans-unit id="85ec12ad-8b6d-4e0c-8a94-c3e8f28db549" xml:space="preserve">
+          <source>Remember to set this back to off (crm_mon will tell you one node is on standby otherwise)</source>
+          <target state="new">Remember to set this back to off (crm_mon will tell you one node is on standby otherwise)</target>
+        </trans-unit>
+        <trans-unit id="fa019578-f3e0-460b-91ef-0343349ff110" xml:space="preserve">
+          <source>The hard way is shutting down the primary VM (hadb01) via the Portal or changing the runlevel on the VM (i.e., halt, shutdown) then we're helping Corosync and Pacemaker by signaling master's going down.</source>
+          <target state="new">The hard way is shutting down the primary VM (hadb01) via the Portal or changing the runlevel on the VM (i.e., halt, shutdown) then we're helping Corosync and Pacemaker by signaling master's going down.</target>
+        </trans-unit>
+        <trans-unit id="468f8d93-d7f8-4973-90fb-40feebd05bc2" xml:space="preserve">
+          <source>We can test this (useful for maintenance windows) but we can also force the scenario by just freezing the VM.</source>
+          <target state="new">We can test this (useful for maintenance windows) but we can also force the scenario by just freezing the VM.</target>
+        </trans-unit>
+        <trans-unit id="65c08a95-6544-46db-b21c-2db63fa3adf2" xml:space="preserve">
+          <source>It should be possible to issue a VM shutdown via the Azure CLI in lieu of a STONITH script that controls a physical device.</source>
+          <target state="new">It should be possible to issue a VM shutdown via the Azure CLI in lieu of a STONITH script that controls a physical device.</target>
+        </trans-unit>
+        <trans-unit id="f20da671-06db-4e68-a56c-76f4c7fa5aea" xml:space="preserve">
+          <source>You can use <bpt id="332e232c-0180-4ddc-ab57-84dd55e9528f">&lt;code&gt;</bpt>/usr/lib/stonith/plugins/external/ssh<ept id="332e232c-0180-4ddc-ab57-84dd55e9528f">&lt;/code&gt;</ept> as a base and enable STONITH in the cluster's configuration.</source>
+          <target state="new">You can use <bpt id="332e232c-0180-4ddc-ab57-84dd55e9528f">&lt;code&gt;</bpt>/usr/lib/stonith/plugins/external/ssh<ept id="332e232c-0180-4ddc-ab57-84dd55e9528f">&lt;/code&gt;</ept> as a base and enable STONITH in the cluster's configuration.</target>
+        </trans-unit>
+        <trans-unit id="474a2fa2-a640-4cf2-9775-ee96ec4cac44" xml:space="preserve">
+          <source>Azure CLI should be globally installed and the publish settings/profile should be loaded for the cluster's user.</source>
+          <target state="new">Azure CLI should be globally installed and the publish settings/profile should be loaded for the cluster's user.</target>
+        </trans-unit>
+        <trans-unit id="5b3701da-f817-4990-b9b8-965efa6ddf6f" xml:space="preserve">
+          <source>Sample code for the resource available on <bpt id="851d3486-032e-4947-91c5-f5c30488aa90">&lt;linkText&gt;</bpt>GitHub<ept id="851d3486-032e-4947-91c5-f5c30488aa90">&lt;/linkText&gt;</ept><bpt id="851d3486-032e-4947-91c5-f5c30488aa90">&lt;title&gt;</bpt><ept id="851d3486-032e-4947-91c5-f5c30488aa90">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sample code for the resource available on <bpt id="851d3486-032e-4947-91c5-f5c30488aa90">&lt;linkText&gt;</bpt>GitHub<ept id="851d3486-032e-4947-91c5-f5c30488aa90">&lt;/linkText&gt;</ept><bpt id="851d3486-032e-4947-91c5-f5c30488aa90">&lt;title&gt;</bpt><ept id="851d3486-032e-4947-91c5-f5c30488aa90">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1e5457f-467a-489d-af0d-d8ab70cf1e30" xml:space="preserve">
+          <source>You need to change the cluster's configuration by adding the following to <bpt id="a84b3cf8-5c33-4680-8a85-7273743effe3">&lt;code&gt;</bpt>sudo crm configure<ept id="a84b3cf8-5c33-4680-8a85-7273743effe3">&lt;/code&gt;</ept>:</source>
+          <target state="new">You need to change the cluster's configuration by adding the following to <bpt id="a84b3cf8-5c33-4680-8a85-7273743effe3">&lt;code&gt;</bpt>sudo crm configure<ept id="a84b3cf8-5c33-4680-8a85-7273743effe3">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="669c0f21-ba91-4427-a9dd-41d3ad1429ca" xml:space="preserve">
+          <source><bpt id="ca88435e-cb90-4987-94a9-e3bd5a8dc8dc">&lt;strong&gt;</bpt>Note:<ept id="ca88435e-cb90-4987-94a9-e3bd5a8dc8dc">&lt;/strong&gt;</ept> the script doesn't perform up/down checks.</source>
+          <target state="new"><bpt id="ca88435e-cb90-4987-94a9-e3bd5a8dc8dc">&lt;strong&gt;</bpt>Note:<ept id="ca88435e-cb90-4987-94a9-e3bd5a8dc8dc">&lt;/strong&gt;</ept> the script doesn't perform up/down checks.</target>
+        </trans-unit>
+        <trans-unit id="e64f9458-cb2e-4438-93b3-72cd508dbed6" xml:space="preserve">
+          <source>The original SSH resource had 15 ping checks but recovery time for an Azure VM might be more variable.</source>
+          <target state="new">The original SSH resource had 15 ping checks but recovery time for an Azure VM might be more variable.</target>
+        </trans-unit>
+        <trans-unit id="7947215b-38a8-4be2-b5c0-f12201e5f79a" xml:space="preserve">
+          <source>The following limitations apply:</source>
+          <target state="new">The following limitations apply:</target>
+        </trans-unit>
+        <trans-unit id="6f7c96f9-086d-4408-9c0d-cb0afbf1509e" xml:space="preserve">
+          <source>The linbit DRBD resource script that manages DRBD as a resource in Pacemaker uses <bpt id="cc6bab7a-1271-442c-9566-66e89e4f4d9d">&lt;code&gt;</bpt>drbdadm down<ept id="cc6bab7a-1271-442c-9566-66e89e4f4d9d">&lt;/code&gt;</ept> when shutting down a node, even if the node is just going standby.</source>
+          <target state="new">The linbit DRBD resource script that manages DRBD as a resource in Pacemaker uses <bpt id="cc6bab7a-1271-442c-9566-66e89e4f4d9d">&lt;code&gt;</bpt>drbdadm down<ept id="cc6bab7a-1271-442c-9566-66e89e4f4d9d">&lt;/code&gt;</ept> when shutting down a node, even if the node is just going standby.</target>
+        </trans-unit>
+        <trans-unit id="ca3e84d2-0ba3-43f7-a8f7-0c60b651ade6" xml:space="preserve">
+          <source>This is not ideal since the slave will not be synchronizing the DRBD resource while the master gets writes.</source>
+          <target state="new">This is not ideal since the slave will not be synchronizing the DRBD resource while the master gets writes.</target>
+        </trans-unit>
+        <trans-unit id="7b79598f-724c-4542-9108-3c33ed19e124" xml:space="preserve">
+          <source>If the master does not fail graciously, the slave can take over an older filesystem state.</source>
+          <target state="new">If the master does not fail graciously, the slave can take over an older filesystem state.</target>
+        </trans-unit>
+        <trans-unit id="4bf266be-752a-44ea-aeac-ab5815677392" xml:space="preserve">
+          <source>There are two potential ways of solving this:</source>
+          <target state="new">There are two potential ways of solving this:</target>
+        </trans-unit>
+        <trans-unit id="0abf653f-eb98-4879-bf83-944106d7c7cf" xml:space="preserve">
+          <source>Enforcing a <bpt id="55161a93-83a4-495f-8d1d-ae4e0517be66">&lt;code&gt;</bpt>drbdadm up r0<ept id="55161a93-83a4-495f-8d1d-ae4e0517be66">&lt;/code&gt;</ept> in all cluster nodes via a local (not clusterized) watchdog, or,</source>
+          <target state="new">Enforcing a <bpt id="55161a93-83a4-495f-8d1d-ae4e0517be66">&lt;code&gt;</bpt>drbdadm up r0<ept id="55161a93-83a4-495f-8d1d-ae4e0517be66">&lt;/code&gt;</ept> in all cluster nodes via a local (not clusterized) watchdog, or,</target>
+        </trans-unit>
+        <trans-unit id="d9b78eab-5b86-4442-9e26-73e802490a3e" xml:space="preserve">
+          <source>Editing the linbit DRBD script making sure that <bpt id="4eae9671-29cc-4295-ac97-1411cb88ab0b">&lt;code&gt;</bpt>down<ept id="4eae9671-29cc-4295-ac97-1411cb88ab0b">&lt;/code&gt;</ept> is not called, in <bpt id="441ba24c-fa77-4054-9b06-5d58a3dd5935">&lt;code&gt;</bpt>/usr/lib/ocf/resource.d/linbit/drbd<ept id="441ba24c-fa77-4054-9b06-5d58a3dd5935">&lt;/code&gt;</ept>.</source>
+          <target state="new">Editing the linbit DRBD script making sure that <bpt id="4eae9671-29cc-4295-ac97-1411cb88ab0b">&lt;code&gt;</bpt>down<ept id="4eae9671-29cc-4295-ac97-1411cb88ab0b">&lt;/code&gt;</ept> is not called, in <bpt id="441ba24c-fa77-4054-9b06-5d58a3dd5935">&lt;code&gt;</bpt>/usr/lib/ocf/resource.d/linbit/drbd<ept id="441ba24c-fa77-4054-9b06-5d58a3dd5935">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e4ea332-85a1-4461-9116-fee4b30d3806" xml:space="preserve">
+          <source>Load balancer needs at least 5 seconds to respond, so applications should be cluster aware and be more tolerant of timeout; other architectures can also help, for example in-app queues, query middlewares, etc.</source>
+          <target state="new">Load balancer needs at least 5 seconds to respond, so applications should be cluster aware and be more tolerant of timeout; other architectures can also help, for example in-app queues, query middlewares, etc.</target>
+        </trans-unit>
+        <trans-unit id="48a6813f-d7f6-4b1a-b1ae-bc9f221a2fc8" xml:space="preserve">
+          <source>MySQL tuning is necessary to ensure writing is done at a sane pace and caches are flushed to disk as frequently as possible to minimize memory loss</source>
+          <target state="new">MySQL tuning is necessary to ensure writing is done at a sane pace and caches are flushed to disk as frequently as possible to minimize memory loss</target>
+        </trans-unit>
+        <trans-unit id="0a9b16ff-f56f-474c-81c8-b8c593b8d82c" xml:space="preserve">
+          <source>Write performance will be dependent in VM interconnect in the virtual switch as this is the mechanism used by DRBD to replicate the device</source>
+          <target state="new">Write performance will be dependent in VM interconnect in the virtual switch as this is the mechanism used by DRBD to replicate the device</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9b278d0c-1ce7-4398-b9af-4fe657b698f5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9b278d0c-1ce7-4398-b9af-4fe657b698f5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0411c3db-f6c2-4a2b-b967-bde7a477150d">
+        <trans-unit id="5debf97e-1f1f-47d9-b47d-41aa493dd261" xml:space="preserve">
+          <source>Load sample data into SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Load sample data into SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7cd5a08b-c487-47d0-bddb-a0b047fcce44" xml:space="preserve">
+          <source>Load ample data into SQL Data Warehouse</source>
+          <target state="new">Load ample data into SQL Data Warehouse</target>
+        </trans-unit>
+        <trans-unit id="149eed0d-7ddb-4dd0-a044-77421a6d04c7" xml:space="preserve">
+          <source>Now that you have set-up a SQL Data Warehouse instance you can easily load some sample data into it.</source>
+          <target state="new">Now that you have set-up a SQL Data Warehouse instance you can easily load some sample data into it.</target>
+        </trans-unit>
+        <trans-unit id="cc9044c7-9e29-4dcc-9779-2900fe8478d8" xml:space="preserve">
+          <source>The following will help you create a dataset called AdventureWorksPDW2012 in your database.</source>
+          <target state="new">The following will help you create a dataset called AdventureWorksPDW2012 in your database.</target>
+        </trans-unit>
+        <trans-unit id="8052f973-74b9-4cec-a442-17786d7fa9a9" xml:space="preserve">
+          <source>This dataset models out a sample data warehouse structure for a fictional company called AdventureWorks.</source>
+          <target state="new">This dataset models out a sample data warehouse structure for a fictional company called AdventureWorks.</target>
+        </trans-unit>
+        <trans-unit id="aa97c074-49e8-4c7a-8e9f-82ec6d8d6e64" xml:space="preserve">
+          <source>Note that you will need to have BCP installed for the following steps.</source>
+          <target state="new">Note that you will need to have BCP installed for the following steps.</target>
+        </trans-unit>
+        <trans-unit id="e8730e17-5a48-42d5-b00b-9fe9464fa540" xml:space="preserve">
+          <source>If you do not currently have BCP installed, please install the <bpt id="8b58432b-3665-42fd-82a5-c15e74d717b3">&lt;linkText&gt;</bpt>Microsoft Command Line Utilities for SQL Server<ept id="8b58432b-3665-42fd-82a5-c15e74d717b3">&lt;/linkText&gt;</ept><bpt id="8b58432b-3665-42fd-82a5-c15e74d717b3">&lt;title&gt;</bpt><ept id="8b58432b-3665-42fd-82a5-c15e74d717b3">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not currently have BCP installed, please install the <bpt id="8b58432b-3665-42fd-82a5-c15e74d717b3">&lt;linkText&gt;</bpt>Microsoft Command Line Utilities for SQL Server<ept id="8b58432b-3665-42fd-82a5-c15e74d717b3">&lt;/linkText&gt;</ept><bpt id="8b58432b-3665-42fd-82a5-c15e74d717b3">&lt;title&gt;</bpt><ept id="8b58432b-3665-42fd-82a5-c15e74d717b3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93df6261-11b5-4346-aa37-efafb312d2d3" xml:space="preserve">
+          <source>To get started click to download our <bpt id="150b6e8b-ab85-4547-9ef5-588d63e550fb">&lt;linkText&gt;</bpt>Sample Data Scripts<ept id="150b6e8b-ab85-4547-9ef5-588d63e550fb">&lt;/linkText&gt;</ept><bpt id="150b6e8b-ab85-4547-9ef5-588d63e550fb">&lt;title&gt;</bpt><ept id="150b6e8b-ab85-4547-9ef5-588d63e550fb">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started click to download our <bpt id="150b6e8b-ab85-4547-9ef5-588d63e550fb">&lt;linkText&gt;</bpt>Sample Data Scripts<ept id="150b6e8b-ab85-4547-9ef5-588d63e550fb">&lt;/linkText&gt;</ept><bpt id="150b6e8b-ab85-4547-9ef5-588d63e550fb">&lt;title&gt;</bpt><ept id="150b6e8b-ab85-4547-9ef5-588d63e550fb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdb1b172-06dc-4cc3-a3de-9a6a0f83429d" xml:space="preserve">
+          <source>After the file has downloaded, extract the contents of the AdventureWorksPDW2012.zip file and open the new AdventureWorksPDW2012 folder.</source>
+          <target state="new">After the file has downloaded, extract the contents of the AdventureWorksPDW2012.zip file and open the new AdventureWorksPDW2012 folder.</target>
+        </trans-unit>
+        <trans-unit id="7a862815-60b9-4c29-adee-bdea773299f7" xml:space="preserve">
+          <source>Edit the aw_create.bat file and set the following values at the top of the file:</source>
+          <target state="new">Edit the aw_create.bat file and set the following values at the top of the file:</target>
+        </trans-unit>
+        <trans-unit id="d8908c8f-17d7-4b4d-8dcd-ad79d83d91a5" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="6abd15df-96ac-4808-a84e-33ff199079fc" xml:space="preserve">
+          <source><bpt id="c71986d4-c140-474c-9373-47ba9daa373f">&lt;strong&gt;</bpt>Server<ept id="c71986d4-c140-474c-9373-47ba9daa373f">&lt;/strong&gt;</ept>: The fully qualified name of the server your SQL Data Warehouse resides on</source>
+          <target state="new"><bpt id="c71986d4-c140-474c-9373-47ba9daa373f">&lt;strong&gt;</bpt>Server<ept id="c71986d4-c140-474c-9373-47ba9daa373f">&lt;/strong&gt;</ept>: The fully qualified name of the server your SQL Data Warehouse resides on</target>
+        </trans-unit>
+        <trans-unit id="b333ea53-8c7f-4a7f-8b49-9750af19b430" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="2125ca2c-00fc-4b12-86b3-15ffaa807b54" xml:space="preserve">
+          <source><bpt id="e03fbf43-ccd8-4134-a192-5952b55112e5">&lt;strong&gt;</bpt>User<ept id="e03fbf43-ccd8-4134-a192-5952b55112e5">&lt;/strong&gt;</ept>: The user for the above server</source>
+          <target state="new"><bpt id="e03fbf43-ccd8-4134-a192-5952b55112e5">&lt;strong&gt;</bpt>User<ept id="e03fbf43-ccd8-4134-a192-5952b55112e5">&lt;/strong&gt;</ept>: The user for the above server</target>
+        </trans-unit>
+        <trans-unit id="c257338a-079a-4eb3-b2e0-5ca698a74a97" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="0127d43f-b711-47b8-a388-e6e2c1644552" xml:space="preserve">
+          <source><bpt id="512cfe28-007f-4352-b447-0b3ec0737d02">&lt;strong&gt;</bpt>Password<ept id="512cfe28-007f-4352-b447-0b3ec0737d02">&lt;/strong&gt;</ept>: The password for the provided server log-in</source>
+          <target state="new"><bpt id="512cfe28-007f-4352-b447-0b3ec0737d02">&lt;strong&gt;</bpt>Password<ept id="512cfe28-007f-4352-b447-0b3ec0737d02">&lt;/strong&gt;</ept>: The password for the provided server log-in</target>
+        </trans-unit>
+        <trans-unit id="ab6e35ac-f740-4c24-b0e6-f803000cafe7" xml:space="preserve">
+          <source>d.</source>
+          <target state="new">d.</target>
+        </trans-unit>
+        <trans-unit id="84eb417b-7bd8-4abf-884b-fee6efb5d9e8" xml:space="preserve">
+          <source><bpt id="3ca6862a-9fde-41dc-9569-6731f5f63b53">&lt;strong&gt;</bpt>Database<ept id="3ca6862a-9fde-41dc-9569-6731f5f63b53">&lt;/strong&gt;</ept>: The name of the SQL Data Warehouse instance you wish to load data onto</source>
+          <target state="new"><bpt id="3ca6862a-9fde-41dc-9569-6731f5f63b53">&lt;strong&gt;</bpt>Database<ept id="3ca6862a-9fde-41dc-9569-6731f5f63b53">&lt;/strong&gt;</ept>: The name of the SQL Data Warehouse instance you wish to load data onto</target>
+        </trans-unit>
+        <trans-unit id="35ffbeab-8a27-4d3a-8399-8857fa75392d" xml:space="preserve">
+          <source>Ensure that there is no whitespace between the '=' and these parameters.</source>
+          <target state="new">Ensure that there is no whitespace between the '=' and these parameters.</target>
+        </trans-unit>
+        <trans-unit id="78253f90-f73c-46ce-8f8b-9aec3265657c" xml:space="preserve">
+          <source>Run aw_create.bat from the directory in which it is located.</source>
+          <target state="new">Run aw_create.bat from the directory in which it is located.</target>
+        </trans-unit>
+        <trans-unit id="a6d356fe-aaf2-405a-a958-852a3105d7a7" xml:space="preserve">
+          <source>This will create the schema and load data into all the tables using BCP.</source>
+          <target state="new">This will create the schema and load data into all the tables using BCP.</target>
+        </trans-unit>
+        <trans-unit id="dc80b2e4-72d9-4940-8f49-9b67e844da56" xml:space="preserve">
+          <source>As described in the <bpt id="ca863351-bebb-4b29-bd36-6f867dd1cd2e">&lt;linkText&gt;</bpt>connect and query<ept id="ca863351-bebb-4b29-bd36-6f867dd1cd2e">&lt;/linkText&gt;</ept><bpt id="ca863351-bebb-4b29-bd36-6f867dd1cd2e">&lt;title&gt;</bpt><ept id="ca863351-bebb-4b29-bd36-6f867dd1cd2e">&lt;/title&gt;</ept> documentation you can connect to this database using Visual Studio and SSDT.</source>
+          <target state="new">As described in the <bpt id="ca863351-bebb-4b29-bd36-6f867dd1cd2e">&lt;linkText&gt;</bpt>connect and query<ept id="ca863351-bebb-4b29-bd36-6f867dd1cd2e">&lt;/linkText&gt;</ept><bpt id="ca863351-bebb-4b29-bd36-6f867dd1cd2e">&lt;title&gt;</bpt><ept id="ca863351-bebb-4b29-bd36-6f867dd1cd2e">&lt;/title&gt;</ept> documentation you can connect to this database using Visual Studio and SSDT.</target>
+        </trans-unit>
+        <trans-unit id="17a15819-2c9e-4585-a22c-99ffbebceca4" xml:space="preserve">
+          <source>Now that you've loaded some sample data into your SQL Data Warehouse, you can quickly run a few queries to get started.</source>
+          <target state="new">Now that you've loaded some sample data into your SQL Data Warehouse, you can quickly run a few queries to get started.</target>
+        </trans-unit>
+        <trans-unit id="d4b89911-4b2f-439b-a9b0-430ab79370cc" xml:space="preserve">
+          <source>We can run a simple select statement to get all the info of the employees:</source>
+          <target state="new">We can run a simple select statement to get all the info of the employees:</target>
+        </trans-unit>
+        <trans-unit id="56d83ad6-0c1c-4a05-ad42-103e379af892" xml:space="preserve">
+          <source>We can also run a more complex query using constructs such as GROUP BY to look at the total amount for all sales on each day:</source>
+          <target state="new">We can also run a more complex query using constructs such as GROUP BY to look at the total amount for all sales on each day:</target>
+        </trans-unit>
+        <trans-unit id="c410b5ea-6cc4-4f8b-a221-9bf4a43d379b" xml:space="preserve">
+          <source>We can even use the WHERE clause to filter out orders from before a certain date:</source>
+          <target state="new">We can even use the WHERE clause to filter out orders from before a certain date:</target>
+        </trans-unit>
+        <trans-unit id="9ce8951c-6c5b-4a02-9914-2e9f79f27c84" xml:space="preserve">
+          <source>In fact, SQL Data Warehouse supports almost all of the T-SQL constructs that SQL Server does, and you can find some of the differences in our <bpt id="ad7e52d5-53d0-4067-8011-55d5f1bcf54a">&lt;linkText&gt;</bpt>migrate code<ept id="ad7e52d5-53d0-4067-8011-55d5f1bcf54a">&lt;/linkText&gt;</ept><bpt id="ad7e52d5-53d0-4067-8011-55d5f1bcf54a">&lt;title&gt;</bpt><ept id="ad7e52d5-53d0-4067-8011-55d5f1bcf54a">&lt;/title&gt;</ept> documentation.</source>
+          <target state="new">In fact, SQL Data Warehouse supports almost all of the T-SQL constructs that SQL Server does, and you can find some of the differences in our <bpt id="ad7e52d5-53d0-4067-8011-55d5f1bcf54a">&lt;linkText&gt;</bpt>migrate code<ept id="ad7e52d5-53d0-4067-8011-55d5f1bcf54a">&lt;/linkText&gt;</ept><bpt id="ad7e52d5-53d0-4067-8011-55d5f1bcf54a">&lt;title&gt;</bpt><ept id="ad7e52d5-53d0-4067-8011-55d5f1bcf54a">&lt;/title&gt;</ept> documentation.</target>
+        </trans-unit>
+        <trans-unit id="85e47e0c-e890-4391-b1bb-2db0843ffbb3" xml:space="preserve">
+          <source>Now that we've given you some time to warm up with the sample data check out how to <bpt id="47e507ac-c0fb-4de8-85d4-d7c26c42f6be">&lt;linkText&gt;</bpt>develop<ept id="47e507ac-c0fb-4de8-85d4-d7c26c42f6be">&lt;/linkText&gt;</ept><bpt id="47e507ac-c0fb-4de8-85d4-d7c26c42f6be">&lt;title&gt;</bpt><ept id="47e507ac-c0fb-4de8-85d4-d7c26c42f6be">&lt;/title&gt;</ept>, <bpt id="2a06c5ea-a5d8-4f30-a96e-4205ab9407b0">&lt;linkText&gt;</bpt>load<ept id="2a06c5ea-a5d8-4f30-a96e-4205ab9407b0">&lt;/linkText&gt;</ept><bpt id="2a06c5ea-a5d8-4f30-a96e-4205ab9407b0">&lt;title&gt;</bpt><ept id="2a06c5ea-a5d8-4f30-a96e-4205ab9407b0">&lt;/title&gt;</ept>, or <bpt id="8e8f3c42-79a0-4a75-be18-ef85c258b5b3">&lt;linkText&gt;</bpt>migrate<ept id="8e8f3c42-79a0-4a75-be18-ef85c258b5b3">&lt;/linkText&gt;</ept><bpt id="8e8f3c42-79a0-4a75-be18-ef85c258b5b3">&lt;title&gt;</bpt><ept id="8e8f3c42-79a0-4a75-be18-ef85c258b5b3">&lt;/title&gt;</ept>.</source>
+          <target state="new">Now that we've given you some time to warm up with the sample data check out how to <bpt id="47e507ac-c0fb-4de8-85d4-d7c26c42f6be">&lt;linkText&gt;</bpt>develop<ept id="47e507ac-c0fb-4de8-85d4-d7c26c42f6be">&lt;/linkText&gt;</ept><bpt id="47e507ac-c0fb-4de8-85d4-d7c26c42f6be">&lt;title&gt;</bpt><ept id="47e507ac-c0fb-4de8-85d4-d7c26c42f6be">&lt;/title&gt;</ept>, <bpt id="2a06c5ea-a5d8-4f30-a96e-4205ab9407b0">&lt;linkText&gt;</bpt>load<ept id="2a06c5ea-a5d8-4f30-a96e-4205ab9407b0">&lt;/linkText&gt;</ept><bpt id="2a06c5ea-a5d8-4f30-a96e-4205ab9407b0">&lt;title&gt;</bpt><ept id="2a06c5ea-a5d8-4f30-a96e-4205ab9407b0">&lt;/title&gt;</ept>, or <bpt id="8e8f3c42-79a0-4a75-be18-ef85c258b5b3">&lt;linkText&gt;</bpt>migrate<ept id="8e8f3c42-79a0-4a75-be18-ef85c258b5b3">&lt;/linkText&gt;</ept><bpt id="8e8f3c42-79a0-4a75-be18-ef85c258b5b3">&lt;title&gt;</bpt><ept id="8e8f3c42-79a0-4a75-be18-ef85c258b5b3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d29c5d2a-0d55-495a-bd0c-477d39258f5c" xml:space="preserve">
+          <source>https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/</source>
+          <target state="new">https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/</target>
+        </trans-unit>
+        <trans-unit id="094b5340-36b5-475f-8714-60af9e40e7c7" xml:space="preserve">
+          <source>https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/</source>
+          <target state="new">https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/</target>
+        </trans-unit>
+        <trans-unit id="766c6b8a-d0e0-4dd3-999e-2fc421bc2932" xml:space="preserve">
+          <source>https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-load/</source>
+          <target state="new">https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-load/</target>
+        </trans-unit>
+        <trans-unit id="b0c20566-f37f-4578-84cf-bcbda36e7d3c" xml:space="preserve">
+          <source>https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-query/</source>
+          <target state="new">https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-query/</target>
+        </trans-unit>
+        <trans-unit id="add54dfc-52a0-420f-9054-922d319121db" xml:space="preserve">
+          <source>https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-code/</source>
+          <target state="new">https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-code/</target>
+        </trans-unit>
+        <trans-unit id="2eb9ed92-e23f-430f-aa3d-d3a9b9d7201c" xml:space="preserve">
+          <source>http://www.microsoft.com/en-us/download/details.aspx?id=36433</source>
+          <target state="new">http://www.microsoft.com/en-us/download/details.aspx?id=36433</target>
+        </trans-unit>
+        <trans-unit id="025abaa7-5564-4c1d-a930-80e06d4598d1" xml:space="preserve">
+          <source>https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip</source>
+          <target state="new">https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip</target>
+        </trans-unit>
+      </group>
+      <group id="afc182d9-9d53-4fee-9ebf-2b84110955bc" />
+    </body>
+  </file>
+</xliff>

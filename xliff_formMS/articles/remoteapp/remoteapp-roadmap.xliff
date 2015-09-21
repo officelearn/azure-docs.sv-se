@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="59484f4a-9435-40aa-965d-d035f36dc69e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="59484f4a-9435-40aa-965d-d035f36dc69e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f0202add-d31b-4ef2-bc6c-9d871b0a1024">
+        <trans-unit id="34101521-c3bb-42b9-9dcf-e442a6ad5382" xml:space="preserve">
+          <source>What's coming in Azure RemoteApp</source>
+          <target state="new">What's coming in Azure RemoteApp</target>
+        </trans-unit>
+        <trans-unit id="b337bb7a-2b1d-4470-9740-b7f5c89c94b3" xml:space="preserve">
+          <source>Learn when new features for Azure RemoteApp will be available</source>
+          <target state="new">Learn when new features for Azure RemoteApp will be available</target>
+        </trans-unit>
+        <trans-unit id="ac1e2ea9-eefd-4e9c-bdd5-38c2b6f809bb" xml:space="preserve">
+          <source>We are always working to improve Azure RemoteApp based on your feedback.</source>
+          <target state="new">We are always working to improve Azure RemoteApp based on your feedback.</target>
+        </trans-unit>
+        <trans-unit id="4de52da5-0eaa-4a6a-bb3a-60e1ffce0256" xml:space="preserve">
+          <source>Here are rough time lines for future feature availability.</source>
+          <target state="new">Here are rough time lines for future feature availability.</target>
+        </trans-unit>
+        <trans-unit id="c6311290-0a43-45c2-a991-c2b0ccf70c6c" xml:space="preserve">
+          <source>Feature</source>
+          <target state="new">Feature</target>
+        </trans-unit>
+        <trans-unit id="385f18a4-25c2-4a1e-89bb-739163b25b13" xml:space="preserve">
+          <source>Jan-March 2015</source>
+          <target state="new">Jan-March 2015</target>
+        </trans-unit>
+        <trans-unit id="f6c1a138-af10-4196-b75c-40bad9099caa" xml:space="preserve">
+          <source>Apr-June 2015</source>
+          <target state="new">Apr-June 2015</target>
+        </trans-unit>
+        <trans-unit id="0852b715-592b-4856-b60a-a637c5209dd7" xml:space="preserve">
+          <source>July-Sep 2015</source>
+          <target state="new">July-Sep 2015</target>
+        </trans-unit>
+        <trans-unit id="c6290e33-0ee8-40f0-a596-6fb0869bd42c" xml:space="preserve">
+          <source>Oct-Dec 2015</source>
+          <target state="new">Oct-Dec 2015</target>
+        </trans-unit>
+        <trans-unit id="3932237f-be96-4120-9078-19619d73027f" xml:space="preserve">
+          <source>RemoteApp PowerShell cmdlets and SDK for deployment and management</source>
+          <target state="new">RemoteApp PowerShell cmdlets and SDK for deployment and management</target>
+        </trans-unit>
+        <trans-unit id="7e5f387a-987c-40eb-84cb-072592dd6568" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="bdf49656-9dd9-4c5e-a058-0e04b7df3755" xml:space="preserve">
+          <source>Create and upload an image from an Azure VM</source>
+          <target state="new">Create and upload an image from an Azure VM</target>
+        </trans-unit>
+        <trans-unit id="d1d7e949-0b6f-4e5d-942d-90c50625aef9" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="75ecb175-2806-4518-91b8-2a31650f5645" xml:space="preserve">
+          <source>Deploy to a VNET without joining a domain (cloud collection connection to the Azure VMs) (<bpt id="7fceec28-e4d3-466c-8ea7-0c10e919213f">&lt;linkText&gt;</bpt>feedback<ept id="7fceec28-e4d3-466c-8ea7-0c10e919213f">&lt;/linkText&gt;</ept><bpt id="7fceec28-e4d3-466c-8ea7-0c10e919213f">&lt;title&gt;</bpt><ept id="7fceec28-e4d3-466c-8ea7-0c10e919213f">&lt;/title&gt;</ept>)</source>
+          <target state="new">Deploy to a VNET without joining a domain (cloud collection connection to the Azure VMs) (<bpt id="7fceec28-e4d3-466c-8ea7-0c10e919213f">&lt;linkText&gt;</bpt>feedback<ept id="7fceec28-e4d3-466c-8ea7-0c10e919213f">&lt;/linkText&gt;</ept><bpt id="7fceec28-e4d3-466c-8ea7-0c10e919213f">&lt;title&gt;</bpt><ept id="7fceec28-e4d3-466c-8ea7-0c10e919213f">&lt;/title&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="db608134-58a6-4102-b8e5-f0e6468ca9be" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="a7590321-93b0-45c0-a16d-b6f4c1a36745" xml:space="preserve">
+          <source>Re-use an existing virtual network for RemoteApp hybrid collection (also enables ExpressRoute) (<bpt id="c0f46842-f262-45a8-8408-1f3baa115011">&lt;linkText&gt;</bpt>feedback<ept id="c0f46842-f262-45a8-8408-1f3baa115011">&lt;/linkText&gt;</ept><bpt id="c0f46842-f262-45a8-8408-1f3baa115011">&lt;title&gt;</bpt><ept id="c0f46842-f262-45a8-8408-1f3baa115011">&lt;/title&gt;</ept>)</source>
+          <target state="new">Re-use an existing virtual network for RemoteApp hybrid collection (also enables ExpressRoute) (<bpt id="c0f46842-f262-45a8-8408-1f3baa115011">&lt;linkText&gt;</bpt>feedback<ept id="c0f46842-f262-45a8-8408-1f3baa115011">&lt;/linkText&gt;</ept><bpt id="c0f46842-f262-45a8-8408-1f3baa115011">&lt;title&gt;</bpt><ept id="c0f46842-f262-45a8-8408-1f3baa115011">&lt;/title&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="0e2dcbf5-122f-42c8-972c-d407013a5903" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="fc63a67c-b187-4f30-9a72-d4d3b78dea58" xml:space="preserve">
+          <source>ExpressRoute (<bpt id="5f570b48-519a-4522-9db7-aac033060041">&lt;linkText&gt;</bpt>feedback<ept id="5f570b48-519a-4522-9db7-aac033060041">&lt;/linkText&gt;</ept><bpt id="5f570b48-519a-4522-9db7-aac033060041">&lt;title&gt;</bpt><ept id="5f570b48-519a-4522-9db7-aac033060041">&lt;/title&gt;</ept>)</source>
+          <target state="new">ExpressRoute (<bpt id="5f570b48-519a-4522-9db7-aac033060041">&lt;linkText&gt;</bpt>feedback<ept id="5f570b48-519a-4522-9db7-aac033060041">&lt;/linkText&gt;</ept><bpt id="5f570b48-519a-4522-9db7-aac033060041">&lt;title&gt;</bpt><ept id="5f570b48-519a-4522-9db7-aac033060041">&lt;/title&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="5737a508-4ee2-48a4-9e47-a2bfcc2201a2" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="e82c86b8-7e25-4cbf-af9a-8fdc242635f5" xml:space="preserve">
+          <source>Azure RemoteApp available in the new <bpt id="a0e214d5-9eb9-4686-aab5-7aab4801a350">&lt;linkText&gt;</bpt>Azure preview portal<ept id="a0e214d5-9eb9-4686-aab5-7aab4801a350">&lt;/linkText&gt;</ept><bpt id="a0e214d5-9eb9-4686-aab5-7aab4801a350">&lt;title&gt;</bpt><ept id="a0e214d5-9eb9-4686-aab5-7aab4801a350">&lt;/title&gt;</ept></source>
+          <target state="new">Azure RemoteApp available in the new <bpt id="a0e214d5-9eb9-4686-aab5-7aab4801a350">&lt;linkText&gt;</bpt>Azure preview portal<ept id="a0e214d5-9eb9-4686-aab5-7aab4801a350">&lt;/linkText&gt;</ept><bpt id="a0e214d5-9eb9-4686-aab5-7aab4801a350">&lt;title&gt;</bpt><ept id="a0e214d5-9eb9-4686-aab5-7aab4801a350">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c88d7ab-49f3-4eee-8d54-3af479ab06f9" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="78634206-3196-4dfe-9b49-7c44e7bd0fde" xml:space="preserve">
+          <source>Windows 10 Universal Application for Azure RemoteApp Preview</source>
+          <target state="new">Windows 10 Universal Application for Azure RemoteApp Preview</target>
+        </trans-unit>
+        <trans-unit id="406f9f8c-a020-4931-b5d4-b40dfbe5103a" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="43d1ea87-2ff5-4ab0-8bf2-19619b351498" xml:space="preserve">
+          <source>Ability to publish individual applications to specific users (<bpt id="24ea86fa-7330-4865-b1a4-d4853681cd88">&lt;linkText&gt;</bpt>feedback<ept id="24ea86fa-7330-4865-b1a4-d4853681cd88">&lt;/linkText&gt;</ept><bpt id="24ea86fa-7330-4865-b1a4-d4853681cd88">&lt;title&gt;</bpt><ept id="24ea86fa-7330-4865-b1a4-d4853681cd88">&lt;/title&gt;</ept>)</source>
+          <target state="new">Ability to publish individual applications to specific users (<bpt id="24ea86fa-7330-4865-b1a4-d4853681cd88">&lt;linkText&gt;</bpt>feedback<ept id="24ea86fa-7330-4865-b1a4-d4853681cd88">&lt;/linkText&gt;</ept><bpt id="24ea86fa-7330-4865-b1a4-d4853681cd88">&lt;title&gt;</bpt><ept id="24ea86fa-7330-4865-b1a4-d4853681cd88">&lt;/title&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="e8fd6750-cb73-47ab-a629-6251c0a2a219" xml:space="preserve">
+          <source>X</source>
+          <target state="new">X</target>
+        </trans-unit>
+        <trans-unit id="45e8f6e2-8b99-48b6-ab19-102c9c2943de" xml:space="preserve">
+          <source>Other improvements added earlier this year:</source>
+          <target state="new">Other improvements added earlier this year:</target>
+        </trans-unit>
+        <trans-unit id="e4858896-e4d3-45f0-bd88-44d3c56a39cb" xml:space="preserve">
+          <source>Upload line-of-business (LOB) applications to a cloud collection, as well as in a hybrid collection</source>
+          <target state="new">Upload line-of-business (LOB) applications to a cloud collection, as well as in a hybrid collection</target>
+        </trans-unit>
+        <trans-unit id="d3b15598-4941-4752-9d4c-5ed1d507e11c" xml:space="preserve">
+          <source>Support for Windows Phone</source>
+          <target state="new">Support for Windows Phone</target>
+        </trans-unit>
+        <trans-unit id="ac1d002f-cddc-4909-8cb2-fa563c26174b" xml:space="preserve">
+          <source>Usage metrics dashboard</source>
+          <target state="new">Usage metrics dashboard</target>
+        </trans-unit>
+        <trans-unit id="acd435e6-2ae4-409f-9f80-ec7e49e72f06" xml:space="preserve">
+          <source>Provision a large number of users by using a CSV file</source>
+          <target state="new">Provision a large number of users by using a CSV file</target>
+        </trans-unit>
+        <trans-unit id="c062a106-f9ea-4c8a-ba50-129ad1a6ea5f" xml:space="preserve">
+          <source>Availability in Australian data centers</source>
+          <target state="new">Availability in Australian data centers</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

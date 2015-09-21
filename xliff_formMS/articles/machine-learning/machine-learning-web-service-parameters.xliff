@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="69a325fd-5ab5-4059-b0cd-902bb278f1d4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="69a325fd-5ab5-4059-b0cd-902bb278f1d4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9ef8149b-be0d-4824-9261-20f6782a0b99">
+        <trans-unit id="5f830060-c4d6-478f-a69f-6f4aaf12a1ea" xml:space="preserve">
+          <source>Use Azure Machine Learning Web Service Parameters | Microsoft Azure</source>
+          <target state="new">Use Azure Machine Learning Web Service Parameters | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7d8d28ac-52eb-45c9-9096-ec8cc6065cb3" xml:space="preserve">
+          <source>How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed.</source>
+          <target state="new">How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed.</target>
+        </trans-unit>
+        <trans-unit id="23ccaaf5-b560-45bf-b797-b64ae0bd57d0" xml:space="preserve">
+          <source>An Azure Machine Learning web service is created by publishing an experiment that contains modules with configurable parameters.</source>
+          <target state="new">An Azure Machine Learning web service is created by publishing an experiment that contains modules with configurable parameters.</target>
+        </trans-unit>
+        <trans-unit id="671ec9ec-a5de-4140-94ca-af8ffa8aa1b3" xml:space="preserve">
+          <source>In some cases, you may want to change the module behavior while the web service is running.</source>
+          <target state="new">In some cases, you may want to change the module behavior while the web service is running.</target>
+        </trans-unit>
+        <trans-unit id="4d456493-d130-4d12-8020-facac3843d4d" xml:space="preserve">
+          <source><bpt id="821a00f6-23df-4821-824a-4d8089888f56">&lt;em&gt;</bpt>Web Service Parameters<ept id="821a00f6-23df-4821-824a-4d8089888f56">&lt;/em&gt;</ept> allow you to do this.</source>
+          <target state="new"><bpt id="821a00f6-23df-4821-824a-4d8089888f56">&lt;em&gt;</bpt>Web Service Parameters<ept id="821a00f6-23df-4821-824a-4d8089888f56">&lt;/em&gt;</ept> allow you to do this.</target>
+        </trans-unit>
+        <trans-unit id="0577ce7a-6ed5-422d-8688-bfa1fa7895fe" xml:space="preserve">
+          <source>A common example is setting up the <bpt id="21e0e32a-f666-4ef5-8779-ec41ddb6ca5a">&lt;linkText&gt;</bpt>Reader[reader]<ept id="21e0e32a-f666-4ef5-8779-ec41ddb6ca5a">&lt;/linkText&gt;</ept><bpt id="21e0e32a-f666-4ef5-8779-ec41ddb6ca5a">&lt;title&gt;</bpt><ept id="21e0e32a-f666-4ef5-8779-ec41ddb6ca5a">&lt;/title&gt;</ept> module so that the user of the published web service can specify a different data source when the web service is accessed.</source>
+          <target state="new">A common example is setting up the <bpt id="21e0e32a-f666-4ef5-8779-ec41ddb6ca5a">&lt;linkText&gt;</bpt>Reader[reader]<ept id="21e0e32a-f666-4ef5-8779-ec41ddb6ca5a">&lt;/linkText&gt;</ept><bpt id="21e0e32a-f666-4ef5-8779-ec41ddb6ca5a">&lt;title&gt;</bpt><ept id="21e0e32a-f666-4ef5-8779-ec41ddb6ca5a">&lt;/title&gt;</ept> module so that the user of the published web service can specify a different data source when the web service is accessed.</target>
+        </trans-unit>
+        <trans-unit id="8a151d01-d307-489a-9eff-a2bd74ba2f86" xml:space="preserve">
+          <source>Or configuring the <bpt id="424cb9ff-51c2-4bb5-a81c-f0475636a6da">&lt;linkText&gt;</bpt>Writer[writer]<ept id="424cb9ff-51c2-4bb5-a81c-f0475636a6da">&lt;/linkText&gt;</ept><bpt id="424cb9ff-51c2-4bb5-a81c-f0475636a6da">&lt;title&gt;</bpt><ept id="424cb9ff-51c2-4bb5-a81c-f0475636a6da">&lt;/title&gt;</ept> module so that a different destination can be specified.</source>
+          <target state="new">Or configuring the <bpt id="424cb9ff-51c2-4bb5-a81c-f0475636a6da">&lt;linkText&gt;</bpt>Writer[writer]<ept id="424cb9ff-51c2-4bb5-a81c-f0475636a6da">&lt;/linkText&gt;</ept><bpt id="424cb9ff-51c2-4bb5-a81c-f0475636a6da">&lt;title&gt;</bpt><ept id="424cb9ff-51c2-4bb5-a81c-f0475636a6da">&lt;/title&gt;</ept> module so that a different destination can be specified.</target>
+        </trans-unit>
+        <trans-unit id="2b53d1d8-2416-48fc-a3d2-c7d70a888435" xml:space="preserve">
+          <source>Some other examples include changing the number of bits for the <bpt id="abdf8db0-7249-44f7-a6d7-1c0f1805aef8">&lt;linkText&gt;</bpt>Feature Hashing[feature-hashing]<ept id="abdf8db0-7249-44f7-a6d7-1c0f1805aef8">&lt;/linkText&gt;</ept><bpt id="abdf8db0-7249-44f7-a6d7-1c0f1805aef8">&lt;title&gt;</bpt><ept id="abdf8db0-7249-44f7-a6d7-1c0f1805aef8">&lt;/title&gt;</ept> module or the number of desired features for the <bpt id="aa3ff0e2-789d-4300-b428-2edbe22ccfb5">&lt;linkText&gt;</bpt>Filter-Based Feature Selection[filter-based-feature-selection]<ept id="aa3ff0e2-789d-4300-b428-2edbe22ccfb5">&lt;/linkText&gt;</ept><bpt id="aa3ff0e2-789d-4300-b428-2edbe22ccfb5">&lt;title&gt;</bpt><ept id="aa3ff0e2-789d-4300-b428-2edbe22ccfb5">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Some other examples include changing the number of bits for the <bpt id="abdf8db0-7249-44f7-a6d7-1c0f1805aef8">&lt;linkText&gt;</bpt>Feature Hashing[feature-hashing]<ept id="abdf8db0-7249-44f7-a6d7-1c0f1805aef8">&lt;/linkText&gt;</ept><bpt id="abdf8db0-7249-44f7-a6d7-1c0f1805aef8">&lt;title&gt;</bpt><ept id="abdf8db0-7249-44f7-a6d7-1c0f1805aef8">&lt;/title&gt;</ept> module or the number of desired features for the <bpt id="aa3ff0e2-789d-4300-b428-2edbe22ccfb5">&lt;linkText&gt;</bpt>Filter-Based Feature Selection[filter-based-feature-selection]<ept id="aa3ff0e2-789d-4300-b428-2edbe22ccfb5">&lt;/linkText&gt;</ept><bpt id="aa3ff0e2-789d-4300-b428-2edbe22ccfb5">&lt;title&gt;</bpt><ept id="aa3ff0e2-789d-4300-b428-2edbe22ccfb5">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="c8765a7c-f4ae-4bac-abf7-088bdaace7af" xml:space="preserve">
+          <source>You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional.</source>
+          <target state="new">You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional.</target>
+        </trans-unit>
+        <trans-unit id="99e0bbc8-8356-4a06-8c46-8d90dbf16f4d" xml:space="preserve">
+          <source>The user of the web service can then provide values for these parameters when the service is accessed and the module actions will be modified at run time.</source>
+          <target state="new">The user of the web service can then provide values for these parameters when the service is accessed and the module actions will be modified at run time.</target>
+        </trans-unit>
+        <trans-unit id="0aa8e2da-97dc-4903-a8df-3ee347a40b03" xml:space="preserve">
+          <source><bpt id="2326db9d-8b82-4313-9436-2a145129af46">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="2326db9d-8b82-4313-9436-2a145129af46">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2326db9d-8b82-4313-9436-2a145129af46">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="2326db9d-8b82-4313-9436-2a145129af46">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c771642c-4a59-4598-8177-6e1b1500519c" xml:space="preserve">
+          <source>You define a Web Service Parameter by clicking the icon next to the parameter for a module and selecting "Set as web service parameter".</source>
+          <target state="new">You define a Web Service Parameter by clicking the icon next to the parameter for a module and selecting "Set as web service parameter".</target>
+        </trans-unit>
+        <trans-unit id="f6af7aa4-8a08-4384-8433-ad25636a83b5" xml:space="preserve">
+          <source>This creates a new Web Service Parameter and connects it to that module parameter.</source>
+          <target state="new">This creates a new Web Service Parameter and connects it to that module parameter.</target>
+        </trans-unit>
+        <trans-unit id="b63a4f5a-0a7d-48fa-b5b0-1a7de04eb569" xml:space="preserve">
+          <source>Then, when the web service is accessed, the user can specify a value for the Web Service Parameter and it will be applied to the module parameter.</source>
+          <target state="new">Then, when the web service is accessed, the user can specify a value for the Web Service Parameter and it will be applied to the module parameter.</target>
+        </trans-unit>
+        <trans-unit id="1d0469bf-89e7-4929-af02-b260364afb1c" xml:space="preserve">
+          <source>Once you define a Web Service Parameter, it's available to any other module parameter in the experiment.</source>
+          <target state="new">Once you define a Web Service Parameter, it's available to any other module parameter in the experiment.</target>
+        </trans-unit>
+        <trans-unit id="e7162705-cb26-40bc-988e-c69ad5371b01" xml:space="preserve">
+          <source>If you define a Web Service Parameter associated with a parameter for one module, you can use that same Web Service Parameter for any other module, as long as the parameter expects the same type of value.</source>
+          <target state="new">If you define a Web Service Parameter associated with a parameter for one module, you can use that same Web Service Parameter for any other module, as long as the parameter expects the same type of value.</target>
+        </trans-unit>
+        <trans-unit id="4f87235c-91e8-4ffa-b42e-3d5133ee51fa" xml:space="preserve">
+          <source>For example, if the Web Service Parameter is a numeric value, then it can only be used for module parameters that expect a numeric value.</source>
+          <target state="new">For example, if the Web Service Parameter is a numeric value, then it can only be used for module parameters that expect a numeric value.</target>
+        </trans-unit>
+        <trans-unit id="48bb18c9-a9c4-40f0-b3af-a2637d179fba" xml:space="preserve">
+          <source>When the user sets a value for the Web Service Parameter, it will be applied to all associated module parameters.</source>
+          <target state="new">When the user sets a value for the Web Service Parameter, it will be applied to all associated module parameters.</target>
+        </trans-unit>
+        <trans-unit id="c696b4e9-a982-4652-869b-c9f986ae5c0e" xml:space="preserve">
+          <source>You can decide whether to provide a default value for the Web Service Parameter.</source>
+          <target state="new">You can decide whether to provide a default value for the Web Service Parameter.</target>
+        </trans-unit>
+        <trans-unit id="0b69c508-a655-4db0-ac74-75962a324549" xml:space="preserve">
+          <source>If you do, then the parameter is optional for the user of the web service.</source>
+          <target state="new">If you do, then the parameter is optional for the user of the web service.</target>
+        </trans-unit>
+        <trans-unit id="8ac82efd-44e7-4c96-ba35-873d9d01f85f" xml:space="preserve">
+          <source>If you don't provide a default value, then the user is required to enter a value when the web service is accessed.</source>
+          <target state="new">If you don't provide a default value, then the user is required to enter a value when the web service is accessed.</target>
+        </trans-unit>
+        <trans-unit id="634cadef-3125-47da-b644-1a62e820cac0" xml:space="preserve">
+          <source>The documentation for the web service (provided through the <bpt id="88e0e043-2944-4be9-83b4-d258c5116b00">&lt;strong&gt;</bpt>API help page<ept id="88e0e043-2944-4be9-83b4-d258c5116b00">&lt;/strong&gt;</ept> link in the web service <bpt id="fbb8954c-5cdd-46cc-ade9-a5bb1e08e37f">&lt;strong&gt;</bpt>DASHBOARD<ept id="fbb8954c-5cdd-46cc-ade9-a5bb1e08e37f">&lt;/strong&gt;</ept> in Machine Learning Studio) will include information for the web service user on how to specify the Web Service Parameter programmatically when accessing the web service.</source>
+          <target state="new">The documentation for the web service (provided through the <bpt id="88e0e043-2944-4be9-83b4-d258c5116b00">&lt;strong&gt;</bpt>API help page<ept id="88e0e043-2944-4be9-83b4-d258c5116b00">&lt;/strong&gt;</ept> link in the web service <bpt id="fbb8954c-5cdd-46cc-ade9-a5bb1e08e37f">&lt;strong&gt;</bpt>DASHBOARD<ept id="fbb8954c-5cdd-46cc-ade9-a5bb1e08e37f">&lt;/strong&gt;</ept> in Machine Learning Studio) will include information for the web service user on how to specify the Web Service Parameter programmatically when accessing the web service.</target>
+        </trans-unit>
+        <trans-unit id="b60b55bf-8823-49bf-9bf4-06559d5ed9fa" xml:space="preserve">
+          <source>As an example, let's assume we have an experiment with a <bpt id="3e3d2135-0c7e-4f80-b7cd-bdd9308c61b6">&lt;linkText&gt;</bpt>Writer[writer]<ept id="3e3d2135-0c7e-4f80-b7cd-bdd9308c61b6">&lt;/linkText&gt;</ept><bpt id="3e3d2135-0c7e-4f80-b7cd-bdd9308c61b6">&lt;title&gt;</bpt><ept id="3e3d2135-0c7e-4f80-b7cd-bdd9308c61b6">&lt;/title&gt;</ept> module that sends information to Azure blob storage.</source>
+          <target state="new">As an example, let's assume we have an experiment with a <bpt id="3e3d2135-0c7e-4f80-b7cd-bdd9308c61b6">&lt;linkText&gt;</bpt>Writer[writer]<ept id="3e3d2135-0c7e-4f80-b7cd-bdd9308c61b6">&lt;/linkText&gt;</ept><bpt id="3e3d2135-0c7e-4f80-b7cd-bdd9308c61b6">&lt;title&gt;</bpt><ept id="3e3d2135-0c7e-4f80-b7cd-bdd9308c61b6">&lt;/title&gt;</ept> module that sends information to Azure blob storage.</target>
+        </trans-unit>
+        <trans-unit id="09d89939-064c-492b-9577-82fe684f2a85" xml:space="preserve">
+          <source>We'll define a Web Service Parameter named "Blob path" that allows the web service user to change the path to the blob storage when the service is accessed.</source>
+          <target state="new">We'll define a Web Service Parameter named "Blob path" that allows the web service user to change the path to the blob storage when the service is accessed.</target>
+        </trans-unit>
+        <trans-unit id="41a66049-f7d7-46f3-b371-a0ad0dc2bff2" xml:space="preserve">
+          <source>In Machine Learning Studio, click the <bpt id="dbe2971c-ee94-4ea0-9e9a-05238016ca93">&lt;linkText&gt;</bpt>Writer[writer]<ept id="dbe2971c-ee94-4ea0-9e9a-05238016ca93">&lt;/linkText&gt;</ept><bpt id="dbe2971c-ee94-4ea0-9e9a-05238016ca93">&lt;title&gt;</bpt><ept id="dbe2971c-ee94-4ea0-9e9a-05238016ca93">&lt;/title&gt;</ept> module to select it.</source>
+          <target state="new">In Machine Learning Studio, click the <bpt id="dbe2971c-ee94-4ea0-9e9a-05238016ca93">&lt;linkText&gt;</bpt>Writer[writer]<ept id="dbe2971c-ee94-4ea0-9e9a-05238016ca93">&lt;/linkText&gt;</ept><bpt id="dbe2971c-ee94-4ea0-9e9a-05238016ca93">&lt;title&gt;</bpt><ept id="dbe2971c-ee94-4ea0-9e9a-05238016ca93">&lt;/title&gt;</ept> module to select it.</target>
+        </trans-unit>
+        <trans-unit id="077d98df-ca5c-4c5c-a3c4-589a55b1dfb2" xml:space="preserve">
+          <source>Its properties are shown in the Properties pane to the right of the experiment canvas.</source>
+          <target state="new">Its properties are shown in the Properties pane to the right of the experiment canvas.</target>
+        </trans-unit>
+        <trans-unit id="0a654c2c-eb87-4e20-b787-910b79d80aa0" xml:space="preserve">
+          <source>Specify the storage type:</source>
+          <target state="new">Specify the storage type:</target>
+        </trans-unit>
+        <trans-unit id="f80f419e-08e6-499a-8b5b-f7bfa6c56310" xml:space="preserve">
+          <source>Under <bpt id="bc38eb02-5e98-4417-8a00-341556fd5c83">&lt;strong&gt;</bpt>Please specify data destination<ept id="bc38eb02-5e98-4417-8a00-341556fd5c83">&lt;/strong&gt;</ept>, select "Azure Blob Storage".</source>
+          <target state="new">Under <bpt id="bc38eb02-5e98-4417-8a00-341556fd5c83">&lt;strong&gt;</bpt>Please specify data destination<ept id="bc38eb02-5e98-4417-8a00-341556fd5c83">&lt;/strong&gt;</ept>, select "Azure Blob Storage".</target>
+        </trans-unit>
+        <trans-unit id="7f1481c8-6140-4373-84d1-dc267f4a2b3c" xml:space="preserve">
+          <source>Under <bpt id="eefa8739-3e15-4753-afa9-b537e1e5f98b">&lt;strong&gt;</bpt>Please specify authentication type<ept id="eefa8739-3e15-4753-afa9-b537e1e5f98b">&lt;/strong&gt;</ept>, select "Account".</source>
+          <target state="new">Under <bpt id="eefa8739-3e15-4753-afa9-b537e1e5f98b">&lt;strong&gt;</bpt>Please specify authentication type<ept id="eefa8739-3e15-4753-afa9-b537e1e5f98b">&lt;/strong&gt;</ept>, select "Account".</target>
+        </trans-unit>
+        <trans-unit id="8c1266cd-b3fe-4bb6-a2b0-0ffe2fe5c772" xml:space="preserve">
+          <source>Enter the account information for the Azure blob storage.</source>
+          <target state="new">Enter the account information for the Azure blob storage.</target>
+        </trans-unit>
+        <trans-unit id="46e43858-a328-4081-a78b-7b1484bba3c6" xml:space="preserve">
+          <source>&lt;p /&gt;</source>
+          <target state="new">&lt;p /&gt;</target>
+        </trans-unit>
+        <trans-unit id="c126f002-62fb-4474-8563-81e2a9d23953" xml:space="preserve">
+          <source>Click the icon to the right of the <bpt id="04a0bccc-7b2a-4a01-bea6-62d7dd087071">&lt;strong&gt;</bpt>Path to blob beginning with container parameter<ept id="04a0bccc-7b2a-4a01-bea6-62d7dd087071">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the icon to the right of the <bpt id="04a0bccc-7b2a-4a01-bea6-62d7dd087071">&lt;strong&gt;</bpt>Path to blob beginning with container parameter<ept id="04a0bccc-7b2a-4a01-bea6-62d7dd087071">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7554c27c-9e60-4721-8390-ac77771944fd" xml:space="preserve">
+          <source>It looks like this:</source>
+          <target state="new">It looks like this:</target>
+        </trans-unit>
+        <trans-unit id="6a2cad7c-3b92-41cd-8383-8f4eb94456d3" xml:space="preserve">
+          <source><bpt id="266eaf19-790e-45cb-b668-cf4fc8aff09f">&lt;linkText&gt;</bpt>Web Service Parameter icon<ept id="266eaf19-790e-45cb-b668-cf4fc8aff09f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="266eaf19-790e-45cb-b668-cf4fc8aff09f">&lt;linkText&gt;</bpt>Web Service Parameter icon<ept id="266eaf19-790e-45cb-b668-cf4fc8aff09f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd912ee7-6c21-4b7b-9ca2-785c218e4a79" xml:space="preserve">
+          <source>Select "Set as web service parameter".</source>
+          <target state="new">Select "Set as web service parameter".</target>
+        </trans-unit>
+        <trans-unit id="d5b47230-778c-44dd-a46c-4038c9200277" xml:space="preserve">
+          <source>An entry is added under <bpt id="aef19cc8-05ac-4b2c-961c-fd310c298cb3">&lt;strong&gt;</bpt>Web Service Parameters<ept id="aef19cc8-05ac-4b2c-961c-fd310c298cb3">&lt;/strong&gt;</ept> at the bottom of the Properties pane with the name "Path to blob beginning with container".</source>
+          <target state="new">An entry is added under <bpt id="aef19cc8-05ac-4b2c-961c-fd310c298cb3">&lt;strong&gt;</bpt>Web Service Parameters<ept id="aef19cc8-05ac-4b2c-961c-fd310c298cb3">&lt;/strong&gt;</ept> at the bottom of the Properties pane with the name "Path to blob beginning with container".</target>
+        </trans-unit>
+        <trans-unit id="689b4343-6ce1-4a48-ae31-94a336dacb89" xml:space="preserve">
+          <source>This is the Web Service Parameter that is now associated with this <bpt id="bd53c1d0-33c3-4cb1-9143-6dcaf702ba8f">&lt;linkText&gt;</bpt>Writer[writer]<ept id="bd53c1d0-33c3-4cb1-9143-6dcaf702ba8f">&lt;/linkText&gt;</ept><bpt id="bd53c1d0-33c3-4cb1-9143-6dcaf702ba8f">&lt;title&gt;</bpt><ept id="bd53c1d0-33c3-4cb1-9143-6dcaf702ba8f">&lt;/title&gt;</ept> module parameter.</source>
+          <target state="new">This is the Web Service Parameter that is now associated with this <bpt id="bd53c1d0-33c3-4cb1-9143-6dcaf702ba8f">&lt;linkText&gt;</bpt>Writer[writer]<ept id="bd53c1d0-33c3-4cb1-9143-6dcaf702ba8f">&lt;/linkText&gt;</ept><bpt id="bd53c1d0-33c3-4cb1-9143-6dcaf702ba8f">&lt;title&gt;</bpt><ept id="bd53c1d0-33c3-4cb1-9143-6dcaf702ba8f">&lt;/title&gt;</ept> module parameter.</target>
+        </trans-unit>
+        <trans-unit id="d56b6102-4b38-4000-aa6e-8a1bcfc32019" xml:space="preserve">
+          <source>To rename the Web Service Parameter, click the name, enter "Blob path", and press the <bpt id="849c90d2-a9ce-4876-92e2-7a4ccc43579e">&lt;strong&gt;</bpt>Enter<ept id="849c90d2-a9ce-4876-92e2-7a4ccc43579e">&lt;/strong&gt;</ept> key.</source>
+          <target state="new">To rename the Web Service Parameter, click the name, enter "Blob path", and press the <bpt id="849c90d2-a9ce-4876-92e2-7a4ccc43579e">&lt;strong&gt;</bpt>Enter<ept id="849c90d2-a9ce-4876-92e2-7a4ccc43579e">&lt;/strong&gt;</ept> key.</target>
+        </trans-unit>
+        <trans-unit id="61676612-0dc3-404b-a4bc-8aa4e222f4d0" xml:space="preserve">
+          <source>To provide a default value for the Web Service Parameter, click the icon to the right of the name, select "Provide default value", enter a value (for example, "container1/output1.csv"), and press the <bpt id="d6c2b215-5000-4070-af94-3d65bab84ce7">&lt;strong&gt;</bpt>Enter<ept id="d6c2b215-5000-4070-af94-3d65bab84ce7">&lt;/strong&gt;</ept> key.</source>
+          <target state="new">To provide a default value for the Web Service Parameter, click the icon to the right of the name, select "Provide default value", enter a value (for example, "container1/output1.csv"), and press the <bpt id="d6c2b215-5000-4070-af94-3d65bab84ce7">&lt;strong&gt;</bpt>Enter<ept id="d6c2b215-5000-4070-af94-3d65bab84ce7">&lt;/strong&gt;</ept> key.</target>
+        </trans-unit>
+        <trans-unit id="78af0125-a18e-43a6-8d6a-3eb371890475" xml:space="preserve">
+          <source><bpt id="f0465411-ac2e-4b38-95da-1558a9491b5e">&lt;linkText&gt;</bpt>Web Service Parameter<ept id="f0465411-ac2e-4b38-95da-1558a9491b5e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0465411-ac2e-4b38-95da-1558a9491b5e">&lt;linkText&gt;</bpt>Web Service Parameter<ept id="f0465411-ac2e-4b38-95da-1558a9491b5e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef554167-353a-4378-bb1b-719b4372dcc7" xml:space="preserve">
+          <source>Click <bpt id="c692052f-31fe-4e4e-b689-8aefba56c89f">&lt;strong&gt;</bpt>Run<ept id="c692052f-31fe-4e4e-b689-8aefba56c89f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c692052f-31fe-4e4e-b689-8aefba56c89f">&lt;strong&gt;</bpt>Run<ept id="c692052f-31fe-4e4e-b689-8aefba56c89f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53a3697e-5c7d-48a5-90cd-92e722332f15" xml:space="preserve">
+          <source>Click <bpt id="8ec4c38c-4d69-4c7b-b895-81ee89140148">&lt;strong&gt;</bpt>PUBLISH WEB SERVICE<ept id="8ec4c38c-4d69-4c7b-b895-81ee89140148">&lt;/strong&gt;</ept> to publish the web service.</source>
+          <target state="new">Click <bpt id="8ec4c38c-4d69-4c7b-b895-81ee89140148">&lt;strong&gt;</bpt>PUBLISH WEB SERVICE<ept id="8ec4c38c-4d69-4c7b-b895-81ee89140148">&lt;/strong&gt;</ept> to publish the web service.</target>
+        </trans-unit>
+        <trans-unit id="af1d6488-5e9c-4804-b8aa-f1dcf5b5be94" xml:space="preserve">
+          <source>The user of the web service can now specify a new destination for the <bpt id="c5d99098-fd69-4974-8e42-d7aad4fd9cec">&lt;linkText&gt;</bpt>Writer[writer]<ept id="c5d99098-fd69-4974-8e42-d7aad4fd9cec">&lt;/linkText&gt;</ept><bpt id="c5d99098-fd69-4974-8e42-d7aad4fd9cec">&lt;title&gt;</bpt><ept id="c5d99098-fd69-4974-8e42-d7aad4fd9cec">&lt;/title&gt;</ept> module when accessing the web service.</source>
+          <target state="new">The user of the web service can now specify a new destination for the <bpt id="c5d99098-fd69-4974-8e42-d7aad4fd9cec">&lt;linkText&gt;</bpt>Writer[writer]<ept id="c5d99098-fd69-4974-8e42-d7aad4fd9cec">&lt;/linkText&gt;</ept><bpt id="c5d99098-fd69-4974-8e42-d7aad4fd9cec">&lt;title&gt;</bpt><ept id="c5d99098-fd69-4974-8e42-d7aad4fd9cec">&lt;/title&gt;</ept> module when accessing the web service.</target>
+        </trans-unit>
+        <trans-unit id="119e78b2-e1f0-4e89-8541-d7a29fa11eea" xml:space="preserve">
+          <source>For a more detailed example, see the <bpt id="cdb5fa90-ab1a-4d72-b8db-3c65315eee50">&lt;linkText&gt;</bpt>Web Service Parameters<ept id="cdb5fa90-ab1a-4d72-b8db-3c65315eee50">&lt;/linkText&gt;</ept><bpt id="cdb5fa90-ab1a-4d72-b8db-3c65315eee50">&lt;title&gt;</bpt><ept id="cdb5fa90-ab1a-4d72-b8db-3c65315eee50">&lt;/title&gt;</ept> entry in the <bpt id="ee715d8c-c3ac-413c-81bb-6b1024df1551">&lt;linkText&gt;</bpt>Machine Learning Blog<ept id="ee715d8c-c3ac-413c-81bb-6b1024df1551">&lt;/linkText&gt;</ept><bpt id="ee715d8c-c3ac-413c-81bb-6b1024df1551">&lt;title&gt;</bpt><ept id="ee715d8c-c3ac-413c-81bb-6b1024df1551">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a more detailed example, see the <bpt id="cdb5fa90-ab1a-4d72-b8db-3c65315eee50">&lt;linkText&gt;</bpt>Web Service Parameters<ept id="cdb5fa90-ab1a-4d72-b8db-3c65315eee50">&lt;/linkText&gt;</ept><bpt id="cdb5fa90-ab1a-4d72-b8db-3c65315eee50">&lt;title&gt;</bpt><ept id="cdb5fa90-ab1a-4d72-b8db-3c65315eee50">&lt;/title&gt;</ept> entry in the <bpt id="ee715d8c-c3ac-413c-81bb-6b1024df1551">&lt;linkText&gt;</bpt>Machine Learning Blog<ept id="ee715d8c-c3ac-413c-81bb-6b1024df1551">&lt;/linkText&gt;</ept><bpt id="ee715d8c-c3ac-413c-81bb-6b1024df1551">&lt;title&gt;</bpt><ept id="ee715d8c-c3ac-413c-81bb-6b1024df1551">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56753cd7-cd48-48f9-a325-020624993695" xml:space="preserve">
+          <source>For more information on accessing a Machine Learning web service, see <bpt id="cb1a32d7-8c0d-4fee-a8d4-2f5689d1bedd">&lt;linkText&gt;</bpt>How to consume a published machine learning web service<ept id="cb1a32d7-8c0d-4fee-a8d4-2f5689d1bedd">&lt;/linkText&gt;</ept><bpt id="cb1a32d7-8c0d-4fee-a8d4-2f5689d1bedd">&lt;title&gt;</bpt><ept id="cb1a32d7-8c0d-4fee-a8d4-2f5689d1bedd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on accessing a Machine Learning web service, see <bpt id="cb1a32d7-8c0d-4fee-a8d4-2f5689d1bedd">&lt;linkText&gt;</bpt>How to consume a published machine learning web service<ept id="cb1a32d7-8c0d-4fee-a8d4-2f5689d1bedd">&lt;/linkText&gt;</ept><bpt id="cb1a32d7-8c0d-4fee-a8d4-2f5689d1bedd">&lt;title&gt;</bpt><ept id="cb1a32d7-8c0d-4fee-a8d4-2f5689d1bedd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8b47eab-fbe9-4f32-aee4-e4c7ae3f9ec0" xml:space="preserve">
+          <source>./media/machine-learning-web-service-parameters/icon.png</source>
+          <target state="new">./media/machine-learning-web-service-parameters/icon.png</target>
+        </trans-unit>
+        <trans-unit id="0574b9ce-fea9-4f02-8664-84971126270c" xml:space="preserve">
+          <source>./media/machine-learning-web-service-parameters/parameter.png</source>
+          <target state="new">./media/machine-learning-web-service-parameters/parameter.png</target>
+        </trans-unit>
+        <trans-unit id="54aa0a71-7d10-4368-9d57-eac190fa2269" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/</target>
+        </trans-unit>
+        <trans-unit id="2da7ff6f-b519-4ddd-b07e-9833495bcb6a" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/</target>
+        </trans-unit>
+        <trans-unit id="f1396482-5a7d-4750-8a46-0789038bfa6e" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/</target>
+        </trans-unit>
+        <trans-unit id="1dcfbbab-3aff-4d0c-80fd-b21049d7d1ff" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/</target>
+        </trans-unit>
+      </group>
+      <group id="44f72fc5-25fc-4aa4-a930-7526b9532335" />
+    </body>
+  </file>
+</xliff>

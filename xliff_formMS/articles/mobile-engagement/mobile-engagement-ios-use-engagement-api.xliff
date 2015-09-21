@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2e7b2654-f40e-4c50-a3aa-4381dc50a9d6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2e7b2654-f40e-4c50-a3aa-4381dc50a9d6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d4f69960-101a-44f5-9cb4-92667144a44d">
+        <trans-unit id="05b84421-5cb2-4a9e-bd48-47a60dedd0b4" xml:space="preserve">
+          <source>How to Use the Engagement API on iOS</source>
+          <target state="new">How to Use the Engagement API on iOS</target>
+        </trans-unit>
+        <trans-unit id="720779e0-74f4-4be1-9a67-02f36824e202" xml:space="preserve">
+          <source>Latest iOS SDK - How to Use the Engagement API on iOS</source>
+          <target state="new">Latest iOS SDK - How to Use the Engagement API on iOS</target>
+        </trans-unit>
+        <trans-unit id="c3f36d51-6d68-421a-9e42-93fc08a86100" xml:space="preserve">
+          <source>This document is an add-on to the document How to Integrate Engagement on iOS: it provides in depth details about how to use the Engagement API to report your application statistics.</source>
+          <target state="new">This document is an add-on to the document How to Integrate Engagement on iOS: it provides in depth details about how to use the Engagement API to report your application statistics.</target>
+        </trans-unit>
+        <trans-unit id="a71ebe10-020b-4beb-b9d4-130742ae152f" xml:space="preserve">
+          <source>Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your custom <bpt id="c1d3dd96-2f07-4c7e-831e-a62325d50572">&lt;code&gt;</bpt>UIViewController<ept id="c1d3dd96-2f07-4c7e-831e-a62325d50572">&lt;/code&gt;</ept> objects inherit from the corresponding <bpt id="fb20f9a1-1b41-402f-963a-118f8dbc9801">&lt;code&gt;</bpt>EngagementViewController<ept id="fb20f9a1-1b41-402f-963a-118f8dbc9801">&lt;/code&gt;</ept> class.</source>
+          <target state="new">Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your custom <bpt id="c1d3dd96-2f07-4c7e-831e-a62325d50572">&lt;code&gt;</bpt>UIViewController<ept id="c1d3dd96-2f07-4c7e-831e-a62325d50572">&lt;/code&gt;</ept> objects inherit from the corresponding <bpt id="fb20f9a1-1b41-402f-963a-118f8dbc9801">&lt;code&gt;</bpt>EngagementViewController<ept id="fb20f9a1-1b41-402f-963a-118f8dbc9801">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="a35b09f0-8abc-475b-9530-9b675fec4034" xml:space="preserve">
+          <source>If you want to do more, for example if you need to report application specific events, errors and jobs, or if you have to report your application's activities in a different way than the one implemented in the <bpt id="e57e26f6-dc4a-44c6-8603-2bd14d3296e1">&lt;code&gt;</bpt>EngagementViewController<ept id="e57e26f6-dc4a-44c6-8603-2bd14d3296e1">&lt;/code&gt;</ept> classes, then you need to use the Engagement API.</source>
+          <target state="new">If you want to do more, for example if you need to report application specific events, errors and jobs, or if you have to report your application's activities in a different way than the one implemented in the <bpt id="e57e26f6-dc4a-44c6-8603-2bd14d3296e1">&lt;code&gt;</bpt>EngagementViewController<ept id="e57e26f6-dc4a-44c6-8603-2bd14d3296e1">&lt;/code&gt;</ept> classes, then you need to use the Engagement API.</target>
+        </trans-unit>
+        <trans-unit id="d86dba53-1cfb-4147-bf9e-2a7e2dbe3560" xml:space="preserve">
+          <source>The Engagement API is provided by the <bpt id="7417dee5-7622-4e0a-9250-01fcfea24aad">&lt;code&gt;</bpt>EngagementAgent<ept id="7417dee5-7622-4e0a-9250-01fcfea24aad">&lt;/code&gt;</ept> class.</source>
+          <target state="new">The Engagement API is provided by the <bpt id="7417dee5-7622-4e0a-9250-01fcfea24aad">&lt;code&gt;</bpt>EngagementAgent<ept id="7417dee5-7622-4e0a-9250-01fcfea24aad">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="f1319d7a-ca21-4c30-a93f-cde784016c20" xml:space="preserve">
+          <source>An instance of this class can be retrieved by calling the <bpt id="ba0ab9f5-715e-400f-adf1-2868def2c586">&lt;code&gt;</bpt>[EngagementAgent shared]<ept id="ba0ab9f5-715e-400f-adf1-2868def2c586">&lt;/code&gt;</ept> static method (note that the <bpt id="0b5038e9-2f6d-44d0-8913-3a128e12d348">&lt;code&gt;</bpt>EngagementAgent<ept id="0b5038e9-2f6d-44d0-8913-3a128e12d348">&lt;/code&gt;</ept> object returned is a singleton).</source>
+          <target state="new">An instance of this class can be retrieved by calling the <bpt id="ba0ab9f5-715e-400f-adf1-2868def2c586">&lt;code&gt;</bpt>[EngagementAgent shared]<ept id="ba0ab9f5-715e-400f-adf1-2868def2c586">&lt;/code&gt;</ept> static method (note that the <bpt id="0b5038e9-2f6d-44d0-8913-3a128e12d348">&lt;code&gt;</bpt>EngagementAgent<ept id="0b5038e9-2f6d-44d0-8913-3a128e12d348">&lt;/code&gt;</ept> object returned is a singleton).</target>
+        </trans-unit>
+        <trans-unit id="1c30379b-46f7-4cd8-a811-25eed52aa316" xml:space="preserve">
+          <source>Before any API calls, the <bpt id="666997d8-31ea-4b59-b423-3ae8e9c77179">&lt;code&gt;</bpt>EngagementAgent<ept id="666997d8-31ea-4b59-b423-3ae8e9c77179">&lt;/code&gt;</ept> object must be initialized by calling the method <bpt id="a270e84a-1684-4ed6-8fab-f309d61151d5">&lt;code&gt;</bpt>[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];<ept id="a270e84a-1684-4ed6-8fab-f309d61151d5">&lt;/code&gt;</ept></source>
+          <target state="new">Before any API calls, the <bpt id="666997d8-31ea-4b59-b423-3ae8e9c77179">&lt;code&gt;</bpt>EngagementAgent<ept id="666997d8-31ea-4b59-b423-3ae8e9c77179">&lt;/code&gt;</ept> object must be initialized by calling the method <bpt id="a270e84a-1684-4ed6-8fab-f309d61151d5">&lt;code&gt;</bpt>[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];<ept id="a270e84a-1684-4ed6-8fab-f309d61151d5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83dfb3e1-d5d4-4036-9709-b878b087955c" xml:space="preserve">
+          <source>The following parts refine the common <bpt id="70d82d17-0c0a-4dde-88f7-b6cd5286b9da">&lt;linkText&gt;</bpt>Mobile Engagement Concepts<ept id="70d82d17-0c0a-4dde-88f7-b6cd5286b9da">&lt;/linkText&gt;</ept><bpt id="70d82d17-0c0a-4dde-88f7-b6cd5286b9da">&lt;title&gt;</bpt><ept id="70d82d17-0c0a-4dde-88f7-b6cd5286b9da">&lt;/title&gt;</ept> for the iOS platform.</source>
+          <target state="new">The following parts refine the common <bpt id="70d82d17-0c0a-4dde-88f7-b6cd5286b9da">&lt;linkText&gt;</bpt>Mobile Engagement Concepts<ept id="70d82d17-0c0a-4dde-88f7-b6cd5286b9da">&lt;/linkText&gt;</ept><bpt id="70d82d17-0c0a-4dde-88f7-b6cd5286b9da">&lt;title&gt;</bpt><ept id="70d82d17-0c0a-4dde-88f7-b6cd5286b9da">&lt;/title&gt;</ept> for the iOS platform.</target>
+        </trans-unit>
+        <trans-unit id="69b051bb-3819-4de5-81f4-666406434cf1" xml:space="preserve">
+          <source>An <bpt id="eba760bc-ce78-470e-aa4a-0f9407b5a4ea">&lt;em&gt;</bpt>activity<ept id="eba760bc-ce78-470e-aa4a-0f9407b5a4ea">&lt;/em&gt;</ept> is usually associated with one screen of the application, that is to say the <bpt id="4c6a6007-0d8a-4626-a1ab-d27077255f6d">&lt;em&gt;</bpt>activity<ept id="4c6a6007-0d8a-4626-a1ab-d27077255f6d">&lt;/em&gt;</ept> starts when the screen is displayed and stops when the screen is closed: this is the case when the Engagement SDK is integrated by using the <bpt id="2fc3506a-feae-49ec-8f65-f1a8be68a0cd">&lt;code&gt;</bpt>EngagementViewController<ept id="2fc3506a-feae-49ec-8f65-f1a8be68a0cd">&lt;/code&gt;</ept> classes.</source>
+          <target state="new">An <bpt id="eba760bc-ce78-470e-aa4a-0f9407b5a4ea">&lt;em&gt;</bpt>activity<ept id="eba760bc-ce78-470e-aa4a-0f9407b5a4ea">&lt;/em&gt;</ept> is usually associated with one screen of the application, that is to say the <bpt id="4c6a6007-0d8a-4626-a1ab-d27077255f6d">&lt;em&gt;</bpt>activity<ept id="4c6a6007-0d8a-4626-a1ab-d27077255f6d">&lt;/em&gt;</ept> starts when the screen is displayed and stops when the screen is closed: this is the case when the Engagement SDK is integrated by using the <bpt id="2fc3506a-feae-49ec-8f65-f1a8be68a0cd">&lt;code&gt;</bpt>EngagementViewController<ept id="2fc3506a-feae-49ec-8f65-f1a8be68a0cd">&lt;/code&gt;</ept> classes.</target>
+        </trans-unit>
+        <trans-unit id="9bad74b4-2d71-4457-87c9-a2c10ec293d8" xml:space="preserve">
+          <source>But <bpt id="bf7a45a1-693a-4574-a448-6f39b09a3f51">&lt;em&gt;</bpt>activities<ept id="bf7a45a1-693a-4574-a448-6f39b09a3f51">&lt;/em&gt;</ept> can also be controlled manually by using the Engagement API.</source>
+          <target state="new">But <bpt id="bf7a45a1-693a-4574-a448-6f39b09a3f51">&lt;em&gt;</bpt>activities<ept id="bf7a45a1-693a-4574-a448-6f39b09a3f51">&lt;/em&gt;</ept> can also be controlled manually by using the Engagement API.</target>
+        </trans-unit>
+        <trans-unit id="66efb540-7857-4f12-80ac-a73db449a479" xml:space="preserve">
+          <source>This allows to split a given screen in several sub parts to get more details about the usage of this screen (for example to known how often and how long dialogs are used inside this screen).</source>
+          <target state="new">This allows to split a given screen in several sub parts to get more details about the usage of this screen (for example to known how often and how long dialogs are used inside this screen).</target>
+        </trans-unit>
+        <trans-unit id="d3e7b0b1-b71d-4495-8079-68697eac5dd2" xml:space="preserve">
+          <source>You need to call <bpt id="293f64e8-9c2a-4131-84e1-8f5f6d32220c">&lt;code&gt;</bpt>startActivity()<ept id="293f64e8-9c2a-4131-84e1-8f5f6d32220c">&lt;/code&gt;</ept> each time the user activity changes.</source>
+          <target state="new">You need to call <bpt id="293f64e8-9c2a-4131-84e1-8f5f6d32220c">&lt;code&gt;</bpt>startActivity()<ept id="293f64e8-9c2a-4131-84e1-8f5f6d32220c">&lt;/code&gt;</ept> each time the user activity changes.</target>
+        </trans-unit>
+        <trans-unit id="0f008199-f2c7-40cd-8343-7fd92636588b" xml:space="preserve">
+          <source>The first call to this function starts a new user session.</source>
+          <target state="new">The first call to this function starts a new user session.</target>
+        </trans-unit>
+        <trans-unit id="c69a01b2-fcd2-4bbe-89cc-d0df6372c52f" xml:space="preserve">
+          <source>You should <bpt id="c899dd6d-3129-46fd-81ae-02044f20b4f7">&lt;strong&gt;</bpt>NEVER<ept id="c899dd6d-3129-46fd-81ae-02044f20b4f7">&lt;/strong&gt;</ept> call this function by yourself, except if you want to split one use of your application into several sessions: a call to this function would end the current session immediately, so, a subsequent call to <bpt id="8afd289b-adef-4798-944f-e989c6b777c1">&lt;code&gt;</bpt>startActivity()<ept id="8afd289b-adef-4798-944f-e989c6b777c1">&lt;/code&gt;</ept> would start a new session.</source>
+          <target state="new">You should <bpt id="c899dd6d-3129-46fd-81ae-02044f20b4f7">&lt;strong&gt;</bpt>NEVER<ept id="c899dd6d-3129-46fd-81ae-02044f20b4f7">&lt;/strong&gt;</ept> call this function by yourself, except if you want to split one use of your application into several sessions: a call to this function would end the current session immediately, so, a subsequent call to <bpt id="8afd289b-adef-4798-944f-e989c6b777c1">&lt;code&gt;</bpt>startActivity()<ept id="8afd289b-adef-4798-944f-e989c6b777c1">&lt;/code&gt;</ept> would start a new session.</target>
+        </trans-unit>
+        <trans-unit id="bc1eafdc-9fa8-4686-9c87-5abce1afa7f5" xml:space="preserve">
+          <source>This function is automatically called by the SDK when your application is closed.</source>
+          <target state="new">This function is automatically called by the SDK when your application is closed.</target>
+        </trans-unit>
+        <trans-unit id="8fb3ad77-aa7a-44be-bc02-17deef5e294c" xml:space="preserve">
+          <source>Session events are usually used to report the actions performed by a user during his session.</source>
+          <target state="new">Session events are usually used to report the actions performed by a user during his session.</target>
+        </trans-unit>
+        <trans-unit id="d2c29a7a-c10c-4632-abbb-e7acf28d30e8" xml:space="preserve">
+          <source><bpt id="ca11a6b1-96e3-449c-a4d2-7df0885ec2d3">&lt;strong&gt;</bpt>Example without extra data:<ept id="ca11a6b1-96e3-449c-a4d2-7df0885ec2d3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ca11a6b1-96e3-449c-a4d2-7df0885ec2d3">&lt;strong&gt;</bpt>Example without extra data:<ept id="ca11a6b1-96e3-449c-a4d2-7df0885ec2d3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0bbef2a-8054-4cfd-8f14-2c774e7b227a" xml:space="preserve">
+          <source><bpt id="938e228f-8c3f-45f4-bf01-ddcbd01f3e89">&lt;strong&gt;</bpt>Example with extra data:<ept id="938e228f-8c3f-45f4-bf01-ddcbd01f3e89">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="938e228f-8c3f-45f4-bf01-ddcbd01f3e89">&lt;strong&gt;</bpt>Example with extra data:<ept id="938e228f-8c3f-45f4-bf01-ddcbd01f3e89">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df7ff992-6013-49d1-be0e-16b3efcea8e0" xml:space="preserve">
+          <source>Contrary to session events, standalone events can be used outside of the context of a session.</source>
+          <target state="new">Contrary to session events, standalone events can be used outside of the context of a session.</target>
+        </trans-unit>
+        <trans-unit id="32bd4d29-7ae5-423d-8294-e5eef527c8f4" xml:space="preserve">
+          <source><bpt id="dabe1aed-2859-4708-9793-2144f8752978">&lt;strong&gt;</bpt>Example:<ept id="dabe1aed-2859-4708-9793-2144f8752978">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dabe1aed-2859-4708-9793-2144f8752978">&lt;strong&gt;</bpt>Example:<ept id="dabe1aed-2859-4708-9793-2144f8752978">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40364be2-e156-43f4-9a59-8e4157196dd7" xml:space="preserve">
+          <source>Session errors are usually used to report the errors impacting the user during his session.</source>
+          <target state="new">Session errors are usually used to report the errors impacting the user during his session.</target>
+        </trans-unit>
+        <trans-unit id="a3d60ce5-eeff-411c-8584-e80b81903c04" xml:space="preserve">
+          <source><bpt id="6f14dfd6-8fb5-42e8-ab93-d3d079d75e56">&lt;strong&gt;</bpt>Example:<ept id="6f14dfd6-8fb5-42e8-ab93-d3d079d75e56">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6f14dfd6-8fb5-42e8-ab93-d3d079d75e56">&lt;strong&gt;</bpt>Example:<ept id="6f14dfd6-8fb5-42e8-ab93-d3d079d75e56">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5030d4a3-70ea-458f-84ff-2bac249eea6b" xml:space="preserve">
+          <source>Contrary to session errors, standalone errors can be used outside of the context of a session.</source>
+          <target state="new">Contrary to session errors, standalone errors can be used outside of the context of a session.</target>
+        </trans-unit>
+        <trans-unit id="25e240c1-8c99-49c6-9f3b-98936544eaf0" xml:space="preserve">
+          <source><bpt id="d05a96d1-23e2-4aca-81dd-71d5582d7a6b">&lt;strong&gt;</bpt>Example:<ept id="d05a96d1-23e2-4aca-81dd-71d5582d7a6b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d05a96d1-23e2-4aca-81dd-71d5582d7a6b">&lt;strong&gt;</bpt>Example:<ept id="d05a96d1-23e2-4aca-81dd-71d5582d7a6b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f40ef4f-4b9f-456b-aa2a-30aa4aea37b7" xml:space="preserve">
+          <source><bpt id="41520f47-067a-4b72-b905-92ec9defe5d1">&lt;strong&gt;</bpt>Example:<ept id="41520f47-067a-4b72-b905-92ec9defe5d1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="41520f47-067a-4b72-b905-92ec9defe5d1">&lt;strong&gt;</bpt>Example:<ept id="41520f47-067a-4b72-b905-92ec9defe5d1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcd70191-f4e4-4eca-b2fb-cdcc9e730aa2" xml:space="preserve">
+          <source>Suppose you want to report the duration of your login process:</source>
+          <target state="new">Suppose you want to report the duration of your login process:</target>
+        </trans-unit>
+        <trans-unit id="9213b8e3-c3b3-42d5-8bf7-53dfcd0b4895" xml:space="preserve">
+          <source>Errors can be related to a running job instead of being related to the current user session.</source>
+          <target state="new">Errors can be related to a running job instead of being related to the current user session.</target>
+        </trans-unit>
+        <trans-unit id="ffdea297-f80c-4712-bff1-1daf30c89100" xml:space="preserve">
+          <source><bpt id="6af1759d-fffc-4054-8e47-f2fd552d34f9">&lt;strong&gt;</bpt>Example:<ept id="6af1759d-fffc-4054-8e47-f2fd552d34f9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6af1759d-fffc-4054-8e47-f2fd552d34f9">&lt;strong&gt;</bpt>Example:<ept id="6af1759d-fffc-4054-8e47-f2fd552d34f9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="462e3eb1-bf4d-425f-a5d8-baa445993c92" xml:space="preserve">
+          <source>Suppose you want to report an error during your login process:</source>
+          <target state="new">Suppose you want to report an error during your login process:</target>
+        </trans-unit>
+        <trans-unit id="cb27ea4a-2ab7-419b-b240-6a5f709bdfd9" xml:space="preserve">
+          <source>Events can be related to a running job instead of being related to the current user session.</source>
+          <target state="new">Events can be related to a running job instead of being related to the current user session.</target>
+        </trans-unit>
+        <trans-unit id="3c4079db-04ff-4eb4-9ef4-44674d16420e" xml:space="preserve">
+          <source><bpt id="16e6874d-090c-449e-b3bd-6c12e973cc29">&lt;strong&gt;</bpt>Example:<ept id="16e6874d-090c-449e-b3bd-6c12e973cc29">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="16e6874d-090c-449e-b3bd-6c12e973cc29">&lt;strong&gt;</bpt>Example:<ept id="16e6874d-090c-449e-b3bd-6c12e973cc29">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cdac5493-81e1-4046-8bba-5c3032c31b1e" xml:space="preserve">
+          <source>Suppose we have a social network, and we use a job to report the total time during which the user is connected to the server.</source>
+          <target state="new">Suppose we have a social network, and we use a job to report the total time during which the user is connected to the server.</target>
+        </trans-unit>
+        <trans-unit id="e40d8aa0-487b-412f-8322-e926a340134f" xml:space="preserve">
+          <source>The user can receive messages from his friends, this is a job event.</source>
+          <target state="new">The user can receive messages from his friends, this is a job event.</target>
+        </trans-unit>
+        <trans-unit id="b334fb2d-2e54-4c1f-a218-fc08528a4163" xml:space="preserve">
+          <source>Arbitrary data can be attached to events, errors, activities and jobs.</source>
+          <target state="new">Arbitrary data can be attached to events, errors, activities and jobs.</target>
+        </trans-unit>
+        <trans-unit id="5c830c6b-bbc5-454d-bc4f-cab3c193bd6d" xml:space="preserve">
+          <source>This data can be structured, it uses iOS's NSDictionary class.</source>
+          <target state="new">This data can be structured, it uses iOS's NSDictionary class.</target>
+        </trans-unit>
+        <trans-unit id="23cba02f-9559-4144-a03b-5871afab1eea" xml:space="preserve">
+          <source>Note that extras can contain <bpt id="f178629d-4d4f-4882-8282-085555eb186f">&lt;code&gt;</bpt>arrays(NSArray, NSMutableArray)<ept id="f178629d-4d4f-4882-8282-085555eb186f">&lt;/code&gt;</ept>, <bpt id="28c6e584-1c10-4a05-9be6-2aec9c17ae63">&lt;code&gt;</bpt>numbers(NSNumber class)<ept id="28c6e584-1c10-4a05-9be6-2aec9c17ae63">&lt;/code&gt;</ept>, <bpt id="be172549-2583-48a4-a445-e3795f80aba8">&lt;code&gt;</bpt>strings(NSString, NSMutableString)<ept id="be172549-2583-48a4-a445-e3795f80aba8">&lt;/code&gt;</ept>, <bpt id="5dbaeb22-5668-443d-947c-574d239b8891">&lt;code&gt;</bpt>urls(NSURL)<ept id="5dbaeb22-5668-443d-947c-574d239b8891">&lt;/code&gt;</ept>, <bpt id="d182f4a0-59c3-4700-868c-f7125c778704">&lt;code&gt;</bpt>data(NSData, NSMutableData)<ept id="d182f4a0-59c3-4700-868c-f7125c778704">&lt;/code&gt;</ept> or other <bpt id="b6280ae2-60e3-4e53-81f7-7fea84d90679">&lt;code&gt;</bpt>NSDictionary<ept id="b6280ae2-60e3-4e53-81f7-7fea84d90679">&lt;/code&gt;</ept> instances.</source>
+          <target state="new">Note that extras can contain <bpt id="f178629d-4d4f-4882-8282-085555eb186f">&lt;code&gt;</bpt>arrays(NSArray, NSMutableArray)<ept id="f178629d-4d4f-4882-8282-085555eb186f">&lt;/code&gt;</ept>, <bpt id="28c6e584-1c10-4a05-9be6-2aec9c17ae63">&lt;code&gt;</bpt>numbers(NSNumber class)<ept id="28c6e584-1c10-4a05-9be6-2aec9c17ae63">&lt;/code&gt;</ept>, <bpt id="be172549-2583-48a4-a445-e3795f80aba8">&lt;code&gt;</bpt>strings(NSString, NSMutableString)<ept id="be172549-2583-48a4-a445-e3795f80aba8">&lt;/code&gt;</ept>, <bpt id="5dbaeb22-5668-443d-947c-574d239b8891">&lt;code&gt;</bpt>urls(NSURL)<ept id="5dbaeb22-5668-443d-947c-574d239b8891">&lt;/code&gt;</ept>, <bpt id="d182f4a0-59c3-4700-868c-f7125c778704">&lt;code&gt;</bpt>data(NSData, NSMutableData)<ept id="d182f4a0-59c3-4700-868c-f7125c778704">&lt;/code&gt;</ept> or other <bpt id="b6280ae2-60e3-4e53-81f7-7fea84d90679">&lt;code&gt;</bpt>NSDictionary<ept id="b6280ae2-60e3-4e53-81f7-7fea84d90679">&lt;/code&gt;</ept> instances.</target>
+        </trans-unit>
+        <trans-unit id="cde31cad-cba0-45c2-a8f4-228224504224" xml:space="preserve">
+          <source>The extra parameter is serialized in JSON.</source>
+          <target state="new">The extra parameter is serialized in JSON.</target>
+        </trans-unit>
+        <trans-unit id="0dc98ef5-5473-44f1-b800-a81e2ce6ca91" xml:space="preserve">
+          <source>If you want to pass different objects than the ones described above, you must implement the following method in your class:</source>
+          <target state="new">If you want to pass different objects than the ones described above, you must implement the following method in your class:</target>
+        </trans-unit>
+        <trans-unit id="84f12b57-4644-4e6b-b107-e89a51a2119a" xml:space="preserve">
+          <source>The method should return a JSON representation of your object.</source>
+          <target state="new">The method should return a JSON representation of your object.</target>
+        </trans-unit>
+        <trans-unit id="c2b9e169-b974-426b-9dc6-7da197c4fd7d" xml:space="preserve">
+          <source>Each key in the <bpt id="fc0a6ccd-f9f0-4075-8143-203457ca8008">&lt;code&gt;</bpt>NSDictionary<ept id="fc0a6ccd-f9f0-4075-8143-203457ca8008">&lt;/code&gt;</ept> must match the following regular expression:</source>
+          <target state="new">Each key in the <bpt id="fc0a6ccd-f9f0-4075-8143-203457ca8008">&lt;code&gt;</bpt>NSDictionary<ept id="fc0a6ccd-f9f0-4075-8143-203457ca8008">&lt;/code&gt;</ept> must match the following regular expression:</target>
+        </trans-unit>
+        <trans-unit id="44d5ed28-3e31-4509-aa2a-42475618ef0d" xml:space="preserve">
+          <source><bpt id="9a816267-d583-4e5b-b821-fe835f2ddb04">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*<ept id="9a816267-d583-4e5b-b821-fe835f2ddb04">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="9a816267-d583-4e5b-b821-fe835f2ddb04">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*<ept id="9a816267-d583-4e5b-b821-fe835f2ddb04">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18248ac1-4fdb-4b5c-9916-e56c76195d82" xml:space="preserve">
+          <source>It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</source>
+          <target state="new">It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</target>
+        </trans-unit>
+        <trans-unit id="4a7a73d5-df53-4798-a1a6-5e63b9252b71" xml:space="preserve">
+          <source>Extras are limited to <bpt id="9825a248-c35b-44ff-bbcb-5e945197f284">&lt;strong&gt;</bpt>1024<ept id="9825a248-c35b-44ff-bbcb-5e945197f284">&lt;/strong&gt;</ept> characters per call (once encoded in JSON by the Engagement agent).</source>
+          <target state="new">Extras are limited to <bpt id="9825a248-c35b-44ff-bbcb-5e945197f284">&lt;strong&gt;</bpt>1024<ept id="9825a248-c35b-44ff-bbcb-5e945197f284">&lt;/strong&gt;</ept> characters per call (once encoded in JSON by the Engagement agent).</target>
+        </trans-unit>
+        <trans-unit id="14ee4d12-33e3-4154-9dc9-704435074444" xml:space="preserve">
+          <source>In the previous example, the JSON sent to the server is 58 characters long:</source>
+          <target state="new">In the previous example, the JSON sent to the server is 58 characters long:</target>
+        </trans-unit>
+        <trans-unit id="d2ad0051-c2f6-4fa9-b25c-e57308d48e6f" xml:space="preserve">
+          <source>You can manually report tracking information (or any other application specific information) using the <bpt id="28cf74e1-0b70-4b41-bac2-3bea63cbd47e">&lt;code&gt;</bpt>sendAppInfo:<ept id="28cf74e1-0b70-4b41-bac2-3bea63cbd47e">&lt;/code&gt;</ept> function.</source>
+          <target state="new">You can manually report tracking information (or any other application specific information) using the <bpt id="28cf74e1-0b70-4b41-bac2-3bea63cbd47e">&lt;code&gt;</bpt>sendAppInfo:<ept id="28cf74e1-0b70-4b41-bac2-3bea63cbd47e">&lt;/code&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="fe29e68e-2edd-4444-ba29-454121801bfc" xml:space="preserve">
+          <source>Note that these information can be sent incrementally: only the latest value for a given key will be kept for a given device.</source>
+          <target state="new">Note that these information can be sent incrementally: only the latest value for a given key will be kept for a given device.</target>
+        </trans-unit>
+        <trans-unit id="362755ec-b07d-4d36-a958-f286bfd029c7" xml:space="preserve">
+          <source>Like event extras, the <bpt id="4676130b-7ee5-4a46-bec3-fcb0ef421c97">&lt;code&gt;</bpt>NSDictionary<ept id="4676130b-7ee5-4a46-bec3-fcb0ef421c97">&lt;/code&gt;</ept> class is used to abstract application information, note that arrays or sub-dictionaries will be treated as flat strings (using JSON serialization).</source>
+          <target state="new">Like event extras, the <bpt id="4676130b-7ee5-4a46-bec3-fcb0ef421c97">&lt;code&gt;</bpt>NSDictionary<ept id="4676130b-7ee5-4a46-bec3-fcb0ef421c97">&lt;/code&gt;</ept> class is used to abstract application information, note that arrays or sub-dictionaries will be treated as flat strings (using JSON serialization).</target>
+        </trans-unit>
+        <trans-unit id="c97b8b2d-49c8-4e16-bca5-d253c33f8a71" xml:space="preserve">
+          <source><bpt id="2b17f5bb-475a-47a2-ae4f-702e52f4f925">&lt;strong&gt;</bpt>Example:<ept id="2b17f5bb-475a-47a2-ae4f-702e52f4f925">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2b17f5bb-475a-47a2-ae4f-702e52f4f925">&lt;strong&gt;</bpt>Example:<ept id="2b17f5bb-475a-47a2-ae4f-702e52f4f925">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a1d9db6-6e44-475a-a2c8-c27b675a21fb" xml:space="preserve">
+          <source>Each key in the <bpt id="0758b0ba-fee4-478c-95dc-cffe8415aa5c">&lt;code&gt;</bpt>NSDictionary<ept id="0758b0ba-fee4-478c-95dc-cffe8415aa5c">&lt;/code&gt;</ept> must match the following regular expression:</source>
+          <target state="new">Each key in the <bpt id="0758b0ba-fee4-478c-95dc-cffe8415aa5c">&lt;code&gt;</bpt>NSDictionary<ept id="0758b0ba-fee4-478c-95dc-cffe8415aa5c">&lt;/code&gt;</ept> must match the following regular expression:</target>
+        </trans-unit>
+        <trans-unit id="4ef1ec5e-9036-4150-8e08-1ab75fa4d05e" xml:space="preserve">
+          <source><bpt id="addff845-50c4-4cd4-a6d4-a1b012d4e209">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*<ept id="addff845-50c4-4cd4-a6d4-a1b012d4e209">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="addff845-50c4-4cd4-a6d4-a1b012d4e209">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*<ept id="addff845-50c4-4cd4-a6d4-a1b012d4e209">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2271ace8-07b3-40d2-b53c-3960ed5ed1ea" xml:space="preserve">
+          <source>It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</source>
+          <target state="new">It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</target>
+        </trans-unit>
+        <trans-unit id="26867fd7-fda7-49fd-8ba2-1b9cd3a02e1f" xml:space="preserve">
+          <source>Application information are limited to <bpt id="f76d206c-daff-418c-8eef-7b033647ace0">&lt;strong&gt;</bpt>1024<ept id="f76d206c-daff-418c-8eef-7b033647ace0">&lt;/strong&gt;</ept> characters per call (once encoded in JSON by the Engagement agent).</source>
+          <target state="new">Application information are limited to <bpt id="f76d206c-daff-418c-8eef-7b033647ace0">&lt;strong&gt;</bpt>1024<ept id="f76d206c-daff-418c-8eef-7b033647ace0">&lt;/strong&gt;</ept> characters per call (once encoded in JSON by the Engagement agent).</target>
+        </trans-unit>
+        <trans-unit id="dbc5149b-0d80-423d-9043-0b9032225cd9" xml:space="preserve">
+          <source>In the previous example, the JSON sent to the server is 44 characters long:</source>
+          <target state="new">In the previous example, the JSON sent to the server is 44 characters long:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="148871d2-d6b9-4bc4-99a5-4463eeee6c9c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="148871d2-d6b9-4bc4-99a5-4463eeee6c9c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1c373b7c-edac-4b0e-a7e0-624296bb8b8a">
+        <trans-unit id="21209ab1-bda9-47e0-871f-73974fd00ed6" xml:space="preserve">
+          <source>Getting started with Azure storage</source>
+          <target state="new">Getting started with Azure storage</target>
+        </trans-unit>
+        <trans-unit id="e0f899c5-c02f-4383-8d1e-95ea42987679" xml:space="preserve">
+          <source>Describes what happened when creating Azure Storage in a Visual Studio ASP.NET project</source>
+          <target state="new">Describes what happened when creating Azure Storage in a Visual Studio ASP.NET project</target>
+        </trans-unit>
+        <trans-unit id="6b7a3d5c-24b9-460e-9f76-c38cc11ef0ef" xml:space="preserve">
+          <source>The Azure Storage NuGet package was added to your Visual Studio project.</source>
+          <target state="new">The Azure Storage NuGet package was added to your Visual Studio project.</target>
+        </trans-unit>
+        <trans-unit id="99f780b1-ce11-41b0-9af0-9c08ed11c44a" xml:space="preserve">
+          <source>This package adds the following .NET references:</source>
+          <target state="new">This package adds the following .NET references:</target>
+        </trans-unit>
+        <trans-unit id="673799a1-7eaf-420e-937b-12ed2c77220c" xml:space="preserve">
+          <source><bpt id="238c3e44-8e22-448a-b5a1-93ae5dd783af">&lt;code&gt;</bpt>Microsoft.Data.Edm<ept id="238c3e44-8e22-448a-b5a1-93ae5dd783af">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="238c3e44-8e22-448a-b5a1-93ae5dd783af">&lt;code&gt;</bpt>Microsoft.Data.Edm<ept id="238c3e44-8e22-448a-b5a1-93ae5dd783af">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6117b63-a3bb-4561-a71f-427e59d4d9b1" xml:space="preserve">
+          <source><bpt id="43545835-1c4c-4d50-8246-c088ba294243">&lt;code&gt;</bpt>Microsoft.Data.OData<ept id="43545835-1c4c-4d50-8246-c088ba294243">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="43545835-1c4c-4d50-8246-c088ba294243">&lt;code&gt;</bpt>Microsoft.Data.OData<ept id="43545835-1c4c-4d50-8246-c088ba294243">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b98e2f5c-8299-4537-b3c2-91353aaa4e41" xml:space="preserve">
+          <source><bpt id="79d9bbcb-6122-4ee6-84f7-a6bd62e4ea55">&lt;code&gt;</bpt>Microsoft.Data.Services.Client<ept id="79d9bbcb-6122-4ee6-84f7-a6bd62e4ea55">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="79d9bbcb-6122-4ee6-84f7-a6bd62e4ea55">&lt;code&gt;</bpt>Microsoft.Data.Services.Client<ept id="79d9bbcb-6122-4ee6-84f7-a6bd62e4ea55">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3facf73-e81c-4ee8-bb3e-099193e07970" xml:space="preserve">
+          <source><bpt id="45e7be40-812a-4c58-a0ff-029f35721180">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Configuration<ept id="45e7be40-812a-4c58-a0ff-029f35721180">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="45e7be40-812a-4c58-a0ff-029f35721180">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Configuration<ept id="45e7be40-812a-4c58-a0ff-029f35721180">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="804d0749-745b-4dc3-90df-968683dfaddb" xml:space="preserve">
+          <source><bpt id="d42676fe-0c5e-4c6f-8488-19523020028e">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Storage<ept id="d42676fe-0c5e-4c6f-8488-19523020028e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d42676fe-0c5e-4c6f-8488-19523020028e">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Storage<ept id="d42676fe-0c5e-4c6f-8488-19523020028e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39fed99f-46d6-4d88-be5f-b7aa8e45c716" xml:space="preserve">
+          <source><bpt id="02c3629b-6640-4f6f-98b8-3bbe86b92f87">&lt;code&gt;</bpt>Newtonsoft.Json<ept id="02c3629b-6640-4f6f-98b8-3bbe86b92f87">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="02c3629b-6640-4f6f-98b8-3bbe86b92f87">&lt;code&gt;</bpt>Newtonsoft.Json<ept id="02c3629b-6640-4f6f-98b8-3bbe86b92f87">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0c7b32e-e74d-4c5c-a356-b590302613b0" xml:space="preserve">
+          <source><bpt id="d1dacb40-a0b9-4e7a-8828-6986b8e31731">&lt;code&gt;</bpt>System.Data<ept id="d1dacb40-a0b9-4e7a-8828-6986b8e31731">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d1dacb40-a0b9-4e7a-8828-6986b8e31731">&lt;code&gt;</bpt>System.Data<ept id="d1dacb40-a0b9-4e7a-8828-6986b8e31731">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c71cdff0-5eb5-4b5d-a35b-0626eeb824ba" xml:space="preserve">
+          <source><bpt id="31c58d48-92f0-42d0-b376-1170021ef514">&lt;code&gt;</bpt>System.Spatial<ept id="31c58d48-92f0-42d0-b376-1170021ef514">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="31c58d48-92f0-42d0-b376-1170021ef514">&lt;code&gt;</bpt>System.Spatial<ept id="31c58d48-92f0-42d0-b376-1170021ef514">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21ef8c8a-671b-476f-b4bb-40ceb45c4aef" xml:space="preserve">
+          <source>In the web.config file of your project, an element was created with the selected storage account's connection string and key.</source>
+          <target state="new">In the web.config file of your project, an element was created with the selected storage account's connection string and key.</target>
+        </trans-unit>
+        <trans-unit id="090f92dd-1e44-4902-9456-5105642ca7e5" xml:space="preserve">
+          <source>For more information, see <bpt id="debfbab8-5e36-46b7-be01-ab0ed192f740">&lt;linkText&gt;</bpt>ASP.NET<ept id="debfbab8-5e36-46b7-be01-ab0ed192f740">&lt;/linkText&gt;</ept><bpt id="debfbab8-5e36-46b7-be01-ab0ed192f740">&lt;title&gt;</bpt><ept id="debfbab8-5e36-46b7-be01-ab0ed192f740">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="debfbab8-5e36-46b7-be01-ab0ed192f740">&lt;linkText&gt;</bpt>ASP.NET<ept id="debfbab8-5e36-46b7-be01-ab0ed192f740">&lt;/linkText&gt;</ept><bpt id="debfbab8-5e36-46b7-be01-ab0ed192f740">&lt;title&gt;</bpt><ept id="debfbab8-5e36-46b7-be01-ab0ed192f740">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

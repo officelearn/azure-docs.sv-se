@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="12da188f-e6c1-4733-8c58-0462369b3d01" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="12da188f-e6c1-4733-8c58-0462369b3d01" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="13ae7e15-446d-4822-9e6a-e9eb2d6066b7">
+        <trans-unit id="71afe430-9b93-4276-8947-b6213bb74b58" xml:space="preserve">
+          <source>To start, set up your development environment by installing the <bpt id="38535aee-b501-460a-a49b-e843f3803b97">&lt;linkText&gt;</bpt>Azure SDK for Visual Studio 2015<ept id="38535aee-b501-460a-a49b-e843f3803b97">&lt;/linkText&gt;</ept><bpt id="38535aee-b501-460a-a49b-e843f3803b97">&lt;title&gt;</bpt><ept id="38535aee-b501-460a-a49b-e843f3803b97">&lt;/title&gt;</ept> or the <bpt id="1fdec5cf-6429-469a-865c-132714209e46">&lt;linkText&gt;</bpt>Azure SDK for Visual Studio 2013<ept id="1fdec5cf-6429-469a-865c-132714209e46">&lt;/linkText&gt;</ept><bpt id="1fdec5cf-6429-469a-865c-132714209e46">&lt;title&gt;</bpt><ept id="1fdec5cf-6429-469a-865c-132714209e46">&lt;/title&gt;</ept>.</source>
+          <target state="new">To start, set up your development environment by installing the <bpt id="38535aee-b501-460a-a49b-e843f3803b97">&lt;linkText&gt;</bpt>Azure SDK for Visual Studio 2015<ept id="38535aee-b501-460a-a49b-e843f3803b97">&lt;/linkText&gt;</ept><bpt id="38535aee-b501-460a-a49b-e843f3803b97">&lt;title&gt;</bpt><ept id="38535aee-b501-460a-a49b-e843f3803b97">&lt;/title&gt;</ept> or the <bpt id="1fdec5cf-6429-469a-865c-132714209e46">&lt;linkText&gt;</bpt>Azure SDK for Visual Studio 2013<ept id="1fdec5cf-6429-469a-865c-132714209e46">&lt;/linkText&gt;</ept><bpt id="1fdec5cf-6429-469a-865c-132714209e46">&lt;title&gt;</bpt><ept id="1fdec5cf-6429-469a-865c-132714209e46">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47c8b9db-70a5-4153-9721-2035997b4bb6" xml:space="preserve">
+          <source>If you don't have Visual Studio installed, Visual Studio Express for Web will be installed along with the SDK.</source>
+          <target state="new">If you don't have Visual Studio installed, Visual Studio Express for Web will be installed along with the SDK.</target>
+        </trans-unit>
+        <trans-unit id="00371df8-7a9c-49a9-9489-4484541a384c" xml:space="preserve">
+          <source>Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.</source>
+          <target state="new">Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

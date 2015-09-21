@@ -1,0 +1,1148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="21676edb-a1c8-40f1-8873-0a4e7d6134c9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="21676edb-a1c8-40f1-8873-0a4e7d6134c9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c77526af-21c5-484d-a23f-66c7284a4c4a">
+        <trans-unit id="b20dee23-e7c7-4c82-9b36-d23b38c27fbc" xml:space="preserve">
+          <source>Azure Backup FAQ | Microsoft Azure</source>
+          <target state="new">Azure Backup FAQ | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e6585928-16c6-467b-91eb-209cec4d91b3" xml:space="preserve">
+          <source>Frequently asked questions on the Azure Backup service</source>
+          <target state="new">Frequently asked questions on the Azure Backup service</target>
+        </trans-unit>
+        <trans-unit id="a1fbded0-8b5f-4a12-a65e-96376682e481" xml:space="preserve">
+          <source>The following is a list of commonly asked questions about Azure Backup.</source>
+          <target state="new">The following is a list of commonly asked questions about Azure Backup.</target>
+        </trans-unit>
+        <trans-unit id="8dfae8ed-b23f-4f3c-8af0-cfaadf6a69a1" xml:space="preserve">
+          <source>If you have any additional questions about Azure Backup, please go to the the <bpt id="7f18afe5-a6c7-4f8a-bb18-aeba195570db">&lt;linkText&gt;</bpt>discussion forum<ept id="7f18afe5-a6c7-4f8a-bb18-aeba195570db">&lt;/linkText&gt;</ept><bpt id="7f18afe5-a6c7-4f8a-bb18-aeba195570db">&lt;title&gt;</bpt><ept id="7f18afe5-a6c7-4f8a-bb18-aeba195570db">&lt;/title&gt;</ept> and post your questions.</source>
+          <target state="new">If you have any additional questions about Azure Backup, please go to the the <bpt id="7f18afe5-a6c7-4f8a-bb18-aeba195570db">&lt;linkText&gt;</bpt>discussion forum<ept id="7f18afe5-a6c7-4f8a-bb18-aeba195570db">&lt;/linkText&gt;</ept><bpt id="7f18afe5-a6c7-4f8a-bb18-aeba195570db">&lt;title&gt;</bpt><ept id="7f18afe5-a6c7-4f8a-bb18-aeba195570db">&lt;/title&gt;</ept> and post your questions.</target>
+        </trans-unit>
+        <trans-unit id="ce04fab0-b081-4745-84bb-eb9f3d37c6bf" xml:space="preserve">
+          <source>Someone from our community will help you get your answers.</source>
+          <target state="new">Someone from our community will help you get your answers.</target>
+        </trans-unit>
+        <trans-unit id="fee54391-81d5-403f-94b0-5c163e2012b7" xml:space="preserve">
+          <source>If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.</source>
+          <target state="new">If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.</target>
+        </trans-unit>
+        <trans-unit id="2c8cb92a-8f23-4a18-9c85-ec9006483575" xml:space="preserve">
+          <source>**Q1.</source>
+          <target state="new">**Q1.</target>
+        </trans-unit>
+        <trans-unit id="12c04f66-aa93-497d-a08d-d13003998a71" xml:space="preserve">
+          <source>What is the list of supported operating systems from which I can backup to Azure using Azure Backup?** &lt;br/&gt;
+A1.</source>
+          <target state="new">What is the list of supported operating systems from which I can backup to Azure using Azure Backup?** &lt;br/&gt;
+A1.</target>
+        </trans-unit>
+        <trans-unit id="556d91f6-ad61-4349-939c-e9e9ab8c905f" xml:space="preserve">
+          <source>The following list of operating systems is supported by Azure Backup</source>
+          <target state="new">The following list of operating systems is supported by Azure Backup</target>
+        </trans-unit>
+        <trans-unit id="d36ed8ca-f71a-4932-aafa-001426d41174" xml:space="preserve">
+          <source>Operating System</source>
+          <target state="new">Operating System</target>
+        </trans-unit>
+        <trans-unit id="ae9f9299-32de-4e69-b7f0-88a526e89ca6" xml:space="preserve">
+          <source>Platform</source>
+          <target state="new">Platform</target>
+        </trans-unit>
+        <trans-unit id="25724061-4fb2-48bc-b6dd-d0d834e3e58f" xml:space="preserve">
+          <source>SKU</source>
+          <target state="new">SKU</target>
+        </trans-unit>
+        <trans-unit id="3187ff4b-ce6e-4909-9ae1-8c89da933feb" xml:space="preserve">
+          <source>Windows 8 and latest SPs</source>
+          <target state="new">Windows 8 and latest SPs</target>
+        </trans-unit>
+        <trans-unit id="8cb0bed3-7877-43db-8877-e9bf222bc9ad" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="d6d6c51f-3a65-4cc6-bfee-e99e85fab6bc" xml:space="preserve">
+          <source>Enterprise, Pro</source>
+          <target state="new">Enterprise, Pro</target>
+        </trans-unit>
+        <trans-unit id="df402320-d7e4-4e3b-b24f-8aa40d7d57c2" xml:space="preserve">
+          <source>Windows 7 and latest SPs</source>
+          <target state="new">Windows 7 and latest SPs</target>
+        </trans-unit>
+        <trans-unit id="dc0de9a5-7a93-4c2a-922e-e0a5253f2883" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="a846cb28-3eec-45f5-ba32-b65851dc9cf2" xml:space="preserve">
+          <source>Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter</source>
+          <target state="new">Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter</target>
+        </trans-unit>
+        <trans-unit id="ce767baa-8303-4947-918f-6e3cb572f85a" xml:space="preserve">
+          <source>Windows 8.1 and latest SPs</source>
+          <target state="new">Windows 8.1 and latest SPs</target>
+        </trans-unit>
+        <trans-unit id="d66943a4-a7cc-49f8-bbfe-210b9b7fa383" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="e206a3f4-9c50-437a-aa14-c1f226ba984a" xml:space="preserve">
+          <source>Enterprise, Pro</source>
+          <target state="new">Enterprise, Pro</target>
+        </trans-unit>
+        <trans-unit id="6fb1b5b7-765d-4e98-8f66-b9eef2d13a4f" xml:space="preserve">
+          <source>Windows 10</source>
+          <target state="new">Windows 10</target>
+        </trans-unit>
+        <trans-unit id="0477313e-a13c-4d64-9e2f-1d6e4d62e9f4" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="5a1cc838-f955-4fca-8d4d-15d690e0f2f9" xml:space="preserve">
+          <source>Enterprise, Pro, Home</source>
+          <target state="new">Enterprise, Pro, Home</target>
+        </trans-unit>
+        <trans-unit id="59f3c752-726e-4cd0-945c-cf2f424586f8" xml:space="preserve">
+          <source>Windows Server 2012 R2 and latest SPs</source>
+          <target state="new">Windows Server 2012 R2 and latest SPs</target>
+        </trans-unit>
+        <trans-unit id="0d419b53-d541-4ba1-bd5b-9079dd452984" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="36241594-96b2-4116-9e03-ae7946d4f824" xml:space="preserve">
+          <source>Standard, Datacenter, Foundation</source>
+          <target state="new">Standard, Datacenter, Foundation</target>
+        </trans-unit>
+        <trans-unit id="59a51e4a-9990-4c39-b84c-84f2819e953f" xml:space="preserve">
+          <source>Windows Server 2012 and latest SPs</source>
+          <target state="new">Windows Server 2012 and latest SPs</target>
+        </trans-unit>
+        <trans-unit id="bb555189-4303-4f8c-aab3-03100d5e8d6b" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="82cf8ab6-ac00-4086-a7e2-d0eb80a8e7ce" xml:space="preserve">
+          <source>Datacenter, Foundation, Standard</source>
+          <target state="new">Datacenter, Foundation, Standard</target>
+        </trans-unit>
+        <trans-unit id="a195f884-17d8-4308-8679-d0a0f0b9e664" xml:space="preserve">
+          <source>Windows Storage Server 2012 R2 and latest SPs</source>
+          <target state="new">Windows Storage Server 2012 R2 and latest SPs</target>
+        </trans-unit>
+        <trans-unit id="2bf00f5c-e399-4b41-936b-8501ac7d41e9" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="af1f2190-08a2-4395-8a2a-c282b9bb242b" xml:space="preserve">
+          <source>Standard, Workgroup</source>
+          <target state="new">Standard, Workgroup</target>
+        </trans-unit>
+        <trans-unit id="d7959fe5-1b42-472e-9d28-73d04e2c29f1" xml:space="preserve">
+          <source>Windows Storage Server 2012 and latest SPs</source>
+          <target state="new">Windows Storage Server 2012 and latest SPs</target>
+        </trans-unit>
+        <trans-unit id="c08929be-e4f1-4457-a26b-4e871c3ec7b0" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="e99ca418-732f-4e30-bcd4-b2693516b511" xml:space="preserve">
+          <source>Standard, Workgroup</source>
+          <target state="new">Standard, Workgroup</target>
+        </trans-unit>
+        <trans-unit id="763b18f5-3c86-4105-8aa8-4db4e28cd0e1" xml:space="preserve">
+          <source>Windows Server 2012 R2 and latest SPs</source>
+          <target state="new">Windows Server 2012 R2 and latest SPs</target>
+        </trans-unit>
+        <trans-unit id="37c08049-c3bf-41ac-a08c-48870fe31b13" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="6c953a8b-d56f-4fab-a5f3-0a10699a90b9" xml:space="preserve">
+          <source>Essential</source>
+          <target state="new">Essential</target>
+        </trans-unit>
+        <trans-unit id="f2bff884-43d6-40c1-aa91-ef3e35a0637c" xml:space="preserve">
+          <source>Windows Server 2008 R2 SP1</source>
+          <target state="new">Windows Server 2008 R2 SP1</target>
+        </trans-unit>
+        <trans-unit id="42f088b2-53e1-41bf-b081-9d1e1f219e9f" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="64f205b2-6a78-4dc3-91f6-a0dc18c70cf5" xml:space="preserve">
+          <source>Standard, Enterprise, Datacenter, Foundation</source>
+          <target state="new">Standard, Enterprise, Datacenter, Foundation</target>
+        </trans-unit>
+        <trans-unit id="02280a97-2a4f-4949-ba7d-fccb42d49a9e" xml:space="preserve">
+          <source>Windows Server 2008 SP2</source>
+          <target state="new">Windows Server 2008 SP2</target>
+        </trans-unit>
+        <trans-unit id="ff83a947-b883-4602-9d58-7911981bb1f8" xml:space="preserve">
+          <source>64 bit</source>
+          <target state="new">64 bit</target>
+        </trans-unit>
+        <trans-unit id="6801f5f7-a0c4-4461-88b6-4e239d277c31" xml:space="preserve">
+          <source>Standard, Enterprise, Datacenter, Foundation</source>
+          <target state="new">Standard, Enterprise, Datacenter, Foundation</target>
+        </trans-unit>
+        <trans-unit id="9822330e-d18d-48d2-aa22-aadf234ac8da" xml:space="preserve">
+          <source>**Q2.</source>
+          <target state="new">**Q2.</target>
+        </trans-unit>
+        <trans-unit id="78bacee5-d07c-4123-8ccf-add344a7149f" xml:space="preserve">
+          <source>Where can I download the latest Azure Backup agent?** &lt;br/&gt;
+A2.</source>
+          <target state="new">Where can I download the latest Azure Backup agent?** &lt;br/&gt;
+A2.</target>
+        </trans-unit>
+        <trans-unit id="d8bedd1c-cee4-4bb1-be68-071317413b95" xml:space="preserve">
+          <source>You can download the latest agent from <bpt id="712b7d91-c417-44eb-90e3-ac04334082f3">&lt;linkText&gt;</bpt>here<ept id="712b7d91-c417-44eb-90e3-ac04334082f3">&lt;/linkText&gt;</ept><bpt id="712b7d91-c417-44eb-90e3-ac04334082f3">&lt;title&gt;</bpt><ept id="712b7d91-c417-44eb-90e3-ac04334082f3">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can download the latest agent from <bpt id="712b7d91-c417-44eb-90e3-ac04334082f3">&lt;linkText&gt;</bpt>here<ept id="712b7d91-c417-44eb-90e3-ac04334082f3">&lt;/linkText&gt;</ept><bpt id="712b7d91-c417-44eb-90e3-ac04334082f3">&lt;title&gt;</bpt><ept id="712b7d91-c417-44eb-90e3-ac04334082f3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4cf38d7c-50e4-46b4-876d-64c4db65c6ac" xml:space="preserve">
+          <source>This can be installed on Windows Server, SCDPM server or Windows client</source>
+          <target state="new">This can be installed on Windows Server, SCDPM server or Windows client</target>
+        </trans-unit>
+        <trans-unit id="ba715ac7-f1e8-4096-b687-eed3f1b6482e" xml:space="preserve">
+          <source>**Q3.</source>
+          <target state="new">**Q3.</target>
+        </trans-unit>
+        <trans-unit id="9fdcbdcc-a088-4969-a20f-ab9028baa256" xml:space="preserve">
+          <source>Which version of SCDPM server is supported?** &lt;br/&gt;
+A3.</source>
+          <target state="new">Which version of SCDPM server is supported?** &lt;br/&gt;
+A3.</target>
+        </trans-unit>
+        <trans-unit id="d78f95f1-a905-4bf8-888b-ed92467558eb" xml:space="preserve">
+          <source>We recommend that you install the <bpt id="5ef95c4b-8e4a-4a5c-af5a-e2a87b62f84b">&lt;linkText&gt;</bpt>latest<ept id="5ef95c4b-8e4a-4a5c-af5a-e2a87b62f84b">&lt;/linkText&gt;</ept><bpt id="5ef95c4b-8e4a-4a5c-af5a-e2a87b62f84b">&lt;title&gt;</bpt><ept id="5ef95c4b-8e4a-4a5c-af5a-e2a87b62f84b">&lt;/title&gt;</ept> Azure Backup agent on the latest update rollup of SCDPM (UR6 as of July 2015)</source>
+          <target state="new">We recommend that you install the <bpt id="5ef95c4b-8e4a-4a5c-af5a-e2a87b62f84b">&lt;linkText&gt;</bpt>latest<ept id="5ef95c4b-8e4a-4a5c-af5a-e2a87b62f84b">&lt;/linkText&gt;</ept><bpt id="5ef95c4b-8e4a-4a5c-af5a-e2a87b62f84b">&lt;title&gt;</bpt><ept id="5ef95c4b-8e4a-4a5c-af5a-e2a87b62f84b">&lt;/title&gt;</ept> Azure Backup agent on the latest update rollup of SCDPM (UR6 as of July 2015)</target>
+        </trans-unit>
+        <trans-unit id="b8bf2680-80a1-4dc0-8a01-d352920eef00" xml:space="preserve">
+          <source>**Q4.</source>
+          <target state="new">**Q4.</target>
+        </trans-unit>
+        <trans-unit id="246f33d0-8498-4635-bed2-003ec3bf96f5" xml:space="preserve">
+          <source>When configuring the Azure Backup agent, I am prompted to enter the “vault credentials”.</source>
+          <target state="new">When configuring the Azure Backup agent, I am prompted to enter the “vault credentials”.</target>
+        </trans-unit>
+        <trans-unit id="c356741f-9039-4ad4-92b2-be933cca6a9d" xml:space="preserve">
+          <source>Is there any expiration date attached to the vault credentials?** &lt;br/&gt;
+A4.</source>
+          <target state="new">Is there any expiration date attached to the vault credentials?** &lt;br/&gt;
+A4.</target>
+        </trans-unit>
+        <trans-unit id="6316461f-f77c-4778-86d4-70cd8f1d69b2" xml:space="preserve">
+          <source>Yes, the vault credential expire after 48hours.</source>
+          <target state="new">Yes, the vault credential expire after 48hours.</target>
+        </trans-unit>
+        <trans-unit id="53f8777c-a340-47a1-9641-1fc683a39c37" xml:space="preserve">
+          <source>If the file expires, log in to the Azure portal and download the vault credentials files from your Backup vault.</source>
+          <target state="new">If the file expires, log in to the Azure portal and download the vault credentials files from your Backup vault.</target>
+        </trans-unit>
+        <trans-unit id="5ea828c2-a5e9-445b-a170-7ddf36dfe777" xml:space="preserve">
+          <source>**Q5.</source>
+          <target state="new">**Q5.</target>
+        </trans-unit>
+        <trans-unit id="96133aa6-885f-45e8-95b4-bcbb34b9ad19" xml:space="preserve">
+          <source>Is there any limit on the number of backup vaults that can be created in each Azure subscription?** &lt;br/&gt;
+A5.</source>
+          <target state="new">Is there any limit on the number of backup vaults that can be created in each Azure subscription?** &lt;br/&gt;
+A5.</target>
+        </trans-unit>
+        <trans-unit id="96387d10-ff69-400d-bbdc-47d1cabeecea" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="35bced79-f951-408b-8a83-236164ac875a" xml:space="preserve">
+          <source>As of July 2015, you can create 25 vaults per subscription.</source>
+          <target state="new">As of July 2015, you can create 25 vaults per subscription.</target>
+        </trans-unit>
+        <trans-unit id="528e249a-a41a-4d75-84a6-436d64124e69" xml:space="preserve">
+          <source>If you need more vaults, then create a new subscription.</source>
+          <target state="new">If you need more vaults, then create a new subscription.</target>
+        </trans-unit>
+        <trans-unit id="0a8eebcb-ac90-4fa7-847d-5d16d1f2238a" xml:space="preserve">
+          <source>**Q6.</source>
+          <target state="new">**Q6.</target>
+        </trans-unit>
+        <trans-unit id="cfdfb097-bad7-4cda-9c78-993da034a96a" xml:space="preserve">
+          <source>Should I look at a vault as a billing entity?** &lt;br/&gt;
+A6.</source>
+          <target state="new">Should I look at a vault as a billing entity?** &lt;br/&gt;
+A6.</target>
+        </trans-unit>
+        <trans-unit id="d2b1d470-80c2-4dc9-8c40-f32b22d3277e" xml:space="preserve">
+          <source>Though it is possible to get a detailed bill for each vault, we highly recommend that you consider an Azure subscription as a billing entity.</source>
+          <target state="new">Though it is possible to get a detailed bill for each vault, we highly recommend that you consider an Azure subscription as a billing entity.</target>
+        </trans-unit>
+        <trans-unit id="b8b92b1d-67c6-475a-b152-f17ddc2def4f" xml:space="preserve">
+          <source>It is consistent across all services and is easier to manage.</source>
+          <target state="new">It is consistent across all services and is easier to manage.</target>
+        </trans-unit>
+        <trans-unit id="482fcc06-c325-4520-ab04-5bd095d36ef7" xml:space="preserve">
+          <source>**Q7.</source>
+          <target state="new">**Q7.</target>
+        </trans-unit>
+        <trans-unit id="4ca9962c-40d9-4c2f-82f5-aa4fb2d27391" xml:space="preserve">
+          <source>Are there any limits on the number of servers/machines that can be registered against each vault?** &lt;br/&gt;
+A7.</source>
+          <target state="new">Are there any limits on the number of servers/machines that can be registered against each vault?** &lt;br/&gt;
+A7.</target>
+        </trans-unit>
+        <trans-unit id="bb1f13b3-63b2-4fac-9ef8-91265da40562" xml:space="preserve">
+          <source>Yes, you can register upto 50 machines per vault.</source>
+          <target state="new">Yes, you can register upto 50 machines per vault.</target>
+        </trans-unit>
+        <trans-unit id="1b371d7d-3ef5-4446-aab7-574f597436c7" xml:space="preserve">
+          <source>If you need to register more machines, create a new vault.</source>
+          <target state="new">If you need to register more machines, create a new vault.</target>
+        </trans-unit>
+        <trans-unit id="5ce4320b-f1e8-475b-8b0f-6582b48ea6a4" xml:space="preserve">
+          <source>**Q8.</source>
+          <target state="new">**Q8.</target>
+        </trans-unit>
+        <trans-unit id="15c24422-f6ab-4595-b4d0-e07b6e5e51b3" xml:space="preserve">
+          <source>Are there any limits on the amount of data that can be backed up from a Windows server/client or SCDPM server?** &lt;br/&gt;
+A8.</source>
+          <target state="new">Are there any limits on the amount of data that can be backed up from a Windows server/client or SCDPM server?** &lt;br/&gt;
+A8.</target>
+        </trans-unit>
+        <trans-unit id="c6e432a1-41b1-455e-b702-121f24f1ab63" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="10f76535-539c-4a9a-8c64-52d0ace47691" xml:space="preserve">
+          <source>**Q9.</source>
+          <target state="new">**Q9.</target>
+        </trans-unit>
+        <trans-unit id="4606598c-68e1-4a83-97e5-a7e882d757a2" xml:space="preserve">
+          <source>How do I register my server to another datacenter?**&lt;br/&gt;
+A9.</source>
+          <target state="new">How do I register my server to another datacenter?**&lt;br/&gt;
+A9.</target>
+        </trans-unit>
+        <trans-unit id="95a22920-59df-4bc2-86ff-b2ea5e64f938" xml:space="preserve">
+          <source>In general the backup data is sent to the datacenter of the Backup Service to which it is registered.</source>
+          <target state="new">In general the backup data is sent to the datacenter of the Backup Service to which it is registered.</target>
+        </trans-unit>
+        <trans-unit id="70ee9d6b-1830-4faa-bb4e-0701f6d47dd2" xml:space="preserve">
+          <source>The easiest way to change the datacenter is to uninstall the agent and reinstall the agent and register to a new datacenter.</source>
+          <target state="new">The easiest way to change the datacenter is to uninstall the agent and reinstall the agent and register to a new datacenter.</target>
+        </trans-unit>
+        <trans-unit id="10c25d9c-595e-4520-a092-826effb99b27" xml:space="preserve">
+          <source>**Q10.</source>
+          <target state="new">**Q10.</target>
+        </trans-unit>
+        <trans-unit id="cecdcb17-6aa5-434f-9e9a-5a109a91e554" xml:space="preserve">
+          <source>What happens if I rename a Windows server that is backing up data to Azure?** &lt;br/&gt;
+A10.</source>
+          <target state="new">What happens if I rename a Windows server that is backing up data to Azure?** &lt;br/&gt;
+A10.</target>
+        </trans-unit>
+        <trans-unit id="dd82651a-80d2-4d6d-8207-42c9515391f1" xml:space="preserve">
+          <source>Any currently configured backups will be stopped.</source>
+          <target state="new">Any currently configured backups will be stopped.</target>
+        </trans-unit>
+        <trans-unit id="b327a319-5e94-45bf-a42d-690973c05d12" xml:space="preserve">
+          <source>You will need to reregister the server with the backup vault and it will be considered a new server by Recovery Services, so the first backup operation that occurs after registration will be a full backup of all of the data included in the backup instead of just the changes since the last backup occurred.</source>
+          <target state="new">You will need to reregister the server with the backup vault and it will be considered a new server by Recovery Services, so the first backup operation that occurs after registration will be a full backup of all of the data included in the backup instead of just the changes since the last backup occurred.</target>
+        </trans-unit>
+        <trans-unit id="67489a26-6e8f-4d16-806b-e151fdb7ccd9" xml:space="preserve">
+          <source>However, if you need to perform a recovery operation you can recover the data that has been backed up using Recover from another server recovery option.</source>
+          <target state="new">However, if you need to perform a recovery operation you can recover the data that has been backed up using Recover from another server recovery option.</target>
+        </trans-unit>
+        <trans-unit id="a0ef057d-e22a-43d8-85e0-0613f530ec53" xml:space="preserve">
+          <source>For more information, see Rename a server.</source>
+          <target state="new">For more information, see Rename a server.</target>
+        </trans-unit>
+        <trans-unit id="0b5844f7-5941-476f-9452-af34d7980d34" xml:space="preserve">
+          <source>**Q11.</source>
+          <target state="new">**Q11.</target>
+        </trans-unit>
+        <trans-unit id="861cbeda-b1dc-4961-abfc-3bb13019dbf2" xml:space="preserve">
+          <source>What types of drives can I backup files and folders from?** &lt;br/&gt;
+A11.</source>
+          <target state="new">What types of drives can I backup files and folders from?** &lt;br/&gt;
+A11.</target>
+        </trans-unit>
+        <trans-unit id="f6fbd722-f796-4f81-b7a4-791653316677" xml:space="preserve">
+          <source>The following set of drives/volumes can't be backup:</source>
+          <target state="new">The following set of drives/volumes can't be backup:</target>
+        </trans-unit>
+        <trans-unit id="d7e8e67f-24ac-4e97-933d-eee02166a585" xml:space="preserve">
+          <source>Removable Media: The drive must report as a fixed to be used a backup item source.</source>
+          <target state="new">Removable Media: The drive must report as a fixed to be used a backup item source.</target>
+        </trans-unit>
+        <trans-unit id="da7b7339-db75-4f7f-b7c8-e99dbbaf9dad" xml:space="preserve">
+          <source>Read-only Volumes: The volume must be writable for the volume shadow copy service (VSS) to function.</source>
+          <target state="new">Read-only Volumes: The volume must be writable for the volume shadow copy service (VSS) to function.</target>
+        </trans-unit>
+        <trans-unit id="300ce511-0c62-4135-9e48-de42da123b1b" xml:space="preserve">
+          <source>Offline Volumes: The volume must be online for VSS to function.</source>
+          <target state="new">Offline Volumes: The volume must be online for VSS to function.</target>
+        </trans-unit>
+        <trans-unit id="e239b8ba-b6b2-4b64-a6f5-fb7158c38bd1" xml:space="preserve">
+          <source>Network share: The volume must be local to the server to be backed up using online backup.</source>
+          <target state="new">Network share: The volume must be local to the server to be backed up using online backup.</target>
+        </trans-unit>
+        <trans-unit id="022ace8d-f0cd-48da-8ab2-e01e8cc06c04" xml:space="preserve">
+          <source>Bitlocker protected volumes: The volume must be unlocked before the backup can occur.</source>
+          <target state="new">Bitlocker protected volumes: The volume must be unlocked before the backup can occur.</target>
+        </trans-unit>
+        <trans-unit id="8b2d2b01-244c-41e0-b22a-6598742f71eb" xml:space="preserve">
+          <source>File System Identification: NTFS is the only file system supported for this version of the online backup service.</source>
+          <target state="new">File System Identification: NTFS is the only file system supported for this version of the online backup service.</target>
+        </trans-unit>
+        <trans-unit id="753718d8-4186-44a8-bbfe-1ac63de2e26b" xml:space="preserve">
+          <source>**Q12.</source>
+          <target state="new">**Q12.</target>
+        </trans-unit>
+        <trans-unit id="8a55306a-5859-468e-8269-e494a590e51a" xml:space="preserve">
+          <source>What file and folder types can I back up from my server?**&lt;br/&gt;
+A12.</source>
+          <target state="new">What file and folder types can I back up from my server?**&lt;br/&gt;
+A12.</target>
+        </trans-unit>
+        <trans-unit id="69207c99-1fde-498c-a31b-ec94e8f16ad6" xml:space="preserve">
+          <source>The following types are supported:</source>
+          <target state="new">The following types are supported:</target>
+        </trans-unit>
+        <trans-unit id="51a45640-0200-4d27-9883-2294948156d6" xml:space="preserve">
+          <source>Encrypted</source>
+          <target state="new">Encrypted</target>
+        </trans-unit>
+        <trans-unit id="9bc73794-8460-4e4d-ab3d-54d94ab3254a" xml:space="preserve">
+          <source>Compressed</source>
+          <target state="new">Compressed</target>
+        </trans-unit>
+        <trans-unit id="2a33e3d3-b5d0-4dad-aa89-1c0025b1a8d7" xml:space="preserve">
+          <source>Sparse</source>
+          <target state="new">Sparse</target>
+        </trans-unit>
+        <trans-unit id="1cc78c5a-29f2-4610-9e4c-4d4449246091" xml:space="preserve">
+          <source>Compressed + Sparse</source>
+          <target state="new">Compressed + Sparse</target>
+        </trans-unit>
+        <trans-unit id="8d50eeb6-b066-40d1-bd47-7e9ea763dd12" xml:space="preserve">
+          <source>Hard Links: Not supported, skipped</source>
+          <target state="new">Hard Links: Not supported, skipped</target>
+        </trans-unit>
+        <trans-unit id="d7e718a3-1c3f-46e7-8cf3-250bc93a2bae" xml:space="preserve">
+          <source>Reparse Point: Not supported, skipped</source>
+          <target state="new">Reparse Point: Not supported, skipped</target>
+        </trans-unit>
+        <trans-unit id="d82dcfd9-b54b-421d-b676-373408105aaa" xml:space="preserve">
+          <source>Encrypted + Compressed: Not supported, skipped</source>
+          <target state="new">Encrypted + Compressed: Not supported, skipped</target>
+        </trans-unit>
+        <trans-unit id="e78bcc13-a13b-46cc-83ac-8de31da39cb1" xml:space="preserve">
+          <source>Encrypted + Sparse: Not supported, skipped</source>
+          <target state="new">Encrypted + Sparse: Not supported, skipped</target>
+        </trans-unit>
+        <trans-unit id="b44b89e5-6dd9-41d0-9f3b-df87824def9b" xml:space="preserve">
+          <source>Compressed Stream: Not supported, skipped</source>
+          <target state="new">Compressed Stream: Not supported, skipped</target>
+        </trans-unit>
+        <trans-unit id="9b7c0f45-2966-4133-9f58-2ddf2c2a81be" xml:space="preserve">
+          <source>Sparse Stream: Not supported, skipped</source>
+          <target state="new">Sparse Stream: Not supported, skipped</target>
+        </trans-unit>
+        <trans-unit id="6f3a1b1a-3de3-4c38-afc0-15af49519556" xml:space="preserve">
+          <source>**Q13.</source>
+          <target state="new">**Q13.</target>
+        </trans-unit>
+        <trans-unit id="823af2b7-c10c-4353-aecf-144bd0e8ba89" xml:space="preserve">
+          <source>What's the minimum size requirement for the cache folder?** &lt;br/&gt;
+A13.</source>
+          <target state="new">What's the minimum size requirement for the cache folder?** &lt;br/&gt;
+A13.</target>
+        </trans-unit>
+        <trans-unit id="fdd49de6-dc2c-4a81-a3de-17ec14e93383" xml:space="preserve">
+          <source>The size of the cache folder is determined by the amount of data that you are backing up.</source>
+          <target state="new">The size of the cache folder is determined by the amount of data that you are backing up.</target>
+        </trans-unit>
+        <trans-unit id="16096acb-f25f-4541-aa2b-1a506d570a95" xml:space="preserve">
+          <source>In general you should expect that 10-15% of the space required for data storage should be allocated for the cache folder.</source>
+          <target state="new">In general you should expect that 10-15% of the space required for data storage should be allocated for the cache folder.</target>
+        </trans-unit>
+        <trans-unit id="bdf1ef38-8173-4a51-bba9-397dfce0fe41" xml:space="preserve">
+          <source>**Q14.</source>
+          <target state="new">**Q14.</target>
+        </trans-unit>
+        <trans-unit id="3c991ebd-ad4f-44ef-b879-76f28deb5e74" xml:space="preserve">
+          <source>How can I isolate specific server data from being recovered by other servers in my organization?**&lt;br/&gt;
+A14.</source>
+          <target state="new">How can I isolate specific server data from being recovered by other servers in my organization?**&lt;br/&gt;
+A14.</target>
+        </trans-unit>
+        <trans-unit id="27c5b1ca-6690-4b97-87fc-cefdf67c9362" xml:space="preserve">
+          <source>Any servers that are registered using the same vault will be able to recover the data backed up by other servers that use the same passphrase.</source>
+          <target state="new">Any servers that are registered using the same vault will be able to recover the data backed up by other servers that use the same passphrase.</target>
+        </trans-unit>
+        <trans-unit id="02bc31a4-eee2-4251-b595-3f5471beed83" xml:space="preserve">
+          <source>If you have servers that you want to ensure recovery only occurs to specific servers in your organization, you should use a separate passphrase designated for those servers.</source>
+          <target state="new">If you have servers that you want to ensure recovery only occurs to specific servers in your organization, you should use a separate passphrase designated for those servers.</target>
+        </trans-unit>
+        <trans-unit id="8fbe8e06-f1db-45fc-b7c7-4423823ebf1d" xml:space="preserve">
+          <source>For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.</source>
+          <target state="new">For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.</target>
+        </trans-unit>
+        <trans-unit id="4f712818-a104-4d50-901b-1ed7ef17b29c" xml:space="preserve">
+          <source>**Q15.</source>
+          <target state="new">**Q15.</target>
+        </trans-unit>
+        <trans-unit id="2753bae8-d5b1-4efe-b2c1-3f41b169719c" xml:space="preserve">
+          <source>Can I “migrate” my backup data between subscriptions?** &lt;br/&gt;
+A15: No</source>
+          <target state="new">Can I “migrate” my backup data between subscriptions?** &lt;br/&gt;
+A15: No</target>
+        </trans-unit>
+        <trans-unit id="02e3ea86-aca3-40ef-9668-05dcd811f296" xml:space="preserve">
+          <source>**Q16.</source>
+          <target state="new">**Q16.</target>
+        </trans-unit>
+        <trans-unit id="08712f24-0525-46ef-8b50-a60be557ec8c" xml:space="preserve">
+          <source>Can I “migrate” my backup vault between subscriptions?** &lt;br/&gt;
+A16: No.</source>
+          <target state="new">Can I “migrate” my backup vault between subscriptions?** &lt;br/&gt;
+A16: No.</target>
+        </trans-unit>
+        <trans-unit id="18552303-c2cc-4c00-8548-b656f75b9efe" xml:space="preserve">
+          <source>The vault is created at a subscription level and cannot be reassigned to another subscription once it’s created.</source>
+          <target state="new">The vault is created at a subscription level and cannot be reassigned to another subscription once it’s created.</target>
+        </trans-unit>
+        <trans-unit id="04e3d22a-3039-42ea-87d4-69c1e0c708c1" xml:space="preserve">
+          <source>**Q17.</source>
+          <target state="new">**Q17.</target>
+        </trans-unit>
+        <trans-unit id="8fa11589-4e18-434d-8149-126a4e62e638" xml:space="preserve">
+          <source>Does the Azure Backup Agent work on a server that uses Windows Server 2012 deduplication?** &lt;br/&gt;
+A17: Yes.</source>
+          <target state="new">Does the Azure Backup Agent work on a server that uses Windows Server 2012 deduplication?** &lt;br/&gt;
+A17: Yes.</target>
+        </trans-unit>
+        <trans-unit id="f22f65e6-b617-47ec-a034-08a1668af72d" xml:space="preserve">
+          <source>The agent service converts the deduplicated data to normal data when it prepares the backup operation.</source>
+          <target state="new">The agent service converts the deduplicated data to normal data when it prepares the backup operation.</target>
+        </trans-unit>
+        <trans-unit id="fb066445-a8ea-4450-8cb9-c251c1698d9a" xml:space="preserve">
+          <source>It then optimizes the data for backup, encrypts the data and then sends the encrypted data to the online backup service.</source>
+          <target state="new">It then optimizes the data for backup, encrypts the data and then sends the encrypted data to the online backup service.</target>
+        </trans-unit>
+        <trans-unit id="bc5ffe29-626d-4781-8e53-f732f37a0bde" xml:space="preserve">
+          <source>**Q18.</source>
+          <target state="new">**Q18.</target>
+        </trans-unit>
+        <trans-unit id="26386c88-f792-431a-838c-07f8eb8c53f1" xml:space="preserve">
+          <source>Does the backup data get deleted if I cancel a backup after it has started?** &lt;br/&gt;
+A18: No.</source>
+          <target state="new">Does the backup data get deleted if I cancel a backup after it has started?** &lt;br/&gt;
+A18: No.</target>
+        </trans-unit>
+        <trans-unit id="c59f9a09-410a-44b6-9a08-3c5ff407f21b" xml:space="preserve">
+          <source>The backup vault stores the backed up data that had been transferred up to the point of the cancellation.</source>
+          <target state="new">The backup vault stores the backed up data that had been transferred up to the point of the cancellation.</target>
+        </trans-unit>
+        <trans-unit id="31670f6d-2e5c-4032-aa2e-ea346c6b4318" xml:space="preserve">
+          <source>Azure Backup uses a checkpoint mechanism so that the backup data gets check-pointed occasionally during the backup and the next backup process can validate the integrity of the files.</source>
+          <target state="new">Azure Backup uses a checkpoint mechanism so that the backup data gets check-pointed occasionally during the backup and the next backup process can validate the integrity of the files.</target>
+        </trans-unit>
+        <trans-unit id="c81ec029-2038-458d-983b-de3aea7979cb" xml:space="preserve">
+          <source>The next backup triggered would be incremental over the data that had been backed up previously.</source>
+          <target state="new">The next backup triggered would be incremental over the data that had been backed up previously.</target>
+        </trans-unit>
+        <trans-unit id="6a719dad-1049-4157-9f62-e87edae01101" xml:space="preserve">
+          <source>This provides better utilization of bandwidth, so that you do not need to transfer the same data repeatedly.</source>
+          <target state="new">This provides better utilization of bandwidth, so that you do not need to transfer the same data repeatedly.</target>
+        </trans-unit>
+        <trans-unit id="8ebd4fbf-960d-4a82-a67d-37d4267c463c" xml:space="preserve">
+          <source>**Q19.</source>
+          <target state="new">**Q19.</target>
+        </trans-unit>
+        <trans-unit id="565e9456-271c-4ca1-a6f0-5bba6e149479" xml:space="preserve">
+          <source>Why am I seeing the warning "Azure Backups have not been configured for this server" even though I had scheduled regular backups previously?** &lt;br/&gt;
+A19: This can occur when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault.</source>
+          <target state="new">Why am I seeing the warning "Azure Backups have not been configured for this server" even though I had scheduled regular backups previously?** &lt;br/&gt;
+A19: This can occur when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault.</target>
+        </trans-unit>
+        <trans-unit id="61018397-297e-4f59-b719-1657143bf096" xml:space="preserve">
+          <source>When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization.</source>
+          <target state="new">When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization.</target>
+        </trans-unit>
+        <trans-unit id="eee53496-e28f-44c8-8e5b-37a75f18af5e" xml:space="preserve">
+          <source>If this has happened, you should reconfigure the backup policy and then <bpt id="1bd8b8de-93aa-4f01-a4a9-04960f608b13">&lt;strong&gt;</bpt>Run Back Up Now<ept id="1bd8b8de-93aa-4f01-a4a9-04960f608b13">&lt;/strong&gt;</ept> to resynchronize the local server with Azure.</source>
+          <target state="new">If this has happened, you should reconfigure the backup policy and then <bpt id="1bd8b8de-93aa-4f01-a4a9-04960f608b13">&lt;strong&gt;</bpt>Run Back Up Now<ept id="1bd8b8de-93aa-4f01-a4a9-04960f608b13">&lt;/strong&gt;</ept> to resynchronize the local server with Azure.</target>
+        </trans-unit>
+        <trans-unit id="3967da7f-47db-4a74-9409-fbb68650541c" xml:space="preserve">
+          <source>**Q20.</source>
+          <target state="new">**Q20.</target>
+        </trans-unit>
+        <trans-unit id="c13742ea-1ec4-4cd4-b017-32929e276da1" xml:space="preserve">
+          <source>What firewall rules are to be configured for backup of Azure Backup?** &lt;br/&gt;
+A20.</source>
+          <target state="new">What firewall rules are to be configured for backup of Azure Backup?** &lt;br/&gt;
+A20.</target>
+        </trans-unit>
+        <trans-unit id="30e51e40-18f4-442a-bd78-04cbfed96396" xml:space="preserve">
+          <source>Ensure firewall rules enable communication with URLs below for seamless backup of on-premises to Azure and workload protection on Azure:</source>
+          <target state="new">Ensure firewall rules enable communication with URLs below for seamless backup of on-premises to Azure and workload protection on Azure:</target>
+        </trans-unit>
+        <trans-unit id="3440386d-00f2-4f02-86ee-e1b5eac974c4" xml:space="preserve">
+          <source>www.msftncsi.com</source>
+          <target state="new">www.msftncsi.com</target>
+        </trans-unit>
+        <trans-unit id="621fbc1a-aafc-4faa-9eb6-20f9ef01d6c6" xml:space="preserve">
+          <source>\*.Microsoft.com</source>
+          <target state="new">\*.Microsoft.com</target>
+        </trans-unit>
+        <trans-unit id="54163328-4c76-4ae3-99f1-fc687fd575f6" xml:space="preserve">
+          <source>\*.WindowsAzure.com</source>
+          <target state="new">\*.WindowsAzure.com</target>
+        </trans-unit>
+        <trans-unit id="1f9d0534-d073-476b-b96e-be73a62fa155" xml:space="preserve">
+          <source>\*.microsoftonline.com</source>
+          <target state="new">\*.microsoftonline.com</target>
+        </trans-unit>
+        <trans-unit id="f8574328-bdf7-407e-8418-52c384ff5b26" xml:space="preserve">
+          <source>\*.windows.net</source>
+          <target state="new">\*.windows.net</target>
+        </trans-unit>
+        <trans-unit id="3197f7dc-5e55-4bf2-a3a2-bfa553e49464" xml:space="preserve">
+          <source>**Q1.</source>
+          <target state="new">**Q1.</target>
+        </trans-unit>
+        <trans-unit id="de61012a-773d-436a-897b-6f53cf607295" xml:space="preserve">
+          <source>Is there a limit on the size of each data source being backed up?** &lt;br/&gt;
+A1.</source>
+          <target state="new">Is there a limit on the size of each data source being backed up?** &lt;br/&gt;
+A1.</target>
+        </trans-unit>
+        <trans-unit id="b868181f-938f-4a50-96ef-12d43457c40d" xml:space="preserve">
+          <source>As of August 2015, The maximum size of data source is as mentioned below for various operating systems</source>
+          <target state="new">As of August 2015, The maximum size of data source is as mentioned below for various operating systems</target>
+        </trans-unit>
+        <trans-unit id="912342a2-da09-4ed1-bbb2-247a959073cf" xml:space="preserve">
+          <source>S.No</source>
+          <target state="new">S.No</target>
+        </trans-unit>
+        <trans-unit id="7ea1e7fe-106b-4266-9018-eb9f614efaa9" xml:space="preserve">
+          <source>Operating system</source>
+          <target state="new">Operating system</target>
+        </trans-unit>
+        <trans-unit id="8c0a2246-0975-4df2-82e2-cb4d18ae5a38" xml:space="preserve">
+          <source>Maximum size of data source</source>
+          <target state="new">Maximum size of data source</target>
+        </trans-unit>
+        <trans-unit id="3aeae22b-88de-4393-a311-c57790fd50a9" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="ac01ebe2-f6ec-4c3a-bd1e-2bc4df0cf98f" xml:space="preserve">
+          <source>Windows Server 2012 or above</source>
+          <target state="new">Windows Server 2012 or above</target>
+        </trans-unit>
+        <trans-unit id="2b72a184-41d5-41a9-9655-7df02489f327" xml:space="preserve">
+          <source>54400 GB</source>
+          <target state="new">54400 GB</target>
+        </trans-unit>
+        <trans-unit id="319ff6ee-08f2-479b-ab08-c545d24c34b6" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="54699e14-cbc2-42dd-8a1e-310799e4f743" xml:space="preserve">
+          <source>Windows Server 8 or above</source>
+          <target state="new">Windows Server 8 or above</target>
+        </trans-unit>
+        <trans-unit id="06855cb8-0ec2-44a6-8f06-7d392991f5cf" xml:space="preserve">
+          <source>54400 GB</source>
+          <target state="new">54400 GB</target>
+        </trans-unit>
+        <trans-unit id="533271b5-6d13-483a-b464-40b57f1e1709" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="8f09288e-a742-4eb3-9f1a-b72a581239f1" xml:space="preserve">
+          <source>Windows Server 2008, Windows Server 2008 R2</source>
+          <target state="new">Windows Server 2008, Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="dc46eba5-b849-4227-a41d-86a5c50eda07" xml:space="preserve">
+          <source>1700 GB</source>
+          <target state="new">1700 GB</target>
+        </trans-unit>
+        <trans-unit id="a2c0713e-6c74-457c-9f49-331c4638df10" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="9374cb25-5ea9-414c-9654-82f2197cbda8" xml:space="preserve">
+          <source>Windows 7</source>
+          <target state="new">Windows 7</target>
+        </trans-unit>
+        <trans-unit id="e8810315-ba93-4edf-b2d4-eb9979181d20" xml:space="preserve">
+          <source>1700 GB</source>
+          <target state="new">1700 GB</target>
+        </trans-unit>
+        <trans-unit id="3c8b872b-6c64-4b86-bdda-fddf3146b8b6" xml:space="preserve">
+          <source>The datasource size is measured as mentioned below</source>
+          <target state="new">The datasource size is measured as mentioned below</target>
+        </trans-unit>
+        <trans-unit id="ced49bb1-c922-459e-8dc8-ffa2245a762d" xml:space="preserve">
+          <source>Datasource</source>
+          <target state="new">Datasource</target>
+        </trans-unit>
+        <trans-unit id="fcec1357-7074-4c6e-af46-82f7ff7c4cb2" xml:space="preserve">
+          <source>Details</source>
+          <target state="new">Details</target>
+        </trans-unit>
+        <trans-unit id="ab4acc1c-cb23-4e89-af01-e77801e04703" xml:space="preserve">
+          <source>Volume</source>
+          <target state="new">Volume</target>
+        </trans-unit>
+        <trans-unit id="60665f41-cc5e-4645-a3fc-89aaffbe2b6a" xml:space="preserve">
+          <source>The amount of data being backed up from single volume of a machine.</source>
+          <target state="new">The amount of data being backed up from single volume of a machine.</target>
+        </trans-unit>
+        <trans-unit id="cdf231c8-523c-42bc-afb8-507ad1bdb172" xml:space="preserve">
+          <source>This is applicable for the volumes being protected on both server and client machines.</source>
+          <target state="new">This is applicable for the volumes being protected on both server and client machines.</target>
+        </trans-unit>
+        <trans-unit id="c778f4e3-94e8-44c3-ba11-70f3e82cfb12" xml:space="preserve">
+          <source>Hyper-V virtual machine</source>
+          <target state="new">Hyper-V virtual machine</target>
+        </trans-unit>
+        <trans-unit id="a726f0c5-c38b-4dcf-a808-d63798d8768a" xml:space="preserve">
+          <source>Sum of data of all the VHDs of the virtual machine being backed up</source>
+          <target state="new">Sum of data of all the VHDs of the virtual machine being backed up</target>
+        </trans-unit>
+        <trans-unit id="a9129f32-6a6b-46e7-b12e-89540a0a0040" xml:space="preserve">
+          <source>Microsoft SQL Server database</source>
+          <target state="new">Microsoft SQL Server database</target>
+        </trans-unit>
+        <trans-unit id="fadc17c8-5e63-421d-9c27-9a26a9472bf5" xml:space="preserve">
+          <source>Size of single SQL database size being backed up</source>
+          <target state="new">Size of single SQL database size being backed up</target>
+        </trans-unit>
+        <trans-unit id="0e3fe4fe-88b7-49a8-80ba-5781d111d61b" xml:space="preserve">
+          <source>Microsoft SharePoint</source>
+          <target state="new">Microsoft SharePoint</target>
+        </trans-unit>
+        <trans-unit id="5cbcddc5-cb9d-4904-a34b-4dcee6cdcace" xml:space="preserve">
+          <source>Sum of the content and config databases within a SharePoint farm being backed up</source>
+          <target state="new">Sum of the content and config databases within a SharePoint farm being backed up</target>
+        </trans-unit>
+        <trans-unit id="040661b2-7239-45cc-aef1-2636e9f4a001" xml:space="preserve">
+          <source>Microsoft Exchange</source>
+          <target state="new">Microsoft Exchange</target>
+        </trans-unit>
+        <trans-unit id="2fde69be-367d-45ec-8875-b9f8610a7258" xml:space="preserve">
+          <source>Sum of all Exchange databases in an Exchange server being backed up</source>
+          <target state="new">Sum of all Exchange databases in an Exchange server being backed up</target>
+        </trans-unit>
+        <trans-unit id="c61705db-1e59-40e7-a920-02aa673b120f" xml:space="preserve">
+          <source>BMR/System State</source>
+          <target state="new">BMR/System State</target>
+        </trans-unit>
+        <trans-unit id="0db467c4-5d01-4192-8b84-a6b2bf02a4c4" xml:space="preserve">
+          <source>Each individual copy of BMR or system state of the machine being backed up</source>
+          <target state="new">Each individual copy of BMR or system state of the machine being backed up</target>
+        </trans-unit>
+        <trans-unit id="e3ea254f-9d97-44ee-b990-d958c7e199f6" xml:space="preserve">
+          <source>**Q2.</source>
+          <target state="new">**Q2.</target>
+        </trans-unit>
+        <trans-unit id="520cc42c-bfe4-4423-a90d-15481cc6b77a" xml:space="preserve">
+          <source>Is there are limit on the number of times backup can be scheduled per day?**&lt;br/&gt;
+A2.</source>
+          <target state="new">Is there are limit on the number of times backup can be scheduled per day?**&lt;br/&gt;
+A2.</target>
+        </trans-unit>
+        <trans-unit id="c6a0f2c6-fb07-48b9-8657-a6191c3a0024" xml:space="preserve">
+          <source>Yes, Azure Backup enables 3 backup copies per day through Windows Server/Client and 2 backup copies per day through SCDPM.</source>
+          <target state="new">Yes, Azure Backup enables 3 backup copies per day through Windows Server/Client and 2 backup copies per day through SCDPM.</target>
+        </trans-unit>
+        <trans-unit id="05c7c68b-6abe-430b-a187-d908aa62a11a" xml:space="preserve">
+          <source>**Q3.</source>
+          <target state="new">**Q3.</target>
+        </trans-unit>
+        <trans-unit id="e795e35e-990a-44e7-b70e-57b7cc7e6674" xml:space="preserve">
+          <source>Is there a difference between DPM’s and Azure Backup’s (i.e on Windows Server without DPM) backup scheduling policy?** &lt;br/&gt;
+A3.</source>
+          <target state="new">Is there a difference between DPM’s and Azure Backup’s (i.e on Windows Server without DPM) backup scheduling policy?** &lt;br/&gt;
+A3.</target>
+        </trans-unit>
+        <trans-unit id="33da70f0-25b6-481a-bde7-bae732b00087" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="e501b8f0-47e0-456d-aa81-438586ee0cf4" xml:space="preserve">
+          <source>Using DPM, you can specify daily, weekly, monthly, yearly scheduling while from a Windows Server (without DPM), you can specify only daily, weekly schedules.</source>
+          <target state="new">Using DPM, you can specify daily, weekly, monthly, yearly scheduling while from a Windows Server (without DPM), you can specify only daily, weekly schedules.</target>
+        </trans-unit>
+        <trans-unit id="95d28b92-3337-482c-bd43-a820d281ac5d" xml:space="preserve">
+          <source>**Q4.</source>
+          <target state="new">**Q4.</target>
+        </trans-unit>
+        <trans-unit id="7ccf71f1-7f80-483b-ab72-203cac4f3c7f" xml:space="preserve">
+          <source>Is there a difference between DPM’s and Azure Backup’s (i.e on Windows Server without DPM) retention policy?**&lt;br/&gt;
+A4.</source>
+          <target state="new">Is there a difference between DPM’s and Azure Backup’s (i.e on Windows Server without DPM) retention policy?**&lt;br/&gt;
+A4.</target>
+        </trans-unit>
+        <trans-unit id="c0c08b6f-1058-4a44-a8e3-c97d06bef3b6" xml:space="preserve">
+          <source>No, you have the same capabilities.</source>
+          <target state="new">No, you have the same capabilities.</target>
+        </trans-unit>
+        <trans-unit id="20473093-b04d-4a10-8ca4-980e72feb6de" xml:space="preserve">
+          <source>You can specify daily, weekly, monthly and yearly retention policies.</source>
+          <target state="new">You can specify daily, weekly, monthly and yearly retention policies.</target>
+        </trans-unit>
+        <trans-unit id="e98aafea-c08f-4447-894a-556578a4e1b2" xml:space="preserve">
+          <source>**Q5.</source>
+          <target state="new">**Q5.</target>
+        </trans-unit>
+        <trans-unit id="8327cca4-e1df-4820-98a8-f94aa9c50534" xml:space="preserve">
+          <source>Can I configure my retention policies selectively – i.e. configure weekly and daily but not yearly and monthly?**&lt;br/&gt;
+A5.</source>
+          <target state="new">Can I configure my retention policies selectively – i.e. configure weekly and daily but not yearly and monthly?**&lt;br/&gt;
+A5.</target>
+        </trans-unit>
+        <trans-unit id="3346d800-450f-4355-8dde-31be538d3c72" xml:space="preserve">
+          <source>You have the full set of knobs to come up with policies which best define your compliance/retention requirements.</source>
+          <target state="new">You have the full set of knobs to come up with policies which best define your compliance/retention requirements.</target>
+        </trans-unit>
+        <trans-unit id="cc46cd02-f870-47c6-b74d-8f138c70fdb8" xml:space="preserve">
+          <source>**Q6.</source>
+          <target state="new">**Q6.</target>
+        </trans-unit>
+        <trans-unit id="5bb41409-9fac-45b6-bbd2-3bbaa92e2a81" xml:space="preserve">
+          <source>Can I “schedule a backup” at 6pm and specify “retention policies” at a different time?**&lt;br/&gt;
+A6.</source>
+          <target state="new">Can I “schedule a backup” at 6pm and specify “retention policies” at a different time?**&lt;br/&gt;
+A6.</target>
+        </trans-unit>
+        <trans-unit id="2e1296e3-7aa4-45ce-9421-e6c6c892ee38" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="d3ebf3f7-564b-46cd-96d0-ef05016c2e80" xml:space="preserve">
+          <source>Retention policies can only be applied on backup points.</source>
+          <target state="new">Retention policies can only be applied on backup points.</target>
+        </trans-unit>
+        <trans-unit id="2939e0bc-4d2c-4b5f-97fe-a692c442981a" xml:space="preserve">
+          <source>In the below image, the retention policy is being specified on backups taken at 12am and 6pm.</source>
+          <target state="new">In the below image, the retention policy is being specified on backups taken at 12am and 6pm.</target>
+        </trans-unit>
+        <trans-unit id="07e1b06f-236d-45da-8143-f4bec5f49e9b" xml:space="preserve">
+          <source>&lt;br/&gt;</source>
+          <target state="new">&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="3779f0f1-e24f-498d-9364-e991a94f4a35" xml:space="preserve">
+          <source><bpt id="cb3cb4dc-faf2-43d0-a371-de7cde33c515">&lt;linkText&gt;</bpt>Schedule Backup and Retention<ept id="cb3cb4dc-faf2-43d0-a371-de7cde33c515">&lt;/linkText&gt;</ept>
+&lt;br/&gt;</source>
+          <target state="new"><bpt id="cb3cb4dc-faf2-43d0-a371-de7cde33c515">&lt;linkText&gt;</bpt>Schedule Backup and Retention<ept id="cb3cb4dc-faf2-43d0-a371-de7cde33c515">&lt;/linkText&gt;</ept>
+&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="b6d618fb-597f-449f-b88a-23e5314678c7" xml:space="preserve">
+          <source>**Q7.</source>
+          <target state="new">**Q7.</target>
+        </trans-unit>
+        <trans-unit id="684cab26-9eb9-47be-9180-850571f36a89" xml:space="preserve">
+          <source>Is an incremental copy transferred for the retention policies scheduled?** &lt;br/&gt;
+A7.</source>
+          <target state="new">Is an incremental copy transferred for the retention policies scheduled?** &lt;br/&gt;
+A7.</target>
+        </trans-unit>
+        <trans-unit id="d12d0e9e-4fd2-429e-9f54-223327c994b1" xml:space="preserve">
+          <source>No, the incremental copy is sent based on the time mentioned in the backup schedule page.</source>
+          <target state="new">No, the incremental copy is sent based on the time mentioned in the backup schedule page.</target>
+        </trans-unit>
+        <trans-unit id="25a36ed3-21dd-43ea-bfec-0f96e252520f" xml:space="preserve">
+          <source>The points that can be retained are determined based on the retention policy.</source>
+          <target state="new">The points that can be retained are determined based on the retention policy.</target>
+        </trans-unit>
+        <trans-unit id="5f6dcc1a-ea34-4d97-9dbf-8dc9f1212308" xml:space="preserve">
+          <source>**Q8.</source>
+          <target state="new">**Q8.</target>
+        </trans-unit>
+        <trans-unit id="086b5b16-f780-4b1d-a37e-61ce45acbe2a" xml:space="preserve">
+          <source>If backup is retained for a long duration, does it take a significant time to recover the data (say the oldest point)?** &lt;br/&gt;
+A8.</source>
+          <target state="new">If backup is retained for a long duration, does it take a significant time to recover the data (say the oldest point)?** &lt;br/&gt;
+A8.</target>
+        </trans-unit>
+        <trans-unit id="378c30d5-c0e3-47a3-9b94-c3377d020e58" xml:space="preserve">
+          <source>No – the time taken to recovery the oldest or the latest point is one and the same.</source>
+          <target state="new">No – the time taken to recovery the oldest or the latest point is one and the same.</target>
+        </trans-unit>
+        <trans-unit id="c9200914-d709-46ec-98b9-2decef62aa9f" xml:space="preserve">
+          <source>Each recovery point behaves like a full point.</source>
+          <target state="new">Each recovery point behaves like a full point.</target>
+        </trans-unit>
+        <trans-unit id="265c3300-ab30-4ca2-be28-9eefeb3ef7b4" xml:space="preserve">
+          <source>**Q9.</source>
+          <target state="new">**Q9.</target>
+        </trans-unit>
+        <trans-unit id="56107387-a1bb-44af-93bb-25082f200e28" xml:space="preserve">
+          <source>If each recovery point is like a full point, does it impact the total billable backup storage?**&lt;br/&gt;
+A9.</source>
+          <target state="new">If each recovery point is like a full point, does it impact the total billable backup storage?**&lt;br/&gt;
+A9.</target>
+        </trans-unit>
+        <trans-unit id="c93d0cff-84b7-4e02-a39a-49ddfcf518be" xml:space="preserve">
+          <source>Typical long term retention point products store backup data as full points.</source>
+          <target state="new">Typical long term retention point products store backup data as full points.</target>
+        </trans-unit>
+        <trans-unit id="d740796f-1e29-4163-a1fa-38a62fd12b01" xml:space="preserve">
+          <source>However, these are storage inefficient but are easier and faster to restore.</source>
+          <target state="new">However, these are storage inefficient but are easier and faster to restore.</target>
+        </trans-unit>
+        <trans-unit id="0f22a705-a79a-4ca8-aa01-d689894177d4" xml:space="preserve">
+          <source>Incremental copies are storage efficient but require you to restore a chain of data which impacts your recovery time.</source>
+          <target state="new">Incremental copies are storage efficient but require you to restore a chain of data which impacts your recovery time.</target>
+        </trans-unit>
+        <trans-unit id="cf0c4c26-65d3-47bd-b299-059d3d0c10d3" xml:space="preserve">
+          <source>Azure Backup’s unique storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs.</source>
+          <target state="new">Azure Backup’s unique storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs.</target>
+        </trans-unit>
+        <trans-unit id="4c1778e1-477f-4cd2-acfe-82e76086950c" xml:space="preserve">
+          <source>This approach ensures that your (ingress and egress) bandwidth is efficiently used, storage is kept to the minimum and the time taken to recover is kept to the minimum.</source>
+          <target state="new">This approach ensures that your (ingress and egress) bandwidth is efficiently used, storage is kept to the minimum and the time taken to recover is kept to the minimum.</target>
+        </trans-unit>
+        <trans-unit id="e799ed2f-0211-4f35-bf41-edb4b12a8baa" xml:space="preserve">
+          <source>**Q10.</source>
+          <target state="new">**Q10.</target>
+        </trans-unit>
+        <trans-unit id="8cb00fbc-6175-4fe1-8f9a-eddaee8ef0a3" xml:space="preserve">
+          <source>Is there a limit on the number of recovery points that can be created?**&lt;br/&gt;
+A10.</source>
+          <target state="new">Is there a limit on the number of recovery points that can be created?**&lt;br/&gt;
+A10.</target>
+        </trans-unit>
+        <trans-unit id="15a9756f-59a6-4f99-8f53-49cfb3447409" xml:space="preserve">
+          <source>As of April 2015, you can have upto 366 recovery points.</source>
+          <target state="new">As of April 2015, you can have upto 366 recovery points.</target>
+        </trans-unit>
+        <trans-unit id="2182670d-a39b-4171-bbc1-42cbc176f035" xml:space="preserve">
+          <source>You can use any permutation to arrive at a number which is less than 366.</source>
+          <target state="new">You can use any permutation to arrive at a number which is less than 366.</target>
+        </trans-unit>
+        <trans-unit id="e5a4f6bd-9525-4bbf-aa3f-2acf2cf5c808" xml:space="preserve">
+          <source>Eg – the retention points in the below picture add to 354.</source>
+          <target state="new">Eg – the retention points in the below picture add to 354.</target>
+        </trans-unit>
+        <trans-unit id="dd55c9fb-bc47-41c6-9e33-cb2b3a28455f" xml:space="preserve">
+          <source>&lt;br/&gt;</source>
+          <target state="new">&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="e9c9c072-be72-4420-8310-67df7833f1c9" xml:space="preserve">
+          <source><bpt id="fd038c49-22ad-4b11-8570-bc3a9efd61e7">&lt;linkText&gt;</bpt>Retention screen<ept id="fd038c49-22ad-4b11-8570-bc3a9efd61e7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd038c49-22ad-4b11-8570-bc3a9efd61e7">&lt;linkText&gt;</bpt>Retention screen<ept id="fd038c49-22ad-4b11-8570-bc3a9efd61e7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a43122c0-e02b-4abd-988f-c5168bd92acb" xml:space="preserve">
+          <source>**Q11.</source>
+          <target state="new">**Q11.</target>
+        </trans-unit>
+        <trans-unit id="bab34b16-3841-48bd-a041-e5334459ff86" xml:space="preserve">
+          <source>Once Microsoft improves the limit from 366, will I need to upgrade the agent or reseed the initial backup?** &lt;br/&gt;
+A11.</source>
+          <target state="new">Once Microsoft improves the limit from 366, will I need to upgrade the agent or reseed the initial backup?** &lt;br/&gt;
+A11.</target>
+        </trans-unit>
+        <trans-unit id="544be65a-ced5-454a-94f8-fa6018f4fc36" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="b3a27b56-b196-49aa-ae34-e4ba5ee2e3d6" xml:space="preserve">
+          <source>Once we make the change in our service, you will be notified through our social media outlets (blogs, Azure announcements, portal etc).</source>
+          <target state="new">Once we make the change in our service, you will be notified through our social media outlets (blogs, Azure announcements, portal etc).</target>
+        </trans-unit>
+        <trans-unit id="642a9a25-09bd-4a5c-a02e-14250bd128b3" xml:space="preserve">
+          <source>Based on your needs, you would then be required to only change the retention policy.</source>
+          <target state="new">Based on your needs, you would then be required to only change the retention policy.</target>
+        </trans-unit>
+        <trans-unit id="950fae44-682b-4ff4-8a5a-4726e0fcc008" xml:space="preserve">
+          <source>**Q12.</source>
+          <target state="new">**Q12.</target>
+        </trans-unit>
+        <trans-unit id="49aea30a-ddd3-4a34-b4d3-688cd48eb53b" xml:space="preserve">
+          <source>Why is the amount of data transferred in backup not equal to the amount of data I backed up?**&lt;br/&gt;
+A12.</source>
+          <target state="new">Why is the amount of data transferred in backup not equal to the amount of data I backed up?**&lt;br/&gt;
+A12.</target>
+        </trans-unit>
+        <trans-unit id="5379458a-b3ae-4b31-ae2c-470009c1ce0f" xml:space="preserve">
+          <source>All the data that is backed up is compressed and encrypted before being transferred.</source>
+          <target state="new">All the data that is backed up is compressed and encrypted before being transferred.</target>
+        </trans-unit>
+        <trans-unit id="9f00360d-4e43-4dec-b862-423d294dab09" xml:space="preserve">
+          <source>You can expect 30-40% compression benefits depending on the type of data being backed up.</source>
+          <target state="new">You can expect 30-40% compression benefits depending on the type of data being backed up.</target>
+        </trans-unit>
+        <trans-unit id="412c9d9c-5294-41f6-a2b9-b745f03732b0" xml:space="preserve">
+          <source>**Q1.</source>
+          <target state="new">**Q1.</target>
+        </trans-unit>
+        <trans-unit id="c9f04eaf-1e3e-42da-aded-211f0db47480" xml:space="preserve">
+          <source>How many recoveries can I perform on the data that is backed up to Azure?**&lt;br/&gt;
+A1.</source>
+          <target state="new">How many recoveries can I perform on the data that is backed up to Azure?**&lt;br/&gt;
+A1.</target>
+        </trans-unit>
+        <trans-unit id="6343cfd9-2e35-4d01-8934-d549a98099e2" xml:space="preserve">
+          <source>There is no limit on the number of recoveries from Azure Backup.</source>
+          <target state="new">There is no limit on the number of recoveries from Azure Backup.</target>
+        </trans-unit>
+        <trans-unit id="76af750d-8852-45b2-92f5-955ba1adaf8a" xml:space="preserve">
+          <source>**Q2.</source>
+          <target state="new">**Q2.</target>
+        </trans-unit>
+        <trans-unit id="a348ae94-e3a9-4c0c-a610-7e9b15cf84ef" xml:space="preserve">
+          <source>Do I have to pay for the egress traffic from Azure data center during recoveries?**&lt;br/&gt;
+A2.</source>
+          <target state="new">Do I have to pay for the egress traffic from Azure data center during recoveries?**&lt;br/&gt;
+A2.</target>
+        </trans-unit>
+        <trans-unit id="b3a0792c-1bdd-49d5-b243-6b666b8455de" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="b2e7630f-d3f1-4f67-8e50-ac5754484e86" xml:space="preserve">
+          <source>Your recoveries are free and you are not charged for the egress traffic.</source>
+          <target state="new">Your recoveries are free and you are not charged for the egress traffic.</target>
+        </trans-unit>
+        <trans-unit id="1020f555-872e-4e62-ac3b-3cdbe4ad0335" xml:space="preserve">
+          <source>**Q1.</source>
+          <target state="new">**Q1.</target>
+        </trans-unit>
+        <trans-unit id="94525cd1-8e47-4166-b51f-5b810cee0a6a" xml:space="preserve">
+          <source>Is the data sent to Azure encrypted?** &lt;br/&gt;
+A1.</source>
+          <target state="new">Is the data sent to Azure encrypted?** &lt;br/&gt;
+A1.</target>
+        </trans-unit>
+        <trans-unit id="217debd2-cae1-4efa-87c4-edfedb4013d9" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="2b7c4ab9-dad2-41ee-87d2-04b049668862" xml:space="preserve">
+          <source>Data is encrypted on the on-premises server/client/SCDPM machine using AES256 and the data is sent over a secure HTTPS link.</source>
+          <target state="new">Data is encrypted on the on-premises server/client/SCDPM machine using AES256 and the data is sent over a secure HTTPS link.</target>
+        </trans-unit>
+        <trans-unit id="7995e1f6-095b-403c-ac5a-71bc94c7d27c" xml:space="preserve">
+          <source>**Q2.</source>
+          <target state="new">**Q2.</target>
+        </trans-unit>
+        <trans-unit id="008c2c48-1d5b-4f07-b1f4-abe7f8504380" xml:space="preserve">
+          <source>Is the backup data on Azure encrypted as well?**&lt;br/&gt;
+A2.</source>
+          <target state="new">Is the backup data on Azure encrypted as well?**&lt;br/&gt;
+A2.</target>
+        </trans-unit>
+        <trans-unit id="af1f18c1-c91a-4c07-b35f-3fde5009d56b" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="a7e7d512-da98-47bc-ad7d-3381bf07e137" xml:space="preserve">
+          <source>The data which is sent to Azure remains encrypted (at rest).</source>
+          <target state="new">The data which is sent to Azure remains encrypted (at rest).</target>
+        </trans-unit>
+        <trans-unit id="03fbe195-8e73-46b2-8a0c-af15b145d257" xml:space="preserve">
+          <source>Microsoft does not decrypt the backup data at any point.</source>
+          <target state="new">Microsoft does not decrypt the backup data at any point.</target>
+        </trans-unit>
+        <trans-unit id="98f254ed-781d-47ba-a261-bffb632f0539" xml:space="preserve">
+          <source>**Q3.</source>
+          <target state="new">**Q3.</target>
+        </trans-unit>
+        <trans-unit id="d6094e96-ee8b-437e-811b-d8a18808a716" xml:space="preserve">
+          <source>What is the minimum length of encryption key used to encrypt backup data?** &lt;br/&gt;
+A3.</source>
+          <target state="new">What is the minimum length of encryption key used to encrypt backup data?** &lt;br/&gt;
+A3.</target>
+        </trans-unit>
+        <trans-unit id="cad2f641-263d-43c9-a448-77b49a9c4487" xml:space="preserve">
+          <source>The encryption key should be at least 16 characters.</source>
+          <target state="new">The encryption key should be at least 16 characters.</target>
+        </trans-unit>
+        <trans-unit id="cdf8f987-2e12-47b5-814a-c7b507e8b9de" xml:space="preserve">
+          <source>**Q4.</source>
+          <target state="new">**Q4.</target>
+        </trans-unit>
+        <trans-unit id="f7afdb09-f0f6-4d6b-8a17-04e34d67ad41" xml:space="preserve">
+          <source>What happens if I misplace the encryption key?</source>
+          <target state="new">What happens if I misplace the encryption key?</target>
+        </trans-unit>
+        <trans-unit id="c2aa4fb9-80d6-4aba-bfa9-c8033cf2bc62" xml:space="preserve">
+          <source>Can I recover the data (or) can Microsoft recover the data?** &lt;br/&gt;
+A4.</source>
+          <target state="new">Can I recover the data (or) can Microsoft recover the data?** &lt;br/&gt;
+A4.</target>
+        </trans-unit>
+        <trans-unit id="946bfc79-5655-4eea-a473-9ed43b0583e9" xml:space="preserve">
+          <source>The key used to encrypt the backup data is present only on the customer premises.</source>
+          <target state="new">The key used to encrypt the backup data is present only on the customer premises.</target>
+        </trans-unit>
+        <trans-unit id="f2b99096-5526-456b-9b12-2b0e6ebc31a1" xml:space="preserve">
+          <source>Microsoft does not maintain a copy in Azure and does not have any access to the key.</source>
+          <target state="new">Microsoft does not maintain a copy in Azure and does not have any access to the key.</target>
+        </trans-unit>
+        <trans-unit id="5dc970f0-1c9b-4659-85c1-8509ada633f8" xml:space="preserve">
+          <source>If the customer misplaces the key, Microsoft cannot recover the backup data.</source>
+          <target state="new">If the customer misplaces the key, Microsoft cannot recover the backup data.</target>
+        </trans-unit>
+        <trans-unit id="94a49d00-b0d0-4e8b-ab3d-6e9aeda27f61" xml:space="preserve">
+          <source>**Q1.</source>
+          <target state="new">**Q1.</target>
+        </trans-unit>
+        <trans-unit id="c05b08f4-1ef6-486c-b066-08a5dcfac4ff" xml:space="preserve">
+          <source>How can I change the cache location specified for the Azure Backup agent?**</source>
+          <target state="new">How can I change the cache location specified for the Azure Backup agent?**</target>
+        </trans-unit>
+        <trans-unit id="61ea1257-8d8e-4f60-9325-a75850eb4a7e" xml:space="preserve">
+          <source>Stop the OBEngine by executing the below command in an elevated command prompt:</source>
+          <target state="new">Stop the OBEngine by executing the below command in an elevated command prompt:</target>
+        </trans-unit>
+        <trans-unit id="3016b182-6dcc-42d5-b4f4-b58c7cd49fd1" xml:space="preserve">
+          <source><bpt id="5373f3a0-d58b-4cd1-afdb-497dfa7fd16c">&lt;code&gt;</bpt>PS C:\&gt; Net stop obengine<ept id="5373f3a0-d58b-4cd1-afdb-497dfa7fd16c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="5373f3a0-d58b-4cd1-afdb-497dfa7fd16c">&lt;code&gt;</bpt>PS C:\&gt; Net stop obengine<ept id="5373f3a0-d58b-4cd1-afdb-497dfa7fd16c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e19728be-6507-4657-a221-fd5fb01b0e24" xml:space="preserve">
+          <source>Copy the cache space folder to a different drive with sufficient space.</source>
+          <target state="new">Copy the cache space folder to a different drive with sufficient space.</target>
+        </trans-unit>
+        <trans-unit id="a7411fe1-a2b9-47d3-bda3-9b7f0ed6667d" xml:space="preserve">
+          <source>We recommend you copy the files from the cache space folder instead of moving them; the original cache space can be removed after confirming that the backups are working with the new cache space.</source>
+          <target state="new">We recommend you copy the files from the cache space folder instead of moving them; the original cache space can be removed after confirming that the backups are working with the new cache space.</target>
+        </trans-unit>
+        <trans-unit id="8ff5bada-3a82-4eb2-b4ff-d7282de22bb4" xml:space="preserve">
+          <source>Update following registry entries with the path to new cache space folder:</source>
+          <target state="new">Update following registry entries with the path to new cache space folder:</target>
+        </trans-unit>
+        <trans-unit id="7c89f229-3ec9-4cc8-8e0f-2e33bba26088" xml:space="preserve">
+          <source>| Registry path | Registry Key | Value |
+| ------ | ------- | ------ |
+| HKEY<bpt id="50d84c47-3bb5-4bd0-82a0-1d0c536cacb9">&lt;em&gt;</bpt>LOCAL<ept id="50d84c47-3bb5-4bd0-82a0-1d0c536cacb9">&lt;/em&gt;</ept>MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config |  ScratchLocation | &lt;i&gt;New cache folder location&lt;/i&gt; |
+| HKEY<bpt id="7ad14af1-81d6-479e-8707-02444a2dd9b6">&lt;em&gt;</bpt>LOCAL<ept id="7ad14af1-81d6-479e-8707-02444a2dd9b6">&lt;/em&gt;</ept>MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | ScratchLocation | &lt;i&gt;New cache folder location&lt;/i&gt; |</source>
+          <target state="new">| Registry path | Registry Key | Value |
+| ------ | ------- | ------ |
+| HKEY<bpt id="50d84c47-3bb5-4bd0-82a0-1d0c536cacb9">&lt;em&gt;</bpt>LOCAL<ept id="50d84c47-3bb5-4bd0-82a0-1d0c536cacb9">&lt;/em&gt;</ept>MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config |  ScratchLocation | &lt;i&gt;New cache folder location&lt;/i&gt; |
+| HKEY<bpt id="7ad14af1-81d6-479e-8707-02444a2dd9b6">&lt;em&gt;</bpt>LOCAL<ept id="7ad14af1-81d6-479e-8707-02444a2dd9b6">&lt;/em&gt;</ept>MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | ScratchLocation | &lt;i&gt;New cache folder location&lt;/i&gt; |</target>
+        </trans-unit>
+        <trans-unit id="944539d6-59f2-4c2b-b21b-81118380875c" xml:space="preserve">
+          <source>Start the OBEngine by executing the below command in an elevated command prompt:</source>
+          <target state="new">Start the OBEngine by executing the below command in an elevated command prompt:</target>
+        </trans-unit>
+        <trans-unit id="96af882b-0cef-4be0-bcbf-46a10a11fb3e" xml:space="preserve">
+          <source><bpt id="1ac9c452-7e63-4fc1-b7a4-52cf43369cdd">&lt;code&gt;</bpt>PS C:\&gt; Net start obengine<ept id="1ac9c452-7e63-4fc1-b7a4-52cf43369cdd">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1ac9c452-7e63-4fc1-b7a4-52cf43369cdd">&lt;code&gt;</bpt>PS C:\&gt; Net start obengine<ept id="1ac9c452-7e63-4fc1-b7a4-52cf43369cdd">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e627e30-fc7c-413e-a599-7d781d0ea280" xml:space="preserve">
+          <source>Once the backups happen successfully with the new cache location, you can remove the original cache folder.</source>
+          <target state="new">Once the backups happen successfully with the new cache location, you can remove the original cache folder.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

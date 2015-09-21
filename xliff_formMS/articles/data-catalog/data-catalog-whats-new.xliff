@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4e546fc2-0ab7-42ba-9069-6f4d6a18e7cd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4e546fc2-0ab7-42ba-9069-6f4d6a18e7cd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5086bde2-b159-460c-a87c-8b37223cdda7">
+        <trans-unit id="9a47539a-2cdf-4877-86bc-fbb62d23bb4a" xml:space="preserve">
+          <source>What's New in Azure Data Catalog</source>
+          <target state="new">What's New in Azure Data Catalog</target>
+        </trans-unit>
+        <trans-unit id="9d442afd-398c-4f9b-a43d-f4c18627dff9" xml:space="preserve">
+          <source>Overview of new capabilities in the Azure Data Catalog preview.</source>
+          <target state="new">Overview of new capabilities in the Azure Data Catalog preview.</target>
+        </trans-unit>
+        <trans-unit id="c560bc5b-4ade-43f8-b448-925002b75761" xml:space="preserve">
+          <source>Updates to <bpt id="e17222d5-3842-47fe-b765-e9af16d44da5">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="e17222d5-3842-47fe-b765-e9af16d44da5">&lt;/strong&gt;</ept> are released on a regular basis.</source>
+          <target state="new">Updates to <bpt id="e17222d5-3842-47fe-b765-e9af16d44da5">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="e17222d5-3842-47fe-b765-e9af16d44da5">&lt;/strong&gt;</ept> are released on a regular basis.</target>
+        </trans-unit>
+        <trans-unit id="b921f380-d17e-49f6-bda7-633f22305545" xml:space="preserve">
+          <source>Not every release will include new user-facing features, as some releases are focused on back-end service capabilities.</source>
+          <target state="new">Not every release will include new user-facing features, as some releases are focused on back-end service capabilities.</target>
+        </trans-unit>
+        <trans-unit id="6fc16cc7-26b2-45c9-bac0-00c4dc065cae" xml:space="preserve">
+          <source>This page will highlight new user-facing capabilities added to the <bpt id="400ca4e2-92c9-42bb-a237-f2e1b734ca48">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="400ca4e2-92c9-42bb-a237-f2e1b734ca48">&lt;/strong&gt;</ept> service.</source>
+          <target state="new">This page will highlight new user-facing capabilities added to the <bpt id="400ca4e2-92c9-42bb-a237-f2e1b734ca48">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="400ca4e2-92c9-42bb-a237-f2e1b734ca48">&lt;/strong&gt;</ept> service.</target>
+        </trans-unit>
+        <trans-unit id="80006a51-5b04-45e7-aa5c-0584b84bf93c" xml:space="preserve">
+          <source>As of the week of August 28, 2015, the following capabilities have been added to <bpt id="1771d7c4-cad7-455a-976c-c734a8888859">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="1771d7c4-cad7-455a-976c-c734a8888859">&lt;/strong&gt;</ept>:</source>
+          <target state="new">As of the week of August 28, 2015, the following capabilities have been added to <bpt id="1771d7c4-cad7-455a-976c-c734a8888859">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="1771d7c4-cad7-455a-976c-c734a8888859">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="8c7a1ad3-fda8-4c00-bfdd-451b50dc1cc3" xml:space="preserve">
+          <source>Support for data profiling of SQL Server and Oracle data sources.</source>
+          <target state="new">Support for data profiling of SQL Server and Oracle data sources.</target>
+        </trans-unit>
+        <trans-unit id="73305cf5-7227-41aa-86ff-fd8e447ec331" xml:space="preserve">
+          <source>When registering SQL Server and Oracle tables and views, users can choose to include data profile information for the objects being registered.</source>
+          <target state="new">When registering SQL Server and Oracle tables and views, users can choose to include data profile information for the objects being registered.</target>
+        </trans-unit>
+        <trans-unit id="e819319a-74cb-40e5-8b5d-2bb7734b1963" xml:space="preserve">
+          <source>The data profile includes object-level and column-level statistics.</source>
+          <target state="new">The data profile includes object-level and column-level statistics.</target>
+        </trans-unit>
+        <trans-unit id="e7e8def8-4f06-4d6a-bfe3-b3d50c3657eb" xml:space="preserve">
+          <source>Support for Hadoop HDFS data sources.</source>
+          <target state="new">Support for Hadoop HDFS data sources.</target>
+        </trans-unit>
+        <trans-unit id="ea1e961e-54cc-4713-8bd4-ebc0e47e49d7" xml:space="preserve">
+          <source>Users can now register and discover HDFS files and directories.</source>
+          <target state="new">Users can now register and discover HDFS files and directories.</target>
+        </trans-unit>
+        <trans-unit id="a421cee8-61d0-4c09-be64-cebd58ff57d8" xml:space="preserve">
+          <source>As of the week of August 21, 2015, the following capabilities have been added to <bpt id="b6b8acb2-0ff5-4beb-967b-81ea95c774af">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="b6b8acb2-0ff5-4beb-967b-81ea95c774af">&lt;/strong&gt;</ept>:</source>
+          <target state="new">As of the week of August 21, 2015, the following capabilities have been added to <bpt id="b6b8acb2-0ff5-4beb-967b-81ea95c774af">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="b6b8acb2-0ff5-4beb-967b-81ea95c774af">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="5985f16b-30a4-4ba1-a753-3835604fa71d" xml:space="preserve">
+          <source>Support for providing access request information for registered data sources.</source>
+          <target state="new">Support for providing access request information for registered data sources.</target>
+        </trans-unit>
+        <trans-unit id="661885b8-c42d-45d0-9a4c-01efeaddd640" xml:space="preserve">
+          <source>For any registered data asset, users can now provide instructions for requesting access, including email links or URLs, to easily integrate with existing tools and processes.</source>
+          <target state="new">For any registered data asset, users can now provide instructions for requesting access, including email links or URLs, to easily integrate with existing tools and processes.</target>
+        </trans-unit>
+        <trans-unit id="f089491c-89a9-465e-9214-f17b81f047b7" xml:space="preserve">
+          <source>Tool tips for tags and experts, to make it easier to discover what users have provided what metadata for registered data assets.</source>
+          <target state="new">Tool tips for tags and experts, to make it easier to discover what users have provided what metadata for registered data assets.</target>
+        </trans-unit>
+        <trans-unit id="43bb7cfd-b414-4117-824e-6907deb82fbd" xml:space="preserve">
+          <source>We’ve added a new “User” button and menu to our top navigation bar.</source>
+          <target state="new">We’ve added a new “User” button and menu to our top navigation bar.</target>
+        </trans-unit>
+        <trans-unit id="7ab04bee-d6a3-4143-bb3b-a244729a4389" xml:space="preserve">
+          <source>This menu lets the user see the account used to log on to <bpt id="ef6ee266-7f06-4440-ba11-353d86f22699">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="ef6ee266-7f06-4440-ba11-353d86f22699">&lt;/strong&gt;</ept>, and to sign out if desired.</source>
+          <target state="new">This menu lets the user see the account used to log on to <bpt id="ef6ee266-7f06-4440-ba11-353d86f22699">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="ef6ee266-7f06-4440-ba11-353d86f22699">&lt;/strong&gt;</ept>, and to sign out if desired.</target>
+        </trans-unit>
+        <trans-unit id="4721469c-f211-4649-8723-5d44c02143f4" xml:space="preserve">
+          <source>This menu also displays the catalog name, which is valuable to developers using the <bpt id="b19da813-079c-4fde-aecc-b59c483fe0f2">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="b19da813-079c-4fde-aecc-b59c483fe0f2">&lt;/strong&gt;</ept> REST API.</source>
+          <target state="new">This menu also displays the catalog name, which is valuable to developers using the <bpt id="b19da813-079c-4fde-aecc-b59c483fe0f2">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="b19da813-079c-4fde-aecc-b59c483fe0f2">&lt;/strong&gt;</ept> REST API.</target>
+        </trans-unit>
+        <trans-unit id="b06c3309-b38e-409e-99ea-ddd0413daa41" xml:space="preserve">
+          <source>Standard Edition Only: When adding owners to data assets, <bpt id="6e9da3c9-d136-4c4c-bdee-a934c53c4542">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="6e9da3c9-d136-4c4c-bdee-a934c53c4542">&lt;/strong&gt;</ept> now supports both user accounts and security groups as owners.</source>
+          <target state="new">Standard Edition Only: When adding owners to data assets, <bpt id="6e9da3c9-d136-4c4c-bdee-a934c53c4542">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="6e9da3c9-d136-4c4c-bdee-a934c53c4542">&lt;/strong&gt;</ept> now supports both user accounts and security groups as owners.</target>
+        </trans-unit>
+        <trans-unit id="e72c18b9-a2bf-47e8-a8b8-e2de61f270a6" xml:space="preserve">
+          <source>To add a security group as an owner for selected data assets, you can enter either the group’s display name or the group’s UPN email address, if it has one.</source>
+          <target state="new">To add a security group as an owner for selected data assets, you can enter either the group’s display name or the group’s UPN email address, if it has one.</target>
+        </trans-unit>
+        <trans-unit id="efc2975d-8069-4328-a6c7-b7092960f183" xml:space="preserve">
+          <source>Support for Azure Blob Storage data sources.</source>
+          <target state="new">Support for Azure Blob Storage data sources.</target>
+        </trans-unit>
+        <trans-unit id="b1a96e38-35d4-4547-abc6-28acba495c48" xml:space="preserve">
+          <source>Users can now register and discover Azure Storage blobs and directories.</source>
+          <target state="new">Users can now register and discover Azure Storage blobs and directories.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="69d44aeb-7056-46a8-9926-e2b875c20599" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="69d44aeb-7056-46a8-9926-e2b875c20599" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="026b4ab2-1653-4dfd-b8eb-6484ef78c677">
+        <trans-unit id="84f5c180-b81b-403c-86a9-ad31df357567" xml:space="preserve">
+          <source>How to make a phone call from Twilio (.NET) | Microsoft Azure</source>
+          <target state="new">How to make a phone call from Twilio (.NET) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="827682dc-cead-438b-9a5a-70f604bb1f07" xml:space="preserve">
+          <source>Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET.</source>
+          <target state="new">Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET.</target>
+        </trans-unit>
+        <trans-unit id="a506c8fb-07bb-47e9-b5bc-63d008173c88" xml:space="preserve">
+          <source>This guide demonstrates how to use Twilio to make a call from a web page hosted in Azure.</source>
+          <target state="new">This guide demonstrates how to use Twilio to make a call from a web page hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="c2e25273-7a80-4c8c-b486-a2c53fe00e0b" xml:space="preserve">
+          <source>The resulting application prompts the user for phone call values, as shown in the following screenshot.</source>
+          <target state="new">The resulting application prompts the user for phone call values, as shown in the following screenshot.</target>
+        </trans-unit>
+        <trans-unit id="722ef329-7155-43b5-8344-54abef3edade" xml:space="preserve">
+          <source><bpt id="be163021-3736-457c-b306-a355b345da55">&lt;linkText&gt;</bpt>Azure call form using Twilio and ASP.NET<ept id="be163021-3736-457c-b306-a355b345da55">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be163021-3736-457c-b306-a355b345da55">&lt;linkText&gt;</bpt>Azure call form using Twilio and ASP.NET<ept id="be163021-3736-457c-b306-a355b345da55">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2539113-b901-4c75-bf76-2e5925ff4f39" xml:space="preserve">
+          <source>You will need to do the following to use the code in this topic:</source>
+          <target state="new">You will need to do the following to use the code in this topic:</target>
+        </trans-unit>
+        <trans-unit id="97b225fe-8924-472c-a113-f473cbf7f0e8" xml:space="preserve">
+          <source>Acquire a Twilio account and authentication token.</source>
+          <target state="new">Acquire a Twilio account and authentication token.</target>
+        </trans-unit>
+        <trans-unit id="7714e9c7-531a-4d2f-93f7-20ed6d62ac65" xml:space="preserve">
+          <source>To get started with Twilio, sign up at <bpt id="78cda95c-1f5d-41fd-91a4-de08d845e69d">&lt;linkText&gt;</bpt>https://www.twilio.com/try-twilio[try_twilio]<ept id="78cda95c-1f5d-41fd-91a4-de08d845e69d">&lt;/linkText&gt;</ept><bpt id="78cda95c-1f5d-41fd-91a4-de08d845e69d">&lt;title&gt;</bpt><ept id="78cda95c-1f5d-41fd-91a4-de08d845e69d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started with Twilio, sign up at <bpt id="78cda95c-1f5d-41fd-91a4-de08d845e69d">&lt;linkText&gt;</bpt>https://www.twilio.com/try-twilio[try_twilio]<ept id="78cda95c-1f5d-41fd-91a4-de08d845e69d">&lt;/linkText&gt;</ept><bpt id="78cda95c-1f5d-41fd-91a4-de08d845e69d">&lt;title&gt;</bpt><ept id="78cda95c-1f5d-41fd-91a4-de08d845e69d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="091200aa-55dd-4758-9f59-a907c63d331c" xml:space="preserve">
+          <source>You can evaluate pricing at <bpt id="35570df2-c5fc-484e-989e-da0188a1a042">&lt;linkText&gt;</bpt>http://www.twilio.com/pricing[twilio_pricing]<ept id="35570df2-c5fc-484e-989e-da0188a1a042">&lt;/linkText&gt;</ept><bpt id="35570df2-c5fc-484e-989e-da0188a1a042">&lt;title&gt;</bpt><ept id="35570df2-c5fc-484e-989e-da0188a1a042">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can evaluate pricing at <bpt id="35570df2-c5fc-484e-989e-da0188a1a042">&lt;linkText&gt;</bpt>http://www.twilio.com/pricing[twilio_pricing]<ept id="35570df2-c5fc-484e-989e-da0188a1a042">&lt;/linkText&gt;</ept><bpt id="35570df2-c5fc-484e-989e-da0188a1a042">&lt;title&gt;</bpt><ept id="35570df2-c5fc-484e-989e-da0188a1a042">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="296035eb-f4f4-400a-8468-afa3f660c3fb" xml:space="preserve">
+          <source>For information about the API provided by Twilio, see <bpt id="f9d48fe8-a161-492c-86ce-39139c90c70b">&lt;linkText&gt;</bpt>http://www.twilio.com/voice/api[twilio_api]<ept id="f9d48fe8-a161-492c-86ce-39139c90c70b">&lt;/linkText&gt;</ept><bpt id="f9d48fe8-a161-492c-86ce-39139c90c70b">&lt;title&gt;</bpt><ept id="f9d48fe8-a161-492c-86ce-39139c90c70b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the API provided by Twilio, see <bpt id="f9d48fe8-a161-492c-86ce-39139c90c70b">&lt;linkText&gt;</bpt>http://www.twilio.com/voice/api[twilio_api]<ept id="f9d48fe8-a161-492c-86ce-39139c90c70b">&lt;/linkText&gt;</ept><bpt id="f9d48fe8-a161-492c-86ce-39139c90c70b">&lt;title&gt;</bpt><ept id="f9d48fe8-a161-492c-86ce-39139c90c70b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe719c86-d2b4-40db-b5cc-63e9c8cb8c08" xml:space="preserve">
+          <source>Add the Twilio .NET libary to your web role.</source>
+          <target state="new">Add the Twilio .NET libary to your web role.</target>
+        </trans-unit>
+        <trans-unit id="64b6dda3-3f4c-48fe-b23a-54913808642f" xml:space="preserve">
+          <source>See "To add the Twilio libraries to your web role project," later in this topic.</source>
+          <target state="new">See "To add the Twilio libraries to your web role project," later in this topic.</target>
+        </trans-unit>
+        <trans-unit id="8e07e1e5-531d-413d-bb67-9bff56f39ac7" xml:space="preserve">
+          <source>You should be familiar with creating a basic web role on Azure.</source>
+          <target state="new">You should be familiar with creating a basic web role on Azure.</target>
+        </trans-unit>
+        <trans-unit id="fb5b7fcf-8c56-4d01-90b3-3bedc3e6df7a" xml:space="preserve">
+          <source><bpt id="30cd1722-9ed4-44fd-a6bf-dbff464c039f">&lt;bookmark&gt;</bpt><ept id="30cd1722-9ed4-44fd-a6bf-dbff464c039f">&lt;/bookmark&gt;</ept>To add the Twilio libraries to your web role project:</source>
+          <target state="new"><bpt id="30cd1722-9ed4-44fd-a6bf-dbff464c039f">&lt;bookmark&gt;</bpt><ept id="30cd1722-9ed4-44fd-a6bf-dbff464c039f">&lt;/bookmark&gt;</ept>To add the Twilio libraries to your web role project:</target>
+        </trans-unit>
+        <trans-unit id="ca64755a-3b1e-46e4-8285-2c0c8f96d6de" xml:space="preserve">
+          <source>Open your solution in Visual Studio.</source>
+          <target state="new">Open your solution in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="0a47d621-8644-4866-ae9e-70a80daa455c" xml:space="preserve">
+          <source>Right-click <bpt id="06d47257-99da-4d3e-afe4-a1c0ed03ea5e">&lt;strong&gt;</bpt>References<ept id="06d47257-99da-4d3e-afe4-a1c0ed03ea5e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="06d47257-99da-4d3e-afe4-a1c0ed03ea5e">&lt;strong&gt;</bpt>References<ept id="06d47257-99da-4d3e-afe4-a1c0ed03ea5e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7dc84ae-e611-4c37-bfa8-f1d893f5dabe" xml:space="preserve">
+          <source>Click <bpt id="64be38aa-fe38-41ce-a19c-8c715316395b">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="64be38aa-fe38-41ce-a19c-8c715316395b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="64be38aa-fe38-41ce-a19c-8c715316395b">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="64be38aa-fe38-41ce-a19c-8c715316395b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6458bd41-25bf-4092-96ed-f3d4ef0869e6" xml:space="preserve">
+          <source>Click <bpt id="39b8fb90-c2f3-4e78-a233-f553983d1ae0">&lt;strong&gt;</bpt>Online<ept id="39b8fb90-c2f3-4e78-a233-f553983d1ae0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="39b8fb90-c2f3-4e78-a233-f553983d1ae0">&lt;strong&gt;</bpt>Online<ept id="39b8fb90-c2f3-4e78-a233-f553983d1ae0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a597976-0a1e-4058-a1a7-fc976de372ba" xml:space="preserve">
+          <source>In the search online box, type <bpt id="fa15ab68-3e2a-462d-8f87-43844b491dd1">&lt;em&gt;</bpt>twilio<ept id="fa15ab68-3e2a-462d-8f87-43844b491dd1">&lt;/em&gt;</ept>.</source>
+          <target state="new">In the search online box, type <bpt id="fa15ab68-3e2a-462d-8f87-43844b491dd1">&lt;em&gt;</bpt>twilio<ept id="fa15ab68-3e2a-462d-8f87-43844b491dd1">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e84331e8-fbbb-4b6f-b58f-8db373a5f9e6" xml:space="preserve">
+          <source>Click <bpt id="007aaaae-e558-4446-8d96-f18ac23e140e">&lt;strong&gt;</bpt>Install<ept id="007aaaae-e558-4446-8d96-f18ac23e140e">&lt;/strong&gt;</ept> on the Twilio package.</source>
+          <target state="new">Click <bpt id="007aaaae-e558-4446-8d96-f18ac23e140e">&lt;strong&gt;</bpt>Install<ept id="007aaaae-e558-4446-8d96-f18ac23e140e">&lt;/strong&gt;</ept> on the Twilio package.</target>
+        </trans-unit>
+        <trans-unit id="58b2e72a-c2bf-49c2-be93-58f448bccb26" xml:space="preserve">
+          <source>The following code shows how to create a web form to retrieve user data for making a call.</source>
+          <target state="new">The following code shows how to create a web form to retrieve user data for making a call.</target>
+        </trans-unit>
+        <trans-unit id="43466494-f0d1-4721-8b15-ec887287e4d6" xml:space="preserve">
+          <source>In this example, an ASP.NET web role named <bpt id="b09d8998-7307-4ed5-8f0c-76e2a9b226ef">&lt;strong&gt;</bpt>TwilioCloud<ept id="b09d8998-7307-4ed5-8f0c-76e2a9b226ef">&lt;/strong&gt;</ept> is created.</source>
+          <target state="new">In this example, an ASP.NET web role named <bpt id="b09d8998-7307-4ed5-8f0c-76e2a9b226ef">&lt;strong&gt;</bpt>TwilioCloud<ept id="b09d8998-7307-4ed5-8f0c-76e2a9b226ef">&lt;/strong&gt;</ept> is created.</target>
+        </trans-unit>
+        <trans-unit id="df5e5f13-7285-4834-89fa-2acd924e822c" xml:space="preserve">
+          <source>The following code, which is called when the user completes the form, creates the call message and generates the call.</source>
+          <target state="new">The following code, which is called when the user completes the form, creates the call message and generates the call.</target>
+        </trans-unit>
+        <trans-unit id="03e3e572-13d5-4728-8d30-fd4b61d9de8f" xml:space="preserve">
+          <source>In this example, the code is run in the onclick event handler of the button on the form.</source>
+          <target state="new">In this example, the code is run in the onclick event handler of the button on the form.</target>
+        </trans-unit>
+        <trans-unit id="62c35027-f1ab-46bb-974b-faa9b0df2f68" xml:space="preserve">
+          <source>(Use your Twilio account and authentication token instead of the placeholder values assigned to <bpt id="16f96e9e-52e4-43cc-827e-5f17808ab2a0">&lt;strong&gt;</bpt>accountSID<ept id="16f96e9e-52e4-43cc-827e-5f17808ab2a0">&lt;/strong&gt;</ept> and <bpt id="270a65be-fbb9-42fd-92a2-b5f16b31a97f">&lt;strong&gt;</bpt>authToken<ept id="270a65be-fbb9-42fd-92a2-b5f16b31a97f">&lt;/strong&gt;</ept> in the code below.)</source>
+          <target state="new">(Use your Twilio account and authentication token instead of the placeholder values assigned to <bpt id="16f96e9e-52e4-43cc-827e-5f17808ab2a0">&lt;strong&gt;</bpt>accountSID<ept id="16f96e9e-52e4-43cc-827e-5f17808ab2a0">&lt;/strong&gt;</ept> and <bpt id="270a65be-fbb9-42fd-92a2-b5f16b31a97f">&lt;strong&gt;</bpt>authToken<ept id="270a65be-fbb9-42fd-92a2-b5f16b31a97f">&lt;/strong&gt;</ept> in the code below.)</target>
+        </trans-unit>
+        <trans-unit id="6fa0beac-7984-4e5a-a999-87afdf675c95" xml:space="preserve">
+          <source>The call is made, and the Twilio endpoint, API version, and the call status are displayed.</source>
+          <target state="new">The call is made, and the Twilio endpoint, API version, and the call status are displayed.</target>
+        </trans-unit>
+        <trans-unit id="e88c270b-4892-44bd-b6b6-5c94c23e1301" xml:space="preserve">
+          <source>The following screenshot shows output from a sample run.</source>
+          <target state="new">The following screenshot shows output from a sample run.</target>
+        </trans-unit>
+        <trans-unit id="6c3d63d5-e167-470b-b4ce-b6acb2f2bd7a" xml:space="preserve">
+          <source><bpt id="382383ed-3691-4141-baeb-d2b91eff766a">&lt;linkText&gt;</bpt>Azure call response using Twilio and ASP.NET<ept id="382383ed-3691-4141-baeb-d2b91eff766a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="382383ed-3691-4141-baeb-d2b91eff766a">&lt;linkText&gt;</bpt>Azure call response using Twilio and ASP.NET<ept id="382383ed-3691-4141-baeb-d2b91eff766a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef67b19a-07c7-43fe-9ee9-7eb0c936866f" xml:space="preserve">
+          <source>More information about TwiML can be found at <bpt id="f10ab301-9dbf-449f-ba32-7298f0b46d17">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml[twiml]<ept id="f10ab301-9dbf-449f-ba32-7298f0b46d17">&lt;/linkText&gt;</ept><bpt id="f10ab301-9dbf-449f-ba32-7298f0b46d17">&lt;title&gt;</bpt><ept id="f10ab301-9dbf-449f-ba32-7298f0b46d17">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information about TwiML can be found at <bpt id="f10ab301-9dbf-449f-ba32-7298f0b46d17">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml[twiml]<ept id="f10ab301-9dbf-449f-ba32-7298f0b46d17">&lt;/linkText&gt;</ept><bpt id="f10ab301-9dbf-449f-ba32-7298f0b46d17">&lt;title&gt;</bpt><ept id="f10ab301-9dbf-449f-ba32-7298f0b46d17">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b06d2d81-7b4e-4dcd-a16d-2c3d0f2b7a34" xml:space="preserve">
+          <source>More information about &amp;lt;Say&amp;gt; and other Twilio verbs can be found at <bpt id="284a14aa-b533-4dbd-8a9d-e14bef54ff93">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml/say[twilio_say]<ept id="284a14aa-b533-4dbd-8a9d-e14bef54ff93">&lt;/linkText&gt;</ept><bpt id="284a14aa-b533-4dbd-8a9d-e14bef54ff93">&lt;title&gt;</bpt><ept id="284a14aa-b533-4dbd-8a9d-e14bef54ff93">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information about &amp;lt;Say&amp;gt; and other Twilio verbs can be found at <bpt id="284a14aa-b533-4dbd-8a9d-e14bef54ff93">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml/say[twilio_say]<ept id="284a14aa-b533-4dbd-8a9d-e14bef54ff93">&lt;/linkText&gt;</ept><bpt id="284a14aa-b533-4dbd-8a9d-e14bef54ff93">&lt;title&gt;</bpt><ept id="284a14aa-b533-4dbd-8a9d-e14bef54ff93">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95cb25b6-b6bf-4616-bbb4-f13754da1ec6" xml:space="preserve">
+          <source>This code was provided to show you basic functionality using Twilio in an ASP.NET web role on Azure.</source>
+          <target state="new">This code was provided to show you basic functionality using Twilio in an ASP.NET web role on Azure.</target>
+        </trans-unit>
+        <trans-unit id="a34b9c4c-95be-45ec-9aa4-69f65674ff45" xml:space="preserve">
+          <source>Before deploying to Azure in production, you may want to add more error handling or other features.</source>
+          <target state="new">Before deploying to Azure in production, you may want to add more error handling or other features.</target>
+        </trans-unit>
+        <trans-unit id="15ee972b-b3c0-4f31-8d1c-189e3df0d30e" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="de9c45ef-b42a-4c4f-aaed-a296efb27aab" xml:space="preserve">
+          <source>Instead of using a web form, you could use Azure Blob storage or an Azure SQL Database instance to store phone numbers and call text.</source>
+          <target state="new">Instead of using a web form, you could use Azure Blob storage or an Azure SQL Database instance to store phone numbers and call text.</target>
+        </trans-unit>
+        <trans-unit id="f57e3313-37dc-4c1c-9e01-f72298b0bf4b" xml:space="preserve">
+          <source>For information about using blobs in Azure, see <bpt id="6abc4eed-5d65-411b-9a7b-4599c7f82c0c">&lt;linkText&gt;</bpt>How to use the Azure Blob storage service in .NET[howto_blob_storage_dotnet]<ept id="6abc4eed-5d65-411b-9a7b-4599c7f82c0c">&lt;/linkText&gt;</ept><bpt id="6abc4eed-5d65-411b-9a7b-4599c7f82c0c">&lt;title&gt;</bpt><ept id="6abc4eed-5d65-411b-9a7b-4599c7f82c0c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using blobs in Azure, see <bpt id="6abc4eed-5d65-411b-9a7b-4599c7f82c0c">&lt;linkText&gt;</bpt>How to use the Azure Blob storage service in .NET[howto_blob_storage_dotnet]<ept id="6abc4eed-5d65-411b-9a7b-4599c7f82c0c">&lt;/linkText&gt;</ept><bpt id="6abc4eed-5d65-411b-9a7b-4599c7f82c0c">&lt;title&gt;</bpt><ept id="6abc4eed-5d65-411b-9a7b-4599c7f82c0c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef82a79f-a10e-4dc7-bedf-cffb75c95e2e" xml:space="preserve">
+          <source>For information about using SQL Database, see <bpt id="89faef7c-eabd-4044-b240-b3a91bc540e0">&lt;linkText&gt;</bpt>How to use Azure SQL Database in .NET applications[howto_sql_azure_dotnet]<ept id="89faef7c-eabd-4044-b240-b3a91bc540e0">&lt;/linkText&gt;</ept><bpt id="89faef7c-eabd-4044-b240-b3a91bc540e0">&lt;title&gt;</bpt><ept id="89faef7c-eabd-4044-b240-b3a91bc540e0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using SQL Database, see <bpt id="89faef7c-eabd-4044-b240-b3a91bc540e0">&lt;linkText&gt;</bpt>How to use Azure SQL Database in .NET applications[howto_sql_azure_dotnet]<ept id="89faef7c-eabd-4044-b240-b3a91bc540e0">&lt;/linkText&gt;</ept><bpt id="89faef7c-eabd-4044-b240-b3a91bc540e0">&lt;title&gt;</bpt><ept id="89faef7c-eabd-4044-b240-b3a91bc540e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b148ef25-8599-456b-82a7-af4add5de355" xml:space="preserve">
+          <source>You could use RoleEnvironment.getConfigurationSettings to retrieve the Twilio account ID and authentication token from your deployment's configuration settings, instead of hard-coding the values in your form.</source>
+          <target state="new">You could use RoleEnvironment.getConfigurationSettings to retrieve the Twilio account ID and authentication token from your deployment's configuration settings, instead of hard-coding the values in your form.</target>
+        </trans-unit>
+        <trans-unit id="6f5b49e1-d65d-46d2-b7a6-ce7397ea7730" xml:space="preserve">
+          <source>For information about the RoleEnvironment class, see <bpt id="7f3d5740-7d97-4713-8e3f-a8c046c63d9d">&lt;linkText&gt;</bpt>Microsoft.WindowsAzure.ServiceRuntime Namespace[azure_runtime_ref_dotnet]<ept id="7f3d5740-7d97-4713-8e3f-a8c046c63d9d">&lt;/linkText&gt;</ept><bpt id="7f3d5740-7d97-4713-8e3f-a8c046c63d9d">&lt;title&gt;</bpt><ept id="7f3d5740-7d97-4713-8e3f-a8c046c63d9d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the RoleEnvironment class, see <bpt id="7f3d5740-7d97-4713-8e3f-a8c046c63d9d">&lt;linkText&gt;</bpt>Microsoft.WindowsAzure.ServiceRuntime Namespace[azure_runtime_ref_dotnet]<ept id="7f3d5740-7d97-4713-8e3f-a8c046c63d9d">&lt;/linkText&gt;</ept><bpt id="7f3d5740-7d97-4713-8e3f-a8c046c63d9d">&lt;title&gt;</bpt><ept id="7f3d5740-7d97-4713-8e3f-a8c046c63d9d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="486254ac-1496-4870-a75d-7190737e79da" xml:space="preserve">
+          <source>Read the Twilio security guidelines at <bpt id="074a3532-6fbb-4c8d-bada-616991f6b652">&lt;linkText&gt;</bpt>https://www.twilio.com/docs/security[twilio_docs_security]<ept id="074a3532-6fbb-4c8d-bada-616991f6b652">&lt;/linkText&gt;</ept><bpt id="074a3532-6fbb-4c8d-bada-616991f6b652">&lt;title&gt;</bpt><ept id="074a3532-6fbb-4c8d-bada-616991f6b652">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read the Twilio security guidelines at <bpt id="074a3532-6fbb-4c8d-bada-616991f6b652">&lt;linkText&gt;</bpt>https://www.twilio.com/docs/security[twilio_docs_security]<ept id="074a3532-6fbb-4c8d-bada-616991f6b652">&lt;/linkText&gt;</ept><bpt id="074a3532-6fbb-4c8d-bada-616991f6b652">&lt;title&gt;</bpt><ept id="074a3532-6fbb-4c8d-bada-616991f6b652">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd96f0ea-4ad3-40ff-9db1-bef18bcb78c5" xml:space="preserve">
+          <source>Learn more about Twilio at <bpt id="dd2806eb-c82e-4466-9224-8c09fe74ea1b">&lt;linkText&gt;</bpt>https://www.twilio.com/docs[twilio_docs]<ept id="dd2806eb-c82e-4466-9224-8c09fe74ea1b">&lt;/linkText&gt;</ept><bpt id="dd2806eb-c82e-4466-9224-8c09fe74ea1b">&lt;title&gt;</bpt><ept id="dd2806eb-c82e-4466-9224-8c09fe74ea1b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about Twilio at <bpt id="dd2806eb-c82e-4466-9224-8c09fe74ea1b">&lt;linkText&gt;</bpt>https://www.twilio.com/docs[twilio_docs]<ept id="dd2806eb-c82e-4466-9224-8c09fe74ea1b">&lt;/linkText&gt;</ept><bpt id="dd2806eb-c82e-4466-9224-8c09fe74ea1b">&lt;title&gt;</bpt><ept id="dd2806eb-c82e-4466-9224-8c09fe74ea1b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d31379f7-b93e-4e6b-ab9f-969c56923379" xml:space="preserve">
+          <source><bpt id="450666c1-55c0-4f98-8012-af23e7782b0e">&lt;linkText&gt;</bpt>How to use Twilio for voice and SMS capabilities from Azure<ept id="450666c1-55c0-4f98-8012-af23e7782b0e">&lt;/linkText&gt;</ept><bpt id="450666c1-55c0-4f98-8012-af23e7782b0e">&lt;title&gt;</bpt><ept id="450666c1-55c0-4f98-8012-af23e7782b0e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="450666c1-55c0-4f98-8012-af23e7782b0e">&lt;linkText&gt;</bpt>How to use Twilio for voice and SMS capabilities from Azure<ept id="450666c1-55c0-4f98-8012-af23e7782b0e">&lt;/linkText&gt;</ept><bpt id="450666c1-55c0-4f98-8012-af23e7782b0e">&lt;title&gt;</bpt><ept id="450666c1-55c0-4f98-8012-af23e7782b0e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d933b7c2-955a-4116-ab59-48dd0daefb7f" xml:space="preserve">
+          <source>http://www.twilio.com/pricing</source>
+          <target state="new">http://www.twilio.com/pricing</target>
+        </trans-unit>
+        <trans-unit id="dd3c2ab1-1b1e-4bcd-9962-2a9ee5aa8d79" xml:space="preserve">
+          <source>http://www.twilio.com/try-twilio</source>
+          <target state="new">http://www.twilio.com/try-twilio</target>
+        </trans-unit>
+        <trans-unit id="48d624b4-3f85-4296-9297-80faf166474a" xml:space="preserve">
+          <source>http://www.twilio.com/voice/api</source>
+          <target state="new">http://www.twilio.com/voice/api</target>
+        </trans-unit>
+        <trans-unit id="94e8c417-b75d-4a1a-b6b9-54ad8c874a26" xml:space="preserve">
+          <source>https://www.twilio.com/user/account/phone-numbers/verified#</source>
+          <target state="new">https://www.twilio.com/user/account/phone-numbers/verified#</target>
+        </trans-unit>
+        <trans-unit id="1393780d-39c7-4194-a88e-bb111da37ada" xml:space="preserve">
+          <source>./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form.png</source>
+          <target state="new">./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form.png</target>
+        </trans-unit>
+        <trans-unit id="035a402e-9021-43eb-91d0-314f50e184af" xml:space="preserve">
+          <source>./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form_output.png</source>
+          <target state="new">./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form_output.png</target>
+        </trans-unit>
+        <trans-unit id="ae956e40-79e6-453d-aa2c-c958a43f5a81" xml:space="preserve">
+          <source>http://www.twilio.com/docs/api/twiml</source>
+          <target state="new">http://www.twilio.com/docs/api/twiml</target>
+        </trans-unit>
+        <trans-unit id="2fe01f1a-c62a-48f9-a0f1-24514134557c" xml:space="preserve">
+          <source>/develop/net/how-to-guides/twilio/</source>
+          <target state="new">/develop/net/how-to-guides/twilio/</target>
+        </trans-unit>
+        <trans-unit id="38ab3410-22d0-4dd0-86ab-120e285c8ee5" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/net/how-to-guides/blob-storage/</source>
+          <target state="new">https://www.windowsazure.com/develop/net/how-to-guides/blob-storage/</target>
+        </trans-unit>
+        <trans-unit id="f1a48492-59dd-495e-aebb-6547897ba449" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/net/how-to-guides/sql-database/</source>
+          <target state="new">https://www.windowsazure.com/develop/net/how-to-guides/sql-database/</target>
+        </trans-unit>
+        <trans-unit id="07a06177-f28c-4eee-b69e-56f217848d7d" xml:space="preserve">
+          <source>http://www.twilio.com/docs/security</source>
+          <target state="new">http://www.twilio.com/docs/security</target>
+        </trans-unit>
+        <trans-unit id="399119e9-2ef3-47c5-9af8-7f843f3082b3" xml:space="preserve">
+          <source>http://www.twilio.com/docs</source>
+          <target state="new">http://www.twilio.com/docs</target>
+        </trans-unit>
+        <trans-unit id="8c808a53-28c6-4c0d-867b-fbe1c3c0332e" xml:space="preserve">
+          <source>http://www.twilio.com/docs/api/twiml/say</source>
+          <target state="new">http://www.twilio.com/docs/api/twiml/say</target>
+        </trans-unit>
+        <trans-unit id="fb8119e6-2849-4a98-8a5e-c743e90b91c5" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="35f19cd2-268c-4f2f-beca-0cdc965fb21b" />
+    </body>
+  </file>
+</xliff>

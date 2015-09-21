@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="972ffbab-b0a4-49cd-8ab9-b3900786f05c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="972ffbab-b0a4-49cd-8ab9-b3900786f05c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0d6f24ec-1269-4d2c-a7ae-9bd55423e12d">
+        <trans-unit id="61a445af-effe-4086-aeda-3b04081f1f42" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication FAQ</source>
+          <target state="new">Azure Multi-Factor Authentication FAQ</target>
+        </trans-unit>
+        <trans-unit id="34e0ab18-2ec6-4813-9e37-e874d90efb3d" xml:space="preserve">
+          <source>Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions.</source>
+          <target state="new">Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions.</target>
+        </trans-unit>
+        <trans-unit id="f66f4212-e86a-4706-8cca-4d6b63214f42" xml:space="preserve">
+          <source>This FAQ answers questions about Azure Multi-Factor Authentication.</source>
+          <target state="new">This FAQ answers questions about Azure Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="02f94d81-3140-461e-b9d1-2abe7d12c86f" xml:space="preserve">
+          <source>This FAQ covers questions about using the service, including the billing model and usability.</source>
+          <target state="new">This FAQ covers questions about using the service, including the billing model and usability.</target>
+        </trans-unit>
+        <trans-unit id="a0f433d4-4c0b-4a5d-bfff-0f727a657826" xml:space="preserve">
+          <source><bpt id="592fc43f-a74f-46b8-a417-2adf22b0746f">&lt;strong&gt;</bpt>Q: How can I get help with Azure Multi-Factor Authentication?<ept id="592fc43f-a74f-46b8-a417-2adf22b0746f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="592fc43f-a74f-46b8-a417-2adf22b0746f">&lt;strong&gt;</bpt>Q: How can I get help with Azure Multi-Factor Authentication?<ept id="592fc43f-a74f-46b8-a417-2adf22b0746f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5332a98c-60ac-42dd-ba8d-684ced51117d" xml:space="preserve">
+          <source><bpt id="62eea4dd-373f-4273-a4ce-fb1d6bb04596">&lt;linkText&gt;</bpt>Search the Microsoft Knowledge Base (KB)<ept id="62eea4dd-373f-4273-a4ce-fb1d6bb04596">&lt;/linkText&gt;</ept><bpt id="62eea4dd-373f-4273-a4ce-fb1d6bb04596">&lt;title&gt;</bpt><ept id="62eea4dd-373f-4273-a4ce-fb1d6bb04596">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="62eea4dd-373f-4273-a4ce-fb1d6bb04596">&lt;linkText&gt;</bpt>Search the Microsoft Knowledge Base (KB)<ept id="62eea4dd-373f-4273-a4ce-fb1d6bb04596">&lt;/linkText&gt;</ept><bpt id="62eea4dd-373f-4273-a4ce-fb1d6bb04596">&lt;title&gt;</bpt><ept id="62eea4dd-373f-4273-a4ce-fb1d6bb04596">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ff9b6fe-0bd7-45be-ad27-3410f0b5a3bb" xml:space="preserve">
+          <source>Search the Microsoft Knowledge Base (KB) for technical solutions to common break-fix issues about Support for Microsoft Azure Multi-Factor Authentication Server (Phone Factor).</source>
+          <target state="new">Search the Microsoft Knowledge Base (KB) for technical solutions to common break-fix issues about Support for Microsoft Azure Multi-Factor Authentication Server (Phone Factor).</target>
+        </trans-unit>
+        <trans-unit id="09c17e4c-cbfc-42b3-af6a-5b2a2b73e1f2" xml:space="preserve">
+          <source><bpt id="d2eb6d84-18af-4625-8a9e-f3a649846461">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory Forums<ept id="d2eb6d84-18af-4625-8a9e-f3a649846461">&lt;/linkText&gt;</ept><bpt id="d2eb6d84-18af-4625-8a9e-f3a649846461">&lt;title&gt;</bpt><ept id="d2eb6d84-18af-4625-8a9e-f3a649846461">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d2eb6d84-18af-4625-8a9e-f3a649846461">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory Forums<ept id="d2eb6d84-18af-4625-8a9e-f3a649846461">&lt;/linkText&gt;</ept><bpt id="d2eb6d84-18af-4625-8a9e-f3a649846461">&lt;title&gt;</bpt><ept id="d2eb6d84-18af-4625-8a9e-f3a649846461">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1162a96b-0050-4278-a055-b77adb4e4ae0" xml:space="preserve">
+          <source>You can search and browse for technical questions and answers from the community or ask your own question by clicking <bpt id="3792d31e-2230-4e8c-9ee5-8060745b67b6">&lt;linkText&gt;</bpt>here<ept id="3792d31e-2230-4e8c-9ee5-8060745b67b6">&lt;/linkText&gt;</ept><bpt id="3792d31e-2230-4e8c-9ee5-8060745b67b6">&lt;title&gt;</bpt><ept id="3792d31e-2230-4e8c-9ee5-8060745b67b6">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can search and browse for technical questions and answers from the community or ask your own question by clicking <bpt id="3792d31e-2230-4e8c-9ee5-8060745b67b6">&lt;linkText&gt;</bpt>here<ept id="3792d31e-2230-4e8c-9ee5-8060745b67b6">&lt;/linkText&gt;</ept><bpt id="3792d31e-2230-4e8c-9ee5-8060745b67b6">&lt;title&gt;</bpt><ept id="3792d31e-2230-4e8c-9ee5-8060745b67b6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="399f01bb-9d2e-41a9-9fa3-4293ecbc2e6e" xml:space="preserve">
+          <source><bpt id="c2c0abec-0ff2-45d7-90b1-795957095e2f">&lt;linkText&gt;</bpt>Password reset<ept id="c2c0abec-0ff2-45d7-90b1-795957095e2f">&lt;/linkText&gt;</ept><bpt id="c2c0abec-0ff2-45d7-90b1-795957095e2f">&lt;title&gt;</bpt><ept id="c2c0abec-0ff2-45d7-90b1-795957095e2f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c2c0abec-0ff2-45d7-90b1-795957095e2f">&lt;linkText&gt;</bpt>Password reset<ept id="c2c0abec-0ff2-45d7-90b1-795957095e2f">&lt;/linkText&gt;</ept><bpt id="c2c0abec-0ff2-45d7-90b1-795957095e2f">&lt;title&gt;</bpt><ept id="c2c0abec-0ff2-45d7-90b1-795957095e2f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="decf1ef8-afc5-4736-bdda-da76f1cf5800" xml:space="preserve">
+          <source>Legacy Phonefactor customers who have any queries around resetting your password or for help to get your password reset, please use the link below to open a support case.</source>
+          <target state="new">Legacy Phonefactor customers who have any queries around resetting your password or for help to get your password reset, please use the link below to open a support case.</target>
+        </trans-unit>
+        <trans-unit id="b376c0db-909c-43ec-bf6a-94e5a8a7984c" xml:space="preserve">
+          <source><bpt id="fbabbe50-c7c7-426a-95f4-b753d4175220">&lt;linkText&gt;</bpt>Microsoft Azure Multi-Factor Authentication Server (Phone Factor) customer support<ept id="fbabbe50-c7c7-426a-95f4-b753d4175220">&lt;/linkText&gt;</ept><bpt id="fbabbe50-c7c7-426a-95f4-b753d4175220">&lt;title&gt;</bpt><ept id="fbabbe50-c7c7-426a-95f4-b753d4175220">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fbabbe50-c7c7-426a-95f4-b753d4175220">&lt;linkText&gt;</bpt>Microsoft Azure Multi-Factor Authentication Server (Phone Factor) customer support<ept id="fbabbe50-c7c7-426a-95f4-b753d4175220">&lt;/linkText&gt;</ept><bpt id="fbabbe50-c7c7-426a-95f4-b753d4175220">&lt;title&gt;</bpt><ept id="fbabbe50-c7c7-426a-95f4-b753d4175220">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37469984-150f-437c-bee5-83f374b7b37c" xml:space="preserve">
+          <source>Use this link to contact a Microsoft support professional.</source>
+          <target state="new">Use this link to contact a Microsoft support professional.</target>
+        </trans-unit>
+        <trans-unit id="9982cc09-773e-497e-a630-4480f6c256ea" xml:space="preserve">
+          <source>We’ll ask you a few questions to help us determine what your support options are.</source>
+          <target state="new">We’ll ask you a few questions to help us determine what your support options are.</target>
+        </trans-unit>
+        <trans-unit id="cc0fb28d-1da0-4c86-80c4-3398baea0439" xml:space="preserve">
+          <source>The support options may include email, on-line submission or phone support.</source>
+          <target state="new">The support options may include email, on-line submission or phone support.</target>
+        </trans-unit>
+        <trans-unit id="304ef442-ed04-42a6-ae97-edebae92d06c" xml:space="preserve">
+          <source><bpt id="688d540c-7e46-4610-86c4-5c74ee43617a">&lt;linkText&gt;</bpt>General inquiries about Microsoft Azure Multi-Factor Authentication Server (Phone Factor)<ept id="688d540c-7e46-4610-86c4-5c74ee43617a">&lt;/linkText&gt;</ept><bpt id="688d540c-7e46-4610-86c4-5c74ee43617a">&lt;title&gt;</bpt><ept id="688d540c-7e46-4610-86c4-5c74ee43617a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="688d540c-7e46-4610-86c4-5c74ee43617a">&lt;linkText&gt;</bpt>General inquiries about Microsoft Azure Multi-Factor Authentication Server (Phone Factor)<ept id="688d540c-7e46-4610-86c4-5c74ee43617a">&lt;/linkText&gt;</ept><bpt id="688d540c-7e46-4610-86c4-5c74ee43617a">&lt;title&gt;</bpt><ept id="688d540c-7e46-4610-86c4-5c74ee43617a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13153966-9da8-4d63-a798-bb58b280798d" xml:space="preserve">
+          <source>To learn more about Microsoft Azure Multi-Factor Authentication Server (Phone Factor) or if you have questions around how to buy the product and different support options available, please either visit or email <bpt id="0736f93d-ce4f-4f43-9dd4-bb9b9dfc027a">&lt;linkText&gt;</bpt>pfsales@microsoft.com<ept id="0736f93d-ce4f-4f43-9dd4-bb9b9dfc027a">&lt;/linkText&gt;</ept><bpt id="0736f93d-ce4f-4f43-9dd4-bb9b9dfc027a">&lt;title&gt;</bpt><ept id="0736f93d-ce4f-4f43-9dd4-bb9b9dfc027a">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Microsoft Azure Multi-Factor Authentication Server (Phone Factor) or if you have questions around how to buy the product and different support options available, please either visit or email <bpt id="0736f93d-ce4f-4f43-9dd4-bb9b9dfc027a">&lt;linkText&gt;</bpt>pfsales@microsoft.com<ept id="0736f93d-ce4f-4f43-9dd4-bb9b9dfc027a">&lt;/linkText&gt;</ept><bpt id="0736f93d-ce4f-4f43-9dd4-bb9b9dfc027a">&lt;title&gt;</bpt><ept id="0736f93d-ce4f-4f43-9dd4-bb9b9dfc027a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="561614df-a546-40e9-9383-ace38d08289a" xml:space="preserve">
+          <source><bpt id="3ee1cf77-550f-4cec-96d3-ba1cd69c59e6">&lt;strong&gt;</bpt>Q: How does the Azure Multi-Factor Authentication Server handle user data?<ept id="3ee1cf77-550f-4cec-96d3-ba1cd69c59e6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3ee1cf77-550f-4cec-96d3-ba1cd69c59e6">&lt;strong&gt;</bpt>Q: How does the Azure Multi-Factor Authentication Server handle user data?<ept id="3ee1cf77-550f-4cec-96d3-ba1cd69c59e6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20d87f74-fc54-4d88-a5bd-cbf8d3bc3c1e" xml:space="preserve">
+          <source>When you use the Multi-Factor Authentication (MFA) Server on-premises, a user’s data is stored in the on-premises servers.</source>
+          <target state="new">When you use the Multi-Factor Authentication (MFA) Server on-premises, a user’s data is stored in the on-premises servers.</target>
+        </trans-unit>
+        <trans-unit id="a6d6877f-e8ca-446e-ab06-2ee3cd1b9a61" xml:space="preserve">
+          <source>No persistent user data is stored in the cloud.</source>
+          <target state="new">No persistent user data is stored in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="f6f0b814-6632-428a-a9dd-d715d2d43e2b" xml:space="preserve">
+          <source>When the user performs a two-factor authentication, the MFA Server sends data to the Azure MFA cloud service to perform the authentication.</source>
+          <target state="new">When the user performs a two-factor authentication, the MFA Server sends data to the Azure MFA cloud service to perform the authentication.</target>
+        </trans-unit>
+        <trans-unit id="8c91d456-0cfb-406a-b746-5c4e81f61d8b" xml:space="preserve">
+          <source>When these authentication requests are sent to the cloud service, the following fields are sent in the request and logs so that they are available in the customer's authentication/usage reports.</source>
+          <target state="new">When these authentication requests are sent to the cloud service, the following fields are sent in the request and logs so that they are available in the customer's authentication/usage reports.</target>
+        </trans-unit>
+        <trans-unit id="8d0fc8a6-aa0f-42b2-941f-1fc735892a58" xml:space="preserve">
+          <source>Some of the fields are optional so they can be enabled or disabled within the Multi-Factor Authentication Server.</source>
+          <target state="new">Some of the fields are optional so they can be enabled or disabled within the Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="8136c475-61f0-4055-9de6-d9d53a477efb" xml:space="preserve">
+          <source>The communication from the MFA Server to the MFA cloud service uses SSL/TLS over port 443 outbound.</source>
+          <target state="new">The communication from the MFA Server to the MFA cloud service uses SSL/TLS over port 443 outbound.</target>
+        </trans-unit>
+        <trans-unit id="cda0d4b5-4e62-4846-a05b-c5b2ed58ce3c" xml:space="preserve">
+          <source>These fields are:</source>
+          <target state="new">These fields are:</target>
+        </trans-unit>
+        <trans-unit id="90c1204a-164f-400e-9174-17b37d5f35f5" xml:space="preserve">
+          <source>Unique ID - either username or internal MFA server ID</source>
+          <target state="new">Unique ID - either username or internal MFA server ID</target>
+        </trans-unit>
+        <trans-unit id="ad3a9400-6441-4236-9fad-12b191c73631" xml:space="preserve">
+          <source>First and Last Name - optional</source>
+          <target state="new">First and Last Name - optional</target>
+        </trans-unit>
+        <trans-unit id="369f6c45-d3d9-4288-9c5a-7c1761d46e0b" xml:space="preserve">
+          <source>Email Address - optional</source>
+          <target state="new">Email Address - optional</target>
+        </trans-unit>
+        <trans-unit id="db453a1e-8370-4e57-b3e1-9e582ee09252" xml:space="preserve">
+          <source>Phone Number - when doing a voice call or SMS authentication</source>
+          <target state="new">Phone Number - when doing a voice call or SMS authentication</target>
+        </trans-unit>
+        <trans-unit id="574f48fb-b82e-461b-8c50-c8e42852dd9c" xml:space="preserve">
+          <source>Device token - when doing mobile app authentication</source>
+          <target state="new">Device token - when doing mobile app authentication</target>
+        </trans-unit>
+        <trans-unit id="03afa372-91f7-4525-9672-cd308b9184f3" xml:space="preserve">
+          <source>Authentication Mode </source>
+          <target state="new">Authentication Mode </target>
+        </trans-unit>
+        <trans-unit id="c002469c-0345-4d92-9b9d-341e89b2288e" xml:space="preserve">
+          <source>Authentication Result </source>
+          <target state="new">Authentication Result </target>
+        </trans-unit>
+        <trans-unit id="3d476655-af64-403c-973c-d039f717109a" xml:space="preserve">
+          <source>MFA Server Name </source>
+          <target state="new">MFA Server Name </target>
+        </trans-unit>
+        <trans-unit id="24120a92-b96d-4070-9b06-0ff026b6ce34" xml:space="preserve">
+          <source>MFA Server IP </source>
+          <target state="new">MFA Server IP </target>
+        </trans-unit>
+        <trans-unit id="e4151a57-7823-4e9a-82e9-516b2b29575d" xml:space="preserve">
+          <source>Client IP – if available</source>
+          <target state="new">Client IP – if available</target>
+        </trans-unit>
+        <trans-unit id="1ee6a18c-c26d-4891-95b7-5bbac2d1d476" xml:space="preserve">
+          <source>In addition to the fields above, the authentication result (success/denial) and reason for any denials is also stored with the authentication data and available through the authentication/usage reports.</source>
+          <target state="new">In addition to the fields above, the authentication result (success/denial) and reason for any denials is also stored with the authentication data and available through the authentication/usage reports.</target>
+        </trans-unit>
+        <trans-unit id="0c9aad90-c59c-4f5b-ad26-acfe91aef510" xml:space="preserve">
+          <source><bpt id="4edf3bd0-4294-4630-91c7-4e1ff6eaa7c1">&lt;strong&gt;</bpt>Q: Will my organization be charged for phone calls or text messages used to authenticate my users?<ept id="4edf3bd0-4294-4630-91c7-4e1ff6eaa7c1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4edf3bd0-4294-4630-91c7-4e1ff6eaa7c1">&lt;strong&gt;</bpt>Q: Will my organization be charged for phone calls or text messages used to authenticate my users?<ept id="4edf3bd0-4294-4630-91c7-4e1ff6eaa7c1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73629613-ac2b-450a-88e5-1ac0aff0e695" xml:space="preserve">
+          <source>All costs are rolled into the per-user or per-authentication cost of the service.</source>
+          <target state="new">All costs are rolled into the per-user or per-authentication cost of the service.</target>
+        </trans-unit>
+        <trans-unit id="8446b2aa-8b58-49b7-9628-b4a42d3e5ef6" xml:space="preserve">
+          <source>Organizations are not charged for individual phone calls placed or text messages sent to your end users when using Azure Multi-Factor Authentication.</source>
+          <target state="new">Organizations are not charged for individual phone calls placed or text messages sent to your end users when using Azure Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="13ad2416-5e55-40ed-88bf-499d131dbf4d" xml:space="preserve">
+          <source>Phone owners may incur roaming-related or other costs from their telephone carriers to receive the phone calls or text messages.</source>
+          <target state="new">Phone owners may incur roaming-related or other costs from their telephone carriers to receive the phone calls or text messages.</target>
+        </trans-unit>
+        <trans-unit id="e7999a3e-bf37-4aa5-91eb-f7c9e247e9e0" xml:space="preserve">
+          <source><bpt id="61f27289-33f5-44fb-bea0-58a8db027ab0">&lt;strong&gt;</bpt>"Q: How is the organization billed for Azure Multi-Factor Authentication?"<ept id="61f27289-33f5-44fb-bea0-58a8db027ab0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="61f27289-33f5-44fb-bea0-58a8db027ab0">&lt;strong&gt;</bpt>"Q: How is the organization billed for Azure Multi-Factor Authentication?"<ept id="61f27289-33f5-44fb-bea0-58a8db027ab0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1cb5e778-6c8c-4b1b-9a39-5ab132b8c5bf" xml:space="preserve">
+          <source>The ‘per user’ or ‘per authentication’ billing/usage model is chosen when creating a Multi-Factor Auth Provider in the Azure Management Portal.</source>
+          <target state="new">The ‘per user’ or ‘per authentication’ billing/usage model is chosen when creating a Multi-Factor Auth Provider in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="3a97827c-7527-427a-84d6-6f83eaf5596c" xml:space="preserve">
+          <source>It is a consumption-based resource that is billed against the organization’s Azure subscription, just like virtual machines, websites, etc. are billed against the subscription.</source>
+          <target state="new">It is a consumption-based resource that is billed against the organization’s Azure subscription, just like virtual machines, websites, etc. are billed against the subscription.</target>
+        </trans-unit>
+        <trans-unit id="5d632dbf-b609-4b6e-bb0d-5676a4bf2e76" xml:space="preserve">
+          <source><bpt id="6ec9957c-36fc-4c73-9ea9-d2c4a8c74d75">&lt;strong&gt;</bpt>Q: Does the ‘per user’ billing model charge based on the number of users enabled for Multi-Factor Authentication or the number of users who perform the verifications?<ept id="6ec9957c-36fc-4c73-9ea9-d2c4a8c74d75">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6ec9957c-36fc-4c73-9ea9-d2c4a8c74d75">&lt;strong&gt;</bpt>Q: Does the ‘per user’ billing model charge based on the number of users enabled for Multi-Factor Authentication or the number of users who perform the verifications?<ept id="6ec9957c-36fc-4c73-9ea9-d2c4a8c74d75">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5b6160a-a3c3-45f5-a1b8-cb56db325a7b" xml:space="preserve">
+          <source>Billing is based on the number of users enabled for Multi-Factor Authentication.</source>
+          <target state="new">Billing is based on the number of users enabled for Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="69e8fd8b-3cbb-4c7b-a5fa-ba998a49c040" xml:space="preserve">
+          <source><bpt id="2944e979-9e8d-421f-9035-e1d38e3bf1be">&lt;strong&gt;</bpt>Q: What do I do if I don’t receive a response on my phone or if I forgot my phone?<ept id="2944e979-9e8d-421f-9035-e1d38e3bf1be">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2944e979-9e8d-421f-9035-e1d38e3bf1be">&lt;strong&gt;</bpt>Q: What do I do if I don’t receive a response on my phone or if I forgot my phone?<ept id="2944e979-9e8d-421f-9035-e1d38e3bf1be">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="609998cf-7da9-4281-9d99-64aa815411f7" xml:space="preserve">
+          <source>If you previously configured a backup phone, try again by selecting that phone when prompted from the sign in page.</source>
+          <target state="new">If you previously configured a backup phone, try again by selecting that phone when prompted from the sign in page.</target>
+        </trans-unit>
+        <trans-unit id="31acecf9-7a6c-4d85-93cd-9aa5bd679125" xml:space="preserve">
+          <source>If you don’t have another method configured, contact your admin and ask them to update the number assigned to your primary phone – mobile or office.</source>
+          <target state="new">If you don’t have another method configured, contact your admin and ask them to update the number assigned to your primary phone – mobile or office.</target>
+        </trans-unit>
+        <trans-unit id="d60b2caf-265a-42c1-8c8b-3a3d1d352f47" xml:space="preserve">
+          <source><bpt id="37ef9c2d-0aee-40e6-a324-c2813a9b5030">&lt;strong&gt;</bpt>Q: I removed a user from an admin role but forgot to disable the multi-factor authentication and now it’s not showing in the list how do I remove this feature?<ept id="37ef9c2d-0aee-40e6-a324-c2813a9b5030">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="37ef9c2d-0aee-40e6-a324-c2813a9b5030">&lt;strong&gt;</bpt>Q: I removed a user from an admin role but forgot to disable the multi-factor authentication and now it’s not showing in the list how do I remove this feature?<ept id="37ef9c2d-0aee-40e6-a324-c2813a9b5030">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63545972-1f9f-4d09-957f-79c748f35750" xml:space="preserve">
+          <source>Depending on which portal you are using, in the left pane, click either Users or Users and Groups.</source>
+          <target state="new">Depending on which portal you are using, in the left pane, click either Users or Users and Groups.</target>
+        </trans-unit>
+        <trans-unit id="68cd2c30-73ad-4af1-b7eb-62b31c10c809" xml:space="preserve">
+          <source>Select the check box next to the user that you want to edit, and then click either Edit or the Edit icon.</source>
+          <target state="new">Select the check box next to the user that you want to edit, and then click either Edit or the Edit icon.</target>
+        </trans-unit>
+        <trans-unit id="a35a6ccb-e0e3-448a-a307-51fbb0ce11a4" xml:space="preserve">
+          <source>Click Settings, under Assign role, select Yes, and add the user back to the previous admin role.</source>
+          <target state="new">Click Settings, under Assign role, select Yes, and add the user back to the previous admin role.</target>
+        </trans-unit>
+        <trans-unit id="92a88da4-7b06-498c-95a0-032d0a31dbb4" xml:space="preserve">
+          <source>Go to the multi-factor authentication page.</source>
+          <target state="new">Go to the multi-factor authentication page.</target>
+        </trans-unit>
+        <trans-unit id="1f57f00b-a411-4a78-9848-2cf4c8ea6f54" xml:space="preserve">
+          <source>The account should now be showing up in the list on the page.</source>
+          <target state="new">The account should now be showing up in the list on the page.</target>
+        </trans-unit>
+        <trans-unit id="3b390299-cfe7-4721-89eb-838e8b5d9ae6" xml:space="preserve">
+          <source>Follow the steps above to disable multi-factor authentication for an account.</source>
+          <target state="new">Follow the steps above to disable multi-factor authentication for an account.</target>
+        </trans-unit>
+        <trans-unit id="51da3164-fa4b-41a0-ab7f-5cbf01f28461" xml:space="preserve">
+          <source>At this point, you can now remove the account from the admin role.</source>
+          <target state="new">At this point, you can now remove the account from the admin role.</target>
+        </trans-unit>
+        <trans-unit id="3810db5d-ee9e-4c29-aff6-6663279f4a84" xml:space="preserve">
+          <source><bpt id="b0d871b2-f1c3-4e0b-874c-bc767ca0269c">&lt;strong&gt;</bpt>Q: What do I do if a user contacts me, the administrator, with an account that has been locked out?<ept id="b0d871b2-f1c3-4e0b-874c-bc767ca0269c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b0d871b2-f1c3-4e0b-874c-bc767ca0269c">&lt;strong&gt;</bpt>Q: What do I do if a user contacts me, the administrator, with an account that has been locked out?<ept id="b0d871b2-f1c3-4e0b-874c-bc767ca0269c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62de9c1b-49d7-4696-a7a3-5b078996e690" xml:space="preserve">
+          <source>You can reset the user by forcing them to go through the registration process again.</source>
+          <target state="new">You can reset the user by forcing them to go through the registration process again.</target>
+        </trans-unit>
+        <trans-unit id="bd8f0474-5e6d-4077-b755-85ac96ec825f" xml:space="preserve">
+          <source>To do this see <bpt id="3651607b-b1df-48c7-9c26-7c8ede32e699">&lt;linkText&gt;</bpt>Managing user and device settings with Azure Multi-Factor Authentication in the cloud<ept id="3651607b-b1df-48c7-9c26-7c8ede32e699">&lt;/linkText&gt;</ept><bpt id="3651607b-b1df-48c7-9c26-7c8ede32e699">&lt;title&gt;</bpt><ept id="3651607b-b1df-48c7-9c26-7c8ede32e699">&lt;/title&gt;</ept></source>
+          <target state="new">To do this see <bpt id="3651607b-b1df-48c7-9c26-7c8ede32e699">&lt;linkText&gt;</bpt>Managing user and device settings with Azure Multi-Factor Authentication in the cloud<ept id="3651607b-b1df-48c7-9c26-7c8ede32e699">&lt;/linkText&gt;</ept><bpt id="3651607b-b1df-48c7-9c26-7c8ede32e699">&lt;title&gt;</bpt><ept id="3651607b-b1df-48c7-9c26-7c8ede32e699">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="621dde23-076f-4c05-91ef-b5098bfa8358" xml:space="preserve">
+          <source><bpt id="e26b4b30-efac-49b0-b80e-210164d40910">&lt;strong&gt;</bpt>Q: What do I do if a user has lost or had a device stolen that is using app passwords?<ept id="e26b4b30-efac-49b0-b80e-210164d40910">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e26b4b30-efac-49b0-b80e-210164d40910">&lt;strong&gt;</bpt>Q: What do I do if a user has lost or had a device stolen that is using app passwords?<ept id="e26b4b30-efac-49b0-b80e-210164d40910">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d484809b-6afb-4ca3-bca5-1c3733a01e46" xml:space="preserve">
+          <source>You can delete all of the users app passwords to prevent any unauthorized access.</source>
+          <target state="new">You can delete all of the users app passwords to prevent any unauthorized access.</target>
+        </trans-unit>
+        <trans-unit id="2fade60d-fa96-4f03-9809-7f3eca09bc87" xml:space="preserve">
+          <source>Once you have a replacement device, the user can recreate them.</source>
+          <target state="new">Once you have a replacement device, the user can recreate them.</target>
+        </trans-unit>
+        <trans-unit id="d08dfc48-89dd-48d2-ba13-79b325f92259" xml:space="preserve">
+          <source>To do this see <bpt id="d97d901b-3614-4b3e-8e34-52f508cbddc1">&lt;linkText&gt;</bpt>Managing user and device settings with Azure Multi-Factor Authentication in the cloud<ept id="d97d901b-3614-4b3e-8e34-52f508cbddc1">&lt;/linkText&gt;</ept><bpt id="d97d901b-3614-4b3e-8e34-52f508cbddc1">&lt;title&gt;</bpt><ept id="d97d901b-3614-4b3e-8e34-52f508cbddc1">&lt;/title&gt;</ept></source>
+          <target state="new">To do this see <bpt id="d97d901b-3614-4b3e-8e34-52f508cbddc1">&lt;linkText&gt;</bpt>Managing user and device settings with Azure Multi-Factor Authentication in the cloud<ept id="d97d901b-3614-4b3e-8e34-52f508cbddc1">&lt;/linkText&gt;</ept><bpt id="d97d901b-3614-4b3e-8e34-52f508cbddc1">&lt;title&gt;</bpt><ept id="d97d901b-3614-4b3e-8e34-52f508cbddc1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="755cc783-3912-4c90-9905-3127253f93bd" xml:space="preserve">
+          <source><bpt id="7dd3a414-80dd-4c79-a509-7afb2673ec93">&lt;strong&gt;</bpt>Q: What if the user is not able to sign into non-browser apps?<ept id="7dd3a414-80dd-4c79-a509-7afb2673ec93">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7dd3a414-80dd-4c79-a509-7afb2673ec93">&lt;strong&gt;</bpt>Q: What if the user is not able to sign into non-browser apps?<ept id="7dd3a414-80dd-4c79-a509-7afb2673ec93">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2479840e-b833-4b91-b6ef-7ba649cfdeca" xml:space="preserve">
+          <source>Users enabled for multi-factor authentication will require app password to sign into some non-browser apps.</source>
+          <target state="new">Users enabled for multi-factor authentication will require app password to sign into some non-browser apps.</target>
+        </trans-unit>
+        <trans-unit id="c652e451-4a35-49e5-8d55-d3244d305d76" xml:space="preserve">
+          <source>Users will need to clear the sign-in info (delete sign-in info), restart the application and sign-in with the their username and app password.</source>
+          <target state="new">Users will need to clear the sign-in info (delete sign-in info), restart the application and sign-in with the their username and app password.</target>
+        </trans-unit>
+        <trans-unit id="20268b42-7c77-48ae-b725-2357ccacd400" xml:space="preserve">
+          <source>For information on creating app passwords see <bpt id="bd41beac-c99d-469f-bb5a-e51b0a6b7ad3">&lt;linkText&gt;</bpt>Help with app passwords<ept id="bd41beac-c99d-469f-bb5a-e51b0a6b7ad3">&lt;/linkText&gt;</ept><bpt id="bd41beac-c99d-469f-bb5a-e51b0a6b7ad3">&lt;title&gt;</bpt><ept id="bd41beac-c99d-469f-bb5a-e51b0a6b7ad3">&lt;/title&gt;</ept></source>
+          <target state="new">For information on creating app passwords see <bpt id="bd41beac-c99d-469f-bb5a-e51b0a6b7ad3">&lt;linkText&gt;</bpt>Help with app passwords<ept id="bd41beac-c99d-469f-bb5a-e51b0a6b7ad3">&lt;/linkText&gt;</ept><bpt id="bd41beac-c99d-469f-bb5a-e51b0a6b7ad3">&lt;title&gt;</bpt><ept id="bd41beac-c99d-469f-bb5a-e51b0a6b7ad3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20792770-6bf3-4ab0-857a-3d40fdb8ecb5" xml:space="preserve">
+          <source>Modern Authentication for the Office 2013 Clients</source>
+          <target state="new">Modern Authentication for the Office 2013 Clients</target>
+        </trans-unit>
+        <trans-unit id="f00bc51e-ae86-4cef-a58b-f438ea1fcff7" xml:space="preserve">
+          <source>Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.</source>
+          <target state="new">Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="9d51cd06-4c4a-437c-bf99-350f19be28d8" xml:space="preserve">
+          <source>This means that once enabled, app passwords are not required for use with Office 2013 clients.</source>
+          <target state="new">This means that once enabled, app passwords are not required for use with Office 2013 clients.</target>
+        </trans-unit>
+        <trans-unit id="a9898772-3072-4d11-94d7-2d9a8712ccc3" xml:space="preserve">
+          <source>For more information see <bpt id="52371108-c220-46ff-b94e-1de44f5c6a1a">&lt;linkText&gt;</bpt>Office 2013 modern authentication public preview announced<ept id="52371108-c220-46ff-b94e-1de44f5c6a1a">&lt;/linkText&gt;</ept><bpt id="52371108-c220-46ff-b94e-1de44f5c6a1a">&lt;title&gt;</bpt><ept id="52371108-c220-46ff-b94e-1de44f5c6a1a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="52371108-c220-46ff-b94e-1de44f5c6a1a">&lt;linkText&gt;</bpt>Office 2013 modern authentication public preview announced<ept id="52371108-c220-46ff-b94e-1de44f5c6a1a">&lt;/linkText&gt;</ept><bpt id="52371108-c220-46ff-b94e-1de44f5c6a1a">&lt;title&gt;</bpt><ept id="52371108-c220-46ff-b94e-1de44f5c6a1a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b68fcda9-dab6-4b14-ac35-8eda451d1081" xml:space="preserve">
+          <source><bpt id="2c68f31a-6172-4d79-b773-2b6b3e3fdd03">&lt;strong&gt;</bpt>Q: What do I do if I do not receive a text message, or I reply to a two-way text message but the verification times out?<ept id="2c68f31a-6172-4d79-b773-2b6b3e3fdd03">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2c68f31a-6172-4d79-b773-2b6b3e3fdd03">&lt;strong&gt;</bpt>Q: What do I do if I do not receive a text message, or I reply to a two-way text message but the verification times out?<ept id="2c68f31a-6172-4d79-b773-2b6b3e3fdd03">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef087d21-8ad2-4802-b246-b624d6d3a8d2" xml:space="preserve">
+          <source>The Azure Multi-Factor Authentication service sends text messages through SMS aggregators.</source>
+          <target state="new">The Azure Multi-Factor Authentication service sends text messages through SMS aggregators.</target>
+        </trans-unit>
+        <trans-unit id="388b3c1a-f199-427d-a5f0-35f3b514aa69" xml:space="preserve">
+          <source>Many factors may impact the reliability of text message delivery and receipt including the aggregator used, destination country, mobile phone carrier and signal strength.</source>
+          <target state="new">Many factors may impact the reliability of text message delivery and receipt including the aggregator used, destination country, mobile phone carrier and signal strength.</target>
+        </trans-unit>
+        <trans-unit id="c5c63179-8858-44ec-9809-9d39f48c2945" xml:space="preserve">
+          <source>Therefore, delivery of text messages and receipt of SMS replies when performing two-way SMS is not guaranteed.</source>
+          <target state="new">Therefore, delivery of text messages and receipt of SMS replies when performing two-way SMS is not guaranteed.</target>
+        </trans-unit>
+        <trans-unit id="2fd256c0-a61d-4cc8-baed-d6ff67b4fafc" xml:space="preserve">
+          <source>Using one-way SMS is recommended over two-way SMS when possible because it is more reliable and prevents users from incurring global SMS charges caused by replying to a text message that was sent from another country.</source>
+          <target state="new">Using one-way SMS is recommended over two-way SMS when possible because it is more reliable and prevents users from incurring global SMS charges caused by replying to a text message that was sent from another country.</target>
+        </trans-unit>
+        <trans-unit id="055eacb2-95c7-444c-b7f0-dba2e1e142b9" xml:space="preserve">
+          <source>Text message verifications are also more reliable in some countries such as the United States and Canada.</source>
+          <target state="new">Text message verifications are also more reliable in some countries such as the United States and Canada.</target>
+        </trans-unit>
+        <trans-unit id="47c4dc46-f1e9-4d44-8090-03be58011e0a" xml:space="preserve">
+          <source>Users that experience difficulty receiving text messages reliably when using Azure Multi-Factor Authentication are encouraged to select the mobile app or phone call methods instead.</source>
+          <target state="new">Users that experience difficulty receiving text messages reliably when using Azure Multi-Factor Authentication are encouraged to select the mobile app or phone call methods instead.</target>
+        </trans-unit>
+        <trans-unit id="3ce7949c-6681-4594-a859-18e578400ac8" xml:space="preserve">
+          <source>The mobile app is great because mobile app notifications can be received over both cellular and Wi-Fi connections, and the mobile app passcode is displayed even when the device has no signal at all.</source>
+          <target state="new">The mobile app is great because mobile app notifications can be received over both cellular and Wi-Fi connections, and the mobile app passcode is displayed even when the device has no signal at all.</target>
+        </trans-unit>
+        <trans-unit id="96f70116-923b-46ad-97ff-d6a681a4d397" xml:space="preserve">
+          <source>The Azure Authenticator app is available for <bpt id="a93a7c90-1ca8-4f1f-921c-b4b40ccf27cf">&lt;linkText&gt;</bpt>Windows Phone<ept id="a93a7c90-1ca8-4f1f-921c-b4b40ccf27cf">&lt;/linkText&gt;</ept><bpt id="a93a7c90-1ca8-4f1f-921c-b4b40ccf27cf">&lt;title&gt;</bpt><ept id="a93a7c90-1ca8-4f1f-921c-b4b40ccf27cf">&lt;/title&gt;</ept>, <bpt id="77d491d1-8630-45e1-863e-ab052c58f853">&lt;linkText&gt;</bpt>Android<ept id="77d491d1-8630-45e1-863e-ab052c58f853">&lt;/linkText&gt;</ept><bpt id="77d491d1-8630-45e1-863e-ab052c58f853">&lt;title&gt;</bpt><ept id="77d491d1-8630-45e1-863e-ab052c58f853">&lt;/title&gt;</ept>, and <bpt id="53b8be20-522c-46ed-8e51-15a622615e46">&lt;linkText&gt;</bpt>IOS<ept id="53b8be20-522c-46ed-8e51-15a622615e46">&lt;/linkText&gt;</ept><bpt id="53b8be20-522c-46ed-8e51-15a622615e46">&lt;title&gt;</bpt><ept id="53b8be20-522c-46ed-8e51-15a622615e46">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Azure Authenticator app is available for <bpt id="a93a7c90-1ca8-4f1f-921c-b4b40ccf27cf">&lt;linkText&gt;</bpt>Windows Phone<ept id="a93a7c90-1ca8-4f1f-921c-b4b40ccf27cf">&lt;/linkText&gt;</ept><bpt id="a93a7c90-1ca8-4f1f-921c-b4b40ccf27cf">&lt;title&gt;</bpt><ept id="a93a7c90-1ca8-4f1f-921c-b4b40ccf27cf">&lt;/title&gt;</ept>, <bpt id="77d491d1-8630-45e1-863e-ab052c58f853">&lt;linkText&gt;</bpt>Android<ept id="77d491d1-8630-45e1-863e-ab052c58f853">&lt;/linkText&gt;</ept><bpt id="77d491d1-8630-45e1-863e-ab052c58f853">&lt;title&gt;</bpt><ept id="77d491d1-8630-45e1-863e-ab052c58f853">&lt;/title&gt;</ept>, and <bpt id="53b8be20-522c-46ed-8e51-15a622615e46">&lt;linkText&gt;</bpt>IOS<ept id="53b8be20-522c-46ed-8e51-15a622615e46">&lt;/linkText&gt;</ept><bpt id="53b8be20-522c-46ed-8e51-15a622615e46">&lt;title&gt;</bpt><ept id="53b8be20-522c-46ed-8e51-15a622615e46">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="325cad1c-0585-4095-b789-0c3574b33a1d" xml:space="preserve">
+          <source><bpt id="a361ef56-4740-4ab3-9c56-4465bb520097">&lt;strong&gt;</bpt>Q: What do I do when I see an “Authentication request is not for an activated account” error when I authenticate by using mobile application notifications?<ept id="a361ef56-4740-4ab3-9c56-4465bb520097">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a361ef56-4740-4ab3-9c56-4465bb520097">&lt;strong&gt;</bpt>Q: What do I do when I see an “Authentication request is not for an activated account” error when I authenticate by using mobile application notifications?<ept id="a361ef56-4740-4ab3-9c56-4465bb520097">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95d03283-6b7f-4eed-94d7-04c5aa929466" xml:space="preserve">
+          <source>Go to <bpt id="00d3d2cf-48b5-4d68-9686-40576de09563">&lt;linkText&gt;</bpt>https://account.activedirectory.windowsazure.com/profile/<ept id="00d3d2cf-48b5-4d68-9686-40576de09563">&lt;/linkText&gt;</ept><bpt id="00d3d2cf-48b5-4d68-9686-40576de09563">&lt;title&gt;</bpt><ept id="00d3d2cf-48b5-4d68-9686-40576de09563">&lt;/title&gt;</ept> and sign in with your organizational account.</source>
+          <target state="new">Go to <bpt id="00d3d2cf-48b5-4d68-9686-40576de09563">&lt;linkText&gt;</bpt>https://account.activedirectory.windowsazure.com/profile/<ept id="00d3d2cf-48b5-4d68-9686-40576de09563">&lt;/linkText&gt;</ept><bpt id="00d3d2cf-48b5-4d68-9686-40576de09563">&lt;title&gt;</bpt><ept id="00d3d2cf-48b5-4d68-9686-40576de09563">&lt;/title&gt;</ept> and sign in with your organizational account.</target>
+        </trans-unit>
+        <trans-unit id="7fe07e01-e2bd-44f4-afab-4b2880b5a1d7" xml:space="preserve">
+          <source>If needed, click Other verification options and select a different option for completing the account verification.</source>
+          <target state="new">If needed, click Other verification options and select a different option for completing the account verification.</target>
+        </trans-unit>
+        <trans-unit id="a6199869-833b-44b7-abb1-0d1853050f62" xml:space="preserve">
+          <source>Click Additional Security Verification.</source>
+          <target state="new">Click Additional Security Verification.</target>
+        </trans-unit>
+        <trans-unit id="4e1273c6-02f2-426f-b705-68999cb3e303" xml:space="preserve">
+          <source>Remove the existing account from your mobile application.</source>
+          <target state="new">Remove the existing account from your mobile application.</target>
+        </trans-unit>
+        <trans-unit id="6fadfb6c-bf39-4f58-b156-7aeaf0063020" xml:space="preserve">
+          <source>Click Configure and follow the instructions to re-configure the mobile application.</source>
+          <target state="new">Click Configure and follow the instructions to re-configure the mobile application.</target>
+        </trans-unit>
+        <trans-unit id="2727df0f-bc54-4e54-9b9f-51d64581ad6f" xml:space="preserve">
+          <source><bpt id="0ebc9a75-747a-4fd2-b765-aa5cfe861d1c">&lt;strong&gt;</bpt>Q: What do I do when I see a 0x800434D4L error while attempting to sign-in using a non-browser application?<ept id="0ebc9a75-747a-4fd2-b765-aa5cfe861d1c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0ebc9a75-747a-4fd2-b765-aa5cfe861d1c">&lt;strong&gt;</bpt>Q: What do I do when I see a 0x800434D4L error while attempting to sign-in using a non-browser application?<ept id="0ebc9a75-747a-4fd2-b765-aa5cfe861d1c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39bb6040-7a7a-4a30-a3ec-918cc0525e95" xml:space="preserve">
+          <source>Currently, additional security verification can only be used with applications/services that you can access through your browser.</source>
+          <target state="new">Currently, additional security verification can only be used with applications/services that you can access through your browser.</target>
+        </trans-unit>
+        <trans-unit id="cab7ca04-865c-4c63-9ad1-ca55e3f7d5ea" xml:space="preserve">
+          <source>Non-browser applications (also referred to as rich client applications) which are installed on your local computer such as Windows Powershell will not work with accounts that are required for additional security verification.</source>
+          <target state="new">Non-browser applications (also referred to as rich client applications) which are installed on your local computer such as Windows Powershell will not work with accounts that are required for additional security verification.</target>
+        </trans-unit>
+        <trans-unit id="7c8b6ca3-ea45-47b5-89bc-6d919c9fb4bb" xml:space="preserve">
+          <source>In this case, you may see the application generate error 0x800434D4L.</source>
+          <target state="new">In this case, you may see the application generate error 0x800434D4L.</target>
+        </trans-unit>
+        <trans-unit id="1304562a-9735-4191-923d-7b9d7011189e" xml:space="preserve">
+          <source>A workaround for this is to have a separate user account for admin-related operations vs. non-admin operations.</source>
+          <target state="new">A workaround for this is to have a separate user account for admin-related operations vs. non-admin operations.</target>
+        </trans-unit>
+        <trans-unit id="ec03e532-ba57-429e-85e0-d11973e53e2d" xml:space="preserve">
+          <source>You can later link mailboxes between your admin account and non-admin account so you can sign-in to outlook using your non-admin account.</source>
+          <target state="new">You can later link mailboxes between your admin account and non-admin account so you can sign-in to outlook using your non-admin account.</target>
+        </trans-unit>
+        <trans-unit id="9875307d-19aa-4674-92fa-954225d24dae" xml:space="preserve">
+          <source>For more details about this, see [Give an Administrator the Ability to Open and View the Contents of a User's Mailbox](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).</source>
+          <target state="new">For more details about this, see [Give an Administrator the Ability to Open and View the Contents of a User's Mailbox](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

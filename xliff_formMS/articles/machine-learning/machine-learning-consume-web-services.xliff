@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c73d02b3-ab44-42e3-ad20-40877f5833f0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c73d02b3-ab44-42e3-ad20-40877f5833f0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="14f34064-7d1a-4f37-8b63-40682421b5c0">
+        <trans-unit id="14a5afc8-f182-42ae-83f5-dcace79d770f" xml:space="preserve">
+          <source>Consume a Machine Learning web service | Microsoft Azure</source>
+          <target state="new">Consume a Machine Learning web service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4422351f-fae3-43d8-96ef-177e0baa81a2" xml:space="preserve">
+          <source>Once a machine learning service is published, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service.</source>
+          <target state="new">Once a machine learning service is published, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service.</target>
+        </trans-unit>
+        <trans-unit id="4e6d30f5-6fe5-4b74-bf25-f177047d0fb5" xml:space="preserve">
+          <source>When published as a web service, Azure Machine Learning experiments provide a REST API that can be consumed by a wide range of devices and platforms.</source>
+          <target state="new">When published as a web service, Azure Machine Learning experiments provide a REST API that can be consumed by a wide range of devices and platforms.</target>
+        </trans-unit>
+        <trans-unit id="ae344256-b1f6-48b0-a859-4d38bafd429e" xml:space="preserve">
+          <source>This is because the simple REST API accepts and responds with JSON formatted messages.</source>
+          <target state="new">This is because the simple REST API accepts and responds with JSON formatted messages.</target>
+        </trans-unit>
+        <trans-unit id="d768fe96-1d6d-43be-9946-69f60d7c0028" xml:space="preserve">
+          <source>The Azure Machine Learning portal provides code that can be used to call the web service in R, C#, and Python.</source>
+          <target state="new">The Azure Machine Learning portal provides code that can be used to call the web service in R, C#, and Python.</target>
+        </trans-unit>
+        <trans-unit id="1463f8e7-8f02-4f49-aa96-a8db291e5aa6" xml:space="preserve">
+          <source>But these services can be called with any programming language and from any device that satisfies three criteria:</source>
+          <target state="new">But these services can be called with any programming language and from any device that satisfies three criteria:</target>
+        </trans-unit>
+        <trans-unit id="72ed301e-48e8-49b5-a250-6a4c04da31fb" xml:space="preserve">
+          <source>Has a network connection</source>
+          <target state="new">Has a network connection</target>
+        </trans-unit>
+        <trans-unit id="e47ffe43-09fc-47bb-b450-a8ec562209cd" xml:space="preserve">
+          <source>Has SSL capabilities to perform HTTPS requests</source>
+          <target state="new">Has SSL capabilities to perform HTTPS requests</target>
+        </trans-unit>
+        <trans-unit id="d8c9e38a-7c1f-4d16-be76-faea59e2d602" xml:space="preserve">
+          <source>Has the ability to parse JSON (by hand or support libraries)</source>
+          <target state="new">Has the ability to parse JSON (by hand or support libraries)</target>
+        </trans-unit>
+        <trans-unit id="fa32166f-a199-4faf-9bcc-b7aa62cc6540" xml:space="preserve">
+          <source>This means the services can be consumed from web applications, mobile applications, custom desktop applications and even from within Excel.</source>
+          <target state="new">This means the services can be consumed from web applications, mobile applications, custom desktop applications and even from within Excel.</target>
+        </trans-unit>
+        <trans-unit id="be16e9ff-1f03-4433-bb67-345645b79dca" xml:space="preserve">
+          <source><bpt id="f0cd1fd0-4243-4a12-98b6-58224203391c">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="f0cd1fd0-4243-4a12-98b6-58224203391c">&lt;/token&gt;</ept>  </source>
+          <target state="new"><bpt id="f0cd1fd0-4243-4a12-98b6-58224203391c">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="f0cd1fd0-4243-4a12-98b6-58224203391c">&lt;/token&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="55b2b0eb-0c34-47ba-95df-0fb19ed778c9" xml:space="preserve">
+          <source>An Azure Machine Learning web service can be consumed in two different ways, either as a request-response service or as a batch execution service.</source>
+          <target state="new">An Azure Machine Learning web service can be consumed in two different ways, either as a request-response service or as a batch execution service.</target>
+        </trans-unit>
+        <trans-unit id="5d0289c2-6fe0-4fac-a017-5c137c0c4742" xml:space="preserve">
+          <source>In each scenario the functionality is provided through the RESTFul web service that is made available for consumption once the experiment has been published.</source>
+          <target state="new">In each scenario the functionality is provided through the RESTFul web service that is made available for consumption once the experiment has been published.</target>
+        </trans-unit>
+        <trans-unit id="041dd565-eb27-40d5-b50f-fbe53f25fc9c" xml:space="preserve">
+          <source>Deploying a Machine Learning web service in Azure with an Azure web service end-point, where the service is automatically scaled based on usage, you can avoid upfront and ongoing costs for hardware resources.</source>
+          <target state="new">Deploying a Machine Learning web service in Azure with an Azure web service end-point, where the service is automatically scaled based on usage, you can avoid upfront and ongoing costs for hardware resources.</target>
+        </trans-unit>
+        <trans-unit id="23c6d8d5-1ef9-45ec-95dc-d19f950dbdd4" xml:space="preserve">
+          <source>For information about how to create and publish an Azure Machine Learning web service, see <bpt id="d6a4af75-37a7-465d-ade6-0d89e7e2a981">&lt;linkText&gt;</bpt>Publish an Azure Machine Learning web service[publish]<ept id="d6a4af75-37a7-465d-ade6-0d89e7e2a981">&lt;/linkText&gt;</ept><bpt id="d6a4af75-37a7-465d-ade6-0d89e7e2a981">&lt;title&gt;</bpt><ept id="d6a4af75-37a7-465d-ade6-0d89e7e2a981">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to create and publish an Azure Machine Learning web service, see <bpt id="d6a4af75-37a7-465d-ade6-0d89e7e2a981">&lt;linkText&gt;</bpt>Publish an Azure Machine Learning web service[publish]<ept id="d6a4af75-37a7-465d-ade6-0d89e7e2a981">&lt;/linkText&gt;</ept><bpt id="d6a4af75-37a7-465d-ade6-0d89e7e2a981">&lt;title&gt;</bpt><ept id="d6a4af75-37a7-465d-ade6-0d89e7e2a981">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af69ff54-50c8-4f3b-bb60-b94c53110d7a" xml:space="preserve">
+          <source>For a step-by-step walkthrough of creating a Machine Learning experiment and publishing it, see <bpt id="b62f7104-2412-45f5-9721-a030b6685478">&lt;linkText&gt;</bpt>Develop a predictive solution by using Azure Machine Learning[walkthrough]<ept id="b62f7104-2412-45f5-9721-a030b6685478">&lt;/linkText&gt;</ept><bpt id="b62f7104-2412-45f5-9721-a030b6685478">&lt;title&gt;</bpt><ept id="b62f7104-2412-45f5-9721-a030b6685478">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a step-by-step walkthrough of creating a Machine Learning experiment and publishing it, see <bpt id="b62f7104-2412-45f5-9721-a030b6685478">&lt;linkText&gt;</bpt>Develop a predictive solution by using Azure Machine Learning[walkthrough]<ept id="b62f7104-2412-45f5-9721-a030b6685478">&lt;/linkText&gt;</ept><bpt id="b62f7104-2412-45f5-9721-a030b6685478">&lt;title&gt;</bpt><ept id="b62f7104-2412-45f5-9721-a030b6685478">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f881b3c-9ae9-4a3c-86ee-b0849e88c373" xml:space="preserve">
+          <source>A Request-Response Service (RRS) is a low-latency, highly scalable web service used to provide an interface to the stateless models that have been created and published from an Azure Machine Learning Studio experiment.</source>
+          <target state="new">A Request-Response Service (RRS) is a low-latency, highly scalable web service used to provide an interface to the stateless models that have been created and published from an Azure Machine Learning Studio experiment.</target>
+        </trans-unit>
+        <trans-unit id="0f9a0f19-8088-4c2e-91fb-ff4b22fb0a49" xml:space="preserve">
+          <source>RRS accepts a single row of input parameters and generates a single row as output.</source>
+          <target state="new">RRS accepts a single row of input parameters and generates a single row as output.</target>
+        </trans-unit>
+        <trans-unit id="5367a73a-c613-4789-bf07-2020e06cd110" xml:space="preserve">
+          <source>The output row can contain multiple columns.</source>
+          <target state="new">The output row can contain multiple columns.</target>
+        </trans-unit>
+        <trans-unit id="34d804a3-ce61-49b0-b7e9-be1d2fbebd70" xml:space="preserve">
+          <source>An example for RRS is validating the authenticity of an application.</source>
+          <target state="new">An example for RRS is validating the authenticity of an application.</target>
+        </trans-unit>
+        <trans-unit id="9b949c21-cc92-4b53-b11c-94546dfce8f2" xml:space="preserve">
+          <source>Hundreds to millions of installations of an application can be expected in this case.</source>
+          <target state="new">Hundreds to millions of installations of an application can be expected in this case.</target>
+        </trans-unit>
+        <trans-unit id="4a70a2a3-7c3d-45ca-be63-309aa3c32ee1" xml:space="preserve">
+          <source>When the application starts up, it makes a call to the RRS service with the relevant input.</source>
+          <target state="new">When the application starts up, it makes a call to the RRS service with the relevant input.</target>
+        </trans-unit>
+        <trans-unit id="0a4290c7-8883-430d-81fc-3b5de7b3c5ee" xml:space="preserve">
+          <source>The application then receives a validation response from the service that either allows or blocks the application from performing.</source>
+          <target state="new">The application then receives a validation response from the service that either allows or blocks the application from performing.</target>
+        </trans-unit>
+        <trans-unit id="6c9c6a9a-d709-4154-9e78-aa8dc4a758f1" xml:space="preserve">
+          <source>A Batch Execution Service (BES) is a service that handles high volume, asynchronous, scoring of a batch of data records.</source>
+          <target state="new">A Batch Execution Service (BES) is a service that handles high volume, asynchronous, scoring of a batch of data records.</target>
+        </trans-unit>
+        <trans-unit id="d904f200-1a23-4fb5-9b08-0cc3c63e8568" xml:space="preserve">
+          <source>The input for the BES contains a batch of records from a variety of sources, such as blobs, tables in Azure, SQL Azure, HDInsight (results of a Hive Query, for example), and HTTP sources.</source>
+          <target state="new">The input for the BES contains a batch of records from a variety of sources, such as blobs, tables in Azure, SQL Azure, HDInsight (results of a Hive Query, for example), and HTTP sources.</target>
+        </trans-unit>
+        <trans-unit id="df77139c-80d7-4b53-a088-b9f16e3f5246" xml:space="preserve">
+          <source>The output for the BES contains the results of the scoring.</source>
+          <target state="new">The output for the BES contains the results of the scoring.</target>
+        </trans-unit>
+        <trans-unit id="a69646e4-2181-41bb-9cae-b28616dbe97a" xml:space="preserve">
+          <source>Results are output to a file in Azure blob storage and data from the storage endpoint is returned in the response.</source>
+          <target state="new">Results are output to a file in Azure blob storage and data from the storage endpoint is returned in the response.</target>
+        </trans-unit>
+        <trans-unit id="c10fcb89-9684-43a9-bd26-c914cc7bf5bd" xml:space="preserve">
+          <source>A BES would be useful when responses are not needed immediately, such as for regularly scheduled scoring for individuals or internet of things (IOT) devices.</source>
+          <target state="new">A BES would be useful when responses are not needed immediately, such as for regularly scheduled scoring for individuals or internet of things (IOT) devices.</target>
+        </trans-unit>
+        <trans-unit id="be930eb0-abb1-47ad-aefb-74a9d4c6cbcf" xml:space="preserve">
+          <source>To show how both RRS and BES work, we use an example Azure Web Service.</source>
+          <target state="new">To show how both RRS and BES work, we use an example Azure Web Service.</target>
+        </trans-unit>
+        <trans-unit id="9e2f3cbe-4dde-477b-977a-fabd47dd31b9" xml:space="preserve">
+          <source>This service would be used in an IOT (Internet Of Things) scenario.</source>
+          <target state="new">This service would be used in an IOT (Internet Of Things) scenario.</target>
+        </trans-unit>
+        <trans-unit id="e076691a-c867-4e80-90b1-3d41b7a2b9ba" xml:space="preserve">
+          <source>To keep it simple, our device only sends up one value, <bpt id="f4fef527-f388-480e-bb6d-ebe511c3a197">&lt;code&gt;</bpt>cog_speed<ept id="f4fef527-f388-480e-bb6d-ebe511c3a197">&lt;/code&gt;</ept>, and gets a single answer back.</source>
+          <target state="new">To keep it simple, our device only sends up one value, <bpt id="f4fef527-f388-480e-bb6d-ebe511c3a197">&lt;code&gt;</bpt>cog_speed<ept id="f4fef527-f388-480e-bb6d-ebe511c3a197">&lt;/code&gt;</ept>, and gets a single answer back.</target>
+        </trans-unit>
+        <trans-unit id="af7a5cba-5533-46b1-8637-55a8295de7b9" xml:space="preserve">
+          <source>There are four pieces of information that are needed to call either the RRS or BES service.</source>
+          <target state="new">There are four pieces of information that are needed to call either the RRS or BES service.</target>
+        </trans-unit>
+        <trans-unit id="c385d121-7177-4961-821a-aeed1becff18" xml:space="preserve">
+          <source>This information is readily available from the service pages in <bpt id="e0f060cf-cf89-4eec-a192-3e70a0f71acb">&lt;linkText&gt;</bpt>Azure Machine Learning service pages<ept id="e0f060cf-cf89-4eec-a192-3e70a0f71acb">&lt;/linkText&gt;</ept><bpt id="e0f060cf-cf89-4eec-a192-3e70a0f71acb">&lt;title&gt;</bpt><ept id="e0f060cf-cf89-4eec-a192-3e70a0f71acb">&lt;/title&gt;</ept> once the experiment has been published.</source>
+          <target state="new">This information is readily available from the service pages in <bpt id="e0f060cf-cf89-4eec-a192-3e70a0f71acb">&lt;linkText&gt;</bpt>Azure Machine Learning service pages<ept id="e0f060cf-cf89-4eec-a192-3e70a0f71acb">&lt;/linkText&gt;</ept><bpt id="e0f060cf-cf89-4eec-a192-3e70a0f71acb">&lt;title&gt;</bpt><ept id="e0f060cf-cf89-4eec-a192-3e70a0f71acb">&lt;/title&gt;</ept> once the experiment has been published.</target>
+        </trans-unit>
+        <trans-unit id="34df2697-2052-414a-8bca-c5a82ffc258a" xml:space="preserve">
+          <source>Click on the WEB SERVICES link at the left of the screen and you will see the published services.</source>
+          <target state="new">Click on the WEB SERVICES link at the left of the screen and you will see the published services.</target>
+        </trans-unit>
+        <trans-unit id="1ace29ea-c9fc-45a7-96b8-812197c63288" xml:space="preserve">
+          <source>To find information about a specific service, there are API help page links for both RRS and BES.</source>
+          <target state="new">To find information about a specific service, there are API help page links for both RRS and BES.</target>
+        </trans-unit>
+        <trans-unit id="63add902-3057-49e8-8b06-f36bfd9df9cf" xml:space="preserve">
+          <source>The <bpt id="bc2de22b-7b7a-4152-b860-173d4e22e336">&lt;strong&gt;</bpt>service API Key<ept id="bc2de22b-7b7a-4152-b860-173d4e22e336">&lt;/strong&gt;</ept>, available on the services main page</source>
+          <target state="new">The <bpt id="bc2de22b-7b7a-4152-b860-173d4e22e336">&lt;strong&gt;</bpt>service API Key<ept id="bc2de22b-7b7a-4152-b860-173d4e22e336">&lt;/strong&gt;</ept>, available on the services main page</target>
+        </trans-unit>
+        <trans-unit id="35c954fb-ae44-4f48-88dd-ebc200b1c0c1" xml:space="preserve">
+          <source>The <bpt id="7393d942-c0bb-4f2e-9d2a-0c85823bd8c5">&lt;strong&gt;</bpt>service URI<ept id="7393d942-c0bb-4f2e-9d2a-0c85823bd8c5">&lt;/strong&gt;</ept>, available on the API help page for the chosen service</source>
+          <target state="new">The <bpt id="7393d942-c0bb-4f2e-9d2a-0c85823bd8c5">&lt;strong&gt;</bpt>service URI<ept id="7393d942-c0bb-4f2e-9d2a-0c85823bd8c5">&lt;/strong&gt;</ept>, available on the API help page for the chosen service</target>
+        </trans-unit>
+        <trans-unit id="664b148a-cf64-4513-ba92-d08c3ffee08a" xml:space="preserve">
+          <source>The expected <bpt id="51a1ed72-da57-4b3a-8948-12441bd82d43">&lt;strong&gt;</bpt>API request body<ept id="51a1ed72-da57-4b3a-8948-12441bd82d43">&lt;/strong&gt;</ept>, available on the API help page for the chosen service</source>
+          <target state="new">The expected <bpt id="51a1ed72-da57-4b3a-8948-12441bd82d43">&lt;strong&gt;</bpt>API request body<ept id="51a1ed72-da57-4b3a-8948-12441bd82d43">&lt;/strong&gt;</ept>, available on the API help page for the chosen service</target>
+        </trans-unit>
+        <trans-unit id="e83e8cef-c299-45ba-912b-4dcb018a9733" xml:space="preserve">
+          <source>The expected <bpt id="3b0aa61f-8218-4b8e-80da-8fc25b2e2d77">&lt;strong&gt;</bpt>API response body<ept id="3b0aa61f-8218-4b8e-80da-8fc25b2e2d77">&lt;/strong&gt;</ept>, available on the API help page for the chosen service</source>
+          <target state="new">The expected <bpt id="3b0aa61f-8218-4b8e-80da-8fc25b2e2d77">&lt;strong&gt;</bpt>API response body<ept id="3b0aa61f-8218-4b8e-80da-8fc25b2e2d77">&lt;/strong&gt;</ept>, available on the API help page for the chosen service</target>
+        </trans-unit>
+        <trans-unit id="1bef5060-fd9a-4fe7-a4f7-9ec4f267e657" xml:space="preserve">
+          <source>In the two examples below, the C# language is used to illustrate the code needed and the targeted platform is a Windows 8 desktop.</source>
+          <target state="new">In the two examples below, the C# language is used to illustrate the code needed and the targeted platform is a Windows 8 desktop.</target>
+        </trans-unit>
+        <trans-unit id="83aafa7e-0222-40f5-94c1-ad9b5832d27a" xml:space="preserve">
+          <source>On the API help page, aside from the URI, you will input and output definitions and code samples.</source>
+          <target state="new">On the API help page, aside from the URI, you will input and output definitions and code samples.</target>
+        </trans-unit>
+        <trans-unit id="3d182010-ad86-4de9-84d0-bb708ff2e8df" xml:space="preserve">
+          <source>The API input is called out, for this service specifically, and is the payload of the API call.</source>
+          <target state="new">The API input is called out, for this service specifically, and is the payload of the API call.</target>
+        </trans-unit>
+        <trans-unit id="d485a238-9921-4deb-ac51-81b19b41fedf" xml:space="preserve">
+          <source><bpt id="79bd44ed-d158-44fc-9eca-97755f76f3e4">&lt;strong&gt;</bpt>Sample Request<ept id="79bd44ed-d158-44fc-9eca-97755f76f3e4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="79bd44ed-d158-44fc-9eca-97755f76f3e4">&lt;strong&gt;</bpt>Sample Request<ept id="79bd44ed-d158-44fc-9eca-97755f76f3e4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a3d9916-73f8-4630-a14d-c46361647846" xml:space="preserve">
+          <source>Similarly, the API response is also called out, again for this service specifically.</source>
+          <target state="new">Similarly, the API response is also called out, again for this service specifically.</target>
+        </trans-unit>
+        <trans-unit id="8eb58d8b-4bc0-480f-9d5c-07686b8060cb" xml:space="preserve">
+          <source><bpt id="3d68988e-a192-4ac5-b93a-9f6aae115be1">&lt;strong&gt;</bpt>Sample Response<ept id="3d68988e-a192-4ac5-b93a-9f6aae115be1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3d68988e-a192-4ac5-b93a-9f6aae115be1">&lt;strong&gt;</bpt>Sample Response<ept id="3d68988e-a192-4ac5-b93a-9f6aae115be1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bdc846d-8bef-45a7-8e1e-b88981923227" xml:space="preserve">
+          <source>Towards the bottom of the page you will find the code examples.</source>
+          <target state="new">Towards the bottom of the page you will find the code examples.</target>
+        </trans-unit>
+        <trans-unit id="d9318c2e-c096-4dce-9400-761f7435743b" xml:space="preserve">
+          <source>Below is the code sample for the C# implementation</source>
+          <target state="new">Below is the code sample for the C# implementation</target>
+        </trans-unit>
+        <trans-unit id="e6d4a333-276d-457f-800e-5fac34878259" xml:space="preserve">
+          <source><bpt id="36cc3ee7-150d-4862-82d0-cd7373f4aeb0">&lt;strong&gt;</bpt>Sample Code<ept id="36cc3ee7-150d-4862-82d0-cd7373f4aeb0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="36cc3ee7-150d-4862-82d0-cd7373f4aeb0">&lt;strong&gt;</bpt>Sample Code<ept id="36cc3ee7-150d-4862-82d0-cd7373f4aeb0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d1bb9a3-2fd1-4998-b5bf-6cd8fdbb2025" xml:space="preserve">
+          <source>On the API help page, in addition to the URI, you will find information about several calls that are available.</source>
+          <target state="new">On the API help page, in addition to the URI, you will find information about several calls that are available.</target>
+        </trans-unit>
+        <trans-unit id="b0a7a76a-42b8-48c2-83e5-07b512dd4f8b" xml:space="preserve">
+          <source>Unlike the RRS service, the BES service is asynchronous.</source>
+          <target state="new">Unlike the RRS service, the BES service is asynchronous.</target>
+        </trans-unit>
+        <trans-unit id="48efc3bc-e01f-4760-bf85-ca6a422496f4" xml:space="preserve">
+          <source>This means that the BES API is simply queuing up a job to be executed, and the caller polls the job's status to see when it has completed.</source>
+          <target state="new">This means that the BES API is simply queuing up a job to be executed, and the caller polls the job's status to see when it has completed.</target>
+        </trans-unit>
+        <trans-unit id="69e73c4b-c070-4a72-8d9b-241bf1bdc4dd" xml:space="preserve">
+          <source>Here are the operations currently supported for batch jobs:</source>
+          <target state="new">Here are the operations currently supported for batch jobs:</target>
+        </trans-unit>
+        <trans-unit id="a4529605-d86c-4ec0-a02c-71690e586a86" xml:space="preserve">
+          <source>Create (submit) a batch job</source>
+          <target state="new">Create (submit) a batch job</target>
+        </trans-unit>
+        <trans-unit id="c414e5cf-4b61-45b9-96af-001253a8b408" xml:space="preserve">
+          <source>Start this batch job</source>
+          <target state="new">Start this batch job</target>
+        </trans-unit>
+        <trans-unit id="513ea41f-6211-491f-b8d6-c4f21554896e" xml:space="preserve">
+          <source>Get the status or result of the batch job</source>
+          <target state="new">Get the status or result of the batch job</target>
+        </trans-unit>
+        <trans-unit id="376c1ec8-56e4-4344-aff6-67d663992fbf" xml:space="preserve">
+          <source>Cancel a running batch job</source>
+          <target state="new">Cancel a running batch job</target>
+        </trans-unit>
+        <trans-unit id="7dfe5334-b9a9-4320-b1ab-2ff09c37a728" xml:space="preserve">
+          <source>**1.</source>
+          <target state="new">**1.</target>
+        </trans-unit>
+        <trans-unit id="ba2da54a-9f19-420f-805e-4b24ae40c63a" xml:space="preserve">
+          <source>Create a Batch Execution Job**</source>
+          <target state="new">Create a Batch Execution Job**</target>
+        </trans-unit>
+        <trans-unit id="86c4f0fc-678b-480e-a70f-6c982ecd510b" xml:space="preserve">
+          <source>When creating a batch job for your Azure Machine Learning service endpoint, one can specify several parameters that will define this batch execution:</source>
+          <target state="new">When creating a batch job for your Azure Machine Learning service endpoint, one can specify several parameters that will define this batch execution:</target>
+        </trans-unit>
+        <trans-unit id="dfab6af2-ab1a-4495-baa1-584f4052d44f" xml:space="preserve">
+          <source><bpt id="fd483139-6a84-4252-a6c0-9cfa6f14308a">&lt;strong&gt;</bpt>Input<ept id="fd483139-6a84-4252-a6c0-9cfa6f14308a">&lt;/strong&gt;</ept>: represents a blob reference to where the batch job's input is stored.</source>
+          <target state="new"><bpt id="fd483139-6a84-4252-a6c0-9cfa6f14308a">&lt;strong&gt;</bpt>Input<ept id="fd483139-6a84-4252-a6c0-9cfa6f14308a">&lt;/strong&gt;</ept>: represents a blob reference to where the batch job's input is stored.</target>
+        </trans-unit>
+        <trans-unit id="c267afce-c267-4112-83ad-51522edb9ad6" xml:space="preserve">
+          <source><bpt id="5142833f-223d-49a4-9e63-bd7fa0a96f97">&lt;strong&gt;</bpt>GlobalParameters<ept id="5142833f-223d-49a4-9e63-bd7fa0a96f97">&lt;/strong&gt;</ept>: represents the set of global parameters one can define for their experiment.</source>
+          <target state="new"><bpt id="5142833f-223d-49a4-9e63-bd7fa0a96f97">&lt;strong&gt;</bpt>GlobalParameters<ept id="5142833f-223d-49a4-9e63-bd7fa0a96f97">&lt;/strong&gt;</ept>: represents the set of global parameters one can define for their experiment.</target>
+        </trans-unit>
+        <trans-unit id="d6949928-30aa-4430-9caa-7178558a6b83" xml:space="preserve">
+          <source>An Azure Machine Learning experiment can have both required and optional parameters that customize the service's execution, and the caller is expected to provide all required parameters, if applicable.</source>
+          <target state="new">An Azure Machine Learning experiment can have both required and optional parameters that customize the service's execution, and the caller is expected to provide all required parameters, if applicable.</target>
+        </trans-unit>
+        <trans-unit id="bf74288c-cf60-4062-ad02-97add9e43702" xml:space="preserve">
+          <source>These parameters are specified as a collection of key-value pairs.</source>
+          <target state="new">These parameters are specified as a collection of key-value pairs.</target>
+        </trans-unit>
+        <trans-unit id="ef589765-968d-47a0-b2fe-4bfeedf79b56" xml:space="preserve">
+          <source><bpt id="69975829-2c79-41ca-b65f-8251c27a775d">&lt;strong&gt;</bpt>Outputs<ept id="69975829-2c79-41ca-b65f-8251c27a775d">&lt;/strong&gt;</ept>: if the service has defined one or more outputs, we allow the caller to redirect any of them to an Azure blob location of their choice.</source>
+          <target state="new"><bpt id="69975829-2c79-41ca-b65f-8251c27a775d">&lt;strong&gt;</bpt>Outputs<ept id="69975829-2c79-41ca-b65f-8251c27a775d">&lt;/strong&gt;</ept>: if the service has defined one or more outputs, we allow the caller to redirect any of them to an Azure blob location of their choice.</target>
+        </trans-unit>
+        <trans-unit id="ca1b5135-2b0d-4d0e-8a6f-0b8bdba28424" xml:space="preserve">
+          <source>This will allow you to save the service's output(s) in a preferred location and under a predictable name, as otherwise the output blob name is randomly generated.</source>
+          <target state="new">This will allow you to save the service's output(s) in a preferred location and under a predictable name, as otherwise the output blob name is randomly generated.</target>
+        </trans-unit>
+        <trans-unit id="a560723d-e000-49f1-9ecc-6f2b28af2498" xml:space="preserve">
+          <source><bpt id="328620ae-d2ba-456e-8099-bebc2d6a12a6">&lt;strong&gt;</bpt>NOTE<ept id="328620ae-d2ba-456e-8099-bebc2d6a12a6">&lt;/strong&gt;</ept> that the service expects the output content, based on its type, to be saved as supported formats:</source>
+          <target state="new"><bpt id="328620ae-d2ba-456e-8099-bebc2d6a12a6">&lt;strong&gt;</bpt>NOTE<ept id="328620ae-d2ba-456e-8099-bebc2d6a12a6">&lt;/strong&gt;</ept> that the service expects the output content, based on its type, to be saved as supported formats:</target>
+        </trans-unit>
+        <trans-unit id="d318425b-fb5b-4e25-ba1f-64b5b5a7e457" xml:space="preserve">
+          <source>data set outputs: can save as <bpt id="aa6c4595-48f0-4f35-b142-81be382cf928">&lt;strong&gt;</bpt>.csv, .tsv, .arff<ept id="aa6c4595-48f0-4f35-b142-81be382cf928">&lt;/strong&gt;</ept></source>
+          <target state="new">data set outputs: can save as <bpt id="aa6c4595-48f0-4f35-b142-81be382cf928">&lt;strong&gt;</bpt>.csv, .tsv, .arff<ept id="aa6c4595-48f0-4f35-b142-81be382cf928">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53dc7778-4569-4c17-991a-5235325eaae8" xml:space="preserve">
+          <source>trained model outputs: can save as <bpt id="ec630d6a-a82d-451a-84e4-14f3cfccef91">&lt;strong&gt;</bpt>.ilearner<ept id="ec630d6a-a82d-451a-84e4-14f3cfccef91">&lt;/strong&gt;</ept></source>
+          <target state="new">trained model outputs: can save as <bpt id="ec630d6a-a82d-451a-84e4-14f3cfccef91">&lt;strong&gt;</bpt>.ilearner<ept id="ec630d6a-a82d-451a-84e4-14f3cfccef91">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9db41016-a064-44f2-9876-8ce9d7370372" xml:space="preserve">
+          <source>Output location overrides are specified as a collection of <bpt id="ac8e8128-be8c-4291-8912-c68c9456c137">&lt;em&gt;</bpt>&lt;output name, blob reference&gt;<ept id="ac8e8128-be8c-4291-8912-c68c9456c137">&lt;/em&gt;</ept> pairs, where the <bpt id="a0122e4c-9f19-473e-9180-455e33e70b18">&lt;em&gt;</bpt>output name<ept id="a0122e4c-9f19-473e-9180-455e33e70b18">&lt;/em&gt;</ept> is the user defined name for a specific output node (also shown on the service's API help page), and <bpt id="0e58eede-8005-4116-b0bf-b65168984569">&lt;em&gt;</bpt>blob reference<ept id="0e58eede-8005-4116-b0bf-b65168984569">&lt;/em&gt;</ept> is a reference to an Azure blob location where the output is to be redirected to.</source>
+          <target state="new">Output location overrides are specified as a collection of <bpt id="ac8e8128-be8c-4291-8912-c68c9456c137">&lt;em&gt;</bpt>&lt;output name, blob reference&gt;<ept id="ac8e8128-be8c-4291-8912-c68c9456c137">&lt;/em&gt;</ept> pairs, where the <bpt id="a0122e4c-9f19-473e-9180-455e33e70b18">&lt;em&gt;</bpt>output name<ept id="a0122e4c-9f19-473e-9180-455e33e70b18">&lt;/em&gt;</ept> is the user defined name for a specific output node (also shown on the service's API help page), and <bpt id="0e58eede-8005-4116-b0bf-b65168984569">&lt;em&gt;</bpt>blob reference<ept id="0e58eede-8005-4116-b0bf-b65168984569">&lt;/em&gt;</ept> is a reference to an Azure blob location where the output is to be redirected to.</target>
+        </trans-unit>
+        <trans-unit id="d161c4a6-ef42-42cf-b58d-b4eb3138781c" xml:space="preserve">
+          <source>All these job creation parameters can be optional depending on the nature of your service.</source>
+          <target state="new">All these job creation parameters can be optional depending on the nature of your service.</target>
+        </trans-unit>
+        <trans-unit id="11f7bf6c-c1c3-4368-890d-0fbd4ef494e6" xml:space="preserve">
+          <source>For example, services with no input node defined, do not require passing in an <bpt id="83a91dd6-50b2-4ff0-ba84-9876427ab3b9">&lt;em&gt;</bpt>Input<ept id="83a91dd6-50b2-4ff0-ba84-9876427ab3b9">&lt;/em&gt;</ept> parameter, and the output location override feature is completely optional, as outputs will otherwise be stored in the default storage account that was set up for your Azure Machine Learning workspace.</source>
+          <target state="new">For example, services with no input node defined, do not require passing in an <bpt id="83a91dd6-50b2-4ff0-ba84-9876427ab3b9">&lt;em&gt;</bpt>Input<ept id="83a91dd6-50b2-4ff0-ba84-9876427ab3b9">&lt;/em&gt;</ept> parameter, and the output location override feature is completely optional, as outputs will otherwise be stored in the default storage account that was set up for your Azure Machine Learning workspace.</target>
+        </trans-unit>
+        <trans-unit id="964fdbd3-e029-4698-83df-84c7c0cbb4c0" xml:space="preserve">
+          <source>Below, we show a sample request payload, as passed to the REST API, for a service where only the input information is passed in:</source>
+          <target state="new">Below, we show a sample request payload, as passed to the REST API, for a service where only the input information is passed in:</target>
+        </trans-unit>
+        <trans-unit id="12e54a84-2193-4fc7-85b7-506190a8be2c" xml:space="preserve">
+          <source><bpt id="d5b3c529-829f-433f-9984-6f753b60f2ab">&lt;strong&gt;</bpt>Sample Request<ept id="d5b3c529-829f-433f-9984-6f753b60f2ab">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d5b3c529-829f-433f-9984-6f753b60f2ab">&lt;strong&gt;</bpt>Sample Request<ept id="d5b3c529-829f-433f-9984-6f753b60f2ab">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b2b198a-e4e8-44ab-a3a0-f681e255ca29" xml:space="preserve">
+          <source>The response to the batch job creation API is the unique job id that was associated to your job.</source>
+          <target state="new">The response to the batch job creation API is the unique job id that was associated to your job.</target>
+        </trans-unit>
+        <trans-unit id="89d92fb9-2fd2-4e44-adca-77d265b6539d" xml:space="preserve">
+          <source>This id is very important because it provides the only means for you to reference this job in the system for other operations.</source>
+          <target state="new">This id is very important because it provides the only means for you to reference this job in the system for other operations.</target>
+        </trans-unit>
+        <trans-unit id="22b26317-d8f6-488c-80ed-028cb9800d2c" xml:space="preserve">
+          <source><bpt id="95f96705-0893-47bc-b64d-bfc301a788e8">&lt;strong&gt;</bpt>Sample Response<ept id="95f96705-0893-47bc-b64d-bfc301a788e8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="95f96705-0893-47bc-b64d-bfc301a788e8">&lt;strong&gt;</bpt>Sample Response<ept id="95f96705-0893-47bc-b64d-bfc301a788e8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5997485b-8dfb-4d76-b018-44d9b9f0f24b" xml:space="preserve">
+          <source>**2.</source>
+          <target state="new">**2.</target>
+        </trans-unit>
+        <trans-unit id="af80c62b-afd9-4a64-8659-2f4907aeb06c" xml:space="preserve">
+          <source>Start a Batch Execution Job**</source>
+          <target state="new">Start a Batch Execution Job**</target>
+        </trans-unit>
+        <trans-unit id="247c761c-51ab-401d-9e78-de3e06d09be5" xml:space="preserve">
+          <source>Creating a batch job only registers it within the system, and places it in a <bpt id="5dd57f60-9c62-4b76-82ce-cc93d5806de4">&lt;em&gt;</bpt>Not started<ept id="5dd57f60-9c62-4b76-82ce-cc93d5806de4">&lt;/em&gt;</ept> state.</source>
+          <target state="new">Creating a batch job only registers it within the system, and places it in a <bpt id="5dd57f60-9c62-4b76-82ce-cc93d5806de4">&lt;em&gt;</bpt>Not started<ept id="5dd57f60-9c62-4b76-82ce-cc93d5806de4">&lt;/em&gt;</ept> state.</target>
+        </trans-unit>
+        <trans-unit id="c6084708-2ab9-43e5-8490-5ed03d6efccd" xml:space="preserve">
+          <source>To actually schedule the job for execution, you will have to call the <bpt id="a731da32-4db7-4e7a-83ff-087b0831035e">&lt;strong&gt;</bpt>start<ept id="a731da32-4db7-4e7a-83ff-087b0831035e">&lt;/strong&gt;</ept> API described on the service endpoint's API help page and provide the job id obtained when the job was created.</source>
+          <target state="new">To actually schedule the job for execution, you will have to call the <bpt id="a731da32-4db7-4e7a-83ff-087b0831035e">&lt;strong&gt;</bpt>start<ept id="a731da32-4db7-4e7a-83ff-087b0831035e">&lt;/strong&gt;</ept> API described on the service endpoint's API help page and provide the job id obtained when the job was created.</target>
+        </trans-unit>
+        <trans-unit id="36cc16e5-5ca1-4a0f-aa0f-62e1ad4eac57" xml:space="preserve">
+          <source>**3.</source>
+          <target state="new">**3.</target>
+        </trans-unit>
+        <trans-unit id="bd7d3ce8-f521-4eef-8c3e-328df8fb860d" xml:space="preserve">
+          <source>Get the Status of a Batch Execution Job**</source>
+          <target state="new">Get the Status of a Batch Execution Job**</target>
+        </trans-unit>
+        <trans-unit id="018aba6a-d1dd-451c-baad-354005e279d8" xml:space="preserve">
+          <source>You can poll the status of your asynchronous batch job at any time by passing the job's id to the GetJobStatus API.</source>
+          <target state="new">You can poll the status of your asynchronous batch job at any time by passing the job's id to the GetJobStatus API.</target>
+        </trans-unit>
+        <trans-unit id="173a785b-6294-41cd-bcd0-e3319bdacf44" xml:space="preserve">
+          <source>The API response will contain an indicator of the job's current state, as well as the actual results of the batch job if this has completed successfully.</source>
+          <target state="new">The API response will contain an indicator of the job's current state, as well as the actual results of the batch job if this has completed successfully.</target>
+        </trans-unit>
+        <trans-unit id="c9375967-89e3-4171-bfeb-1898379616ee" xml:space="preserve">
+          <source>In the case of an error, more information about the actual reasons behind the failure are returned in the <bpt id="5f40e702-2502-41d9-9e15-9b701d4f64c2">&lt;em&gt;</bpt>Details<ept id="5f40e702-2502-41d9-9e15-9b701d4f64c2">&lt;/em&gt;</ept> property.</source>
+          <target state="new">In the case of an error, more information about the actual reasons behind the failure are returned in the <bpt id="5f40e702-2502-41d9-9e15-9b701d4f64c2">&lt;em&gt;</bpt>Details<ept id="5f40e702-2502-41d9-9e15-9b701d4f64c2">&lt;/em&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="2ac562f2-53b1-4b98-adcb-c12af1777ebb" xml:space="preserve">
+          <source><bpt id="1ae43178-1dcd-4adc-b15e-fb1d35522a75">&lt;strong&gt;</bpt>Response Payload<ept id="1ae43178-1dcd-4adc-b15e-fb1d35522a75">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1ae43178-1dcd-4adc-b15e-fb1d35522a75">&lt;strong&gt;</bpt>Response Payload<ept id="1ae43178-1dcd-4adc-b15e-fb1d35522a75">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3baa539a-9219-4127-82a8-d58106abd3b0" xml:space="preserve">
+          <source><bpt id="65bf47f0-19bc-48f2-969a-79608de4d29d">&lt;em&gt;</bpt>StatusCode<ept id="65bf47f0-19bc-48f2-969a-79608de4d29d">&lt;/em&gt;</ept> can be one of the following:</source>
+          <target state="new"><bpt id="65bf47f0-19bc-48f2-969a-79608de4d29d">&lt;em&gt;</bpt>StatusCode<ept id="65bf47f0-19bc-48f2-969a-79608de4d29d">&lt;/em&gt;</ept> can be one of the following:</target>
+        </trans-unit>
+        <trans-unit id="908877cd-2033-46f8-99d6-368f39a91911" xml:space="preserve">
+          <source>Not started</source>
+          <target state="new">Not started</target>
+        </trans-unit>
+        <trans-unit id="646d3e30-6c89-4e3d-b38c-71a971b69b87" xml:space="preserve">
+          <source>Running</source>
+          <target state="new">Running</target>
+        </trans-unit>
+        <trans-unit id="ef349e95-3530-4252-abbb-d530fec8ce83" xml:space="preserve">
+          <source>Failed</source>
+          <target state="new">Failed</target>
+        </trans-unit>
+        <trans-unit id="ce8f7f87-fb1f-4aec-a759-2556dcc0b97c" xml:space="preserve">
+          <source>Cancelled</source>
+          <target state="new">Cancelled</target>
+        </trans-unit>
+        <trans-unit id="3a130965-7ec9-4fd2-b7e8-7ec7b3c84af1" xml:space="preserve">
+          <source>Finished</source>
+          <target state="new">Finished</target>
+        </trans-unit>
+        <trans-unit id="4c1dadb4-89a1-4a6e-b8a5-b6a088bcd7b0" xml:space="preserve">
+          <source>The <bpt id="741ee6c5-da8d-40f9-bdc8-348829fc89b9">&lt;em&gt;</bpt>Results<ept id="741ee6c5-da8d-40f9-bdc8-348829fc89b9">&lt;/em&gt;</ept> property is populated only if the job has completed successfully (it is <bpt id="004c4ebd-5d27-4012-8e3b-863e920bd06e">&lt;strong&gt;</bpt>null<ept id="004c4ebd-5d27-4012-8e3b-863e920bd06e">&lt;/strong&gt;</ept> otherwise).</source>
+          <target state="new">The <bpt id="741ee6c5-da8d-40f9-bdc8-348829fc89b9">&lt;em&gt;</bpt>Results<ept id="741ee6c5-da8d-40f9-bdc8-348829fc89b9">&lt;/em&gt;</ept> property is populated only if the job has completed successfully (it is <bpt id="004c4ebd-5d27-4012-8e3b-863e920bd06e">&lt;strong&gt;</bpt>null<ept id="004c4ebd-5d27-4012-8e3b-863e920bd06e">&lt;/strong&gt;</ept> otherwise).</target>
+        </trans-unit>
+        <trans-unit id="6109a935-778a-4498-b6cf-b95c8702650b" xml:space="preserve">
+          <source>Upon the job's completion and if the service has at least one output node defined, the results will be returned as a collection of <bpt id="9ae5e30d-05b2-4d5e-b526-b94eddd57239">&lt;em&gt;</bpt>[output name, blob reference]<ept id="9ae5e30d-05b2-4d5e-b526-b94eddd57239">&lt;/em&gt;</ept> pairs, where the blob reference is a SAS read-only reference to the blob containing the actual result.</source>
+          <target state="new">Upon the job's completion and if the service has at least one output node defined, the results will be returned as a collection of <bpt id="9ae5e30d-05b2-4d5e-b526-b94eddd57239">&lt;em&gt;</bpt>[output name, blob reference]<ept id="9ae5e30d-05b2-4d5e-b526-b94eddd57239">&lt;/em&gt;</ept> pairs, where the blob reference is a SAS read-only reference to the blob containing the actual result.</target>
+        </trans-unit>
+        <trans-unit id="77707746-23c5-4f9b-9d18-1523f55b3676" xml:space="preserve">
+          <source><bpt id="52f9b44b-1989-4dbe-a0a9-8be8557c1068">&lt;strong&gt;</bpt>Sample Response<ept id="52f9b44b-1989-4dbe-a0a9-8be8557c1068">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="52f9b44b-1989-4dbe-a0a9-8be8557c1068">&lt;strong&gt;</bpt>Sample Response<ept id="52f9b44b-1989-4dbe-a0a9-8be8557c1068">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e40346b3-8fa0-47e9-bb4a-d6468d8c0752" xml:space="preserve">
+          <source>**4.</source>
+          <target state="new">**4.</target>
+        </trans-unit>
+        <trans-unit id="c9918dac-49a8-41cd-b9b9-f15bb8ebcb86" xml:space="preserve">
+          <source>Cancel a Batch Execution Job**</source>
+          <target state="new">Cancel a Batch Execution Job**</target>
+        </trans-unit>
+        <trans-unit id="1bbadee7-868b-4d20-bd6f-0c7308318f30" xml:space="preserve">
+          <source>A running batch job can be cancelled at any time by calling the designated CancelJob API and passing in the job's id.</source>
+          <target state="new">A running batch job can be cancelled at any time by calling the designated CancelJob API and passing in the job's id.</target>
+        </trans-unit>
+        <trans-unit id="c2a605ab-a2f1-4c4a-8fbb-639d9f2e88d4" xml:space="preserve">
+          <source>This would be done for various reasons such as that the job is taking too long to complete.</source>
+          <target state="new">This would be done for various reasons such as that the job is taking too long to complete.</target>
+        </trans-unit>
+        <trans-unit id="5b0a2233-586c-4ea7-b49c-a0cb93ea311c" xml:space="preserve">
+          <source>The <bpt id="36624ffb-019b-4ea6-b76f-44e126557c73">&lt;linkText&gt;</bpt>BES SDK Nugget package<ept id="36624ffb-019b-4ea6-b76f-44e126557c73">&lt;/linkText&gt;</ept><bpt id="36624ffb-019b-4ea6-b76f-44e126557c73">&lt;title&gt;</bpt><ept id="36624ffb-019b-4ea6-b76f-44e126557c73">&lt;/title&gt;</ept> provides functions that simplify calling BES to score in batch mode.</source>
+          <target state="new">The <bpt id="36624ffb-019b-4ea6-b76f-44e126557c73">&lt;linkText&gt;</bpt>BES SDK Nugget package<ept id="36624ffb-019b-4ea6-b76f-44e126557c73">&lt;/linkText&gt;</ept><bpt id="36624ffb-019b-4ea6-b76f-44e126557c73">&lt;title&gt;</bpt><ept id="36624ffb-019b-4ea6-b76f-44e126557c73">&lt;/title&gt;</ept> provides functions that simplify calling BES to score in batch mode.</target>
+        </trans-unit>
+        <trans-unit id="c3fed799-6d19-41cc-8468-a2452f9552fc" xml:space="preserve">
+          <source>To install the Nuget package, in Visual Studio, go to Tools, then select Nuget Package Manager, and click Package Manager Console.</source>
+          <target state="new">To install the Nuget package, in Visual Studio, go to Tools, then select Nuget Package Manager, and click Package Manager Console.</target>
+        </trans-unit>
+        <trans-unit id="d11cbe64-ff47-4ef6-bf89-f3c015394697" xml:space="preserve">
+          <source>AzureML experiments that are published as web services can include web service input modules which means they expect the input to be provided through the web service call in the form of a reference to a blob location.</source>
+          <target state="new">AzureML experiments that are published as web services can include web service input modules which means they expect the input to be provided through the web service call in the form of a reference to a blob location.</target>
+        </trans-unit>
+        <trans-unit id="4c3ebda0-98b6-46a3-aa50-8e75c869ba42" xml:space="preserve">
+          <source>There is also the option of not using a web service input module and using a Reader module instead.</source>
+          <target state="new">There is also the option of not using a web service input module and using a Reader module instead.</target>
+        </trans-unit>
+        <trans-unit id="50f72c62-6582-4687-9fcc-82697caf93d7" xml:space="preserve">
+          <source>In this case, the Reader typically would read from a SQL DB using a query at run time to get the data.</source>
+          <target state="new">In this case, the Reader typically would read from a SQL DB using a query at run time to get the data.</target>
+        </trans-unit>
+        <trans-unit id="ec9225fd-550e-44e9-87bb-e50f83ac05e9" xml:space="preserve">
+          <source>Web service parameters can be used to dynamically point to other servers or tables, etc. The SDK supports both of these patterns.</source>
+          <target state="new">Web service parameters can be used to dynamically point to other servers or tables, etc. The SDK supports both of these patterns.</target>
+        </trans-unit>
+        <trans-unit id="6a7847d0-4c80-4715-b68f-9bbe1d953b9c" xml:space="preserve">
+          <source>The code sample below demonstrates how you can submit and monitor a batch job against an Azure Machine Learning service endpoint using the BES SDK.</source>
+          <target state="new">The code sample below demonstrates how you can submit and monitor a batch job against an Azure Machine Learning service endpoint using the BES SDK.</target>
+        </trans-unit>
+        <trans-unit id="7251cb18-e222-4b12-b6b0-bb6151e8fb5a" xml:space="preserve">
+          <source>Note the comments for details on the settings and calls.</source>
+          <target state="new">Note the comments for details on the settings and calls.</target>
+        </trans-unit>
+        <trans-unit id="67a8dd56-96db-4907-9a57-f0a1afae5a86" xml:space="preserve">
+          <source>machine-learning-publish-a-machine-learning-web-service.md</source>
+          <target state="new">machine-learning-publish-a-machine-learning-web-service.md</target>
+        </trans-unit>
+        <trans-unit id="d0f14a33-68b4-47a1-85a0-e52192f6cc03" xml:space="preserve">
+          <source>machine-learning-walkthrough-develop-predictive-solution.md</source>
+          <target state="new">machine-learning-walkthrough-develop-predictive-solution.md</target>
+        </trans-unit>
+      </group>
+      <group id="255feecc-146d-4100-ab30-c5ddd50ee319" />
+    </body>
+  </file>
+</xliff>

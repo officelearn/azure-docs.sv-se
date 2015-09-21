@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="eff2f27f-ca67-4641-bb56-b45b2819fa45" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="eff2f27f-ca67-4641-bb56-b45b2819fa45" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="35e4724b-4288-48b9-be8a-c253a9748392">
+        <trans-unit id="bd4a22c4-621c-4bdb-8516-9c2496d78f9a" xml:space="preserve">
+          <source>Sign up for Azure as an organization</source>
+          <target state="new">Sign up for Azure as an organization</target>
+        </trans-unit>
+        <trans-unit id="74e283d2-1fd4-4810-a1b0-26c43cb5c772" xml:space="preserve">
+          <source>Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD.</source>
+          <target state="new">Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="8fb8983e-9d0d-41dd-b555-115496fa5f5b" xml:space="preserve">
+          <source>Until recently, you could only sign up for a new Microsoft Azure subscription using your Microsoft account (Windows Live ID).</source>
+          <target state="new">Until recently, you could only sign up for a new Microsoft Azure subscription using your Microsoft account (Windows Live ID).</target>
+        </trans-unit>
+        <trans-unit id="5fa794cf-05a4-41ac-ad38-0b26bcaeab58" xml:space="preserve">
+          <source>Azure now supports using either of the following two account methods to sign up:</source>
+          <target state="new">Azure now supports using either of the following two account methods to sign up:</target>
+        </trans-unit>
+        <trans-unit id="2f64fe75-0bd4-42b7-a53e-8b878a561410" xml:space="preserve">
+          <source><bpt id="080773eb-517c-44c3-84a3-a6e9f29277cd">&lt;strong&gt;</bpt>Microsoft accounts<ept id="080773eb-517c-44c3-84a3-a6e9f29277cd">&lt;/strong&gt;</ept> (created by you for personal use) - Provide access to all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE, or Office 365.</source>
+          <target state="new"><bpt id="080773eb-517c-44c3-84a3-a6e9f29277cd">&lt;strong&gt;</bpt>Microsoft accounts<ept id="080773eb-517c-44c3-84a3-a6e9f29277cd">&lt;/strong&gt;</ept> (created by you for personal use) - Provide access to all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE, or Office 365.</target>
+        </trans-unit>
+        <trans-unit id="18a3892a-3219-4451-9347-00f4f1c88e0c" xml:space="preserve">
+          <source>Signing up for an Outlook.com mailbox automatically creates a Microsoft account.</source>
+          <target state="new">Signing up for an Outlook.com mailbox automatically creates a Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="898a06c5-8fbb-487b-9378-d303cc647206" xml:space="preserve">
+          <source>After a Microsoft account is created, it can be used to access consumer-related Microsoft cloud services or Azure.</source>
+          <target state="new">After a Microsoft account is created, it can be used to access consumer-related Microsoft cloud services or Azure.</target>
+        </trans-unit>
+        <trans-unit id="d8d5ec6e-1ef0-40f1-a80f-28643dc5037d" xml:space="preserve">
+          <source><bpt id="6df1bf44-eef8-4c69-98e0-a15b2d15d863">&lt;linkText&gt;</bpt>Learn more<ept id="6df1bf44-eef8-4c69-98e0-a15b2d15d863">&lt;/linkText&gt;</ept><bpt id="6df1bf44-eef8-4c69-98e0-a15b2d15d863">&lt;title&gt;</bpt><ept id="6df1bf44-eef8-4c69-98e0-a15b2d15d863">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6df1bf44-eef8-4c69-98e0-a15b2d15d863">&lt;linkText&gt;</bpt>Learn more<ept id="6df1bf44-eef8-4c69-98e0-a15b2d15d863">&lt;/linkText&gt;</ept><bpt id="6df1bf44-eef8-4c69-98e0-a15b2d15d863">&lt;title&gt;</bpt><ept id="6df1bf44-eef8-4c69-98e0-a15b2d15d863">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fa10358-7b23-4d59-9ca2-f1b2023bf5c2" xml:space="preserve">
+          <source><bpt id="7f445f4c-2bfa-4a62-87e0-9f4915c71b52">&lt;strong&gt;</bpt>Work or school accounts<ept id="7f445f4c-2bfa-4a62-87e0-9f4915c71b52">&lt;/strong&gt;</ept> (issued by an admin for business/academic use) - Provide access to all small, medium, and enterprise business-level Microsoft cloud services, such as Azure, Microsoft Intune, or Office 365.</source>
+          <target state="new"><bpt id="7f445f4c-2bfa-4a62-87e0-9f4915c71b52">&lt;strong&gt;</bpt>Work or school accounts<ept id="7f445f4c-2bfa-4a62-87e0-9f4915c71b52">&lt;/strong&gt;</ept> (issued by an admin for business/academic use) - Provide access to all small, medium, and enterprise business-level Microsoft cloud services, such as Azure, Microsoft Intune, or Office 365.</target>
+        </trans-unit>
+        <trans-unit id="3e82b668-c30b-4e22-9065-ab979b443f7b" xml:space="preserve">
+          <source>When you sign up to one of these services as an organization, a cloud-based directory is automatically provisioned in Azure Active Directory to represent your organization.</source>
+          <target state="new">When you sign up to one of these services as an organization, a cloud-based directory is automatically provisioned in Azure Active Directory to represent your organization.</target>
+        </trans-unit>
+        <trans-unit id="e5f79580-cfbc-4285-aa91-cdebae6949da" xml:space="preserve">
+          <source><bpt id="f7cf10c9-f972-420d-a19f-96117a1a9df8">&lt;linkText&gt;</bpt>Learn more<ept id="f7cf10c9-f972-420d-a19f-96117a1a9df8">&lt;/linkText&gt;</ept><bpt id="f7cf10c9-f972-420d-a19f-96117a1a9df8">&lt;title&gt;</bpt><ept id="f7cf10c9-f972-420d-a19f-96117a1a9df8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f7cf10c9-f972-420d-a19f-96117a1a9df8">&lt;linkText&gt;</bpt>Learn more<ept id="f7cf10c9-f972-420d-a19f-96117a1a9df8">&lt;/linkText&gt;</ept><bpt id="f7cf10c9-f972-420d-a19f-96117a1a9df8">&lt;title&gt;</bpt><ept id="f7cf10c9-f972-420d-a19f-96117a1a9df8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2e1308f-df37-4d8a-922c-362e0538c3fa" xml:space="preserve">
+          <source>After this directory has been created, an admin can then create users and assign licenses to them based on which cloud service subscriptions they need access to, such as Azure.</source>
+          <target state="new">After this directory has been created, an admin can then create users and assign licenses to them based on which cloud service subscriptions they need access to, such as Azure.</target>
+        </trans-unit>
+        <trans-unit id="b2fe3448-e6e9-45e0-b44e-59aaa2e4f387" xml:space="preserve">
+          <source>Want to sign up for Azure as an organization?</source>
+          <target state="new">Want to sign up for Azure as an organization?</target>
+        </trans-unit>
+        <trans-unit id="ec8dac81-2107-4c1f-80cd-64d3558f0916" xml:space="preserve">
+          <source>[<bpt id="db1c9f10-b67a-43ab-aecb-68477fe02ab4">&lt;strong&gt;</bpt>Sign up now<ept id="db1c9f10-b67a-43ab-aecb-68477fe02ab4">&lt;/strong&gt;</ept>](https://azure.microsoft.com/pricing/purchase-options/)</source>
+          <target state="new">[<bpt id="db1c9f10-b67a-43ab-aecb-68477fe02ab4">&lt;strong&gt;</bpt>Sign up now<ept id="db1c9f10-b67a-43ab-aecb-68477fe02ab4">&lt;/strong&gt;</ept>](https://azure.microsoft.com/pricing/purchase-options/)</target>
+        </trans-unit>
+        <trans-unit id="2488bc1a-f421-4c65-bb80-38cf427b9fe9" xml:space="preserve">
+          <source><bpt id="9711151c-573a-4946-8334-8290e0a9b598">&lt;strong&gt;</bpt>Additional Resources<ept id="9711151c-573a-4946-8334-8290e0a9b598">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9711151c-573a-4946-8334-8290e0a9b598">&lt;strong&gt;</bpt>Additional Resources<ept id="9711151c-573a-4946-8334-8290e0a9b598">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cac36397-76bd-480f-8be6-130099cb80c1" xml:space="preserve">
+          <source><bpt id="5696c5d1-40be-4913-b145-32936f0a447b">&lt;linkText&gt;</bpt>Microsoft Azure blog<ept id="5696c5d1-40be-4913-b145-32936f0a447b">&lt;/linkText&gt;</ept><bpt id="5696c5d1-40be-4913-b145-32936f0a447b">&lt;title&gt;</bpt><ept id="5696c5d1-40be-4913-b145-32936f0a447b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5696c5d1-40be-4913-b145-32936f0a447b">&lt;linkText&gt;</bpt>Microsoft Azure blog<ept id="5696c5d1-40be-4913-b145-32936f0a447b">&lt;/linkText&gt;</ept><bpt id="5696c5d1-40be-4913-b145-32936f0a447b">&lt;title&gt;</bpt><ept id="5696c5d1-40be-4913-b145-32936f0a447b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d72011ff-50a0-4490-8451-fe4c95eb77f7" xml:space="preserve">
+          <source><bpt id="eff8904d-cfdd-4ae2-bf63-ca02609503d7">&lt;linkText&gt;</bpt>What is Azure AD?<ept id="eff8904d-cfdd-4ae2-bf63-ca02609503d7">&lt;/linkText&gt;</ept><bpt id="eff8904d-cfdd-4ae2-bf63-ca02609503d7">&lt;title&gt;</bpt><ept id="eff8904d-cfdd-4ae2-bf63-ca02609503d7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eff8904d-cfdd-4ae2-bf63-ca02609503d7">&lt;linkText&gt;</bpt>What is Azure AD?<ept id="eff8904d-cfdd-4ae2-bf63-ca02609503d7">&lt;/linkText&gt;</ept><bpt id="eff8904d-cfdd-4ae2-bf63-ca02609503d7">&lt;title&gt;</bpt><ept id="eff8904d-cfdd-4ae2-bf63-ca02609503d7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29fd7950-6583-4738-a58b-a92175da0a75" xml:space="preserve">
+          <source><bpt id="8d9fcbee-1d4e-4f77-a0ea-af987f3a504f">&lt;linkText&gt;</bpt>Use your on-premises identity infrastructure in the cloud<ept id="8d9fcbee-1d4e-4f77-a0ea-af987f3a504f">&lt;/linkText&gt;</ept><bpt id="8d9fcbee-1d4e-4f77-a0ea-af987f3a504f">&lt;title&gt;</bpt><ept id="8d9fcbee-1d4e-4f77-a0ea-af987f3a504f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8d9fcbee-1d4e-4f77-a0ea-af987f3a504f">&lt;linkText&gt;</bpt>Use your on-premises identity infrastructure in the cloud<ept id="8d9fcbee-1d4e-4f77-a0ea-af987f3a504f">&lt;/linkText&gt;</ept><bpt id="8d9fcbee-1d4e-4f77-a0ea-af987f3a504f">&lt;title&gt;</bpt><ept id="8d9fcbee-1d4e-4f77-a0ea-af987f3a504f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

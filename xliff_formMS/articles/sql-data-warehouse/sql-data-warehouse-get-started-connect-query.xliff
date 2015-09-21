@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6188f1da-1d8f-41a7-ac8d-ee261253730f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6188f1da-1d8f-41a7-ac8d-ee261253730f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bc69cff4-aba2-43a7-9cc4-81e41ba85f21">
+        <trans-unit id="928df5c9-f113-46ad-96ba-7f27b71f038f" xml:space="preserve">
+          <source>Get started: Connect to SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Get started: Connect to SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6289f67f-cf82-4136-9639-b22068d65051" xml:space="preserve">
+          <source>Get started with connecting to SQL Data Warehouse and running some queries.</source>
+          <target state="new">Get started with connecting to SQL Data Warehouse and running some queries.</target>
+        </trans-unit>
+        <trans-unit id="9918585f-8c95-42d0-a105-363b46917aad" xml:space="preserve">
+          <source>This quick start article introduces you to connecting to and querying a provisioned instance of SQL Data Warehouse  with two different tools:</source>
+          <target state="new">This quick start article introduces you to connecting to and querying a provisioned instance of SQL Data Warehouse  with two different tools:</target>
+        </trans-unit>
+        <trans-unit id="a069aeda-3f63-4715-9a36-5961dd070b81" xml:space="preserve">
+          <source><bpt id="119b0c95-a47a-44a8-ad3f-31aaebfed68c">&lt;strong&gt;</bpt>Visual Studio<ept id="119b0c95-a47a-44a8-ad3f-31aaebfed68c">&lt;/strong&gt;</ept> - Visual Studio's integrated code editor and debugger, SQL Server Data Tools (SSDT), is fully compatible with SQL DW, enabling you to easily connect to, query, and manage SQL Data Warehouse.</source>
+          <target state="new"><bpt id="119b0c95-a47a-44a8-ad3f-31aaebfed68c">&lt;strong&gt;</bpt>Visual Studio<ept id="119b0c95-a47a-44a8-ad3f-31aaebfed68c">&lt;/strong&gt;</ept> - Visual Studio's integrated code editor and debugger, SQL Server Data Tools (SSDT), is fully compatible with SQL DW, enabling you to easily connect to, query, and manage SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="36455388-a8f6-413f-aef9-de4c2b10ba5c" xml:space="preserve">
+          <source>SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later</source>
+          <target state="new">SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later</target>
+        </trans-unit>
+        <trans-unit id="978a8a67-cb59-477d-adf7-10aefd5fbe00" xml:space="preserve">
+          <source><bpt id="d2baf18b-b7b9-4124-abe3-6eb79e847d94">&lt;strong&gt;</bpt>sqlcmd<ept id="d2baf18b-b7b9-4124-abe3-6eb79e847d94">&lt;/strong&gt;</ept> - sqlcmd is a commandline tool that offers simple connection and querying abilities.</source>
+          <target state="new"><bpt id="d2baf18b-b7b9-4124-abe3-6eb79e847d94">&lt;strong&gt;</bpt>sqlcmd<ept id="d2baf18b-b7b9-4124-abe3-6eb79e847d94">&lt;/strong&gt;</ept> - sqlcmd is a commandline tool that offers simple connection and querying abilities.</target>
+        </trans-unit>
+        <trans-unit id="df419498-3d2a-4213-a7bd-e57340c3dfde" xml:space="preserve">
+          <source>After completing this article you will have:</source>
+          <target state="new">After completing this article you will have:</target>
+        </trans-unit>
+        <trans-unit id="0037236f-90be-4d72-b2f2-127c76d2020f" xml:space="preserve">
+          <source>Installed and updated Visual Studio 2013</source>
+          <target state="new">Installed and updated Visual Studio 2013</target>
+        </trans-unit>
+        <trans-unit id="65e4b361-2bb8-4d77-ba6f-98c3f67bd0ff" xml:space="preserve">
+          <source>Created a connection to SQL Data Warehouse in SSDT</source>
+          <target state="new">Created a connection to SQL Data Warehouse in SSDT</target>
+        </trans-unit>
+        <trans-unit id="b97dadae-6965-4d45-a643-b2b411e64beb" xml:space="preserve">
+          <source>Executed queries against the SQL Data Warehouse database</source>
+          <target state="new">Executed queries against the SQL Data Warehouse database</target>
+        </trans-unit>
+        <trans-unit id="f42ed8ac-ea53-4f8b-b955-6e4a1a811e52" xml:space="preserve">
+          <source>It is assumed that you have either completed the provisioning guide or have a SQL Data Warehouse available.</source>
+          <target state="new">It is assumed that you have either completed the provisioning guide or have a SQL Data Warehouse available.</target>
+        </trans-unit>
+        <trans-unit id="c8d31599-1143-4559-b373-51b8f4cc865e" xml:space="preserve">
+          <source>If you have not provisioned the SQL Data Warehouse then please refer back to the [provisioning quick start].</source>
+          <target state="new">If you have not provisioned the SQL Data Warehouse then please refer back to the [provisioning quick start].</target>
+        </trans-unit>
+        <trans-unit id="880ac647-88ad-4b07-aeab-15986f1abda5" xml:space="preserve">
+          <source>For development, the SQL Data Warehouse team recommends using Visual Studio 2013 or greater in combination with SQL Server Data Tools.</source>
+          <target state="new">For development, the SQL Data Warehouse team recommends using Visual Studio 2013 or greater in combination with SQL Server Data Tools.</target>
+        </trans-unit>
+        <trans-unit id="b338e57c-e318-4a63-959a-d2d98655931f" xml:space="preserve">
+          <source>The following will outline how to download and update Visual Studio 2013 if you do not already have a viable version of visual studio installed.</source>
+          <target state="new">The following will outline how to download and update Visual Studio 2013 if you do not already have a viable version of visual studio installed.</target>
+        </trans-unit>
+        <trans-unit id="a28bf2b8-8f4b-4360-85a1-1413069785b5" xml:space="preserve">
+          <source>If you are looking for more information, general SSDT questions can be resolved using the <bpt id="bb82c19f-33fb-4439-82a0-4a66c0bc35e7">&lt;linkText&gt;</bpt>complete SSDT documentation<ept id="bb82c19f-33fb-4439-82a0-4a66c0bc35e7">&lt;/linkText&gt;</ept><bpt id="bb82c19f-33fb-4439-82a0-4a66c0bc35e7">&lt;title&gt;</bpt><ept id="bb82c19f-33fb-4439-82a0-4a66c0bc35e7">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are looking for more information, general SSDT questions can be resolved using the <bpt id="bb82c19f-33fb-4439-82a0-4a66c0bc35e7">&lt;linkText&gt;</bpt>complete SSDT documentation<ept id="bb82c19f-33fb-4439-82a0-4a66c0bc35e7">&lt;/linkText&gt;</ept><bpt id="bb82c19f-33fb-4439-82a0-4a66c0bc35e7">&lt;title&gt;</bpt><ept id="bb82c19f-33fb-4439-82a0-4a66c0bc35e7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36914dbc-aa96-40ec-9b80-3c0f31e441a1" xml:space="preserve">
+          <source>Head over to the Visual Studio 2013 website to download and install a copy of Visual Studio.</source>
+          <target state="new">Head over to the Visual Studio 2013 website to download and install a copy of Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="a30737ed-c6ba-4533-b342-6f27e5ca57b2" xml:space="preserve">
+          <source>Remember, for SQL Data Warehouse any of the free editions is more than adequate.</source>
+          <target state="new">Remember, for SQL Data Warehouse any of the free editions is more than adequate.</target>
+        </trans-unit>
+        <trans-unit id="1dc2533c-6509-4ce3-b8f6-80c457ed4c7c" xml:space="preserve">
+          <source>Feel free to pick one that suits your needs</source>
+          <target state="new">Feel free to pick one that suits your needs</target>
+        </trans-unit>
+        <trans-unit id="44197fab-83f6-45c1-aaa5-7996d178c446" xml:space="preserve">
+          <source>&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs#DownloadFamilies_5" target="blank"&gt;Get Visual Studio 2013&lt;/a&gt;</source>
+          <target state="new">&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs#DownloadFamilies_5" target="blank"&gt;Get Visual Studio 2013&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="52c2ee00-12d9-4a68-9504-5352aff1629b" xml:space="preserve">
+          <source>Already have Visual Studio 2013 installed?</source>
+          <target state="new">Already have Visual Studio 2013 installed?</target>
+        </trans-unit>
+        <trans-unit id="f9b600b2-ba01-4f1b-bc58-c1fe52d60b64" xml:space="preserve">
+          <source>Great!</source>
+          <target state="new">Great!</target>
+        </trans-unit>
+        <trans-unit id="8569277f-033f-464b-88a4-3d4f25dbc944" xml:space="preserve">
+          <source>To make sure it is up to date just perform the following steps.</source>
+          <target state="new">To make sure it is up to date just perform the following steps.</target>
+        </trans-unit>
+        <trans-unit id="dc71bc87-9383-45e4-be1f-fc4b88822ebe" xml:space="preserve">
+          <source>You can move on to the next step.</source>
+          <target state="new">You can move on to the next step.</target>
+        </trans-unit>
+        <trans-unit id="bffae1e6-b803-45d8-82ad-5fe4d626ecb5" xml:space="preserve">
+          <source>Open Visual Studio 2013</source>
+          <target state="new">Open Visual Studio 2013</target>
+        </trans-unit>
+        <trans-unit id="87f27767-a117-4570-9449-8dadadb5ce79" xml:space="preserve">
+          <source>Choose the "Tools" menu and select "Extensions and Updates..."</source>
+          <target state="new">Choose the "Tools" menu and select "Extensions and Updates..."</target>
+        </trans-unit>
+        <trans-unit id="62a4b3f3-80e9-49e5-9ac7-df0deb2f96e4" xml:space="preserve">
+          <source>Navigate through the tree control to "Updates" and "Product Updates"</source>
+          <target state="new">Navigate through the tree control to "Updates" and "Product Updates"</target>
+        </trans-unit>
+        <trans-unit id="5a7100ca-d4f8-43fa-9256-1aa7b4446ab8" xml:space="preserve">
+          <source>If there is no update available then you can safely close the "Extensions and Updates" window and proceed to the next task in this quick start.</source>
+          <target state="new">If there is no update available then you can safely close the "Extensions and Updates" window and proceed to the next task in this quick start.</target>
+        </trans-unit>
+        <trans-unit id="eb76b10c-ca6f-42b0-a491-989ee1ede3d0" xml:space="preserve">
+          <source>However, if an update exists for Visual Studio itself click on the Update button.</source>
+          <target state="new">However, if an update exists for Visual Studio itself click on the Update button.</target>
+        </trans-unit>
+        <trans-unit id="18648a19-b64d-4bdd-88cf-115e4bb093a5" xml:space="preserve">
+          <source>This will initiate a download of the latest update for Visual Studio 2013.</source>
+          <target state="new">This will initiate a download of the latest update for Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="a320d7bf-e4ab-49d2-8af9-8acb01f7c4ff" xml:space="preserve">
+          <source>Close the "Extensions and Updates" window and also close Visual Studio 2013 before proceeding.</source>
+          <target state="new">Close the "Extensions and Updates" window and also close Visual Studio 2013 before proceeding.</target>
+        </trans-unit>
+        <trans-unit id="4d5c8466-291b-40df-97bc-f656a82c008f" xml:space="preserve">
+          <source>Click on the "Run" button to install the latest update to Visual Studio 2013.</source>
+          <target state="new">Click on the "Run" button to install the latest update to Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="398f65ba-432b-4897-8460-cac50d986ace" xml:space="preserve">
+          <source>Agree to the license terms and click on the Install button accepting any User Account Control (UAC) prompts</source>
+          <target state="new">Agree to the license terms and click on the Install button accepting any User Account Control (UAC) prompts</target>
+        </trans-unit>
+        <trans-unit id="4ddf9a3b-d570-4179-94d2-5151924462f1" xml:space="preserve">
+          <source>Click the "Launch" button to complete the installation</source>
+          <target state="new">Click the "Launch" button to complete the installation</target>
+        </trans-unit>
+        <trans-unit id="8e3a87ca-81c7-418b-8c7f-7f379337dfd4" xml:space="preserve">
+          <source>This completes the update of Visual Studio 2013.</source>
+          <target state="new">This completes the update of Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="6e4a55c7-464b-40bf-a930-35161acd6d92" xml:space="preserve">
+          <source>SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later.</source>
+          <target state="new">SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later.</target>
+        </trans-unit>
+        <trans-unit id="4a1f65e6-1e36-4ee8-843b-7f0459fa67a6" xml:space="preserve">
+          <source>The SSDT engineers update their plugin very regularly with new features so you will find you have to update from time to time.</source>
+          <target state="new">The SSDT engineers update their plugin very regularly with new features so you will find you have to update from time to time.</target>
+        </trans-unit>
+        <trans-unit id="ab76d000-4518-46b4-8ebe-ca57d99ea39f" xml:space="preserve">
+          <source>Again this is a very simple process.</source>
+          <target state="new">Again this is a very simple process.</target>
+        </trans-unit>
+        <trans-unit id="e72b0f35-ed92-4203-b0f6-4a6d6488b521" xml:space="preserve">
+          <source>To check if you need to update SSDT perform the following steps:</source>
+          <target state="new">To check if you need to update SSDT perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="f9b3b706-381a-41ef-8aa5-b3229718de5f" xml:space="preserve">
+          <source>Open Visual Studio 2013.</source>
+          <target state="new">Open Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="d046f9cd-41dd-4fbd-ace5-ba52f01ec371" xml:space="preserve">
+          <source>Choose the "Tools" menu and select "Extensions and Updates..."</source>
+          <target state="new">Choose the "Tools" menu and select "Extensions and Updates..."</target>
+        </trans-unit>
+        <trans-unit id="2dca8239-dfaf-46f3-b4ca-46a2010f0780" xml:space="preserve">
+          <source>Navigate through the tree control to "Updates" and "Product Updates"</source>
+          <target state="new">Navigate through the tree control to "Updates" and "Product Updates"</target>
+        </trans-unit>
+        <trans-unit id="b1092eed-5bbe-4fea-8e02-af4fdcfbacfd" xml:space="preserve">
+          <source>If there is no update available then you can safely close the "Extensions and Updates" window and proceed to the next task in this quick start.</source>
+          <target state="new">If there is no update available then you can safely close the "Extensions and Updates" window and proceed to the next task in this quick start.</target>
+        </trans-unit>
+        <trans-unit id="dfd5c8c6-06ce-4235-af42-f3f69c1e140a" xml:space="preserve">
+          <source>However, if an update exists called "Microsoft SQL Server Update for database tooling" click on the Update button.</source>
+          <target state="new">However, if an update exists called "Microsoft SQL Server Update for database tooling" click on the Update button.</target>
+        </trans-unit>
+        <trans-unit id="e59b5862-a457-4a80-9ba8-7f5d3b123160" xml:space="preserve">
+          <source>This will initiate a download of the latest SSDT version.</source>
+          <target state="new">This will initiate a download of the latest SSDT version.</target>
+        </trans-unit>
+        <trans-unit id="22ff0508-0ca4-4c0b-bc11-f6c9fa66e6d0" xml:space="preserve">
+          <source>The image below shows the SSDTSetup.exe in Internet Explorer's Download Manager.</source>
+          <target state="new">The image below shows the SSDTSetup.exe in Internet Explorer's Download Manager.</target>
+        </trans-unit>
+        <trans-unit id="086fd845-240d-45f4-82dd-6b35793d6302" xml:space="preserve">
+          <source>Click on the "Run" button to install the latest version of SSDT.</source>
+          <target state="new">Click on the "Run" button to install the latest version of SSDT.</target>
+        </trans-unit>
+        <trans-unit id="7b34b746-5dd0-40e8-aa09-ad2a3a6809aa" xml:space="preserve">
+          <source>Agree to the license terms and click on the Install button</source>
+          <target state="new">Agree to the license terms and click on the Install button</target>
+        </trans-unit>
+        <trans-unit id="be1e6fc6-e783-461a-85ea-70b5b80617a3" xml:space="preserve">
+          <source>Click the "Close" button to complete the SSDT update</source>
+          <target state="new">Click the "Close" button to complete the SSDT update</target>
+        </trans-unit>
+        <trans-unit id="4334aeb1-aa67-4e82-8622-4f4aa5ae054b" xml:space="preserve">
+          <source>Close the "Extensions and Updates" window</source>
+          <target state="new">Close the "Extensions and Updates" window</target>
+        </trans-unit>
+        <trans-unit id="2313a116-09ff-47a0-87f8-b13eae90bb1e" xml:space="preserve">
+          <source>You now have an up to date version of Visual Studio 2013 on your desktop with an up to date SSDT extension.</source>
+          <target state="new">You now have an up to date version of Visual Studio 2013 on your desktop with an up to date SSDT extension.</target>
+        </trans-unit>
+        <trans-unit id="13386a85-f15a-43f3-b723-0c832df151e1" xml:space="preserve">
+          <source>Currently we recommend the use of the <bpt id="53e4645d-347b-45e4-9f4d-f2120f9da7e4">&lt;linkText&gt;</bpt>SSDT Preview for Visual Studio 2013 version 12.0.50623 or later<ept id="53e4645d-347b-45e4-9f4d-f2120f9da7e4">&lt;/linkText&gt;</ept><bpt id="53e4645d-347b-45e4-9f4d-f2120f9da7e4">&lt;title&gt;</bpt><ept id="53e4645d-347b-45e4-9f4d-f2120f9da7e4">&lt;/title&gt;</ept> </source>
+          <target state="new">Currently we recommend the use of the <bpt id="53e4645d-347b-45e4-9f4d-f2120f9da7e4">&lt;linkText&gt;</bpt>SSDT Preview for Visual Studio 2013 version 12.0.50623 or later<ept id="53e4645d-347b-45e4-9f4d-f2120f9da7e4">&lt;/linkText&gt;</ept><bpt id="53e4645d-347b-45e4-9f4d-f2120f9da7e4">&lt;title&gt;</bpt><ept id="53e4645d-347b-45e4-9f4d-f2120f9da7e4">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="94d60ac8-223d-4cbf-a688-17f87b336746" xml:space="preserve">
+          <source>If you are running the desired version of Visual Studio you will be able to connect to the SQL Data Warehouse instance in two different ways:</source>
+          <target state="new">If you are running the desired version of Visual Studio you will be able to connect to the SQL Data Warehouse instance in two different ways:</target>
+        </trans-unit>
+        <trans-unit id="64aaa8a2-96d3-4e87-9e44-31db6e543e16" xml:space="preserve">
+          <source>To make the connection all we need to is open the SQL Server Object Explorer and pass in the connection information</source>
+          <target state="new">To make the connection all we need to is open the SQL Server Object Explorer and pass in the connection information</target>
+        </trans-unit>
+        <trans-unit id="720fa7b8-0f17-471f-8fa2-505fb33996d3" xml:space="preserve">
+          <source>Open Visual Studio</source>
+          <target state="new">Open Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="7dba25bf-2aae-4070-970c-07aa2270b71e" xml:space="preserve">
+          <source>Choose the "View" menu and select "SQL Server Object Explorer" from the drop down list</source>
+          <target state="new">Choose the "View" menu and select "SQL Server Object Explorer" from the drop down list</target>
+        </trans-unit>
+        <trans-unit id="5733d7cf-95b6-4761-9549-25fe01181a5f" xml:space="preserve">
+          <source>Ensure you choose the SQL Server Object Explorer and <bpt id="f912d6dc-4d51-4b3f-b7a0-629e7371e38c">&lt;strong&gt;</bpt>*not*<ept id="f912d6dc-4d51-4b3f-b7a0-629e7371e38c">&lt;/strong&gt;</ept> the Server Explorer.</source>
+          <target state="new">Ensure you choose the SQL Server Object Explorer and <bpt id="f912d6dc-4d51-4b3f-b7a0-629e7371e38c">&lt;strong&gt;</bpt>*not*<ept id="f912d6dc-4d51-4b3f-b7a0-629e7371e38c">&lt;/strong&gt;</ept> the Server Explorer.</target>
+        </trans-unit>
+        <trans-unit id="61477f94-1aba-49df-ae0e-7e34d0b85ce6" xml:space="preserve">
+          <source>The names sound similar but they are very different controls.</source>
+          <target state="new">The names sound similar but they are very different controls.</target>
+        </trans-unit>
+        <trans-unit id="843da939-8ca6-421c-816d-d1f057dfe31a" xml:space="preserve">
+          <source>They are located next to one another so please be careful and make certain you have selected the right one!</source>
+          <target state="new">They are located next to one another so please be careful and make certain you have selected the right one!</target>
+        </trans-unit>
+        <trans-unit id="d3c03686-e189-464b-86c1-c10b33d90654" xml:space="preserve">
+          <source>You can now see the SQL Server Object Explorer:</source>
+          <target state="new">You can now see the SQL Server Object Explorer:</target>
+        </trans-unit>
+        <trans-unit id="6a426c12-a335-4ba0-a26e-72c78ad270fe" xml:space="preserve">
+          <source>Click on the "Add Server" button on the SQL Server Object Explorer.</source>
+          <target state="new">Click on the "Add Server" button on the SQL Server Object Explorer.</target>
+        </trans-unit>
+        <trans-unit id="8de0f539-c493-435e-9268-65406454a953" xml:space="preserve">
+          <source>This has been highlighted in the image below:</source>
+          <target state="new">This has been highlighted in the image below:</target>
+        </trans-unit>
+        <trans-unit id="0ce7153e-58e8-41ef-8829-4e6bb9c5b356" xml:space="preserve">
+          <source>Populate the Connect to Server dialogue box with the values you chose when creating the logical server.</source>
+          <target state="new">Populate the Connect to Server dialogue box with the values you chose when creating the logical server.</target>
+        </trans-unit>
+        <trans-unit id="19211589-beb9-47e0-a13e-5d8d5ce0a65d" xml:space="preserve">
+          <source>Also, click the options button and specify the database that you are connecting to (your SQL Data Warehouse instance) before connecting.</source>
+          <target state="new">Also, click the options button and specify the database that you are connecting to (your SQL Data Warehouse instance) before connecting.</target>
+        </trans-unit>
+        <trans-unit id="0c76ffce-ed49-43af-a0fc-7113cc1e6213" xml:space="preserve">
+          <source>Feel free to check the "Remember Password" tick box if you wish.</source>
+          <target state="new">Feel free to check the "Remember Password" tick box if you wish.</target>
+        </trans-unit>
+        <trans-unit id="484648d6-de20-4724-80d3-68c301961897" xml:space="preserve">
+          <source>It's a nice time saver but remember that this does enable anyone with physical access to your profile to execute queries using this account.</source>
+          <target state="new">It's a nice time saver but remember that this does enable anyone with physical access to your profile to execute queries using this account.</target>
+        </trans-unit>
+        <trans-unit id="479d20d3-60b1-44a1-aabb-c714cfdb01e1" xml:space="preserve">
+          <source>Remember that the server name needs to be fully qualified.</source>
+          <target state="new">Remember that the server name needs to be fully qualified.</target>
+        </trans-unit>
+        <trans-unit id="43c97382-ab80-4b64-a217-6880528d8a29" xml:space="preserve">
+          <source>Therefore your Server name value should follow this convention: <bpt id="34f25eeb-9bff-4af5-b592-1122f3301e7d">&lt;strong&gt;</bpt>*ServerName*<ept id="34f25eeb-9bff-4af5-b592-1122f3301e7d">&lt;/strong&gt;</ept>.database.windows.net where <bpt id="1e688836-eab2-486c-8291-4b104fe7536a">&lt;strong&gt;</bpt>*ServerName*<ept id="1e688836-eab2-486c-8291-4b104fe7536a">&lt;/strong&gt;</ept> is the name you gave to your logical server.</source>
+          <target state="new">Therefore your Server name value should follow this convention: <bpt id="34f25eeb-9bff-4af5-b592-1122f3301e7d">&lt;strong&gt;</bpt>*ServerName*<ept id="34f25eeb-9bff-4af5-b592-1122f3301e7d">&lt;/strong&gt;</ept>.database.windows.net where <bpt id="1e688836-eab2-486c-8291-4b104fe7536a">&lt;strong&gt;</bpt>*ServerName*<ept id="1e688836-eab2-486c-8291-4b104fe7536a">&lt;/strong&gt;</ept> is the name you gave to your logical server.</target>
+        </trans-unit>
+        <trans-unit id="4fb42835-44c1-44f5-9360-854d631e00a2" xml:space="preserve">
+          <source>Click Connect once you have completely filled in the credentials</source>
+          <target state="new">Click Connect once you have completely filled in the credentials</target>
+        </trans-unit>
+        <trans-unit id="ee89d6fc-33c7-4ef8-bc6e-9321b9d04670" xml:space="preserve">
+          <source>You have now completed a connection and have registered your SQLDW Logical Server in the SQL Server Object Explorer.</source>
+          <target state="new">You have now completed a connection and have registered your SQLDW Logical Server in the SQL Server Object Explorer.</target>
+        </trans-unit>
+        <trans-unit id="6492fecb-ad57-4f33-bef8-d8781c7500df" xml:space="preserve">
+          <source>Get to Visual Studio directly from the Azure Portal.</source>
+          <target state="new">Get to Visual Studio directly from the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="5f0bd686-24a2-4011-b82f-d97b10bcdc11" xml:space="preserve">
+          <source>Sign into the <bpt id="75777fca-db25-42de-ba35-10c57fd0f0e7">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="75777fca-db25-42de-ba35-10c57fd0f0e7">&lt;/linkText&gt;</ept><bpt id="75777fca-db25-42de-ba35-10c57fd0f0e7">&lt;title&gt;</bpt><ept id="75777fca-db25-42de-ba35-10c57fd0f0e7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign into the <bpt id="75777fca-db25-42de-ba35-10c57fd0f0e7">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="75777fca-db25-42de-ba35-10c57fd0f0e7">&lt;/linkText&gt;</ept><bpt id="75777fca-db25-42de-ba35-10c57fd0f0e7">&lt;title&gt;</bpt><ept id="75777fca-db25-42de-ba35-10c57fd0f0e7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="76945537-3901-4d9d-9005-cf086edab3c0" xml:space="preserve">
+          <source>Select your desired SQL DW instance within the 'Browse' blade.</source>
+          <target state="new">Select your desired SQL DW instance within the 'Browse' blade.</target>
+        </trans-unit>
+        <trans-unit id="029fcd24-0f59-44c3-920a-c616949a3f70" xml:space="preserve">
+          <source>At the top of your SQL DW blade select 'Open in Visual...'</source>
+          <target state="new">At the top of your SQL DW blade select 'Open in Visual...'</target>
+        </trans-unit>
+        <trans-unit id="717ec5da-babb-44cf-9958-0f8826c576b3" xml:space="preserve">
+          <source>If you have not configured your firewall with the IP of your client machine select 'Configure your firewall.'</source>
+          <target state="new">If you have not configured your firewall with the IP of your client machine select 'Configure your firewall.'</target>
+        </trans-unit>
+        <trans-unit id="60ba3854-ee87-4cbd-bae2-e77caa0af044" xml:space="preserve">
+          <source>Enter a 'Rule Name,' 'Start IP,' and 'End IP.'</source>
+          <target state="new">Enter a 'Rule Name,' 'Start IP,' and 'End IP.'</target>
+        </trans-unit>
+        <trans-unit id="48aa90b2-95ff-48e1-a999-e10103700f2e" xml:space="preserve">
+          <source>Click 'Save' at the top of the blade.</source>
+          <target state="new">Click 'Save' at the top of the blade.</target>
+        </trans-unit>
+        <trans-unit id="fcd056e2-74ef-49db-81c4-e90cd4617b4d" xml:space="preserve">
+          <source>Click 'Open in Visual Studio.'</source>
+          <target state="new">Click 'Open in Visual Studio.'</target>
+        </trans-unit>
+        <trans-unit id="f48a5521-f483-49bf-a510-be596cf14072" xml:space="preserve">
+          <source>Visual Studio will open and you will be prompted for your credentials </source>
+          <target state="new">Visual Studio will open and you will be prompted for your credentials </target>
+        </trans-unit>
+        <trans-unit id="c26e52fa-6e9b-4852-8821-46782e0caadb" xml:space="preserve">
+          <source>After entering your credentials and connecting, your server and DW instances will now appear in your SQL Server Object Explorer panel.</source>
+          <target state="new">After entering your credentials and connecting, your server and DW instances will now appear in your SQL Server Object Explorer panel.</target>
+        </trans-unit>
+        <trans-unit id="5c85ca44-c1e7-474d-91eb-cdf18ee11673" xml:space="preserve">
+          <source>You can also connect to SQL DW with the <bpt id="057e1927-7c9c-4fab-847c-cd6b111735cc">&lt;linkText&gt;</bpt>sqlcmd<ept id="057e1927-7c9c-4fab-847c-cd6b111735cc">&lt;/linkText&gt;</ept><bpt id="057e1927-7c9c-4fab-847c-cd6b111735cc">&lt;title&gt;</bpt><ept id="057e1927-7c9c-4fab-847c-cd6b111735cc">&lt;/title&gt;</ept> command prompt utility that is included with SQL Server or the <bpt id="98917efd-0cb6-44cf-bf61-01ab90216f37">&lt;linkText&gt;</bpt>Microsoft Command Line Utilities 11 for SQL Server<ept id="98917efd-0cb6-44cf-bf61-01ab90216f37">&lt;/linkText&gt;</ept><bpt id="98917efd-0cb6-44cf-bf61-01ab90216f37">&lt;title&gt;</bpt><ept id="98917efd-0cb6-44cf-bf61-01ab90216f37">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also connect to SQL DW with the <bpt id="057e1927-7c9c-4fab-847c-cd6b111735cc">&lt;linkText&gt;</bpt>sqlcmd<ept id="057e1927-7c9c-4fab-847c-cd6b111735cc">&lt;/linkText&gt;</ept><bpt id="057e1927-7c9c-4fab-847c-cd6b111735cc">&lt;title&gt;</bpt><ept id="057e1927-7c9c-4fab-847c-cd6b111735cc">&lt;/title&gt;</ept> command prompt utility that is included with SQL Server or the <bpt id="98917efd-0cb6-44cf-bf61-01ab90216f37">&lt;linkText&gt;</bpt>Microsoft Command Line Utilities 11 for SQL Server<ept id="98917efd-0cb6-44cf-bf61-01ab90216f37">&lt;/linkText&gt;</ept><bpt id="98917efd-0cb6-44cf-bf61-01ab90216f37">&lt;title&gt;</bpt><ept id="98917efd-0cb6-44cf-bf61-01ab90216f37">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3556db71-f49f-4e2b-ae97-bbb9997a4298" xml:space="preserve">
+          <source>The sqlcmd utility lets you enter Transact-SQL statements, system procedures, and script files at the command prompt.</source>
+          <target state="new">The sqlcmd utility lets you enter Transact-SQL statements, system procedures, and script files at the command prompt.</target>
+        </trans-unit>
+        <trans-unit id="c327a617-9547-40ba-ae1d-f6806dfd0c58" xml:space="preserve">
+          <source>To connect to a specific instance of SQL DW when using sqlcmd you will need to open the command prompt and and enter <bpt id="39017b3a-1d3a-44e0-9269-5d21d303f48d">&lt;em&gt;</bpt>sqlcmd<ept id="39017b3a-1d3a-44e0-9269-5d21d303f48d">&lt;/em&gt;</ept> followed by the connection string for your SQL DW database.</source>
+          <target state="new">To connect to a specific instance of SQL DW when using sqlcmd you will need to open the command prompt and and enter <bpt id="39017b3a-1d3a-44e0-9269-5d21d303f48d">&lt;em&gt;</bpt>sqlcmd<ept id="39017b3a-1d3a-44e0-9269-5d21d303f48d">&lt;/em&gt;</ept> followed by the connection string for your SQL DW database.</target>
+        </trans-unit>
+        <trans-unit id="b30c6a92-b674-4703-b7d2-acf4238382fb" xml:space="preserve">
+          <source>The connection string will need to contain the following parameters:</source>
+          <target state="new">The connection string will need to contain the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="c32a27ce-521e-423f-8fae-2760958ded3a" xml:space="preserve">
+          <source><bpt id="7a741b1c-5103-4979-82e7-5d69fe720e3e">&lt;strong&gt;</bpt>User (-U):<ept id="7a741b1c-5103-4979-82e7-5d69fe720e3e">&lt;/strong&gt;</ept> Server user in the form <bpt id="28166669-1e24-4c3d-88c1-51a75dfdd4ab">&lt;code&gt;</bpt>&lt;<ept id="28166669-1e24-4c3d-88c1-51a75dfdd4ab">&lt;/code&gt;</ept>User<bpt id="4f00a843-1a3a-4eaf-b20d-6be70f20315e">&lt;code&gt;</bpt>&gt;<ept id="4f00a843-1a3a-4eaf-b20d-6be70f20315e">&lt;/code&gt;</ept>@<bpt id="1c4f17e7-7f20-46b5-b3c2-c484d6c2862b">&lt;code&gt;</bpt>&lt;<ept id="1c4f17e7-7f20-46b5-b3c2-c484d6c2862b">&lt;/code&gt;</ept>Server Name<bpt id="17a26002-049d-4e0d-86b6-860f32a1a300">&lt;code&gt;</bpt>&gt;<ept id="17a26002-049d-4e0d-86b6-860f32a1a300">&lt;/code&gt;</ept>.database.windows.net</source>
+          <target state="new"><bpt id="7a741b1c-5103-4979-82e7-5d69fe720e3e">&lt;strong&gt;</bpt>User (-U):<ept id="7a741b1c-5103-4979-82e7-5d69fe720e3e">&lt;/strong&gt;</ept> Server user in the form <bpt id="28166669-1e24-4c3d-88c1-51a75dfdd4ab">&lt;code&gt;</bpt>&lt;<ept id="28166669-1e24-4c3d-88c1-51a75dfdd4ab">&lt;/code&gt;</ept>User<bpt id="4f00a843-1a3a-4eaf-b20d-6be70f20315e">&lt;code&gt;</bpt>&gt;<ept id="4f00a843-1a3a-4eaf-b20d-6be70f20315e">&lt;/code&gt;</ept>@<bpt id="1c4f17e7-7f20-46b5-b3c2-c484d6c2862b">&lt;code&gt;</bpt>&lt;<ept id="1c4f17e7-7f20-46b5-b3c2-c484d6c2862b">&lt;/code&gt;</ept>Server Name<bpt id="17a26002-049d-4e0d-86b6-860f32a1a300">&lt;code&gt;</bpt>&gt;<ept id="17a26002-049d-4e0d-86b6-860f32a1a300">&lt;/code&gt;</ept>.database.windows.net</target>
+        </trans-unit>
+        <trans-unit id="55934ef5-3ce1-44a9-bbbb-254b9b76b728" xml:space="preserve">
+          <source><bpt id="98c888fd-28ac-44e4-8612-14f770dc0da4">&lt;strong&gt;</bpt>Password (-P):<ept id="98c888fd-28ac-44e4-8612-14f770dc0da4">&lt;/strong&gt;</ept> Password associated with User</source>
+          <target state="new"><bpt id="98c888fd-28ac-44e4-8612-14f770dc0da4">&lt;strong&gt;</bpt>Password (-P):<ept id="98c888fd-28ac-44e4-8612-14f770dc0da4">&lt;/strong&gt;</ept> Password associated with User</target>
+        </trans-unit>
+        <trans-unit id="48b308e6-c252-45fc-bd5c-b5eda30bd498" xml:space="preserve">
+          <source><bpt id="a1eef766-d7b9-47a6-a158-af9c8e3aa81e">&lt;strong&gt;</bpt>Server (-S):<ept id="a1eef766-d7b9-47a6-a158-af9c8e3aa81e">&lt;/strong&gt;</ept> Server in the form <bpt id="e8091532-da0b-4329-b612-0e21c3ca1635">&lt;code&gt;</bpt>&lt;<ept id="e8091532-da0b-4329-b612-0e21c3ca1635">&lt;/code&gt;</ept>Server Name<bpt id="2c9f8c42-b2e8-49a3-8485-ce5a917f2c98">&lt;code&gt;</bpt>&gt;<ept id="2c9f8c42-b2e8-49a3-8485-ce5a917f2c98">&lt;/code&gt;</ept>.database.windows.net</source>
+          <target state="new"><bpt id="a1eef766-d7b9-47a6-a158-af9c8e3aa81e">&lt;strong&gt;</bpt>Server (-S):<ept id="a1eef766-d7b9-47a6-a158-af9c8e3aa81e">&lt;/strong&gt;</ept> Server in the form <bpt id="e8091532-da0b-4329-b612-0e21c3ca1635">&lt;code&gt;</bpt>&lt;<ept id="e8091532-da0b-4329-b612-0e21c3ca1635">&lt;/code&gt;</ept>Server Name<bpt id="2c9f8c42-b2e8-49a3-8485-ce5a917f2c98">&lt;code&gt;</bpt>&gt;<ept id="2c9f8c42-b2e8-49a3-8485-ce5a917f2c98">&lt;/code&gt;</ept>.database.windows.net</target>
+        </trans-unit>
+        <trans-unit id="a460bb23-b404-4c96-b6f6-bccbd53b977e" xml:space="preserve">
+          <source><bpt id="c3643a61-f883-4b98-b52f-5aea3bf9e22d">&lt;strong&gt;</bpt>Database (-D):<ept id="c3643a61-f883-4b98-b52f-5aea3bf9e22d">&lt;/strong&gt;</ept> Database name </source>
+          <target state="new"><bpt id="c3643a61-f883-4b98-b52f-5aea3bf9e22d">&lt;strong&gt;</bpt>Database (-D):<ept id="c3643a61-f883-4b98-b52f-5aea3bf9e22d">&lt;/strong&gt;</ept> Database name </target>
+        </trans-unit>
+        <trans-unit id="985a8fc1-7fef-496a-9455-c76fe8afb269" xml:space="preserve">
+          <source><bpt id="0a750bcc-7b36-4758-b52b-42fe29a18707">&lt;strong&gt;</bpt>Enable Quoted Identifiers (-I):<ept id="0a750bcc-7b36-4758-b52b-42fe29a18707">&lt;/strong&gt;</ept> Quoted identifiers must be enabled in order to connect to a SQL DW instance.</source>
+          <target state="new"><bpt id="0a750bcc-7b36-4758-b52b-42fe29a18707">&lt;strong&gt;</bpt>Enable Quoted Identifiers (-I):<ept id="0a750bcc-7b36-4758-b52b-42fe29a18707">&lt;/strong&gt;</ept> Quoted identifiers must be enabled in order to connect to a SQL DW instance.</target>
+        </trans-unit>
+        <trans-unit id="63a48307-d4af-469a-9ce2-ecb9e8eafe24" xml:space="preserve">
+          <source>Therefore to connect to a SQL DW instance, you would enter the following:</source>
+          <target state="new">Therefore to connect to a SQL DW instance, you would enter the following:</target>
+        </trans-unit>
+        <trans-unit id="4972d9e8-dc3b-4e1f-9c54-834e491aaf94" xml:space="preserve">
+          <source>After connection, you can issue any supported Transact-SQL statements against the instance.</source>
+          <target state="new">After connection, you can issue any supported Transact-SQL statements against the instance.</target>
+        </trans-unit>
+        <trans-unit id="6d7493be-785c-4595-85bf-e873ce243b5e" xml:space="preserve">
+          <source>For example, the below statement leverages the <bpt id="53c4a238-3474-45e2-bb23-4fcf35c9a470">&lt;linkText&gt;</bpt>CREATE TABLE<ept id="53c4a238-3474-45e2-bb23-4fcf35c9a470">&lt;/linkText&gt;</ept><bpt id="53c4a238-3474-45e2-bb23-4fcf35c9a470">&lt;title&gt;</bpt><ept id="53c4a238-3474-45e2-bb23-4fcf35c9a470">&lt;/title&gt;</ept> statement to create a new table</source>
+          <target state="new">For example, the below statement leverages the <bpt id="53c4a238-3474-45e2-bb23-4fcf35c9a470">&lt;linkText&gt;</bpt>CREATE TABLE<ept id="53c4a238-3474-45e2-bb23-4fcf35c9a470">&lt;/linkText&gt;</ept><bpt id="53c4a238-3474-45e2-bb23-4fcf35c9a470">&lt;title&gt;</bpt><ept id="53c4a238-3474-45e2-bb23-4fcf35c9a470">&lt;/title&gt;</ept> statement to create a new table</target>
+        </trans-unit>
+        <trans-unit id="0d03bfc9-3e20-4cb4-a20c-4e822151bab3" xml:space="preserve">
+          <source>For additional information on sqlcmd refer to the <bpt id="49510e82-87e6-462f-beae-1044099cc108">&lt;linkText&gt;</bpt>sqlcmd documentation<ept id="49510e82-87e6-462f-beae-1044099cc108">&lt;/linkText&gt;</ept><bpt id="49510e82-87e6-462f-beae-1044099cc108">&lt;title&gt;</bpt><ept id="49510e82-87e6-462f-beae-1044099cc108">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information on sqlcmd refer to the <bpt id="49510e82-87e6-462f-beae-1044099cc108">&lt;linkText&gt;</bpt>sqlcmd documentation<ept id="49510e82-87e6-462f-beae-1044099cc108">&lt;/linkText&gt;</ept><bpt id="49510e82-87e6-462f-beae-1044099cc108">&lt;title&gt;</bpt><ept id="49510e82-87e6-462f-beae-1044099cc108">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4b7b4ba-071c-4dd9-a82f-198246425ee3" xml:space="preserve">
+          <source>Now that we have registered our server let's go ahead and write a query.</source>
+          <target state="new">Now that we have registered our server let's go ahead and write a query.</target>
+        </trans-unit>
+        <trans-unit id="3b5cf00a-385c-4c25-bafc-e83ef2ef5c16" xml:space="preserve">
+          <source>Click on the user database in SSDT</source>
+          <target state="new">Click on the user database in SSDT</target>
+        </trans-unit>
+        <trans-unit id="b75851b6-8c5c-44e6-9af5-089dccf452ca" xml:space="preserve">
+          <source>Click on the New Query Button</source>
+          <target state="new">Click on the New Query Button</target>
+        </trans-unit>
+        <trans-unit id="dfc01ddb-4cda-4a31-8fc8-680056e9e931" xml:space="preserve">
+          <source>A new window has now opened</source>
+          <target state="new">A new window has now opened</target>
+        </trans-unit>
+        <trans-unit id="7fb4b673-58e2-4c11-b60d-42842d8a8a8a" xml:space="preserve">
+          <source>Write a query</source>
+          <target state="new">Write a query</target>
+        </trans-unit>
+        <trans-unit id="f67d2a51-d932-4a4d-9545-7fb29aac1364" xml:space="preserve">
+          <source>Type the following code into the query window:</source>
+          <target state="new">Type the following code into the query window:</target>
+        </trans-unit>
+        <trans-unit id="36d1bde7-a480-4977-8c1f-dcaef5981919" xml:space="preserve">
+          <source>Execute the query</source>
+          <target state="new">Execute the query</target>
+        </trans-unit>
+        <trans-unit id="ebcf1a90-1aa9-4e80-a1a1-6115ef4ce56b" xml:space="preserve">
+          <source>To execute the query click on the green arrow below or use the following shortcut <bpt id="4f9c7bac-ab9b-4dc4-912a-d468db70aa49">&lt;code&gt;</bpt>CTRL<ept id="4f9c7bac-ab9b-4dc4-912a-d468db70aa49">&lt;/code&gt;</ept>+<bpt id="152cd2a4-158d-4f12-8fb0-eb8178f51f10">&lt;code&gt;</bpt>SHIFT<ept id="152cd2a4-158d-4f12-8fb0-eb8178f51f10">&lt;/code&gt;</ept>+<bpt id="a6001cc8-51ac-4f41-9e07-b2dfdb06cf8c">&lt;code&gt;</bpt>F5<ept id="a6001cc8-51ac-4f41-9e07-b2dfdb06cf8c">&lt;/code&gt;</ept>:</source>
+          <target state="new">To execute the query click on the green arrow below or use the following shortcut <bpt id="4f9c7bac-ab9b-4dc4-912a-d468db70aa49">&lt;code&gt;</bpt>CTRL<ept id="4f9c7bac-ab9b-4dc4-912a-d468db70aa49">&lt;/code&gt;</ept>+<bpt id="152cd2a4-158d-4f12-8fb0-eb8178f51f10">&lt;code&gt;</bpt>SHIFT<ept id="152cd2a4-158d-4f12-8fb0-eb8178f51f10">&lt;/code&gt;</ept>+<bpt id="a6001cc8-51ac-4f41-9e07-b2dfdb06cf8c">&lt;code&gt;</bpt>F5<ept id="a6001cc8-51ac-4f41-9e07-b2dfdb06cf8c">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="d7986816-e516-4afb-a477-a9d162e0e6ce" xml:space="preserve">
+          <source>Now that you can connect and query try <bpt id="1d30a6d4-e322-4936-a149-fb299ff7bdf1">&lt;linkText&gt;</bpt>loading sample data<ept id="1d30a6d4-e322-4936-a149-fb299ff7bdf1">&lt;/linkText&gt;</ept><bpt id="1d30a6d4-e322-4936-a149-fb299ff7bdf1">&lt;title&gt;</bpt><ept id="1d30a6d4-e322-4936-a149-fb299ff7bdf1">&lt;/title&gt;</ept> or <bpt id="66c5d461-0392-4278-8228-16ba3ebcabc9">&lt;linkText&gt;</bpt>developing code<ept id="66c5d461-0392-4278-8228-16ba3ebcabc9">&lt;/linkText&gt;</ept><bpt id="66c5d461-0392-4278-8228-16ba3ebcabc9">&lt;title&gt;</bpt><ept id="66c5d461-0392-4278-8228-16ba3ebcabc9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Now that you can connect and query try <bpt id="1d30a6d4-e322-4936-a149-fb299ff7bdf1">&lt;linkText&gt;</bpt>loading sample data<ept id="1d30a6d4-e322-4936-a149-fb299ff7bdf1">&lt;/linkText&gt;</ept><bpt id="1d30a6d4-e322-4936-a149-fb299ff7bdf1">&lt;title&gt;</bpt><ept id="1d30a6d4-e322-4936-a149-fb299ff7bdf1">&lt;/title&gt;</ept> or <bpt id="66c5d461-0392-4278-8228-16ba3ebcabc9">&lt;linkText&gt;</bpt>developing code<ept id="66c5d461-0392-4278-8228-16ba3ebcabc9">&lt;/linkText&gt;</ept><bpt id="66c5d461-0392-4278-8228-16ba3ebcabc9">&lt;title&gt;</bpt><ept id="66c5d461-0392-4278-8228-16ba3ebcabc9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0773db30-78fc-4b85-ba0f-091d18a5b37d" xml:space="preserve">
+          <source>./sql-data-warehouse-get-started-load-samples.md</source>
+          <target state="new">./sql-data-warehouse-get-started-load-samples.md</target>
+        </trans-unit>
+        <trans-unit id="2d67fe0f-ad18-46a7-a627-09d1a124ebde" xml:space="preserve">
+          <source>./articles/sql-data-warehouse-overview-develop/</source>
+          <target state="new">./articles/sql-data-warehouse-overview-develop/</target>
+        </trans-unit>
+      </group>
+      <group id="9428ab83-7888-446c-a62b-16147dba5cb4" />
+    </body>
+  </file>
+</xliff>

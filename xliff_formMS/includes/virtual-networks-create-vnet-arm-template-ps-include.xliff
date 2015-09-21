@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8c2f71ad-479f-4ce9-8cee-fb1b50702016" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8c2f71ad-479f-4ce9-8cee-fb1b50702016" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="003c7533-17bd-4b52-97a6-4f9f335f5f8f">
+        <trans-unit id="80a14ea1-b26d-4fb9-8e8c-4a21cd6b3888" xml:space="preserve">
+          <source>To deploy the ARM template you downloaded by using PowerShell, follow the steps below.</source>
+          <target state="new">To deploy the ARM template you downloaded by using PowerShell, follow the steps below.</target>
+        </trans-unit>
+        <trans-unit id="cb636ddc-8aaf-4625-8fe9-9510e67fa8f8" xml:space="preserve">
+          <source>If you have never used Azure PowerShell, see <bpt id="2a73776d-f338-40f2-bc42-edabb5fca017">&lt;linkText&gt;</bpt>How to Install and Configure Azure PowerShell<ept id="2a73776d-f338-40f2-bc42-edabb5fca017">&lt;/linkText&gt;</ept><bpt id="2a73776d-f338-40f2-bc42-edabb5fca017">&lt;title&gt;</bpt><ept id="2a73776d-f338-40f2-bc42-edabb5fca017">&lt;/title&gt;</ept> and follow the instructions all the way to the end to sign into Azure and select your subscription.</source>
+          <target state="new">If you have never used Azure PowerShell, see <bpt id="2a73776d-f338-40f2-bc42-edabb5fca017">&lt;linkText&gt;</bpt>How to Install and Configure Azure PowerShell<ept id="2a73776d-f338-40f2-bc42-edabb5fca017">&lt;/linkText&gt;</ept><bpt id="2a73776d-f338-40f2-bc42-edabb5fca017">&lt;title&gt;</bpt><ept id="2a73776d-f338-40f2-bc42-edabb5fca017">&lt;/title&gt;</ept> and follow the instructions all the way to the end to sign into Azure and select your subscription.</target>
+        </trans-unit>
+        <trans-unit id="5c4abeb1-6e1f-4d18-a41d-b1d55a9066ab" xml:space="preserve">
+          <source>Run the <bpt id="1e0f6509-8e63-48ae-87f9-cad452dd8c26">&lt;strong&gt;</bpt>Switch-AzureMode<ept id="1e0f6509-8e63-48ae-87f9-cad452dd8c26">&lt;/strong&gt;</ept> cmdlet to switch to Resource Manager mode, as shown below.</source>
+          <target state="new">Run the <bpt id="1e0f6509-8e63-48ae-87f9-cad452dd8c26">&lt;strong&gt;</bpt>Switch-AzureMode<ept id="1e0f6509-8e63-48ae-87f9-cad452dd8c26">&lt;/strong&gt;</ept> cmdlet to switch to Resource Manager mode, as shown below.</target>
+        </trans-unit>
+        <trans-unit id="58d01736-5372-4840-8c2c-60cccd585fd2" xml:space="preserve">
+          <source>Switch-AzureMode AzureResourceManager</source>
+          <target state="new">Switch-AzureMode AzureResourceManager</target>
+        </trans-unit>
+        <trans-unit id="851466c3-0728-4a5f-9519-a2cb8776289a" xml:space="preserve">
+          <source>WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.</source>
+          <target state="new">WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.</target>
+        </trans-unit>
+        <trans-unit id="0463634e-622b-445f-aa29-d49404f8e066" xml:space="preserve">
+          <source>The Switch-AzureMode cmdlet will be deprecated soon.</source>
+          <target state="new">The Switch-AzureMode cmdlet will be deprecated soon.</target>
+        </trans-unit>
+        <trans-unit id="a81ac524-e265-448e-b6f9-ec44c1e904ef" xml:space="preserve">
+          <source>When that happens, all Resource Manager cmdlets will be renamed.</source>
+          <target state="new">When that happens, all Resource Manager cmdlets will be renamed.</target>
+        </trans-unit>
+        <trans-unit id="b255627a-e861-47af-bdf7-9e75175858c3" xml:space="preserve">
+          <source>If necessary, run the <bpt id="01e8f5fb-62db-444c-b6ce-d6966c31f812">&lt;strong&gt;</bpt>New-AzureResourceGroup<ept id="01e8f5fb-62db-444c-b6ce-d6966c31f812">&lt;/strong&gt;</ept> cmdlet to create a new resource group.</source>
+          <target state="new">If necessary, run the <bpt id="01e8f5fb-62db-444c-b6ce-d6966c31f812">&lt;strong&gt;</bpt>New-AzureResourceGroup<ept id="01e8f5fb-62db-444c-b6ce-d6966c31f812">&lt;/strong&gt;</ept> cmdlet to create a new resource group.</target>
+        </trans-unit>
+        <trans-unit id="0e79ca98-7e0b-494c-aa77-0e3119b5caf4" xml:space="preserve">
+          <source>The command below creates a resource group named <bpt id="4f69a4aa-fc03-4fe4-8f2c-08540de20a04">&lt;em&gt;</bpt>TestRG<ept id="4f69a4aa-fc03-4fe4-8f2c-08540de20a04">&lt;/em&gt;</ept> in the <bpt id="e8ce610d-818f-425f-8f8d-2265d86eb322">&lt;em&gt;</bpt>Central US<ept id="e8ce610d-818f-425f-8f8d-2265d86eb322">&lt;/em&gt;</ept> azure region.</source>
+          <target state="new">The command below creates a resource group named <bpt id="4f69a4aa-fc03-4fe4-8f2c-08540de20a04">&lt;em&gt;</bpt>TestRG<ept id="4f69a4aa-fc03-4fe4-8f2c-08540de20a04">&lt;/em&gt;</ept> in the <bpt id="e8ce610d-818f-425f-8f8d-2265d86eb322">&lt;em&gt;</bpt>Central US<ept id="e8ce610d-818f-425f-8f8d-2265d86eb322">&lt;/em&gt;</ept> azure region.</target>
+        </trans-unit>
+        <trans-unit id="294fd8c2-86e7-43c7-9385-14cc33e165d5" xml:space="preserve">
+          <source>For more information about resource groups, visit <bpt id="8ae12f4b-4bfd-4ac6-8e9f-c9f1380859e2">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="8ae12f4b-4bfd-4ac6-8e9f-c9f1380859e2">&lt;/linkText&gt;</ept><bpt id="8ae12f4b-4bfd-4ac6-8e9f-c9f1380859e2">&lt;title&gt;</bpt><ept id="8ae12f4b-4bfd-4ac6-8e9f-c9f1380859e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about resource groups, visit <bpt id="8ae12f4b-4bfd-4ac6-8e9f-c9f1380859e2">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="8ae12f4b-4bfd-4ac6-8e9f-c9f1380859e2">&lt;/linkText&gt;</ept><bpt id="8ae12f4b-4bfd-4ac6-8e9f-c9f1380859e2">&lt;title&gt;</bpt><ept id="8ae12f4b-4bfd-4ac6-8e9f-c9f1380859e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60b43fb0-bb0a-4d8d-84f0-58cca947c376" xml:space="preserve">
+          <source>Run the <bpt id="9b580307-5226-4ccf-813b-e7bc50be3db4">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="9b580307-5226-4ccf-813b-e7bc50be3db4">&lt;/strong&gt;</ept> cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above.</source>
+          <target state="new">Run the <bpt id="9b580307-5226-4ccf-813b-e7bc50be3db4">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="9b580307-5226-4ccf-813b-e7bc50be3db4">&lt;/strong&gt;</ept> cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above.</target>
+        </trans-unit>
+        <trans-unit id="8d1fa2bf-8cdd-4bef-b6e3-953afd4de81f" xml:space="preserve">
+          <source>Run the <bpt id="29237355-59a0-43e5-9968-51d55d7ef390">&lt;strong&gt;</bpt>Get-AzureVirtualNetwork<ept id="29237355-59a0-43e5-9968-51d55d7ef390">&lt;/strong&gt;</ept> cmdlet to view the properties of the new VNet, as shown below.</source>
+          <target state="new">Run the <bpt id="29237355-59a0-43e5-9968-51d55d7ef390">&lt;strong&gt;</bpt>Get-AzureVirtualNetwork<ept id="29237355-59a0-43e5-9968-51d55d7ef390">&lt;/strong&gt;</ept> cmdlet to view the properties of the new VNet, as shown below.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

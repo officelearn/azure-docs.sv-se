@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c213e11f-7cf9-45ae-9d3f-e1d13996048f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c213e11f-7cf9-45ae-9d3f-e1d13996048f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d1ebf128-f78e-42a5-aaa0-f146a9fe58b3">
+        <trans-unit id="d2138cb9-3e83-4401-8d65-061468c1fba5" xml:space="preserve">
+          <source>Microsoft Azure Subscription and Service Limits, Quotas, and Constraints</source>
+          <target state="new">Microsoft Azure Subscription and Service Limits, Quotas, and Constraints</target>
+        </trans-unit>
+        <trans-unit id="3870bc90-3ff6-4152-8b0f-5dbbf65d77f1" xml:space="preserve">
+          <source>Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values.</source>
+          <target state="new">Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values.</target>
+        </trans-unit>
+        <trans-unit id="ef85aeca-5a41-414c-8043-b452d006484d" xml:space="preserve">
+          <source>This document specifies some of the most common Microsoft Azure limits.</source>
+          <target state="new">This document specifies some of the most common Microsoft Azure limits.</target>
+        </trans-unit>
+        <trans-unit id="07e61611-549e-4570-b1c9-db4461a2b209" xml:space="preserve">
+          <source>Note that this does not currently cover all Azure services.</source>
+          <target state="new">Note that this does not currently cover all Azure services.</target>
+        </trans-unit>
+        <trans-unit id="9f0dce91-affa-41be-a24d-a684c3e558ec" xml:space="preserve">
+          <source>Over time, these limits will be expanded and updated to cover more of the platform.</source>
+          <target state="new">Over time, these limits will be expanded and updated to cover more of the platform.</target>
+        </trans-unit>
+        <trans-unit id="1fb4de37-c8cd-49d0-bbe1-e7f1f3791007" xml:space="preserve">
+          <source>If you want to raise the limit above the <bpt id="086bce50-7d8c-4fbf-a2f3-837583f607d6">&lt;strong&gt;</bpt>Default Limit<ept id="086bce50-7d8c-4fbf-a2f3-837583f607d6">&lt;/strong&gt;</ept>, you can <bpt id="65252dc1-07ec-45f2-80ab-9660c8b2c9b1">&lt;linkText&gt;</bpt>open an online customer support request at no charge<ept id="65252dc1-07ec-45f2-80ab-9660c8b2c9b1">&lt;/linkText&gt;</ept><bpt id="65252dc1-07ec-45f2-80ab-9660c8b2c9b1">&lt;title&gt;</bpt><ept id="65252dc1-07ec-45f2-80ab-9660c8b2c9b1">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to raise the limit above the <bpt id="086bce50-7d8c-4fbf-a2f3-837583f607d6">&lt;strong&gt;</bpt>Default Limit<ept id="086bce50-7d8c-4fbf-a2f3-837583f607d6">&lt;/strong&gt;</ept>, you can <bpt id="65252dc1-07ec-45f2-80ab-9660c8b2c9b1">&lt;linkText&gt;</bpt>open an online customer support request at no charge<ept id="65252dc1-07ec-45f2-80ab-9660c8b2c9b1">&lt;/linkText&gt;</ept><bpt id="65252dc1-07ec-45f2-80ab-9660c8b2c9b1">&lt;title&gt;</bpt><ept id="65252dc1-07ec-45f2-80ab-9660c8b2c9b1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13ecf2be-60f2-4047-816e-c9b3fff3287b" xml:space="preserve">
+          <source>The limits cannot be raised above the <bpt id="cb99ddc6-116a-44aa-96ab-c1a1c2b7e248">&lt;strong&gt;</bpt>Maximum Limit<ept id="cb99ddc6-116a-44aa-96ab-c1a1c2b7e248">&lt;/strong&gt;</ept> value in the tables below.</source>
+          <target state="new">The limits cannot be raised above the <bpt id="cb99ddc6-116a-44aa-96ab-c1a1c2b7e248">&lt;strong&gt;</bpt>Maximum Limit<ept id="cb99ddc6-116a-44aa-96ab-c1a1c2b7e248">&lt;/strong&gt;</ept> value in the tables below.</target>
+        </trans-unit>
+        <trans-unit id="098e7985-93c5-4ff5-8b5b-7ca5114d4fed" xml:space="preserve">
+          <source>If there is no <bpt id="065b3e51-1b3b-4465-881c-8c68d5b6775a">&lt;strong&gt;</bpt>Maximum Limit<ept id="065b3e51-1b3b-4465-881c-8c68d5b6775a">&lt;/strong&gt;</ept> column, then the specified resource does not have adjustable limits.</source>
+          <target state="new">If there is no <bpt id="065b3e51-1b3b-4465-881c-8c68d5b6775a">&lt;strong&gt;</bpt>Maximum Limit<ept id="065b3e51-1b3b-4465-881c-8c68d5b6775a">&lt;/strong&gt;</ept> column, then the specified resource does not have adjustable limits.</target>
+        </trans-unit>
+        <trans-unit id="2dbaa513-0be5-42e8-8cbe-d5c61bfb1307" xml:space="preserve">
+          <source>It is now possible to combine multiple Azure resources in to a single Azure Resource Group.</source>
+          <target state="new">It is now possible to combine multiple Azure resources in to a single Azure Resource Group.</target>
+        </trans-unit>
+        <trans-unit id="56793a96-eabd-45aa-b8f9-802107829482" xml:space="preserve">
+          <source>When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager.</source>
+          <target state="new">When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="23e57000-c95b-4f14-94e4-70c3e6ff2ab5" xml:space="preserve">
+          <source>For more information about Azure Resource Groups, see <bpt id="279c4e78-6f8d-478d-a6d9-644722d75e58">&lt;linkText&gt;</bpt>Using resource groups to manage your Azure resources<ept id="279c4e78-6f8d-478d-a6d9-644722d75e58">&lt;/linkText&gt;</ept><bpt id="279c4e78-6f8d-478d-a6d9-644722d75e58">&lt;title&gt;</bpt><ept id="279c4e78-6f8d-478d-a6d9-644722d75e58">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Azure Resource Groups, see <bpt id="279c4e78-6f8d-478d-a6d9-644722d75e58">&lt;linkText&gt;</bpt>Using resource groups to manage your Azure resources<ept id="279c4e78-6f8d-478d-a6d9-644722d75e58">&lt;/linkText&gt;</ept><bpt id="279c4e78-6f8d-478d-a6d9-644722d75e58">&lt;title&gt;</bpt><ept id="279c4e78-6f8d-478d-a6d9-644722d75e58">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e451acd-5ed7-4cd2-93f2-1c7df1b04639" xml:space="preserve">
+          <source>In the limits below, a new table has been added to reflect any differences in limits when using the Azure Resource Manager.</source>
+          <target state="new">In the limits below, a new table has been added to reflect any differences in limits when using the Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="e2078206-f1c9-47c1-a402-8ac4760c084d" xml:space="preserve">
+          <source>For example, there is a <bpt id="996b329c-e698-4b8c-a151-5ce92fa94c65">&lt;strong&gt;</bpt>Subscription Limits<ept id="996b329c-e698-4b8c-a151-5ce92fa94c65">&lt;/strong&gt;</ept> table and a <bpt id="ebe6f8b8-9e37-4919-995d-6be6ccf1d387">&lt;strong&gt;</bpt>Subscription Limits - Azure Resource Manager<ept id="ebe6f8b8-9e37-4919-995d-6be6ccf1d387">&lt;/strong&gt;</ept> table.</source>
+          <target state="new">For example, there is a <bpt id="996b329c-e698-4b8c-a151-5ce92fa94c65">&lt;strong&gt;</bpt>Subscription Limits<ept id="996b329c-e698-4b8c-a151-5ce92fa94c65">&lt;/strong&gt;</ept> table and a <bpt id="ebe6f8b8-9e37-4919-995d-6be6ccf1d387">&lt;strong&gt;</bpt>Subscription Limits - Azure Resource Manager<ept id="ebe6f8b8-9e37-4919-995d-6be6ccf1d387">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="4d2a65d8-1268-41cc-8b86-1dbdf6a8d162" xml:space="preserve">
+          <source>When a limit applies to both scenarios, it is only shown in the first table.</source>
+          <target state="new">When a limit applies to both scenarios, it is only shown in the first table.</target>
+        </trans-unit>
+        <trans-unit id="b3892b27-f74c-495e-bbba-2fbcf41374a5" xml:space="preserve">
+          <source>Unless otherwise indicated, limits are global across all regions.</source>
+          <target state="new">Unless otherwise indicated, limits are global across all regions.</target>
+        </trans-unit>
+        <trans-unit id="2b46fdc0-c2a1-4821-8c25-042aa336fc89" xml:space="preserve">
+          <source>It is important to emphasize that quotas for resources in Azure Resource Groups are per-region accessible by your subscription, and are not per-subscription, as the service management quotas are.</source>
+          <target state="new">It is important to emphasize that quotas for resources in Azure Resource Groups are per-region accessible by your subscription, and are not per-subscription, as the service management quotas are.</target>
+        </trans-unit>
+        <trans-unit id="12015c2f-10db-47e3-94f0-11de82adc434" xml:space="preserve">
+          <source>Let's use core quotas as an example.</source>
+          <target state="new">Let's use core quotas as an example.</target>
+        </trans-unit>
+        <trans-unit id="053c6577-fffb-4dbe-95cd-45185046683a" xml:space="preserve">
+          <source>If you need to request a quota increase with support for cores, you need to decide how many cores you want to use in which regions, and then make a specific request for Azure Resource Group core quotas for the amounts and regions that you want.</source>
+          <target state="new">If you need to request a quota increase with support for cores, you need to decide how many cores you want to use in which regions, and then make a specific request for Azure Resource Group core quotas for the amounts and regions that you want.</target>
+        </trans-unit>
+        <trans-unit id="de9cbee8-080d-46fa-9c2c-340f3b894923" xml:space="preserve">
+          <source>Therefore, if you need to use 30 cores in West Europe to run your application there; you should specifically request 30 cores in West Europe.</source>
+          <target state="new">Therefore, if you need to use 30 cores in West Europe to run your application there; you should specifically request 30 cores in West Europe.</target>
+        </trans-unit>
+        <trans-unit id="b06530a6-59f0-4240-9093-f6b1ec34f0c1" xml:space="preserve">
+          <source>But you will not have a core quota increase in any other region -- only West Europe will have the 30-core quota.</source>
+          <target state="new">But you will not have a core quota increase in any other region -- only West Europe will have the 30-core quota.</target>
+        </trans-unit>
+        <trans-unit id="67146214-926a-4d7d-904b-725a629c5d2e" xml:space="preserve">
+          <source>As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment.</source>
+          <target state="new">As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment.</target>
+        </trans-unit>
+        <trans-unit id="205e4f57-f22b-4703-bd0b-78145d7a47cd" xml:space="preserve">
+          <source>See <bpt id="ea3edc21-0ae6-452c-aed3-764e80608d08">&lt;linkText&gt;</bpt>troubleshooting deployment issues<ept id="ea3edc21-0ae6-452c-aed3-764e80608d08">&lt;/linkText&gt;</ept><bpt id="ea3edc21-0ae6-452c-aed3-764e80608d08">&lt;title&gt;</bpt><ept id="ea3edc21-0ae6-452c-aed3-764e80608d08">&lt;/title&gt;</ept> for more help discovering your current quotas for specific regions.</source>
+          <target state="new">See <bpt id="ea3edc21-0ae6-452c-aed3-764e80608d08">&lt;linkText&gt;</bpt>troubleshooting deployment issues<ept id="ea3edc21-0ae6-452c-aed3-764e80608d08">&lt;/linkText&gt;</ept><bpt id="ea3edc21-0ae6-452c-aed3-764e80608d08">&lt;title&gt;</bpt><ept id="ea3edc21-0ae6-452c-aed3-764e80608d08">&lt;/title&gt;</ept> for more help discovering your current quotas for specific regions.</target>
+        </trans-unit>
+        <trans-unit id="ce9a6978-5b83-4cf9-bee3-fd4f354eaea1" xml:space="preserve">
+          <source><bpt id="3481544a-b767-405d-b1c2-c64ab9e183ab">&lt;linkText&gt;</bpt>Active Directory<ept id="3481544a-b767-405d-b1c2-c64ab9e183ab">&lt;/linkText&gt;</ept><bpt id="3481544a-b767-405d-b1c2-c64ab9e183ab">&lt;title&gt;</bpt><ept id="3481544a-b767-405d-b1c2-c64ab9e183ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3481544a-b767-405d-b1c2-c64ab9e183ab">&lt;linkText&gt;</bpt>Active Directory<ept id="3481544a-b767-405d-b1c2-c64ab9e183ab">&lt;/linkText&gt;</ept><bpt id="3481544a-b767-405d-b1c2-c64ab9e183ab">&lt;title&gt;</bpt><ept id="3481544a-b767-405d-b1c2-c64ab9e183ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4735e48d-e660-4274-a435-099b4a0ea63e" xml:space="preserve">
+          <source><bpt id="5cf239b4-b89b-4dd3-92f3-791c62600632">&lt;linkText&gt;</bpt>API Management<ept id="5cf239b4-b89b-4dd3-92f3-791c62600632">&lt;/linkText&gt;</ept><bpt id="5cf239b4-b89b-4dd3-92f3-791c62600632">&lt;title&gt;</bpt><ept id="5cf239b4-b89b-4dd3-92f3-791c62600632">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5cf239b4-b89b-4dd3-92f3-791c62600632">&lt;linkText&gt;</bpt>API Management<ept id="5cf239b4-b89b-4dd3-92f3-791c62600632">&lt;/linkText&gt;</ept><bpt id="5cf239b4-b89b-4dd3-92f3-791c62600632">&lt;title&gt;</bpt><ept id="5cf239b4-b89b-4dd3-92f3-791c62600632">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96f26490-77d7-41ec-9adf-5b84cde986f1" xml:space="preserve">
+          <source><bpt id="1e8f2334-6c8a-48de-a6f7-e7a5db1cf8ac">&lt;linkText&gt;</bpt>App Service<ept id="1e8f2334-6c8a-48de-a6f7-e7a5db1cf8ac">&lt;/linkText&gt;</ept><bpt id="1e8f2334-6c8a-48de-a6f7-e7a5db1cf8ac">&lt;title&gt;</bpt><ept id="1e8f2334-6c8a-48de-a6f7-e7a5db1cf8ac">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e8f2334-6c8a-48de-a6f7-e7a5db1cf8ac">&lt;linkText&gt;</bpt>App Service<ept id="1e8f2334-6c8a-48de-a6f7-e7a5db1cf8ac">&lt;/linkText&gt;</ept><bpt id="1e8f2334-6c8a-48de-a6f7-e7a5db1cf8ac">&lt;title&gt;</bpt><ept id="1e8f2334-6c8a-48de-a6f7-e7a5db1cf8ac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67d0a2bb-17aa-4551-bc0d-9f27082faee1" xml:space="preserve">
+          <source><bpt id="4b2c1327-72bb-4734-8862-9c5286d2b43e">&lt;linkText&gt;</bpt>Application Insights<ept id="4b2c1327-72bb-4734-8862-9c5286d2b43e">&lt;/linkText&gt;</ept><bpt id="4b2c1327-72bb-4734-8862-9c5286d2b43e">&lt;title&gt;</bpt><ept id="4b2c1327-72bb-4734-8862-9c5286d2b43e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4b2c1327-72bb-4734-8862-9c5286d2b43e">&lt;linkText&gt;</bpt>Application Insights<ept id="4b2c1327-72bb-4734-8862-9c5286d2b43e">&lt;/linkText&gt;</ept><bpt id="4b2c1327-72bb-4734-8862-9c5286d2b43e">&lt;title&gt;</bpt><ept id="4b2c1327-72bb-4734-8862-9c5286d2b43e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62fd842e-f121-419f-97be-f64b2bea2383" xml:space="preserve">
+          <source><bpt id="27be0493-c337-4444-b676-686a9cfef9c8">&lt;linkText&gt;</bpt>Azure Redis Cache<ept id="27be0493-c337-4444-b676-686a9cfef9c8">&lt;/linkText&gt;</ept><bpt id="27be0493-c337-4444-b676-686a9cfef9c8">&lt;title&gt;</bpt><ept id="27be0493-c337-4444-b676-686a9cfef9c8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="27be0493-c337-4444-b676-686a9cfef9c8">&lt;linkText&gt;</bpt>Azure Redis Cache<ept id="27be0493-c337-4444-b676-686a9cfef9c8">&lt;/linkText&gt;</ept><bpt id="27be0493-c337-4444-b676-686a9cfef9c8">&lt;title&gt;</bpt><ept id="27be0493-c337-4444-b676-686a9cfef9c8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88fc7672-2860-46c3-b747-d132858fed07" xml:space="preserve">
+          <source><bpt id="8fceea0e-7e4c-4336-bfae-5e55d7731a11">&lt;linkText&gt;</bpt>Azure RemoteApp<ept id="8fceea0e-7e4c-4336-bfae-5e55d7731a11">&lt;/linkText&gt;</ept><bpt id="8fceea0e-7e4c-4336-bfae-5e55d7731a11">&lt;title&gt;</bpt><ept id="8fceea0e-7e4c-4336-bfae-5e55d7731a11">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8fceea0e-7e4c-4336-bfae-5e55d7731a11">&lt;linkText&gt;</bpt>Azure RemoteApp<ept id="8fceea0e-7e4c-4336-bfae-5e55d7731a11">&lt;/linkText&gt;</ept><bpt id="8fceea0e-7e4c-4336-bfae-5e55d7731a11">&lt;title&gt;</bpt><ept id="8fceea0e-7e4c-4336-bfae-5e55d7731a11">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa13acd5-8447-43b2-8752-9f7e6b6c3adc" xml:space="preserve">
+          <source><bpt id="cf6f2d0b-1862-4785-a069-eb1a2171f01e">&lt;linkText&gt;</bpt>Backup<ept id="cf6f2d0b-1862-4785-a069-eb1a2171f01e">&lt;/linkText&gt;</ept><bpt id="cf6f2d0b-1862-4785-a069-eb1a2171f01e">&lt;title&gt;</bpt><ept id="cf6f2d0b-1862-4785-a069-eb1a2171f01e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cf6f2d0b-1862-4785-a069-eb1a2171f01e">&lt;linkText&gt;</bpt>Backup<ept id="cf6f2d0b-1862-4785-a069-eb1a2171f01e">&lt;/linkText&gt;</ept><bpt id="cf6f2d0b-1862-4785-a069-eb1a2171f01e">&lt;title&gt;</bpt><ept id="cf6f2d0b-1862-4785-a069-eb1a2171f01e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e403360-76e4-4bf9-b8b7-2e9ca6261d20" xml:space="preserve">
+          <source><bpt id="70b65999-45f7-4be3-ad49-f75772a9edb5">&lt;linkText&gt;</bpt>Batch<ept id="70b65999-45f7-4be3-ad49-f75772a9edb5">&lt;/linkText&gt;</ept><bpt id="70b65999-45f7-4be3-ad49-f75772a9edb5">&lt;title&gt;</bpt><ept id="70b65999-45f7-4be3-ad49-f75772a9edb5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="70b65999-45f7-4be3-ad49-f75772a9edb5">&lt;linkText&gt;</bpt>Batch<ept id="70b65999-45f7-4be3-ad49-f75772a9edb5">&lt;/linkText&gt;</ept><bpt id="70b65999-45f7-4be3-ad49-f75772a9edb5">&lt;title&gt;</bpt><ept id="70b65999-45f7-4be3-ad49-f75772a9edb5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96928fbc-1467-48cd-8361-3b2c2984e66a" xml:space="preserve">
+          <source><bpt id="afa28a23-62fd-44b5-b102-8cf8058cb2cd">&lt;linkText&gt;</bpt>CDN<ept id="afa28a23-62fd-44b5-b102-8cf8058cb2cd">&lt;/linkText&gt;</ept><bpt id="afa28a23-62fd-44b5-b102-8cf8058cb2cd">&lt;title&gt;</bpt><ept id="afa28a23-62fd-44b5-b102-8cf8058cb2cd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="afa28a23-62fd-44b5-b102-8cf8058cb2cd">&lt;linkText&gt;</bpt>CDN<ept id="afa28a23-62fd-44b5-b102-8cf8058cb2cd">&lt;/linkText&gt;</ept><bpt id="afa28a23-62fd-44b5-b102-8cf8058cb2cd">&lt;title&gt;</bpt><ept id="afa28a23-62fd-44b5-b102-8cf8058cb2cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e262f16-bb07-491f-ac89-56b9ef35a429" xml:space="preserve">
+          <source><bpt id="bbcf4d25-634a-4c05-af80-9785f752553f">&lt;linkText&gt;</bpt>Cloud Services<ept id="bbcf4d25-634a-4c05-af80-9785f752553f">&lt;/linkText&gt;</ept><bpt id="bbcf4d25-634a-4c05-af80-9785f752553f">&lt;title&gt;</bpt><ept id="bbcf4d25-634a-4c05-af80-9785f752553f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bbcf4d25-634a-4c05-af80-9785f752553f">&lt;linkText&gt;</bpt>Cloud Services<ept id="bbcf4d25-634a-4c05-af80-9785f752553f">&lt;/linkText&gt;</ept><bpt id="bbcf4d25-634a-4c05-af80-9785f752553f">&lt;title&gt;</bpt><ept id="bbcf4d25-634a-4c05-af80-9785f752553f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48f33374-d52b-4b75-b011-3e3f0411cd15" xml:space="preserve">
+          <source><bpt id="1e46fbd6-d6e3-400b-b042-524f633c5732">&lt;linkText&gt;</bpt>Data Factory<ept id="1e46fbd6-d6e3-400b-b042-524f633c5732">&lt;/linkText&gt;</ept><bpt id="1e46fbd6-d6e3-400b-b042-524f633c5732">&lt;title&gt;</bpt><ept id="1e46fbd6-d6e3-400b-b042-524f633c5732">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e46fbd6-d6e3-400b-b042-524f633c5732">&lt;linkText&gt;</bpt>Data Factory<ept id="1e46fbd6-d6e3-400b-b042-524f633c5732">&lt;/linkText&gt;</ept><bpt id="1e46fbd6-d6e3-400b-b042-524f633c5732">&lt;title&gt;</bpt><ept id="1e46fbd6-d6e3-400b-b042-524f633c5732">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf650202-b1ec-44c5-99f7-7e3daba6872a" xml:space="preserve">
+          <source><bpt id="28bf0477-d7fa-4d4b-bf05-42c862335d3e">&lt;linkText&gt;</bpt>DocumentDB<ept id="28bf0477-d7fa-4d4b-bf05-42c862335d3e">&lt;/linkText&gt;</ept><bpt id="28bf0477-d7fa-4d4b-bf05-42c862335d3e">&lt;title&gt;</bpt><ept id="28bf0477-d7fa-4d4b-bf05-42c862335d3e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="28bf0477-d7fa-4d4b-bf05-42c862335d3e">&lt;linkText&gt;</bpt>DocumentDB<ept id="28bf0477-d7fa-4d4b-bf05-42c862335d3e">&lt;/linkText&gt;</ept><bpt id="28bf0477-d7fa-4d4b-bf05-42c862335d3e">&lt;title&gt;</bpt><ept id="28bf0477-d7fa-4d4b-bf05-42c862335d3e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="84261dde-3d42-4261-ae5d-720a4c6b40cb" xml:space="preserve">
+          <source><bpt id="10869a0b-3d1c-4a80-a8c2-c440997ce608">&lt;linkText&gt;</bpt>Key Vault<ept id="10869a0b-3d1c-4a80-a8c2-c440997ce608">&lt;/linkText&gt;</ept><bpt id="10869a0b-3d1c-4a80-a8c2-c440997ce608">&lt;title&gt;</bpt><ept id="10869a0b-3d1c-4a80-a8c2-c440997ce608">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="10869a0b-3d1c-4a80-a8c2-c440997ce608">&lt;linkText&gt;</bpt>Key Vault<ept id="10869a0b-3d1c-4a80-a8c2-c440997ce608">&lt;/linkText&gt;</ept><bpt id="10869a0b-3d1c-4a80-a8c2-c440997ce608">&lt;title&gt;</bpt><ept id="10869a0b-3d1c-4a80-a8c2-c440997ce608">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f5d24fd-8f13-44a0-bdc7-4fd1767acad7" xml:space="preserve">
+          <source><bpt id="3d247126-002f-4c95-9deb-e92c67a19ee7">&lt;linkText&gt;</bpt>Media Services<ept id="3d247126-002f-4c95-9deb-e92c67a19ee7">&lt;/linkText&gt;</ept><bpt id="3d247126-002f-4c95-9deb-e92c67a19ee7">&lt;title&gt;</bpt><ept id="3d247126-002f-4c95-9deb-e92c67a19ee7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d247126-002f-4c95-9deb-e92c67a19ee7">&lt;linkText&gt;</bpt>Media Services<ept id="3d247126-002f-4c95-9deb-e92c67a19ee7">&lt;/linkText&gt;</ept><bpt id="3d247126-002f-4c95-9deb-e92c67a19ee7">&lt;title&gt;</bpt><ept id="3d247126-002f-4c95-9deb-e92c67a19ee7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70ff0d32-ff4d-495c-8299-0e256e4e63d8" xml:space="preserve">
+          <source><bpt id="6f3dacf0-429b-4872-b67f-ca2cdc28c24d">&lt;linkText&gt;</bpt>Mobile Engagement<ept id="6f3dacf0-429b-4872-b67f-ca2cdc28c24d">&lt;/linkText&gt;</ept><bpt id="6f3dacf0-429b-4872-b67f-ca2cdc28c24d">&lt;title&gt;</bpt><ept id="6f3dacf0-429b-4872-b67f-ca2cdc28c24d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6f3dacf0-429b-4872-b67f-ca2cdc28c24d">&lt;linkText&gt;</bpt>Mobile Engagement<ept id="6f3dacf0-429b-4872-b67f-ca2cdc28c24d">&lt;/linkText&gt;</ept><bpt id="6f3dacf0-429b-4872-b67f-ca2cdc28c24d">&lt;title&gt;</bpt><ept id="6f3dacf0-429b-4872-b67f-ca2cdc28c24d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b2f374e-605d-46a1-8eaa-96be30694cf7" xml:space="preserve">
+          <source><bpt id="ec22eaf1-5a94-4b35-9abd-8631781dbd5f">&lt;linkText&gt;</bpt>Mobile Services<ept id="ec22eaf1-5a94-4b35-9abd-8631781dbd5f">&lt;/linkText&gt;</ept><bpt id="ec22eaf1-5a94-4b35-9abd-8631781dbd5f">&lt;title&gt;</bpt><ept id="ec22eaf1-5a94-4b35-9abd-8631781dbd5f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ec22eaf1-5a94-4b35-9abd-8631781dbd5f">&lt;linkText&gt;</bpt>Mobile Services<ept id="ec22eaf1-5a94-4b35-9abd-8631781dbd5f">&lt;/linkText&gt;</ept><bpt id="ec22eaf1-5a94-4b35-9abd-8631781dbd5f">&lt;title&gt;</bpt><ept id="ec22eaf1-5a94-4b35-9abd-8631781dbd5f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edc454c7-f098-44f7-9792-693817578ecc" xml:space="preserve">
+          <source><bpt id="0d33d542-bab0-41ae-9533-08847c73e67d">&lt;linkText&gt;</bpt>Multi-Factor Authentication<ept id="0d33d542-bab0-41ae-9533-08847c73e67d">&lt;/linkText&gt;</ept><bpt id="0d33d542-bab0-41ae-9533-08847c73e67d">&lt;title&gt;</bpt><ept id="0d33d542-bab0-41ae-9533-08847c73e67d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0d33d542-bab0-41ae-9533-08847c73e67d">&lt;linkText&gt;</bpt>Multi-Factor Authentication<ept id="0d33d542-bab0-41ae-9533-08847c73e67d">&lt;/linkText&gt;</ept><bpt id="0d33d542-bab0-41ae-9533-08847c73e67d">&lt;title&gt;</bpt><ept id="0d33d542-bab0-41ae-9533-08847c73e67d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b97ae0d3-4a0c-424e-bbf7-7e9541603776" xml:space="preserve">
+          <source><bpt id="194a958b-863e-4c45-a833-b4adf260ef25">&lt;linkText&gt;</bpt>Networking<ept id="194a958b-863e-4c45-a833-b4adf260ef25">&lt;/linkText&gt;</ept><bpt id="194a958b-863e-4c45-a833-b4adf260ef25">&lt;title&gt;</bpt><ept id="194a958b-863e-4c45-a833-b4adf260ef25">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="194a958b-863e-4c45-a833-b4adf260ef25">&lt;linkText&gt;</bpt>Networking<ept id="194a958b-863e-4c45-a833-b4adf260ef25">&lt;/linkText&gt;</ept><bpt id="194a958b-863e-4c45-a833-b4adf260ef25">&lt;title&gt;</bpt><ept id="194a958b-863e-4c45-a833-b4adf260ef25">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31f764b5-af9b-4147-8abd-7e5b194d5762" xml:space="preserve">
+          <source><bpt id="25756909-3abc-4aff-a458-66bfb040fa20">&lt;linkText&gt;</bpt>Notification Hub Service<ept id="25756909-3abc-4aff-a458-66bfb040fa20">&lt;/linkText&gt;</ept><bpt id="25756909-3abc-4aff-a458-66bfb040fa20">&lt;title&gt;</bpt><ept id="25756909-3abc-4aff-a458-66bfb040fa20">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="25756909-3abc-4aff-a458-66bfb040fa20">&lt;linkText&gt;</bpt>Notification Hub Service<ept id="25756909-3abc-4aff-a458-66bfb040fa20">&lt;/linkText&gt;</ept><bpt id="25756909-3abc-4aff-a458-66bfb040fa20">&lt;title&gt;</bpt><ept id="25756909-3abc-4aff-a458-66bfb040fa20">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4ae0149-85fa-42d0-a13e-f8793197b9d6" xml:space="preserve">
+          <source><bpt id="8de000bc-2a31-4437-9430-1d865c752638">&lt;linkText&gt;</bpt>Operational Insights<ept id="8de000bc-2a31-4437-9430-1d865c752638">&lt;/linkText&gt;</ept><bpt id="8de000bc-2a31-4437-9430-1d865c752638">&lt;title&gt;</bpt><ept id="8de000bc-2a31-4437-9430-1d865c752638">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8de000bc-2a31-4437-9430-1d865c752638">&lt;linkText&gt;</bpt>Operational Insights<ept id="8de000bc-2a31-4437-9430-1d865c752638">&lt;/linkText&gt;</ept><bpt id="8de000bc-2a31-4437-9430-1d865c752638">&lt;title&gt;</bpt><ept id="8de000bc-2a31-4437-9430-1d865c752638">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f4fd446-bf45-4d20-8b5f-2d8d74204458" xml:space="preserve">
+          <source><bpt id="1c0bf826-79cf-4758-b3c7-2f2c1d4879c7">&lt;linkText&gt;</bpt>Resource Group<ept id="1c0bf826-79cf-4758-b3c7-2f2c1d4879c7">&lt;/linkText&gt;</ept><bpt id="1c0bf826-79cf-4758-b3c7-2f2c1d4879c7">&lt;title&gt;</bpt><ept id="1c0bf826-79cf-4758-b3c7-2f2c1d4879c7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1c0bf826-79cf-4758-b3c7-2f2c1d4879c7">&lt;linkText&gt;</bpt>Resource Group<ept id="1c0bf826-79cf-4758-b3c7-2f2c1d4879c7">&lt;/linkText&gt;</ept><bpt id="1c0bf826-79cf-4758-b3c7-2f2c1d4879c7">&lt;title&gt;</bpt><ept id="1c0bf826-79cf-4758-b3c7-2f2c1d4879c7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66d1454f-bbca-499e-a4c5-fe46974f849d" xml:space="preserve">
+          <source><bpt id="d725a6cd-5c8d-41d7-8c0a-ec4e410885df">&lt;linkText&gt;</bpt>Scheduler<ept id="d725a6cd-5c8d-41d7-8c0a-ec4e410885df">&lt;/linkText&gt;</ept><bpt id="d725a6cd-5c8d-41d7-8c0a-ec4e410885df">&lt;title&gt;</bpt><ept id="d725a6cd-5c8d-41d7-8c0a-ec4e410885df">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d725a6cd-5c8d-41d7-8c0a-ec4e410885df">&lt;linkText&gt;</bpt>Scheduler<ept id="d725a6cd-5c8d-41d7-8c0a-ec4e410885df">&lt;/linkText&gt;</ept><bpt id="d725a6cd-5c8d-41d7-8c0a-ec4e410885df">&lt;title&gt;</bpt><ept id="d725a6cd-5c8d-41d7-8c0a-ec4e410885df">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb906ee8-faf3-4d3a-85c2-316a4797bad6" xml:space="preserve">
+          <source><bpt id="e49b3444-ead6-4847-a7f8-d2594b9abe32">&lt;linkText&gt;</bpt>Search<ept id="e49b3444-ead6-4847-a7f8-d2594b9abe32">&lt;/linkText&gt;</ept><bpt id="e49b3444-ead6-4847-a7f8-d2594b9abe32">&lt;title&gt;</bpt><ept id="e49b3444-ead6-4847-a7f8-d2594b9abe32">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e49b3444-ead6-4847-a7f8-d2594b9abe32">&lt;linkText&gt;</bpt>Search<ept id="e49b3444-ead6-4847-a7f8-d2594b9abe32">&lt;/linkText&gt;</ept><bpt id="e49b3444-ead6-4847-a7f8-d2594b9abe32">&lt;title&gt;</bpt><ept id="e49b3444-ead6-4847-a7f8-d2594b9abe32">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da10df56-89c3-45cc-961c-fe0350da6cc1" xml:space="preserve">
+          <source><bpt id="ed5ac0b2-8da5-4cda-89f3-89aef17184f8">&lt;linkText&gt;</bpt>Service Bus<ept id="ed5ac0b2-8da5-4cda-89f3-89aef17184f8">&lt;/linkText&gt;</ept><bpt id="ed5ac0b2-8da5-4cda-89f3-89aef17184f8">&lt;title&gt;</bpt><ept id="ed5ac0b2-8da5-4cda-89f3-89aef17184f8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ed5ac0b2-8da5-4cda-89f3-89aef17184f8">&lt;linkText&gt;</bpt>Service Bus<ept id="ed5ac0b2-8da5-4cda-89f3-89aef17184f8">&lt;/linkText&gt;</ept><bpt id="ed5ac0b2-8da5-4cda-89f3-89aef17184f8">&lt;title&gt;</bpt><ept id="ed5ac0b2-8da5-4cda-89f3-89aef17184f8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03bb5be4-f31a-4111-b505-2ceb7ddfceb3" xml:space="preserve">
+          <source><bpt id="63435aed-13fa-456c-bcfa-f4ae1c15ccfd">&lt;linkText&gt;</bpt>Site Recovery<ept id="63435aed-13fa-456c-bcfa-f4ae1c15ccfd">&lt;/linkText&gt;</ept><bpt id="63435aed-13fa-456c-bcfa-f4ae1c15ccfd">&lt;title&gt;</bpt><ept id="63435aed-13fa-456c-bcfa-f4ae1c15ccfd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="63435aed-13fa-456c-bcfa-f4ae1c15ccfd">&lt;linkText&gt;</bpt>Site Recovery<ept id="63435aed-13fa-456c-bcfa-f4ae1c15ccfd">&lt;/linkText&gt;</ept><bpt id="63435aed-13fa-456c-bcfa-f4ae1c15ccfd">&lt;title&gt;</bpt><ept id="63435aed-13fa-456c-bcfa-f4ae1c15ccfd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3099086-14ae-4588-abea-b009922fe5a8" xml:space="preserve">
+          <source><bpt id="0db3ef34-a7b9-4786-a6a1-4961083824fe">&lt;linkText&gt;</bpt>SQL Database<ept id="0db3ef34-a7b9-4786-a6a1-4961083824fe">&lt;/linkText&gt;</ept><bpt id="0db3ef34-a7b9-4786-a6a1-4961083824fe">&lt;title&gt;</bpt><ept id="0db3ef34-a7b9-4786-a6a1-4961083824fe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0db3ef34-a7b9-4786-a6a1-4961083824fe">&lt;linkText&gt;</bpt>SQL Database<ept id="0db3ef34-a7b9-4786-a6a1-4961083824fe">&lt;/linkText&gt;</ept><bpt id="0db3ef34-a7b9-4786-a6a1-4961083824fe">&lt;title&gt;</bpt><ept id="0db3ef34-a7b9-4786-a6a1-4961083824fe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c0e0781-4677-4c89-b586-8fe129e9eb79" xml:space="preserve">
+          <source><bpt id="9e343c9e-b6f8-4e58-95ba-a6975d2b8496">&lt;linkText&gt;</bpt>Storage<ept id="9e343c9e-b6f8-4e58-95ba-a6975d2b8496">&lt;/linkText&gt;</ept><bpt id="9e343c9e-b6f8-4e58-95ba-a6975d2b8496">&lt;title&gt;</bpt><ept id="9e343c9e-b6f8-4e58-95ba-a6975d2b8496">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9e343c9e-b6f8-4e58-95ba-a6975d2b8496">&lt;linkText&gt;</bpt>Storage<ept id="9e343c9e-b6f8-4e58-95ba-a6975d2b8496">&lt;/linkText&gt;</ept><bpt id="9e343c9e-b6f8-4e58-95ba-a6975d2b8496">&lt;title&gt;</bpt><ept id="9e343c9e-b6f8-4e58-95ba-a6975d2b8496">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04c7e5b8-d997-4c6a-8e26-76abb47b878b" xml:space="preserve">
+          <source><bpt id="522a289f-c2d0-49dc-aa06-167649eaf74e">&lt;linkText&gt;</bpt>StorSimple System<ept id="522a289f-c2d0-49dc-aa06-167649eaf74e">&lt;/linkText&gt;</ept><bpt id="522a289f-c2d0-49dc-aa06-167649eaf74e">&lt;title&gt;</bpt><ept id="522a289f-c2d0-49dc-aa06-167649eaf74e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="522a289f-c2d0-49dc-aa06-167649eaf74e">&lt;linkText&gt;</bpt>StorSimple System<ept id="522a289f-c2d0-49dc-aa06-167649eaf74e">&lt;/linkText&gt;</ept><bpt id="522a289f-c2d0-49dc-aa06-167649eaf74e">&lt;title&gt;</bpt><ept id="522a289f-c2d0-49dc-aa06-167649eaf74e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00b56e48-7eb8-4c54-8f93-73d41b7c51e6" xml:space="preserve">
+          <source><bpt id="5cbf4dda-bdf2-4744-8fe8-bd7aecafd628">&lt;linkText&gt;</bpt>Stream Analytics<ept id="5cbf4dda-bdf2-4744-8fe8-bd7aecafd628">&lt;/linkText&gt;</ept><bpt id="5cbf4dda-bdf2-4744-8fe8-bd7aecafd628">&lt;title&gt;</bpt><ept id="5cbf4dda-bdf2-4744-8fe8-bd7aecafd628">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5cbf4dda-bdf2-4744-8fe8-bd7aecafd628">&lt;linkText&gt;</bpt>Stream Analytics<ept id="5cbf4dda-bdf2-4744-8fe8-bd7aecafd628">&lt;/linkText&gt;</ept><bpt id="5cbf4dda-bdf2-4744-8fe8-bd7aecafd628">&lt;title&gt;</bpt><ept id="5cbf4dda-bdf2-4744-8fe8-bd7aecafd628">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43c2c533-44ec-4199-9509-347981ad676b" xml:space="preserve">
+          <source><bpt id="334dbf31-8e5c-488a-ad38-e4b8d5e471cb">&lt;linkText&gt;</bpt>Subscription<ept id="334dbf31-8e5c-488a-ad38-e4b8d5e471cb">&lt;/linkText&gt;</ept><bpt id="334dbf31-8e5c-488a-ad38-e4b8d5e471cb">&lt;title&gt;</bpt><ept id="334dbf31-8e5c-488a-ad38-e4b8d5e471cb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="334dbf31-8e5c-488a-ad38-e4b8d5e471cb">&lt;linkText&gt;</bpt>Subscription<ept id="334dbf31-8e5c-488a-ad38-e4b8d5e471cb">&lt;/linkText&gt;</ept><bpt id="334dbf31-8e5c-488a-ad38-e4b8d5e471cb">&lt;title&gt;</bpt><ept id="334dbf31-8e5c-488a-ad38-e4b8d5e471cb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="637be8d5-2c75-440c-8ee1-5f00734bebf6" xml:space="preserve">
+          <source><bpt id="897a6c6a-7387-4185-9aa6-e28f28139792">&lt;linkText&gt;</bpt>Virtual Machines<ept id="897a6c6a-7387-4185-9aa6-e28f28139792">&lt;/linkText&gt;</ept><bpt id="897a6c6a-7387-4185-9aa6-e28f28139792">&lt;title&gt;</bpt><ept id="897a6c6a-7387-4185-9aa6-e28f28139792">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="897a6c6a-7387-4185-9aa6-e28f28139792">&lt;linkText&gt;</bpt>Virtual Machines<ept id="897a6c6a-7387-4185-9aa6-e28f28139792">&lt;/linkText&gt;</ept><bpt id="897a6c6a-7387-4185-9aa6-e28f28139792">&lt;title&gt;</bpt><ept id="897a6c6a-7387-4185-9aa6-e28f28139792">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="228c7da1-e596-4dc0-a7bb-d76bec348a16" xml:space="preserve">
+          <source><bpt id="939762a5-1edd-4a12-9119-a3792bec31d8">&lt;token href="../includes/azure-subscription-limits.md"&gt;</bpt><ept id="939762a5-1edd-4a12-9119-a3792bec31d8">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="939762a5-1edd-4a12-9119-a3792bec31d8">&lt;token href="../includes/azure-subscription-limits.md"&gt;</bpt><ept id="939762a5-1edd-4a12-9119-a3792bec31d8">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8b7d52e-f7f0-4a13-90f4-807c47c64fc1" xml:space="preserve">
+          <source>The following limits apply when using the Azure Resource Manager and Azure Resource Groups.</source>
+          <target state="new">The following limits apply when using the Azure Resource Manager and Azure Resource Groups.</target>
+        </trans-unit>
+        <trans-unit id="1a1bf00e-15a0-4b03-aa9d-0c1fde707902" xml:space="preserve">
+          <source>Limits that have not changed with the Azure Resource Manager are not listed below.</source>
+          <target state="new">Limits that have not changed with the Azure Resource Manager are not listed below.</target>
+        </trans-unit>
+        <trans-unit id="a64009f6-8e5c-4b1d-92d4-4871ee3dbd3f" xml:space="preserve">
+          <source>Please refer to the previous table for those limits.</source>
+          <target state="new">Please refer to the previous table for those limits.</target>
+        </trans-unit>
+        <trans-unit id="bc4bf10d-4b8a-4d7e-b584-3245dae70176" xml:space="preserve">
+          <source><bpt id="e548569c-dd5d-4e70-845b-6cbe7e767905">&lt;token href="../includes/azure-subscription-limits-azure-resource-manager.md"&gt;</bpt><ept id="e548569c-dd5d-4e70-845b-6cbe7e767905">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e548569c-dd5d-4e70-845b-6cbe7e767905">&lt;token href="../includes/azure-subscription-limits-azure-resource-manager.md"&gt;</bpt><ept id="e548569c-dd5d-4e70-845b-6cbe7e767905">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec03e5da-adb9-4636-a2fe-691de65c064d" xml:space="preserve">
+          <source><bpt id="086938df-0cbb-4894-bb87-c26bdc6dd022">&lt;token href="../includes/azure-resource-groups-limits.md"&gt;</bpt><ept id="086938df-0cbb-4894-bb87-c26bdc6dd022">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="086938df-0cbb-4894-bb87-c26bdc6dd022">&lt;token href="../includes/azure-resource-groups-limits.md"&gt;</bpt><ept id="086938df-0cbb-4894-bb87-c26bdc6dd022">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99c7eaba-c6e2-4d12-87e9-689a9893ff6c" xml:space="preserve">
+          <source><bpt id="1a28ac9d-4645-42c1-ae81-e66b25a4ca19">&lt;token href="../includes/azure-virtual-machines-limits.md"&gt;</bpt><ept id="1a28ac9d-4645-42c1-ae81-e66b25a4ca19">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1a28ac9d-4645-42c1-ae81-e66b25a4ca19">&lt;token href="../includes/azure-virtual-machines-limits.md"&gt;</bpt><ept id="1a28ac9d-4645-42c1-ae81-e66b25a4ca19">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f2c5705-1fc0-4b32-94b1-f2930964bb30" xml:space="preserve">
+          <source>The following limits apply when using the Azure Resource Manager and Azure Resource Groups.</source>
+          <target state="new">The following limits apply when using the Azure Resource Manager and Azure Resource Groups.</target>
+        </trans-unit>
+        <trans-unit id="b1c99d75-8acb-4b38-b816-8a4bb9ca3f95" xml:space="preserve">
+          <source>Limits that have not changed with the Azure Resource Manager are not listed below.</source>
+          <target state="new">Limits that have not changed with the Azure Resource Manager are not listed below.</target>
+        </trans-unit>
+        <trans-unit id="6fb527e3-8da3-48fd-bf2e-8e2ff6011064" xml:space="preserve">
+          <source>Please refer to the previous table for those limits.</source>
+          <target state="new">Please refer to the previous table for those limits.</target>
+        </trans-unit>
+        <trans-unit id="88a53dab-99da-4311-82f4-75b0147b62ff" xml:space="preserve">
+          <source><bpt id="f5bdfb77-837c-469a-8f94-b4b7ebc0e9e3">&lt;token href="../includes/azure-virtual-machines-limits-azure-resource-manager.md"&gt;</bpt><ept id="f5bdfb77-837c-469a-8f94-b4b7ebc0e9e3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f5bdfb77-837c-469a-8f94-b4b7ebc0e9e3">&lt;token href="../includes/azure-virtual-machines-limits-azure-resource-manager.md"&gt;</bpt><ept id="f5bdfb77-837c-469a-8f94-b4b7ebc0e9e3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39b426e2-28e2-4083-854a-ea6c6f5b0199" xml:space="preserve">
+          <source><bpt id="bafe3b38-18b5-4ef3-af1d-5c0406c48487">&lt;token href="../includes/azure-virtual-network-limits.md"&gt;</bpt><ept id="bafe3b38-18b5-4ef3-af1d-5c0406c48487">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="bafe3b38-18b5-4ef3-af1d-5c0406c48487">&lt;token href="../includes/azure-virtual-network-limits.md"&gt;</bpt><ept id="bafe3b38-18b5-4ef3-af1d-5c0406c48487">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47846b3e-a899-4353-b6f9-3e2d7ea95647" xml:space="preserve">
+          <source><bpt id="2d29c52d-e9cc-49ad-8f30-56656ab0ce87">&lt;token href="../includes/traffic-manager-limits.md"&gt;</bpt><ept id="2d29c52d-e9cc-49ad-8f30-56656ab0ce87">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2d29c52d-e9cc-49ad-8f30-56656ab0ce87">&lt;token href="../includes/traffic-manager-limits.md"&gt;</bpt><ept id="2d29c52d-e9cc-49ad-8f30-56656ab0ce87">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef227fef-ca52-4864-b1af-1d483f8a3371" xml:space="preserve">
+          <source><bpt id="a76ce898-4b49-4d54-ab57-38671ce9f5a9">&lt;token href="../includes/dns-limits.md"&gt;</bpt><ept id="a76ce898-4b49-4d54-ab57-38671ce9f5a9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a76ce898-4b49-4d54-ab57-38671ce9f5a9">&lt;token href="../includes/dns-limits.md"&gt;</bpt><ept id="a76ce898-4b49-4d54-ab57-38671ce9f5a9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e53f751e-739c-4bad-a091-ad8b23c54d28" xml:space="preserve">
+          <source><bpt id="3c7eafce-3f3e-4136-9a32-252bd953ba8a">&lt;token href="../includes/azure-storage-limits.md"&gt;</bpt><ept id="3c7eafce-3f3e-4136-9a32-252bd953ba8a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3c7eafce-3f3e-4136-9a32-252bd953ba8a">&lt;token href="../includes/azure-storage-limits.md"&gt;</bpt><ept id="3c7eafce-3f3e-4136-9a32-252bd953ba8a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89d17487-5d41-4315-8cb9-6cabd9cf87bc" xml:space="preserve">
+          <source>For additional details on storage account limits, see <bpt id="e1745476-d6f0-4422-bbf2-a4de0ef44d6b">&lt;linkText&gt;</bpt>Azure Storage Scalability and Performance Targets<ept id="e1745476-d6f0-4422-bbf2-a4de0ef44d6b">&lt;/linkText&gt;</ept><bpt id="e1745476-d6f0-4422-bbf2-a4de0ef44d6b">&lt;title&gt;</bpt><ept id="e1745476-d6f0-4422-bbf2-a4de0ef44d6b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional details on storage account limits, see <bpt id="e1745476-d6f0-4422-bbf2-a4de0ef44d6b">&lt;linkText&gt;</bpt>Azure Storage Scalability and Performance Targets<ept id="e1745476-d6f0-4422-bbf2-a4de0ef44d6b">&lt;/linkText&gt;</ept><bpt id="e1745476-d6f0-4422-bbf2-a4de0ef44d6b">&lt;title&gt;</bpt><ept id="e1745476-d6f0-4422-bbf2-a4de0ef44d6b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2498727d-391b-4776-bbae-53fbb0a30f11" xml:space="preserve">
+          <source><bpt id="c5b5d488-974f-45c5-94e7-7b56e2629239">&lt;token href="../includes/azure-storage-limits-premium-storage.md"&gt;</bpt><ept id="c5b5d488-974f-45c5-94e7-7b56e2629239">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c5b5d488-974f-45c5-94e7-7b56e2629239">&lt;token href="../includes/azure-storage-limits-premium-storage.md"&gt;</bpt><ept id="c5b5d488-974f-45c5-94e7-7b56e2629239">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="327a8157-baeb-4a88-8134-1c6594b0c02b" xml:space="preserve">
+          <source><bpt id="3c0ccd8f-ec30-4e40-871b-7855f8a87de3">&lt;token href="../includes/azure-storage-limits-azure-resource-manager.md"&gt;</bpt><ept id="3c0ccd8f-ec30-4e40-871b-7855f8a87de3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3c0ccd8f-ec30-4e40-871b-7855f8a87de3">&lt;token href="../includes/azure-storage-limits-azure-resource-manager.md"&gt;</bpt><ept id="3c0ccd8f-ec30-4e40-871b-7855f8a87de3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c29957cd-864a-4762-a7f0-282cb5d68e8e" xml:space="preserve">
+          <source><bpt id="8b032699-9e9a-4d4b-8c35-00047e422dfd">&lt;token href="../includes/azure-cloud-services-limits.md"&gt;</bpt><ept id="8b032699-9e9a-4d4b-8c35-00047e422dfd">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8b032699-9e9a-4d4b-8c35-00047e422dfd">&lt;token href="../includes/azure-cloud-services-limits.md"&gt;</bpt><ept id="8b032699-9e9a-4d4b-8c35-00047e422dfd">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95876ad8-b975-4c60-b193-c04fe8407958" xml:space="preserve">
+          <source>The following App Service limits include limits for Web Apps, Mobile Apps, API Apps, and Logic Apps.</source>
+          <target state="new">The following App Service limits include limits for Web Apps, Mobile Apps, API Apps, and Logic Apps.</target>
+        </trans-unit>
+        <trans-unit id="611fa183-8678-4a57-95d3-1730659fb28f" xml:space="preserve">
+          <source><bpt id="dd183733-1c7c-439c-8c4f-5a1399716e87">&lt;token href="../includes/azure-websites-limits.md"&gt;</bpt><ept id="dd183733-1c7c-439c-8c4f-5a1399716e87">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="dd183733-1c7c-439c-8c4f-5a1399716e87">&lt;token href="../includes/azure-websites-limits.md"&gt;</bpt><ept id="dd183733-1c7c-439c-8c4f-5a1399716e87">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf09e3a0-1837-489b-a0f2-3a123bb2e722" xml:space="preserve">
+          <source><bpt id="20820bfd-4aef-49de-b70e-e824af638848">&lt;token href="../includes/scheduler-limits-table.md"&gt;</bpt><ept id="20820bfd-4aef-49de-b70e-e824af638848">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="20820bfd-4aef-49de-b70e-e824af638848">&lt;token href="../includes/scheduler-limits-table.md"&gt;</bpt><ept id="20820bfd-4aef-49de-b70e-e824af638848">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="510c1779-54be-4453-943e-367c9f8b6f95" xml:space="preserve">
+          <source><bpt id="2a12eaa5-3501-440d-969d-deabca5c1a7d">&lt;token href="../includes/azure-batch-limits.md"&gt;</bpt><ept id="2a12eaa5-3501-440d-969d-deabca5c1a7d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2a12eaa5-3501-440d-969d-deabca5c1a7d">&lt;token href="../includes/azure-batch-limits.md"&gt;</bpt><ept id="2a12eaa5-3501-440d-969d-deabca5c1a7d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37fcd297-d252-4204-ae41-0380d26e2fb3" xml:space="preserve">
+          <source><bpt id="f888fd65-28f4-4001-80a4-a6dfbf389678">&lt;token href="../includes/azure-documentdb-limits.md"&gt;</bpt><ept id="f888fd65-28f4-4001-80a4-a6dfbf389678">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f888fd65-28f4-4001-80a4-a6dfbf389678">&lt;token href="../includes/azure-documentdb-limits.md"&gt;</bpt><ept id="f888fd65-28f4-4001-80a4-a6dfbf389678">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39453305-40ab-4ad0-a487-ac1b981d80cf" xml:space="preserve">
+          <source><bpt id="387a4e94-a207-41eb-81f3-fca17acc0bc6">&lt;token href="../includes/azure-mobile-engagement-limits.md"&gt;</bpt><ept id="387a4e94-a207-41eb-81f3-fca17acc0bc6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="387a4e94-a207-41eb-81f3-fca17acc0bc6">&lt;token href="../includes/azure-mobile-engagement-limits.md"&gt;</bpt><ept id="387a4e94-a207-41eb-81f3-fca17acc0bc6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b46f228e-bc48-4551-b585-4ccea1807a8d" xml:space="preserve">
+          <source><bpt id="26ff240e-6fc2-4ec7-b81b-c80bd1fba5bc">&lt;token href="../includes/azure-search-limits.md"&gt;</bpt><ept id="26ff240e-6fc2-4ec7-b81b-c80bd1fba5bc">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="26ff240e-6fc2-4ec7-b81b-c80bd1fba5bc">&lt;token href="../includes/azure-search-limits.md"&gt;</bpt><ept id="26ff240e-6fc2-4ec7-b81b-c80bd1fba5bc">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="198cd06c-c4db-44d0-a720-d1552afbb103" xml:space="preserve">
+          <source>For additional details on Azure Search limits, see <bpt id="65f71690-e3ad-4db9-957d-8150c72fd84a">&lt;linkText&gt;</bpt>Limits and Constraints<ept id="65f71690-e3ad-4db9-957d-8150c72fd84a">&lt;/linkText&gt;</ept><bpt id="65f71690-e3ad-4db9-957d-8150c72fd84a">&lt;title&gt;</bpt><ept id="65f71690-e3ad-4db9-957d-8150c72fd84a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional details on Azure Search limits, see <bpt id="65f71690-e3ad-4db9-957d-8150c72fd84a">&lt;linkText&gt;</bpt>Limits and Constraints<ept id="65f71690-e3ad-4db9-957d-8150c72fd84a">&lt;/linkText&gt;</ept><bpt id="65f71690-e3ad-4db9-957d-8150c72fd84a">&lt;title&gt;</bpt><ept id="65f71690-e3ad-4db9-957d-8150c72fd84a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea4cd7e2-8c7e-42db-b569-9a5d534e2a90" xml:space="preserve">
+          <source><bpt id="d8605312-2b5b-4cd8-ae9d-d4bb75c61d55">&lt;token href="../includes/azure-mediaservices-limits.md"&gt;</bpt><ept id="d8605312-2b5b-4cd8-ae9d-d4bb75c61d55">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d8605312-2b5b-4cd8-ae9d-d4bb75c61d55">&lt;token href="../includes/azure-mediaservices-limits.md"&gt;</bpt><ept id="d8605312-2b5b-4cd8-ae9d-d4bb75c61d55">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bba7e258-91dd-4977-ae90-871b36e959fd" xml:space="preserve">
+          <source><bpt id="a1dd7b85-02a0-4415-bdd7-3cbb18f3d0cd">&lt;token href="../includes/cdn-limits.md"&gt;</bpt><ept id="a1dd7b85-02a0-4415-bdd7-3cbb18f3d0cd">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a1dd7b85-02a0-4415-bdd7-3cbb18f3d0cd">&lt;token href="../includes/cdn-limits.md"&gt;</bpt><ept id="a1dd7b85-02a0-4415-bdd7-3cbb18f3d0cd">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdfd8f55-367e-47cb-b8dc-0060a18963ac" xml:space="preserve">
+          <source><bpt id="7094a461-99a2-4e45-b6df-090e390a81c0">&lt;token href="../includes/mobile-services-limits.md"&gt;</bpt><ept id="7094a461-99a2-4e45-b6df-090e390a81c0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7094a461-99a2-4e45-b6df-090e390a81c0">&lt;token href="../includes/mobile-services-limits.md"&gt;</bpt><ept id="7094a461-99a2-4e45-b6df-090e390a81c0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="804180dc-733c-4ed8-bbb0-d2ff345d4e86" xml:space="preserve">
+          <source><bpt id="3bdb0968-52a5-46ba-8d44-c619eb0ba0c2">&lt;token href="../includes/notification-hub-limits.md"&gt;</bpt><ept id="3bdb0968-52a5-46ba-8d44-c619eb0ba0c2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3bdb0968-52a5-46ba-8d44-c619eb0ba0c2">&lt;token href="../includes/notification-hub-limits.md"&gt;</bpt><ept id="3bdb0968-52a5-46ba-8d44-c619eb0ba0c2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="606c1672-c767-47e8-9c87-ee997c876386" xml:space="preserve">
+          <source><bpt id="d46e1550-fb11-4fb3-8e57-b5e4ed33ee94">&lt;token href="../includes/service-bus-quotas-table.md"&gt;</bpt><ept id="d46e1550-fb11-4fb3-8e57-b5e4ed33ee94">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d46e1550-fb11-4fb3-8e57-b5e4ed33ee94">&lt;token href="../includes/service-bus-quotas-table.md"&gt;</bpt><ept id="d46e1550-fb11-4fb3-8e57-b5e4ed33ee94">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c02b204-ea82-4c81-90b0-d000e303da4b" xml:space="preserve">
+          <source><bpt id="3c1ff341-433b-411a-8104-211520b127ba">&lt;token href="../includes/azure-data-factory-limits.md"&gt;</bpt><ept id="3c1ff341-433b-411a-8104-211520b127ba">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3c1ff341-433b-411a-8104-211520b127ba">&lt;token href="../includes/azure-data-factory-limits.md"&gt;</bpt><ept id="3c1ff341-433b-411a-8104-211520b127ba">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7ad99d7-1cff-4559-862b-c08ebc8d0e8c" xml:space="preserve">
+          <source><bpt id="9d4f2a7e-e91f-4b83-a40b-2ab4f8944162">&lt;token href="../includes/stream-analytics-limits-table.md"&gt;</bpt><ept id="9d4f2a7e-e91f-4b83-a40b-2ab4f8944162">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9d4f2a7e-e91f-4b83-a40b-2ab4f8944162">&lt;token href="../includes/stream-analytics-limits-table.md"&gt;</bpt><ept id="9d4f2a7e-e91f-4b83-a40b-2ab4f8944162">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bc0580b-3fe4-4598-a3ee-3edc614d1d98" xml:space="preserve">
+          <source><bpt id="d07f3b16-660c-4a1d-ac67-82c86ef36b4a">&lt;token href="../includes/active-directory-service-limits-include.md"&gt;</bpt><ept id="d07f3b16-660c-4a1d-ac67-82c86ef36b4a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d07f3b16-660c-4a1d-ac67-82c86ef36b4a">&lt;token href="../includes/active-directory-service-limits-include.md"&gt;</bpt><ept id="d07f3b16-660c-4a1d-ac67-82c86ef36b4a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7ddc9fe-83d4-4fe1-8940-6b869eeab8c2" xml:space="preserve">
+          <source><bpt id="caaa89ef-6675-408b-be6c-09a8ac8d5015">&lt;token href="../includes/azure-remoteapp-limits.md"&gt;</bpt><ept id="caaa89ef-6675-408b-be6c-09a8ac8d5015">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="caaa89ef-6675-408b-be6c-09a8ac8d5015">&lt;token href="../includes/azure-remoteapp-limits.md"&gt;</bpt><ept id="caaa89ef-6675-408b-be6c-09a8ac8d5015">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="efcd041e-52e1-46de-9d9d-27821a3eed6c" xml:space="preserve">
+          <source><bpt id="21c4e9a0-ba56-4c29-8dbf-beac2c17d109">&lt;token href="../includes/storsimple-limits-table.md"&gt;</bpt><ept id="21c4e9a0-ba56-4c29-8dbf-beac2c17d109">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="21c4e9a0-ba56-4c29-8dbf-beac2c17d109">&lt;token href="../includes/storsimple-limits-table.md"&gt;</bpt><ept id="21c4e9a0-ba56-4c29-8dbf-beac2c17d109">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0cf5c1eb-5d8d-457b-a130-ad634fa337f2" xml:space="preserve">
+          <source><bpt id="f7b8028f-110e-42d5-9b16-fd78b3d8f8b6">&lt;token href="../includes/operational-insights-limits.md"&gt;</bpt><ept id="f7b8028f-110e-42d5-9b16-fd78b3d8f8b6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f7b8028f-110e-42d5-9b16-fd78b3d8f8b6">&lt;token href="../includes/operational-insights-limits.md"&gt;</bpt><ept id="f7b8028f-110e-42d5-9b16-fd78b3d8f8b6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccca04c6-168f-4ca9-b338-ddb1fb480bc2" xml:space="preserve">
+          <source><bpt id="c0172867-a02c-436a-90ef-8d42bc956ad7">&lt;token href="../includes/azure-backup-limits.md"&gt;</bpt><ept id="c0172867-a02c-436a-90ef-8d42bc956ad7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c0172867-a02c-436a-90ef-8d42bc956ad7">&lt;token href="../includes/azure-backup-limits.md"&gt;</bpt><ept id="c0172867-a02c-436a-90ef-8d42bc956ad7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a19d8f84-d352-4ab8-847a-99e486b79f76" xml:space="preserve">
+          <source><bpt id="45f16c2a-8ae1-48a4-afeb-94ab791c8142">&lt;token href="../includes/site-recovery-limits.md"&gt;</bpt><ept id="45f16c2a-8ae1-48a4-afeb-94ab791c8142">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="45f16c2a-8ae1-48a4-afeb-94ab791c8142">&lt;token href="../includes/site-recovery-limits.md"&gt;</bpt><ept id="45f16c2a-8ae1-48a4-afeb-94ab791c8142">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b361d0d-3f51-4ad6-be51-e9214394a6e6" xml:space="preserve">
+          <source><bpt id="ab07c500-be43-4426-8426-da8a03d0aab4">&lt;token href="../includes/application-insights-limits.md"&gt;</bpt><ept id="ab07c500-be43-4426-8426-da8a03d0aab4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ab07c500-be43-4426-8426-da8a03d0aab4">&lt;token href="../includes/application-insights-limits.md"&gt;</bpt><ept id="ab07c500-be43-4426-8426-da8a03d0aab4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8f4062b-28ca-4689-b9b0-b1a71cf4df57" xml:space="preserve">
+          <source><bpt id="abc04bd7-98da-4a86-91b1-276721209cc3">&lt;token href="../includes/api-management-service-limits.md"&gt;</bpt><ept id="abc04bd7-98da-4a86-91b1-276721209cc3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="abc04bd7-98da-4a86-91b1-276721209cc3">&lt;token href="../includes/api-management-service-limits.md"&gt;</bpt><ept id="abc04bd7-98da-4a86-91b1-276721209cc3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac4c6acf-a314-4d22-beaa-fba9ab7cc026" xml:space="preserve">
+          <source><bpt id="2f104c27-318b-4167-9dd1-bc4905c5c56e">&lt;token href="../includes/redis-cache-service-limits.md"&gt;</bpt><ept id="2f104c27-318b-4167-9dd1-bc4905c5c56e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2f104c27-318b-4167-9dd1-bc4905c5c56e">&lt;token href="../includes/redis-cache-service-limits.md"&gt;</bpt><ept id="2f104c27-318b-4167-9dd1-bc4905c5c56e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ed86eeb-e83c-46a7-a355-d9abfb2de07d" xml:space="preserve">
+          <source><bpt id="e1b9a965-fa40-4842-b049-306dab36f10f">&lt;token href="../includes/key-vault-limits.md"&gt;</bpt><ept id="e1b9a965-fa40-4842-b049-306dab36f10f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e1b9a965-fa40-4842-b049-306dab36f10f">&lt;token href="../includes/key-vault-limits.md"&gt;</bpt><ept id="e1b9a965-fa40-4842-b049-306dab36f10f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61cda07f-7a91-4a61-a184-125046e3dfc0" xml:space="preserve">
+          <source><bpt id="9ee8e70b-18d9-405b-859b-a565a788d3aa">&lt;token href="../includes/azure-mfa-service-limits.md"&gt;</bpt><ept id="9ee8e70b-18d9-405b-859b-a565a788d3aa">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9ee8e70b-18d9-405b-859b-a565a788d3aa">&lt;token href="../includes/azure-mfa-service-limits.md"&gt;</bpt><ept id="9ee8e70b-18d9-405b-859b-a565a788d3aa">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1640f589-cbbe-46fe-946a-4e8b5d2503e0" xml:space="preserve">
+          <source>For SQL Database limits, see <bpt id="07a68980-586c-49ea-9851-6f993f1b6f0a">&lt;linkText&gt;</bpt>SQL Database Resource Limits<ept id="07a68980-586c-49ea-9851-6f993f1b6f0a">&lt;/linkText&gt;</ept><bpt id="07a68980-586c-49ea-9851-6f993f1b6f0a">&lt;title&gt;</bpt><ept id="07a68980-586c-49ea-9851-6f993f1b6f0a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For SQL Database limits, see <bpt id="07a68980-586c-49ea-9851-6f993f1b6f0a">&lt;linkText&gt;</bpt>SQL Database Resource Limits<ept id="07a68980-586c-49ea-9851-6f993f1b6f0a">&lt;/linkText&gt;</ept><bpt id="07a68980-586c-49ea-9851-6f993f1b6f0a">&lt;title&gt;</bpt><ept id="07a68980-586c-49ea-9851-6f993f1b6f0a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4156f2ea-e1d1-4ba0-8632-8d6a9ff6c738" xml:space="preserve">
+          <source><bpt id="5e480b81-3f86-4f2e-8aeb-06fe4a137de4">&lt;linkText&gt;</bpt>Understanding Azure Limits and Increases<ept id="5e480b81-3f86-4f2e-8aeb-06fe4a137de4">&lt;/linkText&gt;</ept><bpt id="5e480b81-3f86-4f2e-8aeb-06fe4a137de4">&lt;title&gt;</bpt><ept id="5e480b81-3f86-4f2e-8aeb-06fe4a137de4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5e480b81-3f86-4f2e-8aeb-06fe4a137de4">&lt;linkText&gt;</bpt>Understanding Azure Limits and Increases<ept id="5e480b81-3f86-4f2e-8aeb-06fe4a137de4">&lt;/linkText&gt;</ept><bpt id="5e480b81-3f86-4f2e-8aeb-06fe4a137de4">&lt;title&gt;</bpt><ept id="5e480b81-3f86-4f2e-8aeb-06fe4a137de4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c721f20-5eb6-40ac-bf69-7e1d527bd376" xml:space="preserve">
+          <source><bpt id="8f5fd14e-4400-479e-ba9a-47f0b12b74b9">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Azure<ept id="8f5fd14e-4400-479e-ba9a-47f0b12b74b9">&lt;/linkText&gt;</ept><bpt id="8f5fd14e-4400-479e-ba9a-47f0b12b74b9">&lt;title&gt;</bpt><ept id="8f5fd14e-4400-479e-ba9a-47f0b12b74b9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8f5fd14e-4400-479e-ba9a-47f0b12b74b9">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Azure<ept id="8f5fd14e-4400-479e-ba9a-47f0b12b74b9">&lt;/linkText&gt;</ept><bpt id="8f5fd14e-4400-479e-ba9a-47f0b12b74b9">&lt;title&gt;</bpt><ept id="8f5fd14e-4400-479e-ba9a-47f0b12b74b9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

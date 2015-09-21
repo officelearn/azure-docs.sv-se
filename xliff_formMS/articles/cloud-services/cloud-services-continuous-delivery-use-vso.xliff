@@ -1,0 +1,807 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6b9064c6-70ef-4893-983a-4e3bd94faf27" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6b9064c6-70ef-4893-983a-4e3bd94faf27" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7ba72953-4c69-4f99-81ab-c3cf7b2dcccb">
+        <trans-unit id="9cc50079-a187-4cc6-b67f-a3b3deca911b" xml:space="preserve">
+          <source>Continuous delivery with Visual Studio Online in Azure</source>
+          <target state="new">Continuous delivery with Visual Studio Online in Azure</target>
+        </trans-unit>
+        <trans-unit id="39db12c4-2400-46da-862a-cacd43844307" xml:space="preserve">
+          <source>Learn how to configure your Visual Studio Online team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services.</source>
+          <target state="new">Learn how to configure your Visual Studio Online team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services.</target>
+        </trans-unit>
+        <trans-unit id="844398c5-ba5d-4353-9c8c-c9ced223b97d" xml:space="preserve">
+          <source>You can configure your Visual Studio Online team projects to automatically build and deploy to Azure web apps or cloud services.</source>
+          <target state="new">You can configure your Visual Studio Online team projects to automatically build and deploy to Azure web apps or cloud services.</target>
+        </trans-unit>
+        <trans-unit id="112ca281-bfd8-4667-a5f8-23e249f7352e" xml:space="preserve">
+          <source>(For information on how to set up a continuous build and deploy system using an <bpt id="dc1cc95b-9df3-4eef-ab43-187f7668aee9">&lt;em&gt;</bpt>on-premises<ept id="dc1cc95b-9df3-4eef-ab43-187f7668aee9">&lt;/em&gt;</ept> Team Foundation Server, see <bpt id="8151a5b3-e5c1-4a7b-af41-057e5138cfa0">&lt;linkText&gt;</bpt>Continuous Delivery for Cloud Services in Azure<ept id="8151a5b3-e5c1-4a7b-af41-057e5138cfa0">&lt;/linkText&gt;</ept><bpt id="8151a5b3-e5c1-4a7b-af41-057e5138cfa0">&lt;title&gt;</bpt><ept id="8151a5b3-e5c1-4a7b-af41-057e5138cfa0">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(For information on how to set up a continuous build and deploy system using an <bpt id="dc1cc95b-9df3-4eef-ab43-187f7668aee9">&lt;em&gt;</bpt>on-premises<ept id="dc1cc95b-9df3-4eef-ab43-187f7668aee9">&lt;/em&gt;</ept> Team Foundation Server, see <bpt id="8151a5b3-e5c1-4a7b-af41-057e5138cfa0">&lt;linkText&gt;</bpt>Continuous Delivery for Cloud Services in Azure<ept id="8151a5b3-e5c1-4a7b-af41-057e5138cfa0">&lt;/linkText&gt;</ept><bpt id="8151a5b3-e5c1-4a7b-af41-057e5138cfa0">&lt;title&gt;</bpt><ept id="8151a5b3-e5c1-4a7b-af41-057e5138cfa0">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="688c7624-779f-4dc1-bf7b-cc0ebd06b4df" xml:space="preserve">
+          <source>This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed.</source>
+          <target state="new">This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed.</target>
+        </trans-unit>
+        <trans-unit id="8ef0ec4a-998f-4169-888f-0b5ee6cf04e1" xml:space="preserve">
+          <source>If you don't already have Visual Studio 2013, download it by choosing the <bpt id="5606d838-1ef4-44e5-a11c-c7c28f5abcb9">&lt;strong&gt;</bpt>Get started for free<ept id="5606d838-1ef4-44e5-a11c-c7c28f5abcb9">&lt;/strong&gt;</ept> link at <bpt id="ce92171b-5e01-4b3f-8641-0a9fb9f90ea2">&lt;linkText&gt;</bpt>www.visualstudio.com<ept id="ce92171b-5e01-4b3f-8641-0a9fb9f90ea2">&lt;/linkText&gt;</ept><bpt id="ce92171b-5e01-4b3f-8641-0a9fb9f90ea2">&lt;title&gt;</bpt><ept id="ce92171b-5e01-4b3f-8641-0a9fb9f90ea2">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't already have Visual Studio 2013, download it by choosing the <bpt id="5606d838-1ef4-44e5-a11c-c7c28f5abcb9">&lt;strong&gt;</bpt>Get started for free<ept id="5606d838-1ef4-44e5-a11c-c7c28f5abcb9">&lt;/strong&gt;</ept> link at <bpt id="ce92171b-5e01-4b3f-8641-0a9fb9f90ea2">&lt;linkText&gt;</bpt>www.visualstudio.com<ept id="ce92171b-5e01-4b3f-8641-0a9fb9f90ea2">&lt;/linkText&gt;</ept><bpt id="ce92171b-5e01-4b3f-8641-0a9fb9f90ea2">&lt;title&gt;</bpt><ept id="ce92171b-5e01-4b3f-8641-0a9fb9f90ea2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b87e4945-780e-4063-a0fe-3f3137e06e84" xml:space="preserve">
+          <source>Install the Azure SDK from <bpt id="51e6cbaf-aeb9-4194-a012-df9dd4d6ced7">&lt;linkText&gt;</bpt>here<ept id="51e6cbaf-aeb9-4194-a012-df9dd4d6ced7">&lt;/linkText&gt;</ept><bpt id="51e6cbaf-aeb9-4194-a012-df9dd4d6ced7">&lt;title&gt;</bpt><ept id="51e6cbaf-aeb9-4194-a012-df9dd4d6ced7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Install the Azure SDK from <bpt id="51e6cbaf-aeb9-4194-a012-df9dd4d6ced7">&lt;linkText&gt;</bpt>here<ept id="51e6cbaf-aeb9-4194-a012-df9dd4d6ced7">&lt;/linkText&gt;</ept><bpt id="51e6cbaf-aeb9-4194-a012-df9dd4d6ced7">&lt;title&gt;</bpt><ept id="51e6cbaf-aeb9-4194-a012-df9dd4d6ced7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55e35319-b332-4c94-8607-8fba9f4fb28b" xml:space="preserve">
+          <source>You need an Visual Studio online account to complete this tutorial:
+You can <bpt id="8840f2e6-755e-4605-a8e8-dd9fac4b7614">&lt;linkText&gt;</bpt>open a Visual Studio Online account for free<ept id="8840f2e6-755e-4605-a8e8-dd9fac4b7614">&lt;/linkText&gt;</ept><bpt id="8840f2e6-755e-4605-a8e8-dd9fac4b7614">&lt;title&gt;</bpt><ept id="8840f2e6-755e-4605-a8e8-dd9fac4b7614">&lt;/title&gt;</ept>.</source>
+          <target state="new">You need an Visual Studio online account to complete this tutorial:
+You can <bpt id="8840f2e6-755e-4605-a8e8-dd9fac4b7614">&lt;linkText&gt;</bpt>open a Visual Studio Online account for free<ept id="8840f2e6-755e-4605-a8e8-dd9fac4b7614">&lt;/linkText&gt;</ept><bpt id="8840f2e6-755e-4605-a8e8-dd9fac4b7614">&lt;title&gt;</bpt><ept id="8840f2e6-755e-4605-a8e8-dd9fac4b7614">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f7da14b-af04-4ef3-a143-12cf64c759ea" xml:space="preserve">
+          <source>To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Online, follow these steps.</source>
+          <target state="new">To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Online, follow these steps.</target>
+        </trans-unit>
+        <trans-unit id="74256ad1-4e0d-4eec-95a4-b0886995fbcb" xml:space="preserve">
+          <source>Follow the instructions <bpt id="9e492034-5519-42ab-acf9-ca0cc7f5ce57">&lt;linkText&gt;</bpt>here<ept id="9e492034-5519-42ab-acf9-ca0cc7f5ce57">&lt;/linkText&gt;</ept><bpt id="9e492034-5519-42ab-acf9-ca0cc7f5ce57">&lt;title&gt;</bpt><ept id="9e492034-5519-42ab-acf9-ca0cc7f5ce57">&lt;/title&gt;</ept> to create your team project and link it to Visual Studio.</source>
+          <target state="new">Follow the instructions <bpt id="9e492034-5519-42ab-acf9-ca0cc7f5ce57">&lt;linkText&gt;</bpt>here<ept id="9e492034-5519-42ab-acf9-ca0cc7f5ce57">&lt;/linkText&gt;</ept><bpt id="9e492034-5519-42ab-acf9-ca0cc7f5ce57">&lt;title&gt;</bpt><ept id="9e492034-5519-42ab-acf9-ca0cc7f5ce57">&lt;/title&gt;</ept> to create your team project and link it to Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="d2f5c78c-e100-4434-82da-5c03a7bb7e0e" xml:space="preserve">
+          <source>This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution.</source>
+          <target state="new">This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution.</target>
+        </trans-unit>
+        <trans-unit id="4f1fc9f3-e1d9-492a-80de-06f1a42eaa71" xml:space="preserve">
+          <source>If you want to use Git for version control, see <bpt id="71688a40-cc62-4bba-a511-c8a660fc3b99">&lt;linkText&gt;</bpt>the Git version of this walkthrough<ept id="71688a40-cc62-4bba-a511-c8a660fc3b99">&lt;/linkText&gt;</ept><bpt id="71688a40-cc62-4bba-a511-c8a660fc3b99">&lt;title&gt;</bpt><ept id="71688a40-cc62-4bba-a511-c8a660fc3b99">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to use Git for version control, see <bpt id="71688a40-cc62-4bba-a511-c8a660fc3b99">&lt;linkText&gt;</bpt>the Git version of this walkthrough<ept id="71688a40-cc62-4bba-a511-c8a660fc3b99">&lt;/linkText&gt;</ept><bpt id="71688a40-cc62-4bba-a511-c8a660fc3b99">&lt;title&gt;</bpt><ept id="71688a40-cc62-4bba-a511-c8a660fc3b99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c317b59-83a8-4f35-9f71-d1dba90806e5" xml:space="preserve">
+          <source>In Visual Studio, open the solution you want to deploy, or create a new one.</source>
+          <target state="new">In Visual Studio, open the solution you want to deploy, or create a new one.</target>
+        </trans-unit>
+        <trans-unit id="3a2f02a6-2664-4fdc-8f78-dbe21faed33a" xml:space="preserve">
+          <source>You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough.</source>
+          <target state="new">You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="790c3787-ba1e-467e-9fb9-72f36a75bcd2" xml:space="preserve">
+          <source>If you want to create a new solution, create a new Azure Cloud Service project,
+or a new ASP.NET MVC project.</source>
+          <target state="new">If you want to create a new solution, create a new Azure Cloud Service project,
+or a new ASP.NET MVC project.</target>
+        </trans-unit>
+        <trans-unit id="cec98fa1-00af-4fe6-a37c-4cec13ce7b3d" xml:space="preserve">
+          <source>Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role.</source>
+          <target state="new">Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role.</target>
+        </trans-unit>
+        <trans-unit id="866c2ac7-ea9c-47fb-95ce-68f6a1aff592" xml:space="preserve">
+          <source>When prompted, choose <bpt id="e98c7fc8-eab9-4e54-9918-b1b3edc6843d">&lt;strong&gt;</bpt>Internet Application<ept id="e98c7fc8-eab9-4e54-9918-b1b3edc6843d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted, choose <bpt id="e98c7fc8-eab9-4e54-9918-b1b3edc6843d">&lt;strong&gt;</bpt>Internet Application<ept id="e98c7fc8-eab9-4e54-9918-b1b3edc6843d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b44c8a0-ca64-4e36-8591-82b337c5d30c" xml:space="preserve">
+          <source>If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC.</source>
+          <target state="new">If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC.</target>
+        </trans-unit>
+        <trans-unit id="f78647d7-80a4-41a9-afcf-18051119a59e" xml:space="preserve">
+          <source>See <bpt id="e772938b-0502-40fa-9991-a14da9ffd1b8">&lt;linkText&gt;</bpt>Create an ASP.NET web app in Azure App Service<ept id="e772938b-0502-40fa-9991-a14da9ffd1b8">&lt;/linkText&gt;</ept><bpt id="e772938b-0502-40fa-9991-a14da9ffd1b8">&lt;title&gt;</bpt><ept id="e772938b-0502-40fa-9991-a14da9ffd1b8">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="e772938b-0502-40fa-9991-a14da9ffd1b8">&lt;linkText&gt;</bpt>Create an ASP.NET web app in Azure App Service<ept id="e772938b-0502-40fa-9991-a14da9ffd1b8">&lt;/linkText&gt;</ept><bpt id="e772938b-0502-40fa-9991-a14da9ffd1b8">&lt;title&gt;</bpt><ept id="e772938b-0502-40fa-9991-a14da9ffd1b8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7456d2b-fb17-4ea4-b42b-5d0f58f23ced" xml:space="preserve">
+          <source>Visual Studio Online only support CI deployments of Visual Studio Web Applications at this time.</source>
+          <target state="new">Visual Studio Online only support CI deployments of Visual Studio Web Applications at this time.</target>
+        </trans-unit>
+        <trans-unit id="27a20be3-217f-420d-9430-cd795fe26cbe" xml:space="preserve">
+          <source>Web Site projects are out of scope.</source>
+          <target state="new">Web Site projects are out of scope.</target>
+        </trans-unit>
+        <trans-unit id="12d40ab0-0b26-455e-be2a-b4670a2235c3" xml:space="preserve">
+          <source>Open the context menu for the solution, and choose <bpt id="d5df9c87-b183-43ec-85d1-c1931bc13a94">&lt;strong&gt;</bpt>Add Solution to Source Control<ept id="d5df9c87-b183-43ec-85d1-c1931bc13a94">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the context menu for the solution, and choose <bpt id="d5df9c87-b183-43ec-85d1-c1931bc13a94">&lt;strong&gt;</bpt>Add Solution to Source Control<ept id="d5df9c87-b183-43ec-85d1-c1931bc13a94">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e85de450-8d2c-45ab-95bb-8b0dc82a3ef5" xml:space="preserve">
+          <source><bpt id="6de31058-17c4-43ff-8745-3f8e18786232">&lt;linkText&gt;</bpt><ept id="6de31058-17c4-43ff-8745-3f8e18786232">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6de31058-17c4-43ff-8745-3f8e18786232">&lt;linkText&gt;</bpt><ept id="6de31058-17c4-43ff-8745-3f8e18786232">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2eb4a66b-3b49-4b39-ba81-4833b3232e8a" xml:space="preserve">
+          <source>Accept or change the defaults and choose the <bpt id="660823e3-26ad-451f-856c-54dff4d93918">&lt;strong&gt;</bpt>OK<ept id="660823e3-26ad-451f-856c-54dff4d93918">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Accept or change the defaults and choose the <bpt id="660823e3-26ad-451f-856c-54dff4d93918">&lt;strong&gt;</bpt>OK<ept id="660823e3-26ad-451f-856c-54dff4d93918">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="a8ec62d4-b642-475d-9e63-24eed13da7d1" xml:space="preserve">
+          <source>Once the process completes, source control icons appear in <bpt id="b034c7f6-42e5-495f-9914-e178895d7ec6">&lt;strong&gt;</bpt>Solution Explorer<ept id="b034c7f6-42e5-495f-9914-e178895d7ec6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the process completes, source control icons appear in <bpt id="b034c7f6-42e5-495f-9914-e178895d7ec6">&lt;strong&gt;</bpt>Solution Explorer<ept id="b034c7f6-42e5-495f-9914-e178895d7ec6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="322c7dea-a1ed-466b-a4c3-bda52ae90f06" xml:space="preserve">
+          <source><bpt id="efe9e3af-b64d-496e-a71e-b0506e62d648">&lt;linkText&gt;</bpt><ept id="efe9e3af-b64d-496e-a71e-b0506e62d648">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="efe9e3af-b64d-496e-a71e-b0506e62d648">&lt;linkText&gt;</bpt><ept id="efe9e3af-b64d-496e-a71e-b0506e62d648">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94a3cf0a-8151-474e-8756-1ad70283c3f1" xml:space="preserve">
+          <source>Open the shortcut menu for the solution, and choose <bpt id="15eabd34-bd33-4969-90c4-7b9ee2fca3b8">&lt;strong&gt;</bpt>Check In<ept id="15eabd34-bd33-4969-90c4-7b9ee2fca3b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the shortcut menu for the solution, and choose <bpt id="15eabd34-bd33-4969-90c4-7b9ee2fca3b8">&lt;strong&gt;</bpt>Check In<ept id="15eabd34-bd33-4969-90c4-7b9ee2fca3b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ede4b2e8-a6e3-4745-be07-5f0a342477c9" xml:space="preserve">
+          <source><bpt id="52650ca1-5c50-4004-848d-4e108afab775">&lt;linkText&gt;</bpt><ept id="52650ca1-5c50-4004-848d-4e108afab775">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="52650ca1-5c50-4004-848d-4e108afab775">&lt;linkText&gt;</bpt><ept id="52650ca1-5c50-4004-848d-4e108afab775">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7c573db-0af2-4643-b8ff-6eb9cf0d4190" xml:space="preserve">
+          <source>In the <bpt id="43340740-706c-4a55-8e86-67c4d5efed02">&lt;strong&gt;</bpt>Pending Changes<ept id="43340740-706c-4a55-8e86-67c4d5efed02">&lt;/strong&gt;</ept> area of <bpt id="f9d14e27-5476-4983-bd1e-656eb8329450">&lt;strong&gt;</bpt>Team Explorer<ept id="f9d14e27-5476-4983-bd1e-656eb8329450">&lt;/strong&gt;</ept>, type a comment for the check-in and choose the <bpt id="2541642d-5275-4f3c-a46c-dc01afe1a589">&lt;strong&gt;</bpt>Check In<ept id="2541642d-5275-4f3c-a46c-dc01afe1a589">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the <bpt id="43340740-706c-4a55-8e86-67c4d5efed02">&lt;strong&gt;</bpt>Pending Changes<ept id="43340740-706c-4a55-8e86-67c4d5efed02">&lt;/strong&gt;</ept> area of <bpt id="f9d14e27-5476-4983-bd1e-656eb8329450">&lt;strong&gt;</bpt>Team Explorer<ept id="f9d14e27-5476-4983-bd1e-656eb8329450">&lt;/strong&gt;</ept>, type a comment for the check-in and choose the <bpt id="2541642d-5275-4f3c-a46c-dc01afe1a589">&lt;strong&gt;</bpt>Check In<ept id="2541642d-5275-4f3c-a46c-dc01afe1a589">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="0a2d74fb-9bfb-45f0-b550-854d1a347481" xml:space="preserve">
+          <source><bpt id="4045c252-4617-4b8e-bbd1-4b74ae2e51c2">&lt;linkText&gt;</bpt><ept id="4045c252-4617-4b8e-bbd1-4b74ae2e51c2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4045c252-4617-4b8e-bbd1-4b74ae2e51c2">&lt;linkText&gt;</bpt><ept id="4045c252-4617-4b8e-bbd1-4b74ae2e51c2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c3193e5-cd1a-4a38-9f49-da61e61d02da" xml:space="preserve">
+          <source>Note the options to include or exclude specific changes when you check in.</source>
+          <target state="new">Note the options to include or exclude specific changes when you check in.</target>
+        </trans-unit>
+        <trans-unit id="6a3c8c30-eea3-49b9-8e14-74eb87f84e8c" xml:space="preserve">
+          <source>If desired changes are excluded, choose the <bpt id="df2bbf23-fb4c-4544-b83b-5a8d8ac30680">&lt;strong&gt;</bpt>Include All<ept id="df2bbf23-fb4c-4544-b83b-5a8d8ac30680">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">If desired changes are excluded, choose the <bpt id="df2bbf23-fb4c-4544-b83b-5a8d8ac30680">&lt;strong&gt;</bpt>Include All<ept id="df2bbf23-fb4c-4544-b83b-5a8d8ac30680">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="3bd2d47e-55e4-4eb7-88ec-63dc07578c11" xml:space="preserve">
+          <source><bpt id="e2234999-35a3-4bf7-8364-85a7a0c04aba">&lt;linkText&gt;</bpt><ept id="e2234999-35a3-4bf7-8364-85a7a0c04aba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e2234999-35a3-4bf7-8364-85a7a0c04aba">&lt;linkText&gt;</bpt><ept id="e2234999-35a3-4bf7-8364-85a7a0c04aba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df59c7e2-25fd-464b-a7b0-710b465b621c" xml:space="preserve">
+          <source>Now that you have a VSO team project with some source code in it, you are ready to connect your team project to Azure.</source>
+          <target state="new">Now that you have a VSO team project with some source code in it, you are ready to connect your team project to Azure.</target>
+        </trans-unit>
+        <trans-unit id="992ceba6-b339-468f-8833-b053dbf7b5de" xml:space="preserve">
+          <source>In the <bpt id="8609af4e-fd5a-484c-8d0f-a23a183f78b2">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="8609af4e-fd5a-484c-8d0f-a23a183f78b2">&lt;/linkText&gt;</ept><bpt id="8609af4e-fd5a-484c-8d0f-a23a183f78b2">&lt;title&gt;</bpt><ept id="8609af4e-fd5a-484c-8d0f-a23a183f78b2">&lt;/title&gt;</ept>, select your cloud service or web app, or create a new one by choosing the <bpt id="b2c3b3ee-6638-44de-abe0-9f1418213de4">&lt;strong&gt;</bpt>+<ept id="b2c3b3ee-6638-44de-abe0-9f1418213de4">&lt;/strong&gt;</ept> icon at the bottom left and choosing <bpt id="930bd6d2-9039-442c-8832-0488048554df">&lt;strong&gt;</bpt>Cloud Service<ept id="930bd6d2-9039-442c-8832-0488048554df">&lt;/strong&gt;</ept> or <bpt id="57611927-8e22-4704-8ff2-e18b3d1192f4">&lt;strong&gt;</bpt>Web App<ept id="57611927-8e22-4704-8ff2-e18b3d1192f4">&lt;/strong&gt;</ept> and then <bpt id="4d4c1ead-d886-44f8-943a-9a6847b02b79">&lt;strong&gt;</bpt>Quick Create<ept id="4d4c1ead-d886-44f8-943a-9a6847b02b79">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="8609af4e-fd5a-484c-8d0f-a23a183f78b2">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="8609af4e-fd5a-484c-8d0f-a23a183f78b2">&lt;/linkText&gt;</ept><bpt id="8609af4e-fd5a-484c-8d0f-a23a183f78b2">&lt;title&gt;</bpt><ept id="8609af4e-fd5a-484c-8d0f-a23a183f78b2">&lt;/title&gt;</ept>, select your cloud service or web app, or create a new one by choosing the <bpt id="b2c3b3ee-6638-44de-abe0-9f1418213de4">&lt;strong&gt;</bpt>+<ept id="b2c3b3ee-6638-44de-abe0-9f1418213de4">&lt;/strong&gt;</ept> icon at the bottom left and choosing <bpt id="930bd6d2-9039-442c-8832-0488048554df">&lt;strong&gt;</bpt>Cloud Service<ept id="930bd6d2-9039-442c-8832-0488048554df">&lt;/strong&gt;</ept> or <bpt id="57611927-8e22-4704-8ff2-e18b3d1192f4">&lt;strong&gt;</bpt>Web App<ept id="57611927-8e22-4704-8ff2-e18b3d1192f4">&lt;/strong&gt;</ept> and then <bpt id="4d4c1ead-d886-44f8-943a-9a6847b02b79">&lt;strong&gt;</bpt>Quick Create<ept id="4d4c1ead-d886-44f8-943a-9a6847b02b79">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="651c8124-5e52-4125-967c-d9a86fcd7e43" xml:space="preserve">
+          <source>Choose the <bpt id="9d400e49-c364-4740-9933-47c1fa59751d">&lt;strong&gt;</bpt>Set up publishing with Visual Studio Online<ept id="9d400e49-c364-4740-9933-47c1fa59751d">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">Choose the <bpt id="9d400e49-c364-4740-9933-47c1fa59751d">&lt;strong&gt;</bpt>Set up publishing with Visual Studio Online<ept id="9d400e49-c364-4740-9933-47c1fa59751d">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="1c1e0202-6760-416a-8af2-76382582a9ba" xml:space="preserve">
+          <source><bpt id="c154c6bf-cc2f-4c82-a941-f0d8feb6836e">&lt;linkText&gt;</bpt><ept id="c154c6bf-cc2f-4c82-a941-f0d8feb6836e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c154c6bf-cc2f-4c82-a941-f0d8feb6836e">&lt;linkText&gt;</bpt><ept id="c154c6bf-cc2f-4c82-a941-f0d8feb6836e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a37c5aa-4110-4f2d-b34a-1ef0491a135f" xml:space="preserve">
+          <source>In the wizard, type the name of your Visual Studio Online account in the textbox and click the <bpt id="2e94b7cd-2289-4c2b-a17e-133589d6d210">&lt;strong&gt;</bpt>Authorize Now<ept id="2e94b7cd-2289-4c2b-a17e-133589d6d210">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">In the wizard, type the name of your Visual Studio Online account in the textbox and click the <bpt id="2e94b7cd-2289-4c2b-a17e-133589d6d210">&lt;strong&gt;</bpt>Authorize Now<ept id="2e94b7cd-2289-4c2b-a17e-133589d6d210">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="a338fce9-6923-4db2-ba95-8c1ec955571a" xml:space="preserve">
+          <source>You might be asked to sign in.</source>
+          <target state="new">You might be asked to sign in.</target>
+        </trans-unit>
+        <trans-unit id="43598293-0c1d-4638-82d4-0417e8607c49" xml:space="preserve">
+          <source><bpt id="49f56a5e-7cce-4ec1-b290-bb16d852e4a3">&lt;linkText&gt;</bpt><ept id="49f56a5e-7cce-4ec1-b290-bb16d852e4a3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="49f56a5e-7cce-4ec1-b290-bb16d852e4a3">&lt;linkText&gt;</bpt><ept id="49f56a5e-7cce-4ec1-b290-bb16d852e4a3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f4e54dd-a34d-4499-86d7-a67b38e0f3cf" xml:space="preserve">
+          <source>In the <bpt id="f86db67e-b3ef-4f64-aa67-588ea0977000">&lt;strong&gt;</bpt>Connection Request<ept id="f86db67e-b3ef-4f64-aa67-588ea0977000">&lt;/strong&gt;</ept> pop-up dialog, choose the <bpt id="850078d8-907f-4f54-b8cd-adaefd7dec8c">&lt;strong&gt;</bpt>Accept<ept id="850078d8-907f-4f54-b8cd-adaefd7dec8c">&lt;/strong&gt;</ept> button to authorize Azure to configure your team project in VSO.</source>
+          <target state="new">In the <bpt id="f86db67e-b3ef-4f64-aa67-588ea0977000">&lt;strong&gt;</bpt>Connection Request<ept id="f86db67e-b3ef-4f64-aa67-588ea0977000">&lt;/strong&gt;</ept> pop-up dialog, choose the <bpt id="850078d8-907f-4f54-b8cd-adaefd7dec8c">&lt;strong&gt;</bpt>Accept<ept id="850078d8-907f-4f54-b8cd-adaefd7dec8c">&lt;/strong&gt;</ept> button to authorize Azure to configure your team project in VSO.</target>
+        </trans-unit>
+        <trans-unit id="bde970e7-9dbc-4906-ac6b-002796defb93" xml:space="preserve">
+          <source><bpt id="418f4548-be90-40db-9cf6-0c063af96d57">&lt;linkText&gt;</bpt><ept id="418f4548-be90-40db-9cf6-0c063af96d57">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="418f4548-be90-40db-9cf6-0c063af96d57">&lt;linkText&gt;</bpt><ept id="418f4548-be90-40db-9cf6-0c063af96d57">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bcd0347-25d8-4b02-8312-01703c191eca" xml:space="preserve">
+          <source>When authorization succeeds, you see a dropdown containing a list of your Visual Studio Online team projects.</source>
+          <target state="new">When authorization succeeds, you see a dropdown containing a list of your Visual Studio Online team projects.</target>
+        </trans-unit>
+        <trans-unit id="8ccdae86-0895-4b91-b15c-980e8215e320" xml:space="preserve">
+          <source>Choose  the name of team project that you created in the previous steps, and then choose the wizard's checkmark button.</source>
+          <target state="new">Choose  the name of team project that you created in the previous steps, and then choose the wizard's checkmark button.</target>
+        </trans-unit>
+        <trans-unit id="3399522a-4f70-4fde-b81e-68096fed3ae1" xml:space="preserve">
+          <source><bpt id="16eab681-accb-414b-94af-35bbafab24d1">&lt;linkText&gt;</bpt><ept id="16eab681-accb-414b-94af-35bbafab24d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16eab681-accb-414b-94af-35bbafab24d1">&lt;linkText&gt;</bpt><ept id="16eab681-accb-414b-94af-35bbafab24d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3887e77-b454-47c0-baee-978a271f34c1" xml:space="preserve">
+          <source>After your project is linked, you will see some instructions for checking in changes to your Visual Studio Online team project.</source>
+          <target state="new">After your project is linked, you will see some instructions for checking in changes to your Visual Studio Online team project.</target>
+        </trans-unit>
+        <trans-unit id="b8e5dce4-9356-4e1f-beae-126d3df0415a" xml:space="preserve">
+          <source>On your next check-in, Visual Studio Online will build and deploy your project to Azure.</source>
+          <target state="new">On your next check-in, Visual Studio Online will build and deploy your project to Azure.</target>
+        </trans-unit>
+        <trans-unit id="44a18080-450f-4ec0-ad1e-cbfa67ead79b" xml:space="preserve">
+          <source>Try this now by clicking the <bpt id="8dbea983-dc2f-4590-a7b9-e2bb8dc7ffe0">&lt;strong&gt;</bpt>Check In from Visual Studio<ept id="8dbea983-dc2f-4590-a7b9-e2bb8dc7ffe0">&lt;/strong&gt;</ept> link, and then the <bpt id="f5c0dfc5-d462-4816-82ac-b48ede406b3d">&lt;strong&gt;</bpt>Launch Visual Studio<ept id="f5c0dfc5-d462-4816-82ac-b48ede406b3d">&lt;/strong&gt;</ept> link (or the equivalent <bpt id="5c3730a4-9ccf-4c4c-8604-fc40eb4226e2">&lt;strong&gt;</bpt>Visual Studio<ept id="5c3730a4-9ccf-4c4c-8604-fc40eb4226e2">&lt;/strong&gt;</ept> button at the bottom of the portal screen).</source>
+          <target state="new">Try this now by clicking the <bpt id="8dbea983-dc2f-4590-a7b9-e2bb8dc7ffe0">&lt;strong&gt;</bpt>Check In from Visual Studio<ept id="8dbea983-dc2f-4590-a7b9-e2bb8dc7ffe0">&lt;/strong&gt;</ept> link, and then the <bpt id="f5c0dfc5-d462-4816-82ac-b48ede406b3d">&lt;strong&gt;</bpt>Launch Visual Studio<ept id="f5c0dfc5-d462-4816-82ac-b48ede406b3d">&lt;/strong&gt;</ept> link (or the equivalent <bpt id="5c3730a4-9ccf-4c4c-8604-fc40eb4226e2">&lt;strong&gt;</bpt>Visual Studio<ept id="5c3730a4-9ccf-4c4c-8604-fc40eb4226e2">&lt;/strong&gt;</ept> button at the bottom of the portal screen).</target>
+        </trans-unit>
+        <trans-unit id="2ae2f400-f133-41d5-8000-64c18f0f9735" xml:space="preserve">
+          <source><bpt id="715a1fcc-206c-4c4b-9c34-881ec9d58c62">&lt;linkText&gt;</bpt><ept id="715a1fcc-206c-4c4b-9c34-881ec9d58c62">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="715a1fcc-206c-4c4b-9c34-881ec9d58c62">&lt;linkText&gt;</bpt><ept id="715a1fcc-206c-4c4b-9c34-881ec9d58c62">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c2d941e-8fe8-457d-96ab-b848ccd6a07a" xml:space="preserve">
+          <source>In Visual Studio's <bpt id="b71a0126-4402-4c9b-b9d7-9e77ba12c29c">&lt;strong&gt;</bpt>Team Explorer<ept id="b71a0126-4402-4c9b-b9d7-9e77ba12c29c">&lt;/strong&gt;</ept>, choose the <bpt id="a1e5bf48-f154-4d8e-8d92-b5b284d5aeca">&lt;strong&gt;</bpt>Source Control Explorer<ept id="a1e5bf48-f154-4d8e-8d92-b5b284d5aeca">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">In Visual Studio's <bpt id="b71a0126-4402-4c9b-b9d7-9e77ba12c29c">&lt;strong&gt;</bpt>Team Explorer<ept id="b71a0126-4402-4c9b-b9d7-9e77ba12c29c">&lt;/strong&gt;</ept>, choose the <bpt id="a1e5bf48-f154-4d8e-8d92-b5b284d5aeca">&lt;strong&gt;</bpt>Source Control Explorer<ept id="a1e5bf48-f154-4d8e-8d92-b5b284d5aeca">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="e6d94318-2542-4886-8b32-f62d99fd4674" xml:space="preserve">
+          <source><bpt id="01fe82de-0620-48ca-8392-7d692d530ddb">&lt;linkText&gt;</bpt><ept id="01fe82de-0620-48ca-8392-7d692d530ddb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="01fe82de-0620-48ca-8392-7d692d530ddb">&lt;linkText&gt;</bpt><ept id="01fe82de-0620-48ca-8392-7d692d530ddb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b8d649f-6161-4d4a-ae14-2593212a05ca" xml:space="preserve">
+          <source>Navigate to your solution file and open it.</source>
+          <target state="new">Navigate to your solution file and open it.</target>
+        </trans-unit>
+        <trans-unit id="710cb124-2247-4ef9-938c-81ca337b670c" xml:space="preserve">
+          <source><bpt id="f16af6b3-4fd4-49df-9b93-b9541d7ca99c">&lt;linkText&gt;</bpt><ept id="f16af6b3-4fd4-49df-9b93-b9541d7ca99c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f16af6b3-4fd4-49df-9b93-b9541d7ca99c">&lt;linkText&gt;</bpt><ept id="f16af6b3-4fd4-49df-9b93-b9541d7ca99c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37e705d8-5e98-4feb-b684-5d58d0a761f9" xml:space="preserve">
+          <source>In <bpt id="2c3542c5-29b5-4ca9-80ea-ccda316cbcef">&lt;strong&gt;</bpt>Solution Explorer<ept id="2c3542c5-29b5-4ca9-80ea-ccda316cbcef">&lt;/strong&gt;</ept>, open up a file and change it.</source>
+          <target state="new">In <bpt id="2c3542c5-29b5-4ca9-80ea-ccda316cbcef">&lt;strong&gt;</bpt>Solution Explorer<ept id="2c3542c5-29b5-4ca9-80ea-ccda316cbcef">&lt;/strong&gt;</ept>, open up a file and change it.</target>
+        </trans-unit>
+        <trans-unit id="acce8e12-b7ba-4162-86fd-237eb0a3be97" xml:space="preserve">
+          <source>For example, change the file <bpt id="b36caf5c-2f00-4ba8-8e4c-e1d4d76a2a83">&lt;code&gt;</bpt>_Layout.cshtml<ept id="b36caf5c-2f00-4ba8-8e4c-e1d4d76a2a83">&lt;/code&gt;</ept> under the Views\\Shared folder in an MVC web role.</source>
+          <target state="new">For example, change the file <bpt id="b36caf5c-2f00-4ba8-8e4c-e1d4d76a2a83">&lt;code&gt;</bpt>_Layout.cshtml<ept id="b36caf5c-2f00-4ba8-8e4c-e1d4d76a2a83">&lt;/code&gt;</ept> under the Views\\Shared folder in an MVC web role.</target>
+        </trans-unit>
+        <trans-unit id="a3634893-1d20-46cf-8911-35fb313567db" xml:space="preserve">
+          <source><bpt id="221e1e01-9328-4deb-b03c-b907bba39789">&lt;linkText&gt;</bpt><ept id="221e1e01-9328-4deb-b03c-b907bba39789">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="221e1e01-9328-4deb-b03c-b907bba39789">&lt;linkText&gt;</bpt><ept id="221e1e01-9328-4deb-b03c-b907bba39789">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3843c743-878d-458b-b59a-4753a6ba3339" xml:space="preserve">
+          <source>Edit the logo for the site and choose <bpt id="8596a28d-8b6a-4687-a432-cbdd34676482">&lt;strong&gt;</bpt>Ctrl+S<ept id="8596a28d-8b6a-4687-a432-cbdd34676482">&lt;/strong&gt;</ept> to save the file.</source>
+          <target state="new">Edit the logo for the site and choose <bpt id="8596a28d-8b6a-4687-a432-cbdd34676482">&lt;strong&gt;</bpt>Ctrl+S<ept id="8596a28d-8b6a-4687-a432-cbdd34676482">&lt;/strong&gt;</ept> to save the file.</target>
+        </trans-unit>
+        <trans-unit id="5a327c3e-ba4f-43a3-9044-712064a93521" xml:space="preserve">
+          <source><bpt id="5f6cbf71-4527-422e-ae89-a09e298c5a9b">&lt;linkText&gt;</bpt><ept id="5f6cbf71-4527-422e-ae89-a09e298c5a9b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f6cbf71-4527-422e-ae89-a09e298c5a9b">&lt;linkText&gt;</bpt><ept id="5f6cbf71-4527-422e-ae89-a09e298c5a9b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1afd0d7-d9d0-4e4a-a4b1-2d0ceaff19a2" xml:space="preserve">
+          <source>In <bpt id="b9bd2fdb-7f10-46af-a183-9aa8c20afc15">&lt;strong&gt;</bpt>Team Explorer<ept id="b9bd2fdb-7f10-46af-a183-9aa8c20afc15">&lt;/strong&gt;</ept>, choose the <bpt id="72920ff1-3b1b-4f39-8710-dddc0949b4b9">&lt;strong&gt;</bpt>Pending Changes<ept id="72920ff1-3b1b-4f39-8710-dddc0949b4b9">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">In <bpt id="b9bd2fdb-7f10-46af-a183-9aa8c20afc15">&lt;strong&gt;</bpt>Team Explorer<ept id="b9bd2fdb-7f10-46af-a183-9aa8c20afc15">&lt;/strong&gt;</ept>, choose the <bpt id="72920ff1-3b1b-4f39-8710-dddc0949b4b9">&lt;strong&gt;</bpt>Pending Changes<ept id="72920ff1-3b1b-4f39-8710-dddc0949b4b9">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="d85a0b40-544e-4942-a305-8346b1231410" xml:space="preserve">
+          <source><bpt id="e6df39d0-3b2a-401a-996d-02450bd79313">&lt;linkText&gt;</bpt><ept id="e6df39d0-3b2a-401a-996d-02450bd79313">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e6df39d0-3b2a-401a-996d-02450bd79313">&lt;linkText&gt;</bpt><ept id="e6df39d0-3b2a-401a-996d-02450bd79313">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff3b1866-5d6c-472c-ac55-b01938af998e" xml:space="preserve">
+          <source>Enter a comment and then choose the <bpt id="5fee6c41-fb7b-4cb0-859f-e2483e02855a">&lt;strong&gt;</bpt>Check In<ept id="5fee6c41-fb7b-4cb0-859f-e2483e02855a">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Enter a comment and then choose the <bpt id="5fee6c41-fb7b-4cb0-859f-e2483e02855a">&lt;strong&gt;</bpt>Check In<ept id="5fee6c41-fb7b-4cb0-859f-e2483e02855a">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="1cd90e4d-2508-4fba-82ad-e29758881b11" xml:space="preserve">
+          <source><bpt id="d324bd52-133f-4a9f-9168-46b67b3df4b7">&lt;linkText&gt;</bpt><ept id="d324bd52-133f-4a9f-9168-46b67b3df4b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d324bd52-133f-4a9f-9168-46b67b3df4b7">&lt;linkText&gt;</bpt><ept id="d324bd52-133f-4a9f-9168-46b67b3df4b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b4eb066-da59-4574-a9c3-2b432fb95d95" xml:space="preserve">
+          <source>Choose the <bpt id="1c914806-32cc-4909-a8e4-338123d7703f">&lt;strong&gt;</bpt>Home<ept id="1c914806-32cc-4909-a8e4-338123d7703f">&lt;/strong&gt;</ept> button to return to the <bpt id="a50ff218-5979-4d4a-89ba-323e25f1b684">&lt;strong&gt;</bpt>Team Explorer<ept id="a50ff218-5979-4d4a-89ba-323e25f1b684">&lt;/strong&gt;</ept> home page.</source>
+          <target state="new">Choose the <bpt id="1c914806-32cc-4909-a8e4-338123d7703f">&lt;strong&gt;</bpt>Home<ept id="1c914806-32cc-4909-a8e4-338123d7703f">&lt;/strong&gt;</ept> button to return to the <bpt id="a50ff218-5979-4d4a-89ba-323e25f1b684">&lt;strong&gt;</bpt>Team Explorer<ept id="a50ff218-5979-4d4a-89ba-323e25f1b684">&lt;/strong&gt;</ept> home page.</target>
+        </trans-unit>
+        <trans-unit id="2d5c21e2-6882-4d30-8b23-df8a348aeed4" xml:space="preserve">
+          <source><bpt id="30f07249-9c25-4153-aec4-2bff59dab58a">&lt;linkText&gt;</bpt><ept id="30f07249-9c25-4153-aec4-2bff59dab58a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="30f07249-9c25-4153-aec4-2bff59dab58a">&lt;linkText&gt;</bpt><ept id="30f07249-9c25-4153-aec4-2bff59dab58a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ca196da-9617-48f3-a104-ff9ea11de5b6" xml:space="preserve">
+          <source>Choose the <bpt id="f9b0911f-e652-4b23-9ef2-85812d04c7f0">&lt;strong&gt;</bpt>Builds<ept id="f9b0911f-e652-4b23-9ef2-85812d04c7f0">&lt;/strong&gt;</ept> link to view the builds in progress.</source>
+          <target state="new">Choose the <bpt id="f9b0911f-e652-4b23-9ef2-85812d04c7f0">&lt;strong&gt;</bpt>Builds<ept id="f9b0911f-e652-4b23-9ef2-85812d04c7f0">&lt;/strong&gt;</ept> link to view the builds in progress.</target>
+        </trans-unit>
+        <trans-unit id="a5898c24-fd1d-4875-b111-8d2605aa50bc" xml:space="preserve">
+          <source><bpt id="25127e50-d658-492e-a2a1-555f24c72699">&lt;linkText&gt;</bpt><ept id="25127e50-d658-492e-a2a1-555f24c72699">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="25127e50-d658-492e-a2a1-555f24c72699">&lt;linkText&gt;</bpt><ept id="25127e50-d658-492e-a2a1-555f24c72699">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69d0b9c9-146b-4f33-ae7d-4e6d28ddb63c" xml:space="preserve">
+          <source><bpt id="9829b4b9-6882-434d-ada0-cd3e8f5fc502">&lt;strong&gt;</bpt>Team Explorer<ept id="9829b4b9-6882-434d-ada0-cd3e8f5fc502">&lt;/strong&gt;</ept> shows that a build has been triggered for your check-in.</source>
+          <target state="new"><bpt id="9829b4b9-6882-434d-ada0-cd3e8f5fc502">&lt;strong&gt;</bpt>Team Explorer<ept id="9829b4b9-6882-434d-ada0-cd3e8f5fc502">&lt;/strong&gt;</ept> shows that a build has been triggered for your check-in.</target>
+        </trans-unit>
+        <trans-unit id="1919e79e-20ee-4c1a-a16f-3e79b229979b" xml:space="preserve">
+          <source><bpt id="29822477-8485-48be-ad54-6a8f2fa0321a">&lt;linkText&gt;</bpt><ept id="29822477-8485-48be-ad54-6a8f2fa0321a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29822477-8485-48be-ad54-6a8f2fa0321a">&lt;linkText&gt;</bpt><ept id="29822477-8485-48be-ad54-6a8f2fa0321a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3c765c7-eb07-48b2-b7de-21cfdfdc2373" xml:space="preserve">
+          <source>Double-click the name of the build in progress to view a detailed log as the build progresses.</source>
+          <target state="new">Double-click the name of the build in progress to view a detailed log as the build progresses.</target>
+        </trans-unit>
+        <trans-unit id="faec32c1-b77c-4b3c-8389-0eb403cec7e8" xml:space="preserve">
+          <source><bpt id="7ae7e96e-711d-43b6-9497-b781b2b29157">&lt;linkText&gt;</bpt><ept id="7ae7e96e-711d-43b6-9497-b781b2b29157">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ae7e96e-711d-43b6-9497-b781b2b29157">&lt;linkText&gt;</bpt><ept id="7ae7e96e-711d-43b6-9497-b781b2b29157">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e142070b-fe2c-4c49-84a4-97c49575edd0" xml:space="preserve">
+          <source>While the build is in-progress, take a look at the build definition that was created when you linked TFS to Azure by using the wizard.</source>
+          <target state="new">While the build is in-progress, take a look at the build definition that was created when you linked TFS to Azure by using the wizard.</target>
+        </trans-unit>
+        <trans-unit id="59979427-ee9c-4aaf-8538-599ef18c60a3" xml:space="preserve">
+          <source>Open the shortcut menu for the build definition and choose <bpt id="fd6fff1d-bc8e-4b47-b9d3-81e8d8916894">&lt;strong&gt;</bpt>Edit Build Definition<ept id="fd6fff1d-bc8e-4b47-b9d3-81e8d8916894">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the shortcut menu for the build definition and choose <bpt id="fd6fff1d-bc8e-4b47-b9d3-81e8d8916894">&lt;strong&gt;</bpt>Edit Build Definition<ept id="fd6fff1d-bc8e-4b47-b9d3-81e8d8916894">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02ec415a-65bd-4cbd-9899-03071f5b6552" xml:space="preserve">
+          <source><bpt id="67076e2c-395a-4315-906c-e02fc10b37d1">&lt;linkText&gt;</bpt><ept id="67076e2c-395a-4315-906c-e02fc10b37d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="67076e2c-395a-4315-906c-e02fc10b37d1">&lt;linkText&gt;</bpt><ept id="67076e2c-395a-4315-906c-e02fc10b37d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4eb0a937-e3d3-42d3-a8d6-cb8715f67391" xml:space="preserve">
+          <source>In the <bpt id="cc9cda2f-d934-4cb0-a9dc-a8ab51128cde">&lt;strong&gt;</bpt>Trigger<ept id="cc9cda2f-d934-4cb0-a9dc-a8ab51128cde">&lt;/strong&gt;</ept> tab, you will see that the build definition is set to build on every check-in by default.</source>
+          <target state="new">In the <bpt id="cc9cda2f-d934-4cb0-a9dc-a8ab51128cde">&lt;strong&gt;</bpt>Trigger<ept id="cc9cda2f-d934-4cb0-a9dc-a8ab51128cde">&lt;/strong&gt;</ept> tab, you will see that the build definition is set to build on every check-in by default.</target>
+        </trans-unit>
+        <trans-unit id="d1da6da7-9ae6-419a-97e3-3331dc655d72" xml:space="preserve">
+          <source><bpt id="7fa654f1-8a06-4465-8a44-337ee4016a74">&lt;linkText&gt;</bpt><ept id="7fa654f1-8a06-4465-8a44-337ee4016a74">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7fa654f1-8a06-4465-8a44-337ee4016a74">&lt;linkText&gt;</bpt><ept id="7fa654f1-8a06-4465-8a44-337ee4016a74">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5522000b-2317-4c42-97a6-4d96602101eb" xml:space="preserve">
+          <source>In the <bpt id="d6340729-98a9-4b83-abb3-f6ceff96eac8">&lt;strong&gt;</bpt>Process<ept id="d6340729-98a9-4b83-abb3-f6ceff96eac8">&lt;/strong&gt;</ept> tab, you can see the deployment environment is set to the name of your cloud service or web app.</source>
+          <target state="new">In the <bpt id="d6340729-98a9-4b83-abb3-f6ceff96eac8">&lt;strong&gt;</bpt>Process<ept id="d6340729-98a9-4b83-abb3-f6ceff96eac8">&lt;/strong&gt;</ept> tab, you can see the deployment environment is set to the name of your cloud service or web app.</target>
+        </trans-unit>
+        <trans-unit id="61ed6c97-74b5-4481-b5ac-0393753339ec" xml:space="preserve">
+          <source>If you are working with web apps, the properties you see will be different from those shown here.</source>
+          <target state="new">If you are working with web apps, the properties you see will be different from those shown here.</target>
+        </trans-unit>
+        <trans-unit id="3c89237d-48b7-46df-8760-7bd7539c2c93" xml:space="preserve">
+          <source><bpt id="a015029a-e56b-4b72-99a4-9d28237fa75c">&lt;linkText&gt;</bpt><ept id="a015029a-e56b-4b72-99a4-9d28237fa75c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a015029a-e56b-4b72-99a4-9d28237fa75c">&lt;linkText&gt;</bpt><ept id="a015029a-e56b-4b72-99a4-9d28237fa75c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32da1bd1-2d00-462d-8fe5-35c6c7c210a0" xml:space="preserve">
+          <source>Specify values for the properties if you want different values than the defaults.</source>
+          <target state="new">Specify values for the properties if you want different values than the defaults.</target>
+        </trans-unit>
+        <trans-unit id="2b5f0309-569b-46b5-8d9a-7f88b98ad7b1" xml:space="preserve">
+          <source>The properties for Azure publishing are in the <bpt id="06860a9d-9e21-43ed-a77e-1930dff2ce8c">&lt;strong&gt;</bpt>Deployment<ept id="06860a9d-9e21-43ed-a77e-1930dff2ce8c">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">The properties for Azure publishing are in the <bpt id="06860a9d-9e21-43ed-a77e-1930dff2ce8c">&lt;strong&gt;</bpt>Deployment<ept id="06860a9d-9e21-43ed-a77e-1930dff2ce8c">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="a05df77e-2ea9-48f7-8d2c-88c36ceed1be" xml:space="preserve">
+          <source>The following table shows the available properties in the <bpt id="b14c2cef-2456-48e8-a015-eb919b5b6a4a">&lt;strong&gt;</bpt>Deployment<ept id="b14c2cef-2456-48e8-a015-eb919b5b6a4a">&lt;/strong&gt;</ept> section:</source>
+          <target state="new">The following table shows the available properties in the <bpt id="b14c2cef-2456-48e8-a015-eb919b5b6a4a">&lt;strong&gt;</bpt>Deployment<ept id="b14c2cef-2456-48e8-a015-eb919b5b6a4a">&lt;/strong&gt;</ept> section:</target>
+        </trans-unit>
+        <trans-unit id="8b5c7ea6-4ba5-42a7-9c19-dc6ff16f9861" xml:space="preserve">
+          <source>|Property|Default Value|
+|---|---|
+|Allow Untrusted Certificates|If false, SSL certificates must be signed by a root authority.|
+|Allow Upgrade|Allows the deployment to update an existing deployment instead of creating a new one.</source>
+          <target state="new">|Property|Default Value|
+|---|---|
+|Allow Untrusted Certificates|If false, SSL certificates must be signed by a root authority.|
+|Allow Upgrade|Allows the deployment to update an existing deployment instead of creating a new one.</target>
+        </trans-unit>
+        <trans-unit id="d456784a-f115-4365-96f9-f8583e0e3173" xml:space="preserve">
+          <source>Preserves the IP address.|
+|Do Not Delete|If true, do not overwrite an existing unrelated deployment (upgrade is allowed).|
+|Path to Deployment Settings|The path to your .pubxml file for a web app, relative to the root folder of the repo.</source>
+          <target state="new">Preserves the IP address.|
+|Do Not Delete|If true, do not overwrite an existing unrelated deployment (upgrade is allowed).|
+|Path to Deployment Settings|The path to your .pubxml file for a web app, relative to the root folder of the repo.</target>
+        </trans-unit>
+        <trans-unit id="c10927db-b7a1-4590-bf6a-98b89173968a" xml:space="preserve">
+          <source>Ignored for cloud services.|
+|Sharepoint Deployment Environment|The same as the service name.|
+|Azure Deployment Environment|The web app or cloud service name.|</source>
+          <target state="new">Ignored for cloud services.|
+|Sharepoint Deployment Environment|The same as the service name.|
+|Azure Deployment Environment|The web app or cloud service name.|</target>
+        </trans-unit>
+        <trans-unit id="616f4932-a02c-4b07-9636-9122a5eefe11" xml:space="preserve">
+          <source>If you are using multiple service configurations (.cscfg files), you can specify the desired service configuration in the <bpt id="0100fcaa-d662-4856-85b4-dda6d3d0ab19">&lt;strong&gt;</bpt>Build, Advanced, MSBuild arguments<ept id="0100fcaa-d662-4856-85b4-dda6d3d0ab19">&lt;/strong&gt;</ept> setting.</source>
+          <target state="new">If you are using multiple service configurations (.cscfg files), you can specify the desired service configuration in the <bpt id="0100fcaa-d662-4856-85b4-dda6d3d0ab19">&lt;strong&gt;</bpt>Build, Advanced, MSBuild arguments<ept id="0100fcaa-d662-4856-85b4-dda6d3d0ab19">&lt;/strong&gt;</ept> setting.</target>
+        </trans-unit>
+        <trans-unit id="40a4f4b8-fd09-43fb-921d-4794129f5a19" xml:space="preserve">
+          <source>For example, to use ServiceConfiguration.Test.cscfg, set MSBuild arguments line option <bpt id="4d3fbe59-bea8-4954-baf3-df2f56ac67d0">&lt;code&gt;</bpt>/p:TargetProfile=Test<ept id="4d3fbe59-bea8-4954-baf3-df2f56ac67d0">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, to use ServiceConfiguration.Test.cscfg, set MSBuild arguments line option <bpt id="4d3fbe59-bea8-4954-baf3-df2f56ac67d0">&lt;code&gt;</bpt>/p:TargetProfile=Test<ept id="4d3fbe59-bea8-4954-baf3-df2f56ac67d0">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09b9aa9e-240e-4f9b-aac5-3ba5577840a5" xml:space="preserve">
+          <source><bpt id="bb0567b3-caca-4470-9060-9d20036107a1">&lt;linkText&gt;</bpt><ept id="bb0567b3-caca-4470-9060-9d20036107a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb0567b3-caca-4470-9060-9d20036107a1">&lt;linkText&gt;</bpt><ept id="bb0567b3-caca-4470-9060-9d20036107a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eeeec1c8-de2d-4b7d-95f8-fb2f92273a24" xml:space="preserve">
+          <source>By this time, your build should be completed successfully.</source>
+          <target state="new">By this time, your build should be completed successfully.</target>
+        </trans-unit>
+        <trans-unit id="4944920c-eefc-47e9-95cb-e78396e60a13" xml:space="preserve">
+          <source><bpt id="ed66c733-09eb-4210-8d71-a004e6e89e2b">&lt;linkText&gt;</bpt><ept id="ed66c733-09eb-4210-8d71-a004e6e89e2b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ed66c733-09eb-4210-8d71-a004e6e89e2b">&lt;linkText&gt;</bpt><ept id="ed66c733-09eb-4210-8d71-a004e6e89e2b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a1fe834-e529-461a-91aa-e0b05bd0a6e9" xml:space="preserve">
+          <source>If you double-click the build name, Visual Studio shows a <bpt id="617fab0f-cd60-49bf-aeb4-3177db461a72">&lt;strong&gt;</bpt>Build Summary<ept id="617fab0f-cd60-49bf-aeb4-3177db461a72">&lt;/strong&gt;</ept>, including any test results from associated unit test projects.</source>
+          <target state="new">If you double-click the build name, Visual Studio shows a <bpt id="617fab0f-cd60-49bf-aeb4-3177db461a72">&lt;strong&gt;</bpt>Build Summary<ept id="617fab0f-cd60-49bf-aeb4-3177db461a72">&lt;/strong&gt;</ept>, including any test results from associated unit test projects.</target>
+        </trans-unit>
+        <trans-unit id="bd0d46e1-c5c2-4d03-a15c-3e3af2e67c68" xml:space="preserve">
+          <source><bpt id="dd27ed60-0f8e-480a-a7d5-da7e80d4c5e0">&lt;linkText&gt;</bpt><ept id="dd27ed60-0f8e-480a-a7d5-da7e80d4c5e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dd27ed60-0f8e-480a-a7d5-da7e80d4c5e0">&lt;linkText&gt;</bpt><ept id="dd27ed60-0f8e-480a-a7d5-da7e80d4c5e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5d99987-b13c-4764-8b2a-4c20c507f3f5" xml:space="preserve">
+          <source>In the <bpt id="4cc4bc36-4258-46d9-bfce-81dad66755d4">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="4cc4bc36-4258-46d9-bfce-81dad66755d4">&lt;/linkText&gt;</ept><bpt id="4cc4bc36-4258-46d9-bfce-81dad66755d4">&lt;title&gt;</bpt><ept id="4cc4bc36-4258-46d9-bfce-81dad66755d4">&lt;/title&gt;</ept>, you can view the associated deployment on the <bpt id="399ded6c-98fb-4de1-8d22-a93808983a9b">&lt;strong&gt;</bpt>Deployments<ept id="399ded6c-98fb-4de1-8d22-a93808983a9b">&lt;/strong&gt;</ept> tab when the staging environment is selected.</source>
+          <target state="new">In the <bpt id="4cc4bc36-4258-46d9-bfce-81dad66755d4">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="4cc4bc36-4258-46d9-bfce-81dad66755d4">&lt;/linkText&gt;</ept><bpt id="4cc4bc36-4258-46d9-bfce-81dad66755d4">&lt;title&gt;</bpt><ept id="4cc4bc36-4258-46d9-bfce-81dad66755d4">&lt;/title&gt;</ept>, you can view the associated deployment on the <bpt id="399ded6c-98fb-4de1-8d22-a93808983a9b">&lt;strong&gt;</bpt>Deployments<ept id="399ded6c-98fb-4de1-8d22-a93808983a9b">&lt;/strong&gt;</ept> tab when the staging environment is selected.</target>
+        </trans-unit>
+        <trans-unit id="5cc1acda-4783-4715-8cf1-e4264a9ff22f" xml:space="preserve">
+          <source><bpt id="3b8df807-7fb5-45e5-91cd-cd24f9fc045f">&lt;linkText&gt;</bpt><ept id="3b8df807-7fb5-45e5-91cd-cd24f9fc045f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b8df807-7fb5-45e5-91cd-cd24f9fc045f">&lt;linkText&gt;</bpt><ept id="3b8df807-7fb5-45e5-91cd-cd24f9fc045f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f89e95a-7026-4703-9a44-1cbda2268807" xml:space="preserve">
+          <source>Browse to your site's URL.</source>
+          <target state="new">Browse to your site's URL.</target>
+        </trans-unit>
+        <trans-unit id="744ab09f-1f11-4d77-a31f-46d733e8a8bf" xml:space="preserve">
+          <source>For a web app, just click the <bpt id="a25ac2c6-5665-4f24-a6b8-21c16de6bebe">&lt;strong&gt;</bpt>Browse<ept id="a25ac2c6-5665-4f24-a6b8-21c16de6bebe">&lt;/strong&gt;</ept> button on the command bar.</source>
+          <target state="new">For a web app, just click the <bpt id="a25ac2c6-5665-4f24-a6b8-21c16de6bebe">&lt;strong&gt;</bpt>Browse<ept id="a25ac2c6-5665-4f24-a6b8-21c16de6bebe">&lt;/strong&gt;</ept> button on the command bar.</target>
+        </trans-unit>
+        <trans-unit id="5c42fac7-687f-46ea-b766-b1b595176d96" xml:space="preserve">
+          <source>For a cloud service, choose the URL in the <bpt id="9adff620-fc89-44bc-a203-f907b1cd907e">&lt;strong&gt;</bpt>Quick Glance<ept id="9adff620-fc89-44bc-a203-f907b1cd907e">&lt;/strong&gt;</ept> section of the <bpt id="33471c5f-8a30-46ed-b875-4320ac23a5f1">&lt;strong&gt;</bpt>Dashboard<ept id="33471c5f-8a30-46ed-b875-4320ac23a5f1">&lt;/strong&gt;</ept> page that shows the Staging environment for a cloud service.</source>
+          <target state="new">For a cloud service, choose the URL in the <bpt id="9adff620-fc89-44bc-a203-f907b1cd907e">&lt;strong&gt;</bpt>Quick Glance<ept id="9adff620-fc89-44bc-a203-f907b1cd907e">&lt;/strong&gt;</ept> section of the <bpt id="33471c5f-8a30-46ed-b875-4320ac23a5f1">&lt;strong&gt;</bpt>Dashboard<ept id="33471c5f-8a30-46ed-b875-4320ac23a5f1">&lt;/strong&gt;</ept> page that shows the Staging environment for a cloud service.</target>
+        </trans-unit>
+        <trans-unit id="64deff67-e7eb-41a0-93f3-e8182032222b" xml:space="preserve">
+          <source>Deployments from continuous integration for cloud services are published to the Staging environment by default.</source>
+          <target state="new">Deployments from continuous integration for cloud services are published to the Staging environment by default.</target>
+        </trans-unit>
+        <trans-unit id="a4dda722-5b67-41cc-a0f4-c9b563173669" xml:space="preserve">
+          <source>You can change this by setting the <bpt id="ee12c998-4910-4249-a6b2-d104b4bcd36e">&lt;strong&gt;</bpt>Alternate Cloud Service Environment<ept id="ee12c998-4910-4249-a6b2-d104b4bcd36e">&lt;/strong&gt;</ept> property to <bpt id="bc72268a-93ca-4096-ad33-cf3247bfb733">&lt;strong&gt;</bpt>Production<ept id="bc72268a-93ca-4096-ad33-cf3247bfb733">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can change this by setting the <bpt id="ee12c998-4910-4249-a6b2-d104b4bcd36e">&lt;strong&gt;</bpt>Alternate Cloud Service Environment<ept id="ee12c998-4910-4249-a6b2-d104b4bcd36e">&lt;/strong&gt;</ept> property to <bpt id="bc72268a-93ca-4096-ad33-cf3247bfb733">&lt;strong&gt;</bpt>Production<ept id="bc72268a-93ca-4096-ad33-cf3247bfb733">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="adc9da11-98db-40f6-9e4b-4831ec01e895" xml:space="preserve">
+          <source>This screenshot shows where the site URL is on the cloud service's dashboard page.</source>
+          <target state="new">This screenshot shows where the site URL is on the cloud service's dashboard page.</target>
+        </trans-unit>
+        <trans-unit id="9f40f7f8-c793-4b92-99c5-7fd871dfa2c4" xml:space="preserve">
+          <source><bpt id="eae70812-8acb-4313-aabb-eb7c76669426">&lt;linkText&gt;</bpt><ept id="eae70812-8acb-4313-aabb-eb7c76669426">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eae70812-8acb-4313-aabb-eb7c76669426">&lt;linkText&gt;</bpt><ept id="eae70812-8acb-4313-aabb-eb7c76669426">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e8a6005-1ed0-4bcf-88ef-28341ea66958" xml:space="preserve">
+          <source>A new browser tab will open to reveal your running site.</source>
+          <target state="new">A new browser tab will open to reveal your running site.</target>
+        </trans-unit>
+        <trans-unit id="4f49d775-ac7a-4422-b201-295029b8b5db" xml:space="preserve">
+          <source><bpt id="60bc853a-d662-4d9e-9ca2-b27c815b80c5">&lt;linkText&gt;</bpt><ept id="60bc853a-d662-4d9e-9ca2-b27c815b80c5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60bc853a-d662-4d9e-9ca2-b27c815b80c5">&lt;linkText&gt;</bpt><ept id="60bc853a-d662-4d9e-9ca2-b27c815b80c5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c87d8f7-3a7a-4cf8-813e-4d06ad4f2a83" xml:space="preserve">
+          <source>For cloud services, if you make other changes to your project, you trigger more builds, and you will accumulate multiple deployments.</source>
+          <target state="new">For cloud services, if you make other changes to your project, you trigger more builds, and you will accumulate multiple deployments.</target>
+        </trans-unit>
+        <trans-unit id="8c9bffb3-5528-46a4-9cf6-52f87d4e1fe9" xml:space="preserve">
+          <source>The latest one marked as Active.</source>
+          <target state="new">The latest one marked as Active.</target>
+        </trans-unit>
+        <trans-unit id="527b7ed2-056f-4f78-adba-217323d92cb4" xml:space="preserve">
+          <source><bpt id="f691ab01-468e-4ce7-9b25-dd6fbceabf58">&lt;linkText&gt;</bpt><ept id="f691ab01-468e-4ce7-9b25-dd6fbceabf58">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f691ab01-468e-4ce7-9b25-dd6fbceabf58">&lt;linkText&gt;</bpt><ept id="f691ab01-468e-4ce7-9b25-dd6fbceabf58">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b37c820e-bf30-4e93-9d6e-0f3b3d2a5fee" xml:space="preserve">
+          <source>This step applies to cloud services and is optional.</source>
+          <target state="new">This step applies to cloud services and is optional.</target>
+        </trans-unit>
+        <trans-unit id="5a1c5391-7d52-4900-8ee2-6424d0e8260b" xml:space="preserve">
+          <source>In the Azure management portal, choose an earlier deployment and then choose the <bpt id="4fe5f935-9df3-43c3-b605-280e58c1eb58">&lt;strong&gt;</bpt>Redeploy<ept id="4fe5f935-9df3-43c3-b605-280e58c1eb58">&lt;/strong&gt;</ept> button to rewind your site to an earlier check-in.</source>
+          <target state="new">In the Azure management portal, choose an earlier deployment and then choose the <bpt id="4fe5f935-9df3-43c3-b605-280e58c1eb58">&lt;strong&gt;</bpt>Redeploy<ept id="4fe5f935-9df3-43c3-b605-280e58c1eb58">&lt;/strong&gt;</ept> button to rewind your site to an earlier check-in.</target>
+        </trans-unit>
+        <trans-unit id="c9d1339b-0b8f-4f2d-8bbd-f1cda3395d37" xml:space="preserve">
+          <source>Note that this will trigger a new build in TFS and create a new entry in your deployment history.</source>
+          <target state="new">Note that this will trigger a new build in TFS and create a new entry in your deployment history.</target>
+        </trans-unit>
+        <trans-unit id="d00f308d-e9f3-4b39-82af-479fef113fa9" xml:space="preserve">
+          <source><bpt id="a4b175bf-4a5c-4727-88e4-d9f1729d5f8c">&lt;linkText&gt;</bpt><ept id="a4b175bf-4a5c-4727-88e4-d9f1729d5f8c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a4b175bf-4a5c-4727-88e4-d9f1729d5f8c">&lt;linkText&gt;</bpt><ept id="a4b175bf-4a5c-4727-88e4-d9f1729d5f8c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="525baa35-b7ac-424c-8b75-a92318148d3b" xml:space="preserve">
+          <source>This step applies only to cloud services, not web apps.</source>
+          <target state="new">This step applies only to cloud services, not web apps.</target>
+        </trans-unit>
+        <trans-unit id="b6aec2f9-6827-4859-800c-33749548c483" xml:space="preserve">
+          <source>When you are ready, you can promote the Staging environment to the production environment by choosing the <bpt id="0c15ae50-a6fa-47b8-8f95-7a0b70389c1f">&lt;strong&gt;</bpt>Swap<ept id="0c15ae50-a6fa-47b8-8f95-7a0b70389c1f">&lt;/strong&gt;</ept> button in the management portal.</source>
+          <target state="new">When you are ready, you can promote the Staging environment to the production environment by choosing the <bpt id="0c15ae50-a6fa-47b8-8f95-7a0b70389c1f">&lt;strong&gt;</bpt>Swap<ept id="0c15ae50-a6fa-47b8-8f95-7a0b70389c1f">&lt;/strong&gt;</ept> button in the management portal.</target>
+        </trans-unit>
+        <trans-unit id="134a0307-c4bb-45c2-b849-1f9c86fd288f" xml:space="preserve">
+          <source>The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment.</source>
+          <target state="new">The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment.</target>
+        </trans-unit>
+        <trans-unit id="57fb4887-4604-4e34-9771-d07bd6aa0362" xml:space="preserve">
+          <source>The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.</source>
+          <target state="new">The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.</target>
+        </trans-unit>
+        <trans-unit id="149e58ba-372b-44a0-aefe-ae0b883e6d69" xml:space="preserve">
+          <source><bpt id="31dcc886-1527-4afe-b644-c1d963ebd2b9">&lt;linkText&gt;</bpt><ept id="31dcc886-1527-4afe-b644-c1d963ebd2b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="31dcc886-1527-4afe-b644-c1d963ebd2b9">&lt;linkText&gt;</bpt><ept id="31dcc886-1527-4afe-b644-c1d963ebd2b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36412f61-871e-4a32-ae8e-466db94e7dbf" xml:space="preserve">
+          <source>This step applies only to web apps, not cloud services.</source>
+          <target state="new">This step applies only to web apps, not cloud services.</target>
+        </trans-unit>
+        <trans-unit id="9ef91f49-c393-4387-a0a5-6e008ed401e0" xml:space="preserve">
+          <source>To put a quality gate on your deployment, you can run unit tests and if they fail, you can stop the deployment.</source>
+          <target state="new">To put a quality gate on your deployment, you can run unit tests and if they fail, you can stop the deployment.</target>
+        </trans-unit>
+        <trans-unit id="f583f931-5feb-4cea-9045-118e88600de1" xml:space="preserve">
+          <source>In Visual Studio, add a unit test project.</source>
+          <target state="new">In Visual Studio, add a unit test project.</target>
+        </trans-unit>
+        <trans-unit id="5d536669-1ca7-47fd-87cd-91047695e793" xml:space="preserve">
+          <source><bpt id="2e64ee2a-c39a-42da-b997-7145eab49618">&lt;linkText&gt;</bpt><ept id="2e64ee2a-c39a-42da-b997-7145eab49618">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e64ee2a-c39a-42da-b997-7145eab49618">&lt;linkText&gt;</bpt><ept id="2e64ee2a-c39a-42da-b997-7145eab49618">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0778b49d-b516-4ad2-925b-986f779562a5" xml:space="preserve">
+          <source>Add project references to the project you want to test.</source>
+          <target state="new">Add project references to the project you want to test.</target>
+        </trans-unit>
+        <trans-unit id="954100ef-101a-428c-8ea6-43635f91ec3d" xml:space="preserve">
+          <source><bpt id="0dae3dcb-2b71-48be-8923-5bceb4e9355a">&lt;linkText&gt;</bpt><ept id="0dae3dcb-2b71-48be-8923-5bceb4e9355a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0dae3dcb-2b71-48be-8923-5bceb4e9355a">&lt;linkText&gt;</bpt><ept id="0dae3dcb-2b71-48be-8923-5bceb4e9355a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85e06ad1-f8ca-4dc0-a778-9ec06ea5d856" xml:space="preserve">
+          <source>Add some unit tests.</source>
+          <target state="new">Add some unit tests.</target>
+        </trans-unit>
+        <trans-unit id="6c150da9-8587-4511-a0c8-232bd7bfdfbf" xml:space="preserve">
+          <source>To get started, try a dummy test that will always pass.</source>
+          <target state="new">To get started, try a dummy test that will always pass.</target>
+        </trans-unit>
+        <trans-unit id="5cce539c-e8f5-4d6c-9a13-6a3d6303a6e6" xml:space="preserve">
+          <source>Edit the build definition, choose the <bpt id="fe0eecf4-69f9-4cf0-a263-9c141d5deb14">&lt;strong&gt;</bpt>Process<ept id="fe0eecf4-69f9-4cf0-a263-9c141d5deb14">&lt;/strong&gt;</ept> tab, and expand the <bpt id="d88d6bf9-a2bb-446b-a4e2-dabc3553f28c">&lt;strong&gt;</bpt>Test<ept id="d88d6bf9-a2bb-446b-a4e2-dabc3553f28c">&lt;/strong&gt;</ept> node.</source>
+          <target state="new">Edit the build definition, choose the <bpt id="fe0eecf4-69f9-4cf0-a263-9c141d5deb14">&lt;strong&gt;</bpt>Process<ept id="fe0eecf4-69f9-4cf0-a263-9c141d5deb14">&lt;/strong&gt;</ept> tab, and expand the <bpt id="d88d6bf9-a2bb-446b-a4e2-dabc3553f28c">&lt;strong&gt;</bpt>Test<ept id="d88d6bf9-a2bb-446b-a4e2-dabc3553f28c">&lt;/strong&gt;</ept> node.</target>
+        </trans-unit>
+        <trans-unit id="fda70db9-7cc5-4e1b-9829-513a0b4001be" xml:space="preserve">
+          <source>Set the <bpt id="4bf6f763-f962-45bb-a53e-7892f0655080">&lt;strong&gt;</bpt>Fail build on test failure<ept id="4bf6f763-f962-45bb-a53e-7892f0655080">&lt;/strong&gt;</ept> to True.</source>
+          <target state="new">Set the <bpt id="4bf6f763-f962-45bb-a53e-7892f0655080">&lt;strong&gt;</bpt>Fail build on test failure<ept id="4bf6f763-f962-45bb-a53e-7892f0655080">&lt;/strong&gt;</ept> to True.</target>
+        </trans-unit>
+        <trans-unit id="d0d8e95a-02af-4ff4-ad4e-c6d58101d782" xml:space="preserve">
+          <source>This means that the deployment won't occur unless the tests pass.</source>
+          <target state="new">This means that the deployment won't occur unless the tests pass.</target>
+        </trans-unit>
+        <trans-unit id="c9950d8c-bab3-4ccf-9c58-642d8d2ae772" xml:space="preserve">
+          <source><bpt id="b1ab62ad-787d-43b0-bba2-c3e9e86c292f">&lt;linkText&gt;</bpt><ept id="b1ab62ad-787d-43b0-bba2-c3e9e86c292f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1ab62ad-787d-43b0-bba2-c3e9e86c292f">&lt;linkText&gt;</bpt><ept id="b1ab62ad-787d-43b0-bba2-c3e9e86c292f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcbcde65-63f5-4a2d-9b69-5fde15f50c62" xml:space="preserve">
+          <source>Queue a new build.</source>
+          <target state="new">Queue a new build.</target>
+        </trans-unit>
+        <trans-unit id="75f4e1f3-d79b-46e6-a96e-2bed03b6c6bf" xml:space="preserve">
+          <source><bpt id="d298be67-da39-4ea5-a94c-e7153786cff2">&lt;linkText&gt;</bpt><ept id="d298be67-da39-4ea5-a94c-e7153786cff2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d298be67-da39-4ea5-a94c-e7153786cff2">&lt;linkText&gt;</bpt><ept id="d298be67-da39-4ea5-a94c-e7153786cff2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="633e69ef-09a4-4423-9db9-29e78ab1d92f" xml:space="preserve">
+          <source><bpt id="7ba12df7-90cc-4f0f-bbda-5adc597da224">&lt;linkText&gt;</bpt><ept id="7ba12df7-90cc-4f0f-bbda-5adc597da224">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ba12df7-90cc-4f0f-bbda-5adc597da224">&lt;linkText&gt;</bpt><ept id="7ba12df7-90cc-4f0f-bbda-5adc597da224">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7945b260-8e88-4f75-aae7-9ed9c25dde83" xml:space="preserve">
+          <source>While the build is proceeding, check on its progress.</source>
+          <target state="new">While the build is proceeding, check on its progress.</target>
+        </trans-unit>
+        <trans-unit id="88faf9a0-acd8-4554-a0ce-dcdf4a79a40a" xml:space="preserve">
+          <source><bpt id="b59eecb4-207c-4958-bc32-d238a6b8b850">&lt;linkText&gt;</bpt><ept id="b59eecb4-207c-4958-bc32-d238a6b8b850">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b59eecb4-207c-4958-bc32-d238a6b8b850">&lt;linkText&gt;</bpt><ept id="b59eecb4-207c-4958-bc32-d238a6b8b850">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5b7ee4e-5c5f-44d8-a45c-23f61da10029" xml:space="preserve">
+          <source><bpt id="8a2ae46a-c619-467a-99e7-d9439f53a129">&lt;linkText&gt;</bpt><ept id="8a2ae46a-c619-467a-99e7-d9439f53a129">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8a2ae46a-c619-467a-99e7-d9439f53a129">&lt;linkText&gt;</bpt><ept id="8a2ae46a-c619-467a-99e7-d9439f53a129">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5dd3e5e-f9eb-411f-b3a1-15e250a5ce8e" xml:space="preserve">
+          <source>When the build is done, check the test results.</source>
+          <target state="new">When the build is done, check the test results.</target>
+        </trans-unit>
+        <trans-unit id="fbbc7361-1b22-4b9f-9be8-33f51596b6f2" xml:space="preserve">
+          <source><bpt id="2c406c75-6a9e-4754-8a88-bc2e83ac6e75">&lt;linkText&gt;</bpt><ept id="2c406c75-6a9e-4754-8a88-bc2e83ac6e75">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c406c75-6a9e-4754-8a88-bc2e83ac6e75">&lt;linkText&gt;</bpt><ept id="2c406c75-6a9e-4754-8a88-bc2e83ac6e75">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff588208-0ae3-4424-b559-4b142a0d8c8c" xml:space="preserve">
+          <source><bpt id="6ef2da8d-5cfd-413b-89d5-e9c8e8d77e3b">&lt;linkText&gt;</bpt><ept id="6ef2da8d-5cfd-413b-89d5-e9c8e8d77e3b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ef2da8d-5cfd-413b-89d5-e9c8e8d77e3b">&lt;linkText&gt;</bpt><ept id="6ef2da8d-5cfd-413b-89d5-e9c8e8d77e3b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc4e4e5d-c896-4c36-a543-cf80483b1e84" xml:space="preserve">
+          <source>Try creating a test that will fail.</source>
+          <target state="new">Try creating a test that will fail.</target>
+        </trans-unit>
+        <trans-unit id="7b5d7e35-fd2b-4a37-8a57-fd7e9274fd8f" xml:space="preserve">
+          <source>Add a new test by copying the first one, rename it, and comment out the line of code that states NotImplementedException is an expected exception.</source>
+          <target state="new">Add a new test by copying the first one, rename it, and comment out the line of code that states NotImplementedException is an expected exception.</target>
+        </trans-unit>
+        <trans-unit id="b1356f26-8f5e-490d-8b55-f8fbd36e623d" xml:space="preserve">
+          <source>Check in the change to queue a new build.</source>
+          <target state="new">Check in the change to queue a new build.</target>
+        </trans-unit>
+        <trans-unit id="f7b82f77-93a2-42f6-aabc-9171ef7414ce" xml:space="preserve">
+          <source><bpt id="7ff393c1-a556-444b-80e9-a7c2aeabd8c0">&lt;linkText&gt;</bpt><ept id="7ff393c1-a556-444b-80e9-a7c2aeabd8c0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ff393c1-a556-444b-80e9-a7c2aeabd8c0">&lt;linkText&gt;</bpt><ept id="7ff393c1-a556-444b-80e9-a7c2aeabd8c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a96f7920-d82a-4a59-90fd-998b8d2189ac" xml:space="preserve">
+          <source>View the test results to see details about the failure.</source>
+          <target state="new">View the test results to see details about the failure.</target>
+        </trans-unit>
+        <trans-unit id="ea05b378-85b7-47ba-81e5-3b29a59ea96e" xml:space="preserve">
+          <source><bpt id="c6be6088-35f4-4bd8-bff3-e51d6021be96">&lt;linkText&gt;</bpt><ept id="c6be6088-35f4-4bd8-bff3-e51d6021be96">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c6be6088-35f4-4bd8-bff3-e51d6021be96">&lt;linkText&gt;</bpt><ept id="c6be6088-35f4-4bd8-bff3-e51d6021be96">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33162e6e-caa2-4b03-9c00-c5bee07c38b7" xml:space="preserve">
+          <source><bpt id="c1436b20-bd62-4cfa-8a68-78cfffc6fcea">&lt;linkText&gt;</bpt><ept id="c1436b20-bd62-4cfa-8a68-78cfffc6fcea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c1436b20-bd62-4cfa-8a68-78cfffc6fcea">&lt;linkText&gt;</bpt><ept id="c1436b20-bd62-4cfa-8a68-78cfffc6fcea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2100877c-f3ae-4e8b-9483-9efa95598378" xml:space="preserve">
+          <source>For more about unit testing in Visual Studio Online, see <bpt id="c0e0e6f0-848b-4ae9-8c84-4fc67091271d">&lt;linkText&gt;</bpt>Run unit tests in your build<ept id="c0e0e6f0-848b-4ae9-8c84-4fc67091271d">&lt;/linkText&gt;</ept><bpt id="c0e0e6f0-848b-4ae9-8c84-4fc67091271d">&lt;title&gt;</bpt><ept id="c0e0e6f0-848b-4ae9-8c84-4fc67091271d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more about unit testing in Visual Studio Online, see <bpt id="c0e0e6f0-848b-4ae9-8c84-4fc67091271d">&lt;linkText&gt;</bpt>Run unit tests in your build<ept id="c0e0e6f0-848b-4ae9-8c84-4fc67091271d">&lt;/linkText&gt;</ept><bpt id="c0e0e6f0-848b-4ae9-8c84-4fc67091271d">&lt;title&gt;</bpt><ept id="c0e0e6f0-848b-4ae9-8c84-4fc67091271d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0cae36c0-7027-480b-a169-52a7a98cba78" xml:space="preserve">
+          <source>If you're using Git, see <bpt id="ba57b2c0-8f2e-435f-9bcd-eb60a6184f03">&lt;linkText&gt;</bpt>Share your code in Git<ept id="ba57b2c0-8f2e-435f-9bcd-eb60a6184f03">&lt;/linkText&gt;</ept><bpt id="ba57b2c0-8f2e-435f-9bcd-eb60a6184f03">&lt;title&gt;</bpt><ept id="ba57b2c0-8f2e-435f-9bcd-eb60a6184f03">&lt;/title&gt;</ept> and <bpt id="d585a34b-e9a1-489d-90aa-8eddfa4c8e5b">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="d585a34b-e9a1-489d-90aa-8eddfa4c8e5b">&lt;/linkText&gt;</ept><bpt id="d585a34b-e9a1-489d-90aa-8eddfa4c8e5b">&lt;title&gt;</bpt><ept id="d585a34b-e9a1-489d-90aa-8eddfa4c8e5b">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you're using Git, see <bpt id="ba57b2c0-8f2e-435f-9bcd-eb60a6184f03">&lt;linkText&gt;</bpt>Share your code in Git<ept id="ba57b2c0-8f2e-435f-9bcd-eb60a6184f03">&lt;/linkText&gt;</ept><bpt id="ba57b2c0-8f2e-435f-9bcd-eb60a6184f03">&lt;title&gt;</bpt><ept id="ba57b2c0-8f2e-435f-9bcd-eb60a6184f03">&lt;/title&gt;</ept> and <bpt id="d585a34b-e9a1-489d-90aa-8eddfa4c8e5b">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="d585a34b-e9a1-489d-90aa-8eddfa4c8e5b">&lt;/linkText&gt;</ept><bpt id="d585a34b-e9a1-489d-90aa-8eddfa4c8e5b">&lt;title&gt;</bpt><ept id="d585a34b-e9a1-489d-90aa-8eddfa4c8e5b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="669af2bb-c23f-457f-a8df-1222877e0fd9" xml:space="preserve">
+          <source>For more information about Visual Studio Online, see <bpt id="f5eace5d-f232-4b54-8632-d8472f9db846">&lt;linkText&gt;</bpt>Visual Studio Online<ept id="f5eace5d-f232-4b54-8632-d8472f9db846">&lt;/linkText&gt;</ept><bpt id="f5eace5d-f232-4b54-8632-d8472f9db846">&lt;title&gt;</bpt><ept id="f5eace5d-f232-4b54-8632-d8472f9db846">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Visual Studio Online, see <bpt id="f5eace5d-f232-4b54-8632-d8472f9db846">&lt;linkText&gt;</bpt>Visual Studio Online<ept id="f5eace5d-f232-4b54-8632-d8472f9db846">&lt;/linkText&gt;</ept><bpt id="f5eace5d-f232-4b54-8632-d8472f9db846">&lt;title&gt;</bpt><ept id="f5eace5d-f232-4b54-8632-d8472f9db846">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8639d4f5-398f-49d1-ba04-cdfd2d2d2fea" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG</target>
+        </trans-unit>
+        <trans-unit id="dca25e67-c35f-448d-be1a-d46d03e8653c" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs1.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs1.png</target>
+        </trans-unit>
+        <trans-unit id="79a7a2bf-2ffa-4e9c-a50d-8665e716b10a" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs2.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs2.png</target>
+        </trans-unit>
+        <trans-unit id="f44f2833-cce4-4698-8c86-c73c9304569c" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs5.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs5.png</target>
+        </trans-unit>
+        <trans-unit id="b25f3a88-2f87-43b7-96b0-7c7a8daafb25" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs6.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs6.png</target>
+        </trans-unit>
+        <trans-unit id="58cdce5d-8ff4-49a9-94f9-a091857a2f2f" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs7.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs7.png</target>
+        </trans-unit>
+        <trans-unit id="025705f5-ba73-400f-8b53-0a3060959edc" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs8.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs8.png</target>
+        </trans-unit>
+        <trans-unit id="2c1bd983-e99d-488b-8163-ab00d23e2454" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs9.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs9.png</target>
+        </trans-unit>
+        <trans-unit id="5ec31de3-8409-4615-8968-366e55910a8e" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs10.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs10.png</target>
+        </trans-unit>
+        <trans-unit id="1387b264-7a1d-4598-bf4f-2736c2c5f73d" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs11.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs11.png</target>
+        </trans-unit>
+        <trans-unit id="ce40e991-21ae-4262-8fb1-c7ecd9360f6d" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs12.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs12.png</target>
+        </trans-unit>
+        <trans-unit id="468bb224-cd3d-47c6-9383-de300be39c20" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs13.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs13.png</target>
+        </trans-unit>
+        <trans-unit id="3d82b2a9-60de-4d58-a274-05d2459f1096" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs14.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs14.png</target>
+        </trans-unit>
+        <trans-unit id="10dcc118-699c-4732-b2e7-23b200c5b3c9" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs15.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs15.png</target>
+        </trans-unit>
+        <trans-unit id="0c94cb35-0855-4cbe-b622-568cf3e740dd" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs16.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs16.png</target>
+        </trans-unit>
+        <trans-unit id="c336783e-6733-41b8-8540-f9ade076ad38" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs17.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs17.png</target>
+        </trans-unit>
+        <trans-unit id="8c779d0a-a085-4804-8396-e2b6c9e47f4a" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs18.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs18.png</target>
+        </trans-unit>
+        <trans-unit id="6672cf61-452a-4fd0-9c89-4c73c6dfcfe4" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs19.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs19.png</target>
+        </trans-unit>
+        <trans-unit id="5bf6175c-26ef-4e6d-99c1-5a65fbdaf3b9" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs20.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs20.png</target>
+        </trans-unit>
+        <trans-unit id="11b446e6-17fe-4cf8-8eef-ab811cab29dc" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs21.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs21.png</target>
+        </trans-unit>
+        <trans-unit id="f1a4110e-e68b-4549-a257-1a0d44b8336a" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs22.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs22.png</target>
+        </trans-unit>
+        <trans-unit id="83d6785e-91d3-4b2d-b216-1e5a0af281ba" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs23.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs23.png</target>
+        </trans-unit>
+        <trans-unit id="56c78f13-7d51-481f-93a6-9070764deb1b" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs24.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs24.png</target>
+        </trans-unit>
+        <trans-unit id="b9f6843f-ffbf-4129-b5cc-f52413a44a07" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs25.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs25.png</target>
+        </trans-unit>
+        <trans-unit id="07a59658-dbba-459f-a3b9-da47d5e024c5" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs26.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs26.png</target>
+        </trans-unit>
+        <trans-unit id="36dac601-dd49-4b0b-88b7-9b936696268f" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs27.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs27.png</target>
+        </trans-unit>
+        <trans-unit id="918861b7-6802-4531-b850-1a4462f64f0d" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs28.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs28.png</target>
+        </trans-unit>
+        <trans-unit id="4854ff2c-14f3-4835-97bf-a5fe6f0995dd" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs29.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs29.png</target>
+        </trans-unit>
+        <trans-unit id="ba088e45-1647-4dea-8096-57916659b8c9" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs30.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs30.png</target>
+        </trans-unit>
+        <trans-unit id="252d2c40-780b-4eff-ba61-30e368e45284" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs31.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs31.png</target>
+        </trans-unit>
+        <trans-unit id="feabecee-8ada-49a5-84af-29a5556cba2d" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs32.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs32.png</target>
+        </trans-unit>
+        <trans-unit id="e7c24e43-a170-45d3-adbb-b4aaf84df9ed" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs33.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs33.png</target>
+        </trans-unit>
+        <trans-unit id="8d5ae53c-6fe0-4ed4-84bf-b4f5d1152fa7" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs34.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs34.png</target>
+        </trans-unit>
+        <trans-unit id="f88cc559-b2ff-4a54-acaa-add03f855322" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs35.png</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs35.png</target>
+        </trans-unit>
+        <trans-unit id="432fee99-c1dc-45f9-956d-6dcbaca4fa90" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs36.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs36.PNG</target>
+        </trans-unit>
+        <trans-unit id="32b30883-e6f3-4928-b34a-cbfa55efdb06" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/tfs37.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/tfs37.PNG</target>
+        </trans-unit>
+        <trans-unit id="654d7cd2-3ee0-4d1c-aedb-9f3403edd220" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/AdvancedMSBuildSettings.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/AdvancedMSBuildSettings.PNG</target>
+        </trans-unit>
+        <trans-unit id="3fc79592-61d3-48dc-a878-7ac9ebc31583" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/AddUnitTestProject.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/AddUnitTestProject.PNG</target>
+        </trans-unit>
+        <trans-unit id="6ae0cf37-fd01-49cc-aeee-1e72a5b04465" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/AddProjectReferences.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/AddProjectReferences.PNG</target>
+        </trans-unit>
+        <trans-unit id="34229d39-727b-453b-a9dc-47a49aeb729c" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/EditBuildDefinitionForTest.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/EditBuildDefinitionForTest.PNG</target>
+        </trans-unit>
+        <trans-unit id="dff07929-5aa5-468b-a956-5fedd41fa9a9" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/QueueNewBuild.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/QueueNewBuild.PNG</target>
+        </trans-unit>
+        <trans-unit id="692533bd-6029-4f27-9eed-c35b719e9b72" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/QueueBuildDialog.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/QueueBuildDialog.PNG</target>
+        </trans-unit>
+        <trans-unit id="04f533fd-4845-4795-a76a-4758393adecc" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/BuildInTeamExplorer.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/BuildInTeamExplorer.PNG</target>
+        </trans-unit>
+        <trans-unit id="6f5f3469-8c0f-4545-bba6-26d92cdf0a70" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/BuildRequestInfo.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/BuildRequestInfo.PNG</target>
+        </trans-unit>
+        <trans-unit id="c4efa038-ebac-4269-8211-c2a67a72b865" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/BuildSucceeded.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/BuildSucceeded.PNG</target>
+        </trans-unit>
+        <trans-unit id="a66c65fb-06ca-4259-ab6b-ef133c89f931" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/TestResultsPassed.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/TestResultsPassed.PNG</target>
+        </trans-unit>
+        <trans-unit id="ae2df30b-47b1-4f70-86bc-b804a28987a5" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG</target>
+        </trans-unit>
+        <trans-unit id="74b38556-da72-432e-b8cc-df6e1e3a6fba" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG</target>
+        </trans-unit>
+        <trans-unit id="bbcd60b8-19ef-489c-aa2d-f84981f4b7f5" xml:space="preserve">
+          <source>./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG</source>
+          <target state="new">./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="fd233e6f-0277-4ca8-ad61-31322c774ff1" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="eac29241-cd18-4185-982c-1e08d2611efd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="eac29241-cd18-4185-982c-1e08d2611efd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a203bd02-ac2b-405a-9c1f-db5a6e04e0cd">
+        <trans-unit id="10b20438-eae2-42b7-ae30-5a9eddc75b43" xml:space="preserve">
+          <source>HDInsight article index for Azure portal | Microsoft Azure</source>
+          <target state="new">HDInsight article index for Azure portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4acbb943-1ee7-4ed6-b713-e3daf59f7cbd" xml:space="preserve">
+          <source>An index page with links to articles about HDInsight on the Azure portal. Microsoft recommends the Azure preview portal for new Hadoop clusters on HDInsight.</source>
+          <target state="new">An index page with links to articles about HDInsight on the Azure portal. Microsoft recommends the Azure preview portal for new Hadoop clusters on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="52fb2eab-ee87-47c3-a9e1-718c9ab51fef" xml:space="preserve">
+          <source>Use this index page to find articles covering HDInsight on the <bpt id="bba7dc92-1445-4626-904d-356d596afa5c">&lt;linkText&gt;</bpt>Azure portal<ept id="bba7dc92-1445-4626-904d-356d596afa5c">&lt;/linkText&gt;</ept><bpt id="bba7dc92-1445-4626-904d-356d596afa5c">&lt;title&gt;</bpt><ept id="bba7dc92-1445-4626-904d-356d596afa5c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Use this index page to find articles covering HDInsight on the <bpt id="bba7dc92-1445-4626-904d-356d596afa5c">&lt;linkText&gt;</bpt>Azure portal<ept id="bba7dc92-1445-4626-904d-356d596afa5c">&lt;/linkText&gt;</ept><bpt id="bba7dc92-1445-4626-904d-356d596afa5c">&lt;title&gt;</bpt><ept id="bba7dc92-1445-4626-904d-356d596afa5c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d2d54eb-13d2-44e8-aeef-10e86973cbd0" xml:space="preserve">
+          <source>Azure HDInsight is a cloud distribution of open-source Hadoop and the Hortonworks Data Platform.</source>
+          <target state="new">Azure HDInsight is a cloud distribution of open-source Hadoop and the Hortonworks Data Platform.</target>
+        </trans-unit>
+        <trans-unit id="0eecf1e3-20a7-4c9a-a6dc-a06258611251" xml:space="preserve">
+          <source>This documentation index page is for customers who already have solutions deployed to the current Azure portal.</source>
+          <target state="new">This documentation index page is for customers who already have solutions deployed to the current Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="2d248c91-9081-4b7d-94a4-28a567b141a1" xml:space="preserve">
+          <source>Microsoft recommends using the <bpt id="d9280289-cb94-4ed7-b533-17d98cbeea91">&lt;strong&gt;</bpt>Azure preview portal<ept id="d9280289-cb94-4ed7-b533-17d98cbeea91">&lt;/strong&gt;</ept> for new HDInsight clusters:</source>
+          <target state="new">Microsoft recommends using the <bpt id="d9280289-cb94-4ed7-b533-17d98cbeea91">&lt;strong&gt;</bpt>Azure preview portal<ept id="d9280289-cb94-4ed7-b533-17d98cbeea91">&lt;/strong&gt;</ept> for new HDInsight clusters:</target>
+        </trans-unit>
+        <trans-unit id="635a2ee2-1b2b-4d1f-afc3-01dee1e09ccb" xml:space="preserve">
+          <source><bpt id="7d2f7894-9ca2-453e-b2f9-3c27296be643">&lt;linkText&gt;</bpt>Go to HDInsight preview portal documentation<ept id="7d2f7894-9ca2-453e-b2f9-3c27296be643">&lt;/linkText&gt;</ept><bpt id="7d2f7894-9ca2-453e-b2f9-3c27296be643">&lt;title&gt;</bpt><ept id="7d2f7894-9ca2-453e-b2f9-3c27296be643">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7d2f7894-9ca2-453e-b2f9-3c27296be643">&lt;linkText&gt;</bpt>Go to HDInsight preview portal documentation<ept id="7d2f7894-9ca2-453e-b2f9-3c27296be643">&lt;/linkText&gt;</ept><bpt id="7d2f7894-9ca2-453e-b2f9-3c27296be643">&lt;title&gt;</bpt><ept id="7d2f7894-9ca2-453e-b2f9-3c27296be643">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="080708eb-145f-40f9-98c9-69901aac33d9" xml:space="preserve">
+          <source><bpt id="61da3a1a-93a7-4c40-8d12-b7f02b6b1397">&lt;linkText&gt;</bpt>Go to the Azure preview portal<ept id="61da3a1a-93a7-4c40-8d12-b7f02b6b1397">&lt;/linkText&gt;</ept><bpt id="61da3a1a-93a7-4c40-8d12-b7f02b6b1397">&lt;title&gt;</bpt><ept id="61da3a1a-93a7-4c40-8d12-b7f02b6b1397">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="61da3a1a-93a7-4c40-8d12-b7f02b6b1397">&lt;linkText&gt;</bpt>Go to the Azure preview portal<ept id="61da3a1a-93a7-4c40-8d12-b7f02b6b1397">&lt;/linkText&gt;</ept><bpt id="61da3a1a-93a7-4c40-8d12-b7f02b6b1397">&lt;title&gt;</bpt><ept id="61da3a1a-93a7-4c40-8d12-b7f02b6b1397">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a036e5ec-9c05-439a-8b9e-3f6cc0189228" xml:space="preserve">
+          <source>For an explanation of the advantages of the preview portal, see <bpt id="3f0d5e94-573d-4369-b599-178c647dd04c">&lt;linkText&gt;</bpt>DevOps just got a whole lot more awesome<ept id="3f0d5e94-573d-4369-b599-178c647dd04c">&lt;/linkText&gt;</ept><bpt id="3f0d5e94-573d-4369-b599-178c647dd04c">&lt;title&gt;</bpt><ept id="3f0d5e94-573d-4369-b599-178c647dd04c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an explanation of the advantages of the preview portal, see <bpt id="3f0d5e94-573d-4369-b599-178c647dd04c">&lt;linkText&gt;</bpt>DevOps just got a whole lot more awesome<ept id="3f0d5e94-573d-4369-b599-178c647dd04c">&lt;/linkText&gt;</ept><bpt id="3f0d5e94-573d-4369-b599-178c647dd04c">&lt;title&gt;</bpt><ept id="3f0d5e94-573d-4369-b599-178c647dd04c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15b0fd79-896e-4c79-aedd-01894db9c9d8" xml:space="preserve">
+          <source>HDInsight on the Azure portal will not receive upgrades after July 2015 and is replaced by the Azure preview portal.</source>
+          <target state="new">HDInsight on the Azure portal will not receive upgrades after July 2015 and is replaced by the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="c1f6b21f-9e24-42ad-b0ae-b6670ccfd635" xml:space="preserve">
+          <source>If you're new to Hadoop on HDInsight, go to the <bpt id="bf8a7f24-861a-4014-8f9a-b84fec205830">&lt;linkText&gt;</bpt>HDInsight documentation page<ept id="bf8a7f24-861a-4014-8f9a-b84fec205830">&lt;/linkText&gt;</ept><bpt id="bf8a7f24-861a-4014-8f9a-b84fec205830">&lt;title&gt;</bpt><ept id="bf8a7f24-861a-4014-8f9a-b84fec205830">&lt;/title&gt;</ept> to get started with the Azure preview portal.</source>
+          <target state="new">If you're new to Hadoop on HDInsight, go to the <bpt id="bf8a7f24-861a-4014-8f9a-b84fec205830">&lt;linkText&gt;</bpt>HDInsight documentation page<ept id="bf8a7f24-861a-4014-8f9a-b84fec205830">&lt;/linkText&gt;</ept><bpt id="bf8a7f24-861a-4014-8f9a-b84fec205830">&lt;title&gt;</bpt><ept id="bf8a7f24-861a-4014-8f9a-b84fec205830">&lt;/title&gt;</ept> to get started with the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="49303be3-6d01-4077-be2b-cea9988f8e41" xml:space="preserve">
+          <source>For a complete set of articles about using Linux and Linux clusters, go to the <bpt id="73fff86d-5b02-4555-9dbc-3058bae670bd">&lt;linkText&gt;</bpt>HDInsight documentation page<ept id="73fff86d-5b02-4555-9dbc-3058bae670bd">&lt;/linkText&gt;</ept><bpt id="73fff86d-5b02-4555-9dbc-3058bae670bd">&lt;title&gt;</bpt><ept id="73fff86d-5b02-4555-9dbc-3058bae670bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a complete set of articles about using Linux and Linux clusters, go to the <bpt id="73fff86d-5b02-4555-9dbc-3058bae670bd">&lt;linkText&gt;</bpt>HDInsight documentation page<ept id="73fff86d-5b02-4555-9dbc-3058bae670bd">&lt;/linkText&gt;</ept><bpt id="73fff86d-5b02-4555-9dbc-3058bae670bd">&lt;title&gt;</bpt><ept id="73fff86d-5b02-4555-9dbc-3058bae670bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="533b5c20-c4a6-418f-adcf-758be8acfb03" xml:space="preserve">
+          <source><bpt id="836dfdc3-680a-43c0-84ea-de49db9e4fb0">&lt;linkText&gt;</bpt>Run four easy samples<ept id="836dfdc3-680a-43c0-84ea-de49db9e4fb0">&lt;/linkText&gt;</ept><bpt id="836dfdc3-680a-43c0-84ea-de49db9e4fb0">&lt;title&gt;</bpt><ept id="836dfdc3-680a-43c0-84ea-de49db9e4fb0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="836dfdc3-680a-43c0-84ea-de49db9e4fb0">&lt;linkText&gt;</bpt>Run four easy samples<ept id="836dfdc3-680a-43c0-84ea-de49db9e4fb0">&lt;/linkText&gt;</ept><bpt id="836dfdc3-680a-43c0-84ea-de49db9e4fb0">&lt;title&gt;</bpt><ept id="836dfdc3-680a-43c0-84ea-de49db9e4fb0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="634a9917-1879-4b7f-91a6-5420beb0e4fb" xml:space="preserve">
+          <source><bpt id="f909dbb1-3403-4f1f-ae09-0b38fa6ca246">&lt;linkText&gt;</bpt>Use Hive and HiveQL with Hadoop to analyze a sample Apache log4j file<ept id="f909dbb1-3403-4f1f-ae09-0b38fa6ca246">&lt;/linkText&gt;</ept><bpt id="f909dbb1-3403-4f1f-ae09-0b38fa6ca246">&lt;title&gt;</bpt><ept id="f909dbb1-3403-4f1f-ae09-0b38fa6ca246">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f909dbb1-3403-4f1f-ae09-0b38fa6ca246">&lt;linkText&gt;</bpt>Use Hive and HiveQL with Hadoop to analyze a sample Apache log4j file<ept id="f909dbb1-3403-4f1f-ae09-0b38fa6ca246">&lt;/linkText&gt;</ept><bpt id="f909dbb1-3403-4f1f-ae09-0b38fa6ca246">&lt;title&gt;</bpt><ept id="f909dbb1-3403-4f1f-ae09-0b38fa6ca246">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8be3d64a-39e5-4b9d-9cfd-ecadf225ab2f" xml:space="preserve">
+          <source><bpt id="1e35b6ba-f0c5-444c-8c60-39cbfe3cffce">&lt;linkText&gt;</bpt>Use Pig with Hadoop<ept id="1e35b6ba-f0c5-444c-8c60-39cbfe3cffce">&lt;/linkText&gt;</ept><bpt id="1e35b6ba-f0c5-444c-8c60-39cbfe3cffce">&lt;title&gt;</bpt><ept id="1e35b6ba-f0c5-444c-8c60-39cbfe3cffce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e35b6ba-f0c5-444c-8c60-39cbfe3cffce">&lt;linkText&gt;</bpt>Use Pig with Hadoop<ept id="1e35b6ba-f0c5-444c-8c60-39cbfe3cffce">&lt;/linkText&gt;</ept><bpt id="1e35b6ba-f0c5-444c-8c60-39cbfe3cffce">&lt;title&gt;</bpt><ept id="1e35b6ba-f0c5-444c-8c60-39cbfe3cffce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31a1f90f-63ce-4188-a69b-58efbb3957d8" xml:space="preserve">
+          <source><bpt id="5b7b889b-f532-45fe-a405-16191195ef95">&lt;linkText&gt;</bpt>Use MapReduce in Hadoop<ept id="5b7b889b-f532-45fe-a405-16191195ef95">&lt;/linkText&gt;</ept><bpt id="5b7b889b-f532-45fe-a405-16191195ef95">&lt;title&gt;</bpt><ept id="5b7b889b-f532-45fe-a405-16191195ef95">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5b7b889b-f532-45fe-a405-16191195ef95">&lt;linkText&gt;</bpt>Use MapReduce in Hadoop<ept id="5b7b889b-f532-45fe-a405-16191195ef95">&lt;/linkText&gt;</ept><bpt id="5b7b889b-f532-45fe-a405-16191195ef95">&lt;title&gt;</bpt><ept id="5b7b889b-f532-45fe-a405-16191195ef95">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfea1ca3-d4ef-4ef8-b72d-1db5ab524d90" xml:space="preserve">
+          <source><bpt id="9730418d-e195-475a-bb3e-b765a2636756">&lt;linkText&gt;</bpt>Connect Excel to Hadoop using Power Query<ept id="9730418d-e195-475a-bb3e-b765a2636756">&lt;/linkText&gt;</ept><bpt id="9730418d-e195-475a-bb3e-b765a2636756">&lt;title&gt;</bpt><ept id="9730418d-e195-475a-bb3e-b765a2636756">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9730418d-e195-475a-bb3e-b765a2636756">&lt;linkText&gt;</bpt>Connect Excel to Hadoop using Power Query<ept id="9730418d-e195-475a-bb3e-b765a2636756">&lt;/linkText&gt;</ept><bpt id="9730418d-e195-475a-bb3e-b765a2636756">&lt;title&gt;</bpt><ept id="9730418d-e195-475a-bb3e-b765a2636756">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9dfe2afd-1853-4f0c-9daf-9c0d6ec56167" xml:space="preserve">
+          <source><bpt id="04459965-db0f-4aed-bacf-a69cc107fa23">&lt;linkText&gt;</bpt>Connect Excel to Hadoop with the Hive ODBC driver<ept id="04459965-db0f-4aed-bacf-a69cc107fa23">&lt;/linkText&gt;</ept><bpt id="04459965-db0f-4aed-bacf-a69cc107fa23">&lt;title&gt;</bpt><ept id="04459965-db0f-4aed-bacf-a69cc107fa23">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="04459965-db0f-4aed-bacf-a69cc107fa23">&lt;linkText&gt;</bpt>Connect Excel to Hadoop with the Hive ODBC driver<ept id="04459965-db0f-4aed-bacf-a69cc107fa23">&lt;/linkText&gt;</ept><bpt id="04459965-db0f-4aed-bacf-a69cc107fa23">&lt;title&gt;</bpt><ept id="04459965-db0f-4aed-bacf-a69cc107fa23">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8fbf8324-1f90-4d36-b6c3-b9c17f7c9464" xml:space="preserve">
+          <source><bpt id="b823f9b3-e857-4650-867b-b52c46d8a94e">&lt;linkText&gt;</bpt>Serialize data in Hadoop with the Microsoft Avro Library<ept id="b823f9b3-e857-4650-867b-b52c46d8a94e">&lt;/linkText&gt;</ept><bpt id="b823f9b3-e857-4650-867b-b52c46d8a94e">&lt;title&gt;</bpt><ept id="b823f9b3-e857-4650-867b-b52c46d8a94e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b823f9b3-e857-4650-867b-b52c46d8a94e">&lt;linkText&gt;</bpt>Serialize data in Hadoop with the Microsoft Avro Library<ept id="b823f9b3-e857-4650-867b-b52c46d8a94e">&lt;/linkText&gt;</ept><bpt id="b823f9b3-e857-4650-867b-b52c46d8a94e">&lt;title&gt;</bpt><ept id="b823f9b3-e857-4650-867b-b52c46d8a94e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f903dcf-dd4a-4d1f-a73e-e756750f48f4" xml:space="preserve">
+          <source><bpt id="35115784-4ac3-4567-be20-083fc537e5b6">&lt;linkText&gt;</bpt>Process and analyze JSON documents using Hive<ept id="35115784-4ac3-4567-be20-083fc537e5b6">&lt;/linkText&gt;</ept><bpt id="35115784-4ac3-4567-be20-083fc537e5b6">&lt;title&gt;</bpt><ept id="35115784-4ac3-4567-be20-083fc537e5b6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="35115784-4ac3-4567-be20-083fc537e5b6">&lt;linkText&gt;</bpt>Process and analyze JSON documents using Hive<ept id="35115784-4ac3-4567-be20-083fc537e5b6">&lt;/linkText&gt;</ept><bpt id="35115784-4ac3-4567-be20-083fc537e5b6">&lt;title&gt;</bpt><ept id="35115784-4ac3-4567-be20-083fc537e5b6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d836389-cea8-4045-86f2-b5e4579961dc" xml:space="preserve">
+          <source><bpt id="0b5a58dc-e625-4327-9f54-e362e7935f68">&lt;linkText&gt;</bpt>Use Python with Hive and Pig<ept id="0b5a58dc-e625-4327-9f54-e362e7935f68">&lt;/linkText&gt;</ept><bpt id="0b5a58dc-e625-4327-9f54-e362e7935f68">&lt;title&gt;</bpt><ept id="0b5a58dc-e625-4327-9f54-e362e7935f68">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0b5a58dc-e625-4327-9f54-e362e7935f68">&lt;linkText&gt;</bpt>Use Python with Hive and Pig<ept id="0b5a58dc-e625-4327-9f54-e362e7935f68">&lt;/linkText&gt;</ept><bpt id="0b5a58dc-e625-4327-9f54-e362e7935f68">&lt;title&gt;</bpt><ept id="0b5a58dc-e625-4327-9f54-e362e7935f68">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da0224d1-7671-4be9-a8e9-aac521b82760" xml:space="preserve">
+          <source><bpt id="502c9d08-1d15-4d4a-a434-442013a4ec0f">&lt;linkText&gt;</bpt>Optimize Hive queries for Hadoop<ept id="502c9d08-1d15-4d4a-a434-442013a4ec0f">&lt;/linkText&gt;</ept><bpt id="502c9d08-1d15-4d4a-a434-442013a4ec0f">&lt;title&gt;</bpt><ept id="502c9d08-1d15-4d4a-a434-442013a4ec0f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="502c9d08-1d15-4d4a-a434-442013a4ec0f">&lt;linkText&gt;</bpt>Optimize Hive queries for Hadoop<ept id="502c9d08-1d15-4d4a-a434-442013a4ec0f">&lt;/linkText&gt;</ept><bpt id="502c9d08-1d15-4d4a-a434-442013a4ec0f">&lt;title&gt;</bpt><ept id="502c9d08-1d15-4d4a-a434-442013a4ec0f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b486094-b860-4435-81b6-c8103982dce2" xml:space="preserve">
+          <source><bpt id="01bcc298-baa2-4d6b-a696-3e750f253704">&lt;linkText&gt;</bpt>Run Pig jobs using the .NET SDK for Hadoop<ept id="01bcc298-baa2-4d6b-a696-3e750f253704">&lt;/linkText&gt;</ept><bpt id="01bcc298-baa2-4d6b-a696-3e750f253704">&lt;title&gt;</bpt><ept id="01bcc298-baa2-4d6b-a696-3e750f253704">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="01bcc298-baa2-4d6b-a696-3e750f253704">&lt;linkText&gt;</bpt>Run Pig jobs using the .NET SDK for Hadoop<ept id="01bcc298-baa2-4d6b-a696-3e750f253704">&lt;/linkText&gt;</ept><bpt id="01bcc298-baa2-4d6b-a696-3e750f253704">&lt;title&gt;</bpt><ept id="01bcc298-baa2-4d6b-a696-3e750f253704">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14ea34cf-4da3-4b03-9cbb-4f5daed9bfd8" xml:space="preserve">
+          <source><bpt id="a996d832-0fb3-4c8a-a7e9-fbcf1c7fecba">&lt;linkText&gt;</bpt>Use C# user-defined functions with Hive and Pig streaming<ept id="a996d832-0fb3-4c8a-a7e9-fbcf1c7fecba">&lt;/linkText&gt;</ept><bpt id="a996d832-0fb3-4c8a-a7e9-fbcf1c7fecba">&lt;title&gt;</bpt><ept id="a996d832-0fb3-4c8a-a7e9-fbcf1c7fecba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a996d832-0fb3-4c8a-a7e9-fbcf1c7fecba">&lt;linkText&gt;</bpt>Use C# user-defined functions with Hive and Pig streaming<ept id="a996d832-0fb3-4c8a-a7e9-fbcf1c7fecba">&lt;/linkText&gt;</ept><bpt id="a996d832-0fb3-4c8a-a7e9-fbcf1c7fecba">&lt;title&gt;</bpt><ept id="a996d832-0fb3-4c8a-a7e9-fbcf1c7fecba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="144624ec-1f97-4df2-adbe-80693af9d692" xml:space="preserve">
+          <source><bpt id="e3906c1d-fe66-4bdf-a2d3-8e501f0d750b">&lt;linkText&gt;</bpt>Develop C# Hadoop streaming programs<ept id="e3906c1d-fe66-4bdf-a2d3-8e501f0d750b">&lt;/linkText&gt;</ept><bpt id="e3906c1d-fe66-4bdf-a2d3-8e501f0d750b">&lt;title&gt;</bpt><ept id="e3906c1d-fe66-4bdf-a2d3-8e501f0d750b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e3906c1d-fe66-4bdf-a2d3-8e501f0d750b">&lt;linkText&gt;</bpt>Develop C# Hadoop streaming programs<ept id="e3906c1d-fe66-4bdf-a2d3-8e501f0d750b">&lt;/linkText&gt;</ept><bpt id="e3906c1d-fe66-4bdf-a2d3-8e501f0d750b">&lt;title&gt;</bpt><ept id="e3906c1d-fe66-4bdf-a2d3-8e501f0d750b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="306848c6-0e11-45b1-ba10-98003e1119af" xml:space="preserve">
+          <source><bpt id="6abcc7b0-19c8-42a8-8887-d0162b3be9f7">&lt;linkText&gt;</bpt>Configure HBase geo-replication<ept id="6abcc7b0-19c8-42a8-8887-d0162b3be9f7">&lt;/linkText&gt;</ept><bpt id="6abcc7b0-19c8-42a8-8887-d0162b3be9f7">&lt;title&gt;</bpt><ept id="6abcc7b0-19c8-42a8-8887-d0162b3be9f7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6abcc7b0-19c8-42a8-8887-d0162b3be9f7">&lt;linkText&gt;</bpt>Configure HBase geo-replication<ept id="6abcc7b0-19c8-42a8-8887-d0162b3be9f7">&lt;/linkText&gt;</ept><bpt id="6abcc7b0-19c8-42a8-8887-d0162b3be9f7">&lt;title&gt;</bpt><ept id="6abcc7b0-19c8-42a8-8887-d0162b3be9f7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a4b0da9-ad7b-47c0-a961-9eb415201b30" xml:space="preserve">
+          <source><bpt id="22f641c6-a29c-432b-9dcf-5025a538dbf3">&lt;linkText&gt;</bpt>Use Maven to build Java applications that use HBase<ept id="22f641c6-a29c-432b-9dcf-5025a538dbf3">&lt;/linkText&gt;</ept><bpt id="22f641c6-a29c-432b-9dcf-5025a538dbf3">&lt;title&gt;</bpt><ept id="22f641c6-a29c-432b-9dcf-5025a538dbf3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="22f641c6-a29c-432b-9dcf-5025a538dbf3">&lt;linkText&gt;</bpt>Use Maven to build Java applications that use HBase<ept id="22f641c6-a29c-432b-9dcf-5025a538dbf3">&lt;/linkText&gt;</ept><bpt id="22f641c6-a29c-432b-9dcf-5025a538dbf3">&lt;title&gt;</bpt><ept id="22f641c6-a29c-432b-9dcf-5025a538dbf3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6122385-29bb-43a4-9215-8248d473c7c0" xml:space="preserve">
+          <source><bpt id="46ef19c7-a31b-417f-a9fe-08742c11c38d">&lt;linkText&gt;</bpt>Analyze real-time Twitter sentiment on HBase<ept id="46ef19c7-a31b-417f-a9fe-08742c11c38d">&lt;/linkText&gt;</ept><bpt id="46ef19c7-a31b-417f-a9fe-08742c11c38d">&lt;title&gt;</bpt><ept id="46ef19c7-a31b-417f-a9fe-08742c11c38d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="46ef19c7-a31b-417f-a9fe-08742c11c38d">&lt;linkText&gt;</bpt>Analyze real-time Twitter sentiment on HBase<ept id="46ef19c7-a31b-417f-a9fe-08742c11c38d">&lt;/linkText&gt;</ept><bpt id="46ef19c7-a31b-417f-a9fe-08742c11c38d">&lt;title&gt;</bpt><ept id="46ef19c7-a31b-417f-a9fe-08742c11c38d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cab4e94-405e-4ec2-9f1c-c5e2e387b1bd" xml:space="preserve">
+          <source><bpt id="f0c9080e-81e4-4263-a070-e131c9cbc5a1">&lt;linkText&gt;</bpt>Get started with the Storm Starter samples<ept id="f0c9080e-81e4-4263-a070-e131c9cbc5a1">&lt;/linkText&gt;</ept><bpt id="f0c9080e-81e4-4263-a070-e131c9cbc5a1">&lt;title&gt;</bpt><ept id="f0c9080e-81e4-4263-a070-e131c9cbc5a1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f0c9080e-81e4-4263-a070-e131c9cbc5a1">&lt;linkText&gt;</bpt>Get started with the Storm Starter samples<ept id="f0c9080e-81e4-4263-a070-e131c9cbc5a1">&lt;/linkText&gt;</ept><bpt id="f0c9080e-81e4-4263-a070-e131c9cbc5a1">&lt;title&gt;</bpt><ept id="f0c9080e-81e4-4263-a070-e131c9cbc5a1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4115a823-646f-440a-a117-c825b4995f40" xml:space="preserve">
+          <source><bpt id="c0cc2763-ac92-41c4-a4a4-8a20c4e0971c">&lt;linkText&gt;</bpt>Deploy and manage Apache Storm topologies<ept id="c0cc2763-ac92-41c4-a4a4-8a20c4e0971c">&lt;/linkText&gt;</ept><bpt id="c0cc2763-ac92-41c4-a4a4-8a20c4e0971c">&lt;title&gt;</bpt><ept id="c0cc2763-ac92-41c4-a4a4-8a20c4e0971c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c0cc2763-ac92-41c4-a4a4-8a20c4e0971c">&lt;linkText&gt;</bpt>Deploy and manage Apache Storm topologies<ept id="c0cc2763-ac92-41c4-a4a4-8a20c4e0971c">&lt;/linkText&gt;</ept><bpt id="c0cc2763-ac92-41c4-a4a4-8a20c4e0971c">&lt;title&gt;</bpt><ept id="c0cc2763-ac92-41c4-a4a4-8a20c4e0971c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22442110-f110-496f-a5bc-c1554ed9c367" xml:space="preserve">
+          <source><bpt id="fd7adf3d-2c05-45f0-9ad9-cf640ba79a00">&lt;linkText&gt;</bpt>Develop C# topologies for Apache Storm using Hadoop tools for Visual Studio<ept id="fd7adf3d-2c05-45f0-9ad9-cf640ba79a00">&lt;/linkText&gt;</ept><bpt id="fd7adf3d-2c05-45f0-9ad9-cf640ba79a00">&lt;title&gt;</bpt><ept id="fd7adf3d-2c05-45f0-9ad9-cf640ba79a00">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fd7adf3d-2c05-45f0-9ad9-cf640ba79a00">&lt;linkText&gt;</bpt>Develop C# topologies for Apache Storm using Hadoop tools for Visual Studio<ept id="fd7adf3d-2c05-45f0-9ad9-cf640ba79a00">&lt;/linkText&gt;</ept><bpt id="fd7adf3d-2c05-45f0-9ad9-cf640ba79a00">&lt;title&gt;</bpt><ept id="fd7adf3d-2c05-45f0-9ad9-cf640ba79a00">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d22c18e-4f08-47ee-9f2c-3a40e55e802d" xml:space="preserve">
+          <source><bpt id="c078097d-069a-431f-ad47-bf0b4d980cf6">&lt;linkText&gt;</bpt>Develop Java-based topologies for a basic word-count application with Apache Storm and Maven<ept id="c078097d-069a-431f-ad47-bf0b4d980cf6">&lt;/linkText&gt;</ept><bpt id="c078097d-069a-431f-ad47-bf0b4d980cf6">&lt;title&gt;</bpt><ept id="c078097d-069a-431f-ad47-bf0b4d980cf6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c078097d-069a-431f-ad47-bf0b4d980cf6">&lt;linkText&gt;</bpt>Develop Java-based topologies for a basic word-count application with Apache Storm and Maven<ept id="c078097d-069a-431f-ad47-bf0b4d980cf6">&lt;/linkText&gt;</ept><bpt id="c078097d-069a-431f-ad47-bf0b4d980cf6">&lt;title&gt;</bpt><ept id="c078097d-069a-431f-ad47-bf0b4d980cf6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="965ebfa7-1c7f-45c5-a8cd-42753ac7be5c" xml:space="preserve">
+          <source><bpt id="1807df14-878b-49eb-b66d-45177352d0c8">&lt;linkText&gt;</bpt>Process events from Azure Event Hubs with Storm<ept id="1807df14-878b-49eb-b66d-45177352d0c8">&lt;/linkText&gt;</ept><bpt id="1807df14-878b-49eb-b66d-45177352d0c8">&lt;title&gt;</bpt><ept id="1807df14-878b-49eb-b66d-45177352d0c8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1807df14-878b-49eb-b66d-45177352d0c8">&lt;linkText&gt;</bpt>Process events from Azure Event Hubs with Storm<ept id="1807df14-878b-49eb-b66d-45177352d0c8">&lt;/linkText&gt;</ept><bpt id="1807df14-878b-49eb-b66d-45177352d0c8">&lt;title&gt;</bpt><ept id="1807df14-878b-49eb-b66d-45177352d0c8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="efdde1d5-4478-444e-bd49-46fb9f37fbda" xml:space="preserve">
+          <source><bpt id="4b606c19-759a-4f2f-abb1-a4393530e0c2">&lt;linkText&gt;</bpt>Use Power BI to visualize data from an Apache Storm topology<ept id="4b606c19-759a-4f2f-abb1-a4393530e0c2">&lt;/linkText&gt;</ept><bpt id="4b606c19-759a-4f2f-abb1-a4393530e0c2">&lt;title&gt;</bpt><ept id="4b606c19-759a-4f2f-abb1-a4393530e0c2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4b606c19-759a-4f2f-abb1-a4393530e0c2">&lt;linkText&gt;</bpt>Use Power BI to visualize data from an Apache Storm topology<ept id="4b606c19-759a-4f2f-abb1-a4393530e0c2">&lt;/linkText&gt;</ept><bpt id="4b606c19-759a-4f2f-abb1-a4393530e0c2">&lt;title&gt;</bpt><ept id="4b606c19-759a-4f2f-abb1-a4393530e0c2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df108c60-9f24-4c05-81cc-f4d3497ad66d" xml:space="preserve">
+          <source><bpt id="c3b387e5-d92c-4aba-b899-a6193a97d81c">&lt;linkText&gt;</bpt>Process vehicle sensor data from Azure Event Hubs using Apache Storm<ept id="c3b387e5-d92c-4aba-b899-a6193a97d81c">&lt;/linkText&gt;</ept><bpt id="c3b387e5-d92c-4aba-b899-a6193a97d81c">&lt;title&gt;</bpt><ept id="c3b387e5-d92c-4aba-b899-a6193a97d81c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c3b387e5-d92c-4aba-b899-a6193a97d81c">&lt;linkText&gt;</bpt>Process vehicle sensor data from Azure Event Hubs using Apache Storm<ept id="c3b387e5-d92c-4aba-b899-a6193a97d81c">&lt;/linkText&gt;</ept><bpt id="c3b387e5-d92c-4aba-b899-a6193a97d81c">&lt;title&gt;</bpt><ept id="c3b387e5-d92c-4aba-b899-a6193a97d81c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdeda65d-7dc9-4066-9047-e8694afd1a01" xml:space="preserve">
+          <source>For articles about using native Apache Spark clusters in the Azure preview portal, go to the <bpt id="05a2c89e-2268-49bc-9e90-8548c8e9043a">&lt;linkText&gt;</bpt>HDInsight documentation page<ept id="05a2c89e-2268-49bc-9e90-8548c8e9043a">&lt;/linkText&gt;</ept><bpt id="05a2c89e-2268-49bc-9e90-8548c8e9043a">&lt;title&gt;</bpt><ept id="05a2c89e-2268-49bc-9e90-8548c8e9043a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For articles about using native Apache Spark clusters in the Azure preview portal, go to the <bpt id="05a2c89e-2268-49bc-9e90-8548c8e9043a">&lt;linkText&gt;</bpt>HDInsight documentation page<ept id="05a2c89e-2268-49bc-9e90-8548c8e9043a">&lt;/linkText&gt;</ept><bpt id="05a2c89e-2268-49bc-9e90-8548c8e9043a">&lt;title&gt;</bpt><ept id="05a2c89e-2268-49bc-9e90-8548c8e9043a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83563aa8-1e10-4f14-8cb4-825e26fa6b4f" xml:space="preserve">
+          <source><bpt id="631fe0db-dd38-47af-9191-85b207e39962">&lt;linkText&gt;</bpt>Overview: Apache Spark on Azure HDInsight<ept id="631fe0db-dd38-47af-9191-85b207e39962">&lt;/linkText&gt;</ept><bpt id="631fe0db-dd38-47af-9191-85b207e39962">&lt;title&gt;</bpt><ept id="631fe0db-dd38-47af-9191-85b207e39962">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="631fe0db-dd38-47af-9191-85b207e39962">&lt;linkText&gt;</bpt>Overview: Apache Spark on Azure HDInsight<ept id="631fe0db-dd38-47af-9191-85b207e39962">&lt;/linkText&gt;</ept><bpt id="631fe0db-dd38-47af-9191-85b207e39962">&lt;title&gt;</bpt><ept id="631fe0db-dd38-47af-9191-85b207e39962">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f81c937f-7488-4424-a345-62a30ef35fa2" xml:space="preserve">
+          <source><bpt id="0f344980-a992-40f3-9b17-b6050f74ba98">&lt;linkText&gt;</bpt>Install and use Spark on Hadoop clusters<ept id="0f344980-a992-40f3-9b17-b6050f74ba98">&lt;/linkText&gt;</ept><bpt id="0f344980-a992-40f3-9b17-b6050f74ba98">&lt;title&gt;</bpt><ept id="0f344980-a992-40f3-9b17-b6050f74ba98">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0f344980-a992-40f3-9b17-b6050f74ba98">&lt;linkText&gt;</bpt>Install and use Spark on Hadoop clusters<ept id="0f344980-a992-40f3-9b17-b6050f74ba98">&lt;/linkText&gt;</ept><bpt id="0f344980-a992-40f3-9b17-b6050f74ba98">&lt;title&gt;</bpt><ept id="0f344980-a992-40f3-9b17-b6050f74ba98">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="623dc7b0-242f-4360-8c1e-b23ceb9836ca" xml:space="preserve">
+          <source><bpt id="86d8a63a-91af-4115-a13a-be23b57a9b72">&lt;linkText&gt;</bpt>Spark job server on HDInsight clusters<ept id="86d8a63a-91af-4115-a13a-be23b57a9b72">&lt;/linkText&gt;</ept><bpt id="86d8a63a-91af-4115-a13a-be23b57a9b72">&lt;title&gt;</bpt><ept id="86d8a63a-91af-4115-a13a-be23b57a9b72">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="86d8a63a-91af-4115-a13a-be23b57a9b72">&lt;linkText&gt;</bpt>Spark job server on HDInsight clusters<ept id="86d8a63a-91af-4115-a13a-be23b57a9b72">&lt;/linkText&gt;</ept><bpt id="86d8a63a-91af-4115-a13a-be23b57a9b72">&lt;title&gt;</bpt><ept id="86d8a63a-91af-4115-a13a-be23b57a9b72">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25ec7292-05ec-494b-901d-e8a1057fac41" xml:space="preserve">
+          <source><bpt id="d45a6d14-4518-4a52-b675-a3821e5de67b">&lt;linkText&gt;</bpt>Provision Apache Spark and run interactive queries using Spark SQL<ept id="d45a6d14-4518-4a52-b675-a3821e5de67b">&lt;/linkText&gt;</ept><bpt id="d45a6d14-4518-4a52-b675-a3821e5de67b">&lt;title&gt;</bpt><ept id="d45a6d14-4518-4a52-b675-a3821e5de67b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d45a6d14-4518-4a52-b675-a3821e5de67b">&lt;linkText&gt;</bpt>Provision Apache Spark and run interactive queries using Spark SQL<ept id="d45a6d14-4518-4a52-b675-a3821e5de67b">&lt;/linkText&gt;</ept><bpt id="d45a6d14-4518-4a52-b675-a3821e5de67b">&lt;title&gt;</bpt><ept id="d45a6d14-4518-4a52-b675-a3821e5de67b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2697cb7c-87bb-42ff-8447-af9a5fc375c1" xml:space="preserve">
+          <source><bpt id="84cecb59-3630-4f1b-ad7e-01a8c5aa5718">&lt;linkText&gt;</bpt>Analyze sensor data using the Hive Query Console<ept id="84cecb59-3630-4f1b-ad7e-01a8c5aa5718">&lt;/linkText&gt;</ept><bpt id="84cecb59-3630-4f1b-ad7e-01a8c5aa5718">&lt;title&gt;</bpt><ept id="84cecb59-3630-4f1b-ad7e-01a8c5aa5718">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="84cecb59-3630-4f1b-ad7e-01a8c5aa5718">&lt;linkText&gt;</bpt>Analyze sensor data using the Hive Query Console<ept id="84cecb59-3630-4f1b-ad7e-01a8c5aa5718">&lt;/linkText&gt;</ept><bpt id="84cecb59-3630-4f1b-ad7e-01a8c5aa5718">&lt;title&gt;</bpt><ept id="84cecb59-3630-4f1b-ad7e-01a8c5aa5718">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2e36094-99e4-4e23-b85e-ed49a0484a15" xml:space="preserve">
+          <source><bpt id="468c2608-4367-4e2d-8af9-f43b806d6b82">&lt;linkText&gt;</bpt>Analyze flight delay data by using Hive<ept id="468c2608-4367-4e2d-8af9-f43b806d6b82">&lt;/linkText&gt;</ept><bpt id="468c2608-4367-4e2d-8af9-f43b806d6b82">&lt;title&gt;</bpt><ept id="468c2608-4367-4e2d-8af9-f43b806d6b82">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="468c2608-4367-4e2d-8af9-f43b806d6b82">&lt;linkText&gt;</bpt>Analyze flight delay data by using Hive<ept id="468c2608-4367-4e2d-8af9-f43b806d6b82">&lt;/linkText&gt;</ept><bpt id="468c2608-4367-4e2d-8af9-f43b806d6b82">&lt;title&gt;</bpt><ept id="468c2608-4367-4e2d-8af9-f43b806d6b82">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35119bf0-3dbb-4563-ac51-442c434d1c2e" xml:space="preserve">
+          <source><bpt id="d18fbc43-5970-4c58-a8c5-280eeef059e8">&lt;linkText&gt;</bpt>Analyze stored Twitter data using Hive<ept id="d18fbc43-5970-4c58-a8c5-280eeef059e8">&lt;/linkText&gt;</ept><bpt id="d18fbc43-5970-4c58-a8c5-280eeef059e8">&lt;title&gt;</bpt><ept id="d18fbc43-5970-4c58-a8c5-280eeef059e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d18fbc43-5970-4c58-a8c5-280eeef059e8">&lt;linkText&gt;</bpt>Analyze stored Twitter data using Hive<ept id="d18fbc43-5970-4c58-a8c5-280eeef059e8">&lt;/linkText&gt;</ept><bpt id="d18fbc43-5970-4c58-a8c5-280eeef059e8">&lt;title&gt;</bpt><ept id="d18fbc43-5970-4c58-a8c5-280eeef059e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78eb40e8-0505-4acf-9a4d-4d907d52fba0" xml:space="preserve">
+          <source><bpt id="e5c6c9d5-2c2b-4574-9481-8989ad7cdcd2">&lt;linkText&gt;</bpt>Determine Twitter trending topics with Apache Storm<ept id="e5c6c9d5-2c2b-4574-9481-8989ad7cdcd2">&lt;/linkText&gt;</ept><bpt id="e5c6c9d5-2c2b-4574-9481-8989ad7cdcd2">&lt;title&gt;</bpt><ept id="e5c6c9d5-2c2b-4574-9481-8989ad7cdcd2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e5c6c9d5-2c2b-4574-9481-8989ad7cdcd2">&lt;linkText&gt;</bpt>Determine Twitter trending topics with Apache Storm<ept id="e5c6c9d5-2c2b-4574-9481-8989ad7cdcd2">&lt;/linkText&gt;</ept><bpt id="e5c6c9d5-2c2b-4574-9481-8989ad7cdcd2">&lt;title&gt;</bpt><ept id="e5c6c9d5-2c2b-4574-9481-8989ad7cdcd2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa8f9d87-7ebb-48cc-beff-b0fb1ee6ae92" xml:space="preserve">
+          <source><bpt id="f436b0fe-3b8c-4e3a-809a-c9727551fcaf">&lt;linkText&gt;</bpt>Analyze sensor data with Apache Storm, Event Hub, and HBase<ept id="f436b0fe-3b8c-4e3a-809a-c9727551fcaf">&lt;/linkText&gt;</ept><bpt id="f436b0fe-3b8c-4e3a-809a-c9727551fcaf">&lt;title&gt;</bpt><ept id="f436b0fe-3b8c-4e3a-809a-c9727551fcaf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f436b0fe-3b8c-4e3a-809a-c9727551fcaf">&lt;linkText&gt;</bpt>Analyze sensor data with Apache Storm, Event Hub, and HBase<ept id="f436b0fe-3b8c-4e3a-809a-c9727551fcaf">&lt;/linkText&gt;</ept><bpt id="f436b0fe-3b8c-4e3a-809a-c9727551fcaf">&lt;title&gt;</bpt><ept id="f436b0fe-3b8c-4e3a-809a-c9727551fcaf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="595a20ef-7d0d-426c-9d61-0bf3e080e8f2" xml:space="preserve">
+          <source><bpt id="90bce1b0-70eb-43fb-b837-94dd07cd868a">&lt;linkText&gt;</bpt>Generate movie recommendations by using Apache Mahout with Hadoop<ept id="90bce1b0-70eb-43fb-b837-94dd07cd868a">&lt;/linkText&gt;</ept><bpt id="90bce1b0-70eb-43fb-b837-94dd07cd868a">&lt;title&gt;</bpt><ept id="90bce1b0-70eb-43fb-b837-94dd07cd868a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="90bce1b0-70eb-43fb-b837-94dd07cd868a">&lt;linkText&gt;</bpt>Generate movie recommendations by using Apache Mahout with Hadoop<ept id="90bce1b0-70eb-43fb-b837-94dd07cd868a">&lt;/linkText&gt;</ept><bpt id="90bce1b0-70eb-43fb-b837-94dd07cd868a">&lt;title&gt;</bpt><ept id="90bce1b0-70eb-43fb-b837-94dd07cd868a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f915c79b-e515-499b-b180-681c7409ebc4" xml:space="preserve">
+          <source><bpt id="60d9dd6f-329e-4799-a272-e286e7c53832">&lt;linkText&gt;</bpt>Learning path: Build advanced analytics solutions<ept id="60d9dd6f-329e-4799-a272-e286e7c53832">&lt;/linkText&gt;</ept><bpt id="60d9dd6f-329e-4799-a272-e286e7c53832">&lt;title&gt;</bpt><ept id="60d9dd6f-329e-4799-a272-e286e7c53832">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="60d9dd6f-329e-4799-a272-e286e7c53832">&lt;linkText&gt;</bpt>Learning path: Build advanced analytics solutions<ept id="60d9dd6f-329e-4799-a272-e286e7c53832">&lt;/linkText&gt;</ept><bpt id="60d9dd6f-329e-4799-a272-e286e7c53832">&lt;title&gt;</bpt><ept id="60d9dd6f-329e-4799-a272-e286e7c53832">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4daf18a5-a858-47e4-b2a7-602404e64c74" xml:space="preserve">
+          <source><bpt id="d3bce611-8e7a-4050-b601-b9ba2537fa18">&lt;linkText&gt;</bpt>Learning path: Advanced data processing<ept id="d3bce611-8e7a-4050-b601-b9ba2537fa18">&lt;/linkText&gt;</ept><bpt id="d3bce611-8e7a-4050-b601-b9ba2537fa18">&lt;title&gt;</bpt><ept id="d3bce611-8e7a-4050-b601-b9ba2537fa18">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d3bce611-8e7a-4050-b601-b9ba2537fa18">&lt;linkText&gt;</bpt>Learning path: Advanced data processing<ept id="d3bce611-8e7a-4050-b601-b9ba2537fa18">&lt;/linkText&gt;</ept><bpt id="d3bce611-8e7a-4050-b601-b9ba2537fa18">&lt;title&gt;</bpt><ept id="d3bce611-8e7a-4050-b601-b9ba2537fa18">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="419069b0-ec38-4a70-804e-7996825d0f06" xml:space="preserve">
+          <source><bpt id="492bda06-9111-4e99-bd53-8c881ae3b867">&lt;linkText&gt;</bpt>Extend HDInsight capabilities with Azure Virtual Network<ept id="492bda06-9111-4e99-bd53-8c881ae3b867">&lt;/linkText&gt;</ept><bpt id="492bda06-9111-4e99-bd53-8c881ae3b867">&lt;title&gt;</bpt><ept id="492bda06-9111-4e99-bd53-8c881ae3b867">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="492bda06-9111-4e99-bd53-8c881ae3b867">&lt;linkText&gt;</bpt>Extend HDInsight capabilities with Azure Virtual Network<ept id="492bda06-9111-4e99-bd53-8c881ae3b867">&lt;/linkText&gt;</ept><bpt id="492bda06-9111-4e99-bd53-8c881ae3b867">&lt;title&gt;</bpt><ept id="492bda06-9111-4e99-bd53-8c881ae3b867">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99892972-0f8a-435b-8ed6-0ec903bc757f" xml:space="preserve">
+          <source><bpt id="0955b7be-f823-40dc-98c0-f5ca578d05b9">&lt;linkText&gt;</bpt>Install and use Spark on Hadoop clusters<ept id="0955b7be-f823-40dc-98c0-f5ca578d05b9">&lt;/linkText&gt;</ept><bpt id="0955b7be-f823-40dc-98c0-f5ca578d05b9">&lt;title&gt;</bpt><ept id="0955b7be-f823-40dc-98c0-f5ca578d05b9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0955b7be-f823-40dc-98c0-f5ca578d05b9">&lt;linkText&gt;</bpt>Install and use Spark on Hadoop clusters<ept id="0955b7be-f823-40dc-98c0-f5ca578d05b9">&lt;/linkText&gt;</ept><bpt id="0955b7be-f823-40dc-98c0-f5ca578d05b9">&lt;title&gt;</bpt><ept id="0955b7be-f823-40dc-98c0-f5ca578d05b9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce393ba9-2f50-4bcd-827d-d415025e023e" xml:space="preserve">
+          <source><bpt id="92b80fe7-bac6-4d0f-a5c2-d039db74b617">&lt;linkText&gt;</bpt>Use Giraph on HDInsight clusters to process large-scale graphs<ept id="92b80fe7-bac6-4d0f-a5c2-d039db74b617">&lt;/linkText&gt;</ept><bpt id="92b80fe7-bac6-4d0f-a5c2-d039db74b617">&lt;title&gt;</bpt><ept id="92b80fe7-bac6-4d0f-a5c2-d039db74b617">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="92b80fe7-bac6-4d0f-a5c2-d039db74b617">&lt;linkText&gt;</bpt>Use Giraph on HDInsight clusters to process large-scale graphs<ept id="92b80fe7-bac6-4d0f-a5c2-d039db74b617">&lt;/linkText&gt;</ept><bpt id="92b80fe7-bac6-4d0f-a5c2-d039db74b617">&lt;title&gt;</bpt><ept id="92b80fe7-bac6-4d0f-a5c2-d039db74b617">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1bf3bf87-5738-4a8f-b090-2d39d9c6f278" xml:space="preserve">
+          <source><bpt id="c1fd1bf8-c2a9-4015-8fa3-8b6476f0431c">&lt;linkText&gt;</bpt>Install and use Solr on Hadoop clusters<ept id="c1fd1bf8-c2a9-4015-8fa3-8b6476f0431c">&lt;/linkText&gt;</ept><bpt id="c1fd1bf8-c2a9-4015-8fa3-8b6476f0431c">&lt;title&gt;</bpt><ept id="c1fd1bf8-c2a9-4015-8fa3-8b6476f0431c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c1fd1bf8-c2a9-4015-8fa3-8b6476f0431c">&lt;linkText&gt;</bpt>Install and use Solr on Hadoop clusters<ept id="c1fd1bf8-c2a9-4015-8fa3-8b6476f0431c">&lt;/linkText&gt;</ept><bpt id="c1fd1bf8-c2a9-4015-8fa3-8b6476f0431c">&lt;title&gt;</bpt><ept id="c1fd1bf8-c2a9-4015-8fa3-8b6476f0431c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24ff3f88-4975-4ac0-8a1c-48b92168baa8" xml:space="preserve">
+          <source><bpt id="2645fe72-acba-4718-af02-d6e983a16bb4">&lt;linkText&gt;</bpt>Provision clusters on Windows<ept id="2645fe72-acba-4718-af02-d6e983a16bb4">&lt;/linkText&gt;</ept><bpt id="2645fe72-acba-4718-af02-d6e983a16bb4">&lt;title&gt;</bpt><ept id="2645fe72-acba-4718-af02-d6e983a16bb4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2645fe72-acba-4718-af02-d6e983a16bb4">&lt;linkText&gt;</bpt>Provision clusters on Windows<ept id="2645fe72-acba-4718-af02-d6e983a16bb4">&lt;/linkText&gt;</ept><bpt id="2645fe72-acba-4718-af02-d6e983a16bb4">&lt;title&gt;</bpt><ept id="2645fe72-acba-4718-af02-d6e983a16bb4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf93d38e-2840-4f73-8ea6-cd2809bca417" xml:space="preserve">
+          <source><bpt id="dbb9723b-99ad-4a63-9300-5f21e3158431">&lt;linkText&gt;</bpt>Provision HBase clusters on Azure Virtual Network<ept id="dbb9723b-99ad-4a63-9300-5f21e3158431">&lt;/linkText&gt;</ept><bpt id="dbb9723b-99ad-4a63-9300-5f21e3158431">&lt;title&gt;</bpt><ept id="dbb9723b-99ad-4a63-9300-5f21e3158431">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dbb9723b-99ad-4a63-9300-5f21e3158431">&lt;linkText&gt;</bpt>Provision HBase clusters on Azure Virtual Network<ept id="dbb9723b-99ad-4a63-9300-5f21e3158431">&lt;/linkText&gt;</ept><bpt id="dbb9723b-99ad-4a63-9300-5f21e3158431">&lt;title&gt;</bpt><ept id="dbb9723b-99ad-4a63-9300-5f21e3158431">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e648322-3e67-428a-b8eb-d33c727bd1e1" xml:space="preserve">
+          <source><bpt id="748f6a3a-779b-4429-b53f-3858dc1d0a4b">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action<ept id="748f6a3a-779b-4429-b53f-3858dc1d0a4b">&lt;/linkText&gt;</ept><bpt id="748f6a3a-779b-4429-b53f-3858dc1d0a4b">&lt;title&gt;</bpt><ept id="748f6a3a-779b-4429-b53f-3858dc1d0a4b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="748f6a3a-779b-4429-b53f-3858dc1d0a4b">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action<ept id="748f6a3a-779b-4429-b53f-3858dc1d0a4b">&lt;/linkText&gt;</ept><bpt id="748f6a3a-779b-4429-b53f-3858dc1d0a4b">&lt;title&gt;</bpt><ept id="748f6a3a-779b-4429-b53f-3858dc1d0a4b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c097562c-bc15-4aa8-b135-58caec707020" xml:space="preserve">
+          <source><bpt id="0ae112bf-2577-44e8-b04b-0f1412e2e14b">&lt;linkText&gt;</bpt>Availability and reliability of Hadoop clusters in HDInsight<ept id="0ae112bf-2577-44e8-b04b-0f1412e2e14b">&lt;/linkText&gt;</ept><bpt id="0ae112bf-2577-44e8-b04b-0f1412e2e14b">&lt;title&gt;</bpt><ept id="0ae112bf-2577-44e8-b04b-0f1412e2e14b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0ae112bf-2577-44e8-b04b-0f1412e2e14b">&lt;linkText&gt;</bpt>Availability and reliability of Hadoop clusters in HDInsight<ept id="0ae112bf-2577-44e8-b04b-0f1412e2e14b">&lt;/linkText&gt;</ept><bpt id="0ae112bf-2577-44e8-b04b-0f1412e2e14b">&lt;title&gt;</bpt><ept id="0ae112bf-2577-44e8-b04b-0f1412e2e14b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fc3a3ef-a1d5-4606-b09d-02f17db8e4e6" xml:space="preserve">
+          <source><bpt id="d1c98da6-a163-4551-9f10-d65f3fa3c53e">&lt;linkText&gt;</bpt>PowerShell Cmdlets<ept id="d1c98da6-a163-4551-9f10-d65f3fa3c53e">&lt;/linkText&gt;</ept><bpt id="d1c98da6-a163-4551-9f10-d65f3fa3c53e">&lt;title&gt;</bpt><ept id="d1c98da6-a163-4551-9f10-d65f3fa3c53e">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="d1c98da6-a163-4551-9f10-d65f3fa3c53e">&lt;linkText&gt;</bpt>PowerShell Cmdlets<ept id="d1c98da6-a163-4551-9f10-d65f3fa3c53e">&lt;/linkText&gt;</ept><bpt id="d1c98da6-a163-4551-9f10-d65f3fa3c53e">&lt;title&gt;</bpt><ept id="d1c98da6-a163-4551-9f10-d65f3fa3c53e">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="ae8185cf-19d4-4bb0-a015-1635432b357d" xml:space="preserve">
+          <source><bpt id="033171d8-935d-4e51-a443-795fbd0c67c2">&lt;linkText&gt;</bpt>.NET SDK for Hadoop<ept id="033171d8-935d-4e51-a443-795fbd0c67c2">&lt;/linkText&gt;</ept><bpt id="033171d8-935d-4e51-a443-795fbd0c67c2">&lt;title&gt;</bpt><ept id="033171d8-935d-4e51-a443-795fbd0c67c2">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="033171d8-935d-4e51-a443-795fbd0c67c2">&lt;linkText&gt;</bpt>.NET SDK for Hadoop<ept id="033171d8-935d-4e51-a443-795fbd0c67c2">&lt;/linkText&gt;</ept><bpt id="033171d8-935d-4e51-a443-795fbd0c67c2">&lt;title&gt;</bpt><ept id="033171d8-935d-4e51-a443-795fbd0c67c2">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="2a41d731-b852-49fd-b161-8b9c9ed8ba2e" xml:space="preserve">
+          <source><bpt id="664207be-ad6f-472f-bc99-1a318201245c">&lt;linkText&gt;</bpt>.NET library for Avro<ept id="664207be-ad6f-472f-bc99-1a318201245c">&lt;/linkText&gt;</ept><bpt id="664207be-ad6f-472f-bc99-1a318201245c">&lt;title&gt;</bpt><ept id="664207be-ad6f-472f-bc99-1a318201245c">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="664207be-ad6f-472f-bc99-1a318201245c">&lt;linkText&gt;</bpt>.NET library for Avro<ept id="664207be-ad6f-472f-bc99-1a318201245c">&lt;/linkText&gt;</ept><bpt id="664207be-ad6f-472f-bc99-1a318201245c">&lt;title&gt;</bpt><ept id="664207be-ad6f-472f-bc99-1a318201245c">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="4d6ab1d4-a71d-4f2d-aa49-857ad19b7922" xml:space="preserve">
+          <source><bpt id="d522c4cf-28ee-4e54-84bf-46affcb19b73">&lt;linkText&gt;</bpt>.NET SDK for HBase<ept id="d522c4cf-28ee-4e54-84bf-46affcb19b73">&lt;/linkText&gt;</ept><bpt id="d522c4cf-28ee-4e54-84bf-46affcb19b73">&lt;title&gt;</bpt><ept id="d522c4cf-28ee-4e54-84bf-46affcb19b73">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="d522c4cf-28ee-4e54-84bf-46affcb19b73">&lt;linkText&gt;</bpt>.NET SDK for HBase<ept id="d522c4cf-28ee-4e54-84bf-46affcb19b73">&lt;/linkText&gt;</ept><bpt id="d522c4cf-28ee-4e54-84bf-46affcb19b73">&lt;title&gt;</bpt><ept id="d522c4cf-28ee-4e54-84bf-46affcb19b73">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="9b5fe5fa-c476-4a64-a3b2-d30705181e21" xml:space="preserve">
+          <source><bpt id="a27a79b6-36a7-4744-9b6c-23809db4f96b">&lt;linkText&gt;</bpt>Release notes<ept id="a27a79b6-36a7-4744-9b6c-23809db4f96b">&lt;/linkText&gt;</ept><bpt id="a27a79b6-36a7-4744-9b6c-23809db4f96b">&lt;title&gt;</bpt><ept id="a27a79b6-36a7-4744-9b6c-23809db4f96b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a27a79b6-36a7-4744-9b6c-23809db4f96b">&lt;linkText&gt;</bpt>Release notes<ept id="a27a79b6-36a7-4744-9b6c-23809db4f96b">&lt;/linkText&gt;</ept><bpt id="a27a79b6-36a7-4744-9b6c-23809db4f96b">&lt;title&gt;</bpt><ept id="a27a79b6-36a7-4744-9b6c-23809db4f96b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a8185b5-b62b-46ff-9ab2-4127a900347d" xml:space="preserve">
+          <source><bpt id="e3cc6b62-cd8c-4458-bf51-8ed198515acb">&lt;linkText&gt;</bpt>Collect heap dumps<ept id="e3cc6b62-cd8c-4458-bf51-8ed198515acb">&lt;/linkText&gt;</ept><bpt id="e3cc6b62-cd8c-4458-bf51-8ed198515acb">&lt;title&gt;</bpt><ept id="e3cc6b62-cd8c-4458-bf51-8ed198515acb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e3cc6b62-cd8c-4458-bf51-8ed198515acb">&lt;linkText&gt;</bpt>Collect heap dumps<ept id="e3cc6b62-cd8c-4458-bf51-8ed198515acb">&lt;/linkText&gt;</ept><bpt id="e3cc6b62-cd8c-4458-bf51-8ed198515acb">&lt;title&gt;</bpt><ept id="e3cc6b62-cd8c-4458-bf51-8ed198515acb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95d88d3a-7fe9-4010-8f7d-00bb420da0ac" xml:space="preserve">
+          <source><bpt id="f60c3a8f-fd13-44b0-ab1a-a74107e6a352">&lt;linkText&gt;</bpt>Access application logs<ept id="f60c3a8f-fd13-44b0-ab1a-a74107e6a352">&lt;/linkText&gt;</ept><bpt id="f60c3a8f-fd13-44b0-ab1a-a74107e6a352">&lt;title&gt;</bpt><ept id="f60c3a8f-fd13-44b0-ab1a-a74107e6a352">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f60c3a8f-fd13-44b0-ab1a-a74107e6a352">&lt;linkText&gt;</bpt>Access application logs<ept id="f60c3a8f-fd13-44b0-ab1a-a74107e6a352">&lt;/linkText&gt;</ept><bpt id="f60c3a8f-fd13-44b0-ab1a-a74107e6a352">&lt;title&gt;</bpt><ept id="f60c3a8f-fd13-44b0-ab1a-a74107e6a352">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="198729f2-7e0a-4077-bf24-c4fae762bd35" xml:space="preserve">
+          <source><bpt id="91a12722-e0da-44bc-96ae-a3cbc89c825d">&lt;linkText&gt;</bpt>Interpret error messages<ept id="91a12722-e0da-44bc-96ae-a3cbc89c825d">&lt;/linkText&gt;</ept><bpt id="91a12722-e0da-44bc-96ae-a3cbc89c825d">&lt;title&gt;</bpt><ept id="91a12722-e0da-44bc-96ae-a3cbc89c825d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="91a12722-e0da-44bc-96ae-a3cbc89c825d">&lt;linkText&gt;</bpt>Interpret error messages<ept id="91a12722-e0da-44bc-96ae-a3cbc89c825d">&lt;/linkText&gt;</ept><bpt id="91a12722-e0da-44bc-96ae-a3cbc89c825d">&lt;title&gt;</bpt><ept id="91a12722-e0da-44bc-96ae-a3cbc89c825d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7dc3a2d6-d57b-49b3-b187-71d9e13a1915" xml:space="preserve">
+          <source><bpt id="f954070a-4216-4093-b0a4-f64f7b36a7e9">&lt;linkText&gt;</bpt>Get help on the forum<ept id="f954070a-4216-4093-b0a4-f64f7b36a7e9">&lt;/linkText&gt;</ept><bpt id="f954070a-4216-4093-b0a4-f64f7b36a7e9">&lt;title&gt;</bpt><ept id="f954070a-4216-4093-b0a4-f64f7b36a7e9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f954070a-4216-4093-b0a4-f64f7b36a7e9">&lt;linkText&gt;</bpt>Get help on the forum<ept id="f954070a-4216-4093-b0a4-f64f7b36a7e9">&lt;/linkText&gt;</ept><bpt id="f954070a-4216-4093-b0a4-f64f7b36a7e9">&lt;title&gt;</bpt><ept id="f954070a-4216-4093-b0a4-f64f7b36a7e9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b55e94a4-ea8b-4831-8d40-483d53a3a92f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b55e94a4-ea8b-4831-8d40-483d53a3a92f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9a061159-91cf-4889-958c-16389b239d0b">
+        <trans-unit id="d457bcf5-2127-4035-8fc9-d9daf35bbb10" xml:space="preserve">
+          <source>Get the same Office 365 experience on any device with Azure RemoteApp</source>
+          <target state="new">Get the same Office 365 experience on any device with Azure RemoteApp</target>
+        </trans-unit>
+        <trans-unit id="140d8519-f36a-476d-82d5-a054145f609b" xml:space="preserve">
+          <source>Learn how to share any Office 365 app with your users by using Azure RemoteApp.</source>
+          <target state="new">Learn how to share any Office 365 app with your users by using Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="f3f236a0-1298-4c1a-8c3b-842506ea5fc0" xml:space="preserve">
+          <source>This article will cover how to deploy Office 365 on any device in your company.</source>
+          <target state="new">This article will cover how to deploy Office 365 on any device in your company.</target>
+        </trans-unit>
+        <trans-unit id="b2af0f47-2b40-4972-b451-69e373bc8124" xml:space="preserve">
+          <source>Your users can get the same capabilities and UI experience on Android, Apple and Windows.</source>
+          <target state="new">Your users can get the same capabilities and UI experience on Android, Apple and Windows.</target>
+        </trans-unit>
+        <trans-unit id="afd9efa8-9edf-4040-b49f-70fbfa51cd94" xml:space="preserve">
+          <source>We will accomplish this using Azure RemoteApp by hosting Office 365 on scale-able virtual machines in Azure that users can connect to.</source>
+          <target state="new">We will accomplish this using Azure RemoteApp by hosting Office 365 on scale-able virtual machines in Azure that users can connect to.</target>
+        </trans-unit>
+        <trans-unit id="94863678-917b-4355-a58b-13c84e9e0742" xml:space="preserve">
+          <source>This set of virtual machines we call a "cloud collection".</source>
+          <target state="new">This set of virtual machines we call a "cloud collection".</target>
+        </trans-unit>
+        <trans-unit id="ab85468f-2b01-44d4-9d1a-dfdcc9b6938b" xml:space="preserve">
+          <source>First after you have created an Azure account, navigate to <bpt id="2f83f1cb-d2c6-47a4-b155-e830f7a3f54f">&lt;strong&gt;</bpt>RemoteApp<ept id="2f83f1cb-d2c6-47a4-b155-e830f7a3f54f">&lt;/strong&gt;</ept> by clicking on the link on the left side.</source>
+          <target state="new">First after you have created an Azure account, navigate to <bpt id="2f83f1cb-d2c6-47a4-b155-e830f7a3f54f">&lt;strong&gt;</bpt>RemoteApp<ept id="2f83f1cb-d2c6-47a4-b155-e830f7a3f54f">&lt;/strong&gt;</ept> by clicking on the link on the left side.</target>
+        </trans-unit>
+        <trans-unit id="82a637ca-9b70-4a2f-951a-deef7f127463" xml:space="preserve">
+          <source><bpt id="2a5f73c8-c1ed-4658-bdc5-e8c12539d3bd">&lt;linkText&gt;</bpt>Showing Azure RemoteApp on the Azure Portal<ept id="2a5f73c8-c1ed-4658-bdc5-e8c12539d3bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a5f73c8-c1ed-4658-bdc5-e8c12539d3bd">&lt;linkText&gt;</bpt>Showing Azure RemoteApp on the Azure Portal<ept id="2a5f73c8-c1ed-4658-bdc5-e8c12539d3bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91e709da-8528-46e2-bddf-7a7ccc2b5066" xml:space="preserve">
+          <source>Then continue by clicking <bpt id="04ea7dd4-0e4e-4ce3-8755-829a438199d1">&lt;strong&gt;</bpt>new<ept id="04ea7dd4-0e4e-4ce3-8755-829a438199d1">&lt;/strong&gt;</ept> on the bottom and "quick creating" a collection.</source>
+          <target state="new">Then continue by clicking <bpt id="04ea7dd4-0e4e-4ce3-8755-829a438199d1">&lt;strong&gt;</bpt>new<ept id="04ea7dd4-0e4e-4ce3-8755-829a438199d1">&lt;/strong&gt;</ept> on the bottom and "quick creating" a collection.</target>
+        </trans-unit>
+        <trans-unit id="ae4d236e-9644-4b44-a1ce-0a8d42d369a3" xml:space="preserve">
+          <source>Provide a name, the region, the subscription, the plan and the image "Office Proffesional 2013" that we provide.</source>
+          <target state="new">Provide a name, the region, the subscription, the plan and the image "Office Proffesional 2013" that we provide.</target>
+        </trans-unit>
+        <trans-unit id="1a4a89b5-4227-4b5f-b5bc-60172fbe5ec6" xml:space="preserve">
+          <source><bpt id="cb2f8f73-7a65-4fe8-af56-c61d8dd7c3bd">&lt;linkText&gt;</bpt>Create Dialog<ept id="cb2f8f73-7a65-4fe8-af56-c61d8dd7c3bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb2f8f73-7a65-4fe8-af56-c61d8dd7c3bd">&lt;linkText&gt;</bpt>Create Dialog<ept id="cb2f8f73-7a65-4fe8-af56-c61d8dd7c3bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="efc46e43-72c8-46c9-968f-6d3f4d3f4008" xml:space="preserve">
+          <source>Once you finish the form the collection creation process should start.</source>
+          <target state="new">Once you finish the form the collection creation process should start.</target>
+        </trans-unit>
+        <trans-unit id="3eb43503-84bc-4e5d-a277-9617abdd38db" xml:space="preserve">
+          <source>This may take up to an hour or so.</source>
+          <target state="new">This may take up to an hour or so.</target>
+        </trans-unit>
+        <trans-unit id="bd7db985-7864-4f3d-acb4-0e814bb3de43" xml:space="preserve">
+          <source><bpt id="2eb875cf-2015-40b7-ae17-e82a0945d0aa">&lt;linkText&gt;</bpt>Waiting<ept id="2eb875cf-2015-40b7-ae17-e82a0945d0aa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2eb875cf-2015-40b7-ae17-e82a0945d0aa">&lt;linkText&gt;</bpt>Waiting<ept id="2eb875cf-2015-40b7-ae17-e82a0945d0aa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6135a04-8a72-49a6-ab39-346d4ffb43f8" xml:space="preserve">
+          <source>Once the process is done, it will look something like this.</source>
+          <target state="new">Once the process is done, it will look something like this.</target>
+        </trans-unit>
+        <trans-unit id="8b0e066a-03a7-4db5-8dc0-a60c394006ad" xml:space="preserve">
+          <source>If we click <bpt id="a9e67349-35f0-4a40-9dd8-7ff4066e1e5b">&lt;strong&gt;</bpt>Publishing<ept id="a9e67349-35f0-4a40-9dd8-7ff4066e1e5b">&lt;/strong&gt;</ept> we can see that most Office applications have been published for us already.</source>
+          <target state="new">If we click <bpt id="a9e67349-35f0-4a40-9dd8-7ff4066e1e5b">&lt;strong&gt;</bpt>Publishing<ept id="a9e67349-35f0-4a40-9dd8-7ff4066e1e5b">&lt;/strong&gt;</ept> we can see that most Office applications have been published for us already.</target>
+        </trans-unit>
+        <trans-unit id="6f54c595-b42c-4049-80a0-cc6879656859" xml:space="preserve">
+          <source><bpt id="ba06fa3c-07d1-430b-8dcd-e5687c0e53ec">&lt;linkText&gt;</bpt>Collection created<ept id="ba06fa3c-07d1-430b-8dcd-e5687c0e53ec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ba06fa3c-07d1-430b-8dcd-e5687c0e53ec">&lt;linkText&gt;</bpt>Collection created<ept id="ba06fa3c-07d1-430b-8dcd-e5687c0e53ec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31d84171-8254-41fe-bb67-5a73791b847a" xml:space="preserve">
+          <source><bpt id="b4bf8057-ae1b-4242-a787-888326631da5">&lt;linkText&gt;</bpt>Published apps<ept id="b4bf8057-ae1b-4242-a787-888326631da5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b4bf8057-ae1b-4242-a787-888326631da5">&lt;linkText&gt;</bpt>Published apps<ept id="b4bf8057-ae1b-4242-a787-888326631da5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9697bb9-8d3a-4b56-96d8-4b8ed4e2b603" xml:space="preserve">
+          <source>At this point you can also add more users that have access to this collection by clicking <bpt id="5040dfbf-c266-48ae-a461-91204093819b">&lt;strong&gt;</bpt>User Access<ept id="5040dfbf-c266-48ae-a461-91204093819b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At this point you can also add more users that have access to this collection by clicking <bpt id="5040dfbf-c266-48ae-a461-91204093819b">&lt;strong&gt;</bpt>User Access<ept id="5040dfbf-c266-48ae-a461-91204093819b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46c169bf-9920-44e6-8ab8-35dfe9056df7" xml:space="preserve">
+          <source><bpt id="1b250c5d-7a8e-4023-874c-a69b077a5de1">&lt;linkText&gt;</bpt>Configure user access<ept id="1b250c5d-7a8e-4023-874c-a69b077a5de1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b250c5d-7a8e-4023-874c-a69b077a5de1">&lt;linkText&gt;</bpt>Configure user access<ept id="1b250c5d-7a8e-4023-874c-a69b077a5de1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="744055b0-246f-423b-8b60-a95057c36e9f" xml:space="preserve">
+          <source>Now let's try out connecting to Office 365!</source>
+          <target state="new">Now let's try out connecting to Office 365!</target>
+        </trans-unit>
+        <trans-unit id="8745f19a-71d6-4259-8da0-25fea1c0556b" xml:space="preserve">
+          <source>We'll head over to <bpt id="956d08f0-9546-48c1-9bc5-4d49ee4b62f9">&lt;linkText&gt;</bpt>https://www.remoteapp.windowsazure.com/<ept id="956d08f0-9546-48c1-9bc5-4d49ee4b62f9">&lt;/linkText&gt;</ept><bpt id="956d08f0-9546-48c1-9bc5-4d49ee4b62f9">&lt;title&gt;</bpt><ept id="956d08f0-9546-48c1-9bc5-4d49ee4b62f9">&lt;/title&gt;</ept>, scroll down  and click <bpt id="adece623-722d-4d84-9ea4-393c05e03920">&lt;strong&gt;</bpt>Download clients<ept id="adece623-722d-4d84-9ea4-393c05e03920">&lt;/strong&gt;</ept> to install the Azure RemoteApp client on the device you're on.</source>
+          <target state="new">We'll head over to <bpt id="956d08f0-9546-48c1-9bc5-4d49ee4b62f9">&lt;linkText&gt;</bpt>https://www.remoteapp.windowsazure.com/<ept id="956d08f0-9546-48c1-9bc5-4d49ee4b62f9">&lt;/linkText&gt;</ept><bpt id="956d08f0-9546-48c1-9bc5-4d49ee4b62f9">&lt;title&gt;</bpt><ept id="956d08f0-9546-48c1-9bc5-4d49ee4b62f9">&lt;/title&gt;</ept>, scroll down  and click <bpt id="adece623-722d-4d84-9ea4-393c05e03920">&lt;strong&gt;</bpt>Download clients<ept id="adece623-722d-4d84-9ea4-393c05e03920">&lt;/strong&gt;</ept> to install the Azure RemoteApp client on the device you're on.</target>
+        </trans-unit>
+        <trans-unit id="68ace325-3abe-4209-a7e0-a9c0b4095e99" xml:space="preserve">
+          <source>The screenshots below are for Windows.</source>
+          <target state="new">The screenshots below are for Windows.</target>
+        </trans-unit>
+        <trans-unit id="c3316f6b-39ff-4a57-8afd-93b533f2622a" xml:space="preserve">
+          <source>Once the application starts you'll be asked to sign in with your Microsoft account (formerly called a "Live ID"), use the same one as your Azure account for now.</source>
+          <target state="new">Once the application starts you'll be asked to sign in with your Microsoft account (formerly called a "Live ID"), use the same one as your Azure account for now.</target>
+        </trans-unit>
+        <trans-unit id="a8ba5baf-937b-41d7-a642-4358ea390606" xml:space="preserve">
+          <source>When you're signed in you should see a notification about new invitations, click there and you should see a list like one below.</source>
+          <target state="new">When you're signed in you should see a notification about new invitations, click there and you should see a list like one below.</target>
+        </trans-unit>
+        <trans-unit id="7b42e212-c222-41da-853f-c0062d091998" xml:space="preserve">
+          <source>Accept the invitation that matches your Azure account owner email.</source>
+          <target state="new">Accept the invitation that matches your Azure account owner email.</target>
+        </trans-unit>
+        <trans-unit id="6c01b635-b96e-4697-952c-de9b98947dd0" xml:space="preserve">
+          <source><bpt id="98d89c03-3047-4106-a6a5-06274bac7eeb">&lt;linkText&gt;</bpt>New invitation<ept id="98d89c03-3047-4106-a6a5-06274bac7eeb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="98d89c03-3047-4106-a6a5-06274bac7eeb">&lt;linkText&gt;</bpt>New invitation<ept id="98d89c03-3047-4106-a6a5-06274bac7eeb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e81be2f4-6d8e-43c0-a60f-d82148230a7f" xml:space="preserve">
+          <source>What it looks like when there are new invitations.</source>
+          <target state="new">What it looks like when there are new invitations.</target>
+        </trans-unit>
+        <trans-unit id="1066c88a-bcc4-457a-9d9a-f05a1fd59add" xml:space="preserve">
+          <source><bpt id="8107e093-860f-4e86-97ef-3b99195a56ab">&lt;linkText&gt;</bpt>Accept an application<ept id="8107e093-860f-4e86-97ef-3b99195a56ab">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="8107e093-860f-4e86-97ef-3b99195a56ab">&lt;linkText&gt;</bpt>Accept an application<ept id="8107e093-860f-4e86-97ef-3b99195a56ab">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="be17a043-ed96-49b1-830a-c7af9edff6bd" xml:space="preserve">
+          <source>Once you accept the invitation you should see all the Office apps in the Azure RemoteApp client.</source>
+          <target state="new">Once you accept the invitation you should see all the Office apps in the Azure RemoteApp client.</target>
+        </trans-unit>
+        <trans-unit id="fa006870-4a22-4e7c-819e-db7d3c37fe3e" xml:space="preserve">
+          <source><bpt id="b5a72690-cc11-4aba-9860-7ffa69af9a59">&lt;linkText&gt;</bpt>List of apps<ept id="b5a72690-cc11-4aba-9860-7ffa69af9a59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b5a72690-cc11-4aba-9860-7ffa69af9a59">&lt;linkText&gt;</bpt>List of apps<ept id="b5a72690-cc11-4aba-9860-7ffa69af9a59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45fa17c2-18fa-4efe-93b6-0e09c7c7edac" xml:space="preserve">
+          <source>When you click on any of these the application should start on the Azure virtual machine and you should be all set!</source>
+          <target state="new">When you click on any of these the application should start on the Azure virtual machine and you should be all set!</target>
+        </trans-unit>
+        <trans-unit id="96cd8b4b-a168-4efc-87e8-f95cb5be99cf" xml:space="preserve">
+          <source>Enjoy!</source>
+          <target state="new">Enjoy!</target>
+        </trans-unit>
+        <trans-unit id="987d4dd6-14ff-47d4-95e4-6a382b1542ed" xml:space="preserve">
+          <source><bpt id="1fb4af51-7e03-42ce-902c-414f9fb83551">&lt;linkText&gt;</bpt>starting<ept id="1fb4af51-7e03-42ce-902c-414f9fb83551">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1fb4af51-7e03-42ce-902c-414f9fb83551">&lt;linkText&gt;</bpt>starting<ept id="1fb4af51-7e03-42ce-902c-414f9fb83551">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3aef6484-9a75-47b6-a231-86543f2f52a4" xml:space="preserve">
+          <source><bpt id="e603f1dc-7a9b-4e8b-b1d6-7961d77d0545">&lt;linkText&gt;</bpt>powerpoint<ept id="e603f1dc-7a9b-4e8b-b1d6-7961d77d0545">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e603f1dc-7a9b-4e8b-b1d6-7961d77d0545">&lt;linkText&gt;</bpt>powerpoint<ept id="e603f1dc-7a9b-4e8b-b1d6-7961d77d0545">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

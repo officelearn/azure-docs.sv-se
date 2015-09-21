@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8105ccfa-7022-4325-af0e-f1880df01802" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8105ccfa-7022-4325-af0e-f1880df01802" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="57995095-bac5-433e-ab89-e29dd6d3f6ce">
+        <trans-unit id="995dc01d-2274-46f0-916c-7c493bc5b73c" xml:space="preserve">
+          <source>Manage: Load Balancer Idle Timeout</source>
+          <target state="new">Manage: Load Balancer Idle Timeout</target>
+        </trans-unit>
+        <trans-unit id="7e0929b6-0298-45a3-832d-88d196cdda34" xml:space="preserve">
+          <source>Management features for the Azure load balancer idle timeout</source>
+          <target state="new">Management features for the Azure load balancer idle timeout</target>
+        </trans-unit>
+        <trans-unit id="f41ba8c6-0c17-4a4f-8e9a-f27f661a5993" xml:space="preserve">
+          <source><bpt id="8cd3abb3-cf6c-4d34-bfb8-b414fa392913">&lt;strong&gt;</bpt>TCP idle timeout<ept id="8cd3abb3-cf6c-4d34-bfb8-b414fa392913">&lt;/strong&gt;</ept> allows a developer to specify a guaranteed threshold for inactivity during client-server sessions involving the Azure load balancer.</source>
+          <target state="new"><bpt id="8cd3abb3-cf6c-4d34-bfb8-b414fa392913">&lt;strong&gt;</bpt>TCP idle timeout<ept id="8cd3abb3-cf6c-4d34-bfb8-b414fa392913">&lt;/strong&gt;</ept> allows a developer to specify a guaranteed threshold for inactivity during client-server sessions involving the Azure load balancer.</target>
+        </trans-unit>
+        <trans-unit id="71061445-7e86-4036-b7e9-228719d710a7" xml:space="preserve">
+          <source>A TCP idle timeout value of 4 minutes (the default for the Azure load balancer) means that if there is a period of inactivity lasting longer than 4 minutes during a client-server session involving the Azure load balancer, the connection will be closed.</source>
+          <target state="new">A TCP idle timeout value of 4 minutes (the default for the Azure load balancer) means that if there is a period of inactivity lasting longer than 4 minutes during a client-server session involving the Azure load balancer, the connection will be closed.</target>
+        </trans-unit>
+        <trans-unit id="26e57be7-90aa-45ec-847d-8dd8b5e35c4b" xml:space="preserve">
+          <source>When a client-server connection is closed, the client application will get an error message similar to “The underlying connection was closed: A connection that was expected to be kept alive was closed by the server”.</source>
+          <target state="new">When a client-server connection is closed, the client application will get an error message similar to “The underlying connection was closed: A connection that was expected to be kept alive was closed by the server”.</target>
+        </trans-unit>
+        <trans-unit id="ab22359e-19a7-4f7e-8c13-a0b7c4e9b1dd" xml:space="preserve">
+          <source><bpt id="2fdc0215-da75-45f9-9c9e-15981af58d46">&lt;linkText&gt;</bpt>TCP Keep-Alive<ept id="2fdc0215-da75-45f9-9c9e-15981af58d46">&lt;/linkText&gt;</ept><bpt id="2fdc0215-da75-45f9-9c9e-15981af58d46">&lt;title&gt;</bpt><ept id="2fdc0215-da75-45f9-9c9e-15981af58d46">&lt;/title&gt;</ept> is a common practice to maintain connections during a long otherwise-inactive period <bpt id="73dda452-3252-4438-b444-07da3244ce10">&lt;linkText&gt;</bpt>(MSDN example)<ept id="73dda452-3252-4438-b444-07da3244ce10">&lt;/linkText&gt;</ept><bpt id="73dda452-3252-4438-b444-07da3244ce10">&lt;title&gt;</bpt><ept id="73dda452-3252-4438-b444-07da3244ce10">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="2fdc0215-da75-45f9-9c9e-15981af58d46">&lt;linkText&gt;</bpt>TCP Keep-Alive<ept id="2fdc0215-da75-45f9-9c9e-15981af58d46">&lt;/linkText&gt;</ept><bpt id="2fdc0215-da75-45f9-9c9e-15981af58d46">&lt;title&gt;</bpt><ept id="2fdc0215-da75-45f9-9c9e-15981af58d46">&lt;/title&gt;</ept> is a common practice to maintain connections during a long otherwise-inactive period <bpt id="73dda452-3252-4438-b444-07da3244ce10">&lt;linkText&gt;</bpt>(MSDN example)<ept id="73dda452-3252-4438-b444-07da3244ce10">&lt;/linkText&gt;</ept><bpt id="73dda452-3252-4438-b444-07da3244ce10">&lt;title&gt;</bpt><ept id="73dda452-3252-4438-b444-07da3244ce10">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="76182f07-dcb3-40be-bf30-b8b800b25417" xml:space="preserve">
+          <source>When TCP Keep-Alive is used, simple packets are sent periodically by a client (typically with a frequency period shorter than the server's idle timeout threshold).</source>
+          <target state="new">When TCP Keep-Alive is used, simple packets are sent periodically by a client (typically with a frequency period shorter than the server's idle timeout threshold).</target>
+        </trans-unit>
+        <trans-unit id="bf3b5331-aefc-464a-a322-64fe56cb7ebe" xml:space="preserve">
+          <source>The server considers these transmissions as evidence of connection activity even when no other activity occurs -- thus the idle timeout value is never met and the connection can be maintained over a long period of time.</source>
+          <target state="new">The server considers these transmissions as evidence of connection activity even when no other activity occurs -- thus the idle timeout value is never met and the connection can be maintained over a long period of time.</target>
+        </trans-unit>
+        <trans-unit id="51d7590d-26c7-4bfb-868d-bf85e8e022d7" xml:space="preserve">
+          <source>While TCP Keep-Alive works well, it is generally not an option for mobile applications since it consumes limited power resources on mobile devices.</source>
+          <target state="new">While TCP Keep-Alive works well, it is generally not an option for mobile applications since it consumes limited power resources on mobile devices.</target>
+        </trans-unit>
+        <trans-unit id="911109e3-5357-4332-a80c-99cabe27277f" xml:space="preserve">
+          <source>A mobile application that uses TCP Keep-Alive will exhaust the device battery more quickly since it is continuously drawing power for network usage.</source>
+          <target state="new">A mobile application that uses TCP Keep-Alive will exhaust the device battery more quickly since it is continuously drawing power for network usage.</target>
+        </trans-unit>
+        <trans-unit id="4253d4b2-464e-46c3-847d-1c4f7f434939" xml:space="preserve">
+          <source>To support mobile device scenarios, the Azure load balancer supports a configurable TCP idle timeout.</source>
+          <target state="new">To support mobile device scenarios, the Azure load balancer supports a configurable TCP idle timeout.</target>
+        </trans-unit>
+        <trans-unit id="23266b0a-8770-441a-8e3c-48ad226630d7" xml:space="preserve">
+          <source>Developers can set the TCP idle timeout for any duration between 4 minutes and 30 minutes for inbound connections (configurable TCP idle timeout does not apply to outbound connections).</source>
+          <target state="new">Developers can set the TCP idle timeout for any duration between 4 minutes and 30 minutes for inbound connections (configurable TCP idle timeout does not apply to outbound connections).</target>
+        </trans-unit>
+        <trans-unit id="86c432af-3e68-4c1c-93f2-ea20089f0a57" xml:space="preserve">
+          <source>This allows clients to maintain a much longer session with a server with long periods of inactivity.</source>
+          <target state="new">This allows clients to maintain a much longer session with a server with long periods of inactivity.</target>
+        </trans-unit>
+        <trans-unit id="68e3c9e3-f761-42c3-910f-574e6711e5a9" xml:space="preserve">
+          <source>An application on a mobile device may still choose to leverage the TCP Keep-Alive technique to preserve connections that expect periods of inactivity longer than 30 minutes, but this longer TCP idle timeout enables applications to issue TCP Keep-Alive requests far less frequently than before, significantly reducing the strain on mobile device power resources.</source>
+          <target state="new">An application on a mobile device may still choose to leverage the TCP Keep-Alive technique to preserve connections that expect periods of inactivity longer than 30 minutes, but this longer TCP idle timeout enables applications to issue TCP Keep-Alive requests far less frequently than before, significantly reducing the strain on mobile device power resources.</target>
+        </trans-unit>
+        <trans-unit id="4bec5a5d-ebb4-42cb-a8bb-109c340fb3f4" xml:space="preserve">
+          <source>TCP idle timeout can be configured for: </source>
+          <target state="new">TCP idle timeout can be configured for: </target>
+        </trans-unit>
+        <trans-unit id="a21220d7-b524-4663-b4ca-80cb22e059c6" xml:space="preserve">
+          <source><bpt id="6c4bfa4e-6727-4261-b663-6c56ddbe8a05">&lt;linkText&gt;</bpt>Instance-Level Public IPs<ept id="6c4bfa4e-6727-4261-b663-6c56ddbe8a05">&lt;/linkText&gt;</ept><bpt id="6c4bfa4e-6727-4261-b663-6c56ddbe8a05">&lt;title&gt;</bpt><ept id="6c4bfa4e-6727-4261-b663-6c56ddbe8a05">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6c4bfa4e-6727-4261-b663-6c56ddbe8a05">&lt;linkText&gt;</bpt>Instance-Level Public IPs<ept id="6c4bfa4e-6727-4261-b663-6c56ddbe8a05">&lt;/linkText&gt;</ept><bpt id="6c4bfa4e-6727-4261-b663-6c56ddbe8a05">&lt;title&gt;</bpt><ept id="6c4bfa4e-6727-4261-b663-6c56ddbe8a05">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08ed0255-9518-4bf7-9ec5-96f0149bd24a" xml:space="preserve">
+          <source><bpt id="5d5f3627-efad-4e20-9a70-64b60854c781">&lt;linkText&gt;</bpt>Load-Balanced endpoint sets<ept id="5d5f3627-efad-4e20-9a70-64b60854c781">&lt;/linkText&gt;</ept><bpt id="5d5f3627-efad-4e20-9a70-64b60854c781">&lt;title&gt;</bpt><ept id="5d5f3627-efad-4e20-9a70-64b60854c781">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5d5f3627-efad-4e20-9a70-64b60854c781">&lt;linkText&gt;</bpt>Load-Balanced endpoint sets<ept id="5d5f3627-efad-4e20-9a70-64b60854c781">&lt;/linkText&gt;</ept><bpt id="5d5f3627-efad-4e20-9a70-64b60854c781">&lt;title&gt;</bpt><ept id="5d5f3627-efad-4e20-9a70-64b60854c781">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06f97105-90e8-406f-bc22-5872dc00fa65" xml:space="preserve">
+          <source><bpt id="db96c601-98ec-4da6-b610-f4015c2c8f79">&lt;linkText&gt;</bpt>Virtual Machine endpoints<ept id="db96c601-98ec-4da6-b610-f4015c2c8f79">&lt;/linkText&gt;</ept><bpt id="db96c601-98ec-4da6-b610-f4015c2c8f79">&lt;title&gt;</bpt><ept id="db96c601-98ec-4da6-b610-f4015c2c8f79">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="db96c601-98ec-4da6-b610-f4015c2c8f79">&lt;linkText&gt;</bpt>Virtual Machine endpoints<ept id="db96c601-98ec-4da6-b610-f4015c2c8f79">&lt;/linkText&gt;</ept><bpt id="db96c601-98ec-4da6-b610-f4015c2c8f79">&lt;title&gt;</bpt><ept id="db96c601-98ec-4da6-b610-f4015c2c8f79">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3374cb5e-b00c-47ef-a85d-ab7cdeb911ce" xml:space="preserve">
+          <source><bpt id="61e8a8a3-2718-4366-aa8f-54b217896029">&lt;linkText&gt;</bpt>Web roles<ept id="61e8a8a3-2718-4366-aa8f-54b217896029">&lt;/linkText&gt;</ept><bpt id="61e8a8a3-2718-4366-aa8f-54b217896029">&lt;title&gt;</bpt><ept id="61e8a8a3-2718-4366-aa8f-54b217896029">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="61e8a8a3-2718-4366-aa8f-54b217896029">&lt;linkText&gt;</bpt>Web roles<ept id="61e8a8a3-2718-4366-aa8f-54b217896029">&lt;/linkText&gt;</ept><bpt id="61e8a8a3-2718-4366-aa8f-54b217896029">&lt;title&gt;</bpt><ept id="61e8a8a3-2718-4366-aa8f-54b217896029">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7586d13-10ae-45b9-a326-adf2d127a316" xml:space="preserve">
+          <source><bpt id="f881a198-ce60-4027-b8f9-7df50e10311f">&lt;linkText&gt;</bpt>Worker roles<ept id="f881a198-ce60-4027-b8f9-7df50e10311f">&lt;/linkText&gt;</ept><bpt id="f881a198-ce60-4027-b8f9-7df50e10311f">&lt;title&gt;</bpt><ept id="f881a198-ce60-4027-b8f9-7df50e10311f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f881a198-ce60-4027-b8f9-7df50e10311f">&lt;linkText&gt;</bpt>Worker roles<ept id="f881a198-ce60-4027-b8f9-7df50e10311f">&lt;/linkText&gt;</ept><bpt id="f881a198-ce60-4027-b8f9-7df50e10311f">&lt;title&gt;</bpt><ept id="f881a198-ce60-4027-b8f9-7df50e10311f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="960cc0a7-b131-41c6-8036-9174fc434b57" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="52c3f470-b022-41ed-b82a-4f34abe27049" xml:space="preserve">
+          <source>Please download <bpt id="ba4d8812-5539-4885-83f6-c239ddaad221">&lt;linkText&gt;</bpt>the latest Azure PowerShell release<ept id="ba4d8812-5539-4885-83f6-c239ddaad221">&lt;/linkText&gt;</ept><bpt id="ba4d8812-5539-4885-83f6-c239ddaad221">&lt;title&gt;</bpt><ept id="ba4d8812-5539-4885-83f6-c239ddaad221">&lt;/title&gt;</ept> for best results.</source>
+          <target state="new">Please download <bpt id="ba4d8812-5539-4885-83f6-c239ddaad221">&lt;linkText&gt;</bpt>the latest Azure PowerShell release<ept id="ba4d8812-5539-4885-83f6-c239ddaad221">&lt;/linkText&gt;</ept><bpt id="ba4d8812-5539-4885-83f6-c239ddaad221">&lt;title&gt;</bpt><ept id="ba4d8812-5539-4885-83f6-c239ddaad221">&lt;/title&gt;</ept> for best results.</target>
+        </trans-unit>
+        <trans-unit id="8bc526c5-d1b1-4753-bed6-2149a80d412c" xml:space="preserve">
+          <source>IdleTimeoutInMinutes is optional.</source>
+          <target state="new">IdleTimeoutInMinutes is optional.</target>
+        </trans-unit>
+        <trans-unit id="a6702181-62e6-4e06-ab0b-6136b4b0c81d" xml:space="preserve">
+          <source>If not set, the default timeout is 4 minutes.</source>
+          <target state="new">If not set, the default timeout is 4 minutes.</target>
+        </trans-unit>
+        <trans-unit id="1d75a6f2-f1ab-4ded-92a8-06092179cb79" xml:space="preserve">
+          <source>Its value can now be set between 4 and 30 minutes.</source>
+          <target state="new">Its value can now be set between 4 and 30 minutes.</target>
+        </trans-unit>
+        <trans-unit id="b137466e-9ec9-4fb5-8f28-c76c470779fa" xml:space="preserve">
+          <source>If endpoints are part of a load balanced endpoint set, the TCP timeout must be set on the load balanced endpoint set:</source>
+          <target state="new">If endpoints are part of a load balanced endpoint set, the TCP timeout must be set on the load balanced endpoint set:</target>
+        </trans-unit>
+        <trans-unit id="e304be46-07a0-4ae0-8e51-79ab09253c2d" xml:space="preserve">
+          <source>You can leverage the Azure SDK for .NET to update your Cloud Service</source>
+          <target state="new">You can leverage the Azure SDK for .NET to update your Cloud Service</target>
+        </trans-unit>
+        <trans-unit id="b7a8504b-aee9-47df-9880-176f5679d660" xml:space="preserve">
+          <source>Endpoint settings for Cloud Services are made in the .csdef.</source>
+          <target state="new">Endpoint settings for Cloud Services are made in the .csdef.</target>
+        </trans-unit>
+        <trans-unit id="df3909f9-d729-4217-9f8c-93626251ef67" xml:space="preserve">
+          <source>So, in order to update the TCP timeout for a Cloud Services deployment, a deployment upgrade is required.</source>
+          <target state="new">So, in order to update the TCP timeout for a Cloud Services deployment, a deployment upgrade is required.</target>
+        </trans-unit>
+        <trans-unit id="efb3d153-9996-42a5-a984-87f49ff98e51" xml:space="preserve">
+          <source>An exception is if the TCP timeout is only specified for a Public IP.</source>
+          <target state="new">An exception is if the TCP timeout is only specified for a Public IP.</target>
+        </trans-unit>
+        <trans-unit id="6c84b132-9f7e-4cea-9e57-28c868a03707" xml:space="preserve">
+          <source>Public IP settings are in the .cscfg, and they can be updated through deployment update and upgrade.</source>
+          <target state="new">Public IP settings are in the .cscfg, and they can be updated through deployment update and upgrade.</target>
+        </trans-unit>
+        <trans-unit id="50ff4adc-62f4-4ce8-ae8c-5af2c86f38cd" xml:space="preserve">
+          <source>The .csdef changes for endpoint settings are:</source>
+          <target state="new">The .csdef changes for endpoint settings are:</target>
+        </trans-unit>
+        <trans-unit id="9a7fca90-07dc-43ab-97eb-67941cf495dd" xml:space="preserve">
+          <source>Developers can configure the load balancer distribution using the service management API.</source>
+          <target state="new">Developers can configure the load balancer distribution using the service management API.</target>
+        </trans-unit>
+        <trans-unit id="6ed16b71-088f-4fda-82f5-8c333641d51e" xml:space="preserve">
+          <source>Make sure to add the x-ms-version header is set to version 2014-06-01 or higher.</source>
+          <target state="new">Make sure to add the x-ms-version header is set to version 2014-06-01 or higher.</target>
+        </trans-unit>
+        <trans-unit id="d6e5509a-4b5e-4840-8c14-1e693fd0e4e5" xml:space="preserve">
+          <source>The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sourceIPProtocol for 3-tuple affinity or none (for no affinity.</source>
+          <target state="new">The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sourceIPProtocol for 3-tuple affinity or none (for no affinity.</target>
+        </trans-unit>
+        <trans-unit id="a0017d4b-1a54-4414-b361-8a5608010c07" xml:space="preserve">
+          <source>i.e. 5-tuple)</source>
+          <target state="new">i.e. 5-tuple)</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

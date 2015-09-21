@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c9ac0c2b-f0d3-4ef4-a89c-00ecc81bb57a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c9ac0c2b-f0d3-4ef4-a89c-00ecc81bb57a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b6cb9bd7-d6cf-416d-8ccc-fe950acdbd20">
+        <trans-unit id="635389d2-0c66-4e09-aca3-a62a62f9e3a6" xml:space="preserve">
+          <source>Service limits in Azure Search</source>
+          <target state="new">Service limits in Azure Search</target>
+        </trans-unit>
+        <trans-unit id="709f78b7-1146-49f8-91f3-0ee4fc4a874d" xml:space="preserve">
+          <source>Azure Search limits used in capacity planning and maximum limits on requests and reponses.</source>
+          <target state="new">Azure Search limits used in capacity planning and maximum limits on requests and reponses.</target>
+        </trans-unit>
+        <trans-unit id="49db8c5f-4922-408c-aed2-b3d6eb44f0f7" xml:space="preserve">
+          <source>Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on how you subscribe to Azure Search.</source>
+          <target state="new">Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on how you subscribe to Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="1df21f17-60a6-4998-b07c-1fd870792dd4" xml:space="preserve">
+          <source>The free service is intended for evaluation and proof-of-concept testing, with lower limits on all objects and workloads so that resources can be shared more equitably.</source>
+          <target state="new">The free service is intended for evaluation and proof-of-concept testing, with lower limits on all objects and workloads so that resources can be shared more equitably.</target>
+        </trans-unit>
+        <trans-unit id="4bce1050-366f-4ec7-9f88-26606b208431" xml:space="preserve">
+          <source>Standard runs on dedicated machines that are used only by your service.</source>
+          <target state="new">Standard runs on dedicated machines that are used only by your service.</target>
+        </trans-unit>
+        <trans-unit id="93e3623a-289e-4d05-9edd-0347c9a57150" xml:space="preserve">
+          <source>Sole use of a dedicated service gives you the ability to scale up or down, with more storage and processing capacity at every level, including the minimum configuration.</source>
+          <target state="new">Sole use of a dedicated service gives you the ability to scale up or down, with more storage and processing capacity at every level, including the minimum configuration.</target>
+        </trans-unit>
+        <trans-unit id="d9f3a076-03bd-4c97-a269-b42714acd74a" xml:space="preserve">
+          <source>Azure subscribers can use the shared (multi-tenant) Search service for development or very small search applications.</source>
+          <target state="new">Azure subscribers can use the shared (multi-tenant) Search service for development or very small search applications.</target>
+        </trans-unit>
+        <trans-unit id="0355f3b4-35f3-4c35-9171-ed135ef2a8ff" xml:space="preserve">
+          <source>The shared service comes with your Azure subscription.</source>
+          <target state="new">The shared service comes with your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="7c3fc221-f18c-440e-9740-00644c414775" xml:space="preserve">
+          <source>It's a no-cost option that allows you to experiment with the service before signing up.</source>
+          <target state="new">It's a no-cost option that allows you to experiment with the service before signing up.</target>
+        </trans-unit>
+        <trans-unit id="994fb362-e0b9-4eb9-ad42-4c5a3279dc2d" xml:space="preserve">
+          <source>It provides:</source>
+          <target state="new">It provides:</target>
+        </trans-unit>
+        <trans-unit id="40ae60db-a000-43d6-87d8-6d08d48db38d" xml:space="preserve">
+          <source>Object</source>
+          <target state="new">Object</target>
+        </trans-unit>
+        <trans-unit id="9acaa72b-3d46-46e2-9953-f4f006abde08" xml:space="preserve">
+          <source>Limit</source>
+          <target state="new">Limit</target>
+        </trans-unit>
+        <trans-unit id="37ef3c6b-9308-423f-aebc-e0c115ab3133" xml:space="preserve">
+          <source>Maximum number of indexes</source>
+          <target state="new">Maximum number of indexes</target>
+        </trans-unit>
+        <trans-unit id="da90b7a1-cc44-48d0-8f54-ce0085d77848" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="bc302daa-c659-4487-9a2b-f431e3eac2bc" xml:space="preserve">
+          <source>Maximum number of fields per index</source>
+          <target state="new">Maximum number of fields per index</target>
+        </trans-unit>
+        <trans-unit id="cf000682-2290-471f-b254-6437fb4fd3bf" xml:space="preserve">
+          <source>1000</source>
+          <target state="new">1000</target>
+        </trans-unit>
+        <trans-unit id="6e2e7c08-dff8-4f12-b356-f91b6029896b" xml:space="preserve">
+          <source>Maximum document count</source>
+          <target state="new">Maximum document count</target>
+        </trans-unit>
+        <trans-unit id="5ee20f3f-8127-4b40-8fd3-993f8498984e" xml:space="preserve">
+          <source>10,000</source>
+          <target state="new">10,000</target>
+        </trans-unit>
+        <trans-unit id="70daecaf-3be1-48b6-84a7-493bc67b18ce" xml:space="preserve">
+          <source>Maximum storage size</source>
+          <target state="new">Maximum storage size</target>
+        </trans-unit>
+        <trans-unit id="8e15f4b6-9146-4ad6-b7fb-0b648f4b7ae0" xml:space="preserve">
+          <source>50 MB</source>
+          <target state="new">50 MB</target>
+        </trans-unit>
+        <trans-unit id="16d62782-a241-4826-bfe3-2236a1a71d90" xml:space="preserve">
+          <source>Maximum partitions</source>
+          <target state="new">Maximum partitions</target>
+        </trans-unit>
+        <trans-unit id="6f0846e1-d296-4a93-ae93-52d30831abde" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="95fed33a-af27-4ec7-93a0-ba1f5a041023" xml:space="preserve">
+          <source>Maximum replicas</source>
+          <target state="new">Maximum replicas</target>
+        </trans-unit>
+        <trans-unit id="e1b9a19b-c248-4532-a79f-1fc05f065763" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="f9cdeb75-081a-4f60-992f-05d8e28dc45a" xml:space="preserve">
+          <source>Maximum search units</source>
+          <target state="new">Maximum search units</target>
+        </trans-unit>
+        <trans-unit id="0eb87b76-8df0-4a58-a193-7437f8ddda24" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="eb4ce04d-f79b-4cb0-a2d1-4503c33d1d7f" xml:space="preserve">
+          <source>Maximum number of indexers</source>
+          <target state="new">Maximum number of indexers</target>
+        </trans-unit>
+        <trans-unit id="1c95a38f-21b1-4029-9123-8ab67684cfcb" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="dca7d43f-0851-472a-bf58-0213eae727ca" xml:space="preserve">
+          <source>Maximum number of Indexer data sources</source>
+          <target state="new">Maximum number of Indexer data sources</target>
+        </trans-unit>
+        <trans-unit id="c7b69be6-c6b6-41bb-9922-1bc577a747b9" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="16d75163-2541-49a7-b92a-93d91e6482e6" xml:space="preserve">
+          <source>Maximum number of indexed documents per indexer invocation</source>
+          <target state="new">Maximum number of indexed documents per indexer invocation</target>
+        </trans-unit>
+        <trans-unit id="0073e88b-68c4-4b88-b075-eceb603f6950" xml:space="preserve">
+          <source>10,000</source>
+          <target state="new">10,000</target>
+        </trans-unit>
+        <trans-unit id="7c4aece8-82f0-4658-bb1e-a3d82e76b0ac" xml:space="preserve">
+          <source>Notice that there are no quotas or maximum limits associated with queries.</source>
+          <target state="new">Notice that there are no quotas or maximum limits associated with queries.</target>
+        </trans-unit>
+        <trans-unit id="39d2140d-c5d4-4fe7-bf65-16ad5a65864f" xml:space="preserve">
+          <source>Queries-per-second (QPS) are variable, depending on available bandwidth and competition for system resources.</source>
+          <target state="new">Queries-per-second (QPS) are variable, depending on available bandwidth and competition for system resources.</target>
+        </trans-unit>
+        <trans-unit id="aeb51ca9-55d0-4eea-a9b9-96bdbcf9d685" xml:space="preserve">
+          <source>The Azure compute and storage resources backing your shared service are shared by multiple subscribers, so QPS for your solution will vary depending on how many other workloads are running at the same time.</source>
+          <target state="new">The Azure compute and storage resources backing your shared service are shared by multiple subscribers, so QPS for your solution will vary depending on how many other workloads are running at the same time.</target>
+        </trans-unit>
+        <trans-unit id="56377b02-f1df-472a-a924-80089fd48c7f" xml:space="preserve">
+          <source>Under the Standard pricing tier, a dedicated Search service stores only your data, and runs only your workloads.</source>
+          <target state="new">Under the Standard pricing tier, a dedicated Search service stores only your data, and runs only your workloads.</target>
+        </trans-unit>
+        <trans-unit id="c5830524-85ef-47c5-9663-edec9d9ef0e0" xml:space="preserve">
+          <source>Unlike the shared service, the resource allocation for a dedicated Search service is adjustable, scaling to whatever level you need.</source>
+          <target state="new">Unlike the shared service, the resource allocation for a dedicated Search service is adjustable, scaling to whatever level you need.</target>
+        </trans-unit>
+        <trans-unit id="e2219e00-d506-43d7-beb8-8a4e26223847" xml:space="preserve">
+          <source>You can independently set the resource levels for partitions (to scale up storage) and replicas (to provide high availability and scale up QPS and indexing performance).</source>
+          <target state="new">You can independently set the resource levels for partitions (to scale up storage) and replicas (to provide high availability and scale up QPS and indexing performance).</target>
+        </trans-unit>
+        <trans-unit id="7c055449-bf80-424e-a114-8ad2e15ad210" xml:space="preserve">
+          <source>See <bpt id="b5bc1fcf-d797-48f1-819f-4ed14d00ea8c">&lt;linkText&gt;</bpt>Manage your search solution<ept id="b5bc1fcf-d797-48f1-819f-4ed14d00ea8c">&lt;/linkText&gt;</ept><bpt id="b5bc1fcf-d797-48f1-819f-4ed14d00ea8c">&lt;title&gt;</bpt><ept id="b5bc1fcf-d797-48f1-819f-4ed14d00ea8c">&lt;/title&gt;</ept> for insights into different resource configurations.</source>
+          <target state="new">See <bpt id="b5bc1fcf-d797-48f1-819f-4ed14d00ea8c">&lt;linkText&gt;</bpt>Manage your search solution<ept id="b5bc1fcf-d797-48f1-819f-4ed14d00ea8c">&lt;/linkText&gt;</ept><bpt id="b5bc1fcf-d797-48f1-819f-4ed14d00ea8c">&lt;title&gt;</bpt><ept id="b5bc1fcf-d797-48f1-819f-4ed14d00ea8c">&lt;/title&gt;</ept> for insights into different resource configurations.</target>
+        </trans-unit>
+        <trans-unit id="fd26ffec-2605-4c86-b2aa-704a43c3cb1c" xml:space="preserve">
+          <source>The following table is a list of upper limits, but you should review the matrix chart further on to understand capacity in terms of allowable <bpt id="1a2a116e-8ce2-448e-ba35-c464d71b0944">&lt;linkText&gt;</bpt>combinations of partitions and replicas<ept id="1a2a116e-8ce2-448e-ba35-c464d71b0944">&lt;/linkText&gt;</ept><bpt id="1a2a116e-8ce2-448e-ba35-c464d71b0944">&lt;title&gt;</bpt><ept id="1a2a116e-8ce2-448e-ba35-c464d71b0944">&lt;/title&gt;</ept>.</source>
+          <target state="new">The following table is a list of upper limits, but you should review the matrix chart further on to understand capacity in terms of allowable <bpt id="1a2a116e-8ce2-448e-ba35-c464d71b0944">&lt;linkText&gt;</bpt>combinations of partitions and replicas<ept id="1a2a116e-8ce2-448e-ba35-c464d71b0944">&lt;/linkText&gt;</ept><bpt id="1a2a116e-8ce2-448e-ba35-c464d71b0944">&lt;title&gt;</bpt><ept id="1a2a116e-8ce2-448e-ba35-c464d71b0944">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cbad28a0-2706-43e3-93f9-23cfb34c2610" xml:space="preserve">
+          <source>Object</source>
+          <target state="new">Object</target>
+        </trans-unit>
+        <trans-unit id="15df1602-ee8a-4bc0-84c0-40ba21ba064e" xml:space="preserve">
+          <source>Limit</source>
+          <target state="new">Limit</target>
+        </trans-unit>
+        <trans-unit id="f9081069-38bf-44ca-9c5f-7ceb43bf98f3" xml:space="preserve">
+          <source>Maximum number of indexes</source>
+          <target state="new">Maximum number of indexes</target>
+        </trans-unit>
+        <trans-unit id="c080cd8c-ff5e-461d-8bcb-b5530a30f5e0" xml:space="preserve">
+          <source>50 per Search service</source>
+          <target state="new">50 per Search service</target>
+        </trans-unit>
+        <trans-unit id="5cfbc6e0-bb99-4666-82d1-ac843df64ed7" xml:space="preserve">
+          <source>Maximum number of fields per index</source>
+          <target state="new">Maximum number of fields per index</target>
+        </trans-unit>
+        <trans-unit id="e8361086-c37c-468f-b1aa-d1b026fb543d" xml:space="preserve">
+          <source>1000</source>
+          <target state="new">1000</target>
+        </trans-unit>
+        <trans-unit id="9868aed8-dc76-4572-9873-0ec0e8a12522" xml:space="preserve">
+          <source>Maximum document count</source>
+          <target state="new">Maximum document count</target>
+        </trans-unit>
+        <trans-unit id="36812921-56fe-4b59-be0f-2484e9290c10" xml:space="preserve">
+          <source>15 million per partition</source>
+          <target state="new">15 million per partition</target>
+        </trans-unit>
+        <trans-unit id="916f83db-8224-4e4f-92f0-cae6a329ad14" xml:space="preserve">
+          <source>Maximum storage size</source>
+          <target state="new">Maximum storage size</target>
+        </trans-unit>
+        <trans-unit id="b8f79274-944e-48ea-8bf8-1ddd9107bf83" xml:space="preserve">
+          <source>25 GB per partition</source>
+          <target state="new">25 GB per partition</target>
+        </trans-unit>
+        <trans-unit id="d4215e57-9acc-4a25-ac10-aa951cbad247" xml:space="preserve">
+          <source>Maximum partitions</source>
+          <target state="new">Maximum partitions</target>
+        </trans-unit>
+        <trans-unit id="e3d5bc0c-f3d4-4d36-aa7e-bcc3f45b13e0" xml:space="preserve">
+          <source>12 per Search service</source>
+          <target state="new">12 per Search service</target>
+        </trans-unit>
+        <trans-unit id="27a96d5d-f707-4825-886f-e5fe043b3314" xml:space="preserve">
+          <source>Maximum replicas</source>
+          <target state="new">Maximum replicas</target>
+        </trans-unit>
+        <trans-unit id="d41e8590-a1a6-45bf-bd3e-7b8c2fe4853a" xml:space="preserve">
+          <source>6 per Search service</source>
+          <target state="new">6 per Search service</target>
+        </trans-unit>
+        <trans-unit id="c6e5358e-3f57-400f-bd0f-192709b4150a" xml:space="preserve">
+          <source>Maximum search units</source>
+          <target state="new">Maximum search units</target>
+        </trans-unit>
+        <trans-unit id="7ad74188-b493-47fa-a5f2-73dfaf49f8bb" xml:space="preserve">
+          <source>36 per Search service</source>
+          <target state="new">36 per Search service</target>
+        </trans-unit>
+        <trans-unit id="c6458b9d-96d5-482d-b88c-094ca1effef7" xml:space="preserve">
+          <source>Maximum number of indexers</source>
+          <target state="new">Maximum number of indexers</target>
+        </trans-unit>
+        <trans-unit id="b6107d99-40d8-4a58-8543-9baadc1a469c" xml:space="preserve">
+          <source>50 per Search service</source>
+          <target state="new">50 per Search service</target>
+        </trans-unit>
+        <trans-unit id="861e8172-289d-4296-a17c-2e696b02e180" xml:space="preserve">
+          <source>Maximum number of Indexer data sources</source>
+          <target state="new">Maximum number of Indexer data sources</target>
+        </trans-unit>
+        <trans-unit id="47e03fc3-1d2d-44e3-96e9-192a13055795" xml:space="preserve">
+          <source>50 per Search service</source>
+          <target state="new">50 per Search service</target>
+        </trans-unit>
+        <trans-unit id="60a0ae9e-0d63-4d28-a03f-b642e30b8950" xml:space="preserve">
+          <source>Maximum number of indexed documents per indexer invocation</source>
+          <target state="new">Maximum number of indexed documents per indexer invocation</target>
+        </trans-unit>
+        <trans-unit id="c4bde1cb-b4e3-4692-ae38-eefd86915cc0" xml:space="preserve">
+          <source>Unlimited</source>
+          <target state="new">Unlimited</target>
+        </trans-unit>
+        <trans-unit id="5834c102-b8cf-4aa7-9e63-fc8bc43a7998" xml:space="preserve">
+          <source>Capacity in Azure Search can be purchased in increments called search units.</source>
+          <target state="new">Capacity in Azure Search can be purchased in increments called search units.</target>
+        </trans-unit>
+        <trans-unit id="08d378cb-76d6-4352-a7e5-e4c1f0840f2b" xml:space="preserve">
+          <source>The Standard pricing tier allows for up to 36 search units per Search service.</source>
+          <target state="new">The Standard pricing tier allows for up to 36 search units per Search service.</target>
+        </trans-unit>
+        <trans-unit id="0c15f011-5a33-4583-a47e-8f7ca312687e" xml:space="preserve">
+          <source>This limit overrides the individual limits on partitions and replicas.</source>
+          <target state="new">This limit overrides the individual limits on partitions and replicas.</target>
+        </trans-unit>
+        <trans-unit id="c5924a15-020d-4a06-9ece-936d4d2496d8" xml:space="preserve">
+          <source>For example, you can't scale your service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.</source>
+          <target state="new">For example, you can't scale your service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.</target>
+        </trans-unit>
+        <trans-unit id="86ef8e11-94f3-4c6b-8e27-bf9646b94a73" xml:space="preserve">
+          <source><bpt id="fbaccdec-6c5b-4369-98d3-363e48e5bb3d">&lt;strong&gt;</bpt>Partitions<ept id="fbaccdec-6c5b-4369-98d3-363e48e5bb3d">&lt;/strong&gt;</ept> provide storage and IO.</source>
+          <target state="new"><bpt id="fbaccdec-6c5b-4369-98d3-363e48e5bb3d">&lt;strong&gt;</bpt>Partitions<ept id="fbaccdec-6c5b-4369-98d3-363e48e5bb3d">&lt;/strong&gt;</ept> provide storage and IO.</target>
+        </trans-unit>
+        <trans-unit id="8ee3d958-bf86-4bb3-98d6-dee278bdc8d3" xml:space="preserve">
+          <source>A single Search service can have a maximum of 12 partitions.</source>
+          <target state="new">A single Search service can have a maximum of 12 partitions.</target>
+        </trans-unit>
+        <trans-unit id="a86ac9c8-1c94-44fd-8fd5-3b370efcd18c" xml:space="preserve">
+          <source>Each partition comes with a hard limit of 15 million documents or 25 GB of storage, whichever comes first.</source>
+          <target state="new">Each partition comes with a hard limit of 15 million documents or 25 GB of storage, whichever comes first.</target>
+        </trans-unit>
+        <trans-unit id="fc8ebe29-e0ce-4496-a6f9-e83af1498110" xml:space="preserve">
+          <source>If you add partitions, your Search service can load more documents.</source>
+          <target state="new">If you add partitions, your Search service can load more documents.</target>
+        </trans-unit>
+        <trans-unit id="c01a58ae-08a9-430b-9962-8df33fcee288" xml:space="preserve">
+          <source>For example, a service with a single partition that initially stores up to 25 GB of data can store 50 GB when you add a second partition to the service.</source>
+          <target state="new">For example, a service with a single partition that initially stores up to 25 GB of data can store 50 GB when you add a second partition to the service.</target>
+        </trans-unit>
+        <trans-unit id="e49a5600-bcaa-48a1-8aef-a3a950f80bc2" xml:space="preserve">
+          <source><bpt id="6778847e-5c9f-49c0-b249-8e5211b20b95">&lt;strong&gt;</bpt>Replicas<ept id="6778847e-5c9f-49c0-b249-8e5211b20b95">&lt;/strong&gt;</ept> are copies of the search engine.</source>
+          <target state="new"><bpt id="6778847e-5c9f-49c0-b249-8e5211b20b95">&lt;strong&gt;</bpt>Replicas<ept id="6778847e-5c9f-49c0-b249-8e5211b20b95">&lt;/strong&gt;</ept> are copies of the search engine.</target>
+        </trans-unit>
+        <trans-unit id="9471dd4d-543e-4ea6-8da8-9e5a6e44cb1f" xml:space="preserve">
+          <source>A single Search service can have a maximum of 6 replicas.</source>
+          <target state="new">A single Search service can have a maximum of 6 replicas.</target>
+        </trans-unit>
+        <trans-unit id="1bb158e2-9e44-44a4-90b6-6e8fcfee8286" xml:space="preserve">
+          <source>You need at least 2 replicas for read (query) availability, and at least 3 replicas for read-write (query, indexing) availability.</source>
+          <target state="new">You need at least 2 replicas for read (query) availability, and at least 3 replicas for read-write (query, indexing) availability.</target>
+        </trans-unit>
+        <trans-unit id="292e17c8-8c71-4087-8112-3c8b6bae0cab" xml:space="preserve">
+          <source>A copy of each index runs on each replica.</source>
+          <target state="new">A copy of each index runs on each replica.</target>
+        </trans-unit>
+        <trans-unit id="4f3aa48a-6c10-48d7-a44c-d740db231c64" xml:space="preserve">
+          <source>As you add replicas, additional copies of the index are brought online to support greater query workloads and to load balance the requests over the multiple replicas.</source>
+          <target state="new">As you add replicas, additional copies of the index are brought online to support greater query workloads and to load balance the requests over the multiple replicas.</target>
+        </trans-unit>
+        <trans-unit id="4053dbe9-fd0e-48c0-9b19-6e8270da6511" xml:space="preserve">
+          <source>If you have multiple indexes, say 6, and 3 replicas, each replica will have a copy of all 6 indexes.</source>
+          <target state="new">If you have multiple indexes, say 6, and 3 replicas, each replica will have a copy of all 6 indexes.</target>
+        </trans-unit>
+        <trans-unit id="9f455a92-c7a7-4bbd-9b25-5fd00d7ee52f" xml:space="preserve">
+          <source>Note that we provide no hard estimates on queries per second (QPS), as query execution can vary a lot depending on the complexity of the query and competing workloads.</source>
+          <target state="new">Note that we provide no hard estimates on queries per second (QPS), as query execution can vary a lot depending on the complexity of the query and competing workloads.</target>
+        </trans-unit>
+        <trans-unit id="866a347c-afb2-41d4-8f3a-154ed0be7d1d" xml:space="preserve">
+          <source>On average, a replica can service about 15 QPS, but your throughput will be somewhat higher or lower depending on query complexity (faceted queries are more complex) and network latency.</source>
+          <target state="new">On average, a replica can service about 15 QPS, but your throughput will be somewhat higher or lower depending on query complexity (faceted queries are more complex) and network latency.</target>
+        </trans-unit>
+        <trans-unit id="4b25f7dc-cc9a-4748-b329-76d8d69f416c" xml:space="preserve">
+          <source>Also, it's important to recognize that while adding replicas will definitely add scale and performance, the end result is not strictly linear: adding 3 replicas does not guarantee triple throughput.</source>
+          <target state="new">Also, it's important to recognize that while adding replicas will definitely add scale and performance, the end result is not strictly linear: adding 3 replicas does not guarantee triple throughput.</target>
+        </trans-unit>
+        <trans-unit id="b3af96bd-8d08-485a-8f46-9138938ed9e6" xml:space="preserve">
+          <source>Query latency is an indicator that additional replicas might be needed.</source>
+          <target state="new">Query latency is an indicator that additional replicas might be needed.</target>
+        </trans-unit>
+        <trans-unit id="d53d9d57-e3eb-4032-a34f-68f3feda8f4f" xml:space="preserve">
+          <source><bpt id="3b7832e3-1b63-4db1-8d61-2afafb9a2c26">&lt;bookmark&gt;</bpt><ept id="3b7832e3-1b63-4db1-8d61-2afafb9a2c26">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="3b7832e3-1b63-4db1-8d61-2afafb9a2c26">&lt;bookmark&gt;</bpt><ept id="3b7832e3-1b63-4db1-8d61-2afafb9a2c26">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b09e880-72ca-48bc-8c67-e26249552b97" xml:space="preserve">
+          <source>As noted earlier, the effective limit on partitions and replicas is based on the combination of resources you select, while staying within the boundary of 36 search units per service.</source>
+          <target state="new">As noted earlier, the effective limit on partitions and replicas is based on the combination of resources you select, while staying within the boundary of 36 search units per service.</target>
+        </trans-unit>
+        <trans-unit id="b9d11fc1-8c9c-4273-8fef-bee2f7e7eb95" xml:space="preserve">
+          <source>Resources are allocated in terms of search units (SU).</source>
+          <target state="new">Resources are allocated in terms of search units (SU).</target>
+        </trans-unit>
+        <trans-unit id="49f5ba34-420d-4986-9c26-fd2cdfdb8244" xml:space="preserve">
+          <source>A dedicated Search service starts with one replica and one partition, as one search unit.</source>
+          <target state="new">A dedicated Search service starts with one replica and one partition, as one search unit.</target>
+        </trans-unit>
+        <trans-unit id="c09faf53-b5ce-4a2d-a0e4-60991e19078d" xml:space="preserve">
+          <source>Additional capacity is calculated as partitions multiplied by replicas, yielding a total number of search units required to support a given configuration.</source>
+          <target state="new">Additional capacity is calculated as partitions multiplied by replicas, yielding a total number of search units required to support a given configuration.</target>
+        </trans-unit>
+        <trans-unit id="4d0b8127-f0f5-4323-8e83-392d67a4aca3" xml:space="preserve">
+          <source>The following table is a chart that lists replicas on the vertical axis, and partitions on the horizontal axis.</source>
+          <target state="new">The following table is a chart that lists replicas on the vertical axis, and partitions on the horizontal axis.</target>
+        </trans-unit>
+        <trans-unit id="202c862b-aba9-41cf-8bcf-40dea0fb13fd" xml:space="preserve">
+          <source>The intersection shows the number of search units required to support each combination, subject to the 36 search unit (SU) limit per service.</source>
+          <target state="new">The intersection shows the number of search units required to support each combination, subject to the 36 search unit (SU) limit per service.</target>
+        </trans-unit>
+        <trans-unit id="5612ada6-b21a-49e7-911e-144f38049012" xml:space="preserve">
+          <source>For example, if you want 6 replicas and 2 partitions, this configuration would require 12 search units.</source>
+          <target state="new">For example, if you want 6 replicas and 2 partitions, this configuration would require 12 search units.</target>
+        </trans-unit>
+        <trans-unit id="b952be8c-8769-476d-8613-6d696b3a7162" xml:space="preserve">
+          <source>To use 4 replicas and 2 partitions, you would need 8 search units.</source>
+          <target state="new">To use 4 replicas and 2 partitions, you would need 8 search units.</target>
+        </trans-unit>
+        <trans-unit id="d561fbd6-cf62-4ae2-bb8d-a6aa2d555197" xml:space="preserve">
+          <source>As a general rule, most search applications tend to need more replicas than partitions.</source>
+          <target state="new">As a general rule, most search applications tend to need more replicas than partitions.</target>
+        </trans-unit>
+        <trans-unit id="ff091ce1-2b6b-40cf-addf-41fb3cf91f48" xml:space="preserve">
+          <source>6 replicas</source>
+          <target state="new">6 replicas</target>
+        </trans-unit>
+        <trans-unit id="5e5a0f4f-d900-4f3a-a958-52704a3e8f9a" xml:space="preserve">
+          <source>6 SU</source>
+          <target state="new">6 SU</target>
+        </trans-unit>
+        <trans-unit id="2fa1cbc9-ed5c-4f93-b96d-8a2d30ad4147" xml:space="preserve">
+          <source>12 SU</source>
+          <target state="new">12 SU</target>
+        </trans-unit>
+        <trans-unit id="08c55e86-be29-4fe9-8f31-6bed5b1621a3" xml:space="preserve">
+          <source>18 SU</source>
+          <target state="new">18 SU</target>
+        </trans-unit>
+        <trans-unit id="cad930fb-87a4-4d0d-a593-02740f7f8c00" xml:space="preserve">
+          <source>24 SU</source>
+          <target state="new">24 SU</target>
+        </trans-unit>
+        <trans-unit id="8db53eaf-87d6-40be-bb55-838c5c81fd91" xml:space="preserve">
+          <source>36 SU</source>
+          <target state="new">36 SU</target>
+        </trans-unit>
+        <trans-unit id="5ec28210-2bc0-4078-bd2b-30d4ae7b3429" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="2377fefe-29cf-4a7a-ab14-cbb3e4be4340" xml:space="preserve">
+          <source>5 replicas</source>
+          <target state="new">5 replicas</target>
+        </trans-unit>
+        <trans-unit id="99cbe448-e4f8-4c4d-933a-57c11fff7c15" xml:space="preserve">
+          <source>5 SU</source>
+          <target state="new">5 SU</target>
+        </trans-unit>
+        <trans-unit id="c958a448-27bf-4dab-a799-643b9548f9e3" xml:space="preserve">
+          <source>10 SU</source>
+          <target state="new">10 SU</target>
+        </trans-unit>
+        <trans-unit id="a3240705-a2e2-45c0-8db0-9978aeea2b8a" xml:space="preserve">
+          <source>15 SU</source>
+          <target state="new">15 SU</target>
+        </trans-unit>
+        <trans-unit id="90759e6a-4bee-40e9-bf7b-1ed0ef8f3af5" xml:space="preserve">
+          <source>20 SU</source>
+          <target state="new">20 SU</target>
+        </trans-unit>
+        <trans-unit id="657409cc-5120-422c-b6cf-11ebbbc0e31a" xml:space="preserve">
+          <source>30 SU</source>
+          <target state="new">30 SU</target>
+        </trans-unit>
+        <trans-unit id="282c9b73-5ca7-45ca-9608-4fabe2b92934" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="7403570e-3f20-4db6-b6b1-bfc930f22c4d" xml:space="preserve">
+          <source>4 replicas</source>
+          <target state="new">4 replicas</target>
+        </trans-unit>
+        <trans-unit id="0ad23c69-d433-40da-a893-98f473fd3cc6" xml:space="preserve">
+          <source>4 SU</source>
+          <target state="new">4 SU</target>
+        </trans-unit>
+        <trans-unit id="fa68e162-e6c0-40e6-aebb-d1afa469a2d0" xml:space="preserve">
+          <source>8 SU</source>
+          <target state="new">8 SU</target>
+        </trans-unit>
+        <trans-unit id="b64845b5-b6fb-42a9-aa1e-8307d0d70c7b" xml:space="preserve">
+          <source>12 SU</source>
+          <target state="new">12 SU</target>
+        </trans-unit>
+        <trans-unit id="f0170b8b-38f9-4090-962e-a59fb80bf810" xml:space="preserve">
+          <source>16 SU</source>
+          <target state="new">16 SU</target>
+        </trans-unit>
+        <trans-unit id="526beff5-497a-46e3-866f-136924bbfee5" xml:space="preserve">
+          <source>24 SU</source>
+          <target state="new">24 SU</target>
+        </trans-unit>
+        <trans-unit id="d58930e5-2573-4f7e-a104-f40970fcf42f" xml:space="preserve">
+          <source>N/A </source>
+          <target state="new">N/A </target>
+        </trans-unit>
+        <trans-unit id="ec8a80ac-351e-4bb4-8205-d9c07c004967" xml:space="preserve">
+          <source>3 replicas</source>
+          <target state="new">3 replicas</target>
+        </trans-unit>
+        <trans-unit id="cc06face-fea5-4519-be98-747e759fc293" xml:space="preserve">
+          <source>3 SU</source>
+          <target state="new">3 SU</target>
+        </trans-unit>
+        <trans-unit id="fd1941dd-8d68-4b48-841c-10657edd859d" xml:space="preserve">
+          <source>6 SU</source>
+          <target state="new">6 SU</target>
+        </trans-unit>
+        <trans-unit id="4e4bf93b-c84f-4d9a-bd4c-3e54d3a74141" xml:space="preserve">
+          <source>9 SU</source>
+          <target state="new">9 SU</target>
+        </trans-unit>
+        <trans-unit id="ddce60a0-96c7-41f3-b318-7e160664e336" xml:space="preserve">
+          <source>12 SU</source>
+          <target state="new">12 SU</target>
+        </trans-unit>
+        <trans-unit id="da529e0d-75fd-4400-8d8d-fdac881e5988" xml:space="preserve">
+          <source>18 SU</source>
+          <target state="new">18 SU</target>
+        </trans-unit>
+        <trans-unit id="0b79ef1c-40a4-4531-bde3-6da6d6175eb4" xml:space="preserve">
+          <source>36 SU</source>
+          <target state="new">36 SU</target>
+        </trans-unit>
+        <trans-unit id="8a2d6b78-893e-4bad-915b-0ae755592bfc" xml:space="preserve">
+          <source>2 replicas</source>
+          <target state="new">2 replicas</target>
+        </trans-unit>
+        <trans-unit id="85306f8d-e9f0-4e2f-bc93-31972076e136" xml:space="preserve">
+          <source>2 SU</source>
+          <target state="new">2 SU</target>
+        </trans-unit>
+        <trans-unit id="d5d6afdc-2fe9-4c62-bd24-2d090af932bd" xml:space="preserve">
+          <source>4 SU</source>
+          <target state="new">4 SU</target>
+        </trans-unit>
+        <trans-unit id="6866ec8f-b91d-48c1-aad9-a89d87681ffa" xml:space="preserve">
+          <source>6 SU</source>
+          <target state="new">6 SU</target>
+        </trans-unit>
+        <trans-unit id="41557915-5655-4f22-9a32-c7a182739893" xml:space="preserve">
+          <source>8 SU</source>
+          <target state="new">8 SU</target>
+        </trans-unit>
+        <trans-unit id="b43217f8-939b-4a84-9767-fae42925954e" xml:space="preserve">
+          <source>12 SU</source>
+          <target state="new">12 SU</target>
+        </trans-unit>
+        <trans-unit id="ad9225af-d82e-4f55-9a20-2876f46efcf0" xml:space="preserve">
+          <source>24 SU</source>
+          <target state="new">24 SU</target>
+        </trans-unit>
+        <trans-unit id="f91174c2-949c-45ad-8d4c-a7c422211add" xml:space="preserve">
+          <source>1 replica</source>
+          <target state="new">1 replica</target>
+        </trans-unit>
+        <trans-unit id="3b7bf680-081c-44e9-aee7-3bef4ea4dde1" xml:space="preserve">
+          <source>1 SU</source>
+          <target state="new">1 SU</target>
+        </trans-unit>
+        <trans-unit id="40cb14ee-8025-43a3-97de-f00931bb45fc" xml:space="preserve">
+          <source>2 SU</source>
+          <target state="new">2 SU</target>
+        </trans-unit>
+        <trans-unit id="e64b51df-9e05-415e-b39f-7cde393c0308" xml:space="preserve">
+          <source>3 SU</source>
+          <target state="new">3 SU</target>
+        </trans-unit>
+        <trans-unit id="be0e4e88-5cb4-42c5-926c-5eeec2e54637" xml:space="preserve">
+          <source>4 SU</source>
+          <target state="new">4 SU</target>
+        </trans-unit>
+        <trans-unit id="3798a169-4edc-4895-9a80-7be500840f62" xml:space="preserve">
+          <source>6 SU</source>
+          <target state="new">6 SU</target>
+        </trans-unit>
+        <trans-unit id="a4f4cc08-fe94-4c01-8806-0b37ee1e5e38" xml:space="preserve">
+          <source>12 SU</source>
+          <target state="new">12 SU</target>
+        </trans-unit>
+        <trans-unit id="79e0d8fe-57bf-4c36-8e2b-d621a7068538" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="fb027ef8-c0e7-4d80-8359-b00cf28e2e27" xml:space="preserve">
+          <source>1 Partition</source>
+          <target state="new">1 Partition</target>
+        </trans-unit>
+        <trans-unit id="8151a2b6-20b8-4b41-a36e-51a2d0f86008" xml:space="preserve">
+          <source>2 Partitions</source>
+          <target state="new">2 Partitions</target>
+        </trans-unit>
+        <trans-unit id="5e5f6a04-a448-4ec4-b4ea-92fc62b2eefa" xml:space="preserve">
+          <source>3 Partitions</source>
+          <target state="new">3 Partitions</target>
+        </trans-unit>
+        <trans-unit id="d8f4721e-05bf-43d1-9e97-087f032a2cb7" xml:space="preserve">
+          <source>4 Partitions</source>
+          <target state="new">4 Partitions</target>
+        </trans-unit>
+        <trans-unit id="f28ca707-bd96-41ce-bf38-508d031ff64a" xml:space="preserve">
+          <source>6 Partitions</source>
+          <target state="new">6 Partitions</target>
+        </trans-unit>
+        <trans-unit id="2112209e-214d-4ad9-8226-7b00f14cf180" xml:space="preserve">
+          <source>12 Partitions</source>
+          <target state="new">12 Partitions</target>
+        </trans-unit>
+        <trans-unit id="fd50c9be-3c11-45df-b76a-e4aecc67135f" xml:space="preserve">
+          <source>Search units, pricing, and capacity are explained in detail on the Azure web site.</source>
+          <target state="new">Search units, pricing, and capacity are explained in detail on the Azure web site.</target>
+        </trans-unit>
+        <trans-unit id="56d13db9-17c9-48ce-a75a-b777d41710e4" xml:space="preserve">
+          <source>See <bpt id="49bc5c75-22f5-4425-b466-4ecef0ec0a3e">&lt;linkText&gt;</bpt>Pricing Details<ept id="49bc5c75-22f5-4425-b466-4ecef0ec0a3e">&lt;/linkText&gt;</ept><bpt id="49bc5c75-22f5-4425-b466-4ecef0ec0a3e">&lt;title&gt;</bpt><ept id="49bc5c75-22f5-4425-b466-4ecef0ec0a3e">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="49bc5c75-22f5-4425-b466-4ecef0ec0a3e">&lt;linkText&gt;</bpt>Pricing Details<ept id="49bc5c75-22f5-4425-b466-4ecef0ec0a3e">&lt;/linkText&gt;</ept><bpt id="49bc5c75-22f5-4425-b466-4ecef0ec0a3e">&lt;title&gt;</bpt><ept id="49bc5c75-22f5-4425-b466-4ecef0ec0a3e">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="59af806c-52c7-4e12-8372-588b7decb403" xml:space="preserve">
+          <source>The number of partitions you choose must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12).</source>
+          <target state="new">The number of partitions you choose must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12).</target>
+        </trans-unit>
+        <trans-unit id="162f4271-c952-42a0-b96e-e65e0165ade0" xml:space="preserve">
+          <source>This is because Azure Search pre-divides each index into 12 shards so that it can be spread across partitions.</source>
+          <target state="new">This is because Azure Search pre-divides each index into 12 shards so that it can be spread across partitions.</target>
+        </trans-unit>
+        <trans-unit id="b499e4cc-aa4b-4f49-bb4b-493437ac7e8e" xml:space="preserve">
+          <source>For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index.</source>
+          <target state="new">For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index.</target>
+        </trans-unit>
+        <trans-unit id="030fdf73-75e5-4707-aabb-dae886972b06" xml:space="preserve">
+          <source>How Azure Search shards an index is an implementation detail, subject to change in future release.</source>
+          <target state="new">How Azure Search shards an index is an implementation detail, subject to change in future release.</target>
+        </trans-unit>
+        <trans-unit id="a45dca08-d302-4655-9bb4-b3deea5b6602" xml:space="preserve">
+          <source>Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.</source>
+          <target state="new">Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.</target>
+        </trans-unit>
+        <trans-unit id="68beb420-4aeb-4dd2-9fc2-fe57aaf559eb" xml:space="preserve">
+          <source>Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build.</source>
+          <target state="new">Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build.</target>
+        </trans-unit>
+        <trans-unit id="fdea1dd8-201e-40d9-a432-ed1bf9718cc0" xml:space="preserve">
+          <source>For many deployments,  one partition provides sufficient storage and IO (at 15 million documents per partition).</source>
+          <target state="new">For many deployments,  one partition provides sufficient storage and IO (at 15 million documents per partition).</target>
+        </trans-unit>
+        <trans-unit id="287e3ced-4c21-4e1d-a76f-ba5409e6d6a1" xml:space="preserve">
+          <source>Query workloads, however, rely on replicas.</source>
+          <target state="new">Query workloads, however, rely on replicas.</target>
+        </trans-unit>
+        <trans-unit id="598c97d8-80c6-46d9-b459-cccf0a94c113" xml:space="preserve">
+          <source>You could require additional replicas if you need more throughput or high availability.</source>
+          <target state="new">You could require additional replicas if you need more throughput or high availability.</target>
+        </trans-unit>
+        <trans-unit id="01c4b2b3-6511-492d-b735-8bfe0f6c655f" xml:space="preserve">
+          <source>General recommendations for high availability are:</source>
+          <target state="new">General recommendations for high availability are:</target>
+        </trans-unit>
+        <trans-unit id="063de59e-58f6-488c-80cb-ae27cee0b80a" xml:space="preserve">
+          <source>2 replicas for high availability of read-only workloads (queries)</source>
+          <target state="new">2 replicas for high availability of read-only workloads (queries)</target>
+        </trans-unit>
+        <trans-unit id="eabc806d-34f3-4ed2-833e-917ff87865c4" xml:space="preserve">
+          <source>3 or more replicas for high availability of read-write workloads (queries and indexing)</source>
+          <target state="new">3 or more replicas for high availability of read-write workloads (queries and indexing)</target>
+        </trans-unit>
+        <trans-unit id="39446b0e-9091-491d-9745-88493a3e352e" xml:space="preserve">
+          <source>Currently, there is no built-in mechanism for disaster recovery.</source>
+          <target state="new">Currently, there is no built-in mechanism for disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="3b0be2ee-797e-4bd0-98fb-c2015f44a5a8" xml:space="preserve">
+          <source>Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives.</source>
+          <target state="new">Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives.</target>
+        </trans-unit>
+        <trans-unit id="65f7df98-895d-492a-b811-5fcf5ed1e06b" xml:space="preserve">
+          <source>Instead, you might consider adding redundancy at the service level.</source>
+          <target state="new">Instead, you might consider adding redundancy at the service level.</target>
+        </trans-unit>
+        <trans-unit id="dfce9b54-48d0-4c72-b35d-1c1d016450a2" xml:space="preserve">
+          <source>For a deeper discussion of the workarounds, see <bpt id="a8487d40-3872-4349-b527-b5a655244b81">&lt;linkText&gt;</bpt>this forum post<ept id="a8487d40-3872-4349-b527-b5a655244b81">&lt;/linkText&gt;</ept><bpt id="a8487d40-3872-4349-b527-b5a655244b81">&lt;title&gt;</bpt><ept id="a8487d40-3872-4349-b527-b5a655244b81">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a deeper discussion of the workarounds, see <bpt id="a8487d40-3872-4349-b527-b5a655244b81">&lt;linkText&gt;</bpt>this forum post<ept id="a8487d40-3872-4349-b527-b5a655244b81">&lt;/linkText&gt;</ept><bpt id="a8487d40-3872-4349-b527-b5a655244b81">&lt;title&gt;</bpt><ept id="a8487d40-3872-4349-b527-b5a655244b81">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c953fcc-70c6-4ed2-8fc0-ce2c38b99b42" xml:space="preserve">
+          <source>Recall that service level agreements and scalability are features of the standard service.</source>
+          <target state="new">Recall that service level agreements and scalability are features of the standard service.</target>
+        </trans-unit>
+        <trans-unit id="c551f3f2-5010-4c39-b721-15315d66fe23" xml:space="preserve">
+          <source>The free service is offered at a fixed resource level, with replicas and partitions shared by multiple subscribers.</source>
+          <target state="new">The free service is offered at a fixed resource level, with replicas and partitions shared by multiple subscribers.</target>
+        </trans-unit>
+        <trans-unit id="b73cb928-0f1c-4252-bbfa-d786a04d15af" xml:space="preserve">
+          <source>If you started with the free service and now want to upgrade, you will need to create a new Azure Search service at the standard level and then reload indexes and data to the new service.</source>
+          <target state="new">If you started with the free service and now want to upgrade, you will need to create a new Azure Search service at the standard level and then reload indexes and data to the new service.</target>
+        </trans-unit>
+        <trans-unit id="100f5f7f-7a3b-48ce-af6f-a2da45a8d94a" xml:space="preserve">
+          <source>See <bpt id="e48b7b4a-b2a9-4cc9-93f1-a1d4d19c6aa2">&lt;linkText&gt;</bpt>Create an Azure Search service in the portal<ept id="e48b7b4a-b2a9-4cc9-93f1-a1d4d19c6aa2">&lt;/linkText&gt;</ept><bpt id="e48b7b4a-b2a9-4cc9-93f1-a1d4d19c6aa2">&lt;title&gt;</bpt><ept id="e48b7b4a-b2a9-4cc9-93f1-a1d4d19c6aa2">&lt;/title&gt;</ept> for instructions on service provisioning.</source>
+          <target state="new">See <bpt id="e48b7b4a-b2a9-4cc9-93f1-a1d4d19c6aa2">&lt;linkText&gt;</bpt>Create an Azure Search service in the portal<ept id="e48b7b4a-b2a9-4cc9-93f1-a1d4d19c6aa2">&lt;/linkText&gt;</ept><bpt id="e48b7b4a-b2a9-4cc9-93f1-a1d4d19c6aa2">&lt;title&gt;</bpt><ept id="e48b7b4a-b2a9-4cc9-93f1-a1d4d19c6aa2">&lt;/title&gt;</ept> for instructions on service provisioning.</target>
+        </trans-unit>
+        <trans-unit id="e218fb09-add2-4f7f-a538-ec16d478e0ed" xml:space="preserve">
+          <source>Api-keys are used for service authentication.</source>
+          <target state="new">Api-keys are used for service authentication.</target>
+        </trans-unit>
+        <trans-unit id="baaaa892-190a-4037-9e39-d6e37a3aa693" xml:space="preserve">
+          <source>There are two types.</source>
+          <target state="new">There are two types.</target>
+        </trans-unit>
+        <trans-unit id="2905759d-476d-4a55-8679-57a3772d7013" xml:space="preserve">
+          <source>Admin keys are specified in the request header.</source>
+          <target state="new">Admin keys are specified in the request header.</target>
+        </trans-unit>
+        <trans-unit id="ee01b9d0-752a-4ad7-8a66-e940938615db" xml:space="preserve">
+          <source>Query keys are specified on the URL.</source>
+          <target state="new">Query keys are specified on the URL.</target>
+        </trans-unit>
+        <trans-unit id="5b6a732b-104f-4a4b-a0c5-41f724190f8a" xml:space="preserve">
+          <source>See <bpt id="bb701d70-f7ac-4459-9d53-45bf8212c760">&lt;linkText&gt;</bpt>Manage your search service on Microsoft Azure<ept id="bb701d70-f7ac-4459-9d53-45bf8212c760">&lt;/linkText&gt;</ept><bpt id="bb701d70-f7ac-4459-9d53-45bf8212c760">&lt;title&gt;</bpt><ept id="bb701d70-f7ac-4459-9d53-45bf8212c760">&lt;/title&gt;</ept> for details about key management.</source>
+          <target state="new">See <bpt id="bb701d70-f7ac-4459-9d53-45bf8212c760">&lt;linkText&gt;</bpt>Manage your search service on Microsoft Azure<ept id="bb701d70-f7ac-4459-9d53-45bf8212c760">&lt;/linkText&gt;</ept><bpt id="bb701d70-f7ac-4459-9d53-45bf8212c760">&lt;title&gt;</bpt><ept id="bb701d70-f7ac-4459-9d53-45bf8212c760">&lt;/title&gt;</ept> for details about key management.</target>
+        </trans-unit>
+        <trans-unit id="dd6ee7a4-9ed5-4b71-b947-a179491f300d" xml:space="preserve">
+          <source>Maximum of 2 admin keys per service</source>
+          <target state="new">Maximum of 2 admin keys per service</target>
+        </trans-unit>
+        <trans-unit id="976d0095-e4f2-42fb-a8ed-f42d1110fd35" xml:space="preserve">
+          <source>Maximum of 50 query keys per service</source>
+          <target state="new">Maximum of 50 query keys per service</target>
+        </trans-unit>
+        <trans-unit id="18dccdf3-be09-4d6b-97c9-97f5a5ad2f5c" xml:space="preserve">
+          <source>Maximum of 16 MB per request</source>
+          <target state="new">Maximum of 16 MB per request</target>
+        </trans-unit>
+        <trans-unit id="930a41c8-2e32-45fa-a1a6-5e44c5c064e8" xml:space="preserve">
+          <source>Maximum 8 KB URL length </source>
+          <target state="new">Maximum 8 KB URL length </target>
+        </trans-unit>
+        <trans-unit id="a65d6289-79d4-4bcc-a53c-1f1c233092a4" xml:space="preserve">
+          <source>Maximum 1000 documents per batch of index uploads, merges, or deletes</source>
+          <target state="new">Maximum 1000 documents per batch of index uploads, merges, or deletes</target>
+        </trans-unit>
+        <trans-unit id="fc9177ad-2c25-4d5b-9c16-8c7a8a245a5e" xml:space="preserve">
+          <source>Maximum 32 fields in $orderby clause</source>
+          <target state="new">Maximum 32 fields in $orderby clause</target>
+        </trans-unit>
+        <trans-unit id="dedccb69-4282-41b4-b9e5-eda4e7618a73" xml:space="preserve">
+          <source>Maximum search term size is 32766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text</source>
+          <target state="new">Maximum search term size is 32766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text</target>
+        </trans-unit>
+        <trans-unit id="4460b2ce-cc18-412c-a966-353103b35473" xml:space="preserve">
+          <source>Maximum 1000 documents returned per page of search results</source>
+          <target state="new">Maximum 1000 documents returned per page of search results</target>
+        </trans-unit>
+        <trans-unit id="20a71924-d8d0-4193-bcd8-ea04ef787f13" xml:space="preserve">
+          <source>Maximum 100 suggestions returned per Suggest API request</source>
+          <target state="new">Maximum 100 suggestions returned per Suggest API request</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

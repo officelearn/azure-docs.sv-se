@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="119613b5-7787-4063-b4f5-ed4976dc4f3c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="119613b5-7787-4063-b4f5-ed4976dc4f3c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="76a450ee-a0af-41d9-8ac6-ff4cb2ef6c4b">
+        <trans-unit id="3f2ffb1d-e335-42ef-b58d-60d0ff5e24a0" xml:space="preserve">
+          <source>Create a multi-VM deployment using the Azure CLI | Microsoft Azure</source>
+          <target state="new">Create a multi-VM deployment using the Azure CLI | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="580e6b9b-bcaf-4e6b-8f68-2de090d4a13e" xml:space="preserve">
+          <source>Learn how to create a multi VM deployment using the Azure CLI</source>
+          <target state="new">Learn how to create a multi VM deployment using the Azure CLI</target>
+        </trans-unit>
+        <trans-unit id="c20c4cf1-726f-4e5a-b7e3-665669688096" xml:space="preserve">
+          <source>The following script will show you how to configure a multi-VM multi-cloud service deployment in a VNET using Azure Command-Line Interface (Azure CLI).</source>
+          <target state="new">The following script will show you how to configure a multi-VM multi-cloud service deployment in a VNET using Azure Command-Line Interface (Azure CLI).</target>
+        </trans-unit>
+        <trans-unit id="9bfa2c9f-4fa4-4ce0-9e39-72a1f1143854" xml:space="preserve">
+          <source>The image below explains how your deployment will look after the script completes:</source>
+          <target state="new">The image below explains how your deployment will look after the script completes:</target>
+        </trans-unit>
+        <trans-unit id="aea22ca0-042a-42cf-baa9-de0a6d544597" xml:space="preserve">
+          <source><bpt id="106be09c-55c3-4f1c-8b0a-6db36bfc92e4">&lt;linkText&gt;</bpt><ept id="106be09c-55c3-4f1c-8b0a-6db36bfc92e4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="106be09c-55c3-4f1c-8b0a-6db36bfc92e4">&lt;linkText&gt;</bpt><ept id="106be09c-55c3-4f1c-8b0a-6db36bfc92e4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbc44ae3-6430-473b-88f9-7a06d213c49f" xml:space="preserve">
+          <source>The script creates one VM (<bpt id="e06ac3c1-de50-4006-8d51-edcb4a236a61">&lt;strong&gt;</bpt>servervm<ept id="e06ac3c1-de50-4006-8d51-edcb4a236a61">&lt;/strong&gt;</ept>) in cloud service <bpt id="fa3fca5b-d861-474b-afc0-dbf6be87b520">&lt;strong&gt;</bpt>servercs<ept id="fa3fca5b-d861-474b-afc0-dbf6be87b520">&lt;/strong&gt;</ept> with two data disks attached and two VMs (<bpt id="29d25498-ec9d-4ffa-8620-614791cfd74c">&lt;strong&gt;</bpt>clientvm1, clientvm2<ept id="29d25498-ec9d-4ffa-8620-614791cfd74c">&lt;/strong&gt;</ept>) in the cloud service <bpt id="f2f7dd74-9744-41c8-817f-f20d7ecd2e8e">&lt;strong&gt;</bpt>workercs<ept id="f2f7dd74-9744-41c8-817f-f20d7ecd2e8e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The script creates one VM (<bpt id="e06ac3c1-de50-4006-8d51-edcb4a236a61">&lt;strong&gt;</bpt>servervm<ept id="e06ac3c1-de50-4006-8d51-edcb4a236a61">&lt;/strong&gt;</ept>) in cloud service <bpt id="fa3fca5b-d861-474b-afc0-dbf6be87b520">&lt;strong&gt;</bpt>servercs<ept id="fa3fca5b-d861-474b-afc0-dbf6be87b520">&lt;/strong&gt;</ept> with two data disks attached and two VMs (<bpt id="29d25498-ec9d-4ffa-8620-614791cfd74c">&lt;strong&gt;</bpt>clientvm1, clientvm2<ept id="29d25498-ec9d-4ffa-8620-614791cfd74c">&lt;/strong&gt;</ept>) in the cloud service <bpt id="f2f7dd74-9744-41c8-817f-f20d7ecd2e8e">&lt;strong&gt;</bpt>workercs<ept id="f2f7dd74-9744-41c8-817f-f20d7ecd2e8e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3debbee0-b968-433f-ae2a-866c40c8947c" xml:space="preserve">
+          <source>Both the cloud services are placed in the VNET <bpt id="8b04e770-5ede-4f79-905c-f39b25ba789b">&lt;strong&gt;</bpt>samplevnet<ept id="8b04e770-5ede-4f79-905c-f39b25ba789b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Both the cloud services are placed in the VNET <bpt id="8b04e770-5ede-4f79-905c-f39b25ba789b">&lt;strong&gt;</bpt>samplevnet<ept id="8b04e770-5ede-4f79-905c-f39b25ba789b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="873ea830-9ad3-4491-9e4f-d825d7e2513a" xml:space="preserve">
+          <source>The <bpt id="4a1ad28c-59a5-492b-b02e-a1d436aa6bec">&lt;strong&gt;</bpt>servercs<ept id="4a1ad28c-59a5-492b-b02e-a1d436aa6bec">&lt;/strong&gt;</ept> cloud service also has an endpoint configured for external connectivity.</source>
+          <target state="new">The <bpt id="4a1ad28c-59a5-492b-b02e-a1d436aa6bec">&lt;strong&gt;</bpt>servercs<ept id="4a1ad28c-59a5-492b-b02e-a1d436aa6bec">&lt;/strong&gt;</ept> cloud service also has an endpoint configured for external connectivity.</target>
+        </trans-unit>
+        <trans-unit id="60c8983b-7407-49a8-aa54-8cb73692d9ce" xml:space="preserve">
+          <source>The code to set this up is relatively straightforward:</source>
+          <target state="new">The code to set this up is relatively straightforward:</target>
+        </trans-unit>
+        <trans-unit id="42d85c6c-4c5c-4e7c-838c-dc4d1ad7a1fc" xml:space="preserve">
+          <source>You will likely need to change the cloud service names servercs and workercs to be unique cloud service names</source>
+          <target state="new">You will likely need to change the cloud service names servercs and workercs to be unique cloud service names</target>
+        </trans-unit>
+        <trans-unit id="f34298cd-47c1-433e-976f-cf4e0aa06be0" xml:space="preserve">
+          <source>As is the code to tear it down:</source>
+          <target state="new">As is the code to tear it down:</target>
+        </trans-unit>
+        <trans-unit id="ee26373c-7f49-47cd-ad43-a978a397da75" xml:space="preserve">
+          <source><bpt id="24e491cc-e1d9-4167-93a1-572084a64c23">&lt;em&gt;</bpt>The –q option suppresses the interactive confirmation for deleting objects, -b cleans up the disks / blobs associated with the VM.<ept id="24e491cc-e1d9-4167-93a1-572084a64c23">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="24e491cc-e1d9-4167-93a1-572084a64c23">&lt;em&gt;</bpt>The –q option suppresses the interactive confirmation for deleting objects, -b cleans up the disks / blobs associated with the VM.<ept id="24e491cc-e1d9-4167-93a1-572084a64c23">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="acea074e-9f35-4680-adb3-243431b41b43" xml:space="preserve">
+          <source>While you can find more information by using the –help option on any of the Azure CLI commands, the generic form of each command as used above is:</source>
+          <target state="new">While you can find more information by using the –help option on any of the Azure CLI commands, the generic form of each command as used above is:</target>
+        </trans-unit>
+        <trans-unit id="1d3da1be-205f-4c90-8426-ac1658a478ac" xml:space="preserve">
+          <source><bpt id="6f56fa1f-8349-4db3-8311-6d551383b3d4">&lt;linkText&gt;</bpt>Linux and open-source computing on Azure<ept id="6f56fa1f-8349-4db3-8311-6d551383b3d4">&lt;/linkText&gt;</ept><bpt id="6f56fa1f-8349-4db3-8311-6d551383b3d4">&lt;title&gt;</bpt><ept id="6f56fa1f-8349-4db3-8311-6d551383b3d4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6f56fa1f-8349-4db3-8311-6d551383b3d4">&lt;linkText&gt;</bpt>Linux and open-source computing on Azure<ept id="6f56fa1f-8349-4db3-8311-6d551383b3d4">&lt;/linkText&gt;</ept><bpt id="6f56fa1f-8349-4db3-8311-6d551383b3d4">&lt;title&gt;</bpt><ept id="6f56fa1f-8349-4db3-8311-6d551383b3d4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c3c1580-c608-4404-8271-b6a63d1b5ef8" xml:space="preserve">
+          <source><bpt id="2b3af852-9e1a-436d-9741-93550bf555ab">&lt;linkText&gt;</bpt>How to log on to a virtual machine running Linux<ept id="2b3af852-9e1a-436d-9741-93550bf555ab">&lt;/linkText&gt;</ept><bpt id="2b3af852-9e1a-436d-9741-93550bf555ab">&lt;title&gt;</bpt><ept id="2b3af852-9e1a-436d-9741-93550bf555ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2b3af852-9e1a-436d-9741-93550bf555ab">&lt;linkText&gt;</bpt>How to log on to a virtual machine running Linux<ept id="2b3af852-9e1a-436d-9741-93550bf555ab">&lt;/linkText&gt;</ept><bpt id="2b3af852-9e1a-436d-9741-93550bf555ab">&lt;title&gt;</bpt><ept id="2b3af852-9e1a-436d-9741-93550bf555ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

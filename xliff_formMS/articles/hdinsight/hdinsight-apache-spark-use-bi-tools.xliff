@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f47456bd-1432-48c0-9da0-d5f67622e6d1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f47456bd-1432-48c0-9da0-d5f67622e6d1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9244680f-6f87-45d4-8c69-18d5f6f26b77">
+        <trans-unit id="0f06625a-3f9c-449a-b8c0-9baf50c0043c" xml:space="preserve">
+          <source>Use BI tools with Apache Spark on HDInsight | Microsoft Azure</source>
+          <target state="new">Use BI tools with Apache Spark on HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="da1a105f-34ab-4522-ae2b-22d4c128551a" xml:space="preserve">
+          <source>Step-by-step instructions on how to use notebooks with Apache Spark to create schemas on raw data, save them as Hive tables, and then use BI tools on the Hive table for data analytics</source>
+          <target state="new">Step-by-step instructions on how to use notebooks with Apache Spark to create schemas on raw data, save them as Hive tables, and then use BI tools on the Hive table for data analytics</target>
+        </trans-unit>
+        <trans-unit id="980fc566-2f15-488d-bf40-6bea1eca5dc8" xml:space="preserve">
+          <source>Learn how to use Apache Spark in Azure HDInsight to do the following:</source>
+          <target state="new">Learn how to use Apache Spark in Azure HDInsight to do the following:</target>
+        </trans-unit>
+        <trans-unit id="d0924225-2ff7-4781-9138-01018be2ae6a" xml:space="preserve">
+          <source>Take raw sample data and save it as a Hive table</source>
+          <target state="new">Take raw sample data and save it as a Hive table</target>
+        </trans-unit>
+        <trans-unit id="19551390-a461-4860-9716-3e22074da5a1" xml:space="preserve">
+          <source>Use BI tools such as Power BI and Tableau to analyze and visualize the data.</source>
+          <target state="new">Use BI tools such as Power BI and Tableau to analyze and visualize the data.</target>
+        </trans-unit>
+        <trans-unit id="0f94c68a-02e8-4fdf-9031-29cea6d1b1e0" xml:space="preserve">
+          <source><bpt id="e157fdda-7c3c-44bf-87f6-400be0002c6c">&lt;strong&gt;</bpt>Prerequisites:<ept id="e157fdda-7c3c-44bf-87f6-400be0002c6c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e157fdda-7c3c-44bf-87f6-400be0002c6c">&lt;strong&gt;</bpt>Prerequisites:<ept id="e157fdda-7c3c-44bf-87f6-400be0002c6c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cde89a2f-9c21-4c5c-88a9-c1886ba7b65f" xml:space="preserve">
+          <source>You must have the following:</source>
+          <target state="new">You must have the following:</target>
+        </trans-unit>
+        <trans-unit id="e53efcdd-355d-48f2-abeb-92338c010005" xml:space="preserve">
+          <source>An Azure subscription.</source>
+          <target state="new">An Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="4e3baa20-a408-4a21-8cc7-659605156469" xml:space="preserve">
+          <source>See <bpt id="c7192395-2eae-428a-a648-f193a4fa89de">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="c7192395-2eae-428a-a648-f193a4fa89de">&lt;/linkText&gt;</ept><bpt id="c7192395-2eae-428a-a648-f193a4fa89de">&lt;title&gt;</bpt><ept id="c7192395-2eae-428a-a648-f193a4fa89de">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="c7192395-2eae-428a-a648-f193a4fa89de">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="c7192395-2eae-428a-a648-f193a4fa89de">&lt;/linkText&gt;</ept><bpt id="c7192395-2eae-428a-a648-f193a4fa89de">&lt;title&gt;</bpt><ept id="c7192395-2eae-428a-a648-f193a4fa89de">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="694def1d-6952-4d51-a67c-b62c128fcf8e" xml:space="preserve">
+          <source>An Apache Spark cluster.</source>
+          <target state="new">An Apache Spark cluster.</target>
+        </trans-unit>
+        <trans-unit id="00fd6fe5-56d1-4b62-a873-e925c1d9c43a" xml:space="preserve">
+          <source>For instructions, see <bpt id="318c8358-1bb1-4fd6-abf9-53321f71a00e">&lt;linkText&gt;</bpt>Provision Apache Spark clusters in Azure HDInsight<ept id="318c8358-1bb1-4fd6-abf9-53321f71a00e">&lt;/linkText&gt;</ept><bpt id="318c8358-1bb1-4fd6-abf9-53321f71a00e">&lt;title&gt;</bpt><ept id="318c8358-1bb1-4fd6-abf9-53321f71a00e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="318c8358-1bb1-4fd6-abf9-53321f71a00e">&lt;linkText&gt;</bpt>Provision Apache Spark clusters in Azure HDInsight<ept id="318c8358-1bb1-4fd6-abf9-53321f71a00e">&lt;/linkText&gt;</ept><bpt id="318c8358-1bb1-4fd6-abf9-53321f71a00e">&lt;title&gt;</bpt><ept id="318c8358-1bb1-4fd6-abf9-53321f71a00e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ed63c7f-662e-493d-9aeb-9874074d54ab" xml:space="preserve">
+          <source>A computer with Microsoft Spark ODBC driver installed.</source>
+          <target state="new">A computer with Microsoft Spark ODBC driver installed.</target>
+        </trans-unit>
+        <trans-unit id="b0f1d385-5e0a-478a-90fb-7bb59cf7612a" xml:space="preserve">
+          <source>You can install the driver from <bpt id="91a5a2c7-599e-425c-91ec-55b0f2caec05">&lt;linkText&gt;</bpt>here<ept id="91a5a2c7-599e-425c-91ec-55b0f2caec05">&lt;/linkText&gt;</ept><bpt id="91a5a2c7-599e-425c-91ec-55b0f2caec05">&lt;title&gt;</bpt><ept id="91a5a2c7-599e-425c-91ec-55b0f2caec05">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can install the driver from <bpt id="91a5a2c7-599e-425c-91ec-55b0f2caec05">&lt;linkText&gt;</bpt>here<ept id="91a5a2c7-599e-425c-91ec-55b0f2caec05">&lt;/linkText&gt;</ept><bpt id="91a5a2c7-599e-425c-91ec-55b0f2caec05">&lt;title&gt;</bpt><ept id="91a5a2c7-599e-425c-91ec-55b0f2caec05">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f108f0c-71a1-4d40-8df6-6f6c78cf8082" xml:space="preserve">
+          <source>BI tools such as <bpt id="eb49b62c-ffcc-4b8b-86f1-fcf1be25b675">&lt;linkText&gt;</bpt>Power BI<ept id="eb49b62c-ffcc-4b8b-86f1-fcf1be25b675">&lt;/linkText&gt;</ept><bpt id="eb49b62c-ffcc-4b8b-86f1-fcf1be25b675">&lt;title&gt;</bpt><ept id="eb49b62c-ffcc-4b8b-86f1-fcf1be25b675">&lt;/title&gt;</ept> or <bpt id="54624f0e-65c0-46dc-8cbf-f67512379479">&lt;linkText&gt;</bpt>Tableau Desktop<ept id="54624f0e-65c0-46dc-8cbf-f67512379479">&lt;/linkText&gt;</ept><bpt id="54624f0e-65c0-46dc-8cbf-f67512379479">&lt;title&gt;</bpt><ept id="54624f0e-65c0-46dc-8cbf-f67512379479">&lt;/title&gt;</ept>.</source>
+          <target state="new">BI tools such as <bpt id="eb49b62c-ffcc-4b8b-86f1-fcf1be25b675">&lt;linkText&gt;</bpt>Power BI<ept id="eb49b62c-ffcc-4b8b-86f1-fcf1be25b675">&lt;/linkText&gt;</ept><bpt id="eb49b62c-ffcc-4b8b-86f1-fcf1be25b675">&lt;title&gt;</bpt><ept id="eb49b62c-ffcc-4b8b-86f1-fcf1be25b675">&lt;/title&gt;</ept> or <bpt id="54624f0e-65c0-46dc-8cbf-f67512379479">&lt;linkText&gt;</bpt>Tableau Desktop<ept id="54624f0e-65c0-46dc-8cbf-f67512379479">&lt;/linkText&gt;</ept><bpt id="54624f0e-65c0-46dc-8cbf-f67512379479">&lt;title&gt;</bpt><ept id="54624f0e-65c0-46dc-8cbf-f67512379479">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc74e0e5-1d6b-4336-9759-ad1d39a8fc84" xml:space="preserve">
+          <source>You can get a free preview subscription of Power BI from <bpt id="ca030183-faf2-461b-a232-e5820c9a7bc7">&lt;linkText&gt;</bpt>http://www.powerbi.com/<ept id="ca030183-faf2-461b-a232-e5820c9a7bc7">&lt;/linkText&gt;</ept><bpt id="ca030183-faf2-461b-a232-e5820c9a7bc7">&lt;title&gt;</bpt><ept id="ca030183-faf2-461b-a232-e5820c9a7bc7">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get a free preview subscription of Power BI from <bpt id="ca030183-faf2-461b-a232-e5820c9a7bc7">&lt;linkText&gt;</bpt>http://www.powerbi.com/<ept id="ca030183-faf2-461b-a232-e5820c9a7bc7">&lt;/linkText&gt;</ept><bpt id="ca030183-faf2-461b-a232-e5820c9a7bc7">&lt;title&gt;</bpt><ept id="ca030183-faf2-461b-a232-e5820c9a7bc7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d2da2b2-3301-40ba-a5c5-556ba4ae39da" xml:space="preserve">
+          <source>In this section, we use the <bpt id="2e0588dc-2105-4bcd-850d-fb0d0f4fee5f">&lt;linkText&gt;</bpt>Jupyter<ept id="2e0588dc-2105-4bcd-850d-fb0d0f4fee5f">&lt;/linkText&gt;</ept><bpt id="2e0588dc-2105-4bcd-850d-fb0d0f4fee5f">&lt;title&gt;</bpt><ept id="2e0588dc-2105-4bcd-850d-fb0d0f4fee5f">&lt;/title&gt;</ept> notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a Hive table.</source>
+          <target state="new">In this section, we use the <bpt id="2e0588dc-2105-4bcd-850d-fb0d0f4fee5f">&lt;linkText&gt;</bpt>Jupyter<ept id="2e0588dc-2105-4bcd-850d-fb0d0f4fee5f">&lt;/linkText&gt;</ept><bpt id="2e0588dc-2105-4bcd-850d-fb0d0f4fee5f">&lt;title&gt;</bpt><ept id="2e0588dc-2105-4bcd-850d-fb0d0f4fee5f">&lt;/title&gt;</ept> notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a Hive table.</target>
+        </trans-unit>
+        <trans-unit id="ad93ca26-2997-452e-8c97-c5baddb40bb3" xml:space="preserve">
+          <source>The sample data is a .csv file (hvac.csv) available on all clusters by default.</source>
+          <target state="new">The sample data is a .csv file (hvac.csv) available on all clusters by default.</target>
+        </trans-unit>
+        <trans-unit id="4a243f13-a742-4cfe-8048-d162c9f85d5f" xml:space="preserve">
+          <source>Once your data is saved as a Hive table, in the next section we will connect to the Hive table using BI tools such as Power BI and Tableau.</source>
+          <target state="new">Once your data is saved as a Hive table, in the next section we will connect to the Hive table using BI tools such as Power BI and Tableau.</target>
+        </trans-unit>
+        <trans-unit id="eefa9489-5205-48ae-9330-187b4e68349a" xml:space="preserve">
+          <source>From the <bpt id="bea31e07-ffa7-4c78-8377-1b4b2c6c8c97">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="bea31e07-ffa7-4c78-8377-1b4b2c6c8c97">&lt;/linkText&gt;</ept><bpt id="bea31e07-ffa7-4c78-8377-1b4b2c6c8c97">&lt;title&gt;</bpt><ept id="bea31e07-ffa7-4c78-8377-1b4b2c6c8c97">&lt;/title&gt;</ept>, from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).</source>
+          <target state="new">From the <bpt id="bea31e07-ffa7-4c78-8377-1b4b2c6c8c97">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="bea31e07-ffa7-4c78-8377-1b4b2c6c8c97">&lt;/linkText&gt;</ept><bpt id="bea31e07-ffa7-4c78-8377-1b4b2c6c8c97">&lt;title&gt;</bpt><ept id="bea31e07-ffa7-4c78-8377-1b4b2c6c8c97">&lt;/title&gt;</ept>, from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).</target>
+        </trans-unit>
+        <trans-unit id="69e3e19b-342c-4df3-9e0d-7e391ea768a2" xml:space="preserve">
+          <source>You can also navigate to your cluster under <bpt id="d091d493-cf9b-4f88-bf0c-5acffff409d6">&lt;strong&gt;</bpt>Browse All<ept id="d091d493-cf9b-4f88-bf0c-5acffff409d6">&lt;/strong&gt;</ept> &gt; <bpt id="d227ce17-f438-410f-9b39-5b154c470029">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="d227ce17-f438-410f-9b39-5b154c470029">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can also navigate to your cluster under <bpt id="d091d493-cf9b-4f88-bf0c-5acffff409d6">&lt;strong&gt;</bpt>Browse All<ept id="d091d493-cf9b-4f88-bf0c-5acffff409d6">&lt;/strong&gt;</ept> &gt; <bpt id="d227ce17-f438-410f-9b39-5b154c470029">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="d227ce17-f438-410f-9b39-5b154c470029">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="28822198-c604-47a9-b94a-7b501f013485" xml:space="preserve">
+          <source>Launch the <bpt id="01fe1323-fd53-4cd3-bf73-186df22e082c">&lt;linkText&gt;</bpt>Jupyter<ept id="01fe1323-fd53-4cd3-bf73-186df22e082c">&lt;/linkText&gt;</ept><bpt id="01fe1323-fd53-4cd3-bf73-186df22e082c">&lt;title&gt;</bpt><ept id="01fe1323-fd53-4cd3-bf73-186df22e082c">&lt;/title&gt;</ept> notebook.</source>
+          <target state="new">Launch the <bpt id="01fe1323-fd53-4cd3-bf73-186df22e082c">&lt;linkText&gt;</bpt>Jupyter<ept id="01fe1323-fd53-4cd3-bf73-186df22e082c">&lt;/linkText&gt;</ept><bpt id="01fe1323-fd53-4cd3-bf73-186df22e082c">&lt;title&gt;</bpt><ept id="01fe1323-fd53-4cd3-bf73-186df22e082c">&lt;/title&gt;</ept> notebook.</target>
+        </trans-unit>
+        <trans-unit id="70af92ce-b003-4232-b66d-052869dc0818" xml:space="preserve">
+          <source>From the Spark cluster blade, click <bpt id="495b0230-9ab6-4534-ac5b-efcf80122109">&lt;strong&gt;</bpt>Quick Links<ept id="495b0230-9ab6-4534-ac5b-efcf80122109">&lt;/strong&gt;</ept>, and then from the <bpt id="c5f67e60-0d50-4e27-89f4-ef33eda536d5">&lt;strong&gt;</bpt>Cluster Dashboard<ept id="c5f67e60-0d50-4e27-89f4-ef33eda536d5">&lt;/strong&gt;</ept> blade, click <bpt id="2020af64-096b-41a3-9f28-ef448405c6be">&lt;strong&gt;</bpt>Jupyter Notebook<ept id="2020af64-096b-41a3-9f28-ef448405c6be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Spark cluster blade, click <bpt id="495b0230-9ab6-4534-ac5b-efcf80122109">&lt;strong&gt;</bpt>Quick Links<ept id="495b0230-9ab6-4534-ac5b-efcf80122109">&lt;/strong&gt;</ept>, and then from the <bpt id="c5f67e60-0d50-4e27-89f4-ef33eda536d5">&lt;strong&gt;</bpt>Cluster Dashboard<ept id="c5f67e60-0d50-4e27-89f4-ef33eda536d5">&lt;/strong&gt;</ept> blade, click <bpt id="2020af64-096b-41a3-9f28-ef448405c6be">&lt;strong&gt;</bpt>Jupyter Notebook<ept id="2020af64-096b-41a3-9f28-ef448405c6be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="689e960f-aad7-4ad8-8e12-b38df0ec1e2d" xml:space="preserve">
+          <source>When prompted, enter the admin credentials for the Spark cluster.</source>
+          <target state="new">When prompted, enter the admin credentials for the Spark cluster.</target>
+        </trans-unit>
+        <trans-unit id="81618ea3-b45e-4d67-bfab-29e2210ca3db" xml:space="preserve">
+          <source>Create a new notebook.</source>
+          <target state="new">Create a new notebook.</target>
+        </trans-unit>
+        <trans-unit id="7205f7c6-852b-47fe-8556-b1cca19db21b" xml:space="preserve">
+          <source>Click <bpt id="6b12d511-9559-4559-84b6-2ccbf6190017">&lt;strong&gt;</bpt>New<ept id="6b12d511-9559-4559-84b6-2ccbf6190017">&lt;/strong&gt;</ept>, and then click <bpt id="6bba953a-7366-4f25-8703-b429e697b698">&lt;strong&gt;</bpt>Python 2<ept id="6bba953a-7366-4f25-8703-b429e697b698">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6b12d511-9559-4559-84b6-2ccbf6190017">&lt;strong&gt;</bpt>New<ept id="6b12d511-9559-4559-84b6-2ccbf6190017">&lt;/strong&gt;</ept>, and then click <bpt id="6bba953a-7366-4f25-8703-b429e697b698">&lt;strong&gt;</bpt>Python 2<ept id="6bba953a-7366-4f25-8703-b429e697b698">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8f7db09-c62a-4cb6-b9ca-b53fe57a28f8" xml:space="preserve">
+          <source><bpt id="b1259263-86f5-49bc-afa6-e5ed569eb42d">&lt;linkText&gt;</bpt>Create a new Jupyter notebook<ept id="b1259263-86f5-49bc-afa6-e5ed569eb42d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1259263-86f5-49bc-afa6-e5ed569eb42d">&lt;linkText&gt;</bpt>Create a new Jupyter notebook<ept id="b1259263-86f5-49bc-afa6-e5ed569eb42d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="305a9595-6452-4793-a193-5ba616c37309" xml:space="preserve">
+          <source>A new notebook is created and opened with the name Untitled.pynb.</source>
+          <target state="new">A new notebook is created and opened with the name Untitled.pynb.</target>
+        </trans-unit>
+        <trans-unit id="c0392004-409d-4947-b3e1-d2eea8993839" xml:space="preserve">
+          <source>Click the notebook name at the top, and enter a friendly name.</source>
+          <target state="new">Click the notebook name at the top, and enter a friendly name.</target>
+        </trans-unit>
+        <trans-unit id="2d05fb86-3f5b-475d-8587-77d0256a6a39" xml:space="preserve">
+          <source><bpt id="e3bdef41-4317-4bc9-892d-6e3ae337d7ca">&lt;linkText&gt;</bpt>Provide a name for the notebook<ept id="e3bdef41-4317-4bc9-892d-6e3ae337d7ca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3bdef41-4317-4bc9-892d-6e3ae337d7ca">&lt;linkText&gt;</bpt>Provide a name for the notebook<ept id="e3bdef41-4317-4bc9-892d-6e3ae337d7ca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fcd84e1-ef0e-47a0-ac46-cd3d3d96a60c" xml:space="preserve">
+          <source>Import the required modules and create the Spark and Hive contexts.</source>
+          <target state="new">Import the required modules and create the Spark and Hive contexts.</target>
+        </trans-unit>
+        <trans-unit id="8d986ce0-1cd6-4ed1-bb66-6ec73804fcbe" xml:space="preserve">
+          <source>Paste the following snippet in an empty cell, and then press <bpt id="a718b43f-fd35-4cc0-9789-65d74765ea3e">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="a718b43f-fd35-4cc0-9789-65d74765ea3e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Paste the following snippet in an empty cell, and then press <bpt id="a718b43f-fd35-4cc0-9789-65d74765ea3e">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="a718b43f-fd35-4cc0-9789-65d74765ea3e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62338700-5ca7-44b7-a603-6412e35e255e" xml:space="preserve">
+          <source>Everytime you run a job in Jupyter, your web browser window title will show a <bpt id="0eaf6b5d-110c-447c-b7ef-d57e6e2fc547">&lt;strong&gt;</bpt>(Busy)<ept id="0eaf6b5d-110c-447c-b7ef-d57e6e2fc547">&lt;/strong&gt;</ept> status along with the notebook title.</source>
+          <target state="new">Everytime you run a job in Jupyter, your web browser window title will show a <bpt id="0eaf6b5d-110c-447c-b7ef-d57e6e2fc547">&lt;strong&gt;</bpt>(Busy)<ept id="0eaf6b5d-110c-447c-b7ef-d57e6e2fc547">&lt;/strong&gt;</ept> status along with the notebook title.</target>
+        </trans-unit>
+        <trans-unit id="5b9597a0-9506-44dd-b185-50dfd9f819c3" xml:space="preserve">
+          <source>You will also see a solid circle next to the <bpt id="1dc60d0e-464f-4479-bd11-ce026441dacc">&lt;strong&gt;</bpt>Python 2<ept id="1dc60d0e-464f-4479-bd11-ce026441dacc">&lt;/strong&gt;</ept> text in the top-right corner.</source>
+          <target state="new">You will also see a solid circle next to the <bpt id="1dc60d0e-464f-4479-bd11-ce026441dacc">&lt;strong&gt;</bpt>Python 2<ept id="1dc60d0e-464f-4479-bd11-ce026441dacc">&lt;/strong&gt;</ept> text in the top-right corner.</target>
+        </trans-unit>
+        <trans-unit id="895ae0fb-a898-448e-8882-75b305d4598e" xml:space="preserve">
+          <source>After the job completes, this will change to a hollow circle.</source>
+          <target state="new">After the job completes, this will change to a hollow circle.</target>
+        </trans-unit>
+        <trans-unit id="d311514a-b9aa-4c2d-99bb-2b648fc71d79" xml:space="preserve">
+          <source> <bpt id="e15ff75d-3d2c-437e-b00f-e356f3419635">&lt;linkText&gt;</bpt>Status of a Jupyter notebook job<ept id="e15ff75d-3d2c-437e-b00f-e356f3419635">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="e15ff75d-3d2c-437e-b00f-e356f3419635">&lt;linkText&gt;</bpt>Status of a Jupyter notebook job<ept id="e15ff75d-3d2c-437e-b00f-e356f3419635">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46ba7173-0e92-476e-b16f-3e0bda50c41a" xml:space="preserve">
+          <source>Load sample data into a temporary table.</source>
+          <target state="new">Load sample data into a temporary table.</target>
+        </trans-unit>
+        <trans-unit id="9f1adbe8-84a4-412e-8b3f-4e20707c7037" xml:space="preserve">
+          <source>When you provision a Spark cluster in HDInsight, the sample data file, <bpt id="381703fe-6a9c-4fb9-aa6d-858e33783d82">&lt;strong&gt;</bpt>hvac.csv<ept id="381703fe-6a9c-4fb9-aa6d-858e33783d82">&lt;/strong&gt;</ept>, is copied to the associated storage account under <bpt id="916e88e7-105f-4f7d-9eb8-3417295115e9">&lt;strong&gt;</bpt>\HdiSamples\SensorSampleData\hvac<ept id="916e88e7-105f-4f7d-9eb8-3417295115e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you provision a Spark cluster in HDInsight, the sample data file, <bpt id="381703fe-6a9c-4fb9-aa6d-858e33783d82">&lt;strong&gt;</bpt>hvac.csv<ept id="381703fe-6a9c-4fb9-aa6d-858e33783d82">&lt;/strong&gt;</ept>, is copied to the associated storage account under <bpt id="916e88e7-105f-4f7d-9eb8-3417295115e9">&lt;strong&gt;</bpt>\HdiSamples\SensorSampleData\hvac<ept id="916e88e7-105f-4f7d-9eb8-3417295115e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edd3b85f-f84f-42c0-b914-eb79eef299c1" xml:space="preserve">
+          <source>In an empty cell, paste the following snippet and press <bpt id="63c6c98d-8ead-4dea-aa41-63a70f352efd">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="63c6c98d-8ead-4dea-aa41-63a70f352efd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In an empty cell, paste the following snippet and press <bpt id="63c6c98d-8ead-4dea-aa41-63a70f352efd">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="63c6c98d-8ead-4dea-aa41-63a70f352efd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12da449c-fc01-4e72-a50b-e55db46de09c" xml:space="preserve">
+          <source>This snippet registers the data into a Hive table called <bpt id="f7a901e8-6f06-4cdd-9531-42f63f68efd9">&lt;strong&gt;</bpt>hvac<ept id="f7a901e8-6f06-4cdd-9531-42f63f68efd9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This snippet registers the data into a Hive table called <bpt id="f7a901e8-6f06-4cdd-9531-42f63f68efd9">&lt;strong&gt;</bpt>hvac<ept id="f7a901e8-6f06-4cdd-9531-42f63f68efd9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d64bef8c-9814-4aa3-ab64-c6d04e8f2e98" xml:space="preserve">
+          <source>Verify that the table was successfully created.</source>
+          <target state="new">Verify that the table was successfully created.</target>
+        </trans-unit>
+        <trans-unit id="40ebc4b0-4ac6-4f35-aadd-db561cf2432c" xml:space="preserve">
+          <source>In an empty cell in the notebook, copy the following snippet and press <bpt id="9200b1aa-f809-4d57-b615-b87d6fd5e7b0">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="9200b1aa-f809-4d57-b615-b87d6fd5e7b0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In an empty cell in the notebook, copy the following snippet and press <bpt id="9200b1aa-f809-4d57-b615-b87d6fd5e7b0">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="9200b1aa-f809-4d57-b615-b87d6fd5e7b0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83396c60-c204-4a79-a97d-94947bc812e3" xml:space="preserve">
+          <source>You will see an output like the following:</source>
+          <target state="new">You will see an output like the following:</target>
+        </trans-unit>
+        <trans-unit id="8b4eea44-3716-4419-8002-8e29a3828030" xml:space="preserve">
+          <source>Only the tables that have false under the <bpt id="06281811-f0a7-445e-be59-c2795b8b9b70">&lt;strong&gt;</bpt>isTemporary<ept id="06281811-f0a7-445e-be59-c2795b8b9b70">&lt;/strong&gt;</ept> column are hive tables that will be stored in the metastore and can be accessed from the BI tools.</source>
+          <target state="new">Only the tables that have false under the <bpt id="06281811-f0a7-445e-be59-c2795b8b9b70">&lt;strong&gt;</bpt>isTemporary<ept id="06281811-f0a7-445e-be59-c2795b8b9b70">&lt;/strong&gt;</ept> column are hive tables that will be stored in the metastore and can be accessed from the BI tools.</target>
+        </trans-unit>
+        <trans-unit id="1844361a-e813-4be0-936d-39fe0bd64431" xml:space="preserve">
+          <source>In this tutorial, we will connect to the <bpt id="ab827999-85e9-4095-8ab5-ab65ba567b34">&lt;strong&gt;</bpt>hvac<ept id="ab827999-85e9-4095-8ab5-ab65ba567b34">&lt;/strong&gt;</ept> table we just created.</source>
+          <target state="new">In this tutorial, we will connect to the <bpt id="ab827999-85e9-4095-8ab5-ab65ba567b34">&lt;strong&gt;</bpt>hvac<ept id="ab827999-85e9-4095-8ab5-ab65ba567b34">&lt;/strong&gt;</ept> table we just created.</target>
+        </trans-unit>
+        <trans-unit id="7ffdb66e-152b-4e3b-ada0-6afc670a34c3" xml:space="preserve">
+          <source>Verify that the table contains the intended data.</source>
+          <target state="new">Verify that the table contains the intended data.</target>
+        </trans-unit>
+        <trans-unit id="8e242b56-c471-430e-a118-4a5a14b068d5" xml:space="preserve">
+          <source>In an empty cell in the notebook, copy the following snippet and press <bpt id="1713869b-55bb-4f2c-b941-08ceccdb0622">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="1713869b-55bb-4f2c-b941-08ceccdb0622">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In an empty cell in the notebook, copy the following snippet and press <bpt id="1713869b-55bb-4f2c-b941-08ceccdb0622">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="1713869b-55bb-4f2c-b941-08ceccdb0622">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7e7728b-045b-49be-8c54-d7676eed96b1" xml:space="preserve">
+          <source>You can now exit the notebook by restarting the kernel.</source>
+          <target state="new">You can now exit the notebook by restarting the kernel.</target>
+        </trans-unit>
+        <trans-unit id="8b770e15-7461-4602-b621-49f592019124" xml:space="preserve">
+          <source>From the top menu bar, click <bpt id="6c5c9be0-2afd-4e97-9765-65fbfe3bcf34">&lt;strong&gt;</bpt>Kernel<ept id="6c5c9be0-2afd-4e97-9765-65fbfe3bcf34">&lt;/strong&gt;</ept>, click <bpt id="80db0609-017a-446f-b46a-fa210e9c4c79">&lt;strong&gt;</bpt>Restart<ept id="80db0609-017a-446f-b46a-fa210e9c4c79">&lt;/strong&gt;</ept>, and then click <bpt id="e9c2b57c-2677-4f23-80e5-a6af15ea5737">&lt;strong&gt;</bpt>Restart<ept id="e9c2b57c-2677-4f23-80e5-a6af15ea5737">&lt;/strong&gt;</ept> again at the prompt.</source>
+          <target state="new">From the top menu bar, click <bpt id="6c5c9be0-2afd-4e97-9765-65fbfe3bcf34">&lt;strong&gt;</bpt>Kernel<ept id="6c5c9be0-2afd-4e97-9765-65fbfe3bcf34">&lt;/strong&gt;</ept>, click <bpt id="80db0609-017a-446f-b46a-fa210e9c4c79">&lt;strong&gt;</bpt>Restart<ept id="80db0609-017a-446f-b46a-fa210e9c4c79">&lt;/strong&gt;</ept>, and then click <bpt id="e9c2b57c-2677-4f23-80e5-a6af15ea5737">&lt;strong&gt;</bpt>Restart<ept id="e9c2b57c-2677-4f23-80e5-a6af15ea5737">&lt;/strong&gt;</ept> again at the prompt.</target>
+        </trans-unit>
+        <trans-unit id="e977e528-3f9a-4445-a5c7-2b9c0d12c45d" xml:space="preserve">
+          <source><bpt id="1d28d4e9-9d4b-4c62-b909-54ccd2915f40">&lt;linkText&gt;</bpt>Restart the Jupyter Kernel<ept id="1d28d4e9-9d4b-4c62-b909-54ccd2915f40">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1d28d4e9-9d4b-4c62-b909-54ccd2915f40">&lt;linkText&gt;</bpt>Restart the Jupyter Kernel<ept id="1d28d4e9-9d4b-4c62-b909-54ccd2915f40">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eda6da00-292e-4f27-aa2b-d67e400e2591" xml:space="preserve">
+          <source>Once you have saved the data as a Hive table, you can use Power BI to connect to the data and visualize it to create reports, dashboards, etc.</source>
+          <target state="new">Once you have saved the data as a Hive table, you can use Power BI to connect to the data and visualize it to create reports, dashboards, etc.</target>
+        </trans-unit>
+        <trans-unit id="4a62285f-d016-4c35-8d55-7557584d60cb" xml:space="preserve">
+          <source>Sign in to <bpt id="3e91b54b-2d7c-4686-ace9-cd42e79a96c2">&lt;linkText&gt;</bpt>Power BI<ept id="3e91b54b-2d7c-4686-ace9-cd42e79a96c2">&lt;/linkText&gt;</ept><bpt id="3e91b54b-2d7c-4686-ace9-cd42e79a96c2">&lt;title&gt;</bpt><ept id="3e91b54b-2d7c-4686-ace9-cd42e79a96c2">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to <bpt id="3e91b54b-2d7c-4686-ace9-cd42e79a96c2">&lt;linkText&gt;</bpt>Power BI<ept id="3e91b54b-2d7c-4686-ace9-cd42e79a96c2">&lt;/linkText&gt;</ept><bpt id="3e91b54b-2d7c-4686-ace9-cd42e79a96c2">&lt;title&gt;</bpt><ept id="3e91b54b-2d7c-4686-ace9-cd42e79a96c2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f30661d-e823-44f9-86d5-7c1bc8dba1d3" xml:space="preserve">
+          <source>On the Welcome screen, click <bpt id="5c4d357a-ac15-43f3-8f37-dcce343cb738">&lt;strong&gt;</bpt>Databases &amp; More<ept id="5c4d357a-ac15-43f3-8f37-dcce343cb738">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Welcome screen, click <bpt id="5c4d357a-ac15-43f3-8f37-dcce343cb738">&lt;strong&gt;</bpt>Databases &amp; More<ept id="5c4d357a-ac15-43f3-8f37-dcce343cb738">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77e251e9-d4b4-497e-b212-abf781647af7" xml:space="preserve">
+          <source><bpt id="0ca65c70-b7f2-41ea-8496-29d0e716c37e">&lt;linkText&gt;</bpt>Get data into Power BI<ept id="0ca65c70-b7f2-41ea-8496-29d0e716c37e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ca65c70-b7f2-41ea-8496-29d0e716c37e">&lt;linkText&gt;</bpt>Get data into Power BI<ept id="0ca65c70-b7f2-41ea-8496-29d0e716c37e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f95f12f-25be-4726-90ed-0f11ec0fdd3b" xml:space="preserve">
+          <source>On the next screen, click <bpt id="247593da-69ca-47f2-bcb1-077c085514b8">&lt;strong&gt;</bpt>Spark<ept id="247593da-69ca-47f2-bcb1-077c085514b8">&lt;/strong&gt;</ept> and then click <bpt id="cda0611e-f169-4dc5-9433-a0cd4a3d4e8e">&lt;strong&gt;</bpt>Connect<ept id="cda0611e-f169-4dc5-9433-a0cd4a3d4e8e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the next screen, click <bpt id="247593da-69ca-47f2-bcb1-077c085514b8">&lt;strong&gt;</bpt>Spark<ept id="247593da-69ca-47f2-bcb1-077c085514b8">&lt;/strong&gt;</ept> and then click <bpt id="cda0611e-f169-4dc5-9433-a0cd4a3d4e8e">&lt;strong&gt;</bpt>Connect<ept id="cda0611e-f169-4dc5-9433-a0cd4a3d4e8e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27bc76f0-f613-4fef-a8ee-5bfa79ca2196" xml:space="preserve">
+          <source>On the Spark on Azure HDInsight page, provide the values to connect to your Spark cluster and then click <bpt id="81f2472d-01ee-4043-910c-057cc5397061">&lt;strong&gt;</bpt>Connect<ept id="81f2472d-01ee-4043-910c-057cc5397061">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Spark on Azure HDInsight page, provide the values to connect to your Spark cluster and then click <bpt id="81f2472d-01ee-4043-910c-057cc5397061">&lt;strong&gt;</bpt>Connect<ept id="81f2472d-01ee-4043-910c-057cc5397061">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da421612-d272-485b-8025-c93aa3cf3641" xml:space="preserve">
+          <source><bpt id="1972efda-9162-44e5-8d11-4e9997126612">&lt;linkText&gt;</bpt>Connect to a Spark cluster on HDInsight<ept id="1972efda-9162-44e5-8d11-4e9997126612">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1972efda-9162-44e5-8d11-4e9997126612">&lt;linkText&gt;</bpt>Connect to a Spark cluster on HDInsight<ept id="1972efda-9162-44e5-8d11-4e9997126612">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6ec5fe7-b1b9-4ad2-920f-95267c7aefcc" xml:space="preserve">
+          <source>After the connection is established, Power BI starts importing data from the Spark cluster on HDInsight.</source>
+          <target state="new">After the connection is established, Power BI starts importing data from the Spark cluster on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="ecce39cf-3571-4fd1-9c25-e84f94ae680d" xml:space="preserve">
+          <source>Power BI imports the data and displays the new dashboard.</source>
+          <target state="new">Power BI imports the data and displays the new dashboard.</target>
+        </trans-unit>
+        <trans-unit id="cf6ae062-531e-4d69-b245-4b9d0ab11f7e" xml:space="preserve">
+          <source>A new data set is also added under the <bpt id="085a8d01-5ac4-4b9c-a73b-dc7a63fcb310">&lt;strong&gt;</bpt>Datasets<ept id="085a8d01-5ac4-4b9c-a73b-dc7a63fcb310">&lt;/strong&gt;</ept> heading.</source>
+          <target state="new">A new data set is also added under the <bpt id="085a8d01-5ac4-4b9c-a73b-dc7a63fcb310">&lt;strong&gt;</bpt>Datasets<ept id="085a8d01-5ac4-4b9c-a73b-dc7a63fcb310">&lt;/strong&gt;</ept> heading.</target>
+        </trans-unit>
+        <trans-unit id="fbb49902-f644-4b53-bfa6-a5a5581c48f5" xml:space="preserve">
+          <source>Click the Spark tile on the dashboard to open a worksheet to visualize the data.</source>
+          <target state="new">Click the Spark tile on the dashboard to open a worksheet to visualize the data.</target>
+        </trans-unit>
+        <trans-unit id="22a73ce4-5d0e-4fbc-b3ff-b07a8e5d92ca" xml:space="preserve">
+          <source><bpt id="e8289134-6d20-4eb0-adeb-3a88041ba8bd">&lt;linkText&gt;</bpt>Spark tile on Power BI dashboard<ept id="e8289134-6d20-4eb0-adeb-3a88041ba8bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e8289134-6d20-4eb0-adeb-3a88041ba8bd">&lt;linkText&gt;</bpt>Spark tile on Power BI dashboard<ept id="e8289134-6d20-4eb0-adeb-3a88041ba8bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c53df155-3540-4c3a-9b66-84040ac1e5d2" xml:space="preserve">
+          <source>Notice that the <bpt id="65b6ba34-9a06-464b-a88e-8ee0fa2f1e4d">&lt;strong&gt;</bpt>Fields<ept id="65b6ba34-9a06-464b-a88e-8ee0fa2f1e4d">&lt;/strong&gt;</ept> list on the right lists the <bpt id="c3514967-7e33-4b88-8c79-1379a694b3e1">&lt;strong&gt;</bpt>hvac<ept id="c3514967-7e33-4b88-8c79-1379a694b3e1">&lt;/strong&gt;</ept> table you created earlier.</source>
+          <target state="new">Notice that the <bpt id="65b6ba34-9a06-464b-a88e-8ee0fa2f1e4d">&lt;strong&gt;</bpt>Fields<ept id="65b6ba34-9a06-464b-a88e-8ee0fa2f1e4d">&lt;/strong&gt;</ept> list on the right lists the <bpt id="c3514967-7e33-4b88-8c79-1379a694b3e1">&lt;strong&gt;</bpt>hvac<ept id="c3514967-7e33-4b88-8c79-1379a694b3e1">&lt;/strong&gt;</ept> table you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="42d9726f-1edb-4ac5-8a23-ec96acad1864" xml:space="preserve">
+          <source>Expand the table to see the fields in the table, as you defined in notebook earlier.</source>
+          <target state="new">Expand the table to see the fields in the table, as you defined in notebook earlier.</target>
+        </trans-unit>
+        <trans-unit id="40ad4a4f-69e6-44c5-b8d7-bffc1e6099f9" xml:space="preserve">
+          <source>  <bpt id="e3614ab3-395d-4e77-bff2-5fc72b024981">&lt;linkText&gt;</bpt>List Hive tables<ept id="e3614ab3-395d-4e77-bff2-5fc72b024981">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="e3614ab3-395d-4e77-bff2-5fc72b024981">&lt;linkText&gt;</bpt>List Hive tables<ept id="e3614ab3-395d-4e77-bff2-5fc72b024981">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="706dc2e7-b946-496d-93ba-ddfad532256f" xml:space="preserve">
+          <source>Build a visualization to show the variance between target temperature and actual temperature for each building.</source>
+          <target state="new">Build a visualization to show the variance between target temperature and actual temperature for each building.</target>
+        </trans-unit>
+        <trans-unit id="1c310ab7-156d-41bb-8741-87440b0898d4" xml:space="preserve">
+          <source>To do so, drag-and-drop the <bpt id="a62aefe4-410b-4742-bfa5-78aac64749c4">&lt;strong&gt;</bpt>BuildingID<ept id="a62aefe4-410b-4742-bfa5-78aac64749c4">&lt;/strong&gt;</ept> field under <bpt id="880089ca-86a5-4b27-ac7e-fee35a9c0a42">&lt;strong&gt;</bpt>Axis<ept id="880089ca-86a5-4b27-ac7e-fee35a9c0a42">&lt;/strong&gt;</ept>, and <bpt id="f3a7d684-3975-451d-b1e1-dd60faf9403d">&lt;strong&gt;</bpt>ActualTemp<ept id="f3a7d684-3975-451d-b1e1-dd60faf9403d">&lt;/strong&gt;</ept>/<bpt id="6451cd5c-101b-4009-96f9-66dc6c8c6942">&lt;strong&gt;</bpt>TargetTemp<ept id="6451cd5c-101b-4009-96f9-66dc6c8c6942">&lt;/strong&gt;</ept> fields under <bpt id="cf1d8258-f46d-4b78-858a-a4363bde9759">&lt;strong&gt;</bpt>Value<ept id="cf1d8258-f46d-4b78-858a-a4363bde9759">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To do so, drag-and-drop the <bpt id="a62aefe4-410b-4742-bfa5-78aac64749c4">&lt;strong&gt;</bpt>BuildingID<ept id="a62aefe4-410b-4742-bfa5-78aac64749c4">&lt;/strong&gt;</ept> field under <bpt id="880089ca-86a5-4b27-ac7e-fee35a9c0a42">&lt;strong&gt;</bpt>Axis<ept id="880089ca-86a5-4b27-ac7e-fee35a9c0a42">&lt;/strong&gt;</ept>, and <bpt id="f3a7d684-3975-451d-b1e1-dd60faf9403d">&lt;strong&gt;</bpt>ActualTemp<ept id="f3a7d684-3975-451d-b1e1-dd60faf9403d">&lt;/strong&gt;</ept>/<bpt id="6451cd5c-101b-4009-96f9-66dc6c8c6942">&lt;strong&gt;</bpt>TargetTemp<ept id="6451cd5c-101b-4009-96f9-66dc6c8c6942">&lt;/strong&gt;</ept> fields under <bpt id="cf1d8258-f46d-4b78-858a-a4363bde9759">&lt;strong&gt;</bpt>Value<ept id="cf1d8258-f46d-4b78-858a-a4363bde9759">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c92743ba-af71-4c60-af65-102d44a40ef4" xml:space="preserve">
+          <source><bpt id="a8d1c6da-2059-43f2-bb24-c86fb7e387ff">&lt;linkText&gt;</bpt>Create visualizations<ept id="a8d1c6da-2059-43f2-bb24-c86fb7e387ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a8d1c6da-2059-43f2-bb24-c86fb7e387ff">&lt;linkText&gt;</bpt>Create visualizations<ept id="a8d1c6da-2059-43f2-bb24-c86fb7e387ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31a2fcdb-8e47-4f0a-9f6d-67b09ca3c320" xml:space="preserve">
+          <source>Also, select <bpt id="2b26cd3e-0b29-45c4-9eb7-da42d5966d05">&lt;strong&gt;</bpt>Area Map<ept id="2b26cd3e-0b29-45c4-9eb7-da42d5966d05">&lt;/strong&gt;</ept> (shown in red) to visualize your data.</source>
+          <target state="new">Also, select <bpt id="2b26cd3e-0b29-45c4-9eb7-da42d5966d05">&lt;strong&gt;</bpt>Area Map<ept id="2b26cd3e-0b29-45c4-9eb7-da42d5966d05">&lt;/strong&gt;</ept> (shown in red) to visualize your data.</target>
+        </trans-unit>
+        <trans-unit id="be67dc69-61bd-42de-bc67-90ec87af4982" xml:space="preserve">
+          <source>By default the visualization shows the sum for <bpt id="38af0b5d-cb49-4c55-993f-bc9a9ae43b28">&lt;strong&gt;</bpt>ActualTemp<ept id="38af0b5d-cb49-4c55-993f-bc9a9ae43b28">&lt;/strong&gt;</ept> and <bpt id="1fa1ea1f-4349-4562-a728-a63835570b90">&lt;strong&gt;</bpt>TargetTemp<ept id="1fa1ea1f-4349-4562-a728-a63835570b90">&lt;/strong&gt;</ept>.</source>
+          <target state="new">By default the visualization shows the sum for <bpt id="38af0b5d-cb49-4c55-993f-bc9a9ae43b28">&lt;strong&gt;</bpt>ActualTemp<ept id="38af0b5d-cb49-4c55-993f-bc9a9ae43b28">&lt;/strong&gt;</ept> and <bpt id="1fa1ea1f-4349-4562-a728-a63835570b90">&lt;strong&gt;</bpt>TargetTemp<ept id="1fa1ea1f-4349-4562-a728-a63835570b90">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d736345e-1abd-4d01-95f9-6657988b0410" xml:space="preserve">
+          <source>For both the fields, from the drop-down, select <bpt id="8bde06a5-170b-4a4e-a5e0-e3ea5543a700">&lt;strong&gt;</bpt>Average<ept id="8bde06a5-170b-4a4e-a5e0-e3ea5543a700">&lt;/strong&gt;</ept> to get an average of actual and target temperatures for both buildings.</source>
+          <target state="new">For both the fields, from the drop-down, select <bpt id="8bde06a5-170b-4a4e-a5e0-e3ea5543a700">&lt;strong&gt;</bpt>Average<ept id="8bde06a5-170b-4a4e-a5e0-e3ea5543a700">&lt;/strong&gt;</ept> to get an average of actual and target temperatures for both buildings.</target>
+        </trans-unit>
+        <trans-unit id="f01b5e3f-5f6d-4030-a211-d4a1a1251b55" xml:space="preserve">
+          <source><bpt id="c0011b4a-6246-44c0-abec-2c3b6e4e2e5b">&lt;linkText&gt;</bpt>Create visualizations<ept id="c0011b4a-6246-44c0-abec-2c3b6e4e2e5b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c0011b4a-6246-44c0-abec-2c3b6e4e2e5b">&lt;linkText&gt;</bpt>Create visualizations<ept id="c0011b4a-6246-44c0-abec-2c3b6e4e2e5b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16e9475e-9dc9-4fa3-91e4-a53838206876" xml:space="preserve">
+          <source>Your data visualization should be similar to the following.</source>
+          <target state="new">Your data visualization should be similar to the following.</target>
+        </trans-unit>
+        <trans-unit id="1640ce22-5955-4817-8bb8-43cfe0f0aa0a" xml:space="preserve">
+          <source>Move your cursor over the visualization to get tool tips with relevant data.</source>
+          <target state="new">Move your cursor over the visualization to get tool tips with relevant data.</target>
+        </trans-unit>
+        <trans-unit id="b9f27e3c-53b8-4418-93c6-1b02385e77e5" xml:space="preserve">
+          <source><bpt id="803d2694-a1a5-404d-97d7-f92a3e426a92">&lt;linkText&gt;</bpt>Create visualizations<ept id="803d2694-a1a5-404d-97d7-f92a3e426a92">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="803d2694-a1a5-404d-97d7-f92a3e426a92">&lt;linkText&gt;</bpt>Create visualizations<ept id="803d2694-a1a5-404d-97d7-f92a3e426a92">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01640f4c-edca-46e8-a762-d67f284e3cbd" xml:space="preserve">
+          <source>Click <bpt id="730c4ace-ec34-46e0-a158-864f05ffcc5e">&lt;strong&gt;</bpt>Save<ept id="730c4ace-ec34-46e0-a158-864f05ffcc5e">&lt;/strong&gt;</ept> from the top menu and provide a report name.</source>
+          <target state="new">Click <bpt id="730c4ace-ec34-46e0-a158-864f05ffcc5e">&lt;strong&gt;</bpt>Save<ept id="730c4ace-ec34-46e0-a158-864f05ffcc5e">&lt;/strong&gt;</ept> from the top menu and provide a report name.</target>
+        </trans-unit>
+        <trans-unit id="79283297-bd15-427f-b2ed-79684c3c09c3" xml:space="preserve">
+          <source>You can also pin the visual.</source>
+          <target state="new">You can also pin the visual.</target>
+        </trans-unit>
+        <trans-unit id="d8856569-036b-4d87-ba2d-acb3af13fa37" xml:space="preserve">
+          <source>When you pin a visualization, it will be stored on your dashboard so you can track the latest value at a glance.</source>
+          <target state="new">When you pin a visualization, it will be stored on your dashboard so you can track the latest value at a glance.</target>
+        </trans-unit>
+        <trans-unit id="4a318c85-ec1f-4951-ae7f-1a8807ce7161" xml:space="preserve">
+          <source>You can add as many visualizations as you want for the same dataset and pin them to the dashboard for a snapshot of your data.</source>
+          <target state="new">You can add as many visualizations as you want for the same dataset and pin them to the dashboard for a snapshot of your data.</target>
+        </trans-unit>
+        <trans-unit id="5c585e1c-08e1-4635-b409-01f22a0a9aed" xml:space="preserve">
+          <source>Also, Spark clusters on HDInsight are connected to Power BI with direct connect.</source>
+          <target state="new">Also, Spark clusters on HDInsight are connected to Power BI with direct connect.</target>
+        </trans-unit>
+        <trans-unit id="a5c78fb1-78be-4395-a561-be570339b26b" xml:space="preserve">
+          <source>This means that Power BI always has the most up-to-date from your cluster so you do not need to schedule refreshes for the dataset.</source>
+          <target state="new">This means that Power BI always has the most up-to-date from your cluster so you do not need to schedule refreshes for the dataset.</target>
+        </trans-unit>
+        <trans-unit id="80cb0dda-52c8-4cb7-93bf-ff0f55a3d9c4" xml:space="preserve">
+          <source>Launch Tableau Desktop.</source>
+          <target state="new">Launch Tableau Desktop.</target>
+        </trans-unit>
+        <trans-unit id="6ada3e72-5ff2-4d0a-9605-419fff92835d" xml:space="preserve">
+          <source>In the left pane, from the list of server to connect to, click <bpt id="9c9c9efb-9b5a-419b-8b95-faff4e4ffb3f">&lt;strong&gt;</bpt>Spark SQL<ept id="9c9c9efb-9b5a-419b-8b95-faff4e4ffb3f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, from the list of server to connect to, click <bpt id="9c9c9efb-9b5a-419b-8b95-faff4e4ffb3f">&lt;strong&gt;</bpt>Spark SQL<ept id="9c9c9efb-9b5a-419b-8b95-faff4e4ffb3f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7330f858-f51f-4918-9a38-5d81e99839b2" xml:space="preserve">
+          <source>In the Spark SQL connection dialog box, provide the values as shown below, and then click <bpt id="ad957407-0df2-44c4-9f26-f942c218101b">&lt;strong&gt;</bpt>OK<ept id="ad957407-0df2-44c4-9f26-f942c218101b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Spark SQL connection dialog box, provide the values as shown below, and then click <bpt id="ad957407-0df2-44c4-9f26-f942c218101b">&lt;strong&gt;</bpt>OK<ept id="ad957407-0df2-44c4-9f26-f942c218101b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="086a030f-3a88-439d-9569-6b054e6ae198" xml:space="preserve">
+          <source><bpt id="f71a2aef-e552-4cd5-a620-b48b5f128577">&lt;linkText&gt;</bpt>Connect to a Spark cluster<ept id="f71a2aef-e552-4cd5-a620-b48b5f128577">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f71a2aef-e552-4cd5-a620-b48b5f128577">&lt;linkText&gt;</bpt>Connect to a Spark cluster<ept id="f71a2aef-e552-4cd5-a620-b48b5f128577">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba79fe30-0782-459e-bbcb-3db43d13e1a4" xml:space="preserve">
+          <source>The authentication drop-down lists <bpt id="79a16594-6dea-4911-8f41-baee1a0ed579">&lt;strong&gt;</bpt>Windows<ept id="79a16594-6dea-4911-8f41-baee1a0ed579">&lt;/strong&gt;</ept> <bpt id="bb7b6b6d-ce0a-4cef-9171-0a7372c5011a">&lt;strong&gt;</bpt>Azure HDInsight Service<ept id="bb7b6b6d-ce0a-4cef-9171-0a7372c5011a">&lt;/strong&gt;</ept> as an option, only if you installed the <bpt id="162c7ee5-31e8-489a-a1ad-0e3634b644ec">&lt;linkText&gt;</bpt>Microsoft Spark ODBC Driver<ept id="162c7ee5-31e8-489a-a1ad-0e3634b644ec">&lt;/linkText&gt;</ept><bpt id="162c7ee5-31e8-489a-a1ad-0e3634b644ec">&lt;title&gt;</bpt><ept id="162c7ee5-31e8-489a-a1ad-0e3634b644ec">&lt;/title&gt;</ept> on the computer.</source>
+          <target state="new">The authentication drop-down lists <bpt id="79a16594-6dea-4911-8f41-baee1a0ed579">&lt;strong&gt;</bpt>Windows<ept id="79a16594-6dea-4911-8f41-baee1a0ed579">&lt;/strong&gt;</ept> <bpt id="bb7b6b6d-ce0a-4cef-9171-0a7372c5011a">&lt;strong&gt;</bpt>Azure HDInsight Service<ept id="bb7b6b6d-ce0a-4cef-9171-0a7372c5011a">&lt;/strong&gt;</ept> as an option, only if you installed the <bpt id="162c7ee5-31e8-489a-a1ad-0e3634b644ec">&lt;linkText&gt;</bpt>Microsoft Spark ODBC Driver<ept id="162c7ee5-31e8-489a-a1ad-0e3634b644ec">&lt;/linkText&gt;</ept><bpt id="162c7ee5-31e8-489a-a1ad-0e3634b644ec">&lt;title&gt;</bpt><ept id="162c7ee5-31e8-489a-a1ad-0e3634b644ec">&lt;/title&gt;</ept> on the computer.</target>
+        </trans-unit>
+        <trans-unit id="e0d0f2b4-1021-444c-a5b4-1c648903006c" xml:space="preserve">
+          <source>On the next screen, from the <bpt id="dc7a07b9-9a07-4b0b-b2d8-57f1de777bbe">&lt;strong&gt;</bpt>Schema<ept id="dc7a07b9-9a07-4b0b-b2d8-57f1de777bbe">&lt;/strong&gt;</ept> drop-down, click the <bpt id="350a2cf9-633d-431b-af89-7d7ae756bfe2">&lt;strong&gt;</bpt>Find<ept id="350a2cf9-633d-431b-af89-7d7ae756bfe2">&lt;/strong&gt;</ept> icon, and then click <bpt id="0c829f71-360f-4d03-acc5-0ad1ab7881da">&lt;strong&gt;</bpt>default<ept id="0c829f71-360f-4d03-acc5-0ad1ab7881da">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the next screen, from the <bpt id="dc7a07b9-9a07-4b0b-b2d8-57f1de777bbe">&lt;strong&gt;</bpt>Schema<ept id="dc7a07b9-9a07-4b0b-b2d8-57f1de777bbe">&lt;/strong&gt;</ept> drop-down, click the <bpt id="350a2cf9-633d-431b-af89-7d7ae756bfe2">&lt;strong&gt;</bpt>Find<ept id="350a2cf9-633d-431b-af89-7d7ae756bfe2">&lt;/strong&gt;</ept> icon, and then click <bpt id="0c829f71-360f-4d03-acc5-0ad1ab7881da">&lt;strong&gt;</bpt>default<ept id="0c829f71-360f-4d03-acc5-0ad1ab7881da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93978d52-5a76-46c5-949d-49675c2b374f" xml:space="preserve">
+          <source><bpt id="887dc203-366a-4da6-9a2e-e6ad43b27c92">&lt;linkText&gt;</bpt>Find schema<ept id="887dc203-366a-4da6-9a2e-e6ad43b27c92">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="887dc203-366a-4da6-9a2e-e6ad43b27c92">&lt;linkText&gt;</bpt>Find schema<ept id="887dc203-366a-4da6-9a2e-e6ad43b27c92">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ed46b65-5d6d-4eef-82d7-d25e64a100e9" xml:space="preserve">
+          <source>For the <bpt id="047fea2e-658c-4899-8809-1bf88e085473">&lt;strong&gt;</bpt>Table<ept id="047fea2e-658c-4899-8809-1bf88e085473">&lt;/strong&gt;</ept> field, click the <bpt id="522d4d47-78fc-4626-9ece-b95f082af87f">&lt;strong&gt;</bpt>Find<ept id="522d4d47-78fc-4626-9ece-b95f082af87f">&lt;/strong&gt;</ept> icon again to list all the Hive tables available in the cluster.</source>
+          <target state="new">For the <bpt id="047fea2e-658c-4899-8809-1bf88e085473">&lt;strong&gt;</bpt>Table<ept id="047fea2e-658c-4899-8809-1bf88e085473">&lt;/strong&gt;</ept> field, click the <bpt id="522d4d47-78fc-4626-9ece-b95f082af87f">&lt;strong&gt;</bpt>Find<ept id="522d4d47-78fc-4626-9ece-b95f082af87f">&lt;/strong&gt;</ept> icon again to list all the Hive tables available in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="f3585cc0-23a5-43ac-bbde-74a117ee20d1" xml:space="preserve">
+          <source>You should see the <bpt id="279ac29b-517f-4baf-ac5a-7bcebcfdd0e0">&lt;strong&gt;</bpt>hvac<ept id="279ac29b-517f-4baf-ac5a-7bcebcfdd0e0">&lt;/strong&gt;</ept> table you created earlier using the notebook.</source>
+          <target state="new">You should see the <bpt id="279ac29b-517f-4baf-ac5a-7bcebcfdd0e0">&lt;strong&gt;</bpt>hvac<ept id="279ac29b-517f-4baf-ac5a-7bcebcfdd0e0">&lt;/strong&gt;</ept> table you created earlier using the notebook.</target>
+        </trans-unit>
+        <trans-unit id="98b2aec5-7ae8-43cc-ae17-81cf60ab3be9" xml:space="preserve">
+          <source><bpt id="00ebd96d-2ae2-419e-bd64-f07b3675dce0">&lt;linkText&gt;</bpt>Find tables<ept id="00ebd96d-2ae2-419e-bd64-f07b3675dce0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="00ebd96d-2ae2-419e-bd64-f07b3675dce0">&lt;linkText&gt;</bpt>Find tables<ept id="00ebd96d-2ae2-419e-bd64-f07b3675dce0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02eec6bb-5f7e-4d4f-bf62-55db9859cb9e" xml:space="preserve">
+          <source>Drag and drop the table to the top box on the right.</source>
+          <target state="new">Drag and drop the table to the top box on the right.</target>
+        </trans-unit>
+        <trans-unit id="48d33d49-1c03-4461-90aa-35e7c4a3647c" xml:space="preserve">
+          <source>Tableau imports the data and displays the schema as highlighted by the red box.</source>
+          <target state="new">Tableau imports the data and displays the schema as highlighted by the red box.</target>
+        </trans-unit>
+        <trans-unit id="8f9399bd-1e46-4c7e-9deb-85c79e030527" xml:space="preserve">
+          <source><bpt id="b4c87a0e-15fc-42df-b908-ea6ed5926276">&lt;linkText&gt;</bpt>Add tables to Tableau<ept id="b4c87a0e-15fc-42df-b908-ea6ed5926276">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b4c87a0e-15fc-42df-b908-ea6ed5926276">&lt;linkText&gt;</bpt>Add tables to Tableau<ept id="b4c87a0e-15fc-42df-b908-ea6ed5926276">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="457f213e-f58e-442e-a037-ed48a7c308ce" xml:space="preserve">
+          <source>Click the <bpt id="08d227e9-d63d-4ff2-936b-9ca6ae857265">&lt;strong&gt;</bpt>Sheet1<ept id="08d227e9-d63d-4ff2-936b-9ca6ae857265">&lt;/strong&gt;</ept> tab at the bottom left.</source>
+          <target state="new">Click the <bpt id="08d227e9-d63d-4ff2-936b-9ca6ae857265">&lt;strong&gt;</bpt>Sheet1<ept id="08d227e9-d63d-4ff2-936b-9ca6ae857265">&lt;/strong&gt;</ept> tab at the bottom left.</target>
+        </trans-unit>
+        <trans-unit id="dba51d93-60e7-4cf4-8612-8599e6a6733e" xml:space="preserve">
+          <source>Make a visualization that shows the average target and actual temperatures for all buildings for each date.</source>
+          <target state="new">Make a visualization that shows the average target and actual temperatures for all buildings for each date.</target>
+        </trans-unit>
+        <trans-unit id="4c76a867-71ba-4121-bcbc-14af3035157a" xml:space="preserve">
+          <source>Drag <bpt id="d3ec23f7-ea7e-46a2-be32-1cc275f1eda7">&lt;strong&gt;</bpt>Date<ept id="d3ec23f7-ea7e-46a2-be32-1cc275f1eda7">&lt;/strong&gt;</ept> and <bpt id="916b70aa-ff37-41c6-9806-547a719668b8">&lt;strong&gt;</bpt>Building ID<ept id="916b70aa-ff37-41c6-9806-547a719668b8">&lt;/strong&gt;</ept> to <bpt id="619e5b9b-e131-4400-82b0-ccb2623ddbc3">&lt;strong&gt;</bpt>Columns<ept id="619e5b9b-e131-4400-82b0-ccb2623ddbc3">&lt;/strong&gt;</ept> and <bpt id="ffbd71d2-07a1-4bcc-aeed-301b6cd35bf0">&lt;strong&gt;</bpt>Actual Temp<ept id="ffbd71d2-07a1-4bcc-aeed-301b6cd35bf0">&lt;/strong&gt;</ept>/<bpt id="c37f96fc-b390-4bd0-b0f1-de08f9961245">&lt;strong&gt;</bpt>Target Temp<ept id="c37f96fc-b390-4bd0-b0f1-de08f9961245">&lt;/strong&gt;</ept> to <bpt id="c825812f-fc8c-4248-90df-e29f55a2b586">&lt;strong&gt;</bpt>Rows<ept id="c825812f-fc8c-4248-90df-e29f55a2b586">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Drag <bpt id="d3ec23f7-ea7e-46a2-be32-1cc275f1eda7">&lt;strong&gt;</bpt>Date<ept id="d3ec23f7-ea7e-46a2-be32-1cc275f1eda7">&lt;/strong&gt;</ept> and <bpt id="916b70aa-ff37-41c6-9806-547a719668b8">&lt;strong&gt;</bpt>Building ID<ept id="916b70aa-ff37-41c6-9806-547a719668b8">&lt;/strong&gt;</ept> to <bpt id="619e5b9b-e131-4400-82b0-ccb2623ddbc3">&lt;strong&gt;</bpt>Columns<ept id="619e5b9b-e131-4400-82b0-ccb2623ddbc3">&lt;/strong&gt;</ept> and <bpt id="ffbd71d2-07a1-4bcc-aeed-301b6cd35bf0">&lt;strong&gt;</bpt>Actual Temp<ept id="ffbd71d2-07a1-4bcc-aeed-301b6cd35bf0">&lt;/strong&gt;</ept>/<bpt id="c37f96fc-b390-4bd0-b0f1-de08f9961245">&lt;strong&gt;</bpt>Target Temp<ept id="c37f96fc-b390-4bd0-b0f1-de08f9961245">&lt;/strong&gt;</ept> to <bpt id="c825812f-fc8c-4248-90df-e29f55a2b586">&lt;strong&gt;</bpt>Rows<ept id="c825812f-fc8c-4248-90df-e29f55a2b586">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9be4e80b-41b4-4b19-b563-9ebbd1bd9a81" xml:space="preserve">
+          <source>Under <bpt id="218a0fbe-9ab7-4796-97f9-612885ba226e">&lt;strong&gt;</bpt>Marks<ept id="218a0fbe-9ab7-4796-97f9-612885ba226e">&lt;/strong&gt;</ept>, select <bpt id="5ea6d67c-9e02-491a-9f8b-0211b0d922e4">&lt;strong&gt;</bpt>Area<ept id="5ea6d67c-9e02-491a-9f8b-0211b0d922e4">&lt;/strong&gt;</ept> to use an area map visualization.</source>
+          <target state="new">Under <bpt id="218a0fbe-9ab7-4796-97f9-612885ba226e">&lt;strong&gt;</bpt>Marks<ept id="218a0fbe-9ab7-4796-97f9-612885ba226e">&lt;/strong&gt;</ept>, select <bpt id="5ea6d67c-9e02-491a-9f8b-0211b0d922e4">&lt;strong&gt;</bpt>Area<ept id="5ea6d67c-9e02-491a-9f8b-0211b0d922e4">&lt;/strong&gt;</ept> to use an area map visualization.</target>
+        </trans-unit>
+        <trans-unit id="71417a1d-1387-4bf0-9e04-af9fa012d852" xml:space="preserve">
+          <source> <bpt id="1294a541-91de-4280-84e2-fe40575c7472">&lt;linkText&gt;</bpt>Add fields for visualization<ept id="1294a541-91de-4280-84e2-fe40575c7472">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="1294a541-91de-4280-84e2-fe40575c7472">&lt;linkText&gt;</bpt>Add fields for visualization<ept id="1294a541-91de-4280-84e2-fe40575c7472">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d8452945-b406-489c-b58c-3134f6c7002e" xml:space="preserve">
+          <source>By default, the temperature fields are shown as aggregate.</source>
+          <target state="new">By default, the temperature fields are shown as aggregate.</target>
+        </trans-unit>
+        <trans-unit id="dbd44dd7-a22f-425b-8ad9-45383d7c892d" xml:space="preserve">
+          <source>If you want to show the average temperatures instead, you can do so from the drop-down, as shown below.</source>
+          <target state="new">If you want to show the average temperatures instead, you can do so from the drop-down, as shown below.</target>
+        </trans-unit>
+        <trans-unit id="db122cb3-95f5-48cf-87c7-f1d86f132ee6" xml:space="preserve">
+          <source><bpt id="d732ef96-0c46-42d8-b545-f5f723370634">&lt;linkText&gt;</bpt>Take average of temperature<ept id="d732ef96-0c46-42d8-b545-f5f723370634">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d732ef96-0c46-42d8-b545-f5f723370634">&lt;linkText&gt;</bpt>Take average of temperature<ept id="d732ef96-0c46-42d8-b545-f5f723370634">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a0f5670-aa88-4561-899d-9257c3975eb0" xml:space="preserve">
+          <source>You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures.</source>
+          <target state="new">You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures.</target>
+        </trans-unit>
+        <trans-unit id="4e9445af-2ca6-467c-9bf0-ae225e4b496a" xml:space="preserve">
+          <source>Move the mouse to the corner of the lower area map till you see the handle shape highlighted in a red circle above.</source>
+          <target state="new">Move the mouse to the corner of the lower area map till you see the handle shape highlighted in a red circle above.</target>
+        </trans-unit>
+        <trans-unit id="30ec8302-6423-484e-9a6b-64741c14a990" xml:space="preserve">
+          <source>Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle above.</source>
+          <target state="new">Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle above.</target>
+        </trans-unit>
+        <trans-unit id="661cc450-61e2-4c71-86e1-dfeb5c0b33a5" xml:space="preserve">
+          <source><bpt id="dd41b72c-d516-4588-bf9e-11fa58c3a848">&lt;linkText&gt;</bpt>Merge maps<ept id="dd41b72c-d516-4588-bf9e-11fa58c3a848">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dd41b72c-d516-4588-bf9e-11fa58c3a848">&lt;linkText&gt;</bpt>Merge maps<ept id="dd41b72c-d516-4588-bf9e-11fa58c3a848">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99912ade-dc21-4d32-8144-88f42597bd45" xml:space="preserve">
+          <source> Your data visualization should change to the following:</source>
+          <target state="new"> Your data visualization should change to the following:</target>
+        </trans-unit>
+        <trans-unit id="e6f139a5-abe1-4f93-838f-1ec2716aea8d" xml:space="preserve">
+          <source><bpt id="27261e86-97d0-4506-be35-f664817b60db">&lt;linkText&gt;</bpt>Visualization<ept id="27261e86-97d0-4506-be35-f664817b60db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="27261e86-97d0-4506-be35-f664817b60db">&lt;linkText&gt;</bpt>Visualization<ept id="27261e86-97d0-4506-be35-f664817b60db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14ed2ad4-5de4-43ec-9985-7f439f9d3abf" xml:space="preserve">
+          <source>Click <bpt id="f8590b42-0e61-4aa3-a43d-d8fb5923f26d">&lt;strong&gt;</bpt>Save<ept id="f8590b42-0e61-4aa3-a43d-d8fb5923f26d">&lt;/strong&gt;</ept> to save the worksheet.</source>
+          <target state="new">Click <bpt id="f8590b42-0e61-4aa3-a43d-d8fb5923f26d">&lt;strong&gt;</bpt>Save<ept id="f8590b42-0e61-4aa3-a43d-d8fb5923f26d">&lt;/strong&gt;</ept> to save the worksheet.</target>
+        </trans-unit>
+        <trans-unit id="73feba7f-7255-4f78-8e31-e999de2d9379" xml:space="preserve">
+          <source>You can create dashboards and add one or more sheets to it.</source>
+          <target state="new">You can create dashboards and add one or more sheets to it.</target>
+        </trans-unit>
+        <trans-unit id="d361d0a0-9cd4-475a-adda-b2d8b0463db3" xml:space="preserve">
+          <source><bpt id="636bb543-29fa-478a-b0c9-1a2ac6574558">&lt;linkText&gt;</bpt>Overview: Apache Spark on Azure HDInsight<ept id="636bb543-29fa-478a-b0c9-1a2ac6574558">&lt;/linkText&gt;</ept><bpt id="636bb543-29fa-478a-b0c9-1a2ac6574558">&lt;title&gt;</bpt><ept id="636bb543-29fa-478a-b0c9-1a2ac6574558">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="636bb543-29fa-478a-b0c9-1a2ac6574558">&lt;linkText&gt;</bpt>Overview: Apache Spark on Azure HDInsight<ept id="636bb543-29fa-478a-b0c9-1a2ac6574558">&lt;/linkText&gt;</ept><bpt id="636bb543-29fa-478a-b0c9-1a2ac6574558">&lt;title&gt;</bpt><ept id="636bb543-29fa-478a-b0c9-1a2ac6574558">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0152730c-2fa6-4fed-a442-62b582cdb40a" xml:space="preserve">
+          <source><bpt id="36e481e9-e163-4cbc-9444-4d4aec1aa67c">&lt;linkText&gt;</bpt>Quick Start: Provision Apache Spark on HDInsight and run interactive queries using Spark SQL<ept id="36e481e9-e163-4cbc-9444-4d4aec1aa67c">&lt;/linkText&gt;</ept><bpt id="36e481e9-e163-4cbc-9444-4d4aec1aa67c">&lt;title&gt;</bpt><ept id="36e481e9-e163-4cbc-9444-4d4aec1aa67c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="36e481e9-e163-4cbc-9444-4d4aec1aa67c">&lt;linkText&gt;</bpt>Quick Start: Provision Apache Spark on HDInsight and run interactive queries using Spark SQL<ept id="36e481e9-e163-4cbc-9444-4d4aec1aa67c">&lt;/linkText&gt;</ept><bpt id="36e481e9-e163-4cbc-9444-4d4aec1aa67c">&lt;title&gt;</bpt><ept id="36e481e9-e163-4cbc-9444-4d4aec1aa67c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1f4a37c-df53-485a-8d8b-ad13043078f8" xml:space="preserve">
+          <source><bpt id="f34fa3ed-c34c-4867-bb31-77cf94e41fa0">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building machine learning applications<ept id="f34fa3ed-c34c-4867-bb31-77cf94e41fa0">&lt;/linkText&gt;</ept><bpt id="f34fa3ed-c34c-4867-bb31-77cf94e41fa0">&lt;title&gt;</bpt><ept id="f34fa3ed-c34c-4867-bb31-77cf94e41fa0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f34fa3ed-c34c-4867-bb31-77cf94e41fa0">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building machine learning applications<ept id="f34fa3ed-c34c-4867-bb31-77cf94e41fa0">&lt;/linkText&gt;</ept><bpt id="f34fa3ed-c34c-4867-bb31-77cf94e41fa0">&lt;title&gt;</bpt><ept id="f34fa3ed-c34c-4867-bb31-77cf94e41fa0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05c65e49-e5fa-489b-b7ed-e215c4268dc7" xml:space="preserve">
+          <source><bpt id="ba32416a-f71d-4419-881d-4d853b6cc0ca">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building real-time streaming applications<ept id="ba32416a-f71d-4419-881d-4d853b6cc0ca">&lt;/linkText&gt;</ept><bpt id="ba32416a-f71d-4419-881d-4d853b6cc0ca">&lt;title&gt;</bpt><ept id="ba32416a-f71d-4419-881d-4d853b6cc0ca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba32416a-f71d-4419-881d-4d853b6cc0ca">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building real-time streaming applications<ept id="ba32416a-f71d-4419-881d-4d853b6cc0ca">&lt;/linkText&gt;</ept><bpt id="ba32416a-f71d-4419-881d-4d853b6cc0ca">&lt;title&gt;</bpt><ept id="ba32416a-f71d-4419-881d-4d853b6cc0ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="445c0332-7741-49f8-8d47-2fc16c2fad61" xml:space="preserve">
+          <source><bpt id="c1581307-a7b7-4659-a6f0-ee0a1dc1f2eb">&lt;linkText&gt;</bpt>Manage resources for the Apache Spark cluster in Azure HDInsight<ept id="c1581307-a7b7-4659-a6f0-ee0a1dc1f2eb">&lt;/linkText&gt;</ept><bpt id="c1581307-a7b7-4659-a6f0-ee0a1dc1f2eb">&lt;title&gt;</bpt><ept id="c1581307-a7b7-4659-a6f0-ee0a1dc1f2eb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c1581307-a7b7-4659-a6f0-ee0a1dc1f2eb">&lt;linkText&gt;</bpt>Manage resources for the Apache Spark cluster in Azure HDInsight<ept id="c1581307-a7b7-4659-a6f0-ee0a1dc1f2eb">&lt;/linkText&gt;</ept><bpt id="c1581307-a7b7-4659-a6f0-ee0a1dc1f2eb">&lt;title&gt;</bpt><ept id="c1581307-a7b7-4659-a6f0-ee0a1dc1f2eb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="809aee26-8863-4a9f-9820-e0fe5c696243" xml:space="preserve">
+          <source>../hdinsight-component-versioning/</source>
+          <target state="new">../hdinsight-component-versioning/</target>
+        </trans-unit>
+        <trans-unit id="5689cc34-7167-4e66-99b7-9173a7016ec6" xml:space="preserve">
+          <source>../hdinsight-upload-data/</source>
+          <target state="new">../hdinsight-upload-data/</target>
+        </trans-unit>
+        <trans-unit id="bc743591-12cb-4e73-bc13-1ffca1c47396" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage/</source>
+          <target state="new">../hdinsight-use-blob-storage/</target>
+        </trans-unit>
+        <trans-unit id="e23bfdcf-4f85-4830-9c88-24b97556271b" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="0dbc86a6-8ce0-4db6-a41c-1940feb1293f" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="9c9c6eec-2ed0-4f49-90e1-50032afbc4aa" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="51cd6a81-fe6f-4407-b072-10ae48a8aff7" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="0c681a4d-a6e6-426e-9494-fc81213d400f" xml:space="preserve">
+          <source>../storage-create-storage-account/</source>
+          <target state="new">../storage-create-storage-account/</target>
+        </trans-unit>
+      </group>
+      <group id="7fb5ce74-444e-4cff-9978-3eca8d4ef963" />
+    </body>
+  </file>
+</xliff>

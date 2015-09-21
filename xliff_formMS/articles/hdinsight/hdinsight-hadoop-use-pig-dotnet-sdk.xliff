@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ef08a25c-1a29-4776-b092-0ce89ecf8d28" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ef08a25c-1a29-4776-b092-0ce89ecf8d28" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f442d41d-d778-44de-b66d-e0538e46d830">
+        <trans-unit id="c1312cd4-d0b2-4c68-a1a5-a78899b9d5dc" xml:space="preserve">
+          <source>Use Hadoop Pig with .NET in HDInsight | Microsoft Azure</source>
+          <target state="new">Use Hadoop Pig with .NET in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e5849e2e-fc27-4b88-b158-0e085eafca33" xml:space="preserve">
+          <source>Learn how to use the .NET SDK for Hadoop to submit Pig jobs to Hadoop on HDInsight.</source>
+          <target state="new">Learn how to use the .NET SDK for Hadoop to submit Pig jobs to Hadoop on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="714e1b63-a7a3-496f-b9b4-d65644aaf214" xml:space="preserve">
+          <source><bpt id="3922d4c5-3964-4f63-b3d0-46133d74a7b4">&lt;token href="../../includes/hdinsight-selector-use-pig.md"&gt;</bpt><ept id="3922d4c5-3964-4f63-b3d0-46133d74a7b4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3922d4c5-3964-4f63-b3d0-46133d74a7b4">&lt;token href="../../includes/hdinsight-selector-use-pig.md"&gt;</bpt><ept id="3922d4c5-3964-4f63-b3d0-46133d74a7b4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69b2c50b-d478-45ac-bd8b-005bf1f5042f" xml:space="preserve">
+          <source>This document provides an example of using the .NET SDK for Hadoop to submit Pig jobs to a Hadoop on HDInsight cluster.</source>
+          <target state="new">This document provides an example of using the .NET SDK for Hadoop to submit Pig jobs to a Hadoop on HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="4669f4ab-27bf-4d06-b231-65f4ed31c094" xml:space="preserve">
+          <source>The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight clusters from .NET.</source>
+          <target state="new">The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight clusters from .NET.</target>
+        </trans-unit>
+        <trans-unit id="40d9f064-7a07-4b7b-a264-fc85c79c9e57" xml:space="preserve">
+          <source>Pig allows you to create MapReduce operations by modeling a series of data transformations.</source>
+          <target state="new">Pig allows you to create MapReduce operations by modeling a series of data transformations.</target>
+        </trans-unit>
+        <trans-unit id="c3243a99-2fec-41f1-9bcb-a4256648d0aa" xml:space="preserve">
+          <source>You will learn how to use a basic C# application to submit a Pig job to an HDInsight cluster.</source>
+          <target state="new">You will learn how to use a basic C# application to submit a Pig job to an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="1eeb57c8-2813-433b-a70d-e7ba967628f4" xml:space="preserve">
+          <source><bpt id="a5280bc7-ac9b-4e8b-a445-65579a9bc253">&lt;token href="../../includes/hdinsight-azure-portal.md"&gt;</bpt><ept id="a5280bc7-ac9b-4e8b-a445-65579a9bc253">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a5280bc7-ac9b-4e8b-a445-65579a9bc253">&lt;token href="../../includes/hdinsight-azure-portal.md"&gt;</bpt><ept id="a5280bc7-ac9b-4e8b-a445-65579a9bc253">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fc8c6e7-6670-4270-bd3a-270b4ee7892c" xml:space="preserve">
+          <source><bpt id="122f4ab4-74cb-4634-97b3-8ae9a6891211">&lt;linkText&gt;</bpt>Run Pig jobs using the .NET SDK for Hadoop in HDInsight<ept id="122f4ab4-74cb-4634-97b3-8ae9a6891211">&lt;/linkText&gt;</ept><bpt id="122f4ab4-74cb-4634-97b3-8ae9a6891211">&lt;title&gt;</bpt><ept id="122f4ab4-74cb-4634-97b3-8ae9a6891211">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="122f4ab4-74cb-4634-97b3-8ae9a6891211">&lt;linkText&gt;</bpt>Run Pig jobs using the .NET SDK for Hadoop in HDInsight<ept id="122f4ab4-74cb-4634-97b3-8ae9a6891211">&lt;/linkText&gt;</ept><bpt id="122f4ab4-74cb-4634-97b3-8ae9a6891211">&lt;title&gt;</bpt><ept id="122f4ab4-74cb-4634-97b3-8ae9a6891211">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de91bfee-2ff4-4a29-b76d-13ac4623586d" xml:space="preserve">
+          <source>To complete the steps in this article, you will need the following.</source>
+          <target state="new">To complete the steps in this article, you will need the following.</target>
+        </trans-unit>
+        <trans-unit id="00140e09-3c04-4ae8-864d-393c5c334f3e" xml:space="preserve">
+          <source>An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based)</source>
+          <target state="new">An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based)</target>
+        </trans-unit>
+        <trans-unit id="002a2e3d-1a32-49b3-b37d-d8232f3832b9" xml:space="preserve">
+          <source>Visual Studio 2012 or 2013</source>
+          <target state="new">Visual Studio 2012 or 2013</target>
+        </trans-unit>
+        <trans-unit id="77209a99-177c-4465-a62c-ac401f6bc8bf" xml:space="preserve">
+          <source>To authenticate the application to Azure HDInsight, you must create a self-signed certificate, install it on your development workstation, and also upload it to your Azure subscription.</source>
+          <target state="new">To authenticate the application to Azure HDInsight, you must create a self-signed certificate, install it on your development workstation, and also upload it to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="0e822f35-e729-4e2d-ae0a-2878b07a70d7" xml:space="preserve">
+          <source>For instructions on how to do this, see <bpt id="e9e22faa-4323-4b53-bc13-207f71a559b6">&lt;linkText&gt;</bpt>Create a self-signed certificate<ept id="e9e22faa-4323-4b53-bc13-207f71a559b6">&lt;/linkText&gt;</ept><bpt id="e9e22faa-4323-4b53-bc13-207f71a559b6">&lt;title&gt;</bpt><ept id="e9e22faa-4323-4b53-bc13-207f71a559b6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on how to do this, see <bpt id="e9e22faa-4323-4b53-bc13-207f71a559b6">&lt;linkText&gt;</bpt>Create a self-signed certificate<ept id="e9e22faa-4323-4b53-bc13-207f71a559b6">&lt;/linkText&gt;</ept><bpt id="e9e22faa-4323-4b53-bc13-207f71a559b6">&lt;title&gt;</bpt><ept id="e9e22faa-4323-4b53-bc13-207f71a559b6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba38dcc3-a93c-40d3-958e-f81d2794788c" xml:space="preserve">
+          <source>When creating the certificate, be sure to note the friendly name you use, as it will be used later.</source>
+          <target state="new">When creating the certificate, be sure to note the friendly name you use, as it will be used later.</target>
+        </trans-unit>
+        <trans-unit id="8e60a9f8-c4da-4347-aa39-b73f63c151e6" xml:space="preserve">
+          <source>Each Azure subscription is identified by a GUID value, known as the subscription ID.</source>
+          <target state="new">Each Azure subscription is identified by a GUID value, known as the subscription ID.</target>
+        </trans-unit>
+        <trans-unit id="a45cf66c-9865-4262-8195-8e84af69645a" xml:space="preserve">
+          <source>Use the following steps to find this value.</source>
+          <target state="new">Use the following steps to find this value.</target>
+        </trans-unit>
+        <trans-unit id="4b89754a-4613-4f84-baf0-cb4e7f22919d" xml:space="preserve">
+          <source>Visit the <bpt id="91b52f43-00c7-4d3b-8860-ca4bb971a1e4">&lt;linkText&gt;</bpt>Azure preview portal[preview-portal]<ept id="91b52f43-00c7-4d3b-8860-ca4bb971a1e4">&lt;/linkText&gt;</ept><bpt id="91b52f43-00c7-4d3b-8860-ca4bb971a1e4">&lt;title&gt;</bpt><ept id="91b52f43-00c7-4d3b-8860-ca4bb971a1e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Visit the <bpt id="91b52f43-00c7-4d3b-8860-ca4bb971a1e4">&lt;linkText&gt;</bpt>Azure preview portal[preview-portal]<ept id="91b52f43-00c7-4d3b-8860-ca4bb971a1e4">&lt;/linkText&gt;</ept><bpt id="91b52f43-00c7-4d3b-8860-ca4bb971a1e4">&lt;title&gt;</bpt><ept id="91b52f43-00c7-4d3b-8860-ca4bb971a1e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4cce7d7-71ee-4ad4-8811-6b052fc89028" xml:space="preserve">
+          <source>From the bar on the left of the portal, select <bpt id="7bc40f03-2e63-42d8-8d0e-180e8e123d76">&lt;strong&gt;</bpt>BROWSE ALL<ept id="7bc40f03-2e63-42d8-8d0e-180e8e123d76">&lt;/strong&gt;</ept>, then select <bpt id="79991874-f12b-46f6-a0ea-18ee825fd489">&lt;strong&gt;</bpt>Subscriptions<ept id="79991874-f12b-46f6-a0ea-18ee825fd489">&lt;/strong&gt;</ept> from the <bpt id="35fcb630-6a01-4f59-a227-02aca44b06af">&lt;strong&gt;</bpt>Browse<ept id="35fcb630-6a01-4f59-a227-02aca44b06af">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">From the bar on the left of the portal, select <bpt id="7bc40f03-2e63-42d8-8d0e-180e8e123d76">&lt;strong&gt;</bpt>BROWSE ALL<ept id="7bc40f03-2e63-42d8-8d0e-180e8e123d76">&lt;/strong&gt;</ept>, then select <bpt id="79991874-f12b-46f6-a0ea-18ee825fd489">&lt;strong&gt;</bpt>Subscriptions<ept id="79991874-f12b-46f6-a0ea-18ee825fd489">&lt;/strong&gt;</ept> from the <bpt id="35fcb630-6a01-4f59-a227-02aca44b06af">&lt;strong&gt;</bpt>Browse<ept id="35fcb630-6a01-4f59-a227-02aca44b06af">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="9a4a2cd5-002e-4372-adfe-b81b2f8e4df2" xml:space="preserve">
+          <source>In the information presented on the <bpt id="24ddb73d-77e0-4cea-aae5-071f3e9ef12d">&lt;strong&gt;</bpt>Subscriptions<ept id="24ddb73d-77e0-4cea-aae5-071f3e9ef12d">&lt;/strong&gt;</ept> blade, find the subscription you wish to use and note the value in the <bpt id="58c01c96-3d76-40d7-adef-322230b898ca">&lt;strong&gt;</bpt>Subscription ID<ept id="58c01c96-3d76-40d7-adef-322230b898ca">&lt;/strong&gt;</ept> column.</source>
+          <target state="new">In the information presented on the <bpt id="24ddb73d-77e0-4cea-aae5-071f3e9ef12d">&lt;strong&gt;</bpt>Subscriptions<ept id="24ddb73d-77e0-4cea-aae5-071f3e9ef12d">&lt;/strong&gt;</ept> blade, find the subscription you wish to use and note the value in the <bpt id="58c01c96-3d76-40d7-adef-322230b898ca">&lt;strong&gt;</bpt>Subscription ID<ept id="58c01c96-3d76-40d7-adef-322230b898ca">&lt;/strong&gt;</ept> column.</target>
+        </trans-unit>
+        <trans-unit id="3aac6e15-abbd-4403-ad07-9ae61543006c" xml:space="preserve">
+          <source>Save the subscription ID, as it will be used later.</source>
+          <target state="new">Save the subscription ID, as it will be used later.</target>
+        </trans-unit>
+        <trans-unit id="8cc56de7-2086-41fe-82ac-3b5a654ae472" xml:space="preserve">
+          <source>Open Visual Studio 2012 or 2013</source>
+          <target state="new">Open Visual Studio 2012 or 2013</target>
+        </trans-unit>
+        <trans-unit id="af5c1db2-b191-4150-a184-6d0175cd68bb" xml:space="preserve">
+          <source>From the <bpt id="ee6621fb-a0ab-4c22-9f2c-a743d763d8eb">&lt;strong&gt;</bpt>File<ept id="ee6621fb-a0ab-4c22-9f2c-a743d763d8eb">&lt;/strong&gt;</ept> menu, select <bpt id="0c1eaf60-b9bd-425f-9012-ca82e6ee4fdd">&lt;strong&gt;</bpt>New<ept id="0c1eaf60-b9bd-425f-9012-ca82e6ee4fdd">&lt;/strong&gt;</ept> and then select <bpt id="02473c19-9f27-48cd-b853-b50c64cb9088">&lt;strong&gt;</bpt>Project<ept id="02473c19-9f27-48cd-b853-b50c64cb9088">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="ee6621fb-a0ab-4c22-9f2c-a743d763d8eb">&lt;strong&gt;</bpt>File<ept id="ee6621fb-a0ab-4c22-9f2c-a743d763d8eb">&lt;/strong&gt;</ept> menu, select <bpt id="0c1eaf60-b9bd-425f-9012-ca82e6ee4fdd">&lt;strong&gt;</bpt>New<ept id="0c1eaf60-b9bd-425f-9012-ca82e6ee4fdd">&lt;/strong&gt;</ept> and then select <bpt id="02473c19-9f27-48cd-b853-b50c64cb9088">&lt;strong&gt;</bpt>Project<ept id="02473c19-9f27-48cd-b853-b50c64cb9088">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="982cc857-251c-4cd1-8ad6-e22b604997f6" xml:space="preserve">
+          <source>For the new project, type or select the following values.</source>
+          <target state="new">For the new project, type or select the following values.</target>
+        </trans-unit>
+        <trans-unit id="5a208740-e794-4b53-b650-7ae618967c5d" xml:space="preserve">
+          <source>Propety</source>
+          <target state="new">Propety</target>
+        </trans-unit>
+        <trans-unit id="ae0f170c-88d5-4c3c-91ab-927353b49cf3" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="65b59542-bddb-4ca3-a731-ab0121404a7a" xml:space="preserve">
+          <source>Category</source>
+          <target state="new">Category</target>
+        </trans-unit>
+        <trans-unit id="7aa5de31-b4ba-4e62-81fe-d32665d2885e" xml:space="preserve">
+          <source>Templates/Visual C#/Windows</source>
+          <target state="new">Templates/Visual C#/Windows</target>
+        </trans-unit>
+        <trans-unit id="4b4d2e7b-46e0-42f9-a4e8-b4e72e184b3b" xml:space="preserve">
+          <source>Template</source>
+          <target state="new">Template</target>
+        </trans-unit>
+        <trans-unit id="389ef115-aa90-4d16-b386-aafae4e31730" xml:space="preserve">
+          <source>Console Application</source>
+          <target state="new">Console Application</target>
+        </trans-unit>
+        <trans-unit id="80e63f82-6ce7-4265-b636-824e261f4680" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="93581fa9-7c99-4ed3-8b3e-c334a96f6df6" xml:space="preserve">
+          <source>SubmitPigJob</source>
+          <target state="new">SubmitPigJob</target>
+        </trans-unit>
+        <trans-unit id="cc259968-db95-4722-8e9f-6fef0080916e" xml:space="preserve">
+          <source>Click <bpt id="3fffccfb-2191-4e97-bb6c-48b93dc5b9e7">&lt;strong&gt;</bpt>OK<ept id="3fffccfb-2191-4e97-bb6c-48b93dc5b9e7">&lt;/strong&gt;</ept> to create the project.</source>
+          <target state="new">Click <bpt id="3fffccfb-2191-4e97-bb6c-48b93dc5b9e7">&lt;strong&gt;</bpt>OK<ept id="3fffccfb-2191-4e97-bb6c-48b93dc5b9e7">&lt;/strong&gt;</ept> to create the project.</target>
+        </trans-unit>
+        <trans-unit id="467cc265-57ad-4042-a6b4-641de8cca0e7" xml:space="preserve">
+          <source>From the <bpt id="be46128b-b9ce-4ebe-9eaa-904fdb0045e2">&lt;strong&gt;</bpt>Tools<ept id="be46128b-b9ce-4ebe-9eaa-904fdb0045e2">&lt;/strong&gt;</ept> menu, select <bpt id="b35c9fd8-29a1-40d0-a009-896eca3665c0">&lt;strong&gt;</bpt>Library Package Manager<ept id="b35c9fd8-29a1-40d0-a009-896eca3665c0">&lt;/strong&gt;</ept> or <bpt id="5a1d177a-43a7-4d0f-ab18-adff34bcb235">&lt;strong&gt;</bpt>Nuget Package Manager<ept id="5a1d177a-43a7-4d0f-ab18-adff34bcb235">&lt;/strong&gt;</ept>, and then select <bpt id="5cf60272-70f4-424e-a27a-4d419df8b5f0">&lt;strong&gt;</bpt>Package Manager Console<ept id="5cf60272-70f4-424e-a27a-4d419df8b5f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="be46128b-b9ce-4ebe-9eaa-904fdb0045e2">&lt;strong&gt;</bpt>Tools<ept id="be46128b-b9ce-4ebe-9eaa-904fdb0045e2">&lt;/strong&gt;</ept> menu, select <bpt id="b35c9fd8-29a1-40d0-a009-896eca3665c0">&lt;strong&gt;</bpt>Library Package Manager<ept id="b35c9fd8-29a1-40d0-a009-896eca3665c0">&lt;/strong&gt;</ept> or <bpt id="5a1d177a-43a7-4d0f-ab18-adff34bcb235">&lt;strong&gt;</bpt>Nuget Package Manager<ept id="5a1d177a-43a7-4d0f-ab18-adff34bcb235">&lt;/strong&gt;</ept>, and then select <bpt id="5cf60272-70f4-424e-a27a-4d419df8b5f0">&lt;strong&gt;</bpt>Package Manager Console<ept id="5cf60272-70f4-424e-a27a-4d419df8b5f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d2892f0-a683-4398-ae9d-921a3be564bd" xml:space="preserve">
+          <source>Run the following command in the console to install the .NET SDK packages.</source>
+          <target state="new">Run the following command in the console to install the .NET SDK packages.</target>
+        </trans-unit>
+        <trans-unit id="5cfff1a0-c1d3-4ad7-95c9-974d3400c150" xml:space="preserve">
+          <source>From Solution Explorer, double-click <bpt id="4d6a59d1-0771-4efa-b968-8fe9f9be0e8b">&lt;strong&gt;</bpt>Program.cs<ept id="4d6a59d1-0771-4efa-b968-8fe9f9be0e8b">&lt;/strong&gt;</ept> to open it.</source>
+          <target state="new">From Solution Explorer, double-click <bpt id="4d6a59d1-0771-4efa-b968-8fe9f9be0e8b">&lt;strong&gt;</bpt>Program.cs<ept id="4d6a59d1-0771-4efa-b968-8fe9f9be0e8b">&lt;/strong&gt;</ept> to open it.</target>
+        </trans-unit>
+        <trans-unit id="74cf2d3f-c7b2-426b-806a-165766dffe06" xml:space="preserve">
+          <source>Replace the existing code with the following.</source>
+          <target state="new">Replace the existing code with the following.</target>
+        </trans-unit>
+        <trans-unit id="3027a6cf-9ca7-4179-bdfc-fce0f957c979" xml:space="preserve">
+          <source>Save the file.</source>
+          <target state="new">Save the file.</target>
+        </trans-unit>
+        <trans-unit id="db99c8de-0ad2-4243-9610-eb9a91c70b21" xml:space="preserve">
+          <source>Use <bpt id="0ca71a22-4e63-4a44-9dc6-018d273ef8b0">&lt;strong&gt;</bpt>F5<ept id="0ca71a22-4e63-4a44-9dc6-018d273ef8b0">&lt;/strong&gt;</ept> to start the application.</source>
+          <target state="new">Use <bpt id="0ca71a22-4e63-4a44-9dc6-018d273ef8b0">&lt;strong&gt;</bpt>F5<ept id="0ca71a22-4e63-4a44-9dc6-018d273ef8b0">&lt;/strong&gt;</ept> to start the application.</target>
+        </trans-unit>
+        <trans-unit id="f1364f08-d44a-47b9-9b57-514cc75187c5" xml:space="preserve">
+          <source>When prompted, enter the <bpt id="838e1148-1ceb-4176-bd47-46768dbdca1b">&lt;strong&gt;</bpt>Subscription ID<ept id="838e1148-1ceb-4176-bd47-46768dbdca1b">&lt;/strong&gt;</ept>, the <bpt id="779cc449-48d4-4f52-aafe-7e24d15d248a">&lt;strong&gt;</bpt>Certificate friendly name<ept id="779cc449-48d4-4f52-aafe-7e24d15d248a">&lt;/strong&gt;</ept>, and the <bpt id="9568e947-64c2-480b-9d23-4a20b1fc4dcb">&lt;strong&gt;</bpt>HDInsight cluster name<ept id="9568e947-64c2-480b-9d23-4a20b1fc4dcb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted, enter the <bpt id="838e1148-1ceb-4176-bd47-46768dbdca1b">&lt;strong&gt;</bpt>Subscription ID<ept id="838e1148-1ceb-4176-bd47-46768dbdca1b">&lt;/strong&gt;</ept>, the <bpt id="779cc449-48d4-4f52-aafe-7e24d15d248a">&lt;strong&gt;</bpt>Certificate friendly name<ept id="779cc449-48d4-4f52-aafe-7e24d15d248a">&lt;/strong&gt;</ept>, and the <bpt id="9568e947-64c2-480b-9d23-4a20b1fc4dcb">&lt;strong&gt;</bpt>HDInsight cluster name<ept id="9568e947-64c2-480b-9d23-4a20b1fc4dcb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a28f49c-8c90-45b6-946d-afb5b6f390cb" xml:space="preserve">
+          <source>The application will produce several lines of information as it runs, ending with something similar to the following.</source>
+          <target state="new">The application will produce several lines of information as it runs, ending with something similar to the following.</target>
+        </trans-unit>
+        <trans-unit id="bda30833-f37a-4dc0-a915-d81b45e5e189" xml:space="preserve">
+          <source>Press <bpt id="f1352ca8-a5af-43c5-bf48-169b2783874b">&lt;strong&gt;</bpt>ENTER<ept id="f1352ca8-a5af-43c5-bf48-169b2783874b">&lt;/strong&gt;</ept> to exit the application.</source>
+          <target state="new">Press <bpt id="f1352ca8-a5af-43c5-bf48-169b2783874b">&lt;strong&gt;</bpt>ENTER<ept id="f1352ca8-a5af-43c5-bf48-169b2783874b">&lt;/strong&gt;</ept> to exit the application.</target>
+        </trans-unit>
+        <trans-unit id="efd38e96-c3ab-48d2-a8d1-fa180c19e883" xml:space="preserve">
+          <source>As you can see, the .NET SDK for Hadoop allows you to create .NET applications that submit Pig jobs to an HDInsight cluster, monitor the job status, and retrieve the output.</source>
+          <target state="new">As you can see, the .NET SDK for Hadoop allows you to create .NET applications that submit Pig jobs to an HDInsight cluster, monitor the job status, and retrieve the output.</target>
+        </trans-unit>
+        <trans-unit id="a01b0fa9-8597-490d-8ad7-92ecceaa22e9" xml:space="preserve">
+          <source>For general information on Pig in HDInsight.</source>
+          <target state="new">For general information on Pig in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="307e2f7d-eec2-456e-9dd3-5d4cdd59839e" xml:space="preserve">
+          <source><bpt id="1d62a0cc-9f33-42d7-80d9-6be49fc61217">&lt;linkText&gt;</bpt>Use Pig with Hadoop on HDInsight<ept id="1d62a0cc-9f33-42d7-80d9-6be49fc61217">&lt;/linkText&gt;</ept><bpt id="1d62a0cc-9f33-42d7-80d9-6be49fc61217">&lt;title&gt;</bpt><ept id="1d62a0cc-9f33-42d7-80d9-6be49fc61217">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1d62a0cc-9f33-42d7-80d9-6be49fc61217">&lt;linkText&gt;</bpt>Use Pig with Hadoop on HDInsight<ept id="1d62a0cc-9f33-42d7-80d9-6be49fc61217">&lt;/linkText&gt;</ept><bpt id="1d62a0cc-9f33-42d7-80d9-6be49fc61217">&lt;title&gt;</bpt><ept id="1d62a0cc-9f33-42d7-80d9-6be49fc61217">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38319144-6e98-46bb-ba28-c4f1e491d8ee" xml:space="preserve">
+          <source>For information on other ways you can work with Hadoop on HDInsight.</source>
+          <target state="new">For information on other ways you can work with Hadoop on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="5e55e884-5b1c-4a27-a976-fced38f5fee9" xml:space="preserve">
+          <source><bpt id="151a0a63-2351-4012-a1c4-3cf37097c9ef">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight<ept id="151a0a63-2351-4012-a1c4-3cf37097c9ef">&lt;/linkText&gt;</ept><bpt id="151a0a63-2351-4012-a1c4-3cf37097c9ef">&lt;title&gt;</bpt><ept id="151a0a63-2351-4012-a1c4-3cf37097c9ef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="151a0a63-2351-4012-a1c4-3cf37097c9ef">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight<ept id="151a0a63-2351-4012-a1c4-3cf37097c9ef">&lt;/linkText&gt;</ept><bpt id="151a0a63-2351-4012-a1c4-3cf37097c9ef">&lt;title&gt;</bpt><ept id="151a0a63-2351-4012-a1c4-3cf37097c9ef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3227a2f-5cb6-494b-b1e9-db7ec549a644" xml:space="preserve">
+          <source><bpt id="c66e36c7-6f90-48c4-80ed-b2806f26347d">&lt;linkText&gt;</bpt>Use MapReduce with Hadoop on HDInsight<ept id="c66e36c7-6f90-48c4-80ed-b2806f26347d">&lt;/linkText&gt;</ept><bpt id="c66e36c7-6f90-48c4-80ed-b2806f26347d">&lt;title&gt;</bpt><ept id="c66e36c7-6f90-48c4-80ed-b2806f26347d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c66e36c7-6f90-48c4-80ed-b2806f26347d">&lt;linkText&gt;</bpt>Use MapReduce with Hadoop on HDInsight<ept id="c66e36c7-6f90-48c4-80ed-b2806f26347d">&lt;/linkText&gt;</ept><bpt id="c66e36c7-6f90-48c4-80ed-b2806f26347d">&lt;title&gt;</bpt><ept id="c66e36c7-6f90-48c4-80ed-b2806f26347d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4144b703-87b6-418d-bc45-b3959caad61c" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="b05caacf-463c-460f-8fb1-1a62cf6d5e12" />
+    </body>
+  </file>
+</xliff>

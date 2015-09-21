@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="03861149-6892-4851-ba84-b09f0faec066" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="03861149-6892-4851-ba84-b09f0faec066" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0de39182-e934-4abe-95b6-aad283b85189">
+        <trans-unit id="2f667c5b-e132-4de4-b017-9671829ce667" xml:space="preserve">
+          <source>Security Considerations for SQL Server in Azure Virtual Machines</source>
+          <target state="new">Security Considerations for SQL Server in Azure Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="6720fdda-ac5b-4fc6-a1ad-63fc671fc8be" xml:space="preserve">
+          <source>Provides general guidance for securing SQL Server running in an Azure Virtual Machine.</source>
+          <target state="new">Provides general guidance for securing SQL Server running in an Azure Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="af224352-4859-4289-8d89-f71603829a92" xml:space="preserve">
+          <source>This topic includes overall security guidelines that help establish secure access to SQL Server instances in an Azure VM.</source>
+          <target state="new">This topic includes overall security guidelines that help establish secure access to SQL Server instances in an Azure VM.</target>
+        </trans-unit>
+        <trans-unit id="4054026c-e313-405d-82a3-906810556409" xml:space="preserve">
+          <source>However, in order to ensure better protection to your SQL Server database instances in Azure, we recommend that you implement the traditional on-premises security practices in addition to the security best practices for Azure.</source>
+          <target state="new">However, in order to ensure better protection to your SQL Server database instances in Azure, we recommend that you implement the traditional on-premises security practices in addition to the security best practices for Azure.</target>
+        </trans-unit>
+        <trans-unit id="e556062e-930a-4b1f-9fc5-bca1e785f061" xml:space="preserve">
+          <source>For more information about the SQL Server security practices, see [SQL Server 2008 R2 Security Best Practices - Operational and Administrative Tasks](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL<bpt id="4d4b0ed1-89a1-426c-89db-2a45a8b610bd">&lt;em&gt;</bpt>Server<ept id="4d4b0ed1-89a1-426c-89db-2a45a8b610bd">&lt;/em&gt;</ept>2008<bpt id="04ff53d1-7d7a-44ef-b8a4-163154dcd480">&lt;em&gt;</bpt>R2<ept id="04ff53d1-7d7a-44ef-b8a4-163154dcd480">&lt;/em&gt;</ept>Security<bpt id="17800d4d-87b7-42df-ab95-67638a202574">&lt;em&gt;</bpt>Best<ept id="17800d4d-87b7-42df-ab95-67638a202574">&lt;/em&gt;</ept>Practice_Whitepaper.docx)</source>
+          <target state="new">For more information about the SQL Server security practices, see [SQL Server 2008 R2 Security Best Practices - Operational and Administrative Tasks](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL<bpt id="4d4b0ed1-89a1-426c-89db-2a45a8b610bd">&lt;em&gt;</bpt>Server<ept id="4d4b0ed1-89a1-426c-89db-2a45a8b610bd">&lt;/em&gt;</ept>2008<bpt id="04ff53d1-7d7a-44ef-b8a4-163154dcd480">&lt;em&gt;</bpt>R2<ept id="04ff53d1-7d7a-44ef-b8a4-163154dcd480">&lt;/em&gt;</ept>Security<bpt id="17800d4d-87b7-42df-ab95-67638a202574">&lt;em&gt;</bpt>Best<ept id="17800d4d-87b7-42df-ab95-67638a202574">&lt;/em&gt;</ept>Practice_Whitepaper.docx)</target>
+        </trans-unit>
+        <trans-unit id="f644d1a4-5b12-40b3-9413-86da2610c6de" xml:space="preserve">
+          <source>Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a Virtual Machine.</source>
+          <target state="new">Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="ded6f46a-2885-4a3d-8a4e-0859e9860e8e" xml:space="preserve">
+          <source>For information about regulatory compliance with Azure, see <bpt id="ee25f0d3-7117-433e-b850-0f116e9877d1">&lt;linkText&gt;</bpt>Azure Trust Center<ept id="ee25f0d3-7117-433e-b850-0f116e9877d1">&lt;/linkText&gt;</ept><bpt id="ee25f0d3-7117-433e-b850-0f116e9877d1">&lt;title&gt;</bpt><ept id="ee25f0d3-7117-433e-b850-0f116e9877d1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about regulatory compliance with Azure, see <bpt id="ee25f0d3-7117-433e-b850-0f116e9877d1">&lt;linkText&gt;</bpt>Azure Trust Center<ept id="ee25f0d3-7117-433e-b850-0f116e9877d1">&lt;/linkText&gt;</ept><bpt id="ee25f0d3-7117-433e-b850-0f116e9877d1">&lt;title&gt;</bpt><ept id="ee25f0d3-7117-433e-b850-0f116e9877d1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="397a0d83-9323-4c4a-9641-2cb387318ce3" xml:space="preserve">
+          <source>Following is a list of security recommendations that should be considered when configuring and connecting to the instance of SQL Server in an Azure VM.</source>
+          <target state="new">Following is a list of security recommendations that should be considered when configuring and connecting to the instance of SQL Server in an Azure VM.</target>
+        </trans-unit>
+        <trans-unit id="0f3ac8da-5306-40f6-9741-c42bd0075e22" xml:space="preserve">
+          <source>Create a unique local administrator account that is not named <bpt id="033ffeb6-9f1d-447a-a417-65b89fc10a1f">&lt;strong&gt;</bpt>Administrator<ept id="033ffeb6-9f1d-447a-a417-65b89fc10a1f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a unique local administrator account that is not named <bpt id="033ffeb6-9f1d-447a-a417-65b89fc10a1f">&lt;strong&gt;</bpt>Administrator<ept id="033ffeb6-9f1d-447a-a417-65b89fc10a1f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82022ea3-bf5d-4f27-9f33-39d52b56f04b" xml:space="preserve">
+          <source>Use complex strong passwords for all your accounts.</source>
+          <target state="new">Use complex strong passwords for all your accounts.</target>
+        </trans-unit>
+        <trans-unit id="1d430cf4-49ee-49b9-8897-79b49f8a2acf" xml:space="preserve">
+          <source>For more information about how to create a strong password, see <bpt id="3effd75b-aad1-47b7-be09-54713e6d00cf">&lt;linkText&gt;</bpt>Create Strong Passwords<ept id="3effd75b-aad1-47b7-be09-54713e6d00cf">&lt;/linkText&gt;</ept><bpt id="3effd75b-aad1-47b7-be09-54713e6d00cf">&lt;title&gt;</bpt><ept id="3effd75b-aad1-47b7-be09-54713e6d00cf">&lt;/title&gt;</ept> article in the Safety and Security Center.</source>
+          <target state="new">For more information about how to create a strong password, see <bpt id="3effd75b-aad1-47b7-be09-54713e6d00cf">&lt;linkText&gt;</bpt>Create Strong Passwords<ept id="3effd75b-aad1-47b7-be09-54713e6d00cf">&lt;/linkText&gt;</ept><bpt id="3effd75b-aad1-47b7-be09-54713e6d00cf">&lt;title&gt;</bpt><ept id="3effd75b-aad1-47b7-be09-54713e6d00cf">&lt;/title&gt;</ept> article in the Safety and Security Center.</target>
+        </trans-unit>
+        <trans-unit id="d3a375a7-90e8-4400-aeaf-c19010cdafec" xml:space="preserve">
+          <source>By default, Azure selects Windows Authentication during SQL Server Virtual Machine setup.</source>
+          <target state="new">By default, Azure selects Windows Authentication during SQL Server Virtual Machine setup.</target>
+        </trans-unit>
+        <trans-unit id="211b079b-cf9d-4eb6-9b4e-903d432ecade" xml:space="preserve">
+          <source>Therefore, the <bpt id="dae28240-e2c0-4132-a2c2-eae15e5ecc0e">&lt;strong&gt;</bpt>SA<ept id="dae28240-e2c0-4132-a2c2-eae15e5ecc0e">&lt;/strong&gt;</ept> login is disabled and a password is assigned by setup.</source>
+          <target state="new">Therefore, the <bpt id="dae28240-e2c0-4132-a2c2-eae15e5ecc0e">&lt;strong&gt;</bpt>SA<ept id="dae28240-e2c0-4132-a2c2-eae15e5ecc0e">&lt;/strong&gt;</ept> login is disabled and a password is assigned by setup.</target>
+        </trans-unit>
+        <trans-unit id="c6b47be0-9cd6-4b24-aad2-5ba24074ebce" xml:space="preserve">
+          <source>We recommend that the <bpt id="92e6741d-1033-4d49-b6d7-b91fa438be9d">&lt;strong&gt;</bpt>SA<ept id="92e6741d-1033-4d49-b6d7-b91fa438be9d">&lt;/strong&gt;</ept> login should be not be used or enabled.</source>
+          <target state="new">We recommend that the <bpt id="92e6741d-1033-4d49-b6d7-b91fa438be9d">&lt;strong&gt;</bpt>SA<ept id="92e6741d-1033-4d49-b6d7-b91fa438be9d">&lt;/strong&gt;</ept> login should be not be used or enabled.</target>
+        </trans-unit>
+        <trans-unit id="937382f9-566c-4019-af30-8e6ef41b1b72" xml:space="preserve">
+          <source>The following are alternative strategies if a SQL Login is desired:</source>
+          <target state="new">The following are alternative strategies if a SQL Login is desired:</target>
+        </trans-unit>
+        <trans-unit id="26bfadc7-9eaa-48a8-9a31-754aa9287ec7" xml:space="preserve">
+          <source>Create a SQL account that has <bpt id="fd52a60c-b13d-425b-9173-c02ddde44c39">&lt;strong&gt;</bpt>CONTROL SERVER<ept id="fd52a60c-b13d-425b-9173-c02ddde44c39">&lt;/strong&gt;</ept> permissions.</source>
+          <target state="new">Create a SQL account that has <bpt id="fd52a60c-b13d-425b-9173-c02ddde44c39">&lt;strong&gt;</bpt>CONTROL SERVER<ept id="fd52a60c-b13d-425b-9173-c02ddde44c39">&lt;/strong&gt;</ept> permissions.</target>
+        </trans-unit>
+        <trans-unit id="ea5f2b1f-f4eb-41b0-90c9-061d836bcc86" xml:space="preserve">
+          <source>If you must use a <bpt id="5c12f2cc-20cc-4c33-b1dd-08837ea5c34b">&lt;strong&gt;</bpt>SA<ept id="5c12f2cc-20cc-4c33-b1dd-08837ea5c34b">&lt;/strong&gt;</ept> login, enable the login and rename it and assign a new password.</source>
+          <target state="new">If you must use a <bpt id="5c12f2cc-20cc-4c33-b1dd-08837ea5c34b">&lt;strong&gt;</bpt>SA<ept id="5c12f2cc-20cc-4c33-b1dd-08837ea5c34b">&lt;/strong&gt;</ept> login, enable the login and rename it and assign a new password.</target>
+        </trans-unit>
+        <trans-unit id="62686f59-9a78-467d-82ed-61b3f96d5fda" xml:space="preserve">
+          <source>Both the options that were mentioned earlier require a change the authentication mode to SQL Server and Windows Authentication Mode.</source>
+          <target state="new">Both the options that were mentioned earlier require a change the authentication mode to SQL Server and Windows Authentication Mode.</target>
+        </trans-unit>
+        <trans-unit id="490f6ffc-8854-4461-ba78-edddf84de9b0" xml:space="preserve">
+          <source>For more information, see Change Server Authentication Mode.</source>
+          <target state="new">For more information, see Change Server Authentication Mode.</target>
+        </trans-unit>
+        <trans-unit id="1c912904-328c-47f0-8a44-fce05ae75cd4" xml:space="preserve">
+          <source>Create a SQL account that has CONTROL SERVER permissions.</source>
+          <target state="new">Create a SQL account that has CONTROL SERVER permissions.</target>
+        </trans-unit>
+        <trans-unit id="c0df1a11-af52-4d73-bb14-6f1e6e9e118d" xml:space="preserve">
+          <source>If you must use a SA login, enable the login and rename it and assign a new password.</source>
+          <target state="new">If you must use a SA login, enable the login and rename it and assign a new password.</target>
+        </trans-unit>
+        <trans-unit id="23ca93c7-e754-41b5-aaf5-2e49527b1314" xml:space="preserve">
+          <source>Both the options that were mentioned earlier require a change the authentication mode to <bpt id="7963008b-167a-4a47-9635-403f28837955">&lt;strong&gt;</bpt>SQL Server and Windows Authentication Mode<ept id="7963008b-167a-4a47-9635-403f28837955">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Both the options that were mentioned earlier require a change the authentication mode to <bpt id="7963008b-167a-4a47-9635-403f28837955">&lt;strong&gt;</bpt>SQL Server and Windows Authentication Mode<ept id="7963008b-167a-4a47-9635-403f28837955">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9859721-33eb-49d4-86f7-6e4ed9d7fc97" xml:space="preserve">
+          <source>For more information, see <bpt id="7e7d2b9b-894e-4aa3-b5f7-f841c041fce1">&lt;linkText&gt;</bpt>Change Server Authentication Mode<ept id="7e7d2b9b-894e-4aa3-b5f7-f841c041fce1">&lt;/linkText&gt;</ept><bpt id="7e7d2b9b-894e-4aa3-b5f7-f841c041fce1">&lt;title&gt;</bpt><ept id="7e7d2b9b-894e-4aa3-b5f7-f841c041fce1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7e7d2b9b-894e-4aa3-b5f7-f841c041fce1">&lt;linkText&gt;</bpt>Change Server Authentication Mode<ept id="7e7d2b9b-894e-4aa3-b5f7-f841c041fce1">&lt;/linkText&gt;</ept><bpt id="7e7d2b9b-894e-4aa3-b5f7-f841c041fce1">&lt;title&gt;</bpt><ept id="7e7d2b9b-894e-4aa3-b5f7-f841c041fce1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c2d4d42-3d00-465d-8d88-23ff21791484" xml:space="preserve">
+          <source>Consider using <bpt id="eedc051d-53a3-46ee-b339-5536bcbeba03">&lt;linkText&gt;</bpt>Azure Virtual Network<ept id="eedc051d-53a3-46ee-b339-5536bcbeba03">&lt;/linkText&gt;</ept><bpt id="eedc051d-53a3-46ee-b339-5536bcbeba03">&lt;title&gt;</bpt><ept id="eedc051d-53a3-46ee-b339-5536bcbeba03">&lt;/title&gt;</ept> to administer the virtual machines instead of public RDP ports.</source>
+          <target state="new">Consider using <bpt id="eedc051d-53a3-46ee-b339-5536bcbeba03">&lt;linkText&gt;</bpt>Azure Virtual Network<ept id="eedc051d-53a3-46ee-b339-5536bcbeba03">&lt;/linkText&gt;</ept><bpt id="eedc051d-53a3-46ee-b339-5536bcbeba03">&lt;title&gt;</bpt><ept id="eedc051d-53a3-46ee-b339-5536bcbeba03">&lt;/title&gt;</ept> to administer the virtual machines instead of public RDP ports.</target>
+        </trans-unit>
+        <trans-unit id="17c45485-8214-4b69-a23a-1e970f053b7b" xml:space="preserve">
+          <source>Remove any endpoints on the virtual machine if you do not use them.</source>
+          <target state="new">Remove any endpoints on the virtual machine if you do not use them.</target>
+        </trans-unit>
+        <trans-unit id="9703e2a3-4b52-4b90-8a84-a6197f8b79b6" xml:space="preserve">
+          <source>Enable an encrypted connection option for an instance of the SQL Server Database Engine in Azure Virtual Machines.</source>
+          <target state="new">Enable an encrypted connection option for an instance of the SQL Server Database Engine in Azure Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="a663d8c4-9cab-4c09-a79b-ac7212144076" xml:space="preserve">
+          <source>Configure SQL server instance with a signed certificate.</source>
+          <target state="new">Configure SQL server instance with a signed certificate.</target>
+        </trans-unit>
+        <trans-unit id="66d880d0-d26d-40b5-9111-2916ae95250b" xml:space="preserve">
+          <source>For more information, see <bpt id="5876ce84-3f8e-49a2-a710-69c049f9fe92">&lt;linkText&gt;</bpt>Enable Encrypted Connections to the Database Engine<ept id="5876ce84-3f8e-49a2-a710-69c049f9fe92">&lt;/linkText&gt;</ept><bpt id="5876ce84-3f8e-49a2-a710-69c049f9fe92">&lt;title&gt;</bpt><ept id="5876ce84-3f8e-49a2-a710-69c049f9fe92">&lt;/title&gt;</ept> and <bpt id="6e05f710-dfd9-4b3c-b361-7b8b8c5e9c03">&lt;linkText&gt;</bpt>Connection String Syntax<ept id="6e05f710-dfd9-4b3c-b361-7b8b8c5e9c03">&lt;/linkText&gt;</ept><bpt id="6e05f710-dfd9-4b3c-b361-7b8b8c5e9c03">&lt;title&gt;</bpt><ept id="6e05f710-dfd9-4b3c-b361-7b8b8c5e9c03">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="5876ce84-3f8e-49a2-a710-69c049f9fe92">&lt;linkText&gt;</bpt>Enable Encrypted Connections to the Database Engine<ept id="5876ce84-3f8e-49a2-a710-69c049f9fe92">&lt;/linkText&gt;</ept><bpt id="5876ce84-3f8e-49a2-a710-69c049f9fe92">&lt;title&gt;</bpt><ept id="5876ce84-3f8e-49a2-a710-69c049f9fe92">&lt;/title&gt;</ept> and <bpt id="6e05f710-dfd9-4b3c-b361-7b8b8c5e9c03">&lt;linkText&gt;</bpt>Connection String Syntax<ept id="6e05f710-dfd9-4b3c-b361-7b8b8c5e9c03">&lt;/linkText&gt;</ept><bpt id="6e05f710-dfd9-4b3c-b361-7b8b8c5e9c03">&lt;title&gt;</bpt><ept id="6e05f710-dfd9-4b3c-b361-7b8b8c5e9c03">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3dd51c72-b936-403f-bc59-9dcbd12413b8" xml:space="preserve">
+          <source>If your virtual machines should be accessed only from a specific network, use Windows Firewall to restrict access to certain IP addresses or network subnets.</source>
+          <target state="new">If your virtual machines should be accessed only from a specific network, use Windows Firewall to restrict access to certain IP addresses or network subnets.</target>
+        </trans-unit>
+        <trans-unit id="2ceec876-1c6b-4178-8498-9fd8bd926383" xml:space="preserve">
+          <source>You can also consider adding an ACL on your endpoint to restrict traffic only to the clients you permit.</source>
+          <target state="new">You can also consider adding an ACL on your endpoint to restrict traffic only to the clients you permit.</target>
+        </trans-unit>
+        <trans-unit id="65c7db21-4198-4957-b64a-04c06c909932" xml:space="preserve">
+          <source>For instructions on using ACLs with endpoints, see <bpt id="374621be-804d-4384-a1a6-978f05b4794e">&lt;linkText&gt;</bpt>Manage the ACL on an endpoint<ept id="374621be-804d-4384-a1a6-978f05b4794e">&lt;/linkText&gt;</ept><bpt id="374621be-804d-4384-a1a6-978f05b4794e">&lt;title&gt;</bpt><ept id="374621be-804d-4384-a1a6-978f05b4794e">&lt;/title&gt;</ept></source>
+          <target state="new">For instructions on using ACLs with endpoints, see <bpt id="374621be-804d-4384-a1a6-978f05b4794e">&lt;linkText&gt;</bpt>Manage the ACL on an endpoint<ept id="374621be-804d-4384-a1a6-978f05b4794e">&lt;/linkText&gt;</ept><bpt id="374621be-804d-4384-a1a6-978f05b4794e">&lt;title&gt;</bpt><ept id="374621be-804d-4384-a1a6-978f05b4794e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f32963cb-5631-4464-bcfe-ef61dd08d8d0" xml:space="preserve">
+          <source>If you are also interested in best practices around performance, see <bpt id="9bc8eb8a-4e83-47da-9be3-353747228595">&lt;linkText&gt;</bpt>Performance Best Practices for SQL Server in Azure Virtual Machines<ept id="9bc8eb8a-4e83-47da-9be3-353747228595">&lt;/linkText&gt;</ept><bpt id="9bc8eb8a-4e83-47da-9be3-353747228595">&lt;title&gt;</bpt><ept id="9bc8eb8a-4e83-47da-9be3-353747228595">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are also interested in best practices around performance, see <bpt id="9bc8eb8a-4e83-47da-9be3-353747228595">&lt;linkText&gt;</bpt>Performance Best Practices for SQL Server in Azure Virtual Machines<ept id="9bc8eb8a-4e83-47da-9be3-353747228595">&lt;/linkText&gt;</ept><bpt id="9bc8eb8a-4e83-47da-9be3-353747228595">&lt;title&gt;</bpt><ept id="9bc8eb8a-4e83-47da-9be3-353747228595">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68ee683b-9a95-422f-9bd4-ac34917ab973" xml:space="preserve">
+          <source>For other topics related to running SQL Server in Azure VMs, see <bpt id="6b8ee8e0-fef2-4394-b416-a4fe1ed1af33">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines overview<ept id="6b8ee8e0-fef2-4394-b416-a4fe1ed1af33">&lt;/linkText&gt;</ept><bpt id="6b8ee8e0-fef2-4394-b416-a4fe1ed1af33">&lt;title&gt;</bpt><ept id="6b8ee8e0-fef2-4394-b416-a4fe1ed1af33">&lt;/title&gt;</ept>.</source>
+          <target state="new">For other topics related to running SQL Server in Azure VMs, see <bpt id="6b8ee8e0-fef2-4394-b416-a4fe1ed1af33">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines overview<ept id="6b8ee8e0-fef2-4394-b416-a4fe1ed1af33">&lt;/linkText&gt;</ept><bpt id="6b8ee8e0-fef2-4394-b416-a4fe1ed1af33">&lt;title&gt;</bpt><ept id="6b8ee8e0-fef2-4394-b416-a4fe1ed1af33">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

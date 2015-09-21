@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2d5ed5d4-919d-444b-9350-f4d598beddd6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2d5ed5d4-919d-444b-9350-f4d598beddd6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b8fff13b-896b-436f-b334-f74e2911faaf">
+        <trans-unit id="4b509dd7-48fc-411b-8a33-8b86fa8e499d" xml:space="preserve">
+          <source>Common operations in the Machine Learning Recommendations API | Microsoft Azure</source>
+          <target state="new">Common operations in the Machine Learning Recommendations API | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0a56b0ce-10e7-429e-9db5-98d9b39634d6" xml:space="preserve">
+          <source>Azure ML Recommendation Sample Application</source>
+          <target state="new">Azure ML Recommendation Sample Application</target>
+        </trans-unit>
+        <trans-unit id="8006c3dc-5560-4d8c-8ae3-f9faddb45b55" xml:space="preserve">
+          <source>This document shows the usage of the Azure Machine Learning Recommendations API via a <bpt id="6d65e1a1-04ae-4ce6-be3b-a355b6cc779a">&lt;linkText&gt;</bpt>sample application<ept id="6d65e1a1-04ae-4ce6-be3b-a355b6cc779a">&lt;/linkText&gt;</ept><bpt id="6d65e1a1-04ae-4ce6-be3b-a355b6cc779a">&lt;title&gt;</bpt><ept id="6d65e1a1-04ae-4ce6-be3b-a355b6cc779a">&lt;/title&gt;</ept>.</source>
+          <target state="new">This document shows the usage of the Azure Machine Learning Recommendations API via a <bpt id="6d65e1a1-04ae-4ce6-be3b-a355b6cc779a">&lt;linkText&gt;</bpt>sample application<ept id="6d65e1a1-04ae-4ce6-be3b-a355b6cc779a">&lt;/linkText&gt;</ept><bpt id="6d65e1a1-04ae-4ce6-be3b-a355b6cc779a">&lt;title&gt;</bpt><ept id="6d65e1a1-04ae-4ce6-be3b-a355b6cc779a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8bfbb38-d692-44b3-b171-3cd1409ab665" xml:space="preserve">
+          <source>This application is not intended to include full functionality, nor does it use all the APIs.</source>
+          <target state="new">This application is not intended to include full functionality, nor does it use all the APIs.</target>
+        </trans-unit>
+        <trans-unit id="3a068e3a-e0ec-4e60-83ca-4b0e8b7268cd" xml:space="preserve">
+          <source>It demonstrates some common operations to perform when you first want to play with the Machine Learning recommendation service.</source>
+          <target state="new">It demonstrates some common operations to perform when you first want to play with the Machine Learning recommendation service.</target>
+        </trans-unit>
+        <trans-unit id="b3198f95-30ef-4275-bd5f-9fa0394e50e9" xml:space="preserve">
+          <source><bpt id="01bef4d1-20b8-441e-8ab0-494c24e9c8cb">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="01bef4d1-20b8-441e-8ab0-494c24e9c8cb">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="01bef4d1-20b8-441e-8ab0-494c24e9c8cb">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="01bef4d1-20b8-441e-8ab0-494c24e9c8cb">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93bc12a2-c6b3-42ff-bc5f-f657e6e22ebc" xml:space="preserve">
+          <source>Recommendations via the Machine Learning recommendation service are enabled when you build a recommendation model based on the following data:</source>
+          <target state="new">Recommendations via the Machine Learning recommendation service are enabled when you build a recommendation model based on the following data:</target>
+        </trans-unit>
+        <trans-unit id="6ff516bb-0f0e-4f7d-a7c0-0664dba3ecad" xml:space="preserve">
+          <source>A repository of the items you want to recommend, also known as a catalog</source>
+          <target state="new">A repository of the items you want to recommend, also known as a catalog</target>
+        </trans-unit>
+        <trans-unit id="7662b30c-28df-4fa7-b96d-a0fb6d4ce0b5" xml:space="preserve">
+          <source>Data representing the usage of items per user or session (this can be acquired over time via data acquisition, not as part of the sample app)</source>
+          <target state="new">Data representing the usage of items per user or session (this can be acquired over time via data acquisition, not as part of the sample app)</target>
+        </trans-unit>
+        <trans-unit id="440b3b1d-206f-4e6b-ae2c-0ce79a8b0762" xml:space="preserve">
+          <source>After a recommendation model is built, you can use it to predict items that a user might be interested in, according to a set of items (or a single item) the user selects.</source>
+          <target state="new">After a recommendation model is built, you can use it to predict items that a user might be interested in, according to a set of items (or a single item) the user selects.</target>
+        </trans-unit>
+        <trans-unit id="251a96c6-ec1b-4c03-8ab1-1c08d5e714df" xml:space="preserve">
+          <source>To enable the previous scenario, do the following in the Machine Learning recommendation service:</source>
+          <target state="new">To enable the previous scenario, do the following in the Machine Learning recommendation service:</target>
+        </trans-unit>
+        <trans-unit id="40a89890-0f40-4e51-a07f-e6e1f70f4d09" xml:space="preserve">
+          <source>Create a model: This is a logical container that holds the data (catalog and usage) and the prediction model(s).</source>
+          <target state="new">Create a model: This is a logical container that holds the data (catalog and usage) and the prediction model(s).</target>
+        </trans-unit>
+        <trans-unit id="bb0ad51c-6fc9-4872-93e0-6a0728c4d4c6" xml:space="preserve">
+          <source>Each model container is identified via a unique ID, which is allocated when it is created.</source>
+          <target state="new">Each model container is identified via a unique ID, which is allocated when it is created.</target>
+        </trans-unit>
+        <trans-unit id="3f636d5f-d480-41d9-a24d-b00a702f8320" xml:space="preserve">
+          <source>This ID is called the model ID, and it is used by most of the APIs.</source>
+          <target state="new">This ID is called the model ID, and it is used by most of the APIs.</target>
+        </trans-unit>
+        <trans-unit id="31f1ccba-0f40-4269-894f-dbb51540b792" xml:space="preserve">
+          <source>Upload to catalog: When a model container is created, you can associate to it a catalog.</source>
+          <target state="new">Upload to catalog: When a model container is created, you can associate to it a catalog.</target>
+        </trans-unit>
+        <trans-unit id="568eed0e-f6ee-4fa6-931a-d0b0c91b5ef1" xml:space="preserve">
+          <source><bpt id="898efede-78c8-4735-801b-7a7f6159bec8">&lt;strong&gt;</bpt>Note<ept id="898efede-78c8-4735-801b-7a7f6159bec8">&lt;/strong&gt;</ept>: Creating a model and uploading to a catalog are usually performed once for the model lifecycle.</source>
+          <target state="new"><bpt id="898efede-78c8-4735-801b-7a7f6159bec8">&lt;strong&gt;</bpt>Note<ept id="898efede-78c8-4735-801b-7a7f6159bec8">&lt;/strong&gt;</ept>: Creating a model and uploading to a catalog are usually performed once for the model lifecycle.</target>
+        </trans-unit>
+        <trans-unit id="efdac3dd-ef3f-4410-8478-b9d0855006f8" xml:space="preserve">
+          <source>Upload usage: This adds usage data to the model container.</source>
+          <target state="new">Upload usage: This adds usage data to the model container.</target>
+        </trans-unit>
+        <trans-unit id="dcf23faf-fbe4-4f55-ab5f-778b89bf88e3" xml:space="preserve">
+          <source>Build a recommendation model: After you have enough data, you can build the recommendation model.</source>
+          <target state="new">Build a recommendation model: After you have enough data, you can build the recommendation model.</target>
+        </trans-unit>
+        <trans-unit id="154e760d-f2fe-4612-bf13-75def1015890" xml:space="preserve">
+          <source>This operation uses the top Machine Learning algorithms to create a recommendation model.</source>
+          <target state="new">This operation uses the top Machine Learning algorithms to create a recommendation model.</target>
+        </trans-unit>
+        <trans-unit id="e8cd12b7-7432-4394-993a-beb8d788fbed" xml:space="preserve">
+          <source>Each build is associated with a unique ID.</source>
+          <target state="new">Each build is associated with a unique ID.</target>
+        </trans-unit>
+        <trans-unit id="f4e2cdb1-246d-4d32-bb5f-fcbe377d1fc7" xml:space="preserve">
+          <source>You need to keep a record of this ID because it is necessary for the functionality of some APIs.</source>
+          <target state="new">You need to keep a record of this ID because it is necessary for the functionality of some APIs.</target>
+        </trans-unit>
+        <trans-unit id="7918c4dc-8e15-48c6-b272-a29ab435ef57" xml:space="preserve">
+          <source>Monitor the building process: A recommendation model build is an asynchronous operation, and it can take from several minutes to several hours, depending on the amount of data (catalog and usage) and the build parameters.</source>
+          <target state="new">Monitor the building process: A recommendation model build is an asynchronous operation, and it can take from several minutes to several hours, depending on the amount of data (catalog and usage) and the build parameters.</target>
+        </trans-unit>
+        <trans-unit id="b92ec8dc-8087-4998-bc03-67cd6e699298" xml:space="preserve">
+          <source>Therefore, you need to monitor the build.</source>
+          <target state="new">Therefore, you need to monitor the build.</target>
+        </trans-unit>
+        <trans-unit id="c069d9bc-15e4-4135-9130-29db44eb394a" xml:space="preserve">
+          <source>A recommendation model is created only if its associated build completes successfully.</source>
+          <target state="new">A recommendation model is created only if its associated build completes successfully.</target>
+        </trans-unit>
+        <trans-unit id="f5e1b350-c6ec-4702-8a27-463a5fcde1a3" xml:space="preserve">
+          <source>(Optional) Choose an active recommendation model build: This step is only necessary if you have more than one recommendation model built in your model container.</source>
+          <target state="new">(Optional) Choose an active recommendation model build: This step is only necessary if you have more than one recommendation model built in your model container.</target>
+        </trans-unit>
+        <trans-unit id="eab0c65d-8bcc-4b5e-9d63-04b56ab120e3" xml:space="preserve">
+          <source>Any request to get recommendations without indicating the active recommendation model is redirected automatically by the system to the default active build.</source>
+          <target state="new">Any request to get recommendations without indicating the active recommendation model is redirected automatically by the system to the default active build.</target>
+        </trans-unit>
+        <trans-unit id="e29b4cb3-a1e5-4088-8091-02e09cd8e2b1" xml:space="preserve">
+          <source><bpt id="7cb7842c-4c59-4f3f-8886-86c6691ecf92">&lt;strong&gt;</bpt>Note<ept id="7cb7842c-4c59-4f3f-8886-86c6691ecf92">&lt;/strong&gt;</ept>: An active recommendation model is production ready and it is built for production workload.</source>
+          <target state="new"><bpt id="7cb7842c-4c59-4f3f-8886-86c6691ecf92">&lt;strong&gt;</bpt>Note<ept id="7cb7842c-4c59-4f3f-8886-86c6691ecf92">&lt;/strong&gt;</ept>: An active recommendation model is production ready and it is built for production workload.</target>
+        </trans-unit>
+        <trans-unit id="e95f86be-b110-4ab6-bb90-7bcb8dd7c68e" xml:space="preserve">
+          <source>This differs from a non-active recommendation model, which stays in a test-like environment (sometimes called staging).</source>
+          <target state="new">This differs from a non-active recommendation model, which stays in a test-like environment (sometimes called staging).</target>
+        </trans-unit>
+        <trans-unit id="429811d1-22f8-49e4-a35a-31a645925b06" xml:space="preserve">
+          <source>Get recommendations: After you have a recommendation model, you can trigger recommendations for a single item or a list of items that you select.</source>
+          <target state="new">Get recommendations: After you have a recommendation model, you can trigger recommendations for a single item or a list of items that you select.</target>
+        </trans-unit>
+        <trans-unit id="9566a492-a9e9-4e4e-a11a-2d4cd9c5cf53" xml:space="preserve">
+          <source>You will usually invoke Get Recommendation for a certain period of time.</source>
+          <target state="new">You will usually invoke Get Recommendation for a certain period of time.</target>
+        </trans-unit>
+        <trans-unit id="549ee9b1-f53a-4e1f-a8d6-af3e2b1941e0" xml:space="preserve">
+          <source>During that period of time, you can redirect usage data to the Machine Learning recommendation system, which adds this data to the specified model container.</source>
+          <target state="new">During that period of time, you can redirect usage data to the Machine Learning recommendation system, which adds this data to the specified model container.</target>
+        </trans-unit>
+        <trans-unit id="e7a4508e-3581-4ea3-9d05-d5e02d17c109" xml:space="preserve">
+          <source>When you have enough usage data, you can build a new recommendation model that incorporates the additional usage data.</source>
+          <target state="new">When you have enough usage data, you can build a new recommendation model that incorporates the additional usage data.</target>
+        </trans-unit>
+        <trans-unit id="ac5f3a4b-2b23-462b-92a9-448f757a188c" xml:space="preserve">
+          <source>Visual Studio 2013</source>
+          <target state="new">Visual Studio 2013</target>
+        </trans-unit>
+        <trans-unit id="e3fa36ca-b1af-42d2-8384-c40679d1da47" xml:space="preserve">
+          <source>Internet access </source>
+          <target state="new">Internet access </target>
+        </trans-unit>
+        <trans-unit id="bfab7d4d-b8e0-44b9-b992-53c344f85ba0" xml:space="preserve">
+          <source>This solution contains the source code, sample usage, catalog file, and directives to download the packages that are required for compilation.</source>
+          <target state="new">This solution contains the source code, sample usage, catalog file, and directives to download the packages that are required for compilation.</target>
+        </trans-unit>
+        <trans-unit id="5f19e342-0a0c-4230-b425-affb1a03927a" xml:space="preserve">
+          <source>The application uses Machine Learning recommendation functionality via a subset of available APIs.</source>
+          <target state="new">The application uses Machine Learning recommendation functionality via a subset of available APIs.</target>
+        </trans-unit>
+        <trans-unit id="485ccbf1-4040-4c46-b38f-3007a80527ba" xml:space="preserve">
+          <source>The following APIs are demonstrated in the application:</source>
+          <target state="new">The following APIs are demonstrated in the application:</target>
+        </trans-unit>
+        <trans-unit id="8624740e-11cc-40c7-b5ab-add6eb6513d8" xml:space="preserve">
+          <source>Create model: Create a logical container to hold data and recommendation models.</source>
+          <target state="new">Create model: Create a logical container to hold data and recommendation models.</target>
+        </trans-unit>
+        <trans-unit id="6ef9bd86-0078-4b92-bf03-705dafcafbc0" xml:space="preserve">
+          <source>A model is identified by a name, and you  cannot create more than one model with the same name.</source>
+          <target state="new">A model is identified by a name, and you  cannot create more than one model with the same name.</target>
+        </trans-unit>
+        <trans-unit id="d226687c-83e7-4364-b9ac-e049c3318399" xml:space="preserve">
+          <source>Upload catalog file: Use to upload catalog data.</source>
+          <target state="new">Upload catalog file: Use to upload catalog data.</target>
+        </trans-unit>
+        <trans-unit id="897233ab-5925-4a87-b905-a39028f3864d" xml:space="preserve">
+          <source>Upload usage file: Use to upload usage data.</source>
+          <target state="new">Upload usage file: Use to upload usage data.</target>
+        </trans-unit>
+        <trans-unit id="4760f870-fa6b-4be5-888b-5ee63aecbce7" xml:space="preserve">
+          <source>Trigger build: Use to create a recommendation model.</source>
+          <target state="new">Trigger build: Use to create a recommendation model.</target>
+        </trans-unit>
+        <trans-unit id="5cabb035-0172-4d38-aad9-242ac526913c" xml:space="preserve">
+          <source>Monitor build execution: Use to monitor the status of a recommendation model build.</source>
+          <target state="new">Monitor build execution: Use to monitor the status of a recommendation model build.</target>
+        </trans-unit>
+        <trans-unit id="3b76c48f-55b5-4fb7-b364-eefcef9413f0" xml:space="preserve">
+          <source>Choose a built model for recommendation: Use to indicate which recommendation model to use by default for a certain model container.</source>
+          <target state="new">Choose a built model for recommendation: Use to indicate which recommendation model to use by default for a certain model container.</target>
+        </trans-unit>
+        <trans-unit id="db471baa-ee61-4fe5-ae6c-e78948be69d0" xml:space="preserve">
+          <source>This step is necessary only if you have more than one recommendation model and you want to activate a non-active build as the active recommendation model.</source>
+          <target state="new">This step is necessary only if you have more than one recommendation model and you want to activate a non-active build as the active recommendation model.</target>
+        </trans-unit>
+        <trans-unit id="bcc9c845-bd6c-4450-89c0-90f27117d15c" xml:space="preserve">
+          <source>Get recommendation: Use to retrieve recommended items according to a given single item or a set of items.</source>
+          <target state="new">Get recommendation: Use to retrieve recommended items according to a given single item or a set of items.</target>
+        </trans-unit>
+        <trans-unit id="f59a9fd3-6c33-413e-9313-53d161057ecb" xml:space="preserve">
+          <source>For a complete description of the APIs, please see the Microsoft Azure Marketplace documentation.</source>
+          <target state="new">For a complete description of the APIs, please see the Microsoft Azure Marketplace documentation.</target>
+        </trans-unit>
+        <trans-unit id="944272ba-0c1e-4994-ba3f-435a64b1f172" xml:space="preserve">
+          <source><bpt id="66c46510-c897-4190-9d59-119e14ec7884">&lt;strong&gt;</bpt>Note<ept id="66c46510-c897-4190-9d59-119e14ec7884">&lt;/strong&gt;</ept>: A model can have several builds over time (not simultaneously).</source>
+          <target state="new"><bpt id="66c46510-c897-4190-9d59-119e14ec7884">&lt;strong&gt;</bpt>Note<ept id="66c46510-c897-4190-9d59-119e14ec7884">&lt;/strong&gt;</ept>: A model can have several builds over time (not simultaneously).</target>
+        </trans-unit>
+        <trans-unit id="827137f0-cfa3-4b07-b27c-86d48b0ee43c" xml:space="preserve">
+          <source>Each build is created with the same or an updated catalog and additional usage data.</source>
+          <target state="new">Each build is created with the same or an updated catalog and additional usage data.</target>
+        </trans-unit>
+        <trans-unit id="aef24247-9670-486f-b4fe-b7d3c51f2559" xml:space="preserve">
+          <source>You need to provide your user name and your Microsoft Azure Marketplace primary account key to run the sample app.</source>
+          <target state="new">You need to provide your user name and your Microsoft Azure Marketplace primary account key to run the sample app.</target>
+        </trans-unit>
+        <trans-unit id="276eebaf-abce-42cc-adbf-07fffcecf82b" xml:space="preserve">
+          <source>Running the sample app consecutively will fail.</source>
+          <target state="new">Running the sample app consecutively will fail.</target>
+        </trans-unit>
+        <trans-unit id="fa702eb2-f90e-4b83-ac07-095c88b21877" xml:space="preserve">
+          <source>The application flow includes creating, uploading, building the monitor, and getting recommendations from a predefined model; therefore, it will fail on consecutive execution if you do not change the model name between invocations.</source>
+          <target state="new">The application flow includes creating, uploading, building the monitor, and getting recommendations from a predefined model; therefore, it will fail on consecutive execution if you do not change the model name between invocations.</target>
+        </trans-unit>
+        <trans-unit id="151a3c85-a09a-428e-9c4d-d9b91aab8081" xml:space="preserve">
+          <source>Recommendations might return without data.</source>
+          <target state="new">Recommendations might return without data.</target>
+        </trans-unit>
+        <trans-unit id="8768f349-fc5e-462f-b0b4-d4b14522c48a" xml:space="preserve">
+          <source>The sample app uses a very small catalog and usage file.</source>
+          <target state="new">The sample app uses a very small catalog and usage file.</target>
+        </trans-unit>
+        <trans-unit id="9ae02ff8-2322-45e8-97e3-b7a56faa2bbe" xml:space="preserve">
+          <source>Therefore, some items from the catalog will have no recommended items.</source>
+          <target state="new">Therefore, some items from the catalog will have no recommended items.</target>
+        </trans-unit>
+        <trans-unit id="234e2a7b-89fb-4faa-afb4-f9beb996aa25" xml:space="preserve">
+          <source>The sample app is not intended to be run in a production environment.</source>
+          <target state="new">The sample app is not intended to be run in a production environment.</target>
+        </trans-unit>
+        <trans-unit id="8b96be94-2d28-4800-a275-cfd4c2657c4e" xml:space="preserve">
+          <source>The data provided in the catalog is very small, and it will not provide a meaningful recommendation model.</source>
+          <target state="new">The data provided in the catalog is very small, and it will not provide a meaningful recommendation model.</target>
+        </trans-unit>
+        <trans-unit id="ae702404-298e-4835-846b-11917cee99b1" xml:space="preserve">
+          <source>The data is provided as a demonstration.</source>
+          <target state="new">The data is provided as a demonstration.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

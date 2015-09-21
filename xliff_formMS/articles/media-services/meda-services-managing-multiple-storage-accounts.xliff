@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1e58a7e7-8682-4bed-bc56-7de58d0db802" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1e58a7e7-8682-4bed-bc56-7de58d0db802" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fbe3fd55-8a2d-4b8c-91b3-9a38c3a281f3">
+        <trans-unit id="f93e7099-a324-42a1-aa7c-07a7f44b74ed" xml:space="preserve">
+          <source>Managing Media Services Assets across Multiple Storage Accounts</source>
+          <target state="new">Managing Media Services Assets across Multiple Storage Accounts</target>
+        </trans-unit>
+        <trans-unit id="08912850-27bd-4481-b866-91fe709ab3c5" xml:space="preserve">
+          <source>This articles give you guidance on how to manage media services assets across multiple storage accounts.</source>
+          <target state="new">This articles give you guidance on how to manage media services assets across multiple storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="f14d2443-b124-4066-949b-13723299b764" xml:space="preserve">
+          <source>Starting with Microsoft Azure Media Services 2.2, you can attach multiple storage accounts to a single Media Services account.</source>
+          <target state="new">Starting with Microsoft Azure Media Services 2.2, you can attach multiple storage accounts to a single Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="6a3c669d-28d3-46a1-9e59-4159b4c9496b" xml:space="preserve">
+          <source>Ability to attach multiple storage accounts to a Media Services account provides the following benefits:
+Load balancing your assets across multiple storage accounts.</source>
+          <target state="new">Ability to attach multiple storage accounts to a Media Services account provides the following benefits:
+Load balancing your assets across multiple storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="e6c60819-c0ab-4f6f-8733-b0a6ffa3120f" xml:space="preserve">
+          <source>Scaling Media Services for large amounts of content processing (as currently a single storage account has a max limit of 500 TB).</source>
+          <target state="new">Scaling Media Services for large amounts of content processing (as currently a single storage account has a max limit of 500 TB).</target>
+        </trans-unit>
+        <trans-unit id="b019f75f-168b-4f81-aba6-99af25cf1ad7" xml:space="preserve">
+          <source>This topic demonstrates how to attach multiple storage accounts to a Media Services account using <bpt id="e5777f4b-346f-49b9-b2f7-eae99cac1a87">&lt;linkText&gt;</bpt>Azure Service Management REST API<ept id="e5777f4b-346f-49b9-b2f7-eae99cac1a87">&lt;/linkText&gt;</ept><bpt id="e5777f4b-346f-49b9-b2f7-eae99cac1a87">&lt;title&gt;</bpt><ept id="e5777f4b-346f-49b9-b2f7-eae99cac1a87">&lt;/title&gt;</ept>.</source>
+          <target state="new">This topic demonstrates how to attach multiple storage accounts to a Media Services account using <bpt id="e5777f4b-346f-49b9-b2f7-eae99cac1a87">&lt;linkText&gt;</bpt>Azure Service Management REST API<ept id="e5777f4b-346f-49b9-b2f7-eae99cac1a87">&lt;/linkText&gt;</ept><bpt id="e5777f4b-346f-49b9-b2f7-eae99cac1a87">&lt;title&gt;</bpt><ept id="e5777f4b-346f-49b9-b2f7-eae99cac1a87">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="529ec233-8ce5-498c-9427-2476731b1577" xml:space="preserve">
+          <source>It also shows how to specify different storage accounts when creating assets using the Media Services SDK.</source>
+          <target state="new">It also shows how to specify different storage accounts when creating assets using the Media Services SDK.</target>
+        </trans-unit>
+        <trans-unit id="1180bc50-00aa-4974-9585-dd9272e7ecc8" xml:space="preserve">
+          <source>When attaching multiple storage accounts to your Media Services account, the following considerations apply:</source>
+          <target state="new">When attaching multiple storage accounts to your Media Services account, the following considerations apply:</target>
+        </trans-unit>
+        <trans-unit id="24148195-e47d-44b8-a586-5f58d99ce46d" xml:space="preserve">
+          <source>All storage accounts attached to a Media Services account must be in the same data center as the Media Services account.</source>
+          <target state="new">All storage accounts attached to a Media Services account must be in the same data center as the Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="e9544db2-1c88-4716-8f41-3982c5ddb383" xml:space="preserve">
+          <source>Currently, once a storage account is attached to the specified Media Services account, it cannot be detached.</source>
+          <target state="new">Currently, once a storage account is attached to the specified Media Services account, it cannot be detached.</target>
+        </trans-unit>
+        <trans-unit id="55399684-bba6-4598-8679-e3926eb5c65a" xml:space="preserve">
+          <source>Primary storage account is the one indicated during Media Services account creation time.</source>
+          <target state="new">Primary storage account is the one indicated during Media Services account creation time.</target>
+        </trans-unit>
+        <trans-unit id="55cd6b8f-0a2d-4904-a49f-37b3ec1f4076" xml:space="preserve">
+          <source>Currently, you cannot change the default storage account.</source>
+          <target state="new">Currently, you cannot change the default storage account.</target>
+        </trans-unit>
+        <trans-unit id="d5faa042-c296-48a7-afe7-3f933f74977f" xml:space="preserve">
+          <source>Other considerations:</source>
+          <target state="new">Other considerations:</target>
+        </trans-unit>
+        <trans-unit id="6880e099-ca3d-4617-a05b-c5869b3f714b" xml:space="preserve">
+          <source>Media Services uses the value of the <bpt id="0a0586b8-052b-41f0-9318-f33521621e67">&lt;strong&gt;</bpt>IAssetFile.Name<ept id="0a0586b8-052b-41f0-9318-f33521621e67">&lt;/strong&gt;</ept> property when building URLs for the streaming content (for example, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the Name property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding<bpt id="bb050d57-0bbb-4974-8623-94b17bbc01e8">&lt;em&gt;</bpt>reserved<ept id="bb050d57-0bbb-4974-8623-94b17bbc01e8">&lt;/em&gt;</ept>characters): !*'();:@&amp;=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.</source>
+          <target state="new">Media Services uses the value of the <bpt id="0a0586b8-052b-41f0-9318-f33521621e67">&lt;strong&gt;</bpt>IAssetFile.Name<ept id="0a0586b8-052b-41f0-9318-f33521621e67">&lt;/strong&gt;</ept> property when building URLs for the streaming content (for example, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the Name property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding<bpt id="bb050d57-0bbb-4974-8623-94b17bbc01e8">&lt;em&gt;</bpt>reserved<ept id="bb050d57-0bbb-4974-8623-94b17bbc01e8">&lt;/em&gt;</ept>characters): !*'();:@&amp;=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.</target>
+        </trans-unit>
+        <trans-unit id="38400174-cb31-4db6-bbcd-f984713702ac" xml:space="preserve">
+          <source>Currently, the only way to attach multiple storage accounts is by using <bpt id="26c917b2-0c20-425d-888e-2e15de136eb2">&lt;linkText&gt;</bpt>Azure Service Management REST API<ept id="26c917b2-0c20-425d-888e-2e15de136eb2">&lt;/linkText&gt;</ept><bpt id="26c917b2-0c20-425d-888e-2e15de136eb2">&lt;title&gt;</bpt><ept id="26c917b2-0c20-425d-888e-2e15de136eb2">&lt;/title&gt;</ept>.</source>
+          <target state="new">Currently, the only way to attach multiple storage accounts is by using <bpt id="26c917b2-0c20-425d-888e-2e15de136eb2">&lt;linkText&gt;</bpt>Azure Service Management REST API<ept id="26c917b2-0c20-425d-888e-2e15de136eb2">&lt;/linkText&gt;</ept><bpt id="26c917b2-0c20-425d-888e-2e15de136eb2">&lt;title&gt;</bpt><ept id="26c917b2-0c20-425d-888e-2e15de136eb2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e42981e8-692c-461a-90f1-b54b216765a5" xml:space="preserve">
+          <source>The code sample in the <bpt id="29128ab9-7512-4c31-be19-0be126f6f9a7">&lt;linkText&gt;</bpt>How to: Use Media Services Management REST API<ept id="29128ab9-7512-4c31-be19-0be126f6f9a7">&lt;/linkText&gt;</ept><bpt id="29128ab9-7512-4c31-be19-0be126f6f9a7">&lt;title&gt;</bpt><ept id="29128ab9-7512-4c31-be19-0be126f6f9a7">&lt;/title&gt;</ept> topic defines the <bpt id="e442f1ec-f3fc-436d-b092-5ce7d8a65f53">&lt;strong&gt;</bpt>AttachStorageAccountToMediaServiceAccount<ept id="e442f1ec-f3fc-436d-b092-5ce7d8a65f53">&lt;/strong&gt;</ept> method that attaches a storage account to the specified Media Services account.</source>
+          <target state="new">The code sample in the <bpt id="29128ab9-7512-4c31-be19-0be126f6f9a7">&lt;linkText&gt;</bpt>How to: Use Media Services Management REST API<ept id="29128ab9-7512-4c31-be19-0be126f6f9a7">&lt;/linkText&gt;</ept><bpt id="29128ab9-7512-4c31-be19-0be126f6f9a7">&lt;title&gt;</bpt><ept id="29128ab9-7512-4c31-be19-0be126f6f9a7">&lt;/title&gt;</ept> topic defines the <bpt id="e442f1ec-f3fc-436d-b092-5ce7d8a65f53">&lt;strong&gt;</bpt>AttachStorageAccountToMediaServiceAccount<ept id="e442f1ec-f3fc-436d-b092-5ce7d8a65f53">&lt;/strong&gt;</ept> method that attaches a storage account to the specified Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="7b1b01af-df65-40ae-bf23-5f9b3e3f95ae" xml:space="preserve">
+          <source>The code in the same topic defines the <bpt id="b50437aa-e7f5-47f7-8aeb-96efdd9bc157">&lt;strong&gt;</bpt>ListStorageAccountDetails<ept id="b50437aa-e7f5-47f7-8aeb-96efdd9bc157">&lt;/strong&gt;</ept> method that lists all the storage accounts attached to the specified Media Services account.</source>
+          <target state="new">The code in the same topic defines the <bpt id="b50437aa-e7f5-47f7-8aeb-96efdd9bc157">&lt;strong&gt;</bpt>ListStorageAccountDetails<ept id="b50437aa-e7f5-47f7-8aeb-96efdd9bc157">&lt;/strong&gt;</ept> method that lists all the storage accounts attached to the specified Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="48fee75d-1ad2-4e42-8b22-59a36adc66a6" xml:space="preserve">
+          <source>The following code uses the latest Media Services SDK to perform the following tasks:</source>
+          <target state="new">The following code uses the latest Media Services SDK to perform the following tasks:</target>
+        </trans-unit>
+        <trans-unit id="11865219-b02e-4a5a-9e04-b471d34f41b2" xml:space="preserve">
+          <source>Display all the storage accounts associated with the specified Media Services account.</source>
+          <target state="new">Display all the storage accounts associated with the specified Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="1f141b94-74c3-4d05-b034-6f6cf6fa3864" xml:space="preserve">
+          <source>Retrieve the name of the default storage account.</source>
+          <target state="new">Retrieve the name of the default storage account.</target>
+        </trans-unit>
+        <trans-unit id="375dba6e-9cf0-45e4-8142-60d8d4363d9b" xml:space="preserve">
+          <source>Create a new asset in the default storage account.</source>
+          <target state="new">Create a new asset in the default storage account.</target>
+        </trans-unit>
+        <trans-unit id="ccad7870-8a16-4c4b-8eff-ee29f613bf75" xml:space="preserve">
+          <source>Create an output asset of the encoding job in the specified storage account.</source>
+          <target state="new">Create an output asset of the encoding job in the specified storage account.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="95cb4d57-2d9f-4427-ba30-e33025ff0419" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="95cb4d57-2d9f-4427-ba30-e33025ff0419" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0f35bd65-6694-433b-9cf0-600b1c242464">
+        <trans-unit id="c10580fa-bb88-40f2-b9c6-32c309ea6e1d" xml:space="preserve">
+          <source>Setting up Azure AD Join for your users| Microsoft Azure</source>
+          <target state="new">Setting up Azure AD Join for your users| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="66b78d02-db5f-4fcf-ba0c-4f5d4c14fe0a" xml:space="preserve">
+          <source>A topic that explains how administrators can set up Azure AD Join for their end users (employees, students, other users).</source>
+          <target state="new">A topic that explains how administrators can set up Azure AD Join for their end users (employees, students, other users).</target>
+        </trans-unit>
+        <trans-unit id="19cd8601-9887-48ae-8c8f-73b805d8e893" xml:space="preserve">
+          <source>Before you set up Azure AD Join, you need to either sync up your on-premises directory of users to the cloud or manually create managed accounts in Azure AD.</source>
+          <target state="new">Before you set up Azure AD Join, you need to either sync up your on-premises directory of users to the cloud or manually create managed accounts in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="175438f7-19c4-4e62-b896-ba3d1cdb2008" xml:space="preserve">
+          <source>Detailed instructions for syncing your on-prem users to Azure AD is covered in <bpt id="488056a8-9bdb-4261-8b5b-bfe5a7caf861">&lt;linkText&gt;</bpt>Integrating your on-premises identities with Azure Active Directory<ept id="488056a8-9bdb-4261-8b5b-bfe5a7caf861">&lt;/linkText&gt;</ept><bpt id="488056a8-9bdb-4261-8b5b-bfe5a7caf861">&lt;title&gt;</bpt><ept id="488056a8-9bdb-4261-8b5b-bfe5a7caf861">&lt;/title&gt;</ept>.</source>
+          <target state="new">Detailed instructions for syncing your on-prem users to Azure AD is covered in <bpt id="488056a8-9bdb-4261-8b5b-bfe5a7caf861">&lt;linkText&gt;</bpt>Integrating your on-premises identities with Azure Active Directory<ept id="488056a8-9bdb-4261-8b5b-bfe5a7caf861">&lt;/linkText&gt;</ept><bpt id="488056a8-9bdb-4261-8b5b-bfe5a7caf861">&lt;title&gt;</bpt><ept id="488056a8-9bdb-4261-8b5b-bfe5a7caf861">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ac398ef-cb26-4c8a-9d7b-112ef9a65e95" xml:space="preserve">
+          <source>To manually create and manage users in Azure AD, refer to <bpt id="ef9120f7-cb76-44ac-9e06-55070c81d58f">&lt;linkText&gt;</bpt>User management in Azure AD<ept id="ef9120f7-cb76-44ac-9e06-55070c81d58f">&lt;/linkText&gt;</ept><bpt id="ef9120f7-cb76-44ac-9e06-55070c81d58f">&lt;title&gt;</bpt><ept id="ef9120f7-cb76-44ac-9e06-55070c81d58f">&lt;/title&gt;</ept>.</source>
+          <target state="new">To manually create and manage users in Azure AD, refer to <bpt id="ef9120f7-cb76-44ac-9e06-55070c81d58f">&lt;linkText&gt;</bpt>User management in Azure AD<ept id="ef9120f7-cb76-44ac-9e06-55070c81d58f">&lt;/linkText&gt;</ept><bpt id="ef9120f7-cb76-44ac-9e06-55070c81d58f">&lt;title&gt;</bpt><ept id="ef9120f7-cb76-44ac-9e06-55070c81d58f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e279f0e-dcfa-407f-89c6-39083cba6c87" xml:space="preserve">
+          <source>Sign in to the Azure Portal as Administrator.</source>
+          <target state="new">Sign in to the Azure Portal as Administrator.</target>
+        </trans-unit>
+        <trans-unit id="debc57b3-0424-4b8a-9127-f25c040858e2" xml:space="preserve">
+          <source>On the left pane, select Active Directory.</source>
+          <target state="new">On the left pane, select Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="7a72ab5e-d951-499d-8d0e-b145856ddd6c" xml:space="preserve">
+          <source>On the <bpt id="c29726a9-8d12-4623-834a-666a024d201d">&lt;strong&gt;</bpt>Directory<ept id="c29726a9-8d12-4623-834a-666a024d201d">&lt;/strong&gt;</ept> tab, select your directory.</source>
+          <target state="new">On the <bpt id="c29726a9-8d12-4623-834a-666a024d201d">&lt;strong&gt;</bpt>Directory<ept id="c29726a9-8d12-4623-834a-666a024d201d">&lt;/strong&gt;</ept> tab, select your directory.</target>
+        </trans-unit>
+        <trans-unit id="81141bd0-1e10-4ed1-ad6b-2594549865de" xml:space="preserve">
+          <source>Select the <bpt id="9202b9ac-9547-468a-a623-fe2dfd52bfef">&lt;strong&gt;</bpt>Configure<ept id="9202b9ac-9547-468a-a623-fe2dfd52bfef">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the <bpt id="9202b9ac-9547-468a-a623-fe2dfd52bfef">&lt;strong&gt;</bpt>Configure<ept id="9202b9ac-9547-468a-a623-fe2dfd52bfef">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="3f37237b-8112-44e6-b157-9d77cf0bfda9" xml:space="preserve">
+          <source>Scroll to the section called <bpt id="773721d6-9cec-4861-9fbb-65f8d2057b04">&lt;strong&gt;</bpt>Devices<ept id="773721d6-9cec-4861-9fbb-65f8d2057b04">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll to the section called <bpt id="773721d6-9cec-4861-9fbb-65f8d2057b04">&lt;strong&gt;</bpt>Devices<ept id="773721d6-9cec-4861-9fbb-65f8d2057b04">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e91012ff-4dfe-4792-9937-1ea97f484442" xml:space="preserve">
+          <source>On the <bpt id="253bffc8-f113-416b-a401-83ca47fd96f0">&lt;strong&gt;</bpt>devices<ept id="253bffc8-f113-416b-a401-83ca47fd96f0">&lt;/strong&gt;</ept> tab, set the following:  </source>
+          <target state="new">On the <bpt id="253bffc8-f113-416b-a401-83ca47fd96f0">&lt;strong&gt;</bpt>devices<ept id="253bffc8-f113-416b-a401-83ca47fd96f0">&lt;/strong&gt;</ept> tab, set the following:  </target>
+        </trans-unit>
+        <trans-unit id="2296d6c4-b78a-454f-bad2-33976ef4449c" xml:space="preserve">
+          <source><bpt id="7663d4c7-b047-454e-bea8-23b920dc39f6">&lt;strong&gt;</bpt>Maximum number of devices per user<ept id="7663d4c7-b047-454e-bea8-23b920dc39f6">&lt;/strong&gt;</ept>: Select the maximum number of devices a user can have in Azure AD.</source>
+          <target state="new"><bpt id="7663d4c7-b047-454e-bea8-23b920dc39f6">&lt;strong&gt;</bpt>Maximum number of devices per user<ept id="7663d4c7-b047-454e-bea8-23b920dc39f6">&lt;/strong&gt;</ept>: Select the maximum number of devices a user can have in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="17fa0b1f-5bc1-4fa9-967a-30b8d3246db9" xml:space="preserve">
+          <source>If a user reaches this quota, they will not be able to add additional devices until one or more of their existing devices are removed.</source>
+          <target state="new">If a user reaches this quota, they will not be able to add additional devices until one or more of their existing devices are removed.</target>
+        </trans-unit>
+        <trans-unit id="f54e82e2-6dca-4a5e-a30e-fccbd68e6d35" xml:space="preserve">
+          <source><bpt id="1ae98fc5-decd-4a6f-89a6-4527d5044f48">&lt;strong&gt;</bpt>Require multi-factor auth to join devices<ept id="1ae98fc5-decd-4a6f-89a6-4527d5044f48">&lt;/strong&gt;</ept>: Enable when users should provide a second factor of authentication to join their device to Azure AD.</source>
+          <target state="new"><bpt id="1ae98fc5-decd-4a6f-89a6-4527d5044f48">&lt;strong&gt;</bpt>Require multi-factor auth to join devices<ept id="1ae98fc5-decd-4a6f-89a6-4527d5044f48">&lt;/strong&gt;</ept>: Enable when users should provide a second factor of authentication to join their device to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="52a1bbb1-37e1-4525-8327-823cd127d042" xml:space="preserve">
+          <source>For more information on multi-factor auth, see <bpt id="dd0df363-4f51-4109-9626-6f9db04919ac">&lt;linkText&gt;</bpt>Getting started with Azure Multi-Factor Authentication in the cloud<ept id="dd0df363-4f51-4109-9626-6f9db04919ac">&lt;/linkText&gt;</ept><bpt id="dd0df363-4f51-4109-9626-6f9db04919ac">&lt;title&gt;</bpt><ept id="dd0df363-4f51-4109-9626-6f9db04919ac">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on multi-factor auth, see <bpt id="dd0df363-4f51-4109-9626-6f9db04919ac">&lt;linkText&gt;</bpt>Getting started with Azure Multi-Factor Authentication in the cloud<ept id="dd0df363-4f51-4109-9626-6f9db04919ac">&lt;/linkText&gt;</ept><bpt id="dd0df363-4f51-4109-9626-6f9db04919ac">&lt;title&gt;</bpt><ept id="dd0df363-4f51-4109-9626-6f9db04919ac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b26c8ad-71a7-478f-ae78-0f6f7f8958fa" xml:space="preserve">
+          <source><bpt id="0d84fc64-3e73-4bcd-8fe3-90c3c572c4f0">&lt;strong&gt;</bpt>Users may Azure AD join devices<ept id="0d84fc64-3e73-4bcd-8fe3-90c3c572c4f0">&lt;/strong&gt;</ept>:Select the users and groups that are allowed to join devices to Azure AD.</source>
+          <target state="new"><bpt id="0d84fc64-3e73-4bcd-8fe3-90c3c572c4f0">&lt;strong&gt;</bpt>Users may Azure AD join devices<ept id="0d84fc64-3e73-4bcd-8fe3-90c3c572c4f0">&lt;/strong&gt;</ept>:Select the users and groups that are allowed to join devices to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="d4ad0454-ff1b-4e94-bc0b-37564e6c7285" xml:space="preserve">
+          <source><bpt id="2b3d81ff-6b34-4050-a012-e9cd80c01f46">&lt;strong&gt;</bpt>Additional administrators on Azure AD Joined devices<ept id="2b3d81ff-6b34-4050-a012-e9cd80c01f46">&lt;/strong&gt;</ept>: With Azure AD Premium or the Enterprise Mobility Suite (EMS), you can choose which users are granted local administrator rights to the device.</source>
+          <target state="new"><bpt id="2b3d81ff-6b34-4050-a012-e9cd80c01f46">&lt;strong&gt;</bpt>Additional administrators on Azure AD Joined devices<ept id="2b3d81ff-6b34-4050-a012-e9cd80c01f46">&lt;/strong&gt;</ept>: With Azure AD Premium or the Enterprise Mobility Suite (EMS), you can choose which users are granted local administrator rights to the device.</target>
+        </trans-unit>
+        <trans-unit id="6860f7e1-cd83-4b5b-af3d-667db866ec50" xml:space="preserve">
+          <source>Global Administrators and the device owner are granted local administrator rights by default.</source>
+          <target state="new">Global Administrators and the device owner are granted local administrator rights by default.</target>
+        </trans-unit>
+        <trans-unit id="23e0c7a4-7e18-42f5-928b-d9e87b5b58d4" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="59816d59-c0b3-4715-a0dc-5758173866df">&lt;linkText&gt;</bpt><ept id="59816d59-c0b3-4715-a0dc-5758173866df">&lt;/linkText&gt;</ept> &lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="59816d59-c0b3-4715-a0dc-5758173866df">&lt;linkText&gt;</bpt><ept id="59816d59-c0b3-4715-a0dc-5758173866df">&lt;/linkText&gt;</ept> &lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="7159fdb8-fa54-486d-af78-b87c61f7f7b2" xml:space="preserve">
+          <source>After you set up Azure AD Join for your users, they can connect to Azure AD through their corporate or personal devices.</source>
+          <target state="new">After you set up Azure AD Join for your users, they can connect to Azure AD through their corporate or personal devices.</target>
+        </trans-unit>
+        <trans-unit id="a5bc592d-eb53-41b2-bfa5-65197dfa4002" xml:space="preserve">
+          <source>Following are the three scenarios how you can enable your users to set up Azure AD Join:</source>
+          <target state="new">Following are the three scenarios how you can enable your users to set up Azure AD Join:</target>
+        </trans-unit>
+        <trans-unit id="51106c2f-75cd-4505-ab0f-17beee5ec836" xml:space="preserve">
+          <source>Users join a company-owned device directly to Azure AD</source>
+          <target state="new">Users join a company-owned device directly to Azure AD</target>
+        </trans-unit>
+        <trans-unit id="abe0c228-3717-44f8-9175-50b0fdbaed8d" xml:space="preserve">
+          <source>Users domain Join a company-owned device to on-premises Active Directory and extend to Azure AD</source>
+          <target state="new">Users domain Join a company-owned device to on-premises Active Directory and extend to Azure AD</target>
+        </trans-unit>
+        <trans-unit id="c31451ce-e4b5-48f5-ba15-077ba0f3a6af" xml:space="preserve">
+          <source>Users add work accounts to Windows on a personal device </source>
+          <target state="new">Users add work accounts to Windows on a personal device </target>
+        </trans-unit>
+        <trans-unit id="448af347-e412-4ac0-81b9-3b5d4103b28a" xml:space="preserve">
+          <source><bpt id="7078ce08-e6d7-45ca-b8ef-a385afe7baef">&lt;linkText&gt;</bpt>Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join<ept id="7078ce08-e6d7-45ca-b8ef-a385afe7baef">&lt;/linkText&gt;</ept><bpt id="7078ce08-e6d7-45ca-b8ef-a385afe7baef">&lt;title&gt;</bpt><ept id="7078ce08-e6d7-45ca-b8ef-a385afe7baef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7078ce08-e6d7-45ca-b8ef-a385afe7baef">&lt;linkText&gt;</bpt>Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join<ept id="7078ce08-e6d7-45ca-b8ef-a385afe7baef">&lt;/linkText&gt;</ept><bpt id="7078ce08-e6d7-45ca-b8ef-a385afe7baef">&lt;title&gt;</bpt><ept id="7078ce08-e6d7-45ca-b8ef-a385afe7baef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a73d0a36-01bd-4d33-a790-5fc7b6afb798" xml:space="preserve">
+          <source><bpt id="25904f40-5179-4509-96fb-fa17b3fe50bf">&lt;linkText&gt;</bpt>Learn about usage scenarios for Azure AD Join<ept id="25904f40-5179-4509-96fb-fa17b3fe50bf">&lt;/linkText&gt;</ept><bpt id="25904f40-5179-4509-96fb-fa17b3fe50bf">&lt;title&gt;</bpt><ept id="25904f40-5179-4509-96fb-fa17b3fe50bf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="25904f40-5179-4509-96fb-fa17b3fe50bf">&lt;linkText&gt;</bpt>Learn about usage scenarios for Azure AD Join<ept id="25904f40-5179-4509-96fb-fa17b3fe50bf">&lt;/linkText&gt;</ept><bpt id="25904f40-5179-4509-96fb-fa17b3fe50bf">&lt;title&gt;</bpt><ept id="25904f40-5179-4509-96fb-fa17b3fe50bf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75d44084-a249-4ba2-b05a-297cfab1547d" xml:space="preserve">
+          <source><bpt id="ecb08238-a973-4683-be06-0ce0b5b19b28">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="ecb08238-a973-4683-be06-0ce0b5b19b28">&lt;/linkText&gt;</ept><bpt id="ecb08238-a973-4683-be06-0ce0b5b19b28">&lt;title&gt;</bpt><ept id="ecb08238-a973-4683-be06-0ce0b5b19b28">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ecb08238-a973-4683-be06-0ce0b5b19b28">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="ecb08238-a973-4683-be06-0ce0b5b19b28">&lt;/linkText&gt;</ept><bpt id="ecb08238-a973-4683-be06-0ce0b5b19b28">&lt;title&gt;</bpt><ept id="ecb08238-a973-4683-be06-0ce0b5b19b28">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

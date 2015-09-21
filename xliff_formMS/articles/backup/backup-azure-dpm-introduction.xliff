@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="23b35859-1545-4efc-93c5-ca7cd0cb3747" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="23b35859-1545-4efc-93c5-ca7cd0cb3747" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b8150c1e-5939-4c66-a64b-bf355b72e95a">
+        <trans-unit id="d2577399-5812-401e-ae36-87be1faade83" xml:space="preserve">
+          <source>Introduction to Azure DPM backup | Microsoft Azure</source>
+          <target state="new">Introduction to Azure DPM backup | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2a04c4bd-ae60-474e-85cb-cae786adf33f" xml:space="preserve">
+          <source>An introduction to backing up DPM servers using the Azure Backup service</source>
+          <target state="new">An introduction to backing up DPM servers using the Azure Backup service</target>
+        </trans-unit>
+        <trans-unit id="75a1f54b-2ff4-4d0c-a8a5-16c37ad9b25f" xml:space="preserve">
+          <source>This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads.</source>
+          <target state="new">This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads.</target>
+        </trans-unit>
+        <trans-unit id="cc049d9f-29fd-4eb3-bf72-981929a11b23" xml:space="preserve">
+          <source>By reading it you’ll understand:</source>
+          <target state="new">By reading it you’ll understand:</target>
+        </trans-unit>
+        <trans-unit id="9508d3c3-c6f1-4ae4-9690-894a9c3d204f" xml:space="preserve">
+          <source>How Azure DPM server backup works</source>
+          <target state="new">How Azure DPM server backup works</target>
+        </trans-unit>
+        <trans-unit id="b2383626-5e49-445e-9f33-6c9d181d454a" xml:space="preserve">
+          <source>The prerequisites to achieve a smooth backup experience</source>
+          <target state="new">The prerequisites to achieve a smooth backup experience</target>
+        </trans-unit>
+        <trans-unit id="03d74ab1-0a84-4a87-abee-7bbc82cbdd4c" xml:space="preserve">
+          <source>The typical errors encountered and how to deal with them</source>
+          <target state="new">The typical errors encountered and how to deal with them</target>
+        </trans-unit>
+        <trans-unit id="92eb03b1-ae6d-4f47-a09f-f28d08aae7f1" xml:space="preserve">
+          <source>Supported scenarios</source>
+          <target state="new">Supported scenarios</target>
+        </trans-unit>
+        <trans-unit id="b38d4216-fa2f-47dd-9ba1-f2ab324e9573" xml:space="preserve">
+          <source>System Center DPM backs up file and application data.</source>
+          <target state="new">System Center DPM backs up file and application data.</target>
+        </trans-unit>
+        <trans-unit id="0ddb2f4f-fd2e-4100-93a1-169bca675d0f" xml:space="preserve">
+          <source>Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Microsoft Azure Backup.</source>
+          <target state="new">Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Microsoft Azure Backup.</target>
+        </trans-unit>
+        <trans-unit id="84d3c37d-2eb3-4690-a72d-63ed494ea1f2" xml:space="preserve">
+          <source>DPM interacts with Azure Backup as follows:</source>
+          <target state="new">DPM interacts with Azure Backup as follows:</target>
+        </trans-unit>
+        <trans-unit id="b3d8fc91-8651-4f84-b1ea-bbf15f2f03f6" xml:space="preserve">
+          <source><bpt id="b4fb4523-3d02-467d-b81b-fad69ba126dd">&lt;strong&gt;</bpt>DPM deployed as a physical server or on-premises virtual machine<ept id="b4fb4523-3d02-467d-b81b-fad69ba126dd">&lt;/strong&gt;</ept> — If DPM is deployed as a physical server or as an on-premises Hyper-V virtual machine you can back up data to an Azure Backup vault in addition to disk and tape backup.</source>
+          <target state="new"><bpt id="b4fb4523-3d02-467d-b81b-fad69ba126dd">&lt;strong&gt;</bpt>DPM deployed as a physical server or on-premises virtual machine<ept id="b4fb4523-3d02-467d-b81b-fad69ba126dd">&lt;/strong&gt;</ept> — If DPM is deployed as a physical server or as an on-premises Hyper-V virtual machine you can back up data to an Azure Backup vault in addition to disk and tape backup.</target>
+        </trans-unit>
+        <trans-unit id="89da8a89-1993-4d23-899d-6ae04d8d2e7f" xml:space="preserve">
+          <source><bpt id="cce9305a-f28c-4ec6-b774-cd58489c3153">&lt;strong&gt;</bpt>DPM deployed as an Azure virtual machine<ept id="cce9305a-f28c-4ec6-b774-cd58489c3153">&lt;/strong&gt;</ept> — From System Center 2012 R2 with Update 3, DPM can be deployed as an Azure virtual machine.</source>
+          <target state="new"><bpt id="cce9305a-f28c-4ec6-b774-cd58489c3153">&lt;strong&gt;</bpt>DPM deployed as an Azure virtual machine<ept id="cce9305a-f28c-4ec6-b774-cd58489c3153">&lt;/strong&gt;</ept> — From System Center 2012 R2 with Update 3, DPM can be deployed as an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f3d1ed13-06d2-4b3a-a86c-64bc422cf18c" xml:space="preserve">
+          <source>If DPM is deployed as an Azure virtual machine you can back up data to Azure disks attached to the DPM Azure virtual machine, or you can offload the data storage by backing it up to an Azure Backup vault.</source>
+          <target state="new">If DPM is deployed as an Azure virtual machine you can back up data to Azure disks attached to the DPM Azure virtual machine, or you can offload the data storage by backing it up to an Azure Backup vault.</target>
+        </trans-unit>
+        <trans-unit id="f8182724-6656-4e9f-aef2-262fddbcc3e1" xml:space="preserve">
+          <source>The business benefits of using Azure Backup for backing up DPM servers include:</source>
+          <target state="new">The business benefits of using Azure Backup for backing up DPM servers include:</target>
+        </trans-unit>
+        <trans-unit id="47a124ea-393b-4dcc-91d2-9c9ec99a0a34" xml:space="preserve">
+          <source>For on-premises DPM deployment, you can use Azure backup as an alternative to long-term deployment to tape.</source>
+          <target state="new">For on-premises DPM deployment, you can use Azure backup as an alternative to long-term deployment to tape.</target>
+        </trans-unit>
+        <trans-unit id="9ba89260-fc00-4fb3-b790-d68e3a84bec1" xml:space="preserve">
+          <source>For DPM deployments in Azure, Azure Backup allows you to offload storage from the Azure disk, allowing you to scale up by storing older data in Azure Backup and new data on disk.</source>
+          <target state="new">For DPM deployments in Azure, Azure Backup allows you to offload storage from the Azure disk, allowing you to scale up by storing older data in Azure Backup and new data on disk.</target>
+        </trans-unit>
+        <trans-unit id="245b2199-6b23-4415-a564-42471e9a2945" xml:space="preserve">
+          <source>To back up a virtual machine, first a point-in-time snapshot of the data is needed.</source>
+          <target state="new">To back up a virtual machine, first a point-in-time snapshot of the data is needed.</target>
+        </trans-unit>
+        <trans-unit id="ccbf2b3a-e28d-4e33-a988-1ba9f42e29ce" xml:space="preserve">
+          <source>The Azure Backup service initiates the backup job at the scheduled time, and triggers the backup extension to take a snapshot.</source>
+          <target state="new">The Azure Backup service initiates the backup job at the scheduled time, and triggers the backup extension to take a snapshot.</target>
+        </trans-unit>
+        <trans-unit id="489cfa4e-621a-4858-890c-8d4e0fc450d6" xml:space="preserve">
+          <source>The backup extension coordinates with the in-guest VSS service to achieve consistency, and invokes the blob snapshot API of the Azure Storage service once consistency has been reached.</source>
+          <target state="new">The backup extension coordinates with the in-guest VSS service to achieve consistency, and invokes the blob snapshot API of the Azure Storage service once consistency has been reached.</target>
+        </trans-unit>
+        <trans-unit id="9116d5c4-3af6-4665-9390-4b638fa2c942" xml:space="preserve">
+          <source>This is done to get a consistent snapshot of the disks of the virtual machine, without having to shut it down.</source>
+          <target state="new">This is done to get a consistent snapshot of the disks of the virtual machine, without having to shut it down.</target>
+        </trans-unit>
+        <trans-unit id="4b17d3cd-620c-42b0-bf95-d6d833491b9d" xml:space="preserve">
+          <source>After the snapshot has been taken, the data is transferred by the Azure Backup service to the backup vault.</source>
+          <target state="new">After the snapshot has been taken, the data is transferred by the Azure Backup service to the backup vault.</target>
+        </trans-unit>
+        <trans-unit id="233c5156-3706-4d88-9eea-872dee079bc7" xml:space="preserve">
+          <source>The service takes care of identifying and transferring only the blocks that have changed from the last backup making the backups storage and network efficient.</source>
+          <target state="new">The service takes care of identifying and transferring only the blocks that have changed from the last backup making the backups storage and network efficient.</target>
+        </trans-unit>
+        <trans-unit id="ed4bd5fe-8e78-4e91-bd6b-a5c83c8dd90b" xml:space="preserve">
+          <source>When the data transfer is completed, the snapshot is removed and a recovery point is created.</source>
+          <target state="new">When the data transfer is completed, the snapshot is removed and a recovery point is created.</target>
+        </trans-unit>
+        <trans-unit id="99dea33d-4ca6-4c36-858f-9ea6fce6853b" xml:space="preserve">
+          <source>This recovery point can be seen in the Azure management portal.</source>
+          <target state="new">This recovery point can be seen in the Azure management portal.</target>
+        </trans-unit>
+        <trans-unit id="1b22a7a4-9f48-44ea-9142-a729cd7530d5" xml:space="preserve">
+          <source>For Linux virtual machines, only file-consistent backup is possible.</source>
+          <target state="new">For Linux virtual machines, only file-consistent backup is possible.</target>
+        </trans-unit>
+        <trans-unit id="30e762a7-2e3f-48c5-8edf-6654cf2014b2" xml:space="preserve">
+          <source>Prepare Azure Backup to back up DPM data as follows:</source>
+          <target state="new">Prepare Azure Backup to back up DPM data as follows:</target>
+        </trans-unit>
+        <trans-unit id="761fe070-ca67-4838-acf8-b3ebb9f7a980" xml:space="preserve">
+          <source><bpt id="00de8a0d-eca5-414a-80c8-041b05d7a8e2">&lt;strong&gt;</bpt>Create a Backup vault<ept id="00de8a0d-eca5-414a-80c8-041b05d7a8e2">&lt;/strong&gt;</ept> — Create a vault in the Azure Backup console.</source>
+          <target state="new"><bpt id="00de8a0d-eca5-414a-80c8-041b05d7a8e2">&lt;strong&gt;</bpt>Create a Backup vault<ept id="00de8a0d-eca5-414a-80c8-041b05d7a8e2">&lt;/strong&gt;</ept> — Create a vault in the Azure Backup console.</target>
+        </trans-unit>
+        <trans-unit id="991ed48e-04d1-45c4-8773-52a2f2d3c024" xml:space="preserve">
+          <source><bpt id="b540ca8e-8b06-45e9-92d5-1c2e6d3c5130">&lt;strong&gt;</bpt>Download vault credentials<ept id="b540ca8e-8b06-45e9-92d5-1c2e6d3c5130">&lt;/strong&gt;</ept> — In Azure Backup, upload the management certificate you created to the vault.</source>
+          <target state="new"><bpt id="b540ca8e-8b06-45e9-92d5-1c2e6d3c5130">&lt;strong&gt;</bpt>Download vault credentials<ept id="b540ca8e-8b06-45e9-92d5-1c2e6d3c5130">&lt;/strong&gt;</ept> — In Azure Backup, upload the management certificate you created to the vault.</target>
+        </trans-unit>
+        <trans-unit id="111abe30-6f00-48d7-ac78-7e44decc7d9c" xml:space="preserve">
+          <source><bpt id="cfa2f519-d6f2-47eb-890a-eb8737c4277b">&lt;strong&gt;</bpt>Install the Azure Backup Agent and register the server<ept id="cfa2f519-d6f2-47eb-890a-eb8737c4277b">&lt;/strong&gt;</ept> — From Azure Backup, install the agent on each DPM server and register the DPM server in the backup vault.</source>
+          <target state="new"><bpt id="cfa2f519-d6f2-47eb-890a-eb8737c4277b">&lt;strong&gt;</bpt>Install the Azure Backup Agent and register the server<ept id="cfa2f519-d6f2-47eb-890a-eb8737c4277b">&lt;/strong&gt;</ept> — From Azure Backup, install the agent on each DPM server and register the DPM server in the backup vault.</target>
+        </trans-unit>
+        <trans-unit id="199c0daa-8fa1-45e6-abc4-bb5f2ad8ef0f" xml:space="preserve">
+          <source><bpt id="81ae52a8-e67e-4f73-8ff4-4cfa4d7cb961">&lt;token href="../../includes/backup-create-vault.md"&gt;</bpt><ept id="81ae52a8-e67e-4f73-8ff4-4cfa4d7cb961">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="81ae52a8-e67e-4f73-8ff4-4cfa4d7cb961">&lt;token href="../../includes/backup-create-vault.md"&gt;</bpt><ept id="81ae52a8-e67e-4f73-8ff4-4cfa4d7cb961">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d05d17b-dcc0-4394-bcf4-86f3c83ae00c" xml:space="preserve">
+          <source><bpt id="402c815e-573d-440c-8f09-5f5e6efd5468">&lt;token href="../../includes/backup-download-credentials.md"&gt;</bpt><ept id="402c815e-573d-440c-8f09-5f5e6efd5468">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="402c815e-573d-440c-8f09-5f5e6efd5468">&lt;token href="../../includes/backup-download-credentials.md"&gt;</bpt><ept id="402c815e-573d-440c-8f09-5f5e6efd5468">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1753694e-f808-4e3e-802d-95719d692ebc" xml:space="preserve">
+          <source><bpt id="e1c2b5d5-27a6-480b-b5f5-d95d4c9eff59">&lt;token href="../../includes/backup-install-agent.md"&gt;</bpt><ept id="e1c2b5d5-27a6-480b-b5f5-d95d4c9eff59">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e1c2b5d5-27a6-480b-b5f5-d95d4c9eff59">&lt;token href="../../includes/backup-install-agent.md"&gt;</bpt><ept id="e1c2b5d5-27a6-480b-b5f5-d95d4c9eff59">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4cfc1461-0792-4302-bf5e-991c94621ff2" xml:space="preserve">
+          <source>DPM can be running as a physical server or a Hyper-V virtual machine installed on System Center 2012 SP1 or System Center 2012 R2.</source>
+          <target state="new">DPM can be running as a physical server or a Hyper-V virtual machine installed on System Center 2012 SP1 or System Center 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="6e1fd8f9-ca11-4b13-9588-f8d86ed53570" xml:space="preserve">
+          <source>It can also be running as an Azure virtual machine running on System Center 2012 R2 with at least DPM 2012 R2 Update Rollup 3 or a Windows virtual machine in VMWare running on System Center 2012 R2 with at least Update Rollup 5.</source>
+          <target state="new">It can also be running as an Azure virtual machine running on System Center 2012 R2 with at least DPM 2012 R2 Update Rollup 3 or a Windows virtual machine in VMWare running on System Center 2012 R2 with at least Update Rollup 5.</target>
+        </trans-unit>
+        <trans-unit id="d47c1dfc-3379-4385-a577-9fa5ea70266f" xml:space="preserve">
+          <source>If you’re running DPM with System Center 2012 SP1 you should install Update Roll up 2 for System Center Data Protection Manager SP1.</source>
+          <target state="new">If you’re running DPM with System Center 2012 SP1 you should install Update Roll up 2 for System Center Data Protection Manager SP1.</target>
+        </trans-unit>
+        <trans-unit id="7cb68d72-388a-4cd7-af7e-b26bbc93886e" xml:space="preserve">
+          <source>This is required before you can install the Azure Backup Agent.</source>
+          <target state="new">This is required before you can install the Azure Backup Agent.</target>
+        </trans-unit>
+        <trans-unit id="cf29ab0e-f709-4e5b-974f-1cb58344bed8" xml:space="preserve">
+          <source>The DPM server should have Windows PowerShell and .Net Framework 4.5 installed.</source>
+          <target state="new">The DPM server should have Windows PowerShell and .Net Framework 4.5 installed.</target>
+        </trans-unit>
+        <trans-unit id="a1fd4663-6f36-40db-8ace-f51989b6eb17" xml:space="preserve">
+          <source>DPM can back up most workloads to Azure Backup.</source>
+          <target state="new">DPM can back up most workloads to Azure Backup.</target>
+        </trans-unit>
+        <trans-unit id="151ae25b-1ccb-4ed2-b029-55dffc66fa15" xml:space="preserve">
+          <source>For a full list of what’s supported see the Azure Backup support items below.</source>
+          <target state="new">For a full list of what’s supported see the Azure Backup support items below.</target>
+        </trans-unit>
+        <trans-unit id="4e7f4901-07c1-47ad-bdb1-2fe5b55e6c7a" xml:space="preserve">
+          <source>Data stored in Azure Backup can’t be recovered with the “copy to tape” option.</source>
+          <target state="new">Data stored in Azure Backup can’t be recovered with the “copy to tape” option.</target>
+        </trans-unit>
+        <trans-unit id="4cbe7ed3-7116-4668-bb6a-7c7df5f94a27" xml:space="preserve">
+          <source>You’ll need an Azure account with the Azure Backup feature enabled.</source>
+          <target state="new">You’ll need an Azure account with the Azure Backup feature enabled.</target>
+        </trans-unit>
+        <trans-unit id="1b2fc7ac-87cb-4295-9358-8563ce182111" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="c2cdde0b-c29d-407a-acc7-fec9adce3a9a" xml:space="preserve">
+          <source>Read about <bpt id="a1b91451-5918-4b22-967d-1ddf6dfb5c58">&lt;linkText&gt;</bpt>Azure Backup pricing<ept id="a1b91451-5918-4b22-967d-1ddf6dfb5c58">&lt;/linkText&gt;</ept><bpt id="a1b91451-5918-4b22-967d-1ddf6dfb5c58">&lt;title&gt;</bpt><ept id="a1b91451-5918-4b22-967d-1ddf6dfb5c58">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read about <bpt id="a1b91451-5918-4b22-967d-1ddf6dfb5c58">&lt;linkText&gt;</bpt>Azure Backup pricing<ept id="a1b91451-5918-4b22-967d-1ddf6dfb5c58">&lt;/linkText&gt;</ept><bpt id="a1b91451-5918-4b22-967d-1ddf6dfb5c58">&lt;title&gt;</bpt><ept id="a1b91451-5918-4b22-967d-1ddf6dfb5c58">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff2d9571-4cef-4cab-b001-460e56213bdc" xml:space="preserve">
+          <source>Using Azure Backup requires the Azure Backup Agent to be installed on the servers you want to back up.</source>
+          <target state="new">Using Azure Backup requires the Azure Backup Agent to be installed on the servers you want to back up.</target>
+        </trans-unit>
+        <trans-unit id="059bae51-55c9-4a83-b8dc-180b6a16151f" xml:space="preserve">
+          <source>Each server must have at least 2.5 GB of local free storage space for cache location, although 15 GB of free local storage space to be used for the cache location is recommended.</source>
+          <target state="new">Each server must have at least 2.5 GB of local free storage space for cache location, although 15 GB of free local storage space to be used for the cache location is recommended.</target>
+        </trans-unit>
+        <trans-unit id="aa3166e6-36ee-4f70-b788-0f2dd04e8806" xml:space="preserve">
+          <source>Data will be stored in the Azure vault storage.</source>
+          <target state="new">Data will be stored in the Azure vault storage.</target>
+        </trans-unit>
+        <trans-unit id="ef491a98-6ca8-46b2-bf51-a7a996442b54" xml:space="preserve">
+          <source>There’s no limit to the amount of data you can back up to an Azure Backup vault but the size of a data source (for example a virtual machine or database) shouldn’t exceed 1.65 TB.</source>
+          <target state="new">There’s no limit to the amount of data you can back up to an Azure Backup vault but the size of a data source (for example a virtual machine or database) shouldn’t exceed 1.65 TB.</target>
+        </trans-unit>
+        <trans-unit id="f3e98936-29b0-4e0b-92cc-3b6da4316cb3" xml:space="preserve">
+          <source>These file types are supported for back up to Azure:</source>
+          <target state="new">These file types are supported for back up to Azure:</target>
+        </trans-unit>
+        <trans-unit id="cffe7aac-b9df-4793-a32c-5768debc05c1" xml:space="preserve">
+          <source>Encrypted (Full backups only)</source>
+          <target state="new">Encrypted (Full backups only)</target>
+        </trans-unit>
+        <trans-unit id="fd5e1d2c-4243-480f-aadd-ff3e73566392" xml:space="preserve">
+          <source>Compressed (Incremental backups supported)</source>
+          <target state="new">Compressed (Incremental backups supported)</target>
+        </trans-unit>
+        <trans-unit id="057ec0fa-4810-4847-928e-0bc5833de6c3" xml:space="preserve">
+          <source>Sparse (Incremental backups supported)</source>
+          <target state="new">Sparse (Incremental backups supported)</target>
+        </trans-unit>
+        <trans-unit id="ec5e79cc-925e-4164-a73a-8c690edb818a" xml:space="preserve">
+          <source>Compressed and sparse (Treated as Sparse)</source>
+          <target state="new">Compressed and sparse (Treated as Sparse)</target>
+        </trans-unit>
+        <trans-unit id="e33979b0-d695-404c-8c74-0924aa425619" xml:space="preserve">
+          <source>And these are unsupported:</source>
+          <target state="new">And these are unsupported:</target>
+        </trans-unit>
+        <trans-unit id="82c8df50-75f0-4b3c-9ae6-e530f216cf43" xml:space="preserve">
+          <source>Servers on case-sensitive file systems aren’t supported.</source>
+          <target state="new">Servers on case-sensitive file systems aren’t supported.</target>
+        </trans-unit>
+        <trans-unit id="9bba3379-7999-419f-a5de-ce8cab88495d" xml:space="preserve">
+          <source>Hard links (Skipped)</source>
+          <target state="new">Hard links (Skipped)</target>
+        </trans-unit>
+        <trans-unit id="9455d83e-1f59-48e6-9b49-0a91fd83697d" xml:space="preserve">
+          <source>Reparse points (Skipped)</source>
+          <target state="new">Reparse points (Skipped)</target>
+        </trans-unit>
+        <trans-unit id="60841ebd-005d-428b-bdb6-3e36e7bd70b2" xml:space="preserve">
+          <source>Encrypted and compressed (Skipped)</source>
+          <target state="new">Encrypted and compressed (Skipped)</target>
+        </trans-unit>
+        <trans-unit id="3cc92738-d66e-40af-bfff-31c754110e7b" xml:space="preserve">
+          <source>Encrypted and sparse (Skipped)</source>
+          <target state="new">Encrypted and sparse (Skipped)</target>
+        </trans-unit>
+        <trans-unit id="6a1166bb-9c6d-4214-ad61-899d72f8fe37" xml:space="preserve">
+          <source>Compressed stream</source>
+          <target state="new">Compressed stream</target>
+        </trans-unit>
+        <trans-unit id="4e19197c-f14c-4fef-b253-424d0749a531" xml:space="preserve">
+          <source>Sparse stream</source>
+          <target state="new">Sparse stream</target>
+        </trans-unit>
+        <trans-unit id="7d1031c8-a61d-41b0-803d-c760bfc97b8f" xml:space="preserve">
+          <source>From in System Center 2012 DPM with SP1 onwards you can backup up workloads protected by DPM to Azure using Microsoft Azure Backup.</source>
+          <target state="new">From in System Center 2012 DPM with SP1 onwards you can backup up workloads protected by DPM to Azure using Microsoft Azure Backup.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="943c6839-91cf-4942-91ee-f0e76ead529d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="943c6839-91cf-4942-91ee-f0e76ead529d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="828e30ef-853e-4a4a-9262-2fc0c369df77">
+        <trans-unit id="3d6d3b42-a6d2-455f-ae5f-2d5a5a989939" xml:space="preserve">
+          <source>Access on-premises resources using hybrid connections in Azure App Service</source>
+          <target state="new">Access on-premises resources using hybrid connections in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="d76f7b7b-64c8-4910-85ed-272378dd835c" xml:space="preserve">
+          <source>Create a connection between a web app in Azure App Service and an on-premises resource that uses a static TCP port</source>
+          <target state="new">Create a connection between a web app in Azure App Service and an on-premises resource that uses a static TCP port</target>
+        </trans-unit>
+        <trans-unit id="c0636408-ac16-460c-86a2-e624fa89d42e" xml:space="preserve">
+          <source>You can connect a web app in Azure App Service to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services.</source>
+          <target state="new">You can connect a web app in Azure App Service to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services.</target>
+        </trans-unit>
+        <trans-unit id="2cc23964-1a80-4acf-bb6a-1f384d0e4570" xml:space="preserve">
+          <source>This article shows you how to create a hybrid connection between a web app in App Service and an on-premises SQL Server database.</source>
+          <target state="new">This article shows you how to create a hybrid connection between a web app in App Service and an on-premises SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="7016ccf1-5a05-47a9-9333-6bad21c2601e" xml:space="preserve">
+          <source>The Web Apps portion of the Hybrid Connections feature is available only in the <bpt id="7f65dbe4-980d-4d61-8d14-875cae81f479">&lt;linkText&gt;</bpt>Azure Portal<ept id="7f65dbe4-980d-4d61-8d14-875cae81f479">&lt;/linkText&gt;</ept><bpt id="7f65dbe4-980d-4d61-8d14-875cae81f479">&lt;title&gt;</bpt><ept id="7f65dbe4-980d-4d61-8d14-875cae81f479">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Web Apps portion of the Hybrid Connections feature is available only in the <bpt id="7f65dbe4-980d-4d61-8d14-875cae81f479">&lt;linkText&gt;</bpt>Azure Portal<ept id="7f65dbe4-980d-4d61-8d14-875cae81f479">&lt;/linkText&gt;</ept><bpt id="7f65dbe4-980d-4d61-8d14-875cae81f479">&lt;title&gt;</bpt><ept id="7f65dbe4-980d-4d61-8d14-875cae81f479">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="800e21b7-d6d0-4cc9-b9f6-8af02560136c" xml:space="preserve">
+          <source>To create a connection in BizTalk Services, see <bpt id="15a11891-a703-4097-b9a9-1ded5cb3558e">&lt;linkText&gt;</bpt>Hybrid Connections<ept id="15a11891-a703-4097-b9a9-1ded5cb3558e">&lt;/linkText&gt;</ept><bpt id="15a11891-a703-4097-b9a9-1ded5cb3558e">&lt;title&gt;</bpt><ept id="15a11891-a703-4097-b9a9-1ded5cb3558e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a connection in BizTalk Services, see <bpt id="15a11891-a703-4097-b9a9-1ded5cb3558e">&lt;linkText&gt;</bpt>Hybrid Connections<ept id="15a11891-a703-4097-b9a9-1ded5cb3558e">&lt;/linkText&gt;</ept><bpt id="15a11891-a703-4097-b9a9-1ded5cb3558e">&lt;title&gt;</bpt><ept id="15a11891-a703-4097-b9a9-1ded5cb3558e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="219cd37a-4137-41df-877d-48e47fde1f77" xml:space="preserve">
+          <source>An Azure subscription.</source>
+          <target state="new">An Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="9b430df2-ef77-4411-a8e6-370936e60273" xml:space="preserve">
+          <source>For a free subscription, see <bpt id="01b71f25-3872-416c-a14a-5e9ce759edea">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="01b71f25-3872-416c-a14a-5e9ce759edea">&lt;/linkText&gt;</ept><bpt id="01b71f25-3872-416c-a14a-5e9ce759edea">&lt;title&gt;</bpt><ept id="01b71f25-3872-416c-a14a-5e9ce759edea">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a free subscription, see <bpt id="01b71f25-3872-416c-a14a-5e9ce759edea">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="01b71f25-3872-416c-a14a-5e9ce759edea">&lt;/linkText&gt;</ept><bpt id="01b71f25-3872-416c-a14a-5e9ce759edea">&lt;title&gt;</bpt><ept id="01b71f25-3872-416c-a14a-5e9ce759edea">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="873f1016-dd82-4963-9691-07b7a2b52615" xml:space="preserve">
+          <source>To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port.</source>
+          <target state="new">To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port.</target>
+        </trans-unit>
+        <trans-unit id="cb343e86-ba34-41f2-9bb0-d6672da4c112" xml:space="preserve">
+          <source>Using a default instance on SQL Server is recommended because it uses static port 1433.</source>
+          <target state="new">Using a default instance on SQL Server is recommended because it uses static port 1433.</target>
+        </trans-unit>
+        <trans-unit id="cfa547a5-c643-4349-be5b-93d456aa461f" xml:space="preserve">
+          <source>For information on installing and configuring SQL Server Express for use with hybrid connections, see <bpt id="d9feb09b-abe4-44eb-958f-55a3d18f735f">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections<ept id="d9feb09b-abe4-44eb-958f-55a3d18f735f">&lt;/linkText&gt;</ept><bpt id="d9feb09b-abe4-44eb-958f-55a3d18f735f">&lt;title&gt;</bpt><ept id="d9feb09b-abe4-44eb-958f-55a3d18f735f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on installing and configuring SQL Server Express for use with hybrid connections, see <bpt id="d9feb09b-abe4-44eb-958f-55a3d18f735f">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections<ept id="d9feb09b-abe4-44eb-958f-55a3d18f735f">&lt;/linkText&gt;</ept><bpt id="d9feb09b-abe4-44eb-958f-55a3d18f735f">&lt;title&gt;</bpt><ept id="d9feb09b-abe4-44eb-958f-55a3d18f735f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="774786eb-a80d-4e17-a1b4-5c7c6889f1d3" xml:space="preserve">
+          <source>The computer on which you install the on-premises Hybrid Connection Manager agent described later in this article:</source>
+          <target state="new">The computer on which you install the on-premises Hybrid Connection Manager agent described later in this article:</target>
+        </trans-unit>
+        <trans-unit id="b16fdb40-8d6d-4d25-8d0b-2aa7b84beb49" xml:space="preserve">
+          <source>Must be able to connect to Azure over port 5671</source>
+          <target state="new">Must be able to connect to Azure over port 5671</target>
+        </trans-unit>
+        <trans-unit id="b1c4b805-6ce2-430b-b6fc-9ffbe639f49c" xml:space="preserve">
+          <source>Must be able to reach the <bpt id="1ad2a846-5947-4981-b814-ca0a80673f96">&lt;em&gt;</bpt>hostname<ept id="1ad2a846-5947-4981-b814-ca0a80673f96">&lt;/em&gt;</ept>:<bpt id="e94b19ec-123b-47e0-acf7-e8f1a161cce0">&lt;em&gt;</bpt>portnumber<ept id="e94b19ec-123b-47e0-acf7-e8f1a161cce0">&lt;/em&gt;</ept> of your on-premises resource.</source>
+          <target state="new">Must be able to reach the <bpt id="1ad2a846-5947-4981-b814-ca0a80673f96">&lt;em&gt;</bpt>hostname<ept id="1ad2a846-5947-4981-b814-ca0a80673f96">&lt;/em&gt;</ept>:<bpt id="e94b19ec-123b-47e0-acf7-e8f1a161cce0">&lt;em&gt;</bpt>portnumber<ept id="e94b19ec-123b-47e0-acf7-e8f1a161cce0">&lt;/em&gt;</ept> of your on-premises resource.</target>
+        </trans-unit>
+        <trans-unit id="4802c27a-9412-47d7-b338-99190374e368" xml:space="preserve">
+          <source>The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.</source>
+          <target state="new">The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.</target>
+        </trans-unit>
+        <trans-unit id="969d777f-ce76-4ac3-a441-b2e8e5c22907" xml:space="preserve">
+          <source>If you have already created a web app in the Azure Portal that you want to use for this tutorial, you can skip ahead to <bpt id="056d2ce3-4f59-4b5f-a8f9-3c784f86179e">&lt;linkText&gt;</bpt>Create a Hybrid Connection and a BizTalk Service<ept id="056d2ce3-4f59-4b5f-a8f9-3c784f86179e">&lt;/linkText&gt;</ept><bpt id="056d2ce3-4f59-4b5f-a8f9-3c784f86179e">&lt;title&gt;</bpt><ept id="056d2ce3-4f59-4b5f-a8f9-3c784f86179e">&lt;/title&gt;</ept> and start from there.</source>
+          <target state="new">If you have already created a web app in the Azure Portal that you want to use for this tutorial, you can skip ahead to <bpt id="056d2ce3-4f59-4b5f-a8f9-3c784f86179e">&lt;linkText&gt;</bpt>Create a Hybrid Connection and a BizTalk Service<ept id="056d2ce3-4f59-4b5f-a8f9-3c784f86179e">&lt;/linkText&gt;</ept><bpt id="056d2ce3-4f59-4b5f-a8f9-3c784f86179e">&lt;title&gt;</bpt><ept id="056d2ce3-4f59-4b5f-a8f9-3c784f86179e">&lt;/title&gt;</ept> and start from there.</target>
+        </trans-unit>
+        <trans-unit id="c026b1be-c708-4468-a3ca-94f3c8df7e64" xml:space="preserve">
+          <source>In the lower left corner of the <bpt id="b92d0a50-5889-4074-8974-90f8c8fc2c29">&lt;linkText&gt;</bpt>Azure Portal<ept id="b92d0a50-5889-4074-8974-90f8c8fc2c29">&lt;/linkText&gt;</ept><bpt id="b92d0a50-5889-4074-8974-90f8c8fc2c29">&lt;title&gt;</bpt><ept id="b92d0a50-5889-4074-8974-90f8c8fc2c29">&lt;/title&gt;</ept>, click <bpt id="de31e490-cf6a-4b5d-bc2c-3bb80d608d03">&lt;strong&gt;</bpt>New<ept id="de31e490-cf6a-4b5d-bc2c-3bb80d608d03">&lt;/strong&gt;</ept> &gt; <bpt id="4ba2cfee-297b-4e52-8b3c-d6fb4d33d3b9">&lt;strong&gt;</bpt>Web + Mobile<ept id="4ba2cfee-297b-4e52-8b3c-d6fb4d33d3b9">&lt;/strong&gt;</ept> &gt; <bpt id="44c4aed7-0632-4746-b850-fe760b51f2a8">&lt;strong&gt;</bpt>Website<ept id="44c4aed7-0632-4746-b850-fe760b51f2a8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the lower left corner of the <bpt id="b92d0a50-5889-4074-8974-90f8c8fc2c29">&lt;linkText&gt;</bpt>Azure Portal<ept id="b92d0a50-5889-4074-8974-90f8c8fc2c29">&lt;/linkText&gt;</ept><bpt id="b92d0a50-5889-4074-8974-90f8c8fc2c29">&lt;title&gt;</bpt><ept id="b92d0a50-5889-4074-8974-90f8c8fc2c29">&lt;/title&gt;</ept>, click <bpt id="de31e490-cf6a-4b5d-bc2c-3bb80d608d03">&lt;strong&gt;</bpt>New<ept id="de31e490-cf6a-4b5d-bc2c-3bb80d608d03">&lt;/strong&gt;</ept> &gt; <bpt id="4ba2cfee-297b-4e52-8b3c-d6fb4d33d3b9">&lt;strong&gt;</bpt>Web + Mobile<ept id="4ba2cfee-297b-4e52-8b3c-d6fb4d33d3b9">&lt;/strong&gt;</ept> &gt; <bpt id="44c4aed7-0632-4746-b850-fe760b51f2a8">&lt;strong&gt;</bpt>Website<ept id="44c4aed7-0632-4746-b850-fe760b51f2a8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2af2dfd4-f84d-41a0-ad91-7e0d97be0610" xml:space="preserve">
+          <source><bpt id="7ccf1067-b194-4385-83c4-4c8a22b64aad">&lt;linkText&gt;</bpt>New button<ept id="7ccf1067-b194-4385-83c4-4c8a22b64aad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ccf1067-b194-4385-83c4-4c8a22b64aad">&lt;linkText&gt;</bpt>New button<ept id="7ccf1067-b194-4385-83c4-4c8a22b64aad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b90ac8a-d33a-422c-bef3-ea346c5be4dd" xml:space="preserve">
+          <source><bpt id="903f2dea-29ee-4d9f-965e-ff5f753cc7c6">&lt;linkText&gt;</bpt>New web app<ept id="903f2dea-29ee-4d9f-965e-ff5f753cc7c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="903f2dea-29ee-4d9f-965e-ff5f753cc7c6">&lt;linkText&gt;</bpt>New web app<ept id="903f2dea-29ee-4d9f-965e-ff5f753cc7c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48a42a72-3b90-462a-98ab-eb7d6a7de72c" xml:space="preserve">
+          <source>On the <bpt id="9835a8a3-f1de-44af-9439-be011f542735">&lt;strong&gt;</bpt>Web app<ept id="9835a8a3-f1de-44af-9439-be011f542735">&lt;/strong&gt;</ept> blade, provide a URL &gt;  <bpt id="fbd2ca09-71b9-4074-a3c4-ffca099f214a">&lt;strong&gt;</bpt>Create<ept id="fbd2ca09-71b9-4074-a3c4-ffca099f214a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="9835a8a3-f1de-44af-9439-be011f542735">&lt;strong&gt;</bpt>Web app<ept id="9835a8a3-f1de-44af-9439-be011f542735">&lt;/strong&gt;</ept> blade, provide a URL &gt;  <bpt id="fbd2ca09-71b9-4074-a3c4-ffca099f214a">&lt;strong&gt;</bpt>Create<ept id="fbd2ca09-71b9-4074-a3c4-ffca099f214a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4afddac3-4a2f-48a2-b295-3f88e4576132" xml:space="preserve">
+          <source><bpt id="c1ace8cb-03b9-4bf6-8039-0ca9ef64216c">&lt;linkText&gt;</bpt>Website name<ept id="c1ace8cb-03b9-4bf6-8039-0ca9ef64216c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c1ace8cb-03b9-4bf6-8039-0ca9ef64216c">&lt;linkText&gt;</bpt>Website name<ept id="c1ace8cb-03b9-4bf6-8039-0ca9ef64216c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f69e77d4-f7a0-49de-aded-38ce6510542a" xml:space="preserve">
+          <source>After a few moments, the web app is created and its web app blade appears.</source>
+          <target state="new">After a few moments, the web app is created and its web app blade appears.</target>
+        </trans-unit>
+        <trans-unit id="95751ee1-6fc6-4870-9cbc-cc17c1806481" xml:space="preserve">
+          <source>The blade is a vertically scrollable dashboard that lets you manage your site.</source>
+          <target state="new">The blade is a vertically scrollable dashboard that lets you manage your site.</target>
+        </trans-unit>
+        <trans-unit id="21196649-1bde-493a-ab12-19ec30ebec56" xml:space="preserve">
+          <source><bpt id="cce838ae-b904-4a0a-98bb-e21b195920f5">&lt;linkText&gt;</bpt>Website running<ept id="cce838ae-b904-4a0a-98bb-e21b195920f5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cce838ae-b904-4a0a-98bb-e21b195920f5">&lt;linkText&gt;</bpt>Website running<ept id="cce838ae-b904-4a0a-98bb-e21b195920f5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc5ab06c-8ae1-447c-8659-f175045d8146" xml:space="preserve">
+          <source>To verify the site is live, you can click the <bpt id="0373be09-f2c7-4619-959c-ba92b9854247">&lt;strong&gt;</bpt>Browse<ept id="0373be09-f2c7-4619-959c-ba92b9854247">&lt;/strong&gt;</ept> icon to display the default page.</source>
+          <target state="new">To verify the site is live, you can click the <bpt id="0373be09-f2c7-4619-959c-ba92b9854247">&lt;strong&gt;</bpt>Browse<ept id="0373be09-f2c7-4619-959c-ba92b9854247">&lt;/strong&gt;</ept> icon to display the default page.</target>
+        </trans-unit>
+        <trans-unit id="0e1b6077-45f9-4ce3-9c5f-c83e07771232" xml:space="preserve">
+          <source><bpt id="047eac57-edce-4683-b475-724a66a7d03d">&lt;linkText&gt;</bpt>Click browse to see your web app<ept id="047eac57-edce-4683-b475-724a66a7d03d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="047eac57-edce-4683-b475-724a66a7d03d">&lt;linkText&gt;</bpt>Click browse to see your web app<ept id="047eac57-edce-4683-b475-724a66a7d03d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e56de71-420d-4462-ad23-c44318a8e5fe" xml:space="preserve">
+          <source><bpt id="105424a1-508e-4c92-b724-5941279bc805">&lt;linkText&gt;</bpt>Default web app page<ept id="105424a1-508e-4c92-b724-5941279bc805">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="105424a1-508e-4c92-b724-5941279bc805">&lt;linkText&gt;</bpt>Default web app page<ept id="105424a1-508e-4c92-b724-5941279bc805">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6240f10-1fdb-476e-8930-69976a80ea6a" xml:space="preserve">
+          <source>Next, you will create a hybrid connection and a BizTalk service for the web app.</source>
+          <target state="new">Next, you will create a hybrid connection and a BizTalk service for the web app.</target>
+        </trans-unit>
+        <trans-unit id="936a1775-1344-4d14-b0b1-26dff1ab519a" xml:space="preserve">
+          <source><bpt id="6bf9c8c1-1f2a-4c40-bb84-9588d51d12ee">&lt;bookmark&gt;</bpt><ept id="6bf9c8c1-1f2a-4c40-bb84-9588d51d12ee">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="6bf9c8c1-1f2a-4c40-bb84-9588d51d12ee">&lt;bookmark&gt;</bpt><ept id="6bf9c8c1-1f2a-4c40-bb84-9588d51d12ee">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad44f4a1-8ce2-4f02-a31e-c66bb9059874" xml:space="preserve">
+          <source>Scroll down the blade for your web app and choose <bpt id="d38ba444-46ad-42a5-9947-a66abff27db0">&lt;strong&gt;</bpt>Hybrid connections<ept id="d38ba444-46ad-42a5-9947-a66abff27db0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll down the blade for your web app and choose <bpt id="d38ba444-46ad-42a5-9947-a66abff27db0">&lt;strong&gt;</bpt>Hybrid connections<ept id="d38ba444-46ad-42a5-9947-a66abff27db0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55696646-fa0d-4785-8d21-701b07d4631c" xml:space="preserve">
+          <source><bpt id="32160c10-14da-4c86-96d8-7dd008dec0bd">&lt;linkText&gt;</bpt>Hybrid connections<ept id="32160c10-14da-4c86-96d8-7dd008dec0bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="32160c10-14da-4c86-96d8-7dd008dec0bd">&lt;linkText&gt;</bpt>Hybrid connections<ept id="32160c10-14da-4c86-96d8-7dd008dec0bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f61a69c3-f3ad-40d7-ab8e-63b170047b4f" xml:space="preserve">
+          <source>On the Hybrid connections blade, click <bpt id="ea8852c6-3a73-492d-bbb0-e7ca3ef60417">&lt;strong&gt;</bpt>Add<ept id="ea8852c6-3a73-492d-bbb0-e7ca3ef60417">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Hybrid connections blade, click <bpt id="ea8852c6-3a73-492d-bbb0-e7ca3ef60417">&lt;strong&gt;</bpt>Add<ept id="ea8852c6-3a73-492d-bbb0-e7ca3ef60417">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9442810a-1107-403a-b667-ef32d468aa0d" xml:space="preserve">
+          <source>The <bpt id="a1ceed7a-f693-4ddd-b251-fbf3be9af727">&lt;strong&gt;</bpt>Add a hybrid connection<ept id="a1ceed7a-f693-4ddd-b251-fbf3be9af727">&lt;/strong&gt;</ept> blade opens.</source>
+          <target state="new">The <bpt id="a1ceed7a-f693-4ddd-b251-fbf3be9af727">&lt;strong&gt;</bpt>Add a hybrid connection<ept id="a1ceed7a-f693-4ddd-b251-fbf3be9af727">&lt;/strong&gt;</ept> blade opens.</target>
+        </trans-unit>
+        <trans-unit id="10dd738a-0a5f-4464-a560-6d7f0307e820" xml:space="preserve">
+          <source>Since this is your first hybrid connection, the <bpt id="09540089-2f2e-464d-8f9a-c7c1ccc472aa">&lt;strong&gt;</bpt>New hybrid connection<ept id="09540089-2f2e-464d-8f9a-c7c1ccc472aa">&lt;/strong&gt;</ept> option is preselected, and the <bpt id="d0a813bb-0b4e-4ca9-9dad-be3b6ccdf0fe">&lt;strong&gt;</bpt>Create hybrid connection<ept id="d0a813bb-0b4e-4ca9-9dad-be3b6ccdf0fe">&lt;/strong&gt;</ept> blade opens for you.</source>
+          <target state="new">Since this is your first hybrid connection, the <bpt id="09540089-2f2e-464d-8f9a-c7c1ccc472aa">&lt;strong&gt;</bpt>New hybrid connection<ept id="09540089-2f2e-464d-8f9a-c7c1ccc472aa">&lt;/strong&gt;</ept> option is preselected, and the <bpt id="d0a813bb-0b4e-4ca9-9dad-be3b6ccdf0fe">&lt;strong&gt;</bpt>Create hybrid connection<ept id="d0a813bb-0b4e-4ca9-9dad-be3b6ccdf0fe">&lt;/strong&gt;</ept> blade opens for you.</target>
+        </trans-unit>
+        <trans-unit id="43959e4c-cadf-4baf-be9c-90f58881c5e2" xml:space="preserve">
+          <source><bpt id="a765c88f-c043-4bed-a2ea-c912362dd8b0">&lt;linkText&gt;</bpt>Create a hybrid connection<ept id="a765c88f-c043-4bed-a2ea-c912362dd8b0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a765c88f-c043-4bed-a2ea-c912362dd8b0">&lt;linkText&gt;</bpt>Create a hybrid connection<ept id="a765c88f-c043-4bed-a2ea-c912362dd8b0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="219a8e9c-b90b-44b2-aee5-91e4772f8eb5" xml:space="preserve">
+          <source>On the <bpt id="e5ca9d52-4bfa-409f-b4b6-9d5c28050a2a">&lt;strong&gt;</bpt>Create hybrid connection blade<ept id="e5ca9d52-4bfa-409f-b4b6-9d5c28050a2a">&lt;/strong&gt;</ept>:</source>
+          <target state="new">On the <bpt id="e5ca9d52-4bfa-409f-b4b6-9d5c28050a2a">&lt;strong&gt;</bpt>Create hybrid connection blade<ept id="e5ca9d52-4bfa-409f-b4b6-9d5c28050a2a">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a8e63a0c-d11d-4faa-8893-2155fff51182" xml:space="preserve">
+          <source>For <bpt id="622acd36-f1e9-41c1-aea2-06882122b2b9">&lt;strong&gt;</bpt>Name<ept id="622acd36-f1e9-41c1-aea2-06882122b2b9">&lt;/strong&gt;</ept>, provide a name for the connection.</source>
+          <target state="new">For <bpt id="622acd36-f1e9-41c1-aea2-06882122b2b9">&lt;strong&gt;</bpt>Name<ept id="622acd36-f1e9-41c1-aea2-06882122b2b9">&lt;/strong&gt;</ept>, provide a name for the connection.</target>
+        </trans-unit>
+        <trans-unit id="3bb7de0c-7583-4c4e-b9be-1c7111986d62" xml:space="preserve">
+          <source>For <bpt id="d87a4192-0eb5-4495-b706-16639db169a2">&lt;strong&gt;</bpt>Hostname<ept id="d87a4192-0eb5-4495-b706-16639db169a2">&lt;/strong&gt;</ept>, enter the name of the on-premises computer that hosts your resource.</source>
+          <target state="new">For <bpt id="d87a4192-0eb5-4495-b706-16639db169a2">&lt;strong&gt;</bpt>Hostname<ept id="d87a4192-0eb5-4495-b706-16639db169a2">&lt;/strong&gt;</ept>, enter the name of the on-premises computer that hosts your resource.</target>
+        </trans-unit>
+        <trans-unit id="2ce4dbf9-06a4-4ac9-b1f3-6586b16999fe" xml:space="preserve">
+          <source>For <bpt id="954d096d-d19d-47e4-aa33-382bc63e4736">&lt;strong&gt;</bpt>Port<ept id="954d096d-d19d-47e4-aa33-382bc63e4736">&lt;/strong&gt;</ept>, enter the port number that your on-premises resource uses (1433 for a SQL Server default instance).</source>
+          <target state="new">For <bpt id="954d096d-d19d-47e4-aa33-382bc63e4736">&lt;strong&gt;</bpt>Port<ept id="954d096d-d19d-47e4-aa33-382bc63e4736">&lt;/strong&gt;</ept>, enter the port number that your on-premises resource uses (1433 for a SQL Server default instance).</target>
+        </trans-unit>
+        <trans-unit id="7619bfb3-ec2b-48fa-8916-d7e1e7c544ca" xml:space="preserve">
+          <source>Click <bpt id="b274ffd1-a4e1-4b98-81ea-3e7b317147b7">&lt;strong&gt;</bpt>Biz Talk Service<ept id="b274ffd1-a4e1-4b98-81ea-3e7b317147b7">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="b274ffd1-a4e1-4b98-81ea-3e7b317147b7">&lt;strong&gt;</bpt>Biz Talk Service<ept id="b274ffd1-a4e1-4b98-81ea-3e7b317147b7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ca4c09c-efe2-43f5-8770-0e29e00a76a8" xml:space="preserve">
+          <source>The <bpt id="76467ee5-ca06-4794-83f2-e72e0e17013a">&lt;strong&gt;</bpt>Create BizTalk Service<ept id="76467ee5-ca06-4794-83f2-e72e0e17013a">&lt;/strong&gt;</ept> blade opens.</source>
+          <target state="new">The <bpt id="76467ee5-ca06-4794-83f2-e72e0e17013a">&lt;strong&gt;</bpt>Create BizTalk Service<ept id="76467ee5-ca06-4794-83f2-e72e0e17013a">&lt;/strong&gt;</ept> blade opens.</target>
+        </trans-unit>
+        <trans-unit id="2cd49841-823b-496f-9f36-2c9987e60bac" xml:space="preserve">
+          <source>Enter a name for the BizTalk service, and then click <bpt id="1f685bc4-ca38-4f99-8ac2-ef575b5606cd">&lt;strong&gt;</bpt>OK<ept id="1f685bc4-ca38-4f99-8ac2-ef575b5606cd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a name for the BizTalk service, and then click <bpt id="1f685bc4-ca38-4f99-8ac2-ef575b5606cd">&lt;strong&gt;</bpt>OK<ept id="1f685bc4-ca38-4f99-8ac2-ef575b5606cd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17a1366b-e456-4a64-ad07-f7e0f82fba09" xml:space="preserve">
+          <source><bpt id="0f8e19e9-07a6-47eb-8273-451e81e28950">&lt;linkText&gt;</bpt>Create BizTalk service<ept id="0f8e19e9-07a6-47eb-8273-451e81e28950">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f8e19e9-07a6-47eb-8273-451e81e28950">&lt;linkText&gt;</bpt>Create BizTalk service<ept id="0f8e19e9-07a6-47eb-8273-451e81e28950">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ee5f10b-f398-4712-bd62-5e9b66cb0048" xml:space="preserve">
+          <source>The <bpt id="cda79cd6-7428-4059-8de4-17b784c1f473">&lt;strong&gt;</bpt>Create BizTalk Service<ept id="cda79cd6-7428-4059-8de4-17b784c1f473">&lt;/strong&gt;</ept> blade closes and you are returned to the <bpt id="19d71b3f-2aa5-424c-a5b0-9c002541b6c5">&lt;strong&gt;</bpt>Create hybrid connection<ept id="19d71b3f-2aa5-424c-a5b0-9c002541b6c5">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">The <bpt id="cda79cd6-7428-4059-8de4-17b784c1f473">&lt;strong&gt;</bpt>Create BizTalk Service<ept id="cda79cd6-7428-4059-8de4-17b784c1f473">&lt;/strong&gt;</ept> blade closes and you are returned to the <bpt id="19d71b3f-2aa5-424c-a5b0-9c002541b6c5">&lt;strong&gt;</bpt>Create hybrid connection<ept id="19d71b3f-2aa5-424c-a5b0-9c002541b6c5">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="3b51f56c-dfe1-49c3-aeff-c22505d43187" xml:space="preserve">
+          <source>On the Create hybrid connection blade, click <bpt id="baeed0db-c26d-4639-b380-ba7ff5730662">&lt;strong&gt;</bpt>OK<ept id="baeed0db-c26d-4639-b380-ba7ff5730662">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Create hybrid connection blade, click <bpt id="baeed0db-c26d-4639-b380-ba7ff5730662">&lt;strong&gt;</bpt>OK<ept id="baeed0db-c26d-4639-b380-ba7ff5730662">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44b85d4c-eba5-4aa7-b201-48fbd9c7e232" xml:space="preserve">
+          <source><bpt id="8216d909-6c5d-42a0-8420-de5043f80a36">&lt;linkText&gt;</bpt>Click OK<ept id="8216d909-6c5d-42a0-8420-de5043f80a36">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8216d909-6c5d-42a0-8420-de5043f80a36">&lt;linkText&gt;</bpt>Click OK<ept id="8216d909-6c5d-42a0-8420-de5043f80a36">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9269b026-365b-42df-8aa3-0768d9ff4ce3" xml:space="preserve">
+          <source>When the process completes, the notifications area in the portal informs you that the connection has been successfully created.</source>
+          <target state="new">When the process completes, the notifications area in the portal informs you that the connection has been successfully created.</target>
+        </trans-unit>
+        <trans-unit id="f01fc246-a22a-4333-a6d1-37f249972658" xml:space="preserve">
+          <source>On the web app's blade, the <bpt id="746dabae-3a0d-45ac-999b-affda4a214c6">&lt;strong&gt;</bpt>Hybrid connections<ept id="746dabae-3a0d-45ac-999b-affda4a214c6">&lt;/strong&gt;</ept> icon now shows that 1 hybrid connection has been created.</source>
+          <target state="new">On the web app's blade, the <bpt id="746dabae-3a0d-45ac-999b-affda4a214c6">&lt;strong&gt;</bpt>Hybrid connections<ept id="746dabae-3a0d-45ac-999b-affda4a214c6">&lt;/strong&gt;</ept> icon now shows that 1 hybrid connection has been created.</target>
+        </trans-unit>
+        <trans-unit id="404fc191-a105-42d3-85c4-8d22afad069b" xml:space="preserve">
+          <source><bpt id="a3f0b454-a1fe-4762-80fa-982d517ff838">&lt;linkText&gt;</bpt>One hybrid connection created<ept id="a3f0b454-a1fe-4762-80fa-982d517ff838">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a3f0b454-a1fe-4762-80fa-982d517ff838">&lt;linkText&gt;</bpt>One hybrid connection created<ept id="a3f0b454-a1fe-4762-80fa-982d517ff838">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3816205-e2b6-4570-9f21-e163beeb90d1" xml:space="preserve">
+          <source>At this point, you have completed an important part of the cloud hybrid connection infrastructure.</source>
+          <target state="new">At this point, you have completed an important part of the cloud hybrid connection infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="f780bcce-5eb5-45ac-8aab-5f89a154baa0" xml:space="preserve">
+          <source>Next, you will create a corresponding on-premises piece.</source>
+          <target state="new">Next, you will create a corresponding on-premises piece.</target>
+        </trans-unit>
+        <trans-unit id="3f33c456-c0fd-4898-a1da-d48c12249548" xml:space="preserve">
+          <source><bpt id="ffa71a8a-fc61-4698-a2e7-0e331cefab31">&lt;bookmark&gt;</bpt><ept id="ffa71a8a-fc61-4698-a2e7-0e331cefab31">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="ffa71a8a-fc61-4698-a2e7-0e331cefab31">&lt;bookmark&gt;</bpt><ept id="ffa71a8a-fc61-4698-a2e7-0e331cefab31">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5c23cdf-6c28-4276-965d-065d974d37fd" xml:space="preserve">
+          <source>On the web app's blade, click the Hybrid connections icon.</source>
+          <target state="new">On the web app's blade, click the Hybrid connections icon.</target>
+        </trans-unit>
+        <trans-unit id="0ba0f5c4-41d8-40c8-b9c5-f9085ba0d892" xml:space="preserve">
+          <source><bpt id="a2b8453f-232c-48b4-a125-f90aa8bca4ab">&lt;linkText&gt;</bpt>Hybrid connections icon<ept id="a2b8453f-232c-48b4-a125-f90aa8bca4ab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2b8453f-232c-48b4-a125-f90aa8bca4ab">&lt;linkText&gt;</bpt>Hybrid connections icon<ept id="a2b8453f-232c-48b4-a125-f90aa8bca4ab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93396e89-4243-4a77-bb10-3acf56d0d5f9" xml:space="preserve">
+          <source>On the <bpt id="40ef5c2f-e959-4052-923f-17a7fccb6992">&lt;strong&gt;</bpt>Hybrid connections<ept id="40ef5c2f-e959-4052-923f-17a7fccb6992">&lt;/strong&gt;</ept> blade, the <bpt id="e9a065d4-8633-45a8-9bfe-7d514802ed41">&lt;strong&gt;</bpt>Status<ept id="e9a065d4-8633-45a8-9bfe-7d514802ed41">&lt;/strong&gt;</ept> column for the recently added endpoint shows <bpt id="0e7788fe-b4d4-48a4-a5cc-172445e9bb0d">&lt;strong&gt;</bpt>Not connected<ept id="0e7788fe-b4d4-48a4-a5cc-172445e9bb0d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="40ef5c2f-e959-4052-923f-17a7fccb6992">&lt;strong&gt;</bpt>Hybrid connections<ept id="40ef5c2f-e959-4052-923f-17a7fccb6992">&lt;/strong&gt;</ept> blade, the <bpt id="e9a065d4-8633-45a8-9bfe-7d514802ed41">&lt;strong&gt;</bpt>Status<ept id="e9a065d4-8633-45a8-9bfe-7d514802ed41">&lt;/strong&gt;</ept> column for the recently added endpoint shows <bpt id="0e7788fe-b4d4-48a4-a5cc-172445e9bb0d">&lt;strong&gt;</bpt>Not connected<ept id="0e7788fe-b4d4-48a4-a5cc-172445e9bb0d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3bcefd3-5bfc-434e-933a-158bd8dfe8b9" xml:space="preserve">
+          <source>Click the connection to configure it.</source>
+          <target state="new">Click the connection to configure it.</target>
+        </trans-unit>
+        <trans-unit id="1cfa1b8d-28c8-4657-a1dc-82efa88baf66" xml:space="preserve">
+          <source><bpt id="aa521389-0a7a-450a-adc5-0bb10864fdcd">&lt;linkText&gt;</bpt>Not connected<ept id="aa521389-0a7a-450a-adc5-0bb10864fdcd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa521389-0a7a-450a-adc5-0bb10864fdcd">&lt;linkText&gt;</bpt>Not connected<ept id="aa521389-0a7a-450a-adc5-0bb10864fdcd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d95ab6d3-af42-4b7f-9e16-db499109349a" xml:space="preserve">
+          <source>The Hybrid connection blade opens.</source>
+          <target state="new">The Hybrid connection blade opens.</target>
+        </trans-unit>
+        <trans-unit id="653c4624-4e14-4b48-9a97-8c35658ad94b" xml:space="preserve">
+          <source><bpt id="af2bed05-4391-48af-8908-800d768d5932">&lt;linkText&gt;</bpt>NotConnectedBlade<ept id="af2bed05-4391-48af-8908-800d768d5932">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af2bed05-4391-48af-8908-800d768d5932">&lt;linkText&gt;</bpt>NotConnectedBlade<ept id="af2bed05-4391-48af-8908-800d768d5932">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14fef70f-d8b4-4ad4-a5ed-6d4c288a0e02" xml:space="preserve">
+          <source>On the blade, click <bpt id="c3800a33-ce3c-477a-8fdf-8f1ebe9ddfec">&lt;strong&gt;</bpt>Listener Setup<ept id="c3800a33-ce3c-477a-8fdf-8f1ebe9ddfec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the blade, click <bpt id="c3800a33-ce3c-477a-8fdf-8f1ebe9ddfec">&lt;strong&gt;</bpt>Listener Setup<ept id="c3800a33-ce3c-477a-8fdf-8f1ebe9ddfec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30a11208-cb8b-496c-8bdf-5aca66749aa6" xml:space="preserve">
+          <source><bpt id="043ff576-c7aa-4764-940e-a1c598b6fdbe">&lt;linkText&gt;</bpt>Click Listener Setup<ept id="043ff576-c7aa-4764-940e-a1c598b6fdbe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="043ff576-c7aa-4764-940e-a1c598b6fdbe">&lt;linkText&gt;</bpt>Click Listener Setup<ept id="043ff576-c7aa-4764-940e-a1c598b6fdbe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d6b61f6-f655-4d7a-bf1f-99bf78b2325f" xml:space="preserve">
+          <source>The <bpt id="8c4262c1-291d-42ab-a3e9-466a90972ca6">&lt;strong&gt;</bpt>Hybrid connection properties<ept id="8c4262c1-291d-42ab-a3e9-466a90972ca6">&lt;/strong&gt;</ept> blade opens.</source>
+          <target state="new">The <bpt id="8c4262c1-291d-42ab-a3e9-466a90972ca6">&lt;strong&gt;</bpt>Hybrid connection properties<ept id="8c4262c1-291d-42ab-a3e9-466a90972ca6">&lt;/strong&gt;</ept> blade opens.</target>
+        </trans-unit>
+        <trans-unit id="8fa355c5-b153-4d4a-96dc-cddaaec38f79" xml:space="preserve">
+          <source>Under <bpt id="d6f1acb2-75b6-4b3b-b1d0-37a545f8173d">&lt;strong&gt;</bpt>On-premises Hybrid Connection Manager<ept id="d6f1acb2-75b6-4b3b-b1d0-37a545f8173d">&lt;/strong&gt;</ept>, choose <bpt id="c52efe9b-4d46-4740-984d-e6a4395e458d">&lt;strong&gt;</bpt>Click here to install<ept id="c52efe9b-4d46-4740-984d-e6a4395e458d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="d6f1acb2-75b6-4b3b-b1d0-37a545f8173d">&lt;strong&gt;</bpt>On-premises Hybrid Connection Manager<ept id="d6f1acb2-75b6-4b3b-b1d0-37a545f8173d">&lt;/strong&gt;</ept>, choose <bpt id="c52efe9b-4d46-4740-984d-e6a4395e458d">&lt;strong&gt;</bpt>Click here to install<ept id="c52efe9b-4d46-4740-984d-e6a4395e458d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4108a90-0671-4359-9636-523bcef62b5a" xml:space="preserve">
+          <source><bpt id="825c2fa5-3186-4cba-952f-aec9dae21848">&lt;linkText&gt;</bpt>Click here to install<ept id="825c2fa5-3186-4cba-952f-aec9dae21848">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="825c2fa5-3186-4cba-952f-aec9dae21848">&lt;linkText&gt;</bpt>Click here to install<ept id="825c2fa5-3186-4cba-952f-aec9dae21848">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a7b2b33-543f-45af-8918-fb08f7d45bb1" xml:space="preserve">
+          <source>In the Application Run security warning dialog, choose <bpt id="d6863504-6d15-4f9a-bbe9-281ef9e8559d">&lt;strong&gt;</bpt>Run<ept id="d6863504-6d15-4f9a-bbe9-281ef9e8559d">&lt;/strong&gt;</ept> to continue.</source>
+          <target state="new">In the Application Run security warning dialog, choose <bpt id="d6863504-6d15-4f9a-bbe9-281ef9e8559d">&lt;strong&gt;</bpt>Run<ept id="d6863504-6d15-4f9a-bbe9-281ef9e8559d">&lt;/strong&gt;</ept> to continue.</target>
+        </trans-unit>
+        <trans-unit id="0f081af6-7da1-40e0-becb-acc16fdb26ed" xml:space="preserve">
+          <source><bpt id="10b414e3-1739-420b-8f85-178ff4d8c750">&lt;linkText&gt;</bpt>Choose Run to continue<ept id="10b414e3-1739-420b-8f85-178ff4d8c750">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10b414e3-1739-420b-8f85-178ff4d8c750">&lt;linkText&gt;</bpt>Choose Run to continue<ept id="10b414e3-1739-420b-8f85-178ff4d8c750">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf0f95c5-ccec-44be-b027-0bd820836bc3" xml:space="preserve">
+          <source>In the <bpt id="af2c7287-d294-49b6-970d-d5304797adb6">&lt;strong&gt;</bpt>User Account Control<ept id="af2c7287-d294-49b6-970d-d5304797adb6">&lt;/strong&gt;</ept> dialog, choose <bpt id="5e34cecb-d221-4b84-be88-b98d5ee21a9c">&lt;strong&gt;</bpt>Yes<ept id="5e34cecb-d221-4b84-be88-b98d5ee21a9c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="af2c7287-d294-49b6-970d-d5304797adb6">&lt;strong&gt;</bpt>User Account Control<ept id="af2c7287-d294-49b6-970d-d5304797adb6">&lt;/strong&gt;</ept> dialog, choose <bpt id="5e34cecb-d221-4b84-be88-b98d5ee21a9c">&lt;strong&gt;</bpt>Yes<ept id="5e34cecb-d221-4b84-be88-b98d5ee21a9c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a020d57-4dd6-4b6a-ae60-4c76e622402d" xml:space="preserve">
+          <source><bpt id="3fc629ff-6f3c-4e7c-b799-89ed36a98f46">&lt;linkText&gt;</bpt>Choose Yes<ept id="3fc629ff-6f3c-4e7c-b799-89ed36a98f46">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3fc629ff-6f3c-4e7c-b799-89ed36a98f46">&lt;linkText&gt;</bpt>Choose Yes<ept id="3fc629ff-6f3c-4e7c-b799-89ed36a98f46">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d4e37f5-0fc1-47b2-9668-7c0db5c06bda" xml:space="preserve">
+          <source>The Hybrid Connection Manager is downloaded and installed for you.</source>
+          <target state="new">The Hybrid Connection Manager is downloaded and installed for you.</target>
+        </trans-unit>
+        <trans-unit id="826d96fd-b5b7-4686-b4eb-8054f79e83e4" xml:space="preserve">
+          <source><bpt id="fe9974b8-e46e-467d-901b-f753c54dbd18">&lt;linkText&gt;</bpt>Installing<ept id="fe9974b8-e46e-467d-901b-f753c54dbd18">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe9974b8-e46e-467d-901b-f753c54dbd18">&lt;linkText&gt;</bpt>Installing<ept id="fe9974b8-e46e-467d-901b-f753c54dbd18">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d48bb33f-9146-4092-a3d7-15b3f2f44d65" xml:space="preserve">
+          <source>When the install completes, click <bpt id="3e6d7bd7-3d94-4426-803d-3d031ea2e337">&lt;strong&gt;</bpt>Close<ept id="3e6d7bd7-3d94-4426-803d-3d031ea2e337">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the install completes, click <bpt id="3e6d7bd7-3d94-4426-803d-3d031ea2e337">&lt;strong&gt;</bpt>Close<ept id="3e6d7bd7-3d94-4426-803d-3d031ea2e337">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="716049ea-d1e5-45f8-bb0e-bd728155bd08" xml:space="preserve">
+          <source><bpt id="5f2a45ec-1c8a-4192-bbb6-554dbaaa93ae">&lt;linkText&gt;</bpt>Click Close<ept id="5f2a45ec-1c8a-4192-bbb6-554dbaaa93ae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f2a45ec-1c8a-4192-bbb6-554dbaaa93ae">&lt;linkText&gt;</bpt>Click Close<ept id="5f2a45ec-1c8a-4192-bbb6-554dbaaa93ae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32f08b25-c8e7-4b43-979b-871f1bb18175" xml:space="preserve">
+          <source>On the <bpt id="95d99f38-258b-4c30-b791-dd39b7eea425">&lt;strong&gt;</bpt>Hybrid connections<ept id="95d99f38-258b-4c30-b791-dd39b7eea425">&lt;/strong&gt;</ept> blade, the <bpt id="bd95cc87-1ecd-4cfa-800b-b7e684e779a4">&lt;strong&gt;</bpt>Status<ept id="bd95cc87-1ecd-4cfa-800b-b7e684e779a4">&lt;/strong&gt;</ept> column now shows <bpt id="cd11b218-2120-447f-84aa-64b511a9f920">&lt;strong&gt;</bpt>Connected<ept id="cd11b218-2120-447f-84aa-64b511a9f920">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="95d99f38-258b-4c30-b791-dd39b7eea425">&lt;strong&gt;</bpt>Hybrid connections<ept id="95d99f38-258b-4c30-b791-dd39b7eea425">&lt;/strong&gt;</ept> blade, the <bpt id="bd95cc87-1ecd-4cfa-800b-b7e684e779a4">&lt;strong&gt;</bpt>Status<ept id="bd95cc87-1ecd-4cfa-800b-b7e684e779a4">&lt;/strong&gt;</ept> column now shows <bpt id="cd11b218-2120-447f-84aa-64b511a9f920">&lt;strong&gt;</bpt>Connected<ept id="cd11b218-2120-447f-84aa-64b511a9f920">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85cd33b3-54a8-436b-ad87-e5129d0a9f17" xml:space="preserve">
+          <source><bpt id="5a12ed28-a9cc-4341-9ed0-2ad84daae430">&lt;linkText&gt;</bpt>Connected Status<ept id="5a12ed28-a9cc-4341-9ed0-2ad84daae430">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a12ed28-a9cc-4341-9ed0-2ad84daae430">&lt;linkText&gt;</bpt>Connected Status<ept id="5a12ed28-a9cc-4341-9ed0-2ad84daae430">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f92f1252-d5b8-4187-84ee-b5ab8e302b16" xml:space="preserve">
+          <source>Now that the hybrid connection infrastructure is complete, you can create a hybrid application that uses it.</source>
+          <target state="new">Now that the hybrid connection infrastructure is complete, you can create a hybrid application that uses it.</target>
+        </trans-unit>
+        <trans-unit id="e7a1d917-3d20-4c2c-8bf3-78a40e17afee" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="0acaabc5-6988-4a05-bd06-334ee38a8316">&lt;linkText&gt;</bpt>Try App Service<ept id="0acaabc5-6988-4a05-bd06-334ee38a8316">&lt;/linkText&gt;</ept><bpt id="0acaabc5-6988-4a05-bd06-334ee38a8316">&lt;title&gt;</bpt><ept id="0acaabc5-6988-4a05-bd06-334ee38a8316">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="0acaabc5-6988-4a05-bd06-334ee38a8316">&lt;linkText&gt;</bpt>Try App Service<ept id="0acaabc5-6988-4a05-bd06-334ee38a8316">&lt;/linkText&gt;</ept><bpt id="0acaabc5-6988-4a05-bd06-334ee38a8316">&lt;title&gt;</bpt><ept id="0acaabc5-6988-4a05-bd06-334ee38a8316">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="ba50457d-e582-4801-9186-072d75bf0daa" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="3035d369-77be-49ac-b730-947a6110690b" xml:space="preserve">
+          <source><bpt id="e2f9ddd7-2c25-4dc2-ab40-dedac57c50a6">&lt;bookmark&gt;</bpt><ept id="e2f9ddd7-2c25-4dc2-ab40-dedac57c50a6">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e2f9ddd7-2c25-4dc2-ab40-dedac57c50a6">&lt;bookmark&gt;</bpt><ept id="e2f9ddd7-2c25-4dc2-ab40-dedac57c50a6">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c8a57ac-e72d-4888-aea3-cd17351f4ed1" xml:space="preserve">
+          <source>For information on creating an ASP.NET web application that uses a hybrid connection, see <bpt id="e8419e52-f5df-43dc-9654-d472211e9694">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections<ept id="e8419e52-f5df-43dc-9654-d472211e9694">&lt;/linkText&gt;</ept><bpt id="e8419e52-f5df-43dc-9654-d472211e9694">&lt;title&gt;</bpt><ept id="e8419e52-f5df-43dc-9654-d472211e9694">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on creating an ASP.NET web application that uses a hybrid connection, see <bpt id="e8419e52-f5df-43dc-9654-d472211e9694">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections<ept id="e8419e52-f5df-43dc-9654-d472211e9694">&lt;/linkText&gt;</ept><bpt id="e8419e52-f5df-43dc-9654-d472211e9694">&lt;title&gt;</bpt><ept id="e8419e52-f5df-43dc-9654-d472211e9694">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7403cd88-6e2c-4221-884a-934b33391e82" xml:space="preserve">
+          <source>For information on using a hybrid connection with a mobile service, see <bpt id="c5b69d9e-3d59-436f-84c7-a03826a2c35a">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections<ept id="c5b69d9e-3d59-436f-84c7-a03826a2c35a">&lt;/linkText&gt;</ept><bpt id="c5b69d9e-3d59-436f-84c7-a03826a2c35a">&lt;title&gt;</bpt><ept id="c5b69d9e-3d59-436f-84c7-a03826a2c35a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on using a hybrid connection with a mobile service, see <bpt id="c5b69d9e-3d59-436f-84c7-a03826a2c35a">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections<ept id="c5b69d9e-3d59-436f-84c7-a03826a2c35a">&lt;/linkText&gt;</ept><bpt id="c5b69d9e-3d59-436f-84c7-a03826a2c35a">&lt;title&gt;</bpt><ept id="c5b69d9e-3d59-436f-84c7-a03826a2c35a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12ab7bae-6c45-42aa-8da5-0d9c2488aa8a" xml:space="preserve">
+          <source><bpt id="45b6a976-ec39-46bb-b16c-b770edaf977a">&lt;linkText&gt;</bpt>Hybrid Connections overview<ept id="45b6a976-ec39-46bb-b16c-b770edaf977a">&lt;/linkText&gt;</ept><bpt id="45b6a976-ec39-46bb-b16c-b770edaf977a">&lt;title&gt;</bpt><ept id="45b6a976-ec39-46bb-b16c-b770edaf977a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="45b6a976-ec39-46bb-b16c-b770edaf977a">&lt;linkText&gt;</bpt>Hybrid Connections overview<ept id="45b6a976-ec39-46bb-b16c-b770edaf977a">&lt;/linkText&gt;</ept><bpt id="45b6a976-ec39-46bb-b16c-b770edaf977a">&lt;title&gt;</bpt><ept id="45b6a976-ec39-46bb-b16c-b770edaf977a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e61e3491-d082-43da-9986-5dcb93e59783" xml:space="preserve">
+          <source><bpt id="0f5b4232-b3af-4d9a-ae7a-a88feadc4832">&lt;linkText&gt;</bpt>Josh Twist introduces hybrid connections (Channel 9 video)<ept id="0f5b4232-b3af-4d9a-ae7a-a88feadc4832">&lt;/linkText&gt;</ept><bpt id="0f5b4232-b3af-4d9a-ae7a-a88feadc4832">&lt;title&gt;</bpt><ept id="0f5b4232-b3af-4d9a-ae7a-a88feadc4832">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0f5b4232-b3af-4d9a-ae7a-a88feadc4832">&lt;linkText&gt;</bpt>Josh Twist introduces hybrid connections (Channel 9 video)<ept id="0f5b4232-b3af-4d9a-ae7a-a88feadc4832">&lt;/linkText&gt;</ept><bpt id="0f5b4232-b3af-4d9a-ae7a-a88feadc4832">&lt;title&gt;</bpt><ept id="0f5b4232-b3af-4d9a-ae7a-a88feadc4832">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a428653e-02b9-4e12-b4a6-2c25445dfe51" xml:space="preserve">
+          <source><bpt id="539760a2-d499-472c-8a31-9f25cfd88a2f">&lt;linkText&gt;</bpt>Hybrid Connections web site<ept id="539760a2-d499-472c-8a31-9f25cfd88a2f">&lt;/linkText&gt;</ept><bpt id="539760a2-d499-472c-8a31-9f25cfd88a2f">&lt;title&gt;</bpt><ept id="539760a2-d499-472c-8a31-9f25cfd88a2f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="539760a2-d499-472c-8a31-9f25cfd88a2f">&lt;linkText&gt;</bpt>Hybrid Connections web site<ept id="539760a2-d499-472c-8a31-9f25cfd88a2f">&lt;/linkText&gt;</ept><bpt id="539760a2-d499-472c-8a31-9f25cfd88a2f">&lt;title&gt;</bpt><ept id="539760a2-d499-472c-8a31-9f25cfd88a2f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6284357-61c2-4876-8480-739eaa42e270" xml:space="preserve">
+          <source><bpt id="72398b3e-1007-4154-87a7-cc205924ab6e">&lt;linkText&gt;</bpt>BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs<ept id="72398b3e-1007-4154-87a7-cc205924ab6e">&lt;/linkText&gt;</ept><bpt id="72398b3e-1007-4154-87a7-cc205924ab6e">&lt;title&gt;</bpt><ept id="72398b3e-1007-4154-87a7-cc205924ab6e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="72398b3e-1007-4154-87a7-cc205924ab6e">&lt;linkText&gt;</bpt>BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs<ept id="72398b3e-1007-4154-87a7-cc205924ab6e">&lt;/linkText&gt;</ept><bpt id="72398b3e-1007-4154-87a7-cc205924ab6e">&lt;title&gt;</bpt><ept id="72398b3e-1007-4154-87a7-cc205924ab6e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4dcde23c-5a28-4e2b-86f3-1b101a4d3236" xml:space="preserve">
+          <source><bpt id="367a287a-6575-4db7-9e31-0e1d4c1df3e7">&lt;linkText&gt;</bpt>Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)<ept id="367a287a-6575-4db7-9e31-0e1d4c1df3e7">&lt;/linkText&gt;</ept><bpt id="367a287a-6575-4db7-9e31-0e1d4c1df3e7">&lt;title&gt;</bpt><ept id="367a287a-6575-4db7-9e31-0e1d4c1df3e7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="367a287a-6575-4db7-9e31-0e1d4c1df3e7">&lt;linkText&gt;</bpt>Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)<ept id="367a287a-6575-4db7-9e31-0e1d4c1df3e7">&lt;/linkText&gt;</ept><bpt id="367a287a-6575-4db7-9e31-0e1d4c1df3e7">&lt;title&gt;</bpt><ept id="367a287a-6575-4db7-9e31-0e1d4c1df3e7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fa57d42-8ae9-408d-9fbd-eff57fc5512d" xml:space="preserve">
+          <source><bpt id="1a5a02f9-1c7c-46e8-b506-702b1bb05f45">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections (Channel 9 video)<ept id="1a5a02f9-1c7c-46e8-b506-702b1bb05f45">&lt;/linkText&gt;</ept><bpt id="1a5a02f9-1c7c-46e8-b506-702b1bb05f45">&lt;title&gt;</bpt><ept id="1a5a02f9-1c7c-46e8-b506-702b1bb05f45">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1a5a02f9-1c7c-46e8-b506-702b1bb05f45">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections (Channel 9 video)<ept id="1a5a02f9-1c7c-46e8-b506-702b1bb05f45">&lt;/linkText&gt;</ept><bpt id="1a5a02f9-1c7c-46e8-b506-702b1bb05f45">&lt;title&gt;</bpt><ept id="1a5a02f9-1c7c-46e8-b506-702b1bb05f45">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2aad01f-6a1b-45bf-9d36-4d794fe7af1d" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="3893f0bc-94c6-4eba-a092-d2e54a6814b7">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="3893f0bc-94c6-4eba-a092-d2e54a6814b7">&lt;/linkText&gt;</ept><bpt id="3893f0bc-94c6-4eba-a092-d2e54a6814b7">&lt;title&gt;</bpt><ept id="3893f0bc-94c6-4eba-a092-d2e54a6814b7">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="3893f0bc-94c6-4eba-a092-d2e54a6814b7">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="3893f0bc-94c6-4eba-a092-d2e54a6814b7">&lt;/linkText&gt;</ept><bpt id="3893f0bc-94c6-4eba-a092-d2e54a6814b7">&lt;title&gt;</bpt><ept id="3893f0bc-94c6-4eba-a092-d2e54a6814b7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dabae4a7-ba89-40c5-bae1-7315e81650c4" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="23fec279-0d0f-4a4a-bf45-0fd94058b6c4">&lt;linkText&gt;</bpt>Reference on Websites and Web Apps in Azure App Service<ept id="23fec279-0d0f-4a4a-bf45-0fd94058b6c4">&lt;/linkText&gt;</ept><bpt id="23fec279-0d0f-4a4a-bf45-0fd94058b6c4">&lt;title&gt;</bpt><ept id="23fec279-0d0f-4a4a-bf45-0fd94058b6c4">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="23fec279-0d0f-4a4a-bf45-0fd94058b6c4">&lt;linkText&gt;</bpt>Reference on Websites and Web Apps in Azure App Service<ept id="23fec279-0d0f-4a4a-bf45-0fd94058b6c4">&lt;/linkText&gt;</ept><bpt id="23fec279-0d0f-4a4a-bf45-0fd94058b6c4">&lt;title&gt;</bpt><ept id="23fec279-0d0f-4a4a-bf45-0fd94058b6c4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="536eabf8-61be-420e-a45c-666ac232d337" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/B01New.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/B01New.png</target>
+        </trans-unit>
+        <trans-unit id="41c1e412-0e96-4045-ac6e-df045b900200" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png</target>
+        </trans-unit>
+        <trans-unit id="fc44f0cf-0aa7-4894-8d87-13fb97a57eeb" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png</target>
+        </trans-unit>
+        <trans-unit id="2f1bf11d-d845-4510-8409-bc0d5f423824" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png</target>
+        </trans-unit>
+        <trans-unit id="94db8f72-a2b8-484c-9e2e-1c8f61d66d64" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/B05Browse.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/B05Browse.png</target>
+        </trans-unit>
+        <trans-unit id="45690647-8f97-49c4-b03e-062ca09789c6" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/B06DefaultWebSitePage.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/B06DefaultWebSitePage.png</target>
+        </trans-unit>
+        <trans-unit id="e03d903f-fa79-4f2b-81fc-5ba3f9b9b16e" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/C01CreateHCHCIcon.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/C01CreateHCHCIcon.png</target>
+        </trans-unit>
+        <trans-unit id="37600032-f049-443d-bdeb-415f38d139f8" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/C02CreateHCAddHC.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/C02CreateHCAddHC.png</target>
+        </trans-unit>
+        <trans-unit id="5116d315-f503-45dd-a6b2-ae666301c0f2" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/C03TwinCreateHCBlades.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/C03TwinCreateHCBlades.png</target>
+        </trans-unit>
+        <trans-unit id="0688458f-ad5d-4f27-8ffa-6e24f8d49e27" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/C04CreateHCCreateBTS.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/C04CreateHCCreateBTS.png</target>
+        </trans-unit>
+        <trans-unit id="13a58ccb-2713-45a0-8e23-1f682233e095" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/C05CreateBTScomplete.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/C05CreateBTScomplete.png</target>
+        </trans-unit>
+        <trans-unit id="24823bb9-e4dd-454e-964d-52f52e27835f" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/C06CreateHCSuccessNotification.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/C06CreateHCSuccessNotification.png</target>
+        </trans-unit>
+        <trans-unit id="07951185-eebd-44aa-888e-5cfae63cb50b" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/C07CreateHCOneConnectionCreated.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/C07CreateHCOneConnectionCreated.png</target>
+        </trans-unit>
+        <trans-unit id="f7f5a66c-4e52-4da2-8b1c-941b0f15724d" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/D01HCIcon.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/D01HCIcon.png</target>
+        </trans-unit>
+        <trans-unit id="6184f9b3-4ba3-4c26-b685-1d784057bbad" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/D02NotConnected.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/D02NotConnected.png</target>
+        </trans-unit>
+        <trans-unit id="f7091823-32a0-4c7a-9757-f75814607920" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/D03NotConnectedBlade.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/D03NotConnectedBlade.png</target>
+        </trans-unit>
+        <trans-unit id="9e36e894-9d23-4ea5-8e2b-1cc6886c75ad" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/D04ClickListenerSetup.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/D04ClickListenerSetup.png</target>
+        </trans-unit>
+        <trans-unit id="153ce638-8bda-4732-875c-b99d86dae5c5" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/D05ClickToInstallHCM.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/D05ClickToInstallHCM.png</target>
+        </trans-unit>
+        <trans-unit id="735a94f4-d015-41c9-8c6a-cbde74e64032" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/D06ApplicationRunWarning.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/D06ApplicationRunWarning.png</target>
+        </trans-unit>
+        <trans-unit id="1a1dd2ee-1c65-4ea1-bc95-bdc62aab67b9" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/D07UAC.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/D07UAC.png</target>
+        </trans-unit>
+        <trans-unit id="a2fb45b7-2d39-4855-819d-1ee941f4298f" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png</target>
+        </trans-unit>
+        <trans-unit id="807dd280-03dd-475b-8699-fa1464ecee91" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png</target>
+        </trans-unit>
+        <trans-unit id="629c62b1-b14a-4deb-bf93-ff4f1a05982b" xml:space="preserve">
+          <source>./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png</source>
+          <target state="new">./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png</target>
+        </trans-unit>
+      </group>
+      <group id="36171f03-4801-41de-84bc-ac9d388ef274" />
+    </body>
+  </file>
+</xliff>

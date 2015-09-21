@@ -1,0 +1,632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4ffcbed3-a70c-47fd-8cd8-c142038acb54" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4ffcbed3-a70c-47fd-8cd8-c142038acb54" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fcca9253-fa8d-4fa1-bfc8-49291c1efd19">
+        <trans-unit id="268f9b62-479d-4204-9ade-ad8028fc9113" xml:space="preserve">
+          <source>Add your own domain name to Azure AD | Microsoft Azure</source>
+          <target state="new">Add your own domain name to Azure AD | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9ffd0129-9267-42d0-b181-697b714f0623" xml:space="preserve">
+          <source>A topic that explains how to add your own domain name to Azure AD and related info.</source>
+          <target state="new">A topic that explains how to add your own domain name to Azure AD and related info.</target>
+        </trans-unit>
+        <trans-unit id="600d926c-4dc3-4ad6-8506-0f3aa58d2854" xml:space="preserve">
+          <source>When you sign up for a Microsoft cloud service, you are issued a domain name that has the following format: contoso.onmicrosoft.com.</source>
+          <target state="new">When you sign up for a Microsoft cloud service, you are issued a domain name that has the following format: contoso.onmicrosoft.com.</target>
+        </trans-unit>
+        <trans-unit id="41ee36ae-2dc8-49b1-9c84-94ff7f32c0a4" xml:space="preserve">
+          <source>You can continue to use that initial domain name, or you can add your own custom domain name to the cloud service.</source>
+          <target state="new">You can continue to use that initial domain name, or you can add your own custom domain name to the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="55f2d984-aa75-449c-99cb-ab9ed9ffd55c" xml:space="preserve">
+          <source>This topic explains how to add your own domain name and related information.</source>
+          <target state="new">This topic explains how to add your own domain name and related information.</target>
+        </trans-unit>
+        <trans-unit id="08340e12-05bb-48e5-b160-1a8ccef9c18f" xml:space="preserve">
+          <source>Office 365 users may be interested in these related topics:</source>
+          <target state="new">Office 365 users may be interested in these related topics:</target>
+        </trans-unit>
+        <trans-unit id="c30fd1d8-f84a-441a-8863-f5453963ec6e" xml:space="preserve">
+          <source><bpt id="5b346152-5b3a-4591-9f42-527144ae031e">&lt;linkText&gt;</bpt>DNS basics<ept id="5b346152-5b3a-4591-9f42-527144ae031e">&lt;/linkText&gt;</ept><bpt id="5b346152-5b3a-4591-9f42-527144ae031e">&lt;title&gt;</bpt><ept id="5b346152-5b3a-4591-9f42-527144ae031e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5b346152-5b3a-4591-9f42-527144ae031e">&lt;linkText&gt;</bpt>DNS basics<ept id="5b346152-5b3a-4591-9f42-527144ae031e">&lt;/linkText&gt;</ept><bpt id="5b346152-5b3a-4591-9f42-527144ae031e">&lt;title&gt;</bpt><ept id="5b346152-5b3a-4591-9f42-527144ae031e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64172a57-76e2-4e3d-8d9b-08cea3226561" xml:space="preserve">
+          <source><bpt id="12d1adc4-c20a-4b0d-9db4-937a607f1d44">&lt;linkText&gt;</bpt>Find your domain registrar or DNS hosting provider<ept id="12d1adc4-c20a-4b0d-9db4-937a607f1d44">&lt;/linkText&gt;</ept><bpt id="12d1adc4-c20a-4b0d-9db4-937a607f1d44">&lt;title&gt;</bpt><ept id="12d1adc4-c20a-4b0d-9db4-937a607f1d44">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="12d1adc4-c20a-4b0d-9db4-937a607f1d44">&lt;linkText&gt;</bpt>Find your domain registrar or DNS hosting provider<ept id="12d1adc4-c20a-4b0d-9db4-937a607f1d44">&lt;/linkText&gt;</ept><bpt id="12d1adc4-c20a-4b0d-9db4-937a607f1d44">&lt;title&gt;</bpt><ept id="12d1adc4-c20a-4b0d-9db4-937a607f1d44">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74818fad-dc73-4718-8d8b-4c71ade29586" xml:space="preserve">
+          <source><bpt id="5584dc14-8c51-4e34-a734-b0dec16242c9">&lt;linkText&gt;</bpt>Work with domain names in Office 365<ept id="5584dc14-8c51-4e34-a734-b0dec16242c9">&lt;/linkText&gt;</ept><bpt id="5584dc14-8c51-4e34-a734-b0dec16242c9">&lt;title&gt;</bpt><ept id="5584dc14-8c51-4e34-a734-b0dec16242c9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5584dc14-8c51-4e34-a734-b0dec16242c9">&lt;linkText&gt;</bpt>Work with domain names in Office 365<ept id="5584dc14-8c51-4e34-a734-b0dec16242c9">&lt;/linkText&gt;</ept><bpt id="5584dc14-8c51-4e34-a734-b0dec16242c9">&lt;title&gt;</bpt><ept id="5584dc14-8c51-4e34-a734-b0dec16242c9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9c064fc-62ca-49c9-87c5-ae67343b35b0" xml:space="preserve">
+          <source>You can use your onmicrosoft.com domain with other services.</source>
+          <target state="new">You can use your onmicrosoft.com domain with other services.</target>
+        </trans-unit>
+        <trans-unit id="b2b808bd-9524-4bb4-8ad0-f83458a9e60d" xml:space="preserve">
+          <source>For example, you can use the domain with Exchange Online and Lync Online to create distribution lists and sign-in accounts so users can access SharePoint Online and site collections.</source>
+          <target state="new">For example, you can use the domain with Exchange Online and Lync Online to create distribution lists and sign-in accounts so users can access SharePoint Online and site collections.</target>
+        </trans-unit>
+        <trans-unit id="f5c0e7ee-8db8-43fc-a423-6278411f7238" xml:space="preserve">
+          <source>If you add your own domain names to your directory, you can continue to use your onmicrosoft.com domain.</source>
+          <target state="new">If you add your own domain names to your directory, you can continue to use your onmicrosoft.com domain.</target>
+        </trans-unit>
+        <trans-unit id="e993739d-3991-4094-8fd5-2bd6a5423b6f" xml:space="preserve">
+          <source>After you choose the name to use with the cloud service during signup, such as contoso.onmicrosoft.com, you cannot change the name.</source>
+          <target state="new">After you choose the name to use with the cloud service during signup, such as contoso.onmicrosoft.com, you cannot change the name.</target>
+        </trans-unit>
+        <trans-unit id="5c7fc808-efeb-4768-908e-911d22c54d69" xml:space="preserve">
+          <source>If your organization already has a custom domain name, as an administrator, you can add it to your Azure AD directory to use with all of the Microsoft online services that you have subscribed to.</source>
+          <target state="new">If your organization already has a custom domain name, as an administrator, you can add it to your Azure AD directory to use with all of the Microsoft online services that you have subscribed to.</target>
+        </trans-unit>
+        <trans-unit id="87e703b5-183a-45aa-82f2-7428d48ca802" xml:space="preserve">
+          <source>After you've added your domain name to Azure AD, you can start associating your domain name with your various cloud services.</source>
+          <target state="new">After you've added your domain name to Azure AD, you can start associating your domain name with your various cloud services.</target>
+        </trans-unit>
+        <trans-unit id="07700ec0-7b60-4f09-b57e-08cce45c89b5" xml:space="preserve">
+          <source>You can add up to 900 domain names to your Azure AD tenant by using, either:</source>
+          <target state="new">You can add up to 900 domain names to your Azure AD tenant by using, either:</target>
+        </trans-unit>
+        <trans-unit id="8bef8579-e953-49b9-8783-4f5064994de3" xml:space="preserve">
+          <source>The Azure Management Portal, the Office 365 portal, or the Microsoft Intune portal.</source>
+          <target state="new">The Azure Management Portal, the Office 365 portal, or the Microsoft Intune portal.</target>
+        </trans-unit>
+        <trans-unit id="f119be4d-7651-4fed-a83b-b4b72afcd67c" xml:space="preserve">
+          <source>The Azure Active Directory Module for Windows PowerShell.</source>
+          <target state="new">The Azure Active Directory Module for Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="0ddd0c7a-4cc2-4197-a8dd-32eece315055" xml:space="preserve">
+          <source>For more information about which cmdlet you can use for this, see <bpt id="d7403aa5-c937-4e7c-b0e5-339267cd2406">&lt;linkText&gt;</bpt>Manage domains in Azure AD<ept id="d7403aa5-c937-4e7c-b0e5-339267cd2406">&lt;/linkText&gt;</ept><bpt id="d7403aa5-c937-4e7c-b0e5-339267cd2406">&lt;title&gt;</bpt><ept id="d7403aa5-c937-4e7c-b0e5-339267cd2406">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about which cmdlet you can use for this, see <bpt id="d7403aa5-c937-4e7c-b0e5-339267cd2406">&lt;linkText&gt;</bpt>Manage domains in Azure AD<ept id="d7403aa5-c937-4e7c-b0e5-339267cd2406">&lt;/linkText&gt;</ept><bpt id="d7403aa5-c937-4e7c-b0e5-339267cd2406">&lt;title&gt;</bpt><ept id="d7403aa5-c937-4e7c-b0e5-339267cd2406">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8bc98f1e-c8b6-4d1f-8a07-fd24165b6929" xml:space="preserve">
+          <source>You must have already registered a domain name and have the sign-in credentials needed for your domain name registrar (for example, Go Daddy or Register.com).</source>
+          <target state="new">You must have already registered a domain name and have the sign-in credentials needed for your domain name registrar (for example, Go Daddy or Register.com).</target>
+        </trans-unit>
+        <trans-unit id="22343684-802f-46a4-8dd0-1afc32acd6dc" xml:space="preserve">
+          <source>You can add multiple domains to your directory.</source>
+          <target state="new">You can add multiple domains to your directory.</target>
+        </trans-unit>
+        <trans-unit id="3d4bcea4-35f6-4769-9890-1f6b8ec93153" xml:space="preserve">
+          <source>However, you can't add the same domain to different directories.</source>
+          <target state="new">However, you can't add the same domain to different directories.</target>
+        </trans-unit>
+        <trans-unit id="0eee692a-4cc0-4f4e-85ca-34299c72ec07" xml:space="preserve">
+          <source>So, for example, If you add your domain to your directory, you can't create another Azure AD directory and add the same domain name to it.</source>
+          <target state="new">So, for example, If you add your domain to your directory, you can't create another Azure AD directory and add the same domain name to it.</target>
+        </trans-unit>
+        <trans-unit id="02d32703-d713-4fbc-a941-6dc386195251" xml:space="preserve">
+          <source>If you plan to use single sign-on with the cloud service, we recommend that you help prepare your Active Directory environment by running the Microsoft Deployment Readiness Tool.</source>
+          <target state="new">If you plan to use single sign-on with the cloud service, we recommend that you help prepare your Active Directory environment by running the Microsoft Deployment Readiness Tool.</target>
+        </trans-unit>
+        <trans-unit id="27f0e63c-32ee-457e-9377-2e0586223753" xml:space="preserve">
+          <source>This tool inspects your Active Directory environment and provides a report that includes information about whether you are ready to set up single sign-on.</source>
+          <target state="new">This tool inspects your Active Directory environment and provides a report that includes information about whether you are ready to set up single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="c8021235-eed8-4204-8981-d4d0d45c7ec7" xml:space="preserve">
+          <source>If not, it lists the changes you need to make to prepare for single sign-on.</source>
+          <target state="new">If not, it lists the changes you need to make to prepare for single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="7ea1328e-7031-4014-bd01-5b50b5815e1b" xml:space="preserve">
+          <source>For example, it inspects whether your users have UPNs and if those UPNs are in the correct format.</source>
+          <target state="new">For example, it inspects whether your users have UPNs and if those UPNs are in the correct format.</target>
+        </trans-unit>
+        <trans-unit id="97233d99-6c4b-4641-adee-223bfaa0ca31" xml:space="preserve">
+          <source>To download the tool, see <bpt id="9f12f3e4-d634-487c-8afe-c17d2355d7af">&lt;linkText&gt;</bpt>Microsoft Deployment Readiness Tool<ept id="9f12f3e4-d634-487c-8afe-c17d2355d7af">&lt;/linkText&gt;</ept><bpt id="9f12f3e4-d634-487c-8afe-c17d2355d7af">&lt;title&gt;</bpt><ept id="9f12f3e4-d634-487c-8afe-c17d2355d7af">&lt;/title&gt;</ept>.</source>
+          <target state="new">To download the tool, see <bpt id="9f12f3e4-d634-487c-8afe-c17d2355d7af">&lt;linkText&gt;</bpt>Microsoft Deployment Readiness Tool<ept id="9f12f3e4-d634-487c-8afe-c17d2355d7af">&lt;/linkText&gt;</ept><bpt id="9f12f3e4-d634-487c-8afe-c17d2355d7af">&lt;title&gt;</bpt><ept id="9f12f3e4-d634-487c-8afe-c17d2355d7af">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d782f100-e5cd-4c76-ad13-83f1fbebfe33" xml:space="preserve">
+          <source>Using Office 365?</source>
+          <target state="new">Using Office 365?</target>
+        </trans-unit>
+        <trans-unit id="02e11615-53f9-4942-b34b-7d9ca412b3c1" xml:space="preserve">
+          <source>Once you have set up your domain, you can start creating email addresses, Lync Online accounts, and distribution groups that use your custom domain name.</source>
+          <target state="new">Once you have set up your domain, you can start creating email addresses, Lync Online accounts, and distribution groups that use your custom domain name.</target>
+        </trans-unit>
+        <trans-unit id="dead9e24-2205-4a79-b920-446d0b8b029e" xml:space="preserve">
+          <source>You can also use your domain name for a public-facing website hosted on SharePoint Online.</source>
+          <target state="new">You can also use your domain name for a public-facing website hosted on SharePoint Online.</target>
+        </trans-unit>
+        <trans-unit id="564f43c9-5443-409b-a915-3a5944e79731" xml:space="preserve">
+          <source><bpt id="d970d2b2-349f-452d-b9f4-341fc0e5a690">&lt;linkText&gt;</bpt>Add and verify a domain using the Azure Management Portal<ept id="d970d2b2-349f-452d-b9f4-341fc0e5a690">&lt;/linkText&gt;</ept><bpt id="d970d2b2-349f-452d-b9f4-341fc0e5a690">&lt;title&gt;</bpt><ept id="d970d2b2-349f-452d-b9f4-341fc0e5a690">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d970d2b2-349f-452d-b9f4-341fc0e5a690">&lt;linkText&gt;</bpt>Add and verify a domain using the Azure Management Portal<ept id="d970d2b2-349f-452d-b9f4-341fc0e5a690">&lt;/linkText&gt;</ept><bpt id="d970d2b2-349f-452d-b9f4-341fc0e5a690">&lt;title&gt;</bpt><ept id="d970d2b2-349f-452d-b9f4-341fc0e5a690">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5416cbc1-3c41-4d26-b32c-eeb0fd060f29" xml:space="preserve">
+          <source><bpt id="dee70892-ba8f-45e2-ad00-b712faaa2107">&lt;linkText&gt;</bpt>Edit DNS records for your cloud services<ept id="dee70892-ba8f-45e2-ad00-b712faaa2107">&lt;/linkText&gt;</ept><bpt id="dee70892-ba8f-45e2-ad00-b712faaa2107">&lt;title&gt;</bpt><ept id="dee70892-ba8f-45e2-ad00-b712faaa2107">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dee70892-ba8f-45e2-ad00-b712faaa2107">&lt;linkText&gt;</bpt>Edit DNS records for your cloud services<ept id="dee70892-ba8f-45e2-ad00-b712faaa2107">&lt;/linkText&gt;</ept><bpt id="dee70892-ba8f-45e2-ad00-b712faaa2107">&lt;title&gt;</bpt><ept id="dee70892-ba8f-45e2-ad00-b712faaa2107">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40b189bd-dca2-4b25-9538-e057a7405690" xml:space="preserve">
+          <source><bpt id="513512a9-3589-4b24-80a2-1fb5e656c757">&lt;linkText&gt;</bpt>Verify a domain at any domain name registrar<ept id="513512a9-3589-4b24-80a2-1fb5e656c757">&lt;/linkText&gt;</ept><bpt id="513512a9-3589-4b24-80a2-1fb5e656c757">&lt;title&gt;</bpt><ept id="513512a9-3589-4b24-80a2-1fb5e656c757">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="513512a9-3589-4b24-80a2-1fb5e656c757">&lt;linkText&gt;</bpt>Verify a domain at any domain name registrar<ept id="513512a9-3589-4b24-80a2-1fb5e656c757">&lt;/linkText&gt;</ept><bpt id="513512a9-3589-4b24-80a2-1fb5e656c757">&lt;title&gt;</bpt><ept id="513512a9-3589-4b24-80a2-1fb5e656c757">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99b3e3b9-6be3-415b-b991-832458c2cb3f" xml:space="preserve">
+          <source>In the portal, click <bpt id="da7eaf42-856b-47dd-b60d-debd2dbf7f76">&lt;strong&gt;</bpt>Active Directory<ept id="da7eaf42-856b-47dd-b60d-debd2dbf7f76">&lt;/strong&gt;</ept>, and then click on the name of your organization's directory.You can do one of the following:</source>
+          <target state="new">In the portal, click <bpt id="da7eaf42-856b-47dd-b60d-debd2dbf7f76">&lt;strong&gt;</bpt>Active Directory<ept id="da7eaf42-856b-47dd-b60d-debd2dbf7f76">&lt;/strong&gt;</ept>, and then click on the name of your organization's directory.You can do one of the following:</target>
+        </trans-unit>
+        <trans-unit id="aeb1c105-8e45-4e1a-9acd-e84803779ad4" xml:space="preserve">
+          <source>On the default directory page, click <bpt id="c9e77c08-d930-4a0e-9a3d-b4aeb57b57cc">&lt;strong&gt;</bpt>Add Domain<ept id="c9e77c08-d930-4a0e-9a3d-b4aeb57b57cc">&lt;/strong&gt;</ept> in the <bpt id="791fd24a-a02a-4945-8283-800a7bbf01b5">&lt;em&gt;</bpt>*Improve user sign-in experience *<ept id="791fd24a-a02a-4945-8283-800a7bbf01b5">&lt;/em&gt;</ept>section.</source>
+          <target state="new">On the default directory page, click <bpt id="c9e77c08-d930-4a0e-9a3d-b4aeb57b57cc">&lt;strong&gt;</bpt>Add Domain<ept id="c9e77c08-d930-4a0e-9a3d-b4aeb57b57cc">&lt;/strong&gt;</ept> in the <bpt id="791fd24a-a02a-4945-8283-800a7bbf01b5">&lt;em&gt;</bpt>*Improve user sign-in experience *<ept id="791fd24a-a02a-4945-8283-800a7bbf01b5">&lt;/em&gt;</ept>section.</target>
+        </trans-unit>
+        <trans-unit id="a93fd6c4-878b-4994-90da-73daac730448" xml:space="preserve">
+          <source>Click <bpt id="a7c83095-5d30-4330-b698-5500b95a9665">&lt;strong&gt;</bpt>Domains<ept id="a7c83095-5d30-4330-b698-5500b95a9665">&lt;/strong&gt;</ept> and then click either <bpt id="88eb67ba-5ccc-4f00-b1fa-f05d8bcdcad9">&lt;strong&gt;</bpt>Add a customer domain<ept id="88eb67ba-5ccc-4f00-b1fa-f05d8bcdcad9">&lt;/strong&gt;</ept> or the <bpt id="37f3a744-07a3-478a-9c75-14c07e077fa3">&lt;strong&gt;</bpt>Add<ept id="37f3a744-07a3-478a-9c75-14c07e077fa3">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click <bpt id="a7c83095-5d30-4330-b698-5500b95a9665">&lt;strong&gt;</bpt>Domains<ept id="a7c83095-5d30-4330-b698-5500b95a9665">&lt;/strong&gt;</ept> and then click either <bpt id="88eb67ba-5ccc-4f00-b1fa-f05d8bcdcad9">&lt;strong&gt;</bpt>Add a customer domain<ept id="88eb67ba-5ccc-4f00-b1fa-f05d8bcdcad9">&lt;/strong&gt;</ept> or the <bpt id="37f3a744-07a3-478a-9c75-14c07e077fa3">&lt;strong&gt;</bpt>Add<ept id="37f3a744-07a3-478a-9c75-14c07e077fa3">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="13a6c828-bc5c-4262-baa8-d31ca8448309" xml:space="preserve">
+          <source>On the <bpt id="4c273fd0-5b5e-413b-893f-a11ba21c8620">&lt;strong&gt;</bpt>Add domain<ept id="4c273fd0-5b5e-413b-893f-a11ba21c8620">&lt;/strong&gt;</ept> page, type the domain name that you want to add and the do one of the following:</source>
+          <target state="new">On the <bpt id="4c273fd0-5b5e-413b-893f-a11ba21c8620">&lt;strong&gt;</bpt>Add domain<ept id="4c273fd0-5b5e-413b-893f-a11ba21c8620">&lt;/strong&gt;</ept> page, type the domain name that you want to add and the do one of the following:</target>
+        </trans-unit>
+        <trans-unit id="28480077-968a-494c-a1ec-3277d71516c6" xml:space="preserve">
+          <source>If you do not plan to integrate your on-premises Active Directory with Azure AD, do the following:</source>
+          <target state="new">If you do not plan to integrate your on-premises Active Directory with Azure AD, do the following:</target>
+        </trans-unit>
+        <trans-unit id="6c6f9483-dac3-43fd-b471-7f66057b25fa" xml:space="preserve">
+          <source>Leave the <bpt id="81103156-ab6f-49be-af62-05db29f25ef7">&lt;strong&gt;</bpt>I plan to configure this domain for single sign-on with my local Active Directory<ept id="81103156-ab6f-49be-af62-05db29f25ef7">&lt;/strong&gt;</ept> checkbox cleared, and then click the <bpt id="63f3d3d0-132e-4caf-b9f1-d78d0646afff">&lt;strong&gt;</bpt>Add<ept id="63f3d3d0-132e-4caf-b9f1-d78d0646afff">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Leave the <bpt id="81103156-ab6f-49be-af62-05db29f25ef7">&lt;strong&gt;</bpt>I plan to configure this domain for single sign-on with my local Active Directory<ept id="81103156-ab6f-49be-af62-05db29f25ef7">&lt;/strong&gt;</ept> checkbox cleared, and then click the <bpt id="63f3d3d0-132e-4caf-b9f1-d78d0646afff">&lt;strong&gt;</bpt>Add<ept id="63f3d3d0-132e-4caf-b9f1-d78d0646afff">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="8cd32d18-aa39-4257-bb14-c8bbaf01531c" xml:space="preserve">
+          <source>After you see the message that your domain has been successfully added to Azure AD, click the arrow to move to the next page so you can verify your domain.</source>
+          <target state="new">After you see the message that your domain has been successfully added to Azure AD, click the arrow to move to the next page so you can verify your domain.</target>
+        </trans-unit>
+        <trans-unit id="b67d7123-5ab8-40f4-bcca-28756b4d4cef" xml:space="preserve">
+          <source>Follow the directions on the next page to verify that the domain name you added in the previous steps belongs to you.</source>
+          <target state="new">Follow the directions on the next page to verify that the domain name you added in the previous steps belongs to you.</target>
+        </trans-unit>
+        <trans-unit id="6ea5b4ef-1307-4705-b61f-b8732ad8e134" xml:space="preserve">
+          <source>For step-by-step directions, see Verify a domain at any domain name registrar.</source>
+          <target state="new">For step-by-step directions, see Verify a domain at any domain name registrar.</target>
+        </trans-unit>
+        <trans-unit id="89d46b95-d1fa-427d-8a03-c6991c2910c9" xml:space="preserve">
+          <source>If you want to integrate your on-premises Active Directory with Azure AD, do the following:</source>
+          <target state="new">If you want to integrate your on-premises Active Directory with Azure AD, do the following:</target>
+        </trans-unit>
+        <trans-unit id="4efb409d-9ea1-404b-b2fa-4fe13ffcb507" xml:space="preserve">
+          <source>Make sure to select the <bpt id="08328d94-9916-44dd-a4d9-df5238a5fbdd">&lt;strong&gt;</bpt>I plan to configure this domain for single sign-on with my local Active Directory<ept id="08328d94-9916-44dd-a4d9-df5238a5fbdd">&lt;/strong&gt;</ept> checkbox and then click the <bpt id="d38449ea-7f03-41b3-a67e-b8ac4cf3a5a8">&lt;strong&gt;</bpt>Add<ept id="d38449ea-7f03-41b3-a67e-b8ac4cf3a5a8">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Make sure to select the <bpt id="08328d94-9916-44dd-a4d9-df5238a5fbdd">&lt;strong&gt;</bpt>I plan to configure this domain for single sign-on with my local Active Directory<ept id="08328d94-9916-44dd-a4d9-df5238a5fbdd">&lt;/strong&gt;</ept> checkbox and then click the <bpt id="d38449ea-7f03-41b3-a67e-b8ac4cf3a5a8">&lt;strong&gt;</bpt>Add<ept id="d38449ea-7f03-41b3-a67e-b8ac4cf3a5a8">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="317843e1-b6f3-4c3e-8d50-ff007c74e577" xml:space="preserve">
+          <source>After you see the message that your domain has been successfully added to Azure AD, click the arrow to move to the next page and then follow the directions on that page to configure the domain you added for single sign-on.</source>
+          <target state="new">After you see the message that your domain has been successfully added to Azure AD, click the arrow to move to the next page and then follow the directions on that page to configure the domain you added for single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="f5f032ef-ffcc-4410-84cf-c65330e103e5" xml:space="preserve">
+          <source>After you add your domain name to Azure AD, you can change the default domain name for new email addresses.</source>
+          <target state="new">After you add your domain name to Azure AD, you can change the default domain name for new email addresses.</target>
+        </trans-unit>
+        <trans-unit id="840ff0d5-8053-4635-b274-2402202557b8" xml:space="preserve">
+          <source>For more information, see <bpt id="aa19d843-8fb0-426c-a563-6ed06b8ecafe">&lt;linkText&gt;</bpt>How can I change the primary domain name for users?<ept id="aa19d843-8fb0-426c-a563-6ed06b8ecafe">&lt;/linkText&gt;</ept><bpt id="aa19d843-8fb0-426c-a563-6ed06b8ecafe">&lt;title&gt;</bpt><ept id="aa19d843-8fb0-426c-a563-6ed06b8ecafe">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="aa19d843-8fb0-426c-a563-6ed06b8ecafe">&lt;linkText&gt;</bpt>How can I change the primary domain name for users?<ept id="aa19d843-8fb0-426c-a563-6ed06b8ecafe">&lt;/linkText&gt;</ept><bpt id="aa19d843-8fb0-426c-a563-6ed06b8ecafe">&lt;title&gt;</bpt><ept id="aa19d843-8fb0-426c-a563-6ed06b8ecafe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cb7e43d-9924-4b79-91b8-a7ff53024351" xml:space="preserve">
+          <source>You can also edit the profile for an existing user account to update the email address (which is also your user ID) to use your custom domain name instead of the onmicrosoft.com domain.</source>
+          <target state="new">You can also edit the profile for an existing user account to update the email address (which is also your user ID) to use your custom domain name instead of the onmicrosoft.com domain.</target>
+        </trans-unit>
+        <trans-unit id="887b01c0-6a9b-4ba4-b52c-8f7b018fbb96" xml:space="preserve">
+          <source>Using Microsoft Intune?</source>
+          <target state="new">Using Microsoft Intune?</target>
+        </trans-unit>
+        <trans-unit id="ca7d06d6-9c6c-4273-bbd9-0279c3376fe2" xml:space="preserve">
+          <source>You do not need to edit DNS records for the Microsoft Intune cloud service.</source>
+          <target state="new">You do not need to edit DNS records for the Microsoft Intune cloud service.</target>
+        </trans-unit>
+        <trans-unit id="8d82c1cb-ac02-45fe-b581-82045659eb81" xml:space="preserve">
+          <source>After you add and verify your custom domain name, the next step is to edit the DNS records at your domain registrar or DNS hosting provider that point traffic to your cloud service.</source>
+          <target state="new">After you add and verify your custom domain name, the next step is to edit the DNS records at your domain registrar or DNS hosting provider that point traffic to your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="44787c3a-a935-43fb-90a9-55dac7d1bdf0" xml:space="preserve">
+          <source>Azure AD provides the DNS information that you need.</source>
+          <target state="new">Azure AD provides the DNS information that you need.</target>
+        </trans-unit>
+        <trans-unit id="72d588c7-b50c-44fa-b438-f88709c2f406" xml:space="preserve">
+          <source>If you've just completed the <bpt id="6d10b6d2-2bd4-41a9-9ac0-f231147deeef">&lt;strong&gt;</bpt>Add a domain<ept id="6d10b6d2-2bd4-41a9-9ac0-f231147deeef">&lt;/strong&gt;</ept> wizard, click <bpt id="28e4f0d9-a72f-42e3-9aee-b7a3a1e7b5f1">&lt;strong&gt;</bpt>Configure DNS records<ept id="28e4f0d9-a72f-42e3-9aee-b7a3a1e7b5f1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you've just completed the <bpt id="6d10b6d2-2bd4-41a9-9ac0-f231147deeef">&lt;strong&gt;</bpt>Add a domain<ept id="6d10b6d2-2bd4-41a9-9ac0-f231147deeef">&lt;/strong&gt;</ept> wizard, click <bpt id="28e4f0d9-a72f-42e3-9aee-b7a3a1e7b5f1">&lt;strong&gt;</bpt>Configure DNS records<ept id="28e4f0d9-a72f-42e3-9aee-b7a3a1e7b5f1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd2a8c04-1e0e-4cdd-8844-6bdf2e98ff2d" xml:space="preserve">
+          <source>Otherwise, follow these steps.</source>
+          <target state="new">Otherwise, follow these steps.</target>
+        </trans-unit>
+        <trans-unit id="f40a9dd8-abc0-4c42-bbfd-2403c8e12b67" xml:space="preserve">
+          <source>In the portal, in the left pane, click <bpt id="960db854-cb15-4882-aead-5447a8375025">&lt;strong&gt;</bpt>Domains<ept id="960db854-cb15-4882-aead-5447a8375025">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the portal, in the left pane, click <bpt id="960db854-cb15-4882-aead-5447a8375025">&lt;strong&gt;</bpt>Domains<ept id="960db854-cb15-4882-aead-5447a8375025">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0acf020b-8dc6-4de8-967f-220d03eabeb2" xml:space="preserve">
+          <source>Depending on which portal you are using, click the domain name that you want to set up, and then click either <bpt id="92e48b8a-be29-4193-a70e-e57599a72616">&lt;strong&gt;</bpt>DNS settings<ept id="92e48b8a-be29-4193-a70e-e57599a72616">&lt;/strong&gt;</ept> or <bpt id="c15769b5-7aca-4bea-9fec-40c9bb9b2527">&lt;strong&gt;</bpt>View DNS settings<ept id="c15769b5-7aca-4bea-9fec-40c9bb9b2527">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Depending on which portal you are using, click the domain name that you want to set up, and then click either <bpt id="92e48b8a-be29-4193-a70e-e57599a72616">&lt;strong&gt;</bpt>DNS settings<ept id="92e48b8a-be29-4193-a70e-e57599a72616">&lt;/strong&gt;</ept> or <bpt id="c15769b5-7aca-4bea-9fec-40c9bb9b2527">&lt;strong&gt;</bpt>View DNS settings<ept id="c15769b5-7aca-4bea-9fec-40c9bb9b2527">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69ce09cf-91fe-4dd1-bb61-036be9b0cb59" xml:space="preserve">
+          <source>The <bpt id="0ace52f4-f6c5-4c38-bb98-da0ad9bf9a36">&lt;strong&gt;</bpt>DNS settings<ept id="0ace52f4-f6c5-4c38-bb98-da0ad9bf9a36">&lt;/strong&gt;</ept> page lists the DNS records for the cloud service.</source>
+          <target state="new">The <bpt id="0ace52f4-f6c5-4c38-bb98-da0ad9bf9a36">&lt;strong&gt;</bpt>DNS settings<ept id="0ace52f4-f6c5-4c38-bb98-da0ad9bf9a36">&lt;/strong&gt;</ept> page lists the DNS records for the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="b35f4b8e-e1bd-4540-a7f3-1fc98fd6422e" xml:space="preserve">
+          <source>If you want to configure a service that you don't see on the DNS settings tab, verify your domain services selections to make sure you've chosen that service for this domain name.</source>
+          <target state="new">If you want to configure a service that you don't see on the DNS settings tab, verify your domain services selections to make sure you've chosen that service for this domain name.</target>
+        </trans-unit>
+        <trans-unit id="a2170a30-2a05-43ea-9dde-77df3a26d674" xml:space="preserve">
+          <source>To change the settings, for example, to add Lync Online, see Specify the services you'll use with your domain.</source>
+          <target state="new">To change the settings, for example, to add Lync Online, see Specify the services you'll use with your domain.</target>
+        </trans-unit>
+        <trans-unit id="7107640c-b838-4f94-a3c2-2b9302460743" xml:space="preserve">
+          <source>At your domain name registrar website, add the required records to your DNS file.</source>
+          <target state="new">At your domain name registrar website, add the required records to your DNS file.</target>
+        </trans-unit>
+        <trans-unit id="8571fb57-7007-4b38-91c6-6af7bd68c86f" xml:space="preserve">
+          <source>Typically it takes about 15 minutes for your changes to take effect.</source>
+          <target state="new">Typically it takes about 15 minutes for your changes to take effect.</target>
+        </trans-unit>
+        <trans-unit id="01660d4e-cd65-4bef-8a0a-f43b51dcde34" xml:space="preserve">
+          <source>But it can take up to 72 hours for the DNS record that you created to propagate through the DNS system.</source>
+          <target state="new">But it can take up to 72 hours for the DNS record that you created to propagate through the DNS system.</target>
+        </trans-unit>
+        <trans-unit id="431f6fba-825e-4ea0-b8a5-decd446d7ea6" xml:space="preserve">
+          <source>If you need to view these record settings again, on the <bpt id="d1ada197-cd83-41b7-903d-21f41cedb54b">&lt;strong&gt;</bpt>Domains<ept id="d1ada197-cd83-41b7-903d-21f41cedb54b">&lt;/strong&gt;</ept> page, click the domain, and then, on the <bpt id="fc46b557-0783-4ee6-996f-5daadd85ec40">&lt;strong&gt;</bpt>Domain properties<ept id="fc46b557-0783-4ee6-996f-5daadd85ec40">&lt;/strong&gt;</ept> page, click the <bpt id="e8321583-d27c-4840-8260-b32ee66ecb2e">&lt;strong&gt;</bpt>DNS settings<ept id="e8321583-d27c-4840-8260-b32ee66ecb2e">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">If you need to view these record settings again, on the <bpt id="d1ada197-cd83-41b7-903d-21f41cedb54b">&lt;strong&gt;</bpt>Domains<ept id="d1ada197-cd83-41b7-903d-21f41cedb54b">&lt;/strong&gt;</ept> page, click the domain, and then, on the <bpt id="fc46b557-0783-4ee6-996f-5daadd85ec40">&lt;strong&gt;</bpt>Domain properties<ept id="fc46b557-0783-4ee6-996f-5daadd85ec40">&lt;/strong&gt;</ept> page, click the <bpt id="e8321583-d27c-4840-8260-b32ee66ecb2e">&lt;strong&gt;</bpt>DNS settings<ept id="e8321583-d27c-4840-8260-b32ee66ecb2e">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="0ffe43be-a946-4cd4-a80e-401e6219c0d7" xml:space="preserve">
+          <source>To verify the status of your domain, on the <bpt id="681817f5-4ecb-49cf-8913-268690ac0947">&lt;strong&gt;</bpt>Domains<ept id="681817f5-4ecb-49cf-8913-268690ac0947">&lt;/strong&gt;</ept> page, click the domain, and then, on the <bpt id="7bb20354-40e3-4fb3-ab1d-51604618c77a">&lt;strong&gt;</bpt>Domain properties<ept id="7bb20354-40e3-4fb3-ab1d-51604618c77a">&lt;/strong&gt;</ept> page, click <bpt id="ac55d414-70b5-462b-bb00-6cf62fc0b239">&lt;strong&gt;</bpt>Troubleshoot domain<ept id="ac55d414-70b5-462b-bb00-6cf62fc0b239">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To verify the status of your domain, on the <bpt id="681817f5-4ecb-49cf-8913-268690ac0947">&lt;strong&gt;</bpt>Domains<ept id="681817f5-4ecb-49cf-8913-268690ac0947">&lt;/strong&gt;</ept> page, click the domain, and then, on the <bpt id="7bb20354-40e3-4fb3-ab1d-51604618c77a">&lt;strong&gt;</bpt>Domain properties<ept id="7bb20354-40e3-4fb3-ab1d-51604618c77a">&lt;/strong&gt;</ept> page, click <bpt id="ac55d414-70b5-462b-bb00-6cf62fc0b239">&lt;strong&gt;</bpt>Troubleshoot domain<ept id="ac55d414-70b5-462b-bb00-6cf62fc0b239">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0cb2a7ad-4272-4a23-b190-1df9be41762a" xml:space="preserve">
+          <source>If you already have a domain registered with a domain name registrar, and you want to configure it to work with Azure AD, domain verification is required to confirm that you own the domain.</source>
+          <target state="new">If you already have a domain registered with a domain name registrar, and you want to configure it to work with Azure AD, domain verification is required to confirm that you own the domain.</target>
+        </trans-unit>
+        <trans-unit id="41ec8f97-7a51-4629-8133-f616f9b655b0" xml:space="preserve">
+          <source>To verify your domain, you create a DNS record at the domain name registrar, or wherever your DNS is hosted, and then Azure AD uses that record to confirm that you own the domain.</source>
+          <target state="new">To verify your domain, you create a DNS record at the domain name registrar, or wherever your DNS is hosted, and then Azure AD uses that record to confirm that you own the domain.</target>
+        </trans-unit>
+        <trans-unit id="8ee3921a-ba06-438f-881b-e562ae900bb7" xml:space="preserve">
+          <source>Before you can verify your domain, you must add a custom domain to Azure AD.</source>
+          <target state="new">Before you can verify your domain, you must add a custom domain to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="cff3bdc1-37c2-47f9-a3e1-8fea4c0ddfd8" xml:space="preserve">
+          <source>When you've added a custom domain but the domain hasn't yet been verified, the status will either show as <bpt id="8056dd9e-55a4-4ec4-bfbb-6ee428438d28">&lt;strong&gt;</bpt>Click to verify domain<ept id="8056dd9e-55a4-4ec4-bfbb-6ee428438d28">&lt;/strong&gt;</ept> or <bpt id="c1e0a9ce-4eea-4628-8acc-053a7da308bd">&lt;strong&gt;</bpt>Unverified<ept id="c1e0a9ce-4eea-4628-8acc-053a7da308bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you've added a custom domain but the domain hasn't yet been verified, the status will either show as <bpt id="8056dd9e-55a4-4ec4-bfbb-6ee428438d28">&lt;strong&gt;</bpt>Click to verify domain<ept id="8056dd9e-55a4-4ec4-bfbb-6ee428438d28">&lt;/strong&gt;</ept> or <bpt id="c1e0a9ce-4eea-4628-8acc-053a7da308bd">&lt;strong&gt;</bpt>Unverified<ept id="c1e0a9ce-4eea-4628-8acc-053a7da308bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0cd2261-6efa-4472-b408-ec1e939f308f" xml:space="preserve">
+          <source>Based on the portal you are using to administer your Azure AD directory, you'll need to collect some information about your domain so that you can later create a DNS record that will be used during the verification process.</source>
+          <target state="new">Based on the portal you are using to administer your Azure AD directory, you'll need to collect some information about your domain so that you can later create a DNS record that will be used during the verification process.</target>
+        </trans-unit>
+        <trans-unit id="e59ef999-39dc-4c4a-9d4f-9d8b6d64d16e" xml:space="preserve">
+          <source>If you are using Microsoft Intune or the Azure Account Portal:</source>
+          <target state="new">If you are using Microsoft Intune or the Azure Account Portal:</target>
+        </trans-unit>
+        <trans-unit id="c7d6d456-4a64-45e7-abe0-b8937042cc43" xml:space="preserve">
+          <source>On the <bpt id="3a16fd64-dfa7-47c0-865d-c732e5f6f91c">&lt;strong&gt;</bpt>Domains<ept id="3a16fd64-dfa7-47c0-865d-c732e5f6f91c">&lt;/strong&gt;</ept> page, in the list of domain names, find the domain that you are verifying.</source>
+          <target state="new">On the <bpt id="3a16fd64-dfa7-47c0-865d-c732e5f6f91c">&lt;strong&gt;</bpt>Domains<ept id="3a16fd64-dfa7-47c0-865d-c732e5f6f91c">&lt;/strong&gt;</ept> page, in the list of domain names, find the domain that you are verifying.</target>
+        </trans-unit>
+        <trans-unit id="bfe1483e-ac0c-4116-a30b-cdc447959167" xml:space="preserve">
+          <source>In the <bpt id="493565ad-b10d-4255-8b60-e53406c97764">&lt;strong&gt;</bpt>Status<ept id="493565ad-b10d-4255-8b60-e53406c97764">&lt;/strong&gt;</ept> column, click <bpt id="86c29938-0ab1-451c-a983-23e53903c87e">&lt;strong&gt;</bpt>Click to verify domain<ept id="86c29938-0ab1-451c-a983-23e53903c87e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="493565ad-b10d-4255-8b60-e53406c97764">&lt;strong&gt;</bpt>Status<ept id="493565ad-b10d-4255-8b60-e53406c97764">&lt;/strong&gt;</ept> column, click <bpt id="86c29938-0ab1-451c-a983-23e53903c87e">&lt;strong&gt;</bpt>Click to verify domain<ept id="86c29938-0ab1-451c-a983-23e53903c87e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c654bd3-f907-4a4f-b3e6-829b03674d8a" xml:space="preserve">
+          <source>On the <bpt id="1eee6c78-56c1-49b2-b1c5-28b5f67cd14b">&lt;strong&gt;</bpt>Verify domain<ept id="1eee6c78-56c1-49b2-b1c5-28b5f67cd14b">&lt;/strong&gt;</ept> page, in the <bpt id="0790deca-a9a2-431a-ab93-2740f6235903">&lt;strong&gt;</bpt>See instructions for performing this step with:<ept id="0790deca-a9a2-431a-ab93-2740f6235903">&lt;/strong&gt;</ept> drop-down list, choose your DNS hosting provider.</source>
+          <target state="new">On the <bpt id="1eee6c78-56c1-49b2-b1c5-28b5f67cd14b">&lt;strong&gt;</bpt>Verify domain<ept id="1eee6c78-56c1-49b2-b1c5-28b5f67cd14b">&lt;/strong&gt;</ept> page, in the <bpt id="0790deca-a9a2-431a-ab93-2740f6235903">&lt;strong&gt;</bpt>See instructions for performing this step with:<ept id="0790deca-a9a2-431a-ab93-2740f6235903">&lt;/strong&gt;</ept> drop-down list, choose your DNS hosting provider.</target>
+        </trans-unit>
+        <trans-unit id="eda1cfda-a819-4eac-9d23-eee64edd8189" xml:space="preserve">
+          <source>If your provider doesn't appear in the list, choose <bpt id="f730019d-e6a8-4f87-8ef8-badc876d7a2d">&lt;strong&gt;</bpt>General instructions<ept id="f730019d-e6a8-4f87-8ef8-badc876d7a2d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If your provider doesn't appear in the list, choose <bpt id="f730019d-e6a8-4f87-8ef8-badc876d7a2d">&lt;strong&gt;</bpt>General instructions<ept id="f730019d-e6a8-4f87-8ef8-badc876d7a2d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dcc4956f-1866-4582-9db4-66ba6c873ff8" xml:space="preserve">
+          <source>In the <bpt id="2573ed63-b64c-454f-b5ef-45501e3c9104">&lt;strong&gt;</bpt>Select a verification method:<ept id="2573ed63-b64c-454f-b5ef-45501e3c9104">&lt;/strong&gt;</ept> drop-down list, choose <bpt id="f9850795-5d6f-4cad-8010-6aeb76ba2845">&lt;strong&gt;</bpt>Add a TXT record (preferred method)<ept id="f9850795-5d6f-4cad-8010-6aeb76ba2845">&lt;/strong&gt;</ept> or <bpt id="649f761f-9614-4a9c-8bd9-f8c23585ed44">&lt;strong&gt;</bpt>Add an MX record (alternate method)<ept id="649f761f-9614-4a9c-8bd9-f8c23585ed44">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2573ed63-b64c-454f-b5ef-45501e3c9104">&lt;strong&gt;</bpt>Select a verification method:<ept id="2573ed63-b64c-454f-b5ef-45501e3c9104">&lt;/strong&gt;</ept> drop-down list, choose <bpt id="f9850795-5d6f-4cad-8010-6aeb76ba2845">&lt;strong&gt;</bpt>Add a TXT record (preferred method)<ept id="f9850795-5d6f-4cad-8010-6aeb76ba2845">&lt;/strong&gt;</ept> or <bpt id="649f761f-9614-4a9c-8bd9-f8c23585ed44">&lt;strong&gt;</bpt>Add an MX record (alternate method)<ept id="649f761f-9614-4a9c-8bd9-f8c23585ed44">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0fd05ba-1883-44fc-9d21-f550c8e12e3e" xml:space="preserve">
+          <source>If your DNS hosting provider allows you create TXT records, we recommend you use a TXT record for verification.</source>
+          <target state="new">If your DNS hosting provider allows you create TXT records, we recommend you use a TXT record for verification.</target>
+        </trans-unit>
+        <trans-unit id="e6f19f46-ed95-40de-98e4-68cef47c5a06" xml:space="preserve">
+          <source>Why?</source>
+          <target state="new">Why?</target>
+        </trans-unit>
+        <trans-unit id="faf135b1-578c-4da9-a47e-6af83fe0ad96" xml:space="preserve">
+          <source>TXT records are straightforward to create and don't introduce the possibility of interfering with email delivery if an incorrect value is accidentally entered.</source>
+          <target state="new">TXT records are straightforward to create and don't introduce the possibility of interfering with email delivery if an incorrect value is accidentally entered.</target>
+        </trans-unit>
+        <trans-unit id="a8cd99b5-ab81-469c-abdb-53fc9dd8e6ad" xml:space="preserve">
+          <source>From the table, copy or record the <bpt id="afb16489-6862-402b-abd4-494b8cdea737">&lt;strong&gt;</bpt>Destination or Points to Address<ept id="afb16489-6862-402b-abd4-494b8cdea737">&lt;/strong&gt;</ept> information.</source>
+          <target state="new">From the table, copy or record the <bpt id="afb16489-6862-402b-abd4-494b8cdea737">&lt;strong&gt;</bpt>Destination or Points to Address<ept id="afb16489-6862-402b-abd4-494b8cdea737">&lt;/strong&gt;</ept> information.</target>
+        </trans-unit>
+        <trans-unit id="75c8f20c-62af-453a-b290-ad8bffbebaa8" xml:space="preserve">
+          <source>If you are using the Management Portal:</source>
+          <target state="new">If you are using the Management Portal:</target>
+        </trans-unit>
+        <trans-unit id="fc753729-3de8-44ca-8f71-f3307488cd49" xml:space="preserve">
+          <source>In the portal, click <bpt id="0cc0366e-1422-4ad3-bfd1-ddcbc2addc85">&lt;strong&gt;</bpt>Active Directory<ept id="0cc0366e-1422-4ad3-bfd1-ddcbc2addc85">&lt;/strong&gt;</ept>, click the name of your directory, click <bpt id="d49b6300-9659-4b17-af25-272630d43fa7">&lt;strong&gt;</bpt>Domains<ept id="d49b6300-9659-4b17-af25-272630d43fa7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the portal, click <bpt id="0cc0366e-1422-4ad3-bfd1-ddcbc2addc85">&lt;strong&gt;</bpt>Active Directory<ept id="0cc0366e-1422-4ad3-bfd1-ddcbc2addc85">&lt;/strong&gt;</ept>, click the name of your directory, click <bpt id="d49b6300-9659-4b17-af25-272630d43fa7">&lt;strong&gt;</bpt>Domains<ept id="d49b6300-9659-4b17-af25-272630d43fa7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b344500d-7a3a-4a01-91d9-16f40316ac3b" xml:space="preserve">
+          <source>On the <bpt id="dd7d4669-b946-417f-9485-6b18f5361c63">&lt;strong&gt;</bpt>Domains<ept id="dd7d4669-b946-417f-9485-6b18f5361c63">&lt;/strong&gt;</ept> page, in the list of domain names, click the domain that you want to verify, and then click <bpt id="0158bb95-e52e-481d-86d6-10cd5b073fbe">&lt;strong&gt;</bpt>Verify<ept id="0158bb95-e52e-481d-86d6-10cd5b073fbe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="dd7d4669-b946-417f-9485-6b18f5361c63">&lt;strong&gt;</bpt>Domains<ept id="dd7d4669-b946-417f-9485-6b18f5361c63">&lt;/strong&gt;</ept> page, in the list of domain names, click the domain that you want to verify, and then click <bpt id="0158bb95-e52e-481d-86d6-10cd5b073fbe">&lt;strong&gt;</bpt>Verify<ept id="0158bb95-e52e-481d-86d6-10cd5b073fbe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b44f288-b157-4150-a0cf-3556d247fc26" xml:space="preserve">
+          <source>On the <bpt id="66d1a94c-f9e6-4cc7-8926-bc87d2eeccc8">&lt;strong&gt;</bpt>Verify<ept id="66d1a94c-f9e6-4cc7-8926-bc87d2eeccc8">&lt;/strong&gt;</ept> page, in the <bpt id="0cc42f7d-a82a-4115-8741-5411a138f55a">&lt;strong&gt;</bpt>Record Type<ept id="0cc42f7d-a82a-4115-8741-5411a138f55a">&lt;/strong&gt;</ept> drop-down list, choose either <bpt id="28d1bab3-8b20-496a-b86f-616d8c7d9611">&lt;strong&gt;</bpt>TXT record<ept id="28d1bab3-8b20-496a-b86f-616d8c7d9611">&lt;/strong&gt;</ept> or <bpt id="19500624-01b9-490d-876d-e3a37e4d8904">&lt;strong&gt;</bpt>MX record<ept id="19500624-01b9-490d-876d-e3a37e4d8904">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="66d1a94c-f9e6-4cc7-8926-bc87d2eeccc8">&lt;strong&gt;</bpt>Verify<ept id="66d1a94c-f9e6-4cc7-8926-bc87d2eeccc8">&lt;/strong&gt;</ept> page, in the <bpt id="0cc42f7d-a82a-4115-8741-5411a138f55a">&lt;strong&gt;</bpt>Record Type<ept id="0cc42f7d-a82a-4115-8741-5411a138f55a">&lt;/strong&gt;</ept> drop-down list, choose either <bpt id="28d1bab3-8b20-496a-b86f-616d8c7d9611">&lt;strong&gt;</bpt>TXT record<ept id="28d1bab3-8b20-496a-b86f-616d8c7d9611">&lt;/strong&gt;</ept> or <bpt id="19500624-01b9-490d-876d-e3a37e4d8904">&lt;strong&gt;</bpt>MX record<ept id="19500624-01b9-490d-876d-e3a37e4d8904">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2964fa61-cb75-4ce3-b23f-52a82500efc7" xml:space="preserve">
+          <source>Copy or record the information under it.</source>
+          <target state="new">Copy or record the information under it.</target>
+        </trans-unit>
+        <trans-unit id="86448c0a-7eb5-4cd4-96fe-fd6107fc9c14" xml:space="preserve">
+          <source>Azure AD uses a DNS record that you create at your domain name registrar to confirm that you own the domain.</source>
+          <target state="new">Azure AD uses a DNS record that you create at your domain name registrar to confirm that you own the domain.</target>
+        </trans-unit>
+        <trans-unit id="97ee7bc5-1971-4ded-8885-30f3b7eb5da4" xml:space="preserve">
+          <source>Use the instructions below to create either a TXT or MX record type for a domain that is registered at your registrar.</source>
+          <target state="new">Use the instructions below to create either a TXT or MX record type for a domain that is registered at your registrar.</target>
+        </trans-unit>
+        <trans-unit id="bba09eee-9c03-42d1-b4e0-d94eed2ffceb" xml:space="preserve">
+          <source>If your domain registrar does not accept '@' as a hostname, contact your domain registrar to find out how to represent 'parent of the current zone.'</source>
+          <target state="new">If your domain registrar does not accept '@' as a hostname, contact your domain registrar to find out how to represent 'parent of the current zone.'</target>
+        </trans-unit>
+        <trans-unit id="47137b8e-a54c-48df-9ac5-74bd0e3b8199" xml:space="preserve">
+          <source>Office 365 has <bpt id="63b843d5-2f03-470b-a8cd-a176e3fcc586">&lt;linkText&gt;</bpt>specific instructions for common domain registrars<ept id="63b843d5-2f03-470b-a8cd-a176e3fcc586">&lt;/linkText&gt;</ept><bpt id="63b843d5-2f03-470b-a8cd-a176e3fcc586">&lt;title&gt;</bpt><ept id="63b843d5-2f03-470b-a8cd-a176e3fcc586">&lt;/title&gt;</ept>.</source>
+          <target state="new">Office 365 has <bpt id="63b843d5-2f03-470b-a8cd-a176e3fcc586">&lt;linkText&gt;</bpt>specific instructions for common domain registrars<ept id="63b843d5-2f03-470b-a8cd-a176e3fcc586">&lt;/linkText&gt;</ept><bpt id="63b843d5-2f03-470b-a8cd-a176e3fcc586">&lt;title&gt;</bpt><ept id="63b843d5-2f03-470b-a8cd-a176e3fcc586">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0032a47c-9458-4bfc-9101-16deaeeec433" xml:space="preserve">
+          <source>For general instructions, follow these steps to add a TXT or MX record:</source>
+          <target state="new">For general instructions, follow these steps to add a TXT or MX record:</target>
+        </trans-unit>
+        <trans-unit id="4986278b-3431-46f5-85f8-f763ed901126" xml:space="preserve">
+          <source>Sign in to your domain name registrar's website, and then select the domain that you're verifying.</source>
+          <target state="new">Sign in to your domain name registrar's website, and then select the domain that you're verifying.</target>
+        </trans-unit>
+        <trans-unit id="a6723fc9-3ad3-4b90-80be-3cfe0e62c1c0" xml:space="preserve">
+          <source>In the DNS management area for your account, select the option to add a TXT or an MX record for your domain.</source>
+          <target state="new">In the DNS management area for your account, select the option to add a TXT or an MX record for your domain.</target>
+        </trans-unit>
+        <trans-unit id="cb2670b0-67a2-4663-adff-bdd765562b25" xml:space="preserve">
+          <source>In the <bpt id="d395665d-a342-412a-a6da-a3d8f1743944">&lt;strong&gt;</bpt>TXT<ept id="d395665d-a342-412a-a6da-a3d8f1743944">&lt;/strong&gt;</ept> or <bpt id="dad4a019-567b-4620-9392-a7040285ef64">&lt;strong&gt;</bpt>MX<ept id="dad4a019-567b-4620-9392-a7040285ef64">&lt;/strong&gt;</ept> box for the domain, type the following: @</source>
+          <target state="new">In the <bpt id="d395665d-a342-412a-a6da-a3d8f1743944">&lt;strong&gt;</bpt>TXT<ept id="d395665d-a342-412a-a6da-a3d8f1743944">&lt;/strong&gt;</ept> or <bpt id="dad4a019-567b-4620-9392-a7040285ef64">&lt;strong&gt;</bpt>MX<ept id="dad4a019-567b-4620-9392-a7040285ef64">&lt;/strong&gt;</ept> box for the domain, type the following: @</target>
+        </trans-unit>
+        <trans-unit id="d85c2845-f58b-4873-8249-9f5e08151c97" xml:space="preserve">
+          <source>In the <bpt id="4092ed87-9596-4ee4-b173-c5b567bdb398">&lt;strong&gt;</bpt>Fully qualified domain name (FQDN)<ept id="4092ed87-9596-4ee4-b173-c5b567bdb398">&lt;/strong&gt;</ept> or <bpt id="1897590d-30f1-4fd5-a43a-d9cd0c2672e7">&lt;strong&gt;</bpt>Points to<ept id="1897590d-30f1-4fd5-a43a-d9cd0c2672e7">&lt;/strong&gt;</ept> box, type or paste the <bpt id="67b496eb-2c55-46de-9409-4132c7cbc800">&lt;strong&gt;</bpt>Destination or Points to Address<ept id="67b496eb-2c55-46de-9409-4132c7cbc800">&lt;/strong&gt;</ept> that you recorded in the previous step.</source>
+          <target state="new">In the <bpt id="4092ed87-9596-4ee4-b173-c5b567bdb398">&lt;strong&gt;</bpt>Fully qualified domain name (FQDN)<ept id="4092ed87-9596-4ee4-b173-c5b567bdb398">&lt;/strong&gt;</ept> or <bpt id="1897590d-30f1-4fd5-a43a-d9cd0c2672e7">&lt;strong&gt;</bpt>Points to<ept id="1897590d-30f1-4fd5-a43a-d9cd0c2672e7">&lt;/strong&gt;</ept> box, type or paste the <bpt id="67b496eb-2c55-46de-9409-4132c7cbc800">&lt;strong&gt;</bpt>Destination or Points to Address<ept id="67b496eb-2c55-46de-9409-4132c7cbc800">&lt;/strong&gt;</ept> that you recorded in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="487b4792-040c-429e-bef7-1c118333a4fd" xml:space="preserve">
+          <source>For a TXT record, it asks for <bpt id="47ec2fb5-77b4-40bb-86b7-5231ed69a53b">&lt;strong&gt;</bpt>TTL<ept id="47ec2fb5-77b4-40bb-86b7-5231ed69a53b">&lt;/strong&gt;</ept> information, type <bpt id="466c8723-3f9b-4132-88dc-a9d00fcce3c1">&lt;strong&gt;</bpt>1<ept id="466c8723-3f9b-4132-88dc-a9d00fcce3c1">&lt;/strong&gt;</ept> to set TTL to one hour.</source>
+          <target state="new">For a TXT record, it asks for <bpt id="47ec2fb5-77b4-40bb-86b7-5231ed69a53b">&lt;strong&gt;</bpt>TTL<ept id="47ec2fb5-77b4-40bb-86b7-5231ed69a53b">&lt;/strong&gt;</ept> information, type <bpt id="466c8723-3f9b-4132-88dc-a9d00fcce3c1">&lt;strong&gt;</bpt>1<ept id="466c8723-3f9b-4132-88dc-a9d00fcce3c1">&lt;/strong&gt;</ept> to set TTL to one hour.</target>
+        </trans-unit>
+        <trans-unit id="ec2106ab-4a83-48a1-bfca-175ed7104cfe" xml:space="preserve">
+          <source>For an MX record, it asks for a priority (or preference), type a number that is larger than the number you've specified for existing MX records.</source>
+          <target state="new">For an MX record, it asks for a priority (or preference), type a number that is larger than the number you've specified for existing MX records.</target>
+        </trans-unit>
+        <trans-unit id="a947ed88-47f1-4940-b70a-32ad175e9659" xml:space="preserve">
+          <source>This can help prevent the new MX record from interfering with mail routing for the domain.</source>
+          <target state="new">This can help prevent the new MX record from interfering with mail routing for the domain.</target>
+        </trans-unit>
+        <trans-unit id="0a118a43-ab01-4266-ab51-4ae557c73c7c" xml:space="preserve">
+          <source>Instead of a priority, you may see the following options: <bpt id="fa9cb1b5-c278-4504-b9a6-70e9c5f9a32c">&lt;strong&gt;</bpt>Low<ept id="fa9cb1b5-c278-4504-b9a6-70e9c5f9a32c">&lt;/strong&gt;</ept>, <bpt id="76bac89d-3e6d-46de-8014-987205ce70f8">&lt;strong&gt;</bpt>Medium<ept id="76bac89d-3e6d-46de-8014-987205ce70f8">&lt;/strong&gt;</ept>, <bpt id="37b1692f-360e-488a-98f9-b5bb83067320">&lt;strong&gt;</bpt>High<ept id="37b1692f-360e-488a-98f9-b5bb83067320">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Instead of a priority, you may see the following options: <bpt id="fa9cb1b5-c278-4504-b9a6-70e9c5f9a32c">&lt;strong&gt;</bpt>Low<ept id="fa9cb1b5-c278-4504-b9a6-70e9c5f9a32c">&lt;/strong&gt;</ept>, <bpt id="76bac89d-3e6d-46de-8014-987205ce70f8">&lt;strong&gt;</bpt>Medium<ept id="76bac89d-3e6d-46de-8014-987205ce70f8">&lt;/strong&gt;</ept>, <bpt id="37b1692f-360e-488a-98f9-b5bb83067320">&lt;strong&gt;</bpt>High<ept id="37b1692f-360e-488a-98f9-b5bb83067320">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7109bd6-2d97-4492-918e-e978b951932b" xml:space="preserve">
+          <source>In this case, choose <bpt id="95024712-475f-40db-b667-3ec91d4adbad">&lt;strong&gt;</bpt>Low<ept id="95024712-475f-40db-b667-3ec91d4adbad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this case, choose <bpt id="95024712-475f-40db-b667-3ec91d4adbad">&lt;strong&gt;</bpt>Low<ept id="95024712-475f-40db-b667-3ec91d4adbad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0b0f576-6611-49ba-b27f-18e49bc39c40" xml:space="preserve">
+          <source>Save your changes, and then sign out of your domain name registrar's website.</source>
+          <target state="new">Save your changes, and then sign out of your domain name registrar's website.</target>
+        </trans-unit>
+        <trans-unit id="705442f9-a6d4-4acc-8065-e014c805cd4c" xml:space="preserve">
+          <source>After you create either the TXT record or the MX record and sign out of the website, return to the cloud service to verify the domain.</source>
+          <target state="new">After you create either the TXT record or the MX record and sign out of the website, return to the cloud service to verify the domain.</target>
+        </trans-unit>
+        <trans-unit id="ddecd4b3-d430-4c68-a154-0086b6284aa6" xml:space="preserve">
+          <source>Typically it takes about 15 minutes for your changes to take effect.</source>
+          <target state="new">Typically it takes about 15 minutes for your changes to take effect.</target>
+        </trans-unit>
+        <trans-unit id="626f1f8d-837b-4ac9-9321-a57f3e92798f" xml:space="preserve">
+          <source>But it can take up to 72 hours for the record that you created to propagate through the DNS system.</source>
+          <target state="new">But it can take up to 72 hours for the record that you created to propagate through the DNS system.</target>
+        </trans-unit>
+        <trans-unit id="01b0cc4f-ebba-428d-b6d2-a53c1cb8abc7" xml:space="preserve">
+          <source>After the record that you created for your domain has propagated successfully through the DNS system, do the following to finish verifying your domain with Azure AD.</source>
+          <target state="new">After the record that you created for your domain has propagated successfully through the DNS system, do the following to finish verifying your domain with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="238d2e92-ab65-42c4-8338-7e4e7199ba03" xml:space="preserve">
+          <source>In the portal, click <bpt id="0462d806-b2b6-44e3-a008-32db0701e382">&lt;strong&gt;</bpt>Domains<ept id="0462d806-b2b6-44e3-a008-32db0701e382">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the portal, click <bpt id="0462d806-b2b6-44e3-a008-32db0701e382">&lt;strong&gt;</bpt>Domains<ept id="0462d806-b2b6-44e3-a008-32db0701e382">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="450929f2-e6a0-4991-8316-fd5449ac9efb" xml:space="preserve">
+          <source>In the <bpt id="4ec0e9ec-be0e-49fc-b133-4727f23cbf4d">&lt;strong&gt;</bpt>Domains<ept id="4ec0e9ec-be0e-49fc-b133-4727f23cbf4d">&lt;/strong&gt;</ept> list, find the domain that you're verifying, and then based on the portal you are using, click either <bpt id="270c1dfe-dbd5-4c3a-8ea8-a8a2f558ff9d">&lt;strong&gt;</bpt>Click to verify domain<ept id="270c1dfe-dbd5-4c3a-8ea8-a8a2f558ff9d">&lt;/strong&gt;</ept> or <bpt id="ff6f7162-acf1-42fd-bd81-8e4450e08a3a">&lt;strong&gt;</bpt>Verify<ept id="ff6f7162-acf1-42fd-bd81-8e4450e08a3a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4ec0e9ec-be0e-49fc-b133-4727f23cbf4d">&lt;strong&gt;</bpt>Domains<ept id="4ec0e9ec-be0e-49fc-b133-4727f23cbf4d">&lt;/strong&gt;</ept> list, find the domain that you're verifying, and then based on the portal you are using, click either <bpt id="270c1dfe-dbd5-4c3a-8ea8-a8a2f558ff9d">&lt;strong&gt;</bpt>Click to verify domain<ept id="270c1dfe-dbd5-4c3a-8ea8-a8a2f558ff9d">&lt;/strong&gt;</ept> or <bpt id="ff6f7162-acf1-42fd-bd81-8e4450e08a3a">&lt;strong&gt;</bpt>Verify<ept id="ff6f7162-acf1-42fd-bd81-8e4450e08a3a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="28db3d13-2ea2-428e-bff2-2ef3b23737f9" xml:space="preserve">
+          <source>Follow the instructions provided to complete the verification process.</source>
+          <target state="new">Follow the instructions provided to complete the verification process.</target>
+        </trans-unit>
+        <trans-unit id="879be410-7c98-48c3-be4c-03065298b84c" xml:space="preserve">
+          <source>If domain verification succeeds, you will be notified that your domain has been added to your account.</source>
+          <target state="new">If domain verification succeeds, you will be notified that your domain has been added to your account.</target>
+        </trans-unit>
+        <trans-unit id="9ba7910b-b349-4374-b694-388dd6f8f22e" xml:space="preserve">
+          <source>If domain verification fails, then the changes that you made at the domain registrar might need more time to propagate.</source>
+          <target state="new">If domain verification fails, then the changes that you made at the domain registrar might need more time to propagate.</target>
+        </trans-unit>
+        <trans-unit id="7d5f02d3-0597-4a36-bb49-6e9087cac30e" xml:space="preserve">
+          <source>Cancel the verification process, and return later to try the verification again.</source>
+          <target state="new">Cancel the verification process, and return later to try the verification again.</target>
+        </trans-unit>
+        <trans-unit id="93b22b9f-1aef-4f1d-a5a5-7d7fb160e0e4" xml:space="preserve">
+          <source>If it has been more than 72 hours since you made the changes to your domain, sign in to the domain registrar's website and verify that you entered the alias information correctly.</source>
+          <target state="new">If it has been more than 72 hours since you made the changes to your domain, sign in to the domain registrar's website and verify that you entered the alias information correctly.</target>
+        </trans-unit>
+        <trans-unit id="92873d9b-0174-4792-8c38-e9b2eb4242c8" xml:space="preserve">
+          <source>If you entered the information incorrectly, you must remove the incorrect DNS record and create a new one with the correct information by using the procedures in this topic.</source>
+          <target state="new">If you entered the information incorrectly, you must remove the incorrect DNS record and create a new one with the correct information by using the procedures in this topic.</target>
+        </trans-unit>
+        <trans-unit id="dd907bed-e0c9-4efa-91a6-e668fb8a8ad9" xml:space="preserve">
+          <source>After you've verified your domain, you can configure your domain to work with your accounts.</source>
+          <target state="new">After you've verified your domain, you can configure your domain to work with your accounts.</target>
+        </trans-unit>
+        <trans-unit id="c2f950d4-d7d9-4870-b213-c424429d7cef" xml:space="preserve">
+          <source>After you add your domain name to Azure AD, you can change the domain name that should show as the default when you create a new user account.</source>
+          <target state="new">After you add your domain name to Azure AD, you can change the domain name that should show as the default when you create a new user account.</target>
+        </trans-unit>
+        <trans-unit id="21ad8f8d-aba8-4838-97cd-e3054d10a816" xml:space="preserve">
+          <source>To do this, follow these steps.</source>
+          <target state="new">To do this, follow these steps.</target>
+        </trans-unit>
+        <trans-unit id="29a7d164-e536-4e19-8063-499b51a25624" xml:space="preserve">
+          <source>On the portal page, in the top left corner, click your organization name.</source>
+          <target state="new">On the portal page, in the top left corner, click your organization name.</target>
+        </trans-unit>
+        <trans-unit id="4130e222-1b66-473b-9b66-755ad092d2a8" xml:space="preserve">
+          <source>Click <bpt id="8b4eda85-4b5f-4f48-a3bc-7984da9bc7c7">&lt;strong&gt;</bpt>Edit<ept id="8b4eda85-4b5f-4f48-a3bc-7984da9bc7c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8b4eda85-4b5f-4f48-a3bc-7984da9bc7c7">&lt;strong&gt;</bpt>Edit<ept id="8b4eda85-4b5f-4f48-a3bc-7984da9bc7c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e1c11a9-1bd8-4d0c-a591-319456be40f6" xml:space="preserve">
+          <source>Choose a new default domain name, such as the custom domain name that you added.</source>
+          <target state="new">Choose a new default domain name, such as the custom domain name that you added.</target>
+        </trans-unit>
+        <trans-unit id="0c6277a8-5dbb-4c08-a855-091d0a1f2e30" xml:space="preserve">
+          <source>Before you remove a domain name, we recommend that you read the following information:</source>
+          <target state="new">Before you remove a domain name, we recommend that you read the following information:</target>
+        </trans-unit>
+        <trans-unit id="a13cda43-a801-4789-ae0d-22c63471b033" xml:space="preserve">
+          <source>The original contoso.onmicrosoft.com domain name that was provided for your directory when you signed up cannot be removed.</source>
+          <target state="new">The original contoso.onmicrosoft.com domain name that was provided for your directory when you signed up cannot be removed.</target>
+        </trans-unit>
+        <trans-unit id="c9fc0273-6454-4773-8a66-5a15438e49fe" xml:space="preserve">
+          <source>Any top-level domain that has subdomains associated with it cannot be removed until the subdomains have been removed.</source>
+          <target state="new">Any top-level domain that has subdomains associated with it cannot be removed until the subdomains have been removed.</target>
+        </trans-unit>
+        <trans-unit id="3c7ba35e-b051-4402-b2d5-76fad4303e97" xml:space="preserve">
+          <source>For example, you can't remove adatum.com if you have corp.adatum.com or another subdomain that uses the top-level domain name.</source>
+          <target state="new">For example, you can't remove adatum.com if you have corp.adatum.com or another subdomain that uses the top-level domain name.</target>
+        </trans-unit>
+        <trans-unit id="2ae75d46-c341-4527-84d9-1f68fd0a540e" xml:space="preserve">
+          <source>For more information, see this <bpt id="0578261e-1ecb-4396-9463-d5192f39eebb">&lt;linkText&gt;</bpt>Support article<ept id="0578261e-1ecb-4396-9463-d5192f39eebb">&lt;/linkText&gt;</ept><bpt id="0578261e-1ecb-4396-9463-d5192f39eebb">&lt;title&gt;</bpt><ept id="0578261e-1ecb-4396-9463-d5192f39eebb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see this <bpt id="0578261e-1ecb-4396-9463-d5192f39eebb">&lt;linkText&gt;</bpt>Support article<ept id="0578261e-1ecb-4396-9463-d5192f39eebb">&lt;/linkText&gt;</ept><bpt id="0578261e-1ecb-4396-9463-d5192f39eebb">&lt;title&gt;</bpt><ept id="0578261e-1ecb-4396-9463-d5192f39eebb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ba4c61c-13b3-4f04-bcbb-5de8fed9bfac" xml:space="preserve">
+          <source>Have you activated directory synchronization?</source>
+          <target state="new">Have you activated directory synchronization?</target>
+        </trans-unit>
+        <trans-unit id="e90147e4-1f2d-4483-9364-4f5453d238ee" xml:space="preserve">
+          <source>If so, a domain was automatically added to your account that looks similar to this: contoso.mail.onmicrosoft.com.</source>
+          <target state="new">If so, a domain was automatically added to your account that looks similar to this: contoso.mail.onmicrosoft.com.</target>
+        </trans-unit>
+        <trans-unit id="99d99cc5-d3b3-4e18-8579-152f71430b82" xml:space="preserve">
+          <source>This domain name can't be removed.</source>
+          <target state="new">This domain name can't be removed.</target>
+        </trans-unit>
+        <trans-unit id="eaa3897b-151d-4cae-a3ca-648f026252d0" xml:space="preserve">
+          <source>Before you can remove a domain name, you must first remove the domain name from all user or email accounts associated with the domain.</source>
+          <target state="new">Before you can remove a domain name, you must first remove the domain name from all user or email accounts associated with the domain.</target>
+        </trans-unit>
+        <trans-unit id="88c7cbd9-2622-47da-8e55-6d92f93b4326" xml:space="preserve">
+          <source>You can remove all of the accounts, or you can bulk edit user accounts to change their domain name information and email addresses.</source>
+          <target state="new">You can remove all of the accounts, or you can bulk edit user accounts to change their domain name information and email addresses.</target>
+        </trans-unit>
+        <trans-unit id="018107fc-2ca6-44c4-b484-f66eadfc5102" xml:space="preserve">
+          <source>For more information, see <bpt id="d504f6a5-cf8d-47e4-a405-f6f9cfff1015">&lt;linkText&gt;</bpt>Create or edit users in Azure AD<ept id="d504f6a5-cf8d-47e4-a405-f6f9cfff1015">&lt;/linkText&gt;</ept><bpt id="d504f6a5-cf8d-47e4-a405-f6f9cfff1015">&lt;title&gt;</bpt><ept id="d504f6a5-cf8d-47e4-a405-f6f9cfff1015">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d504f6a5-cf8d-47e4-a405-f6f9cfff1015">&lt;linkText&gt;</bpt>Create or edit users in Azure AD<ept id="d504f6a5-cf8d-47e4-a405-f6f9cfff1015">&lt;/linkText&gt;</ept><bpt id="d504f6a5-cf8d-47e4-a405-f6f9cfff1015">&lt;title&gt;</bpt><ept id="d504f6a5-cf8d-47e4-a405-f6f9cfff1015">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07a03a6f-7e89-43cb-8806-5c393cd4c330" xml:space="preserve">
+          <source>If you are hosting a SharePoint Online site on a domain name that is being used for a SharePoint Online site collection, you must delete the site collection before you can remove the domain name.</source>
+          <target state="new">If you are hosting a SharePoint Online site on a domain name that is being used for a SharePoint Online site collection, you must delete the site collection before you can remove the domain name.</target>
+        </trans-unit>
+        <trans-unit id="ff9aeb24-c90d-4bad-90ae-af6d52ed175b" xml:space="preserve">
+          <source>To remove a domain name:</source>
+          <target state="new">To remove a domain name:</target>
+        </trans-unit>
+        <trans-unit id="360bb12b-f0c4-4e21-b4f7-794df2a480e1" xml:space="preserve">
+          <source>On the portal page, in the left pane, click <bpt id="10d3ab39-ff6f-4a69-b49b-103b192d27dc">&lt;strong&gt;</bpt>Domains<ept id="10d3ab39-ff6f-4a69-b49b-103b192d27dc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the portal page, in the left pane, click <bpt id="10d3ab39-ff6f-4a69-b49b-103b192d27dc">&lt;strong&gt;</bpt>Domains<ept id="10d3ab39-ff6f-4a69-b49b-103b192d27dc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f73ef225-1bb0-408b-9c5d-7a6f7ee481fe" xml:space="preserve">
+          <source>On the <bpt id="b96a4828-eaec-41a9-b6bc-21e09da5eb44">&lt;strong&gt;</bpt>Domains<ept id="b96a4828-eaec-41a9-b6bc-21e09da5eb44">&lt;/strong&gt;</ept> page, select the domain name that you want to remove, and then click <bpt id="19e931b2-43ad-4b8b-b1b0-ab9c752eef55">&lt;strong&gt;</bpt>Remove domain<ept id="19e931b2-43ad-4b8b-b1b0-ab9c752eef55">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b96a4828-eaec-41a9-b6bc-21e09da5eb44">&lt;strong&gt;</bpt>Domains<ept id="b96a4828-eaec-41a9-b6bc-21e09da5eb44">&lt;/strong&gt;</ept> page, select the domain name that you want to remove, and then click <bpt id="19e931b2-43ad-4b8b-b1b0-ab9c752eef55">&lt;strong&gt;</bpt>Remove domain<ept id="19e931b2-43ad-4b8b-b1b0-ab9c752eef55">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="889af465-3446-4be7-bccc-7f102f6475e4" xml:space="preserve">
+          <source>On the <bpt id="ccfd0364-06a3-46d3-99dc-efd08549b9ec">&lt;strong&gt;</bpt>Remove domain<ept id="ccfd0364-06a3-46d3-99dc-efd08549b9ec">&lt;/strong&gt;</ept> page, click <bpt id="a30e2886-2920-40f9-ba80-4c5593e7a883">&lt;strong&gt;</bpt>Yes<ept id="a30e2886-2920-40f9-ba80-4c5593e7a883">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ccfd0364-06a3-46d3-99dc-efd08549b9ec">&lt;strong&gt;</bpt>Remove domain<ept id="ccfd0364-06a3-46d3-99dc-efd08549b9ec">&lt;/strong&gt;</ept> page, click <bpt id="a30e2886-2920-40f9-ba80-4c5593e7a883">&lt;strong&gt;</bpt>Yes<ept id="a30e2886-2920-40f9-ba80-4c5593e7a883">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65bc2ec5-be54-4347-a28c-72538d34b884" xml:space="preserve">
+          <source>If your domain name can't be removed at this time, the status for the domain name is shown as Pending removal on the Domains page.</source>
+          <target state="new">If your domain name can't be removed at this time, the status for the domain name is shown as Pending removal on the Domains page.</target>
+        </trans-unit>
+        <trans-unit id="206066e2-63e1-43bb-a162-1dc181c60898" xml:space="preserve">
+          <source>If you continue to see this status, try again to remove the domain name.</source>
+          <target state="new">If you continue to see this status, try again to remove the domain name.</target>
+        </trans-unit>
+        <trans-unit id="5613cdf6-e25e-4769-8731-a76731169cab" xml:space="preserve">
+          <source>Because of the way updates move through the domain name system (DNS), it can take up to 72 hours before the changes you make at a domain registrar or hosting provider fully propagate through the Internet and you can begin using your domain name with your services.</source>
+          <target state="new">Because of the way updates move through the domain name system (DNS), it can take up to 72 hours before the changes you make at a domain registrar or hosting provider fully propagate through the Internet and you can begin using your domain name with your services.</target>
+        </trans-unit>
+        <trans-unit id="1536a1a3-9255-4461-a426-08b3bbac70cf" xml:space="preserve">
+          <source>In addition, the edits that you make at the domain registrar must be exactly correct.</source>
+          <target state="new">In addition, the edits that you make at the domain registrar must be exactly correct.</target>
+        </trans-unit>
+        <trans-unit id="464756f2-510c-4637-8b55-ff50f5a81ccf" xml:space="preserve">
+          <source>If you go back to correct an error, it may take several days for the updated setting to appear on the cloud service portal site.</source>
+          <target state="new">If you go back to correct an error, it may take several days for the updated setting to appear on the cloud service portal site.</target>
+        </trans-unit>
+        <trans-unit id="6322ba3e-1b0f-418f-98d5-7483c1098b49" xml:space="preserve">
+          <source>How long will it take?</source>
+          <target state="new">How long will it take?</target>
+        </trans-unit>
+        <trans-unit id="f17096ec-bc2a-4f93-b290-f3bf767a77d2" xml:space="preserve">
+          <source>It depends in part on the time to live (TTL) setting you've specified for the DNS record that you are replacing or updating.</source>
+          <target state="new">It depends in part on the time to live (TTL) setting you've specified for the DNS record that you are replacing or updating.</target>
+        </trans-unit>
+        <trans-unit id="37572a75-8a8d-423c-b74a-fd16b2f5c5d0" xml:space="preserve">
+          <source>Until the TTL expires, Internet servers that have cached the previous data won't query the authoritative name server to request the new value.</source>
+          <target state="new">Until the TTL expires, Internet servers that have cached the previous data won't query the authoritative name server to request the new value.</target>
+        </trans-unit>
+        <trans-unit id="10220011-6b79-4b4b-b33b-4c5ee4165c7b" xml:space="preserve">
+          <source>After you have finished adding or updating DNS records for your domain, it can take up to 72 hours for the changes to take effect.</source>
+          <target state="new">After you have finished adding or updating DNS records for your domain, it can take up to 72 hours for the changes to take effect.</target>
+        </trans-unit>
+        <trans-unit id="035ad6be-7957-4287-91c3-b3144cb20054" xml:space="preserve">
+          <source>In addition, the settings information must be exactly correct on the domain registrar site.</source>
+          <target state="new">In addition, the settings information must be exactly correct on the domain registrar site.</target>
+        </trans-unit>
+        <trans-unit id="543d9a7c-15e4-48c1-92b4-6b3d92fda4d4" xml:space="preserve">
+          <source>Double-check your settings, and make sure that you've allowed enough time for the changed DNS records to propagate through the system.</source>
+          <target state="new">Double-check your settings, and make sure that you've allowed enough time for the changed DNS records to propagate through the system.</target>
+        </trans-unit>
+        <trans-unit id="8e190d15-61ee-4c47-a0cf-38a9a1cca640" xml:space="preserve">
+          <source>One way to track down issues is to use the domains troubleshooting wizard.</source>
+          <target state="new">One way to track down issues is to use the domains troubleshooting wizard.</target>
+        </trans-unit>
+        <trans-unit id="c18affd0-c3e4-452b-ba5a-08053be9603e" xml:space="preserve">
+          <source>To start the wizard, do the following: In the cloud service portal, on the Admin page, click <bpt id="bfb3eedc-3133-4950-8dc6-8f972751034d">&lt;strong&gt;</bpt>Domains<ept id="bfb3eedc-3133-4950-8dc6-8f972751034d">&lt;/strong&gt;</ept>, and then double-click the domain name that you want to verify.</source>
+          <target state="new">To start the wizard, do the following: In the cloud service portal, on the Admin page, click <bpt id="bfb3eedc-3133-4950-8dc6-8f972751034d">&lt;strong&gt;</bpt>Domains<ept id="bfb3eedc-3133-4950-8dc6-8f972751034d">&lt;/strong&gt;</ept>, and then double-click the domain name that you want to verify.</target>
+        </trans-unit>
+        <trans-unit id="0dd088c1-931b-4524-9fd0-239af5d236f7" xml:space="preserve">
+          <source>Then, under <bpt id="54ce8818-fe93-464a-8b60-b1f21e5f2cc5">&lt;strong&gt;</bpt>Troubleshooting<ept id="54ce8818-fe93-464a-8b60-b1f21e5f2cc5">&lt;/strong&gt;</ept>, click <bpt id="559f075f-a5f8-4146-ad4c-4b4f6dc32bce">&lt;strong&gt;</bpt>Troubleshoot domain<ept id="559f075f-a5f8-4146-ad4c-4b4f6dc32bce">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, under <bpt id="54ce8818-fe93-464a-8b60-b1f21e5f2cc5">&lt;strong&gt;</bpt>Troubleshooting<ept id="54ce8818-fe93-464a-8b60-b1f21e5f2cc5">&lt;/strong&gt;</ept>, click <bpt id="559f075f-a5f8-4146-ad4c-4b4f6dc32bce">&lt;strong&gt;</bpt>Troubleshoot domain<ept id="559f075f-a5f8-4146-ad4c-4b4f6dc32bce">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d7e9226-f577-45d4-9793-1050e39c739c" xml:space="preserve">
+          <source>The troubleshooting wizard asks you for information about where you are in the verification process, and then provides you with information to help you complete the verification.</source>
+          <target state="new">The troubleshooting wizard asks you for information about where you are in the verification process, and then provides you with information to help you complete the verification.</target>
+        </trans-unit>
+        <trans-unit id="14264d90-cd16-4212-8eeb-96889da95cbb" xml:space="preserve">
+          <source>If you add your custom domain name to the cloud service after you have already added user accounts, you may have to make updates to use the new domain name.</source>
+          <target state="new">If you add your custom domain name to the cloud service after you have already added user accounts, you may have to make updates to use the new domain name.</target>
+        </trans-unit>
+        <trans-unit id="c07944bb-7a86-4db2-a77c-c9253b9c22ff" xml:space="preserve">
+          <source>For example, you will need to edit your users' accounts to set their email addresses to use your custom domain.</source>
+          <target state="new">For example, you will need to edit your users' accounts to set their email addresses to use your custom domain.</target>
+        </trans-unit>
+        <trans-unit id="47503775-68b2-4362-900c-d412261443f2" xml:space="preserve">
+          <source><bpt id="8dec0434-e1fc-45af-aeba-b828ea7b6fbb">&lt;linkText&gt;</bpt>Azure AD Forum<ept id="8dec0434-e1fc-45af-aeba-b828ea7b6fbb">&lt;/linkText&gt;</ept><bpt id="8dec0434-e1fc-45af-aeba-b828ea7b6fbb">&lt;title&gt;</bpt><ept id="8dec0434-e1fc-45af-aeba-b828ea7b6fbb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8dec0434-e1fc-45af-aeba-b828ea7b6fbb">&lt;linkText&gt;</bpt>Azure AD Forum<ept id="8dec0434-e1fc-45af-aeba-b828ea7b6fbb">&lt;/linkText&gt;</ept><bpt id="8dec0434-e1fc-45af-aeba-b828ea7b6fbb">&lt;title&gt;</bpt><ept id="8dec0434-e1fc-45af-aeba-b828ea7b6fbb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bbc9b1c-1ab3-4591-b3a1-7519dcd30a38" xml:space="preserve">
+          <source><bpt id="c7b19052-fe53-4d7c-9dce-bbeaa7cbfb09">&lt;linkText&gt;</bpt>Stackoverflow<ept id="c7b19052-fe53-4d7c-9dce-bbeaa7cbfb09">&lt;/linkText&gt;</ept><bpt id="c7b19052-fe53-4d7c-9dce-bbeaa7cbfb09">&lt;title&gt;</bpt><ept id="c7b19052-fe53-4d7c-9dce-bbeaa7cbfb09">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c7b19052-fe53-4d7c-9dce-bbeaa7cbfb09">&lt;linkText&gt;</bpt>Stackoverflow<ept id="c7b19052-fe53-4d7c-9dce-bbeaa7cbfb09">&lt;/linkText&gt;</ept><bpt id="c7b19052-fe53-4d7c-9dce-bbeaa7cbfb09">&lt;title&gt;</bpt><ept id="c7b19052-fe53-4d7c-9dce-bbeaa7cbfb09">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ce42d75-04df-4eb2-ba38-225d1fdfac5f" xml:space="preserve">
+          <source><bpt id="a1430d2b-2f0f-4008-8f5c-a997f456966a">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="a1430d2b-2f0f-4008-8f5c-a997f456966a">&lt;/linkText&gt;</ept><bpt id="a1430d2b-2f0f-4008-8f5c-a997f456966a">&lt;title&gt;</bpt><ept id="a1430d2b-2f0f-4008-8f5c-a997f456966a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a1430d2b-2f0f-4008-8f5c-a997f456966a">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="a1430d2b-2f0f-4008-8f5c-a997f456966a">&lt;/linkText&gt;</ept><bpt id="a1430d2b-2f0f-4008-8f5c-a997f456966a">&lt;title&gt;</bpt><ept id="a1430d2b-2f0f-4008-8f5c-a997f456966a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0293a3a2-0095-4a29-9ff0-f2639d97989a" xml:space="preserve">
+          <source><bpt id="93787579-48a5-41a2-a0b9-dba4c2d2814e">&lt;linkText&gt;</bpt>Manage domains in Azure AD<ept id="93787579-48a5-41a2-a0b9-dba4c2d2814e">&lt;/linkText&gt;</ept><bpt id="93787579-48a5-41a2-a0b9-dba4c2d2814e">&lt;title&gt;</bpt><ept id="93787579-48a5-41a2-a0b9-dba4c2d2814e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="93787579-48a5-41a2-a0b9-dba4c2d2814e">&lt;linkText&gt;</bpt>Manage domains in Azure AD<ept id="93787579-48a5-41a2-a0b9-dba4c2d2814e">&lt;/linkText&gt;</ept><bpt id="93787579-48a5-41a2-a0b9-dba4c2d2814e">&lt;title&gt;</bpt><ept id="93787579-48a5-41a2-a0b9-dba4c2d2814e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

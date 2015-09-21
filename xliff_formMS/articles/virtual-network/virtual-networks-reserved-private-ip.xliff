@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="da9a15a3-ad1d-41fd-826e-108365990e73" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="da9a15a3-ad1d-41fd-826e-108365990e73" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0ef66fc7-ade3-4f72-8d05-e9a9b8e98073">
+        <trans-unit id="56e2d2f1-092a-4dd4-b71d-624b9ccd5164" xml:space="preserve">
+          <source>How to set a static internal private IP</source>
+          <target state="new">How to set a static internal private IP</target>
+        </trans-unit>
+        <trans-unit id="eebbc503-6d0b-4e6a-a3aa-1ce8e1a546a4" xml:space="preserve">
+          <source>Understanding static internal IPs (DIPs) and how to manage them</source>
+          <target state="new">Understanding static internal IPs (DIPs) and how to manage them</target>
+        </trans-unit>
+        <trans-unit id="21d054f2-afe5-4aed-ab8a-b87b61350430" xml:space="preserve">
+          <source>In most cases, you won’t need to specify a static internal IP address for your virtual machine.</source>
+          <target state="new">In most cases, you won’t need to specify a static internal IP address for your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="dfffad0e-04da-4499-89c2-dc73b3a0b06a" xml:space="preserve">
+          <source>VMs in a virtual network will automatically receive an internal IP address from a range that you specify.</source>
+          <target state="new">VMs in a virtual network will automatically receive an internal IP address from a range that you specify.</target>
+        </trans-unit>
+        <trans-unit id="16128d1f-eabf-41b0-9f14-e684ec67e77a" xml:space="preserve">
+          <source>But in certain cases, specifying a static IP address for a particular VM makes sense.</source>
+          <target state="new">But in certain cases, specifying a static IP address for a particular VM makes sense.</target>
+        </trans-unit>
+        <trans-unit id="00b82a54-1f37-48b9-a5ae-c648ac4f3301" xml:space="preserve">
+          <source>For example, if your VM is going to run DNS or will be a domain controller.</source>
+          <target state="new">For example, if your VM is going to run DNS or will be a domain controller.</target>
+        </trans-unit>
+        <trans-unit id="8240a530-3ee2-4d62-bbcf-b97699b9fa3b" xml:space="preserve">
+          <source>A static internal IP address stays with the VM even through a stop/deprovision state.</source>
+          <target state="new">A static internal IP address stays with the VM even through a stop/deprovision state.</target>
+        </trans-unit>
+        <trans-unit id="1cb7a820-1b0b-47c1-bea8-d4d0ce0f9a63" xml:space="preserve">
+          <source>To verify if the IP address <bpt id="1f15ffa7-279f-4b48-90ee-46d69a12fc78">&lt;em&gt;</bpt>10.0.0.7<ept id="1f15ffa7-279f-4b48-90ee-46d69a12fc78">&lt;/em&gt;</ept> is available in a vnet named <bpt id="0164b74d-0107-4eb1-ad56-756645c4d9b9">&lt;em&gt;</bpt>TestVnet<ept id="0164b74d-0107-4eb1-ad56-756645c4d9b9">&lt;/em&gt;</ept>, run the following PowerShell command and verify the value for <bpt id="2cdc1e14-bd99-4c17-804a-5ff95d4ebfde">&lt;em&gt;</bpt>IsAvailable<ept id="2cdc1e14-bd99-4c17-804a-5ff95d4ebfde">&lt;/em&gt;</ept>:</source>
+          <target state="new">To verify if the IP address <bpt id="1f15ffa7-279f-4b48-90ee-46d69a12fc78">&lt;em&gt;</bpt>10.0.0.7<ept id="1f15ffa7-279f-4b48-90ee-46d69a12fc78">&lt;/em&gt;</ept> is available in a vnet named <bpt id="0164b74d-0107-4eb1-ad56-756645c4d9b9">&lt;em&gt;</bpt>TestVnet<ept id="0164b74d-0107-4eb1-ad56-756645c4d9b9">&lt;/em&gt;</ept>, run the following PowerShell command and verify the value for <bpt id="2cdc1e14-bd99-4c17-804a-5ff95d4ebfde">&lt;em&gt;</bpt>IsAvailable<ept id="2cdc1e14-bd99-4c17-804a-5ff95d4ebfde">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="6533bd6e-cb58-4b84-a62d-a5b6510a84c3" xml:space="preserve">
+          <source>If you want to test the command above in a safe environment follow the guidelines in <bpt id="5ed137d8-1b15-4ebe-9811-444902f77d01">&lt;linkText&gt;</bpt>Create a Virtual Network<ept id="5ed137d8-1b15-4ebe-9811-444902f77d01">&lt;/linkText&gt;</ept><bpt id="5ed137d8-1b15-4ebe-9811-444902f77d01">&lt;title&gt;</bpt><ept id="5ed137d8-1b15-4ebe-9811-444902f77d01">&lt;/title&gt;</ept> to create a vnet named <bpt id="23263625-962b-48b7-8d81-dac76957bb33">&lt;em&gt;</bpt>TestVnet<ept id="23263625-962b-48b7-8d81-dac76957bb33">&lt;/em&gt;</ept> and ensure it uses the <bpt id="98d8ff07-975b-46dc-8cd1-b65bcdf897c1">&lt;em&gt;</bpt>10.0.0.0/8<ept id="98d8ff07-975b-46dc-8cd1-b65bcdf897c1">&lt;/em&gt;</ept> address space.</source>
+          <target state="new">If you want to test the command above in a safe environment follow the guidelines in <bpt id="5ed137d8-1b15-4ebe-9811-444902f77d01">&lt;linkText&gt;</bpt>Create a Virtual Network<ept id="5ed137d8-1b15-4ebe-9811-444902f77d01">&lt;/linkText&gt;</ept><bpt id="5ed137d8-1b15-4ebe-9811-444902f77d01">&lt;title&gt;</bpt><ept id="5ed137d8-1b15-4ebe-9811-444902f77d01">&lt;/title&gt;</ept> to create a vnet named <bpt id="23263625-962b-48b7-8d81-dac76957bb33">&lt;em&gt;</bpt>TestVnet<ept id="23263625-962b-48b7-8d81-dac76957bb33">&lt;/em&gt;</ept> and ensure it uses the <bpt id="98d8ff07-975b-46dc-8cd1-b65bcdf897c1">&lt;em&gt;</bpt>10.0.0.0/8<ept id="98d8ff07-975b-46dc-8cd1-b65bcdf897c1">&lt;/em&gt;</ept> address space.</target>
+        </trans-unit>
+        <trans-unit id="016a93bd-a977-4390-bd31-87c4c1b68ccb" xml:space="preserve">
+          <source>The PowerShell script below creates a new cloud service named <bpt id="1e9f8928-b9dc-436e-88da-412d9a6aac0e">&lt;em&gt;</bpt>TestService<ept id="1e9f8928-b9dc-436e-88da-412d9a6aac0e">&lt;/em&gt;</ept>, then retrieves an image from Azure, then creates a VM named <bpt id="4a7b3094-eaa7-49cf-b21e-a4a00ead6c67">&lt;em&gt;</bpt>TestVM<ept id="4a7b3094-eaa7-49cf-b21e-a4a00ead6c67">&lt;/em&gt;</ept> in the new cloud service using the retrieved image, sets the VM to be in a subnet named <bpt id="66c483e9-3914-468a-81ec-b805abc41527">&lt;em&gt;</bpt>Subnet-1<ept id="66c483e9-3914-468a-81ec-b805abc41527">&lt;/em&gt;</ept>, and sets <bpt id="b984ce8e-f8cd-47ca-b035-83151ee6e30e">&lt;em&gt;</bpt>10.0.0.7<ept id="b984ce8e-f8cd-47ca-b035-83151ee6e30e">&lt;/em&gt;</ept> as a static internal IP for the VM:</source>
+          <target state="new">The PowerShell script below creates a new cloud service named <bpt id="1e9f8928-b9dc-436e-88da-412d9a6aac0e">&lt;em&gt;</bpt>TestService<ept id="1e9f8928-b9dc-436e-88da-412d9a6aac0e">&lt;/em&gt;</ept>, then retrieves an image from Azure, then creates a VM named <bpt id="4a7b3094-eaa7-49cf-b21e-a4a00ead6c67">&lt;em&gt;</bpt>TestVM<ept id="4a7b3094-eaa7-49cf-b21e-a4a00ead6c67">&lt;/em&gt;</ept> in the new cloud service using the retrieved image, sets the VM to be in a subnet named <bpt id="66c483e9-3914-468a-81ec-b805abc41527">&lt;em&gt;</bpt>Subnet-1<ept id="66c483e9-3914-468a-81ec-b805abc41527">&lt;/em&gt;</ept>, and sets <bpt id="b984ce8e-f8cd-47ca-b035-83151ee6e30e">&lt;em&gt;</bpt>10.0.0.7<ept id="b984ce8e-f8cd-47ca-b035-83151ee6e30e">&lt;/em&gt;</ept> as a static internal IP for the VM:</target>
+        </trans-unit>
+        <trans-unit id="fa5a70c3-8b3b-4995-b122-b6866fba2a9a" xml:space="preserve">
+          <source>To view the static internal IP information for the VM created with the script above, run the following PowerShell command and observe the values for <bpt id="9cbba443-5715-47c4-b21f-91009cffe1eb">&lt;em&gt;</bpt>IpAddress<ept id="9cbba443-5715-47c4-b21f-91009cffe1eb">&lt;/em&gt;</ept>:</source>
+          <target state="new">To view the static internal IP information for the VM created with the script above, run the following PowerShell command and observe the values for <bpt id="9cbba443-5715-47c4-b21f-91009cffe1eb">&lt;em&gt;</bpt>IpAddress<ept id="9cbba443-5715-47c4-b21f-91009cffe1eb">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="5b9a5e8f-4642-48d3-9f26-f6287f040110" xml:space="preserve">
+          <source>To remove the static internal IP added to the VM in the script above, run the following PowerShell command:</source>
+          <target state="new">To remove the static internal IP added to the VM in the script above, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="c582962e-fef9-45b0-a861-6f2d5de944ea" xml:space="preserve">
+          <source>To add a static internal IP to the VM created using the script above, runt he following command:</source>
+          <target state="new">To add a static internal IP to the VM created using the script above, runt he following command:</target>
+        </trans-unit>
+        <trans-unit id="b4e4b69d-2747-41e3-8d75-281021c943ee" xml:space="preserve">
+          <source><bpt id="ebe85657-2de9-4853-9102-bc460fe818c7">&lt;linkText&gt;</bpt>Reserved IP<ept id="ebe85657-2de9-4853-9102-bc460fe818c7">&lt;/linkText&gt;</ept><bpt id="ebe85657-2de9-4853-9102-bc460fe818c7">&lt;title&gt;</bpt><ept id="ebe85657-2de9-4853-9102-bc460fe818c7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ebe85657-2de9-4853-9102-bc460fe818c7">&lt;linkText&gt;</bpt>Reserved IP<ept id="ebe85657-2de9-4853-9102-bc460fe818c7">&lt;/linkText&gt;</ept><bpt id="ebe85657-2de9-4853-9102-bc460fe818c7">&lt;title&gt;</bpt><ept id="ebe85657-2de9-4853-9102-bc460fe818c7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d136b6f-8fd7-4867-b504-6078999adbae" xml:space="preserve">
+          <source><bpt id="a5b1c86a-be46-49cd-ac53-2edf888167fe">&lt;linkText&gt;</bpt>Instance-Level Public IP (ILPIP)<ept id="a5b1c86a-be46-49cd-ac53-2edf888167fe">&lt;/linkText&gt;</ept><bpt id="a5b1c86a-be46-49cd-ac53-2edf888167fe">&lt;title&gt;</bpt><ept id="a5b1c86a-be46-49cd-ac53-2edf888167fe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a5b1c86a-be46-49cd-ac53-2edf888167fe">&lt;linkText&gt;</bpt>Instance-Level Public IP (ILPIP)<ept id="a5b1c86a-be46-49cd-ac53-2edf888167fe">&lt;/linkText&gt;</ept><bpt id="a5b1c86a-be46-49cd-ac53-2edf888167fe">&lt;title&gt;</bpt><ept id="a5b1c86a-be46-49cd-ac53-2edf888167fe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef51da45-5a15-49de-ad0b-00f14a2479b3" xml:space="preserve">
+          <source><bpt id="40044de6-87a6-473f-98d0-f19aafb45b71">&lt;linkText&gt;</bpt>Reserved IP REST APIs<ept id="40044de6-87a6-473f-98d0-f19aafb45b71">&lt;/linkText&gt;</ept><bpt id="40044de6-87a6-473f-98d0-f19aafb45b71">&lt;title&gt;</bpt><ept id="40044de6-87a6-473f-98d0-f19aafb45b71">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="40044de6-87a6-473f-98d0-f19aafb45b71">&lt;linkText&gt;</bpt>Reserved IP REST APIs<ept id="40044de6-87a6-473f-98d0-f19aafb45b71">&lt;/linkText&gt;</ept><bpt id="40044de6-87a6-473f-98d0-f19aafb45b71">&lt;title&gt;</bpt><ept id="40044de6-87a6-473f-98d0-f19aafb45b71">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

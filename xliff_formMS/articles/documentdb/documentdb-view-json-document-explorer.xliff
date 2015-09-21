@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="08deef00-d9db-4313-adc0-0031660b7c79" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="08deef00-d9db-4313-adc0-0031660b7c79" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a444b76e-b3fd-4532-9642-15c1acbade54">
+        <trans-unit id="f6c5cbd6-4abc-4447-81c1-c304ea12e5da" xml:space="preserve">
+          <source>View, edit, create, and upload JSON documents using the DocumentDB Document Explorer | Microsoft Azure</source>
+          <target state="new">View, edit, create, and upload JSON documents using the DocumentDB Document Explorer | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e4d4b84c-fca2-4e92-96a6-08342f7768c3" xml:space="preserve">
+          <source>Learn about the DocumentDB Document Explorer, an Azure Preview portal tool to view, edit, create, and upload JSON documents with DocumentDB.</source>
+          <target state="new">Learn about the DocumentDB Document Explorer, an Azure Preview portal tool to view, edit, create, and upload JSON documents with DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="ee84da00-ce57-4c19-b37c-7ba8dc996f24" xml:space="preserve">
+          <source>This article provides an overview of the <bpt id="a9358abe-138d-486b-818b-ad5df2447930">&lt;linkText&gt;</bpt>Microsoft Azure DocumentDB<ept id="a9358abe-138d-486b-818b-ad5df2447930">&lt;/linkText&gt;</ept><bpt id="a9358abe-138d-486b-818b-ad5df2447930">&lt;title&gt;</bpt><ept id="a9358abe-138d-486b-818b-ad5df2447930">&lt;/title&gt;</ept> Document Explorer, an Azure Preview portal tool that enables you to view, edit, create, and upload JSON documents with DocumentDB.</source>
+          <target state="new">This article provides an overview of the <bpt id="a9358abe-138d-486b-818b-ad5df2447930">&lt;linkText&gt;</bpt>Microsoft Azure DocumentDB<ept id="a9358abe-138d-486b-818b-ad5df2447930">&lt;/linkText&gt;</ept><bpt id="a9358abe-138d-486b-818b-ad5df2447930">&lt;title&gt;</bpt><ept id="a9358abe-138d-486b-818b-ad5df2447930">&lt;/title&gt;</ept> Document Explorer, an Azure Preview portal tool that enables you to view, edit, create, and upload JSON documents with DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="b3663eb6-94d6-48e9-90f3-469041ba9bdd" xml:space="preserve">
+          <source>By completing this tutorial, you'll be able to answer the following questions:  </source>
+          <target state="new">By completing this tutorial, you'll be able to answer the following questions:  </target>
+        </trans-unit>
+        <trans-unit id="fa1ebf59-0cfc-4769-9cad-4136c0583c6b" xml:space="preserve">
+          <source>How can I easily create, view, edit, and delete individual DocumentDB documents via a web browser?</source>
+          <target state="new">How can I easily create, view, edit, and delete individual DocumentDB documents via a web browser?</target>
+        </trans-unit>
+        <trans-unit id="cd8a80f1-71f3-476c-8e1f-dec5d384d69e" xml:space="preserve">
+          <source>How can I easily view the system properties of a DocumentDB document via a web browser?</source>
+          <target state="new">How can I easily view the system properties of a DocumentDB document via a web browser?</target>
+        </trans-unit>
+        <trans-unit id="c3b9e806-6612-42a8-a8e6-3d776c81d1c2" xml:space="preserve">
+          <source>How can I easily perform bulk ingestion of documents into DocumentDB via a web browser?</source>
+          <target state="new">How can I easily perform bulk ingestion of documents into DocumentDB via a web browser?</target>
+        </trans-unit>
+        <trans-unit id="09b25c15-98f0-48a5-b01e-62c5afab6f4d" xml:space="preserve">
+          <source>Document Explorer can be launched from any of the DocumentDB account, database, and collection blades.</source>
+          <target state="new">Document Explorer can be launched from any of the DocumentDB account, database, and collection blades.</target>
+        </trans-unit>
+        <trans-unit id="629f60de-6d07-48f2-9ccd-8279c7ec4636" xml:space="preserve">
+          <source>At the top of the DocumentDB account or database blade, simply click the <bpt id="3ed3f05f-5c58-4ee4-866b-42f5a0093d49">&lt;strong&gt;</bpt>Document Explorer<ept id="3ed3f05f-5c58-4ee4-866b-42f5a0093d49">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">At the top of the DocumentDB account or database blade, simply click the <bpt id="3ed3f05f-5c58-4ee4-866b-42f5a0093d49">&lt;strong&gt;</bpt>Document Explorer<ept id="3ed3f05f-5c58-4ee4-866b-42f5a0093d49">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="873d4972-d4da-4794-8a1b-0503ba884ecc" xml:space="preserve">
+          <source><bpt id="27263112-9457-4088-b849-ea8c8a1ee882">&lt;linkText&gt;</bpt>Screenshot of the Document Explorer command<ept id="27263112-9457-4088-b849-ea8c8a1ee882">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="27263112-9457-4088-b849-ea8c8a1ee882">&lt;linkText&gt;</bpt>Screenshot of the Document Explorer command<ept id="27263112-9457-4088-b849-ea8c8a1ee882">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55e63b8e-c249-472c-89d1-1d0052038fc8" xml:space="preserve">
+          <source>Alternatively, near the bottom of each blade is a <bpt id="d1ada1de-2308-495c-9e57-95c111a999fa">&lt;strong&gt;</bpt>Developer Tools<ept id="d1ada1de-2308-495c-9e57-95c111a999fa">&lt;/strong&gt;</ept> lens that contains the <bpt id="5aad7cbf-1425-4743-8358-4e95026d3fc5">&lt;strong&gt;</bpt>Document Explorer<ept id="5aad7cbf-1425-4743-8358-4e95026d3fc5">&lt;/strong&gt;</ept> part.</source>
+          <target state="new">Alternatively, near the bottom of each blade is a <bpt id="d1ada1de-2308-495c-9e57-95c111a999fa">&lt;strong&gt;</bpt>Developer Tools<ept id="d1ada1de-2308-495c-9e57-95c111a999fa">&lt;/strong&gt;</ept> lens that contains the <bpt id="5aad7cbf-1425-4743-8358-4e95026d3fc5">&lt;strong&gt;</bpt>Document Explorer<ept id="5aad7cbf-1425-4743-8358-4e95026d3fc5">&lt;/strong&gt;</ept> part.</target>
+        </trans-unit>
+        <trans-unit id="395f364c-2055-4b07-9e13-d21eb102f538" xml:space="preserve">
+          <source><bpt id="6c76cc5e-29ab-420b-a9de-97a262fbe986">&lt;linkText&gt;</bpt>Screenshot of the Document Explorer part<ept id="6c76cc5e-29ab-420b-a9de-97a262fbe986">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6c76cc5e-29ab-420b-a9de-97a262fbe986">&lt;linkText&gt;</bpt>Screenshot of the Document Explorer part<ept id="6c76cc5e-29ab-420b-a9de-97a262fbe986">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c649f2e1-dfd3-4c0a-ab99-3a382bb2f984" xml:space="preserve">
+          <source>Simply click the tile to launch Document Explorer.</source>
+          <target state="new">Simply click the tile to launch Document Explorer.</target>
+        </trans-unit>
+        <trans-unit id="8fd3dd91-041e-4e15-bc24-fce367c62d8b" xml:space="preserve">
+          <source>&lt;p&gt;The <bpt id="bb509e0d-f091-423d-ab2d-300403ce7110">&lt;strong&gt;</bpt>Database<ept id="bb509e0d-f091-423d-ab2d-300403ce7110">&lt;/strong&gt;</ept> and <bpt id="d2693482-3088-4bc6-8655-da7a161cb389">&lt;strong&gt;</bpt>Collection<ept id="d2693482-3088-4bc6-8655-da7a161cb389">&lt;/strong&gt;</ept> drop-down list boxes are pre-populated depending on the context in which you launch Document Explorer.  For example, if you launch from a database blade, then the current database is pre-populated.  If you launch from a collection blade, then the current collection is pre-populated.</source>
+          <target state="new">&lt;p&gt;The <bpt id="bb509e0d-f091-423d-ab2d-300403ce7110">&lt;strong&gt;</bpt>Database<ept id="bb509e0d-f091-423d-ab2d-300403ce7110">&lt;/strong&gt;</ept> and <bpt id="d2693482-3088-4bc6-8655-da7a161cb389">&lt;strong&gt;</bpt>Collection<ept id="d2693482-3088-4bc6-8655-da7a161cb389">&lt;/strong&gt;</ept> drop-down list boxes are pre-populated depending on the context in which you launch Document Explorer.  For example, if you launch from a database blade, then the current database is pre-populated.  If you launch from a collection blade, then the current collection is pre-populated.</target>
+        </trans-unit>
+        <trans-unit id="543aff6d-24a8-42b8-acd6-9cdae36ca947" xml:space="preserve">
+          <source><bpt id="0992d095-1c8b-4ca5-bd51-4215889bf4df">&lt;linkText&gt;</bpt>Screenshot of Document Explorer<ept id="0992d095-1c8b-4ca5-bd51-4215889bf4df">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0992d095-1c8b-4ca5-bd51-4215889bf4df">&lt;linkText&gt;</bpt>Screenshot of Document Explorer<ept id="0992d095-1c8b-4ca5-bd51-4215889bf4df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95f7ffc8-b969-4566-8da1-a3859ab520c4" xml:space="preserve">
+          <source>By default, Document Explorer loads up to the first 100 documents in the selected collection, by their created date from earliest to latest.</source>
+          <target state="new">By default, Document Explorer loads up to the first 100 documents in the selected collection, by their created date from earliest to latest.</target>
+        </trans-unit>
+        <trans-unit id="577021ac-f992-401d-a2a0-e7aaf3f39dee" xml:space="preserve">
+          <source>You can load additional documents (in batches of 100) by selecting the <bpt id="a2eb81c7-1e8c-479a-878b-c85742a66db5">&lt;strong&gt;</bpt>Load more<ept id="a2eb81c7-1e8c-479a-878b-c85742a66db5">&lt;/strong&gt;</ept> option at the bottom of the Document Explorer blade.</source>
+          <target state="new">You can load additional documents (in batches of 100) by selecting the <bpt id="a2eb81c7-1e8c-479a-878b-c85742a66db5">&lt;strong&gt;</bpt>Load more<ept id="a2eb81c7-1e8c-479a-878b-c85742a66db5">&lt;/strong&gt;</ept> option at the bottom of the Document Explorer blade.</target>
+        </trans-unit>
+        <trans-unit id="d5ad9d20-a2ae-48d8-9d9d-87d88355afbb" xml:space="preserve">
+          <source>The default behavior can be modified by clicking the Settings command at the top of the Document Explorer blade.</source>
+          <target state="new">The default behavior can be modified by clicking the Settings command at the top of the Document Explorer blade.</target>
+        </trans-unit>
+        <trans-unit id="dc7cd741-d923-4b78-bc48-bf596b01830d" xml:space="preserve">
+          <source><bpt id="df4dcefa-a406-4fb9-a84c-74df0ec682c6">&lt;linkText&gt;</bpt>Screenshot of Document Explorer Settings Blade<ept id="df4dcefa-a406-4fb9-a84c-74df0ec682c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df4dcefa-a406-4fb9-a84c-74df0ec682c6">&lt;linkText&gt;</bpt>Screenshot of Document Explorer Settings Blade<ept id="df4dcefa-a406-4fb9-a84c-74df0ec682c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="140c9ade-d24b-49f5-aee9-b7928c230103" xml:space="preserve">
+          <source>On the Settings blade, you can adjust the number of items to return per page as well as provide a WHERE clause to load matching documents in the Document Explorer grid.</source>
+          <target state="new">On the Settings blade, you can adjust the number of items to return per page as well as provide a WHERE clause to load matching documents in the Document Explorer grid.</target>
+        </trans-unit>
+        <trans-unit id="f62c33e9-5f2f-448a-81db-1e74ffc09798" xml:space="preserve">
+          <source>Read more about the DocumentDB SQL grammar <bpt id="f788ee87-7622-45b2-88c7-20c4135bc35f">&lt;linkText&gt;</bpt>here<ept id="f788ee87-7622-45b2-88c7-20c4135bc35f">&lt;/linkText&gt;</ept><bpt id="f788ee87-7622-45b2-88c7-20c4135bc35f">&lt;title&gt;</bpt><ept id="f788ee87-7622-45b2-88c7-20c4135bc35f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more about the DocumentDB SQL grammar <bpt id="f788ee87-7622-45b2-88c7-20c4135bc35f">&lt;linkText&gt;</bpt>here<ept id="f788ee87-7622-45b2-88c7-20c4135bc35f">&lt;/linkText&gt;</ept><bpt id="f788ee87-7622-45b2-88c7-20c4135bc35f">&lt;title&gt;</bpt><ept id="f788ee87-7622-45b2-88c7-20c4135bc35f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e319cb88-a8fb-4b55-a4cc-a48da922c27c" xml:space="preserve">
+          <source><bpt id="d530a6e5-5333-47b6-8fb5-cce5fbced43e">&lt;linkText&gt;</bpt>Screenshot of Document Explorer Settings Blade<ept id="d530a6e5-5333-47b6-8fb5-cce5fbced43e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d530a6e5-5333-47b6-8fb5-cce5fbced43e">&lt;linkText&gt;</bpt>Screenshot of Document Explorer Settings Blade<ept id="d530a6e5-5333-47b6-8fb5-cce5fbced43e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c15910c3-85e9-4199-af55-14b262d1f725" xml:space="preserve">
+          <source>After modifying Document Explorer settings, you must click the <bpt id="2f604f0e-ddb7-47b5-8453-aa6b871d6d74">&lt;strong&gt;</bpt>Refresh<ept id="2f604f0e-ddb7-47b5-8453-aa6b871d6d74">&lt;/strong&gt;</ept> command in order to apply the new settings.</source>
+          <target state="new">After modifying Document Explorer settings, you must click the <bpt id="2f604f0e-ddb7-47b5-8453-aa6b871d6d74">&lt;strong&gt;</bpt>Refresh<ept id="2f604f0e-ddb7-47b5-8453-aa6b871d6d74">&lt;/strong&gt;</ept> command in order to apply the new settings.</target>
+        </trans-unit>
+        <trans-unit id="edb007e9-16d0-489d-8596-320ac255cf38" xml:space="preserve">
+          <source>The settings will persist only in the current browser session.</source>
+          <target state="new">The settings will persist only in the current browser session.</target>
+        </trans-unit>
+        <trans-unit id="195c856f-b77d-4886-947d-e8c483623f96" xml:space="preserve">
+          <source>The <bpt id="9ad5948b-32b4-4b37-af6d-e5eb24a75cee">&lt;strong&gt;</bpt>Database<ept id="9ad5948b-32b4-4b37-af6d-e5eb24a75cee">&lt;/strong&gt;</ept> and <bpt id="0e3aa1db-d920-457e-b127-1ea99f7564bc">&lt;strong&gt;</bpt>Collection<ept id="0e3aa1db-d920-457e-b127-1ea99f7564bc">&lt;/strong&gt;</ept> drop-down list boxes can be used to easily change the collection from which documents are currently being viewed without having to close and re-launch Document Explorer.</source>
+          <target state="new">The <bpt id="9ad5948b-32b4-4b37-af6d-e5eb24a75cee">&lt;strong&gt;</bpt>Database<ept id="9ad5948b-32b4-4b37-af6d-e5eb24a75cee">&lt;/strong&gt;</ept> and <bpt id="0e3aa1db-d920-457e-b127-1ea99f7564bc">&lt;strong&gt;</bpt>Collection<ept id="0e3aa1db-d920-457e-b127-1ea99f7564bc">&lt;/strong&gt;</ept> drop-down list boxes can be used to easily change the collection from which documents are currently being viewed without having to close and re-launch Document Explorer.</target>
+        </trans-unit>
+        <trans-unit id="66f7cbce-9abc-45d0-a415-e1b591d6f492" xml:space="preserve">
+          <source>Document Explorer also supports filtering the currently loaded set of documents by their id property.</source>
+          <target state="new">Document Explorer also supports filtering the currently loaded set of documents by their id property.</target>
+        </trans-unit>
+        <trans-unit id="2d8235d9-a2cb-457f-896d-f89742333e5f" xml:space="preserve">
+          <source>Simply type in the filter box.</source>
+          <target state="new">Simply type in the filter box.</target>
+        </trans-unit>
+        <trans-unit id="b3b58149-21f3-43ab-ba74-fe83a9b9a1bd" xml:space="preserve">
+          <source><bpt id="3ed009b3-14eb-4c6b-b679-0b804c5a5b86">&lt;linkText&gt;</bpt>Screenshot of Document Explorer with filter highlighted<ept id="3ed009b3-14eb-4c6b-b679-0b804c5a5b86">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ed009b3-14eb-4c6b-b679-0b804c5a5b86">&lt;linkText&gt;</bpt>Screenshot of Document Explorer with filter highlighted<ept id="3ed009b3-14eb-4c6b-b679-0b804c5a5b86">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8cfbd0a4-db94-4cd7-abe9-4b19e32909b9" xml:space="preserve">
+          <source>And the results in the Document Explorer list are filtered based on your supplied criteria.</source>
+          <target state="new">And the results in the Document Explorer list are filtered based on your supplied criteria.</target>
+        </trans-unit>
+        <trans-unit id="6d42aa5a-82a9-4e14-9abb-0d587f4e6621" xml:space="preserve">
+          <source><bpt id="31342d98-2c9e-4ef6-b0ce-060144af02cf">&lt;linkText&gt;</bpt>Screenshot of Document Explorer with filtered results<ept id="31342d98-2c9e-4ef6-b0ce-060144af02cf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="31342d98-2c9e-4ef6-b0ce-060144af02cf">&lt;linkText&gt;</bpt>Screenshot of Document Explorer with filtered results<ept id="31342d98-2c9e-4ef6-b0ce-060144af02cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9520156f-2eab-49af-942c-397e22f44e63" xml:space="preserve">
+          <source>The Document Explorer filter functionality only filters from the <bpt id="965ad0b4-c1bb-4924-a278-4e5607c2d309">&lt;strong&gt;</bpt>*currently*<ept id="965ad0b4-c1bb-4924-a278-4e5607c2d309">&lt;/strong&gt;</ept> loaded set of documents and does not perform a query against the currently selected collection.</source>
+          <target state="new">The Document Explorer filter functionality only filters from the <bpt id="965ad0b4-c1bb-4924-a278-4e5607c2d309">&lt;strong&gt;</bpt>*currently*<ept id="965ad0b4-c1bb-4924-a278-4e5607c2d309">&lt;/strong&gt;</ept> loaded set of documents and does not perform a query against the currently selected collection.</target>
+        </trans-unit>
+        <trans-unit id="200101bb-41c3-4ae8-8188-f2d3ec5bf0a5" xml:space="preserve">
+          <source>To refresh the list of documents loaded by Document Explorer, simply click the <bpt id="3cb03c57-4e4e-4b2d-887b-f1c63cce6978">&lt;strong&gt;</bpt>Refresh<ept id="3cb03c57-4e4e-4b2d-887b-f1c63cce6978">&lt;/strong&gt;</ept> command at the top of the blade.</source>
+          <target state="new">To refresh the list of documents loaded by Document Explorer, simply click the <bpt id="3cb03c57-4e4e-4b2d-887b-f1c63cce6978">&lt;strong&gt;</bpt>Refresh<ept id="3cb03c57-4e4e-4b2d-887b-f1c63cce6978">&lt;/strong&gt;</ept> command at the top of the blade.</target>
+        </trans-unit>
+        <trans-unit id="a246e4ad-9355-42c8-9488-d258c6066498" xml:space="preserve">
+          <source><bpt id="38f943e0-e240-49d0-b9a8-51a9eba8a8e9">&lt;linkText&gt;</bpt>Screenshot of Document Explorer refresh command<ept id="38f943e0-e240-49d0-b9a8-51a9eba8a8e9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="38f943e0-e240-49d0-b9a8-51a9eba8a8e9">&lt;linkText&gt;</bpt>Screenshot of Document Explorer refresh command<ept id="38f943e0-e240-49d0-b9a8-51a9eba8a8e9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09c94962-3dc4-4a0f-9d81-01f9a4061bae" xml:space="preserve">
+          <source>Document Explorer allows you to easily create, edit and delete documents.</source>
+          <target state="new">Document Explorer allows you to easily create, edit and delete documents.</target>
+        </trans-unit>
+        <trans-unit id="270e3388-eb12-4f12-baae-d18f631d392a" xml:space="preserve">
+          <source>To create a document, simply click the <bpt id="407d839c-7cf0-4d7b-88b0-da42a875278d">&lt;strong&gt;</bpt>Create Document<ept id="407d839c-7cf0-4d7b-88b0-da42a875278d">&lt;/strong&gt;</ept> command and a minimal JSON snippet is provided.</source>
+          <target state="new">To create a document, simply click the <bpt id="407d839c-7cf0-4d7b-88b0-da42a875278d">&lt;strong&gt;</bpt>Create Document<ept id="407d839c-7cf0-4d7b-88b0-da42a875278d">&lt;/strong&gt;</ept> command and a minimal JSON snippet is provided.</target>
+        </trans-unit>
+        <trans-unit id="31bf6069-7f4b-474e-85ed-1813f053983f" xml:space="preserve">
+          <source><bpt id="a10de419-f8b0-4972-808c-311275a6620d">&lt;linkText&gt;</bpt>Screenshot of Document Explorer create document experience<ept id="a10de419-f8b0-4972-808c-311275a6620d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a10de419-f8b0-4972-808c-311275a6620d">&lt;linkText&gt;</bpt>Screenshot of Document Explorer create document experience<ept id="a10de419-f8b0-4972-808c-311275a6620d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccd23c31-03a8-4d31-a39f-7c8728456533" xml:space="preserve">
+          <source>Simply type or paste the JSON content of the document you wish to create and click the <bpt id="58b53b36-a16c-4d41-b743-23bd14df8416">&lt;strong&gt;</bpt>Save<ept id="58b53b36-a16c-4d41-b743-23bd14df8416">&lt;/strong&gt;</ept> command to commit your document.</source>
+          <target state="new">Simply type or paste the JSON content of the document you wish to create and click the <bpt id="58b53b36-a16c-4d41-b743-23bd14df8416">&lt;strong&gt;</bpt>Save<ept id="58b53b36-a16c-4d41-b743-23bd14df8416">&lt;/strong&gt;</ept> command to commit your document.</target>
+        </trans-unit>
+        <trans-unit id="13728ab4-5707-4a8f-8f49-5869aa1570ad" xml:space="preserve">
+          <source><bpt id="b250799a-5621-4b0f-8285-32b050581352">&lt;linkText&gt;</bpt>Screenshot of Document Explorer save command<ept id="b250799a-5621-4b0f-8285-32b050581352">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b250799a-5621-4b0f-8285-32b050581352">&lt;linkText&gt;</bpt>Screenshot of Document Explorer save command<ept id="b250799a-5621-4b0f-8285-32b050581352">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ef00d49-82df-4bce-a2c6-ccf5ab9b4106" xml:space="preserve">
+          <source>If you do not provide an "id" property, then Document Explorer automatically adds an id property and generates a GUID as the id value.</source>
+          <target state="new">If you do not provide an "id" property, then Document Explorer automatically adds an id property and generates a GUID as the id value.</target>
+        </trans-unit>
+        <trans-unit id="61eeadd6-42af-43eb-9d2e-1c0c95f5e722" xml:space="preserve">
+          <source>If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, or from other DocumentDB collections, you can use DocumentDB's <bpt id="8f94c714-99cb-4845-833b-6324fe898c11">&lt;linkText&gt;</bpt>data migration tool<ept id="8f94c714-99cb-4845-833b-6324fe898c11">&lt;/linkText&gt;</ept><bpt id="8f94c714-99cb-4845-833b-6324fe898c11">&lt;title&gt;</bpt><ept id="8f94c714-99cb-4845-833b-6324fe898c11">&lt;/title&gt;</ept> to quickly import your data.</source>
+          <target state="new">If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, or from other DocumentDB collections, you can use DocumentDB's <bpt id="8f94c714-99cb-4845-833b-6324fe898c11">&lt;linkText&gt;</bpt>data migration tool<ept id="8f94c714-99cb-4845-833b-6324fe898c11">&lt;/linkText&gt;</ept><bpt id="8f94c714-99cb-4845-833b-6324fe898c11">&lt;title&gt;</bpt><ept id="8f94c714-99cb-4845-833b-6324fe898c11">&lt;/title&gt;</ept> to quickly import your data.</target>
+        </trans-unit>
+        <trans-unit id="4be11da6-b7b4-494c-9414-e0817c870778" xml:space="preserve">
+          <source>To edit an existing document, simply select it in Document Explorer, edit the document as you see fit, and click the <bpt id="abd5259f-1f97-4656-a684-e6f670cfcebc">&lt;strong&gt;</bpt>Save<ept id="abd5259f-1f97-4656-a684-e6f670cfcebc">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">To edit an existing document, simply select it in Document Explorer, edit the document as you see fit, and click the <bpt id="abd5259f-1f97-4656-a684-e6f670cfcebc">&lt;strong&gt;</bpt>Save<ept id="abd5259f-1f97-4656-a684-e6f670cfcebc">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="beb2a91a-e9e3-41fb-ae10-55b65de4c3ad" xml:space="preserve">
+          <source><bpt id="1e0809e3-5313-4ef5-ade4-c3dbf6ae00af">&lt;linkText&gt;</bpt>Screenshot of Document Explorer edit document functionality<ept id="1e0809e3-5313-4ef5-ade4-c3dbf6ae00af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e0809e3-5313-4ef5-ade4-c3dbf6ae00af">&lt;linkText&gt;</bpt>Screenshot of Document Explorer edit document functionality<ept id="1e0809e3-5313-4ef5-ade4-c3dbf6ae00af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1353aa4-ee4c-4182-bb6f-cf8c01a0aa96" xml:space="preserve">
+          <source>If you're editing a document and decide that you want to discard the current set of edits, simply click the discard command, confirm the discard action, and the previous state of the document be reloaded.</source>
+          <target state="new">If you're editing a document and decide that you want to discard the current set of edits, simply click the discard command, confirm the discard action, and the previous state of the document be reloaded.</target>
+        </trans-unit>
+        <trans-unit id="4a3d7f0b-22a6-4c8f-8f6a-b7ab219c2268" xml:space="preserve">
+          <source><bpt id="8244177b-2784-410f-96cf-40ce6cc9da6e">&lt;linkText&gt;</bpt>Screenshot of Document Explorer discard command<ept id="8244177b-2784-410f-96cf-40ce6cc9da6e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8244177b-2784-410f-96cf-40ce6cc9da6e">&lt;linkText&gt;</bpt>Screenshot of Document Explorer discard command<ept id="8244177b-2784-410f-96cf-40ce6cc9da6e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6143096d-53af-4613-bef7-dffbd8ba9819" xml:space="preserve">
+          <source>You can delete a document by selecting it, clicking the <bpt id="e59b8bc7-5fe9-4b88-a351-065b5525f999">&lt;strong&gt;</bpt>Delete<ept id="e59b8bc7-5fe9-4b88-a351-065b5525f999">&lt;/strong&gt;</ept> command, and then confirming the delete.</source>
+          <target state="new">You can delete a document by selecting it, clicking the <bpt id="e59b8bc7-5fe9-4b88-a351-065b5525f999">&lt;strong&gt;</bpt>Delete<ept id="e59b8bc7-5fe9-4b88-a351-065b5525f999">&lt;/strong&gt;</ept> command, and then confirming the delete.</target>
+        </trans-unit>
+        <trans-unit id="ff4ae002-bf69-40a5-a72e-43338e32638d" xml:space="preserve">
+          <source>After confirming, the document is immediately removed from the Document Explorer list:</source>
+          <target state="new">After confirming, the document is immediately removed from the Document Explorer list:</target>
+        </trans-unit>
+        <trans-unit id="a99b2e97-a491-4244-8647-1df7f0124dc2" xml:space="preserve">
+          <source><bpt id="9366473e-98a6-44ea-9080-8e486c88492d">&lt;linkText&gt;</bpt>Screenshot of Document Explorer delete command<ept id="9366473e-98a6-44ea-9080-8e486c88492d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9366473e-98a6-44ea-9080-8e486c88492d">&lt;linkText&gt;</bpt>Screenshot of Document Explorer delete command<ept id="9366473e-98a6-44ea-9080-8e486c88492d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="caa2c78e-877d-4dc4-b7af-86fd03f73aab" xml:space="preserve">
+          <source>Note that Document Explorer validates that any new or edited document contains valid JSON.</source>
+          <target state="new">Note that Document Explorer validates that any new or edited document contains valid JSON.</target>
+        </trans-unit>
+        <trans-unit id="279385e2-1842-4964-bb1a-bbe148a00568" xml:space="preserve">
+          <source>You can even hover over the incorrect section to get details about the validation error.</source>
+          <target state="new">You can even hover over the incorrect section to get details about the validation error.</target>
+        </trans-unit>
+        <trans-unit id="904a70c6-14f4-4e3c-93e9-cf86945ff3ff" xml:space="preserve">
+          <source><bpt id="8fc3904a-54f7-4f38-9138-226ebac2c43c">&lt;linkText&gt;</bpt>Screenshot of Document Explorer invalid JSON highlighting<ept id="8fc3904a-54f7-4f38-9138-226ebac2c43c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8fc3904a-54f7-4f38-9138-226ebac2c43c">&lt;linkText&gt;</bpt>Screenshot of Document Explorer invalid JSON highlighting<ept id="8fc3904a-54f7-4f38-9138-226ebac2c43c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39c162c8-66fa-4231-8d4c-e0819c1e47dc" xml:space="preserve">
+          <source>Additionally, Document Explorer prevents you from saving a document with invalid JSON content.</source>
+          <target state="new">Additionally, Document Explorer prevents you from saving a document with invalid JSON content.</target>
+        </trans-unit>
+        <trans-unit id="c928d442-2c13-4aa5-b833-3e00527b9741" xml:space="preserve">
+          <source><bpt id="6a273c68-ad69-4efa-9fdd-2444403f1cef">&lt;linkText&gt;</bpt>Screenshot of Document Explorer invalid JSON save error<ept id="6a273c68-ad69-4efa-9fdd-2444403f1cef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6a273c68-ad69-4efa-9fdd-2444403f1cef">&lt;linkText&gt;</bpt>Screenshot of Document Explorer invalid JSON save error<ept id="6a273c68-ad69-4efa-9fdd-2444403f1cef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abf9a938-bf31-437f-83ee-87ffb5d66f14" xml:space="preserve">
+          <source>Finally, Document Explorer allows you to easily view the system properties of the currently loaded document by clicking the <bpt id="3619c0fd-760f-4bed-840b-ae05586a2a3c">&lt;strong&gt;</bpt>Properties<ept id="3619c0fd-760f-4bed-840b-ae05586a2a3c">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">Finally, Document Explorer allows you to easily view the system properties of the currently loaded document by clicking the <bpt id="3619c0fd-760f-4bed-840b-ae05586a2a3c">&lt;strong&gt;</bpt>Properties<ept id="3619c0fd-760f-4bed-840b-ae05586a2a3c">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="3f4a0924-d206-4e71-8255-25dff78b0e43" xml:space="preserve">
+          <source><bpt id="3d27aa6d-b23d-433e-bfc7-59b540e92eb3">&lt;linkText&gt;</bpt>Screenshot of Document Explorer document properties view<ept id="3d27aa6d-b23d-433e-bfc7-59b540e92eb3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d27aa6d-b23d-433e-bfc7-59b540e92eb3">&lt;linkText&gt;</bpt>Screenshot of Document Explorer document properties view<ept id="3d27aa6d-b23d-433e-bfc7-59b540e92eb3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c013816f-d184-43ac-ad8e-063b0acf8654" xml:space="preserve">
+          <source>The timestamp (_ts) property is internally represented as epoch time, but Document Explorer displays the value in a human readable GMT format.</source>
+          <target state="new">The timestamp (_ts) property is internally represented as epoch time, but Document Explorer displays the value in a human readable GMT format.</target>
+        </trans-unit>
+        <trans-unit id="646e6b7e-86bc-4417-97c7-edb52959f1bd" xml:space="preserve">
+          <source>Document Explorer supports bulk ingestion of one or more existing JSON documents.</source>
+          <target state="new">Document Explorer supports bulk ingestion of one or more existing JSON documents.</target>
+        </trans-unit>
+        <trans-unit id="598cb2e0-28d0-468a-8d4b-1087aa62e29f" xml:space="preserve">
+          <source>To start the upload process, click the <bpt id="8c93b26c-1146-41bf-8987-a41c3de439c9">&lt;strong&gt;</bpt>Add Document<ept id="8c93b26c-1146-41bf-8987-a41c3de439c9">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">To start the upload process, click the <bpt id="8c93b26c-1146-41bf-8987-a41c3de439c9">&lt;strong&gt;</bpt>Add Document<ept id="8c93b26c-1146-41bf-8987-a41c3de439c9">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="b630f2d1-1aa5-48fc-ab12-ae7c93cfe190" xml:space="preserve">
+          <source><bpt id="f0185234-649c-432f-9433-1669300075d4">&lt;linkText&gt;</bpt>Screenshot of Document Explorer bulk ingestion functionality<ept id="f0185234-649c-432f-9433-1669300075d4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0185234-649c-432f-9433-1669300075d4">&lt;linkText&gt;</bpt>Screenshot of Document Explorer bulk ingestion functionality<ept id="f0185234-649c-432f-9433-1669300075d4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fc5e61f-3255-40fb-aaa4-724fbdb7c32b" xml:space="preserve">
+          <source>A new blade opens.</source>
+          <target state="new">A new blade opens.</target>
+        </trans-unit>
+        <trans-unit id="f5c14875-5526-4ef8-b08a-eb147c8b3c60" xml:space="preserve">
+          <source>Click the browse button to open a file explorer window and select one or more JSON documents to upload.</source>
+          <target state="new">Click the browse button to open a file explorer window and select one or more JSON documents to upload.</target>
+        </trans-unit>
+        <trans-unit id="6a801452-df2e-4938-b14d-ff761ee28e74" xml:space="preserve">
+          <source><bpt id="ec748f77-ff86-438a-b971-2362c7ef8924">&lt;linkText&gt;</bpt>Screenshot of Document Explorer bulk ingestion process<ept id="ec748f77-ff86-438a-b971-2362c7ef8924">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec748f77-ff86-438a-b971-2362c7ef8924">&lt;linkText&gt;</bpt>Screenshot of Document Explorer bulk ingestion process<ept id="ec748f77-ff86-438a-b971-2362c7ef8924">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6d311eb-8ad3-48ab-892c-fdccc0a6b9df" xml:space="preserve">
+          <source>Document Explorer currently supports up to 100 JSON documents per individual upload operation.</source>
+          <target state="new">Document Explorer currently supports up to 100 JSON documents per individual upload operation.</target>
+        </trans-unit>
+        <trans-unit id="e5d979da-daa4-4486-b3be-0ac9013929cd" xml:space="preserve">
+          <source>Once you're satisfied with your selection, click the <bpt id="42a08c1e-0d98-4106-aca4-07df30043f79">&lt;strong&gt;</bpt>Upload<ept id="42a08c1e-0d98-4106-aca4-07df30043f79">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Once you're satisfied with your selection, click the <bpt id="42a08c1e-0d98-4106-aca4-07df30043f79">&lt;strong&gt;</bpt>Upload<ept id="42a08c1e-0d98-4106-aca4-07df30043f79">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="9e2d6b60-c056-4881-88da-ca5b6f3d3928" xml:space="preserve">
+          <source>The documents are automatically added to the Document Explorer grid and the upload results are displayed as the operation progresses.</source>
+          <target state="new">The documents are automatically added to the Document Explorer grid and the upload results are displayed as the operation progresses.</target>
+        </trans-unit>
+        <trans-unit id="174868ca-b5d4-4365-bd51-0491c755cf17" xml:space="preserve">
+          <source>Import failures are reported for individual files.</source>
+          <target state="new">Import failures are reported for individual files.</target>
+        </trans-unit>
+        <trans-unit id="d9ecfdd8-177d-43f7-8205-0efa0bd16417" xml:space="preserve">
+          <source><bpt id="781e76fe-badf-4a82-9edc-1bb22ede517c">&lt;linkText&gt;</bpt>Screenshot of Document Explorer bulk ingestion results<ept id="781e76fe-badf-4a82-9edc-1bb22ede517c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="781e76fe-badf-4a82-9edc-1bb22ede517c">&lt;linkText&gt;</bpt>Screenshot of Document Explorer bulk ingestion results<ept id="781e76fe-badf-4a82-9edc-1bb22ede517c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d322569f-a9d2-4e70-9e2c-3d38e8f6a1e1" xml:space="preserve">
+          <source>Once the operation has completed, you can select up to another 100 documents to upload.</source>
+          <target state="new">Once the operation has completed, you can select up to another 100 documents to upload.</target>
+        </trans-unit>
+        <trans-unit id="e33df589-ff26-494a-8bc9-db035a94e9da" xml:space="preserve">
+          <source>To learn more about DocumentDB, click <bpt id="6898ad48-50a6-470f-9e1e-ba4336fdbdbe">&lt;linkText&gt;</bpt>here<ept id="6898ad48-50a6-470f-9e1e-ba4336fdbdbe">&lt;/linkText&gt;</ept><bpt id="6898ad48-50a6-470f-9e1e-ba4336fdbdbe">&lt;title&gt;</bpt><ept id="6898ad48-50a6-470f-9e1e-ba4336fdbdbe">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about DocumentDB, click <bpt id="6898ad48-50a6-470f-9e1e-ba4336fdbdbe">&lt;linkText&gt;</bpt>here<ept id="6898ad48-50a6-470f-9e1e-ba4336fdbdbe">&lt;/linkText&gt;</ept><bpt id="6898ad48-50a6-470f-9e1e-ba4336fdbdbe">&lt;title&gt;</bpt><ept id="6898ad48-50a6-470f-9e1e-ba4336fdbdbe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

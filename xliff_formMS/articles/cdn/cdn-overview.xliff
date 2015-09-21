@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f2844256-925e-4734-82f2-aa031a2157fa" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f2844256-925e-4734-82f2-aa031a2157fa" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f6348aee-5799-45e5-bb58-05475a822303">
+        <trans-unit id="c94aa379-7ba5-4f55-b0bd-73974f52ca31" xml:space="preserve">
+          <source>Azure CDN Overview</source>
+          <target state="new">Azure CDN Overview</target>
+        </trans-unit>
+        <trans-unit id="0cd87d31-6761-4de5-8dd7-2660b4e1fb8e" xml:space="preserve">
+          <source>Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content.</source>
+          <target state="new">Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content.</target>
+        </trans-unit>
+        <trans-unit id="5d1fb684-52f6-41e0-a704-05a17076b52b" xml:space="preserve">
+          <source>The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by cloud services at strategically placed locations to provide maximum bandwidth for delivering content to users.</source>
+          <target state="new">The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by cloud services at strategically placed locations to provide maximum bandwidth for delivering content to users.</target>
+        </trans-unit>
+        <trans-unit id="6ea5f634-da1d-441a-a462-a4bdca91ee68" xml:space="preserve">
+          <source>If you are an existing CDN customer, you can now manage your CDN endpoints through the <bpt id="17e0153b-4c73-45c8-9400-d2ba04770383">&lt;linkText&gt;</bpt>Microsoft Azure Management Portal<ept id="17e0153b-4c73-45c8-9400-d2ba04770383">&lt;/linkText&gt;</ept><bpt id="17e0153b-4c73-45c8-9400-d2ba04770383">&lt;title&gt;</bpt><ept id="17e0153b-4c73-45c8-9400-d2ba04770383">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are an existing CDN customer, you can now manage your CDN endpoints through the <bpt id="17e0153b-4c73-45c8-9400-d2ba04770383">&lt;linkText&gt;</bpt>Microsoft Azure Management Portal<ept id="17e0153b-4c73-45c8-9400-d2ba04770383">&lt;/linkText&gt;</ept><bpt id="17e0153b-4c73-45c8-9400-d2ba04770383">&lt;title&gt;</bpt><ept id="17e0153b-4c73-45c8-9400-d2ba04770383">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01ebb26d-eb1c-49ea-aa43-644437dc9a8c" xml:space="preserve">
+          <source>Azure CDN has a separate <bpt id="14ef6a8e-9dd3-4757-88e1-83dda06f6d1a">&lt;linkText&gt;</bpt>billing plan<ept id="14ef6a8e-9dd3-4757-88e1-83dda06f6d1a">&lt;/linkText&gt;</ept><bpt id="14ef6a8e-9dd3-4757-88e1-83dda06f6d1a">&lt;title&gt;</bpt><ept id="14ef6a8e-9dd3-4757-88e1-83dda06f6d1a">&lt;/title&gt;</ept> from Azure Storage or Azure Cloud Services.</source>
+          <target state="new">Azure CDN has a separate <bpt id="14ef6a8e-9dd3-4757-88e1-83dda06f6d1a">&lt;linkText&gt;</bpt>billing plan<ept id="14ef6a8e-9dd3-4757-88e1-83dda06f6d1a">&lt;/linkText&gt;</ept><bpt id="14ef6a8e-9dd3-4757-88e1-83dda06f6d1a">&lt;title&gt;</bpt><ept id="14ef6a8e-9dd3-4757-88e1-83dda06f6d1a">&lt;/title&gt;</ept> from Azure Storage or Azure Cloud Services.</target>
+        </trans-unit>
+        <trans-unit id="c1605b01-c108-4fa2-80a3-e526f2c45cc7" xml:space="preserve">
+          <source>The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world.</source>
+          <target state="new">The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world.</target>
+        </trans-unit>
+        <trans-unit id="6fa12039-0fa2-4505-b4de-b09bd816cd29" xml:space="preserve">
+          <source>For a current list of CDN node locations, see <bpt id="26d94ddc-6384-4f24-8f67-7b37c0931874">&lt;linkText&gt;</bpt>Azure Content Delivery Network (CDN) POP Locations<ept id="26d94ddc-6384-4f24-8f67-7b37c0931874">&lt;/linkText&gt;</ept><bpt id="26d94ddc-6384-4f24-8f67-7b37c0931874">&lt;title&gt;</bpt><ept id="26d94ddc-6384-4f24-8f67-7b37c0931874">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a current list of CDN node locations, see <bpt id="26d94ddc-6384-4f24-8f67-7b37c0931874">&lt;linkText&gt;</bpt>Azure Content Delivery Network (CDN) POP Locations<ept id="26d94ddc-6384-4f24-8f67-7b37c0931874">&lt;/linkText&gt;</ept><bpt id="26d94ddc-6384-4f24-8f67-7b37c0931874">&lt;title&gt;</bpt><ept id="26d94ddc-6384-4f24-8f67-7b37c0931874">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2685ebab-e86e-4ce8-8051-4cb519c14eea" xml:space="preserve">
+          <source>The benefits of using the CDN to cache Azure data include:</source>
+          <target state="new">The benefits of using the CDN to cache Azure data include:</target>
+        </trans-unit>
+        <trans-unit id="195d7be0-1e63-4b6a-b508-61eba4b8bffd" xml:space="preserve">
+          <source>Better performance and user experience for end users who are far from a content source, and are using applications where many "internet trips" are required to load content</source>
+          <target state="new">Better performance and user experience for end users who are far from a content source, and are using applications where many "internet trips" are required to load content</target>
+        </trans-unit>
+        <trans-unit id="ec5ae930-3f46-45e0-9cc7-b7609a69472a" xml:space="preserve">
+          <source>Large distributed scale to better handle instantaneous high load, like at the start of a product launch event.</source>
+          <target state="new">Large distributed scale to better handle instantaneous high load, like at the start of a product launch event.</target>
+        </trans-unit>
+        <trans-unit id="4cac376c-d407-43d7-9bba-05553ec09df5" xml:space="preserve">
+          <source>When you create or enable a CDN endpoint, it may take up to 60 minutes to propagate worldwide.</source>
+          <target state="new">When you create or enable a CDN endpoint, it may take up to 60 minutes to propagate worldwide.</target>
+        </trans-unit>
+        <trans-unit id="0b7f03ef-1019-46d9-81bd-5782ee1855a1" xml:space="preserve">
+          <source>When a request for an object is first made to the CDN, the object is retrieved directly from the Blob service or from the cloud service.</source>
+          <target state="new">When a request for an object is first made to the CDN, the object is retrieved directly from the Blob service or from the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="5dceb921-c721-43df-bfb8-c1612a39e5cc" xml:space="preserve">
+          <source>When a request is made using the CDN syntax, the request is redirected to the CDN endpoint closest to the location from which the request was made to provide access to the object.</source>
+          <target state="new">When a request is made using the CDN syntax, the request is redirected to the CDN endpoint closest to the location from which the request was made to provide access to the object.</target>
+        </trans-unit>
+        <trans-unit id="c4c81ba5-9657-4b57-a73e-8f7733589167" xml:space="preserve">
+          <source>If the object is not found at that endpoint, then it is retrieved from the service and cached at the endpoint, where a time-to-live (TTL) setting is maintained for the cached object.</source>
+          <target state="new">If the object is not found at that endpoint, then it is retrieved from the service and cached at the endpoint, where a time-to-live (TTL) setting is maintained for the cached object.</target>
+        </trans-unit>
+        <trans-unit id="71a8f12c-d8b7-4763-be14-7cd972e49c9b" xml:space="preserve">
+          <source>Once the CDN is enabled on a Azure storage account, any blobs that are in public containers and are available for anonymous access will be cached via the CDN.</source>
+          <target state="new">Once the CDN is enabled on a Azure storage account, any blobs that are in public containers and are available for anonymous access will be cached via the CDN.</target>
+        </trans-unit>
+        <trans-unit id="fc6b0e13-2164-4daf-8a18-47990a37fbd6" xml:space="preserve">
+          <source>Only blobs that are publicly available can be cached with the Azure CDN.</source>
+          <target state="new">Only blobs that are publicly available can be cached with the Azure CDN.</target>
+        </trans-unit>
+        <trans-unit id="8d395ad5-03c0-4f7c-b2fe-e5fca47ec959" xml:space="preserve">
+          <source>To make a blob publicly available for anonymous access, you must denote its container as public.</source>
+          <target state="new">To make a blob publicly available for anonymous access, you must denote its container as public.</target>
+        </trans-unit>
+        <trans-unit id="f85d6e9d-8fcd-4dd2-9f38-6cce12359c79" xml:space="preserve">
+          <source>Once you do so, all blobs within that container will be available for anonymous read access.</source>
+          <target state="new">Once you do so, all blobs within that container will be available for anonymous read access.</target>
+        </trans-unit>
+        <trans-unit id="7d9c5fc0-9c66-4f8a-8932-c722cbb1b91e" xml:space="preserve">
+          <source>You have the option of making container data public as well, or restricting access only to the blobs within it.</source>
+          <target state="new">You have the option of making container data public as well, or restricting access only to the blobs within it.</target>
+        </trans-unit>
+        <trans-unit id="a2f67e52-f785-4d16-b317-22e0dccffcd9" xml:space="preserve">
+          <source>See <bpt id="25981d83-d78d-4ff4-8a7e-6b7b888e44c5">&lt;linkText&gt;</bpt>Restrict Access to Containers and Blobs<ept id="25981d83-d78d-4ff4-8a7e-6b7b888e44c5">&lt;/linkText&gt;</ept><bpt id="25981d83-d78d-4ff4-8a7e-6b7b888e44c5">&lt;title&gt;</bpt><ept id="25981d83-d78d-4ff4-8a7e-6b7b888e44c5">&lt;/title&gt;</ept> for information on managing access control for containers and blobs.</source>
+          <target state="new">See <bpt id="25981d83-d78d-4ff4-8a7e-6b7b888e44c5">&lt;linkText&gt;</bpt>Restrict Access to Containers and Blobs<ept id="25981d83-d78d-4ff4-8a7e-6b7b888e44c5">&lt;/linkText&gt;</ept><bpt id="25981d83-d78d-4ff4-8a7e-6b7b888e44c5">&lt;title&gt;</bpt><ept id="25981d83-d78d-4ff4-8a7e-6b7b888e44c5">&lt;/title&gt;</ept> for information on managing access control for containers and blobs.</target>
+        </trans-unit>
+        <trans-unit id="07b1873d-6ed6-4415-a205-f572e796d120" xml:space="preserve">
+          <source>For best performance, use CDN edge caching for delivering blobs less than 10 GB in size.</source>
+          <target state="new">For best performance, use CDN edge caching for delivering blobs less than 10 GB in size.</target>
+        </trans-unit>
+        <trans-unit id="cab68eb1-e0d0-4f78-9139-088583f56144" xml:space="preserve">
+          <source>When you enable CDN access for a storage account, the Management Portal provides you with a CDN domain name in the following format: http://&lt;identifier&gt;.vo.msecnd.net/. This domain name can be used to access blobs in a public container. For example, given a public container named music in a storage account named myaccount, users can access the blobs in that container using either of the following two URLs:</source>
+          <target state="new">When you enable CDN access for a storage account, the Management Portal provides you with a CDN domain name in the following format: http://&lt;identifier&gt;.vo.msecnd.net/. This domain name can be used to access blobs in a public container. For example, given a public container named music in a storage account named myaccount, users can access the blobs in that container using either of the following two URLs:</target>
+        </trans-unit>
+        <trans-unit id="f3f67110-7dbd-4073-8b96-06575461adc0" xml:space="preserve">
+          <source><bpt id="d598fff0-be7f-4171-b3f7-ca45acc31a2b">&lt;strong&gt;</bpt>Azure Blob service URL<ept id="d598fff0-be7f-4171-b3f7-ca45acc31a2b">&lt;/strong&gt;</ept>: <bpt id="518a8cc4-b932-490a-b6cb-e8ede00854cf">&lt;code&gt;</bpt>http://myAccount.blob.core.windows.net/music/<ept id="518a8cc4-b932-490a-b6cb-e8ede00854cf">&lt;/code&gt;</ept> </source>
+          <target state="new"><bpt id="d598fff0-be7f-4171-b3f7-ca45acc31a2b">&lt;strong&gt;</bpt>Azure Blob service URL<ept id="d598fff0-be7f-4171-b3f7-ca45acc31a2b">&lt;/strong&gt;</ept>: <bpt id="518a8cc4-b932-490a-b6cb-e8ede00854cf">&lt;code&gt;</bpt>http://myAccount.blob.core.windows.net/music/<ept id="518a8cc4-b932-490a-b6cb-e8ede00854cf">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d57b556f-b16d-4b4f-8e3e-b0fbe9bfc3a2" xml:space="preserve">
+          <source><bpt id="3ad8569a-56ec-4940-afa7-470555e3467f">&lt;strong&gt;</bpt>Azure CDN URL<ept id="3ad8569a-56ec-4940-afa7-470555e3467f">&lt;/strong&gt;</ept>: <bpt id="506a6a87-244e-4b72-a4d2-6f5f124098d6">&lt;code&gt;</bpt>http://&lt;identifier&gt;.vo.msecnd.net/music/<ept id="506a6a87-244e-4b72-a4d2-6f5f124098d6">&lt;/code&gt;</ept> </source>
+          <target state="new"><bpt id="3ad8569a-56ec-4940-afa7-470555e3467f">&lt;strong&gt;</bpt>Azure CDN URL<ept id="3ad8569a-56ec-4940-afa7-470555e3467f">&lt;/strong&gt;</ept>: <bpt id="506a6a87-244e-4b72-a4d2-6f5f124098d6">&lt;code&gt;</bpt>http://&lt;identifier&gt;.vo.msecnd.net/music/<ept id="506a6a87-244e-4b72-a4d2-6f5f124098d6">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a23e67aa-3be3-4196-b922-4227d4ec0efb" xml:space="preserve">
+          <source>You can enable CDN from your websites to cache your web contents, such as images, scripts, and stylesheets.</source>
+          <target state="new">You can enable CDN from your websites to cache your web contents, such as images, scripts, and stylesheets.</target>
+        </trans-unit>
+        <trans-unit id="d606f75d-ac9b-4e68-baf7-92735b5ccded" xml:space="preserve">
+          <source>See <bpt id="9cb20bbb-e427-4eca-8ff8-630f3a1b0931">&lt;linkText&gt;</bpt>Integrate an Azure Website with Azure CDN<ept id="9cb20bbb-e427-4eca-8ff8-630f3a1b0931">&lt;/linkText&gt;</ept><bpt id="9cb20bbb-e427-4eca-8ff8-630f3a1b0931">&lt;title&gt;</bpt><ept id="9cb20bbb-e427-4eca-8ff8-630f3a1b0931">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="9cb20bbb-e427-4eca-8ff8-630f3a1b0931">&lt;linkText&gt;</bpt>Integrate an Azure Website with Azure CDN<ept id="9cb20bbb-e427-4eca-8ff8-630f3a1b0931">&lt;/linkText&gt;</ept><bpt id="9cb20bbb-e427-4eca-8ff8-630f3a1b0931">&lt;title&gt;</bpt><ept id="9cb20bbb-e427-4eca-8ff8-630f3a1b0931">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c1ac6de-a656-4a94-95f1-83c77b4b7708" xml:space="preserve">
+          <source>When you enable CDN access for a website, the Management Portal provides you with a CDN domain name in the following format: http://&lt;identifier&gt;.vo.msecnd.net/. This domain name can be used to retrieve objects from a website. For example, given a public container named cdn and an image file called music.png, users can access the object using either of the following two URLs:</source>
+          <target state="new">When you enable CDN access for a website, the Management Portal provides you with a CDN domain name in the following format: http://&lt;identifier&gt;.vo.msecnd.net/. This domain name can be used to retrieve objects from a website. For example, given a public container named cdn and an image file called music.png, users can access the object using either of the following two URLs:</target>
+        </trans-unit>
+        <trans-unit id="b376212c-135c-4bf3-be22-ed0c2d7fe8b0" xml:space="preserve">
+          <source><bpt id="f8780546-24fa-42cb-8b04-228c3cffcccf">&lt;strong&gt;</bpt>Azure Website URL<ept id="f8780546-24fa-42cb-8b04-228c3cffcccf">&lt;/strong&gt;</ept>: <bpt id="9ddd9b01-ce74-4107-8349-c19cf97cd557">&lt;code&gt;</bpt>http://mySiteName.azurewebsites.net/cdn/music.png<ept id="9ddd9b01-ce74-4107-8349-c19cf97cd557">&lt;/code&gt;</ept> </source>
+          <target state="new"><bpt id="f8780546-24fa-42cb-8b04-228c3cffcccf">&lt;strong&gt;</bpt>Azure Website URL<ept id="f8780546-24fa-42cb-8b04-228c3cffcccf">&lt;/strong&gt;</ept>: <bpt id="9ddd9b01-ce74-4107-8349-c19cf97cd557">&lt;code&gt;</bpt>http://mySiteName.azurewebsites.net/cdn/music.png<ept id="9ddd9b01-ce74-4107-8349-c19cf97cd557">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="447c6c1a-005e-4089-b413-9427687a659c" xml:space="preserve">
+          <source><bpt id="28b2bfc4-cab2-4634-8a84-515166963805">&lt;strong&gt;</bpt>Azure CDN URL<ept id="28b2bfc4-cab2-4634-8a84-515166963805">&lt;/strong&gt;</ept>: <bpt id="77bded96-ee0a-4741-b25f-e3c1bcad9f57">&lt;code&gt;</bpt>http://&lt;identifier&gt;.vo.msecnd.net/cdn/music.png<ept id="77bded96-ee0a-4741-b25f-e3c1bcad9f57">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="28b2bfc4-cab2-4634-8a84-515166963805">&lt;strong&gt;</bpt>Azure CDN URL<ept id="28b2bfc4-cab2-4634-8a84-515166963805">&lt;/strong&gt;</ept>: <bpt id="77bded96-ee0a-4741-b25f-e3c1bcad9f57">&lt;code&gt;</bpt>http://&lt;identifier&gt;.vo.msecnd.net/cdn/music.png<ept id="77bded96-ee0a-4741-b25f-e3c1bcad9f57">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8838f40e-2f42-4908-b032-c67bc79d30d7" xml:space="preserve">
+          <source>You can cache objects to the CDN that are provided by a Azure cloud service.</source>
+          <target state="new">You can cache objects to the CDN that are provided by a Azure cloud service.</target>
+        </trans-unit>
+        <trans-unit id="b0be6466-6e06-4b0b-b108-ebb04b1c58ac" xml:space="preserve">
+          <source>Caching for cloud services has the following constraints: </source>
+          <target state="new">Caching for cloud services has the following constraints: </target>
+        </trans-unit>
+        <trans-unit id="57e48f81-4835-48f8-a520-c25dd9bd2f4a" xml:space="preserve">
+          <source>The CDN should be used to cache static content only.</source>
+          <target state="new">The CDN should be used to cache static content only.</target>
+        </trans-unit>
+        <trans-unit id="37b15110-c378-4357-9144-164beb7f7048" xml:space="preserve">
+          <source>Caching of highly volatile or truly dynamic content may adversely affect your performance or cause content problems, all at increased cost.</source>
+          <target state="new">Caching of highly volatile or truly dynamic content may adversely affect your performance or cause content problems, all at increased cost.</target>
+        </trans-unit>
+        <trans-unit id="92c4fa18-7b4a-4f1e-8928-480ba585cccd" xml:space="preserve">
+          <source>Your cloud service must be deployed to in a production deployment.</source>
+          <target state="new">Your cloud service must be deployed to in a production deployment.</target>
+        </trans-unit>
+        <trans-unit id="c094874e-61fe-4a84-a369-054f6897d42d" xml:space="preserve">
+          <source>Your cloud service must provide the object on port 80 using HTTP.</source>
+          <target state="new">Your cloud service must provide the object on port 80 using HTTP.</target>
+        </trans-unit>
+        <trans-unit id="d99363b3-5233-48f9-807a-da9327a1e98c" xml:space="preserve">
+          <source>The cloud service must place the content to be cached in, or delivered from, the /cdn folder on the cloud service.</source>
+          <target state="new">The cloud service must place the content to be cached in, or delivered from, the /cdn folder on the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="234a4d5a-220c-432e-9619-cce3ccf4ec09" xml:space="preserve">
+          <source>When you enable CDN access for on a cloud service, the Management Portal provides you with a CDN domain name in the following format: http://&lt;identifier&gt;.vo.msecnd.net/. This domain name can be used to retrieve objects from a cloud service. For example, given a cloud service named myHostedService and an ASP.NET web page called music.aspx that delivers content, users can access the object using either of the following two URLs:</source>
+          <target state="new">When you enable CDN access for on a cloud service, the Management Portal provides you with a CDN domain name in the following format: http://&lt;identifier&gt;.vo.msecnd.net/. This domain name can be used to retrieve objects from a cloud service. For example, given a cloud service named myHostedService and an ASP.NET web page called music.aspx that delivers content, users can access the object using either of the following two URLs:</target>
+        </trans-unit>
+        <trans-unit id="3573c434-0ea4-4a11-9589-988a613797db" xml:space="preserve">
+          <source><bpt id="f4e9fd0d-5b75-436a-9d16-dace88a5f364">&lt;strong&gt;</bpt>Azure cloud service URL<ept id="f4e9fd0d-5b75-436a-9d16-dace88a5f364">&lt;/strong&gt;</ept>: <bpt id="d6656d42-9ae6-4ddd-94d7-4cde0830d9fe">&lt;code&gt;</bpt>http://myHostedService.cloudapp.net/cdn/music.aspx<ept id="d6656d42-9ae6-4ddd-94d7-4cde0830d9fe">&lt;/code&gt;</ept> </source>
+          <target state="new"><bpt id="f4e9fd0d-5b75-436a-9d16-dace88a5f364">&lt;strong&gt;</bpt>Azure cloud service URL<ept id="f4e9fd0d-5b75-436a-9d16-dace88a5f364">&lt;/strong&gt;</ept>: <bpt id="d6656d42-9ae6-4ddd-94d7-4cde0830d9fe">&lt;code&gt;</bpt>http://myHostedService.cloudapp.net/cdn/music.aspx<ept id="d6656d42-9ae6-4ddd-94d7-4cde0830d9fe">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="7e99f2db-4fd4-498c-9c4c-10d0d3df3747" xml:space="preserve">
+          <source><bpt id="6c27f226-6b87-4415-8d06-ac26e167900e">&lt;strong&gt;</bpt>Azure CDN URL<ept id="6c27f226-6b87-4415-8d06-ac26e167900e">&lt;/strong&gt;</ept>: <bpt id="744626bf-c7f7-4f0e-a119-0efe8f53b157">&lt;code&gt;</bpt>http://&lt;identifier&gt;.vo.msecnd.net/music.aspx<ept id="744626bf-c7f7-4f0e-a119-0efe8f53b157">&lt;/code&gt;</ept> </source>
+          <target state="new"><bpt id="6c27f226-6b87-4415-8d06-ac26e167900e">&lt;strong&gt;</bpt>Azure CDN URL<ept id="6c27f226-6b87-4415-8d06-ac26e167900e">&lt;/strong&gt;</ept>: <bpt id="744626bf-c7f7-4f0e-a119-0efe8f53b157">&lt;code&gt;</bpt>http://&lt;identifier&gt;.vo.msecnd.net/music.aspx<ept id="744626bf-c7f7-4f0e-a119-0efe8f53b157">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="ab1b956d-1fe0-414b-8648-2a2d6b3b1f48" xml:space="preserve">
+          <source>You can use query strings to differentiate objects retrieved from a cloud service.</source>
+          <target state="new">You can use query strings to differentiate objects retrieved from a cloud service.</target>
+        </trans-unit>
+        <trans-unit id="7e75d922-96d9-4982-894f-7680028a3e43" xml:space="preserve">
+          <source>For example, if the cloud service displays a chart that can vary you can pass a query string to retrieve the specific chart required.</source>
+          <target state="new">For example, if the cloud service displays a chart that can vary you can pass a query string to retrieve the specific chart required.</target>
+        </trans-unit>
+        <trans-unit id="1894f63e-41cd-4fe9-ba63-0d0d8841eb62" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="4d4ff7cc-5dc1-49ec-bdfc-d4dc3e3556f2" xml:space="preserve">
+          <source><bpt id="3da4076b-9db2-471f-b408-2710a0c0653b">&lt;code&gt;</bpt>http://&lt;identifier&gt;.vo.msecnd.net/chart.aspx?item=1<ept id="3da4076b-9db2-471f-b408-2710a0c0653b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3da4076b-9db2-471f-b408-2710a0c0653b">&lt;code&gt;</bpt>http://&lt;identifier&gt;.vo.msecnd.net/chart.aspx?item=1<ept id="3da4076b-9db2-471f-b408-2710a0c0653b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ba7572e-aab6-42be-bc05-6c46bee6adfa" xml:space="preserve">
+          <source>Query strings are passed as string literals. If you have an service that takes two parameters, such as <bpt id="64315e36-db26-477b-aaff-536e94212337">&lt;code&gt;</bpt>?area=2&amp;item=1<ept id="64315e36-db26-477b-aaff-536e94212337">&lt;/code&gt;</ept> and make subsequent call to the service using <bpt id="fee01731-bdf4-44eb-8d7e-86015fed501b">&lt;code&gt;</bpt>?item=1&amp;area=2<ept id="fee01731-bdf4-44eb-8d7e-86015fed501b">&lt;/code&gt;</ept>, you will cache two copies of the same object.</source>
+          <target state="new">Query strings are passed as string literals. If you have an service that takes two parameters, such as <bpt id="64315e36-db26-477b-aaff-536e94212337">&lt;code&gt;</bpt>?area=2&amp;item=1<ept id="64315e36-db26-477b-aaff-536e94212337">&lt;/code&gt;</ept> and make subsequent call to the service using <bpt id="fee01731-bdf4-44eb-8d7e-86015fed501b">&lt;code&gt;</bpt>?item=1&amp;area=2<ept id="fee01731-bdf4-44eb-8d7e-86015fed501b">&lt;/code&gt;</ept>, you will cache two copies of the same object.</target>
+        </trans-unit>
+        <trans-unit id="9b0cc627-8279-45e7-93c9-beeebf4f3bfc" xml:space="preserve">
+          <source>Azure allows you to retrieve content from the CDN using HTTPS calls.</source>
+          <target state="new">Azure allows you to retrieve content from the CDN using HTTPS calls.</target>
+        </trans-unit>
+        <trans-unit id="8b8f1f37-a841-4517-a187-ac3f491f1cc6" xml:space="preserve">
+          <source>This allows you to incorporate content cached in the CDN into secure web pages without receiving warnings about mixed security content types.</source>
+          <target state="new">This allows you to incorporate content cached in the CDN into secure web pages without receiving warnings about mixed security content types.</target>
+        </trans-unit>
+        <trans-unit id="9df8a0e4-0f3d-4a1e-b12e-209cf130edc8" xml:space="preserve">
+          <source>Accessing CDN content using HTTPS has the following constraints:</source>
+          <target state="new">Accessing CDN content using HTTPS has the following constraints:</target>
+        </trans-unit>
+        <trans-unit id="06928ddc-8876-4866-94cf-caa1b507c8d4" xml:space="preserve">
+          <source>You must use the certificate provided by the CDN.</source>
+          <target state="new">You must use the certificate provided by the CDN.</target>
+        </trans-unit>
+        <trans-unit id="907ca2a8-1c91-43b8-a7f9-cc657b37ccb5" xml:space="preserve">
+          <source>Third party certificates are not supported.</source>
+          <target state="new">Third party certificates are not supported.</target>
+        </trans-unit>
+        <trans-unit id="639a847e-45e6-4e66-a1f8-8906633ebc86" xml:space="preserve">
+          <source>You must use the CDN domain to access content.</source>
+          <target state="new">You must use the CDN domain to access content.</target>
+        </trans-unit>
+        <trans-unit id="842c053f-68be-4c10-873d-842ddc7b77f1" xml:space="preserve">
+          <source>HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.</source>
+          <target state="new">HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.</target>
+        </trans-unit>
+        <trans-unit id="739dd7f8-e760-4029-95a6-a79d98f6057b" xml:space="preserve">
+          <source>Even when HTTPS is enabled, content from the CDN can be retrieved using both HTTP and HTTPS.</source>
+          <target state="new">Even when HTTPS is enabled, content from the CDN can be retrieved using both HTTP and HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="4f1eba97-6317-42e4-9082-52b7782f414e" xml:space="preserve">
+          <source>For more information on enabling HTTPS for CDN content, see <bpt id="514f7e6c-7625-4076-8fbd-b53120327a8d">&lt;linkText&gt;</bpt>How to Enable the Content Delivery Network (CDN) for Azure<ept id="514f7e6c-7625-4076-8fbd-b53120327a8d">&lt;/linkText&gt;</ept><bpt id="514f7e6c-7625-4076-8fbd-b53120327a8d">&lt;title&gt;</bpt><ept id="514f7e6c-7625-4076-8fbd-b53120327a8d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on enabling HTTPS for CDN content, see <bpt id="514f7e6c-7625-4076-8fbd-b53120327a8d">&lt;linkText&gt;</bpt>How to Enable the Content Delivery Network (CDN) for Azure<ept id="514f7e6c-7625-4076-8fbd-b53120327a8d">&lt;/linkText&gt;</ept><bpt id="514f7e6c-7625-4076-8fbd-b53120327a8d">&lt;title&gt;</bpt><ept id="514f7e6c-7625-4076-8fbd-b53120327a8d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21ab3195-bf9b-485a-85bf-3e2d380244f2" xml:space="preserve">
+          <source>You can map the CDN HTTP endpoint to a custom domain name and use that name to request objects from the CDN.</source>
+          <target state="new">You can map the CDN HTTP endpoint to a custom domain name and use that name to request objects from the CDN.</target>
+        </trans-unit>
+        <trans-unit id="f07ab954-3922-4ebf-8981-6238bc642fb9" xml:space="preserve">
+          <source>For more information on mapping a custom domain, see <bpt id="dcf3c3c6-0bec-4ed2-b98a-cd6aab129331">&lt;linkText&gt;</bpt>How to Map Content Delivery Network (CDN) Content to a Custom Domain<ept id="dcf3c3c6-0bec-4ed2-b98a-cd6aab129331">&lt;/linkText&gt;</ept><bpt id="dcf3c3c6-0bec-4ed2-b98a-cd6aab129331">&lt;title&gt;</bpt><ept id="dcf3c3c6-0bec-4ed2-b98a-cd6aab129331">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on mapping a custom domain, see <bpt id="dcf3c3c6-0bec-4ed2-b98a-cd6aab129331">&lt;linkText&gt;</bpt>How to Map Content Delivery Network (CDN) Content to a Custom Domain<ept id="dcf3c3c6-0bec-4ed2-b98a-cd6aab129331">&lt;/linkText&gt;</ept><bpt id="dcf3c3c6-0bec-4ed2-b98a-cd6aab129331">&lt;title&gt;</bpt><ept id="dcf3c3c6-0bec-4ed2-b98a-cd6aab129331">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

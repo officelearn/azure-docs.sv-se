@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a18ce6c1-5f3b-4c05-ba6f-b8fdb5d35b61" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a18ce6c1-5f3b-4c05-ba6f-b8fdb5d35b61" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="70165dcf-0599-4815-98a7-aed8b9885525">
+        <trans-unit id="9a81ca5b-4b4c-4607-bb89-1c11d8a60ca1" xml:space="preserve">
+          <source>Install and configure PostgreSQL on a Microsoft Azure virtual machine running Linux | Microsoft Azure</source>
+          <target state="new">Install and configure PostgreSQL on a Microsoft Azure virtual machine running Linux | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8e66b06f-2bf3-4cb5-8bd1-8a536b11262d" xml:space="preserve">
+          <source>Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure.</source>
+          <target state="new">Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="73407082-c0c4-4ecf-8b6e-f79f788bfdbf" xml:space="preserve">
+          <source>PostgreSQL is an advanced open-source database similar to Oracle and DB2.</source>
+          <target state="new">PostgreSQL is an advanced open-source database similar to Oracle and DB2.</target>
+        </trans-unit>
+        <trans-unit id="44032797-7713-4797-9cc4-eab63b992850" xml:space="preserve">
+          <source>It includes enterprise-ready features such as full ACID compliance, reliable transactional processing, and multi-version concurrency control.</source>
+          <target state="new">It includes enterprise-ready features such as full ACID compliance, reliable transactional processing, and multi-version concurrency control.</target>
+        </trans-unit>
+        <trans-unit id="017ee2b3-a23f-40d4-ba70-5b6fba0a0006" xml:space="preserve">
+          <source>It also supports standards such as ANSI SQL and SQL/MED (including foreign data wrappers for Oracle, MySQL, MongoDB, and many others).</source>
+          <target state="new">It also supports standards such as ANSI SQL and SQL/MED (including foreign data wrappers for Oracle, MySQL, MongoDB, and many others).</target>
+        </trans-unit>
+        <trans-unit id="586c4e44-28c4-4dbd-8534-1d15edd9dd83" xml:space="preserve">
+          <source>It is highly extensible with support for over 12 procedural languages, GIN and GiST indexes, spatial data support, and multiple NoSQL-like features for JSON or key-value-based applications.</source>
+          <target state="new">It is highly extensible with support for over 12 procedural languages, GIN and GiST indexes, spatial data support, and multiple NoSQL-like features for JSON or key-value-based applications.</target>
+        </trans-unit>
+        <trans-unit id="2503293b-2220-483a-91b5-0869862b84d7" xml:space="preserve">
+          <source>In this article, you will learn how to install and configure PostgreSQL on an Azure virtual machine running Linux.</source>
+          <target state="new">In this article, you will learn how to install and configure PostgreSQL on an Azure virtual machine running Linux.</target>
+        </trans-unit>
+        <trans-unit id="b9ba570e-05d6-479a-84ab-d3c0872494ed" xml:space="preserve">
+          <source>You must already have an Azure virtual machine running Linux in order to complete this tutorial.</source>
+          <target state="new">You must already have an Azure virtual machine running Linux in order to complete this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="29e5bc49-757d-4f81-96b5-7742524b1256" xml:space="preserve">
+          <source>To create and set up a Linux VM before proceeding, see the
+<bpt id="51df013a-39bd-44b6-866a-fde306eb2403">&lt;linkText&gt;</bpt>Azure Linux VM tutorial<ept id="51df013a-39bd-44b6-866a-fde306eb2403">&lt;/linkText&gt;</ept><bpt id="51df013a-39bd-44b6-866a-fde306eb2403">&lt;title&gt;</bpt><ept id="51df013a-39bd-44b6-866a-fde306eb2403">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create and set up a Linux VM before proceeding, see the
+<bpt id="51df013a-39bd-44b6-866a-fde306eb2403">&lt;linkText&gt;</bpt>Azure Linux VM tutorial<ept id="51df013a-39bd-44b6-866a-fde306eb2403">&lt;/linkText&gt;</ept><bpt id="51df013a-39bd-44b6-866a-fde306eb2403">&lt;title&gt;</bpt><ept id="51df013a-39bd-44b6-866a-fde306eb2403">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="feea5ea5-fcc9-43ad-a576-4c1a04173357" xml:space="preserve">
+          <source>In this case, use port 1999 as the PostgreSQL port.</source>
+          <target state="new">In this case, use port 1999 as the PostgreSQL port.</target>
+        </trans-unit>
+        <trans-unit id="cddbd3e0-920e-4e5e-a8ba-863270946fa1" xml:space="preserve">
+          <source>Connect to the Linux VM you created via PuTTY.</source>
+          <target state="new">Connect to the Linux VM you created via PuTTY.</target>
+        </trans-unit>
+        <trans-unit id="e1130b97-f1d6-402d-9814-2accc177ce20" xml:space="preserve">
+          <source>If this is the first time you're using an Azure Linux VM, see <bpt id="1ce17a61-b0be-4de5-9972-8ca2edf44e9b">&lt;linkText&gt;</bpt>How to Use SSH with Linux on Azure<ept id="1ce17a61-b0be-4de5-9972-8ca2edf44e9b">&lt;/linkText&gt;</ept><bpt id="1ce17a61-b0be-4de5-9972-8ca2edf44e9b">&lt;title&gt;</bpt><ept id="1ce17a61-b0be-4de5-9972-8ca2edf44e9b">&lt;/title&gt;</ept> to learn how to use PuTTY to connect to a Linux VM.</source>
+          <target state="new">If this is the first time you're using an Azure Linux VM, see <bpt id="1ce17a61-b0be-4de5-9972-8ca2edf44e9b">&lt;linkText&gt;</bpt>How to Use SSH with Linux on Azure<ept id="1ce17a61-b0be-4de5-9972-8ca2edf44e9b">&lt;/linkText&gt;</ept><bpt id="1ce17a61-b0be-4de5-9972-8ca2edf44e9b">&lt;title&gt;</bpt><ept id="1ce17a61-b0be-4de5-9972-8ca2edf44e9b">&lt;/title&gt;</ept> to learn how to use PuTTY to connect to a Linux VM.</target>
+        </trans-unit>
+        <trans-unit id="56f46c1f-2287-4867-abb1-c6208d06992c" xml:space="preserve">
+          <source>Run the following command to switch to the root (admin):</source>
+          <target state="new">Run the following command to switch to the root (admin):</target>
+        </trans-unit>
+        <trans-unit id="199ef73f-3b68-4bf6-8d65-6a1a2f68df12" xml:space="preserve">
+          <source>Some distributions have dependencies that you must install before installing PostgreSQL.</source>
+          <target state="new">Some distributions have dependencies that you must install before installing PostgreSQL.</target>
+        </trans-unit>
+        <trans-unit id="6ce1347c-4ed1-4bb1-9b22-bb6fa7736ba5" xml:space="preserve">
+          <source>Check for your distro in this list and run the appropriate command:</source>
+          <target state="new">Check for your distro in this list and run the appropriate command:</target>
+        </trans-unit>
+        <trans-unit id="f186b9c9-73bc-49d0-bbc4-2124bd17d47c" xml:space="preserve">
+          <source>Red Hat base Linux:</source>
+          <target state="new">Red Hat base Linux:</target>
+        </trans-unit>
+        <trans-unit id="0b76901c-c12d-4eca-bf31-f7390c9c0fec" xml:space="preserve">
+          <source>Debian base Linux:</source>
+          <target state="new">Debian base Linux:</target>
+        </trans-unit>
+        <trans-unit id="0c3b7b12-314f-4aa2-ba04-4cd0a709ef50" xml:space="preserve">
+          <source>SUSE Linux:</source>
+          <target state="new">SUSE Linux:</target>
+        </trans-unit>
+        <trans-unit id="19dd4bd4-f802-4fc8-8174-6879ef2f4f38" xml:space="preserve">
+          <source>Download PostgreSQL into the root directory, and then unzip the package:</source>
+          <target state="new">Download PostgreSQL into the root directory, and then unzip the package:</target>
+        </trans-unit>
+        <trans-unit id="78305b01-1b2c-4aff-a147-eca9d0eab6ba" xml:space="preserve">
+          <source>The above is an example.</source>
+          <target state="new">The above is an example.</target>
+        </trans-unit>
+        <trans-unit id="e19c6a1e-63ec-4116-9e52-f62b6231b10f" xml:space="preserve">
+          <source>You can find the more detailed download address in the <bpt id="fe9156df-fdc1-4f9f-a408-f829c7875515">&lt;linkText&gt;</bpt>Index of /pub/source/<ept id="fe9156df-fdc1-4f9f-a408-f829c7875515">&lt;/linkText&gt;</ept><bpt id="fe9156df-fdc1-4f9f-a408-f829c7875515">&lt;title&gt;</bpt><ept id="fe9156df-fdc1-4f9f-a408-f829c7875515">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find the more detailed download address in the <bpt id="fe9156df-fdc1-4f9f-a408-f829c7875515">&lt;linkText&gt;</bpt>Index of /pub/source/<ept id="fe9156df-fdc1-4f9f-a408-f829c7875515">&lt;/linkText&gt;</ept><bpt id="fe9156df-fdc1-4f9f-a408-f829c7875515">&lt;title&gt;</bpt><ept id="fe9156df-fdc1-4f9f-a408-f829c7875515">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68aa92ff-d046-4824-b2e6-f7b31c04648c" xml:space="preserve">
+          <source>To start the build, run these commands:</source>
+          <target state="new">To start the build, run these commands:</target>
+        </trans-unit>
+        <trans-unit id="02c8be52-62da-4b31-b3f1-1da564ce58fd" xml:space="preserve">
+          <source>If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (contrib), run the following command instead:</source>
+          <target state="new">If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (contrib), run the following command instead:</target>
+        </trans-unit>
+        <trans-unit id="a215f6a8-9687-487b-abe7-48fd0519e8f9" xml:space="preserve">
+          <source>You should receive the following confirmation message:</source>
+          <target state="new">You should receive the following confirmation message:</target>
+        </trans-unit>
+        <trans-unit id="273517cc-5d90-4a5c-be9f-8e947d9c15c2" xml:space="preserve">
+          <source>(Optional) Create a symbolic link to shorten the PostgreSQL reference to not include the version number:</source>
+          <target state="new">(Optional) Create a symbolic link to shorten the PostgreSQL reference to not include the version number:</target>
+        </trans-unit>
+        <trans-unit id="4171030d-33f6-4ee9-82b2-aa9cfbb5c537" xml:space="preserve">
+          <source>Create a directory for the database:</source>
+          <target state="new">Create a directory for the database:</target>
+        </trans-unit>
+        <trans-unit id="cf11317c-baf6-410f-9e36-22bdd2e0705f" xml:space="preserve">
+          <source>Create a non-root user and modify that user’s profile.</source>
+          <target state="new">Create a non-root user and modify that user’s profile.</target>
+        </trans-unit>
+        <trans-unit id="85b49018-c0c4-45a6-831f-55dfcfb6588e" xml:space="preserve">
+          <source>Then, switch to this new user (called <bpt id="104fa193-bd47-4b2f-a4eb-908dcb462d64">&lt;em&gt;</bpt>postgres<ept id="104fa193-bd47-4b2f-a4eb-908dcb462d64">&lt;/em&gt;</ept> in our example):</source>
+          <target state="new">Then, switch to this new user (called <bpt id="104fa193-bd47-4b2f-a4eb-908dcb462d64">&lt;em&gt;</bpt>postgres<ept id="104fa193-bd47-4b2f-a4eb-908dcb462d64">&lt;/em&gt;</ept> in our example):</target>
+        </trans-unit>
+        <trans-unit id="ebb116d6-52a1-4a7b-bb1c-775d6ed74d1c" xml:space="preserve">
+          <source>For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.</source>
+          <target state="new">For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.</target>
+        </trans-unit>
+        <trans-unit id="7e8598f5-49bc-44e8-b7e5-8db58f4a84f6" xml:space="preserve">
+          <source>Edit the <bpt id="bcc2fdf9-cc2a-45c2-876f-8d99cce93617">&lt;em&gt;</bpt>bash_profile<ept id="bcc2fdf9-cc2a-45c2-876f-8d99cce93617">&lt;/em&gt;</ept> file by entering the commands below.</source>
+          <target state="new">Edit the <bpt id="bcc2fdf9-cc2a-45c2-876f-8d99cce93617">&lt;em&gt;</bpt>bash_profile<ept id="bcc2fdf9-cc2a-45c2-876f-8d99cce93617">&lt;/em&gt;</ept> file by entering the commands below.</target>
+        </trans-unit>
+        <trans-unit id="21869c65-e56f-4144-ace7-65e5191e2785" xml:space="preserve">
+          <source>These lines will be added to the end of the <bpt id="87a4f779-8589-41a3-93cf-f2037e1f3432">&lt;em&gt;</bpt>bash_profile<ept id="87a4f779-8589-41a3-93cf-f2037e1f3432">&lt;/em&gt;</ept> file:</source>
+          <target state="new">These lines will be added to the end of the <bpt id="87a4f779-8589-41a3-93cf-f2037e1f3432">&lt;em&gt;</bpt>bash_profile<ept id="87a4f779-8589-41a3-93cf-f2037e1f3432">&lt;/em&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="b915005d-3ca4-45ff-9aa8-89f436a12d69" xml:space="preserve">
+          <source>Execute the <bpt id="75fae9d4-bfec-49ac-8c32-b82584fa1136">&lt;em&gt;</bpt>bash_profile<ept id="75fae9d4-bfec-49ac-8c32-b82584fa1136">&lt;/em&gt;</ept> file:</source>
+          <target state="new">Execute the <bpt id="75fae9d4-bfec-49ac-8c32-b82584fa1136">&lt;em&gt;</bpt>bash_profile<ept id="75fae9d4-bfec-49ac-8c32-b82584fa1136">&lt;/em&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="e0e16c1b-343c-4705-a679-4ef5a45e1faa" xml:space="preserve">
+          <source>Validate your installation by using the following command:</source>
+          <target state="new">Validate your installation by using the following command:</target>
+        </trans-unit>
+        <trans-unit id="92d45d0f-a441-402f-bbd4-2439236c3c44" xml:space="preserve">
+          <source>If your installation is successful, you will see the following response:</source>
+          <target state="new">If your installation is successful, you will see the following response:</target>
+        </trans-unit>
+        <trans-unit id="136373b1-1914-4464-b811-9e112ff16b64" xml:space="preserve">
+          <source>You can also check the PostgreSQL version:</source>
+          <target state="new">You can also check the PostgreSQL version:</target>
+        </trans-unit>
+        <trans-unit id="0dcfc8c2-8064-405f-9b87-857e021b002a" xml:space="preserve">
+          <source>Initialize the database:</source>
+          <target state="new">Initialize the database:</target>
+        </trans-unit>
+        <trans-unit id="f8e0c6eb-bcc8-498f-ab55-9901c2795eac" xml:space="preserve">
+          <source>You should receive the following output:</source>
+          <target state="new">You should receive the following output:</target>
+        </trans-unit>
+        <trans-unit id="1770e98a-7e95-48cd-94b7-61caa0100782" xml:space="preserve">
+          <source><bpt id="7fe4e9a2-432d-40e4-a201-e649759d46b4">&lt;linkText&gt;</bpt>image<ept id="7fe4e9a2-432d-40e4-a201-e649759d46b4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7fe4e9a2-432d-40e4-a201-e649759d46b4">&lt;linkText&gt;</bpt>image<ept id="7fe4e9a2-432d-40e4-a201-e649759d46b4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c17d25ab-d463-4214-9e04-047e50b9e9ba" xml:space="preserve">
+          <source>Run the following commands:</source>
+          <target state="new">Run the following commands:</target>
+        </trans-unit>
+        <trans-unit id="2780027d-25d2-4a98-9ee3-a88dea2ccf04" xml:space="preserve">
+          <source>Modify two variables in the /etc/init.d/postgresql file.</source>
+          <target state="new">Modify two variables in the /etc/init.d/postgresql file.</target>
+        </trans-unit>
+        <trans-unit id="e6758a5b-54ae-4bff-a6cc-e711a0c42e5b" xml:space="preserve">
+          <source>The prefix is set to the installation path of PostgreSQL: <bpt id="b598bc67-2b1d-46f7-85ca-ff80615eb78f">&lt;strong&gt;</bpt>/opt/pgsql<ept id="b598bc67-2b1d-46f7-85ca-ff80615eb78f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The prefix is set to the installation path of PostgreSQL: <bpt id="b598bc67-2b1d-46f7-85ca-ff80615eb78f">&lt;strong&gt;</bpt>/opt/pgsql<ept id="b598bc67-2b1d-46f7-85ca-ff80615eb78f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa47d4e4-2393-4699-9282-e0c7a225d633" xml:space="preserve">
+          <source>PGDATA is set to the data storage path of PostgreSQL: <bpt id="35185a73-5a83-4fe3-a534-946b59c94402">&lt;strong&gt;</bpt>/opt/pgsql_data<ept id="35185a73-5a83-4fe3-a534-946b59c94402">&lt;/strong&gt;</ept>.</source>
+          <target state="new">PGDATA is set to the data storage path of PostgreSQL: <bpt id="35185a73-5a83-4fe3-a534-946b59c94402">&lt;strong&gt;</bpt>/opt/pgsql_data<ept id="35185a73-5a83-4fe3-a534-946b59c94402">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e02c684-cd8f-4fb5-89d8-f86821827893" xml:space="preserve">
+          <source><bpt id="83795848-89e5-44cc-9f86-31791a4f7259">&lt;linkText&gt;</bpt>image<ept id="83795848-89e5-44cc-9f86-31791a4f7259">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="83795848-89e5-44cc-9f86-31791a4f7259">&lt;linkText&gt;</bpt>image<ept id="83795848-89e5-44cc-9f86-31791a4f7259">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51ada912-9562-4319-b036-8fe6ac062fd5" xml:space="preserve">
+          <source>Change the file to make it executable:</source>
+          <target state="new">Change the file to make it executable:</target>
+        </trans-unit>
+        <trans-unit id="6439da7d-16fa-4a39-88a5-a73f4216447b" xml:space="preserve">
+          <source>Start PostgreSQL:</source>
+          <target state="new">Start PostgreSQL:</target>
+        </trans-unit>
+        <trans-unit id="195f9445-54aa-42ef-a5b2-125ee126f0b7" xml:space="preserve">
+          <source>Check if the endpoint of PostgreSQL is on:</source>
+          <target state="new">Check if the endpoint of PostgreSQL is on:</target>
+        </trans-unit>
+        <trans-unit id="641872fb-6370-4cf7-8b72-a3ce3111eb7b" xml:space="preserve">
+          <source>You should see the following output:</source>
+          <target state="new">You should see the following output:</target>
+        </trans-unit>
+        <trans-unit id="8e7e8285-5165-487f-99f8-b52d21481e7a" xml:space="preserve">
+          <source><bpt id="32b6e292-d096-4d42-80c9-1dbfe5f33dd3">&lt;linkText&gt;</bpt>image<ept id="32b6e292-d096-4d42-80c9-1dbfe5f33dd3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="32b6e292-d096-4d42-80c9-1dbfe5f33dd3">&lt;linkText&gt;</bpt>image<ept id="32b6e292-d096-4d42-80c9-1dbfe5f33dd3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb75043f-8836-40c5-96d5-6f2575610080" xml:space="preserve">
+          <source>Switch to the postgres user once again:</source>
+          <target state="new">Switch to the postgres user once again:</target>
+        </trans-unit>
+        <trans-unit id="894f4a11-8157-401c-afac-c64cf4cece93" xml:space="preserve">
+          <source>Create a Postgres database:</source>
+          <target state="new">Create a Postgres database:</target>
+        </trans-unit>
+        <trans-unit id="645fefbc-0cee-485e-a7eb-249dcc8db3c2" xml:space="preserve">
+          <source>Connect to the events database that you just created:</source>
+          <target state="new">Connect to the events database that you just created:</target>
+        </trans-unit>
+        <trans-unit id="a0fb490f-5415-4e4e-9a9e-8bf22fcdf55e" xml:space="preserve">
+          <source>Now that you have connected to the database, you can create tables in it.</source>
+          <target state="new">Now that you have connected to the database, you can create tables in it.</target>
+        </trans-unit>
+        <trans-unit id="1bdcbef8-660f-4e0d-82a8-00bc42fe39a4" xml:space="preserve">
+          <source>For example, create a new example Postgres table by using the following command:</source>
+          <target state="new">For example, create a new example Postgres table by using the following command:</target>
+        </trans-unit>
+        <trans-unit id="68144054-6674-46fe-9019-4c724c9e417e" xml:space="preserve">
+          <source>You have now set up a four-column table with the following column names and restrictions:</source>
+          <target state="new">You have now set up a four-column table with the following column names and restrictions:</target>
+        </trans-unit>
+        <trans-unit id="281da189-c272-4850-b398-823cd27d3a52" xml:space="preserve">
+          <source>The “name” column has been limited by the VARCHAR command to be under 20 characters long.</source>
+          <target state="new">The “name” column has been limited by the VARCHAR command to be under 20 characters long.</target>
+        </trans-unit>
+        <trans-unit id="54433039-f830-42dc-be79-c291fd89ceca" xml:space="preserve">
+          <source>The “food” column indicates the food item that each person will bring.</source>
+          <target state="new">The “food” column indicates the food item that each person will bring.</target>
+        </trans-unit>
+        <trans-unit id="003c5024-e330-44c5-b443-d3dbcba8abd7" xml:space="preserve">
+          <source>VARCHAR limits this text to be under 30 characters.</source>
+          <target state="new">VARCHAR limits this text to be under 30 characters.</target>
+        </trans-unit>
+        <trans-unit id="2bb7c884-33f1-4806-86b0-c9602dcfa311" xml:space="preserve">
+          <source>The “confirmed” column records whether the person has RSVP’d to the potluck.</source>
+          <target state="new">The “confirmed” column records whether the person has RSVP’d to the potluck.</target>
+        </trans-unit>
+        <trans-unit id="d54c1f43-f657-4d32-8fb5-688755cb9e6f" xml:space="preserve">
+          <source>The acceptable values are "Y" and "N".</source>
+          <target state="new">The acceptable values are "Y" and "N".</target>
+        </trans-unit>
+        <trans-unit id="540becc9-2a4b-416b-b04e-a59dbe09fd96" xml:space="preserve">
+          <source>The “date” column shows when they signed up for the event.</source>
+          <target state="new">The “date” column shows when they signed up for the event.</target>
+        </trans-unit>
+        <trans-unit id="11eb6d61-58a8-4053-ab91-191d7739b67a" xml:space="preserve">
+          <source>Postgres requires that dates be written as yyyy-mm-dd.</source>
+          <target state="new">Postgres requires that dates be written as yyyy-mm-dd.</target>
+        </trans-unit>
+        <trans-unit id="079c0d2c-a473-4759-ad6d-9ca6be5f48b8" xml:space="preserve">
+          <source>You should see the following if your table has been successfully created:</source>
+          <target state="new">You should see the following if your table has been successfully created:</target>
+        </trans-unit>
+        <trans-unit id="65a1cb90-f94c-4e9c-a9dd-3d0c62cfc6c7" xml:space="preserve">
+          <source><bpt id="20b2e2ac-8882-4adc-afd9-821902ba2e49">&lt;linkText&gt;</bpt>image<ept id="20b2e2ac-8882-4adc-afd9-821902ba2e49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="20b2e2ac-8882-4adc-afd9-821902ba2e49">&lt;linkText&gt;</bpt>image<ept id="20b2e2ac-8882-4adc-afd9-821902ba2e49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d497eda-9668-487d-884e-5f5dcc3a7b42" xml:space="preserve">
+          <source>You can also check the table structure by using the following command:</source>
+          <target state="new">You can also check the table structure by using the following command:</target>
+        </trans-unit>
+        <trans-unit id="91f524c5-0e4b-450f-93f5-6b81580a1aec" xml:space="preserve">
+          <source><bpt id="766a95ea-e692-4092-a8c2-6a2e0883fc43">&lt;linkText&gt;</bpt>image<ept id="766a95ea-e692-4092-a8c2-6a2e0883fc43">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="766a95ea-e692-4092-a8c2-6a2e0883fc43">&lt;linkText&gt;</bpt>image<ept id="766a95ea-e692-4092-a8c2-6a2e0883fc43">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62e7fd9d-f73c-4b82-92a6-cbbeaa3e1247" xml:space="preserve">
+          <source>First, insert information into a row:</source>
+          <target state="new">First, insert information into a row:</target>
+        </trans-unit>
+        <trans-unit id="147214ee-eaaa-4b0c-8744-1072f22ed908" xml:space="preserve">
+          <source>You should see this output:</source>
+          <target state="new">You should see this output:</target>
+        </trans-unit>
+        <trans-unit id="da45e5c4-1d36-42f8-8af7-f89ae5ef4c88" xml:space="preserve">
+          <source><bpt id="b732ff7a-029b-4869-a30a-196a1e66be0e">&lt;linkText&gt;</bpt>image<ept id="b732ff7a-029b-4869-a30a-196a1e66be0e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b732ff7a-029b-4869-a30a-196a1e66be0e">&lt;linkText&gt;</bpt>image<ept id="b732ff7a-029b-4869-a30a-196a1e66be0e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="518bd503-19a4-4d54-b8bc-74db6184ddb8" xml:space="preserve">
+          <source>You can add a couple more people to the table as well.</source>
+          <target state="new">You can add a couple more people to the table as well.</target>
+        </trans-unit>
+        <trans-unit id="138bb875-7454-4e76-8ece-ca672ca7490c" xml:space="preserve">
+          <source>Here are some options, or you can create your own:</source>
+          <target state="new">Here are some options, or you can create your own:</target>
+        </trans-unit>
+        <trans-unit id="414e97d1-e44d-4c3a-b3eb-55fa3bfbf66c" xml:space="preserve">
+          <source>Use the following command to show a table:</source>
+          <target state="new">Use the following command to show a table:</target>
+        </trans-unit>
+        <trans-unit id="f185a9d1-bd4a-49f6-8861-fbb111f50924" xml:space="preserve">
+          <source>The output is:</source>
+          <target state="new">The output is:</target>
+        </trans-unit>
+        <trans-unit id="18f3a64d-db34-4c76-a646-e91d667d05e1" xml:space="preserve">
+          <source><bpt id="bdfb5ade-e9ab-4b8d-9199-76f201eb5dbf">&lt;linkText&gt;</bpt>image<ept id="bdfb5ade-e9ab-4b8d-9199-76f201eb5dbf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bdfb5ade-e9ab-4b8d-9199-76f201eb5dbf">&lt;linkText&gt;</bpt>image<ept id="bdfb5ade-e9ab-4b8d-9199-76f201eb5dbf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c86f9eb1-3d01-408b-bf5e-a250a472df07" xml:space="preserve">
+          <source>Use the following command to delete data in a table:</source>
+          <target state="new">Use the following command to delete data in a table:</target>
+        </trans-unit>
+        <trans-unit id="04ba727b-9312-440b-89b2-8cb71d11a088" xml:space="preserve">
+          <source>This deletes all the information in the "John" row.</source>
+          <target state="new">This deletes all the information in the "John" row.</target>
+        </trans-unit>
+        <trans-unit id="130f71e8-5e2b-411d-9b98-537751d1b761" xml:space="preserve">
+          <source>The output is:</source>
+          <target state="new">The output is:</target>
+        </trans-unit>
+        <trans-unit id="43dfbe6f-c3e8-4509-aea7-cb2e8e7356a9" xml:space="preserve">
+          <source><bpt id="e4a7f72e-c5b9-4a6e-801e-c3fddb58e04f">&lt;linkText&gt;</bpt>image<ept id="e4a7f72e-c5b9-4a6e-801e-c3fddb58e04f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e4a7f72e-c5b9-4a6e-801e-c3fddb58e04f">&lt;linkText&gt;</bpt>image<ept id="e4a7f72e-c5b9-4a6e-801e-c3fddb58e04f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2357fec-2d8a-4fb6-8cb1-509ea39ba227" xml:space="preserve">
+          <source>Use the following command to update data in a table.</source>
+          <target state="new">Use the following command to update data in a table.</target>
+        </trans-unit>
+        <trans-unit id="9d31a577-0522-4989-8787-e7be17e6b440" xml:space="preserve">
+          <source>For this one, Sandy has confirmed that she is attending, so we will change her RSVP from "N" to "Y":</source>
+          <target state="new">For this one, Sandy has confirmed that she is attending, so we will change her RSVP from "N" to "Y":</target>
+        </trans-unit>
+        <trans-unit id="4b48a4b3-3a9f-43e7-942f-8d15867afd91" xml:space="preserve">
+          <source>Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure.</source>
+          <target state="new">Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure.</target>
+        </trans-unit>
+        <trans-unit id="29421dd0-1a4e-4b66-b5bb-9cfc58b7e037" xml:space="preserve">
+          <source>To learn more about PostgreSQL, visit the <bpt id="18bfbaf8-f7f6-47ec-ab10-cd4c37d08a87">&lt;linkText&gt;</bpt>PostgreSQL website<ept id="18bfbaf8-f7f6-47ec-ab10-cd4c37d08a87">&lt;/linkText&gt;</ept><bpt id="18bfbaf8-f7f6-47ec-ab10-cd4c37d08a87">&lt;title&gt;</bpt><ept id="18bfbaf8-f7f6-47ec-ab10-cd4c37d08a87">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about PostgreSQL, visit the <bpt id="18bfbaf8-f7f6-47ec-ab10-cd4c37d08a87">&lt;linkText&gt;</bpt>PostgreSQL website<ept id="18bfbaf8-f7f6-47ec-ab10-cd4c37d08a87">&lt;/linkText&gt;</ept><bpt id="18bfbaf8-f7f6-47ec-ab10-cd4c37d08a87">&lt;title&gt;</bpt><ept id="18bfbaf8-f7f6-47ec-ab10-cd4c37d08a87">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

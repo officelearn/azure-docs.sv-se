@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="41e361e4-b4f0-48ec-96b3-055ffebaf69b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="41e361e4-b4f0-48ec-96b3-055ffebaf69b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3fef505a-ad38-4d26-b75e-21b4b765c2df">
+        <trans-unit id="80354796-9aed-4d00-b7c4-e369ea60aae8" xml:space="preserve">
+          <source>Back up Windows Server or Windows Client files and folders to Azure | Microsoft Azure</source>
+          <target state="new">Back up Windows Server or Windows Client files and folders to Azure | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7a3f9f38-56d7-4282-8014-9f9ff1842832" xml:space="preserve">
+          <source>Learn how to backup from a Windows Server or Windows Client to Azure.</source>
+          <target state="new">Learn how to backup from a Windows Server or Windows Client to Azure.</target>
+        </trans-unit>
+        <trans-unit id="c9702738-d0aa-4032-a6c2-4e8be0c854fd" xml:space="preserve">
+          <source>This article covers the steps required to back up Windows server or Windows client files and folders to Azure.</source>
+          <target state="new">This article covers the steps required to back up Windows server or Windows client files and folders to Azure.</target>
+        </trans-unit>
+        <trans-unit id="2cffd593-8819-4832-a34a-048fcc462906" xml:space="preserve">
+          <source>Before you proceed, ensure that all the  <bpt id="4e4efcc5-77cb-4a53-957b-64985826a5da">&lt;linkText&gt;</bpt>prerequisites<ept id="4e4efcc5-77cb-4a53-957b-64985826a5da">&lt;/linkText&gt;</ept><bpt id="4e4efcc5-77cb-4a53-957b-64985826a5da">&lt;title&gt;</bpt><ept id="4e4efcc5-77cb-4a53-957b-64985826a5da">&lt;/title&gt;</ept> for using Microsoft Azure Backup to protect Windows Server and Windows Client are met.</source>
+          <target state="new">Before you proceed, ensure that all the  <bpt id="4e4efcc5-77cb-4a53-957b-64985826a5da">&lt;linkText&gt;</bpt>prerequisites<ept id="4e4efcc5-77cb-4a53-957b-64985826a5da">&lt;/linkText&gt;</ept><bpt id="4e4efcc5-77cb-4a53-957b-64985826a5da">&lt;title&gt;</bpt><ept id="4e4efcc5-77cb-4a53-957b-64985826a5da">&lt;/title&gt;</ept> for using Microsoft Azure Backup to protect Windows Server and Windows Client are met.</target>
+        </trans-unit>
+        <trans-unit id="0216a60a-b6b4-4c64-93f8-25087dbc56dc" xml:space="preserve">
+          <source>The prerequisites cover tasks such as: creating a backup vault, downloading vault credentials, installing the Azure Backup Agent, and registering the machine with the vault.</source>
+          <target state="new">The prerequisites cover tasks such as: creating a backup vault, downloading vault credentials, installing the Azure Backup Agent, and registering the machine with the vault.</target>
+        </trans-unit>
+        <trans-unit id="4f671d13-c264-4a24-89e3-8f6408911483" xml:space="preserve">
+          <source>Once the machine is registered, open the Microsoft Azure Backup mmc snap-in.</source>
+          <target state="new">Once the machine is registered, open the Microsoft Azure Backup mmc snap-in.</target>
+        </trans-unit>
+        <trans-unit id="a4dab7bc-1625-4228-b440-54eaa43948a6" xml:space="preserve">
+          <source><bpt id="42fc477f-5ba4-43a0-bb65-41174bcf6c59">&lt;linkText&gt;</bpt>Search result<ept id="42fc477f-5ba4-43a0-bb65-41174bcf6c59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="42fc477f-5ba4-43a0-bb65-41174bcf6c59">&lt;linkText&gt;</bpt>Search result<ept id="42fc477f-5ba4-43a0-bb65-41174bcf6c59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3da1deb-69fa-46ef-a300-200b82690e32" xml:space="preserve">
+          <source>Click <bpt id="cec02192-a08e-4eb3-94ff-2ea792588a3f">&lt;strong&gt;</bpt>Schedule Backup<ept id="cec02192-a08e-4eb3-94ff-2ea792588a3f">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="cec02192-a08e-4eb3-94ff-2ea792588a3f">&lt;strong&gt;</bpt>Schedule Backup<ept id="cec02192-a08e-4eb3-94ff-2ea792588a3f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61f75097-0c42-4337-8930-03edf8ec14d5" xml:space="preserve">
+          <source><bpt id="6165ccbe-7fcb-4d1a-ac14-6b4858d7ca6b">&lt;linkText&gt;</bpt>Schedule Backup<ept id="6165ccbe-7fcb-4d1a-ac14-6b4858d7ca6b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6165ccbe-7fcb-4d1a-ac14-6b4858d7ca6b">&lt;linkText&gt;</bpt>Schedule Backup<ept id="6165ccbe-7fcb-4d1a-ac14-6b4858d7ca6b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9765f3eb-8132-4ca1-8376-d4a427e8a0b9" xml:space="preserve">
+          <source>Select the items you wish to back up.</source>
+          <target state="new">Select the items you wish to back up.</target>
+        </trans-unit>
+        <trans-unit id="0d2e5fe2-feb4-4e76-96e6-d727c3c42ad2" xml:space="preserve">
+          <source>Azure Backup on a Windows Server/Windows Client (i.e without System Center Data Protection Manager) enables you to protect files and folders.</source>
+          <target state="new">Azure Backup on a Windows Server/Windows Client (i.e without System Center Data Protection Manager) enables you to protect files and folders.</target>
+        </trans-unit>
+        <trans-unit id="1da06afb-0410-498d-8157-009aa514cee5" xml:space="preserve">
+          <source><bpt id="070efe14-b364-45a5-8ec0-7f0306cbe22f">&lt;linkText&gt;</bpt>Items to Backup<ept id="070efe14-b364-45a5-8ec0-7f0306cbe22f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="070efe14-b364-45a5-8ec0-7f0306cbe22f">&lt;linkText&gt;</bpt>Items to Backup<ept id="070efe14-b364-45a5-8ec0-7f0306cbe22f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc33885d-8831-4668-abc9-c32e761b61f6" xml:space="preserve">
+          <source>Specify the backup schedule and retention policy which is explained in detail in the following <bpt id="7216f3ba-06aa-490e-b5aa-0b26a51a93bc">&lt;linkText&gt;</bpt>article<ept id="7216f3ba-06aa-490e-b5aa-0b26a51a93bc">&lt;/linkText&gt;</ept><bpt id="7216f3ba-06aa-490e-b5aa-0b26a51a93bc">&lt;title&gt;</bpt><ept id="7216f3ba-06aa-490e-b5aa-0b26a51a93bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Specify the backup schedule and retention policy which is explained in detail in the following <bpt id="7216f3ba-06aa-490e-b5aa-0b26a51a93bc">&lt;linkText&gt;</bpt>article<ept id="7216f3ba-06aa-490e-b5aa-0b26a51a93bc">&lt;/linkText&gt;</ept><bpt id="7216f3ba-06aa-490e-b5aa-0b26a51a93bc">&lt;title&gt;</bpt><ept id="7216f3ba-06aa-490e-b5aa-0b26a51a93bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="242358d5-486d-459c-891b-ef54f13f30b6" xml:space="preserve">
+          <source>Choose the method for sending the initial backup.</source>
+          <target state="new">Choose the method for sending the initial backup.</target>
+        </trans-unit>
+        <trans-unit id="9c674b3a-0a3e-424f-ad9d-76217886af9b" xml:space="preserve">
+          <source>Your choice of completing the initial seeding is dependent on the amount of data you wish to back up and your internet upload link speed.</source>
+          <target state="new">Your choice of completing the initial seeding is dependent on the amount of data you wish to back up and your internet upload link speed.</target>
+        </trans-unit>
+        <trans-unit id="431fb3cf-5d0e-4d0b-b652-840c2497a13e" xml:space="preserve">
+          <source>If you plan to back up GB’s/TB’s of data over a high latency, low bandwidth connection, it is recommended that you complete the initial backup by shipping a disk to the nearest Azure data center.</source>
+          <target state="new">If you plan to back up GB’s/TB’s of data over a high latency, low bandwidth connection, it is recommended that you complete the initial backup by shipping a disk to the nearest Azure data center.</target>
+        </trans-unit>
+        <trans-unit id="34908ba5-8a37-42f2-a234-8edf037cfea6" xml:space="preserve">
+          <source>This is called “Offline Backup” and is covered in detail in this <bpt id="022d8030-bd8f-4913-9f33-612d9ef91555">&lt;linkText&gt;</bpt>article<ept id="022d8030-bd8f-4913-9f33-612d9ef91555">&lt;/linkText&gt;</ept><bpt id="022d8030-bd8f-4913-9f33-612d9ef91555">&lt;title&gt;</bpt><ept id="022d8030-bd8f-4913-9f33-612d9ef91555">&lt;/title&gt;</ept>.</source>
+          <target state="new">This is called “Offline Backup” and is covered in detail in this <bpt id="022d8030-bd8f-4913-9f33-612d9ef91555">&lt;linkText&gt;</bpt>article<ept id="022d8030-bd8f-4913-9f33-612d9ef91555">&lt;/linkText&gt;</ept><bpt id="022d8030-bd8f-4913-9f33-612d9ef91555">&lt;title&gt;</bpt><ept id="022d8030-bd8f-4913-9f33-612d9ef91555">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eff1e584-087b-4080-af61-6f1855f45bbc" xml:space="preserve">
+          <source>If you have a sufficient bandwidth connection we recommend that you complete the initial backup over the network.</source>
+          <target state="new">If you have a sufficient bandwidth connection we recommend that you complete the initial backup over the network.</target>
+        </trans-unit>
+        <trans-unit id="1dc2c98e-6052-43ac-838b-7d4ac00330a8" xml:space="preserve">
+          <source><bpt id="3ee29ffc-a91b-4afb-bb61-e112eea473ff">&lt;linkText&gt;</bpt>Initial Backup<ept id="3ee29ffc-a91b-4afb-bb61-e112eea473ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ee29ffc-a91b-4afb-bb61-e112eea473ff">&lt;linkText&gt;</bpt>Initial Backup<ept id="3ee29ffc-a91b-4afb-bb61-e112eea473ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1da169e0-6543-4333-b540-fd33335b51fa" xml:space="preserve">
+          <source>After the schedule backup process is completed, go back to the mmc snap in and click <bpt id="ec1e370c-201c-4d9c-aca0-af703f153ac7">&lt;strong&gt;</bpt>Back up Now<ept id="ec1e370c-201c-4d9c-aca0-af703f153ac7">&lt;/strong&gt;</ept> to complete the initial seeding over the network.</source>
+          <target state="new">After the schedule backup process is completed, go back to the mmc snap in and click <bpt id="ec1e370c-201c-4d9c-aca0-af703f153ac7">&lt;strong&gt;</bpt>Back up Now<ept id="ec1e370c-201c-4d9c-aca0-af703f153ac7">&lt;/strong&gt;</ept> to complete the initial seeding over the network.</target>
+        </trans-unit>
+        <trans-unit id="467ab037-e7a3-4edf-95b7-aea25ae1fd6f" xml:space="preserve">
+          <source><bpt id="7b408894-da83-43d4-be3f-6bda47f8ebc7">&lt;linkText&gt;</bpt>Backup now<ept id="7b408894-da83-43d4-be3f-6bda47f8ebc7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7b408894-da83-43d4-be3f-6bda47f8ebc7">&lt;linkText&gt;</bpt>Backup now<ept id="7b408894-da83-43d4-be3f-6bda47f8ebc7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ce789a6-a9f8-47ae-aa4a-20cdb88b3024" xml:space="preserve">
+          <source>After the initial seeding is completed, the <bpt id="2c61e598-24ff-4fef-ac82-49f4116bd6e8">&lt;strong&gt;</bpt>Jobs<ept id="2c61e598-24ff-4fef-ac82-49f4116bd6e8">&lt;/strong&gt;</ept> view in the Azure Backup console indicates the status.</source>
+          <target state="new">After the initial seeding is completed, the <bpt id="2c61e598-24ff-4fef-ac82-49f4116bd6e8">&lt;strong&gt;</bpt>Jobs<ept id="2c61e598-24ff-4fef-ac82-49f4116bd6e8">&lt;/strong&gt;</ept> view in the Azure Backup console indicates the status.</target>
+        </trans-unit>
+        <trans-unit id="106fb458-6352-41de-96fb-56324b567968" xml:space="preserve">
+          <source><bpt id="9b155782-5916-4f87-b65f-ba452a2fbbe8">&lt;linkText&gt;</bpt>IR complete<ept id="9b155782-5916-4f87-b65f-ba452a2fbbe8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b155782-5916-4f87-b65f-ba452a2fbbe8">&lt;linkText&gt;</bpt>IR complete<ept id="9b155782-5916-4f87-b65f-ba452a2fbbe8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c507d93-099b-466f-a23e-ba3f016ebe77" xml:space="preserve">
+          <source><bpt id="1db30379-cb64-49ae-8889-b0d6384ff84f">&lt;linkText&gt;</bpt>Manage Windows Server or Windows Client<ept id="1db30379-cb64-49ae-8889-b0d6384ff84f">&lt;/linkText&gt;</ept><bpt id="1db30379-cb64-49ae-8889-b0d6384ff84f">&lt;title&gt;</bpt><ept id="1db30379-cb64-49ae-8889-b0d6384ff84f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1db30379-cb64-49ae-8889-b0d6384ff84f">&lt;linkText&gt;</bpt>Manage Windows Server or Windows Client<ept id="1db30379-cb64-49ae-8889-b0d6384ff84f">&lt;/linkText&gt;</ept><bpt id="1db30379-cb64-49ae-8889-b0d6384ff84f">&lt;title&gt;</bpt><ept id="1db30379-cb64-49ae-8889-b0d6384ff84f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52760e3e-6498-46d1-a420-87fd28b19665" xml:space="preserve">
+          <source><bpt id="330e8793-7162-4cd7-83f6-4a75f4fb988a">&lt;linkText&gt;</bpt>Restore Windows Server or Windows Client from Azure<ept id="330e8793-7162-4cd7-83f6-4a75f4fb988a">&lt;/linkText&gt;</ept><bpt id="330e8793-7162-4cd7-83f6-4a75f4fb988a">&lt;title&gt;</bpt><ept id="330e8793-7162-4cd7-83f6-4a75f4fb988a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="330e8793-7162-4cd7-83f6-4a75f4fb988a">&lt;linkText&gt;</bpt>Restore Windows Server or Windows Client from Azure<ept id="330e8793-7162-4cd7-83f6-4a75f4fb988a">&lt;/linkText&gt;</ept><bpt id="330e8793-7162-4cd7-83f6-4a75f4fb988a">&lt;title&gt;</bpt><ept id="330e8793-7162-4cd7-83f6-4a75f4fb988a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7eda7ca4-352c-4982-a99c-cca05d27ee98" xml:space="preserve">
+          <source><bpt id="1b5bc968-5891-4eff-8d00-e64e59a04fc7">&lt;linkText&gt;</bpt>Azure Backup FAQ<ept id="1b5bc968-5891-4eff-8d00-e64e59a04fc7">&lt;/linkText&gt;</ept><bpt id="1b5bc968-5891-4eff-8d00-e64e59a04fc7">&lt;title&gt;</bpt><ept id="1b5bc968-5891-4eff-8d00-e64e59a04fc7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1b5bc968-5891-4eff-8d00-e64e59a04fc7">&lt;linkText&gt;</bpt>Azure Backup FAQ<ept id="1b5bc968-5891-4eff-8d00-e64e59a04fc7">&lt;/linkText&gt;</ept><bpt id="1b5bc968-5891-4eff-8d00-e64e59a04fc7">&lt;title&gt;</bpt><ept id="1b5bc968-5891-4eff-8d00-e64e59a04fc7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2c934d8a-3b07-46d7-b60c-e145d91d6dc7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2c934d8a-3b07-46d7-b60c-e145d91d6dc7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="da23488d-bca9-433c-8fc4-e3a43bce05bf">
+        <trans-unit id="57e8c0f0-5e16-4ce2-9fb7-851380216fc7" xml:space="preserve">
+          <source>Using soft delete in Mobile Services (Windows Store) | Microsoft Azure</source>
+          <target state="new">Using soft delete in Mobile Services (Windows Store) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="90d6c7b9-3a36-4382-975f-783827efe84a" xml:space="preserve">
+          <source>Learn how to use Azure Mobile Services soft delete feature in your application</source>
+          <target state="new">Learn how to use Azure Mobile Services soft delete feature in your application</target>
+        </trans-unit>
+        <trans-unit id="3411a641-660f-4c0f-9c0a-6a6fa359526e" xml:space="preserve">
+          <source>Tables created with either the JavaScript or .NET backend can optionally have soft delete enabled.</source>
+          <target state="new">Tables created with either the JavaScript or .NET backend can optionally have soft delete enabled.</target>
+        </trans-unit>
+        <trans-unit id="5a21f09e-7230-4631-b29d-be0ce9fea7c3" xml:space="preserve">
+          <source>When using soft delete, a new column called <bpt id="43de1323-142d-49f9-a9e7-64150745ac9c">&lt;em&gt;</bpt>\__deleted<ept id="43de1323-142d-49f9-a9e7-64150745ac9c">&lt;/em&gt;</ept> of [SQL bit type] is added to the database.</source>
+          <target state="new">When using soft delete, a new column called <bpt id="43de1323-142d-49f9-a9e7-64150745ac9c">&lt;em&gt;</bpt>\__deleted<ept id="43de1323-142d-49f9-a9e7-64150745ac9c">&lt;/em&gt;</ept> of [SQL bit type] is added to the database.</target>
+        </trans-unit>
+        <trans-unit id="f8ce3f7f-c0a6-4c39-97f1-433652bfabfb" xml:space="preserve">
+          <source>With soft delete enabled, a delete operation does not physically delete rows from the database, but rather sets the value of the deleted column to TRUE.</source>
+          <target state="new">With soft delete enabled, a delete operation does not physically delete rows from the database, but rather sets the value of the deleted column to TRUE.</target>
+        </trans-unit>
+        <trans-unit id="87bc0c0e-d963-43b3-835b-9af441f88463" xml:space="preserve">
+          <source>When querying records on a table with soft delete enabled, deleted rows are not returned in the query by default.</source>
+          <target state="new">When querying records on a table with soft delete enabled, deleted rows are not returned in the query by default.</target>
+        </trans-unit>
+        <trans-unit id="04c88190-2099-4762-824c-032b56feec81" xml:space="preserve">
+          <source>In order to request these rows, you must pass a query parameter <bpt id="8700ef62-6352-47fe-8a77-ada594b6b33c">&lt;em&gt;</bpt>\__includeDeleted=true<ept id="8700ef62-6352-47fe-8a77-ada594b6b33c">&lt;/em&gt;</ept> in your <bpt id="8b03470b-a74d-49ad-9531-ba7155abfc62">&lt;linkText&gt;</bpt>REST Query operaation<ept id="8b03470b-a74d-49ad-9531-ba7155abfc62">&lt;/linkText&gt;</ept><bpt id="8b03470b-a74d-49ad-9531-ba7155abfc62">&lt;title&gt;</bpt><ept id="8b03470b-a74d-49ad-9531-ba7155abfc62">&lt;/title&gt;</ept>.</source>
+          <target state="new">In order to request these rows, you must pass a query parameter <bpt id="8700ef62-6352-47fe-8a77-ada594b6b33c">&lt;em&gt;</bpt>\__includeDeleted=true<ept id="8700ef62-6352-47fe-8a77-ada594b6b33c">&lt;/em&gt;</ept> in your <bpt id="8b03470b-a74d-49ad-9531-ba7155abfc62">&lt;linkText&gt;</bpt>REST Query operaation<ept id="8b03470b-a74d-49ad-9531-ba7155abfc62">&lt;/linkText&gt;</ept><bpt id="8b03470b-a74d-49ad-9531-ba7155abfc62">&lt;title&gt;</bpt><ept id="8b03470b-a74d-49ad-9531-ba7155abfc62">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4fc379bb-70f2-4d29-96e8-d150f7402995" xml:space="preserve">
+          <source>In the .NET client SDK, you can also use the helper method <bpt id="0b0f7df0-6430-4456-b7ee-bd8252191e65">&lt;code&gt;</bpt>IMobileServiceTable.IncludeDeleted()<ept id="0b0f7df0-6430-4456-b7ee-bd8252191e65">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the .NET client SDK, you can also use the helper method <bpt id="0b0f7df0-6430-4456-b7ee-bd8252191e65">&lt;code&gt;</bpt>IMobileServiceTable.IncludeDeleted()<ept id="0b0f7df0-6430-4456-b7ee-bd8252191e65">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4a187e5-4c5c-41a1-b4b4-b2c50d5a5d38" xml:space="preserve">
+          <source>Soft delete support for the .NET backend first released with version 1.0.402 of the Microsoft Azure Mobile Services .NET Backend.</source>
+          <target state="new">Soft delete support for the .NET backend first released with version 1.0.402 of the Microsoft Azure Mobile Services .NET Backend.</target>
+        </trans-unit>
+        <trans-unit id="8bad14de-d7a1-4a57-a786-fdcbf8070bd4" xml:space="preserve">
+          <source>The latest NuGet packages are available here, <bpt id="c2ffda25-14c0-49d4-96c0-90474050e1ab">&lt;linkText&gt;</bpt>Microsoft Azure Mobile Services .NET Backend<ept id="c2ffda25-14c0-49d4-96c0-90474050e1ab">&lt;/linkText&gt;</ept><bpt id="c2ffda25-14c0-49d4-96c0-90474050e1ab">&lt;title&gt;</bpt><ept id="c2ffda25-14c0-49d4-96c0-90474050e1ab">&lt;/title&gt;</ept>.</source>
+          <target state="new">The latest NuGet packages are available here, <bpt id="c2ffda25-14c0-49d4-96c0-90474050e1ab">&lt;linkText&gt;</bpt>Microsoft Azure Mobile Services .NET Backend<ept id="c2ffda25-14c0-49d4-96c0-90474050e1ab">&lt;/linkText&gt;</ept><bpt id="c2ffda25-14c0-49d4-96c0-90474050e1ab">&lt;title&gt;</bpt><ept id="c2ffda25-14c0-49d4-96c0-90474050e1ab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3310f54c-faf5-42ec-900d-950eff96664e" xml:space="preserve">
+          <source>Some of the potential benefits of using soft delete:</source>
+          <target state="new">Some of the potential benefits of using soft delete:</target>
+        </trans-unit>
+        <trans-unit id="ca70967b-cec6-47ce-9001-2d2c721f8dc4" xml:space="preserve">
+          <source>When using the [Offline data Sync for Mobile Services] feature, the client SDK automatically queries for deleted records and removes them from the local database.</source>
+          <target state="new">When using the [Offline data Sync for Mobile Services] feature, the client SDK automatically queries for deleted records and removes them from the local database.</target>
+        </trans-unit>
+        <trans-unit id="43b7f18e-1738-4d8a-95fb-7aaa0cb1bd23" xml:space="preserve">
+          <source>Without soft delete enabled, you need to write additional code on the backend so that the client SDK knows which records to remove from the local store.</source>
+          <target state="new">Without soft delete enabled, you need to write additional code on the backend so that the client SDK knows which records to remove from the local store.</target>
+        </trans-unit>
+        <trans-unit id="8ac6d60e-2400-4cdf-8cf8-6b2c535b5160" xml:space="preserve">
+          <source>Otherwise, the client local store and backend will be inconsistent with regard to these deleted records and the client method <bpt id="794b374d-26ba-4f5f-93fc-e60ab6907563">&lt;code&gt;</bpt>PurgeAsync()<ept id="794b374d-26ba-4f5f-93fc-e60ab6907563">&lt;/code&gt;</ept> must be called to clear the local store.</source>
+          <target state="new">Otherwise, the client local store and backend will be inconsistent with regard to these deleted records and the client method <bpt id="794b374d-26ba-4f5f-93fc-e60ab6907563">&lt;code&gt;</bpt>PurgeAsync()<ept id="794b374d-26ba-4f5f-93fc-e60ab6907563">&lt;/code&gt;</ept> must be called to clear the local store.</target>
+        </trans-unit>
+        <trans-unit id="7a01fedd-ae81-4aa9-a25d-bb530c8ddfd4" xml:space="preserve">
+          <source>Some applications have a business requirement to never physically delete data, or to delete data only after it has been audited.</source>
+          <target state="new">Some applications have a business requirement to never physically delete data, or to delete data only after it has been audited.</target>
+        </trans-unit>
+        <trans-unit id="e7ea9c6f-cb33-4d5e-8615-9f3dceb463d0" xml:space="preserve">
+          <source>The soft delete feature can be useful in this scenario.</source>
+          <target state="new">The soft delete feature can be useful in this scenario.</target>
+        </trans-unit>
+        <trans-unit id="0d3e7dd0-037f-4ebd-bbd5-fec77f11b47e" xml:space="preserve">
+          <source>Soft delete can be used to implement an "undelete" feature, so that data deleted by accident can be recovered.</source>
+          <target state="new">Soft delete can be used to implement an "undelete" feature, so that data deleted by accident can be recovered.</target>
+        </trans-unit>
+        <trans-unit id="c706860c-8aba-4199-98d9-12f082d554d7" xml:space="preserve">
+          <source>However, soft deleted records take up space in the database, so you should consider creating a scheduled job to periodically hard delete the soft deleted records.</source>
+          <target state="new">However, soft deleted records take up space in the database, so you should consider creating a scheduled job to periodically hard delete the soft deleted records.</target>
+        </trans-unit>
+        <trans-unit id="5ae85af7-fdcc-4181-993f-08ed37761ff5" xml:space="preserve">
+          <source>For an example of this, see [Using soft delete with the .NET backend] and [Using soft delete with the JavaScript backend].</source>
+          <target state="new">For an example of this, see [Using soft delete with the .NET backend] and [Using soft delete with the JavaScript backend].</target>
+        </trans-unit>
+        <trans-unit id="aea3762d-44a8-4a95-ba36-e6f5f75d31f7" xml:space="preserve">
+          <source>Your client code should also periodically call <bpt id="957e58eb-5bae-4513-b617-081c22a54957">&lt;code&gt;</bpt>PurgeAsync()<ept id="957e58eb-5bae-4513-b617-081c22a54957">&lt;/code&gt;</ept> so that these hard deleted records do not remain in the device's local data store.</source>
+          <target state="new">Your client code should also periodically call <bpt id="957e58eb-5bae-4513-b617-081c22a54957">&lt;code&gt;</bpt>PurgeAsync()<ept id="957e58eb-5bae-4513-b617-081c22a54957">&lt;/code&gt;</ept> so that these hard deleted records do not remain in the device's local data store.</target>
+        </trans-unit>
+        <trans-unit id="6cc49a71-da8a-40f3-b5fe-d6bad69679b1" xml:space="preserve">
+          <source>Soft delete support for the .NET backend first released with version 1.0.402 of the Microsoft Azure Mobile Services .NET Backend.</source>
+          <target state="new">Soft delete support for the .NET backend first released with version 1.0.402 of the Microsoft Azure Mobile Services .NET Backend.</target>
+        </trans-unit>
+        <trans-unit id="bc592f1a-f859-4bc2-86eb-db7fc3f85200" xml:space="preserve">
+          <source>The latest NuGet packages are available here, <bpt id="36b0746d-60f6-4d97-b393-48e0c82b1d4e">&lt;linkText&gt;</bpt>Microsoft Azure Mobile Services .NET Backend<ept id="36b0746d-60f6-4d97-b393-48e0c82b1d4e">&lt;/linkText&gt;</ept><bpt id="36b0746d-60f6-4d97-b393-48e0c82b1d4e">&lt;title&gt;</bpt><ept id="36b0746d-60f6-4d97-b393-48e0c82b1d4e">&lt;/title&gt;</ept>.</source>
+          <target state="new">The latest NuGet packages are available here, <bpt id="36b0746d-60f6-4d97-b393-48e0c82b1d4e">&lt;linkText&gt;</bpt>Microsoft Azure Mobile Services .NET Backend<ept id="36b0746d-60f6-4d97-b393-48e0c82b1d4e">&lt;/linkText&gt;</ept><bpt id="36b0746d-60f6-4d97-b393-48e0c82b1d4e">&lt;title&gt;</bpt><ept id="36b0746d-60f6-4d97-b393-48e0c82b1d4e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1020e143-aef2-4dcc-a5a2-81c18a151ff2" xml:space="preserve">
+          <source>The following steps guide you on how to enable soft delete for a .NET backend mobile service.</source>
+          <target state="new">The following steps guide you on how to enable soft delete for a .NET backend mobile service.</target>
+        </trans-unit>
+        <trans-unit id="4c50fbe7-f831-4fd8-8de5-a893a6fa4563" xml:space="preserve">
+          <source>Open your .NET backend mobile service project in Visual Studio.</source>
+          <target state="new">Open your .NET backend mobile service project in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="d5d6df11-9b60-4679-b08b-bb20a952f9fc" xml:space="preserve">
+          <source>Right click the .NET backend project and click <bpt id="191d8617-074b-4fd9-8c05-3eb11f5c6563">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="191d8617-074b-4fd9-8c05-3eb11f5c6563">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right click the .NET backend project and click <bpt id="191d8617-074b-4fd9-8c05-3eb11f5c6563">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="191d8617-074b-4fd9-8c05-3eb11f5c6563">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="59998722-de90-44f3-8edf-acdaa42bc756" xml:space="preserve">
+          <source>In the package manager dialog, click <bpt id="71c056a0-dabf-498e-a8d2-27a9950a9d27">&lt;strong&gt;</bpt>Nuget.org<ept id="71c056a0-dabf-498e-a8d2-27a9950a9d27">&lt;/strong&gt;</ept> under updates and install version 1.0.402 or later of the <bpt id="2bc32699-2b98-40f5-b058-ad7d75a8e218">&lt;linkText&gt;</bpt>Microsoft Azure Mobile Services .NET Backend<ept id="2bc32699-2b98-40f5-b058-ad7d75a8e218">&lt;/linkText&gt;</ept><bpt id="2bc32699-2b98-40f5-b058-ad7d75a8e218">&lt;title&gt;</bpt><ept id="2bc32699-2b98-40f5-b058-ad7d75a8e218">&lt;/title&gt;</ept> NuGet packages.</source>
+          <target state="new">In the package manager dialog, click <bpt id="71c056a0-dabf-498e-a8d2-27a9950a9d27">&lt;strong&gt;</bpt>Nuget.org<ept id="71c056a0-dabf-498e-a8d2-27a9950a9d27">&lt;/strong&gt;</ept> under updates and install version 1.0.402 or later of the <bpt id="2bc32699-2b98-40f5-b058-ad7d75a8e218">&lt;linkText&gt;</bpt>Microsoft Azure Mobile Services .NET Backend<ept id="2bc32699-2b98-40f5-b058-ad7d75a8e218">&lt;/linkText&gt;</ept><bpt id="2bc32699-2b98-40f5-b058-ad7d75a8e218">&lt;title&gt;</bpt><ept id="2bc32699-2b98-40f5-b058-ad7d75a8e218">&lt;/title&gt;</ept> NuGet packages.</target>
+        </trans-unit>
+        <trans-unit id="1f4ba6dc-1e42-4cd3-8d49-47bea055e0f2" xml:space="preserve">
+          <source>In Solution Explorer for Visual Studio, expand the <bpt id="c8ee6ff2-ad34-456b-9d4f-2276cf11acd7">&lt;strong&gt;</bpt>Controllers<ept id="c8ee6ff2-ad34-456b-9d4f-2276cf11acd7">&lt;/strong&gt;</ept> node under your .NET backend project and open your controller source for.</source>
+          <target state="new">In Solution Explorer for Visual Studio, expand the <bpt id="c8ee6ff2-ad34-456b-9d4f-2276cf11acd7">&lt;strong&gt;</bpt>Controllers<ept id="c8ee6ff2-ad34-456b-9d4f-2276cf11acd7">&lt;/strong&gt;</ept> node under your .NET backend project and open your controller source for.</target>
+        </trans-unit>
+        <trans-unit id="f79dadac-9ac2-4cd5-9030-759bd3bb611e" xml:space="preserve">
+          <source>For example, <bpt id="7a8cfd84-42a9-4c5e-b9d7-363aaefee741">&lt;em&gt;</bpt>TodoItemController.cs<ept id="7a8cfd84-42a9-4c5e-b9d7-363aaefee741">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="7a8cfd84-42a9-4c5e-b9d7-363aaefee741">&lt;em&gt;</bpt>TodoItemController.cs<ept id="7a8cfd84-42a9-4c5e-b9d7-363aaefee741">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="621e35b5-6d6f-49a1-aeec-c51fc37e6209" xml:space="preserve">
+          <source>In the <bpt id="dce2e29f-1cda-48e7-b051-049a9d3e221d">&lt;code&gt;</bpt>Initialize()<ept id="dce2e29f-1cda-48e7-b051-049a9d3e221d">&lt;/code&gt;</ept> method of your controller, pass the <bpt id="0dc83b66-87e4-4ef7-8635-ba591cbe2d2d">&lt;code&gt;</bpt>enableSoftDelete: true<ept id="0dc83b66-87e4-4ef7-8635-ba591cbe2d2d">&lt;/code&gt;</ept> parameter to the EntityDomainManager constructor.</source>
+          <target state="new">In the <bpt id="dce2e29f-1cda-48e7-b051-049a9d3e221d">&lt;code&gt;</bpt>Initialize()<ept id="dce2e29f-1cda-48e7-b051-049a9d3e221d">&lt;/code&gt;</ept> method of your controller, pass the <bpt id="0dc83b66-87e4-4ef7-8635-ba591cbe2d2d">&lt;code&gt;</bpt>enableSoftDelete: true<ept id="0dc83b66-87e4-4ef7-8635-ba591cbe2d2d">&lt;/code&gt;</ept> parameter to the EntityDomainManager constructor.</target>
+        </trans-unit>
+        <trans-unit id="5626ee3c-f13c-4d03-8ac1-cc1dd92dfc29" xml:space="preserve">
+          <source>If you are creating a new table for your mobile service, you can enable soft delete on the table creation page.</source>
+          <target state="new">If you are creating a new table for your mobile service, you can enable soft delete on the table creation page.</target>
+        </trans-unit>
+        <trans-unit id="bffcfb5b-c9ee-4524-9b21-8fbba96da4f2" xml:space="preserve">
+          <source><bpt id="cfc8916e-1c63-45df-b788-b4bf9266bcb3">&lt;linkText&gt;</bpt><ept id="cfc8916e-1c63-45df-b788-b4bf9266bcb3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cfc8916e-1c63-45df-b788-b4bf9266bcb3">&lt;linkText&gt;</bpt><ept id="cfc8916e-1c63-45df-b788-b4bf9266bcb3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7c210bf-bc8e-4b38-acdf-a9cc4564d197" xml:space="preserve">
+          <source>To enable soft delete on an existing table in the JavaScript backend:</source>
+          <target state="new">To enable soft delete on an existing table in the JavaScript backend:</target>
+        </trans-unit>
+        <trans-unit id="67c6b3c4-01a4-49f3-82a9-575eaf7283c1" xml:space="preserve">
+          <source>In the [Management Portal], click your mobile service.</source>
+          <target state="new">In the [Management Portal], click your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="5c1d8439-06f6-4ceb-82ab-0acf81456014" xml:space="preserve">
+          <source>Then click the Data tab.</source>
+          <target state="new">Then click the Data tab.</target>
+        </trans-unit>
+        <trans-unit id="e0a62d7b-20e5-4874-bbda-1b367b6b9d73" xml:space="preserve">
+          <source>On the data page, click to select the desired table.</source>
+          <target state="new">On the data page, click to select the desired table.</target>
+        </trans-unit>
+        <trans-unit id="941f98c7-953d-49fc-b107-ca3416f2b5e5" xml:space="preserve">
+          <source>Then click the <bpt id="8d5bc32d-4765-45da-b051-a1e5b3a8a514">&lt;strong&gt;</bpt>Enable Soft Delete<ept id="8d5bc32d-4765-45da-b051-a1e5b3a8a514">&lt;/strong&gt;</ept> button in the command bar.</source>
+          <target state="new">Then click the <bpt id="8d5bc32d-4765-45da-b051-a1e5b3a8a514">&lt;strong&gt;</bpt>Enable Soft Delete<ept id="8d5bc32d-4765-45da-b051-a1e5b3a8a514">&lt;/strong&gt;</ept> button in the command bar.</target>
+        </trans-unit>
+        <trans-unit id="42d45de9-4b89-4811-82ce-c91786c78ecf" xml:space="preserve">
+          <source>If the table already has soft delete enabled, this button will not appear but you will be able to see the <bpt id="75624e24-6a92-42e0-947e-c750b7a012a7">&lt;em&gt;</bpt>\__deleted<ept id="75624e24-6a92-42e0-947e-c750b7a012a7">&lt;/em&gt;</ept> column when clicking the <bpt id="a18b4024-e815-4571-bb9a-44b0c3010077">&lt;strong&gt;</bpt>Browse<ept id="a18b4024-e815-4571-bb9a-44b0c3010077">&lt;/strong&gt;</ept> or <bpt id="b5e96e4f-10b1-4fdf-81e4-926680ccfd8e">&lt;strong&gt;</bpt>Columns<ept id="b5e96e4f-10b1-4fdf-81e4-926680ccfd8e">&lt;/strong&gt;</ept> tab for the table.</source>
+          <target state="new">If the table already has soft delete enabled, this button will not appear but you will be able to see the <bpt id="75624e24-6a92-42e0-947e-c750b7a012a7">&lt;em&gt;</bpt>\__deleted<ept id="75624e24-6a92-42e0-947e-c750b7a012a7">&lt;/em&gt;</ept> column when clicking the <bpt id="a18b4024-e815-4571-bb9a-44b0c3010077">&lt;strong&gt;</bpt>Browse<ept id="a18b4024-e815-4571-bb9a-44b0c3010077">&lt;/strong&gt;</ept> or <bpt id="b5e96e4f-10b1-4fdf-81e4-926680ccfd8e">&lt;strong&gt;</bpt>Columns<ept id="b5e96e4f-10b1-4fdf-81e4-926680ccfd8e">&lt;/strong&gt;</ept> tab for the table.</target>
+        </trans-unit>
+        <trans-unit id="0fb24c77-4827-43e2-b48b-b71d28d3778e" xml:space="preserve">
+          <source><bpt id="838234f3-ad14-4c8e-9257-e2a40abfd2dc">&lt;linkText&gt;</bpt><ept id="838234f3-ad14-4c8e-9257-e2a40abfd2dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="838234f3-ad14-4c8e-9257-e2a40abfd2dc">&lt;linkText&gt;</bpt><ept id="838234f3-ad14-4c8e-9257-e2a40abfd2dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa6da864-1c45-4b55-b643-5388644f0086" xml:space="preserve">
+          <source>To disable soft delete for your table, click the <bpt id="5c7a6531-bb11-444d-9bf4-eee7b6bb0e2b">&lt;strong&gt;</bpt>Columns<ept id="5c7a6531-bb11-444d-9bf4-eee7b6bb0e2b">&lt;/strong&gt;</ept> tab and then click the <bpt id="26e24439-7607-4650-94cc-f437eef7ae9e">&lt;em&gt;</bpt>\__deleted<ept id="26e24439-7607-4650-94cc-f437eef7ae9e">&lt;/em&gt;</ept> column and the <bpt id="4fa1cbc0-eee1-4c75-bcd7-bb1cd07d74af">&lt;strong&gt;</bpt>Delete<ept id="4fa1cbc0-eee1-4c75-bcd7-bb1cd07d74af">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">To disable soft delete for your table, click the <bpt id="5c7a6531-bb11-444d-9bf4-eee7b6bb0e2b">&lt;strong&gt;</bpt>Columns<ept id="5c7a6531-bb11-444d-9bf4-eee7b6bb0e2b">&lt;/strong&gt;</ept> tab and then click the <bpt id="26e24439-7607-4650-94cc-f437eef7ae9e">&lt;em&gt;</bpt>\__deleted<ept id="26e24439-7607-4650-94cc-f437eef7ae9e">&lt;/em&gt;</ept> column and the <bpt id="4fa1cbc0-eee1-4c75-bcd7-bb1cd07d74af">&lt;strong&gt;</bpt>Delete<ept id="4fa1cbc0-eee1-4c75-bcd7-bb1cd07d74af">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="508e9744-5f07-413d-a128-e1b0847ef4bc" xml:space="preserve">
+          <source><bpt id="5be589d0-189e-4364-9141-a516fd2466b3">&lt;linkText&gt;</bpt><ept id="5be589d0-189e-4364-9141-a516fd2466b3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5be589d0-189e-4364-9141-a516fd2466b3">&lt;linkText&gt;</bpt><ept id="5be589d0-189e-4364-9141-a516fd2466b3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07608dff-3f20-427e-b005-8b8cd31ad9ef" xml:space="preserve">
+          <source>The following scheduled job purges soft deleted records that are more than a month old:</source>
+          <target state="new">The following scheduled job purges soft deleted records that are more than a month old:</target>
+        </trans-unit>
+        <trans-unit id="2331ebaf-f7f4-4762-a13c-c2e5d449695c" xml:space="preserve">
+          <source>To learn more about schedule jobs with .NET backend Mobile Services, see: <bpt id="4008d7df-212a-4f14-a8c4-7249078d6a4e">&lt;linkText&gt;</bpt>Schedule recurring jobs with JavaScript backend Mobile Services<ept id="4008d7df-212a-4f14-a8c4-7249078d6a4e">&lt;/linkText&gt;</ept><bpt id="4008d7df-212a-4f14-a8c4-7249078d6a4e">&lt;title&gt;</bpt><ept id="4008d7df-212a-4f14-a8c4-7249078d6a4e">&lt;/title&gt;</ept> </source>
+          <target state="new">To learn more about schedule jobs with .NET backend Mobile Services, see: <bpt id="4008d7df-212a-4f14-a8c4-7249078d6a4e">&lt;linkText&gt;</bpt>Schedule recurring jobs with JavaScript backend Mobile Services<ept id="4008d7df-212a-4f14-a8c4-7249078d6a4e">&lt;/linkText&gt;</ept><bpt id="4008d7df-212a-4f14-a8c4-7249078d6a4e">&lt;title&gt;</bpt><ept id="4008d7df-212a-4f14-a8c4-7249078d6a4e">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="adf3fd7a-c41e-4637-bc3a-80bc048e6b08" xml:space="preserve">
+          <source>You use table scripts to add logic around the soft delete feature with JavaScript backend mobile services.</source>
+          <target state="new">You use table scripts to add logic around the soft delete feature with JavaScript backend mobile services.</target>
+        </trans-unit>
+        <trans-unit id="6d29f60a-25a5-4a0d-bbc4-68a0a8db4929" xml:space="preserve">
+          <source>To detect an undelete request, use the property "undelete" in your update table script:</source>
+          <target state="new">To detect an undelete request, use the property "undelete" in your update table script:</target>
+        </trans-unit>
+        <trans-unit id="0ff840be-874c-409f-9fc6-e8964712bc78" xml:space="preserve">
+          <source>To retrieve deleted records via an HTTP request, add the query parameter "__includedeleted=true":</source>
+          <target state="new">To retrieve deleted records via an HTTP request, add the query parameter "__includedeleted=true":</target>
+        </trans-unit>
+        <trans-unit id="60f06513-1d39-4ff9-b718-5213658210c5" xml:space="preserve">
+          <source>This is a sample scheduled job that deletes records that were updated prior to a particular date:</source>
+          <target state="new">This is a sample scheduled job that deletes records that were updated prior to a particular date:</target>
+        </trans-unit>
+        <trans-unit id="54034d4a-8456-4b2d-ab52-e6da0a0a9120" xml:space="preserve">
+          <source>To learn more about scheduled jobs with JavaScript backend Mobile Services, see: <bpt id="c6ef9048-ec24-4e48-9631-339d3cbea401">&lt;linkText&gt;</bpt>Schedule recurring jobs with JavaScript backend Mobile Services<ept id="c6ef9048-ec24-4e48-9631-339d3cbea401">&lt;/linkText&gt;</ept><bpt id="c6ef9048-ec24-4e48-9631-339d3cbea401">&lt;title&gt;</bpt><ept id="c6ef9048-ec24-4e48-9631-339d3cbea401">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about scheduled jobs with JavaScript backend Mobile Services, see: <bpt id="c6ef9048-ec24-4e48-9631-339d3cbea401">&lt;linkText&gt;</bpt>Schedule recurring jobs with JavaScript backend Mobile Services<ept id="c6ef9048-ec24-4e48-9631-339d3cbea401">&lt;/linkText&gt;</ept><bpt id="c6ef9048-ec24-4e48-9631-339d3cbea401">&lt;title&gt;</bpt><ept id="c6ef9048-ec24-4e48-9631-339d3cbea401">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0cf8b8bd-bb0e-4876-80c0-8f1267d494a9" xml:space="preserve">
+          <source>./media/mobile-services-using-soft-delete/enable-soft-delete-button.png</source>
+          <target state="new">./media/mobile-services-using-soft-delete/enable-soft-delete-button.png</target>
+        </trans-unit>
+        <trans-unit id="32c2727b-98b6-411c-ae2d-d42742045beb" xml:space="preserve">
+          <source>./media/mobile-services-using-soft-delete/disable-soft-delete.png</source>
+          <target state="new">./media/mobile-services-using-soft-delete/disable-soft-delete.png</target>
+        </trans-unit>
+        <trans-unit id="d23de3a8-ba7b-4cbb-9061-97750b82f51d" xml:space="preserve">
+          <source>./media/mobile-services-using-soft-delete/enable-soft-delete-new-table.png</source>
+          <target state="new">./media/mobile-services-using-soft-delete/enable-soft-delete-new-table.png</target>
+        </trans-unit>
+        <trans-unit id="a9e43c50-e10e-418c-99d3-b49d5e15dbc9" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/ms177603.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/ms177603.aspx</target>
+        </trans-unit>
+        <trans-unit id="c9d1afea-2c51-4d33-9e68-f8980260a038" xml:space="preserve">
+          <source>mobile-services-windows-store-dotnet-get-started-offline-data.md</source>
+          <target state="new">mobile-services-windows-store-dotnet-get-started-offline-data.md</target>
+        </trans-unit>
+        <trans-unit id="c4275345-201e-46ce-988c-c28ff3254460" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="078496d6-e782-4b14-a14b-aece36766ed7" />
+    </body>
+  </file>
+</xliff>

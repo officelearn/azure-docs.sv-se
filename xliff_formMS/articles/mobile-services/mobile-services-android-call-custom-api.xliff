@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="deb2e279-9851-4ba2-bd0e-b0a1665034ab" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="deb2e279-9851-4ba2-bd0e-b0a1665034ab" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="934a1aeb-19d1-488b-897b-cd6df4068487">
+        <trans-unit id="64f93187-7314-473b-8a2e-cde3369860b0" xml:space="preserve">
+          <source>Call a custom API from an Android client | Microsoft Azure</source>
+          <target state="new">Call a custom API from an Android client | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8764415c-4c64-4802-b6fc-304d9c04f04c" xml:space="preserve">
+          <source>Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services.</source>
+          <target state="new">Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="363664ed-716d-4b36-8097-68fa145c4681" xml:space="preserve">
+          <source><bpt id="962fd2e1-1195-4267-bbda-13ddd7f2d109">&lt;token href="../../includes/mobile-services-selector-call-custom-api.md"&gt;</bpt><ept id="962fd2e1-1195-4267-bbda-13ddd7f2d109">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="962fd2e1-1195-4267-bbda-13ddd7f2d109">&lt;token href="../../includes/mobile-services-selector-call-custom-api.md"&gt;</bpt><ept id="962fd2e1-1195-4267-bbda-13ddd7f2d109">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c74b9e9-b01a-4035-b609-45d3a9c94877" xml:space="preserve">
+          <source>This topic shows you how to call a custom API from an Android app.</source>
+          <target state="new">This topic shows you how to call a custom API from an Android app.</target>
+        </trans-unit>
+        <trans-unit id="c46c7576-76e5-4f2f-a94f-af57b62653db" xml:space="preserve">
+          <source>A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation.</source>
+          <target state="new">A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation.</target>
+        </trans-unit>
+        <trans-unit id="6c317344-40fb-4ded-aa5e-0c1670798f60" xml:space="preserve">
+          <source>By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.</source>
+          <target state="new">By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.</target>
+        </trans-unit>
+        <trans-unit id="3b4bbd21-36e3-4441-8da6-fc44dd2bae74" xml:space="preserve">
+          <source>The custom API created in this topic enables you to send a single POST request that sets the <bpt id="82ac5560-23f7-4848-b9e9-4c730782071e">&lt;em&gt;</bpt>completed<ept id="82ac5560-23f7-4848-b9e9-4c730782071e">&lt;/em&gt;</ept> flag to <bpt id="664cbc70-5f8c-486e-9861-1c9373bf0b51">&lt;code&gt;</bpt>true<ept id="664cbc70-5f8c-486e-9861-1c9373bf0b51">&lt;/code&gt;</ept> for all the todo items in your mobile service's table.</source>
+          <target state="new">The custom API created in this topic enables you to send a single POST request that sets the <bpt id="82ac5560-23f7-4848-b9e9-4c730782071e">&lt;em&gt;</bpt>completed<ept id="82ac5560-23f7-4848-b9e9-4c730782071e">&lt;/em&gt;</ept> flag to <bpt id="664cbc70-5f8c-486e-9861-1c9373bf0b51">&lt;code&gt;</bpt>true<ept id="664cbc70-5f8c-486e-9861-1c9373bf0b51">&lt;/code&gt;</ept> for all the todo items in your mobile service's table.</target>
+        </trans-unit>
+        <trans-unit id="ec431589-4894-4275-8d1f-4338d4698758" xml:space="preserve">
+          <source>Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.</source>
+          <target state="new">Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.</target>
+        </trans-unit>
+        <trans-unit id="cd59d2da-527d-4733-9ea3-2c10d808cb85" xml:space="preserve">
+          <source>You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial.</source>
+          <target state="new">You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial.</target>
+        </trans-unit>
+        <trans-unit id="27e36202-b064-4201-9438-af48fd4214ef" xml:space="preserve">
+          <source>If you would like to see the source code of the completed app, go &lt;a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank"&gt;here&lt;/a&gt;.</source>
+          <target state="new">If you would like to see the source code of the completed app, go &lt;a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank"&gt;here&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="73b0d3dc-e843-4069-a072-39a76b15e59a" xml:space="preserve">
+          <source><bpt id="c7b9a284-9e76-4984-a20c-01b10d5563cc">&lt;token href="../../includes/mobile-services-android-prerequisites.md"&gt;</bpt><ept id="c7b9a284-9e76-4984-a20c-01b10d5563cc">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c7b9a284-9e76-4984-a20c-01b10d5563cc">&lt;token href="../../includes/mobile-services-android-prerequisites.md"&gt;</bpt><ept id="c7b9a284-9e76-4984-a20c-01b10d5563cc">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56ed9913-79d7-4b72-ae37-3dc39a79c4b1" xml:space="preserve">
+          <source><bpt id="dfdc3692-ef93-40c3-a619-ddaec2239372">&lt;token href="../../includes/mobile-services-create-custom-api.md"&gt;</bpt><ept id="dfdc3692-ef93-40c3-a619-ddaec2239372">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="dfdc3692-ef93-40c3-a619-ddaec2239372">&lt;token href="../../includes/mobile-services-create-custom-api.md"&gt;</bpt><ept id="dfdc3692-ef93-40c3-a619-ddaec2239372">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2f73daf-95ff-4c08-b9b7-4337a784888b" xml:space="preserve">
+          <source><bpt id="ba439036-de92-47bb-b217-ceb934573023">&lt;token href="../../includes/mobile-services-android-call-custom-api.md"&gt;</bpt><ept id="ba439036-de92-47bb-b217-ceb934573023">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ba439036-de92-47bb-b217-ceb934573023">&lt;token href="../../includes/mobile-services-android-call-custom-api.md"&gt;</bpt><ept id="ba439036-de92-47bb-b217-ceb934573023">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab876915-7291-43ea-88da-66733e359c92" xml:space="preserve">
+          <source>This topic showed how to use the <bpt id="a5692f90-9cd4-4551-8d08-08d3fb7984ac">&lt;strong&gt;</bpt>invokeApi<ept id="a5692f90-9cd4-4551-8d08-08d3fb7984ac">&lt;/strong&gt;</ept> method to call a fairly simple custom API from your Android app.</source>
+          <target state="new">This topic showed how to use the <bpt id="a5692f90-9cd4-4551-8d08-08d3fb7984ac">&lt;strong&gt;</bpt>invokeApi<ept id="a5692f90-9cd4-4551-8d08-08d3fb7984ac">&lt;/strong&gt;</ept> method to call a fairly simple custom API from your Android app.</target>
+        </trans-unit>
+        <trans-unit id="abdc9ad2-501c-43db-8793-8a75c90ac325" xml:space="preserve">
+          <source>To learn more about using the <bpt id="4c3ac5cd-ccf5-4eb2-b2e4-306ea487c7e3">&lt;strong&gt;</bpt>invokeApi<ept id="4c3ac5cd-ccf5-4eb2-b2e4-306ea487c7e3">&lt;/strong&gt;</ept> method, see the post <bpt id="3fdef035-846c-46c3-98b7-12194186e093">&lt;linkText&gt;</bpt>Custom API in Azure Mobile Services<ept id="3fdef035-846c-46c3-98b7-12194186e093">&lt;/linkText&gt;</ept><bpt id="3fdef035-846c-46c3-98b7-12194186e093">&lt;title&gt;</bpt><ept id="3fdef035-846c-46c3-98b7-12194186e093">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about using the <bpt id="4c3ac5cd-ccf5-4eb2-b2e4-306ea487c7e3">&lt;strong&gt;</bpt>invokeApi<ept id="4c3ac5cd-ccf5-4eb2-b2e4-306ea487c7e3">&lt;/strong&gt;</ept> method, see the post <bpt id="3fdef035-846c-46c3-98b7-12194186e093">&lt;linkText&gt;</bpt>Custom API in Azure Mobile Services<ept id="3fdef035-846c-46c3-98b7-12194186e093">&lt;/linkText&gt;</ept><bpt id="3fdef035-846c-46c3-98b7-12194186e093">&lt;title&gt;</bpt><ept id="3fdef035-846c-46c3-98b7-12194186e093">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a39a7734-68ff-48e5-82ee-2da14edeca82" xml:space="preserve">
+          <source>Also, consider finding out more about the following Mobile Services topics:</source>
+          <target state="new">Also, consider finding out more about the following Mobile Services topics:</target>
+        </trans-unit>
+        <trans-unit id="87c6598e-1bd0-4846-bbf7-8424488d6421" xml:space="preserve">
+          <source>[Mobile Services server script reference]
+&lt;br/&gt;Learn more about creating custom APIs.</source>
+          <target state="new">[Mobile Services server script reference]
+&lt;br/&gt;Learn more about creating custom APIs.</target>
+        </trans-unit>
+        <trans-unit id="e9ef3368-0468-40b9-b670-ecbefca28df8" xml:space="preserve">
+          <source>[Store server scripts in source control]
+&lt;br/&gt; Learn how to use the source control feature to more easily and securely develop and publish custom API script code.</source>
+          <target state="new">[Store server scripts in source control]
+&lt;br/&gt; Learn how to use the source control feature to more easily and securely develop and publish custom API script code.</target>
+        </trans-unit>
+        <trans-unit id="96fdad06-cc61-4703-af24-a30e9ac1471b" xml:space="preserve">
+          <source>#define-custom-api</source>
+          <target state="new">#define-custom-api</target>
+        </trans-unit>
+        <trans-unit id="26a5832d-428a-4d18-a73a-d0d41960fabe" xml:space="preserve">
+          <source>#update-app</source>
+          <target state="new">#update-app</target>
+        </trans-unit>
+        <trans-unit id="2e11f0d2-a9bc-4434-b515-424ba05a653d" xml:space="preserve">
+          <source>#test-app</source>
+          <target state="new">#test-app</target>
+        </trans-unit>
+        <trans-unit id="785a0df0-ecc2-461b-93d9-b2afe9364d19" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="244b3e5b-f698-4644-998b-d827828bac71" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=280126</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=280126</target>
+        </trans-unit>
+        <trans-unit id="8efe3a06-152e-40b5-b7e9-60c0ce99503a" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262293</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262293</target>
+        </trans-unit>
+        <trans-unit id="8d5c6c7a-d312-42ed-98fe-f5a023e4120a" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="b6217d60-f2ce-4431-8c9a-19ffe5ccfcdb" xml:space="preserve">
+          <source>mobile-services-android-get-started.md</source>
+          <target state="new">mobile-services-android-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="2737a865-2fa1-43ec-8bec-73585eeda065" xml:space="preserve">
+          <source>mobile-services-android-get-started-data.md</source>
+          <target state="new">mobile-services-android-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="f4aa2e08-984c-4845-afc5-393b652c0c3e" xml:space="preserve">
+          <source>mobile-services-android-get-started-users.md</source>
+          <target state="new">mobile-services-android-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="b15b1c85-cc94-4de0-bb5c-bf0e75ea021a" xml:space="preserve">
+          <source>../mobile-services-android-get-started-push.md</source>
+          <target state="new">../mobile-services-android-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="163b8d8b-4804-4364-b2c4-f2be4df14186" xml:space="preserve">
+          <source>mobile-services-store-scripts-source-control.md</source>
+          <target state="new">mobile-services-store-scripts-source-control.md</target>
+        </trans-unit>
+      </group>
+      <group id="38006cd4-a0f8-4ddf-8651-12198ff37ae4" />
+    </body>
+  </file>
+</xliff>

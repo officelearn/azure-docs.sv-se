@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="38c783df-c5ce-41b3-a0cb-6c75cb8d545d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="38c783df-c5ce-41b3-a0cb-6c75cb8d545d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="84611bd7-541f-46f8-b2e0-ba92028624ca">
+        <trans-unit id="0054e63b-0eb2-4b2e-8935-fe640a5eb3d9" xml:space="preserve">
+          <source>Plans and Billing in Azure Scheduler</source>
+          <target state="new">Plans and Billing in Azure Scheduler</target>
+        </trans-unit>
+        <trans-unit id="910b35d0-d4bc-4cfc-81f0-370708cc534e" xml:space="preserve">
+          <source>Job collections are the billable entity in Azure Scheduler.</source>
+          <target state="new">Job collections are the billable entity in Azure Scheduler.</target>
+        </trans-unit>
+        <trans-unit id="2b45ad7e-3f42-4e14-b1b7-c670ff012571" xml:space="preserve">
+          <source>Job collections contain a number of jobs and come in three plans – Free, Standard, and Premium – that are described below.</source>
+          <target state="new">Job collections contain a number of jobs and come in three plans – Free, Standard, and Premium – that are described below.</target>
+        </trans-unit>
+        <trans-unit id="5a66e4d1-c966-409e-a299-5f44361942a0" xml:space="preserve">
+          <source><bpt id="58496a0f-ee0e-47dc-b33a-ea44aaf30bce">&lt;strong&gt;</bpt>Job Collection Plan<ept id="58496a0f-ee0e-47dc-b33a-ea44aaf30bce">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="58496a0f-ee0e-47dc-b33a-ea44aaf30bce">&lt;strong&gt;</bpt>Job Collection Plan<ept id="58496a0f-ee0e-47dc-b33a-ea44aaf30bce">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7c76fd9-3a71-4671-b317-27636d5b4c6d" xml:space="preserve">
+          <source><bpt id="08f242fc-dc4e-4582-aeaf-92c630386f42">&lt;strong&gt;</bpt>Max # of Jobs per Job Collection<ept id="08f242fc-dc4e-4582-aeaf-92c630386f42">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="08f242fc-dc4e-4582-aeaf-92c630386f42">&lt;strong&gt;</bpt>Max # of Jobs per Job Collection<ept id="08f242fc-dc4e-4582-aeaf-92c630386f42">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e327279f-8a55-40b0-bbd3-54e445b8470c" xml:space="preserve">
+          <source><bpt id="8ad5d4bd-4fe1-4ce7-82ad-ecef4d92997e">&lt;strong&gt;</bpt>Max Recurrence<ept id="8ad5d4bd-4fe1-4ce7-82ad-ecef4d92997e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8ad5d4bd-4fe1-4ce7-82ad-ecef4d92997e">&lt;strong&gt;</bpt>Max Recurrence<ept id="8ad5d4bd-4fe1-4ce7-82ad-ecef4d92997e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e94302ce-aa71-418c-86cb-8a785463f1a9" xml:space="preserve">
+          <source><bpt id="f6c12d16-c81e-4e4a-8e43-b485582b169e">&lt;strong&gt;</bpt>Max Job Collections per Subscription<ept id="f6c12d16-c81e-4e4a-8e43-b485582b169e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f6c12d16-c81e-4e4a-8e43-b485582b169e">&lt;strong&gt;</bpt>Max Job Collections per Subscription<ept id="f6c12d16-c81e-4e4a-8e43-b485582b169e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4de90c0-9b4c-4c68-bb8e-727b9409ea0f" xml:space="preserve">
+          <source><bpt id="a5766ac6-a8f5-4851-a56a-3d93b8ec6f8d">&lt;strong&gt;</bpt>Limits<ept id="a5766ac6-a8f5-4851-a56a-3d93b8ec6f8d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a5766ac6-a8f5-4851-a56a-3d93b8ec6f8d">&lt;strong&gt;</bpt>Limits<ept id="a5766ac6-a8f5-4851-a56a-3d93b8ec6f8d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e731866-4d32-4d12-9b7e-656e75a011e7" xml:space="preserve">
+          <source><bpt id="acc77325-f010-43bc-b006-b529c211ff41">&lt;strong&gt;</bpt>Free<ept id="acc77325-f010-43bc-b006-b529c211ff41">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="acc77325-f010-43bc-b006-b529c211ff41">&lt;strong&gt;</bpt>Free<ept id="acc77325-f010-43bc-b006-b529c211ff41">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55b4d9d8-cb24-41b2-ac14-e277965664b7" xml:space="preserve">
+          <source>5 jobs per job collection</source>
+          <target state="new">5 jobs per job collection</target>
+        </trans-unit>
+        <trans-unit id="4707710b-cce2-415a-bc1b-55dd143d8310" xml:space="preserve">
+          <source>Once per hour.</source>
+          <target state="new">Once per hour.</target>
+        </trans-unit>
+        <trans-unit id="6e8fcdc1-f334-406c-8f45-6ce1cb8e35cc" xml:space="preserve">
+          <source>Cannot execute jobs more often than once an hour</source>
+          <target state="new">Cannot execute jobs more often than once an hour</target>
+        </trans-unit>
+        <trans-unit id="48c0e209-5b05-4c16-a5db-c6111ed1eb81" xml:space="preserve">
+          <source>A subscription is allowed up to 1 free job collection</source>
+          <target state="new">A subscription is allowed up to 1 free job collection</target>
+        </trans-unit>
+        <trans-unit id="fdcfd23c-f684-43c9-96da-46a67f1c914e" xml:space="preserve">
+          <source>Cannot use <bpt id="49bc0604-9167-4ec8-9505-e3ac41ac0527">&lt;linkText&gt;</bpt>HTTP outbound authorization object<ept id="49bc0604-9167-4ec8-9505-e3ac41ac0527">&lt;/linkText&gt;</ept><bpt id="49bc0604-9167-4ec8-9505-e3ac41ac0527">&lt;title&gt;</bpt><ept id="49bc0604-9167-4ec8-9505-e3ac41ac0527">&lt;/title&gt;</ept></source>
+          <target state="new">Cannot use <bpt id="49bc0604-9167-4ec8-9505-e3ac41ac0527">&lt;linkText&gt;</bpt>HTTP outbound authorization object<ept id="49bc0604-9167-4ec8-9505-e3ac41ac0527">&lt;/linkText&gt;</ept><bpt id="49bc0604-9167-4ec8-9505-e3ac41ac0527">&lt;title&gt;</bpt><ept id="49bc0604-9167-4ec8-9505-e3ac41ac0527">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db1a333a-1b7f-4041-a967-d2eb4b844daf" xml:space="preserve">
+          <source><bpt id="a5eec7a6-9985-4585-8741-bf239d867fb2">&lt;strong&gt;</bpt>Standard<ept id="a5eec7a6-9985-4585-8741-bf239d867fb2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a5eec7a6-9985-4585-8741-bf239d867fb2">&lt;strong&gt;</bpt>Standard<ept id="a5eec7a6-9985-4585-8741-bf239d867fb2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bb265f2-db53-4724-a506-c11d3ccea64c" xml:space="preserve">
+          <source>50 jobs per job collection</source>
+          <target state="new">50 jobs per job collection</target>
+        </trans-unit>
+        <trans-unit id="3daa424b-b729-49c3-b0ae-e94c9052c0fc" xml:space="preserve">
+          <source>Once per minute.</source>
+          <target state="new">Once per minute.</target>
+        </trans-unit>
+        <trans-unit id="9287ca3b-95d7-4f78-b98d-29e557bfa657" xml:space="preserve">
+          <source>Cannot execute jobs more often than once a minute</source>
+          <target state="new">Cannot execute jobs more often than once a minute</target>
+        </trans-unit>
+        <trans-unit id="66a6ee48-e0c3-43b9-8692-f74d765c61d6" xml:space="preserve">
+          <source>A subscription is allowed up to 100 standard job collections</source>
+          <target state="new">A subscription is allowed up to 100 standard job collections</target>
+        </trans-unit>
+        <trans-unit id="6ec451d9-30f4-45b8-9739-9711c6aec500" xml:space="preserve">
+          <source>Access to full feature set of Scheduler</source>
+          <target state="new">Access to full feature set of Scheduler</target>
+        </trans-unit>
+        <trans-unit id="1dd5019b-81f8-452c-8050-c63e7decaced" xml:space="preserve">
+          <source><bpt id="44da3e8a-10d2-461a-af29-0c68e6a27fb1">&lt;strong&gt;</bpt>Premium<ept id="44da3e8a-10d2-461a-af29-0c68e6a27fb1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="44da3e8a-10d2-461a-af29-0c68e6a27fb1">&lt;strong&gt;</bpt>Premium<ept id="44da3e8a-10d2-461a-af29-0c68e6a27fb1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9057791b-2e55-4763-a022-dce5096fc83e" xml:space="preserve">
+          <source>50 jobs per job collection</source>
+          <target state="new">50 jobs per job collection</target>
+        </trans-unit>
+        <trans-unit id="46691d32-3b9e-46c2-94e1-d9e6d1bac0b6" xml:space="preserve">
+          <source>Once per minute.</source>
+          <target state="new">Once per minute.</target>
+        </trans-unit>
+        <trans-unit id="d1a9e8b9-fcf0-4a75-9ec7-09ace2bf9687" xml:space="preserve">
+          <source>Cannot execute jobs more often than once a minute</source>
+          <target state="new">Cannot execute jobs more often than once a minute</target>
+        </trans-unit>
+        <trans-unit id="fb2d62bf-7a0d-4b35-96a4-2ec9f8c63524" xml:space="preserve">
+          <source>A subscription is allowed up to 10,000 premium job collections.</source>
+          <target state="new">A subscription is allowed up to 10,000 premium job collections.</target>
+        </trans-unit>
+        <trans-unit id="c8579ec3-0531-4567-8c9c-029c00f6ef82" xml:space="preserve">
+          <source>&lt;a href="mailto:wapteams@microsoft.com"&gt;Contact us&lt;/a&gt; for more.</source>
+          <target state="new">&lt;a href="mailto:wapteams@microsoft.com"&gt;Contact us&lt;/a&gt; for more.</target>
+        </trans-unit>
+        <trans-unit id="e0e457e7-552c-4b92-852d-54eec6ddb292" xml:space="preserve">
+          <source>Access to full feature set of Scheduler</source>
+          <target state="new">Access to full feature set of Scheduler</target>
+        </trans-unit>
+        <trans-unit id="37f4908c-d6cc-4fc8-bd61-0f56ae0dc333" xml:space="preserve">
+          <source>You may upgrade or downgrade a job collection plan anytime among the Free, Standard, and Premium plans.</source>
+          <target state="new">You may upgrade or downgrade a job collection plan anytime among the Free, Standard, and Premium plans.</target>
+        </trans-unit>
+        <trans-unit id="35669e73-0134-4375-b427-89ea2e19e5a5" xml:space="preserve">
+          <source>However, when downgrading to a free job collection, the downgrade may fail for one of the following reasons:</source>
+          <target state="new">However, when downgrading to a free job collection, the downgrade may fail for one of the following reasons:</target>
+        </trans-unit>
+        <trans-unit id="d243f71b-8700-407d-ade1-b63f13ecedc6" xml:space="preserve">
+          <source>A free job collection already exists in the subscription</source>
+          <target state="new">A free job collection already exists in the subscription</target>
+        </trans-unit>
+        <trans-unit id="b76941f3-abbf-4f74-9c7b-f2f1c03dfabb" xml:space="preserve">
+          <source>A job in the job collection has a higher recurrence than allowed for jobs in free job collections.</source>
+          <target state="new">A job in the job collection has a higher recurrence than allowed for jobs in free job collections.</target>
+        </trans-unit>
+        <trans-unit id="ede0d0fb-c5d6-4b75-9b36-b4a1c6a699ab" xml:space="preserve">
+          <source>The maximum recurrence allowed in a free job collection is once per hour</source>
+          <target state="new">The maximum recurrence allowed in a free job collection is once per hour</target>
+        </trans-unit>
+        <trans-unit id="1227b15b-a6d5-422a-bd9a-69fb9381efa9" xml:space="preserve">
+          <source>There are more than 5 jobs in the job collection</source>
+          <target state="new">There are more than 5 jobs in the job collection</target>
+        </trans-unit>
+        <trans-unit id="6572b450-66f4-4c45-89ab-042751ed98a3" xml:space="preserve">
+          <source>A job in the job collection has an HTTP or HTTPS action that uses an <bpt id="8b21de2c-133e-4713-aa02-fa27ae3e4edb">&lt;linkText&gt;</bpt>HTTP outbound authorization object<ept id="8b21de2c-133e-4713-aa02-fa27ae3e4edb">&lt;/linkText&gt;</ept><bpt id="8b21de2c-133e-4713-aa02-fa27ae3e4edb">&lt;title&gt;</bpt><ept id="8b21de2c-133e-4713-aa02-fa27ae3e4edb">&lt;/title&gt;</ept></source>
+          <target state="new">A job in the job collection has an HTTP or HTTPS action that uses an <bpt id="8b21de2c-133e-4713-aa02-fa27ae3e4edb">&lt;linkText&gt;</bpt>HTTP outbound authorization object<ept id="8b21de2c-133e-4713-aa02-fa27ae3e4edb">&lt;/linkText&gt;</ept><bpt id="8b21de2c-133e-4713-aa02-fa27ae3e4edb">&lt;title&gt;</bpt><ept id="8b21de2c-133e-4713-aa02-fa27ae3e4edb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad2d727f-5b53-4674-be83-9eda416033cd" xml:space="preserve">
+          <source>Subscriptions are not charged for free job collections.</source>
+          <target state="new">Subscriptions are not charged for free job collections.</target>
+        </trans-unit>
+        <trans-unit id="b0ce0fe9-d1a3-4947-bc3e-dad121f18ebe" xml:space="preserve">
+          <source>If you have more than 100 standard job collections (10 standard billing units), then it's a better deal to have all job collections in the premium plan.</source>
+          <target state="new">If you have more than 100 standard job collections (10 standard billing units), then it's a better deal to have all job collections in the premium plan.</target>
+        </trans-unit>
+        <trans-unit id="f3aa98f8-eb8d-4528-9f38-e27110fae804" xml:space="preserve">
+          <source>If you have one standard job collection and one premium job collection, you are billed one standard billing unit <bpt id="6450f910-9c71-472d-b6bb-96d1d94d16aa">&lt;em&gt;</bpt>and<ept id="6450f910-9c71-472d-b6bb-96d1d94d16aa">&lt;/em&gt;</ept> one premium billing unit.</source>
+          <target state="new">If you have one standard job collection and one premium job collection, you are billed one standard billing unit <bpt id="6450f910-9c71-472d-b6bb-96d1d94d16aa">&lt;em&gt;</bpt>and<ept id="6450f910-9c71-472d-b6bb-96d1d94d16aa">&lt;/em&gt;</ept> one premium billing unit.</target>
+        </trans-unit>
+        <trans-unit id="676bdebd-4e83-4f62-8b39-d8c98745e32e" xml:space="preserve">
+          <source>The Scheduler service bills based on the number of active job collections that are set to either standard or premium; this is explained further in the next two sections.</source>
+          <target state="new">The Scheduler service bills based on the number of active job collections that are set to either standard or premium; this is explained further in the next two sections.</target>
+        </trans-unit>
+        <trans-unit id="7e409887-4626-4b06-ac18-eee499c47de0" xml:space="preserve">
+          <source>A standard billable unit can include up to 10 standard job collections.</source>
+          <target state="new">A standard billable unit can include up to 10 standard job collections.</target>
+        </trans-unit>
+        <trans-unit id="f1176e66-25a7-4ed0-8cb5-a6859690f7be" xml:space="preserve">
+          <source>Since a standard job collection can have up to 50 jobs per job collection, one standard billing unit allows a subscription to have up to 500 jobs – up to almost 22 million job executions per month.</source>
+          <target state="new">Since a standard job collection can have up to 50 jobs per job collection, one standard billing unit allows a subscription to have up to 500 jobs – up to almost 22 million job executions per month.</target>
+        </trans-unit>
+        <trans-unit id="cd231dc6-b0da-4e7b-9648-4fdf308a87c5" xml:space="preserve">
+          <source>If you have between 1 and 10 standard job collections, you'll be billed for 1 standard billing unit.</source>
+          <target state="new">If you have between 1 and 10 standard job collections, you'll be billed for 1 standard billing unit.</target>
+        </trans-unit>
+        <trans-unit id="f72118da-159d-4d87-8697-d3add7447bfd" xml:space="preserve">
+          <source>If you have between 11 and 20 standard job collections, you'll be billed for 2 standard billing units.</source>
+          <target state="new">If you have between 11 and 20 standard job collections, you'll be billed for 2 standard billing units.</target>
+        </trans-unit>
+        <trans-unit id="7847d8a8-afe8-45df-9d5d-23be2aa507a8" xml:space="preserve">
+          <source>If you have between 21 and 30 standard job collections, you'll be billed for 3 standard billing units, and so on.</source>
+          <target state="new">If you have between 21 and 30 standard job collections, you'll be billed for 3 standard billing units, and so on.</target>
+        </trans-unit>
+        <trans-unit id="aa79d020-159a-4532-a5ef-d4f52627da64" xml:space="preserve">
+          <source>A premium billable unit can include up to 10,000 premium job collections.</source>
+          <target state="new">A premium billable unit can include up to 10,000 premium job collections.</target>
+        </trans-unit>
+        <trans-unit id="38ffab0e-6963-4feb-8f52-6250f131a0fb" xml:space="preserve">
+          <source>Since a premium job collection can have up to 50 jobs per job collection, one premium billing unit allows a subscription to have up to 500,000 jobs – up to almost 22 billion job executions per month.</source>
+          <target state="new">Since a premium job collection can have up to 50 jobs per job collection, one premium billing unit allows a subscription to have up to 500,000 jobs – up to almost 22 billion job executions per month.</target>
+        </trans-unit>
+        <trans-unit id="3b4ed401-b2f5-44bc-b784-f5ff0c670a0b" xml:space="preserve">
+          <source>If you have between 1 and 10,000 premium job collections, you'll be billed for 1 premium billing unit.</source>
+          <target state="new">If you have between 1 and 10,000 premium job collections, you'll be billed for 1 premium billing unit.</target>
+        </trans-unit>
+        <trans-unit id="8f2c3a89-35bc-4cfa-bdf8-d8c4a42e00c3" xml:space="preserve">
+          <source>If you have between 10,001 and 20,000 premium job collections, you'll be billed for 2 premium billing units, and so on.</source>
+          <target state="new">If you have between 10,001 and 20,000 premium job collections, you'll be billed for 2 premium billing units, and so on.</target>
+        </trans-unit>
+        <trans-unit id="cdce5185-f1f0-4473-8ce7-5f29e0bf6749" xml:space="preserve">
+          <source>Thus, premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires a lot of job collections.</source>
+          <target state="new">Thus, premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires a lot of job collections.</target>
+        </trans-unit>
+        <trans-unit id="df6e8528-4e2e-4bb4-83c5-959504e7a68e" xml:space="preserve">
+          <source>Job collections are always active unless your entire subscription has gone into some temporary disabled state due to billing issues.</source>
+          <target state="new">Job collections are always active unless your entire subscription has gone into some temporary disabled state due to billing issues.</target>
+        </trans-unit>
+        <trans-unit id="6a609a3b-91c3-4cc4-aef1-c3fa12bebba8" xml:space="preserve">
+          <source>The only way to ensure that a job collection is not billed is to either set it to the <bpt id="d34696b4-5f43-4331-8fc0-a5d38ea632d5">&lt;em&gt;</bpt>Free<ept id="d34696b4-5f43-4331-8fc0-a5d38ea632d5">&lt;/em&gt;</ept> plan or to delete the job collection.</source>
+          <target state="new">The only way to ensure that a job collection is not billed is to either set it to the <bpt id="d34696b4-5f43-4331-8fc0-a5d38ea632d5">&lt;em&gt;</bpt>Free<ept id="d34696b4-5f43-4331-8fc0-a5d38ea632d5">&lt;/em&gt;</ept> plan or to delete the job collection.</target>
+        </trans-unit>
+        <trans-unit id="50e9458f-de49-4e52-8f13-a85a00294fab" xml:space="preserve">
+          <source>Although you may disable all jobs within a job collection in a single operation, it does not change the billing status of the job collection – the job collection will <bpt id="89d6f4ef-5245-4b54-92ca-9e1a62ece260">&lt;em&gt;</bpt>still<ept id="89d6f4ef-5245-4b54-92ca-9e1a62ece260">&lt;/em&gt;</ept> be billed.</source>
+          <target state="new">Although you may disable all jobs within a job collection in a single operation, it does not change the billing status of the job collection – the job collection will <bpt id="89d6f4ef-5245-4b54-92ca-9e1a62ece260">&lt;em&gt;</bpt>still<ept id="89d6f4ef-5245-4b54-92ca-9e1a62ece260">&lt;/em&gt;</ept> be billed.</target>
+        </trans-unit>
+        <trans-unit id="23fe81d7-8dd3-4e74-a131-a13552f37af6" xml:space="preserve">
+          <source>Similarly, empty job collections are considered active and will be billed.</source>
+          <target state="new">Similarly, empty job collections are considered active and will be billed.</target>
+        </trans-unit>
+        <trans-unit id="397a5c09-7b0d-49f4-9ae1-04b0ce5e1f9a" xml:space="preserve">
+          <source>For pricing details, please see <bpt id="4c5e7e57-bba7-4750-b6fd-87294673ba3e">&lt;linkText&gt;</bpt>Scheduler Pricing<ept id="4c5e7e57-bba7-4750-b6fd-87294673ba3e">&lt;/linkText&gt;</ept><bpt id="4c5e7e57-bba7-4750-b6fd-87294673ba3e">&lt;title&gt;</bpt><ept id="4c5e7e57-bba7-4750-b6fd-87294673ba3e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For pricing details, please see <bpt id="4c5e7e57-bba7-4750-b6fd-87294673ba3e">&lt;linkText&gt;</bpt>Scheduler Pricing<ept id="4c5e7e57-bba7-4750-b6fd-87294673ba3e">&lt;/linkText&gt;</ept><bpt id="4c5e7e57-bba7-4750-b6fd-87294673ba3e">&lt;title&gt;</bpt><ept id="4c5e7e57-bba7-4750-b6fd-87294673ba3e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e968430-b538-431d-b5a7-17f2694c0bc8" xml:space="preserve">
+          <source> <bpt id="69bb004a-8ae6-4c34-9946-1efd6a21a344">&lt;linkText&gt;</bpt>What is Scheduler?<ept id="69bb004a-8ae6-4c34-9946-1efd6a21a344">&lt;/linkText&gt;</ept><bpt id="69bb004a-8ae6-4c34-9946-1efd6a21a344">&lt;title&gt;</bpt><ept id="69bb004a-8ae6-4c34-9946-1efd6a21a344">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="69bb004a-8ae6-4c34-9946-1efd6a21a344">&lt;linkText&gt;</bpt>What is Scheduler?<ept id="69bb004a-8ae6-4c34-9946-1efd6a21a344">&lt;/linkText&gt;</ept><bpt id="69bb004a-8ae6-4c34-9946-1efd6a21a344">&lt;title&gt;</bpt><ept id="69bb004a-8ae6-4c34-9946-1efd6a21a344">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="434c3d84-18f3-4bf6-9fcd-5f1858cad459" xml:space="preserve">
+          <source> <bpt id="3634af77-1b54-48b1-a5af-b36f8b536617">&lt;linkText&gt;</bpt>Scheduler Concepts, Terminology, and Entity Hierarchy<ept id="3634af77-1b54-48b1-a5af-b36f8b536617">&lt;/linkText&gt;</ept><bpt id="3634af77-1b54-48b1-a5af-b36f8b536617">&lt;title&gt;</bpt><ept id="3634af77-1b54-48b1-a5af-b36f8b536617">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="3634af77-1b54-48b1-a5af-b36f8b536617">&lt;linkText&gt;</bpt>Scheduler Concepts, Terminology, and Entity Hierarchy<ept id="3634af77-1b54-48b1-a5af-b36f8b536617">&lt;/linkText&gt;</ept><bpt id="3634af77-1b54-48b1-a5af-b36f8b536617">&lt;title&gt;</bpt><ept id="3634af77-1b54-48b1-a5af-b36f8b536617">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99713734-e88e-47c4-9b77-6dfc10227eca" xml:space="preserve">
+          <source> <bpt id="e5f72a46-7b93-4c10-a8cb-84cec91520f7">&lt;linkText&gt;</bpt>Get Started Using Scheduler in the Management Portal<ept id="e5f72a46-7b93-4c10-a8cb-84cec91520f7">&lt;/linkText&gt;</ept><bpt id="e5f72a46-7b93-4c10-a8cb-84cec91520f7">&lt;title&gt;</bpt><ept id="e5f72a46-7b93-4c10-a8cb-84cec91520f7">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="e5f72a46-7b93-4c10-a8cb-84cec91520f7">&lt;linkText&gt;</bpt>Get Started Using Scheduler in the Management Portal<ept id="e5f72a46-7b93-4c10-a8cb-84cec91520f7">&lt;/linkText&gt;</ept><bpt id="e5f72a46-7b93-4c10-a8cb-84cec91520f7">&lt;title&gt;</bpt><ept id="e5f72a46-7b93-4c10-a8cb-84cec91520f7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="84681960-d17b-4761-98ed-58e6572e3615" xml:space="preserve">
+          <source> <bpt id="b4c3a342-dd75-4d30-9c26-8fffb5d2b99b">&lt;linkText&gt;</bpt>How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler<ept id="b4c3a342-dd75-4d30-9c26-8fffb5d2b99b">&lt;/linkText&gt;</ept><bpt id="b4c3a342-dd75-4d30-9c26-8fffb5d2b99b">&lt;title&gt;</bpt><ept id="b4c3a342-dd75-4d30-9c26-8fffb5d2b99b">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="b4c3a342-dd75-4d30-9c26-8fffb5d2b99b">&lt;linkText&gt;</bpt>How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler<ept id="b4c3a342-dd75-4d30-9c26-8fffb5d2b99b">&lt;/linkText&gt;</ept><bpt id="b4c3a342-dd75-4d30-9c26-8fffb5d2b99b">&lt;title&gt;</bpt><ept id="b4c3a342-dd75-4d30-9c26-8fffb5d2b99b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc849099-5978-4736-a61b-1cd72f87cdca" xml:space="preserve">
+          <source> <bpt id="8881e1a5-9666-413e-b77b-d7e29a650339">&lt;linkText&gt;</bpt>Scheduler REST API Reference<ept id="8881e1a5-9666-413e-b77b-d7e29a650339">&lt;/linkText&gt;</ept><bpt id="8881e1a5-9666-413e-b77b-d7e29a650339">&lt;title&gt;</bpt><ept id="8881e1a5-9666-413e-b77b-d7e29a650339">&lt;/title&gt;</ept>   </source>
+          <target state="new"> <bpt id="8881e1a5-9666-413e-b77b-d7e29a650339">&lt;linkText&gt;</bpt>Scheduler REST API Reference<ept id="8881e1a5-9666-413e-b77b-d7e29a650339">&lt;/linkText&gt;</ept><bpt id="8881e1a5-9666-413e-b77b-d7e29a650339">&lt;title&gt;</bpt><ept id="8881e1a5-9666-413e-b77b-d7e29a650339">&lt;/title&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="7fb4408d-950a-4541-a361-1e4f66e398dd" xml:space="preserve">
+          <source> <bpt id="0224649f-bb97-4b3b-90b5-f6f9e0fad40c">&lt;linkText&gt;</bpt>Scheduler PowerShell Cmdlets Reference<ept id="0224649f-bb97-4b3b-90b5-f6f9e0fad40c">&lt;/linkText&gt;</ept><bpt id="0224649f-bb97-4b3b-90b5-f6f9e0fad40c">&lt;title&gt;</bpt><ept id="0224649f-bb97-4b3b-90b5-f6f9e0fad40c">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="0224649f-bb97-4b3b-90b5-f6f9e0fad40c">&lt;linkText&gt;</bpt>Scheduler PowerShell Cmdlets Reference<ept id="0224649f-bb97-4b3b-90b5-f6f9e0fad40c">&lt;/linkText&gt;</ept><bpt id="0224649f-bb97-4b3b-90b5-f6f9e0fad40c">&lt;title&gt;</bpt><ept id="0224649f-bb97-4b3b-90b5-f6f9e0fad40c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="645f27e0-0155-4e5e-b9f8-873f8b423aa2" xml:space="preserve">
+          <source> <bpt id="5864dfc8-4bed-46f2-8d5d-06c85b5f027f">&lt;linkText&gt;</bpt>Scheduler High-Availability and Reliability<ept id="5864dfc8-4bed-46f2-8d5d-06c85b5f027f">&lt;/linkText&gt;</ept><bpt id="5864dfc8-4bed-46f2-8d5d-06c85b5f027f">&lt;title&gt;</bpt><ept id="5864dfc8-4bed-46f2-8d5d-06c85b5f027f">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="5864dfc8-4bed-46f2-8d5d-06c85b5f027f">&lt;linkText&gt;</bpt>Scheduler High-Availability and Reliability<ept id="5864dfc8-4bed-46f2-8d5d-06c85b5f027f">&lt;/linkText&gt;</ept><bpt id="5864dfc8-4bed-46f2-8d5d-06c85b5f027f">&lt;title&gt;</bpt><ept id="5864dfc8-4bed-46f2-8d5d-06c85b5f027f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16de5b51-5b1a-4755-ab46-3db934c83a53" xml:space="preserve">
+          <source> <bpt id="16b47800-cd1d-4e1c-aee0-9ffe95afe9f8">&lt;linkText&gt;</bpt>Scheduler Limits, Defaults, and Error Codes<ept id="16b47800-cd1d-4e1c-aee0-9ffe95afe9f8">&lt;/linkText&gt;</ept><bpt id="16b47800-cd1d-4e1c-aee0-9ffe95afe9f8">&lt;title&gt;</bpt><ept id="16b47800-cd1d-4e1c-aee0-9ffe95afe9f8">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="16b47800-cd1d-4e1c-aee0-9ffe95afe9f8">&lt;linkText&gt;</bpt>Scheduler Limits, Defaults, and Error Codes<ept id="16b47800-cd1d-4e1c-aee0-9ffe95afe9f8">&lt;/linkText&gt;</ept><bpt id="16b47800-cd1d-4e1c-aee0-9ffe95afe9f8">&lt;title&gt;</bpt><ept id="16b47800-cd1d-4e1c-aee0-9ffe95afe9f8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf87af78-38d2-4e93-92ca-437ad21ac2d1" xml:space="preserve">
+          <source> <bpt id="1f723aa2-2261-43bb-8e1b-c489e8a9465b">&lt;linkText&gt;</bpt>Scheduler Outbound Authentication<ept id="1f723aa2-2261-43bb-8e1b-c489e8a9465b">&lt;/linkText&gt;</ept><bpt id="1f723aa2-2261-43bb-8e1b-c489e8a9465b">&lt;title&gt;</bpt><ept id="1f723aa2-2261-43bb-8e1b-c489e8a9465b">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="1f723aa2-2261-43bb-8e1b-c489e8a9465b">&lt;linkText&gt;</bpt>Scheduler Outbound Authentication<ept id="1f723aa2-2261-43bb-8e1b-c489e8a9465b">&lt;/linkText&gt;</ept><bpt id="1f723aa2-2261-43bb-8e1b-c489e8a9465b">&lt;title&gt;</bpt><ept id="1f723aa2-2261-43bb-8e1b-c489e8a9465b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

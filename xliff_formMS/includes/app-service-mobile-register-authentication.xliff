@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d0a33ec8-f5ff-4111-9ad2-efaff80d7fb9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d0a33ec8-f5ff-4111-9ad2-efaff80d7fb9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bcb9f429-83c6-44c4-94be-8133f87971db">
+        <trans-unit id="8ee6a49d-1464-4349-9f15-4cea33e19f7f" xml:space="preserve">
+          <source>Next, you need to register your app at an identity provider's site, and then you will set the provider-generated credentials in the Mobile App backend.</source>
+          <target state="new">Next, you need to register your app at an identity provider's site, and then you will set the provider-generated credentials in the Mobile App backend.</target>
+        </trans-unit>
+        <trans-unit id="be113488-e6c3-4079-a538-27548794a6dd" xml:space="preserve">
+          <source>Configure your preferred identity provider by following the provider-specific instructions: </source>
+          <target state="new">Configure your preferred identity provider by following the provider-specific instructions: </target>
+        </trans-unit>
+        <trans-unit id="0af876b5-06cb-4b81-9cbb-74748e11dcc2" xml:space="preserve">
+          <source><bpt id="5915c3e8-ccf2-49a7-8133-70f3d9af6b27">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="5915c3e8-ccf2-49a7-8133-70f3d9af6b27">&lt;/linkText&gt;</ept><bpt id="5915c3e8-ccf2-49a7-8133-70f3d9af6b27">&lt;title&gt;</bpt><ept id="5915c3e8-ccf2-49a7-8133-70f3d9af6b27">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5915c3e8-ccf2-49a7-8133-70f3d9af6b27">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="5915c3e8-ccf2-49a7-8133-70f3d9af6b27">&lt;/linkText&gt;</ept><bpt id="5915c3e8-ccf2-49a7-8133-70f3d9af6b27">&lt;title&gt;</bpt><ept id="5915c3e8-ccf2-49a7-8133-70f3d9af6b27">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9dee3508-5d60-4b0e-8417-d860f19982b3" xml:space="preserve">
+          <source><bpt id="e52202b3-b437-4a5f-b377-86d33ced9093">&lt;linkText&gt;</bpt>Facebook<ept id="e52202b3-b437-4a5f-b377-86d33ced9093">&lt;/linkText&gt;</ept><bpt id="e52202b3-b437-4a5f-b377-86d33ced9093">&lt;title&gt;</bpt><ept id="e52202b3-b437-4a5f-b377-86d33ced9093">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e52202b3-b437-4a5f-b377-86d33ced9093">&lt;linkText&gt;</bpt>Facebook<ept id="e52202b3-b437-4a5f-b377-86d33ced9093">&lt;/linkText&gt;</ept><bpt id="e52202b3-b437-4a5f-b377-86d33ced9093">&lt;title&gt;</bpt><ept id="e52202b3-b437-4a5f-b377-86d33ced9093">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e831a342-7865-4688-8b73-85a901936e7c" xml:space="preserve">
+          <source><bpt id="b65d8221-6d9c-491e-8a36-6d77280e119a">&lt;linkText&gt;</bpt>Google<ept id="b65d8221-6d9c-491e-8a36-6d77280e119a">&lt;/linkText&gt;</ept><bpt id="b65d8221-6d9c-491e-8a36-6d77280e119a">&lt;title&gt;</bpt><ept id="b65d8221-6d9c-491e-8a36-6d77280e119a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b65d8221-6d9c-491e-8a36-6d77280e119a">&lt;linkText&gt;</bpt>Google<ept id="b65d8221-6d9c-491e-8a36-6d77280e119a">&lt;/linkText&gt;</ept><bpt id="b65d8221-6d9c-491e-8a36-6d77280e119a">&lt;title&gt;</bpt><ept id="b65d8221-6d9c-491e-8a36-6d77280e119a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ecfa4cd-9fa5-4bfb-a81c-d0b1f3917a33" xml:space="preserve">
+          <source><bpt id="a8715bc6-20e9-4e67-bb70-7e4566fc6323">&lt;linkText&gt;</bpt>Microsoft<ept id="a8715bc6-20e9-4e67-bb70-7e4566fc6323">&lt;/linkText&gt;</ept><bpt id="a8715bc6-20e9-4e67-bb70-7e4566fc6323">&lt;title&gt;</bpt><ept id="a8715bc6-20e9-4e67-bb70-7e4566fc6323">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a8715bc6-20e9-4e67-bb70-7e4566fc6323">&lt;linkText&gt;</bpt>Microsoft<ept id="a8715bc6-20e9-4e67-bb70-7e4566fc6323">&lt;/linkText&gt;</ept><bpt id="a8715bc6-20e9-4e67-bb70-7e4566fc6323">&lt;title&gt;</bpt><ept id="a8715bc6-20e9-4e67-bb70-7e4566fc6323">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35efa26b-ece5-48fe-b66d-e7d18ee8bf09" xml:space="preserve">
+          <source><bpt id="cc110385-00e6-4ed6-8c87-8848a9a2ef66">&lt;linkText&gt;</bpt>Twitter<ept id="cc110385-00e6-4ed6-8c87-8848a9a2ef66">&lt;/linkText&gt;</ept><bpt id="cc110385-00e6-4ed6-8c87-8848a9a2ef66">&lt;title&gt;</bpt><ept id="cc110385-00e6-4ed6-8c87-8848a9a2ef66">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cc110385-00e6-4ed6-8c87-8848a9a2ef66">&lt;linkText&gt;</bpt>Twitter<ept id="cc110385-00e6-4ed6-8c87-8848a9a2ef66">&lt;/linkText&gt;</ept><bpt id="cc110385-00e6-4ed6-8c87-8848a9a2ef66">&lt;title&gt;</bpt><ept id="cc110385-00e6-4ed6-8c87-8848a9a2ef66">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b25b6dec-00fa-4e85-ada4-32328f7b0f37" xml:space="preserve">
+          <source>Repeat the previous steps for each provider you want to support in your app.</source>
+          <target state="new">Repeat the previous steps for each provider you want to support in your app.</target>
+        </trans-unit>
+        <trans-unit id="220d6cc9-e6e2-4b09-a48a-52fa440210c6" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="2eefb5c0-178e-4c2a-b536-477763602c2c" />
+    </body>
+  </file>
+</xliff>

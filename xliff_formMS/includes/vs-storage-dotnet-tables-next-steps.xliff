@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dba38b09-8953-4309-a56e-1e557451cc18" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dba38b09-8953-4309-a56e-1e557451cc18" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="10a970d0-f654-424b-8bb0-5d13818a2fae">
+        <trans-unit id="a180d2dd-fffc-48f4-8197-138f322bc284" xml:space="preserve">
+          <source>Now that you've learned the basics of Azure table storage, follow these links to learn about more complex storage tasks.</source>
+          <target state="new">Now that you've learned the basics of Azure table storage, follow these links to learn about more complex storage tasks.</target>
+        </trans-unit>
+        <trans-unit id="fd928951-e6eb-499b-bf59-ba553aa8d147" xml:space="preserve">
+          <source>View the table service reference documentation in the <bpt id="603194f0-5297-4af5-aecb-bb2bcc1a06d9">&lt;linkText&gt;</bpt>Storage Client Library for .NET<ept id="603194f0-5297-4af5-aecb-bb2bcc1a06d9">&lt;/linkText&gt;</ept><bpt id="603194f0-5297-4af5-aecb-bb2bcc1a06d9">&lt;title&gt;</bpt><ept id="603194f0-5297-4af5-aecb-bb2bcc1a06d9">&lt;/title&gt;</ept> reference for complete details about available APIs.</source>
+          <target state="new">View the table service reference documentation in the <bpt id="603194f0-5297-4af5-aecb-bb2bcc1a06d9">&lt;linkText&gt;</bpt>Storage Client Library for .NET<ept id="603194f0-5297-4af5-aecb-bb2bcc1a06d9">&lt;/linkText&gt;</ept><bpt id="603194f0-5297-4af5-aecb-bb2bcc1a06d9">&lt;title&gt;</bpt><ept id="603194f0-5297-4af5-aecb-bb2bcc1a06d9">&lt;/title&gt;</ept> reference for complete details about available APIs.</target>
+        </trans-unit>
+        <trans-unit id="acf4c298-2dc2-46a6-bf63-da2b668f3302" xml:space="preserve">
+          <source>Learn about more advanced tasks you can perform with Azure Storage at <bpt id="8387b70c-7d37-4169-8c2d-ae885f0e24c2">&lt;linkText&gt;</bpt>Storing and Accessing Data in Azure<ept id="8387b70c-7d37-4169-8c2d-ae885f0e24c2">&lt;/linkText&gt;</ept><bpt id="8387b70c-7d37-4169-8c2d-ae885f0e24c2">&lt;title&gt;</bpt><ept id="8387b70c-7d37-4169-8c2d-ae885f0e24c2">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn about more advanced tasks you can perform with Azure Storage at <bpt id="8387b70c-7d37-4169-8c2d-ae885f0e24c2">&lt;linkText&gt;</bpt>Storing and Accessing Data in Azure<ept id="8387b70c-7d37-4169-8c2d-ae885f0e24c2">&lt;/linkText&gt;</ept><bpt id="8387b70c-7d37-4169-8c2d-ae885f0e24c2">&lt;title&gt;</bpt><ept id="8387b70c-7d37-4169-8c2d-ae885f0e24c2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6673bfab-01ee-4da0-a088-a72db156cd0c" xml:space="preserve">
+          <source>Learn how to simplify the code you write to work with Azure Storage by using the <bpt id="3a4c314b-a72a-47ba-9d3a-4d10e5c3ed4c">&lt;linkText&gt;</bpt>Azure WebJobs SDK<ept id="3a4c314b-a72a-47ba-9d3a-4d10e5c3ed4c">&lt;/linkText&gt;</ept><bpt id="3a4c314b-a72a-47ba-9d3a-4d10e5c3ed4c">&lt;title&gt;</bpt><ept id="3a4c314b-a72a-47ba-9d3a-4d10e5c3ed4c">&lt;/title&gt;</ept></source>
+          <target state="new">Learn how to simplify the code you write to work with Azure Storage by using the <bpt id="3a4c314b-a72a-47ba-9d3a-4d10e5c3ed4c">&lt;linkText&gt;</bpt>Azure WebJobs SDK<ept id="3a4c314b-a72a-47ba-9d3a-4d10e5c3ed4c">&lt;/linkText&gt;</ept><bpt id="3a4c314b-a72a-47ba-9d3a-4d10e5c3ed4c">&lt;title&gt;</bpt><ept id="3a4c314b-a72a-47ba-9d3a-4d10e5c3ed4c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b685053e-7e67-4afc-83ec-f35d8b9d3307" xml:space="preserve">
+          <source>View more feature guides to learn about additional options for storing data in Azure.</source>
+          <target state="new">View more feature guides to learn about additional options for storing data in Azure.</target>
+        </trans-unit>
+        <trans-unit id="1f2ad795-b06d-4a06-94c2-175d102cc1d9" xml:space="preserve">
+          <source>Use <bpt id="9cb30d23-e3b9-441d-bc7b-4cba7c9a38d3">&lt;linkText&gt;</bpt>Blob Storage<ept id="9cb30d23-e3b9-441d-bc7b-4cba7c9a38d3">&lt;/linkText&gt;</ept><bpt id="9cb30d23-e3b9-441d-bc7b-4cba7c9a38d3">&lt;title&gt;</bpt><ept id="9cb30d23-e3b9-441d-bc7b-4cba7c9a38d3">&lt;/title&gt;</ept> to store structured data.</source>
+          <target state="new">Use <bpt id="9cb30d23-e3b9-441d-bc7b-4cba7c9a38d3">&lt;linkText&gt;</bpt>Blob Storage<ept id="9cb30d23-e3b9-441d-bc7b-4cba7c9a38d3">&lt;/linkText&gt;</ept><bpt id="9cb30d23-e3b9-441d-bc7b-4cba7c9a38d3">&lt;title&gt;</bpt><ept id="9cb30d23-e3b9-441d-bc7b-4cba7c9a38d3">&lt;/title&gt;</ept> to store structured data.</target>
+        </trans-unit>
+        <trans-unit id="d7292902-b668-4e4c-a3e5-39b41816462c" xml:space="preserve">
+          <source>Use <bpt id="78c266da-2d4f-4de9-8dbc-4119d7af0ba3">&lt;linkText&gt;</bpt>Table Storage<ept id="78c266da-2d4f-4de9-8dbc-4119d7af0ba3">&lt;/linkText&gt;</ept><bpt id="78c266da-2d4f-4de9-8dbc-4119d7af0ba3">&lt;title&gt;</bpt><ept id="78c266da-2d4f-4de9-8dbc-4119d7af0ba3">&lt;/title&gt;</ept> to store structured data.</source>
+          <target state="new">Use <bpt id="78c266da-2d4f-4de9-8dbc-4119d7af0ba3">&lt;linkText&gt;</bpt>Table Storage<ept id="78c266da-2d4f-4de9-8dbc-4119d7af0ba3">&lt;/linkText&gt;</ept><bpt id="78c266da-2d4f-4de9-8dbc-4119d7af0ba3">&lt;title&gt;</bpt><ept id="78c266da-2d4f-4de9-8dbc-4119d7af0ba3">&lt;/title&gt;</ept> to store structured data.</target>
+        </trans-unit>
+        <trans-unit id="90d316eb-7410-49d2-bad6-95487d874e39" xml:space="preserve">
+          <source>Use <bpt id="5ac2e117-8551-4710-8bf3-ca251a76fc69">&lt;linkText&gt;</bpt>SQL Database<ept id="5ac2e117-8551-4710-8bf3-ca251a76fc69">&lt;/linkText&gt;</ept><bpt id="5ac2e117-8551-4710-8bf3-ca251a76fc69">&lt;title&gt;</bpt><ept id="5ac2e117-8551-4710-8bf3-ca251a76fc69">&lt;/title&gt;</ept> to store relational data.</source>
+          <target state="new">Use <bpt id="5ac2e117-8551-4710-8bf3-ca251a76fc69">&lt;linkText&gt;</bpt>SQL Database<ept id="5ac2e117-8551-4710-8bf3-ca251a76fc69">&lt;/linkText&gt;</ept><bpt id="5ac2e117-8551-4710-8bf3-ca251a76fc69">&lt;title&gt;</bpt><ept id="5ac2e117-8551-4710-8bf3-ca251a76fc69">&lt;/title&gt;</ept> to store relational data.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

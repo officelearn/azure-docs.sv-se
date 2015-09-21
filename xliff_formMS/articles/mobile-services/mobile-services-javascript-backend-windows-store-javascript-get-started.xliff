@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="51e99828-db6c-440c-a668-56c312b82fee" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="51e99828-db6c-440c-a668-56c312b82fee" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1a84fed3-4fc6-444d-b892-ed45d7f07553">
+        <trans-unit id="607708c8-70cf-4578-bfb3-d81e5c2bbd69" xml:space="preserve">
+          <source>Get Started with Mobile Services for Windows Store apps | Microsoft Azure</source>
+          <target state="new">Get Started with Mobile Services for Windows Store apps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1147ec2a-e96e-4fe9-a782-57127c0f39d8" xml:space="preserve">
+          <source>Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript.</source>
+          <target state="new">Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript.</target>
+        </trans-unit>
+        <trans-unit id="7753a39f-382f-4c9f-b050-c389db57a9c5" xml:space="preserve">
+          <source><bpt id="0b3e3d3c-45b6-48e9-8c17-e32bb6798b5d">&lt;token href="../../includes/mobile-services-selector-get-started.md"&gt;</bpt><ept id="0b3e3d3c-45b6-48e9-8c17-e32bb6798b5d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0b3e3d3c-45b6-48e9-8c17-e32bb6798b5d">&lt;token href="../../includes/mobile-services-selector-get-started.md"&gt;</bpt><ept id="0b3e3d3c-45b6-48e9-8c17-e32bb6798b5d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81204dba-b87a-4b36-9669-65bf8c3e7602" xml:space="preserve">
+          <source>This tutorial shows you how to add a cloud-based backend service to a universal Windows app using Azure Mobile Services.</source>
+          <target state="new">This tutorial shows you how to add a cloud-based backend service to a universal Windows app using Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="a33556c8-f392-42a0-a4f9-143aed0160ff" xml:space="preserve">
+          <source>In this tutorial, you will create both a new mobile service and a simple <bpt id="a41c5d00-68bc-42d7-b1cb-1639c3bc2b47">&lt;em&gt;</bpt>To do list<ept id="a41c5d00-68bc-42d7-b1cb-1639c3bc2b47">&lt;/em&gt;</ept> app that stores app data in the new mobile service.</source>
+          <target state="new">In this tutorial, you will create both a new mobile service and a simple <bpt id="a41c5d00-68bc-42d7-b1cb-1639c3bc2b47">&lt;em&gt;</bpt>To do list<ept id="a41c5d00-68bc-42d7-b1cb-1639c3bc2b47">&lt;/em&gt;</ept> app that stores app data in the new mobile service.</target>
+        </trans-unit>
+        <trans-unit id="f330a0a3-54d2-499b-8ee2-c2ddce8b85fa" xml:space="preserve">
+          <source>The mobile service that you will create uses JavaScript for server-side business logic.</source>
+          <target state="new">The mobile service that you will create uses JavaScript for server-side business logic.</target>
+        </trans-unit>
+        <trans-unit id="7196fe8c-2182-4566-b0f2-5ff7b1bd44a1" xml:space="preserve">
+          <source>To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the .NET backend version of this topic.</source>
+          <target state="new">To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the .NET backend version of this topic.</target>
+        </trans-unit>
+        <trans-unit id="c911d21a-e73d-4da4-9d7c-42c51420ef63" xml:space="preserve">
+          <source><bpt id="78620873-0ae7-4385-825e-5ca949042cb9">&lt;token href="../../includes/mobile-services-windows-universal-get-started.md"&gt;</bpt><ept id="78620873-0ae7-4385-825e-5ca949042cb9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="78620873-0ae7-4385-825e-5ca949042cb9">&lt;token href="../../includes/mobile-services-windows-universal-get-started.md"&gt;</bpt><ept id="78620873-0ae7-4385-825e-5ca949042cb9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d8803d61-7065-4de8-9a9c-62bd0772216d" xml:space="preserve">
+          <source>To complete this tutorial, you need the following:</source>
+          <target state="new">To complete this tutorial, you need the following:</target>
+        </trans-unit>
+        <trans-unit id="5379a0a1-cdb7-4fad-8fd9-c073f838bf8b" xml:space="preserve">
+          <source>An active Azure account.</source>
+          <target state="new">An active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="d51e9c2e-9cfb-4dd8-b695-826751bb09d8" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="831f978b-ddfb-417e-aa56-e686dc23d926" xml:space="preserve">
+          <source>For details, see <bpt id="5e653737-a32c-409a-8df8-d98ec3c5d142">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="5e653737-a32c-409a-8df8-d98ec3c5d142">&lt;/linkText&gt;</ept><bpt id="5e653737-a32c-409a-8df8-d98ec3c5d142">&lt;title&gt;</bpt><ept id="5e653737-a32c-409a-8df8-d98ec3c5d142">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="5e653737-a32c-409a-8df8-d98ec3c5d142">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="5e653737-a32c-409a-8df8-d98ec3c5d142">&lt;/linkText&gt;</ept><bpt id="5e653737-a32c-409a-8df8-d98ec3c5d142">&lt;title&gt;</bpt><ept id="5e653737-a32c-409a-8df8-d98ec3c5d142">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a164daeb-612e-4f6e-b397-3d559799089a" xml:space="preserve">
+          <source>[Visual Studio 2013 Express for Windows]</source>
+          <target state="new">[Visual Studio 2013 Express for Windows]</target>
+        </trans-unit>
+        <trans-unit id="0060aa55-a8d3-498f-9ca2-b49603eb6b94" xml:space="preserve">
+          <source><bpt id="cd94e7d8-1afc-43cd-81ac-cfef8591833b">&lt;token href="../../includes/mobile-services-create-new-service.md"&gt;</bpt><ept id="cd94e7d8-1afc-43cd-81ac-cfef8591833b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="cd94e7d8-1afc-43cd-81ac-cfef8591833b">&lt;token href="../../includes/mobile-services-create-new-service.md"&gt;</bpt><ept id="cd94e7d8-1afc-43cd-81ac-cfef8591833b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0efd4de-393a-4c9f-864c-bcd7e4eda60b" xml:space="preserve">
+          <source>Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new universal Windows app or modify an existing Windows Store or Windows Phone app project to connect to your mobile service.</source>
+          <target state="new">Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new universal Windows app or modify an existing Windows Store or Windows Phone app project to connect to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="cb7a57fa-1f74-437c-ae98-03fa1ceb7a85" xml:space="preserve">
+          <source>In this section you will create a new universal Windows app that is connected to your mobile service.</source>
+          <target state="new">In this section you will create a new universal Windows app that is connected to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="71469aed-2b72-4a40-b643-bf05801e8546" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="32ebebd6-ae66-4c0d-9003-8bd28eea03af">&lt;strong&gt;</bpt>Mobile Services<ept id="32ebebd6-ae66-4c0d-9003-8bd28eea03af">&lt;/strong&gt;</ept>, and then click the mobile service that you just created.</source>
+          <target state="new">In the Management Portal, click <bpt id="32ebebd6-ae66-4c0d-9003-8bd28eea03af">&lt;strong&gt;</bpt>Mobile Services<ept id="32ebebd6-ae66-4c0d-9003-8bd28eea03af">&lt;/strong&gt;</ept>, and then click the mobile service that you just created.</target>
+        </trans-unit>
+        <trans-unit id="0f2c05c5-0065-42fc-b27b-53d333b0c382" xml:space="preserve">
+          <source>In the quickstart tab, click <bpt id="d1faab05-0677-4466-89a3-9653687cc1f2">&lt;strong&gt;</bpt>Windows<ept id="d1faab05-0677-4466-89a3-9653687cc1f2">&lt;/strong&gt;</ept> under <bpt id="125c7824-d10d-4023-8d05-dad3de2b9f07">&lt;strong&gt;</bpt>Choose platform<ept id="125c7824-d10d-4023-8d05-dad3de2b9f07">&lt;/strong&gt;</ept> and expand <bpt id="f9e0453b-06f9-4c9e-ac26-dc22311acc5c">&lt;strong&gt;</bpt>Create a new Windows Store app<ept id="f9e0453b-06f9-4c9e-ac26-dc22311acc5c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the quickstart tab, click <bpt id="d1faab05-0677-4466-89a3-9653687cc1f2">&lt;strong&gt;</bpt>Windows<ept id="d1faab05-0677-4466-89a3-9653687cc1f2">&lt;/strong&gt;</ept> under <bpt id="125c7824-d10d-4023-8d05-dad3de2b9f07">&lt;strong&gt;</bpt>Choose platform<ept id="125c7824-d10d-4023-8d05-dad3de2b9f07">&lt;/strong&gt;</ept> and expand <bpt id="f9e0453b-06f9-4c9e-ac26-dc22311acc5c">&lt;strong&gt;</bpt>Create a new Windows Store app<ept id="f9e0453b-06f9-4c9e-ac26-dc22311acc5c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff709526-ad43-463b-9e69-074cf8808758" xml:space="preserve">
+          <source><bpt id="19ea31db-cb95-4b99-b07c-affb4df98f9f">&lt;linkText&gt;</bpt><ept id="19ea31db-cb95-4b99-b07c-affb4df98f9f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="19ea31db-cb95-4b99-b07c-affb4df98f9f">&lt;linkText&gt;</bpt><ept id="19ea31db-cb95-4b99-b07c-affb4df98f9f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d39fb1bb-0377-436b-8eaa-14f4eb51b7b5" xml:space="preserve">
+          <source>This displays the three easy steps to create a Windows Store app connected to your mobile service.</source>
+          <target state="new">This displays the three easy steps to create a Windows Store app connected to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="36bdaae3-ef2e-4f1b-bac6-3e46ae633fea" xml:space="preserve">
+          <source><bpt id="16de8e1e-161d-4073-b60d-99af53e2afa0">&lt;linkText&gt;</bpt><ept id="16de8e1e-161d-4073-b60d-99af53e2afa0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16de8e1e-161d-4073-b60d-99af53e2afa0">&lt;linkText&gt;</bpt><ept id="16de8e1e-161d-4073-b60d-99af53e2afa0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8df81e17-26a8-4581-9f2b-5cbe2e098bad" xml:space="preserve">
+          <source>If you haven't already done so, download and install <bpt id="2b883d63-3b2e-418b-8835-fac32fbf6e00">&lt;linkText&gt;</bpt>Visual Studio 2013[visual studio 2013 express for windows]<ept id="2b883d63-3b2e-418b-8835-fac32fbf6e00">&lt;/linkText&gt;</ept><bpt id="2b883d63-3b2e-418b-8835-fac32fbf6e00">&lt;title&gt;</bpt><ept id="2b883d63-3b2e-418b-8835-fac32fbf6e00">&lt;/title&gt;</ept> on your local computer or virtual machine.</source>
+          <target state="new">If you haven't already done so, download and install <bpt id="2b883d63-3b2e-418b-8835-fac32fbf6e00">&lt;linkText&gt;</bpt>Visual Studio 2013[visual studio 2013 express for windows]<ept id="2b883d63-3b2e-418b-8835-fac32fbf6e00">&lt;/linkText&gt;</ept><bpt id="2b883d63-3b2e-418b-8835-fac32fbf6e00">&lt;title&gt;</bpt><ept id="2b883d63-3b2e-418b-8835-fac32fbf6e00">&lt;/title&gt;</ept> on your local computer or virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3adebc46-07f8-49d6-987c-2eadc4e83d5c" xml:space="preserve">
+          <source>Click <bpt id="c44123db-0a0f-4420-b99a-af56dc33a019">&lt;strong&gt;</bpt>Create TodoItem table<ept id="c44123db-0a0f-4420-b99a-af56dc33a019">&lt;/strong&gt;</ept> to create a table to store app data.</source>
+          <target state="new">Click <bpt id="c44123db-0a0f-4420-b99a-af56dc33a019">&lt;strong&gt;</bpt>Create TodoItem table<ept id="c44123db-0a0f-4420-b99a-af56dc33a019">&lt;/strong&gt;</ept> to create a table to store app data.</target>
+        </trans-unit>
+        <trans-unit id="7eb0a448-f186-4023-93f0-20932c0f05a3" xml:space="preserve">
+          <source>Under <bpt id="8a517f6f-a6ee-413c-bb32-aa9b521d4892">&lt;strong&gt;</bpt>Download and run your app<ept id="8a517f6f-a6ee-413c-bb32-aa9b521d4892">&lt;/strong&gt;</ept>, select a language for your app, then click <bpt id="e865fb4e-79a5-4a24-af75-fdd7ffe859af">&lt;strong&gt;</bpt>Download<ept id="e865fb4e-79a5-4a24-af75-fdd7ffe859af">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="8a517f6f-a6ee-413c-bb32-aa9b521d4892">&lt;strong&gt;</bpt>Download and run your app<ept id="8a517f6f-a6ee-413c-bb32-aa9b521d4892">&lt;/strong&gt;</ept>, select a language for your app, then click <bpt id="e865fb4e-79a5-4a24-af75-fdd7ffe859af">&lt;strong&gt;</bpt>Download<ept id="e865fb4e-79a5-4a24-af75-fdd7ffe859af">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52cd2586-07b5-4678-a781-5043c86a2381" xml:space="preserve">
+          <source>This downloads the project for the sample <bpt id="34db86bd-5edb-4384-8019-5f703bb46093">&lt;em&gt;</bpt>To do list<ept id="34db86bd-5edb-4384-8019-5f703bb46093">&lt;/em&gt;</ept> application that is connected to your mobile service.</source>
+          <target state="new">This downloads the project for the sample <bpt id="34db86bd-5edb-4384-8019-5f703bb46093">&lt;em&gt;</bpt>To do list<ept id="34db86bd-5edb-4384-8019-5f703bb46093">&lt;/em&gt;</ept> application that is connected to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="a475c67a-6e59-44f8-8199-f23cf17734ad" xml:space="preserve">
+          <source>Save the compressed project file to your local computer, and make a note of where you save it.</source>
+          <target state="new">Save the compressed project file to your local computer, and make a note of where you save it.</target>
+        </trans-unit>
+        <trans-unit id="81604e60-4b4a-41fc-bf67-e9b18995fb13" xml:space="preserve">
+          <source><bpt id="f9b700b3-be1f-4413-b72b-ff8fc635a1c3">&lt;token href="../../includes/mobile-services-javascript-backend-run-app.md"&gt;</bpt><ept id="f9b700b3-be1f-4413-b72b-ff8fc635a1c3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f9b700b3-be1f-4413-b72b-ff8fc635a1c3">&lt;token href="../../includes/mobile-services-javascript-backend-run-app.md"&gt;</bpt><ept id="f9b700b3-be1f-4413-b72b-ff8fc635a1c3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21d7a9e5-3888-4b7f-bde1-9fd8333426ab" xml:space="preserve">
+          <source>You can review the code that accesses your mobile service to query and insert data, which is found in the default.js file.</source>
+          <target state="new">You can review the code that accesses your mobile service to query and insert data, which is found in the default.js file.</target>
+        </trans-unit>
+        <trans-unit id="51bb2f1d-f5c6-4947-9b72-eb9b31c005f5" xml:space="preserve">
+          <source>Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:</source>
+          <target state="new">Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:</target>
+        </trans-unit>
+        <trans-unit id="82b65070-9823-4bd0-8324-bcc2e4c37056" xml:space="preserve">
+          <source><bpt id="28f57348-daef-444c-84f9-24079fa8ed54">&lt;linkText&gt;</bpt>Add authentication to your app[get started with authentication]<ept id="28f57348-daef-444c-84f9-24079fa8ed54">&lt;/linkText&gt;</ept><bpt id="28f57348-daef-444c-84f9-24079fa8ed54">&lt;title&gt;</bpt><ept id="28f57348-daef-444c-84f9-24079fa8ed54">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn how to authenticate users of your app with an identity provider.</source>
+          <target state="new"><bpt id="28f57348-daef-444c-84f9-24079fa8ed54">&lt;linkText&gt;</bpt>Add authentication to your app[get started with authentication]<ept id="28f57348-daef-444c-84f9-24079fa8ed54">&lt;/linkText&gt;</ept><bpt id="28f57348-daef-444c-84f9-24079fa8ed54">&lt;title&gt;</bpt><ept id="28f57348-daef-444c-84f9-24079fa8ed54">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn how to authenticate users of your app with an identity provider.</target>
+        </trans-unit>
+        <trans-unit id="f38c5bfd-a923-47fc-a71f-a191f1fc9d3e" xml:space="preserve">
+          <source><bpt id="13516f8b-0933-42ec-b02e-d5bb23b1abc8">&lt;linkText&gt;</bpt>Add push notifications to your app[get started with push notifications]<ept id="13516f8b-0933-42ec-b02e-d5bb23b1abc8">&lt;/linkText&gt;</ept><bpt id="13516f8b-0933-42ec-b02e-d5bb23b1abc8">&lt;title&gt;</bpt><ept id="13516f8b-0933-42ec-b02e-d5bb23b1abc8">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn how to send a very basic push notification to your app.</source>
+          <target state="new"><bpt id="13516f8b-0933-42ec-b02e-d5bb23b1abc8">&lt;linkText&gt;</bpt>Add push notifications to your app[get started with push notifications]<ept id="13516f8b-0933-42ec-b02e-d5bb23b1abc8">&lt;/linkText&gt;</ept><bpt id="13516f8b-0933-42ec-b02e-d5bb23b1abc8">&lt;title&gt;</bpt><ept id="13516f8b-0933-42ec-b02e-d5bb23b1abc8">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn how to send a very basic push notification to your app.</target>
+        </trans-unit>
+        <trans-unit id="d32cc575-e83c-4b10-a383-53991edec1ff" xml:space="preserve">
+          <source>For more information about universal Windows apps, see <bpt id="fd2b92a2-2c55-4c7b-b8d9-ac66231b2cac">&lt;linkText&gt;</bpt>Supporting multiple device platforms from a single mobile service<ept id="fd2b92a2-2c55-4c7b-b8d9-ac66231b2cac">&lt;/linkText&gt;</ept><bpt id="fd2b92a2-2c55-4c7b-b8d9-ac66231b2cac">&lt;title&gt;</bpt><ept id="fd2b92a2-2c55-4c7b-b8d9-ac66231b2cac">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about universal Windows apps, see <bpt id="fd2b92a2-2c55-4c7b-b8d9-ac66231b2cac">&lt;linkText&gt;</bpt>Supporting multiple device platforms from a single mobile service<ept id="fd2b92a2-2c55-4c7b-b8d9-ac66231b2cac">&lt;/linkText&gt;</ept><bpt id="fd2b92a2-2c55-4c7b-b8d9-ac66231b2cac">&lt;title&gt;</bpt><ept id="fd2b92a2-2c55-4c7b-b8d9-ac66231b2cac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="699e7c1a-da4d-4ab0-b031-cf3d0ccf249e" xml:space="preserve">
+          <source>#getting-started</source>
+          <target state="new">#getting-started</target>
+        </trans-unit>
+        <trans-unit id="11de8b89-9734-4be0-af17-d1821153b485" xml:space="preserve">
+          <source>#create-new-service</source>
+          <target state="new">#create-new-service</target>
+        </trans-unit>
+        <trans-unit id="46d1a9ec-bae3-4fe4-b44a-3ad048489744" xml:space="preserve">
+          <source>#define-mobile-service-instance</source>
+          <target state="new">#define-mobile-service-instance</target>
+        </trans-unit>
+        <trans-unit id="0b091025-912c-4b5c-9050-11c387fb799e" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="3eaa371c-4189-4777-a4ce-9f52c39a0817" xml:space="preserve">
+          <source>../mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md</source>
+          <target state="new">../mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="a4313fe1-d3bc-4724-8fab-527c21f6b49e" xml:space="preserve">
+          <source>mobile-services-windows-store-javascript-get-started-users.md</source>
+          <target state="new">mobile-services-windows-store-javascript-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="7faa3ab5-9843-487a-97ed-baad73624888" xml:space="preserve">
+          <source>mobile-services-javascript-backend-windows-store-javascript-get-started-push.md</source>
+          <target state="new">mobile-services-javascript-backend-windows-store-javascript-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="cc6228f9-b121-4bc2-a631-b3fd282dd333" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=257546</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=257546</target>
+        </trans-unit>
+        <trans-unit id="9873229b-400c-4753-9699-5bf212ed3265" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=257545</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=257545</target>
+        </trans-unit>
+        <trans-unit id="9a8ddfa3-088e-418e-a121-c87c4b9584cb" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="76938602-1a0d-47fd-8beb-b534e003cc5b" />
+    </body>
+  </file>
+</xliff>

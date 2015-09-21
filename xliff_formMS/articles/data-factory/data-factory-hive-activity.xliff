@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="db373ffa-b022-4785-8d23-887d9c0473e4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="db373ffa-b022-4785-8d23-887d9c0473e4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="68cd2772-bd0f-4e2d-adcc-6f24e8044d57">
+        <trans-unit id="9a29ead4-b130-4e4f-8acf-10471a02db80" xml:space="preserve">
+          <source>Hive Activity</source>
+          <target state="new">Hive Activity</target>
+        </trans-unit>
+        <trans-unit id="5edd686e-3b93-46b7-9e79-4a4a289111ac" xml:space="preserve">
+          <source>Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.</source>
+          <target state="new">Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="c636e48f-9918-4098-983e-6dbc438ec128" xml:space="preserve">
+          <source>The HDInsight Hive activity in a Data Factory <bpt id="2b3b55e0-4f60-4499-8512-d3112f095830">&lt;linkText&gt;</bpt>pipeline<ept id="2b3b55e0-4f60-4499-8512-d3112f095830">&lt;/linkText&gt;</ept><bpt id="2b3b55e0-4f60-4499-8512-d3112f095830">&lt;title&gt;</bpt><ept id="2b3b55e0-4f60-4499-8512-d3112f095830">&lt;/title&gt;</ept> executes Hive queries on <bpt id="d4317586-d4b8-40a5-aa07-0d9784109058">&lt;linkText&gt;</bpt>your own<ept id="d4317586-d4b8-40a5-aa07-0d9784109058">&lt;/linkText&gt;</ept><bpt id="d4317586-d4b8-40a5-aa07-0d9784109058">&lt;title&gt;</bpt><ept id="d4317586-d4b8-40a5-aa07-0d9784109058">&lt;/title&gt;</ept> or <bpt id="7c26da8e-5775-45c1-a5bb-378cd3bf2f2d">&lt;linkText&gt;</bpt>on-demand<ept id="7c26da8e-5775-45c1-a5bb-378cd3bf2f2d">&lt;/linkText&gt;</ept><bpt id="7c26da8e-5775-45c1-a5bb-378cd3bf2f2d">&lt;title&gt;</bpt><ept id="7c26da8e-5775-45c1-a5bb-378cd3bf2f2d">&lt;/title&gt;</ept> HDInsight cluster.</source>
+          <target state="new">The HDInsight Hive activity in a Data Factory <bpt id="2b3b55e0-4f60-4499-8512-d3112f095830">&lt;linkText&gt;</bpt>pipeline<ept id="2b3b55e0-4f60-4499-8512-d3112f095830">&lt;/linkText&gt;</ept><bpt id="2b3b55e0-4f60-4499-8512-d3112f095830">&lt;title&gt;</bpt><ept id="2b3b55e0-4f60-4499-8512-d3112f095830">&lt;/title&gt;</ept> executes Hive queries on <bpt id="d4317586-d4b8-40a5-aa07-0d9784109058">&lt;linkText&gt;</bpt>your own<ept id="d4317586-d4b8-40a5-aa07-0d9784109058">&lt;/linkText&gt;</ept><bpt id="d4317586-d4b8-40a5-aa07-0d9784109058">&lt;title&gt;</bpt><ept id="d4317586-d4b8-40a5-aa07-0d9784109058">&lt;/title&gt;</ept> or <bpt id="7c26da8e-5775-45c1-a5bb-378cd3bf2f2d">&lt;linkText&gt;</bpt>on-demand<ept id="7c26da8e-5775-45c1-a5bb-378cd3bf2f2d">&lt;/linkText&gt;</ept><bpt id="7c26da8e-5775-45c1-a5bb-378cd3bf2f2d">&lt;title&gt;</bpt><ept id="7c26da8e-5775-45c1-a5bb-378cd3bf2f2d">&lt;/title&gt;</ept> HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="cdb8c9ab-0691-461e-bc4a-6fd17c1765fb" xml:space="preserve">
+          <source>This article builds on the <bpt id="b57613ec-9ee2-4c08-8bc0-6ae4c806ca3f">&lt;linkText&gt;</bpt>data transformation activities<ept id="b57613ec-9ee2-4c08-8bc0-6ae4c806ca3f">&lt;/linkText&gt;</ept><bpt id="b57613ec-9ee2-4c08-8bc0-6ae4c806ca3f">&lt;title&gt;</bpt><ept id="b57613ec-9ee2-4c08-8bc0-6ae4c806ca3f">&lt;/title&gt;</ept> article which presents a general overview of data transformation and the supported transformation activities.</source>
+          <target state="new">This article builds on the <bpt id="b57613ec-9ee2-4c08-8bc0-6ae4c806ca3f">&lt;linkText&gt;</bpt>data transformation activities<ept id="b57613ec-9ee2-4c08-8bc0-6ae4c806ca3f">&lt;/linkText&gt;</ept><bpt id="b57613ec-9ee2-4c08-8bc0-6ae4c806ca3f">&lt;title&gt;</bpt><ept id="b57613ec-9ee2-4c08-8bc0-6ae4c806ca3f">&lt;/title&gt;</ept> article which presents a general overview of data transformation and the supported transformation activities.</target>
+        </trans-unit>
+        <trans-unit id="bb730101-605e-4505-a4a8-b3c6a98f8db1" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="22c1f036-1bb7-46a1-8d91-a52daa7c8975" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="17e22052-6499-4a26-9876-6342a937d2e9" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="6fe702e1-c52f-45a7-87d1-20b4a6607acf" xml:space="preserve">
+          <source>name</source>
+          <target state="new">name</target>
+        </trans-unit>
+        <trans-unit id="e3194bb3-25d5-470e-862b-17819db8cec8" xml:space="preserve">
+          <source>Name of the activity</source>
+          <target state="new">Name of the activity</target>
+        </trans-unit>
+        <trans-unit id="a6ce5f38-5f63-40ba-8bbc-5c8fe68b8a1e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="a5d91c27-f7af-442d-a72d-60e795d890cd" xml:space="preserve">
+          <source>description</source>
+          <target state="new">description</target>
+        </trans-unit>
+        <trans-unit id="b1833432-0999-4250-a719-3bc90c4c1db4" xml:space="preserve">
+          <source>Text describing what the activity is used for</source>
+          <target state="new">Text describing what the activity is used for</target>
+        </trans-unit>
+        <trans-unit id="bb4f3f4b-3bf7-4186-8b7e-dea3c35c5b9a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="0f339e20-734d-4d63-870c-0bd3e5b5730f" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="a4b8014f-55ea-4e84-927d-cc07f857b993" xml:space="preserve">
+          <source>HDinsightHive</source>
+          <target state="new">HDinsightHive</target>
+        </trans-unit>
+        <trans-unit id="d20fb857-4a24-49d5-a537-532e5d7d433b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b040ae19-f499-4eaf-9cc3-5505551572cf" xml:space="preserve">
+          <source>inputs</source>
+          <target state="new">inputs</target>
+        </trans-unit>
+        <trans-unit id="01e3a5a5-d26a-4804-9762-1ebe6d7e25b4" xml:space="preserve">
+          <source>Input(s) consumed by the Hive activity</source>
+          <target state="new">Input(s) consumed by the Hive activity</target>
+        </trans-unit>
+        <trans-unit id="05eaf32e-3c5b-4b35-94aa-164608814f87" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="555bd3f2-7f71-4638-9361-f8f5dc2597be" xml:space="preserve">
+          <source>outputs</source>
+          <target state="new">outputs</target>
+        </trans-unit>
+        <trans-unit id="4fe06abd-80a4-43af-a441-e937fb88c262" xml:space="preserve">
+          <source>Output(s) produced by the Hive activity</source>
+          <target state="new">Output(s) produced by the Hive activity</target>
+        </trans-unit>
+        <trans-unit id="270db12e-c443-4292-9282-051661ab7e07" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="69b09219-3961-4104-a913-7a5341309d71" xml:space="preserve">
+          <source>linkedServiceName</source>
+          <target state="new">linkedServiceName</target>
+        </trans-unit>
+        <trans-unit id="0053ae2e-4436-4c7b-ae01-91b463e1ba98" xml:space="preserve">
+          <source>Reference to the HDInsight cluster registered as a linked service in Data Factory</source>
+          <target state="new">Reference to the HDInsight cluster registered as a linked service in Data Factory</target>
+        </trans-unit>
+        <trans-unit id="cf9da2cb-885d-4612-ad23-0ce0648afd2b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="320330ec-3758-40a0-9e1b-a943717c7204" xml:space="preserve">
+          <source>script</source>
+          <target state="new">script</target>
+        </trans-unit>
+        <trans-unit id="1107b406-193f-42b4-83c3-2efd4a73bc7a" xml:space="preserve">
+          <source>Specify the Hive script inline</source>
+          <target state="new">Specify the Hive script inline</target>
+        </trans-unit>
+        <trans-unit id="8f3c5812-1103-4926-bef5-01aa8ff10527" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="e78b0e96-54ee-4b58-a753-cb8fc5acf8db" xml:space="preserve">
+          <source>script path</source>
+          <target state="new">script path</target>
+        </trans-unit>
+        <trans-unit id="48765d25-a829-48c1-820c-8da0b60c003d" xml:space="preserve">
+          <source>Store the Hive script in an Azure blob storage and provide the path to the file.</source>
+          <target state="new">Store the Hive script in an Azure blob storage and provide the path to the file.</target>
+        </trans-unit>
+        <trans-unit id="65e88938-9e62-46a7-bbf9-26eca025d35d" xml:space="preserve">
+          <source>Use 'script' or 'scriptPath' property.</source>
+          <target state="new">Use 'script' or 'scriptPath' property.</target>
+        </trans-unit>
+        <trans-unit id="16b0d4a0-21d5-4a62-94e0-f2a18a5f4177" xml:space="preserve">
+          <source>Both cannot be used together</source>
+          <target state="new">Both cannot be used together</target>
+        </trans-unit>
+        <trans-unit id="66c2e293-9b5e-43d6-92ee-b080e22c7c5a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="c0ee635f-86c0-4701-ac66-e537edc4c345" xml:space="preserve">
+          <source>defines</source>
+          <target state="new">defines</target>
+        </trans-unit>
+        <trans-unit id="6cdb2577-0de0-49d3-b450-0cdb2b70a13c" xml:space="preserve">
+          <source>Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf'</source>
+          <target state="new">Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf'</target>
+        </trans-unit>
+        <trans-unit id="65704053-5455-457b-9f54-b7f57260a426" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="5ebd3af2-d1eb-4432-8113-5288f5b7b25d" xml:space="preserve">
+          <source>Let’s consider an example of game logs analytics where you want to identify the time spent by users playing games launched by your company.</source>
+          <target state="new">Let’s consider an example of game logs analytics where you want to identify the time spent by users playing games launched by your company.</target>
+        </trans-unit>
+        <trans-unit id="02ddf2ab-5029-4e74-8110-0ef5bd6aaf3f" xml:space="preserve">
+          <source>Below is a sample game log which is comma (,) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.</source>
+          <target state="new">Below is a sample game log which is comma (,) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.</target>
+        </trans-unit>
+        <trans-unit id="258bc7c3-a2e3-42c6-813b-0a5073c7b19e" xml:space="preserve">
+          <source>The <bpt id="bcc3953b-ae24-44f1-bae8-0d3329cbf4b9">&lt;strong&gt;</bpt>Hive script<ept id="bcc3953b-ae24-44f1-bae8-0d3329cbf4b9">&lt;/strong&gt;</ept> to process this data looks like this:</source>
+          <target state="new">The <bpt id="bcc3953b-ae24-44f1-bae8-0d3329cbf4b9">&lt;strong&gt;</bpt>Hive script<ept id="bcc3953b-ae24-44f1-bae8-0d3329cbf4b9">&lt;/strong&gt;</ept> to process this data looks like this:</target>
+        </trans-unit>
+        <trans-unit id="4dcef46a-53d9-49d3-b8f1-b66141f15559" xml:space="preserve">
+          <source>To execute this Hive script in a Data Factory pipeline, you need to the do the following</source>
+          <target state="new">To execute this Hive script in a Data Factory pipeline, you need to the do the following</target>
+        </trans-unit>
+        <trans-unit id="2ac34e10-39c1-4c16-b0ab-717b55b58ec0" xml:space="preserve">
+          <source>Create a linked service to register <bpt id="86afcdd8-9459-4c00-8625-7368746b8c85">&lt;linkText&gt;</bpt>your own HDInsight compute cluster<ept id="86afcdd8-9459-4c00-8625-7368746b8c85">&lt;/linkText&gt;</ept><bpt id="86afcdd8-9459-4c00-8625-7368746b8c85">&lt;title&gt;</bpt><ept id="86afcdd8-9459-4c00-8625-7368746b8c85">&lt;/title&gt;</ept> or configure <bpt id="c2deeba2-65c3-4d6d-be72-bac8db67d0bc">&lt;linkText&gt;</bpt>on-demand HDInsight compute cluster<ept id="c2deeba2-65c3-4d6d-be72-bac8db67d0bc">&lt;/linkText&gt;</ept><bpt id="c2deeba2-65c3-4d6d-be72-bac8db67d0bc">&lt;title&gt;</bpt><ept id="c2deeba2-65c3-4d6d-be72-bac8db67d0bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Create a linked service to register <bpt id="86afcdd8-9459-4c00-8625-7368746b8c85">&lt;linkText&gt;</bpt>your own HDInsight compute cluster<ept id="86afcdd8-9459-4c00-8625-7368746b8c85">&lt;/linkText&gt;</ept><bpt id="86afcdd8-9459-4c00-8625-7368746b8c85">&lt;title&gt;</bpt><ept id="86afcdd8-9459-4c00-8625-7368746b8c85">&lt;/title&gt;</ept> or configure <bpt id="c2deeba2-65c3-4d6d-be72-bac8db67d0bc">&lt;linkText&gt;</bpt>on-demand HDInsight compute cluster<ept id="c2deeba2-65c3-4d6d-be72-bac8db67d0bc">&lt;/linkText&gt;</ept><bpt id="c2deeba2-65c3-4d6d-be72-bac8db67d0bc">&lt;title&gt;</bpt><ept id="c2deeba2-65c3-4d6d-be72-bac8db67d0bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7201f584-5845-4b74-ae26-652414ca3508" xml:space="preserve">
+          <source>Let’s call this linked service “HDInsightLinkedService”.</source>
+          <target state="new">Let’s call this linked service “HDInsightLinkedService”.</target>
+        </trans-unit>
+        <trans-unit id="d1f19573-dfb3-4814-95ab-805eecc48033" xml:space="preserve">
+          <source>Create a <bpt id="e8487858-cc24-4caa-b858-672cbfb07a38">&lt;linkText&gt;</bpt>linked service<ept id="e8487858-cc24-4caa-b858-672cbfb07a38">&lt;/linkText&gt;</ept><bpt id="e8487858-cc24-4caa-b858-672cbfb07a38">&lt;title&gt;</bpt><ept id="e8487858-cc24-4caa-b858-672cbfb07a38">&lt;/title&gt;</ept> to configure the connection to Azure Blob storage hosting the data.</source>
+          <target state="new">Create a <bpt id="e8487858-cc24-4caa-b858-672cbfb07a38">&lt;linkText&gt;</bpt>linked service<ept id="e8487858-cc24-4caa-b858-672cbfb07a38">&lt;/linkText&gt;</ept><bpt id="e8487858-cc24-4caa-b858-672cbfb07a38">&lt;title&gt;</bpt><ept id="e8487858-cc24-4caa-b858-672cbfb07a38">&lt;/title&gt;</ept> to configure the connection to Azure Blob storage hosting the data.</target>
+        </trans-unit>
+        <trans-unit id="54deae4c-fc62-44b5-b91b-10233dfdb832" xml:space="preserve">
+          <source>Let’s call this linked service “StorageLinkedService”</source>
+          <target state="new">Let’s call this linked service “StorageLinkedService”</target>
+        </trans-unit>
+        <trans-unit id="fba26a47-b5e5-45ea-a027-8309fe2a7abd" xml:space="preserve">
+          <source>Create <bpt id="51ec1907-c3fb-42d7-9678-18cadfc1cb8f">&lt;linkText&gt;</bpt>datasets<ept id="51ec1907-c3fb-42d7-9678-18cadfc1cb8f">&lt;/linkText&gt;</ept><bpt id="51ec1907-c3fb-42d7-9678-18cadfc1cb8f">&lt;title&gt;</bpt><ept id="51ec1907-c3fb-42d7-9678-18cadfc1cb8f">&lt;/title&gt;</ept> pointing to the input and the output data.</source>
+          <target state="new">Create <bpt id="51ec1907-c3fb-42d7-9678-18cadfc1cb8f">&lt;linkText&gt;</bpt>datasets<ept id="51ec1907-c3fb-42d7-9678-18cadfc1cb8f">&lt;/linkText&gt;</ept><bpt id="51ec1907-c3fb-42d7-9678-18cadfc1cb8f">&lt;title&gt;</bpt><ept id="51ec1907-c3fb-42d7-9678-18cadfc1cb8f">&lt;/title&gt;</ept> pointing to the input and the output data.</target>
+        </trans-unit>
+        <trans-unit id="20b1260a-9048-4c03-8372-68b904b2fac2" xml:space="preserve">
+          <source>Let’s call the input dataset “HiveSampleIn” and the output dataset “HiveSampleOut”</source>
+          <target state="new">Let’s call the input dataset “HiveSampleIn” and the output dataset “HiveSampleOut”</target>
+        </trans-unit>
+        <trans-unit id="6d7c3d2e-2116-4639-92d7-62f24e04c9b1" xml:space="preserve">
+          <source>Copy the Hive query as a file to Azure Blob Storage configured in step #2 above.</source>
+          <target state="new">Copy the Hive query as a file to Azure Blob Storage configured in step #2 above.</target>
+        </trans-unit>
+        <trans-unit id="57f7fecf-7900-4770-b6a1-6513ea2ff264" xml:space="preserve">
+          <source>if the linked service for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity configuration.</source>
+          <target state="new">if the linked service for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity configuration.</target>
+        </trans-unit>
+        <trans-unit id="6c1f8aea-1fcd-4213-a36a-1863c64cdfbf" xml:space="preserve">
+          <source>Use <bpt id="52b2238a-03d5-4066-86bb-3089a18a3976">&lt;strong&gt;</bpt>scriptPath **to specify the path to hive query file and **scriptLinkedService<ept id="52b2238a-03d5-4066-86bb-3089a18a3976">&lt;/strong&gt;</ept> to specify the Azure storage that contains the script file.</source>
+          <target state="new">Use <bpt id="52b2238a-03d5-4066-86bb-3089a18a3976">&lt;strong&gt;</bpt>scriptPath **to specify the path to hive query file and **scriptLinkedService<ept id="52b2238a-03d5-4066-86bb-3089a18a3976">&lt;/strong&gt;</ept> to specify the Azure storage that contains the script file.</target>
+        </trans-unit>
+        <trans-unit id="d9b82e63-e619-401e-bd49-1b8d596a827a" xml:space="preserve">
+          <source>You can also provide the Hive script inline in the activity definition by using the <bpt id="e70add08-469d-4e38-9758-3f8f6398f5de">&lt;strong&gt;</bpt>script<ept id="e70add08-469d-4e38-9758-3f8f6398f5de">&lt;/strong&gt;</ept> property but this is not recommended as all special characters in the script within the JSON document needs to be escaped and may cause debugging issues.</source>
+          <target state="new">You can also provide the Hive script inline in the activity definition by using the <bpt id="e70add08-469d-4e38-9758-3f8f6398f5de">&lt;strong&gt;</bpt>script<ept id="e70add08-469d-4e38-9758-3f8f6398f5de">&lt;/strong&gt;</ept> property but this is not recommended as all special characters in the script within the JSON document needs to be escaped and may cause debugging issues.</target>
+        </trans-unit>
+        <trans-unit id="ea362361-d938-4fdc-b97c-f2a11219f79a" xml:space="preserve">
+          <source>The best practice is to follow step #4.</source>
+          <target state="new">The best practice is to follow step #4.</target>
+        </trans-unit>
+        <trans-unit id="b01019a5-916f-46e2-914e-b79da7465244" xml:space="preserve">
+          <source>Create the below pipeline with the HDInsightHive activity to process the data.</source>
+          <target state="new">Create the below pipeline with the HDInsightHive activity to process the data.</target>
+        </trans-unit>
+        <trans-unit id="2cfba259-a113-4350-9ba8-1d150500c4f6" xml:space="preserve">
+          <source>Deploy the pipeline.</source>
+          <target state="new">Deploy the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="8cacad15-13ef-4b23-89ce-9c094b5fb863" xml:space="preserve">
+          <source>See <bpt id="7e7f90e4-cc5c-434a-b79a-a99fd804a008">&lt;linkText&gt;</bpt>Creating pipelines<ept id="7e7f90e4-cc5c-434a-b79a-a99fd804a008">&lt;/linkText&gt;</ept><bpt id="7e7f90e4-cc5c-434a-b79a-a99fd804a008">&lt;title&gt;</bpt><ept id="7e7f90e4-cc5c-434a-b79a-a99fd804a008">&lt;/title&gt;</ept> article for details.</source>
+          <target state="new">See <bpt id="7e7f90e4-cc5c-434a-b79a-a99fd804a008">&lt;linkText&gt;</bpt>Creating pipelines<ept id="7e7f90e4-cc5c-434a-b79a-a99fd804a008">&lt;/linkText&gt;</ept><bpt id="7e7f90e4-cc5c-434a-b79a-a99fd804a008">&lt;title&gt;</bpt><ept id="7e7f90e4-cc5c-434a-b79a-a99fd804a008">&lt;/title&gt;</ept> article for details.</target>
+        </trans-unit>
+        <trans-unit id="c1ce3714-6b2d-4613-bbe4-768d8e5a6ec1" xml:space="preserve">
+          <source>Monitor the pipeline using the data factory monitoring and management views.</source>
+          <target state="new">Monitor the pipeline using the data factory monitoring and management views.</target>
+        </trans-unit>
+        <trans-unit id="2c10e26e-5f8d-4031-9720-80cf75c3dc82" xml:space="preserve">
+          <source>See <bpt id="73de5960-00a7-4102-9aa3-cf6b37eaa599">&lt;linkText&gt;</bpt>Monitoring and manage Data Factory pipelines<ept id="73de5960-00a7-4102-9aa3-cf6b37eaa599">&lt;/linkText&gt;</ept><bpt id="73de5960-00a7-4102-9aa3-cf6b37eaa599">&lt;title&gt;</bpt><ept id="73de5960-00a7-4102-9aa3-cf6b37eaa599">&lt;/title&gt;</ept> article for details.</source>
+          <target state="new">See <bpt id="73de5960-00a7-4102-9aa3-cf6b37eaa599">&lt;linkText&gt;</bpt>Monitoring and manage Data Factory pipelines<ept id="73de5960-00a7-4102-9aa3-cf6b37eaa599">&lt;/linkText&gt;</ept><bpt id="73de5960-00a7-4102-9aa3-cf6b37eaa599">&lt;title&gt;</bpt><ept id="73de5960-00a7-4102-9aa3-cf6b37eaa599">&lt;/title&gt;</ept> article for details.</target>
+        </trans-unit>
+        <trans-unit id="6135ef32-ac91-4c80-a6db-06d55d9839f8" xml:space="preserve">
+          <source>Consider the example where the game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned with date and time.</source>
+          <target state="new">Consider the example where the game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned with date and time.</target>
+        </trans-unit>
+        <trans-unit id="2120466d-54db-4177-8083-38e137f3e772" xml:space="preserve">
+          <source>You want to parameterize the Hive script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.</source>
+          <target state="new">You want to parameterize the Hive script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.</target>
+        </trans-unit>
+        <trans-unit id="d0aad7e0-74b5-40aa-9678-03cfb3ef2568" xml:space="preserve">
+          <source>To use parameterize Hive script, do the following</source>
+          <target state="new">To use parameterize Hive script, do the following</target>
+        </trans-unit>
+        <trans-unit id="7e5469d9-7616-4fcb-8945-e93cf8e044a1" xml:space="preserve">
+          <source>Define the parameters in <bpt id="fbf03338-b700-469e-b453-ba205f9204e0">&lt;strong&gt;</bpt>defines<ept id="fbf03338-b700-469e-b453-ba205f9204e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Define the parameters in <bpt id="fbf03338-b700-469e-b453-ba205f9204e0">&lt;strong&gt;</bpt>defines<ept id="fbf03338-b700-469e-b453-ba205f9204e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9731092-7594-44c8-9a63-25ca00d804db" xml:space="preserve">
+          <source>In the Hive Script, refer to the parameter using <bpt id="373929a1-5b82-4c15-8488-583e1738daee">&lt;strong&gt;</bpt>${hiveconf:parameterName}<ept id="373929a1-5b82-4c15-8488-583e1738daee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Hive Script, refer to the parameter using <bpt id="373929a1-5b82-4c15-8488-583e1738daee">&lt;strong&gt;</bpt>${hiveconf:parameterName}<ept id="373929a1-5b82-4c15-8488-583e1738daee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4fe42203-e0b4-47ae-99d3-34994d6a4c9e" xml:space="preserve">
+          <source>We would really appreciate your feedback on this article.</source>
+          <target state="new">We would really appreciate your feedback on this article.</target>
+        </trans-unit>
+        <trans-unit id="2571f723-a1da-4a55-aabe-95bd084efb19" xml:space="preserve">
+          <source>Please take a few minutes to submit your feedback via <bpt id="2408cbe4-85c1-4894-91dc-4cbc9d608fd0">&lt;linkText&gt;</bpt>email<ept id="2408cbe4-85c1-4894-91dc-4cbc9d608fd0">&lt;/linkText&gt;</ept><bpt id="2408cbe4-85c1-4894-91dc-4cbc9d608fd0">&lt;title&gt;</bpt><ept id="2408cbe4-85c1-4894-91dc-4cbc9d608fd0">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please take a few minutes to submit your feedback via <bpt id="2408cbe4-85c1-4894-91dc-4cbc9d608fd0">&lt;linkText&gt;</bpt>email<ept id="2408cbe4-85c1-4894-91dc-4cbc9d608fd0">&lt;/linkText&gt;</ept><bpt id="2408cbe4-85c1-4894-91dc-4cbc9d608fd0">&lt;title&gt;</bpt><ept id="2408cbe4-85c1-4894-91dc-4cbc9d608fd0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

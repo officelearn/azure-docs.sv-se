@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="36eb8ffe-19ad-4dff-afba-9bb37dd8d3b9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="36eb8ffe-19ad-4dff-afba-9bb37dd8d3b9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b2352f4a-f360-478e-9807-9e59e85a50e8">
+        <trans-unit id="c9e5d1c8-af93-4ae6-bd40-2f01296bdb0b" xml:space="preserve">
+          <source>Getting Started with Azure AD Connect</source>
+          <target state="new">Getting Started with Azure AD Connect</target>
+        </trans-unit>
+        <trans-unit id="94da0ecf-68fd-4a77-a787-9553d502f32c" xml:space="preserve">
+          <source>Learn how to download, install and run the setup wizard for Azure AD Connect.</source>
+          <target state="new">Learn how to download, install and run the setup wizard for Azure AD Connect.</target>
+        </trans-unit>
+        <trans-unit id="9046806c-4cf3-44e3-83c7-301a0d0c180d" xml:space="preserve">
+          <source>The following documentation will help you get started with Azure Active Directory Connect.</source>
+          <target state="new">The following documentation will help you get started with Azure Active Directory Connect.</target>
+        </trans-unit>
+        <trans-unit id="02134e9e-e32e-4b75-8765-eaac4fbe4cbc" xml:space="preserve">
+          <source>This documentation deals with using the express installation for Azure AD Connect.</source>
+          <target state="new">This documentation deals with using the express installation for Azure AD Connect.</target>
+        </trans-unit>
+        <trans-unit id="c3aaf7ae-0a25-4f84-ae0b-2e4f291115d5" xml:space="preserve">
+          <source>For information on a Custom installation see <bpt id="fcceb17b-8b28-4645-8372-30ca1aa109ef">&lt;linkText&gt;</bpt>Custom installation for Azure AD Connect<ept id="fcceb17b-8b28-4645-8372-30ca1aa109ef">&lt;/linkText&gt;</ept><bpt id="fcceb17b-8b28-4645-8372-30ca1aa109ef">&lt;title&gt;</bpt><ept id="fcceb17b-8b28-4645-8372-30ca1aa109ef">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on a Custom installation see <bpt id="fcceb17b-8b28-4645-8372-30ca1aa109ef">&lt;linkText&gt;</bpt>Custom installation for Azure AD Connect<ept id="fcceb17b-8b28-4645-8372-30ca1aa109ef">&lt;/linkText&gt;</ept><bpt id="fcceb17b-8b28-4645-8372-30ca1aa109ef">&lt;title&gt;</bpt><ept id="fcceb17b-8b28-4645-8372-30ca1aa109ef">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f233e56-ee6e-4504-ab06-f68c1f4bfdac" xml:space="preserve">
+          <source>For information on upgrading from DirSync to Azure AD Connect see <bpt id="093f7444-2666-4241-85a0-82c5dd2ca4cd">&lt;linkText&gt;</bpt>Upgrading DirSync to Azure Active Directory Connect.<ept id="093f7444-2666-4241-85a0-82c5dd2ca4cd">&lt;/linkText&gt;</ept><bpt id="093f7444-2666-4241-85a0-82c5dd2ca4cd">&lt;title&gt;</bpt><ept id="093f7444-2666-4241-85a0-82c5dd2ca4cd">&lt;/title&gt;</ept></source>
+          <target state="new">For information on upgrading from DirSync to Azure AD Connect see <bpt id="093f7444-2666-4241-85a0-82c5dd2ca4cd">&lt;linkText&gt;</bpt>Upgrading DirSync to Azure Active Directory Connect.<ept id="093f7444-2666-4241-85a0-82c5dd2ca4cd">&lt;/linkText&gt;</ept><bpt id="093f7444-2666-4241-85a0-82c5dd2ca4cd">&lt;title&gt;</bpt><ept id="093f7444-2666-4241-85a0-82c5dd2ca4cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ec44eb6-bc3d-4b0a-b22a-99d03a31c7a1" xml:space="preserve">
+          <source>To get started using Azure AD Connect you can download the latest version using the following:  <bpt id="7fe359d3-e0df-44fb-8d35-9fbe698337b0">&lt;linkText&gt;</bpt>Download Azure AD Connect<ept id="7fe359d3-e0df-44fb-8d35-9fbe698337b0">&lt;/linkText&gt;</ept><bpt id="7fe359d3-e0df-44fb-8d35-9fbe698337b0">&lt;title&gt;</bpt><ept id="7fe359d3-e0df-44fb-8d35-9fbe698337b0">&lt;/title&gt;</ept> </source>
+          <target state="new">To get started using Azure AD Connect you can download the latest version using the following:  <bpt id="7fe359d3-e0df-44fb-8d35-9fbe698337b0">&lt;linkText&gt;</bpt>Download Azure AD Connect<ept id="7fe359d3-e0df-44fb-8d35-9fbe698337b0">&lt;/linkText&gt;</ept><bpt id="7fe359d3-e0df-44fb-8d35-9fbe698337b0">&lt;title&gt;</bpt><ept id="7fe359d3-e0df-44fb-8d35-9fbe698337b0">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d917cbd9-c78d-4064-a70e-25b82fc1d1d3" xml:space="preserve">
+          <source>Before you install Azure AD Connect with Express Settings, there are a few things that you will need.</source>
+          <target state="new">Before you install Azure AD Connect with Express Settings, there are a few things that you will need.</target>
+        </trans-unit>
+        <trans-unit id="211b8ab5-3774-4359-9732-559d2be586ea" xml:space="preserve">
+          <source>An Azure subscription or an <bpt id="eba79d11-7e66-4a9d-9249-5c709a1da195">&lt;linkText&gt;</bpt>Azure trial subscription<ept id="eba79d11-7e66-4a9d-9249-5c709a1da195">&lt;/linkText&gt;</ept><bpt id="eba79d11-7e66-4a9d-9249-5c709a1da195">&lt;title&gt;</bpt><ept id="eba79d11-7e66-4a9d-9249-5c709a1da195">&lt;/title&gt;</ept> - This is only required for accessing the Azure portal and not for using Azure AD Connect.</source>
+          <target state="new">An Azure subscription or an <bpt id="eba79d11-7e66-4a9d-9249-5c709a1da195">&lt;linkText&gt;</bpt>Azure trial subscription<ept id="eba79d11-7e66-4a9d-9249-5c709a1da195">&lt;/linkText&gt;</ept><bpt id="eba79d11-7e66-4a9d-9249-5c709a1da195">&lt;title&gt;</bpt><ept id="eba79d11-7e66-4a9d-9249-5c709a1da195">&lt;/title&gt;</ept> - This is only required for accessing the Azure portal and not for using Azure AD Connect.</target>
+        </trans-unit>
+        <trans-unit id="c26b8a16-ded9-4ef8-a81d-7ffd1e4279e0" xml:space="preserve">
+          <source>If you are using PowerShell or Office 365 you do not need an Azure subscription to use Azure AD Connect.</source>
+          <target state="new">If you are using PowerShell or Office 365 you do not need an Azure subscription to use Azure AD Connect.</target>
+        </trans-unit>
+        <trans-unit id="92e51f42-c3ef-4e4a-b83b-6712e8eb7775" xml:space="preserve">
+          <source>An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with</source>
+          <target state="new">An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with</target>
+        </trans-unit>
+        <trans-unit id="5289d928-fd44-43b8-bd14-f4226d26fe6b" xml:space="preserve">
+          <source>An AD Domain Controller or member server with Windows Server 2008 or later</source>
+          <target state="new">An AD Domain Controller or member server with Windows Server 2008 or later</target>
+        </trans-unit>
+        <trans-unit id="45ce6ef9-ed3d-4b39-b13c-173e67b2c343" xml:space="preserve">
+          <source>An Enterprise Administrator account for your local Active Directory</source>
+          <target state="new">An Enterprise Administrator account for your local Active Directory</target>
+        </trans-unit>
+        <trans-unit id="434fbbe9-0ba0-420e-9c7f-44c0c73a7b65" xml:space="preserve">
+          <source>Optional:  A test user account to verify synchronization.</source>
+          <target state="new">Optional:  A test user account to verify synchronization.</target>
+        </trans-unit>
+        <trans-unit id="b74745fc-7f36-4c37-bcfe-db10a20ceb22" xml:space="preserve">
+          <source>The table below shows the minimum requirements for the Azure AD Connect computer.</source>
+          <target state="new">The table below shows the minimum requirements for the Azure AD Connect computer.</target>
+        </trans-unit>
+        <trans-unit id="b16eb0fe-a54d-4f84-a902-2ca3ac3938f6" xml:space="preserve">
+          <source>Number of objects in Active Directory</source>
+          <target state="new">Number of objects in Active Directory</target>
+        </trans-unit>
+        <trans-unit id="3ba5d6dd-7848-4b3a-931e-97c509beb6fa" xml:space="preserve">
+          <source>CPU</source>
+          <target state="new">CPU</target>
+        </trans-unit>
+        <trans-unit id="f914a405-e63d-4be6-b3c5-fa5bd4ff8a16" xml:space="preserve">
+          <source>Memory</source>
+          <target state="new">Memory</target>
+        </trans-unit>
+        <trans-unit id="2f5ce79e-3d5a-4bdd-ba8c-78b0fe2c3a7d" xml:space="preserve">
+          <source>Hard drive size</source>
+          <target state="new">Hard drive size</target>
+        </trans-unit>
+        <trans-unit id="d41163a7-acf3-49e9-8f56-3062a385c090" xml:space="preserve">
+          <source>Fewer than 10,000</source>
+          <target state="new">Fewer than 10,000</target>
+        </trans-unit>
+        <trans-unit id="08c13cbc-2dd0-4017-a312-56659a3e0b17" xml:space="preserve">
+          <source>1.6 GHz</source>
+          <target state="new">1.6 GHz</target>
+        </trans-unit>
+        <trans-unit id="2061394b-825f-4b50-85aa-7185ca5ceaad" xml:space="preserve">
+          <source>4 GB</source>
+          <target state="new">4 GB</target>
+        </trans-unit>
+        <trans-unit id="b18152dd-0687-4f71-b7ea-a236aef018cf" xml:space="preserve">
+          <source>70 GB</source>
+          <target state="new">70 GB</target>
+        </trans-unit>
+        <trans-unit id="0afceac5-e1e5-4971-bb0d-de07f54ddb02" xml:space="preserve">
+          <source>10,000–50,000</source>
+          <target state="new">10,000–50,000</target>
+        </trans-unit>
+        <trans-unit id="6a3d0b1e-dd9e-4171-8e5d-4a9b64c86ee6" xml:space="preserve">
+          <source>1.6 GHz</source>
+          <target state="new">1.6 GHz</target>
+        </trans-unit>
+        <trans-unit id="21e5ce6b-2096-40ff-88f7-acfb7b0e9b3b" xml:space="preserve">
+          <source>4 GB</source>
+          <target state="new">4 GB</target>
+        </trans-unit>
+        <trans-unit id="9c8da66f-36f5-4abe-b442-3778643d4108" xml:space="preserve">
+          <source>70 GB</source>
+          <target state="new">70 GB</target>
+        </trans-unit>
+        <trans-unit id="9c2e9760-7973-4142-a2b5-d25c57037d43" xml:space="preserve">
+          <source>50,000–100,000</source>
+          <target state="new">50,000–100,000</target>
+        </trans-unit>
+        <trans-unit id="b9f12b06-85a2-4bf3-8d6f-c79f132e1808" xml:space="preserve">
+          <source>1.6 GHz</source>
+          <target state="new">1.6 GHz</target>
+        </trans-unit>
+        <trans-unit id="6fe7d734-b25f-4ca7-8eb0-67483d676e31" xml:space="preserve">
+          <source>16 GB</source>
+          <target state="new">16 GB</target>
+        </trans-unit>
+        <trans-unit id="d8447bdd-fa4d-4fa1-ad9c-478f01119110" xml:space="preserve">
+          <source>100 GB</source>
+          <target state="new">100 GB</target>
+        </trans-unit>
+        <trans-unit id="1e386666-a0e5-487f-8763-47cfc6953611" xml:space="preserve">
+          <source>For 100,000 or more objects the full version of SQL Server is required</source>
+          <target state="new">For 100,000 or more objects the full version of SQL Server is required</target>
+        </trans-unit>
+        <trans-unit id="bfeb8d23-dbc1-4976-af06-22402fabab7d" xml:space="preserve">
+          <source>100,000–300,000</source>
+          <target state="new">100,000–300,000</target>
+        </trans-unit>
+        <trans-unit id="885c335e-10fb-4cfa-a028-aedfcb95b8a6" xml:space="preserve">
+          <source>1.6 GHz</source>
+          <target state="new">1.6 GHz</target>
+        </trans-unit>
+        <trans-unit id="4192df63-c023-421a-9208-9ba5c5594f2e" xml:space="preserve">
+          <source>32 GB</source>
+          <target state="new">32 GB</target>
+        </trans-unit>
+        <trans-unit id="d5db9320-ebcd-4ebf-b209-987d138507f6" xml:space="preserve">
+          <source>300 GB</source>
+          <target state="new">300 GB</target>
+        </trans-unit>
+        <trans-unit id="36f54970-aba8-4cc5-836e-906c0b5d2575" xml:space="preserve">
+          <source>300,000–600,000</source>
+          <target state="new">300,000–600,000</target>
+        </trans-unit>
+        <trans-unit id="8938dc46-4c72-4f42-a38a-cdc547206986" xml:space="preserve">
+          <source>1.6 GHz</source>
+          <target state="new">1.6 GHz</target>
+        </trans-unit>
+        <trans-unit id="000e1d15-c7e6-419b-91fa-5cd0f3700c32" xml:space="preserve">
+          <source>32 GB</source>
+          <target state="new">32 GB</target>
+        </trans-unit>
+        <trans-unit id="5039783d-0cd8-4598-9d0e-3455f8b7e2cc" xml:space="preserve">
+          <source>450 GB</source>
+          <target state="new">450 GB</target>
+        </trans-unit>
+        <trans-unit id="9cb72b16-4644-496e-b9b0-3268ce58fdc8" xml:space="preserve">
+          <source>More than 600,000</source>
+          <target state="new">More than 600,000</target>
+        </trans-unit>
+        <trans-unit id="1b1ffce4-d1c8-4ce6-8938-e3759697c4af" xml:space="preserve">
+          <source>1.6 GHz</source>
+          <target state="new">1.6 GHz</target>
+        </trans-unit>
+        <trans-unit id="6192af9e-935d-4f65-8034-15fb7974eb4a" xml:space="preserve">
+          <source>32 GB</source>
+          <target state="new">32 GB</target>
+        </trans-unit>
+        <trans-unit id="5233b91b-7fbb-40d2-afbb-61629d999b6e" xml:space="preserve">
+          <source>500 GB</source>
+          <target state="new">500 GB</target>
+        </trans-unit>
+        <trans-unit id="29f4be8c-07ae-4e6d-9d27-d3ce40cc7871" xml:space="preserve">
+          <source>For Custom options such as multiple forests or federated sign on, find out about additional requirements <bpt id="58d724a5-8086-4730-b314-278f201e9bfe">&lt;linkText&gt;</bpt>here.<ept id="58d724a5-8086-4730-b314-278f201e9bfe">&lt;/linkText&gt;</ept><bpt id="58d724a5-8086-4730-b314-278f201e9bfe">&lt;title&gt;</bpt><ept id="58d724a5-8086-4730-b314-278f201e9bfe">&lt;/title&gt;</ept></source>
+          <target state="new">For Custom options such as multiple forests or federated sign on, find out about additional requirements <bpt id="58d724a5-8086-4730-b314-278f201e9bfe">&lt;linkText&gt;</bpt>here.<ept id="58d724a5-8086-4730-b314-278f201e9bfe">&lt;/linkText&gt;</ept><bpt id="58d724a5-8086-4730-b314-278f201e9bfe">&lt;title&gt;</bpt><ept id="58d724a5-8086-4730-b314-278f201e9bfe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff16e93a-ac85-4c41-a6e3-1a50a3d619ab" xml:space="preserve">
+          <source>Selecting Express Settings is the default option and is one of the most common scenarios.</source>
+          <target state="new">Selecting Express Settings is the default option and is one of the most common scenarios.</target>
+        </trans-unit>
+        <trans-unit id="7cbec160-4a10-4f98-8280-40851e4d682b" xml:space="preserve">
+          <source>When doing this, Azure AD Connect deploys sync with the password hash sync option.</source>
+          <target state="new">When doing this, Azure AD Connect deploys sync with the password hash sync option.</target>
+        </trans-unit>
+        <trans-unit id="6b0078f9-10c9-4e64-9de6-9176f9096b8b" xml:space="preserve">
+          <source>This is for a single forest only and allows your users to use their on-premises password to sign-in to the cloud.</source>
+          <target state="new">This is for a single forest only and allows your users to use their on-premises password to sign-in to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="1ed24125-ebcd-4603-af17-9b9a8f8e6acb" xml:space="preserve">
+          <source>Using the Express Settings will automatically kick off a synchronization once the installation is complete (though you can choose not to do this).</source>
+          <target state="new">Using the Express Settings will automatically kick off a synchronization once the installation is complete (though you can choose not to do this).</target>
+        </trans-unit>
+        <trans-unit id="8ade08b4-8a4b-49f7-aa1e-0b96082e435d" xml:space="preserve">
+          <source>With this option there are only a few short clicks to extending your on-premises directory to the cloud.</source>
+          <target state="new">With this option there are only a few short clicks to extending your on-premises directory to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="ece469c2-b6dd-492f-862c-6325a728e901" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="6e6f2c66-651f-4e36-bb73-a0506d1dabf7">&lt;linkText&gt;</bpt>Welcome to Azure AD Connect<ept id="6e6f2c66-651f-4e36-bb73-a0506d1dabf7">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="6e6f2c66-651f-4e36-bb73-a0506d1dabf7">&lt;linkText&gt;</bpt>Welcome to Azure AD Connect<ept id="6e6f2c66-651f-4e36-bb73-a0506d1dabf7">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="7ac1426e-d45f-4c31-81b2-1726f7705e43" xml:space="preserve">
+          <source>Login to the server you wish to install Azure AD Connect on as an Enterprise Administrator.</source>
+          <target state="new">Login to the server you wish to install Azure AD Connect on as an Enterprise Administrator.</target>
+        </trans-unit>
+        <trans-unit id="4e53d7dd-3f8e-42dc-b827-4e57a2b936a2" xml:space="preserve">
+          <source>This should be the server you wish to be the sync server.</source>
+          <target state="new">This should be the server you wish to be the sync server.</target>
+        </trans-unit>
+        <trans-unit id="43e82e8a-9842-420b-b2de-877167b9f230" xml:space="preserve">
+          <source>Navigate to and double-click on AzureADConnect.msi</source>
+          <target state="new">Navigate to and double-click on AzureADConnect.msi</target>
+        </trans-unit>
+        <trans-unit id="45a615d0-d017-4103-abbc-5b4be3c8d51f" xml:space="preserve">
+          <source>On the Welcome screen, select the box agreeing to the licensing terms and click <bpt id="e8c3f901-e77f-4d4b-a65d-9de37a6e4f56">&lt;strong&gt;</bpt>Continue<ept id="e8c3f901-e77f-4d4b-a65d-9de37a6e4f56">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Welcome screen, select the box agreeing to the licensing terms and click <bpt id="e8c3f901-e77f-4d4b-a65d-9de37a6e4f56">&lt;strong&gt;</bpt>Continue<ept id="e8c3f901-e77f-4d4b-a65d-9de37a6e4f56">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="59aaf080-55b5-4c05-88bc-3bc0d85c35bd" xml:space="preserve">
+          <source>On the Express settings screen, click <bpt id="21b285a9-3457-4554-bd4e-aaa18efd4303">&lt;strong&gt;</bpt>Use express settings<ept id="21b285a9-3457-4554-bd4e-aaa18efd4303">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Express settings screen, click <bpt id="21b285a9-3457-4554-bd4e-aaa18efd4303">&lt;strong&gt;</bpt>Use express settings<ept id="21b285a9-3457-4554-bd4e-aaa18efd4303">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21b763d0-1967-4599-9703-5c2c5582e241" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="5b9098fd-8af7-409d-a06d-c360b0b2f2af">&lt;linkText&gt;</bpt>Welcome to Azure AD Connect<ept id="5b9098fd-8af7-409d-a06d-c360b0b2f2af">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="5b9098fd-8af7-409d-a06d-c360b0b2f2af">&lt;linkText&gt;</bpt>Welcome to Azure AD Connect<ept id="5b9098fd-8af7-409d-a06d-c360b0b2f2af">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="b3bdf664-67e2-42d3-8966-36579cbf419c" xml:space="preserve">
+          <source>On the Connect to Azure AD screen, enter the username and password of an Azure global administrator for your Azure AD.</source>
+          <target state="new">On the Connect to Azure AD screen, enter the username and password of an Azure global administrator for your Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="c0715260-2a44-4bf8-b7bf-1a3d264f1b15" xml:space="preserve">
+          <source>Click <bpt id="a0ecf738-4744-43f2-b838-520b90cc5094">&lt;strong&gt;</bpt>Next<ept id="a0ecf738-4744-43f2-b838-520b90cc5094">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a0ecf738-4744-43f2-b838-520b90cc5094">&lt;strong&gt;</bpt>Next<ept id="a0ecf738-4744-43f2-b838-520b90cc5094">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3ac578b-bff5-462c-bc87-0d353db34ce9" xml:space="preserve">
+          <source>On the Connect to AD DS screen enter the username and password for an enterprise admin account.</source>
+          <target state="new">On the Connect to AD DS screen enter the username and password for an enterprise admin account.</target>
+        </trans-unit>
+        <trans-unit id="a416df1a-31eb-4a7f-8a33-23ddc5d838b6" xml:space="preserve">
+          <source>Click <bpt id="6047e816-d685-474b-90c1-ea3675c6be7b">&lt;strong&gt;</bpt>Next<ept id="6047e816-d685-474b-90c1-ea3675c6be7b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6047e816-d685-474b-90c1-ea3675c6be7b">&lt;strong&gt;</bpt>Next<ept id="6047e816-d685-474b-90c1-ea3675c6be7b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3d95021-0a48-42a7-9a7d-a33ad62b3f3f" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="056e1879-d178-4e66-afd4-1e6db8377677">&lt;linkText&gt;</bpt>Welcome to Azure AD Connect<ept id="056e1879-d178-4e66-afd4-1e6db8377677">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="056e1879-d178-4e66-afd4-1e6db8377677">&lt;linkText&gt;</bpt>Welcome to Azure AD Connect<ept id="056e1879-d178-4e66-afd4-1e6db8377677">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="387d9a14-c6ba-49cf-9e8d-aab42288fe64" xml:space="preserve">
+          <source>On the Ready to configure screen, click <bpt id="89700c1a-0ee5-4aff-aa7c-92d84b2fce0b">&lt;strong&gt;</bpt>Install<ept id="89700c1a-0ee5-4aff-aa7c-92d84b2fce0b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Ready to configure screen, click <bpt id="89700c1a-0ee5-4aff-aa7c-92d84b2fce0b">&lt;strong&gt;</bpt>Install<ept id="89700c1a-0ee5-4aff-aa7c-92d84b2fce0b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6cced0cb-c385-41bc-9651-84a15f5e87ff" xml:space="preserve">
+          <source>Optionally on the Ready to Configure page, you can un-check the “<bpt id="868ac3e6-225e-4cd2-8aa9-7a2f68ab09a2">&lt;strong&gt;</bpt>Start the synchronization process as soon as configuration completes<ept id="868ac3e6-225e-4cd2-8aa9-7a2f68ab09a2">&lt;/strong&gt;</ept>” checkbox.</source>
+          <target state="new">Optionally on the Ready to Configure page, you can un-check the “<bpt id="868ac3e6-225e-4cd2-8aa9-7a2f68ab09a2">&lt;strong&gt;</bpt>Start the synchronization process as soon as configuration completes<ept id="868ac3e6-225e-4cd2-8aa9-7a2f68ab09a2">&lt;/strong&gt;</ept>” checkbox.</target>
+        </trans-unit>
+        <trans-unit id="a2307621-395d-4a0f-8dc3-aabf9bd29f26" xml:space="preserve">
+          <source>If you do this, the wizard will configure sync but will leave the task disabled so it will not run until you enable it manually in the Task Scheduler.</source>
+          <target state="new">If you do this, the wizard will configure sync but will leave the task disabled so it will not run until you enable it manually in the Task Scheduler.</target>
+        </trans-unit>
+        <trans-unit id="60fdd919-6d61-4bcc-ad21-5ccfa573859c" xml:space="preserve">
+          <source>Once the task is enabled, synchronization will run every three hours.</source>
+          <target state="new">Once the task is enabled, synchronization will run every three hours.</target>
+        </trans-unit>
+        <trans-unit id="c14c91c5-af1b-4130-a49a-aac18db1099b" xml:space="preserve">
+          <source>Also optionally you can choose to configure sync services for <bpt id="0605ee48-0c4c-43ab-847d-8fcfd02cab50">&lt;strong&gt;</bpt>Exchange Hybrid deployment<ept id="0605ee48-0c4c-43ab-847d-8fcfd02cab50">&lt;/strong&gt;</ept> by checking the corresponding checkbox.</source>
+          <target state="new">Also optionally you can choose to configure sync services for <bpt id="0605ee48-0c4c-43ab-847d-8fcfd02cab50">&lt;strong&gt;</bpt>Exchange Hybrid deployment<ept id="0605ee48-0c4c-43ab-847d-8fcfd02cab50">&lt;/strong&gt;</ept> by checking the corresponding checkbox.</target>
+        </trans-unit>
+        <trans-unit id="25198051-00f1-4711-b370-56ad4f4209e6" xml:space="preserve">
+          <source>If you don’t plan to have Exchange mailboxes both in the cloud and on premises, you do not need this.</source>
+          <target state="new">If you don’t plan to have Exchange mailboxes both in the cloud and on premises, you do not need this.</target>
+        </trans-unit>
+        <trans-unit id="0f622a02-c66f-4045-a2c1-dfabf03d27a9" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="4f14a2cd-7e5f-4915-8e2b-227a3d4237bf">&lt;linkText&gt;</bpt>Welcome to Azure AD Connect<ept id="4f14a2cd-7e5f-4915-8e2b-227a3d4237bf">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="4f14a2cd-7e5f-4915-8e2b-227a3d4237bf">&lt;linkText&gt;</bpt>Welcome to Azure AD Connect<ept id="4f14a2cd-7e5f-4915-8e2b-227a3d4237bf">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="28162105-e608-45c6-8752-b828dd364899" xml:space="preserve">
+          <source>Once the installation completes, click <bpt id="ed5a1362-15fe-4a53-b5bc-3114bd8ca32f">&lt;strong&gt;</bpt>Exit<ept id="ed5a1362-15fe-4a53-b5bc-3114bd8ca32f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the installation completes, click <bpt id="ed5a1362-15fe-4a53-b5bc-3114bd8ca32f">&lt;strong&gt;</bpt>Exit<ept id="ed5a1362-15fe-4a53-b5bc-3114bd8ca32f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7283b59-c4bf-4c97-a9c4-b46628217bf3" xml:space="preserve">
+          <source>&lt;br&gt;
+&lt;br&gt;</source>
+          <target state="new">&lt;br&gt;
+&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="9be29f45-4337-4d50-b17c-e5440e187097" xml:space="preserve">
+          <source>For a video on using the express installation check out the following:</source>
+          <target state="new">For a video on using the express installation check out the following:</target>
+        </trans-unit>
+        <trans-unit id="10a5c2bb-3ec4-47eb-a32c-7d84cc97c671" xml:space="preserve">
+          <source>&lt;center&gt;[AZURE.VIDEO azure-active-directory-connect-express-settings]&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;[AZURE.VIDEO azure-active-directory-connect-express-settings]&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="4979538c-22fc-4b0b-819c-717574c7bbbf" xml:space="preserve">
+          <source>After you have successfully installed Azure AD Connect you can verify that synchronization is occurring by signing in to the Azure portal and checking the last sync time.</source>
+          <target state="new">After you have successfully installed Azure AD Connect you can verify that synchronization is occurring by signing in to the Azure portal and checking the last sync time.</target>
+        </trans-unit>
+        <trans-unit id="e3db31b8-a70f-4844-aa86-4e527ad6d7ab" xml:space="preserve">
+          <source>Sign in to the Azure portal.</source>
+          <target state="new">Sign in to the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="61eec748-6c56-4f14-ad67-c2b2acd752fd" xml:space="preserve">
+          <source>On the left select Active Directory.</source>
+          <target state="new">On the left select Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="0a6b51a4-c85f-4053-8518-8d5d57747d32" xml:space="preserve">
+          <source>Double-click on the directory you just used to setup Azure AD Connect.</source>
+          <target state="new">Double-click on the directory you just used to setup Azure AD Connect.</target>
+        </trans-unit>
+        <trans-unit id="16194057-dd2d-4535-9205-2eed40ea1511" xml:space="preserve">
+          <source>At the top, select Directory Integration.</source>
+          <target state="new">At the top, select Directory Integration.</target>
+        </trans-unit>
+        <trans-unit id="304b19bd-2ffb-404f-9c8b-a3828bec0277" xml:space="preserve">
+          <source>Note the last sync time.</source>
+          <target state="new">Note the last sync time.</target>
+        </trans-unit>
+        <trans-unit id="ad252294-618b-4617-b37e-161b1a40a91f" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="c49fee23-85c7-4faa-aeb9-c4e8e4576034">&lt;linkText&gt;</bpt>Express Installation<ept id="c49fee23-85c7-4faa-aeb9-c4e8e4576034">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="c49fee23-85c7-4faa-aeb9-c4e8e4576034">&lt;linkText&gt;</bpt>Express Installation<ept id="c49fee23-85c7-4faa-aeb9-c4e8e4576034">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="854e0ebd-22f0-4d3b-99bb-312ceede31dd" xml:space="preserve">
+          <source>Now that you have Azure AD Connect installed you can use the link <bpt id="ecadb0e7-987c-4366-af72-c13760cf40fa">&lt;linkText&gt;</bpt>here<ept id="ecadb0e7-987c-4366-af72-c13760cf40fa">&lt;/linkText&gt;</ept><bpt id="ecadb0e7-987c-4366-af72-c13760cf40fa">&lt;title&gt;</bpt><ept id="ecadb0e7-987c-4366-af72-c13760cf40fa">&lt;/title&gt;</ept> to get going with post installation tasks such as  assigning your users Azure AD Premium or Enterprise Mobility licenses or configuring additional options.</source>
+          <target state="new">Now that you have Azure AD Connect installed you can use the link <bpt id="ecadb0e7-987c-4366-af72-c13760cf40fa">&lt;linkText&gt;</bpt>here<ept id="ecadb0e7-987c-4366-af72-c13760cf40fa">&lt;/linkText&gt;</ept><bpt id="ecadb0e7-987c-4366-af72-c13760cf40fa">&lt;title&gt;</bpt><ept id="ecadb0e7-987c-4366-af72-c13760cf40fa">&lt;/title&gt;</ept> to get going with post installation tasks such as  assigning your users Azure AD Premium or Enterprise Mobility licenses or configuring additional options.</target>
+        </trans-unit>
+        <trans-unit id="5e6dc1f4-aaaf-49e3-b5d6-4c6f78c395e2" xml:space="preserve">
+          <source><bpt id="af10549f-26b9-438d-a637-1e5dc2efc177">&lt;strong&gt;</bpt>Additional Resources<ept id="af10549f-26b9-438d-a637-1e5dc2efc177">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="af10549f-26b9-438d-a637-1e5dc2efc177">&lt;strong&gt;</bpt>Additional Resources<ept id="af10549f-26b9-438d-a637-1e5dc2efc177">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbca5b61-38af-407b-8ca2-ddbf3e7771d0" xml:space="preserve">
+          <source><bpt id="9388c00d-89cf-499e-8e8e-4a0b78c4759f">&lt;linkText&gt;</bpt>Directory Integration Tools Comparison<ept id="9388c00d-89cf-499e-8e8e-4a0b78c4759f">&lt;/linkText&gt;</ept><bpt id="9388c00d-89cf-499e-8e8e-4a0b78c4759f">&lt;title&gt;</bpt><ept id="9388c00d-89cf-499e-8e8e-4a0b78c4759f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9388c00d-89cf-499e-8e8e-4a0b78c4759f">&lt;linkText&gt;</bpt>Directory Integration Tools Comparison<ept id="9388c00d-89cf-499e-8e8e-4a0b78c4759f">&lt;/linkText&gt;</ept><bpt id="9388c00d-89cf-499e-8e8e-4a0b78c4759f">&lt;title&gt;</bpt><ept id="9388c00d-89cf-499e-8e8e-4a0b78c4759f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

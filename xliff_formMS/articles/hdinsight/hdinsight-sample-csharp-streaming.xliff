@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="88495b14-31d2-491b-a005-2482433660e4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="88495b14-31d2-491b-a005-2482433660e4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="631a0326-46b2-4981-be67-56678a2f7f2b">
+        <trans-unit id="d7c816b7-bae9-485a-841b-14ac3bae76ae" xml:space="preserve">
+          <source>C# streaming wordcount Hadoop sample | Microsoft Azure</source>
+          <target state="new">C# streaming wordcount Hadoop sample | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b7b9a8d4-59e6-41d2-b83d-7c108d5ccd7e" xml:space="preserve">
+          <source>How to write MapReduce programs in C# that use the Hadoop Streaming interface, and how to run them on HDInsight using PowerShell cmdlets.</source>
+          <target state="new">How to write MapReduce programs in C# that use the Hadoop Streaming interface, and how to run them on HDInsight using PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="dfae2d09-0ec5-440b-8c7c-c63be7dd3f9c" xml:space="preserve">
+          <source>Hadoop provides a streaming API to MapReduce, which enables you to write map and reduce functions in languages other than Java.</source>
+          <target state="new">Hadoop provides a streaming API to MapReduce, which enables you to write map and reduce functions in languages other than Java.</target>
+        </trans-unit>
+        <trans-unit id="a5f99e73-d028-4532-9c89-0f202f325fea" xml:space="preserve">
+          <source>This tutorial shows how to write MapReduce programs in C# by using the Hadoop Streaming interface and how to run the programs in Azure HDInsight by using Azure PowerShell cmdlets.</source>
+          <target state="new">This tutorial shows how to write MapReduce programs in C# by using the Hadoop Streaming interface and how to run the programs in Azure HDInsight by using Azure PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="4e4d56b0-908c-4d14-a8f8-90cdd8231d71" xml:space="preserve">
+          <source>The steps in this tutorial apply only to Windows-based HDInsight clusters.</source>
+          <target state="new">The steps in this tutorial apply only to Windows-based HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="eae2ea5c-c1e4-43cc-bf10-23f0a6b96a7b" xml:space="preserve">
+          <source>For an example of streaming for Linux-based HDInsight clusters, see <bpt id="4cdadbd8-10fe-41a3-aa43-07b13842b84e">&lt;linkText&gt;</bpt>Develop Python streaming programs for HDInsight<ept id="4cdadbd8-10fe-41a3-aa43-07b13842b84e">&lt;/linkText&gt;</ept><bpt id="4cdadbd8-10fe-41a3-aa43-07b13842b84e">&lt;title&gt;</bpt><ept id="4cdadbd8-10fe-41a3-aa43-07b13842b84e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an example of streaming for Linux-based HDInsight clusters, see <bpt id="4cdadbd8-10fe-41a3-aa43-07b13842b84e">&lt;linkText&gt;</bpt>Develop Python streaming programs for HDInsight<ept id="4cdadbd8-10fe-41a3-aa43-07b13842b84e">&lt;/linkText&gt;</ept><bpt id="4cdadbd8-10fe-41a3-aa43-07b13842b84e">&lt;title&gt;</bpt><ept id="4cdadbd8-10fe-41a3-aa43-07b13842b84e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cedb87a-787b-450e-a9b6-c1f25cfd8306" xml:space="preserve">
+          <source>In the example, the mapper and the reducer are executables that read the input from <bpt id="c1a135a2-1afd-431a-86c6-279fa184ba36">&lt;linkText&gt;</bpt>stdin[stdin-stdout-stderr]<ept id="c1a135a2-1afd-431a-86c6-279fa184ba36">&lt;/linkText&gt;</ept><bpt id="c1a135a2-1afd-431a-86c6-279fa184ba36">&lt;title&gt;</bpt><ept id="c1a135a2-1afd-431a-86c6-279fa184ba36">&lt;/title&gt;</ept> (line-by-line) and emit the output to <bpt id="2f47aae8-9804-4c50-9159-f481313741ba">&lt;linkText&gt;</bpt>stdout[stdin-stdout-stderr]<ept id="2f47aae8-9804-4c50-9159-f481313741ba">&lt;/linkText&gt;</ept><bpt id="2f47aae8-9804-4c50-9159-f481313741ba">&lt;title&gt;</bpt><ept id="2f47aae8-9804-4c50-9159-f481313741ba">&lt;/title&gt;</ept>.</source>
+          <target state="new">In the example, the mapper and the reducer are executables that read the input from <bpt id="c1a135a2-1afd-431a-86c6-279fa184ba36">&lt;linkText&gt;</bpt>stdin[stdin-stdout-stderr]<ept id="c1a135a2-1afd-431a-86c6-279fa184ba36">&lt;/linkText&gt;</ept><bpt id="c1a135a2-1afd-431a-86c6-279fa184ba36">&lt;title&gt;</bpt><ept id="c1a135a2-1afd-431a-86c6-279fa184ba36">&lt;/title&gt;</ept> (line-by-line) and emit the output to <bpt id="2f47aae8-9804-4c50-9159-f481313741ba">&lt;linkText&gt;</bpt>stdout[stdin-stdout-stderr]<ept id="2f47aae8-9804-4c50-9159-f481313741ba">&lt;/linkText&gt;</ept><bpt id="2f47aae8-9804-4c50-9159-f481313741ba">&lt;title&gt;</bpt><ept id="2f47aae8-9804-4c50-9159-f481313741ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75552f45-f17a-4e71-80a2-be4fb4e1f6cc" xml:space="preserve">
+          <source>The program counts all of the words in the text.</source>
+          <target state="new">The program counts all of the words in the text.</target>
+        </trans-unit>
+        <trans-unit id="e4ef7a85-a5a1-4168-bce0-098dd22385de" xml:space="preserve">
+          <source>When an executable is specified for <bpt id="2ebf07b1-faa6-4f98-bde5-ccb795e10801">&lt;strong&gt;</bpt>mappers<ept id="2ebf07b1-faa6-4f98-bde5-ccb795e10801">&lt;/strong&gt;</ept>, each mapper task launches the executable as a separate process when the mapper is initialized.</source>
+          <target state="new">When an executable is specified for <bpt id="2ebf07b1-faa6-4f98-bde5-ccb795e10801">&lt;strong&gt;</bpt>mappers<ept id="2ebf07b1-faa6-4f98-bde5-ccb795e10801">&lt;/strong&gt;</ept>, each mapper task launches the executable as a separate process when the mapper is initialized.</target>
+        </trans-unit>
+        <trans-unit id="0a3f74da-3cb5-4b0a-ad01-130fc55c2021" xml:space="preserve">
+          <source>As the mapper task runs, it converts its input into lines, and feeds the lines to the <bpt id="61d25e8e-66fe-40a6-9bda-6b36283f4a79">&lt;linkText&gt;</bpt>stdin[stdin-stdout-stderr]<ept id="61d25e8e-66fe-40a6-9bda-6b36283f4a79">&lt;/linkText&gt;</ept><bpt id="61d25e8e-66fe-40a6-9bda-6b36283f4a79">&lt;title&gt;</bpt><ept id="61d25e8e-66fe-40a6-9bda-6b36283f4a79">&lt;/title&gt;</ept> of the process.</source>
+          <target state="new">As the mapper task runs, it converts its input into lines, and feeds the lines to the <bpt id="61d25e8e-66fe-40a6-9bda-6b36283f4a79">&lt;linkText&gt;</bpt>stdin[stdin-stdout-stderr]<ept id="61d25e8e-66fe-40a6-9bda-6b36283f4a79">&lt;/linkText&gt;</ept><bpt id="61d25e8e-66fe-40a6-9bda-6b36283f4a79">&lt;title&gt;</bpt><ept id="61d25e8e-66fe-40a6-9bda-6b36283f4a79">&lt;/title&gt;</ept> of the process.</target>
+        </trans-unit>
+        <trans-unit id="47ac95ab-9c25-4d59-857d-1ebbef4638aa" xml:space="preserve">
+          <source>In the meantime, the mapper collects the line-oriented output from the stdout of the process.</source>
+          <target state="new">In the meantime, the mapper collects the line-oriented output from the stdout of the process.</target>
+        </trans-unit>
+        <trans-unit id="4fa85599-b855-4663-95d4-4ad15f3b17cf" xml:space="preserve">
+          <source>It converts each line into a key/value pair, which is collected as the output of the mapper.</source>
+          <target state="new">It converts each line into a key/value pair, which is collected as the output of the mapper.</target>
+        </trans-unit>
+        <trans-unit id="239339cf-2770-4041-a5a8-01c24214874f" xml:space="preserve">
+          <source>By default, the prefix of a line up to the first Tab character is the key, and the remainder of the line (excluding the Tab character) is the value.</source>
+          <target state="new">By default, the prefix of a line up to the first Tab character is the key, and the remainder of the line (excluding the Tab character) is the value.</target>
+        </trans-unit>
+        <trans-unit id="afede342-79e1-4a83-b7a8-089348672104" xml:space="preserve">
+          <source>If there is no Tab character in the line, entire line is considered as the key, and the value is null.</source>
+          <target state="new">If there is no Tab character in the line, entire line is considered as the key, and the value is null.</target>
+        </trans-unit>
+        <trans-unit id="5380af86-54e2-4ce6-9ed4-2cce5d6a4905" xml:space="preserve">
+          <source>When an executable is specified for <bpt id="ed45134e-de5f-4053-81c3-695d8f487cae">&lt;strong&gt;</bpt>reducers<ept id="ed45134e-de5f-4053-81c3-695d8f487cae">&lt;/strong&gt;</ept>, each reducer task launches the executable as a separate process when the reducer is initialized.</source>
+          <target state="new">When an executable is specified for <bpt id="ed45134e-de5f-4053-81c3-695d8f487cae">&lt;strong&gt;</bpt>reducers<ept id="ed45134e-de5f-4053-81c3-695d8f487cae">&lt;/strong&gt;</ept>, each reducer task launches the executable as a separate process when the reducer is initialized.</target>
+        </trans-unit>
+        <trans-unit id="8404b9ba-455f-4df3-b3bf-306c156c9604" xml:space="preserve">
+          <source>As the reducer task runs, it converts its input key/values pairs into lines, and it feeds the lines to the <bpt id="b9c8cad2-74d3-4f5b-bc2a-d8cbb2a5fc20">&lt;linkText&gt;</bpt>stdin[stdin-stdout-stderr]<ept id="b9c8cad2-74d3-4f5b-bc2a-d8cbb2a5fc20">&lt;/linkText&gt;</ept><bpt id="b9c8cad2-74d3-4f5b-bc2a-d8cbb2a5fc20">&lt;title&gt;</bpt><ept id="b9c8cad2-74d3-4f5b-bc2a-d8cbb2a5fc20">&lt;/title&gt;</ept> of the process.</source>
+          <target state="new">As the reducer task runs, it converts its input key/values pairs into lines, and it feeds the lines to the <bpt id="b9c8cad2-74d3-4f5b-bc2a-d8cbb2a5fc20">&lt;linkText&gt;</bpt>stdin[stdin-stdout-stderr]<ept id="b9c8cad2-74d3-4f5b-bc2a-d8cbb2a5fc20">&lt;/linkText&gt;</ept><bpt id="b9c8cad2-74d3-4f5b-bc2a-d8cbb2a5fc20">&lt;title&gt;</bpt><ept id="b9c8cad2-74d3-4f5b-bc2a-d8cbb2a5fc20">&lt;/title&gt;</ept> of the process.</target>
+        </trans-unit>
+        <trans-unit id="6b9601dd-c3c8-4ea4-a8fa-347e3e8043cd" xml:space="preserve">
+          <source>In the meantime, the reducer collects the line-oriented output from the <bpt id="ee51b599-1cc7-4475-adc1-f098d98a6fd6">&lt;linkText&gt;</bpt>stdout[stdin-stdout-stderr]<ept id="ee51b599-1cc7-4475-adc1-f098d98a6fd6">&lt;/linkText&gt;</ept><bpt id="ee51b599-1cc7-4475-adc1-f098d98a6fd6">&lt;title&gt;</bpt><ept id="ee51b599-1cc7-4475-adc1-f098d98a6fd6">&lt;/title&gt;</ept> of the process.</source>
+          <target state="new">In the meantime, the reducer collects the line-oriented output from the <bpt id="ee51b599-1cc7-4475-adc1-f098d98a6fd6">&lt;linkText&gt;</bpt>stdout[stdin-stdout-stderr]<ept id="ee51b599-1cc7-4475-adc1-f098d98a6fd6">&lt;/linkText&gt;</ept><bpt id="ee51b599-1cc7-4475-adc1-f098d98a6fd6">&lt;title&gt;</bpt><ept id="ee51b599-1cc7-4475-adc1-f098d98a6fd6">&lt;/title&gt;</ept> of the process.</target>
+        </trans-unit>
+        <trans-unit id="3278ad31-d83b-43fa-8d2a-6502d3589fcb" xml:space="preserve">
+          <source>It converts each line to a key/value pair, which is collected as the output of the reducer.</source>
+          <target state="new">It converts each line to a key/value pair, which is collected as the output of the reducer.</target>
+        </trans-unit>
+        <trans-unit id="71f577ef-496c-45e2-a4d3-4aa5c7b2b055" xml:space="preserve">
+          <source>By default, the prefix of a line up to the first Tab character is the key, and the remainder of the line (excluding the Tab character) is the value.</source>
+          <target state="new">By default, the prefix of a line up to the first Tab character is the key, and the remainder of the line (excluding the Tab character) is the value.</target>
+        </trans-unit>
+        <trans-unit id="f655ce5c-5013-4d42-a89a-677d15094987" xml:space="preserve">
+          <source>For more information about the Hadoop Streaming interface, see <bpt id="4add6576-a5a3-4523-a074-14c5c5741fc7">&lt;linkText&gt;</bpt>Hadoop Streaming[hadoop-streaming]<ept id="4add6576-a5a3-4523-a074-14c5c5741fc7">&lt;/linkText&gt;</ept><bpt id="4add6576-a5a3-4523-a074-14c5c5741fc7">&lt;title&gt;</bpt><ept id="4add6576-a5a3-4523-a074-14c5c5741fc7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the Hadoop Streaming interface, see <bpt id="4add6576-a5a3-4523-a074-14c5c5741fc7">&lt;linkText&gt;</bpt>Hadoop Streaming[hadoop-streaming]<ept id="4add6576-a5a3-4523-a074-14c5c5741fc7">&lt;/linkText&gt;</ept><bpt id="4add6576-a5a3-4523-a074-14c5c5741fc7">&lt;title&gt;</bpt><ept id="4add6576-a5a3-4523-a074-14c5c5741fc7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04396d9e-ce3f-4f04-8750-730df1ba880e" xml:space="preserve">
+          <source><bpt id="23298a1e-fab7-4ca9-bf0a-9d8f62d9e42e">&lt;strong&gt;</bpt>In this tutorial, you will learn how to:<ept id="23298a1e-fab7-4ca9-bf0a-9d8f62d9e42e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="23298a1e-fab7-4ca9-bf0a-9d8f62d9e42e">&lt;strong&gt;</bpt>In this tutorial, you will learn how to:<ept id="23298a1e-fab7-4ca9-bf0a-9d8f62d9e42e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f865542-1261-4301-95e8-66e13085bfc4" xml:space="preserve">
+          <source>Use Azure PowerShell to run a C# streaming program to analyze data contained in a file in HDInsight.</source>
+          <target state="new">Use Azure PowerShell to run a C# streaming program to analyze data contained in a file in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="2e770d21-4f02-4694-8962-ceac49130ccb" xml:space="preserve">
+          <source>Write C# code that uses the Hadoop Streaming interface.</source>
+          <target state="new">Write C# code that uses the Hadoop Streaming interface.</target>
+        </trans-unit>
+        <trans-unit id="0f1f7178-857b-41d1-b890-a74b7692a4b6" xml:space="preserve">
+          <source><bpt id="fe8bb985-9b61-436c-8143-1bf285ff32d1">&lt;strong&gt;</bpt>Prerequisites<ept id="fe8bb985-9b61-436c-8143-1bf285ff32d1">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="fe8bb985-9b61-436c-8143-1bf285ff32d1">&lt;strong&gt;</bpt>Prerequisites<ept id="fe8bb985-9b61-436c-8143-1bf285ff32d1">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="3e04433c-2960-433f-a9ac-2d0a2a40d05a" xml:space="preserve">
+          <source>Before you begin, you must have the following:</source>
+          <target state="new">Before you begin, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="8fc76ffd-f35f-4315-8823-8a9a1003caad" xml:space="preserve">
+          <source><bpt id="0fa4ba4d-a5c0-40ee-ada4-de806fbf84b0">&lt;strong&gt;</bpt>An Azure subscription<ept id="0fa4ba4d-a5c0-40ee-ada4-de806fbf84b0">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="0fa4ba4d-a5c0-40ee-ada4-de806fbf84b0">&lt;strong&gt;</bpt>An Azure subscription<ept id="0fa4ba4d-a5c0-40ee-ada4-de806fbf84b0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="527b4ed4-8287-48f3-a4ae-28191f636e1e" xml:space="preserve">
+          <source>See <bpt id="3d927353-ce52-4746-be23-228d4e0afdfc">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="3d927353-ce52-4746-be23-228d4e0afdfc">&lt;/linkText&gt;</ept><bpt id="3d927353-ce52-4746-be23-228d4e0afdfc">&lt;title&gt;</bpt><ept id="3d927353-ce52-4746-be23-228d4e0afdfc">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="3d927353-ce52-4746-be23-228d4e0afdfc">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="3d927353-ce52-4746-be23-228d4e0afdfc">&lt;/linkText&gt;</ept><bpt id="3d927353-ce52-4746-be23-228d4e0afdfc">&lt;title&gt;</bpt><ept id="3d927353-ce52-4746-be23-228d4e0afdfc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a1483d9-22bd-41a6-92a8-98b269c9373e" xml:space="preserve">
+          <source><bpt id="33641ace-0ec5-4568-aa6c-d7cb2cab85f7">&lt;strong&gt;</bpt>an HDInsight cluster<ept id="33641ace-0ec5-4568-aa6c-d7cb2cab85f7">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="33641ace-0ec5-4568-aa6c-d7cb2cab85f7">&lt;strong&gt;</bpt>an HDInsight cluster<ept id="33641ace-0ec5-4568-aa6c-d7cb2cab85f7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50c1e39f-d90c-4f16-abfc-1d466112f9b5" xml:space="preserve">
+          <source>For instructions on the various ways in which such clusters can be created, see <bpt id="5c269843-fd26-409d-bb35-7f7c49086de8">&lt;linkText&gt;</bpt>Provision HDInsight Clusters<ept id="5c269843-fd26-409d-bb35-7f7c49086de8">&lt;/linkText&gt;</ept><bpt id="5c269843-fd26-409d-bb35-7f7c49086de8">&lt;title&gt;</bpt><ept id="5c269843-fd26-409d-bb35-7f7c49086de8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on the various ways in which such clusters can be created, see <bpt id="5c269843-fd26-409d-bb35-7f7c49086de8">&lt;linkText&gt;</bpt>Provision HDInsight Clusters<ept id="5c269843-fd26-409d-bb35-7f7c49086de8">&lt;/linkText&gt;</ept><bpt id="5c269843-fd26-409d-bb35-7f7c49086de8">&lt;title&gt;</bpt><ept id="5c269843-fd26-409d-bb35-7f7c49086de8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4192a5f3-5b33-416f-aebd-2d9a96fec6ea" xml:space="preserve">
+          <source><bpt id="f13d3e56-30f8-4fd1-8820-eaf0dd312822">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="f13d3e56-30f8-4fd1-8820-eaf0dd312822">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f13d3e56-30f8-4fd1-8820-eaf0dd312822">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="f13d3e56-30f8-4fd1-8820-eaf0dd312822">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65def6ee-1ff6-4570-825a-84ce501682ef" xml:space="preserve">
+          <source>See <bpt id="3cdab3c3-5d58-480b-bb7b-0c32ef6b81b5">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="3cdab3c3-5d58-480b-bb7b-0c32ef6b81b5">&lt;/linkText&gt;</ept><bpt id="3cdab3c3-5d58-480b-bb7b-0c32ef6b81b5">&lt;title&gt;</bpt><ept id="3cdab3c3-5d58-480b-bb7b-0c32ef6b81b5">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="3cdab3c3-5d58-480b-bb7b-0c32ef6b81b5">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="3cdab3c3-5d58-480b-bb7b-0c32ef6b81b5">&lt;/linkText&gt;</ept><bpt id="3cdab3c3-5d58-480b-bb7b-0c32ef6b81b5">&lt;title&gt;</bpt><ept id="3cdab3c3-5d58-480b-bb7b-0c32ef6b81b5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ccd7799e-8b89-4171-8993-dd361d5ff58f" xml:space="preserve">
+          <source><bpt id="6a2dbd79-a408-4270-82fa-852e776a53ce">&lt;strong&gt;</bpt>To run the MapReduce job<ept id="6a2dbd79-a408-4270-82fa-852e776a53ce">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6a2dbd79-a408-4270-82fa-852e776a53ce">&lt;strong&gt;</bpt>To run the MapReduce job<ept id="6a2dbd79-a408-4270-82fa-852e776a53ce">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4004f40-d610-450f-ae35-c9656fe8fe25" xml:space="preserve">
+          <source>Open <bpt id="c4c80fcf-aa03-4f29-8bc7-4ae3651634ff">&lt;strong&gt;</bpt>Azure PowerShell<ept id="c4c80fcf-aa03-4f29-8bc7-4ae3651634ff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="c4c80fcf-aa03-4f29-8bc7-4ae3651634ff">&lt;strong&gt;</bpt>Azure PowerShell<ept id="c4c80fcf-aa03-4f29-8bc7-4ae3651634ff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6642235f-935c-49f6-b1cc-14b0aa164e6d" xml:space="preserve">
+          <source>For instructions to open the Azure PowerShell console window, see <bpt id="a563a26c-75a5-4746-97f6-6ee0bb03dff5">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell[powershell-install-configure]<ept id="a563a26c-75a5-4746-97f6-6ee0bb03dff5">&lt;/linkText&gt;</ept><bpt id="a563a26c-75a5-4746-97f6-6ee0bb03dff5">&lt;title&gt;</bpt><ept id="a563a26c-75a5-4746-97f6-6ee0bb03dff5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions to open the Azure PowerShell console window, see <bpt id="a563a26c-75a5-4746-97f6-6ee0bb03dff5">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell[powershell-install-configure]<ept id="a563a26c-75a5-4746-97f6-6ee0bb03dff5">&lt;/linkText&gt;</ept><bpt id="a563a26c-75a5-4746-97f6-6ee0bb03dff5">&lt;title&gt;</bpt><ept id="a563a26c-75a5-4746-97f6-6ee0bb03dff5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85e16233-78ba-4a25-acfb-d7383fbf31e5" xml:space="preserve">
+          <source>Set the two variables in the following commands, and then run them:</source>
+          <target state="new">Set the two variables in the following commands, and then run them:</target>
+        </trans-unit>
+        <trans-unit id="ac7a490f-83b8-440e-8b5e-facee7fd94bb" xml:space="preserve">
+          <source>Run the following command to define the MapReduce job:</source>
+          <target state="new">Run the following command to define the MapReduce job:</target>
+        </trans-unit>
+        <trans-unit id="a7d411d2-b662-4199-9a27-d2ecd54f4697" xml:space="preserve">
+          <source>The parameters, specify the mapper and reducer functions and the input file and output files.</source>
+          <target state="new">The parameters, specify the mapper and reducer functions and the input file and output files.</target>
+        </trans-unit>
+        <trans-unit id="1f8053b8-904b-43ad-a138-a6d79a8c810e" xml:space="preserve">
+          <source>Run the following commands to run the MapReduce job, wait for the job to complete, and then print the standard error message:</source>
+          <target state="new">Run the following commands to run the MapReduce job, wait for the job to complete, and then print the standard error message:</target>
+        </trans-unit>
+        <trans-unit id="fbfbc0b4-f64a-418a-bc9d-d27fc0822bd0" xml:space="preserve">
+          <source>Run the following commands to display the results of the word count:</source>
+          <target state="new">Run the following commands to display the results of the word count:</target>
+        </trans-unit>
+        <trans-unit id="83671132-81c5-4ee5-b195-aa8649433635" xml:space="preserve">
+          <source>Note that the output files of a MapReduce job are immutable.</source>
+          <target state="new">Note that the output files of a MapReduce job are immutable.</target>
+        </trans-unit>
+        <trans-unit id="9e565461-231d-4b17-a0c5-210f2ea8cd95" xml:space="preserve">
+          <source>So if you rerun this sample, you need to change the name of the output file.</source>
+          <target state="new">So if you rerun this sample, you need to change the name of the output file.</target>
+        </trans-unit>
+        <trans-unit id="20d565b7-364c-4b72-b3f1-38747bdaf6f8" xml:space="preserve">
+          <source>The MapReduce program uses the cat.exe application as a mapping interface to stream the text into the console and the wc.exe application as the reduce interface to count the number of words that are streamed from a document.</source>
+          <target state="new">The MapReduce program uses the cat.exe application as a mapping interface to stream the text into the console and the wc.exe application as the reduce interface to count the number of words that are streamed from a document.</target>
+        </trans-unit>
+        <trans-unit id="60c89889-caad-4021-8445-cda7630e948e" xml:space="preserve">
+          <source>Both the mapper and reducer read characters, line-by-line, from the standard input stream (stdin) and write to the standard output stream (stdout).</source>
+          <target state="new">Both the mapper and reducer read characters, line-by-line, from the standard input stream (stdin) and write to the standard output stream (stdout).</target>
+        </trans-unit>
+        <trans-unit id="156527b9-8035-4520-ad46-26fa637d78ba" xml:space="preserve">
+          <source>The mapper code in the cat.cs file uses a <bpt id="804b3fc1-f273-4a2f-8985-d2c4c18b114a">&lt;linkText&gt;</bpt>StreamReader[streamreader]<ept id="804b3fc1-f273-4a2f-8985-d2c4c18b114a">&lt;/linkText&gt;</ept><bpt id="804b3fc1-f273-4a2f-8985-d2c4c18b114a">&lt;title&gt;</bpt><ept id="804b3fc1-f273-4a2f-8985-d2c4c18b114a">&lt;/title&gt;</ept> object to read the characters of the incoming stream to the console, which then writes the stream to the standard output stream with the static <bpt id="5e44d4fb-e7ab-4599-a97f-47fa829ea621">&lt;linkText&gt;</bpt>Console.Writeline[console-writeline]<ept id="5e44d4fb-e7ab-4599-a97f-47fa829ea621">&lt;/linkText&gt;</ept><bpt id="5e44d4fb-e7ab-4599-a97f-47fa829ea621">&lt;title&gt;</bpt><ept id="5e44d4fb-e7ab-4599-a97f-47fa829ea621">&lt;/title&gt;</ept> method.</source>
+          <target state="new">The mapper code in the cat.cs file uses a <bpt id="804b3fc1-f273-4a2f-8985-d2c4c18b114a">&lt;linkText&gt;</bpt>StreamReader[streamreader]<ept id="804b3fc1-f273-4a2f-8985-d2c4c18b114a">&lt;/linkText&gt;</ept><bpt id="804b3fc1-f273-4a2f-8985-d2c4c18b114a">&lt;title&gt;</bpt><ept id="804b3fc1-f273-4a2f-8985-d2c4c18b114a">&lt;/title&gt;</ept> object to read the characters of the incoming stream to the console, which then writes the stream to the standard output stream with the static <bpt id="5e44d4fb-e7ab-4599-a97f-47fa829ea621">&lt;linkText&gt;</bpt>Console.Writeline[console-writeline]<ept id="5e44d4fb-e7ab-4599-a97f-47fa829ea621">&lt;/linkText&gt;</ept><bpt id="5e44d4fb-e7ab-4599-a97f-47fa829ea621">&lt;title&gt;</bpt><ept id="5e44d4fb-e7ab-4599-a97f-47fa829ea621">&lt;/title&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="4fc265c0-70b3-4fbc-bac3-11b3b56d0265" xml:space="preserve">
+          <source>The reducer code in the wc.cs file uses a <bpt id="0c68b6ca-325e-411e-899f-298117dde53d">&lt;linkText&gt;</bpt>StreamReader[streamreader]<ept id="0c68b6ca-325e-411e-899f-298117dde53d">&lt;/linkText&gt;</ept><bpt id="0c68b6ca-325e-411e-899f-298117dde53d">&lt;title&gt;</bpt><ept id="0c68b6ca-325e-411e-899f-298117dde53d">&lt;/title&gt;</ept>   object to read characters from the standard input stream that have been output by the cat.exe mapper.</source>
+          <target state="new">The reducer code in the wc.cs file uses a <bpt id="0c68b6ca-325e-411e-899f-298117dde53d">&lt;linkText&gt;</bpt>StreamReader[streamreader]<ept id="0c68b6ca-325e-411e-899f-298117dde53d">&lt;/linkText&gt;</ept><bpt id="0c68b6ca-325e-411e-899f-298117dde53d">&lt;title&gt;</bpt><ept id="0c68b6ca-325e-411e-899f-298117dde53d">&lt;/title&gt;</ept>   object to read characters from the standard input stream that have been output by the cat.exe mapper.</target>
+        </trans-unit>
+        <trans-unit id="69b54ed7-5fd6-4b78-9975-da300117be68" xml:space="preserve">
+          <source>As it reads the characters with the <bpt id="61b99ab5-f96b-49da-80b0-b7db94c05e19">&lt;linkText&gt;</bpt>Console.Writeline[console-writeline]<ept id="61b99ab5-f96b-49da-80b0-b7db94c05e19">&lt;/linkText&gt;</ept><bpt id="61b99ab5-f96b-49da-80b0-b7db94c05e19">&lt;title&gt;</bpt><ept id="61b99ab5-f96b-49da-80b0-b7db94c05e19">&lt;/title&gt;</ept> method, it counts the words by counting spaces and end-of-line characters at the end of each word.</source>
+          <target state="new">As it reads the characters with the <bpt id="61b99ab5-f96b-49da-80b0-b7db94c05e19">&lt;linkText&gt;</bpt>Console.Writeline[console-writeline]<ept id="61b99ab5-f96b-49da-80b0-b7db94c05e19">&lt;/linkText&gt;</ept><bpt id="61b99ab5-f96b-49da-80b0-b7db94c05e19">&lt;title&gt;</bpt><ept id="61b99ab5-f96b-49da-80b0-b7db94c05e19">&lt;/title&gt;</ept> method, it counts the words by counting spaces and end-of-line characters at the end of each word.</target>
+        </trans-unit>
+        <trans-unit id="f927b757-2152-4720-a354-1da8741f7b03" xml:space="preserve">
+          <source>It then writes the total to the standard output stream with the <bpt id="377853b4-b414-4fa7-8e01-635bacdfd694">&lt;linkText&gt;</bpt>Console.Writeline[console-writeline]<ept id="377853b4-b414-4fa7-8e01-635bacdfd694">&lt;/linkText&gt;</ept><bpt id="377853b4-b414-4fa7-8e01-635bacdfd694">&lt;title&gt;</bpt><ept id="377853b4-b414-4fa7-8e01-635bacdfd694">&lt;/title&gt;</ept> method.</source>
+          <target state="new">It then writes the total to the standard output stream with the <bpt id="377853b4-b414-4fa7-8e01-635bacdfd694">&lt;linkText&gt;</bpt>Console.Writeline[console-writeline]<ept id="377853b4-b414-4fa7-8e01-635bacdfd694">&lt;/linkText&gt;</ept><bpt id="377853b4-b414-4fa7-8e01-635bacdfd694">&lt;title&gt;</bpt><ept id="377853b4-b414-4fa7-8e01-635bacdfd694">&lt;/title&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="ddd0f4c5-5627-44ca-85c8-9d382efd4875" xml:space="preserve">
+          <source>In this tutorial, you saw how to deploy a MapReduce job in HDInsight by using Hadoop Streaming.</source>
+          <target state="new">In this tutorial, you saw how to deploy a MapReduce job in HDInsight by using Hadoop Streaming.</target>
+        </trans-unit>
+        <trans-unit id="cb8d63f9-8ca4-4621-b75b-bb5388a956d8" xml:space="preserve">
+          <source>For tutorials that run other samples and provide instructions for running Pig, Hive, and MapReduce jobs in Azure HDInsight with Azure PowerShell, see the following articles:</source>
+          <target state="new">For tutorials that run other samples and provide instructions for running Pig, Hive, and MapReduce jobs in Azure HDInsight with Azure PowerShell, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="a44359d5-f51c-4cfe-943c-7c34b85cc72d" xml:space="preserve">
+          <source><bpt id="681e66e3-f38f-4654-bbb0-a0c803682c6c">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="681e66e3-f38f-4654-bbb0-a0c803682c6c">&lt;/linkText&gt;</ept><bpt id="681e66e3-f38f-4654-bbb0-a0c803682c6c">&lt;title&gt;</bpt><ept id="681e66e3-f38f-4654-bbb0-a0c803682c6c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="681e66e3-f38f-4654-bbb0-a0c803682c6c">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="681e66e3-f38f-4654-bbb0-a0c803682c6c">&lt;/linkText&gt;</ept><bpt id="681e66e3-f38f-4654-bbb0-a0c803682c6c">&lt;title&gt;</bpt><ept id="681e66e3-f38f-4654-bbb0-a0c803682c6c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ce70916-454d-42d7-aa4b-c86cd782b0e5" xml:space="preserve">
+          <source><bpt id="203538fb-23e2-43b4-85a1-60d6d1004b2c">&lt;linkText&gt;</bpt>Sample: Pi Estimator[hdinsight-sample-pi-estimator]<ept id="203538fb-23e2-43b4-85a1-60d6d1004b2c">&lt;/linkText&gt;</ept><bpt id="203538fb-23e2-43b4-85a1-60d6d1004b2c">&lt;title&gt;</bpt><ept id="203538fb-23e2-43b4-85a1-60d6d1004b2c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="203538fb-23e2-43b4-85a1-60d6d1004b2c">&lt;linkText&gt;</bpt>Sample: Pi Estimator[hdinsight-sample-pi-estimator]<ept id="203538fb-23e2-43b4-85a1-60d6d1004b2c">&lt;/linkText&gt;</ept><bpt id="203538fb-23e2-43b4-85a1-60d6d1004b2c">&lt;title&gt;</bpt><ept id="203538fb-23e2-43b4-85a1-60d6d1004b2c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46ec4f7b-f191-483b-96b9-638e50941ea7" xml:space="preserve">
+          <source><bpt id="3713579c-b64e-43ba-94e8-44ce80ed4aaf">&lt;linkText&gt;</bpt>Sample: Word count[hdinsight-sample-wordcount]<ept id="3713579c-b64e-43ba-94e8-44ce80ed4aaf">&lt;/linkText&gt;</ept><bpt id="3713579c-b64e-43ba-94e8-44ce80ed4aaf">&lt;title&gt;</bpt><ept id="3713579c-b64e-43ba-94e8-44ce80ed4aaf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3713579c-b64e-43ba-94e8-44ce80ed4aaf">&lt;linkText&gt;</bpt>Sample: Word count[hdinsight-sample-wordcount]<ept id="3713579c-b64e-43ba-94e8-44ce80ed4aaf">&lt;/linkText&gt;</ept><bpt id="3713579c-b64e-43ba-94e8-44ce80ed4aaf">&lt;title&gt;</bpt><ept id="3713579c-b64e-43ba-94e8-44ce80ed4aaf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af1b3f92-4627-465e-a8fa-5cf7c5ee16b5" xml:space="preserve">
+          <source><bpt id="3edc0a63-e164-45bc-b028-5d9bbff3ca9f">&lt;linkText&gt;</bpt>Sample: 10GB GraySort[hdinsight-sample-10gb-graysort]<ept id="3edc0a63-e164-45bc-b028-5d9bbff3ca9f">&lt;/linkText&gt;</ept><bpt id="3edc0a63-e164-45bc-b028-5d9bbff3ca9f">&lt;title&gt;</bpt><ept id="3edc0a63-e164-45bc-b028-5d9bbff3ca9f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3edc0a63-e164-45bc-b028-5d9bbff3ca9f">&lt;linkText&gt;</bpt>Sample: 10GB GraySort[hdinsight-sample-10gb-graysort]<ept id="3edc0a63-e164-45bc-b028-5d9bbff3ca9f">&lt;/linkText&gt;</ept><bpt id="3edc0a63-e164-45bc-b028-5d9bbff3ca9f">&lt;title&gt;</bpt><ept id="3edc0a63-e164-45bc-b028-5d9bbff3ca9f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1bd32228-7ca6-45a0-8b98-c25e1cbcb250" xml:space="preserve">
+          <source><bpt id="f07f67c8-50f0-4ce4-b0a7-50a207feb17c">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="f07f67c8-50f0-4ce4-b0a7-50a207feb17c">&lt;/linkText&gt;</ept><bpt id="f07f67c8-50f0-4ce4-b0a7-50a207feb17c">&lt;title&gt;</bpt><ept id="f07f67c8-50f0-4ce4-b0a7-50a207feb17c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f07f67c8-50f0-4ce4-b0a7-50a207feb17c">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="f07f67c8-50f0-4ce4-b0a7-50a207feb17c">&lt;/linkText&gt;</ept><bpt id="f07f67c8-50f0-4ce4-b0a7-50a207feb17c">&lt;title&gt;</bpt><ept id="f07f67c8-50f0-4ce4-b0a7-50a207feb17c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a97805e0-9679-4430-a816-ee897ac7e5a8" xml:space="preserve">
+          <source><bpt id="c018364d-8bc6-41fd-a6c6-500f894bec08">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="c018364d-8bc6-41fd-a6c6-500f894bec08">&lt;/linkText&gt;</ept><bpt id="c018364d-8bc6-41fd-a6c6-500f894bec08">&lt;title&gt;</bpt><ept id="c018364d-8bc6-41fd-a6c6-500f894bec08">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c018364d-8bc6-41fd-a6c6-500f894bec08">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="c018364d-8bc6-41fd-a6c6-500f894bec08">&lt;/linkText&gt;</ept><bpt id="c018364d-8bc6-41fd-a6c6-500f894bec08">&lt;title&gt;</bpt><ept id="c018364d-8bc6-41fd-a6c6-500f894bec08">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfd596ac-405f-43a2-82b5-649df2c5ca75" xml:space="preserve">
+          <source><bpt id="a01ff1ff-ab8e-4920-aaae-adcf1fb24938">&lt;linkText&gt;</bpt>Azure HDInsight SDK documentation[hdinsight-sdk-documentation]<ept id="a01ff1ff-ab8e-4920-aaae-adcf1fb24938">&lt;/linkText&gt;</ept><bpt id="a01ff1ff-ab8e-4920-aaae-adcf1fb24938">&lt;title&gt;</bpt><ept id="a01ff1ff-ab8e-4920-aaae-adcf1fb24938">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a01ff1ff-ab8e-4920-aaae-adcf1fb24938">&lt;linkText&gt;</bpt>Azure HDInsight SDK documentation[hdinsight-sdk-documentation]<ept id="a01ff1ff-ab8e-4920-aaae-adcf1fb24938">&lt;/linkText&gt;</ept><bpt id="a01ff1ff-ab8e-4920-aaae-adcf1fb24938">&lt;title&gt;</bpt><ept id="a01ff1ff-ab8e-4920-aaae-adcf1fb24938">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0709cc8a-4823-470c-837c-a5402d3bac90" xml:space="preserve">
+          <source>http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx</source>
+          <target state="new">http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx</target>
+        </trans-unit>
+        <trans-unit id="0e8bb9d5-8331-4d0f-8277-e650b0294647" xml:space="preserve">
+          <source>http://wiki.apache.org/hadoop/HadoopStreaming</source>
+          <target state="new">http://wiki.apache.org/hadoop/HadoopStreaming</target>
+        </trans-unit>
+        <trans-unit id="a73a00a5-22c8-4d3a-a411-4365cabadba5" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/system.io.streamreader.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/system.io.streamreader.aspx</target>
+        </trans-unit>
+        <trans-unit id="96350c6d-b009-4708-bf29-b09596fadd85" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/system.console.writeline</source>
+          <target state="new">http://msdn.microsoft.com/library/system.console.writeline</target>
+        </trans-unit>
+        <trans-unit id="5e4b6f99-676a-4d50-b482-c201f9f8ef27" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/3x292kth(v=vs.110).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/3x292kth(v=vs.110).aspx</target>
+        </trans-unit>
+        <trans-unit id="945bfdfb-41d6-4d68-b28e-e8ad5fce1283" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="bdb6deb8-3161-4c57-a8c5-07ac0d779cf0" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="fa90e93e-8e2c-4e31-90d1-83bfe2e04685" xml:space="preserve">
+          <source>hdinsight-run-samples.md</source>
+          <target state="new">hdinsight-run-samples.md</target>
+        </trans-unit>
+        <trans-unit id="367c1f9d-762a-4c9c-b0e3-8e6e3f4710b4" xml:space="preserve">
+          <source>hdinsight-sample-10gb-graysort.md</source>
+          <target state="new">hdinsight-sample-10gb-graysort.md</target>
+        </trans-unit>
+        <trans-unit id="74dcbbae-dbd8-444b-9291-cf7c5b88cd0f" xml:space="preserve">
+          <source>hdinsight-sample-csharp-streaming.md</source>
+          <target state="new">hdinsight-sample-csharp-streaming.md</target>
+        </trans-unit>
+        <trans-unit id="4c3dc1f4-bd55-4d61-990f-51e4c061c4db" xml:space="preserve">
+          <source>hdinsight-sample-pi-estimator.md</source>
+          <target state="new">hdinsight-sample-pi-estimator.md</target>
+        </trans-unit>
+        <trans-unit id="3c47efd9-b582-4595-bcc9-e74c4d782fb6" xml:space="preserve">
+          <source>hdinsight-sample-wordcount.md</source>
+          <target state="new">hdinsight-sample-wordcount.md</target>
+        </trans-unit>
+        <trans-unit id="39045464-93f8-491c-98ad-53cf5487d306" xml:space="preserve">
+          <source>hdinsight-use-hive.md</source>
+          <target state="new">hdinsight-use-hive.md</target>
+        </trans-unit>
+        <trans-unit id="7d674baf-4389-4dc2-baac-e5c41ad2498f" xml:space="preserve">
+          <source>hdinsight-use-pig.md</source>
+          <target state="new">hdinsight-use-pig.md</target>
+        </trans-unit>
+      </group>
+      <group id="b2105431-6c38-4db1-8132-66e893660105" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="229e3849-868b-43d7-ae82-828021d0d72e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="229e3849-868b-43d7-ae82-828021d0d72e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a8914fc9-7dff-4e8d-b465-bdde9e159ac7">
+        <trans-unit id="aa40d6fd-d753-4928-befd-bd4d31851cf3" xml:space="preserve">
+          <source>Add authentication to your Mobile App: <bpt id="77f13170-0fa3-4b49-9a5b-302908246dec">&lt;linkText&gt;</bpt>iOS[ios-get-started-users]<ept id="77f13170-0fa3-4b49-9a5b-302908246dec">&lt;/linkText&gt;</ept><bpt id="77f13170-0fa3-4b49-9a5b-302908246dec">&lt;title&gt;</bpt><ept id="77f13170-0fa3-4b49-9a5b-302908246dec">&lt;/title&gt;</ept>, <bpt id="f4aceba5-3839-4ea0-b309-a45b228e018a">&lt;linkText&gt;</bpt>Xamarin.iOS[xamarin-ios-get-started-users]<ept id="f4aceba5-3839-4ea0-b309-a45b228e018a">&lt;/linkText&gt;</ept><bpt id="f4aceba5-3839-4ea0-b309-a45b228e018a">&lt;title&gt;</bpt><ept id="f4aceba5-3839-4ea0-b309-a45b228e018a">&lt;/title&gt;</ept>, <bpt id="806b8a8c-78bd-40bb-a973-1247d650658c">&lt;linkText&gt;</bpt>Xamarin.Android[xamarin-android-get-started-users]<ept id="806b8a8c-78bd-40bb-a973-1247d650658c">&lt;/linkText&gt;</ept><bpt id="806b8a8c-78bd-40bb-a973-1247d650658c">&lt;title&gt;</bpt><ept id="806b8a8c-78bd-40bb-a973-1247d650658c">&lt;/title&gt;</ept>, <bpt id="a7c5e4bc-9f03-4c90-b0cb-11456243b3c7">&lt;linkText&gt;</bpt>Windows Universal[windows-get-started-users]<ept id="a7c5e4bc-9f03-4c90-b0cb-11456243b3c7">&lt;/linkText&gt;</ept><bpt id="a7c5e4bc-9f03-4c90-b0cb-11456243b3c7">&lt;title&gt;</bpt><ept id="a7c5e4bc-9f03-4c90-b0cb-11456243b3c7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Add authentication to your Mobile App: <bpt id="77f13170-0fa3-4b49-9a5b-302908246dec">&lt;linkText&gt;</bpt>iOS[ios-get-started-users]<ept id="77f13170-0fa3-4b49-9a5b-302908246dec">&lt;/linkText&gt;</ept><bpt id="77f13170-0fa3-4b49-9a5b-302908246dec">&lt;title&gt;</bpt><ept id="77f13170-0fa3-4b49-9a5b-302908246dec">&lt;/title&gt;</ept>, <bpt id="f4aceba5-3839-4ea0-b309-a45b228e018a">&lt;linkText&gt;</bpt>Xamarin.iOS[xamarin-ios-get-started-users]<ept id="f4aceba5-3839-4ea0-b309-a45b228e018a">&lt;/linkText&gt;</ept><bpt id="f4aceba5-3839-4ea0-b309-a45b228e018a">&lt;title&gt;</bpt><ept id="f4aceba5-3839-4ea0-b309-a45b228e018a">&lt;/title&gt;</ept>, <bpt id="806b8a8c-78bd-40bb-a973-1247d650658c">&lt;linkText&gt;</bpt>Xamarin.Android[xamarin-android-get-started-users]<ept id="806b8a8c-78bd-40bb-a973-1247d650658c">&lt;/linkText&gt;</ept><bpt id="806b8a8c-78bd-40bb-a973-1247d650658c">&lt;title&gt;</bpt><ept id="806b8a8c-78bd-40bb-a973-1247d650658c">&lt;/title&gt;</ept>, <bpt id="a7c5e4bc-9f03-4c90-b0cb-11456243b3c7">&lt;linkText&gt;</bpt>Windows Universal[windows-get-started-users]<ept id="a7c5e4bc-9f03-4c90-b0cb-11456243b3c7">&lt;/linkText&gt;</ept><bpt id="a7c5e4bc-9f03-4c90-b0cb-11456243b3c7">&lt;title&gt;</bpt><ept id="a7c5e4bc-9f03-4c90-b0cb-11456243b3c7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46509581-2a1e-4e16-9bc7-017604f31715" xml:space="preserve">
+          <source>../article/app-service-mobile/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md</source>
+          <target state="new">../article/app-service-mobile/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md</target>
+        </trans-unit>
+        <trans-unit id="2982c3d0-b4f8-4792-a387-f36af63c41a7" xml:space="preserve">
+          <source>../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md</source>
+          <target state="new">../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md</target>
+        </trans-unit>
+        <trans-unit id="ce1dacf0-59ee-4eca-ba7b-401cd7728000" xml:space="preserve">
+          <source>../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-android-get-started-users-preview.md</source>
+          <target state="new">../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-android-get-started-users-preview.md</target>
+        </trans-unit>
+        <trans-unit id="0aaf4c55-75fe-49fa-85ef-08839c125de1" xml:space="preserve">
+          <source>../article/app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-users-preview.md</source>
+          <target state="new">../article/app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-users-preview.md</target>
+        </trans-unit>
+      </group>
+      <group id="3f9bb177-6e17-454c-9c85-c93771447451" />
+    </body>
+  </file>
+</xliff>

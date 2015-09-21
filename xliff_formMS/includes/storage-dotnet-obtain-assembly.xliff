@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="96df19b7-915b-40a3-9c94-cf0bbb567557" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="96df19b7-915b-40a3-9c94-cf0bbb567557" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b0397322-b687-4e70-be13-e740c8f58df1">
+        <trans-unit id="442f4da9-af11-423a-b240-1702993c20be" xml:space="preserve">
+          <source>You can use NuGet to obtain the <bpt id="890c58fb-e012-4bf4-980f-efa9f965392e">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Storage.dll<ept id="890c58fb-e012-4bf4-980f-efa9f965392e">&lt;/code&gt;</ept> assembly.</source>
+          <target state="new">You can use NuGet to obtain the <bpt id="890c58fb-e012-4bf4-980f-efa9f965392e">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Storage.dll<ept id="890c58fb-e012-4bf4-980f-efa9f965392e">&lt;/code&gt;</ept> assembly.</target>
+        </trans-unit>
+        <trans-unit id="4bd8bdf0-e69e-4f22-bd15-98f878373d22" xml:space="preserve">
+          <source>Right-click your project in <bpt id="ee1e8195-7ef1-4faf-8fd7-7b5a2043c748">&lt;strong&gt;</bpt>Solution Explorer<ept id="ee1e8195-7ef1-4faf-8fd7-7b5a2043c748">&lt;/strong&gt;</ept> and choose <bpt id="7759c3a0-cf88-454a-a71a-ba8c83866858">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="7759c3a0-cf88-454a-a71a-ba8c83866858">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click your project in <bpt id="ee1e8195-7ef1-4faf-8fd7-7b5a2043c748">&lt;strong&gt;</bpt>Solution Explorer<ept id="ee1e8195-7ef1-4faf-8fd7-7b5a2043c748">&lt;/strong&gt;</ept> and choose <bpt id="7759c3a0-cf88-454a-a71a-ba8c83866858">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="7759c3a0-cf88-454a-a71a-ba8c83866858">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4fa24af-ffe1-4100-bf8e-332ec3d0fa25" xml:space="preserve">
+          <source>Search online for "WindowsAzure.Storage" and click <bpt id="7002bca7-09e0-47ba-90d9-a3cd17fd2284">&lt;strong&gt;</bpt>Install<ept id="7002bca7-09e0-47ba-90d9-a3cd17fd2284">&lt;/strong&gt;</ept> to install the Azure Storage package and dependencies.</source>
+          <target state="new">Search online for "WindowsAzure.Storage" and click <bpt id="7002bca7-09e0-47ba-90d9-a3cd17fd2284">&lt;strong&gt;</bpt>Install<ept id="7002bca7-09e0-47ba-90d9-a3cd17fd2284">&lt;/strong&gt;</ept> to install the Azure Storage package and dependencies.</target>
+        </trans-unit>
+        <trans-unit id="73f11fff-4ae1-457a-8f65-c7638bd5bc65" xml:space="preserve">
+          <source><bpt id="b9c9a2aa-82eb-4f6b-b48d-0257a73854fb">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Storage.dll<ept id="b9c9a2aa-82eb-4f6b-b48d-0257a73854fb">&lt;/code&gt;</ept> is also included in the Azure SDK for .NET, which can be downloaded from the &lt;a href="http://azure.microsoft.com/develop/net/#"&gt;.NET Developer Center&lt;/a&gt;. The assembly is installed to the <bpt id="8c11d791-a64b-4a2a-a5b8-2379d123ea5c">&lt;code&gt;</bpt>%Program Files%\Microsoft SDKs\Azure\.NET SDK\&lt;sdk-version&gt;\ref\<ept id="8c11d791-a64b-4a2a-a5b8-2379d123ea5c">&lt;/code&gt;</ept> directory.</source>
+          <target state="new"><bpt id="b9c9a2aa-82eb-4f6b-b48d-0257a73854fb">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Storage.dll<ept id="b9c9a2aa-82eb-4f6b-b48d-0257a73854fb">&lt;/code&gt;</ept> is also included in the Azure SDK for .NET, which can be downloaded from the &lt;a href="http://azure.microsoft.com/develop/net/#"&gt;.NET Developer Center&lt;/a&gt;. The assembly is installed to the <bpt id="8c11d791-a64b-4a2a-a5b8-2379d123ea5c">&lt;code&gt;</bpt>%Program Files%\Microsoft SDKs\Azure\.NET SDK\&lt;sdk-version&gt;\ref\<ept id="8c11d791-a64b-4a2a-a5b8-2379d123ea5c">&lt;/code&gt;</ept> directory.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

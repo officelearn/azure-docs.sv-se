@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1fe30d2c-50f9-4029-86fe-37b7b845e568" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1fe30d2c-50f9-4029-86fe-37b7b845e568" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4ae0a8cd-5f09-472a-9b8a-8b69a3413be6">
+        <trans-unit id="da801d35-cae0-4c35-b542-5d9ba6083a81" xml:space="preserve">
+          <source>Improve Business Continuity with Azure Regional Pairs</source>
+          <target state="new">Improve Business Continuity with Azure Regional Pairs</target>
+        </trans-unit>
+        <trans-unit id="291dae86-e27f-4c57-ad9f-31188921d7c1" xml:space="preserve">
+          <source>Use Regional pairs to keep applications resilient during data center failures.</source>
+          <target state="new">Use Regional pairs to keep applications resilient during data center failures.</target>
+        </trans-unit>
+        <trans-unit id="a162e96f-1eff-434d-97b6-7828f81756b7" xml:space="preserve">
+          <source>Azure operates in multiple geographies around the world.</source>
+          <target state="new">Azure operates in multiple geographies around the world.</target>
+        </trans-unit>
+        <trans-unit id="9fa0cb84-7df8-44f8-91fd-cfe6dd5023e6" xml:space="preserve">
+          <source>An Azure geography is a defined area of the world containing at least one Azure Region.</source>
+          <target state="new">An Azure geography is a defined area of the world containing at least one Azure Region.</target>
+        </trans-unit>
+        <trans-unit id="31c9b2dd-4f53-450f-9eb9-f9d11352d1cb" xml:space="preserve">
+          <source>An Azure region is an area within a geography containing one or more datacenters.</source>
+          <target state="new">An Azure region is an area within a geography containing one or more datacenters.</target>
+        </trans-unit>
+        <trans-unit id="40feda96-0e14-4c77-a3eb-19727e68a42d" xml:space="preserve">
+          <source>Each Azure region is paired with another region within the same geography (with the exception of Brazil South which is paired with a region outside its geography), together making a regional pair.</source>
+          <target state="new">Each Azure region is paired with another region within the same geography (with the exception of Brazil South which is paired with a region outside its geography), together making a regional pair.</target>
+        </trans-unit>
+        <trans-unit id="5825dd71-ac91-4dd7-ac4f-1a9334b40458" xml:space="preserve">
+          <source><bpt id="afafd8dd-9de2-48fc-b41d-e75e7a469990">&lt;linkText&gt;</bpt>AzureGeography<ept id="afafd8dd-9de2-48fc-b41d-e75e7a469990">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="afafd8dd-9de2-48fc-b41d-e75e7a469990">&lt;linkText&gt;</bpt>AzureGeography<ept id="afafd8dd-9de2-48fc-b41d-e75e7a469990">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ba73c07-539d-463d-b1a9-96d001167c15" xml:space="preserve">
+          <source>Figure 1 – Azure regional pair diagram</source>
+          <target state="new">Figure 1 – Azure regional pair diagram</target>
+        </trans-unit>
+        <trans-unit id="ca7344a4-c2a2-406a-a38f-35162937675b" xml:space="preserve">
+          <source>Geography</source>
+          <target state="new">Geography</target>
+        </trans-unit>
+        <trans-unit id="b58321d4-d4e6-4d10-91d4-0f8ff0d32791" xml:space="preserve">
+          <source>Paired Regions</source>
+          <target state="new">Paired Regions</target>
+        </trans-unit>
+        <trans-unit id="00a6b6d3-29e3-4492-9dfb-73a5280d00d3" xml:space="preserve">
+          <source>North America</source>
+          <target state="new">North America</target>
+        </trans-unit>
+        <trans-unit id="a8edc811-639f-4b86-9b26-ded091d83a8b" xml:space="preserve">
+          <source>North Central US</source>
+          <target state="new">North Central US</target>
+        </trans-unit>
+        <trans-unit id="d55c67a9-2d80-4ffb-93e3-e02b371400f7" xml:space="preserve">
+          <source>South Central US</source>
+          <target state="new">South Central US</target>
+        </trans-unit>
+        <trans-unit id="63dcb3cc-bfe6-4683-8bfa-7e6afbd0b486" xml:space="preserve">
+          <source>North America</source>
+          <target state="new">North America</target>
+        </trans-unit>
+        <trans-unit id="439bfe47-2035-4582-8ec9-333ce4097800" xml:space="preserve">
+          <source>East US</source>
+          <target state="new">East US</target>
+        </trans-unit>
+        <trans-unit id="263ffd0e-2e01-4fb2-b5e8-d9dfd1717843" xml:space="preserve">
+          <source>West US</source>
+          <target state="new">West US</target>
+        </trans-unit>
+        <trans-unit id="7d944302-1b12-498f-a39e-3bda2d67551e" xml:space="preserve">
+          <source>North America</source>
+          <target state="new">North America</target>
+        </trans-unit>
+        <trans-unit id="1163fa02-1acd-4d10-a562-f7c785589931" xml:space="preserve">
+          <source>US East 2</source>
+          <target state="new">US East 2</target>
+        </trans-unit>
+        <trans-unit id="a4211d7a-e52c-4736-873f-486dc98cf9a5" xml:space="preserve">
+          <source>US Central</source>
+          <target state="new">US Central</target>
+        </trans-unit>
+        <trans-unit id="16f234eb-d015-4670-bfac-21aee2c14181" xml:space="preserve">
+          <source>Europe</source>
+          <target state="new">Europe</target>
+        </trans-unit>
+        <trans-unit id="6120c7db-a0e3-4dad-bd67-8c460a5a7615" xml:space="preserve">
+          <source>North Europe</source>
+          <target state="new">North Europe</target>
+        </trans-unit>
+        <trans-unit id="d1af0094-db6c-4ce0-9c30-e89d42b16564" xml:space="preserve">
+          <source>West Europe</source>
+          <target state="new">West Europe</target>
+        </trans-unit>
+        <trans-unit id="5167973a-a3f8-4bcb-9ce7-b7502de3c726" xml:space="preserve">
+          <source>Asia</source>
+          <target state="new">Asia</target>
+        </trans-unit>
+        <trans-unit id="e54e793b-dcb6-4325-8298-81b149d91a9b" xml:space="preserve">
+          <source>South East Asia</source>
+          <target state="new">South East Asia</target>
+        </trans-unit>
+        <trans-unit id="30d0a470-7986-454e-b4a5-5532d44885b2" xml:space="preserve">
+          <source>East Asia</source>
+          <target state="new">East Asia</target>
+        </trans-unit>
+        <trans-unit id="a1d35466-add4-4ccb-aa37-ec66f0a7d55c" xml:space="preserve">
+          <source>China</source>
+          <target state="new">China</target>
+        </trans-unit>
+        <trans-unit id="9f49fc59-5446-4f82-a859-f71fb3fcac6a" xml:space="preserve">
+          <source>East China</source>
+          <target state="new">East China</target>
+        </trans-unit>
+        <trans-unit id="881dd550-8330-4498-986a-6592184a81ab" xml:space="preserve">
+          <source>North China</source>
+          <target state="new">North China</target>
+        </trans-unit>
+        <trans-unit id="2ff88a6a-2fd1-4102-83d3-86673da265e7" xml:space="preserve">
+          <source>Japan</source>
+          <target state="new">Japan</target>
+        </trans-unit>
+        <trans-unit id="c9d322a7-53b4-45bc-8a63-831a547c232a" xml:space="preserve">
+          <source>Japan East</source>
+          <target state="new">Japan East</target>
+        </trans-unit>
+        <trans-unit id="f93f1275-5efd-441f-bea8-69c44e715bc1" xml:space="preserve">
+          <source>Japan West</source>
+          <target state="new">Japan West</target>
+        </trans-unit>
+        <trans-unit id="e80cc248-b73b-4419-b298-0b2252b02196" xml:space="preserve">
+          <source>Brazil</source>
+          <target state="new">Brazil</target>
+        </trans-unit>
+        <trans-unit id="9eb8be82-f049-4f8a-8521-b5af385ea58c" xml:space="preserve">
+          <source>Brazil South (1)</source>
+          <target state="new">Brazil South (1)</target>
+        </trans-unit>
+        <trans-unit id="7316a558-56c1-40f9-a034-74aa39f90827" xml:space="preserve">
+          <source>South Central US</source>
+          <target state="new">South Central US</target>
+        </trans-unit>
+        <trans-unit id="ffb97e3f-4a63-41e2-a238-73e5229a3a5b" xml:space="preserve">
+          <source>Australia</source>
+          <target state="new">Australia</target>
+        </trans-unit>
+        <trans-unit id="d89ca9cb-3c18-4d28-bb78-de933659e964" xml:space="preserve">
+          <source>Australia East</source>
+          <target state="new">Australia East</target>
+        </trans-unit>
+        <trans-unit id="68a3c8b1-148e-442f-8278-f23dc5c73e4c" xml:space="preserve">
+          <source>Australia Southeast</source>
+          <target state="new">Australia Southeast</target>
+        </trans-unit>
+        <trans-unit id="2f91707f-a440-4342-b275-fd83d1f366c8" xml:space="preserve">
+          <source>US Government</source>
+          <target state="new">US Government</target>
+        </trans-unit>
+        <trans-unit id="c2f5fd0d-5874-470d-9caa-083f2aef4335" xml:space="preserve">
+          <source>US Gov Iowa</source>
+          <target state="new">US Gov Iowa</target>
+        </trans-unit>
+        <trans-unit id="32ff3d37-5ef7-44b4-89c2-33eded3d2a7a" xml:space="preserve">
+          <source>US Gov Virginia</source>
+          <target state="new">US Gov Virginia</target>
+        </trans-unit>
+        <trans-unit id="b3a765e9-1b33-4ffd-aa41-853c5c3dc2c2" xml:space="preserve">
+          <source>Table 1 - Mapping of azure regional pairs</source>
+          <target state="new">Table 1 - Mapping of azure regional pairs</target>
+        </trans-unit>
+        <trans-unit id="47b43a76-ebcd-415b-a3d7-8d46d2e7513d" xml:space="preserve">
+          <source>(1) Brazil South is unique because it is paired with a region outside of its own geography.</source>
+          <target state="new">(1) Brazil South is unique because it is paired with a region outside of its own geography.</target>
+        </trans-unit>
+        <trans-unit id="1dc8ad6e-a2a1-4478-a2a1-d8cba9de7630" xml:space="preserve">
+          <source>Note that Brazil South’s secondary region is South Central US but South Central US’s secondary region is not Brazil South.</source>
+          <target state="new">Note that Brazil South’s secondary region is South Central US but South Central US’s secondary region is not Brazil South.</target>
+        </trans-unit>
+        <trans-unit id="3f06f99a-3088-4e79-9ace-d467ea913376" xml:space="preserve">
+          <source>We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies.</source>
+          <target state="new">We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies.</target>
+        </trans-unit>
+        <trans-unit id="7d4494b4-38dc-4a63-92d8-64d7b641a03c" xml:space="preserve">
+          <source>For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions.</source>
+          <target state="new">For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions.</target>
+        </trans-unit>
+        <trans-unit id="7b8bd2cf-48c0-4130-b2c4-33bba8dc43ab" xml:space="preserve">
+          <source>That means that even in the rare event of a faulty update, both regions will not be affected simultaneously.</source>
+          <target state="new">That means that even in the rare event of a faulty update, both regions will not be affected simultaneously.</target>
+        </trans-unit>
+        <trans-unit id="1a043a08-e664-42ef-8951-79ebb6b9f774" xml:space="preserve">
+          <source>Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.</source>
+          <target state="new">Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.</target>
+        </trans-unit>
+        <trans-unit id="f2e78c2b-aae4-4b7b-b737-9069a40585e0" xml:space="preserve">
+          <source>Figure 2 below shows a hypothetical application which uses the regional pair for disaster recovery.</source>
+          <target state="new">Figure 2 below shows a hypothetical application which uses the regional pair for disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="4119c7aa-2845-4336-b76a-c6bfd5fbb50d" xml:space="preserve">
+          <source>The green numbers highlight the cross-region activities of three Azure services (Azure Compute, Storage, and Database) and how they are configured to replicate across regions.</source>
+          <target state="new">The green numbers highlight the cross-region activities of three Azure services (Azure Compute, Storage, and Database) and how they are configured to replicate across regions.</target>
+        </trans-unit>
+        <trans-unit id="4474ad1b-796e-4f2e-a26c-e609f2732e92" xml:space="preserve">
+          <source>The unique benefits of deploying across paired regions are highlighted by the orange numbers.</source>
+          <target state="new">The unique benefits of deploying across paired regions are highlighted by the orange numbers.</target>
+        </trans-unit>
+        <trans-unit id="f34f5db5-f0c0-4c7f-9568-8e5c9bd9bb19" xml:space="preserve">
+          <source><bpt id="f536e2f9-7bc0-4afd-b3e4-f848e4e3d9fb">&lt;linkText&gt;</bpt>Overview of Paired Region Benefits<ept id="f536e2f9-7bc0-4afd-b3e4-f848e4e3d9fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f536e2f9-7bc0-4afd-b3e4-f848e4e3d9fb">&lt;linkText&gt;</bpt>Overview of Paired Region Benefits<ept id="f536e2f9-7bc0-4afd-b3e4-f848e4e3d9fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c02ea137-dbc1-4ae6-a1a1-9186484aedfc" xml:space="preserve">
+          <source>Figure 2 – Hypothetical Azure regional pair</source>
+          <target state="new">Figure 2 – Hypothetical Azure regional pair</target>
+        </trans-unit>
+        <trans-unit id="a1f99056-b701-4530-9c58-a81564157584" xml:space="preserve">
+          <source>As referred to in figure 2.</source>
+          <target state="new">As referred to in figure 2.</target>
+        </trans-unit>
+        <trans-unit id="dfad0a9f-6eba-4858-b643-386d3ef20f21" xml:space="preserve">
+          <source><bpt id="724dd65a-a39e-4c7e-98f0-723b1ffc5863">&lt;linkText&gt;</bpt>1Green<ept id="724dd65a-a39e-4c7e-98f0-723b1ffc5863">&lt;/linkText&gt;</ept> <bpt id="3533c5f8-989e-4aff-a336-dc5cb7224547">&lt;strong&gt;</bpt>Azure Compute (PaaS)<ept id="3533c5f8-989e-4aff-a336-dc5cb7224547">&lt;/strong&gt;</ept> – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster.</source>
+          <target state="new"><bpt id="724dd65a-a39e-4c7e-98f0-723b1ffc5863">&lt;linkText&gt;</bpt>1Green<ept id="724dd65a-a39e-4c7e-98f0-723b1ffc5863">&lt;/linkText&gt;</ept> <bpt id="3533c5f8-989e-4aff-a336-dc5cb7224547">&lt;strong&gt;</bpt>Azure Compute (PaaS)<ept id="3533c5f8-989e-4aff-a336-dc5cb7224547">&lt;/strong&gt;</ept> – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster.</target>
+        </trans-unit>
+        <trans-unit id="de7cbdc1-5b68-4fa4-99f1-14dd4cb776ce" xml:space="preserve">
+          <source>For more information, see <bpt id="d0db3aba-9f1c-4839-ad20-9275f8c69c21">&lt;linkText&gt;</bpt>Azure Business Continuity Technical Guidance<ept id="d0db3aba-9f1c-4839-ad20-9275f8c69c21">&lt;/linkText&gt;</ept><bpt id="d0db3aba-9f1c-4839-ad20-9275f8c69c21">&lt;title&gt;</bpt><ept id="d0db3aba-9f1c-4839-ad20-9275f8c69c21">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="d0db3aba-9f1c-4839-ad20-9275f8c69c21">&lt;linkText&gt;</bpt>Azure Business Continuity Technical Guidance<ept id="d0db3aba-9f1c-4839-ad20-9275f8c69c21">&lt;/linkText&gt;</ept><bpt id="d0db3aba-9f1c-4839-ad20-9275f8c69c21">&lt;title&gt;</bpt><ept id="d0db3aba-9f1c-4839-ad20-9275f8c69c21">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c363359c-468d-4854-a85c-3e2be83f46b9" xml:space="preserve">
+          <source><bpt id="35433f9b-7eeb-420d-864d-60d70d61b02e">&lt;linkText&gt;</bpt>2Green<ept id="35433f9b-7eeb-420d-864d-60d70d61b02e">&lt;/linkText&gt;</ept> <bpt id="5b6ae04f-8c22-46b7-8000-b313b72d4135">&lt;strong&gt;</bpt>Azure Storage<ept id="5b6ae04f-8c22-46b7-8000-b313b72d4135">&lt;/strong&gt;</ept> - Geo-Redundant storage (GRS) is configured by default when an Azure Storage account is created.</source>
+          <target state="new"><bpt id="35433f9b-7eeb-420d-864d-60d70d61b02e">&lt;linkText&gt;</bpt>2Green<ept id="35433f9b-7eeb-420d-864d-60d70d61b02e">&lt;/linkText&gt;</ept> <bpt id="5b6ae04f-8c22-46b7-8000-b313b72d4135">&lt;strong&gt;</bpt>Azure Storage<ept id="5b6ae04f-8c22-46b7-8000-b313b72d4135">&lt;/strong&gt;</ept> - Geo-Redundant storage (GRS) is configured by default when an Azure Storage account is created.</target>
+        </trans-unit>
+        <trans-unit id="060fc8c9-a08d-4750-9791-0de5194efc3f" xml:space="preserve">
+          <source>With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region.</source>
+          <target state="new">With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region.</target>
+        </trans-unit>
+        <trans-unit id="a482074e-1773-4eb7-babd-69210a442da5" xml:space="preserve">
+          <source>For more information,  see <bpt id="f29bea7b-2d56-4194-ad7c-934fc8164f87">&lt;linkText&gt;</bpt>Azure Storage Redundancy Options<ept id="f29bea7b-2d56-4194-ad7c-934fc8164f87">&lt;/linkText&gt;</ept><bpt id="f29bea7b-2d56-4194-ad7c-934fc8164f87">&lt;title&gt;</bpt><ept id="f29bea7b-2d56-4194-ad7c-934fc8164f87">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information,  see <bpt id="f29bea7b-2d56-4194-ad7c-934fc8164f87">&lt;linkText&gt;</bpt>Azure Storage Redundancy Options<ept id="f29bea7b-2d56-4194-ad7c-934fc8164f87">&lt;/linkText&gt;</ept><bpt id="f29bea7b-2d56-4194-ad7c-934fc8164f87">&lt;title&gt;</bpt><ept id="f29bea7b-2d56-4194-ad7c-934fc8164f87">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3f210f1-0bb0-4016-ad5b-23eea5bb2bc7" xml:space="preserve">
+          <source><bpt id="97aca1ac-9b8f-4772-bf54-363257ab79a0">&lt;linkText&gt;</bpt>3Green<ept id="97aca1ac-9b8f-4772-bf54-363257ab79a0">&lt;/linkText&gt;</ept> <bpt id="2aaf3975-4d1a-4712-a914-3f8fcace6595">&lt;strong&gt;</bpt>Azure SQL Databases<ept id="2aaf3975-4d1a-4712-a914-3f8fcace6595">&lt;/strong&gt;</ept> – With Azure SQL Standard Geo-Replication, you can configure asynchronous replication of transactions to a paired region.</source>
+          <target state="new"><bpt id="97aca1ac-9b8f-4772-bf54-363257ab79a0">&lt;linkText&gt;</bpt>3Green<ept id="97aca1ac-9b8f-4772-bf54-363257ab79a0">&lt;/linkText&gt;</ept> <bpt id="2aaf3975-4d1a-4712-a914-3f8fcace6595">&lt;strong&gt;</bpt>Azure SQL Databases<ept id="2aaf3975-4d1a-4712-a914-3f8fcace6595">&lt;/strong&gt;</ept> – With Azure SQL Standard Geo-Replication, you can configure asynchronous replication of transactions to a paired region.</target>
+        </trans-unit>
+        <trans-unit id="dd0ab611-fd9b-40e6-bd1e-d439f710b1e7" xml:space="preserve">
+          <source>With Premium Geo-replication, you can configure replication to any region in the world; however, we recommend you deploy these resources in a paired region for most disaster recovery scenarios.</source>
+          <target state="new">With Premium Geo-replication, you can configure replication to any region in the world; however, we recommend you deploy these resources in a paired region for most disaster recovery scenarios.</target>
+        </trans-unit>
+        <trans-unit id="6a8de2dd-af14-404c-b2cd-868c44ed8329" xml:space="preserve">
+          <source>For more information, see  <bpt id="f7bcaae8-d051-49cd-b7cb-262f515dcddb">&lt;linkText&gt;</bpt>Geo-Replication in Azure SQL Database<ept id="f7bcaae8-d051-49cd-b7cb-262f515dcddb">&lt;/linkText&gt;</ept><bpt id="f7bcaae8-d051-49cd-b7cb-262f515dcddb">&lt;title&gt;</bpt><ept id="f7bcaae8-d051-49cd-b7cb-262f515dcddb">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see  <bpt id="f7bcaae8-d051-49cd-b7cb-262f515dcddb">&lt;linkText&gt;</bpt>Geo-Replication in Azure SQL Database<ept id="f7bcaae8-d051-49cd-b7cb-262f515dcddb">&lt;/linkText&gt;</ept><bpt id="f7bcaae8-d051-49cd-b7cb-262f515dcddb">&lt;title&gt;</bpt><ept id="f7bcaae8-d051-49cd-b7cb-262f515dcddb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac76f034-6dab-4920-b762-01f60bac0920" xml:space="preserve">
+          <source><bpt id="e243d1c1-073e-45e8-bcca-5ba36b748d22">&lt;linkText&gt;</bpt>4Green<ept id="e243d1c1-073e-45e8-bcca-5ba36b748d22">&lt;/linkText&gt;</ept> <bpt id="c18d8c22-acec-4db7-82c7-88e80bb2d5a5">&lt;strong&gt;</bpt>Azure Resource Manager (ARM)<ept id="c18d8c22-acec-4db7-82c7-88e80bb2d5a5">&lt;/strong&gt;</ept> - ARM inherently provides logical isolation of service management components across regions.</source>
+          <target state="new"><bpt id="e243d1c1-073e-45e8-bcca-5ba36b748d22">&lt;linkText&gt;</bpt>4Green<ept id="e243d1c1-073e-45e8-bcca-5ba36b748d22">&lt;/linkText&gt;</ept> <bpt id="c18d8c22-acec-4db7-82c7-88e80bb2d5a5">&lt;strong&gt;</bpt>Azure Resource Manager (ARM)<ept id="c18d8c22-acec-4db7-82c7-88e80bb2d5a5">&lt;/strong&gt;</ept> - ARM inherently provides logical isolation of service management components across regions.</target>
+        </trans-unit>
+        <trans-unit id="af93f62c-22bb-4bb9-abc6-61a223b5e1c4" xml:space="preserve">
+          <source>This means logical failures in one region are less likely to impact another.</source>
+          <target state="new">This means logical failures in one region are less likely to impact another.</target>
+        </trans-unit>
+        <trans-unit id="bb3376a0-83ca-4ac4-a528-95a6bff10d85" xml:space="preserve">
+          <source>As referred to in figure 2.</source>
+          <target state="new">As referred to in figure 2.</target>
+        </trans-unit>
+        <trans-unit id="d62ffadf-f94f-46dc-a316-5fdac00584eb" xml:space="preserve">
+          <source><bpt id="d77f7de2-e83b-4f88-a6ac-ee76b76456c0">&lt;linkText&gt;</bpt>5Orange<ept id="d77f7de2-e83b-4f88-a6ac-ee76b76456c0">&lt;/linkText&gt;</ept>
+<bpt id="b14ff4dd-340e-4963-a57f-ba29af792eda">&lt;strong&gt;</bpt>Physical isolation<ept id="b14ff4dd-340e-4963-a57f-ba29af792eda">&lt;/strong&gt;</ept> – When possible, Azure prefers at least 300 miles of separation between datacenters in a regional pair, although this is not practical or possible in all geographies.</source>
+          <target state="new"><bpt id="d77f7de2-e83b-4f88-a6ac-ee76b76456c0">&lt;linkText&gt;</bpt>5Orange<ept id="d77f7de2-e83b-4f88-a6ac-ee76b76456c0">&lt;/linkText&gt;</ept>
+<bpt id="b14ff4dd-340e-4963-a57f-ba29af792eda">&lt;strong&gt;</bpt>Physical isolation<ept id="b14ff4dd-340e-4963-a57f-ba29af792eda">&lt;/strong&gt;</ept> – When possible, Azure prefers at least 300 miles of separation between datacenters in a regional pair, although this is not practical or possible in all geographies.</target>
+        </trans-unit>
+        <trans-unit id="4d941f34-995e-4fe7-8677-7039e38499f8" xml:space="preserve">
+          <source>Physical datacenter separation reduces the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once.</source>
+          <target state="new">Physical datacenter separation reduces the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once.</target>
+        </trans-unit>
+        <trans-unit id="29e2640c-763a-456a-b384-06b19cfa40b5" xml:space="preserve">
+          <source>Isolation is subject to the constraints within the geography (geography size, power/network infrastructure availability, regulations, etc.).</source>
+          <target state="new">Isolation is subject to the constraints within the geography (geography size, power/network infrastructure availability, regulations, etc.).</target>
+        </trans-unit>
+        <trans-unit id="9343ae05-403f-4daa-ae97-3ef32dd49080" xml:space="preserve">
+          <source><bpt id="934235bd-a3d8-4305-aa3f-63ad2601464c">&lt;linkText&gt;</bpt>6Orange<ept id="934235bd-a3d8-4305-aa3f-63ad2601464c">&lt;/linkText&gt;</ept>
+<bpt id="687d83b0-e277-4487-a99a-11f1cfc96261">&lt;strong&gt;</bpt>Platform-provided replication<ept id="687d83b0-e277-4487-a99a-11f1cfc96261">&lt;/strong&gt;</ept> - Some services such as Geo-Redundant Storage provide automatic replication to the paired region.</source>
+          <target state="new"><bpt id="934235bd-a3d8-4305-aa3f-63ad2601464c">&lt;linkText&gt;</bpt>6Orange<ept id="934235bd-a3d8-4305-aa3f-63ad2601464c">&lt;/linkText&gt;</ept>
+<bpt id="687d83b0-e277-4487-a99a-11f1cfc96261">&lt;strong&gt;</bpt>Platform-provided replication<ept id="687d83b0-e277-4487-a99a-11f1cfc96261">&lt;/strong&gt;</ept> - Some services such as Geo-Redundant Storage provide automatic replication to the paired region.</target>
+        </trans-unit>
+        <trans-unit id="3d3550dc-a718-4cdf-b456-21d7d42f3076" xml:space="preserve">
+          <source><bpt id="b20ee15e-9286-4813-977d-7d39ec69b68b">&lt;linkText&gt;</bpt>7Orange<ept id="b20ee15e-9286-4813-977d-7d39ec69b68b">&lt;/linkText&gt;</ept>
+<bpt id="1d48c39c-3db5-43e5-b003-f469473f24ba">&lt;strong&gt;</bpt>Region recovery order<ept id="1d48c39c-3db5-43e5-b003-f469473f24ba">&lt;/strong&gt;</ept> – In the event of a broad outage, recovery of one region is prioritized out of every pair.</source>
+          <target state="new"><bpt id="b20ee15e-9286-4813-977d-7d39ec69b68b">&lt;linkText&gt;</bpt>7Orange<ept id="b20ee15e-9286-4813-977d-7d39ec69b68b">&lt;/linkText&gt;</ept>
+<bpt id="1d48c39c-3db5-43e5-b003-f469473f24ba">&lt;strong&gt;</bpt>Region recovery order<ept id="1d48c39c-3db5-43e5-b003-f469473f24ba">&lt;/strong&gt;</ept> – In the event of a broad outage, recovery of one region is prioritized out of every pair.</target>
+        </trans-unit>
+        <trans-unit id="7e817365-ba30-4bc2-b8e1-4c3157faa89d" xml:space="preserve">
+          <source>Applications that are deployed across paired regions are guaranteed to have one of the regions recovered with priority.</source>
+          <target state="new">Applications that are deployed across paired regions are guaranteed to have one of the regions recovered with priority.</target>
+        </trans-unit>
+        <trans-unit id="8c5aaf1b-0057-4632-a4e4-e2bcae5a812f" xml:space="preserve">
+          <source>If an application is deployed across regions that are not paired, recovery may be delayed – in the worst case the chosen regions may be the last two to be recovered.</source>
+          <target state="new">If an application is deployed across regions that are not paired, recovery may be delayed – in the worst case the chosen regions may be the last two to be recovered.</target>
+        </trans-unit>
+        <trans-unit id="ca6dfd6b-c6a1-4275-beac-476c6491f88c" xml:space="preserve">
+          <source><bpt id="a0ec7359-376f-4a05-8536-ff57ba824d16">&lt;linkText&gt;</bpt>8Orange<ept id="a0ec7359-376f-4a05-8536-ff57ba824d16">&lt;/linkText&gt;</ept>
+<bpt id="02d71c42-0f43-43ff-ab6b-9c753a7dd6cc">&lt;strong&gt;</bpt>Sequential updates<ept id="02d71c42-0f43-43ff-ab6b-9c753a7dd6cc">&lt;/strong&gt;</ept> –  Planned Azure system updates are rolled out to paired regions sequentially (not at the same time) to minimize downtime, the effect of bugs, and logical failures in the rare event of a bad update.</source>
+          <target state="new"><bpt id="a0ec7359-376f-4a05-8536-ff57ba824d16">&lt;linkText&gt;</bpt>8Orange<ept id="a0ec7359-376f-4a05-8536-ff57ba824d16">&lt;/linkText&gt;</ept>
+<bpt id="02d71c42-0f43-43ff-ab6b-9c753a7dd6cc">&lt;strong&gt;</bpt>Sequential updates<ept id="02d71c42-0f43-43ff-ab6b-9c753a7dd6cc">&lt;/strong&gt;</ept> –  Planned Azure system updates are rolled out to paired regions sequentially (not at the same time) to minimize downtime, the effect of bugs, and logical failures in the rare event of a bad update.</target>
+        </trans-unit>
+        <trans-unit id="16f0c7c8-3b57-4892-b57d-a0310be4a761" xml:space="preserve">
+          <source><bpt id="9ca85a72-0255-4dba-873e-e837837aa8a4">&lt;linkText&gt;</bpt>9Orange<ept id="9ca85a72-0255-4dba-873e-e837837aa8a4">&lt;/linkText&gt;</ept>
+<bpt id="328649d8-270d-4b93-b88f-e07d4c32de79">&lt;strong&gt;</bpt>Data residency<ept id="328649d8-270d-4b93-b88f-e07d4c32de79">&lt;/strong&gt;</ept> – A region resides within the same geography as its pair (with the exception of Brazil South) in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.</source>
+          <target state="new"><bpt id="9ca85a72-0255-4dba-873e-e837837aa8a4">&lt;linkText&gt;</bpt>9Orange<ept id="9ca85a72-0255-4dba-873e-e837837aa8a4">&lt;/linkText&gt;</ept>
+<bpt id="328649d8-270d-4b93-b88f-e07d4c32de79">&lt;strong&gt;</bpt>Data residency<ept id="328649d8-270d-4b93-b88f-e07d4c32de79">&lt;/strong&gt;</ept> – A region resides within the same geography as its pair (with the exception of Brazil South) in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

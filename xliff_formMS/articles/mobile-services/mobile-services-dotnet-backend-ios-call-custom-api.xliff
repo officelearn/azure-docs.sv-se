@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d583877a-491e-4706-940d-36c1d89266a2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d583877a-491e-4706-940d-36c1d89266a2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="91728346-ed41-4d90-9bef-1b52b14a3afa">
+        <trans-unit id="04215454-939b-4864-9890-8069eb432485" xml:space="preserve">
+          <source>How to call a custom API from an iOS client</source>
+          <target state="new">How to call a custom API from an iOS client</target>
+        </trans-unit>
+        <trans-unit id="ae93953c-f37f-497e-9840-ce57468c58d5" xml:space="preserve">
+          <source>Learn how to define a custom API and then call it from an iOS app that uses Azure Mobile Services.</source>
+          <target state="new">Learn how to define a custom API and then call it from an iOS app that uses Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="68120190-0fd0-4be9-b1a9-aef5c1c3fa2c" xml:space="preserve">
+          <source><bpt id="0e9f0ef4-e1ad-4b6a-a79d-499bace132a5">&lt;token href="../../includes/mobile-services-selector-call-custom-api.md"&gt;</bpt><ept id="0e9f0ef4-e1ad-4b6a-a79d-499bace132a5">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0e9f0ef4-e1ad-4b6a-a79d-499bace132a5">&lt;token href="../../includes/mobile-services-selector-call-custom-api.md"&gt;</bpt><ept id="0e9f0ef4-e1ad-4b6a-a79d-499bace132a5">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9dd04150-5271-439e-873e-4af554319e2b" xml:space="preserve">
+          <source>This topic shows you how to call a custom API from an iOS app.</source>
+          <target state="new">This topic shows you how to call a custom API from an iOS app.</target>
+        </trans-unit>
+        <trans-unit id="4780d5ad-72a0-4957-ae2a-bc34a9a1ce33" xml:space="preserve">
+          <source>A custom API lets you define custom endpoints with server functionality, but it does not map to a database insert, update, delete, or read operation.</source>
+          <target state="new">A custom API lets you define custom endpoints with server functionality, but it does not map to a database insert, update, delete, or read operation.</target>
+        </trans-unit>
+        <trans-unit id="d79f71e6-802b-4797-acfd-862b150da0dc" xml:space="preserve">
+          <source>By using a custom API, you have more control over messaging, including HTTP headers and body format.</source>
+          <target state="new">By using a custom API, you have more control over messaging, including HTTP headers and body format.</target>
+        </trans-unit>
+        <trans-unit id="3cb0cae9-3133-44a8-a3ba-973056b87d89" xml:space="preserve">
+          <source><bpt id="35336f47-a932-45d0-a204-25550a822c4a">&lt;token href="../../includes/mobile-services-dotnet-backend-create-custom-api.md"&gt;</bpt><ept id="35336f47-a932-45d0-a204-25550a822c4a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="35336f47-a932-45d0-a204-25550a822c4a">&lt;token href="../../includes/mobile-services-dotnet-backend-create-custom-api.md"&gt;</bpt><ept id="35336f47-a932-45d0-a204-25550a822c4a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0cbd2831-0afa-4d1f-88ac-8aef823e9bbb" xml:space="preserve">
+          <source><bpt id="48b680e9-b2c5-4742-ab83-fd78b1cee125">&lt;token href="../../includes/mobile-services-ios-call-custom-api.md"&gt;</bpt><ept id="48b680e9-b2c5-4742-ab83-fd78b1cee125">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="48b680e9-b2c5-4742-ab83-fd78b1cee125">&lt;token href="../../includes/mobile-services-ios-call-custom-api.md"&gt;</bpt><ept id="48b680e9-b2c5-4742-ab83-fd78b1cee125">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ae6ea99-f7c2-496c-8f04-ef2bc0c450bb" xml:space="preserve">
+          <source>This topic showed how to use the <bpt id="5f7ea3a1-e2c3-498f-8e19-caf3ff016828">&lt;strong&gt;</bpt>invokeApi<ept id="5f7ea3a1-e2c3-498f-8e19-caf3ff016828">&lt;/strong&gt;</ept> method to call a fairly simple custom API from your iOS app.</source>
+          <target state="new">This topic showed how to use the <bpt id="5f7ea3a1-e2c3-498f-8e19-caf3ff016828">&lt;strong&gt;</bpt>invokeApi<ept id="5f7ea3a1-e2c3-498f-8e19-caf3ff016828">&lt;/strong&gt;</ept> method to call a fairly simple custom API from your iOS app.</target>
+        </trans-unit>
+        <trans-unit id="12270d76-8640-4211-ba97-61de037ba47b" xml:space="preserve">
+          <source>To learn more about using the <bpt id="103ff466-7704-4bb4-84fd-9ecde950ab6f">&lt;strong&gt;</bpt>invokeApi<ept id="103ff466-7704-4bb4-84fd-9ecde950ab6f">&lt;/strong&gt;</ept> method, see the post <bpt id="d12071c8-62b7-432e-8e8b-5256be734f7e">&lt;linkText&gt;</bpt>Custom API in Azure Mobile Services<ept id="d12071c8-62b7-432e-8e8b-5256be734f7e">&lt;/linkText&gt;</ept><bpt id="d12071c8-62b7-432e-8e8b-5256be734f7e">&lt;title&gt;</bpt><ept id="d12071c8-62b7-432e-8e8b-5256be734f7e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about using the <bpt id="103ff466-7704-4bb4-84fd-9ecde950ab6f">&lt;strong&gt;</bpt>invokeApi<ept id="103ff466-7704-4bb4-84fd-9ecde950ab6f">&lt;/strong&gt;</ept> method, see the post <bpt id="d12071c8-62b7-432e-8e8b-5256be734f7e">&lt;linkText&gt;</bpt>Custom API in Azure Mobile Services<ept id="d12071c8-62b7-432e-8e8b-5256be734f7e">&lt;/linkText&gt;</ept><bpt id="d12071c8-62b7-432e-8e8b-5256be734f7e">&lt;title&gt;</bpt><ept id="d12071c8-62b7-432e-8e8b-5256be734f7e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4bc4c3f7-0d5d-4d27-8cd5-235b1e2efe52" xml:space="preserve">
+          <source>#define-custom-api</source>
+          <target state="new">#define-custom-api</target>
+        </trans-unit>
+        <trans-unit id="119e9630-14d8-461d-bf5d-d5d217d520a7" xml:space="preserve">
+          <source>#update-app</source>
+          <target state="new">#update-app</target>
+        </trans-unit>
+        <trans-unit id="5682da20-6b98-4da7-97b8-675cd4a37d87" xml:space="preserve">
+          <source>#test-app</source>
+          <target state="new">#test-app</target>
+        </trans-unit>
+        <trans-unit id="dd0b12ec-4967-44b5-8713-1a4138aefd72" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="0c1586e4-067f-4fe4-bcd4-c704f431d25d" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=257677</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=257677</target>
+        </trans-unit>
+        <trans-unit id="401ddfb5-eddb-493d-a5a8-10d9ce4046f4" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262293</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262293</target>
+        </trans-unit>
+        <trans-unit id="7b54b8a0-fafb-46be-b4ff-d04a1862e420" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="420f09b6-1da3-4558-bb94-2a416820dfc8" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="fcfeff1c-00fa-4520-ada7-84fa27f3c084" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="a3b31513-a99e-4b14-ad5d-9dc8942a0563" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started-data.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="f6fddc13-5293-4fc0-b79d-a7d00279e8dd" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="a6a414b4-a67f-4dd7-a2ce-e9d80efa3333" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started-push.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="64331dd5-cc9c-43b8-bf58-6e05eaa45ae7" xml:space="preserve">
+          <source>mobile-services-store-scripts-source-control.md</source>
+          <target state="new">mobile-services-store-scripts-source-control.md</target>
+        </trans-unit>
+      </group>
+      <group id="0217e17e-864d-4304-814c-3f1ab85d8cd9" />
+    </body>
+  </file>
+</xliff>

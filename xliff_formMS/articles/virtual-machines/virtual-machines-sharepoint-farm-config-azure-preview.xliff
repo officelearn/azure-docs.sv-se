@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="60ca1886-0651-44e5-8fdd-ee593666cac9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="60ca1886-0651-44e5-8fdd-ee593666cac9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e1da272f-e6de-459c-adf5-fafa13393e62">
+        <trans-unit id="db54b681-797b-48a8-9170-b5ebe1d37091" xml:space="preserve">
+          <source>SharePoint Server Farm configuration | Microsoft Azure</source>
+          <target state="new">SharePoint Server Farm configuration | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1dfaa6ed-9d99-4a89-a656-0a71f2e6bd3e" xml:space="preserve">
+          <source>Learn about the default configuration of SharePoint farms when you use the SharePoint Server Farm feature of the Azure preview portal.</source>
+          <target state="new">Learn about the default configuration of SharePoint farms when you use the SharePoint Server Farm feature of the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="828184f6-be17-4562-8fa2-95dd788cc5c5" xml:space="preserve">
+          <source>SharePoint Server Farm is a feature of the Azure preview portal that automatically creates a preconfigured SharePoint Server 2013 farm for you.</source>
+          <target state="new">SharePoint Server Farm is a feature of the Azure preview portal that automatically creates a preconfigured SharePoint Server 2013 farm for you.</target>
+        </trans-unit>
+        <trans-unit id="8b02faec-c623-43fa-8bed-aa67407b0063" xml:space="preserve">
+          <source>There are two farm configurations:</source>
+          <target state="new">There are two farm configurations:</target>
+        </trans-unit>
+        <trans-unit id="27452a6a-6948-4cc7-8546-6ada71cb18fe" xml:space="preserve">
+          <source>Basic</source>
+          <target state="new">Basic</target>
+        </trans-unit>
+        <trans-unit id="66068d8f-c16e-4282-9896-e4e10d43257c" xml:space="preserve">
+          <source>High-availability</source>
+          <target state="new">High-availability</target>
+        </trans-unit>
+        <trans-unit id="ace051e0-8fd8-4b78-b884-5fc75ecd0bba" xml:space="preserve">
+          <source>The following sections provide configuration details for each farm.</source>
+          <target state="new">The following sections provide configuration details for each farm.</target>
+        </trans-unit>
+        <trans-unit id="4f53d175-642f-4558-a2ed-48dcfeee7fd5" xml:space="preserve">
+          <source>For additional information, see <bpt id="74186c82-ef15-4905-ad8c-a81987a4fcad">&lt;linkText&gt;</bpt>SharePoint Server Farm<ept id="74186c82-ef15-4905-ad8c-a81987a4fcad">&lt;/linkText&gt;</ept><bpt id="74186c82-ef15-4905-ad8c-a81987a4fcad">&lt;title&gt;</bpt><ept id="74186c82-ef15-4905-ad8c-a81987a4fcad">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information, see <bpt id="74186c82-ef15-4905-ad8c-a81987a4fcad">&lt;linkText&gt;</bpt>SharePoint Server Farm<ept id="74186c82-ef15-4905-ad8c-a81987a4fcad">&lt;/linkText&gt;</ept><bpt id="74186c82-ef15-4905-ad8c-a81987a4fcad">&lt;title&gt;</bpt><ept id="74186c82-ef15-4905-ad8c-a81987a4fcad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d424831e-11c7-43e4-869b-2c12d9e018c1" xml:space="preserve">
+          <source>The basic SharePoint farm consists of three virtual machines in this configuration:</source>
+          <target state="new">The basic SharePoint farm consists of three virtual machines in this configuration:</target>
+        </trans-unit>
+        <trans-unit id="da9ce0af-d11b-4058-bc1d-14334994c342" xml:space="preserve">
+          <source><bpt id="c8de1ab2-29f4-4d28-887f-8a3cb136babf">&lt;linkText&gt;</bpt>sharepointfarm<ept id="c8de1ab2-29f4-4d28-887f-8a3cb136babf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c8de1ab2-29f4-4d28-887f-8a3cb136babf">&lt;linkText&gt;</bpt>sharepointfarm<ept id="c8de1ab2-29f4-4d28-887f-8a3cb136babf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d626161c-37da-4345-b39c-c55164a9aad4" xml:space="preserve">
+          <source>Here are the configuration details:</source>
+          <target state="new">Here are the configuration details:</target>
+        </trans-unit>
+        <trans-unit id="e1cfe6bf-f080-430c-aa3a-07ff58120d90" xml:space="preserve">
+          <source>Azure subscription: Specified during the initial configuration.</source>
+          <target state="new">Azure subscription: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="cc062a75-4ea9-42e3-9c20-790d2e4e9f6e" xml:space="preserve">
+          <source>Azure domain names (also known as cloud services): Separate domain names are automatically created for each virtual machine.</source>
+          <target state="new">Azure domain names (also known as cloud services): Separate domain names are automatically created for each virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="da65944f-f63e-4647-a597-a9fcd168929b" xml:space="preserve">
+          <source>Storage account: Specified during the initial configuration.</source>
+          <target state="new">Storage account: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="09e0fad4-2e59-4aa1-b021-b612425dcc48" xml:space="preserve">
+          <source>Virtual network:</source>
+          <target state="new">Virtual network:</target>
+        </trans-unit>
+        <trans-unit id="310c4679-5ad0-4f07-b4fc-40d7ce20af9f" xml:space="preserve">
+          <source>Type: Cloud-only</source>
+          <target state="new">Type: Cloud-only</target>
+        </trans-unit>
+        <trans-unit id="e48da4b3-37f5-48fe-aa36-f7cb2d1f5513" xml:space="preserve">
+          <source>Address space: 10.0.0.0/26</source>
+          <target state="new">Address space: 10.0.0.0/26</target>
+        </trans-unit>
+        <trans-unit id="d057e339-9a22-46a3-b132-af668609a51c" xml:space="preserve">
+          <source>Virtual machines:</source>
+          <target state="new">Virtual machines:</target>
+        </trans-unit>
+        <trans-unit id="30445a0c-cd74-4731-849c-009fe84da568" xml:space="preserve">
+          <source><bpt id="0c0fcfde-41ce-4616-8d38-744a04d0a06e">&lt;em&gt;</bpt>HostNamePrefix<ept id="0c0fcfde-41ce-4616-8d38-744a04d0a06e">&lt;/em&gt;</ept>-DC (AD DS domain controller)</source>
+          <target state="new"><bpt id="0c0fcfde-41ce-4616-8d38-744a04d0a06e">&lt;em&gt;</bpt>HostNamePrefix<ept id="0c0fcfde-41ce-4616-8d38-744a04d0a06e">&lt;/em&gt;</ept>-DC (AD DS domain controller)</target>
+        </trans-unit>
+        <trans-unit id="e7e38287-d168-4189-abb6-4daca9a1411c" xml:space="preserve">
+          <source><bpt id="a8a73300-fff3-4e61-81c6-c6ccc1b35cba">&lt;em&gt;</bpt>HostNamePrefix<ept id="a8a73300-fff3-4e61-81c6-c6ccc1b35cba">&lt;/em&gt;</ept>-SQL (SQL Server 2014 server)</source>
+          <target state="new"><bpt id="a8a73300-fff3-4e61-81c6-c6ccc1b35cba">&lt;em&gt;</bpt>HostNamePrefix<ept id="a8a73300-fff3-4e61-81c6-c6ccc1b35cba">&lt;/em&gt;</ept>-SQL (SQL Server 2014 server)</target>
+        </trans-unit>
+        <trans-unit id="040574e4-11f4-4127-b91c-13cd79e40eff" xml:space="preserve">
+          <source><bpt id="2ac897f8-f3ac-4d26-b142-5caa516e3077">&lt;em&gt;</bpt>HostNamePrefix<ept id="2ac897f8-f3ac-4d26-b142-5caa516e3077">&lt;/em&gt;</ept>-SP (SharePoint 2013 server)</source>
+          <target state="new"><bpt id="2ac897f8-f3ac-4d26-b142-5caa516e3077">&lt;em&gt;</bpt>HostNamePrefix<ept id="2ac897f8-f3ac-4d26-b142-5caa516e3077">&lt;/em&gt;</ept>-SP (SharePoint 2013 server)</target>
+        </trans-unit>
+        <trans-unit id="6d6a9241-3d1a-4b1f-b1ff-737d7eb83c18" xml:space="preserve">
+          <source>Domain controller:</source>
+          <target state="new">Domain controller:</target>
+        </trans-unit>
+        <trans-unit id="a0eda9fd-3a4a-4e9f-80ab-03d521a0a5f8" xml:space="preserve">
+          <source>Virtual machine image: Windows Server 2012 R2.</source>
+          <target state="new">Virtual machine image: Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="84c0ba16-fb5e-41e3-806a-6a7e14def19a" xml:space="preserve">
+          <source>Host name prefix: Specified during the initial configuration.</source>
+          <target state="new">Host name prefix: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="db790df1-4cce-4971-a794-7064f4684980" xml:space="preserve">
+          <source>Size: A1 (default).</source>
+          <target state="new">Size: A1 (default).</target>
+        </trans-unit>
+        <trans-unit id="e5a12f35-c1e1-4252-88d8-afda2ccb219d" xml:space="preserve">
+          <source>Domain name: contoso.com (default).</source>
+          <target state="new">Domain name: contoso.com (default).</target>
+        </trans-unit>
+        <trans-unit id="557df008-6a8d-4709-a444-88b439a745e9" xml:space="preserve">
+          <source>Domain administrator account name: Specified during the initial configuration.</source>
+          <target state="new">Domain administrator account name: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="bf44f025-c5e0-4097-b4d8-db0c26247d20" xml:space="preserve">
+          <source>Domain administrator account password: Specified during the initial configuration.</source>
+          <target state="new">Domain administrator account password: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="96cebfdb-dcde-4187-b21f-a955bd819c00" xml:space="preserve">
+          <source>Database server</source>
+          <target state="new">Database server</target>
+        </trans-unit>
+        <trans-unit id="2a648e88-05da-4857-8592-8bfe78bad2e6" xml:space="preserve">
+          <source>Virtual machine image: SQL Server 2014 RTM Enterprise on Windows Server 2012 R2.</source>
+          <target state="new">Virtual machine image: SQL Server 2014 RTM Enterprise on Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="72613367-df9f-479b-8753-db9d9b72f1fc" xml:space="preserve">
+          <source>Host name prefix: Specified during the initial configuration.</source>
+          <target state="new">Host name prefix: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="50bc9f8f-47e8-4e81-8611-dee35ae1e1d7" xml:space="preserve">
+          <source>Size: A5 (default).</source>
+          <target state="new">Size: A5 (default).</target>
+        </trans-unit>
+        <trans-unit id="d68cb081-5e15-4e9d-86c6-8b7906ee097c" xml:space="preserve">
+          <source>Database access account name: Specified during the initial configuration.</source>
+          <target state="new">Database access account name: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="1782f978-d3d2-4561-89fe-68a0ccd06119" xml:space="preserve">
+          <source>Database access account password: Specified during the initial configuration.</source>
+          <target state="new">Database access account password: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="b74b8562-91b2-4025-a5bf-fed5ac457051" xml:space="preserve">
+          <source>SQL Server service account name: sqlservice (default).</source>
+          <target state="new">SQL Server service account name: sqlservice (default).</target>
+        </trans-unit>
+        <trans-unit id="6cde5663-df6a-4512-be78-b6e90248dc92" xml:space="preserve">
+          <source>SQL Server service account password: Specified during the initial configuration.</source>
+          <target state="new">SQL Server service account password: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="bf0c85d9-e98e-403a-881b-da5d255e8100" xml:space="preserve">
+          <source>SharePoint server</source>
+          <target state="new">SharePoint server</target>
+        </trans-unit>
+        <trans-unit id="ca58a615-364c-43dc-a18a-a105a6721da6" xml:space="preserve">
+          <source>Virtual machine image: SharePoint Server 2013 Trial.</source>
+          <target state="new">Virtual machine image: SharePoint Server 2013 Trial.</target>
+        </trans-unit>
+        <trans-unit id="a081c98b-e035-46d4-8b27-72d10b56f0c4" xml:space="preserve">
+          <source>Host name prefix: Specified during the initial configuration.</source>
+          <target state="new">Host name prefix: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="cb5635e8-ca2a-469c-aa5b-cd99ac719a7e" xml:space="preserve">
+          <source>Size: A2 (default).</source>
+          <target state="new">Size: A2 (default).</target>
+        </trans-unit>
+        <trans-unit id="993aa757-b7f8-4609-9c8a-d0973afc599f" xml:space="preserve">
+          <source>SharePoint farm account name: sp_farm (default).</source>
+          <target state="new">SharePoint farm account name: sp_farm (default).</target>
+        </trans-unit>
+        <trans-unit id="2b1a0f1f-bef0-498e-a772-a5d67ce4d4a7" xml:space="preserve">
+          <source>SharePoint farm account password: Specified during the initial configuration.</source>
+          <target state="new">SharePoint farm account password: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="b75bdf42-3460-4762-890e-7e65a721ffa6" xml:space="preserve">
+          <source>SharePoint farm passphrase: Specified during the initial configuration.</source>
+          <target state="new">SharePoint farm passphrase: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="d6b401f7-47d0-448e-9e4e-57dca99eb2c6" xml:space="preserve">
+          <source>The high-availability SharePoint farm consists of nine virtual machines in this configuration:</source>
+          <target state="new">The high-availability SharePoint farm consists of nine virtual machines in this configuration:</target>
+        </trans-unit>
+        <trans-unit id="433b9b41-51cb-471a-9d9f-d08c68e2c7f7" xml:space="preserve">
+          <source><bpt id="fbe6d912-ce62-4fac-8d69-63157b411967">&lt;linkText&gt;</bpt>sharepointfarm<ept id="fbe6d912-ce62-4fac-8d69-63157b411967">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fbe6d912-ce62-4fac-8d69-63157b411967">&lt;linkText&gt;</bpt>sharepointfarm<ept id="fbe6d912-ce62-4fac-8d69-63157b411967">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10a190e5-815c-4c97-a2fd-68a2b2e08c6c" xml:space="preserve">
+          <source>Here are the configuration details:</source>
+          <target state="new">Here are the configuration details:</target>
+        </trans-unit>
+        <trans-unit id="f0f48227-568b-4f52-ae21-004b2717a650" xml:space="preserve">
+          <source>Azure subscription: Specified during the initial configuration.</source>
+          <target state="new">Azure subscription: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="a3c124de-28da-4b29-a122-e511b98f310a" xml:space="preserve">
+          <source>Azure domain names (also known as cloud services): Separate domain names are created according to the figure above.</source>
+          <target state="new">Azure domain names (also known as cloud services): Separate domain names are created according to the figure above.</target>
+        </trans-unit>
+        <trans-unit id="3a89bd60-487a-42e0-9036-8d25cc6356d9" xml:space="preserve">
+          <source>Storage account: Specified during the initial configuration.</source>
+          <target state="new">Storage account: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="74497f0a-0e1e-4eee-bd41-d3623443e8ab" xml:space="preserve">
+          <source>Virtual network:</source>
+          <target state="new">Virtual network:</target>
+        </trans-unit>
+        <trans-unit id="060ac799-2c66-4c1f-adf5-36f2f7393d1c" xml:space="preserve">
+          <source>Type: Cloud-only</source>
+          <target state="new">Type: Cloud-only</target>
+        </trans-unit>
+        <trans-unit id="8c9ca6f7-df51-4846-93b8-1eaef1f3ede8" xml:space="preserve">
+          <source>Address space: 10.0.0.0/26</source>
+          <target state="new">Address space: 10.0.0.0/26</target>
+        </trans-unit>
+        <trans-unit id="30ef5832-734b-4a55-bd67-bd10f3a6bcfd" xml:space="preserve">
+          <source>Virtual machines:</source>
+          <target state="new">Virtual machines:</target>
+        </trans-unit>
+        <trans-unit id="9d6cc209-32d4-48f1-8f96-d56751483b0f" xml:space="preserve">
+          <source><bpt id="14856f54-1a1c-4209-b787-55d1e720fe56">&lt;em&gt;</bpt>HostNamePrefix<ept id="14856f54-1a1c-4209-b787-55d1e720fe56">&lt;/em&gt;</ept>-DC1 (AD DS domain controller)</source>
+          <target state="new"><bpt id="14856f54-1a1c-4209-b787-55d1e720fe56">&lt;em&gt;</bpt>HostNamePrefix<ept id="14856f54-1a1c-4209-b787-55d1e720fe56">&lt;/em&gt;</ept>-DC1 (AD DS domain controller)</target>
+        </trans-unit>
+        <trans-unit id="c451e789-05e5-44b4-ba1f-3426f4fbc4be" xml:space="preserve">
+          <source><bpt id="e4b39e26-c958-48b4-bef2-0021700dfc9e">&lt;em&gt;</bpt>HostNamePrefix<ept id="e4b39e26-c958-48b4-bef2-0021700dfc9e">&lt;/em&gt;</ept>-DC2 (AD DS domain controller)</source>
+          <target state="new"><bpt id="e4b39e26-c958-48b4-bef2-0021700dfc9e">&lt;em&gt;</bpt>HostNamePrefix<ept id="e4b39e26-c958-48b4-bef2-0021700dfc9e">&lt;/em&gt;</ept>-DC2 (AD DS domain controller)</target>
+        </trans-unit>
+        <trans-unit id="e2c6002f-4fa5-4219-9a77-a7900ec33bd4" xml:space="preserve">
+          <source><bpt id="8c8a7df3-8339-4e55-a0be-fae2345740d6">&lt;em&gt;</bpt>HostNamePrefix<ept id="8c8a7df3-8339-4e55-a0be-fae2345740d6">&lt;/em&gt;</ept>-SQL1 (SQL Server 2014 server)</source>
+          <target state="new"><bpt id="8c8a7df3-8339-4e55-a0be-fae2345740d6">&lt;em&gt;</bpt>HostNamePrefix<ept id="8c8a7df3-8339-4e55-a0be-fae2345740d6">&lt;/em&gt;</ept>-SQL1 (SQL Server 2014 server)</target>
+        </trans-unit>
+        <trans-unit id="0ed9cea0-d57f-4efd-814a-165de883fedd" xml:space="preserve">
+          <source><bpt id="80811cc3-f174-4c26-8da4-4c0187d12d2f">&lt;em&gt;</bpt>HostNamePrefix<ept id="80811cc3-f174-4c26-8da4-4c0187d12d2f">&lt;/em&gt;</ept>-SQL2 (SQL Server 2014 server)</source>
+          <target state="new"><bpt id="80811cc3-f174-4c26-8da4-4c0187d12d2f">&lt;em&gt;</bpt>HostNamePrefix<ept id="80811cc3-f174-4c26-8da4-4c0187d12d2f">&lt;/em&gt;</ept>-SQL2 (SQL Server 2014 server)</target>
+        </trans-unit>
+        <trans-unit id="ae72c446-5879-49d5-bd08-44d36d889f71" xml:space="preserve">
+          <source><bpt id="b378a197-28fd-431f-801d-79353908de45">&lt;em&gt;</bpt>HostNamePrefix<ept id="b378a197-28fd-431f-801d-79353908de45">&lt;/em&gt;</ept>-SQL0 (Windows Server 2012 R2 server)</source>
+          <target state="new"><bpt id="b378a197-28fd-431f-801d-79353908de45">&lt;em&gt;</bpt>HostNamePrefix<ept id="b378a197-28fd-431f-801d-79353908de45">&lt;/em&gt;</ept>-SQL0 (Windows Server 2012 R2 server)</target>
+        </trans-unit>
+        <trans-unit id="7e584275-7b9b-4e78-9bfb-984efba49702" xml:space="preserve">
+          <source><bpt id="661029f5-e968-43d7-985c-130c4576a940">&lt;em&gt;</bpt>HostNamePrefix<ept id="661029f5-e968-43d7-985c-130c4576a940">&lt;/em&gt;</ept>-WEB1 (SharePoint 2013 server)</source>
+          <target state="new"><bpt id="661029f5-e968-43d7-985c-130c4576a940">&lt;em&gt;</bpt>HostNamePrefix<ept id="661029f5-e968-43d7-985c-130c4576a940">&lt;/em&gt;</ept>-WEB1 (SharePoint 2013 server)</target>
+        </trans-unit>
+        <trans-unit id="2af21f97-aff8-4b1f-aeb7-9eaad5940827" xml:space="preserve">
+          <source><bpt id="a1bbf607-2f6c-40bd-8262-7410100d24f0">&lt;em&gt;</bpt>HostNamePrefix<ept id="a1bbf607-2f6c-40bd-8262-7410100d24f0">&lt;/em&gt;</ept>-WEB2 (SharePoint 2013 server)</source>
+          <target state="new"><bpt id="a1bbf607-2f6c-40bd-8262-7410100d24f0">&lt;em&gt;</bpt>HostNamePrefix<ept id="a1bbf607-2f6c-40bd-8262-7410100d24f0">&lt;/em&gt;</ept>-WEB2 (SharePoint 2013 server)</target>
+        </trans-unit>
+        <trans-unit id="e387e61e-7a68-4172-b782-463a320d267b" xml:space="preserve">
+          <source><bpt id="2eba78d7-4c4a-431f-815d-b567c43947c3">&lt;em&gt;</bpt>HostNamePrefix<ept id="2eba78d7-4c4a-431f-815d-b567c43947c3">&lt;/em&gt;</ept>-APP1 (SharePoint 2013 server)</source>
+          <target state="new"><bpt id="2eba78d7-4c4a-431f-815d-b567c43947c3">&lt;em&gt;</bpt>HostNamePrefix<ept id="2eba78d7-4c4a-431f-815d-b567c43947c3">&lt;/em&gt;</ept>-APP1 (SharePoint 2013 server)</target>
+        </trans-unit>
+        <trans-unit id="fd61da70-ae16-4477-b753-1963438103e0" xml:space="preserve">
+          <source><bpt id="f43e79a1-ce7a-4f1a-a7e6-ab1e638ade9d">&lt;em&gt;</bpt>HostNamePrefix<ept id="f43e79a1-ce7a-4f1a-a7e6-ab1e638ade9d">&lt;/em&gt;</ept>-APP2 (SharePoint 2013 server)</source>
+          <target state="new"><bpt id="f43e79a1-ce7a-4f1a-a7e6-ab1e638ade9d">&lt;em&gt;</bpt>HostNamePrefix<ept id="f43e79a1-ce7a-4f1a-a7e6-ab1e638ade9d">&lt;/em&gt;</ept>-APP2 (SharePoint 2013 server)</target>
+        </trans-unit>
+        <trans-unit id="99f2ac66-fa23-4418-b46b-83dd0485b735" xml:space="preserve">
+          <source>Domain controllers:</source>
+          <target state="new">Domain controllers:</target>
+        </trans-unit>
+        <trans-unit id="2ea67c73-7107-4720-887c-e30de2ea3b19" xml:space="preserve">
+          <source>Virtual machine image: Windows Server 2012 R2.</source>
+          <target state="new">Virtual machine image: Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="dfa42732-54df-4f4f-b1a2-ed3bc18e03e5" xml:space="preserve">
+          <source>Host name prefix: Specified during the initial configuration.</source>
+          <target state="new">Host name prefix: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="892db117-de91-4e5f-9651-f0f05d7fc27f" xml:space="preserve">
+          <source>Size: A1 (default).</source>
+          <target state="new">Size: A1 (default).</target>
+        </trans-unit>
+        <trans-unit id="9696fb51-1adb-4282-9342-7720eb4b7288" xml:space="preserve">
+          <source>Domain name: contoso.com (default).</source>
+          <target state="new">Domain name: contoso.com (default).</target>
+        </trans-unit>
+        <trans-unit id="edb30cce-48f1-427d-b793-6b3228bce6d4" xml:space="preserve">
+          <source>Domain administrator account name: Specified during the initial configuration.</source>
+          <target state="new">Domain administrator account name: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="f15c2849-223b-415f-8327-2ace9999413b" xml:space="preserve">
+          <source>Domain administrator account password: Specified during the initial configuration.</source>
+          <target state="new">Domain administrator account password: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="be75468b-305f-4221-961b-bc070f47eb83" xml:space="preserve">
+          <source>Database servers:</source>
+          <target state="new">Database servers:</target>
+        </trans-unit>
+        <trans-unit id="f062994f-f57f-43ee-9f2c-862e8a012958" xml:space="preserve">
+          <source>Virtual machine image: SQL Server 2014 RTM Enterprise on Windows Server 2012 R2.</source>
+          <target state="new">Virtual machine image: SQL Server 2014 RTM Enterprise on Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="8a9665e4-a331-4a34-bf19-3a4a8c550182" xml:space="preserve">
+          <source>Host name prefix: Specified during the initial configuration.</source>
+          <target state="new">Host name prefix: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="fafaf08f-a3d3-4624-941f-b9bb7323eae0" xml:space="preserve">
+          <source>Size: A5 (default) for database servers, A0 (default) for the file share witness.</source>
+          <target state="new">Size: A5 (default) for database servers, A0 (default) for the file share witness.</target>
+        </trans-unit>
+        <trans-unit id="0e9e6709-e54c-498d-80df-e8babaa6246d" xml:space="preserve">
+          <source>Database access account name: Specified during the initial configuration.</source>
+          <target state="new">Database access account name: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="dc38553c-1e4c-48c6-aba0-767b8bc4bf31" xml:space="preserve">
+          <source>Database access account password: Specified during the initial configuration.</source>
+          <target state="new">Database access account password: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="f916ea48-6d90-45f0-9906-441bb6769259" xml:space="preserve">
+          <source>SQL Server service account name: sqlservice (default).</source>
+          <target state="new">SQL Server service account name: sqlservice (default).</target>
+        </trans-unit>
+        <trans-unit id="892f55da-3c8a-495f-898f-3353317fa76b" xml:space="preserve">
+          <source>SQL Server service account password: Specified during the initial configuration.</source>
+          <target state="new">SQL Server service account password: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="ff2ec5d2-6972-489b-a901-cf6d317e179a" xml:space="preserve">
+          <source>SharePoint servers:</source>
+          <target state="new">SharePoint servers:</target>
+        </trans-unit>
+        <trans-unit id="c96e7f43-9c03-4385-97f3-987ae2daa1a4" xml:space="preserve">
+          <source>Virtual machine image: SharePoint Server 2013 Trial.</source>
+          <target state="new">Virtual machine image: SharePoint Server 2013 Trial.</target>
+        </trans-unit>
+        <trans-unit id="ff2a011d-93ea-43ff-9e89-e2aa1a4b4cf0" xml:space="preserve">
+          <source>Host name prefix: Specified during the initial configuration.</source>
+          <target state="new">Host name prefix: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="027df42f-0608-48b3-9c19-45597b054193" xml:space="preserve">
+          <source>Size: A2 (default).</source>
+          <target state="new">Size: A2 (default).</target>
+        </trans-unit>
+        <trans-unit id="d854663b-4f31-4619-9bfe-bfaf4d05dcc9" xml:space="preserve">
+          <source>SharePoint farm account name: sp_farm (default).</source>
+          <target state="new">SharePoint farm account name: sp_farm (default).</target>
+        </trans-unit>
+        <trans-unit id="9691b9e3-a43b-4cc2-b441-98c44d127026" xml:space="preserve">
+          <source>SharePoint farm account password: Specified during the initial configuration.</source>
+          <target state="new">SharePoint farm account password: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="43d15639-09ac-4f28-960e-eada39749450" xml:space="preserve">
+          <source>SharePoint farm passphrase: Specified during the initial configuration.</source>
+          <target state="new">SharePoint farm passphrase: Specified during the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="3dcb990d-c201-4a2d-888d-d228c41d2b25" xml:space="preserve">
+          <source>The SharePoint servers are created from the SharePoint Server 2013 Trial image.</source>
+          <target state="new">The SharePoint servers are created from the SharePoint Server 2013 Trial image.</target>
+        </trans-unit>
+        <trans-unit id="96bd3778-848f-4184-a243-fc619c3d8da5" xml:space="preserve">
+          <source>To continue using the virtual machine after the trial expiration, you need to convert the installation to use a Retail or Volume License key for either the Standard or Enterprise edition of SharePoint Server 2013.</source>
+          <target state="new">To continue using the virtual machine after the trial expiration, you need to convert the installation to use a Retail or Volume License key for either the Standard or Enterprise edition of SharePoint Server 2013.</target>
+        </trans-unit>
+        <trans-unit id="6a40a459-18e4-40c9-9a47-0fd899b0ef2b" xml:space="preserve">
+          <source>The SharePoint Server Farm feature of the Azure preview portal creates virtual machines in Service Management.</source>
+          <target state="new">The SharePoint Server Farm feature of the Azure preview portal creates virtual machines in Service Management.</target>
+        </trans-unit>
+        <trans-unit id="479118f2-8327-453f-beac-a580fe213dda" xml:space="preserve">
+          <source>To create SharePoint Server 2013 farms in Azure Resource Manager, see <bpt id="b5e053c1-64fd-4a8c-8999-9a7386ded6df">&lt;linkText&gt;</bpt>Deploy SharePoint Farms with Azure Resource Manager templates<ept id="b5e053c1-64fd-4a8c-8999-9a7386ded6df">&lt;/linkText&gt;</ept><bpt id="b5e053c1-64fd-4a8c-8999-9a7386ded6df">&lt;title&gt;</bpt><ept id="b5e053c1-64fd-4a8c-8999-9a7386ded6df">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create SharePoint Server 2013 farms in Azure Resource Manager, see <bpt id="b5e053c1-64fd-4a8c-8999-9a7386ded6df">&lt;linkText&gt;</bpt>Deploy SharePoint Farms with Azure Resource Manager templates<ept id="b5e053c1-64fd-4a8c-8999-9a7386ded6df">&lt;/linkText&gt;</ept><bpt id="b5e053c1-64fd-4a8c-8999-9a7386ded6df">&lt;title&gt;</bpt><ept id="b5e053c1-64fd-4a8c-8999-9a7386ded6df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2979f75e-3f2a-4a2e-9df7-8e17bd3c6b40" xml:space="preserve">
+          <source><bpt id="3d9648f0-75e8-4382-aa49-0294bc18b909">&lt;linkText&gt;</bpt>SharePoint Server Farm<ept id="3d9648f0-75e8-4382-aa49-0294bc18b909">&lt;/linkText&gt;</ept><bpt id="3d9648f0-75e8-4382-aa49-0294bc18b909">&lt;title&gt;</bpt><ept id="3d9648f0-75e8-4382-aa49-0294bc18b909">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d9648f0-75e8-4382-aa49-0294bc18b909">&lt;linkText&gt;</bpt>SharePoint Server Farm<ept id="3d9648f0-75e8-4382-aa49-0294bc18b909">&lt;/linkText&gt;</ept><bpt id="3d9648f0-75e8-4382-aa49-0294bc18b909">&lt;title&gt;</bpt><ept id="3d9648f0-75e8-4382-aa49-0294bc18b909">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9f776e3-68aa-4796-b064-ad147f1377c5" xml:space="preserve">
+          <source><bpt id="8cbed5d8-ee8b-4acb-aa47-465f11432c10">&lt;linkText&gt;</bpt>SharePoint on Azure Virtual Machines<ept id="8cbed5d8-ee8b-4acb-aa47-465f11432c10">&lt;/linkText&gt;</ept><bpt id="8cbed5d8-ee8b-4acb-aa47-465f11432c10">&lt;title&gt;</bpt><ept id="8cbed5d8-ee8b-4acb-aa47-465f11432c10">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8cbed5d8-ee8b-4acb-aa47-465f11432c10">&lt;linkText&gt;</bpt>SharePoint on Azure Virtual Machines<ept id="8cbed5d8-ee8b-4acb-aa47-465f11432c10">&lt;/linkText&gt;</ept><bpt id="8cbed5d8-ee8b-4acb-aa47-465f11432c10">&lt;title&gt;</bpt><ept id="8cbed5d8-ee8b-4acb-aa47-465f11432c10">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6aaa5ef3-2ee8-4f88-9d2c-159767da6117" xml:space="preserve">
+          <source><bpt id="587aadfc-23bd-4464-8fae-b23b1143d9a5">&lt;linkText&gt;</bpt>Set up a SharePoint intranet farm in a hybrid cloud for testing<ept id="587aadfc-23bd-4464-8fae-b23b1143d9a5">&lt;/linkText&gt;</ept><bpt id="587aadfc-23bd-4464-8fae-b23b1143d9a5">&lt;title&gt;</bpt><ept id="587aadfc-23bd-4464-8fae-b23b1143d9a5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="587aadfc-23bd-4464-8fae-b23b1143d9a5">&lt;linkText&gt;</bpt>Set up a SharePoint intranet farm in a hybrid cloud for testing<ept id="587aadfc-23bd-4464-8fae-b23b1143d9a5">&lt;/linkText&gt;</ept><bpt id="587aadfc-23bd-4464-8fae-b23b1143d9a5">&lt;title&gt;</bpt><ept id="587aadfc-23bd-4464-8fae-b23b1143d9a5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

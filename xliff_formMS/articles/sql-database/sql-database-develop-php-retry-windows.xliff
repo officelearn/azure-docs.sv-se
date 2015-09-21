@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0dd8ef0c-1fdb-4cdb-9eec-d829d628a13e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0dd8ef0c-1fdb-4cdb-9eec-d829d628a13e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ca6b2c56-e0a7-41d8-918f-f9bc2a69052a">
+        <trans-unit id="cfcebe82-aa57-4441-9b92-bea4033a34e8" xml:space="preserve">
+          <source>PHP on Windows to SQL DB | Microsoft Azure</source>
+          <target state="new">PHP on Windows to SQL DB | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="51ba8af8-5672-404c-ad97-1ac4eee505d4" xml:space="preserve">
+          <source>Presents a sample PHP program that connects to Azure SQL Database from a Windows client with transient fault handling, and provides links to the necessary software components needed by the client.</source>
+          <target state="new">Presents a sample PHP program that connects to Azure SQL Database from a Windows client with transient fault handling, and provides links to the necessary software components needed by the client.</target>
+        </trans-unit>
+        <trans-unit id="db8f05a8-b153-4b8c-a7a2-25e286712c78" xml:space="preserve">
+          <source><bpt id="c248cc08-4376-440b-8d34-9b9c37ef7929">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="c248cc08-4376-440b-8d34-9b9c37ef7929">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c248cc08-4376-440b-8d34-9b9c37ef7929">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="c248cc08-4376-440b-8d34-9b9c37ef7929">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12067f20-c4ec-4a3c-90ed-d413740c4be2" xml:space="preserve">
+          <source>This topic illustrates how you can connect to Azure SQL Database from a client application written in PHP that runs on Windows.</source>
+          <target state="new">This topic illustrates how you can connect to Azure SQL Database from a client application written in PHP that runs on Windows.</target>
+        </trans-unit>
+        <trans-unit id="8148cc51-4abe-472c-9bf3-5a0e782b34fc" xml:space="preserve">
+          <source><bpt id="bf37ac0f-5b5a-4ca8-8be3-4cc6a345d4ac">&lt;token href="../../includes/sql-database-develop-includes-prerequisites-php-windows.md"&gt;</bpt><ept id="bf37ac0f-5b5a-4ca8-8be3-4cc6a345d4ac">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="bf37ac0f-5b5a-4ca8-8be3-4cc6a345d4ac">&lt;token href="../../includes/sql-database-develop-includes-prerequisites-php-windows.md"&gt;</bpt><ept id="bf37ac0f-5b5a-4ca8-8be3-4cc6a345d4ac">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5808415e-1bef-4b79-80a5-043e107be876" xml:space="preserve">
+          <source>See the <bpt id="2bce4618-2863-4336-a824-6022b8a47e0c">&lt;linkText&gt;</bpt>Getting Started Topic<ept id="2bce4618-2863-4336-a824-6022b8a47e0c">&lt;/linkText&gt;</ept><bpt id="2bce4618-2863-4336-a824-6022b8a47e0c">&lt;title&gt;</bpt><ept id="2bce4618-2863-4336-a824-6022b8a47e0c">&lt;/title&gt;</ept> to learn how to create a sample database and retrieve your connection string.</source>
+          <target state="new">See the <bpt id="2bce4618-2863-4336-a824-6022b8a47e0c">&lt;linkText&gt;</bpt>Getting Started Topic<ept id="2bce4618-2863-4336-a824-6022b8a47e0c">&lt;/linkText&gt;</ept><bpt id="2bce4618-2863-4336-a824-6022b8a47e0c">&lt;title&gt;</bpt><ept id="2bce4618-2863-4336-a824-6022b8a47e0c">&lt;/title&gt;</ept> to learn how to create a sample database and retrieve your connection string.</target>
+        </trans-unit>
+        <trans-unit id="21d5c441-bc1e-4410-87cb-6c352045b42a" xml:space="preserve">
+          <source>It is important you follow the guide to create an <bpt id="aa7672ab-5766-4eb6-971f-27a73a2c3928">&lt;strong&gt;</bpt>AdventureWorks database template<ept id="aa7672ab-5766-4eb6-971f-27a73a2c3928">&lt;/strong&gt;</ept>.</source>
+          <target state="new">It is important you follow the guide to create an <bpt id="aa7672ab-5766-4eb6-971f-27a73a2c3928">&lt;strong&gt;</bpt>AdventureWorks database template<ept id="aa7672ab-5766-4eb6-971f-27a73a2c3928">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2825e03e-29c5-4189-afaa-10c9eccfb251" xml:space="preserve">
+          <source>The samples shown below only work with the <bpt id="0551fa0d-9af8-4182-8412-68e5af158a04">&lt;strong&gt;</bpt>AdventureWorks schema<ept id="0551fa0d-9af8-4182-8412-68e5af158a04">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The samples shown below only work with the <bpt id="0551fa0d-9af8-4182-8412-68e5af158a04">&lt;strong&gt;</bpt>AdventureWorks schema<ept id="0551fa0d-9af8-4182-8412-68e5af158a04">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="397ded72-2036-4246-9e6b-3e32b7bb1056" xml:space="preserve">
+          <source>The demo program is designed so that a transient error during an attempt to connect leads to a retry.</source>
+          <target state="new">The demo program is designed so that a transient error during an attempt to connect leads to a retry.</target>
+        </trans-unit>
+        <trans-unit id="3824abd9-a6f4-4296-8416-e7ee852689eb" xml:space="preserve">
+          <source>But a transient error during query command causes the program to discard the connection and create a new connection, before retrying the query command.</source>
+          <target state="new">But a transient error during query command causes the program to discard the connection and create a new connection, before retrying the query command.</target>
+        </trans-unit>
+        <trans-unit id="3429ede3-47c6-42d0-a41c-56bc163b3f44" xml:space="preserve">
+          <source>We neither recommend nor disrecommend this design choice.</source>
+          <target state="new">We neither recommend nor disrecommend this design choice.</target>
+        </trans-unit>
+        <trans-unit id="2e445af5-a107-4122-88fe-4b8b9aba38a7" xml:space="preserve">
+          <source>The demo program illustrates some of the design flexibility that is available to you.</source>
+          <target state="new">The demo program illustrates some of the design flexibility that is available to you.</target>
+        </trans-unit>
+        <trans-unit id="644e9911-562c-422d-bc58-221834be2e87" xml:space="preserve">
+          <source>&lt;br&gt;The length of this code sample is due mostly to the catch exception logic. A shorter version of this Program.cs file is available this <bpt id="a29042f7-24f7-4531-97a6-b1b315053c18">&lt;linkText&gt;</bpt>here<ept id="a29042f7-24f7-4531-97a6-b1b315053c18">&lt;/linkText&gt;</ept><bpt id="a29042f7-24f7-4531-97a6-b1b315053c18">&lt;title&gt;</bpt><ept id="a29042f7-24f7-4531-97a6-b1b315053c18">&lt;/title&gt;</ept>.
+&lt;br&gt;The Main method is in Program.cs. The callstack runs as follows:</source>
+          <target state="new">&lt;br&gt;The length of this code sample is due mostly to the catch exception logic. A shorter version of this Program.cs file is available this <bpt id="a29042f7-24f7-4531-97a6-b1b315053c18">&lt;linkText&gt;</bpt>here<ept id="a29042f7-24f7-4531-97a6-b1b315053c18">&lt;/linkText&gt;</ept><bpt id="a29042f7-24f7-4531-97a6-b1b315053c18">&lt;title&gt;</bpt><ept id="a29042f7-24f7-4531-97a6-b1b315053c18">&lt;/title&gt;</ept>.
+&lt;br&gt;The Main method is in Program.cs. The callstack runs as follows:</target>
+        </trans-unit>
+        <trans-unit id="101439e7-b693-4fa4-8537-39d3a9edfb72" xml:space="preserve">
+          <source>Main calls ConnectAndQuery.</source>
+          <target state="new">Main calls ConnectAndQuery.</target>
+        </trans-unit>
+        <trans-unit id="66a23d29-e52c-4e86-99aa-3a95f897516f" xml:space="preserve">
+          <source>ConnectAndQuery calls EstablishConnection.</source>
+          <target state="new">ConnectAndQuery calls EstablishConnection.</target>
+        </trans-unit>
+        <trans-unit id="7736ad4f-7e70-49d4-b9ca-5c7878aac3df" xml:space="preserve">
+          <source>EstablishConnection calls IssueQueryCommand.</source>
+          <target state="new">EstablishConnection calls IssueQueryCommand.</target>
+        </trans-unit>
+        <trans-unit id="1cef135d-83a2-4ac8-9f13-8744354a385f" xml:space="preserve">
+          <source>The <bpt id="816ab105-13b1-491e-a3a8-e661f8ed8494">&lt;linkText&gt;</bpt>sqlsrv_query()<ept id="816ab105-13b1-491e-a3a8-e661f8ed8494">&lt;/linkText&gt;</ept><bpt id="816ab105-13b1-491e-a3a8-e661f8ed8494">&lt;title&gt;</bpt><ept id="816ab105-13b1-491e-a3a8-e661f8ed8494">&lt;/title&gt;</ept> function can be used to retrieve a result set from a query against SQL Database.</source>
+          <target state="new">The <bpt id="816ab105-13b1-491e-a3a8-e661f8ed8494">&lt;linkText&gt;</bpt>sqlsrv_query()<ept id="816ab105-13b1-491e-a3a8-e661f8ed8494">&lt;/linkText&gt;</ept><bpt id="816ab105-13b1-491e-a3a8-e661f8ed8494">&lt;title&gt;</bpt><ept id="816ab105-13b1-491e-a3a8-e661f8ed8494">&lt;/title&gt;</ept> function can be used to retrieve a result set from a query against SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="ede12316-2a85-48a4-9b34-ddd8325efb97" xml:space="preserve">
+          <source>This function essentially accepts any query and the connection object and returns a result set which can be iterated over with the use of [sqlsrv<bpt id="06fb6f46-2689-4f41-b5d0-373560127f26">&lt;em&gt;</bpt>fetch<ept id="06fb6f46-2689-4f41-b5d0-373560127f26">&lt;/em&gt;</ept>array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).</source>
+          <target state="new">This function essentially accepts any query and the connection object and returns a result set which can be iterated over with the use of [sqlsrv<bpt id="06fb6f46-2689-4f41-b5d0-373560127f26">&lt;em&gt;</bpt>fetch<ept id="06fb6f46-2689-4f41-b5d0-373560127f26">&lt;/em&gt;</ept>array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).</target>
+        </trans-unit>
+        <trans-unit id="880ffe00-2018-4cd4-b142-d639c4a77b39" xml:space="preserve">
+          <source>For more information regarding PHP installation and usage, see <bpt id="b678fac2-cbac-4bc4-b537-c51de938c5cc">&lt;linkText&gt;</bpt>Accessing SQL Server Databases with PHP<ept id="b678fac2-cbac-4bc4-b537-c51de938c5cc">&lt;/linkText&gt;</ept><bpt id="b678fac2-cbac-4bc4-b537-c51de938c5cc">&lt;title&gt;</bpt><ept id="b678fac2-cbac-4bc4-b537-c51de938c5cc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information regarding PHP installation and usage, see <bpt id="b678fac2-cbac-4bc4-b537-c51de938c5cc">&lt;linkText&gt;</bpt>Accessing SQL Server Databases with PHP<ept id="b678fac2-cbac-4bc4-b537-c51de938c5cc">&lt;/linkText&gt;</ept><bpt id="b678fac2-cbac-4bc4-b537-c51de938c5cc">&lt;title&gt;</bpt><ept id="b678fac2-cbac-4bc4-b537-c51de938c5cc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

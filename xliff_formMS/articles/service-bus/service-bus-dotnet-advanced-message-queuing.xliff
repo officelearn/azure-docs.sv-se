@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="243428b0-3f4d-41f9-b67c-9dc89a8d7a08" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="243428b0-3f4d-41f9-b67c-9dc89a8d7a08" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4472f2cf-2f45-4d11-bbc9-29276c9844f7">
+        <trans-unit id="c6c4382d-22f1-4ff5-ba45-2881458efbcd" xml:space="preserve">
+          <source>How to use AMQP 1.0 with the .NET Service Bus API | Microsoft Azure</source>
+          <target state="new">How to use AMQP 1.0 with the .NET Service Bus API | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="460739e8-a291-4558-8413-06da5ece06ad" xml:space="preserve">
+          <source>Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API.</source>
+          <target state="new">Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API.</target>
+        </trans-unit>
+        <trans-unit id="9dd89a1b-86ef-4b42-ba08-3075e82185e5" xml:space="preserve">
+          <source>The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform, messaging applications.</source>
+          <target state="new">The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform, messaging applications.</target>
+        </trans-unit>
+        <trans-unit id="79b73a05-a4cc-4176-a8df-f7a091d1a976" xml:space="preserve">
+          <source>Support for AMQP 1.0 in Service Bus means that you can use the queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol.</source>
+          <target state="new">Support for AMQP 1.0 in Service Bus means that you can use the queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol.</target>
+        </trans-unit>
+        <trans-unit id="bc3cfc30-0a3e-4891-8fbc-745e691d504b" xml:space="preserve">
+          <source>Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.</source>
+          <target state="new">Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.</target>
+        </trans-unit>
+        <trans-unit id="041599c5-3d0b-401f-b4af-3b97abfbb246" xml:space="preserve">
+          <source>This how-to guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET applications using the Service Bus .NET API.</source>
+          <target state="new">This how-to guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET applications using the Service Bus .NET API.</target>
+        </trans-unit>
+        <trans-unit id="c0b83250-9672-405e-9154-d09cba4f60be" xml:space="preserve">
+          <source>There is a companion how-to guide that explains how to do the same using the standard Java Message Service (JMS) API.</source>
+          <target state="new">There is a companion how-to guide that explains how to do the same using the standard Java Message Service (JMS) API.</target>
+        </trans-unit>
+        <trans-unit id="2d7baec6-a794-43b2-80d8-baf506c89da4" xml:space="preserve">
+          <source>You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.</source>
+          <target state="new">You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.</target>
+        </trans-unit>
+        <trans-unit id="8a36a044-54dd-4f3a-bca9-7e71795e1606" xml:space="preserve">
+          <source>This guide assumes that you already have a Service Bus namespace containing a queue named "queue1."</source>
+          <target state="new">This guide assumes that you already have a Service Bus namespace containing a queue named "queue1."</target>
+        </trans-unit>
+        <trans-unit id="fcf59c0a-d750-4ca0-9ade-49d6815f02f0" xml:space="preserve">
+          <source>If you do not, then you can create the namespace and queue using the <bpt id="89ef9702-c0f1-4ac8-a77b-6a5b7e0ae0f0">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="89ef9702-c0f1-4ac8-a77b-6a5b7e0ae0f0">&lt;/linkText&gt;</ept><bpt id="89ef9702-c0f1-4ac8-a77b-6a5b7e0ae0f0">&lt;title&gt;</bpt><ept id="89ef9702-c0f1-4ac8-a77b-6a5b7e0ae0f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not, then you can create the namespace and queue using the <bpt id="89ef9702-c0f1-4ac8-a77b-6a5b7e0ae0f0">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="89ef9702-c0f1-4ac8-a77b-6a5b7e0ae0f0">&lt;/linkText&gt;</ept><bpt id="89ef9702-c0f1-4ac8-a77b-6a5b7e0ae0f0">&lt;title&gt;</bpt><ept id="89ef9702-c0f1-4ac8-a77b-6a5b7e0ae0f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce7aa447-4e15-4ae2-9100-1634d5e0799a" xml:space="preserve">
+          <source>For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled "<bpt id="3923ffa6-7e7c-48ef-8fa5-44bf30129ab2">&lt;linkText&gt;</bpt>How to Use Service Bus Queues.<ept id="3923ffa6-7e7c-48ef-8fa5-44bf30129ab2">&lt;/linkText&gt;</ept><bpt id="3923ffa6-7e7c-48ef-8fa5-44bf30129ab2">&lt;title&gt;</bpt><ept id="3923ffa6-7e7c-48ef-8fa5-44bf30129ab2">&lt;/title&gt;</ept>"</source>
+          <target state="new">For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled "<bpt id="3923ffa6-7e7c-48ef-8fa5-44bf30129ab2">&lt;linkText&gt;</bpt>How to Use Service Bus Queues.<ept id="3923ffa6-7e7c-48ef-8fa5-44bf30129ab2">&lt;/linkText&gt;</ept><bpt id="3923ffa6-7e7c-48ef-8fa5-44bf30129ab2">&lt;title&gt;</bpt><ept id="3923ffa6-7e7c-48ef-8fa5-44bf30129ab2">&lt;/title&gt;</ept>"</target>
+        </trans-unit>
+        <trans-unit id="01160fe7-2d4a-4af0-a515-ad919f241f55" xml:space="preserve">
+          <source>AMQP 1.0 support is available in Service Bus SDK version 2.1 or later.</source>
+          <target state="new">AMQP 1.0 support is available in Service Bus SDK version 2.1 or later.</target>
+        </trans-unit>
+        <trans-unit id="92ca7e24-c628-4588-89d6-3dfc92090476" xml:space="preserve">
+          <source>You can download the latest SDK from NuGet at <bpt id="7b871bb9-cf3a-46f7-8e91-cfaf0577d0a9">&lt;linkText&gt;</bpt>http://nuget.org/packages/WindowsAzure.ServiceBus/<ept id="7b871bb9-cf3a-46f7-8e91-cfaf0577d0a9">&lt;/linkText&gt;</ept><bpt id="7b871bb9-cf3a-46f7-8e91-cfaf0577d0a9">&lt;title&gt;</bpt><ept id="7b871bb9-cf3a-46f7-8e91-cfaf0577d0a9">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can download the latest SDK from NuGet at <bpt id="7b871bb9-cf3a-46f7-8e91-cfaf0577d0a9">&lt;linkText&gt;</bpt>http://nuget.org/packages/WindowsAzure.ServiceBus/<ept id="7b871bb9-cf3a-46f7-8e91-cfaf0577d0a9">&lt;/linkText&gt;</ept><bpt id="7b871bb9-cf3a-46f7-8e91-cfaf0577d0a9">&lt;title&gt;</bpt><ept id="7b871bb9-cf3a-46f7-8e91-cfaf0577d0a9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80cc5e32-9d0a-416c-8abc-7c241191ed63" xml:space="preserve">
+          <source>By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol.</source>
+          <target state="new">By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol.</target>
+        </trans-unit>
+        <trans-unit id="738f79ed-41a4-4b2d-8c30-810e4682124e" xml:space="preserve">
+          <source>To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string as described in the next section.</source>
+          <target state="new">To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string as described in the next section.</target>
+        </trans-unit>
+        <trans-unit id="e4b0d2e0-c571-41d0-8ec3-0f22a2b34120" xml:space="preserve">
+          <source>Other than this change, application code remains basically unchanged when using AMQP 1.0.</source>
+          <target state="new">Other than this change, application code remains basically unchanged when using AMQP 1.0.</target>
+        </trans-unit>
+        <trans-unit id="6bb32739-f146-4f2f-97ab-60ba5ddf5860" xml:space="preserve">
+          <source>In the current release there are a few API features that are not supported when using AMQP.</source>
+          <target state="new">In the current release there are a few API features that are not supported when using AMQP.</target>
+        </trans-unit>
+        <trans-unit id="fd21aeba-5c44-40d5-a1aa-7218376a520b" xml:space="preserve">
+          <source>These unsupported features are listed later in the section "Unsupported features and restrictions."</source>
+          <target state="new">These unsupported features are listed later in the section "Unsupported features and restrictions."</target>
+        </trans-unit>
+        <trans-unit id="d9eccb3e-9f2e-49a9-a3c3-d3f20ba3fb0a" xml:space="preserve">
+          <source>Some of the advanced configuration settings also have a different meaning when using AMQP.</source>
+          <target state="new">Some of the advanced configuration settings also have a different meaning when using AMQP.</target>
+        </trans-unit>
+        <trans-unit id="bf549379-4d23-40fd-a361-5325f32c125a" xml:space="preserve">
+          <source>None of these settings are used in this short how-to guide but more details are available in the <bpt id="db93d1a0-2705-4095-b5e6-c6f1ee5e3860">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="db93d1a0-2705-4095-b5e6-c6f1ee5e3860">&lt;/linkText&gt;</ept><bpt id="db93d1a0-2705-4095-b5e6-c6f1ee5e3860">&lt;title&gt;</bpt><ept id="db93d1a0-2705-4095-b5e6-c6f1ee5e3860">&lt;/title&gt;</ept>.</source>
+          <target state="new">None of these settings are used in this short how-to guide but more details are available in the <bpt id="db93d1a0-2705-4095-b5e6-c6f1ee5e3860">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="db93d1a0-2705-4095-b5e6-c6f1ee5e3860">&lt;/linkText&gt;</ept><bpt id="db93d1a0-2705-4095-b5e6-c6f1ee5e3860">&lt;title&gt;</bpt><ept id="db93d1a0-2705-4095-b5e6-c6f1ee5e3860">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b10f67c4-8c93-45b2-a34a-fe31d4791645" xml:space="preserve">
+          <source>It is recommended practice for applications to use the App.config configuration file to store settings.</source>
+          <target state="new">It is recommended practice for applications to use the App.config configuration file to store settings.</target>
+        </trans-unit>
+        <trans-unit id="dfca1f31-ba90-4581-85bc-fbe077146820" xml:space="preserve">
+          <source>For Service Bus applications, you can use App.config to store the Service Bus <bpt id="2b9abaf0-9b5f-441b-befd-0b92cd45ba02">&lt;strong&gt;</bpt>ConnectionString<ept id="2b9abaf0-9b5f-441b-befd-0b92cd45ba02">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For Service Bus applications, you can use App.config to store the Service Bus <bpt id="2b9abaf0-9b5f-441b-befd-0b92cd45ba02">&lt;strong&gt;</bpt>ConnectionString<ept id="2b9abaf0-9b5f-441b-befd-0b92cd45ba02">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c2613cc-9817-465b-8628-af19ddbc1640" xml:space="preserve">
+          <source>This sample application also uses App.config to store the name of the Service Bus messaging entity that it uses.</source>
+          <target state="new">This sample application also uses App.config to store the name of the Service Bus messaging entity that it uses.</target>
+        </trans-unit>
+        <trans-unit id="29d3fe6e-f276-459e-a185-0a2fa16fa804" xml:space="preserve">
+          <source>A sample App.config file is shown below:</source>
+          <target state="new">A sample App.config file is shown below:</target>
+        </trans-unit>
+        <trans-unit id="8c4b2a05-de1f-417a-bf1e-0289386d331f" xml:space="preserve">
+          <source>The value of the <bpt id="823dc291-1bdd-4a06-9958-707660b5684d">&lt;strong&gt;</bpt>Microsoft.ServiceBus.ConnectionString<ept id="823dc291-1bdd-4a06-9958-707660b5684d">&lt;/strong&gt;</ept> setting is the Service Bus connection string that is used to configure the connection to Service Bus.</source>
+          <target state="new">The value of the <bpt id="823dc291-1bdd-4a06-9958-707660b5684d">&lt;strong&gt;</bpt>Microsoft.ServiceBus.ConnectionString<ept id="823dc291-1bdd-4a06-9958-707660b5684d">&lt;/strong&gt;</ept> setting is the Service Bus connection string that is used to configure the connection to Service Bus.</target>
+        </trans-unit>
+        <trans-unit id="39f0839f-ddb9-4d2f-87a3-66598d6f313d" xml:space="preserve">
+          <source>The format is as follows:</source>
+          <target state="new">The format is as follows:</target>
+        </trans-unit>
+        <trans-unit id="9eb17220-2e92-4e41-b235-41dfdfba9b7b" xml:space="preserve">
+          <source>Where [namespace] and [SAS key] are obtained from the Azure Management Portal.</source>
+          <target state="new">Where [namespace] and [SAS key] are obtained from the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="5309638f-67c8-4f06-8758-d93366c9c2ac" xml:space="preserve">
+          <source>For more information, see <bpt id="5581d682-88b6-4051-971c-7321c2ff2032">&lt;linkText&gt;</bpt>How to Use Service Bus Queues<ept id="5581d682-88b6-4051-971c-7321c2ff2032">&lt;/linkText&gt;</ept><bpt id="5581d682-88b6-4051-971c-7321c2ff2032">&lt;title&gt;</bpt><ept id="5581d682-88b6-4051-971c-7321c2ff2032">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="5581d682-88b6-4051-971c-7321c2ff2032">&lt;linkText&gt;</bpt>How to Use Service Bus Queues<ept id="5581d682-88b6-4051-971c-7321c2ff2032">&lt;/linkText&gt;</ept><bpt id="5581d682-88b6-4051-971c-7321c2ff2032">&lt;title&gt;</bpt><ept id="5581d682-88b6-4051-971c-7321c2ff2032">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ca873d8-1424-4093-a0df-f9cced2fd988" xml:space="preserve">
+          <source>When using AMQP, the connection string is appended with ";TransportType=Amqp", which tells the client library to make its connection to Service Bus using AMQP 1.0.</source>
+          <target state="new">When using AMQP, the connection string is appended with ";TransportType=Amqp", which tells the client library to make its connection to Service Bus using AMQP 1.0.</target>
+        </trans-unit>
+        <trans-unit id="0f2e40e2-f95e-46e0-95df-52387f7fdacd" xml:space="preserve">
+          <source>This sample application uses the <bpt id="e4a12e4c-12c7-4654-ae2e-5a8b100d3c1e">&lt;code&gt;</bpt>EntityName<ept id="e4a12e4c-12c7-4654-ae2e-5a8b100d3c1e">&lt;/code&gt;</ept> setting in the <bpt id="46a9600a-70fd-489e-abcc-127b59632fd1">&lt;strong&gt;</bpt>appSettings<ept id="46a9600a-70fd-489e-abcc-127b59632fd1">&lt;/strong&gt;</ept> section of the App.config file to configure the name of the queue with which the application exchanges messages.</source>
+          <target state="new">This sample application uses the <bpt id="e4a12e4c-12c7-4654-ae2e-5a8b100d3c1e">&lt;code&gt;</bpt>EntityName<ept id="e4a12e4c-12c7-4654-ae2e-5a8b100d3c1e">&lt;/code&gt;</ept> setting in the <bpt id="46a9600a-70fd-489e-abcc-127b59632fd1">&lt;strong&gt;</bpt>appSettings<ept id="46a9600a-70fd-489e-abcc-127b59632fd1">&lt;/strong&gt;</ept> section of the App.config file to configure the name of the queue with which the application exchanges messages.</target>
+        </trans-unit>
+        <trans-unit id="08abb15d-6133-4673-b9d6-e19ac86e5e15" xml:space="preserve">
+          <source>The following example sends and receives messages to and from a Service Bus queue.</source>
+          <target state="new">The following example sends and receives messages to and from a Service Bus queue.</target>
+        </trans-unit>
+        <trans-unit id="2fc7f576-4fe5-4ed8-a8fe-d786e57e6ac0" xml:space="preserve">
+          <source>Running the application produces output of the form:</source>
+          <target state="new">Running the application produces output of the form:</target>
+        </trans-unit>
+        <trans-unit id="c92f167b-be0e-4c36-99e3-562affc9b434" xml:space="preserve">
+          <source>SimpleSenderReceiver.exe
+    Press [enter] to send a message.</source>
+          <target state="new">SimpleSenderReceiver.exe
+    Press [enter] to send a message.</target>
+        </trans-unit>
+        <trans-unit id="9d791afe-64ff-4ade-9df1-4ac596da6500" xml:space="preserve">
+          <source>Type 'exit' + [enter] to quit.</source>
+          <target state="new">Type 'exit' + [enter] to quit.</target>
+        </trans-unit>
+        <trans-unit id="db593705-1e8d-45d4-8a25-7467d0bb25b4" xml:space="preserve">
+          <source>This guide showed how to send messages to Service Bus using .NET and also how to receive those messages using .NET.</source>
+          <target state="new">This guide showed how to send messages to Service Bus using .NET and also how to receive those messages using .NET.</target>
+        </trans-unit>
+        <trans-unit id="e313e080-d621-4ce9-af88-e98b1273b386" xml:space="preserve">
+          <source>However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.</source>
+          <target state="new">However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.</target>
+        </trans-unit>
+        <trans-unit id="0cb8e662-d145-47bc-af77-2e3ab1b16e70" xml:space="preserve">
+          <source>Using the sample .NET application described above and a similar Java application taken from a companion guide, <bpt id="ceb8619b-ce37-4d58-8a6c-8172e4f283b6">&lt;linkText&gt;</bpt>How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0<ept id="ceb8619b-ce37-4d58-8a6c-8172e4f283b6">&lt;/linkText&gt;</ept><bpt id="ceb8619b-ce37-4d58-8a6c-8172e4f283b6">&lt;title&gt;</bpt><ept id="ceb8619b-ce37-4d58-8a6c-8172e4f283b6">&lt;/title&gt;</ept>, it's possible to exchange messages between .NET and Java. </source>
+          <target state="new">Using the sample .NET application described above and a similar Java application taken from a companion guide, <bpt id="ceb8619b-ce37-4d58-8a6c-8172e4f283b6">&lt;linkText&gt;</bpt>How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0<ept id="ceb8619b-ce37-4d58-8a6c-8172e4f283b6">&lt;/linkText&gt;</ept><bpt id="ceb8619b-ce37-4d58-8a6c-8172e4f283b6">&lt;title&gt;</bpt><ept id="ceb8619b-ce37-4d58-8a6c-8172e4f283b6">&lt;/title&gt;</ept>, it's possible to exchange messages between .NET and Java. </target>
+        </trans-unit>
+        <trans-unit id="03a3d49e-d34c-4e1f-8245-27abff508f88" xml:space="preserve">
+          <source>For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the <bpt id="e0970f94-9a01-450f-93d9-489f23644be5">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="e0970f94-9a01-450f-93d9-489f23644be5">&lt;/linkText&gt;</ept><bpt id="e0970f94-9a01-450f-93d9-489f23644be5">&lt;title&gt;</bpt><ept id="e0970f94-9a01-450f-93d9-489f23644be5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the <bpt id="e0970f94-9a01-450f-93d9-489f23644be5">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="e0970f94-9a01-450f-93d9-489f23644be5">&lt;/linkText&gt;</ept><bpt id="e0970f94-9a01-450f-93d9-489f23644be5">&lt;title&gt;</bpt><ept id="e0970f94-9a01-450f-93d9-489f23644be5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad8b256d-24aa-42ef-994f-91d95204f540" xml:space="preserve">
+          <source>To demonstrate JMS to .NET messaging:</source>
+          <target state="new">To demonstrate JMS to .NET messaging:</target>
+        </trans-unit>
+        <trans-unit id="30cc6e64-9fcd-4685-8b53-c78b01dbf44b" xml:space="preserve">
+          <source>Start the .NET sample application without any command-line arguments.</source>
+          <target state="new">Start the .NET sample application without any command-line arguments.</target>
+        </trans-unit>
+        <trans-unit id="5260cd19-2e2d-4887-900a-9ec1109222b2" xml:space="preserve">
+          <source>Start the Java sample application with the "sendonly" command-line argument.</source>
+          <target state="new">Start the Java sample application with the "sendonly" command-line argument.</target>
+        </trans-unit>
+        <trans-unit id="c05dc6fe-8872-43ad-a918-94844c688295" xml:space="preserve">
+          <source>In this mode, the application will not receive messages from the queue, it will only send.</source>
+          <target state="new">In this mode, the application will not receive messages from the queue, it will only send.</target>
+        </trans-unit>
+        <trans-unit id="87995b10-ed53-4750-b853-42cf1d842c44" xml:space="preserve">
+          <source>Press <bpt id="0a782181-8e4d-4509-9362-edfccc78f8f5">&lt;strong&gt;</bpt>Enter<ept id="0a782181-8e4d-4509-9362-edfccc78f8f5">&lt;/strong&gt;</ept> a few times in the Java application console, which will cause messages to be sent.</source>
+          <target state="new">Press <bpt id="0a782181-8e4d-4509-9362-edfccc78f8f5">&lt;strong&gt;</bpt>Enter<ept id="0a782181-8e4d-4509-9362-edfccc78f8f5">&lt;/strong&gt;</ept> a few times in the Java application console, which will cause messages to be sent.</target>
+        </trans-unit>
+        <trans-unit id="d6777cb6-0103-4a09-9b52-614113b5e8eb" xml:space="preserve">
+          <source>These messages are received by the .NET application.</source>
+          <target state="new">These messages are received by the .NET application.</target>
+        </trans-unit>
+        <trans-unit id="fe00fec4-9cf5-4db9-ba9b-bd83df646c62" xml:space="preserve">
+          <source>java SimpleSenderReceiver sendonly
+    Press [enter] to send a message.</source>
+          <target state="new">java SimpleSenderReceiver sendonly
+    Press [enter] to send a message.</target>
+        </trans-unit>
+        <trans-unit id="9f89ef03-3b3a-48b7-8ebc-2c0de882f30d" xml:space="preserve">
+          <source>Type 'exit' + [enter] to quit.</source>
+          <target state="new">Type 'exit' + [enter] to quit.</target>
+        </trans-unit>
+        <trans-unit id="a71f5a7d-8234-4b6e-a6fc-bb31ecfb9c81" xml:space="preserve">
+          <source>Sent message with JMSMessageID = ID:4364096528752411591
+    Sent message with JMSMessageID = ID:459252991689389983
+    Sent message with JMSMessageID = ID:1565011046230456854
+    exit</source>
+          <target state="new">Sent message with JMSMessageID = ID:4364096528752411591
+    Sent message with JMSMessageID = ID:459252991689389983
+    Sent message with JMSMessageID = ID:1565011046230456854
+    exit</target>
+        </trans-unit>
+        <trans-unit id="c4e38a74-a182-4070-83ec-bcb7fa7c3274" xml:space="preserve">
+          <source>SimpleSenderReceiver.exe  
+    Press [enter] to send a message.</source>
+          <target state="new">SimpleSenderReceiver.exe  
+    Press [enter] to send a message.</target>
+        </trans-unit>
+        <trans-unit id="9d78eed0-4547-4f73-8d16-4e4cce8aaac9" xml:space="preserve">
+          <source>Type 'exit' + [enter] to quit.</source>
+          <target state="new">Type 'exit' + [enter] to quit.</target>
+        </trans-unit>
+        <trans-unit id="f72acd59-72b2-4840-9f0e-aa0372897ff2" xml:space="preserve">
+          <source>Received message with MessageID = 4364096528752411591
+    Received message with MessageID = 459252991689389983
+    Received message with MessageID = 1565011046230456854
+    exit</source>
+          <target state="new">Received message with MessageID = 4364096528752411591
+    Received message with MessageID = 459252991689389983
+    Received message with MessageID = 1565011046230456854
+    exit</target>
+        </trans-unit>
+        <trans-unit id="2e77ef59-7f66-4581-8fb6-ffaae67d6145" xml:space="preserve">
+          <source>To demonstrate .NET to JMS messaging:</source>
+          <target state="new">To demonstrate .NET to JMS messaging:</target>
+        </trans-unit>
+        <trans-unit id="f25d2d73-2964-42cf-b02b-2d7850a7ba36" xml:space="preserve">
+          <source>Start the .NET sample application with the "sendonly" command line argument.</source>
+          <target state="new">Start the .NET sample application with the "sendonly" command line argument.</target>
+        </trans-unit>
+        <trans-unit id="e1b4ed5b-f0b4-463d-916b-8b9007d4641b" xml:space="preserve">
+          <source>In this mode, the application will not receive messages from the queue, it will only send.</source>
+          <target state="new">In this mode, the application will not receive messages from the queue, it will only send.</target>
+        </trans-unit>
+        <trans-unit id="e6256e87-6121-4db7-9d35-9c8ab639dde7" xml:space="preserve">
+          <source>Start the Java sample application without any command line arguments.</source>
+          <target state="new">Start the Java sample application without any command line arguments.</target>
+        </trans-unit>
+        <trans-unit id="c63e850d-d1f2-4278-b65a-bdeb9006b4cf" xml:space="preserve">
+          <source>Press <bpt id="82f8e2df-915c-420b-b02d-3aa058b1d3d5">&lt;strong&gt;</bpt>Enter<ept id="82f8e2df-915c-420b-b02d-3aa058b1d3d5">&lt;/strong&gt;</ept> a few times in the .NET application console, which will cause messages to be sent.</source>
+          <target state="new">Press <bpt id="82f8e2df-915c-420b-b02d-3aa058b1d3d5">&lt;strong&gt;</bpt>Enter<ept id="82f8e2df-915c-420b-b02d-3aa058b1d3d5">&lt;/strong&gt;</ept> a few times in the .NET application console, which will cause messages to be sent.</target>
+        </trans-unit>
+        <trans-unit id="9e665239-456c-44f3-b9b4-97e1c046b780" xml:space="preserve">
+          <source>These messages are received by the Java application.</source>
+          <target state="new">These messages are received by the Java application.</target>
+        </trans-unit>
+        <trans-unit id="edd00f5a-b207-4ec8-bbed-e1823c7bc7eb" xml:space="preserve">
+          <source>SimpleSenderReceiver.exe sendonly
+    Press [enter] to send a message.</source>
+          <target state="new">SimpleSenderReceiver.exe sendonly
+    Press [enter] to send a message.</target>
+        </trans-unit>
+        <trans-unit id="1fa3ba24-322b-4801-8b05-af26cfe141bf" xml:space="preserve">
+          <source>Type 'exit' + [enter] to quit.</source>
+          <target state="new">Type 'exit' + [enter] to quit.</target>
+        </trans-unit>
+        <trans-unit id="6a3475c5-2f63-4bb4-ac40-ec1e3c556c29" xml:space="preserve">
+          <source>Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3  
+    Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
+    Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
+    exit</source>
+          <target state="new">Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3  
+    Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
+    Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
+    exit</target>
+        </trans-unit>
+        <trans-unit id="6095b3d8-0e22-48e0-afdc-f11dcf32d7f0" xml:space="preserve">
+          <source>java SimpleSenderReceiver 
+    Press [enter] to send a message.</source>
+          <target state="new">java SimpleSenderReceiver 
+    Press [enter] to send a message.</target>
+        </trans-unit>
+        <trans-unit id="98d10142-ab3d-44cc-a77b-8f074196a031" xml:space="preserve">
+          <source>Type 'exit' + [enter] to quit.</source>
+          <target state="new">Type 'exit' + [enter] to quit.</target>
+        </trans-unit>
+        <trans-unit id="35f9aa1d-3cce-4143-a3e4-9b3c4a337f03" xml:space="preserve">
+          <source>Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
+    Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
+    Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
+    exit</source>
+          <target state="new">Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
+    Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
+    Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
+    exit</target>
+        </trans-unit>
+        <trans-unit id="c7a4f6b2-1780-4787-a485-aaae03f20495" xml:space="preserve">
+          <source>The following features of the .NET Service Bus API are not currently supported when using AMQP:</source>
+          <target state="new">The following features of the .NET Service Bus API are not currently supported when using AMQP:</target>
+        </trans-unit>
+        <trans-unit id="f0218ecd-7a2c-4560-8ea3-c3b1f2e33017" xml:space="preserve">
+          <source>Transactions</source>
+          <target state="new">Transactions</target>
+        </trans-unit>
+        <trans-unit id="54be7ff9-01b5-4bfa-b719-268ea432858a" xml:space="preserve">
+          <source>Send via transfer destination</source>
+          <target state="new">Send via transfer destination</target>
+        </trans-unit>
+        <trans-unit id="0384afdf-6bf2-407f-9304-8eba28ff69e5" xml:space="preserve">
+          <source>Receive by message sequence number</source>
+          <target state="new">Receive by message sequence number</target>
+        </trans-unit>
+        <trans-unit id="f4439319-45e9-4fa9-b5e4-b5c8fb403c3f" xml:space="preserve">
+          <source>Message and session browse</source>
+          <target state="new">Message and session browse</target>
+        </trans-unit>
+        <trans-unit id="baaf0908-b03f-4a3b-b506-18b64f0f5dec" xml:space="preserve">
+          <source>Session state</source>
+          <target state="new">Session state</target>
+        </trans-unit>
+        <trans-unit id="75dd502d-40e0-427b-963e-f65b84810a45" xml:space="preserve">
+          <source>Batch-based APIs</source>
+          <target state="new">Batch-based APIs</target>
+        </trans-unit>
+        <trans-unit id="52f838cf-ace2-404f-a40e-b48b07167fd9" xml:space="preserve">
+          <source>Scaled-out receive</source>
+          <target state="new">Scaled-out receive</target>
+        </trans-unit>
+        <trans-unit id="8fb5d4b6-aac3-40b3-821f-cbd35f417e12" xml:space="preserve">
+          <source>Runtime manipulation of subscription rules</source>
+          <target state="new">Runtime manipulation of subscription rules</target>
+        </trans-unit>
+        <trans-unit id="6106ae33-76ca-446c-9cc2-bee1aaf027e4" xml:space="preserve">
+          <source>Session lock renewal</source>
+          <target state="new">Session lock renewal</target>
+        </trans-unit>
+        <trans-unit id="02923d6a-dc68-44c4-aea1-3f96359cb8b6" xml:space="preserve">
+          <source>Some minor differences in behavior</source>
+          <target state="new">Some minor differences in behavior</target>
+        </trans-unit>
+        <trans-unit id="4c800907-9e49-461b-8b8b-3f7aafe8f4ec" xml:space="preserve">
+          <source>For more information, see the <bpt id="ac841efe-6aeb-45e5-8745-8e0a25cc5ac4">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="ac841efe-6aeb-45e5-8745-8e0a25cc5ac4">&lt;/linkText&gt;</ept><bpt id="ac841efe-6aeb-45e5-8745-8e0a25cc5ac4">&lt;title&gt;</bpt><ept id="ac841efe-6aeb-45e5-8745-8e0a25cc5ac4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="ac841efe-6aeb-45e5-8745-8e0a25cc5ac4">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="ac841efe-6aeb-45e5-8745-8e0a25cc5ac4">&lt;/linkText&gt;</ept><bpt id="ac841efe-6aeb-45e5-8745-8e0a25cc5ac4">&lt;title&gt;</bpt><ept id="ac841efe-6aeb-45e5-8745-8e0a25cc5ac4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="285d8fd9-dda5-4641-8126-7a81289bf68e" xml:space="preserve">
+          <source>This topic includes a detailed list of unsupported APIs.</source>
+          <target state="new">This topic includes a detailed list of unsupported APIs.</target>
+        </trans-unit>
+        <trans-unit id="7ef9e07e-83e2-4d82-86fb-1d88f48823cb" xml:space="preserve">
+          <source>This how-to guide showed how to access the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET using AMQP 1.0 and the Service Bus .NET API.</source>
+          <target state="new">This how-to guide showed how to access the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET using AMQP 1.0 and the Service Bus .NET API.</target>
+        </trans-unit>
+        <trans-unit id="5543733f-bed4-420a-8257-0058c445f19a" xml:space="preserve">
+          <source>You can also use Service Bus AMQP 1.0 from other languages including Java, C, Python, and PHP.</source>
+          <target state="new">You can also use Service Bus AMQP 1.0 from other languages including Java, C, Python, and PHP.</target>
+        </trans-unit>
+        <trans-unit id="4932f36f-52dd-4386-a3ea-6d19114d2246" xml:space="preserve">
+          <source>Components built using these languages can exchange messages reliably and at full fidelity using AMQP 1.0 in Service Bus.</source>
+          <target state="new">Components built using these languages can exchange messages reliably and at full fidelity using AMQP 1.0 in Service Bus.</target>
+        </trans-unit>
+        <trans-unit id="0fb6f482-cd6a-4189-8c70-eb64fb9f5bce" xml:space="preserve">
+          <source>For more information, see the <bpt id="7d4cea8a-f8e0-4135-9234-7999f24edb94">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="7d4cea8a-f8e0-4135-9234-7999f24edb94">&lt;/linkText&gt;</ept><bpt id="7d4cea8a-f8e0-4135-9234-7999f24edb94">&lt;title&gt;</bpt><ept id="7d4cea8a-f8e0-4135-9234-7999f24edb94">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="7d4cea8a-f8e0-4135-9234-7999f24edb94">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="7d4cea8a-f8e0-4135-9234-7999f24edb94">&lt;/linkText&gt;</ept><bpt id="7d4cea8a-f8e0-4135-9234-7999f24edb94">&lt;title&gt;</bpt><ept id="7d4cea8a-f8e0-4135-9234-7999f24edb94">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="759c26f0-f043-47cd-88fe-f4ce2ff840b6" xml:space="preserve">
+          <source><bpt id="95e8888a-f52c-4329-bac5-3ceecf5189f3">&lt;linkText&gt;</bpt>AMQP 1.0 support in Azure Service Bus<ept id="95e8888a-f52c-4329-bac5-3ceecf5189f3">&lt;/linkText&gt;</ept><bpt id="95e8888a-f52c-4329-bac5-3ceecf5189f3">&lt;title&gt;</bpt><ept id="95e8888a-f52c-4329-bac5-3ceecf5189f3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="95e8888a-f52c-4329-bac5-3ceecf5189f3">&lt;linkText&gt;</bpt>AMQP 1.0 support in Azure Service Bus<ept id="95e8888a-f52c-4329-bac5-3ceecf5189f3">&lt;/linkText&gt;</ept><bpt id="95e8888a-f52c-4329-bac5-3ceecf5189f3">&lt;title&gt;</bpt><ept id="95e8888a-f52c-4329-bac5-3ceecf5189f3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68ee8270-4589-4955-a090-b4cbab1b093e" xml:space="preserve">
+          <source><bpt id="78fac1dc-49cb-4822-823a-0684784cc8c9">&lt;linkText&gt;</bpt>How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0<ept id="78fac1dc-49cb-4822-823a-0684784cc8c9">&lt;/linkText&gt;</ept><bpt id="78fac1dc-49cb-4822-823a-0684784cc8c9">&lt;title&gt;</bpt><ept id="78fac1dc-49cb-4822-823a-0684784cc8c9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="78fac1dc-49cb-4822-823a-0684784cc8c9">&lt;linkText&gt;</bpt>How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0<ept id="78fac1dc-49cb-4822-823a-0684784cc8c9">&lt;/linkText&gt;</ept><bpt id="78fac1dc-49cb-4822-823a-0684784cc8c9">&lt;title&gt;</bpt><ept id="78fac1dc-49cb-4822-823a-0684784cc8c9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43701d70-cad2-4ddc-a783-88d6dd287395" xml:space="preserve">
+          <source><bpt id="a60c8dbb-e3aa-49d5-a15b-d2d174bc9252">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="a60c8dbb-e3aa-49d5-a15b-d2d174bc9252">&lt;/linkText&gt;</ept><bpt id="a60c8dbb-e3aa-49d5-a15b-d2d174bc9252">&lt;title&gt;</bpt><ept id="a60c8dbb-e3aa-49d5-a15b-d2d174bc9252">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a60c8dbb-e3aa-49d5-a15b-d2d174bc9252">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="a60c8dbb-e3aa-49d5-a15b-d2d174bc9252">&lt;/linkText&gt;</ept><bpt id="a60c8dbb-e3aa-49d5-a15b-d2d174bc9252">&lt;title&gt;</bpt><ept id="a60c8dbb-e3aa-49d5-a15b-d2d174bc9252">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e41af77-3e27-4f53-84c8-19ba982ad763" xml:space="preserve">
+          <source><bpt id="cdc88fd7-c91d-4896-bf9d-1bb3c18860ee">&lt;linkText&gt;</bpt>How to Use Service Bus Queues<ept id="cdc88fd7-c91d-4896-bf9d-1bb3c18860ee">&lt;/linkText&gt;</ept><bpt id="cdc88fd7-c91d-4896-bf9d-1bb3c18860ee">&lt;title&gt;</bpt><ept id="cdc88fd7-c91d-4896-bf9d-1bb3c18860ee">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cdc88fd7-c91d-4896-bf9d-1bb3c18860ee">&lt;linkText&gt;</bpt>How to Use Service Bus Queues<ept id="cdc88fd7-c91d-4896-bf9d-1bb3c18860ee">&lt;/linkText&gt;</ept><bpt id="cdc88fd7-c91d-4896-bf9d-1bb3c18860ee">&lt;title&gt;</bpt><ept id="cdc88fd7-c91d-4896-bf9d-1bb3c18860ee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

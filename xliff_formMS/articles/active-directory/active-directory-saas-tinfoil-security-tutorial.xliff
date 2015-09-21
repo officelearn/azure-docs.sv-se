@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e24bec74-6c78-4097-99da-ecb9141ef9ba" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e24bec74-6c78-4097-99da-ecb9141ef9ba" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0cbb8d66-f61b-49c1-8bd0-532e162545b7">
+        <trans-unit id="dbf3d629-1fdf-4501-8354-a1abede67a0b" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Tinfoil Security | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Tinfoil Security | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d1ae50c9-de67-4bad-81c0-fcf669a8448b" xml:space="preserve">
+          <source>Learn how to use Tinfoil Security with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Tinfoil Security with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="0cb2122d-1790-46c8-a4be-26366f04f285" xml:space="preserve">
+          <source>For feedback, click <bpt id="b2708bfc-3a12-4c4f-9c35-73317413d014">&lt;linkText&gt;</bpt>here<ept id="b2708bfc-3a12-4c4f-9c35-73317413d014">&lt;/linkText&gt;</ept><bpt id="b2708bfc-3a12-4c4f-9c35-73317413d014">&lt;title&gt;</bpt><ept id="b2708bfc-3a12-4c4f-9c35-73317413d014">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="b2708bfc-3a12-4c4f-9c35-73317413d014">&lt;linkText&gt;</bpt>here<ept id="b2708bfc-3a12-4c4f-9c35-73317413d014">&lt;/linkText&gt;</ept><bpt id="b2708bfc-3a12-4c4f-9c35-73317413d014">&lt;title&gt;</bpt><ept id="b2708bfc-3a12-4c4f-9c35-73317413d014">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ba078b5-c493-4024-b4a1-f4d8eae11a22" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Tinfoil Security.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Tinfoil Security.</target>
+        </trans-unit>
+        <trans-unit id="42126c63-73ce-4c9c-99a2-a908ddc99703" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="756505d4-2e3f-4a93-b1c6-4924f699f41e" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="e39806fb-da1c-4801-bb81-d59dd8209802" xml:space="preserve">
+          <source>A Tinfoil Security single sign-on enabled subscription</source>
+          <target state="new">A Tinfoil Security single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="6a75efb6-766b-4f5d-912f-65ee336cdaa0" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Tinfoil Security will be able to single sign into the application at your Tinfoil Security company site (identity provider initiated sign on), or using the <bpt id="bbb307cc-2e02-4816-ab54-27ae6b1bef27">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="bbb307cc-2e02-4816-ab54-27ae6b1bef27">&lt;/linkText&gt;</ept><bpt id="bbb307cc-2e02-4816-ab54-27ae6b1bef27">&lt;title&gt;</bpt><ept id="bbb307cc-2e02-4816-ab54-27ae6b1bef27">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Tinfoil Security will be able to single sign into the application at your Tinfoil Security company site (identity provider initiated sign on), or using the <bpt id="bbb307cc-2e02-4816-ab54-27ae6b1bef27">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="bbb307cc-2e02-4816-ab54-27ae6b1bef27">&lt;/linkText&gt;</ept><bpt id="bbb307cc-2e02-4816-ab54-27ae6b1bef27">&lt;title&gt;</bpt><ept id="bbb307cc-2e02-4816-ab54-27ae6b1bef27">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91a5b6cf-275d-46d5-8858-096775d6e334" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="a65dbad1-159f-4720-ac0d-67c39f50c8bf" xml:space="preserve">
+          <source>Enabling the application integration for Tinfoil Security</source>
+          <target state="new">Enabling the application integration for Tinfoil Security</target>
+        </trans-unit>
+        <trans-unit id="8f10de8a-7faa-4ef3-b6f8-f2cb1fd35f44" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="580b4ef4-1ae8-4ccc-8372-87df95e86adc" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="d94a7431-c460-49b1-b3f3-dafab2812b00" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="f1a938c7-8c56-40d0-895e-6da03bc06546" xml:space="preserve">
+          <source><bpt id="f7d097b1-fabb-4b0a-beff-2550f296ffad">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f7d097b1-fabb-4b0a-beff-2550f296ffad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f7d097b1-fabb-4b0a-beff-2550f296ffad">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f7d097b1-fabb-4b0a-beff-2550f296ffad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f16846f-69a5-4362-b131-6dc7377944f2" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Tinfoil Security.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Tinfoil Security.</target>
+        </trans-unit>
+        <trans-unit id="bce7b938-b5f5-4283-92e5-d0ca1e2835f7" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="d8e9a731-384d-4cdb-977b-e4875ed356f4">&lt;strong&gt;</bpt>Active Directory<ept id="d8e9a731-384d-4cdb-977b-e4875ed356f4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="d8e9a731-384d-4cdb-977b-e4875ed356f4">&lt;strong&gt;</bpt>Active Directory<ept id="d8e9a731-384d-4cdb-977b-e4875ed356f4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2671f85a-531a-40fc-99a8-01ca86f15609" xml:space="preserve">
+          <source><bpt id="5f6657be-235d-4b02-bbec-bbe37687baca">&lt;linkText&gt;</bpt>Active Directory<ept id="5f6657be-235d-4b02-bbec-bbe37687baca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f6657be-235d-4b02-bbec-bbe37687baca">&lt;linkText&gt;</bpt>Active Directory<ept id="5f6657be-235d-4b02-bbec-bbe37687baca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7dfda67-9ba6-4e58-92f3-6b1133712cb7" xml:space="preserve">
+          <source>From the <bpt id="c9378367-a940-4f48-a3a2-ba6a1a5bf864">&lt;strong&gt;</bpt>Directory<ept id="c9378367-a940-4f48-a3a2-ba6a1a5bf864">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="c9378367-a940-4f48-a3a2-ba6a1a5bf864">&lt;strong&gt;</bpt>Directory<ept id="c9378367-a940-4f48-a3a2-ba6a1a5bf864">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="9ae340ce-7576-4d20-9b5a-42aadbf30140" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="5c6931ab-3244-4ca7-af7a-30bfed489143">&lt;strong&gt;</bpt>Applications<ept id="5c6931ab-3244-4ca7-af7a-30bfed489143">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="5c6931ab-3244-4ca7-af7a-30bfed489143">&lt;strong&gt;</bpt>Applications<ept id="5c6931ab-3244-4ca7-af7a-30bfed489143">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="180b836f-ce02-457a-942c-40ec98b436b9" xml:space="preserve">
+          <source><bpt id="ceb7527e-f1e5-4c3f-9524-ac167871ce80">&lt;linkText&gt;</bpt>Applications<ept id="ceb7527e-f1e5-4c3f-9524-ac167871ce80">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ceb7527e-f1e5-4c3f-9524-ac167871ce80">&lt;linkText&gt;</bpt>Applications<ept id="ceb7527e-f1e5-4c3f-9524-ac167871ce80">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e44f54e1-6d6b-4521-a505-d5c68672fcf4" xml:space="preserve">
+          <source>Click <bpt id="cfe2d91a-595b-401a-a09d-dc4b2985e517">&lt;strong&gt;</bpt>Add<ept id="cfe2d91a-595b-401a-a09d-dc4b2985e517">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="cfe2d91a-595b-401a-a09d-dc4b2985e517">&lt;strong&gt;</bpt>Add<ept id="cfe2d91a-595b-401a-a09d-dc4b2985e517">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="424539f4-a1a6-4011-ad67-64319313382c" xml:space="preserve">
+          <source><bpt id="2143c267-36c4-44cd-a168-73637c9f84fb">&lt;linkText&gt;</bpt>Add application<ept id="2143c267-36c4-44cd-a168-73637c9f84fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2143c267-36c4-44cd-a168-73637c9f84fb">&lt;linkText&gt;</bpt>Add application<ept id="2143c267-36c4-44cd-a168-73637c9f84fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4994e916-571b-4fd9-a6c3-2b6f145a4fa7" xml:space="preserve">
+          <source>On the <bpt id="0b88dca8-d5b7-4fa3-ac16-da0dda0fa6f2">&lt;strong&gt;</bpt>What do you want to do<ept id="0b88dca8-d5b7-4fa3-ac16-da0dda0fa6f2">&lt;/strong&gt;</ept> dialog, click <bpt id="b692373e-5393-4567-ae52-03176b581d86">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="b692373e-5393-4567-ae52-03176b581d86">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="0b88dca8-d5b7-4fa3-ac16-da0dda0fa6f2">&lt;strong&gt;</bpt>What do you want to do<ept id="0b88dca8-d5b7-4fa3-ac16-da0dda0fa6f2">&lt;/strong&gt;</ept> dialog, click <bpt id="b692373e-5393-4567-ae52-03176b581d86">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="b692373e-5393-4567-ae52-03176b581d86">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb4ece01-f59f-4d6c-83a2-881c11d23277" xml:space="preserve">
+          <source><bpt id="11a71d9b-ae79-4c62-b112-c3e21908a54a">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="11a71d9b-ae79-4c62-b112-c3e21908a54a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="11a71d9b-ae79-4c62-b112-c3e21908a54a">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="11a71d9b-ae79-4c62-b112-c3e21908a54a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db13ef02-328e-4fed-83ea-67d89e4d7d2a" xml:space="preserve">
+          <source>In the <bpt id="ea65f66b-6efe-4dcc-92d5-ddb63aae1304">&lt;strong&gt;</bpt>search box<ept id="ea65f66b-6efe-4dcc-92d5-ddb63aae1304">&lt;/strong&gt;</ept>, type <bpt id="488cd807-4dca-43d2-938f-f3a909c8fe33">&lt;strong&gt;</bpt>Tinfoil Security<ept id="488cd807-4dca-43d2-938f-f3a909c8fe33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ea65f66b-6efe-4dcc-92d5-ddb63aae1304">&lt;strong&gt;</bpt>search box<ept id="ea65f66b-6efe-4dcc-92d5-ddb63aae1304">&lt;/strong&gt;</ept>, type <bpt id="488cd807-4dca-43d2-938f-f3a909c8fe33">&lt;strong&gt;</bpt>Tinfoil Security<ept id="488cd807-4dca-43d2-938f-f3a909c8fe33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="335c8ffd-d0e3-4147-a63c-7b7f3da32a1b" xml:space="preserve">
+          <source><bpt id="54f8c933-b5b6-4246-b47d-552ffd30b9e0">&lt;linkText&gt;</bpt>Application Gallery<ept id="54f8c933-b5b6-4246-b47d-552ffd30b9e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54f8c933-b5b6-4246-b47d-552ffd30b9e0">&lt;linkText&gt;</bpt>Application Gallery<ept id="54f8c933-b5b6-4246-b47d-552ffd30b9e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e341f513-445f-434e-ac17-ca0c3a4b7c0d" xml:space="preserve">
+          <source>In the results pane, select <bpt id="cc13a3cd-7c17-4c5a-a020-fdaef1b50c2f">&lt;strong&gt;</bpt>Tinfoil Security<ept id="cc13a3cd-7c17-4c5a-a020-fdaef1b50c2f">&lt;/strong&gt;</ept>, and then click <bpt id="e62ccb6e-5dcf-418c-b1c0-1267625bfd73">&lt;strong&gt;</bpt>Complete<ept id="e62ccb6e-5dcf-418c-b1c0-1267625bfd73">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="cc13a3cd-7c17-4c5a-a020-fdaef1b50c2f">&lt;strong&gt;</bpt>Tinfoil Security<ept id="cc13a3cd-7c17-4c5a-a020-fdaef1b50c2f">&lt;/strong&gt;</ept>, and then click <bpt id="e62ccb6e-5dcf-418c-b1c0-1267625bfd73">&lt;strong&gt;</bpt>Complete<ept id="e62ccb6e-5dcf-418c-b1c0-1267625bfd73">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="6f296b76-c79d-42d8-bbab-37ab69bedd31" xml:space="preserve">
+          <source><bpt id="d52a1759-3500-4a3e-bfb5-6b2f42117c9b">&lt;linkText&gt;</bpt>Tinfoil Security<ept id="d52a1759-3500-4a3e-bfb5-6b2f42117c9b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d52a1759-3500-4a3e-bfb5-6b2f42117c9b">&lt;linkText&gt;</bpt>Tinfoil Security<ept id="d52a1759-3500-4a3e-bfb5-6b2f42117c9b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="300378f0-1699-4194-bcfa-e6d41dfed753" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Tinfoil Security with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Tinfoil Security with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="299d27c8-c80d-49ca-9df1-43fafea3f678" xml:space="preserve">
+          <source>Configuring single sign-on for Tinfoil Security requires you to retrieve a thumbprint value from a certificate.</source>
+          <target state="new">Configuring single sign-on for Tinfoil Security requires you to retrieve a thumbprint value from a certificate.</target>
+        </trans-unit>
+        <trans-unit id="897db6db-83a8-4860-8586-6d5a4b80fd2b" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="17affdad-55ca-40fe-9e9c-0bf84c17b498">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="17affdad-55ca-40fe-9e9c-0bf84c17b498">&lt;/linkText&gt;</ept><bpt id="17affdad-55ca-40fe-9e9c-0bf84c17b498">&lt;title&gt;</bpt><ept id="17affdad-55ca-40fe-9e9c-0bf84c17b498">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="17affdad-55ca-40fe-9e9c-0bf84c17b498">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="17affdad-55ca-40fe-9e9c-0bf84c17b498">&lt;/linkText&gt;</ept><bpt id="17affdad-55ca-40fe-9e9c-0bf84c17b498">&lt;title&gt;</bpt><ept id="17affdad-55ca-40fe-9e9c-0bf84c17b498">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbea3be7-448c-4537-a318-e37da1fd79f9" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="3537f24a-68c1-43b8-9813-db4565c16f0d">&lt;strong&gt;</bpt>Tinfoil Security<ept id="3537f24a-68c1-43b8-9813-db4565c16f0d">&lt;/strong&gt;</ept> application integration page, click <bpt id="cca0931b-8a62-4e85-8638-c4926eb70d35">&lt;strong&gt;</bpt>Configure single sign-on<ept id="cca0931b-8a62-4e85-8638-c4926eb70d35">&lt;/strong&gt;</ept> to open the <bpt id="bb18c2f7-0364-4678-af97-f427db806ba1">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="bb18c2f7-0364-4678-af97-f427db806ba1">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="3537f24a-68c1-43b8-9813-db4565c16f0d">&lt;strong&gt;</bpt>Tinfoil Security<ept id="3537f24a-68c1-43b8-9813-db4565c16f0d">&lt;/strong&gt;</ept> application integration page, click <bpt id="cca0931b-8a62-4e85-8638-c4926eb70d35">&lt;strong&gt;</bpt>Configure single sign-on<ept id="cca0931b-8a62-4e85-8638-c4926eb70d35">&lt;/strong&gt;</ept> to open the <bpt id="bb18c2f7-0364-4678-af97-f427db806ba1">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="bb18c2f7-0364-4678-af97-f427db806ba1">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="7e1aa783-4eb1-43f0-81a9-9015bb36dfcd" xml:space="preserve">
+          <source><bpt id="2cc1be90-7986-4032-a114-ba0670309f88">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2cc1be90-7986-4032-a114-ba0670309f88">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2cc1be90-7986-4032-a114-ba0670309f88">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2cc1be90-7986-4032-a114-ba0670309f88">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15a5ebad-ceba-42f9-a683-873118a04e0d" xml:space="preserve">
+          <source>On the <bpt id="99ddb922-9537-40f6-9bfa-06c3946b0c55">&lt;strong&gt;</bpt>How would you like users to sign on to Tinfoil Security<ept id="99ddb922-9537-40f6-9bfa-06c3946b0c55">&lt;/strong&gt;</ept> page, select <bpt id="1ea4c902-d75a-47cc-89c2-99a742294a4d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="1ea4c902-d75a-47cc-89c2-99a742294a4d">&lt;/strong&gt;</ept>, and then click <bpt id="433b7978-ee17-4d29-8a8c-6c2281bf8cd4">&lt;strong&gt;</bpt>Next<ept id="433b7978-ee17-4d29-8a8c-6c2281bf8cd4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="99ddb922-9537-40f6-9bfa-06c3946b0c55">&lt;strong&gt;</bpt>How would you like users to sign on to Tinfoil Security<ept id="99ddb922-9537-40f6-9bfa-06c3946b0c55">&lt;/strong&gt;</ept> page, select <bpt id="1ea4c902-d75a-47cc-89c2-99a742294a4d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="1ea4c902-d75a-47cc-89c2-99a742294a4d">&lt;/strong&gt;</ept>, and then click <bpt id="433b7978-ee17-4d29-8a8c-6c2281bf8cd4">&lt;strong&gt;</bpt>Next<ept id="433b7978-ee17-4d29-8a8c-6c2281bf8cd4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c66bdc6-1881-4843-9180-6580079b2636" xml:space="preserve">
+          <source><bpt id="edd2310f-6289-4ffb-b384-b1c99ab6b7c0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="edd2310f-6289-4ffb-b384-b1c99ab6b7c0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="edd2310f-6289-4ffb-b384-b1c99ab6b7c0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="edd2310f-6289-4ffb-b384-b1c99ab6b7c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59c1b952-1bd8-48f0-aba7-d5f4052c6cb2" xml:space="preserve">
+          <source>On the <bpt id="594c2152-fa8c-4fd0-8f06-73ed1740d233">&lt;strong&gt;</bpt>Configure App URL<ept id="594c2152-fa8c-4fd0-8f06-73ed1740d233">&lt;/strong&gt;</ept> page, in the <bpt id="89e00450-c1fc-431d-bd52-5bb771467361">&lt;strong&gt;</bpt>Tinfoil Security Reply URL<ept id="89e00450-c1fc-431d-bd52-5bb771467361">&lt;/strong&gt;</ept> textbox, type your Tinfoil Security Assertion Consumer Service (ACS) URL (e.g.: "<bpt id="ac69fcb3-a579-4457-96ea-82f60052bc00">&lt;em&gt;</bpt>https://www.tinfoilsecurity.com/saml/consume<ept id="ac69fcb3-a579-4457-96ea-82f60052bc00">&lt;/em&gt;</ept>", and then click <bpt id="fa245986-f179-4784-a0ff-38a3ed93bd6a">&lt;strong&gt;</bpt>Next<ept id="fa245986-f179-4784-a0ff-38a3ed93bd6a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="594c2152-fa8c-4fd0-8f06-73ed1740d233">&lt;strong&gt;</bpt>Configure App URL<ept id="594c2152-fa8c-4fd0-8f06-73ed1740d233">&lt;/strong&gt;</ept> page, in the <bpt id="89e00450-c1fc-431d-bd52-5bb771467361">&lt;strong&gt;</bpt>Tinfoil Security Reply URL<ept id="89e00450-c1fc-431d-bd52-5bb771467361">&lt;/strong&gt;</ept> textbox, type your Tinfoil Security Assertion Consumer Service (ACS) URL (e.g.: "<bpt id="ac69fcb3-a579-4457-96ea-82f60052bc00">&lt;em&gt;</bpt>https://www.tinfoilsecurity.com/saml/consume<ept id="ac69fcb3-a579-4457-96ea-82f60052bc00">&lt;/em&gt;</ept>", and then click <bpt id="fa245986-f179-4784-a0ff-38a3ed93bd6a">&lt;strong&gt;</bpt>Next<ept id="fa245986-f179-4784-a0ff-38a3ed93bd6a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="449b612f-8258-4611-a7c5-b16c717ac33a" xml:space="preserve">
+          <source>You should be able to get the ACS URL from Tinfoil Security Metadata (https://www.tinfoilsecurity.com/saml/metadata).</source>
+          <target state="new">You should be able to get the ACS URL from Tinfoil Security Metadata (https://www.tinfoilsecurity.com/saml/metadata).</target>
+        </trans-unit>
+        <trans-unit id="3d182359-f94f-4ac3-b15f-cc817b646c74" xml:space="preserve">
+          <source><bpt id="4c570016-c451-4e4e-acd0-3a3029d5e35f">&lt;linkText&gt;</bpt>Configure App URL<ept id="4c570016-c451-4e4e-acd0-3a3029d5e35f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4c570016-c451-4e4e-acd0-3a3029d5e35f">&lt;linkText&gt;</bpt>Configure App URL<ept id="4c570016-c451-4e4e-acd0-3a3029d5e35f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e03cc50-a604-4c40-a38f-b05779be25ca" xml:space="preserve">
+          <source>On the <bpt id="395abb54-e417-40c7-a228-ddebfd0a50d9">&lt;strong&gt;</bpt>Configure single sign-on at Tinfoil Security<ept id="395abb54-e417-40c7-a228-ddebfd0a50d9">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="7443c043-4f60-490e-876d-f59868adc298">&lt;strong&gt;</bpt>Download certificate<ept id="7443c043-4f60-490e-876d-f59868adc298">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="9be589a6-b7f9-42ff-9632-97a93c923b86">&lt;strong&gt;</bpt>c:\\Tinfoil Security.cer<ept id="9be589a6-b7f9-42ff-9632-97a93c923b86">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="395abb54-e417-40c7-a228-ddebfd0a50d9">&lt;strong&gt;</bpt>Configure single sign-on at Tinfoil Security<ept id="395abb54-e417-40c7-a228-ddebfd0a50d9">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="7443c043-4f60-490e-876d-f59868adc298">&lt;strong&gt;</bpt>Download certificate<ept id="7443c043-4f60-490e-876d-f59868adc298">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="9be589a6-b7f9-42ff-9632-97a93c923b86">&lt;strong&gt;</bpt>c:\\Tinfoil Security.cer<ept id="9be589a6-b7f9-42ff-9632-97a93c923b86">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c62b651-646c-46a9-9eba-c8afdd656b78" xml:space="preserve">
+          <source><bpt id="a75d700a-c756-40b8-8bfe-5af35a74ec4d">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="a75d700a-c756-40b8-8bfe-5af35a74ec4d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a75d700a-c756-40b8-8bfe-5af35a74ec4d">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="a75d700a-c756-40b8-8bfe-5af35a74ec4d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7560d3e9-d516-4679-b227-4845782f6066" xml:space="preserve">
+          <source>In a different web browser window, log into your Tinfoil Security company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Tinfoil Security company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="3c99d29c-1df3-4809-8292-f2160778a31a" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="af277eca-8b50-439f-8213-42f6cf3e400c">&lt;strong&gt;</bpt>My Account<ept id="af277eca-8b50-439f-8213-42f6cf3e400c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="af277eca-8b50-439f-8213-42f6cf3e400c">&lt;strong&gt;</bpt>My Account<ept id="af277eca-8b50-439f-8213-42f6cf3e400c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="898e0de6-4ee2-44eb-8582-7d341c6231e4" xml:space="preserve">
+          <source><bpt id="68c79cf2-dca0-41ed-8628-ea94101169f3">&lt;linkText&gt;</bpt>Dashboard<ept id="68c79cf2-dca0-41ed-8628-ea94101169f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="68c79cf2-dca0-41ed-8628-ea94101169f3">&lt;linkText&gt;</bpt>Dashboard<ept id="68c79cf2-dca0-41ed-8628-ea94101169f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8200ddd0-3cea-4f96-b737-7705ff4de27f" xml:space="preserve">
+          <source>Click <bpt id="4b2d6e72-28aa-4543-901b-ea03254fc3da">&lt;strong&gt;</bpt>Security<ept id="4b2d6e72-28aa-4543-901b-ea03254fc3da">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="4b2d6e72-28aa-4543-901b-ea03254fc3da">&lt;strong&gt;</bpt>Security<ept id="4b2d6e72-28aa-4543-901b-ea03254fc3da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b04257a3-231b-4aca-95b3-242c121b5a50" xml:space="preserve">
+          <source><bpt id="71f5219f-9501-4ac1-89e8-35d57b4d14fc">&lt;linkText&gt;</bpt>Security<ept id="71f5219f-9501-4ac1-89e8-35d57b4d14fc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="71f5219f-9501-4ac1-89e8-35d57b4d14fc">&lt;linkText&gt;</bpt>Security<ept id="71f5219f-9501-4ac1-89e8-35d57b4d14fc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37f1df82-fbb1-48a6-8f50-a94b9a926dd6" xml:space="preserve">
+          <source>On the <bpt id="81abd442-bd84-407d-a083-b49aa9f4bbf3">&lt;strong&gt;</bpt>Single Sign-On<ept id="81abd442-bd84-407d-a083-b49aa9f4bbf3">&lt;/strong&gt;</ept> configuration page, perform the following steps:</source>
+          <target state="new">On the <bpt id="81abd442-bd84-407d-a083-b49aa9f4bbf3">&lt;strong&gt;</bpt>Single Sign-On<ept id="81abd442-bd84-407d-a083-b49aa9f4bbf3">&lt;/strong&gt;</ept> configuration page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="b9ba0cd0-a87c-4dc3-923a-eb23a00800a5" xml:space="preserve">
+          <source><bpt id="92eb5e43-4d3b-4ef4-a1ab-27aee1c8faa2">&lt;linkText&gt;</bpt>Single Sign-On<ept id="92eb5e43-4d3b-4ef4-a1ab-27aee1c8faa2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="92eb5e43-4d3b-4ef4-a1ab-27aee1c8faa2">&lt;linkText&gt;</bpt>Single Sign-On<ept id="92eb5e43-4d3b-4ef4-a1ab-27aee1c8faa2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57460413-0a07-4335-85b7-ad353ddd2f63" xml:space="preserve">
+          <source>Select <bpt id="727e3799-6661-4d9d-b5b8-661a6212be95">&lt;strong&gt;</bpt>Enable SAML<ept id="727e3799-6661-4d9d-b5b8-661a6212be95">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="727e3799-6661-4d9d-b5b8-661a6212be95">&lt;strong&gt;</bpt>Enable SAML<ept id="727e3799-6661-4d9d-b5b8-661a6212be95">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d298181d-5987-4cd3-9b0a-7ba3c9257a9d" xml:space="preserve">
+          <source>Click <bpt id="3ee8da60-d009-4c25-a2d5-f7b8f366ba5e">&lt;strong&gt;</bpt>Manual Configuration<ept id="3ee8da60-d009-4c25-a2d5-f7b8f366ba5e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3ee8da60-d009-4c25-a2d5-f7b8f366ba5e">&lt;strong&gt;</bpt>Manual Configuration<ept id="3ee8da60-d009-4c25-a2d5-f7b8f366ba5e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ae2a67b-fe46-4af7-9928-5e4e5981972e" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="1e2c3696-0e10-41bf-9077-aea65d03d116">&lt;strong&gt;</bpt>Configure single sign-on at Tinfoil Security<ept id="1e2c3696-0e10-41bf-9077-aea65d03d116">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="465998ce-b0ca-4f36-869b-bea8b7c6fcc7">&lt;strong&gt;</bpt>SAML SSO URL<ept id="465998ce-b0ca-4f36-869b-bea8b7c6fcc7">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="3e3128e4-7160-407a-b03e-0bd996545da8">&lt;strong&gt;</bpt>SAML Post URL<ept id="3e3128e4-7160-407a-b03e-0bd996545da8">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="1e2c3696-0e10-41bf-9077-aea65d03d116">&lt;strong&gt;</bpt>Configure single sign-on at Tinfoil Security<ept id="1e2c3696-0e10-41bf-9077-aea65d03d116">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="465998ce-b0ca-4f36-869b-bea8b7c6fcc7">&lt;strong&gt;</bpt>SAML SSO URL<ept id="465998ce-b0ca-4f36-869b-bea8b7c6fcc7">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="3e3128e4-7160-407a-b03e-0bd996545da8">&lt;strong&gt;</bpt>SAML Post URL<ept id="3e3128e4-7160-407a-b03e-0bd996545da8">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="fefe741e-3734-40e2-908c-831fce83429b" xml:space="preserve">
+          <source>Copy the <bpt id="1c6dc925-a3c5-422a-96d3-869f36e2ac29">&lt;strong&gt;</bpt>Thumbprint<ept id="1c6dc925-a3c5-422a-96d3-869f36e2ac29">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="c8f3fbfd-8fb6-44c2-8764-61644d8bd455">&lt;strong&gt;</bpt>SAML Certificate Fingerprint<ept id="c8f3fbfd-8fb6-44c2-8764-61644d8bd455">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Copy the <bpt id="1c6dc925-a3c5-422a-96d3-869f36e2ac29">&lt;strong&gt;</bpt>Thumbprint<ept id="1c6dc925-a3c5-422a-96d3-869f36e2ac29">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="c8f3fbfd-8fb6-44c2-8764-61644d8bd455">&lt;strong&gt;</bpt>SAML Certificate Fingerprint<ept id="c8f3fbfd-8fb6-44c2-8764-61644d8bd455">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="d1e58282-2f61-4daa-87d8-9194faaca3d4" xml:space="preserve">
+          <source>For more details, see <bpt id="614a31f6-f455-409d-bd5a-1e4fe94a55be">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="614a31f6-f455-409d-bd5a-1e4fe94a55be">&lt;/linkText&gt;</ept><bpt id="614a31f6-f455-409d-bd5a-1e4fe94a55be">&lt;title&gt;</bpt><ept id="614a31f6-f455-409d-bd5a-1e4fe94a55be">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="614a31f6-f455-409d-bd5a-1e4fe94a55be">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="614a31f6-f455-409d-bd5a-1e4fe94a55be">&lt;/linkText&gt;</ept><bpt id="614a31f6-f455-409d-bd5a-1e4fe94a55be">&lt;title&gt;</bpt><ept id="614a31f6-f455-409d-bd5a-1e4fe94a55be">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f29504e7-31fd-4905-9fc5-4386d05ebcb5" xml:space="preserve">
+          <source>Copy <bpt id="95db7e50-afab-4d5a-889f-0edd3073842c">&lt;strong&gt;</bpt>Your Account ID<ept id="95db7e50-afab-4d5a-889f-0edd3073842c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy <bpt id="95db7e50-afab-4d5a-889f-0edd3073842c">&lt;strong&gt;</bpt>Your Account ID<ept id="95db7e50-afab-4d5a-889f-0edd3073842c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="769d339f-ca09-40e6-a3e1-77d6724df398" xml:space="preserve">
+          <source>Click <bpt id="ce171b2a-16f8-4363-ac0a-23f602dbf7c1">&lt;strong&gt;</bpt>Save<ept id="ce171b2a-16f8-4363-ac0a-23f602dbf7c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ce171b2a-16f8-4363-ac0a-23f602dbf7c1">&lt;strong&gt;</bpt>Save<ept id="ce171b2a-16f8-4363-ac0a-23f602dbf7c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ece867ae-b1e3-430b-ae3a-0317e3b0fc6d" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="aaa77ce0-379a-4400-a9b2-dd40c657e78d">&lt;strong&gt;</bpt>Complete<ept id="aaa77ce0-379a-4400-a9b2-dd40c657e78d">&lt;/strong&gt;</ept> to close the <bpt id="d343c7da-0873-4d72-a249-1853e5bfcfae">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="d343c7da-0873-4d72-a249-1853e5bfcfae">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="aaa77ce0-379a-4400-a9b2-dd40c657e78d">&lt;strong&gt;</bpt>Complete<ept id="aaa77ce0-379a-4400-a9b2-dd40c657e78d">&lt;/strong&gt;</ept> to close the <bpt id="d343c7da-0873-4d72-a249-1853e5bfcfae">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="d343c7da-0873-4d72-a249-1853e5bfcfae">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="9278039f-821c-4d79-944b-fefcc7c8bd84" xml:space="preserve">
+          <source><bpt id="97d4f379-b667-4c99-b8b2-f4d5cadb4438">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="97d4f379-b667-4c99-b8b2-f4d5cadb4438">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="97d4f379-b667-4c99-b8b2-f4d5cadb4438">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="97d4f379-b667-4c99-b8b2-f4d5cadb4438">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e3b9795-f129-45db-86a1-d1cbbd58a889" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="38ad331f-d696-4268-a196-3485b7376a7c">&lt;strong&gt;</bpt>Attributes<ept id="38ad331f-d696-4268-a196-3485b7376a7c">&lt;/strong&gt;</ept> to open the <bpt id="6716641c-1839-4dfa-9454-f8fc233010a6">&lt;strong&gt;</bpt>SAML Token Attributes<ept id="6716641c-1839-4dfa-9454-f8fc233010a6">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">In the menu on the top, click <bpt id="38ad331f-d696-4268-a196-3485b7376a7c">&lt;strong&gt;</bpt>Attributes<ept id="38ad331f-d696-4268-a196-3485b7376a7c">&lt;/strong&gt;</ept> to open the <bpt id="6716641c-1839-4dfa-9454-f8fc233010a6">&lt;strong&gt;</bpt>SAML Token Attributes<ept id="6716641c-1839-4dfa-9454-f8fc233010a6">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="b65d107e-dbee-48c3-8dc2-a2f259af9905" xml:space="preserve">
+          <source><bpt id="c060b7f3-257f-4990-bcc6-9ef1a55aafb6">&lt;linkText&gt;</bpt>Attributes<ept id="c060b7f3-257f-4990-bcc6-9ef1a55aafb6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c060b7f3-257f-4990-bcc6-9ef1a55aafb6">&lt;linkText&gt;</bpt>Attributes<ept id="c060b7f3-257f-4990-bcc6-9ef1a55aafb6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0b79cd5-8cb9-45b8-850a-7af5b990a7e2" xml:space="preserve">
+          <source>To add the required attribute mappings, perform the following steps:</source>
+          <target state="new">To add the required attribute mappings, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="5c4fec3d-6d47-462c-b2b9-ba4561f4fba3" xml:space="preserve">
+          <source><bpt id="5d740d69-54cd-4c30-a2b8-d13d002cec2c">&lt;linkText&gt;</bpt>Attributes<ept id="5d740d69-54cd-4c30-a2b8-d13d002cec2c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5d740d69-54cd-4c30-a2b8-d13d002cec2c">&lt;linkText&gt;</bpt>Attributes<ept id="5d740d69-54cd-4c30-a2b8-d13d002cec2c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29c31e56-48ab-4abc-9fea-2c69ec784e13" xml:space="preserve">
+          <source>Click <bpt id="8bbb817f-6b87-4dde-bb1e-deab6700b7d8">&lt;strong&gt;</bpt>add user attribute<ept id="8bbb817f-6b87-4dde-bb1e-deab6700b7d8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8bbb817f-6b87-4dde-bb1e-deab6700b7d8">&lt;strong&gt;</bpt>add user attribute<ept id="8bbb817f-6b87-4dde-bb1e-deab6700b7d8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2a232bd-dde6-4b44-9f06-bc7d488aeef4" xml:space="preserve">
+          <source>In the <bpt id="27aac259-eea4-495b-9e87-a5a89d651847">&lt;strong&gt;</bpt>Attribute Name<ept id="27aac259-eea4-495b-9e87-a5a89d651847">&lt;/strong&gt;</ept> textbox, type <bpt id="44afcbec-5d19-411d-a978-a57be1c307aa">&lt;strong&gt;</bpt>accountid<ept id="44afcbec-5d19-411d-a978-a57be1c307aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="27aac259-eea4-495b-9e87-a5a89d651847">&lt;strong&gt;</bpt>Attribute Name<ept id="27aac259-eea4-495b-9e87-a5a89d651847">&lt;/strong&gt;</ept> textbox, type <bpt id="44afcbec-5d19-411d-a978-a57be1c307aa">&lt;strong&gt;</bpt>accountid<ept id="44afcbec-5d19-411d-a978-a57be1c307aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c66f7a63-b69b-4302-9ab4-7af04d734e95" xml:space="preserve">
+          <source>In the <bpt id="3b7400f0-60ff-4c22-99b7-b9896cad0c0a">&lt;strong&gt;</bpt>Attribute Value<ept id="3b7400f0-60ff-4c22-99b7-b9896cad0c0a">&lt;/strong&gt;</ept> textbox, paste the account ID value you have copied in the previous section.</source>
+          <target state="new">In the <bpt id="3b7400f0-60ff-4c22-99b7-b9896cad0c0a">&lt;strong&gt;</bpt>Attribute Value<ept id="3b7400f0-60ff-4c22-99b7-b9896cad0c0a">&lt;/strong&gt;</ept> textbox, paste the account ID value you have copied in the previous section.</target>
+        </trans-unit>
+        <trans-unit id="32c37ca0-5c3e-47b9-9d59-8f51cdd90c72" xml:space="preserve">
+          <source>Click <bpt id="c6be8f13-4952-4362-a6a7-022f164ee613">&lt;strong&gt;</bpt>Complete<ept id="c6be8f13-4952-4362-a6a7-022f164ee613">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c6be8f13-4952-4362-a6a7-022f164ee613">&lt;strong&gt;</bpt>Complete<ept id="c6be8f13-4952-4362-a6a7-022f164ee613">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0eca7ee6-f5d7-4a94-8678-f57cb5bbf324" xml:space="preserve">
+          <source>Click <bpt id="25978635-3be8-43f8-bebf-efa59469a377">&lt;strong&gt;</bpt>Apply Changes<ept id="25978635-3be8-43f8-bebf-efa59469a377">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="25978635-3be8-43f8-bebf-efa59469a377">&lt;strong&gt;</bpt>Apply Changes<ept id="25978635-3be8-43f8-bebf-efa59469a377">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b136388-3041-4da0-984a-c0cce060529f" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Tinfoil Security, they must be provisioned into Tinfoil Security.</source>
+          <target state="new">In order to enable Azure AD users to log into Tinfoil Security, they must be provisioned into Tinfoil Security.</target>
+        </trans-unit>
+        <trans-unit id="79efdcf3-3101-48ad-a6ec-605316f5450f" xml:space="preserve">
+          <source>In the case of Tinfoil Security, provisioning is a manual task.</source>
+          <target state="new">In the case of Tinfoil Security, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="0a15a659-0c80-4867-bc8e-404f016d220b" xml:space="preserve">
+          <source>If the user is a part of an Enterprise account, you need to contact the Tinfoil Security support team to get the user account created.</source>
+          <target state="new">If the user is a part of an Enterprise account, you need to contact the Tinfoil Security support team to get the user account created.</target>
+        </trans-unit>
+        <trans-unit id="efffb7ee-cced-418c-980c-2de7ab13b2ea" xml:space="preserve">
+          <source>If the user is a regular Tinfoil Security SaaS user, then the user can add a collaborator to any of the user’s sites.</source>
+          <target state="new">If the user is a regular Tinfoil Security SaaS user, then the user can add a collaborator to any of the user’s sites.</target>
+        </trans-unit>
+        <trans-unit id="fffbcfad-f706-467e-bb59-0ed72670db78" xml:space="preserve">
+          <source>This triggers a process to send an invitation to the specified email to create a new Tinfoil Security user account.</source>
+          <target state="new">This triggers a process to send an invitation to the specified email to create a new Tinfoil Security user account.</target>
+        </trans-unit>
+        <trans-unit id="e3707aa7-d06d-4f49-a0d5-c6780110e7f5" xml:space="preserve">
+          <source>You can use any other Tinfoil Security user account creation tools or APIs provided by Tinfoil Security to provision AAD user accounts.</source>
+          <target state="new">You can use any other Tinfoil Security user account creation tools or APIs provided by Tinfoil Security to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="663f013b-b044-4f45-8b85-8acfb2e4baa0" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="95ef80c5-b77a-4ec9-b7d4-99b089b39ffc" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="7e5a7fd8-6a6d-426f-b659-8c95bafcbab5" xml:space="preserve">
+          <source>On the <bpt id="e8ada390-db88-41ba-bc2f-8f31db043d02">&lt;strong&gt;</bpt>Tinfoil Security **application integration page, click **Assign users<ept id="e8ada390-db88-41ba-bc2f-8f31db043d02">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e8ada390-db88-41ba-bc2f-8f31db043d02">&lt;strong&gt;</bpt>Tinfoil Security **application integration page, click **Assign users<ept id="e8ada390-db88-41ba-bc2f-8f31db043d02">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="266609b8-0500-4205-9e16-d74c11f565b1" xml:space="preserve">
+          <source><bpt id="f63dca3c-805e-45d3-a1d0-e648af0fa107">&lt;linkText&gt;</bpt>Assign Users<ept id="f63dca3c-805e-45d3-a1d0-e648af0fa107">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f63dca3c-805e-45d3-a1d0-e648af0fa107">&lt;linkText&gt;</bpt>Assign Users<ept id="f63dca3c-805e-45d3-a1d0-e648af0fa107">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e961f11-f539-4fe1-8707-c6bd9251512f" xml:space="preserve">
+          <source>Select your test user, click <bpt id="d31ae022-8cbe-4a3e-850a-031d811e534e">&lt;strong&gt;</bpt>Assign<ept id="d31ae022-8cbe-4a3e-850a-031d811e534e">&lt;/strong&gt;</ept>, and then click <bpt id="5bb9808d-121d-479b-b1c5-99f34bd97d63">&lt;strong&gt;</bpt>Yes<ept id="5bb9808d-121d-479b-b1c5-99f34bd97d63">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="d31ae022-8cbe-4a3e-850a-031d811e534e">&lt;strong&gt;</bpt>Assign<ept id="d31ae022-8cbe-4a3e-850a-031d811e534e">&lt;/strong&gt;</ept>, and then click <bpt id="5bb9808d-121d-479b-b1c5-99f34bd97d63">&lt;strong&gt;</bpt>Yes<ept id="5bb9808d-121d-479b-b1c5-99f34bd97d63">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="de89da1e-ecc8-4f61-8e59-79a083cc3841" xml:space="preserve">
+          <source><bpt id="02c886e0-d30d-4d98-a8ce-53eae948e781">&lt;linkText&gt;</bpt>Yes<ept id="02c886e0-d30d-4d98-a8ce-53eae948e781">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="02c886e0-d30d-4d98-a8ce-53eae948e781">&lt;linkText&gt;</bpt>Yes<ept id="02c886e0-d30d-4d98-a8ce-53eae948e781">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="264a216b-f8a9-4ad8-9c51-aa9d71f2226a" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="f03e296a-5853-49f3-b927-0c8c7f8b1218" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="bfff6c3c-a75c-4d42-9a55-af147276d76f">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="bfff6c3c-a75c-4d42-9a55-af147276d76f">&lt;/linkText&gt;</ept><bpt id="bfff6c3c-a75c-4d42-9a55-af147276d76f">&lt;title&gt;</bpt><ept id="bfff6c3c-a75c-4d42-9a55-af147276d76f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="bfff6c3c-a75c-4d42-9a55-af147276d76f">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="bfff6c3c-a75c-4d42-9a55-af147276d76f">&lt;/linkText&gt;</ept><bpt id="bfff6c3c-a75c-4d42-9a55-af147276d76f">&lt;title&gt;</bpt><ept id="bfff6c3c-a75c-4d42-9a55-af147276d76f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="15cd124c-b1ba-416f-b7d7-1c08dd1dae25" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="15cd124c-b1ba-416f-b7d7-1c08dd1dae25" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cfeaa75a-e7a9-4b7d-b1cb-a1fcfefca94b">
+        <trans-unit id="403686fd-f294-490b-8932-c987d52151fe" xml:space="preserve">
+          <source>To create a classic VNet based on the scenario above, follow the steps below.</source>
+          <target state="new">To create a classic VNet based on the scenario above, follow the steps below.</target>
+        </trans-unit>
+        <trans-unit id="ab8a9ec9-86b1-4d99-bfd7-08af58665df1" xml:space="preserve">
+          <source>From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.</source>
+          <target state="new">From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="7618841a-1f54-4faf-8160-4ee7739cdb06" xml:space="preserve">
+          <source>Click <bpt id="4c86e34b-c953-4493-8dc1-8038a092fc17">&lt;strong&gt;</bpt>NEW<ept id="4c86e34b-c953-4493-8dc1-8038a092fc17">&lt;/strong&gt;</ept> &gt; <bpt id="012e61e0-1d6a-48fd-887f-569f6c3defda">&lt;strong&gt;</bpt>Networking<ept id="012e61e0-1d6a-48fd-887f-569f6c3defda">&lt;/strong&gt;</ept> &gt; <bpt id="84073fd5-bab2-455c-93d1-a517d38ad76d">&lt;strong&gt;</bpt>Virtual network<ept id="84073fd5-bab2-455c-93d1-a517d38ad76d">&lt;/strong&gt;</ept>, notice that the <bpt id="daed2943-a9e6-4f17-93bb-26b92402eac1">&lt;strong&gt;</bpt>Select a deployment model<ept id="daed2943-a9e6-4f17-93bb-26b92402eac1">&lt;/strong&gt;</ept> list already shows <bpt id="82d2007d-ff73-4b10-9d5c-c60e0cbcc757">&lt;strong&gt;</bpt>Classic<ept id="82d2007d-ff73-4b10-9d5c-c60e0cbcc757">&lt;/strong&gt;</ept>, and then click <bpt id="21500f2b-96d6-449d-949f-5bd7538fbf13">&lt;strong&gt;</bpt>Create<ept id="21500f2b-96d6-449d-949f-5bd7538fbf13">&lt;/strong&gt;</ept>, as seen in the figure below.</source>
+          <target state="new">Click <bpt id="4c86e34b-c953-4493-8dc1-8038a092fc17">&lt;strong&gt;</bpt>NEW<ept id="4c86e34b-c953-4493-8dc1-8038a092fc17">&lt;/strong&gt;</ept> &gt; <bpt id="012e61e0-1d6a-48fd-887f-569f6c3defda">&lt;strong&gt;</bpt>Networking<ept id="012e61e0-1d6a-48fd-887f-569f6c3defda">&lt;/strong&gt;</ept> &gt; <bpt id="84073fd5-bab2-455c-93d1-a517d38ad76d">&lt;strong&gt;</bpt>Virtual network<ept id="84073fd5-bab2-455c-93d1-a517d38ad76d">&lt;/strong&gt;</ept>, notice that the <bpt id="daed2943-a9e6-4f17-93bb-26b92402eac1">&lt;strong&gt;</bpt>Select a deployment model<ept id="daed2943-a9e6-4f17-93bb-26b92402eac1">&lt;/strong&gt;</ept> list already shows <bpt id="82d2007d-ff73-4b10-9d5c-c60e0cbcc757">&lt;strong&gt;</bpt>Classic<ept id="82d2007d-ff73-4b10-9d5c-c60e0cbcc757">&lt;/strong&gt;</ept>, and then click <bpt id="21500f2b-96d6-449d-949f-5bd7538fbf13">&lt;strong&gt;</bpt>Create<ept id="21500f2b-96d6-449d-949f-5bd7538fbf13">&lt;/strong&gt;</ept>, as seen in the figure below.</target>
+        </trans-unit>
+        <trans-unit id="3a79e414-cf75-4011-bf14-86e2178ca571" xml:space="preserve">
+          <source><bpt id="b0397804-5a92-4e84-8be6-ea525b1cccb5">&lt;linkText&gt;</bpt>Create VNet in preview portal<ept id="b0397804-5a92-4e84-8be6-ea525b1cccb5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b0397804-5a92-4e84-8be6-ea525b1cccb5">&lt;linkText&gt;</bpt>Create VNet in preview portal<ept id="b0397804-5a92-4e84-8be6-ea525b1cccb5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad729488-d8fe-4485-b3d9-591bff51114d" xml:space="preserve">
+          <source>On the <bpt id="2ef70498-72db-4ddf-b259-0edc43e1250d">&lt;strong&gt;</bpt>Virtual network<ept id="2ef70498-72db-4ddf-b259-0edc43e1250d">&lt;/strong&gt;</ept> blade, type the <bpt id="684f38bc-249c-474c-b62f-072cc7f6e8f2">&lt;strong&gt;</bpt>Name<ept id="684f38bc-249c-474c-b62f-072cc7f6e8f2">&lt;/strong&gt;</ept> of the VNet, and then click <bpt id="56b92721-993b-4a93-be5a-e9fad22e5830">&lt;strong&gt;</bpt>Address space<ept id="56b92721-993b-4a93-be5a-e9fad22e5830">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="2ef70498-72db-4ddf-b259-0edc43e1250d">&lt;strong&gt;</bpt>Virtual network<ept id="2ef70498-72db-4ddf-b259-0edc43e1250d">&lt;/strong&gt;</ept> blade, type the <bpt id="684f38bc-249c-474c-b62f-072cc7f6e8f2">&lt;strong&gt;</bpt>Name<ept id="684f38bc-249c-474c-b62f-072cc7f6e8f2">&lt;/strong&gt;</ept> of the VNet, and then click <bpt id="56b92721-993b-4a93-be5a-e9fad22e5830">&lt;strong&gt;</bpt>Address space<ept id="56b92721-993b-4a93-be5a-e9fad22e5830">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a052ed8a-f629-4bde-85e7-f74ad84895dc" xml:space="preserve">
+          <source>Configure your address space settings for the VNet and its first subnet, then click <bpt id="f2563b90-51e9-4667-a068-8c424f2fd1aa">&lt;strong&gt;</bpt>OK<ept id="f2563b90-51e9-4667-a068-8c424f2fd1aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configure your address space settings for the VNet and its first subnet, then click <bpt id="f2563b90-51e9-4667-a068-8c424f2fd1aa">&lt;strong&gt;</bpt>OK<ept id="f2563b90-51e9-4667-a068-8c424f2fd1aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f275ffb5-0244-43f7-8482-330ecaec0915" xml:space="preserve">
+          <source>The figure below shows the CIDR block settings for our scenario.</source>
+          <target state="new">The figure below shows the CIDR block settings for our scenario.</target>
+        </trans-unit>
+        <trans-unit id="dc26a749-1ef5-4fe1-9acc-be4a39ce53c1" xml:space="preserve">
+          <source><bpt id="0cc30a88-beea-4a14-a02c-fcd1ce7e848d">&lt;linkText&gt;</bpt>Address space blade<ept id="0cc30a88-beea-4a14-a02c-fcd1ce7e848d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0cc30a88-beea-4a14-a02c-fcd1ce7e848d">&lt;linkText&gt;</bpt>Address space blade<ept id="0cc30a88-beea-4a14-a02c-fcd1ce7e848d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fde784f0-305f-4a57-9019-620a39615467" xml:space="preserve">
+          <source>Click <bpt id="18fab0b6-7d84-4f98-b04f-9fdac5b5fe8d">&lt;strong&gt;</bpt>Resource Group<ept id="18fab0b6-7d84-4f98-b04f-9fdac5b5fe8d">&lt;/strong&gt;</ept> and select a resource group to add the VNet to, or click <bpt id="4d855019-2094-431e-b9b4-5bf0ece5008e">&lt;strong&gt;</bpt>Create new resource group<ept id="4d855019-2094-431e-b9b4-5bf0ece5008e">&lt;/strong&gt;</ept> to add the VNet to a new resource group.</source>
+          <target state="new">Click <bpt id="18fab0b6-7d84-4f98-b04f-9fdac5b5fe8d">&lt;strong&gt;</bpt>Resource Group<ept id="18fab0b6-7d84-4f98-b04f-9fdac5b5fe8d">&lt;/strong&gt;</ept> and select a resource group to add the VNet to, or click <bpt id="4d855019-2094-431e-b9b4-5bf0ece5008e">&lt;strong&gt;</bpt>Create new resource group<ept id="4d855019-2094-431e-b9b4-5bf0ece5008e">&lt;/strong&gt;</ept> to add the VNet to a new resource group.</target>
+        </trans-unit>
+        <trans-unit id="ed01bd4e-c8ef-4a7d-b91c-6ac5bee6b70e" xml:space="preserve">
+          <source>The figure below shows the resource group settings for a new resource group called <bpt id="6dab1913-d833-4450-921d-d62e6021cb07">&lt;strong&gt;</bpt>TestRG<ept id="6dab1913-d833-4450-921d-d62e6021cb07">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The figure below shows the resource group settings for a new resource group called <bpt id="6dab1913-d833-4450-921d-d62e6021cb07">&lt;strong&gt;</bpt>TestRG<ept id="6dab1913-d833-4450-921d-d62e6021cb07">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99d5c19d-89bd-41e8-9395-19c0c4cdd69f" xml:space="preserve">
+          <source>For more information about resource groups, visit <bpt id="499b2b68-72ce-45e0-bde1-16d65998d466">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="499b2b68-72ce-45e0-bde1-16d65998d466">&lt;/linkText&gt;</ept><bpt id="499b2b68-72ce-45e0-bde1-16d65998d466">&lt;title&gt;</bpt><ept id="499b2b68-72ce-45e0-bde1-16d65998d466">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about resource groups, visit <bpt id="499b2b68-72ce-45e0-bde1-16d65998d466">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="499b2b68-72ce-45e0-bde1-16d65998d466">&lt;/linkText&gt;</ept><bpt id="499b2b68-72ce-45e0-bde1-16d65998d466">&lt;title&gt;</bpt><ept id="499b2b68-72ce-45e0-bde1-16d65998d466">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e9164b2-7679-4204-ab4d-71fe3e36a91e" xml:space="preserve">
+          <source><bpt id="bb1c0510-8bf2-48e2-9d99-f64febdf16f8">&lt;linkText&gt;</bpt>Create resource group blade<ept id="bb1c0510-8bf2-48e2-9d99-f64febdf16f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb1c0510-8bf2-48e2-9d99-f64febdf16f8">&lt;linkText&gt;</bpt>Create resource group blade<ept id="bb1c0510-8bf2-48e2-9d99-f64febdf16f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ab770ad-68b4-4f88-84cf-c03d76b86f07" xml:space="preserve">
+          <source>If necessary, change the <bpt id="fb267ff6-7398-46c0-bef2-74481458ee9b">&lt;strong&gt;</bpt>Subscription<ept id="fb267ff6-7398-46c0-bef2-74481458ee9b">&lt;/strong&gt;</ept> and <bpt id="c530a73e-6ba7-4539-b18f-5eab71367b1e">&lt;strong&gt;</bpt>Location<ept id="c530a73e-6ba7-4539-b18f-5eab71367b1e">&lt;/strong&gt;</ept> settings for your VNet.</source>
+          <target state="new">If necessary, change the <bpt id="fb267ff6-7398-46c0-bef2-74481458ee9b">&lt;strong&gt;</bpt>Subscription<ept id="fb267ff6-7398-46c0-bef2-74481458ee9b">&lt;/strong&gt;</ept> and <bpt id="c530a73e-6ba7-4539-b18f-5eab71367b1e">&lt;strong&gt;</bpt>Location<ept id="c530a73e-6ba7-4539-b18f-5eab71367b1e">&lt;/strong&gt;</ept> settings for your VNet.</target>
+        </trans-unit>
+        <trans-unit id="cb9d4322-402a-48b4-82a2-a91e3c5ac656" xml:space="preserve">
+          <source>If you do not want to see the VNet as a tile in the <bpt id="53a0ae1a-a834-47ce-ab51-d6cee031df7a">&lt;strong&gt;</bpt>Startboard<ept id="53a0ae1a-a834-47ce-ab51-d6cee031df7a">&lt;/strong&gt;</ept>, disable <bpt id="d8c5e292-4a67-44fd-96aa-fd06805e07e9">&lt;strong&gt;</bpt>Pin to Startboard<ept id="d8c5e292-4a67-44fd-96aa-fd06805e07e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you do not want to see the VNet as a tile in the <bpt id="53a0ae1a-a834-47ce-ab51-d6cee031df7a">&lt;strong&gt;</bpt>Startboard<ept id="53a0ae1a-a834-47ce-ab51-d6cee031df7a">&lt;/strong&gt;</ept>, disable <bpt id="d8c5e292-4a67-44fd-96aa-fd06805e07e9">&lt;strong&gt;</bpt>Pin to Startboard<ept id="d8c5e292-4a67-44fd-96aa-fd06805e07e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="972424ea-f427-44ab-bf02-2ba688f32d46" xml:space="preserve">
+          <source>Click <bpt id="63e55e19-b130-4c40-a5ad-c3c85961fa0c">&lt;strong&gt;</bpt>Create<ept id="63e55e19-b130-4c40-a5ad-c3c85961fa0c">&lt;/strong&gt;</ept> and notice the tile named <bpt id="50d38445-f287-4257-8976-597d7867bbf9">&lt;strong&gt;</bpt>Creating Virtual network<ept id="50d38445-f287-4257-8976-597d7867bbf9">&lt;/strong&gt;</ept> as shown in the figure below.</source>
+          <target state="new">Click <bpt id="63e55e19-b130-4c40-a5ad-c3c85961fa0c">&lt;strong&gt;</bpt>Create<ept id="63e55e19-b130-4c40-a5ad-c3c85961fa0c">&lt;/strong&gt;</ept> and notice the tile named <bpt id="50d38445-f287-4257-8976-597d7867bbf9">&lt;strong&gt;</bpt>Creating Virtual network<ept id="50d38445-f287-4257-8976-597d7867bbf9">&lt;/strong&gt;</ept> as shown in the figure below.</target>
+        </trans-unit>
+        <trans-unit id="6f4f0f18-e1cc-4240-8eca-fb224840f006" xml:space="preserve">
+          <source><bpt id="e5a2bbf2-f0e8-4e90-8039-048a75745b2c">&lt;linkText&gt;</bpt>Create VNet in portal<ept id="e5a2bbf2-f0e8-4e90-8039-048a75745b2c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e5a2bbf2-f0e8-4e90-8039-048a75745b2c">&lt;linkText&gt;</bpt>Create VNet in portal<ept id="e5a2bbf2-f0e8-4e90-8039-048a75745b2c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c597351-338f-49a9-83c7-4f1b8593b7b9" xml:space="preserve">
+          <source>Wait for the VNet to be created, and when you see the tile below, click it to add more subnets.</source>
+          <target state="new">Wait for the VNet to be created, and when you see the tile below, click it to add more subnets.</target>
+        </trans-unit>
+        <trans-unit id="bda4f387-70e0-4187-b548-76b60666eacd" xml:space="preserve">
+          <source><bpt id="4a244b8c-755b-4a5f-b65f-4e23a6e0e69c">&lt;linkText&gt;</bpt>Create VNet in portal<ept id="4a244b8c-755b-4a5f-b65f-4e23a6e0e69c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4a244b8c-755b-4a5f-b65f-4e23a6e0e69c">&lt;linkText&gt;</bpt>Create VNet in portal<ept id="4a244b8c-755b-4a5f-b65f-4e23a6e0e69c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73b905ff-5d43-4150-87b1-145076b7e73d" xml:space="preserve">
+          <source>You should see the <bpt id="641d23b1-1639-47a9-9dbd-506483121443">&lt;strong&gt;</bpt>Configuration<ept id="641d23b1-1639-47a9-9dbd-506483121443">&lt;/strong&gt;</ept> for your VNet as shown below.</source>
+          <target state="new">You should see the <bpt id="641d23b1-1639-47a9-9dbd-506483121443">&lt;strong&gt;</bpt>Configuration<ept id="641d23b1-1639-47a9-9dbd-506483121443">&lt;/strong&gt;</ept> for your VNet as shown below.</target>
+        </trans-unit>
+        <trans-unit id="c4cc4571-2507-48a6-baa8-97ce2b63a9d7" xml:space="preserve">
+          <source><bpt id="ff714bd1-df5f-43a6-b6e6-809236fe13d6">&lt;linkText&gt;</bpt>Create VNet in portal<ept id="ff714bd1-df5f-43a6-b6e6-809236fe13d6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff714bd1-df5f-43a6-b6e6-809236fe13d6">&lt;linkText&gt;</bpt>Create VNet in portal<ept id="ff714bd1-df5f-43a6-b6e6-809236fe13d6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="132a00c4-dfcf-4cb2-9b4f-b3a4483c6ea4" xml:space="preserve">
+          <source>Click <bpt id="974320b9-b849-4755-8d83-cef43e820272">&lt;strong&gt;</bpt>Subnets<ept id="974320b9-b849-4755-8d83-cef43e820272">&lt;/strong&gt;</ept> &gt; <bpt id="edfe4d34-b4e1-4afd-9a17-6b618755c9dd">&lt;strong&gt;</bpt>Add<ept id="edfe4d34-b4e1-4afd-9a17-6b618755c9dd">&lt;/strong&gt;</ept>, then type a <bpt id="16494cea-156b-4af4-b97f-1482f55a74df">&lt;strong&gt;</bpt>Name<ept id="16494cea-156b-4af4-b97f-1482f55a74df">&lt;/strong&gt;</ept> and specify an <bpt id="8e927c9f-2ca8-4904-9c9d-c6c9e0041a2c">&lt;strong&gt;</bpt>Address range (CIDR block)<ept id="8e927c9f-2ca8-4904-9c9d-c6c9e0041a2c">&lt;/strong&gt;</ept> for your subnet, and then click <bpt id="8dc7e44b-39e9-4ad1-96b1-44563bbfd28a">&lt;strong&gt;</bpt>OK<ept id="8dc7e44b-39e9-4ad1-96b1-44563bbfd28a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="974320b9-b849-4755-8d83-cef43e820272">&lt;strong&gt;</bpt>Subnets<ept id="974320b9-b849-4755-8d83-cef43e820272">&lt;/strong&gt;</ept> &gt; <bpt id="edfe4d34-b4e1-4afd-9a17-6b618755c9dd">&lt;strong&gt;</bpt>Add<ept id="edfe4d34-b4e1-4afd-9a17-6b618755c9dd">&lt;/strong&gt;</ept>, then type a <bpt id="16494cea-156b-4af4-b97f-1482f55a74df">&lt;strong&gt;</bpt>Name<ept id="16494cea-156b-4af4-b97f-1482f55a74df">&lt;/strong&gt;</ept> and specify an <bpt id="8e927c9f-2ca8-4904-9c9d-c6c9e0041a2c">&lt;strong&gt;</bpt>Address range (CIDR block)<ept id="8e927c9f-2ca8-4904-9c9d-c6c9e0041a2c">&lt;/strong&gt;</ept> for your subnet, and then click <bpt id="8dc7e44b-39e9-4ad1-96b1-44563bbfd28a">&lt;strong&gt;</bpt>OK<ept id="8dc7e44b-39e9-4ad1-96b1-44563bbfd28a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df0e990e-cfaf-4635-94a9-81ecab3b90cc" xml:space="preserve">
+          <source>The figure below shows the settings for our current scenario.</source>
+          <target state="new">The figure below shows the settings for our current scenario.</target>
+        </trans-unit>
+        <trans-unit id="867f2514-c793-42f8-b154-9b3122ffb41d" xml:space="preserve">
+          <source><bpt id="1da865d0-559c-46d9-9709-dd067135007e">&lt;linkText&gt;</bpt>Create VNet in preview portal<ept id="1da865d0-559c-46d9-9709-dd067135007e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1da865d0-559c-46d9-9709-dd067135007e">&lt;linkText&gt;</bpt>Create VNet in preview portal<ept id="1da865d0-559c-46d9-9709-dd067135007e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

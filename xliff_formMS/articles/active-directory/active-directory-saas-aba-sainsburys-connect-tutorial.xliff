@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="80727563-7128-4d26-aaa2-b4c371f632bd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="80727563-7128-4d26-aaa2-b4c371f632bd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8440a2ee-5b8e-4b00-bcb7-2800b5b8e939">
+        <trans-unit id="72831bf7-1d40-4a87-8397-7d7d2af95250" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with ABa Sainsburys Connect | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with ABa Sainsburys Connect | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="eadb5725-c45f-4c16-94f2-be921f389c26" xml:space="preserve">
+          <source>Learn how to use ABa Sainsburys Connect with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use ABa Sainsburys Connect with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="5a553d89-a39a-423a-bdc1-078d753b3687" xml:space="preserve">
+          <source>For feedback, click <bpt id="89675662-6ce2-4bcb-81ff-53b6d08ad645">&lt;linkText&gt;</bpt>here<ept id="89675662-6ce2-4bcb-81ff-53b6d08ad645">&lt;/linkText&gt;</ept><bpt id="89675662-6ce2-4bcb-81ff-53b6d08ad645">&lt;title&gt;</bpt><ept id="89675662-6ce2-4bcb-81ff-53b6d08ad645">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="89675662-6ce2-4bcb-81ff-53b6d08ad645">&lt;linkText&gt;</bpt>here<ept id="89675662-6ce2-4bcb-81ff-53b6d08ad645">&lt;/linkText&gt;</ept><bpt id="89675662-6ce2-4bcb-81ff-53b6d08ad645">&lt;title&gt;</bpt><ept id="89675662-6ce2-4bcb-81ff-53b6d08ad645">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed8e15f5-fc32-423f-9971-94c05cbd420d" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Aba Sainsburys Connect.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Aba Sainsburys Connect.</target>
+        </trans-unit>
+        <trans-unit id="c3d3f677-8e17-46cd-919f-2b67958cf59d" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="b4ed5c2a-e005-451d-80af-9df1cdf783b0" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="cf7b628d-e799-469c-a026-8ce4f1f9b1a4" xml:space="preserve">
+          <source>An Aba Sainsburys Connect single sign-on enabled subscription</source>
+          <target state="new">An Aba Sainsburys Connect single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="d3653eb4-0394-464a-8661-79c79332b796" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Aba Sainsburys Connect will be able to single sign into the application at your Aba Sainsburys Connect company site (service provider initiated sign on), or using the <bpt id="0c54a046-1c2c-4930-88c5-1f05b5c26ff1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="0c54a046-1c2c-4930-88c5-1f05b5c26ff1">&lt;/linkText&gt;</ept><bpt id="0c54a046-1c2c-4930-88c5-1f05b5c26ff1">&lt;title&gt;</bpt><ept id="0c54a046-1c2c-4930-88c5-1f05b5c26ff1">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Aba Sainsburys Connect will be able to single sign into the application at your Aba Sainsburys Connect company site (service provider initiated sign on), or using the <bpt id="0c54a046-1c2c-4930-88c5-1f05b5c26ff1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="0c54a046-1c2c-4930-88c5-1f05b5c26ff1">&lt;/linkText&gt;</ept><bpt id="0c54a046-1c2c-4930-88c5-1f05b5c26ff1">&lt;title&gt;</bpt><ept id="0c54a046-1c2c-4930-88c5-1f05b5c26ff1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f82aece5-0827-438b-99c6-58714178d3e0" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="f1c1d65a-8342-4236-bc82-15c85abf9ad1" xml:space="preserve">
+          <source>Enabling the application integration for Aba Sainsburys Connect</source>
+          <target state="new">Enabling the application integration for Aba Sainsburys Connect</target>
+        </trans-unit>
+        <trans-unit id="b4028e00-f48e-445f-bbed-fccfc8ab7a71" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="04591b1e-9c22-420d-9b93-1a09e14722f1" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="04737041-e3cf-4dba-9d71-e518b69acdd7" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="4f859b2b-258a-4510-9a20-9f14a19ba750" xml:space="preserve">
+          <source><bpt id="ab6bfd9b-5ffa-4b7e-998b-5afaf44a25db">&lt;linkText&gt;</bpt>Scenario<ept id="ab6bfd9b-5ffa-4b7e-998b-5afaf44a25db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ab6bfd9b-5ffa-4b7e-998b-5afaf44a25db">&lt;linkText&gt;</bpt>Scenario<ept id="ab6bfd9b-5ffa-4b7e-998b-5afaf44a25db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34bcb721-168f-4ba3-a0eb-2b03b931b00c" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Aba Sainsburys Connect.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Aba Sainsburys Connect.</target>
+        </trans-unit>
+        <trans-unit id="c68776a8-fc81-45b2-b500-e12ab6e70f7d" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="ec9ebbe6-9dbf-4131-925b-476324569e1c">&lt;strong&gt;</bpt>Active Directory<ept id="ec9ebbe6-9dbf-4131-925b-476324569e1c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="ec9ebbe6-9dbf-4131-925b-476324569e1c">&lt;strong&gt;</bpt>Active Directory<ept id="ec9ebbe6-9dbf-4131-925b-476324569e1c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c235ad60-dcd1-4bec-96a7-b0f46776c910" xml:space="preserve">
+          <source><bpt id="886727dc-8316-461f-b867-a7302445c8fb">&lt;linkText&gt;</bpt>Active Directory<ept id="886727dc-8316-461f-b867-a7302445c8fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="886727dc-8316-461f-b867-a7302445c8fb">&lt;linkText&gt;</bpt>Active Directory<ept id="886727dc-8316-461f-b867-a7302445c8fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55c1697e-4ff1-4b0b-a016-4566b6417492" xml:space="preserve">
+          <source>From the <bpt id="f7deda5e-beb7-47f6-a21b-75526be85f25">&lt;strong&gt;</bpt>Directory<ept id="f7deda5e-beb7-47f6-a21b-75526be85f25">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="f7deda5e-beb7-47f6-a21b-75526be85f25">&lt;strong&gt;</bpt>Directory<ept id="f7deda5e-beb7-47f6-a21b-75526be85f25">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="929bc165-d6e5-41a4-8287-41e976cbaf86" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="75d4009a-98e3-4240-ab3a-b5397c1e6ae6">&lt;strong&gt;</bpt>Applications<ept id="75d4009a-98e3-4240-ab3a-b5397c1e6ae6">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="75d4009a-98e3-4240-ab3a-b5397c1e6ae6">&lt;strong&gt;</bpt>Applications<ept id="75d4009a-98e3-4240-ab3a-b5397c1e6ae6">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="67614ffd-5e37-40d4-be47-130fbbecdea1" xml:space="preserve">
+          <source><bpt id="16e79670-8fa9-4dce-85ce-a2cb94de8230">&lt;linkText&gt;</bpt>Applications<ept id="16e79670-8fa9-4dce-85ce-a2cb94de8230">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16e79670-8fa9-4dce-85ce-a2cb94de8230">&lt;linkText&gt;</bpt>Applications<ept id="16e79670-8fa9-4dce-85ce-a2cb94de8230">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4dcc0e0b-83ec-4ed2-96e6-f1eddb37ddb9" xml:space="preserve">
+          <source>Click <bpt id="69559e6b-1964-4c4a-aa6e-4ba79b4770ea">&lt;strong&gt;</bpt>Add<ept id="69559e6b-1964-4c4a-aa6e-4ba79b4770ea">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="69559e6b-1964-4c4a-aa6e-4ba79b4770ea">&lt;strong&gt;</bpt>Add<ept id="69559e6b-1964-4c4a-aa6e-4ba79b4770ea">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="f0c3fbc5-4b4e-43b2-a864-7616b7ecaad2" xml:space="preserve">
+          <source><bpt id="88a29d20-2992-4ea4-b0f8-39588997f0d8">&lt;linkText&gt;</bpt>Add application<ept id="88a29d20-2992-4ea4-b0f8-39588997f0d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="88a29d20-2992-4ea4-b0f8-39588997f0d8">&lt;linkText&gt;</bpt>Add application<ept id="88a29d20-2992-4ea4-b0f8-39588997f0d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46fd4ce6-7fb9-4af9-ab8b-2de65010a0fe" xml:space="preserve">
+          <source>On the <bpt id="8e817b57-d88c-4e60-9aeb-129c1cd9279c">&lt;strong&gt;</bpt>What do you want to do<ept id="8e817b57-d88c-4e60-9aeb-129c1cd9279c">&lt;/strong&gt;</ept> dialog, click <bpt id="1ebc944d-4d8d-4ee3-befc-8e5f2c052efb">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="1ebc944d-4d8d-4ee3-befc-8e5f2c052efb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="8e817b57-d88c-4e60-9aeb-129c1cd9279c">&lt;strong&gt;</bpt>What do you want to do<ept id="8e817b57-d88c-4e60-9aeb-129c1cd9279c">&lt;/strong&gt;</ept> dialog, click <bpt id="1ebc944d-4d8d-4ee3-befc-8e5f2c052efb">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="1ebc944d-4d8d-4ee3-befc-8e5f2c052efb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85aee40d-1908-4c1f-9278-867d6313a0b0" xml:space="preserve">
+          <source><bpt id="79648c12-81ed-400e-be7e-959496a43018">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="79648c12-81ed-400e-be7e-959496a43018">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="79648c12-81ed-400e-be7e-959496a43018">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="79648c12-81ed-400e-be7e-959496a43018">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b1411eb-bd09-4822-bdae-a6a0df60a5ae" xml:space="preserve">
+          <source>In the <bpt id="b49f2e6a-93ca-476f-94e4-ba77eb894ee5">&lt;strong&gt;</bpt>search box<ept id="b49f2e6a-93ca-476f-94e4-ba77eb894ee5">&lt;/strong&gt;</ept>, type <bpt id="921d364e-4afa-42f3-b73a-2814c33b87db">&lt;strong&gt;</bpt>Aba Sainsburys Connect<ept id="921d364e-4afa-42f3-b73a-2814c33b87db">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b49f2e6a-93ca-476f-94e4-ba77eb894ee5">&lt;strong&gt;</bpt>search box<ept id="b49f2e6a-93ca-476f-94e4-ba77eb894ee5">&lt;/strong&gt;</ept>, type <bpt id="921d364e-4afa-42f3-b73a-2814c33b87db">&lt;strong&gt;</bpt>Aba Sainsburys Connect<ept id="921d364e-4afa-42f3-b73a-2814c33b87db">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01716c9f-7400-4d47-a742-faee7a3ea584" xml:space="preserve">
+          <source><bpt id="62e3c2a1-c6b5-428c-b658-cd9c2c8027f3">&lt;linkText&gt;</bpt>Aba Sainsburys Connect<ept id="62e3c2a1-c6b5-428c-b658-cd9c2c8027f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62e3c2a1-c6b5-428c-b658-cd9c2c8027f3">&lt;linkText&gt;</bpt>Aba Sainsburys Connect<ept id="62e3c2a1-c6b5-428c-b658-cd9c2c8027f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f4f4c10-fe0f-45a2-981a-cae263044b65" xml:space="preserve">
+          <source>In the results pane, select <bpt id="763df35c-e023-4c05-ad62-98678957283c">&lt;strong&gt;</bpt>Aba Sainsburys Connect<ept id="763df35c-e023-4c05-ad62-98678957283c">&lt;/strong&gt;</ept>, and then click <bpt id="9e6a7f82-c5d1-4233-82d2-ac2b4ed0c548">&lt;strong&gt;</bpt>Complete<ept id="9e6a7f82-c5d1-4233-82d2-ac2b4ed0c548">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="763df35c-e023-4c05-ad62-98678957283c">&lt;strong&gt;</bpt>Aba Sainsburys Connect<ept id="763df35c-e023-4c05-ad62-98678957283c">&lt;/strong&gt;</ept>, and then click <bpt id="9e6a7f82-c5d1-4233-82d2-ac2b4ed0c548">&lt;strong&gt;</bpt>Complete<ept id="9e6a7f82-c5d1-4233-82d2-ac2b4ed0c548">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="09e89089-2783-4335-b985-d366fd4ce82c" xml:space="preserve">
+          <source><bpt id="2c1b7cdd-84d1-4283-8d2b-b2e7a76d8ca1">&lt;linkText&gt;</bpt>Aba Sainsburys Connect<ept id="2c1b7cdd-84d1-4283-8d2b-b2e7a76d8ca1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c1b7cdd-84d1-4283-8d2b-b2e7a76d8ca1">&lt;linkText&gt;</bpt>Aba Sainsburys Connect<ept id="2c1b7cdd-84d1-4283-8d2b-b2e7a76d8ca1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ef4ec9a-2d62-407b-83f1-7c567c15914a" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Aba Sainsburys Connect with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Aba Sainsburys Connect with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="92ab88f4-b3f4-4746-a5eb-09c8ee0eee0c" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="9aa39b7d-3832-43d3-be4a-6c6c6c94fbcc">&lt;strong&gt;</bpt>Aba Sainsburys Connect<ept id="9aa39b7d-3832-43d3-be4a-6c6c6c94fbcc">&lt;/strong&gt;</ept> application integration page, click <bpt id="55f67cc5-7e2f-4d22-87c1-1856e081518e">&lt;strong&gt;</bpt>Configure single sign-on<ept id="55f67cc5-7e2f-4d22-87c1-1856e081518e">&lt;/strong&gt;</ept> to open the <bpt id="fccfe969-33fe-447e-9106-6b4c212c9ee5">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="fccfe969-33fe-447e-9106-6b4c212c9ee5">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="9aa39b7d-3832-43d3-be4a-6c6c6c94fbcc">&lt;strong&gt;</bpt>Aba Sainsburys Connect<ept id="9aa39b7d-3832-43d3-be4a-6c6c6c94fbcc">&lt;/strong&gt;</ept> application integration page, click <bpt id="55f67cc5-7e2f-4d22-87c1-1856e081518e">&lt;strong&gt;</bpt>Configure single sign-on<ept id="55f67cc5-7e2f-4d22-87c1-1856e081518e">&lt;/strong&gt;</ept> to open the <bpt id="fccfe969-33fe-447e-9106-6b4c212c9ee5">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="fccfe969-33fe-447e-9106-6b4c212c9ee5">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="1d0a121c-5af4-4c96-8259-cbfd49a8cd8c" xml:space="preserve">
+          <source><bpt id="128a0beb-9fcb-4772-a0dd-750368259cb0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="128a0beb-9fcb-4772-a0dd-750368259cb0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="128a0beb-9fcb-4772-a0dd-750368259cb0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="128a0beb-9fcb-4772-a0dd-750368259cb0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06b784ac-59ea-4010-8742-d4abf9a02d48" xml:space="preserve">
+          <source>On the <bpt id="b658b89d-4898-4c47-a905-8a1f6c39e8f9">&lt;strong&gt;</bpt>How would you like users to sign on to Aba Sainsburys Connect<ept id="b658b89d-4898-4c47-a905-8a1f6c39e8f9">&lt;/strong&gt;</ept> page, select <bpt id="0ff6bba4-de8b-444c-b02e-3a850421e28b">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0ff6bba4-de8b-444c-b02e-3a850421e28b">&lt;/strong&gt;</ept>, and then click <bpt id="4807d7e1-0137-491a-a154-5895f119591a">&lt;strong&gt;</bpt>Next<ept id="4807d7e1-0137-491a-a154-5895f119591a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b658b89d-4898-4c47-a905-8a1f6c39e8f9">&lt;strong&gt;</bpt>How would you like users to sign on to Aba Sainsburys Connect<ept id="b658b89d-4898-4c47-a905-8a1f6c39e8f9">&lt;/strong&gt;</ept> page, select <bpt id="0ff6bba4-de8b-444c-b02e-3a850421e28b">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0ff6bba4-de8b-444c-b02e-3a850421e28b">&lt;/strong&gt;</ept>, and then click <bpt id="4807d7e1-0137-491a-a154-5895f119591a">&lt;strong&gt;</bpt>Next<ept id="4807d7e1-0137-491a-a154-5895f119591a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63fdd0a5-a72c-46ed-9c90-8b3fc23ba006" xml:space="preserve">
+          <source><bpt id="5861073a-b83e-4bfc-89f7-f794f9b280c6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="5861073a-b83e-4bfc-89f7-f794f9b280c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5861073a-b83e-4bfc-89f7-f794f9b280c6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="5861073a-b83e-4bfc-89f7-f794f9b280c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7219e851-6a2b-42e0-b438-40fbe37e6174" xml:space="preserve">
+          <source>On the <bpt id="bc1eda4a-dade-46bc-b40d-fda362e38b23">&lt;strong&gt;</bpt>Configure App Settings<ept id="bc1eda4a-dade-46bc-b40d-fda362e38b23">&lt;/strong&gt;</ept> page, perform the following steps:</source>
+          <target state="new">On the <bpt id="bc1eda4a-dade-46bc-b40d-fda362e38b23">&lt;strong&gt;</bpt>Configure App Settings<ept id="bc1eda4a-dade-46bc-b40d-fda362e38b23">&lt;/strong&gt;</ept> page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="a1988c7d-f1dc-4dca-8968-abe9d573bc40" xml:space="preserve">
+          <source><bpt id="e3603dcf-e330-415b-96fe-f8e211b4d5e6">&lt;linkText&gt;</bpt>Configure App Settings<ept id="e3603dcf-e330-415b-96fe-f8e211b4d5e6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3603dcf-e330-415b-96fe-f8e211b4d5e6">&lt;linkText&gt;</bpt>Configure App Settings<ept id="e3603dcf-e330-415b-96fe-f8e211b4d5e6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5eaa2034-2b87-4fe7-b53a-4770c88bf295" xml:space="preserve">
+          <source>In the <bpt id="3050c005-8940-4c27-9014-f20bd46760f7">&lt;strong&gt;</bpt>Sign On URL<ept id="3050c005-8940-4c27-9014-f20bd46760f7">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign-on to your Aba Sainsburys Connect application (e.g.: <bpt id="63ed4e2b-b595-451f-89d1-abaa32d7262d">&lt;em&gt;</bpt>https://myaba.co.uk/client-access/sainsburys/saml.php<ept id="63ed4e2b-b595-451f-89d1-abaa32d7262d">&lt;/em&gt;</ept>).</source>
+          <target state="new">In the <bpt id="3050c005-8940-4c27-9014-f20bd46760f7">&lt;strong&gt;</bpt>Sign On URL<ept id="3050c005-8940-4c27-9014-f20bd46760f7">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign-on to your Aba Sainsburys Connect application (e.g.: <bpt id="63ed4e2b-b595-451f-89d1-abaa32d7262d">&lt;em&gt;</bpt>https://myaba.co.uk/client-access/sainsburys/saml.php<ept id="63ed4e2b-b595-451f-89d1-abaa32d7262d">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="34cebc88-a9fc-4bc1-bf7b-a12565b87184" xml:space="preserve">
+          <source>Click <bpt id="9006f94f-9a9b-4c99-a334-e75f1391bbe9">&lt;strong&gt;</bpt>Next<ept id="9006f94f-9a9b-4c99-a334-e75f1391bbe9">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="9006f94f-9a9b-4c99-a334-e75f1391bbe9">&lt;strong&gt;</bpt>Next<ept id="9006f94f-9a9b-4c99-a334-e75f1391bbe9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dec65030-1213-45f6-9a5e-113fc8c140a2" xml:space="preserve">
+          <source>On the <bpt id="404c4c9a-dd85-4ea1-b1dd-9e4dff49333c">&lt;strong&gt;</bpt>Configure single sign-on at Aba Sainsburys Connect<ept id="404c4c9a-dd85-4ea1-b1dd-9e4dff49333c">&lt;/strong&gt;</ept> page, to download your metadata, click <bpt id="ffdbb87b-96db-498c-a93c-630aeb623760">&lt;strong&gt;</bpt>Download metadata<ept id="ffdbb87b-96db-498c-a93c-630aeb623760">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</source>
+          <target state="new">On the <bpt id="404c4c9a-dd85-4ea1-b1dd-9e4dff49333c">&lt;strong&gt;</bpt>Configure single sign-on at Aba Sainsburys Connect<ept id="404c4c9a-dd85-4ea1-b1dd-9e4dff49333c">&lt;/strong&gt;</ept> page, to download your metadata, click <bpt id="ffdbb87b-96db-498c-a93c-630aeb623760">&lt;strong&gt;</bpt>Download metadata<ept id="ffdbb87b-96db-498c-a93c-630aeb623760">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="ba9cb394-ef52-4883-a3bb-e939086ed5d6" xml:space="preserve">
+          <source><bpt id="21ecbc68-c40c-431a-a695-6b9f9ba4d933">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="21ecbc68-c40c-431a-a695-6b9f9ba4d933">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21ecbc68-c40c-431a-a695-6b9f9ba4d933">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="21ecbc68-c40c-431a-a695-6b9f9ba4d933">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66601cd1-248d-471f-9c1b-40236283a840" xml:space="preserve">
+          <source>Send the downloaded metadata file to your Aba Sainsburys Connect support team.</source>
+          <target state="new">Send the downloaded metadata file to your Aba Sainsburys Connect support team.</target>
+        </trans-unit>
+        <trans-unit id="1b52b051-bc4c-42cb-8512-af1e7588aaf9" xml:space="preserve">
+          <source>Your Aba Sainsburys Connect support team has to do the actual SSO configuration.</source>
+          <target state="new">Your Aba Sainsburys Connect support team has to do the actual SSO configuration.</target>
+        </trans-unit>
+        <trans-unit id="6df5b88a-4222-4f49-9af1-3ca197235eb9" xml:space="preserve">
+          <source>You will get a notification when SSO has been enabled for your subscription.</source>
+          <target state="new">You will get a notification when SSO has been enabled for your subscription.</target>
+        </trans-unit>
+        <trans-unit id="2024fcf4-a42f-492e-b172-34e13ef1b806" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="1da0fd19-5b1a-4786-8f29-5e2c249c00cd">&lt;strong&gt;</bpt>Complete<ept id="1da0fd19-5b1a-4786-8f29-5e2c249c00cd">&lt;/strong&gt;</ept> to close the <bpt id="d6143c7f-745e-4a87-a341-146caebbb55f">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="d6143c7f-745e-4a87-a341-146caebbb55f">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="1da0fd19-5b1a-4786-8f29-5e2c249c00cd">&lt;strong&gt;</bpt>Complete<ept id="1da0fd19-5b1a-4786-8f29-5e2c249c00cd">&lt;/strong&gt;</ept> to close the <bpt id="d6143c7f-745e-4a87-a341-146caebbb55f">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="d6143c7f-745e-4a87-a341-146caebbb55f">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="13026f80-a82d-49c5-838f-42623629b32f" xml:space="preserve">
+          <source><bpt id="54728941-9e55-45f3-b594-645d7c999d26">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="54728941-9e55-45f3-b594-645d7c999d26">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54728941-9e55-45f3-b594-645d7c999d26">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="54728941-9e55-45f3-b594-645d7c999d26">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d55948e-cfec-4fd4-befc-801bee7b2d32" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Aba Sainsburys Connect, they must be provisioned into Aba Sainsburys Connect.</source>
+          <target state="new">In order to enable Azure AD users to log into Aba Sainsburys Connect, they must be provisioned into Aba Sainsburys Connect.</target>
+        </trans-unit>
+        <trans-unit id="86776976-0962-4c15-8ddc-cb0522e777fb" xml:space="preserve">
+          <source>In the case of Aba Sainsburys Connect, the user accounts need to be created by your Aba Sainsburys Connect support team.</source>
+          <target state="new">In the case of Aba Sainsburys Connect, the user accounts need to be created by your Aba Sainsburys Connect support team.</target>
+        </trans-unit>
+        <trans-unit id="0052a081-cb15-4879-94ad-30acb7a3b132" xml:space="preserve">
+          <source>You can use any other Aba Sainsburys Connect user account creation tools or APIs provided by Aba Sainsburys Connect to provision Azure Active Directory user accounts.</source>
+          <target state="new">You can use any other Aba Sainsburys Connect user account creation tools or APIs provided by Aba Sainsburys Connect to provision Azure Active Directory user accounts.</target>
+        </trans-unit>
+        <trans-unit id="f02f9d52-c707-4085-beb2-c780cb0d576d" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="e92390fd-991e-41f3-9909-3c674c89c992" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="38c04b6c-0dde-4ab6-8a7a-962d4e67a21b" xml:space="preserve">
+          <source>On the <bpt id="54996b40-dff8-4120-8dcc-0c9d8da0215c">&lt;strong&gt;</bpt>Aba Sainsburys Connect **application integration page, click **Assign users<ept id="54996b40-dff8-4120-8dcc-0c9d8da0215c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="54996b40-dff8-4120-8dcc-0c9d8da0215c">&lt;strong&gt;</bpt>Aba Sainsburys Connect **application integration page, click **Assign users<ept id="54996b40-dff8-4120-8dcc-0c9d8da0215c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="811e5bc0-5902-4070-ac34-0867e134fedc" xml:space="preserve">
+          <source><bpt id="911bba5f-c9f2-46f9-91b9-4c2205b8a9e4">&lt;linkText&gt;</bpt>Assign Users<ept id="911bba5f-c9f2-46f9-91b9-4c2205b8a9e4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="911bba5f-c9f2-46f9-91b9-4c2205b8a9e4">&lt;linkText&gt;</bpt>Assign Users<ept id="911bba5f-c9f2-46f9-91b9-4c2205b8a9e4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5eba984-3a52-47d2-b48f-2b88bfb27f19" xml:space="preserve">
+          <source>Select your test user, click <bpt id="98e7b9ee-3a71-45aa-861e-38f4dc4ba662">&lt;strong&gt;</bpt>Assign<ept id="98e7b9ee-3a71-45aa-861e-38f4dc4ba662">&lt;/strong&gt;</ept>, and then click <bpt id="74883591-d8c9-40f7-ac62-315254103ba5">&lt;strong&gt;</bpt>Yes<ept id="74883591-d8c9-40f7-ac62-315254103ba5">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="98e7b9ee-3a71-45aa-861e-38f4dc4ba662">&lt;strong&gt;</bpt>Assign<ept id="98e7b9ee-3a71-45aa-861e-38f4dc4ba662">&lt;/strong&gt;</ept>, and then click <bpt id="74883591-d8c9-40f7-ac62-315254103ba5">&lt;strong&gt;</bpt>Yes<ept id="74883591-d8c9-40f7-ac62-315254103ba5">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="db0ff646-c46a-4ddc-8715-ac9bb56ecf09" xml:space="preserve">
+          <source><bpt id="a9c67137-0b0a-4f9b-8361-679022941b4b">&lt;linkText&gt;</bpt>Yes<ept id="a9c67137-0b0a-4f9b-8361-679022941b4b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a9c67137-0b0a-4f9b-8361-679022941b4b">&lt;linkText&gt;</bpt>Yes<ept id="a9c67137-0b0a-4f9b-8361-679022941b4b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08428248-d331-4f6b-83c2-fcd63acc94d9" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="ce199d68-d8fb-4aa3-9d7d-88b8eca9f6ee" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="c1a3a110-f064-4191-a002-9bc4a66ec39f">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c1a3a110-f064-4191-a002-9bc4a66ec39f">&lt;/linkText&gt;</ept><bpt id="c1a3a110-f064-4191-a002-9bc4a66ec39f">&lt;title&gt;</bpt><ept id="c1a3a110-f064-4191-a002-9bc4a66ec39f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="c1a3a110-f064-4191-a002-9bc4a66ec39f">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c1a3a110-f064-4191-a002-9bc4a66ec39f">&lt;/linkText&gt;</ept><bpt id="c1a3a110-f064-4191-a002-9bc4a66ec39f">&lt;title&gt;</bpt><ept id="c1a3a110-f064-4191-a002-9bc4a66ec39f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,1016 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0100a8f9-1286-4dd7-9db1-b88d49ca7f9f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0100a8f9-1286-4dd7-9db1-b88d49ca7f9f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7976d453-456a-4fbe-8b21-cff90b68763d">
+        <trans-unit id="838effd6-8d6a-4842-af70-ee9dc8601ef6" xml:space="preserve">
+          <source>Managing Concurrency in Microsoft Azure Storage</source>
+          <target state="new">Managing Concurrency in Microsoft Azure Storage</target>
+        </trans-unit>
+        <trans-unit id="be60435c-ac7c-44a4-b131-8e8fe850ff6f" xml:space="preserve">
+          <source>How to manage concurrency for the Blob, Queue, Table, and File services</source>
+          <target state="new">How to manage concurrency for the Blob, Queue, Table, and File services</target>
+        </trans-unit>
+        <trans-unit id="f585b415-d7e8-444f-beed-504e81e5cc5b" xml:space="preserve">
+          <source>Modern Internet based applications usually have multiple users viewing and updating data simultaneously.</source>
+          <target state="new">Modern Internet based applications usually have multiple users viewing and updating data simultaneously.</target>
+        </trans-unit>
+        <trans-unit id="8a343ad3-bbed-43e0-993b-d97664526f58" xml:space="preserve">
+          <source>This requires application developers to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data.</source>
+          <target state="new">This requires application developers to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data.</target>
+        </trans-unit>
+        <trans-unit id="1967dc36-3908-4aba-bfd8-c56bb45afe2f" xml:space="preserve">
+          <source>There are three main data concurrency strategies developers will typically consider:</source>
+          <target state="new">There are three main data concurrency strategies developers will typically consider:</target>
+        </trans-unit>
+        <trans-unit id="b61b50fb-3050-4a9f-acbf-d156d1630bd1" xml:space="preserve">
+          <source>Optimistic concurrency – An application performing an update will as part of its update verify if the data has changed since the application last read that data.</source>
+          <target state="new">Optimistic concurrency – An application performing an update will as part of its update verify if the data has changed since the application last read that data.</target>
+        </trans-unit>
+        <trans-unit id="830a7587-25b9-47fd-a130-c0c75c1f630a" xml:space="preserve">
+          <source>For example, if two users viewing a wiki page make an update to the same page then the wiki platform must ensure that the second update does not overwrite the first update – and that both users understand whether their update was successful or not.</source>
+          <target state="new">For example, if two users viewing a wiki page make an update to the same page then the wiki platform must ensure that the second update does not overwrite the first update – and that both users understand whether their update was successful or not.</target>
+        </trans-unit>
+        <trans-unit id="91c8d68e-ca69-47f0-a04f-b45c8ff12638" xml:space="preserve">
+          <source>This strategy is most often used in web applications.</source>
+          <target state="new">This strategy is most often used in web applications.</target>
+        </trans-unit>
+        <trans-unit id="7458a4fc-4460-406c-8601-7138d5d27b2f" xml:space="preserve">
+          <source>Pessimistic concurrency – An application looking to perform an update will take a lock on an object preventing other users from updating the data until the lock is released.</source>
+          <target state="new">Pessimistic concurrency – An application looking to perform an update will take a lock on an object preventing other users from updating the data until the lock is released.</target>
+        </trans-unit>
+        <trans-unit id="875abb79-200b-4ca3-99a5-b44d21ff227d" xml:space="preserve">
+          <source>For example, in a master/slave data replication scenario where only the master will perform updates the master will typically hold an exclusive lock for an extended period of time on the data to ensure no one else can update it.</source>
+          <target state="new">For example, in a master/slave data replication scenario where only the master will perform updates the master will typically hold an exclusive lock for an extended period of time on the data to ensure no one else can update it.</target>
+        </trans-unit>
+        <trans-unit id="97af3096-dc90-4749-9492-1e7bd9a067bb" xml:space="preserve">
+          <source>Last writer wins – An approach that allows any update operations to proceed without verifying if any other application has updated the data since the application first read the data.</source>
+          <target state="new">Last writer wins – An approach that allows any update operations to proceed without verifying if any other application has updated the data since the application first read the data.</target>
+        </trans-unit>
+        <trans-unit id="15478e6f-54bc-4984-b0ba-f1524e763d24" xml:space="preserve">
+          <source>This strategy (or lack of a formal strategy) is usually used where data is partitioned in such a way that there is no likelihood that multiple users will access the same data.</source>
+          <target state="new">This strategy (or lack of a formal strategy) is usually used where data is partitioned in such a way that there is no likelihood that multiple users will access the same data.</target>
+        </trans-unit>
+        <trans-unit id="6e8cb3a0-1cf6-4ae4-b6c2-fc6069aea730" xml:space="preserve">
+          <source>It can also be useful where short-lived data streams are being processed.</source>
+          <target state="new">It can also be useful where short-lived data streams are being processed.</target>
+        </trans-unit>
+        <trans-unit id="d5a440e6-46b0-40a5-bd29-474adc5fbb69" xml:space="preserve">
+          <source>This article provides an overview of how the Azure Storage platform simplifies development by providing first class support for all three of these concurrency strategies.</source>
+          <target state="new">This article provides an overview of how the Azure Storage platform simplifies development by providing first class support for all three of these concurrency strategies.</target>
+        </trans-unit>
+        <trans-unit id="bcf9cff5-7be6-42ab-8ac9-bf305bcec735" xml:space="preserve">
+          <source>The Azure storage service supports all three strategies, although it is distinctive in its ability to provide full support for optimistic and pessimistic concurrency because it was designed to embrace a strong consistency model which guarantees that when the Storage service commits a data insert or update operation all further accesses to that data will see the latest update.</source>
+          <target state="new">The Azure storage service supports all three strategies, although it is distinctive in its ability to provide full support for optimistic and pessimistic concurrency because it was designed to embrace a strong consistency model which guarantees that when the Storage service commits a data insert or update operation all further accesses to that data will see the latest update.</target>
+        </trans-unit>
+        <trans-unit id="7fa92aff-6c31-4f9d-b645-451705f64ffc" xml:space="preserve">
+          <source>Storage platforms that use an eventual consistency model have a lag between when a write is performed by one user and when the updated data can be seen by other users thus complicating development of client applications in order to prevent inconsistencies from affecting end users.</source>
+          <target state="new">Storage platforms that use an eventual consistency model have a lag between when a write is performed by one user and when the updated data can be seen by other users thus complicating development of client applications in order to prevent inconsistencies from affecting end users.</target>
+        </trans-unit>
+        <trans-unit id="8b42775a-17c1-42d1-9bcc-1cfaa5aed56a" xml:space="preserve">
+          <source>In addition to selecting an appropriate concurrency strategy developers should also be aware of how a storage platform isolates changes – particularly changes to the same object across transactions.</source>
+          <target state="new">In addition to selecting an appropriate concurrency strategy developers should also be aware of how a storage platform isolates changes – particularly changes to the same object across transactions.</target>
+        </trans-unit>
+        <trans-unit id="700d4d19-cee6-4a0c-aeda-55b30b576624" xml:space="preserve">
+          <source>The Azure storage service uses snapshot isolation to allow read operations to happen concurrently with write operations within a single partition.</source>
+          <target state="new">The Azure storage service uses snapshot isolation to allow read operations to happen concurrently with write operations within a single partition.</target>
+        </trans-unit>
+        <trans-unit id="7db82ffa-cc2d-4cf1-b096-2d0b623ff520" xml:space="preserve">
+          <source>Unlike other isolation levels, snapshot isolation guarantees that all reads see a consistent snapshot of the data even while updates are occurring – essentially by returning the last committed values while an update transaction is being processed.</source>
+          <target state="new">Unlike other isolation levels, snapshot isolation guarantees that all reads see a consistent snapshot of the data even while updates are occurring – essentially by returning the last committed values while an update transaction is being processed.</target>
+        </trans-unit>
+        <trans-unit id="6184dee6-ea9e-4a49-8367-07f3578ee077" xml:space="preserve">
+          <source>You can opt to use either optimistic or pessimistic concurrency models to manage access to blobs and containers in the blob service.</source>
+          <target state="new">You can opt to use either optimistic or pessimistic concurrency models to manage access to blobs and containers in the blob service.</target>
+        </trans-unit>
+        <trans-unit id="19ab0369-454a-4e6d-b751-829d697d21c1" xml:space="preserve">
+          <source>If you do not explicitly specify a strategy last writes wins is the default.</source>
+          <target state="new">If you do not explicitly specify a strategy last writes wins is the default.</target>
+        </trans-unit>
+        <trans-unit id="13bdf63e-058c-4c8e-928a-3dd48082727d" xml:space="preserve">
+          <source>The Storage service assigns an identifier to every object stored.</source>
+          <target state="new">The Storage service assigns an identifier to every object stored.</target>
+        </trans-unit>
+        <trans-unit id="94b8b0ee-936c-42f0-b125-bf6777835a16" xml:space="preserve">
+          <source>This identifier is updated every time an update operation is performed on an object.</source>
+          <target state="new">This identifier is updated every time an update operation is performed on an object.</target>
+        </trans-unit>
+        <trans-unit id="7c6f3045-964e-4cba-ae17-a19007fa89a8" xml:space="preserve">
+          <source>The identifier is returned to the client as part of an HTTP GET response using the ETag (entity tag) header that is defined within the HTTP protocol.</source>
+          <target state="new">The identifier is returned to the client as part of an HTTP GET response using the ETag (entity tag) header that is defined within the HTTP protocol.</target>
+        </trans-unit>
+        <trans-unit id="dd0c5e86-d233-4148-a868-0dd691eef5e1" xml:space="preserve">
+          <source>A user performing an update on such an object can send in the original ETag along with a conditional header to ensure that an update will only occur if a certain condition has been met – in this case the condition is an “If-Match” header which requires the Storage Service to ensure the value of the ETag specified in the update request is the same as that stored in the Storage Service.</source>
+          <target state="new">A user performing an update on such an object can send in the original ETag along with a conditional header to ensure that an update will only occur if a certain condition has been met – in this case the condition is an “If-Match” header which requires the Storage Service to ensure the value of the ETag specified in the update request is the same as that stored in the Storage Service.</target>
+        </trans-unit>
+        <trans-unit id="f3fc4500-2078-44bf-8523-2cf1295f2f4d" xml:space="preserve">
+          <source>The outline of this process is as follows:  </source>
+          <target state="new">The outline of this process is as follows:  </target>
+        </trans-unit>
+        <trans-unit id="756b4015-70b8-4815-8455-bdcf998a47f1" xml:space="preserve">
+          <source>Retrieve a blob from the storage service, the response includes an HTTP ETag Header value that identifies the current version of the object in the storage service.</source>
+          <target state="new">Retrieve a blob from the storage service, the response includes an HTTP ETag Header value that identifies the current version of the object in the storage service.</target>
+        </trans-unit>
+        <trans-unit id="aeefc71d-0050-4ae1-a2e9-02e76c816c14" xml:space="preserve">
+          <source>When you update the blob, include the ETag value you received in step 1 in the <bpt id="d3917330-a22a-4dad-9612-651cd8d71931">&lt;strong&gt;</bpt>If-Match<ept id="d3917330-a22a-4dad-9612-651cd8d71931">&lt;/strong&gt;</ept> conditional header of the request you send to the service.</source>
+          <target state="new">When you update the blob, include the ETag value you received in step 1 in the <bpt id="d3917330-a22a-4dad-9612-651cd8d71931">&lt;strong&gt;</bpt>If-Match<ept id="d3917330-a22a-4dad-9612-651cd8d71931">&lt;/strong&gt;</ept> conditional header of the request you send to the service.</target>
+        </trans-unit>
+        <trans-unit id="65d2e11f-c576-4878-9d71-c60033d4700a" xml:space="preserve">
+          <source>The service compares the ETag value in the request with the current ETag value of the blob.</source>
+          <target state="new">The service compares the ETag value in the request with the current ETag value of the blob.</target>
+        </trans-unit>
+        <trans-unit id="72e2d27c-a857-4f86-b2cd-0021397a712b" xml:space="preserve">
+          <source>If the current ETag value of the blob is a different version than the ETag in the <bpt id="ce79b2ae-fdfb-4d07-a929-30b852917057">&lt;strong&gt;</bpt>If-Match<ept id="ce79b2ae-fdfb-4d07-a929-30b852917057">&lt;/strong&gt;</ept> conditional header in the request, the service returns a 412 error to the client.</source>
+          <target state="new">If the current ETag value of the blob is a different version than the ETag in the <bpt id="ce79b2ae-fdfb-4d07-a929-30b852917057">&lt;strong&gt;</bpt>If-Match<ept id="ce79b2ae-fdfb-4d07-a929-30b852917057">&lt;/strong&gt;</ept> conditional header in the request, the service returns a 412 error to the client.</target>
+        </trans-unit>
+        <trans-unit id="50bb534a-4a13-4ed4-94ee-726af44fce59" xml:space="preserve">
+          <source>This indicates to the client that another process has updated the blob since the client retrieved it.</source>
+          <target state="new">This indicates to the client that another process has updated the blob since the client retrieved it.</target>
+        </trans-unit>
+        <trans-unit id="074212de-585f-4bf4-99ff-64b8737c8535" xml:space="preserve">
+          <source>If the current ETag value of the blob is the same version as the ETag in the <bpt id="0e67d81b-9104-4e96-8f31-9406d2c7ef50">&lt;strong&gt;</bpt>If-Match<ept id="0e67d81b-9104-4e96-8f31-9406d2c7ef50">&lt;/strong&gt;</ept> conditional header in the request, the service performs the requested operation and updates the current ETag value of the blob to show that it has created a new version.</source>
+          <target state="new">If the current ETag value of the blob is the same version as the ETag in the <bpt id="0e67d81b-9104-4e96-8f31-9406d2c7ef50">&lt;strong&gt;</bpt>If-Match<ept id="0e67d81b-9104-4e96-8f31-9406d2c7ef50">&lt;/strong&gt;</ept> conditional header in the request, the service performs the requested operation and updates the current ETag value of the blob to show that it has created a new version.</target>
+        </trans-unit>
+        <trans-unit id="8e4508aa-7250-4bb8-8c6d-427b03f70749" xml:space="preserve">
+          <source>The following C# snippet (using the Client Storage Library 4.2.0) shows a simple example of how to construct an <bpt id="b881f156-24f4-4a0b-8325-84103fe655a9">&lt;strong&gt;</bpt>If-Match AccessCondition<ept id="b881f156-24f4-4a0b-8325-84103fe655a9">&lt;/strong&gt;</ept> based on the ETag value that is accessed from the properties of a blob that was previously either retrieved or inserted.</source>
+          <target state="new">The following C# snippet (using the Client Storage Library 4.2.0) shows a simple example of how to construct an <bpt id="b881f156-24f4-4a0b-8325-84103fe655a9">&lt;strong&gt;</bpt>If-Match AccessCondition<ept id="b881f156-24f4-4a0b-8325-84103fe655a9">&lt;/strong&gt;</ept> based on the ETag value that is accessed from the properties of a blob that was previously either retrieved or inserted.</target>
+        </trans-unit>
+        <trans-unit id="11f33eff-3e12-4deb-a131-0b730fbf13f5" xml:space="preserve">
+          <source>It then uses the <bpt id="a85a70bb-e31e-4912-8d2f-fad6946dc08c">&lt;strong&gt;</bpt>AccessCondition<ept id="a85a70bb-e31e-4912-8d2f-fad6946dc08c">&lt;/strong&gt;</ept> object when it updating the blob: the <bpt id="a78ed9cd-2f16-44e2-96da-cceb1e764ae0">&lt;strong&gt;</bpt>AccessCondition<ept id="a78ed9cd-2f16-44e2-96da-cceb1e764ae0">&lt;/strong&gt;</ept> object adds the <bpt id="7e4de880-6f35-4cd9-a5c4-16c803aa796b">&lt;strong&gt;</bpt>If-Match<ept id="7e4de880-6f35-4cd9-a5c4-16c803aa796b">&lt;/strong&gt;</ept> header to the request.</source>
+          <target state="new">It then uses the <bpt id="a85a70bb-e31e-4912-8d2f-fad6946dc08c">&lt;strong&gt;</bpt>AccessCondition<ept id="a85a70bb-e31e-4912-8d2f-fad6946dc08c">&lt;/strong&gt;</ept> object when it updating the blob: the <bpt id="a78ed9cd-2f16-44e2-96da-cceb1e764ae0">&lt;strong&gt;</bpt>AccessCondition<ept id="a78ed9cd-2f16-44e2-96da-cceb1e764ae0">&lt;/strong&gt;</ept> object adds the <bpt id="7e4de880-6f35-4cd9-a5c4-16c803aa796b">&lt;strong&gt;</bpt>If-Match<ept id="7e4de880-6f35-4cd9-a5c4-16c803aa796b">&lt;/strong&gt;</ept> header to the request.</target>
+        </trans-unit>
+        <trans-unit id="f29405e6-fe1f-421e-87a1-7b9fa2fd15d6" xml:space="preserve">
+          <source>If another process has updated the blob, the blob service returns an HTTP 412 (Precondition Failed) status message.</source>
+          <target state="new">If another process has updated the blob, the blob service returns an HTTP 412 (Precondition Failed) status message.</target>
+        </trans-unit>
+        <trans-unit id="9e951f75-918b-4925-9c85-0817fed591dc" xml:space="preserve">
+          <source>The full sample can be downloaded <bpt id="84e5f565-104a-407f-a930-03ef49f8e23b">&lt;linkText&gt;</bpt>here<ept id="84e5f565-104a-407f-a930-03ef49f8e23b">&lt;/linkText&gt;</ept><bpt id="84e5f565-104a-407f-a930-03ef49f8e23b">&lt;title&gt;</bpt><ept id="84e5f565-104a-407f-a930-03ef49f8e23b">&lt;/title&gt;</ept>.</source>
+          <target state="new">The full sample can be downloaded <bpt id="84e5f565-104a-407f-a930-03ef49f8e23b">&lt;linkText&gt;</bpt>here<ept id="84e5f565-104a-407f-a930-03ef49f8e23b">&lt;/linkText&gt;</ept><bpt id="84e5f565-104a-407f-a930-03ef49f8e23b">&lt;title&gt;</bpt><ept id="84e5f565-104a-407f-a930-03ef49f8e23b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="571e6500-1048-4367-82e7-494345094b5d" xml:space="preserve">
+          <source>The Storage Service also includes support for additional conditional headers such as <bpt id="850a5b74-3746-4eac-bedc-d9e19a471229">&lt;strong&gt;</bpt>If-Modified-Since<ept id="850a5b74-3746-4eac-bedc-d9e19a471229">&lt;/strong&gt;</ept>, <bpt id="cd0dfc15-bc0c-4a17-8548-020fe177f5d4">&lt;strong&gt;</bpt>If-Unmodified-Since<ept id="cd0dfc15-bc0c-4a17-8548-020fe177f5d4">&lt;/strong&gt;</ept> and <bpt id="fb1ca66e-66d4-4ff5-85c6-c0a744dae5bc">&lt;strong&gt;</bpt>If-None-Match<ept id="fb1ca66e-66d4-4ff5-85c6-c0a744dae5bc">&lt;/strong&gt;</ept> as well as combinations thereof.</source>
+          <target state="new">The Storage Service also includes support for additional conditional headers such as <bpt id="850a5b74-3746-4eac-bedc-d9e19a471229">&lt;strong&gt;</bpt>If-Modified-Since<ept id="850a5b74-3746-4eac-bedc-d9e19a471229">&lt;/strong&gt;</ept>, <bpt id="cd0dfc15-bc0c-4a17-8548-020fe177f5d4">&lt;strong&gt;</bpt>If-Unmodified-Since<ept id="cd0dfc15-bc0c-4a17-8548-020fe177f5d4">&lt;/strong&gt;</ept> and <bpt id="fb1ca66e-66d4-4ff5-85c6-c0a744dae5bc">&lt;strong&gt;</bpt>If-None-Match<ept id="fb1ca66e-66d4-4ff5-85c6-c0a744dae5bc">&lt;/strong&gt;</ept> as well as combinations thereof.</target>
+        </trans-unit>
+        <trans-unit id="3fc23d1a-9633-4bbb-84a2-4c9f6c1847f5" xml:space="preserve">
+          <source>For more information see <bpt id="ccf4c315-39ee-46f7-9a3c-86b8fc110e5a">&lt;linkText&gt;</bpt>Specifying Conditional Headers for Blob Service Operations<ept id="ccf4c315-39ee-46f7-9a3c-86b8fc110e5a">&lt;/linkText&gt;</ept><bpt id="ccf4c315-39ee-46f7-9a3c-86b8fc110e5a">&lt;title&gt;</bpt><ept id="ccf4c315-39ee-46f7-9a3c-86b8fc110e5a">&lt;/title&gt;</ept> on MSDN.</source>
+          <target state="new">For more information see <bpt id="ccf4c315-39ee-46f7-9a3c-86b8fc110e5a">&lt;linkText&gt;</bpt>Specifying Conditional Headers for Blob Service Operations<ept id="ccf4c315-39ee-46f7-9a3c-86b8fc110e5a">&lt;/linkText&gt;</ept><bpt id="ccf4c315-39ee-46f7-9a3c-86b8fc110e5a">&lt;title&gt;</bpt><ept id="ccf4c315-39ee-46f7-9a3c-86b8fc110e5a">&lt;/title&gt;</ept> on MSDN.</target>
+        </trans-unit>
+        <trans-unit id="06c41a2b-b158-4b68-b027-6a51414fb37a" xml:space="preserve">
+          <source>The following table summarizes the container operations that accept conditional headers such as <bpt id="051b4503-66f2-4804-b309-807a9f5815e4">&lt;strong&gt;</bpt>If-Match<ept id="051b4503-66f2-4804-b309-807a9f5815e4">&lt;/strong&gt;</ept> in the request and that return an ETag value in the response.</source>
+          <target state="new">The following table summarizes the container operations that accept conditional headers such as <bpt id="051b4503-66f2-4804-b309-807a9f5815e4">&lt;strong&gt;</bpt>If-Match<ept id="051b4503-66f2-4804-b309-807a9f5815e4">&lt;/strong&gt;</ept> in the request and that return an ETag value in the response.</target>
+        </trans-unit>
+        <trans-unit id="fb1bc374-df5f-4eda-8e26-921c55fdf3f5" xml:space="preserve">
+          <source>Operation</source>
+          <target state="new">Operation</target>
+        </trans-unit>
+        <trans-unit id="8b1d1a98-86c0-43e7-b362-58abe8fb9315" xml:space="preserve">
+          <source>Returns Container ETag value</source>
+          <target state="new">Returns Container ETag value</target>
+        </trans-unit>
+        <trans-unit id="08beb663-1bf7-4631-82a6-2d71482051a9" xml:space="preserve">
+          <source>Accepts conditional headers</source>
+          <target state="new">Accepts conditional headers</target>
+        </trans-unit>
+        <trans-unit id="2ea43d04-f762-42db-a3eb-f2324d403e1a" xml:space="preserve">
+          <source>Create Container</source>
+          <target state="new">Create Container</target>
+        </trans-unit>
+        <trans-unit id="89581d08-2541-4d2a-9b3c-11ea0af3abeb" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="bd764a3c-f335-40db-b07d-4ce2fd77a1fb" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="182ec675-f7e8-4e57-a5b8-cc96eb79a8ad" xml:space="preserve">
+          <source>Get Container Properties</source>
+          <target state="new">Get Container Properties</target>
+        </trans-unit>
+        <trans-unit id="40f73ff9-ac35-4034-98fa-ed5cf3e552cf" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="541b7af1-8dcb-4ffd-a5a1-bea0e9fb6a23" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="1e57c91e-25ff-4133-a00a-3b521801c618" xml:space="preserve">
+          <source>Get Container Metadata</source>
+          <target state="new">Get Container Metadata</target>
+        </trans-unit>
+        <trans-unit id="1c4b629a-f9ca-43f0-8603-caeea81c4eea" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="63c387bf-bb0f-448c-8cea-c74a9454c409" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="39fce04a-77a0-48eb-a860-57286beb79e0" xml:space="preserve">
+          <source>Set Container Metadata</source>
+          <target state="new">Set Container Metadata</target>
+        </trans-unit>
+        <trans-unit id="0c5afadd-541e-4ae8-b2dd-d76884998440" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="790341d3-6dd0-4659-805b-0632e2aa13bd" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="be56fccd-7f20-4903-9964-efb8e42f651b" xml:space="preserve">
+          <source>Get Container ACL</source>
+          <target state="new">Get Container ACL</target>
+        </trans-unit>
+        <trans-unit id="22bd18d6-8ab9-4967-b156-26e10a3bd505" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c1d20801-5c2d-4c04-8b03-9a1aa38745f2" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="858e4e61-11bb-44f5-bc5c-3ffc7c686cb2" xml:space="preserve">
+          <source>Set Container ACL</source>
+          <target state="new">Set Container ACL</target>
+        </trans-unit>
+        <trans-unit id="546a4d47-0b9d-43f1-80c0-89dfffe076ca" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="43741754-ecc6-4198-b994-055ec60c1c23" xml:space="preserve">
+          <source>Yes (*)</source>
+          <target state="new">Yes (*)</target>
+        </trans-unit>
+        <trans-unit id="15161c06-6ae3-4ff5-92d1-70399303088e" xml:space="preserve">
+          <source>Delete Container</source>
+          <target state="new">Delete Container</target>
+        </trans-unit>
+        <trans-unit id="55cc0bfa-eb10-4acc-8800-df0001135327" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="be29b7e6-f680-45e5-aa4a-91708f3d98f3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d554cb69-b99d-4a79-8bfa-9a4eb09a61eb" xml:space="preserve">
+          <source>Lease Container</source>
+          <target state="new">Lease Container</target>
+        </trans-unit>
+        <trans-unit id="a6c8f026-b4b2-4791-983f-fa387d2a42cd" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="999bae49-aa24-40d9-bf83-9f6cacce9a93" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b6aafd79-26d9-4449-a6dc-c74fb7a45185" xml:space="preserve">
+          <source>List Blobs</source>
+          <target state="new">List Blobs</target>
+        </trans-unit>
+        <trans-unit id="d5783e66-8f67-45af-8aae-98ee07fd4f19" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="21fcb1fc-b128-42ad-afdc-baf608a83abf" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="4e9b589e-e203-4d34-8bdf-056d5a144256" xml:space="preserve">
+          <source>(*) The permissions defined by SetContainerACL are cached and updates to these permissions take 30 seconds to propagate during which period updates are not guaranteed to be consistent.</source>
+          <target state="new">(*) The permissions defined by SetContainerACL are cached and updates to these permissions take 30 seconds to propagate during which period updates are not guaranteed to be consistent.</target>
+        </trans-unit>
+        <trans-unit id="7177e134-3b83-42c9-a805-b5fd21f72ba3" xml:space="preserve">
+          <source>The following table summarizes the blob operations that accept conditional headers such as <bpt id="d7a265c1-9d13-4d55-8ef9-3d58b58d833c">&lt;strong&gt;</bpt>If-Match<ept id="d7a265c1-9d13-4d55-8ef9-3d58b58d833c">&lt;/strong&gt;</ept> in the request and that return an ETag value in the response.</source>
+          <target state="new">The following table summarizes the blob operations that accept conditional headers such as <bpt id="d7a265c1-9d13-4d55-8ef9-3d58b58d833c">&lt;strong&gt;</bpt>If-Match<ept id="d7a265c1-9d13-4d55-8ef9-3d58b58d833c">&lt;/strong&gt;</ept> in the request and that return an ETag value in the response.</target>
+        </trans-unit>
+        <trans-unit id="14a224b7-6abc-4bbf-aeb3-81bded6dd657" xml:space="preserve">
+          <source>Operation</source>
+          <target state="new">Operation</target>
+        </trans-unit>
+        <trans-unit id="67d3217d-82c4-4ba2-a9cc-4c75fcf01db1" xml:space="preserve">
+          <source>Returns ETag value</source>
+          <target state="new">Returns ETag value</target>
+        </trans-unit>
+        <trans-unit id="3a2f0b1c-bf3b-4954-9f16-bf2f5055d6ae" xml:space="preserve">
+          <source>Accepts conditional headers</source>
+          <target state="new">Accepts conditional headers</target>
+        </trans-unit>
+        <trans-unit id="41c5a394-d3ab-40cd-9556-5f5da605d0ab" xml:space="preserve">
+          <source>Put Blob</source>
+          <target state="new">Put Blob</target>
+        </trans-unit>
+        <trans-unit id="0b162bd5-a2bc-499d-a6b5-1a7bb9110081" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c8c274ae-ea9f-46a6-b763-1cfed71d7d5b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ddd5c16a-9acb-48d3-9872-421fcf56b907" xml:space="preserve">
+          <source>Get Blob</source>
+          <target state="new">Get Blob</target>
+        </trans-unit>
+        <trans-unit id="ade62418-a06a-42ba-8ead-53f32bfdf94c" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="6b9a2bba-4f1a-472d-aabe-a7c968ce1b7e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e87e9bd0-d3a7-4bf6-b688-6e85f7bd8f3e" xml:space="preserve">
+          <source>Get Blob Properties</source>
+          <target state="new">Get Blob Properties</target>
+        </trans-unit>
+        <trans-unit id="21c7bef4-d072-4161-a75d-3fafab2c0709" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c5a7dfcb-77e2-43f1-a62c-176c7e470512" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e5db3c65-05cf-40b2-b109-1a17e619a0d3" xml:space="preserve">
+          <source>Set Blob Properties</source>
+          <target state="new">Set Blob Properties</target>
+        </trans-unit>
+        <trans-unit id="364742df-e946-4403-ae90-8f7e6a007864" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d1ad43fc-4809-450c-814e-b54f8492ff00" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="22603498-a63f-4a97-ab55-9115748fd224" xml:space="preserve">
+          <source>Get Blob Metadata</source>
+          <target state="new">Get Blob Metadata</target>
+        </trans-unit>
+        <trans-unit id="72418b34-e1f3-4791-b450-010fa6c33d55" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b16fbef2-b138-4892-b231-ee3179b7ded3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2f8e5678-02e3-46d2-b95e-4498bbda36d4" xml:space="preserve">
+          <source>Set Blob Metadata</source>
+          <target state="new">Set Blob Metadata</target>
+        </trans-unit>
+        <trans-unit id="756d92a6-ef4b-435a-bd27-18b507000573" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="6256fd90-7e81-4018-b6d4-1ad9c145593c" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="f4bea92c-afb4-48a2-a2f5-d83247188666" xml:space="preserve">
+          <source>Lease Blob (*)</source>
+          <target state="new">Lease Blob (*)</target>
+        </trans-unit>
+        <trans-unit id="bd8d755c-daa9-4ed8-afc5-2784292b7db9" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="891b872c-52d5-46a2-bdbe-e798f0ebb615" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="3ab4a04a-02cf-4dd9-b271-2e01adb94d80" xml:space="preserve">
+          <source>Snapshot Blob</source>
+          <target state="new">Snapshot Blob</target>
+        </trans-unit>
+        <trans-unit id="98aac85d-aad4-46bd-b937-ed100c55f8cd" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="af6933d7-b988-471c-8875-e20d1ca010dd" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="930668f9-6a82-45f5-8761-752c5cef4c90" xml:space="preserve">
+          <source>Copy Blob</source>
+          <target state="new">Copy Blob</target>
+        </trans-unit>
+        <trans-unit id="c0ec5818-533f-468d-b58e-0576654d33ef" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="41dfa0f8-a319-4700-8514-cb8eee521f81" xml:space="preserve">
+          <source>Yes (for source and destination blob)</source>
+          <target state="new">Yes (for source and destination blob)</target>
+        </trans-unit>
+        <trans-unit id="4f80fe15-548f-416b-851d-e91ab12cfba3" xml:space="preserve">
+          <source>Abort Copy Blob</source>
+          <target state="new">Abort Copy Blob</target>
+        </trans-unit>
+        <trans-unit id="808258e4-3a75-4453-9242-02ecd499c014" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="231c93f6-c983-485b-ac93-e2cdfbdf76e2" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="403e9715-0899-423c-bcad-6f2810d41845" xml:space="preserve">
+          <source>Delete Blob</source>
+          <target state="new">Delete Blob</target>
+        </trans-unit>
+        <trans-unit id="ebc46194-fe25-49f5-8a7d-42fefffc8655" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="d8549d8f-61a2-45b9-9755-c34a5ceba6e3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="be17eda8-0927-4493-9e92-d46fda63da25" xml:space="preserve">
+          <source>Put Block</source>
+          <target state="new">Put Block</target>
+        </trans-unit>
+        <trans-unit id="b2216383-1de7-49c3-a581-7e41650d9256" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="6ae31990-0c91-4ef8-bac2-00de6837814d" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="f49bfe3b-9afd-4c42-b4e1-bdee07d765d2" xml:space="preserve">
+          <source>Put Block List</source>
+          <target state="new">Put Block List</target>
+        </trans-unit>
+        <trans-unit id="1307ca98-5162-42f4-be82-47c8ad2657b7" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="a4dd10b8-f25d-4993-a356-b54f4dd60d76" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="6eb06bf8-fc09-4c2d-a9c1-9090d06e84aa" xml:space="preserve">
+          <source>Get Block List</source>
+          <target state="new">Get Block List</target>
+        </trans-unit>
+        <trans-unit id="8731d3e8-b3d0-4816-8844-5900ac74f0b7" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="26862d1d-af08-44f6-bd6a-490839c62fff" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="a14258ae-6bfe-4cc8-a6ac-aca399c1593f" xml:space="preserve">
+          <source>Put Page</source>
+          <target state="new">Put Page</target>
+        </trans-unit>
+        <trans-unit id="e63b9959-68e4-4bd5-be15-c2cc8619c379" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b896c28b-9391-456e-936a-c312fafec613" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e216fac2-936d-40c8-9b6d-6efdb12a6d33" xml:space="preserve">
+          <source>Get Page Ranges</source>
+          <target state="new">Get Page Ranges</target>
+        </trans-unit>
+        <trans-unit id="1e93b76c-1ea7-4b1f-995e-2bbb032cb9b8" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c9af0741-83c4-410d-8ecb-b3284f6ada65" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="9009091f-d61b-42ec-af9b-0e648bace1ca" xml:space="preserve">
+          <source>(*) Lease Blob does not change the ETag on a blob.</source>
+          <target state="new">(*) Lease Blob does not change the ETag on a blob.</target>
+        </trans-unit>
+        <trans-unit id="d4e37299-af6a-4cc3-b955-3fdb570dd53f" xml:space="preserve">
+          <source>To lock a blob for exclusive use, you can acquire a <bpt id="3ce88d0a-b6f3-4507-9db9-1311895f4bc6">&lt;linkText&gt;</bpt>lease<ept id="3ce88d0a-b6f3-4507-9db9-1311895f4bc6">&lt;/linkText&gt;</ept><bpt id="3ce88d0a-b6f3-4507-9db9-1311895f4bc6">&lt;title&gt;</bpt><ept id="3ce88d0a-b6f3-4507-9db9-1311895f4bc6">&lt;/title&gt;</ept> on it.</source>
+          <target state="new">To lock a blob for exclusive use, you can acquire a <bpt id="3ce88d0a-b6f3-4507-9db9-1311895f4bc6">&lt;linkText&gt;</bpt>lease<ept id="3ce88d0a-b6f3-4507-9db9-1311895f4bc6">&lt;/linkText&gt;</ept><bpt id="3ce88d0a-b6f3-4507-9db9-1311895f4bc6">&lt;title&gt;</bpt><ept id="3ce88d0a-b6f3-4507-9db9-1311895f4bc6">&lt;/title&gt;</ept> on it.</target>
+        </trans-unit>
+        <trans-unit id="3de5e612-4ac5-4abf-8351-9d5f411d342d" xml:space="preserve">
+          <source>When you acquire a lease, you specify for how long you need the lease: this can be for between 15 to 60 seconds or infinite which amounts to an exclusive lock.</source>
+          <target state="new">When you acquire a lease, you specify for how long you need the lease: this can be for between 15 to 60 seconds or infinite which amounts to an exclusive lock.</target>
+        </trans-unit>
+        <trans-unit id="479b27ec-9670-4921-8fe3-3abb29e04583" xml:space="preserve">
+          <source>You can renew a finite lease to extend it, and you can release any lease when you are finished with it.</source>
+          <target state="new">You can renew a finite lease to extend it, and you can release any lease when you are finished with it.</target>
+        </trans-unit>
+        <trans-unit id="74931a7f-0fec-44d2-8e0e-14ac3021d5e3" xml:space="preserve">
+          <source>The blob service automatically releases finite leases when they expire.</source>
+          <target state="new">The blob service automatically releases finite leases when they expire.</target>
+        </trans-unit>
+        <trans-unit id="cb1763ad-f5af-4369-bd0d-4e8ae8970a21" xml:space="preserve">
+          <source>Leases enable different synchronization strategies to be supported, including exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read.</source>
+          <target state="new">Leases enable different synchronization strategies to be supported, including exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read.</target>
+        </trans-unit>
+        <trans-unit id="26bba190-a93f-4291-a0ed-bce432c5604b" xml:space="preserve">
+          <source>Where a lease exists the storage service enforces exclusive writes (put, set and delete operations) however ensuring exclusivity for read operations requires the developer to ensure that all client applications use a lease ID and that only one client at a time has a valid lease ID.</source>
+          <target state="new">Where a lease exists the storage service enforces exclusive writes (put, set and delete operations) however ensuring exclusivity for read operations requires the developer to ensure that all client applications use a lease ID and that only one client at a time has a valid lease ID.</target>
+        </trans-unit>
+        <trans-unit id="67e38d8c-2db3-4c40-a8fa-cc5d28d5e0db" xml:space="preserve">
+          <source>Read operations that do not include a lease ID result in shared reads.</source>
+          <target state="new">Read operations that do not include a lease ID result in shared reads.</target>
+        </trans-unit>
+        <trans-unit id="78ae8003-4c95-456e-b535-6f05e5a301e6" xml:space="preserve">
+          <source>The following C# snippet shows an example of acquiring an exclusive lease for 30 seconds on a blob, updating the content of the blob, and then releasing the lease.</source>
+          <target state="new">The following C# snippet shows an example of acquiring an exclusive lease for 30 seconds on a blob, updating the content of the blob, and then releasing the lease.</target>
+        </trans-unit>
+        <trans-unit id="22b63295-13e3-4ad9-9eee-c0d83149e832" xml:space="preserve">
+          <source>If there is already a valid lease on the blob when you try to acquire a new lease, the blob service returns an “HTTP (409) Conflict” status result.</source>
+          <target state="new">If there is already a valid lease on the blob when you try to acquire a new lease, the blob service returns an “HTTP (409) Conflict” status result.</target>
+        </trans-unit>
+        <trans-unit id="e6d8a81c-4726-44d6-a167-ed5eef09a0dd" xml:space="preserve">
+          <source>The snippet below uses an <bpt id="412fa341-b57f-42f2-8d5d-a677c944d3c7">&lt;strong&gt;</bpt>AccessCondition<ept id="412fa341-b57f-42f2-8d5d-a677c944d3c7">&lt;/strong&gt;</ept> object to encapsulate the lease information when it makes a request to update the blob in the storage service.</source>
+          <target state="new">The snippet below uses an <bpt id="412fa341-b57f-42f2-8d5d-a677c944d3c7">&lt;strong&gt;</bpt>AccessCondition<ept id="412fa341-b57f-42f2-8d5d-a677c944d3c7">&lt;/strong&gt;</ept> object to encapsulate the lease information when it makes a request to update the blob in the storage service.</target>
+        </trans-unit>
+        <trans-unit id="2df905d2-8fa4-4fca-8b06-ea3011700e13" xml:space="preserve">
+          <source>The full sample can be downloaded <bpt id="bfbad274-8928-4b04-93b1-9022867bc644">&lt;linkText&gt;</bpt>here<ept id="bfbad274-8928-4b04-93b1-9022867bc644">&lt;/linkText&gt;</ept><bpt id="bfbad274-8928-4b04-93b1-9022867bc644">&lt;title&gt;</bpt><ept id="bfbad274-8928-4b04-93b1-9022867bc644">&lt;/title&gt;</ept>.</source>
+          <target state="new">The full sample can be downloaded <bpt id="bfbad274-8928-4b04-93b1-9022867bc644">&lt;linkText&gt;</bpt>here<ept id="bfbad274-8928-4b04-93b1-9022867bc644">&lt;/linkText&gt;</ept><bpt id="bfbad274-8928-4b04-93b1-9022867bc644">&lt;title&gt;</bpt><ept id="bfbad274-8928-4b04-93b1-9022867bc644">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad737082-dd98-4197-bf71-7c53c65aa4ca" xml:space="preserve">
+          <source>If you attempt a write operation on a leased blob without passing the lease ID, the request fails with a 412 error.</source>
+          <target state="new">If you attempt a write operation on a leased blob without passing the lease ID, the request fails with a 412 error.</target>
+        </trans-unit>
+        <trans-unit id="ab98b2d6-cf2c-4bb6-91cd-07b775764b0f" xml:space="preserve">
+          <source>Note that if the lease expires before calling the <bpt id="9e979506-b17a-41f7-a10e-328df66d9908">&lt;strong&gt;</bpt>UploadText<ept id="9e979506-b17a-41f7-a10e-328df66d9908">&lt;/strong&gt;</ept> method but you still pass the lease ID, the request also fails with a <bpt id="53689578-7307-4059-9ba9-9d1cbfbcd6c5">&lt;strong&gt;</bpt>412<ept id="53689578-7307-4059-9ba9-9d1cbfbcd6c5">&lt;/strong&gt;</ept> error.</source>
+          <target state="new">Note that if the lease expires before calling the <bpt id="9e979506-b17a-41f7-a10e-328df66d9908">&lt;strong&gt;</bpt>UploadText<ept id="9e979506-b17a-41f7-a10e-328df66d9908">&lt;/strong&gt;</ept> method but you still pass the lease ID, the request also fails with a <bpt id="53689578-7307-4059-9ba9-9d1cbfbcd6c5">&lt;strong&gt;</bpt>412<ept id="53689578-7307-4059-9ba9-9d1cbfbcd6c5">&lt;/strong&gt;</ept> error.</target>
+        </trans-unit>
+        <trans-unit id="663c86f2-6743-40cb-9944-97d6c4647481" xml:space="preserve">
+          <source>For more information about managing lease expiry times and lease ids, see the <bpt id="0200c830-6187-4495-8652-0ce79582c5b1">&lt;linkText&gt;</bpt>Lease Blob<ept id="0200c830-6187-4495-8652-0ce79582c5b1">&lt;/linkText&gt;</ept><bpt id="0200c830-6187-4495-8652-0ce79582c5b1">&lt;title&gt;</bpt><ept id="0200c830-6187-4495-8652-0ce79582c5b1">&lt;/title&gt;</ept> REST documentation.</source>
+          <target state="new">For more information about managing lease expiry times and lease ids, see the <bpt id="0200c830-6187-4495-8652-0ce79582c5b1">&lt;linkText&gt;</bpt>Lease Blob<ept id="0200c830-6187-4495-8652-0ce79582c5b1">&lt;/linkText&gt;</ept><bpt id="0200c830-6187-4495-8652-0ce79582c5b1">&lt;title&gt;</bpt><ept id="0200c830-6187-4495-8652-0ce79582c5b1">&lt;/title&gt;</ept> REST documentation.</target>
+        </trans-unit>
+        <trans-unit id="43b32591-b911-45ae-98cc-aabb4dafb876" xml:space="preserve">
+          <source>The following blob operations can use leases to manage pessimistic concurrency:  </source>
+          <target state="new">The following blob operations can use leases to manage pessimistic concurrency:  </target>
+        </trans-unit>
+        <trans-unit id="c351f115-d238-43e4-b963-b73f47254bcd" xml:space="preserve">
+          <source>Put Blob</source>
+          <target state="new">Put Blob</target>
+        </trans-unit>
+        <trans-unit id="027598ad-19a6-4560-a8d1-c78a1f1ccc5b" xml:space="preserve">
+          <source>Get Blob</source>
+          <target state="new">Get Blob</target>
+        </trans-unit>
+        <trans-unit id="d05597cf-f63a-4df6-be99-479a69be1273" xml:space="preserve">
+          <source>Get Blob Properties</source>
+          <target state="new">Get Blob Properties</target>
+        </trans-unit>
+        <trans-unit id="4f1610a8-4f14-4766-8354-f670f015838a" xml:space="preserve">
+          <source>Set Blob Properties</source>
+          <target state="new">Set Blob Properties</target>
+        </trans-unit>
+        <trans-unit id="85b256cd-ca53-41c3-aded-714d8380bb35" xml:space="preserve">
+          <source>Get Blob Metadata</source>
+          <target state="new">Get Blob Metadata</target>
+        </trans-unit>
+        <trans-unit id="ad133afd-bdaf-4365-85d9-d69b08bd6998" xml:space="preserve">
+          <source>Set Blob Metadata</source>
+          <target state="new">Set Blob Metadata</target>
+        </trans-unit>
+        <trans-unit id="14677045-141a-4416-b9ab-d7bb72cdf4e8" xml:space="preserve">
+          <source>Delete Blob</source>
+          <target state="new">Delete Blob</target>
+        </trans-unit>
+        <trans-unit id="de20f6dd-7456-4961-9414-903bc7f415b4" xml:space="preserve">
+          <source>Put Block</source>
+          <target state="new">Put Block</target>
+        </trans-unit>
+        <trans-unit id="9ba1640f-cfc1-4cc3-84e5-1e89c05cd52a" xml:space="preserve">
+          <source>Put Block List</source>
+          <target state="new">Put Block List</target>
+        </trans-unit>
+        <trans-unit id="6cb4a0a9-3641-49c8-816a-5f466fbd0fe7" xml:space="preserve">
+          <source>Get Block List</source>
+          <target state="new">Get Block List</target>
+        </trans-unit>
+        <trans-unit id="a1680b95-bd03-4caa-ac84-471c4a04d323" xml:space="preserve">
+          <source>Put Page</source>
+          <target state="new">Put Page</target>
+        </trans-unit>
+        <trans-unit id="14f129fa-9985-4532-a494-d5bcca97937c" xml:space="preserve">
+          <source>Get Page Ranges</source>
+          <target state="new">Get Page Ranges</target>
+        </trans-unit>
+        <trans-unit id="12700007-2a5b-4d77-a6cb-98ee12e7bcda" xml:space="preserve">
+          <source>Snapshot Blob - lease ID optional if a lease exists</source>
+          <target state="new">Snapshot Blob - lease ID optional if a lease exists</target>
+        </trans-unit>
+        <trans-unit id="d61e0fc5-8d99-4327-98c1-7d33420903da" xml:space="preserve">
+          <source>Copy Blob - lease ID required if a lease exists on the destination blob</source>
+          <target state="new">Copy Blob - lease ID required if a lease exists on the destination blob</target>
+        </trans-unit>
+        <trans-unit id="9149c582-8f57-48d4-b9cd-af5f5411a9d9" xml:space="preserve">
+          <source>Abort Copy Blob - lease ID required if an infinite lease exists on the destination blob</source>
+          <target state="new">Abort Copy Blob - lease ID required if an infinite lease exists on the destination blob</target>
+        </trans-unit>
+        <trans-unit id="46a26f14-5bcb-42d3-9db0-a28da4d7ab04" xml:space="preserve">
+          <source>Lease Blob  </source>
+          <target state="new">Lease Blob  </target>
+        </trans-unit>
+        <trans-unit id="3cef1228-4906-4f63-93b5-9e32abd81472" xml:space="preserve">
+          <source>Leases on containers enable the same synchronization strategies to be supported as on blobs (exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read) however unlike blobs the storage service only enforces exclusivity on delete operations.</source>
+          <target state="new">Leases on containers enable the same synchronization strategies to be supported as on blobs (exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read) however unlike blobs the storage service only enforces exclusivity on delete operations.</target>
+        </trans-unit>
+        <trans-unit id="ac09661e-5fd3-4ec1-9fbb-6da926eba035" xml:space="preserve">
+          <source>To delete a container with an active lease, a client must include the active lease ID with the delete request.</source>
+          <target state="new">To delete a container with an active lease, a client must include the active lease ID with the delete request.</target>
+        </trans-unit>
+        <trans-unit id="c4509d76-398d-45c1-9b4a-fd90c97c85ba" xml:space="preserve">
+          <source>All other container operations succeed on a leased container without including the lease ID in which case they are shared operations.</source>
+          <target state="new">All other container operations succeed on a leased container without including the lease ID in which case they are shared operations.</target>
+        </trans-unit>
+        <trans-unit id="ebfab0a9-b985-4764-b114-09b0aeca3983" xml:space="preserve">
+          <source>If exclusivity of update (put or set) or read operations is required then developers should ensure all clients use a lease ID and that only one client at a time has a valid lease ID.</source>
+          <target state="new">If exclusivity of update (put or set) or read operations is required then developers should ensure all clients use a lease ID and that only one client at a time has a valid lease ID.</target>
+        </trans-unit>
+        <trans-unit id="cd90717c-14af-427e-9b3e-2f7eed6fa99e" xml:space="preserve">
+          <source>The following container operations can use leases to manage pessimistic concurrency:  </source>
+          <target state="new">The following container operations can use leases to manage pessimistic concurrency:  </target>
+        </trans-unit>
+        <trans-unit id="bf84e055-c7dd-4e9e-a65f-76881049f729" xml:space="preserve">
+          <source>Delete Container</source>
+          <target state="new">Delete Container</target>
+        </trans-unit>
+        <trans-unit id="9328252c-944a-4c5b-b31e-7cfc3d1739df" xml:space="preserve">
+          <source>Get Container Properties</source>
+          <target state="new">Get Container Properties</target>
+        </trans-unit>
+        <trans-unit id="7111f5da-846d-4c02-b974-83b3a2f7d26d" xml:space="preserve">
+          <source>Get Container Metadata</source>
+          <target state="new">Get Container Metadata</target>
+        </trans-unit>
+        <trans-unit id="b640c852-336e-49eb-937e-4836203e53c2" xml:space="preserve">
+          <source>Set Container Metadata</source>
+          <target state="new">Set Container Metadata</target>
+        </trans-unit>
+        <trans-unit id="56f911a4-af7f-42c2-977d-7025c287d846" xml:space="preserve">
+          <source>Get Container ACL</source>
+          <target state="new">Get Container ACL</target>
+        </trans-unit>
+        <trans-unit id="8b9986f6-e0d2-42d6-917f-63328067e52e" xml:space="preserve">
+          <source>Set Container ACL</source>
+          <target state="new">Set Container ACL</target>
+        </trans-unit>
+        <trans-unit id="8ef5a733-b696-4789-9e4c-af351bb89f24" xml:space="preserve">
+          <source>Lease Container  </source>
+          <target state="new">Lease Container  </target>
+        </trans-unit>
+        <trans-unit id="7fa721c9-3883-4ec5-b4c5-f9c9d621ebb1" xml:space="preserve">
+          <source>For more information see:  </source>
+          <target state="new">For more information see:  </target>
+        </trans-unit>
+        <trans-unit id="724e4b42-047a-4009-aa01-7e24657ba6de" xml:space="preserve">
+          <source><bpt id="8e5da7e1-c569-4264-a10e-8e8d9cdd21b4">&lt;linkText&gt;</bpt>Specifying Conditional Headers for Blob Service Operations<ept id="8e5da7e1-c569-4264-a10e-8e8d9cdd21b4">&lt;/linkText&gt;</ept><bpt id="8e5da7e1-c569-4264-a10e-8e8d9cdd21b4">&lt;title&gt;</bpt><ept id="8e5da7e1-c569-4264-a10e-8e8d9cdd21b4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8e5da7e1-c569-4264-a10e-8e8d9cdd21b4">&lt;linkText&gt;</bpt>Specifying Conditional Headers for Blob Service Operations<ept id="8e5da7e1-c569-4264-a10e-8e8d9cdd21b4">&lt;/linkText&gt;</ept><bpt id="8e5da7e1-c569-4264-a10e-8e8d9cdd21b4">&lt;title&gt;</bpt><ept id="8e5da7e1-c569-4264-a10e-8e8d9cdd21b4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27096a7f-e0ff-46a2-ad0d-7c23a5ab97ea" xml:space="preserve">
+          <source><bpt id="9c49b15f-7af1-4afd-8cf6-353da9ce37cc">&lt;linkText&gt;</bpt>Lease Container<ept id="9c49b15f-7af1-4afd-8cf6-353da9ce37cc">&lt;/linkText&gt;</ept><bpt id="9c49b15f-7af1-4afd-8cf6-353da9ce37cc">&lt;title&gt;</bpt><ept id="9c49b15f-7af1-4afd-8cf6-353da9ce37cc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9c49b15f-7af1-4afd-8cf6-353da9ce37cc">&lt;linkText&gt;</bpt>Lease Container<ept id="9c49b15f-7af1-4afd-8cf6-353da9ce37cc">&lt;/linkText&gt;</ept><bpt id="9c49b15f-7af1-4afd-8cf6-353da9ce37cc">&lt;title&gt;</bpt><ept id="9c49b15f-7af1-4afd-8cf6-353da9ce37cc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca29808c-b340-4321-b647-a8d335205cf0" xml:space="preserve">
+          <source><bpt id="2ebb6a02-14e9-4f12-8fee-e6c032fc3b3e">&lt;linkText&gt;</bpt>Lease Blob <ept id="2ebb6a02-14e9-4f12-8fee-e6c032fc3b3e">&lt;/linkText&gt;</ept><bpt id="2ebb6a02-14e9-4f12-8fee-e6c032fc3b3e">&lt;title&gt;</bpt><ept id="2ebb6a02-14e9-4f12-8fee-e6c032fc3b3e">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="2ebb6a02-14e9-4f12-8fee-e6c032fc3b3e">&lt;linkText&gt;</bpt>Lease Blob <ept id="2ebb6a02-14e9-4f12-8fee-e6c032fc3b3e">&lt;/linkText&gt;</ept><bpt id="2ebb6a02-14e9-4f12-8fee-e6c032fc3b3e">&lt;title&gt;</bpt><ept id="2ebb6a02-14e9-4f12-8fee-e6c032fc3b3e">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="0310958b-1241-4bdf-8ea0-ccf448c37732" xml:space="preserve">
+          <source>The table service uses optimistic concurrency checks as the default behavior when you are working with entities, unlike the blob service where you must explicitly choose to perform optimistic concurrency checks.</source>
+          <target state="new">The table service uses optimistic concurrency checks as the default behavior when you are working with entities, unlike the blob service where you must explicitly choose to perform optimistic concurrency checks.</target>
+        </trans-unit>
+        <trans-unit id="3165fcf2-3a76-4273-bf70-b0f082e473b3" xml:space="preserve">
+          <source>The other difference between the table and blob services is that you can only manage the concurrency behavior of entities whereas with the blob service you can manage the concurrency of both containers and blobs.</source>
+          <target state="new">The other difference between the table and blob services is that you can only manage the concurrency behavior of entities whereas with the blob service you can manage the concurrency of both containers and blobs.</target>
+        </trans-unit>
+        <trans-unit id="27e705cf-c81d-4414-9296-0112c5e01c75" xml:space="preserve">
+          <source>To use optimistic concurrency and to check if another process modified an entity since you retrieved it from the table storage service, you can use the ETag value you receive when the table service returns an entity.</source>
+          <target state="new">To use optimistic concurrency and to check if another process modified an entity since you retrieved it from the table storage service, you can use the ETag value you receive when the table service returns an entity.</target>
+        </trans-unit>
+        <trans-unit id="e54d3a19-e7c3-4ff5-ae95-b08cbec1a7d2" xml:space="preserve">
+          <source>The outline of this process is as follows:</source>
+          <target state="new">The outline of this process is as follows:</target>
+        </trans-unit>
+        <trans-unit id="8eec2c9e-3c87-4eb1-847e-25e0500b7d76" xml:space="preserve">
+          <source>Retrieve an entity from the table storage service, the response includes an ETag value that identifies the current identifier associated with that entity in the storage service.</source>
+          <target state="new">Retrieve an entity from the table storage service, the response includes an ETag value that identifies the current identifier associated with that entity in the storage service.</target>
+        </trans-unit>
+        <trans-unit id="f92b6e33-2d22-41ad-ac95-3202fe8a2ee5" xml:space="preserve">
+          <source>When you update the entity, include the ETag value you received in step 1 in the mandatory <bpt id="191d7733-f0ba-46ce-bcfb-1e92d6f868db">&lt;strong&gt;</bpt>If-Match<ept id="191d7733-f0ba-46ce-bcfb-1e92d6f868db">&lt;/strong&gt;</ept> header of the request you send to the service.</source>
+          <target state="new">When you update the entity, include the ETag value you received in step 1 in the mandatory <bpt id="191d7733-f0ba-46ce-bcfb-1e92d6f868db">&lt;strong&gt;</bpt>If-Match<ept id="191d7733-f0ba-46ce-bcfb-1e92d6f868db">&lt;/strong&gt;</ept> header of the request you send to the service.</target>
+        </trans-unit>
+        <trans-unit id="81420f50-d366-4683-a981-b8d2e09d088a" xml:space="preserve">
+          <source>The service compares the ETag value in the request with the current ETag value of the entity.</source>
+          <target state="new">The service compares the ETag value in the request with the current ETag value of the entity.</target>
+        </trans-unit>
+        <trans-unit id="cdedfb36-3739-4d07-87d1-dfddfb68b930" xml:space="preserve">
+          <source>If the current ETag value of the entity is different than the ETag in the mandatory <bpt id="75114dd7-d6fb-4a17-995f-234cbc9ef2c1">&lt;strong&gt;</bpt>If-Match<ept id="75114dd7-d6fb-4a17-995f-234cbc9ef2c1">&lt;/strong&gt;</ept> header in the request, the service returns a 412 error to the client.</source>
+          <target state="new">If the current ETag value of the entity is different than the ETag in the mandatory <bpt id="75114dd7-d6fb-4a17-995f-234cbc9ef2c1">&lt;strong&gt;</bpt>If-Match<ept id="75114dd7-d6fb-4a17-995f-234cbc9ef2c1">&lt;/strong&gt;</ept> header in the request, the service returns a 412 error to the client.</target>
+        </trans-unit>
+        <trans-unit id="8cb8fc08-c6e3-488a-a1d3-0fd59c0747a9" xml:space="preserve">
+          <source>This indicates to the client that another process has updated the entity since the client retrieved it.</source>
+          <target state="new">This indicates to the client that another process has updated the entity since the client retrieved it.</target>
+        </trans-unit>
+        <trans-unit id="c874af9f-d936-4646-bc02-a3809ebab323" xml:space="preserve">
+          <source>If the current ETag value of the entity is the same as the ETag in the mandatory <bpt id="abf6a97a-b76a-4173-9e46-d07cc6a85195">&lt;strong&gt;</bpt>If-Match<ept id="abf6a97a-b76a-4173-9e46-d07cc6a85195">&lt;/strong&gt;</ept> header in the request or the <bpt id="24d2da5a-b00d-46c1-ab01-336fd6f4c95b">&lt;strong&gt;</bpt>If-Match<ept id="24d2da5a-b00d-46c1-ab01-336fd6f4c95b">&lt;/strong&gt;</ept> header contains the wildcard character (*), the service performs the requested operation and updates the current ETag value of the entity to show that it has been updated.</source>
+          <target state="new">If the current ETag value of the entity is the same as the ETag in the mandatory <bpt id="abf6a97a-b76a-4173-9e46-d07cc6a85195">&lt;strong&gt;</bpt>If-Match<ept id="abf6a97a-b76a-4173-9e46-d07cc6a85195">&lt;/strong&gt;</ept> header in the request or the <bpt id="24d2da5a-b00d-46c1-ab01-336fd6f4c95b">&lt;strong&gt;</bpt>If-Match<ept id="24d2da5a-b00d-46c1-ab01-336fd6f4c95b">&lt;/strong&gt;</ept> header contains the wildcard character (*), the service performs the requested operation and updates the current ETag value of the entity to show that it has been updated.</target>
+        </trans-unit>
+        <trans-unit id="ffbe6289-eb41-40dc-bff7-742d295a3b39" xml:space="preserve">
+          <source>Note that unlike the blob service, the table service requires the client to include an <bpt id="1e111498-a2bd-4e6a-8a7e-f8531ecd6b31">&lt;strong&gt;</bpt>If-Match<ept id="1e111498-a2bd-4e6a-8a7e-f8531ecd6b31">&lt;/strong&gt;</ept> header in update requests.</source>
+          <target state="new">Note that unlike the blob service, the table service requires the client to include an <bpt id="1e111498-a2bd-4e6a-8a7e-f8531ecd6b31">&lt;strong&gt;</bpt>If-Match<ept id="1e111498-a2bd-4e6a-8a7e-f8531ecd6b31">&lt;/strong&gt;</ept> header in update requests.</target>
+        </trans-unit>
+        <trans-unit id="5871f674-0e12-40eb-906d-6ee1044658d1" xml:space="preserve">
+          <source>However, it is possible to force an unconditional update (last writer wins strategy) and bypass concurrency checks if the client sets the <bpt id="be86ecc0-fe65-4815-86b9-1d77327f36cd">&lt;strong&gt;</bpt>If-Match<ept id="be86ecc0-fe65-4815-86b9-1d77327f36cd">&lt;/strong&gt;</ept> header to the wildcard character (*) in the request.</source>
+          <target state="new">However, it is possible to force an unconditional update (last writer wins strategy) and bypass concurrency checks if the client sets the <bpt id="be86ecc0-fe65-4815-86b9-1d77327f36cd">&lt;strong&gt;</bpt>If-Match<ept id="be86ecc0-fe65-4815-86b9-1d77327f36cd">&lt;/strong&gt;</ept> header to the wildcard character (*) in the request.</target>
+        </trans-unit>
+        <trans-unit id="2b13b400-f038-4db1-8a24-4a247cf30597" xml:space="preserve">
+          <source>The following C# snippet shows a customer entity that was previously either created or retrieved having their email address updated.</source>
+          <target state="new">The following C# snippet shows a customer entity that was previously either created or retrieved having their email address updated.</target>
+        </trans-unit>
+        <trans-unit id="953f7734-3484-424b-8855-5d83fc32872e" xml:space="preserve">
+          <source>The initial insert or retrieve operation stores the ETag value in the customer object, and because the sample uses the same object instance when it executes the replace operation, it automatically sends the ETag value back to the table service, enabling the service to check for concurrency violations.</source>
+          <target state="new">The initial insert or retrieve operation stores the ETag value in the customer object, and because the sample uses the same object instance when it executes the replace operation, it automatically sends the ETag value back to the table service, enabling the service to check for concurrency violations.</target>
+        </trans-unit>
+        <trans-unit id="8a516564-c66f-40ea-b157-847a9d295ae1" xml:space="preserve">
+          <source>If another process has updated the entity in table storage, the service returns an HTTP 412 (Precondition Failed) status message.</source>
+          <target state="new">If another process has updated the entity in table storage, the service returns an HTTP 412 (Precondition Failed) status message.</target>
+        </trans-unit>
+        <trans-unit id="a6d81d84-1d8a-4045-8729-92517b80c74f" xml:space="preserve">
+          <source>The full sample can be downloaded <bpt id="aeaeabeb-a753-4246-85d0-a2dd7214cb27">&lt;linkText&gt;</bpt>here<ept id="aeaeabeb-a753-4246-85d0-a2dd7214cb27">&lt;/linkText&gt;</ept><bpt id="aeaeabeb-a753-4246-85d0-a2dd7214cb27">&lt;title&gt;</bpt><ept id="aeaeabeb-a753-4246-85d0-a2dd7214cb27">&lt;/title&gt;</ept>.</source>
+          <target state="new">The full sample can be downloaded <bpt id="aeaeabeb-a753-4246-85d0-a2dd7214cb27">&lt;linkText&gt;</bpt>here<ept id="aeaeabeb-a753-4246-85d0-a2dd7214cb27">&lt;/linkText&gt;</ept><bpt id="aeaeabeb-a753-4246-85d0-a2dd7214cb27">&lt;title&gt;</bpt><ept id="aeaeabeb-a753-4246-85d0-a2dd7214cb27">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84ff667e-0899-4b0f-8229-0cb0af5089b7" xml:space="preserve">
+          <source>To explicitly disable the concurrency check, you should set the <bpt id="01f01ed1-39db-4bfd-b864-ac804a106fb4">&lt;strong&gt;</bpt>ETag<ept id="01f01ed1-39db-4bfd-b864-ac804a106fb4">&lt;/strong&gt;</ept> property of the <bpt id="8bc04fd4-77f9-467c-b860-c7f8ce902283">&lt;strong&gt;</bpt>employee<ept id="8bc04fd4-77f9-467c-b860-c7f8ce902283">&lt;/strong&gt;</ept> object to “*” before you execute the replace operation.</source>
+          <target state="new">To explicitly disable the concurrency check, you should set the <bpt id="01f01ed1-39db-4bfd-b864-ac804a106fb4">&lt;strong&gt;</bpt>ETag<ept id="01f01ed1-39db-4bfd-b864-ac804a106fb4">&lt;/strong&gt;</ept> property of the <bpt id="8bc04fd4-77f9-467c-b860-c7f8ce902283">&lt;strong&gt;</bpt>employee<ept id="8bc04fd4-77f9-467c-b860-c7f8ce902283">&lt;/strong&gt;</ept> object to “*” before you execute the replace operation.</target>
+        </trans-unit>
+        <trans-unit id="e8502413-2656-43f8-94a5-78f831800585" xml:space="preserve">
+          <source>customer.ETag = "*";  </source>
+          <target state="new">customer.ETag = "*";  </target>
+        </trans-unit>
+        <trans-unit id="48e68c66-4f85-47e3-95c1-8331e1e7b807" xml:space="preserve">
+          <source>The following table summarizes how the table entity operations use ETag values:  </source>
+          <target state="new">The following table summarizes how the table entity operations use ETag values:  </target>
+        </trans-unit>
+        <trans-unit id="388cec85-5cac-479f-a1c3-0bede98e5830" xml:space="preserve">
+          <source>Operation</source>
+          <target state="new">Operation</target>
+        </trans-unit>
+        <trans-unit id="3c9e9e51-ca80-4aa4-a144-2f5d4c3ab81c" xml:space="preserve">
+          <source>Returns ETag value</source>
+          <target state="new">Returns ETag value</target>
+        </trans-unit>
+        <trans-unit id="4f45b52a-0312-4452-ad64-24a31df2a1d1" xml:space="preserve">
+          <source>Requires If-Match request header</source>
+          <target state="new">Requires If-Match request header</target>
+        </trans-unit>
+        <trans-unit id="cdbb7893-4ed6-4544-9220-516fbb19c482" xml:space="preserve">
+          <source>Query Entities</source>
+          <target state="new">Query Entities</target>
+        </trans-unit>
+        <trans-unit id="973e6d23-d298-42fa-927b-5e2d4eb74456" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="181145d8-8b5b-43d7-833b-5fd40b6e3dd9" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="e37bd6ed-8bd4-41f2-ac2b-6dbecb6838aa" xml:space="preserve">
+          <source>Insert Entity</source>
+          <target state="new">Insert Entity</target>
+        </trans-unit>
+        <trans-unit id="45657206-48e3-481a-8558-c06d17fdd77d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="dd36e0c1-775b-45fe-9e28-704cabaa6202" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="a54cbf2b-731a-4d45-a6fe-8844ce838e9e" xml:space="preserve">
+          <source>Update Entity</source>
+          <target state="new">Update Entity</target>
+        </trans-unit>
+        <trans-unit id="8e18480d-8dd3-4ee9-979b-f461d4d9d29f" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="bdcfb03b-1026-4d2d-a5a4-a50db3972516" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d243638e-a253-4555-a481-fc4b2df368d4" xml:space="preserve">
+          <source>Merge Entity</source>
+          <target state="new">Merge Entity</target>
+        </trans-unit>
+        <trans-unit id="5ab4e913-e42b-4d5d-a073-ef14684197fc" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="6073ceff-b123-49ab-aadc-f5c774671ace" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="3cc98882-321b-457b-9123-47ae738cc371" xml:space="preserve">
+          <source>Delete Entity</source>
+          <target state="new">Delete Entity</target>
+        </trans-unit>
+        <trans-unit id="00b33bab-811d-4938-8015-1c19040cd89b" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="dc442090-a98d-470e-9e45-e5eb55c1cc41" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="3a54ba4d-3cbf-4714-ba74-c4c81306635c" xml:space="preserve">
+          <source>Insert or Replace Entity</source>
+          <target state="new">Insert or Replace Entity</target>
+        </trans-unit>
+        <trans-unit id="6a0632f0-cf50-4a74-a654-f97391b2f922" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="7ca5e17a-6deb-4187-8acf-5111e7a5b21a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="cb9a3814-f15e-4065-851e-cb785aa9e133" xml:space="preserve">
+          <source>Insert or Merge Entity</source>
+          <target state="new">Insert or Merge Entity</target>
+        </trans-unit>
+        <trans-unit id="67912bbd-f1ab-44bf-8580-43c07274594e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="7f79d947-2a8c-464f-8a9d-7d67d11b407f" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="9faa82e0-aa55-4d42-b5fa-ca826e34c0ce" xml:space="preserve">
+          <source>Note that the <bpt id="10a319de-da05-48a0-ab8a-b12e81655018">&lt;strong&gt;</bpt>Insert or Replace Entity<ept id="10a319de-da05-48a0-ab8a-b12e81655018">&lt;/strong&gt;</ept> and <bpt id="8da1fd68-f285-48f5-90c3-9dec714b7b24">&lt;strong&gt;</bpt>Insert or Merge Entity<ept id="8da1fd68-f285-48f5-90c3-9dec714b7b24">&lt;/strong&gt;</ept> operations do <bpt id="fea868d4-62b4-4457-8bf8-081e76f9f504">&lt;em&gt;</bpt>not<ept id="fea868d4-62b4-4457-8bf8-081e76f9f504">&lt;/em&gt;</ept> perform any concurrency checks because they do not send an ETag value to the table service.</source>
+          <target state="new">Note that the <bpt id="10a319de-da05-48a0-ab8a-b12e81655018">&lt;strong&gt;</bpt>Insert or Replace Entity<ept id="10a319de-da05-48a0-ab8a-b12e81655018">&lt;/strong&gt;</ept> and <bpt id="8da1fd68-f285-48f5-90c3-9dec714b7b24">&lt;strong&gt;</bpt>Insert or Merge Entity<ept id="8da1fd68-f285-48f5-90c3-9dec714b7b24">&lt;/strong&gt;</ept> operations do <bpt id="fea868d4-62b4-4457-8bf8-081e76f9f504">&lt;em&gt;</bpt>not<ept id="fea868d4-62b4-4457-8bf8-081e76f9f504">&lt;/em&gt;</ept> perform any concurrency checks because they do not send an ETag value to the table service.</target>
+        </trans-unit>
+        <trans-unit id="1288a9f2-f9ca-4e9f-aea9-98c5b2f2b6a7" xml:space="preserve">
+          <source>In general developers using tables should rely on optimistic concurrency when developing scalable applications.</source>
+          <target state="new">In general developers using tables should rely on optimistic concurrency when developing scalable applications.</target>
+        </trans-unit>
+        <trans-unit id="1cf27c6d-0fe4-42e0-b0b6-876aa193a1c1" xml:space="preserve">
+          <source>If pessimistic locking is needed, one approach developers can take when accessing Tables is to assign a designated blob for each table and try to take a lease on the blob before operating on the table.</source>
+          <target state="new">If pessimistic locking is needed, one approach developers can take when accessing Tables is to assign a designated blob for each table and try to take a lease on the blob before operating on the table.</target>
+        </trans-unit>
+        <trans-unit id="d481346e-9008-46e2-ab6a-a2cb54db9a30" xml:space="preserve">
+          <source>This approach does require the application to ensure all data access paths obtain the lease prior to operating on the table.</source>
+          <target state="new">This approach does require the application to ensure all data access paths obtain the lease prior to operating on the table.</target>
+        </trans-unit>
+        <trans-unit id="22f74f22-a9f1-4e22-afdc-6245fd8c4b58" xml:space="preserve">
+          <source>You should also note that the minimum lease time is 15 seconds which requires careful consideration for scalability.</source>
+          <target state="new">You should also note that the minimum lease time is 15 seconds which requires careful consideration for scalability.</target>
+        </trans-unit>
+        <trans-unit id="1d166454-b5d2-4e20-92d9-8ad8e5eee700" xml:space="preserve">
+          <source>For more information see:  </source>
+          <target state="new">For more information see:  </target>
+        </trans-unit>
+        <trans-unit id="01f76c3d-0327-4cbd-bd0a-e5fe71cb7f91" xml:space="preserve">
+          <source><bpt id="1b45ae67-3ffc-45e6-b991-63b03dca6b5e">&lt;linkText&gt;</bpt>Operations on Entities<ept id="1b45ae67-3ffc-45e6-b991-63b03dca6b5e">&lt;/linkText&gt;</ept><bpt id="1b45ae67-3ffc-45e6-b991-63b03dca6b5e">&lt;title&gt;</bpt><ept id="1b45ae67-3ffc-45e6-b991-63b03dca6b5e">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="1b45ae67-3ffc-45e6-b991-63b03dca6b5e">&lt;linkText&gt;</bpt>Operations on Entities<ept id="1b45ae67-3ffc-45e6-b991-63b03dca6b5e">&lt;/linkText&gt;</ept><bpt id="1b45ae67-3ffc-45e6-b991-63b03dca6b5e">&lt;title&gt;</bpt><ept id="1b45ae67-3ffc-45e6-b991-63b03dca6b5e">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="6b66e6b0-0d98-442a-8c02-6483037d2f96" xml:space="preserve">
+          <source>One scenario in which concurrency is a concern in the queueing service is where multiple clients are retrieving messages from a queue.</source>
+          <target state="new">One scenario in which concurrency is a concern in the queueing service is where multiple clients are retrieving messages from a queue.</target>
+        </trans-unit>
+        <trans-unit id="c96feb34-9243-4a36-bbb3-c3c63b85aa06" xml:space="preserve">
+          <source>When a message is retrieved from the queue, the response includes the message and a pop receipt value, which is required to delete the message.</source>
+          <target state="new">When a message is retrieved from the queue, the response includes the message and a pop receipt value, which is required to delete the message.</target>
+        </trans-unit>
+        <trans-unit id="f24fde09-adca-4b72-8d5e-31580574124d" xml:space="preserve">
+          <source>The message is not automatically deleted from the queue, but after it has been retrieved, it is not visible to other clients for the time interval specified by the visibilitytimeout parameter.</source>
+          <target state="new">The message is not automatically deleted from the queue, but after it has been retrieved, it is not visible to other clients for the time interval specified by the visibilitytimeout parameter.</target>
+        </trans-unit>
+        <trans-unit id="e4553325-de60-4255-9794-496260a22dd8" xml:space="preserve">
+          <source>The client that retrieves the message is expected to delete the message after it has been processed, and before the time specified by the TimeNextVisible element of the response, which is calculated based on the value of the visibilitytimeout parameter.</source>
+          <target state="new">The client that retrieves the message is expected to delete the message after it has been processed, and before the time specified by the TimeNextVisible element of the response, which is calculated based on the value of the visibilitytimeout parameter.</target>
+        </trans-unit>
+        <trans-unit id="9fc5f62d-de46-4daa-9fcc-db716b815940" xml:space="preserve">
+          <source>The value of visibilitytimeout is added to the time at which the message is retrieved to determine the value of TimeNextVisible.</source>
+          <target state="new">The value of visibilitytimeout is added to the time at which the message is retrieved to determine the value of TimeNextVisible.</target>
+        </trans-unit>
+        <trans-unit id="a9f79e06-68b1-43c2-b99a-a303b2040800" xml:space="preserve">
+          <source>The queue service does not have support for either optimistic or pessimistic concurrency and for this reason clients processing messages retrieved from a queue should ensure messages are processed in an idempotent manner.</source>
+          <target state="new">The queue service does not have support for either optimistic or pessimistic concurrency and for this reason clients processing messages retrieved from a queue should ensure messages are processed in an idempotent manner.</target>
+        </trans-unit>
+        <trans-unit id="e4a224b6-6a8a-4d98-ba83-22745ce7e612" xml:space="preserve">
+          <source>A last writer wins strategy is used for update operations such as SetQueueServiceProperties, SetQueueMetaData, SetQueueACL and UpdateMessage.</source>
+          <target state="new">A last writer wins strategy is used for update operations such as SetQueueServiceProperties, SetQueueMetaData, SetQueueACL and UpdateMessage.</target>
+        </trans-unit>
+        <trans-unit id="ce8d2003-b7a5-42ce-a43c-d3b792652606" xml:space="preserve">
+          <source>For more information see:  </source>
+          <target state="new">For more information see:  </target>
+        </trans-unit>
+        <trans-unit id="caee7e83-7d85-45f7-b05e-0ec37b4ca2e7" xml:space="preserve">
+          <source><bpt id="d3454bf6-9806-4ffe-a08c-938af7e3ffe3">&lt;linkText&gt;</bpt>Queue Service REST API<ept id="d3454bf6-9806-4ffe-a08c-938af7e3ffe3">&lt;/linkText&gt;</ept><bpt id="d3454bf6-9806-4ffe-a08c-938af7e3ffe3">&lt;title&gt;</bpt><ept id="d3454bf6-9806-4ffe-a08c-938af7e3ffe3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d3454bf6-9806-4ffe-a08c-938af7e3ffe3">&lt;linkText&gt;</bpt>Queue Service REST API<ept id="d3454bf6-9806-4ffe-a08c-938af7e3ffe3">&lt;/linkText&gt;</ept><bpt id="d3454bf6-9806-4ffe-a08c-938af7e3ffe3">&lt;title&gt;</bpt><ept id="d3454bf6-9806-4ffe-a08c-938af7e3ffe3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bfe7ddc-885f-4f8d-9320-d547a1cd51ec" xml:space="preserve">
+          <source><bpt id="25780833-8f9b-4415-8bbf-ca2b8f6f63be">&lt;linkText&gt;</bpt>Get Messages<ept id="25780833-8f9b-4415-8bbf-ca2b8f6f63be">&lt;/linkText&gt;</ept><bpt id="25780833-8f9b-4415-8bbf-ca2b8f6f63be">&lt;title&gt;</bpt><ept id="25780833-8f9b-4415-8bbf-ca2b8f6f63be">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="25780833-8f9b-4415-8bbf-ca2b8f6f63be">&lt;linkText&gt;</bpt>Get Messages<ept id="25780833-8f9b-4415-8bbf-ca2b8f6f63be">&lt;/linkText&gt;</ept><bpt id="25780833-8f9b-4415-8bbf-ca2b8f6f63be">&lt;title&gt;</bpt><ept id="25780833-8f9b-4415-8bbf-ca2b8f6f63be">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="d1af6198-8939-4561-8bd0-74a85dbc9347" xml:space="preserve">
+          <source>The file service can be accessed using two different protocol endpoints – SMB and REST.</source>
+          <target state="new">The file service can be accessed using two different protocol endpoints – SMB and REST.</target>
+        </trans-unit>
+        <trans-unit id="6a6c4287-bcaa-400b-a33a-6fb874f5d902" xml:space="preserve">
+          <source>The REST service does not have support for either optimistic locking or pessimistic locking and all updates will follow a last writer wins strategy.</source>
+          <target state="new">The REST service does not have support for either optimistic locking or pessimistic locking and all updates will follow a last writer wins strategy.</target>
+        </trans-unit>
+        <trans-unit id="2f118518-ce03-4b39-853d-b1bd75cb76f8" xml:space="preserve">
+          <source>SMB clients that mount file shares can leverage file system locking mechanisms to manage access to shared files – including the ability to perform pessimistic locking.</source>
+          <target state="new">SMB clients that mount file shares can leverage file system locking mechanisms to manage access to shared files – including the ability to perform pessimistic locking.</target>
+        </trans-unit>
+        <trans-unit id="24ae95c1-0196-4929-af20-41f103b1335f" xml:space="preserve">
+          <source>When an SMB client opens a file, it specifies both the file access and share mode.</source>
+          <target state="new">When an SMB client opens a file, it specifies both the file access and share mode.</target>
+        </trans-unit>
+        <trans-unit id="9a7b5c1b-ebc7-47d0-88a7-45feee4fc9cc" xml:space="preserve">
+          <source>Setting a File Access option of "Write" or "Read/Write" along with a File Share mode of "None" will result in the file being locked by an SMB client until the file is closed.</source>
+          <target state="new">Setting a File Access option of "Write" or "Read/Write" along with a File Share mode of "None" will result in the file being locked by an SMB client until the file is closed.</target>
+        </trans-unit>
+        <trans-unit id="e8ab10f8-6d80-440e-a59c-780ed658ccb8" xml:space="preserve">
+          <source>If REST operation is attempted on a file where an SMB client has the file locked the REST service will return status code 409 (Conflict) with error code SharingViolation.</source>
+          <target state="new">If REST operation is attempted on a file where an SMB client has the file locked the REST service will return status code 409 (Conflict) with error code SharingViolation.</target>
+        </trans-unit>
+        <trans-unit id="f583719b-218b-4c79-9566-facf63766d39" xml:space="preserve">
+          <source>When an SMB client opens a file for delete, it marks the file as pending delete until all other SMB client open handles on that file are closed.</source>
+          <target state="new">When an SMB client opens a file for delete, it marks the file as pending delete until all other SMB client open handles on that file are closed.</target>
+        </trans-unit>
+        <trans-unit id="0aeed155-465c-4959-b6ff-bf40940032f7" xml:space="preserve">
+          <source>While a file is marked as pending delete, any REST operation on that file will return status code 409 (Conflict) with error code SMBDeletePending.</source>
+          <target state="new">While a file is marked as pending delete, any REST operation on that file will return status code 409 (Conflict) with error code SMBDeletePending.</target>
+        </trans-unit>
+        <trans-unit id="16ba9c71-aa74-4e2c-b1f9-c4740e9e2822" xml:space="preserve">
+          <source>Status code 404 (Not Found) is not returned since it is possible for the SMB client to remove the pending deletion flag prior to closing the file.</source>
+          <target state="new">Status code 404 (Not Found) is not returned since it is possible for the SMB client to remove the pending deletion flag prior to closing the file.</target>
+        </trans-unit>
+        <trans-unit id="0ef799b1-923b-4ed2-b73f-307df25e6b7d" xml:space="preserve">
+          <source>In other words, status code 404 (Not Found) is only expected when the file has been removed.</source>
+          <target state="new">In other words, status code 404 (Not Found) is only expected when the file has been removed.</target>
+        </trans-unit>
+        <trans-unit id="64184dd0-4d2c-4990-be67-6b5ad9dbe8bd" xml:space="preserve">
+          <source>Note that while a file is in a SMB pending delete state, it will not be included in the List Files results.Also note that the REST Delete File and REST Delete Directory operations are committed atomically and do not result in pending delete state.</source>
+          <target state="new">Note that while a file is in a SMB pending delete state, it will not be included in the List Files results.Also note that the REST Delete File and REST Delete Directory operations are committed atomically and do not result in pending delete state.</target>
+        </trans-unit>
+        <trans-unit id="c8f315c5-cf01-4fa9-8009-ee277d81091b" xml:space="preserve">
+          <source>For more information see:  </source>
+          <target state="new">For more information see:  </target>
+        </trans-unit>
+        <trans-unit id="b447d485-f0d2-49e7-8573-285908676d0a" xml:space="preserve">
+          <source><bpt id="c9085603-2bfd-4b1a-94b6-ef2f9d740ae1">&lt;linkText&gt;</bpt>Managing File Locks<ept id="c9085603-2bfd-4b1a-94b6-ef2f9d740ae1">&lt;/linkText&gt;</ept><bpt id="c9085603-2bfd-4b1a-94b6-ef2f9d740ae1">&lt;title&gt;</bpt><ept id="c9085603-2bfd-4b1a-94b6-ef2f9d740ae1">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="c9085603-2bfd-4b1a-94b6-ef2f9d740ae1">&lt;linkText&gt;</bpt>Managing File Locks<ept id="c9085603-2bfd-4b1a-94b6-ef2f9d740ae1">&lt;/linkText&gt;</ept><bpt id="c9085603-2bfd-4b1a-94b6-ef2f9d740ae1">&lt;title&gt;</bpt><ept id="c9085603-2bfd-4b1a-94b6-ef2f9d740ae1">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="53a9595f-3890-4161-9bc8-1f063704b92c" xml:space="preserve">
+          <source>The Microsoft Azure Storage service has been designed to meet the needs of the most complex online applications without forcing developers to compromise or rethink key design assumptions such as concurrency and data consistency that they have come to take for granted.</source>
+          <target state="new">The Microsoft Azure Storage service has been designed to meet the needs of the most complex online applications without forcing developers to compromise or rethink key design assumptions such as concurrency and data consistency that they have come to take for granted.</target>
+        </trans-unit>
+        <trans-unit id="9b99310f-98d5-4186-be0b-6c1e44dc1bc7" xml:space="preserve">
+          <source>For the complete sample application referenced in this blog:  </source>
+          <target state="new">For the complete sample application referenced in this blog:  </target>
+        </trans-unit>
+        <trans-unit id="2ea81517-06ee-4a35-aeb9-255034cee8cd" xml:space="preserve">
+          <source><bpt id="cae29769-135d-46e8-8635-b13fec04296d">&lt;linkText&gt;</bpt>Managing Concurrency using Azure Storage - Sample Application<ept id="cae29769-135d-46e8-8635-b13fec04296d">&lt;/linkText&gt;</ept><bpt id="cae29769-135d-46e8-8635-b13fec04296d">&lt;title&gt;</bpt><ept id="cae29769-135d-46e8-8635-b13fec04296d">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="cae29769-135d-46e8-8635-b13fec04296d">&lt;linkText&gt;</bpt>Managing Concurrency using Azure Storage - Sample Application<ept id="cae29769-135d-46e8-8635-b13fec04296d">&lt;/linkText&gt;</ept><bpt id="cae29769-135d-46e8-8635-b13fec04296d">&lt;title&gt;</bpt><ept id="cae29769-135d-46e8-8635-b13fec04296d">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="331ece03-66bc-4389-a2e6-aaf95c2a48d6" xml:space="preserve">
+          <source>For more information on Azure Storage see:  </source>
+          <target state="new">For more information on Azure Storage see:  </target>
+        </trans-unit>
+        <trans-unit id="8e9e38ba-8bce-4910-bbe6-3f49c42f3d06" xml:space="preserve">
+          <source><bpt id="0f77a8d9-e406-469f-9af6-eb8c5c9b02ff">&lt;linkText&gt;</bpt>Microsoft Azure Storage Home Page<ept id="0f77a8d9-e406-469f-9af6-eb8c5c9b02ff">&lt;/linkText&gt;</ept><bpt id="0f77a8d9-e406-469f-9af6-eb8c5c9b02ff">&lt;title&gt;</bpt><ept id="0f77a8d9-e406-469f-9af6-eb8c5c9b02ff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0f77a8d9-e406-469f-9af6-eb8c5c9b02ff">&lt;linkText&gt;</bpt>Microsoft Azure Storage Home Page<ept id="0f77a8d9-e406-469f-9af6-eb8c5c9b02ff">&lt;/linkText&gt;</ept><bpt id="0f77a8d9-e406-469f-9af6-eb8c5c9b02ff">&lt;title&gt;</bpt><ept id="0f77a8d9-e406-469f-9af6-eb8c5c9b02ff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="659b91c4-0988-4eb2-84fa-0e19e8a4054c" xml:space="preserve">
+          <source><bpt id="f6c2fbfd-6621-4032-b4ed-43ee01439331">&lt;linkText&gt;</bpt>Introduction to Azure Storage<ept id="f6c2fbfd-6621-4032-b4ed-43ee01439331">&lt;/linkText&gt;</ept><bpt id="f6c2fbfd-6621-4032-b4ed-43ee01439331">&lt;title&gt;</bpt><ept id="f6c2fbfd-6621-4032-b4ed-43ee01439331">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f6c2fbfd-6621-4032-b4ed-43ee01439331">&lt;linkText&gt;</bpt>Introduction to Azure Storage<ept id="f6c2fbfd-6621-4032-b4ed-43ee01439331">&lt;/linkText&gt;</ept><bpt id="f6c2fbfd-6621-4032-b4ed-43ee01439331">&lt;title&gt;</bpt><ept id="f6c2fbfd-6621-4032-b4ed-43ee01439331">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a525cfd3-f71c-4d08-ab79-4377a4f60ded" xml:space="preserve">
+          <source>Storage Getting Started for <bpt id="86283006-c66b-4e92-9d2d-ba50d9324d61">&lt;linkText&gt;</bpt>Blob<ept id="86283006-c66b-4e92-9d2d-ba50d9324d61">&lt;/linkText&gt;</ept><bpt id="86283006-c66b-4e92-9d2d-ba50d9324d61">&lt;title&gt;</bpt><ept id="86283006-c66b-4e92-9d2d-ba50d9324d61">&lt;/title&gt;</ept>, <bpt id="4fc7dc4d-d67c-49a9-82f4-d5b660226fa6">&lt;linkText&gt;</bpt>Table<ept id="4fc7dc4d-d67c-49a9-82f4-d5b660226fa6">&lt;/linkText&gt;</ept><bpt id="4fc7dc4d-d67c-49a9-82f4-d5b660226fa6">&lt;title&gt;</bpt><ept id="4fc7dc4d-d67c-49a9-82f4-d5b660226fa6">&lt;/title&gt;</ept> and <bpt id="87bfad27-315a-4225-89a9-a39ac1a45543">&lt;linkText&gt;</bpt>Queues<ept id="87bfad27-315a-4225-89a9-a39ac1a45543">&lt;/linkText&gt;</ept><bpt id="87bfad27-315a-4225-89a9-a39ac1a45543">&lt;title&gt;</bpt><ept id="87bfad27-315a-4225-89a9-a39ac1a45543">&lt;/title&gt;</ept></source>
+          <target state="new">Storage Getting Started for <bpt id="86283006-c66b-4e92-9d2d-ba50d9324d61">&lt;linkText&gt;</bpt>Blob<ept id="86283006-c66b-4e92-9d2d-ba50d9324d61">&lt;/linkText&gt;</ept><bpt id="86283006-c66b-4e92-9d2d-ba50d9324d61">&lt;title&gt;</bpt><ept id="86283006-c66b-4e92-9d2d-ba50d9324d61">&lt;/title&gt;</ept>, <bpt id="4fc7dc4d-d67c-49a9-82f4-d5b660226fa6">&lt;linkText&gt;</bpt>Table<ept id="4fc7dc4d-d67c-49a9-82f4-d5b660226fa6">&lt;/linkText&gt;</ept><bpt id="4fc7dc4d-d67c-49a9-82f4-d5b660226fa6">&lt;title&gt;</bpt><ept id="4fc7dc4d-d67c-49a9-82f4-d5b660226fa6">&lt;/title&gt;</ept> and <bpt id="87bfad27-315a-4225-89a9-a39ac1a45543">&lt;linkText&gt;</bpt>Queues<ept id="87bfad27-315a-4225-89a9-a39ac1a45543">&lt;/linkText&gt;</ept><bpt id="87bfad27-315a-4225-89a9-a39ac1a45543">&lt;title&gt;</bpt><ept id="87bfad27-315a-4225-89a9-a39ac1a45543">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dcb84a45-61d7-44a9-816b-aed2a60b085e" xml:space="preserve">
+          <source>Storage Architecture – <bpt id="bf479d46-2eb6-43ee-b7ce-f5c7c2de6d9a">&lt;linkText&gt;</bpt>Microsoft Azure Storage : A Highly Available Cloud Storage Service with Strong Consistency<ept id="bf479d46-2eb6-43ee-b7ce-f5c7c2de6d9a">&lt;/linkText&gt;</ept><bpt id="bf479d46-2eb6-43ee-b7ce-f5c7c2de6d9a">&lt;title&gt;</bpt><ept id="bf479d46-2eb6-43ee-b7ce-f5c7c2de6d9a">&lt;/title&gt;</ept></source>
+          <target state="new">Storage Architecture – <bpt id="bf479d46-2eb6-43ee-b7ce-f5c7c2de6d9a">&lt;linkText&gt;</bpt>Microsoft Azure Storage : A Highly Available Cloud Storage Service with Strong Consistency<ept id="bf479d46-2eb6-43ee-b7ce-f5c7c2de6d9a">&lt;/linkText&gt;</ept><bpt id="bf479d46-2eb6-43ee-b7ce-f5c7c2de6d9a">&lt;title&gt;</bpt><ept id="bf479d46-2eb6-43ee-b7ce-f5c7c2de6d9a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

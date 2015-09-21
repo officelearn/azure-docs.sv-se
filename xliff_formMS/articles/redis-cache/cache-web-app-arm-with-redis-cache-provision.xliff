@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a83a2901-3e68-4eab-a24c-fc2a679d9dc4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a83a2901-3e68-4eab-a24c-fc2a679d9dc4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="27bd3043-d842-4f6c-a34b-60f67403ccab">
+        <trans-unit id="6ec7b7b9-b317-432d-a73c-c00e449e2bc0" xml:space="preserve">
+          <source>Provision Web App with Redis Cache</source>
+          <target state="new">Provision Web App with Redis Cache</target>
+        </trans-unit>
+        <trans-unit id="2a034962-1f8f-4f99-bc42-8caba704cb5e" xml:space="preserve">
+          <source>Use Azure Resource Manager template to deploy web app with Redis Cache.</source>
+          <target state="new">Use Azure Resource Manager template to deploy web app with Redis Cache.</target>
+        </trans-unit>
+        <trans-unit id="c4744a63-a786-480f-9f39-0124c31e1b78" xml:space="preserve">
+          <source>In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Redis cache.</source>
+          <target state="new">In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Redis cache.</target>
+        </trans-unit>
+        <trans-unit id="634c0757-cd75-48ed-a3c0-2685deb2fcbe" xml:space="preserve">
+          <source>You will learn how to define which resources are deployed and 
+how to define parameters that are specified when the deployment is executed.</source>
+          <target state="new">You will learn how to define which resources are deployed and 
+how to define parameters that are specified when the deployment is executed.</target>
+        </trans-unit>
+        <trans-unit id="89415b84-c8c6-43d9-842c-315b561d1543" xml:space="preserve">
+          <source>You can use this template for your own deployments, or customize it to meet your requirements.</source>
+          <target state="new">You can use this template for your own deployments, or customize it to meet your requirements.</target>
+        </trans-unit>
+        <trans-unit id="e353c30b-b363-494e-87e6-30e0497603d4" xml:space="preserve">
+          <source>For more information about creating templates, see <bpt id="69f623bd-fd50-4722-ae11-4f61e5bddf90">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager Templates<ept id="69f623bd-fd50-4722-ae11-4f61e5bddf90">&lt;/linkText&gt;</ept><bpt id="69f623bd-fd50-4722-ae11-4f61e5bddf90">&lt;title&gt;</bpt><ept id="69f623bd-fd50-4722-ae11-4f61e5bddf90">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about creating templates, see <bpt id="69f623bd-fd50-4722-ae11-4f61e5bddf90">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager Templates<ept id="69f623bd-fd50-4722-ae11-4f61e5bddf90">&lt;/linkText&gt;</ept><bpt id="69f623bd-fd50-4722-ae11-4f61e5bddf90">&lt;title&gt;</bpt><ept id="69f623bd-fd50-4722-ae11-4f61e5bddf90">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0c3555c-e6b1-46ec-9396-5b77fcfb4b21" xml:space="preserve">
+          <source>For the complete template, see <bpt id="28d8f60c-c75b-4c0f-8636-7eb8403d1b33">&lt;linkText&gt;</bpt>Web App with Redis Cache template<ept id="28d8f60c-c75b-4c0f-8636-7eb8403d1b33">&lt;/linkText&gt;</ept><bpt id="28d8f60c-c75b-4c0f-8636-7eb8403d1b33">&lt;title&gt;</bpt><ept id="28d8f60c-c75b-4c0f-8636-7eb8403d1b33">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the complete template, see <bpt id="28d8f60c-c75b-4c0f-8636-7eb8403d1b33">&lt;linkText&gt;</bpt>Web App with Redis Cache template<ept id="28d8f60c-c75b-4c0f-8636-7eb8403d1b33">&lt;/linkText&gt;</ept><bpt id="28d8f60c-c75b-4c0f-8636-7eb8403d1b33">&lt;title&gt;</bpt><ept id="28d8f60c-c75b-4c0f-8636-7eb8403d1b33">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da47d088-b0cc-4dd7-81e7-25cbe9a78430" xml:space="preserve">
+          <source>In this template, you will deploy:</source>
+          <target state="new">In this template, you will deploy:</target>
+        </trans-unit>
+        <trans-unit id="d32dff3e-4e3f-4d70-8be1-aa74bfd5358b" xml:space="preserve">
+          <source>Azure Web App</source>
+          <target state="new">Azure Web App</target>
+        </trans-unit>
+        <trans-unit id="1bb537f1-dcba-4243-802d-65f78728a7bc" xml:space="preserve">
+          <source>Azure Redis Cache.</source>
+          <target state="new">Azure Redis Cache.</target>
+        </trans-unit>
+        <trans-unit id="ec12fb19-2df9-49e4-8f02-40266ce12911" xml:space="preserve">
+          <source>To run the deployment automatically, click the following button:</source>
+          <target state="new">To run the deployment automatically, click the following button:</target>
+        </trans-unit>
+        <trans-unit id="21f7a59b-9b93-416a-84ab-ee93c8b3887e" xml:space="preserve">
+          <source>[<bpt id="458335e4-9be4-4cf2-8fc8-1e4323afa237">&lt;linkText&gt;</bpt>Deploy to Azure<ept id="458335e4-9be4-4cf2-8fc8-1e4323afa237">&lt;/linkText&gt;</ept>](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)</source>
+          <target state="new">[<bpt id="458335e4-9be4-4cf2-8fc8-1e4323afa237">&lt;linkText&gt;</bpt>Deploy to Azure<ept id="458335e4-9be4-4cf2-8fc8-1e4323afa237">&lt;/linkText&gt;</ept>](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)</target>
+        </trans-unit>
+        <trans-unit id="cbacf69f-e7fb-454d-83e2-1702901a037f" xml:space="preserve">
+          <source><bpt id="1c6c863c-ce26-458e-94a2-0dc540cfb863">&lt;token href="../../includes/app-service-web-deploy-web-parameters.md"&gt;</bpt><ept id="1c6c863c-ce26-458e-94a2-0dc540cfb863">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1c6c863c-ce26-458e-94a2-0dc540cfb863">&lt;token href="../../includes/app-service-web-deploy-web-parameters.md"&gt;</bpt><ept id="1c6c863c-ce26-458e-94a2-0dc540cfb863">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ab368b3-920d-47c9-a881-f6c85fc89c01" xml:space="preserve">
+          <source><bpt id="c37850c9-29cb-443d-b1be-7819e3afb4be">&lt;token href="../../includes/cache-deploy-parameters.md"&gt;</bpt><ept id="c37850c9-29cb-443d-b1be-7819e3afb4be">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c37850c9-29cb-443d-b1be-7819e3afb4be">&lt;token href="../../includes/cache-deploy-parameters.md"&gt;</bpt><ept id="c37850c9-29cb-443d-b1be-7819e3afb4be">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff6b295b-ef5f-475e-822c-6bda730a26f6" xml:space="preserve">
+          <source><bpt id="81f78c86-967b-466a-91a0-dcce3a26d1ee">&lt;token href="../../includes/app-service-web-deploy-web-host.md"&gt;</bpt><ept id="81f78c86-967b-466a-91a0-dcce3a26d1ee">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="81f78c86-967b-466a-91a0-dcce3a26d1ee">&lt;token href="../../includes/app-service-web-deploy-web-host.md"&gt;</bpt><ept id="81f78c86-967b-466a-91a0-dcce3a26d1ee">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e07f276-4070-4341-aeb4-996d29888085" xml:space="preserve">
+          <source>Creates the Azure Redics Cache that is used with the web app.</source>
+          <target state="new">Creates the Azure Redics Cache that is used with the web app.</target>
+        </trans-unit>
+        <trans-unit id="c2fb4a1b-88ec-4d66-b006-2e3225040c1d" xml:space="preserve">
+          <source>The name of the cache is specified in the <bpt id="e9a32909-958c-43ba-b121-b4c20755953c">&lt;strong&gt;</bpt>redisCacheName<ept id="e9a32909-958c-43ba-b121-b4c20755953c">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">The name of the cache is specified in the <bpt id="e9a32909-958c-43ba-b121-b4c20755953c">&lt;strong&gt;</bpt>redisCacheName<ept id="e9a32909-958c-43ba-b121-b4c20755953c">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="cd24119b-7670-440d-86c8-8ee6aac66fea" xml:space="preserve">
+          <source>The template creates the cache in the same location as the web app, which is recommended for best performance.</source>
+          <target state="new">The template creates the cache in the same location as the web app, which is recommended for best performance.</target>
+        </trans-unit>
+        <trans-unit id="2c46ad40-7345-4da7-b9f2-a3e32a5e59e3" xml:space="preserve">
+          <source>Creates the web app with name specified in the <bpt id="b91bdbd3-f60c-4d9d-854f-54a89e10dbf1">&lt;strong&gt;</bpt>siteName<ept id="b91bdbd3-f60c-4d9d-854f-54a89e10dbf1">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">Creates the web app with name specified in the <bpt id="b91bdbd3-f60c-4d9d-854f-54a89e10dbf1">&lt;strong&gt;</bpt>siteName<ept id="b91bdbd3-f60c-4d9d-854f-54a89e10dbf1">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="10d6bb99-9e90-46c2-a1d3-8d2ad050a856" xml:space="preserve">
+          <source>Notice that the web app is configured with app setting properties that enable it to work with the Redis Cache.</source>
+          <target state="new">Notice that the web app is configured with app setting properties that enable it to work with the Redis Cache.</target>
+        </trans-unit>
+        <trans-unit id="6265d6c7-4dfe-4e3b-b4fa-d5f26e32a6f6" xml:space="preserve">
+          <source>This app settings are dynamically created based on values provided during deployment.</source>
+          <target state="new">This app settings are dynamically created based on values provided during deployment.</target>
+        </trans-unit>
+        <trans-unit id="144ed090-d36c-4f26-8768-f47b02fd703e" xml:space="preserve">
+          <source><bpt id="f897c054-bea8-4fb0-b39d-e5098d0a801b">&lt;token href="../../includes/app-service-deploy-commands.md"&gt;</bpt><ept id="f897c054-bea8-4fb0-b39d-e5098d0a801b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f897c054-bea8-4fb0-b39d-e5098d0a801b">&lt;token href="../../includes/app-service-deploy-commands.md"&gt;</bpt><ept id="f897c054-bea8-4fb0-b39d-e5098d0a801b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

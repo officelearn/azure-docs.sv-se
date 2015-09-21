@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3abb8ede-b08c-4098-88d6-caed9b5d726d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3abb8ede-b08c-4098-88d6-caed9b5d726d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fbed83f4-fecb-4de3-b608-6141eff96972">
+        <trans-unit id="aac700f0-4c54-44e6-8ac3-c917c8ff1f14" xml:space="preserve">
+          <source>Use MapReduce and PowerShell with Hadoop | Microsoft Azure</source>
+          <target state="new">Use MapReduce and PowerShell with Hadoop | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="500367ff-3791-42ec-9d37-ecca809bb771" xml:space="preserve">
+          <source>Learn how to use PowerShell to remotely run MapReduce jobs with Hadoop on HDInsight.</source>
+          <target state="new">Learn how to use PowerShell to remotely run MapReduce jobs with Hadoop on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="dfabeb68-462f-485c-9549-73528443b6fe" xml:space="preserve">
+          <source><bpt id="9a572ac7-fe15-423f-9348-1e357f5cfa97">&lt;token href="../../includes/hdinsight-selector-use-mapreduce.md"&gt;</bpt><ept id="9a572ac7-fe15-423f-9348-1e357f5cfa97">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9a572ac7-fe15-423f-9348-1e357f5cfa97">&lt;token href="../../includes/hdinsight-selector-use-mapreduce.md"&gt;</bpt><ept id="9a572ac7-fe15-423f-9348-1e357f5cfa97">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64bfe078-278d-473d-bc5b-20c14b4c7be4" xml:space="preserve">
+          <source>This document provides an example of using Azure PowerShell to run a MapReduce job in a Hadoop on HDInsight cluster.</source>
+          <target state="new">This document provides an example of using Azure PowerShell to run a MapReduce job in a Hadoop on HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="6255216f-20fc-41a1-95bc-8cae2a4a7375" xml:space="preserve">
+          <source>To complete the steps in this article, you will need the following:</source>
+          <target state="new">To complete the steps in this article, you will need the following:</target>
+        </trans-unit>
+        <trans-unit id="fc20ecd4-be1a-45b8-b8b1-9708e12d05a5" xml:space="preserve">
+          <source><bpt id="ad2ac843-62d6-47a7-adbd-87821e6d8eee">&lt;strong&gt;</bpt>An Azure HDInsight (Hadoop on HDInsight) cluster (Windows-based or Linux-based)<ept id="ad2ac843-62d6-47a7-adbd-87821e6d8eee">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ad2ac843-62d6-47a7-adbd-87821e6d8eee">&lt;strong&gt;</bpt>An Azure HDInsight (Hadoop on HDInsight) cluster (Windows-based or Linux-based)<ept id="ad2ac843-62d6-47a7-adbd-87821e6d8eee">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2cde048-9e07-48a3-b3de-ea112e6c16fd" xml:space="preserve">
+          <source><bpt id="1d63f48c-341f-4860-b5c0-a6d7ace9cc7d">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="1d63f48c-341f-4860-b5c0-a6d7ace9cc7d">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="1d63f48c-341f-4860-b5c0-a6d7ace9cc7d">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="1d63f48c-341f-4860-b5c0-a6d7ace9cc7d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12195eca-9d68-48f5-a814-7be951e2b4c0" xml:space="preserve">
+          <source>See <bpt id="91d278b6-a1c4-4a87-934c-571f97e5b18e">&lt;linkText&gt;</bpt>Install and Configure Azure PowerShell<ept id="91d278b6-a1c4-4a87-934c-571f97e5b18e">&lt;/linkText&gt;</ept><bpt id="91d278b6-a1c4-4a87-934c-571f97e5b18e">&lt;title&gt;</bpt><ept id="91d278b6-a1c4-4a87-934c-571f97e5b18e">&lt;/title&gt;</ept></source>
+          <target state="new">See <bpt id="91d278b6-a1c4-4a87-934c-571f97e5b18e">&lt;linkText&gt;</bpt>Install and Configure Azure PowerShell<ept id="91d278b6-a1c4-4a87-934c-571f97e5b18e">&lt;/linkText&gt;</ept><bpt id="91d278b6-a1c4-4a87-934c-571f97e5b18e">&lt;title&gt;</bpt><ept id="91d278b6-a1c4-4a87-934c-571f97e5b18e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac6859bc-b534-464d-8f01-db08c454de50" xml:space="preserve">
+          <source>Azure PowerShell provides <bpt id="9421b012-5793-40f4-b1f7-8d2fdc8118c2">&lt;em&gt;</bpt>cmdlets<ept id="9421b012-5793-40f4-b1f7-8d2fdc8118c2">&lt;/em&gt;</ept> that allow you to remotely run MapReduce jobs on HDInsight.</source>
+          <target state="new">Azure PowerShell provides <bpt id="9421b012-5793-40f4-b1f7-8d2fdc8118c2">&lt;em&gt;</bpt>cmdlets<ept id="9421b012-5793-40f4-b1f7-8d2fdc8118c2">&lt;/em&gt;</ept> that allow you to remotely run MapReduce jobs on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="36b00520-b286-49eb-ae90-017fda537fe2" xml:space="preserve">
+          <source>Internally, this is accomplished by using REST calls to <bpt id="2f69e490-88fb-4261-bdd5-ebd390f1d097">&lt;linkText&gt;</bpt>WebHCat<ept id="2f69e490-88fb-4261-bdd5-ebd390f1d097">&lt;/linkText&gt;</ept><bpt id="2f69e490-88fb-4261-bdd5-ebd390f1d097">&lt;title&gt;</bpt><ept id="2f69e490-88fb-4261-bdd5-ebd390f1d097">&lt;/title&gt;</ept> (formerly called Templeton) running on the HDInsight cluster.</source>
+          <target state="new">Internally, this is accomplished by using REST calls to <bpt id="2f69e490-88fb-4261-bdd5-ebd390f1d097">&lt;linkText&gt;</bpt>WebHCat<ept id="2f69e490-88fb-4261-bdd5-ebd390f1d097">&lt;/linkText&gt;</ept><bpt id="2f69e490-88fb-4261-bdd5-ebd390f1d097">&lt;title&gt;</bpt><ept id="2f69e490-88fb-4261-bdd5-ebd390f1d097">&lt;/title&gt;</ept> (formerly called Templeton) running on the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="f14598f6-cf6f-499a-a975-db75ca9dc587" xml:space="preserve">
+          <source>The following cmdlets are used when running MapReduce jobs in a remote HDInsight cluster.</source>
+          <target state="new">The following cmdlets are used when running MapReduce jobs in a remote HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="a5c114f2-9a9b-4fdf-b799-48af4c58314e" xml:space="preserve">
+          <source><bpt id="199833c4-ff50-4311-b25b-537edaa96303">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="199833c4-ff50-4311-b25b-537edaa96303">&lt;/strong&gt;</ept>: Authenticates Azure PowerShell to your Azure subscription</source>
+          <target state="new"><bpt id="199833c4-ff50-4311-b25b-537edaa96303">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="199833c4-ff50-4311-b25b-537edaa96303">&lt;/strong&gt;</ept>: Authenticates Azure PowerShell to your Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="33b0f315-5f75-4856-9fcf-a6e7ebd316d9" xml:space="preserve">
+          <source><bpt id="58bafb77-5d8c-4eb7-a821-f85e1d61b705">&lt;strong&gt;</bpt>New-AzureHDInsightMapReduceJobDefinition<ept id="58bafb77-5d8c-4eb7-a821-f85e1d61b705">&lt;/strong&gt;</ept>: Creates a new <bpt id="b13a02d4-117d-474a-a43a-f25a413e10e0">&lt;em&gt;</bpt>job definition<ept id="b13a02d4-117d-474a-a43a-f25a413e10e0">&lt;/em&gt;</ept> by using the specified MapReduce information</source>
+          <target state="new"><bpt id="58bafb77-5d8c-4eb7-a821-f85e1d61b705">&lt;strong&gt;</bpt>New-AzureHDInsightMapReduceJobDefinition<ept id="58bafb77-5d8c-4eb7-a821-f85e1d61b705">&lt;/strong&gt;</ept>: Creates a new <bpt id="b13a02d4-117d-474a-a43a-f25a413e10e0">&lt;em&gt;</bpt>job definition<ept id="b13a02d4-117d-474a-a43a-f25a413e10e0">&lt;/em&gt;</ept> by using the specified MapReduce information</target>
+        </trans-unit>
+        <trans-unit id="df60e39b-004f-471b-814c-13d35a6268d3" xml:space="preserve">
+          <source><bpt id="4594e761-edbf-4bd9-9580-20ecbbfb1978">&lt;strong&gt;</bpt>Start-AzureHDInsightJob<ept id="4594e761-edbf-4bd9-9580-20ecbbfb1978">&lt;/strong&gt;</ept>: Sends the job definition to HDInsight, starts the job, and returns a <bpt id="8e74a2e3-0772-406e-93ff-dc0598fc2fc8">&lt;em&gt;</bpt>job<ept id="8e74a2e3-0772-406e-93ff-dc0598fc2fc8">&lt;/em&gt;</ept> object that can be used to check the status of the job</source>
+          <target state="new"><bpt id="4594e761-edbf-4bd9-9580-20ecbbfb1978">&lt;strong&gt;</bpt>Start-AzureHDInsightJob<ept id="4594e761-edbf-4bd9-9580-20ecbbfb1978">&lt;/strong&gt;</ept>: Sends the job definition to HDInsight, starts the job, and returns a <bpt id="8e74a2e3-0772-406e-93ff-dc0598fc2fc8">&lt;em&gt;</bpt>job<ept id="8e74a2e3-0772-406e-93ff-dc0598fc2fc8">&lt;/em&gt;</ept> object that can be used to check the status of the job</target>
+        </trans-unit>
+        <trans-unit id="944f8a5e-2658-481b-a635-fac427c83bb2" xml:space="preserve">
+          <source><bpt id="94cc279b-c84d-4297-beae-cc5c41fbb9f8">&lt;strong&gt;</bpt>Wait-AzureHDInsightJob<ept id="94cc279b-c84d-4297-beae-cc5c41fbb9f8">&lt;/strong&gt;</ept>: Uses the job object to check the status of the job.</source>
+          <target state="new"><bpt id="94cc279b-c84d-4297-beae-cc5c41fbb9f8">&lt;strong&gt;</bpt>Wait-AzureHDInsightJob<ept id="94cc279b-c84d-4297-beae-cc5c41fbb9f8">&lt;/strong&gt;</ept>: Uses the job object to check the status of the job.</target>
+        </trans-unit>
+        <trans-unit id="64511784-ecc4-4f52-80da-e311de0be506" xml:space="preserve">
+          <source>It waits until the job completes or the wait time is exceeded.</source>
+          <target state="new">It waits until the job completes or the wait time is exceeded.</target>
+        </trans-unit>
+        <trans-unit id="8129a0a5-f58b-42d1-9d63-48e530cfb2e1" xml:space="preserve">
+          <source><bpt id="9a1f751a-6e44-45d5-8405-270c3bb5c74d">&lt;strong&gt;</bpt>Get-AzureHDInsightJobOutput<ept id="9a1f751a-6e44-45d5-8405-270c3bb5c74d">&lt;/strong&gt;</ept>: Used to retrieve the output of the job</source>
+          <target state="new"><bpt id="9a1f751a-6e44-45d5-8405-270c3bb5c74d">&lt;strong&gt;</bpt>Get-AzureHDInsightJobOutput<ept id="9a1f751a-6e44-45d5-8405-270c3bb5c74d">&lt;/strong&gt;</ept>: Used to retrieve the output of the job</target>
+        </trans-unit>
+        <trans-unit id="abecba5b-53dc-4482-8388-e472c265488d" xml:space="preserve">
+          <source>The following steps demonstrate how to use these cmdlets to run a job in your HDInsight cluster.</source>
+          <target state="new">The following steps demonstrate how to use these cmdlets to run a job in your HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="53f67423-0b30-41fb-a509-478a3a3beec3" xml:space="preserve">
+          <source>Using an editor, save the following code as <bpt id="2cb75307-1141-4e44-ab99-7176571cc460">&lt;strong&gt;</bpt>mapreducejob.ps1<ept id="2cb75307-1141-4e44-ab99-7176571cc460">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Using an editor, save the following code as <bpt id="2cb75307-1141-4e44-ab99-7176571cc460">&lt;strong&gt;</bpt>mapreducejob.ps1<ept id="2cb75307-1141-4e44-ab99-7176571cc460">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8bca8263-8acb-41b2-a1ac-cc5c4f6b22f7" xml:space="preserve">
+          <source>You must replace <bpt id="d16deb73-3be5-4594-947c-0c968a3aa7bd">&lt;strong&gt;</bpt>CLUSTERNAME<ept id="d16deb73-3be5-4594-947c-0c968a3aa7bd">&lt;/strong&gt;</ept> with the name of your HDInsight cluster.</source>
+          <target state="new">You must replace <bpt id="d16deb73-3be5-4594-947c-0c968a3aa7bd">&lt;strong&gt;</bpt>CLUSTERNAME<ept id="d16deb73-3be5-4594-947c-0c968a3aa7bd">&lt;/strong&gt;</ept> with the name of your HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="d0e1111d-2529-4876-8481-af81fb522e92" xml:space="preserve">
+          <source>Open a new <bpt id="da4a93e5-c653-4ff2-8860-16216322c9f7">&lt;strong&gt;</bpt>Azure PowerShell<ept id="da4a93e5-c653-4ff2-8860-16216322c9f7">&lt;/strong&gt;</ept> command prompt.</source>
+          <target state="new">Open a new <bpt id="da4a93e5-c653-4ff2-8860-16216322c9f7">&lt;strong&gt;</bpt>Azure PowerShell<ept id="da4a93e5-c653-4ff2-8860-16216322c9f7">&lt;/strong&gt;</ept> command prompt.</target>
+        </trans-unit>
+        <trans-unit id="b7d734d0-2223-488b-98e9-121101335c9f" xml:space="preserve">
+          <source>Change directories to the location of the <bpt id="5686fb9a-b760-4bb8-959b-d0b3d469ccd1">&lt;strong&gt;</bpt>mapreducejob.ps1<ept id="5686fb9a-b760-4bb8-959b-d0b3d469ccd1">&lt;/strong&gt;</ept> file, then use the following command to run the script:</source>
+          <target state="new">Change directories to the location of the <bpt id="5686fb9a-b760-4bb8-959b-d0b3d469ccd1">&lt;strong&gt;</bpt>mapreducejob.ps1<ept id="5686fb9a-b760-4bb8-959b-d0b3d469ccd1">&lt;/strong&gt;</ept> file, then use the following command to run the script:</target>
+        </trans-unit>
+        <trans-unit id="8b788ccc-57c9-4cd1-a4ff-b5d6ab09a935" xml:space="preserve">
+          <source>When the job completes, you should receive output similar to the following:</source>
+          <target state="new">When the job completes, you should receive output similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="7e94a7da-a251-48dd-aedd-ddc887f9c21b" xml:space="preserve">
+          <source>This output indicates that the job completed successfully.</source>
+          <target state="new">This output indicates that the job completed successfully.</target>
+        </trans-unit>
+        <trans-unit id="6868cbb7-1662-423c-855b-e8f96add63ee" xml:space="preserve">
+          <source>If the <bpt id="5326b556-db8a-4f07-9f2d-45df227084e3">&lt;strong&gt;</bpt>ExitCode<ept id="5326b556-db8a-4f07-9f2d-45df227084e3">&lt;/strong&gt;</ept> is a value other than 0, see <bpt id="ea3dc94a-6455-4f35-818c-1f51e6c1a495">&lt;linkText&gt;</bpt>Troubleshooting<ept id="ea3dc94a-6455-4f35-818c-1f51e6c1a495">&lt;/linkText&gt;</ept><bpt id="ea3dc94a-6455-4f35-818c-1f51e6c1a495">&lt;title&gt;</bpt><ept id="ea3dc94a-6455-4f35-818c-1f51e6c1a495">&lt;/title&gt;</ept>.</source>
+          <target state="new">If the <bpt id="5326b556-db8a-4f07-9f2d-45df227084e3">&lt;strong&gt;</bpt>ExitCode<ept id="5326b556-db8a-4f07-9f2d-45df227084e3">&lt;/strong&gt;</ept> is a value other than 0, see <bpt id="ea3dc94a-6455-4f35-818c-1f51e6c1a495">&lt;linkText&gt;</bpt>Troubleshooting<ept id="ea3dc94a-6455-4f35-818c-1f51e6c1a495">&lt;/linkText&gt;</ept><bpt id="ea3dc94a-6455-4f35-818c-1f51e6c1a495">&lt;title&gt;</bpt><ept id="ea3dc94a-6455-4f35-818c-1f51e6c1a495">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a6496b1-9008-478c-993f-7e4dfc0022cd" xml:space="preserve">
+          <source>The MapReduce job stored the results of the operation to Azure Blob storage, in the <bpt id="921d0a96-07bd-4c77-9cc3-0afb8867bd3f">&lt;strong&gt;</bpt>wasb:///example/data/WordCountOutput<ept id="921d0a96-07bd-4c77-9cc3-0afb8867bd3f">&lt;/strong&gt;</ept> path that was specified as an argument for the job.</source>
+          <target state="new">The MapReduce job stored the results of the operation to Azure Blob storage, in the <bpt id="921d0a96-07bd-4c77-9cc3-0afb8867bd3f">&lt;strong&gt;</bpt>wasb:///example/data/WordCountOutput<ept id="921d0a96-07bd-4c77-9cc3-0afb8867bd3f">&lt;/strong&gt;</ept> path that was specified as an argument for the job.</target>
+        </trans-unit>
+        <trans-unit id="412e4e52-2b29-4f67-9f72-7904787e27e7" xml:space="preserve">
+          <source>Azure Blob storage is accessible through Azure PowerShell, but you must know the storage account name, key, and the  container that is used by your HDInsight cluster to directly access the files.</source>
+          <target state="new">Azure Blob storage is accessible through Azure PowerShell, but you must know the storage account name, key, and the  container that is used by your HDInsight cluster to directly access the files.</target>
+        </trans-unit>
+        <trans-unit id="04ebdf79-74f1-4352-b133-c64ca19ca886" xml:space="preserve">
+          <source>Fortunately, you can obtain this information by using the following Azure PowerShell cmdlets:</source>
+          <target state="new">Fortunately, you can obtain this information by using the following Azure PowerShell cmdlets:</target>
+        </trans-unit>
+        <trans-unit id="01ba50e2-b130-45d2-99c7-8c312500bd09" xml:space="preserve">
+          <source><bpt id="da03a38f-a345-4c61-a90b-189d84fab1c1">&lt;strong&gt;</bpt>Get-AzureHDInsightCluster<ept id="da03a38f-a345-4c61-a90b-189d84fab1c1">&lt;/strong&gt;</ept>: Returns information about an HDInsight cluster, including any storage accounts associated with it.</source>
+          <target state="new"><bpt id="da03a38f-a345-4c61-a90b-189d84fab1c1">&lt;strong&gt;</bpt>Get-AzureHDInsightCluster<ept id="da03a38f-a345-4c61-a90b-189d84fab1c1">&lt;/strong&gt;</ept>: Returns information about an HDInsight cluster, including any storage accounts associated with it.</target>
+        </trans-unit>
+        <trans-unit id="165edd8d-c45d-41f7-895e-cdff0feaf806" xml:space="preserve">
+          <source>There will always be a default storage account associated with a cluster.</source>
+          <target state="new">There will always be a default storage account associated with a cluster.</target>
+        </trans-unit>
+        <trans-unit id="bd62e3e5-8acc-48dd-a417-6e8d2686b984" xml:space="preserve">
+          <source><bpt id="aeedc0be-4013-44eb-b55f-25f5efaf7311">&lt;strong&gt;</bpt>New-AzureStorageContext<ept id="aeedc0be-4013-44eb-b55f-25f5efaf7311">&lt;/strong&gt;</ept>: Given the storage account name and key retrieved using <bpt id="88163284-65a8-4ae5-b21d-41b8a1d3bfa1">&lt;strong&gt;</bpt>Get-AzureHDInsightCluster<ept id="88163284-65a8-4ae5-b21d-41b8a1d3bfa1">&lt;/strong&gt;</ept>, returns a context object that can be used to access the storage account.</source>
+          <target state="new"><bpt id="aeedc0be-4013-44eb-b55f-25f5efaf7311">&lt;strong&gt;</bpt>New-AzureStorageContext<ept id="aeedc0be-4013-44eb-b55f-25f5efaf7311">&lt;/strong&gt;</ept>: Given the storage account name and key retrieved using <bpt id="88163284-65a8-4ae5-b21d-41b8a1d3bfa1">&lt;strong&gt;</bpt>Get-AzureHDInsightCluster<ept id="88163284-65a8-4ae5-b21d-41b8a1d3bfa1">&lt;/strong&gt;</ept>, returns a context object that can be used to access the storage account.</target>
+        </trans-unit>
+        <trans-unit id="d01fc495-a3b2-4316-837b-3c24ffb3392c" xml:space="preserve">
+          <source><bpt id="d2a48408-fd22-4472-9803-67a71d297246">&lt;strong&gt;</bpt>Get-AzureStorageBlob<ept id="d2a48408-fd22-4472-9803-67a71d297246">&lt;/strong&gt;</ept>: Given a context object and container name, returns a list of blobs within the container.</source>
+          <target state="new"><bpt id="d2a48408-fd22-4472-9803-67a71d297246">&lt;strong&gt;</bpt>Get-AzureStorageBlob<ept id="d2a48408-fd22-4472-9803-67a71d297246">&lt;/strong&gt;</ept>: Given a context object and container name, returns a list of blobs within the container.</target>
+        </trans-unit>
+        <trans-unit id="21db76d7-854e-42d2-a6c2-38eca844b704" xml:space="preserve">
+          <source><bpt id="cffe02e7-9bab-4ea0-b3ae-509bfd904eec">&lt;strong&gt;</bpt>Get-AzureStorageBlobContent<ept id="cffe02e7-9bab-4ea0-b3ae-509bfd904eec">&lt;/strong&gt;</ept>: Given a context object, a file path and name, and a container name (returned from <bpt id="f1613cda-43ba-4a83-8a9c-ff9ca72355b1">&lt;strong&gt;</bpt>Get-AzureHDinsightCluster<ept id="f1613cda-43ba-4a83-8a9c-ff9ca72355b1">&lt;/strong&gt;</ept>), downloads a file from Azure Blob storage.</source>
+          <target state="new"><bpt id="cffe02e7-9bab-4ea0-b3ae-509bfd904eec">&lt;strong&gt;</bpt>Get-AzureStorageBlobContent<ept id="cffe02e7-9bab-4ea0-b3ae-509bfd904eec">&lt;/strong&gt;</ept>: Given a context object, a file path and name, and a container name (returned from <bpt id="f1613cda-43ba-4a83-8a9c-ff9ca72355b1">&lt;strong&gt;</bpt>Get-AzureHDinsightCluster<ept id="f1613cda-43ba-4a83-8a9c-ff9ca72355b1">&lt;/strong&gt;</ept>), downloads a file from Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="f882421c-f4c1-40fb-a347-8da6241c721c" xml:space="preserve">
+          <source>The following example retrieves the storage information, then downloads the output from <bpt id="f3a67f14-c6d2-47db-92f4-fded994eeccc">&lt;strong&gt;</bpt>wasb:///example/data/WordCountOutput<ept id="f3a67f14-c6d2-47db-92f4-fded994eeccc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following example retrieves the storage information, then downloads the output from <bpt id="f3a67f14-c6d2-47db-92f4-fded994eeccc">&lt;strong&gt;</bpt>wasb:///example/data/WordCountOutput<ept id="f3a67f14-c6d2-47db-92f4-fded994eeccc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e4dafeb-76c7-49e3-9ffd-0dd15168e7b9" xml:space="preserve">
+          <source>Replace <bpt id="c7bf71ab-fffd-4dc4-ba41-d5a4021203c4">&lt;strong&gt;</bpt>CLUSTERNAME<ept id="c7bf71ab-fffd-4dc4-ba41-d5a4021203c4">&lt;/strong&gt;</ept> with the name of your HDInsight cluster.</source>
+          <target state="new">Replace <bpt id="c7bf71ab-fffd-4dc4-ba41-d5a4021203c4">&lt;strong&gt;</bpt>CLUSTERNAME<ept id="c7bf71ab-fffd-4dc4-ba41-d5a4021203c4">&lt;/strong&gt;</ept> with the name of your HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="9f4b716f-a4e6-4ed5-b4bf-ed73c5326e00" xml:space="preserve">
+          <source>This example will store the downloaded files to the  <bpt id="ab89a124-9e12-4a34-9cc4-977ae1163e4b">&lt;strong&gt;</bpt>example/data/WordCountOutput<ept id="ab89a124-9e12-4a34-9cc4-977ae1163e4b">&lt;/strong&gt;</ept> folder in the directory that you run the script from.</source>
+          <target state="new">This example will store the downloaded files to the  <bpt id="ab89a124-9e12-4a34-9cc4-977ae1163e4b">&lt;strong&gt;</bpt>example/data/WordCountOutput<ept id="ab89a124-9e12-4a34-9cc4-977ae1163e4b">&lt;/strong&gt;</ept> folder in the directory that you run the script from.</target>
+        </trans-unit>
+        <trans-unit id="601e49fd-2a2a-47bc-b24d-eedc27636d87" xml:space="preserve">
+          <source>The output of the MapReduce job is stored in files with the name <bpt id="f49f182d-8b52-49d1-b90d-6fa86eeec76a">&lt;em&gt;</bpt>part-r-#####<ept id="f49f182d-8b52-49d1-b90d-6fa86eeec76a">&lt;/em&gt;</ept>.</source>
+          <target state="new">The output of the MapReduce job is stored in files with the name <bpt id="f49f182d-8b52-49d1-b90d-6fa86eeec76a">&lt;em&gt;</bpt>part-r-#####<ept id="f49f182d-8b52-49d1-b90d-6fa86eeec76a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f73ade88-e999-4140-890a-614fb82d00ba" xml:space="preserve">
+          <source>Open the <bpt id="89675fa2-35cd-4b3d-9cac-bc7c8ab7ab93">&lt;strong&gt;</bpt>example/data/WordCountOutput/part-r-00000<ept id="89675fa2-35cd-4b3d-9cac-bc7c8ab7ab93">&lt;/strong&gt;</ept> file in a text editor to see the words and counts produced by the job.</source>
+          <target state="new">Open the <bpt id="89675fa2-35cd-4b3d-9cac-bc7c8ab7ab93">&lt;strong&gt;</bpt>example/data/WordCountOutput/part-r-00000<ept id="89675fa2-35cd-4b3d-9cac-bc7c8ab7ab93">&lt;/strong&gt;</ept> file in a text editor to see the words and counts produced by the job.</target>
+        </trans-unit>
+        <trans-unit id="12676b95-a218-4c1e-88bb-874f6705ed49" xml:space="preserve">
+          <source>The output files of a MapReduce job are immutable.</source>
+          <target state="new">The output files of a MapReduce job are immutable.</target>
+        </trans-unit>
+        <trans-unit id="1577a341-8cdf-4dd6-953a-b605b57cf230" xml:space="preserve">
+          <source>So if you rerun this sample, you need to change the name of the output file.</source>
+          <target state="new">So if you rerun this sample, you need to change the name of the output file.</target>
+        </trans-unit>
+        <trans-unit id="8df0cd50-8d76-4229-9bb2-0385f8b26a3d" xml:space="preserve">
+          <source>If no information is returned when the job completes, an error may have occurred during processing.</source>
+          <target state="new">If no information is returned when the job completes, an error may have occurred during processing.</target>
+        </trans-unit>
+        <trans-unit id="922b32c7-432e-4545-bc2a-d0e87ea3dce4" xml:space="preserve">
+          <source>To view error information for this job, add the following command to the end of the <bpt id="29eaba4d-79f9-496b-adbf-c39e3ecb7261">&lt;strong&gt;</bpt>mapreducejob.ps1<ept id="29eaba4d-79f9-496b-adbf-c39e3ecb7261">&lt;/strong&gt;</ept> file, save it, and then run it again.</source>
+          <target state="new">To view error information for this job, add the following command to the end of the <bpt id="29eaba4d-79f9-496b-adbf-c39e3ecb7261">&lt;strong&gt;</bpt>mapreducejob.ps1<ept id="29eaba4d-79f9-496b-adbf-c39e3ecb7261">&lt;/strong&gt;</ept> file, save it, and then run it again.</target>
+        </trans-unit>
+        <trans-unit id="6f9ef51b-58de-485d-97a1-ae4fc00c4c73" xml:space="preserve">
+          <source>This returns the information that was written to STDERR on the server when you ran the job, and it may help determine why the job is failing.</source>
+          <target state="new">This returns the information that was written to STDERR on the server when you ran the job, and it may help determine why the job is failing.</target>
+        </trans-unit>
+        <trans-unit id="6e21fe62-80de-46e8-99cd-2d982259c84c" xml:space="preserve">
+          <source>As you can see, Azure PowerShell provides an easy way to run MapReduce jobs on an HDInsight cluster, monitor the job status, and retrieve the output.</source>
+          <target state="new">As you can see, Azure PowerShell provides an easy way to run MapReduce jobs on an HDInsight cluster, monitor the job status, and retrieve the output.</target>
+        </trans-unit>
+        <trans-unit id="43312ca3-b5cb-4a59-9abf-c1c7c0155609" xml:space="preserve">
+          <source>For general information about MapReduce jobs in HDInsight:</source>
+          <target state="new">For general information about MapReduce jobs in HDInsight:</target>
+        </trans-unit>
+        <trans-unit id="b2a5eb1d-59b2-4d3b-8720-d5639cfe580b" xml:space="preserve">
+          <source><bpt id="b9646943-4ebc-42db-8907-3e79b8681fe2">&lt;linkText&gt;</bpt>Use MapReduce on HDInsight Hadoop<ept id="b9646943-4ebc-42db-8907-3e79b8681fe2">&lt;/linkText&gt;</ept><bpt id="b9646943-4ebc-42db-8907-3e79b8681fe2">&lt;title&gt;</bpt><ept id="b9646943-4ebc-42db-8907-3e79b8681fe2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b9646943-4ebc-42db-8907-3e79b8681fe2">&lt;linkText&gt;</bpt>Use MapReduce on HDInsight Hadoop<ept id="b9646943-4ebc-42db-8907-3e79b8681fe2">&lt;/linkText&gt;</ept><bpt id="b9646943-4ebc-42db-8907-3e79b8681fe2">&lt;title&gt;</bpt><ept id="b9646943-4ebc-42db-8907-3e79b8681fe2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fea9593f-66ea-4067-9b92-7efe5476ae26" xml:space="preserve">
+          <source>For information about other ways you can work with Hadoop on HDInsight:</source>
+          <target state="new">For information about other ways you can work with Hadoop on HDInsight:</target>
+        </trans-unit>
+        <trans-unit id="63353083-da52-4eb3-9e5d-93e3faea574f" xml:space="preserve">
+          <source><bpt id="267baf66-f1d8-440f-898b-3f1fc230ca10">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight<ept id="267baf66-f1d8-440f-898b-3f1fc230ca10">&lt;/linkText&gt;</ept><bpt id="267baf66-f1d8-440f-898b-3f1fc230ca10">&lt;title&gt;</bpt><ept id="267baf66-f1d8-440f-898b-3f1fc230ca10">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="267baf66-f1d8-440f-898b-3f1fc230ca10">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight<ept id="267baf66-f1d8-440f-898b-3f1fc230ca10">&lt;/linkText&gt;</ept><bpt id="267baf66-f1d8-440f-898b-3f1fc230ca10">&lt;title&gt;</bpt><ept id="267baf66-f1d8-440f-898b-3f1fc230ca10">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0c56f03-1286-428e-a593-d246715a7050" xml:space="preserve">
+          <source><bpt id="2cd006d3-0518-45c2-8a70-5948e2502e09">&lt;linkText&gt;</bpt>Use Pig with Hadoop on HDInsight<ept id="2cd006d3-0518-45c2-8a70-5948e2502e09">&lt;/linkText&gt;</ept><bpt id="2cd006d3-0518-45c2-8a70-5948e2502e09">&lt;title&gt;</bpt><ept id="2cd006d3-0518-45c2-8a70-5948e2502e09">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2cd006d3-0518-45c2-8a70-5948e2502e09">&lt;linkText&gt;</bpt>Use Pig with Hadoop on HDInsight<ept id="2cd006d3-0518-45c2-8a70-5948e2502e09">&lt;/linkText&gt;</ept><bpt id="2cd006d3-0518-45c2-8a70-5948e2502e09">&lt;title&gt;</bpt><ept id="2cd006d3-0518-45c2-8a70-5948e2502e09">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

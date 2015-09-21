@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0132af0b-84fd-4457-90a9-efcdef9b62b6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0132af0b-84fd-4457-90a9-efcdef9b62b6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a7f9f317-56a1-4f97-bb7f-b66cb1c41adf">
+        <trans-unit id="2adf3e27-4cd4-4fee-89fc-45e7172542ae" xml:space="preserve">
+          <source><bpt id="84dcdb9f-b3dc-41d7-b8df-bb55ef90cf14">&lt;strong&gt;</bpt>Visual Studio 2013<ept id="84dcdb9f-b3dc-41d7-b8df-bb55ef90cf14">&lt;/strong&gt;</ept> &lt;br/&gt;This a requirement for using To download a free trial version of Visual Studio 2013, see <bpt id="3680d730-c135-4ff6-9250-b94f54ad9267">&lt;linkText&gt;</bpt>Visual Studio Downloads<ept id="3680d730-c135-4ff6-9250-b94f54ad9267">&lt;/linkText&gt;</ept><bpt id="3680d730-c135-4ff6-9250-b94f54ad9267">&lt;title&gt;</bpt><ept id="3680d730-c135-4ff6-9250-b94f54ad9267">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="84dcdb9f-b3dc-41d7-b8df-bb55ef90cf14">&lt;strong&gt;</bpt>Visual Studio 2013<ept id="84dcdb9f-b3dc-41d7-b8df-bb55ef90cf14">&lt;/strong&gt;</ept> &lt;br/&gt;This a requirement for using To download a free trial version of Visual Studio 2013, see <bpt id="3680d730-c135-4ff6-9250-b94f54ad9267">&lt;linkText&gt;</bpt>Visual Studio Downloads<ept id="3680d730-c135-4ff6-9250-b94f54ad9267">&lt;/linkText&gt;</ept><bpt id="3680d730-c135-4ff6-9250-b94f54ad9267">&lt;title&gt;</bpt><ept id="3680d730-c135-4ff6-9250-b94f54ad9267">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93637328-bb0f-4cc9-8d12-6a262f2fbb53" xml:space="preserve">
+          <source><bpt id="abcfef67-518d-4be3-b663-7be760793897">&lt;strong&gt;</bpt>SQL Server 2014 Express with Tools<ept id="abcfef67-518d-4be3-b663-7be760793897">&lt;/strong&gt;</ept> &lt;br/&gt;Download Microsoft SQL Server Express for free at the <bpt id="00be1353-f7b6-431b-99b9-eeac997c20c2">&lt;linkText&gt;</bpt>Microsoft SQL Server Express Edition page<ept id="00be1353-f7b6-431b-99b9-eeac997c20c2">&lt;/linkText&gt;</ept><bpt id="00be1353-f7b6-431b-99b9-eeac997c20c2">&lt;title&gt;</bpt><ept id="00be1353-f7b6-431b-99b9-eeac997c20c2">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="abcfef67-518d-4be3-b663-7be760793897">&lt;strong&gt;</bpt>SQL Server 2014 Express with Tools<ept id="abcfef67-518d-4be3-b663-7be760793897">&lt;/strong&gt;</ept> &lt;br/&gt;Download Microsoft SQL Server Express for free at the <bpt id="00be1353-f7b6-431b-99b9-eeac997c20c2">&lt;linkText&gt;</bpt>Microsoft SQL Server Express Edition page<ept id="00be1353-f7b6-431b-99b9-eeac997c20c2">&lt;/linkText&gt;</ept><bpt id="00be1353-f7b6-431b-99b9-eeac997c20c2">&lt;title&gt;</bpt><ept id="00be1353-f7b6-431b-99b9-eeac997c20c2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83db6ec5-cd52-4e83-a8e2-21611c5ab28b" xml:space="preserve">
+          <source>Choose the <bpt id="6b5678dd-0b58-466d-8c1c-7127df93a4f6">&lt;strong&gt;</bpt>Download SQL Server Express<ept id="6b5678dd-0b58-466d-8c1c-7127df93a4f6">&lt;/strong&gt;</ept> and fill out your profile, choosing <bpt id="1ebd48ce-5432-40e8-a70c-85cc431dcabd">&lt;strong&gt;</bpt>SQL Server 2014 Express with Tools<ept id="1ebd48ce-5432-40e8-a70c-85cc431dcabd">&lt;/strong&gt;</ept>, then click continue.</source>
+          <target state="new">Choose the <bpt id="6b5678dd-0b58-466d-8c1c-7127df93a4f6">&lt;strong&gt;</bpt>Download SQL Server Express<ept id="6b5678dd-0b58-466d-8c1c-7127df93a4f6">&lt;/strong&gt;</ept> and fill out your profile, choosing <bpt id="1ebd48ce-5432-40e8-a70c-85cc431dcabd">&lt;strong&gt;</bpt>SQL Server 2014 Express with Tools<ept id="1ebd48ce-5432-40e8-a70c-85cc431dcabd">&lt;/strong&gt;</ept>, then click continue.</target>
+        </trans-unit>
+        <trans-unit id="cc15519c-339e-4d29-850c-8e1c7f4c85f4" xml:space="preserve">
+          <source>This starts the download of the installer for both SQL Server Express and the SQL Server Express Management Tools.</source>
+          <target state="new">This starts the download of the installer for both SQL Server Express and the SQL Server Express Management Tools.</target>
+        </trans-unit>
+        <trans-unit id="591ce229-2275-4dd3-ade2-d625c9c8d655" xml:space="preserve">
+          <source>Save the installer package to your on-premises computer.</source>
+          <target state="new">Save the installer package to your on-premises computer.</target>
+        </trans-unit>
+        <trans-unit id="6a54b7a9-6eb0-4516-95a7-4e3f364b6a02" xml:space="preserve">
+          <source><bpt id="f723279f-aecc-4e17-8234-4c19f41aefaa">&lt;strong&gt;</bpt>An on-premises computer<ept id="f723279f-aecc-4e17-8234-4c19f41aefaa">&lt;/strong&gt;</ept> &lt;br/&gt;You can run the Hybrid Connections Manger on the same on-premises computer as your SQL Server instance, or you can run each on a separate computer.</source>
+          <target state="new"><bpt id="f723279f-aecc-4e17-8234-4c19f41aefaa">&lt;strong&gt;</bpt>An on-premises computer<ept id="f723279f-aecc-4e17-8234-4c19f41aefaa">&lt;/strong&gt;</ept> &lt;br/&gt;You can run the Hybrid Connections Manger on the same on-premises computer as your SQL Server instance, or you can run each on a separate computer.</target>
+        </trans-unit>
+        <trans-unit id="46915131-d7cc-4d36-9717-6344cfde17a6" xml:space="preserve">
+          <source>The computer on which the Hybrid Connection Manager runs must meet the following criteria:</source>
+          <target state="new">The computer on which the Hybrid Connection Manager runs must meet the following criteria:</target>
+        </trans-unit>
+        <trans-unit id="f538fe74-1573-43bd-a89d-40749cb0c929" xml:space="preserve">
+          <source>Be able to connect to Azure over port 5671.</source>
+          <target state="new">Be able to connect to Azure over port 5671.</target>
+        </trans-unit>
+        <trans-unit id="5d487ad2-cb40-4173-b41f-06a5aa9d0a98" xml:space="preserve">
+          <source>Be able to access the <bpt id="21321dc6-1c5f-4a9d-9950-d25c0497872a">&lt;em&gt;</bpt>hostname<ept id="21321dc6-1c5f-4a9d-9950-d25c0497872a">&lt;/em&gt;</ept>:<bpt id="aef71f88-a18d-433e-9601-1c9870a67c33">&lt;em&gt;</bpt>portnumber<ept id="aef71f88-a18d-433e-9601-1c9870a67c33">&lt;/em&gt;</ept> of the computer running your SQL Server instance.</source>
+          <target state="new">Be able to access the <bpt id="21321dc6-1c5f-4a9d-9950-d25c0497872a">&lt;em&gt;</bpt>hostname<ept id="21321dc6-1c5f-4a9d-9950-d25c0497872a">&lt;/em&gt;</ept>:<bpt id="aef71f88-a18d-433e-9601-1c9870a67c33">&lt;em&gt;</bpt>portnumber<ept id="aef71f88-a18d-433e-9601-1c9870a67c33">&lt;/em&gt;</ept> of the computer running your SQL Server instance.</target>
+        </trans-unit>
+        <trans-unit id="3bd085d4-03f6-4cd3-bbe6-62f4ccc6dc6d" xml:space="preserve">
+          <source>For more information see <bpt id="8341c1e2-8426-4e70-9864-4cf95d0821c4">&lt;linkText&gt;</bpt>Hybrid Connections Overview<ept id="8341c1e2-8426-4e70-9864-4cf95d0821c4">&lt;/linkText&gt;</ept><bpt id="8341c1e2-8426-4e70-9864-4cf95d0821c4">&lt;title&gt;</bpt><ept id="8341c1e2-8426-4e70-9864-4cf95d0821c4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="8341c1e2-8426-4e70-9864-4cf95d0821c4">&lt;linkText&gt;</bpt>Hybrid Connections Overview<ept id="8341c1e2-8426-4e70-9864-4cf95d0821c4">&lt;/linkText&gt;</ept><bpt id="8341c1e2-8426-4e70-9864-4cf95d0821c4">&lt;title&gt;</bpt><ept id="8341c1e2-8426-4e70-9864-4cf95d0821c4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

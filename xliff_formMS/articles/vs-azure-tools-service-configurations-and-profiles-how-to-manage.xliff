@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c9fd0061-5ff0-466c-8436-73b31c641ac1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c9fd0061-5ff0-466c-8436-73b31c641ac1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="af8cee1c-f7d1-4bf8-b65c-e04214e7e769">
+        <trans-unit id="254c0301-b377-4b50-a96e-b3cba2f98f38" xml:space="preserve">
+          <source>How to manage service configurations and profiles</source>
+          <target state="new">How to manage service configurations and profiles</target>
+        </trans-unit>
+        <trans-unit id="49c334ee-3d5d-4684-af47-50533a47e460" xml:space="preserve">
+          <source>Learn how to work with service configurations and profiles configuration files| which store settings for the deployment environments and publish settings for cloud services.</source>
+          <target state="new">Learn how to work with service configurations and profiles configuration files| which store settings for the deployment environments and publish settings for cloud services.</target>
+        </trans-unit>
+        <trans-unit id="384b62b7-2513-43af-a63c-3e5d55142741" xml:space="preserve">
+          <source>When you publish a cloud service, Visual Studio stores configuration information in two kinds of configuration files: service configurations and profiles.</source>
+          <target state="new">When you publish a cloud service, Visual Studio stores configuration information in two kinds of configuration files: service configurations and profiles.</target>
+        </trans-unit>
+        <trans-unit id="b0ca4b01-724e-4419-afbc-45a430245b40" xml:space="preserve">
+          <source>Service configurations (.cscfg files) store settings for the deployment environments for an Azure cloud service.</source>
+          <target state="new">Service configurations (.cscfg files) store settings for the deployment environments for an Azure cloud service.</target>
+        </trans-unit>
+        <trans-unit id="6ed83141-bc3e-4cc7-816c-510039b0d038" xml:space="preserve">
+          <source>Azure uses these configuration files when it manages your cloud services.</source>
+          <target state="new">Azure uses these configuration files when it manages your cloud services.</target>
+        </trans-unit>
+        <trans-unit id="35ff0fef-afa1-45e0-b2d9-d8c3f424ab5b" xml:space="preserve">
+          <source>On the other hand, profiles (.azurePubxml files) store publish settings for cloud services.</source>
+          <target state="new">On the other hand, profiles (.azurePubxml files) store publish settings for cloud services.</target>
+        </trans-unit>
+        <trans-unit id="4f68d589-8418-4ac6-9004-52d6cd1c988a" xml:space="preserve">
+          <source>These settings are a record of what you choose when you use the publish wizard, and are used locally by Visual Studio.</source>
+          <target state="new">These settings are a record of what you choose when you use the publish wizard, and are used locally by Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="63addd58-0c86-4f30-8916-20a2738de7a8" xml:space="preserve">
+          <source>This topic explains how to work with both types of configuration files.</source>
+          <target state="new">This topic explains how to work with both types of configuration files.</target>
+        </trans-unit>
+        <trans-unit id="4222ccbe-8189-473e-aa43-ac0a66c984f3" xml:space="preserve">
+          <source>You can create multiple service configurations to use for each of your deployment environments.</source>
+          <target state="new">You can create multiple service configurations to use for each of your deployment environments.</target>
+        </trans-unit>
+        <trans-unit id="69278b5c-16f4-4b4b-b5f1-6a7f557b6067" xml:space="preserve">
+          <source>For example, you might create a service configuration for the local environment that you use to run and test an Azure application and another service configuration for your production environment.</source>
+          <target state="new">For example, you might create a service configuration for the local environment that you use to run and test an Azure application and another service configuration for your production environment.</target>
+        </trans-unit>
+        <trans-unit id="3cb86033-1ef7-4807-9437-9b1ad1d17d4f" xml:space="preserve">
+          <source>You can add, delete, rename, and modify these service configurations based on your requirements.</source>
+          <target state="new">You can add, delete, rename, and modify these service configurations based on your requirements.</target>
+        </trans-unit>
+        <trans-unit id="6debfe9e-a302-4958-be80-da4903437726" xml:space="preserve">
+          <source>You can manage these service configurations from Visual Studio, as shown in the following illustration.</source>
+          <target state="new">You can manage these service configurations from Visual Studio, as shown in the following illustration.</target>
+        </trans-unit>
+        <trans-unit id="1bcbb734-34f8-41f3-8a6e-6db70eaecdbc" xml:space="preserve">
+          <source><bpt id="3f8ff965-de38-4e72-8f63-425dbf490def">&lt;linkText&gt;</bpt>Manage Service Configurations<ept id="3f8ff965-de38-4e72-8f63-425dbf490def">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3f8ff965-de38-4e72-8f63-425dbf490def">&lt;linkText&gt;</bpt>Manage Service Configurations<ept id="3f8ff965-de38-4e72-8f63-425dbf490def">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da4d1b2f-0353-4263-a660-5dd4bcd5882f" xml:space="preserve">
+          <source>You can also open the <bpt id="c9268740-f135-4988-b901-54c09c99bebf">&lt;strong&gt;</bpt>Manage Configurations<ept id="c9268740-f135-4988-b901-54c09c99bebf">&lt;/strong&gt;</ept> dialog box from the role’s property pages.</source>
+          <target state="new">You can also open the <bpt id="c9268740-f135-4988-b901-54c09c99bebf">&lt;strong&gt;</bpt>Manage Configurations<ept id="c9268740-f135-4988-b901-54c09c99bebf">&lt;/strong&gt;</ept> dialog box from the role’s property pages.</target>
+        </trans-unit>
+        <trans-unit id="0344d314-118d-41ef-a66a-679e825e4e3d" xml:space="preserve">
+          <source>To open the properties for a role in your Azure project, open the shortcut menu for that role, and then choose <bpt id="4e0da034-e7be-4493-bcc5-7d70ea2d018d">&lt;strong&gt;</bpt>Properties<ept id="4e0da034-e7be-4493-bcc5-7d70ea2d018d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To open the properties for a role in your Azure project, open the shortcut menu for that role, and then choose <bpt id="4e0da034-e7be-4493-bcc5-7d70ea2d018d">&lt;strong&gt;</bpt>Properties<ept id="4e0da034-e7be-4493-bcc5-7d70ea2d018d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e08f1400-3df6-4d18-b7c1-f039553e4098" xml:space="preserve">
+          <source>On the <bpt id="3cce3512-7ece-46be-82b3-bb7695c9b939">&lt;strong&gt;</bpt>Settings<ept id="3cce3512-7ece-46be-82b3-bb7695c9b939">&lt;/strong&gt;</ept> tab, expand the <bpt id="ddc44ae9-cee5-4d0b-8c27-9cafcce88187">&lt;strong&gt;</bpt>Service Configuration<ept id="ddc44ae9-cee5-4d0b-8c27-9cafcce88187">&lt;/strong&gt;</ept> list, and then click <bpt id="ee890e98-a334-4bd1-bfca-82516e60ea77">&lt;strong&gt;</bpt>Manage<ept id="ee890e98-a334-4bd1-bfca-82516e60ea77">&lt;/strong&gt;</ept> to open the <bpt id="b5bbe8e5-0785-4a2e-922c-e448080357e7">&lt;strong&gt;</bpt>Manage Configurations<ept id="b5bbe8e5-0785-4a2e-922c-e448080357e7">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">On the <bpt id="3cce3512-7ece-46be-82b3-bb7695c9b939">&lt;strong&gt;</bpt>Settings<ept id="3cce3512-7ece-46be-82b3-bb7695c9b939">&lt;/strong&gt;</ept> tab, expand the <bpt id="ddc44ae9-cee5-4d0b-8c27-9cafcce88187">&lt;strong&gt;</bpt>Service Configuration<ept id="ddc44ae9-cee5-4d0b-8c27-9cafcce88187">&lt;/strong&gt;</ept> list, and then click <bpt id="ee890e98-a334-4bd1-bfca-82516e60ea77">&lt;strong&gt;</bpt>Manage<ept id="ee890e98-a334-4bd1-bfca-82516e60ea77">&lt;/strong&gt;</ept> to open the <bpt id="b5bbe8e5-0785-4a2e-922c-e448080357e7">&lt;strong&gt;</bpt>Manage Configurations<ept id="b5bbe8e5-0785-4a2e-922c-e448080357e7">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="3b0cbacf-ed34-48fe-b0b4-0ee3d593621f" xml:space="preserve">
+          <source>In Solution Explorer open the shortcut menu for the Azure project and then click <bpt id="151630ba-f297-4932-afb6-643de4fc73a3">&lt;strong&gt;</bpt>Manage Configurations<ept id="151630ba-f297-4932-afb6-643de4fc73a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer open the shortcut menu for the Azure project and then click <bpt id="151630ba-f297-4932-afb6-643de4fc73a3">&lt;strong&gt;</bpt>Manage Configurations<ept id="151630ba-f297-4932-afb6-643de4fc73a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="694e6d46-e5ac-44f0-947a-0d19820a6e79" xml:space="preserve">
+          <source>The <bpt id="a663bdb5-6a35-4efa-92a5-48677e936d64">&lt;strong&gt;</bpt>Manage Service Configurations<ept id="a663bdb5-6a35-4efa-92a5-48677e936d64">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="a663bdb5-6a35-4efa-92a5-48677e936d64">&lt;strong&gt;</bpt>Manage Service Configurations<ept id="a663bdb5-6a35-4efa-92a5-48677e936d64">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="f80653d1-6bc4-40c4-9545-4a05fae15f72" xml:space="preserve">
+          <source>To add a service configuration, you must create a copy of an existing configuration.</source>
+          <target state="new">To add a service configuration, you must create a copy of an existing configuration.</target>
+        </trans-unit>
+        <trans-unit id="188dbf95-ef63-4b34-9e09-7ec6e1bb6329" xml:space="preserve">
+          <source>To do this, choose the configuration that you want to copy from the Name list and then click <bpt id="58c01b56-e566-4fe3-9c1d-7943ea4feba2">&lt;strong&gt;</bpt>Create copy<ept id="58c01b56-e566-4fe3-9c1d-7943ea4feba2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To do this, choose the configuration that you want to copy from the Name list and then click <bpt id="58c01b56-e566-4fe3-9c1d-7943ea4feba2">&lt;strong&gt;</bpt>Create copy<ept id="58c01b56-e566-4fe3-9c1d-7943ea4feba2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d2735bc-70b1-475f-99ea-f8bb36331b9d" xml:space="preserve">
+          <source>(Optional) To give the service configuration a different name, choose the new service configuration from the Name list and then click <bpt id="41f7963e-7efc-458a-804f-1d581d92d457">&lt;strong&gt;</bpt>Rename<ept id="41f7963e-7efc-458a-804f-1d581d92d457">&lt;/strong&gt;</ept>.</source>
+          <target state="new">(Optional) To give the service configuration a different name, choose the new service configuration from the Name list and then click <bpt id="41f7963e-7efc-458a-804f-1d581d92d457">&lt;strong&gt;</bpt>Rename<ept id="41f7963e-7efc-458a-804f-1d581d92d457">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82f8e3fd-59e8-40af-9c1a-2dc1f0782bc6" xml:space="preserve">
+          <source>In the <bpt id="f8ac8ff1-03de-414a-accd-72bcc0ca6bbb">&lt;strong&gt;</bpt>Name<ept id="f8ac8ff1-03de-414a-accd-72bcc0ca6bbb">&lt;/strong&gt;</ept> text box, type the name that you want to use for this service configuration and then click <bpt id="0b63579a-42d9-49c6-b321-fd5fcd3a7b6d">&lt;strong&gt;</bpt>OK<ept id="0b63579a-42d9-49c6-b321-fd5fcd3a7b6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="f8ac8ff1-03de-414a-accd-72bcc0ca6bbb">&lt;strong&gt;</bpt>Name<ept id="f8ac8ff1-03de-414a-accd-72bcc0ca6bbb">&lt;/strong&gt;</ept> text box, type the name that you want to use for this service configuration and then click <bpt id="0b63579a-42d9-49c6-b321-fd5fcd3a7b6d">&lt;strong&gt;</bpt>OK<ept id="0b63579a-42d9-49c6-b321-fd5fcd3a7b6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="696c91cc-e0be-41cb-b3ad-82f05d2c6b8b" xml:space="preserve">
+          <source>A new service configuration file that is named ServiceConfiguration.&lt;New Name&gt;.cscfg is added to the Azure project in Solution Explorer.</source>
+          <target state="new">A new service configuration file that is named ServiceConfiguration.&lt;New Name&gt;.cscfg is added to the Azure project in Solution Explorer.</target>
+        </trans-unit>
+        <trans-unit id="549a3578-dad8-4c6b-8eb5-4460680c7912" xml:space="preserve">
+          <source>In Solution Explorer, open the shortcut menu for the Azure project and then click <bpt id="50e19c49-8058-4860-aafc-de74f517a4a3">&lt;strong&gt;</bpt>Manage Configurations<ept id="50e19c49-8058-4860-aafc-de74f517a4a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, open the shortcut menu for the Azure project and then click <bpt id="50e19c49-8058-4860-aafc-de74f517a4a3">&lt;strong&gt;</bpt>Manage Configurations<ept id="50e19c49-8058-4860-aafc-de74f517a4a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc1f0513-db81-46f4-9ea0-38a968d130a9" xml:space="preserve">
+          <source>The <bpt id="96ae8e8f-cb38-4b03-9007-24a15b84f9e5">&lt;strong&gt;</bpt>Manage Service Configurations<ept id="96ae8e8f-cb38-4b03-9007-24a15b84f9e5">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="96ae8e8f-cb38-4b03-9007-24a15b84f9e5">&lt;strong&gt;</bpt>Manage Service Configurations<ept id="96ae8e8f-cb38-4b03-9007-24a15b84f9e5">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="3b3142da-41cb-4f4d-a43a-531745dfa370" xml:space="preserve">
+          <source>To delete a service configuration, choose the configuration that you want to delete from the <bpt id="d914cab8-20b6-4f19-bc92-f10f2c1cb657">&lt;strong&gt;</bpt>Name<ept id="d914cab8-20b6-4f19-bc92-f10f2c1cb657">&lt;/strong&gt;</ept> list and then click <bpt id="833d7115-72bd-4ef3-9e5c-a9f0cf6df936">&lt;strong&gt;</bpt>Remove<ept id="833d7115-72bd-4ef3-9e5c-a9f0cf6df936">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To delete a service configuration, choose the configuration that you want to delete from the <bpt id="d914cab8-20b6-4f19-bc92-f10f2c1cb657">&lt;strong&gt;</bpt>Name<ept id="d914cab8-20b6-4f19-bc92-f10f2c1cb657">&lt;/strong&gt;</ept> list and then click <bpt id="833d7115-72bd-4ef3-9e5c-a9f0cf6df936">&lt;strong&gt;</bpt>Remove<ept id="833d7115-72bd-4ef3-9e5c-a9f0cf6df936">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db519b22-bf46-4665-895c-2f5422a52d37" xml:space="preserve">
+          <source>A dialog box appears to verify that you want to delete this configuration.</source>
+          <target state="new">A dialog box appears to verify that you want to delete this configuration.</target>
+        </trans-unit>
+        <trans-unit id="8ea3f9fc-04c3-4867-a243-d5390e52bae4" xml:space="preserve">
+          <source>Click <bpt id="e7812c5b-f7e5-4590-9fc2-c796fc120360">&lt;strong&gt;</bpt>Delete<ept id="e7812c5b-f7e5-4590-9fc2-c796fc120360">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e7812c5b-f7e5-4590-9fc2-c796fc120360">&lt;strong&gt;</bpt>Delete<ept id="e7812c5b-f7e5-4590-9fc2-c796fc120360">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e2d4ac1-b5ee-487c-95f1-e9d4784e5c50" xml:space="preserve">
+          <source> The service configuration file is removed from the Azure project in Solution Explorer.</source>
+          <target state="new"> The service configuration file is removed from the Azure project in Solution Explorer.</target>
+        </trans-unit>
+        <trans-unit id="b9d374d5-014c-4001-b46c-38c35f834fc5" xml:space="preserve">
+          <source>In Solution Explorer, open the shortcut menu for the Azure project and then click <bpt id="7f7222db-5a56-470a-b131-de7344197163">&lt;strong&gt;</bpt>Manage Configurations<ept id="7f7222db-5a56-470a-b131-de7344197163">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, open the shortcut menu for the Azure project and then click <bpt id="7f7222db-5a56-470a-b131-de7344197163">&lt;strong&gt;</bpt>Manage Configurations<ept id="7f7222db-5a56-470a-b131-de7344197163">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb802345-f3cb-48f2-ae64-f7dd07fee0fd" xml:space="preserve">
+          <source>The <bpt id="88048c3d-22af-42b8-8f52-88c9e055d247">&lt;strong&gt;</bpt>Manage Service Configurations<ept id="88048c3d-22af-42b8-8f52-88c9e055d247">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="88048c3d-22af-42b8-8f52-88c9e055d247">&lt;strong&gt;</bpt>Manage Service Configurations<ept id="88048c3d-22af-42b8-8f52-88c9e055d247">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="3e8630f9-c6b4-4205-a5c1-b9ddeec95b54" xml:space="preserve">
+          <source>To rename a service configuration, choose the new service configuration from the <bpt id="d524ad3f-6224-4d9d-8b24-a1c119252e17">&lt;strong&gt;</bpt>Name<ept id="d524ad3f-6224-4d9d-8b24-a1c119252e17">&lt;/strong&gt;</ept> list and then click <bpt id="bb7cc4a0-6248-4b73-b327-6bdaf006a1a0">&lt;strong&gt;</bpt>Rename<ept id="bb7cc4a0-6248-4b73-b327-6bdaf006a1a0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To rename a service configuration, choose the new service configuration from the <bpt id="d524ad3f-6224-4d9d-8b24-a1c119252e17">&lt;strong&gt;</bpt>Name<ept id="d524ad3f-6224-4d9d-8b24-a1c119252e17">&lt;/strong&gt;</ept> list and then click <bpt id="bb7cc4a0-6248-4b73-b327-6bdaf006a1a0">&lt;strong&gt;</bpt>Rename<ept id="bb7cc4a0-6248-4b73-b327-6bdaf006a1a0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20386f50-bfd2-492b-a3cb-14e67abb9f63" xml:space="preserve">
+          <source>In the <bpt id="4c9faed1-59be-41b6-a294-9d5e1f0162b7">&lt;strong&gt;</bpt>Name<ept id="4c9faed1-59be-41b6-a294-9d5e1f0162b7">&lt;/strong&gt;</ept> text box, type the name that you want to use for this service configuration and then click <bpt id="a1b248fa-4c6e-43a6-ab21-f8b02c51d667">&lt;strong&gt;</bpt>OK<ept id="a1b248fa-4c6e-43a6-ab21-f8b02c51d667">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4c9faed1-59be-41b6-a294-9d5e1f0162b7">&lt;strong&gt;</bpt>Name<ept id="4c9faed1-59be-41b6-a294-9d5e1f0162b7">&lt;/strong&gt;</ept> text box, type the name that you want to use for this service configuration and then click <bpt id="a1b248fa-4c6e-43a6-ab21-f8b02c51d667">&lt;strong&gt;</bpt>OK<ept id="a1b248fa-4c6e-43a6-ab21-f8b02c51d667">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84042932-5e3d-42c8-a2b4-297592c80558" xml:space="preserve">
+          <source>The name of the service configuration file is changed in the Azure project in Solution Explorer.</source>
+          <target state="new">The name of the service configuration file is changed in the Azure project in Solution Explorer.</target>
+        </trans-unit>
+        <trans-unit id="d8db8cb4-b5eb-40b9-954d-5a02aa967ad4" xml:space="preserve">
+          <source>If you want to change a service configuration, open the shortcut menu for the specific role you want to change in the Azure project and then click Properties.</source>
+          <target state="new">If you want to change a service configuration, open the shortcut menu for the specific role you want to change in the Azure project and then click Properties.</target>
+        </trans-unit>
+        <trans-unit id="b2500ccc-8d5c-4821-9b0f-4e1743fc344a" xml:space="preserve">
+          <source>See <bpt id="5b99607a-2352-4013-85b2-fb4937d884d6">&lt;linkText&gt;</bpt>How to: Configure the Roles for an Azure Cloud Service with Visual Studio<ept id="5b99607a-2352-4013-85b2-fb4937d884d6">&lt;/linkText&gt;</ept><bpt id="5b99607a-2352-4013-85b2-fb4937d884d6">&lt;title&gt;</bpt><ept id="5b99607a-2352-4013-85b2-fb4937d884d6">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="5b99607a-2352-4013-85b2-fb4937d884d6">&lt;linkText&gt;</bpt>How to: Configure the Roles for an Azure Cloud Service with Visual Studio<ept id="5b99607a-2352-4013-85b2-fb4937d884d6">&lt;/linkText&gt;</ept><bpt id="5b99607a-2352-4013-85b2-fb4937d884d6">&lt;title&gt;</bpt><ept id="5b99607a-2352-4013-85b2-fb4937d884d6">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="641409f9-bd1f-4016-80f0-e773a878d9e4" xml:space="preserve">
+          <source>By using a profile, you can automatically fill in the <bpt id="8f565adf-776a-4074-9a76-cdbc7df268e4">&lt;strong&gt;</bpt>Publish Wizard<ept id="8f565adf-776a-4074-9a76-cdbc7df268e4">&lt;/strong&gt;</ept> with different combinations of settings for different purposes.</source>
+          <target state="new">By using a profile, you can automatically fill in the <bpt id="8f565adf-776a-4074-9a76-cdbc7df268e4">&lt;strong&gt;</bpt>Publish Wizard<ept id="8f565adf-776a-4074-9a76-cdbc7df268e4">&lt;/strong&gt;</ept> with different combinations of settings for different purposes.</target>
+        </trans-unit>
+        <trans-unit id="a8d3d80e-f66b-42f7-8a13-dc3c8a177305" xml:space="preserve">
+          <source>For example, you can have one profile for debugging and another for release builds.</source>
+          <target state="new">For example, you can have one profile for debugging and another for release builds.</target>
+        </trans-unit>
+        <trans-unit id="c5d08e0a-f17a-4a09-b407-4dc5960d4f93" xml:space="preserve">
+          <source>In that case, your <bpt id="3d553d17-c563-45dd-8116-4814d44ec8ae">&lt;strong&gt;</bpt>Debug<ept id="3d553d17-c563-45dd-8116-4814d44ec8ae">&lt;/strong&gt;</ept> profile would have <bpt id="37e8e9af-c8f6-446b-a1aa-85389512a393">&lt;strong&gt;</bpt>IntelliTrace<ept id="37e8e9af-c8f6-446b-a1aa-85389512a393">&lt;/strong&gt;</ept> enabled and the <bpt id="9302432b-0936-4f73-995b-306f4caa78dd">&lt;strong&gt;</bpt>Debug<ept id="9302432b-0936-4f73-995b-306f4caa78dd">&lt;/strong&gt;</ept> configuration selected, and your <bpt id="a780e775-7482-4a3b-8a69-c7020c23a5c5">&lt;strong&gt;</bpt>Release<ept id="a780e775-7482-4a3b-8a69-c7020c23a5c5">&lt;/strong&gt;</ept> profile would have <bpt id="449c4f85-fae0-4c45-a6ae-24805da3ca47">&lt;strong&gt;</bpt>IntelliTrace<ept id="449c4f85-fae0-4c45-a6ae-24805da3ca47">&lt;/strong&gt;</ept> disabled and the <bpt id="3ca61dcf-6156-4acb-9621-bf6e2ce475e3">&lt;strong&gt;</bpt>Release<ept id="3ca61dcf-6156-4acb-9621-bf6e2ce475e3">&lt;/strong&gt;</ept> configuration selected.</source>
+          <target state="new">In that case, your <bpt id="3d553d17-c563-45dd-8116-4814d44ec8ae">&lt;strong&gt;</bpt>Debug<ept id="3d553d17-c563-45dd-8116-4814d44ec8ae">&lt;/strong&gt;</ept> profile would have <bpt id="37e8e9af-c8f6-446b-a1aa-85389512a393">&lt;strong&gt;</bpt>IntelliTrace<ept id="37e8e9af-c8f6-446b-a1aa-85389512a393">&lt;/strong&gt;</ept> enabled and the <bpt id="9302432b-0936-4f73-995b-306f4caa78dd">&lt;strong&gt;</bpt>Debug<ept id="9302432b-0936-4f73-995b-306f4caa78dd">&lt;/strong&gt;</ept> configuration selected, and your <bpt id="a780e775-7482-4a3b-8a69-c7020c23a5c5">&lt;strong&gt;</bpt>Release<ept id="a780e775-7482-4a3b-8a69-c7020c23a5c5">&lt;/strong&gt;</ept> profile would have <bpt id="449c4f85-fae0-4c45-a6ae-24805da3ca47">&lt;strong&gt;</bpt>IntelliTrace<ept id="449c4f85-fae0-4c45-a6ae-24805da3ca47">&lt;/strong&gt;</ept> disabled and the <bpt id="3ca61dcf-6156-4acb-9621-bf6e2ce475e3">&lt;strong&gt;</bpt>Release<ept id="3ca61dcf-6156-4acb-9621-bf6e2ce475e3">&lt;/strong&gt;</ept> configuration selected.</target>
+        </trans-unit>
+        <trans-unit id="30a6cdc2-25c5-4fe8-8105-321f164b7648" xml:space="preserve">
+          <source>You could also use different profiles to deploy a service using a different storage account.</source>
+          <target state="new">You could also use different profiles to deploy a service using a different storage account.</target>
+        </trans-unit>
+        <trans-unit id="44fe1fde-96b0-4cca-8baa-8268ead617a5" xml:space="preserve">
+          <source>When you run the wizard for the first time, a default profile is created.</source>
+          <target state="new">When you run the wizard for the first time, a default profile is created.</target>
+        </trans-unit>
+        <trans-unit id="047325ae-e44f-4ce4-92aa-f3dabe23d0c8" xml:space="preserve">
+          <source>Visual Studio stores the profile in a file that has an .azurePubXml extension, which is added to your Azure project under the <bpt id="6ac7705b-0d2b-4f6b-b9d9-b061f1c298ba">&lt;strong&gt;</bpt>Profiles<ept id="6ac7705b-0d2b-4f6b-b9d9-b061f1c298ba">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">Visual Studio stores the profile in a file that has an .azurePubXml extension, which is added to your Azure project under the <bpt id="6ac7705b-0d2b-4f6b-b9d9-b061f1c298ba">&lt;strong&gt;</bpt>Profiles<ept id="6ac7705b-0d2b-4f6b-b9d9-b061f1c298ba">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="c6534fdc-c7a4-43a1-826b-12c24a0f06d6" xml:space="preserve">
+          <source>If you manually specify different choices when you run the wizard later, the file automatically updates.</source>
+          <target state="new">If you manually specify different choices when you run the wizard later, the file automatically updates.</target>
+        </trans-unit>
+        <trans-unit id="e67b04c2-7905-4316-8393-1087db09e6d7" xml:space="preserve">
+          <source>Before you run the following procedure, you should have already published your cloud service at least once.</source>
+          <target state="new">Before you run the following procedure, you should have already published your cloud service at least once.</target>
+        </trans-unit>
+        <trans-unit id="62b8c6e5-fd20-4a25-ad5a-d35e75714dbf" xml:space="preserve">
+          <source>Open the shortcut menu for your Azure project, and then click <bpt id="91993140-a063-45fe-96ec-fefc7d428a2e">&lt;strong&gt;</bpt>Publish<ept id="91993140-a063-45fe-96ec-fefc7d428a2e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the shortcut menu for your Azure project, and then click <bpt id="91993140-a063-45fe-96ec-fefc7d428a2e">&lt;strong&gt;</bpt>Publish<ept id="91993140-a063-45fe-96ec-fefc7d428a2e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e2b6d57-1315-4b8f-baf7-7f3f03bd1c57" xml:space="preserve">
+          <source>Next to the <bpt id="7d8608b7-cf04-4468-9fab-d6e8d64c55d3">&lt;strong&gt;</bpt>Target profile<ept id="7d8608b7-cf04-4468-9fab-d6e8d64c55d3">&lt;/strong&gt;</ept> list, click the <bpt id="3f26cf72-1dc9-4f1f-a590-5cc007ee1fe5">&lt;strong&gt;</bpt>Save Profile<ept id="3f26cf72-1dc9-4f1f-a590-5cc007ee1fe5">&lt;/strong&gt;</ept> button, as the following illustration shows.</source>
+          <target state="new">Next to the <bpt id="7d8608b7-cf04-4468-9fab-d6e8d64c55d3">&lt;strong&gt;</bpt>Target profile<ept id="7d8608b7-cf04-4468-9fab-d6e8d64c55d3">&lt;/strong&gt;</ept> list, click the <bpt id="3f26cf72-1dc9-4f1f-a590-5cc007ee1fe5">&lt;strong&gt;</bpt>Save Profile<ept id="3f26cf72-1dc9-4f1f-a590-5cc007ee1fe5">&lt;/strong&gt;</ept> button, as the following illustration shows.</target>
+        </trans-unit>
+        <trans-unit id="ae93a324-8068-428b-9214-1ad40bd8c615" xml:space="preserve">
+          <source>This creates a profile for you.</source>
+          <target state="new">This creates a profile for you.</target>
+        </trans-unit>
+        <trans-unit id="2b8bedf3-d301-413a-8363-98ea1e64c99a" xml:space="preserve">
+          <source><bpt id="595f3059-d4a2-4ad0-b8f2-82c85456de88">&lt;linkText&gt;</bpt>Create an new profile<ept id="595f3059-d4a2-4ad0-b8f2-82c85456de88">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="595f3059-d4a2-4ad0-b8f2-82c85456de88">&lt;linkText&gt;</bpt>Create an new profile<ept id="595f3059-d4a2-4ad0-b8f2-82c85456de88">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfe09f9e-f8ff-41e8-81ef-02ec08be8b61" xml:space="preserve">
+          <source>After the profile is created, click <bpt id="fe9a8405-1190-464d-85b7-6f80413b16ea">&lt;strong&gt;</bpt>&lt;Manage…&gt;<ept id="fe9a8405-1190-464d-85b7-6f80413b16ea">&lt;/strong&gt;</ept> in the <bpt id="c4555fd3-b364-4f40-9c84-757979b3fb6f">&lt;strong&gt;</bpt>Target profile<ept id="c4555fd3-b364-4f40-9c84-757979b3fb6f">&lt;/strong&gt;</ept> list. </source>
+          <target state="new">After the profile is created, click <bpt id="fe9a8405-1190-464d-85b7-6f80413b16ea">&lt;strong&gt;</bpt>&lt;Manage…&gt;<ept id="fe9a8405-1190-464d-85b7-6f80413b16ea">&lt;/strong&gt;</ept> in the <bpt id="c4555fd3-b364-4f40-9c84-757979b3fb6f">&lt;strong&gt;</bpt>Target profile<ept id="c4555fd3-b364-4f40-9c84-757979b3fb6f">&lt;/strong&gt;</ept> list. </target>
+        </trans-unit>
+        <trans-unit id="b7d603d7-6f95-44d3-ae75-ab6939ae729f" xml:space="preserve">
+          <source>The <bpt id="82275908-fa45-4257-9f67-30a1dbf0e71f">&lt;strong&gt;</bpt>Manage Profiles<ept id="82275908-fa45-4257-9f67-30a1dbf0e71f">&lt;/strong&gt;</ept> dialog box appears, as the following illustration shows.</source>
+          <target state="new">The <bpt id="82275908-fa45-4257-9f67-30a1dbf0e71f">&lt;strong&gt;</bpt>Manage Profiles<ept id="82275908-fa45-4257-9f67-30a1dbf0e71f">&lt;/strong&gt;</ept> dialog box appears, as the following illustration shows.</target>
+        </trans-unit>
+        <trans-unit id="a7dd0e65-243c-41f2-a604-b01c3cdb0563" xml:space="preserve">
+          <source><bpt id="be29f4f5-52c6-4c59-b802-d02e20e6d1bf">&lt;linkText&gt;</bpt>Manage Profiles Dialog<ept id="be29f4f5-52c6-4c59-b802-d02e20e6d1bf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be29f4f5-52c6-4c59-b802-d02e20e6d1bf">&lt;linkText&gt;</bpt>Manage Profiles Dialog<ept id="be29f4f5-52c6-4c59-b802-d02e20e6d1bf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07d38ca3-6a5a-462f-914c-5ef734ccb9a2" xml:space="preserve">
+          <source>In the <bpt id="cc995e6b-4aa9-4a45-a4c1-69b4e43ab05b">&lt;strong&gt;</bpt>Name<ept id="cc995e6b-4aa9-4a45-a4c1-69b4e43ab05b">&lt;/strong&gt;</ept> list, choose a profile, and then click <bpt id="fb188fb5-3b9e-4677-a755-3001a03e4b3b">&lt;strong&gt;</bpt>Create Copy<ept id="fb188fb5-3b9e-4677-a755-3001a03e4b3b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="cc995e6b-4aa9-4a45-a4c1-69b4e43ab05b">&lt;strong&gt;</bpt>Name<ept id="cc995e6b-4aa9-4a45-a4c1-69b4e43ab05b">&lt;/strong&gt;</ept> list, choose a profile, and then click <bpt id="fb188fb5-3b9e-4677-a755-3001a03e4b3b">&lt;strong&gt;</bpt>Create Copy<ept id="fb188fb5-3b9e-4677-a755-3001a03e4b3b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a8bdaba-e039-40fe-9768-730978725719" xml:space="preserve">
+          <source>Choose the <bpt id="ea840592-b34b-4292-827a-5c8e3d3c5020">&lt;strong&gt;</bpt>Close<ept id="ea840592-b34b-4292-827a-5c8e3d3c5020">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Choose the <bpt id="ea840592-b34b-4292-827a-5c8e3d3c5020">&lt;strong&gt;</bpt>Close<ept id="ea840592-b34b-4292-827a-5c8e3d3c5020">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="66a46fc4-8240-42ca-ac8e-960b176a760f" xml:space="preserve">
+          <source>The new profile appears in the Target profile list.</source>
+          <target state="new">The new profile appears in the Target profile list.</target>
+        </trans-unit>
+        <trans-unit id="7e1447d2-fb4c-4306-8cc5-b80833909464" xml:space="preserve">
+          <source>In the <bpt id="d0213857-9210-4703-a7ed-c5772b591343">&lt;strong&gt;</bpt>Target profile<ept id="d0213857-9210-4703-a7ed-c5772b591343">&lt;/strong&gt;</ept> list, click the profile that you just created.</source>
+          <target state="new">In the <bpt id="d0213857-9210-4703-a7ed-c5772b591343">&lt;strong&gt;</bpt>Target profile<ept id="d0213857-9210-4703-a7ed-c5772b591343">&lt;/strong&gt;</ept> list, click the profile that you just created.</target>
+        </trans-unit>
+        <trans-unit id="8be26ce8-dc5f-492d-b782-5f086470bf55" xml:space="preserve">
+          <source>The Publish Wizard settings are filled in with the choices from the profile you selected.</source>
+          <target state="new">The Publish Wizard settings are filled in with the choices from the profile you selected.</target>
+        </trans-unit>
+        <trans-unit id="32f42e0a-f885-48da-b296-1540def328a4" xml:space="preserve">
+          <source>Click the <bpt id="07d16eab-c475-47f0-bd15-4c6cf904d7d1">&lt;strong&gt;</bpt>Previous<ept id="07d16eab-c475-47f0-bd15-4c6cf904d7d1">&lt;/strong&gt;</ept> and <bpt id="f65b100b-2f10-4d8f-8eb2-5a0331955a9c">&lt;strong&gt;</bpt>Next<ept id="f65b100b-2f10-4d8f-8eb2-5a0331955a9c">&lt;/strong&gt;</ept> buttons to display each page of the Publish Wizard, and then customize the settings for this profile.</source>
+          <target state="new">Click the <bpt id="07d16eab-c475-47f0-bd15-4c6cf904d7d1">&lt;strong&gt;</bpt>Previous<ept id="07d16eab-c475-47f0-bd15-4c6cf904d7d1">&lt;/strong&gt;</ept> and <bpt id="f65b100b-2f10-4d8f-8eb2-5a0331955a9c">&lt;strong&gt;</bpt>Next<ept id="f65b100b-2f10-4d8f-8eb2-5a0331955a9c">&lt;/strong&gt;</ept> buttons to display each page of the Publish Wizard, and then customize the settings for this profile.</target>
+        </trans-unit>
+        <trans-unit id="59def79e-774e-425c-a6c3-6c9392ba2c3e" xml:space="preserve">
+          <source>See <bpt id="803a2893-92a9-4e91-9cdd-7eee9c5b0881">&lt;linkText&gt;</bpt>Publish Azure Application Wizard<ept id="803a2893-92a9-4e91-9cdd-7eee9c5b0881">&lt;/linkText&gt;</ept><bpt id="803a2893-92a9-4e91-9cdd-7eee9c5b0881">&lt;title&gt;</bpt><ept id="803a2893-92a9-4e91-9cdd-7eee9c5b0881">&lt;/title&gt;</ept> for information.</source>
+          <target state="new">See <bpt id="803a2893-92a9-4e91-9cdd-7eee9c5b0881">&lt;linkText&gt;</bpt>Publish Azure Application Wizard<ept id="803a2893-92a9-4e91-9cdd-7eee9c5b0881">&lt;/linkText&gt;</ept><bpt id="803a2893-92a9-4e91-9cdd-7eee9c5b0881">&lt;title&gt;</bpt><ept id="803a2893-92a9-4e91-9cdd-7eee9c5b0881">&lt;/title&gt;</ept> for information.</target>
+        </trans-unit>
+        <trans-unit id="816b853d-7789-423f-8437-f0a8ab8b8db9" xml:space="preserve">
+          <source>After you finish customizing the settings, click <bpt id="11ced0d8-db79-4c99-8f51-113c799c7c78">&lt;strong&gt;</bpt>Next<ept id="11ced0d8-db79-4c99-8f51-113c799c7c78">&lt;/strong&gt;</ept> to go back to the Settings page.</source>
+          <target state="new">After you finish customizing the settings, click <bpt id="11ced0d8-db79-4c99-8f51-113c799c7c78">&lt;strong&gt;</bpt>Next<ept id="11ced0d8-db79-4c99-8f51-113c799c7c78">&lt;/strong&gt;</ept> to go back to the Settings page.</target>
+        </trans-unit>
+        <trans-unit id="828b5398-a443-49e6-9026-8bfddf2271b2" xml:space="preserve">
+          <source>The profile is saved when you publish the service by using these settings or if you click <bpt id="bcaabb20-c911-4007-a500-7b1b42010643">&lt;strong&gt;</bpt>Save<ept id="bcaabb20-c911-4007-a500-7b1b42010643">&lt;/strong&gt;</ept> next to the list of profiles.</source>
+          <target state="new">The profile is saved when you publish the service by using these settings or if you click <bpt id="bcaabb20-c911-4007-a500-7b1b42010643">&lt;strong&gt;</bpt>Save<ept id="bcaabb20-c911-4007-a500-7b1b42010643">&lt;/strong&gt;</ept> next to the list of profiles.</target>
+        </trans-unit>
+        <trans-unit id="458aaa67-6c87-4464-a1af-3827279e361e" xml:space="preserve">
+          <source>Open the shortcut menu for your Azure project, and then click <bpt id="70845d9a-e3ce-4a34-a3c2-ad04161495fc">&lt;strong&gt;</bpt>Publish<ept id="70845d9a-e3ce-4a34-a3c2-ad04161495fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the shortcut menu for your Azure project, and then click <bpt id="70845d9a-e3ce-4a34-a3c2-ad04161495fc">&lt;strong&gt;</bpt>Publish<ept id="70845d9a-e3ce-4a34-a3c2-ad04161495fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8c45ec9-a69e-4d02-918b-96050a81bb2c" xml:space="preserve">
+          <source>In the <bpt id="256439be-9d1c-4e45-a3f2-a860c30c1ee7">&lt;strong&gt;</bpt>Target profile<ept id="256439be-9d1c-4e45-a3f2-a860c30c1ee7">&lt;/strong&gt;</ept> list, click <bpt id="ffe14341-9af8-46ab-8642-7fbba02b0a99">&lt;strong&gt;</bpt>Manage<ept id="ffe14341-9af8-46ab-8642-7fbba02b0a99">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="256439be-9d1c-4e45-a3f2-a860c30c1ee7">&lt;strong&gt;</bpt>Target profile<ept id="256439be-9d1c-4e45-a3f2-a860c30c1ee7">&lt;/strong&gt;</ept> list, click <bpt id="ffe14341-9af8-46ab-8642-7fbba02b0a99">&lt;strong&gt;</bpt>Manage<ept id="ffe14341-9af8-46ab-8642-7fbba02b0a99">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15d4b221-4ba3-49a3-bed1-2ac44d5a364b" xml:space="preserve">
+          <source>In the <bpt id="d1c6eddf-e3e1-4c96-be89-386e40f5431b">&lt;strong&gt;</bpt>Manage Profiles<ept id="d1c6eddf-e3e1-4c96-be89-386e40f5431b">&lt;/strong&gt;</ept> dialog box, click the profile that you want to delete, and then click <bpt id="f09589eb-8698-48f3-a2b4-d70acdee6ac5">&lt;strong&gt;</bpt>Remove<ept id="f09589eb-8698-48f3-a2b4-d70acdee6ac5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d1c6eddf-e3e1-4c96-be89-386e40f5431b">&lt;strong&gt;</bpt>Manage Profiles<ept id="d1c6eddf-e3e1-4c96-be89-386e40f5431b">&lt;/strong&gt;</ept> dialog box, click the profile that you want to delete, and then click <bpt id="f09589eb-8698-48f3-a2b4-d70acdee6ac5">&lt;strong&gt;</bpt>Remove<ept id="f09589eb-8698-48f3-a2b4-d70acdee6ac5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eaae068c-f4c5-45a5-8b0d-33dd23dec783" xml:space="preserve">
+          <source>In the confirmation dialog box that appears, click <bpt id="44583fb7-dfba-49ed-8617-1a4f14ad984c">&lt;strong&gt;</bpt>OK<ept id="44583fb7-dfba-49ed-8617-1a4f14ad984c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the confirmation dialog box that appears, click <bpt id="44583fb7-dfba-49ed-8617-1a4f14ad984c">&lt;strong&gt;</bpt>OK<ept id="44583fb7-dfba-49ed-8617-1a4f14ad984c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b01979f4-cc22-43b6-a54f-60a4389c477a" xml:space="preserve">
+          <source>Click <bpt id="12d5b4a5-be9e-43a9-92bd-1cbdd21f7a27">&lt;strong&gt;</bpt>Close<ept id="12d5b4a5-be9e-43a9-92bd-1cbdd21f7a27">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="12d5b4a5-be9e-43a9-92bd-1cbdd21f7a27">&lt;strong&gt;</bpt>Close<ept id="12d5b4a5-be9e-43a9-92bd-1cbdd21f7a27">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb0e57a9-97cd-4679-81ce-f86cd5c18666" xml:space="preserve">
+          <source>Open the shortcut menu for your Azure project, and then click <bpt id="bfbce4d5-b532-4785-9a3e-572d38ea2e50">&lt;strong&gt;</bpt>Publish<ept id="bfbce4d5-b532-4785-9a3e-572d38ea2e50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the shortcut menu for your Azure project, and then click <bpt id="bfbce4d5-b532-4785-9a3e-572d38ea2e50">&lt;strong&gt;</bpt>Publish<ept id="bfbce4d5-b532-4785-9a3e-572d38ea2e50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9be3a51f-2dbb-4a67-b7ac-b740448b2579" xml:space="preserve">
+          <source>In the <bpt id="11fc3829-2fbd-42f2-94ea-b8a6ea55d910">&lt;strong&gt;</bpt>Target profile<ept id="11fc3829-2fbd-42f2-94ea-b8a6ea55d910">&lt;/strong&gt;</ept> list, click the profile that you want to change.</source>
+          <target state="new">In the <bpt id="11fc3829-2fbd-42f2-94ea-b8a6ea55d910">&lt;strong&gt;</bpt>Target profile<ept id="11fc3829-2fbd-42f2-94ea-b8a6ea55d910">&lt;/strong&gt;</ept> list, click the profile that you want to change.</target>
+        </trans-unit>
+        <trans-unit id="3b28f24e-a8cf-4ddd-bd42-da198af0883e" xml:space="preserve">
+          <source>Click the <bpt id="1c528663-ed99-4163-bbb4-30eb817ea358">&lt;strong&gt;</bpt>Previous<ept id="1c528663-ed99-4163-bbb4-30eb817ea358">&lt;/strong&gt;</ept> and <bpt id="de540e7c-7217-4cd3-a834-ddf0e2a0fc45">&lt;strong&gt;</bpt>Next<ept id="de540e7c-7217-4cd3-a834-ddf0e2a0fc45">&lt;/strong&gt;</ept> buttons to display each page of the Publish Wizard, and then change the settings you want.</source>
+          <target state="new">Click the <bpt id="1c528663-ed99-4163-bbb4-30eb817ea358">&lt;strong&gt;</bpt>Previous<ept id="1c528663-ed99-4163-bbb4-30eb817ea358">&lt;/strong&gt;</ept> and <bpt id="de540e7c-7217-4cd3-a834-ddf0e2a0fc45">&lt;strong&gt;</bpt>Next<ept id="de540e7c-7217-4cd3-a834-ddf0e2a0fc45">&lt;/strong&gt;</ept> buttons to display each page of the Publish Wizard, and then change the settings you want.</target>
+        </trans-unit>
+        <trans-unit id="9fa9577b-40f2-4ae0-a43e-2e3e5b009eb0" xml:space="preserve">
+          <source>See <bpt id="98a156d8-258c-4680-b8ed-a6e611c2828f">&lt;linkText&gt;</bpt>Publish Azure Application Wizard<ept id="98a156d8-258c-4680-b8ed-a6e611c2828f">&lt;/linkText&gt;</ept><bpt id="98a156d8-258c-4680-b8ed-a6e611c2828f">&lt;title&gt;</bpt><ept id="98a156d8-258c-4680-b8ed-a6e611c2828f">&lt;/title&gt;</ept> for information.</source>
+          <target state="new">See <bpt id="98a156d8-258c-4680-b8ed-a6e611c2828f">&lt;linkText&gt;</bpt>Publish Azure Application Wizard<ept id="98a156d8-258c-4680-b8ed-a6e611c2828f">&lt;/linkText&gt;</ept><bpt id="98a156d8-258c-4680-b8ed-a6e611c2828f">&lt;title&gt;</bpt><ept id="98a156d8-258c-4680-b8ed-a6e611c2828f">&lt;/title&gt;</ept> for information.</target>
+        </trans-unit>
+        <trans-unit id="fc68e079-2a0e-4fe9-8d96-6775334a9a5f" xml:space="preserve">
+          <source>After you finish changing the settings, click <bpt id="dc08537f-197d-4282-b5df-959c4e0bd801">&lt;strong&gt;</bpt>Next<ept id="dc08537f-197d-4282-b5df-959c4e0bd801">&lt;/strong&gt;</ept> to go back to the <bpt id="6da2e3d9-40cb-48e0-b859-c49c1ba7b836">&lt;strong&gt;</bpt>Settings<ept id="6da2e3d9-40cb-48e0-b859-c49c1ba7b836">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">After you finish changing the settings, click <bpt id="dc08537f-197d-4282-b5df-959c4e0bd801">&lt;strong&gt;</bpt>Next<ept id="dc08537f-197d-4282-b5df-959c4e0bd801">&lt;/strong&gt;</ept> to go back to the <bpt id="6da2e3d9-40cb-48e0-b859-c49c1ba7b836">&lt;strong&gt;</bpt>Settings<ept id="6da2e3d9-40cb-48e0-b859-c49c1ba7b836">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="90b9bc19-0a04-4fa5-a3ae-07ff4b2fca1d" xml:space="preserve">
+          <source>(Optional) Click <bpt id="e0d4299a-c311-4220-b6c5-45d4896ff129">&lt;strong&gt;</bpt>Publish<ept id="e0d4299a-c311-4220-b6c5-45d4896ff129">&lt;/strong&gt;</ept> to publish the cloud service using the new settings.</source>
+          <target state="new">(Optional) Click <bpt id="e0d4299a-c311-4220-b6c5-45d4896ff129">&lt;strong&gt;</bpt>Publish<ept id="e0d4299a-c311-4220-b6c5-45d4896ff129">&lt;/strong&gt;</ept> to publish the cloud service using the new settings.</target>
+        </trans-unit>
+        <trans-unit id="d197aad8-d4ed-4690-8c04-6fb694822bec" xml:space="preserve">
+          <source>If you don’t want to publish your cloud service at this time, and you close the Publish Wizard, Visual Studio asks you if you want to save the changes to the profile.</source>
+          <target state="new">If you don’t want to publish your cloud service at this time, and you close the Publish Wizard, Visual Studio asks you if you want to save the changes to the profile.</target>
+        </trans-unit>
+        <trans-unit id="74b72b4c-94f9-4502-926b-5b7bebed6443" xml:space="preserve">
+          <source>To learn about configuring other parts of your Azure project from Visual Studio, see <bpt id="61da5080-c1fb-45f3-ab12-b3a9bb8cb869">&lt;linkText&gt;</bpt>Configuring an Azure Project<ept id="61da5080-c1fb-45f3-ab12-b3a9bb8cb869">&lt;/linkText&gt;</ept><bpt id="61da5080-c1fb-45f3-ab12-b3a9bb8cb869">&lt;title&gt;</bpt><ept id="61da5080-c1fb-45f3-ab12-b3a9bb8cb869">&lt;/title&gt;</ept></source>
+          <target state="new">To learn about configuring other parts of your Azure project from Visual Studio, see <bpt id="61da5080-c1fb-45f3-ab12-b3a9bb8cb869">&lt;linkText&gt;</bpt>Configuring an Azure Project<ept id="61da5080-c1fb-45f3-ab12-b3a9bb8cb869">&lt;/linkText&gt;</ept><bpt id="61da5080-c1fb-45f3-ab12-b3a9bb8cb869">&lt;title&gt;</bpt><ept id="61da5080-c1fb-45f3-ab12-b3a9bb8cb869">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

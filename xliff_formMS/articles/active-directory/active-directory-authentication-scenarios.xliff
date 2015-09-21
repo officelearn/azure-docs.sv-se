@@ -1,0 +1,1408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="296f0de2-258a-48c7-97d1-6e052fa4e0f8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="296f0de2-258a-48c7-97d1-6e052fa4e0f8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="74497433-10be-44fd-a300-0d000e000db0">
+        <trans-unit id="4056a3c4-bc5a-4722-b063-f9b07c1d6c02" xml:space="preserve">
+          <source>&lt;properties
+   pageTitle="Authentication Scenarios for Azure AD"
+   description="An overview of the five most common authentication scenarios for Azure Active Directory (AAD)"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/&gt;</source>
+          <target state="new">&lt;properties
+   pageTitle="Authentication Scenarios for Azure AD"
+   description="An overview of the five most common authentication scenarios for Azure Active Directory (AAD)"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/&gt;</target>
+        </trans-unit>
+        <trans-unit id="837ac0da-1cc0-4fd7-9a41-4ad38b1787f8" xml:space="preserve">
+          <source>&lt;tags
+   ms.service="active-directory"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin"/&gt;</source>
+          <target state="new">&lt;tags
+   ms.service="active-directory"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="83bab6de-5ffc-451d-b9da-2740b11ccc7e" xml:space="preserve">
+          <source>Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open source libraries for different platforms to help you start coding quickly.</source>
+          <target state="new">Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open source libraries for different platforms to help you start coding quickly.</target>
+        </trans-unit>
+        <trans-unit id="ff2ef803-a61c-4ba0-8073-4bbec4507882" xml:space="preserve">
+          <source>This document will help you understand the various scenarios Azure AD supports and will show you how to get started.</source>
+          <target state="new">This document will help you understand the various scenarios Azure AD supports and will show you how to get started.</target>
+        </trans-unit>
+        <trans-unit id="19b8b1bc-44a3-4f9e-9c56-405d2c2d510e" xml:space="preserve">
+          <source>It’s divided into the following sections:</source>
+          <target state="new">It’s divided into the following sections:</target>
+        </trans-unit>
+        <trans-unit id="26ea81d4-6d5f-4b8c-b3bc-333b701d7a3b" xml:space="preserve">
+          <source><bpt id="0045f0ae-6482-4333-9da0-b9603984988b">&lt;linkText&gt;</bpt>Basics of Authentication in Azure AD<ept id="0045f0ae-6482-4333-9da0-b9603984988b">&lt;/linkText&gt;</ept><bpt id="0045f0ae-6482-4333-9da0-b9603984988b">&lt;title&gt;</bpt><ept id="0045f0ae-6482-4333-9da0-b9603984988b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0045f0ae-6482-4333-9da0-b9603984988b">&lt;linkText&gt;</bpt>Basics of Authentication in Azure AD<ept id="0045f0ae-6482-4333-9da0-b9603984988b">&lt;/linkText&gt;</ept><bpt id="0045f0ae-6482-4333-9da0-b9603984988b">&lt;title&gt;</bpt><ept id="0045f0ae-6482-4333-9da0-b9603984988b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="312a5fa8-23f1-4033-ac94-9335cd66c3d0" xml:space="preserve">
+          <source><bpt id="e30dfb0d-48f0-47c2-8778-8395fc87872c">&lt;linkText&gt;</bpt>Claims in Azure AD Security Tokens<ept id="e30dfb0d-48f0-47c2-8778-8395fc87872c">&lt;/linkText&gt;</ept><bpt id="e30dfb0d-48f0-47c2-8778-8395fc87872c">&lt;title&gt;</bpt><ept id="e30dfb0d-48f0-47c2-8778-8395fc87872c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e30dfb0d-48f0-47c2-8778-8395fc87872c">&lt;linkText&gt;</bpt>Claims in Azure AD Security Tokens<ept id="e30dfb0d-48f0-47c2-8778-8395fc87872c">&lt;/linkText&gt;</ept><bpt id="e30dfb0d-48f0-47c2-8778-8395fc87872c">&lt;title&gt;</bpt><ept id="e30dfb0d-48f0-47c2-8778-8395fc87872c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae54af43-3570-4544-9d06-633fefd008e8" xml:space="preserve">
+          <source><bpt id="fe83801f-01ad-4912-ae77-e640bdd62fd8">&lt;linkText&gt;</bpt>Basics of Registering an Application in Azure AD<ept id="fe83801f-01ad-4912-ae77-e640bdd62fd8">&lt;/linkText&gt;</ept><bpt id="fe83801f-01ad-4912-ae77-e640bdd62fd8">&lt;title&gt;</bpt><ept id="fe83801f-01ad-4912-ae77-e640bdd62fd8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fe83801f-01ad-4912-ae77-e640bdd62fd8">&lt;linkText&gt;</bpt>Basics of Registering an Application in Azure AD<ept id="fe83801f-01ad-4912-ae77-e640bdd62fd8">&lt;/linkText&gt;</ept><bpt id="fe83801f-01ad-4912-ae77-e640bdd62fd8">&lt;title&gt;</bpt><ept id="fe83801f-01ad-4912-ae77-e640bdd62fd8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2ef2da9-f5c3-41a5-837e-3912d77cfc1b" xml:space="preserve">
+          <source><bpt id="7a69ba1e-0a40-4a43-8ca8-60c047cdb7e8">&lt;linkText&gt;</bpt>Application Types and Scenarios<ept id="7a69ba1e-0a40-4a43-8ca8-60c047cdb7e8">&lt;/linkText&gt;</ept><bpt id="7a69ba1e-0a40-4a43-8ca8-60c047cdb7e8">&lt;title&gt;</bpt><ept id="7a69ba1e-0a40-4a43-8ca8-60c047cdb7e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7a69ba1e-0a40-4a43-8ca8-60c047cdb7e8">&lt;linkText&gt;</bpt>Application Types and Scenarios<ept id="7a69ba1e-0a40-4a43-8ca8-60c047cdb7e8">&lt;/linkText&gt;</ept><bpt id="7a69ba1e-0a40-4a43-8ca8-60c047cdb7e8">&lt;title&gt;</bpt><ept id="7a69ba1e-0a40-4a43-8ca8-60c047cdb7e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c170b352-0e99-4e19-9b57-d725c5db5acb" xml:space="preserve">
+          <source><bpt id="fed75968-bb27-4054-b650-b256b8dde507">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="fed75968-bb27-4054-b650-b256b8dde507">&lt;/linkText&gt;</ept><bpt id="fed75968-bb27-4054-b650-b256b8dde507">&lt;title&gt;</bpt><ept id="fed75968-bb27-4054-b650-b256b8dde507">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fed75968-bb27-4054-b650-b256b8dde507">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="fed75968-bb27-4054-b650-b256b8dde507">&lt;/linkText&gt;</ept><bpt id="fed75968-bb27-4054-b650-b256b8dde507">&lt;title&gt;</bpt><ept id="fed75968-bb27-4054-b650-b256b8dde507">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e300716b-99bf-4b33-9fbb-d6e0164ee2d2" xml:space="preserve">
+          <source><bpt id="7475af87-32cd-4a4f-b454-8f1ad5c4f31d">&lt;linkText&gt;</bpt>Single Page Application (SPA)<ept id="7475af87-32cd-4a4f-b454-8f1ad5c4f31d">&lt;/linkText&gt;</ept><bpt id="7475af87-32cd-4a4f-b454-8f1ad5c4f31d">&lt;title&gt;</bpt><ept id="7475af87-32cd-4a4f-b454-8f1ad5c4f31d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7475af87-32cd-4a4f-b454-8f1ad5c4f31d">&lt;linkText&gt;</bpt>Single Page Application (SPA)<ept id="7475af87-32cd-4a4f-b454-8f1ad5c4f31d">&lt;/linkText&gt;</ept><bpt id="7475af87-32cd-4a4f-b454-8f1ad5c4f31d">&lt;title&gt;</bpt><ept id="7475af87-32cd-4a4f-b454-8f1ad5c4f31d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb14f0fb-7eba-40c3-9044-144a80930c0b" xml:space="preserve">
+          <source><bpt id="02f29f02-e3e6-4b8c-9045-a42c7274bf2b">&lt;linkText&gt;</bpt>Native Application to Web API<ept id="02f29f02-e3e6-4b8c-9045-a42c7274bf2b">&lt;/linkText&gt;</ept><bpt id="02f29f02-e3e6-4b8c-9045-a42c7274bf2b">&lt;title&gt;</bpt><ept id="02f29f02-e3e6-4b8c-9045-a42c7274bf2b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="02f29f02-e3e6-4b8c-9045-a42c7274bf2b">&lt;linkText&gt;</bpt>Native Application to Web API<ept id="02f29f02-e3e6-4b8c-9045-a42c7274bf2b">&lt;/linkText&gt;</ept><bpt id="02f29f02-e3e6-4b8c-9045-a42c7274bf2b">&lt;title&gt;</bpt><ept id="02f29f02-e3e6-4b8c-9045-a42c7274bf2b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b2bb06f-eb50-4c1d-9069-b8508728ae10" xml:space="preserve">
+          <source><bpt id="62260af5-84dc-4470-92bf-2698a8e17180">&lt;linkText&gt;</bpt>Web Application to Web API<ept id="62260af5-84dc-4470-92bf-2698a8e17180">&lt;/linkText&gt;</ept><bpt id="62260af5-84dc-4470-92bf-2698a8e17180">&lt;title&gt;</bpt><ept id="62260af5-84dc-4470-92bf-2698a8e17180">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="62260af5-84dc-4470-92bf-2698a8e17180">&lt;linkText&gt;</bpt>Web Application to Web API<ept id="62260af5-84dc-4470-92bf-2698a8e17180">&lt;/linkText&gt;</ept><bpt id="62260af5-84dc-4470-92bf-2698a8e17180">&lt;title&gt;</bpt><ept id="62260af5-84dc-4470-92bf-2698a8e17180">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df9897fc-9091-42d8-8e2a-bae3b3645af0" xml:space="preserve">
+          <source><bpt id="f1e469af-4e21-488b-82e8-b93bc3740086">&lt;linkText&gt;</bpt>Daemon or Server Application to Web API<ept id="f1e469af-4e21-488b-82e8-b93bc3740086">&lt;/linkText&gt;</ept><bpt id="f1e469af-4e21-488b-82e8-b93bc3740086">&lt;title&gt;</bpt><ept id="f1e469af-4e21-488b-82e8-b93bc3740086">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f1e469af-4e21-488b-82e8-b93bc3740086">&lt;linkText&gt;</bpt>Daemon or Server Application to Web API<ept id="f1e469af-4e21-488b-82e8-b93bc3740086">&lt;/linkText&gt;</ept><bpt id="f1e469af-4e21-488b-82e8-b93bc3740086">&lt;title&gt;</bpt><ept id="f1e469af-4e21-488b-82e8-b93bc3740086">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16371099-dc2c-41ee-8336-77d756cf73e4" xml:space="preserve">
+          <source>If you are unfamiliar with basic concepts of authentication in Azure AD, read this section.</source>
+          <target state="new">If you are unfamiliar with basic concepts of authentication in Azure AD, read this section.</target>
+        </trans-unit>
+        <trans-unit id="e9c7a1d6-191f-4b23-8edd-f1aae487c7d4" xml:space="preserve">
+          <source>Otherwise, you may want to skip down to <bpt id="034896ed-c085-4ce6-90a9-cb6b76264084">&lt;linkText&gt;</bpt>Application Types and Scenarios<ept id="034896ed-c085-4ce6-90a9-cb6b76264084">&lt;/linkText&gt;</ept><bpt id="034896ed-c085-4ce6-90a9-cb6b76264084">&lt;title&gt;</bpt><ept id="034896ed-c085-4ce6-90a9-cb6b76264084">&lt;/title&gt;</ept>.</source>
+          <target state="new">Otherwise, you may want to skip down to <bpt id="034896ed-c085-4ce6-90a9-cb6b76264084">&lt;linkText&gt;</bpt>Application Types and Scenarios<ept id="034896ed-c085-4ce6-90a9-cb6b76264084">&lt;/linkText&gt;</ept><bpt id="034896ed-c085-4ce6-90a9-cb6b76264084">&lt;title&gt;</bpt><ept id="034896ed-c085-4ce6-90a9-cb6b76264084">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69c1352a-35dc-499d-8dbe-7697bb42562c" xml:space="preserve">
+          <source>Let’s consider the most basic scenario where identity is required: a user in a web browser needs to authenticate to a web application.</source>
+          <target state="new">Let’s consider the most basic scenario where identity is required: a user in a web browser needs to authenticate to a web application.</target>
+        </trans-unit>
+        <trans-unit id="6e60996d-165b-4b32-8b5b-b84426aa1f4f" xml:space="preserve">
+          <source>This scenario is described in greater detail in the <bpt id="37744d14-275b-4c49-9c95-b5f4ccd4dfc9">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="37744d14-275b-4c49-9c95-b5f4ccd4dfc9">&lt;/linkText&gt;</ept><bpt id="37744d14-275b-4c49-9c95-b5f4ccd4dfc9">&lt;title&gt;</bpt><ept id="37744d14-275b-4c49-9c95-b5f4ccd4dfc9">&lt;/title&gt;</ept> section, but it’s a useful starting point to illustrate the capabilities of Azure AD and conceptualize how the scenario works.</source>
+          <target state="new">This scenario is described in greater detail in the <bpt id="37744d14-275b-4c49-9c95-b5f4ccd4dfc9">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="37744d14-275b-4c49-9c95-b5f4ccd4dfc9">&lt;/linkText&gt;</ept><bpt id="37744d14-275b-4c49-9c95-b5f4ccd4dfc9">&lt;title&gt;</bpt><ept id="37744d14-275b-4c49-9c95-b5f4ccd4dfc9">&lt;/title&gt;</ept> section, but it’s a useful starting point to illustrate the capabilities of Azure AD and conceptualize how the scenario works.</target>
+        </trans-unit>
+        <trans-unit id="84eb1b5f-9600-4b1b-9e61-9c70c759b7f2" xml:space="preserve">
+          <source>Consider the following diagram for this scenario:</source>
+          <target state="new">Consider the following diagram for this scenario:</target>
+        </trans-unit>
+        <trans-unit id="e5e9cb36-755a-40de-b690-77bfa27a0b0f" xml:space="preserve">
+          <source><bpt id="e00ad334-55a1-45fc-9621-a1506073ce52">&lt;linkText&gt;</bpt>Overview of sign-on to web application<ept id="e00ad334-55a1-45fc-9621-a1506073ce52">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e00ad334-55a1-45fc-9621-a1506073ce52">&lt;linkText&gt;</bpt>Overview of sign-on to web application<ept id="e00ad334-55a1-45fc-9621-a1506073ce52">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d7bebcb-1897-4295-a16f-a97f48d012e3" xml:space="preserve">
+          <source>With the diagram above in mind, here’s what you need to know about its various components:</source>
+          <target state="new">With the diagram above in mind, here’s what you need to know about its various components:</target>
+        </trans-unit>
+        <trans-unit id="bd0eb8be-2833-46ef-b155-40d19bdbd818" xml:space="preserve">
+          <source>Azure AD is the identity provider, responsible for verifying the identity of users and applications that exist in an organization’s directory, and ultimately issuing security tokens upon successful authentication of those users and applications.</source>
+          <target state="new">Azure AD is the identity provider, responsible for verifying the identity of users and applications that exist in an organization’s directory, and ultimately issuing security tokens upon successful authentication of those users and applications.</target>
+        </trans-unit>
+        <trans-unit id="1e4fca5e-b2e3-4637-9504-cf5fa8b71293" xml:space="preserve">
+          <source>An application that wants to outsource authentication to Azure AD must be registered in Azure AD, which registers and uniquely identifies the app in the directory.</source>
+          <target state="new">An application that wants to outsource authentication to Azure AD must be registered in Azure AD, which registers and uniquely identifies the app in the directory.</target>
+        </trans-unit>
+        <trans-unit id="ffdfac3f-aff3-4177-a451-85fb7ce65b8d" xml:space="preserve">
+          <source>Developers can use the open source Azure AD authentication libraries to make authentication easy by handling the protocol details for you.</source>
+          <target state="new">Developers can use the open source Azure AD authentication libraries to make authentication easy by handling the protocol details for you.</target>
+        </trans-unit>
+        <trans-unit id="e3e182c5-05f8-4156-b213-a9c9d5183925" xml:space="preserve">
+          <source>See <bpt id="fc336c0a-597d-4cea-a4a8-9e78a600160a">&lt;linkText&gt;</bpt>Azure Active Directory Authentication Libraries<ept id="fc336c0a-597d-4cea-a4a8-9e78a600160a">&lt;/linkText&gt;</ept><bpt id="fc336c0a-597d-4cea-a4a8-9e78a600160a">&lt;title&gt;</bpt><ept id="fc336c0a-597d-4cea-a4a8-9e78a600160a">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="fc336c0a-597d-4cea-a4a8-9e78a600160a">&lt;linkText&gt;</bpt>Azure Active Directory Authentication Libraries<ept id="fc336c0a-597d-4cea-a4a8-9e78a600160a">&lt;/linkText&gt;</ept><bpt id="fc336c0a-597d-4cea-a4a8-9e78a600160a">&lt;title&gt;</bpt><ept id="fc336c0a-597d-4cea-a4a8-9e78a600160a">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="3c019fd4-6c1b-4281-92b7-d05e08a0777e" xml:space="preserve">
+          <source>• Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful for the intended parties.</source>
+          <target state="new">• Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful for the intended parties.</target>
+        </trans-unit>
+        <trans-unit id="811d6584-58f7-417d-adca-3c24d0303722" xml:space="preserve">
+          <source>Developers can use the provided authentication libraries to handle validation of any token from Azure AD, including JSON Web Tokens (JWT) or SAML 2.0.</source>
+          <target state="new">Developers can use the provided authentication libraries to handle validation of any token from Azure AD, including JSON Web Tokens (JWT) or SAML 2.0.</target>
+        </trans-unit>
+        <trans-unit id="931cbebd-0210-4f6d-ba38-ac7c2ca9ccde" xml:space="preserve">
+          <source>If you want to perform validation manually, see the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx) documentation.</source>
+          <target state="new">If you want to perform validation manually, see the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx) documentation.</target>
+        </trans-unit>
+        <trans-unit id="a47303bc-bace-4549-8034-b323987d887c" xml:space="preserve">
+          <source>Azure AD uses public key cryptography to sign tokens and verify that they are valid.</source>
+          <target state="new">Azure AD uses public key cryptography to sign tokens and verify that they are valid.</target>
+        </trans-unit>
+        <trans-unit id="3658df48-60c5-4fb7-a29d-2a2b688faea0" xml:space="preserve">
+          <source>See <bpt id="4fe16bec-b4b9-489a-9019-d42737b55477">&lt;linkText&gt;</bpt>Important Information About Signing Key Rollover in Azure AD<ept id="4fe16bec-b4b9-489a-9019-d42737b55477">&lt;/linkText&gt;</ept><bpt id="4fe16bec-b4b9-489a-9019-d42737b55477">&lt;title&gt;</bpt><ept id="4fe16bec-b4b9-489a-9019-d42737b55477">&lt;/title&gt;</ept> for more information on the necessary logic you must have in your application to ensure it’s always updated with the latest keys.</source>
+          <target state="new">See <bpt id="4fe16bec-b4b9-489a-9019-d42737b55477">&lt;linkText&gt;</bpt>Important Information About Signing Key Rollover in Azure AD<ept id="4fe16bec-b4b9-489a-9019-d42737b55477">&lt;/linkText&gt;</ept><bpt id="4fe16bec-b4b9-489a-9019-d42737b55477">&lt;title&gt;</bpt><ept id="4fe16bec-b4b9-489a-9019-d42737b55477">&lt;/title&gt;</ept> for more information on the necessary logic you must have in your application to ensure it’s always updated with the latest keys.</target>
+        </trans-unit>
+        <trans-unit id="b4708459-0aa0-4c43-8870-079a52f01de1" xml:space="preserve">
+          <source>• The flow of requests and responses for the authentication process is determined by the authentication protocol that was used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0.</source>
+          <target state="new">• The flow of requests and responses for the authentication process is determined by the authentication protocol that was used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0.</target>
+        </trans-unit>
+        <trans-unit id="f99b09bc-2c98-4f2d-b732-fc4b11231253" xml:space="preserve">
+          <source>These protocols are discussed in more detail in the <bpt id="d40531f3-4a28-4065-8be1-dbc37355a11c">&lt;linkText&gt;</bpt>Azure Active Directory Authentication Protocols<ept id="d40531f3-4a28-4065-8be1-dbc37355a11c">&lt;/linkText&gt;</ept><bpt id="d40531f3-4a28-4065-8be1-dbc37355a11c">&lt;title&gt;</bpt><ept id="d40531f3-4a28-4065-8be1-dbc37355a11c">&lt;/title&gt;</ept> topic and in the sections below.</source>
+          <target state="new">These protocols are discussed in more detail in the <bpt id="d40531f3-4a28-4065-8be1-dbc37355a11c">&lt;linkText&gt;</bpt>Azure Active Directory Authentication Protocols<ept id="d40531f3-4a28-4065-8be1-dbc37355a11c">&lt;/linkText&gt;</ept><bpt id="d40531f3-4a28-4065-8be1-dbc37355a11c">&lt;title&gt;</bpt><ept id="d40531f3-4a28-4065-8be1-dbc37355a11c">&lt;/title&gt;</ept> topic and in the sections below.</target>
+        </trans-unit>
+        <trans-unit id="80e09310-873f-48e0-b821-784445403336" xml:space="preserve">
+          <source>Azure AD supports the OAuth 2.0 and OpenID Connect standards that make extensive use of bearer tokens, including bearer tokens represented as JWTs.</source>
+          <target state="new">Azure AD supports the OAuth 2.0 and OpenID Connect standards that make extensive use of bearer tokens, including bearer tokens represented as JWTs.</target>
+        </trans-unit>
+        <trans-unit id="d9de3405-660a-4f33-9237-0f115bf25989" xml:space="preserve">
+          <source>A bearer token is a lightweight security token that grants the “bearer” access to a protected resource.</source>
+          <target state="new">A bearer token is a lightweight security token that grants the “bearer” access to a protected resource.</target>
+        </trans-unit>
+        <trans-unit id="f6d471ed-2a91-40a5-ba13-1691a7a76a87" xml:space="preserve">
+          <source>In this sense, the “bearer” is any party that can present the token.</source>
+          <target state="new">In this sense, the “bearer” is any party that can present the token.</target>
+        </trans-unit>
+        <trans-unit id="933a2901-1120-4eb6-88d0-29f11c29499b" xml:space="preserve">
+          <source>Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party.</source>
+          <target state="new">Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party.</target>
+        </trans-unit>
+        <trans-unit id="f1629feb-e7f0-48ac-b83b-1fbacdbf1b15" xml:space="preserve">
+          <source>While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS).</source>
+          <target state="new">While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS).</target>
+        </trans-unit>
+        <trans-unit id="6dfd6ec8-9847-4171-8320-0b0293194677" xml:space="preserve">
+          <source>If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource.</source>
+          <target state="new">If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource.</target>
+        </trans-unit>
+        <trans-unit id="296c33b9-8011-4817-99f2-21848ca564d9" xml:space="preserve">
+          <source>The same security principles apply when storing or caching bearer tokens for later use.</source>
+          <target state="new">The same security principles apply when storing or caching bearer tokens for later use.</target>
+        </trans-unit>
+        <trans-unit id="c26da873-5ab6-43eb-a531-4d0c437b94c8" xml:space="preserve">
+          <source>Always ensure that your application transmits and stores bearer tokens in a secure manner.</source>
+          <target state="new">Always ensure that your application transmits and stores bearer tokens in a secure manner.</target>
+        </trans-unit>
+        <trans-unit id="f7323546-f72b-48fb-90e9-2d9f0ecb7e68" xml:space="preserve">
+          <source>For more security considerations on bearer tokens, see <bpt id="4963a325-2c22-45f4-9d33-7b17a4690f5a">&lt;linkText&gt;</bpt>RFC 6750 Section 5<ept id="4963a325-2c22-45f4-9d33-7b17a4690f5a">&lt;/linkText&gt;</ept><bpt id="4963a325-2c22-45f4-9d33-7b17a4690f5a">&lt;title&gt;</bpt><ept id="4963a325-2c22-45f4-9d33-7b17a4690f5a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more security considerations on bearer tokens, see <bpt id="4963a325-2c22-45f4-9d33-7b17a4690f5a">&lt;linkText&gt;</bpt>RFC 6750 Section 5<ept id="4963a325-2c22-45f4-9d33-7b17a4690f5a">&lt;/linkText&gt;</ept><bpt id="4963a325-2c22-45f4-9d33-7b17a4690f5a">&lt;title&gt;</bpt><ept id="4963a325-2c22-45f4-9d33-7b17a4690f5a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c243bb5-472e-497e-9daf-1fd6a154fe10" xml:space="preserve">
+          <source>Now that you have an overview of the basics, read the sections below to understand how provisioning works in Azure AD and the common scenarios Azure AD supports.</source>
+          <target state="new">Now that you have an overview of the basics, read the sections below to understand how provisioning works in Azure AD and the common scenarios Azure AD supports.</target>
+        </trans-unit>
+        <trans-unit id="787812be-632d-4a13-b7f1-9565d109ce72" xml:space="preserve">
+          <source>Security tokens issued by Azure AD contain claims, or assertions of information about the subject that has been authenticated.</source>
+          <target state="new">Security tokens issued by Azure AD contain claims, or assertions of information about the subject that has been authenticated.</target>
+        </trans-unit>
+        <trans-unit id="90838de5-d5a4-4452-a61b-caa0c46f3a5d" xml:space="preserve">
+          <source>These claims can be used by the application for various tasks.</source>
+          <target state="new">These claims can be used by the application for various tasks.</target>
+        </trans-unit>
+        <trans-unit id="7341ea6b-1948-4039-99e3-816bfaf4582b" xml:space="preserve">
+          <source>For example, they can be used to validate the token, identify the subject's directory tenant, display user information, determine the subject's authorization, and so on.</source>
+          <target state="new">For example, they can be used to validate the token, identify the subject's directory tenant, display user information, determine the subject's authorization, and so on.</target>
+        </trans-unit>
+        <trans-unit id="8887055b-f332-44f8-b256-3f6e87971478" xml:space="preserve">
+          <source>The claims present in any given security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration.</source>
+          <target state="new">The claims present in any given security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration.</target>
+        </trans-unit>
+        <trans-unit id="86339b4d-1217-4fdd-bb81-11936fc87ddf" xml:space="preserve">
+          <source>A brief description of each type of claim emitted by Azure AD is provided in the table below.</source>
+          <target state="new">A brief description of each type of claim emitted by Azure AD is provided in the table below.</target>
+        </trans-unit>
+        <trans-unit id="dc5eb7d1-45e9-4f39-a959-50df40011a3e" xml:space="preserve">
+          <source>For more information, refer to <bpt id="85209d8e-1dfb-409d-82cc-9482714b5c7b">&lt;linkText&gt;</bpt>Supported Token and Claim Types<ept id="85209d8e-1dfb-409d-82cc-9482714b5c7b">&lt;/linkText&gt;</ept><bpt id="85209d8e-1dfb-409d-82cc-9482714b5c7b">&lt;title&gt;</bpt><ept id="85209d8e-1dfb-409d-82cc-9482714b5c7b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, refer to <bpt id="85209d8e-1dfb-409d-82cc-9482714b5c7b">&lt;linkText&gt;</bpt>Supported Token and Claim Types<ept id="85209d8e-1dfb-409d-82cc-9482714b5c7b">&lt;/linkText&gt;</ept><bpt id="85209d8e-1dfb-409d-82cc-9482714b5c7b">&lt;title&gt;</bpt><ept id="85209d8e-1dfb-409d-82cc-9482714b5c7b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5589623d-825e-4579-a408-a652a48e31bf" xml:space="preserve">
+          <source>Claim</source>
+          <target state="new">Claim</target>
+        </trans-unit>
+        <trans-unit id="d530885f-5163-4630-817e-b15271104fa3" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="488aac9a-792a-46e2-8c48-c7756c94d1e2" xml:space="preserve">
+          <source>Application ID</source>
+          <target state="new">Application ID</target>
+        </trans-unit>
+        <trans-unit id="c806f266-da16-4eff-972e-3a2a45db5e49" xml:space="preserve">
+          <source>Identifies the application that is using the token.</source>
+          <target state="new">Identifies the application that is using the token.</target>
+        </trans-unit>
+        <trans-unit id="73f76c7e-736d-4544-88eb-077db04d7f64" xml:space="preserve">
+          <source>Audience</source>
+          <target state="new">Audience</target>
+        </trans-unit>
+        <trans-unit id="330b865c-ca13-4576-a0d4-b74e556914ee" xml:space="preserve">
+          <source>Identifies the recipient resource the token is intended for.</source>
+          <target state="new">Identifies the recipient resource the token is intended for.</target>
+        </trans-unit>
+        <trans-unit id="3c4d429e-2eb3-4d72-a1a2-acacbe85ec72" xml:space="preserve">
+          <source>Application Authentication Context Class Reference</source>
+          <target state="new">Application Authentication Context Class Reference</target>
+        </trans-unit>
+        <trans-unit id="d3ecdeba-f4de-4959-819f-c50ae776c86a" xml:space="preserve">
+          <source>Indicates how the client was authenticated (public client vs. confidential client).</source>
+          <target state="new">Indicates how the client was authenticated (public client vs. confidential client).</target>
+        </trans-unit>
+        <trans-unit id="4feb4806-cdd1-4e43-bab7-789741313af2" xml:space="preserve">
+          <source>Authentication Instant</source>
+          <target state="new">Authentication Instant</target>
+        </trans-unit>
+        <trans-unit id="14234451-d7c2-4fa5-963c-68f4f4a55999" xml:space="preserve">
+          <source>Records the date and time when the authentication occurred.</source>
+          <target state="new">Records the date and time when the authentication occurred.</target>
+        </trans-unit>
+        <trans-unit id="e27a6d00-e844-4b17-b449-0cc185de8b93" xml:space="preserve">
+          <source>Authentication Method</source>
+          <target state="new">Authentication Method</target>
+        </trans-unit>
+        <trans-unit id="a8c95f84-9172-483e-914d-93a3349433e1" xml:space="preserve">
+          <source>Indicates how the subject of the token was authenticated (password, certificate, etc.).</source>
+          <target state="new">Indicates how the subject of the token was authenticated (password, certificate, etc.).</target>
+        </trans-unit>
+        <trans-unit id="c7d6ca89-084b-467a-a13a-6c4023ebb639" xml:space="preserve">
+          <source>First Name</source>
+          <target state="new">First Name</target>
+        </trans-unit>
+        <trans-unit id="630b8adb-9b9d-4663-9f0c-3e555ad7331a" xml:space="preserve">
+          <source>Provides the given name of the user as set in Azure AD.</source>
+          <target state="new">Provides the given name of the user as set in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="88f2056a-cb61-4f5f-b02a-8c49bfc8a7f1" xml:space="preserve">
+          <source>Groups</source>
+          <target state="new">Groups</target>
+        </trans-unit>
+        <trans-unit id="04f40355-a199-4659-ad9f-6e26bf4c16f5" xml:space="preserve">
+          <source>Contains object Ids of Azure AD groups the user is a member of.</source>
+          <target state="new">Contains object Ids of Azure AD groups the user is a member of.</target>
+        </trans-unit>
+        <trans-unit id="a474136e-2350-4732-8484-4c6eb05ecd79" xml:space="preserve">
+          <source>Identity Provider</source>
+          <target state="new">Identity Provider</target>
+        </trans-unit>
+        <trans-unit id="8fabdb56-f92f-41ce-b6d5-fed425dfe707" xml:space="preserve">
+          <source>Records the identity provider that authenticated the subject of the token.</source>
+          <target state="new">Records the identity provider that authenticated the subject of the token.</target>
+        </trans-unit>
+        <trans-unit id="4006bcdc-d539-4683-b194-869f56f050b4" xml:space="preserve">
+          <source>Issued At</source>
+          <target state="new">Issued At</target>
+        </trans-unit>
+        <trans-unit id="69880924-8481-4c86-bd78-9524471cf875" xml:space="preserve">
+          <source>Records the time at which the token was issued, often used for token freshness.</source>
+          <target state="new">Records the time at which the token was issued, often used for token freshness.</target>
+        </trans-unit>
+        <trans-unit id="2326563e-1dfd-4148-9e15-15fd677626d8" xml:space="preserve">
+          <source>Issuer</source>
+          <target state="new">Issuer</target>
+        </trans-unit>
+        <trans-unit id="ef1cc2e2-a0c1-40a0-85e8-cf4fe5e223c9" xml:space="preserve">
+          <source>Identifies the STS that emitted the token as well as the Azure AD tenant.</source>
+          <target state="new">Identifies the STS that emitted the token as well as the Azure AD tenant.</target>
+        </trans-unit>
+        <trans-unit id="79c60509-3ec5-4c38-8dab-900b9737ccbe" xml:space="preserve">
+          <source>Last Name</source>
+          <target state="new">Last Name</target>
+        </trans-unit>
+        <trans-unit id="51bf49bb-9016-4cf5-a483-a2ed2aa9ad8e" xml:space="preserve">
+          <source>Provides the surname of the user as set in Azure AD.</source>
+          <target state="new">Provides the surname of the user as set in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="91cdf03a-a8c5-41fe-b46c-3882079a067d" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="9e07bb18-715f-4a40-b69b-0724898bc77c" xml:space="preserve">
+          <source>Provides a human readable value that identifies the subject of the token.</source>
+          <target state="new">Provides a human readable value that identifies the subject of the token.</target>
+        </trans-unit>
+        <trans-unit id="95157278-3cf3-42ff-911f-a6f1f8716cd8" xml:space="preserve">
+          <source>Object Id</source>
+          <target state="new">Object Id</target>
+        </trans-unit>
+        <trans-unit id="38104aab-e495-479c-bb39-af7c8a8793ab" xml:space="preserve">
+          <source>Contains an immutable, unique identifier of the subject in Azure AD.</source>
+          <target state="new">Contains an immutable, unique identifier of the subject in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="ace53054-2974-42a9-80be-5059dd91b723" xml:space="preserve">
+          <source>Roles</source>
+          <target state="new">Roles</target>
+        </trans-unit>
+        <trans-unit id="b8270c66-b3dc-43f5-acac-b01a3318f071" xml:space="preserve">
+          <source>Contains friendly names of Azure AD Application Roles that the user has been granted.</source>
+          <target state="new">Contains friendly names of Azure AD Application Roles that the user has been granted.</target>
+        </trans-unit>
+        <trans-unit id="fb7403ae-3730-4684-b0e0-0fcbe3ec1c02" xml:space="preserve">
+          <source>Scope</source>
+          <target state="new">Scope</target>
+        </trans-unit>
+        <trans-unit id="c5e0ec8f-f13b-4be7-a00e-0a2105782a6a" xml:space="preserve">
+          <source>Indicates the permissions granted to the client application.</source>
+          <target state="new">Indicates the permissions granted to the client application.</target>
+        </trans-unit>
+        <trans-unit id="e05211ae-b26f-4fb3-be10-253eeba103e5" xml:space="preserve">
+          <source>Subject</source>
+          <target state="new">Subject</target>
+        </trans-unit>
+        <trans-unit id="dbc43fb7-e2a9-45c6-a871-9d4a03e4c303" xml:space="preserve">
+          <source>Indicates the principal about which the token asserts information.</source>
+          <target state="new">Indicates the principal about which the token asserts information.</target>
+        </trans-unit>
+        <trans-unit id="c28cedca-eb45-4651-88a7-0662c3e5016f" xml:space="preserve">
+          <source>Tenant Id</source>
+          <target state="new">Tenant Id</target>
+        </trans-unit>
+        <trans-unit id="473e5a1b-c347-41fd-8b26-ff3ab26478ca" xml:space="preserve">
+          <source>Contains an immutable, unique identifier of the directory tenant that issued the token.</source>
+          <target state="new">Contains an immutable, unique identifier of the directory tenant that issued the token.</target>
+        </trans-unit>
+        <trans-unit id="c498ac1a-4b19-45fe-b09f-a0b06ba8bd0a" xml:space="preserve">
+          <source>Token Lifetime</source>
+          <target state="new">Token Lifetime</target>
+        </trans-unit>
+        <trans-unit id="2c03c8d9-133c-41bb-a253-98398e0beeb4" xml:space="preserve">
+          <source>Defines the time interval within which a token is valid.</source>
+          <target state="new">Defines the time interval within which a token is valid.</target>
+        </trans-unit>
+        <trans-unit id="764b4d72-132b-467f-992d-291453a77e81" xml:space="preserve">
+          <source>User Principal Name</source>
+          <target state="new">User Principal Name</target>
+        </trans-unit>
+        <trans-unit id="8b15d515-8830-4114-9679-08c40d5470d5" xml:space="preserve">
+          <source>Contains the user principal name of the subject.</source>
+          <target state="new">Contains the user principal name of the subject.</target>
+        </trans-unit>
+        <trans-unit id="3f11cf2a-aeab-489e-ba7d-ad0b04ab565a" xml:space="preserve">
+          <source>Version</source>
+          <target state="new">Version</target>
+        </trans-unit>
+        <trans-unit id="88143c12-67d9-4c27-8841-6dddf6393793" xml:space="preserve">
+          <source>Contains the version number of the token.</source>
+          <target state="new">Contains the version number of the token.</target>
+        </trans-unit>
+        <trans-unit id="8933e527-d2b2-4b6f-859c-51950be0c35e" xml:space="preserve">
+          <source>Any application that outsources authentication to Azure AD must be registered in a directory.</source>
+          <target state="new">Any application that outsources authentication to Azure AD must be registered in a directory.</target>
+        </trans-unit>
+        <trans-unit id="97913243-02a4-4379-99d5-e6f6ecf2e671" xml:space="preserve">
+          <source>This step involves telling Azure AD about your application, including the URL where it’s located, the URL to send replies after authentication, the URI to identify your application, and more.</source>
+          <target state="new">This step involves telling Azure AD about your application, including the URL where it’s located, the URL to send replies after authentication, the URI to identify your application, and more.</target>
+        </trans-unit>
+        <trans-unit id="6ef45a13-c896-4dc8-8369-1032201e3bc0" xml:space="preserve">
+          <source>This information is required for a few key reasons:</source>
+          <target state="new">This information is required for a few key reasons:</target>
+        </trans-unit>
+        <trans-unit id="b49556b6-8571-4ac2-a570-6dfe91504060" xml:space="preserve">
+          <source>Azure AD needs coordinates to communicate with the application when handling sign-on or exchanging tokens.</source>
+          <target state="new">Azure AD needs coordinates to communicate with the application when handling sign-on or exchanging tokens.</target>
+        </trans-unit>
+        <trans-unit id="5f3684a3-5a49-4c7f-a578-22020fa80237" xml:space="preserve">
+          <source>These include the following:</source>
+          <target state="new">These include the following:</target>
+        </trans-unit>
+        <trans-unit id="e03d2359-3614-44a1-99f7-9a3df237325c" xml:space="preserve">
+          <source>Application ID URI: The identifier for an application.</source>
+          <target state="new">Application ID URI: The identifier for an application.</target>
+        </trans-unit>
+        <trans-unit id="f0938c5c-a22e-456c-b4f9-ab03bb475cf9" xml:space="preserve">
+          <source>This value is sent to Azure AD during authentication to indicate which application the caller wants a token for.</source>
+          <target state="new">This value is sent to Azure AD during authentication to indicate which application the caller wants a token for.</target>
+        </trans-unit>
+        <trans-unit id="b40a11c6-3da9-4712-a927-118340850250" xml:space="preserve">
+          <source>Additionally, this value is included in the token so that the application knows it was the intended target.</source>
+          <target state="new">Additionally, this value is included in the token so that the application knows it was the intended target.</target>
+        </trans-unit>
+        <trans-unit id="663a805b-9258-4d6a-97b0-c2c2bea5f1d2" xml:space="preserve">
+          <source>Reply URL and Redirect URI: In the case of a web API or web application, the Reply URL is the location to which Azure AD will send the authentication response, including a token if authentication was successful.</source>
+          <target state="new">Reply URL and Redirect URI: In the case of a web API or web application, the Reply URL is the location to which Azure AD will send the authentication response, including a token if authentication was successful.</target>
+        </trans-unit>
+        <trans-unit id="22e3bdf9-4402-4996-8fbf-a2f063c57263" xml:space="preserve">
+          <source>In the case of a native application, the Redirect URI is a unique identifier to which Azure AD will redirect the user-agent in an OAuth 2.0 request.</source>
+          <target state="new">In the case of a native application, the Redirect URI is a unique identifier to which Azure AD will redirect the user-agent in an OAuth 2.0 request.</target>
+        </trans-unit>
+        <trans-unit id="bbf90dec-6d3e-496d-b7de-584fa4392fa5" xml:space="preserve">
+          <source>Client ID: The ID for an application, which is generated by Azure AD when the application is registered.</source>
+          <target state="new">Client ID: The ID for an application, which is generated by Azure AD when the application is registered.</target>
+        </trans-unit>
+        <trans-unit id="746dc279-8023-446c-96c4-c3ad579729bb" xml:space="preserve">
+          <source>When requesting an authorization code or token, the client ID and key are sent to Azure AD during authentication.</source>
+          <target state="new">When requesting an authorization code or token, the client ID and key are sent to Azure AD during authentication.</target>
+        </trans-unit>
+        <trans-unit id="bbff09e3-d1e1-4276-ab80-5dac020e44c1" xml:space="preserve">
+          <source>Key: The key that is sent along with a client ID when authenticating to Azure AD to call a web API.</source>
+          <target state="new">Key: The key that is sent along with a client ID when authenticating to Azure AD to call a web API.</target>
+        </trans-unit>
+        <trans-unit id="b504e40f-3675-48fd-afae-fd32495f6dba" xml:space="preserve">
+          <source>Azure AD needs to ensure the application has the required permissions to access your directory data, other applications in your organization, and so on</source>
+          <target state="new">Azure AD needs to ensure the application has the required permissions to access your directory data, other applications in your organization, and so on</target>
+        </trans-unit>
+        <trans-unit id="794ae7a0-4095-4a42-8eb4-8c18b3031258" xml:space="preserve">
+          <source>Provisioning becomes clearer when you understand that there are two categories of applications that can be developed and integrated with Azure AD:</source>
+          <target state="new">Provisioning becomes clearer when you understand that there are two categories of applications that can be developed and integrated with Azure AD:</target>
+        </trans-unit>
+        <trans-unit id="1f7f1c52-c7f3-4955-ba98-69f61091d8b2" xml:space="preserve">
+          <source>Single tenant application: A single tenant application is intended for use in one organization.</source>
+          <target state="new">Single tenant application: A single tenant application is intended for use in one organization.</target>
+        </trans-unit>
+        <trans-unit id="50264ea5-f5b3-4faa-8898-793cb5c6e466" xml:space="preserve">
+          <source>These are typically line-of-business (LoB) applications written by an enterprise developer.</source>
+          <target state="new">These are typically line-of-business (LoB) applications written by an enterprise developer.</target>
+        </trans-unit>
+        <trans-unit id="ec74ae5e-f221-46b7-99f4-fe14c99ea149" xml:space="preserve">
+          <source>A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory.</source>
+          <target state="new">A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory.</target>
+        </trans-unit>
+        <trans-unit id="bdd388a5-ab94-4508-b99c-efd6b62c8762" xml:space="preserve">
+          <source>These applications are typically registered by a developer in the organization.</source>
+          <target state="new">These applications are typically registered by a developer in the organization.</target>
+        </trans-unit>
+        <trans-unit id="911f9128-ecb1-4376-8ea6-18aec109e4f1" xml:space="preserve">
+          <source>Multi-tenant application: A multi-tenant application is intended for use in many organizations, not just one organization.</source>
+          <target state="new">Multi-tenant application: A multi-tenant application is intended for use in many organizations, not just one organization.</target>
+        </trans-unit>
+        <trans-unit id="9b85ac9e-ad60-4286-8dc1-75a7992f0d73" xml:space="preserve">
+          <source>These are typically software-as-a-service (SaaS) applications written by an independent software vendor (ISV).</source>
+          <target state="new">These are typically software-as-a-service (SaaS) applications written by an independent software vendor (ISV).</target>
+        </trans-unit>
+        <trans-unit id="fd0c610f-646d-47d4-a447-f7e34c4aa0ef" xml:space="preserve">
+          <source>Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them.</source>
+          <target state="new">Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them.</target>
+        </trans-unit>
+        <trans-unit id="4fe03e5d-023e-4200-a5e0-3535d5913614" xml:space="preserve">
+          <source>This consent process starts when an application has been registered in the directory and is given access to the Graph API or perhaps another web API.</source>
+          <target state="new">This consent process starts when an application has been registered in the directory and is given access to the Graph API or perhaps another web API.</target>
+        </trans-unit>
+        <trans-unit id="2057b857-d039-47b1-9a5d-be895c7b5dc3" xml:space="preserve">
+          <source>When a user or administrator from a different organization signs up to use the application, they are presented with a dialog that displays the permissions the application requires.</source>
+          <target state="new">When a user or administrator from a different organization signs up to use the application, they are presented with a dialog that displays the permissions the application requires.</target>
+        </trans-unit>
+        <trans-unit id="5bcb85be-cba1-419d-8a15-46058f30610d" xml:space="preserve">
+          <source>The user or administrator can then consent to the application, which gives the application access to the stated data, and finally registers the application in their directory.</source>
+          <target state="new">The user or administrator can then consent to the application, which gives the application access to the stated data, and finally registers the application in their directory.</target>
+        </trans-unit>
+        <trans-unit id="f4b18678-911d-47da-a20f-e065227dbbb9" xml:space="preserve">
+          <source>For more information, see <bpt id="63f4a8d4-48e2-47b4-a1fc-5daca8ebf521">&lt;linkText&gt;</bpt>Overview of the Consent Framework<ept id="63f4a8d4-48e2-47b4-a1fc-5daca8ebf521">&lt;/linkText&gt;</ept><bpt id="63f4a8d4-48e2-47b4-a1fc-5daca8ebf521">&lt;title&gt;</bpt><ept id="63f4a8d4-48e2-47b4-a1fc-5daca8ebf521">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="63f4a8d4-48e2-47b4-a1fc-5daca8ebf521">&lt;linkText&gt;</bpt>Overview of the Consent Framework<ept id="63f4a8d4-48e2-47b4-a1fc-5daca8ebf521">&lt;/linkText&gt;</ept><bpt id="63f4a8d4-48e2-47b4-a1fc-5daca8ebf521">&lt;title&gt;</bpt><ept id="63f4a8d4-48e2-47b4-a1fc-5daca8ebf521">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d119e26d-c415-4802-9bd6-f212d138455c" xml:space="preserve">
+          <source>Some additional considerations arise when developing a multi-tenant application instead of a single tenant application.</source>
+          <target state="new">Some additional considerations arise when developing a multi-tenant application instead of a single tenant application.</target>
+        </trans-unit>
+        <trans-unit id="f985747e-8665-4a6c-bdda-4f97e8c710e0" xml:space="preserve">
+          <source>For example, if you are making your application available to users in multiple directories, you need a mechanism to determine which tenant they’re in.</source>
+          <target state="new">For example, if you are making your application available to users in multiple directories, you need a mechanism to determine which tenant they’re in.</target>
+        </trans-unit>
+        <trans-unit id="8bfdfb1d-0816-43e3-8aaa-e576d8153260" xml:space="preserve">
+          <source>A single tenant application only needs to look in its own directory for a user, while a multi-tenant application needs to identify a specific user from all the directories in Azure AD.</source>
+          <target state="new">A single tenant application only needs to look in its own directory for a user, while a multi-tenant application needs to identify a specific user from all the directories in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="fb4e5cf5-83b3-4dbd-9101-94e5998a253a" xml:space="preserve">
+          <source>To accomplish this task, Azure AD provides a common authentication endpoint where any multi-tenant application can direct sign-in requests, instead of a tenant-specific endpoint.</source>
+          <target state="new">To accomplish this task, Azure AD provides a common authentication endpoint where any multi-tenant application can direct sign-in requests, instead of a tenant-specific endpoint.</target>
+        </trans-unit>
+        <trans-unit id="57e1a19f-e070-4d66-badf-b371754856cb" xml:space="preserve">
+          <source>This endpoint is https://login.microsoftonline.com/common for all directories in Azure AD, whereas a tenant-specific endpoint might be https://login.microsoftonline.com/contoso.onmicrosoft.com.</source>
+          <target state="new">This endpoint is https://login.microsoftonline.com/common for all directories in Azure AD, whereas a tenant-specific endpoint might be https://login.microsoftonline.com/contoso.onmicrosoft.com.</target>
+        </trans-unit>
+        <trans-unit id="21c250bd-26e2-4259-9a2e-a542776cce04" xml:space="preserve">
+          <source>The common endpoint is especially important to consider when developing your application because you’ll need the necessary logic to handle multiple tenants during sign-in, sign-out, and token validation.</source>
+          <target state="new">The common endpoint is especially important to consider when developing your application because you’ll need the necessary logic to handle multiple tenants during sign-in, sign-out, and token validation.</target>
+        </trans-unit>
+        <trans-unit id="077c1f1d-8ec7-4735-ab55-daf472980005" xml:space="preserve">
+          <source>If you are currently developing a single tenant application but want to make it available to many organizations, you can easily make changes to the application and its configuration in Azure AD to make it multi-tenant capable.</source>
+          <target state="new">If you are currently developing a single tenant application but want to make it available to many organizations, you can easily make changes to the application and its configuration in Azure AD to make it multi-tenant capable.</target>
+        </trans-unit>
+        <trans-unit id="a82867b7-74a0-48e1-bbaa-52fa35bdc668" xml:space="preserve">
+          <source>In addition, Azure AD uses the same signing key for all tokens in all directories, whether you are providing authentication in a single tenant or multi-tenant application.</source>
+          <target state="new">In addition, Azure AD uses the same signing key for all tokens in all directories, whether you are providing authentication in a single tenant or multi-tenant application.</target>
+        </trans-unit>
+        <trans-unit id="873be673-d94c-42bf-8132-09c34763966f" xml:space="preserve">
+          <source>Each scenario listed in this document includes a sub-section that describes its provisioning requirements.</source>
+          <target state="new">Each scenario listed in this document includes a sub-section that describes its provisioning requirements.</target>
+        </trans-unit>
+        <trans-unit id="f10e5524-0221-486d-b21a-a3fe75cf8040" xml:space="preserve">
+          <source>For more in-depth information about provisioning an application in Azure AD and the differences between single and multi-tenant applications, see <bpt id="77ca4bf9-0a19-4181-8a90-b9ee35b648bb">&lt;linkText&gt;</bpt>Integrating Applications with Azure Active Directory<ept id="77ca4bf9-0a19-4181-8a90-b9ee35b648bb">&lt;/linkText&gt;</ept><bpt id="77ca4bf9-0a19-4181-8a90-b9ee35b648bb">&lt;title&gt;</bpt><ept id="77ca4bf9-0a19-4181-8a90-b9ee35b648bb">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">For more in-depth information about provisioning an application in Azure AD and the differences between single and multi-tenant applications, see <bpt id="77ca4bf9-0a19-4181-8a90-b9ee35b648bb">&lt;linkText&gt;</bpt>Integrating Applications with Azure Active Directory<ept id="77ca4bf9-0a19-4181-8a90-b9ee35b648bb">&lt;/linkText&gt;</ept><bpt id="77ca4bf9-0a19-4181-8a90-b9ee35b648bb">&lt;title&gt;</bpt><ept id="77ca4bf9-0a19-4181-8a90-b9ee35b648bb">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="1b435cbd-d994-435f-9498-1c7b0e2416c3" xml:space="preserve">
+          <source>Continue reading to understand the common application scenarios in Azure AD.</source>
+          <target state="new">Continue reading to understand the common application scenarios in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="a603aa96-884c-412a-a6ba-d6e8dc112ac6" xml:space="preserve">
+          <source>Each of the scenarios described in this document can be developed using various languages and platforms, and there are <bpt id="81d7695e-eea2-4c6e-b95a-efc2ab87452e">&lt;linkText&gt;</bpt>complete code samples available on GitHub<ept id="81d7695e-eea2-4c6e-b95a-efc2ab87452e">&lt;/linkText&gt;</ept><bpt id="81d7695e-eea2-4c6e-b95a-efc2ab87452e">&lt;title&gt;</bpt><ept id="81d7695e-eea2-4c6e-b95a-efc2ab87452e">&lt;/title&gt;</ept> for each of them.</source>
+          <target state="new">Each of the scenarios described in this document can be developed using various languages and platforms, and there are <bpt id="81d7695e-eea2-4c6e-b95a-efc2ab87452e">&lt;linkText&gt;</bpt>complete code samples available on GitHub<ept id="81d7695e-eea2-4c6e-b95a-efc2ab87452e">&lt;/linkText&gt;</ept><bpt id="81d7695e-eea2-4c6e-b95a-efc2ab87452e">&lt;title&gt;</bpt><ept id="81d7695e-eea2-4c6e-b95a-efc2ab87452e">&lt;/title&gt;</ept> for each of them.</target>
+        </trans-unit>
+        <trans-unit id="72acc849-158d-41a6-92ef-86d2c8c322ed" xml:space="preserve">
+          <source>In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently.</source>
+          <target state="new">In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently.</target>
+        </trans-unit>
+        <trans-unit id="a90f96fb-7dca-4991-a3c5-b094709b0243" xml:space="preserve">
+          <source>For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API.</source>
+          <target state="new">For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API.</target>
+        </trans-unit>
+        <trans-unit id="8b6a1e33-1dd2-427e-9067-d5ad49863700" xml:space="preserve">
+          <source>The following diagram illustrates these scenarios and application types, and how different components can be added:</source>
+          <target state="new">The following diagram illustrates these scenarios and application types, and how different components can be added:</target>
+        </trans-unit>
+        <trans-unit id="4dabbdc6-12fc-4954-9be9-6d652691d5b7" xml:space="preserve">
+          <source><bpt id="108b0f01-7178-4416-87b6-b96b6d7f1ae2">&lt;linkText&gt;</bpt>Application Types and scenarios<ept id="108b0f01-7178-4416-87b6-b96b6d7f1ae2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="108b0f01-7178-4416-87b6-b96b6d7f1ae2">&lt;linkText&gt;</bpt>Application Types and scenarios<ept id="108b0f01-7178-4416-87b6-b96b6d7f1ae2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da94c56c-170a-4439-96da-843704e9cd3b" xml:space="preserve">
+          <source>These are the five primary application scenarios supported by Azure AD:</source>
+          <target state="new">These are the five primary application scenarios supported by Azure AD:</target>
+        </trans-unit>
+        <trans-unit id="bb35a728-2f54-4044-bb50-a271fce187c1" xml:space="preserve">
+          <source><bpt id="6e547bd7-d11c-46e4-96be-8772a1157862">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="6e547bd7-d11c-46e4-96be-8772a1157862">&lt;/linkText&gt;</ept><bpt id="6e547bd7-d11c-46e4-96be-8772a1157862">&lt;title&gt;</bpt><ept id="6e547bd7-d11c-46e4-96be-8772a1157862">&lt;/title&gt;</ept>: A user needs to sign in to a web application that is secured by Azure AD.</source>
+          <target state="new"><bpt id="6e547bd7-d11c-46e4-96be-8772a1157862">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="6e547bd7-d11c-46e4-96be-8772a1157862">&lt;/linkText&gt;</ept><bpt id="6e547bd7-d11c-46e4-96be-8772a1157862">&lt;title&gt;</bpt><ept id="6e547bd7-d11c-46e4-96be-8772a1157862">&lt;/title&gt;</ept>: A user needs to sign in to a web application that is secured by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="56cee289-f611-48d7-968e-29fb07ee68f7" xml:space="preserve">
+          <source><bpt id="966490a0-d311-462d-b7b6-c181e27425bc">&lt;linkText&gt;</bpt>Single Page Application (SPA)<ept id="966490a0-d311-462d-b7b6-c181e27425bc">&lt;/linkText&gt;</ept><bpt id="966490a0-d311-462d-b7b6-c181e27425bc">&lt;title&gt;</bpt><ept id="966490a0-d311-462d-b7b6-c181e27425bc">&lt;/title&gt;</ept>: A user needs to sign in to a single page application that is secured by Azure AD.</source>
+          <target state="new"><bpt id="966490a0-d311-462d-b7b6-c181e27425bc">&lt;linkText&gt;</bpt>Single Page Application (SPA)<ept id="966490a0-d311-462d-b7b6-c181e27425bc">&lt;/linkText&gt;</ept><bpt id="966490a0-d311-462d-b7b6-c181e27425bc">&lt;title&gt;</bpt><ept id="966490a0-d311-462d-b7b6-c181e27425bc">&lt;/title&gt;</ept>: A user needs to sign in to a single page application that is secured by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="9f496c6d-3c36-48aa-b0e8-1d36b8880caa" xml:space="preserve">
+          <source><bpt id="8097d807-54e8-46c4-bd7b-9efe5988e85a">&lt;linkText&gt;</bpt>Native Application to Web API<ept id="8097d807-54e8-46c4-bd7b-9efe5988e85a">&lt;/linkText&gt;</ept><bpt id="8097d807-54e8-46c4-bd7b-9efe5988e85a">&lt;title&gt;</bpt><ept id="8097d807-54e8-46c4-bd7b-9efe5988e85a">&lt;/title&gt;</ept>: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD.</source>
+          <target state="new"><bpt id="8097d807-54e8-46c4-bd7b-9efe5988e85a">&lt;linkText&gt;</bpt>Native Application to Web API<ept id="8097d807-54e8-46c4-bd7b-9efe5988e85a">&lt;/linkText&gt;</ept><bpt id="8097d807-54e8-46c4-bd7b-9efe5988e85a">&lt;title&gt;</bpt><ept id="8097d807-54e8-46c4-bd7b-9efe5988e85a">&lt;/title&gt;</ept>: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="f39f50ab-0e67-455f-8963-28ad6abb8106" xml:space="preserve">
+          <source><bpt id="c5a59be2-6aab-4677-8247-43fd8b5a41fb">&lt;linkText&gt;</bpt>Web Application to Web API<ept id="c5a59be2-6aab-4677-8247-43fd8b5a41fb">&lt;/linkText&gt;</ept><bpt id="c5a59be2-6aab-4677-8247-43fd8b5a41fb">&lt;title&gt;</bpt><ept id="c5a59be2-6aab-4677-8247-43fd8b5a41fb">&lt;/title&gt;</ept>: A web application needs to get resources from a web API secured by Azure AD.</source>
+          <target state="new"><bpt id="c5a59be2-6aab-4677-8247-43fd8b5a41fb">&lt;linkText&gt;</bpt>Web Application to Web API<ept id="c5a59be2-6aab-4677-8247-43fd8b5a41fb">&lt;/linkText&gt;</ept><bpt id="c5a59be2-6aab-4677-8247-43fd8b5a41fb">&lt;title&gt;</bpt><ept id="c5a59be2-6aab-4677-8247-43fd8b5a41fb">&lt;/title&gt;</ept>: A web application needs to get resources from a web API secured by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="e149d0e1-34ea-4cc6-999b-a81ceceef6d1" xml:space="preserve">
+          <source><bpt id="47ce267a-3eb5-45f2-93b3-1a39d18ff8a1">&lt;linkText&gt;</bpt>Daemon or Server Application to Web API<ept id="47ce267a-3eb5-45f2-93b3-1a39d18ff8a1">&lt;/linkText&gt;</ept><bpt id="47ce267a-3eb5-45f2-93b3-1a39d18ff8a1">&lt;title&gt;</bpt><ept id="47ce267a-3eb5-45f2-93b3-1a39d18ff8a1">&lt;/title&gt;</ept>: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD.</source>
+          <target state="new"><bpt id="47ce267a-3eb5-45f2-93b3-1a39d18ff8a1">&lt;linkText&gt;</bpt>Daemon or Server Application to Web API<ept id="47ce267a-3eb5-45f2-93b3-1a39d18ff8a1">&lt;/linkText&gt;</ept><bpt id="47ce267a-3eb5-45f2-93b3-1a39d18ff8a1">&lt;title&gt;</bpt><ept id="47ce267a-3eb5-45f2-93b3-1a39d18ff8a1">&lt;/title&gt;</ept>: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="5a6d5422-eca4-4e3f-8410-44ccbdb97f00" xml:space="preserve">
+          <source>This section describes an application that authenticates a user in a web browser to a web application.</source>
+          <target state="new">This section describes an application that authenticates a user in a web browser to a web application.</target>
+        </trans-unit>
+        <trans-unit id="785b2c4a-b3b4-4f2d-80fb-79acb054a9be" xml:space="preserve">
+          <source>In this scenario, the web application directs the user’s browser to sign them in to Azure AD.</source>
+          <target state="new">In this scenario, the web application directs the user’s browser to sign them in to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="635470f7-885d-49dd-902e-0a880abe3d8b" xml:space="preserve">
+          <source>Azure AD returns a sign-in response through the user’s browser, which contains claims about the user in a security token.</source>
+          <target state="new">Azure AD returns a sign-in response through the user’s browser, which contains claims about the user in a security token.</target>
+        </trans-unit>
+        <trans-unit id="7094af0b-c933-4b08-879a-e4bc8b182868" xml:space="preserve">
+          <source>This scenario supports sign-on using the WS-Federation, SAML 2.0, and OpenID Connect protocols.</source>
+          <target state="new">This scenario supports sign-on using the WS-Federation, SAML 2.0, and OpenID Connect protocols.</target>
+        </trans-unit>
+        <trans-unit id="0bc437d5-379f-4987-aa7a-d9d904a13aab" xml:space="preserve">
+          <source><bpt id="5eefd4a1-e35f-45e6-839f-dcb479a64641">&lt;linkText&gt;</bpt>Authentication flow for browser to web application<ept id="5eefd4a1-e35f-45e6-839f-dcb479a64641">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5eefd4a1-e35f-45e6-839f-dcb479a64641">&lt;linkText&gt;</bpt>Authentication flow for browser to web application<ept id="5eefd4a1-e35f-45e6-839f-dcb479a64641">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a959aa4f-7a05-4d23-a0e3-7d1fe92a1653" xml:space="preserve">
+          <source>When a user visits the application and needs to sign in, they are redirected via a sign-in request to the authentication endpoint in Azure AD.</source>
+          <target state="new">When a user visits the application and needs to sign in, they are redirected via a sign-in request to the authentication endpoint in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="f95975cd-ec12-4a06-988f-2b789e5e1137" xml:space="preserve">
+          <source>The user signs in on the sign-in page.</source>
+          <target state="new">The user signs in on the sign-in page.</target>
+        </trans-unit>
+        <trans-unit id="803d9652-0716-4ed5-957e-6e19c1708410" xml:space="preserve">
+          <source>If authentication is successful, Azure AD creates an authentication token and returns a sign-in response to the application’s Reply URL that was configured in the Azure Management Portal.</source>
+          <target state="new">If authentication is successful, Azure AD creates an authentication token and returns a sign-in response to the application’s Reply URL that was configured in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="d518a09d-0936-4142-84b2-8a65d1c86aff" xml:space="preserve">
+          <source>For a production application, this Reply URL should be HTTPS.</source>
+          <target state="new">For a production application, this Reply URL should be HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="56ecbb33-22bf-4d0f-a6b4-a5743e2e6df5" xml:space="preserve">
+          <source>The returned token includes claims about the user and Azure AD that are required by the application to validate the token.</source>
+          <target state="new">The returned token includes claims about the user and Azure AD that are required by the application to validate the token.</target>
+        </trans-unit>
+        <trans-unit id="8d2ff58a-f47b-438c-b78b-583b7cfe610d" xml:space="preserve">
+          <source>The application validates the token by using a public signing key and issuer information available at the federation metadata document for Azure AD.</source>
+          <target state="new">The application validates the token by using a public signing key and issuer information available at the federation metadata document for Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="d7c6edac-c694-4362-bb21-9ce69221567f" xml:space="preserve">
+          <source>After the application validates the token, Azure AD starts a new session with the user.</source>
+          <target state="new">After the application validates the token, Azure AD starts a new session with the user.</target>
+        </trans-unit>
+        <trans-unit id="7aee967f-a640-42ca-9535-093bb004ea55" xml:space="preserve">
+          <source>This session allows the user to access the application until it expires.</source>
+          <target state="new">This session allows the user to access the application until it expires.</target>
+        </trans-unit>
+        <trans-unit id="d853d57a-2161-4e87-8389-97922871d48a" xml:space="preserve">
+          <source>See the code samples for Web Browser to Web Application scenarios.</source>
+          <target state="new">See the code samples for Web Browser to Web Application scenarios.</target>
+        </trans-unit>
+        <trans-unit id="34afb7b9-4393-4b4f-b97d-b96f9e5c798d" xml:space="preserve">
+          <source>And, check back frequently -- we add new samples all the time.</source>
+          <target state="new">And, check back frequently -- we add new samples all the time.</target>
+        </trans-unit>
+        <trans-unit id="7367ea56-56c9-46a9-8776-74f5f60e6199" xml:space="preserve">
+          <source><bpt id="434c4610-d4f0-4bec-a70e-521d8ce44ecb">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="434c4610-d4f0-4bec-a70e-521d8ce44ecb">&lt;/linkText&gt;</ept><bpt id="434c4610-d4f0-4bec-a70e-521d8ce44ecb">&lt;title&gt;</bpt><ept id="434c4610-d4f0-4bec-a70e-521d8ce44ecb">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="434c4610-d4f0-4bec-a70e-521d8ce44ecb">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="434c4610-d4f0-4bec-a70e-521d8ce44ecb">&lt;/linkText&gt;</ept><bpt id="434c4610-d4f0-4bec-a70e-521d8ce44ecb">&lt;title&gt;</bpt><ept id="434c4610-d4f0-4bec-a70e-521d8ce44ecb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77c71c5e-90ea-4ca9-8e26-410447428b05" xml:space="preserve">
+          <source>Single Tenant: If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure Management Portal.</source>
+          <target state="new">Single Tenant: If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="03f8e338-741d-4c34-bbe8-7e9052346a42" xml:space="preserve">
+          <source>Multi-Tenant: If you are building an application that can be used by users outside your organization, it must be registered in your company’s directory, but also must be registered in each organization’s directory that will be using the application.</source>
+          <target state="new">Multi-Tenant: If you are building an application that can be used by users outside your organization, it must be registered in your company’s directory, but also must be registered in each organization’s directory that will be using the application.</target>
+        </trans-unit>
+        <trans-unit id="ff9ebe23-4df2-4cda-9da7-d18ca6b84c25" xml:space="preserve">
+          <source>To make your application available in their directory, you can include a sign-up process for your customers that enables them to consent to your application.</source>
+          <target state="new">To make your application available in their directory, you can include a sign-up process for your customers that enables them to consent to your application.</target>
+        </trans-unit>
+        <trans-unit id="e988b6aa-5c71-4a34-9ff0-87d02b96328a" xml:space="preserve">
+          <source>When they sign up for your application, they will be presented with a dialog that shows the permissions the application requires, and then the option to consent.</source>
+          <target state="new">When they sign up for your application, they will be presented with a dialog that shows the permissions the application requires, and then the option to consent.</target>
+        </trans-unit>
+        <trans-unit id="7954db3d-7bca-4ef8-8979-b8453479bda3" xml:space="preserve">
+          <source>Depending on the required permissions, an administrator in the other organization may be required to give consent.</source>
+          <target state="new">Depending on the required permissions, an administrator in the other organization may be required to give consent.</target>
+        </trans-unit>
+        <trans-unit id="43aca9ce-0013-401f-84db-138dcecb9302" xml:space="preserve">
+          <source>When the user or administrator consents, the application is registered in their directory.</source>
+          <target state="new">When the user or administrator consents, the application is registered in their directory.</target>
+        </trans-unit>
+        <trans-unit id="d117b9d3-ebe9-42ee-84cf-5b6b9bde2753" xml:space="preserve">
+          <source>For more information, see <bpt id="c339772b-cfd6-4b82-bfa2-1112be1a6085">&lt;linkText&gt;</bpt>Integrating Applications with Azure Active Directory<ept id="c339772b-cfd6-4b82-bfa2-1112be1a6085">&lt;/linkText&gt;</ept><bpt id="c339772b-cfd6-4b82-bfa2-1112be1a6085">&lt;title&gt;</bpt><ept id="c339772b-cfd6-4b82-bfa2-1112be1a6085">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c339772b-cfd6-4b82-bfa2-1112be1a6085">&lt;linkText&gt;</bpt>Integrating Applications with Azure Active Directory<ept id="c339772b-cfd6-4b82-bfa2-1112be1a6085">&lt;/linkText&gt;</ept><bpt id="c339772b-cfd6-4b82-bfa2-1112be1a6085">&lt;title&gt;</bpt><ept id="c339772b-cfd6-4b82-bfa2-1112be1a6085">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa31d32a-53d2-443d-bd2d-c9e5f9a661d4" xml:space="preserve">
+          <source>The user’s session expires when the lifetime of the token issued by Azure AD expires.</source>
+          <target state="new">The user’s session expires when the lifetime of the token issued by Azure AD expires.</target>
+        </trans-unit>
+        <trans-unit id="cc769682-87bb-4b0f-8742-6ec10bd19c0b" xml:space="preserve">
+          <source>Your application can shorten this time period if desired, such as signing out users based on a period of inactivity.</source>
+          <target state="new">Your application can shorten this time period if desired, such as signing out users based on a period of inactivity.</target>
+        </trans-unit>
+        <trans-unit id="c2eee95e-bb59-406a-b37f-013eee8f2866" xml:space="preserve">
+          <source>When the session expires, the user will be prompted to sign in again.</source>
+          <target state="new">When the session expires, the user will be prompted to sign in again.</target>
+        </trans-unit>
+        <trans-unit id="30b46192-5cde-4b5d-98cd-5f6d39650080" xml:space="preserve">
+          <source>This section describes authentication for a single page application that uses Azure AD to secure its web API back end.</source>
+          <target state="new">This section describes authentication for a single page application that uses Azure AD to secure its web API back end.</target>
+        </trans-unit>
+        <trans-unit id="28728456-d6b8-468e-ac31-f578c1385f12" xml:space="preserve">
+          <source>Single page applications are typically structured as a JavaScript presentation layer (front end) that runs in the browser and a web API back end that runs on a server and implements the application’s business logic.</source>
+          <target state="new">Single page applications are typically structured as a JavaScript presentation layer (front end) that runs in the browser and a web API back end that runs on a server and implements the application’s business logic.</target>
+        </trans-unit>
+        <trans-unit id="58169ca1-5809-4eb5-ab9a-01279f3a338c" xml:space="preserve">
+          <source>In this scenario, when the user signs in, the JavaScript front end uses <bpt id="1f40e4ad-901c-47a8-a66e-6ece0ae4192c">&lt;linkText&gt;</bpt>Active Directory Authentication Library for JavaScript (ADAL.JS)<ept id="1f40e4ad-901c-47a8-a66e-6ece0ae4192c">&lt;/linkText&gt;</ept><bpt id="1f40e4ad-901c-47a8-a66e-6ece0ae4192c">&lt;title&gt;</bpt><ept id="1f40e4ad-901c-47a8-a66e-6ece0ae4192c">&lt;/title&gt;</ept> preview and the OAuth 2.0 Implicit Grant protocol to obtain an ID token (id_token) from Azure AD.</source>
+          <target state="new">In this scenario, when the user signs in, the JavaScript front end uses <bpt id="1f40e4ad-901c-47a8-a66e-6ece0ae4192c">&lt;linkText&gt;</bpt>Active Directory Authentication Library for JavaScript (ADAL.JS)<ept id="1f40e4ad-901c-47a8-a66e-6ece0ae4192c">&lt;/linkText&gt;</ept><bpt id="1f40e4ad-901c-47a8-a66e-6ece0ae4192c">&lt;title&gt;</bpt><ept id="1f40e4ad-901c-47a8-a66e-6ece0ae4192c">&lt;/title&gt;</ept> preview and the OAuth 2.0 Implicit Grant protocol to obtain an ID token (id_token) from Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="6c03e1a6-36bb-499c-8b62-92796d71871b" xml:space="preserve">
+          <source>The token is cached and the client attaches it to the request as the bearer token when making calls to its web API back end, which is secured using the OWIN middleware.</source>
+          <target state="new">The token is cached and the client attaches it to the request as the bearer token when making calls to its web API back end, which is secured using the OWIN middleware.</target>
+        </trans-unit>
+        <trans-unit id="289ac1d8-d45e-4941-a817-7bec36dd602c" xml:space="preserve">
+          <source><bpt id="b4da3b20-32be-4188-b917-03d7bdb2a3b7">&lt;linkText&gt;</bpt>Single Page Application diagram<ept id="b4da3b20-32be-4188-b917-03d7bdb2a3b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b4da3b20-32be-4188-b917-03d7bdb2a3b7">&lt;linkText&gt;</bpt>Single Page Application diagram<ept id="b4da3b20-32be-4188-b917-03d7bdb2a3b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="146f3d8d-13a4-4332-8f59-e6c32d1336b5" xml:space="preserve">
+          <source>The user navigates to the web application.</source>
+          <target state="new">The user navigates to the web application.</target>
+        </trans-unit>
+        <trans-unit id="2cc899d2-d91d-437e-afd8-c943b6786959" xml:space="preserve">
+          <source>The application returns the JavaScript front end (presentation layer) to the browser.</source>
+          <target state="new">The application returns the JavaScript front end (presentation layer) to the browser.</target>
+        </trans-unit>
+        <trans-unit id="6cbf6259-b15e-4dee-9153-e19987761946" xml:space="preserve">
+          <source>The user initiates sign in, for example by clicking a sign in link.</source>
+          <target state="new">The user initiates sign in, for example by clicking a sign in link.</target>
+        </trans-unit>
+        <trans-unit id="5de8d114-8c1d-4546-abca-899d0e36879b" xml:space="preserve">
+          <source>The browser sends a GET to the Azure AD authorization endpoint to request an ID token.</source>
+          <target state="new">The browser sends a GET to the Azure AD authorization endpoint to request an ID token.</target>
+        </trans-unit>
+        <trans-unit id="8c5225d6-eb9c-4893-b65f-a4463724d952" xml:space="preserve">
+          <source>This request includes the client ID and reply URL in the query parameters.</source>
+          <target state="new">This request includes the client ID and reply URL in the query parameters.</target>
+        </trans-unit>
+        <trans-unit id="69203e7a-2de8-4dfb-b317-5a9b0d0f3c8a" xml:space="preserve">
+          <source>Azure AD validates the Reply URL against the registered Reply URL that was configured in the Azure Management Portal.</source>
+          <target state="new">Azure AD validates the Reply URL against the registered Reply URL that was configured in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="86e1d67b-bda3-4b22-a192-02a7379ed991" xml:space="preserve">
+          <source>The user signs in on the sign-in page.</source>
+          <target state="new">The user signs in on the sign-in page.</target>
+        </trans-unit>
+        <trans-unit id="2595615f-df88-440d-9a4d-f62dfeef665c" xml:space="preserve">
+          <source>If authentication is successful, Azure AD creates an ID token and returns it as a URL fragment (#) to the application’s Reply URL.</source>
+          <target state="new">If authentication is successful, Azure AD creates an ID token and returns it as a URL fragment (#) to the application’s Reply URL.</target>
+        </trans-unit>
+        <trans-unit id="fe51d29b-d1c8-40a5-933a-bca278bbe7c7" xml:space="preserve">
+          <source>For a production application, this Reply URL should be HTTPS.</source>
+          <target state="new">For a production application, this Reply URL should be HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="a4094bf0-2ad4-47df-bb6c-1f68e7f690a1" xml:space="preserve">
+          <source>The returned token includes claims about the user and Azure AD that are required by the application to validate the token.</source>
+          <target state="new">The returned token includes claims about the user and Azure AD that are required by the application to validate the token.</target>
+        </trans-unit>
+        <trans-unit id="0787d69d-3054-493f-8cce-204ea32b0b1a" xml:space="preserve">
+          <source>The JavaScript client code running in the browser extracts the token from the response to use in securing calls to the application’s web API back end.</source>
+          <target state="new">The JavaScript client code running in the browser extracts the token from the response to use in securing calls to the application’s web API back end.</target>
+        </trans-unit>
+        <trans-unit id="b5a4bf10-800c-4d45-b481-3104859f1bb4" xml:space="preserve">
+          <source>The browser calls the application’s web API back end with the access token in the authorization header.</source>
+          <target state="new">The browser calls the application’s web API back end with the access token in the authorization header.</target>
+        </trans-unit>
+        <trans-unit id="9545958e-c82e-4c1f-b263-e72869450ec2" xml:space="preserve">
+          <source>See the code samples for Single Page Application (SPA) scenarios.</source>
+          <target state="new">See the code samples for Single Page Application (SPA) scenarios.</target>
+        </trans-unit>
+        <trans-unit id="896d3582-509d-4c98-9d53-3ba50b167fd1" xml:space="preserve">
+          <source>Be sure to check back frequently -- we add new samples all the time.</source>
+          <target state="new">Be sure to check back frequently -- we add new samples all the time.</target>
+        </trans-unit>
+        <trans-unit id="6ab68470-2cc7-493a-9997-6cd740df98b8" xml:space="preserve">
+          <source><bpt id="bf5a45e7-829c-49f1-80ff-ffc49015f0d5">&lt;linkText&gt;</bpt>Single Page Application (SPA)<ept id="bf5a45e7-829c-49f1-80ff-ffc49015f0d5">&lt;/linkText&gt;</ept><bpt id="bf5a45e7-829c-49f1-80ff-ffc49015f0d5">&lt;title&gt;</bpt><ept id="bf5a45e7-829c-49f1-80ff-ffc49015f0d5">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="bf5a45e7-829c-49f1-80ff-ffc49015f0d5">&lt;linkText&gt;</bpt>Single Page Application (SPA)<ept id="bf5a45e7-829c-49f1-80ff-ffc49015f0d5">&lt;/linkText&gt;</ept><bpt id="bf5a45e7-829c-49f1-80ff-ffc49015f0d5">&lt;title&gt;</bpt><ept id="bf5a45e7-829c-49f1-80ff-ffc49015f0d5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0826ffbe-8663-41c7-bcaf-d782e25fc0b9" xml:space="preserve">
+          <source>Single Tenant: If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure Management Portal.</source>
+          <target state="new">Single Tenant: If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="66ed096c-cbfa-4051-9b6a-516009fa4c36" xml:space="preserve">
+          <source>Multi-Tenant: If you are building an application that can be used by users outside your organization, it must be registered in your company’s directory, but also must be registered in each organization’s directory that will be using the application.</source>
+          <target state="new">Multi-Tenant: If you are building an application that can be used by users outside your organization, it must be registered in your company’s directory, but also must be registered in each organization’s directory that will be using the application.</target>
+        </trans-unit>
+        <trans-unit id="feb807d1-78d7-4653-837d-4e69df2187c7" xml:space="preserve">
+          <source>To make your application available in their directory, you can include a sign-up process for your customers that enables them to consent to your application.</source>
+          <target state="new">To make your application available in their directory, you can include a sign-up process for your customers that enables them to consent to your application.</target>
+        </trans-unit>
+        <trans-unit id="9c0e6cd4-6d36-4619-9b21-db61b5756196" xml:space="preserve">
+          <source>When they sign up for your application, they will be presented with a dialog that shows the permissions the application requires, and then the option to consent.</source>
+          <target state="new">When they sign up for your application, they will be presented with a dialog that shows the permissions the application requires, and then the option to consent.</target>
+        </trans-unit>
+        <trans-unit id="7f996fcd-3121-4bc8-a42d-8784bc2012bc" xml:space="preserve">
+          <source>Depending on the required permissions, an administrator in the other organization may be required to give consent.</source>
+          <target state="new">Depending on the required permissions, an administrator in the other organization may be required to give consent.</target>
+        </trans-unit>
+        <trans-unit id="b5196ecc-7714-446c-bfa0-5e8263299604" xml:space="preserve">
+          <source>When the user or administrator consents, the application is registered in their directory.</source>
+          <target state="new">When the user or administrator consents, the application is registered in their directory.</target>
+        </trans-unit>
+        <trans-unit id="a5dff51d-995b-4a56-8923-10a15c87a30d" xml:space="preserve">
+          <source>For more information, see <bpt id="6625eb57-2cca-43cd-a4ab-b76c4a6309f6">&lt;linkText&gt;</bpt>Integrating Applications with Azure Active Directory<ept id="6625eb57-2cca-43cd-a4ab-b76c4a6309f6">&lt;/linkText&gt;</ept><bpt id="6625eb57-2cca-43cd-a4ab-b76c4a6309f6">&lt;title&gt;</bpt><ept id="6625eb57-2cca-43cd-a4ab-b76c4a6309f6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="6625eb57-2cca-43cd-a4ab-b76c4a6309f6">&lt;linkText&gt;</bpt>Integrating Applications with Azure Active Directory<ept id="6625eb57-2cca-43cd-a4ab-b76c4a6309f6">&lt;/linkText&gt;</ept><bpt id="6625eb57-2cca-43cd-a4ab-b76c4a6309f6">&lt;title&gt;</bpt><ept id="6625eb57-2cca-43cd-a4ab-b76c4a6309f6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f03a713-ed2a-469b-b95a-96f7c35ac79e" xml:space="preserve">
+          <source>After registering the application, it must be configured to use OAuth 2.0 Implicit Grant protocol.</source>
+          <target state="new">After registering the application, it must be configured to use OAuth 2.0 Implicit Grant protocol.</target>
+        </trans-unit>
+        <trans-unit id="9a43fb48-6b84-48dc-9348-8ae6ae8a518c" xml:space="preserve">
+          <source>By default, this protocol is disabled for applications.</source>
+          <target state="new">By default, this protocol is disabled for applications.</target>
+        </trans-unit>
+        <trans-unit id="37b1399d-b368-4d67-85e6-77d7717c6596" xml:space="preserve">
+          <source>To enable the OAuth2 Implicit Grant protocol for your application, download its application manifest from the Azure Management Portal, set the “oauth2AllowImplicitFlow” value to true, and then upload the manifest back to the portal.</source>
+          <target state="new">To enable the OAuth2 Implicit Grant protocol for your application, download its application manifest from the Azure Management Portal, set the “oauth2AllowImplicitFlow” value to true, and then upload the manifest back to the portal.</target>
+        </trans-unit>
+        <trans-unit id="0e3332f8-fa53-44a2-8a1b-1eb9b90ee77b" xml:space="preserve">
+          <source>For detailed instructions, see <bpt id="c4f30ba0-0223-4fea-8e38-037dc1e8e2ca">&lt;linkText&gt;</bpt>Enabling OAuth 2.0 Implicit Grant for Single Page Applications<ept id="c4f30ba0-0223-4fea-8e38-037dc1e8e2ca">&lt;/linkText&gt;</ept><bpt id="c4f30ba0-0223-4fea-8e38-037dc1e8e2ca">&lt;title&gt;</bpt><ept id="c4f30ba0-0223-4fea-8e38-037dc1e8e2ca">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed instructions, see <bpt id="c4f30ba0-0223-4fea-8e38-037dc1e8e2ca">&lt;linkText&gt;</bpt>Enabling OAuth 2.0 Implicit Grant for Single Page Applications<ept id="c4f30ba0-0223-4fea-8e38-037dc1e8e2ca">&lt;/linkText&gt;</ept><bpt id="c4f30ba0-0223-4fea-8e38-037dc1e8e2ca">&lt;title&gt;</bpt><ept id="c4f30ba0-0223-4fea-8e38-037dc1e8e2ca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="238db0d6-971d-44aa-9af6-e37dc7ab93fd" xml:space="preserve">
+          <source>When you use ADAL.js to manage authentication with Azure AD, you benefit from several features that facilitate refreshing an expired token as well as getting tokens for additional web API resources that may be called by the application.</source>
+          <target state="new">When you use ADAL.js to manage authentication with Azure AD, you benefit from several features that facilitate refreshing an expired token as well as getting tokens for additional web API resources that may be called by the application.</target>
+        </trans-unit>
+        <trans-unit id="51400ad7-8b6b-4f96-af10-1df231598bbe" xml:space="preserve">
+          <source>When the user successfully authenticates with Azure AD, a session secured by a cookie is established for the user between the browser and Azure AD.</source>
+          <target state="new">When the user successfully authenticates with Azure AD, a session secured by a cookie is established for the user between the browser and Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="2bc94d1d-4361-4f1d-ba03-6b23bf3a2551" xml:space="preserve">
+          <source>It’s important to note that the session exists between the user and Azure AD and not between the user and the web application running on the server.</source>
+          <target state="new">It’s important to note that the session exists between the user and Azure AD and not between the user and the web application running on the server.</target>
+        </trans-unit>
+        <trans-unit id="b6f81781-6633-44d4-9e77-9e73d0d57f0b" xml:space="preserve">
+          <source>When a token expires, ADAL.js uses this session to silently obtain another token.</source>
+          <target state="new">When a token expires, ADAL.js uses this session to silently obtain another token.</target>
+        </trans-unit>
+        <trans-unit id="a77a3766-923e-458c-904b-19aeb6eadef0" xml:space="preserve">
+          <source>It does this by using a hidden iFrame to send and receive the request using the OAuth Implicit Grant protocol.</source>
+          <target state="new">It does this by using a hidden iFrame to send and receive the request using the OAuth Implicit Grant protocol.</target>
+        </trans-unit>
+        <trans-unit id="2909fdb8-3cfc-4019-ad93-928469d6786c" xml:space="preserve">
+          <source>ADAL.js can also use this same mechanism to silently obtain access tokens from Azure AD for other web API resources that the application calls as long as these resources support cross-origin resource sharing (CORS), are registered in the user’s directory, and any required consent was given by the user during sign-in.</source>
+          <target state="new">ADAL.js can also use this same mechanism to silently obtain access tokens from Azure AD for other web API resources that the application calls as long as these resources support cross-origin resource sharing (CORS), are registered in the user’s directory, and any required consent was given by the user during sign-in.</target>
+        </trans-unit>
+        <trans-unit id="e8f371b9-8aee-4f6f-a340-43eabc5e3928" xml:space="preserve">
+          <source>This section describes a native application that calls a web API on behalf of a user.</source>
+          <target state="new">This section describes a native application that calls a web API on behalf of a user.</target>
+        </trans-unit>
+        <trans-unit id="50eea361-dcdb-4da4-a72d-67ee52e914aa" xml:space="preserve">
+          <source>This scenario is built on the OAuth 2.0 authorization code grant type with a public client, as described in section 4.1 of the <bpt id="960a071b-b833-4fc4-a2cf-9b56d9d71b9d">&lt;linkText&gt;</bpt>OAuth 2.0 specification<ept id="960a071b-b833-4fc4-a2cf-9b56d9d71b9d">&lt;/linkText&gt;</ept><bpt id="960a071b-b833-4fc4-a2cf-9b56d9d71b9d">&lt;title&gt;</bpt><ept id="960a071b-b833-4fc4-a2cf-9b56d9d71b9d">&lt;/title&gt;</ept>.</source>
+          <target state="new">This scenario is built on the OAuth 2.0 authorization code grant type with a public client, as described in section 4.1 of the <bpt id="960a071b-b833-4fc4-a2cf-9b56d9d71b9d">&lt;linkText&gt;</bpt>OAuth 2.0 specification<ept id="960a071b-b833-4fc4-a2cf-9b56d9d71b9d">&lt;/linkText&gt;</ept><bpt id="960a071b-b833-4fc4-a2cf-9b56d9d71b9d">&lt;title&gt;</bpt><ept id="960a071b-b833-4fc4-a2cf-9b56d9d71b9d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ac6be00-c329-4e49-91aa-16caa22591a6" xml:space="preserve">
+          <source>The native application obtains an access token for the user by using the OAuth 2.0 protocol.</source>
+          <target state="new">The native application obtains an access token for the user by using the OAuth 2.0 protocol.</target>
+        </trans-unit>
+        <trans-unit id="b4288ecd-7080-4dec-aa74-0efa0ae8d53e" xml:space="preserve">
+          <source>This access token is then sent in the request to the web API, which authorizes the user and returns the desired resource.</source>
+          <target state="new">This access token is then sent in the request to the web API, which authorizes the user and returns the desired resource.</target>
+        </trans-unit>
+        <trans-unit id="d053ab8d-2c87-452b-9be3-00b91d3c657f" xml:space="preserve">
+          <source><bpt id="63ae2353-5f65-4af2-8253-ffa2f6192212">&lt;linkText&gt;</bpt>Native Application to Web API Diagram<ept id="63ae2353-5f65-4af2-8253-ffa2f6192212">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="63ae2353-5f65-4af2-8253-ffa2f6192212">&lt;linkText&gt;</bpt>Native Application to Web API Diagram<ept id="63ae2353-5f65-4af2-8253-ffa2f6192212">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9727175c-5bac-4af9-99cd-a83beb0f6ea7" xml:space="preserve">
+          <source>If you are using the AD Authentication Libraries, most of the protocol details described below are handled for you, such as the browser pop-up, token caching, and handling of refresh tokens.</source>
+          <target state="new">If you are using the AD Authentication Libraries, most of the protocol details described below are handled for you, such as the browser pop-up, token caching, and handling of refresh tokens.</target>
+        </trans-unit>
+        <trans-unit id="9a28aacc-2be8-42d5-91f7-6b0f19030ad7" xml:space="preserve">
+          <source>Using a browser pop-up, the native application makes a request to the authorization endpoint in Azure AD.</source>
+          <target state="new">Using a browser pop-up, the native application makes a request to the authorization endpoint in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="a0b2ec45-f0b0-4426-9e53-988ccf556de8" xml:space="preserve">
+          <source>This request includes the client ID and the redirect URI of the native application as shown in the Management Portal, and the application ID URI for the web API.</source>
+          <target state="new">This request includes the client ID and the redirect URI of the native application as shown in the Management Portal, and the application ID URI for the web API.</target>
+        </trans-unit>
+        <trans-unit id="c1df1ba2-11f5-4d62-beb7-2b1e0151622e" xml:space="preserve">
+          <source>If the user hasn’t already signed in, they are prompted to sign in again</source>
+          <target state="new">If the user hasn’t already signed in, they are prompted to sign in again</target>
+        </trans-unit>
+        <trans-unit id="99d44264-1179-45c3-8361-eac3273a21dc" xml:space="preserve">
+          <source>Azure AD authenticates the user.</source>
+          <target state="new">Azure AD authenticates the user.</target>
+        </trans-unit>
+        <trans-unit id="77f6a30c-d7e4-4b67-8ad2-ee167bc518c2" xml:space="preserve">
+          <source>If it is a multi-tenant application and consent is required to use the application, the user will be required to consent if they haven’t already done so.</source>
+          <target state="new">If it is a multi-tenant application and consent is required to use the application, the user will be required to consent if they haven’t already done so.</target>
+        </trans-unit>
+        <trans-unit id="07d4f723-5ebf-41be-8c2e-084af5bd5818" xml:space="preserve">
+          <source>After granting consent and upon successful authentication, Azure AD issues an authorization code response back to the client application’s redirect URI.</source>
+          <target state="new">After granting consent and upon successful authentication, Azure AD issues an authorization code response back to the client application’s redirect URI.</target>
+        </trans-unit>
+        <trans-unit id="126c614d-d6b5-45f7-be35-ad5268159a08" xml:space="preserve">
+          <source>When Azure AD issues an authorization code response back to the redirect URI, the client application stops browser interaction and extracts the authorization code from the response.</source>
+          <target state="new">When Azure AD issues an authorization code response back to the redirect URI, the client application stops browser interaction and extracts the authorization code from the response.</target>
+        </trans-unit>
+        <trans-unit id="7551e476-222b-4d80-9c09-a2b214cfce81" xml:space="preserve">
+          <source>Using this authorization code, the client application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (client ID and redirect URI), and the desired resource (application ID URI for the web API).</source>
+          <target state="new">Using this authorization code, the client application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (client ID and redirect URI), and the desired resource (application ID URI for the web API).</target>
+        </trans-unit>
+        <trans-unit id="40faeed3-20c0-411e-8a03-6d610d7a2527" xml:space="preserve">
+          <source>The authorization code and information about the client application and web API are validated by Azure AD.</source>
+          <target state="new">The authorization code and information about the client application and web API are validated by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="6c9830bd-428c-4ccc-8072-0af3ccd76278" xml:space="preserve">
+          <source>Upon successful validation, Azure AD returns two tokens: a JWT access token and a JWT refresh token.</source>
+          <target state="new">Upon successful validation, Azure AD returns two tokens: a JWT access token and a JWT refresh token.</target>
+        </trans-unit>
+        <trans-unit id="3d33c956-bbb9-4f19-8be1-82fdb15424d0" xml:space="preserve">
+          <source>In addition, Azure AD returns basic information about the user, such as their display name and tenant ID.</source>
+          <target state="new">In addition, Azure AD returns basic information about the user, such as their display name and tenant ID.</target>
+        </trans-unit>
+        <trans-unit id="dfe6136d-9cb7-4cf9-9488-766627d9dfe3" xml:space="preserve">
+          <source>Over HTTPS, the client application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API.</source>
+          <target state="new">Over HTTPS, the client application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API.</target>
+        </trans-unit>
+        <trans-unit id="bd977f29-16a5-46ac-bdf7-aef634ae452f" xml:space="preserve">
+          <source>The web API then validates the JWT token, and if validation is successful, returns the desired resource.</source>
+          <target state="new">The web API then validates the JWT token, and if validation is successful, returns the desired resource.</target>
+        </trans-unit>
+        <trans-unit id="59c31534-67a4-4558-a6bd-5de00fa12d4c" xml:space="preserve">
+          <source>When the access token expires, the client application will receive an error that indicates the user needs to authenticate again.</source>
+          <target state="new">When the access token expires, the client application will receive an error that indicates the user needs to authenticate again.</target>
+        </trans-unit>
+        <trans-unit id="d9602ed2-de3c-49bb-9162-ee3fcec14294" xml:space="preserve">
+          <source>If the application has a valid refresh token, it can be used to acquire a new access token without prompting the user to sign in again.</source>
+          <target state="new">If the application has a valid refresh token, it can be used to acquire a new access token without prompting the user to sign in again.</target>
+        </trans-unit>
+        <trans-unit id="0c5d4d65-4891-4f60-8f5d-7cf8031b879d" xml:space="preserve">
+          <source>If the refresh token expires, the application will need to interactively authenticate the user once again.</source>
+          <target state="new">If the refresh token expires, the application will need to interactively authenticate the user once again.</target>
+        </trans-unit>
+        <trans-unit id="2355ab1b-e5ec-4645-845f-ace2fa07c2ac" xml:space="preserve">
+          <source>The refresh token issued by Azure AD can be used to access multiple resources.</source>
+          <target state="new">The refresh token issued by Azure AD can be used to access multiple resources.</target>
+        </trans-unit>
+        <trans-unit id="7be0a202-814a-4afa-ba57-bdb60963acb1" xml:space="preserve">
+          <source>For example, if you have a client application that has permission to call two web APIs, the refresh token can be used to get an access token to the other web API as well.</source>
+          <target state="new">For example, if you have a client application that has permission to call two web APIs, the refresh token can be used to get an access token to the other web API as well.</target>
+        </trans-unit>
+        <trans-unit id="362259d3-2e8b-4d8f-bf3b-bfc6c232697f" xml:space="preserve">
+          <source>See the code samples for Native Application to Web API scenarios.</source>
+          <target state="new">See the code samples for Native Application to Web API scenarios.</target>
+        </trans-unit>
+        <trans-unit id="2a7027c7-5ab3-48ea-a1e8-7d4409f313c3" xml:space="preserve">
+          <source>And, check back frequently -- we add new samples all the time.</source>
+          <target state="new">And, check back frequently -- we add new samples all the time.</target>
+        </trans-unit>
+        <trans-unit id="9353628b-a219-4464-8b70-ae3d8ebc5a7d" xml:space="preserve">
+          <source><bpt id="e8b875c8-f7de-48c3-9526-7b722739556e">&lt;linkText&gt;</bpt>Native Application to Web API<ept id="e8b875c8-f7de-48c3-9526-7b722739556e">&lt;/linkText&gt;</ept><bpt id="e8b875c8-f7de-48c3-9526-7b722739556e">&lt;title&gt;</bpt><ept id="e8b875c8-f7de-48c3-9526-7b722739556e">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="e8b875c8-f7de-48c3-9526-7b722739556e">&lt;linkText&gt;</bpt>Native Application to Web API<ept id="e8b875c8-f7de-48c3-9526-7b722739556e">&lt;/linkText&gt;</ept><bpt id="e8b875c8-f7de-48c3-9526-7b722739556e">&lt;title&gt;</bpt><ept id="e8b875c8-f7de-48c3-9526-7b722739556e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7f23287-ee2e-4c1f-99ae-faa417ea06e4" xml:space="preserve">
+          <source>Single Tenant: Both the native application and the web API must be registered in the same directory in Azure AD.</source>
+          <target state="new">Single Tenant: Both the native application and the web API must be registered in the same directory in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="c489348d-9eb5-4523-be05-edad65563bc9" xml:space="preserve">
+          <source>The web API can be configured to expose a set of permissions, which are used to limit the native application’s access to its resources.</source>
+          <target state="new">The web API can be configured to expose a set of permissions, which are used to limit the native application’s access to its resources.</target>
+        </trans-unit>
+        <trans-unit id="ce125329-7c92-4fdb-89ed-29cf298213c5" xml:space="preserve">
+          <source>The client application then selects the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure Management Portal.</source>
+          <target state="new">The client application then selects the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="50804646-6536-47b5-9d12-bc25e09670b6" xml:space="preserve">
+          <source>Multi-Tenant: First, the native application only ever registered in the developer or publisher’s directory.</source>
+          <target state="new">Multi-Tenant: First, the native application only ever registered in the developer or publisher’s directory.</target>
+        </trans-unit>
+        <trans-unit id="ac1dbdd8-d50b-4bdc-afa9-08865aa31bc2" xml:space="preserve">
+          <source>Second, the native application is configured to indicate the permissions it requires to be functional.</source>
+          <target state="new">Second, the native application is configured to indicate the permissions it requires to be functional.</target>
+        </trans-unit>
+        <trans-unit id="0b9d4370-6949-4b6a-af8f-6ad7d7234f0a" xml:space="preserve">
+          <source>This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization.</source>
+          <target state="new">This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization.</target>
+        </trans-unit>
+        <trans-unit id="8c79daf8-3cbf-4b6e-8988-f5a7f9d1e1bc" xml:space="preserve">
+          <source>Some applications require just user-level permissions, which any user in the organization can consent to.</source>
+          <target state="new">Some applications require just user-level permissions, which any user in the organization can consent to.</target>
+        </trans-unit>
+        <trans-unit id="0776af20-7b51-48fa-b833-5accb3840cdc" xml:space="preserve">
+          <source>Other applications require administrator-level permissions, which a user in the organization cannot consent to.</source>
+          <target state="new">Other applications require administrator-level permissions, which a user in the organization cannot consent to.</target>
+        </trans-unit>
+        <trans-unit id="a23f8e6a-110a-4c60-bb07-7100e0c4e3c7" xml:space="preserve">
+          <source>Only a directory administrator can give consent to applications that require this level of permissions.</source>
+          <target state="new">Only a directory administrator can give consent to applications that require this level of permissions.</target>
+        </trans-unit>
+        <trans-unit id="6d1d9ef4-2b9c-4ec5-8366-c85b7b7a3c80" xml:space="preserve">
+          <source>When the user or administrator consents, only the web API is registered in their directory.</source>
+          <target state="new">When the user or administrator consents, only the web API is registered in their directory.</target>
+        </trans-unit>
+        <trans-unit id="7f03f735-1665-44b7-90c6-287d9df81334" xml:space="preserve">
+          <source>For more information, see <bpt id="bf469ad6-da83-4aae-88d7-24e724e7f8fc">&lt;linkText&gt;</bpt>Integrating Applications with Azure Active Directory<ept id="bf469ad6-da83-4aae-88d7-24e724e7f8fc">&lt;/linkText&gt;</ept><bpt id="bf469ad6-da83-4aae-88d7-24e724e7f8fc">&lt;title&gt;</bpt><ept id="bf469ad6-da83-4aae-88d7-24e724e7f8fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="bf469ad6-da83-4aae-88d7-24e724e7f8fc">&lt;linkText&gt;</bpt>Integrating Applications with Azure Active Directory<ept id="bf469ad6-da83-4aae-88d7-24e724e7f8fc">&lt;/linkText&gt;</ept><bpt id="bf469ad6-da83-4aae-88d7-24e724e7f8fc">&lt;title&gt;</bpt><ept id="bf469ad6-da83-4aae-88d7-24e724e7f8fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc703135-5de3-4577-a70d-3ee3b499daff" xml:space="preserve">
+          <source>When the native application uses its authorization code to get a JWT access token, it also receives a JWT refresh token.</source>
+          <target state="new">When the native application uses its authorization code to get a JWT access token, it also receives a JWT refresh token.</target>
+        </trans-unit>
+        <trans-unit id="46c8004b-9db5-422e-b6e0-80863b58a2b2" xml:space="preserve">
+          <source>When the access token expires, the refresh token can be used to re-authenticate the user without requiring them to sign in again.</source>
+          <target state="new">When the access token expires, the refresh token can be used to re-authenticate the user without requiring them to sign in again.</target>
+        </trans-unit>
+        <trans-unit id="aabc1e6c-3d19-4d66-a158-4ec4ce9fe6a6" xml:space="preserve">
+          <source>This refresh token is then used to authenticate the user, which results in a new access token and refresh token.</source>
+          <target state="new">This refresh token is then used to authenticate the user, which results in a new access token and refresh token.</target>
+        </trans-unit>
+        <trans-unit id="71607736-dd54-41d2-8bf4-3f3ad810e7fe" xml:space="preserve">
+          <source>This section describes a web application that needs to get resources from a web API.</source>
+          <target state="new">This section describes a web application that needs to get resources from a web API.</target>
+        </trans-unit>
+        <trans-unit id="012414c1-248b-4d95-b683-18ad9ad182c5" xml:space="preserve">
+          <source>In this scenario, there are two identity types that the web application can use to authenticate and call the web API: an application identity, or a delegated user identity.</source>
+          <target state="new">In this scenario, there are two identity types that the web application can use to authenticate and call the web API: an application identity, or a delegated user identity.</target>
+        </trans-unit>
+        <trans-unit id="b8fc045e-01df-4709-a760-be06df70a561" xml:space="preserve">
+          <source>For the application identity type, this scenario uses OAuth 2.0 client credentials grant to authenticate as the application and access the web API.</source>
+          <target state="new">For the application identity type, this scenario uses OAuth 2.0 client credentials grant to authenticate as the application and access the web API.</target>
+        </trans-unit>
+        <trans-unit id="d815c792-2da6-4019-9d8f-3a50b3ab6beb" xml:space="preserve">
+          <source>When using an application identity, the web API can only detect that the web application is calling it, as the web API does not receive any information about the user.</source>
+          <target state="new">When using an application identity, the web API can only detect that the web application is calling it, as the web API does not receive any information about the user.</target>
+        </trans-unit>
+        <trans-unit id="b7640b34-36b3-484f-932f-5938d946323d" xml:space="preserve">
+          <source>If the application receives information about the user, it will be sent via the application protocol, and it is not signed by Azure AD.</source>
+          <target state="new">If the application receives information about the user, it will be sent via the application protocol, and it is not signed by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="2da304ef-097d-40bb-8dcb-b7afc7acf40f" xml:space="preserve">
+          <source>The web API trusts that the web application authenticated the user.</source>
+          <target state="new">The web API trusts that the web application authenticated the user.</target>
+        </trans-unit>
+        <trans-unit id="7403d657-0f4e-45aa-a2db-a2ccaa75185b" xml:space="preserve">
+          <source>For this reason, this pattern is called a trusted subsystem.</source>
+          <target state="new">For this reason, this pattern is called a trusted subsystem.</target>
+        </trans-unit>
+        <trans-unit id="b8a8cd3e-1ea1-4aa0-a5ea-e1d61c300d63" xml:space="preserve">
+          <source>For the delegated user identity type, the scenario can be accomplished in two ways: OpenID Connect, and OAuth 2.0 authorization code grant with a confidential client.</source>
+          <target state="new">For the delegated user identity type, the scenario can be accomplished in two ways: OpenID Connect, and OAuth 2.0 authorization code grant with a confidential client.</target>
+        </trans-unit>
+        <trans-unit id="2f128f6c-cff1-466f-be4c-4d9d058360c2" xml:space="preserve">
+          <source>The web application obtains an access token for the user, which proves to the web API that the user successfully authenticated to the web application and that the web application was able to obtain a delegated user identity to call the web API.</source>
+          <target state="new">The web application obtains an access token for the user, which proves to the web API that the user successfully authenticated to the web application and that the web application was able to obtain a delegated user identity to call the web API.</target>
+        </trans-unit>
+        <trans-unit id="008dfd28-6df5-489b-a839-435f7ab81fcf" xml:space="preserve">
+          <source>This access token is sent in the request to the web API, which authorizes the user and returns the desired resource.</source>
+          <target state="new">This access token is sent in the request to the web API, which authorizes the user and returns the desired resource.</target>
+        </trans-unit>
+        <trans-unit id="94a87ce9-0653-47ea-a02d-10415e256b2b" xml:space="preserve">
+          <source><bpt id="b627a77c-f05c-40fc-b6cf-44c06b966cd4">&lt;linkText&gt;</bpt>Web Application to Web API diagram<ept id="b627a77c-f05c-40fc-b6cf-44c06b966cd4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b627a77c-f05c-40fc-b6cf-44c06b966cd4">&lt;linkText&gt;</bpt>Web Application to Web API diagram<ept id="b627a77c-f05c-40fc-b6cf-44c06b966cd4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ddf1a6f5-1865-472f-a239-dacc067b488e" xml:space="preserve">
+          <source>Both the application identity and delegated user identity types are discussed in the flow below.</source>
+          <target state="new">Both the application identity and delegated user identity types are discussed in the flow below.</target>
+        </trans-unit>
+        <trans-unit id="d2628899-817a-4995-8919-d15a1b860e49" xml:space="preserve">
+          <source>The key difference between them is that the delegated user identity must first acquire an authorization code before the user can sign-in and gain access to the web API.</source>
+          <target state="new">The key difference between them is that the delegated user identity must first acquire an authorization code before the user can sign-in and gain access to the web API.</target>
+        </trans-unit>
+        <trans-unit id="5f44de28-4edc-4ebd-80e6-5722024f49df" xml:space="preserve">
+          <source>A user is signed in to Azure AD in the web application (see the <bpt id="fa5ceecb-b142-4f29-912a-5948084605b5">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="fa5ceecb-b142-4f29-912a-5948084605b5">&lt;/linkText&gt;</ept><bpt id="fa5ceecb-b142-4f29-912a-5948084605b5">&lt;title&gt;</bpt><ept id="fa5ceecb-b142-4f29-912a-5948084605b5">&lt;/title&gt;</ept> above).</source>
+          <target state="new">A user is signed in to Azure AD in the web application (see the <bpt id="fa5ceecb-b142-4f29-912a-5948084605b5">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="fa5ceecb-b142-4f29-912a-5948084605b5">&lt;/linkText&gt;</ept><bpt id="fa5ceecb-b142-4f29-912a-5948084605b5">&lt;title&gt;</bpt><ept id="fa5ceecb-b142-4f29-912a-5948084605b5">&lt;/title&gt;</ept> above).</target>
+        </trans-unit>
+        <trans-unit id="fc1019bb-e664-4b76-8814-733f9633b928" xml:space="preserve">
+          <source>The web application needs to acquire an access token so that it can authenticate to the web API and retrieve the desired resource.</source>
+          <target state="new">The web application needs to acquire an access token so that it can authenticate to the web API and retrieve the desired resource.</target>
+        </trans-unit>
+        <trans-unit id="8dc01351-17f5-4652-b226-ddc094df9589" xml:space="preserve">
+          <source>It makes a request to Azure AD’s token endpoint, providing the credential, client ID, and web API’s application ID URI.</source>
+          <target state="new">It makes a request to Azure AD’s token endpoint, providing the credential, client ID, and web API’s application ID URI.</target>
+        </trans-unit>
+        <trans-unit id="c668e03b-ecc8-4d88-bf96-c8296875fea6" xml:space="preserve">
+          <source>Azure AD authenticates the application and returns a JWT access token that is used to call the web API.</source>
+          <target state="new">Azure AD authenticates the application and returns a JWT access token that is used to call the web API.</target>
+        </trans-unit>
+        <trans-unit id="7294b087-8556-42ff-a34b-b307e3e2361d" xml:space="preserve">
+          <source>Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API.</source>
+          <target state="new">Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API.</target>
+        </trans-unit>
+        <trans-unit id="2c1ae348-8f60-486a-8bdc-18b0824be96e" xml:space="preserve">
+          <source>The web API then validates the JWT token, and if validation is successful, returns the desired resource.</source>
+          <target state="new">The web API then validates the JWT token, and if validation is successful, returns the desired resource.</target>
+        </trans-unit>
+        <trans-unit id="5e6cfa03-08a1-42ad-9c84-e16829eaa1af" xml:space="preserve">
+          <source>A user is signed in to a web application using Azure AD (see the <bpt id="c317198f-654f-4fb4-bbcc-dffdbfa4871e">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="c317198f-654f-4fb4-bbcc-dffdbfa4871e">&lt;/linkText&gt;</ept><bpt id="c317198f-654f-4fb4-bbcc-dffdbfa4871e">&lt;title&gt;</bpt><ept id="c317198f-654f-4fb4-bbcc-dffdbfa4871e">&lt;/title&gt;</ept> section above).</source>
+          <target state="new">A user is signed in to a web application using Azure AD (see the <bpt id="c317198f-654f-4fb4-bbcc-dffdbfa4871e">&lt;linkText&gt;</bpt>Web Browser to Web Application<ept id="c317198f-654f-4fb4-bbcc-dffdbfa4871e">&lt;/linkText&gt;</ept><bpt id="c317198f-654f-4fb4-bbcc-dffdbfa4871e">&lt;title&gt;</bpt><ept id="c317198f-654f-4fb4-bbcc-dffdbfa4871e">&lt;/title&gt;</ept> section above).</target>
+        </trans-unit>
+        <trans-unit id="4f516cca-2d04-44be-928f-f003b594c8b9" xml:space="preserve">
+          <source>If the user of the web application has not yet consented to allowing the web application to call the web API on its behalf, the user will need to consent.</source>
+          <target state="new">If the user of the web application has not yet consented to allowing the web application to call the web API on its behalf, the user will need to consent.</target>
+        </trans-unit>
+        <trans-unit id="be365e3c-3287-4661-9542-b04c40cfcbe0" xml:space="preserve">
+          <source>The application will display the permissions it requires, and if any of these are administrator-level permissions, a normal user in the directory will not be able to consent.</source>
+          <target state="new">The application will display the permissions it requires, and if any of these are administrator-level permissions, a normal user in the directory will not be able to consent.</target>
+        </trans-unit>
+        <trans-unit id="2989f212-a387-44cc-9952-549926a453ea" xml:space="preserve">
+          <source>This consent process only applies to multi-tenant applications, not single tenant applications, as the application will already have the necessary permissions.</source>
+          <target state="new">This consent process only applies to multi-tenant applications, not single tenant applications, as the application will already have the necessary permissions.</target>
+        </trans-unit>
+        <trans-unit id="ecc6cf5d-4ed3-4e33-8f50-82c9952ba29d" xml:space="preserve">
+          <source>When the user signed in, the web application received an ID token with information about the user, as well as an authorization code.</source>
+          <target state="new">When the user signed in, the web application received an ID token with information about the user, as well as an authorization code.</target>
+        </trans-unit>
+        <trans-unit id="a6cb5257-70b7-44f6-bfb8-a179f10c1faf" xml:space="preserve">
+          <source>Using the authorization code issued by Azure AD, the web application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (client ID and redirect URI), and the desired resource (application ID URI for the web API).</source>
+          <target state="new">Using the authorization code issued by Azure AD, the web application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (client ID and redirect URI), and the desired resource (application ID URI for the web API).</target>
+        </trans-unit>
+        <trans-unit id="0c78fba6-4f74-4601-8fe0-ba4ec4ef79c6" xml:space="preserve">
+          <source>The authorization code and information about the web application and web API are validated by Azure AD.</source>
+          <target state="new">The authorization code and information about the web application and web API are validated by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="3d0df395-3657-41c9-8712-94a69a7f1920" xml:space="preserve">
+          <source>Upon successful validation, Azure AD returns two tokens: a JWT access token and a JWT refresh token.</source>
+          <target state="new">Upon successful validation, Azure AD returns two tokens: a JWT access token and a JWT refresh token.</target>
+        </trans-unit>
+        <trans-unit id="486c2b11-4c02-43ae-9ada-4717a5c11cb3" xml:space="preserve">
+          <source>Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API.</source>
+          <target state="new">Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API.</target>
+        </trans-unit>
+        <trans-unit id="6396c3a4-4602-4074-b27c-2bb40f774383" xml:space="preserve">
+          <source>The web API then validates the JWT token, and if validation is successful, returns the desired resource.</source>
+          <target state="new">The web API then validates the JWT token, and if validation is successful, returns the desired resource.</target>
+        </trans-unit>
+        <trans-unit id="7cd3840e-e2a4-4f2d-9707-fa404fb9ca28" xml:space="preserve">
+          <source>A user is already signed in to a web application, whose authentication mechanism is independent of Azure AD.</source>
+          <target state="new">A user is already signed in to a web application, whose authentication mechanism is independent of Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="197e7cbe-2f71-4e94-bfa2-96cb224a5002" xml:space="preserve">
+          <source>The web application requires an authorization code to acquire an access token, so it issues a request through the browser to Azure AD’s authorization endpoint, providing the client ID and redirect URI for the web application after successful authentication.</source>
+          <target state="new">The web application requires an authorization code to acquire an access token, so it issues a request through the browser to Azure AD’s authorization endpoint, providing the client ID and redirect URI for the web application after successful authentication.</target>
+        </trans-unit>
+        <trans-unit id="b6322783-fe3b-4dc3-b4b4-a42462941723" xml:space="preserve">
+          <source>The user signs in to Azure AD.</source>
+          <target state="new">The user signs in to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="c818302e-09b1-4aca-86d9-86a1db453025" xml:space="preserve">
+          <source>If the user of the web application has not yet consented to allowing the web application to call the web API on its behalf, the user will need to consent.</source>
+          <target state="new">If the user of the web application has not yet consented to allowing the web application to call the web API on its behalf, the user will need to consent.</target>
+        </trans-unit>
+        <trans-unit id="f97b708a-73c8-4c9b-9c1a-eb86ad075f9e" xml:space="preserve">
+          <source>The application will display the permissions it requires, and if any of these are administrator-level permissions, a normal user in the directory will not be able to consent.</source>
+          <target state="new">The application will display the permissions it requires, and if any of these are administrator-level permissions, a normal user in the directory will not be able to consent.</target>
+        </trans-unit>
+        <trans-unit id="ff1a537d-5bd9-4b30-b30c-7c010b79b72c" xml:space="preserve">
+          <source>This consent process only applies to multi-tenant applications, not single tenant applications, as the application will already have the necessary permissions.</source>
+          <target state="new">This consent process only applies to multi-tenant applications, not single tenant applications, as the application will already have the necessary permissions.</target>
+        </trans-unit>
+        <trans-unit id="5f53dc38-f212-43f9-9ce5-cfc9f68f3763" xml:space="preserve">
+          <source>After the user has consented, the web application receives the authorization code that it needs to acquire an access token.</source>
+          <target state="new">After the user has consented, the web application receives the authorization code that it needs to acquire an access token.</target>
+        </trans-unit>
+        <trans-unit id="4f3ad763-ee8d-41f7-9555-befcdf62c0ba" xml:space="preserve">
+          <source>Using the authorization code issued by Azure AD, the web application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (client ID and redirect URI), and the desired resource (application ID URI for the web API).</source>
+          <target state="new">Using the authorization code issued by Azure AD, the web application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (client ID and redirect URI), and the desired resource (application ID URI for the web API).</target>
+        </trans-unit>
+        <trans-unit id="cf8abefe-5e55-4dbd-a77b-ba6244e3f9cb" xml:space="preserve">
+          <source>The authorization code and information about the web application and web API are validated by Azure AD.</source>
+          <target state="new">The authorization code and information about the web application and web API are validated by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="0981e198-0c86-43ab-9141-7463a8f7afb8" xml:space="preserve">
+          <source>Upon successful validation, Azure AD returns two tokens: a JWT access token and a JWT refresh token.</source>
+          <target state="new">Upon successful validation, Azure AD returns two tokens: a JWT access token and a JWT refresh token.</target>
+        </trans-unit>
+        <trans-unit id="3d339235-5423-437c-b762-062e0096d146" xml:space="preserve">
+          <source>Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API.</source>
+          <target state="new">Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API.</target>
+        </trans-unit>
+        <trans-unit id="7a5120e2-aeba-4201-a45a-69df98965f7e" xml:space="preserve">
+          <source>The web API then validates the JWT token, and if validation is successful, returns the desired resource.</source>
+          <target state="new">The web API then validates the JWT token, and if validation is successful, returns the desired resource.</target>
+        </trans-unit>
+        <trans-unit id="50ae5eb5-7483-4a20-ad6f-99f4e4d80cbb" xml:space="preserve">
+          <source>See the code samples for Web Application to Web API scenarios.</source>
+          <target state="new">See the code samples for Web Application to Web API scenarios.</target>
+        </trans-unit>
+        <trans-unit id="b22af646-8905-4bd0-8741-941fb5059935" xml:space="preserve">
+          <source>And, check back frequently -- we add new samples all the time.</source>
+          <target state="new">And, check back frequently -- we add new samples all the time.</target>
+        </trans-unit>
+        <trans-unit id="0f7fb553-c548-409e-998b-bb660e222325" xml:space="preserve">
+          <source>Web <bpt id="f9cc8109-e661-4b46-a188-85cd30ce89be">&lt;linkText&gt;</bpt>Application to Web API<ept id="f9cc8109-e661-4b46-a188-85cd30ce89be">&lt;/linkText&gt;</ept><bpt id="f9cc8109-e661-4b46-a188-85cd30ce89be">&lt;title&gt;</bpt><ept id="f9cc8109-e661-4b46-a188-85cd30ce89be">&lt;/title&gt;</ept>.</source>
+          <target state="new">Web <bpt id="f9cc8109-e661-4b46-a188-85cd30ce89be">&lt;linkText&gt;</bpt>Application to Web API<ept id="f9cc8109-e661-4b46-a188-85cd30ce89be">&lt;/linkText&gt;</ept><bpt id="f9cc8109-e661-4b46-a188-85cd30ce89be">&lt;title&gt;</bpt><ept id="f9cc8109-e661-4b46-a188-85cd30ce89be">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6471fbb5-c0c9-419f-ace3-894b85b1d17a" xml:space="preserve">
+          <source>Single Tenant: For both the application identity and delegated user identity cases, the web application and the web API must be registered in the same directory in Azure AD.</source>
+          <target state="new">Single Tenant: For both the application identity and delegated user identity cases, the web application and the web API must be registered in the same directory in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="811b276b-6712-442d-8e09-da5a940d4153" xml:space="preserve">
+          <source>The web API can be configured to expose a set of permissions, which are used to limit the web application’s access to its resources.</source>
+          <target state="new">The web API can be configured to expose a set of permissions, which are used to limit the web application’s access to its resources.</target>
+        </trans-unit>
+        <trans-unit id="f9d86697-dc07-4d0c-9141-67d0e1aa1947" xml:space="preserve">
+          <source>If a delegated user identity type is being used, the web application needs to select the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure Management Portal.</source>
+          <target state="new">If a delegated user identity type is being used, the web application needs to select the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="c7ff3d72-99ce-4732-b2b9-2e65b4f5604c" xml:space="preserve">
+          <source>This step is not required if the application identity type is being used.</source>
+          <target state="new">This step is not required if the application identity type is being used.</target>
+        </trans-unit>
+        <trans-unit id="5fb0d611-b6e9-4fff-90f9-b4f58ef1f5d9" xml:space="preserve">
+          <source>Multi-Tenant: First, the web application is configured to indicate the permissions it requires to be functional.</source>
+          <target state="new">Multi-Tenant: First, the web application is configured to indicate the permissions it requires to be functional.</target>
+        </trans-unit>
+        <trans-unit id="d77bad8e-89d6-4337-861a-a6cdc5d9aa5d" xml:space="preserve">
+          <source>This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization.</source>
+          <target state="new">This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization.</target>
+        </trans-unit>
+        <trans-unit id="2691cfdb-5a92-4ba7-be87-ea2b02432284" xml:space="preserve">
+          <source>Some applications require just user-level permissions, which any user in the organization can consent to.</source>
+          <target state="new">Some applications require just user-level permissions, which any user in the organization can consent to.</target>
+        </trans-unit>
+        <trans-unit id="7b5737d2-f4b3-44ff-a14e-1965b6aada86" xml:space="preserve">
+          <source>Other applications require administrator-level permissions, which a user in the organization cannot consent to.</source>
+          <target state="new">Other applications require administrator-level permissions, which a user in the organization cannot consent to.</target>
+        </trans-unit>
+        <trans-unit id="9de47f8e-470a-4bc4-9068-f0a571582e0a" xml:space="preserve">
+          <source>Only a directory administrator can give consent to applications that require this level of permissions.</source>
+          <target state="new">Only a directory administrator can give consent to applications that require this level of permissions.</target>
+        </trans-unit>
+        <trans-unit id="72adcc8d-de8a-46a9-84d6-6b0db0549423" xml:space="preserve">
+          <source>When the user or administrator consents, the web application and the web API are both registered in their directory.</source>
+          <target state="new">When the user or administrator consents, the web application and the web API are both registered in their directory.</target>
+        </trans-unit>
+        <trans-unit id="1348c0fd-90a8-4e36-abc5-f97bcb713084" xml:space="preserve">
+          <source>When the web application uses its authorization code to get a JWT access token, it also receives a JWT refresh token.</source>
+          <target state="new">When the web application uses its authorization code to get a JWT access token, it also receives a JWT refresh token.</target>
+        </trans-unit>
+        <trans-unit id="1e640454-0db3-4ee0-920c-aa8efdb617bd" xml:space="preserve">
+          <source>When the access token expires, the refresh token can be used to re-authenticate the user without requiring them to sign in again.</source>
+          <target state="new">When the access token expires, the refresh token can be used to re-authenticate the user without requiring them to sign in again.</target>
+        </trans-unit>
+        <trans-unit id="fc7eba35-3dd5-49ba-a823-31aa9e506501" xml:space="preserve">
+          <source>This refresh token is then used to authenticate the user, which results in a new access token and refresh token.</source>
+          <target state="new">This refresh token is then used to authenticate the user, which results in a new access token and refresh token.</target>
+        </trans-unit>
+        <trans-unit id="9de8df94-4c0d-4c51-bd65-33ce95d36d86" xml:space="preserve">
+          <source>This section describes a daemon or server application that needs to get resources from a web API.</source>
+          <target state="new">This section describes a daemon or server application that needs to get resources from a web API.</target>
+        </trans-unit>
+        <trans-unit id="528831b9-672a-4fad-9803-18272e445800" xml:space="preserve">
+          <source>There are two sub-scenarios that apply to this section: A daemon that needs to call a web API, built on OAuth 2.0 client credentials grant type; and a server application (such as a web API) that needs to call a web API, built on OAuth 2.0 On-Behalf-Of draft specification.</source>
+          <target state="new">There are two sub-scenarios that apply to this section: A daemon that needs to call a web API, built on OAuth 2.0 client credentials grant type; and a server application (such as a web API) that needs to call a web API, built on OAuth 2.0 On-Behalf-Of draft specification.</target>
+        </trans-unit>
+        <trans-unit id="109dbf43-53ee-4fc5-b4e7-514a45faf6f7" xml:space="preserve">
+          <source>For the scenario when a daemon application needs to call a web API, it’s important to understand a few things.</source>
+          <target state="new">For the scenario when a daemon application needs to call a web API, it’s important to understand a few things.</target>
+        </trans-unit>
+        <trans-unit id="0282e813-56e4-47b8-8cd5-3d67c3e70299" xml:space="preserve">
+          <source>First, user interaction is not possible with a daemon application, which requires the application to have its own identity.</source>
+          <target state="new">First, user interaction is not possible with a daemon application, which requires the application to have its own identity.</target>
+        </trans-unit>
+        <trans-unit id="92cf1d04-81d5-46ee-96f1-a82b5d04efb1" xml:space="preserve">
+          <source>An example of a daemon application is a batch job, or an operating system service running in the background.</source>
+          <target state="new">An example of a daemon application is a batch job, or an operating system service running in the background.</target>
+        </trans-unit>
+        <trans-unit id="f7662977-275b-4ca3-adc3-7733e8a9fedf" xml:space="preserve">
+          <source>This type of application requests an access token by using its application identity and presenting its client ID, credential (password or certificate), and application ID URI to Azure AD.</source>
+          <target state="new">This type of application requests an access token by using its application identity and presenting its client ID, credential (password or certificate), and application ID URI to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="00be9782-e5d6-40d3-9258-6e2914038430" xml:space="preserve">
+          <source>After successful authentication, the daemon receives an access token from Azure AD, which is then used to call the web API.</source>
+          <target state="new">After successful authentication, the daemon receives an access token from Azure AD, which is then used to call the web API.</target>
+        </trans-unit>
+        <trans-unit id="e09bd057-0e70-4a77-b3f7-ddbc36719d8e" xml:space="preserve">
+          <source>For the scenario when a server application needs to call a web API, it’s helpful to use an example.</source>
+          <target state="new">For the scenario when a server application needs to call a web API, it’s helpful to use an example.</target>
+        </trans-unit>
+        <trans-unit id="9d6c90a3-6969-468c-a903-64aa0f3b6c61" xml:space="preserve">
+          <source>Imagine that a user has authenticated on a native application, and this native application needs to call a web API.</source>
+          <target state="new">Imagine that a user has authenticated on a native application, and this native application needs to call a web API.</target>
+        </trans-unit>
+        <trans-unit id="e22d1298-eff6-4f89-be1e-6459e98446c2" xml:space="preserve">
+          <source>Azure AD issues a JWT access token to call the web API.</source>
+          <target state="new">Azure AD issues a JWT access token to call the web API.</target>
+        </trans-unit>
+        <trans-unit id="6ce82e6a-3fb6-4684-9d8b-5b988e0be451" xml:space="preserve">
+          <source>If the web API needs to call another downstream web API, it can use the on-behalf-of flow to delegate the user’s identity and authenticate to the second-tier web API.</source>
+          <target state="new">If the web API needs to call another downstream web API, it can use the on-behalf-of flow to delegate the user’s identity and authenticate to the second-tier web API.</target>
+        </trans-unit>
+        <trans-unit id="166b4e1b-47bd-4895-9bf8-9c4fff4a20e4" xml:space="preserve">
+          <source><bpt id="9ed20860-97bf-4bdd-be42-0bfe81880c65">&lt;linkText&gt;</bpt>Daemon or Server Application to Web API diagram<ept id="9ed20860-97bf-4bdd-be42-0bfe81880c65">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ed20860-97bf-4bdd-be42-0bfe81880c65">&lt;linkText&gt;</bpt>Daemon or Server Application to Web API diagram<ept id="9ed20860-97bf-4bdd-be42-0bfe81880c65">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d17fb74f-c67e-46ab-8a4b-b81c1ed6daac" xml:space="preserve">
+          <source>First, the server application needs to authenticate with Azure AD as itself, without any human interaction such as an interactive sign-on dialog.</source>
+          <target state="new">First, the server application needs to authenticate with Azure AD as itself, without any human interaction such as an interactive sign-on dialog.</target>
+        </trans-unit>
+        <trans-unit id="4c82d4fb-1801-4a51-8822-bda93490b650" xml:space="preserve">
+          <source>It makes a request to Azure AD’s token endpoint, providing the credential, client ID, and application ID URI.</source>
+          <target state="new">It makes a request to Azure AD’s token endpoint, providing the credential, client ID, and application ID URI.</target>
+        </trans-unit>
+        <trans-unit id="371e93e2-b2d0-41d5-93bb-0c70f81dbc0a" xml:space="preserve">
+          <source>Azure AD authenticates the application and returns a JWT access token that is used to call the web API.</source>
+          <target state="new">Azure AD authenticates the application and returns a JWT access token that is used to call the web API.</target>
+        </trans-unit>
+        <trans-unit id="9f91c452-abb7-46c7-8f9c-0a68b538c822" xml:space="preserve">
+          <source>Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API.</source>
+          <target state="new">Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API.</target>
+        </trans-unit>
+        <trans-unit id="40e734f1-ab91-4802-94c7-2fba295d5c07" xml:space="preserve">
+          <source>The web API then validates the JWT token, and if validation is successful, returns the desired resource.</source>
+          <target state="new">The web API then validates the JWT token, and if validation is successful, returns the desired resource.</target>
+        </trans-unit>
+        <trans-unit id="d332ebbc-6728-4c87-a523-7c025f6f0f0c" xml:space="preserve">
+          <source>The flow discussed below assumes that a user has been authenticated on another application (such as a native application), and their user identity has been used to acquire an access token to the first-tier web API.</source>
+          <target state="new">The flow discussed below assumes that a user has been authenticated on another application (such as a native application), and their user identity has been used to acquire an access token to the first-tier web API.</target>
+        </trans-unit>
+        <trans-unit id="08fd60d3-94bd-4c98-8c3f-7c45e81b567c" xml:space="preserve">
+          <source>The native application sends the access token to the first-tier web API.</source>
+          <target state="new">The native application sends the access token to the first-tier web API.</target>
+        </trans-unit>
+        <trans-unit id="17350610-3092-4d83-89af-a75c292641f7" xml:space="preserve">
+          <source>The first-tier web API sends a request to Azure AD’s token endpoint, providing its client ID and credentials, as well as the user’s access token.</source>
+          <target state="new">The first-tier web API sends a request to Azure AD’s token endpoint, providing its client ID and credentials, as well as the user’s access token.</target>
+        </trans-unit>
+        <trans-unit id="c5134a5a-9696-409f-bbb2-6b829dde44b3" xml:space="preserve">
+          <source>In addition, the request is sent with an on<bpt id="052c420c-92d3-4bf6-ad06-29851cd24d3a">&lt;em&gt;</bpt>behalf<ept id="052c420c-92d3-4bf6-ad06-29851cd24d3a">&lt;/em&gt;</ept>of parameter that indicates the web API is requesting new tokens to call a downstream web API on behalf of the original user.</source>
+          <target state="new">In addition, the request is sent with an on<bpt id="052c420c-92d3-4bf6-ad06-29851cd24d3a">&lt;em&gt;</bpt>behalf<ept id="052c420c-92d3-4bf6-ad06-29851cd24d3a">&lt;/em&gt;</ept>of parameter that indicates the web API is requesting new tokens to call a downstream web API on behalf of the original user.</target>
+        </trans-unit>
+        <trans-unit id="83bcf711-9853-49ad-afc9-82248e3be4f1" xml:space="preserve">
+          <source>Azure AD verifies that the first-tier web API has permissions to access the second-tier web API and validates the request, returning a JWT access token and a JWT refresh token to the first-tier web API.</source>
+          <target state="new">Azure AD verifies that the first-tier web API has permissions to access the second-tier web API and validates the request, returning a JWT access token and a JWT refresh token to the first-tier web API.</target>
+        </trans-unit>
+        <trans-unit id="673eb41a-0b82-4c90-a9ae-a056e008b9e8" xml:space="preserve">
+          <source>Over HTTPS, the first-tier web API then calls the second-tier web API by appending the token string in the Authorization header in the request.</source>
+          <target state="new">Over HTTPS, the first-tier web API then calls the second-tier web API by appending the token string in the Authorization header in the request.</target>
+        </trans-unit>
+        <trans-unit id="7f464863-b582-46ec-9ad6-77b233d8df62" xml:space="preserve">
+          <source>The first-tier web API can continue to call the second-tier web API as long as the access token and refresh tokens are valid.</source>
+          <target state="new">The first-tier web API can continue to call the second-tier web API as long as the access token and refresh tokens are valid.</target>
+        </trans-unit>
+        <trans-unit id="1245f2f1-6aa0-4eaa-b7a4-009d16ebee74" xml:space="preserve">
+          <source>See the code samples for Daemon or Server Application to Web API scenarios.</source>
+          <target state="new">See the code samples for Daemon or Server Application to Web API scenarios.</target>
+        </trans-unit>
+        <trans-unit id="43ca8adf-6eca-4543-8922-05a59142e1b8" xml:space="preserve">
+          <source>And, check back frequently -- we add new samples all the time.</source>
+          <target state="new">And, check back frequently -- we add new samples all the time.</target>
+        </trans-unit>
+        <trans-unit id="eed25dec-cd0d-41f9-a044-e07825def24e" xml:space="preserve">
+          <source><bpt id="5a937932-c480-4758-9461-a63050ac2c9a">&lt;linkText&gt;</bpt>Server or Daemon Application to Web API<ept id="5a937932-c480-4758-9461-a63050ac2c9a">&lt;/linkText&gt;</ept><bpt id="5a937932-c480-4758-9461-a63050ac2c9a">&lt;title&gt;</bpt><ept id="5a937932-c480-4758-9461-a63050ac2c9a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5a937932-c480-4758-9461-a63050ac2c9a">&lt;linkText&gt;</bpt>Server or Daemon Application to Web API<ept id="5a937932-c480-4758-9461-a63050ac2c9a">&lt;/linkText&gt;</ept><bpt id="5a937932-c480-4758-9461-a63050ac2c9a">&lt;title&gt;</bpt><ept id="5a937932-c480-4758-9461-a63050ac2c9a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc05569f-80f3-4ff3-8f4b-922e162d1c63" xml:space="preserve">
+          <source>Single Tenant: For both the application identity and delegated user identity cases, the daemon or server application must be registered in the same directory in Azure AD.</source>
+          <target state="new">Single Tenant: For both the application identity and delegated user identity cases, the daemon or server application must be registered in the same directory in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="edde8e1b-c89e-4d7d-8609-38da7d8ec836" xml:space="preserve">
+          <source>The web API can be configured to expose a set of permissions, which are used to limit the daemon or server’s access to its resources.</source>
+          <target state="new">The web API can be configured to expose a set of permissions, which are used to limit the daemon or server’s access to its resources.</target>
+        </trans-unit>
+        <trans-unit id="66b5cde3-300b-4930-9f42-60343e6e6d95" xml:space="preserve">
+          <source>If a delegated user identity type is being used, the server application needs to select the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure Management Portal.</source>
+          <target state="new">If a delegated user identity type is being used, the server application needs to select the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="20e253f1-4b95-42ad-ada5-635d11e7b581" xml:space="preserve">
+          <source>This step is not required if the application identity type is being used.</source>
+          <target state="new">This step is not required if the application identity type is being used.</target>
+        </trans-unit>
+        <trans-unit id="365b8df8-88c1-4bb6-b810-3a7f609377b2" xml:space="preserve">
+          <source>Multi-Tenant: First, the daemon or server application is configured to indicate the permissions it requires to be functional.</source>
+          <target state="new">Multi-Tenant: First, the daemon or server application is configured to indicate the permissions it requires to be functional.</target>
+        </trans-unit>
+        <trans-unit id="b0550e07-60ef-4489-becf-26ca1a1ade5f" xml:space="preserve">
+          <source>This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization.</source>
+          <target state="new">This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization.</target>
+        </trans-unit>
+        <trans-unit id="f6baa092-7678-4a3e-928a-9b8ec4943353" xml:space="preserve">
+          <source>Some applications require just user-level permissions, which any user in the organization can consent to.</source>
+          <target state="new">Some applications require just user-level permissions, which any user in the organization can consent to.</target>
+        </trans-unit>
+        <trans-unit id="ab3862e0-f11f-4e99-8ed1-3e686f5915a6" xml:space="preserve">
+          <source>Other applications require administrator-level permissions, which a user in the organization cannot consent to.</source>
+          <target state="new">Other applications require administrator-level permissions, which a user in the organization cannot consent to.</target>
+        </trans-unit>
+        <trans-unit id="3ec1f51b-dacb-40df-b2c6-59b5418cf8d1" xml:space="preserve">
+          <source>Only a directory administrator can give consent to applications that require this level of permissions.</source>
+          <target state="new">Only a directory administrator can give consent to applications that require this level of permissions.</target>
+        </trans-unit>
+        <trans-unit id="66c1fb69-1431-4233-bd10-2a746baa0c96" xml:space="preserve">
+          <source>When the user or administrator consents, both of the web APIs registered in their directory.</source>
+          <target state="new">When the user or administrator consents, both of the web APIs registered in their directory.</target>
+        </trans-unit>
+        <trans-unit id="8c68ad70-660f-4103-ae73-3749f41fe6f2" xml:space="preserve">
+          <source>When the first application uses its authorization code to get a JWT access token, it also receives a JWT refresh token.</source>
+          <target state="new">When the first application uses its authorization code to get a JWT access token, it also receives a JWT refresh token.</target>
+        </trans-unit>
+        <trans-unit id="62f39ad4-4eb0-4580-865e-bc1da5396627" xml:space="preserve">
+          <source>When the access token expires, the refresh token can be used to re-authenticate the user without prompting for credentials.</source>
+          <target state="new">When the access token expires, the refresh token can be used to re-authenticate the user without prompting for credentials.</target>
+        </trans-unit>
+        <trans-unit id="c3e53035-69f5-4502-a661-1e415cdea4fa" xml:space="preserve">
+          <source>This refresh token is then used to authenticate the user, which results in a new access token and refresh token.</source>
+          <target state="new">This refresh token is then used to authenticate the user, which results in a new access token and refresh token.</target>
+        </trans-unit>
+        <trans-unit id="c45a9dbb-c2ce-4cde-8c02-2578a45e80a5" xml:space="preserve">
+          <source><bpt id="4679e419-393f-48fd-9325-581b16bdd0fc">&lt;linkText&gt;</bpt>Azure Active Directory Code Samples<ept id="4679e419-393f-48fd-9325-581b16bdd0fc">&lt;/linkText&gt;</ept><bpt id="4679e419-393f-48fd-9325-581b16bdd0fc">&lt;title&gt;</bpt><ept id="4679e419-393f-48fd-9325-581b16bdd0fc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4679e419-393f-48fd-9325-581b16bdd0fc">&lt;linkText&gt;</bpt>Azure Active Directory Code Samples<ept id="4679e419-393f-48fd-9325-581b16bdd0fc">&lt;/linkText&gt;</ept><bpt id="4679e419-393f-48fd-9325-581b16bdd0fc">&lt;title&gt;</bpt><ept id="4679e419-393f-48fd-9325-581b16bdd0fc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79f4aa96-3ee4-4d8d-918f-6d937d080a67" xml:space="preserve">
+          <source><bpt id="0d91e01a-341b-4b2a-b78d-f139e300f478">&lt;linkText&gt;</bpt>Important Information About Signing Key Rollover in Azure AD<ept id="0d91e01a-341b-4b2a-b78d-f139e300f478">&lt;/linkText&gt;</ept><bpt id="0d91e01a-341b-4b2a-b78d-f139e300f478">&lt;title&gt;</bpt><ept id="0d91e01a-341b-4b2a-b78d-f139e300f478">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0d91e01a-341b-4b2a-b78d-f139e300f478">&lt;linkText&gt;</bpt>Important Information About Signing Key Rollover in Azure AD<ept id="0d91e01a-341b-4b2a-b78d-f139e300f478">&lt;/linkText&gt;</ept><bpt id="0d91e01a-341b-4b2a-b78d-f139e300f478">&lt;title&gt;</bpt><ept id="0d91e01a-341b-4b2a-b78d-f139e300f478">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca1a9946-fd09-45fb-9512-cb711d77f1fc" xml:space="preserve">
+          <source><bpt id="a1ea8e99-444f-4f3a-a957-d4688ea034ae">&lt;linkText&gt;</bpt>OAuth 2.0 in Azure AD<ept id="a1ea8e99-444f-4f3a-a957-d4688ea034ae">&lt;/linkText&gt;</ept><bpt id="a1ea8e99-444f-4f3a-a957-d4688ea034ae">&lt;title&gt;</bpt><ept id="a1ea8e99-444f-4f3a-a957-d4688ea034ae">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a1ea8e99-444f-4f3a-a957-d4688ea034ae">&lt;linkText&gt;</bpt>OAuth 2.0 in Azure AD<ept id="a1ea8e99-444f-4f3a-a957-d4688ea034ae">&lt;/linkText&gt;</ept><bpt id="a1ea8e99-444f-4f3a-a957-d4688ea034ae">&lt;title&gt;</bpt><ept id="a1ea8e99-444f-4f3a-a957-d4688ea034ae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

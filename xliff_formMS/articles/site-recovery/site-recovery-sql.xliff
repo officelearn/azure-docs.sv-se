@@ -1,0 +1,672 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2b7faf9a-4dd7-4795-aefd-74a291b9bc84" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2b7faf9a-4dd7-4795-aefd-74a291b9bc84" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d4629d7d-a98e-413d-a1d7-677f5bb80a4e">
+        <trans-unit id="443fdd8c-da4c-4bb5-b0bd-22cc776e85a4" xml:space="preserve">
+          <source>Disaster recovery with SQL Server and Azure Site Recovery</source>
+          <target state="new">Disaster recovery with SQL Server and Azure Site Recovery</target>
+        </trans-unit>
+        <trans-unit id="e0498530-a3cd-4dc5-9a49-04a4c23f4b01" xml:space="preserve">
+          <source>Azure Site Recovery coordinates the replication, failover and recovery of SQL Server to a secondary on-premises site or Azure.</source>
+          <target state="new">Azure Site Recovery coordinates the replication, failover and recovery of SQL Server to a secondary on-premises site or Azure.</target>
+        </trans-unit>
+        <trans-unit id="eae8ba6c-2f7c-477d-92cb-3d42b3f89869" xml:space="preserve">
+          <source>Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers.</source>
+          <target state="new">Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers.</target>
+        </trans-unit>
+        <trans-unit id="6bd32f0a-a986-43c1-9320-21eea8386a23" xml:space="preserve">
+          <source>Site Recovery supports a number of replication mechanisms to consistently protection, replicate and fail over of machines to Azure, or to a secondary datacenter.</source>
+          <target state="new">Site Recovery supports a number of replication mechanisms to consistently protection, replicate and fail over of machines to Azure, or to a secondary datacenter.</target>
+        </trans-unit>
+        <trans-unit id="83cf9618-1acf-4af7-8dad-d421c2d6272f" xml:space="preserve">
+          <source>Get an overview of all the deployment scenarios in the <bpt id="6ced9a73-8cae-45e9-a67b-f347b4d8b27f">&lt;linkText&gt;</bpt>Azure Site Recovery overview<ept id="6ced9a73-8cae-45e9-a67b-f347b4d8b27f">&lt;/linkText&gt;</ept><bpt id="6ced9a73-8cae-45e9-a67b-f347b4d8b27f">&lt;title&gt;</bpt><ept id="6ced9a73-8cae-45e9-a67b-f347b4d8b27f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Get an overview of all the deployment scenarios in the <bpt id="6ced9a73-8cae-45e9-a67b-f347b4d8b27f">&lt;linkText&gt;</bpt>Azure Site Recovery overview<ept id="6ced9a73-8cae-45e9-a67b-f347b4d8b27f">&lt;/linkText&gt;</ept><bpt id="6ced9a73-8cae-45e9-a67b-f347b4d8b27f">&lt;title&gt;</bpt><ept id="6ced9a73-8cae-45e9-a67b-f347b4d8b27f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f2ba7fc-a3b7-4ff4-9f87-edb61fc3899d" xml:space="preserve">
+          <source>This article describes how to protect the SQL Server backend of an application using a combination of SQL Server BCDR technologies and Site Recovery.</source>
+          <target state="new">This article describes how to protect the SQL Server backend of an application using a combination of SQL Server BCDR technologies and Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="46e49a46-90d7-4897-86d7-ad8e441cc544" xml:space="preserve">
+          <source>You should have a good understanding of SQL Server BCDR features (failover clustering, AlwaysOn availability groups, database mirroring, log shipping) and Site Recovery before you deploy the scenarios described in this article.</source>
+          <target state="new">You should have a good understanding of SQL Server BCDR features (failover clustering, AlwaysOn availability groups, database mirroring, log shipping) and Site Recovery before you deploy the scenarios described in this article.</target>
+        </trans-unit>
+        <trans-unit id="8ca4bd80-b1c2-4bf2-8c62-d8a21a747401" xml:space="preserve">
+          <source>Many workloads use SQL Server as a foundation.</source>
+          <target state="new">Many workloads use SQL Server as a foundation.</target>
+        </trans-unit>
+        <trans-unit id="7305baa3-2481-47fb-b37e-3a353b575567" xml:space="preserve">
+          <source>Applications such as SharePoint, Dynamics, and SAP use SQL Server to implement data services.</source>
+          <target state="new">Applications such as SharePoint, Dynamics, and SAP use SQL Server to implement data services.</target>
+        </trans-unit>
+        <trans-unit id="b5cd6874-1eec-4dfb-baae-1f61c2ccb8ed" xml:space="preserve">
+          <source>SQL Server high availability and disaster recovery features such as SQL Server availability groups to protect and recover SQL Server databases.</source>
+          <target state="new">SQL Server high availability and disaster recovery features such as SQL Server availability groups to protect and recover SQL Server databases.</target>
+        </trans-unit>
+        <trans-unit id="e9a7dcf8-5d3d-44d5-a754-ec295e6e0edc" xml:space="preserve">
+          <source>Site Recovery can protect SQL Server running as a Hyper-V virtual machine, a VMware virtual machine, or as a physical server.</source>
+          <target state="new">Site Recovery can protect SQL Server running as a Hyper-V virtual machine, a VMware virtual machine, or as a physical server.</target>
+        </trans-unit>
+        <trans-unit id="beb0cb73-287d-4cb0-8672-8c8924b12a5e" xml:space="preserve">
+          <source><bpt id="6bb3e482-f848-4402-a59d-fce723d39275">&lt;strong&gt;</bpt>On-premises to on-premises<ept id="6bb3e482-f848-4402-a59d-fce723d39275">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6bb3e482-f848-4402-a59d-fce723d39275">&lt;strong&gt;</bpt>On-premises to on-premises<ept id="6bb3e482-f848-4402-a59d-fce723d39275">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0e9c44c-eaec-4793-8e54-bba938ee27a3" xml:space="preserve">
+          <source><bpt id="94e84e8c-593f-4b4d-bd6a-b1624a9198c8">&lt;strong&gt;</bpt>On-premises to Azure<ept id="94e84e8c-593f-4b4d-bd6a-b1624a9198c8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="94e84e8c-593f-4b4d-bd6a-b1624a9198c8">&lt;strong&gt;</bpt>On-premises to Azure<ept id="94e84e8c-593f-4b4d-bd6a-b1624a9198c8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b5d3dd7-14b9-4ea4-bc7c-ba6526daabbe" xml:space="preserve">
+          <source><bpt id="2b8aec71-b0eb-4a67-bb8d-6573c281e002">&lt;strong&gt;</bpt>Hyper-V<ept id="2b8aec71-b0eb-4a67-bb8d-6573c281e002">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2b8aec71-b0eb-4a67-bb8d-6573c281e002">&lt;strong&gt;</bpt>Hyper-V<ept id="2b8aec71-b0eb-4a67-bb8d-6573c281e002">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4e4cc85-c1c7-4296-b999-9446612cb6fc" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="16faa7a1-1c22-4376-8249-45d7579e06dc" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b3004d74-cd6b-4b6e-8799-5fe08986c433" xml:space="preserve">
+          <source><bpt id="85040cf4-fece-43cf-997b-63ba1a12b722">&lt;strong&gt;</bpt>VMware<ept id="85040cf4-fece-43cf-997b-63ba1a12b722">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="85040cf4-fece-43cf-997b-63ba1a12b722">&lt;strong&gt;</bpt>VMware<ept id="85040cf4-fece-43cf-997b-63ba1a12b722">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11e918be-3619-4616-9a69-eb87b4fd5f43" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="5715a56d-e2c1-47f6-8aa3-89b3bf6397cf" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2c7f83e8-9d30-4928-ae45-9c805aaba0c0" xml:space="preserve">
+          <source><bpt id="a67eae4c-7de3-47f4-a7f3-beb5700abc79">&lt;strong&gt;</bpt>Physical server<ept id="a67eae4c-7de3-47f4-a7f3-beb5700abc79">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a67eae4c-7de3-47f4-a7f3-beb5700abc79">&lt;strong&gt;</bpt>Physical server<ept id="a67eae4c-7de3-47f4-a7f3-beb5700abc79">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7a1d663-a211-4bca-83f0-b24ab33d8c4a" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="261905e6-d50f-48a5-b4c4-32f3157b5fa8" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b8b7bcbd-7f9f-4a7a-ad3a-e6e6b44a25ef" xml:space="preserve">
+          <source>Site Recovery can be integrated with native SQL Server BCDR technologies summarized in the table to provide a disaster recovery solution.</source>
+          <target state="new">Site Recovery can be integrated with native SQL Server BCDR technologies summarized in the table to provide a disaster recovery solution.</target>
+        </trans-unit>
+        <trans-unit id="068df31e-de6f-4796-8659-2fa90c283216" xml:space="preserve">
+          <source><bpt id="e554b5f9-53cc-4af8-9e24-8befc4efa563">&lt;strong&gt;</bpt>Feature<ept id="e554b5f9-53cc-4af8-9e24-8befc4efa563">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e554b5f9-53cc-4af8-9e24-8befc4efa563">&lt;strong&gt;</bpt>Feature<ept id="e554b5f9-53cc-4af8-9e24-8befc4efa563">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be65fe80-39da-4e15-ab9d-ad686e645a48" xml:space="preserve">
+          <source><bpt id="c6ed7e67-b043-4b1d-86fd-7689fdc367d2">&lt;strong&gt;</bpt>Details<ept id="c6ed7e67-b043-4b1d-86fd-7689fdc367d2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c6ed7e67-b043-4b1d-86fd-7689fdc367d2">&lt;strong&gt;</bpt>Details<ept id="c6ed7e67-b043-4b1d-86fd-7689fdc367d2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a353fd1-8c7b-4932-94ca-52475523cc08" xml:space="preserve">
+          <source><bpt id="d0b1133c-0612-4189-9376-bf51a9f4af01">&lt;strong&gt;</bpt>SQL Server version<ept id="d0b1133c-0612-4189-9376-bf51a9f4af01">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d0b1133c-0612-4189-9376-bf51a9f4af01">&lt;strong&gt;</bpt>SQL Server version<ept id="d0b1133c-0612-4189-9376-bf51a9f4af01">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b45f886-0b4a-4c86-8837-0b1240ebf52d" xml:space="preserve">
+          <source><bpt id="9ab9c013-7a83-4961-9b30-0727c3645b8f">&lt;strong&gt;</bpt>AlwaysOn availability group<ept id="9ab9c013-7a83-4961-9b30-0727c3645b8f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9ab9c013-7a83-4961-9b30-0727c3645b8f">&lt;strong&gt;</bpt>AlwaysOn availability group<ept id="9ab9c013-7a83-4961-9b30-0727c3645b8f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29de5d58-355e-4288-91e3-2bd8c7a76c49" xml:space="preserve">
+          <source>&lt;p&gt;Multiple standalone instances of SQL Server each run in a failover cluster that has multiple nodes.&lt;/p&gt; &lt;p&gt;Databases can be grouped into failover groups that can be copied (mirrored) on SQL Server instances so that no shared storage is needed.&lt;/p&gt; &lt;p&gt;Provides disaster recovery between a primary site and one or more secondary sites. Two nodes can be set up in a shared nothing cluster with SQL Server databases configured in an availability group with synchronous replication and automatic failover.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Multiple standalone instances of SQL Server each run in a failover cluster that has multiple nodes.&lt;/p&gt; &lt;p&gt;Databases can be grouped into failover groups that can be copied (mirrored) on SQL Server instances so that no shared storage is needed.&lt;/p&gt; &lt;p&gt;Provides disaster recovery between a primary site and one or more secondary sites. Two nodes can be set up in a shared nothing cluster with SQL Server databases configured in an availability group with synchronous replication and automatic failover.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="35cdc555-eaf4-49aa-9746-1a956becadbf" xml:space="preserve">
+          <source>SQL Server 2014/2012 Enterprise edition</source>
+          <target state="new">SQL Server 2014/2012 Enterprise edition</target>
+        </trans-unit>
+        <trans-unit id="ab1d1088-ce4a-45cd-8318-73bfa61dd8fd" xml:space="preserve">
+          <source><bpt id="67d74cfd-3ae4-4eef-bdca-6ab9c18a6819">&lt;strong&gt;</bpt>Failover clustering (AlwaysOn FCI)<ept id="67d74cfd-3ae4-4eef-bdca-6ab9c18a6819">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="67d74cfd-3ae4-4eef-bdca-6ab9c18a6819">&lt;strong&gt;</bpt>Failover clustering (AlwaysOn FCI)<ept id="67d74cfd-3ae4-4eef-bdca-6ab9c18a6819">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c28aba66-b22c-469c-88dc-4df9eed6f0b0" xml:space="preserve">
+          <source>&lt;p&gt;SQL Server leverages Windows failover clustering for high availability of on-premises SQL Server workloads.&lt;/p&gt;&lt;p&gt;Nodes running instances of SQL Server with shared disks are configured in a failover cluster. If an instance is down the cluster fails over to different one.&lt;/p&gt; &lt;p&gt;The cluster doesn't protect against failure or outages in shared storage. The shared disk can be implemented with iSCSI, fiber channel, or shared VHDXs.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;SQL Server leverages Windows failover clustering for high availability of on-premises SQL Server workloads.&lt;/p&gt;&lt;p&gt;Nodes running instances of SQL Server with shared disks are configured in a failover cluster. If an instance is down the cluster fails over to different one.&lt;/p&gt; &lt;p&gt;The cluster doesn't protect against failure or outages in shared storage. The shared disk can be implemented with iSCSI, fiber channel, or shared VHDXs.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="1b797fb7-079b-473a-ba2a-a0bb811ba00a" xml:space="preserve">
+          <source>SQL Server Enterprise editions&lt;/p&gt; &lt;p&gt;SQL Server Standard edition (limited to two nodes only)</source>
+          <target state="new">SQL Server Enterprise editions&lt;/p&gt; &lt;p&gt;SQL Server Standard edition (limited to two nodes only)</target>
+        </trans-unit>
+        <trans-unit id="371e2506-2020-4209-aa3b-28ea0a10a09f" xml:space="preserve">
+          <source><bpt id="e53a7863-cb15-4fdc-bc91-8c01f291b383">&lt;strong&gt;</bpt>Database mirroring (high safety mode)<ept id="e53a7863-cb15-4fdc-bc91-8c01f291b383">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e53a7863-cb15-4fdc-bc91-8c01f291b383">&lt;strong&gt;</bpt>Database mirroring (high safety mode)<ept id="e53a7863-cb15-4fdc-bc91-8c01f291b383">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0c072a1-08f8-4662-ad1e-212aea4400d5" xml:space="preserve">
+          <source>Protects a single database to a single secondary copy.</source>
+          <target state="new">Protects a single database to a single secondary copy.</target>
+        </trans-unit>
+        <trans-unit id="80a99372-93c7-453e-af74-f1df72344a49" xml:space="preserve">
+          <source>Available in both high safety (synchronous) and high performance (asynchronous) replication modes.</source>
+          <target state="new">Available in both high safety (synchronous) and high performance (asynchronous) replication modes.</target>
+        </trans-unit>
+        <trans-unit id="18e6bc1c-d79a-4bf8-8e5e-07ccaaffa100" xml:space="preserve">
+          <source>Doesn’t require a failover cluster.</source>
+          <target state="new">Doesn’t require a failover cluster.</target>
+        </trans-unit>
+        <trans-unit id="50d7eb77-f5a5-48ac-b3ba-934884f9fd8e" xml:space="preserve">
+          <source>&lt;p&gt;SQL Server 2008 R2&lt;/p&gt;&lt;p&gt;SQL Server Enterprise all editions&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;SQL Server 2008 R2&lt;/p&gt;&lt;p&gt;SQL Server Enterprise all editions&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="32345eb8-3002-411b-b3a0-6ae588b8ab3a" xml:space="preserve">
+          <source><bpt id="0b39427e-e81d-478e-88a0-f3307718d90f">&lt;strong&gt;</bpt>Standalone SQL Server<ept id="0b39427e-e81d-478e-88a0-f3307718d90f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0b39427e-e81d-478e-88a0-f3307718d90f">&lt;strong&gt;</bpt>Standalone SQL Server<ept id="0b39427e-e81d-478e-88a0-f3307718d90f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcfaab38-d77b-47ac-bd2b-bed4881616a0" xml:space="preserve">
+          <source>The SQL Server and database are hosted on a single server (physical or virtual).</source>
+          <target state="new">The SQL Server and database are hosted on a single server (physical or virtual).</target>
+        </trans-unit>
+        <trans-unit id="3e8f8b3a-7f5c-4fb8-8e9d-1df9e54d5751" xml:space="preserve">
+          <source>Host clustering is used for high availability if the server is virtual.</source>
+          <target state="new">Host clustering is used for high availability if the server is virtual.</target>
+        </trans-unit>
+        <trans-unit id="f6aec028-0915-459d-aab8-e3c04066888f" xml:space="preserve">
+          <source>No guest-level high availability.</source>
+          <target state="new">No guest-level high availability.</target>
+        </trans-unit>
+        <trans-unit id="b1c9982d-2ab9-4606-959d-0ad3fe3f44b5" xml:space="preserve">
+          <source>Enterprise or Standard edition</source>
+          <target state="new">Enterprise or Standard edition</target>
+        </trans-unit>
+        <trans-unit id="46f1a4ce-63aa-4d7e-9795-74f5d665595c" xml:space="preserve">
+          <source>The following table summarizes our recommendations for integrating SQL Server BCDR technologies into Site Recovery deployment.</source>
+          <target state="new">The following table summarizes our recommendations for integrating SQL Server BCDR technologies into Site Recovery deployment.</target>
+        </trans-unit>
+        <trans-unit id="f245586e-e0de-45e1-a088-1cd4d45092c4" xml:space="preserve">
+          <source><bpt id="bab58150-8abd-4018-bf47-4ff05c8684dd">&lt;strong&gt;</bpt>Version<ept id="bab58150-8abd-4018-bf47-4ff05c8684dd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bab58150-8abd-4018-bf47-4ff05c8684dd">&lt;strong&gt;</bpt>Version<ept id="bab58150-8abd-4018-bf47-4ff05c8684dd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cbcc8832-bc45-4a0b-aad9-785fe40de926" xml:space="preserve">
+          <source><bpt id="d74b0090-7b3e-4680-ab49-a8ba1034a051">&lt;strong&gt;</bpt>Edition<ept id="d74b0090-7b3e-4680-ab49-a8ba1034a051">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d74b0090-7b3e-4680-ab49-a8ba1034a051">&lt;strong&gt;</bpt>Edition<ept id="d74b0090-7b3e-4680-ab49-a8ba1034a051">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dbfd8005-1af9-4644-9add-b6c07c3646f9" xml:space="preserve">
+          <source><bpt id="154fdb19-29d7-4b43-ad6e-0c926a688b4c">&lt;strong&gt;</bpt>Deployment<ept id="154fdb19-29d7-4b43-ad6e-0c926a688b4c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="154fdb19-29d7-4b43-ad6e-0c926a688b4c">&lt;strong&gt;</bpt>Deployment<ept id="154fdb19-29d7-4b43-ad6e-0c926a688b4c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a4e1f19-1dd4-4fe4-8b9e-0f9ef2cac58c" xml:space="preserve">
+          <source><bpt id="aa3ce387-631e-4c09-a47c-096f264f0e35">&lt;strong&gt;</bpt>On-prem to on-prem<ept id="aa3ce387-631e-4c09-a47c-096f264f0e35">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="aa3ce387-631e-4c09-a47c-096f264f0e35">&lt;strong&gt;</bpt>On-prem to on-prem<ept id="aa3ce387-631e-4c09-a47c-096f264f0e35">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ee8ce7c-466f-47b7-888e-b9d1fcdea3de" xml:space="preserve">
+          <source><bpt id="3a9ec281-f022-4766-9456-8e569fc7fc2d">&lt;strong&gt;</bpt>On-prem to Azure<ept id="3a9ec281-f022-4766-9456-8e569fc7fc2d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3a9ec281-f022-4766-9456-8e569fc7fc2d">&lt;strong&gt;</bpt>On-prem to Azure<ept id="3a9ec281-f022-4766-9456-8e569fc7fc2d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="507d47b3-7050-47bc-86f2-e26d3dc3a9df" xml:space="preserve">
+          <source>SQL Server 2014 or 2012</source>
+          <target state="new">SQL Server 2014 or 2012</target>
+        </trans-unit>
+        <trans-unit id="ec0fcaef-5fba-41f6-b39f-8940e2c1d31a" xml:space="preserve">
+          <source>Enterprise</source>
+          <target state="new">Enterprise</target>
+        </trans-unit>
+        <trans-unit id="7128da21-163b-490b-94d5-4f7550529a9e" xml:space="preserve">
+          <source>Failover cluster instance</source>
+          <target state="new">Failover cluster instance</target>
+        </trans-unit>
+        <trans-unit id="4ee46d76-a9f5-4acd-a270-d15d6ab6bd0d" xml:space="preserve">
+          <source>AlwaysOn availability groups</source>
+          <target state="new">AlwaysOn availability groups</target>
+        </trans-unit>
+        <trans-unit id="f32a8c55-7e22-4726-9232-8239b6eb2e17" xml:space="preserve">
+          <source>AlwaysOn availability groups</source>
+          <target state="new">AlwaysOn availability groups</target>
+        </trans-unit>
+        <trans-unit id="82297ed3-341c-465f-a523-cb370a85991c" xml:space="preserve">
+          <source>Enterprise</source>
+          <target state="new">Enterprise</target>
+        </trans-unit>
+        <trans-unit id="68b6373b-32de-4710-b4a6-fe4b04081c41" xml:space="preserve">
+          <source>AlwaysOn availability groups for high availability</source>
+          <target state="new">AlwaysOn availability groups for high availability</target>
+        </trans-unit>
+        <trans-unit id="b30e8f8d-ba8d-4a1a-9031-49f1656752e4" xml:space="preserve">
+          <source>AlwaysOn availability group</source>
+          <target state="new">AlwaysOn availability group</target>
+        </trans-unit>
+        <trans-unit id="5ced700b-0394-46df-8e6c-3cb462f7c979" xml:space="preserve">
+          <source>AlwaysOn availability group</source>
+          <target state="new">AlwaysOn availability group</target>
+        </trans-unit>
+        <trans-unit id="d395f27e-00ab-4e18-9578-4d5e6a455a61" xml:space="preserve">
+          <source>Standard</source>
+          <target state="new">Standard</target>
+        </trans-unit>
+        <trans-unit id="a37d9947-6fa6-4702-b93f-07741bb9cf0f" xml:space="preserve">
+          <source>Failover cluster instance</source>
+          <target state="new">Failover cluster instance</target>
+        </trans-unit>
+        <trans-unit id="ba7e1b14-9344-4746-ba59-242573e38cef" xml:space="preserve">
+          <source>Site Recovery replication with local mirror</source>
+          <target state="new">Site Recovery replication with local mirror</target>
+        </trans-unit>
+        <trans-unit id="114caf7c-8841-41d2-ae36-5c04f25ccab0" xml:space="preserve">
+          <source>Site Recovery replication with local mirror</source>
+          <target state="new">Site Recovery replication with local mirror</target>
+        </trans-unit>
+        <trans-unit id="a75041d7-b9f4-460f-b238-99dfbd38d95f" xml:space="preserve">
+          <source>Enterprise or Standard</source>
+          <target state="new">Enterprise or Standard</target>
+        </trans-unit>
+        <trans-unit id="7132e183-a15f-4816-9f50-0c6dad2c2f6e" xml:space="preserve">
+          <source>Standalone</source>
+          <target state="new">Standalone</target>
+        </trans-unit>
+        <trans-unit id="9b8afd91-2239-41a8-a2f3-bad7e2571746" xml:space="preserve">
+          <source>Site Recovery replication with local mirror</source>
+          <target state="new">Site Recovery replication with local mirror</target>
+        </trans-unit>
+        <trans-unit id="0a0cc9a5-f301-44c7-b9d2-f5bfef2b044e" xml:space="preserve">
+          <source>Site Recovery replication with local mirror</source>
+          <target state="new">Site Recovery replication with local mirror</target>
+        </trans-unit>
+        <trans-unit id="fa4ef72e-9198-4287-a552-8c7ad6d7e36e" xml:space="preserve">
+          <source>SQL Server 2008 R2</source>
+          <target state="new">SQL Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="b8bd9be6-e59c-44f5-9b0e-dee66f8b512a" xml:space="preserve">
+          <source>Enterprise or Standard</source>
+          <target state="new">Enterprise or Standard</target>
+        </trans-unit>
+        <trans-unit id="0cb5c780-cf16-422f-b21e-62d751c5f75b" xml:space="preserve">
+          <source>Standalone</source>
+          <target state="new">Standalone</target>
+        </trans-unit>
+        <trans-unit id="51e1ed8f-390e-4567-97aa-58128b8aad7a" xml:space="preserve">
+          <source>Site Recovery replication with local mirror</source>
+          <target state="new">Site Recovery replication with local mirror</target>
+        </trans-unit>
+        <trans-unit id="e387d670-ebec-4264-9520-57c14687eaa6" xml:space="preserve">
+          <source>Site Recovery replication with local mirror</source>
+          <target state="new">Site Recovery replication with local mirror</target>
+        </trans-unit>
+        <trans-unit id="52afc468-3673-42dc-b476-3e901602f760" xml:space="preserve">
+          <source>Here's what you need before you start:</source>
+          <target state="new">Here's what you need before you start:</target>
+        </trans-unit>
+        <trans-unit id="34e40307-df4d-4a1e-9978-ccd928619e5a" xml:space="preserve">
+          <source>An on-premises SQL Server deployment running a supported SQL Server version.</source>
+          <target state="new">An on-premises SQL Server deployment running a supported SQL Server version.</target>
+        </trans-unit>
+        <trans-unit id="296c2a4f-7886-4f4b-9252-49d3f4f8966e" xml:space="preserve">
+          <source>Typically you'll also need an Active Directory for your SQL server.</source>
+          <target state="new">Typically you'll also need an Active Directory for your SQL server.</target>
+        </trans-unit>
+        <trans-unit id="588a3d8e-0a27-408f-a1f2-f3f1829b6dba" xml:space="preserve">
+          <source>The prerequisites for the scenario you want to deploy.</source>
+          <target state="new">The prerequisites for the scenario you want to deploy.</target>
+        </trans-unit>
+        <trans-unit id="dbd27381-5c05-4556-bd18-6822fb0b8660" xml:space="preserve">
+          <source>Prerequisites can be found in each deployment article.</source>
+          <target state="new">Prerequisites can be found in each deployment article.</target>
+        </trans-unit>
+        <trans-unit id="15eee0ac-c430-4aaf-a9f3-af1daf878330" xml:space="preserve">
+          <source>These and listed and linked in the <bpt id="5fe07c6b-9d25-4c06-84a2-e086ed0da89e">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="5fe07c6b-9d25-4c06-84a2-e086ed0da89e">&lt;/linkText&gt;</ept><bpt id="5fe07c6b-9d25-4c06-84a2-e086ed0da89e">&lt;title&gt;</bpt><ept id="5fe07c6b-9d25-4c06-84a2-e086ed0da89e">&lt;/title&gt;</ept>.</source>
+          <target state="new">These and listed and linked in the <bpt id="5fe07c6b-9d25-4c06-84a2-e086ed0da89e">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="5fe07c6b-9d25-4c06-84a2-e086ed0da89e">&lt;/linkText&gt;</ept><bpt id="5fe07c6b-9d25-4c06-84a2-e086ed0da89e">&lt;title&gt;</bpt><ept id="5fe07c6b-9d25-4c06-84a2-e086ed0da89e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f118237-a5da-454c-b102-a14a8f1adafd" xml:space="preserve">
+          <source>If you want to set up recovery in Azure, you'll need to run the <bpt id="3e704f99-0374-4e40-97f1-6f92074d7126">&lt;linkText&gt;</bpt>Azure Virtual Machine Readiness Assessment<ept id="3e704f99-0374-4e40-97f1-6f92074d7126">&lt;/linkText&gt;</ept><bpt id="3e704f99-0374-4e40-97f1-6f92074d7126">&lt;title&gt;</bpt><ept id="3e704f99-0374-4e40-97f1-6f92074d7126">&lt;/title&gt;</ept> tool on your SQL Server virtual machines to make sure they're compatible with Azure and Site Recovery.</source>
+          <target state="new">If you want to set up recovery in Azure, you'll need to run the <bpt id="3e704f99-0374-4e40-97f1-6f92074d7126">&lt;linkText&gt;</bpt>Azure Virtual Machine Readiness Assessment<ept id="3e704f99-0374-4e40-97f1-6f92074d7126">&lt;/linkText&gt;</ept><bpt id="3e704f99-0374-4e40-97f1-6f92074d7126">&lt;title&gt;</bpt><ept id="3e704f99-0374-4e40-97f1-6f92074d7126">&lt;/title&gt;</ept> tool on your SQL Server virtual machines to make sure they're compatible with Azure and Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="1077f259-054f-444f-8e93-a188ed69b559" xml:space="preserve">
+          <source>You'll need to perform a couple of steps:</source>
+          <target state="new">You'll need to perform a couple of steps:</target>
+        </trans-unit>
+        <trans-unit id="0d436eeb-8d63-4ea5-b3fc-70eae8bf247b" xml:space="preserve">
+          <source>Set up Active Directory</source>
+          <target state="new">Set up Active Directory</target>
+        </trans-unit>
+        <trans-unit id="5f0e4f62-c827-400a-8b2c-5da3a2bd780e" xml:space="preserve">
+          <source>Set up protection for a SQL Server cluster or standalone server</source>
+          <target state="new">Set up protection for a SQL Server cluster or standalone server</target>
+        </trans-unit>
+        <trans-unit id="0942b755-17a7-4895-b040-3ea7068567fd" xml:space="preserve">
+          <source>You'll need Active Directory on the secondary recovery site for SQL Server to run properly.</source>
+          <target state="new">You'll need Active Directory on the secondary recovery site for SQL Server to run properly.</target>
+        </trans-unit>
+        <trans-unit id="1d9b3b7f-c116-4448-9e28-0ca82458061c" xml:space="preserve">
+          <source>there are a couple of options:</source>
+          <target state="new">there are a couple of options:</target>
+        </trans-unit>
+        <trans-unit id="dc973dc9-810a-494a-84b7-2a79a46ca3bb" xml:space="preserve">
+          <source><bpt id="4e35bb55-02bd-4387-abac-743ec63ceda5">&lt;strong&gt;</bpt>Small enterprise<ept id="4e35bb55-02bd-4387-abac-743ec63ceda5">&lt;/strong&gt;</ept>—If you have a small number of applications and a single domain controller for the on-premises site, and you want to fail over the entire site, we recommend that you use Site Recovery repication to replicate the domain controller to the secondary datacenter or to Azure.</source>
+          <target state="new"><bpt id="4e35bb55-02bd-4387-abac-743ec63ceda5">&lt;strong&gt;</bpt>Small enterprise<ept id="4e35bb55-02bd-4387-abac-743ec63ceda5">&lt;/strong&gt;</ept>—If you have a small number of applications and a single domain controller for the on-premises site, and you want to fail over the entire site, we recommend that you use Site Recovery repication to replicate the domain controller to the secondary datacenter or to Azure.</target>
+        </trans-unit>
+        <trans-unit id="34e21912-e92e-4461-b6fe-4f94f43274f5" xml:space="preserve">
+          <source><bpt id="5db2a94e-c560-456d-b9eb-63140de6e997">&lt;strong&gt;</bpt>Medium to large enterprise<ept id="5db2a94e-c560-456d-b9eb-63140de6e997">&lt;/strong&gt;</ept>—If you have a large number of application, you're running an Active Directory forest, and you want to fail over by application or workload, we recommend you set up an additional domain controller in the secondary datacenter or in Azure.</source>
+          <target state="new"><bpt id="5db2a94e-c560-456d-b9eb-63140de6e997">&lt;strong&gt;</bpt>Medium to large enterprise<ept id="5db2a94e-c560-456d-b9eb-63140de6e997">&lt;/strong&gt;</ept>—If you have a large number of application, you're running an Active Directory forest, and you want to fail over by application or workload, we recommend you set up an additional domain controller in the secondary datacenter or in Azure.</target>
+        </trans-unit>
+        <trans-unit id="4cf45168-60c7-49fe-9206-1998bca0012e" xml:space="preserve">
+          <source>Note that if you're using AlwaysOn availability groups to recover to a remote site we recommend you set up another additional domain controller on the secondary site or Azure, to use for the recovered SQL Server instance.</source>
+          <target state="new">Note that if you're using AlwaysOn availability groups to recover to a remote site we recommend you set up another additional domain controller on the secondary site or Azure, to use for the recovered SQL Server instance.</target>
+        </trans-unit>
+        <trans-unit id="a81cbf54-1c98-422a-bbe4-0cf1894e6e49" xml:space="preserve">
+          <source>The instructions in this document presume that a domain controller is available in the secondary location.</source>
+          <target state="new">The instructions in this document presume that a domain controller is available in the secondary location.</target>
+        </trans-unit>
+        <trans-unit id="72e8a392-62d4-414a-a25a-98c3b5a64049" xml:space="preserve">
+          <source>In this configuration we recommend you use Site Recovery replication to protect the SQL Server machine.</source>
+          <target state="new">In this configuration we recommend you use Site Recovery replication to protect the SQL Server machine.</target>
+        </trans-unit>
+        <trans-unit id="fe1f2696-99fa-48f1-bbbd-70ea1f6d4a54" xml:space="preserve">
+          <source>The exact steps will depend whether SQL Server is set up as a virtual machine or physical server, and whether you want to replicate to Azure or a secondary on-premises site.</source>
+          <target state="new">The exact steps will depend whether SQL Server is set up as a virtual machine or physical server, and whether you want to replicate to Azure or a secondary on-premises site.</target>
+        </trans-unit>
+        <trans-unit id="12a0b99a-a8bc-40a3-9499-477933cda41d" xml:space="preserve">
+          <source>Get instructions for all deployment scenarios in the <bpt id="892f29fc-d756-48a0-bdc5-8b5d0ba1fe99">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="892f29fc-d756-48a0-bdc5-8b5d0ba1fe99">&lt;/linkText&gt;</ept><bpt id="892f29fc-d756-48a0-bdc5-8b5d0ba1fe99">&lt;title&gt;</bpt><ept id="892f29fc-d756-48a0-bdc5-8b5d0ba1fe99">&lt;/title&gt;</ept>.</source>
+          <target state="new">Get instructions for all deployment scenarios in the <bpt id="892f29fc-d756-48a0-bdc5-8b5d0ba1fe99">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="892f29fc-d756-48a0-bdc5-8b5d0ba1fe99">&lt;/linkText&gt;</ept><bpt id="892f29fc-d756-48a0-bdc5-8b5d0ba1fe99">&lt;title&gt;</bpt><ept id="892f29fc-d756-48a0-bdc5-8b5d0ba1fe99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdd0d739-8da0-4620-9b6e-b103603c94f8" xml:space="preserve">
+          <source>If the SQL Server is using availability groups for high availability, or a failover cluster instance, we recommend using availability groups on the recovery site as well.</source>
+          <target state="new">If the SQL Server is using availability groups for high availability, or a failover cluster instance, we recommend using availability groups on the recovery site as well.</target>
+        </trans-unit>
+        <trans-unit id="5ac883ff-16e0-48c2-bdd4-4a6592d646d2" xml:space="preserve">
+          <source>Note that this guidance is for applications that don't use distributed transactions.</source>
+          <target state="new">Note that this guidance is for applications that don't use distributed transactions.</target>
+        </trans-unit>
+        <trans-unit id="44215b1c-57bb-4d79-b762-7977a1c88c03" xml:space="preserve">
+          <source><bpt id="e6e30e02-e62d-46de-a507-010ff38b10fd">&lt;linkText&gt;</bpt>Configure databases<ept id="e6e30e02-e62d-46de-a507-010ff38b10fd">&lt;/linkText&gt;</ept><bpt id="e6e30e02-e62d-46de-a507-010ff38b10fd">&lt;title&gt;</bpt><ept id="e6e30e02-e62d-46de-a507-010ff38b10fd">&lt;/title&gt;</ept> into availability groups.</source>
+          <target state="new"><bpt id="e6e30e02-e62d-46de-a507-010ff38b10fd">&lt;linkText&gt;</bpt>Configure databases<ept id="e6e30e02-e62d-46de-a507-010ff38b10fd">&lt;/linkText&gt;</ept><bpt id="e6e30e02-e62d-46de-a507-010ff38b10fd">&lt;title&gt;</bpt><ept id="e6e30e02-e62d-46de-a507-010ff38b10fd">&lt;/title&gt;</ept> into availability groups.</target>
+        </trans-unit>
+        <trans-unit id="945620ef-e5e8-4312-b6b1-f0585757bc48" xml:space="preserve">
+          <source>Create a new virtual network on secondary site.</source>
+          <target state="new">Create a new virtual network on secondary site.</target>
+        </trans-unit>
+        <trans-unit id="d72375c3-67ef-462c-9745-0ea000241373" xml:space="preserve">
+          <source>Set up a site-to-site VPN between the new virtual network and the primary site.</source>
+          <target state="new">Set up a site-to-site VPN between the new virtual network and the primary site.</target>
+        </trans-unit>
+        <trans-unit id="9c7a9984-5d0b-4d33-8369-16f4cf7d9e69" xml:space="preserve">
+          <source>Create a virtual machine on the recovery site and install SQL Server on it.</source>
+          <target state="new">Create a virtual machine on the recovery site and install SQL Server on it.</target>
+        </trans-unit>
+        <trans-unit id="731d8545-d411-4b2f-977d-e1a7e6ee4506" xml:space="preserve">
+          <source>Extend the existing AlwaysOn availability groups to the new SQL Server virtual machine.</source>
+          <target state="new">Extend the existing AlwaysOn availability groups to the new SQL Server virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="1cd6bb85-aa79-4852-9b69-4d43c0893c5b" xml:space="preserve">
+          <source>Configure this SQL Server instance as an asynchronous replica copy.</source>
+          <target state="new">Configure this SQL Server instance as an asynchronous replica copy.</target>
+        </trans-unit>
+        <trans-unit id="2a3dbb85-8c8a-469a-aab3-05e698dd3c0d" xml:space="preserve">
+          <source>Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.</source>
+          <target state="new">Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="97441874-f48e-4244-ac54-3f15d6884fef" xml:space="preserve">
+          <source>Make sure that the application farm is setup using the listener.</source>
+          <target state="new">Make sure that the application farm is setup using the listener.</target>
+        </trans-unit>
+        <trans-unit id="1f3e0265-e9d4-42c4-ab5b-fd4fa419fc17" xml:space="preserve">
+          <source>If It's setup up using the database server name, please update it to use the listener so you don't need to reconfigure it after the failover.</source>
+          <target state="new">If It's setup up using the database server name, please update it to use the listener so you don't need to reconfigure it after the failover.</target>
+        </trans-unit>
+        <trans-unit id="03de7b6e-b597-4d20-9fc6-82ae66a2aecf" xml:space="preserve">
+          <source>When you replicate to Azure configuring multiple availability groups is challenging because each availability group needs a dedicated listener, and configuring each listener requires a separate cloud service.</source>
+          <target state="new">When you replicate to Azure configuring multiple availability groups is challenging because each availability group needs a dedicated listener, and configuring each listener requires a separate cloud service.</target>
+        </trans-unit>
+        <trans-unit id="64e64c7b-3312-4363-ba4a-0db69be826ea" xml:space="preserve">
+          <source>We recommend that you configure one availability group with all the databases included.</source>
+          <target state="new">We recommend that you configure one availability group with all the databases included.</target>
+        </trans-unit>
+        <trans-unit id="df893fed-f651-4ab0-8e7d-364e81c05b03" xml:space="preserve">
+          <source>Create an Azure virtual network.</source>
+          <target state="new">Create an Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="01c18ebf-5ff6-4ab4-9090-902c937bda42" xml:space="preserve">
+          <source>Set up a site-to-site VPN between the on-premises site and this network.</source>
+          <target state="new">Set up a site-to-site VPN between the on-premises site and this network.</target>
+        </trans-unit>
+        <trans-unit id="295577c3-fe6b-4e13-b0b6-bf9536d16232" xml:space="preserve">
+          <source>Create a new SQL Server Azure virtual machine in the network and configure it as an asynchronous availability group replica.</source>
+          <target state="new">Create a new SQL Server Azure virtual machine in the network and configure it as an asynchronous availability group replica.</target>
+        </trans-unit>
+        <trans-unit id="b6a75740-7b49-494c-b2b9-29e848f9cf94" xml:space="preserve">
+          <source>If you need high availability for SQL Server tier after failover to Azure then configure two asynchronous replica copies in Azure.</source>
+          <target state="new">If you need high availability for SQL Server tier after failover to Azure then configure two asynchronous replica copies in Azure.</target>
+        </trans-unit>
+        <trans-unit id="7b9a3c64-f6fb-4a26-ae34-f3f371101b6f" xml:space="preserve">
+          <source>Set up a replica of the domain controller in the virtual network.</source>
+          <target state="new">Set up a replica of the domain controller in the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="92a8c541-0007-4d29-99e6-c20a748a8c86" xml:space="preserve">
+          <source>Make sure that virtual machine extensions are enabled on the virtual machine.</source>
+          <target state="new">Make sure that virtual machine extensions are enabled on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="d15e53aa-cbd9-4fcb-b335-b385c550804e" xml:space="preserve">
+          <source>This is needed to push scripts specific to SQL Server in a recovery plan.</source>
+          <target state="new">This is needed to push scripts specific to SQL Server in a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="25e2203f-bfa2-4516-bf3e-f1aa0ca15ddb" xml:space="preserve">
+          <source>Configure a SQL Server listener for the availability group using Azure's internal load balancer.</source>
+          <target state="new">Configure a SQL Server listener for the availability group using Azure's internal load balancer.</target>
+        </trans-unit>
+        <trans-unit id="46f3fc09-bbab-4e38-b9c3-e1a29b17bcd3" xml:space="preserve">
+          <source>Configure the application tier to use the listener to access the database tier.</source>
+          <target state="new">Configure the application tier to use the listener to access the database tier.</target>
+        </trans-unit>
+        <trans-unit id="1509d34f-819a-4fc7-8e37-232b947c63a9" xml:space="preserve">
+          <source>For applications that use distributed transactions we recommendation you use Site Recovery with SAN replication or VMWare site-to-site replication.</source>
+          <target state="new">For applications that use distributed transactions we recommendation you use Site Recovery with SAN replication or VMWare site-to-site replication.</target>
+        </trans-unit>
+        <trans-unit id="91ba9ca0-e07b-40cb-8686-c49f37334f90" xml:space="preserve">
+          <source>For a cluster running SQL Server Standard edition or SQL Server 2008 R2 we recommend you use Site Recovery replication to protect SQL Server.</source>
+          <target state="new">For a cluster running SQL Server Standard edition or SQL Server 2008 R2 we recommend you use Site Recovery replication to protect SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="9d2e6ed2-f14d-4c76-92cb-83f220517ab7" xml:space="preserve">
+          <source>For a Hyper-V environment, if the application's uses distributed transactions we recommend you deploy <bpt id="88a81f50-4fa6-403e-a18c-94dbc866cb95">&lt;linkText&gt;</bpt>Site Recovery with SAN replication<ept id="88a81f50-4fa6-403e-a18c-94dbc866cb95">&lt;/linkText&gt;</ept><bpt id="88a81f50-4fa6-403e-a18c-94dbc866cb95">&lt;title&gt;</bpt><ept id="88a81f50-4fa6-403e-a18c-94dbc866cb95">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a Hyper-V environment, if the application's uses distributed transactions we recommend you deploy <bpt id="88a81f50-4fa6-403e-a18c-94dbc866cb95">&lt;linkText&gt;</bpt>Site Recovery with SAN replication<ept id="88a81f50-4fa6-403e-a18c-94dbc866cb95">&lt;/linkText&gt;</ept><bpt id="88a81f50-4fa6-403e-a18c-94dbc866cb95">&lt;title&gt;</bpt><ept id="88a81f50-4fa6-403e-a18c-94dbc866cb95">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc2749b7-d328-4e23-8593-84928ad0d1a9" xml:space="preserve">
+          <source>For a VMware environment we recommend you deploy <bpt id="be8813bb-e2e5-4518-a05d-310c1c3011e2">&lt;linkText&gt;</bpt>VMware to VMware<ept id="be8813bb-e2e5-4518-a05d-310c1c3011e2">&lt;/linkText&gt;</ept><bpt id="be8813bb-e2e5-4518-a05d-310c1c3011e2">&lt;title&gt;</bpt><ept id="be8813bb-e2e5-4518-a05d-310c1c3011e2">&lt;/title&gt;</ept> protection.</source>
+          <target state="new">For a VMware environment we recommend you deploy <bpt id="be8813bb-e2e5-4518-a05d-310c1c3011e2">&lt;linkText&gt;</bpt>VMware to VMware<ept id="be8813bb-e2e5-4518-a05d-310c1c3011e2">&lt;/linkText&gt;</ept><bpt id="be8813bb-e2e5-4518-a05d-310c1c3011e2">&lt;title&gt;</bpt><ept id="be8813bb-e2e5-4518-a05d-310c1c3011e2">&lt;/title&gt;</ept> protection.</target>
+        </trans-unit>
+        <trans-unit id="bdd2e88d-d346-4106-a6d8-91f0a6e965f5" xml:space="preserve">
+          <source>Site recovery doesn't support guest cluster support when replicating to Azure.</source>
+          <target state="new">Site recovery doesn't support guest cluster support when replicating to Azure.</target>
+        </trans-unit>
+        <trans-unit id="ab7b7439-baca-409c-afa6-021614f2c2ec" xml:space="preserve">
+          <source>SQL Server also doesn't provide a low-cost disaster recovery solution for Standard edition.</source>
+          <target state="new">SQL Server also doesn't provide a low-cost disaster recovery solution for Standard edition.</target>
+        </trans-unit>
+        <trans-unit id="19dbaae9-10d1-4eca-a98e-f6e81f29ceb6" xml:space="preserve">
+          <source>We recommend you protect the on-premises SQL Server cluster to a standalone SQL Server and recover it in Azure.</source>
+          <target state="new">We recommend you protect the on-premises SQL Server cluster to a standalone SQL Server and recover it in Azure.</target>
+        </trans-unit>
+        <trans-unit id="3d682141-f638-4611-ab28-d79e7c30c937" xml:space="preserve">
+          <source>Configure an additional standalone SQL Server instance in the on-premises site.</source>
+          <target state="new">Configure an additional standalone SQL Server instance in the on-premises site.</target>
+        </trans-unit>
+        <trans-unit id="eeff3a33-6588-4506-be04-c11143bff76d" xml:space="preserve">
+          <source>Configure this instance to serve as a mirror for the databases that need protection.</source>
+          <target state="new">Configure this instance to serve as a mirror for the databases that need protection.</target>
+        </trans-unit>
+        <trans-unit id="d5479927-3659-4715-b4e9-40234689cc24" xml:space="preserve">
+          <source>Configure the mirroring in high safety mode.</source>
+          <target state="new">Configure the mirroring in high safety mode.</target>
+        </trans-unit>
+        <trans-unit id="bcd2b3f3-433e-4db5-9173-fe9d9cd2a6d0" xml:space="preserve">
+          <source>Configure Site Recovery on the on-premises site based on the environment (<bpt id="1bde92a0-b867-41b8-b25a-749fa27b9b64">&lt;linkText&gt;</bpt>Hyper-V<ept id="1bde92a0-b867-41b8-b25a-749fa27b9b64">&lt;/linkText&gt;</ept><bpt id="1bde92a0-b867-41b8-b25a-749fa27b9b64">&lt;title&gt;</bpt><ept id="1bde92a0-b867-41b8-b25a-749fa27b9b64">&lt;/title&gt;</ept> or <bpt id="c1cc6b12-754d-4d16-b929-d21f26955377">&lt;linkText&gt;</bpt>VMware<ept id="c1cc6b12-754d-4d16-b929-d21f26955377">&lt;/linkText&gt;</ept><bpt id="c1cc6b12-754d-4d16-b929-d21f26955377">&lt;title&gt;</bpt><ept id="c1cc6b12-754d-4d16-b929-d21f26955377">&lt;/title&gt;</ept>.</source>
+          <target state="new">Configure Site Recovery on the on-premises site based on the environment (<bpt id="1bde92a0-b867-41b8-b25a-749fa27b9b64">&lt;linkText&gt;</bpt>Hyper-V<ept id="1bde92a0-b867-41b8-b25a-749fa27b9b64">&lt;/linkText&gt;</ept><bpt id="1bde92a0-b867-41b8-b25a-749fa27b9b64">&lt;title&gt;</bpt><ept id="1bde92a0-b867-41b8-b25a-749fa27b9b64">&lt;/title&gt;</ept> or <bpt id="c1cc6b12-754d-4d16-b929-d21f26955377">&lt;linkText&gt;</bpt>VMware<ept id="c1cc6b12-754d-4d16-b929-d21f26955377">&lt;/linkText&gt;</ept><bpt id="c1cc6b12-754d-4d16-b929-d21f26955377">&lt;title&gt;</bpt><ept id="c1cc6b12-754d-4d16-b929-d21f26955377">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7bd2f617-dd31-48ec-8104-b783174d20e5" xml:space="preserve">
+          <source>Use Site Recovery replication to replicate the new SQL Server instance to Azure.</source>
+          <target state="new">Use Site Recovery replication to replicate the new SQL Server instance to Azure.</target>
+        </trans-unit>
+        <trans-unit id="f4041189-724f-4e05-9e67-83f378a387ba" xml:space="preserve">
+          <source>It's a high safety mirror copy so it'll be synchronized with the primary cluster, but it'll be replicated to Azure using Site Recovery replication.</source>
+          <target state="new">It's a high safety mirror copy so it'll be synchronized with the primary cluster, but it'll be replicated to Azure using Site Recovery replication.</target>
+        </trans-unit>
+        <trans-unit id="82e402a6-9f95-4e7c-b9e7-2921d5634fab" xml:space="preserve">
+          <source>The following graphic illustrates this setup.</source>
+          <target state="new">The following graphic illustrates this setup.</target>
+        </trans-unit>
+        <trans-unit id="fe3dc771-ffa4-4d90-a390-329aa4af39d9" xml:space="preserve">
+          <source><bpt id="bd178a86-e14d-43fb-92f2-9c0711d50d96">&lt;linkText&gt;</bpt>Standard cluster<ept id="bd178a86-e14d-43fb-92f2-9c0711d50d96">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bd178a86-e14d-43fb-92f2-9c0711d50d96">&lt;linkText&gt;</bpt>Standard cluster<ept id="bd178a86-e14d-43fb-92f2-9c0711d50d96">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b31f632-c6a2-49a2-aee3-9204a1669fcf" xml:space="preserve">
+          <source>Recovery plans group machines that should fail over together.</source>
+          <target state="new">Recovery plans group machines that should fail over together.</target>
+        </trans-unit>
+        <trans-unit id="f2e693a0-1e04-4f67-89fe-c0d531ae96b3" xml:space="preserve">
+          <source>Learn more about <bpt id="62778056-2033-43ae-8be6-c65d723d34c5">&lt;linkText&gt;</bpt>recovery plans<ept id="62778056-2033-43ae-8be6-c65d723d34c5">&lt;/linkText&gt;</ept><bpt id="62778056-2033-43ae-8be6-c65d723d34c5">&lt;title&gt;</bpt><ept id="62778056-2033-43ae-8be6-c65d723d34c5">&lt;/title&gt;</ept> and <bpt id="e694f49b-938b-4199-baf0-28b99def4bfb">&lt;linkText&gt;</bpt>failover<ept id="e694f49b-938b-4199-baf0-28b99def4bfb">&lt;/linkText&gt;</ept><bpt id="e694f49b-938b-4199-baf0-28b99def4bfb">&lt;title&gt;</bpt><ept id="e694f49b-938b-4199-baf0-28b99def4bfb">&lt;/title&gt;</ept> before you start.</source>
+          <target state="new">Learn more about <bpt id="62778056-2033-43ae-8be6-c65d723d34c5">&lt;linkText&gt;</bpt>recovery plans<ept id="62778056-2033-43ae-8be6-c65d723d34c5">&lt;/linkText&gt;</ept><bpt id="62778056-2033-43ae-8be6-c65d723d34c5">&lt;title&gt;</bpt><ept id="62778056-2033-43ae-8be6-c65d723d34c5">&lt;/title&gt;</ept> and <bpt id="e694f49b-938b-4199-baf0-28b99def4bfb">&lt;linkText&gt;</bpt>failover<ept id="e694f49b-938b-4199-baf0-28b99def4bfb">&lt;/linkText&gt;</ept><bpt id="e694f49b-938b-4199-baf0-28b99def4bfb">&lt;title&gt;</bpt><ept id="e694f49b-938b-4199-baf0-28b99def4bfb">&lt;/title&gt;</ept> before you start.</target>
+        </trans-unit>
+        <trans-unit id="c0573c49-096e-44f1-b502-27233ddc5df7" xml:space="preserve">
+          <source>In this scenario we leverage custom scripts and Azure automation for recovery plans, to configure a scripted failover of SQL Server availability groups.</source>
+          <target state="new">In this scenario we leverage custom scripts and Azure automation for recovery plans, to configure a scripted failover of SQL Server availability groups.</target>
+        </trans-unit>
+        <trans-unit id="50f3ec3c-0a25-4881-ad65-405d51c52f6b" xml:space="preserve">
+          <source>Create a local file for the script to fail over an availability group.</source>
+          <target state="new">Create a local file for the script to fail over an availability group.</target>
+        </trans-unit>
+        <trans-unit id="e089591b-ff3f-454e-a3ab-1de19a29fa94" xml:space="preserve">
+          <source>This sample script specifies a path to the availability group on the Azure replica and fails it over to that replica instance.</source>
+          <target state="new">This sample script specifies a path to the availability group on the Azure replica and fails it over to that replica instance.</target>
+        </trans-unit>
+        <trans-unit id="c16a2a58-9153-4029-badc-7c328bbcb305" xml:space="preserve">
+          <source>This script will be run on the SQL Server replica virtual machine by passing is with the custom script extension.</source>
+          <target state="new">This script will be run on the SQL Server replica virtual machine by passing is with the custom script extension.</target>
+        </trans-unit>
+        <trans-unit id="ac0d832e-7121-435b-8f8f-79b07c9b5efb" xml:space="preserve">
+          <source>Upload the script to a blob in an Azure storage account.</source>
+          <target state="new">Upload the script to a blob in an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="2c8a7bfa-2c04-4bac-b6e1-26fb6adb27ae" xml:space="preserve">
+          <source>Use this example:</source>
+          <target state="new">Use this example:</target>
+        </trans-unit>
+        <trans-unit id="a0c8b65f-ff9e-4118-88e1-9ccd3c1c5146" xml:space="preserve">
+          <source>Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure.</source>
+          <target state="new">Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="65b7b557-27ad-436a-a30d-09215d87ac73" xml:space="preserve">
+          <source>Use this sample script to do this.</source>
+          <target state="new">Use this sample script to do this.</target>
+        </trans-unit>
+        <trans-unit id="b0adbbfd-45ff-45b7-af23-ec00f38316f9" xml:space="preserve">
+          <source><bpt id="ab7a6a0c-b4f1-4ac8-b928-26c9380bc8d4">&lt;linkText&gt;</bpt>Learn more<ept id="ab7a6a0c-b4f1-4ac8-b928-26c9380bc8d4">&lt;/linkText&gt;</ept><bpt id="ab7a6a0c-b4f1-4ac8-b928-26c9380bc8d4">&lt;title&gt;</bpt><ept id="ab7a6a0c-b4f1-4ac8-b928-26c9380bc8d4">&lt;/title&gt;</ept> about using automation runbooks in recovery plans.</source>
+          <target state="new"><bpt id="ab7a6a0c-b4f1-4ac8-b928-26c9380bc8d4">&lt;linkText&gt;</bpt>Learn more<ept id="ab7a6a0c-b4f1-4ac8-b928-26c9380bc8d4">&lt;/linkText&gt;</ept><bpt id="ab7a6a0c-b4f1-4ac8-b928-26c9380bc8d4">&lt;title&gt;</bpt><ept id="ab7a6a0c-b4f1-4ac8-b928-26c9380bc8d4">&lt;/title&gt;</ept> about using automation runbooks in recovery plans.</target>
+        </trans-unit>
+        <trans-unit id="733c414c-df71-4a81-84f3-e20504fb361a" xml:space="preserve">
+          <source>When you create a recovery plan for the application add a "pre-Group 1 boot" scripted step that invokes the automation runbook to fail over availability groups.</source>
+          <target state="new">When you create a recovery plan for the application add a "pre-Group 1 boot" scripted step that invokes the automation runbook to fail over availability groups.</target>
+        </trans-unit>
+        <trans-unit id="9432f709-15cd-4a8c-b3ee-784ff5845018" xml:space="preserve">
+          <source>Add this sample script to the VMM library on the primary and secondary sites.</source>
+          <target state="new">Add this sample script to the VMM library on the primary and secondary sites.</target>
+        </trans-unit>
+        <trans-unit id="dd1ebb45-7635-4bb7-96a4-cdee652320e6" xml:space="preserve">
+          <source>When you create a recovery plan for the application add a "pre-Group 1 boot" scripted step that invokes the script to fail over availability groups.</source>
+          <target state="new">When you create a recovery plan for the application add a "pre-Group 1 boot" scripted step that invokes the script to fail over availability groups.</target>
+        </trans-unit>
+        <trans-unit id="fd6beefd-cc26-443d-ac70-4688720f68e2" xml:space="preserve">
+          <source>Create a local file for the script to fail over the SQL Server database mirror.</source>
+          <target state="new">Create a local file for the script to fail over the SQL Server database mirror.</target>
+        </trans-unit>
+        <trans-unit id="be7bf7bb-0cca-4329-aa95-66b7b7834880" xml:space="preserve">
+          <source>Use this sample script.</source>
+          <target state="new">Use this sample script.</target>
+        </trans-unit>
+        <trans-unit id="72f24700-03ae-4cb9-a0f7-889d5ef32a7e" xml:space="preserve">
+          <source>Upload the script to a blob in an Azure storage account.</source>
+          <target state="new">Upload the script to a blob in an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="b8f1a705-a342-4fbb-a3fe-a7380fae8800" xml:space="preserve">
+          <source>Use this sample script.</source>
+          <target state="new">Use this sample script.</target>
+        </trans-unit>
+        <trans-unit id="2c39ad61-ae1d-4e60-8b0c-a2b9a785eae5" xml:space="preserve">
+          <source>Create an Azure automation runbook to invoke the script on the SQL Server replica virtual machine in Azure.</source>
+          <target state="new">Create an Azure automation runbook to invoke the script on the SQL Server replica virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="d537f500-6cbf-4b73-8599-9762bf83c61f" xml:space="preserve">
+          <source>Use this sample script to do this.</source>
+          <target state="new">Use this sample script to do this.</target>
+        </trans-unit>
+        <trans-unit id="f6ea1359-b0b0-48c5-8d65-9249cbd19051" xml:space="preserve">
+          <source><bpt id="6e96bf98-05cd-44af-b590-23c9e1338f20">&lt;linkText&gt;</bpt>Learn more<ept id="6e96bf98-05cd-44af-b590-23c9e1338f20">&lt;/linkText&gt;</ept><bpt id="6e96bf98-05cd-44af-b590-23c9e1338f20">&lt;title&gt;</bpt><ept id="6e96bf98-05cd-44af-b590-23c9e1338f20">&lt;/title&gt;</ept> about using automation runbooks in recovery plans.Make sure the virtual machine agent in running on the failed over SQL Server virtual machine before you do this.</source>
+          <target state="new"><bpt id="6e96bf98-05cd-44af-b590-23c9e1338f20">&lt;linkText&gt;</bpt>Learn more<ept id="6e96bf98-05cd-44af-b590-23c9e1338f20">&lt;/linkText&gt;</ept><bpt id="6e96bf98-05cd-44af-b590-23c9e1338f20">&lt;title&gt;</bpt><ept id="6e96bf98-05cd-44af-b590-23c9e1338f20">&lt;/title&gt;</ept> about using automation runbooks in recovery plans.Make sure the virtual machine agent in running on the failed over SQL Server virtual machine before you do this.</target>
+        </trans-unit>
+        <trans-unit id="b7060c28-1718-41f6-b71e-8739a5f3d45a" xml:space="preserve">
+          <source>Add these steps in the recovery plan to fail over the SQL Server tier:</source>
+          <target state="new">Add these steps in the recovery plan to fail over the SQL Server tier:</target>
+        </trans-unit>
+        <trans-unit id="7a40fd34-4b75-4ea4-a61b-024f40472f54" xml:space="preserve">
+          <source>For planned failover add a primary side script to shut down the primary cluster after “Group shutdown”.</source>
+          <target state="new">For planned failover add a primary side script to shut down the primary cluster after “Group shutdown”.</target>
+        </trans-unit>
+        <trans-unit id="cb8af35a-68ed-4e3d-b9cd-62c257532b96" xml:space="preserve">
+          <source>Add the SQL Server database mirror virtual machine to the recovery plan, preferably in the first boot group.</source>
+          <target state="new">Add the SQL Server database mirror virtual machine to the recovery plan, preferably in the first boot group.</target>
+        </trans-unit>
+        <trans-unit id="4b61dd88-f2cd-460a-bcc0-68e1eed890f4" xml:space="preserve">
+          <source>Add a post failover script to fail over the mirror copy inside this virtual machine using the automation script above.</source>
+          <target state="new">Add a post failover script to fail over the mirror copy inside this virtual machine using the automation script above.</target>
+        </trans-unit>
+        <trans-unit id="f2e41e92-3cac-48de-b958-2cb5202fd019" xml:space="preserve">
+          <source>Note that since the database instance name will have changed the application tier will have to be reconfigured to use the new database.</source>
+          <target state="new">Note that since the database instance name will have changed the application tier will have to be reconfigured to use the new database.</target>
+        </trans-unit>
+        <trans-unit id="15b5a330-8225-43c7-97f7-fd0254d076d4" xml:space="preserve">
+          <source>Add this sample script to the VMM library on the primary and secondary sites.</source>
+          <target state="new">Add this sample script to the VMM library on the primary and secondary sites.</target>
+        </trans-unit>
+        <trans-unit id="aeac4152-8412-4d1c-849d-8fdf4b14cb32" xml:space="preserve">
+          <source>Add the SQL Server database mirror virtual machine to the recovery plan, preferably in the first boot group.</source>
+          <target state="new">Add the SQL Server database mirror virtual machine to the recovery plan, preferably in the first boot group.</target>
+        </trans-unit>
+        <trans-unit id="689dd2f0-5592-43bb-a9dd-e7c71a771cf1" xml:space="preserve">
+          <source>Add a post failover script to fail over the mirror copy inside this virtual machine using the VMM script above.</source>
+          <target state="new">Add a post failover script to fail over the mirror copy inside this virtual machine using the VMM script above.</target>
+        </trans-unit>
+        <trans-unit id="29715476-84dc-4365-8eeb-bfe634170757" xml:space="preserve">
+          <source>Note that since the database instance name will have changed the application tier will have to be reconfigured to use the new database.</source>
+          <target state="new">Note that since the database instance name will have changed the application tier will have to be reconfigured to use the new database.</target>
+        </trans-unit>
+        <trans-unit id="648e3249-2562-443d-abf5-3825ee9cae94" xml:space="preserve">
+          <source>If you're using AlwaysOn availability groups, you can't do a test failover of the SQL Server tier.</source>
+          <target state="new">If you're using AlwaysOn availability groups, you can't do a test failover of the SQL Server tier.</target>
+        </trans-unit>
+        <trans-unit id="d4b07390-cf0c-4bcb-942c-8437740614f8" xml:space="preserve">
+          <source>Consider these options as an alternative:</source>
+          <target state="new">Consider these options as an alternative:</target>
+        </trans-unit>
+        <trans-unit id="c80292ca-bedc-4227-932d-4ac285d75bb7" xml:space="preserve">
+          <source>Option 1</source>
+          <target state="new">Option 1</target>
+        </trans-unit>
+        <trans-unit id="d0aef3a7-a759-441a-8053-19179ceea9c3" xml:space="preserve">
+          <source>Perform a test failover of the application and front-end tiers.</source>
+          <target state="new">Perform a test failover of the application and front-end tiers.</target>
+        </trans-unit>
+        <trans-unit id="16811c8b-d57d-4678-b13a-f316823215bd" xml:space="preserve">
+          <source>Update the application tier to access the replica copy in read-only mode, and perform a read-only test of the application.</source>
+          <target state="new">Update the application tier to access the replica copy in read-only mode, and perform a read-only test of the application.</target>
+        </trans-unit>
+        <trans-unit id="e4b1eb29-32d8-4d38-801d-9ec21586fad5" xml:space="preserve">
+          <source>Option 2</source>
+          <target state="new">Option 2</target>
+        </trans-unit>
+        <trans-unit id="3b6047ee-978c-4b34-b6a1-7e7e51fd701a" xml:space="preserve">
+          <source>Create a copy of the replica SQL Server virtual machine instance (using VMM clone for site-to-site or Azure Backup) and bring it up in a test network</source>
+          <target state="new">Create a copy of the replica SQL Server virtual machine instance (using VMM clone for site-to-site or Azure Backup) and bring it up in a test network</target>
+        </trans-unit>
+        <trans-unit id="fe50f523-1540-434e-8721-52b930794ccd" xml:space="preserve">
+          <source>Perform the test failover using the recovery plan.</source>
+          <target state="new">Perform the test failover using the recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="d7fc4f2a-9fca-4b5c-bc14-1d38a69d0c4b" xml:space="preserve">
+          <source>For SQL standard clusters, failback after an unplanned failover will require a SQL Server backup and restore from the mirror instance to the original cluster, and then reestablishing the mirror.</source>
+          <target state="new">For SQL standard clusters, failback after an unplanned failover will require a SQL Server backup and restore from the mirror instance to the original cluster, and then reestablishing the mirror.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

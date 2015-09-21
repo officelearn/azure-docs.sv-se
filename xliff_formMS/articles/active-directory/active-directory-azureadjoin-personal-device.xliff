@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3de94b5c-b6cc-4f64-9dbb-e6733ab69bfc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3de94b5c-b6cc-4f64-9dbb-e6733ab69bfc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2f55db84-bb83-40ec-83c9-856c6ebf6a2d">
+        <trans-unit id="0929d3d8-2643-48f8-b3ec-8ac24ffedf37" xml:space="preserve">
+          <source>Join a personal device to your organization| Microsoft Azure</source>
+          <target state="new">Join a personal device to your organization| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e8981d77-cbb4-481a-8b87-25fd27b7ccc2" xml:space="preserve">
+          <source>A topic that explains how users can register their personal Windows 10 computers to their corporate network.</source>
+          <target state="new">A topic that explains how users can register their personal Windows 10 computers to their corporate network.</target>
+        </trans-unit>
+        <trans-unit id="1ff3a93e-e4c3-49b5-a6c4-3f85a2c80702" xml:space="preserve">
+          <source>From the <bpt id="83e82361-4c9b-441a-b8db-2553348d80e6">&lt;strong&gt;</bpt>Start<ept id="83e82361-4c9b-441a-b8db-2553348d80e6">&lt;/strong&gt;</ept> menu, select <bpt id="59ab091a-098c-4e36-a08d-62fbd6409f5f">&lt;strong&gt;</bpt>Settings<ept id="59ab091a-098c-4e36-a08d-62fbd6409f5f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="83e82361-4c9b-441a-b8db-2553348d80e6">&lt;strong&gt;</bpt>Start<ept id="83e82361-4c9b-441a-b8db-2553348d80e6">&lt;/strong&gt;</ept> menu, select <bpt id="59ab091a-098c-4e36-a08d-62fbd6409f5f">&lt;strong&gt;</bpt>Settings<ept id="59ab091a-098c-4e36-a08d-62fbd6409f5f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9f71215-0f66-42f7-b81b-4f84beb1f1c2" xml:space="preserve">
+          <source>Select <bpt id="e11ce4cc-ffe1-4cd9-b7e5-1620958893f2">&lt;strong&gt;</bpt>Accounts<ept id="e11ce4cc-ffe1-4cd9-b7e5-1620958893f2">&lt;/strong&gt;</ept>, and then click <bpt id="322e2481-fb68-4c19-838b-e694170c768b">&lt;strong&gt;</bpt>Your account<ept id="322e2481-fb68-4c19-838b-e694170c768b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e11ce4cc-ffe1-4cd9-b7e5-1620958893f2">&lt;strong&gt;</bpt>Accounts<ept id="e11ce4cc-ffe1-4cd9-b7e5-1620958893f2">&lt;/strong&gt;</ept>, and then click <bpt id="322e2481-fb68-4c19-838b-e694170c768b">&lt;strong&gt;</bpt>Your account<ept id="322e2481-fb68-4c19-838b-e694170c768b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="085af49a-ccb2-4835-a261-1151cba3a2c7" xml:space="preserve">
+          <source>Click <bpt id="14b5e9e4-ffa9-4141-a7b9-ea340cfb6c87">&lt;strong&gt;</bpt>Add Work or School account<ept id="14b5e9e4-ffa9-4141-a7b9-ea340cfb6c87">&lt;/strong&gt;</ept>, and then type in your organizational account.</source>
+          <target state="new">Click <bpt id="14b5e9e4-ffa9-4141-a7b9-ea340cfb6c87">&lt;strong&gt;</bpt>Add Work or School account<ept id="14b5e9e4-ffa9-4141-a7b9-ea340cfb6c87">&lt;/strong&gt;</ept>, and then type in your organizational account.</target>
+        </trans-unit>
+        <trans-unit id="be8a275a-29bb-4313-93ad-d53c3e4fa7f7" xml:space="preserve">
+          <source>You will then be taken to the sign-in page for your organization.</source>
+          <target state="new">You will then be taken to the sign-in page for your organization.</target>
+        </trans-unit>
+        <trans-unit id="ff8b9b19-2084-468c-b417-377f97ac4054" xml:space="preserve">
+          <source>Enter your username and password and click <bpt id="12c748b5-869e-40e0-880a-3f0ab7579457">&lt;strong&gt;</bpt>OK<ept id="12c748b5-869e-40e0-880a-3f0ab7579457">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter your username and password and click <bpt id="12c748b5-869e-40e0-880a-3f0ab7579457">&lt;strong&gt;</bpt>OK<ept id="12c748b5-869e-40e0-880a-3f0ab7579457">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a766925-91b2-4be3-aac2-1c66fbaaf6d0" xml:space="preserve">
+          <source>You will then be prompted for a multi-factor authentication challenge.</source>
+          <target state="new">You will then be prompted for a multi-factor authentication challenge.</target>
+        </trans-unit>
+        <trans-unit id="1b7bf50d-ba0f-4ec4-abdb-e760a829a438" xml:space="preserve">
+          <source>This is configurable by IT.</source>
+          <target state="new">This is configurable by IT.</target>
+        </trans-unit>
+        <trans-unit id="7305b2b2-711f-4c30-acbb-086f0c628c51" xml:space="preserve">
+          <source>Azure AD will then check whether this user/device requires mobile device management (MDM) enrollment.</source>
+          <target state="new">Azure AD will then check whether this user/device requires mobile device management (MDM) enrollment.</target>
+        </trans-unit>
+        <trans-unit id="83928413-89c2-407c-82ad-105907c1da48" xml:space="preserve">
+          <source>Windows will then register the device in the organization’s directory in Azure AD and enroll it in MDM.</source>
+          <target state="new">Windows will then register the device in the organization’s directory in Azure AD and enroll it in MDM.</target>
+        </trans-unit>
+        <trans-unit id="2bef7935-ea5a-4616-a712-1c7f0a1ebd99" xml:space="preserve">
+          <source>When this is done, if you are a managed user, Windows will wrap up the setup process and take the user to the desktop through the automatic sign-in screen.</source>
+          <target state="new">When this is done, if you are a managed user, Windows will wrap up the setup process and take the user to the desktop through the automatic sign-in screen.</target>
+        </trans-unit>
+        <trans-unit id="25977626-838e-4c81-9ff9-fab0ecf5080c" xml:space="preserve">
+          <source>If you are a federated user, you will be taken to the Windows sign-in screen and have to enter your credentials.</source>
+          <target state="new">If you are a federated user, you will be taken to the Windows sign-in screen and have to enter your credentials.</target>
+        </trans-unit>
+        <trans-unit id="67b8d025-70b8-4e54-a027-3317c658c70a" xml:space="preserve">
+          <source><bpt id="a9c46f69-4402-4b73-8741-19496b0baf46">&lt;linkText&gt;</bpt>Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join<ept id="a9c46f69-4402-4b73-8741-19496b0baf46">&lt;/linkText&gt;</ept><bpt id="a9c46f69-4402-4b73-8741-19496b0baf46">&lt;title&gt;</bpt><ept id="a9c46f69-4402-4b73-8741-19496b0baf46">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a9c46f69-4402-4b73-8741-19496b0baf46">&lt;linkText&gt;</bpt>Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join<ept id="a9c46f69-4402-4b73-8741-19496b0baf46">&lt;/linkText&gt;</ept><bpt id="a9c46f69-4402-4b73-8741-19496b0baf46">&lt;title&gt;</bpt><ept id="a9c46f69-4402-4b73-8741-19496b0baf46">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2503bb40-7b6f-4d49-8c70-704159a29747" xml:space="preserve">
+          <source><bpt id="32474024-21fb-4ed0-b059-5c20251826f2">&lt;linkText&gt;</bpt>Learn about usage scenarios and deployment considerations for Azure AD Join<ept id="32474024-21fb-4ed0-b059-5c20251826f2">&lt;/linkText&gt;</ept><bpt id="32474024-21fb-4ed0-b059-5c20251826f2">&lt;title&gt;</bpt><ept id="32474024-21fb-4ed0-b059-5c20251826f2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="32474024-21fb-4ed0-b059-5c20251826f2">&lt;linkText&gt;</bpt>Learn about usage scenarios and deployment considerations for Azure AD Join<ept id="32474024-21fb-4ed0-b059-5c20251826f2">&lt;/linkText&gt;</ept><bpt id="32474024-21fb-4ed0-b059-5c20251826f2">&lt;title&gt;</bpt><ept id="32474024-21fb-4ed0-b059-5c20251826f2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e506a28-458d-41a8-b0a7-6ceaa8b32aa1" xml:space="preserve">
+          <source><bpt id="47cad11b-3bde-457e-8862-83c12a79e61b">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="47cad11b-3bde-457e-8862-83c12a79e61b">&lt;/linkText&gt;</ept><bpt id="47cad11b-3bde-457e-8862-83c12a79e61b">&lt;title&gt;</bpt><ept id="47cad11b-3bde-457e-8862-83c12a79e61b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="47cad11b-3bde-457e-8862-83c12a79e61b">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="47cad11b-3bde-457e-8862-83c12a79e61b">&lt;/linkText&gt;</ept><bpt id="47cad11b-3bde-457e-8862-83c12a79e61b">&lt;title&gt;</bpt><ept id="47cad11b-3bde-457e-8862-83c12a79e61b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

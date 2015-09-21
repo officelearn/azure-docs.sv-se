@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="afc343a4-7498-45a3-99de-47ac619e233e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="afc343a4-7498-45a3-99de-47ac619e233e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cf0006bb-87e1-4bf9-8aef-4c84c2ee197f">
+        <trans-unit id="f7c00a96-2c02-4c9c-aa26-a7f3f5146173" xml:space="preserve">
+          <source>This tutorial uses Eclipse and Android 4.2 or a later version.</source>
+          <target state="new">This tutorial uses Eclipse and Android 4.2 or a later version.</target>
+        </trans-unit>
+        <trans-unit id="8d49b914-0cd6-4e69-af25-7d1c49c56c73" xml:space="preserve">
+          <source>This tutorial is based on the Mobile Services quickstart.</source>
+          <target state="new">This tutorial is based on the Mobile Services quickstart.</target>
+        </trans-unit>
+        <trans-unit id="2cbd7721-2d21-403d-85a9-57489a79c79f" xml:space="preserve">
+          <source>Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Add Mobile Services to an existing app].</source>
+          <target state="new">Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Add Mobile Services to an existing app].</target>
+        </trans-unit>
+        <trans-unit id="56d56828-43ca-4b11-b207-1450cd1e684b" xml:space="preserve">
+          <source>The Mobile Services Android SDK has been updated to version 2.0.</source>
+          <target state="new">The Mobile Services Android SDK has been updated to version 2.0.</target>
+        </trans-unit>
+        <trans-unit id="720b29a5-ec23-4a04-9319-ca103142f24b" xml:space="preserve">
+          <source>If you completed the above two tutorials some time ago, you must redo them if they are not using the updated SDK.</source>
+          <target state="new">If you completed the above two tutorials some time ago, you must redo them if they are not using the updated SDK.</target>
+        </trans-unit>
+        <trans-unit id="8c9b6e68-46c4-4e8d-85b5-9ac726acd1aa" xml:space="preserve">
+          <source>To verify what version of the SDK your app uses, open it in Eclipse and inspect the contents of the <bpt id="1935dfa2-ca1a-4b8b-9bfc-95e30315d549">&lt;strong&gt;</bpt>libs<ept id="1935dfa2-ca1a-4b8b-9bfc-95e30315d549">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">To verify what version of the SDK your app uses, open it in Eclipse and inspect the contents of the <bpt id="1935dfa2-ca1a-4b8b-9bfc-95e30315d549">&lt;strong&gt;</bpt>libs<ept id="1935dfa2-ca1a-4b8b-9bfc-95e30315d549">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="8ca16208-f4b8-40b1-9c4a-736bfcba73a3" xml:space="preserve">
+          <source>The version numbers on the Mobile Services jar files should be 2.0 or higher.</source>
+          <target state="new">The version numbers on the Mobile Services jar files should be 2.0 or higher.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

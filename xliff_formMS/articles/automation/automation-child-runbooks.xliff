@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3bd484cc-b6c0-4e6b-972e-afd9f375bd07" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3bd484cc-b6c0-4e6b-972e-afd9f375bd07" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f00e0210-ef13-49aa-a096-8a406907a0bd">
+        <trans-unit id="c6a47990-7676-4b45-b997-e6c006128e59" xml:space="preserve">
+          <source>Child runbooks in Azure Automation | Microsoft Azure</source>
+          <target state="new">Child runbooks in Azure Automation | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4eb21af2-f1ca-47f8-a740-189374a5a6f2" xml:space="preserve">
+          <source>Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them.</source>
+          <target state="new">Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them.</target>
+        </trans-unit>
+        <trans-unit id="ee229b59-ffe8-4cd4-a340-1b32768e176b" xml:space="preserve">
+          <source>It is a best practice in Azure Automation to write reusable, modular runbooks with a discrete function that can be used by other runbooks.</source>
+          <target state="new">It is a best practice in Azure Automation to write reusable, modular runbooks with a discrete function that can be used by other runbooks.</target>
+        </trans-unit>
+        <trans-unit id="95479300-dde4-4221-9241-3030fd0441ce" xml:space="preserve">
+          <source>A parent runbook will often call one or more child runbooks to perform required functionality.</source>
+          <target state="new">A parent runbook will often call one or more child runbooks to perform required functionality.</target>
+        </trans-unit>
+        <trans-unit id="22d08c84-fad2-49ab-93e6-2e218f60d1fd" xml:space="preserve">
+          <source>There are two ways to call a child runbook, and each has distinct differences that you should understand so that you can determine which will be best for your different scenarios.</source>
+          <target state="new">There are two ways to call a child runbook, and each has distinct differences that you should understand so that you can determine which will be best for your different scenarios.</target>
+        </trans-unit>
+        <trans-unit id="00b0cc82-0457-4000-9251-65333e2c57f3" xml:space="preserve">
+          <source>To invoke a runbook inline from another runbook, you use the name of the runbook and provide values for its parameters exactly like you would use an activity or cmdlet.</source>
+          <target state="new">To invoke a runbook inline from another runbook, you use the name of the runbook and provide values for its parameters exactly like you would use an activity or cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="16573c96-155f-4ed8-aa41-ac2080ddecb7" xml:space="preserve">
+          <source>All runbooks in the same Automation account are available to all others to be used in this manner.</source>
+          <target state="new">All runbooks in the same Automation account are available to all others to be used in this manner.</target>
+        </trans-unit>
+        <trans-unit id="1b70d1fc-460f-42e8-aa40-ff77c9a81b73" xml:space="preserve">
+          <source>The parent runbook will wait for the child runbook to complete before moving to the next line, and any output is returned directly to the parent.</source>
+          <target state="new">The parent runbook will wait for the child runbook to complete before moving to the next line, and any output is returned directly to the parent.</target>
+        </trans-unit>
+        <trans-unit id="dc1515db-9ad5-4267-8500-374820068ae6" xml:space="preserve">
+          <source>When you invoke a runbook inline, it runs in the same job as the parent runbook.</source>
+          <target state="new">When you invoke a runbook inline, it runs in the same job as the parent runbook.</target>
+        </trans-unit>
+        <trans-unit id="4a4a44cf-8702-4daa-b296-0550b6205185" xml:space="preserve">
+          <source>There will be no indication in the job history of the child runbook that it ran.</source>
+          <target state="new">There will be no indication in the job history of the child runbook that it ran.</target>
+        </trans-unit>
+        <trans-unit id="e15217c2-8ec6-41bf-bf0a-640dbf29ac50" xml:space="preserve">
+          <source>Any exceptions and any stream output from the child runbook will be associated with the parent.</source>
+          <target state="new">Any exceptions and any stream output from the child runbook will be associated with the parent.</target>
+        </trans-unit>
+        <trans-unit id="0279f923-46bd-485e-81ba-1b6bd8d28a75" xml:space="preserve">
+          <source>This results in fewer jobs and makes them easier to track and to troubleshoot since any exceptions thrown by the child runbook and any of its stream output are associated with the parent job.</source>
+          <target state="new">This results in fewer jobs and makes them easier to track and to troubleshoot since any exceptions thrown by the child runbook and any of its stream output are associated with the parent job.</target>
+        </trans-unit>
+        <trans-unit id="b20a8ce0-d44e-48d0-8721-8b17905e1ee7" xml:space="preserve">
+          <source>When a runbook is published, any child runbooks that it calls must already be published.</source>
+          <target state="new">When a runbook is published, any child runbooks that it calls must already be published.</target>
+        </trans-unit>
+        <trans-unit id="dd86f1fd-7ae6-44af-86c0-b2f259aeaa14" xml:space="preserve">
+          <source>This is because Azure Automation builds an association with any child runbooks when a runbook is compiled.</source>
+          <target state="new">This is because Azure Automation builds an association with any child runbooks when a runbook is compiled.</target>
+        </trans-unit>
+        <trans-unit id="d3d1fc4c-b6aa-492c-a947-38255bb0781d" xml:space="preserve">
+          <source>If they aren’t, the parent runbook will appear to publish properly, it but will generate an exception when it’s started.</source>
+          <target state="new">If they aren’t, the parent runbook will appear to publish properly, it but will generate an exception when it’s started.</target>
+        </trans-unit>
+        <trans-unit id="b5649442-fa03-4f1e-bc7d-8c17abd102a9" xml:space="preserve">
+          <source>If this happens, you can republish the parent runbook in order to properly reference the child runbooks.</source>
+          <target state="new">If this happens, you can republish the parent runbook in order to properly reference the child runbooks.</target>
+        </trans-unit>
+        <trans-unit id="dd03c3df-4b1b-4d3d-ba66-4dfa32dfbed3" xml:space="preserve">
+          <source>You do not need to republish the parent runbook if any of the child runbooks are changed because the association will have already been created.</source>
+          <target state="new">You do not need to republish the parent runbook if any of the child runbooks are changed because the association will have already been created.</target>
+        </trans-unit>
+        <trans-unit id="6c4c5a4f-e26b-4e9d-a21b-e52f8eb3c01b" xml:space="preserve">
+          <source>The parameters of a child runbook called inline can be any data type including complex objects, and there is no <bpt id="914b6ddc-6e10-480b-83db-d804ac1e6c67">&lt;linkText&gt;</bpt>JSON serialization<ept id="914b6ddc-6e10-480b-83db-d804ac1e6c67">&lt;/linkText&gt;</ept><bpt id="914b6ddc-6e10-480b-83db-d804ac1e6c67">&lt;title&gt;</bpt><ept id="914b6ddc-6e10-480b-83db-d804ac1e6c67">&lt;/title&gt;</ept> as there is when you start the runbook using the Azure Management Portal or with the Start-AzureAutomationRunbook cmdlet.</source>
+          <target state="new">The parameters of a child runbook called inline can be any data type including complex objects, and there is no <bpt id="914b6ddc-6e10-480b-83db-d804ac1e6c67">&lt;linkText&gt;</bpt>JSON serialization<ept id="914b6ddc-6e10-480b-83db-d804ac1e6c67">&lt;/linkText&gt;</ept><bpt id="914b6ddc-6e10-480b-83db-d804ac1e6c67">&lt;title&gt;</bpt><ept id="914b6ddc-6e10-480b-83db-d804ac1e6c67">&lt;/title&gt;</ept> as there is when you start the runbook using the Azure Management Portal or with the Start-AzureAutomationRunbook cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="fe7299c8-01dd-47eb-ad0b-472232fc779f" xml:space="preserve">
+          <source>The following example invokes a test child runbook that accepts three parameters, a complex object, an integer, and a boolean.</source>
+          <target state="new">The following example invokes a test child runbook that accepts three parameters, a complex object, an integer, and a boolean.</target>
+        </trans-unit>
+        <trans-unit id="f837acd7-d447-41ca-a6a5-3401fb455c85" xml:space="preserve">
+          <source>The output of the child runbook is assigned to a variable.</source>
+          <target state="new">The output of the child runbook is assigned to a variable.</target>
+        </trans-unit>
+        <trans-unit id="b88d865e-8822-49c2-ab6b-ac7e7d5d0320" xml:space="preserve">
+          <source>You can use the <bpt id="817b44e6-da88-4b8a-a6de-7ac289a8b3bc">&lt;linkText&gt;</bpt>Start-AzureAutomationRunbook<ept id="817b44e6-da88-4b8a-a6de-7ac289a8b3bc">&lt;/linkText&gt;</ept><bpt id="817b44e6-da88-4b8a-a6de-7ac289a8b3bc">&lt;title&gt;</bpt><ept id="817b44e6-da88-4b8a-a6de-7ac289a8b3bc">&lt;/title&gt;</ept> cmdlet to start a runbook as described in <bpt id="504dd7b5-5b20-48e7-a199-b2dc35550fa2">&lt;linkText&gt;</bpt>To start a runbook with Windows PowerShell<ept id="504dd7b5-5b20-48e7-a199-b2dc35550fa2">&lt;/linkText&gt;</ept><bpt id="504dd7b5-5b20-48e7-a199-b2dc35550fa2">&lt;title&gt;</bpt><ept id="504dd7b5-5b20-48e7-a199-b2dc35550fa2">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can use the <bpt id="817b44e6-da88-4b8a-a6de-7ac289a8b3bc">&lt;linkText&gt;</bpt>Start-AzureAutomationRunbook<ept id="817b44e6-da88-4b8a-a6de-7ac289a8b3bc">&lt;/linkText&gt;</ept><bpt id="817b44e6-da88-4b8a-a6de-7ac289a8b3bc">&lt;title&gt;</bpt><ept id="817b44e6-da88-4b8a-a6de-7ac289a8b3bc">&lt;/title&gt;</ept> cmdlet to start a runbook as described in <bpt id="504dd7b5-5b20-48e7-a199-b2dc35550fa2">&lt;linkText&gt;</bpt>To start a runbook with Windows PowerShell<ept id="504dd7b5-5b20-48e7-a199-b2dc35550fa2">&lt;/linkText&gt;</ept><bpt id="504dd7b5-5b20-48e7-a199-b2dc35550fa2">&lt;title&gt;</bpt><ept id="504dd7b5-5b20-48e7-a199-b2dc35550fa2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e349cd23-eed0-47ee-b182-aa5fd5d1c056" xml:space="preserve">
+          <source>When you start a child runbook from a cmdlet, the parent runbook will move to the next line as soon as the job is created for the child runbook.</source>
+          <target state="new">When you start a child runbook from a cmdlet, the parent runbook will move to the next line as soon as the job is created for the child runbook.</target>
+        </trans-unit>
+        <trans-unit id="2c763ca0-5e4f-4b73-9f1e-03b3f930daf3" xml:space="preserve">
+          <source>If you need to retrieve any output from the runbook, then you need to access the job using <bpt id="ca79affe-0fac-4345-b4e5-0de90baccf26">&lt;linkText&gt;</bpt>Get-AzureAutomationJobOutput<ept id="ca79affe-0fac-4345-b4e5-0de90baccf26">&lt;/linkText&gt;</ept><bpt id="ca79affe-0fac-4345-b4e5-0de90baccf26">&lt;title&gt;</bpt><ept id="ca79affe-0fac-4345-b4e5-0de90baccf26">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need to retrieve any output from the runbook, then you need to access the job using <bpt id="ca79affe-0fac-4345-b4e5-0de90baccf26">&lt;linkText&gt;</bpt>Get-AzureAutomationJobOutput<ept id="ca79affe-0fac-4345-b4e5-0de90baccf26">&lt;/linkText&gt;</ept><bpt id="ca79affe-0fac-4345-b4e5-0de90baccf26">&lt;title&gt;</bpt><ept id="ca79affe-0fac-4345-b4e5-0de90baccf26">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5f18011-8abe-4a44-868a-4b576828c762" xml:space="preserve">
+          <source>The job from a child runbook started with a cmdlet will run in a separate job from the parent runbook.</source>
+          <target state="new">The job from a child runbook started with a cmdlet will run in a separate job from the parent runbook.</target>
+        </trans-unit>
+        <trans-unit id="f0ff6f7d-8c8d-4325-9c06-bad72e69a761" xml:space="preserve">
+          <source>This results in more jobs than invoking the script inline and makes them more difficult to track.</source>
+          <target state="new">This results in more jobs than invoking the script inline and makes them more difficult to track.</target>
+        </trans-unit>
+        <trans-unit id="4d10c533-b4a6-4e66-9c40-53148fd4cac5" xml:space="preserve">
+          <source>The parent can start multiple child runbooks though without waiting for each to complete.</source>
+          <target state="new">The parent can start multiple child runbooks though without waiting for each to complete.</target>
+        </trans-unit>
+        <trans-unit id="4ccab600-4208-4586-9fd7-fe92cefedc19" xml:space="preserve">
+          <source>For that same kind of parallel execution calling the child runbooks inline, the parent runbook would need to use the <bpt id="1993f8cb-ca47-449d-9821-b4783312b472">&lt;linkText&gt;</bpt>parallel keyword<ept id="1993f8cb-ca47-449d-9821-b4783312b472">&lt;/linkText&gt;</ept><bpt id="1993f8cb-ca47-449d-9821-b4783312b472">&lt;title&gt;</bpt><ept id="1993f8cb-ca47-449d-9821-b4783312b472">&lt;/title&gt;</ept>.</source>
+          <target state="new">For that same kind of parallel execution calling the child runbooks inline, the parent runbook would need to use the <bpt id="1993f8cb-ca47-449d-9821-b4783312b472">&lt;linkText&gt;</bpt>parallel keyword<ept id="1993f8cb-ca47-449d-9821-b4783312b472">&lt;/linkText&gt;</ept><bpt id="1993f8cb-ca47-449d-9821-b4783312b472">&lt;title&gt;</bpt><ept id="1993f8cb-ca47-449d-9821-b4783312b472">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="451ab32e-d1b9-49ba-96e4-26b35f66de5a" xml:space="preserve">
+          <source>Parameters for a child runbook started with a cmdlet are provided as a hashtable as described in <bpt id="712ce004-4fd5-459a-9529-dff419a7517c">&lt;linkText&gt;</bpt>Runbook Parameters<ept id="712ce004-4fd5-459a-9529-dff419a7517c">&lt;/linkText&gt;</ept><bpt id="712ce004-4fd5-459a-9529-dff419a7517c">&lt;title&gt;</bpt><ept id="712ce004-4fd5-459a-9529-dff419a7517c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Parameters for a child runbook started with a cmdlet are provided as a hashtable as described in <bpt id="712ce004-4fd5-459a-9529-dff419a7517c">&lt;linkText&gt;</bpt>Runbook Parameters<ept id="712ce004-4fd5-459a-9529-dff419a7517c">&lt;/linkText&gt;</ept><bpt id="712ce004-4fd5-459a-9529-dff419a7517c">&lt;title&gt;</bpt><ept id="712ce004-4fd5-459a-9529-dff419a7517c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ba1608a-6bf4-4a9a-9568-a2f45c33f642" xml:space="preserve">
+          <source>Only simple data types can be used.</source>
+          <target state="new">Only simple data types can be used.</target>
+        </trans-unit>
+        <trans-unit id="1aeddd61-e84d-4fe4-8206-6d9e77c7807e" xml:space="preserve">
+          <source>If the runbook has a parameter with a complex data type, then it must be called inline.</source>
+          <target state="new">If the runbook has a parameter with a complex data type, then it must be called inline.</target>
+        </trans-unit>
+        <trans-unit id="d7b0ffad-605b-47de-b913-32de480aabf3" xml:space="preserve">
+          <source>The following example starts a child runbook with parameters and then waits for it to complete.</source>
+          <target state="new">The following example starts a child runbook with parameters and then waits for it to complete.</target>
+        </trans-unit>
+        <trans-unit id="881c5916-43e8-4d82-960a-d18476bd1622" xml:space="preserve">
+          <source>Once completed, its output is collected from the job by the parent runbook.</source>
+          <target state="new">Once completed, its output is collected from the job by the parent runbook.</target>
+        </trans-unit>
+        <trans-unit id="5eecf734-6a71-42df-9f0f-8a55424e90bd" xml:space="preserve">
+          <source><bpt id="6a4a3004-899e-451e-89f6-ba20c877c086">&lt;linkText&gt;</bpt>Start-ChildRunbook<ept id="6a4a3004-899e-451e-89f6-ba20c877c086">&lt;/linkText&gt;</ept><bpt id="6a4a3004-899e-451e-89f6-ba20c877c086">&lt;title&gt;</bpt><ept id="6a4a3004-899e-451e-89f6-ba20c877c086">&lt;/title&gt;</ept> is a helper runbook available in the TechNet Gallery to start a runbook from a cmdlet.</source>
+          <target state="new"><bpt id="6a4a3004-899e-451e-89f6-ba20c877c086">&lt;linkText&gt;</bpt>Start-ChildRunbook<ept id="6a4a3004-899e-451e-89f6-ba20c877c086">&lt;/linkText&gt;</ept><bpt id="6a4a3004-899e-451e-89f6-ba20c877c086">&lt;title&gt;</bpt><ept id="6a4a3004-899e-451e-89f6-ba20c877c086">&lt;/title&gt;</ept> is a helper runbook available in the TechNet Gallery to start a runbook from a cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="aca10ca3-139d-45fa-b0d4-ab08c81b8d6f" xml:space="preserve">
+          <source>This provides the option of waiting until the child runbook has completed and retrieving its output.</source>
+          <target state="new">This provides the option of waiting until the child runbook has completed and retrieving its output.</target>
+        </trans-unit>
+        <trans-unit id="b2de1f9f-9d78-4f19-b9b4-2c5d7d544a23" xml:space="preserve">
+          <source>In addition to using this runbook in your own Azure Automation environment, this runbook can be used as a reference for working with runbooks and jobs using cmdlets.</source>
+          <target state="new">In addition to using this runbook in your own Azure Automation environment, this runbook can be used as a reference for working with runbooks and jobs using cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="1ac363e5-9d79-4322-a75d-bd88bcddc490" xml:space="preserve">
+          <source>The helper runbook itself must be called inline because it requires a hashtable parameter to accept the parameter values for the child runbook.</source>
+          <target state="new">The helper runbook itself must be called inline because it requires a hashtable parameter to accept the parameter values for the child runbook.</target>
+        </trans-unit>
+        <trans-unit id="01fee0b7-2a53-4c68-8c70-465f41e5f853" xml:space="preserve">
+          <source>The following table summarizes the differences between the two methods for calling a runbook from another runbook.</source>
+          <target state="new">The following table summarizes the differences between the two methods for calling a runbook from another runbook.</target>
+        </trans-unit>
+        <trans-unit id="f14c4011-5e34-4cbe-b9a0-c25710735709" xml:space="preserve">
+          <source>Inline</source>
+          <target state="new">Inline</target>
+        </trans-unit>
+        <trans-unit id="2c132397-3021-40fb-8769-8ff1ce40165a" xml:space="preserve">
+          <source>Cmdlet</source>
+          <target state="new">Cmdlet</target>
+        </trans-unit>
+        <trans-unit id="04cba5c4-8d89-48fa-b711-f9c5b3910c88" xml:space="preserve">
+          <source>Job</source>
+          <target state="new">Job</target>
+        </trans-unit>
+        <trans-unit id="6fae604c-6175-429b-94b6-eb333de0dc63" xml:space="preserve">
+          <source>Child runbooks run in the same job as the parent.</source>
+          <target state="new">Child runbooks run in the same job as the parent.</target>
+        </trans-unit>
+        <trans-unit id="bb160efb-e5f3-426e-9403-b9a0c57fe68b" xml:space="preserve">
+          <source>A separate job is created for the child runbook.</source>
+          <target state="new">A separate job is created for the child runbook.</target>
+        </trans-unit>
+        <trans-unit id="3ae56e57-a117-4a84-9bd7-602e0ba02021" xml:space="preserve">
+          <source>Execution</source>
+          <target state="new">Execution</target>
+        </trans-unit>
+        <trans-unit id="21a9359b-a9e2-4ead-9678-99f01b7779cf" xml:space="preserve">
+          <source>Parent runbook waits for the child runbook to complete before continuing.</source>
+          <target state="new">Parent runbook waits for the child runbook to complete before continuing.</target>
+        </trans-unit>
+        <trans-unit id="20d8639b-849c-4201-bbba-89a883a989e5" xml:space="preserve">
+          <source>Parent runbook continues immediately after child runbook is started.</source>
+          <target state="new">Parent runbook continues immediately after child runbook is started.</target>
+        </trans-unit>
+        <trans-unit id="e78e2fe9-1628-4f15-9f10-f64254975b83" xml:space="preserve">
+          <source>Output</source>
+          <target state="new">Output</target>
+        </trans-unit>
+        <trans-unit id="b6e839cd-c322-4647-bbc7-a849914d8b70" xml:space="preserve">
+          <source>Parent runbook can directly get output from child runbook.</source>
+          <target state="new">Parent runbook can directly get output from child runbook.</target>
+        </trans-unit>
+        <trans-unit id="59722c88-8ba4-4e8b-9dfa-40c5f4a62811" xml:space="preserve">
+          <source>Parent runbook must retrieve output from child runbook job.</source>
+          <target state="new">Parent runbook must retrieve output from child runbook job.</target>
+        </trans-unit>
+        <trans-unit id="bb81821d-adbd-40f9-9bfc-538ca67c4aba" xml:space="preserve">
+          <source>Parameters</source>
+          <target state="new">Parameters</target>
+        </trans-unit>
+        <trans-unit id="ee7eddff-c373-486a-8167-3d06316cf771" xml:space="preserve">
+          <source>Values for the child runbook parameters are specified separately and can use any data type.</source>
+          <target state="new">Values for the child runbook parameters are specified separately and can use any data type.</target>
+        </trans-unit>
+        <trans-unit id="bf0624f3-5b42-458e-b923-1bb816b160a2" xml:space="preserve">
+          <source>Values for the child runbook parameters must be combined into a single hashtable and can only include simple, array, and object data types that leverage JSON serialization.</source>
+          <target state="new">Values for the child runbook parameters must be combined into a single hashtable and can only include simple, array, and object data types that leverage JSON serialization.</target>
+        </trans-unit>
+        <trans-unit id="60eb9329-2430-4a68-af14-eb4ccdfec5a3" xml:space="preserve">
+          <source>Automation Account</source>
+          <target state="new">Automation Account</target>
+        </trans-unit>
+        <trans-unit id="3d279cb6-449c-44c6-898c-a1f67f2a349c" xml:space="preserve">
+          <source>Parent runbook can only use child runbook in the same automation account.</source>
+          <target state="new">Parent runbook can only use child runbook in the same automation account.</target>
+        </trans-unit>
+        <trans-unit id="c284a514-a7d0-432d-bbd4-433a15f983da" xml:space="preserve">
+          <source>Parent runbook can use child runbook from any automation account from the same Azure subscription and even a different subscription if you have a connection to it.</source>
+          <target state="new">Parent runbook can use child runbook from any automation account from the same Azure subscription and even a different subscription if you have a connection to it.</target>
+        </trans-unit>
+        <trans-unit id="e7da501e-df3b-40dc-a381-72a13fff6a1e" xml:space="preserve">
+          <source>Publishing</source>
+          <target state="new">Publishing</target>
+        </trans-unit>
+        <trans-unit id="c7653813-2e38-4ed9-9b0f-9cd4005e927d" xml:space="preserve">
+          <source>Child runbook must be published before parent runbook is published.</source>
+          <target state="new">Child runbook must be published before parent runbook is published.</target>
+        </trans-unit>
+        <trans-unit id="b504111c-deb3-41c4-81e1-0f1e721e196b" xml:space="preserve">
+          <source>Child runbook must be published any time before parent runbook is started.</source>
+          <target state="new">Child runbook must be published any time before parent runbook is started.</target>
+        </trans-unit>
+        <trans-unit id="26afa8d9-bee4-4ca1-b7b8-05b6bf156103" xml:space="preserve">
+          <source><bpt id="80e8ec1d-ff13-4e7b-b495-4d41afef4d2e">&lt;linkText&gt;</bpt>Starting a runbook in Azure Automation<ept id="80e8ec1d-ff13-4e7b-b495-4d41afef4d2e">&lt;/linkText&gt;</ept><bpt id="80e8ec1d-ff13-4e7b-b495-4d41afef4d2e">&lt;title&gt;</bpt><ept id="80e8ec1d-ff13-4e7b-b495-4d41afef4d2e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="80e8ec1d-ff13-4e7b-b495-4d41afef4d2e">&lt;linkText&gt;</bpt>Starting a runbook in Azure Automation<ept id="80e8ec1d-ff13-4e7b-b495-4d41afef4d2e">&lt;/linkText&gt;</ept><bpt id="80e8ec1d-ff13-4e7b-b495-4d41afef4d2e">&lt;title&gt;</bpt><ept id="80e8ec1d-ff13-4e7b-b495-4d41afef4d2e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd724675-29d1-44c4-865a-bd419a569abc" xml:space="preserve">
+          <source><bpt id="cef10fad-9df9-46a2-b268-8eb4eb4e8cce">&lt;linkText&gt;</bpt>Runbook output and messages in Azure Automation<ept id="cef10fad-9df9-46a2-b268-8eb4eb4e8cce">&lt;/linkText&gt;</ept><bpt id="cef10fad-9df9-46a2-b268-8eb4eb4e8cce">&lt;title&gt;</bpt><ept id="cef10fad-9df9-46a2-b268-8eb4eb4e8cce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cef10fad-9df9-46a2-b268-8eb4eb4e8cce">&lt;linkText&gt;</bpt>Runbook output and messages in Azure Automation<ept id="cef10fad-9df9-46a2-b268-8eb4eb4e8cce">&lt;/linkText&gt;</ept><bpt id="cef10fad-9df9-46a2-b268-8eb4eb4e8cce">&lt;title&gt;</bpt><ept id="cef10fad-9df9-46a2-b268-8eb4eb4e8cce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

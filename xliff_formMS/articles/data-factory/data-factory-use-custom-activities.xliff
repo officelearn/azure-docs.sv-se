@@ -1,0 +1,831 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="47c144f1-e36a-4220-afdc-2bfb38920c9a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="47c144f1-e36a-4220-afdc-2bfb38920c9a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="efd9a00b-de1a-44eb-b703-267515e048bc">
+        <trans-unit id="20fd96ab-e150-4e39-8f7d-bdbaacb069ce" xml:space="preserve">
+          <source>Use custom activities in an Azure Data Factory pipeline</source>
+          <target state="new">Use custom activities in an Azure Data Factory pipeline</target>
+        </trans-unit>
+        <trans-unit id="8f93ea72-fe74-4026-a995-47c30d3a0b99" xml:space="preserve">
+          <source>Learn how to create custom activities and use them in an Azure Data Factory pipeline.</source>
+          <target state="new">Learn how to create custom activities and use them in an Azure Data Factory pipeline.</target>
+        </trans-unit>
+        <trans-unit id="8e3942f7-3d70-4412-a6a8-05350dc3bff9" xml:space="preserve">
+          <source>Azure Data Factory supports built-in activities such as <bpt id="0a94ee99-2fc8-4f3d-947b-1231668f6a93">&lt;strong&gt;</bpt>Copy Activity<ept id="0a94ee99-2fc8-4f3d-947b-1231668f6a93">&lt;/strong&gt;</ept> and <bpt id="721d280f-ee6f-46ce-a1ad-06dcc40ec556">&lt;strong&gt;</bpt>HDInsight Activity<ept id="721d280f-ee6f-46ce-a1ad-06dcc40ec556">&lt;/strong&gt;</ept> to be used in pipelines to move and process data.</source>
+          <target state="new">Azure Data Factory supports built-in activities such as <bpt id="0a94ee99-2fc8-4f3d-947b-1231668f6a93">&lt;strong&gt;</bpt>Copy Activity<ept id="0a94ee99-2fc8-4f3d-947b-1231668f6a93">&lt;/strong&gt;</ept> and <bpt id="721d280f-ee6f-46ce-a1ad-06dcc40ec556">&lt;strong&gt;</bpt>HDInsight Activity<ept id="721d280f-ee6f-46ce-a1ad-06dcc40ec556">&lt;/strong&gt;</ept> to be used in pipelines to move and process data.</target>
+        </trans-unit>
+        <trans-unit id="e8ac1c04-39e4-4b4e-9796-9e2b925ab178" xml:space="preserve">
+          <source>You can also create a custom .NET activity with your own transformation/processing logic and use the activity in a pipeline.</source>
+          <target state="new">You can also create a custom .NET activity with your own transformation/processing logic and use the activity in a pipeline.</target>
+        </trans-unit>
+        <trans-unit id="6ee6c641-9e97-40a2-9c0e-072e4e65f6b9" xml:space="preserve">
+          <source>You can configure the activity to run using either an <bpt id="9fb74f68-6c5b-4124-a4c6-4abd5124fe0e">&lt;strong&gt;</bpt>Azure HDInsight<ept id="9fb74f68-6c5b-4124-a4c6-4abd5124fe0e">&lt;/strong&gt;</ept> cluster or an <bpt id="dd2d4832-f78b-4e44-8db1-c449e1c05dbb">&lt;strong&gt;</bpt>Azure Batch<ept id="dd2d4832-f78b-4e44-8db1-c449e1c05dbb">&lt;/strong&gt;</ept> service.</source>
+          <target state="new">You can configure the activity to run using either an <bpt id="9fb74f68-6c5b-4124-a4c6-4abd5124fe0e">&lt;strong&gt;</bpt>Azure HDInsight<ept id="9fb74f68-6c5b-4124-a4c6-4abd5124fe0e">&lt;/strong&gt;</ept> cluster or an <bpt id="dd2d4832-f78b-4e44-8db1-c449e1c05dbb">&lt;strong&gt;</bpt>Azure Batch<ept id="dd2d4832-f78b-4e44-8db1-c449e1c05dbb">&lt;/strong&gt;</ept> service.</target>
+        </trans-unit>
+        <trans-unit id="1a7363c7-09d5-43c9-b0aa-d33d0cb608b5" xml:space="preserve">
+          <source>This article describes how to create a custom activity and use it in an Azure Data Factory pipeline.</source>
+          <target state="new">This article describes how to create a custom activity and use it in an Azure Data Factory pipeline.</target>
+        </trans-unit>
+        <trans-unit id="77da8a41-7103-487c-8b5c-95bb1cc305ed" xml:space="preserve">
+          <source>It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity.</source>
+          <target state="new">It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity.</target>
+        </trans-unit>
+        <trans-unit id="e586798d-0fc3-4115-bcc5-6f941c0e8d11" xml:space="preserve">
+          <source>The walkthrough uses the HDInsight linked service.</source>
+          <target state="new">The walkthrough uses the HDInsight linked service.</target>
+        </trans-unit>
+        <trans-unit id="9250ac37-308f-456c-b38c-2eb660c128bb" xml:space="preserve">
+          <source>To use the Azure Batch linked service instead, you create a linked service of type <bpt id="b258184b-efee-44ea-8bf6-11f4fcba2f89">&lt;strong&gt;</bpt>AzureBatch<ept id="b258184b-efee-44ea-8bf6-11f4fcba2f89">&lt;/strong&gt;</ept> and use it in the activity section of the pipeline JSON (<bpt id="49a0a5b4-0ed3-426a-96cc-7f42b6590522">&lt;strong&gt;</bpt>linkedServiceName<ept id="49a0a5b4-0ed3-426a-96cc-7f42b6590522">&lt;/strong&gt;</ept>).</source>
+          <target state="new">To use the Azure Batch linked service instead, you create a linked service of type <bpt id="b258184b-efee-44ea-8bf6-11f4fcba2f89">&lt;strong&gt;</bpt>AzureBatch<ept id="b258184b-efee-44ea-8bf6-11f4fcba2f89">&lt;/strong&gt;</ept> and use it in the activity section of the pipeline JSON (<bpt id="49a0a5b4-0ed3-426a-96cc-7f42b6590522">&lt;strong&gt;</bpt>linkedServiceName<ept id="49a0a5b4-0ed3-426a-96cc-7f42b6590522">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="cacd213c-8af7-4906-9ee8-70b706a5bac0" xml:space="preserve">
+          <source>See the <bpt id="72a37f65-73f1-4901-9160-4968d702185a">&lt;linkText&gt;</bpt>Azure Batch Linked Service<ept id="72a37f65-73f1-4901-9160-4968d702185a">&lt;/linkText&gt;</ept><bpt id="72a37f65-73f1-4901-9160-4968d702185a">&lt;title&gt;</bpt><ept id="72a37f65-73f1-4901-9160-4968d702185a">&lt;/title&gt;</ept> section for details on using Azure Batch with the custom activity.</source>
+          <target state="new">See the <bpt id="72a37f65-73f1-4901-9160-4968d702185a">&lt;linkText&gt;</bpt>Azure Batch Linked Service<ept id="72a37f65-73f1-4901-9160-4968d702185a">&lt;/linkText&gt;</ept><bpt id="72a37f65-73f1-4901-9160-4968d702185a">&lt;title&gt;</bpt><ept id="72a37f65-73f1-4901-9160-4968d702185a">&lt;/title&gt;</ept> section for details on using Azure Batch with the custom activity.</target>
+        </trans-unit>
+        <trans-unit id="f1a40073-c2f2-4667-84bb-2472a4e25c04" xml:space="preserve">
+          <source>This Walkthrough provides you with step-by-step instructions for creating a custom activity and using the activity in an Azure Data Factory pipeline.</source>
+          <target state="new">This Walkthrough provides you with step-by-step instructions for creating a custom activity and using the activity in an Azure Data Factory pipeline.</target>
+        </trans-unit>
+        <trans-unit id="382ce514-87e6-4dce-9dab-9f42a8d6b17b" xml:space="preserve">
+          <source>This walkthrough extends the tutorial from the <bpt id="b77242d5-b907-4225-b00f-990701a2a31e">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="b77242d5-b907-4225-b00f-990701a2a31e">&lt;/linkText&gt;</ept><bpt id="b77242d5-b907-4225-b00f-990701a2a31e">&lt;title&gt;</bpt><ept id="b77242d5-b907-4225-b00f-990701a2a31e">&lt;/title&gt;</ept>.</source>
+          <target state="new">This walkthrough extends the tutorial from the <bpt id="b77242d5-b907-4225-b00f-990701a2a31e">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="b77242d5-b907-4225-b00f-990701a2a31e">&lt;/linkText&gt;</ept><bpt id="b77242d5-b907-4225-b00f-990701a2a31e">&lt;title&gt;</bpt><ept id="b77242d5-b907-4225-b00f-990701a2a31e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95431396-893b-4cdb-a722-e3f52ec4a620" xml:space="preserve">
+          <source>If you want to see the custom activity working, you need to go through the Get started tutorial first and then do this walkthrough.</source>
+          <target state="new">If you want to see the custom activity working, you need to go through the Get started tutorial first and then do this walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="7606744a-5e01-4324-8e69-c4e0f5f804e3" xml:space="preserve">
+          <source><bpt id="02e7ef63-c9db-45b2-b92d-dc4a0daa9e46">&lt;strong&gt;</bpt>Prerequisites:<ept id="02e7ef63-c9db-45b2-b92d-dc4a0daa9e46">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="02e7ef63-c9db-45b2-b92d-dc4a0daa9e46">&lt;strong&gt;</bpt>Prerequisites:<ept id="02e7ef63-c9db-45b2-b92d-dc4a0daa9e46">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="151bbe11-33e4-4a64-b4e5-b8eb21987c45" xml:space="preserve">
+          <source>Tutorial from <bpt id="e782e89d-2812-4465-9a1c-3bb102a17158">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="e782e89d-2812-4465-9a1c-3bb102a17158">&lt;/linkText&gt;</ept><bpt id="e782e89d-2812-4465-9a1c-3bb102a17158">&lt;title&gt;</bpt><ept id="e782e89d-2812-4465-9a1c-3bb102a17158">&lt;/title&gt;</ept>.</source>
+          <target state="new">Tutorial from <bpt id="e782e89d-2812-4465-9a1c-3bb102a17158">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="e782e89d-2812-4465-9a1c-3bb102a17158">&lt;/linkText&gt;</ept><bpt id="e782e89d-2812-4465-9a1c-3bb102a17158">&lt;title&gt;</bpt><ept id="e782e89d-2812-4465-9a1c-3bb102a17158">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1bbce2b8-db11-4ed4-8c17-31f6361b25be" xml:space="preserve">
+          <source>You must complete the tutorial from this article before doing this walkthrough.</source>
+          <target state="new">You must complete the tutorial from this article before doing this walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="baa4c9b8-7d1f-4fb9-a5b3-dcb93cfbda02" xml:space="preserve">
+          <source>Visual Studio 2012 or 2013</source>
+          <target state="new">Visual Studio 2012 or 2013</target>
+        </trans-unit>
+        <trans-unit id="2b6ce861-97fb-49d5-acbe-e98902635028" xml:space="preserve">
+          <source>Download and install <bpt id="e73e9ed1-374d-4f29-b540-d0ceab1c6b57">&lt;linkText&gt;</bpt>Azure .NET SDK[azure-developer-center]<ept id="e73e9ed1-374d-4f29-b540-d0ceab1c6b57">&lt;/linkText&gt;</ept><bpt id="e73e9ed1-374d-4f29-b540-d0ceab1c6b57">&lt;title&gt;</bpt><ept id="e73e9ed1-374d-4f29-b540-d0ceab1c6b57">&lt;/title&gt;</ept></source>
+          <target state="new">Download and install <bpt id="e73e9ed1-374d-4f29-b540-d0ceab1c6b57">&lt;linkText&gt;</bpt>Azure .NET SDK[azure-developer-center]<ept id="e73e9ed1-374d-4f29-b540-d0ceab1c6b57">&lt;/linkText&gt;</ept><bpt id="e73e9ed1-374d-4f29-b540-d0ceab1c6b57">&lt;title&gt;</bpt><ept id="e73e9ed1-374d-4f29-b540-d0ceab1c6b57">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b399dd8-4025-4eb8-b9ab-56400494f91a" xml:space="preserve">
+          <source>Download the latest <bpt id="04642ab4-4d01-4873-97d2-7c6a69ee7d66">&lt;linkText&gt;</bpt>NuGet package for Azure Data Factory<ept id="04642ab4-4d01-4873-97d2-7c6a69ee7d66">&lt;/linkText&gt;</ept><bpt id="04642ab4-4d01-4873-97d2-7c6a69ee7d66">&lt;title&gt;</bpt><ept id="04642ab4-4d01-4873-97d2-7c6a69ee7d66">&lt;/title&gt;</ept> and Install it.</source>
+          <target state="new">Download the latest <bpt id="04642ab4-4d01-4873-97d2-7c6a69ee7d66">&lt;linkText&gt;</bpt>NuGet package for Azure Data Factory<ept id="04642ab4-4d01-4873-97d2-7c6a69ee7d66">&lt;/linkText&gt;</ept><bpt id="04642ab4-4d01-4873-97d2-7c6a69ee7d66">&lt;title&gt;</bpt><ept id="04642ab4-4d01-4873-97d2-7c6a69ee7d66">&lt;/title&gt;</ept> and Install it.</target>
+        </trans-unit>
+        <trans-unit id="199afa8a-c1f9-4dc4-8744-b6bc65183dd8" xml:space="preserve">
+          <source>Instructions are in the walkthrough.</source>
+          <target state="new">Instructions are in the walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="d091e4c2-dc84-44ce-b203-5131496b2fea" xml:space="preserve">
+          <source>Download and install NuGet package for Azure Storage.</source>
+          <target state="new">Download and install NuGet package for Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="e29d09c4-2c48-4a5c-83ef-2e1e7afea1f2" xml:space="preserve">
+          <source>Instructions are in the walkthrough, so you can skip this step.</source>
+          <target state="new">Instructions are in the walkthrough, so you can skip this step.</target>
+        </trans-unit>
+        <trans-unit id="8ca26514-070f-4199-9d4b-a805ff9a752f" xml:space="preserve">
+          <source>Create a .NET Class Library project.</source>
+          <target state="new">Create a .NET Class Library project.</target>
+        </trans-unit>
+        <trans-unit id="c6474129-7869-4502-bc67-36cc46c1353e" xml:space="preserve">
+          <source>Launch </source>
+          <target state="new">Launch </target>
+        </trans-unit>
+        <trans-unit id="1c8f2d18-46cc-4476-a4d0-29ef5b96882b" xml:space="preserve">
+          <source>Visual Studio 2012</source>
+          <target state="new">Visual Studio 2012</target>
+        </trans-unit>
+        <trans-unit id="bc2d2b3b-a339-4c0a-99f4-59fff4280cf9" xml:space="preserve">
+          <source> or </source>
+          <target state="new"> or </target>
+        </trans-unit>
+        <trans-unit id="bd9b317d-0f65-4f9a-962d-76ef80bbb5c8" xml:space="preserve">
+          <source>Visual Studio 2013</source>
+          <target state="new">Visual Studio 2013</target>
+        </trans-unit>
+        <trans-unit id="44c12f33-321a-4078-8053-295f9fec993e" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="411b3b47-e4d9-449d-aaab-0e76a8dfdc04" xml:space="preserve">
+          <source>Click </source>
+          <target state="new">Click </target>
+        </trans-unit>
+        <trans-unit id="92d941cb-88c2-4856-89df-5909f84b86e3" xml:space="preserve">
+          <source>File</source>
+          <target state="new">File</target>
+        </trans-unit>
+        <trans-unit id="0b5bd9af-f809-4621-b037-814003d0e592" xml:space="preserve">
+          <source>, point to </source>
+          <target state="new">, point to </target>
+        </trans-unit>
+        <trans-unit id="c687d9b6-9693-441f-a933-504cad7bd0b8" xml:space="preserve">
+          <source>New</source>
+          <target state="new">New</target>
+        </trans-unit>
+        <trans-unit id="3e550e2d-7047-4b07-bb1a-36dc40ffc8b5" xml:space="preserve">
+          <source>, and click </source>
+          <target state="new">, and click </target>
+        </trans-unit>
+        <trans-unit id="09c19624-7364-45cb-9761-5f191f534efb" xml:space="preserve">
+          <source>Project</source>
+          <target state="new">Project</target>
+        </trans-unit>
+        <trans-unit id="3196b0e8-ccea-45a6-ae5f-8265fbc23740" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="3afac365-554f-42ce-9488-08f5cfbd4db0" xml:space="preserve">
+          <source>Expand </source>
+          <target state="new">Expand </target>
+        </trans-unit>
+        <trans-unit id="21bca2d5-8faf-491e-8489-a1436e40d063" xml:space="preserve">
+          <source>Templates</source>
+          <target state="new">Templates</target>
+        </trans-unit>
+        <trans-unit id="07296aa0-6946-43a4-816f-1a3f73184a59" xml:space="preserve">
+          <source>, and select </source>
+          <target state="new">, and select </target>
+        </trans-unit>
+        <trans-unit id="ecb0f552-a3b3-4ead-83fb-33d7553b7f5a" xml:space="preserve">
+          <source>Visual C#</source>
+          <target state="new">Visual C#</target>
+        </trans-unit>
+        <trans-unit id="09ece5b3-beff-478f-8760-06537b7d2324" xml:space="preserve">
+          <source>. In this walkthrough, you use C#, but you can use any .NET language to develop the custom activity.</source>
+          <target state="new">. In this walkthrough, you use C#, but you can use any .NET language to develop the custom activity.</target>
+        </trans-unit>
+        <trans-unit id="5556f710-4df5-4ca8-88e6-756ee5427180" xml:space="preserve">
+          <source>Select </source>
+          <target state="new">Select </target>
+        </trans-unit>
+        <trans-unit id="277b9793-ea3c-44a8-bd1c-ad3cde144163" xml:space="preserve">
+          <source>Class Library</source>
+          <target state="new">Class Library</target>
+        </trans-unit>
+        <trans-unit id="f7369742-f8b5-4537-b43d-94bd77a38a24" xml:space="preserve">
+          <source> from the list of project types on the right.</source>
+          <target state="new"> from the list of project types on the right.</target>
+        </trans-unit>
+        <trans-unit id="5b38e7d5-e46e-43cc-a2dc-11d0a93461f5" xml:space="preserve">
+          <source>Enter </source>
+          <target state="new">Enter </target>
+        </trans-unit>
+        <trans-unit id="5e7ef015-e40e-441c-9417-1805fe31577a" xml:space="preserve">
+          <source>MyDotNetActivity</source>
+          <target state="new">MyDotNetActivity</target>
+        </trans-unit>
+        <trans-unit id="5f1aec96-8b5f-40fa-9b5b-4423c392ea38" xml:space="preserve">
+          <source> for the </source>
+          <target state="new"> for the </target>
+        </trans-unit>
+        <trans-unit id="f1ce6784-e3ba-4e86-81be-5bf3082f7c92" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="35260510-7a6a-4d58-b196-65fa84f7ef2d" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="338ef1c5-61b1-4d94-934e-133037082b22" xml:space="preserve">
+          <source>Select </source>
+          <target state="new">Select </target>
+        </trans-unit>
+        <trans-unit id="119a7eca-1a63-412e-aa66-1e27fdf5001c" xml:space="preserve">
+          <source>C:\ADFGetStarted</source>
+          <target state="new">C:\ADFGetStarted</target>
+        </trans-unit>
+        <trans-unit id="a1a195eb-a3ab-4fff-b44e-c4bccfa12e22" xml:space="preserve">
+          <source> for the </source>
+          <target state="new"> for the </target>
+        </trans-unit>
+        <trans-unit id="06abb081-e0d5-4510-a805-8d37d40f3c82" xml:space="preserve">
+          <source>Location</source>
+          <target state="new">Location</target>
+        </trans-unit>
+        <trans-unit id="0423f6d2-5540-4622-a95e-c14c5cc138b6" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="879aad4a-0a15-40bf-8668-a47533a3749d" xml:space="preserve">
+          <source>Click </source>
+          <target state="new">Click </target>
+        </trans-unit>
+        <trans-unit id="89053a22-1346-40d9-94f7-12630b76ecb6" xml:space="preserve">
+          <source>OK</source>
+          <target state="new">OK</target>
+        </trans-unit>
+        <trans-unit id="01ae908a-1f7e-4820-b265-3791e43605fa" xml:space="preserve">
+          <source> to create the project.</source>
+          <target state="new"> to create the project.</target>
+        </trans-unit>
+        <trans-unit id="832c968a-5153-4e25-a9f3-ac243691da21" xml:space="preserve">
+          <source>Click &lt;b&gt;Tools&lt;/b&gt;, point to &lt;b&gt;NuGet Package Manager&lt;/b&gt;, and click &lt;b&gt;Package Manager Console&lt;/b&gt;.</source>
+          <target state="new">Click &lt;b&gt;Tools&lt;/b&gt;, point to &lt;b&gt;NuGet Package Manager&lt;/b&gt;, and click &lt;b&gt;Package Manager Console&lt;/b&gt;.</target>
+        </trans-unit>
+        <trans-unit id="ed30a3f0-c4f8-4275-8aee-df397f72f898" xml:space="preserve">
+          <source>In the &lt;b&gt;Package Manager Console&lt;/b&gt;, execute the following command to import &lt;b&gt;Microsoft.Azure.Management.DataFactories&lt;/b&gt;.</source>
+          <target state="new">In the &lt;b&gt;Package Manager Console&lt;/b&gt;, execute the following command to import &lt;b&gt;Microsoft.Azure.Management.DataFactories&lt;/b&gt;.</target>
+        </trans-unit>
+        <trans-unit id="f9547634-f50b-4da5-8928-192532833bd0" xml:space="preserve">
+          <source>Import the Azure Storage NuGet package in to the project.</source>
+          <target state="new">Import the Azure Storage NuGet package in to the project.</target>
+        </trans-unit>
+        <trans-unit id="981fb2ac-7b7b-4f6c-8825-d985a27f0eb2" xml:space="preserve">
+          <source>Add the following <bpt id="dcdff429-19a5-4d63-a046-b22b4d1ba1d8">&lt;strong&gt;</bpt>using<ept id="dcdff429-19a5-4d63-a046-b22b4d1ba1d8">&lt;/strong&gt;</ept> statements to the source file in the project.</source>
+          <target state="new">Add the following <bpt id="dcdff429-19a5-4d63-a046-b22b4d1ba1d8">&lt;strong&gt;</bpt>using<ept id="dcdff429-19a5-4d63-a046-b22b4d1ba1d8">&lt;/strong&gt;</ept> statements to the source file in the project.</target>
+        </trans-unit>
+        <trans-unit id="e3c4e33a-f621-4f25-8abc-a6db1aaaa827" xml:space="preserve">
+          <source>Change the name of the <bpt id="6ffd8249-e119-4a5f-ae23-2bb05b40e027">&lt;strong&gt;</bpt>namespace<ept id="6ffd8249-e119-4a5f-ae23-2bb05b40e027">&lt;/strong&gt;</ept> to <bpt id="b1485da8-abd7-4eea-9f10-47c721523d43">&lt;strong&gt;</bpt>MyDotNetActivityNS<ept id="b1485da8-abd7-4eea-9f10-47c721523d43">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Change the name of the <bpt id="6ffd8249-e119-4a5f-ae23-2bb05b40e027">&lt;strong&gt;</bpt>namespace<ept id="6ffd8249-e119-4a5f-ae23-2bb05b40e027">&lt;/strong&gt;</ept> to <bpt id="b1485da8-abd7-4eea-9f10-47c721523d43">&lt;strong&gt;</bpt>MyDotNetActivityNS<ept id="b1485da8-abd7-4eea-9f10-47c721523d43">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33ba9444-b24a-4ea6-aa6c-143e8c007688" xml:space="preserve">
+          <source>Change the name of the class to <bpt id="a3fbe453-847c-4325-b3ce-92fea653ba22">&lt;strong&gt;</bpt>MyDotNetActivity<ept id="a3fbe453-847c-4325-b3ce-92fea653ba22">&lt;/strong&gt;</ept> and derive it from the <bpt id="e7229125-0634-44d1-9683-eb33753f2938">&lt;strong&gt;</bpt>IDotNetActivity<ept id="e7229125-0634-44d1-9683-eb33753f2938">&lt;/strong&gt;</ept> interface as shown below.</source>
+          <target state="new">Change the name of the class to <bpt id="a3fbe453-847c-4325-b3ce-92fea653ba22">&lt;strong&gt;</bpt>MyDotNetActivity<ept id="a3fbe453-847c-4325-b3ce-92fea653ba22">&lt;/strong&gt;</ept> and derive it from the <bpt id="e7229125-0634-44d1-9683-eb33753f2938">&lt;strong&gt;</bpt>IDotNetActivity<ept id="e7229125-0634-44d1-9683-eb33753f2938">&lt;/strong&gt;</ept> interface as shown below.</target>
+        </trans-unit>
+        <trans-unit id="cfa555e3-40e2-490c-b6ce-aadd9872d0f5" xml:space="preserve">
+          <source>Implement (Add) the <bpt id="9c28cfb1-f530-460e-ac97-93ac91fb163d">&lt;strong&gt;</bpt>Execute<ept id="9c28cfb1-f530-460e-ac97-93ac91fb163d">&lt;/strong&gt;</ept> method of the <bpt id="f8d31263-6ef0-4756-8a86-b5e6810899f2">&lt;strong&gt;</bpt>IDotNetActivity<ept id="f8d31263-6ef0-4756-8a86-b5e6810899f2">&lt;/strong&gt;</ept> interface to the <bpt id="e1c5550c-ea28-4470-9fec-fc6a07944319">&lt;strong&gt;</bpt>MyDotNetActivity<ept id="e1c5550c-ea28-4470-9fec-fc6a07944319">&lt;/strong&gt;</ept> class and copy the following sample code to the method.</source>
+          <target state="new">Implement (Add) the <bpt id="9c28cfb1-f530-460e-ac97-93ac91fb163d">&lt;strong&gt;</bpt>Execute<ept id="9c28cfb1-f530-460e-ac97-93ac91fb163d">&lt;/strong&gt;</ept> method of the <bpt id="f8d31263-6ef0-4756-8a86-b5e6810899f2">&lt;strong&gt;</bpt>IDotNetActivity<ept id="f8d31263-6ef0-4756-8a86-b5e6810899f2">&lt;/strong&gt;</ept> interface to the <bpt id="e1c5550c-ea28-4470-9fec-fc6a07944319">&lt;strong&gt;</bpt>MyDotNetActivity<ept id="e1c5550c-ea28-4470-9fec-fc6a07944319">&lt;/strong&gt;</ept> class and copy the following sample code to the method.</target>
+        </trans-unit>
+        <trans-unit id="cb6c02df-adf6-45ec-8e6c-773172c4e25b" xml:space="preserve">
+          <source>The following sample code counts the number of lines in the input blob and produces the following content in the output blob: path to the blob, number of lines in the blob, the machine on which the activity ran, current date-time.</source>
+          <target state="new">The following sample code counts the number of lines in the input blob and produces the following content in the output blob: path to the blob, number of lines in the blob, the machine on which the activity ran, current date-time.</target>
+        </trans-unit>
+        <trans-unit id="243fbf1f-955b-4d71-9267-5058bca019a3" xml:space="preserve">
+          <source>Add the following helper methods.</source>
+          <target state="new">Add the following helper methods.</target>
+        </trans-unit>
+        <trans-unit id="798b421e-55cb-44a2-90c4-bb1492dfa2a9" xml:space="preserve">
+          <source>The <bpt id="d2f54c29-3dc0-404c-a04e-d7ae2993d23b">&lt;strong&gt;</bpt>Execute<ept id="d2f54c29-3dc0-404c-a04e-d7ae2993d23b">&lt;/strong&gt;</ept> method invokes these helper methods.</source>
+          <target state="new">The <bpt id="d2f54c29-3dc0-404c-a04e-d7ae2993d23b">&lt;strong&gt;</bpt>Execute<ept id="d2f54c29-3dc0-404c-a04e-d7ae2993d23b">&lt;/strong&gt;</ept> method invokes these helper methods.</target>
+        </trans-unit>
+        <trans-unit id="88464d9b-c6cd-4b5e-94c7-156dc2b4fe1c" xml:space="preserve">
+          <source>The <bpt id="61aa1d89-aa1b-4b95-ac7c-7526bfe75beb">&lt;strong&gt;</bpt>GetConnectionString<ept id="61aa1d89-aa1b-4b95-ac7c-7526bfe75beb">&lt;/strong&gt;</ept> method retrieves the Azure Storage connection string and the <bpt id="1b3dd2ed-1799-45bf-a6b1-863f35561e69">&lt;strong&gt;</bpt>GetFolderPath<ept id="1b3dd2ed-1799-45bf-a6b1-863f35561e69">&lt;/strong&gt;</ept> method retrieves the blob location.</source>
+          <target state="new">The <bpt id="61aa1d89-aa1b-4b95-ac7c-7526bfe75beb">&lt;strong&gt;</bpt>GetConnectionString<ept id="61aa1d89-aa1b-4b95-ac7c-7526bfe75beb">&lt;/strong&gt;</ept> method retrieves the Azure Storage connection string and the <bpt id="1b3dd2ed-1799-45bf-a6b1-863f35561e69">&lt;strong&gt;</bpt>GetFolderPath<ept id="1b3dd2ed-1799-45bf-a6b1-863f35561e69">&lt;/strong&gt;</ept> method retrieves the blob location.</target>
+        </trans-unit>
+        <trans-unit id="2278097a-2337-4914-8297-932ce7eeb0b8" xml:space="preserve">
+          <source>Compile the project.</source>
+          <target state="new">Compile the project.</target>
+        </trans-unit>
+        <trans-unit id="189cfc2b-cc0b-4a73-8ff4-777e4304a702" xml:space="preserve">
+          <source>Click <bpt id="d6e7c8cb-7759-4c0c-9044-7486bac19ebb">&lt;strong&gt;</bpt>Build<ept id="d6e7c8cb-7759-4c0c-9044-7486bac19ebb">&lt;/strong&gt;</ept> from the menu and click <bpt id="a85bd6f8-0c65-4ca4-b786-78f8d3d27737">&lt;strong&gt;</bpt>Build Solution<ept id="a85bd6f8-0c65-4ca4-b786-78f8d3d27737">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d6e7c8cb-7759-4c0c-9044-7486bac19ebb">&lt;strong&gt;</bpt>Build<ept id="d6e7c8cb-7759-4c0c-9044-7486bac19ebb">&lt;/strong&gt;</ept> from the menu and click <bpt id="a85bd6f8-0c65-4ca4-b786-78f8d3d27737">&lt;strong&gt;</bpt>Build Solution<ept id="a85bd6f8-0c65-4ca4-b786-78f8d3d27737">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b91dd73-901a-41e9-8526-91570d72862c" xml:space="preserve">
+          <source>Launch <bpt id="262856d8-d39d-4840-8fd7-1bb6bfdc861e">&lt;strong&gt;</bpt>Windows Explorer<ept id="262856d8-d39d-4840-8fd7-1bb6bfdc861e">&lt;/strong&gt;</ept>, and navigate to <bpt id="b0bc2c99-5857-489c-b37a-3c2cdb761aeb">&lt;strong&gt;</bpt>bin\debug<ept id="b0bc2c99-5857-489c-b37a-3c2cdb761aeb">&lt;/strong&gt;</ept> or <bpt id="39c79c6a-d66f-47b3-83d6-81065a0d9850">&lt;strong&gt;</bpt>bin\release<ept id="39c79c6a-d66f-47b3-83d6-81065a0d9850">&lt;/strong&gt;</ept> folder depending type of build.</source>
+          <target state="new">Launch <bpt id="262856d8-d39d-4840-8fd7-1bb6bfdc861e">&lt;strong&gt;</bpt>Windows Explorer<ept id="262856d8-d39d-4840-8fd7-1bb6bfdc861e">&lt;/strong&gt;</ept>, and navigate to <bpt id="b0bc2c99-5857-489c-b37a-3c2cdb761aeb">&lt;strong&gt;</bpt>bin\debug<ept id="b0bc2c99-5857-489c-b37a-3c2cdb761aeb">&lt;/strong&gt;</ept> or <bpt id="39c79c6a-d66f-47b3-83d6-81065a0d9850">&lt;strong&gt;</bpt>bin\release<ept id="39c79c6a-d66f-47b3-83d6-81065a0d9850">&lt;/strong&gt;</ept> folder depending type of build.</target>
+        </trans-unit>
+        <trans-unit id="ac9da076-5c99-48a1-8f80-4d1bbc58b10e" xml:space="preserve">
+          <source>Create a zip file <bpt id="6984f159-9764-4e36-adf1-87f8c8edb399">&lt;strong&gt;</bpt>MyDotNetActivity.zip<ept id="6984f159-9764-4e36-adf1-87f8c8edb399">&lt;/strong&gt;</ept> that contain all the binaries in the &lt;project folder&gt;\bin\Debug folder. You may want to include the MyDotNetActivity.pdb file so that you get additional details such as line number in the source code that caused the issue in case of a failure. </source>
+          <target state="new">Create a zip file <bpt id="6984f159-9764-4e36-adf1-87f8c8edb399">&lt;strong&gt;</bpt>MyDotNetActivity.zip<ept id="6984f159-9764-4e36-adf1-87f8c8edb399">&lt;/strong&gt;</ept> that contain all the binaries in the &lt;project folder&gt;\bin\Debug folder. You may want to include the MyDotNetActivity.pdb file so that you get additional details such as line number in the source code that caused the issue in case of a failure. </target>
+        </trans-unit>
+        <trans-unit id="283ee1e6-e5b1-49fb-9ec9-127c69628362" xml:space="preserve">
+          <source>Upload <bpt id="4cbd59c6-01fc-430e-aa56-bcefde62f43e">&lt;strong&gt;</bpt>MyDotNetActivity.zip<ept id="4cbd59c6-01fc-430e-aa56-bcefde62f43e">&lt;/strong&gt;</ept> as a blob to the blob container: <bpt id="e7456d19-8128-4572-9fcd-4d673d66ab08">&lt;strong&gt;</bpt>customactvitycontainer<ept id="e7456d19-8128-4572-9fcd-4d673d66ab08">&lt;/strong&gt;</ept> in the Azure blob storage that the <bpt id="fa0ce20d-96d2-45a4-a58a-2a75c2a8a41c">&lt;strong&gt;</bpt>StorageLinkedService<ept id="fa0ce20d-96d2-45a4-a58a-2a75c2a8a41c">&lt;/strong&gt;</ept> linked service in the <bpt id="0aed9735-d1e3-485a-8b05-7150bf3c2178">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="0aed9735-d1e3-485a-8b05-7150bf3c2178">&lt;/strong&gt;</ept> uses.</source>
+          <target state="new">Upload <bpt id="4cbd59c6-01fc-430e-aa56-bcefde62f43e">&lt;strong&gt;</bpt>MyDotNetActivity.zip<ept id="4cbd59c6-01fc-430e-aa56-bcefde62f43e">&lt;/strong&gt;</ept> as a blob to the blob container: <bpt id="e7456d19-8128-4572-9fcd-4d673d66ab08">&lt;strong&gt;</bpt>customactvitycontainer<ept id="e7456d19-8128-4572-9fcd-4d673d66ab08">&lt;/strong&gt;</ept> in the Azure blob storage that the <bpt id="fa0ce20d-96d2-45a4-a58a-2a75c2a8a41c">&lt;strong&gt;</bpt>StorageLinkedService<ept id="fa0ce20d-96d2-45a4-a58a-2a75c2a8a41c">&lt;/strong&gt;</ept> linked service in the <bpt id="0aed9735-d1e3-485a-8b05-7150bf3c2178">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="0aed9735-d1e3-485a-8b05-7150bf3c2178">&lt;/strong&gt;</ept> uses.</target>
+        </trans-unit>
+        <trans-unit id="80594f14-e32d-4ca9-8463-d0ec8f731a84" xml:space="preserve">
+          <source>Create the blob container <bpt id="e8e819c4-ee3f-458c-88fc-cf61a49943b9">&lt;strong&gt;</bpt>customactivitycontainer<ept id="e8e819c4-ee3f-458c-88fc-cf61a49943b9">&lt;/strong&gt;</ept> if it does not already exist.</source>
+          <target state="new">Create the blob container <bpt id="e8e819c4-ee3f-458c-88fc-cf61a49943b9">&lt;strong&gt;</bpt>customactivitycontainer<ept id="e8e819c4-ee3f-458c-88fc-cf61a49943b9">&lt;/strong&gt;</ept> if it does not already exist.</target>
+        </trans-unit>
+        <trans-unit id="6f89b36d-99e8-41f0-b6dd-faab40d1926b" xml:space="preserve">
+          <source>If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, you do not need to perform the last two steps of creating the zip file and manually uploading it to the Azure blob storage.</source>
+          <target state="new">If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, you do not need to perform the last two steps of creating the zip file and manually uploading it to the Azure blob storage.</target>
+        </trans-unit>
+        <trans-unit id="bab7eb98-77ae-46f4-9708-736ed81d329c" xml:space="preserve">
+          <source>When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process.</source>
+          <target state="new">When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process.</target>
+        </trans-unit>
+        <trans-unit id="1ba5d29d-e086-4f7c-94c8-dd96e061c09b" xml:space="preserve">
+          <source>See <bpt id="215ec23c-ab7a-4adf-a02f-38fe7ce327a2">&lt;linkText&gt;</bpt>Build your first pipeline using Visual Studio<ept id="215ec23c-ab7a-4adf-a02f-38fe7ce327a2">&lt;/linkText&gt;</ept><bpt id="215ec23c-ab7a-4adf-a02f-38fe7ce327a2">&lt;title&gt;</bpt><ept id="215ec23c-ab7a-4adf-a02f-38fe7ce327a2">&lt;/title&gt;</ept> and <bpt id="ad78b2cd-e7e1-4d96-88c6-ff131806065f">&lt;linkText&gt;</bpt>Copy data from Azure Blob to Azure SQL<ept id="ad78b2cd-e7e1-4d96-88c6-ff131806065f">&lt;/linkText&gt;</ept><bpt id="ad78b2cd-e7e1-4d96-88c6-ff131806065f">&lt;title&gt;</bpt><ept id="ad78b2cd-e7e1-4d96-88c6-ff131806065f">&lt;/title&gt;</ept> articles to learn about creating and publishing Data Factory entities using Visual Studio.</source>
+          <target state="new">See <bpt id="215ec23c-ab7a-4adf-a02f-38fe7ce327a2">&lt;linkText&gt;</bpt>Build your first pipeline using Visual Studio<ept id="215ec23c-ab7a-4adf-a02f-38fe7ce327a2">&lt;/linkText&gt;</ept><bpt id="215ec23c-ab7a-4adf-a02f-38fe7ce327a2">&lt;title&gt;</bpt><ept id="215ec23c-ab7a-4adf-a02f-38fe7ce327a2">&lt;/title&gt;</ept> and <bpt id="ad78b2cd-e7e1-4d96-88c6-ff131806065f">&lt;linkText&gt;</bpt>Copy data from Azure Blob to Azure SQL<ept id="ad78b2cd-e7e1-4d96-88c6-ff131806065f">&lt;/linkText&gt;</ept><bpt id="ad78b2cd-e7e1-4d96-88c6-ff131806065f">&lt;title&gt;</bpt><ept id="ad78b2cd-e7e1-4d96-88c6-ff131806065f">&lt;/title&gt;</ept> articles to learn about creating and publishing Data Factory entities using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="8d1b738a-6797-4f09-9810-687f84e220c4" xml:space="preserve">
+          <source>Here are the steps you will be performing in this step:</source>
+          <target state="new">Here are the steps you will be performing in this step:</target>
+        </trans-unit>
+        <trans-unit id="2b381b79-d043-4c86-b9dd-cc9c35577ce8" xml:space="preserve">
+          <source>Create a linked service for the HDInsight cluster on which the custom activity will run as a map-only job.</source>
+          <target state="new">Create a linked service for the HDInsight cluster on which the custom activity will run as a map-only job.</target>
+        </trans-unit>
+        <trans-unit id="305faa37-fdfd-4d01-bef8-ac265f6b1bb8" xml:space="preserve">
+          <source>Create an output table that the pipeline in this sample will produce.</source>
+          <target state="new">Create an output table that the pipeline in this sample will produce.</target>
+        </trans-unit>
+        <trans-unit id="35e0e32a-029a-48c3-b254-990816af9e0d" xml:space="preserve">
+          <source>Create and run a pipeline that uses the custom activity you created in step 1.</source>
+          <target state="new">Create and run a pipeline that uses the custom activity you created in step 1.</target>
+        </trans-unit>
+        <trans-unit id="7a9d0829-3d5f-40dd-9d8d-f02532cd326c" xml:space="preserve">
+          <source>The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data.</source>
+          <target state="new">The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data.</target>
+        </trans-unit>
+        <trans-unit id="f6801686-7568-4a04-bd54-b2fd6fcb090c" xml:space="preserve">
+          <source>You can also use your own cluster to perform the same.</source>
+          <target state="new">You can also use your own cluster to perform the same.</target>
+        </trans-unit>
+        <trans-unit id="db0942ca-46d6-4ee1-bad8-b063c7aa6c63" xml:space="preserve">
+          <source>When you use on-demand HDInsight cluster, a cluster gets created for each slice.</source>
+          <target state="new">When you use on-demand HDInsight cluster, a cluster gets created for each slice.</target>
+        </trans-unit>
+        <trans-unit id="bd1fbca9-36ea-4b60-972e-8429cb3cf639" xml:space="preserve">
+          <source>Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately.</source>
+          <target state="new">Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately.</target>
+        </trans-unit>
+        <trans-unit id="8cb02120-b94b-4836-a7ba-9680337d31b5" xml:space="preserve">
+          <source>Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster.</source>
+          <target state="new">Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster.</target>
+        </trans-unit>
+        <trans-unit id="e0716925-5773-4630-96be-64d7b112edf3" xml:space="preserve">
+          <source>At runtime, an instance of a .NET activity runs only on one worker node in the HDInsight cluster; it cannot be scaled to run on multiple nodes.</source>
+          <target state="new">At runtime, an instance of a .NET activity runs only on one worker node in the HDInsight cluster; it cannot be scaled to run on multiple nodes.</target>
+        </trans-unit>
+        <trans-unit id="892d9d6f-6e9a-4a5f-878c-ea8f1a06bb88" xml:space="preserve">
+          <source>Multiple instances of .NET activity can run in parallel on different nodes of the HDInsight cluster.</source>
+          <target state="new">Multiple instances of .NET activity can run in parallel on different nodes of the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="adc0dd57-2478-41df-8044-7c8a46020966" xml:space="preserve">
+          <source>If you have extended the <bpt id="fd0505c3-0199-48e9-bf72-520951f0224e">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="fd0505c3-0199-48e9-bf72-520951f0224e">&lt;/linkText&gt;</ept><bpt id="fd0505c3-0199-48e9-bf72-520951f0224e">&lt;title&gt;</bpt><ept id="fd0505c3-0199-48e9-bf72-520951f0224e">&lt;/title&gt;</ept> tutorial with the walkthrough from <bpt id="11452a4f-5f8c-4b76-a108-d8074de2b460">&lt;linkText&gt;</bpt>Use Pig and Hive with Azure Data Factory[hivewalkthrough]<ept id="11452a4f-5f8c-4b76-a108-d8074de2b460">&lt;/linkText&gt;</ept><bpt id="11452a4f-5f8c-4b76-a108-d8074de2b460">&lt;title&gt;</bpt><ept id="11452a4f-5f8c-4b76-a108-d8074de2b460">&lt;/title&gt;</ept>, you can skip creation of this linked service and use the linked service you already have in the ADFTutorialDataFactory.</source>
+          <target state="new">If you have extended the <bpt id="fd0505c3-0199-48e9-bf72-520951f0224e">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="fd0505c3-0199-48e9-bf72-520951f0224e">&lt;/linkText&gt;</ept><bpt id="fd0505c3-0199-48e9-bf72-520951f0224e">&lt;title&gt;</bpt><ept id="fd0505c3-0199-48e9-bf72-520951f0224e">&lt;/title&gt;</ept> tutorial with the walkthrough from <bpt id="11452a4f-5f8c-4b76-a108-d8074de2b460">&lt;linkText&gt;</bpt>Use Pig and Hive with Azure Data Factory[hivewalkthrough]<ept id="11452a4f-5f8c-4b76-a108-d8074de2b460">&lt;/linkText&gt;</ept><bpt id="11452a4f-5f8c-4b76-a108-d8074de2b460">&lt;title&gt;</bpt><ept id="11452a4f-5f8c-4b76-a108-d8074de2b460">&lt;/title&gt;</ept>, you can skip creation of this linked service and use the linked service you already have in the ADFTutorialDataFactory.</target>
+        </trans-unit>
+        <trans-unit id="588a76b8-983f-4536-b912-ee7973e7a54d" xml:space="preserve">
+          <source>In the <bpt id="05157653-b419-4a39-b7d2-43e54263cf0e">&lt;strong&gt;</bpt>Azure Portal<ept id="05157653-b419-4a39-b7d2-43e54263cf0e">&lt;/strong&gt;</ept>, click <bpt id="d05dc385-9406-4e33-a609-81802d612f3d">&lt;strong&gt;</bpt>Author and Deploy<ept id="d05dc385-9406-4e33-a609-81802d612f3d">&lt;/strong&gt;</ept> in the Data Factory home page.</source>
+          <target state="new">In the <bpt id="05157653-b419-4a39-b7d2-43e54263cf0e">&lt;strong&gt;</bpt>Azure Portal<ept id="05157653-b419-4a39-b7d2-43e54263cf0e">&lt;/strong&gt;</ept>, click <bpt id="d05dc385-9406-4e33-a609-81802d612f3d">&lt;strong&gt;</bpt>Author and Deploy<ept id="d05dc385-9406-4e33-a609-81802d612f3d">&lt;/strong&gt;</ept> in the Data Factory home page.</target>
+        </trans-unit>
+        <trans-unit id="a82ea744-03b9-4e04-b8be-2bda11b54c32" xml:space="preserve">
+          <source>In the Data Factory Editor, click <bpt id="1de9c169-060c-4fcb-a822-a8a3e10e9b3f">&lt;strong&gt;</bpt>New compute<ept id="1de9c169-060c-4fcb-a822-a8a3e10e9b3f">&lt;/strong&gt;</ept> from the command bar and select <bpt id="9f125cfa-47cf-4d1b-9891-4eb5c881e571">&lt;strong&gt;</bpt>On-demand HDInsight cluster<ept id="9f125cfa-47cf-4d1b-9891-4eb5c881e571">&lt;/strong&gt;</ept> from the menu.</source>
+          <target state="new">In the Data Factory Editor, click <bpt id="1de9c169-060c-4fcb-a822-a8a3e10e9b3f">&lt;strong&gt;</bpt>New compute<ept id="1de9c169-060c-4fcb-a822-a8a3e10e9b3f">&lt;/strong&gt;</ept> from the command bar and select <bpt id="9f125cfa-47cf-4d1b-9891-4eb5c881e571">&lt;strong&gt;</bpt>On-demand HDInsight cluster<ept id="9f125cfa-47cf-4d1b-9891-4eb5c881e571">&lt;/strong&gt;</ept> from the menu.</target>
+        </trans-unit>
+        <trans-unit id="3a849aa0-21bd-4f4e-a8fe-1fc5857a62c5" xml:space="preserve">
+          <source>Do the following in the JSON script: </source>
+          <target state="new">Do the following in the JSON script: </target>
+        </trans-unit>
+        <trans-unit id="0ec77c0f-b793-4aff-97fb-befdab6363aa" xml:space="preserve">
+          <source>For the <bpt id="f5e3e33a-a583-4e12-a1e9-9f4eabce3dc7">&lt;strong&gt;</bpt>clusterSize<ept id="f5e3e33a-a583-4e12-a1e9-9f4eabce3dc7">&lt;/strong&gt;</ept> property, specify the size of the HDInsight cluster.</source>
+          <target state="new">For the <bpt id="f5e3e33a-a583-4e12-a1e9-9f4eabce3dc7">&lt;strong&gt;</bpt>clusterSize<ept id="f5e3e33a-a583-4e12-a1e9-9f4eabce3dc7">&lt;/strong&gt;</ept> property, specify the size of the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="2508e13a-dc1a-4e7e-a100-969a72785b68" xml:space="preserve">
+          <source>For the <bpt id="7065ffa1-d5cf-4fa7-bdab-e826ac18f6e9">&lt;strong&gt;</bpt>jobsContainer<ept id="7065ffa1-d5cf-4fa7-bdab-e826ac18f6e9">&lt;/strong&gt;</ept> property, specify the name of the default container where the cluster logs will be stored.</source>
+          <target state="new">For the <bpt id="7065ffa1-d5cf-4fa7-bdab-e826ac18f6e9">&lt;strong&gt;</bpt>jobsContainer<ept id="7065ffa1-d5cf-4fa7-bdab-e826ac18f6e9">&lt;/strong&gt;</ept> property, specify the name of the default container where the cluster logs will be stored.</target>
+        </trans-unit>
+        <trans-unit id="4f82d5d2-4b2a-45a2-a1ab-f5e5b41e5855" xml:space="preserve">
+          <source>For the purpose of this tutorial, specify <bpt id="156838c3-c4ca-415d-90d3-3c480de1af15">&lt;strong&gt;</bpt>adfjobscontainer<ept id="156838c3-c4ca-415d-90d3-3c480de1af15">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the purpose of this tutorial, specify <bpt id="156838c3-c4ca-415d-90d3-3c480de1af15">&lt;strong&gt;</bpt>adfjobscontainer<ept id="156838c3-c4ca-415d-90d3-3c480de1af15">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2449bc6d-83cd-449e-9601-d4f340d0d0e4" xml:space="preserve">
+          <source>For the <bpt id="41d60130-9ba3-40f3-ae21-590eb030eff6">&lt;strong&gt;</bpt>timeToLive<ept id="41d60130-9ba3-40f3-ae21-590eb030eff6">&lt;/strong&gt;</ept> property, specify how long the customer can be idle before it is deleted.</source>
+          <target state="new">For the <bpt id="41d60130-9ba3-40f3-ae21-590eb030eff6">&lt;strong&gt;</bpt>timeToLive<ept id="41d60130-9ba3-40f3-ae21-590eb030eff6">&lt;/strong&gt;</ept> property, specify how long the customer can be idle before it is deleted.</target>
+        </trans-unit>
+        <trans-unit id="c425817d-11e8-4fa9-940c-cb1c3e22e0e7" xml:space="preserve">
+          <source>For the <bpt id="a592f6f6-12ca-4bd1-b4a6-a00315473c9f">&lt;strong&gt;</bpt>version<ept id="a592f6f6-12ca-4bd1-b4a6-a00315473c9f">&lt;/strong&gt;</ept> property, specify the HDInsight version you want to use.</source>
+          <target state="new">For the <bpt id="a592f6f6-12ca-4bd1-b4a6-a00315473c9f">&lt;strong&gt;</bpt>version<ept id="a592f6f6-12ca-4bd1-b4a6-a00315473c9f">&lt;/strong&gt;</ept> property, specify the HDInsight version you want to use.</target>
+        </trans-unit>
+        <trans-unit id="abd125ee-bcf9-4a08-b80c-4255d9761140" xml:space="preserve">
+          <source>If you exclude this property, the latest version is used.</source>
+          <target state="new">If you exclude this property, the latest version is used.</target>
+        </trans-unit>
+        <trans-unit id="df318665-51e4-4652-8cda-8dd0bf2ee326" xml:space="preserve">
+          <source>For the <bpt id="a0846202-515b-44e0-bd74-987c5bc8d193">&lt;strong&gt;</bpt>linkedServiceName<ept id="a0846202-515b-44e0-bd74-987c5bc8d193">&lt;/strong&gt;</ept>, specify <bpt id="1c886513-6a8d-42c0-9814-96599ee64323">&lt;strong&gt;</bpt>StorageLinkedService<ept id="1c886513-6a8d-42c0-9814-96599ee64323">&lt;/strong&gt;</ept> that you had created in the Get started tutorial.</source>
+          <target state="new">For the <bpt id="a0846202-515b-44e0-bd74-987c5bc8d193">&lt;strong&gt;</bpt>linkedServiceName<ept id="a0846202-515b-44e0-bd74-987c5bc8d193">&lt;/strong&gt;</ept>, specify <bpt id="1c886513-6a8d-42c0-9814-96599ee64323">&lt;strong&gt;</bpt>StorageLinkedService<ept id="1c886513-6a8d-42c0-9814-96599ee64323">&lt;/strong&gt;</ept> that you had created in the Get started tutorial.</target>
+        </trans-unit>
+        <trans-unit id="4ad5ad73-30c7-44c3-a94b-73b48f845d00" xml:space="preserve">
+          <source>{
+  "name": "HDInsightOnDemandLinkedService",
+  "properties": {
+    "type": "HDInsightOnDemand",
+    "typeProperties": {
+      "clusterSize": "1",
+      "timeToLive": "00:05:00",
+      "version": "3.1",
+      "linkedServiceName": "StorageLinkedService"
+    }
+  }
+}</source>
+          <target state="new">{
+  "name": "HDInsightOnDemandLinkedService",
+  "properties": {
+    "type": "HDInsightOnDemand",
+    "typeProperties": {
+      "clusterSize": "1",
+      "timeToLive": "00:05:00",
+      "version": "3.1",
+      "linkedServiceName": "StorageLinkedService"
+    }
+  }
+}</target>
+        </trans-unit>
+        <trans-unit id="10bd31e6-d6f5-4066-8c20-882a6f2022de" xml:space="preserve">
+          <source>Click <bpt id="93726e63-0dcb-4ac8-ab1c-a0c690c823ac">&lt;strong&gt;</bpt>Deploy<ept id="93726e63-0dcb-4ac8-ab1c-a0c690c823ac">&lt;/strong&gt;</ept> on the command bar to deploy the linked service.</source>
+          <target state="new">Click <bpt id="93726e63-0dcb-4ac8-ab1c-a0c690c823ac">&lt;strong&gt;</bpt>Deploy<ept id="93726e63-0dcb-4ac8-ab1c-a0c690c823ac">&lt;/strong&gt;</ept> on the command bar to deploy the linked service.</target>
+        </trans-unit>
+        <trans-unit id="997ba4c3-659c-4700-bc06-10acf3b66a85" xml:space="preserve">
+          <source>In the <bpt id="421b072b-dc77-41f9-8b8f-f01a2eb26a95">&lt;strong&gt;</bpt>Azure Portal<ept id="421b072b-dc77-41f9-8b8f-f01a2eb26a95">&lt;/strong&gt;</ept>, click <bpt id="63a1187b-b60e-47d5-98e9-91e82a9a1e8c">&lt;strong&gt;</bpt>Author and Deploy<ept id="63a1187b-b60e-47d5-98e9-91e82a9a1e8c">&lt;/strong&gt;</ept> in the Data Factory home page.</source>
+          <target state="new">In the <bpt id="421b072b-dc77-41f9-8b8f-f01a2eb26a95">&lt;strong&gt;</bpt>Azure Portal<ept id="421b072b-dc77-41f9-8b8f-f01a2eb26a95">&lt;/strong&gt;</ept>, click <bpt id="63a1187b-b60e-47d5-98e9-91e82a9a1e8c">&lt;strong&gt;</bpt>Author and Deploy<ept id="63a1187b-b60e-47d5-98e9-91e82a9a1e8c">&lt;/strong&gt;</ept> in the Data Factory home page.</target>
+        </trans-unit>
+        <trans-unit id="f4bafce2-b978-4668-8de5-2fc801c85afb" xml:space="preserve">
+          <source>In the <bpt id="44bf730c-589c-40ff-a8b6-23d1bafc2237">&lt;strong&gt;</bpt>Data Factory Editor<ept id="44bf730c-589c-40ff-a8b6-23d1bafc2237">&lt;/strong&gt;</ept>, click <bpt id="9ae4be91-c68d-400c-b1dd-7f00b356907c">&lt;strong&gt;</bpt>New compute<ept id="9ae4be91-c68d-400c-b1dd-7f00b356907c">&lt;/strong&gt;</ept> from the command bar and select <bpt id="f06279f3-97da-4564-a97d-501ce36704c0">&lt;strong&gt;</bpt>HDInsight cluster<ept id="f06279f3-97da-4564-a97d-501ce36704c0">&lt;/strong&gt;</ept> from the menu.</source>
+          <target state="new">In the <bpt id="44bf730c-589c-40ff-a8b6-23d1bafc2237">&lt;strong&gt;</bpt>Data Factory Editor<ept id="44bf730c-589c-40ff-a8b6-23d1bafc2237">&lt;/strong&gt;</ept>, click <bpt id="9ae4be91-c68d-400c-b1dd-7f00b356907c">&lt;strong&gt;</bpt>New compute<ept id="9ae4be91-c68d-400c-b1dd-7f00b356907c">&lt;/strong&gt;</ept> from the command bar and select <bpt id="f06279f3-97da-4564-a97d-501ce36704c0">&lt;strong&gt;</bpt>HDInsight cluster<ept id="f06279f3-97da-4564-a97d-501ce36704c0">&lt;/strong&gt;</ept> from the menu.</target>
+        </trans-unit>
+        <trans-unit id="6b2c80fa-9399-4bd2-afab-4b156badbe21" xml:space="preserve">
+          <source>Do the following in the JSON script: </source>
+          <target state="new">Do the following in the JSON script: </target>
+        </trans-unit>
+        <trans-unit id="e538f964-5f44-48d9-9bfe-3b50630a12a6" xml:space="preserve">
+          <source>For the <bpt id="d8841202-5d8a-42c2-bbb2-2422a897cdc0">&lt;strong&gt;</bpt>clusterUri<ept id="d8841202-5d8a-42c2-bbb2-2422a897cdc0">&lt;/strong&gt;</ept> property, enter the URL for your HDInsight. For example: https://&lt;clustername&gt;.azurehdinsight.net/     </source>
+          <target state="new">For the <bpt id="d8841202-5d8a-42c2-bbb2-2422a897cdc0">&lt;strong&gt;</bpt>clusterUri<ept id="d8841202-5d8a-42c2-bbb2-2422a897cdc0">&lt;/strong&gt;</ept> property, enter the URL for your HDInsight. For example: https://&lt;clustername&gt;.azurehdinsight.net/     </target>
+        </trans-unit>
+        <trans-unit id="9a1fee4e-9adc-4151-8306-8aa0a22a4753" xml:space="preserve">
+          <source>For the <bpt id="4d841e05-0008-44d6-9220-14881d40ea77">&lt;strong&gt;</bpt>UserName<ept id="4d841e05-0008-44d6-9220-14881d40ea77">&lt;/strong&gt;</ept> property, enter the user name who has access to the HDInsight cluster.</source>
+          <target state="new">For the <bpt id="4d841e05-0008-44d6-9220-14881d40ea77">&lt;strong&gt;</bpt>UserName<ept id="4d841e05-0008-44d6-9220-14881d40ea77">&lt;/strong&gt;</ept> property, enter the user name who has access to the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="0ade199f-ef8c-44ca-a26b-a255c730f3a4" xml:space="preserve">
+          <source>For the <bpt id="b53231ac-55f5-4f50-8f53-f79959c5e449">&lt;strong&gt;</bpt>Password<ept id="b53231ac-55f5-4f50-8f53-f79959c5e449">&lt;/strong&gt;</ept> property, enter the password for the user.</source>
+          <target state="new">For the <bpt id="b53231ac-55f5-4f50-8f53-f79959c5e449">&lt;strong&gt;</bpt>Password<ept id="b53231ac-55f5-4f50-8f53-f79959c5e449">&lt;/strong&gt;</ept> property, enter the password for the user.</target>
+        </trans-unit>
+        <trans-unit id="f916a14b-f808-49e3-aabf-5b85c4b870d5" xml:space="preserve">
+          <source>For the <bpt id="51e20d38-a535-4220-ae6c-577bba14c664">&lt;strong&gt;</bpt>LinkedServiceName<ept id="51e20d38-a535-4220-ae6c-577bba14c664">&lt;/strong&gt;</ept> property, enter <bpt id="bcb623d7-7c86-48cd-8928-bf485788fc93">&lt;strong&gt;</bpt>StorageLinkedService<ept id="bcb623d7-7c86-48cd-8928-bf485788fc93">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the <bpt id="51e20d38-a535-4220-ae6c-577bba14c664">&lt;strong&gt;</bpt>LinkedServiceName<ept id="51e20d38-a535-4220-ae6c-577bba14c664">&lt;/strong&gt;</ept> property, enter <bpt id="bcb623d7-7c86-48cd-8928-bf485788fc93">&lt;strong&gt;</bpt>StorageLinkedService<ept id="bcb623d7-7c86-48cd-8928-bf485788fc93">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90a58af4-28fb-4cce-bbb7-ae61759d7e71" xml:space="preserve">
+          <source>This is the linked service you had created in the Get started tutorial.</source>
+          <target state="new">This is the linked service you had created in the Get started tutorial.</target>
+        </trans-unit>
+        <trans-unit id="37c6fcaa-af19-42cd-8605-191a64675648" xml:space="preserve">
+          <source>Click <bpt id="1b0efa02-eee5-4e43-98d8-f105a0c9fdb4">&lt;strong&gt;</bpt>Deploy<ept id="1b0efa02-eee5-4e43-98d8-f105a0c9fdb4">&lt;/strong&gt;</ept> on the command bar to deploy the linked service.</source>
+          <target state="new">Click <bpt id="1b0efa02-eee5-4e43-98d8-f105a0c9fdb4">&lt;strong&gt;</bpt>Deploy<ept id="1b0efa02-eee5-4e43-98d8-f105a0c9fdb4">&lt;/strong&gt;</ept> on the command bar to deploy the linked service.</target>
+        </trans-unit>
+        <trans-unit id="b5530dbe-ffa4-448d-820c-940646ee8f21" xml:space="preserve">
+          <source>In the <bpt id="5c432e15-2b09-4080-98b1-fd83be746112">&lt;strong&gt;</bpt>Data Factory editor<ept id="5c432e15-2b09-4080-98b1-fd83be746112">&lt;/strong&gt;</ept>, click <bpt id="bdf3d6ee-feab-4175-99d6-9777d73ea0b4">&lt;strong&gt;</bpt>New dataset<ept id="bdf3d6ee-feab-4175-99d6-9777d73ea0b4">&lt;/strong&gt;</ept>, and then click <bpt id="28237675-9671-4820-9e3b-6b1f03443e44">&lt;strong&gt;</bpt>Azure Blob storage<ept id="28237675-9671-4820-9e3b-6b1f03443e44">&lt;/strong&gt;</ept> from the command bar.</source>
+          <target state="new">In the <bpt id="5c432e15-2b09-4080-98b1-fd83be746112">&lt;strong&gt;</bpt>Data Factory editor<ept id="5c432e15-2b09-4080-98b1-fd83be746112">&lt;/strong&gt;</ept>, click <bpt id="bdf3d6ee-feab-4175-99d6-9777d73ea0b4">&lt;strong&gt;</bpt>New dataset<ept id="bdf3d6ee-feab-4175-99d6-9777d73ea0b4">&lt;/strong&gt;</ept>, and then click <bpt id="28237675-9671-4820-9e3b-6b1f03443e44">&lt;strong&gt;</bpt>Azure Blob storage<ept id="28237675-9671-4820-9e3b-6b1f03443e44">&lt;/strong&gt;</ept> from the command bar.</target>
+        </trans-unit>
+        <trans-unit id="abaa45bf-7ef0-4beb-93f9-64f110934804" xml:space="preserve">
+          <source>Replace the JSON script in the right pane with the following JSON script:</source>
+          <target state="new">Replace the JSON script in the right pane with the following JSON script:</target>
+        </trans-unit>
+        <trans-unit id="52712a44-74b0-402c-b02d-d97745095836" xml:space="preserve">
+          <source>Output location is <bpt id="f5ca822b-0a1d-4b5f-81a2-d334d50584ad">&lt;strong&gt;</bpt>adftutorial/customactivityoutput/YYYYMMDDHH/<ept id="f5ca822b-0a1d-4b5f-81a2-d334d50584ad">&lt;/strong&gt;</ept> where YYYYMMDDHH is the year, month, date, and hour of the slice being produced.</source>
+          <target state="new">Output location is <bpt id="f5ca822b-0a1d-4b5f-81a2-d334d50584ad">&lt;strong&gt;</bpt>adftutorial/customactivityoutput/YYYYMMDDHH/<ept id="f5ca822b-0a1d-4b5f-81a2-d334d50584ad">&lt;/strong&gt;</ept> where YYYYMMDDHH is the year, month, date, and hour of the slice being produced.</target>
+        </trans-unit>
+        <trans-unit id="7fe5df24-bd5b-42bf-bff7-34230a6bb3ea" xml:space="preserve">
+          <source>See <bpt id="fd625246-470d-4cb7-a81c-4115900ec11c">&lt;linkText&gt;</bpt>Developer Reference[adf-developer-reference]<ept id="fd625246-470d-4cb7-a81c-4115900ec11c">&lt;/linkText&gt;</ept><bpt id="fd625246-470d-4cb7-a81c-4115900ec11c">&lt;title&gt;</bpt><ept id="fd625246-470d-4cb7-a81c-4115900ec11c">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="fd625246-470d-4cb7-a81c-4115900ec11c">&lt;linkText&gt;</bpt>Developer Reference[adf-developer-reference]<ept id="fd625246-470d-4cb7-a81c-4115900ec11c">&lt;/linkText&gt;</ept><bpt id="fd625246-470d-4cb7-a81c-4115900ec11c">&lt;title&gt;</bpt><ept id="fd625246-470d-4cb7-a81c-4115900ec11c">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="c0d42875-4803-4b95-a5e7-fecd14e10ded" xml:space="preserve">
+          <source>Click <bpt id="45cd010b-9d90-4998-b0a4-17a88013304f">&lt;strong&gt;</bpt>Deploy<ept id="45cd010b-9d90-4998-b0a4-17a88013304f">&lt;/strong&gt;</ept> on the command bar to deploy the table.</source>
+          <target state="new">Click <bpt id="45cd010b-9d90-4998-b0a4-17a88013304f">&lt;strong&gt;</bpt>Deploy<ept id="45cd010b-9d90-4998-b0a4-17a88013304f">&lt;/strong&gt;</ept> on the command bar to deploy the table.</target>
+        </trans-unit>
+        <trans-unit id="f1bfc3c1-1c58-44e3-8353-1eca5345b80e" xml:space="preserve">
+          <source>In the Data Factory Editor, click <bpt id="c50ccef3-4442-494d-bf77-62c17810ab9a">&lt;strong&gt;</bpt>New pipeline<ept id="c50ccef3-4442-494d-bf77-62c17810ab9a">&lt;/strong&gt;</ept> on the command bar.</source>
+          <target state="new">In the Data Factory Editor, click <bpt id="c50ccef3-4442-494d-bf77-62c17810ab9a">&lt;strong&gt;</bpt>New pipeline<ept id="c50ccef3-4442-494d-bf77-62c17810ab9a">&lt;/strong&gt;</ept> on the command bar.</target>
+        </trans-unit>
+        <trans-unit id="cda739b7-8090-42de-826b-eb0db9c58f37" xml:space="preserve">
+          <source>If you do not see the command, click <bpt id="fdb1a118-c729-481a-86ba-c157482e697c">&lt;strong&gt;</bpt>... (Ellipsis)<ept id="fdb1a118-c729-481a-86ba-c157482e697c">&lt;/strong&gt;</ept> to see it.</source>
+          <target state="new">If you do not see the command, click <bpt id="fdb1a118-c729-481a-86ba-c157482e697c">&lt;strong&gt;</bpt>... (Ellipsis)<ept id="fdb1a118-c729-481a-86ba-c157482e697c">&lt;/strong&gt;</ept> to see it.</target>
+        </trans-unit>
+        <trans-unit id="29361603-d44c-4020-82fe-f3422aed73d2" xml:space="preserve">
+          <source>Replace the JSON in the right pane with the following JSON script.</source>
+          <target state="new">Replace the JSON in the right pane with the following JSON script.</target>
+        </trans-unit>
+        <trans-unit id="50bc51a0-76cf-4fc5-941d-cba1b3700fc0" xml:space="preserve">
+          <source>If you want to use your own cluster and followed the steps to create the <bpt id="9f64e427-807c-4dd2-af87-60670ac12068">&lt;strong&gt;</bpt>HDInsightLinkedService<ept id="9f64e427-807c-4dd2-af87-60670ac12068">&lt;/strong&gt;</ept> linked service, replace <bpt id="7fb88ff8-e162-44dd-a5e4-92ce1f7b0cab">&lt;strong&gt;</bpt>HDInsightOnDemandLinkedService<ept id="7fb88ff8-e162-44dd-a5e4-92ce1f7b0cab">&lt;/strong&gt;</ept> with <bpt id="d5ffd70f-876e-4026-bd39-f9a186b40c9a">&lt;strong&gt;</bpt>HDInsightLinkedService<ept id="d5ffd70f-876e-4026-bd39-f9a186b40c9a">&lt;/strong&gt;</ept> in the following JSON.</source>
+          <target state="new">If you want to use your own cluster and followed the steps to create the <bpt id="9f64e427-807c-4dd2-af87-60670ac12068">&lt;strong&gt;</bpt>HDInsightLinkedService<ept id="9f64e427-807c-4dd2-af87-60670ac12068">&lt;/strong&gt;</ept> linked service, replace <bpt id="7fb88ff8-e162-44dd-a5e4-92ce1f7b0cab">&lt;strong&gt;</bpt>HDInsightOnDemandLinkedService<ept id="7fb88ff8-e162-44dd-a5e4-92ce1f7b0cab">&lt;/strong&gt;</ept> with <bpt id="d5ffd70f-876e-4026-bd39-f9a186b40c9a">&lt;strong&gt;</bpt>HDInsightLinkedService<ept id="d5ffd70f-876e-4026-bd39-f9a186b40c9a">&lt;/strong&gt;</ept> in the following JSON.</target>
+        </trans-unit>
+        <trans-unit id="f64338fc-5592-450e-b812-c9fa2498d3e6" xml:space="preserve">
+          <source>Replace <bpt id="b74c7163-c96c-4901-adbb-709b36bbeabb">&lt;strong&gt;</bpt>StartDateTime<ept id="b74c7163-c96c-4901-adbb-709b36bbeabb">&lt;/strong&gt;</ept> value with the three days prior to current day and <bpt id="7cbc9543-cbd7-4975-a4df-f31a0e4b7c0d">&lt;strong&gt;</bpt>EndDateTime<ept id="7cbc9543-cbd7-4975-a4df-f31a0e4b7c0d">&lt;/strong&gt;</ept> value with the current day.</source>
+          <target state="new">Replace <bpt id="b74c7163-c96c-4901-adbb-709b36bbeabb">&lt;strong&gt;</bpt>StartDateTime<ept id="b74c7163-c96c-4901-adbb-709b36bbeabb">&lt;/strong&gt;</ept> value with the three days prior to current day and <bpt id="7cbc9543-cbd7-4975-a4df-f31a0e4b7c0d">&lt;strong&gt;</bpt>EndDateTime<ept id="7cbc9543-cbd7-4975-a4df-f31a0e4b7c0d">&lt;/strong&gt;</ept> value with the current day.</target>
+        </trans-unit>
+        <trans-unit id="8adeb7f4-2cd3-4d4f-9df3-77c5a3e45782" xml:space="preserve">
+          <source>Both StartDateTime and EndDateTime must be in <bpt id="47759181-1640-4db7-aba2-80fe8c21a5d9">&lt;linkText&gt;</bpt>ISO format<ept id="47759181-1640-4db7-aba2-80fe8c21a5d9">&lt;/linkText&gt;</ept><bpt id="47759181-1640-4db7-aba2-80fe8c21a5d9">&lt;title&gt;</bpt><ept id="47759181-1640-4db7-aba2-80fe8c21a5d9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Both StartDateTime and EndDateTime must be in <bpt id="47759181-1640-4db7-aba2-80fe8c21a5d9">&lt;linkText&gt;</bpt>ISO format<ept id="47759181-1640-4db7-aba2-80fe8c21a5d9">&lt;/linkText&gt;</ept><bpt id="47759181-1640-4db7-aba2-80fe8c21a5d9">&lt;title&gt;</bpt><ept id="47759181-1640-4db7-aba2-80fe8c21a5d9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94612f81-f547-492c-b8cf-2ac1d813844e" xml:space="preserve">
+          <source>For example: 2014-10-14T16:32:41Z.</source>
+          <target state="new">For example: 2014-10-14T16:32:41Z.</target>
+        </trans-unit>
+        <trans-unit id="0e3d154d-b2a4-45a3-b8b1-14128f3c5c16" xml:space="preserve">
+          <source>The output table is scheduled to be produced every day, so there will be three slices produced.</source>
+          <target state="new">The output table is scheduled to be produced every day, so there will be three slices produced.</target>
+        </trans-unit>
+        <trans-unit id="1e844c16-093c-47a6-9750-749d17ba4f33" xml:space="preserve">
+          <source>Note the following: </source>
+          <target state="new">Note the following: </target>
+        </trans-unit>
+        <trans-unit id="e1a0f49a-0c80-469b-aa5e-db2b59331f5e" xml:space="preserve">
+          <source>There is one activity in the activities section and it is of type: <bpt id="55407f88-3993-4f6d-92fe-997e43d57c19">&lt;strong&gt;</bpt>DotNetActivity<ept id="55407f88-3993-4f6d-92fe-997e43d57c19">&lt;/strong&gt;</ept>.</source>
+          <target state="new">There is one activity in the activities section and it is of type: <bpt id="55407f88-3993-4f6d-92fe-997e43d57c19">&lt;strong&gt;</bpt>DotNetActivity<ept id="55407f88-3993-4f6d-92fe-997e43d57c19">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d8eb336-547c-4d53-951c-a856e57772fd" xml:space="preserve">
+          <source>Use the same input table <bpt id="62bf8f6c-5953-4e4e-aa46-2990d43537d0">&lt;strong&gt;</bpt>EmpTableFromBlob<ept id="62bf8f6c-5953-4e4e-aa46-2990d43537d0">&lt;/strong&gt;</ept> that you used in the Get started tutorial.</source>
+          <target state="new">Use the same input table <bpt id="62bf8f6c-5953-4e4e-aa46-2990d43537d0">&lt;strong&gt;</bpt>EmpTableFromBlob<ept id="62bf8f6c-5953-4e4e-aa46-2990d43537d0">&lt;/strong&gt;</ept> that you used in the Get started tutorial.</target>
+        </trans-unit>
+        <trans-unit id="44d94035-365a-4bce-8be2-65a7c049e4f8" xml:space="preserve">
+          <source>Use a new output table <bpt id="be41753b-f63d-4817-96f7-8916dfa3d8c7">&lt;strong&gt;</bpt>OutputTableForCustom<ept id="be41753b-f63d-4817-96f7-8916dfa3d8c7">&lt;/strong&gt;</ept> that you will create in the next step.</source>
+          <target state="new">Use a new output table <bpt id="be41753b-f63d-4817-96f7-8916dfa3d8c7">&lt;strong&gt;</bpt>OutputTableForCustom<ept id="be41753b-f63d-4817-96f7-8916dfa3d8c7">&lt;/strong&gt;</ept> that you will create in the next step.</target>
+        </trans-unit>
+        <trans-unit id="a786f54f-5e98-458f-a804-e02a8e8016fa" xml:space="preserve">
+          <source><bpt id="6fb69df9-38a8-4942-ae25-e1f31544e969">&lt;strong&gt;</bpt>AssemblyName<ept id="6fb69df9-38a8-4942-ae25-e1f31544e969">&lt;/strong&gt;</ept> is set to the name of the DLL: <bpt id="dcbac4de-ae64-4447-9f70-c7a7b1379c8c">&lt;strong&gt;</bpt>MyActivities.dll<ept id="dcbac4de-ae64-4447-9f70-c7a7b1379c8c">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="6fb69df9-38a8-4942-ae25-e1f31544e969">&lt;strong&gt;</bpt>AssemblyName<ept id="6fb69df9-38a8-4942-ae25-e1f31544e969">&lt;/strong&gt;</ept> is set to the name of the DLL: <bpt id="dcbac4de-ae64-4447-9f70-c7a7b1379c8c">&lt;strong&gt;</bpt>MyActivities.dll<ept id="dcbac4de-ae64-4447-9f70-c7a7b1379c8c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ef76f7a-0d1b-408a-8631-02d99a38bf45" xml:space="preserve">
+          <source><bpt id="cf7e517d-3c81-4890-99f0-d11e677cf133">&lt;strong&gt;</bpt>EntryPoint<ept id="cf7e517d-3c81-4890-99f0-d11e677cf133">&lt;/strong&gt;</ept> is set to <bpt id="771e2900-2243-440a-ae06-77e5fea80b45">&lt;strong&gt;</bpt>MyDotNetActivityNS.MyDotNetActivity<ept id="771e2900-2243-440a-ae06-77e5fea80b45">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="cf7e517d-3c81-4890-99f0-d11e677cf133">&lt;strong&gt;</bpt>EntryPoint<ept id="cf7e517d-3c81-4890-99f0-d11e677cf133">&lt;/strong&gt;</ept> is set to <bpt id="771e2900-2243-440a-ae06-77e5fea80b45">&lt;strong&gt;</bpt>MyDotNetActivityNS.MyDotNetActivity<ept id="771e2900-2243-440a-ae06-77e5fea80b45">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6eae06ad-b940-4061-8a53-277cbae4f88d" xml:space="preserve">
+          <source><bpt id="b8fe720f-7274-46e5-986b-dbd6f9f070a2">&lt;strong&gt;</bpt>PackageLinkedService<ept id="b8fe720f-7274-46e5-986b-dbd6f9f070a2">&lt;/strong&gt;</ept> is set to <bpt id="9d9b53f4-0340-4cc9-9779-607f83644882">&lt;strong&gt;</bpt>MyBlobStore<ept id="9d9b53f4-0340-4cc9-9779-607f83644882">&lt;/strong&gt;</ept> that was created as part of the tutorial from <bpt id="39d7e243-fa37-47e3-af03-481a08a6d9f4">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="39d7e243-fa37-47e3-af03-481a08a6d9f4">&lt;/linkText&gt;</ept><bpt id="39d7e243-fa37-47e3-af03-481a08a6d9f4">&lt;title&gt;</bpt><ept id="39d7e243-fa37-47e3-af03-481a08a6d9f4">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="b8fe720f-7274-46e5-986b-dbd6f9f070a2">&lt;strong&gt;</bpt>PackageLinkedService<ept id="b8fe720f-7274-46e5-986b-dbd6f9f070a2">&lt;/strong&gt;</ept> is set to <bpt id="9d9b53f4-0340-4cc9-9779-607f83644882">&lt;strong&gt;</bpt>MyBlobStore<ept id="9d9b53f4-0340-4cc9-9779-607f83644882">&lt;/strong&gt;</ept> that was created as part of the tutorial from <bpt id="39d7e243-fa37-47e3-af03-481a08a6d9f4">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="39d7e243-fa37-47e3-af03-481a08a6d9f4">&lt;/linkText&gt;</ept><bpt id="39d7e243-fa37-47e3-af03-481a08a6d9f4">&lt;title&gt;</bpt><ept id="39d7e243-fa37-47e3-af03-481a08a6d9f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1dea4085-3b73-4ecd-8716-97676ce794ce" xml:space="preserve">
+          <source>This blob store contains the custom activity zip file.</source>
+          <target state="new">This blob store contains the custom activity zip file.</target>
+        </trans-unit>
+        <trans-unit id="f222b57d-235d-4628-9405-f2caddfa215f" xml:space="preserve">
+          <source><bpt id="e1353c60-5e79-4baa-8437-03170d51e457">&lt;strong&gt;</bpt>PackageFile<ept id="e1353c60-5e79-4baa-8437-03170d51e457">&lt;/strong&gt;</ept> is set to <bpt id="525d174e-7b71-4927-8500-545cb4b40a5c">&lt;strong&gt;</bpt>customactivitycontainer/MyDotNetActivity.zip<ept id="525d174e-7b71-4927-8500-545cb4b40a5c">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="e1353c60-5e79-4baa-8437-03170d51e457">&lt;strong&gt;</bpt>PackageFile<ept id="e1353c60-5e79-4baa-8437-03170d51e457">&lt;/strong&gt;</ept> is set to <bpt id="525d174e-7b71-4927-8500-545cb4b40a5c">&lt;strong&gt;</bpt>customactivitycontainer/MyDotNetActivity.zip<ept id="525d174e-7b71-4927-8500-545cb4b40a5c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a271fba1-2c78-46e8-8f69-489c4e4254c5" xml:space="preserve">
+          <source>Click <bpt id="279a66d5-3f1c-4004-9203-684bc0b1191a">&lt;strong&gt;</bpt>Deploy<ept id="279a66d5-3f1c-4004-9203-684bc0b1191a">&lt;/strong&gt;</ept> on the command bar to deploy the pipeline.</source>
+          <target state="new">Click <bpt id="279a66d5-3f1c-4004-9203-684bc0b1191a">&lt;strong&gt;</bpt>Deploy<ept id="279a66d5-3f1c-4004-9203-684bc0b1191a">&lt;/strong&gt;</ept> on the command bar to deploy the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="6b190bd5-6e3c-4eaa-a0f0-977a2dadd67d" xml:space="preserve">
+          <source>Verify that the output files are generated in the blob storage in the <bpt id="5f28c150-ceab-4d2e-95d6-acd52599f05d">&lt;strong&gt;</bpt>adftutorial<ept id="5f28c150-ceab-4d2e-95d6-acd52599f05d">&lt;/strong&gt;</ept> container.</source>
+          <target state="new">Verify that the output files are generated in the blob storage in the <bpt id="5f28c150-ceab-4d2e-95d6-acd52599f05d">&lt;strong&gt;</bpt>adftutorial<ept id="5f28c150-ceab-4d2e-95d6-acd52599f05d">&lt;/strong&gt;</ept> container.</target>
+        </trans-unit>
+        <trans-unit id="b8a8fcea-d5c9-4973-88c0-1df46f3c4db3" xml:space="preserve">
+          <source><bpt id="df5433ad-9f33-40e0-9746-045d811f8c23">&lt;linkText&gt;</bpt>output from custom activity<ept id="df5433ad-9f33-40e0-9746-045d811f8c23">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df5433ad-9f33-40e0-9746-045d811f8c23">&lt;linkText&gt;</bpt>output from custom activity<ept id="df5433ad-9f33-40e0-9746-045d811f8c23">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3120c25-073a-4874-8449-7aaa424ba508" xml:space="preserve">
+          <source>If you open the output file, you should see the output similar to the following:</source>
+          <target state="new">If you open the output file, you should see the output similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="e14b1002-eb14-45c7-b4ce-17af08fb518d" xml:space="preserve">
+          <source>adftutorial/,emp.txt,2,WORKERNODE0,03/27/2015 19:23:28 </source>
+          <target state="new">adftutorial/,emp.txt,2,WORKERNODE0,03/27/2015 19:23:28 </target>
+        </trans-unit>
+        <trans-unit id="92e0b5c5-dbea-4f95-930b-9e07022a53cf" xml:space="preserve">
+          <source>(blob location), (name of the blob), (number of lines in the blob), (node on which the activity ran), (date time stamp)</source>
+          <target state="new">(blob location), (name of the blob), (number of lines in the blob), (node on which the activity ran), (date time stamp)</target>
+        </trans-unit>
+        <trans-unit id="d7fa0ba1-56a1-4d82-9d24-48b7a3009ea1" xml:space="preserve">
+          <source>Use the <bpt id="8adc3211-4f41-4643-87df-4d92e78133e7">&lt;linkText&gt;</bpt>Azure Portal[azure-preview-portal]<ept id="8adc3211-4f41-4643-87df-4d92e78133e7">&lt;/linkText&gt;</ept><bpt id="8adc3211-4f41-4643-87df-4d92e78133e7">&lt;title&gt;</bpt><ept id="8adc3211-4f41-4643-87df-4d92e78133e7">&lt;/title&gt;</ept> or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets.</source>
+          <target state="new">Use the <bpt id="8adc3211-4f41-4643-87df-4d92e78133e7">&lt;linkText&gt;</bpt>Azure Portal[azure-preview-portal]<ept id="8adc3211-4f41-4643-87df-4d92e78133e7">&lt;/linkText&gt;</ept><bpt id="8adc3211-4f41-4643-87df-4d92e78133e7">&lt;title&gt;</bpt><ept id="8adc3211-4f41-4643-87df-4d92e78133e7">&lt;/title&gt;</ept> or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets.</target>
+        </trans-unit>
+        <trans-unit id="755a44d1-13bd-46be-8ba2-a4aa43a4cb58" xml:space="preserve">
+          <source>You can see messages from the <bpt id="1e2a5c62-8ac8-42ef-afbe-db8bcbb7764c">&lt;strong&gt;</bpt>ActivityLogger<ept id="1e2a5c62-8ac8-42ef-afbe-db8bcbb7764c">&lt;/strong&gt;</ept> in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.</source>
+          <target state="new">You can see messages from the <bpt id="1e2a5c62-8ac8-42ef-afbe-db8bcbb7764c">&lt;strong&gt;</bpt>ActivityLogger<ept id="1e2a5c62-8ac8-42ef-afbe-db8bcbb7764c">&lt;/strong&gt;</ept> in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="6ec53454-f823-494a-b74a-f8894a0017eb" xml:space="preserve">
+          <source><bpt id="08d28b9c-7348-410c-afc9-70a3ed0ccf40">&lt;linkText&gt;</bpt>download logs from custom activity<ept id="08d28b9c-7348-410c-afc9-70a3ed0ccf40">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="08d28b9c-7348-410c-afc9-70a3ed0ccf40">&lt;linkText&gt;</bpt>download logs from custom activity<ept id="08d28b9c-7348-410c-afc9-70a3ed0ccf40">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dadfad75-0292-497f-bbb6-9ed5d25fcdbc" xml:space="preserve">
+          <source>See <bpt id="c5038225-94d9-4fbe-9ba1-83e4108f2022">&lt;linkText&gt;</bpt>Monitor and Manage Pipelines<ept id="c5038225-94d9-4fbe-9ba1-83e4108f2022">&lt;/linkText&gt;</ept><bpt id="c5038225-94d9-4fbe-9ba1-83e4108f2022">&lt;title&gt;</bpt><ept id="c5038225-94d9-4fbe-9ba1-83e4108f2022">&lt;/title&gt;</ept> for detailed steps for monitoring datasets and pipelines.</source>
+          <target state="new">See <bpt id="c5038225-94d9-4fbe-9ba1-83e4108f2022">&lt;linkText&gt;</bpt>Monitor and Manage Pipelines<ept id="c5038225-94d9-4fbe-9ba1-83e4108f2022">&lt;/linkText&gt;</ept><bpt id="c5038225-94d9-4fbe-9ba1-83e4108f2022">&lt;title&gt;</bpt><ept id="c5038225-94d9-4fbe-9ba1-83e4108f2022">&lt;/title&gt;</ept> for detailed steps for monitoring datasets and pipelines.</target>
+        </trans-unit>
+        <trans-unit id="7f91faad-b308-42a7-9f2f-2c9f97288ea1" xml:space="preserve">
+          <source>If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.</source>
+          <target state="new">If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.</target>
+        </trans-unit>
+        <trans-unit id="2c47d39a-c71f-4ea0-976f-e381f4b576dd" xml:space="preserve">
+          <source>See <bpt id="8c119360-8d84-428b-af39-373fb44a8692">&lt;linkText&gt;</bpt>Azure Batch Technical Overview[batch-technical-overview]<ept id="8c119360-8d84-428b-af39-373fb44a8692">&lt;/linkText&gt;</ept><bpt id="8c119360-8d84-428b-af39-373fb44a8692">&lt;title&gt;</bpt><ept id="8c119360-8d84-428b-af39-373fb44a8692">&lt;/title&gt;</ept> for an overview of the Azure Batch service and see <bpt id="35d4199f-de9c-4882-be16-b8477682dd8f">&lt;linkText&gt;</bpt>Getting Started with the Azure Batch Library for .NET[batch-get-started]<ept id="35d4199f-de9c-4882-be16-b8477682dd8f">&lt;/linkText&gt;</ept><bpt id="35d4199f-de9c-4882-be16-b8477682dd8f">&lt;title&gt;</bpt><ept id="35d4199f-de9c-4882-be16-b8477682dd8f">&lt;/title&gt;</ept> to quickly get started with the Azure Batch service.</source>
+          <target state="new">See <bpt id="8c119360-8d84-428b-af39-373fb44a8692">&lt;linkText&gt;</bpt>Azure Batch Technical Overview[batch-technical-overview]<ept id="8c119360-8d84-428b-af39-373fb44a8692">&lt;/linkText&gt;</ept><bpt id="8c119360-8d84-428b-af39-373fb44a8692">&lt;title&gt;</bpt><ept id="8c119360-8d84-428b-af39-373fb44a8692">&lt;/title&gt;</ept> for an overview of the Azure Batch service and see <bpt id="35d4199f-de9c-4882-be16-b8477682dd8f">&lt;linkText&gt;</bpt>Getting Started with the Azure Batch Library for .NET[batch-get-started]<ept id="35d4199f-de9c-4882-be16-b8477682dd8f">&lt;/linkText&gt;</ept><bpt id="35d4199f-de9c-4882-be16-b8477682dd8f">&lt;title&gt;</bpt><ept id="35d4199f-de9c-4882-be16-b8477682dd8f">&lt;/title&gt;</ept> to quickly get started with the Azure Batch service.</target>
+        </trans-unit>
+        <trans-unit id="a1469fb8-b145-4f28-b6a4-71baa6c0c212" xml:space="preserve">
+          <source>You can run your custom .NET activities using Azure Batch as a compute resource.</source>
+          <target state="new">You can run your custom .NET activities using Azure Batch as a compute resource.</target>
+        </trans-unit>
+        <trans-unit id="23843936-d390-4b4e-b64c-54b953b3a128" xml:space="preserve">
+          <source>You will have to create your own Azure Batch pools and specify the number of VMs along with other configurations.</source>
+          <target state="new">You will have to create your own Azure Batch pools and specify the number of VMs along with other configurations.</target>
+        </trans-unit>
+        <trans-unit id="aa394a47-d5d1-4276-8c9a-ad521951e19e" xml:space="preserve">
+          <source>Azure Batch pools provides the following features to customers:</source>
+          <target state="new">Azure Batch pools provides the following features to customers:</target>
+        </trans-unit>
+        <trans-unit id="57e39301-d86e-46b1-8e2e-3ec8469d3a31" xml:space="preserve">
+          <source>Create pools containing a single core to thousands of cores.</source>
+          <target state="new">Create pools containing a single core to thousands of cores.</target>
+        </trans-unit>
+        <trans-unit id="e3c4ff30-a12d-4547-9511-de64140330d9" xml:space="preserve">
+          <source>Auto scale VM count based on a formula</source>
+          <target state="new">Auto scale VM count based on a formula</target>
+        </trans-unit>
+        <trans-unit id="9af7da69-cae4-473e-80ac-f5ccf0266b75" xml:space="preserve">
+          <source>Support VMs of any size</source>
+          <target state="new">Support VMs of any size</target>
+        </trans-unit>
+        <trans-unit id="c134d8c7-9513-4946-a9e6-ebfb8d85a2eb" xml:space="preserve">
+          <source>Configurable number of tasks per VM</source>
+          <target state="new">Configurable number of tasks per VM</target>
+        </trans-unit>
+        <trans-unit id="23a89900-f619-4ced-9000-0614043e7f05" xml:space="preserve">
+          <source>Queue unlimited number of tasks</source>
+          <target state="new">Queue unlimited number of tasks</target>
+        </trans-unit>
+        <trans-unit id="aee6a32c-ea45-4ab4-aad6-78c35af2c4b9" xml:space="preserve">
+          <source>Here are the high-level steps for using the Azure Batch Linked Service in the walkthrough described in the previous section:</source>
+          <target state="new">Here are the high-level steps for using the Azure Batch Linked Service in the walkthrough described in the previous section:</target>
+        </trans-unit>
+        <trans-unit id="1df83860-72cf-465d-b99d-a73ac69f901e" xml:space="preserve">
+          <source>Create an Azure Batch account using the Azure Management Portal.</source>
+          <target state="new">Create an Azure Batch account using the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="e0d39379-7dcd-4a73-b122-1cbf2f3a98f6" xml:space="preserve">
+          <source>See <bpt id="2d7197e3-9faa-487b-9073-73b06217142b">&lt;linkText&gt;</bpt>Azure Batch Technical Overview[batch-create-account]<ept id="2d7197e3-9faa-487b-9073-73b06217142b">&lt;/linkText&gt;</ept><bpt id="2d7197e3-9faa-487b-9073-73b06217142b">&lt;title&gt;</bpt><ept id="2d7197e3-9faa-487b-9073-73b06217142b">&lt;/title&gt;</ept> article for instructions.</source>
+          <target state="new">See <bpt id="2d7197e3-9faa-487b-9073-73b06217142b">&lt;linkText&gt;</bpt>Azure Batch Technical Overview[batch-create-account]<ept id="2d7197e3-9faa-487b-9073-73b06217142b">&lt;/linkText&gt;</ept><bpt id="2d7197e3-9faa-487b-9073-73b06217142b">&lt;title&gt;</bpt><ept id="2d7197e3-9faa-487b-9073-73b06217142b">&lt;/title&gt;</ept> article for instructions.</target>
+        </trans-unit>
+        <trans-unit id="ecc90a60-96b4-4596-88f7-4c33849d469b" xml:space="preserve">
+          <source>Note down the Azure Batch account name and account key.</source>
+          <target state="new">Note down the Azure Batch account name and account key.</target>
+        </trans-unit>
+        <trans-unit id="7dfb28b3-83af-4c7e-8c13-a12add4b6545" xml:space="preserve">
+          <source>You can also use <bpt id="9c201243-809a-4c92-ab84-e75e3d5f78de">&lt;linkText&gt;</bpt>New-AzureBatchAccount[new-azure-batch-account]<ept id="9c201243-809a-4c92-ab84-e75e3d5f78de">&lt;/linkText&gt;</ept><bpt id="9c201243-809a-4c92-ab84-e75e3d5f78de">&lt;title&gt;</bpt><ept id="9c201243-809a-4c92-ab84-e75e3d5f78de">&lt;/title&gt;</ept> cmdlet to create an Azure Batch account.</source>
+          <target state="new">You can also use <bpt id="9c201243-809a-4c92-ab84-e75e3d5f78de">&lt;linkText&gt;</bpt>New-AzureBatchAccount[new-azure-batch-account]<ept id="9c201243-809a-4c92-ab84-e75e3d5f78de">&lt;/linkText&gt;</ept><bpt id="9c201243-809a-4c92-ab84-e75e3d5f78de">&lt;title&gt;</bpt><ept id="9c201243-809a-4c92-ab84-e75e3d5f78de">&lt;/title&gt;</ept> cmdlet to create an Azure Batch account.</target>
+        </trans-unit>
+        <trans-unit id="d061cd0d-67ff-4074-9335-c1d850533539" xml:space="preserve">
+          <source>See <bpt id="199582ec-6110-4ad3-956b-f61ed2b3fc1c">&lt;linkText&gt;</bpt>Using Azure PowerShell to Manage Azure Batch Account[azure-batch-blog]<ept id="199582ec-6110-4ad3-956b-f61ed2b3fc1c">&lt;/linkText&gt;</ept><bpt id="199582ec-6110-4ad3-956b-f61ed2b3fc1c">&lt;title&gt;</bpt><ept id="199582ec-6110-4ad3-956b-f61ed2b3fc1c">&lt;/title&gt;</ept> for detailed instructions on using this cmdlet.</source>
+          <target state="new">See <bpt id="199582ec-6110-4ad3-956b-f61ed2b3fc1c">&lt;linkText&gt;</bpt>Using Azure PowerShell to Manage Azure Batch Account[azure-batch-blog]<ept id="199582ec-6110-4ad3-956b-f61ed2b3fc1c">&lt;/linkText&gt;</ept><bpt id="199582ec-6110-4ad3-956b-f61ed2b3fc1c">&lt;title&gt;</bpt><ept id="199582ec-6110-4ad3-956b-f61ed2b3fc1c">&lt;/title&gt;</ept> for detailed instructions on using this cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="b1689b92-d916-41ee-aaf7-7bc254d246e2" xml:space="preserve">
+          <source>Create an Azure Batch pool.</source>
+          <target state="new">Create an Azure Batch pool.</target>
+        </trans-unit>
+        <trans-unit id="36260058-7705-49ce-adde-58aea87d1093" xml:space="preserve">
+          <source>You can download the source code for the <bpt id="7e21676a-e3c6-4cf2-9b2a-1551c52e6f99">&lt;linkText&gt;</bpt>Azure Batch Explorer tool[batch-explorer]<ept id="7e21676a-e3c6-4cf2-9b2a-1551c52e6f99">&lt;/linkText&gt;</ept><bpt id="7e21676a-e3c6-4cf2-9b2a-1551c52e6f99">&lt;title&gt;</bpt><ept id="7e21676a-e3c6-4cf2-9b2a-1551c52e6f99">&lt;/title&gt;</ept>, compile, and use it  (or) use <bpt id="9a55a307-bce6-4d72-9b1c-1e7757e201d1">&lt;linkText&gt;</bpt>Azure Batch Library for .NET[batch-net-library]<ept id="9a55a307-bce6-4d72-9b1c-1e7757e201d1">&lt;/linkText&gt;</ept><bpt id="9a55a307-bce6-4d72-9b1c-1e7757e201d1">&lt;title&gt;</bpt><ept id="9a55a307-bce6-4d72-9b1c-1e7757e201d1">&lt;/title&gt;</ept> to create a Azure Batch pool.</source>
+          <target state="new">You can download the source code for the <bpt id="7e21676a-e3c6-4cf2-9b2a-1551c52e6f99">&lt;linkText&gt;</bpt>Azure Batch Explorer tool[batch-explorer]<ept id="7e21676a-e3c6-4cf2-9b2a-1551c52e6f99">&lt;/linkText&gt;</ept><bpt id="7e21676a-e3c6-4cf2-9b2a-1551c52e6f99">&lt;title&gt;</bpt><ept id="7e21676a-e3c6-4cf2-9b2a-1551c52e6f99">&lt;/title&gt;</ept>, compile, and use it  (or) use <bpt id="9a55a307-bce6-4d72-9b1c-1e7757e201d1">&lt;linkText&gt;</bpt>Azure Batch Library for .NET[batch-net-library]<ept id="9a55a307-bce6-4d72-9b1c-1e7757e201d1">&lt;/linkText&gt;</ept><bpt id="9a55a307-bce6-4d72-9b1c-1e7757e201d1">&lt;title&gt;</bpt><ept id="9a55a307-bce6-4d72-9b1c-1e7757e201d1">&lt;/title&gt;</ept> to create a Azure Batch pool.</target>
+        </trans-unit>
+        <trans-unit id="be6473e2-b1dd-4b38-aef8-bb3b2d4e6257" xml:space="preserve">
+          <source>See <bpt id="4c56d86a-9471-437c-a443-73cea7c9d606">&lt;linkText&gt;</bpt>Azure Batch Explorer Sample Walkthrough[batch-explorer-walkthrough]<ept id="4c56d86a-9471-437c-a443-73cea7c9d606">&lt;/linkText&gt;</ept><bpt id="4c56d86a-9471-437c-a443-73cea7c9d606">&lt;title&gt;</bpt><ept id="4c56d86a-9471-437c-a443-73cea7c9d606">&lt;/title&gt;</ept> for step-by-step instructions for using the Azure Batch Explorer.</source>
+          <target state="new">See <bpt id="4c56d86a-9471-437c-a443-73cea7c9d606">&lt;linkText&gt;</bpt>Azure Batch Explorer Sample Walkthrough[batch-explorer-walkthrough]<ept id="4c56d86a-9471-437c-a443-73cea7c9d606">&lt;/linkText&gt;</ept><bpt id="4c56d86a-9471-437c-a443-73cea7c9d606">&lt;title&gt;</bpt><ept id="4c56d86a-9471-437c-a443-73cea7c9d606">&lt;/title&gt;</ept> for step-by-step instructions for using the Azure Batch Explorer.</target>
+        </trans-unit>
+        <trans-unit id="c9b1446b-0136-4019-bf97-033430eb817c" xml:space="preserve">
+          <source>You can also use <bpt id="8e8c5e99-21ac-4bb6-9171-15bdd0b4534c">&lt;linkText&gt;</bpt>New-AzureBatchPool[new-azure-batch-pool]<ept id="8e8c5e99-21ac-4bb6-9171-15bdd0b4534c">&lt;/linkText&gt;</ept><bpt id="8e8c5e99-21ac-4bb6-9171-15bdd0b4534c">&lt;title&gt;</bpt><ept id="8e8c5e99-21ac-4bb6-9171-15bdd0b4534c">&lt;/title&gt;</ept> cmdlet to create an Azure Batch pool.</source>
+          <target state="new">You can also use <bpt id="8e8c5e99-21ac-4bb6-9171-15bdd0b4534c">&lt;linkText&gt;</bpt>New-AzureBatchPool[new-azure-batch-pool]<ept id="8e8c5e99-21ac-4bb6-9171-15bdd0b4534c">&lt;/linkText&gt;</ept><bpt id="8e8c5e99-21ac-4bb6-9171-15bdd0b4534c">&lt;title&gt;</bpt><ept id="8e8c5e99-21ac-4bb6-9171-15bdd0b4534c">&lt;/title&gt;</ept> cmdlet to create an Azure Batch pool.</target>
+        </trans-unit>
+        <trans-unit id="6f78e176-3b51-4cce-90ea-b7d52d0195d6" xml:space="preserve">
+          <source>Create an Azure Batch Linked Service using the following JSON template.</source>
+          <target state="new">Create an Azure Batch Linked Service using the following JSON template.</target>
+        </trans-unit>
+        <trans-unit id="c80b5606-87b0-486f-9cf5-69f3cdf69605" xml:space="preserve">
+          <source>The Data Factory Editor displays a similar template for you to start with.</source>
+          <target state="new">The Data Factory Editor displays a similar template for you to start with.</target>
+        </trans-unit>
+        <trans-unit id="dde90809-6515-4a65-b15f-b2f451d1c9b7" xml:space="preserve">
+          <source>Specify the Azure Batch account name, account key and pool name in the JSON snippet.</source>
+          <target state="new">Specify the Azure Batch account name, account key and pool name in the JSON snippet.</target>
+        </trans-unit>
+        <trans-unit id="440147c8-d2e9-411f-a86f-32ae12c6c3c2" xml:space="preserve">
+          <source>Append "<bpt id="91a8e17c-41a1-4e3b-8015-acc615354573">&lt;strong&gt;</bpt>.&lt;region name<ept id="91a8e17c-41a1-4e3b-8015-acc615354573">&lt;/strong&gt;</ept>" to the name of your batch account for the <bpt id="d26939d5-7501-41d3-bbe7-d0904adb7b33">&lt;strong&gt;</bpt>accountName<ept id="d26939d5-7501-41d3-bbe7-d0904adb7b33">&lt;/strong&gt;</ept> property. Example: "mybatchaccount.eastus". Another option is to provide the batchUri endpoint as shown below.  </source>
+          <target state="new">Append "<bpt id="91a8e17c-41a1-4e3b-8015-acc615354573">&lt;strong&gt;</bpt>.&lt;region name<ept id="91a8e17c-41a1-4e3b-8015-acc615354573">&lt;/strong&gt;</ept>" to the name of your batch account for the <bpt id="d26939d5-7501-41d3-bbe7-d0904adb7b33">&lt;strong&gt;</bpt>accountName<ept id="d26939d5-7501-41d3-bbe7-d0904adb7b33">&lt;/strong&gt;</ept> property. Example: "mybatchaccount.eastus". Another option is to provide the batchUri endpoint as shown below.  </target>
+        </trans-unit>
+        <trans-unit id="1f72da1d-1f0e-48e2-809a-561c945a08cc" xml:space="preserve">
+          <source>See <bpt id="238605f8-0c75-4ec4-8132-ec33c37adc2b">&lt;linkText&gt;</bpt>Azure Batch Linked Service MSDN topic<ept id="238605f8-0c75-4ec4-8132-ec33c37adc2b">&lt;/linkText&gt;</ept><bpt id="238605f8-0c75-4ec4-8132-ec33c37adc2b">&lt;title&gt;</bpt><ept id="238605f8-0c75-4ec4-8132-ec33c37adc2b">&lt;/title&gt;</ept> for descriptions of these properties.</source>
+          <target state="new">See <bpt id="238605f8-0c75-4ec4-8132-ec33c37adc2b">&lt;linkText&gt;</bpt>Azure Batch Linked Service MSDN topic<ept id="238605f8-0c75-4ec4-8132-ec33c37adc2b">&lt;/linkText&gt;</ept><bpt id="238605f8-0c75-4ec4-8132-ec33c37adc2b">&lt;title&gt;</bpt><ept id="238605f8-0c75-4ec4-8132-ec33c37adc2b">&lt;/title&gt;</ept> for descriptions of these properties.</target>
+        </trans-unit>
+        <trans-unit id="05450ff3-656f-4834-bc68-1ef60e32b5e1" xml:space="preserve">
+          <source>In the Data Factory Editor, open JSON definition for the pipeline you created in the walkthrough and replace <bpt id="ae71b9c6-33a6-42a6-b532-a016d5bab278">&lt;strong&gt;</bpt>HDInsightLinkedService<ept id="ae71b9c6-33a6-42a6-b532-a016d5bab278">&lt;/strong&gt;</ept> with <bpt id="ed83f20f-1362-40fb-8d98-39f45a497ecd">&lt;strong&gt;</bpt>AzureBatchLinkedService<ept id="ed83f20f-1362-40fb-8d98-39f45a497ecd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Data Factory Editor, open JSON definition for the pipeline you created in the walkthrough and replace <bpt id="ae71b9c6-33a6-42a6-b532-a016d5bab278">&lt;strong&gt;</bpt>HDInsightLinkedService<ept id="ae71b9c6-33a6-42a6-b532-a016d5bab278">&lt;/strong&gt;</ept> with <bpt id="ed83f20f-1362-40fb-8d98-39f45a497ecd">&lt;strong&gt;</bpt>AzureBatchLinkedService<ept id="ed83f20f-1362-40fb-8d98-39f45a497ecd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e88a97c-1ee1-4f3a-bcbc-faf8271d3085" xml:space="preserve">
+          <source>You may want to change the start and end times for the pipeline so that you can test the scenario with the Azure Batch service.</source>
+          <target state="new">You may want to change the start and end times for the pipeline so that you can test the scenario with the Azure Batch service.</target>
+        </trans-unit>
+        <trans-unit id="e3c3da5b-3efb-40f9-aff6-e3cfb10c8f8b" xml:space="preserve">
+          <source>You can see the Azure Batch tasks associated with processing the slices in the Azure Batch Explorer as shown in the following diagram.</source>
+          <target state="new">You can see the Azure Batch tasks associated with processing the slices in the Azure Batch Explorer as shown in the following diagram.</target>
+        </trans-unit>
+        <trans-unit id="d59d8daa-8285-4492-aa03-d7449cb479f1" xml:space="preserve">
+          <source><bpt id="38e9d23f-ff99-44bb-8ea4-81d5be0dd127">&lt;linkText&gt;</bpt>Azure Batch tasks<ept id="38e9d23f-ff99-44bb-8ea4-81d5be0dd127">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="38e9d23f-ff99-44bb-8ea4-81d5be0dd127">&lt;linkText&gt;</bpt>Azure Batch tasks<ept id="38e9d23f-ff99-44bb-8ea4-81d5be0dd127">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a724f1fd-1caf-4a0d-a774-01ef8171b2b6" xml:space="preserve">
+          <source>The Data Factory service does not support an on-demand option for Azure Batch as it does for HDInsight.</source>
+          <target state="new">The Data Factory service does not support an on-demand option for Azure Batch as it does for HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="a15f73c0-d9c6-4051-9a5d-94195d418e35" xml:space="preserve">
+          <source>You can only use your own Azure Batch pool in an Azure data factory.</source>
+          <target state="new">You can only use your own Azure Batch pool in an Azure data factory.</target>
+        </trans-unit>
+        <trans-unit id="91364a6e-4a13-4e3c-9359-1b3aa2b21c4c" xml:space="preserve">
+          <source><bpt id="824d312b-6e06-4016-82a3-1936e899a306">&lt;linkText&gt;</bpt>Azure Data Factory Updates: Execute ADF Custom .NET activities using Azure Batch<ept id="824d312b-6e06-4016-82a3-1936e899a306">&lt;/linkText&gt;</ept><bpt id="824d312b-6e06-4016-82a3-1936e899a306">&lt;title&gt;</bpt><ept id="824d312b-6e06-4016-82a3-1936e899a306">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="824d312b-6e06-4016-82a3-1936e899a306">&lt;linkText&gt;</bpt>Azure Data Factory Updates: Execute ADF Custom .NET activities using Azure Batch<ept id="824d312b-6e06-4016-82a3-1936e899a306">&lt;/linkText&gt;</ept><bpt id="824d312b-6e06-4016-82a3-1936e899a306">&lt;title&gt;</bpt><ept id="824d312b-6e06-4016-82a3-1936e899a306">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9fbe75ef-be63-427f-9dcb-dac73afaadbf" xml:space="preserve">
+          <source>../batch/batch-dotnet-get-started.md</source>
+          <target state="new">../batch/batch-dotnet-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="9f7fabab-298f-4879-bebc-9d39cb4633d0" xml:space="preserve">
+          <source>https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer</source>
+          <target state="new">https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer</target>
+        </trans-unit>
+        <trans-unit id="e2609277-45b3-4abe-b9ad-b155d168a6a8" xml:space="preserve">
+          <source>http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx</source>
+          <target state="new">http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx</target>
+        </trans-unit>
+        <trans-unit id="5af12c1e-e4f2-4bfb-867b-3144bdaf0608" xml:space="preserve">
+          <source>../batch/batch-technical-overview.md/#batch-concepts</source>
+          <target state="new">../batch/batch-technical-overview.md/#batch-concepts</target>
+        </trans-unit>
+        <trans-unit id="ad3b4e02-b738-4be0-ac19-ee304683ca73" xml:space="preserve">
+          <source>../batch/batch-technical-overview.md</source>
+          <target state="new">../batch/batch-technical-overview.md</target>
+        </trans-unit>
+        <trans-unit id="b71385c4-9d2b-4378-8a04-5042bf467fd3" xml:space="preserve">
+          <source>../batch/batch-dotnet-get-started.md</source>
+          <target state="new">../batch/batch-dotnet-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="fab02f54-bf92-4ffd-adf9-b2a57abaa7c5" xml:space="preserve">
+          <source>data-factory-monitor-manage-using-powershell.md</source>
+          <target state="new">data-factory-monitor-manage-using-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="e6c738a8-84d6-4876-8ed1-12747320d715" xml:space="preserve">
+          <source>data-factory-tutorial.md</source>
+          <target state="new">data-factory-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="7cedb88c-0ea7-4db7-a995-52df4f776379" xml:space="preserve">
+          <source>data-factory-use-custom-activities.md</source>
+          <target state="new">data-factory-use-custom-activities.md</target>
+        </trans-unit>
+        <trans-unit id="4033d2e0-6208-4960-97b6-5c9866c5d111" xml:space="preserve">
+          <source>data-factory-troubleshoot.md</source>
+          <target state="new">data-factory-troubleshoot.md</target>
+        </trans-unit>
+        <trans-unit id="d6d534a5-abc0-4d26-97a4-f1a879800663" xml:space="preserve">
+          <source>data-factory-introduction.md</source>
+          <target state="new">data-factory-introduction.md</target>
+        </trans-unit>
+        <trans-unit id="740d0867-cd66-417f-99a3-0fb9c278fa9a" xml:space="preserve">
+          <source>https://github.com/Azure/azure-sdk-tools/releases</source>
+          <target state="new">https://github.com/Azure/azure-sdk-tools/releases</target>
+        </trans-unit>
+        <trans-unit id="71bdf856-6833-4fab-b288-916a5935f3b1" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=516908</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=516908</target>
+        </trans-unit>
+        <trans-unit id="b11f87a4-df14-43c8-ba64-9848b36ab183" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=517456</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=517456</target>
+        </trans-unit>
+        <trans-unit id="6931dd73-4474-406a-a4f5-88d63c2261e8" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/mt125880.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/mt125880.aspx</target>
+        </trans-unit>
+        <trans-unit id="76984a0d-e854-4e0a-937b-32c118488529" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/mt125936.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/mt125936.aspx</target>
+        </trans-unit>
+        <trans-unit id="1569e6cd-8ca6-4505-b75b-585ad02df0a4" xml:space="preserve">
+          <source>http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx</source>
+          <target state="new">http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx</target>
+        </trans-unit>
+        <trans-unit id="07d24c38-20c4-4583-a8d8-a6705f6d3f0c" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=517478</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=517478</target>
+        </trans-unit>
+        <trans-unit id="f0277860-6257-4d88-8242-05766baf0d0a" xml:space="preserve">
+          <source>http://azure.microsoft.com/develop/net/</source>
+          <target state="new">http://azure.microsoft.com/develop/net/</target>
+        </trans-unit>
+        <trans-unit id="931f2207-ec65-45b2-a76d-67d5daaeb3a6" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=516908</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=516908</target>
+        </trans-unit>
+        <trans-unit id="9890f810-427f-46c4-b1c6-372d1d537acb" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="bea1c83b-f37a-45ef-939d-b44a342b5f3c" xml:space="preserve">
+          <source>data-factory-get-started.md</source>
+          <target state="new">data-factory-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="e06f7a52-60e0-493f-80d4-ab8042ed4ba1" xml:space="preserve">
+          <source>data-factory-data-transformation-activities.md</source>
+          <target state="new">data-factory-data-transformation-activities.md</target>
+        </trans-unit>
+        <trans-unit id="1cfb695d-8404-4902-9cd3-98f22476ac56" xml:space="preserve">
+          <source>./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png</source>
+          <target state="new">./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png</target>
+        </trans-unit>
+        <trans-unit id="2d6ee703-5118-4624-908e-26b8a3990445" xml:space="preserve">
+          <source>./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png</source>
+          <target state="new">./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png</target>
+        </trans-unit>
+        <trans-unit id="f9b4b84f-7a3e-4a67-a3c6-202d264bf4bd" xml:space="preserve">
+          <source>./media/data-factory-use-custom-activities/AzureBatchTasks.png</source>
+          <target state="new">./media/data-factory-use-custom-activities/AzureBatchTasks.png</target>
+        </trans-unit>
+      </group>
+      <group id="239f834c-3e9e-40a7-a82f-245c922f6750" />
+    </body>
+  </file>
+</xliff>

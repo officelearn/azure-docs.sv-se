@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3b12de21-7ff9-453f-a846-cc679c4b3e8c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3b12de21-7ff9-453f-a846-cc679c4b3e8c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cd6540f9-f02a-4bde-b417-ac30138bf3f1">
+        <trans-unit id="1ab07d3b-706b-4c51-b223-b30524c40555" xml:space="preserve">
+          <source>Azure MFA Signin experience with Azure Multi-Factor Authentication</source>
+          <target state="new">Azure MFA Signin experience with Azure Multi-Factor Authentication</target>
+        </trans-unit>
+        <trans-unit id="bd3b9b80-8ca8-4928-9e2e-772c9ca95661" xml:space="preserve">
+          <source>This page will provide you guidance on where to go to see the various signin methods available with Azure MFA.</source>
+          <target state="new">This page will provide you guidance on where to go to see the various signin methods available with Azure MFA.</target>
+        </trans-unit>
+        <trans-unit id="3d3c83ff-b0e8-498c-b90f-78c2187df0f2" xml:space="preserve">
+          <source>The following information is provided to help guide you through the sign in experience.</source>
+          <target state="new">The following information is provided to help guide you through the sign in experience.</target>
+        </trans-unit>
+        <trans-unit id="544683b3-c630-4f9d-a99e-7b9111c5902b" xml:space="preserve">
+          <source>Depending on how you sign in and use multi-factor authentication, your experience will differ.</source>
+          <target state="new">Depending on how you sign in and use multi-factor authentication, your experience will differ.</target>
+        </trans-unit>
+        <trans-unit id="4f485893-39e0-46a5-b669-792869d7e897" xml:space="preserve">
+          <source>In this section we will provide information on what to expect when you sign in.</source>
+          <target state="new">In this section we will provide information on what to expect when you sign in.</target>
+        </trans-unit>
+        <trans-unit id="00fb0535-4479-40fc-ba23-e270030c9287" xml:space="preserve">
+          <source>Choose the one that best describes what you are doing:</source>
+          <target state="new">Choose the one that best describes what you are doing:</target>
+        </trans-unit>
+        <trans-unit id="e61f8330-0932-435d-9661-43b372efbe1d" xml:space="preserve">
+          <source>What are you doing?</source>
+          <target state="new">What are you doing?</target>
+        </trans-unit>
+        <trans-unit id="20607e8d-aa2f-4050-90df-427d65a19b8b" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="0c3b03c8-649d-4de0-8f91-11e8061ba0bc" xml:space="preserve">
+          <source><bpt id="cbd32dfa-bb1e-4498-964c-f9a702d46b87">&lt;linkText&gt;</bpt>Signing in with mobile or office phone<ept id="cbd32dfa-bb1e-4498-964c-f9a702d46b87">&lt;/linkText&gt;</ept><bpt id="cbd32dfa-bb1e-4498-964c-f9a702d46b87">&lt;title&gt;</bpt><ept id="cbd32dfa-bb1e-4498-964c-f9a702d46b87">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cbd32dfa-bb1e-4498-964c-f9a702d46b87">&lt;linkText&gt;</bpt>Signing in with mobile or office phone<ept id="cbd32dfa-bb1e-4498-964c-f9a702d46b87">&lt;/linkText&gt;</ept><bpt id="cbd32dfa-bb1e-4498-964c-f9a702d46b87">&lt;title&gt;</bpt><ept id="cbd32dfa-bb1e-4498-964c-f9a702d46b87">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05225068-94c3-4d76-8c03-1bfe6420e813" xml:space="preserve">
+          <source>This is what you can expect from signing in using your mobile or office phone.</source>
+          <target state="new">This is what you can expect from signing in using your mobile or office phone.</target>
+        </trans-unit>
+        <trans-unit id="11c4fe03-0a65-4dfa-ab30-4d9e86c56f3f" xml:space="preserve">
+          <source><bpt id="45522bb2-5f59-40ac-9925-280509db1d07">&lt;linkText&gt;</bpt>Signing in with mobile app using notification<ept id="45522bb2-5f59-40ac-9925-280509db1d07">&lt;/linkText&gt;</ept><bpt id="45522bb2-5f59-40ac-9925-280509db1d07">&lt;title&gt;</bpt><ept id="45522bb2-5f59-40ac-9925-280509db1d07">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="45522bb2-5f59-40ac-9925-280509db1d07">&lt;linkText&gt;</bpt>Signing in with mobile app using notification<ept id="45522bb2-5f59-40ac-9925-280509db1d07">&lt;/linkText&gt;</ept><bpt id="45522bb2-5f59-40ac-9925-280509db1d07">&lt;title&gt;</bpt><ept id="45522bb2-5f59-40ac-9925-280509db1d07">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16574dd4-0a8e-4374-a2c3-1a2795210cf3" xml:space="preserve">
+          <source>This is what you can expect from signing in the mobile app with notifications.</source>
+          <target state="new">This is what you can expect from signing in the mobile app with notifications.</target>
+        </trans-unit>
+        <trans-unit id="7fdbdd35-a19d-4c91-aa19-0c489b14d7fb" xml:space="preserve">
+          <source><bpt id="1754457a-7ab8-4977-b032-3c70bdd6fce2">&lt;linkText&gt;</bpt>Signing in with the mobile app using verification code<ept id="1754457a-7ab8-4977-b032-3c70bdd6fce2">&lt;/linkText&gt;</ept><bpt id="1754457a-7ab8-4977-b032-3c70bdd6fce2">&lt;title&gt;</bpt><ept id="1754457a-7ab8-4977-b032-3c70bdd6fce2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1754457a-7ab8-4977-b032-3c70bdd6fce2">&lt;linkText&gt;</bpt>Signing in with the mobile app using verification code<ept id="1754457a-7ab8-4977-b032-3c70bdd6fce2">&lt;/linkText&gt;</ept><bpt id="1754457a-7ab8-4977-b032-3c70bdd6fce2">&lt;title&gt;</bpt><ept id="1754457a-7ab8-4977-b032-3c70bdd6fce2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="064534ba-c30b-40f7-9216-9b3d442a2967" xml:space="preserve">
+          <source>This is what you can expect from signing in the mobile app with a verification code.</source>
+          <target state="new">This is what you can expect from signing in the mobile app with a verification code.</target>
+        </trans-unit>
+        <trans-unit id="2199e3af-87bd-47b4-8ba8-54ea22a47377" xml:space="preserve">
+          <source><bpt id="1e2af92d-d167-4c04-b778-d3a672c7825f">&lt;linkText&gt;</bpt>Signing in with an alternate method<ept id="1e2af92d-d167-4c04-b778-d3a672c7825f">&lt;/linkText&gt;</ept><bpt id="1e2af92d-d167-4c04-b778-d3a672c7825f">&lt;title&gt;</bpt><ept id="1e2af92d-d167-4c04-b778-d3a672c7825f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e2af92d-d167-4c04-b778-d3a672c7825f">&lt;linkText&gt;</bpt>Signing in with an alternate method<ept id="1e2af92d-d167-4c04-b778-d3a672c7825f">&lt;/linkText&gt;</ept><bpt id="1e2af92d-d167-4c04-b778-d3a672c7825f">&lt;title&gt;</bpt><ept id="1e2af92d-d167-4c04-b778-d3a672c7825f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0c9b1f8-4659-4546-b917-b2a7e04ccd0e" xml:space="preserve">
+          <source>This will show you what to expect if you want to use an alternate method.</source>
+          <target state="new">This will show you what to expect if you want to use an alternate method.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

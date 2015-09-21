@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ee2c116b-9165-4c57-8318-727a33fe46f2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ee2c116b-9165-4c57-8318-727a33fe46f2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8796b092-304e-46fe-89b2-76eaf6f623d0">
+        <trans-unit id="43c5c2be-1bf9-432c-8c92-cbd1870c4b93" xml:space="preserve">
+          <source>Access Hadoop YARN application logs programmatically | Microsoft Azure</source>
+          <target state="new">Access Hadoop YARN application logs programmatically | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d050e45b-94eb-4f96-a15e-0dc9a44f3f75" xml:space="preserve">
+          <source>Access application logs programmatically on a Hadoop cluster in HDInsight.</source>
+          <target state="new">Access application logs programmatically on a Hadoop cluster in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="5232fab9-73c6-453c-b759-f6f62f87dfcb" xml:space="preserve">
+          <source>This topic explains how to programmatically enumerate the YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight, and how to programmatically access the application logs without having to connect to your clusters by using Remote Desktop Protocol (RDP).</source>
+          <target state="new">This topic explains how to programmatically enumerate the YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight, and how to programmatically access the application logs without having to connect to your clusters by using Remote Desktop Protocol (RDP).</target>
+        </trans-unit>
+        <trans-unit id="ed79528a-6bb4-4fa9-8fbd-ca785f22686e" xml:space="preserve">
+          <source>Specifically, a new component and a new API have been added:</source>
+          <target state="new">Specifically, a new component and a new API have been added:</target>
+        </trans-unit>
+        <trans-unit id="01e7f414-fd5d-4c42-824b-fde8f346cd42" xml:space="preserve">
+          <source>The generic application history server on HDInsight clusters is enabled.</source>
+          <target state="new">The generic application history server on HDInsight clusters is enabled.</target>
+        </trans-unit>
+        <trans-unit id="30dd1f23-a2d9-4672-a619-4cb7ceae2df8" xml:space="preserve">
+          <source>It is a component within the YARN Timeline Server that handles the storage and retrieval of generic information about completed applications.</source>
+          <target state="new">It is a component within the YARN Timeline Server that handles the storage and retrieval of generic information about completed applications.</target>
+        </trans-unit>
+        <trans-unit id="b59a6b24-25b0-4662-9ddb-696566da2602" xml:space="preserve">
+          <source>APIs in the Azure HDInsight .NET SDK are available to programmatically enumerate applications that have run on your clusters and to download the relevant application-specific or container-specific logs (in plain text) to help with debugging any application problems that occur.</source>
+          <target state="new">APIs in the Azure HDInsight .NET SDK are available to programmatically enumerate applications that have run on your clusters and to download the relevant application-specific or container-specific logs (in plain text) to help with debugging any application problems that occur.</target>
+        </trans-unit>
+        <trans-unit id="edf30e06-8872-4427-b2e5-38de28a9f915" xml:space="preserve">
+          <source>The Azure HDInsight SDK is required to use the code presented in this topic in a .NET Framework application.</source>
+          <target state="new">The Azure HDInsight SDK is required to use the code presented in this topic in a .NET Framework application.</target>
+        </trans-unit>
+        <trans-unit id="540517d0-72ef-4f7a-a11e-91564032923f" xml:space="preserve">
+          <source>The most recently published build of the SDK is available at <bpt id="cfd0395e-eb1d-4654-8c2f-f1fbdb51c2c7">&lt;linkText&gt;</bpt>NuGet<ept id="cfd0395e-eb1d-4654-8c2f-f1fbdb51c2c7">&lt;/linkText&gt;</ept><bpt id="cfd0395e-eb1d-4654-8c2f-f1fbdb51c2c7">&lt;title&gt;</bpt><ept id="cfd0395e-eb1d-4654-8c2f-f1fbdb51c2c7">&lt;/title&gt;</ept>.</source>
+          <target state="new">The most recently published build of the SDK is available at <bpt id="cfd0395e-eb1d-4654-8c2f-f1fbdb51c2c7">&lt;linkText&gt;</bpt>NuGet<ept id="cfd0395e-eb1d-4654-8c2f-f1fbdb51c2c7">&lt;/linkText&gt;</ept><bpt id="cfd0395e-eb1d-4654-8c2f-f1fbdb51c2c7">&lt;title&gt;</bpt><ept id="cfd0395e-eb1d-4654-8c2f-f1fbdb51c2c7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1cb03671-f230-46e9-b550-02237ff5120a" xml:space="preserve">
+          <source>To install the HDInsight SDK from a Visual Studio application, go the <bpt id="4c21c9c4-ba51-4ce8-a9e2-d24e963412d4">&lt;strong&gt;</bpt>Tools<ept id="4c21c9c4-ba51-4ce8-a9e2-d24e963412d4">&lt;/strong&gt;</ept> menu, click <bpt id="5fc36524-a8dc-4c77-8944-471d3e846b7c">&lt;strong&gt;</bpt>Nuget Package Manager<ept id="5fc36524-a8dc-4c77-8944-471d3e846b7c">&lt;/strong&gt;</ept>, and then click <bpt id="f77df8ba-cdfb-4af0-b915-ed508564056d">&lt;strong&gt;</bpt>Package Manager Console<ept id="f77df8ba-cdfb-4af0-b915-ed508564056d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To install the HDInsight SDK from a Visual Studio application, go the <bpt id="4c21c9c4-ba51-4ce8-a9e2-d24e963412d4">&lt;strong&gt;</bpt>Tools<ept id="4c21c9c4-ba51-4ce8-a9e2-d24e963412d4">&lt;/strong&gt;</ept> menu, click <bpt id="5fc36524-a8dc-4c77-8944-471d3e846b7c">&lt;strong&gt;</bpt>Nuget Package Manager<ept id="5fc36524-a8dc-4c77-8944-471d3e846b7c">&lt;/strong&gt;</ept>, and then click <bpt id="f77df8ba-cdfb-4af0-b915-ed508564056d">&lt;strong&gt;</bpt>Package Manager Console<ept id="f77df8ba-cdfb-4af0-b915-ed508564056d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63b44399-ecb6-46b4-9eae-bbf63dae9654" xml:space="preserve">
+          <source>Run the following command in the console to install the packages:</source>
+          <target state="new">Run the following command in the console to install the packages:</target>
+        </trans-unit>
+        <trans-unit id="e2fd1c35-ced1-4526-8673-0da1369abd00" xml:space="preserve">
+          <source>This command adds .NET libraries for HDInsight and adds references to them to the current Visual Studio project.</source>
+          <target state="new">This command adds .NET libraries for HDInsight and adds references to them to the current Visual Studio project.</target>
+        </trans-unit>
+        <trans-unit id="2164c277-dc10-43e9-b651-34aa5a179b2e" xml:space="preserve">
+          <source>The &lt;a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank"&gt;YARN Timeline Server&lt;/a&gt; provides generic information on completed applications as well as framework-specific application information through two different interfaces.</source>
+          <target state="new">The &lt;a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank"&gt;YARN Timeline Server&lt;/a&gt; provides generic information on completed applications as well as framework-specific application information through two different interfaces.</target>
+        </trans-unit>
+        <trans-unit id="a50628eb-6ca0-4acf-91f0-3ffe95051d13" xml:space="preserve">
+          <source>Specifically:</source>
+          <target state="new">Specifically:</target>
+        </trans-unit>
+        <trans-unit id="c27eb1f6-db45-48a7-81e5-c2cab8159d52" xml:space="preserve">
+          <source>Storage and retrieval of generic application information on HDInsight clusters has been enabled with version 3.1.1.374 or higher.</source>
+          <target state="new">Storage and retrieval of generic application information on HDInsight clusters has been enabled with version 3.1.1.374 or higher.</target>
+        </trans-unit>
+        <trans-unit id="f5217851-3eb3-40d1-a9d5-025c8e8ccf57" xml:space="preserve">
+          <source>The framework-specific application information component of the Timeline Server is not currently available on HDInsight clusters.</source>
+          <target state="new">The framework-specific application information component of the Timeline Server is not currently available on HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="067e75ba-22e6-4035-bc00-7aec595a1250" xml:space="preserve">
+          <source>Generic information on applications includes the following sorts of data:</source>
+          <target state="new">Generic information on applications includes the following sorts of data:</target>
+        </trans-unit>
+        <trans-unit id="49fd7c04-2921-4e12-8bc3-d388f8ec2689" xml:space="preserve">
+          <source>The application ID, a unique identifier of an application</source>
+          <target state="new">The application ID, a unique identifier of an application</target>
+        </trans-unit>
+        <trans-unit id="e9c1c355-e1ec-4cfc-9287-5ab5c77bb90b" xml:space="preserve">
+          <source>The user who started the application</source>
+          <target state="new">The user who started the application</target>
+        </trans-unit>
+        <trans-unit id="05dd4865-f2e0-4b96-8cd4-fff9d0dcc26b" xml:space="preserve">
+          <source>Information on attempts made to complete the application</source>
+          <target state="new">Information on attempts made to complete the application</target>
+        </trans-unit>
+        <trans-unit id="3e187393-19c3-4862-8760-4ce91f177f28" xml:space="preserve">
+          <source>The containers used by any given application attempt</source>
+          <target state="new">The containers used by any given application attempt</target>
+        </trans-unit>
+        <trans-unit id="bbed5c75-2ea9-4d93-8c2e-08d414f048d7" xml:space="preserve">
+          <source>On your HDInsight clusters, this information will be stored by Azure Resource Manager to a history store in the default container of your default Azure Storage account.</source>
+          <target state="new">On your HDInsight clusters, this information will be stored by Azure Resource Manager to a history store in the default container of your default Azure Storage account.</target>
+        </trans-unit>
+        <trans-unit id="1c7edd2b-8f30-4f01-9a94-339ab230c5ff" xml:space="preserve">
+          <source>This generic data on completed applications can be retrieved through a REST API:</source>
+          <target state="new">This generic data on completed applications can be retrieved through a REST API:</target>
+        </trans-unit>
+        <trans-unit id="b66b794c-d641-4f08-b560-b2a2d62417aa" xml:space="preserve">
+          <source>We have added new APIs to the HDInsight .NET SDK to make it easy to retrieve this data programmatically.</source>
+          <target state="new">We have added new APIs to the HDInsight .NET SDK to make it easy to retrieve this data programmatically.</target>
+        </trans-unit>
+        <trans-unit id="3bf62bb7-00a6-4c8a-9088-48210ee3e955" xml:space="preserve">
+          <source>Note that the generic data can also be retrieved by running YARN command-line interface (CLI) commands directly on your cluster nodes (after connecting to the cluster by using RDP).</source>
+          <target state="new">Note that the generic data can also be retrieved by running YARN command-line interface (CLI) commands directly on your cluster nodes (after connecting to the cluster by using RDP).</target>
+        </trans-unit>
+        <trans-unit id="a286947e-2c8f-496b-861c-0078824794f0" xml:space="preserve">
+          <source>YARN supports multiple programming models (MapReduce being one of them) by decoupling resource management from application scheduling/monitoring.</source>
+          <target state="new">YARN supports multiple programming models (MapReduce being one of them) by decoupling resource management from application scheduling/monitoring.</target>
+        </trans-unit>
+        <trans-unit id="d12ad4cf-722b-43a9-9cea-78877b2564e0" xml:space="preserve">
+          <source>This is done through a global <bpt id="21ce971b-8769-4036-982a-03fa36a11d8a">&lt;em&gt;</bpt>ResourceManager<ept id="21ce971b-8769-4036-982a-03fa36a11d8a">&lt;/em&gt;</ept> (RM), per-worker-node <bpt id="ad8c8ef2-82fa-4717-a8df-2a92fb665a82">&lt;em&gt;</bpt>NodeManagers<ept id="ad8c8ef2-82fa-4717-a8df-2a92fb665a82">&lt;/em&gt;</ept> (NMs), and per-application <bpt id="9d1cbb27-8f74-4d75-9e19-40ee1594986b">&lt;em&gt;</bpt>ApplicationMasters<ept id="9d1cbb27-8f74-4d75-9e19-40ee1594986b">&lt;/em&gt;</ept> (AMs).</source>
+          <target state="new">This is done through a global <bpt id="21ce971b-8769-4036-982a-03fa36a11d8a">&lt;em&gt;</bpt>ResourceManager<ept id="21ce971b-8769-4036-982a-03fa36a11d8a">&lt;/em&gt;</ept> (RM), per-worker-node <bpt id="ad8c8ef2-82fa-4717-a8df-2a92fb665a82">&lt;em&gt;</bpt>NodeManagers<ept id="ad8c8ef2-82fa-4717-a8df-2a92fb665a82">&lt;/em&gt;</ept> (NMs), and per-application <bpt id="9d1cbb27-8f74-4d75-9e19-40ee1594986b">&lt;em&gt;</bpt>ApplicationMasters<ept id="9d1cbb27-8f74-4d75-9e19-40ee1594986b">&lt;/em&gt;</ept> (AMs).</target>
+        </trans-unit>
+        <trans-unit id="b9d6f0b8-4477-4c90-ada0-6ff3312ef3b6" xml:space="preserve">
+          <source>The per-application AM negotiates resources (CPU, memory, disk, network) for running your application with the RM.</source>
+          <target state="new">The per-application AM negotiates resources (CPU, memory, disk, network) for running your application with the RM.</target>
+        </trans-unit>
+        <trans-unit id="5a19f29c-c6a6-4944-b1e4-cf907281e021" xml:space="preserve">
+          <source>The RM works with NMs to grant these resources, which are granted as <bpt id="86eb77fa-26f2-4f26-9db1-642ca1e143b3">&lt;em&gt;</bpt>containers<ept id="86eb77fa-26f2-4f26-9db1-642ca1e143b3">&lt;/em&gt;</ept>.</source>
+          <target state="new">The RM works with NMs to grant these resources, which are granted as <bpt id="86eb77fa-26f2-4f26-9db1-642ca1e143b3">&lt;em&gt;</bpt>containers<ept id="86eb77fa-26f2-4f26-9db1-642ca1e143b3">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37925478-ceb3-4bd0-a7e6-4914fe030758" xml:space="preserve">
+          <source>The AM is responsible for tracking the progress of the containers assigned to it by the RM.</source>
+          <target state="new">The AM is responsible for tracking the progress of the containers assigned to it by the RM.</target>
+        </trans-unit>
+        <trans-unit id="88aa6885-1e1b-4b20-8ffb-fbebde0c6305" xml:space="preserve">
+          <source>An application may require many containers depending on the nature of the application.</source>
+          <target state="new">An application may require many containers depending on the nature of the application.</target>
+        </trans-unit>
+        <trans-unit id="9751988b-f72e-41f0-a8ac-6632745b944a" xml:space="preserve">
+          <source>Furthermore, each application may consist of multiple <bpt id="3e70d258-0af6-4dc4-9399-3cd636ae6f3c">&lt;em&gt;</bpt>application attempts<ept id="3e70d258-0af6-4dc4-9399-3cd636ae6f3c">&lt;/em&gt;</ept> in order to finish in the presence of crashes or due to the loss of communication between an AM and an RM.</source>
+          <target state="new">Furthermore, each application may consist of multiple <bpt id="3e70d258-0af6-4dc4-9399-3cd636ae6f3c">&lt;em&gt;</bpt>application attempts<ept id="3e70d258-0af6-4dc4-9399-3cd636ae6f3c">&lt;/em&gt;</ept> in order to finish in the presence of crashes or due to the loss of communication between an AM and an RM.</target>
+        </trans-unit>
+        <trans-unit id="ab960a55-5bf4-4bf1-bfac-5ab1c6609eac" xml:space="preserve">
+          <source>Hence, containers are granted to a specific attempt of an application.</source>
+          <target state="new">Hence, containers are granted to a specific attempt of an application.</target>
+        </trans-unit>
+        <trans-unit id="e8cc8c2c-8e50-4d24-8d2c-c7a0e476c290" xml:space="preserve">
+          <source>In a sense, a container provides the context for basic unit of work performed by a YARN application, and all work that is done within the context of a container is performed on the single worker node on which the container was allocated.</source>
+          <target state="new">In a sense, a container provides the context for basic unit of work performed by a YARN application, and all work that is done within the context of a container is performed on the single worker node on which the container was allocated.</target>
+        </trans-unit>
+        <trans-unit id="c2e1f6ba-1af3-4a53-ba9a-ab7320334860" xml:space="preserve">
+          <source>See <bpt id="2505732d-16c9-438c-b16f-ea6ac1179d02">&lt;linkText&gt;</bpt>YARN Concepts[yarn-concepts]<ept id="2505732d-16c9-438c-b16f-ea6ac1179d02">&lt;/linkText&gt;</ept><bpt id="2505732d-16c9-438c-b16f-ea6ac1179d02">&lt;title&gt;</bpt><ept id="2505732d-16c9-438c-b16f-ea6ac1179d02">&lt;/title&gt;</ept> for further reference.</source>
+          <target state="new">See <bpt id="2505732d-16c9-438c-b16f-ea6ac1179d02">&lt;linkText&gt;</bpt>YARN Concepts[yarn-concepts]<ept id="2505732d-16c9-438c-b16f-ea6ac1179d02">&lt;/linkText&gt;</ept><bpt id="2505732d-16c9-438c-b16f-ea6ac1179d02">&lt;title&gt;</bpt><ept id="2505732d-16c9-438c-b16f-ea6ac1179d02">&lt;/title&gt;</ept> for further reference.</target>
+        </trans-unit>
+        <trans-unit id="7c30ad66-2035-4fae-ac11-9e2a05791869" xml:space="preserve">
+          <source>Application logs (and the associated container logs) are critical in debugging problematic Hadoop applications.</source>
+          <target state="new">Application logs (and the associated container logs) are critical in debugging problematic Hadoop applications.</target>
+        </trans-unit>
+        <trans-unit id="9d027503-1ea7-4aff-8c8f-e2e8dd5daa84" xml:space="preserve">
+          <source>YARN provides a nice framework for collecting, aggregating, and storing application logs with the <bpt id="88e07392-a947-4e7f-96a9-b3324f1b58d8">&lt;linkText&gt;</bpt>Log Aggregation[log-aggregation]<ept id="88e07392-a947-4e7f-96a9-b3324f1b58d8">&lt;/linkText&gt;</ept><bpt id="88e07392-a947-4e7f-96a9-b3324f1b58d8">&lt;title&gt;</bpt><ept id="88e07392-a947-4e7f-96a9-b3324f1b58d8">&lt;/title&gt;</ept> feature.</source>
+          <target state="new">YARN provides a nice framework for collecting, aggregating, and storing application logs with the <bpt id="88e07392-a947-4e7f-96a9-b3324f1b58d8">&lt;linkText&gt;</bpt>Log Aggregation[log-aggregation]<ept id="88e07392-a947-4e7f-96a9-b3324f1b58d8">&lt;/linkText&gt;</ept><bpt id="88e07392-a947-4e7f-96a9-b3324f1b58d8">&lt;title&gt;</bpt><ept id="88e07392-a947-4e7f-96a9-b3324f1b58d8">&lt;/title&gt;</ept> feature.</target>
+        </trans-unit>
+        <trans-unit id="7dfbb124-40ed-46b4-89c4-0e2ad09b9312" xml:space="preserve">
+          <source>The Log Aggregation feature makes accessing application logs more deterministic, as it aggregates logs across all containers on a worker node and stores them as one aggregated log file per worker node on the default file system after an application finishes.</source>
+          <target state="new">The Log Aggregation feature makes accessing application logs more deterministic, as it aggregates logs across all containers on a worker node and stores them as one aggregated log file per worker node on the default file system after an application finishes.</target>
+        </trans-unit>
+        <trans-unit id="b2940006-61cd-4119-88a5-d5bbe523ac2f" xml:space="preserve">
+          <source>Your application may use hundreds or thousands of containers, but logs for all containers run on a single worker node will always be aggregated to a single file, resulting in one log file per worker node used by your application.</source>
+          <target state="new">Your application may use hundreds or thousands of containers, but logs for all containers run on a single worker node will always be aggregated to a single file, resulting in one log file per worker node used by your application.</target>
+        </trans-unit>
+        <trans-unit id="b460e37b-199d-4218-9f45-0139219dc4c6" xml:space="preserve">
+          <source>Log Aggregation is enabled by default on HDInsight clusters (version 3.0 and above), and aggregated logs can be found in the default container of your cluster at the following location:</source>
+          <target state="new">Log Aggregation is enabled by default on HDInsight clusters (version 3.0 and above), and aggregated logs can be found in the default container of your cluster at the following location:</target>
+        </trans-unit>
+        <trans-unit id="b8b411eb-796a-4473-bab3-5b3475fdb3d5" xml:space="preserve">
+          <source>In that location, <bpt id="dee8d8e6-4997-4b8f-bb23-c46d7720cd4f">&lt;em&gt;</bpt>user<ept id="dee8d8e6-4997-4b8f-bb23-c46d7720cd4f">&lt;/em&gt;</ept> is the name of the user who started the application, and <bpt id="c1cbea50-6adb-47d9-8ab4-35af051a1010">&lt;em&gt;</bpt>applicationId<ept id="c1cbea50-6adb-47d9-8ab4-35af051a1010">&lt;/em&gt;</ept> is the unique identifier of an application as assigned by the YARN RM.</source>
+          <target state="new">In that location, <bpt id="dee8d8e6-4997-4b8f-bb23-c46d7720cd4f">&lt;em&gt;</bpt>user<ept id="dee8d8e6-4997-4b8f-bb23-c46d7720cd4f">&lt;/em&gt;</ept> is the name of the user who started the application, and <bpt id="c1cbea50-6adb-47d9-8ab4-35af051a1010">&lt;em&gt;</bpt>applicationId<ept id="c1cbea50-6adb-47d9-8ab4-35af051a1010">&lt;/em&gt;</ept> is the unique identifier of an application as assigned by the YARN RM.</target>
+        </trans-unit>
+        <trans-unit id="7533df8f-1223-4848-90df-1b7c1064e54d" xml:space="preserve">
+          <source>The aggregated logs are not directly readable, as they are written in a <bpt id="2c3a9221-790b-4fb6-81b7-d425a61d644e">&lt;linkText&gt;</bpt>TFile[t-file]<ept id="2c3a9221-790b-4fb6-81b7-d425a61d644e">&lt;/linkText&gt;</ept><bpt id="2c3a9221-790b-4fb6-81b7-d425a61d644e">&lt;title&gt;</bpt><ept id="2c3a9221-790b-4fb6-81b7-d425a61d644e">&lt;/title&gt;</ept>, <bpt id="af7f96ec-973c-4389-9d62-84790ae7df6c">&lt;linkText&gt;</bpt>binary format[binary-format]<ept id="af7f96ec-973c-4389-9d62-84790ae7df6c">&lt;/linkText&gt;</ept><bpt id="af7f96ec-973c-4389-9d62-84790ae7df6c">&lt;title&gt;</bpt><ept id="af7f96ec-973c-4389-9d62-84790ae7df6c">&lt;/title&gt;</ept> indexed by container.</source>
+          <target state="new">The aggregated logs are not directly readable, as they are written in a <bpt id="2c3a9221-790b-4fb6-81b7-d425a61d644e">&lt;linkText&gt;</bpt>TFile[t-file]<ept id="2c3a9221-790b-4fb6-81b7-d425a61d644e">&lt;/linkText&gt;</ept><bpt id="2c3a9221-790b-4fb6-81b7-d425a61d644e">&lt;title&gt;</bpt><ept id="2c3a9221-790b-4fb6-81b7-d425a61d644e">&lt;/title&gt;</ept>, <bpt id="af7f96ec-973c-4389-9d62-84790ae7df6c">&lt;linkText&gt;</bpt>binary format[binary-format]<ept id="af7f96ec-973c-4389-9d62-84790ae7df6c">&lt;/linkText&gt;</ept><bpt id="af7f96ec-973c-4389-9d62-84790ae7df6c">&lt;title&gt;</bpt><ept id="af7f96ec-973c-4389-9d62-84790ae7df6c">&lt;/title&gt;</ept> indexed by container.</target>
+        </trans-unit>
+        <trans-unit id="51a0b00e-6558-4b2e-91e9-fc24b77c5700" xml:space="preserve">
+          <source>YARN provides CLI tools to dump these logs as plain text for applications or containers of interest.</source>
+          <target state="new">YARN provides CLI tools to dump these logs as plain text for applications or containers of interest.</target>
+        </trans-unit>
+        <trans-unit id="87ffbf5d-7efe-4233-a314-251eed5a9465" xml:space="preserve">
+          <source>You can view these logs as plain text by running one of the following YARN commands directly on the cluster nodes (after connecting to it through RDP):</source>
+          <target state="new">You can view these logs as plain text by running one of the following YARN commands directly on the cluster nodes (after connecting to it through RDP):</target>
+        </trans-unit>
+        <trans-unit id="d3441d9e-1fec-4144-8697-0d41b3d23a7e" xml:space="preserve">
+          <source>The next section talks about how you can access application-specific or container-specific logs programmatically, without having to use RDP to connect to your HDInsight clusters.</source>
+          <target state="new">The next section talks about how you can access application-specific or container-specific logs programmatically, without having to use RDP to connect to your HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="22f0f053-8f01-4232-9362-82036769e90a" xml:space="preserve">
+          <source>To use the following code samples, you must satisfy the prerequisites outlined above by downloading the latest version of the HDInsight .NET SDK.</source>
+          <target state="new">To use the following code samples, you must satisfy the prerequisites outlined above by downloading the latest version of the HDInsight .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="e070ca23-b625-4ee9-a5f1-bf4e4aeb9cc3" xml:space="preserve">
+          <source>See the instructions provided there.</source>
+          <target state="new">See the instructions provided there.</target>
+        </trans-unit>
+        <trans-unit id="93520004-5837-4f3e-a57f-5072e1750489" xml:space="preserve">
+          <source>The code below illustrates how to use the new APIs to enumerate applications and download the logs for completed applications.</source>
+          <target state="new">The code below illustrates how to use the new APIs to enumerate applications and download the logs for completed applications.</target>
+        </trans-unit>
+        <trans-unit id="b236acbf-a5af-4a7a-a279-99c8a5e04a46" xml:space="preserve">
+          <source>The APIs below will work only against "Running" Hadoop clusters with version 3.1.1.374 or greater.</source>
+          <target state="new">The APIs below will work only against "Running" Hadoop clusters with version 3.1.1.374 or greater.</target>
+        </trans-unit>
+        <trans-unit id="181b8093-8649-4a71-a467-3f9ccffc8ad5" xml:space="preserve">
+          <source>Add the following directives:</source>
+          <target state="new">Add the following directives:</target>
+        </trans-unit>
+        <trans-unit id="6e55a565-4a04-467a-9e66-350391842399" xml:space="preserve">
+          <source>These reference the newly defined APIs in the code below.</source>
+          <target state="new">These reference the newly defined APIs in the code below.</target>
+        </trans-unit>
+        <trans-unit id="982ece1d-64ca-480c-b965-f7d3c07f5282" xml:space="preserve">
+          <source>The following code snippet creates an Application History client against a "Running" cluster in your subscription:</source>
+          <target state="new">The following code snippet creates an Application History client against a "Running" cluster in your subscription:</target>
+        </trans-unit>
+        <trans-unit id="8e6295b6-3c37-4ce7-a2cd-5bf76497fd37" xml:space="preserve">
+          <source>You can now use the Application History client to list completed applications, filter applications based on your criteria, and download relevant application logs.</source>
+          <target state="new">You can now use the Application History client to list completed applications, filter applications based on your criteria, and download relevant application logs.</target>
+        </trans-unit>
+        <trans-unit id="361df69f-4c39-40d2-9b94-fece88f2f783" xml:space="preserve">
+          <source>The following code snippet shows how this is done programmatically:</source>
+          <target state="new">The following code snippet shows how this is done programmatically:</target>
+        </trans-unit>
+        <trans-unit id="e17f95fd-80d3-4348-8058-ea696b24118b" xml:space="preserve">
+          <source>The above code lists/finds applications of interest by using the Application History client, and then downloads logs for those applications to a local folder.</source>
+          <target state="new">The above code lists/finds applications of interest by using the Application History client, and then downloads logs for those applications to a local folder.</target>
+        </trans-unit>
+        <trans-unit id="d6754e21-ae43-46c9-9441-6ad498156ffd" xml:space="preserve">
+          <source>Alternatively, the code snippet below downloads logs for an application whose application ID is known.</source>
+          <target state="new">Alternatively, the code snippet below downloads logs for an application whose application ID is known.</target>
+        </trans-unit>
+        <trans-unit id="86b09224-d950-4915-acc2-450bc6737c9f" xml:space="preserve">
+          <source>The application ID is a globally unique identifier of an application, as assigned to it by the RM.</source>
+          <target state="new">The application ID is a globally unique identifier of an application, as assigned to it by the RM.</target>
+        </trans-unit>
+        <trans-unit id="c782109a-858c-4e11-a6b3-832c23bb26f7" xml:space="preserve">
+          <source>It is constructed by using the start time of the RM, along with a monotonically increasing counter for applications submitted to it.</source>
+          <target state="new">It is constructed by using the start time of the RM, along with a monotonically increasing counter for applications submitted to it.</target>
+        </trans-unit>
+        <trans-unit id="39e8a2ff-b933-4c1e-8cec-1049c3a54158" xml:space="preserve">
+          <source>The application ID is of the form "application\<bpt id="478f82b9-08d8-455f-b6dc-4ddecf613aa5">&lt;em&gt;</bpt>&amp;lt;RM-start-time&amp;gt;\<ept id="478f82b9-08d8-455f-b6dc-4ddecf613aa5">&lt;/em&gt;</ept>&amp;lt;Counter&amp;gt;".</source>
+          <target state="new">The application ID is of the form "application\<bpt id="478f82b9-08d8-455f-b6dc-4ddecf613aa5">&lt;em&gt;</bpt>&amp;lt;RM-start-time&amp;gt;\<ept id="478f82b9-08d8-455f-b6dc-4ddecf613aa5">&lt;/em&gt;</ept>&amp;lt;Counter&amp;gt;".</target>
+        </trans-unit>
+        <trans-unit id="d08dddfa-2229-4af9-92e4-eab72a1e687f" xml:space="preserve">
+          <source>Please note that the application ID and job ID are distinct.</source>
+          <target state="new">Please note that the application ID and job ID are distinct.</target>
+        </trans-unit>
+        <trans-unit id="e1b35dc4-6580-4fc7-9b41-13a2af86c7bb" xml:space="preserve">
+          <source>The job ID is a concept specific to the MapReduce framework, whereas the application ID is a framework-agnostic YARN concept.</source>
+          <target state="new">The job ID is a concept specific to the MapReduce framework, whereas the application ID is a framework-agnostic YARN concept.</target>
+        </trans-unit>
+        <trans-unit id="2a8436ed-cc4d-41bd-ba12-00696821c21c" xml:space="preserve">
+          <source>In YARN, a job ID identifies a specific MapReduce job, as handled by the AM of a MapReduce application submitted to the RM.</source>
+          <target state="new">In YARN, a job ID identifies a specific MapReduce job, as handled by the AM of a MapReduce application submitted to the RM.</target>
+        </trans-unit>
+        <trans-unit id="5f908b28-0fa1-4e80-a1bc-17d1bc220219" xml:space="preserve">
+          <source>If needed, you can also download logs for each container (or any specific container) used by an application, as shown below.</source>
+          <target state="new">If needed, you can also download logs for each container (or any specific container) used by an application, as shown below.</target>
+        </trans-unit>
+        <trans-unit id="a7758192-b428-41cc-97fb-8307215d0831" xml:space="preserve">
+          <source>http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html</source>
+          <target state="new">http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html</target>
+        </trans-unit>
+        <trans-unit id="c0287713-93bb-499b-ab5d-3d4291ebec42" xml:space="preserve">
+          <source>http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/</source>
+          <target state="new">http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/</target>
+        </trans-unit>
+        <trans-unit id="3d5c7be7-0bc5-4610-b3df-0a9b14b6d93e" xml:space="preserve">
+          <source>https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf</source>
+          <target state="new">https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf</target>
+        </trans-unit>
+        <trans-unit id="e2095f69-0825-4b3e-9d34-653c8062bb24" xml:space="preserve">
+          <source>https://issues.apache.org/jira/browse/HADOOP-3315</source>
+          <target state="new">https://issues.apache.org/jira/browse/HADOOP-3315</target>
+        </trans-unit>
+        <trans-unit id="cd28ebdc-c801-4a89-9d0d-37cdc0e87510" xml:space="preserve">
+          <source>http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/</source>
+          <target state="new">http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/</target>
+        </trans-unit>
+      </group>
+      <group id="f3c15124-6369-496c-bb6d-544579c46801" />
+    </body>
+  </file>
+</xliff>

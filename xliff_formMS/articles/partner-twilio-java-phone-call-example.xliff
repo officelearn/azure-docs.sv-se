@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3dc9c14c-5cda-4bf7-a972-0e6c03e9ebfb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3dc9c14c-5cda-4bf7-a972-0e6c03e9ebfb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0c89bfde-70f8-4f97-8e85-edd9903b8440">
+        <trans-unit id="fc68cac7-1f96-4849-9c9d-23f6fe782786" xml:space="preserve">
+          <source>How to Make a phone call from Twilio (Java) | Microsoft Azure</source>
+          <target state="new">How to Make a phone call from Twilio (Java) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="52674291-18ea-4958-bb14-4c396e30a6cc" xml:space="preserve">
+          <source>Learn how to make a phone call from a web page using Twilio in a Java application on Azure.</source>
+          <target state="new">Learn how to make a phone call from a web page using Twilio in a Java application on Azure.</target>
+        </trans-unit>
+        <trans-unit id="ac074a43-fbde-4040-b5e5-ea4cb981c63f" xml:space="preserve">
+          <source>The following example shows you how you can use Twilio to make a call from a web page hosted in Azure.</source>
+          <target state="new">The following example shows you how you can use Twilio to make a call from a web page hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="75accc37-d922-49e6-9704-cb7dc3e3f167" xml:space="preserve">
+          <source>The resulting application will prompt the user for phone call values, as shown in the following screen shot.</source>
+          <target state="new">The resulting application will prompt the user for phone call values, as shown in the following screen shot.</target>
+        </trans-unit>
+        <trans-unit id="0a21120c-0110-4fbc-8ab7-7133704102d3" xml:space="preserve">
+          <source><bpt id="7f6046ff-0ff4-421f-add6-3f48b47e0e3e">&lt;linkText&gt;</bpt>Azure Call Form Using Twilio and Java<ept id="7f6046ff-0ff4-421f-add6-3f48b47e0e3e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f6046ff-0ff4-421f-add6-3f48b47e0e3e">&lt;linkText&gt;</bpt>Azure Call Form Using Twilio and Java<ept id="7f6046ff-0ff4-421f-add6-3f48b47e0e3e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eebd1d54-eb03-4434-a2b4-37052a72acbc" xml:space="preserve">
+          <source>You'll need to do the following to use the code in this topic:</source>
+          <target state="new">You'll need to do the following to use the code in this topic:</target>
+        </trans-unit>
+        <trans-unit id="9107dcd2-7d5c-4136-80b4-db8c55d50c3e" xml:space="preserve">
+          <source>Acquire a Twilio account and authentication token.</source>
+          <target state="new">Acquire a Twilio account and authentication token.</target>
+        </trans-unit>
+        <trans-unit id="c1b3b0a4-3c55-4c80-beee-5fdbf2d11c12" xml:space="preserve">
+          <source>To get started with Twilio, evaluate pricing at <bpt id="f05e37e5-2ef0-4086-ad8c-89a2532afda8">&lt;linkText&gt;</bpt>http://www.twilio.com/pricing[twilio_pricing]<ept id="f05e37e5-2ef0-4086-ad8c-89a2532afda8">&lt;/linkText&gt;</ept><bpt id="f05e37e5-2ef0-4086-ad8c-89a2532afda8">&lt;title&gt;</bpt><ept id="f05e37e5-2ef0-4086-ad8c-89a2532afda8">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started with Twilio, evaluate pricing at <bpt id="f05e37e5-2ef0-4086-ad8c-89a2532afda8">&lt;linkText&gt;</bpt>http://www.twilio.com/pricing[twilio_pricing]<ept id="f05e37e5-2ef0-4086-ad8c-89a2532afda8">&lt;/linkText&gt;</ept><bpt id="f05e37e5-2ef0-4086-ad8c-89a2532afda8">&lt;title&gt;</bpt><ept id="f05e37e5-2ef0-4086-ad8c-89a2532afda8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="444107ea-9e0f-4015-9ec1-65354d9e9c49" xml:space="preserve">
+          <source>You can sign up at <bpt id="f21707f1-cb56-4424-b8e1-8b81d74fc191">&lt;linkText&gt;</bpt>https://www.twilio.com/try-twilio[try_twilio]<ept id="f21707f1-cb56-4424-b8e1-8b81d74fc191">&lt;/linkText&gt;</ept><bpt id="f21707f1-cb56-4424-b8e1-8b81d74fc191">&lt;title&gt;</bpt><ept id="f21707f1-cb56-4424-b8e1-8b81d74fc191">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can sign up at <bpt id="f21707f1-cb56-4424-b8e1-8b81d74fc191">&lt;linkText&gt;</bpt>https://www.twilio.com/try-twilio[try_twilio]<ept id="f21707f1-cb56-4424-b8e1-8b81d74fc191">&lt;/linkText&gt;</ept><bpt id="f21707f1-cb56-4424-b8e1-8b81d74fc191">&lt;title&gt;</bpt><ept id="f21707f1-cb56-4424-b8e1-8b81d74fc191">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3617e290-f53b-4e8c-b000-fad0c7d36d88" xml:space="preserve">
+          <source>For information about the API provided by Twilio, see <bpt id="b1490d1d-ffb8-4175-a38c-0af72c03e069">&lt;linkText&gt;</bpt>http://www.twilio.com/api[twilio_api]<ept id="b1490d1d-ffb8-4175-a38c-0af72c03e069">&lt;/linkText&gt;</ept><bpt id="b1490d1d-ffb8-4175-a38c-0af72c03e069">&lt;title&gt;</bpt><ept id="b1490d1d-ffb8-4175-a38c-0af72c03e069">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the API provided by Twilio, see <bpt id="b1490d1d-ffb8-4175-a38c-0af72c03e069">&lt;linkText&gt;</bpt>http://www.twilio.com/api[twilio_api]<ept id="b1490d1d-ffb8-4175-a38c-0af72c03e069">&lt;/linkText&gt;</ept><bpt id="b1490d1d-ffb8-4175-a38c-0af72c03e069">&lt;title&gt;</bpt><ept id="b1490d1d-ffb8-4175-a38c-0af72c03e069">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68a8c56f-cf9f-483f-adc4-d1e3d88086f9" xml:space="preserve">
+          <source>Obtain the Twilio JAR.</source>
+          <target state="new">Obtain the Twilio JAR.</target>
+        </trans-unit>
+        <trans-unit id="d828f69d-a4ca-4901-883b-3216bbe8478d" xml:space="preserve">
+          <source>At <bpt id="46a23f6d-f82d-4899-b5a6-a1defcc689d0">&lt;linkText&gt;</bpt>https://github.com/twilio/twilio-java[twilio_java_github]<ept id="46a23f6d-f82d-4899-b5a6-a1defcc689d0">&lt;/linkText&gt;</ept><bpt id="46a23f6d-f82d-4899-b5a6-a1defcc689d0">&lt;title&gt;</bpt><ept id="46a23f6d-f82d-4899-b5a6-a1defcc689d0">&lt;/title&gt;</ept>, you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).</source>
+          <target state="new">At <bpt id="46a23f6d-f82d-4899-b5a6-a1defcc689d0">&lt;linkText&gt;</bpt>https://github.com/twilio/twilio-java[twilio_java_github]<ept id="46a23f6d-f82d-4899-b5a6-a1defcc689d0">&lt;/linkText&gt;</ept><bpt id="46a23f6d-f82d-4899-b5a6-a1defcc689d0">&lt;title&gt;</bpt><ept id="46a23f6d-f82d-4899-b5a6-a1defcc689d0">&lt;/title&gt;</ept>, you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).</target>
+        </trans-unit>
+        <trans-unit id="65f27db4-27b6-453f-ae63-8cd5474b7346" xml:space="preserve">
+          <source>The code in this topic was written using the pre-built TwilioJava-3.3.8-with-dependencies JAR.</source>
+          <target state="new">The code in this topic was written using the pre-built TwilioJava-3.3.8-with-dependencies JAR.</target>
+        </trans-unit>
+        <trans-unit id="32d9c0c4-348e-45ef-acf7-c4fd5f56b74d" xml:space="preserve">
+          <source>Add the JAR to your Java build path.</source>
+          <target state="new">Add the JAR to your Java build path.</target>
+        </trans-unit>
+        <trans-unit id="c5fd14f8-f9c8-4867-a55b-6f8788239ed9" xml:space="preserve">
+          <source>If you are using Eclipse to create this Java application, include the Twilio JAR in your application deployment file (WAR) using Eclipse's deployment assembly feature.</source>
+          <target state="new">If you are using Eclipse to create this Java application, include the Twilio JAR in your application deployment file (WAR) using Eclipse's deployment assembly feature.</target>
+        </trans-unit>
+        <trans-unit id="a98a43a5-6555-4635-819b-346a881c48ac" xml:space="preserve">
+          <source>If you are not using Eclipse to create this Java application, ensure the Twilio JAR is included within the same Azure role as your Java application, and added to the class path of your application.</source>
+          <target state="new">If you are not using Eclipse to create this Java application, ensure the Twilio JAR is included within the same Azure role as your Java application, and added to the class path of your application.</target>
+        </trans-unit>
+        <trans-unit id="ecb5450d-117b-4050-b4b1-f9cd5cc449d2" xml:space="preserve">
+          <source>Ensure your cacerts keystore contains the Equifax Secure Certificate Authority certificate with MD5 fingerprint 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (the serial number is 35:DE:F4:CF and the SHA1 fingerprint is D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A).</source>
+          <target state="new">Ensure your cacerts keystore contains the Equifax Secure Certificate Authority certificate with MD5 fingerprint 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (the serial number is 35:DE:F4:CF and the SHA1 fingerprint is D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A).</target>
+        </trans-unit>
+        <trans-unit id="6bf976b1-5529-41d9-b305-e7271846c1f8" xml:space="preserve">
+          <source>This is the certificate authority (CA) certificate for the <bpt id="4b1a10bf-2c02-4c47-9ef7-8e7ee8a0929d">&lt;linkText&gt;</bpt>https://api.twilio.com[twilio_api_service]<ept id="4b1a10bf-2c02-4c47-9ef7-8e7ee8a0929d">&lt;/linkText&gt;</ept><bpt id="4b1a10bf-2c02-4c47-9ef7-8e7ee8a0929d">&lt;title&gt;</bpt><ept id="4b1a10bf-2c02-4c47-9ef7-8e7ee8a0929d">&lt;/title&gt;</ept> service, which is called when you use Twilio APIs.</source>
+          <target state="new">This is the certificate authority (CA) certificate for the <bpt id="4b1a10bf-2c02-4c47-9ef7-8e7ee8a0929d">&lt;linkText&gt;</bpt>https://api.twilio.com[twilio_api_service]<ept id="4b1a10bf-2c02-4c47-9ef7-8e7ee8a0929d">&lt;/linkText&gt;</ept><bpt id="4b1a10bf-2c02-4c47-9ef7-8e7ee8a0929d">&lt;title&gt;</bpt><ept id="4b1a10bf-2c02-4c47-9ef7-8e7ee8a0929d">&lt;/title&gt;</ept> service, which is called when you use Twilio APIs.</target>
+        </trans-unit>
+        <trans-unit id="3fa0178f-eb9f-4b7f-a38c-f97afe425ca8" xml:space="preserve">
+          <source>For information about adding this CA certificate to your JDK's cacert store, see <bpt id="7c228a90-e8d8-4a67-a7ec-55c290ec3578">&lt;linkText&gt;</bpt>Adding a Certificate to the Java CA Certificate Store[add_ca_cert]<ept id="7c228a90-e8d8-4a67-a7ec-55c290ec3578">&lt;/linkText&gt;</ept><bpt id="7c228a90-e8d8-4a67-a7ec-55c290ec3578">&lt;title&gt;</bpt><ept id="7c228a90-e8d8-4a67-a7ec-55c290ec3578">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about adding this CA certificate to your JDK's cacert store, see <bpt id="7c228a90-e8d8-4a67-a7ec-55c290ec3578">&lt;linkText&gt;</bpt>Adding a Certificate to the Java CA Certificate Store[add_ca_cert]<ept id="7c228a90-e8d8-4a67-a7ec-55c290ec3578">&lt;/linkText&gt;</ept><bpt id="7c228a90-e8d8-4a67-a7ec-55c290ec3578">&lt;title&gt;</bpt><ept id="7c228a90-e8d8-4a67-a7ec-55c290ec3578">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1bacb154-81f8-46d2-90c2-51f7eda39043" xml:space="preserve">
+          <source>Additionally, familiarity with the information at <bpt id="473625fa-3cd5-4b11-b6ac-63dca251ab84">&lt;linkText&gt;</bpt>Creating a Hello World Application Using the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)[azure_java_eclipse_hello_world]<ept id="473625fa-3cd5-4b11-b6ac-63dca251ab84">&lt;/linkText&gt;</ept><bpt id="473625fa-3cd5-4b11-b6ac-63dca251ab84">&lt;title&gt;</bpt><ept id="473625fa-3cd5-4b11-b6ac-63dca251ab84">&lt;/title&gt;</ept>, or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.</source>
+          <target state="new">Additionally, familiarity with the information at <bpt id="473625fa-3cd5-4b11-b6ac-63dca251ab84">&lt;linkText&gt;</bpt>Creating a Hello World Application Using the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)[azure_java_eclipse_hello_world]<ept id="473625fa-3cd5-4b11-b6ac-63dca251ab84">&lt;/linkText&gt;</ept><bpt id="473625fa-3cd5-4b11-b6ac-63dca251ab84">&lt;title&gt;</bpt><ept id="473625fa-3cd5-4b11-b6ac-63dca251ab84">&lt;/title&gt;</ept>, or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.</target>
+        </trans-unit>
+        <trans-unit id="faf47ead-ec8b-474a-9d37-0d69368bf9b1" xml:space="preserve">
+          <source>The following code shows how to create a web form to retrieve user data for making a call.</source>
+          <target state="new">The following code shows how to create a web form to retrieve user data for making a call.</target>
+        </trans-unit>
+        <trans-unit id="2b83b84b-035d-44a9-a63b-cdc74764aea5" xml:space="preserve">
+          <source>For purposes of this example, a new dynamic web project, named <bpt id="0aca2150-a8f8-48d8-9330-6cb57cbe8e2b">&lt;strong&gt;</bpt>TwilioCloud<ept id="0aca2150-a8f8-48d8-9330-6cb57cbe8e2b">&lt;/strong&gt;</ept>, was created, and <bpt id="475f0047-5831-417f-9c73-08e7e8c4bde0">&lt;strong&gt;</bpt>callform.jsp<ept id="475f0047-5831-417f-9c73-08e7e8c4bde0">&lt;/strong&gt;</ept> was added as a JSP file.</source>
+          <target state="new">For purposes of this example, a new dynamic web project, named <bpt id="0aca2150-a8f8-48d8-9330-6cb57cbe8e2b">&lt;strong&gt;</bpt>TwilioCloud<ept id="0aca2150-a8f8-48d8-9330-6cb57cbe8e2b">&lt;/strong&gt;</ept>, was created, and <bpt id="475f0047-5831-417f-9c73-08e7e8c4bde0">&lt;strong&gt;</bpt>callform.jsp<ept id="475f0047-5831-417f-9c73-08e7e8c4bde0">&lt;/strong&gt;</ept> was added as a JSP file.</target>
+        </trans-unit>
+        <trans-unit id="1ad6442f-138f-41cd-94b1-249cadf9fd0e" xml:space="preserve">
+          <source>The following code, which is called when the user completes the form displayed by callform.jsp, creates the call message and generates the call.</source>
+          <target state="new">The following code, which is called when the user completes the form displayed by callform.jsp, creates the call message and generates the call.</target>
+        </trans-unit>
+        <trans-unit id="b9318f80-c97d-4caa-94fd-540735dfd4a1" xml:space="preserve">
+          <source>For purposes of this example, the JSP file is named <bpt id="59c39a53-5edc-4c09-bc23-0f391544ef3b">&lt;strong&gt;</bpt>makecall.jsp<ept id="59c39a53-5edc-4c09-bc23-0f391544ef3b">&lt;/strong&gt;</ept> and was added to the <bpt id="9c37602f-39ff-43bd-b7c2-202445564d00">&lt;strong&gt;</bpt>TwilioCloud<ept id="9c37602f-39ff-43bd-b7c2-202445564d00">&lt;/strong&gt;</ept> project.</source>
+          <target state="new">For purposes of this example, the JSP file is named <bpt id="59c39a53-5edc-4c09-bc23-0f391544ef3b">&lt;strong&gt;</bpt>makecall.jsp<ept id="59c39a53-5edc-4c09-bc23-0f391544ef3b">&lt;/strong&gt;</ept> and was added to the <bpt id="9c37602f-39ff-43bd-b7c2-202445564d00">&lt;strong&gt;</bpt>TwilioCloud<ept id="9c37602f-39ff-43bd-b7c2-202445564d00">&lt;/strong&gt;</ept> project.</target>
+        </trans-unit>
+        <trans-unit id="aece07d6-6347-496d-8ce7-7e96add0175e" xml:space="preserve">
+          <source>(Use your Twilio account and authentication token instead of the placeholder values assigned to <bpt id="6d8a2b4a-7da1-4b6b-b34f-410914f85877">&lt;strong&gt;</bpt>accountSID<ept id="6d8a2b4a-7da1-4b6b-b34f-410914f85877">&lt;/strong&gt;</ept> and <bpt id="26bb02b3-b670-4058-abb7-1d7ecdfd785b">&lt;strong&gt;</bpt>authToken<ept id="26bb02b3-b670-4058-abb7-1d7ecdfd785b">&lt;/strong&gt;</ept> in the code below.)</source>
+          <target state="new">(Use your Twilio account and authentication token instead of the placeholder values assigned to <bpt id="6d8a2b4a-7da1-4b6b-b34f-410914f85877">&lt;strong&gt;</bpt>accountSID<ept id="6d8a2b4a-7da1-4b6b-b34f-410914f85877">&lt;/strong&gt;</ept> and <bpt id="26bb02b3-b670-4058-abb7-1d7ecdfd785b">&lt;strong&gt;</bpt>authToken<ept id="26bb02b3-b670-4058-abb7-1d7ecdfd785b">&lt;/strong&gt;</ept> in the code below.)</target>
+        </trans-unit>
+        <trans-unit id="dec3adcb-a627-499e-ad46-44f9afcc4bc4" xml:space="preserve">
+          <source>In addition to making the call, makecall.jsp displays the Twilio endpoint, API version, and the call status.</source>
+          <target state="new">In addition to making the call, makecall.jsp displays the Twilio endpoint, API version, and the call status.</target>
+        </trans-unit>
+        <trans-unit id="28b48a9e-b49d-4a4f-9b3b-b6c00ce27e79" xml:space="preserve">
+          <source>An example is the following screen shot:</source>
+          <target state="new">An example is the following screen shot:</target>
+        </trans-unit>
+        <trans-unit id="7cd62751-49fb-4724-aeba-f216f3eca40b" xml:space="preserve">
+          <source><bpt id="c631111d-d769-4b77-a464-35ce5333793d">&lt;linkText&gt;</bpt>Azure Call Response Using Twilio and Java<ept id="c631111d-d769-4b77-a464-35ce5333793d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c631111d-d769-4b77-a464-35ce5333793d">&lt;linkText&gt;</bpt>Azure Call Response Using Twilio and Java<ept id="c631111d-d769-4b77-a464-35ce5333793d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfa95379-43ac-4651-a480-09dfb3ed9f57" xml:space="preserve">
+          <source>Following are the high-level steps to run your application; details for these steps can be found at <bpt id="13162e10-9a34-4221-875f-138e2d74789c">&lt;linkText&gt;</bpt>Creating a Hello World Application Using the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)[azure_java_eclipse_hello_world]<ept id="13162e10-9a34-4221-875f-138e2d74789c">&lt;/linkText&gt;</ept><bpt id="13162e10-9a34-4221-875f-138e2d74789c">&lt;title&gt;</bpt><ept id="13162e10-9a34-4221-875f-138e2d74789c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Following are the high-level steps to run your application; details for these steps can be found at <bpt id="13162e10-9a34-4221-875f-138e2d74789c">&lt;linkText&gt;</bpt>Creating a Hello World Application Using the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)[azure_java_eclipse_hello_world]<ept id="13162e10-9a34-4221-875f-138e2d74789c">&lt;/linkText&gt;</ept><bpt id="13162e10-9a34-4221-875f-138e2d74789c">&lt;title&gt;</bpt><ept id="13162e10-9a34-4221-875f-138e2d74789c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6eea88f-9a20-4bbe-b696-2698c527bcce" xml:space="preserve">
+          <source>Export your TwilioCloud WAR to the Azure <bpt id="8927fbb7-0c2a-4ad9-a0ad-29bc17ef6344">&lt;strong&gt;</bpt>approot<ept id="8927fbb7-0c2a-4ad9-a0ad-29bc17ef6344">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">Export your TwilioCloud WAR to the Azure <bpt id="8927fbb7-0c2a-4ad9-a0ad-29bc17ef6344">&lt;strong&gt;</bpt>approot<ept id="8927fbb7-0c2a-4ad9-a0ad-29bc17ef6344">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="9bb5cf83-9b42-40d4-9e4c-9e23d0cf91d6" xml:space="preserve">
+          <source>Modify <bpt id="f29bf2e5-b3f1-4cb3-947b-01fb9cb6c1f3">&lt;strong&gt;</bpt>startup.cmd<ept id="f29bf2e5-b3f1-4cb3-947b-01fb9cb6c1f3">&lt;/strong&gt;</ept> to unzip your TwilioCloud WAR.</source>
+          <target state="new">Modify <bpt id="f29bf2e5-b3f1-4cb3-947b-01fb9cb6c1f3">&lt;strong&gt;</bpt>startup.cmd<ept id="f29bf2e5-b3f1-4cb3-947b-01fb9cb6c1f3">&lt;/strong&gt;</ept> to unzip your TwilioCloud WAR.</target>
+        </trans-unit>
+        <trans-unit id="2d54631a-95cc-427e-84e9-f41875c0ffcd" xml:space="preserve">
+          <source>Compile your application for the compute emulator.</source>
+          <target state="new">Compile your application for the compute emulator.</target>
+        </trans-unit>
+        <trans-unit id="e64e78aa-8a1e-4f66-8b16-115c9edb04ae" xml:space="preserve">
+          <source>Start your deployment in the compute emulator.</source>
+          <target state="new">Start your deployment in the compute emulator.</target>
+        </trans-unit>
+        <trans-unit id="6857a680-e6f0-47c9-af88-50c98b7babdf" xml:space="preserve">
+          <source>Open a browser, and run <bpt id="ac0808a3-12fb-487e-b807-8d2c42e00395">&lt;strong&gt;</bpt>http://localhost:8080/TwilioCloud/callform.jsp<ept id="ac0808a3-12fb-487e-b807-8d2c42e00395">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open a browser, and run <bpt id="ac0808a3-12fb-487e-b807-8d2c42e00395">&lt;strong&gt;</bpt>http://localhost:8080/TwilioCloud/callform.jsp<ept id="ac0808a3-12fb-487e-b807-8d2c42e00395">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96ad259f-552e-421e-8b36-137f9fb339dd" xml:space="preserve">
+          <source>Enter values in the form, click <bpt id="9db06413-2fd3-4b3e-bc54-3c5a23d296b4">&lt;strong&gt;</bpt>Make this call<ept id="9db06413-2fd3-4b3e-bc54-3c5a23d296b4">&lt;/strong&gt;</ept>, and then see the results in makecall.jsp.</source>
+          <target state="new">Enter values in the form, click <bpt id="9db06413-2fd3-4b3e-bc54-3c5a23d296b4">&lt;strong&gt;</bpt>Make this call<ept id="9db06413-2fd3-4b3e-bc54-3c5a23d296b4">&lt;/strong&gt;</ept>, and then see the results in makecall.jsp.</target>
+        </trans-unit>
+        <trans-unit id="1e35617f-140c-4493-86b8-adbe2ae58614" xml:space="preserve">
+          <source>When you are ready to deploy to Azure, recompile for deployment to the cloud, deploy to Azure, and run http://<bpt id="eda01320-7f89-455b-8151-89c28c952df9">&lt;em&gt;</bpt>your_hosted_name<ept id="eda01320-7f89-455b-8151-89c28c952df9">&lt;/em&gt;</ept>.cloudapp.net/TwilioCloud/callform.jsp in the browser (substitute your value for <bpt id="28c2d56b-36d5-4bdf-8dfd-3918ddb5c6cc">&lt;em&gt;</bpt>your_hosted_name<ept id="28c2d56b-36d5-4bdf-8dfd-3918ddb5c6cc">&lt;/em&gt;</ept>).</source>
+          <target state="new">When you are ready to deploy to Azure, recompile for deployment to the cloud, deploy to Azure, and run http://<bpt id="eda01320-7f89-455b-8151-89c28c952df9">&lt;em&gt;</bpt>your_hosted_name<ept id="eda01320-7f89-455b-8151-89c28c952df9">&lt;/em&gt;</ept>.cloudapp.net/TwilioCloud/callform.jsp in the browser (substitute your value for <bpt id="28c2d56b-36d5-4bdf-8dfd-3918ddb5c6cc">&lt;em&gt;</bpt>your_hosted_name<ept id="28c2d56b-36d5-4bdf-8dfd-3918ddb5c6cc">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="0753976e-affd-4a8e-b275-9888342bcefc" xml:space="preserve">
+          <source>This code was provided to show you basic functionality using Twilio in Java on Azure.</source>
+          <target state="new">This code was provided to show you basic functionality using Twilio in Java on Azure.</target>
+        </trans-unit>
+        <trans-unit id="004a50bc-f85b-45e5-aca1-60687e971e81" xml:space="preserve">
+          <source>Before deploying to Azure in production, you may want to add more error handling or other features.</source>
+          <target state="new">Before deploying to Azure in production, you may want to add more error handling or other features.</target>
+        </trans-unit>
+        <trans-unit id="4e8f7d7b-d737-49de-8140-f47ea655da6c" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="74968657-c52c-461b-a64e-f3a2f20b74f2" xml:space="preserve">
+          <source>Instead of using a web form, you could use Azure storage blobs or SQL Database to store phone numbers and call text.</source>
+          <target state="new">Instead of using a web form, you could use Azure storage blobs or SQL Database to store phone numbers and call text.</target>
+        </trans-unit>
+        <trans-unit id="977219bd-e517-41ad-aaea-c599dcb06ef3" xml:space="preserve">
+          <source>For information about using Azure storage blobs in Java, see <bpt id="5aeeb0bb-3afc-4c05-8287-c1c1bd1037a6">&lt;linkText&gt;</bpt>How to Use the Blob Storage Service from Java[howto_blob_storage_java]<ept id="5aeeb0bb-3afc-4c05-8287-c1c1bd1037a6">&lt;/linkText&gt;</ept><bpt id="5aeeb0bb-3afc-4c05-8287-c1c1bd1037a6">&lt;title&gt;</bpt><ept id="5aeeb0bb-3afc-4c05-8287-c1c1bd1037a6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using Azure storage blobs in Java, see <bpt id="5aeeb0bb-3afc-4c05-8287-c1c1bd1037a6">&lt;linkText&gt;</bpt>How to Use the Blob Storage Service from Java[howto_blob_storage_java]<ept id="5aeeb0bb-3afc-4c05-8287-c1c1bd1037a6">&lt;/linkText&gt;</ept><bpt id="5aeeb0bb-3afc-4c05-8287-c1c1bd1037a6">&lt;title&gt;</bpt><ept id="5aeeb0bb-3afc-4c05-8287-c1c1bd1037a6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b0094a5-c3c6-4ad5-9c24-276cc08f7fab" xml:space="preserve">
+          <source>For information about using SQL Database in Java, see <bpt id="bbfd2cbf-a435-475b-8870-312ad21ba38e">&lt;linkText&gt;</bpt>Using SQL Database in Java[howto_sql_azure_java]<ept id="bbfd2cbf-a435-475b-8870-312ad21ba38e">&lt;/linkText&gt;</ept><bpt id="bbfd2cbf-a435-475b-8870-312ad21ba38e">&lt;title&gt;</bpt><ept id="bbfd2cbf-a435-475b-8870-312ad21ba38e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using SQL Database in Java, see <bpt id="bbfd2cbf-a435-475b-8870-312ad21ba38e">&lt;linkText&gt;</bpt>Using SQL Database in Java[howto_sql_azure_java]<ept id="bbfd2cbf-a435-475b-8870-312ad21ba38e">&lt;/linkText&gt;</ept><bpt id="bbfd2cbf-a435-475b-8870-312ad21ba38e">&lt;title&gt;</bpt><ept id="bbfd2cbf-a435-475b-8870-312ad21ba38e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfaf4fcb-af2e-4961-988e-a6d7a5298106" xml:space="preserve">
+          <source>You could use <bpt id="ac0b7e4a-ec98-439f-9bc3-94b42511e389">&lt;strong&gt;</bpt>RoleEnvironment.getConfigurationSettings<ept id="ac0b7e4a-ec98-439f-9bc3-94b42511e389">&lt;/strong&gt;</ept> to retrieve the Twilio account ID and authentication token from your deployment's configuration settings, instead of hard-coding the values in makecall.jsp.</source>
+          <target state="new">You could use <bpt id="ac0b7e4a-ec98-439f-9bc3-94b42511e389">&lt;strong&gt;</bpt>RoleEnvironment.getConfigurationSettings<ept id="ac0b7e4a-ec98-439f-9bc3-94b42511e389">&lt;/strong&gt;</ept> to retrieve the Twilio account ID and authentication token from your deployment's configuration settings, instead of hard-coding the values in makecall.jsp.</target>
+        </trans-unit>
+        <trans-unit id="27ed95e8-88e7-4194-bf97-2857f0a7ba32" xml:space="preserve">
+          <source>For information about the <bpt id="481f2bc9-51ad-4928-ba4e-63300fc120d2">&lt;strong&gt;</bpt>RoleEnvironment<ept id="481f2bc9-51ad-4928-ba4e-63300fc120d2">&lt;/strong&gt;</ept> class, see <bpt id="5ee0ec9e-119e-4c08-9f70-23abee471aaa">&lt;linkText&gt;</bpt>Using the Azure Service Runtime Library in JSP[azure_runtime_jsp]<ept id="5ee0ec9e-119e-4c08-9f70-23abee471aaa">&lt;/linkText&gt;</ept><bpt id="5ee0ec9e-119e-4c08-9f70-23abee471aaa">&lt;title&gt;</bpt><ept id="5ee0ec9e-119e-4c08-9f70-23abee471aaa">&lt;/title&gt;</ept> and the Azure Service Runtime package documentation at <bpt id="a7dc1d73-3400-4a4a-bc1e-980b85038576">&lt;linkText&gt;</bpt>http://dl.windowsazure.com/javadoc[azure_javadoc]<ept id="a7dc1d73-3400-4a4a-bc1e-980b85038576">&lt;/linkText&gt;</ept><bpt id="a7dc1d73-3400-4a4a-bc1e-980b85038576">&lt;title&gt;</bpt><ept id="a7dc1d73-3400-4a4a-bc1e-980b85038576">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the <bpt id="481f2bc9-51ad-4928-ba4e-63300fc120d2">&lt;strong&gt;</bpt>RoleEnvironment<ept id="481f2bc9-51ad-4928-ba4e-63300fc120d2">&lt;/strong&gt;</ept> class, see <bpt id="5ee0ec9e-119e-4c08-9f70-23abee471aaa">&lt;linkText&gt;</bpt>Using the Azure Service Runtime Library in JSP[azure_runtime_jsp]<ept id="5ee0ec9e-119e-4c08-9f70-23abee471aaa">&lt;/linkText&gt;</ept><bpt id="5ee0ec9e-119e-4c08-9f70-23abee471aaa">&lt;title&gt;</bpt><ept id="5ee0ec9e-119e-4c08-9f70-23abee471aaa">&lt;/title&gt;</ept> and the Azure Service Runtime package documentation at <bpt id="a7dc1d73-3400-4a4a-bc1e-980b85038576">&lt;linkText&gt;</bpt>http://dl.windowsazure.com/javadoc[azure_javadoc]<ept id="a7dc1d73-3400-4a4a-bc1e-980b85038576">&lt;/linkText&gt;</ept><bpt id="a7dc1d73-3400-4a4a-bc1e-980b85038576">&lt;title&gt;</bpt><ept id="a7dc1d73-3400-4a4a-bc1e-980b85038576">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca9c81c5-c401-4a46-b4a8-5de88423cd47" xml:space="preserve">
+          <source>The makecall.jsp code assigns a Twilio-provided URL, <bpt id="1ff81a4e-40d8-4b72-9175-38d0d615c5ab">&lt;linkText&gt;</bpt>http://twimlets.com/message[twimlet_message_url]<ept id="1ff81a4e-40d8-4b72-9175-38d0d615c5ab">&lt;/linkText&gt;</ept><bpt id="1ff81a4e-40d8-4b72-9175-38d0d615c5ab">&lt;title&gt;</bpt><ept id="1ff81a4e-40d8-4b72-9175-38d0d615c5ab">&lt;/title&gt;</ept>, to the <bpt id="c0db8ab6-9dbd-4515-ad4e-38ae0a3dfaec">&lt;strong&gt;</bpt>Url<ept id="c0db8ab6-9dbd-4515-ad4e-38ae0a3dfaec">&lt;/strong&gt;</ept> variable.</source>
+          <target state="new">The makecall.jsp code assigns a Twilio-provided URL, <bpt id="1ff81a4e-40d8-4b72-9175-38d0d615c5ab">&lt;linkText&gt;</bpt>http://twimlets.com/message[twimlet_message_url]<ept id="1ff81a4e-40d8-4b72-9175-38d0d615c5ab">&lt;/linkText&gt;</ept><bpt id="1ff81a4e-40d8-4b72-9175-38d0d615c5ab">&lt;title&gt;</bpt><ept id="1ff81a4e-40d8-4b72-9175-38d0d615c5ab">&lt;/title&gt;</ept>, to the <bpt id="c0db8ab6-9dbd-4515-ad4e-38ae0a3dfaec">&lt;strong&gt;</bpt>Url<ept id="c0db8ab6-9dbd-4515-ad4e-38ae0a3dfaec">&lt;/strong&gt;</ept> variable.</target>
+        </trans-unit>
+        <trans-unit id="95984005-c52d-49e6-b594-ce6f12746a50" xml:space="preserve">
+          <source>This URL provides a Twilio Markup Language (TwiML) response that informs Twilio how to proceed with the call.</source>
+          <target state="new">This URL provides a Twilio Markup Language (TwiML) response that informs Twilio how to proceed with the call.</target>
+        </trans-unit>
+        <trans-unit id="ba504778-3066-4057-a4b5-d91846f5a6d4" xml:space="preserve">
+          <source>For example, the TwiML that is returned can contain a <bpt id="97a419c9-4272-41b2-af99-8d0ee636c68e">&lt;strong&gt;</bpt>&amp;lt;Say&amp;gt;<ept id="97a419c9-4272-41b2-af99-8d0ee636c68e">&lt;/strong&gt;</ept> verb that results in text being spoken to the call recipient.</source>
+          <target state="new">For example, the TwiML that is returned can contain a <bpt id="97a419c9-4272-41b2-af99-8d0ee636c68e">&lt;strong&gt;</bpt>&amp;lt;Say&amp;gt;<ept id="97a419c9-4272-41b2-af99-8d0ee636c68e">&lt;/strong&gt;</ept> verb that results in text being spoken to the call recipient.</target>
+        </trans-unit>
+        <trans-unit id="6018a80b-fa9e-4427-80a7-c3363bf337a7" xml:space="preserve">
+          <source>Instead of using the Twilio-provided URL, you could build your own service to respond to Twilio's request; for more information, see <bpt id="04218a6c-fb48-45ad-9c0e-53071878248c">&lt;linkText&gt;</bpt>How to Use Twilio for Voice and SMS Capabilities in Java[howto_twilio_voice_sms_java]<ept id="04218a6c-fb48-45ad-9c0e-53071878248c">&lt;/linkText&gt;</ept><bpt id="04218a6c-fb48-45ad-9c0e-53071878248c">&lt;title&gt;</bpt><ept id="04218a6c-fb48-45ad-9c0e-53071878248c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Instead of using the Twilio-provided URL, you could build your own service to respond to Twilio's request; for more information, see <bpt id="04218a6c-fb48-45ad-9c0e-53071878248c">&lt;linkText&gt;</bpt>How to Use Twilio for Voice and SMS Capabilities in Java[howto_twilio_voice_sms_java]<ept id="04218a6c-fb48-45ad-9c0e-53071878248c">&lt;/linkText&gt;</ept><bpt id="04218a6c-fb48-45ad-9c0e-53071878248c">&lt;title&gt;</bpt><ept id="04218a6c-fb48-45ad-9c0e-53071878248c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37f004a1-837c-4c0d-9807-7d33150155f6" xml:space="preserve">
+          <source>More information about TwiML can be found at <bpt id="4b79c829-b8e0-4ab3-a63b-067719df9565">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml[twiml]<ept id="4b79c829-b8e0-4ab3-a63b-067719df9565">&lt;/linkText&gt;</ept><bpt id="4b79c829-b8e0-4ab3-a63b-067719df9565">&lt;title&gt;</bpt><ept id="4b79c829-b8e0-4ab3-a63b-067719df9565">&lt;/title&gt;</ept>, and more information about <bpt id="d113d662-4f32-4f03-b829-9f0d28e4b5e5">&lt;strong&gt;</bpt>&amp;lt;Say&amp;gt;<ept id="d113d662-4f32-4f03-b829-9f0d28e4b5e5">&lt;/strong&gt;</ept> and other Twilio verbs can be found at <bpt id="8a168e86-e9be-4e4b-975a-2c8a52e90c98">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml/say[twilio_say]<ept id="8a168e86-e9be-4e4b-975a-2c8a52e90c98">&lt;/linkText&gt;</ept><bpt id="8a168e86-e9be-4e4b-975a-2c8a52e90c98">&lt;title&gt;</bpt><ept id="8a168e86-e9be-4e4b-975a-2c8a52e90c98">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information about TwiML can be found at <bpt id="4b79c829-b8e0-4ab3-a63b-067719df9565">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml[twiml]<ept id="4b79c829-b8e0-4ab3-a63b-067719df9565">&lt;/linkText&gt;</ept><bpt id="4b79c829-b8e0-4ab3-a63b-067719df9565">&lt;title&gt;</bpt><ept id="4b79c829-b8e0-4ab3-a63b-067719df9565">&lt;/title&gt;</ept>, and more information about <bpt id="d113d662-4f32-4f03-b829-9f0d28e4b5e5">&lt;strong&gt;</bpt>&amp;lt;Say&amp;gt;<ept id="d113d662-4f32-4f03-b829-9f0d28e4b5e5">&lt;/strong&gt;</ept> and other Twilio verbs can be found at <bpt id="8a168e86-e9be-4e4b-975a-2c8a52e90c98">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml/say[twilio_say]<ept id="8a168e86-e9be-4e4b-975a-2c8a52e90c98">&lt;/linkText&gt;</ept><bpt id="8a168e86-e9be-4e4b-975a-2c8a52e90c98">&lt;title&gt;</bpt><ept id="8a168e86-e9be-4e4b-975a-2c8a52e90c98">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="59eab2db-1c9f-433e-8588-96e65895f9a2" xml:space="preserve">
+          <source>Read the Twilio security guidelines at <bpt id="e9d08fbd-1a1d-44e9-9978-19cf006942c2">&lt;linkText&gt;</bpt>https://www.twilio.com/docs/security[twilio_docs_security]<ept id="e9d08fbd-1a1d-44e9-9978-19cf006942c2">&lt;/linkText&gt;</ept><bpt id="e9d08fbd-1a1d-44e9-9978-19cf006942c2">&lt;title&gt;</bpt><ept id="e9d08fbd-1a1d-44e9-9978-19cf006942c2">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read the Twilio security guidelines at <bpt id="e9d08fbd-1a1d-44e9-9978-19cf006942c2">&lt;linkText&gt;</bpt>https://www.twilio.com/docs/security[twilio_docs_security]<ept id="e9d08fbd-1a1d-44e9-9978-19cf006942c2">&lt;/linkText&gt;</ept><bpt id="e9d08fbd-1a1d-44e9-9978-19cf006942c2">&lt;title&gt;</bpt><ept id="e9d08fbd-1a1d-44e9-9978-19cf006942c2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f4b0207-2155-464e-9543-8fd52d59ec4f" xml:space="preserve">
+          <source>For additional information about Twilio, see <bpt id="ef77e1ff-355c-460c-be0d-03872963982d">&lt;linkText&gt;</bpt>https://www.twilio.com/docs[twilio_docs]<ept id="ef77e1ff-355c-460c-be0d-03872963982d">&lt;/linkText&gt;</ept><bpt id="ef77e1ff-355c-460c-be0d-03872963982d">&lt;title&gt;</bpt><ept id="ef77e1ff-355c-460c-be0d-03872963982d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information about Twilio, see <bpt id="ef77e1ff-355c-460c-be0d-03872963982d">&lt;linkText&gt;</bpt>https://www.twilio.com/docs[twilio_docs]<ept id="ef77e1ff-355c-460c-be0d-03872963982d">&lt;/linkText&gt;</ept><bpt id="ef77e1ff-355c-460c-be0d-03872963982d">&lt;title&gt;</bpt><ept id="ef77e1ff-355c-460c-be0d-03872963982d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d0308fd-ef09-4961-ae69-552be20086c9" xml:space="preserve">
+          <source><bpt id="50c9a841-bcfd-414b-9c55-2bc6bc5e8441">&lt;linkText&gt;</bpt>How to Use Twilio for Voice and SMS Capabilities in Java[howto_twilio_voice_sms_java]<ept id="50c9a841-bcfd-414b-9c55-2bc6bc5e8441">&lt;/linkText&gt;</ept><bpt id="50c9a841-bcfd-414b-9c55-2bc6bc5e8441">&lt;title&gt;</bpt><ept id="50c9a841-bcfd-414b-9c55-2bc6bc5e8441">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="50c9a841-bcfd-414b-9c55-2bc6bc5e8441">&lt;linkText&gt;</bpt>How to Use Twilio for Voice and SMS Capabilities in Java[howto_twilio_voice_sms_java]<ept id="50c9a841-bcfd-414b-9c55-2bc6bc5e8441">&lt;/linkText&gt;</ept><bpt id="50c9a841-bcfd-414b-9c55-2bc6bc5e8441">&lt;title&gt;</bpt><ept id="50c9a841-bcfd-414b-9c55-2bc6bc5e8441">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7d5e909-c16e-4c6a-a166-6af2b5a6e51d" xml:space="preserve">
+          <source><bpt id="1eaae7f0-63dd-4aeb-a1da-ced4e73c4fa6">&lt;linkText&gt;</bpt>Adding a Certificate to the Java CA Certificate Store[add_ca_cert]<ept id="1eaae7f0-63dd-4aeb-a1da-ced4e73c4fa6">&lt;/linkText&gt;</ept><bpt id="1eaae7f0-63dd-4aeb-a1da-ced4e73c4fa6">&lt;title&gt;</bpt><ept id="1eaae7f0-63dd-4aeb-a1da-ced4e73c4fa6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1eaae7f0-63dd-4aeb-a1da-ced4e73c4fa6">&lt;linkText&gt;</bpt>Adding a Certificate to the Java CA Certificate Store[add_ca_cert]<ept id="1eaae7f0-63dd-4aeb-a1da-ced4e73c4fa6">&lt;/linkText&gt;</ept><bpt id="1eaae7f0-63dd-4aeb-a1da-ced4e73c4fa6">&lt;title&gt;</bpt><ept id="1eaae7f0-63dd-4aeb-a1da-ced4e73c4fa6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a599899-7398-4210-b6e3-dfb4c3004ed7" xml:space="preserve">
+          <source>http://www.twilio.com/pricing</source>
+          <target state="new">http://www.twilio.com/pricing</target>
+        </trans-unit>
+        <trans-unit id="91b2f933-27e7-43c0-932d-1551603c0f5a" xml:space="preserve">
+          <source>http://www.twilio.com/try-twilio</source>
+          <target state="new">http://www.twilio.com/try-twilio</target>
+        </trans-unit>
+        <trans-unit id="3c74bfc8-cd9c-4031-b8e7-c2b6c4b7e5a8" xml:space="preserve">
+          <source>http://www.twilio.com/api</source>
+          <target state="new">http://www.twilio.com/api</target>
+        </trans-unit>
+        <trans-unit id="eec62f41-1009-4f70-a01d-5233540336e7" xml:space="preserve">
+          <source>https://www.twilio.com/user/account/phone-numbers/verified#</source>
+          <target state="new">https://www.twilio.com/user/account/phone-numbers/verified#</target>
+        </trans-unit>
+        <trans-unit id="b3366157-8d3b-48ab-9965-2a5bc77bc589" xml:space="preserve">
+          <source>http://github.com/twilio/twilio-java</source>
+          <target state="new">http://github.com/twilio/twilio-java</target>
+        </trans-unit>
+        <trans-unit id="dc5a5aad-9c64-442c-8477-7a0014e9c9d7" xml:space="preserve">
+          <source>http://twimlets.com/message</source>
+          <target state="new">http://twimlets.com/message</target>
+        </trans-unit>
+        <trans-unit id="51da870a-cdb7-4673-a410-c223f5842869" xml:space="preserve">
+          <source>http://www.twilio.com/docs/api/twiml</source>
+          <target state="new">http://www.twilio.com/docs/api/twiml</target>
+        </trans-unit>
+        <trans-unit id="d4ca298a-101a-47ec-9be0-984a451232f8" xml:space="preserve">
+          <source>http://api.twilio.com</source>
+          <target state="new">http://api.twilio.com</target>
+        </trans-unit>
+        <trans-unit id="ddf12499-44a3-497e-a121-b9bc7c23bb67" xml:space="preserve">
+          <source>java-add-certificate-ca-store.md</source>
+          <target state="new">java-add-certificate-ca-store.md</target>
+        </trans-unit>
+        <trans-unit id="4aec34f4-0964-46f6-a1ef-be15841942f7" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/hh690944.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/hh690944.aspx</target>
+        </trans-unit>
+        <trans-unit id="06112638-e393-4f9a-b7cf-20084938730b" xml:space="preserve">
+          <source>partner-twilio-java-how-to-use-voice-sms.md</source>
+          <target state="new">partner-twilio-java-how-to-use-voice-sms.md</target>
+        </trans-unit>
+        <trans-unit id="bf80067c-6593-47af-828c-af9cb0ee1438" xml:space="preserve">
+          <source>http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/</source>
+          <target state="new">http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/</target>
+        </trans-unit>
+        <trans-unit id="4707cf45-e79b-427d-bf5d-d39f0bc70a14" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/hh749029.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/hh749029.aspx</target>
+        </trans-unit>
+        <trans-unit id="71d2841a-760e-4487-bebd-695e4e00df57" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/hh690948.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/hh690948.aspx</target>
+        </trans-unit>
+        <trans-unit id="7852cc61-9a5a-4013-b286-6e83bcce1642" xml:space="preserve">
+          <source>http://dl.windowsazure.com/javadoc</source>
+          <target state="new">http://dl.windowsazure.com/javadoc</target>
+        </trans-unit>
+        <trans-unit id="ca177e48-a584-4fb1-972e-101225a8f56b" xml:space="preserve">
+          <source>http://www.twilio.com/docs/security</source>
+          <target state="new">http://www.twilio.com/docs/security</target>
+        </trans-unit>
+        <trans-unit id="f4284c34-80b8-4127-b196-c03f5a425a98" xml:space="preserve">
+          <source>http://www.twilio.com/docs</source>
+          <target state="new">http://www.twilio.com/docs</target>
+        </trans-unit>
+        <trans-unit id="b169482b-2630-42aa-b558-ae8151c08739" xml:space="preserve">
+          <source>http://www.twilio.com/docs/api/twiml/say</source>
+          <target state="new">http://www.twilio.com/docs/api/twiml/say</target>
+        </trans-unit>
+        <trans-unit id="bdbbf6e2-c9e7-461b-bfb1-67063ee9e935" xml:space="preserve">
+          <source>./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg</source>
+          <target state="new">./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg</target>
+        </trans-unit>
+        <trans-unit id="b15ba604-bf83-4df3-9ad3-c4413b9da106" xml:space="preserve">
+          <source>./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg</source>
+          <target state="new">./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="90daa8c4-035c-4256-8939-90b70c93c8d1" />
+    </body>
+  </file>
+</xliff>

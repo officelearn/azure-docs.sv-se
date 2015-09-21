@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4d736335-476a-4419-943b-3f3be1cb3498" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4d736335-476a-4419-943b-3f3be1cb3498" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="edc0f3d9-33cd-4656-909a-32944bbe8f16">
+        <trans-unit id="6b1b7053-0c41-4849-b706-48503fbac3de" xml:space="preserve">
+          <source>Deploy an Azure App Service API App</source>
+          <target state="new">Deploy an Azure App Service API App</target>
+        </trans-unit>
+        <trans-unit id="b460177a-d7d5-4ba1-8e7a-bf65c27a6d21" xml:space="preserve">
+          <source>Learn how to deploy an API App project to your Azure subscription.</source>
+          <target state="new">Learn how to deploy an API App project to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="e58ed14b-2e65-48dd-9cbf-76c4ddb3f77b" xml:space="preserve">
+          <source>If you're actively developing your own API app using Visual Studio and need to test your API in the cloud, you can create a new API app in your Azure subscription and deploy your code using Visual Studio's convenient App Service deployment features.</source>
+          <target state="new">If you're actively developing your own API app using Visual Studio and need to test your API in the cloud, you can create a new API app in your Azure subscription and deploy your code using Visual Studio's convenient App Service deployment features.</target>
+        </trans-unit>
+        <trans-unit id="22fd5e73-c41e-43cf-8bc6-284f1c00db3a" xml:space="preserve">
+          <source>This is the second tutorial in a series of three:</source>
+          <target state="new">This is the second tutorial in a series of three:</target>
+        </trans-unit>
+        <trans-unit id="469f2a07-54b7-4754-9ff5-dba1637637de" xml:space="preserve">
+          <source>In <bpt id="86349fe6-8723-470e-bd6e-215d09bfa4e1">&lt;linkText&gt;</bpt>Create an API App<ept id="86349fe6-8723-470e-bd6e-215d09bfa4e1">&lt;/linkText&gt;</ept><bpt id="86349fe6-8723-470e-bd6e-215d09bfa4e1">&lt;title&gt;</bpt><ept id="86349fe6-8723-470e-bd6e-215d09bfa4e1">&lt;/title&gt;</ept> you created an API App project.</source>
+          <target state="new">In <bpt id="86349fe6-8723-470e-bd6e-215d09bfa4e1">&lt;linkText&gt;</bpt>Create an API App<ept id="86349fe6-8723-470e-bd6e-215d09bfa4e1">&lt;/linkText&gt;</ept><bpt id="86349fe6-8723-470e-bd6e-215d09bfa4e1">&lt;title&gt;</bpt><ept id="86349fe6-8723-470e-bd6e-215d09bfa4e1">&lt;/title&gt;</ept> you created an API App project.</target>
+        </trans-unit>
+        <trans-unit id="ffd3d52c-80a1-453a-afb6-222186332895" xml:space="preserve">
+          <source>In this tutorial, you will deploy the API app to your Azure subscription.</source>
+          <target state="new">In this tutorial, you will deploy the API app to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="14f10533-f562-4777-a267-c888bdf67d80" xml:space="preserve">
+          <source>In <bpt id="60a85e39-cbfc-4f12-802c-aaa3f17859e9">&lt;linkText&gt;</bpt>Debug an API App<ept id="60a85e39-cbfc-4f12-802c-aaa3f17859e9">&lt;/linkText&gt;</ept><bpt id="60a85e39-cbfc-4f12-802c-aaa3f17859e9">&lt;title&gt;</bpt><ept id="60a85e39-cbfc-4f12-802c-aaa3f17859e9">&lt;/title&gt;</ept>, you will use Visual Studio to remotely debug the code while it runs in Azure.</source>
+          <target state="new">In <bpt id="60a85e39-cbfc-4f12-802c-aaa3f17859e9">&lt;linkText&gt;</bpt>Debug an API App<ept id="60a85e39-cbfc-4f12-802c-aaa3f17859e9">&lt;/linkText&gt;</ept><bpt id="60a85e39-cbfc-4f12-802c-aaa3f17859e9">&lt;title&gt;</bpt><ept id="60a85e39-cbfc-4f12-802c-aaa3f17859e9">&lt;/title&gt;</ept>, you will use Visual Studio to remotely debug the code while it runs in Azure.</target>
+        </trans-unit>
+        <trans-unit id="21cbae79-9100-48d3-9081-504cce78ad5e" xml:space="preserve">
+          <source>In <bpt id="ac58fac1-656d-436d-b770-1e8d281bec0c">&lt;strong&gt;</bpt>Solution Explorer<ept id="ac58fac1-656d-436d-b770-1e8d281bec0c">&lt;/strong&gt;</ept>, right-click the project (not the solution) and click <bpt id="e56a594c-f788-4fc5-be93-afe4e01b48d9">&lt;strong&gt;</bpt>Publish...<ept id="e56a594c-f788-4fc5-be93-afe4e01b48d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="ac58fac1-656d-436d-b770-1e8d281bec0c">&lt;strong&gt;</bpt>Solution Explorer<ept id="ac58fac1-656d-436d-b770-1e8d281bec0c">&lt;/strong&gt;</ept>, right-click the project (not the solution) and click <bpt id="e56a594c-f788-4fc5-be93-afe4e01b48d9">&lt;strong&gt;</bpt>Publish...<ept id="e56a594c-f788-4fc5-be93-afe4e01b48d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36f6a94b-b62c-4414-8bb6-59bdf2465398" xml:space="preserve">
+          <source><bpt id="80878bf4-4350-4f59-9ae3-1726d8c8d635">&lt;linkText&gt;</bpt>Project publish menu option<ept id="80878bf4-4350-4f59-9ae3-1726d8c8d635">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="80878bf4-4350-4f59-9ae3-1726d8c8d635">&lt;linkText&gt;</bpt>Project publish menu option<ept id="80878bf4-4350-4f59-9ae3-1726d8c8d635">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e08f47ab-5bf3-4359-9a34-74f3224c6998" xml:space="preserve">
+          <source>Click the <bpt id="ee0c731e-d1ab-4948-8e4e-cd1ec57e5266">&lt;strong&gt;</bpt>Profile<ept id="ee0c731e-d1ab-4948-8e4e-cd1ec57e5266">&lt;/strong&gt;</ept> tab and click <bpt id="2527605f-4ac8-4d18-8490-2334033c8ef4">&lt;strong&gt;</bpt>Microsoft Azure API Apps (Preview)<ept id="2527605f-4ac8-4d18-8490-2334033c8ef4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="ee0c731e-d1ab-4948-8e4e-cd1ec57e5266">&lt;strong&gt;</bpt>Profile<ept id="ee0c731e-d1ab-4948-8e4e-cd1ec57e5266">&lt;/strong&gt;</ept> tab and click <bpt id="2527605f-4ac8-4d18-8490-2334033c8ef4">&lt;strong&gt;</bpt>Microsoft Azure API Apps (Preview)<ept id="2527605f-4ac8-4d18-8490-2334033c8ef4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a56dc15f-a163-40bf-acf3-cef44c12d963" xml:space="preserve">
+          <source><bpt id="6d825a79-e805-469b-8b3e-2acdebecb05e">&lt;linkText&gt;</bpt>Publish Web dialog<ept id="6d825a79-e805-469b-8b3e-2acdebecb05e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d825a79-e805-469b-8b3e-2acdebecb05e">&lt;linkText&gt;</bpt>Publish Web dialog<ept id="6d825a79-e805-469b-8b3e-2acdebecb05e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="601e220c-8968-4056-909f-b9ce4addeb97" xml:space="preserve">
+          <source>Click <bpt id="ce3613d4-8d0d-47ca-b38f-b075a2801d7f">&lt;strong&gt;</bpt>New<ept id="ce3613d4-8d0d-47ca-b38f-b075a2801d7f">&lt;/strong&gt;</ept> to provision a new API App in your Azure subscription.</source>
+          <target state="new">Click <bpt id="ce3613d4-8d0d-47ca-b38f-b075a2801d7f">&lt;strong&gt;</bpt>New<ept id="ce3613d4-8d0d-47ca-b38f-b075a2801d7f">&lt;/strong&gt;</ept> to provision a new API App in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="e7419c40-7fe0-4cc0-9850-ff1694c7c55f" xml:space="preserve">
+          <source><bpt id="d0004e6c-2c17-4b09-a549-5283c4e79f24">&lt;linkText&gt;</bpt>Select Existing API Services dialog<ept id="d0004e6c-2c17-4b09-a549-5283c4e79f24">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d0004e6c-2c17-4b09-a549-5283c4e79f24">&lt;linkText&gt;</bpt>Select Existing API Services dialog<ept id="d0004e6c-2c17-4b09-a549-5283c4e79f24">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c193e88-f198-48e4-8c3b-352d2f0838c6" xml:space="preserve">
+          <source>In the <bpt id="3a9e2a64-dfac-4485-984d-018da55ba2d7">&lt;strong&gt;</bpt>Create an API App<ept id="3a9e2a64-dfac-4485-984d-018da55ba2d7">&lt;/strong&gt;</ept> dialog, enter the following:</source>
+          <target state="new">In the <bpt id="3a9e2a64-dfac-4485-984d-018da55ba2d7">&lt;strong&gt;</bpt>Create an API App<ept id="3a9e2a64-dfac-4485-984d-018da55ba2d7">&lt;/strong&gt;</ept> dialog, enter the following:</target>
+        </trans-unit>
+        <trans-unit id="e7daa0bf-322d-4b12-8a04-678b2a0f3223" xml:space="preserve">
+          <source>Under <bpt id="31bd0b76-d1ad-4f7b-b06d-3761b1aa278b">&lt;strong&gt;</bpt>API App Name<ept id="31bd0b76-d1ad-4f7b-b06d-3761b1aa278b">&lt;/strong&gt;</ept>, enter a name for the app.</source>
+          <target state="new">Under <bpt id="31bd0b76-d1ad-4f7b-b06d-3761b1aa278b">&lt;strong&gt;</bpt>API App Name<ept id="31bd0b76-d1ad-4f7b-b06d-3761b1aa278b">&lt;/strong&gt;</ept>, enter a name for the app.</target>
+        </trans-unit>
+        <trans-unit id="31d94bb5-1073-41d4-b25d-595955eb7778" xml:space="preserve">
+          <source>If you have multiple Azure subscriptions, select the one you want to use.</source>
+          <target state="new">If you have multiple Azure subscriptions, select the one you want to use.</target>
+        </trans-unit>
+        <trans-unit id="df83391f-19ef-4db3-8041-86aa07013670" xml:space="preserve">
+          <source>-Under App Service Plan, select from your existing App Service plans, or select <bpt id="dba12103-1858-4e84-8416-e090c7f89966">&lt;strong&gt;</bpt>Create new App Service plan<ept id="dba12103-1858-4e84-8416-e090c7f89966">&lt;/strong&gt;</ept> and enter the name of a new plan.</source>
+          <target state="new">-Under App Service Plan, select from your existing App Service plans, or select <bpt id="dba12103-1858-4e84-8416-e090c7f89966">&lt;strong&gt;</bpt>Create new App Service plan<ept id="dba12103-1858-4e84-8416-e090c7f89966">&lt;/strong&gt;</ept> and enter the name of a new plan.</target>
+        </trans-unit>
+        <trans-unit id="4b36e821-546e-4d02-98f7-bcd56ea0135a" xml:space="preserve">
+          <source>Under <bpt id="2551a23a-e806-4827-8ab4-e9aef5f770c2">&lt;strong&gt;</bpt>Resource Group<ept id="2551a23a-e806-4827-8ab4-e9aef5f770c2">&lt;/strong&gt;</ept>, select from your existing resource groups, or select <bpt id="9c4f241d-0169-4a03-83c3-5d53e43834b0">&lt;strong&gt;</bpt>Create new resource group<ept id="9c4f241d-0169-4a03-83c3-5d53e43834b0">&lt;/strong&gt;</ept> and enter a name.</source>
+          <target state="new">Under <bpt id="2551a23a-e806-4827-8ab4-e9aef5f770c2">&lt;strong&gt;</bpt>Resource Group<ept id="2551a23a-e806-4827-8ab4-e9aef5f770c2">&lt;/strong&gt;</ept>, select from your existing resource groups, or select <bpt id="9c4f241d-0169-4a03-83c3-5d53e43834b0">&lt;strong&gt;</bpt>Create new resource group<ept id="9c4f241d-0169-4a03-83c3-5d53e43834b0">&lt;/strong&gt;</ept> and enter a name.</target>
+        </trans-unit>
+        <trans-unit id="9064a818-f986-46ca-bac1-6df3c52593c3" xml:space="preserve">
+          <source>The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).</source>
+          <target state="new">The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).</target>
+        </trans-unit>
+        <trans-unit id="abea361d-29eb-490c-bd3a-9c3114240e2d" xml:space="preserve">
+          <source>Under <bpt id="2c067d34-231e-406a-8355-e576c792b868">&lt;strong&gt;</bpt>Access Level<ept id="2c067d34-231e-406a-8355-e576c792b868">&lt;/strong&gt;</ept>, select <bpt id="810f2ed8-a5e1-4551-b869-fc16da598653">&lt;strong&gt;</bpt>Available to Anyone<ept id="810f2ed8-a5e1-4551-b869-fc16da598653">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="2c067d34-231e-406a-8355-e576c792b868">&lt;strong&gt;</bpt>Access Level<ept id="2c067d34-231e-406a-8355-e576c792b868">&lt;/strong&gt;</ept>, select <bpt id="810f2ed8-a5e1-4551-b869-fc16da598653">&lt;strong&gt;</bpt>Available to Anyone<ept id="810f2ed8-a5e1-4551-b869-fc16da598653">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32ab1dcc-9f3c-4e0a-842f-c5b21137fe40" xml:space="preserve">
+          <source>This option will make your API completely public, which is fine for this tutorial.</source>
+          <target state="new">This option will make your API completely public, which is fine for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="f1412453-8e20-4b51-886d-3715d08b432a" xml:space="preserve">
+          <source>You can restrict access later through the Azure Portal.</source>
+          <target state="new">You can restrict access later through the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="278bf563-fb83-4c88-9978-b14063f51e87" xml:space="preserve">
+          <source>Select a region.</source>
+          <target state="new">Select a region.</target>
+        </trans-unit>
+        <trans-unit id="a5cddbee-7630-4c4a-96a3-e29905a807ae" xml:space="preserve">
+          <source><bpt id="c0d62fd3-9341-41a1-97a3-122d3328510f">&lt;linkText&gt;</bpt>Configure Microsoft Azure Web App dialog<ept id="c0d62fd3-9341-41a1-97a3-122d3328510f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c0d62fd3-9341-41a1-97a3-122d3328510f">&lt;linkText&gt;</bpt>Configure Microsoft Azure Web App dialog<ept id="c0d62fd3-9341-41a1-97a3-122d3328510f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="641456e9-71b2-4643-a7c1-99320165368a" xml:space="preserve">
+          <source>Click <bpt id="1b92e1a8-6ae3-4d2f-b144-91bf5658e1f9">&lt;strong&gt;</bpt>OK<ept id="1b92e1a8-6ae3-4d2f-b144-91bf5658e1f9">&lt;/strong&gt;</ept> to create the API App in your subscription.</source>
+          <target state="new">Click <bpt id="1b92e1a8-6ae3-4d2f-b144-91bf5658e1f9">&lt;strong&gt;</bpt>OK<ept id="1b92e1a8-6ae3-4d2f-b144-91bf5658e1f9">&lt;/strong&gt;</ept> to create the API App in your subscription.</target>
+        </trans-unit>
+        <trans-unit id="75cd6648-1eaa-42c7-ac3a-02a58ce7c905" xml:space="preserve">
+          <source>The process can take a few minutes, so Visual Studio shows a dialog notifying you that the process has initiated.</source>
+          <target state="new">The process can take a few minutes, so Visual Studio shows a dialog notifying you that the process has initiated.</target>
+        </trans-unit>
+        <trans-unit id="1582b1ee-6416-41bc-a6ba-b8b420c6e746" xml:space="preserve">
+          <source><bpt id="8e0cac71-2076-4266-83e1-af9daef87722">&lt;linkText&gt;</bpt>API Service Creation Started confirmation message<ept id="8e0cac71-2076-4266-83e1-af9daef87722">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8e0cac71-2076-4266-83e1-af9daef87722">&lt;linkText&gt;</bpt>API Service Creation Started confirmation message<ept id="8e0cac71-2076-4266-83e1-af9daef87722">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2777fa8c-da23-4bda-923e-88f4f1b62ab5" xml:space="preserve">
+          <source>The provisioning process creates the resource group and API App in your Azure subscription.</source>
+          <target state="new">The provisioning process creates the resource group and API App in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="7e55809f-e218-4179-8eb2-6e0aeacd5ec6" xml:space="preserve">
+          <source>Visual Studio shows the progress in the <bpt id="1483a37d-d159-4911-82c6-8489cc5743ed">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="1483a37d-d159-4911-82c6-8489cc5743ed">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">Visual Studio shows the progress in the <bpt id="1483a37d-d159-4911-82c6-8489cc5743ed">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="1483a37d-d159-4911-82c6-8489cc5743ed">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="1629bf86-a45c-465c-91ba-63b50227d62b" xml:space="preserve">
+          <source><bpt id="4ebb20d7-8607-45a9-ae2b-ed246f2245b6">&lt;linkText&gt;</bpt>Status notification via the Azure App Service Activity window<ept id="4ebb20d7-8607-45a9-ae2b-ed246f2245b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ebb20d7-8607-45a9-ae2b-ed246f2245b6">&lt;linkText&gt;</bpt>Status notification via the Azure App Service Activity window<ept id="4ebb20d7-8607-45a9-ae2b-ed246f2245b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63147bd0-689a-4803-a00f-09e3d933ab95" xml:space="preserve">
+          <source>Once the API App is provisioned, right-click the project in Solution Explorer and select <bpt id="faf6e5f3-5f2d-498d-91f6-87753e9a6e50">&lt;strong&gt;</bpt>Publish<ept id="faf6e5f3-5f2d-498d-91f6-87753e9a6e50">&lt;/strong&gt;</ept> to re-open the publish dialog.</source>
+          <target state="new">Once the API App is provisioned, right-click the project in Solution Explorer and select <bpt id="faf6e5f3-5f2d-498d-91f6-87753e9a6e50">&lt;strong&gt;</bpt>Publish<ept id="faf6e5f3-5f2d-498d-91f6-87753e9a6e50">&lt;/strong&gt;</ept> to re-open the publish dialog.</target>
+        </trans-unit>
+        <trans-unit id="8eb4329c-0b90-4c64-aa5e-9e92842efdd1" xml:space="preserve">
+          <source>The publish profile created in the previous step should be pre-selected.</source>
+          <target state="new">The publish profile created in the previous step should be pre-selected.</target>
+        </trans-unit>
+        <trans-unit id="859eca33-0988-4fa1-b094-b93addd1f944" xml:space="preserve">
+          <source>Click <bpt id="a445043c-1bda-44a0-bbd1-961c559c6986">&lt;strong&gt;</bpt>Publish<ept id="a445043c-1bda-44a0-bbd1-961c559c6986">&lt;/strong&gt;</ept> to begin the deployment process.</source>
+          <target state="new">Click <bpt id="a445043c-1bda-44a0-bbd1-961c559c6986">&lt;strong&gt;</bpt>Publish<ept id="a445043c-1bda-44a0-bbd1-961c559c6986">&lt;/strong&gt;</ept> to begin the deployment process.</target>
+        </trans-unit>
+        <trans-unit id="7e7b5cfe-3860-4da9-8195-97c369e959f4" xml:space="preserve">
+          <source><bpt id="63e7bb91-f414-41c9-a4dd-325486ed43ee">&lt;linkText&gt;</bpt>Deploying the API App<ept id="63e7bb91-f414-41c9-a4dd-325486ed43ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="63e7bb91-f414-41c9-a4dd-325486ed43ee">&lt;linkText&gt;</bpt>Deploying the API App<ept id="63e7bb91-f414-41c9-a4dd-325486ed43ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96d640d8-6f7b-439b-a12a-9e90ceb20607" xml:space="preserve">
+          <source>The <bpt id="e596ee8c-ec2b-4a8f-bf98-e96b4a2d1045">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="e596ee8c-ec2b-4a8f-bf98-e96b4a2d1045">&lt;/strong&gt;</ept> window shows the deployment progress.</source>
+          <target state="new">The <bpt id="e596ee8c-ec2b-4a8f-bf98-e96b4a2d1045">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="e596ee8c-ec2b-4a8f-bf98-e96b4a2d1045">&lt;/strong&gt;</ept> window shows the deployment progress.</target>
+        </trans-unit>
+        <trans-unit id="c8979bde-7b6a-4850-9eb5-808889e90c88" xml:space="preserve">
+          <source><bpt id="1075a6ce-d478-4935-9f95-98eeed378b54">&lt;linkText&gt;</bpt>Status notification of the Azure App Service Activity window<ept id="1075a6ce-d478-4935-9f95-98eeed378b54">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1075a6ce-d478-4935-9f95-98eeed378b54">&lt;linkText&gt;</bpt>Status notification of the Azure App Service Activity window<ept id="1075a6ce-d478-4935-9f95-98eeed378b54">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86e921d5-14de-447c-92df-1e6eb7c62fa1" xml:space="preserve">
+          <source>In this section, you will navigate to the portal to view the basic settings available for API Apps and make iterative changes to your API app.</source>
+          <target state="new">In this section, you will navigate to the portal to view the basic settings available for API Apps and make iterative changes to your API app.</target>
+        </trans-unit>
+        <trans-unit id="eebd254c-9127-4920-b5df-21695046cb60" xml:space="preserve">
+          <source>With each deployment, the portal will reflect the changes you're making to your API app.</source>
+          <target state="new">With each deployment, the portal will reflect the changes you're making to your API app.</target>
+        </trans-unit>
+        <trans-unit id="fb60800d-4e46-47a4-8ef8-cbfdec348d58" xml:space="preserve">
+          <source>In your browser, navigate to the <bpt id="e0b88d62-6879-4b73-a231-063043521a67">&lt;linkText&gt;</bpt>Azure Portal<ept id="e0b88d62-6879-4b73-a231-063043521a67">&lt;/linkText&gt;</ept><bpt id="e0b88d62-6879-4b73-a231-063043521a67">&lt;title&gt;</bpt><ept id="e0b88d62-6879-4b73-a231-063043521a67">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, navigate to the <bpt id="e0b88d62-6879-4b73-a231-063043521a67">&lt;linkText&gt;</bpt>Azure Portal<ept id="e0b88d62-6879-4b73-a231-063043521a67">&lt;/linkText&gt;</ept><bpt id="e0b88d62-6879-4b73-a231-063043521a67">&lt;title&gt;</bpt><ept id="e0b88d62-6879-4b73-a231-063043521a67">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="42f41f00-09c8-4fa7-8ebd-abbd67850e58" xml:space="preserve">
+          <source>Click the <bpt id="10362118-9958-4c71-9b5a-358744368522">&lt;strong&gt;</bpt>Browse<ept id="10362118-9958-4c71-9b5a-358744368522">&lt;/strong&gt;</ept> button on the sidebar and select <bpt id="b234ff22-99b0-4b0f-89b6-413f5ede2dfd">&lt;strong&gt;</bpt>API Apps<ept id="b234ff22-99b0-4b0f-89b6-413f5ede2dfd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="10362118-9958-4c71-9b5a-358744368522">&lt;strong&gt;</bpt>Browse<ept id="10362118-9958-4c71-9b5a-358744368522">&lt;/strong&gt;</ept> button on the sidebar and select <bpt id="b234ff22-99b0-4b0f-89b6-413f5ede2dfd">&lt;strong&gt;</bpt>API Apps<ept id="b234ff22-99b0-4b0f-89b6-413f5ede2dfd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dbd249ba-8985-47d9-b1eb-c8f71f4863e8" xml:space="preserve">
+          <source><bpt id="340a8d41-2ccf-4643-a9d3-aedf97ca2e57">&lt;linkText&gt;</bpt>Browse options on Azure portal<ept id="340a8d41-2ccf-4643-a9d3-aedf97ca2e57">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="340a8d41-2ccf-4643-a9d3-aedf97ca2e57">&lt;linkText&gt;</bpt>Browse options on Azure portal<ept id="340a8d41-2ccf-4643-a9d3-aedf97ca2e57">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee31b396-c2de-41e3-b37a-6f979da71091" xml:space="preserve">
+          <source>Select the API you created from the list of API apps in your subscription.</source>
+          <target state="new">Select the API you created from the list of API apps in your subscription.</target>
+        </trans-unit>
+        <trans-unit id="67d5ebf5-b02d-4f4c-ab39-c59d41f585f9" xml:space="preserve">
+          <source><bpt id="be3a608e-78be-4e31-bb15-37040a71e95a">&lt;linkText&gt;</bpt>API Apps list<ept id="be3a608e-78be-4e31-bb15-37040a71e95a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be3a608e-78be-4e31-bb15-37040a71e95a">&lt;linkText&gt;</bpt>API Apps list<ept id="be3a608e-78be-4e31-bb15-37040a71e95a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0bad96fb-1328-4440-9c82-b0b2eadc7f84" xml:space="preserve">
+          <source>Click <bpt id="7733312a-7efd-4bd3-8368-edefca16c497">&lt;strong&gt;</bpt>API Definition<ept id="7733312a-7efd-4bd3-8368-edefca16c497">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7733312a-7efd-4bd3-8368-edefca16c497">&lt;strong&gt;</bpt>API Definition<ept id="7733312a-7efd-4bd3-8368-edefca16c497">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5894313a-ea4c-4fa0-9a84-0aeb8e437f7d" xml:space="preserve">
+          <source>The app's <bpt id="4559cf89-868f-49a7-aaf6-3411310453d1">&lt;strong&gt;</bpt>API Definition<ept id="4559cf89-868f-49a7-aaf6-3411310453d1">&lt;/strong&gt;</ept> blade shows the list of API operations that you defined when you created the app.</source>
+          <target state="new">The app's <bpt id="4559cf89-868f-49a7-aaf6-3411310453d1">&lt;strong&gt;</bpt>API Definition<ept id="4559cf89-868f-49a7-aaf6-3411310453d1">&lt;/strong&gt;</ept> blade shows the list of API operations that you defined when you created the app.</target>
+        </trans-unit>
+        <trans-unit id="d335ee27-9c9f-4fbb-8c8c-776f9caa2907" xml:space="preserve">
+          <source><bpt id="4e3534b7-c4bd-410b-8c56-a633b1ea7a0e">&lt;linkText&gt;</bpt>API Definition<ept id="4e3534b7-c4bd-410b-8c56-a633b1ea7a0e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e3534b7-c4bd-410b-8c56-a633b1ea7a0e">&lt;linkText&gt;</bpt>API Definition<ept id="4e3534b7-c4bd-410b-8c56-a633b1ea7a0e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b5418765-3e0e-48a1-b0ee-52dc6cd522d7" xml:space="preserve">
+          <source>Now go back to the project in Visual Studio.</source>
+          <target state="new">Now go back to the project in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="31370ed6-f4fd-4b68-9e01-7dbf8a849ae4" xml:space="preserve">
+          <source>Add the following code to the <bpt id="ce0aa7fe-4625-42f7-ad1f-e0ef83dddc89">&lt;strong&gt;</bpt>ContactsController.cs<ept id="ce0aa7fe-4625-42f7-ad1f-e0ef83dddc89">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Add the following code to the <bpt id="ce0aa7fe-4625-42f7-ad1f-e0ef83dddc89">&lt;strong&gt;</bpt>ContactsController.cs<ept id="ce0aa7fe-4625-42f7-ad1f-e0ef83dddc89">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="2123822f-07c1-4c6b-ae7d-50cfbcfea704" xml:space="preserve">
+          <source>This code adds a <bpt id="246760d6-c71d-4faf-9fe8-ccceafcec56c">&lt;strong&gt;</bpt>Post<ept id="246760d6-c71d-4faf-9fe8-ccceafcec56c">&lt;/strong&gt;</ept> method that can be used to post new <bpt id="497cbb99-8475-4a39-967b-7a40c4f82ad9">&lt;code&gt;</bpt>Contact<ept id="497cbb99-8475-4a39-967b-7a40c4f82ad9">&lt;/code&gt;</ept> instances to the API.</source>
+          <target state="new">This code adds a <bpt id="246760d6-c71d-4faf-9fe8-ccceafcec56c">&lt;strong&gt;</bpt>Post<ept id="246760d6-c71d-4faf-9fe8-ccceafcec56c">&lt;/strong&gt;</ept> method that can be used to post new <bpt id="497cbb99-8475-4a39-967b-7a40c4f82ad9">&lt;code&gt;</bpt>Contact<ept id="497cbb99-8475-4a39-967b-7a40c4f82ad9">&lt;/code&gt;</ept> instances to the API.</target>
+        </trans-unit>
+        <trans-unit id="7acb8dd3-c96e-4e32-80cd-25d028ade9fc" xml:space="preserve">
+          <source><bpt id="a334d700-8ae8-48be-ae15-e23ae2a5f76d">&lt;linkText&gt;</bpt>Adding the Post method to the controller<ept id="a334d700-8ae8-48be-ae15-e23ae2a5f76d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a334d700-8ae8-48be-ae15-e23ae2a5f76d">&lt;linkText&gt;</bpt>Adding the Post method to the controller<ept id="a334d700-8ae8-48be-ae15-e23ae2a5f76d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8faa9fe9-4538-4d86-8db8-cd89538fe60e" xml:space="preserve">
+          <source>In <bpt id="a64b89f4-2299-4885-9536-347ec1e74365">&lt;strong&gt;</bpt>Solution Explorer<ept id="a64b89f4-2299-4885-9536-347ec1e74365">&lt;/strong&gt;</ept>, right-click the project and select <bpt id="485f7ad5-f4dd-4d84-91b4-3a2fa941beab">&lt;strong&gt;</bpt>Publish<ept id="485f7ad5-f4dd-4d84-91b4-3a2fa941beab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="a64b89f4-2299-4885-9536-347ec1e74365">&lt;strong&gt;</bpt>Solution Explorer<ept id="a64b89f4-2299-4885-9536-347ec1e74365">&lt;/strong&gt;</ept>, right-click the project and select <bpt id="485f7ad5-f4dd-4d84-91b4-3a2fa941beab">&lt;strong&gt;</bpt>Publish<ept id="485f7ad5-f4dd-4d84-91b4-3a2fa941beab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9c6d7af-e34a-43ae-add5-46534dc75d45" xml:space="preserve">
+          <source><bpt id="3c314ae7-1932-422d-90c6-6f16f8f5ca6f">&lt;linkText&gt;</bpt>Project Publish context menu<ept id="3c314ae7-1932-422d-90c6-6f16f8f5ca6f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3c314ae7-1932-422d-90c6-6f16f8f5ca6f">&lt;linkText&gt;</bpt>Project Publish context menu<ept id="3c314ae7-1932-422d-90c6-6f16f8f5ca6f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52c8853f-e6ff-4f73-968e-d1fbd7b4be50" xml:space="preserve">
+          <source>Select the <bpt id="dec96c2b-f39a-4748-b20d-b7b3daf90435">&lt;strong&gt;</bpt>Debug<ept id="dec96c2b-f39a-4748-b20d-b7b3daf90435">&lt;/strong&gt;</ept> configuration from <bpt id="43a7a7ff-d010-4e00-b79f-36d6dd9034bc">&lt;strong&gt;</bpt>Configuration<ept id="43a7a7ff-d010-4e00-b79f-36d6dd9034bc">&lt;/strong&gt;</ept> drop-down and click <bpt id="19cff6b8-79ec-4ef1-83a3-a4a1f2e27058">&lt;strong&gt;</bpt>Publish<ept id="19cff6b8-79ec-4ef1-83a3-a4a1f2e27058">&lt;/strong&gt;</ept> to redeploy the API app.</source>
+          <target state="new">Select the <bpt id="dec96c2b-f39a-4748-b20d-b7b3daf90435">&lt;strong&gt;</bpt>Debug<ept id="dec96c2b-f39a-4748-b20d-b7b3daf90435">&lt;/strong&gt;</ept> configuration from <bpt id="43a7a7ff-d010-4e00-b79f-36d6dd9034bc">&lt;strong&gt;</bpt>Configuration<ept id="43a7a7ff-d010-4e00-b79f-36d6dd9034bc">&lt;/strong&gt;</ept> drop-down and click <bpt id="19cff6b8-79ec-4ef1-83a3-a4a1f2e27058">&lt;strong&gt;</bpt>Publish<ept id="19cff6b8-79ec-4ef1-83a3-a4a1f2e27058">&lt;/strong&gt;</ept> to redeploy the API app.</target>
+        </trans-unit>
+        <trans-unit id="355a7a75-649f-4fa5-9b8a-57d468ad9cc5" xml:space="preserve">
+          <source><bpt id="7fa681c3-0024-4636-9103-ff841bb168c5">&lt;linkText&gt;</bpt>Publish Web settings<ept id="7fa681c3-0024-4636-9103-ff841bb168c5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7fa681c3-0024-4636-9103-ff841bb168c5">&lt;linkText&gt;</bpt>Publish Web settings<ept id="7fa681c3-0024-4636-9103-ff841bb168c5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a462d4d-b503-4271-9fa3-b7394c306eb4" xml:space="preserve">
+          <source>In the <bpt id="d86c9b78-a5bc-4684-b33a-2b02875521c0">&lt;strong&gt;</bpt>Preview<ept id="d86c9b78-a5bc-4684-b33a-2b02875521c0">&lt;/strong&gt;</ept> tab of the <bpt id="011d7c8d-f408-4e5e-9898-3c8f29b2c8cd">&lt;strong&gt;</bpt>Publish Web<ept id="011d7c8d-f408-4e5e-9898-3c8f29b2c8cd">&lt;/strong&gt;</ept> wizard, click <bpt id="72043336-0b29-4201-b798-f9600dfb8ea0">&lt;strong&gt;</bpt>Publish<ept id="72043336-0b29-4201-b798-f9600dfb8ea0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d86c9b78-a5bc-4684-b33a-2b02875521c0">&lt;strong&gt;</bpt>Preview<ept id="d86c9b78-a5bc-4684-b33a-2b02875521c0">&lt;/strong&gt;</ept> tab of the <bpt id="011d7c8d-f408-4e5e-9898-3c8f29b2c8cd">&lt;strong&gt;</bpt>Publish Web<ept id="011d7c8d-f408-4e5e-9898-3c8f29b2c8cd">&lt;/strong&gt;</ept> wizard, click <bpt id="72043336-0b29-4201-b798-f9600dfb8ea0">&lt;strong&gt;</bpt>Publish<ept id="72043336-0b29-4201-b798-f9600dfb8ea0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1eec192c-1629-46e9-a4ee-55f68e789f06" xml:space="preserve">
+          <source><bpt id="eeab1709-857b-4a33-9b08-a69d79f1cbf1">&lt;linkText&gt;</bpt>Publish Web dialog<ept id="eeab1709-857b-4a33-9b08-a69d79f1cbf1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eeab1709-857b-4a33-9b08-a69d79f1cbf1">&lt;linkText&gt;</bpt>Publish Web dialog<ept id="eeab1709-857b-4a33-9b08-a69d79f1cbf1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c88cad99-544e-45a6-acdb-33b04205b6e4" xml:space="preserve">
+          <source>Once the publish process has completed, go back to the portal, and close and reopen the <bpt id="be458ca7-6aa2-4b5a-93f5-680ffaf46d1e">&lt;strong&gt;</bpt>API Definition<ept id="be458ca7-6aa2-4b5a-93f5-680ffaf46d1e">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Once the publish process has completed, go back to the portal, and close and reopen the <bpt id="be458ca7-6aa2-4b5a-93f5-680ffaf46d1e">&lt;strong&gt;</bpt>API Definition<ept id="be458ca7-6aa2-4b5a-93f5-680ffaf46d1e">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="43bc8c34-8945-44f2-9f15-86491a9f21e1" xml:space="preserve">
+          <source>You will see the new API endpoint you just created and deployed directly into your Azure subscription.</source>
+          <target state="new">You will see the new API endpoint you just created and deployed directly into your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="bdb76711-e163-4acd-a330-fe894527d15b" xml:space="preserve">
+          <source><bpt id="27cd9994-bb49-40a6-9a83-7549cf762de0">&lt;linkText&gt;</bpt>API Definition<ept id="27cd9994-bb49-40a6-9a83-7549cf762de0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="27cd9994-bb49-40a6-9a83-7549cf762de0">&lt;linkText&gt;</bpt>API Definition<ept id="27cd9994-bb49-40a6-9a83-7549cf762de0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f33c524-4b4b-472a-b347-31cd2e5fdc80" xml:space="preserve">
+          <source>You've seen how the direct deployment capabilities in Visual Studio make it easy to iterate and deploy rapidly and test that your API works correctly.</source>
+          <target state="new">You've seen how the direct deployment capabilities in Visual Studio make it easy to iterate and deploy rapidly and test that your API works correctly.</target>
+        </trans-unit>
+        <trans-unit id="f1f8cedd-506d-40d5-a65f-ef4ad3ebd140" xml:space="preserve">
+          <source>In the <bpt id="7ed22896-d4c4-4605-99ab-19eb8cb43f6b">&lt;linkText&gt;</bpt>next tutorial<ept id="7ed22896-d4c4-4605-99ab-19eb8cb43f6b">&lt;/linkText&gt;</ept><bpt id="7ed22896-d4c4-4605-99ab-19eb8cb43f6b">&lt;title&gt;</bpt><ept id="7ed22896-d4c4-4605-99ab-19eb8cb43f6b">&lt;/title&gt;</ept>, you'll see how to debug your API app while it runs in Azure.</source>
+          <target state="new">In the <bpt id="7ed22896-d4c4-4605-99ab-19eb8cb43f6b">&lt;linkText&gt;</bpt>next tutorial<ept id="7ed22896-d4c4-4605-99ab-19eb8cb43f6b">&lt;/linkText&gt;</ept><bpt id="7ed22896-d4c4-4605-99ab-19eb8cb43f6b">&lt;title&gt;</bpt><ept id="7ed22896-d4c4-4605-99ab-19eb8cb43f6b">&lt;/title&gt;</ept>, you'll see how to debug your API app while it runs in Azure.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

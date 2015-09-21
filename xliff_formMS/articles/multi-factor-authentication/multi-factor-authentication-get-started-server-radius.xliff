@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="429b55b7-842e-40de-8e54-c7a7919d8428" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="429b55b7-842e-40de-8e54-c7a7919d8428" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="633f1c7c-f76a-487a-a621-38990d967311">
+        <trans-unit id="8c273edf-aa00-451a-a181-ad1dcb513b1a" xml:space="preserve">
+          <source>RADIUS Authentication and Azure Multi-Factor Authentication Server</source>
+          <target state="new">RADIUS Authentication and Azure Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="c2a07e32-fcd5-458c-a88d-e1edb139a43b" xml:space="preserve">
+          <source>This is the Azure Multi-factor authentication page that will assist in deploying RADIUS Authentication and Azure Multi-Factor Authentication Server.</source>
+          <target state="new">This is the Azure Multi-factor authentication page that will assist in deploying RADIUS Authentication and Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="5a3b556e-e743-4091-b0fe-695aee7972f4" xml:space="preserve">
+          <source>The RADIUS Authentication section allows you to enable and configure RADIUS authentication for the Azure Multi-Factor Authentication Server.</source>
+          <target state="new">The RADIUS Authentication section allows you to enable and configure RADIUS authentication for the Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="85267d0e-2ebf-490d-8917-449743d16edb" xml:space="preserve">
+          <source>RADIUS is a standard protocol to accept authentication requests and to process those requests.</source>
+          <target state="new">RADIUS is a standard protocol to accept authentication requests and to process those requests.</target>
+        </trans-unit>
+        <trans-unit id="8ccacaf3-d2d0-4f76-bbb4-4aea8f6e5f4d" xml:space="preserve">
+          <source>The Azure Multi-Factor Authentication Server acts as a RADIUS server and is inserted between your RADIUS client (e.g. VPN appliance) and your authentication target, which could be Active Directory (AD), an LDAP directory or another RADIUS server, in order to add Azure Multi-Factor Authentication.</source>
+          <target state="new">The Azure Multi-Factor Authentication Server acts as a RADIUS server and is inserted between your RADIUS client (e.g. VPN appliance) and your authentication target, which could be Active Directory (AD), an LDAP directory or another RADIUS server, in order to add Azure Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="de43448d-ada2-44f5-920a-ff94b55b7aa7" xml:space="preserve">
+          <source>For Azure Multi-Factor Authentication to function, you must configure the Azure Multi-Factor Authentication Server so that it can communicate with both the client servers and the authentication target.</source>
+          <target state="new">For Azure Multi-Factor Authentication to function, you must configure the Azure Multi-Factor Authentication Server so that it can communicate with both the client servers and the authentication target.</target>
+        </trans-unit>
+        <trans-unit id="9ed7d7da-0626-4475-a4f2-e0327e617834" xml:space="preserve">
+          <source>The Azure Multi-Factor Authentication Server accepts requests from a RADIUS client, validates credentials against the authentication target, adds Azure Multi-Factor Authentication, and sends a response back to the RADIUS client.</source>
+          <target state="new">The Azure Multi-Factor Authentication Server accepts requests from a RADIUS client, validates credentials against the authentication target, adds Azure Multi-Factor Authentication, and sends a response back to the RADIUS client.</target>
+        </trans-unit>
+        <trans-unit id="ad9fb088-eb6b-482a-989b-3a711ab3d5ea" xml:space="preserve">
+          <source>The entire authentication will succeed only if the both the primary authentication and the Azure Multi-Factor Authentication succeed.</source>
+          <target state="new">The entire authentication will succeed only if the both the primary authentication and the Azure Multi-Factor Authentication succeed.</target>
+        </trans-unit>
+        <trans-unit id="2dabfb97-d741-4743-8548-6ee29425046a" xml:space="preserve">
+          <source><bpt id="df4cb6ed-0cd1-4bdc-8a3e-c112ab4a1f8e">&lt;linkText&gt;</bpt>Radius Authentication<ept id="df4cb6ed-0cd1-4bdc-8a3e-c112ab4a1f8e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df4cb6ed-0cd1-4bdc-8a3e-c112ab4a1f8e">&lt;linkText&gt;</bpt>Radius Authentication<ept id="df4cb6ed-0cd1-4bdc-8a3e-c112ab4a1f8e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9aaabcf-ef56-4bf8-88e1-0fb56d69f577" xml:space="preserve">
+          <source>To configure RADIUS authentication, install the Azure Multi-Factor Authentication Server on a Windows server.</source>
+          <target state="new">To configure RADIUS authentication, install the Azure Multi-Factor Authentication Server on a Windows server.</target>
+        </trans-unit>
+        <trans-unit id="57e8e751-34fc-4fc8-9895-6a1d6138f356" xml:space="preserve">
+          <source>If you have an Active Directory environment, the server should be joined to the domain inside the network.</source>
+          <target state="new">If you have an Active Directory environment, the server should be joined to the domain inside the network.</target>
+        </trans-unit>
+        <trans-unit id="1584150d-3195-44f2-8322-82be628d0c41" xml:space="preserve">
+          <source>Use the following procedure to configure the Azure Multi-Factor Authentication Server:</source>
+          <target state="new">Use the following procedure to configure the Azure Multi-Factor Authentication Server:</target>
+        </trans-unit>
+        <trans-unit id="3dd08f22-0789-49d9-9bd2-724c375faad9" xml:space="preserve">
+          <source>Within the Azure Multi-Factor Authentication Server click the RADIUS Authentication icon in the left menu.</source>
+          <target state="new">Within the Azure Multi-Factor Authentication Server click the RADIUS Authentication icon in the left menu.</target>
+        </trans-unit>
+        <trans-unit id="f871ea1e-306d-4078-afee-cad49b24fcc3" xml:space="preserve">
+          <source>Check the Enable RADIUS authentication checkbox.</source>
+          <target state="new">Check the Enable RADIUS authentication checkbox.</target>
+        </trans-unit>
+        <trans-unit id="8fa304ef-8897-49a1-8b5d-268cd5add701" xml:space="preserve">
+          <source>On the Clients tab change the Authentication port(s) and Accounting port(s) if the Azure Multi-Factor Authentication RADIUS service should bind to non-standard ports to listen for RADIUS requests from the clients that will be configured.</source>
+          <target state="new">On the Clients tab change the Authentication port(s) and Accounting port(s) if the Azure Multi-Factor Authentication RADIUS service should bind to non-standard ports to listen for RADIUS requests from the clients that will be configured.</target>
+        </trans-unit>
+        <trans-unit id="71208cd1-6bea-47b1-8ce7-5bdbeb622b3a" xml:space="preserve">
+          <source>Click Add…</source>
+          <target state="new">Click Add…</target>
+        </trans-unit>
+        <trans-unit id="14dd08e1-5eb0-4ad7-8a8e-d6f423efb24c" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="2c32e89c-3658-4b42-a9ab-60c2326763d5" xml:space="preserve">
+          <source>In the Add RADIUS Client dialog box, enter the IP address of the appliance/server that will authenticate to the Azure Multi-Factor Authentication Server, an Application name (optional) and a Shared secret.</source>
+          <target state="new">In the Add RADIUS Client dialog box, enter the IP address of the appliance/server that will authenticate to the Azure Multi-Factor Authentication Server, an Application name (optional) and a Shared secret.</target>
+        </trans-unit>
+        <trans-unit id="c8237999-9d0e-43e8-a481-60d6ab504b94" xml:space="preserve">
+          <source>The shared secret will need to be the same on both the Azure Multi-Factor Authentication Server and appliance/server.</source>
+          <target state="new">The shared secret will need to be the same on both the Azure Multi-Factor Authentication Server and appliance/server.</target>
+        </trans-unit>
+        <trans-unit id="a948fed8-25b6-41c7-ade2-d52506a23208" xml:space="preserve">
+          <source>The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</source>
+          <target state="new">The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.</target>
+        </trans-unit>
+        <trans-unit id="b8bed574-95d8-44da-83eb-2dffa44a66df" xml:space="preserve">
+          <source>Check the Require Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</source>
+          <target state="new">Check the Require Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="9e011ab2-d249-485a-966e-cdd340b203c1" xml:space="preserve">
+          <source>If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</source>
+          <target state="new">If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.</target>
+        </trans-unit>
+        <trans-unit id="1ef48ee8-16d7-476b-b3dd-5eb662f00f5c" xml:space="preserve">
+          <source>See the help file for additional information on this feature.</source>
+          <target state="new">See the help file for additional information on this feature.</target>
+        </trans-unit>
+        <trans-unit id="fda04a11-2a5d-48e9-9ab2-d1f36b34bf79" xml:space="preserve">
+          <source>Check the Enable fallback OATH token box if users will use the Azure Multi-Factor Authentication mobile app authentication and you want to use OATH passcodes as a fallback authentication to the out- of-band phone call, SMS or push notification.</source>
+          <target state="new">Check the Enable fallback OATH token box if users will use the Azure Multi-Factor Authentication mobile app authentication and you want to use OATH passcodes as a fallback authentication to the out- of-band phone call, SMS or push notification.</target>
+        </trans-unit>
+        <trans-unit id="3e210c90-5878-4e4b-a498-b066487fcbc0" xml:space="preserve">
+          <source>Click the OK button.</source>
+          <target state="new">Click the OK button.</target>
+        </trans-unit>
+        <trans-unit id="2bb14d89-c80a-4d81-afd4-9806e114017a" xml:space="preserve">
+          <source>You may repeat steps 4 through 8 to add additional RADIUS clients.</source>
+          <target state="new">You may repeat steps 4 through 8 to add additional RADIUS clients.</target>
+        </trans-unit>
+        <trans-unit id="79ca2c64-39ae-4d18-9a57-2dd544d91efa" xml:space="preserve">
+          <source>Click the Target tab.</source>
+          <target state="new">Click the Target tab.</target>
+        </trans-unit>
+        <trans-unit id="20c0d30a-6b4b-4642-aa07-06723fc07557" xml:space="preserve">
+          <source>If the Azure Multi-Factor Authentication Server is installed on a domain-joined server in an Active Directory environment, select Windows domain.</source>
+          <target state="new">If the Azure Multi-Factor Authentication Server is installed on a domain-joined server in an Active Directory environment, select Windows domain.</target>
+        </trans-unit>
+        <trans-unit id="2d387f56-550c-4135-b89c-e4b4a2b2712b" xml:space="preserve">
+          <source>If users should be authenticated against an LDAP directory, select LDAP bind.</source>
+          <target state="new">If users should be authenticated against an LDAP directory, select LDAP bind.</target>
+        </trans-unit>
+        <trans-unit id="8a504231-4dde-44d2-8f93-b5e494380776" xml:space="preserve">
+          <source>When using LDAP bind, you must click the Directory Integration icon and edit the LDAP configuration on the Settings tab so that the Server can bind to your directory.</source>
+          <target state="new">When using LDAP bind, you must click the Directory Integration icon and edit the LDAP configuration on the Settings tab so that the Server can bind to your directory.</target>
+        </trans-unit>
+        <trans-unit id="27a9c28d-5830-4e42-8700-aac6c135afbe" xml:space="preserve">
+          <source>Instructions for configuring LDAP can be found in the LDAP Proxy configuration guide.</source>
+          <target state="new">Instructions for configuring LDAP can be found in the LDAP Proxy configuration guide.</target>
+        </trans-unit>
+        <trans-unit id="041179d4-bfb3-4157-8a3a-2e2789a8d4ee" xml:space="preserve">
+          <source>If users should be authenticated against another RADIUS server, select RADIUS server(s).</source>
+          <target state="new">If users should be authenticated against another RADIUS server, select RADIUS server(s).</target>
+        </trans-unit>
+        <trans-unit id="987c0d3a-7d5d-4484-85a0-bfdf1a9ca419" xml:space="preserve">
+          <source>Configure the server that the Server will proxy the RADIUS requests to by clicking the Add…</source>
+          <target state="new">Configure the server that the Server will proxy the RADIUS requests to by clicking the Add…</target>
+        </trans-unit>
+        <trans-unit id="de53c8f8-9413-462a-a7a6-1886f445411d" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="acaab5ba-f2ea-4d3c-93d5-605b78141177" xml:space="preserve">
+          <source>In the Add RADIUS Server dialog box enter the IP address of the RADIUS server and a Shared secret.</source>
+          <target state="new">In the Add RADIUS Server dialog box enter the IP address of the RADIUS server and a Shared secret.</target>
+        </trans-unit>
+        <trans-unit id="7174810b-7177-4440-bd8d-e74f6e0aa6e4" xml:space="preserve">
+          <source>The shared secret will need to be the same on both the Azure Multi-Factor Authentication Server and RADIUS server.</source>
+          <target state="new">The shared secret will need to be the same on both the Azure Multi-Factor Authentication Server and RADIUS server.</target>
+        </trans-unit>
+        <trans-unit id="b6dbb0ae-f78e-429e-8d4a-c2a57c9a4f7b" xml:space="preserve">
+          <source>Change the Authentication port and Accounting port if different ports are used by the RADIUS server.</source>
+          <target state="new">Change the Authentication port and Accounting port if different ports are used by the RADIUS server.</target>
+        </trans-unit>
+        <trans-unit id="e51e2bab-6f8a-466d-a242-70fb7036ba99" xml:space="preserve">
+          <source>Click the OK button.</source>
+          <target state="new">Click the OK button.</target>
+        </trans-unit>
+        <trans-unit id="fefd7198-0a7d-4997-bbfe-2d51fce6a61d" xml:space="preserve">
+          <source>You must add the Azure Multi-Factor Authentication Server as a RADIUS client in the other RADIUS server so that it will process access requests sent to it from the Azure Multi-Factor Authentication Server.</source>
+          <target state="new">You must add the Azure Multi-Factor Authentication Server as a RADIUS client in the other RADIUS server so that it will process access requests sent to it from the Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="123f231d-0097-42be-b79b-932de51351c6" xml:space="preserve">
+          <source>You must use the same shared secret configured in the Azure Multi-Factor Authentication Server.</source>
+          <target state="new">You must use the same shared secret configured in the Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="83162753-54af-4ed2-88ce-10fdc1b6aefb" xml:space="preserve">
+          <source>You may repeat this step to add additional RADIUS servers and configure the order in which the Server should call them with the Move Up and Move Down buttons.</source>
+          <target state="new">You may repeat this step to add additional RADIUS servers and configure the order in which the Server should call them with the Move Up and Move Down buttons.</target>
+        </trans-unit>
+        <trans-unit id="a75fad00-ec20-4731-b0c9-db86808066b5" xml:space="preserve">
+          <source>This completes the Azure Multi-Factor Authentication Server configuration.</source>
+          <target state="new">This completes the Azure Multi-Factor Authentication Server configuration.</target>
+        </trans-unit>
+        <trans-unit id="8a9c2e0d-cb5e-4bed-9c64-040ac3fa1db9" xml:space="preserve">
+          <source>The Server is now listening on the configured ports for RADIUS access requests from the configured clients.</source>
+          <target state="new">The Server is now listening on the configured ports for RADIUS access requests from the configured clients.</target>
+        </trans-unit>
+        <trans-unit id="799e8ce4-daed-4661-add3-49206caa6c09" xml:space="preserve">
+          <source>To configure the RADIUS client, use the guidelines:</source>
+          <target state="new">To configure the RADIUS client, use the guidelines:</target>
+        </trans-unit>
+        <trans-unit id="5984b2a4-ed61-4036-9764-8f5aa58f89a7" xml:space="preserve">
+          <source>Configure your appliance/server to authenticate via RADIUS to the Azure Multi-Factor Authentication Server’s IP address, which will act as the RADIUS server.</source>
+          <target state="new">Configure your appliance/server to authenticate via RADIUS to the Azure Multi-Factor Authentication Server’s IP address, which will act as the RADIUS server.</target>
+        </trans-unit>
+        <trans-unit id="cf87c20d-6f37-4e45-a611-1ebf002ed175" xml:space="preserve">
+          <source>Use the same shared secret that was configured above.</source>
+          <target state="new">Use the same shared secret that was configured above.</target>
+        </trans-unit>
+        <trans-unit id="850a23d3-285c-4c91-ae4b-783c91c653c5" xml:space="preserve">
+          <source>Configure the RADIUS timeout to 30-60 seconds so that there is time to validate the user’s credentials, perform the multi-factor authentication, receive their response and then respond to the RADIUS access request.</source>
+          <target state="new">Configure the RADIUS timeout to 30-60 seconds so that there is time to validate the user’s credentials, perform the multi-factor authentication, receive their response and then respond to the RADIUS access request.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

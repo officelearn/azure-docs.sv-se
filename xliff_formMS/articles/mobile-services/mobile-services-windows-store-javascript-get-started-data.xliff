@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="68d01484-13dd-4534-bd27-38e17ef6c7f1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="68d01484-13dd-4534-bd27-38e17ef6c7f1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3c9cd9a5-8c1c-45cf-87b5-afdad426c284">
+        <trans-unit id="698b84fa-ca8d-4bad-9d9d-86a6b6eb17a6" xml:space="preserve">
+          <source>Add Mobile Services to an existing app (Windows Store JavaScript) | Microsoft Azure</source>
+          <target state="new">Add Mobile Services to an existing app (Windows Store JavaScript) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="24b4a96a-cbcd-40cd-8945-5c2ecd630032" xml:space="preserve">
+          <source>Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app.</source>
+          <target state="new">Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app.</target>
+        </trans-unit>
+        <trans-unit id="c9f9c7af-38ce-4566-ab0a-c1a595ea005b" xml:space="preserve">
+          <source><bpt id="08bfa995-2c2e-489d-b5dc-3ee8502f9ca7">&lt;token href="../../includes/mobile-services-selector-get-started-data-legacy.md"&gt;</bpt><ept id="08bfa995-2c2e-489d-b5dc-3ee8502f9ca7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="08bfa995-2c2e-489d-b5dc-3ee8502f9ca7">&lt;token href="../../includes/mobile-services-selector-get-started-data-legacy.md"&gt;</bpt><ept id="08bfa995-2c2e-489d-b5dc-3ee8502f9ca7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00616da8-d261-47e7-8b79-f8902a34c049" xml:space="preserve">
+          <source>This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app.</source>
+          <target state="new">This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="e4cd1c6a-8a6f-4ff0-bce6-31824cb6d2e2" xml:space="preserve">
+          <source>In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then sign-in to the Azure Management Portal to view changes to data made when running the app.</source>
+          <target state="new">In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then sign-in to the Azure Management Portal to view changes to data made when running the app.</target>
+        </trans-unit>
+        <trans-unit id="3ae1f20e-f3cb-44e3-99df-ec50fce88f21" xml:space="preserve">
+          <source>To complete this tutorial, you need the following:</source>
+          <target state="new">To complete this tutorial, you need the following:</target>
+        </trans-unit>
+        <trans-unit id="61ea529b-c620-4c3f-8fad-c3f9352ce7e8" xml:space="preserve">
+          <source>An active Azure account.</source>
+          <target state="new">An active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="397b5601-8878-49d4-8291-30d458f57712" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="4ae669df-34eb-41c1-8fed-494b35c2927c" xml:space="preserve">
+          <source>For details, see <bpt id="9027921b-57ef-4369-814c-a1dadc88e772">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="9027921b-57ef-4369-814c-a1dadc88e772">&lt;/linkText&gt;</ept><bpt id="9027921b-57ef-4369-814c-a1dadc88e772">&lt;title&gt;</bpt><ept id="9027921b-57ef-4369-814c-a1dadc88e772">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="9027921b-57ef-4369-814c-a1dadc88e772">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="9027921b-57ef-4369-814c-a1dadc88e772">&lt;/linkText&gt;</ept><bpt id="9027921b-57ef-4369-814c-a1dadc88e772">&lt;title&gt;</bpt><ept id="9027921b-57ef-4369-814c-a1dadc88e772">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5898c8b-42fc-492a-af67-1d73c5234ad9" xml:space="preserve">
+          <source>Visual Studio 2013, which you will use to connect your Windows Store app project to Mobile Services.</source>
+          <target state="new">Visual Studio 2013, which you will use to connect your Windows Store app project to Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="d493bd9a-b1a2-4c56-9669-b51fbaeedb55" xml:space="preserve">
+          <source>This tutorial is built on the <bpt id="4f91a947-ace9-45e4-927d-050161e3fcbc">&lt;linkText&gt;</bpt>GetStartedWithMobileServices app[developer code samples site]<ept id="4f91a947-ace9-45e4-927d-050161e3fcbc">&lt;/linkText&gt;</ept><bpt id="4f91a947-ace9-45e4-927d-050161e3fcbc">&lt;title&gt;</bpt><ept id="4f91a947-ace9-45e4-927d-050161e3fcbc">&lt;/title&gt;</ept>, which is a Windows Store app project in Visual Studio 2013.</source>
+          <target state="new">This tutorial is built on the <bpt id="4f91a947-ace9-45e4-927d-050161e3fcbc">&lt;linkText&gt;</bpt>GetStartedWithMobileServices app[developer code samples site]<ept id="4f91a947-ace9-45e4-927d-050161e3fcbc">&lt;/linkText&gt;</ept><bpt id="4f91a947-ace9-45e4-927d-050161e3fcbc">&lt;title&gt;</bpt><ept id="4f91a947-ace9-45e4-927d-050161e3fcbc">&lt;/title&gt;</ept>, which is a Windows Store app project in Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="bfda011c-a324-4cd8-9feb-f018c3045af2" xml:space="preserve">
+          <source>The UI for this app is identical to the app generated by the Mobile Services quickstart, except that added items are stored locally in memory.</source>
+          <target state="new">The UI for this app is identical to the app generated by the Mobile Services quickstart, except that added items are stored locally in memory.</target>
+        </trans-unit>
+        <trans-unit id="c233f79b-1926-4b37-8a22-11f05686cecc" xml:space="preserve">
+          <source>Download the JavaScript version of the GetStartedWithData sample app from the [Developer Code Samples site].</source>
+          <target state="new">Download the JavaScript version of the GetStartedWithData sample app from the [Developer Code Samples site].</target>
+        </trans-unit>
+        <trans-unit id="4e53973c-4c4e-4303-afd3-f94ea5fc1e7c" xml:space="preserve">
+          <source>In Visual Studio, open the downloaded project, expand the <bpt id="99149731-da32-45f2-bd03-8ec1eccdbd52">&lt;strong&gt;</bpt>js<ept id="99149731-da32-45f2-bd03-8ec1eccdbd52">&lt;/strong&gt;</ept> folder and examine the default.js file.</source>
+          <target state="new">In Visual Studio, open the downloaded project, expand the <bpt id="99149731-da32-45f2-bd03-8ec1eccdbd52">&lt;strong&gt;</bpt>js<ept id="99149731-da32-45f2-bd03-8ec1eccdbd52">&lt;/strong&gt;</ept> folder and examine the default.js file.</target>
+        </trans-unit>
+        <trans-unit id="6ef92fb6-5d46-4ade-b109-03ff3284ad1c" xml:space="preserve">
+          <source>Notice that added <bpt id="478f788f-7296-40de-8e39-ca7105e01d7b">&lt;strong&gt;</bpt>TodoItem<ept id="478f788f-7296-40de-8e39-ca7105e01d7b">&lt;/strong&gt;</ept> objects are stored in an in-memory <bpt id="52bd8393-1d75-4f22-bb7b-64ee7b409af9">&lt;strong&gt;</bpt>List<ept id="52bd8393-1d75-4f22-bb7b-64ee7b409af9">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">Notice that added <bpt id="478f788f-7296-40de-8e39-ca7105e01d7b">&lt;strong&gt;</bpt>TodoItem<ept id="478f788f-7296-40de-8e39-ca7105e01d7b">&lt;/strong&gt;</ept> objects are stored in an in-memory <bpt id="52bd8393-1d75-4f22-bb7b-64ee7b409af9">&lt;strong&gt;</bpt>List<ept id="52bd8393-1d75-4f22-bb7b-64ee7b409af9">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="76281ee1-39ed-49f3-b689-1fd0598ea7d8" xml:space="preserve">
+          <source>Press the <bpt id="c2b95431-f16b-4ddd-a924-f8570e2fc5cf">&lt;strong&gt;</bpt>F5<ept id="c2b95431-f16b-4ddd-a924-f8570e2fc5cf">&lt;/strong&gt;</ept> key to rebuild the project and start the app.</source>
+          <target state="new">Press the <bpt id="c2b95431-f16b-4ddd-a924-f8570e2fc5cf">&lt;strong&gt;</bpt>F5<ept id="c2b95431-f16b-4ddd-a924-f8570e2fc5cf">&lt;/strong&gt;</ept> key to rebuild the project and start the app.</target>
+        </trans-unit>
+        <trans-unit id="3fcf1483-2b0c-41d0-bf96-b99a7d5accc2" xml:space="preserve">
+          <source>In the app, type some text in <bpt id="9fa77785-f680-407e-821b-5594e3da222b">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="9fa77785-f680-407e-821b-5594e3da222b">&lt;/strong&gt;</ept>, then click <bpt id="bd79d79f-a78b-4eb9-ba07-043ba1fef3c2">&lt;strong&gt;</bpt>Save<ept id="bd79d79f-a78b-4eb9-ba07-043ba1fef3c2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type some text in <bpt id="9fa77785-f680-407e-821b-5594e3da222b">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="9fa77785-f680-407e-821b-5594e3da222b">&lt;/strong&gt;</ept>, then click <bpt id="bd79d79f-a78b-4eb9-ba07-043ba1fef3c2">&lt;strong&gt;</bpt>Save<ept id="bd79d79f-a78b-4eb9-ba07-043ba1fef3c2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51f43687-6f68-4163-a1fb-0037d2a78de8" xml:space="preserve">
+          <source><bpt id="c688a6e3-945d-4f49-81e1-16bd23f92ae0">&lt;linkText&gt;</bpt><ept id="c688a6e3-945d-4f49-81e1-16bd23f92ae0">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="c688a6e3-945d-4f49-81e1-16bd23f92ae0">&lt;linkText&gt;</bpt><ept id="c688a6e3-945d-4f49-81e1-16bd23f92ae0">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="ffe807ba-889e-44a8-942d-f2892d483a90" xml:space="preserve">
+          <source>Notice that the saved text is displayed in the second column under <bpt id="6c8e4a18-867c-4b2b-b26f-f995442a438f">&lt;strong&gt;</bpt>Query and update data<ept id="6c8e4a18-867c-4b2b-b26f-f995442a438f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice that the saved text is displayed in the second column under <bpt id="6c8e4a18-867c-4b2b-b26f-f995442a438f">&lt;strong&gt;</bpt>Query and update data<ept id="6c8e4a18-867c-4b2b-b26f-f995442a438f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb97de13-3e11-4754-b696-ca3ab9aff720" xml:space="preserve">
+          <source><bpt id="8f7e359f-e29a-485b-b4e1-c25b726a502d">&lt;token href="../../includes/mobile-services-create-new-service-vs2013.md"&gt;</bpt><ept id="8f7e359f-e29a-485b-b4e1-c25b726a502d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8f7e359f-e29a-485b-b4e1-c25b726a502d">&lt;token href="../../includes/mobile-services-create-new-service-vs2013.md"&gt;</bpt><ept id="8f7e359f-e29a-485b-b4e1-c25b726a502d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="004e307e-f9ce-46a5-90c1-af9fb4ba86bc" xml:space="preserve">
+          <source>In Solution Explorer, expand the **services**, **mobile services**, **&amp;lt;your_service&amp;gt;** folders, open the service.js script file, and notice the new global variable, which looks like the following example:</source>
+          <target state="new">In Solution Explorer, expand the **services**, **mobile services**, **&amp;lt;your_service&amp;gt;** folders, open the service.js script file, and notice the new global variable, which looks like the following example:</target>
+        </trans-unit>
+        <trans-unit id="f33d2d7c-cd75-469c-8f8e-73eb2f605b7d" xml:space="preserve">
+          <source>var todolistClient = new WindowsAzure.MobileServiceClient(
+                "https://todolist.azure-mobile.net/",
+                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");</source>
+          <target state="new">var todolistClient = new WindowsAzure.MobileServiceClient(
+                "https://todolist.azure-mobile.net/",
+                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");</target>
+        </trans-unit>
+        <trans-unit id="2e844211-5be3-45e6-bfa7-a05b280a10c2" xml:space="preserve">
+          <source>This code provides access to your new mobile service in your app by using a global variable. The client is created by supplying the URI and the application key of the new mobile service. Because a reference to this script was was added to the default.html file, this variable is available to all script files that are also referenced from this page.</source>
+          <target state="new">This code provides access to your new mobile service in your app by using a global variable. The client is created by supplying the URI and the application key of the new mobile service. Because a reference to this script was was added to the default.html file, this variable is available to all script files that are also referenced from this page.</target>
+        </trans-unit>
+        <trans-unit id="b0a84054-792a-4147-8191-6b355441c5e2" xml:space="preserve">
+          <source><bpt id="92a2f31b-dac1-4552-a4cc-cb50bebb3ee7">&lt;token href="../../includes/mobile-services-create-new-table-vs2013.md"&gt;</bpt><ept id="92a2f31b-dac1-4552-a4cc-cb50bebb3ee7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="92a2f31b-dac1-4552-a4cc-cb50bebb3ee7">&lt;token href="../../includes/mobile-services-create-new-table-vs2013.md"&gt;</bpt><ept id="92a2f31b-dac1-4552-a4cc-cb50bebb3ee7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afebe13d-5d41-4209-b5ed-872c32884d67" xml:space="preserve">
+          <source><bpt id="34b71494-6683-4c43-8fb7-05b986fe494f">&lt;token href="../../includes/mobile-services-windows-javascript-update-data-app.md"&gt;</bpt><ept id="34b71494-6683-4c43-8fb7-05b986fe494f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="34b71494-6683-4c43-8fb7-05b986fe494f">&lt;token href="../../includes/mobile-services-windows-javascript-update-data-app.md"&gt;</bpt><ept id="34b71494-6683-4c43-8fb7-05b986fe494f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ae1d744-66c4-471c-be5b-ec664e87d8ca" xml:space="preserve">
+          <source>In Visual Studio, press the F5 key to run the app.</source>
+          <target state="new">In Visual Studio, press the F5 key to run the app.</target>
+        </trans-unit>
+        <trans-unit id="081b12ef-a069-4d1b-b8f4-187ff179954c" xml:space="preserve">
+          <source>As before, type text in <bpt id="bde0ea39-90e6-40fd-9d16-69106dea91b4">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="bde0ea39-90e6-40fd-9d16-69106dea91b4">&lt;/strong&gt;</ept>, and then click <bpt id="a5ca4c41-b3af-499b-b52b-680aba13a62c">&lt;strong&gt;</bpt>Save<ept id="a5ca4c41-b3af-499b-b52b-680aba13a62c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As before, type text in <bpt id="bde0ea39-90e6-40fd-9d16-69106dea91b4">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="bde0ea39-90e6-40fd-9d16-69106dea91b4">&lt;/strong&gt;</ept>, and then click <bpt id="a5ca4c41-b3af-499b-b52b-680aba13a62c">&lt;strong&gt;</bpt>Save<ept id="a5ca4c41-b3af-499b-b52b-680aba13a62c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56ac311a-6cb9-4503-a495-c65249bbb06d" xml:space="preserve">
+          <source>This sends a new item as an insert to the mobile service.</source>
+          <target state="new">This sends a new item as an insert to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="8e0748fb-6646-4f61-b300-7195a1c70a1c" xml:space="preserve">
+          <source>In the [Management Portal], click <bpt id="44138b45-9e45-43a4-853e-a0d8cc4787d1">&lt;strong&gt;</bpt>Mobile Services<ept id="44138b45-9e45-43a4-853e-a0d8cc4787d1">&lt;/strong&gt;</ept>, and then click your mobile service.</source>
+          <target state="new">In the [Management Portal], click <bpt id="44138b45-9e45-43a4-853e-a0d8cc4787d1">&lt;strong&gt;</bpt>Mobile Services<ept id="44138b45-9e45-43a4-853e-a0d8cc4787d1">&lt;/strong&gt;</ept>, and then click your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="b5e1c5f9-c5c9-4c87-8761-556276f521d2" xml:space="preserve">
+          <source>Click the <bpt id="47b18307-db55-4619-83d5-f3d58a4bf334">&lt;strong&gt;</bpt>Data<ept id="47b18307-db55-4619-83d5-f3d58a4bf334">&lt;/strong&gt;</ept> tab, then click <bpt id="5ac8fff0-5fd4-4629-904a-5ed9072fb9d5">&lt;strong&gt;</bpt>Browse<ept id="5ac8fff0-5fd4-4629-904a-5ed9072fb9d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="47b18307-db55-4619-83d5-f3d58a4bf334">&lt;strong&gt;</bpt>Data<ept id="47b18307-db55-4619-83d5-f3d58a4bf334">&lt;/strong&gt;</ept> tab, then click <bpt id="5ac8fff0-5fd4-4629-904a-5ed9072fb9d5">&lt;strong&gt;</bpt>Browse<ept id="5ac8fff0-5fd4-4629-904a-5ed9072fb9d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf466535-f684-4d78-923d-f0ef333a22df" xml:space="preserve">
+          <source>Notice that the <bpt id="0e2e1529-6775-4fbd-bbb5-28ad334fd476">&lt;strong&gt;</bpt>TodoItem<ept id="0e2e1529-6775-4fbd-bbb5-28ad334fd476">&lt;/strong&gt;</ept> table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.</source>
+          <target state="new">Notice that the <bpt id="0e2e1529-6775-4fbd-bbb5-28ad334fd476">&lt;strong&gt;</bpt>TodoItem<ept id="0e2e1529-6775-4fbd-bbb5-28ad334fd476">&lt;/strong&gt;</ept> table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.</target>
+        </trans-unit>
+        <trans-unit id="21afd6ac-1b17-4aa2-ae2a-0284e2cbc1d1" xml:space="preserve">
+          <source>In the app, check one of the items in the list, then go back to the Browse tab in the portal and click <bpt id="7981a309-0e3e-4438-b836-b48f02d35e5f">&lt;strong&gt;</bpt>Refresh<ept id="7981a309-0e3e-4438-b836-b48f02d35e5f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, check one of the items in the list, then go back to the Browse tab in the portal and click <bpt id="7981a309-0e3e-4438-b836-b48f02d35e5f">&lt;strong&gt;</bpt>Refresh<ept id="7981a309-0e3e-4438-b836-b48f02d35e5f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20fc445b-53c3-4c07-b9c3-ba1f2442cdf5" xml:space="preserve">
+          <source>Notice that the complete value has changed from <bpt id="35f19dc2-47cf-4268-850f-66fa9202326a">&lt;strong&gt;</bpt>false<ept id="35f19dc2-47cf-4268-850f-66fa9202326a">&lt;/strong&gt;</ept> to <bpt id="9b68e63f-dbd5-47c7-a93f-82d8c318e79c">&lt;strong&gt;</bpt>true<ept id="9b68e63f-dbd5-47c7-a93f-82d8c318e79c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice that the complete value has changed from <bpt id="35f19dc2-47cf-4268-850f-66fa9202326a">&lt;strong&gt;</bpt>false<ept id="35f19dc2-47cf-4268-850f-66fa9202326a">&lt;/strong&gt;</ept> to <bpt id="9b68e63f-dbd5-47c7-a93f-82d8c318e79c">&lt;strong&gt;</bpt>true<ept id="9b68e63f-dbd5-47c7-a93f-82d8c318e79c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4969d451-36f3-4e1e-b27f-1a67c8f4930a" xml:space="preserve">
+          <source>In the default.js project file, replace the existing <bpt id="fbc37fa1-b40c-45f6-8fe3-803130e06bcd">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="fbc37fa1-b40c-45f6-8fe3-803130e06bcd">&lt;/strong&gt;</ept> function with the following code that filters out completed items:</source>
+          <target state="new">In the default.js project file, replace the existing <bpt id="fbc37fa1-b40c-45f6-8fe3-803130e06bcd">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="fbc37fa1-b40c-45f6-8fe3-803130e06bcd">&lt;/strong&gt;</ept> function with the following code that filters out completed items:</target>
+        </trans-unit>
+        <trans-unit id="d79b29ea-23f7-4de0-b79e-3fc344f53529" xml:space="preserve">
+          <source>In the app, check another one of the items in the list and then click the <bpt id="c43dcf09-2b5a-46f3-9fa4-1e8b204c03d1">&lt;strong&gt;</bpt>Refresh<ept id="c43dcf09-2b5a-46f3-9fa4-1e8b204c03d1">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the app, check another one of the items in the list and then click the <bpt id="c43dcf09-2b5a-46f3-9fa4-1e8b204c03d1">&lt;strong&gt;</bpt>Refresh<ept id="c43dcf09-2b5a-46f3-9fa4-1e8b204c03d1">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="2386a60c-de89-4dec-a1fb-8556641178e3" xml:space="preserve">
+          <source>Notice that the checked item now disappears from the list.</source>
+          <target state="new">Notice that the checked item now disappears from the list.</target>
+        </trans-unit>
+        <trans-unit id="394f0568-1849-45e7-a742-478a081b06c5" xml:space="preserve">
+          <source>Each refresh results in a round-trip to the mobile service, which now returns filtered data.</source>
+          <target state="new">Each refresh results in a round-trip to the mobile service, which now returns filtered data.</target>
+        </trans-unit>
+        <trans-unit id="90642cf6-b075-40d8-a605-390582fc228c" xml:space="preserve">
+          <source>This concludes the <bpt id="a52f34c3-4bf7-4853-b7b3-04c500c7bc11">&lt;strong&gt;</bpt>Get started with data<ept id="a52f34c3-4bf7-4853-b7b3-04c500c7bc11">&lt;/strong&gt;</ept> tutorial.</source>
+          <target state="new">This concludes the <bpt id="a52f34c3-4bf7-4853-b7b3-04c500c7bc11">&lt;strong&gt;</bpt>Get started with data<ept id="a52f34c3-4bf7-4853-b7b3-04c500c7bc11">&lt;/strong&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="e2e2cc7c-4563-4d7b-bd99-217d9c5deae2" xml:space="preserve">
+          <source>This tutorial demonstrated the basics of enabling a Windows Store app to work with data in Mobile Services.</source>
+          <target state="new">This tutorial demonstrated the basics of enabling a Windows Store app to work with data in Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="1b78c8dd-469b-434a-8f0d-8bb698304b88" xml:space="preserve">
+          <source>Next, consider reading up on one of these other topics:</source>
+          <target state="new">Next, consider reading up on one of these other topics:</target>
+        </trans-unit>
+        <trans-unit id="cf26345f-86e9-4cb8-b490-9a7b31eed03b" xml:space="preserve">
+          <source><bpt id="ac75aea8-9ff5-4535-a09f-9a0a851b5dac">&lt;linkText&gt;</bpt>Add authentication to your app<ept id="ac75aea8-9ff5-4535-a09f-9a0a851b5dac">&lt;/linkText&gt;</ept><bpt id="ac75aea8-9ff5-4535-a09f-9a0a851b5dac">&lt;title&gt;</bpt><ept id="ac75aea8-9ff5-4535-a09f-9a0a851b5dac">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn how to authenticate users of your app.</source>
+          <target state="new"><bpt id="ac75aea8-9ff5-4535-a09f-9a0a851b5dac">&lt;linkText&gt;</bpt>Add authentication to your app<ept id="ac75aea8-9ff5-4535-a09f-9a0a851b5dac">&lt;/linkText&gt;</ept><bpt id="ac75aea8-9ff5-4535-a09f-9a0a851b5dac">&lt;title&gt;</bpt><ept id="ac75aea8-9ff5-4535-a09f-9a0a851b5dac">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn how to authenticate users of your app.</target>
+        </trans-unit>
+        <trans-unit id="1320ec74-3c7c-4cb5-857b-032011979214" xml:space="preserve">
+          <source><bpt id="85e24d2e-f603-4f2c-bd4a-af5794bf8ca2">&lt;linkText&gt;</bpt>Add push notifications  to your app<ept id="85e24d2e-f603-4f2c-bd4a-af5794bf8ca2">&lt;/linkText&gt;</ept><bpt id="85e24d2e-f603-4f2c-bd4a-af5794bf8ca2">&lt;title&gt;</bpt><ept id="85e24d2e-f603-4f2c-bd4a-af5794bf8ca2">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn how to send a very basic push notification to your app.</source>
+          <target state="new"><bpt id="85e24d2e-f603-4f2c-bd4a-af5794bf8ca2">&lt;linkText&gt;</bpt>Add push notifications  to your app<ept id="85e24d2e-f603-4f2c-bd4a-af5794bf8ca2">&lt;/linkText&gt;</ept><bpt id="85e24d2e-f603-4f2c-bd4a-af5794bf8ca2">&lt;title&gt;</bpt><ept id="85e24d2e-f603-4f2c-bd4a-af5794bf8ca2">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn how to send a very basic push notification to your app.</target>
+        </trans-unit>
+        <trans-unit id="23dbdabe-5e96-4916-a6ee-352bb6fe16a7" xml:space="preserve">
+          <source><bpt id="6079cd03-84e2-4e25-bdb8-62b138a3e7a0">&lt;linkText&gt;</bpt>Mobile Services HTML/JavaScript How-to Conceptual Reference<ept id="6079cd03-84e2-4e25-bdb8-62b138a3e7a0">&lt;/linkText&gt;</ept><bpt id="6079cd03-84e2-4e25-bdb8-62b138a3e7a0">&lt;title&gt;</bpt><ept id="6079cd03-84e2-4e25-bdb8-62b138a3e7a0">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn more about how to use Mobile Services with HTML and JavaScript.</source>
+          <target state="new"><bpt id="6079cd03-84e2-4e25-bdb8-62b138a3e7a0">&lt;linkText&gt;</bpt>Mobile Services HTML/JavaScript How-to Conceptual Reference<ept id="6079cd03-84e2-4e25-bdb8-62b138a3e7a0">&lt;/linkText&gt;</ept><bpt id="6079cd03-84e2-4e25-bdb8-62b138a3e7a0">&lt;title&gt;</bpt><ept id="6079cd03-84e2-4e25-bdb8-62b138a3e7a0">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn more about how to use Mobile Services with HTML and JavaScript.</target>
+        </trans-unit>
+        <trans-unit id="8cd09c3a-1964-4255-b9f0-4f55a45ed2e1" xml:space="preserve">
+          <source>#download-app</source>
+          <target state="new">#download-app</target>
+        </trans-unit>
+        <trans-unit id="d6e0d229-ab93-4ea5-b8ec-4764c1154dee" xml:space="preserve">
+          <source>#create-service</source>
+          <target state="new">#create-service</target>
+        </trans-unit>
+        <trans-unit id="b20a8e39-e490-4dab-8245-ab8e5d8d2bd0" xml:space="preserve">
+          <source>#add-table</source>
+          <target state="new">#add-table</target>
+        </trans-unit>
+        <trans-unit id="b86676ff-8bb7-46fd-8285-5e2fa1461a08" xml:space="preserve">
+          <source>#update-app</source>
+          <target state="new">#update-app</target>
+        </trans-unit>
+        <trans-unit id="05ffbde1-7dac-4da5-838f-600f9684d92f" xml:space="preserve">
+          <source>#test-app</source>
+          <target state="new">#test-app</target>
+        </trans-unit>
+        <trans-unit id="1acf3e8b-0b43-40ff-ab4e-c64e30a82e1b" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="bb23e79a-7b3e-4efa-b71b-c1fedf443c77" xml:space="preserve">
+          <source>./media/mobile-services-windows-store-javascript-get-started-data/mobile-quickstart-startup.png</source>
+          <target state="new">./media/mobile-services-windows-store-javascript-get-started-data/mobile-quickstart-startup.png</target>
+        </trans-unit>
+        <trans-unit id="462b7eab-4f07-49f2-bdb9-451c1af1a168" xml:space="preserve">
+          <source>./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-todoitem-data-browse.png</source>
+          <target state="new">./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-todoitem-data-browse.png</target>
+        </trans-unit>
+        <trans-unit id="7f864cc8-3c1c-4e1a-8528-f3b5a9d5caca" xml:space="preserve">
+          <source>./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-data-sample-download-js-vs12.png</source>
+          <target state="new">./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-data-sample-download-js-vs12.png</target>
+        </trans-unit>
+        <trans-unit id="75027d39-3974-40c0-a94c-184c66c04f00" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="af55fd9d-210b-4b76-b1e0-9acdbce15680" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="d1ae9278-f3dc-427a-9320-97ce85ab5017" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=257545</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=257545</target>
+        </trans-unit>
+        <trans-unit id="9eff14e6-f80d-4a49-be8d-0ae4a7b36c8c" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=328660</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=328660</target>
+        </trans-unit>
+        <trans-unit id="f04f3b83-5dba-4e7b-96f5-f3a0f1dd4cde" xml:space="preserve">
+          <source>mobile-services-html-how-to-use-client-library.md</source>
+          <target state="new">mobile-services-html-how-to-use-client-library.md</target>
+        </trans-unit>
+      </group>
+      <group id="bf44082a-5ffa-45ce-b407-16c8fe45de89" />
+    </body>
+  </file>
+</xliff>

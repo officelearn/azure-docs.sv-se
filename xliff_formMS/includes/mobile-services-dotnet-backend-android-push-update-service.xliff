@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="001a0aa1-e3a8-406b-a15a-0e1f45d22bfb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="001a0aa1-e3a8-406b-a15a-0e1f45d22bfb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b0dff46c-e96f-4448-a6bf-5b8511672249">
+        <trans-unit id="738fae48-3f5e-49e2-a92c-ee80b407f467" xml:space="preserve">
+          <source>In Visual Studio Solution Explorer, expand the <bpt id="1cec91fc-21db-4bfa-932a-8409fd91172d">&lt;strong&gt;</bpt>Controllers<ept id="1cec91fc-21db-4bfa-932a-8409fd91172d">&lt;/strong&gt;</ept> folder in the mobile service project.</source>
+          <target state="new">In Visual Studio Solution Explorer, expand the <bpt id="1cec91fc-21db-4bfa-932a-8409fd91172d">&lt;strong&gt;</bpt>Controllers<ept id="1cec91fc-21db-4bfa-932a-8409fd91172d">&lt;/strong&gt;</ept> folder in the mobile service project.</target>
+        </trans-unit>
+        <trans-unit id="e4613d0a-c5e9-4d42-88dd-870619a1fe29" xml:space="preserve">
+          <source>Open TodoItemController.cs.</source>
+          <target state="new">Open TodoItemController.cs.</target>
+        </trans-unit>
+        <trans-unit id="481d28fe-f5d7-4cdb-bf1b-511f29dfc621" xml:space="preserve">
+          <source>At the top of the file, add the following <bpt id="cd90c0b4-db67-4f8a-96c7-ddd613c6a08b">&lt;code&gt;</bpt>using<ept id="cd90c0b4-db67-4f8a-96c7-ddd613c6a08b">&lt;/code&gt;</ept> statements:</source>
+          <target state="new">At the top of the file, add the following <bpt id="cd90c0b4-db67-4f8a-96c7-ddd613c6a08b">&lt;code&gt;</bpt>using<ept id="cd90c0b4-db67-4f8a-96c7-ddd613c6a08b">&lt;/code&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="18f1a82f-0b1b-4196-b582-399be1cac23d" xml:space="preserve">
+          <source>Update the <bpt id="05ca12dc-2a94-450f-9c2f-c5886027feca">&lt;code&gt;</bpt>PostTodoItem<ept id="05ca12dc-2a94-450f-9c2f-c5886027feca">&lt;/code&gt;</ept> method definition with the following code:  </source>
+          <target state="new">Update the <bpt id="05ca12dc-2a94-450f-9c2f-c5886027feca">&lt;code&gt;</bpt>PostTodoItem<ept id="05ca12dc-2a94-450f-9c2f-c5886027feca">&lt;/code&gt;</ept> method definition with the following code:  </target>
+        </trans-unit>
+        <trans-unit id="89e87a41-f55c-475f-aa65-90252992f955" xml:space="preserve">
+          <source>This code will send a push notification (with the text of the inserted item) after inserting a todo item.</source>
+          <target state="new">This code will send a push notification (with the text of the inserted item) after inserting a todo item.</target>
+        </trans-unit>
+        <trans-unit id="65952fc1-ee38-4fb2-8c83-5c061c2dc379" xml:space="preserve">
+          <source>In the event of an error, the code will add an error log entry which is viewable on the <bpt id="df5538ef-36f2-4e0b-b227-44440c1c40c3">&lt;strong&gt;</bpt>Logs<ept id="df5538ef-36f2-4e0b-b227-44440c1c40c3">&lt;/strong&gt;</ept> tab of the mobile service in the Management Portal.</source>
+          <target state="new">In the event of an error, the code will add an error log entry which is viewable on the <bpt id="df5538ef-36f2-4e0b-b227-44440c1c40c3">&lt;strong&gt;</bpt>Logs<ept id="df5538ef-36f2-4e0b-b227-44440c1c40c3">&lt;/strong&gt;</ept> tab of the mobile service in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="1d4e0a4b-b70c-4200-bd19-e9258e0e7556" xml:space="preserve">
+          <source>Republish your mobile service project to Azure.</source>
+          <target state="new">Republish your mobile service project to Azure.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

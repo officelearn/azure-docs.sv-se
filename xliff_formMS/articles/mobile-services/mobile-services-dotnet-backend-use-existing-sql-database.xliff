@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c6e634f5-0ae5-468f-8c16-e653c1bd72eb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c6e634f5-0ae5-468f-8c16-e653c1bd72eb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7d0eb388-5cb3-4cca-86d3-e604c7d13366">
+        <trans-unit id="d42f61e9-a477-4401-a568-21ec76989e96" xml:space="preserve">
+          <source>Build a service using an existing SQL database with the Mobile Services .NET backend | Microsoft Azure</source>
+          <target state="new">Build a service using an existing SQL database with the Mobile Services .NET backend | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="03c558d9-0571-4a99-9d7d-ee1d9834464c" xml:space="preserve">
+          <source>Learn how to use an existing cloud or on-premises SQL database with your .NET based mobile service</source>
+          <target state="new">Learn how to use an existing cloud or on-premises SQL database with your .NET based mobile service</target>
+        </trans-unit>
+        <trans-unit id="7ed5e7f5-01fa-4c96-9f34-fea37d1a3e4a" xml:space="preserve">
+          <source>The Mobile Services .NET backend makes it easy to take advantage of existing assets in building a mobile service.</source>
+          <target state="new">The Mobile Services .NET backend makes it easy to take advantage of existing assets in building a mobile service.</target>
+        </trans-unit>
+        <trans-unit id="5e08df21-347e-400b-9c39-271e1384be4a" xml:space="preserve">
+          <source>One particularly interesting scenario is using an existing SQL database (either on-premises or in the cloud), that may already be used by other applications, to make existing data available to mobile clients.</source>
+          <target state="new">One particularly interesting scenario is using an existing SQL database (either on-premises or in the cloud), that may already be used by other applications, to make existing data available to mobile clients.</target>
+        </trans-unit>
+        <trans-unit id="56970e2f-1fe4-4339-9bcb-713526dc162d" xml:space="preserve">
+          <source>In this case it's a requirement that database model (or <bpt id="906ec33f-e4c0-49f6-a99f-412615681d70">&lt;em&gt;</bpt>schema<ept id="906ec33f-e4c0-49f6-a99f-412615681d70">&lt;/em&gt;</ept>) remain unchanged, in order for existing solutions to continue working.</source>
+          <target state="new">In this case it's a requirement that database model (or <bpt id="906ec33f-e4c0-49f6-a99f-412615681d70">&lt;em&gt;</bpt>schema<ept id="906ec33f-e4c0-49f6-a99f-412615681d70">&lt;/em&gt;</ept>) remain unchanged, in order for existing solutions to continue working.</target>
+        </trans-unit>
+        <trans-unit id="0d6bae7f-333f-48b8-9aa7-aca08d69831e" xml:space="preserve">
+          <source><bpt id="e56a0f31-c0c4-4bf1-8e7a-82b3d583a925">&lt;bookmark&gt;</bpt><ept id="e56a0f31-c0c4-4bf1-8e7a-82b3d583a925">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e56a0f31-c0c4-4bf1-8e7a-82b3d583a925">&lt;bookmark&gt;</bpt><ept id="e56a0f31-c0c4-4bf1-8e7a-82b3d583a925">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47610180-b8b7-43de-b805-fd423053cad9" xml:space="preserve">
+          <source>For this tutorial we will use the database that was created with your mobile service, but we will not use the default model that is created.</source>
+          <target state="new">For this tutorial we will use the database that was created with your mobile service, but we will not use the default model that is created.</target>
+        </trans-unit>
+        <trans-unit id="8aa56dea-649f-4d5f-91e2-a357722351dd" xml:space="preserve">
+          <source>Instead, we will manually create an arbitrary model that will represent an existing application that you may have.</source>
+          <target state="new">Instead, we will manually create an arbitrary model that will represent an existing application that you may have.</target>
+        </trans-unit>
+        <trans-unit id="9a1eaabf-63a9-43a2-b358-aefc8c3ad116" xml:space="preserve">
+          <source>For full details about how to connect to an on-premises database instead, check out <bpt id="e229b23e-2b2d-49be-b0b5-92fcec9860a4">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections<ept id="e229b23e-2b2d-49be-b0b5-92fcec9860a4">&lt;/linkText&gt;</ept><bpt id="e229b23e-2b2d-49be-b0b5-92fcec9860a4">&lt;title&gt;</bpt><ept id="e229b23e-2b2d-49be-b0b5-92fcec9860a4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For full details about how to connect to an on-premises database instead, check out <bpt id="e229b23e-2b2d-49be-b0b5-92fcec9860a4">&lt;linkText&gt;</bpt>Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections<ept id="e229b23e-2b2d-49be-b0b5-92fcec9860a4">&lt;/linkText&gt;</ept><bpt id="e229b23e-2b2d-49be-b0b5-92fcec9860a4">&lt;title&gt;</bpt><ept id="e229b23e-2b2d-49be-b0b5-92fcec9860a4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91d1a16c-6cf9-43f6-b328-20f51342db71" xml:space="preserve">
+          <source>Start by creating a Mobile Services server project in <bpt id="05afcc1a-94da-4481-ae65-b7d66808b47c">&lt;strong&gt;</bpt>Visual Studio 2013 Update 2<ept id="05afcc1a-94da-4481-ae65-b7d66808b47c">&lt;/strong&gt;</ept> or by using the quickstart project that you can download on the Mobile Services tab for your service in the <bpt id="7d069e74-bcfa-418e-8143-954b39e6c369">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="7d069e74-bcfa-418e-8143-954b39e6c369">&lt;/linkText&gt;</ept><bpt id="7d069e74-bcfa-418e-8143-954b39e6c369">&lt;title&gt;</bpt><ept id="7d069e74-bcfa-418e-8143-954b39e6c369">&lt;/title&gt;</ept>.</source>
+          <target state="new">Start by creating a Mobile Services server project in <bpt id="05afcc1a-94da-4481-ae65-b7d66808b47c">&lt;strong&gt;</bpt>Visual Studio 2013 Update 2<ept id="05afcc1a-94da-4481-ae65-b7d66808b47c">&lt;/strong&gt;</ept> or by using the quickstart project that you can download on the Mobile Services tab for your service in the <bpt id="7d069e74-bcfa-418e-8143-954b39e6c369">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="7d069e74-bcfa-418e-8143-954b39e6c369">&lt;/linkText&gt;</ept><bpt id="7d069e74-bcfa-418e-8143-954b39e6c369">&lt;title&gt;</bpt><ept id="7d069e74-bcfa-418e-8143-954b39e6c369">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61190a82-7cfe-4260-b298-688ef1c07b15" xml:space="preserve">
+          <source>For the purposes of this tutorial, we will assume your server project name is <bpt id="55cc6f17-2799-479e-b8f1-a4c1977fca88">&lt;strong&gt;</bpt>ShoppingService<ept id="55cc6f17-2799-479e-b8f1-a4c1977fca88">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the purposes of this tutorial, we will assume your server project name is <bpt id="55cc6f17-2799-479e-b8f1-a4c1977fca88">&lt;strong&gt;</bpt>ShoppingService<ept id="55cc6f17-2799-479e-b8f1-a4c1977fca88">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b60a052-9b32-4c5f-a01c-3a9b30de038e" xml:space="preserve">
+          <source>Create a <bpt id="0e438085-a909-4a3b-a2f3-f773dc342665">&lt;strong&gt;</bpt>Customer.cs<ept id="0e438085-a909-4a3b-a2f3-f773dc342665">&lt;/strong&gt;</ept> file inside the <bpt id="7f89bc38-3408-4ae0-badf-f1696e68aa99">&lt;strong&gt;</bpt>Models<ept id="7f89bc38-3408-4ae0-badf-f1696e68aa99">&lt;/strong&gt;</ept> folder and use the following implementation.</source>
+          <target state="new">Create a <bpt id="0e438085-a909-4a3b-a2f3-f773dc342665">&lt;strong&gt;</bpt>Customer.cs<ept id="0e438085-a909-4a3b-a2f3-f773dc342665">&lt;/strong&gt;</ept> file inside the <bpt id="7f89bc38-3408-4ae0-badf-f1696e68aa99">&lt;strong&gt;</bpt>Models<ept id="7f89bc38-3408-4ae0-badf-f1696e68aa99">&lt;/strong&gt;</ept> folder and use the following implementation.</target>
+        </trans-unit>
+        <trans-unit id="c31a8a14-c036-4196-8a9a-c2870066dfd8" xml:space="preserve">
+          <source>You will need to add an assembly reference to <bpt id="837acf17-5b90-45a6-aaf2-0fc635b1ff69">&lt;strong&gt;</bpt>System.ComponentModel.DataAnnotations<ept id="837acf17-5b90-45a6-aaf2-0fc635b1ff69">&lt;/strong&gt;</ept> to your project.</source>
+          <target state="new">You will need to add an assembly reference to <bpt id="837acf17-5b90-45a6-aaf2-0fc635b1ff69">&lt;strong&gt;</bpt>System.ComponentModel.DataAnnotations<ept id="837acf17-5b90-45a6-aaf2-0fc635b1ff69">&lt;/strong&gt;</ept> to your project.</target>
+        </trans-unit>
+        <trans-unit id="c3c55c79-7b36-4c19-80b8-c27ea661bbef" xml:space="preserve">
+          <source>Create an <bpt id="0a7818b4-4d30-4543-a48a-980cfb2141fe">&lt;strong&gt;</bpt>Order.cs<ept id="0a7818b4-4d30-4543-a48a-980cfb2141fe">&lt;/strong&gt;</ept> file inside the <bpt id="6360edbc-7096-49e7-aab3-561f5481d002">&lt;strong&gt;</bpt>Models<ept id="6360edbc-7096-49e7-aab3-561f5481d002">&lt;/strong&gt;</ept> folder and use the following implementation:</source>
+          <target state="new">Create an <bpt id="0a7818b4-4d30-4543-a48a-980cfb2141fe">&lt;strong&gt;</bpt>Order.cs<ept id="0a7818b4-4d30-4543-a48a-980cfb2141fe">&lt;/strong&gt;</ept> file inside the <bpt id="6360edbc-7096-49e7-aab3-561f5481d002">&lt;strong&gt;</bpt>Models<ept id="6360edbc-7096-49e7-aab3-561f5481d002">&lt;/strong&gt;</ept> folder and use the following implementation:</target>
+        </trans-unit>
+        <trans-unit id="661cdd8b-be87-45f3-8990-cc0f41a420bc" xml:space="preserve">
+          <source>You will note that these two classes have a <bpt id="e8544160-ed5b-4990-9d4e-ca4f78152b41">&lt;em&gt;</bpt>relationship<ept id="e8544160-ed5b-4990-9d4e-ca4f78152b41">&lt;/em&gt;</ept>: every <bpt id="6f4e8597-0b87-473f-b378-66dfcec1e474">&lt;strong&gt;</bpt>Order<ept id="6f4e8597-0b87-473f-b378-66dfcec1e474">&lt;/strong&gt;</ept> is associated with a single <bpt id="c4176c1e-68ba-4777-9d55-0b5694c1b310">&lt;strong&gt;</bpt>Customer<ept id="c4176c1e-68ba-4777-9d55-0b5694c1b310">&lt;/strong&gt;</ept> and a <bpt id="3143ad86-7968-4e5c-9e47-3fc51f4cc643">&lt;strong&gt;</bpt>Customer<ept id="3143ad86-7968-4e5c-9e47-3fc51f4cc643">&lt;/strong&gt;</ept> can be associated with multiple <bpt id="4fa1e2fc-35ce-476f-b95a-652f54b88f68">&lt;strong&gt;</bpt>Orders<ept id="4fa1e2fc-35ce-476f-b95a-652f54b88f68">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You will note that these two classes have a <bpt id="e8544160-ed5b-4990-9d4e-ca4f78152b41">&lt;em&gt;</bpt>relationship<ept id="e8544160-ed5b-4990-9d4e-ca4f78152b41">&lt;/em&gt;</ept>: every <bpt id="6f4e8597-0b87-473f-b378-66dfcec1e474">&lt;strong&gt;</bpt>Order<ept id="6f4e8597-0b87-473f-b378-66dfcec1e474">&lt;/strong&gt;</ept> is associated with a single <bpt id="c4176c1e-68ba-4777-9d55-0b5694c1b310">&lt;strong&gt;</bpt>Customer<ept id="c4176c1e-68ba-4777-9d55-0b5694c1b310">&lt;/strong&gt;</ept> and a <bpt id="3143ad86-7968-4e5c-9e47-3fc51f4cc643">&lt;strong&gt;</bpt>Customer<ept id="3143ad86-7968-4e5c-9e47-3fc51f4cc643">&lt;/strong&gt;</ept> can be associated with multiple <bpt id="4fa1e2fc-35ce-476f-b95a-652f54b88f68">&lt;strong&gt;</bpt>Orders<ept id="4fa1e2fc-35ce-476f-b95a-652f54b88f68">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f64bdf80-93da-48c2-9352-d51a935fb452" xml:space="preserve">
+          <source>Having relationships is common in existing data models.</source>
+          <target state="new">Having relationships is common in existing data models.</target>
+        </trans-unit>
+        <trans-unit id="56477a76-73e1-4b3b-9a20-c95636962abf" xml:space="preserve">
+          <source>Create an <bpt id="179c81b8-dd16-4c2a-9eb5-2b94a2f1d032">&lt;strong&gt;</bpt>ExistingContext.cs<ept id="179c81b8-dd16-4c2a-9eb5-2b94a2f1d032">&lt;/strong&gt;</ept> file inside the <bpt id="7deecd16-da5d-4322-bd78-203bf03a0bb9">&lt;strong&gt;</bpt>Models<ept id="7deecd16-da5d-4322-bd78-203bf03a0bb9">&lt;/strong&gt;</ept> folder and implement it as so:</source>
+          <target state="new">Create an <bpt id="179c81b8-dd16-4c2a-9eb5-2b94a2f1d032">&lt;strong&gt;</bpt>ExistingContext.cs<ept id="179c81b8-dd16-4c2a-9eb5-2b94a2f1d032">&lt;/strong&gt;</ept> file inside the <bpt id="7deecd16-da5d-4322-bd78-203bf03a0bb9">&lt;strong&gt;</bpt>Models<ept id="7deecd16-da5d-4322-bd78-203bf03a0bb9">&lt;/strong&gt;</ept> folder and implement it as so:</target>
+        </trans-unit>
+        <trans-unit id="fa522271-fd53-4f12-9fa9-4da913506b64" xml:space="preserve">
+          <source>The structure above approximates an existing Entity Framework model that you may already be using for an existing application.</source>
+          <target state="new">The structure above approximates an existing Entity Framework model that you may already be using for an existing application.</target>
+        </trans-unit>
+        <trans-unit id="2299635a-3751-4e42-b57b-249d911dec6a" xml:space="preserve">
+          <source>Please note that the model is not aware of Mobile Services in any way at this stage.</source>
+          <target state="new">Please note that the model is not aware of Mobile Services in any way at this stage.</target>
+        </trans-unit>
+        <trans-unit id="b5c22c20-d9eb-4357-8824-8e45b20679f3" xml:space="preserve">
+          <source><bpt id="61432f81-ed6f-464e-bffa-30b6d8b44b71">&lt;bookmark&gt;</bpt><ept id="61432f81-ed6f-464e-bffa-30b6d8b44b71">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="61432f81-ed6f-464e-bffa-30b6d8b44b71">&lt;bookmark&gt;</bpt><ept id="61432f81-ed6f-464e-bffa-30b6d8b44b71">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0f2e976-5df4-462b-9d3b-cd4d8c6ca647" xml:space="preserve">
+          <source>The data model you would like to use with your mobile service may be arbitrarily complex; it could contain hundreds of entities with a variety of relationships between them.</source>
+          <target state="new">The data model you would like to use with your mobile service may be arbitrarily complex; it could contain hundreds of entities with a variety of relationships between them.</target>
+        </trans-unit>
+        <trans-unit id="b50e797d-805b-4465-9ca5-84ca60681cf1" xml:space="preserve">
+          <source>When building a mobile app, it is usually desirable to simplify the data model and eliminate relationships (or handle them manually) in order to minimize the payload being sent back and forth between the app and the service.</source>
+          <target state="new">When building a mobile app, it is usually desirable to simplify the data model and eliminate relationships (or handle them manually) in order to minimize the payload being sent back and forth between the app and the service.</target>
+        </trans-unit>
+        <trans-unit id="988ca9be-d494-4bab-8bde-6681a54cb693" xml:space="preserve">
+          <source>In this section, we will create a set of simplified objects (known as "data transfer objects" or "DTOs"), that are mapped to the data you have in your database, yet contain only the minimal set of properties needed by your mobile app.</source>
+          <target state="new">In this section, we will create a set of simplified objects (known as "data transfer objects" or "DTOs"), that are mapped to the data you have in your database, yet contain only the minimal set of properties needed by your mobile app.</target>
+        </trans-unit>
+        <trans-unit id="144e0548-5ae6-4858-b34a-c9dde4df0c5e" xml:space="preserve">
+          <source>Create the <bpt id="08facff4-22a6-4f24-82cb-6a5a9ede9adc">&lt;strong&gt;</bpt>MobileCustomer.cs<ept id="08facff4-22a6-4f24-82cb-6a5a9ede9adc">&lt;/strong&gt;</ept> file in the <bpt id="fee238f6-415b-4ba6-aad6-f1a3a09e5e2b">&lt;strong&gt;</bpt>DataObjects<ept id="fee238f6-415b-4ba6-aad6-f1a3a09e5e2b">&lt;/strong&gt;</ept> folder of your service project and use the following implementation:</source>
+          <target state="new">Create the <bpt id="08facff4-22a6-4f24-82cb-6a5a9ede9adc">&lt;strong&gt;</bpt>MobileCustomer.cs<ept id="08facff4-22a6-4f24-82cb-6a5a9ede9adc">&lt;/strong&gt;</ept> file in the <bpt id="fee238f6-415b-4ba6-aad6-f1a3a09e5e2b">&lt;strong&gt;</bpt>DataObjects<ept id="fee238f6-415b-4ba6-aad6-f1a3a09e5e2b">&lt;/strong&gt;</ept> folder of your service project and use the following implementation:</target>
+        </trans-unit>
+        <trans-unit id="a02404a9-fe47-4843-8dad-91ee54e6a074" xml:space="preserve">
+          <source>Note that this class is similar to the <bpt id="9a464b17-5f4e-49bf-877e-77816dc8c1bc">&lt;strong&gt;</bpt>Customer<ept id="9a464b17-5f4e-49bf-877e-77816dc8c1bc">&lt;/strong&gt;</ept> class in the model, except the relationship property to <bpt id="cd58811b-0405-482f-bc75-3f919257395d">&lt;strong&gt;</bpt>Order<ept id="cd58811b-0405-482f-bc75-3f919257395d">&lt;/strong&gt;</ept> is removed.</source>
+          <target state="new">Note that this class is similar to the <bpt id="9a464b17-5f4e-49bf-877e-77816dc8c1bc">&lt;strong&gt;</bpt>Customer<ept id="9a464b17-5f4e-49bf-877e-77816dc8c1bc">&lt;/strong&gt;</ept> class in the model, except the relationship property to <bpt id="cd58811b-0405-482f-bc75-3f919257395d">&lt;strong&gt;</bpt>Order<ept id="cd58811b-0405-482f-bc75-3f919257395d">&lt;/strong&gt;</ept> is removed.</target>
+        </trans-unit>
+        <trans-unit id="5250c6de-728f-4565-851d-2843e2c29de1" xml:space="preserve">
+          <source>For an object to work correctly with Mobile Services offline sync, it needs a set of <bpt id="3e93c312-b96e-4b6c-981e-e77e2bc64095">&lt;em&gt;</bpt>system properties<ept id="3e93c312-b96e-4b6c-981e-e77e2bc64095">&lt;/em&gt;</ept> for optimistic concurrency, so you will notice that the DTO inherits from [<bpt id="9abd584f-95f3-4182-a1ae-487324cdb6ec">&lt;strong&gt;</bpt>EntityData<ept id="9abd584f-95f3-4182-a1ae-487324cdb6ec">&lt;/strong&gt;</ept>](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx), which contains those properties.</source>
+          <target state="new">For an object to work correctly with Mobile Services offline sync, it needs a set of <bpt id="3e93c312-b96e-4b6c-981e-e77e2bc64095">&lt;em&gt;</bpt>system properties<ept id="3e93c312-b96e-4b6c-981e-e77e2bc64095">&lt;/em&gt;</ept> for optimistic concurrency, so you will notice that the DTO inherits from [<bpt id="9abd584f-95f3-4182-a1ae-487324cdb6ec">&lt;strong&gt;</bpt>EntityData<ept id="9abd584f-95f3-4182-a1ae-487324cdb6ec">&lt;/strong&gt;</ept>](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx), which contains those properties.</target>
+        </trans-unit>
+        <trans-unit id="2eaacb7a-a2b7-4ff9-bfbf-4ff0edbd2302" xml:space="preserve">
+          <source>The int-based <bpt id="8634353f-5b52-40fe-831b-b38da1b16283">&lt;strong&gt;</bpt>CustomerId<ept id="8634353f-5b52-40fe-831b-b38da1b16283">&lt;/strong&gt;</ept> property from the original model is replaced by the string-based <bpt id="e2ed6e93-1807-4cd3-9251-d53a0424c309">&lt;strong&gt;</bpt>Id<ept id="e2ed6e93-1807-4cd3-9251-d53a0424c309">&lt;/strong&gt;</ept> property from <bpt id="9d7980d9-503e-4b26-8def-75d29b67efcf">&lt;strong&gt;</bpt>EntityData<ept id="9d7980d9-503e-4b26-8def-75d29b67efcf">&lt;/strong&gt;</ept>, which will be the <bpt id="71a7e9be-2748-4b14-8d71-3addcc622360">&lt;strong&gt;</bpt>Id<ept id="71a7e9be-2748-4b14-8d71-3addcc622360">&lt;/strong&gt;</ept> that Mobile Services will use.</source>
+          <target state="new">The int-based <bpt id="8634353f-5b52-40fe-831b-b38da1b16283">&lt;strong&gt;</bpt>CustomerId<ept id="8634353f-5b52-40fe-831b-b38da1b16283">&lt;/strong&gt;</ept> property from the original model is replaced by the string-based <bpt id="e2ed6e93-1807-4cd3-9251-d53a0424c309">&lt;strong&gt;</bpt>Id<ept id="e2ed6e93-1807-4cd3-9251-d53a0424c309">&lt;/strong&gt;</ept> property from <bpt id="9d7980d9-503e-4b26-8def-75d29b67efcf">&lt;strong&gt;</bpt>EntityData<ept id="9d7980d9-503e-4b26-8def-75d29b67efcf">&lt;/strong&gt;</ept>, which will be the <bpt id="71a7e9be-2748-4b14-8d71-3addcc622360">&lt;strong&gt;</bpt>Id<ept id="71a7e9be-2748-4b14-8d71-3addcc622360">&lt;/strong&gt;</ept> that Mobile Services will use.</target>
+        </trans-unit>
+        <trans-unit id="9ac13ab0-accd-485a-9254-0cab3cb9e3e1" xml:space="preserve">
+          <source>Create the <bpt id="f501a1fd-f173-46b6-af24-db4e069d8736">&lt;strong&gt;</bpt>MobileOrder.cs<ept id="f501a1fd-f173-46b6-af24-db4e069d8736">&lt;/strong&gt;</ept> file in the <bpt id="b4830310-6157-4765-80b0-1bd1dbf25b65">&lt;strong&gt;</bpt>DataObjects<ept id="b4830310-6157-4765-80b0-1bd1dbf25b65">&lt;/strong&gt;</ept> folder of your service project.</source>
+          <target state="new">Create the <bpt id="f501a1fd-f173-46b6-af24-db4e069d8736">&lt;strong&gt;</bpt>MobileOrder.cs<ept id="f501a1fd-f173-46b6-af24-db4e069d8736">&lt;/strong&gt;</ept> file in the <bpt id="b4830310-6157-4765-80b0-1bd1dbf25b65">&lt;strong&gt;</bpt>DataObjects<ept id="b4830310-6157-4765-80b0-1bd1dbf25b65">&lt;/strong&gt;</ept> folder of your service project.</target>
+        </trans-unit>
+        <trans-unit id="734d5ff3-6d4c-49bc-ba98-811361c96469" xml:space="preserve">
+          <source>The <bpt id="09316448-9746-4e75-93fc-c0f1889316dc">&lt;strong&gt;</bpt>Customer<ept id="09316448-9746-4e75-93fc-c0f1889316dc">&lt;/strong&gt;</ept> relationship property has been replaced with the <bpt id="619f74a7-875f-423f-a5bc-d4a6faec0f0e">&lt;strong&gt;</bpt>Customer<ept id="619f74a7-875f-423f-a5bc-d4a6faec0f0e">&lt;/strong&gt;</ept> name and a <bpt id="6c822e99-11df-4366-a2d6-80039b14a16d">&lt;strong&gt;</bpt>MobileCustomerId<ept id="6c822e99-11df-4366-a2d6-80039b14a16d">&lt;/strong&gt;</ept> property that can be used to manually model the relationship on the client.</source>
+          <target state="new">The <bpt id="09316448-9746-4e75-93fc-c0f1889316dc">&lt;strong&gt;</bpt>Customer<ept id="09316448-9746-4e75-93fc-c0f1889316dc">&lt;/strong&gt;</ept> relationship property has been replaced with the <bpt id="619f74a7-875f-423f-a5bc-d4a6faec0f0e">&lt;strong&gt;</bpt>Customer<ept id="619f74a7-875f-423f-a5bc-d4a6faec0f0e">&lt;/strong&gt;</ept> name and a <bpt id="6c822e99-11df-4366-a2d6-80039b14a16d">&lt;strong&gt;</bpt>MobileCustomerId<ept id="6c822e99-11df-4366-a2d6-80039b14a16d">&lt;/strong&gt;</ept> property that can be used to manually model the relationship on the client.</target>
+        </trans-unit>
+        <trans-unit id="0322fa8a-6b7c-4d5e-a50c-023df078c032" xml:space="preserve">
+          <source>For now you can ignore the <bpt id="f7600f2d-229d-4844-8f36-834b6b66629c">&lt;strong&gt;</bpt>CustomerId<ept id="f7600f2d-229d-4844-8f36-834b6b66629c">&lt;/strong&gt;</ept> property, it is only used later on.</source>
+          <target state="new">For now you can ignore the <bpt id="f7600f2d-229d-4844-8f36-834b6b66629c">&lt;strong&gt;</bpt>CustomerId<ept id="f7600f2d-229d-4844-8f36-834b6b66629c">&lt;/strong&gt;</ept> property, it is only used later on.</target>
+        </trans-unit>
+        <trans-unit id="eb982b9f-3fa4-4468-97eb-872680c02bf1" xml:space="preserve">
+          <source>You might notice that with the addition of the system properties on the <bpt id="945d5ee5-ce00-4132-8a7c-74e19a3c2ea6">&lt;strong&gt;</bpt>EntityData<ept id="945d5ee5-ce00-4132-8a7c-74e19a3c2ea6">&lt;/strong&gt;</ept> base class, our DTOs now have more properties than the model types.</source>
+          <target state="new">You might notice that with the addition of the system properties on the <bpt id="945d5ee5-ce00-4132-8a7c-74e19a3c2ea6">&lt;strong&gt;</bpt>EntityData<ept id="945d5ee5-ce00-4132-8a7c-74e19a3c2ea6">&lt;/strong&gt;</ept> base class, our DTOs now have more properties than the model types.</target>
+        </trans-unit>
+        <trans-unit id="4c5a817f-5448-4454-8880-b0b790e8f8d2" xml:space="preserve">
+          <source>Clearly we need a place to store these properties, so we will add a few extra columns to the original database.</source>
+          <target state="new">Clearly we need a place to store these properties, so we will add a few extra columns to the original database.</target>
+        </trans-unit>
+        <trans-unit id="10da9a92-16b3-47a7-bd96-e96ed26a8a49" xml:space="preserve">
+          <source>While this does change the database, it will not break existing applications since the changes are purely additive (adding new columns to the schema).</source>
+          <target state="new">While this does change the database, it will not break existing applications since the changes are purely additive (adding new columns to the schema).</target>
+        </trans-unit>
+        <trans-unit id="9bd03756-4858-4577-9c4a-de7b65640099" xml:space="preserve">
+          <source>To do that, add the following statements to the top of <bpt id="3719fc39-ac2c-4eb0-a658-4c9864ac3f91">&lt;strong&gt;</bpt>Customer.cs<ept id="3719fc39-ac2c-4eb0-a658-4c9864ac3f91">&lt;/strong&gt;</ept> and <bpt id="8e777fd0-f1cc-4eef-ad43-9f940c079197">&lt;strong&gt;</bpt>Order.cs<ept id="8e777fd0-f1cc-4eef-ad43-9f940c079197">&lt;/strong&gt;</ept>:</source>
+          <target state="new">To do that, add the following statements to the top of <bpt id="3719fc39-ac2c-4eb0-a658-4c9864ac3f91">&lt;strong&gt;</bpt>Customer.cs<ept id="3719fc39-ac2c-4eb0-a658-4c9864ac3f91">&lt;/strong&gt;</ept> and <bpt id="8e777fd0-f1cc-4eef-ad43-9f940c079197">&lt;strong&gt;</bpt>Order.cs<ept id="8e777fd0-f1cc-4eef-ad43-9f940c079197">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="acd7fb9d-ca1c-4e44-a7fe-252f3fba489b" xml:space="preserve">
+          <source>Next, add these extra properties to each of the classes:</source>
+          <target state="new">Next, add these extra properties to each of the classes:</target>
+        </trans-unit>
+        <trans-unit id="a926aabb-b5b4-4bde-a096-9de9aab99c5a" xml:space="preserve">
+          <source>The system properties just added have some built-in behaviors (for example automatic update of created/updated at) that happen transparently with database operations.</source>
+          <target state="new">The system properties just added have some built-in behaviors (for example automatic update of created/updated at) that happen transparently with database operations.</target>
+        </trans-unit>
+        <trans-unit id="e7ccb629-5e74-499d-9014-01e98290e3ed" xml:space="preserve">
+          <source>To enable these behaviors, we need to make a change to <bpt id="8ecb03b1-879d-41a6-877e-2ccbe5735970">&lt;strong&gt;</bpt>ExistingContext.cs<ept id="8ecb03b1-879d-41a6-877e-2ccbe5735970">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To enable these behaviors, we need to make a change to <bpt id="8ecb03b1-879d-41a6-877e-2ccbe5735970">&lt;strong&gt;</bpt>ExistingContext.cs<ept id="8ecb03b1-879d-41a6-877e-2ccbe5735970">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd7abc97-d852-4813-a448-36171ea09ed1" xml:space="preserve">
+          <source>At the top of the file, add the following:</source>
+          <target state="new">At the top of the file, add the following:</target>
+        </trans-unit>
+        <trans-unit id="f2c69488-add5-4362-bb19-701b93253e00" xml:space="preserve">
+          <source>In the body of <bpt id="774b6327-96ce-43ed-b930-9fef4eba447f">&lt;strong&gt;</bpt>ExistingContext<ept id="774b6327-96ce-43ed-b930-9fef4eba447f">&lt;/strong&gt;</ept>, override [<bpt id="699eb6e4-e17c-496e-9fb0-ee8902ecf4a2">&lt;strong&gt;</bpt>OnModelCreating<ept id="699eb6e4-e17c-496e-9fb0-ee8902ecf4a2">&lt;/strong&gt;</ept>](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):</source>
+          <target state="new">In the body of <bpt id="774b6327-96ce-43ed-b930-9fef4eba447f">&lt;strong&gt;</bpt>ExistingContext<ept id="774b6327-96ce-43ed-b930-9fef4eba447f">&lt;/strong&gt;</ept>, override [<bpt id="699eb6e4-e17c-496e-9fb0-ee8902ecf4a2">&lt;strong&gt;</bpt>OnModelCreating<ept id="699eb6e4-e17c-496e-9fb0-ee8902ecf4a2">&lt;/strong&gt;</ept>](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):</target>
+        </trans-unit>
+        <trans-unit id="fa12bbb0-81bf-44e8-a643-7adcd831984b" xml:space="preserve">
+          <source>Let's populate the database with some example data.</source>
+          <target state="new">Let's populate the database with some example data.</target>
+        </trans-unit>
+        <trans-unit id="0b82e681-76c1-4cb0-b5e2-eb15e03f3eaf" xml:space="preserve">
+          <source>Open the file <bpt id="1dfcb198-a26d-45c5-9982-b1ae9cd8acda">&lt;strong&gt;</bpt>WebApiConfig.cs<ept id="1dfcb198-a26d-45c5-9982-b1ae9cd8acda">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the file <bpt id="1dfcb198-a26d-45c5-9982-b1ae9cd8acda">&lt;strong&gt;</bpt>WebApiConfig.cs<ept id="1dfcb198-a26d-45c5-9982-b1ae9cd8acda">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ebbaa3e8-f120-4884-8dbc-c04f2fd4444d" xml:space="preserve">
+          <source>Create a new [<bpt id="963afcfa-38cc-4e22-b670-c73e9be3bb12">&lt;strong&gt;</bpt>IDatabaseInitializer<ept id="963afcfa-38cc-4e22-b670-c73e9be3bb12">&lt;/strong&gt;</ept>](http://msdn.microsoft.com/library/gg696323.aspx) and configure it in the <bpt id="c3373295-0584-4654-aadc-6b10a06a6dbc">&lt;strong&gt;</bpt>Register<ept id="c3373295-0584-4654-aadc-6b10a06a6dbc">&lt;/strong&gt;</ept> method as shown below.</source>
+          <target state="new">Create a new [<bpt id="963afcfa-38cc-4e22-b670-c73e9be3bb12">&lt;strong&gt;</bpt>IDatabaseInitializer<ept id="963afcfa-38cc-4e22-b670-c73e9be3bb12">&lt;/strong&gt;</ept>](http://msdn.microsoft.com/library/gg696323.aspx) and configure it in the <bpt id="c3373295-0584-4654-aadc-6b10a06a6dbc">&lt;strong&gt;</bpt>Register<ept id="c3373295-0584-4654-aadc-6b10a06a6dbc">&lt;/strong&gt;</ept> method as shown below.</target>
+        </trans-unit>
+        <trans-unit id="84723afd-1cf2-4ec8-bfdd-f65ef46c437c" xml:space="preserve">
+          <source><bpt id="34393a27-28ba-4b00-ba09-461ad9861305">&lt;bookmark&gt;</bpt><ept id="34393a27-28ba-4b00-ba09-461ad9861305">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="34393a27-28ba-4b00-ba09-461ad9861305">&lt;bookmark&gt;</bpt><ept id="34393a27-28ba-4b00-ba09-461ad9861305">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63c5005d-f12b-410d-91ba-559d27306772" xml:space="preserve">
+          <source>We now have the model types <bpt id="5014c93b-e68e-4560-aa9e-82f089407e07">&lt;strong&gt;</bpt>Customer<ept id="5014c93b-e68e-4560-aa9e-82f089407e07">&lt;/strong&gt;</ept> and <bpt id="3d92c1fc-4b64-4ce7-958d-8acb6b8175b8">&lt;strong&gt;</bpt>Order<ept id="3d92c1fc-4b64-4ce7-958d-8acb6b8175b8">&lt;/strong&gt;</ept> and the DTOs <bpt id="b100b367-5ca2-4e98-83d1-a3c4c54c09a1">&lt;strong&gt;</bpt>MobileCustomer<ept id="b100b367-5ca2-4e98-83d1-a3c4c54c09a1">&lt;/strong&gt;</ept> and <bpt id="7c2e07af-f203-47ca-ae3c-fc9e9788aec9">&lt;strong&gt;</bpt>MobileOrder<ept id="7c2e07af-f203-47ca-ae3c-fc9e9788aec9">&lt;/strong&gt;</ept>, but we  need to instruct the backend to automatically transform between the two.</source>
+          <target state="new">We now have the model types <bpt id="5014c93b-e68e-4560-aa9e-82f089407e07">&lt;strong&gt;</bpt>Customer<ept id="5014c93b-e68e-4560-aa9e-82f089407e07">&lt;/strong&gt;</ept> and <bpt id="3d92c1fc-4b64-4ce7-958d-8acb6b8175b8">&lt;strong&gt;</bpt>Order<ept id="3d92c1fc-4b64-4ce7-958d-8acb6b8175b8">&lt;/strong&gt;</ept> and the DTOs <bpt id="b100b367-5ca2-4e98-83d1-a3c4c54c09a1">&lt;strong&gt;</bpt>MobileCustomer<ept id="b100b367-5ca2-4e98-83d1-a3c4c54c09a1">&lt;/strong&gt;</ept> and <bpt id="7c2e07af-f203-47ca-ae3c-fc9e9788aec9">&lt;strong&gt;</bpt>MobileOrder<ept id="7c2e07af-f203-47ca-ae3c-fc9e9788aec9">&lt;/strong&gt;</ept>, but we  need to instruct the backend to automatically transform between the two.</target>
+        </trans-unit>
+        <trans-unit id="460e3734-083f-4548-b2b7-c50ddbfb9331" xml:space="preserve">
+          <source>Here Mobile Services relies on [<bpt id="371e17a2-ed55-436d-a032-da8c8c52c1b4">&lt;strong&gt;</bpt>AutoMapper<ept id="371e17a2-ed55-436d-a032-da8c8c52c1b4">&lt;/strong&gt;</ept>](http://automapper.org/), an object relational mapper, which is already referenced in the project.</source>
+          <target state="new">Here Mobile Services relies on [<bpt id="371e17a2-ed55-436d-a032-da8c8c52c1b4">&lt;strong&gt;</bpt>AutoMapper<ept id="371e17a2-ed55-436d-a032-da8c8c52c1b4">&lt;/strong&gt;</ept>](http://automapper.org/), an object relational mapper, which is already referenced in the project.</target>
+        </trans-unit>
+        <trans-unit id="682a0a9e-bbfa-4787-b54e-b20b5c82b3d8" xml:space="preserve">
+          <source>Add the following to the top of <bpt id="648c5721-dfd6-4f1b-9397-50aa90592ba7">&lt;strong&gt;</bpt>WebApiConfig.cs<ept id="648c5721-dfd6-4f1b-9397-50aa90592ba7">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Add the following to the top of <bpt id="648c5721-dfd6-4f1b-9397-50aa90592ba7">&lt;strong&gt;</bpt>WebApiConfig.cs<ept id="648c5721-dfd6-4f1b-9397-50aa90592ba7">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="c1e04d80-e021-4f3e-9967-22b9cad560df" xml:space="preserve">
+          <source>To define the mapping, add the following to the <bpt id="e6fb0c59-9544-47a1-9af7-7f2925a7c597">&lt;strong&gt;</bpt>Register<ept id="e6fb0c59-9544-47a1-9af7-7f2925a7c597">&lt;/strong&gt;</ept> method of the <bpt id="a657de7c-e772-4dde-9990-3029fe6f2d75">&lt;strong&gt;</bpt>WebApiConfig<ept id="a657de7c-e772-4dde-9990-3029fe6f2d75">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">To define the mapping, add the following to the <bpt id="e6fb0c59-9544-47a1-9af7-7f2925a7c597">&lt;strong&gt;</bpt>Register<ept id="e6fb0c59-9544-47a1-9af7-7f2925a7c597">&lt;/strong&gt;</ept> method of the <bpt id="a657de7c-e772-4dde-9990-3029fe6f2d75">&lt;strong&gt;</bpt>WebApiConfig<ept id="a657de7c-e772-4dde-9990-3029fe6f2d75">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="c7bbe2e4-dc12-4c54-bc77-3d7714880520" xml:space="preserve">
+          <source>AutoMapper will now map the objects to one another.</source>
+          <target state="new">AutoMapper will now map the objects to one another.</target>
+        </trans-unit>
+        <trans-unit id="1096cdd3-d308-473a-8a73-05fd8887f768" xml:space="preserve">
+          <source>All properties with corresponding names will be matched, for example <bpt id="1c33b248-5d5c-4f23-bf7e-f9eda3a3cf2e">&lt;strong&gt;</bpt>MobileOrder.CustomerId<ept id="1c33b248-5d5c-4f23-bf7e-f9eda3a3cf2e">&lt;/strong&gt;</ept> will get automatically mapped to <bpt id="1bfee0c5-a899-4561-aee4-672b41489d05">&lt;strong&gt;</bpt>Order.CustomerId<ept id="1bfee0c5-a899-4561-aee4-672b41489d05">&lt;/strong&gt;</ept>.</source>
+          <target state="new">All properties with corresponding names will be matched, for example <bpt id="1c33b248-5d5c-4f23-bf7e-f9eda3a3cf2e">&lt;strong&gt;</bpt>MobileOrder.CustomerId<ept id="1c33b248-5d5c-4f23-bf7e-f9eda3a3cf2e">&lt;/strong&gt;</ept> will get automatically mapped to <bpt id="1bfee0c5-a899-4561-aee4-672b41489d05">&lt;strong&gt;</bpt>Order.CustomerId<ept id="1bfee0c5-a899-4561-aee4-672b41489d05">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f2b76e8-8e95-40c8-b7a2-73b9c140a593" xml:space="preserve">
+          <source>Custom mappings can be configured as shown above, where we map the <bpt id="f53eae7a-4402-4434-b1ce-ede7ac2e7832">&lt;strong&gt;</bpt>MobileCustomerName<ept id="f53eae7a-4402-4434-b1ce-ede7ac2e7832">&lt;/strong&gt;</ept> property to the <bpt id="7070d710-72fd-4cfe-b79c-68807b0ce2b7">&lt;strong&gt;</bpt>Name<ept id="7070d710-72fd-4cfe-b79c-68807b0ce2b7">&lt;/strong&gt;</ept> property of the <bpt id="1f05f763-50c8-425f-ae28-59c9e2caccb4">&lt;strong&gt;</bpt>Customer<ept id="1f05f763-50c8-425f-ae28-59c9e2caccb4">&lt;/strong&gt;</ept> relationship property.</source>
+          <target state="new">Custom mappings can be configured as shown above, where we map the <bpt id="f53eae7a-4402-4434-b1ce-ede7ac2e7832">&lt;strong&gt;</bpt>MobileCustomerName<ept id="f53eae7a-4402-4434-b1ce-ede7ac2e7832">&lt;/strong&gt;</ept> property to the <bpt id="7070d710-72fd-4cfe-b79c-68807b0ce2b7">&lt;strong&gt;</bpt>Name<ept id="7070d710-72fd-4cfe-b79c-68807b0ce2b7">&lt;/strong&gt;</ept> property of the <bpt id="1f05f763-50c8-425f-ae28-59c9e2caccb4">&lt;strong&gt;</bpt>Customer<ept id="1f05f763-50c8-425f-ae28-59c9e2caccb4">&lt;/strong&gt;</ept> relationship property.</target>
+        </trans-unit>
+        <trans-unit id="4a67ddd8-42db-4dfe-a27e-34f55a6a7266" xml:space="preserve">
+          <source><bpt id="484aa5d2-533a-48b6-9c3f-d81642a1f08b">&lt;bookmark&gt;</bpt><ept id="484aa5d2-533a-48b6-9c3f-d81642a1f08b">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="484aa5d2-533a-48b6-9c3f-d81642a1f08b">&lt;bookmark&gt;</bpt><ept id="484aa5d2-533a-48b6-9c3f-d81642a1f08b">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60abce59-7ea6-4828-ab00-0c929611ba7f" xml:space="preserve">
+          <source>The next step is to implement a [<bpt id="0a3410e2-21f9-4210-9953-8be342871746">&lt;strong&gt;</bpt>MappedEntityDomainManager<ept id="0a3410e2-21f9-4210-9953-8be342871746">&lt;/strong&gt;</ept>](http://msdn.microsoft.com/library/dn643300.aspx), which serves as an abstraction layer between our mapped data store and the controller which will serve HTTP traffic from our clients.</source>
+          <target state="new">The next step is to implement a [<bpt id="0a3410e2-21f9-4210-9953-8be342871746">&lt;strong&gt;</bpt>MappedEntityDomainManager<ept id="0a3410e2-21f9-4210-9953-8be342871746">&lt;/strong&gt;</ept>](http://msdn.microsoft.com/library/dn643300.aspx), which serves as an abstraction layer between our mapped data store and the controller which will serve HTTP traffic from our clients.</target>
+        </trans-unit>
+        <trans-unit id="275d4ac5-c714-4bf9-8069-5e814706eefa" xml:space="preserve">
+          <source>We will be able to write our controller in the next section purely in terms of the DTOs and the <bpt id="cbea28c5-588a-4cb5-b7c6-1afd62ccae47">&lt;strong&gt;</bpt>MappedEntityDomainManager<ept id="cbea28c5-588a-4cb5-b7c6-1afd62ccae47">&lt;/strong&gt;</ept> we add here will handle the communication with the original data store, while also giving us a place to implement any logic specific to it.</source>
+          <target state="new">We will be able to write our controller in the next section purely in terms of the DTOs and the <bpt id="cbea28c5-588a-4cb5-b7c6-1afd62ccae47">&lt;strong&gt;</bpt>MappedEntityDomainManager<ept id="cbea28c5-588a-4cb5-b7c6-1afd62ccae47">&lt;/strong&gt;</ept> we add here will handle the communication with the original data store, while also giving us a place to implement any logic specific to it.</target>
+        </trans-unit>
+        <trans-unit id="0ade4da3-62d5-4f54-8501-38330f229a65" xml:space="preserve">
+          <source>Add a <bpt id="73b939ae-8100-425e-ba13-535624cb58ba">&lt;strong&gt;</bpt>MobileCustomerDomainManager.cs<ept id="73b939ae-8100-425e-ba13-535624cb58ba">&lt;/strong&gt;</ept> to the <bpt id="9a6a6cc8-eed0-4ede-8146-8db10af6150d">&lt;strong&gt;</bpt>Models<ept id="9a6a6cc8-eed0-4ede-8146-8db10af6150d">&lt;/strong&gt;</ept> folder of your project.</source>
+          <target state="new">Add a <bpt id="73b939ae-8100-425e-ba13-535624cb58ba">&lt;strong&gt;</bpt>MobileCustomerDomainManager.cs<ept id="73b939ae-8100-425e-ba13-535624cb58ba">&lt;/strong&gt;</ept> to the <bpt id="9a6a6cc8-eed0-4ede-8146-8db10af6150d">&lt;strong&gt;</bpt>Models<ept id="9a6a6cc8-eed0-4ede-8146-8db10af6150d">&lt;/strong&gt;</ept> folder of your project.</target>
+        </trans-unit>
+        <trans-unit id="b2aae6c9-285b-4972-8a4f-0ac45dede023" xml:space="preserve">
+          <source>Paste in the following implementation:</source>
+          <target state="new">Paste in the following implementation:</target>
+        </trans-unit>
+        <trans-unit id="c0c33370-24a1-4422-b34a-bbca05eb40a0" xml:space="preserve">
+          <source>An important part of this class is the <bpt id="d730621f-50a0-48ca-99e3-4faeaa73684a">&lt;strong&gt;</bpt>GetKey<ept id="d730621f-50a0-48ca-99e3-4faeaa73684a">&lt;/strong&gt;</ept> method where we indicate how to locate the ID property of the object in the original data model.</source>
+          <target state="new">An important part of this class is the <bpt id="d730621f-50a0-48ca-99e3-4faeaa73684a">&lt;strong&gt;</bpt>GetKey<ept id="d730621f-50a0-48ca-99e3-4faeaa73684a">&lt;/strong&gt;</ept> method where we indicate how to locate the ID property of the object in the original data model.</target>
+        </trans-unit>
+        <trans-unit id="e3dd90eb-f032-4f6b-b0c7-1cc118ce8a4c" xml:space="preserve">
+          <source>Add a <bpt id="769eda92-c026-4416-a6c9-fbdb9de024e4">&lt;strong&gt;</bpt>MobileOrderDomainManager.cs<ept id="769eda92-c026-4416-a6c9-fbdb9de024e4">&lt;/strong&gt;</ept> to the <bpt id="7ae8e34a-d1df-4ac9-a083-7e52a9f5ea3b">&lt;strong&gt;</bpt>Models<ept id="7ae8e34a-d1df-4ac9-a083-7e52a9f5ea3b">&lt;/strong&gt;</ept> folder of your project:</source>
+          <target state="new">Add a <bpt id="769eda92-c026-4416-a6c9-fbdb9de024e4">&lt;strong&gt;</bpt>MobileOrderDomainManager.cs<ept id="769eda92-c026-4416-a6c9-fbdb9de024e4">&lt;/strong&gt;</ept> to the <bpt id="7ae8e34a-d1df-4ac9-a083-7e52a9f5ea3b">&lt;strong&gt;</bpt>Models<ept id="7ae8e34a-d1df-4ac9-a083-7e52a9f5ea3b">&lt;/strong&gt;</ept> folder of your project:</target>
+        </trans-unit>
+        <trans-unit id="8d534ece-884e-418d-9ecb-01f3e493950e" xml:space="preserve">
+          <source>In this case the <bpt id="dc0a57f2-98c7-4f21-bbd3-7a994339b522">&lt;strong&gt;</bpt>InsertAsync<ept id="dc0a57f2-98c7-4f21-bbd3-7a994339b522">&lt;/strong&gt;</ept> and <bpt id="29b9c4de-d562-4a98-bc50-c343f44f4332">&lt;strong&gt;</bpt>UpdateAsync<ept id="29b9c4de-d562-4a98-bc50-c343f44f4332">&lt;/strong&gt;</ept> methods are interesting; that's where we enforce the relationship that each <bpt id="76317c8d-2a63-46b5-be7a-3afcd57c8b9a">&lt;strong&gt;</bpt>Order<ept id="76317c8d-2a63-46b5-be7a-3afcd57c8b9a">&lt;/strong&gt;</ept> must have a valid associated <bpt id="d19ad7c2-2402-4c67-98c0-24adbc6dada7">&lt;strong&gt;</bpt>Customer<ept id="d19ad7c2-2402-4c67-98c0-24adbc6dada7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this case the <bpt id="dc0a57f2-98c7-4f21-bbd3-7a994339b522">&lt;strong&gt;</bpt>InsertAsync<ept id="dc0a57f2-98c7-4f21-bbd3-7a994339b522">&lt;/strong&gt;</ept> and <bpt id="29b9c4de-d562-4a98-bc50-c343f44f4332">&lt;strong&gt;</bpt>UpdateAsync<ept id="29b9c4de-d562-4a98-bc50-c343f44f4332">&lt;/strong&gt;</ept> methods are interesting; that's where we enforce the relationship that each <bpt id="76317c8d-2a63-46b5-be7a-3afcd57c8b9a">&lt;strong&gt;</bpt>Order<ept id="76317c8d-2a63-46b5-be7a-3afcd57c8b9a">&lt;/strong&gt;</ept> must have a valid associated <bpt id="d19ad7c2-2402-4c67-98c0-24adbc6dada7">&lt;strong&gt;</bpt>Customer<ept id="d19ad7c2-2402-4c67-98c0-24adbc6dada7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cb630dd-68fa-4917-a169-5b88a041ad96" xml:space="preserve">
+          <source>In <bpt id="d8ba80f7-c820-4725-a980-7a5a29752a44">&lt;strong&gt;</bpt>InsertAsync<ept id="d8ba80f7-c820-4725-a980-7a5a29752a44">&lt;/strong&gt;</ept> you'll notice that we populate the <bpt id="923f471f-f70a-4898-a6aa-ef8d5916d99b">&lt;strong&gt;</bpt>MobileOrder.CustomerId<ept id="923f471f-f70a-4898-a6aa-ef8d5916d99b">&lt;/strong&gt;</ept> property, which maps to the <bpt id="e3f7c2f6-a74a-4ccb-82ff-7d343cc03288">&lt;strong&gt;</bpt>Order.CustomerId<ept id="e3f7c2f6-a74a-4ccb-82ff-7d343cc03288">&lt;/strong&gt;</ept> property.</source>
+          <target state="new">In <bpt id="d8ba80f7-c820-4725-a980-7a5a29752a44">&lt;strong&gt;</bpt>InsertAsync<ept id="d8ba80f7-c820-4725-a980-7a5a29752a44">&lt;/strong&gt;</ept> you'll notice that we populate the <bpt id="923f471f-f70a-4898-a6aa-ef8d5916d99b">&lt;strong&gt;</bpt>MobileOrder.CustomerId<ept id="923f471f-f70a-4898-a6aa-ef8d5916d99b">&lt;/strong&gt;</ept> property, which maps to the <bpt id="e3f7c2f6-a74a-4ccb-82ff-7d343cc03288">&lt;strong&gt;</bpt>Order.CustomerId<ept id="e3f7c2f6-a74a-4ccb-82ff-7d343cc03288">&lt;/strong&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="a48f5ba9-be4a-4164-bfd6-bac0e16119ad" xml:space="preserve">
+          <source>We get that value by based looking up the <bpt id="480eb944-0c3e-45fb-b9fb-eade86e44ef7">&lt;strong&gt;</bpt>Customer<ept id="480eb944-0c3e-45fb-b9fb-eade86e44ef7">&lt;/strong&gt;</ept> with the matching <bpt id="b16080c9-afb5-4b06-ac88-d2da55a025f4">&lt;strong&gt;</bpt>MobileOrder.MobileCustomerId<ept id="b16080c9-afb5-4b06-ac88-d2da55a025f4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">We get that value by based looking up the <bpt id="480eb944-0c3e-45fb-b9fb-eade86e44ef7">&lt;strong&gt;</bpt>Customer<ept id="480eb944-0c3e-45fb-b9fb-eade86e44ef7">&lt;/strong&gt;</ept> with the matching <bpt id="b16080c9-afb5-4b06-ac88-d2da55a025f4">&lt;strong&gt;</bpt>MobileOrder.MobileCustomerId<ept id="b16080c9-afb5-4b06-ac88-d2da55a025f4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc14fd0c-0124-422c-9bb6-80521add223b" xml:space="preserve">
+          <source>This is because by default the client is only aware of the Mobile Services ID (<bpt id="b071bc78-25ee-4cee-a0e2-00461e9b5154">&lt;strong&gt;</bpt>MobileOrder.MobileCustomerId<ept id="b071bc78-25ee-4cee-a0e2-00461e9b5154">&lt;/strong&gt;</ept>) of the <bpt id="4b174d3e-62b9-4b93-9bbf-f45222aeef34">&lt;strong&gt;</bpt>Customer<ept id="4b174d3e-62b9-4b93-9bbf-f45222aeef34">&lt;/strong&gt;</ept>, which is different than its actual primary key needed to set the foreign key (<bpt id="0663cde3-2b01-4914-8bdf-8a01ad60c0d1">&lt;strong&gt;</bpt>MobileOrder.CustomerId<ept id="0663cde3-2b01-4914-8bdf-8a01ad60c0d1">&lt;/strong&gt;</ept>) from <bpt id="6b8dce20-5373-4fed-a856-9d5706940799">&lt;strong&gt;</bpt>Order<ept id="6b8dce20-5373-4fed-a856-9d5706940799">&lt;/strong&gt;</ept> to <bpt id="07ae2653-ede0-4cfb-877d-49c71c68413a">&lt;strong&gt;</bpt>Customer<ept id="07ae2653-ede0-4cfb-877d-49c71c68413a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This is because by default the client is only aware of the Mobile Services ID (<bpt id="b071bc78-25ee-4cee-a0e2-00461e9b5154">&lt;strong&gt;</bpt>MobileOrder.MobileCustomerId<ept id="b071bc78-25ee-4cee-a0e2-00461e9b5154">&lt;/strong&gt;</ept>) of the <bpt id="4b174d3e-62b9-4b93-9bbf-f45222aeef34">&lt;strong&gt;</bpt>Customer<ept id="4b174d3e-62b9-4b93-9bbf-f45222aeef34">&lt;/strong&gt;</ept>, which is different than its actual primary key needed to set the foreign key (<bpt id="0663cde3-2b01-4914-8bdf-8a01ad60c0d1">&lt;strong&gt;</bpt>MobileOrder.CustomerId<ept id="0663cde3-2b01-4914-8bdf-8a01ad60c0d1">&lt;/strong&gt;</ept>) from <bpt id="6b8dce20-5373-4fed-a856-9d5706940799">&lt;strong&gt;</bpt>Order<ept id="6b8dce20-5373-4fed-a856-9d5706940799">&lt;/strong&gt;</ept> to <bpt id="07ae2653-ede0-4cfb-877d-49c71c68413a">&lt;strong&gt;</bpt>Customer<ept id="07ae2653-ede0-4cfb-877d-49c71c68413a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f3ba12a-d4f8-4efa-a095-26b1562474ce" xml:space="preserve">
+          <source>This is only used internally within the service to facilitate the insert operation.</source>
+          <target state="new">This is only used internally within the service to facilitate the insert operation.</target>
+        </trans-unit>
+        <trans-unit id="78d7eafa-b322-4a4d-a12c-0042daa8cd15" xml:space="preserve">
+          <source>We are now ready to create controllers to expose our DTOs to our clients.</source>
+          <target state="new">We are now ready to create controllers to expose our DTOs to our clients.</target>
+        </trans-unit>
+        <trans-unit id="65a1a565-d9fd-4914-a92e-07b3d6d0660d" xml:space="preserve">
+          <source><bpt id="b5abedfb-69bb-4a54-97e5-66b4329e7280">&lt;bookmark&gt;</bpt><ept id="b5abedfb-69bb-4a54-97e5-66b4329e7280">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="b5abedfb-69bb-4a54-97e5-66b4329e7280">&lt;bookmark&gt;</bpt><ept id="b5abedfb-69bb-4a54-97e5-66b4329e7280">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6b61990-91a2-4768-ac8f-2b63f5a837b3" xml:space="preserve">
+          <source>In the <bpt id="4ee925b2-a648-4757-98b6-2a7b210e9e1c">&lt;strong&gt;</bpt>Controllers<ept id="4ee925b2-a648-4757-98b6-2a7b210e9e1c">&lt;/strong&gt;</ept> folder, add the file <bpt id="ec8b7a8f-8f4a-4d99-a22e-6ab1871d7078">&lt;strong&gt;</bpt>MobileCustomerController.cs<ept id="ec8b7a8f-8f4a-4d99-a22e-6ab1871d7078">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In the <bpt id="4ee925b2-a648-4757-98b6-2a7b210e9e1c">&lt;strong&gt;</bpt>Controllers<ept id="4ee925b2-a648-4757-98b6-2a7b210e9e1c">&lt;/strong&gt;</ept> folder, add the file <bpt id="ec8b7a8f-8f4a-4d99-a22e-6ab1871d7078">&lt;strong&gt;</bpt>MobileCustomerController.cs<ept id="ec8b7a8f-8f4a-4d99-a22e-6ab1871d7078">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="ea055636-ad89-497c-b03a-60edb00adb35" xml:space="preserve">
+          <source>You will note the use of the AuthorizeLevel attribute to restrict public access to the Insert/Update/Delete operations on the controller.</source>
+          <target state="new">You will note the use of the AuthorizeLevel attribute to restrict public access to the Insert/Update/Delete operations on the controller.</target>
+        </trans-unit>
+        <trans-unit id="fb968c4c-b362-49aa-b430-4f5d78288049" xml:space="preserve">
+          <source>For the purposes of this scenario, the list of Customers will be read-only, but we will allow the creation of new Orders and associating them with existing customers.</source>
+          <target state="new">For the purposes of this scenario, the list of Customers will be read-only, but we will allow the creation of new Orders and associating them with existing customers.</target>
+        </trans-unit>
+        <trans-unit id="519cb892-2b12-4de6-b5d3-20a6657fda1d" xml:space="preserve">
+          <source>In the <bpt id="66876883-53c6-4c49-bca7-fccfa5288723">&lt;strong&gt;</bpt>Controllers<ept id="66876883-53c6-4c49-bca7-fccfa5288723">&lt;/strong&gt;</ept> folder, add the file <bpt id="fde7f79d-ad5d-456e-929a-3af200490351">&lt;strong&gt;</bpt>MobileOrderController.cs<ept id="fde7f79d-ad5d-456e-929a-3af200490351">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In the <bpt id="66876883-53c6-4c49-bca7-fccfa5288723">&lt;strong&gt;</bpt>Controllers<ept id="66876883-53c6-4c49-bca7-fccfa5288723">&lt;/strong&gt;</ept> folder, add the file <bpt id="fde7f79d-ad5d-456e-929a-3af200490351">&lt;strong&gt;</bpt>MobileOrderController.cs<ept id="fde7f79d-ad5d-456e-929a-3af200490351">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="65997a94-2870-49cb-b271-838ba139993e" xml:space="preserve">
+          <source>You are now ready to run your service.</source>
+          <target state="new">You are now ready to run your service.</target>
+        </trans-unit>
+        <trans-unit id="e5dc9a58-dd8e-40ee-add2-29760a078597" xml:space="preserve">
+          <source>Press <bpt id="95d0fdad-53fa-4f77-a96e-9ecd91096ff6">&lt;strong&gt;</bpt>F5<ept id="95d0fdad-53fa-4f77-a96e-9ecd91096ff6">&lt;/strong&gt;</ept> and use the test client built into the help page to modify the data.</source>
+          <target state="new">Press <bpt id="95d0fdad-53fa-4f77-a96e-9ecd91096ff6">&lt;strong&gt;</bpt>F5<ept id="95d0fdad-53fa-4f77-a96e-9ecd91096ff6">&lt;/strong&gt;</ept> and use the test client built into the help page to modify the data.</target>
+        </trans-unit>
+        <trans-unit id="91055b93-95c9-43fd-876f-46dbcbb67edc" xml:space="preserve">
+          <source>Please note that both controller implementations make exclusive use of the DTOs <bpt id="9e6df84d-199b-4db1-9cd9-1a4272855fcc">&lt;strong&gt;</bpt>MobileCustomer<ept id="9e6df84d-199b-4db1-9cd9-1a4272855fcc">&lt;/strong&gt;</ept> and <bpt id="91e684cd-5989-43a3-84e7-79fdb4c09de2">&lt;strong&gt;</bpt>MobileOrder<ept id="91e684cd-5989-43a3-84e7-79fdb4c09de2">&lt;/strong&gt;</ept> and are agnostic of the underlying model.</source>
+          <target state="new">Please note that both controller implementations make exclusive use of the DTOs <bpt id="9e6df84d-199b-4db1-9cd9-1a4272855fcc">&lt;strong&gt;</bpt>MobileCustomer<ept id="9e6df84d-199b-4db1-9cd9-1a4272855fcc">&lt;/strong&gt;</ept> and <bpt id="91e684cd-5989-43a3-84e7-79fdb4c09de2">&lt;strong&gt;</bpt>MobileOrder<ept id="91e684cd-5989-43a3-84e7-79fdb4c09de2">&lt;/strong&gt;</ept> and are agnostic of the underlying model.</target>
+        </trans-unit>
+        <trans-unit id="d73bff7b-6094-480e-a98f-916578aa8dc0" xml:space="preserve">
+          <source>These DTOs are readily serialized to JSON and can be used to exchange data with the  Mobile Services client SDK on all platforms.</source>
+          <target state="new">These DTOs are readily serialized to JSON and can be used to exchange data with the  Mobile Services client SDK on all platforms.</target>
+        </trans-unit>
+        <trans-unit id="10ec8add-16f0-42d0-8e13-ebd159ed9758" xml:space="preserve">
+          <source>For example, if building a Windows Store app, the corresponding client-side type would look as shown below.</source>
+          <target state="new">For example, if building a Windows Store app, the corresponding client-side type would look as shown below.</target>
+        </trans-unit>
+        <trans-unit id="7daee5da-54af-4425-a381-0512266ed72b" xml:space="preserve">
+          <source>The type would be analogous on other client platforms.</source>
+          <target state="new">The type would be analogous on other client platforms.</target>
+        </trans-unit>
+        <trans-unit id="1e7fe9db-509b-44e8-92e0-22c8f1548062" xml:space="preserve">
+          <source>As a next step, you can now build out the client app to access the service.</source>
+          <target state="new">As a next step, you can now build out the client app to access the service.</target>
+        </trans-unit>
+        <trans-unit id="2ecf0cde-61e3-454f-aa1d-94f04cf1d363" xml:space="preserve">
+          <source>For more information, see <bpt id="ce6532e0-f21c-44b9-8025-1e979cdfd60c">&lt;linkText&gt;</bpt>Add Mobile Services to an existing app<ept id="ce6532e0-f21c-44b9-8025-1e979cdfd60c">&lt;/linkText&gt;</ept><bpt id="ce6532e0-f21c-44b9-8025-1e979cdfd60c">&lt;title&gt;</bpt><ept id="ce6532e0-f21c-44b9-8025-1e979cdfd60c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ce6532e0-f21c-44b9-8025-1e979cdfd60c">&lt;linkText&gt;</bpt>Add Mobile Services to an existing app<ept id="ce6532e0-f21c-44b9-8025-1e979cdfd60c">&lt;/linkText&gt;</ept><bpt id="ce6532e0-f21c-44b9-8025-1e979cdfd60c">&lt;title&gt;</bpt><ept id="ce6532e0-f21c-44b9-8025-1e979cdfd60c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

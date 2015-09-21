@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b0f477b4-14a9-4a40-91d0-98b021578724" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b0f477b4-14a9-4a40-91d0-98b021578724" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9041b149-3cdb-473e-a6db-b1d6ab51d324">
+        <trans-unit id="15af6216-acfe-4d49-988d-98a856e579cf" xml:space="preserve">
+          <source>Azure Blob storage is a service for storing large amounts of
+unstructured data, such as text or binary data, that can be accessed from anywhere in the world via
+HTTP or HTTPS.</source>
+          <target state="new">Azure Blob storage is a service for storing large amounts of
+unstructured data, such as text or binary data, that can be accessed from anywhere in the world via
+HTTP or HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="a7808d11-2606-4923-ba4e-4cc3223b0802" xml:space="preserve">
+          <source>You can use Blob storage to expose data publicly to the world, or
+to store application data privately.</source>
+          <target state="new">You can use Blob storage to expose data publicly to the world, or
+to store application data privately.</target>
+        </trans-unit>
+        <trans-unit id="3716e84c-7f04-49fc-9a56-7d5c7d3e2d0c" xml:space="preserve">
+          <source>Common uses of Blob storage include:</source>
+          <target state="new">Common uses of Blob storage include:</target>
+        </trans-unit>
+        <trans-unit id="be041e7f-8b53-4b5e-b4a7-20643a3e21c6" xml:space="preserve">
+          <source>Serving images or documents directly to a browser</source>
+          <target state="new">Serving images or documents directly to a browser</target>
+        </trans-unit>
+        <trans-unit id="2eb0ed5e-ccd1-4e46-96f3-40bf28bd26a2" xml:space="preserve">
+          <source>Storing files for distributed access</source>
+          <target state="new">Storing files for distributed access</target>
+        </trans-unit>
+        <trans-unit id="b1f84195-c626-427a-937b-39564d946e3d" xml:space="preserve">
+          <source>Streaming video and audio</source>
+          <target state="new">Streaming video and audio</target>
+        </trans-unit>
+        <trans-unit id="40529c32-ef68-44dc-a821-c495ac4463cf" xml:space="preserve">
+          <source>Performing secure backup and disaster recovery</source>
+          <target state="new">Performing secure backup and disaster recovery</target>
+        </trans-unit>
+        <trans-unit id="6bdec169-0659-474d-a064-acf6dfdc514a" xml:space="preserve">
+          <source>Storing data for analysis by an on-premises or Azure-hosted service</source>
+          <target state="new">Storing data for analysis by an on-premises or Azure-hosted service</target>
+        </trans-unit>
+        <trans-unit id="cc052070-1fad-4357-9d7f-df142f602fd5" xml:space="preserve">
+          <source>The Blob service contains the following components:</source>
+          <target state="new">The Blob service contains the following components:</target>
+        </trans-unit>
+        <trans-unit id="ef7310da-61eb-4691-aaac-8eff2d3af165" xml:space="preserve">
+          <source><bpt id="e8d957b9-880c-4640-8ebc-042e173887a2">&lt;linkText&gt;</bpt>Blob1<ept id="e8d957b9-880c-4640-8ebc-042e173887a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e8d957b9-880c-4640-8ebc-042e173887a2">&lt;linkText&gt;</bpt>Blob1<ept id="e8d957b9-880c-4640-8ebc-042e173887a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea81619b-b8ff-4952-9c78-87fd4dc2fc73" xml:space="preserve">
+          <source><bpt id="ad08d718-5021-4401-a345-eb939e8d95c5">&lt;strong&gt;</bpt>Storage Account:<ept id="ad08d718-5021-4401-a345-eb939e8d95c5">&lt;/strong&gt;</ept> All access to Azure Storage is done
+through a storage account.</source>
+          <target state="new"><bpt id="ad08d718-5021-4401-a345-eb939e8d95c5">&lt;strong&gt;</bpt>Storage Account:<ept id="ad08d718-5021-4401-a345-eb939e8d95c5">&lt;/strong&gt;</ept> All access to Azure Storage is done
+through a storage account.</target>
+        </trans-unit>
+        <trans-unit id="217e9031-188c-464e-97d7-41621c4b071d" xml:space="preserve">
+          <source>See <bpt id="1347c6c9-df63-4dec-af8f-49c6c2853a60">&lt;linkText&gt;</bpt>Azure Storage Scalability and Performance Targets<ept id="1347c6c9-df63-4dec-af8f-49c6c2853a60">&lt;/linkText&gt;</ept><bpt id="1347c6c9-df63-4dec-af8f-49c6c2853a60">&lt;title&gt;</bpt><ept id="1347c6c9-df63-4dec-af8f-49c6c2853a60">&lt;/title&gt;</ept> for details about storage account capacity.</source>
+          <target state="new">See <bpt id="1347c6c9-df63-4dec-af8f-49c6c2853a60">&lt;linkText&gt;</bpt>Azure Storage Scalability and Performance Targets<ept id="1347c6c9-df63-4dec-af8f-49c6c2853a60">&lt;/linkText&gt;</ept><bpt id="1347c6c9-df63-4dec-af8f-49c6c2853a60">&lt;title&gt;</bpt><ept id="1347c6c9-df63-4dec-af8f-49c6c2853a60">&lt;/title&gt;</ept> for details about storage account capacity.</target>
+        </trans-unit>
+        <trans-unit id="0d178209-9e67-4709-8b2b-9f05133b7c11" xml:space="preserve">
+          <source><bpt id="96611853-c332-4868-af67-12851045a142">&lt;strong&gt;</bpt>Container:<ept id="96611853-c332-4868-af67-12851045a142">&lt;/strong&gt;</ept> A container provides a grouping of a set of blobs.</source>
+          <target state="new"><bpt id="96611853-c332-4868-af67-12851045a142">&lt;strong&gt;</bpt>Container:<ept id="96611853-c332-4868-af67-12851045a142">&lt;/strong&gt;</ept> A container provides a grouping of a set of blobs.</target>
+        </trans-unit>
+        <trans-unit id="6184b4fc-b314-408a-bac9-11e4be6ea5d2" xml:space="preserve">
+          <source>All blobs must be in a container.</source>
+          <target state="new">All blobs must be in a container.</target>
+        </trans-unit>
+        <trans-unit id="b204b181-76b1-4e6a-bbf6-6bb0f4cc11f7" xml:space="preserve">
+          <source>An account can contain an
+unlimited number of containers.</source>
+          <target state="new">An account can contain an
+unlimited number of containers.</target>
+        </trans-unit>
+        <trans-unit id="9a423d03-bb61-4646-a2c6-7fe095b7d04f" xml:space="preserve">
+          <source>A container can store an unlimited
+number of blobs.</source>
+          <target state="new">A container can store an unlimited
+number of blobs.</target>
+        </trans-unit>
+        <trans-unit id="fe58f53b-caae-4faf-826c-6cf3764a6edc" xml:space="preserve">
+          <source><bpt id="bfae5710-c9b1-473f-940e-a3b839df815c">&lt;strong&gt;</bpt>Blob:<ept id="bfae5710-c9b1-473f-940e-a3b839df815c">&lt;/strong&gt;</ept> A file of any type and size.</source>
+          <target state="new"><bpt id="bfae5710-c9b1-473f-940e-a3b839df815c">&lt;strong&gt;</bpt>Blob:<ept id="bfae5710-c9b1-473f-940e-a3b839df815c">&lt;/strong&gt;</ept> A file of any type and size.</target>
+        </trans-unit>
+        <trans-unit id="59d4966d-691a-4a6d-aef1-1b2720c1a48d" xml:space="preserve">
+          <source>Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.</source>
+          <target state="new">Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.</target>
+        </trans-unit>
+        <trans-unit id="9abbd8fa-9df9-41ca-b812-246bcaffe9a9" xml:space="preserve">
+          <source><bpt id="4f9e2c01-bd35-4568-8628-3dd0e651d456">&lt;em&gt;</bpt>Block blobs<ept id="4f9e2c01-bd35-4568-8628-3dd0e651d456">&lt;/em&gt;</ept> are ideal for storing text or binary files, such as documents and media files.</source>
+          <target state="new"><bpt id="4f9e2c01-bd35-4568-8628-3dd0e651d456">&lt;em&gt;</bpt>Block blobs<ept id="4f9e2c01-bd35-4568-8628-3dd0e651d456">&lt;/em&gt;</ept> are ideal for storing text or binary files, such as documents and media files.</target>
+        </trans-unit>
+        <trans-unit id="3e35d3cc-2d64-4d71-93f8-5ca2134f2ce0" xml:space="preserve">
+          <source><bpt id="7fec3243-a5a0-4403-bbb2-6cd53e512f70">&lt;em&gt;</bpt>Append blobs<ept id="7fec3243-a5a0-4403-bbb2-6cd53e512f70">&lt;/em&gt;</ept> are similar to block blobs in that they are made up of blocks, but they are optimized for append operations, so they are useful for logging scenarios.</source>
+          <target state="new"><bpt id="7fec3243-a5a0-4403-bbb2-6cd53e512f70">&lt;em&gt;</bpt>Append blobs<ept id="7fec3243-a5a0-4403-bbb2-6cd53e512f70">&lt;/em&gt;</ept> are similar to block blobs in that they are made up of blocks, but they are optimized for append operations, so they are useful for logging scenarios.</target>
+        </trans-unit>
+        <trans-unit id="3b8db791-f73a-4d37-ad52-104f739aae12" xml:space="preserve">
+          <source>A single block blob or append blob can contain up to 50,000 blocks of up to 4 MB each, for a total size of slightly more than 195 GB (4 MB X 50,000).</source>
+          <target state="new">A single block blob or append blob can contain up to 50,000 blocks of up to 4 MB each, for a total size of slightly more than 195 GB (4 MB X 50,000).</target>
+        </trans-unit>
+        <trans-unit id="207b74bf-ab8f-4983-9083-5b23ad3f2b8d" xml:space="preserve">
+          <source><bpt id="b6eb5c68-3e45-4492-9625-418c579d3d40">&lt;em&gt;</bpt>Page blobs<ept id="b6eb5c68-3e45-4492-9625-418c579d3d40">&lt;/em&gt;</ept> can be up to 1 TB in size, and are more efficient for frequent read/write operations.</source>
+          <target state="new"><bpt id="b6eb5c68-3e45-4492-9625-418c579d3d40">&lt;em&gt;</bpt>Page blobs<ept id="b6eb5c68-3e45-4492-9625-418c579d3d40">&lt;/em&gt;</ept> can be up to 1 TB in size, and are more efficient for frequent read/write operations.</target>
+        </trans-unit>
+        <trans-unit id="5158539d-84f1-43c6-85ee-35174a4c4a74" xml:space="preserve">
+          <source>Azure Virtual Machines use page blobs as OS and data disks.</source>
+          <target state="new">Azure Virtual Machines use page blobs as OS and data disks.</target>
+        </trans-unit>
+        <trans-unit id="a264462c-20de-47c0-8ccd-4230deca273c" xml:space="preserve">
+          <source>For more information about blobs, see <bpt id="de28cae4-7bf5-47de-be8f-31b674b197d0">&lt;linkText&gt;</bpt>Understanding Block Blobs, Page Blobs, and Append Blobs<ept id="de28cae4-7bf5-47de-be8f-31b674b197d0">&lt;/linkText&gt;</ept><bpt id="de28cae4-7bf5-47de-be8f-31b674b197d0">&lt;title&gt;</bpt><ept id="de28cae4-7bf5-47de-be8f-31b674b197d0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about blobs, see <bpt id="de28cae4-7bf5-47de-be8f-31b674b197d0">&lt;linkText&gt;</bpt>Understanding Block Blobs, Page Blobs, and Append Blobs<ept id="de28cae4-7bf5-47de-be8f-31b674b197d0">&lt;/linkText&gt;</ept><bpt id="de28cae4-7bf5-47de-be8f-31b674b197d0">&lt;title&gt;</bpt><ept id="de28cae4-7bf5-47de-be8f-31b674b197d0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0184d311-8b90-4e8c-9d51-e22a55112913" xml:space="preserve">
+          <source>You can address a blob in your storage account using the following URL format:</source>
+          <target state="new">You can address a blob in your storage account using the following URL format:</target>
+        </trans-unit>
+        <trans-unit id="d3b809d6-76bb-45a4-be99-66a13ca5ad49" xml:space="preserve">
+          <source>For example, here is a URL that addresses one of the blobs in the diagram above:  </source>
+          <target state="new">For example, here is a URL that addresses one of the blobs in the diagram above:  </target>
+        </trans-unit>
+        <trans-unit id="58f66f26-5a5e-4e6d-9859-674566b1de2a" xml:space="preserve">
+          <source>A container name must be a valid DNS name and conform to the following rules:</source>
+          <target state="new">A container name must be a valid DNS name and conform to the following rules:</target>
+        </trans-unit>
+        <trans-unit id="6e053470-5cc4-463d-89e2-3efca39417bc" xml:space="preserve">
+          <source>A container name must be all lowercase.</source>
+          <target state="new">A container name must be all lowercase.</target>
+        </trans-unit>
+        <trans-unit id="8179ac53-4110-47c1-88ff-a2ffe4cec0e0" xml:space="preserve">
+          <source>Container names must start with a letter or number, and can contain only letters, numbers, and the dash (-) character.</source>
+          <target state="new">Container names must start with a letter or number, and can contain only letters, numbers, and the dash (-) character.</target>
+        </trans-unit>
+        <trans-unit id="c7322623-1326-4b75-ba60-8d8212de809f" xml:space="preserve">
+          <source>Every dash (-) character must be immediately preceded and followed by a letter or number; consecutive dashes are not permitted in container names.</source>
+          <target state="new">Every dash (-) character must be immediately preceded and followed by a letter or number; consecutive dashes are not permitted in container names.</target>
+        </trans-unit>
+        <trans-unit id="0f86ba89-7410-45f6-99c3-bc0b688e1376" xml:space="preserve">
+          <source>Container names must be from 3 through 63 characters long.</source>
+          <target state="new">Container names must be from 3 through 63 characters long.</target>
+        </trans-unit>
+        <trans-unit id="34e2ab6e-4fd5-4fec-b24f-4c16d7a53203" xml:space="preserve">
+          <source>A blob name must conform to the following rules:</source>
+          <target state="new">A blob name must conform to the following rules:</target>
+        </trans-unit>
+        <trans-unit id="edef1ede-30da-4f85-bc47-c3d4764f97f2" xml:space="preserve">
+          <source>A blob name can contain any combination of characters.</source>
+          <target state="new">A blob name can contain any combination of characters.</target>
+        </trans-unit>
+        <trans-unit id="742767c8-cbe1-4fce-b99f-7bb5a1b21b4e" xml:space="preserve">
+          <source>A blob name must be at least one character long and cannot be more than 1,024 characters long.</source>
+          <target state="new">A blob name must be at least one character long and cannot be more than 1,024 characters long.</target>
+        </trans-unit>
+        <trans-unit id="92d054f5-6ee9-4ced-99b6-8022d4988a9d" xml:space="preserve">
+          <source>Blob names are case-sensitive.</source>
+          <target state="new">Blob names are case-sensitive.</target>
+        </trans-unit>
+        <trans-unit id="9c8c74e9-4bf8-4779-8d52-269f24fe917f" xml:space="preserve">
+          <source>Reserved URL characters must be properly escaped.</source>
+          <target state="new">Reserved URL characters must be properly escaped.</target>
+        </trans-unit>
+        <trans-unit id="bd438ac1-833f-4950-bd79-cdff714de462" xml:space="preserve">
+          <source>The number of path segments comprising the blob name cannot exceed 254.</source>
+          <target state="new">The number of path segments comprising the blob name cannot exceed 254.</target>
+        </trans-unit>
+        <trans-unit id="befcdd8c-4689-455a-be95-7d2847da9499" xml:space="preserve">
+          <source>A path segment is the string between consecutive delimiter characters (<bpt id="6620f65e-e3cf-4dfa-8d7c-0a5a2b87dbcd">&lt;em&gt;</bpt>e.g.<ept id="6620f65e-e3cf-4dfa-8d7c-0a5a2b87dbcd">&lt;/em&gt;</ept>, the forward slash '/') that corresponds to the name of a virtual directory.</source>
+          <target state="new">A path segment is the string between consecutive delimiter characters (<bpt id="6620f65e-e3cf-4dfa-8d7c-0a5a2b87dbcd">&lt;em&gt;</bpt>e.g.<ept id="6620f65e-e3cf-4dfa-8d7c-0a5a2b87dbcd">&lt;/em&gt;</ept>, the forward slash '/') that corresponds to the name of a virtual directory.</target>
+        </trans-unit>
+        <trans-unit id="19886077-dad0-4cd7-8387-a5769f6a5aba" xml:space="preserve">
+          <source>The Blob service is based on a flat storage scheme.</source>
+          <target state="new">The Blob service is based on a flat storage scheme.</target>
+        </trans-unit>
+        <trans-unit id="6adfca4b-06fc-489c-ab60-b3d008cac3d5" xml:space="preserve">
+          <source>You can create a virtual hierarchy by specifying a character or string delimiter within the blob name to create a virtual hierarchy.</source>
+          <target state="new">You can create a virtual hierarchy by specifying a character or string delimiter within the blob name to create a virtual hierarchy.</target>
+        </trans-unit>
+        <trans-unit id="087631ad-3a37-4b0b-83b4-95a59879b21e" xml:space="preserve">
+          <source>For example, the following list shows some valid and unique blob names:</source>
+          <target state="new">For example, the following list shows some valid and unique blob names:</target>
+        </trans-unit>
+        <trans-unit id="9f332a04-13a3-4cd7-83a9-231297e541c9" xml:space="preserve">
+          <source>You can use the delimiter character to list blobs hierarchically.</source>
+          <target state="new">You can use the delimiter character to list blobs hierarchically.</target>
+        </trans-unit>
+        <trans-unit id="8efa6098-712e-4e1f-898b-faa1742ceb44" xml:space="preserve">
+          <source>./media/storage-blob-concepts-include/blob1.jpg</source>
+          <target state="new">./media/storage-blob-concepts-include/blob1.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="a2084dbc-8688-400d-9458-a32c864ad09d" />
+    </body>
+  </file>
+</xliff>

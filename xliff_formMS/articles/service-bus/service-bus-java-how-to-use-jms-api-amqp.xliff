@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4af03752-2ac0-4ddf-bf31-a07f9da9d222" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4af03752-2ac0-4ddf-bf31-a07f9da9d222" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3afb29e2-b5ae-4c69-80d0-63bef3c1e486">
+        <trans-unit id="9a687730-9e07-40e5-b894-443d4be60a81" xml:space="preserve">
+          <source>How to use AMQP 1.0 with the Java Service Bus API | Microsoft Azure</source>
+          <target state="new">How to use AMQP 1.0 with the Java Service Bus API | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="337d6a03-2964-4195-9776-19d30042cf0c" xml:space="preserve">
+          <source>Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0.</source>
+          <target state="new">Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0.</target>
+        </trans-unit>
+        <trans-unit id="5ca475a7-4713-4f19-b000-042618d00c8b" xml:space="preserve">
+          <source>The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform messaging applications.</source>
+          <target state="new">The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform messaging applications.</target>
+        </trans-unit>
+        <trans-unit id="de3ee48a-5ea1-4c23-80f8-bfc5a3cbdbff" xml:space="preserve">
+          <source>Support for AMQP 1.0 in Service Bus means that you can use the queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol.</source>
+          <target state="new">Support for AMQP 1.0 in Service Bus means that you can use the queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol.</target>
+        </trans-unit>
+        <trans-unit id="4f9f6a3f-a395-47f7-b670-f8246def7cca" xml:space="preserve">
+          <source>Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.</source>
+          <target state="new">Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.</target>
+        </trans-unit>
+        <trans-unit id="d8db7dc6-ace2-4723-a188-e70981f3d7e4" xml:space="preserve">
+          <source>This how-to guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard.</source>
+          <target state="new">This how-to guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard.</target>
+        </trans-unit>
+        <trans-unit id="cf6f0c1e-de3e-481d-b199-0e1327c20bb2" xml:space="preserve">
+          <source>There is a companion How-to guide that explains how to do the same using the Service Bus .NET API.</source>
+          <target state="new">There is a companion How-to guide that explains how to do the same using the Service Bus .NET API.</target>
+        </trans-unit>
+        <trans-unit id="9718afdb-b1de-4b35-bf77-7103538ee5d2" xml:space="preserve">
+          <source>You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.</source>
+          <target state="new">You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.</target>
+        </trans-unit>
+        <trans-unit id="8f6c423c-2648-4b34-90d3-4c6ea3b14cd2" xml:space="preserve">
+          <source>This guide assumes that you already have a Service Bus namespace containing a queue named "queue1."</source>
+          <target state="new">This guide assumes that you already have a Service Bus namespace containing a queue named "queue1."</target>
+        </trans-unit>
+        <trans-unit id="2d250474-f292-4cd6-ae13-49c44f38afa6" xml:space="preserve">
+          <source>If you do not, then you can create the namespace and queue using the <bpt id="4a3c6abe-244e-4386-b375-a3d9f1f6c2de">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="4a3c6abe-244e-4386-b375-a3d9f1f6c2de">&lt;/linkText&gt;</ept><bpt id="4a3c6abe-244e-4386-b375-a3d9f1f6c2de">&lt;title&gt;</bpt><ept id="4a3c6abe-244e-4386-b375-a3d9f1f6c2de">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not, then you can create the namespace and queue using the <bpt id="4a3c6abe-244e-4386-b375-a3d9f1f6c2de">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="4a3c6abe-244e-4386-b375-a3d9f1f6c2de">&lt;/linkText&gt;</ept><bpt id="4a3c6abe-244e-4386-b375-a3d9f1f6c2de">&lt;title&gt;</bpt><ept id="4a3c6abe-244e-4386-b375-a3d9f1f6c2de">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52ab88a5-a85f-4075-a461-497bd81c094f" xml:space="preserve">
+          <source>For more information about how to create Service Bus namespaces and queues, see <bpt id="ce1c158f-4e22-4c59-96ba-1308383095c2">&lt;linkText&gt;</bpt>How to Use Service Bus Queues<ept id="ce1c158f-4e22-4c59-96ba-1308383095c2">&lt;/linkText&gt;</ept><bpt id="ce1c158f-4e22-4c59-96ba-1308383095c2">&lt;title&gt;</bpt><ept id="ce1c158f-4e22-4c59-96ba-1308383095c2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to create Service Bus namespaces and queues, see <bpt id="ce1c158f-4e22-4c59-96ba-1308383095c2">&lt;linkText&gt;</bpt>How to Use Service Bus Queues<ept id="ce1c158f-4e22-4c59-96ba-1308383095c2">&lt;/linkText&gt;</ept><bpt id="ce1c158f-4e22-4c59-96ba-1308383095c2">&lt;title&gt;</bpt><ept id="ce1c158f-4e22-4c59-96ba-1308383095c2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98b88f5c-c35d-489c-a801-6794349b90ce" xml:space="preserve">
+          <source><bpt id="f83a4f1a-e519-466c-89ab-645c93e945d7">&lt;strong&gt;</bpt>Note<ept id="f83a4f1a-e519-466c-89ab-645c93e945d7">&lt;/strong&gt;</ept>: You must create the queue with partitioning disabled as partitioned queues and topics do not yet have AMQP support.</source>
+          <target state="new"><bpt id="f83a4f1a-e519-466c-89ab-645c93e945d7">&lt;strong&gt;</bpt>Note<ept id="f83a4f1a-e519-466c-89ab-645c93e945d7">&lt;/strong&gt;</ept>: You must create the queue with partitioning disabled as partitioned queues and topics do not yet have AMQP support.</target>
+        </trans-unit>
+        <trans-unit id="5c61c68c-f451-4c0a-b932-9f78a6811c9e" xml:space="preserve">
+          <source>For additional information, see <bpt id="213fe6c8-df13-43cf-a59f-822f096914aa">&lt;linkText&gt;</bpt>Partitioning Messaging Entities<ept id="213fe6c8-df13-43cf-a59f-822f096914aa">&lt;/linkText&gt;</ept><bpt id="213fe6c8-df13-43cf-a59f-822f096914aa">&lt;title&gt;</bpt><ept id="213fe6c8-df13-43cf-a59f-822f096914aa">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information, see <bpt id="213fe6c8-df13-43cf-a59f-822f096914aa">&lt;linkText&gt;</bpt>Partitioning Messaging Entities<ept id="213fe6c8-df13-43cf-a59f-822f096914aa">&lt;/linkText&gt;</ept><bpt id="213fe6c8-df13-43cf-a59f-822f096914aa">&lt;title&gt;</bpt><ept id="213fe6c8-df13-43cf-a59f-822f096914aa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc30b212-913c-4f57-9aad-6e952ab85c61" xml:space="preserve">
+          <source>For information about where to download the latest version of the Apache Qpid JMS AMQP 1.0 client library, visit <bpt id="e8b7eb5d-dbb2-418a-a0b7-c2249105df27">&lt;linkText&gt;</bpt>http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html<ept id="e8b7eb5d-dbb2-418a-a0b7-c2249105df27">&lt;/linkText&gt;</ept><bpt id="e8b7eb5d-dbb2-418a-a0b7-c2249105df27">&lt;title&gt;</bpt><ept id="e8b7eb5d-dbb2-418a-a0b7-c2249105df27">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about where to download the latest version of the Apache Qpid JMS AMQP 1.0 client library, visit <bpt id="e8b7eb5d-dbb2-418a-a0b7-c2249105df27">&lt;linkText&gt;</bpt>http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html<ept id="e8b7eb5d-dbb2-418a-a0b7-c2249105df27">&lt;/linkText&gt;</ept><bpt id="e8b7eb5d-dbb2-418a-a0b7-c2249105df27">&lt;title&gt;</bpt><ept id="e8b7eb5d-dbb2-418a-a0b7-c2249105df27">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8efa5063-c951-48a3-8e45-5179bda779f7" xml:space="preserve">
+          <source>You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 distribution archive to the Java CLASSPATH when building and running JMS applications with Service Bus:</source>
+          <target state="new">You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 distribution archive to the Java CLASSPATH when building and running JMS applications with Service Bus:</target>
+        </trans-unit>
+        <trans-unit id="1a744c77-2023-4d42-891f-64122f94fd23" xml:space="preserve">
+          <source>geronimo-jms\<bpt id="7aedd024-1ea0-4e38-874f-00eea0aa4559">&lt;em&gt;</bpt>1.1\<ept id="7aedd024-1ea0-4e38-874f-00eea0aa4559">&lt;/em&gt;</ept>spec-1.0.jar</source>
+          <target state="new">geronimo-jms\<bpt id="7aedd024-1ea0-4e38-874f-00eea0aa4559">&lt;em&gt;</bpt>1.1\<ept id="7aedd024-1ea0-4e38-874f-00eea0aa4559">&lt;/em&gt;</ept>spec-1.0.jar</target>
+        </trans-unit>
+        <trans-unit id="7fef80b7-f759-4304-8a9d-dc7319b678ab" xml:space="preserve">
+          <source>qpid-amqp-1-0-client-[version].jar</source>
+          <target state="new">qpid-amqp-1-0-client-[version].jar</target>
+        </trans-unit>
+        <trans-unit id="8cdbf0c8-b77c-449d-a20d-ecb95979a838" xml:space="preserve">
+          <source>qpid-amqp-1-0-client-jms-[version].jar</source>
+          <target state="new">qpid-amqp-1-0-client-jms-[version].jar</target>
+        </trans-unit>
+        <trans-unit id="a7747ebd-41b9-4342-b54d-cee9d8a112c0" xml:space="preserve">
+          <source>qpid-amqp-1-0-common-[version].jar</source>
+          <target state="new">qpid-amqp-1-0-common-[version].jar</target>
+        </trans-unit>
+        <trans-unit id="8bd26422-c660-46f9-830c-8c27b323419d" xml:space="preserve">
+          <source>JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names.</source>
+          <target state="new">JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names.</target>
+        </trans-unit>
+        <trans-unit id="fb2d9bf4-c99b-4772-9e4b-021f68187d58" xml:space="preserve">
+          <source>Two types of JMS objects are resolved using JNDI: ConnectionFactory and Destination.</source>
+          <target state="new">Two types of JMS objects are resolved using JNDI: ConnectionFactory and Destination.</target>
+        </trans-unit>
+        <trans-unit id="170b985e-5252-43e0-8505-5a41ae539e5f" xml:space="preserve">
+          <source>JNDI uses a provider model into which you can plug different directory services to handle name resolution duties.</source>
+          <target state="new">JNDI uses a provider model into which you can plug different directory services to handle name resolution duties.</target>
+        </trans-unit>
+        <trans-unit id="7b63c7a6-8aef-47ab-8a09-ed0838a801f0" xml:space="preserve">
+          <source>The Apache Qpid JMS AMQP 1.0 library comes with a simple properties file-based JNDI Provider that is configured using a properties file of the following format:</source>
+          <target state="new">The Apache Qpid JMS AMQP 1.0 library comes with a simple properties file-based JNDI Provider that is configured using a properties file of the following format:</target>
+        </trans-unit>
+        <trans-unit id="dd5483dc-f345-4ea4-b4a8-94b5a28100d2" xml:space="preserve">
+          <source>The entry used to define a <bpt id="0b43dc76-ddec-4493-8771-4a57ff3dd11d">&lt;strong&gt;</bpt>ConnectionFactory<ept id="0b43dc76-ddec-4493-8771-4a57ff3dd11d">&lt;/strong&gt;</ept> in the Qpid Properties File JNDI Provider is of the following format:</source>
+          <target state="new">The entry used to define a <bpt id="0b43dc76-ddec-4493-8771-4a57ff3dd11d">&lt;strong&gt;</bpt>ConnectionFactory<ept id="0b43dc76-ddec-4493-8771-4a57ff3dd11d">&lt;/strong&gt;</ept> in the Qpid Properties File JNDI Provider is of the following format:</target>
+        </trans-unit>
+        <trans-unit id="c6eabb06-21d2-441a-a1e8-10ff308689b4" xml:space="preserve">
+          <source>Where <bpt id="51fd4021-d678-4741-802e-7f2348f50556">&lt;strong&gt;</bpt>[jndi_name]<ept id="51fd4021-d678-4741-802e-7f2348f50556">&lt;/strong&gt;</ept> and <bpt id="d917913d-86b0-4349-ad1a-d7e61a954993">&lt;strong&gt;</bpt>[ConnectionURL]<ept id="d917913d-86b0-4349-ad1a-d7e61a954993">&lt;/strong&gt;</ept> have the following meanings:</source>
+          <target state="new">Where <bpt id="51fd4021-d678-4741-802e-7f2348f50556">&lt;strong&gt;</bpt>[jndi_name]<ept id="51fd4021-d678-4741-802e-7f2348f50556">&lt;/strong&gt;</ept> and <bpt id="d917913d-86b0-4349-ad1a-d7e61a954993">&lt;strong&gt;</bpt>[ConnectionURL]<ept id="d917913d-86b0-4349-ad1a-d7e61a954993">&lt;/strong&gt;</ept> have the following meanings:</target>
+        </trans-unit>
+        <trans-unit id="951d76e1-974f-47dd-86df-41578915875b" xml:space="preserve">
+          <source><bpt id="fb4414fd-14ce-4f81-b709-91507806c1ff">&lt;strong&gt;</bpt>[jndi_name]<ept id="fb4414fd-14ce-4f81-b709-91507806c1ff">&lt;/strong&gt;</ept>: The logical name of the ConnectionFactory.</source>
+          <target state="new"><bpt id="fb4414fd-14ce-4f81-b709-91507806c1ff">&lt;strong&gt;</bpt>[jndi_name]<ept id="fb4414fd-14ce-4f81-b709-91507806c1ff">&lt;/strong&gt;</ept>: The logical name of the ConnectionFactory.</target>
+        </trans-unit>
+        <trans-unit id="ea8078cf-04a8-4321-87b0-a49dd49d92dd" xml:space="preserve">
+          <source>This is the name that will be resolved in the Java application using the JNDI IntialContext.lookup() method.</source>
+          <target state="new">This is the name that will be resolved in the Java application using the JNDI IntialContext.lookup() method.</target>
+        </trans-unit>
+        <trans-unit id="908e02f4-8f0f-4743-9bf4-6fc9b6e6c43e" xml:space="preserve">
+          <source><bpt id="4602ad91-6458-4d1c-a8e9-bbe38223e5b5">&lt;strong&gt;</bpt>[ConnectionURL]<ept id="4602ad91-6458-4d1c-a8e9-bbe38223e5b5">&lt;/strong&gt;</ept>: A URL that provides the JMS library with the information required to the AMQP broker.</source>
+          <target state="new"><bpt id="4602ad91-6458-4d1c-a8e9-bbe38223e5b5">&lt;strong&gt;</bpt>[ConnectionURL]<ept id="4602ad91-6458-4d1c-a8e9-bbe38223e5b5">&lt;/strong&gt;</ept>: A URL that provides the JMS library with the information required to the AMQP broker.</target>
+        </trans-unit>
+        <trans-unit id="8b03a75d-468c-45d7-b9f5-6e7e105372e3" xml:space="preserve">
+          <source>The format of the <bpt id="d317bd20-a5b8-498d-9d79-3f0d270c6f84">&lt;strong&gt;</bpt>ConnectionURL<ept id="d317bd20-a5b8-498d-9d79-3f0d270c6f84">&lt;/strong&gt;</ept> is as follows:</source>
+          <target state="new">The format of the <bpt id="d317bd20-a5b8-498d-9d79-3f0d270c6f84">&lt;strong&gt;</bpt>ConnectionURL<ept id="d317bd20-a5b8-498d-9d79-3f0d270c6f84">&lt;/strong&gt;</ept> is as follows:</target>
+        </trans-unit>
+        <trans-unit id="5ad2fddc-4937-427f-b95d-f7dd4aad771f" xml:space="preserve">
+          <source>Where <bpt id="7c860dc4-d2e2-4c99-8c2e-975d621504f5">&lt;strong&gt;</bpt>[namespace]<ept id="7c860dc4-d2e2-4c99-8c2e-975d621504f5">&lt;/strong&gt;</ept>, <bpt id="da3b1097-bde9-462c-a977-14c18b26d7c5">&lt;strong&gt;</bpt>[username]<ept id="da3b1097-bde9-462c-a977-14c18b26d7c5">&lt;/strong&gt;</ept> and <bpt id="3b4f00c3-dbd4-4cef-a9d2-4c806b45b15c">&lt;strong&gt;</bpt>[password]<ept id="3b4f00c3-dbd4-4cef-a9d2-4c806b45b15c">&lt;/strong&gt;</ept> have the following meanings:</source>
+          <target state="new">Where <bpt id="7c860dc4-d2e2-4c99-8c2e-975d621504f5">&lt;strong&gt;</bpt>[namespace]<ept id="7c860dc4-d2e2-4c99-8c2e-975d621504f5">&lt;/strong&gt;</ept>, <bpt id="da3b1097-bde9-462c-a977-14c18b26d7c5">&lt;strong&gt;</bpt>[username]<ept id="da3b1097-bde9-462c-a977-14c18b26d7c5">&lt;/strong&gt;</ept> and <bpt id="3b4f00c3-dbd4-4cef-a9d2-4c806b45b15c">&lt;strong&gt;</bpt>[password]<ept id="3b4f00c3-dbd4-4cef-a9d2-4c806b45b15c">&lt;/strong&gt;</ept> have the following meanings:</target>
+        </trans-unit>
+        <trans-unit id="2af34af1-a98e-4f2e-bf4b-77861b03c974" xml:space="preserve">
+          <source><bpt id="4779af36-ec21-4451-9dee-a2bc99570133">&lt;strong&gt;</bpt>[namespace]<ept id="4779af36-ec21-4451-9dee-a2bc99570133">&lt;/strong&gt;</ept>: The Service Bus namespace.</source>
+          <target state="new"><bpt id="4779af36-ec21-4451-9dee-a2bc99570133">&lt;strong&gt;</bpt>[namespace]<ept id="4779af36-ec21-4451-9dee-a2bc99570133">&lt;/strong&gt;</ept>: The Service Bus namespace.</target>
+        </trans-unit>
+        <trans-unit id="e0b22c47-6b8f-4427-ae83-15dc27d3a266" xml:space="preserve">
+          <source><bpt id="9b86f436-36a7-4e12-9733-b9aadfaabd2b">&lt;strong&gt;</bpt>[username]<ept id="9b86f436-36a7-4e12-9733-b9aadfaabd2b">&lt;/strong&gt;</ept>: The Service Bus issuer name.</source>
+          <target state="new"><bpt id="9b86f436-36a7-4e12-9733-b9aadfaabd2b">&lt;strong&gt;</bpt>[username]<ept id="9b86f436-36a7-4e12-9733-b9aadfaabd2b">&lt;/strong&gt;</ept>: The Service Bus issuer name.</target>
+        </trans-unit>
+        <trans-unit id="f69359b8-69bf-4f8f-8c11-3b65e7ec44d2" xml:space="preserve">
+          <source><bpt id="519377c9-95f6-4520-ae7a-a586477f344a">&lt;strong&gt;</bpt>[password]<ept id="519377c9-95f6-4520-ae7a-a586477f344a">&lt;/strong&gt;</ept>: URL-encoded form of the Service Bus issuer key.</source>
+          <target state="new"><bpt id="519377c9-95f6-4520-ae7a-a586477f344a">&lt;strong&gt;</bpt>[password]<ept id="519377c9-95f6-4520-ae7a-a586477f344a">&lt;/strong&gt;</ept>: URL-encoded form of the Service Bus issuer key.</target>
+        </trans-unit>
+        <trans-unit id="c1d630a9-845d-4754-a88d-fedeecbe3018" xml:space="preserve">
+          <source>You must URL-encode the password manually.</source>
+          <target state="new">You must URL-encode the password manually.</target>
+        </trans-unit>
+        <trans-unit id="0648a9c7-fad8-4458-a438-b8df0a000f7e" xml:space="preserve">
+          <source>A useful URL-encoding utility is available at [http://www.w3schools.com/tags/ref<bpt id="4b58eeba-4b22-4cb3-92a2-7c67b458012f">&lt;em&gt;</bpt>urlencode.asp](http://www.w3schools.com/tags/ref<ept id="4b58eeba-4b22-4cb3-92a2-7c67b458012f">&lt;/em&gt;</ept>urlencode.asp).</source>
+          <target state="new">A useful URL-encoding utility is available at [http://www.w3schools.com/tags/ref<bpt id="4b58eeba-4b22-4cb3-92a2-7c67b458012f">&lt;em&gt;</bpt>urlencode.asp](http://www.w3schools.com/tags/ref<ept id="4b58eeba-4b22-4cb3-92a2-7c67b458012f">&lt;/em&gt;</ept>urlencode.asp).</target>
+        </trans-unit>
+        <trans-unit id="cf9c7a45-9daf-4ad1-87f1-072aebf55a73" xml:space="preserve">
+          <source>The entry used to define a destination in the Qpid Properties File JNDI Provider is of the following format:</source>
+          <target state="new">The entry used to define a destination in the Qpid Properties File JNDI Provider is of the following format:</target>
+        </trans-unit>
+        <trans-unit id="52eb9c68-cf85-4df7-b77a-f09416e8de01" xml:space="preserve">
+          <source>or</source>
+          <target state="new">or</target>
+        </trans-unit>
+        <trans-unit id="18c48281-339a-4b37-8c2e-44242694ba46" xml:space="preserve">
+          <source>Where <bpt id="b7cb517f-459c-42e2-ad78-949d3f8154f7">&lt;strong&gt;</bpt>[jndi\_name]<ept id="b7cb517f-459c-42e2-ad78-949d3f8154f7">&lt;/strong&gt;</ept> and <bpt id="8e588008-f679-49bf-b7ba-c28f066c1cf3">&lt;strong&gt;</bpt>[physical\_name]<ept id="8e588008-f679-49bf-b7ba-c28f066c1cf3">&lt;/strong&gt;</ept> have the following meanings:</source>
+          <target state="new">Where <bpt id="b7cb517f-459c-42e2-ad78-949d3f8154f7">&lt;strong&gt;</bpt>[jndi\_name]<ept id="b7cb517f-459c-42e2-ad78-949d3f8154f7">&lt;/strong&gt;</ept> and <bpt id="8e588008-f679-49bf-b7ba-c28f066c1cf3">&lt;strong&gt;</bpt>[physical\_name]<ept id="8e588008-f679-49bf-b7ba-c28f066c1cf3">&lt;/strong&gt;</ept> have the following meanings:</target>
+        </trans-unit>
+        <trans-unit id="37494d14-6818-4908-a803-d446b25f5214" xml:space="preserve">
+          <source><bpt id="451ad274-9b41-48d4-a13e-5c9786e7dd98">&lt;strong&gt;</bpt>[jndi_name]<ept id="451ad274-9b41-48d4-a13e-5c9786e7dd98">&lt;/strong&gt;</ept>: The logical name of the destination.</source>
+          <target state="new"><bpt id="451ad274-9b41-48d4-a13e-5c9786e7dd98">&lt;strong&gt;</bpt>[jndi_name]<ept id="451ad274-9b41-48d4-a13e-5c9786e7dd98">&lt;/strong&gt;</ept>: The logical name of the destination.</target>
+        </trans-unit>
+        <trans-unit id="e3e1f49d-3e1e-4c6c-a843-cd28dfd7c85a" xml:space="preserve">
+          <source>This is the name that will be resolved in the Java application using the JNDI IntialContext.lookup() method.</source>
+          <target state="new">This is the name that will be resolved in the Java application using the JNDI IntialContext.lookup() method.</target>
+        </trans-unit>
+        <trans-unit id="0e4163fe-a7b4-47e1-ad8a-201448674e88" xml:space="preserve">
+          <source><bpt id="ad05bbc3-6258-4e5b-b587-89a1329eea3b">&lt;strong&gt;</bpt>[physical_name]<ept id="ad05bbc3-6258-4e5b-b587-89a1329eea3b">&lt;/strong&gt;</ept>: The name of the Service Bus entity to which the application sends or receives messages.</source>
+          <target state="new"><bpt id="ad05bbc3-6258-4e5b-b587-89a1329eea3b">&lt;strong&gt;</bpt>[physical_name]<ept id="ad05bbc3-6258-4e5b-b587-89a1329eea3b">&lt;/strong&gt;</ept>: The name of the Service Bus entity to which the application sends or receives messages.</target>
+        </trans-unit>
+        <trans-unit id="78110eb1-c006-4093-9a5c-9b16c02cdfef" xml:space="preserve">
+          <source>When receiving from a Service Bus topic subscription, the physical name specified in JNDI should be the name of the topic.</source>
+          <target state="new">When receiving from a Service Bus topic subscription, the physical name specified in JNDI should be the name of the topic.</target>
+        </trans-unit>
+        <trans-unit id="2e4e9dc9-a273-4d26-9345-6eeb1ea9caad" xml:space="preserve">
+          <source>The subscription name is provided when the durable subscription is created in the JMS application code.</source>
+          <target state="new">The subscription name is provided when the durable subscription is created in the JMS application code.</target>
+        </trans-unit>
+        <trans-unit id="d701ff0a-3270-4550-8cb6-9ce30f33da55" xml:space="preserve">
+          <source>The <bpt id="28e0f705-db8b-4972-85ff-b8fac24c6969">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="28e0f705-db8b-4972-85ff-b8fac24c6969">&lt;/linkText&gt;</ept><bpt id="28e0f705-db8b-4972-85ff-b8fac24c6969">&lt;title&gt;</bpt><ept id="28e0f705-db8b-4972-85ff-b8fac24c6969">&lt;/title&gt;</ept> provides more details on working with Service Bus topic subscriptions from JMS.</source>
+          <target state="new">The <bpt id="28e0f705-db8b-4972-85ff-b8fac24c6969">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="28e0f705-db8b-4972-85ff-b8fac24c6969">&lt;/linkText&gt;</ept><bpt id="28e0f705-db8b-4972-85ff-b8fac24c6969">&lt;title&gt;</bpt><ept id="28e0f705-db8b-4972-85ff-b8fac24c6969">&lt;/title&gt;</ept> provides more details on working with Service Bus topic subscriptions from JMS.</target>
+        </trans-unit>
+        <trans-unit id="16140d74-35f1-4c1e-9282-5f2fe1c0bf96" xml:space="preserve">
+          <source>There are no special APIs or options required when using JMS with Service Bus.</source>
+          <target state="new">There are no special APIs or options required when using JMS with Service Bus.</target>
+        </trans-unit>
+        <trans-unit id="d1ab8a21-e69a-4859-9753-89b5aa0cdd08" xml:space="preserve">
+          <source>However, there are a few restrictions that will be covered later.</source>
+          <target state="new">However, there are a few restrictions that will be covered later.</target>
+        </trans-unit>
+        <trans-unit id="ed833881-f26d-4815-ae19-245639e61256" xml:space="preserve">
+          <source>As with any JMS application, the first thing required is configuration of the JNDI environment, to be able to resolve a <bpt id="49f80ac9-f5bf-4304-baad-be5dbcf268d7">&lt;strong&gt;</bpt>ConnectionFactory<ept id="49f80ac9-f5bf-4304-baad-be5dbcf268d7">&lt;/strong&gt;</ept> and destinations.</source>
+          <target state="new">As with any JMS application, the first thing required is configuration of the JNDI environment, to be able to resolve a <bpt id="49f80ac9-f5bf-4304-baad-be5dbcf268d7">&lt;strong&gt;</bpt>ConnectionFactory<ept id="49f80ac9-f5bf-4304-baad-be5dbcf268d7">&lt;/strong&gt;</ept> and destinations.</target>
+        </trans-unit>
+        <trans-unit id="7fa0804d-e39f-48b4-a217-8ba9b17c3e38" xml:space="preserve">
+          <source>The JNDI environment is configured by passing a hashtable of configuration information into the constructor of the javax.naming.InitialContext class.</source>
+          <target state="new">The JNDI environment is configured by passing a hashtable of configuration information into the constructor of the javax.naming.InitialContext class.</target>
+        </trans-unit>
+        <trans-unit id="8f0657a1-ec8a-4a60-96b5-b50ab44f61b8" xml:space="preserve">
+          <source>The two required elements in the hashtable are the class name of the Initial Context Factory and the Provider URL.</source>
+          <target state="new">The two required elements in the hashtable are the class name of the Initial Context Factory and the Provider URL.</target>
+        </trans-unit>
+        <trans-unit id="f4bb3dca-7e35-44dd-a659-36a760f8e349" xml:space="preserve">
+          <source>The following code shows how to configure the JNDI environment to use the Qpid properties file based JNDI Provider with a properties file named <bpt id="a5f92411-ad0d-488c-9841-2e810312e908">&lt;strong&gt;</bpt>servicebus.properties<ept id="a5f92411-ad0d-488c-9841-2e810312e908">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following code shows how to configure the JNDI environment to use the Qpid properties file based JNDI Provider with a properties file named <bpt id="a5f92411-ad0d-488c-9841-2e810312e908">&lt;strong&gt;</bpt>servicebus.properties<ept id="a5f92411-ad0d-488c-9841-2e810312e908">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="206be556-be45-45b0-83a7-df84722223a3" xml:space="preserve">
+          <source>The following example program sends JMS TextMessages to a Service Bus queue with the JNDI logical name of QUEUE, and receives the messages back.</source>
+          <target state="new">The following example program sends JMS TextMessages to a Service Bus queue with the JNDI logical name of QUEUE, and receives the messages back.</target>
+        </trans-unit>
+        <trans-unit id="332870dd-c635-4663-8b72-0ff7245837e7" xml:space="preserve">
+          <source>Running the application produces output of the form:</source>
+          <target state="new">Running the application produces output of the form:</target>
+        </trans-unit>
+        <trans-unit id="dfd0edce-90ba-4afa-91d0-141c25d7775a" xml:space="preserve">
+          <source>This guide showed how to send and receive messages to and from Service Bus using JMS.</source>
+          <target state="new">This guide showed how to send and receive messages to and from Service Bus using JMS.</target>
+        </trans-unit>
+        <trans-unit id="b9d35a6f-2a31-4d20-8b70-35f2347576de" xml:space="preserve">
+          <source>However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.</source>
+          <target state="new">However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.</target>
+        </trans-unit>
+        <trans-unit id="3422b73c-74ff-4253-b524-aa5b0546087d" xml:space="preserve">
+          <source>Using the sample JMS application described above and a similar .NET application taken from a companion guide, <bpt id="9662c452-c816-44dc-bd6a-559aab133247">&lt;linkText&gt;</bpt>How to use AMQP 1.0 with the .NET Service Bus .NET API<ept id="9662c452-c816-44dc-bd6a-559aab133247">&lt;/linkText&gt;</ept><bpt id="9662c452-c816-44dc-bd6a-559aab133247">&lt;title&gt;</bpt><ept id="9662c452-c816-44dc-bd6a-559aab133247">&lt;/title&gt;</ept>, you can exchange messages between .NET and Java.</source>
+          <target state="new">Using the sample JMS application described above and a similar .NET application taken from a companion guide, <bpt id="9662c452-c816-44dc-bd6a-559aab133247">&lt;linkText&gt;</bpt>How to use AMQP 1.0 with the .NET Service Bus .NET API<ept id="9662c452-c816-44dc-bd6a-559aab133247">&lt;/linkText&gt;</ept><bpt id="9662c452-c816-44dc-bd6a-559aab133247">&lt;title&gt;</bpt><ept id="9662c452-c816-44dc-bd6a-559aab133247">&lt;/title&gt;</ept>, you can exchange messages between .NET and Java.</target>
+        </trans-unit>
+        <trans-unit id="4ece1f86-f46d-440d-bdb5-6db30e0b59fb" xml:space="preserve">
+          <source>For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the <bpt id="fd5e92fc-862a-4a7d-92c6-482bea28ee02">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="fd5e92fc-862a-4a7d-92c6-482bea28ee02">&lt;/linkText&gt;</ept><bpt id="fd5e92fc-862a-4a7d-92c6-482bea28ee02">&lt;title&gt;</bpt><ept id="fd5e92fc-862a-4a7d-92c6-482bea28ee02">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the <bpt id="fd5e92fc-862a-4a7d-92c6-482bea28ee02">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="fd5e92fc-862a-4a7d-92c6-482bea28ee02">&lt;/linkText&gt;</ept><bpt id="fd5e92fc-862a-4a7d-92c6-482bea28ee02">&lt;title&gt;</bpt><ept id="fd5e92fc-862a-4a7d-92c6-482bea28ee02">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5ad2841-4e76-40ce-a673-a41861a4afed" xml:space="preserve">
+          <source>To demonstrate JMS to .NET messaging:</source>
+          <target state="new">To demonstrate JMS to .NET messaging:</target>
+        </trans-unit>
+        <trans-unit id="5c802dbd-cd8d-4ae2-a623-cc0e69d24017" xml:space="preserve">
+          <source>Start the .NET sample application without any command-line arguments.</source>
+          <target state="new">Start the .NET sample application without any command-line arguments.</target>
+        </trans-unit>
+        <trans-unit id="de3f6d12-e9d8-40fe-87bd-dc1baf626369" xml:space="preserve">
+          <source>Start the Java sample application with the "sendonly" command-line argument.</source>
+          <target state="new">Start the Java sample application with the "sendonly" command-line argument.</target>
+        </trans-unit>
+        <trans-unit id="b85c7db2-fe26-429c-b839-5209fff32e4f" xml:space="preserve">
+          <source>In this mode, the application will not receive messages from the queue, it will only send.</source>
+          <target state="new">In this mode, the application will not receive messages from the queue, it will only send.</target>
+        </trans-unit>
+        <trans-unit id="484c06c2-2e93-4ecf-9a9f-bd092b42ab91" xml:space="preserve">
+          <source>Press <bpt id="1465ac71-5077-4009-b276-23da096bd81a">&lt;strong&gt;</bpt>Enter<ept id="1465ac71-5077-4009-b276-23da096bd81a">&lt;/strong&gt;</ept> a few times in the Java application console, which will cause messages to be sent.</source>
+          <target state="new">Press <bpt id="1465ac71-5077-4009-b276-23da096bd81a">&lt;strong&gt;</bpt>Enter<ept id="1465ac71-5077-4009-b276-23da096bd81a">&lt;/strong&gt;</ept> a few times in the Java application console, which will cause messages to be sent.</target>
+        </trans-unit>
+        <trans-unit id="11e137a2-ec14-42f9-a7fb-04eab61516ab" xml:space="preserve">
+          <source>These messages are received by the .NET application.</source>
+          <target state="new">These messages are received by the .NET application.</target>
+        </trans-unit>
+        <trans-unit id="4e9cd372-b951-4414-bc5a-ca580614611e" xml:space="preserve">
+          <source>To demonstrate .NET to JMS messaging:</source>
+          <target state="new">To demonstrate .NET to JMS messaging:</target>
+        </trans-unit>
+        <trans-unit id="1871d395-c0a3-48fe-b5e9-5609c260be69" xml:space="preserve">
+          <source>Start the .NET sample application with the "sendonly" command-line argument.</source>
+          <target state="new">Start the .NET sample application with the "sendonly" command-line argument.</target>
+        </trans-unit>
+        <trans-unit id="23e94dd8-0de8-4a31-ad6f-c79e7a80328a" xml:space="preserve">
+          <source>In this mode, the application will not receive messages from the queue, it will only send.</source>
+          <target state="new">In this mode, the application will not receive messages from the queue, it will only send.</target>
+        </trans-unit>
+        <trans-unit id="043539f7-32f7-43b7-9b3f-c00def1e20d0" xml:space="preserve">
+          <source>Start the Java sample application without any command-line arguments.</source>
+          <target state="new">Start the Java sample application without any command-line arguments.</target>
+        </trans-unit>
+        <trans-unit id="9c929c4b-6f96-44d3-9c00-8f4b12fb07dc" xml:space="preserve">
+          <source>Press <bpt id="195b8115-40c3-4504-8277-eb367cf1f0d3">&lt;strong&gt;</bpt>Enter<ept id="195b8115-40c3-4504-8277-eb367cf1f0d3">&lt;/strong&gt;</ept> a few times in the .NET application console, which will cause messages to be sent.</source>
+          <target state="new">Press <bpt id="195b8115-40c3-4504-8277-eb367cf1f0d3">&lt;strong&gt;</bpt>Enter<ept id="195b8115-40c3-4504-8277-eb367cf1f0d3">&lt;/strong&gt;</ept> a few times in the .NET application console, which will cause messages to be sent.</target>
+        </trans-unit>
+        <trans-unit id="9dc955c2-3764-45cf-b537-3ed3be7aeb7c" xml:space="preserve">
+          <source>These messages are received by the Java application.</source>
+          <target state="new">These messages are received by the Java application.</target>
+        </trans-unit>
+        <trans-unit id="c088c08a-46c4-4f91-8c49-06e3f0b419bc" xml:space="preserve">
+          <source>The following restrictions exist when using JMS over AMQP 1.0 with Service Bus, namely:</source>
+          <target state="new">The following restrictions exist when using JMS over AMQP 1.0 with Service Bus, namely:</target>
+        </trans-unit>
+        <trans-unit id="0cf40dd7-781c-4f61-9fd7-f2566e067d94" xml:space="preserve">
+          <source>Only one <bpt id="79ade458-3ddb-43eb-9aa0-73998ef610ae">&lt;strong&gt;</bpt>MessageProducer<ept id="79ade458-3ddb-43eb-9aa0-73998ef610ae">&lt;/strong&gt;</ept> or <bpt id="1e79ff0f-8187-4e46-b292-c8ca7e8fee96">&lt;strong&gt;</bpt>MessageConsumer<ept id="1e79ff0f-8187-4e46-b292-c8ca7e8fee96">&lt;/strong&gt;</ept> is allowed per <bpt id="015b8f9c-b61e-46ae-ad06-21d2d01cdb81">&lt;strong&gt;</bpt>Session<ept id="015b8f9c-b61e-46ae-ad06-21d2d01cdb81">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Only one <bpt id="79ade458-3ddb-43eb-9aa0-73998ef610ae">&lt;strong&gt;</bpt>MessageProducer<ept id="79ade458-3ddb-43eb-9aa0-73998ef610ae">&lt;/strong&gt;</ept> or <bpt id="1e79ff0f-8187-4e46-b292-c8ca7e8fee96">&lt;strong&gt;</bpt>MessageConsumer<ept id="1e79ff0f-8187-4e46-b292-c8ca7e8fee96">&lt;/strong&gt;</ept> is allowed per <bpt id="015b8f9c-b61e-46ae-ad06-21d2d01cdb81">&lt;strong&gt;</bpt>Session<ept id="015b8f9c-b61e-46ae-ad06-21d2d01cdb81">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee89c4a1-f6ca-49b4-8608-ae8dd65d30fa" xml:space="preserve">
+          <source>If you need to create multiple <bpt id="acab5571-473e-4691-879e-af2555318fac">&lt;strong&gt;</bpt>MessageProducers<ept id="acab5571-473e-4691-879e-af2555318fac">&lt;/strong&gt;</ept> or <bpt id="6af4427e-752a-49e0-b17e-2e403b36debc">&lt;strong&gt;</bpt>MessageConsumers<ept id="6af4427e-752a-49e0-b17e-2e403b36debc">&lt;/strong&gt;</ept> in an application, create a dedicated <bpt id="72a2850c-6d17-47ef-84ee-2e706f762674">&lt;strong&gt;</bpt>Session<ept id="72a2850c-6d17-47ef-84ee-2e706f762674">&lt;/strong&gt;</ept> for each of them.</source>
+          <target state="new">If you need to create multiple <bpt id="acab5571-473e-4691-879e-af2555318fac">&lt;strong&gt;</bpt>MessageProducers<ept id="acab5571-473e-4691-879e-af2555318fac">&lt;/strong&gt;</ept> or <bpt id="6af4427e-752a-49e0-b17e-2e403b36debc">&lt;strong&gt;</bpt>MessageConsumers<ept id="6af4427e-752a-49e0-b17e-2e403b36debc">&lt;/strong&gt;</ept> in an application, create a dedicated <bpt id="72a2850c-6d17-47ef-84ee-2e706f762674">&lt;strong&gt;</bpt>Session<ept id="72a2850c-6d17-47ef-84ee-2e706f762674">&lt;/strong&gt;</ept> for each of them.</target>
+        </trans-unit>
+        <trans-unit id="cdb64f51-c47e-4c46-9bc2-8f8d9c52f981" xml:space="preserve">
+          <source>Volatile topic subscriptions are not currently supported.</source>
+          <target state="new">Volatile topic subscriptions are not currently supported.</target>
+        </trans-unit>
+        <trans-unit id="85ed540f-1b1a-497c-aac7-50830ed8beaa" xml:space="preserve">
+          <source><bpt id="34a2c73b-f570-426d-ae73-0b5b54c1d3f9">&lt;strong&gt;</bpt>MessageSelectors<ept id="34a2c73b-f570-426d-ae73-0b5b54c1d3f9">&lt;/strong&gt;</ept> are not currently supported.</source>
+          <target state="new"><bpt id="34a2c73b-f570-426d-ae73-0b5b54c1d3f9">&lt;strong&gt;</bpt>MessageSelectors<ept id="34a2c73b-f570-426d-ae73-0b5b54c1d3f9">&lt;/strong&gt;</ept> are not currently supported.</target>
+        </trans-unit>
+        <trans-unit id="313bcb74-0295-4de8-bd82-6502013a9417" xml:space="preserve">
+          <source>Temporary destinations, i.e., <bpt id="08bac4e6-1900-410f-b772-0b7a3b40f755">&lt;strong&gt;</bpt>TemporaryQueue<ept id="08bac4e6-1900-410f-b772-0b7a3b40f755">&lt;/strong&gt;</ept>, <bpt id="ccb0cc75-3ee0-4d83-a249-e65d65cd736a">&lt;strong&gt;</bpt>TemporaryTopic<ept id="ccb0cc75-3ee0-4d83-a249-e65d65cd736a">&lt;/strong&gt;</ept> are not currently supported, along with the <bpt id="217a4485-5010-4465-9d91-c88d62787104">&lt;strong&gt;</bpt>QueueRequestor<ept id="217a4485-5010-4465-9d91-c88d62787104">&lt;/strong&gt;</ept> and <bpt id="d80c5006-077f-4e54-8081-590ba740023e">&lt;strong&gt;</bpt>TopicRequestor<ept id="d80c5006-077f-4e54-8081-590ba740023e">&lt;/strong&gt;</ept> APIs that use them.</source>
+          <target state="new">Temporary destinations, i.e., <bpt id="08bac4e6-1900-410f-b772-0b7a3b40f755">&lt;strong&gt;</bpt>TemporaryQueue<ept id="08bac4e6-1900-410f-b772-0b7a3b40f755">&lt;/strong&gt;</ept>, <bpt id="ccb0cc75-3ee0-4d83-a249-e65d65cd736a">&lt;strong&gt;</bpt>TemporaryTopic<ept id="ccb0cc75-3ee0-4d83-a249-e65d65cd736a">&lt;/strong&gt;</ept> are not currently supported, along with the <bpt id="217a4485-5010-4465-9d91-c88d62787104">&lt;strong&gt;</bpt>QueueRequestor<ept id="217a4485-5010-4465-9d91-c88d62787104">&lt;/strong&gt;</ept> and <bpt id="d80c5006-077f-4e54-8081-590ba740023e">&lt;strong&gt;</bpt>TopicRequestor<ept id="d80c5006-077f-4e54-8081-590ba740023e">&lt;/strong&gt;</ept> APIs that use them.</target>
+        </trans-unit>
+        <trans-unit id="ed15738b-8e48-4430-b8e9-b79fcb9f6bcf" xml:space="preserve">
+          <source>Transacted sessions and distributed transactions are not supported.</source>
+          <target state="new">Transacted sessions and distributed transactions are not supported.</target>
+        </trans-unit>
+        <trans-unit id="c8b40051-d362-46f7-bf83-15895da6b68d" xml:space="preserve">
+          <source>This how-to guide showed how to use Service Bus brokered messaging features (queues and publish/subscribe topics) from Java using the popular JMS API and AMQP 1.0.</source>
+          <target state="new">This how-to guide showed how to use Service Bus brokered messaging features (queues and publish/subscribe topics) from Java using the popular JMS API and AMQP 1.0.</target>
+        </trans-unit>
+        <trans-unit id="f587f04c-60f2-4cea-8ebb-618d846a788c" xml:space="preserve">
+          <source>You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, Python, and PHP.</source>
+          <target state="new">You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, Python, and PHP.</target>
+        </trans-unit>
+        <trans-unit id="1e97bec8-52b6-4861-8a83-41c52a376f7c" xml:space="preserve">
+          <source>Components built using these different languages can exchange messages reliably and at full fidelity using the AMQP 1.0 support in Service Bus.</source>
+          <target state="new">Components built using these different languages can exchange messages reliably and at full fidelity using the AMQP 1.0 support in Service Bus.</target>
+        </trans-unit>
+        <trans-unit id="9ba167d5-1714-4c4b-9e26-2936d8e3d586" xml:space="preserve">
+          <source>For more information, see the <bpt id="1d41f56a-4c01-439c-a25b-f7e5afbf6f1a">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="1d41f56a-4c01-439c-a25b-f7e5afbf6f1a">&lt;/linkText&gt;</ept><bpt id="1d41f56a-4c01-439c-a25b-f7e5afbf6f1a">&lt;title&gt;</bpt><ept id="1d41f56a-4c01-439c-a25b-f7e5afbf6f1a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="1d41f56a-4c01-439c-a25b-f7e5afbf6f1a">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="1d41f56a-4c01-439c-a25b-f7e5afbf6f1a">&lt;/linkText&gt;</ept><bpt id="1d41f56a-4c01-439c-a25b-f7e5afbf6f1a">&lt;title&gt;</bpt><ept id="1d41f56a-4c01-439c-a25b-f7e5afbf6f1a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4281b782-e306-4db0-9ca6-68628452d4a9" xml:space="preserve">
+          <source><bpt id="cfec45e9-9033-42a0-a454-5d3962a7820b">&lt;linkText&gt;</bpt>AMQP 1.0 support in Azure Service Bus<ept id="cfec45e9-9033-42a0-a454-5d3962a7820b">&lt;/linkText&gt;</ept><bpt id="cfec45e9-9033-42a0-a454-5d3962a7820b">&lt;title&gt;</bpt><ept id="cfec45e9-9033-42a0-a454-5d3962a7820b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cfec45e9-9033-42a0-a454-5d3962a7820b">&lt;linkText&gt;</bpt>AMQP 1.0 support in Azure Service Bus<ept id="cfec45e9-9033-42a0-a454-5d3962a7820b">&lt;/linkText&gt;</ept><bpt id="cfec45e9-9033-42a0-a454-5d3962a7820b">&lt;title&gt;</bpt><ept id="cfec45e9-9033-42a0-a454-5d3962a7820b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e76cdb03-887c-4558-95df-a1ff28428b94" xml:space="preserve">
+          <source><bpt id="24cc85b3-351f-4127-97c1-6c33c33036d6">&lt;linkText&gt;</bpt>How to use AMQP 1.0 with the Service Bus .NET API<ept id="24cc85b3-351f-4127-97c1-6c33c33036d6">&lt;/linkText&gt;</ept><bpt id="24cc85b3-351f-4127-97c1-6c33c33036d6">&lt;title&gt;</bpt><ept id="24cc85b3-351f-4127-97c1-6c33c33036d6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="24cc85b3-351f-4127-97c1-6c33c33036d6">&lt;linkText&gt;</bpt>How to use AMQP 1.0 with the Service Bus .NET API<ept id="24cc85b3-351f-4127-97c1-6c33c33036d6">&lt;/linkText&gt;</ept><bpt id="24cc85b3-351f-4127-97c1-6c33c33036d6">&lt;title&gt;</bpt><ept id="24cc85b3-351f-4127-97c1-6c33c33036d6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9729dda5-6315-483f-b453-773067312961" xml:space="preserve">
+          <source><bpt id="34cff188-bee9-4f6a-bdf6-75364f32e859">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="34cff188-bee9-4f6a-bdf6-75364f32e859">&lt;/linkText&gt;</ept><bpt id="34cff188-bee9-4f6a-bdf6-75364f32e859">&lt;title&gt;</bpt><ept id="34cff188-bee9-4f6a-bdf6-75364f32e859">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="34cff188-bee9-4f6a-bdf6-75364f32e859">&lt;linkText&gt;</bpt>Service Bus AMQP 1.0 Developer's Guide<ept id="34cff188-bee9-4f6a-bdf6-75364f32e859">&lt;/linkText&gt;</ept><bpt id="34cff188-bee9-4f6a-bdf6-75364f32e859">&lt;title&gt;</bpt><ept id="34cff188-bee9-4f6a-bdf6-75364f32e859">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78bbde8b-1a15-4015-8432-1a1fd5c1fff8" xml:space="preserve">
+          <source><bpt id="a66fcf39-1783-451c-917d-e1d68cdd70b9">&lt;linkText&gt;</bpt>How to Use Service Bus Queues<ept id="a66fcf39-1783-451c-917d-e1d68cdd70b9">&lt;/linkText&gt;</ept><bpt id="a66fcf39-1783-451c-917d-e1d68cdd70b9">&lt;title&gt;</bpt><ept id="a66fcf39-1783-451c-917d-e1d68cdd70b9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a66fcf39-1783-451c-917d-e1d68cdd70b9">&lt;linkText&gt;</bpt>How to Use Service Bus Queues<ept id="a66fcf39-1783-451c-917d-e1d68cdd70b9">&lt;/linkText&gt;</ept><bpt id="a66fcf39-1783-451c-917d-e1d68cdd70b9">&lt;title&gt;</bpt><ept id="a66fcf39-1783-451c-917d-e1d68cdd70b9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

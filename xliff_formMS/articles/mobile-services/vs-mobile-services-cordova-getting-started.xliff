@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="88bd09d3-2009-48f5-9143-29898a371bb0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="88bd09d3-2009-48f5-9143-29898a371bb0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="77cd5a21-5999-4023-96cb-3d619c91ac1e">
+        <trans-unit id="97a3179f-447b-42f0-8282-ae3398bff6fa" xml:space="preserve">
+          <source>Describes the first steps you can take to get started with Azure Mobile Services in a Cordova project</source>
+          <target state="new">Describes the first steps you can take to get started with Azure Mobile Services in a Cordova project</target>
+        </trans-unit>
+        <trans-unit id="8e535148-9094-4710-b676-20a7c6ebbaeb" xml:space="preserve">
+          <source>The first step you need to do in order to follow the code in these examples depends on what type of mobile service you connected to.</source>
+          <target state="new">The first step you need to do in order to follow the code in these examples depends on what type of mobile service you connected to.</target>
+        </trans-unit>
+        <trans-unit id="5377fd35-63d1-4e3e-8bf1-795bd4a2b907" xml:space="preserve">
+          <source>For a JavaScript backend mobile service, create a table called TodoItem.</source>
+          <target state="new">For a JavaScript backend mobile service, create a table called TodoItem.</target>
+        </trans-unit>
+        <trans-unit id="6f1adfa8-4205-4adb-a6a6-5f24ec68fe84" xml:space="preserve">
+          <source>To create a table,  locate the mobile service under the Azure node in Server Explorer, right-click the mobile service's node to open the context menu, and choose <bpt id="b6481f69-baa6-481c-98b7-6f4998184b89">&lt;strong&gt;</bpt>Create Table<ept id="b6481f69-baa6-481c-98b7-6f4998184b89">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To create a table,  locate the mobile service under the Azure node in Server Explorer, right-click the mobile service's node to open the context menu, and choose <bpt id="b6481f69-baa6-481c-98b7-6f4998184b89">&lt;strong&gt;</bpt>Create Table<ept id="b6481f69-baa6-481c-98b7-6f4998184b89">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f671e302-c85c-41ad-82f0-a86056965c88" xml:space="preserve">
+          <source>Enter "TodoItem" as the table name.</source>
+          <target state="new">Enter "TodoItem" as the table name.</target>
+        </trans-unit>
+        <trans-unit id="54cdc0b6-b3bf-45db-92ad-714f1f35b27a" xml:space="preserve">
+          <source>If you have a .NET backend mobile service, there's already a TodoItem table in the default project template that Visual Studio created for you, but you need to publish it to Azure.</source>
+          <target state="new">If you have a .NET backend mobile service, there's already a TodoItem table in the default project template that Visual Studio created for you, but you need to publish it to Azure.</target>
+        </trans-unit>
+        <trans-unit id="975f07af-4c7f-469a-a9bc-6a3a6c0281d6" xml:space="preserve">
+          <source>To publish it, open the context menu for the mobile service project in Solution Explorer, and choose <bpt id="0ac5a2db-81a6-4198-9e46-95143b287fa2">&lt;strong&gt;</bpt>Publish Web<ept id="0ac5a2db-81a6-4198-9e46-95143b287fa2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To publish it, open the context menu for the mobile service project in Solution Explorer, and choose <bpt id="0ac5a2db-81a6-4198-9e46-95143b287fa2">&lt;strong&gt;</bpt>Publish Web<ept id="0ac5a2db-81a6-4198-9e46-95143b287fa2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b78766a6-36de-4431-94f8-dad8d79b43fb" xml:space="preserve">
+          <source>Accept the defaults, and choose the <bpt id="93278936-bfd0-4a11-a528-d14eb0e8927f">&lt;strong&gt;</bpt>Publish<ept id="93278936-bfd0-4a11-a528-d14eb0e8927f">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Accept the defaults, and choose the <bpt id="93278936-bfd0-4a11-a528-d14eb0e8927f">&lt;strong&gt;</bpt>Publish<ept id="93278936-bfd0-4a11-a528-d14eb0e8927f">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="eb3b4222-1427-42b6-9794-eeb736701f2d" xml:space="preserve">
+          <source>The following code gets a reference to a table that contains data for a TodoItem, which you can use in subsequent operations to read and update the data table.</source>
+          <target state="new">The following code gets a reference to a table that contains data for a TodoItem, which you can use in subsequent operations to read and update the data table.</target>
+        </trans-unit>
+        <trans-unit id="aa942aa0-5f39-4143-8000-9d8f138ddc13" xml:space="preserve">
+          <source>The TodoItem table is created automatically when you create a mobile service.</source>
+          <target state="new">The TodoItem table is created automatically when you create a mobile service.</target>
+        </trans-unit>
+        <trans-unit id="0366261c-c75c-4cec-9814-15f36d709f70" xml:space="preserve">
+          <source>For these examples to work, permissions on the table must be set to <bpt id="b71cb0fe-1b3c-47db-992c-f6f7931e55ee">&lt;strong&gt;</bpt>Anybody with an Application Key<ept id="b71cb0fe-1b3c-47db-992c-f6f7931e55ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For these examples to work, permissions on the table must be set to <bpt id="b71cb0fe-1b3c-47db-992c-f6f7931e55ee">&lt;strong&gt;</bpt>Anybody with an Application Key<ept id="b71cb0fe-1b3c-47db-992c-f6f7931e55ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d6e3588-b79c-4623-af02-0ecefb080e6e" xml:space="preserve">
+          <source>Later, you can set up authentication.</source>
+          <target state="new">Later, you can set up authentication.</target>
+        </trans-unit>
+        <trans-unit id="25f63f3c-6932-4c3a-ac1b-29f2b5ddf0c2" xml:space="preserve">
+          <source>See <bpt id="db2f5fb3-1233-4498-80b8-6f52fa84a472">&lt;linkText&gt;</bpt>Get started with authentication<ept id="db2f5fb3-1233-4498-80b8-6f52fa84a472">&lt;/linkText&gt;</ept><bpt id="db2f5fb3-1233-4498-80b8-6f52fa84a472">&lt;title&gt;</bpt><ept id="db2f5fb3-1233-4498-80b8-6f52fa84a472">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="db2f5fb3-1233-4498-80b8-6f52fa84a472">&lt;linkText&gt;</bpt>Get started with authentication<ept id="db2f5fb3-1233-4498-80b8-6f52fa84a472">&lt;/linkText&gt;</ept><bpt id="db2f5fb3-1233-4498-80b8-6f52fa84a472">&lt;title&gt;</bpt><ept id="db2f5fb3-1233-4498-80b8-6f52fa84a472">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6057e4b-8e76-456d-a4a3-765e108eff38" xml:space="preserve">
+          <source>Insert a new item into a data table.</source>
+          <target state="new">Insert a new item into a data table.</target>
+        </trans-unit>
+        <trans-unit id="72ca4020-43dd-4024-abcc-80389dc2b9a4" xml:space="preserve">
+          <source>An id (a GUID of type string) is automatically created as the primary key for the new row.</source>
+          <target state="new">An id (a GUID of type string) is automatically created as the primary key for the new row.</target>
+        </trans-unit>
+        <trans-unit id="81e3d932-dee9-4f11-8885-594d06a455e9" xml:space="preserve">
+          <source>Call the <bpt id="853a9dad-8af7-4dd8-88f4-0a0ed8928ee3">&lt;strong&gt;</bpt>done<ept id="853a9dad-8af7-4dd8-88f4-0a0ed8928ee3">&lt;/strong&gt;</ept> method on the returned <bpt id="bc1ea6e2-5529-42f1-84f4-f6bf9672757d">&lt;linkText&gt;</bpt>Promise<ept id="bc1ea6e2-5529-42f1-84f4-f6bf9672757d">&lt;/linkText&gt;</ept><bpt id="bc1ea6e2-5529-42f1-84f4-f6bf9672757d">&lt;title&gt;</bpt><ept id="bc1ea6e2-5529-42f1-84f4-f6bf9672757d">&lt;/title&gt;</ept> object to get a copy of the inserted object and handle any errors.</source>
+          <target state="new">Call the <bpt id="853a9dad-8af7-4dd8-88f4-0a0ed8928ee3">&lt;strong&gt;</bpt>done<ept id="853a9dad-8af7-4dd8-88f4-0a0ed8928ee3">&lt;/strong&gt;</ept> method on the returned <bpt id="bc1ea6e2-5529-42f1-84f4-f6bf9672757d">&lt;linkText&gt;</bpt>Promise<ept id="bc1ea6e2-5529-42f1-84f4-f6bf9672757d">&lt;/linkText&gt;</ept><bpt id="bc1ea6e2-5529-42f1-84f4-f6bf9672757d">&lt;title&gt;</bpt><ept id="bc1ea6e2-5529-42f1-84f4-f6bf9672757d">&lt;/title&gt;</ept> object to get a copy of the inserted object and handle any errors.</target>
+        </trans-unit>
+        <trans-unit id="d13794ab-fb68-4d62-9ae0-44296215dba4" xml:space="preserve">
+          <source>The following code queries a table for all items, sorted by the text field.</source>
+          <target state="new">The following code queries a table for all items, sorted by the text field.</target>
+        </trans-unit>
+        <trans-unit id="73abbea5-86ed-4611-acbc-a54a7d1d3045" xml:space="preserve">
+          <source>You can add code to process the query results in the success handler.</source>
+          <target state="new">You can add code to process the query results in the success handler.</target>
+        </trans-unit>
+        <trans-unit id="aa11da96-83a2-4dcf-9fe6-9d37f8c3a1fe" xml:space="preserve">
+          <source>In this case, a local array of the items is updated.</source>
+          <target state="new">In this case, a local array of the items is updated.</target>
+        </trans-unit>
+        <trans-unit id="80ed0082-1b3a-4dd8-a067-60bc572ce42f" xml:space="preserve">
+          <source>You can use the where method to modify the query.</source>
+          <target state="new">You can use the where method to modify the query.</target>
+        </trans-unit>
+        <trans-unit id="79195461-1cf7-4e87-9dc2-df86dc7c4bac" xml:space="preserve">
+          <source>Here's an example that filters out completed items.</source>
+          <target state="new">Here's an example that filters out completed items.</target>
+        </trans-unit>
+        <trans-unit id="04c9bf59-6386-4094-91f9-043ed14aceb6" xml:space="preserve">
+          <source>For more examples of queries you can use, see [query]((http://msdn.microsoft.com/library/azure/jj613353.aspx)) object.</source>
+          <target state="new">For more examples of queries you can use, see [query]((http://msdn.microsoft.com/library/azure/jj613353.aspx)) object.</target>
+        </trans-unit>
+        <trans-unit id="6aadd37b-7805-4772-9b1d-94cde45180a0" xml:space="preserve">
+          <source>Update a row in a data table.</source>
+          <target state="new">Update a row in a data table.</target>
+        </trans-unit>
+        <trans-unit id="c9a8dc98-0b40-4787-9d0f-dfd3ca6113e2" xml:space="preserve">
+          <source>In this code, when the mobile service responds, the item is removed from the list.</source>
+          <target state="new">In this code, when the mobile service responds, the item is removed from the list.</target>
+        </trans-unit>
+        <trans-unit id="2c97949e-7c86-4303-b4f0-38d5e147e5ad" xml:space="preserve">
+          <source>Call the <bpt id="ad9890b5-fc73-42a0-b00f-7ccd740a2e6c">&lt;strong&gt;</bpt>done<ept id="ad9890b5-fc73-42a0-b00f-7ccd740a2e6c">&lt;/strong&gt;</ept> method on the returned <bpt id="477dac7f-026a-46bd-b12c-796b7fea3fe6">&lt;linkText&gt;</bpt>Promise<ept id="477dac7f-026a-46bd-b12c-796b7fea3fe6">&lt;/linkText&gt;</ept><bpt id="477dac7f-026a-46bd-b12c-796b7fea3fe6">&lt;title&gt;</bpt><ept id="477dac7f-026a-46bd-b12c-796b7fea3fe6">&lt;/title&gt;</ept> object to get a copy of the inserted object and handle any errors.</source>
+          <target state="new">Call the <bpt id="ad9890b5-fc73-42a0-b00f-7ccd740a2e6c">&lt;strong&gt;</bpt>done<ept id="ad9890b5-fc73-42a0-b00f-7ccd740a2e6c">&lt;/strong&gt;</ept> method on the returned <bpt id="477dac7f-026a-46bd-b12c-796b7fea3fe6">&lt;linkText&gt;</bpt>Promise<ept id="477dac7f-026a-46bd-b12c-796b7fea3fe6">&lt;/linkText&gt;</ept><bpt id="477dac7f-026a-46bd-b12c-796b7fea3fe6">&lt;title&gt;</bpt><ept id="477dac7f-026a-46bd-b12c-796b7fea3fe6">&lt;/title&gt;</ept> object to get a copy of the inserted object and handle any errors.</target>
+        </trans-unit>
+        <trans-unit id="3213c89b-b0aa-4edc-ae5f-635263cd72f6" xml:space="preserve">
+          <source>Delete a row in a data table using the <bpt id="d50beab1-ab2e-4b9a-b5ef-872cf1cd61a1">&lt;strong&gt;</bpt>del<ept id="d50beab1-ab2e-4b9a-b5ef-872cf1cd61a1">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">Delete a row in a data table using the <bpt id="d50beab1-ab2e-4b9a-b5ef-872cf1cd61a1">&lt;strong&gt;</bpt>del<ept id="d50beab1-ab2e-4b9a-b5ef-872cf1cd61a1">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="0d2bcbc2-896f-4b38-a09e-6fdcac3921b4" xml:space="preserve">
+          <source>Call the <bpt id="43a8aa05-04fc-4f54-9830-030a4a4720d3">&lt;strong&gt;</bpt>done<ept id="43a8aa05-04fc-4f54-9830-030a4a4720d3">&lt;/strong&gt;</ept> method on the returned <bpt id="9a4e9d4b-1de5-45ec-ab46-9fe2056ed710">&lt;linkText&gt;</bpt>Promise<ept id="9a4e9d4b-1de5-45ec-ab46-9fe2056ed710">&lt;/linkText&gt;</ept><bpt id="9a4e9d4b-1de5-45ec-ab46-9fe2056ed710">&lt;title&gt;</bpt><ept id="9a4e9d4b-1de5-45ec-ab46-9fe2056ed710">&lt;/title&gt;</ept> object to get a copy of the inserted object and handle any errors.</source>
+          <target state="new">Call the <bpt id="43a8aa05-04fc-4f54-9830-030a4a4720d3">&lt;strong&gt;</bpt>done<ept id="43a8aa05-04fc-4f54-9830-030a4a4720d3">&lt;/strong&gt;</ept> method on the returned <bpt id="9a4e9d4b-1de5-45ec-ab46-9fe2056ed710">&lt;linkText&gt;</bpt>Promise<ept id="9a4e9d4b-1de5-45ec-ab46-9fe2056ed710">&lt;/linkText&gt;</ept><bpt id="9a4e9d4b-1de5-45ec-ab46-9fe2056ed710">&lt;title&gt;</bpt><ept id="9a4e9d4b-1de5-45ec-ab46-9fe2056ed710">&lt;/title&gt;</ept> object to get a copy of the inserted object and handle any errors.</target>
+        </trans-unit>
+        <trans-unit id="961d790c-6d9b-4049-a0f6-7b8ebf575b6b" xml:space="preserve">
+          <source><bpt id="cec97f27-1f29-400d-b096-382a89e2c941">&lt;linkText&gt;</bpt>Learn more about mobile services<ept id="cec97f27-1f29-400d-b096-382a89e2c941">&lt;/linkText&gt;</ept><bpt id="cec97f27-1f29-400d-b096-382a89e2c941">&lt;title&gt;</bpt><ept id="cec97f27-1f29-400d-b096-382a89e2c941">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cec97f27-1f29-400d-b096-382a89e2c941">&lt;linkText&gt;</bpt>Learn more about mobile services<ept id="cec97f27-1f29-400d-b096-382a89e2c941">&lt;/linkText&gt;</ept><bpt id="cec97f27-1f29-400d-b096-382a89e2c941">&lt;title&gt;</bpt><ept id="cec97f27-1f29-400d-b096-382a89e2c941">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

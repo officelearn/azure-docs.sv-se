@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="05a5dc48-aca4-4b1b-af7f-2f5ad93813cc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="05a5dc48-aca4-4b1b-af7f-2f5ad93813cc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2875da69-ec51-4f0a-9401-3664a79c81fc">
+        <trans-unit id="e8961c86-bcd0-4f19-92b6-4589b00a8deb" xml:space="preserve">
+          <source>Connect to an Azure SQL Database with Excel</source>
+          <target state="new">Connect to an Azure SQL Database with Excel</target>
+        </trans-unit>
+        <trans-unit id="7bd6a2d4-00ee-4a2e-ac47-639ba6d7da85" xml:space="preserve">
+          <source>Excel spreadsheet to Azure SQL Database for reporting and data exploration.</source>
+          <target state="new">Excel spreadsheet to Azure SQL Database for reporting and data exploration.</target>
+        </trans-unit>
+        <trans-unit id="b43ca1da-f67a-4301-99c1-942f5feceb58" xml:space="preserve">
+          <source>Connect Excel to an Azure SQL Database and create a report over the data in the database.</source>
+          <target state="new">Connect Excel to an Azure SQL Database and create a report over the data in the database.</target>
+        </trans-unit>
+        <trans-unit id="100d14cb-8e8b-4232-9883-9ae2631a7fc3" xml:space="preserve">
+          <source>An Azure SQL Database provisioned and running.</source>
+          <target state="new">An Azure SQL Database provisioned and running.</target>
+        </trans-unit>
+        <trans-unit id="07ad645f-86c6-4e65-8dcd-c9ba34838f8f" xml:space="preserve">
+          <source>To create a new SQL Database, see <bpt id="03be1cd9-8cff-4e52-9ec8-3c192e5d3039">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure SQL Database<ept id="03be1cd9-8cff-4e52-9ec8-3c192e5d3039">&lt;/linkText&gt;</ept><bpt id="03be1cd9-8cff-4e52-9ec8-3c192e5d3039">&lt;title&gt;</bpt><ept id="03be1cd9-8cff-4e52-9ec8-3c192e5d3039">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a new SQL Database, see <bpt id="03be1cd9-8cff-4e52-9ec8-3c192e5d3039">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure SQL Database<ept id="03be1cd9-8cff-4e52-9ec8-3c192e5d3039">&lt;/linkText&gt;</ept><bpt id="03be1cd9-8cff-4e52-9ec8-3c192e5d3039">&lt;title&gt;</bpt><ept id="03be1cd9-8cff-4e52-9ec8-3c192e5d3039">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17483c0c-18ee-455a-b4b5-d61ac91d4620" xml:space="preserve">
+          <source><bpt id="809cdfb2-aaec-4e47-ad41-662cece714ef">&lt;linkText&gt;</bpt>Microsoft Excel 2013<ept id="809cdfb2-aaec-4e47-ad41-662cece714ef">&lt;/linkText&gt;</ept><bpt id="809cdfb2-aaec-4e47-ad41-662cece714ef">&lt;title&gt;</bpt><ept id="809cdfb2-aaec-4e47-ad41-662cece714ef">&lt;/title&gt;</ept> (or Microsoft Excel 2010)</source>
+          <target state="new"><bpt id="809cdfb2-aaec-4e47-ad41-662cece714ef">&lt;linkText&gt;</bpt>Microsoft Excel 2013<ept id="809cdfb2-aaec-4e47-ad41-662cece714ef">&lt;/linkText&gt;</ept><bpt id="809cdfb2-aaec-4e47-ad41-662cece714ef">&lt;title&gt;</bpt><ept id="809cdfb2-aaec-4e47-ad41-662cece714ef">&lt;/title&gt;</ept> (or Microsoft Excel 2010)</target>
+        </trans-unit>
+        <trans-unit id="27b1795c-5549-46b8-9f48-2c1b221e2eef" xml:space="preserve">
+          <source>Open Excel.</source>
+          <target state="new">Open Excel.</target>
+        </trans-unit>
+        <trans-unit id="c01c3b43-944d-44d8-8ecf-eb51cf882297" xml:space="preserve">
+          <source>In the menu bar at the top of the page click <bpt id="80254463-6a43-4698-ab2e-3ffc9af83d38">&lt;strong&gt;</bpt>Data<ept id="80254463-6a43-4698-ab2e-3ffc9af83d38">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu bar at the top of the page click <bpt id="80254463-6a43-4698-ab2e-3ffc9af83d38">&lt;strong&gt;</bpt>Data<ept id="80254463-6a43-4698-ab2e-3ffc9af83d38">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ad1d85e-15e2-4e4b-bbca-2c1805aa86de" xml:space="preserve">
+          <source>Click <bpt id="636d6891-fc6e-4bda-b24b-1125764983cf">&lt;strong&gt;</bpt>From Other Sources<ept id="636d6891-fc6e-4bda-b24b-1125764983cf">&lt;/strong&gt;</ept>, then <bpt id="8987df3b-1506-4413-8dd8-eea8cabbd288">&lt;strong&gt;</bpt>From SQL Server<ept id="8987df3b-1506-4413-8dd8-eea8cabbd288">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="636d6891-fc6e-4bda-b24b-1125764983cf">&lt;strong&gt;</bpt>From Other Sources<ept id="636d6891-fc6e-4bda-b24b-1125764983cf">&lt;/strong&gt;</ept>, then <bpt id="8987df3b-1506-4413-8dd8-eea8cabbd288">&lt;strong&gt;</bpt>From SQL Server<ept id="8987df3b-1506-4413-8dd8-eea8cabbd288">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="594ebf42-6e0f-423b-9820-fa505fafd0e6" xml:space="preserve">
+          <source>The <bpt id="4db8f177-778c-4033-903a-4297512f08db">&lt;strong&gt;</bpt>Data Connection Wizard<ept id="4db8f177-778c-4033-903a-4297512f08db">&lt;/strong&gt;</ept> opens.</source>
+          <target state="new">The <bpt id="4db8f177-778c-4033-903a-4297512f08db">&lt;strong&gt;</bpt>Data Connection Wizard<ept id="4db8f177-778c-4033-903a-4297512f08db">&lt;/strong&gt;</ept> opens.</target>
+        </trans-unit>
+        <trans-unit id="06ef7811-2149-4324-b78e-d02c7f9f044d" xml:space="preserve">
+          <source><bpt id="312858fd-1a77-467e-8268-07c3db7ab540">&lt;linkText&gt;</bpt>Data connection wizard<ept id="312858fd-1a77-467e-8268-07c3db7ab540">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="312858fd-1a77-467e-8268-07c3db7ab540">&lt;linkText&gt;</bpt>Data connection wizard<ept id="312858fd-1a77-467e-8268-07c3db7ab540">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="168a0b4a-63b4-44e0-ba31-7507745ad7ba" xml:space="preserve">
+          <source>In the <bpt id="532ffc48-8868-4d49-890a-96cacb361059">&lt;strong&gt;</bpt>Server name<ept id="532ffc48-8868-4d49-890a-96cacb361059">&lt;/strong&gt;</ept> box, type the Azure SQL Database server name.</source>
+          <target state="new">In the <bpt id="532ffc48-8868-4d49-890a-96cacb361059">&lt;strong&gt;</bpt>Server name<ept id="532ffc48-8868-4d49-890a-96cacb361059">&lt;/strong&gt;</ept> box, type the Azure SQL Database server name.</target>
+        </trans-unit>
+        <trans-unit id="79e4db05-f60b-4059-bf83-ec3889c31fbd" xml:space="preserve">
+          <source>Example:</source>
+          <target state="new">Example:</target>
+        </trans-unit>
+        <trans-unit id="4f21c965-8339-4bf8-8a3c-f264f46c3dc4" xml:space="preserve">
+          <source>In the <bpt id="4509d694-ec5f-42eb-a78f-964cf622dd11">&lt;strong&gt;</bpt>Log on Credentials<ept id="4509d694-ec5f-42eb-a78f-964cf622dd11">&lt;/strong&gt;</ept> section, select <bpt id="8c334963-e056-4f40-985e-3c1a798ef65e">&lt;strong&gt;</bpt>Use the following User Name and Password<ept id="8c334963-e056-4f40-985e-3c1a798ef65e">&lt;/strong&gt;</ept> and then type in appropriate credentials for the SQL Database server.</source>
+          <target state="new">In the <bpt id="4509d694-ec5f-42eb-a78f-964cf622dd11">&lt;strong&gt;</bpt>Log on Credentials<ept id="4509d694-ec5f-42eb-a78f-964cf622dd11">&lt;/strong&gt;</ept> section, select <bpt id="8c334963-e056-4f40-985e-3c1a798ef65e">&lt;strong&gt;</bpt>Use the following User Name and Password<ept id="8c334963-e056-4f40-985e-3c1a798ef65e">&lt;/strong&gt;</ept> and then type in appropriate credentials for the SQL Database server.</target>
+        </trans-unit>
+        <trans-unit id="e7e272a1-4942-41f3-9bc0-66ba3a863f93" xml:space="preserve">
+          <source>Then click <bpt id="b22c2220-3296-48b2-bbd9-190386218baf">&lt;strong&gt;</bpt>Next<ept id="b22c2220-3296-48b2-bbd9-190386218baf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="b22c2220-3296-48b2-bbd9-190386218baf">&lt;strong&gt;</bpt>Next<ept id="b22c2220-3296-48b2-bbd9-190386218baf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33e74940-6190-4b69-a53c-0020670a455f" xml:space="preserve">
+          <source>Note: Both <bpt id="0b746c68-e004-4623-a44c-5f03f828fd72">&lt;linkText&gt;</bpt>PowerPivot<ept id="0b746c68-e004-4623-a44c-5f03f828fd72">&lt;/linkText&gt;</ept><bpt id="0b746c68-e004-4623-a44c-5f03f828fd72">&lt;title&gt;</bpt><ept id="0b746c68-e004-4623-a44c-5f03f828fd72">&lt;/title&gt;</ept> and <bpt id="16a74ca8-9f98-47b0-8455-e97532c05236">&lt;linkText&gt;</bpt>Power Query<ept id="16a74ca8-9f98-47b0-8455-e97532c05236">&lt;/linkText&gt;</ept><bpt id="16a74ca8-9f98-47b0-8455-e97532c05236">&lt;title&gt;</bpt><ept id="16a74ca8-9f98-47b0-8455-e97532c05236">&lt;/title&gt;</ept> add-ins for Excel have very similar experiences.</source>
+          <target state="new">Note: Both <bpt id="0b746c68-e004-4623-a44c-5f03f828fd72">&lt;linkText&gt;</bpt>PowerPivot<ept id="0b746c68-e004-4623-a44c-5f03f828fd72">&lt;/linkText&gt;</ept><bpt id="0b746c68-e004-4623-a44c-5f03f828fd72">&lt;title&gt;</bpt><ept id="0b746c68-e004-4623-a44c-5f03f828fd72">&lt;/title&gt;</ept> and <bpt id="16a74ca8-9f98-47b0-8455-e97532c05236">&lt;linkText&gt;</bpt>Power Query<ept id="16a74ca8-9f98-47b0-8455-e97532c05236">&lt;/linkText&gt;</ept><bpt id="16a74ca8-9f98-47b0-8455-e97532c05236">&lt;title&gt;</bpt><ept id="16a74ca8-9f98-47b0-8455-e97532c05236">&lt;/title&gt;</ept> add-ins for Excel have very similar experiences.</target>
+        </trans-unit>
+        <trans-unit id="ccb7eb1c-1ec4-4c64-9167-4be1a90da454" xml:space="preserve">
+          <source>In the <bpt id="8364dc63-88f6-486f-9b81-5bf55d759ebb">&lt;strong&gt;</bpt>Select Database and Table<ept id="8364dc63-88f6-486f-9b81-5bf55d759ebb">&lt;/strong&gt;</ept> dialog, select the <bpt id="92f6ab99-6ab2-457e-9d8a-d9ae2a9823fb">&lt;strong&gt;</bpt>AdventureWorks<ept id="92f6ab99-6ab2-457e-9d8a-d9ae2a9823fb">&lt;/strong&gt;</ept> database from the pull-down menu and select <bpt id="2d75998f-1001-42bd-9332-19127e45d17b">&lt;strong&gt;</bpt>vGetAllCategories<ept id="2d75998f-1001-42bd-9332-19127e45d17b">&lt;/strong&gt;</ept> from the list of tables and views, then click <bpt id="bbe30f73-2fc4-4710-ad28-926c4edc5bbf">&lt;strong&gt;</bpt>Next<ept id="bbe30f73-2fc4-4710-ad28-926c4edc5bbf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="8364dc63-88f6-486f-9b81-5bf55d759ebb">&lt;strong&gt;</bpt>Select Database and Table<ept id="8364dc63-88f6-486f-9b81-5bf55d759ebb">&lt;/strong&gt;</ept> dialog, select the <bpt id="92f6ab99-6ab2-457e-9d8a-d9ae2a9823fb">&lt;strong&gt;</bpt>AdventureWorks<ept id="92f6ab99-6ab2-457e-9d8a-d9ae2a9823fb">&lt;/strong&gt;</ept> database from the pull-down menu and select <bpt id="2d75998f-1001-42bd-9332-19127e45d17b">&lt;strong&gt;</bpt>vGetAllCategories<ept id="2d75998f-1001-42bd-9332-19127e45d17b">&lt;/strong&gt;</ept> from the list of tables and views, then click <bpt id="bbe30f73-2fc4-4710-ad28-926c4edc5bbf">&lt;strong&gt;</bpt>Next<ept id="bbe30f73-2fc4-4710-ad28-926c4edc5bbf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc2c9986-74ea-478b-9292-9c0934308e25" xml:space="preserve">
+          <source><bpt id="bf167f88-c9a0-4d3c-a95c-f67597850a86">&lt;linkText&gt;</bpt>Select a database and table<ept id="bf167f88-c9a0-4d3c-a95c-f67597850a86">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bf167f88-c9a0-4d3c-a95c-f67597850a86">&lt;linkText&gt;</bpt>Select a database and table<ept id="bf167f88-c9a0-4d3c-a95c-f67597850a86">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b5d9612-265f-47c0-b5ae-b39d55f201f7" xml:space="preserve">
+          <source>In the <bpt id="50e8e774-fd1f-4e02-b819-d61288015ab8">&lt;strong&gt;</bpt>Save Data Connection File and Finish<ept id="50e8e774-fd1f-4e02-b819-d61288015ab8">&lt;/strong&gt;</ept> dialog, click <bpt id="e4a80b9d-b582-4018-946b-4d1a0eb106aa">&lt;strong&gt;</bpt>Finish<ept id="e4a80b9d-b582-4018-946b-4d1a0eb106aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="50e8e774-fd1f-4e02-b819-d61288015ab8">&lt;strong&gt;</bpt>Save Data Connection File and Finish<ept id="50e8e774-fd1f-4e02-b819-d61288015ab8">&lt;/strong&gt;</ept> dialog, click <bpt id="e4a80b9d-b582-4018-946b-4d1a0eb106aa">&lt;strong&gt;</bpt>Finish<ept id="e4a80b9d-b582-4018-946b-4d1a0eb106aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46e11297-e9bd-41f8-b8e0-9cba7b6b1d87" xml:space="preserve">
+          <source>In the <bpt id="6407768d-e65b-4660-bb1b-c6e1cd1cc142">&lt;strong&gt;</bpt>Import Data<ept id="6407768d-e65b-4660-bb1b-c6e1cd1cc142">&lt;/strong&gt;</ept> dialog, select <bpt id="98e9126e-8a29-49ed-971e-8eab2e431a37">&lt;strong&gt;</bpt>PivotChart<ept id="98e9126e-8a29-49ed-971e-8eab2e431a37">&lt;/strong&gt;</ept> and click <bpt id="f0f3e82a-6561-4e66-8e3f-8d18ee9800df">&lt;strong&gt;</bpt>OK<ept id="f0f3e82a-6561-4e66-8e3f-8d18ee9800df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="6407768d-e65b-4660-bb1b-c6e1cd1cc142">&lt;strong&gt;</bpt>Import Data<ept id="6407768d-e65b-4660-bb1b-c6e1cd1cc142">&lt;/strong&gt;</ept> dialog, select <bpt id="98e9126e-8a29-49ed-971e-8eab2e431a37">&lt;strong&gt;</bpt>PivotChart<ept id="98e9126e-8a29-49ed-971e-8eab2e431a37">&lt;/strong&gt;</ept> and click <bpt id="f0f3e82a-6561-4e66-8e3f-8d18ee9800df">&lt;strong&gt;</bpt>OK<ept id="f0f3e82a-6561-4e66-8e3f-8d18ee9800df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="342cacd3-59a8-4adf-a426-8280e8ee0447" xml:space="preserve">
+          <source><bpt id="0f40352a-9cd1-4ea6-ab8b-96fccd2d533d">&lt;linkText&gt;</bpt>Select Import Data<ept id="0f40352a-9cd1-4ea6-ab8b-96fccd2d533d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f40352a-9cd1-4ea6-ab8b-96fccd2d533d">&lt;linkText&gt;</bpt>Select Import Data<ept id="0f40352a-9cd1-4ea6-ab8b-96fccd2d533d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2534514-c383-4007-961a-f35b1023d789" xml:space="preserve">
+          <source>In the <bpt id="6aa99d85-564f-4d83-9516-193d0a9bde47">&lt;strong&gt;</bpt>PivotChart Fields<ept id="6aa99d85-564f-4d83-9516-193d0a9bde47">&lt;/strong&gt;</ept> dialog, select the following configuration to create a report for the count of products per category.</source>
+          <target state="new">In the <bpt id="6aa99d85-564f-4d83-9516-193d0a9bde47">&lt;strong&gt;</bpt>PivotChart Fields<ept id="6aa99d85-564f-4d83-9516-193d0a9bde47">&lt;/strong&gt;</ept> dialog, select the following configuration to create a report for the count of products per category.</target>
+        </trans-unit>
+        <trans-unit id="f2af007a-26ef-44a6-b004-7f3c7b29883d" xml:space="preserve">
+          <source><bpt id="4e5f4279-34d4-4ad8-abc9-514bbd880086">&lt;linkText&gt;</bpt>Configuration<ept id="4e5f4279-34d4-4ad8-abc9-514bbd880086">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e5f4279-34d4-4ad8-abc9-514bbd880086">&lt;linkText&gt;</bpt>Configuration<ept id="4e5f4279-34d4-4ad8-abc9-514bbd880086">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc4d3642-1a7f-4fca-9662-7958bc47e243" xml:space="preserve">
+          <source>Success looks like this:</source>
+          <target state="new">Success looks like this:</target>
+        </trans-unit>
+        <trans-unit id="e55b055d-0822-4cd3-8e89-e62fa0d2dd72" xml:space="preserve">
+          <source><bpt id="b7600e8a-0998-4b88-aab7-e3bf252cbfb9">&lt;linkText&gt;</bpt>success<ept id="b7600e8a-0998-4b88-aab7-e3bf252cbfb9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7600e8a-0998-4b88-aab7-e3bf252cbfb9">&lt;linkText&gt;</bpt>success<ept id="b7600e8a-0998-4b88-aab7-e3bf252cbfb9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13152aa2-7424-4c37-b5a6-515f302dbc62" xml:space="preserve">
+          <source>If you are a Software as a Service (SaaS) developer, learn about <bpt id="4a471c0e-7c96-4fcb-ac4a-5b84369fe044">&lt;linkText&gt;</bpt>Elastic Database pools<ept id="4a471c0e-7c96-4fcb-ac4a-5b84369fe044">&lt;/linkText&gt;</ept><bpt id="4a471c0e-7c96-4fcb-ac4a-5b84369fe044">&lt;title&gt;</bpt><ept id="4a471c0e-7c96-4fcb-ac4a-5b84369fe044">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are a Software as a Service (SaaS) developer, learn about <bpt id="4a471c0e-7c96-4fcb-ac4a-5b84369fe044">&lt;linkText&gt;</bpt>Elastic Database pools<ept id="4a471c0e-7c96-4fcb-ac4a-5b84369fe044">&lt;/linkText&gt;</ept><bpt id="4a471c0e-7c96-4fcb-ac4a-5b84369fe044">&lt;title&gt;</bpt><ept id="4a471c0e-7c96-4fcb-ac4a-5b84369fe044">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="524355c0-7f55-42ea-b96b-9a773f4336d1" xml:space="preserve">
+          <source>You can easily manage large collections of databases using <bpt id="aa4bb861-9727-43d6-93fd-7a972cb01707">&lt;linkText&gt;</bpt>Elastic Database jobs<ept id="aa4bb861-9727-43d6-93fd-7a972cb01707">&lt;/linkText&gt;</ept><bpt id="aa4bb861-9727-43d6-93fd-7a972cb01707">&lt;title&gt;</bpt><ept id="aa4bb861-9727-43d6-93fd-7a972cb01707">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can easily manage large collections of databases using <bpt id="aa4bb861-9727-43d6-93fd-7a972cb01707">&lt;linkText&gt;</bpt>Elastic Database jobs<ept id="aa4bb861-9727-43d6-93fd-7a972cb01707">&lt;/linkText&gt;</ept><bpt id="aa4bb861-9727-43d6-93fd-7a972cb01707">&lt;title&gt;</bpt><ept id="aa4bb861-9727-43d6-93fd-7a972cb01707">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86bf2320-a429-4e1d-af51-25c64d6c0eee" xml:space="preserve">
+          <source>./media/sql-database-connect-excel/connect-to-database-server.png</source>
+          <target state="new">./media/sql-database-connect-excel/connect-to-database-server.png</target>
+        </trans-unit>
+        <trans-unit id="daec094a-994e-49a7-9953-829166c076f5" xml:space="preserve">
+          <source>./media/sql-database-connect-excel/import-data.png</source>
+          <target state="new">./media/sql-database-connect-excel/import-data.png</target>
+        </trans-unit>
+        <trans-unit id="cc0c6594-9ad9-4107-97c0-ec260ce2d0a8" xml:space="preserve">
+          <source>./media/sql-database-connect-excel/power-pivot.png</source>
+          <target state="new">./media/sql-database-connect-excel/power-pivot.png</target>
+        </trans-unit>
+        <trans-unit id="781969f4-90a5-4720-a252-d1116e5a8cca" xml:space="preserve">
+          <source>./media/sql-database-connect-excel/power-pivot-results.png</source>
+          <target state="new">./media/sql-database-connect-excel/power-pivot-results.png</target>
+        </trans-unit>
+        <trans-unit id="cf3302ab-b0ad-4dc3-9ba6-6e03cd4c81e5" xml:space="preserve">
+          <source>./media/sql-database-connect-excel/select-database-and-table.png</source>
+          <target state="new">./media/sql-database-connect-excel/select-database-and-table.png</target>
+        </trans-unit>
+      </group>
+      <group id="6efb6b4f-4fdc-4ae1-9370-49aa316e1760" />
+    </body>
+  </file>
+</xliff>

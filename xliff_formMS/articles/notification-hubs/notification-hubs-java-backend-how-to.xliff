@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a9df1d31-2f3b-4a2b-b4fe-ab656b6f85f7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a9df1d31-2f3b-4a2b-b4fe-ab656b6f85f7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="70869351-fe5e-4a3e-ab40-b7612fa5c8d0">
+        <trans-unit id="c5c3ad60-fdee-4fb5-8a1d-2d26e2f9a952" xml:space="preserve">
+          <source>How to use Notification Hubs with Java</source>
+          <target state="new">How to use Notification Hubs with Java</target>
+        </trans-unit>
+        <trans-unit id="ff40633e-052d-407a-acc2-64f759c7c39f" xml:space="preserve">
+          <source>Learn how to use Azure Notification Hubs from a Java back-end.</source>
+          <target state="new">Learn how to use Azure Notification Hubs from a Java back-end.</target>
+        </trans-unit>
+        <trans-unit id="2e31b6df-e6a9-4fb9-928c-6958ecd26f9c" xml:space="preserve">
+          <source>This topic describes the key features of the new fully supported official Azure Notification Hub Java SDK.</source>
+          <target state="new">This topic describes the key features of the new fully supported official Azure Notification Hub Java SDK.</target>
+        </trans-unit>
+        <trans-unit id="bdae3acb-eb01-42a0-879b-211271a06aa4" xml:space="preserve">
+          <source>This is an open source project and you can view the entire SDK code at [Java SDK].</source>
+          <target state="new">This is an open source project and you can view the entire SDK code at [Java SDK].</target>
+        </trans-unit>
+        <trans-unit id="03340688-d660-4fba-9549-55c390b16f78" xml:space="preserve">
+          <source>In general, you can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic <bpt id="8ff28d17-3ff1-48d2-abde-54dab8a54785">&lt;linkText&gt;</bpt>Notification Hubs REST APIs<ept id="8ff28d17-3ff1-48d2-abde-54dab8a54785">&lt;/linkText&gt;</ept><bpt id="8ff28d17-3ff1-48d2-abde-54dab8a54785">&lt;title&gt;</bpt><ept id="8ff28d17-3ff1-48d2-abde-54dab8a54785">&lt;/title&gt;</ept>.</source>
+          <target state="new">In general, you can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic <bpt id="8ff28d17-3ff1-48d2-abde-54dab8a54785">&lt;linkText&gt;</bpt>Notification Hubs REST APIs<ept id="8ff28d17-3ff1-48d2-abde-54dab8a54785">&lt;/linkText&gt;</ept><bpt id="8ff28d17-3ff1-48d2-abde-54dab8a54785">&lt;title&gt;</bpt><ept id="8ff28d17-3ff1-48d2-abde-54dab8a54785">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8395d8e6-cd0e-4e7e-a7c9-85bb6874a79c" xml:space="preserve">
+          <source>This Java SDK provides a thin wrapper over these REST interfaces in Java.</source>
+          <target state="new">This Java SDK provides a thin wrapper over these REST interfaces in Java.</target>
+        </trans-unit>
+        <trans-unit id="d3aeaaf8-ef26-4f28-bb6e-171d42cacfad" xml:space="preserve">
+          <source>The SDK supports currently:</source>
+          <target state="new">The SDK supports currently:</target>
+        </trans-unit>
+        <trans-unit id="41c3c370-07dd-4fde-aea7-1ced58049e3f" xml:space="preserve">
+          <source>CRUD on Notification Hubs </source>
+          <target state="new">CRUD on Notification Hubs </target>
+        </trans-unit>
+        <trans-unit id="6ef3861c-1506-4a50-8af4-559c05622f27" xml:space="preserve">
+          <source>CRUD on Registrations</source>
+          <target state="new">CRUD on Registrations</target>
+        </trans-unit>
+        <trans-unit id="2f3a97a2-8982-4425-99e8-9242cc8f85ef" xml:space="preserve">
+          <source>Installation Management</source>
+          <target state="new">Installation Management</target>
+        </trans-unit>
+        <trans-unit id="a9fa21d1-5131-4b5b-aadb-edf782c3af04" xml:space="preserve">
+          <source>Import/Export Registrations</source>
+          <target state="new">Import/Export Registrations</target>
+        </trans-unit>
+        <trans-unit id="9978d837-6df2-42c4-bec0-1c7c49d31c8b" xml:space="preserve">
+          <source>Regular Sends</source>
+          <target state="new">Regular Sends</target>
+        </trans-unit>
+        <trans-unit id="ebc070c4-5eaa-440a-9838-e3fd4f4bd02d" xml:space="preserve">
+          <source>Scheduled Sends</source>
+          <target state="new">Scheduled Sends</target>
+        </trans-unit>
+        <trans-unit id="22d44b4d-050c-451e-99c6-66aa2db62ce9" xml:space="preserve">
+          <source>Async operations via Java NIO</source>
+          <target state="new">Async operations via Java NIO</target>
+        </trans-unit>
+        <trans-unit id="dfef0157-6381-49cb-b5a7-4b63f538fed3" xml:space="preserve">
+          <source>Supported platforms: APNS (iOS), GCM (Android), WNS (Windows Store apps), MPNS(Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android without Google services) </source>
+          <target state="new">Supported platforms: APNS (iOS), GCM (Android), WNS (Windows Store apps), MPNS(Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android without Google services) </target>
+        </trans-unit>
+        <trans-unit id="9ad03840-2e99-464f-9fec-3598ea437a2e" xml:space="preserve">
+          <source>Use [Maven]</source>
+          <target state="new">Use [Maven]</target>
+        </trans-unit>
+        <trans-unit id="4365dfdc-0f7a-4f30-a33a-c78d3fb15c1b" xml:space="preserve">
+          <source>To build:</source>
+          <target state="new">To build:</target>
+        </trans-unit>
+        <trans-unit id="b9e1c5ab-0767-4f5f-99e2-ccfacb14a177" xml:space="preserve">
+          <source><bpt id="90902a12-9e63-4621-b6c6-9c59b274b161">&lt;strong&gt;</bpt>Create a NamespaceManager:<ept id="90902a12-9e63-4621-b6c6-9c59b274b161">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="90902a12-9e63-4621-b6c6-9c59b274b161">&lt;strong&gt;</bpt>Create a NamespaceManager:<ept id="90902a12-9e63-4621-b6c6-9c59b274b161">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6cb68db6-68f9-442d-953b-7920202ae177" xml:space="preserve">
+          <source><bpt id="6c34c055-cab7-4b6a-a5f3-cb795a2ae1ef">&lt;strong&gt;</bpt>Create Notification Hub:<ept id="6c34c055-cab7-4b6a-a5f3-cb795a2ae1ef">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6c34c055-cab7-4b6a-a5f3-cb795a2ae1ef">&lt;strong&gt;</bpt>Create Notification Hub:<ept id="6c34c055-cab7-4b6a-a5f3-cb795a2ae1ef">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e684ae4-4d17-4250-8289-c95bb7d9766f" xml:space="preserve">
+          <source> OR</source>
+          <target state="new"> OR</target>
+        </trans-unit>
+        <trans-unit id="0c8d3a53-0449-4190-9ed3-745b8d3fe856" xml:space="preserve">
+          <source><bpt id="ccb72406-e8b3-492a-b287-273215f3cb23">&lt;strong&gt;</bpt>Get Notification Hub:<ept id="ccb72406-e8b3-492a-b287-273215f3cb23">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ccb72406-e8b3-492a-b287-273215f3cb23">&lt;strong&gt;</bpt>Get Notification Hub:<ept id="ccb72406-e8b3-492a-b287-273215f3cb23">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a85cc1d-84d7-48a3-a404-78c4ddbd1087" xml:space="preserve">
+          <source><bpt id="366e7548-039e-4127-8f6c-37ad2d12e361">&lt;strong&gt;</bpt>Update Notification Hub:<ept id="366e7548-039e-4127-8f6c-37ad2d12e361">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="366e7548-039e-4127-8f6c-37ad2d12e361">&lt;strong&gt;</bpt>Update Notification Hub:<ept id="366e7548-039e-4127-8f6c-37ad2d12e361">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93911776-d33c-429e-9413-d4db237f7382" xml:space="preserve">
+          <source><bpt id="68909f2d-e14a-4157-8a4c-ad0b36238ca2">&lt;strong&gt;</bpt>Delete Notification Hub:<ept id="68909f2d-e14a-4157-8a4c-ad0b36238ca2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="68909f2d-e14a-4157-8a4c-ad0b36238ca2">&lt;strong&gt;</bpt>Delete Notification Hub:<ept id="68909f2d-e14a-4157-8a4c-ad0b36238ca2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b738d199-1bd2-4e57-9d38-b808cd5de3d3" xml:space="preserve">
+          <source><bpt id="72d30685-399f-497a-9efd-dba1ac111e1a">&lt;strong&gt;</bpt>Create a Notification Hub client:<ept id="72d30685-399f-497a-9efd-dba1ac111e1a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="72d30685-399f-497a-9efd-dba1ac111e1a">&lt;strong&gt;</bpt>Create a Notification Hub client:<ept id="72d30685-399f-497a-9efd-dba1ac111e1a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9ac8db3-056a-43ca-9f0c-3bc66e7572da" xml:space="preserve">
+          <source><bpt id="32a2bde0-8a18-4676-8e8d-1813fa04403d">&lt;strong&gt;</bpt>Create Windows registration:<ept id="32a2bde0-8a18-4676-8e8d-1813fa04403d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="32a2bde0-8a18-4676-8e8d-1813fa04403d">&lt;strong&gt;</bpt>Create Windows registration:<ept id="32a2bde0-8a18-4676-8e8d-1813fa04403d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f6ac55a-1b51-420d-a99b-576767d3c134" xml:space="preserve">
+          <source><bpt id="b8cdc8cd-6411-46c9-9a76-e7efc8a3bedc">&lt;strong&gt;</bpt>Create iOS registration:<ept id="b8cdc8cd-6411-46c9-9a76-e7efc8a3bedc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b8cdc8cd-6411-46c9-9a76-e7efc8a3bedc">&lt;strong&gt;</bpt>Create iOS registration:<ept id="b8cdc8cd-6411-46c9-9a76-e7efc8a3bedc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d81ad2d-c0f2-422b-b5cf-f9931071a55a" xml:space="preserve">
+          <source>Similarly you can create registrations for Android (GCM), Windows Phone (MPNS), and Kindle Fire (ADM).</source>
+          <target state="new">Similarly you can create registrations for Android (GCM), Windows Phone (MPNS), and Kindle Fire (ADM).</target>
+        </trans-unit>
+        <trans-unit id="01584801-92d9-4396-ba74-930093a18f3e" xml:space="preserve">
+          <source><bpt id="c3f336d6-6dbc-4b5a-aacb-5b30dbf9f984">&lt;strong&gt;</bpt>Create template registrations:<ept id="c3f336d6-6dbc-4b5a-aacb-5b30dbf9f984">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c3f336d6-6dbc-4b5a-aacb-5b30dbf9f984">&lt;strong&gt;</bpt>Create template registrations:<ept id="c3f336d6-6dbc-4b5a-aacb-5b30dbf9f984">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b19249f-7e9c-4f21-b00f-c47445830669" xml:space="preserve">
+          <source><bpt id="4aa786fd-b783-4f2d-8189-a93b7f518ed3">&lt;strong&gt;</bpt>Create registrations using create registrationid + upsert pattern<ept id="4aa786fd-b783-4f2d-8189-a93b7f518ed3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4aa786fd-b783-4f2d-8189-a93b7f518ed3">&lt;strong&gt;</bpt>Create registrations using create registrationid + upsert pattern<ept id="4aa786fd-b783-4f2d-8189-a93b7f518ed3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="071f6d1a-a6c9-407c-afdc-5507211bbef2" xml:space="preserve">
+          <source>Removes duplicates due to any lost responses if storing registration ids on the device:</source>
+          <target state="new">Removes duplicates due to any lost responses if storing registration ids on the device:</target>
+        </trans-unit>
+        <trans-unit id="92947931-1858-4913-a23a-5110b8f3a5b4" xml:space="preserve">
+          <source><bpt id="d86a524f-af01-4e86-a370-3a45ed878a91">&lt;strong&gt;</bpt>Update registrations:<ept id="d86a524f-af01-4e86-a370-3a45ed878a91">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d86a524f-af01-4e86-a370-3a45ed878a91">&lt;strong&gt;</bpt>Update registrations:<ept id="d86a524f-af01-4e86-a370-3a45ed878a91">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2ef575c-46e4-4e02-9c3d-c3f5cb6d78ed" xml:space="preserve">
+          <source><bpt id="f4a44daa-c159-4c6f-afca-6849e7fd326e">&lt;strong&gt;</bpt>Delete registrations:<ept id="f4a44daa-c159-4c6f-afca-6849e7fd326e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f4a44daa-c159-4c6f-afca-6849e7fd326e">&lt;strong&gt;</bpt>Delete registrations:<ept id="f4a44daa-c159-4c6f-afca-6849e7fd326e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c8c20f0-acc5-4342-8618-7b8af338279e" xml:space="preserve">
+          <source><bpt id="9f0baa05-d6a3-43a3-b338-c7e92a5927ce">&lt;strong&gt;</bpt>Query registrations:<ept id="9f0baa05-d6a3-43a3-b338-c7e92a5927ce">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9f0baa05-d6a3-43a3-b338-c7e92a5927ce">&lt;strong&gt;</bpt>Query registrations:<ept id="9f0baa05-d6a3-43a3-b338-c7e92a5927ce">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a62d26bb-2627-4754-bbd1-012a5c4e0ef2" xml:space="preserve">
+          <source><bpt id="2c699888-fa1c-4b83-a646-f5e41815d8e0">&lt;strong&gt;</bpt>Get single registration:<ept id="2c699888-fa1c-4b83-a646-f5e41815d8e0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2c699888-fa1c-4b83-a646-f5e41815d8e0">&lt;strong&gt;</bpt>Get single registration:<ept id="2c699888-fa1c-4b83-a646-f5e41815d8e0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59410acc-4382-4810-81ad-a4dd9f553a86" xml:space="preserve">
+          <source><bpt id="bdd5638c-0076-4e40-9d60-45ff24aa1a41">&lt;strong&gt;</bpt>Get all registrations in hub:<ept id="bdd5638c-0076-4e40-9d60-45ff24aa1a41">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bdd5638c-0076-4e40-9d60-45ff24aa1a41">&lt;strong&gt;</bpt>Get all registrations in hub:<ept id="bdd5638c-0076-4e40-9d60-45ff24aa1a41">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f20df8b0-d040-407a-8658-1affb3c1dacb" xml:space="preserve">
+          <source><bpt id="8b61a7b0-efc1-4ab2-a07f-9b507f780311">&lt;strong&gt;</bpt>Get registrations with tag:<ept id="8b61a7b0-efc1-4ab2-a07f-9b507f780311">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8b61a7b0-efc1-4ab2-a07f-9b507f780311">&lt;strong&gt;</bpt>Get registrations with tag:<ept id="8b61a7b0-efc1-4ab2-a07f-9b507f780311">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a06f50cb-1f20-4add-94d5-e54530c1e88c" xml:space="preserve">
+          <source><bpt id="b123c809-915d-47eb-80b3-e87fdc857c88">&lt;strong&gt;</bpt>Get registrations by channel:<ept id="b123c809-915d-47eb-80b3-e87fdc857c88">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b123c809-915d-47eb-80b3-e87fdc857c88">&lt;strong&gt;</bpt>Get registrations by channel:<ept id="b123c809-915d-47eb-80b3-e87fdc857c88">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2140572f-d018-4f0b-b06c-25ffb97d892c" xml:space="preserve">
+          <source>All collection queries support $top and continuation tokens.</source>
+          <target state="new">All collection queries support $top and continuation tokens.</target>
+        </trans-unit>
+        <trans-unit id="75d738a0-deb0-4f26-ae57-00025e59ec7b" xml:space="preserve">
+          <source>Installation API is an alternative mechanism for registration management.</source>
+          <target state="new">Installation API is an alternative mechanism for registration management.</target>
+        </trans-unit>
+        <trans-unit id="1a6ca890-32ea-4860-8af5-b4d386733569" xml:space="preserve">
+          <source>Instead of maintaining multiple registrations which is not trivial and may be easily done wrongly or inefficiently, it is now possible to use a SINGLE Installation object.</source>
+          <target state="new">Instead of maintaining multiple registrations which is not trivial and may be easily done wrongly or inefficiently, it is now possible to use a SINGLE Installation object.</target>
+        </trans-unit>
+        <trans-unit id="9e6899e4-947f-42c3-b23b-4d09790f7b1f" xml:space="preserve">
+          <source>Installation contains everything you need: push channel (device token), tags, templates, secondary tiles (for WNS and APNS).</source>
+          <target state="new">Installation contains everything you need: push channel (device token), tags, templates, secondary tiles (for WNS and APNS).</target>
+        </trans-unit>
+        <trans-unit id="5d3b12a2-a807-495a-8b0d-cbdaff000026" xml:space="preserve">
+          <source>You don't need to call the service to get Id anymore - just generate GUID or any other identifier, keep it on device and send to your backend together with push channel (device token).</source>
+          <target state="new">You don't need to call the service to get Id anymore - just generate GUID or any other identifier, keep it on device and send to your backend together with push channel (device token).</target>
+        </trans-unit>
+        <trans-unit id="75111d39-63cd-4d52-ba19-ecd4792bc5f6" xml:space="preserve">
+          <source>On the backend you should only do a single call: CreateOrUpdateInstallation, it is fully idempotent, so feel free to retry if needed.</source>
+          <target state="new">On the backend you should only do a single call: CreateOrUpdateInstallation, it is fully idempotent, so feel free to retry if needed.</target>
+        </trans-unit>
+        <trans-unit id="18741bc1-5818-462a-b6d8-74c319951a88" xml:space="preserve">
+          <source>As example for Amazon Kindle Fire it looks like this:</source>
+          <target state="new">As example for Amazon Kindle Fire it looks like this:</target>
+        </trans-unit>
+        <trans-unit id="75a394a6-bbc6-4831-8069-c9fb67200b90" xml:space="preserve">
+          <source>If you want to update it: </source>
+          <target state="new">If you want to update it: </target>
+        </trans-unit>
+        <trans-unit id="55cc1d6b-00bd-42f0-91a0-c4e8738ecd0a" xml:space="preserve">
+          <source>For advanced scenarios we have partial update capability which allows to modify only particular properties of the installation object.</source>
+          <target state="new">For advanced scenarios we have partial update capability which allows to modify only particular properties of the installation object.</target>
+        </trans-unit>
+        <trans-unit id="c7ced59b-0224-45b9-9c9b-35c37d7894e9" xml:space="preserve">
+          <source>Basically partial update is subset of JSON Patch operations you can run against Installation object.</source>
+          <target state="new">Basically partial update is subset of JSON Patch operations you can run against Installation object.</target>
+        </trans-unit>
+        <trans-unit id="3f0f4d53-3613-47ea-98ce-2e0d16333ed2" xml:space="preserve">
+          <source>Delete Installation:</source>
+          <target state="new">Delete Installation:</target>
+        </trans-unit>
+        <trans-unit id="c3f41e2a-8d2b-4221-bc40-4527b8f47c9c" xml:space="preserve">
+          <source>CreateOrUpdate, Patch and Delete are eventually consistent with Get.</source>
+          <target state="new">CreateOrUpdate, Patch and Delete are eventually consistent with Get.</target>
+        </trans-unit>
+        <trans-unit id="93fd6111-1daa-4fde-a64a-829992bac6c8" xml:space="preserve">
+          <source>Your requested operation just goes to the system queue during the call and will be executed in background.</source>
+          <target state="new">Your requested operation just goes to the system queue during the call and will be executed in background.</target>
+        </trans-unit>
+        <trans-unit id="3b273625-8fa1-4b12-a7fe-0ccc8db349e3" xml:space="preserve">
+          <source>Note that Get is not designed for main runtime scenario but just for debug and troubleshooting purposes, it is tightly throttled by the service.</source>
+          <target state="new">Note that Get is not designed for main runtime scenario but just for debug and troubleshooting purposes, it is tightly throttled by the service.</target>
+        </trans-unit>
+        <trans-unit id="7f83775e-6831-41e4-98df-8a8e8990cc51" xml:space="preserve">
+          <source>Send flow for Installations is the same as for Registrations.</source>
+          <target state="new">Send flow for Installations is the same as for Registrations.</target>
+        </trans-unit>
+        <trans-unit id="059fbf5e-b584-4025-9a68-b1430a14a272" xml:space="preserve">
+          <source>We've just introduced an option to target notification to the particular Installation - just use tag "InstallationId:{desired-id}".</source>
+          <target state="new">We've just introduced an option to target notification to the particular Installation - just use tag "InstallationId:{desired-id}".</target>
+        </trans-unit>
+        <trans-unit id="d6e770c4-3eea-41d6-ae11-37cfe7f47f3d" xml:space="preserve">
+          <source>For case above it would look like this:</source>
+          <target state="new">For case above it would look like this:</target>
+        </trans-unit>
+        <trans-unit id="6683cac3-8786-4659-961c-b674832fd1ee" xml:space="preserve">
+          <source>For one of several templates:</source>
+          <target state="new">For one of several templates:</target>
+        </trans-unit>
+        <trans-unit id="29931942-a557-4719-bf44-99be4bf6d91c" xml:space="preserve">
+          <source>The same as regular send but with one additional parameter - scheduledTime which says when notification should be delivered.</source>
+          <target state="new">The same as regular send but with one additional parameter - scheduledTime which says when notification should be delivered.</target>
+        </trans-unit>
+        <trans-unit id="f16899ff-7f3b-4250-abd1-a75f34fdadf9" xml:space="preserve">
+          <source>Service accepts any point of time between now + 5 minutes and now + 7 days.</source>
+          <target state="new">Service accepts any point of time between now + 5 minutes and now + 7 days.</target>
+        </trans-unit>
+        <trans-unit id="01e26178-205e-48c6-a130-7fc911df4f93" xml:space="preserve">
+          <source><bpt id="62fbdfab-890c-4506-b8c8-47f5f31c749a">&lt;strong&gt;</bpt>Schedule a Windows native notification:<ept id="62fbdfab-890c-4506-b8c8-47f5f31c749a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="62fbdfab-890c-4506-b8c8-47f5f31c749a">&lt;strong&gt;</bpt>Schedule a Windows native notification:<ept id="62fbdfab-890c-4506-b8c8-47f5f31c749a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0ef3cad-9c1e-4697-b7f2-9e8aaaad0ec2" xml:space="preserve">
+          <source>Sometimes it is required to perform bulk operation against registrations.</source>
+          <target state="new">Sometimes it is required to perform bulk operation against registrations.</target>
+        </trans-unit>
+        <trans-unit id="7ac6b521-5707-481a-90ef-ed496a93f60f" xml:space="preserve">
+          <source>Usually it is for integration with another system or just a massive fix to say update the tags.</source>
+          <target state="new">Usually it is for integration with another system or just a massive fix to say update the tags.</target>
+        </trans-unit>
+        <trans-unit id="6489294a-5c9f-4af0-a03e-1d2dc34c3598" xml:space="preserve">
+          <source>It is strongly not recommended to use Get/Update flow if we are talking about thousands of registrations.</source>
+          <target state="new">It is strongly not recommended to use Get/Update flow if we are talking about thousands of registrations.</target>
+        </trans-unit>
+        <trans-unit id="065093e7-1124-4f04-9932-5c2d03d266bb" xml:space="preserve">
+          <source>Import/Export capability is designed to cover the scenario.</source>
+          <target state="new">Import/Export capability is designed to cover the scenario.</target>
+        </trans-unit>
+        <trans-unit id="c02dea83-ac61-4e0a-b366-3018e8c415b3" xml:space="preserve">
+          <source>Basically you provide an access to some blob container under your storage account as a source of incoming data and location for output.</source>
+          <target state="new">Basically you provide an access to some blob container under your storage account as a source of incoming data and location for output.</target>
+        </trans-unit>
+        <trans-unit id="a33066e7-c786-4bde-b9c7-d6368d1b36e1" xml:space="preserve">
+          <source><bpt id="43da386e-dde8-419f-b71f-99730dbbb0dc">&lt;strong&gt;</bpt>Submit export job:<ept id="43da386e-dde8-419f-b71f-99730dbbb0dc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="43da386e-dde8-419f-b71f-99730dbbb0dc">&lt;strong&gt;</bpt>Submit export job:<ept id="43da386e-dde8-419f-b71f-99730dbbb0dc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3896447-70c6-42d9-8311-267094a86456" xml:space="preserve">
+          <source><bpt id="99ffe935-c1da-4a98-91ff-a4221bcb0622">&lt;strong&gt;</bpt>Submit import job:<ept id="99ffe935-c1da-4a98-91ff-a4221bcb0622">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="99ffe935-c1da-4a98-91ff-a4221bcb0622">&lt;strong&gt;</bpt>Submit import job:<ept id="99ffe935-c1da-4a98-91ff-a4221bcb0622">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f34cc23-b599-4e2e-9b16-3598c1d1b4e9" xml:space="preserve">
+          <source><bpt id="d9fffc45-c889-4804-b5d4-6185e36d6fe5">&lt;strong&gt;</bpt>Wait until job is done:<ept id="d9fffc45-c889-4804-b5d4-6185e36d6fe5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d9fffc45-c889-4804-b5d4-6185e36d6fe5">&lt;strong&gt;</bpt>Wait until job is done:<ept id="d9fffc45-c889-4804-b5d4-6185e36d6fe5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c749161a-e4a8-4b65-ac06-4785462956ff" xml:space="preserve">
+          <source><bpt id="fa37a4e4-9422-49c0-b481-3e99af9d328b">&lt;strong&gt;</bpt>Get all jobs:<ept id="fa37a4e4-9422-49c0-b481-3e99af9d328b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fa37a4e4-9422-49c0-b481-3e99af9d328b">&lt;strong&gt;</bpt>Get all jobs:<ept id="fa37a4e4-9422-49c0-b481-3e99af9d328b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7348a013-cd87-464b-a42e-90f66f7c851b" xml:space="preserve">
+          <source><bpt id="11bf22b3-6194-4e40-952a-697b9b08889d">&lt;strong&gt;</bpt>URI with SAS signature:<ept id="11bf22b3-6194-4e40-952a-697b9b08889d">&lt;/strong&gt;</ept>
+This is the URL of some blob file or blob container plus set of parameters like permissions and expiration time plus signature of all these things made using account's SAS key.</source>
+          <target state="new"><bpt id="11bf22b3-6194-4e40-952a-697b9b08889d">&lt;strong&gt;</bpt>URI with SAS signature:<ept id="11bf22b3-6194-4e40-952a-697b9b08889d">&lt;/strong&gt;</ept>
+This is the URL of some blob file or blob container plus set of parameters like permissions and expiration time plus signature of all these things made using account's SAS key.</target>
+        </trans-unit>
+        <trans-unit id="85dddb55-53d4-44f9-aedd-8a60609eb12f" xml:space="preserve">
+          <source>Azure Storage Java SDK has rich capabilities including creation of such kind of URIs.</source>
+          <target state="new">Azure Storage Java SDK has rich capabilities including creation of such kind of URIs.</target>
+        </trans-unit>
+        <trans-unit id="fa78ce70-66e5-46d7-89e5-cad4e85fec9d" xml:space="preserve">
+          <source>As simple alternative you can take a look at ImportExportE2E test class (from the github location) which has very basic and compact implementation of signing algorithm.</source>
+          <target state="new">As simple alternative you can take a look at ImportExportE2E test class (from the github location) which has very basic and compact implementation of signing algorithm.</target>
+        </trans-unit>
+        <trans-unit id="71b66a02-ec26-4596-baba-3887782a17a4" xml:space="preserve">
+          <source>The Notification object is simply a body with headers, some utility methods help in building the native and template notifications objects.</source>
+          <target state="new">The Notification object is simply a body with headers, some utility methods help in building the native and template notifications objects.</target>
+        </trans-unit>
+        <trans-unit id="12662afb-2434-4c0f-9874-a32fea7c17b6" xml:space="preserve">
+          <source><bpt id="8bad255f-12f8-4780-a681-5930f499575e">&lt;strong&gt;</bpt>Windows Store and Windows Phone 8.1 (non-Silverlight)<ept id="8bad255f-12f8-4780-a681-5930f499575e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8bad255f-12f8-4780-a681-5930f499575e">&lt;strong&gt;</bpt>Windows Store and Windows Phone 8.1 (non-Silverlight)<ept id="8bad255f-12f8-4780-a681-5930f499575e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="132eebf3-aa25-4190-8d58-a95857ed1574" xml:space="preserve">
+          <source><bpt id="1c96935c-35c3-4e55-beff-3fdba2027dc8">&lt;strong&gt;</bpt>iOS<ept id="1c96935c-35c3-4e55-beff-3fdba2027dc8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1c96935c-35c3-4e55-beff-3fdba2027dc8">&lt;strong&gt;</bpt>iOS<ept id="1c96935c-35c3-4e55-beff-3fdba2027dc8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95c313c0-6a6a-4358-a3f0-3894e556b83f" xml:space="preserve">
+          <source><bpt id="3f817460-3cb1-4c57-af34-79c82f0bec1b">&lt;strong&gt;</bpt>Android<ept id="3f817460-3cb1-4c57-af34-79c82f0bec1b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3f817460-3cb1-4c57-af34-79c82f0bec1b">&lt;strong&gt;</bpt>Android<ept id="3f817460-3cb1-4c57-af34-79c82f0bec1b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3dffd33-0ffa-49a7-86c9-d43dd4ba43bc" xml:space="preserve">
+          <source><bpt id="b87eb743-310f-4408-9f68-d3207ea8aa5b">&lt;strong&gt;</bpt>Windows Phone 8.0 and 8.1 Silverlight<ept id="b87eb743-310f-4408-9f68-d3207ea8aa5b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b87eb743-310f-4408-9f68-d3207ea8aa5b">&lt;strong&gt;</bpt>Windows Phone 8.0 and 8.1 Silverlight<ept id="b87eb743-310f-4408-9f68-d3207ea8aa5b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42242db4-fd6a-44a4-81e7-6507145ead3d" xml:space="preserve">
+          <source><bpt id="82b613c2-bc98-4043-84a4-cca95caa9f05">&lt;strong&gt;</bpt>Kindle Fire<ept id="82b613c2-bc98-4043-84a4-cca95caa9f05">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="82b613c2-bc98-4043-84a4-cca95caa9f05">&lt;strong&gt;</bpt>Kindle Fire<ept id="82b613c2-bc98-4043-84a4-cca95caa9f05">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ac24c6e-29d0-42aa-9e14-67da73d27d04" xml:space="preserve">
+          <source><bpt id="0ac60313-c655-489a-aa9d-2e78ecd8bee8">&lt;strong&gt;</bpt>Send to Tags<ept id="0ac60313-c655-489a-aa9d-2e78ecd8bee8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0ac60313-c655-489a-aa9d-2e78ecd8bee8">&lt;strong&gt;</bpt>Send to Tags<ept id="0ac60313-c655-489a-aa9d-2e78ecd8bee8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fde3013d-8a9f-48d9-90b7-95a7feee2f34" xml:space="preserve">
+          <source><bpt id="7460cc28-6958-4538-978f-ea0dbe42556e">&lt;strong&gt;</bpt>Send to tag expression<ept id="7460cc28-6958-4538-978f-ea0dbe42556e">&lt;/strong&gt;</ept>       </source>
+          <target state="new"><bpt id="7460cc28-6958-4538-978f-ea0dbe42556e">&lt;strong&gt;</bpt>Send to tag expression<ept id="7460cc28-6958-4538-978f-ea0dbe42556e">&lt;/strong&gt;</ept>       </target>
+        </trans-unit>
+        <trans-unit id="a2abd958-5a34-4f41-a55b-93f81c8e6047" xml:space="preserve">
+          <source><bpt id="19419dbf-4e21-4c70-a3c1-a09f972971eb">&lt;strong&gt;</bpt>Send template notification<ept id="19419dbf-4e21-4c70-a3c1-a09f972971eb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="19419dbf-4e21-4c70-a3c1-a09f972971eb">&lt;strong&gt;</bpt>Send template notification<ept id="19419dbf-4e21-4c70-a3c1-a09f972971eb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92405a8b-c347-4e51-bd32-dd130fe6363b" xml:space="preserve">
+          <source>Running your Java code should now produce a notification appearing on your target device.</source>
+          <target state="new">Running your Java code should now produce a notification appearing on your target device.</target>
+        </trans-unit>
+        <trans-unit id="9879885f-370c-4219-b5fc-b7f8fc3e8d52" xml:space="preserve">
+          <source>In this topic we showed how to create a simple Java REST client for Notification Hubs.</source>
+          <target state="new">In this topic we showed how to create a simple Java REST client for Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="5e2681fd-680a-4804-8ac2-b30907e6e8ba" xml:space="preserve">
+          <source>From here you can:</source>
+          <target state="new">From here you can:</target>
+        </trans-unit>
+        <trans-unit id="c91b79d8-733c-4094-b9a2-edd20f8c14bd" xml:space="preserve">
+          <source>Download the full [Java SDK], which contains the entire SDK code.</source>
+          <target state="new">Download the full [Java SDK], which contains the entire SDK code.</target>
+        </trans-unit>
+        <trans-unit id="0fc05a1e-510a-4c48-b1fe-03e7f431a05c" xml:space="preserve">
+          <source>Play with the samples:</source>
+          <target state="new">Play with the samples:</target>
+        </trans-unit>
+        <trans-unit id="40659585-6876-4bf9-8755-ca28381f4b5f" xml:space="preserve">
+          <source>[Get Started with Notification Hubs]</source>
+          <target state="new">[Get Started with Notification Hubs]</target>
+        </trans-unit>
+        <trans-unit id="3ea6fccc-6693-4e6c-9d22-cdda760224b8" xml:space="preserve">
+          <source>[Send breaking news]</source>
+          <target state="new">[Send breaking news]</target>
+        </trans-unit>
+        <trans-unit id="0739c632-797d-4250-8d12-2e6a48743967" xml:space="preserve">
+          <source>[Send localized breaking news]</source>
+          <target state="new">[Send localized breaking news]</target>
+        </trans-unit>
+        <trans-unit id="fbf59363-6bc8-4a4f-9ca6-08994f31c496" xml:space="preserve">
+          <source>[Send notifications to authenticated users]</source>
+          <target state="new">[Send notifications to authenticated users]</target>
+        </trans-unit>
+        <trans-unit id="f1d35962-dfaa-4639-aab9-735fc6f9e37e" xml:space="preserve">
+          <source>[Send cross-platform notifications to authenticated users]</source>
+          <target state="new">[Send cross-platform notifications to authenticated users]</target>
+        </trans-unit>
+        <trans-unit id="90486265-fc3f-42bb-a2e3-7d97917a1aec" xml:space="preserve">
+          <source>https://github.com/Azure/azure-notificationhubs-java-backend</source>
+          <target state="new">https://github.com/Azure/azure-notificationhubs-java-backend</target>
+        </trans-unit>
+        <trans-unit id="7a66a26a-fc55-41af-b3e0-8722a562c061" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/</target>
+        </trans-unit>
+        <trans-unit id="e03ec541-7ac3-4dcd-8480-7e8af31f24e9" xml:space="preserve">
+          <source>http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/</source>
+          <target state="new">http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/</target>
+        </trans-unit>
+        <trans-unit id="a1f0fa41-b523-44e2-b5e2-a7fc0aaf65b9" xml:space="preserve">
+          <source>http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/</source>
+          <target state="new">http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/</target>
+        </trans-unit>
+        <trans-unit id="fb2875c7-0854-4fd0-a47d-99b17883a257" xml:space="preserve">
+          <source>http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/</source>
+          <target state="new">http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/</target>
+        </trans-unit>
+        <trans-unit id="5d491b7d-3406-44b0-9161-7905c9286b8b" xml:space="preserve">
+          <source>http://www.windowsazure.com/manage/services/notification-hubs/notify-users/</source>
+          <target state="new">http://www.windowsazure.com/manage/services/notification-hubs/notify-users/</target>
+        </trans-unit>
+        <trans-unit id="1e06333d-94d5-4fa5-b007-9dfdac236953" xml:space="preserve">
+          <source>http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/</source>
+          <target state="new">http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/</target>
+        </trans-unit>
+        <trans-unit id="c9416adf-f828-4ca4-a4ff-8b68592142b2" xml:space="preserve">
+          <source>http://maven.apache.org/</source>
+          <target state="new">http://maven.apache.org/</target>
+        </trans-unit>
+      </group>
+      <group id="6cead76b-db2b-405a-962d-d7024821b1e1" />
+    </body>
+  </file>
+</xliff>

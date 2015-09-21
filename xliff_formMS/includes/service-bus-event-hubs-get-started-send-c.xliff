@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e42b6d31-821e-4653-9965-25b227405b11" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e42b6d31-821e-4653-9965-25b227405b11" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="409a6924-ab85-4a3d-b7e6-f11edf9d654d">
+        <trans-unit id="80878315-b771-48c4-b258-2fd2eb8ebb4b" xml:space="preserve">
+          <source>In this section we will write a C app to send events to your event hub.</source>
+          <target state="new">In this section we will write a C app to send events to your event hub.</target>
+        </trans-unit>
+        <trans-unit id="3d91f2ed-f0c3-4599-8dd6-4e9ae4e9edc4" xml:space="preserve">
+          <source>We will make use of the Proton AMQP library from the <bpt id="7314c4d1-9012-447a-b2a2-05a769df8e5f">&lt;linkText&gt;</bpt>Apache Qpid project<ept id="7314c4d1-9012-447a-b2a2-05a769df8e5f">&lt;/linkText&gt;</ept><bpt id="7314c4d1-9012-447a-b2a2-05a769df8e5f">&lt;title&gt;</bpt><ept id="7314c4d1-9012-447a-b2a2-05a769df8e5f">&lt;/title&gt;</ept>.</source>
+          <target state="new">We will make use of the Proton AMQP library from the <bpt id="7314c4d1-9012-447a-b2a2-05a769df8e5f">&lt;linkText&gt;</bpt>Apache Qpid project<ept id="7314c4d1-9012-447a-b2a2-05a769df8e5f">&lt;/linkText&gt;</ept><bpt id="7314c4d1-9012-447a-b2a2-05a769df8e5f">&lt;title&gt;</bpt><ept id="7314c4d1-9012-447a-b2a2-05a769df8e5f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca0fd498-2f04-47fc-a685-d049a132012e" xml:space="preserve">
+          <source>This is analogous to using Service Bus Queues and Topics with AMQP from C as shown <bpt id="3248937a-56af-4160-aa41-9db4516a1dcf">&lt;linkText&gt;</bpt>here<ept id="3248937a-56af-4160-aa41-9db4516a1dcf">&lt;/linkText&gt;</ept><bpt id="3248937a-56af-4160-aa41-9db4516a1dcf">&lt;title&gt;</bpt><ept id="3248937a-56af-4160-aa41-9db4516a1dcf">&lt;/title&gt;</ept>.</source>
+          <target state="new">This is analogous to using Service Bus Queues and Topics with AMQP from C as shown <bpt id="3248937a-56af-4160-aa41-9db4516a1dcf">&lt;linkText&gt;</bpt>here<ept id="3248937a-56af-4160-aa41-9db4516a1dcf">&lt;/linkText&gt;</ept><bpt id="3248937a-56af-4160-aa41-9db4516a1dcf">&lt;title&gt;</bpt><ept id="3248937a-56af-4160-aa41-9db4516a1dcf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="991b6fec-c228-49e3-9ab6-3ce944ca1097" xml:space="preserve">
+          <source>For more information refer to <bpt id="2eecfcef-1eb7-44e7-9f62-fc2d5908771a">&lt;linkText&gt;</bpt>Qpid Proton documentation<ept id="2eecfcef-1eb7-44e7-9f62-fc2d5908771a">&lt;/linkText&gt;</ept><bpt id="2eecfcef-1eb7-44e7-9f62-fc2d5908771a">&lt;title&gt;</bpt><ept id="2eecfcef-1eb7-44e7-9f62-fc2d5908771a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information refer to <bpt id="2eecfcef-1eb7-44e7-9f62-fc2d5908771a">&lt;linkText&gt;</bpt>Qpid Proton documentation<ept id="2eecfcef-1eb7-44e7-9f62-fc2d5908771a">&lt;/linkText&gt;</ept><bpt id="2eecfcef-1eb7-44e7-9f62-fc2d5908771a">&lt;title&gt;</bpt><ept id="2eecfcef-1eb7-44e7-9f62-fc2d5908771a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d38702ad-cdcd-4737-8fe3-cb6a0b920ae5" xml:space="preserve">
+          <source>From the <bpt id="fde0c884-6da5-43b3-926a-894b0671a61d">&lt;linkText&gt;</bpt>Qpid AMQP Messenger page<ept id="fde0c884-6da5-43b3-926a-894b0671a61d">&lt;/linkText&gt;</ept><bpt id="fde0c884-6da5-43b3-926a-894b0671a61d">&lt;title&gt;</bpt><ept id="fde0c884-6da5-43b3-926a-894b0671a61d">&lt;/title&gt;</ept>, click the <bpt id="21e94a12-5c05-4285-9ccf-1751de6cb0fe">&lt;strong&gt;</bpt>Installing Qpid Proton<ept id="21e94a12-5c05-4285-9ccf-1751de6cb0fe">&lt;/strong&gt;</ept> link and follow the instructions depending on your environment.</source>
+          <target state="new">From the <bpt id="fde0c884-6da5-43b3-926a-894b0671a61d">&lt;linkText&gt;</bpt>Qpid AMQP Messenger page<ept id="fde0c884-6da5-43b3-926a-894b0671a61d">&lt;/linkText&gt;</ept><bpt id="fde0c884-6da5-43b3-926a-894b0671a61d">&lt;title&gt;</bpt><ept id="fde0c884-6da5-43b3-926a-894b0671a61d">&lt;/title&gt;</ept>, click the <bpt id="21e94a12-5c05-4285-9ccf-1751de6cb0fe">&lt;strong&gt;</bpt>Installing Qpid Proton<ept id="21e94a12-5c05-4285-9ccf-1751de6cb0fe">&lt;/strong&gt;</ept> link and follow the instructions depending on your environment.</target>
+        </trans-unit>
+        <trans-unit id="fd2ef303-1401-4486-81f9-936c23e5e141" xml:space="preserve">
+          <source>We will assume a Linux environment, e.g. an <bpt id="df2d8139-aa7f-4571-afd3-70c08f85ac1b">&lt;linkText&gt;</bpt>Azure Linux VM<ept id="df2d8139-aa7f-4571-afd3-70c08f85ac1b">&lt;/linkText&gt;</ept><bpt id="df2d8139-aa7f-4571-afd3-70c08f85ac1b">&lt;title&gt;</bpt><ept id="df2d8139-aa7f-4571-afd3-70c08f85ac1b">&lt;/title&gt;</ept> with Ubuntu 14.04.</source>
+          <target state="new">We will assume a Linux environment, e.g. an <bpt id="df2d8139-aa7f-4571-afd3-70c08f85ac1b">&lt;linkText&gt;</bpt>Azure Linux VM<ept id="df2d8139-aa7f-4571-afd3-70c08f85ac1b">&lt;/linkText&gt;</ept><bpt id="df2d8139-aa7f-4571-afd3-70c08f85ac1b">&lt;title&gt;</bpt><ept id="df2d8139-aa7f-4571-afd3-70c08f85ac1b">&lt;/title&gt;</ept> with Ubuntu 14.04.</target>
+        </trans-unit>
+        <trans-unit id="d123c234-f72e-469d-8e89-3e89d63a5164" xml:space="preserve">
+          <source>To compile the Proton library, install the following packages:</source>
+          <target state="new">To compile the Proton library, install the following packages:</target>
+        </trans-unit>
+        <trans-unit id="19195f98-f252-4170-b3a9-1236a6873f6c" xml:space="preserve">
+          <source>Download the <bpt id="44cf1a41-34cb-43c9-8032-ee458e07315c">&lt;linkText&gt;</bpt>Qpid Proton library<ept id="44cf1a41-34cb-43c9-8032-ee458e07315c">&lt;/linkText&gt;</ept><bpt id="44cf1a41-34cb-43c9-8032-ee458e07315c">&lt;title&gt;</bpt><ept id="44cf1a41-34cb-43c9-8032-ee458e07315c">&lt;/title&gt;</ept> library, and extract it, e.g.:</source>
+          <target state="new">Download the <bpt id="44cf1a41-34cb-43c9-8032-ee458e07315c">&lt;linkText&gt;</bpt>Qpid Proton library<ept id="44cf1a41-34cb-43c9-8032-ee458e07315c">&lt;/linkText&gt;</ept><bpt id="44cf1a41-34cb-43c9-8032-ee458e07315c">&lt;title&gt;</bpt><ept id="44cf1a41-34cb-43c9-8032-ee458e07315c">&lt;/title&gt;</ept> library, and extract it, e.g.:</target>
+        </trans-unit>
+        <trans-unit id="5374205e-cbcf-4ddb-8bfe-75683bc643e7" xml:space="preserve">
+          <source>Create a build directory, compile and install:</source>
+          <target state="new">Create a build directory, compile and install:</target>
+        </trans-unit>
+        <trans-unit id="a02503ab-2391-4e31-a08b-2ad87ba77692" xml:space="preserve">
+          <source>In your work directory, create a new file called <bpt id="9de86977-9ca6-4bb9-aa42-8492a137807a">&lt;strong&gt;</bpt>sender.c<ept id="9de86977-9ca6-4bb9-aa42-8492a137807a">&lt;/strong&gt;</ept> with the following content.</source>
+          <target state="new">In your work directory, create a new file called <bpt id="9de86977-9ca6-4bb9-aa42-8492a137807a">&lt;strong&gt;</bpt>sender.c<ept id="9de86977-9ca6-4bb9-aa42-8492a137807a">&lt;/strong&gt;</ept> with the following content.</target>
+        </trans-unit>
+        <trans-unit id="388b0508-a865-401a-9dcb-745b93d4a430" xml:space="preserve">
+          <source>Remember to substitute the value for your event hub name and namespace name (the latter is usually <bpt id="13a8b54e-d2f6-49de-a156-69060042c368">&lt;code&gt;</bpt>{event hub name}-ns<ept id="13a8b54e-d2f6-49de-a156-69060042c368">&lt;/code&gt;</ept>).</source>
+          <target state="new">Remember to substitute the value for your event hub name and namespace name (the latter is usually <bpt id="13a8b54e-d2f6-49de-a156-69060042c368">&lt;code&gt;</bpt>{event hub name}-ns<ept id="13a8b54e-d2f6-49de-a156-69060042c368">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="4ba50bd8-df57-43ad-882e-a6bc8ed4653c" xml:space="preserve">
+          <source>You must also substitute a URL-encoded version of the key for the <bpt id="79838174-2138-4396-8d42-fd5277ac99bd">&lt;strong&gt;</bpt>SendRule<ept id="79838174-2138-4396-8d42-fd5277ac99bd">&lt;/strong&gt;</ept> created earlier.</source>
+          <target state="new">You must also substitute a URL-encoded version of the key for the <bpt id="79838174-2138-4396-8d42-fd5277ac99bd">&lt;strong&gt;</bpt>SendRule<ept id="79838174-2138-4396-8d42-fd5277ac99bd">&lt;/strong&gt;</ept> created earlier.</target>
+        </trans-unit>
+        <trans-unit id="c1ef7f4b-b730-4eee-9a7c-b4ca1e4ff868" xml:space="preserve">
+          <source>You can URL-encode it <bpt id="987d463f-88f6-44ae-90a5-15da5004e3f9">&lt;linkText&gt;</bpt>here<ept id="987d463f-88f6-44ae-90a5-15da5004e3f9">&lt;/linkText&gt;</ept><bpt id="987d463f-88f6-44ae-90a5-15da5004e3f9">&lt;title&gt;</bpt><ept id="987d463f-88f6-44ae-90a5-15da5004e3f9">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can URL-encode it <bpt id="987d463f-88f6-44ae-90a5-15da5004e3f9">&lt;linkText&gt;</bpt>here<ept id="987d463f-88f6-44ae-90a5-15da5004e3f9">&lt;/linkText&gt;</ept><bpt id="987d463f-88f6-44ae-90a5-15da5004e3f9">&lt;title&gt;</bpt><ept id="987d463f-88f6-44ae-90a5-15da5004e3f9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="749d903e-05e6-4a43-bc13-1d62f3bfb319" xml:space="preserve">
+          <source>Compile the file, assuming <bpt id="9bc508ad-d03f-4bed-beca-b8fe7131534b">&lt;strong&gt;</bpt>gcc<ept id="9bc508ad-d03f-4bed-beca-b8fe7131534b">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Compile the file, assuming <bpt id="9bc508ad-d03f-4bed-beca-b8fe7131534b">&lt;strong&gt;</bpt>gcc<ept id="9bc508ad-d03f-4bed-beca-b8fe7131534b">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="6c7cbc75-b75b-4041-a58a-bd36a2ff5a88" xml:space="preserve">
+          <source>In the code above, we use an outgoing window of 1 to force the messages out as soon as possible.</source>
+          <target state="new">In the code above, we use an outgoing window of 1 to force the messages out as soon as possible.</target>
+        </trans-unit>
+        <trans-unit id="d956a0b5-8049-4734-8c74-3a5d7ef30f3c" xml:space="preserve">
+          <source>In general your application should try to batch messages to increase throughput.</source>
+          <target state="new">In general your application should try to batch messages to increase throughput.</target>
+        </trans-unit>
+        <trans-unit id="3b85d36b-c9fa-4f7a-8c3c-922576d01415" xml:space="preserve">
+          <source>Refer to <bpt id="d1fd632e-6d15-4ad9-a348-265a1cc202e5">&lt;linkText&gt;</bpt>Qpid AMQP Messenger page<ept id="d1fd632e-6d15-4ad9-a348-265a1cc202e5">&lt;/linkText&gt;</ept><bpt id="d1fd632e-6d15-4ad9-a348-265a1cc202e5">&lt;title&gt;</bpt><ept id="d1fd632e-6d15-4ad9-a348-265a1cc202e5">&lt;/title&gt;</ept> for more information on how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).</source>
+          <target state="new">Refer to <bpt id="d1fd632e-6d15-4ad9-a348-265a1cc202e5">&lt;linkText&gt;</bpt>Qpid AMQP Messenger page<ept id="d1fd632e-6d15-4ad9-a348-265a1cc202e5">&lt;/linkText&gt;</ept><bpt id="d1fd632e-6d15-4ad9-a348-265a1cc202e5">&lt;title&gt;</bpt><ept id="d1fd632e-6d15-4ad9-a348-265a1cc202e5">&lt;/title&gt;</ept> for more information on how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4c97b2d3-0c61-4ef3-b1d5-6c0a52cc9c11" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4c97b2d3-0c61-4ef3-b1d5-6c0a52cc9c11" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="77a6777f-42ce-4b18-a885-d38606d384cb">
+        <trans-unit id="73998357-ede3-43da-9c0b-7327deaea871" xml:space="preserve">
+          <source>Media Encoder Standard formats and codecs</source>
+          <target state="new">Media Encoder Standard formats and codecs</target>
+        </trans-unit>
+        <trans-unit id="20598d61-8581-4e03-8be1-2677b49ebc6b" xml:space="preserve">
+          <source>This topic gives an overview of Azure Media Encoder Standard formats and codecs.</source>
+          <target state="new">This topic gives an overview of Azure Media Encoder Standard formats and codecs.</target>
+        </trans-unit>
+        <trans-unit id="26742339-b9cd-4ab8-b835-25bbc3b2cd65" xml:space="preserve">
+          <source>This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.</source>
+          <target state="new">This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.</target>
+        </trans-unit>
+        <trans-unit id="d491b02d-22c8-40b7-8756-94430131a6e1" xml:space="preserve">
+          <source>File formats (file extensions)</source>
+          <target state="new">File formats (file extensions)</target>
+        </trans-unit>
+        <trans-unit id="137fe2c0-42f2-455a-831f-25e5863ea736" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="78b7e45f-3d9e-4d22-a090-545a3ae068c4" xml:space="preserve">
+          <source>FLV (with H.264 and AAC codecs) (.flv)</source>
+          <target state="new">FLV (with H.264 and AAC codecs) (.flv)</target>
+        </trans-unit>
+        <trans-unit id="1cfa36e6-3aad-404b-a3d3-c1c62b37a24f" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e4419f41-6161-49cb-9bb7-7f6f7e44b16b" xml:space="preserve">
+          <source>MXF (.mxf)</source>
+          <target state="new">MXF (.mxf)</target>
+        </trans-unit>
+        <trans-unit id="5dfc58a2-dc36-428d-98c4-2a3c57a6b85a" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2c8f3663-b8e3-4c21-ba67-7b340439152d" xml:space="preserve">
+          <source>GXF (.gxf)</source>
+          <target state="new">GXF (.gxf)</target>
+        </trans-unit>
+        <trans-unit id="813e8559-5557-4ff8-a451-6706f6902cf4" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="671b19b5-fcf8-4006-a5f8-836b0e33bfce" xml:space="preserve">
+          <source>MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp)</source>
+          <target state="new">MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp)</target>
+        </trans-unit>
+        <trans-unit id="b8749239-be98-4030-8924-f10c20017934" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="7a92b3d8-14a7-42dc-98a1-08276982ac0e" xml:space="preserve">
+          <source>Windows Media Video (WMV)/ASF (.wmv, .asf)</source>
+          <target state="new">Windows Media Video (WMV)/ASF (.wmv, .asf)</target>
+        </trans-unit>
+        <trans-unit id="dfc60a26-751b-4bd3-a996-aea34d885fd8" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="826242cc-70ba-4647-a2db-11c38a5797db" xml:space="preserve">
+          <source>AVI (Uncompressed 8bit/10bit) (.avi)</source>
+          <target state="new">AVI (Uncompressed 8bit/10bit) (.avi)</target>
+        </trans-unit>
+        <trans-unit id="8e2973e3-7509-4654-b81c-c02773920dab" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="10651502-191b-490a-b490-99735de51341" xml:space="preserve">
+          <source>MP4/ISMV (.ismv)</source>
+          <target state="new">MP4/ISMV (.ismv)</target>
+        </trans-unit>
+        <trans-unit id="84ab0b31-9750-46bf-af72-c4cf271a8f0e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="22c01147-0fa6-43fd-a5f2-c5db3d47e3de" xml:space="preserve">
+          <source><bpt id="774da522-00c2-42f1-84eb-18f92af21cea">&lt;linkText&gt;</bpt>Microsoft Digital Video Recording(DVR-MS)<ept id="774da522-00c2-42f1-84eb-18f92af21cea">&lt;/linkText&gt;</ept><bpt id="774da522-00c2-42f1-84eb-18f92af21cea">&lt;title&gt;</bpt><ept id="774da522-00c2-42f1-84eb-18f92af21cea">&lt;/title&gt;</ept> (.dvr-ms)</source>
+          <target state="new"><bpt id="774da522-00c2-42f1-84eb-18f92af21cea">&lt;linkText&gt;</bpt>Microsoft Digital Video Recording(DVR-MS)<ept id="774da522-00c2-42f1-84eb-18f92af21cea">&lt;/linkText&gt;</ept><bpt id="774da522-00c2-42f1-84eb-18f92af21cea">&lt;title&gt;</bpt><ept id="774da522-00c2-42f1-84eb-18f92af21cea">&lt;/title&gt;</ept> (.dvr-ms)</target>
+        </trans-unit>
+        <trans-unit id="57a801a6-830b-46c4-89cd-5d17791aa8ee" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="6726ce16-57db-41c4-a224-c7261c1c0d10" xml:space="preserve">
+          <source>Matroska/WebM (.mkv)</source>
+          <target state="new">Matroska/WebM (.mkv)</target>
+        </trans-unit>
+        <trans-unit id="6b9b891b-875c-444e-94ec-ce42ace8253b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="699b2aea-a2ad-4f17-9b48-3ddb68dd3254" xml:space="preserve">
+          <source>WAVE/WAV (.wav)</source>
+          <target state="new">WAVE/WAV (.wav)</target>
+        </trans-unit>
+        <trans-unit id="a4f58081-1bc5-49a7-8943-c3e91e4c6a50" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e45aa374-f3f9-4da2-bd2e-a73e34a93b5e" xml:space="preserve">
+          <source>Input Video Codecs</source>
+          <target state="new">Input Video Codecs</target>
+        </trans-unit>
+        <trans-unit id="cc06c01e-bdb6-41ba-93d8-4cbc5246934d" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="e56a8f58-5219-48f2-b940-1fd9cd459f55" xml:space="preserve">
+          <source>AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra</source>
+          <target state="new">AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra</target>
+        </trans-unit>
+        <trans-unit id="e44f0360-b4fe-4e80-9c7e-9d866134b62c" xml:space="preserve">
+          <source>8 bit 4:2:0 and 4:2:2</source>
+          <target state="new">8 bit 4:2:0 and 4:2:2</target>
+        </trans-unit>
+        <trans-unit id="477acc47-ce68-460a-ac0f-d656947e1fb2" xml:space="preserve">
+          <source>Avid DNxHD (in MXF)</source>
+          <target state="new">Avid DNxHD (in MXF)</target>
+        </trans-unit>
+        <trans-unit id="cbf09f46-8701-40a8-9091-387c6b74f22c" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="45c2f022-aa27-457a-b064-87912861ed69" xml:space="preserve">
+          <source>DVCPro/DVCProHD (in MXF)</source>
+          <target state="new">DVCPro/DVCProHD (in MXF)</target>
+        </trans-unit>
+        <trans-unit id="f994b03c-0a85-4906-8dbd-ee191c0b89c3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e6a0621b-01e0-4973-a94f-f1781cee9966" xml:space="preserve">
+          <source>JPEG 2000</source>
+          <target state="new">JPEG 2000</target>
+        </trans-unit>
+        <trans-unit id="cad47d1b-8fe4-4116-ad3e-e6de787da933" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="5317b3d7-bb61-4fce-936b-79b4963bfe2f" xml:space="preserve">
+          <source>MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)</source>
+          <target state="new">MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)</target>
+        </trans-unit>
+        <trans-unit id="ee8ae2bb-b580-4c48-b23f-6ed2d2b7529b" xml:space="preserve">
+          <source>Up to 422 Profile</source>
+          <target state="new">Up to 422 Profile</target>
+        </trans-unit>
+        <trans-unit id="56c5122b-db79-4e8e-bdf0-2b7b43235377" xml:space="preserve">
+          <source>MPEG-1</source>
+          <target state="new">MPEG-1</target>
+        </trans-unit>
+        <trans-unit id="d6378d57-3205-4973-8065-e9c026e7cb59" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="390b2a53-8685-4552-b5e3-e61ef88452b8" xml:space="preserve">
+          <source>VC-1/WMV9</source>
+          <target state="new">VC-1/WMV9</target>
+        </trans-unit>
+        <trans-unit id="afcd2f9f-492f-487b-90f2-2da1e742bdc0" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="7e6d5448-d36e-423d-b41c-7077b5ea13ef" xml:space="preserve">
+          <source>Canopus HQ/HQX</source>
+          <target state="new">Canopus HQ/HQX</target>
+        </trans-unit>
+        <trans-unit id="00e3bb25-02e7-4de2-a926-5faa2c15620d" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="c6b3752e-0f25-4c06-b447-9ac020511f3b" xml:space="preserve">
+          <source>MPEG-4 Part 2</source>
+          <target state="new">MPEG-4 Part 2</target>
+        </trans-unit>
+        <trans-unit id="39f9d320-07ba-4f00-86fc-601e2763c0f6" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b92542bd-f49a-4f3a-a2ea-0cc3c6e26a3e" xml:space="preserve">
+          <source><bpt id="13ec1c9d-1af5-4489-a19a-5a89db3208f4">&lt;linkText&gt;</bpt>Theora<ept id="13ec1c9d-1af5-4489-a19a-5a89db3208f4">&lt;/linkText&gt;</ept><bpt id="13ec1c9d-1af5-4489-a19a-5a89db3208f4">&lt;title&gt;</bpt><ept id="13ec1c9d-1af5-4489-a19a-5a89db3208f4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="13ec1c9d-1af5-4489-a19a-5a89db3208f4">&lt;linkText&gt;</bpt>Theora<ept id="13ec1c9d-1af5-4489-a19a-5a89db3208f4">&lt;/linkText&gt;</ept><bpt id="13ec1c9d-1af5-4489-a19a-5a89db3208f4">&lt;title&gt;</bpt><ept id="13ec1c9d-1af5-4489-a19a-5a89db3208f4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="523ab128-cf4a-4ac4-b0af-7d952d134ff5" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="0b670bb7-2744-4c82-abba-5929aad10fe8" xml:space="preserve">
+          <source>YUV420 uncompressed, or mezzanine</source>
+          <target state="new">YUV420 uncompressed, or mezzanine</target>
+        </trans-unit>
+        <trans-unit id="391759b6-e083-4f44-98c0-59788310eabf" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b2e9e79e-0e8d-4f86-87bb-a2144fedbf0b" xml:space="preserve">
+          <source>Input Audio Codecs</source>
+          <target state="new">Input Audio Codecs</target>
+        </trans-unit>
+        <trans-unit id="d046783f-c4fc-4645-bf8b-9a7da6ffe02e" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="49242ec4-95d6-412b-8832-323b050c2681" xml:space="preserve">
+          <source>AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)</source>
+          <target state="new">AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)</target>
+        </trans-unit>
+        <trans-unit id="9c7fdbc7-b68a-4506-9536-c3c339f65b94" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c18b89d6-a5f9-41ac-89ed-cb7516ef3ad4" xml:space="preserve">
+          <source>MPEG Layer 2</source>
+          <target state="new">MPEG Layer 2</target>
+        </trans-unit>
+        <trans-unit id="7b49a4a2-a3c6-41ab-bd43-bf4ad85191a9" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="62592268-e919-46b8-83d3-89eeb5eef684" xml:space="preserve">
+          <source>MP3 (MPEG-1 Audio Layer 3)</source>
+          <target state="new">MP3 (MPEG-1 Audio Layer 3)</target>
+        </trans-unit>
+        <trans-unit id="09c70ff0-1c09-405b-8820-100d869c53db" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="8f7ac717-0524-4447-9b49-4a89d826acd3" xml:space="preserve">
+          <source>Windows Media Audio</source>
+          <target state="new">Windows Media Audio</target>
+        </trans-unit>
+        <trans-unit id="c046e37e-af6a-4619-a855-040899f0cb2c" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="108fec2c-919d-41af-83a6-ed2105844afd" xml:space="preserve">
+          <source>WAV/PCM</source>
+          <target state="new">WAV/PCM</target>
+        </trans-unit>
+        <trans-unit id="9377f15a-4aa9-4513-a1a3-d6ced1902c58" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="19fc42d9-5c42-438b-a8d5-709854a679c8" xml:space="preserve">
+          <source><bpt id="459c866f-db0b-4593-b891-284809f1d823">&lt;linkText&gt;</bpt>FLAC<ept id="459c866f-db0b-4593-b891-284809f1d823">&lt;/linkText&gt;</ept><bpt id="459c866f-db0b-4593-b891-284809f1d823">&lt;title&gt;</bpt><ept id="459c866f-db0b-4593-b891-284809f1d823">&lt;/title&gt;</ept>&lt;/a&gt;</source>
+          <target state="new"><bpt id="459c866f-db0b-4593-b891-284809f1d823">&lt;linkText&gt;</bpt>FLAC<ept id="459c866f-db0b-4593-b891-284809f1d823">&lt;/linkText&gt;</ept><bpt id="459c866f-db0b-4593-b891-284809f1d823">&lt;title&gt;</bpt><ept id="459c866f-db0b-4593-b891-284809f1d823">&lt;/title&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="9e55fb48-626b-4f58-83b5-b4ad74198e46" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2e7dc166-3d54-45e6-8e0a-58ceca8027d4" xml:space="preserve">
+          <source>[Opus](https://en.wikipedia.org/wiki/Opus<bpt id="5b973b04-72a2-4fa7-af72-752e7d47ee13">&lt;em&gt;</bpt>(audio<ept id="5b973b04-72a2-4fa7-af72-752e7d47ee13">&lt;/em&gt;</ept>format)</source>
+          <target state="new">[Opus](https://en.wikipedia.org/wiki/Opus<bpt id="5b973b04-72a2-4fa7-af72-752e7d47ee13">&lt;em&gt;</bpt>(audio<ept id="5b973b04-72a2-4fa7-af72-752e7d47ee13">&lt;/em&gt;</ept>format)</target>
+        </trans-unit>
+        <trans-unit id="f6c7dc51-9186-4275-856e-26d7e67061bb" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="243f6e1e-7038-4101-bde5-0ab236178149" xml:space="preserve">
+          <source><bpt id="f5ba840c-f0dc-4ca6-852b-7cadde6016a3">&lt;linkText&gt;</bpt>Vorbis<ept id="f5ba840c-f0dc-4ca6-852b-7cadde6016a3">&lt;/linkText&gt;</ept><bpt id="f5ba840c-f0dc-4ca6-852b-7cadde6016a3">&lt;title&gt;</bpt><ept id="f5ba840c-f0dc-4ca6-852b-7cadde6016a3">&lt;/title&gt;</ept>&lt;/a&gt;</source>
+          <target state="new"><bpt id="f5ba840c-f0dc-4ca6-852b-7cadde6016a3">&lt;linkText&gt;</bpt>Vorbis<ept id="f5ba840c-f0dc-4ca6-852b-7cadde6016a3">&lt;/linkText&gt;</ept><bpt id="f5ba840c-f0dc-4ca6-852b-7cadde6016a3">&lt;title&gt;</bpt><ept id="f5ba840c-f0dc-4ca6-852b-7cadde6016a3">&lt;/title&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="13273015-23c7-4885-a1d0-fcafbddf0f6b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="88152db1-adba-4916-b394-5b14d9cc9c7c" xml:space="preserve">
+          <source>AMR (adaptive multi-rate)</source>
+          <target state="new">AMR (adaptive multi-rate)</target>
+        </trans-unit>
+        <trans-unit id="2d9e52fc-6563-49db-b773-50cb9fb7a6ef" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e2f00128-bde5-4da9-975e-d0f08c06ba9a" xml:space="preserve">
+          <source>AES (SMPTE 331M and 302M, AES3-2003)</source>
+          <target state="new">AES (SMPTE 331M and 302M, AES3-2003)</target>
+        </trans-unit>
+        <trans-unit id="3bc87555-b782-4821-b34b-1387f0e190b7" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="37853892-a5ea-41bd-a7ea-4e36a42be600" xml:space="preserve">
+          <source>Dolby® E</source>
+          <target state="new">Dolby® E</target>
+        </trans-unit>
+        <trans-unit id="25201757-dfd5-4455-8538-d096c4257671" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="79d4c4d9-b34b-425a-8849-fa5fc8fdf96a" xml:space="preserve">
+          <source>Dolby® Digital (AC3)</source>
+          <target state="new">Dolby® Digital (AC3)</target>
+        </trans-unit>
+        <trans-unit id="23a11a52-24c5-4cf0-8c41-5e2be642339d" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="44cf4566-1c7a-42e2-9612-8072005ab95a" xml:space="preserve">
+          <source>Dolby® Digital Plus (E-AC3)</source>
+          <target state="new">Dolby® Digital Plus (E-AC3)</target>
+        </trans-unit>
+        <trans-unit id="e244e1c9-f643-428c-a7f0-af540f537b6d" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="632f15f4-a32d-44cf-bf81-02e78e9dacef" xml:space="preserve">
+          <source>The following table lists the codecs and file formats that are supported for export.</source>
+          <target state="new">The following table lists the codecs and file formats that are supported for export.</target>
+        </trans-unit>
+        <trans-unit id="bcfa967e-6100-4146-8f31-e455b0ce2be4" xml:space="preserve">
+          <source>File Format</source>
+          <target state="new">File Format</target>
+        </trans-unit>
+        <trans-unit id="4455e195-e34a-4dbf-b262-28bf51d9c2f0" xml:space="preserve">
+          <source>Video Codec</source>
+          <target state="new">Video Codec</target>
+        </trans-unit>
+        <trans-unit id="8c8c4799-faf9-4f29-ba6c-8a100a91837c" xml:space="preserve">
+          <source>Audio Codec</source>
+          <target state="new">Audio Codec</target>
+        </trans-unit>
+        <trans-unit id="b78e0b4c-f1ba-40b3-94e9-6cbfcc66e7ef" xml:space="preserve">
+          <source>MP4 (* .mp4)&lt;br/&gt;&lt;br/&gt;(including multi-bitrate MP4 containers)</source>
+          <target state="new">MP4 (* .mp4)&lt;br/&gt;&lt;br/&gt;(including multi-bitrate MP4 containers)</target>
+        </trans-unit>
+        <trans-unit id="dfaab943-33c5-47cb-9dff-0c5e4ef125c9" xml:space="preserve">
+          <source>H.264 (High, Main, and Baseline Profiles)</source>
+          <target state="new">H.264 (High, Main, and Baseline Profiles)</target>
+        </trans-unit>
+        <trans-unit id="a11cd810-a8bc-4167-9ace-69d37c7f4833" xml:space="preserve">
+          <source>AAC-LC, HE-AAC v1, HE-AAC v2</source>
+          <target state="new">AAC-LC, HE-AAC v1, HE-AAC v2</target>
+        </trans-unit>
+        <trans-unit id="2cee0080-3ca4-43fa-8e28-4f31565ab3b6" xml:space="preserve">
+          <source>MPEG2-TS</source>
+          <target state="new">MPEG2-TS</target>
+        </trans-unit>
+        <trans-unit id="0c713d55-4402-4ef9-8659-63eb78c6b29e" xml:space="preserve">
+          <source>H.264 (High, Main, and Baseline Profiles)</source>
+          <target state="new">H.264 (High, Main, and Baseline Profiles)</target>
+        </trans-unit>
+        <trans-unit id="d9b649b9-7bd0-4ab6-8a41-c30edf4f738d" xml:space="preserve">
+          <source>AAC-LC, HE-AAC v1, HE-AAC v2</source>
+          <target state="new">AAC-LC, HE-AAC v1, HE-AAC v2</target>
+        </trans-unit>
+        <trans-unit id="aa9696cc-98c5-4bcf-b9d9-a88e8610671f" xml:space="preserve">
+          <source><bpt id="e49a5141-9aea-459e-ae1c-43415c2e6901">&lt;linkText&gt;</bpt>Encoding On-Demand Content with Azure Media Services<ept id="e49a5141-9aea-459e-ae1c-43415c2e6901">&lt;/linkText&gt;</ept><bpt id="e49a5141-9aea-459e-ae1c-43415c2e6901">&lt;title&gt;</bpt><ept id="e49a5141-9aea-459e-ae1c-43415c2e6901">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e49a5141-9aea-459e-ae1c-43415c2e6901">&lt;linkText&gt;</bpt>Encoding On-Demand Content with Azure Media Services<ept id="e49a5141-9aea-459e-ae1c-43415c2e6901">&lt;/linkText&gt;</ept><bpt id="e49a5141-9aea-459e-ae1c-43415c2e6901">&lt;title&gt;</bpt><ept id="e49a5141-9aea-459e-ae1c-43415c2e6901">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="402f55fc-2677-4076-8474-07e4be0d5e48" xml:space="preserve">
+          <source><bpt id="d5adf10e-76bb-4acd-9fbc-9f337348b6cf">&lt;linkText&gt;</bpt>How to encode with Media Encoder Standard<ept id="d5adf10e-76bb-4acd-9fbc-9f337348b6cf">&lt;/linkText&gt;</ept><bpt id="d5adf10e-76bb-4acd-9fbc-9f337348b6cf">&lt;title&gt;</bpt><ept id="d5adf10e-76bb-4acd-9fbc-9f337348b6cf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d5adf10e-76bb-4acd-9fbc-9f337348b6cf">&lt;linkText&gt;</bpt>How to encode with Media Encoder Standard<ept id="d5adf10e-76bb-4acd-9fbc-9f337348b6cf">&lt;/linkText&gt;</ept><bpt id="d5adf10e-76bb-4acd-9fbc-9f337348b6cf">&lt;title&gt;</bpt><ept id="d5adf10e-76bb-4acd-9fbc-9f337348b6cf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

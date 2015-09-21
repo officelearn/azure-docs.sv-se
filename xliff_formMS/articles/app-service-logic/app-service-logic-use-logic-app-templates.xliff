@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2ee5d5bc-2c89-41a9-a207-2e593f020a63" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2ee5d5bc-2c89-41a9-a207-2e593f020a63" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5240b0af-c048-4c66-bc4a-3f91be931fa6">
+        <trans-unit id="098827de-0541-4bf5-ab97-e22d5cf17c3b" xml:space="preserve">
+          <source>Use Logic App templates</source>
+          <target state="new">Use Logic App templates</target>
+        </trans-unit>
+        <trans-unit id="34446d74-66c5-40f6-8a2e-04ab16733aac" xml:space="preserve">
+          <source>Learn how to use pre-created Logic App templates to help you get started.</source>
+          <target state="new">Learn how to use pre-created Logic App templates to help you get started.</target>
+        </trans-unit>
+        <trans-unit id="7133a4e0-10c8-4366-bde7-960ed8b96d48" xml:space="preserve">
+          <source>Logic App Templates are a set of curated pre-built Logic Apps to help you quickly get started building your own integration application.</source>
+          <target state="new">Logic App Templates are a set of curated pre-built Logic Apps to help you quickly get started building your own integration application.</target>
+        </trans-unit>
+        <trans-unit id="3fd83ca7-654c-44cf-bb79-c2d423700af8" xml:space="preserve">
+          <source>These templates show how to use some of the many connectors available in the marketplace as well as being a good way to discover various patterns that can be built using Logic Apps.</source>
+          <target state="new">These templates show how to use some of the many connectors available in the marketplace as well as being a good way to discover various patterns that can be built using Logic Apps.</target>
+        </trans-unit>
+        <trans-unit id="ee7008f0-3017-46a4-bdd2-4a5332e13b98" xml:space="preserve">
+          <source>You can either use these as is or modify and them to fit your scenario.</source>
+          <target state="new">You can either use these as is or modify and them to fit your scenario.</target>
+        </trans-unit>
+        <trans-unit id="d31e169d-08e0-44c6-9c5d-7a0f0ad9c756" xml:space="preserve">
+          <source>To get started using a Logic App Template go to the Marketplace and select Logic Apps.</source>
+          <target state="new">To get started using a Logic App Template go to the Marketplace and select Logic Apps.</target>
+        </trans-unit>
+        <trans-unit id="3bcc2978-0958-4896-9aca-a2e520bc3f8c" xml:space="preserve">
+          <source>Choose one of the Logic App Templates from the curated list.</source>
+          <target state="new">Choose one of the Logic App Templates from the curated list.</target>
+        </trans-unit>
+        <trans-unit id="27556239-0a06-4eae-89ce-85734f4f9d64" xml:space="preserve">
+          <source>Examples of how to integrate across different SaaS connectors.</source>
+          <target state="new">Examples of how to integrate across different SaaS connectors.</target>
+        </trans-unit>
+        <trans-unit id="87fcb97e-6df4-4a1b-ac44-6e7f6465b45f" xml:space="preserve">
+          <source>Here you can find various examples integrating Salesforce, Box, SharePoint and other services.</source>
+          <target state="new">Here you can find various examples integrating Salesforce, Box, SharePoint and other services.</target>
+        </trans-unit>
+        <trans-unit id="d88abb8c-57d6-4f16-941b-f874af6672c1" xml:space="preserve">
+          <source>Configurations of BizTalk VETR (validate, extract, transform, route) pipelines as well as EDIFACT, X12 and AS2 message handling.</source>
+          <target state="new">Configurations of BizTalk VETR (validate, extract, transform, route) pipelines as well as EDIFACT, X12 and AS2 message handling.</target>
+        </trans-unit>
+        <trans-unit id="eff50805-029c-4dcf-b51b-5e3f505b6bcd" xml:space="preserve">
+          <source>Patterns for doing messaging routing including synchronous request-response, routing messages across different protocols and content based routing.</source>
+          <target state="new">Patterns for doing messaging routing including synchronous request-response, routing messages across different protocols and content based routing.</target>
+        </trans-unit>
+        <trans-unit id="a467de97-c6a6-4664-b111-0bb4a962d4fd" xml:space="preserve">
+          <source>Automated processes for handling common Azure procedures that you may typically run manually or had to write custom code for.</source>
+          <target state="new">Automated processes for handling common Azure procedures that you may typically run manually or had to write custom code for.</target>
+        </trans-unit>
+        <trans-unit id="0e5adf17-bd7d-47f6-bb5a-aff27ba6e4ff" xml:space="preserve">
+          <source>There are templates that cover how to do recurring processes such as restarting a VMs every weekend or getting notified when a new RBAC user has been added to a resource.</source>
+          <target state="new">There are templates that cover how to do recurring processes such as restarting a VMs every weekend or getting notified when a new RBAC user has been added to a resource.</target>
+        </trans-unit>
+        <trans-unit id="087f4e91-7639-4a64-9ab6-b3767654748b" xml:space="preserve">
+          <source>Simple templates that integrate with social media services such as Twitter, Yammer and email.</source>
+          <target state="new">Simple templates that integrate with social media services such as Twitter, Yammer and email.</target>
+        </trans-unit>
+        <trans-unit id="6256bfe7-a5fa-47f2-9941-f0f8768134cb" xml:space="preserve">
+          <source>These can be great personal productivity applications that constantly listen for updates and takes action when new items arrive.</source>
+          <target state="new">These can be great personal productivity applications that constantly listen for updates and takes action when new items arrive.</target>
+        </trans-unit>
+        <trans-unit id="c1d0537a-9851-4bc5-a737-3f01121c2d0d" xml:space="preserve">
+          <source>After selecting one of the templates complete the deployment as you would if you created your own logic app.</source>
+          <target state="new">After selecting one of the templates complete the deployment as you would if you created your own logic app.</target>
+        </trans-unit>
+        <trans-unit id="2dbc31ec-5e43-49be-ac3f-b747c97ad8f0" xml:space="preserve">
+          <source>Please see <bpt id="3106b4e2-fbb6-4d2d-be54-010c76eff48b">&lt;linkText&gt;</bpt>Create a Logic App<ept id="3106b4e2-fbb6-4d2d-be54-010c76eff48b">&lt;/linkText&gt;</ept><bpt id="3106b4e2-fbb6-4d2d-be54-010c76eff48b">&lt;title&gt;</bpt><ept id="3106b4e2-fbb6-4d2d-be54-010c76eff48b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please see <bpt id="3106b4e2-fbb6-4d2d-be54-010c76eff48b">&lt;linkText&gt;</bpt>Create a Logic App<ept id="3106b4e2-fbb6-4d2d-be54-010c76eff48b">&lt;/linkText&gt;</ept><bpt id="3106b4e2-fbb6-4d2d-be54-010c76eff48b">&lt;title&gt;</bpt><ept id="3106b4e2-fbb6-4d2d-be54-010c76eff48b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

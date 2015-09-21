@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a27a0984-98f3-4969-aef3-50dfee2db39e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a27a0984-98f3-4969-aef3-50dfee2db39e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="31a83de3-ca53-4c2e-bd1a-83293e77f10e">
+        <trans-unit id="3c8429fa-fc66-42d2-82dd-00e6a0c9af56" xml:space="preserve">
+          <source>Azure Mobile Engagement Android SDK Integration</source>
+          <target state="new">Azure Mobile Engagement Android SDK Integration</target>
+        </trans-unit>
+        <trans-unit id="24d253db-1f45-4d85-b32e-2e72904e0144" xml:space="preserve">
+          <source>Latest updates and procedures for Android SDK for Azure Mobile Engagement</source>
+          <target state="new">Latest updates and procedures for Android SDK for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="279cb8f7-f803-4ce5-8fa4-1854a7a30424" xml:space="preserve">
+          <source>Start here to get all the details on how to integrate Azure Mobile Engagement in an Android App.</source>
+          <target state="new">Start here to get all the details on how to integrate Azure Mobile Engagement in an Android App.</target>
+        </trans-unit>
+        <trans-unit id="53c66269-3d24-42d0-a1d8-93995281032c" xml:space="preserve">
+          <source>If you'd like to give it a try first, make sure you do our <bpt id="bbce75c0-d5f3-466e-9b6d-bce3ad67d192">&lt;linkText&gt;</bpt>15 minutes tutorial<ept id="bbce75c0-d5f3-466e-9b6d-bce3ad67d192">&lt;/linkText&gt;</ept><bpt id="bbce75c0-d5f3-466e-9b6d-bce3ad67d192">&lt;title&gt;</bpt><ept id="bbce75c0-d5f3-466e-9b6d-bce3ad67d192">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you'd like to give it a try first, make sure you do our <bpt id="bbce75c0-d5f3-466e-9b6d-bce3ad67d192">&lt;linkText&gt;</bpt>15 minutes tutorial<ept id="bbce75c0-d5f3-466e-9b6d-bce3ad67d192">&lt;/linkText&gt;</ept><bpt id="bbce75c0-d5f3-466e-9b6d-bce3ad67d192">&lt;title&gt;</bpt><ept id="bbce75c0-d5f3-466e-9b6d-bce3ad67d192">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="110cda0d-4181-443c-aaf9-72d9202d5fe2" xml:space="preserve">
+          <source>Click to see the <bpt id="ed8810b2-1ed6-4290-8d1f-0a7ab57e0d9d">&lt;linkText&gt;</bpt>SDK Content<ept id="ed8810b2-1ed6-4290-8d1f-0a7ab57e0d9d">&lt;/linkText&gt;</ept><bpt id="ed8810b2-1ed6-4290-8d1f-0a7ab57e0d9d">&lt;title&gt;</bpt><ept id="ed8810b2-1ed6-4290-8d1f-0a7ab57e0d9d">&lt;/title&gt;</ept>.</source>
+          <target state="new">Click to see the <bpt id="ed8810b2-1ed6-4290-8d1f-0a7ab57e0d9d">&lt;linkText&gt;</bpt>SDK Content<ept id="ed8810b2-1ed6-4290-8d1f-0a7ab57e0d9d">&lt;/linkText&gt;</ept><bpt id="ed8810b2-1ed6-4290-8d1f-0a7ab57e0d9d">&lt;title&gt;</bpt><ept id="ed8810b2-1ed6-4290-8d1f-0a7ab57e0d9d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66271b3c-1bb2-46e1-8c73-5ace1256acd6" xml:space="preserve">
+          <source>Start here: <bpt id="632527ff-dcdf-407e-b12d-4b43d4ceaf89">&lt;linkText&gt;</bpt>How to integrate Mobile Engagement in your Android app<ept id="632527ff-dcdf-407e-b12d-4b43d4ceaf89">&lt;/linkText&gt;</ept><bpt id="632527ff-dcdf-407e-b12d-4b43d4ceaf89">&lt;title&gt;</bpt><ept id="632527ff-dcdf-407e-b12d-4b43d4ceaf89">&lt;/title&gt;</ept></source>
+          <target state="new">Start here: <bpt id="632527ff-dcdf-407e-b12d-4b43d4ceaf89">&lt;linkText&gt;</bpt>How to integrate Mobile Engagement in your Android app<ept id="632527ff-dcdf-407e-b12d-4b43d4ceaf89">&lt;/linkText&gt;</ept><bpt id="632527ff-dcdf-407e-b12d-4b43d4ceaf89">&lt;title&gt;</bpt><ept id="632527ff-dcdf-407e-b12d-4b43d4ceaf89">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f964eb4-69a2-483a-aedb-1b3939be88fd" xml:space="preserve">
+          <source>For Notifications: <bpt id="46a91d7b-b3ed-45cf-9946-bd3c6927f9ae">&lt;linkText&gt;</bpt>How to integrate Reach (Notifications) in your Android app<ept id="46a91d7b-b3ed-45cf-9946-bd3c6927f9ae">&lt;/linkText&gt;</ept><bpt id="46a91d7b-b3ed-45cf-9946-bd3c6927f9ae">&lt;title&gt;</bpt><ept id="46a91d7b-b3ed-45cf-9946-bd3c6927f9ae">&lt;/title&gt;</ept></source>
+          <target state="new">For Notifications: <bpt id="46a91d7b-b3ed-45cf-9946-bd3c6927f9ae">&lt;linkText&gt;</bpt>How to integrate Reach (Notifications) in your Android app<ept id="46a91d7b-b3ed-45cf-9946-bd3c6927f9ae">&lt;/linkText&gt;</ept><bpt id="46a91d7b-b3ed-45cf-9946-bd3c6927f9ae">&lt;title&gt;</bpt><ept id="46a91d7b-b3ed-45cf-9946-bd3c6927f9ae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccb66ee9-5416-4e76-af75-f1344d9c41b3" xml:space="preserve">
+          <source>Google Cloud Messaging (GCM): <bpt id="3f70bdd9-cae2-402e-bd7f-6d5454e94ab2">&lt;linkText&gt;</bpt>How to Integrate GCM with Mobile Engagement<ept id="3f70bdd9-cae2-402e-bd7f-6d5454e94ab2">&lt;/linkText&gt;</ept><bpt id="3f70bdd9-cae2-402e-bd7f-6d5454e94ab2">&lt;title&gt;</bpt><ept id="3f70bdd9-cae2-402e-bd7f-6d5454e94ab2">&lt;/title&gt;</ept></source>
+          <target state="new">Google Cloud Messaging (GCM): <bpt id="3f70bdd9-cae2-402e-bd7f-6d5454e94ab2">&lt;linkText&gt;</bpt>How to Integrate GCM with Mobile Engagement<ept id="3f70bdd9-cae2-402e-bd7f-6d5454e94ab2">&lt;/linkText&gt;</ept><bpt id="3f70bdd9-cae2-402e-bd7f-6d5454e94ab2">&lt;title&gt;</bpt><ept id="3f70bdd9-cae2-402e-bd7f-6d5454e94ab2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb842c2b-db17-4f27-9d90-d44f395ec8b2" xml:space="preserve">
+          <source>Amazon Device Messaging (ADM): <bpt id="85f7877c-7613-4a00-a653-4945b694c85a">&lt;linkText&gt;</bpt>How to Integrate ADM with Mobile Engagement<ept id="85f7877c-7613-4a00-a653-4945b694c85a">&lt;/linkText&gt;</ept><bpt id="85f7877c-7613-4a00-a653-4945b694c85a">&lt;title&gt;</bpt><ept id="85f7877c-7613-4a00-a653-4945b694c85a">&lt;/title&gt;</ept></source>
+          <target state="new">Amazon Device Messaging (ADM): <bpt id="85f7877c-7613-4a00-a653-4945b694c85a">&lt;linkText&gt;</bpt>How to Integrate ADM with Mobile Engagement<ept id="85f7877c-7613-4a00-a653-4945b694c85a">&lt;/linkText&gt;</ept><bpt id="85f7877c-7613-4a00-a653-4945b694c85a">&lt;title&gt;</bpt><ept id="85f7877c-7613-4a00-a653-4945b694c85a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d0ece87-7573-479a-9ad7-d7c8ee685b0f" xml:space="preserve">
+          <source>Tag plan implementation: <bpt id="dc9d1813-4cb7-422d-9527-5c78ae592738">&lt;linkText&gt;</bpt>How to use the advanced Mobile Engagement tagging API in your Android app<ept id="dc9d1813-4cb7-422d-9527-5c78ae592738">&lt;/linkText&gt;</ept><bpt id="dc9d1813-4cb7-422d-9527-5c78ae592738">&lt;title&gt;</bpt><ept id="dc9d1813-4cb7-422d-9527-5c78ae592738">&lt;/title&gt;</ept></source>
+          <target state="new">Tag plan implementation: <bpt id="dc9d1813-4cb7-422d-9527-5c78ae592738">&lt;linkText&gt;</bpt>How to use the advanced Mobile Engagement tagging API in your Android app<ept id="dc9d1813-4cb7-422d-9527-5c78ae592738">&lt;/linkText&gt;</ept><bpt id="dc9d1813-4cb7-422d-9527-5c78ae592738">&lt;title&gt;</bpt><ept id="dc9d1813-4cb7-422d-9527-5c78ae592738">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5380ef5-8bfe-43ad-9106-0d482621fd49" xml:space="preserve">
+          <source>Handle new permission model for Android M.</source>
+          <target state="new">Handle new permission model for Android M.</target>
+        </trans-unit>
+        <trans-unit id="6528b829-2bbf-43fc-982e-05ecf6224581" xml:space="preserve">
+          <source>Can now configure location features at runtime instead of using  <bpt id="88cb07f5-e3a9-4dad-96e5-947a572580f0">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="88cb07f5-e3a9-4dad-96e5-947a572580f0">&lt;/code&gt;</ept>.</source>
+          <target state="new">Can now configure location features at runtime instead of using  <bpt id="88cb07f5-e3a9-4dad-96e5-947a572580f0">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="88cb07f5-e3a9-4dad-96e5-947a572580f0">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d91d0920-a8ff-4442-8035-fb97d268564d" xml:space="preserve">
+          <source>Fix a permission bug: if you use <bpt id="def21580-5240-4757-ba72-24fd0c32b15e">&lt;code&gt;</bpt>ACCESS_FINE_LOCATION<ept id="def21580-5240-4757-ba72-24fd0c32b15e">&lt;/code&gt;</ept>, then <bpt id="d435b16a-6167-4a5d-85b1-30291b6d4a5e">&lt;code&gt;</bpt>ACCESS_COARSE_LOCATION<ept id="d435b16a-6167-4a5d-85b1-30291b6d4a5e">&lt;/code&gt;</ept> is not needed anymore.</source>
+          <target state="new">Fix a permission bug: if you use <bpt id="def21580-5240-4757-ba72-24fd0c32b15e">&lt;code&gt;</bpt>ACCESS_FINE_LOCATION<ept id="def21580-5240-4757-ba72-24fd0c32b15e">&lt;/code&gt;</ept>, then <bpt id="d435b16a-6167-4a5d-85b1-30291b6d4a5e">&lt;code&gt;</bpt>ACCESS_COARSE_LOCATION<ept id="d435b16a-6167-4a5d-85b1-30291b6d4a5e">&lt;/code&gt;</ept> is not needed anymore.</target>
+        </trans-unit>
+        <trans-unit id="34f7b6e4-e080-4984-a5cc-3354e6f8ef84" xml:space="preserve">
+          <source>Stability improvements.</source>
+          <target state="new">Stability improvements.</target>
+        </trans-unit>
+        <trans-unit id="35ac33bb-59f9-4f99-afdd-bc49f36d739d" xml:space="preserve">
+          <source>For earlier versions, please see the <bpt id="cdbdcf68-aafe-43ec-b3f4-2e01505a9cf8">&lt;linkText&gt;</bpt>complete release notes<ept id="cdbdcf68-aafe-43ec-b3f4-2e01505a9cf8">&lt;/linkText&gt;</ept><bpt id="cdbdcf68-aafe-43ec-b3f4-2e01505a9cf8">&lt;title&gt;</bpt><ept id="cdbdcf68-aafe-43ec-b3f4-2e01505a9cf8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For earlier versions, please see the <bpt id="cdbdcf68-aafe-43ec-b3f4-2e01505a9cf8">&lt;linkText&gt;</bpt>complete release notes<ept id="cdbdcf68-aafe-43ec-b3f4-2e01505a9cf8">&lt;/linkText&gt;</ept><bpt id="cdbdcf68-aafe-43ec-b3f4-2e01505a9cf8">&lt;title&gt;</bpt><ept id="cdbdcf68-aafe-43ec-b3f4-2e01505a9cf8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17e69d9a-67a9-4549-a010-42a950369db3" xml:space="preserve">
+          <source>If you already have integrated an older version of our SDK into your application please consult <bpt id="2dc5ef70-152b-45c2-aa60-50e061a4cc86">&lt;linkText&gt;</bpt>Upgrade Procedures<ept id="2dc5ef70-152b-45c2-aa60-50e061a4cc86">&lt;/linkText&gt;</ept><bpt id="2dc5ef70-152b-45c2-aa60-50e061a4cc86">&lt;title&gt;</bpt><ept id="2dc5ef70-152b-45c2-aa60-50e061a4cc86">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you already have integrated an older version of our SDK into your application please consult <bpt id="2dc5ef70-152b-45c2-aa60-50e061a4cc86">&lt;linkText&gt;</bpt>Upgrade Procedures<ept id="2dc5ef70-152b-45c2-aa60-50e061a4cc86">&lt;/linkText&gt;</ept><bpt id="2dc5ef70-152b-45c2-aa60-50e061a4cc86">&lt;title&gt;</bpt><ept id="2dc5ef70-152b-45c2-aa60-50e061a4cc86">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

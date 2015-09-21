@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="575072d9-1c5c-4a02-9f51-04e2367dae73" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="575072d9-1c5c-4a02-9f51-04e2367dae73" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bcf34890-99b9-470a-9af6-0a880b968b40">
+        <trans-unit id="b9b34523-0da4-44f0-be8d-019041c4835c" xml:space="preserve">
+          <source>Azure Data Factory - Frequently Asked Questions</source>
+          <target state="new">Azure Data Factory - Frequently Asked Questions</target>
+        </trans-unit>
+        <trans-unit id="440e8d8a-7f14-43ff-99da-30d1eb3cbd6f" xml:space="preserve">
+          <source>Frequently asked questions about Azure Data Factory.</source>
+          <target state="new">Frequently asked questions about Azure Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="31b94fcc-98fa-454c-bc1c-9281a7cd694c" xml:space="preserve">
+          <source>Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.</source>
+          <target state="new">Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.</target>
+        </trans-unit>
+        <trans-unit id="b50129bb-6cdb-45a7-8594-1a7b721bb366" xml:space="preserve">
+          <source>Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information.</source>
+          <target state="new">Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information.</target>
+        </trans-unit>
+        <trans-unit id="941aabb6-c6b2-44c5-a965-c1f0b012c7b0" xml:space="preserve">
+          <source>Data Factory works across on-premises and cloud data sources and SaaS to ingest, prepare, transform, analyze, and publish your data.</source>
+          <target state="new">Data Factory works across on-premises and cloud data sources and SaaS to ingest, prepare, transform, analyze, and publish your data.</target>
+        </trans-unit>
+        <trans-unit id="6852829b-98e3-4d3f-b514-7f63c6c36e73" xml:space="preserve">
+          <source>Use Data Factory to compose services into managed data flow pipelines to transform your data using services like <bpt id="4ef30329-f87a-401b-b9b1-bcf68515a5b3">&lt;linkText&gt;</bpt>Azure HDInsight (Hadoop)<ept id="4ef30329-f87a-401b-b9b1-bcf68515a5b3">&lt;/linkText&gt;</ept><bpt id="4ef30329-f87a-401b-b9b1-bcf68515a5b3">&lt;title&gt;</bpt><ept id="4ef30329-f87a-401b-b9b1-bcf68515a5b3">&lt;/title&gt;</ept> and <bpt id="9d26630e-f032-49ed-9c49-1fb0196fbbfa">&lt;linkText&gt;</bpt>Azure Batch<ept id="9d26630e-f032-49ed-9c49-1fb0196fbbfa">&lt;/linkText&gt;</ept><bpt id="9d26630e-f032-49ed-9c49-1fb0196fbbfa">&lt;title&gt;</bpt><ept id="9d26630e-f032-49ed-9c49-1fb0196fbbfa">&lt;/title&gt;</ept> for your big data computing needs, and with <bpt id="2f6a39cc-3a55-4c07-a33d-81c1205de718">&lt;linkText&gt;</bpt>Azure Machine Learning<ept id="2f6a39cc-3a55-4c07-a33d-81c1205de718">&lt;/linkText&gt;</ept><bpt id="2f6a39cc-3a55-4c07-a33d-81c1205de718">&lt;title&gt;</bpt><ept id="2f6a39cc-3a55-4c07-a33d-81c1205de718">&lt;/title&gt;</ept> to operationalize your analytics solutions.</source>
+          <target state="new">Use Data Factory to compose services into managed data flow pipelines to transform your data using services like <bpt id="4ef30329-f87a-401b-b9b1-bcf68515a5b3">&lt;linkText&gt;</bpt>Azure HDInsight (Hadoop)<ept id="4ef30329-f87a-401b-b9b1-bcf68515a5b3">&lt;/linkText&gt;</ept><bpt id="4ef30329-f87a-401b-b9b1-bcf68515a5b3">&lt;title&gt;</bpt><ept id="4ef30329-f87a-401b-b9b1-bcf68515a5b3">&lt;/title&gt;</ept> and <bpt id="9d26630e-f032-49ed-9c49-1fb0196fbbfa">&lt;linkText&gt;</bpt>Azure Batch<ept id="9d26630e-f032-49ed-9c49-1fb0196fbbfa">&lt;/linkText&gt;</ept><bpt id="9d26630e-f032-49ed-9c49-1fb0196fbbfa">&lt;title&gt;</bpt><ept id="9d26630e-f032-49ed-9c49-1fb0196fbbfa">&lt;/title&gt;</ept> for your big data computing needs, and with <bpt id="2f6a39cc-3a55-4c07-a33d-81c1205de718">&lt;linkText&gt;</bpt>Azure Machine Learning<ept id="2f6a39cc-3a55-4c07-a33d-81c1205de718">&lt;/linkText&gt;</ept><bpt id="2f6a39cc-3a55-4c07-a33d-81c1205de718">&lt;title&gt;</bpt><ept id="2f6a39cc-3a55-4c07-a33d-81c1205de718">&lt;/title&gt;</ept> to operationalize your analytics solutions.</target>
+        </trans-unit>
+        <trans-unit id="92799c03-827a-4b40-b933-8b374caffa8d" xml:space="preserve">
+          <source>Go beyond just a tabular monitoring view, and use the rich visualizations of Data Factory to quickly display the lineage and dependencies between your data pipelines.</source>
+          <target state="new">Go beyond just a tabular monitoring view, and use the rich visualizations of Data Factory to quickly display the lineage and dependencies between your data pipelines.</target>
+        </trans-unit>
+        <trans-unit id="64f92a55-7e1b-4e7a-981e-d5f5128960e7" xml:space="preserve">
+          <source>Monitor all of your data flow pipelines from a single unified view to easily pinpoint issues and setup monitoring alerts.</source>
+          <target state="new">Monitor all of your data flow pipelines from a single unified view to easily pinpoint issues and setup monitoring alerts.</target>
+        </trans-unit>
+        <trans-unit id="440d3963-ec22-492f-9041-93ff6d60c28a" xml:space="preserve">
+          <source>See <bpt id="06aabcf9-2608-4b6b-873f-132fa7e691af">&lt;linkText&gt;</bpt>Overview &amp; Key Concepts<ept id="06aabcf9-2608-4b6b-873f-132fa7e691af">&lt;/linkText&gt;</ept><bpt id="06aabcf9-2608-4b6b-873f-132fa7e691af">&lt;title&gt;</bpt><ept id="06aabcf9-2608-4b6b-873f-132fa7e691af">&lt;/title&gt;</ept> for more details. </source>
+          <target state="new">See <bpt id="06aabcf9-2608-4b6b-873f-132fa7e691af">&lt;linkText&gt;</bpt>Overview &amp; Key Concepts<ept id="06aabcf9-2608-4b6b-873f-132fa7e691af">&lt;/linkText&gt;</ept><bpt id="06aabcf9-2608-4b6b-873f-132fa7e691af">&lt;title&gt;</bpt><ept id="06aabcf9-2608-4b6b-873f-132fa7e691af">&lt;/title&gt;</ept> for more details. </target>
+        </trans-unit>
+        <trans-unit id="6143cc92-0d09-4ade-bf8a-69aaa239fd4d" xml:space="preserve">
+          <source>Azure Data Factory balances the agility of leveraging diverse data storage, processing and movement services across traditional relational storage alongside unstructured data, with the control and monitoring capabilities of a fully managed service.</source>
+          <target state="new">Azure Data Factory balances the agility of leveraging diverse data storage, processing and movement services across traditional relational storage alongside unstructured data, with the control and monitoring capabilities of a fully managed service.</target>
+        </trans-unit>
+        <trans-unit id="ab3e6c6f-116b-4367-a4e3-09cc98f083cb" xml:space="preserve">
+          <source>Data Developers: who are responsible for building integration services between Hadoop and other systems:</source>
+          <target state="new">Data Developers: who are responsible for building integration services between Hadoop and other systems:</target>
+        </trans-unit>
+        <trans-unit id="45473614-745b-4225-a565-fb18d8709444" xml:space="preserve">
+          <source>Must keep up and integrate with a continually changing and growing data landscape</source>
+          <target state="new">Must keep up and integrate with a continually changing and growing data landscape</target>
+        </trans-unit>
+        <trans-unit id="b79cbc47-195c-4186-81b3-25014a6dfd11" xml:space="preserve">
+          <source>Must write custom code for information production, and it  is expensive, hard to maintain, and not highly available or fault tolerant</source>
+          <target state="new">Must write custom code for information production, and it  is expensive, hard to maintain, and not highly available or fault tolerant</target>
+        </trans-unit>
+        <trans-unit id="7dcea9a6-846a-48b7-b1ff-2a0158fc3f26" xml:space="preserve">
+          <source>IT Professionals: who are looking to incorporate more diverse data within their IT infrastructure:</source>
+          <target state="new">IT Professionals: who are looking to incorporate more diverse data within their IT infrastructure:</target>
+        </trans-unit>
+        <trans-unit id="57df5eae-ddb9-4965-95a8-8ececa8d1a9e" xml:space="preserve">
+          <source>Required to look across all of an organization’s data to derive rich business insights</source>
+          <target state="new">Required to look across all of an organization’s data to derive rich business insights</target>
+        </trans-unit>
+        <trans-unit id="7d24a146-807a-4ea8-9e05-3bae7373c7d2" xml:space="preserve">
+          <source>Must manage compute and storage resources to balance cost and scale across on-premises and cloud</source>
+          <target state="new">Must manage compute and storage resources to balance cost and scale across on-premises and cloud</target>
+        </trans-unit>
+        <trans-unit id="52de54bf-7f99-4199-af0e-a840d931772f" xml:space="preserve">
+          <source>Must quickly add diverse sources and processing to address new business needs, while maintaining visibility across all compute and storage assets</source>
+          <target state="new">Must quickly add diverse sources and processing to address new business needs, while maintaining visibility across all compute and storage assets</target>
+        </trans-unit>
+        <trans-unit id="1fc0e404-5a13-4995-9442-a18f609124d1" xml:space="preserve">
+          <source>See <bpt id="6b84631a-0d53-411f-a70a-cf855db013b3">&lt;linkText&gt;</bpt>Data Factory Pricing Details page[adf-pricing-details]<ept id="6b84631a-0d53-411f-a70a-cf855db013b3">&lt;/linkText&gt;</ept><bpt id="6b84631a-0d53-411f-a70a-cf855db013b3">&lt;title&gt;</bpt><ept id="6b84631a-0d53-411f-a70a-cf855db013b3">&lt;/title&gt;</ept> for the pricing details for the Azure Data Factory.</source>
+          <target state="new">See <bpt id="6b84631a-0d53-411f-a70a-cf855db013b3">&lt;linkText&gt;</bpt>Data Factory Pricing Details page[adf-pricing-details]<ept id="6b84631a-0d53-411f-a70a-cf855db013b3">&lt;/linkText&gt;</ept><bpt id="6b84631a-0d53-411f-a70a-cf855db013b3">&lt;title&gt;</bpt><ept id="6b84631a-0d53-411f-a70a-cf855db013b3">&lt;/title&gt;</ept> for the pricing details for the Azure Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="20ab97f8-703b-483e-b15e-05225211d802" xml:space="preserve">
+          <source>For an overview of Azure Data Factory, see <bpt id="6507774d-9fad-4890-8306-6782e653f748">&lt;linkText&gt;</bpt>Introduction to Azure Data Factory[adf-introduction]<ept id="6507774d-9fad-4890-8306-6782e653f748">&lt;/linkText&gt;</ept><bpt id="6507774d-9fad-4890-8306-6782e653f748">&lt;title&gt;</bpt><ept id="6507774d-9fad-4890-8306-6782e653f748">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an overview of Azure Data Factory, see <bpt id="6507774d-9fad-4890-8306-6782e653f748">&lt;linkText&gt;</bpt>Introduction to Azure Data Factory[adf-introduction]<ept id="6507774d-9fad-4890-8306-6782e653f748">&lt;/linkText&gt;</ept><bpt id="6507774d-9fad-4890-8306-6782e653f748">&lt;title&gt;</bpt><ept id="6507774d-9fad-4890-8306-6782e653f748">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed9e5257-230c-416c-9bf6-7a9bdc0a0932" xml:space="preserve">
+          <source>For a quick tutorial, see <bpt id="056b6c37-e283-4f57-a8eb-af644d47c539">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="056b6c37-e283-4f57-a8eb-af644d47c539">&lt;/linkText&gt;</ept><bpt id="056b6c37-e283-4f57-a8eb-af644d47c539">&lt;title&gt;</bpt><ept id="056b6c37-e283-4f57-a8eb-af644d47c539">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a quick tutorial, see <bpt id="056b6c37-e283-4f57-a8eb-af644d47c539">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="056b6c37-e283-4f57-a8eb-af644d47c539">&lt;/linkText&gt;</ept><bpt id="056b6c37-e283-4f57-a8eb-af644d47c539">&lt;title&gt;</bpt><ept id="056b6c37-e283-4f57-a8eb-af644d47c539">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c436f31-91a5-493c-b82b-077252229a4a" xml:space="preserve">
+          <source>For comprehensive documentation, see <bpt id="c1895bef-480b-4410-8e04-3b638a456473">&lt;linkText&gt;</bpt>Azure Data Factory documentation[adf-documentation-landingpage]<ept id="c1895bef-480b-4410-8e04-3b638a456473">&lt;/linkText&gt;</ept><bpt id="c1895bef-480b-4410-8e04-3b638a456473">&lt;title&gt;</bpt><ept id="c1895bef-480b-4410-8e04-3b638a456473">&lt;/title&gt;</ept>.</source>
+          <target state="new">For comprehensive documentation, see <bpt id="c1895bef-480b-4410-8e04-3b638a456473">&lt;linkText&gt;</bpt>Azure Data Factory documentation[adf-documentation-landingpage]<ept id="c1895bef-480b-4410-8e04-3b638a456473">&lt;/linkText&gt;</ept><bpt id="c1895bef-480b-4410-8e04-3b638a456473">&lt;title&gt;</bpt><ept id="c1895bef-480b-4410-8e04-3b638a456473">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="038cb5a2-1445-4fb6-a250-1a3fb427d095" xml:space="preserve">
+          <source>Customers can get access to Data Factory through the <bpt id="47228f6c-a353-472f-9660-01455c087d16">&lt;linkText&gt;</bpt>Azure Preview Portal[azure-preview-portal]<ept id="47228f6c-a353-472f-9660-01455c087d16">&lt;/linkText&gt;</ept><bpt id="47228f6c-a353-472f-9660-01455c087d16">&lt;title&gt;</bpt><ept id="47228f6c-a353-472f-9660-01455c087d16">&lt;/title&gt;</ept>.</source>
+          <target state="new">Customers can get access to Data Factory through the <bpt id="47228f6c-a353-472f-9660-01455c087d16">&lt;linkText&gt;</bpt>Azure Preview Portal[azure-preview-portal]<ept id="47228f6c-a353-472f-9660-01455c087d16">&lt;/linkText&gt;</ept><bpt id="47228f6c-a353-472f-9660-01455c087d16">&lt;title&gt;</bpt><ept id="47228f6c-a353-472f-9660-01455c087d16">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a3ab9b0-f1e8-4b1f-aebd-d77a1839f48d" xml:space="preserve">
+          <source>Data Factory is available in US West and North Europe.</source>
+          <target state="new">Data Factory is available in US West and North Europe.</target>
+        </trans-unit>
+        <trans-unit id="3f17562d-365d-4a45-8ea6-e0ac6f6759ce" xml:space="preserve">
+          <source>The compute and storage services used by data factories can be in other regions.</source>
+          <target state="new">The compute and storage services used by data factories can be in other regions.</target>
+        </trans-unit>
+        <trans-unit id="2571961d-3199-48aa-af2f-567e3d99ff54" xml:space="preserve">
+          <source>See <bpt id="a706f875-41e4-4397-ba42-d9cf824cdf63">&lt;strong&gt;</bpt>Azure Data Factory Limits<ept id="a706f875-41e4-4397-ba42-d9cf824cdf63">&lt;/strong&gt;</ept> section of the <bpt id="1792d4b0-f991-4648-a0a0-590d4ff49ac4">&lt;linkText&gt;</bpt>Azure Subscription and Service Limits, Quotas, and Constraints<ept id="1792d4b0-f991-4648-a0a0-590d4ff49ac4">&lt;/linkText&gt;</ept><bpt id="1792d4b0-f991-4648-a0a0-590d4ff49ac4">&lt;title&gt;</bpt><ept id="1792d4b0-f991-4648-a0a0-590d4ff49ac4">&lt;/title&gt;</ept> article.</source>
+          <target state="new">See <bpt id="a706f875-41e4-4397-ba42-d9cf824cdf63">&lt;strong&gt;</bpt>Azure Data Factory Limits<ept id="a706f875-41e4-4397-ba42-d9cf824cdf63">&lt;/strong&gt;</ept> section of the <bpt id="1792d4b0-f991-4648-a0a0-590d4ff49ac4">&lt;linkText&gt;</bpt>Azure Subscription and Service Limits, Quotas, and Constraints<ept id="1792d4b0-f991-4648-a0a0-590d4ff49ac4">&lt;/linkText&gt;</ept><bpt id="1792d4b0-f991-4648-a0a0-590d4ff49ac4">&lt;title&gt;</bpt><ept id="1792d4b0-f991-4648-a0a0-590d4ff49ac4">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="02b82ad0-0074-4189-86e9-1f6d854c1dd0" xml:space="preserve">
+          <source>You can author/create data factories using one of the following:</source>
+          <target state="new">You can author/create data factories using one of the following:</target>
+        </trans-unit>
+        <trans-unit id="0dd6b7c0-d9fa-466a-a9dd-b1c01624468a" xml:space="preserve">
+          <source><bpt id="bad35327-fafc-465b-9d8f-4430c6238bcf">&lt;strong&gt;</bpt>Azure Preview Portal<ept id="bad35327-fafc-465b-9d8f-4430c6238bcf">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="bad35327-fafc-465b-9d8f-4430c6238bcf">&lt;strong&gt;</bpt>Azure Preview Portal<ept id="bad35327-fafc-465b-9d8f-4430c6238bcf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df8ef51a-508d-4124-9178-5186d6e4e02b" xml:space="preserve">
+          <source>The Data Factory blades in the Azure Preview Portal provide rich user interface for you to create data factories ad linked services.</source>
+          <target state="new">The Data Factory blades in the Azure Preview Portal provide rich user interface for you to create data factories ad linked services.</target>
+        </trans-unit>
+        <trans-unit id="da4190e9-d690-415c-8153-0dc62b04f348" xml:space="preserve">
+          <source>The <bpt id="de1050e6-ad1c-4d78-bbaa-7d5e29eee714">&lt;strong&gt;</bpt>Data Factory Editor<ept id="de1050e6-ad1c-4d78-bbaa-7d5e29eee714">&lt;/strong&gt;</ept>, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts.</source>
+          <target state="new">The <bpt id="de1050e6-ad1c-4d78-bbaa-7d5e29eee714">&lt;strong&gt;</bpt>Data Factory Editor<ept id="de1050e6-ad1c-4d78-bbaa-7d5e29eee714">&lt;/strong&gt;</ept>, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts.</target>
+        </trans-unit>
+        <trans-unit id="78e6704c-8a03-4703-bb23-4f04cc2f3088" xml:space="preserve">
+          <source>See <bpt id="3043f25a-fdb3-4cd6-b9d2-66195da58b80">&lt;linkText&gt;</bpt>Data Factory Editor[data-factory-editor]<ept id="3043f25a-fdb3-4cd6-b9d2-66195da58b80">&lt;/linkText&gt;</ept><bpt id="3043f25a-fdb3-4cd6-b9d2-66195da58b80">&lt;title&gt;</bpt><ept id="3043f25a-fdb3-4cd6-b9d2-66195da58b80">&lt;/title&gt;</ept> for an overview of the editor and <bpt id="38844085-687a-4290-986d-75f2a2bf77ed">&lt;linkText&gt;</bpt>Get started with Data Factory[datafactory-getstarted]<ept id="38844085-687a-4290-986d-75f2a2bf77ed">&lt;/linkText&gt;</ept><bpt id="38844085-687a-4290-986d-75f2a2bf77ed">&lt;title&gt;</bpt><ept id="38844085-687a-4290-986d-75f2a2bf77ed">&lt;/title&gt;</ept> for an example of using the portal/editor to create and deploy a data factory.</source>
+          <target state="new">See <bpt id="3043f25a-fdb3-4cd6-b9d2-66195da58b80">&lt;linkText&gt;</bpt>Data Factory Editor[data-factory-editor]<ept id="3043f25a-fdb3-4cd6-b9d2-66195da58b80">&lt;/linkText&gt;</ept><bpt id="3043f25a-fdb3-4cd6-b9d2-66195da58b80">&lt;title&gt;</bpt><ept id="3043f25a-fdb3-4cd6-b9d2-66195da58b80">&lt;/title&gt;</ept> for an overview of the editor and <bpt id="38844085-687a-4290-986d-75f2a2bf77ed">&lt;linkText&gt;</bpt>Get started with Data Factory[datafactory-getstarted]<ept id="38844085-687a-4290-986d-75f2a2bf77ed">&lt;/linkText&gt;</ept><bpt id="38844085-687a-4290-986d-75f2a2bf77ed">&lt;title&gt;</bpt><ept id="38844085-687a-4290-986d-75f2a2bf77ed">&lt;/title&gt;</ept> for an example of using the portal/editor to create and deploy a data factory.</target>
+        </trans-unit>
+        <trans-unit id="b810efc4-3ff7-493c-a095-ff4376472150" xml:space="preserve">
+          <source><bpt id="387cdd35-6a1b-4c99-ab91-8ee48ece449f">&lt;strong&gt;</bpt>Azure PowerShell<ept id="387cdd35-6a1b-4c99-ab91-8ee48ece449f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="387cdd35-6a1b-4c99-ab91-8ee48ece449f">&lt;strong&gt;</bpt>Azure PowerShell<ept id="387cdd35-6a1b-4c99-ab91-8ee48ece449f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b2d1091-8c41-4306-91c9-a5201fd5ec11" xml:space="preserve">
+          <source>If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories.</source>
+          <target state="new">If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories.</target>
+        </trans-unit>
+        <trans-unit id="2e47f2b0-7576-4563-aec6-8a212bc10e28" xml:space="preserve">
+          <source>See <bpt id="ff33aad1-daee-4732-bd2c-607589c05dcb">&lt;linkText&gt;</bpt>Create and monitor Azure Data Factory using Azure PowerShell[create-data-factory-using-powershell]<ept id="ff33aad1-daee-4732-bd2c-607589c05dcb">&lt;/linkText&gt;</ept><bpt id="ff33aad1-daee-4732-bd2c-607589c05dcb">&lt;title&gt;</bpt><ept id="ff33aad1-daee-4732-bd2c-607589c05dcb">&lt;/title&gt;</ept> for a simple example and <bpt id="12636c60-4244-4b27-af45-b9a5e9043338">&lt;linkText&gt;</bpt>Tutorial: Move and process log files using Data Factory[adf-tutorial]<ept id="12636c60-4244-4b27-af45-b9a5e9043338">&lt;/linkText&gt;</ept><bpt id="12636c60-4244-4b27-af45-b9a5e9043338">&lt;title&gt;</bpt><ept id="12636c60-4244-4b27-af45-b9a5e9043338">&lt;/title&gt;</ept> for an advanced example of using PowerShell cmdles to create ad deploy a data factory.</source>
+          <target state="new">See <bpt id="ff33aad1-daee-4732-bd2c-607589c05dcb">&lt;linkText&gt;</bpt>Create and monitor Azure Data Factory using Azure PowerShell[create-data-factory-using-powershell]<ept id="ff33aad1-daee-4732-bd2c-607589c05dcb">&lt;/linkText&gt;</ept><bpt id="ff33aad1-daee-4732-bd2c-607589c05dcb">&lt;title&gt;</bpt><ept id="ff33aad1-daee-4732-bd2c-607589c05dcb">&lt;/title&gt;</ept> for a simple example and <bpt id="12636c60-4244-4b27-af45-b9a5e9043338">&lt;linkText&gt;</bpt>Tutorial: Move and process log files using Data Factory[adf-tutorial]<ept id="12636c60-4244-4b27-af45-b9a5e9043338">&lt;/linkText&gt;</ept><bpt id="12636c60-4244-4b27-af45-b9a5e9043338">&lt;title&gt;</bpt><ept id="12636c60-4244-4b27-af45-b9a5e9043338">&lt;/title&gt;</ept> for an advanced example of using PowerShell cmdles to create ad deploy a data factory.</target>
+        </trans-unit>
+        <trans-unit id="bc744add-0d2c-4a1b-a779-afa3626ec40f" xml:space="preserve">
+          <source>See <bpt id="dc3d555f-67f8-4153-aa62-4a544c9bc31c">&lt;linkText&gt;</bpt>Data Factory Cmdlet Reference[adf-powershell-reference]<ept id="dc3d555f-67f8-4153-aa62-4a544c9bc31c">&lt;/linkText&gt;</ept><bpt id="dc3d555f-67f8-4153-aa62-4a544c9bc31c">&lt;title&gt;</bpt><ept id="dc3d555f-67f8-4153-aa62-4a544c9bc31c">&lt;/title&gt;</ept> content on MSDN Library for a comprehensive documentation of Data Factory cmdlets.</source>
+          <target state="new">See <bpt id="dc3d555f-67f8-4153-aa62-4a544c9bc31c">&lt;linkText&gt;</bpt>Data Factory Cmdlet Reference[adf-powershell-reference]<ept id="dc3d555f-67f8-4153-aa62-4a544c9bc31c">&lt;/linkText&gt;</ept><bpt id="dc3d555f-67f8-4153-aa62-4a544c9bc31c">&lt;title&gt;</bpt><ept id="dc3d555f-67f8-4153-aa62-4a544c9bc31c">&lt;/title&gt;</ept> content on MSDN Library for a comprehensive documentation of Data Factory cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="3a4ff8ed-cad8-4607-8d51-cce29ed5d9ec" xml:space="preserve">
+          <source><bpt id="2614cc0d-feea-48be-9313-8a71479fd72b">&lt;strong&gt;</bpt>Visual Studio<ept id="2614cc0d-feea-48be-9313-8a71479fd72b">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="2614cc0d-feea-48be-9313-8a71479fd72b">&lt;strong&gt;</bpt>Visual Studio<ept id="2614cc0d-feea-48be-9313-8a71479fd72b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9c93b5d-260b-47b5-913a-37f125094a65" xml:space="preserve">
+          <source>You can also use Visual Studio to programmatically create, monitor, and manage data factories.</source>
+          <target state="new">You can also use Visual Studio to programmatically create, monitor, and manage data factories.</target>
+        </trans-unit>
+        <trans-unit id="1a272919-4dcf-42c8-8447-38672b6181a6" xml:space="preserve">
+          <source>See <bpt id="b37665e7-dc89-4151-a2dd-054da945939c">&lt;linkText&gt;</bpt>Create, monitor, and manage Azure data factories using Data Factory .NET SDK<ept id="b37665e7-dc89-4151-a2dd-054da945939c">&lt;/linkText&gt;</ept><bpt id="b37665e7-dc89-4151-a2dd-054da945939c">&lt;title&gt;</bpt><ept id="b37665e7-dc89-4151-a2dd-054da945939c">&lt;/title&gt;</ept> article for details.</source>
+          <target state="new">See <bpt id="b37665e7-dc89-4151-a2dd-054da945939c">&lt;linkText&gt;</bpt>Create, monitor, and manage Azure data factories using Data Factory .NET SDK<ept id="b37665e7-dc89-4151-a2dd-054da945939c">&lt;/linkText&gt;</ept><bpt id="b37665e7-dc89-4151-a2dd-054da945939c">&lt;title&gt;</bpt><ept id="b37665e7-dc89-4151-a2dd-054da945939c">&lt;/title&gt;</ept> article for details.</target>
+        </trans-unit>
+        <trans-unit id="07610f6a-f58a-4f80-adc3-2b08115cb370" xml:space="preserve">
+          <source><bpt id="669efdb2-aa21-4259-a572-6f8384711364">&lt;strong&gt;</bpt>.NET Class Library<ept id="669efdb2-aa21-4259-a572-6f8384711364">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="669efdb2-aa21-4259-a572-6f8384711364">&lt;strong&gt;</bpt>.NET Class Library<ept id="669efdb2-aa21-4259-a572-6f8384711364">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bde9b760-a6a2-4ed7-82cd-3879fe2201a1" xml:space="preserve">
+          <source>You can programmatically create data factories by using Data Factory .NET SDK.</source>
+          <target state="new">You can programmatically create data factories by using Data Factory .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="a7721c1b-fc7a-44eb-8814-1ae747cbb1ba" xml:space="preserve">
+          <source>See <bpt id="dc9e7e2b-4388-495e-8b9f-76ff6140518e">&lt;linkText&gt;</bpt>Create, monitor, and manage data factories using .NET SDK[create-factory-using-dotnet-sdk]<ept id="dc9e7e2b-4388-495e-8b9f-76ff6140518e">&lt;/linkText&gt;</ept><bpt id="dc9e7e2b-4388-495e-8b9f-76ff6140518e">&lt;title&gt;</bpt><ept id="dc9e7e2b-4388-495e-8b9f-76ff6140518e">&lt;/title&gt;</ept> for a walkthrough of creating a data factory using .NET SDK.</source>
+          <target state="new">See <bpt id="dc9e7e2b-4388-495e-8b9f-76ff6140518e">&lt;linkText&gt;</bpt>Create, monitor, and manage data factories using .NET SDK[create-factory-using-dotnet-sdk]<ept id="dc9e7e2b-4388-495e-8b9f-76ff6140518e">&lt;/linkText&gt;</ept><bpt id="dc9e7e2b-4388-495e-8b9f-76ff6140518e">&lt;title&gt;</bpt><ept id="dc9e7e2b-4388-495e-8b9f-76ff6140518e">&lt;/title&gt;</ept> for a walkthrough of creating a data factory using .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="34fb3d99-b618-4ee1-b850-c6b5603c0bbc" xml:space="preserve">
+          <source>See <bpt id="ecd4060d-64ee-4cc0-80b3-59e28fa959d3">&lt;linkText&gt;</bpt>Data Factory Class Library Reference[msdn-class-library-reference]<ept id="ecd4060d-64ee-4cc0-80b3-59e28fa959d3">&lt;/linkText&gt;</ept><bpt id="ecd4060d-64ee-4cc0-80b3-59e28fa959d3">&lt;title&gt;</bpt><ept id="ecd4060d-64ee-4cc0-80b3-59e28fa959d3">&lt;/title&gt;</ept> for a comprehensive documentation of Data Factory .NET SDK.</source>
+          <target state="new">See <bpt id="ecd4060d-64ee-4cc0-80b3-59e28fa959d3">&lt;linkText&gt;</bpt>Data Factory Class Library Reference[msdn-class-library-reference]<ept id="ecd4060d-64ee-4cc0-80b3-59e28fa959d3">&lt;/linkText&gt;</ept><bpt id="ecd4060d-64ee-4cc0-80b3-59e28fa959d3">&lt;title&gt;</bpt><ept id="ecd4060d-64ee-4cc0-80b3-59e28fa959d3">&lt;/title&gt;</ept> for a comprehensive documentation of Data Factory .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="af6110ef-788b-48ea-af03-753adb37b648" xml:space="preserve">
+          <source><bpt id="8d047488-0a11-4e0b-be3a-97526bbc3deb">&lt;strong&gt;</bpt>REST API<ept id="8d047488-0a11-4e0b-be3a-97526bbc3deb">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="8d047488-0a11-4e0b-be3a-97526bbc3deb">&lt;strong&gt;</bpt>REST API<ept id="8d047488-0a11-4e0b-be3a-97526bbc3deb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d109175-0458-49c6-a6d8-b522f62c569c" xml:space="preserve">
+          <source>You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories.</source>
+          <target state="new">You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories.</target>
+        </trans-unit>
+        <trans-unit id="20e06884-caa0-4c63-80cb-d2532ef773e0" xml:space="preserve">
+          <source>See <bpt id="f01a2d65-7e22-48df-921c-51004ca8408d">&lt;linkText&gt;</bpt>Data Factory REST API Reference[msdn-rest-api-reference]<ept id="f01a2d65-7e22-48df-921c-51004ca8408d">&lt;/linkText&gt;</ept><bpt id="f01a2d65-7e22-48df-921c-51004ca8408d">&lt;title&gt;</bpt><ept id="f01a2d65-7e22-48df-921c-51004ca8408d">&lt;/title&gt;</ept> for  a comprehensive documentation of Data Factory REST API.</source>
+          <target state="new">See <bpt id="f01a2d65-7e22-48df-921c-51004ca8408d">&lt;linkText&gt;</bpt>Data Factory REST API Reference[msdn-rest-api-reference]<ept id="f01a2d65-7e22-48df-921c-51004ca8408d">&lt;/linkText&gt;</ept><bpt id="f01a2d65-7e22-48df-921c-51004ca8408d">&lt;title&gt;</bpt><ept id="f01a2d65-7e22-48df-921c-51004ca8408d">&lt;/title&gt;</ept> for  a comprehensive documentation of Data Factory REST API.</target>
+        </trans-unit>
+        <trans-unit id="a0126e60-3260-411e-acf9-16737c8abe6b" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="99093030-708e-4723-a056-426c2f1665c2" xml:space="preserve">
+          <source>Like other Azure resources, the name of an Azure data factory cannot be changed.</source>
+          <target state="new">Like other Azure resources, the name of an Azure data factory cannot be changed.</target>
+        </trans-unit>
+        <trans-unit id="dab6d282-0d78-4e2d-9a81-4875e0fe8958" xml:space="preserve">
+          <source>See <bpt id="6ecc3c0f-0005-487b-80e1-c8ddf395a593">&lt;linkText&gt;</bpt>Data Movement Activities<ept id="6ecc3c0f-0005-487b-80e1-c8ddf395a593">&lt;/linkText&gt;</ept><bpt id="6ecc3c0f-0005-487b-80e1-c8ddf395a593">&lt;title&gt;</bpt><ept id="6ecc3c0f-0005-487b-80e1-c8ddf395a593">&lt;/title&gt;</ept> and <bpt id="bf49d5fc-7293-4914-a19b-448a647f05f0">&lt;linkText&gt;</bpt>Data Transformation Activities<ept id="bf49d5fc-7293-4914-a19b-448a647f05f0">&lt;/linkText&gt;</ept><bpt id="bf49d5fc-7293-4914-a19b-448a647f05f0">&lt;title&gt;</bpt><ept id="bf49d5fc-7293-4914-a19b-448a647f05f0">&lt;/title&gt;</ept> articles for the supported data sources and activities.</source>
+          <target state="new">See <bpt id="6ecc3c0f-0005-487b-80e1-c8ddf395a593">&lt;linkText&gt;</bpt>Data Movement Activities<ept id="6ecc3c0f-0005-487b-80e1-c8ddf395a593">&lt;/linkText&gt;</ept><bpt id="6ecc3c0f-0005-487b-80e1-c8ddf395a593">&lt;title&gt;</bpt><ept id="6ecc3c0f-0005-487b-80e1-c8ddf395a593">&lt;/title&gt;</ept> and <bpt id="bf49d5fc-7293-4914-a19b-448a647f05f0">&lt;linkText&gt;</bpt>Data Transformation Activities<ept id="bf49d5fc-7293-4914-a19b-448a647f05f0">&lt;/linkText&gt;</ept><bpt id="bf49d5fc-7293-4914-a19b-448a647f05f0">&lt;title&gt;</bpt><ept id="bf49d5fc-7293-4914-a19b-448a647f05f0">&lt;/title&gt;</ept> articles for the supported data sources and activities.</target>
+        </trans-unit>
+        <trans-unit id="072e6e17-03e3-432f-b0d7-0c240b679b75" xml:space="preserve">
+          <source>The <bpt id="758218af-6b39-4806-be7d-c1947832cde7">&lt;strong&gt;</bpt>availability<ept id="758218af-6b39-4806-be7d-c1947832cde7">&lt;/strong&gt;</ept> configuration setting in the output data table determines when the activity is run.</source>
+          <target state="new">The <bpt id="758218af-6b39-4806-be7d-c1947832cde7">&lt;strong&gt;</bpt>availability<ept id="758218af-6b39-4806-be7d-c1947832cde7">&lt;/strong&gt;</ept> configuration setting in the output data table determines when the activity is run.</target>
+        </trans-unit>
+        <trans-unit id="f17dedf7-0b16-413a-a9ae-e1144b288961" xml:space="preserve">
+          <source>The activity checks whether all the input data dependencies are satisfied (i.e., <bpt id="87aa9730-a2d0-4e7f-9e28-ba145f54be80">&lt;strong&gt;</bpt>Ready<ept id="87aa9730-a2d0-4e7f-9e28-ba145f54be80">&lt;/strong&gt;</ept> state) before it starts running.</source>
+          <target state="new">The activity checks whether all the input data dependencies are satisfied (i.e., <bpt id="87aa9730-a2d0-4e7f-9e28-ba145f54be80">&lt;strong&gt;</bpt>Ready<ept id="87aa9730-a2d0-4e7f-9e28-ba145f54be80">&lt;/strong&gt;</ept> state) before it starts running.</target>
+        </trans-unit>
+        <trans-unit id="988c4038-acdd-440f-8793-483a22d21624" xml:space="preserve">
+          <source>Pipelines are supposed to bundle related activities.</source>
+          <target state="new">Pipelines are supposed to bundle related activities.</target>
+        </trans-unit>
+        <trans-unit id="09531ba7-7fd8-4c47-9072-89beb3a5af47" xml:space="preserve">
+          <source>Logically, you can keep the activities in one pipeline if the tables that connect them are not consumed by any other activity outside the pipeline.</source>
+          <target state="new">Logically, you can keep the activities in one pipeline if the tables that connect them are not consumed by any other activity outside the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="6f9378c0-05f9-4537-878d-aab8faff4888" xml:space="preserve">
+          <source>This way, you would not need to chain pipeline active periods so that they align with each other.</source>
+          <target state="new">This way, you would not need to chain pipeline active periods so that they align with each other.</target>
+        </trans-unit>
+        <trans-unit id="8aa9a5bc-8c0b-4587-9063-0c8eb8dd320e" xml:space="preserve">
+          <source>Also, the data integrity in the tables internal to the pipeline will be better preserved when updating the pipeline.</source>
+          <target state="new">Also, the data integrity in the tables internal to the pipeline will be better preserved when updating the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="4ba61b5c-bf4a-40d7-ac8a-0030aadded68" xml:space="preserve">
+          <source>Pipeline update essentially stops all the activities within the pipeline, removes them, and creates them again.</source>
+          <target state="new">Pipeline update essentially stops all the activities within the pipeline, removes them, and creates them again.</target>
+        </trans-unit>
+        <trans-unit id="52e05b0a-c1db-4884-a38c-f5ce17cd3a7d" xml:space="preserve">
+          <source>From authoring perspective, it might also be easier to see the flow of data within the related activities in one JSON file for the pipeline.</source>
+          <target state="new">From authoring perspective, it might also be easier to see the flow of data within the related activities in one JSON file for the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="7570d537-b413-4642-a779-10fe568471dd" xml:space="preserve">
+          <source>See the Geographic Availability section in the following article: or <bpt id="96968ae9-58da-45b1-abc0-d90c171ae471">&lt;linkText&gt;</bpt>HDInsight Pricing Details[hdinsight-supported-regions]<ept id="96968ae9-58da-45b1-abc0-d90c171ae471">&lt;/linkText&gt;</ept><bpt id="96968ae9-58da-45b1-abc0-d90c171ae471">&lt;title&gt;</bpt><ept id="96968ae9-58da-45b1-abc0-d90c171ae471">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the Geographic Availability section in the following article: or <bpt id="96968ae9-58da-45b1-abc0-d90c171ae471">&lt;linkText&gt;</bpt>HDInsight Pricing Details[hdinsight-supported-regions]<ept id="96968ae9-58da-45b1-abc0-d90c171ae471">&lt;/linkText&gt;</ept><bpt id="96968ae9-58da-45b1-abc0-d90c171ae471">&lt;title&gt;</bpt><ept id="96968ae9-58da-45b1-abc0-d90c171ae471">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2acee91d-ca2a-485b-86a0-ddb276c3372c" xml:space="preserve">
+          <source>The on-demand HDInsight cluster is created in the same region where the storage you specified to be used with the cluster exists.</source>
+          <target state="new">The on-demand HDInsight cluster is created in the same region where the storage you specified to be used with the cluster exists.</target>
+        </trans-unit>
+        <trans-unit id="12807b64-9d9e-47b0-a895-181a225f3f1a" xml:space="preserve">
+          <source>If you are using your own HDInsight Cluster (BYOC - Bring Your Own Cluster), see the following topics: </source>
+          <target state="new">If you are using your own HDInsight Cluster (BYOC - Bring Your Own Cluster), see the following topics: </target>
+        </trans-unit>
+        <trans-unit id="9c586b73-2242-4e81-9c2f-571e59f48c9c" xml:space="preserve">
+          <source><bpt id="df58615f-5bdc-41af-a9fd-0a52da841ed4">&lt;linkText&gt;</bpt>Using an HDInsight Cluster with Alternate Storage Accounts and Metastores[hdinsight-alternate-storage]<ept id="df58615f-5bdc-41af-a9fd-0a52da841ed4">&lt;/linkText&gt;</ept><bpt id="df58615f-5bdc-41af-a9fd-0a52da841ed4">&lt;title&gt;</bpt><ept id="df58615f-5bdc-41af-a9fd-0a52da841ed4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="df58615f-5bdc-41af-a9fd-0a52da841ed4">&lt;linkText&gt;</bpt>Using an HDInsight Cluster with Alternate Storage Accounts and Metastores[hdinsight-alternate-storage]<ept id="df58615f-5bdc-41af-a9fd-0a52da841ed4">&lt;/linkText&gt;</ept><bpt id="df58615f-5bdc-41af-a9fd-0a52da841ed4">&lt;title&gt;</bpt><ept id="df58615f-5bdc-41af-a9fd-0a52da841ed4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7355429-2242-4a93-8a0c-a7c44e54af8c" xml:space="preserve">
+          <source><bpt id="7f7c48f6-a7c0-4b28-b39e-c936766e551d">&lt;linkText&gt;</bpt>Use Additional Storage Accounts with HDInsight Hive[hdinsight-alternate-storage-2]<ept id="7f7c48f6-a7c0-4b28-b39e-c936766e551d">&lt;/linkText&gt;</ept><bpt id="7f7c48f6-a7c0-4b28-b39e-c936766e551d">&lt;title&gt;</bpt><ept id="7f7c48f6-a7c0-4b28-b39e-c936766e551d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7f7c48f6-a7c0-4b28-b39e-c936766e551d">&lt;linkText&gt;</bpt>Use Additional Storage Accounts with HDInsight Hive[hdinsight-alternate-storage-2]<ept id="7f7c48f6-a7c0-4b28-b39e-c936766e551d">&lt;/linkText&gt;</ept><bpt id="7f7c48f6-a7c0-4b28-b39e-c936766e551d">&lt;title&gt;</bpt><ept id="7f7c48f6-a7c0-4b28-b39e-c936766e551d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd9cab67-114d-49dc-a10a-846ade9d82fe" xml:space="preserve">
+          <source>If you are using an on-demand cluster that is created by the Data Factory service, you need to specify additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.</source>
+          <target state="new">If you are using an on-demand cluster that is created by the Data Factory service, you need to specify additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.</target>
+        </trans-unit>
+        <trans-unit id="31a4a57d-c719-45c6-8882-9f41b6fd1053" xml:space="preserve">
+          <source>In the JSON definition for the on-demand linked service, use <bpt id="4c50a2e6-7227-4518-91c6-2302830ac6e9">&lt;strong&gt;</bpt>additionalLinkedServiceNames<ept id="4c50a2e6-7227-4518-91c6-2302830ac6e9">&lt;/strong&gt;</ept> property to specify alternate storage accounts as shown in the following JSON snippet:</source>
+          <target state="new">In the JSON definition for the on-demand linked service, use <bpt id="4c50a2e6-7227-4518-91c6-2302830ac6e9">&lt;strong&gt;</bpt>additionalLinkedServiceNames<ept id="4c50a2e6-7227-4518-91c6-2302830ac6e9">&lt;/strong&gt;</ept> property to specify alternate storage accounts as shown in the following JSON snippet:</target>
+        </trans-unit>
+        <trans-unit id="047c53b3-c7e0-4416-b15c-474628c7aaab" xml:space="preserve">
+          <source>In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 represent linked services whose definitions contain credentials that the HDInsight cluster needs to access alternate storage accounts.</source>
+          <target state="new">In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 represent linked services whose definitions contain credentials that the HDInsight cluster needs to access alternate storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="c1f254af-4bd8-49e1-819b-89325424cc7e" xml:space="preserve">
+          <source>The Stored Procedure Activity supports only Azure SQL Database at this time.</source>
+          <target state="new">The Stored Procedure Activity supports only Azure SQL Database at this time.</target>
+        </trans-unit>
+        <trans-unit id="5271486b-8c0a-462e-b637-c0a2d56377a1" xml:space="preserve">
+          <source>You can rerun a slice in one of the following ways: </source>
+          <target state="new">You can rerun a slice in one of the following ways: </target>
+        </trans-unit>
+        <trans-unit id="d85a347a-984a-4bdc-83fd-e16936029483" xml:space="preserve">
+          <source>Click <bpt id="6a018f69-e8ef-4d77-9b6b-664f7643a8a7">&lt;strong&gt;</bpt>Run<ept id="6a018f69-e8ef-4d77-9b6b-664f7643a8a7">&lt;/strong&gt;</ept> in the command bar on the <bpt id="cd9cbce7-cecd-494d-93ab-57cb5da0e91f">&lt;strong&gt;</bpt>DATA SLICE<ept id="cd9cbce7-cecd-494d-93ab-57cb5da0e91f">&lt;/strong&gt;</ept> blade for the slice in the portal.</source>
+          <target state="new">Click <bpt id="6a018f69-e8ef-4d77-9b6b-664f7643a8a7">&lt;strong&gt;</bpt>Run<ept id="6a018f69-e8ef-4d77-9b6b-664f7643a8a7">&lt;/strong&gt;</ept> in the command bar on the <bpt id="cd9cbce7-cecd-494d-93ab-57cb5da0e91f">&lt;strong&gt;</bpt>DATA SLICE<ept id="cd9cbce7-cecd-494d-93ab-57cb5da0e91f">&lt;/strong&gt;</ept> blade for the slice in the portal.</target>
+        </trans-unit>
+        <trans-unit id="b42698fe-d0d4-4552-8f56-0ec4683b2c71" xml:space="preserve">
+          <source>Run <bpt id="5c632251-bf09-4ec5-8571-d8c0fde3c4db">&lt;strong&gt;</bpt>Set-AzureDataFactorySliceStatus<ept id="5c632251-bf09-4ec5-8571-d8c0fde3c4db">&lt;/strong&gt;</ept> cmdlet with Status set to <bpt id="e6c9f6fe-90f4-4f93-aa75-f8e0017cbdd5">&lt;strong&gt;</bpt>PendingExecution<ept id="e6c9f6fe-90f4-4f93-aa75-f8e0017cbdd5">&lt;/strong&gt;</ept> for the slice.</source>
+          <target state="new">Run <bpt id="5c632251-bf09-4ec5-8571-d8c0fde3c4db">&lt;strong&gt;</bpt>Set-AzureDataFactorySliceStatus<ept id="5c632251-bf09-4ec5-8571-d8c0fde3c4db">&lt;/strong&gt;</ept> cmdlet with Status set to <bpt id="e6c9f6fe-90f4-4f93-aa75-f8e0017cbdd5">&lt;strong&gt;</bpt>PendingExecution<ept id="e6c9f6fe-90f4-4f93-aa75-f8e0017cbdd5">&lt;/strong&gt;</ept> for the slice.</target>
+        </trans-unit>
+        <trans-unit id="b6d0fd16-7b1b-4fbc-a9ca-02f9b008c0be" xml:space="preserve">
+          <source>See <bpt id="d7900411-d866-4994-8bd9-4076ecd0cc8d">&lt;linkText&gt;</bpt>Set-AzureDataFactorySliceStatus[set-azure-datafactory-slice-status]<ept id="d7900411-d866-4994-8bd9-4076ecd0cc8d">&lt;/linkText&gt;</ept><bpt id="d7900411-d866-4994-8bd9-4076ecd0cc8d">&lt;title&gt;</bpt><ept id="d7900411-d866-4994-8bd9-4076ecd0cc8d">&lt;/title&gt;</ept> for details about the cmdlet.</source>
+          <target state="new">See <bpt id="d7900411-d866-4994-8bd9-4076ecd0cc8d">&lt;linkText&gt;</bpt>Set-AzureDataFactorySliceStatus[set-azure-datafactory-slice-status]<ept id="d7900411-d866-4994-8bd9-4076ecd0cc8d">&lt;/linkText&gt;</ept><bpt id="d7900411-d866-4994-8bd9-4076ecd0cc8d">&lt;title&gt;</bpt><ept id="d7900411-d866-4994-8bd9-4076ecd0cc8d">&lt;/title&gt;</ept> for details about the cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="9e8a958a-4fe0-4343-a84b-85f2215de773" xml:space="preserve">
+          <source>Click <bpt id="4cb1f59e-356c-4375-8508-be6571af1351">&lt;strong&gt;</bpt>Datasets<ept id="4cb1f59e-356c-4375-8508-be6571af1351">&lt;/strong&gt;</ept> tile on the <bpt id="a2c5c12f-19a3-4262-8f22-5273cbd0bf69">&lt;strong&gt;</bpt>DATA FACTORY<ept id="a2c5c12f-19a3-4262-8f22-5273cbd0bf69">&lt;/strong&gt;</ept> blade for your data factory.</source>
+          <target state="new">Click <bpt id="4cb1f59e-356c-4375-8508-be6571af1351">&lt;strong&gt;</bpt>Datasets<ept id="4cb1f59e-356c-4375-8508-be6571af1351">&lt;/strong&gt;</ept> tile on the <bpt id="a2c5c12f-19a3-4262-8f22-5273cbd0bf69">&lt;strong&gt;</bpt>DATA FACTORY<ept id="a2c5c12f-19a3-4262-8f22-5273cbd0bf69">&lt;/strong&gt;</ept> blade for your data factory.</target>
+        </trans-unit>
+        <trans-unit id="ec6650ff-9834-4d88-9a52-dad207d7efa8" xml:space="preserve">
+          <source>Click the specific dataset on the <bpt id="872f1653-8f49-4b69-9d5c-6123fbd060ff">&lt;strong&gt;</bpt>Datasets<ept id="872f1653-8f49-4b69-9d5c-6123fbd060ff">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click the specific dataset on the <bpt id="872f1653-8f49-4b69-9d5c-6123fbd060ff">&lt;strong&gt;</bpt>Datasets<ept id="872f1653-8f49-4b69-9d5c-6123fbd060ff">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="70bbe879-1300-44b8-b702-767bcc4de5d2" xml:space="preserve">
+          <source>Select the slice that you are interested in from the <bpt id="ab08862f-49c3-4644-86a4-298b4f7b2ae0">&lt;strong&gt;</bpt>Recent slices<ept id="ab08862f-49c3-4644-86a4-298b4f7b2ae0">&lt;/strong&gt;</ept> list on the <bpt id="b696ac89-7a3e-4b98-bd90-426c5865dad1">&lt;strong&gt;</bpt>TABLE<ept id="b696ac89-7a3e-4b98-bd90-426c5865dad1">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Select the slice that you are interested in from the <bpt id="ab08862f-49c3-4644-86a4-298b4f7b2ae0">&lt;strong&gt;</bpt>Recent slices<ept id="ab08862f-49c3-4644-86a4-298b4f7b2ae0">&lt;/strong&gt;</ept> list on the <bpt id="b696ac89-7a3e-4b98-bd90-426c5865dad1">&lt;strong&gt;</bpt>TABLE<ept id="b696ac89-7a3e-4b98-bd90-426c5865dad1">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="5d5eb9d7-96f4-46ba-90de-932e5b12de38" xml:space="preserve">
+          <source>Click the activity run from the <bpt id="ff868533-3e44-40d9-a0ef-1f492da8e022">&lt;strong&gt;</bpt>Activity Runs<ept id="ff868533-3e44-40d9-a0ef-1f492da8e022">&lt;/strong&gt;</ept> list on the <bpt id="6a210fa9-f2cb-407e-8964-a6d6ac75a4d3">&lt;strong&gt;</bpt>DATA SLICE<ept id="6a210fa9-f2cb-407e-8964-a6d6ac75a4d3">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click the activity run from the <bpt id="ff868533-3e44-40d9-a0ef-1f492da8e022">&lt;strong&gt;</bpt>Activity Runs<ept id="ff868533-3e44-40d9-a0ef-1f492da8e022">&lt;/strong&gt;</ept> list on the <bpt id="6a210fa9-f2cb-407e-8964-a6d6ac75a4d3">&lt;strong&gt;</bpt>DATA SLICE<ept id="6a210fa9-f2cb-407e-8964-a6d6ac75a4d3">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="c1327f54-5b62-4cb6-a974-a5f679ceecb2" xml:space="preserve">
+          <source>Click <bpt id="cba01eca-75d0-4b9e-8d84-7d1320a1914f">&lt;strong&gt;</bpt>Properties<ept id="cba01eca-75d0-4b9e-8d84-7d1320a1914f">&lt;/strong&gt;</ept> tile on the <bpt id="fad6aeb5-d02d-4de6-8228-1b62bf183c62">&lt;strong&gt;</bpt>ACTIVITY RUN DETAILS<ept id="fad6aeb5-d02d-4de6-8228-1b62bf183c62">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click <bpt id="cba01eca-75d0-4b9e-8d84-7d1320a1914f">&lt;strong&gt;</bpt>Properties<ept id="cba01eca-75d0-4b9e-8d84-7d1320a1914f">&lt;/strong&gt;</ept> tile on the <bpt id="fad6aeb5-d02d-4de6-8228-1b62bf183c62">&lt;strong&gt;</bpt>ACTIVITY RUN DETAILS<ept id="fad6aeb5-d02d-4de6-8228-1b62bf183c62">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="2e2cc59d-98b2-47c7-aa5d-719618a15d11" xml:space="preserve">
+          <source>You should see the <bpt id="57c996ee-6858-4908-82c0-cf6eb5c0c8ce">&lt;strong&gt;</bpt>DURATION<ept id="57c996ee-6858-4908-82c0-cf6eb5c0c8ce">&lt;/strong&gt;</ept> field with a value.</source>
+          <target state="new">You should see the <bpt id="57c996ee-6858-4908-82c0-cf6eb5c0c8ce">&lt;strong&gt;</bpt>DURATION<ept id="57c996ee-6858-4908-82c0-cf6eb5c0c8ce">&lt;/strong&gt;</ept> field with a value.</target>
+        </trans-unit>
+        <trans-unit id="352da25f-9e2c-43b1-9d68-72ed79461526" xml:space="preserve">
+          <source>This is the time taken to process the slice.</source>
+          <target state="new">This is the time taken to process the slice.</target>
+        </trans-unit>
+        <trans-unit id="2994ee68-f721-4f08-97d8-209063294576" xml:space="preserve">
+          <source>If you need to stop the pipeline from executing, you can use <bpt id="85f9e813-2554-4632-a880-a1a41867fc18">&lt;linkText&gt;</bpt>Suspend-AzureDataFactoryPipeline<ept id="85f9e813-2554-4632-a880-a1a41867fc18">&lt;/linkText&gt;</ept><bpt id="85f9e813-2554-4632-a880-a1a41867fc18">&lt;title&gt;</bpt><ept id="85f9e813-2554-4632-a880-a1a41867fc18">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">If you need to stop the pipeline from executing, you can use <bpt id="85f9e813-2554-4632-a880-a1a41867fc18">&lt;linkText&gt;</bpt>Suspend-AzureDataFactoryPipeline<ept id="85f9e813-2554-4632-a880-a1a41867fc18">&lt;/linkText&gt;</ept><bpt id="85f9e813-2554-4632-a880-a1a41867fc18">&lt;title&gt;</bpt><ept id="85f9e813-2554-4632-a880-a1a41867fc18">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="2baa1cc8-0fae-4548-905e-7579138379c3" xml:space="preserve">
+          <source>Currently, suspending the pipeline does not stop the slice executions that are in progress.</source>
+          <target state="new">Currently, suspending the pipeline does not stop the slice executions that are in progress.</target>
+        </trans-unit>
+        <trans-unit id="a00ef872-3457-450c-aee5-035ef77abfb3" xml:space="preserve">
+          <source>Once the in-progress executions finish, no extra slice is picked up.</source>
+          <target state="new">Once the in-progress executions finish, no extra slice is picked up.</target>
+        </trans-unit>
+        <trans-unit id="a284ea98-e988-49a3-9a12-d01a64279258" xml:space="preserve">
+          <source>If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again.</source>
+          <target state="new">If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again.</target>
+        </trans-unit>
+        <trans-unit id="a0a82167-e987-42c9-b5af-da0a03114549" xml:space="preserve">
+          <source>If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline.</source>
+          <target state="new">If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="6007401f-70e7-40cd-aeeb-8ac706a1e2ed" xml:space="preserve">
+          <source>./media/data-factory-faq/rerun-slice.png</source>
+          <target state="new">./media/data-factory-faq/rerun-slice.png</target>
+        </trans-unit>
+        <trans-unit id="6de8a76c-3440-4e99-9905-452457275f98" xml:space="preserve">
+          <source>data-factory-get-started.md</source>
+          <target state="new">data-factory-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="b4c28669-fd29-4871-a8a2-4aef62de5834" xml:space="preserve">
+          <source>data-factory-introduction.md</source>
+          <target state="new">data-factory-introduction.md</target>
+        </trans-unit>
+        <trans-unit id="9ab93b34-c614-42ff-a7c7-e7daa46ac029" xml:space="preserve">
+          <source>data-factory-troubleshoot.md</source>
+          <target state="new">data-factory-troubleshoot.md</target>
+        </trans-unit>
+        <trans-unit id="16a2580e-2044-4e62-bfe6-b86e43bb2bd1" xml:space="preserve">
+          <source>data-factory-editor.md</source>
+          <target state="new">data-factory-editor.md</target>
+        </trans-unit>
+        <trans-unit id="6d3ef621-925c-421a-b4ed-6c8ac1169910" xml:space="preserve">
+          <source>data-factory-get-started.md</source>
+          <target state="new">data-factory-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="c025b9c8-35bc-49d6-8efb-70db00c29b4c" xml:space="preserve">
+          <source>data-factory-monitor-manage-using-powershell.md</source>
+          <target state="new">data-factory-monitor-manage-using-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="72ac7714-875e-4a77-9fc8-425517fcc58c" xml:space="preserve">
+          <source>data-factory-tutorial.md</source>
+          <target state="new">data-factory-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="ed6a7dd7-a50b-4a0f-9f5c-d6c06421369a" xml:space="preserve">
+          <source>data-factory-create-data-factories-programmatically.md</source>
+          <target state="new">data-factory-create-data-factories-programmatically.md</target>
+        </trans-unit>
+        <trans-unit id="0a0fdd9c-c2e8-4f65-bfeb-e032901770ce" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn883654.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn883654.aspx</target>
+        </trans-unit>
+        <trans-unit id="65bd1702-7ef8-429d-a47f-1a46aa1b5b80" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn906738.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn906738.aspx</target>
+        </trans-unit>
+        <trans-unit id="ff48521b-8445-41fd-a15c-0bf515e8b416" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn820234.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn820234.aspx</target>
+        </trans-unit>
+        <trans-unit id="98dc3d78-5709-4e50-a87d-ea4345422f81" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=516909</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=516909</target>
+        </trans-unit>
+        <trans-unit id="7c61d89c-2071-47b5-9872-b9a5987a0567" xml:space="preserve">
+          <source>http://portal.azure.com</source>
+          <target state="new">http://portal.azure.com</target>
+        </trans-unit>
+        <trans-unit id="611e2eb9-7174-4c04-b2e3-44b3b0d4592d" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn835095.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn835095.aspx</target>
+        </trans-unit>
+        <trans-unit id="ae1fa693-4624-4c9a-b6e5-2a86f4876e93" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=517777</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=517777</target>
+        </trans-unit>
+        <trans-unit id="5c126feb-1183-4f34-8090-44cdd5175742" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/details/hdinsight/</source>
+          <target state="new">http://azure.microsoft.com/pricing/details/hdinsight/</target>
+        </trans-unit>
+        <trans-unit id="abf81b7d-473e-4572-b514-a800cb4521c5" xml:space="preserve">
+          <source>http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx</source>
+          <target state="new">http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx</target>
+        </trans-unit>
+        <trans-unit id="37b52773-c047-4a1b-a559-08ab8f298d19" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx</source>
+          <target state="new">http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="62d0e04d-1534-4a64-b8ac-405caa021fee" />
+    </body>
+  </file>
+</xliff>

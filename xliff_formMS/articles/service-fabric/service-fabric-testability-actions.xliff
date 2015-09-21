@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d2f64f76-bfc5-44bd-9977-a31b2a6ecc73" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d2f64f76-bfc5-44bd-9977-a31b2a6ecc73" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0f5a1d77-4806-4e72-9614-d50f5a496c50">
+        <trans-unit id="69074607-7324-4776-8620-9eed589d8dcb" xml:space="preserve">
+          <source>Testability Action | Microsoft Azure</source>
+          <target state="new">Testability Action | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7132111e-6b77-491d-8f7b-0c5e59b2df58" xml:space="preserve">
+          <source>This article talks about the testability actions found in Microsoft Azure Service Fabric.</source>
+          <target state="new">This article talks about the testability actions found in Microsoft Azure Service Fabric.</target>
+        </trans-unit>
+        <trans-unit id="869585f7-5166-4046-82d1-35469e0f4e0d" xml:space="preserve">
+          <source>In order to simulate an unreliable infrastructure, Service Fabric provides developers with ways to simulate various real world failures and state transitions.</source>
+          <target state="new">In order to simulate an unreliable infrastructure, Service Fabric provides developers with ways to simulate various real world failures and state transitions.</target>
+        </trans-unit>
+        <trans-unit id="d4637aed-de90-4b1f-b892-f62fd0312033" xml:space="preserve">
+          <source>These are exposed as Testability actions.</source>
+          <target state="new">These are exposed as Testability actions.</target>
+        </trans-unit>
+        <trans-unit id="9e8db873-0fe4-4113-942c-2e10cb80f995" xml:space="preserve">
+          <source>The actions are the low level APIs that cause a specific fault injection, state transition or validation.</source>
+          <target state="new">The actions are the low level APIs that cause a specific fault injection, state transition or validation.</target>
+        </trans-unit>
+        <trans-unit id="c8c23aad-18f2-4b96-8e97-29b70ed9ad3d" xml:space="preserve">
+          <source>Combining these actions, a service developer can write comprehensive test scenarios for your services.</source>
+          <target state="new">Combining these actions, a service developer can write comprehensive test scenarios for your services.</target>
+        </trans-unit>
+        <trans-unit id="b8c438f9-84ab-42a7-ade3-a89b87c78bd5" xml:space="preserve">
+          <source>Service Fabric provides some common test scenarios out of the box composed of these actions.</source>
+          <target state="new">Service Fabric provides some common test scenarios out of the box composed of these actions.</target>
+        </trans-unit>
+        <trans-unit id="da759be9-7fab-4cc5-a16e-17b1f9d51c26" xml:space="preserve">
+          <source>It is highly recommended to utilize these built-in scenarios, which are carefully chosen to test common state transitions and failure cases.</source>
+          <target state="new">It is highly recommended to utilize these built-in scenarios, which are carefully chosen to test common state transitions and failure cases.</target>
+        </trans-unit>
+        <trans-unit id="765f77b7-9e12-48e1-b555-fc808b91977f" xml:space="preserve">
+          <source>However, actions can be used to create custom test scenarios when you want to add coverage for scenarios that are either not covered by the built-in scenarios yet or custom tailored for your application.</source>
+          <target state="new">However, actions can be used to create custom test scenarios when you want to add coverage for scenarios that are either not covered by the built-in scenarios yet or custom tailored for your application.</target>
+        </trans-unit>
+        <trans-unit id="297540d6-6939-439b-b25b-b0f586f8a8f9" xml:space="preserve">
+          <source>C# implementation of the actions are found in the System.Fabric.Testability.dll assembly.</source>
+          <target state="new">C# implementation of the actions are found in the System.Fabric.Testability.dll assembly.</target>
+        </trans-unit>
+        <trans-unit id="0fea5609-9f44-45d4-8397-3ffbc9452cce" xml:space="preserve">
+          <source>The Testability PowerShell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly.</source>
+          <target state="new">The Testability PowerShell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly.</target>
+        </trans-unit>
+        <trans-unit id="5e15a9f6-2bbf-44af-9dd3-22bc734ef3ce" xml:space="preserve">
+          <source>As part of runtime installation the ServiceFabricTestability PowerShell module is installed to allow for easy use.</source>
+          <target state="new">As part of runtime installation the ServiceFabricTestability PowerShell module is installed to allow for easy use.</target>
+        </trans-unit>
+        <trans-unit id="00424960-8455-411b-96b8-7ae474bcab0d" xml:space="preserve">
+          <source>Testability actions are classified into two major buckets:</source>
+          <target state="new">Testability actions are classified into two major buckets:</target>
+        </trans-unit>
+        <trans-unit id="2cb0a16b-dec5-4bc8-846a-0f99edfab7e7" xml:space="preserve">
+          <source>Ungraceful faults: These faults simulate failures like machine restarts and process crashes.</source>
+          <target state="new">Ungraceful faults: These faults simulate failures like machine restarts and process crashes.</target>
+        </trans-unit>
+        <trans-unit id="024830e0-3e9d-408e-8d8f-f61afd0c9211" xml:space="preserve">
+          <source>In such cases of failures, the execution context of process stops abruptly.</source>
+          <target state="new">In such cases of failures, the execution context of process stops abruptly.</target>
+        </trans-unit>
+        <trans-unit id="a29b202b-8561-411c-be9d-ef52cf18feb1" xml:space="preserve">
+          <source>This means no cleanup of state can run before the application starts up again.</source>
+          <target state="new">This means no cleanup of state can run before the application starts up again.</target>
+        </trans-unit>
+        <trans-unit id="786ff97c-2f60-48db-8111-37033fd4f161" xml:space="preserve">
+          <source>Graceful faults: These faults simulate graceful actions like replica moves and drops triggered by load balancing.</source>
+          <target state="new">Graceful faults: These faults simulate graceful actions like replica moves and drops triggered by load balancing.</target>
+        </trans-unit>
+        <trans-unit id="85dba7f2-ed18-4431-8b76-03801c4cb473" xml:space="preserve">
+          <source>In such cases the service gets notification of close and can cleanup state before exiting.</source>
+          <target state="new">In such cases the service gets notification of close and can cleanup state before exiting.</target>
+        </trans-unit>
+        <trans-unit id="9a501331-7e46-43b9-811e-de6d55484bce" xml:space="preserve">
+          <source>For better quality validation, run the service and business workload while inducing various graceful and ungraceful faults.</source>
+          <target state="new">For better quality validation, run the service and business workload while inducing various graceful and ungraceful faults.</target>
+        </trans-unit>
+        <trans-unit id="b06358ab-d0c9-4092-8282-79fca01b03f6" xml:space="preserve">
+          <source>Ungraceful faults exercise scenarios where the service process abruptly exits in the middle of some workflow.</source>
+          <target state="new">Ungraceful faults exercise scenarios where the service process abruptly exits in the middle of some workflow.</target>
+        </trans-unit>
+        <trans-unit id="c6f84e28-4b7b-4888-a846-7a04e1f3831c" xml:space="preserve">
+          <source>This tests  the recovery path once the service replica is restored by Service Fabric.</source>
+          <target state="new">This tests  the recovery path once the service replica is restored by Service Fabric.</target>
+        </trans-unit>
+        <trans-unit id="e8a3c98a-783d-491b-9683-50edd686b12d" xml:space="preserve">
+          <source>This will help test data consistency and whether the service state is maintained correctly after failures.</source>
+          <target state="new">This will help test data consistency and whether the service state is maintained correctly after failures.</target>
+        </trans-unit>
+        <trans-unit id="eb9ee8b8-9854-4cb2-8688-18b922d51be3" xml:space="preserve">
+          <source>The other set of failures i.e. the graceful failures test that the service correctly reacts to replicas being moved around by Service Fabric.</source>
+          <target state="new">The other set of failures i.e. the graceful failures test that the service correctly reacts to replicas being moved around by Service Fabric.</target>
+        </trans-unit>
+        <trans-unit id="e75efec3-fc81-481d-bb38-a9afb23b302d" xml:space="preserve">
+          <source>This tests handling of cancellation in the RunAsync method.</source>
+          <target state="new">This tests handling of cancellation in the RunAsync method.</target>
+        </trans-unit>
+        <trans-unit id="cf3f13e0-b3c3-47a9-b230-8300cb37016e" xml:space="preserve">
+          <source>The service needs to check for the Cancellation token being set, correctly save its state and exit the RunAsync method.</source>
+          <target state="new">The service needs to check for the Cancellation token being set, correctly save its state and exit the RunAsync method.</target>
+        </trans-unit>
+        <trans-unit id="c1939eaf-222f-4b82-a41a-68852351d792" xml:space="preserve">
+          <source>Actions</source>
+          <target state="new">Actions</target>
+        </trans-unit>
+        <trans-unit id="1d049598-52ec-4561-8409-fc429091080d" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="13053a09-de50-4f0f-9daf-82b306590e6c" xml:space="preserve">
+          <source>Managed API</source>
+          <target state="new">Managed API</target>
+        </trans-unit>
+        <trans-unit id="d79de81c-e5c3-4993-80f5-50bdcf6c227e" xml:space="preserve">
+          <source>Powershell Cmdlet</source>
+          <target state="new">Powershell Cmdlet</target>
+        </trans-unit>
+        <trans-unit id="8744027b-066c-4891-83c6-4a243b9fd59a" xml:space="preserve">
+          <source>Graceful/UnGraceful Faults</source>
+          <target state="new">Graceful/UnGraceful Faults</target>
+        </trans-unit>
+        <trans-unit id="45d7c383-642a-4b89-8957-319e4ec01abc" xml:space="preserve">
+          <source>CleanTestState</source>
+          <target state="new">CleanTestState</target>
+        </trans-unit>
+        <trans-unit id="6c8cfa7f-642c-4e12-aed8-b888c3593c2b" xml:space="preserve">
+          <source>Removes all the test state from the cluster in case of a bad shutdown of the test driver.</source>
+          <target state="new">Removes all the test state from the cluster in case of a bad shutdown of the test driver.</target>
+        </trans-unit>
+        <trans-unit id="5ed6c9f9-0cf6-461a-9606-259af1c4f712" xml:space="preserve">
+          <source>CleanTestStateAsync</source>
+          <target state="new">CleanTestStateAsync</target>
+        </trans-unit>
+        <trans-unit id="bcccb26c-0e93-4e79-8b06-2491e487e8e9" xml:space="preserve">
+          <source>Remove-ServiceFabricTestState</source>
+          <target state="new">Remove-ServiceFabricTestState</target>
+        </trans-unit>
+        <trans-unit id="d7bc2795-9ce7-4441-a1e7-e0fda86c4a68" xml:space="preserve">
+          <source>Not Applicable</source>
+          <target state="new">Not Applicable</target>
+        </trans-unit>
+        <trans-unit id="aac4a31d-78e3-4d48-b4b5-54d8d6399c83" xml:space="preserve">
+          <source>InvokeDataLoss</source>
+          <target state="new">InvokeDataLoss</target>
+        </trans-unit>
+        <trans-unit id="df56f638-518e-41f1-bbb2-541d85b760e5" xml:space="preserve">
+          <source>Induces data loss into a service partition.</source>
+          <target state="new">Induces data loss into a service partition.</target>
+        </trans-unit>
+        <trans-unit id="98a91beb-3207-4696-a5f6-e766311a053b" xml:space="preserve">
+          <source>InvokeDataLossAsync</source>
+          <target state="new">InvokeDataLossAsync</target>
+        </trans-unit>
+        <trans-unit id="1f4626ed-b4ad-470f-b37c-d9f88be90eb8" xml:space="preserve">
+          <source>Invoke-ServiceFabricPartitionDataLoss</source>
+          <target state="new">Invoke-ServiceFabricPartitionDataLoss</target>
+        </trans-unit>
+        <trans-unit id="6ff0e2fd-7f54-4f06-8645-d06f54586687" xml:space="preserve">
+          <source>Graceful</source>
+          <target state="new">Graceful</target>
+        </trans-unit>
+        <trans-unit id="3e33e6e0-8045-4487-ba01-81df1edffe63" xml:space="preserve">
+          <source>InvokeQuorumLoss</source>
+          <target state="new">InvokeQuorumLoss</target>
+        </trans-unit>
+        <trans-unit id="8e6d5719-cf16-4fa0-8258-935bf92bdaa9" xml:space="preserve">
+          <source>Puts a given stateful service partition in to quorum loss.</source>
+          <target state="new">Puts a given stateful service partition in to quorum loss.</target>
+        </trans-unit>
+        <trans-unit id="23ae2156-590b-4d1d-a166-b7fe27f06f48" xml:space="preserve">
+          <source>InvokeQuorumLossAsync</source>
+          <target state="new">InvokeQuorumLossAsync</target>
+        </trans-unit>
+        <trans-unit id="bd82eb0b-4ca2-41c0-ba49-086b6bfe08b9" xml:space="preserve">
+          <source>Invoke-ServiceFabricQuorumLoss</source>
+          <target state="new">Invoke-ServiceFabricQuorumLoss</target>
+        </trans-unit>
+        <trans-unit id="7f6b6edd-fae9-4272-b670-0d90e2e3947a" xml:space="preserve">
+          <source>Graceful</source>
+          <target state="new">Graceful</target>
+        </trans-unit>
+        <trans-unit id="c1b7660e-76da-4a9c-8a62-84a07c4b7c23" xml:space="preserve">
+          <source>Move Primary</source>
+          <target state="new">Move Primary</target>
+        </trans-unit>
+        <trans-unit id="e9ed2f99-d1cb-4e9e-9656-477a36238a50" xml:space="preserve">
+          <source>Moves the specified primary replica of stateful service to the specified cluster node.</source>
+          <target state="new">Moves the specified primary replica of stateful service to the specified cluster node.</target>
+        </trans-unit>
+        <trans-unit id="582b95b2-9a3c-4098-a696-3b95a7be2664" xml:space="preserve">
+          <source>MovePrimaryAsync</source>
+          <target state="new">MovePrimaryAsync</target>
+        </trans-unit>
+        <trans-unit id="d2ad53a7-fd55-43dc-80dd-6f72e4d020fa" xml:space="preserve">
+          <source>Move-ServiceFabricPrimaryReplica</source>
+          <target state="new">Move-ServiceFabricPrimaryReplica</target>
+        </trans-unit>
+        <trans-unit id="9d993207-8a45-4b33-9f06-a6da1a7017b4" xml:space="preserve">
+          <source>Graceful</source>
+          <target state="new">Graceful</target>
+        </trans-unit>
+        <trans-unit id="90bbbf2c-ca0e-45a2-929a-af2ab0888069" xml:space="preserve">
+          <source>Move Secondary</source>
+          <target state="new">Move Secondary</target>
+        </trans-unit>
+        <trans-unit id="99e85877-0335-4b7b-a256-d58f6151308e" xml:space="preserve">
+          <source>Moves the current secondary replica of a stateful service to a different cluster node.</source>
+          <target state="new">Moves the current secondary replica of a stateful service to a different cluster node.</target>
+        </trans-unit>
+        <trans-unit id="46760768-3770-4dd4-b7af-ab3637d2ab0f" xml:space="preserve">
+          <source>MoveSecondaryAsync</source>
+          <target state="new">MoveSecondaryAsync</target>
+        </trans-unit>
+        <trans-unit id="8298bbd8-2b37-4992-9755-c5b0df386ba2" xml:space="preserve">
+          <source>Move-ServiceFabricSecondaryReplica</source>
+          <target state="new">Move-ServiceFabricSecondaryReplica</target>
+        </trans-unit>
+        <trans-unit id="0bd872b0-7d69-44cb-b518-8aec9136036a" xml:space="preserve">
+          <source>Graceful</source>
+          <target state="new">Graceful</target>
+        </trans-unit>
+        <trans-unit id="c59df1fa-9871-446f-9874-4e343db9aa44" xml:space="preserve">
+          <source>RemoveReplica</source>
+          <target state="new">RemoveReplica</target>
+        </trans-unit>
+        <trans-unit id="817128ac-a83b-43e8-a465-c132b391905a" xml:space="preserve">
+          <source>Simulates a replica failure by removing a replica from a cluster.</source>
+          <target state="new">Simulates a replica failure by removing a replica from a cluster.</target>
+        </trans-unit>
+        <trans-unit id="0c23b47e-9517-4216-8dec-7976c48d51d3" xml:space="preserve">
+          <source>This will close the replica and will transition it to role 'None', removing all of its state from the cluster.</source>
+          <target state="new">This will close the replica and will transition it to role 'None', removing all of its state from the cluster.</target>
+        </trans-unit>
+        <trans-unit id="7c4f8847-1dca-413f-bff2-798a366ad5cc" xml:space="preserve">
+          <source>RemoveReplicaAsync</source>
+          <target state="new">RemoveReplicaAsync</target>
+        </trans-unit>
+        <trans-unit id="2d909c27-d7b4-4988-a1fb-f5b8852b510b" xml:space="preserve">
+          <source>Remove-ServiceFabricReplica</source>
+          <target state="new">Remove-ServiceFabricReplica</target>
+        </trans-unit>
+        <trans-unit id="e3e10161-4614-481c-9b8d-eadb56978d08" xml:space="preserve">
+          <source>Graceful</source>
+          <target state="new">Graceful</target>
+        </trans-unit>
+        <trans-unit id="2caec441-4029-4d19-b16a-041d91f3c265" xml:space="preserve">
+          <source>RestartDeployedCodePackage</source>
+          <target state="new">RestartDeployedCodePackage</target>
+        </trans-unit>
+        <trans-unit id="2d083a9d-f4a0-4b1d-9a17-fe67d1a5fb38" xml:space="preserve">
+          <source>Simulates a code package process failure by restarting a code package deployed on a node in a cluster.</source>
+          <target state="new">Simulates a code package process failure by restarting a code package deployed on a node in a cluster.</target>
+        </trans-unit>
+        <trans-unit id="10534959-0ca0-4b29-bfc3-7374b5f2cfde" xml:space="preserve">
+          <source>This aborts the code package process which will restart all the user service replicas hosted in that process.</source>
+          <target state="new">This aborts the code package process which will restart all the user service replicas hosted in that process.</target>
+        </trans-unit>
+        <trans-unit id="6cd3d54c-22cd-4fdc-9856-737ee7a05590" xml:space="preserve">
+          <source>RestartDeployedCodePackageAsync</source>
+          <target state="new">RestartDeployedCodePackageAsync</target>
+        </trans-unit>
+        <trans-unit id="28d63116-9fcc-4aa3-9a54-5ebc97a32e00" xml:space="preserve">
+          <source>Restart-ServiceFabricDeployedCodePackage</source>
+          <target state="new">Restart-ServiceFabricDeployedCodePackage</target>
+        </trans-unit>
+        <trans-unit id="75796a80-b78f-4391-b47f-4b9ecdd6a768" xml:space="preserve">
+          <source>Ungraceful</source>
+          <target state="new">Ungraceful</target>
+        </trans-unit>
+        <trans-unit id="ef4f0995-8596-4eb7-b7d9-121f94c233d7" xml:space="preserve">
+          <source>RestartNode</source>
+          <target state="new">RestartNode</target>
+        </trans-unit>
+        <trans-unit id="203cef04-455a-41f5-ba75-ea12a3d290b4" xml:space="preserve">
+          <source>Simulates a Service Fabric cluster node failure by restarting a node.</source>
+          <target state="new">Simulates a Service Fabric cluster node failure by restarting a node.</target>
+        </trans-unit>
+        <trans-unit id="b1200374-64ce-4b94-b08b-fd83dc30d908" xml:space="preserve">
+          <source>RestartNodeAsync</source>
+          <target state="new">RestartNodeAsync</target>
+        </trans-unit>
+        <trans-unit id="9642279b-1a70-40e3-b21f-0e7f6b9c13af" xml:space="preserve">
+          <source>Restart-ServiceFabricNode</source>
+          <target state="new">Restart-ServiceFabricNode</target>
+        </trans-unit>
+        <trans-unit id="bbe4c1b6-afdb-4556-a484-3005e6aa636c" xml:space="preserve">
+          <source>Ungraceful</source>
+          <target state="new">Ungraceful</target>
+        </trans-unit>
+        <trans-unit id="0f347d3d-f7b9-4c8e-bb55-8ee149090a3b" xml:space="preserve">
+          <source>RestartPartition</source>
+          <target state="new">RestartPartition</target>
+        </trans-unit>
+        <trans-unit id="254b7786-2b4f-4b80-baed-739fee44a4b3" xml:space="preserve">
+          <source>Simulates a data center blackout or cluster blackout scenario by restarting some or all replicas of a partition.</source>
+          <target state="new">Simulates a data center blackout or cluster blackout scenario by restarting some or all replicas of a partition.</target>
+        </trans-unit>
+        <trans-unit id="dbea8471-1653-4e37-928b-3259f1ecea45" xml:space="preserve">
+          <source>RestartPartitionAsync</source>
+          <target state="new">RestartPartitionAsync</target>
+        </trans-unit>
+        <trans-unit id="1b24ddd6-3a9a-4273-b5ab-78da207a3a32" xml:space="preserve">
+          <source>Restart-ServiceFabricPartition</source>
+          <target state="new">Restart-ServiceFabricPartition</target>
+        </trans-unit>
+        <trans-unit id="3cfda353-84da-4812-932f-15a4b3404a42" xml:space="preserve">
+          <source>Graceful</source>
+          <target state="new">Graceful</target>
+        </trans-unit>
+        <trans-unit id="844cb638-4e6e-41c0-aa9b-918dddaf6ef9" xml:space="preserve">
+          <source>RestartReplica</source>
+          <target state="new">RestartReplica</target>
+        </trans-unit>
+        <trans-unit id="c8651a70-0db8-49d4-840f-e06b62bec7a1" xml:space="preserve">
+          <source>Simulates a replica failure by restarting a persisted replica in a cluster, closing the replica and then reopening it.</source>
+          <target state="new">Simulates a replica failure by restarting a persisted replica in a cluster, closing the replica and then reopening it.</target>
+        </trans-unit>
+        <trans-unit id="d9d4f010-14d1-4cbc-a4b4-53bcfff6f64a" xml:space="preserve">
+          <source>RestartReplicaAsync</source>
+          <target state="new">RestartReplicaAsync</target>
+        </trans-unit>
+        <trans-unit id="bd623e4b-8edf-4a60-8658-09a59b2de453" xml:space="preserve">
+          <source>Restart-ServiceFabricReplica</source>
+          <target state="new">Restart-ServiceFabricReplica</target>
+        </trans-unit>
+        <trans-unit id="410e3040-f2be-4ecd-86c0-29b3568506aa" xml:space="preserve">
+          <source>Graceful</source>
+          <target state="new">Graceful</target>
+        </trans-unit>
+        <trans-unit id="91bb5327-d08a-4516-be00-6592b04ea561" xml:space="preserve">
+          <source>StartNode</source>
+          <target state="new">StartNode</target>
+        </trans-unit>
+        <trans-unit id="5b29a6b0-f266-4367-a14e-f682e461aecd" xml:space="preserve">
+          <source>Starts a node in a cluster which is already stopped.</source>
+          <target state="new">Starts a node in a cluster which is already stopped.</target>
+        </trans-unit>
+        <trans-unit id="234dd345-6ee3-4beb-9eb8-12d476bf3266" xml:space="preserve">
+          <source>StartNodeAsync</source>
+          <target state="new">StartNodeAsync</target>
+        </trans-unit>
+        <trans-unit id="86ccdb0f-4556-4341-8d50-6606e9b2119a" xml:space="preserve">
+          <source>Start-ServiceFabricNode</source>
+          <target state="new">Start-ServiceFabricNode</target>
+        </trans-unit>
+        <trans-unit id="a3622feb-3ff3-4a89-90b9-b71cbc68e282" xml:space="preserve">
+          <source>Not Applicable</source>
+          <target state="new">Not Applicable</target>
+        </trans-unit>
+        <trans-unit id="ea5981b4-7f47-4893-8dad-39075ba53fb0" xml:space="preserve">
+          <source>StopNode</source>
+          <target state="new">StopNode</target>
+        </trans-unit>
+        <trans-unit id="e72d89a0-87dd-4dbf-a75a-e197d79b8ecd" xml:space="preserve">
+          <source>Simulates a node failure by stopping a node in a cluster.</source>
+          <target state="new">Simulates a node failure by stopping a node in a cluster.</target>
+        </trans-unit>
+        <trans-unit id="1b1e8775-f1c4-40eb-8652-ad17781e673d" xml:space="preserve">
+          <source>The node will stay down until StartNode is called.</source>
+          <target state="new">The node will stay down until StartNode is called.</target>
+        </trans-unit>
+        <trans-unit id="93fe4b85-21c0-4f69-9650-4be5d13e2254" xml:space="preserve">
+          <source>StopNodeAsync</source>
+          <target state="new">StopNodeAsync</target>
+        </trans-unit>
+        <trans-unit id="36a75e2e-98ab-4c20-8962-d013d0ebbca1" xml:space="preserve">
+          <source>Stop-ServiceFabricNode</source>
+          <target state="new">Stop-ServiceFabricNode</target>
+        </trans-unit>
+        <trans-unit id="d232d966-8062-4be8-a106-0db8fbeba096" xml:space="preserve">
+          <source>Ungraceful</source>
+          <target state="new">Ungraceful</target>
+        </trans-unit>
+        <trans-unit id="1ae207fc-556b-4ab2-905b-30cf73dcec78" xml:space="preserve">
+          <source>ValidateApplication</source>
+          <target state="new">ValidateApplication</target>
+        </trans-unit>
+        <trans-unit id="7678d7fc-66eb-4121-973a-414bcf25d489" xml:space="preserve">
+          <source>Validates the availability and health of all Service Fabric services within an application, usually after inducing some fault into the system.</source>
+          <target state="new">Validates the availability and health of all Service Fabric services within an application, usually after inducing some fault into the system.</target>
+        </trans-unit>
+        <trans-unit id="07fba338-e8f4-482e-83a1-dfdf6994b9eb" xml:space="preserve">
+          <source>ValidateApplicationAsync</source>
+          <target state="new">ValidateApplicationAsync</target>
+        </trans-unit>
+        <trans-unit id="21f6e96a-f64f-4880-9aaa-4075cbdc795d" xml:space="preserve">
+          <source>Test-ServiceFabricApplication</source>
+          <target state="new">Test-ServiceFabricApplication</target>
+        </trans-unit>
+        <trans-unit id="3b609331-ee45-4cd5-af9a-c5b5ec15fb35" xml:space="preserve">
+          <source>Not Applicable</source>
+          <target state="new">Not Applicable</target>
+        </trans-unit>
+        <trans-unit id="66dba9c3-eaeb-4543-abcd-381858e8eff5" xml:space="preserve">
+          <source>ValidateService</source>
+          <target state="new">ValidateService</target>
+        </trans-unit>
+        <trans-unit id="e04c4f73-3aa4-4731-8a14-32fedbef772e" xml:space="preserve">
+          <source>Validates the availability and health of a Service Fabric service, usually after inducing some fault into the system.</source>
+          <target state="new">Validates the availability and health of a Service Fabric service, usually after inducing some fault into the system.</target>
+        </trans-unit>
+        <trans-unit id="5ca48b12-5fb0-4949-8587-0374467cfb5a" xml:space="preserve">
+          <source>ValidateServiceAsync</source>
+          <target state="new">ValidateServiceAsync</target>
+        </trans-unit>
+        <trans-unit id="fcb15f51-023c-4bed-9067-a07354f5bce4" xml:space="preserve">
+          <source>Test-ServiceFabricService</source>
+          <target state="new">Test-ServiceFabricService</target>
+        </trans-unit>
+        <trans-unit id="241db954-e3d6-4476-998b-6a2bb7ee6ac0" xml:space="preserve">
+          <source>Not Applicable</source>
+          <target state="new">Not Applicable</target>
+        </trans-unit>
+        <trans-unit id="b816e26c-f9ec-49f5-a313-085a80db6467" xml:space="preserve">
+          <source>This tutorial shows you how to run a Testability action with PowerShell.</source>
+          <target state="new">This tutorial shows you how to run a Testability action with PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="ad42cb4c-7bce-4e1f-8ed8-dbee915abd44" xml:space="preserve">
+          <source>You will learn how to run a Testability action against a Local (aka.</source>
+          <target state="new">You will learn how to run a Testability action against a Local (aka.</target>
+        </trans-unit>
+        <trans-unit id="0a0f72b2-da65-4f8e-8254-9c64207b5e9b" xml:space="preserve">
+          <source>one-box) cluster or an Azure cluster.</source>
+          <target state="new">one-box) cluster or an Azure cluster.</target>
+        </trans-unit>
+        <trans-unit id="5d023e09-f58d-4301-a05f-1052992b3510" xml:space="preserve">
+          <source>Microsoft.Fabric.Testability.Powershell.dll - the Testability PowerShell module - is installed automatically when you install the Microsoft Service Fabric MSI; and, the module is loaded automatically when you open a PowerShell prompt.</source>
+          <target state="new">Microsoft.Fabric.Testability.Powershell.dll - the Testability PowerShell module - is installed automatically when you install the Microsoft Service Fabric MSI; and, the module is loaded automatically when you open a PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="c2f19326-1bbc-4366-be25-9994d9ffdee2" xml:space="preserve">
+          <source>Tutorial segments:</source>
+          <target state="new">Tutorial segments:</target>
+        </trans-unit>
+        <trans-unit id="2f16de51-fd58-4f04-9090-1d43f2080fb0" xml:space="preserve">
+          <source><bpt id="d500f182-403e-45e9-a68a-d7a65dea3f82">&lt;linkText&gt;</bpt>Run an action against a one-box cluster<ept id="d500f182-403e-45e9-a68a-d7a65dea3f82">&lt;/linkText&gt;</ept><bpt id="d500f182-403e-45e9-a68a-d7a65dea3f82">&lt;title&gt;</bpt><ept id="d500f182-403e-45e9-a68a-d7a65dea3f82">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d500f182-403e-45e9-a68a-d7a65dea3f82">&lt;linkText&gt;</bpt>Run an action against a one-box cluster<ept id="d500f182-403e-45e9-a68a-d7a65dea3f82">&lt;/linkText&gt;</ept><bpt id="d500f182-403e-45e9-a68a-d7a65dea3f82">&lt;title&gt;</bpt><ept id="d500f182-403e-45e9-a68a-d7a65dea3f82">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63ac7262-aa25-42a3-9bb7-4d617fe9a1d3" xml:space="preserve">
+          <source><bpt id="28241683-d528-424e-ab3b-488572f50210">&lt;linkText&gt;</bpt>Run an action against an Azure cluster<ept id="28241683-d528-424e-ab3b-488572f50210">&lt;/linkText&gt;</ept><bpt id="28241683-d528-424e-ab3b-488572f50210">&lt;title&gt;</bpt><ept id="28241683-d528-424e-ab3b-488572f50210">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="28241683-d528-424e-ab3b-488572f50210">&lt;linkText&gt;</bpt>Run an action against an Azure cluster<ept id="28241683-d528-424e-ab3b-488572f50210">&lt;/linkText&gt;</ept><bpt id="28241683-d528-424e-ab3b-488572f50210">&lt;title&gt;</bpt><ept id="28241683-d528-424e-ab3b-488572f50210">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25dae5a1-23a4-4852-81b4-ee7877d27537" xml:space="preserve">
+          <source>To run a Testability action against a Local Cluster, first you need to connect to the cluster and you should open the PowerShell prompt in administrator mode.</source>
+          <target state="new">To run a Testability action against a Local Cluster, first you need to connect to the cluster and you should open the PowerShell prompt in administrator mode.</target>
+        </trans-unit>
+        <trans-unit id="ccb7c7fc-79f6-45e0-a334-e40c878a3649" xml:space="preserve">
+          <source>Let us look at the <bpt id="5bd06848-ae9c-4aac-9183-252d4721161f">&lt;strong&gt;</bpt>Restart-ServiceFabricNode<ept id="5bd06848-ae9c-4aac-9183-252d4721161f">&lt;/strong&gt;</ept> action.</source>
+          <target state="new">Let us look at the <bpt id="5bd06848-ae9c-4aac-9183-252d4721161f">&lt;strong&gt;</bpt>Restart-ServiceFabricNode<ept id="5bd06848-ae9c-4aac-9183-252d4721161f">&lt;/strong&gt;</ept> action.</target>
+        </trans-unit>
+        <trans-unit id="daa421c7-b240-4fea-88b5-848de307546c" xml:space="preserve">
+          <source>Here the action <bpt id="aa2910d4-a0aa-4ac1-9ef4-f55e94ef754b">&lt;strong&gt;</bpt>Restart-ServiceFabricNode<ept id="aa2910d4-a0aa-4ac1-9ef4-f55e94ef754b">&lt;/strong&gt;</ept> is being run on a node named "Node1" and the completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded.</source>
+          <target state="new">Here the action <bpt id="aa2910d4-a0aa-4ac1-9ef4-f55e94ef754b">&lt;strong&gt;</bpt>Restart-ServiceFabricNode<ept id="aa2910d4-a0aa-4ac1-9ef4-f55e94ef754b">&lt;/strong&gt;</ept> is being run on a node named "Node1" and the completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded.</target>
+        </trans-unit>
+        <trans-unit id="64c627d8-c158-4744-9d45-ff3b5731b77a" xml:space="preserve">
+          <source>Instead of directly specifying the node by its name, you can specify via a partition key and the kind of replica, as follows:</source>
+          <target state="new">Instead of directly specifying the node by its name, you can specify via a partition key and the kind of replica, as follows:</target>
+        </trans-unit>
+        <trans-unit id="d6ee6ae9-f8ce-4085-8a43-9a0795944efc" xml:space="preserve">
+          <source><bpt id="bdfe0fec-f99b-402d-b2da-cbbb14045fd5">&lt;strong&gt;</bpt>Restart-ServiceFabricNode<ept id="bdfe0fec-f99b-402d-b2da-cbbb14045fd5">&lt;/strong&gt;</ept> should be used to restart a Service Fabric node in a cluster.</source>
+          <target state="new"><bpt id="bdfe0fec-f99b-402d-b2da-cbbb14045fd5">&lt;strong&gt;</bpt>Restart-ServiceFabricNode<ept id="bdfe0fec-f99b-402d-b2da-cbbb14045fd5">&lt;/strong&gt;</ept> should be used to restart a Service Fabric node in a cluster.</target>
+        </trans-unit>
+        <trans-unit id="223e6e5d-3f15-4cbc-bb19-c89505ca8df9" xml:space="preserve">
+          <source>This will kill the Fabric.exe process which will restart all of the system service and user service replicas hosted on that node.</source>
+          <target state="new">This will kill the Fabric.exe process which will restart all of the system service and user service replicas hosted on that node.</target>
+        </trans-unit>
+        <trans-unit id="6c11de4d-c861-47de-8e8c-c2363b11154f" xml:space="preserve">
+          <source>Using this API to test your service helps uncover bugs along the failover recovery paths.</source>
+          <target state="new">Using this API to test your service helps uncover bugs along the failover recovery paths.</target>
+        </trans-unit>
+        <trans-unit id="9d8a7f89-8991-42f1-9c33-d5b3106c4dd8" xml:space="preserve">
+          <source>It helps simulate node failures in the cluster.</source>
+          <target state="new">It helps simulate node failures in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="d0d8ee57-a34b-48b1-a633-13bc25e74c8b" xml:space="preserve">
+          <source>The following screenshot shows the <bpt id="b5efdf81-efb3-4b0a-8b11-253a82c5ddc8">&lt;strong&gt;</bpt>Restart-ServiceFabricNode<ept id="b5efdf81-efb3-4b0a-8b11-253a82c5ddc8">&lt;/strong&gt;</ept> Testability command in action.</source>
+          <target state="new">The following screenshot shows the <bpt id="b5efdf81-efb3-4b0a-8b11-253a82c5ddc8">&lt;strong&gt;</bpt>Restart-ServiceFabricNode<ept id="b5efdf81-efb3-4b0a-8b11-253a82c5ddc8">&lt;/strong&gt;</ept> Testability command in action.</target>
+        </trans-unit>
+        <trans-unit id="5d65c44c-5564-446a-a080-e49eb36b8243" xml:space="preserve">
+          <source><bpt id="0e68c5ad-9b1d-4b34-984e-7fd289042b83">&lt;linkText&gt;</bpt><ept id="0e68c5ad-9b1d-4b34-984e-7fd289042b83">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e68c5ad-9b1d-4b34-984e-7fd289042b83">&lt;linkText&gt;</bpt><ept id="0e68c5ad-9b1d-4b34-984e-7fd289042b83">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05d48499-7b36-47c4-91d3-880ab1d7b47f" xml:space="preserve">
+          <source>The output of the first <bpt id="319e2e63-139d-4ca6-a1b6-18952b8a585d">&lt;em&gt;</bpt>Get-ServiceFabricNode<ept id="319e2e63-139d-4ca6-a1b6-18952b8a585d">&lt;/em&gt;</ept> (a cmdlet from the ServiceFabric PowerShell module) shows that the local cluster has five nodes: Node.1 to Node.5; then after executing the Testability action (cmdlet) <bpt id="ce0f5f75-69cc-4984-83ce-06349b3ad8f1">&lt;strong&gt;</bpt>Restart-ServiceFabricNode<ept id="ce0f5f75-69cc-4984-83ce-06349b3ad8f1">&lt;/strong&gt;</ept> on the node, named Node.4, we see that the node's uptime has been reset.</source>
+          <target state="new">The output of the first <bpt id="319e2e63-139d-4ca6-a1b6-18952b8a585d">&lt;em&gt;</bpt>Get-ServiceFabricNode<ept id="319e2e63-139d-4ca6-a1b6-18952b8a585d">&lt;/em&gt;</ept> (a cmdlet from the ServiceFabric PowerShell module) shows that the local cluster has five nodes: Node.1 to Node.5; then after executing the Testability action (cmdlet) <bpt id="ce0f5f75-69cc-4984-83ce-06349b3ad8f1">&lt;strong&gt;</bpt>Restart-ServiceFabricNode<ept id="ce0f5f75-69cc-4984-83ce-06349b3ad8f1">&lt;/strong&gt;</ept> on the node, named Node.4, we see that the node's uptime has been reset.</target>
+        </trans-unit>
+        <trans-unit id="81bd342b-1423-499f-8eb1-347860f33b97" xml:space="preserve">
+          <source>Running a Testability action (with PowerShell) against an Azure Cluster is similar to running the action against a local cluster; only difference being: before you can run the action, instead of connecting to the local cluster, you need to connect to the Azure Cluster first.</source>
+          <target state="new">Running a Testability action (with PowerShell) against an Azure Cluster is similar to running the action against a local cluster; only difference being: before you can run the action, instead of connecting to the local cluster, you need to connect to the Azure Cluster first.</target>
+        </trans-unit>
+        <trans-unit id="0e8fc154-eb71-42a4-b508-b792fbd309d5" xml:space="preserve">
+          <source>To run a Testability action using C#, first you need to connect to the cluster using the FabricClient.</source>
+          <target state="new">To run a Testability action using C#, first you need to connect to the cluster using the FabricClient.</target>
+        </trans-unit>
+        <trans-unit id="a9282e33-c519-4c85-b5b2-25b6d30bf7ee" xml:space="preserve">
+          <source>Then obtain the parameters needed to run the action.</source>
+          <target state="new">Then obtain the parameters needed to run the action.</target>
+        </trans-unit>
+        <trans-unit id="ba99c5a6-ad18-4bc1-b5cb-2f2ab552d38a" xml:space="preserve">
+          <source>Different parameters can be used to run the same action.</source>
+          <target state="new">Different parameters can be used to run the same action.</target>
+        </trans-unit>
+        <trans-unit id="e1e90ab0-2b8e-4a46-9c8a-d6b70a569615" xml:space="preserve">
+          <source>Looking at the RestartServiceFabricNode action, one way to run it is by using the node information (Node Name and Node Instance ID) in the cluster.</source>
+          <target state="new">Looking at the RestartServiceFabricNode action, one way to run it is by using the node information (Node Name and Node Instance ID) in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="1f8ba1f4-e043-4ce8-b3be-6c528492deac" xml:space="preserve">
+          <source>Several parameter explanation:</source>
+          <target state="new">Several parameter explanation:</target>
+        </trans-unit>
+        <trans-unit id="43b6df6e-3b60-43bc-a4d0-55cb89259607" xml:space="preserve">
+          <source><bpt id="dee6da87-8491-4a1f-830d-dd7ef66278bf">&lt;strong&gt;</bpt>CompleteMode<ept id="dee6da87-8491-4a1f-830d-dd7ef66278bf">&lt;/strong&gt;</ept> - completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded.</source>
+          <target state="new"><bpt id="dee6da87-8491-4a1f-830d-dd7ef66278bf">&lt;strong&gt;</bpt>CompleteMode<ept id="dee6da87-8491-4a1f-830d-dd7ef66278bf">&lt;/strong&gt;</ept> - completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded.</target>
+        </trans-unit>
+        <trans-unit id="ac563b39-28c8-4a87-b6c9-2b0113adccf2" xml:space="preserve">
+          <source><bpt id="b565cadf-de62-4c76-9cbc-73354f6942ae">&lt;strong&gt;</bpt>OperationTimeout<ept id="b565cadf-de62-4c76-9cbc-73354f6942ae">&lt;/strong&gt;</ept> - sets the amount of time for the operation to finish before a TimeoutException exception is thrown.</source>
+          <target state="new"><bpt id="b565cadf-de62-4c76-9cbc-73354f6942ae">&lt;strong&gt;</bpt>OperationTimeout<ept id="b565cadf-de62-4c76-9cbc-73354f6942ae">&lt;/strong&gt;</ept> - sets the amount of time for the operation to finish before a TimeoutException exception is thrown.</target>
+        </trans-unit>
+        <trans-unit id="d01316fb-97f7-4f2f-9514-63b2e1d7e70b" xml:space="preserve">
+          <source><bpt id="e3f71edd-15df-4101-bbf2-33a1f6c6c67b">&lt;strong&gt;</bpt>CancellationToken<ept id="e3f71edd-15df-4101-bbf2-33a1f6c6c67b">&lt;/strong&gt;</ept> - enables a pending call to be canceled.</source>
+          <target state="new"><bpt id="e3f71edd-15df-4101-bbf2-33a1f6c6c67b">&lt;strong&gt;</bpt>CancellationToken<ept id="e3f71edd-15df-4101-bbf2-33a1f6c6c67b">&lt;/strong&gt;</ept> - enables a pending call to be canceled.</target>
+        </trans-unit>
+        <trans-unit id="384d9b61-cde1-4036-931d-a2326dc00f12" xml:space="preserve">
+          <source>Instead of directly specifying the node by its name, you can specify via a partition key and the kind of replica.</source>
+          <target state="new">Instead of directly specifying the node by its name, you can specify via a partition key and the kind of replica.</target>
+        </trans-unit>
+        <trans-unit id="3ede9adc-65e8-4904-8bcc-1cb1e2c26694" xml:space="preserve">
+          <source>For further information see [Partition Selector and Replica Selector](#partition<bpt id="ab11f173-96e2-4f87-9990-31ad90d17214">&lt;em&gt;</bpt>replica<ept id="ab11f173-96e2-4f87-9990-31ad90d17214">&lt;/em&gt;</ept>selector).</source>
+          <target state="new">For further information see [Partition Selector and Replica Selector](#partition<bpt id="ab11f173-96e2-4f87-9990-31ad90d17214">&lt;em&gt;</bpt>replica<ept id="ab11f173-96e2-4f87-9990-31ad90d17214">&lt;/em&gt;</ept>selector).</target>
+        </trans-unit>
+        <trans-unit id="b1d15e81-3209-454d-9933-7d18a9e9edb5" xml:space="preserve">
+          <source>PartitionSelector is a helper exposed in Testability and is used to select a specific partition on which to perform any of the Testability actions.</source>
+          <target state="new">PartitionSelector is a helper exposed in Testability and is used to select a specific partition on which to perform any of the Testability actions.</target>
+        </trans-unit>
+        <trans-unit id="2443b601-faa0-4003-ac1c-744e2a633e30" xml:space="preserve">
+          <source>It can be used to select a specific partition if the partition ID is known beforehand.</source>
+          <target state="new">It can be used to select a specific partition if the partition ID is known beforehand.</target>
+        </trans-unit>
+        <trans-unit id="d9c3fed5-f431-4b6d-bb60-252857ba8868" xml:space="preserve">
+          <source>Or, you can provide the partition key and the operation will resolve the partition ID internally.</source>
+          <target state="new">Or, you can provide the partition key and the operation will resolve the partition ID internally.</target>
+        </trans-unit>
+        <trans-unit id="14ef6551-3fe0-4afe-be04-187c08aa9621" xml:space="preserve">
+          <source>You also have the option of selecting a random partition.</source>
+          <target state="new">You also have the option of selecting a random partition.</target>
+        </trans-unit>
+        <trans-unit id="55f381e7-def5-4cab-ae04-0a1034fa8297" xml:space="preserve">
+          <source>To use, create the PartitionSelector object and select the partition using one of the Select* methods and then pass in the PartitionSelector object to the API that requires it.</source>
+          <target state="new">To use, create the PartitionSelector object and select the partition using one of the Select* methods and then pass in the PartitionSelector object to the API that requires it.</target>
+        </trans-unit>
+        <trans-unit id="4e87990d-0334-483d-b1a6-51a171b0d320" xml:space="preserve">
+          <source>If no option is selected it defaults to random partition.</source>
+          <target state="new">If no option is selected it defaults to random partition.</target>
+        </trans-unit>
+        <trans-unit id="19ff527d-f9ea-49df-a1e0-dc7834a22c9a" xml:space="preserve">
+          <source>ReplicaSelector is a helper exposed in Testability and is used to help select a replica on which to perform any of the Testability actions.</source>
+          <target state="new">ReplicaSelector is a helper exposed in Testability and is used to help select a replica on which to perform any of the Testability actions.</target>
+        </trans-unit>
+        <trans-unit id="903335f6-c54e-472d-8d4d-51d4e3d869f4" xml:space="preserve">
+          <source>It can be used to select a specific replica if the replica id is known beforehand.</source>
+          <target state="new">It can be used to select a specific replica if the replica id is known beforehand.</target>
+        </trans-unit>
+        <trans-unit id="91a589c0-79c6-4395-8c37-96d2f177e353" xml:space="preserve">
+          <source>In addition, you have the option of selecting a primary replica or a random secondary as well.</source>
+          <target state="new">In addition, you have the option of selecting a primary replica or a random secondary as well.</target>
+        </trans-unit>
+        <trans-unit id="a206de9a-1099-4db0-b984-3df3a012c6d3" xml:space="preserve">
+          <source>ReplicaSelector derives from PartitionSelector, so you need to select both the replica and the partition on which you wish to perform the Testability operation.</source>
+          <target state="new">ReplicaSelector derives from PartitionSelector, so you need to select both the replica and the partition on which you wish to perform the Testability operation.</target>
+        </trans-unit>
+        <trans-unit id="8a78d5f4-9582-46d8-b444-493473460c0d" xml:space="preserve">
+          <source>To use, create a ReplicaSelector object and set the way you want to select the replica and the partition.</source>
+          <target state="new">To use, create a ReplicaSelector object and set the way you want to select the replica and the partition.</target>
+        </trans-unit>
+        <trans-unit id="e1d50b14-334b-4fb8-af75-234225ec6e66" xml:space="preserve">
+          <source>You can then pass it into the API that requires it.</source>
+          <target state="new">You can then pass it into the API that requires it.</target>
+        </trans-unit>
+        <trans-unit id="d8e75373-7687-4ea1-846a-8e3d63d901d8" xml:space="preserve">
+          <source>If no option is selected it defaults to random replica and random partition.</source>
+          <target state="new">If no option is selected it defaults to random replica and random partition.</target>
+        </trans-unit>
+        <trans-unit id="b8b0b5f6-d9d9-498e-83cc-cc8698fb0329" xml:space="preserve">
+          <source>Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
+PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
+long replicaId = 130559876481875498;</source>
+          <target state="new">Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
+PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
+long replicaId = 130559876481875498;</target>
+        </trans-unit>
+        <trans-unit id="5f5855ba-e4c1-4a22-ae4d-40270097ba2a" xml:space="preserve">
+          <source><bpt id="7e58d5b5-1d3a-4a7d-82fc-3e8865079859">&lt;linkText&gt;</bpt>Testability Scenarios<ept id="7e58d5b5-1d3a-4a7d-82fc-3e8865079859">&lt;/linkText&gt;</ept><bpt id="7e58d5b5-1d3a-4a7d-82fc-3e8865079859">&lt;title&gt;</bpt><ept id="7e58d5b5-1d3a-4a7d-82fc-3e8865079859">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7e58d5b5-1d3a-4a7d-82fc-3e8865079859">&lt;linkText&gt;</bpt>Testability Scenarios<ept id="7e58d5b5-1d3a-4a7d-82fc-3e8865079859">&lt;/linkText&gt;</ept><bpt id="7e58d5b5-1d3a-4a7d-82fc-3e8865079859">&lt;title&gt;</bpt><ept id="7e58d5b5-1d3a-4a7d-82fc-3e8865079859">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e93d3bb-0cf3-4974-a26d-0ef5d0578790" xml:space="preserve">
+          <source>How to test your service</source>
+          <target state="new">How to test your service</target>
+        </trans-unit>
+        <trans-unit id="de32d199-a4f6-4f5a-8f98-91a98ebba9eb" xml:space="preserve">
+          <source><bpt id="3812b549-ecae-4de3-a4fd-859f0be21d48">&lt;linkText&gt;</bpt>Simulate failures during service workloads<ept id="3812b549-ecae-4de3-a4fd-859f0be21d48">&lt;/linkText&gt;</ept><bpt id="3812b549-ecae-4de3-a4fd-859f0be21d48">&lt;title&gt;</bpt><ept id="3812b549-ecae-4de3-a4fd-859f0be21d48">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3812b549-ecae-4de3-a4fd-859f0be21d48">&lt;linkText&gt;</bpt>Simulate failures during service workloads<ept id="3812b549-ecae-4de3-a4fd-859f0be21d48">&lt;/linkText&gt;</ept><bpt id="3812b549-ecae-4de3-a4fd-859f0be21d48">&lt;title&gt;</bpt><ept id="3812b549-ecae-4de3-a4fd-859f0be21d48">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a58b476-bf5f-4dc8-b1cb-d2df61d0edc2" xml:space="preserve">
+          <source><bpt id="fd228252-1f3d-4fff-9c38-e87f16aa5a0c">&lt;linkText&gt;</bpt>Service to service communication failures<ept id="fd228252-1f3d-4fff-9c38-e87f16aa5a0c">&lt;/linkText&gt;</ept><bpt id="fd228252-1f3d-4fff-9c38-e87f16aa5a0c">&lt;title&gt;</bpt><ept id="fd228252-1f3d-4fff-9c38-e87f16aa5a0c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fd228252-1f3d-4fff-9c38-e87f16aa5a0c">&lt;linkText&gt;</bpt>Service to service communication failures<ept id="fd228252-1f3d-4fff-9c38-e87f16aa5a0c">&lt;/linkText&gt;</ept><bpt id="fd228252-1f3d-4fff-9c38-e87f16aa5a0c">&lt;title&gt;</bpt><ept id="fd228252-1f3d-4fff-9c38-e87f16aa5a0c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

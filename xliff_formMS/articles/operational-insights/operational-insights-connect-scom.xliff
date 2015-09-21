@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e56bcbf1-4816-4463-b89a-2a5c93a84c0a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e56bcbf1-4816-4463-b89a-2a5c93a84c0a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7597fbe6-1e87-40bc-8f0c-a17aa5fd6891">
+        <trans-unit id="84d53de1-81b5-41fc-a677-2934df68ebd3" xml:space="preserve">
+          <source>Connect to Operational Insights from System Center Operations Manager</source>
+          <target state="new">Connect to Operational Insights from System Center Operations Manager</target>
+        </trans-unit>
+        <trans-unit id="82cd6cca-7a14-4cd5-b444-1ed4cac96475" xml:space="preserve">
+          <source>Learn about how to connect to Operational Insights through Operations Manager.</source>
+          <target state="new">Learn about how to connect to Operational Insights through Operations Manager.</target>
+        </trans-unit>
+        <trans-unit id="c06b729b-0d2d-4326-b2d8-53c1b6843c0e" xml:space="preserve">
+          <source><bpt id="a97416b4-82dc-421b-9892-a9ae5a577152">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="a97416b4-82dc-421b-9892-a9ae5a577152">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a97416b4-82dc-421b-9892-a9ae5a577152">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="a97416b4-82dc-421b-9892-a9ae5a577152">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25e5854d-e59e-4f58-b0fd-ad740401c410" xml:space="preserve">
+          <source>You can connect Operational Insights to an existing System Center Operations Manager environment.</source>
+          <target state="new">You can connect Operational Insights to an existing System Center Operations Manager environment.</target>
+        </trans-unit>
+        <trans-unit id="96da82c1-1871-466b-82e6-ad415ea257fa" xml:space="preserve">
+          <source>This will allow you to use existing Operations Manager agents for data collection.</source>
+          <target state="new">This will allow you to use existing Operations Manager agents for data collection.</target>
+        </trans-unit>
+        <trans-unit id="e1f43394-f4b5-45a7-a800-853724136944" xml:space="preserve">
+          <source>For additional information about using Operations Manager with Operational Insights, see <bpt id="7e487058-eebd-40a9-87fd-f61dd2b479e5">&lt;linkText&gt;</bpt>Operations Manager considerations with Operational Insights<ept id="7e487058-eebd-40a9-87fd-f61dd2b479e5">&lt;/linkText&gt;</ept><bpt id="7e487058-eebd-40a9-87fd-f61dd2b479e5">&lt;title&gt;</bpt><ept id="7e487058-eebd-40a9-87fd-f61dd2b479e5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information about using Operations Manager with Operational Insights, see <bpt id="7e487058-eebd-40a9-87fd-f61dd2b479e5">&lt;linkText&gt;</bpt>Operations Manager considerations with Operational Insights<ept id="7e487058-eebd-40a9-87fd-f61dd2b479e5">&lt;/linkText&gt;</ept><bpt id="7e487058-eebd-40a9-87fd-f61dd2b479e5">&lt;title&gt;</bpt><ept id="7e487058-eebd-40a9-87fd-f61dd2b479e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbe534f2-4294-4bbb-80dc-3805806d4618" xml:space="preserve">
+          <source>If you use Operations Manager to monitor any of the following workloads, then you'll need to set Operations Manager run-as accounts for them.</source>
+          <target state="new">If you use Operations Manager to monitor any of the following workloads, then you'll need to set Operations Manager run-as accounts for them.</target>
+        </trans-unit>
+        <trans-unit id="2e5e2bc2-eca4-423d-8198-3bbe509553e3" xml:space="preserve">
+          <source>See  <bpt id="9f19edbc-2f6f-4ae6-84ed-043a6b564b5a">&lt;linkText&gt;</bpt>Operations Manager considerations with Operational Insights<ept id="9f19edbc-2f6f-4ae6-84ed-043a6b564b5a">&lt;/linkText&gt;</ept><bpt id="9f19edbc-2f6f-4ae6-84ed-043a6b564b5a">&lt;title&gt;</bpt><ept id="9f19edbc-2f6f-4ae6-84ed-043a6b564b5a">&lt;/title&gt;</ept> for more information about setting the accounts.</source>
+          <target state="new">See  <bpt id="9f19edbc-2f6f-4ae6-84ed-043a6b564b5a">&lt;linkText&gt;</bpt>Operations Manager considerations with Operational Insights<ept id="9f19edbc-2f6f-4ae6-84ed-043a6b564b5a">&lt;/linkText&gt;</ept><bpt id="9f19edbc-2f6f-4ae6-84ed-043a6b564b5a">&lt;title&gt;</bpt><ept id="9f19edbc-2f6f-4ae6-84ed-043a6b564b5a">&lt;/title&gt;</ept> for more information about setting the accounts.</target>
+        </trans-unit>
+        <trans-unit id="886bbdc6-0c12-4b0c-a621-f608c5eb90ac" xml:space="preserve">
+          <source>SQL Assessment</source>
+          <target state="new">SQL Assessment</target>
+        </trans-unit>
+        <trans-unit id="eff222ba-927d-48c4-87aa-56f1e0c5f243" xml:space="preserve">
+          <source>Virtual Machine Manager</source>
+          <target state="new">Virtual Machine Manager</target>
+        </trans-unit>
+        <trans-unit id="8522bf75-a0bc-4ed6-9296-425a1ce4f930" xml:space="preserve">
+          <source>Lync Server</source>
+          <target state="new">Lync Server</target>
+        </trans-unit>
+        <trans-unit id="319fd754-9ca6-4664-b16f-5d7181293a72" xml:space="preserve">
+          <source>SharePoint</source>
+          <target state="new">SharePoint</target>
+        </trans-unit>
+        <trans-unit id="d525ad62-b7a2-41ee-8366-130bbf2c6b29" xml:space="preserve">
+          <source>Support for Operational Insights is available as of Operations Manager 2012 SP1 UR6 and Operations Manager 2012 R2 UR2.</source>
+          <target state="new">Support for Operational Insights is available as of Operations Manager 2012 SP1 UR6 and Operations Manager 2012 R2 UR2.</target>
+        </trans-unit>
+        <trans-unit id="439ef91d-5004-4b6c-848d-4e37bbb78e11" xml:space="preserve">
+          <source>Proxy support was added in System Center Operations Manager 2012 SP1 UR7 and System Center Operations Manager 2012 R2 UR3.</source>
+          <target state="new">Proxy support was added in System Center Operations Manager 2012 SP1 UR7 and System Center Operations Manager 2012 R2 UR3.</target>
+        </trans-unit>
+        <trans-unit id="86449a12-c118-46db-8b4a-a5ed7f565ceb" xml:space="preserve">
+          <source>In the Operations Manager console, click <bpt id="1b919d69-4438-44b6-912a-bd9245e524dc">&lt;strong&gt;</bpt>Administration<ept id="1b919d69-4438-44b6-912a-bd9245e524dc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Operations Manager console, click <bpt id="1b919d69-4438-44b6-912a-bd9245e524dc">&lt;strong&gt;</bpt>Administration<ept id="1b919d69-4438-44b6-912a-bd9245e524dc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a60eaaa-e497-4580-8121-6518afce8c4b" xml:space="preserve">
+          <source>Expand the <bpt id="b4a5f942-4dee-4397-af47-1eb1e3917f77">&lt;strong&gt;</bpt>Operational Insights<ept id="b4a5f942-4dee-4397-af47-1eb1e3917f77">&lt;/strong&gt;</ept> node and click <bpt id="f9c2a9c9-ae68-4c87-9129-c6b83698cfdb">&lt;strong&gt;</bpt>Operational Insights Connection<ept id="f9c2a9c9-ae68-4c87-9129-c6b83698cfdb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand the <bpt id="b4a5f942-4dee-4397-af47-1eb1e3917f77">&lt;strong&gt;</bpt>Operational Insights<ept id="b4a5f942-4dee-4397-af47-1eb1e3917f77">&lt;/strong&gt;</ept> node and click <bpt id="f9c2a9c9-ae68-4c87-9129-c6b83698cfdb">&lt;strong&gt;</bpt>Operational Insights Connection<ept id="f9c2a9c9-ae68-4c87-9129-c6b83698cfdb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6bbe3138-a2c5-41c2-92f1-60fbff6fd2fc" xml:space="preserve">
+          <source>Click the <bpt id="83f17bc7-864a-45cf-9552-1ce62fe39178">&lt;strong&gt;</bpt>Register to Operational Insights<ept id="83f17bc7-864a-45cf-9552-1ce62fe39178">&lt;/strong&gt;</ept> link and follow the onscreen instructions.</source>
+          <target state="new">Click the <bpt id="83f17bc7-864a-45cf-9552-1ce62fe39178">&lt;strong&gt;</bpt>Register to Operational Insights<ept id="83f17bc7-864a-45cf-9552-1ce62fe39178">&lt;/strong&gt;</ept> link and follow the onscreen instructions.</target>
+        </trans-unit>
+        <trans-unit id="89984ebd-4de7-4c4f-b326-882a928a14b5" xml:space="preserve">
+          <source>After completing the registration wizard, click <bpt id="6c4b0b2b-39d7-40ed-a68d-6c9c25941dab">&lt;strong&gt;</bpt>Add a Computer/Group<ept id="6c4b0b2b-39d7-40ed-a68d-6c9c25941dab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After completing the registration wizard, click <bpt id="6c4b0b2b-39d7-40ed-a68d-6c9c25941dab">&lt;strong&gt;</bpt>Add a Computer/Group<ept id="6c4b0b2b-39d7-40ed-a68d-6c9c25941dab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7e7dd5b-1563-41df-bd13-3f1507b78f74" xml:space="preserve">
+          <source><bpt id="7785fe88-d0cf-444c-95db-5e081ab6b733">&lt;linkText&gt;</bpt>Operations Manager add a computer/group<ept id="7785fe88-d0cf-444c-95db-5e081ab6b733">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7785fe88-d0cf-444c-95db-5e081ab6b733">&lt;linkText&gt;</bpt>Operations Manager add a computer/group<ept id="7785fe88-d0cf-444c-95db-5e081ab6b733">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6b67a9e-c6fc-4873-bf51-feae04a15e59" xml:space="preserve">
+          <source>In the <bpt id="3dd5fe09-f297-4b0c-a7e9-25156f584d30">&lt;strong&gt;</bpt>Computer Search<ept id="3dd5fe09-f297-4b0c-a7e9-25156f584d30">&lt;/strong&gt;</ept> dialog box you can search for computers or groups monitored by Operations Manager.</source>
+          <target state="new">In the <bpt id="3dd5fe09-f297-4b0c-a7e9-25156f584d30">&lt;strong&gt;</bpt>Computer Search<ept id="3dd5fe09-f297-4b0c-a7e9-25156f584d30">&lt;/strong&gt;</ept> dialog box you can search for computers or groups monitored by Operations Manager.</target>
+        </trans-unit>
+        <trans-unit id="a3718deb-3855-425b-9e9a-910df0b0bc22" xml:space="preserve">
+          <source>Select computers or groups to onboard to Operational Insights, click <bpt id="9a58777b-14c4-42c9-a7a7-e93cd5babd3d">&lt;strong&gt;</bpt>Add<ept id="9a58777b-14c4-42c9-a7a7-e93cd5babd3d">&lt;/strong&gt;</ept>, and then click <bpt id="f8885c99-50e3-4aff-bd6c-ea60c14d53fb">&lt;strong&gt;</bpt>OK<ept id="f8885c99-50e3-4aff-bd6c-ea60c14d53fb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select computers or groups to onboard to Operational Insights, click <bpt id="9a58777b-14c4-42c9-a7a7-e93cd5babd3d">&lt;strong&gt;</bpt>Add<ept id="9a58777b-14c4-42c9-a7a7-e93cd5babd3d">&lt;/strong&gt;</ept>, and then click <bpt id="f8885c99-50e3-4aff-bd6c-ea60c14d53fb">&lt;strong&gt;</bpt>OK<ept id="f8885c99-50e3-4aff-bd6c-ea60c14d53fb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88d6440b-6e55-4ffd-9751-46896d640f6d" xml:space="preserve">
+          <source><bpt id="83acd4d5-baf0-4100-a610-a8c6abd6bf34">&lt;linkText&gt;</bpt>Operations Manager add computers<ept id="83acd4d5-baf0-4100-a610-a8c6abd6bf34">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="83acd4d5-baf0-4100-a610-a8c6abd6bf34">&lt;linkText&gt;</bpt>Operations Manager add computers<ept id="83acd4d5-baf0-4100-a610-a8c6abd6bf34">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5a799a0-806e-4f35-bd8f-8f6687ac850f" xml:space="preserve">
+          <source><bpt id="33965946-3417-4336-a8f8-e9f3a7649162">&lt;linkText&gt;</bpt>Configure Proxy and Firewall settings (Optional)<ept id="33965946-3417-4336-a8f8-e9f3a7649162">&lt;/linkText&gt;</ept><bpt id="33965946-3417-4336-a8f8-e9f3a7649162">&lt;title&gt;</bpt><ept id="33965946-3417-4336-a8f8-e9f3a7649162">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="33965946-3417-4336-a8f8-e9f3a7649162">&lt;linkText&gt;</bpt>Configure Proxy and Firewall settings (Optional)<ept id="33965946-3417-4336-a8f8-e9f3a7649162">&lt;/linkText&gt;</ept><bpt id="33965946-3417-4336-a8f8-e9f3a7649162">&lt;title&gt;</bpt><ept id="33965946-3417-4336-a8f8-e9f3a7649162">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

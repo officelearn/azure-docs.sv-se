@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0152ebfb-82b6-42b4-b163-b13986b15804" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0152ebfb-82b6-42b4-b163-b13986b15804" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5796ec80-0e00-49f8-b4a9-da1fe254fcfb">
+        <trans-unit id="e8f126ba-d305-4386-aaac-da4d0fcf018a" xml:space="preserve">
+          <source>Get started using Azure Scheduler in the Azure portal | Microsoft Azure</source>
+          <target state="new">Get started using Azure Scheduler in the Azure portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1c1726b3-3e69-4432-aeaf-13451224e94f" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account that has the Azure Scheduler feature enabled.</source>
+          <target state="new">To complete this tutorial, you need an Azure account that has the Azure Scheduler feature enabled.</target>
+        </trans-unit>
+        <trans-unit id="d6681f6f-59f4-4835-9aaa-aea79820ffb8" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="f1edeabf-6678-4590-bc4a-efeaa0e85f87" xml:space="preserve">
+          <source>For details, refer to <bpt id="6be4dc71-be5b-418e-9f6c-d4a2ea32da8c">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="6be4dc71-be5b-418e-9f6c-d4a2ea32da8c">&lt;/linkText&gt;</ept><bpt id="6be4dc71-be5b-418e-9f6c-d4a2ea32da8c">&lt;title&gt;</bpt><ept id="6be4dc71-be5b-418e-9f6c-d4a2ea32da8c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, refer to <bpt id="6be4dc71-be5b-418e-9f6c-d4a2ea32da8c">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="6be4dc71-be5b-418e-9f6c-d4a2ea32da8c">&lt;/linkText&gt;</ept><bpt id="6be4dc71-be5b-418e-9f6c-d4a2ea32da8c">&lt;title&gt;</bpt><ept id="6be4dc71-be5b-418e-9f6c-d4a2ea32da8c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4cf0b9f-9ebe-4fae-a273-bbc7aaf59835" xml:space="preserve">
+          <source>It's easy to create jobs and job collections on Azure Scheduler using the Azure portal.</source>
+          <target state="new">It's easy to create jobs and job collections on Azure Scheduler using the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="849c8432-abfc-4507-b5f7-365dc7227905" xml:space="preserve">
+          <source>This tutorial walks you through the creation of the job collection you will use to store jobs, the creation of a job in a job collection, and an overview of the job monitoring and management tasks available through the portal.</source>
+          <target state="new">This tutorial walks you through the creation of the job collection you will use to store jobs, the creation of a job in a job collection, and an overview of the job monitoring and management tasks available through the portal.</target>
+        </trans-unit>
+        <trans-unit id="c1cbaf1f-d090-41c8-80f5-c36c650cbd47" xml:space="preserve">
+          <source>You need prior experience with Azure to use this tutorial.</source>
+          <target state="new">You need prior experience with Azure to use this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="38b3cf71-87c0-49e0-9a63-4f1f6d4f6634" xml:space="preserve">
+          <source>The first time you open the Azure portal, you are automatically placed at the <bpt id="b13c773a-4a05-4adb-9b58-4d67650b1069">&lt;strong&gt;</bpt>ALL ITEMS<ept id="b13c773a-4a05-4adb-9b58-4d67650b1069">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">The first time you open the Azure portal, you are automatically placed at the <bpt id="b13c773a-4a05-4adb-9b58-4d67650b1069">&lt;strong&gt;</bpt>ALL ITEMS<ept id="b13c773a-4a05-4adb-9b58-4d67650b1069">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="1fd065c3-dcd2-4160-8a4a-06e92128249f" xml:space="preserve">
+          <source>The columns in the <bpt id="5ee22125-04db-4eb4-867f-c1eb5ee082d4">&lt;strong&gt;</bpt>ALL ITEMS<ept id="5ee22125-04db-4eb4-867f-c1eb5ee082d4">&lt;/strong&gt;</ept> tab can be sorted.</source>
+          <target state="new">The columns in the <bpt id="5ee22125-04db-4eb4-867f-c1eb5ee082d4">&lt;strong&gt;</bpt>ALL ITEMS<ept id="5ee22125-04db-4eb4-867f-c1eb5ee082d4">&lt;/strong&gt;</ept> tab can be sorted.</target>
+        </trans-unit>
+        <trans-unit id="352a7e4b-c948-4012-a608-4e760e1ff69f" xml:space="preserve">
+          <source>To view your Scheduler jobs and job collections, click the <bpt id="d7306671-42b9-4619-b6b5-d81d2082fc14">&lt;strong&gt;</bpt>SCHEDULER<ept id="d7306671-42b9-4619-b6b5-d81d2082fc14">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">To view your Scheduler jobs and job collections, click the <bpt id="d7306671-42b9-4619-b6b5-d81d2082fc14">&lt;strong&gt;</bpt>SCHEDULER<ept id="d7306671-42b9-4619-b6b5-d81d2082fc14">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2ffd9423-2db4-4668-b1c3-94e066ff261e" xml:space="preserve">
+          <source><bpt id="99506995-6ef3-4906-b21e-158815b332dc">&lt;linkText&gt;</bpt><ept id="99506995-6ef3-4906-b21e-158815b332dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99506995-6ef3-4906-b21e-158815b332dc">&lt;linkText&gt;</bpt><ept id="99506995-6ef3-4906-b21e-158815b332dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="534ba52d-b9a1-4ab8-9419-795342114d51" xml:space="preserve">
+          <source>Sign in to the <bpt id="0387fe1c-583c-403e-aa01-fd0f27ca8d87">&lt;linkText&gt;</bpt>Azure portal<ept id="0387fe1c-583c-403e-aa01-fd0f27ca8d87">&lt;/linkText&gt;</ept><bpt id="0387fe1c-583c-403e-aa01-fd0f27ca8d87">&lt;title&gt;</bpt><ept id="0387fe1c-583c-403e-aa01-fd0f27ca8d87">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="0387fe1c-583c-403e-aa01-fd0f27ca8d87">&lt;linkText&gt;</bpt>Azure portal<ept id="0387fe1c-583c-403e-aa01-fd0f27ca8d87">&lt;/linkText&gt;</ept><bpt id="0387fe1c-583c-403e-aa01-fd0f27ca8d87">&lt;title&gt;</bpt><ept id="0387fe1c-583c-403e-aa01-fd0f27ca8d87">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4fe52fb-861b-42db-aecd-2d013eec6aa9" xml:space="preserve">
+          <source>Click <bpt id="2d4834c1-f89d-4b45-bed8-5a872d28c7fc">&lt;strong&gt;</bpt>App Services<ept id="2d4834c1-f89d-4b45-bed8-5a872d28c7fc">&lt;/strong&gt;</ept> &gt; <bpt id="1ac90bdf-33e6-4071-9924-3380d46d00bb">&lt;strong&gt;</bpt>Create New<ept id="1ac90bdf-33e6-4071-9924-3380d46d00bb">&lt;/strong&gt;</ept> &gt; <bpt id="0746131b-8d56-404b-9539-a5bc87d21cc3">&lt;strong&gt;</bpt>Scheduler<ept id="0746131b-8d56-404b-9539-a5bc87d21cc3">&lt;/strong&gt;</ept>, and then click <bpt id="7eee2925-cd94-4e46-87e7-5c81f00eca49">&lt;strong&gt;</bpt>Custom Create<ept id="7eee2925-cd94-4e46-87e7-5c81f00eca49">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="2d4834c1-f89d-4b45-bed8-5a872d28c7fc">&lt;strong&gt;</bpt>App Services<ept id="2d4834c1-f89d-4b45-bed8-5a872d28c7fc">&lt;/strong&gt;</ept> &gt; <bpt id="1ac90bdf-33e6-4071-9924-3380d46d00bb">&lt;strong&gt;</bpt>Create New<ept id="1ac90bdf-33e6-4071-9924-3380d46d00bb">&lt;/strong&gt;</ept> &gt; <bpt id="0746131b-8d56-404b-9539-a5bc87d21cc3">&lt;strong&gt;</bpt>Scheduler<ept id="0746131b-8d56-404b-9539-a5bc87d21cc3">&lt;/strong&gt;</ept>, and then click <bpt id="7eee2925-cd94-4e46-87e7-5c81f00eca49">&lt;strong&gt;</bpt>Custom Create<ept id="7eee2925-cd94-4e46-87e7-5c81f00eca49">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83dc12ff-e0a7-4328-b4e1-697841bd76eb" xml:space="preserve">
+          <source>&lt;br /&gt;&lt;br /&gt; <bpt id="f3c5f9d2-98ac-4ce2-80cc-4d58f54957c0">&lt;linkText&gt;</bpt><ept id="f3c5f9d2-98ac-4ce2-80cc-4d58f54957c0">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;br /&gt;&lt;br /&gt; <bpt id="f3c5f9d2-98ac-4ce2-80cc-4d58f54957c0">&lt;linkText&gt;</bpt><ept id="f3c5f9d2-98ac-4ce2-80cc-4d58f54957c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f30fac2-e04b-4296-8f06-d58efbb83ead" xml:space="preserve">
+          <source>In <bpt id="08666363-327a-4e0d-af8f-dc4097beaf1e">&lt;strong&gt;</bpt>Job Collection<ept id="08666363-327a-4e0d-af8f-dc4097beaf1e">&lt;/strong&gt;</ept>, select the name of the existing job collection under the <bpt id="691443fe-8271-4500-85d7-91ef1986af8e">&lt;strong&gt;</bpt>Job Collection<ept id="691443fe-8271-4500-85d7-91ef1986af8e">&lt;/strong&gt;</ept> drop-down.</source>
+          <target state="new">In <bpt id="08666363-327a-4e0d-af8f-dc4097beaf1e">&lt;strong&gt;</bpt>Job Collection<ept id="08666363-327a-4e0d-af8f-dc4097beaf1e">&lt;/strong&gt;</ept>, select the name of the existing job collection under the <bpt id="691443fe-8271-4500-85d7-91ef1986af8e">&lt;strong&gt;</bpt>Job Collection<ept id="691443fe-8271-4500-85d7-91ef1986af8e">&lt;/strong&gt;</ept> drop-down.</target>
+        </trans-unit>
+        <trans-unit id="18f2472b-07f2-409d-92e1-9263d9780ca0" xml:space="preserve">
+          <source>If you don’t have an existing job collection you’d like to add the job to, select <bpt id="5c9babff-853d-418f-b352-08a84807522c">&lt;strong&gt;</bpt>Create New<ept id="5c9babff-853d-418f-b352-08a84807522c">&lt;/strong&gt;</ept> and enter a name to identify your new job collection.&lt;br /&gt;&lt;br /&gt; <bpt id="7e134926-cb69-4af3-9001-2603b6010d70">&lt;linkText&gt;</bpt><ept id="7e134926-cb69-4af3-9001-2603b6010d70">&lt;/linkText&gt;</ept></source>
+          <target state="new">If you don’t have an existing job collection you’d like to add the job to, select <bpt id="5c9babff-853d-418f-b352-08a84807522c">&lt;strong&gt;</bpt>Create New<ept id="5c9babff-853d-418f-b352-08a84807522c">&lt;/strong&gt;</ept> and enter a name to identify your new job collection.&lt;br /&gt;&lt;br /&gt; <bpt id="7e134926-cb69-4af3-9001-2603b6010d70">&lt;linkText&gt;</bpt><ept id="7e134926-cb69-4af3-9001-2603b6010d70">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac64ca9a-2063-41d2-8ca4-2592efd0b7cc" xml:space="preserve">
+          <source>In <bpt id="29aa6b37-f19d-4fdc-83fd-cd4eb48b357d">&lt;strong&gt;</bpt>Region<ept id="29aa6b37-f19d-4fdc-83fd-cd4eb48b357d">&lt;/strong&gt;</ept>, select the geographic region for the job collection.</source>
+          <target state="new">In <bpt id="29aa6b37-f19d-4fdc-83fd-cd4eb48b357d">&lt;strong&gt;</bpt>Region<ept id="29aa6b37-f19d-4fdc-83fd-cd4eb48b357d">&lt;/strong&gt;</ept>, select the geographic region for the job collection.</target>
+        </trans-unit>
+        <trans-unit id="c7812238-1283-4761-8b10-a5aa58570da7" xml:space="preserve">
+          <source>Click the arrow key to create the job collection and move to the next stage – creating a job.</source>
+          <target state="new">Click the arrow key to create the job collection and move to the next stage – creating a job.</target>
+        </trans-unit>
+        <trans-unit id="fbc17149-dcb3-449b-b278-25886095f944" xml:space="preserve">
+          <source>Let’s create a job that simply hits http://www.microsoft.com/ with a GET request.</source>
+          <target state="new">Let’s create a job that simply hits http://www.microsoft.com/ with a GET request.</target>
+        </trans-unit>
+        <trans-unit id="6f5fcc20-259b-4a4a-8d40-591964cf610e" xml:space="preserve">
+          <source>In the <bpt id="2bbeb6e5-6e47-4dd5-987d-4d73fb63ea0e">&lt;strong&gt;</bpt>Job action<ept id="2bbeb6e5-6e47-4dd5-987d-4d73fb63ea0e">&lt;/strong&gt;</ept> screen, define the following values for the requested form fields:</source>
+          <target state="new">In the <bpt id="2bbeb6e5-6e47-4dd5-987d-4d73fb63ea0e">&lt;strong&gt;</bpt>Job action<ept id="2bbeb6e5-6e47-4dd5-987d-4d73fb63ea0e">&lt;/strong&gt;</ept> screen, define the following values for the requested form fields:</target>
+        </trans-unit>
+        <trans-unit id="24fccd59-061a-4190-a0eb-783f5f348bf1" xml:space="preserve">
+          <source><bpt id="ae1e1101-dae2-4fdd-b3c6-30d3a96e44d5">&lt;strong&gt;</bpt>Name:<ept id="ae1e1101-dae2-4fdd-b3c6-30d3a96e44d5">&lt;/strong&gt;</ept> <bpt id="867cad78-271a-4daa-95e8-f404de9327cf">&lt;code&gt;</bpt> getmicrosoft<ept id="867cad78-271a-4daa-95e8-f404de9327cf">&lt;/code&gt;</ept>  </source>
+          <target state="new"><bpt id="ae1e1101-dae2-4fdd-b3c6-30d3a96e44d5">&lt;strong&gt;</bpt>Name:<ept id="ae1e1101-dae2-4fdd-b3c6-30d3a96e44d5">&lt;/strong&gt;</ept> <bpt id="867cad78-271a-4daa-95e8-f404de9327cf">&lt;code&gt;</bpt> getmicrosoft<ept id="867cad78-271a-4daa-95e8-f404de9327cf">&lt;/code&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="548a7a9b-cb96-4cfb-a3db-3cc00113b6c2" xml:space="preserve">
+          <source><bpt id="11f59a2d-25a9-48a7-a60d-0050f70e26a2">&lt;strong&gt;</bpt>Action Type:<ept id="11f59a2d-25a9-48a7-a60d-0050f70e26a2">&lt;/strong&gt;</ept> <bpt id="549b8844-5bd1-4bf7-9174-3f5490d1525b">&lt;code&gt;</bpt> HTTP<ept id="549b8844-5bd1-4bf7-9174-3f5490d1525b">&lt;/code&gt;</ept>  </source>
+          <target state="new"><bpt id="11f59a2d-25a9-48a7-a60d-0050f70e26a2">&lt;strong&gt;</bpt>Action Type:<ept id="11f59a2d-25a9-48a7-a60d-0050f70e26a2">&lt;/strong&gt;</ept> <bpt id="549b8844-5bd1-4bf7-9174-3f5490d1525b">&lt;code&gt;</bpt> HTTP<ept id="549b8844-5bd1-4bf7-9174-3f5490d1525b">&lt;/code&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="a855a24d-e502-4511-9d2c-b3a9f69e3647" xml:space="preserve">
+          <source><bpt id="4f698605-5eef-4287-8f70-09791a33fb2c">&lt;strong&gt;</bpt>Method:<ept id="4f698605-5eef-4287-8f70-09791a33fb2c">&lt;/strong&gt;</ept> <bpt id="6af62d07-edd5-467d-bc9c-b8511a094bc3">&lt;code&gt;</bpt> GET<ept id="6af62d07-edd5-467d-bc9c-b8511a094bc3">&lt;/code&gt;</ept>  </source>
+          <target state="new"><bpt id="4f698605-5eef-4287-8f70-09791a33fb2c">&lt;strong&gt;</bpt>Method:<ept id="4f698605-5eef-4287-8f70-09791a33fb2c">&lt;/strong&gt;</ept> <bpt id="6af62d07-edd5-467d-bc9c-b8511a094bc3">&lt;code&gt;</bpt> GET<ept id="6af62d07-edd5-467d-bc9c-b8511a094bc3">&lt;/code&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="44537472-a61f-4e24-b252-f9cd833ba39c" xml:space="preserve">
+          <source><bpt id="a21314ee-b3b2-4e92-b367-ce7240273ea3">&lt;strong&gt;</bpt>URI:<ept id="a21314ee-b3b2-4e92-b367-ce7240273ea3">&lt;/strong&gt;</ept> <bpt id="99f099e1-f217-43b7-ab82-eb83bc49c161">&lt;code&gt;</bpt> http://www.microsoft.com<ept id="99f099e1-f217-43b7-ab82-eb83bc49c161">&lt;/code&gt;</ept>  </source>
+          <target state="new"><bpt id="a21314ee-b3b2-4e92-b367-ce7240273ea3">&lt;strong&gt;</bpt>URI:<ept id="a21314ee-b3b2-4e92-b367-ce7240273ea3">&lt;/strong&gt;</ept> <bpt id="99f099e1-f217-43b7-ab82-eb83bc49c161">&lt;code&gt;</bpt> http://www.microsoft.com<ept id="99f099e1-f217-43b7-ab82-eb83bc49c161">&lt;/code&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="4a286549-2b7e-4f8e-ba8c-325189e40399" xml:space="preserve">
+          <source><bpt id="85ce7a2d-3f7c-4e39-a7a3-375bb61bd6b8">&lt;linkText&gt;</bpt><ept id="85ce7a2d-3f7c-4e39-a7a3-375bb61bd6b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="85ce7a2d-3f7c-4e39-a7a3-375bb61bd6b8">&lt;linkText&gt;</bpt><ept id="85ce7a2d-3f7c-4e39-a7a3-375bb61bd6b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7e0edd9-2536-4cc7-b42a-713ce5bdb931" xml:space="preserve">
+          <source>After you create a job, define a schedule.</source>
+          <target state="new">After you create a job, define a schedule.</target>
+        </trans-unit>
+        <trans-unit id="e40c274d-126d-4f79-98f9-c18b5d2ae2d7" xml:space="preserve">
+          <source>The job could be defined as a one-time job, but let’s pick a recurrence schedule.</source>
+          <target state="new">The job could be defined as a one-time job, but let’s pick a recurrence schedule.</target>
+        </trans-unit>
+        <trans-unit id="a920c78a-f07f-4f8c-86bd-4e4ec29104e0" xml:space="preserve">
+          <source>Some screenshots in this tutorial show a recurrence of 1 minute for only illustrative purposes, but pick a recurrence of 12 hours.</source>
+          <target state="new">Some screenshots in this tutorial show a recurrence of 1 minute for only illustrative purposes, but pick a recurrence of 12 hours.</target>
+        </trans-unit>
+        <trans-unit id="e497e292-8453-4bc3-a9c6-b0da34131be1" xml:space="preserve">
+          <source><bpt id="ca2dfc03-859e-4f8d-94b3-63a322e40e34">&lt;strong&gt;</bpt>Recur Every:<ept id="ca2dfc03-859e-4f8d-94b3-63a322e40e34">&lt;/strong&gt;</ept> <bpt id="713cf16a-b4f9-44fa-b3e9-73c0ab92929e">&lt;code&gt;</bpt> 12 Hours<ept id="713cf16a-b4f9-44fa-b3e9-73c0ab92929e">&lt;/code&gt;</ept>  </source>
+          <target state="new"><bpt id="ca2dfc03-859e-4f8d-94b3-63a322e40e34">&lt;strong&gt;</bpt>Recur Every:<ept id="ca2dfc03-859e-4f8d-94b3-63a322e40e34">&lt;/strong&gt;</ept> <bpt id="713cf16a-b4f9-44fa-b3e9-73c0ab92929e">&lt;code&gt;</bpt> 12 Hours<ept id="713cf16a-b4f9-44fa-b3e9-73c0ab92929e">&lt;/code&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="6ad6f2ba-3533-4301-8604-9c6a2f7f7bb0" xml:space="preserve">
+          <source><bpt id="378bbd57-f06f-4d88-8796-53fc41251cc5">&lt;strong&gt;</bpt>Starting:<ept id="378bbd57-f06f-4d88-8796-53fc41251cc5">&lt;/strong&gt;</ept> <bpt id="b509bd78-d90e-44ae-84a0-89c041ca3769">&lt;code&gt;</bpt> Now<ept id="b509bd78-d90e-44ae-84a0-89c041ca3769">&lt;/code&gt;</ept>  </source>
+          <target state="new"><bpt id="378bbd57-f06f-4d88-8796-53fc41251cc5">&lt;strong&gt;</bpt>Starting:<ept id="378bbd57-f06f-4d88-8796-53fc41251cc5">&lt;/strong&gt;</ept> <bpt id="b509bd78-d90e-44ae-84a0-89c041ca3769">&lt;code&gt;</bpt> Now<ept id="b509bd78-d90e-44ae-84a0-89c041ca3769">&lt;/code&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="67e58bf0-f1dd-491d-b1c1-ab854fc5d19b" xml:space="preserve">
+          <source><bpt id="e2ddad27-1632-4630-b22c-975408999ce3">&lt;strong&gt;</bpt>Ending On:<ept id="e2ddad27-1632-4630-b22c-975408999ce3">&lt;/strong&gt;</ept> <bpt id="df485e13-22ed-4e8f-b2d2-75384b2b3077">&lt;code&gt;</bpt> Select date 2 days after current day and any time<ept id="df485e13-22ed-4e8f-b2d2-75384b2b3077">&lt;/code&gt;</ept>  </source>
+          <target state="new"><bpt id="e2ddad27-1632-4630-b22c-975408999ce3">&lt;strong&gt;</bpt>Ending On:<ept id="e2ddad27-1632-4630-b22c-975408999ce3">&lt;/strong&gt;</ept> <bpt id="df485e13-22ed-4e8f-b2d2-75384b2b3077">&lt;code&gt;</bpt> Select date 2 days after current day and any time<ept id="df485e13-22ed-4e8f-b2d2-75384b2b3077">&lt;/code&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="aa3b1616-81d5-4dd4-bfa3-b34521a7d832" xml:space="preserve">
+          <source><bpt id="2eb31f47-6df5-4408-9e86-bc4e06b434f4">&lt;linkText&gt;</bpt><ept id="2eb31f47-6df5-4408-9e86-bc4e06b434f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2eb31f47-6df5-4408-9e86-bc4e06b434f4">&lt;linkText&gt;</bpt><ept id="2eb31f47-6df5-4408-9e86-bc4e06b434f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e0c1fbc-4a17-4dbb-b8f3-fc00d9c1bd97" xml:space="preserve">
+          <source>Click <bpt id="8295996d-25c4-46fa-9d2e-a6048fa8d8e9">&lt;strong&gt;</bpt>OK<ept id="8295996d-25c4-46fa-9d2e-a6048fa8d8e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8295996d-25c4-46fa-9d2e-a6048fa8d8e9">&lt;strong&gt;</bpt>OK<ept id="8295996d-25c4-46fa-9d2e-a6048fa8d8e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce5e8e71-9afa-4811-8f11-9d6230672cda" xml:space="preserve">
+          <source>It can take a while to create the job and the job collection.</source>
+          <target state="new">It can take a while to create the job and the job collection.</target>
+        </trans-unit>
+        <trans-unit id="83dbb0e3-454c-4a5c-8884-9fd40ee9e1b8" xml:space="preserve">
+          <source>To check the status, you can monitor the notifications at the bottom of the portal.</source>
+          <target state="new">To check the status, you can monitor the notifications at the bottom of the portal.</target>
+        </trans-unit>
+        <trans-unit id="c1102890-6dec-4f2c-9cc6-ac7d38c0d432" xml:space="preserve">
+          <source><bpt id="0acbb553-ea1b-4f14-b267-d0d15336229b">&lt;linkText&gt;</bpt><ept id="0acbb553-ea1b-4f14-b267-d0d15336229b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0acbb553-ea1b-4f14-b267-d0d15336229b">&lt;linkText&gt;</bpt><ept id="0acbb553-ea1b-4f14-b267-d0d15336229b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7adeda47-410c-48e1-b5e7-75707cc80be6" xml:space="preserve">
+          <source>After you create the job and job collection, a message tells you that the job or job collection was successfully created.</source>
+          <target state="new">After you create the job and job collection, a message tells you that the job or job collection was successfully created.</target>
+        </trans-unit>
+        <trans-unit id="a19b6460-69c4-43ac-b98e-3bec18e9eac0" xml:space="preserve">
+          <source>The job is listed in the Jobs section of the Scheduler section and the job collection is listed in the Job Collections section.</source>
+          <target state="new">The job is listed in the Jobs section of the Scheduler section and the job collection is listed in the Job Collections section.</target>
+        </trans-unit>
+        <trans-unit id="9d8c9edc-a1d0-4803-9967-02b869c3cc52" xml:space="preserve">
+          <source>To configure additional advanced settings in the job, refer to the section “Configure a Job” below.</source>
+          <target state="new">To configure additional advanced settings in the job, refer to the section “Configure a Job” below.</target>
+        </trans-unit>
+        <trans-unit id="6bf6c1f0-d1e6-417e-96e6-1c284ba8de80" xml:space="preserve">
+          <source><bpt id="2f34fe10-8f05-4491-94cf-fdef6b5a16fd">&lt;linkText&gt;</bpt><ept id="2f34fe10-8f05-4491-94cf-fdef6b5a16fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2f34fe10-8f05-4491-94cf-fdef6b5a16fd">&lt;linkText&gt;</bpt><ept id="2f34fe10-8f05-4491-94cf-fdef6b5a16fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e13562b3-75ef-442f-8376-66e521b4a39b" xml:space="preserve">
+          <source>Once a job collection is created, it appears in the main Scheduler management screen.</source>
+          <target state="new">Once a job collection is created, it appears in the main Scheduler management screen.</target>
+        </trans-unit>
+        <trans-unit id="7dc919cd-2275-4bc6-87ef-7a2d99a4be10" xml:space="preserve">
+          <source><bpt id="e612752e-5e6e-4e98-8d07-37ce6d017b9c">&lt;linkText&gt;</bpt><ept id="e612752e-5e6e-4e98-8d07-37ce6d017b9c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e612752e-5e6e-4e98-8d07-37ce6d017b9c">&lt;linkText&gt;</bpt><ept id="e612752e-5e6e-4e98-8d07-37ce6d017b9c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47f60ed5-fbed-42e4-b327-01ca9d50997e" xml:space="preserve">
+          <source>Click a job collection and a new window opens with the following options:</source>
+          <target state="new">Click a job collection and a new window opens with the following options:</target>
+        </trans-unit>
+        <trans-unit id="03a65548-979e-4f9a-b453-60751ba7326e" xml:space="preserve">
+          <source>Dashboard  </source>
+          <target state="new">Dashboard  </target>
+        </trans-unit>
+        <trans-unit id="626e4890-b3be-4f18-ab7a-765b21886ee6" xml:space="preserve">
+          <source>Scale  </source>
+          <target state="new">Scale  </target>
+        </trans-unit>
+        <trans-unit id="03be8544-c4e3-4010-90d0-115fcbf2b90a" xml:space="preserve">
+          <source>History  </source>
+          <target state="new">History  </target>
+        </trans-unit>
+        <trans-unit id="5fee298a-01b1-4ba7-b726-1b10adf4a65e" xml:space="preserve">
+          <source>Jobs  </source>
+          <target state="new">Jobs  </target>
+        </trans-unit>
+        <trans-unit id="c1a56685-6a1d-4e76-9f9b-8ef99a481ac4" xml:space="preserve">
+          <source>The following topics describe these tabs in greater detail.</source>
+          <target state="new">The following topics describe these tabs in greater detail.</target>
+        </trans-unit>
+        <trans-unit id="11daabef-5394-4526-b84f-aabe2fe7779d" xml:space="preserve">
+          <source>When you click your job collection name, the <bpt id="61758918-513a-43fc-97f7-b7e4d327fff3">&lt;strong&gt;</bpt>Dashboard<ept id="61758918-513a-43fc-97f7-b7e4d327fff3">&lt;/strong&gt;</ept> tab is displayed.</source>
+          <target state="new">When you click your job collection name, the <bpt id="61758918-513a-43fc-97f7-b7e4d327fff3">&lt;strong&gt;</bpt>Dashboard<ept id="61758918-513a-43fc-97f7-b7e4d327fff3">&lt;/strong&gt;</ept> tab is displayed.</target>
+        </trans-unit>
+        <trans-unit id="81062d8d-dc70-42ad-b503-7b740d1aa8a4" xml:space="preserve">
+          <source>The Dashboard displays the following information:</source>
+          <target state="new">The Dashboard displays the following information:</target>
+        </trans-unit>
+        <trans-unit id="98826b3b-772c-4447-8fc6-5663e0c5f085" xml:space="preserve">
+          <source><bpt id="fe6164a9-820f-461c-b502-57d5150eb75c">&lt;linkText&gt;</bpt><ept id="fe6164a9-820f-461c-b502-57d5150eb75c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe6164a9-820f-461c-b502-57d5150eb75c">&lt;linkText&gt;</bpt><ept id="fe6164a9-820f-461c-b502-57d5150eb75c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5005b6f-1d69-46f3-8d0e-6186630522bd" xml:space="preserve">
+          <source>A table and series of charts that shows a fixed list of metrics.</source>
+          <target state="new">A table and series of charts that shows a fixed list of metrics.</target>
+        </trans-unit>
+        <trans-unit id="e288ba23-e0b5-4e75-8c4a-a907d8c2140a" xml:space="preserve">
+          <source>These metrics provide real-time values regarding the health of your job collection including:</source>
+          <target state="new">These metrics provide real-time values regarding the health of your job collection including:</target>
+        </trans-unit>
+        <trans-unit id="70e30e4e-292e-407e-bd5a-985ffe5a62e3" xml:space="preserve">
+          <source>Current jobs  </source>
+          <target state="new">Current jobs  </target>
+        </trans-unit>
+        <trans-unit id="20aa1d37-d377-4729-8c35-0c1898fd82f8" xml:space="preserve">
+          <source>Completed jobs  </source>
+          <target state="new">Completed jobs  </target>
+        </trans-unit>
+        <trans-unit id="cacd4ace-cf98-4908-9e3a-40fa6d0bf46f" xml:space="preserve">
+          <source>Faulted jobs  </source>
+          <target state="new">Faulted jobs  </target>
+        </trans-unit>
+        <trans-unit id="5c89b72f-ccc3-4972-8428-f69ecfe9b2d9" xml:space="preserve">
+          <source>Enabled jobs  </source>
+          <target state="new">Enabled jobs  </target>
+        </trans-unit>
+        <trans-unit id="1a9202f4-f030-4ee0-b649-b3f6d8c6f952" xml:space="preserve">
+          <source>Disabled jobs  </source>
+          <target state="new">Disabled jobs  </target>
+        </trans-unit>
+        <trans-unit id="83028ee8-a4cd-473f-9dbd-44d5da3ffe02" xml:space="preserve">
+          <source>Job executions  </source>
+          <target state="new">Job executions  </target>
+        </trans-unit>
+        <trans-unit id="c2f36269-b5ce-44b7-ba37-3de58caf76bb" xml:space="preserve">
+          <source>A table that shows a fixed list of status and settings metrics.</source>
+          <target state="new">A table that shows a fixed list of status and settings metrics.</target>
+        </trans-unit>
+        <trans-unit id="669f5af9-c2d1-44d2-997b-215426a2579e" xml:space="preserve">
+          <source>These metrics provide real-time values regarding the status and settings associated with your job collection including:</source>
+          <target state="new">These metrics provide real-time values regarding the status and settings associated with your job collection including:</target>
+        </trans-unit>
+        <trans-unit id="bf50d2a1-260c-48dd-ad1c-1f1f9463cd69" xml:space="preserve">
+          <source>Status  </source>
+          <target state="new">Status  </target>
+        </trans-unit>
+        <trans-unit id="bd2b98b3-fc4e-4a04-8642-266b38c9c38d" xml:space="preserve">
+          <source>Region  </source>
+          <target state="new">Region  </target>
+        </trans-unit>
+        <trans-unit id="a0f1bb9f-8267-4839-80ba-3ffe751b6ab0" xml:space="preserve">
+          <source>Number of Errors  </source>
+          <target state="new">Number of Errors  </target>
+        </trans-unit>
+        <trans-unit id="344bcae9-0b3d-4124-b5a8-2b0a440b6e95" xml:space="preserve">
+          <source>Number of Occurrence Faults  </source>
+          <target state="new">Number of Occurrence Faults  </target>
+        </trans-unit>
+        <trans-unit id="72a136bc-0569-46ce-9cd6-7a72ce9066c2" xml:space="preserve">
+          <source>URI  </source>
+          <target state="new">URI  </target>
+        </trans-unit>
+        <trans-unit id="8323af14-be7e-4fff-a737-153c50dbc2d6" xml:space="preserve">
+          <source>In the <bpt id="c474d962-0d5e-44dd-8a0d-54e73eca5b46">&lt;strong&gt;</bpt>Scale<ept id="c474d962-0d5e-44dd-8a0d-54e73eca5b46">&lt;/strong&gt;</ept> tab, you can change the settings and tier of service used by your Scheduler.</source>
+          <target state="new">In the <bpt id="c474d962-0d5e-44dd-8a0d-54e73eca5b46">&lt;strong&gt;</bpt>Scale<ept id="c474d962-0d5e-44dd-8a0d-54e73eca5b46">&lt;/strong&gt;</ept> tab, you can change the settings and tier of service used by your Scheduler.</target>
+        </trans-unit>
+        <trans-unit id="be545414-f95c-428a-9e7f-fee5bee854e8" xml:space="preserve">
+          <source><bpt id="bf9118e8-6f71-4c72-82b1-618698e5337b">&lt;linkText&gt;</bpt><ept id="bf9118e8-6f71-4c72-82b1-618698e5337b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bf9118e8-6f71-4c72-82b1-618698e5337b">&lt;linkText&gt;</bpt><ept id="bf9118e8-6f71-4c72-82b1-618698e5337b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2dd624fb-9ac6-4a2a-ac21-1fbd961bf6bb" xml:space="preserve">
+          <source>This displays whether you are on the <bpt id="ac135c15-8f84-40a9-a904-412812d78425">&lt;strong&gt;</bpt>Free<ept id="ac135c15-8f84-40a9-a904-412812d78425">&lt;/strong&gt;</ept> or <bpt id="875354a2-3455-4637-9879-3e926ed55a38">&lt;strong&gt;</bpt>Standard<ept id="875354a2-3455-4637-9879-3e926ed55a38">&lt;/strong&gt;</ept> plan.</source>
+          <target state="new">This displays whether you are on the <bpt id="ac135c15-8f84-40a9-a904-412812d78425">&lt;strong&gt;</bpt>Free<ept id="ac135c15-8f84-40a9-a904-412812d78425">&lt;/strong&gt;</ept> or <bpt id="875354a2-3455-4637-9879-3e926ed55a38">&lt;strong&gt;</bpt>Standard<ept id="875354a2-3455-4637-9879-3e926ed55a38">&lt;/strong&gt;</ept> plan.</target>
+        </trans-unit>
+        <trans-unit id="05c36396-c2bb-4b5b-adca-16a89546aa59" xml:space="preserve">
+          <source>Azure Scheduler implements quotas based on several conditions.</source>
+          <target state="new">Azure Scheduler implements quotas based on several conditions.</target>
+        </trans-unit>
+        <trans-unit id="e055609f-2230-4c23-b71c-23d6537d5052" xml:space="preserve">
+          <source>This section lists the quota thresholds and allows you to change them.</source>
+          <target state="new">This section lists the quota thresholds and allows you to change them.</target>
+        </trans-unit>
+        <trans-unit id="6e49f462-aad7-4c72-b964-27571df92d17" xml:space="preserve">
+          <source>By default, there is one set of quotas configured.</source>
+          <target state="new">By default, there is one set of quotas configured.</target>
+        </trans-unit>
+        <trans-unit id="3b2b71e6-c0dd-4d11-8ad0-44d8c6cad6a8" xml:space="preserve">
+          <source>The limits of these quota settings are constrained by your plan, and changing the Plan may impact pricing..</source>
+          <target state="new">The limits of these quota settings are constrained by your plan, and changing the Plan may impact pricing..</target>
+        </trans-unit>
+        <trans-unit id="09bc1137-d687-444d-b74b-b31f200fca47" xml:space="preserve">
+          <source>Quotas can be changed to scale your Scheduler.</source>
+          <target state="new">Quotas can be changed to scale your Scheduler.</target>
+        </trans-unit>
+        <trans-unit id="ed44d4b8-b9eb-47a8-a762-7f5f0cf94c83" xml:space="preserve">
+          <source>Options include:</source>
+          <target state="new">Options include:</target>
+        </trans-unit>
+        <trans-unit id="51cce6be-0da7-4bfa-aad2-02ee3853d605" xml:space="preserve">
+          <source>Max jobs  </source>
+          <target state="new">Max jobs  </target>
+        </trans-unit>
+        <trans-unit id="1c8880fb-8043-4ca6-a78b-151766bfca64" xml:space="preserve">
+          <source>Max frequency  </source>
+          <target state="new">Max frequency  </target>
+        </trans-unit>
+        <trans-unit id="7a4d60f0-aa26-4c01-a8f0-31ba963a6126" xml:space="preserve">
+          <source>Max interval  </source>
+          <target state="new">Max interval  </target>
+        </trans-unit>
+        <trans-unit id="5bd1c5b2-e060-4d19-94b6-cfd72eec5c28" xml:space="preserve">
+          <source>The <bpt id="f320cd90-1392-44e9-9a4b-94539f2a2d87">&lt;strong&gt;</bpt>History<ept id="f320cd90-1392-44e9-9a4b-94539f2a2d87">&lt;/strong&gt;</ept> tab displays the following information for the selected job:</source>
+          <target state="new">The <bpt id="f320cd90-1392-44e9-9a4b-94539f2a2d87">&lt;strong&gt;</bpt>History<ept id="f320cd90-1392-44e9-9a4b-94539f2a2d87">&lt;/strong&gt;</ept> tab displays the following information for the selected job:</target>
+        </trans-unit>
+        <trans-unit id="571e4f7d-585b-4453-8dba-6762a0fcb7c2" xml:space="preserve">
+          <source><bpt id="df6b7455-77c4-40b5-99b7-c569bdceabac">&lt;linkText&gt;</bpt><ept id="df6b7455-77c4-40b5-99b7-c569bdceabac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df6b7455-77c4-40b5-99b7-c569bdceabac">&lt;linkText&gt;</bpt><ept id="df6b7455-77c4-40b5-99b7-c569bdceabac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="460240ce-f660-4513-b9c0-2cbbe440ec4d" xml:space="preserve">
+          <source>A table that displays selected metrics for every job execution in the system for the selected job.</source>
+          <target state="new">A table that displays selected metrics for every job execution in the system for the selected job.</target>
+        </trans-unit>
+        <trans-unit id="00c498aa-d171-4b1b-aaac-9788201ca21e" xml:space="preserve">
+          <source>These metrics provide real-time values regarding the health of your Scheduler.</source>
+          <target state="new">These metrics provide real-time values regarding the health of your Scheduler.</target>
+        </trans-unit>
+        <trans-unit id="9f440fc0-7855-49b3-8c84-c88fc59f2338" xml:space="preserve">
+          <source>The following performance counters/metrics are available:</source>
+          <target state="new">The following performance counters/metrics are available:</target>
+        </trans-unit>
+        <trans-unit id="8cebe422-591b-47b8-838f-6c768cf294e4" xml:space="preserve">
+          <source>Status  </source>
+          <target state="new">Status  </target>
+        </trans-unit>
+        <trans-unit id="99a77515-ae6b-48e2-aa4d-8293652ac4da" xml:space="preserve">
+          <source>Details  </source>
+          <target state="new">Details  </target>
+        </trans-unit>
+        <trans-unit id="7a05a07f-74c7-43c6-9292-e204a45ab5c3" xml:space="preserve">
+          <source>Retry attempt  </source>
+          <target state="new">Retry attempt  </target>
+        </trans-unit>
+        <trans-unit id="67207479-5536-44b9-a2d5-81946d8ac487" xml:space="preserve">
+          <source>Number of executions (1st, 2nd, 3rd, etc.)</source>
+          <target state="new">Number of executions (1st, 2nd, 3rd, etc.)</target>
+        </trans-unit>
+        <trans-unit id="3ea32728-8928-4728-8162-99688d0b7a20" xml:space="preserve">
+          <source>Timestamp of execution  </source>
+          <target state="new">Timestamp of execution  </target>
+        </trans-unit>
+        <trans-unit id="f4795043-eed0-4ca8-a787-ce6a181104bb" xml:space="preserve">
+          <source>You can click <bpt id="534394f5-d929-43b1-ae7b-67da092e4d03">&lt;strong&gt;</bpt>View History Details<ept id="534394f5-d929-43b1-ae7b-67da092e4d03">&lt;/strong&gt;</ept> to look at the whole response for every execution.</source>
+          <target state="new">You can click <bpt id="534394f5-d929-43b1-ae7b-67da092e4d03">&lt;strong&gt;</bpt>View History Details<ept id="534394f5-d929-43b1-ae7b-67da092e4d03">&lt;/strong&gt;</ept> to look at the whole response for every execution.</target>
+        </trans-unit>
+        <trans-unit id="5caa7f86-b6f9-48f2-a067-87a978d7f306" xml:space="preserve">
+          <source>This dialog box also allows you to copy the response to the clipboard.</source>
+          <target state="new">This dialog box also allows you to copy the response to the clipboard.</target>
+        </trans-unit>
+        <trans-unit id="9756ce4b-f96e-4535-89bd-7407cdd18891" xml:space="preserve">
+          <source><bpt id="7ddd2384-ac59-4f9e-b4aa-b1753934c4b1">&lt;linkText&gt;</bpt><ept id="7ddd2384-ac59-4f9e-b4aa-b1753934c4b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ddd2384-ac59-4f9e-b4aa-b1753934c4b1">&lt;linkText&gt;</bpt><ept id="7ddd2384-ac59-4f9e-b4aa-b1753934c4b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="164f748e-76fb-4bb7-95fc-74a6b7a9cc5e" xml:space="preserve">
+          <source>The jobs tab displays the following information to monitor the execution history of jobs:</source>
+          <target state="new">The jobs tab displays the following information to monitor the execution history of jobs:</target>
+        </trans-unit>
+        <trans-unit id="204e246d-14ea-47aa-8d90-075cffbf2860" xml:space="preserve">
+          <source><bpt id="f82f6f37-f55a-4fbd-bf25-cc67e48989af">&lt;linkText&gt;</bpt><ept id="f82f6f37-f55a-4fbd-bf25-cc67e48989af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f82f6f37-f55a-4fbd-bf25-cc67e48989af">&lt;linkText&gt;</bpt><ept id="f82f6f37-f55a-4fbd-bf25-cc67e48989af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="115ad763-6457-47ad-8a9b-39b3b2d6de52" xml:space="preserve">
+          <source>A table that displays selected metrics for every job in the system.</source>
+          <target state="new">A table that displays selected metrics for every job in the system.</target>
+        </trans-unit>
+        <trans-unit id="2e4ac273-6b5b-4998-ae10-b6df38535ddf" xml:space="preserve">
+          <source>These metrics provide real-time values regarding the health of your Scheduler.</source>
+          <target state="new">These metrics provide real-time values regarding the health of your Scheduler.</target>
+        </trans-unit>
+        <trans-unit id="ff0713b1-76fb-45d9-9068-2084e2f818c1" xml:space="preserve">
+          <source>Clicking on a job name gives you the option to enable, disable, or delete the job.</source>
+          <target state="new">Clicking on a job name gives you the option to enable, disable, or delete the job.</target>
+        </trans-unit>
+        <trans-unit id="1bb0c2a3-3356-45f1-9492-3b5f58e3e2fd" xml:space="preserve">
+          <source>Deleted jobs may not be recoverable.</source>
+          <target state="new">Deleted jobs may not be recoverable.</target>
+        </trans-unit>
+        <trans-unit id="7c92f1fe-0bb8-449e-8348-d87ea38a4c98" xml:space="preserve">
+          <source>The following counters and metrics are available:</source>
+          <target state="new">The following counters and metrics are available:</target>
+        </trans-unit>
+        <trans-unit id="f1b3f574-cfaa-4be8-82be-9679365bac5e" xml:space="preserve">
+          <source>Name  </source>
+          <target state="new">Name  </target>
+        </trans-unit>
+        <trans-unit id="6f6c1c27-2c90-4dd9-88ea-ed7e2b1877cc" xml:space="preserve">
+          <source>Last run  </source>
+          <target state="new">Last run  </target>
+        </trans-unit>
+        <trans-unit id="e4ac0686-7b30-43d9-aaca-92567b1cdd33" xml:space="preserve">
+          <source>Next run  </source>
+          <target state="new">Next run  </target>
+        </trans-unit>
+        <trans-unit id="8a59fd45-927c-4fef-976c-e7a07a3ab3db" xml:space="preserve">
+          <source>Status  </source>
+          <target state="new">Status  </target>
+        </trans-unit>
+        <trans-unit id="fcd8226c-0153-4678-898b-12ca108c1155" xml:space="preserve">
+          <source>Frequency  </source>
+          <target state="new">Frequency  </target>
+        </trans-unit>
+        <trans-unit id="7687968a-e501-441b-bd4c-ad079be8165d" xml:space="preserve">
+          <source>Failures  </source>
+          <target state="new">Failures  </target>
+        </trans-unit>
+        <trans-unit id="72f24797-023f-4380-bb1d-ee526e0499a8" xml:space="preserve">
+          <source>Faults  </source>
+          <target state="new">Faults  </target>
+        </trans-unit>
+        <trans-unit id="a421000b-ce05-4836-9161-9bc382d06689" xml:space="preserve">
+          <source>Executions  </source>
+          <target state="new">Executions  </target>
+        </trans-unit>
+        <trans-unit id="4e98ce6d-9e3d-40b7-b575-1d3097f5cb80" xml:space="preserve">
+          <source>Action type  </source>
+          <target state="new">Action type  </target>
+        </trans-unit>
+        <trans-unit id="ea09ea0c-51de-4e13-80f9-bbcbc078cedd" xml:space="preserve">
+          <source>Clicking on a job in the <bpt id="3f46f4c9-d5ae-4929-b270-da956b9df097">&lt;strong&gt;</bpt>Jobs<ept id="3f46f4c9-d5ae-4929-b270-da956b9df097">&lt;/strong&gt;</ept> screen allows you to configure that job.</source>
+          <target state="new">Clicking on a job in the <bpt id="3f46f4c9-d5ae-4929-b270-da956b9df097">&lt;strong&gt;</bpt>Jobs<ept id="3f46f4c9-d5ae-4929-b270-da956b9df097">&lt;/strong&gt;</ept> screen allows you to configure that job.</target>
+        </trans-unit>
+        <trans-unit id="cbff699c-9035-475d-9351-312ff609a616" xml:space="preserve">
+          <source>This lets you configure additional advanced settings beyond what’s available in the quick-create wizard.</source>
+          <target state="new">This lets you configure additional advanced settings beyond what’s available in the quick-create wizard.</target>
+        </trans-unit>
+        <trans-unit id="8a5a79fd-8801-4328-a444-cc28dc5d70aa" xml:space="preserve">
+          <source>To configure a job, click the right arrow next to the job’s name in the <bpt id="7cdb08ca-6d67-4a94-a735-7f18112936bb">&lt;strong&gt;</bpt>Jobs<ept id="7cdb08ca-6d67-4a94-a735-7f18112936bb">&lt;/strong&gt;</ept> screen.</source>
+          <target state="new">To configure a job, click the right arrow next to the job’s name in the <bpt id="7cdb08ca-6d67-4a94-a735-7f18112936bb">&lt;strong&gt;</bpt>Jobs<ept id="7cdb08ca-6d67-4a94-a735-7f18112936bb">&lt;/strong&gt;</ept> screen.</target>
+        </trans-unit>
+        <trans-unit id="9809672c-b623-4aaf-b59e-ef95715a84c0" xml:space="preserve">
+          <source>The job configuration page lets you update job settings.</source>
+          <target state="new">The job configuration page lets you update job settings.</target>
+        </trans-unit>
+        <trans-unit id="978c1bb3-7eb2-47d0-9e6d-2958a4b29cfa" xml:space="preserve">
+          <source>The job config page is shown below for HTTP and HTTPS jobs.</source>
+          <target state="new">The job config page is shown below for HTTP and HTTPS jobs.</target>
+        </trans-unit>
+        <trans-unit id="873c9749-f7e9-4eb5-93a1-b02096def6cb" xml:space="preserve">
+          <source>For HTTP and HTTPS job action types, you may change the method to any allowed HTTP verb.</source>
+          <target state="new">For HTTP and HTTPS job action types, you may change the method to any allowed HTTP verb.</target>
+        </trans-unit>
+        <trans-unit id="599cc439-60a4-45ea-b9ba-5bccb18c4f16" xml:space="preserve">
+          <source>You may also add, delete, or change the headers and basic authentication information.</source>
+          <target state="new">You may also add, delete, or change the headers and basic authentication information.</target>
+        </trans-unit>
+        <trans-unit id="e0626411-fbe4-45fa-bef8-954b0ee1202c" xml:space="preserve">
+          <source><bpt id="74da9771-f1cd-48bb-bcef-32bde2c2031c">&lt;linkText&gt;</bpt><ept id="74da9771-f1cd-48bb-bcef-32bde2c2031c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="74da9771-f1cd-48bb-bcef-32bde2c2031c">&lt;linkText&gt;</bpt><ept id="74da9771-f1cd-48bb-bcef-32bde2c2031c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b4afdb6-a1fe-4bbe-a642-d978e7bff5f8" xml:space="preserve">
+          <source>The job config page appears as shown below for storage queue jobs.</source>
+          <target state="new">The job config page appears as shown below for storage queue jobs.</target>
+        </trans-unit>
+        <trans-unit id="1d2116e6-0da2-4c4e-8697-2bc7d9fd31e7" xml:space="preserve">
+          <source>For storage queue action types, you may change the storage account, queue name, SAS token, and body.</source>
+          <target state="new">For storage queue action types, you may change the storage account, queue name, SAS token, and body.</target>
+        </trans-unit>
+        <trans-unit id="7d9fedb5-bc25-43da-a693-3cbfb9e92b65" xml:space="preserve">
+          <source>The “Schedule” section (not shown below) is identical to the “Schedule” section for HTTP/HTTPS job action types.</source>
+          <target state="new">The “Schedule” section (not shown below) is identical to the “Schedule” section for HTTP/HTTPS job action types.</target>
+        </trans-unit>
+        <trans-unit id="5be8a30a-f1f3-484f-aabe-2ec436c0bf6c" xml:space="preserve">
+          <source><bpt id="727e36dc-6f9e-41bb-909b-32be41d781b8">&lt;linkText&gt;</bpt><ept id="727e36dc-6f9e-41bb-909b-32be41d781b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="727e36dc-6f9e-41bb-909b-32be41d781b8">&lt;linkText&gt;</bpt><ept id="727e36dc-6f9e-41bb-909b-32be41d781b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3d51717-6306-4e7a-a920-918f2f7f165f" xml:space="preserve">
+          <source>Finally, for all action types, you may change the schedule itself and its recurrence behavior.</source>
+          <target state="new">Finally, for all action types, you may change the schedule itself and its recurrence behavior.</target>
+        </trans-unit>
+        <trans-unit id="670e4ae3-9c54-4cb4-9634-14e40ffc370f" xml:space="preserve">
+          <source>You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)</source>
+          <target state="new">You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)</target>
+        </trans-unit>
+        <trans-unit id="02a3fcd9-3a7a-42bd-b28b-5d03ff4e6187" xml:space="preserve">
+          <source>After making any changes, you may save changes by clicking <bpt id="4a851303-388c-418e-9d2a-875604f589d5">&lt;strong&gt;</bpt>Save<ept id="4a851303-388c-418e-9d2a-875604f589d5">&lt;/strong&gt;</ept> or discard changes by clicking <bpt id="e4cfa01f-adbb-4a24-bd34-1e192e76f51b">&lt;strong&gt;</bpt>Discard<ept id="e4cfa01f-adbb-4a24-bd34-1e192e76f51b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After making any changes, you may save changes by clicking <bpt id="4a851303-388c-418e-9d2a-875604f589d5">&lt;strong&gt;</bpt>Save<ept id="4a851303-388c-418e-9d2a-875604f589d5">&lt;/strong&gt;</ept> or discard changes by clicking <bpt id="e4cfa01f-adbb-4a24-bd34-1e192e76f51b">&lt;strong&gt;</bpt>Discard<ept id="e4cfa01f-adbb-4a24-bd34-1e192e76f51b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1a05001-4a00-4deb-97a8-d3ab2e4b51df" xml:space="preserve">
+          <source> <bpt id="c6c2e87b-6a2b-4853-83cf-ba7178916ba4">&lt;linkText&gt;</bpt>What is Scheduler?<ept id="c6c2e87b-6a2b-4853-83cf-ba7178916ba4">&lt;/linkText&gt;</ept><bpt id="c6c2e87b-6a2b-4853-83cf-ba7178916ba4">&lt;title&gt;</bpt><ept id="c6c2e87b-6a2b-4853-83cf-ba7178916ba4">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="c6c2e87b-6a2b-4853-83cf-ba7178916ba4">&lt;linkText&gt;</bpt>What is Scheduler?<ept id="c6c2e87b-6a2b-4853-83cf-ba7178916ba4">&lt;/linkText&gt;</ept><bpt id="c6c2e87b-6a2b-4853-83cf-ba7178916ba4">&lt;title&gt;</bpt><ept id="c6c2e87b-6a2b-4853-83cf-ba7178916ba4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ab66a17-f818-46f9-87f2-6bd97a2a6fb0" xml:space="preserve">
+          <source> <bpt id="199d6d7b-c38d-429e-8e48-b29506e6bc2c">&lt;linkText&gt;</bpt>Scheduler concepts, terminology, and entity hierarchy<ept id="199d6d7b-c38d-429e-8e48-b29506e6bc2c">&lt;/linkText&gt;</ept><bpt id="199d6d7b-c38d-429e-8e48-b29506e6bc2c">&lt;title&gt;</bpt><ept id="199d6d7b-c38d-429e-8e48-b29506e6bc2c">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="199d6d7b-c38d-429e-8e48-b29506e6bc2c">&lt;linkText&gt;</bpt>Scheduler concepts, terminology, and entity hierarchy<ept id="199d6d7b-c38d-429e-8e48-b29506e6bc2c">&lt;/linkText&gt;</ept><bpt id="199d6d7b-c38d-429e-8e48-b29506e6bc2c">&lt;title&gt;</bpt><ept id="199d6d7b-c38d-429e-8e48-b29506e6bc2c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed9b1ea1-5206-43b7-b0c8-784959c6e331" xml:space="preserve">
+          <source> <bpt id="e8b9327e-81d3-402b-ac17-09eb9e6c5cf0">&lt;linkText&gt;</bpt>Plans and billing in Azure Scheduler<ept id="e8b9327e-81d3-402b-ac17-09eb9e6c5cf0">&lt;/linkText&gt;</ept><bpt id="e8b9327e-81d3-402b-ac17-09eb9e6c5cf0">&lt;title&gt;</bpt><ept id="e8b9327e-81d3-402b-ac17-09eb9e6c5cf0">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="e8b9327e-81d3-402b-ac17-09eb9e6c5cf0">&lt;linkText&gt;</bpt>Plans and billing in Azure Scheduler<ept id="e8b9327e-81d3-402b-ac17-09eb9e6c5cf0">&lt;/linkText&gt;</ept><bpt id="e8b9327e-81d3-402b-ac17-09eb9e6c5cf0">&lt;title&gt;</bpt><ept id="e8b9327e-81d3-402b-ac17-09eb9e6c5cf0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="660e7fc2-890d-402d-8e0d-897eb4fe2653" xml:space="preserve">
+          <source> <bpt id="8c947c1b-8f3e-4df7-a247-c37bd01c1191">&lt;linkText&gt;</bpt>How to build complex schedules and advanced recurrence with Azure Scheduler<ept id="8c947c1b-8f3e-4df7-a247-c37bd01c1191">&lt;/linkText&gt;</ept><bpt id="8c947c1b-8f3e-4df7-a247-c37bd01c1191">&lt;title&gt;</bpt><ept id="8c947c1b-8f3e-4df7-a247-c37bd01c1191">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="8c947c1b-8f3e-4df7-a247-c37bd01c1191">&lt;linkText&gt;</bpt>How to build complex schedules and advanced recurrence with Azure Scheduler<ept id="8c947c1b-8f3e-4df7-a247-c37bd01c1191">&lt;/linkText&gt;</ept><bpt id="8c947c1b-8f3e-4df7-a247-c37bd01c1191">&lt;title&gt;</bpt><ept id="8c947c1b-8f3e-4df7-a247-c37bd01c1191">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e8f46e2-01fa-433e-907f-62a11ed8375e" xml:space="preserve">
+          <source> <bpt id="9daae460-e9e6-4e21-a4d6-96225cb05b39">&lt;linkText&gt;</bpt>Scheduler REST API reference<ept id="9daae460-e9e6-4e21-a4d6-96225cb05b39">&lt;/linkText&gt;</ept><bpt id="9daae460-e9e6-4e21-a4d6-96225cb05b39">&lt;title&gt;</bpt><ept id="9daae460-e9e6-4e21-a4d6-96225cb05b39">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="9daae460-e9e6-4e21-a4d6-96225cb05b39">&lt;linkText&gt;</bpt>Scheduler REST API reference<ept id="9daae460-e9e6-4e21-a4d6-96225cb05b39">&lt;/linkText&gt;</ept><bpt id="9daae460-e9e6-4e21-a4d6-96225cb05b39">&lt;title&gt;</bpt><ept id="9daae460-e9e6-4e21-a4d6-96225cb05b39">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4437e903-ca50-4a1f-bc4f-87f842d354a0" xml:space="preserve">
+          <source> <bpt id="7ebba50e-b7ce-492d-8142-656eea40ecc4">&lt;linkText&gt;</bpt>Scheduler PowerShell cmdlets reference<ept id="7ebba50e-b7ce-492d-8142-656eea40ecc4">&lt;/linkText&gt;</ept><bpt id="7ebba50e-b7ce-492d-8142-656eea40ecc4">&lt;title&gt;</bpt><ept id="7ebba50e-b7ce-492d-8142-656eea40ecc4">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="7ebba50e-b7ce-492d-8142-656eea40ecc4">&lt;linkText&gt;</bpt>Scheduler PowerShell cmdlets reference<ept id="7ebba50e-b7ce-492d-8142-656eea40ecc4">&lt;/linkText&gt;</ept><bpt id="7ebba50e-b7ce-492d-8142-656eea40ecc4">&lt;title&gt;</bpt><ept id="7ebba50e-b7ce-492d-8142-656eea40ecc4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03a63473-5b57-4028-8d4a-b355de5ce6b5" xml:space="preserve">
+          <source> <bpt id="5e4d5f1a-86ff-4780-aed2-20b3b8a667f5">&lt;linkText&gt;</bpt>Scheduler high-availability and reliability<ept id="5e4d5f1a-86ff-4780-aed2-20b3b8a667f5">&lt;/linkText&gt;</ept><bpt id="5e4d5f1a-86ff-4780-aed2-20b3b8a667f5">&lt;title&gt;</bpt><ept id="5e4d5f1a-86ff-4780-aed2-20b3b8a667f5">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="5e4d5f1a-86ff-4780-aed2-20b3b8a667f5">&lt;linkText&gt;</bpt>Scheduler high-availability and reliability<ept id="5e4d5f1a-86ff-4780-aed2-20b3b8a667f5">&lt;/linkText&gt;</ept><bpt id="5e4d5f1a-86ff-4780-aed2-20b3b8a667f5">&lt;title&gt;</bpt><ept id="5e4d5f1a-86ff-4780-aed2-20b3b8a667f5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7a605ff-be0c-4221-8394-2011d39f5eaf" xml:space="preserve">
+          <source> <bpt id="a6ad691c-62bd-4f98-82b2-883d4e4149dd">&lt;linkText&gt;</bpt>Scheduler limits, lefaults, and error codes<ept id="a6ad691c-62bd-4f98-82b2-883d4e4149dd">&lt;/linkText&gt;</ept><bpt id="a6ad691c-62bd-4f98-82b2-883d4e4149dd">&lt;title&gt;</bpt><ept id="a6ad691c-62bd-4f98-82b2-883d4e4149dd">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="a6ad691c-62bd-4f98-82b2-883d4e4149dd">&lt;linkText&gt;</bpt>Scheduler limits, lefaults, and error codes<ept id="a6ad691c-62bd-4f98-82b2-883d4e4149dd">&lt;/linkText&gt;</ept><bpt id="a6ad691c-62bd-4f98-82b2-883d4e4149dd">&lt;title&gt;</bpt><ept id="a6ad691c-62bd-4f98-82b2-883d4e4149dd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28d721ae-fdb2-42d9-953c-e5caad072a66" xml:space="preserve">
+          <source> <bpt id="f12c9b14-c5d7-438e-8a4e-3a44f40d6f82">&lt;linkText&gt;</bpt>Scheduler outbound authentication<ept id="f12c9b14-c5d7-438e-8a4e-3a44f40d6f82">&lt;/linkText&gt;</ept><bpt id="f12c9b14-c5d7-438e-8a4e-3a44f40d6f82">&lt;title&gt;</bpt><ept id="f12c9b14-c5d7-438e-8a4e-3a44f40d6f82">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="f12c9b14-c5d7-438e-8a4e-3a44f40d6f82">&lt;linkText&gt;</bpt>Scheduler outbound authentication<ept id="f12c9b14-c5d7-438e-8a4e-3a44f40d6f82">&lt;/linkText&gt;</ept><bpt id="f12c9b14-c5d7-438e-8a4e-3a44f40d6f82">&lt;title&gt;</bpt><ept id="f12c9b14-c5d7-438e-8a4e-3a44f40d6f82">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6948dcf6-ab03-4807-84c4-0ea9cf1b75ef" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal001.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal001.png</target>
+        </trans-unit>
+        <trans-unit id="e1b93e2d-b04a-4e13-b09d-99b00ccf857b" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal002.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal002.png</target>
+        </trans-unit>
+        <trans-unit id="6cb4a693-fd08-4ce8-96ec-c391ec459b56" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal003.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal003.png</target>
+        </trans-unit>
+        <trans-unit id="27cb702e-045a-4dcb-b817-81816169e6f2" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal004.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal004.png</target>
+        </trans-unit>
+        <trans-unit id="daee7f37-8875-41ca-9c62-194cc4f2ad58" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal005.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal005.png</target>
+        </trans-unit>
+        <trans-unit id="94d130be-92d5-4b9f-8b08-f971f005aa98" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal006.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal006.png</target>
+        </trans-unit>
+        <trans-unit id="b85a0a84-b0fb-453a-9c62-23eda56800da" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal007.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal007.png</target>
+        </trans-unit>
+        <trans-unit id="fd43dc8d-ad11-4ae1-b631-78d9d40693e6" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal008.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal008.png</target>
+        </trans-unit>
+        <trans-unit id="9a55d50a-a088-4611-a57b-009d1ae19759" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal009.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal009.png</target>
+        </trans-unit>
+        <trans-unit id="c20af3a9-db00-4042-8e82-8326ee93bbc4" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal010.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal010.png</target>
+        </trans-unit>
+        <trans-unit id="e7cf4418-5281-4476-96d8-0e7bb7d3c7c4" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal011.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal011.png</target>
+        </trans-unit>
+        <trans-unit id="0c173180-8bd3-4631-b9fa-63ebe2fc23e7" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal012.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal012.png</target>
+        </trans-unit>
+        <trans-unit id="8e38ee35-13e4-44a1-b770-668a4ec1f9bd" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal013.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal013.png</target>
+        </trans-unit>
+        <trans-unit id="dcd7a409-1f40-44a0-8bae-c156ad6655e9" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal014.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal014.png</target>
+        </trans-unit>
+        <trans-unit id="b44ca208-81d2-4074-b13b-7bfdead69f88" xml:space="preserve">
+          <source>./media/scheduler-get-started-portal/scheduler-get-started-portal015.png</source>
+          <target state="new">./media/scheduler-get-started-portal/scheduler-get-started-portal015.png</target>
+        </trans-unit>
+      </group>
+      <group id="81145975-40b8-4ab1-b18c-31290599cbd9" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="98ad15e8-8deb-49cd-b4d4-23a171491eba" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="98ad15e8-8deb-49cd-b4d4-23a171491eba" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b993c5f1-e41a-463d-8072-9fc9e794e306">
+        <trans-unit id="33967f67-4da4-49cc-a505-18e0f994de19" xml:space="preserve">
+          <source>Assigning administrator roles in Azure AD</source>
+          <target state="new">Assigning administrator roles in Azure AD</target>
+        </trans-unit>
+        <trans-unit id="91569f7a-0fc1-49cd-ab51-69d1a598d5c2" xml:space="preserve">
+          <source>A topic that explains what admin roles are available with Azure AD and how to assign them.</source>
+          <target state="new">A topic that explains what admin roles are available with Azure AD and how to assign them.</target>
+        </trans-unit>
+        <trans-unit id="a4acdb56-6ce9-4bc6-9e2b-7ffd107a0305" xml:space="preserve">
+          <source>Depending on the size of your company, you may want to designate several administrators who serve different functions.</source>
+          <target state="new">Depending on the size of your company, you may want to designate several administrators who serve different functions.</target>
+        </trans-unit>
+        <trans-unit id="5ef999c1-4c9e-457c-b7d8-85b70ca4fc03" xml:space="preserve">
+          <source>These administrators will have access to various features in the Azure portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things.</source>
+          <target state="new">These administrators will have access to various features in the Azure portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things.</target>
+        </trans-unit>
+        <trans-unit id="aabeac46-ed66-42ef-8d6f-8fec98896aee" xml:space="preserve">
+          <source>It's  important to understand that a user who is assigned an admin role will have the same permissions across all of the cloud services that your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure portal, or by using the Azure AD module for Windows PowerShell.</source>
+          <target state="new">It's  important to understand that a user who is assigned an admin role will have the same permissions across all of the cloud services that your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure portal, or by using the Azure AD module for Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="c1ee7ef3-2bd0-43a7-9d10-a7d5c9d4dc8f" xml:space="preserve">
+          <source>The following administrator roles are available:</source>
+          <target state="new">The following administrator roles are available:</target>
+        </trans-unit>
+        <trans-unit id="967705bd-dc5c-406f-b04e-c53c3a1ce094" xml:space="preserve">
+          <source><bpt id="895c3de7-b669-446c-b09c-8f1260e00a88">&lt;strong&gt;</bpt>Billing administrator<ept id="895c3de7-b669-446c-b09c-8f1260e00a88">&lt;/strong&gt;</ept>: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.</source>
+          <target state="new"><bpt id="895c3de7-b669-446c-b09c-8f1260e00a88">&lt;strong&gt;</bpt>Billing administrator<ept id="895c3de7-b669-446c-b09c-8f1260e00a88">&lt;/strong&gt;</ept>: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.</target>
+        </trans-unit>
+        <trans-unit id="492fef8a-fda5-4de6-a461-a514e7c79b9f" xml:space="preserve">
+          <source><bpt id="cda11a61-3f17-409d-8c64-48915771f443">&lt;strong&gt;</bpt>Global administrator<ept id="cda11a61-3f17-409d-8c64-48915771f443">&lt;/strong&gt;</ept>: Has access to all administrative features.</source>
+          <target state="new"><bpt id="cda11a61-3f17-409d-8c64-48915771f443">&lt;strong&gt;</bpt>Global administrator<ept id="cda11a61-3f17-409d-8c64-48915771f443">&lt;/strong&gt;</ept>: Has access to all administrative features.</target>
+        </trans-unit>
+        <trans-unit id="0ca5d9e2-d264-4ea3-a1a0-469f7551a5c0" xml:space="preserve">
+          <source>The person who signs up for the Azure account becomes a global administrator.</source>
+          <target state="new">The person who signs up for the Azure account becomes a global administrator.</target>
+        </trans-unit>
+        <trans-unit id="da7da9fe-2550-4603-9087-15e8b8df354f" xml:space="preserve">
+          <source>Only global administrators can assign other administrator roles.</source>
+          <target state="new">Only global administrators can assign other administrator roles.</target>
+        </trans-unit>
+        <trans-unit id="29edc6da-9f70-4078-892e-b3b0424a6e28" xml:space="preserve">
+          <source>There can be more than one global administrator at your company.</source>
+          <target state="new">There can be more than one global administrator at your company.</target>
+        </trans-unit>
+        <trans-unit id="6998c740-ad86-4874-b218-b9d4f3d0f35f" xml:space="preserve">
+          <source><bpt id="0e1bfd91-64f8-442b-af97-b2e96eb04819">&lt;strong&gt;</bpt>Password administrator<ept id="0e1bfd91-64f8-442b-af97-b2e96eb04819">&lt;/strong&gt;</ept>: Resets passwords, manages service requests, and monitors service health.</source>
+          <target state="new"><bpt id="0e1bfd91-64f8-442b-af97-b2e96eb04819">&lt;strong&gt;</bpt>Password administrator<ept id="0e1bfd91-64f8-442b-af97-b2e96eb04819">&lt;/strong&gt;</ept>: Resets passwords, manages service requests, and monitors service health.</target>
+        </trans-unit>
+        <trans-unit id="1ecb235f-322c-4ee8-836d-21e5fc5d877d" xml:space="preserve">
+          <source>Password administrators can reset passwords only for users and other password administrators.</source>
+          <target state="new">Password administrators can reset passwords only for users and other password administrators.</target>
+        </trans-unit>
+        <trans-unit id="da59b807-136c-4920-94eb-a6001654d611" xml:space="preserve">
+          <source><bpt id="ea5e2b5c-78fe-4aa6-a431-bb2fdc473282">&lt;strong&gt;</bpt>Service administrator<ept id="ea5e2b5c-78fe-4aa6-a431-bb2fdc473282">&lt;/strong&gt;</ept>: Manages service requests and monitors service health.</source>
+          <target state="new"><bpt id="ea5e2b5c-78fe-4aa6-a431-bb2fdc473282">&lt;strong&gt;</bpt>Service administrator<ept id="ea5e2b5c-78fe-4aa6-a431-bb2fdc473282">&lt;/strong&gt;</ept>: Manages service requests and monitors service health.</target>
+        </trans-unit>
+        <trans-unit id="a9197100-02c9-44f7-9931-cd3338a6c005" xml:space="preserve">
+          <source>To assign the service administrator role to a user, the global administrator must first assign administrative permissions to the user in the service, such as Exchange Online, and then assign the service administrator role to the user in the Azure Management Portal.</source>
+          <target state="new">To assign the service administrator role to a user, the global administrator must first assign administrative permissions to the user in the service, such as Exchange Online, and then assign the service administrator role to the user in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="2124463e-2e5e-48d2-8d63-04fa94c75143" xml:space="preserve">
+          <source><bpt id="0ed33bc0-3696-43f3-aeee-536800826622">&lt;strong&gt;</bpt>User administrator<ept id="0ed33bc0-3696-43f3-aeee-536800826622">&lt;/strong&gt;</ept>: Resets passwords, monitors service health, and manages user accounts, user groups, and service requests.</source>
+          <target state="new"><bpt id="0ed33bc0-3696-43f3-aeee-536800826622">&lt;strong&gt;</bpt>User administrator<ept id="0ed33bc0-3696-43f3-aeee-536800826622">&lt;/strong&gt;</ept>: Resets passwords, monitors service health, and manages user accounts, user groups, and service requests.</target>
+        </trans-unit>
+        <trans-unit id="8bb2278c-ad65-427a-bc2a-e568573f9a58" xml:space="preserve">
+          <source>Some limitations apply to the permissions of a user management administrator.</source>
+          <target state="new">Some limitations apply to the permissions of a user management administrator.</target>
+        </trans-unit>
+        <trans-unit id="8331c6a4-b574-4f30-ae56-4bb2604a5b2c" xml:space="preserve">
+          <source>For example, they cannot delete a global administrator or create other administrators.</source>
+          <target state="new">For example, they cannot delete a global administrator or create other administrators.</target>
+        </trans-unit>
+        <trans-unit id="be16637c-e96a-4759-a47d-7d398789676c" xml:space="preserve">
+          <source>Also, they cannot reset passwords for billing, global, and service administrators.</source>
+          <target state="new">Also, they cannot reset passwords for billing, global, and service administrators.</target>
+        </trans-unit>
+        <trans-unit id="2f876dc0-0c50-4b4d-97f7-6f93e5a43f66" xml:space="preserve">
+          <source>Can do</source>
+          <target state="new">Can do</target>
+        </trans-unit>
+        <trans-unit id="27989dbd-9263-4c92-a1a0-f51162efe52d" xml:space="preserve">
+          <source>Cannot do</source>
+          <target state="new">Cannot do</target>
+        </trans-unit>
+        <trans-unit id="cf7d9083-e03f-4591-924d-78ad950ba855" xml:space="preserve">
+          <source>&lt;p&gt;View company and user information&lt;/p&gt;&lt;p&gt;Manage Office support tickets&lt;/p&gt;&lt;p&gt;Perform billing and purchasing operations for Office products&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;View company and user information&lt;/p&gt;&lt;p&gt;Manage Office support tickets&lt;/p&gt;&lt;p&gt;Perform billing and purchasing operations for Office products&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="2845564c-a80a-4d29-914a-ac2c038822d7" xml:space="preserve">
+          <source>&lt;p&gt;Reset user passwords&lt;/p&gt;&lt;p&gt;Create and manage user views&lt;/p&gt;&lt;p&gt;Create, edit, and delete users and groups, and manage user licenses&lt;/p&gt;&lt;p&gt;Manage domains&lt;/p&gt;&lt;p&gt;Manage company information&lt;/p&gt;&lt;p&gt;Delegate administrative roles to others&lt;/p&gt;&lt;p&gt;Use directory synchronization&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Reset user passwords&lt;/p&gt;&lt;p&gt;Create and manage user views&lt;/p&gt;&lt;p&gt;Create, edit, and delete users and groups, and manage user licenses&lt;/p&gt;&lt;p&gt;Manage domains&lt;/p&gt;&lt;p&gt;Manage company information&lt;/p&gt;&lt;p&gt;Delegate administrative roles to others&lt;/p&gt;&lt;p&gt;Use directory synchronization&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="53a38da5-0ad4-4bfa-8d92-6c85161a9c7c" xml:space="preserve">
+          <source>Can do</source>
+          <target state="new">Can do</target>
+        </trans-unit>
+        <trans-unit id="f44b5320-b8a6-49c1-bc10-2e6936f3b160" xml:space="preserve">
+          <source>Cannot do</source>
+          <target state="new">Cannot do</target>
+        </trans-unit>
+        <trans-unit id="0fbef657-25b6-4b84-93b1-9f2f897fd430" xml:space="preserve">
+          <source>&lt;p&gt;View company and user information&lt;/p&gt;&lt;p&gt;Manage Office support tickets&lt;/p&gt;&lt;p&gt;Perform billing and purchasing operations for Office products&lt;/p&gt; &lt;p&gt;Reset user passwords&lt;/p&gt;&lt;p&gt;Create and manage user views&lt;/p&gt;&lt;p&gt;Create, edit, and delete users and groups, and manage user licenses&lt;/p&gt;&lt;p&gt;Manage domains&lt;/p&gt;&lt;p&gt;Manage company information&lt;/p&gt;&lt;p&gt;Delegate administrative roles to others&lt;/p&gt;&lt;p&gt;Use directory synchronization&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;View company and user information&lt;/p&gt;&lt;p&gt;Manage Office support tickets&lt;/p&gt;&lt;p&gt;Perform billing and purchasing operations for Office products&lt;/p&gt; &lt;p&gt;Reset user passwords&lt;/p&gt;&lt;p&gt;Create and manage user views&lt;/p&gt;&lt;p&gt;Create, edit, and delete users and groups, and manage user licenses&lt;/p&gt;&lt;p&gt;Manage domains&lt;/p&gt;&lt;p&gt;Manage company information&lt;/p&gt;&lt;p&gt;Delegate administrative roles to others&lt;/p&gt;&lt;p&gt;Use directory synchronization&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="4c1bb36b-0750-4cf0-bc40-9bc7fa603a52" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="34eea187-4086-4996-8bc2-506558bd0acf" xml:space="preserve">
+          <source>Can do</source>
+          <target state="new">Can do</target>
+        </trans-unit>
+        <trans-unit id="734bce17-5282-45ef-a85c-9348ad6b0ecb" xml:space="preserve">
+          <source>Cannot do</source>
+          <target state="new">Cannot do</target>
+        </trans-unit>
+        <trans-unit id="daf04eee-c330-41a0-9976-3599bdc6f85d" xml:space="preserve">
+          <source>&lt;p&gt;View company and user information&lt;/p&gt;&lt;p&gt;Manage Office support tickets&lt;/p&gt;&lt;p&gt;Reset user passwords&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;View company and user information&lt;/p&gt;&lt;p&gt;Manage Office support tickets&lt;/p&gt;&lt;p&gt;Reset user passwords&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="da3430e2-18b7-46b6-86b2-9aca0bd3011d" xml:space="preserve">
+          <source>&lt;p&gt;Perform billing and purchasing operations for Office products&lt;/p&gt;&lt;p&gt;Create and manage user views&lt;/p&gt;&lt;p&gt;Create, edit, and delete users and groups, and manage user licenses&lt;/p&gt;&lt;p&gt;Manage domains&lt;/p&gt;&lt;p&gt;Manage company information&lt;/p&gt;&lt;p&gt;Delegate administrative roles to others&lt;/p&gt;&lt;p&gt;Use directory synchronization&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Perform billing and purchasing operations for Office products&lt;/p&gt;&lt;p&gt;Create and manage user views&lt;/p&gt;&lt;p&gt;Create, edit, and delete users and groups, and manage user licenses&lt;/p&gt;&lt;p&gt;Manage domains&lt;/p&gt;&lt;p&gt;Manage company information&lt;/p&gt;&lt;p&gt;Delegate administrative roles to others&lt;/p&gt;&lt;p&gt;Use directory synchronization&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="81d0ac7f-5e31-4c1b-9d1a-d48c4a7931bd" xml:space="preserve">
+          <source>Can do</source>
+          <target state="new">Can do</target>
+        </trans-unit>
+        <trans-unit id="d84d753c-9ed8-4924-b3e1-dbe8f0565b50" xml:space="preserve">
+          <source>Cannot do</source>
+          <target state="new">Cannot do</target>
+        </trans-unit>
+        <trans-unit id="3d981117-e83e-45ca-8466-c875903f32a5" xml:space="preserve">
+          <source>&lt;p&gt;View company and user information&lt;/p&gt;&lt;p&gt;Manage Office support tickets&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;View company and user information&lt;/p&gt;&lt;p&gt;Manage Office support tickets&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="4442ca5c-91b1-460d-8940-c0daa1e0dbbe" xml:space="preserve">
+          <source>&lt;p&gt;Reset user passwords&lt;/p&gt;&lt;p&gt;Perform billing and purchasing operations for Office products&lt;/p&gt;&lt;p&gt;Create and manage user views&lt;/p&gt;&lt;p&gt;Create, edit, and delete users and groups, and manage user licenses&lt;/p&gt;&lt;p&gt;Manage domains&lt;/p&gt;&lt;p&gt;Manage company information&lt;/p&gt;&lt;p&gt;Delegate administrative roles to others&lt;/p&gt;&lt;p&gt;Use directory synchronization&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Reset user passwords&lt;/p&gt;&lt;p&gt;Perform billing and purchasing operations for Office products&lt;/p&gt;&lt;p&gt;Create and manage user views&lt;/p&gt;&lt;p&gt;Create, edit, and delete users and groups, and manage user licenses&lt;/p&gt;&lt;p&gt;Manage domains&lt;/p&gt;&lt;p&gt;Manage company information&lt;/p&gt;&lt;p&gt;Delegate administrative roles to others&lt;/p&gt;&lt;p&gt;Use directory synchronization&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="793dcc3a-8ef1-4001-b69e-5f8fc8b70edc" xml:space="preserve">
+          <source>Can do</source>
+          <target state="new">Can do</target>
+        </trans-unit>
+        <trans-unit id="fedeabf8-4f69-4187-a096-59e224dfbc14" xml:space="preserve">
+          <source>Cannot do</source>
+          <target state="new">Cannot do</target>
+        </trans-unit>
+        <trans-unit id="88f6a838-4ceb-4daf-9084-34a1c9df676f" xml:space="preserve">
+          <source>&lt;p&gt;View company and user information&lt;/p&gt;&lt;p&gt;Manage Office support tickets&lt;/p&gt;&lt;p&gt;Reset user passwords, with limitations. He or she cannot reset passwords for billing, global, and service administrators.&lt;/p&gt;&lt;p&gt;Create and manage user views&lt;/p&gt;&lt;p&gt;Create, edit, and delete users and groups, and manage user licenses, with limitations. He or she cannot delete a global administrator or create other administrators.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;View company and user information&lt;/p&gt;&lt;p&gt;Manage Office support tickets&lt;/p&gt;&lt;p&gt;Reset user passwords, with limitations. He or she cannot reset passwords for billing, global, and service administrators.&lt;/p&gt;&lt;p&gt;Create and manage user views&lt;/p&gt;&lt;p&gt;Create, edit, and delete users and groups, and manage user licenses, with limitations. He or she cannot delete a global administrator or create other administrators.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="bf60847c-4e44-4b79-93d0-feb81bb3def4" xml:space="preserve">
+          <source>&lt;p&gt;Perform billing and purchasing operations for Office products&lt;/p&gt;&lt;p&gt;Manage domains&lt;/p&gt;&lt;p&gt;Manage company information&lt;/p&gt;&lt;p&gt;Delegate administrative roles to others&lt;/p&gt;&lt;p&gt;Use directory synchronization&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Perform billing and purchasing operations for Office products&lt;/p&gt;&lt;p&gt;Manage domains&lt;/p&gt;&lt;p&gt;Manage company information&lt;/p&gt;&lt;p&gt;Delegate administrative roles to others&lt;/p&gt;&lt;p&gt;Use directory synchronization&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="137cbd00-5a27-4b19-b0e3-116e539636e0" xml:space="preserve">
+          <source>The global administrator has access to all administrative features.</source>
+          <target state="new">The global administrator has access to all administrative features.</target>
+        </trans-unit>
+        <trans-unit id="784b3737-6de9-4725-bc63-4a73937cbe81" xml:space="preserve">
+          <source>By default, the person who signs up for an Azure subscription is assigned  the global administrator role for the directory.</source>
+          <target state="new">By default, the person who signs up for an Azure subscription is assigned  the global administrator role for the directory.</target>
+        </trans-unit>
+        <trans-unit id="c8338a39-2c60-40c4-ac72-9f4361688f3a" xml:space="preserve">
+          <source>Only global administrators can assign other administrator roles.</source>
+          <target state="new">Only global administrators can assign other administrator roles.</target>
+        </trans-unit>
+        <trans-unit id="90a1a523-1bb8-40ba-8e64-674d7fd1634d" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="004dabb6-e8bb-4f38-b028-70edd99eef69">&lt;strong&gt;</bpt>Active Directory<ept id="004dabb6-e8bb-4f38-b028-70edd99eef69">&lt;/strong&gt;</ept>, and then click on the name of your organization’s directory.</source>
+          <target state="new">In the Management Portal, click <bpt id="004dabb6-e8bb-4f38-b028-70edd99eef69">&lt;strong&gt;</bpt>Active Directory<ept id="004dabb6-e8bb-4f38-b028-70edd99eef69">&lt;/strong&gt;</ept>, and then click on the name of your organization’s directory.</target>
+        </trans-unit>
+        <trans-unit id="a7b790cf-bba4-46be-bd48-d6da19a08abe" xml:space="preserve">
+          <source>On the <bpt id="2ab90762-d6b4-48bb-8b2f-86e1ad2cd32e">&lt;strong&gt;</bpt>Users<ept id="2ab90762-d6b4-48bb-8b2f-86e1ad2cd32e">&lt;/strong&gt;</ept> page, click the display name of the user you want to edit.</source>
+          <target state="new">On the <bpt id="2ab90762-d6b4-48bb-8b2f-86e1ad2cd32e">&lt;strong&gt;</bpt>Users<ept id="2ab90762-d6b4-48bb-8b2f-86e1ad2cd32e">&lt;/strong&gt;</ept> page, click the display name of the user you want to edit.</target>
+        </trans-unit>
+        <trans-unit id="941347cb-705b-4443-9d2f-46018557b1fa" xml:space="preserve">
+          <source>Select the <bpt id="f3c69fa2-a8b3-4271-98b4-e1d3f7361ca0">&lt;strong&gt;</bpt>Organizational Role<ept id="f3c69fa2-a8b3-4271-98b4-e1d3f7361ca0">&lt;/strong&gt;</ept> drop-down menu, and then select the administrator role that you want to assign to this user, or select <bpt id="7b1d3a10-fc6d-4f2b-b7ff-2cef096d6804">&lt;strong&gt;</bpt>User<ept id="7b1d3a10-fc6d-4f2b-b7ff-2cef096d6804">&lt;/strong&gt;</ept> if you want to remove an existing administrator role.</source>
+          <target state="new">Select the <bpt id="f3c69fa2-a8b3-4271-98b4-e1d3f7361ca0">&lt;strong&gt;</bpt>Organizational Role<ept id="f3c69fa2-a8b3-4271-98b4-e1d3f7361ca0">&lt;/strong&gt;</ept> drop-down menu, and then select the administrator role that you want to assign to this user, or select <bpt id="7b1d3a10-fc6d-4f2b-b7ff-2cef096d6804">&lt;strong&gt;</bpt>User<ept id="7b1d3a10-fc6d-4f2b-b7ff-2cef096d6804">&lt;/strong&gt;</ept> if you want to remove an existing administrator role.</target>
+        </trans-unit>
+        <trans-unit id="1bea0074-f481-44e6-8267-7c5a20b7d5ce" xml:space="preserve">
+          <source>In the <bpt id="0d8ace9c-08ad-49d5-b6bd-f628058d06f3">&lt;strong&gt;</bpt>Alternate Email Address<ept id="0d8ace9c-08ad-49d5-b6bd-f628058d06f3">&lt;/strong&gt;</ept> box, type an email address.</source>
+          <target state="new">In the <bpt id="0d8ace9c-08ad-49d5-b6bd-f628058d06f3">&lt;strong&gt;</bpt>Alternate Email Address<ept id="0d8ace9c-08ad-49d5-b6bd-f628058d06f3">&lt;/strong&gt;</ept> box, type an email address.</target>
+        </trans-unit>
+        <trans-unit id="deeed0ee-707a-4e46-885a-a9a178bce5ed" xml:space="preserve">
+          <source>This email address is used for important notifications, including password self-reset, so the user must be able to access the email account whether or not the user can access Azure.</source>
+          <target state="new">This email address is used for important notifications, including password self-reset, so the user must be able to access the email account whether or not the user can access Azure.</target>
+        </trans-unit>
+        <trans-unit id="56d689ca-c6bc-424a-aa83-a99afda0d9ab" xml:space="preserve">
+          <source>Select <bpt id="c5cf1643-28f5-427f-a03e-e106748407f5">&lt;strong&gt;</bpt>Allow<ept id="c5cf1643-28f5-427f-a03e-e106748407f5">&lt;/strong&gt;</ept> or <bpt id="168fa30f-59be-40f7-9c00-fcb79e298376">&lt;strong&gt;</bpt>Block<ept id="168fa30f-59be-40f7-9c00-fcb79e298376">&lt;/strong&gt;</ept> to specify whether to allow the user to sign in and access services.</source>
+          <target state="new">Select <bpt id="c5cf1643-28f5-427f-a03e-e106748407f5">&lt;strong&gt;</bpt>Allow<ept id="c5cf1643-28f5-427f-a03e-e106748407f5">&lt;/strong&gt;</ept> or <bpt id="168fa30f-59be-40f7-9c00-fcb79e298376">&lt;strong&gt;</bpt>Block<ept id="168fa30f-59be-40f7-9c00-fcb79e298376">&lt;/strong&gt;</ept> to specify whether to allow the user to sign in and access services.</target>
+        </trans-unit>
+        <trans-unit id="6d92a432-7633-4145-89ab-88c6eb55833e" xml:space="preserve">
+          <source>Specify a location from the <bpt id="f7d31843-b565-4959-9080-f87528ad94ac">&lt;strong&gt;</bpt>Usage Location<ept id="f7d31843-b565-4959-9080-f87528ad94ac">&lt;/strong&gt;</ept> drop-down list.</source>
+          <target state="new">Specify a location from the <bpt id="f7d31843-b565-4959-9080-f87528ad94ac">&lt;strong&gt;</bpt>Usage Location<ept id="f7d31843-b565-4959-9080-f87528ad94ac">&lt;/strong&gt;</ept> drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="ea943c2d-c473-4311-b4e1-d42f77ef037f" xml:space="preserve">
+          <source>When you have finished, click <bpt id="932e5150-44ca-4969-b0c0-bf96a6c7bc4a">&lt;strong&gt;</bpt>Save<ept id="932e5150-44ca-4969-b0c0-bf96a6c7bc4a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you have finished, click <bpt id="932e5150-44ca-4969-b0c0-bf96a6c7bc4a">&lt;strong&gt;</bpt>Save<ept id="932e5150-44ca-4969-b0c0-bf96a6c7bc4a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4705d026-5090-4f97-865f-d5eb2780de69" xml:space="preserve">
+          <source><bpt id="cba920b5-bde9-4636-b332-e33363f2ad23">&lt;linkText&gt;</bpt>Manage users<ept id="cba920b5-bde9-4636-b332-e33363f2ad23">&lt;/linkText&gt;</ept><bpt id="cba920b5-bde9-4636-b332-e33363f2ad23">&lt;title&gt;</bpt><ept id="cba920b5-bde9-4636-b332-e33363f2ad23">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cba920b5-bde9-4636-b332-e33363f2ad23">&lt;linkText&gt;</bpt>Manage users<ept id="cba920b5-bde9-4636-b332-e33363f2ad23">&lt;/linkText&gt;</ept><bpt id="cba920b5-bde9-4636-b332-e33363f2ad23">&lt;title&gt;</bpt><ept id="cba920b5-bde9-4636-b332-e33363f2ad23">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c332c33b-a1a9-4216-a63b-2d385305b58b" xml:space="preserve">
+          <source><bpt id="c7f40f69-9e0f-464b-9353-3ee78f42363d">&lt;linkText&gt;</bpt>Manage passwords<ept id="c7f40f69-9e0f-464b-9353-3ee78f42363d">&lt;/linkText&gt;</ept><bpt id="c7f40f69-9e0f-464b-9353-3ee78f42363d">&lt;title&gt;</bpt><ept id="c7f40f69-9e0f-464b-9353-3ee78f42363d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c7f40f69-9e0f-464b-9353-3ee78f42363d">&lt;linkText&gt;</bpt>Manage passwords<ept id="c7f40f69-9e0f-464b-9353-3ee78f42363d">&lt;/linkText&gt;</ept><bpt id="c7f40f69-9e0f-464b-9353-3ee78f42363d">&lt;title&gt;</bpt><ept id="c7f40f69-9e0f-464b-9353-3ee78f42363d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e046f09-f713-4977-9cb8-c29c16272edc" xml:space="preserve">
+          <source><bpt id="29ab5b01-82c2-4f7a-aa1c-7355fee2ef05">&lt;linkText&gt;</bpt>Manage groups<ept id="29ab5b01-82c2-4f7a-aa1c-7355fee2ef05">&lt;/linkText&gt;</ept><bpt id="29ab5b01-82c2-4f7a-aa1c-7355fee2ef05">&lt;title&gt;</bpt><ept id="29ab5b01-82c2-4f7a-aa1c-7355fee2ef05">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="29ab5b01-82c2-4f7a-aa1c-7355fee2ef05">&lt;linkText&gt;</bpt>Manage groups<ept id="29ab5b01-82c2-4f7a-aa1c-7355fee2ef05">&lt;/linkText&gt;</ept><bpt id="29ab5b01-82c2-4f7a-aa1c-7355fee2ef05">&lt;title&gt;</bpt><ept id="29ab5b01-82c2-4f7a-aa1c-7355fee2ef05">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

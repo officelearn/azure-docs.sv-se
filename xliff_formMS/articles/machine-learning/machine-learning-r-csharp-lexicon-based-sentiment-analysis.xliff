@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="03d481b3-91c9-4f9b-8580-6020ea99e2d0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="03d481b3-91c9-4f9b-8580-6020ea99e2d0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="66c6c000-c691-4ddc-a952-f1ae817f3199">
+        <trans-unit id="655da047-3d0a-411b-8242-adeb82d7f74b" xml:space="preserve">
+          <source>Lexicon Based Sentiment Analysis | Microsoft Azure</source>
+          <target state="new">Lexicon Based Sentiment Analysis | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b0446928-fc38-4d96-ad52-77240c45b9d3" xml:space="preserve">
+          <source>Lexicon Based Sentiment Analysis</source>
+          <target state="new">Lexicon Based Sentiment Analysis</target>
+        </trans-unit>
+        <trans-unit id="7a46bbdf-45f7-43f4-ab5e-01436509d380" xml:space="preserve">
+          <source>How can you measure users’ opinions and attitudes toward brands or topics in online social networks, such as Facebook posts, tweets, reviews, etc.?</source>
+          <target state="new">How can you measure users’ opinions and attitudes toward brands or topics in online social networks, such as Facebook posts, tweets, reviews, etc.?</target>
+        </trans-unit>
+        <trans-unit id="8bec4cb9-51fa-4512-8bbc-2fc7dc0e2776" xml:space="preserve">
+          <source>Sentiment analysis provides a method for analyzing such questions.</source>
+          <target state="new">Sentiment analysis provides a method for analyzing such questions.</target>
+        </trans-unit>
+        <trans-unit id="6587ce47-9995-4742-bdb7-cebe8e8e1e40" xml:space="preserve">
+          <source><bpt id="b708e24c-161a-47be-991f-218dda006d4d">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="b708e24c-161a-47be-991f-218dda006d4d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b708e24c-161a-47be-991f-218dda006d4d">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="b708e24c-161a-47be-991f-218dda006d4d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19789f6a-b75d-4c47-b434-e11eacb11dfc" xml:space="preserve">
+          <source>There are generally two methods for sentiment analysis.</source>
+          <target state="new">There are generally two methods for sentiment analysis.</target>
+        </trans-unit>
+        <trans-unit id="595ce71e-f9f6-4caf-b69d-96bd57d97007" xml:space="preserve">
+          <source>One is using a supervised learning algorithm, and the other can be treated as unsupervised learning.</source>
+          <target state="new">One is using a supervised learning algorithm, and the other can be treated as unsupervised learning.</target>
+        </trans-unit>
+        <trans-unit id="b2dbf90c-8393-4672-ba50-5b44c2b7bc21" xml:space="preserve">
+          <source>A supervised learning algorithm generally builds a classification model on a large annotated corpus.</source>
+          <target state="new">A supervised learning algorithm generally builds a classification model on a large annotated corpus.</target>
+        </trans-unit>
+        <trans-unit id="bfb73ed3-efee-438d-a85a-27efb39b85c8" xml:space="preserve">
+          <source>Its accuracy is mainly based on the quality of the annotation, and usually the training process will take a long time.</source>
+          <target state="new">Its accuracy is mainly based on the quality of the annotation, and usually the training process will take a long time.</target>
+        </trans-unit>
+        <trans-unit id="75502152-f381-4285-8625-7c746adab857" xml:space="preserve">
+          <source>Besides that, when we apply the algorithm to another domain, the result is usually not good.</source>
+          <target state="new">Besides that, when we apply the algorithm to another domain, the result is usually not good.</target>
+        </trans-unit>
+        <trans-unit id="829af782-ccaf-4a7f-9a77-661b885c0f27" xml:space="preserve">
+          <source>Compared to supervised learning, lexicon-based unsupervised learning uses a sentiment dictionary, which doesn’t require storing a large data corpus and training - which makes the whole process much faster.</source>
+          <target state="new">Compared to supervised learning, lexicon-based unsupervised learning uses a sentiment dictionary, which doesn’t require storing a large data corpus and training - which makes the whole process much faster.</target>
+        </trans-unit>
+        <trans-unit id="62ad8976-2f24-439f-8ff4-851a70934870" xml:space="preserve">
+          <source>Our [service](https://datamarket.azure.com/dataset/aml<bpt id="4fb85ed1-3591-495f-b8e4-0592e1fa1038">&lt;em&gt;</bpt>labs/lexicon<ept id="4fb85ed1-3591-495f-b8e4-0592e1fa1038">&lt;/em&gt;</ept>based<bpt id="5229ad6d-bdf4-4da7-a6e2-080b0e3a103c">&lt;em&gt;</bpt>sentiment<ept id="5229ad6d-bdf4-4da7-a6e2-080b0e3a103c">&lt;/em&gt;</ept>analysis) is built on the MPQA Subjectivity Lexicon (http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/), which is one of the most commonly used subjectivity lexicons.</source>
+          <target state="new">Our [service](https://datamarket.azure.com/dataset/aml<bpt id="4fb85ed1-3591-495f-b8e4-0592e1fa1038">&lt;em&gt;</bpt>labs/lexicon<ept id="4fb85ed1-3591-495f-b8e4-0592e1fa1038">&lt;/em&gt;</ept>based<bpt id="5229ad6d-bdf4-4da7-a6e2-080b0e3a103c">&lt;em&gt;</bpt>sentiment<ept id="5229ad6d-bdf4-4da7-a6e2-080b0e3a103c">&lt;/em&gt;</ept>analysis) is built on the MPQA Subjectivity Lexicon (http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/), which is one of the most commonly used subjectivity lexicons.</target>
+        </trans-unit>
+        <trans-unit id="62e18b59-9369-41d9-b087-3fa7906c8257" xml:space="preserve">
+          <source>There are 5097 negative and 2533 positive words in MPQA.</source>
+          <target state="new">There are 5097 negative and 2533 positive words in MPQA.</target>
+        </trans-unit>
+        <trans-unit id="2b7f69d3-5d35-40d1-8b44-4207f1cfa37d" xml:space="preserve">
+          <source>And all of these words are annotated as strong or weak polarity.</source>
+          <target state="new">And all of these words are annotated as strong or weak polarity.</target>
+        </trans-unit>
+        <trans-unit id="d47e7b47-59f5-40c9-9d28-04ba5fad16af" xml:space="preserve">
+          <source>The whole corpus is under GNU General Public License.</source>
+          <target state="new">The whole corpus is under GNU General Public License.</target>
+        </trans-unit>
+        <trans-unit id="903e2794-9b0c-4980-b5d8-8afa226e7279" xml:space="preserve">
+          <source>The web service can be applied to any short sentences, such as tweets and Facebook posts.</source>
+          <target state="new">The web service can be applied to any short sentences, such as tweets and Facebook posts.</target>
+        </trans-unit>
+        <trans-unit id="29db2f56-6cae-4a77-b521-50d10b3f2a67" xml:space="preserve">
+          <source>This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer for example.</source>
+          <target state="new">This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer for example.</target>
+        </trans-unit>
+        <trans-unit id="989ce377-df1b-440f-98a2-9f5c8126e0d9" xml:space="preserve">
+          <source>But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</source>
+          <target state="new">But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</target>
+        </trans-unit>
+        <trans-unit id="eb6b6271-efdb-4199-8572-3f99e35ed64a" xml:space="preserve">
+          <source>With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</source>
+          <target state="new">With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</target>
+        </trans-unit>
+        <trans-unit id="40bd57d1-0022-439a-98e7-7ae113fc8761" xml:space="preserve">
+          <source>The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.</source>
+          <target state="new">The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.</target>
+        </trans-unit>
+        <trans-unit id="ed197df8-0fe2-4449-b08c-320253fabd31" xml:space="preserve">
+          <source>The input data can be any text, but the web service works better with short sentences.</source>
+          <target state="new">The input data can be any text, but the web service works better with short sentences.</target>
+        </trans-unit>
+        <trans-unit id="e1ff1517-8b97-4c6a-b682-658774b8c1ff" xml:space="preserve">
+          <source>The output is a numeric value between -1 and 1.</source>
+          <target state="new">The output is a numeric value between -1 and 1.</target>
+        </trans-unit>
+        <trans-unit id="83f283e0-fb16-4d42-861a-da39db41e628" xml:space="preserve">
+          <source>Any value below 0 denotes that the sentiment of the text is negative; positive if above 0.</source>
+          <target state="new">Any value below 0 denotes that the sentiment of the text is negative; positive if above 0.</target>
+        </trans-unit>
+        <trans-unit id="75cce64e-1626-4186-8bc8-fe969fd5b9fd" xml:space="preserve">
+          <source>The absolute value of the result denotes the strength of the associated sentiment.</source>
+          <target state="new">The absolute value of the result denotes the strength of the associated sentiment.</target>
+        </trans-unit>
+        <trans-unit id="8d9cdc40-10cf-4146-841d-2d189ce3adf8" xml:space="preserve">
+          <source>This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</source>
+          <target state="new">This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</target>
+        </trans-unit>
+        <trans-unit id="748cae54-4bf2-4dcf-84cb-e62e82a15690" xml:space="preserve">
+          <source>There are multiple ways of consuming the service in an automated fashion (an example app is <bpt id="c29ec511-5b03-495c-b3b5-6a12f25bbf46">&lt;linkText&gt;</bpt>here<ept id="c29ec511-5b03-495c-b3b5-6a12f25bbf46">&lt;/linkText&gt;</ept><bpt id="c29ec511-5b03-495c-b3b5-6a12f25bbf46">&lt;title&gt;</bpt><ept id="c29ec511-5b03-495c-b3b5-6a12f25bbf46">&lt;/title&gt;</ept>).</source>
+          <target state="new">There are multiple ways of consuming the service in an automated fashion (an example app is <bpt id="c29ec511-5b03-495c-b3b5-6a12f25bbf46">&lt;linkText&gt;</bpt>here<ept id="c29ec511-5b03-495c-b3b5-6a12f25bbf46">&lt;/linkText&gt;</ept><bpt id="c29ec511-5b03-495c-b3b5-6a12f25bbf46">&lt;title&gt;</bpt><ept id="c29ec511-5b03-495c-b3b5-6a12f25bbf46">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="52ff705f-2f15-4969-bd26-943c4632b143" xml:space="preserve">
+          <source>The input is “Today is a good day.”</source>
+          <target state="new">The input is “Today is a good day.”</target>
+        </trans-unit>
+        <trans-unit id="2dcf86c8-dfde-4ad4-b6ec-e2eb4ac93c45" xml:space="preserve">
+          <source>The output is “1”, which indicates a positive sentiment associated with the input sentence.</source>
+          <target state="new">The output is “1”, which indicates a positive sentiment associated with the input sentence.</target>
+        </trans-unit>
+        <trans-unit id="2a353ba3-968b-47b0-beb5-8800e6bc784d" xml:space="preserve">
+          <source>This web service was created using Azure Machine Learning.</source>
+          <target state="new">This web service was created using Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="00bc30cb-11f8-4c4d-817b-770d6a6f7bdd" xml:space="preserve">
+          <source>For a free trial, as well as introductory videos on creating experiments and <bpt id="c138bda6-a2ea-472c-ae61-a32c1a9929b1">&lt;linkText&gt;</bpt>publishing web services<ept id="c138bda6-a2ea-472c-ae61-a32c1a9929b1">&lt;/linkText&gt;</ept><bpt id="c138bda6-a2ea-472c-ae61-a32c1a9929b1">&lt;title&gt;</bpt><ept id="c138bda6-a2ea-472c-ae61-a32c1a9929b1">&lt;/title&gt;</ept>, please see <bpt id="6ac2bbbe-17ba-4d88-aad2-c355cc7947bf">&lt;linkText&gt;</bpt>azure.com/ml<ept id="6ac2bbbe-17ba-4d88-aad2-c355cc7947bf">&lt;/linkText&gt;</ept><bpt id="6ac2bbbe-17ba-4d88-aad2-c355cc7947bf">&lt;title&gt;</bpt><ept id="6ac2bbbe-17ba-4d88-aad2-c355cc7947bf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a free trial, as well as introductory videos on creating experiments and <bpt id="c138bda6-a2ea-472c-ae61-a32c1a9929b1">&lt;linkText&gt;</bpt>publishing web services<ept id="c138bda6-a2ea-472c-ae61-a32c1a9929b1">&lt;/linkText&gt;</ept><bpt id="c138bda6-a2ea-472c-ae61-a32c1a9929b1">&lt;title&gt;</bpt><ept id="c138bda6-a2ea-472c-ae61-a32c1a9929b1">&lt;/title&gt;</ept>, please see <bpt id="6ac2bbbe-17ba-4d88-aad2-c355cc7947bf">&lt;linkText&gt;</bpt>azure.com/ml<ept id="6ac2bbbe-17ba-4d88-aad2-c355cc7947bf">&lt;/linkText&gt;</ept><bpt id="6ac2bbbe-17ba-4d88-aad2-c355cc7947bf">&lt;title&gt;</bpt><ept id="6ac2bbbe-17ba-4d88-aad2-c355cc7947bf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fafd743e-616d-42b5-9eba-e7057e37dff7" xml:space="preserve">
+          <source>Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</source>
+          <target state="new">Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</target>
+        </trans-unit>
+        <trans-unit id="68471ec4-8456-4edd-bdb9-71fe51b4786b" xml:space="preserve">
+          <source>From within Azure Machine Learning, a new blank experiment was created.</source>
+          <target state="new">From within Azure Machine Learning, a new blank experiment was created.</target>
+        </trans-unit>
+        <trans-unit id="c71f0129-7445-4bad-90e9-4168bb75d769" xml:space="preserve">
+          <source>The figure below shows the experiment flow of lexicon-based sentiment analysis.</source>
+          <target state="new">The figure below shows the experiment flow of lexicon-based sentiment analysis.</target>
+        </trans-unit>
+        <trans-unit id="496a98b5-e8d9-463a-a6ce-abbad0c6ff76" xml:space="preserve">
+          <source>The “sent_dict.csv” file is the MPQA subjectivity lexicon, and is set as one of the inputs of <bpt id="47124302-434d-4c27-8539-06cc0e0c785d">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="47124302-434d-4c27-8539-06cc0e0c785d">&lt;/linkText&gt;</ept><bpt id="47124302-434d-4c27-8539-06cc0e0c785d">&lt;title&gt;</bpt><ept id="47124302-434d-4c27-8539-06cc0e0c785d">&lt;/title&gt;</ept>.</source>
+          <target state="new">The “sent_dict.csv” file is the MPQA subjectivity lexicon, and is set as one of the inputs of <bpt id="47124302-434d-4c27-8539-06cc0e0c785d">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="47124302-434d-4c27-8539-06cc0e0c785d">&lt;/linkText&gt;</ept><bpt id="47124302-434d-4c27-8539-06cc0e0c785d">&lt;title&gt;</bpt><ept id="47124302-434d-4c27-8539-06cc0e0c785d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60d30aae-e880-44da-9447-0332158b2816" xml:space="preserve">
+          <source>Another input is a sampled review from the Amazon review dataset for test, where we performed selection, column name modification, and split operations.</source>
+          <target state="new">Another input is a sampled review from the Amazon review dataset for test, where we performed selection, column name modification, and split operations.</target>
+        </trans-unit>
+        <trans-unit id="6e58dd7b-a166-4bbc-a1e3-4d1c2e4613e3" xml:space="preserve">
+          <source>We use a hash package to store the subjectivity lexicon in the memory and accelerate the score computation process.</source>
+          <target state="new">We use a hash package to store the subjectivity lexicon in the memory and accelerate the score computation process.</target>
+        </trans-unit>
+        <trans-unit id="26cd61ac-c19e-4e95-a42a-2c3066b9c25a" xml:space="preserve">
+          <source>The whole text will be tokenized by “tm” package and compared with the word in the sentiment dictionary.</source>
+          <target state="new">The whole text will be tokenized by “tm” package and compared with the word in the sentiment dictionary.</target>
+        </trans-unit>
+        <trans-unit id="cc894a13-fd60-4433-bc21-677588fe1b08" xml:space="preserve">
+          <source>Finally, a score will be calculated by adding the weight of each subjective word in the text.</source>
+          <target state="new">Finally, a score will be calculated by adding the weight of each subjective word in the text.</target>
+        </trans-unit>
+        <trans-unit id="b500d604-ca75-4a88-9b12-df1c6f4d32f8" xml:space="preserve">
+          <source><bpt id="fe15a391-c378-441f-b6ee-fd8ccf80c049">&lt;linkText&gt;</bpt>experiment flow<ept id="fe15a391-c378-441f-b6ee-fd8ccf80c049">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe15a391-c378-441f-b6ee-fd8ccf80c049">&lt;linkText&gt;</bpt>experiment flow<ept id="fe15a391-c378-441f-b6ee-fd8ccf80c049">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5031ec68-6b5d-45ad-ae68-c8b81f62c364" xml:space="preserve">
+          <source>   # Install hash package
+    install.packages("src/hash_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE)
+    success &lt;- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
+    library(tm)
+    library(stringr)</source>
+          <target state="new">   # Install hash package
+    install.packages("src/hash_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE)
+    success &lt;- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
+    library(tm)
+    library(stringr)</target>
+        </trans-unit>
+        <trans-unit id="eea711e2-ee05-4b2c-96d3-47acc364072d" xml:space="preserve">
+          <source>From an algorithm perspective, lexicon-based sentiment analysis is a general sentiment analysis tool, which may not perform better than the classification method for specific fields.</source>
+          <target state="new">From an algorithm perspective, lexicon-based sentiment analysis is a general sentiment analysis tool, which may not perform better than the classification method for specific fields.</target>
+        </trans-unit>
+        <trans-unit id="2378298a-7caa-46e4-b845-e62cb2f4f584" xml:space="preserve">
+          <source>The negation problem is not well dealt with.</source>
+          <target state="new">The negation problem is not well dealt with.</target>
+        </trans-unit>
+        <trans-unit id="bdb9b685-352c-4d85-b45a-1af19e75d5b3" xml:space="preserve">
+          <source>We hardcode several negation words in our program, but a better way is using a negation dictionary and build some rules.</source>
+          <target state="new">We hardcode several negation words in our program, but a better way is using a negation dictionary and build some rules.</target>
+        </trans-unit>
+        <trans-unit id="59aec3aa-3482-42ee-8995-751a9071090b" xml:space="preserve">
+          <source>The web service performs better on short and simple sentences, such as tweets and Facebook posts, than on long and complex sentences such as Amazon reviews.</source>
+          <target state="new">The web service performs better on short and simple sentences, such as tweets and Facebook posts, than on long and complex sentences such as Amazon reviews.</target>
+        </trans-unit>
+        <trans-unit id="1889c59e-5f4b-41f0-bba5-5e92d52e4141" xml:space="preserve">
+          <source>For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="f4c98fc3-2c4b-4636-be82-f161a859edc3">&lt;linkText&gt;</bpt>here<ept id="f4c98fc3-2c4b-4636-be82-f161a859edc3">&lt;/linkText&gt;</ept><bpt id="f4c98fc3-2c4b-4636-be82-f161a859edc3">&lt;title&gt;</bpt><ept id="f4c98fc3-2c4b-4636-be82-f161a859edc3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="f4c98fc3-2c4b-4636-be82-f161a859edc3">&lt;linkText&gt;</bpt>here<ept id="f4c98fc3-2c4b-4636-be82-f161a859edc3">&lt;/linkText&gt;</ept><bpt id="f4c98fc3-2c4b-4636-be82-f161a859edc3">&lt;title&gt;</bpt><ept id="f4c98fc3-2c4b-4636-be82-f161a859edc3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ff0bc30-6f9b-4592-8cca-f8a779281f62" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_1.png</source>
+          <target state="new">./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_1.png</target>
+        </trans-unit>
+        <trans-unit id="4a39da99-eded-4ead-a282-ce6d279e639d" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_2.png</source>
+          <target state="new">./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_2.png</target>
+        </trans-unit>
+        <trans-unit id="878216c0-c49d-4774-9e2e-58f475b2fbf9" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</target>
+        </trans-unit>
+      </group>
+      <group id="03590e6a-b9bc-45c3-a50f-8665ad2c7d34" />
+    </body>
+  </file>
+</xliff>

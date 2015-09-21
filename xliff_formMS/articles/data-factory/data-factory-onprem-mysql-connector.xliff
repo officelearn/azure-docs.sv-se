@@ -1,0 +1,692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a1a42fe8-98a6-4494-afb0-95ad7a8e8d64" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a1a42fe8-98a6-4494-afb0-95ad7a8e8d64" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8eff93ce-49de-4027-8464-b576432adf72">
+        <trans-unit id="7a6c2011-b80a-4819-89a7-56389ba0cd82" xml:space="preserve">
+          <source>Move data from MySQL | Azure Data Factory</source>
+          <target state="new">Move data from MySQL | Azure Data Factory</target>
+        </trans-unit>
+        <trans-unit id="a66c7167-c189-4301-b876-220d083846d0" xml:space="preserve">
+          <source>Learn about how to move data from MySQL database using Azure Data Factory.</source>
+          <target state="new">Learn about how to move data from MySQL database using Azure Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="ffcdb9ef-2b3f-450c-b4c0-b792c0b1b29d" xml:space="preserve">
+          <source>This article outlines how you can use the Copy Activity in an Azure data factory to move data to from MySQL to another data store.</source>
+          <target state="new">This article outlines how you can use the Copy Activity in an Azure data factory to move data to from MySQL to another data store.</target>
+        </trans-unit>
+        <trans-unit id="1a1baf3d-a179-49fe-8ccf-8998c12e6936" xml:space="preserve">
+          <source>This article builds on the <bpt id="4cd9880c-c652-4034-928f-76dbc825326b">&lt;linkText&gt;</bpt>data movement activities<ept id="4cd9880c-c652-4034-928f-76dbc825326b">&lt;/linkText&gt;</ept><bpt id="4cd9880c-c652-4034-928f-76dbc825326b">&lt;title&gt;</bpt><ept id="4cd9880c-c652-4034-928f-76dbc825326b">&lt;/title&gt;</ept> article which presents a general overview of data movement with copy activity and supported data store combinations.</source>
+          <target state="new">This article builds on the <bpt id="4cd9880c-c652-4034-928f-76dbc825326b">&lt;linkText&gt;</bpt>data movement activities<ept id="4cd9880c-c652-4034-928f-76dbc825326b">&lt;/linkText&gt;</ept><bpt id="4cd9880c-c652-4034-928f-76dbc825326b">&lt;title&gt;</bpt><ept id="4cd9880c-c652-4034-928f-76dbc825326b">&lt;/title&gt;</ept> article which presents a general overview of data movement with copy activity and supported data store combinations.</target>
+        </trans-unit>
+        <trans-unit id="9ba7262e-f217-4a2c-9371-c1abf8afabab" xml:space="preserve">
+          <source>Data Factory service supports connecting to on-premises MySQL sources using the Data Management Gateway.</source>
+          <target state="new">Data Factory service supports connecting to on-premises MySQL sources using the Data Management Gateway.</target>
+        </trans-unit>
+        <trans-unit id="4daff4f2-8735-4d99-b1b6-fcdf7e4d5f9e" xml:space="preserve">
+          <source>See <bpt id="ca0b3d37-816f-405e-aac5-d439184912d4">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="ca0b3d37-816f-405e-aac5-d439184912d4">&lt;/linkText&gt;</ept><bpt id="ca0b3d37-816f-405e-aac5-d439184912d4">&lt;title&gt;</bpt><ept id="ca0b3d37-816f-405e-aac5-d439184912d4">&lt;/title&gt;</ept> article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.</source>
+          <target state="new">See <bpt id="ca0b3d37-816f-405e-aac5-d439184912d4">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="ca0b3d37-816f-405e-aac5-d439184912d4">&lt;/linkText&gt;</ept><bpt id="ca0b3d37-816f-405e-aac5-d439184912d4">&lt;title&gt;</bpt><ept id="ca0b3d37-816f-405e-aac5-d439184912d4">&lt;/title&gt;</ept> article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.</target>
+        </trans-unit>
+        <trans-unit id="d63167c7-ee87-4429-8202-e67e93cc61be" xml:space="preserve">
+          <source><bpt id="c3b2add0-5f39-448c-b747-76816e0b1c06">&lt;strong&gt;</bpt>Note:<ept id="c3b2add0-5f39-448c-b747-76816e0b1c06">&lt;/strong&gt;</ept> You need to leverage the gateway to connect to MySQL even if it is hosted in Azure IaaS VMs.</source>
+          <target state="new"><bpt id="c3b2add0-5f39-448c-b747-76816e0b1c06">&lt;strong&gt;</bpt>Note:<ept id="c3b2add0-5f39-448c-b747-76816e0b1c06">&lt;/strong&gt;</ept> You need to leverage the gateway to connect to MySQL even if it is hosted in Azure IaaS VMs.</target>
+        </trans-unit>
+        <trans-unit id="697b94b8-682b-4b75-8b57-b5bdcabf7fff" xml:space="preserve">
+          <source>If you are trying to connect to an instance of MySQL hosted in cloud, you can also install the gateway instance in the IaaS VM.</source>
+          <target state="new">If you are trying to connect to an instance of MySQL hosted in cloud, you can also install the gateway instance in the IaaS VM.</target>
+        </trans-unit>
+        <trans-unit id="40182e8e-81f1-44db-93ac-edc5811ad274" xml:space="preserve">
+          <source>Data factory currently supports only moving data from MySQL to other data stores, but not for moving data from other data stores to MySQL.</source>
+          <target state="new">Data factory currently supports only moving data from MySQL to other data stores, but not for moving data from other data stores to MySQL.</target>
+        </trans-unit>
+        <trans-unit id="b3e21cdc-fb16-4581-ac92-d2dddab30168" xml:space="preserve">
+          <source>For Data Management Gateway to connect to the MySQL Database, you need to install the <bpt id="1e3832d8-15af-46cf-ba6f-412f6654d458">&lt;linkText&gt;</bpt>MySQL Connector/Net 6.6.5 for Microsoft Windows<ept id="1e3832d8-15af-46cf-ba6f-412f6654d458">&lt;/linkText&gt;</ept><bpt id="1e3832d8-15af-46cf-ba6f-412f6654d458">&lt;title&gt;</bpt><ept id="1e3832d8-15af-46cf-ba6f-412f6654d458">&lt;/title&gt;</ept> on the same system as the Data Management Gateway.</source>
+          <target state="new">For Data Management Gateway to connect to the MySQL Database, you need to install the <bpt id="1e3832d8-15af-46cf-ba6f-412f6654d458">&lt;linkText&gt;</bpt>MySQL Connector/Net 6.6.5 for Microsoft Windows<ept id="1e3832d8-15af-46cf-ba6f-412f6654d458">&lt;/linkText&gt;</ept><bpt id="1e3832d8-15af-46cf-ba6f-412f6654d458">&lt;title&gt;</bpt><ept id="1e3832d8-15af-46cf-ba6f-412f6654d458">&lt;/title&gt;</ept> on the same system as the Data Management Gateway.</target>
+        </trans-unit>
+        <trans-unit id="364da164-b381-47c7-8100-93bbd099430a" xml:space="preserve">
+          <source>The sample below shows:</source>
+          <target state="new">The sample below shows:</target>
+        </trans-unit>
+        <trans-unit id="5ac834a9-d775-46e4-bde1-db37cb54b00b" xml:space="preserve">
+          <source>A linked service of type <bpt id="7ebd1ba4-589a-4f10-833b-e5d834343850">&lt;linkText&gt;</bpt>OnPremisesMySql<ept id="7ebd1ba4-589a-4f10-833b-e5d834343850">&lt;/linkText&gt;</ept><bpt id="7ebd1ba4-589a-4f10-833b-e5d834343850">&lt;title&gt;</bpt><ept id="7ebd1ba4-589a-4f10-833b-e5d834343850">&lt;/title&gt;</ept>.</source>
+          <target state="new">A linked service of type <bpt id="7ebd1ba4-589a-4f10-833b-e5d834343850">&lt;linkText&gt;</bpt>OnPremisesMySql<ept id="7ebd1ba4-589a-4f10-833b-e5d834343850">&lt;/linkText&gt;</ept><bpt id="7ebd1ba4-589a-4f10-833b-e5d834343850">&lt;title&gt;</bpt><ept id="7ebd1ba4-589a-4f10-833b-e5d834343850">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4813632-86d0-4f74-b222-ac510573f149" xml:space="preserve">
+          <source>A linked service of type <bpt id="41df6282-f35d-4e00-a6a0-2e32a0f6564c">&lt;linkText&gt;</bpt>AzureStorage<ept id="41df6282-f35d-4e00-a6a0-2e32a0f6564c">&lt;/linkText&gt;</ept><bpt id="41df6282-f35d-4e00-a6a0-2e32a0f6564c">&lt;title&gt;</bpt><ept id="41df6282-f35d-4e00-a6a0-2e32a0f6564c">&lt;/title&gt;</ept>.</source>
+          <target state="new">A linked service of type <bpt id="41df6282-f35d-4e00-a6a0-2e32a0f6564c">&lt;linkText&gt;</bpt>AzureStorage<ept id="41df6282-f35d-4e00-a6a0-2e32a0f6564c">&lt;/linkText&gt;</ept><bpt id="41df6282-f35d-4e00-a6a0-2e32a0f6564c">&lt;title&gt;</bpt><ept id="41df6282-f35d-4e00-a6a0-2e32a0f6564c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad164d6d-7153-46c6-95c4-789ee0326485" xml:space="preserve">
+          <source>An input <bpt id="cd0f4f58-7282-4d3f-bbec-342c3b2f0d12">&lt;linkText&gt;</bpt>dataset<ept id="cd0f4f58-7282-4d3f-bbec-342c3b2f0d12">&lt;/linkText&gt;</ept><bpt id="cd0f4f58-7282-4d3f-bbec-342c3b2f0d12">&lt;title&gt;</bpt><ept id="cd0f4f58-7282-4d3f-bbec-342c3b2f0d12">&lt;/title&gt;</ept> of type <bpt id="da1a5c40-e855-474b-9fea-9b744cce5df9">&lt;linkText&gt;</bpt>RelationalTable<ept id="da1a5c40-e855-474b-9fea-9b744cce5df9">&lt;/linkText&gt;</ept><bpt id="da1a5c40-e855-474b-9fea-9b744cce5df9">&lt;title&gt;</bpt><ept id="da1a5c40-e855-474b-9fea-9b744cce5df9">&lt;/title&gt;</ept>.</source>
+          <target state="new">An input <bpt id="cd0f4f58-7282-4d3f-bbec-342c3b2f0d12">&lt;linkText&gt;</bpt>dataset<ept id="cd0f4f58-7282-4d3f-bbec-342c3b2f0d12">&lt;/linkText&gt;</ept><bpt id="cd0f4f58-7282-4d3f-bbec-342c3b2f0d12">&lt;title&gt;</bpt><ept id="cd0f4f58-7282-4d3f-bbec-342c3b2f0d12">&lt;/title&gt;</ept> of type <bpt id="da1a5c40-e855-474b-9fea-9b744cce5df9">&lt;linkText&gt;</bpt>RelationalTable<ept id="da1a5c40-e855-474b-9fea-9b744cce5df9">&lt;/linkText&gt;</ept><bpt id="da1a5c40-e855-474b-9fea-9b744cce5df9">&lt;title&gt;</bpt><ept id="da1a5c40-e855-474b-9fea-9b744cce5df9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ca66fac-0842-4f3c-9676-4852d6279079" xml:space="preserve">
+          <source>An output <bpt id="a742ddf5-2065-4356-8aa2-8f3b07ac2aad">&lt;linkText&gt;</bpt>dataset<ept id="a742ddf5-2065-4356-8aa2-8f3b07ac2aad">&lt;/linkText&gt;</ept><bpt id="a742ddf5-2065-4356-8aa2-8f3b07ac2aad">&lt;title&gt;</bpt><ept id="a742ddf5-2065-4356-8aa2-8f3b07ac2aad">&lt;/title&gt;</ept> of type <bpt id="64d18202-5509-49b4-be23-6884e60babe1">&lt;linkText&gt;</bpt>AzureBlob<ept id="64d18202-5509-49b4-be23-6884e60babe1">&lt;/linkText&gt;</ept><bpt id="64d18202-5509-49b4-be23-6884e60babe1">&lt;title&gt;</bpt><ept id="64d18202-5509-49b4-be23-6884e60babe1">&lt;/title&gt;</ept>.</source>
+          <target state="new">An output <bpt id="a742ddf5-2065-4356-8aa2-8f3b07ac2aad">&lt;linkText&gt;</bpt>dataset<ept id="a742ddf5-2065-4356-8aa2-8f3b07ac2aad">&lt;/linkText&gt;</ept><bpt id="a742ddf5-2065-4356-8aa2-8f3b07ac2aad">&lt;title&gt;</bpt><ept id="a742ddf5-2065-4356-8aa2-8f3b07ac2aad">&lt;/title&gt;</ept> of type <bpt id="64d18202-5509-49b4-be23-6884e60babe1">&lt;linkText&gt;</bpt>AzureBlob<ept id="64d18202-5509-49b4-be23-6884e60babe1">&lt;/linkText&gt;</ept><bpt id="64d18202-5509-49b4-be23-6884e60babe1">&lt;title&gt;</bpt><ept id="64d18202-5509-49b4-be23-6884e60babe1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9247eb4-e8a2-4e5a-99f7-3c6c6c5d9dc4" xml:space="preserve">
+          <source>A <bpt id="39be52c6-ed17-4022-b790-a57b6a6fe8b0">&lt;linkText&gt;</bpt>pipeline<ept id="39be52c6-ed17-4022-b790-a57b6a6fe8b0">&lt;/linkText&gt;</ept><bpt id="39be52c6-ed17-4022-b790-a57b6a6fe8b0">&lt;title&gt;</bpt><ept id="39be52c6-ed17-4022-b790-a57b6a6fe8b0">&lt;/title&gt;</ept> with Copy Activity that uses <bpt id="aec66fbc-30bf-430f-83c3-e4cc3d61f778">&lt;linkText&gt;</bpt>RelationalSource<ept id="aec66fbc-30bf-430f-83c3-e4cc3d61f778">&lt;/linkText&gt;</ept><bpt id="aec66fbc-30bf-430f-83c3-e4cc3d61f778">&lt;title&gt;</bpt><ept id="aec66fbc-30bf-430f-83c3-e4cc3d61f778">&lt;/title&gt;</ept> and <bpt id="bee5bd51-7b92-459d-ac82-441654eff713">&lt;linkText&gt;</bpt>BlobSink<ept id="bee5bd51-7b92-459d-ac82-441654eff713">&lt;/linkText&gt;</ept><bpt id="bee5bd51-7b92-459d-ac82-441654eff713">&lt;title&gt;</bpt><ept id="bee5bd51-7b92-459d-ac82-441654eff713">&lt;/title&gt;</ept>.</source>
+          <target state="new">A <bpt id="39be52c6-ed17-4022-b790-a57b6a6fe8b0">&lt;linkText&gt;</bpt>pipeline<ept id="39be52c6-ed17-4022-b790-a57b6a6fe8b0">&lt;/linkText&gt;</ept><bpt id="39be52c6-ed17-4022-b790-a57b6a6fe8b0">&lt;title&gt;</bpt><ept id="39be52c6-ed17-4022-b790-a57b6a6fe8b0">&lt;/title&gt;</ept> with Copy Activity that uses <bpt id="aec66fbc-30bf-430f-83c3-e4cc3d61f778">&lt;linkText&gt;</bpt>RelationalSource<ept id="aec66fbc-30bf-430f-83c3-e4cc3d61f778">&lt;/linkText&gt;</ept><bpt id="aec66fbc-30bf-430f-83c3-e4cc3d61f778">&lt;title&gt;</bpt><ept id="aec66fbc-30bf-430f-83c3-e4cc3d61f778">&lt;/title&gt;</ept> and <bpt id="bee5bd51-7b92-459d-ac82-441654eff713">&lt;linkText&gt;</bpt>BlobSink<ept id="bee5bd51-7b92-459d-ac82-441654eff713">&lt;/linkText&gt;</ept><bpt id="bee5bd51-7b92-459d-ac82-441654eff713">&lt;title&gt;</bpt><ept id="bee5bd51-7b92-459d-ac82-441654eff713">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40e64ec2-a26a-4850-af89-3fb0f7e65c9e" xml:space="preserve">
+          <source>The sample copies data from a query result in MySQL database to a blob every hour.</source>
+          <target state="new">The sample copies data from a query result in MySQL database to a blob every hour.</target>
+        </trans-unit>
+        <trans-unit id="d2a6b868-9ab5-4a79-9eb1-896d158f1ee8" xml:space="preserve">
+          <source>The JSON properties used in these samples are described in sections following the samples.</source>
+          <target state="new">The JSON properties used in these samples are described in sections following the samples.</target>
+        </trans-unit>
+        <trans-unit id="934aabe7-c1ad-44e5-9782-665a96b6ca51" xml:space="preserve">
+          <source>As a first step, please setup the data management gateway as per the instructions in the <bpt id="f8147577-0171-4ebc-98cf-cd578f50cc20">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="f8147577-0171-4ebc-98cf-cd578f50cc20">&lt;/linkText&gt;</ept><bpt id="f8147577-0171-4ebc-98cf-cd578f50cc20">&lt;title&gt;</bpt><ept id="f8147577-0171-4ebc-98cf-cd578f50cc20">&lt;/title&gt;</ept> article.</source>
+          <target state="new">As a first step, please setup the data management gateway as per the instructions in the <bpt id="f8147577-0171-4ebc-98cf-cd578f50cc20">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="f8147577-0171-4ebc-98cf-cd578f50cc20">&lt;/linkText&gt;</ept><bpt id="f8147577-0171-4ebc-98cf-cd578f50cc20">&lt;title&gt;</bpt><ept id="f8147577-0171-4ebc-98cf-cd578f50cc20">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="e9036568-f176-4506-90e9-7a9f5f7a1e8e" xml:space="preserve">
+          <source><bpt id="2fff6b12-1324-4eda-900e-b425d72d2135">&lt;strong&gt;</bpt>MySQL linked service<ept id="2fff6b12-1324-4eda-900e-b425d72d2135">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2fff6b12-1324-4eda-900e-b425d72d2135">&lt;strong&gt;</bpt>MySQL linked service<ept id="2fff6b12-1324-4eda-900e-b425d72d2135">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27c2f606-b703-487c-983b-ca65718638cf" xml:space="preserve">
+          <source><bpt id="d720391b-573c-42d7-bb85-38538d431d12">&lt;strong&gt;</bpt>Azure Storage linked service<ept id="d720391b-573c-42d7-bb85-38538d431d12">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d720391b-573c-42d7-bb85-38538d431d12">&lt;strong&gt;</bpt>Azure Storage linked service<ept id="d720391b-573c-42d7-bb85-38538d431d12">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee89c6d0-7c82-442b-b30e-879942c61e59" xml:space="preserve">
+          <source><bpt id="d5bdbb5b-0ffd-4828-8ac6-d8d35091e409">&lt;strong&gt;</bpt>MySQL input dataset<ept id="d5bdbb5b-0ffd-4828-8ac6-d8d35091e409">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d5bdbb5b-0ffd-4828-8ac6-d8d35091e409">&lt;strong&gt;</bpt>MySQL input dataset<ept id="d5bdbb5b-0ffd-4828-8ac6-d8d35091e409">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="559775e0-ce8c-424c-96d7-a92139661d36" xml:space="preserve">
+          <source>The sample assumes you have created a table “MyTable” in MySQL and it contains a column called “timestampcolumn” for time series data.</source>
+          <target state="new">The sample assumes you have created a table “MyTable” in MySQL and it contains a column called “timestampcolumn” for time series data.</target>
+        </trans-unit>
+        <trans-unit id="d23740d6-e4d3-4642-8c2f-1531a55111a7" xml:space="preserve">
+          <source>Setting “external”: ”true” and specifying externalData policy informs the Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.</source>
+          <target state="new">Setting “external”: ”true” and specifying externalData policy informs the Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.</target>
+        </trans-unit>
+        <trans-unit id="36454cfc-0f6b-49d8-a6f1-24b813e5724e" xml:space="preserve">
+          <source><bpt id="126270a1-6167-4f1d-96bf-a912a879efa3">&lt;strong&gt;</bpt>Azure Blob output dataset<ept id="126270a1-6167-4f1d-96bf-a912a879efa3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="126270a1-6167-4f1d-96bf-a912a879efa3">&lt;strong&gt;</bpt>Azure Blob output dataset<ept id="126270a1-6167-4f1d-96bf-a912a879efa3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94249792-6c79-411f-a81a-99a2ba68eee1" xml:space="preserve">
+          <source>Data is written to a new blob every hour (frequency: hour, interval: 1).</source>
+          <target state="new">Data is written to a new blob every hour (frequency: hour, interval: 1).</target>
+        </trans-unit>
+        <trans-unit id="17ed24d5-e93e-457e-8928-c5c1c0f5bba3" xml:space="preserve">
+          <source>The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed.</source>
+          <target state="new">The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed.</target>
+        </trans-unit>
+        <trans-unit id="36c4ca70-852d-41f5-bee7-ec3bc0ae9ad3" xml:space="preserve">
+          <source>The folder path uses year, month, day, and hours parts of the start time.</source>
+          <target state="new">The folder path uses year, month, day, and hours parts of the start time.</target>
+        </trans-unit>
+        <trans-unit id="80f2d247-f392-4fce-9c01-39865e0eb531" xml:space="preserve">
+          <source><bpt id="629f8b26-e6bd-4971-beeb-447e81472eaa">&lt;strong&gt;</bpt>Pipeline with Copy activity<ept id="629f8b26-e6bd-4971-beeb-447e81472eaa">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="629f8b26-e6bd-4971-beeb-447e81472eaa">&lt;strong&gt;</bpt>Pipeline with Copy activity<ept id="629f8b26-e6bd-4971-beeb-447e81472eaa">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d9f795e-7fd2-411f-820c-de4f39457705" xml:space="preserve">
+          <source>The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour.</source>
+          <target state="new">The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour.</target>
+        </trans-unit>
+        <trans-unit id="2e8ccd64-6d64-4fa9-8981-a570ccfe4859" xml:space="preserve">
+          <source>In the pipeline JSON definition, the <bpt id="ae7088e2-551a-4dab-a116-4827f50744c7">&lt;strong&gt;</bpt>source<ept id="ae7088e2-551a-4dab-a116-4827f50744c7">&lt;/strong&gt;</ept> type is set to <bpt id="49991c86-7a41-4aa1-ab4e-9848d34748dc">&lt;strong&gt;</bpt>RelationalSource<ept id="49991c86-7a41-4aa1-ab4e-9848d34748dc">&lt;/strong&gt;</ept> and <bpt id="cac41a19-bc83-4b19-8d0e-67db9db193f8">&lt;strong&gt;</bpt>sink<ept id="cac41a19-bc83-4b19-8d0e-67db9db193f8">&lt;/strong&gt;</ept> type is set to <bpt id="72bca0db-3edb-48af-bca1-408e060229ec">&lt;strong&gt;</bpt>BlobSink<ept id="72bca0db-3edb-48af-bca1-408e060229ec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the pipeline JSON definition, the <bpt id="ae7088e2-551a-4dab-a116-4827f50744c7">&lt;strong&gt;</bpt>source<ept id="ae7088e2-551a-4dab-a116-4827f50744c7">&lt;/strong&gt;</ept> type is set to <bpt id="49991c86-7a41-4aa1-ab4e-9848d34748dc">&lt;strong&gt;</bpt>RelationalSource<ept id="49991c86-7a41-4aa1-ab4e-9848d34748dc">&lt;/strong&gt;</ept> and <bpt id="cac41a19-bc83-4b19-8d0e-67db9db193f8">&lt;strong&gt;</bpt>sink<ept id="cac41a19-bc83-4b19-8d0e-67db9db193f8">&lt;/strong&gt;</ept> type is set to <bpt id="72bca0db-3edb-48af-bca1-408e060229ec">&lt;strong&gt;</bpt>BlobSink<ept id="72bca0db-3edb-48af-bca1-408e060229ec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9dcd851f-c37e-4ee4-914d-fe168a35edc6" xml:space="preserve">
+          <source>The SQL query specified for the <bpt id="9319894d-f840-44e5-a1c7-1d0536f84ad7">&lt;strong&gt;</bpt>query<ept id="9319894d-f840-44e5-a1c7-1d0536f84ad7">&lt;/strong&gt;</ept> property selects the data in the past hour to copy.</source>
+          <target state="new">The SQL query specified for the <bpt id="9319894d-f840-44e5-a1c7-1d0536f84ad7">&lt;strong&gt;</bpt>query<ept id="9319894d-f840-44e5-a1c7-1d0536f84ad7">&lt;/strong&gt;</ept> property selects the data in the past hour to copy.</target>
+        </trans-unit>
+        <trans-unit id="40d491f4-05a0-4830-b349-bdb2894130c0" xml:space="preserve">
+          <source>The following table provides description for JSON elements specific to MySQL linked service.</source>
+          <target state="new">The following table provides description for JSON elements specific to MySQL linked service.</target>
+        </trans-unit>
+        <trans-unit id="7b29275d-4415-4e91-a142-cd61190fcc57" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="19db0f9c-3c0c-4c42-947a-042a27a3bbaa" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="8d9549e8-4b52-46e6-8375-2289f390e21f" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="6c6e5545-e35e-433e-b71b-f8ece6b6c861" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="82e8a8a9-b89f-44d5-85a2-f671e7215356" xml:space="preserve">
+          <source>The type property must be set to: <bpt id="c25b4bd7-a688-427f-a77d-a60503ecc922">&lt;strong&gt;</bpt>OnPremisesMySql<ept id="c25b4bd7-a688-427f-a77d-a60503ecc922">&lt;/strong&gt;</ept></source>
+          <target state="new">The type property must be set to: <bpt id="c25b4bd7-a688-427f-a77d-a60503ecc922">&lt;strong&gt;</bpt>OnPremisesMySql<ept id="c25b4bd7-a688-427f-a77d-a60503ecc922">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8fbc76bc-dabd-45bd-99a9-8d50d236d97d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="190b2311-0f3d-4ab9-bc52-70382d51e67f" xml:space="preserve">
+          <source>server</source>
+          <target state="new">server</target>
+        </trans-unit>
+        <trans-unit id="83723566-13cd-4905-af66-0aab6e919474" xml:space="preserve">
+          <source>Name of the MySQL server.</source>
+          <target state="new">Name of the MySQL server.</target>
+        </trans-unit>
+        <trans-unit id="3d026f3f-d90d-4546-80b9-0d50584b42eb" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="6daf6f1c-ec28-4514-87f5-9cff371df58c" xml:space="preserve">
+          <source>database</source>
+          <target state="new">database</target>
+        </trans-unit>
+        <trans-unit id="cf91551f-627a-429d-bf84-e76e162bd871" xml:space="preserve">
+          <source>Name of the MySQL database.</source>
+          <target state="new">Name of the MySQL database.</target>
+        </trans-unit>
+        <trans-unit id="d45af4cd-fa08-47a1-b847-01d6b3b7035d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="52bd4372-b188-485d-89e7-a28fada4a4f7" xml:space="preserve">
+          <source>schema</source>
+          <target state="new">schema</target>
+        </trans-unit>
+        <trans-unit id="87783889-893b-4bcd-97cc-733b446bbf7d" xml:space="preserve">
+          <source>Name of the schema in the database.</source>
+          <target state="new">Name of the schema in the database.</target>
+        </trans-unit>
+        <trans-unit id="57e1f128-8962-4237-9870-5637ea45084b" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="e6c2d8ab-fa85-4bd8-bb3a-f0c2f0ca55d5" xml:space="preserve">
+          <source>authenticationType</source>
+          <target state="new">authenticationType</target>
+        </trans-unit>
+        <trans-unit id="2fae27fa-8283-4589-bfc7-86c1f5c61604" xml:space="preserve">
+          <source>Type of authentication used to connect to the MySQL database.</source>
+          <target state="new">Type of authentication used to connect to the MySQL database.</target>
+        </trans-unit>
+        <trans-unit id="bdb2b18d-5234-4beb-a394-13cd4e6c2a4a" xml:space="preserve">
+          <source>Possible values are: Anonymous, Basic, and Windows.</source>
+          <target state="new">Possible values are: Anonymous, Basic, and Windows.</target>
+        </trans-unit>
+        <trans-unit id="7b65a1a4-58c2-4eeb-bf63-cf39977e3206" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d9c969e3-df20-4caa-9dd6-d86e78421d74" xml:space="preserve">
+          <source>username</source>
+          <target state="new">username</target>
+        </trans-unit>
+        <trans-unit id="e4ae3bdb-b456-4f7f-9901-4c605902c396" xml:space="preserve">
+          <source>Specify user name if you are using Basic or Windows authentication.</source>
+          <target state="new">Specify user name if you are using Basic or Windows authentication.</target>
+        </trans-unit>
+        <trans-unit id="6a619216-5a74-4c72-83fb-82c92300908e" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="6e0ef270-42ef-4c76-b69a-0d6d8e9b570d" xml:space="preserve">
+          <source>password</source>
+          <target state="new">password</target>
+        </trans-unit>
+        <trans-unit id="b35c1223-9a45-4b2e-a3d9-d4d78a0121c7" xml:space="preserve">
+          <source>Specify password for the user account you specified for the username.</source>
+          <target state="new">Specify password for the user account you specified for the username.</target>
+        </trans-unit>
+        <trans-unit id="10e868cf-a519-47cb-b0b6-b7f35bcca453" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="e65bdb3d-f346-4323-a5c1-f8d26e556e4a" xml:space="preserve">
+          <source>gatewayName</source>
+          <target state="new">gatewayName</target>
+        </trans-unit>
+        <trans-unit id="a49891b3-ccc8-4cbf-861e-2b0daaba9a46" xml:space="preserve">
+          <source>Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database.</source>
+          <target state="new">Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database.</target>
+        </trans-unit>
+        <trans-unit id="78777cf9-77e8-4dd8-934d-7be5ccd63ba7" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e9e4f75b-6009-448c-b875-0665e95619f3" xml:space="preserve">
+          <source>See <bpt id="51211e8d-37f6-4685-8c41-9e6c45fba3e9">&lt;linkText&gt;</bpt>Setting Credentials and Security<ept id="51211e8d-37f6-4685-8c41-9e6c45fba3e9">&lt;/linkText&gt;</ept><bpt id="51211e8d-37f6-4685-8c41-9e6c45fba3e9">&lt;title&gt;</bpt><ept id="51211e8d-37f6-4685-8c41-9e6c45fba3e9">&lt;/title&gt;</ept> for details about setting credentials for an on-premises MySQL data source.</source>
+          <target state="new">See <bpt id="51211e8d-37f6-4685-8c41-9e6c45fba3e9">&lt;linkText&gt;</bpt>Setting Credentials and Security<ept id="51211e8d-37f6-4685-8c41-9e6c45fba3e9">&lt;/linkText&gt;</ept><bpt id="51211e8d-37f6-4685-8c41-9e6c45fba3e9">&lt;title&gt;</bpt><ept id="51211e8d-37f6-4685-8c41-9e6c45fba3e9">&lt;/title&gt;</ept> for details about setting credentials for an on-premises MySQL data source.</target>
+        </trans-unit>
+        <trans-unit id="28fceb68-bb69-466e-99c0-2c8f5d2d5935" xml:space="preserve">
+          <source>For a full list of sections &amp; properties available for defining datasets, see the <bpt id="9fab732e-890a-4288-aee0-93692d184fe8">&lt;linkText&gt;</bpt>Creating datasets<ept id="9fab732e-890a-4288-aee0-93692d184fe8">&lt;/linkText&gt;</ept><bpt id="9fab732e-890a-4288-aee0-93692d184fe8">&lt;title&gt;</bpt><ept id="9fab732e-890a-4288-aee0-93692d184fe8">&lt;/title&gt;</ept> article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).</source>
+          <target state="new">For a full list of sections &amp; properties available for defining datasets, see the <bpt id="9fab732e-890a-4288-aee0-93692d184fe8">&lt;linkText&gt;</bpt>Creating datasets<ept id="9fab732e-890a-4288-aee0-93692d184fe8">&lt;/linkText&gt;</ept><bpt id="9fab732e-890a-4288-aee0-93692d184fe8">&lt;title&gt;</bpt><ept id="9fab732e-890a-4288-aee0-93692d184fe8">&lt;/title&gt;</ept> article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).</target>
+        </trans-unit>
+        <trans-unit id="bf0cafdb-8353-45d2-b361-9c1380fdad08" xml:space="preserve">
+          <source>The <bpt id="d1c721f6-1c7d-477e-a122-764e229bedb1">&lt;strong&gt;</bpt>typeProperties<ept id="d1c721f6-1c7d-477e-a122-764e229bedb1">&lt;/strong&gt;</ept> section is different for each type of dataset and provides information about the location of the data in the data store.</source>
+          <target state="new">The <bpt id="d1c721f6-1c7d-477e-a122-764e229bedb1">&lt;strong&gt;</bpt>typeProperties<ept id="d1c721f6-1c7d-477e-a122-764e229bedb1">&lt;/strong&gt;</ept> section is different for each type of dataset and provides information about the location of the data in the data store.</target>
+        </trans-unit>
+        <trans-unit id="80e6f5a0-e00e-4563-8863-168aee8898ed" xml:space="preserve">
+          <source>The typeProperties section for dataset of type <bpt id="8c2d3b7a-dec9-4490-a52f-eed98dd13021">&lt;strong&gt;</bpt>RelationalTable<ept id="8c2d3b7a-dec9-4490-a52f-eed98dd13021">&lt;/strong&gt;</ept> (which includes MySQL dataset) has the following properties</source>
+          <target state="new">The typeProperties section for dataset of type <bpt id="8c2d3b7a-dec9-4490-a52f-eed98dd13021">&lt;strong&gt;</bpt>RelationalTable<ept id="8c2d3b7a-dec9-4490-a52f-eed98dd13021">&lt;/strong&gt;</ept> (which includes MySQL dataset) has the following properties</target>
+        </trans-unit>
+        <trans-unit id="bd7d8ad0-fffe-498a-94bc-a7a2963ea833" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="431be239-fca5-4b79-8e5a-15a05d0cc0c7" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="b5e86970-808d-4cfb-8611-9820b540b9fd" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="abf28135-5197-40ff-a52c-15c9eefc3ece" xml:space="preserve">
+          <source>tableName</source>
+          <target state="new">tableName</target>
+        </trans-unit>
+        <trans-unit id="46796d82-ee9e-448f-9703-3086b81aa6be" xml:space="preserve">
+          <source>Name of the table in the MySQL Database instance that linked service refers to.</source>
+          <target state="new">Name of the table in the MySQL Database instance that linked service refers to.</target>
+        </trans-unit>
+        <trans-unit id="e3af56ce-a2eb-456b-885b-7cafdb2ea3d3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="04297aec-e2d9-4602-bcee-0808ac820149" xml:space="preserve">
+          <source>For a full list of sections &amp; properties available for defining activities, see the <bpt id="b7c5a5d4-ec56-414d-9182-45c101465b5e">&lt;linkText&gt;</bpt>Creating Pipelines<ept id="b7c5a5d4-ec56-414d-9182-45c101465b5e">&lt;/linkText&gt;</ept><bpt id="b7c5a5d4-ec56-414d-9182-45c101465b5e">&lt;title&gt;</bpt><ept id="b7c5a5d4-ec56-414d-9182-45c101465b5e">&lt;/title&gt;</ept> article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. </source>
+          <target state="new">For a full list of sections &amp; properties available for defining activities, see the <bpt id="b7c5a5d4-ec56-414d-9182-45c101465b5e">&lt;linkText&gt;</bpt>Creating Pipelines<ept id="b7c5a5d4-ec56-414d-9182-45c101465b5e">&lt;/linkText&gt;</ept><bpt id="b7c5a5d4-ec56-414d-9182-45c101465b5e">&lt;title&gt;</bpt><ept id="b7c5a5d4-ec56-414d-9182-45c101465b5e">&lt;/title&gt;</ept> article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. </target>
+        </trans-unit>
+        <trans-unit id="7bc78640-94f5-44f6-a9c7-47384e9ce94f" xml:space="preserve">
+          <source>Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.</source>
+          <target state="new">Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.</target>
+        </trans-unit>
+        <trans-unit id="af4c86c6-8af9-452a-8f42-188d3c422243" xml:space="preserve">
+          <source>In case of Copy Activity when source is of type <bpt id="79435f99-a991-4c3d-942a-9ba3e251aa19">&lt;strong&gt;</bpt>RelationalSource<ept id="79435f99-a991-4c3d-942a-9ba3e251aa19">&lt;/strong&gt;</ept> (which includes MySQL) the following properties are available in typeProperties section:</source>
+          <target state="new">In case of Copy Activity when source is of type <bpt id="79435f99-a991-4c3d-942a-9ba3e251aa19">&lt;strong&gt;</bpt>RelationalSource<ept id="79435f99-a991-4c3d-942a-9ba3e251aa19">&lt;/strong&gt;</ept> (which includes MySQL) the following properties are available in typeProperties section:</target>
+        </trans-unit>
+        <trans-unit id="59f165bc-7c20-4873-9adf-9c4e2573c416" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="64fadb7d-348e-4f2a-ba38-19b7dfe08cda" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="2ee14129-db42-49ad-a91c-0d1d76f5e0b3" xml:space="preserve">
+          <source>Allowed values</source>
+          <target state="new">Allowed values</target>
+        </trans-unit>
+        <trans-unit id="36da8898-d827-46e9-a4c0-bd4818461629" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="dc4d1186-fac6-4625-8044-715c91b0d33a" xml:space="preserve">
+          <source>query</source>
+          <target state="new">query</target>
+        </trans-unit>
+        <trans-unit id="df0337d7-b2f7-4f4f-9435-69699e279ea3" xml:space="preserve">
+          <source>Use the custom query to read data.</source>
+          <target state="new">Use the custom query to read data.</target>
+        </trans-unit>
+        <trans-unit id="9e02e522-f927-4f35-b6db-2761a24b24d8" xml:space="preserve">
+          <source>SQL query string.</source>
+          <target state="new">SQL query string.</target>
+        </trans-unit>
+        <trans-unit id="512e42e4-f5ea-46c1-a3a3-99267780cc0d" xml:space="preserve">
+          <source>For example: select * from MyTable.</source>
+          <target state="new">For example: select * from MyTable.</target>
+        </trans-unit>
+        <trans-unit id="26c233a3-b1af-4224-ac86-9db94d044c12" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2d40d681-74d0-4c48-80af-14fef35c8892" xml:space="preserve">
+          <source><bpt id="e6a1209c-3c2c-490e-ad5f-4cc645b2f0f3">&lt;token href="../../includes/data-factory-structure-for-rectangualr-datasets.md"&gt;</bpt><ept id="e6a1209c-3c2c-490e-ad5f-4cc645b2f0f3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e6a1209c-3c2c-490e-ad5f-4cc645b2f0f3">&lt;token href="../../includes/data-factory-structure-for-rectangualr-datasets.md"&gt;</bpt><ept id="e6a1209c-3c2c-490e-ad5f-4cc645b2f0f3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d13aa897-daae-4a4e-88b9-0bf757a0707c" xml:space="preserve">
+          <source>As mentioned in the <bpt id="ee20a148-72a2-4aa0-803c-93c74c02f161">&lt;linkText&gt;</bpt>data movement activities<ept id="ee20a148-72a2-4aa0-803c-93c74c02f161">&lt;/linkText&gt;</ept><bpt id="ee20a148-72a2-4aa0-803c-93c74c02f161">&lt;title&gt;</bpt><ept id="ee20a148-72a2-4aa0-803c-93c74c02f161">&lt;/title&gt;</ept> article, Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:</source>
+          <target state="new">As mentioned in the <bpt id="ee20a148-72a2-4aa0-803c-93c74c02f161">&lt;linkText&gt;</bpt>data movement activities<ept id="ee20a148-72a2-4aa0-803c-93c74c02f161">&lt;/linkText&gt;</ept><bpt id="ee20a148-72a2-4aa0-803c-93c74c02f161">&lt;title&gt;</bpt><ept id="ee20a148-72a2-4aa0-803c-93c74c02f161">&lt;/title&gt;</ept> article, Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:</target>
+        </trans-unit>
+        <trans-unit id="231c1b1c-cb52-4e92-93cf-ec8c3d01f52e" xml:space="preserve">
+          <source>Convert from native source types to .NET type</source>
+          <target state="new">Convert from native source types to .NET type</target>
+        </trans-unit>
+        <trans-unit id="ca334bae-7189-40f4-95a3-6a43a43c894a" xml:space="preserve">
+          <source>Convert from .NET type to native sink type</source>
+          <target state="new">Convert from .NET type to native sink type</target>
+        </trans-unit>
+        <trans-unit id="930456f0-b255-4947-8ecd-942ccbcf7026" xml:space="preserve">
+          <source>When moving data to MySQL the following mappings will be used from MySQL types to .NET types.</source>
+          <target state="new">When moving data to MySQL the following mappings will be used from MySQL types to .NET types.</target>
+        </trans-unit>
+        <trans-unit id="c35599b8-07bf-4177-8b24-8be661f7be3e" xml:space="preserve">
+          <source>MySQL Database type</source>
+          <target state="new">MySQL Database type</target>
+        </trans-unit>
+        <trans-unit id="e40fb55f-9632-4d3f-9ec9-42d3347d3e3b" xml:space="preserve">
+          <source>.NET Framework type</source>
+          <target state="new">.NET Framework type</target>
+        </trans-unit>
+        <trans-unit id="1752d6f7-dd84-4578-9967-3e5f214c1732" xml:space="preserve">
+          <source>bigint unsigned</source>
+          <target state="new">bigint unsigned</target>
+        </trans-unit>
+        <trans-unit id="a67968af-8551-499f-871f-8c86437a897e" xml:space="preserve">
+          <source>Decimal</source>
+          <target state="new">Decimal</target>
+        </trans-unit>
+        <trans-unit id="0531befc-d6b4-4a40-8c02-c41ad3986194" xml:space="preserve">
+          <source>bigint</source>
+          <target state="new">bigint</target>
+        </trans-unit>
+        <trans-unit id="aeae0ee3-85fd-4d3f-a634-6fa2230002fe" xml:space="preserve">
+          <source>Int64</source>
+          <target state="new">Int64</target>
+        </trans-unit>
+        <trans-unit id="d386bca6-5644-41bd-a385-ada69f84a065" xml:space="preserve">
+          <source>bit</source>
+          <target state="new">bit</target>
+        </trans-unit>
+        <trans-unit id="da406df8-e9c2-4e8c-9c0c-36ccc11b295c" xml:space="preserve">
+          <source>Decimal</source>
+          <target state="new">Decimal</target>
+        </trans-unit>
+        <trans-unit id="81bad9b8-4df1-4273-9e0f-b8b053c0fd9e" xml:space="preserve">
+          <source>blob</source>
+          <target state="new">blob</target>
+        </trans-unit>
+        <trans-unit id="7858fa6f-516f-48d1-ae9b-c359968f299a" xml:space="preserve">
+          <source>Byte[]</source>
+          <target state="new">Byte[]</target>
+        </trans-unit>
+        <trans-unit id="014f8ea4-cb92-4939-a687-0fd80c4aa1d2" xml:space="preserve">
+          <source>bool</source>
+          <target state="new">bool</target>
+        </trans-unit>
+        <trans-unit id="dc6d72ac-6db6-468b-9b48-e04992f32a56" xml:space="preserve">
+          <source>Boolean</source>
+          <target state="new">Boolean</target>
+        </trans-unit>
+        <trans-unit id="752d095d-6cd4-47df-88a7-f946415c7ea6" xml:space="preserve">
+          <source>char</source>
+          <target state="new">char</target>
+        </trans-unit>
+        <trans-unit id="6eb722c7-7864-4864-95dc-2f341c022883" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="25843dce-b897-4585-bdb3-95fc52db6375" xml:space="preserve">
+          <source>date</source>
+          <target state="new">date</target>
+        </trans-unit>
+        <trans-unit id="d74d67ec-5bb1-4aaf-8001-a310e015aeda" xml:space="preserve">
+          <source>Datetime</source>
+          <target state="new">Datetime</target>
+        </trans-unit>
+        <trans-unit id="d424539f-2878-4bf6-a11b-4823e751045f" xml:space="preserve">
+          <source>datetime</source>
+          <target state="new">datetime</target>
+        </trans-unit>
+        <trans-unit id="a0eadef9-6b6a-4e47-aeb9-f1dea3425788" xml:space="preserve">
+          <source>Datetime</source>
+          <target state="new">Datetime</target>
+        </trans-unit>
+        <trans-unit id="ac4737da-0da0-46ac-bad9-a649d8a7ea61" xml:space="preserve">
+          <source>decimal</source>
+          <target state="new">decimal</target>
+        </trans-unit>
+        <trans-unit id="4125825d-5a78-4dd7-abe4-2060d64a7b7c" xml:space="preserve">
+          <source>Decimal</source>
+          <target state="new">Decimal</target>
+        </trans-unit>
+        <trans-unit id="f12c6421-6e4c-4ce3-aeb9-0e177054ac0a" xml:space="preserve">
+          <source>double precision</source>
+          <target state="new">double precision</target>
+        </trans-unit>
+        <trans-unit id="fb59692e-91bd-4944-ac83-5a7b605af193" xml:space="preserve">
+          <source>Double</source>
+          <target state="new">Double</target>
+        </trans-unit>
+        <trans-unit id="dd2d51ed-aeb1-4d01-a210-c8da744e1b85" xml:space="preserve">
+          <source>double</source>
+          <target state="new">double</target>
+        </trans-unit>
+        <trans-unit id="2dadf604-928f-40d1-99a0-fd11e1236fa2" xml:space="preserve">
+          <source>Double</source>
+          <target state="new">Double</target>
+        </trans-unit>
+        <trans-unit id="99f4bbb2-324d-4978-a1e8-ac205a69ee32" xml:space="preserve">
+          <source>enum</source>
+          <target state="new">enum</target>
+        </trans-unit>
+        <trans-unit id="94fdc4f4-69bd-42b9-bc70-3df8453fbeca" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="f582ca55-b0e0-4af9-86a9-e972c39111d2" xml:space="preserve">
+          <source>float</source>
+          <target state="new">float</target>
+        </trans-unit>
+        <trans-unit id="bf596ee6-64b2-4760-b572-88c105e43879" xml:space="preserve">
+          <source>Single</source>
+          <target state="new">Single</target>
+        </trans-unit>
+        <trans-unit id="70612c65-9b90-44b9-8ef1-0e20866415c3" xml:space="preserve">
+          <source>int unsigned</source>
+          <target state="new">int unsigned</target>
+        </trans-unit>
+        <trans-unit id="ed4236c3-ecdd-4d90-9c13-cb0f47f6fe06" xml:space="preserve">
+          <source>Int64</source>
+          <target state="new">Int64</target>
+        </trans-unit>
+        <trans-unit id="a710e13e-00c3-4d6b-8c13-1bbd0b09aa1c" xml:space="preserve">
+          <source>int</source>
+          <target state="new">int</target>
+        </trans-unit>
+        <trans-unit id="ee186dcc-a969-4af1-8d56-00fea85bda0b" xml:space="preserve">
+          <source>Int32</source>
+          <target state="new">Int32</target>
+        </trans-unit>
+        <trans-unit id="85858f2d-477c-4b3e-808d-2e1807202c71" xml:space="preserve">
+          <source>integer unsigned</source>
+          <target state="new">integer unsigned</target>
+        </trans-unit>
+        <trans-unit id="0a526040-4e26-4b00-80cd-3a64cbfeec05" xml:space="preserve">
+          <source>Int64</source>
+          <target state="new">Int64</target>
+        </trans-unit>
+        <trans-unit id="20b43d0f-25ea-4b8e-ba46-a196b8b8d8ef" xml:space="preserve">
+          <source>integer</source>
+          <target state="new">integer</target>
+        </trans-unit>
+        <trans-unit id="c58c72fa-bf0c-4006-9ea3-19f09fcee3fe" xml:space="preserve">
+          <source>Int32</source>
+          <target state="new">Int32</target>
+        </trans-unit>
+        <trans-unit id="c1242d16-6c35-45c2-b409-346e1a831c17" xml:space="preserve">
+          <source>long varbinary</source>
+          <target state="new">long varbinary</target>
+        </trans-unit>
+        <trans-unit id="0cadf5ec-37e5-4d2a-84d5-90368b17a4ae" xml:space="preserve">
+          <source>Byte[]</source>
+          <target state="new">Byte[]</target>
+        </trans-unit>
+        <trans-unit id="fa833e58-c879-41ec-b95a-29f33d9bc2ab" xml:space="preserve">
+          <source>long varchar</source>
+          <target state="new">long varchar</target>
+        </trans-unit>
+        <trans-unit id="7769c88c-9a50-41de-abd8-427b51c44cfe" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="6a1c379c-e936-403c-881d-efd70f73dbd6" xml:space="preserve">
+          <source>longblob</source>
+          <target state="new">longblob</target>
+        </trans-unit>
+        <trans-unit id="0ea26b30-ecf2-497b-87cd-5df249ffe76a" xml:space="preserve">
+          <source>Byte[]</source>
+          <target state="new">Byte[]</target>
+        </trans-unit>
+        <trans-unit id="e5b81a85-e476-4498-835b-b19c8a84c6ee" xml:space="preserve">
+          <source>longtext</source>
+          <target state="new">longtext</target>
+        </trans-unit>
+        <trans-unit id="0ef1543f-1758-4d9f-81c2-8984012408b3" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="d7199eaa-46ca-49f3-9503-3aa75a82a62a" xml:space="preserve">
+          <source>mediumblob</source>
+          <target state="new">mediumblob</target>
+        </trans-unit>
+        <trans-unit id="d2abd0f8-bde3-4029-8550-c9834005dfba" xml:space="preserve">
+          <source>Byte[]</source>
+          <target state="new">Byte[]</target>
+        </trans-unit>
+        <trans-unit id="fb6c8924-c07f-44f9-9754-69a7e6bea8dc" xml:space="preserve">
+          <source>mediumint unsigned</source>
+          <target state="new">mediumint unsigned</target>
+        </trans-unit>
+        <trans-unit id="3fb2f880-2ffa-4b43-ae2f-a934442edeac" xml:space="preserve">
+          <source>Int64</source>
+          <target state="new">Int64</target>
+        </trans-unit>
+        <trans-unit id="b16c8a0a-3f9e-4fc2-8278-dc4693f7ccce" xml:space="preserve">
+          <source>mediumint</source>
+          <target state="new">mediumint</target>
+        </trans-unit>
+        <trans-unit id="75235086-43a2-4c16-a3d3-4e98a1c6fcec" xml:space="preserve">
+          <source>Int32</source>
+          <target state="new">Int32</target>
+        </trans-unit>
+        <trans-unit id="e71ab4de-4169-460b-b3e0-c6c381ced685" xml:space="preserve">
+          <source>mediumtext</source>
+          <target state="new">mediumtext</target>
+        </trans-unit>
+        <trans-unit id="c8695e99-13f4-428a-9e7f-fa24ae56cdf7" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="3bcbb4b1-ade9-4c9e-ab9d-f593cdf961a5" xml:space="preserve">
+          <source>numeric</source>
+          <target state="new">numeric</target>
+        </trans-unit>
+        <trans-unit id="93e231db-2a82-4fea-b4e7-a00d96a72292" xml:space="preserve">
+          <source>Decimal</source>
+          <target state="new">Decimal</target>
+        </trans-unit>
+        <trans-unit id="4d9f94dd-dbeb-4111-931d-1dd25391c3df" xml:space="preserve">
+          <source>real</source>
+          <target state="new">real</target>
+        </trans-unit>
+        <trans-unit id="00525ad3-1953-419a-aa49-0b05821f448f" xml:space="preserve">
+          <source>Double</source>
+          <target state="new">Double</target>
+        </trans-unit>
+        <trans-unit id="4eda19a2-eb39-4ad5-adea-a31cefb09d68" xml:space="preserve">
+          <source>set</source>
+          <target state="new">set</target>
+        </trans-unit>
+        <trans-unit id="a15e5077-0bcb-4c82-88e1-6bbddeb9a224" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="2b9c784b-d42a-4725-8e88-11796725f0fa" xml:space="preserve">
+          <source>smallint unsigned</source>
+          <target state="new">smallint unsigned</target>
+        </trans-unit>
+        <trans-unit id="785432b2-ad76-43d7-9c7c-e5d2fa4a013d" xml:space="preserve">
+          <source>Int32</source>
+          <target state="new">Int32</target>
+        </trans-unit>
+        <trans-unit id="0b21fe24-28ff-4bca-8d80-76ee8775a968" xml:space="preserve">
+          <source>smallint</source>
+          <target state="new">smallint</target>
+        </trans-unit>
+        <trans-unit id="3f1db44d-b2b5-45f9-9786-44b9e6411fee" xml:space="preserve">
+          <source>Int16</source>
+          <target state="new">Int16</target>
+        </trans-unit>
+        <trans-unit id="56f1c17b-0beb-4991-884c-c7b5ef59c3c9" xml:space="preserve">
+          <source>text</source>
+          <target state="new">text</target>
+        </trans-unit>
+        <trans-unit id="8e628355-0e19-46d6-a994-10cd0a9ae507" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="36771ad5-ef58-462f-8c70-c9172e686c71" xml:space="preserve">
+          <source>time</source>
+          <target state="new">time</target>
+        </trans-unit>
+        <trans-unit id="c746d0a1-61e2-491d-9f98-bb30e0f529e7" xml:space="preserve">
+          <source>TimeSpan</source>
+          <target state="new">TimeSpan</target>
+        </trans-unit>
+        <trans-unit id="edd1ed40-f246-49d3-b0f4-dba29c2720d8" xml:space="preserve">
+          <source>timestamp</source>
+          <target state="new">timestamp</target>
+        </trans-unit>
+        <trans-unit id="3fe1d401-e6b6-4c42-91b5-c1078094a394" xml:space="preserve">
+          <source>Datetime</source>
+          <target state="new">Datetime</target>
+        </trans-unit>
+        <trans-unit id="65fd1722-2ed5-4ff4-a93a-0748c6bfb797" xml:space="preserve">
+          <source>tinyblob</source>
+          <target state="new">tinyblob</target>
+        </trans-unit>
+        <trans-unit id="25345e56-0918-4449-ab95-8e6d1c0691d7" xml:space="preserve">
+          <source>Byte[]</source>
+          <target state="new">Byte[]</target>
+        </trans-unit>
+        <trans-unit id="4a57c88c-451a-42d9-b204-a569a3a8f122" xml:space="preserve">
+          <source>tinyint unsigned</source>
+          <target state="new">tinyint unsigned</target>
+        </trans-unit>
+        <trans-unit id="1abc634e-84f7-4e06-94ab-409ed3d3603a" xml:space="preserve">
+          <source>Int16</source>
+          <target state="new">Int16</target>
+        </trans-unit>
+        <trans-unit id="5ed2c70e-7e63-408c-9c86-98d6ce3e5911" xml:space="preserve">
+          <source>tinyint</source>
+          <target state="new">tinyint</target>
+        </trans-unit>
+        <trans-unit id="2fa0dd83-0798-4ed2-9cc3-49b8f23a7f79" xml:space="preserve">
+          <source>Int16</source>
+          <target state="new">Int16</target>
+        </trans-unit>
+        <trans-unit id="06385592-b417-4417-b964-e82ecfcdc136" xml:space="preserve">
+          <source>tinytext</source>
+          <target state="new">tinytext</target>
+        </trans-unit>
+        <trans-unit id="dc9a1e42-10f2-4ebe-842b-d2d2431a85fb" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="04b46773-7bbe-4f05-ab00-3e0856608688" xml:space="preserve">
+          <source>varchar</source>
+          <target state="new">varchar</target>
+        </trans-unit>
+        <trans-unit id="59fd498e-bd58-4a65-8e31-e8c50f6a9fd1" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="44179adc-2082-4b5d-9c77-561e10276d54" xml:space="preserve">
+          <source>year</source>
+          <target state="new">year</target>
+        </trans-unit>
+        <trans-unit id="8f474347-271c-40d0-8088-42408bdc290c" xml:space="preserve">
+          <source>Int</source>
+          <target state="new">Int</target>
+        </trans-unit>
+        <trans-unit id="f89e8f54-cc38-426f-8dbe-454135b10cd3" xml:space="preserve">
+          <source><bpt id="2013f048-b925-46e1-9eb0-77f33f858989">&lt;token href="../../includes/data-factory-column-mapping.md"&gt;</bpt><ept id="2013f048-b925-46e1-9eb0-77f33f858989">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2013f048-b925-46e1-9eb0-77f33f858989">&lt;token href="../../includes/data-factory-column-mapping.md"&gt;</bpt><ept id="2013f048-b925-46e1-9eb0-77f33f858989">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33c0bed3-9c1a-4f83-b422-d06a3b452448" xml:space="preserve">
+          <source><bpt id="626ce1cd-657f-401c-956b-65fc1237d107">&lt;token href="../../includes/data-factory-type-repeatability-for-relational-sources.md"&gt;</bpt><ept id="626ce1cd-657f-401c-956b-65fc1237d107">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="626ce1cd-657f-401c-956b-65fc1237d107">&lt;token href="../../includes/data-factory-type-repeatability-for-relational-sources.md"&gt;</bpt><ept id="626ce1cd-657f-401c-956b-65fc1237d107">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

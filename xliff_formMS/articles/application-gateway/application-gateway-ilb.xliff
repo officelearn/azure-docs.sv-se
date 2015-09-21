@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="94ff9890-528f-4185-94a0-8fda210ada4f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="94ff9890-528f-4185-94a0-8fda210ada4f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fb6c8ef7-45ee-44ea-94a6-0f8e0bea24ae">
+        <trans-unit id="e5db6e7c-80bd-4672-9df2-efc715889d3d" xml:space="preserve">
+          <source>Create and Configure an Application Gateway with Internal Load Balancer (ILB) in a Virtual Network | Microsoft Azure</source>
+          <target state="new">Create and Configure an Application Gateway with Internal Load Balancer (ILB) in a Virtual Network | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="cce8070a-6ce7-4654-a4fc-05aecd6b8d80" xml:space="preserve">
+          <source>This page provides instructions to configure an Azure Application Gateway with an Internal Load Balanced endpoint</source>
+          <target state="new">This page provides instructions to configure an Azure Application Gateway with an Internal Load Balanced endpoint</target>
+        </trans-unit>
+        <trans-unit id="fecedd45-b83c-49a6-b416-e385c5d4c80f" xml:space="preserve">
+          <source>Application Gateway can be configured with an internet facing VIP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint.</source>
+          <target state="new">Application Gateway can be configured with an internet facing VIP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint.</target>
+        </trans-unit>
+        <trans-unit id="e3af4eb0-dc3c-4b2b-bb4f-a8732b83d8ab" xml:space="preserve">
+          <source>Configuring the gateway with an ILB is useful for internal line of business applications not exposed to internet.</source>
+          <target state="new">Configuring the gateway with an ILB is useful for internal line of business applications not exposed to internet.</target>
+        </trans-unit>
+        <trans-unit id="be47aeba-c8a6-4112-87c5-d1f0a4b75ec1" xml:space="preserve">
+          <source>It's also useful for services/tiers within a multi-tier application which sit in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination.</source>
+          <target state="new">It's also useful for services/tiers within a multi-tier application which sit in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination.</target>
+        </trans-unit>
+        <trans-unit id="780927ae-8564-4435-8c44-578fab5cf25b" xml:space="preserve">
+          <source>This article will walk you through the steps to configure an application gateway with an ILB.</source>
+          <target state="new">This article will walk you through the steps to configure an application gateway with an ILB.</target>
+        </trans-unit>
+        <trans-unit id="3965c4d9-00a7-4897-bbed-02fe80e2e02f" xml:space="preserve">
+          <source>Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer.</source>
+          <target state="new">Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer.</target>
+        </trans-unit>
+        <trans-unit id="27f7c626-606c-4cea-bce1-1ec6335579e5" xml:space="preserve">
+          <source>You can download and install the latest version from the <bpt id="11868d0a-c17b-4948-9ff7-037b15bfcd56">&lt;strong&gt;</bpt>Windows PowerShell<ept id="11868d0a-c17b-4948-9ff7-037b15bfcd56">&lt;/strong&gt;</ept> section of the <bpt id="a93b33d6-a1bc-47d1-b4b3-379728f29c6e">&lt;linkText&gt;</bpt>Download page<ept id="a93b33d6-a1bc-47d1-b4b3-379728f29c6e">&lt;/linkText&gt;</ept><bpt id="a93b33d6-a1bc-47d1-b4b3-379728f29c6e">&lt;title&gt;</bpt><ept id="a93b33d6-a1bc-47d1-b4b3-379728f29c6e">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can download and install the latest version from the <bpt id="11868d0a-c17b-4948-9ff7-037b15bfcd56">&lt;strong&gt;</bpt>Windows PowerShell<ept id="11868d0a-c17b-4948-9ff7-037b15bfcd56">&lt;/strong&gt;</ept> section of the <bpt id="a93b33d6-a1bc-47d1-b4b3-379728f29c6e">&lt;linkText&gt;</bpt>Download page<ept id="a93b33d6-a1bc-47d1-b4b3-379728f29c6e">&lt;/linkText&gt;</ept><bpt id="a93b33d6-a1bc-47d1-b4b3-379728f29c6e">&lt;title&gt;</bpt><ept id="a93b33d6-a1bc-47d1-b4b3-379728f29c6e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63c118f8-393f-4156-b485-a4e719a278fd" xml:space="preserve">
+          <source>Verify that you have a working virtual network with valid subnet.</source>
+          <target state="new">Verify that you have a working virtual network with valid subnet.</target>
+        </trans-unit>
+        <trans-unit id="7ca2680e-9947-464d-97f0-e0d8481523c5" xml:space="preserve">
+          <source>Verify that you have backend servers either in the virtual network, or with a public IP/VIP assigned.</source>
+          <target state="new">Verify that you have backend servers either in the virtual network, or with a public IP/VIP assigned.</target>
+        </trans-unit>
+        <trans-unit id="32c5cca6-68f9-4b0b-b82a-cf6067317fd0" xml:space="preserve">
+          <source>To create a new application gateway, perform the following steps in the order listed.</source>
+          <target state="new">To create a new application gateway, perform the following steps in the order listed.</target>
+        </trans-unit>
+        <trans-unit id="4e9d7533-eeba-4214-b20f-0d55bdb7f235" xml:space="preserve">
+          <source><bpt id="6439879a-602a-4c8f-85be-037b942294a3">&lt;linkText&gt;</bpt>Create a new application gateway<ept id="6439879a-602a-4c8f-85be-037b942294a3">&lt;/linkText&gt;</ept><bpt id="6439879a-602a-4c8f-85be-037b942294a3">&lt;title&gt;</bpt><ept id="6439879a-602a-4c8f-85be-037b942294a3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6439879a-602a-4c8f-85be-037b942294a3">&lt;linkText&gt;</bpt>Create a new application gateway<ept id="6439879a-602a-4c8f-85be-037b942294a3">&lt;/linkText&gt;</ept><bpt id="6439879a-602a-4c8f-85be-037b942294a3">&lt;title&gt;</bpt><ept id="6439879a-602a-4c8f-85be-037b942294a3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ceca6885-9d5e-446c-848d-e8414ce7c4e0" xml:space="preserve">
+          <source><bpt id="c2c4c013-3c4b-4f8e-81da-42424fc354d1">&lt;linkText&gt;</bpt>Configure the gateway<ept id="c2c4c013-3c4b-4f8e-81da-42424fc354d1">&lt;/linkText&gt;</ept><bpt id="c2c4c013-3c4b-4f8e-81da-42424fc354d1">&lt;title&gt;</bpt><ept id="c2c4c013-3c4b-4f8e-81da-42424fc354d1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c2c4c013-3c4b-4f8e-81da-42424fc354d1">&lt;linkText&gt;</bpt>Configure the gateway<ept id="c2c4c013-3c4b-4f8e-81da-42424fc354d1">&lt;/linkText&gt;</ept><bpt id="c2c4c013-3c4b-4f8e-81da-42424fc354d1">&lt;title&gt;</bpt><ept id="c2c4c013-3c4b-4f8e-81da-42424fc354d1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b687186-dc72-43c7-b096-d2acc61349dd" xml:space="preserve">
+          <source><bpt id="0a77ad72-749a-4ee3-a1b9-e3e55271214c">&lt;linkText&gt;</bpt>Set the gateway configuration<ept id="0a77ad72-749a-4ee3-a1b9-e3e55271214c">&lt;/linkText&gt;</ept><bpt id="0a77ad72-749a-4ee3-a1b9-e3e55271214c">&lt;title&gt;</bpt><ept id="0a77ad72-749a-4ee3-a1b9-e3e55271214c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0a77ad72-749a-4ee3-a1b9-e3e55271214c">&lt;linkText&gt;</bpt>Set the gateway configuration<ept id="0a77ad72-749a-4ee3-a1b9-e3e55271214c">&lt;/linkText&gt;</ept><bpt id="0a77ad72-749a-4ee3-a1b9-e3e55271214c">&lt;title&gt;</bpt><ept id="0a77ad72-749a-4ee3-a1b9-e3e55271214c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08e8db2f-7319-434e-a457-1c10917ea8a7" xml:space="preserve">
+          <source><bpt id="fc901b78-e924-45d7-8460-35550211202e">&lt;linkText&gt;</bpt>Start the gateway<ept id="fc901b78-e924-45d7-8460-35550211202e">&lt;/linkText&gt;</ept><bpt id="fc901b78-e924-45d7-8460-35550211202e">&lt;title&gt;</bpt><ept id="fc901b78-e924-45d7-8460-35550211202e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fc901b78-e924-45d7-8460-35550211202e">&lt;linkText&gt;</bpt>Start the gateway<ept id="fc901b78-e924-45d7-8460-35550211202e">&lt;/linkText&gt;</ept><bpt id="fc901b78-e924-45d7-8460-35550211202e">&lt;title&gt;</bpt><ept id="fc901b78-e924-45d7-8460-35550211202e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd003a5d-4331-4622-b17c-aec63e7965cc" xml:space="preserve">
+          <source><bpt id="225cd8b7-e022-48f3-818f-517fb61f7f84">&lt;linkText&gt;</bpt>Verify the gateway<ept id="225cd8b7-e022-48f3-818f-517fb61f7f84">&lt;/linkText&gt;</ept><bpt id="225cd8b7-e022-48f3-818f-517fb61f7f84">&lt;title&gt;</bpt><ept id="225cd8b7-e022-48f3-818f-517fb61f7f84">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="225cd8b7-e022-48f3-818f-517fb61f7f84">&lt;linkText&gt;</bpt>Verify the gateway<ept id="225cd8b7-e022-48f3-818f-517fb61f7f84">&lt;/linkText&gt;</ept><bpt id="225cd8b7-e022-48f3-818f-517fb61f7f84">&lt;title&gt;</bpt><ept id="225cd8b7-e022-48f3-818f-517fb61f7f84">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d7d62f5-3daa-4e2c-b49d-fe5ac64095fc" xml:space="preserve">
+          <source><bpt id="ace686e3-048b-4b7d-9659-13bd62f034e2">&lt;strong&gt;</bpt>To create the gateway<ept id="ace686e3-048b-4b7d-9659-13bd62f034e2">&lt;/strong&gt;</ept>, use the <bpt id="5f915faa-781b-4101-b33e-9fb40c0ab8b1">&lt;code&gt;</bpt>New-AzureApplicationGateway<ept id="5f915faa-781b-4101-b33e-9fb40c0ab8b1">&lt;/code&gt;</ept> cmdlet, replacing the values with your own.</source>
+          <target state="new"><bpt id="ace686e3-048b-4b7d-9659-13bd62f034e2">&lt;strong&gt;</bpt>To create the gateway<ept id="ace686e3-048b-4b7d-9659-13bd62f034e2">&lt;/strong&gt;</ept>, use the <bpt id="5f915faa-781b-4101-b33e-9fb40c0ab8b1">&lt;code&gt;</bpt>New-AzureApplicationGateway<ept id="5f915faa-781b-4101-b33e-9fb40c0ab8b1">&lt;/code&gt;</ept> cmdlet, replacing the values with your own.</target>
+        </trans-unit>
+        <trans-unit id="a6dee0e0-9a82-4709-b754-6ad0b000c293" xml:space="preserve">
+          <source>Note that billing for the gateway does not start at this point.</source>
+          <target state="new">Note that billing for the gateway does not start at this point.</target>
+        </trans-unit>
+        <trans-unit id="1d0f27a9-8535-4804-9ee0-8ec8dfb10c68" xml:space="preserve">
+          <source>Billing begins in a later step, when the gateway is successfully started.</source>
+          <target state="new">Billing begins in a later step, when the gateway is successfully started.</target>
+        </trans-unit>
+        <trans-unit id="dce9c7bb-e5ab-4f21-ac84-b7cca121e76d" xml:space="preserve">
+          <source><bpt id="69bb87ec-42ca-4ecd-9dd6-966a32281f05">&lt;strong&gt;</bpt>To validate<ept id="69bb87ec-42ca-4ecd-9dd6-966a32281f05">&lt;/strong&gt;</ept> that the gateway was created, you can use the <bpt id="1e6afc32-e906-4553-b765-ffc8d3e3083c">&lt;code&gt;</bpt>Get-AzureApplicationGateway<ept id="1e6afc32-e906-4553-b765-ffc8d3e3083c">&lt;/code&gt;</ept> cmdlet.</source>
+          <target state="new"><bpt id="69bb87ec-42ca-4ecd-9dd6-966a32281f05">&lt;strong&gt;</bpt>To validate<ept id="69bb87ec-42ca-4ecd-9dd6-966a32281f05">&lt;/strong&gt;</ept> that the gateway was created, you can use the <bpt id="1e6afc32-e906-4553-b765-ffc8d3e3083c">&lt;code&gt;</bpt>Get-AzureApplicationGateway<ept id="1e6afc32-e906-4553-b765-ffc8d3e3083c">&lt;/code&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="8e74ca61-8096-492a-bfb0-ca3c793f727c" xml:space="preserve">
+          <source>In the sample, <bpt id="5e635073-4ad5-46a3-933d-550cdfe270af">&lt;em&gt;</bpt>Description<ept id="5e635073-4ad5-46a3-933d-550cdfe270af">&lt;/em&gt;</ept>, <bpt id="9146cbea-3106-4bba-a034-0783d4ee7ce3">&lt;em&gt;</bpt>InstanceCount<ept id="9146cbea-3106-4bba-a034-0783d4ee7ce3">&lt;/em&gt;</ept>, and <bpt id="dd55d942-9c66-4f7f-8292-fa550a462bc9">&lt;em&gt;</bpt>GatewaySize<ept id="dd55d942-9c66-4f7f-8292-fa550a462bc9">&lt;/em&gt;</ept> are optional parameters.</source>
+          <target state="new">In the sample, <bpt id="5e635073-4ad5-46a3-933d-550cdfe270af">&lt;em&gt;</bpt>Description<ept id="5e635073-4ad5-46a3-933d-550cdfe270af">&lt;/em&gt;</ept>, <bpt id="9146cbea-3106-4bba-a034-0783d4ee7ce3">&lt;em&gt;</bpt>InstanceCount<ept id="9146cbea-3106-4bba-a034-0783d4ee7ce3">&lt;/em&gt;</ept>, and <bpt id="dd55d942-9c66-4f7f-8292-fa550a462bc9">&lt;em&gt;</bpt>GatewaySize<ept id="dd55d942-9c66-4f7f-8292-fa550a462bc9">&lt;/em&gt;</ept> are optional parameters.</target>
+        </trans-unit>
+        <trans-unit id="c4288cc9-0c62-4140-816e-7834b47e842c" xml:space="preserve">
+          <source>The default value for <bpt id="f5946d62-43cb-430f-a887-c452d6c934c3">&lt;em&gt;</bpt>InstanceCount<ept id="f5946d62-43cb-430f-a887-c452d6c934c3">&lt;/em&gt;</ept> is 2, with a maximum value of 10.</source>
+          <target state="new">The default value for <bpt id="f5946d62-43cb-430f-a887-c452d6c934c3">&lt;em&gt;</bpt>InstanceCount<ept id="f5946d62-43cb-430f-a887-c452d6c934c3">&lt;/em&gt;</ept> is 2, with a maximum value of 10.</target>
+        </trans-unit>
+        <trans-unit id="d6ea1cd9-53ae-4fed-954e-e4f0c60c1eb1" xml:space="preserve">
+          <source>The default value for <bpt id="2d413c59-b76d-4735-aa8d-aed0a1dcdde9">&lt;em&gt;</bpt>GatewaySize<ept id="2d413c59-b76d-4735-aa8d-aed0a1dcdde9">&lt;/em&gt;</ept> is Medium.</source>
+          <target state="new">The default value for <bpt id="2d413c59-b76d-4735-aa8d-aed0a1dcdde9">&lt;em&gt;</bpt>GatewaySize<ept id="2d413c59-b76d-4735-aa8d-aed0a1dcdde9">&lt;/em&gt;</ept> is Medium.</target>
+        </trans-unit>
+        <trans-unit id="a9754ea5-ae82-40a4-b784-c312891a5bbd" xml:space="preserve">
+          <source>Small and Large are other available values.</source>
+          <target state="new">Small and Large are other available values.</target>
+        </trans-unit>
+        <trans-unit id="e0665a58-bbeb-4158-bf7d-218746fb59bd" xml:space="preserve">
+          <source><bpt id="8ffa3091-ab61-40e1-8d9e-8a2ad6840453">&lt;em&gt;</bpt>Vip<ept id="8ffa3091-ab61-40e1-8d9e-8a2ad6840453">&lt;/em&gt;</ept> and <bpt id="b4165d61-b19f-4e19-8b55-2618d5cfbba7">&lt;em&gt;</bpt>DnsName<ept id="b4165d61-b19f-4e19-8b55-2618d5cfbba7">&lt;/em&gt;</ept> are shown as blank because the gateway has not started yet.</source>
+          <target state="new"><bpt id="8ffa3091-ab61-40e1-8d9e-8a2ad6840453">&lt;em&gt;</bpt>Vip<ept id="8ffa3091-ab61-40e1-8d9e-8a2ad6840453">&lt;/em&gt;</ept> and <bpt id="b4165d61-b19f-4e19-8b55-2618d5cfbba7">&lt;em&gt;</bpt>DnsName<ept id="b4165d61-b19f-4e19-8b55-2618d5cfbba7">&lt;/em&gt;</ept> are shown as blank because the gateway has not started yet.</target>
+        </trans-unit>
+        <trans-unit id="ad9070cc-3d37-4ce7-b715-5832066b04b8" xml:space="preserve">
+          <source>These will be created once the gateway is in the running state.</source>
+          <target state="new">These will be created once the gateway is in the running state.</target>
+        </trans-unit>
+        <trans-unit id="0cceea5f-649d-4053-b127-6f76cc07bd15" xml:space="preserve">
+          <source>An application gateway configuration consists of multiple values.</source>
+          <target state="new">An application gateway configuration consists of multiple values.</target>
+        </trans-unit>
+        <trans-unit id="a84867f0-f9ae-4e77-b4ae-3f651e82de8c" xml:space="preserve">
+          <source>The values can be tied together to construct the configuration.</source>
+          <target state="new">The values can be tied together to construct the configuration.</target>
+        </trans-unit>
+        <trans-unit id="c9f14805-1bd1-4bfe-acb2-e6eb0f541829" xml:space="preserve">
+          <source>The values are:</source>
+          <target state="new">The values are:</target>
+        </trans-unit>
+        <trans-unit id="52798372-5df9-4108-9329-1808817dc6f1" xml:space="preserve">
+          <source><bpt id="7051b8bc-ab33-4eb9-998b-21521e2b3118">&lt;strong&gt;</bpt>Backend server pool:<ept id="7051b8bc-ab33-4eb9-998b-21521e2b3118">&lt;/strong&gt;</ept> The list of IP addresses of the backend servers.</source>
+          <target state="new"><bpt id="7051b8bc-ab33-4eb9-998b-21521e2b3118">&lt;strong&gt;</bpt>Backend server pool:<ept id="7051b8bc-ab33-4eb9-998b-21521e2b3118">&lt;/strong&gt;</ept> The list of IP addresses of the backend servers.</target>
+        </trans-unit>
+        <trans-unit id="9bcb0e67-5136-47cc-b6f5-c2bea9afbda2" xml:space="preserve">
+          <source>The IP addresses listed should either belong to the VNet subnet, or should be a public IP/VIP.</source>
+          <target state="new">The IP addresses listed should either belong to the VNet subnet, or should be a public IP/VIP.</target>
+        </trans-unit>
+        <trans-unit id="950d8598-bd53-4785-93cc-8ded4f6d9129" xml:space="preserve">
+          <source><bpt id="9a63c42a-5cd6-4af8-bec9-959d20468a48">&lt;strong&gt;</bpt>Backend server pool settings:<ept id="9a63c42a-5cd6-4af8-bec9-959d20468a48">&lt;/strong&gt;</ept> Every pool has settings like port, protocol, and cookie based affinity.</source>
+          <target state="new"><bpt id="9a63c42a-5cd6-4af8-bec9-959d20468a48">&lt;strong&gt;</bpt>Backend server pool settings:<ept id="9a63c42a-5cd6-4af8-bec9-959d20468a48">&lt;/strong&gt;</ept> Every pool has settings like port, protocol, and cookie based affinity.</target>
+        </trans-unit>
+        <trans-unit id="44bd3f21-4d58-4a1e-9190-100f8e4e9345" xml:space="preserve">
+          <source>These settings are tied to a pool and are applied to all servers within the pool.</source>
+          <target state="new">These settings are tied to a pool and are applied to all servers within the pool.</target>
+        </trans-unit>
+        <trans-unit id="cfbc0267-a360-408b-9c74-2e0d25f5a75d" xml:space="preserve">
+          <source><bpt id="50a50f95-54de-4a65-bc34-262b508b2db0">&lt;strong&gt;</bpt>Frontend Port:<ept id="50a50f95-54de-4a65-bc34-262b508b2db0">&lt;/strong&gt;</ept> This port is the public port opened on the application gateway.</source>
+          <target state="new"><bpt id="50a50f95-54de-4a65-bc34-262b508b2db0">&lt;strong&gt;</bpt>Frontend Port:<ept id="50a50f95-54de-4a65-bc34-262b508b2db0">&lt;/strong&gt;</ept> This port is the public port opened on the application gateway.</target>
+        </trans-unit>
+        <trans-unit id="4c07e66a-d6a2-4e80-adda-10f42cac648a" xml:space="preserve">
+          <source>Traffic hits this port, and then gets redirected to one of the backend servers.</source>
+          <target state="new">Traffic hits this port, and then gets redirected to one of the backend servers.</target>
+        </trans-unit>
+        <trans-unit id="cfbd5c7e-8866-45fd-a1c1-d0fe6ddd2d89" xml:space="preserve">
+          <source><bpt id="76af4182-a957-4c34-a496-bc58ce9e2cdb">&lt;strong&gt;</bpt>Listener:<ept id="76af4182-a957-4c34-a496-bc58ce9e2cdb">&lt;/strong&gt;</ept> The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).</source>
+          <target state="new"><bpt id="76af4182-a957-4c34-a496-bc58ce9e2cdb">&lt;strong&gt;</bpt>Listener:<ept id="76af4182-a957-4c34-a496-bc58ce9e2cdb">&lt;/strong&gt;</ept> The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).</target>
+        </trans-unit>
+        <trans-unit id="b217dc7c-512f-46ed-b214-5357a67328ba" xml:space="preserve">
+          <source><bpt id="a97d861f-9a69-413f-b0dc-1505635276de">&lt;strong&gt;</bpt>Rule:<ept id="a97d861f-9a69-413f-b0dc-1505635276de">&lt;/strong&gt;</ept> The rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener.</source>
+          <target state="new"><bpt id="a97d861f-9a69-413f-b0dc-1505635276de">&lt;strong&gt;</bpt>Rule:<ept id="a97d861f-9a69-413f-b0dc-1505635276de">&lt;/strong&gt;</ept> The rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener.</target>
+        </trans-unit>
+        <trans-unit id="efa31119-5b0a-4953-b56e-9fb906c5b4f8" xml:space="preserve">
+          <source>Currently, only the <bpt id="fc4bd8dc-424f-4503-90b3-b8ec120b1825">&lt;em&gt;</bpt>basic<ept id="fc4bd8dc-424f-4503-90b3-b8ec120b1825">&lt;/em&gt;</ept> rule is supported.</source>
+          <target state="new">Currently, only the <bpt id="fc4bd8dc-424f-4503-90b3-b8ec120b1825">&lt;em&gt;</bpt>basic<ept id="fc4bd8dc-424f-4503-90b3-b8ec120b1825">&lt;/em&gt;</ept> rule is supported.</target>
+        </trans-unit>
+        <trans-unit id="3d90acaa-3a9e-404a-8613-30b0f3360a69" xml:space="preserve">
+          <source>The <bpt id="c985c0f2-8bb4-4aa5-8d16-446ff5ccb554">&lt;em&gt;</bpt>basic<ept id="c985c0f2-8bb4-4aa5-8d16-446ff5ccb554">&lt;/em&gt;</ept> rule is round-robin load distribution.</source>
+          <target state="new">The <bpt id="c985c0f2-8bb4-4aa5-8d16-446ff5ccb554">&lt;em&gt;</bpt>basic<ept id="c985c0f2-8bb4-4aa5-8d16-446ff5ccb554">&lt;/em&gt;</ept> rule is round-robin load distribution.</target>
+        </trans-unit>
+        <trans-unit id="893d6015-71ce-4669-b65f-671646b576ac" xml:space="preserve">
+          <source>You can construct your configuration either by creating a configuration object, or by using a configuration XML file.</source>
+          <target state="new">You can construct your configuration either by creating a configuration object, or by using a configuration XML file.</target>
+        </trans-unit>
+        <trans-unit id="37db607e-8913-44cb-82c8-1f2121f73957" xml:space="preserve">
+          <source>To construct your configuration by using a configuration XML file, use the sample below.</source>
+          <target state="new">To construct your configuration by using a configuration XML file, use the sample below.</target>
+        </trans-unit>
+        <trans-unit id="fe3757d4-e641-443a-a5f0-efb0821d76dd" xml:space="preserve">
+          <source>Note the following:</source>
+          <target state="new">Note the following:</target>
+        </trans-unit>
+        <trans-unit id="6d2b5136-0b81-4666-b700-b923ddeee231" xml:space="preserve">
+          <source>The <bpt id="37fea20d-2021-472e-941d-33ebf90c7976">&lt;em&gt;</bpt>FrontendIPConfigurations<ept id="37fea20d-2021-472e-941d-33ebf90c7976">&lt;/em&gt;</ept> element describes the ILB details relevant for configuring Application Gateway with an ILB.</source>
+          <target state="new">The <bpt id="37fea20d-2021-472e-941d-33ebf90c7976">&lt;em&gt;</bpt>FrontendIPConfigurations<ept id="37fea20d-2021-472e-941d-33ebf90c7976">&lt;/em&gt;</ept> element describes the ILB details relevant for configuring Application Gateway with an ILB.</target>
+        </trans-unit>
+        <trans-unit id="e60c40ec-5e9b-4b93-b0fc-3b137bd5fdbc" xml:space="preserve">
+          <source>The Frontend IP <bpt id="cb75e29b-80a1-44cc-a051-c83cd0d0cb42">&lt;em&gt;</bpt>Type<ept id="cb75e29b-80a1-44cc-a051-c83cd0d0cb42">&lt;/em&gt;</ept> should be set to 'Private'</source>
+          <target state="new">The Frontend IP <bpt id="cb75e29b-80a1-44cc-a051-c83cd0d0cb42">&lt;em&gt;</bpt>Type<ept id="cb75e29b-80a1-44cc-a051-c83cd0d0cb42">&lt;/em&gt;</ept> should be set to 'Private'</target>
+        </trans-unit>
+        <trans-unit id="6c80db6d-c9cf-4a4a-ad20-8c64a75cadd4" xml:space="preserve">
+          <source>The <bpt id="1b6d804e-4a51-4552-9468-3f1645173261">&lt;em&gt;</bpt>StaticIPAddress<ept id="1b6d804e-4a51-4552-9468-3f1645173261">&lt;/em&gt;</ept> should be set to the desired internal IP on which the gateway will receive traffic.</source>
+          <target state="new">The <bpt id="1b6d804e-4a51-4552-9468-3f1645173261">&lt;em&gt;</bpt>StaticIPAddress<ept id="1b6d804e-4a51-4552-9468-3f1645173261">&lt;/em&gt;</ept> should be set to the desired internal IP on which the gateway will receive traffic.</target>
+        </trans-unit>
+        <trans-unit id="11f5204e-df79-4482-98a3-60fac1a53319" xml:space="preserve">
+          <source>Note that the  <bpt id="6ad54a41-e299-40e6-9cd6-60887bef1178">&lt;em&gt;</bpt>StaticIPAddress<ept id="6ad54a41-e299-40e6-9cd6-60887bef1178">&lt;/em&gt;</ept> element is optional.</source>
+          <target state="new">Note that the  <bpt id="6ad54a41-e299-40e6-9cd6-60887bef1178">&lt;em&gt;</bpt>StaticIPAddress<ept id="6ad54a41-e299-40e6-9cd6-60887bef1178">&lt;/em&gt;</ept> element is optional.</target>
+        </trans-unit>
+        <trans-unit id="072b49e6-0bb6-4fa3-8db9-0c92e7500f3f" xml:space="preserve">
+          <source>If not set, an available internal IP from the deployed subnet is chosen.</source>
+          <target state="new">If not set, an available internal IP from the deployed subnet is chosen.</target>
+        </trans-unit>
+        <trans-unit id="efc11aae-85ac-477b-9566-e6c05abaa3db" xml:space="preserve">
+          <source>The value of the <bpt id="a823a340-d183-411c-bfc6-25ce5068cc17">&lt;em&gt;</bpt>Name<ept id="a823a340-d183-411c-bfc6-25ce5068cc17">&lt;/em&gt;</ept> element specified in <bpt id="386c3c18-a7fa-438c-939f-512e09fc11ed">&lt;em&gt;</bpt>FrontendIPConfiguration<ept id="386c3c18-a7fa-438c-939f-512e09fc11ed">&lt;/em&gt;</ept> should be used in the  HTTPListener's <bpt id="962f1b06-02e5-4f10-860a-dd21d5c89659">&lt;em&gt;</bpt>FrontendIP<ept id="962f1b06-02e5-4f10-860a-dd21d5c89659">&lt;/em&gt;</ept> element to refer to the FrontendIPConfiguration.</source>
+          <target state="new">The value of the <bpt id="a823a340-d183-411c-bfc6-25ce5068cc17">&lt;em&gt;</bpt>Name<ept id="a823a340-d183-411c-bfc6-25ce5068cc17">&lt;/em&gt;</ept> element specified in <bpt id="386c3c18-a7fa-438c-939f-512e09fc11ed">&lt;em&gt;</bpt>FrontendIPConfiguration<ept id="386c3c18-a7fa-438c-939f-512e09fc11ed">&lt;/em&gt;</ept> should be used in the  HTTPListener's <bpt id="962f1b06-02e5-4f10-860a-dd21d5c89659">&lt;em&gt;</bpt>FrontendIP<ept id="962f1b06-02e5-4f10-860a-dd21d5c89659">&lt;/em&gt;</ept> element to refer to the FrontendIPConfiguration.</target>
+        </trans-unit>
+        <trans-unit id="07b35380-b1d2-4f9f-a075-39032874ef42" xml:space="preserve">
+          <source><bpt id="638a7af6-a17f-4270-bc99-b6ef6fa91c7c">&lt;strong&gt;</bpt>Configuration XML sample<ept id="638a7af6-a17f-4270-bc99-b6ef6fa91c7c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="638a7af6-a17f-4270-bc99-b6ef6fa91c7c">&lt;strong&gt;</bpt>Configuration XML sample<ept id="638a7af6-a17f-4270-bc99-b6ef6fa91c7c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e1f9822-1099-4eb4-9b7f-049ae09ea3ee" xml:space="preserve">
+          <source>Next, you'll set the application gateway.</source>
+          <target state="new">Next, you'll set the application gateway.</target>
+        </trans-unit>
+        <trans-unit id="5058632a-fb04-48b8-9df1-c42bee9457fa" xml:space="preserve">
+          <source>You can use the <bpt id="7dc95b1f-9aab-4b71-a046-eff86af6f2b2">&lt;code&gt;</bpt>Set-AzureApplicationGatewayConfig<ept id="7dc95b1f-9aab-4b71-a046-eff86af6f2b2">&lt;/code&gt;</ept> cmdlet with a configuration object, or with a configuration XML file.</source>
+          <target state="new">You can use the <bpt id="7dc95b1f-9aab-4b71-a046-eff86af6f2b2">&lt;code&gt;</bpt>Set-AzureApplicationGatewayConfig<ept id="7dc95b1f-9aab-4b71-a046-eff86af6f2b2">&lt;/code&gt;</ept> cmdlet with a configuration object, or with a configuration XML file.</target>
+        </trans-unit>
+        <trans-unit id="9f381629-974b-4e79-ab9d-2d60c9e4b4f5" xml:space="preserve">
+          <source>Once the gateway has been configured, use the <bpt id="10b17665-b0b4-4f08-9398-633c0bed86ab">&lt;code&gt;</bpt>Start-AzureApplicationGateway<ept id="10b17665-b0b4-4f08-9398-633c0bed86ab">&lt;/code&gt;</ept> cmdlet to start the gateway.</source>
+          <target state="new">Once the gateway has been configured, use the <bpt id="10b17665-b0b4-4f08-9398-633c0bed86ab">&lt;code&gt;</bpt>Start-AzureApplicationGateway<ept id="10b17665-b0b4-4f08-9398-633c0bed86ab">&lt;/code&gt;</ept> cmdlet to start the gateway.</target>
+        </trans-unit>
+        <trans-unit id="be8bd254-5fc0-40a0-8ec0-81e4ab1618be" xml:space="preserve">
+          <source>Billing for an application gateway begins after the gateway has been successfully started.</source>
+          <target state="new">Billing for an application gateway begins after the gateway has been successfully started.</target>
+        </trans-unit>
+        <trans-unit id="bbfac5f7-4f0c-4ef4-bb02-ca305e4cd250" xml:space="preserve">
+          <source><bpt id="c69aab5a-c3dd-47eb-9c5e-e9f97345db4e">&lt;strong&gt;</bpt>Note:<ept id="c69aab5a-c3dd-47eb-9c5e-e9f97345db4e">&lt;/strong&gt;</ept> The <bpt id="441d808c-ae85-4514-a899-187d4af9c8bc">&lt;code&gt;</bpt>Start-AzureApplicationGateway<ept id="441d808c-ae85-4514-a899-187d4af9c8bc">&lt;/code&gt;</ept> cmdlet might take up to 15-20 minutes to complete.</source>
+          <target state="new"><bpt id="c69aab5a-c3dd-47eb-9c5e-e9f97345db4e">&lt;strong&gt;</bpt>Note:<ept id="c69aab5a-c3dd-47eb-9c5e-e9f97345db4e">&lt;/strong&gt;</ept> The <bpt id="441d808c-ae85-4514-a899-187d4af9c8bc">&lt;code&gt;</bpt>Start-AzureApplicationGateway<ept id="441d808c-ae85-4514-a899-187d4af9c8bc">&lt;/code&gt;</ept> cmdlet might take up to 15-20 minutes to complete.</target>
+        </trans-unit>
+        <trans-unit id="8b9ebfaa-92d2-44d0-a453-9a2e95300ad7" xml:space="preserve">
+          <source>Use the <bpt id="f0689625-a381-4073-a904-f27fa0473524">&lt;code&gt;</bpt>Get-AzureApplicationGateway<ept id="f0689625-a381-4073-a904-f27fa0473524">&lt;/code&gt;</ept> cmdlet to check the status of gateway.</source>
+          <target state="new">Use the <bpt id="f0689625-a381-4073-a904-f27fa0473524">&lt;code&gt;</bpt>Get-AzureApplicationGateway<ept id="f0689625-a381-4073-a904-f27fa0473524">&lt;/code&gt;</ept> cmdlet to check the status of gateway.</target>
+        </trans-unit>
+        <trans-unit id="9f63adc9-2031-40e0-ae98-42067d375ffb" xml:space="preserve">
+          <source>If <bpt id="fcf1b81a-16a1-4fc7-ae97-0e460cdab5f6">&lt;em&gt;</bpt>Start-AzureApplicationGateway<ept id="fcf1b81a-16a1-4fc7-ae97-0e460cdab5f6">&lt;/em&gt;</ept> succeeded in the previous step, the State should be <bpt id="130d03dd-82ed-47d1-bd42-610074efbb5a">&lt;em&gt;</bpt>Running<ept id="130d03dd-82ed-47d1-bd42-610074efbb5a">&lt;/em&gt;</ept>, and the Vip and DnsName should have valid entries.</source>
+          <target state="new">If <bpt id="fcf1b81a-16a1-4fc7-ae97-0e460cdab5f6">&lt;em&gt;</bpt>Start-AzureApplicationGateway<ept id="fcf1b81a-16a1-4fc7-ae97-0e460cdab5f6">&lt;/em&gt;</ept> succeeded in the previous step, the State should be <bpt id="130d03dd-82ed-47d1-bd42-610074efbb5a">&lt;em&gt;</bpt>Running<ept id="130d03dd-82ed-47d1-bd42-610074efbb5a">&lt;/em&gt;</ept>, and the Vip and DnsName should have valid entries.</target>
+        </trans-unit>
+        <trans-unit id="9359bbc5-da37-4009-aa23-1a4f714460b3" xml:space="preserve">
+          <source>This sample shows the cmdlet on the first line, followed by the output.</source>
+          <target state="new">This sample shows the cmdlet on the first line, followed by the output.</target>
+        </trans-unit>
+        <trans-unit id="b8ddcc5e-d869-4253-ad56-8d4219babae8" xml:space="preserve">
+          <source>In this sample, the gatway is running, and is ready to take traffic.</source>
+          <target state="new">In this sample, the gatway is running, and is ready to take traffic.</target>
+        </trans-unit>
+        <trans-unit id="97777b49-a7e3-4067-b6e2-4eff6040acbf" xml:space="preserve">
+          <source><bpt id="67b79b34-401a-4a46-947e-dc1d5f53b8e3">&lt;strong&gt;</bpt>Note:<ept id="67b79b34-401a-4a46-947e-dc1d5f53b8e3">&lt;/strong&gt;</ept> The application gateway is configured to accept traffic at the configured ILB endpoint of 10.0.0.10 in this example.</source>
+          <target state="new"><bpt id="67b79b34-401a-4a46-947e-dc1d5f53b8e3">&lt;strong&gt;</bpt>Note:<ept id="67b79b34-401a-4a46-947e-dc1d5f53b8e3">&lt;/strong&gt;</ept> The application gateway is configured to accept traffic at the configured ILB endpoint of 10.0.0.10 in this example.</target>
+        </trans-unit>
+        <trans-unit id="3f7fb2aa-9d43-41de-b946-dadd00e0cf63" xml:space="preserve">
+          <source>If you want more information about load balancing options in general, see:</source>
+          <target state="new">If you want more information about load balancing options in general, see:</target>
+        </trans-unit>
+        <trans-unit id="16208556-3846-4567-87d6-80263f22e6ae" xml:space="preserve">
+          <source><bpt id="959472e8-3349-4d32-8e87-dcbd4846e5e8">&lt;linkText&gt;</bpt>Azure Load Balancer<ept id="959472e8-3349-4d32-8e87-dcbd4846e5e8">&lt;/linkText&gt;</ept><bpt id="959472e8-3349-4d32-8e87-dcbd4846e5e8">&lt;title&gt;</bpt><ept id="959472e8-3349-4d32-8e87-dcbd4846e5e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="959472e8-3349-4d32-8e87-dcbd4846e5e8">&lt;linkText&gt;</bpt>Azure Load Balancer<ept id="959472e8-3349-4d32-8e87-dcbd4846e5e8">&lt;/linkText&gt;</ept><bpt id="959472e8-3349-4d32-8e87-dcbd4846e5e8">&lt;title&gt;</bpt><ept id="959472e8-3349-4d32-8e87-dcbd4846e5e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="574f8a6d-9682-44bc-8e3a-7648c05dc2f8" xml:space="preserve">
+          <source><bpt id="c1a5fe7d-25d3-4646-be11-c53a40500b56">&lt;linkText&gt;</bpt>Azure Traffic Manager<ept id="c1a5fe7d-25d3-4646-be11-c53a40500b56">&lt;/linkText&gt;</ept><bpt id="c1a5fe7d-25d3-4646-be11-c53a40500b56">&lt;title&gt;</bpt><ept id="c1a5fe7d-25d3-4646-be11-c53a40500b56">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c1a5fe7d-25d3-4646-be11-c53a40500b56">&lt;linkText&gt;</bpt>Azure Traffic Manager<ept id="c1a5fe7d-25d3-4646-be11-c53a40500b56">&lt;/linkText&gt;</ept><bpt id="c1a5fe7d-25d3-4646-be11-c53a40500b56">&lt;title&gt;</bpt><ept id="c1a5fe7d-25d3-4646-be11-c53a40500b56">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

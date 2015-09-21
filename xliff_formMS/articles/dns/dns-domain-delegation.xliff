@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7d53d733-0665-4e22-9a48-1af215c6ea98" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7d53d733-0665-4e22-9a48-1af215c6ea98" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="967fa357-1aee-4c38-8cc3-4eefb8b621a8">
+        <trans-unit id="b5a852af-f7ea-4cec-ae38-32067243a0ca" xml:space="preserve">
+          <source>Delegate your domain to Azure DNS | Microsoft Azure</source>
+          <target state="new">Delegate your domain to Azure DNS | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="06d43e55-6f14-476e-bf33-1efbc7025e7e" xml:space="preserve">
+          <source>Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting.</source>
+          <target state="new">Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting.</target>
+        </trans-unit>
+        <trans-unit id="094da406-16cc-4c31-9e04-0f589fa2d777" xml:space="preserve">
+          <source>Azure DNS is a hosting service for DNS domains.</source>
+          <target state="new">Azure DNS is a hosting service for DNS domains.</target>
+        </trans-unit>
+        <trans-unit id="633aff8f-1409-43fc-ba83-cce69fea0558" xml:space="preserve">
+          <source>In order for DNS queries for a domain to reach Azure DNS, the domain has to be delegated to Azure DNS from the parent domain.</source>
+          <target state="new">In order for DNS queries for a domain to reach Azure DNS, the domain has to be delegated to Azure DNS from the parent domain.</target>
+        </trans-unit>
+        <trans-unit id="ea8f7268-fb54-4082-9a56-5e7eeda1cf4c" xml:space="preserve">
+          <source>This article explains how domain delegation works and how to delegate domains to Azure DNS.</source>
+          <target state="new">This article explains how domain delegation works and how to delegate domains to Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="6a433671-863f-48ed-8824-b6c6360138b2" xml:space="preserve">
+          <source>A domain is a unique name in the Domain Name System, for example ‘contoso.com’.</source>
+          <target state="new">A domain is a unique name in the Domain Name System, for example ‘contoso.com’.</target>
+        </trans-unit>
+        <trans-unit id="568867b1-f256-4ab5-b322-cfc8027f8da3" xml:space="preserve">
+          <source>A domain registrar is a company who can provide Internet domain names.</source>
+          <target state="new">A domain registrar is a company who can provide Internet domain names.</target>
+        </trans-unit>
+        <trans-unit id="55e62f89-b57f-47bd-90f2-3fb4249a1a10" xml:space="preserve">
+          <source>They will verify if the Internet domain you want to use is available and allow you to purchase it.</source>
+          <target state="new">They will verify if the Internet domain you want to use is available and allow you to purchase it.</target>
+        </trans-unit>
+        <trans-unit id="3e6e686a-acd4-42b2-bf16-d7d4d43b752f" xml:space="preserve">
+          <source>Once the domain name is registered, you will be the legal owner for the domain name.</source>
+          <target state="new">Once the domain name is registered, you will be the legal owner for the domain name.</target>
+        </trans-unit>
+        <trans-unit id="f9aa470e-dd3a-41a0-b010-610b1726a65a" xml:space="preserve">
+          <source>If you already have an Internet domain, you will use the current domain registrar to delegate to Azure DNS.</source>
+          <target state="new">If you already have an Internet domain, you will use the current domain registrar to delegate to Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="d7900941-1cee-478c-9855-ae2cfa6fdae8" xml:space="preserve">
+          <source>To find out more information on who owns a given domain name, or for information on how to buy a domain, see <bpt id="d4898697-ee5b-477a-a5e3-fc4615a54344">&lt;linkText&gt;</bpt>Internet domain management in Azure AD<ept id="d4898697-ee5b-477a-a5e3-fc4615a54344">&lt;/linkText&gt;</ept><bpt id="d4898697-ee5b-477a-a5e3-fc4615a54344">&lt;title&gt;</bpt><ept id="d4898697-ee5b-477a-a5e3-fc4615a54344">&lt;/title&gt;</ept>.</source>
+          <target state="new">To find out more information on who owns a given domain name, or for information on how to buy a domain, see <bpt id="d4898697-ee5b-477a-a5e3-fc4615a54344">&lt;linkText&gt;</bpt>Internet domain management in Azure AD<ept id="d4898697-ee5b-477a-a5e3-fc4615a54344">&lt;/linkText&gt;</ept><bpt id="d4898697-ee5b-477a-a5e3-fc4615a54344">&lt;title&gt;</bpt><ept id="d4898697-ee5b-477a-a5e3-fc4615a54344">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81b684d9-f06e-4fb0-bd41-26ba678fc808" xml:space="preserve">
+          <source>A DNS zone is used to host the DNS records for a particular domain.</source>
+          <target state="new">A DNS zone is used to host the DNS records for a particular domain.</target>
+        </trans-unit>
+        <trans-unit id="429bfb52-2354-4e9c-8f2e-0e4e60251ace" xml:space="preserve">
+          <source>For example, the domain ‘contoso.com’ may contain a number of DNS records such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website).</source>
+          <target state="new">For example, the domain ‘contoso.com’ may contain a number of DNS records such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website).</target>
+        </trans-unit>
+        <trans-unit id="9360c08e-14dc-4c9c-a602-5580d15ad593" xml:space="preserve">
+          <source>Azure DNS allows you to host a DNS zone and thereby manage the DNS records for a domain in Azure.</source>
+          <target state="new">Azure DNS allows you to host a DNS zone and thereby manage the DNS records for a domain in Azure.</target>
+        </trans-unit>
+        <trans-unit id="3d3dd772-67bf-400f-8e9f-250fa1e6c275" xml:space="preserve">
+          <source>Keep in mind Azure DNS is not domain registrar.</source>
+          <target state="new">Keep in mind Azure DNS is not domain registrar.</target>
+        </trans-unit>
+        <trans-unit id="dc1fc8c0-9c51-4995-a171-6324ad074218" xml:space="preserve">
+          <source>The Domain Name System is a hierarchy of domains.</source>
+          <target state="new">The Domain Name System is a hierarchy of domains.</target>
+        </trans-unit>
+        <trans-unit id="03d1cd3d-7d43-497e-b71c-40df38cbf8d1" xml:space="preserve">
+          <source>The hierarchy starts from the ‘root’ domain, whose name is simply ‘.’.</source>
+          <target state="new">The hierarchy starts from the ‘root’ domain, whose name is simply ‘.’.</target>
+        </trans-unit>
+        <trans-unit id="4aa56769-967d-4f02-aa05-9763ebe4b4e7" xml:space="preserve">
+          <source>Below this come top-level domains, such as ‘com’, ‘net’, ‘org’, ‘uk’ or ‘jp’.</source>
+          <target state="new">Below this come top-level domains, such as ‘com’, ‘net’, ‘org’, ‘uk’ or ‘jp’.</target>
+        </trans-unit>
+        <trans-unit id="4297fd62-1c34-4c4f-bb43-315c8a576e6c" xml:space="preserve">
+          <source>Below these are second-level domains, such as ‘org.uk’ or ‘co.jp’.</source>
+          <target state="new">Below these are second-level domains, such as ‘org.uk’ or ‘co.jp’.</target>
+        </trans-unit>
+        <trans-unit id="9ee2bc68-2ddb-468a-9de4-4fca19b127e9" xml:space="preserve">
+          <source>And so on.</source>
+          <target state="new">And so on.</target>
+        </trans-unit>
+        <trans-unit id="e18ca86d-53bd-4597-88f9-b1e27bb17595" xml:space="preserve">
+          <source>The domains in the DNS hierarchy are hosted using separate DNS zones.</source>
+          <target state="new">The domains in the DNS hierarchy are hosted using separate DNS zones.</target>
+        </trans-unit>
+        <trans-unit id="b0ae5e0b-1c72-47b5-b20d-18bfe289e3ff" xml:space="preserve">
+          <source>These zones are globally distributed, hosted by DNS name servers around the world.</source>
+          <target state="new">These zones are globally distributed, hosted by DNS name servers around the world.</target>
+        </trans-unit>
+        <trans-unit id="8e36a577-1571-4217-8a01-2067b2ea98c7" xml:space="preserve">
+          <source>There are two types of DNS servers:</source>
+          <target state="new">There are two types of DNS servers:</target>
+        </trans-unit>
+        <trans-unit id="4fb4c087-8ebc-4802-8ddb-51bde760d8fd" xml:space="preserve">
+          <source>An <bpt id="a0dbface-dfe8-4d81-96ac-42b7d91ea457">&lt;em&gt;</bpt>authoritative<ept id="a0dbface-dfe8-4d81-96ac-42b7d91ea457">&lt;/em&gt;</ept> DNS server hosts DNS zones.</source>
+          <target state="new">An <bpt id="a0dbface-dfe8-4d81-96ac-42b7d91ea457">&lt;em&gt;</bpt>authoritative<ept id="a0dbface-dfe8-4d81-96ac-42b7d91ea457">&lt;/em&gt;</ept> DNS server hosts DNS zones.</target>
+        </trans-unit>
+        <trans-unit id="178d890a-0a3f-4f35-b2d8-b91586d07d0f" xml:space="preserve">
+          <source>It answers DNS queries for records in those zones only.</source>
+          <target state="new">It answers DNS queries for records in those zones only.</target>
+        </trans-unit>
+        <trans-unit id="4400f242-7e5a-4986-aed3-0d11c0eee1cd" xml:space="preserve">
+          <source>A <bpt id="7cd687a9-6aab-41b9-9210-0df16291644f">&lt;em&gt;</bpt>recursive<ept id="7cd687a9-6aab-41b9-9210-0df16291644f">&lt;/em&gt;</ept> DNS server does not host DNS zones.</source>
+          <target state="new">A <bpt id="7cd687a9-6aab-41b9-9210-0df16291644f">&lt;em&gt;</bpt>recursive<ept id="7cd687a9-6aab-41b9-9210-0df16291644f">&lt;/em&gt;</ept> DNS server does not host DNS zones.</target>
+        </trans-unit>
+        <trans-unit id="0965d145-9301-43cb-9e9e-c2bab5df6c3b" xml:space="preserve">
+          <source>It answers all DNS queries, by calling authoritative DNS servers to gather the data it needs.</source>
+          <target state="new">It answers all DNS queries, by calling authoritative DNS servers to gather the data it needs.</target>
+        </trans-unit>
+        <trans-unit id="6a467ec2-c250-431b-a5ae-9818de35b114" xml:space="preserve">
+          <source>DNS clients in PCs or mobile devices typically call a recursive DNS server to perform any DNS queries the client applications need.</source>
+          <target state="new">DNS clients in PCs or mobile devices typically call a recursive DNS server to perform any DNS queries the client applications need.</target>
+        </trans-unit>
+        <trans-unit id="84b7dd2d-9ebd-48fe-a66e-3193639b5724" xml:space="preserve">
+          <source>When a recursive DNS server receives a query for a DNS record such as ‘www.contoso.com’, it first needs to find the name server hosting the zone for the ‘contoso.com’ domain.</source>
+          <target state="new">When a recursive DNS server receives a query for a DNS record such as ‘www.contoso.com’, it first needs to find the name server hosting the zone for the ‘contoso.com’ domain.</target>
+        </trans-unit>
+        <trans-unit id="cecf1b6e-9cba-4da8-8538-5a4b7411b684" xml:space="preserve">
+          <source>To do this, it starts at the root name servers, and from there finds the name servers hosting the ‘com’ zone.</source>
+          <target state="new">To do this, it starts at the root name servers, and from there finds the name servers hosting the ‘com’ zone.</target>
+        </trans-unit>
+        <trans-unit id="24898f4a-de9c-4d36-8cf5-d97f4d9e5f11" xml:space="preserve">
+          <source>It then queries the ‘com’ name servers to find the name servers hosting the ‘contoso.com’ zone.</source>
+          <target state="new">It then queries the ‘com’ name servers to find the name servers hosting the ‘contoso.com’ zone.</target>
+        </trans-unit>
+        <trans-unit id="7cb02888-5426-4198-a15f-c17c1f18ac9c" xml:space="preserve">
+          <source>Finally, it is able to query these name servers for ‘www.contoso.com’.</source>
+          <target state="new">Finally, it is able to query these name servers for ‘www.contoso.com’.</target>
+        </trans-unit>
+        <trans-unit id="3c8c120d-7b3a-46b7-97fb-94d6179ff4cb" xml:space="preserve">
+          <source>This is called resolving the DNS name (strictly, DNS resolution includes additional steps such as following CNAMEs, but that’s not important to understanding how DNS delegation works.)</source>
+          <target state="new">This is called resolving the DNS name (strictly, DNS resolution includes additional steps such as following CNAMEs, but that’s not important to understanding how DNS delegation works.)</target>
+        </trans-unit>
+        <trans-unit id="8b74460c-05a8-45ee-b92b-21d488366416" xml:space="preserve">
+          <source>How does a parent zone ‘point’ to the name servers for a child zone?</source>
+          <target state="new">How does a parent zone ‘point’ to the name servers for a child zone?</target>
+        </trans-unit>
+        <trans-unit id="19a771c3-df70-4b2e-9d6c-fa149272860d" xml:space="preserve">
+          <source>It does this using a special type of DNS record, called an NS record (NS stands for ‘name server’).</source>
+          <target state="new">It does this using a special type of DNS record, called an NS record (NS stands for ‘name server’).</target>
+        </trans-unit>
+        <trans-unit id="cde7cbba-eb5d-4e04-a760-c545d05f271d" xml:space="preserve">
+          <source>For example, the root zone contains NS records for ‘com’, showing the name servers for the ‘com’ zone.</source>
+          <target state="new">For example, the root zone contains NS records for ‘com’, showing the name servers for the ‘com’ zone.</target>
+        </trans-unit>
+        <trans-unit id="c840fb30-03e4-4f95-aa24-4e1c93f296fe" xml:space="preserve">
+          <source>In turn, the ‘com’ zone contains NS records for ‘contoso.com’, showing the name servers for the ‘contoso.com’ zone.</source>
+          <target state="new">In turn, the ‘com’ zone contains NS records for ‘contoso.com’, showing the name servers for the ‘contoso.com’ zone.</target>
+        </trans-unit>
+        <trans-unit id="c86f3453-1b3e-424f-b855-14f400de9456" xml:space="preserve">
+          <source>Setting up the NS records for a child zone in a parent zone is called delegating the domain.</source>
+          <target state="new">Setting up the NS records for a child zone in a parent zone is called delegating the domain.</target>
+        </trans-unit>
+        <trans-unit id="cdb9caed-9166-4a16-b83c-fa2f9d785edd" xml:space="preserve">
+          <source><bpt id="1e1af2fc-9d03-4b2c-810e-967f938b11c7">&lt;linkText&gt;</bpt>Dns-nameserver<ept id="1e1af2fc-9d03-4b2c-810e-967f938b11c7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e1af2fc-9d03-4b2c-810e-967f938b11c7">&lt;linkText&gt;</bpt>Dns-nameserver<ept id="1e1af2fc-9d03-4b2c-810e-967f938b11c7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6ad0e4f-1f5e-4d8d-8b42-50aa73af7d82" xml:space="preserve">
+          <source>Each delegation actually has two copies of the NS records—one in the parent zone pointing to the child, and another in the child zone itself.</source>
+          <target state="new">Each delegation actually has two copies of the NS records—one in the parent zone pointing to the child, and another in the child zone itself.</target>
+        </trans-unit>
+        <trans-unit id="4edb6c10-b207-4e03-84fd-4791a920a851" xml:space="preserve">
+          <source>The ‘contoso.com’ zone contains the NS records for ‘contoso.com’ (in addition to the NS records in ‘com’).</source>
+          <target state="new">The ‘contoso.com’ zone contains the NS records for ‘contoso.com’ (in addition to the NS records in ‘com’).</target>
+        </trans-unit>
+        <trans-unit id="48d6391d-1cf8-4e0f-abc0-88d2b4c47276" xml:space="preserve">
+          <source>These are called authoritative NS records, and they sit at the apex of the child zone.</source>
+          <target state="new">These are called authoritative NS records, and they sit at the apex of the child zone.</target>
+        </trans-unit>
+        <trans-unit id="3758e6e7-a7ca-4b6d-83b1-846ed930124b" xml:space="preserve">
+          <source>Once you create your DNS zone in Azure DNS, you need to set up NS records in the parent zone to make Azure DNS the authoritative source for name resolution for your zone.</source>
+          <target state="new">Once you create your DNS zone in Azure DNS, you need to set up NS records in the parent zone to make Azure DNS the authoritative source for name resolution for your zone.</target>
+        </trans-unit>
+        <trans-unit id="b56dd33f-a5ef-4c83-b9f6-425944781f00" xml:space="preserve">
+          <source>For domains purchased from a registrar, your registrar will offer the option to set up these NS records.</source>
+          <target state="new">For domains purchased from a registrar, your registrar will offer the option to set up these NS records.</target>
+        </trans-unit>
+        <trans-unit id="06d06121-df6b-4009-8359-7b844be8535a" xml:space="preserve">
+          <source>You do not have to own a domain in order to create a DNS zone with that domain name in Azure DNS.</source>
+          <target state="new">You do not have to own a domain in order to create a DNS zone with that domain name in Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="f94f6b60-15c3-485c-91d3-8f2f225fd9bb" xml:space="preserve">
+          <source>However, you do need to own the domain to set up the delegation to Azure DNS with the registrar.</source>
+          <target state="new">However, you do need to own the domain to set up the delegation to Azure DNS with the registrar.</target>
+        </trans-unit>
+        <trans-unit id="4d820497-6589-4d76-bd09-76b3e532293f" xml:space="preserve">
+          <source>For example, suppose you purchase the domain ‘contoso.com’, and create a zone with the name ‘contoso.com’ in Azure DNS.</source>
+          <target state="new">For example, suppose you purchase the domain ‘contoso.com’, and create a zone with the name ‘contoso.com’ in Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="9044ce28-319f-450d-bea8-c0acbcf2c6c8" xml:space="preserve">
+          <source>As the owner of the domain, your registrar will offer you the option to configure the name server addresses (that is, the NS records) for your domain.</source>
+          <target state="new">As the owner of the domain, your registrar will offer you the option to configure the name server addresses (that is, the NS records) for your domain.</target>
+        </trans-unit>
+        <trans-unit id="92306ad0-dc0a-49de-8dc5-49e8ce301e0b" xml:space="preserve">
+          <source>The registrar will store these NS records in the parent domain, in this case ‘.com’.</source>
+          <target state="new">The registrar will store these NS records in the parent domain, in this case ‘.com’.</target>
+        </trans-unit>
+        <trans-unit id="0699d5cd-e428-4622-bba3-4675f345a7f5" xml:space="preserve">
+          <source>Clients around the world will then be directed to your domain in Azure DNS zone when trying to resolve DNS records in ‘contoso.com’.</source>
+          <target state="new">Clients around the world will then be directed to your domain in Azure DNS zone when trying to resolve DNS records in ‘contoso.com’.</target>
+        </trans-unit>
+        <trans-unit id="b9207394-5c5d-4af4-95f3-94b8b3a86081" xml:space="preserve">
+          <source>To set up the delegation, you need to know the name server names for your zone.</source>
+          <target state="new">To set up the delegation, you need to know the name server names for your zone.</target>
+        </trans-unit>
+        <trans-unit id="1d60661d-087f-4eb7-aa4c-193672ea76ed" xml:space="preserve">
+          <source>Azure DNS allocates name servers from a pool each time a zone is created, and stores these in the authoritative NS records which are automatically created within your zone.</source>
+          <target state="new">Azure DNS allocates name servers from a pool each time a zone is created, and stores these in the authoritative NS records which are automatically created within your zone.</target>
+        </trans-unit>
+        <trans-unit id="4af9e94c-867e-469b-807c-8ed9182a8591" xml:space="preserve">
+          <source>So, to see the name server names, you simply need to retrieve these records.</source>
+          <target state="new">So, to see the name server names, you simply need to retrieve these records.</target>
+        </trans-unit>
+        <trans-unit id="34fd4c90-7aae-4db8-86f4-5665f8591e73" xml:space="preserve">
+          <source>Using Azure PowerShell, the authoritative NS records can be retrieved as follows (the record name “@” is used to refer to records at the apex of the zone).</source>
+          <target state="new">Using Azure PowerShell, the authoritative NS records can be retrieved as follows (the record name “@” is used to refer to records at the apex of the zone).</target>
+        </trans-unit>
+        <trans-unit id="9396d86d-7109-4b02-9340-a575c11dd0a6" xml:space="preserve">
+          <source>In this example, the zone ‘contoso.com’ has been assigned name servers ‘ns1-04.azure-dns.com’, ‘ns2-04.azure-dns.net’, ‘ns3-04.azure-dns.org’, and ‘ns4-04.azure-dns.info’.</source>
+          <target state="new">In this example, the zone ‘contoso.com’ has been assigned name servers ‘ns1-04.azure-dns.com’, ‘ns2-04.azure-dns.net’, ‘ns3-04.azure-dns.org’, and ‘ns4-04.azure-dns.info’.</target>
+        </trans-unit>
+        <trans-unit id="a3213e8c-1e5c-4633-b6f7-8576751f5fbf" xml:space="preserve">
+          <source>Each registrar has their own DNS management tools to change the name server records for a domain.</source>
+          <target state="new">Each registrar has their own DNS management tools to change the name server records for a domain.</target>
+        </trans-unit>
+        <trans-unit id="74972899-12e1-4046-a8af-36159e83bda5" xml:space="preserve">
+          <source>In the registrar’s DNS management page, edit the NS records and replace the NS records with the ones Azure DNS created.</source>
+          <target state="new">In the registrar’s DNS management page, edit the NS records and replace the NS records with the ones Azure DNS created.</target>
+        </trans-unit>
+        <trans-unit id="dd538bf2-fa4c-4393-a120-57b0e2d5d609" xml:space="preserve">
+          <source>Having completed the delegation, you can verify that name resolution is working by using a tool such as ‘nslookup’ to query the SOA record for your zone (which is also automatically created when the zone is created).</source>
+          <target state="new">Having completed the delegation, you can verify that name resolution is working by using a tool such as ‘nslookup’ to query the SOA record for your zone (which is also automatically created when the zone is created).</target>
+        </trans-unit>
+        <trans-unit id="d19b31e1-5bb1-4f04-a921-ef4156d258f1" xml:space="preserve">
+          <source>Note that you do not have to specify the Azure DNS name servers, since the normal DNS resolution process will find the name servers automatically if the delegation has been set up correctly.</source>
+          <target state="new">Note that you do not have to specify the Azure DNS name servers, since the normal DNS resolution process will find the name servers automatically if the delegation has been set up correctly.</target>
+        </trans-unit>
+        <trans-unit id="b3b2eb37-7338-4a72-9bb4-eca37fe6170d" xml:space="preserve">
+          <source>Having set up and delegated ‘contoso.com’ in Azure DNS, suppose you would like to set up a separate child zone, ‘partners.contoso.com’.</source>
+          <target state="new">Having set up and delegated ‘contoso.com’ in Azure DNS, suppose you would like to set up a separate child zone, ‘partners.contoso.com’.</target>
+        </trans-unit>
+        <trans-unit id="0d848a4c-a66a-4a7e-9acf-b3f9fe4d7a88" xml:space="preserve">
+          <source>This follows a similar process to a normal delegation:</source>
+          <target state="new">This follows a similar process to a normal delegation:</target>
+        </trans-unit>
+        <trans-unit id="3ea84d00-1359-4fd7-bd81-febb5b9e5e6d" xml:space="preserve">
+          <source>Create the child zone ‘partners.contoso.com’ in Azure DNS.</source>
+          <target state="new">Create the child zone ‘partners.contoso.com’ in Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="296bd7d9-cdfe-4377-a8ab-907f4cf35e62" xml:space="preserve">
+          <source>Look up the authoritative NS records in the child zone to obtain the name servers hosting the child zone in Azure DNS.</source>
+          <target state="new">Look up the authoritative NS records in the child zone to obtain the name servers hosting the child zone in Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="8d4a66d8-f6d0-472a-8a03-1fd791992c70" xml:space="preserve">
+          <source>Delegate the child zone by configuring NS records in the parent zone pointing to the child zone.</source>
+          <target state="new">Delegate the child zone by configuring NS records in the parent zone pointing to the child zone.</target>
+        </trans-unit>
+        <trans-unit id="9925f9e5-6b3d-4913-a90d-2d625d6ebefe" xml:space="preserve">
+          <source>The only difference is that in step 3 the NS records must be created in the parent zone ‘contoso.com’ in Azure DNS, rather than being set up via a domain registrar.</source>
+          <target state="new">The only difference is that in step 3 the NS records must be created in the parent zone ‘contoso.com’ in Azure DNS, rather than being set up via a domain registrar.</target>
+        </trans-unit>
+        <trans-unit id="91006b14-31f9-4958-91fd-429f9d894fda" xml:space="preserve">
+          <source>The following PowerShell example demonstrates.</source>
+          <target state="new">The following PowerShell example demonstrates.</target>
+        </trans-unit>
+        <trans-unit id="9c612c4d-97b9-45eb-80ee-43fef0d7c8f2" xml:space="preserve">
+          <source>First, we create the parent and child zones—these can be in same resource group or different resource groups.</source>
+          <target state="new">First, we create the parent and child zones—these can be in same resource group or different resource groups.</target>
+        </trans-unit>
+        <trans-unit id="6487281e-18f5-4e7c-8a09-0300aedf014a" xml:space="preserve">
+          <source>Next, we retrieve the authoritative NS records from child zone as shown in the next example.</source>
+          <target state="new">Next, we retrieve the authoritative NS records from child zone as shown in the next example.</target>
+        </trans-unit>
+        <trans-unit id="b763a014-f581-40bd-97de-baf7bf1d40ac" xml:space="preserve">
+          <source>Finally, we create corresponding NS record set in the parent zone to complete the delegation (note that the record set name in the parent zone matches the child zone name, in this case "partners").</source>
+          <target state="new">Finally, we create corresponding NS record set in the parent zone to complete the delegation (note that the record set name in the parent zone matches the child zone name, in this case "partners").</target>
+        </trans-unit>
+        <trans-unit id="064eb0a0-5257-4692-abd6-66bc1e3935f5" xml:space="preserve">
+          <source>As when delegating using a registrar, we can verify that everything is set up correctly by looking up the SOA record of the child zone.</source>
+          <target state="new">As when delegating using a registrar, we can verify that everything is set up correctly by looking up the SOA record of the child zone.</target>
+        </trans-unit>
+        <trans-unit id="b365ca79-b591-464b-ae59-b1cd10116475" xml:space="preserve">
+          <source><bpt id="8f5c56e3-5727-40d9-8909-8632a460c1d3">&lt;linkText&gt;</bpt>Manage DNS zones<ept id="8f5c56e3-5727-40d9-8909-8632a460c1d3">&lt;/linkText&gt;</ept><bpt id="8f5c56e3-5727-40d9-8909-8632a460c1d3">&lt;title&gt;</bpt><ept id="8f5c56e3-5727-40d9-8909-8632a460c1d3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8f5c56e3-5727-40d9-8909-8632a460c1d3">&lt;linkText&gt;</bpt>Manage DNS zones<ept id="8f5c56e3-5727-40d9-8909-8632a460c1d3">&lt;/linkText&gt;</ept><bpt id="8f5c56e3-5727-40d9-8909-8632a460c1d3">&lt;title&gt;</bpt><ept id="8f5c56e3-5727-40d9-8909-8632a460c1d3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="557479f7-0120-4d02-a826-86c5fd66e6a8" xml:space="preserve">
+          <source><bpt id="970b785e-a2f0-4504-93dd-461c1d99c308">&lt;linkText&gt;</bpt>Manage DNS records<ept id="970b785e-a2f0-4504-93dd-461c1d99c308">&lt;/linkText&gt;</ept><bpt id="970b785e-a2f0-4504-93dd-461c1d99c308">&lt;title&gt;</bpt><ept id="970b785e-a2f0-4504-93dd-461c1d99c308">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="970b785e-a2f0-4504-93dd-461c1d99c308">&lt;linkText&gt;</bpt>Manage DNS records<ept id="970b785e-a2f0-4504-93dd-461c1d99c308">&lt;/linkText&gt;</ept><bpt id="970b785e-a2f0-4504-93dd-461c1d99c308">&lt;title&gt;</bpt><ept id="970b785e-a2f0-4504-93dd-461c1d99c308">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="221b26e7-f5f4-46f4-b2b6-d546da238d77" xml:space="preserve">
+          <source><bpt id="72320cdc-7d92-4161-af1b-98a804e1f2a1">&lt;linkText&gt;</bpt>Traffic Manager overview<ept id="72320cdc-7d92-4161-af1b-98a804e1f2a1">&lt;/linkText&gt;</ept><bpt id="72320cdc-7d92-4161-af1b-98a804e1f2a1">&lt;title&gt;</bpt><ept id="72320cdc-7d92-4161-af1b-98a804e1f2a1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="72320cdc-7d92-4161-af1b-98a804e1f2a1">&lt;linkText&gt;</bpt>Traffic Manager overview<ept id="72320cdc-7d92-4161-af1b-98a804e1f2a1">&lt;/linkText&gt;</ept><bpt id="72320cdc-7d92-4161-af1b-98a804e1f2a1">&lt;title&gt;</bpt><ept id="72320cdc-7d92-4161-af1b-98a804e1f2a1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9de6ebee-f411-4225-a79d-99c327ee7b4c" xml:space="preserve">
+          <source><bpt id="6b39247a-12ba-4f46-9901-185f3f6a2a7d">&lt;linkText&gt;</bpt>Automate Azure Operations with .NET SDK<ept id="6b39247a-12ba-4f46-9901-185f3f6a2a7d">&lt;/linkText&gt;</ept><bpt id="6b39247a-12ba-4f46-9901-185f3f6a2a7d">&lt;title&gt;</bpt><ept id="6b39247a-12ba-4f46-9901-185f3f6a2a7d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b39247a-12ba-4f46-9901-185f3f6a2a7d">&lt;linkText&gt;</bpt>Automate Azure Operations with .NET SDK<ept id="6b39247a-12ba-4f46-9901-185f3f6a2a7d">&lt;/linkText&gt;</ept><bpt id="6b39247a-12ba-4f46-9901-185f3f6a2a7d">&lt;title&gt;</bpt><ept id="6b39247a-12ba-4f46-9901-185f3f6a2a7d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9aaad651-46c0-4f9d-bf54-b3e45a4c07f3" xml:space="preserve">
+          <source><bpt id="13fa1be6-fc5c-4435-9b6d-f532d91bb769">&lt;linkText&gt;</bpt>Azure DNS REST API Reference<ept id="13fa1be6-fc5c-4435-9b6d-f532d91bb769">&lt;/linkText&gt;</ept><bpt id="13fa1be6-fc5c-4435-9b6d-f532d91bb769">&lt;title&gt;</bpt><ept id="13fa1be6-fc5c-4435-9b6d-f532d91bb769">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="13fa1be6-fc5c-4435-9b6d-f532d91bb769">&lt;linkText&gt;</bpt>Azure DNS REST API Reference<ept id="13fa1be6-fc5c-4435-9b6d-f532d91bb769">&lt;/linkText&gt;</ept><bpt id="13fa1be6-fc5c-4435-9b6d-f532d91bb769">&lt;title&gt;</bpt><ept id="13fa1be6-fc5c-4435-9b6d-f532d91bb769">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

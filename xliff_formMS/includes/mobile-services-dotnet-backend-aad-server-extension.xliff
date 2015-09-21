@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="44e3738a-7af4-4954-ad75-3880682beb64" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="44e3738a-7af4-4954-ad75-3880682beb64" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="95b4c120-1798-43bf-a2fb-7db8290fbc79">
+        <trans-unit id="e10f9970-13f9-46c5-8060-54260b2dba02" xml:space="preserve">
+          <source>These steps are optional because they only apply to the Azure Active Directory login provider.</source>
+          <target state="new">These steps are optional because they only apply to the Azure Active Directory login provider.</target>
+        </trans-unit>
+        <trans-unit id="e8dbe046-7af6-4cd4-babb-65f33cbf6d30" xml:space="preserve">
+          <source>Install the <bpt id="65104ea7-aded-4f0d-821b-14f85dca58c4">&lt;linkText&gt;</bpt>WindowsAzure.MobileServices.Backend.Security NuGet package<ept id="65104ea7-aded-4f0d-821b-14f85dca58c4">&lt;/linkText&gt;</ept><bpt id="65104ea7-aded-4f0d-821b-14f85dca58c4">&lt;title&gt;</bpt><ept id="65104ea7-aded-4f0d-821b-14f85dca58c4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Install the <bpt id="65104ea7-aded-4f0d-821b-14f85dca58c4">&lt;linkText&gt;</bpt>WindowsAzure.MobileServices.Backend.Security NuGet package<ept id="65104ea7-aded-4f0d-821b-14f85dca58c4">&lt;/linkText&gt;</ept><bpt id="65104ea7-aded-4f0d-821b-14f85dca58c4">&lt;title&gt;</bpt><ept id="65104ea7-aded-4f0d-821b-14f85dca58c4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c0ba25a-45f3-4c32-8523-bf31a3ebc732" xml:space="preserve">
+          <source>In Visual Studio expand App_Start and open WebApiConfig.cs.</source>
+          <target state="new">In Visual Studio expand App_Start and open WebApiConfig.cs.</target>
+        </trans-unit>
+        <trans-unit id="c7fa4e38-5e34-4288-82bb-626ba87bfbef" xml:space="preserve">
+          <source>Add the following <bpt id="f66a5abb-91b8-4116-af84-fdf89f21c98b">&lt;code&gt;</bpt>using<ept id="f66a5abb-91b8-4116-af84-fdf89f21c98b">&lt;/code&gt;</ept> statement at the top:</source>
+          <target state="new">Add the following <bpt id="f66a5abb-91b8-4116-af84-fdf89f21c98b">&lt;code&gt;</bpt>using<ept id="f66a5abb-91b8-4116-af84-fdf89f21c98b">&lt;/code&gt;</ept> statement at the top:</target>
+        </trans-unit>
+        <trans-unit id="cd8109f5-27da-4b07-a9b8-0c37d776c48a" xml:space="preserve">
+          <source>Also in WebApiConfig.cs, add the following code to the <bpt id="a3925f02-bd7c-4530-917e-4fd4b0aa1015">&lt;code&gt;</bpt>Register<ept id="a3925f02-bd7c-4530-917e-4fd4b0aa1015">&lt;/code&gt;</ept> method, immediately after <bpt id="eefda9bf-1373-4639-8604-5a835d3554e9">&lt;code&gt;</bpt>options<ept id="eefda9bf-1373-4639-8604-5a835d3554e9">&lt;/code&gt;</ept> is instantiated:</source>
+          <target state="new">Also in WebApiConfig.cs, add the following code to the <bpt id="a3925f02-bd7c-4530-917e-4fd4b0aa1015">&lt;code&gt;</bpt>Register<ept id="a3925f02-bd7c-4530-917e-4fd4b0aa1015">&lt;/code&gt;</ept> method, immediately after <bpt id="eefda9bf-1373-4639-8604-5a835d3554e9">&lt;code&gt;</bpt>options<ept id="eefda9bf-1373-4639-8604-5a835d3554e9">&lt;/code&gt;</ept> is instantiated:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

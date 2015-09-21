@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="324e7c1b-de97-4d47-a67d-913da407fe84" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="324e7c1b-de97-4d47-a67d-913da407fe84" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e94982bd-4b1b-429d-b1ba-896bad5c02ef">
+        <trans-unit id="e31822a1-69cb-47ca-8983-9ec48432416f" xml:space="preserve">
+          <source>Change Azure AD Connect Default Configuration</source>
+          <target state="new">Change Azure AD Connect Default Configuration</target>
+        </trans-unit>
+        <trans-unit id="975e23a0-01d2-4a77-a610-08c6af79254e" xml:space="preserve">
+          <source>Learn how to change default configuration for Azure AD Connect.</source>
+          <target state="new">Learn how to change default configuration for Azure AD Connect.</target>
+        </trans-unit>
+        <trans-unit id="19311591-3e17-45e5-9134-995f00f8398e" xml:space="preserve">
+          <source>The default configuration of Azure AD Connect in most instances is sufficient to easily extend your on-premises directories into the cloud.</source>
+          <target state="new">The default configuration of Azure AD Connect in most instances is sufficient to easily extend your on-premises directories into the cloud.</target>
+        </trans-unit>
+        <trans-unit id="69368eaa-b348-420f-b5c7-28c391d1a302" xml:space="preserve">
+          <source>However there are certain instances when you may need to modify the default and tailor it to your organizations business logic.</source>
+          <target state="new">However there are certain instances when you may need to modify the default and tailor it to your organizations business logic.</target>
+        </trans-unit>
+        <trans-unit id="1ec7fb75-042a-42e4-96a7-08e580e2ee5d" xml:space="preserve">
+          <source>In these instances you can modify the default configuration however there are some things you need to be aware of before you do this.</source>
+          <target state="new">In these instances you can modify the default configuration however there are some things you need to be aware of before you do this.</target>
+        </trans-unit>
+        <trans-unit id="d318c2ec-a2a0-467e-a9ec-dd961b598932" xml:space="preserve">
+          <source>When you need to change the default configuration, do the following:</source>
+          <target state="new">When you need to change the default configuration, do the following:</target>
+        </trans-unit>
+        <trans-unit id="e98459a9-e69f-4723-9e39-29467af7627f" xml:space="preserve">
+          <source>When you need to modify an attribute flow of an “out-of-box” synchronization rule, do not change it.</source>
+          <target state="new">When you need to modify an attribute flow of an “out-of-box” synchronization rule, do not change it.</target>
+        </trans-unit>
+        <trans-unit id="9dd70b1f-fc0c-4832-b1fc-79edb604d533" xml:space="preserve">
+          <source>Instead, create a new synchronization rule with a higher precedence (lower numeric value) that contains your required attribute flow.</source>
+          <target state="new">Instead, create a new synchronization rule with a higher precedence (lower numeric value) that contains your required attribute flow.</target>
+        </trans-unit>
+        <trans-unit id="47f1d934-cb70-47ff-8aef-9bd33b936869" xml:space="preserve">
+          <source>Export your custom synchronization rules using the Synchronization Rules Editor.</source>
+          <target state="new">Export your custom synchronization rules using the Synchronization Rules Editor.</target>
+        </trans-unit>
+        <trans-unit id="e3d6e23b-a65c-4801-a666-0908d69b5c95" xml:space="preserve">
+          <source>This provides you with a PowerShell script you can use to easily recreate them in the case of a disaster recovery scenario.</source>
+          <target state="new">This provides you with a PowerShell script you can use to easily recreate them in the case of a disaster recovery scenario.</target>
+        </trans-unit>
+        <trans-unit id="87cfb3e9-8225-4234-919c-5ac7a8b35556" xml:space="preserve">
+          <source>If you need to change the scope or the join setting in an “out-of-box” synchronization rule, document this and reapply the change after upgrading to a newer version of Azure AD Connect.</source>
+          <target state="new">If you need to change the scope or the join setting in an “out-of-box” synchronization rule, document this and reapply the change after upgrading to a newer version of Azure AD Connect.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

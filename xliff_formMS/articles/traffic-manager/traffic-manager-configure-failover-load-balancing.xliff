@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="eb27d9ff-fdc5-4b22-b295-1bb93f1f70f9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="eb27d9ff-fdc5-4b22-b295-1bb93f1f70f9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="733f5f22-adb3-4494-837e-ce65b8990175">
+        <trans-unit id="9b64afe0-4aad-4672-b53c-a0ae6f6a6287" xml:space="preserve">
+          <source>Configure Traffic Manager failover traffic routing method | Microsoft Azure</source>
+          <target state="new">Configure Traffic Manager failover traffic routing method | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d9dc849f-8ffa-4dfd-bc45-30d06d257ba1" xml:space="preserve">
+          <source>This article will help you configure failover traffic routing method in Traffic Manager</source>
+          <target state="new">This article will help you configure failover traffic routing method in Traffic Manager</target>
+        </trans-unit>
+        <trans-unit id="653fe237-2cdd-4f20-a3fa-dfff4efe6b21" xml:space="preserve">
+          <source>Often an organization wants to provide reliability for its services.</source>
+          <target state="new">Often an organization wants to provide reliability for its services.</target>
+        </trans-unit>
+        <trans-unit id="5e3fb59b-5546-491e-a149-67dd90cb5c87" xml:space="preserve">
+          <source>It does this by providing backup services in case their primary service goes down.</source>
+          <target state="new">It does this by providing backup services in case their primary service goes down.</target>
+        </trans-unit>
+        <trans-unit id="610f35f2-7af3-4fa8-8158-d1520e726896" xml:space="preserve">
+          <source>A common pattern for service failover is to provide a set of identical services and send traffic to a primary service, while maintaining a configured list of one or more backup services.</source>
+          <target state="new">A common pattern for service failover is to provide a set of identical services and send traffic to a primary service, while maintaining a configured list of one or more backup services.</target>
+        </trans-unit>
+        <trans-unit id="e652993d-d815-407d-b503-d20adbd87b42" xml:space="preserve">
+          <source>You can configure this type of backup with Azure cloud services and websites by following the procedures below.</source>
+          <target state="new">You can configure this type of backup with Azure cloud services and websites by following the procedures below.</target>
+        </trans-unit>
+        <trans-unit id="d7eb1b91-363c-4386-98c0-da2f0b503031" xml:space="preserve">
+          <source>Note that Azure Websites already provides failover traffic routing method functionality for websites within a datacenter (also known as a region), regardless of the website mode.</source>
+          <target state="new">Note that Azure Websites already provides failover traffic routing method functionality for websites within a datacenter (also known as a region), regardless of the website mode.</target>
+        </trans-unit>
+        <trans-unit id="76cc00be-3a89-42ad-8a1d-7f131e41a4eb" xml:space="preserve">
+          <source>Traffic Manager allows you to specify failover traffic routing method for websites in different datacenters.</source>
+          <target state="new">Traffic Manager allows you to specify failover traffic routing method for websites in different datacenters.</target>
+        </trans-unit>
+        <trans-unit id="e3d6d59c-7704-4623-82c1-5b98905cf08a" xml:space="preserve">
+          <source>In the Management Portal, in the left pane, click the <bpt id="3dab3d50-6aae-463b-b59b-cffc48875c91">&lt;strong&gt;</bpt>Traffic Manager<ept id="3dab3d50-6aae-463b-b59b-cffc48875c91">&lt;/strong&gt;</ept> icon to open the Traffic Manager pane.</source>
+          <target state="new">In the Management Portal, in the left pane, click the <bpt id="3dab3d50-6aae-463b-b59b-cffc48875c91">&lt;strong&gt;</bpt>Traffic Manager<ept id="3dab3d50-6aae-463b-b59b-cffc48875c91">&lt;/strong&gt;</ept> icon to open the Traffic Manager pane.</target>
+        </trans-unit>
+        <trans-unit id="69eb9e97-1560-4410-9e77-a6d9f2ae57f3" xml:space="preserve">
+          <source>If you have not yet created your Traffic Manager profile, see <bpt id="0ad67b8e-9d6e-4950-953a-8b92cd2ea74b">&lt;linkText&gt;</bpt>Manage Traffic Manager Profiles<ept id="0ad67b8e-9d6e-4950-953a-8b92cd2ea74b">&lt;/linkText&gt;</ept><bpt id="0ad67b8e-9d6e-4950-953a-8b92cd2ea74b">&lt;title&gt;</bpt><ept id="0ad67b8e-9d6e-4950-953a-8b92cd2ea74b">&lt;/title&gt;</ept> for steps to create a basic Traffic Manager profile.</source>
+          <target state="new">If you have not yet created your Traffic Manager profile, see <bpt id="0ad67b8e-9d6e-4950-953a-8b92cd2ea74b">&lt;linkText&gt;</bpt>Manage Traffic Manager Profiles<ept id="0ad67b8e-9d6e-4950-953a-8b92cd2ea74b">&lt;/linkText&gt;</ept><bpt id="0ad67b8e-9d6e-4950-953a-8b92cd2ea74b">&lt;title&gt;</bpt><ept id="0ad67b8e-9d6e-4950-953a-8b92cd2ea74b">&lt;/title&gt;</ept> for steps to create a basic Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="405d625e-16d3-4c1f-9cda-9f483205eac9" xml:space="preserve">
+          <source>On the Traffic Manager pane in the Management Portal, locate the Traffic Manager profile that contains the settings that you want to modify, and then click the arrow to the right of the profile name.</source>
+          <target state="new">On the Traffic Manager pane in the Management Portal, locate the Traffic Manager profile that contains the settings that you want to modify, and then click the arrow to the right of the profile name.</target>
+        </trans-unit>
+        <trans-unit id="b6d0b63c-f60c-4958-a0d5-fd15dee79d2f" xml:space="preserve">
+          <source>This will open the settings page for the profile.</source>
+          <target state="new">This will open the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="4aeafaed-6ab1-4d20-8fa3-442b4fd6a16e" xml:space="preserve">
+          <source>On your profile page, click <bpt id="293b3544-9c49-4621-b2d1-c36a629f333f">&lt;strong&gt;</bpt>Endpoints<ept id="293b3544-9c49-4621-b2d1-c36a629f333f">&lt;/strong&gt;</ept> at the top of the page and verify that the both cloud services and websites (endpoints) that you want to include in your configuration are present.</source>
+          <target state="new">On your profile page, click <bpt id="293b3544-9c49-4621-b2d1-c36a629f333f">&lt;strong&gt;</bpt>Endpoints<ept id="293b3544-9c49-4621-b2d1-c36a629f333f">&lt;/strong&gt;</ept> at the top of the page and verify that the both cloud services and websites (endpoints) that you want to include in your configuration are present.</target>
+        </trans-unit>
+        <trans-unit id="3b30aaf3-d548-414d-be12-9a30548a867b" xml:space="preserve">
+          <source>For steps to add or remove endpoints, see <bpt id="43810c2d-d169-48f6-b0d8-41b16a4f82c7">&lt;linkText&gt;</bpt>Manage Endpoints in Traffic Manager<ept id="43810c2d-d169-48f6-b0d8-41b16a4f82c7">&lt;/linkText&gt;</ept><bpt id="43810c2d-d169-48f6-b0d8-41b16a4f82c7">&lt;title&gt;</bpt><ept id="43810c2d-d169-48f6-b0d8-41b16a4f82c7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For steps to add or remove endpoints, see <bpt id="43810c2d-d169-48f6-b0d8-41b16a4f82c7">&lt;linkText&gt;</bpt>Manage Endpoints in Traffic Manager<ept id="43810c2d-d169-48f6-b0d8-41b16a4f82c7">&lt;/linkText&gt;</ept><bpt id="43810c2d-d169-48f6-b0d8-41b16a4f82c7">&lt;title&gt;</bpt><ept id="43810c2d-d169-48f6-b0d8-41b16a4f82c7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="216ced26-c01e-4b92-87b2-93938f5622bb" xml:space="preserve">
+          <source>On your profile page, click <bpt id="1d2a7753-0acd-4191-915b-b72637bf6e7f">&lt;strong&gt;</bpt>Configure<ept id="1d2a7753-0acd-4191-915b-b72637bf6e7f">&lt;/strong&gt;</ept> at the top to open the configuration page.</source>
+          <target state="new">On your profile page, click <bpt id="1d2a7753-0acd-4191-915b-b72637bf6e7f">&lt;strong&gt;</bpt>Configure<ept id="1d2a7753-0acd-4191-915b-b72637bf6e7f">&lt;/strong&gt;</ept> at the top to open the configuration page.</target>
+        </trans-unit>
+        <trans-unit id="7fea2858-5b53-4823-a116-0f3dc7104d41" xml:space="preserve">
+          <source>For <bpt id="1ae09b72-9dd6-40b6-bde6-1f3937c6159b">&lt;strong&gt;</bpt>traffic routing method settings<ept id="1ae09b72-9dd6-40b6-bde6-1f3937c6159b">&lt;/strong&gt;</ept>, verify that the traffic routing method is <bpt id="edd49e7c-befe-49bf-860d-cadffe3cd94d">&lt;strong&gt;</bpt>Failover<ept id="edd49e7c-befe-49bf-860d-cadffe3cd94d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="1ae09b72-9dd6-40b6-bde6-1f3937c6159b">&lt;strong&gt;</bpt>traffic routing method settings<ept id="1ae09b72-9dd6-40b6-bde6-1f3937c6159b">&lt;/strong&gt;</ept>, verify that the traffic routing method is <bpt id="edd49e7c-befe-49bf-860d-cadffe3cd94d">&lt;strong&gt;</bpt>Failover<ept id="edd49e7c-befe-49bf-860d-cadffe3cd94d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e46e784a-0e60-4eeb-9c11-dfca5325e7fe" xml:space="preserve">
+          <source>If it is not, click <bpt id="f43e586c-36e3-4544-8e4f-c364edaa7e5e">&lt;strong&gt;</bpt>Failover<ept id="f43e586c-36e3-4544-8e4f-c364edaa7e5e">&lt;/strong&gt;</ept> from the dropdown list.</source>
+          <target state="new">If it is not, click <bpt id="f43e586c-36e3-4544-8e4f-c364edaa7e5e">&lt;strong&gt;</bpt>Failover<ept id="f43e586c-36e3-4544-8e4f-c364edaa7e5e">&lt;/strong&gt;</ept> from the dropdown list.</target>
+        </trans-unit>
+        <trans-unit id="dc9e80bc-3461-4694-aff2-53a62a08ecda" xml:space="preserve">
+          <source>For <bpt id="c22c99be-a5d2-4d8e-a4fa-be556697958c">&lt;strong&gt;</bpt>Failover Priority List<ept id="c22c99be-a5d2-4d8e-a4fa-be556697958c">&lt;/strong&gt;</ept>, adjust the failover order for your endpoints.</source>
+          <target state="new">For <bpt id="c22c99be-a5d2-4d8e-a4fa-be556697958c">&lt;strong&gt;</bpt>Failover Priority List<ept id="c22c99be-a5d2-4d8e-a4fa-be556697958c">&lt;/strong&gt;</ept>, adjust the failover order for your endpoints.</target>
+        </trans-unit>
+        <trans-unit id="0e47ee8c-d945-4ebf-a949-bd9115129575" xml:space="preserve">
+          <source>When you select the <bpt id="fdabf56d-3c3e-4f4f-9b44-ee276ad4be35">&lt;strong&gt;</bpt>Failover<ept id="fdabf56d-3c3e-4f4f-9b44-ee276ad4be35">&lt;/strong&gt;</ept> traffic routing method, the order of the selected endpoints matters.</source>
+          <target state="new">When you select the <bpt id="fdabf56d-3c3e-4f4f-9b44-ee276ad4be35">&lt;strong&gt;</bpt>Failover<ept id="fdabf56d-3c3e-4f4f-9b44-ee276ad4be35">&lt;/strong&gt;</ept> traffic routing method, the order of the selected endpoints matters.</target>
+        </trans-unit>
+        <trans-unit id="c200769e-f25a-48a8-9780-f8d5196300ac" xml:space="preserve">
+          <source>The primary endpoint is on top.</source>
+          <target state="new">The primary endpoint is on top.</target>
+        </trans-unit>
+        <trans-unit id="f6f59911-55c4-4f2a-a417-5abc59079b51" xml:space="preserve">
+          <source>Use the up and down arrows to change the order as needed.</source>
+          <target state="new">Use the up and down arrows to change the order as needed.</target>
+        </trans-unit>
+        <trans-unit id="d60f2362-24cf-41d6-a428-809716ab47d7" xml:space="preserve">
+          <source>For information about how to set the failover priority by using Windows PowerShell, see <bpt id="1ccd60cd-41db-4200-a84b-477518878fa1">&lt;linkText&gt;</bpt>Set-AzureTrafficManagerProfile<ept id="1ccd60cd-41db-4200-a84b-477518878fa1">&lt;/linkText&gt;</ept><bpt id="1ccd60cd-41db-4200-a84b-477518878fa1">&lt;title&gt;</bpt><ept id="1ccd60cd-41db-4200-a84b-477518878fa1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to set the failover priority by using Windows PowerShell, see <bpt id="1ccd60cd-41db-4200-a84b-477518878fa1">&lt;linkText&gt;</bpt>Set-AzureTrafficManagerProfile<ept id="1ccd60cd-41db-4200-a84b-477518878fa1">&lt;/linkText&gt;</ept><bpt id="1ccd60cd-41db-4200-a84b-477518878fa1">&lt;title&gt;</bpt><ept id="1ccd60cd-41db-4200-a84b-477518878fa1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d6bfc8c-bb09-4bc8-b107-97124845b07e" xml:space="preserve">
+          <source>Verify that the <bpt id="25c646a2-2cb6-4f80-a968-130ebf4c134e">&lt;strong&gt;</bpt>Monitoring Settings<ept id="25c646a2-2cb6-4f80-a968-130ebf4c134e">&lt;/strong&gt;</ept> are configured appropriately.</source>
+          <target state="new">Verify that the <bpt id="25c646a2-2cb6-4f80-a968-130ebf4c134e">&lt;strong&gt;</bpt>Monitoring Settings<ept id="25c646a2-2cb6-4f80-a968-130ebf4c134e">&lt;/strong&gt;</ept> are configured appropriately.</target>
+        </trans-unit>
+        <trans-unit id="25a450bb-e603-4ba4-b326-a87fcb503d04" xml:space="preserve">
+          <source>Monitoring ensures that endpoints that are offline are not sent traffic.</source>
+          <target state="new">Monitoring ensures that endpoints that are offline are not sent traffic.</target>
+        </trans-unit>
+        <trans-unit id="51a814e5-590e-42bc-8878-801bf5ba5d01" xml:space="preserve">
+          <source>In order to monitor endpoints, you must specify a path and filename.</source>
+          <target state="new">In order to monitor endpoints, you must specify a path and filename.</target>
+        </trans-unit>
+        <trans-unit id="ed127e99-415d-430e-865d-8946b5162307" xml:space="preserve">
+          <source>Note that a forward slash “/“ is a valid entry for the relative path and implies that the file is in the root directory (default).</source>
+          <target state="new">Note that a forward slash “/“ is a valid entry for the relative path and implies that the file is in the root directory (default).</target>
+        </trans-unit>
+        <trans-unit id="77504210-cd69-46fc-8826-d06200d935b7" xml:space="preserve">
+          <source>For more information about monitoring, see <bpt id="34cfd13f-f6fa-47cb-9db8-b7dee85fad38">&lt;linkText&gt;</bpt>Traffic Manager Monitoring<ept id="34cfd13f-f6fa-47cb-9db8-b7dee85fad38">&lt;/linkText&gt;</ept><bpt id="34cfd13f-f6fa-47cb-9db8-b7dee85fad38">&lt;title&gt;</bpt><ept id="34cfd13f-f6fa-47cb-9db8-b7dee85fad38">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about monitoring, see <bpt id="34cfd13f-f6fa-47cb-9db8-b7dee85fad38">&lt;linkText&gt;</bpt>Traffic Manager Monitoring<ept id="34cfd13f-f6fa-47cb-9db8-b7dee85fad38">&lt;/linkText&gt;</ept><bpt id="34cfd13f-f6fa-47cb-9db8-b7dee85fad38">&lt;title&gt;</bpt><ept id="34cfd13f-f6fa-47cb-9db8-b7dee85fad38">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d28d218-c165-40d6-9d81-d26f54276dcd" xml:space="preserve">
+          <source>After you complete your configuration changes, click <bpt id="eb565609-62a7-4e7b-8862-1e7fd667cd5b">&lt;strong&gt;</bpt>Save<ept id="eb565609-62a7-4e7b-8862-1e7fd667cd5b">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">After you complete your configuration changes, click <bpt id="eb565609-62a7-4e7b-8862-1e7fd667cd5b">&lt;strong&gt;</bpt>Save<ept id="eb565609-62a7-4e7b-8862-1e7fd667cd5b">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="f23aba59-488b-4972-adb5-8d6ef673ddd1" xml:space="preserve">
+          <source>Test the changes in your configuration.</source>
+          <target state="new">Test the changes in your configuration.</target>
+        </trans-unit>
+        <trans-unit id="76a83569-e386-404e-95d2-b0728795105d" xml:space="preserve">
+          <source>See <bpt id="6fa904c4-bb46-4ee8-9e27-338edbdcb4fe">&lt;linkText&gt;</bpt>Testing Traffic Manager Settings<ept id="6fa904c4-bb46-4ee8-9e27-338edbdcb4fe">&lt;/linkText&gt;</ept><bpt id="6fa904c4-bb46-4ee8-9e27-338edbdcb4fe">&lt;title&gt;</bpt><ept id="6fa904c4-bb46-4ee8-9e27-338edbdcb4fe">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="6fa904c4-bb46-4ee8-9e27-338edbdcb4fe">&lt;linkText&gt;</bpt>Testing Traffic Manager Settings<ept id="6fa904c4-bb46-4ee8-9e27-338edbdcb4fe">&lt;/linkText&gt;</ept><bpt id="6fa904c4-bb46-4ee8-9e27-338edbdcb4fe">&lt;title&gt;</bpt><ept id="6fa904c4-bb46-4ee8-9e27-338edbdcb4fe">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="b0a3cf1d-c513-46b9-b581-a55d8641831d" xml:space="preserve">
+          <source>Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.</source>
+          <target state="new">Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.</target>
+        </trans-unit>
+        <trans-unit id="be805887-b815-47cd-9167-3f24d31a79d7" xml:space="preserve">
+          <source>For more information about how to do this, see <bpt id="537a9f8a-ac80-4570-a870-c4ffcf209a49">&lt;linkText&gt;</bpt>Point a Company Internet Domain to a Traffic Manager Domain<ept id="537a9f8a-ac80-4570-a870-c4ffcf209a49">&lt;/linkText&gt;</ept><bpt id="537a9f8a-ac80-4570-a870-c4ffcf209a49">&lt;title&gt;</bpt><ept id="537a9f8a-ac80-4570-a870-c4ffcf209a49">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to do this, see <bpt id="537a9f8a-ac80-4570-a870-c4ffcf209a49">&lt;linkText&gt;</bpt>Point a Company Internet Domain to a Traffic Manager Domain<ept id="537a9f8a-ac80-4570-a870-c4ffcf209a49">&lt;/linkText&gt;</ept><bpt id="537a9f8a-ac80-4570-a870-c4ffcf209a49">&lt;title&gt;</bpt><ept id="537a9f8a-ac80-4570-a870-c4ffcf209a49">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92e49d52-29d7-4823-b1f3-7ef0a2daf704" xml:space="preserve">
+          <source><bpt id="6b00b089-ba6d-4dd9-a9a3-c7f294f432e0">&lt;linkText&gt;</bpt>About Traffic Manager traffic routing Methods<ept id="6b00b089-ba6d-4dd9-a9a3-c7f294f432e0">&lt;/linkText&gt;</ept><bpt id="6b00b089-ba6d-4dd9-a9a3-c7f294f432e0">&lt;title&gt;</bpt><ept id="6b00b089-ba6d-4dd9-a9a3-c7f294f432e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b00b089-ba6d-4dd9-a9a3-c7f294f432e0">&lt;linkText&gt;</bpt>About Traffic Manager traffic routing Methods<ept id="6b00b089-ba6d-4dd9-a9a3-c7f294f432e0">&lt;/linkText&gt;</ept><bpt id="6b00b089-ba6d-4dd9-a9a3-c7f294f432e0">&lt;title&gt;</bpt><ept id="6b00b089-ba6d-4dd9-a9a3-c7f294f432e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a407ba8e-cf36-405d-8c82-1e3ad7698740" xml:space="preserve">
+          <source><bpt id="dd922870-dbe2-4e11-b51c-8e30be35113e">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="dd922870-dbe2-4e11-b51c-8e30be35113e">&lt;/linkText&gt;</ept><bpt id="dd922870-dbe2-4e11-b51c-8e30be35113e">&lt;title&gt;</bpt><ept id="dd922870-dbe2-4e11-b51c-8e30be35113e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dd922870-dbe2-4e11-b51c-8e30be35113e">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="dd922870-dbe2-4e11-b51c-8e30be35113e">&lt;/linkText&gt;</ept><bpt id="dd922870-dbe2-4e11-b51c-8e30be35113e">&lt;title&gt;</bpt><ept id="dd922870-dbe2-4e11-b51c-8e30be35113e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3a4424c-3037-407c-a5e9-db1d46d8cb03" xml:space="preserve">
+          <source><bpt id="fa370d73-f461-46d0-a846-c13d0a91e2a1">&lt;linkText&gt;</bpt>Traffic Manager - Disable, enable or delete a profile<ept id="fa370d73-f461-46d0-a846-c13d0a91e2a1">&lt;/linkText&gt;</ept><bpt id="fa370d73-f461-46d0-a846-c13d0a91e2a1">&lt;title&gt;</bpt><ept id="fa370d73-f461-46d0-a846-c13d0a91e2a1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fa370d73-f461-46d0-a846-c13d0a91e2a1">&lt;linkText&gt;</bpt>Traffic Manager - Disable, enable or delete a profile<ept id="fa370d73-f461-46d0-a846-c13d0a91e2a1">&lt;/linkText&gt;</ept><bpt id="fa370d73-f461-46d0-a846-c13d0a91e2a1">&lt;title&gt;</bpt><ept id="fa370d73-f461-46d0-a846-c13d0a91e2a1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f653328-e1df-4234-b7c4-2d2f20f06cd2" xml:space="preserve">
+          <source><bpt id="ad89f2a8-27ee-498b-bfa2-0a831cf27056">&lt;linkText&gt;</bpt>Traffic Manager - Disable or enable an endpoint<ept id="ad89f2a8-27ee-498b-bfa2-0a831cf27056">&lt;/linkText&gt;</ept><bpt id="ad89f2a8-27ee-498b-bfa2-0a831cf27056">&lt;title&gt;</bpt><ept id="ad89f2a8-27ee-498b-bfa2-0a831cf27056">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ad89f2a8-27ee-498b-bfa2-0a831cf27056">&lt;linkText&gt;</bpt>Traffic Manager - Disable or enable an endpoint<ept id="ad89f2a8-27ee-498b-bfa2-0a831cf27056">&lt;/linkText&gt;</ept><bpt id="ad89f2a8-27ee-498b-bfa2-0a831cf27056">&lt;title&gt;</bpt><ept id="ad89f2a8-27ee-498b-bfa2-0a831cf27056">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6cef2586-3842-47f7-86e3-c1221978611c" xml:space="preserve">
+          <source><bpt id="4306d284-388d-4e8d-b455-78fdaf2f3fc3">&lt;linkText&gt;</bpt>Cloud Services<ept id="4306d284-388d-4e8d-b455-78fdaf2f3fc3">&lt;/linkText&gt;</ept><bpt id="4306d284-388d-4e8d-b455-78fdaf2f3fc3">&lt;title&gt;</bpt><ept id="4306d284-388d-4e8d-b455-78fdaf2f3fc3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4306d284-388d-4e8d-b455-78fdaf2f3fc3">&lt;linkText&gt;</bpt>Cloud Services<ept id="4306d284-388d-4e8d-b455-78fdaf2f3fc3">&lt;/linkText&gt;</ept><bpt id="4306d284-388d-4e8d-b455-78fdaf2f3fc3">&lt;title&gt;</bpt><ept id="4306d284-388d-4e8d-b455-78fdaf2f3fc3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1dcc930-3fdf-48a8-856d-921ad290917c" xml:space="preserve">
+          <source><bpt id="a8e4ac02-736e-40ed-b0ad-8c59b60b333c">&lt;linkText&gt;</bpt>Websites<ept id="a8e4ac02-736e-40ed-b0ad-8c59b60b333c">&lt;/linkText&gt;</ept><bpt id="a8e4ac02-736e-40ed-b0ad-8c59b60b333c">&lt;title&gt;</bpt><ept id="a8e4ac02-736e-40ed-b0ad-8c59b60b333c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a8e4ac02-736e-40ed-b0ad-8c59b60b333c">&lt;linkText&gt;</bpt>Websites<ept id="a8e4ac02-736e-40ed-b0ad-8c59b60b333c">&lt;/linkText&gt;</ept><bpt id="a8e4ac02-736e-40ed-b0ad-8c59b60b333c">&lt;title&gt;</bpt><ept id="a8e4ac02-736e-40ed-b0ad-8c59b60b333c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="270c2107-7b4f-4acf-a092-1240651f7e66" xml:space="preserve">
+          <source><bpt id="37848d39-a754-43e1-8f84-3eb76da95695">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="37848d39-a754-43e1-8f84-3eb76da95695">&lt;/linkText&gt;</ept><bpt id="37848d39-a754-43e1-8f84-3eb76da95695">&lt;title&gt;</bpt><ept id="37848d39-a754-43e1-8f84-3eb76da95695">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="37848d39-a754-43e1-8f84-3eb76da95695">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="37848d39-a754-43e1-8f84-3eb76da95695">&lt;/linkText&gt;</ept><bpt id="37848d39-a754-43e1-8f84-3eb76da95695">&lt;title&gt;</bpt><ept id="37848d39-a754-43e1-8f84-3eb76da95695">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db0c292a-549a-436a-b710-a7c553be36a7" xml:space="preserve">
+          <source><bpt id="ff16bec3-b0dd-423f-8607-17556cbfe95f">&lt;linkText&gt;</bpt>Azure Traffic Manager Cmdlets<ept id="ff16bec3-b0dd-423f-8607-17556cbfe95f">&lt;/linkText&gt;</ept><bpt id="ff16bec3-b0dd-423f-8607-17556cbfe95f">&lt;title&gt;</bpt><ept id="ff16bec3-b0dd-423f-8607-17556cbfe95f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ff16bec3-b0dd-423f-8607-17556cbfe95f">&lt;linkText&gt;</bpt>Azure Traffic Manager Cmdlets<ept id="ff16bec3-b0dd-423f-8607-17556cbfe95f">&lt;/linkText&gt;</ept><bpt id="ff16bec3-b0dd-423f-8607-17556cbfe95f">&lt;title&gt;</bpt><ept id="ff16bec3-b0dd-423f-8607-17556cbfe95f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

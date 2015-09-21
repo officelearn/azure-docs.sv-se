@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e2f018d2-a329-4e28-9bbc-68ca6971a568" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e2f018d2-a329-4e28-9bbc-68ca6971a568" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d4e39b8f-8c7c-4b20-a5bb-91b162845c32">
+        <trans-unit id="8d45abca-5736-4a9e-92f1-f30b51a6d684" xml:space="preserve">
+          <source>Add Mobile Services to an existing universal Windows Store app | Microsoft Azure</source>
+          <target state="new">Add Mobile Services to an existing universal Windows Store app | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="df10f953-0ef8-452e-bd76-f5c4df163845" xml:space="preserve">
+          <source>Learn how to get started using Mobile Services to leverage data in your Windows Store app.</source>
+          <target state="new">Learn how to get started using Mobile Services to leverage data in your Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="6b42c91d-2238-47fd-8cb8-251a83ee65a2" xml:space="preserve">
+          <source><bpt id="2f343091-4bdd-4f7e-891c-ea0bc3ef3987">&lt;token href="../../includes/mobile-services-selector-get-started-data.md"&gt;</bpt><ept id="2f343091-4bdd-4f7e-891c-ea0bc3ef3987">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2f343091-4bdd-4f7e-891c-ea0bc3ef3987">&lt;token href="../../includes/mobile-services-selector-get-started-data.md"&gt;</bpt><ept id="2f343091-4bdd-4f7e-891c-ea0bc3ef3987">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8b29466-594a-47c4-8ba7-2868b3bf6e05" xml:space="preserve">
+          <source>This topic shows you how to use Azure Mobile Services as a backend data source for a Windows Store app.</source>
+          <target state="new">This topic shows you how to use Azure Mobile Services as a backend data source for a Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="06da04e1-36bc-4c34-830f-f7cb8a3f9c01" xml:space="preserve">
+          <source>In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.</source>
+          <target state="new">In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.</target>
+        </trans-unit>
+        <trans-unit id="6cc2065c-f52a-4e84-941d-fb0f026d4473" xml:space="preserve">
+          <source>The mobile service that you will create in this tutorial is a .NET backend mobile service.</source>
+          <target state="new">The mobile service that you will create in this tutorial is a .NET backend mobile service.</target>
+        </trans-unit>
+        <trans-unit id="a83757e7-9f3f-4218-865d-156e53e2e222" xml:space="preserve">
+          <source>.NET backend enables you to use .NET languages and Visual Studio for server-side business logic in the mobile service, and you can run and debug your mobile service on your local computer.</source>
+          <target state="new">.NET backend enables you to use .NET languages and Visual Studio for server-side business logic in the mobile service, and you can run and debug your mobile service on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="672a5923-6550-4c43-bdbd-a3267d87bb23" xml:space="preserve">
+          <source>To create a mobile service that lets you write your server-side business logic in JavaScript, see the JavaScript backend version of this topic.</source>
+          <target state="new">To create a mobile service that lets you write your server-side business logic in JavaScript, see the JavaScript backend version of this topic.</target>
+        </trans-unit>
+        <trans-unit id="7d22475e-025d-45cc-bfe0-14cb56854dfa" xml:space="preserve">
+          <source>This topic shows you how to use the tooling in Visual Studio Professional 2013 with Update 3 to connect a new mobile service to a universal Windows app.</source>
+          <target state="new">This topic shows you how to use the tooling in Visual Studio Professional 2013 with Update 3 to connect a new mobile service to a universal Windows app.</target>
+        </trans-unit>
+        <trans-unit id="653a01b9-f95e-4cac-b34c-756e3d9fa9e3" xml:space="preserve">
+          <source>The same steps can be used to connect a mobile service to a Windows Store or Windows Phone Store 8.1 app.</source>
+          <target state="new">The same steps can be used to connect a mobile service to a Windows Store or Windows Phone Store 8.1 app.</target>
+        </trans-unit>
+        <trans-unit id="842edd50-cb83-4abd-8a03-dcff8441b458" xml:space="preserve">
+          <source>To connect a mobile service to a Windows Phone 8.0 or Windows Phone Silverlight 8.1 app, see <bpt id="8e5c35d3-e4e9-4a14-82bb-13d3e061fb8a">&lt;linkText&gt;</bpt>Get started with data for Windows Phone<ept id="8e5c35d3-e4e9-4a14-82bb-13d3e061fb8a">&lt;/linkText&gt;</ept><bpt id="8e5c35d3-e4e9-4a14-82bb-13d3e061fb8a">&lt;title&gt;</bpt><ept id="8e5c35d3-e4e9-4a14-82bb-13d3e061fb8a">&lt;/title&gt;</ept>.</source>
+          <target state="new">To connect a mobile service to a Windows Phone 8.0 or Windows Phone Silverlight 8.1 app, see <bpt id="8e5c35d3-e4e9-4a14-82bb-13d3e061fb8a">&lt;linkText&gt;</bpt>Get started with data for Windows Phone<ept id="8e5c35d3-e4e9-4a14-82bb-13d3e061fb8a">&lt;/linkText&gt;</ept><bpt id="8e5c35d3-e4e9-4a14-82bb-13d3e061fb8a">&lt;title&gt;</bpt><ept id="8e5c35d3-e4e9-4a14-82bb-13d3e061fb8a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="181a535f-9ff8-4b18-8f18-5863a0ab00a2" xml:space="preserve">
+          <source>If you cannot upgrade to Visual Studio Professional 2013 Update 3 or you prefer manually add your mobile service project to a Windows Store app solution, see <bpt id="8a74863b-948c-4de2-9913-164cc62df21e">&lt;linkText&gt;</bpt>this version<ept id="8a74863b-948c-4de2-9913-164cc62df21e">&lt;/linkText&gt;</ept><bpt id="8a74863b-948c-4de2-9913-164cc62df21e">&lt;title&gt;</bpt><ept id="8a74863b-948c-4de2-9913-164cc62df21e">&lt;/title&gt;</ept> of the topic.</source>
+          <target state="new">If you cannot upgrade to Visual Studio Professional 2013 Update 3 or you prefer manually add your mobile service project to a Windows Store app solution, see <bpt id="8a74863b-948c-4de2-9913-164cc62df21e">&lt;linkText&gt;</bpt>this version<ept id="8a74863b-948c-4de2-9913-164cc62df21e">&lt;/linkText&gt;</ept><bpt id="8a74863b-948c-4de2-9913-164cc62df21e">&lt;title&gt;</bpt><ept id="8a74863b-948c-4de2-9913-164cc62df21e">&lt;/title&gt;</ept> of the topic.</target>
+        </trans-unit>
+        <trans-unit id="890c4d9a-d24e-48fa-b6f3-0cada638e55f" xml:space="preserve">
+          <source>To complete this tutorial, you need the following:</source>
+          <target state="new">To complete this tutorial, you need the following:</target>
+        </trans-unit>
+        <trans-unit id="448d5425-102b-4427-8ef4-ca5c2290fbd9" xml:space="preserve">
+          <source>An active Azure account.</source>
+          <target state="new">An active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="4e8a75e4-e5ad-460f-b62d-f4800e559d89" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="39744ded-5e21-4640-936f-f5b468bb5311" xml:space="preserve">
+          <source>For details, see <bpt id="3fd4e531-e74a-4695-b6dc-8e415691c984">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="3fd4e531-e74a-4695-b6dc-8e415691c984">&lt;/linkText&gt;</ept><bpt id="3fd4e531-e74a-4695-b6dc-8e415691c984">&lt;title&gt;</bpt><ept id="3fd4e531-e74a-4695-b6dc-8e415691c984">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="3fd4e531-e74a-4695-b6dc-8e415691c984">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="3fd4e531-e74a-4695-b6dc-8e415691c984">&lt;/linkText&gt;</ept><bpt id="3fd4e531-e74a-4695-b6dc-8e415691c984">&lt;title&gt;</bpt><ept id="3fd4e531-e74a-4695-b6dc-8e415691c984">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="812cfd75-b42b-4e3e-a228-b7f208ffdaa6" xml:space="preserve">
+          <source>&lt;a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank"&gt;Visual Studio 2013&lt;/a&gt; (Update 3 or a later version).</source>
+          <target state="new">&lt;a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank"&gt;Visual Studio 2013&lt;/a&gt; (Update 3 or a later version).</target>
+        </trans-unit>
+        <trans-unit id="751b4d0c-0b30-48a6-bb3a-d163a81f8bf9" xml:space="preserve">
+          <source><bpt id="4860cef1-4bf8-4575-95b3-9a09e7e4727a">&lt;token href="../../includes/mobile-services-windows-universal-dotnet-download-project.md"&gt;</bpt><ept id="4860cef1-4bf8-4575-95b3-9a09e7e4727a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4860cef1-4bf8-4575-95b3-9a09e7e4727a">&lt;token href="../../includes/mobile-services-windows-universal-dotnet-download-project.md"&gt;</bpt><ept id="4860cef1-4bf8-4575-95b3-9a09e7e4727a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="936d3290-b001-4dc8-88dd-ad4692244499" xml:space="preserve">
+          <source><bpt id="479b935c-1e0c-4a09-a193-146de797bac3">&lt;token href="../../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md"&gt;</bpt><ept id="479b935c-1e0c-4a09-a193-146de797bac3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="479b935c-1e0c-4a09-a193-146de797bac3">&lt;token href="../../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md"&gt;</bpt><ept id="479b935c-1e0c-4a09-a193-146de797bac3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d4a56a8-a6af-444c-aa15-cf81a4830f05" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;7.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;7.</target>
+        </trans-unit>
+        <trans-unit id="3644eef7-ea97-4a31-a757-c92a42f6c3af" xml:space="preserve">
+          <source>In Solution Explorer, open the App.xaml.cs code file in the GetStartedWithData.Shared project folder, and notice the new static field that was added to the <bpt id="db0e7363-8381-4b46-80c8-59dc183f08f0">&lt;strong&gt;</bpt>App<ept id="db0e7363-8381-4b46-80c8-59dc183f08f0">&lt;/strong&gt;</ept> class inside a Windows Store app conditional compilation block, which looks like the following example:</source>
+          <target state="new">In Solution Explorer, open the App.xaml.cs code file in the GetStartedWithData.Shared project folder, and notice the new static field that was added to the <bpt id="db0e7363-8381-4b46-80c8-59dc183f08f0">&lt;strong&gt;</bpt>App<ept id="db0e7363-8381-4b46-80c8-59dc183f08f0">&lt;/strong&gt;</ept> class inside a Windows Store app conditional compilation block, which looks like the following example:</target>
+        </trans-unit>
+        <trans-unit id="d633c39d-2f9a-4a9d-80f6-7ab0d9669133" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;This code provides access to your new mobile service in your app by using an instance of the <bpt id="1ffeeab8-54d3-4626-9e9c-449cd0c80623">&lt;linkText&gt;</bpt>MobileServiceClient<ept id="1ffeeab8-54d3-4626-9e9c-449cd0c80623">&lt;/linkText&gt;</ept><bpt id="1ffeeab8-54d3-4626-9e9c-449cd0c80623">&lt;title&gt;</bpt><ept id="1ffeeab8-54d3-4626-9e9c-449cd0c80623">&lt;/title&gt;</ept> class.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;This code provides access to your new mobile service in your app by using an instance of the <bpt id="1ffeeab8-54d3-4626-9e9c-449cd0c80623">&lt;linkText&gt;</bpt>MobileServiceClient<ept id="1ffeeab8-54d3-4626-9e9c-449cd0c80623">&lt;/linkText&gt;</ept><bpt id="1ffeeab8-54d3-4626-9e9c-449cd0c80623">&lt;title&gt;</bpt><ept id="1ffeeab8-54d3-4626-9e9c-449cd0c80623">&lt;/title&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="7236b0fa-ff0b-4a83-a132-9d290c3bf4d7" xml:space="preserve">
+          <source>The client is created by supplying the URI and the application key of the new mobile service.</source>
+          <target state="new">The client is created by supplying the URI and the application key of the new mobile service.</target>
+        </trans-unit>
+        <trans-unit id="dbabcf99-39dc-4f42-9d55-04eafccec2dc" xml:space="preserve">
+          <source>This static field is available to all pages in your app.</source>
+          <target state="new">This static field is available to all pages in your app.</target>
+        </trans-unit>
+        <trans-unit id="1775fdfc-aaf0-427b-9ad0-247c5691b17e" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;8.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;8.</target>
+        </trans-unit>
+        <trans-unit id="f1aa8791-3336-4a74-938f-82c20873ea60" xml:space="preserve">
+          <source>Right-click the Windows Phone app project, click <bpt id="d9743526-12af-4e8c-ba26-727cb2be00d2">&lt;strong&gt;</bpt>Add<ept id="d9743526-12af-4e8c-ba26-727cb2be00d2">&lt;/strong&gt;</ept>, click <bpt id="d951aa8c-f9f1-409f-9155-a0d9e11c4e8b">&lt;strong&gt;</bpt>Connected Service...<ept id="d951aa8c-f9f1-409f-9155-a0d9e11c4e8b">&lt;/strong&gt;</ept>, select the mobile service that you just created, and then click <bpt id="09e0736e-f3d4-4fbe-b466-a1e9b4bf39a6">&lt;strong&gt;</bpt>OK<ept id="09e0736e-f3d4-4fbe-b466-a1e9b4bf39a6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the Windows Phone app project, click <bpt id="d9743526-12af-4e8c-ba26-727cb2be00d2">&lt;strong&gt;</bpt>Add<ept id="d9743526-12af-4e8c-ba26-727cb2be00d2">&lt;/strong&gt;</ept>, click <bpt id="d951aa8c-f9f1-409f-9155-a0d9e11c4e8b">&lt;strong&gt;</bpt>Connected Service...<ept id="d951aa8c-f9f1-409f-9155-a0d9e11c4e8b">&lt;/strong&gt;</ept>, select the mobile service that you just created, and then click <bpt id="09e0736e-f3d4-4fbe-b466-a1e9b4bf39a6">&lt;strong&gt;</bpt>OK<ept id="09e0736e-f3d4-4fbe-b466-a1e9b4bf39a6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5cc2b0a-34e4-44fc-8625-02b3b683f363" xml:space="preserve">
+          <source>The same code is added to the shared App.xaml.cs file, but this time within a Windows Phone app conditional compilation block.</source>
+          <target state="new">The same code is added to the shared App.xaml.cs file, but this time within a Windows Phone app conditional compilation block.</target>
+        </trans-unit>
+        <trans-unit id="723c3d75-ecef-4f33-810b-598e414d529a" xml:space="preserve">
+          <source>At this point, both the Windows Store and Windows Phone Store apps are connected to the new mobile service.</source>
+          <target state="new">At this point, both the Windows Store and Windows Phone Store apps are connected to the new mobile service.</target>
+        </trans-unit>
+        <trans-unit id="2f4e59a3-6570-49bc-bda9-82f1628a7471" xml:space="preserve">
+          <source>The next step is to test the new mobile service project.</source>
+          <target state="new">The next step is to test the new mobile service project.</target>
+        </trans-unit>
+        <trans-unit id="6bdfa2a4-8857-4725-b4dc-8ed521e5d0c3" xml:space="preserve">
+          <source><bpt id="a1798091-cfed-4936-9517-b4986522b0d5">&lt;token href="../../includes/mobile-services-dotnet-backend-test-local-service-api-documentation.md"&gt;</bpt><ept id="a1798091-cfed-4936-9517-b4986522b0d5">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a1798091-cfed-4936-9517-b4986522b0d5">&lt;token href="../../includes/mobile-services-dotnet-backend-test-local-service-api-documentation.md"&gt;</bpt><ept id="a1798091-cfed-4936-9517-b4986522b0d5">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22478991-ea11-48b6-bd7b-289dbef38fba" xml:space="preserve">
+          <source>In this section you will update the universal Windows app to use the mobile service as a backend service for the application.</source>
+          <target state="new">In this section you will update the universal Windows app to use the mobile service as a backend service for the application.</target>
+        </trans-unit>
+        <trans-unit id="461ecfac-9529-46a9-9acb-8e4162e65306" xml:space="preserve">
+          <source>You only need to make changes to the MainPage.xaml.cs project file in the GetStartedWithData.Shared project folder.</source>
+          <target state="new">You only need to make changes to the MainPage.xaml.cs project file in the GetStartedWithData.Shared project folder.</target>
+        </trans-unit>
+        <trans-unit id="40c7f40b-aeec-428e-8fa1-ac6822dfb2a2" xml:space="preserve">
+          <source><bpt id="b3c0b170-2fce-465d-85e7-85d1f7bb8b86">&lt;token href="../../includes/mobile-services-windows-dotnet-update-data-app.md"&gt;</bpt><ept id="b3c0b170-2fce-465d-85e7-85d1f7bb8b86">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b3c0b170-2fce-465d-85e7-85d1f7bb8b86">&lt;token href="../../includes/mobile-services-windows-dotnet-update-data-app.md"&gt;</bpt><ept id="b3c0b170-2fce-465d-85e7-85d1f7bb8b86">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50538a0d-2448-4550-9fc0-12ac7f602b50" xml:space="preserve">
+          <source><bpt id="3fe7f146-f2d8-427a-83fc-4ab8ce04505b">&lt;token href="../../includes/mobile-services-dotnet-backend-publish-service.md"&gt;</bpt><ept id="3fe7f146-f2d8-427a-83fc-4ab8ce04505b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3fe7f146-f2d8-427a-83fc-4ab8ce04505b">&lt;token href="../../includes/mobile-services-dotnet-backend-publish-service.md"&gt;</bpt><ept id="3fe7f146-f2d8-427a-83fc-4ab8ce04505b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd12ca55-92c2-4144-8ed8-628d89cb2746" xml:space="preserve">
+          <source>Now we can test both versions of the universal Windows app against the mobile service hosted in Azure.</source>
+          <target state="new">Now we can test both versions of the universal Windows app against the mobile service hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="8297e9b7-a7e0-442f-8f4c-8bd78526b4ef" xml:space="preserve">
+          <source><bpt id="345fb1fb-3662-41de-be73-a9137ce4d616">&lt;token href="../../includes/mobile-services-windows-universal-test-app.md"&gt;</bpt><ept id="345fb1fb-3662-41de-be73-a9137ce4d616">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="345fb1fb-3662-41de-be73-a9137ce4d616">&lt;token href="../../includes/mobile-services-windows-universal-test-app.md"&gt;</bpt><ept id="345fb1fb-3662-41de-be73-a9137ce4d616">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9892057-755f-460f-82b7-e02a7279a275" xml:space="preserve">
+          <source><bpt id="55b2dffc-a844-4d93-bc9a-c6d1bd5919e9">&lt;token href="../../includes/mobile-services-dotnet-backend-view-sql-data.md"&gt;</bpt><ept id="55b2dffc-a844-4d93-bc9a-c6d1bd5919e9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="55b2dffc-a844-4d93-bc9a-c6d1bd5919e9">&lt;token href="../../includes/mobile-services-dotnet-backend-view-sql-data.md"&gt;</bpt><ept id="55b2dffc-a844-4d93-bc9a-c6d1bd5919e9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b78f6bf9-64bc-40a5-b74c-9587fa1a0759" xml:space="preserve">
+          <source>This concludes the tutorial.</source>
+          <target state="new">This concludes the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="aea0e6ff-76b9-4e26-a1bb-9634e1c1b3ed" xml:space="preserve">
+          <source>This tutorial demonstrated the basics of enabling a universal Windows app project to work with data in Mobile Services.</source>
+          <target state="new">This tutorial demonstrated the basics of enabling a universal Windows app project to work with data in Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="28ba2256-e713-4a30-8f30-8764aec5b1e3" xml:space="preserve">
+          <source>Next, consider reading up on one of these other topics:</source>
+          <target state="new">Next, consider reading up on one of these other topics:</target>
+        </trans-unit>
+        <trans-unit id="6414731a-fe58-4bf2-8a5c-d769f0b87d2b" xml:space="preserve">
+          <source>[Get started with authentication]
+&lt;br/&gt;Learn how to authenticate users of your app.</source>
+          <target state="new">[Get started with authentication]
+&lt;br/&gt;Learn how to authenticate users of your app.</target>
+        </trans-unit>
+        <trans-unit id="23cf0fee-db14-4898-83ef-99c6ce7b7c98" xml:space="preserve">
+          <source>[Get started with push notifications] 
+&lt;br/&gt;Learn how to send a very basic push notification to your app.</source>
+          <target state="new">[Get started with push notifications] 
+&lt;br/&gt;Learn how to send a very basic push notification to your app.</target>
+        </trans-unit>
+        <trans-unit id="fc8c6eea-c3f6-45c3-984d-2c48bd579946" xml:space="preserve">
+          <source><bpt id="b6eaad91-bebf-407a-9df5-b9c3065fc37e">&lt;linkText&gt;</bpt>Mobile Services C# How-to Conceptual Reference<ept id="b6eaad91-bebf-407a-9df5-b9c3065fc37e">&lt;/linkText&gt;</ept><bpt id="b6eaad91-bebf-407a-9df5-b9c3065fc37e">&lt;title&gt;</bpt><ept id="b6eaad91-bebf-407a-9df5-b9c3065fc37e">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn more about how to use Mobile Services with .NET.</source>
+          <target state="new"><bpt id="b6eaad91-bebf-407a-9df5-b9c3065fc37e">&lt;linkText&gt;</bpt>Mobile Services C# How-to Conceptual Reference<ept id="b6eaad91-bebf-407a-9df5-b9c3065fc37e">&lt;/linkText&gt;</ept><bpt id="b6eaad91-bebf-407a-9df5-b9c3065fc37e">&lt;title&gt;</bpt><ept id="b6eaad91-bebf-407a-9df5-b9c3065fc37e">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn more about how to use Mobile Services with .NET.</target>
+        </trans-unit>
+        <trans-unit id="d7ead4c9-66f3-4a15-8452-0bdc89602d88" xml:space="preserve">
+          <source>/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet</source>
+          <target state="new">/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet</target>
+        </trans-unit>
+        <trans-unit id="e4e2273f-adab-4f2d-85dd-c61e4309db27" xml:space="preserve">
+          <source>/develop/mobile/tutorials/add-paging-to-data-dotnet</source>
+          <target state="new">/develop/mobile/tutorials/add-paging-to-data-dotnet</target>
+        </trans-unit>
+        <trans-unit id="6a6e2561-4095-4134-8ab3-d7d6e46659e5" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-store-dotnet-get-started.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-store-dotnet-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="a9553dc9-3078-4687-94c7-6d4fe460bfdc" xml:space="preserve">
+          <source>../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md</source>
+          <target state="new">../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="3580a03b-7665-40dd-899b-b4afc7ef3080" xml:space="preserve">
+          <source>../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md</source>
+          <target state="new">../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="fb7f6903-a216-40de-a741-a016d35f9131" xml:space="preserve">
+          <source>mobile-services-windows-store-dotnet-get-started-offline-data.md</source>
+          <target state="new">mobile-services-windows-store-dotnet-get-started-offline-data.md</target>
+        </trans-unit>
+        <trans-unit id="976ea1ef-df18-4388-97cd-945f9b414f5c" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="fc2931ff-edd7-4af0-afe7-9fdeb8a829b5" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="9329f0da-cb1d-4445-b841-ac8c88276e30" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=257545</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=257545</target>
+        </trans-unit>
+        <trans-unit id="710ee2ce-12d0-413b-aba1-eabb88e75c61" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=510826</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=510826</target>
+        </trans-unit>
+        <trans-unit id="8091f05c-30a6-413a-bda3-d8cc9f306ec8" xml:space="preserve">
+          <source>mobile-services-windows-dotnet-how-to-use-client-library.md</source>
+          <target state="new">mobile-services-windows-dotnet-how-to-use-client-library.md</target>
+        </trans-unit>
+        <trans-unit id="a9728885-744a-4a01-a163-0326bda07edb" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=302030</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=302030</target>
+        </trans-unit>
+      </group>
+      <group id="4aadff3a-cc86-47f2-b7e4-29b2b93284b1" />
+    </body>
+  </file>
+</xliff>

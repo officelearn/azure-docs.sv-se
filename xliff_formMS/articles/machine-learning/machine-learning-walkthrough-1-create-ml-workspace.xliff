@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c3925bb4-e98e-4102-b694-ef388bafbf15" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c3925bb4-e98e-4102-b694-ef388bafbf15" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1ae53d0b-2506-458b-b9ef-0cdc7e8c6a2e">
+        <trans-unit id="94643813-b611-43b5-865d-38d8dddc5e58" xml:space="preserve">
+          <source>Step 1: Create a Machine Learning workspace | Microsoft Azure</source>
+          <target state="new">Step 1: Create a Machine Learning workspace | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e57eb1af-d823-4c00-b4f3-4620fe4fe561" xml:space="preserve">
+          <source>Step 1 of the Develop a predictive solution walkthrough: Learn how to set up a new Azure Machine Learning Studio workspace.</source>
+          <target state="new">Step 1 of the Develop a predictive solution walkthrough: Learn how to set up a new Azure Machine Learning Studio workspace.</target>
+        </trans-unit>
+        <trans-unit id="7866f9e9-49f3-4762-a82d-39978da7523b" xml:space="preserve">
+          <source>This is the first step of the walkthrough, <bpt id="b6f878ed-683b-40c4-ac77-0a6d0e6bd759">&lt;linkText&gt;</bpt>Develop a Predictive Solution with Azure Machine Learning<ept id="b6f878ed-683b-40c4-ac77-0a6d0e6bd759">&lt;/linkText&gt;</ept><bpt id="b6f878ed-683b-40c4-ac77-0a6d0e6bd759">&lt;title&gt;</bpt><ept id="b6f878ed-683b-40c4-ac77-0a6d0e6bd759">&lt;/title&gt;</ept>.</source>
+          <target state="new">This is the first step of the walkthrough, <bpt id="b6f878ed-683b-40c4-ac77-0a6d0e6bd759">&lt;linkText&gt;</bpt>Develop a Predictive Solution with Azure Machine Learning<ept id="b6f878ed-683b-40c4-ac77-0a6d0e6bd759">&lt;/linkText&gt;</ept><bpt id="b6f878ed-683b-40c4-ac77-0a6d0e6bd759">&lt;title&gt;</bpt><ept id="b6f878ed-683b-40c4-ac77-0a6d0e6bd759">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a9d2bb3-5511-4f5f-8b18-9459f41d1501" xml:space="preserve">
+          <source><bpt id="1b1ce2b7-4d2f-40d3-a108-b2de53b70e65">&lt;strong&gt;</bpt>Create a Machine Learning workspace<ept id="1b1ce2b7-4d2f-40d3-a108-b2de53b70e65">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1b1ce2b7-4d2f-40d3-a108-b2de53b70e65">&lt;strong&gt;</bpt>Create a Machine Learning workspace<ept id="1b1ce2b7-4d2f-40d3-a108-b2de53b70e65">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0baa9199-d2a2-4caf-a43b-994924bd6b65" xml:space="preserve">
+          <source><bpt id="659fb33d-27c0-45a6-87f8-af5b8c89e45b">&lt;linkText&gt;</bpt>Upload existing data<ept id="659fb33d-27c0-45a6-87f8-af5b8c89e45b">&lt;/linkText&gt;</ept><bpt id="659fb33d-27c0-45a6-87f8-af5b8c89e45b">&lt;title&gt;</bpt><ept id="659fb33d-27c0-45a6-87f8-af5b8c89e45b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="659fb33d-27c0-45a6-87f8-af5b8c89e45b">&lt;linkText&gt;</bpt>Upload existing data<ept id="659fb33d-27c0-45a6-87f8-af5b8c89e45b">&lt;/linkText&gt;</ept><bpt id="659fb33d-27c0-45a6-87f8-af5b8c89e45b">&lt;title&gt;</bpt><ept id="659fb33d-27c0-45a6-87f8-af5b8c89e45b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0bfd7818-2e7d-4e5b-80f9-c6cfb4e98d7b" xml:space="preserve">
+          <source><bpt id="a2044c29-02c8-4f7c-afd6-488a800a7c86">&lt;linkText&gt;</bpt>Create a new experiment<ept id="a2044c29-02c8-4f7c-afd6-488a800a7c86">&lt;/linkText&gt;</ept><bpt id="a2044c29-02c8-4f7c-afd6-488a800a7c86">&lt;title&gt;</bpt><ept id="a2044c29-02c8-4f7c-afd6-488a800a7c86">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a2044c29-02c8-4f7c-afd6-488a800a7c86">&lt;linkText&gt;</bpt>Create a new experiment<ept id="a2044c29-02c8-4f7c-afd6-488a800a7c86">&lt;/linkText&gt;</ept><bpt id="a2044c29-02c8-4f7c-afd6-488a800a7c86">&lt;title&gt;</bpt><ept id="a2044c29-02c8-4f7c-afd6-488a800a7c86">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="539a725f-2373-4163-987e-dd0253704a04" xml:space="preserve">
+          <source><bpt id="1ae03293-01a3-46b4-af2b-c8c55a6c79cd">&lt;linkText&gt;</bpt>Train and evaluate the models<ept id="1ae03293-01a3-46b4-af2b-c8c55a6c79cd">&lt;/linkText&gt;</ept><bpt id="1ae03293-01a3-46b4-af2b-c8c55a6c79cd">&lt;title&gt;</bpt><ept id="1ae03293-01a3-46b4-af2b-c8c55a6c79cd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1ae03293-01a3-46b4-af2b-c8c55a6c79cd">&lt;linkText&gt;</bpt>Train and evaluate the models<ept id="1ae03293-01a3-46b4-af2b-c8c55a6c79cd">&lt;/linkText&gt;</ept><bpt id="1ae03293-01a3-46b4-af2b-c8c55a6c79cd">&lt;title&gt;</bpt><ept id="1ae03293-01a3-46b4-af2b-c8c55a6c79cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="295c596c-c7ce-415d-a864-25456c0f0d2a" xml:space="preserve">
+          <source><bpt id="251543f4-b04a-4bdf-be91-fe86ac33ddee">&lt;linkText&gt;</bpt>Publish the web service<ept id="251543f4-b04a-4bdf-be91-fe86ac33ddee">&lt;/linkText&gt;</ept><bpt id="251543f4-b04a-4bdf-be91-fe86ac33ddee">&lt;title&gt;</bpt><ept id="251543f4-b04a-4bdf-be91-fe86ac33ddee">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="251543f4-b04a-4bdf-be91-fe86ac33ddee">&lt;linkText&gt;</bpt>Publish the web service<ept id="251543f4-b04a-4bdf-be91-fe86ac33ddee">&lt;/linkText&gt;</ept><bpt id="251543f4-b04a-4bdf-be91-fe86ac33ddee">&lt;title&gt;</bpt><ept id="251543f4-b04a-4bdf-be91-fe86ac33ddee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2292104b-2ae2-46b9-a176-dbdd48850289" xml:space="preserve">
+          <source><bpt id="12969bb9-10a1-44cd-97e7-af387eba5a56">&lt;linkText&gt;</bpt>Access the web service<ept id="12969bb9-10a1-44cd-97e7-af387eba5a56">&lt;/linkText&gt;</ept><bpt id="12969bb9-10a1-44cd-97e7-af387eba5a56">&lt;title&gt;</bpt><ept id="12969bb9-10a1-44cd-97e7-af387eba5a56">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="12969bb9-10a1-44cd-97e7-af387eba5a56">&lt;linkText&gt;</bpt>Access the web service<ept id="12969bb9-10a1-44cd-97e7-af387eba5a56">&lt;/linkText&gt;</ept><bpt id="12969bb9-10a1-44cd-97e7-af387eba5a56">&lt;title&gt;</bpt><ept id="12969bb9-10a1-44cd-97e7-af387eba5a56">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f980c4e-c029-4a9c-8406-b92494958cc5" xml:space="preserve">
+          <source>To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning workspace.</source>
+          <target state="new">To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning workspace.</target>
+        </trans-unit>
+        <trans-unit id="7aa832a5-12aa-4c1f-bee7-d7c375d87282" xml:space="preserve">
+          <source>This workspace contains the tools you need to create, manage, and publish experiments.</source>
+          <target state="new">This workspace contains the tools you need to create, manage, and publish experiments.</target>
+        </trans-unit>
+        <trans-unit id="bff55220-df55-4fd4-9572-072e5e38aea1" xml:space="preserve">
+          <source>Sign in to your Microsoft Azure account.</source>
+          <target state="new">Sign in to your Microsoft Azure account.</target>
+        </trans-unit>
+        <trans-unit id="4d84a25d-7feb-438d-84db-1309b6326962" xml:space="preserve">
+          <source>In the Microsoft Azure services panel, click <bpt id="8c4349ba-f8f4-423c-bd41-93d1f3aa3fd2">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="8c4349ba-f8f4-423c-bd41-93d1f3aa3fd2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Microsoft Azure services panel, click <bpt id="8c4349ba-f8f4-423c-bd41-93d1f3aa3fd2">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="8c4349ba-f8f4-423c-bd41-93d1f3aa3fd2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86862008-95cf-49f0-a307-e93c1c4b6a75" xml:space="preserve">
+          <source><bpt id="4f9b25fa-5e1b-4c34-8efd-a2e71eb9f3e9">&lt;linkText&gt;</bpt>Create workspace<ept id="4f9b25fa-5e1b-4c34-8efd-a2e71eb9f3e9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4f9b25fa-5e1b-4c34-8efd-a2e71eb9f3e9">&lt;linkText&gt;</bpt>Create workspace<ept id="4f9b25fa-5e1b-4c34-8efd-a2e71eb9f3e9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="091f1a26-311b-48f0-91aa-56da81b59c76" xml:space="preserve">
+          <source>Click <bpt id="73b7fc64-15f6-4eaa-aaf6-27ee04ee72d9">&lt;strong&gt;</bpt>CREATE AN ML WORKSPACE<ept id="73b7fc64-15f6-4eaa-aaf6-27ee04ee72d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="73b7fc64-15f6-4eaa-aaf6-27ee04ee72d9">&lt;strong&gt;</bpt>CREATE AN ML WORKSPACE<ept id="73b7fc64-15f6-4eaa-aaf6-27ee04ee72d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="faee2d75-1d38-492f-9265-541de8ea281d" xml:space="preserve">
+          <source>On the <bpt id="cc70a629-1775-4c42-a27f-12a3b99bcb0c">&lt;strong&gt;</bpt>QUICK CREATE<ept id="cc70a629-1775-4c42-a27f-12a3b99bcb0c">&lt;/strong&gt;</ept> page, enter your workspace information and then click <bpt id="24178de9-7697-4079-ae6c-b48b0afb82bd">&lt;strong&gt;</bpt>CREATE AN ML WORKSPACE<ept id="24178de9-7697-4079-ae6c-b48b0afb82bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="cc70a629-1775-4c42-a27f-12a3b99bcb0c">&lt;strong&gt;</bpt>QUICK CREATE<ept id="cc70a629-1775-4c42-a27f-12a3b99bcb0c">&lt;/strong&gt;</ept> page, enter your workspace information and then click <bpt id="24178de9-7697-4079-ae6c-b48b0afb82bd">&lt;strong&gt;</bpt>CREATE AN ML WORKSPACE<ept id="24178de9-7697-4079-ae6c-b48b0afb82bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47f962ef-b700-4210-874d-ab26a08da4d0" xml:space="preserve">
+          <source>The <bpt id="ff063b5c-eea3-4fb4-93fb-bd148a165885">&lt;strong&gt;</bpt>WORKSPACE OWNER<ept id="ff063b5c-eea3-4fb4-93fb-bd148a165885">&lt;/strong&gt;</ept> is your Microsoft account (e.g., name@outlook.com) or organizational account.</source>
+          <target state="new">The <bpt id="ff063b5c-eea3-4fb4-93fb-bd148a165885">&lt;strong&gt;</bpt>WORKSPACE OWNER<ept id="ff063b5c-eea3-4fb4-93fb-bd148a165885">&lt;/strong&gt;</ept> is your Microsoft account (e.g., name@outlook.com) or organizational account.</target>
+        </trans-unit>
+        <trans-unit id="967b313d-5f39-49da-8a01-c38098dfb724" xml:space="preserve">
+          <source>After your Machine Learning workspace is created, you will see it listed on the <bpt id="3a283931-64df-40c7-bf42-a4199e1644f7">&lt;strong&gt;</bpt>machine learning<ept id="3a283931-64df-40c7-bf42-a4199e1644f7">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">After your Machine Learning workspace is created, you will see it listed on the <bpt id="3a283931-64df-40c7-bf42-a4199e1644f7">&lt;strong&gt;</bpt>machine learning<ept id="3a283931-64df-40c7-bf42-a4199e1644f7">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="cb6552aa-ba0e-4abe-807f-6466d336f479" xml:space="preserve">
+          <source>You can share the experiments you're working on by inviting others to your workspace.</source>
+          <target state="new">You can share the experiments you're working on by inviting others to your workspace.</target>
+        </trans-unit>
+        <trans-unit id="51bb290a-40bb-4001-ac83-e50c1aa26fae" xml:space="preserve">
+          <source>You can do this in Machine Learning Studio on the <bpt id="99b36c75-ea0e-4d24-ab55-cf9347e2488a">&lt;strong&gt;</bpt>SETTINGS<ept id="99b36c75-ea0e-4d24-ab55-cf9347e2488a">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">You can do this in Machine Learning Studio on the <bpt id="99b36c75-ea0e-4d24-ab55-cf9347e2488a">&lt;strong&gt;</bpt>SETTINGS<ept id="99b36c75-ea0e-4d24-ab55-cf9347e2488a">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="55e99260-d6e9-4bfb-b076-ff08dc22e416" xml:space="preserve">
+          <source>You just need the Microsoft account or organizational account for each user.</source>
+          <target state="new">You just need the Microsoft account or organizational account for each user.</target>
+        </trans-unit>
+        <trans-unit id="0939556b-910a-42ec-83ed-8c9aa8fa7722" xml:space="preserve">
+          <source>For more information, see <bpt id="fca3c5d5-2055-44e1-a31a-41682fc7be66">&lt;linkText&gt;</bpt>Manage an Azure Machine Learning workspace<ept id="fca3c5d5-2055-44e1-a31a-41682fc7be66">&lt;/linkText&gt;</ept><bpt id="fca3c5d5-2055-44e1-a31a-41682fc7be66">&lt;title&gt;</bpt><ept id="fca3c5d5-2055-44e1-a31a-41682fc7be66">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="fca3c5d5-2055-44e1-a31a-41682fc7be66">&lt;linkText&gt;</bpt>Manage an Azure Machine Learning workspace<ept id="fca3c5d5-2055-44e1-a31a-41682fc7be66">&lt;/linkText&gt;</ept><bpt id="fca3c5d5-2055-44e1-a31a-41682fc7be66">&lt;title&gt;</bpt><ept id="fca3c5d5-2055-44e1-a31a-41682fc7be66">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="471d309d-7e37-4938-8c9e-c2a8738a1007" xml:space="preserve">
+          <source><bpt id="da51c9e0-c39b-4f29-84b3-c41946d0f793">&lt;strong&gt;</bpt>Next: [Upload existing data](machine-learning-walkthrough-2-upload-data.md)<ept id="da51c9e0-c39b-4f29-84b3-c41946d0f793">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="da51c9e0-c39b-4f29-84b3-c41946d0f793">&lt;strong&gt;</bpt>Next: [Upload existing data](machine-learning-walkthrough-2-upload-data.md)<ept id="da51c9e0-c39b-4f29-84b3-c41946d0f793">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f69f0cea-7b7c-4762-a872-d38190e8320c" xml:space="preserve">
+          <source>./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png</source>
+          <target state="new">./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png</target>
+        </trans-unit>
+      </group>
+      <group id="24a06764-4409-4b4e-819b-e72834a9485a" />
+    </body>
+  </file>
+</xliff>

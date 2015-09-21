@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c2853828-5df6-4058-8633-98c76dce696e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c2853828-5df6-4058-8633-98c76dce696e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="541e8ef8-3916-4d97-8ec0-eea9010c3483">
+        <trans-unit id="fe563fa6-8360-44e6-b19d-561fbc8c0f05" xml:space="preserve">
+          <source>Get Started with Azure Automation | Microsoft Azure</source>
+          <target state="new">Get Started with Azure Automation | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="56368ee2-c76e-48a5-94ce-5ddfdc65d733" xml:space="preserve">
+          <source>Learn how to import and run an automation job in Azure.</source>
+          <target state="new">Learn how to import and run an automation job in Azure.</target>
+        </trans-unit>
+        <trans-unit id="9c9096ad-e111-49a5-b588-b3dde9b9f40e" xml:space="preserve">
+          <source>Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment.</source>
+          <target state="new">Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment.</target>
+        </trans-unit>
+        <trans-unit id="060379ba-c0d0-4d0b-aa98-e2ca7829b460" xml:space="preserve">
+          <source>You can create, monitor, manage, and deploy resources in your Azure environment using runbooks, which are based on Windows PowerShell workflows.</source>
+          <target state="new">You can create, monitor, manage, and deploy resources in your Azure environment using runbooks, which are based on Windows PowerShell workflows.</target>
+        </trans-unit>
+        <trans-unit id="975ac610-b65b-424f-adb2-6213b8aa9c75" xml:space="preserve">
+          <source>In this article, you will go through a tutorial for running a simple example runbook.</source>
+          <target state="new">In this article, you will go through a tutorial for running a simple example runbook.</target>
+        </trans-unit>
+        <trans-unit id="7cd75663-c9a6-41a1-98e7-c046722ccb00" xml:space="preserve">
+          <source>You will then find resources for exploring more advanced capabilities of the service.</source>
+          <target state="new">You will then find resources for exploring more advanced capabilities of the service.</target>
+        </trans-unit>
+        <trans-unit id="4b5281e6-9d01-4cde-b972-f855faee3d65" xml:space="preserve">
+          <source>This tutorial walks you through creating an automation account, importing a sample "Hello World" runbook into Azure Automation, executing that runbook, and then viewing its output.</source>
+          <target state="new">This tutorial walks you through creating an automation account, importing a sample "Hello World" runbook into Azure Automation, executing that runbook, and then viewing its output.</target>
+        </trans-unit>
+        <trans-unit id="66d5a585-462b-4b11-9e15-ba907f0f2d67" xml:space="preserve">
+          <source>To complete this tutorial, you will need an Azure subscription. If you don't have one yet, you can <bpt id="bb588cdf-efea-4177-8686-1a4d4abdf501">&lt;linkText&gt;</bpt>activate your MSDN subscriber benefits<ept id="bb588cdf-efea-4177-8686-1a4d4abdf501">&lt;/linkText&gt;</ept><bpt id="bb588cdf-efea-4177-8686-1a4d4abdf501">&lt;title&gt;</bpt><ept id="bb588cdf-efea-4177-8686-1a4d4abdf501">&lt;/title&gt;</ept> or <bpt id="0f9435d6-7d0e-4f28-9b10-ef49505ba98a">&lt;linkText&gt;</bpt>sign up for a free trial<ept id="0f9435d6-7d0e-4f28-9b10-ef49505ba98a">&lt;/linkText&gt;</ept><bpt id="0f9435d6-7d0e-4f28-9b10-ef49505ba98a">&lt;title&gt;</bpt><ept id="0f9435d6-7d0e-4f28-9b10-ef49505ba98a">&lt;/title&gt;</ept>&lt;/a&gt;.</source>
+          <target state="new">To complete this tutorial, you will need an Azure subscription. If you don't have one yet, you can <bpt id="bb588cdf-efea-4177-8686-1a4d4abdf501">&lt;linkText&gt;</bpt>activate your MSDN subscriber benefits<ept id="bb588cdf-efea-4177-8686-1a4d4abdf501">&lt;/linkText&gt;</ept><bpt id="bb588cdf-efea-4177-8686-1a4d4abdf501">&lt;title&gt;</bpt><ept id="bb588cdf-efea-4177-8686-1a4d4abdf501">&lt;/title&gt;</ept> or <bpt id="0f9435d6-7d0e-4f28-9b10-ef49505ba98a">&lt;linkText&gt;</bpt>sign up for a free trial<ept id="0f9435d6-7d0e-4f28-9b10-ef49505ba98a">&lt;/linkText&gt;</ept><bpt id="0f9435d6-7d0e-4f28-9b10-ef49505ba98a">&lt;title&gt;</bpt><ept id="0f9435d6-7d0e-4f28-9b10-ef49505ba98a">&lt;/title&gt;</ept>&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="24ff4a26-0acf-4034-ba20-e87b1965628e" xml:space="preserve">
+          <source><bpt id="a7d9154a-be76-4d92-ac02-77a8ff1c89ba">&lt;token href="../../includes/automation-note-authentication.md"&gt;</bpt><ept id="a7d9154a-be76-4d92-ac02-77a8ff1c89ba">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a7d9154a-be76-4d92-ac02-77a8ff1c89ba">&lt;token href="../../includes/automation-note-authentication.md"&gt;</bpt><ept id="a7d9154a-be76-4d92-ac02-77a8ff1c89ba">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03c2e421-555c-466a-9376-055631adc5cd" xml:space="preserve">
+          <source>Here's a walkthrough of this tutorial.</source>
+          <target state="new">Here's a walkthrough of this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="6311890c-e28f-4345-b0b7-43a1a21a7468" xml:space="preserve">
+          <source>[AZURE.VIDEO get-started-with-azure-automation]</source>
+          <target state="new">[AZURE.VIDEO get-started-with-azure-automation]</target>
+        </trans-unit>
+        <trans-unit id="4ef2e6e8-e5c2-4493-8bc3-9559feefbaef" xml:space="preserve">
+          <source>An automation account is a container for your Azure Automation resources.</source>
+          <target state="new">An automation account is a container for your Azure Automation resources.</target>
+        </trans-unit>
+        <trans-unit id="a9c10c2c-80d6-4285-8111-cdb15ca46ccd" xml:space="preserve">
+          <source>It provides a way to separate your environments or further organize your workflows.</source>
+          <target state="new">It provides a way to separate your environments or further organize your workflows.</target>
+        </trans-unit>
+        <trans-unit id="9fc04eb3-950d-4be2-bde6-333aa39dab64" xml:space="preserve">
+          <source>For more information, see <bpt id="91eda99d-efc0-4da4-adc3-e18620b075ca">&lt;linkText&gt;</bpt>Automation accounts<ept id="91eda99d-efc0-4da4-adc3-e18620b075ca">&lt;/linkText&gt;</ept><bpt id="91eda99d-efc0-4da4-adc3-e18620b075ca">&lt;title&gt;</bpt><ept id="91eda99d-efc0-4da4-adc3-e18620b075ca">&lt;/title&gt;</ept> in the Automation Library.</source>
+          <target state="new">For more information, see <bpt id="91eda99d-efc0-4da4-adc3-e18620b075ca">&lt;linkText&gt;</bpt>Automation accounts<ept id="91eda99d-efc0-4da4-adc3-e18620b075ca">&lt;/linkText&gt;</ept><bpt id="91eda99d-efc0-4da4-adc3-e18620b075ca">&lt;title&gt;</bpt><ept id="91eda99d-efc0-4da4-adc3-e18620b075ca">&lt;/title&gt;</ept> in the Automation Library.</target>
+        </trans-unit>
+        <trans-unit id="5817acbd-924e-4dba-bd9b-c7d8c33e9e13" xml:space="preserve">
+          <source>If you've already created an automation account, you can skip this step.</source>
+          <target state="new">If you've already created an automation account, you can skip this step.</target>
+        </trans-unit>
+        <trans-unit id="ed1f7b98-c9e6-4004-9efb-d4e8e033ff47" xml:space="preserve">
+          <source>Log in to the <bpt id="fafad802-f9b9-49c3-b452-991399951e02">&lt;linkText&gt;</bpt>Azure portal<ept id="fafad802-f9b9-49c3-b452-991399951e02">&lt;/linkText&gt;</ept><bpt id="fafad802-f9b9-49c3-b452-991399951e02">&lt;title&gt;</bpt><ept id="fafad802-f9b9-49c3-b452-991399951e02">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="fafad802-f9b9-49c3-b452-991399951e02">&lt;linkText&gt;</bpt>Azure portal<ept id="fafad802-f9b9-49c3-b452-991399951e02">&lt;/linkText&gt;</ept><bpt id="fafad802-f9b9-49c3-b452-991399951e02">&lt;title&gt;</bpt><ept id="fafad802-f9b9-49c3-b452-991399951e02">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="246270b9-2128-42b4-b1f9-646fd891517e" xml:space="preserve">
+          <source>In the Azure portal, click <bpt id="3e2562d5-6b94-40f7-aacb-a7d16d8419e3">&lt;strong&gt;</bpt>Create an Automation Account<ept id="3e2562d5-6b94-40f7-aacb-a7d16d8419e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal, click <bpt id="3e2562d5-6b94-40f7-aacb-a7d16d8419e3">&lt;strong&gt;</bpt>Create an Automation Account<ept id="3e2562d5-6b94-40f7-aacb-a7d16d8419e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa4af7e2-8e37-4e2b-b75e-c6ddf5a2c20f" xml:space="preserve">
+          <source><bpt id="2c1c9f0f-e2e8-48a6-b683-a61c76dd75ba">&lt;linkText&gt;</bpt>Create Account<ept id="2c1c9f0f-e2e8-48a6-b683-a61c76dd75ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c1c9f0f-e2e8-48a6-b683-a61c76dd75ba">&lt;linkText&gt;</bpt>Create Account<ept id="2c1c9f0f-e2e8-48a6-b683-a61c76dd75ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02bb82e6-4aae-470d-afcc-449297cd33d0" xml:space="preserve">
+          <source>On the <bpt id="aaaca000-e1e5-4031-b64a-49f31e38e36e">&lt;strong&gt;</bpt>Add a New Automation Account<ept id="aaaca000-e1e5-4031-b64a-49f31e38e36e">&lt;/strong&gt;</ept> page, enter a name and pick a region for the account.</source>
+          <target state="new">On the <bpt id="aaaca000-e1e5-4031-b64a-49f31e38e36e">&lt;strong&gt;</bpt>Add a New Automation Account<ept id="aaaca000-e1e5-4031-b64a-49f31e38e36e">&lt;/strong&gt;</ept> page, enter a name and pick a region for the account.</target>
+        </trans-unit>
+        <trans-unit id="849f34b0-c165-4bd5-b682-2e643a7ef7fa" xml:space="preserve">
+          <source>The region specifies where the Automation resources in the account will be stored.</source>
+          <target state="new">The region specifies where the Automation resources in the account will be stored.</target>
+        </trans-unit>
+        <trans-unit id="5e6ef8ef-0ec7-41b8-a277-93efe619be51" xml:space="preserve">
+          <source>This will not affect the functionality of your account, but your runbooks may execute faster if your account region is near where your other Azure resources are stored.</source>
+          <target state="new">This will not affect the functionality of your account, but your runbooks may execute faster if your account region is near where your other Azure resources are stored.</target>
+        </trans-unit>
+        <trans-unit id="46424016-bae1-4746-b07c-531488d06e05" xml:space="preserve">
+          <source>When you're ready, click the check mark.</source>
+          <target state="new">When you're ready, click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="86204976-96da-4ffc-8c16-24b35bfa1f3a" xml:space="preserve">
+          <source><bpt id="036e9a08-4d70-44ba-9bee-ffdf179e666d">&lt;linkText&gt;</bpt>Add New Account<ept id="036e9a08-4d70-44ba-9bee-ffdf179e666d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="036e9a08-4d70-44ba-9bee-ffdf179e666d">&lt;linkText&gt;</bpt>Add New Account<ept id="036e9a08-4d70-44ba-9bee-ffdf179e666d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35100c25-1b29-4abd-9c4b-05f68dc95774" xml:space="preserve">
+          <source>The <bpt id="08dfbccc-9638-42d7-b1a5-94778d3a5bb4">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="08dfbccc-9638-42d7-b1a5-94778d3a5bb4">&lt;/linkText&gt;</ept><bpt id="08dfbccc-9638-42d7-b1a5-94778d3a5bb4">&lt;title&gt;</bpt><ept id="08dfbccc-9638-42d7-b1a5-94778d3a5bb4">&lt;/title&gt;</ept> includes sample runbooks that you can import directly into an Azure Automation account, allowing you to leverage the work of other Azure Automation and PowerShell users.</source>
+          <target state="new">The <bpt id="08dfbccc-9638-42d7-b1a5-94778d3a5bb4">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="08dfbccc-9638-42d7-b1a5-94778d3a5bb4">&lt;/linkText&gt;</ept><bpt id="08dfbccc-9638-42d7-b1a5-94778d3a5bb4">&lt;title&gt;</bpt><ept id="08dfbccc-9638-42d7-b1a5-94778d3a5bb4">&lt;/title&gt;</ept> includes sample runbooks that you can import directly into an Azure Automation account, allowing you to leverage the work of other Azure Automation and PowerShell users.</target>
+        </trans-unit>
+        <trans-unit id="fcdebc9d-d790-4ac7-b3d1-a7841624622d" xml:space="preserve">
+          <source>In this step, you will use the gallery to import the "Hello World" sample runbook.</source>
+          <target state="new">In this step, you will use the gallery to import the "Hello World" sample runbook.</target>
+        </trans-unit>
+        <trans-unit id="70e2e40c-f6ff-4714-b444-c85333332094" xml:space="preserve">
+          <source>On the <bpt id="3886e25c-56c5-4ae4-8174-b1985e24bf64">&lt;strong&gt;</bpt>Automation<ept id="3886e25c-56c5-4ae4-8174-b1985e24bf64">&lt;/strong&gt;</ept> page, click the new account you just created.</source>
+          <target state="new">On the <bpt id="3886e25c-56c5-4ae4-8174-b1985e24bf64">&lt;strong&gt;</bpt>Automation<ept id="3886e25c-56c5-4ae4-8174-b1985e24bf64">&lt;/strong&gt;</ept> page, click the new account you just created.</target>
+        </trans-unit>
+        <trans-unit id="613eb62f-10eb-4bd3-a4d6-c7b2aafd4d05" xml:space="preserve">
+          <source><bpt id="19ea1876-b6a1-4049-9321-ff499b51e04a">&lt;linkText&gt;</bpt>New Account<ept id="19ea1876-b6a1-4049-9321-ff499b51e04a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="19ea1876-b6a1-4049-9321-ff499b51e04a">&lt;linkText&gt;</bpt>New Account<ept id="19ea1876-b6a1-4049-9321-ff499b51e04a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42ed5a7e-83ed-4ce6-8acc-7ecb6f9243fd" xml:space="preserve">
+          <source>Click <bpt id="63eca590-6baa-4391-a77f-07acd908f191">&lt;strong&gt;</bpt>RUNBOOKS<ept id="63eca590-6baa-4391-a77f-07acd908f191">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="63eca590-6baa-4391-a77f-07acd908f191">&lt;strong&gt;</bpt>RUNBOOKS<ept id="63eca590-6baa-4391-a77f-07acd908f191">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="026c00b7-ab42-4e6e-a8f7-25dfe17510bb" xml:space="preserve">
+          <source><bpt id="196d3164-6895-4e5b-b4ea-90c355802be0">&lt;linkText&gt;</bpt>Runbooks Tab<ept id="196d3164-6895-4e5b-b4ea-90c355802be0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="196d3164-6895-4e5b-b4ea-90c355802be0">&lt;linkText&gt;</bpt>Runbooks Tab<ept id="196d3164-6895-4e5b-b4ea-90c355802be0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="004e828d-801f-4716-abd6-0745a3c93887" xml:space="preserve">
+          <source>Click <bpt id="d0310958-2043-43a9-abdf-123db03c9254">&lt;strong&gt;</bpt>New<ept id="d0310958-2043-43a9-abdf-123db03c9254">&lt;/strong&gt;</ept> &gt; <bpt id="a3228295-f202-4a31-a040-38f89454cdc5">&lt;strong&gt;</bpt>Runbook<ept id="a3228295-f202-4a31-a040-38f89454cdc5">&lt;/strong&gt;</ept> &gt; <bpt id="20710a35-6220-47e2-9a7a-9938ffcf9acc">&lt;strong&gt;</bpt>From Gallery<ept id="20710a35-6220-47e2-9a7a-9938ffcf9acc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d0310958-2043-43a9-abdf-123db03c9254">&lt;strong&gt;</bpt>New<ept id="d0310958-2043-43a9-abdf-123db03c9254">&lt;/strong&gt;</ept> &gt; <bpt id="a3228295-f202-4a31-a040-38f89454cdc5">&lt;strong&gt;</bpt>Runbook<ept id="a3228295-f202-4a31-a040-38f89454cdc5">&lt;/strong&gt;</ept> &gt; <bpt id="20710a35-6220-47e2-9a7a-9938ffcf9acc">&lt;strong&gt;</bpt>From Gallery<ept id="20710a35-6220-47e2-9a7a-9938ffcf9acc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="185bee88-afc9-4a37-9026-93e49c5b8404" xml:space="preserve">
+          <source><bpt id="e8b04d05-61e8-40ec-b03c-262b44d8e1c7">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="e8b04d05-61e8-40ec-b03c-262b44d8e1c7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e8b04d05-61e8-40ec-b03c-262b44d8e1c7">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="e8b04d05-61e8-40ec-b03c-262b44d8e1c7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fb7efec-aecc-4a9c-a687-b9ee5ca6807d" xml:space="preserve">
+          <source>Select the <bpt id="c6d91513-6a74-4f25-b3d4-68909e624e3f">&lt;strong&gt;</bpt>Tutorial<ept id="c6d91513-6a74-4f25-b3d4-68909e624e3f">&lt;/strong&gt;</ept> category, and then <bpt id="755e1dd5-3e0c-4ac9-b1cb-51967cb8d65f">&lt;strong&gt;</bpt>Hello World for Azure Automation<ept id="755e1dd5-3e0c-4ac9-b1cb-51967cb8d65f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="c6d91513-6a74-4f25-b3d4-68909e624e3f">&lt;strong&gt;</bpt>Tutorial<ept id="c6d91513-6a74-4f25-b3d4-68909e624e3f">&lt;/strong&gt;</ept> category, and then <bpt id="755e1dd5-3e0c-4ac9-b1cb-51967cb8d65f">&lt;strong&gt;</bpt>Hello World for Azure Automation<ept id="755e1dd5-3e0c-4ac9-b1cb-51967cb8d65f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5357e4c8-f669-4355-9e53-0675ad23e1c1" xml:space="preserve">
+          <source>Click the right arrow button.</source>
+          <target state="new">Click the right arrow button.</target>
+        </trans-unit>
+        <trans-unit id="03238640-7989-44be-9967-51c42da812c1" xml:space="preserve">
+          <source><bpt id="06c99ea5-915c-4793-a806-cba083f61f98">&lt;linkText&gt;</bpt>Import Runbook<ept id="06c99ea5-915c-4793-a806-cba083f61f98">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06c99ea5-915c-4793-a806-cba083f61f98">&lt;linkText&gt;</bpt>Import Runbook<ept id="06c99ea5-915c-4793-a806-cba083f61f98">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a323b3a1-a09c-445b-9378-e20925947c4f" xml:space="preserve">
+          <source>Review the contents of the runbook, and then click the right arrow button.</source>
+          <target state="new">Review the contents of the runbook, and then click the right arrow button.</target>
+        </trans-unit>
+        <trans-unit id="d28f90ba-0338-48b5-94db-e46378406a96" xml:space="preserve">
+          <source><bpt id="f235a9e6-84b5-4b86-ab18-0942ed57f233">&lt;linkText&gt;</bpt>Runbook Definition<ept id="f235a9e6-84b5-4b86-ab18-0942ed57f233">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f235a9e6-84b5-4b86-ab18-0942ed57f233">&lt;linkText&gt;</bpt>Runbook Definition<ept id="f235a9e6-84b5-4b86-ab18-0942ed57f233">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="881caad5-49d7-4ce0-9976-3adc4b6836b6" xml:space="preserve">
+          <source>Review the runbook details, and then click the check mark button.</source>
+          <target state="new">Review the runbook details, and then click the check mark button.</target>
+        </trans-unit>
+        <trans-unit id="26f0cf93-87ff-4523-b077-09a95607b6bc" xml:space="preserve">
+          <source><bpt id="ca084496-b0c9-49e8-94e2-d00f90ed733a">&lt;linkText&gt;</bpt>Runbook Details<ept id="ca084496-b0c9-49e8-94e2-d00f90ed733a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ca084496-b0c9-49e8-94e2-d00f90ed733a">&lt;linkText&gt;</bpt>Runbook Details<ept id="ca084496-b0c9-49e8-94e2-d00f90ed733a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61507f14-cf7a-40c1-8c0e-67fc6373009c" xml:space="preserve">
+          <source>The runbook is first imported in Draft mode.</source>
+          <target state="new">The runbook is first imported in Draft mode.</target>
+        </trans-unit>
+        <trans-unit id="08b1dc0c-96af-4e20-990d-93fd347f2081" xml:space="preserve">
+          <source>This means you can continue to do work on it before authorizing it as a new version that can be run.</source>
+          <target state="new">This means you can continue to do work on it before authorizing it as a new version that can be run.</target>
+        </trans-unit>
+        <trans-unit id="c1284109-ba83-41c3-95e9-a1b83b252854" xml:space="preserve">
+          <source>Since this sample runbook requires no additional configuration, you will now publish it as-is.</source>
+          <target state="new">Since this sample runbook requires no additional configuration, you will now publish it as-is.</target>
+        </trans-unit>
+        <trans-unit id="16f25c05-2b4c-4866-93cb-c43d5336bfe3" xml:space="preserve">
+          <source>For more information, see <bpt id="d216216d-ee28-4782-8fa3-a83bcf39d0d9">&lt;linkText&gt;</bpt>Publishing a Runbook<ept id="d216216d-ee28-4782-8fa3-a83bcf39d0d9">&lt;/linkText&gt;</ept><bpt id="d216216d-ee28-4782-8fa3-a83bcf39d0d9">&lt;title&gt;</bpt><ept id="d216216d-ee28-4782-8fa3-a83bcf39d0d9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d216216d-ee28-4782-8fa3-a83bcf39d0d9">&lt;linkText&gt;</bpt>Publishing a Runbook<ept id="d216216d-ee28-4782-8fa3-a83bcf39d0d9">&lt;/linkText&gt;</ept><bpt id="d216216d-ee28-4782-8fa3-a83bcf39d0d9">&lt;title&gt;</bpt><ept id="d216216d-ee28-4782-8fa3-a83bcf39d0d9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="030df5a8-36d2-41bd-8a86-de1341188abf" xml:space="preserve">
+          <source>When the runbook has finished importing, click <bpt id="8c18d096-7a52-460f-8ce9-a2deb39904eb">&lt;strong&gt;</bpt>Write-HelloWorld<ept id="8c18d096-7a52-460f-8ce9-a2deb39904eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the runbook has finished importing, click <bpt id="8c18d096-7a52-460f-8ce9-a2deb39904eb">&lt;strong&gt;</bpt>Write-HelloWorld<ept id="8c18d096-7a52-460f-8ce9-a2deb39904eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5807656-01f3-4d43-b63a-4d254fe59e2c" xml:space="preserve">
+          <source><bpt id="a0b3809f-cc44-4f66-9853-603542b38027">&lt;linkText&gt;</bpt>Imported Runbook<ept id="a0b3809f-cc44-4f66-9853-603542b38027">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a0b3809f-cc44-4f66-9853-603542b38027">&lt;linkText&gt;</bpt>Imported Runbook<ept id="a0b3809f-cc44-4f66-9853-603542b38027">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7f7e356-b56d-4f16-9e1a-b619f2bc224f" xml:space="preserve">
+          <source>Click <bpt id="0d53a14f-0a26-438f-bb79-552a9a121b7b">&lt;strong&gt;</bpt>AUTHOR<ept id="0d53a14f-0a26-438f-bb79-552a9a121b7b">&lt;/strong&gt;</ept>, and then click <bpt id="0432c532-6ac7-426c-ba55-0caa75aed9b3">&lt;strong&gt;</bpt>DRAFT<ept id="0432c532-6ac7-426c-ba55-0caa75aed9b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0d53a14f-0a26-438f-bb79-552a9a121b7b">&lt;strong&gt;</bpt>AUTHOR<ept id="0d53a14f-0a26-438f-bb79-552a9a121b7b">&lt;/strong&gt;</ept>, and then click <bpt id="0432c532-6ac7-426c-ba55-0caa75aed9b3">&lt;strong&gt;</bpt>DRAFT<ept id="0432c532-6ac7-426c-ba55-0caa75aed9b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="79f4e32f-756c-4a60-a526-6f3e4146e72a" xml:space="preserve">
+          <source>You can modify the contents of a runbook in Draft mode.</source>
+          <target state="new">You can modify the contents of a runbook in Draft mode.</target>
+        </trans-unit>
+        <trans-unit id="cba37c9a-fc0a-4e68-8e86-8975c33bd5b8" xml:space="preserve">
+          <source>For this runbook, you don’t need to make any modifications.</source>
+          <target state="new">For this runbook, you don’t need to make any modifications.</target>
+        </trans-unit>
+        <trans-unit id="15a1c017-8274-43a6-b95a-62c13495e965" xml:space="preserve">
+          <source><bpt id="52c75ac3-d1fd-4aae-8e65-32c1a8becadb">&lt;linkText&gt;</bpt>Author Draft<ept id="52c75ac3-d1fd-4aae-8e65-32c1a8becadb">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="52c75ac3-d1fd-4aae-8e65-32c1a8becadb">&lt;linkText&gt;</bpt>Author Draft<ept id="52c75ac3-d1fd-4aae-8e65-32c1a8becadb">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="c28ce35d-7833-425d-b38f-4755ee140f86" xml:space="preserve">
+          <source>Click <bpt id="0249076b-037f-4fd1-8057-88d6bec8ab81">&lt;strong&gt;</bpt>PUBLISH<ept id="0249076b-037f-4fd1-8057-88d6bec8ab81">&lt;/strong&gt;</ept> to promote the runbook, marking it ready for production use.</source>
+          <target state="new">Click <bpt id="0249076b-037f-4fd1-8057-88d6bec8ab81">&lt;strong&gt;</bpt>PUBLISH<ept id="0249076b-037f-4fd1-8057-88d6bec8ab81">&lt;/strong&gt;</ept> to promote the runbook, marking it ready for production use.</target>
+        </trans-unit>
+        <trans-unit id="04d4ad3a-1af7-4760-8df9-cb8ae8e275c9" xml:space="preserve">
+          <source><bpt id="dbca634c-a6be-4254-b137-db35a537aafe">&lt;linkText&gt;</bpt>Publish<ept id="dbca634c-a6be-4254-b137-db35a537aafe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dbca634c-a6be-4254-b137-db35a537aafe">&lt;linkText&gt;</bpt>Publish<ept id="dbca634c-a6be-4254-b137-db35a537aafe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4c48f89-4155-4eb1-ade6-11b5016545cf" xml:space="preserve">
+          <source>When you are prompted for confirmation, click <bpt id="698a3c0f-9e30-47d0-9b40-398c61f41ac1">&lt;strong&gt;</bpt>Yes<ept id="698a3c0f-9e30-47d0-9b40-398c61f41ac1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you are prompted for confirmation, click <bpt id="698a3c0f-9e30-47d0-9b40-398c61f41ac1">&lt;strong&gt;</bpt>Yes<ept id="698a3c0f-9e30-47d0-9b40-398c61f41ac1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7884484b-7ec0-4775-8115-740c0f7968ea" xml:space="preserve">
+          <source><bpt id="33fd1819-8406-44bf-87de-b077efccc30a">&lt;linkText&gt;</bpt>Save and Pub prompt<ept id="33fd1819-8406-44bf-87de-b077efccc30a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33fd1819-8406-44bf-87de-b077efccc30a">&lt;linkText&gt;</bpt>Save and Pub prompt<ept id="33fd1819-8406-44bf-87de-b077efccc30a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="136a1e57-beb7-4e7f-b6f8-1fd63cbc62a7" xml:space="preserve">
+          <source>With the runbook imported and published, you can now run it and then inspect the output.</source>
+          <target state="new">With the runbook imported and published, you can now run it and then inspect the output.</target>
+        </trans-unit>
+        <trans-unit id="589a6f15-7a3a-4cfc-8605-45dc7726058c" xml:space="preserve">
+          <source>For more information, see <bpt id="a4f1608a-df0c-41d5-bd5c-a943c83133ec">&lt;linkText&gt;</bpt>Starting a Runbook<ept id="a4f1608a-df0c-41d5-bd5c-a943c83133ec">&lt;/linkText&gt;</ept><bpt id="a4f1608a-df0c-41d5-bd5c-a943c83133ec">&lt;title&gt;</bpt><ept id="a4f1608a-df0c-41d5-bd5c-a943c83133ec">&lt;/title&gt;</ept> and <bpt id="493edc3d-c574-4281-a8c4-a648443e7991">&lt;linkText&gt;</bpt>Runbook Output and Messages<ept id="493edc3d-c574-4281-a8c4-a648443e7991">&lt;/linkText&gt;</ept><bpt id="493edc3d-c574-4281-a8c4-a648443e7991">&lt;title&gt;</bpt><ept id="493edc3d-c574-4281-a8c4-a648443e7991">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="a4f1608a-df0c-41d5-bd5c-a943c83133ec">&lt;linkText&gt;</bpt>Starting a Runbook<ept id="a4f1608a-df0c-41d5-bd5c-a943c83133ec">&lt;/linkText&gt;</ept><bpt id="a4f1608a-df0c-41d5-bd5c-a943c83133ec">&lt;title&gt;</bpt><ept id="a4f1608a-df0c-41d5-bd5c-a943c83133ec">&lt;/title&gt;</ept> and <bpt id="493edc3d-c574-4281-a8c4-a648443e7991">&lt;linkText&gt;</bpt>Runbook Output and Messages<ept id="493edc3d-c574-4281-a8c4-a648443e7991">&lt;/linkText&gt;</ept><bpt id="493edc3d-c574-4281-a8c4-a648443e7991">&lt;title&gt;</bpt><ept id="493edc3d-c574-4281-a8c4-a648443e7991">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fd0675e-e3b2-4c50-b030-539a6779d4c5" xml:space="preserve">
+          <source>With the <bpt id="a9d39aab-4e9d-4374-bbc1-7a58c3dfd84f">&lt;strong&gt;</bpt>Write-HelloWorld<ept id="a9d39aab-4e9d-4374-bbc1-7a58c3dfd84f">&lt;/strong&gt;</ept> runbook open, click <bpt id="00c3bd10-6337-45ea-b5c5-556d547f2e94">&lt;strong&gt;</bpt>START<ept id="00c3bd10-6337-45ea-b5c5-556d547f2e94">&lt;/strong&gt;</ept>.</source>
+          <target state="new">With the <bpt id="a9d39aab-4e9d-4374-bbc1-7a58c3dfd84f">&lt;strong&gt;</bpt>Write-HelloWorld<ept id="a9d39aab-4e9d-4374-bbc1-7a58c3dfd84f">&lt;/strong&gt;</ept> runbook open, click <bpt id="00c3bd10-6337-45ea-b5c5-556d547f2e94">&lt;strong&gt;</bpt>START<ept id="00c3bd10-6337-45ea-b5c5-556d547f2e94">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="acf9828a-731a-4de2-80d9-040d57f87a47" xml:space="preserve">
+          <source><bpt id="4e0e5fbc-40d6-4ad7-95e3-fc343c29753f">&lt;linkText&gt;</bpt>Published<ept id="4e0e5fbc-40d6-4ad7-95e3-fc343c29753f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e0e5fbc-40d6-4ad7-95e3-fc343c29753f">&lt;linkText&gt;</bpt>Published<ept id="4e0e5fbc-40d6-4ad7-95e3-fc343c29753f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c47a267-43e4-4e38-a2a4-49195215f1be" xml:space="preserve">
+          <source>On the <bpt id="d1068b27-3f1e-4d2b-9ad1-8aa37d4880c9">&lt;strong&gt;</bpt>Specify the runbook parameter values<ept id="d1068b27-3f1e-4d2b-9ad1-8aa37d4880c9">&lt;/strong&gt;</ept> page, type a <bpt id="7635fae3-0c9b-406b-a756-542d88bd5aeb">&lt;strong&gt;</bpt>Name<ept id="7635fae3-0c9b-406b-a756-542d88bd5aeb">&lt;/strong&gt;</ept> that will be used as an input parameter for the Write-HelloWorld.ps1 script, and then click the check mark.</source>
+          <target state="new">On the <bpt id="d1068b27-3f1e-4d2b-9ad1-8aa37d4880c9">&lt;strong&gt;</bpt>Specify the runbook parameter values<ept id="d1068b27-3f1e-4d2b-9ad1-8aa37d4880c9">&lt;/strong&gt;</ept> page, type a <bpt id="7635fae3-0c9b-406b-a756-542d88bd5aeb">&lt;strong&gt;</bpt>Name<ept id="7635fae3-0c9b-406b-a756-542d88bd5aeb">&lt;/strong&gt;</ept> that will be used as an input parameter for the Write-HelloWorld.ps1 script, and then click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="9092011a-bf2f-4864-8bc9-18a2a1071f08" xml:space="preserve">
+          <source><bpt id="3258b358-ce82-47b4-b5c2-e319081ce710">&lt;linkText&gt;</bpt>Runbook Parameters<ept id="3258b358-ce82-47b4-b5c2-e319081ce710">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3258b358-ce82-47b4-b5c2-e319081ce710">&lt;linkText&gt;</bpt>Runbook Parameters<ept id="3258b358-ce82-47b4-b5c2-e319081ce710">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e806259-dfe8-4e1b-b65c-44e9778c68a5" xml:space="preserve">
+          <source>Click <bpt id="48636668-cd15-4539-94d4-5e71d1b58ceb">&lt;strong&gt;</bpt>JOBS<ept id="48636668-cd15-4539-94d4-5e71d1b58ceb">&lt;/strong&gt;</ept> to check the status of the runbook job you just started, and then click the timestamp in the <bpt id="2aa06a89-f55c-4fd3-83a9-b04da09f5ae0">&lt;strong&gt;</bpt>JOB START<ept id="2aa06a89-f55c-4fd3-83a9-b04da09f5ae0">&lt;/strong&gt;</ept> column to view the job summary.</source>
+          <target state="new">Click <bpt id="48636668-cd15-4539-94d4-5e71d1b58ceb">&lt;strong&gt;</bpt>JOBS<ept id="48636668-cd15-4539-94d4-5e71d1b58ceb">&lt;/strong&gt;</ept> to check the status of the runbook job you just started, and then click the timestamp in the <bpt id="2aa06a89-f55c-4fd3-83a9-b04da09f5ae0">&lt;strong&gt;</bpt>JOB START<ept id="2aa06a89-f55c-4fd3-83a9-b04da09f5ae0">&lt;/strong&gt;</ept> column to view the job summary.</target>
+        </trans-unit>
+        <trans-unit id="9c1de7a6-1733-4d02-84b2-27537ccb31ff" xml:space="preserve">
+          <source><bpt id="7eb6ef94-2d01-4f17-816b-d6eba0cfe434">&lt;linkText&gt;</bpt>Runbook Status<ept id="7eb6ef94-2d01-4f17-816b-d6eba0cfe434">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7eb6ef94-2d01-4f17-816b-d6eba0cfe434">&lt;linkText&gt;</bpt>Runbook Status<ept id="7eb6ef94-2d01-4f17-816b-d6eba0cfe434">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc997afe-e64d-4a23-94d2-0874179b654f" xml:space="preserve">
+          <source>On the <bpt id="cbc5d9f1-c900-4064-b4b2-3395fb1f8f01">&lt;strong&gt;</bpt>SUMMARY<ept id="cbc5d9f1-c900-4064-b4b2-3395fb1f8f01">&lt;/strong&gt;</ept> page you can see the summary, input parameters, and output of the job.</source>
+          <target state="new">On the <bpt id="cbc5d9f1-c900-4064-b4b2-3395fb1f8f01">&lt;strong&gt;</bpt>SUMMARY<ept id="cbc5d9f1-c900-4064-b4b2-3395fb1f8f01">&lt;/strong&gt;</ept> page you can see the summary, input parameters, and output of the job.</target>
+        </trans-unit>
+        <trans-unit id="69dbb927-193e-4d24-9ba4-761b875f951c" xml:space="preserve">
+          <source><bpt id="c554b2e5-6588-4043-8c53-a4aa2c2f2749">&lt;linkText&gt;</bpt>Runbook Summary<ept id="c554b2e5-6588-4043-8c53-a4aa2c2f2749">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c554b2e5-6588-4043-8c53-a4aa2c2f2749">&lt;linkText&gt;</bpt>Runbook Summary<ept id="c554b2e5-6588-4043-8c53-a4aa2c2f2749">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e43d9fbf-b3d8-4ee7-8d76-875fefb4ce54" xml:space="preserve">
+          <source>Congratulations!</source>
+          <target state="new">Congratulations!</target>
+        </trans-unit>
+        <trans-unit id="d3eb3ba3-4a38-43f9-a176-6a34a5c2f116" xml:space="preserve">
+          <source>You have finished the tutorial.</source>
+          <target state="new">You have finished the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="8bd41c63-060e-493c-9c10-f01999db19c1" xml:space="preserve">
+          <source>The simple runbook in this tutorial <bpt id="1cf47803-873e-454e-9e46-6eeb1c62f174">&lt;em&gt;</bpt>does not manage Azure services<ept id="1cf47803-873e-454e-9e46-6eeb1c62f174">&lt;/em&gt;</ept>.</source>
+          <target state="new">The simple runbook in this tutorial <bpt id="1cf47803-873e-454e-9e46-6eeb1c62f174">&lt;em&gt;</bpt>does not manage Azure services<ept id="1cf47803-873e-454e-9e46-6eeb1c62f174">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a572d10-9e9e-49d5-94cc-d594fccc9f09" xml:space="preserve">
+          <source>Most runbooks will use the <bpt id="9bfc8b67-ea4b-453f-9d16-95cc55714a8c">&lt;linkText&gt;</bpt>Azure cmdlets<ept id="9bfc8b67-ea4b-453f-9d16-95cc55714a8c">&lt;/linkText&gt;</ept><bpt id="9bfc8b67-ea4b-453f-9d16-95cc55714a8c">&lt;title&gt;</bpt><ept id="9bfc8b67-ea4b-453f-9d16-95cc55714a8c">&lt;/title&gt;</ept> to do so, which require authentication to your Azure subscription.</source>
+          <target state="new">Most runbooks will use the <bpt id="9bfc8b67-ea4b-453f-9d16-95cc55714a8c">&lt;linkText&gt;</bpt>Azure cmdlets<ept id="9bfc8b67-ea4b-453f-9d16-95cc55714a8c">&lt;/linkText&gt;</ept><bpt id="9bfc8b67-ea4b-453f-9d16-95cc55714a8c">&lt;title&gt;</bpt><ept id="9bfc8b67-ea4b-453f-9d16-95cc55714a8c">&lt;/title&gt;</ept> to do so, which require authentication to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="37757e81-284a-4f26-8e3b-3e8d37d3a0c1" xml:space="preserve">
+          <source>Follow the instructions at <bpt id="d66e6c11-fbec-4b82-8003-6d45018285fa">&lt;linkText&gt;</bpt>Configuring Azure for Management by Runbooks<ept id="d66e6c11-fbec-4b82-8003-6d45018285fa">&lt;/linkText&gt;</ept><bpt id="d66e6c11-fbec-4b82-8003-6d45018285fa">&lt;title&gt;</bpt><ept id="d66e6c11-fbec-4b82-8003-6d45018285fa">&lt;/title&gt;</ept> to configure your Azure subscription to work with these cmdlets.</source>
+          <target state="new">Follow the instructions at <bpt id="d66e6c11-fbec-4b82-8003-6d45018285fa">&lt;linkText&gt;</bpt>Configuring Azure for Management by Runbooks<ept id="d66e6c11-fbec-4b82-8003-6d45018285fa">&lt;/linkText&gt;</ept><bpt id="d66e6c11-fbec-4b82-8003-6d45018285fa">&lt;title&gt;</bpt><ept id="d66e6c11-fbec-4b82-8003-6d45018285fa">&lt;/title&gt;</ept> to configure your Azure subscription to work with these cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="11c5efad-efc0-4459-8566-3662a039cdd6" xml:space="preserve">
+          <source>Refer to the <bpt id="a0ccbac3-de8c-48a5-a8e1-595e56008ca5">&lt;linkText&gt;</bpt>Resources<ept id="a0ccbac3-de8c-48a5-a8e1-595e56008ca5">&lt;/linkText&gt;</ept><bpt id="a0ccbac3-de8c-48a5-a8e1-595e56008ca5">&lt;title&gt;</bpt><ept id="a0ccbac3-de8c-48a5-a8e1-595e56008ca5">&lt;/title&gt;</ept> listed below for more information about Azure Automation's capabilities.</source>
+          <target state="new">Refer to the <bpt id="a0ccbac3-de8c-48a5-a8e1-595e56008ca5">&lt;linkText&gt;</bpt>Resources<ept id="a0ccbac3-de8c-48a5-a8e1-595e56008ca5">&lt;/linkText&gt;</ept><bpt id="a0ccbac3-de8c-48a5-a8e1-595e56008ca5">&lt;title&gt;</bpt><ept id="a0ccbac3-de8c-48a5-a8e1-595e56008ca5">&lt;/title&gt;</ept> listed below for more information about Azure Automation's capabilities.</target>
+        </trans-unit>
+        <trans-unit id="5d48bbf0-eaca-438c-b0da-acd2d25363ff" xml:space="preserve">
+          <source>Subscribe to the <bpt id="a1b573ce-f77d-4170-881d-ce41b2384031">&lt;linkText&gt;</bpt>Azure Automation Blog<ept id="a1b573ce-f77d-4170-881d-ce41b2384031">&lt;/linkText&gt;</ept><bpt id="a1b573ce-f77d-4170-881d-ce41b2384031">&lt;title&gt;</bpt><ept id="a1b573ce-f77d-4170-881d-ce41b2384031">&lt;/title&gt;</ept> to stay up-to-date with the latest from the Azure Automation team.</source>
+          <target state="new">Subscribe to the <bpt id="a1b573ce-f77d-4170-881d-ce41b2384031">&lt;linkText&gt;</bpt>Azure Automation Blog<ept id="a1b573ce-f77d-4170-881d-ce41b2384031">&lt;/linkText&gt;</ept><bpt id="a1b573ce-f77d-4170-881d-ce41b2384031">&lt;title&gt;</bpt><ept id="a1b573ce-f77d-4170-881d-ce41b2384031">&lt;/title&gt;</ept> to stay up-to-date with the latest from the Azure Automation team.</target>
+        </trans-unit>
+        <trans-unit id="4f6120ca-853e-418c-a47e-5089dddb1bdd" xml:space="preserve">
+          <source>A variety of other resources are available for you to learn more about Azure Automation and creating your own runbooks.</source>
+          <target state="new">A variety of other resources are available for you to learn more about Azure Automation and creating your own runbooks.</target>
+        </trans-unit>
+        <trans-unit id="4f966fb7-4174-489b-af02-6338c00801cf" xml:space="preserve">
+          <source><bpt id="5f1941a2-955c-4d59-8c6e-6f0b8ff2b6f1">&lt;linkText&gt;</bpt>Azure Automation Library<ept id="5f1941a2-955c-4d59-8c6e-6f0b8ff2b6f1">&lt;/linkText&gt;</ept><bpt id="5f1941a2-955c-4d59-8c6e-6f0b8ff2b6f1">&lt;title&gt;</bpt><ept id="5f1941a2-955c-4d59-8c6e-6f0b8ff2b6f1">&lt;/title&gt;</ept> provides complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks.</source>
+          <target state="new"><bpt id="5f1941a2-955c-4d59-8c6e-6f0b8ff2b6f1">&lt;linkText&gt;</bpt>Azure Automation Library<ept id="5f1941a2-955c-4d59-8c6e-6f0b8ff2b6f1">&lt;/linkText&gt;</ept><bpt id="5f1941a2-955c-4d59-8c6e-6f0b8ff2b6f1">&lt;title&gt;</bpt><ept id="5f1941a2-955c-4d59-8c6e-6f0b8ff2b6f1">&lt;/title&gt;</ept> provides complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks.</target>
+        </trans-unit>
+        <trans-unit id="9d14203a-ce20-47ec-adeb-c525672de504" xml:space="preserve">
+          <source><bpt id="ae2b8a3e-b54e-4029-80bc-274ef291db3b">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="ae2b8a3e-b54e-4029-80bc-274ef291db3b">&lt;/linkText&gt;</ept><bpt id="ae2b8a3e-b54e-4029-80bc-274ef291db3b">&lt;title&gt;</bpt><ept id="ae2b8a3e-b54e-4029-80bc-274ef291db3b">&lt;/title&gt;</ept> provides information for automation Azure operations using Windows PowerShell.</source>
+          <target state="new"><bpt id="ae2b8a3e-b54e-4029-80bc-274ef291db3b">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="ae2b8a3e-b54e-4029-80bc-274ef291db3b">&lt;/linkText&gt;</ept><bpt id="ae2b8a3e-b54e-4029-80bc-274ef291db3b">&lt;title&gt;</bpt><ept id="ae2b8a3e-b54e-4029-80bc-274ef291db3b">&lt;/title&gt;</ept> provides information for automation Azure operations using Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="3d831e60-3dbd-4c25-b2cc-152696cb8e82" xml:space="preserve">
+          <source>Runbooks use these cmdlets to work with Azure resources.</source>
+          <target state="new">Runbooks use these cmdlets to work with Azure resources.</target>
+        </trans-unit>
+        <trans-unit id="dcf58d25-a5b9-476f-b309-0cd599154cca" xml:space="preserve">
+          <source><bpt id="0c8a00ec-fddc-4b38-a192-b0b0b0feecba">&lt;linkText&gt;</bpt>Azure Automation Blog<ept id="0c8a00ec-fddc-4b38-a192-b0b0b0feecba">&lt;/linkText&gt;</ept><bpt id="0c8a00ec-fddc-4b38-a192-b0b0b0feecba">&lt;title&gt;</bpt><ept id="0c8a00ec-fddc-4b38-a192-b0b0b0feecba">&lt;/title&gt;</ept> provides the latest information on Azure Automation from Microsoft.</source>
+          <target state="new"><bpt id="0c8a00ec-fddc-4b38-a192-b0b0b0feecba">&lt;linkText&gt;</bpt>Azure Automation Blog<ept id="0c8a00ec-fddc-4b38-a192-b0b0b0feecba">&lt;/linkText&gt;</ept><bpt id="0c8a00ec-fddc-4b38-a192-b0b0b0feecba">&lt;title&gt;</bpt><ept id="0c8a00ec-fddc-4b38-a192-b0b0b0feecba">&lt;/title&gt;</ept> provides the latest information on Azure Automation from Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="aaea3e8e-5d42-4b54-9aac-52e96767ca55" xml:space="preserve">
+          <source><bpt id="69ba94a9-6f33-4d53-8c3f-b7965f6b8842">&lt;linkText&gt;</bpt>Automation Forum<ept id="69ba94a9-6f33-4d53-8c3f-b7965f6b8842">&lt;/linkText&gt;</ept><bpt id="69ba94a9-6f33-4d53-8c3f-b7965f6b8842">&lt;title&gt;</bpt><ept id="69ba94a9-6f33-4d53-8c3f-b7965f6b8842">&lt;/title&gt;</ept> allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community.</source>
+          <target state="new"><bpt id="69ba94a9-6f33-4d53-8c3f-b7965f6b8842">&lt;linkText&gt;</bpt>Automation Forum<ept id="69ba94a9-6f33-4d53-8c3f-b7965f6b8842">&lt;/linkText&gt;</ept><bpt id="69ba94a9-6f33-4d53-8c3f-b7965f6b8842">&lt;title&gt;</bpt><ept id="69ba94a9-6f33-4d53-8c3f-b7965f6b8842">&lt;/title&gt;</ept> allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community.</target>
+        </trans-unit>
+        <trans-unit id="514872af-307a-44d7-ad40-ce6be9205bcd" xml:space="preserve">
+          <source>Microsoft and the Azure Automation community provide sample runbooks, which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks.</source>
+          <target state="new">Microsoft and the Azure Automation community provide sample runbooks, which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks.</target>
+        </trans-unit>
+        <trans-unit id="1811afa2-fc0d-455f-96ba-e476575a6b22" xml:space="preserve">
+          <source>You can either download these runbooks from the <bpt id="a600fe90-81b2-41bb-8f2c-66955f094fc6">&lt;linkText&gt;</bpt>Script Center<ept id="a600fe90-81b2-41bb-8f2c-66955f094fc6">&lt;/linkText&gt;</ept><bpt id="a600fe90-81b2-41bb-8f2c-66955f094fc6">&lt;title&gt;</bpt><ept id="a600fe90-81b2-41bb-8f2c-66955f094fc6">&lt;/title&gt;</ept> or import them directly into Azure Automation using the <bpt id="f8ba4736-67d5-4cda-8246-926962f38ce9">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="f8ba4736-67d5-4cda-8246-926962f38ce9">&lt;/linkText&gt;</ept><bpt id="f8ba4736-67d5-4cda-8246-926962f38ce9">&lt;title&gt;</bpt><ept id="f8ba4736-67d5-4cda-8246-926962f38ce9">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can either download these runbooks from the <bpt id="a600fe90-81b2-41bb-8f2c-66955f094fc6">&lt;linkText&gt;</bpt>Script Center<ept id="a600fe90-81b2-41bb-8f2c-66955f094fc6">&lt;/linkText&gt;</ept><bpt id="a600fe90-81b2-41bb-8f2c-66955f094fc6">&lt;title&gt;</bpt><ept id="a600fe90-81b2-41bb-8f2c-66955f094fc6">&lt;/title&gt;</ept> or import them directly into Azure Automation using the <bpt id="f8ba4736-67d5-4cda-8246-926962f38ce9">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="f8ba4736-67d5-4cda-8246-926962f38ce9">&lt;/linkText&gt;</ept><bpt id="f8ba4736-67d5-4cda-8246-926962f38ce9">&lt;title&gt;</bpt><ept id="f8ba4736-67d5-4cda-8246-926962f38ce9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="988f2960-94db-43f3-8dae-06af44f5b6fb" xml:space="preserve">
+          <source><bpt id="ba101cfb-f9c9-43cd-a2a7-caf6dc0f9b76">&lt;strong&gt;</bpt>Give us feedback!<ept id="ba101cfb-f9c9-43cd-a2a7-caf6dc0f9b76">&lt;/strong&gt;</ept>  If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center.</source>
+          <target state="new"><bpt id="ba101cfb-f9c9-43cd-a2a7-caf6dc0f9b76">&lt;strong&gt;</bpt>Give us feedback!<ept id="ba101cfb-f9c9-43cd-a2a7-caf6dc0f9b76">&lt;/strong&gt;</ept>  If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center.</target>
+        </trans-unit>
+        <trans-unit id="2c565cca-9a5b-4579-b35a-b3689d993cd7" xml:space="preserve">
+          <source>If you have feedback or feature requests for Azure Automation, post them on <bpt id="0972ede6-98a9-4d11-953c-e4acd807a405">&lt;linkText&gt;</bpt>User Voice<ept id="0972ede6-98a9-4d11-953c-e4acd807a405">&lt;/linkText&gt;</ept><bpt id="0972ede6-98a9-4d11-953c-e4acd807a405">&lt;title&gt;</bpt><ept id="0972ede6-98a9-4d11-953c-e4acd807a405">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have feedback or feature requests for Azure Automation, post them on <bpt id="0972ede6-98a9-4d11-953c-e4acd807a405">&lt;linkText&gt;</bpt>User Voice<ept id="0972ede6-98a9-4d11-953c-e4acd807a405">&lt;/linkText&gt;</ept><bpt id="0972ede6-98a9-4d11-953c-e4acd807a405">&lt;title&gt;</bpt><ept id="0972ede6-98a9-4d11-953c-e4acd807a405">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="914e60e2-0947-4557-bdac-982aeba1d283" xml:space="preserve">
+          <source>Thanks!</source>
+          <target state="new">Thanks!</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

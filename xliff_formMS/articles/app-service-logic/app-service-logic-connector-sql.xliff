@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a9fcf1a3-76af-42d8-8631-9c461f33860d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a9fcf1a3-76af-42d8-8631-9c461f33860d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8cf39908-743f-47c6-a9f0-17d69698af36">
+        <trans-unit id="57a4ad1d-e5f6-450d-b6a0-a23ea64708b7" xml:space="preserve">
+          <source>Using the SQL Connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the SQL Connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="dbe5fa66-9c66-4d62-a5df-01733f0e3875" xml:space="preserve">
+          <source>How to create and configure the SQL Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the SQL Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="ab79b437-dee4-4c04-9ef6-04918307669f" xml:space="preserve">
+          <source>Connect to an on-premises SQL Server or an Azure SQL Database to create and change your information or data.</source>
+          <target state="new">Connect to an on-premises SQL Server or an Azure SQL Database to create and change your information or data.</target>
+        </trans-unit>
+        <trans-unit id="1ee788d8-52a0-445a-9c70-9aa7467e7959" xml:space="preserve">
+          <source>Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow".</source>
+          <target state="new">Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow".</target>
+        </trans-unit>
+        <trans-unit id="47a00d1b-0d5a-46b5-b221-a4ad9c24fb0c" xml:space="preserve">
+          <source>When you use the SQL Connector in your workflow, you can achieve a variety of scenarios.</source>
+          <target state="new">When you use the SQL Connector in your workflow, you can achieve a variety of scenarios.</target>
+        </trans-unit>
+        <trans-unit id="a788e6b5-f6a9-4c3a-af92-fd3b90ba5378" xml:space="preserve">
+          <source>For example, you can:</source>
+          <target state="new">For example, you can:</target>
+        </trans-unit>
+        <trans-unit id="c01219ed-47d2-4744-b9e5-cf8f20916f26" xml:space="preserve">
+          <source>Expose a section of the data residing in your SQL database using a web or mobile application.</source>
+          <target state="new">Expose a section of the data residing in your SQL database using a web or mobile application.</target>
+        </trans-unit>
+        <trans-unit id="aa9354f0-d083-4784-bd4b-3206d372a69a" xml:space="preserve">
+          <source>Insert data into a SQL database table for storage.</source>
+          <target state="new">Insert data into a SQL database table for storage.</target>
+        </trans-unit>
+        <trans-unit id="09fea20f-dbee-4fdd-8a8a-ee8aeaa9e85a" xml:space="preserve">
+          <source>For example, you can enter employee records, update sales orders, and so on.</source>
+          <target state="new">For example, you can enter employee records, update sales orders, and so on.</target>
+        </trans-unit>
+        <trans-unit id="dac337da-84b7-4960-85f9-adebeab2cd9e" xml:space="preserve">
+          <source>Get data from SQL and use it in a business process.</source>
+          <target state="new">Get data from SQL and use it in a business process.</target>
+        </trans-unit>
+        <trans-unit id="9d4972e4-89f6-42d0-acbc-46e05cf08df3" xml:space="preserve">
+          <source>For example, you can get customer records and put those customer records in SalesForce.</source>
+          <target state="new">For example, you can get customer records and put those customer records in SalesForce.</target>
+        </trans-unit>
+        <trans-unit id="dedd5cd7-fe05-4530-ab7d-a1b12067540b" xml:space="preserve">
+          <source>You can add the SQL Connector to your business workflow and process data as part of this workflow within a Logic App.</source>
+          <target state="new">You can add the SQL Connector to your business workflow and process data as part of this workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="ab741627-8292-4b50-8a33-ff6fcfa74474" xml:space="preserve">
+          <source><bpt id="bd998d87-3b19-4de6-920f-6be3aee98928">&lt;em&gt;</bpt>Triggers<ept id="bd998d87-3b19-4de6-920f-6be3aee98928">&lt;/em&gt;</ept> are events that happen.</source>
+          <target state="new"><bpt id="bd998d87-3b19-4de6-920f-6be3aee98928">&lt;em&gt;</bpt>Triggers<ept id="bd998d87-3b19-4de6-920f-6be3aee98928">&lt;/em&gt;</ept> are events that happen.</target>
+        </trans-unit>
+        <trans-unit id="294502a4-f832-496e-8a2c-9470fd6302ed" xml:space="preserve">
+          <source>For example, when an order is updated or when a new customer is added.</source>
+          <target state="new">For example, when an order is updated or when a new customer is added.</target>
+        </trans-unit>
+        <trans-unit id="7bb8d90e-bb42-4307-8197-57c6736e60de" xml:space="preserve">
+          <source>An <bpt id="cc4e4560-fb3e-4df2-9637-75e70e00d858">&lt;em&gt;</bpt>Action<ept id="cc4e4560-fb3e-4df2-9637-75e70e00d858">&lt;/em&gt;</ept> is the result of the trigger.</source>
+          <target state="new">An <bpt id="cc4e4560-fb3e-4df2-9637-75e70e00d858">&lt;em&gt;</bpt>Action<ept id="cc4e4560-fb3e-4df2-9637-75e70e00d858">&lt;/em&gt;</ept> is the result of the trigger.</target>
+        </trans-unit>
+        <trans-unit id="79bcb52d-86e3-4f6a-a88e-ae64b942b53b" xml:space="preserve">
+          <source>For example, when an order is updated, send an alert to the salesperson.</source>
+          <target state="new">For example, when an order is updated, send an alert to the salesperson.</target>
+        </trans-unit>
+        <trans-unit id="ca3a7f7d-9a81-4c6e-919a-6047c2a36ccb" xml:space="preserve">
+          <source>Or, when a new customer is added, send a welcome email to the new customer.</source>
+          <target state="new">Or, when a new customer is added, send a welcome email to the new customer.</target>
+        </trans-unit>
+        <trans-unit id="89044049-d659-4125-b642-cf35ad6cbea0" xml:space="preserve">
+          <source>The SQL Connector can be used as a trigger or an action in a logic app and supports data in JSON and XML formats.</source>
+          <target state="new">The SQL Connector can be used as a trigger or an action in a logic app and supports data in JSON and XML formats.</target>
+        </trans-unit>
+        <trans-unit id="5050d55a-7d6c-4a9e-ad9f-1cd6b4dcbd12" xml:space="preserve">
+          <source>For every table included in your package settings (more on that later in this topic), there is a set of JSON actions and a set of XML actions.</source>
+          <target state="new">For every table included in your package settings (more on that later in this topic), there is a set of JSON actions and a set of XML actions.</target>
+        </trans-unit>
+        <trans-unit id="abb31f67-5984-4f63-84d4-0d6f8e5bb4e8" xml:space="preserve">
+          <source>The SQL Connector has the following Triggers and Actions available:</source>
+          <target state="new">The SQL Connector has the following Triggers and Actions available:</target>
+        </trans-unit>
+        <trans-unit id="44433ada-e8c5-4b5e-a7b8-c42e52253ad5" xml:space="preserve">
+          <source>Triggers</source>
+          <target state="new">Triggers</target>
+        </trans-unit>
+        <trans-unit id="1068e5d3-b132-4d04-b246-f0be02c6208a" xml:space="preserve">
+          <source>Actions</source>
+          <target state="new">Actions</target>
+        </trans-unit>
+        <trans-unit id="fa0feec1-6d7f-4616-9b62-4ca9060dc286" xml:space="preserve">
+          <source>Poll Data</source>
+          <target state="new">Poll Data</target>
+        </trans-unit>
+        <trans-unit id="06ed9d39-73e0-48aa-b63f-ec866aa9b91c" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Insert Into Table&lt;/li&gt;&lt;li&gt;Update Table&lt;/li&gt;&lt;li&gt;Select From Table&lt;/li&gt;&lt;li&gt;Delete From Table&lt;/li&gt;&lt;li&gt;Call Stored Procedure&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Insert Into Table&lt;/li&gt;&lt;li&gt;Update Table&lt;/li&gt;&lt;li&gt;Select From Table&lt;/li&gt;&lt;li&gt;Delete From Table&lt;/li&gt;&lt;li&gt;Call Stored Procedure&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="902c7551-937e-4c36-8f71-bf3bbd942885" xml:space="preserve">
+          <source>A connector can be created within a logic app or be created directly from the Azure Marketplace.</source>
+          <target state="new">A connector can be created within a logic app or be created directly from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="ca41dd5d-9eb3-4e81-95e7-f17a8261b89b" xml:space="preserve">
+          <source>To create a connector from the Marketplace:</source>
+          <target state="new">To create a connector from the Marketplace:</target>
+        </trans-unit>
+        <trans-unit id="59f60710-e18d-45fc-94cb-6523b88c33e5" xml:space="preserve">
+          <source>In the Azure startboard, select <bpt id="67e2d76e-ac30-430f-b790-f17e47e92e6e">&lt;strong&gt;</bpt>Marketplace<ept id="67e2d76e-ac30-430f-b790-f17e47e92e6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure startboard, select <bpt id="67e2d76e-ac30-430f-b790-f17e47e92e6e">&lt;strong&gt;</bpt>Marketplace<ept id="67e2d76e-ac30-430f-b790-f17e47e92e6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6545512d-a5a8-4c5c-a4e7-a2ed26e7e925" xml:space="preserve">
+          <source>Search for “SQL Connector”, select it, and select <bpt id="475ace13-770b-405f-8818-d3fc2f3a4bbd">&lt;strong&gt;</bpt>Create<ept id="475ace13-770b-405f-8818-d3fc2f3a4bbd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Search for “SQL Connector”, select it, and select <bpt id="475ace13-770b-405f-8818-d3fc2f3a4bbd">&lt;strong&gt;</bpt>Create<ept id="475ace13-770b-405f-8818-d3fc2f3a4bbd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="113cb5d4-4f89-4f35-aea4-f3ecb0ae6ec7" xml:space="preserve">
+          <source>Enter the Name, App Service Plan, and other properties.</source>
+          <target state="new">Enter the Name, App Service Plan, and other properties.</target>
+        </trans-unit>
+        <trans-unit id="fa902c0e-ccf3-46eb-b5bf-8621998e063f" xml:space="preserve">
+          <source>Enter the following package settings:</source>
+          <target state="new">Enter the following package settings:</target>
+        </trans-unit>
+        <trans-unit id="8e94681c-bd5b-476d-95a5-ba7242949f6d" xml:space="preserve">
+          <source>Name | Required |  Description
+--- | --- | ---
+Server Name | Yes | Enter the SQL Server name.</source>
+          <target state="new">Name | Required |  Description
+--- | --- | ---
+Server Name | Yes | Enter the SQL Server name.</target>
+        </trans-unit>
+        <trans-unit id="b34a9412-4d30-4a3a-93b2-c1effde7a787" xml:space="preserve">
+          <source>For example, enter <bpt id="0ebca993-850b-4975-959f-8640aa1aa47d">&lt;em&gt;</bpt>SQLserver/sqlexpress<ept id="0ebca993-850b-4975-959f-8640aa1aa47d">&lt;/em&gt;</ept> or <bpt id="beda62e3-ae55-446e-bcca-57ded3818ab1">&lt;em&gt;</bpt>SQLserver.mydomain.com<ept id="beda62e3-ae55-446e-bcca-57ded3818ab1">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, enter <bpt id="0ebca993-850b-4975-959f-8640aa1aa47d">&lt;em&gt;</bpt>SQLserver/sqlexpress<ept id="0ebca993-850b-4975-959f-8640aa1aa47d">&lt;/em&gt;</ept> or <bpt id="beda62e3-ae55-446e-bcca-57ded3818ab1">&lt;em&gt;</bpt>SQLserver.mydomain.com<ept id="beda62e3-ae55-446e-bcca-57ded3818ab1">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3ca9902-e5aa-4d41-9bce-a1c985648aff" xml:space="preserve">
+          <source>Port | No | Default is 1433.</source>
+          <target state="new">Port | No | Default is 1433.</target>
+        </trans-unit>
+        <trans-unit id="08b68f41-53c4-4d78-bb7f-bed912ec1354" xml:space="preserve">
+          <source>User Name | Yes | Enter a user name that can log into the SQL Server.</source>
+          <target state="new">User Name | Yes | Enter a user name that can log into the SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="81c2557e-01a5-4548-838a-1569d61a4e19" xml:space="preserve">
+          <source>If connecting to an on-premises SQL Server, enter SQL Authentication credentials.</source>
+          <target state="new">If connecting to an on-premises SQL Server, enter SQL Authentication credentials.</target>
+        </trans-unit>
+        <trans-unit id="1d5ab35c-95fc-498b-a4ad-14a90b3fb0e1" xml:space="preserve">
+          <source>Password | Yes | Enter the user name password.</source>
+          <target state="new">Password | Yes | Enter the user name password.</target>
+        </trans-unit>
+        <trans-unit id="c483cf68-7752-4010-b72b-e4948477fd44" xml:space="preserve">
+          <source>Database Name | Yes | Enter the database you are connecting.</source>
+          <target state="new">Database Name | Yes | Enter the database you are connecting.</target>
+        </trans-unit>
+        <trans-unit id="bd7d7a0d-bd9a-4175-8280-7f0e0869ee86" xml:space="preserve">
+          <source>For example, you can enter <bpt id="069294ef-5278-4ece-ba0e-e347d671c0a6">&lt;em&gt;</bpt>Customers<ept id="069294ef-5278-4ece-ba0e-e347d671c0a6">&lt;/em&gt;</ept> or <bpt id="5af5f84a-4ba9-4da1-9055-c6731db90239">&lt;em&gt;</bpt>dbo/orders<ept id="5af5f84a-4ba9-4da1-9055-c6731db90239">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, you can enter <bpt id="069294ef-5278-4ece-ba0e-e347d671c0a6">&lt;em&gt;</bpt>Customers<ept id="069294ef-5278-4ece-ba0e-e347d671c0a6">&lt;/em&gt;</ept> or <bpt id="5af5f84a-4ba9-4da1-9055-c6731db90239">&lt;em&gt;</bpt>dbo/orders<ept id="5af5f84a-4ba9-4da1-9055-c6731db90239">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89305a81-628d-4bad-b12f-3937d8fed500" xml:space="preserve">
+          <source>On-Premises | Yes | Default is False.</source>
+          <target state="new">On-Premises | Yes | Default is False.</target>
+        </trans-unit>
+        <trans-unit id="9fa11610-172a-4b8a-9370-189276fa0f67" xml:space="preserve">
+          <source>Enter False if connecting to an Azure SQL database.</source>
+          <target state="new">Enter False if connecting to an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="cf1a4383-da01-4da1-a809-9afc6a41489e" xml:space="preserve">
+          <source>Enter True if connecting to an on-premises SQL Server.</source>
+          <target state="new">Enter True if connecting to an on-premises SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="e925229a-7d9b-4463-a302-ab702e1da63e" xml:space="preserve">
+          <source>Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.&lt;br/&gt;&lt;br/&gt;<bpt id="5c31986a-ca06-4bbd-b7bc-76046e523ecc">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager<ept id="5c31986a-ca06-4bbd-b7bc-76046e523ecc">&lt;/linkText&gt;</ept><bpt id="5c31986a-ca06-4bbd-b7bc-76046e523ecc">&lt;title&gt;</bpt><ept id="5c31986a-ca06-4bbd-b7bc-76046e523ecc">&lt;/title&gt;</ept>&lt;br/&gt;<bpt id="4b948238-2aef-4fdc-ae54-19b2a9b6f2b0">&lt;linkText&gt;</bpt>Service Bus Pricing<ept id="4b948238-2aef-4fdc-ae54-19b2a9b6f2b0">&lt;/linkText&gt;</ept><bpt id="4b948238-2aef-4fdc-ae54-19b2a9b6f2b0">&lt;title&gt;</bpt><ept id="4b948238-2aef-4fdc-ae54-19b2a9b6f2b0">&lt;/title&gt;</ept>
+Partner Server Name | No | If the primary server is unavailable, you can enter a partner server as an alternate or backup server.</source>
+          <target state="new">Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.&lt;br/&gt;&lt;br/&gt;<bpt id="5c31986a-ca06-4bbd-b7bc-76046e523ecc">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager<ept id="5c31986a-ca06-4bbd-b7bc-76046e523ecc">&lt;/linkText&gt;</ept><bpt id="5c31986a-ca06-4bbd-b7bc-76046e523ecc">&lt;title&gt;</bpt><ept id="5c31986a-ca06-4bbd-b7bc-76046e523ecc">&lt;/title&gt;</ept>&lt;br/&gt;<bpt id="4b948238-2aef-4fdc-ae54-19b2a9b6f2b0">&lt;linkText&gt;</bpt>Service Bus Pricing<ept id="4b948238-2aef-4fdc-ae54-19b2a9b6f2b0">&lt;/linkText&gt;</ept><bpt id="4b948238-2aef-4fdc-ae54-19b2a9b6f2b0">&lt;title&gt;</bpt><ept id="4b948238-2aef-4fdc-ae54-19b2a9b6f2b0">&lt;/title&gt;</ept>
+Partner Server Name | No | If the primary server is unavailable, you can enter a partner server as an alternate or backup server.</target>
+        </trans-unit>
+        <trans-unit id="6038c4cb-3d11-40b4-b90a-c190b6c9014e" xml:space="preserve">
+          <source>Tables | No | List the database tables that can be updated by the connector.</source>
+          <target state="new">Tables | No | List the database tables that can be updated by the connector.</target>
+        </trans-unit>
+        <trans-unit id="11cf9082-127b-414c-9591-40434dd5d530" xml:space="preserve">
+          <source>For example, enter <bpt id="b6e267ce-0439-4f74-ad6b-fad935530c9d">&lt;em&gt;</bpt>OrdersTable<ept id="b6e267ce-0439-4f74-ad6b-fad935530c9d">&lt;/em&gt;</ept> or <bpt id="ef71d3cb-003b-4f5f-abbc-4b75bf556009">&lt;em&gt;</bpt>EmployeeTable<ept id="ef71d3cb-003b-4f5f-abbc-4b75bf556009">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, enter <bpt id="b6e267ce-0439-4f74-ad6b-fad935530c9d">&lt;em&gt;</bpt>OrdersTable<ept id="b6e267ce-0439-4f74-ad6b-fad935530c9d">&lt;/em&gt;</ept> or <bpt id="ef71d3cb-003b-4f5f-abbc-4b75bf556009">&lt;em&gt;</bpt>EmployeeTable<ept id="ef71d3cb-003b-4f5f-abbc-4b75bf556009">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="169e507f-d8ee-4aee-b5e2-65da705a58d2" xml:space="preserve">
+          <source>If no tables are entered, all tables can be used.</source>
+          <target state="new">If no tables are entered, all tables can be used.</target>
+        </trans-unit>
+        <trans-unit id="464a4a6f-dcce-464c-94da-47edbebded41" xml:space="preserve">
+          <source>Valid tables and/or Stored Procedures are required to use this connector as an action.</source>
+          <target state="new">Valid tables and/or Stored Procedures are required to use this connector as an action.</target>
+        </trans-unit>
+        <trans-unit id="4d8d7b3a-4f0b-4107-843d-7778c5e28f07" xml:space="preserve">
+          <source>Stored Procedures | No | Enter an existing stored procedure that can be called by the connector.</source>
+          <target state="new">Stored Procedures | No | Enter an existing stored procedure that can be called by the connector.</target>
+        </trans-unit>
+        <trans-unit id="43e0cd38-cd30-40f1-bd31-62c6e7c77d3f" xml:space="preserve">
+          <source>For example, enter <bpt id="39f4b4f0-c476-42ed-8d38-c034584acf36">&lt;em&gt;</bpt>sp_IsEmployeeEligible<ept id="39f4b4f0-c476-42ed-8d38-c034584acf36">&lt;/em&gt;</ept> or <bpt id="947a92ef-0a77-4511-96ec-6d4ac9905fac">&lt;em&gt;</bpt>sp_CalculateOrderDiscount<ept id="947a92ef-0a77-4511-96ec-6d4ac9905fac">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, enter <bpt id="39f4b4f0-c476-42ed-8d38-c034584acf36">&lt;em&gt;</bpt>sp_IsEmployeeEligible<ept id="39f4b4f0-c476-42ed-8d38-c034584acf36">&lt;/em&gt;</ept> or <bpt id="947a92ef-0a77-4511-96ec-6d4ac9905fac">&lt;em&gt;</bpt>sp_CalculateOrderDiscount<ept id="947a92ef-0a77-4511-96ec-6d4ac9905fac">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1523ea7c-5283-4337-a852-d14b9d017cde" xml:space="preserve">
+          <source>Valid tables and/or Stored Procedures are required to use this connector as an action.</source>
+          <target state="new">Valid tables and/or Stored Procedures are required to use this connector as an action.</target>
+        </trans-unit>
+        <trans-unit id="e1f50a79-ba71-445a-975a-c02eda6065d9" xml:space="preserve">
+          <source>Data Available Query | For trigger support | SQL statement to determine whether any data is available for polling a SQL Server database table.</source>
+          <target state="new">Data Available Query | For trigger support | SQL statement to determine whether any data is available for polling a SQL Server database table.</target>
+        </trans-unit>
+        <trans-unit id="feeb5496-60ff-4eb6-9d8c-fc6935895f28" xml:space="preserve">
+          <source>This should return a numeric value representing the number of rows of data available.</source>
+          <target state="new">This should return a numeric value representing the number of rows of data available.</target>
+        </trans-unit>
+        <trans-unit id="ed6299ed-f28b-41d1-a93e-b1a247a7e71a" xml:space="preserve">
+          <source>Example: SELECT COUNT(*) from table_name.</source>
+          <target state="new">Example: SELECT COUNT(*) from table_name.</target>
+        </trans-unit>
+        <trans-unit id="96938c52-1add-4bf7-9f6e-6b6dd757cd83" xml:space="preserve">
+          <source>Poll Data Query | For trigger support | The SQL statement to poll the SQL Server database table.</source>
+          <target state="new">Poll Data Query | For trigger support | The SQL statement to poll the SQL Server database table.</target>
+        </trans-unit>
+        <trans-unit id="4ffd9f2d-07d2-46b1-8959-da3946f6e34b" xml:space="preserve">
+          <source>You can enter any number of SQL statements separated by a semicolon.</source>
+          <target state="new">You can enter any number of SQL statements separated by a semicolon.</target>
+        </trans-unit>
+        <trans-unit id="de0e4b89-eb05-403d-8d95-ef8fd82e214c" xml:space="preserve">
+          <source>This statement is executed transactionally and only committed when the data is safely stored in your logic app.</source>
+          <target state="new">This statement is executed transactionally and only committed when the data is safely stored in your logic app.</target>
+        </trans-unit>
+        <trans-unit id="9802c1ca-925a-49f8-873a-30d32ed750d5" xml:space="preserve">
+          <source>Example: SELECT * FROM table<bpt id="9cbdd302-1858-40e5-8623-80be8f1508fe">&lt;em&gt;</bpt>name; DELETE FROM table<ept id="9cbdd302-1858-40e5-8623-80be8f1508fe">&lt;/em&gt;</ept>name.</source>
+          <target state="new">Example: SELECT * FROM table<bpt id="9cbdd302-1858-40e5-8623-80be8f1508fe">&lt;em&gt;</bpt>name; DELETE FROM table<ept id="9cbdd302-1858-40e5-8623-80be8f1508fe">&lt;/em&gt;</ept>name.</target>
+        </trans-unit>
+        <trans-unit id="6279714b-0e5f-4ba6-a619-6a9664b4f899" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;<bpt id="5b049411-571d-4437-98e3-8e7ca2489e0c">&lt;strong&gt;</bpt>Note<ept id="5b049411-571d-4437-98e3-8e7ca2489e0c">&lt;/strong&gt;</ept>&lt;br/&gt;You must provide a poll statement that avoids an infinite loop by deleting, moving or updating selected data to ensure that same data isn't polled again.</source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;<bpt id="5b049411-571d-4437-98e3-8e7ca2489e0c">&lt;strong&gt;</bpt>Note<ept id="5b049411-571d-4437-98e3-8e7ca2489e0c">&lt;/strong&gt;</ept>&lt;br/&gt;You must provide a poll statement that avoids an infinite loop by deleting, moving or updating selected data to ensure that same data isn't polled again.</target>
+        </trans-unit>
+        <trans-unit id="2c5006fc-a32c-4b69-adb2-94505d068270" xml:space="preserve">
+          <source>When complete, the Package Settings look similar to the following:  
+<bpt id="c63bf63b-593b-45fa-b5c6-976b986836ed">&lt;linkText&gt;</bpt><ept id="c63bf63b-593b-45fa-b5c6-976b986836ed">&lt;/linkText&gt;</ept>  </source>
+          <target state="new">When complete, the Package Settings look similar to the following:  
+<bpt id="c63bf63b-593b-45fa-b5c6-976b986836ed">&lt;linkText&gt;</bpt><ept id="c63bf63b-593b-45fa-b5c6-976b986836ed">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="3cd66188-662a-405a-a161-fdbc4849552f" xml:space="preserve">
+          <source>Select <bpt id="d2dd4651-e643-4bb2-b21d-530019c9c5a7">&lt;strong&gt;</bpt>Create<ept id="d2dd4651-e643-4bb2-b21d-530019c9c5a7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="d2dd4651-e643-4bb2-b21d-530019c9c5a7">&lt;strong&gt;</bpt>Create<ept id="d2dd4651-e643-4bb2-b21d-530019c9c5a7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7219728b-b978-4d25-91fb-7d7b01879560" xml:space="preserve">
+          <source>Let's look at a simple logic app that polls data from a SQL table, adds the data in another table, and updates the data.</source>
+          <target state="new">Let's look at a simple logic app that polls data from a SQL table, adds the data in another table, and updates the data.</target>
+        </trans-unit>
+        <trans-unit id="93ae678e-ffce-4d82-be13-0a78ddc1d068" xml:space="preserve">
+          <source>To use the SQL connector as a trigger, enter the <bpt id="197404e8-1298-438b-81c3-7abba09a84fe">&lt;strong&gt;</bpt>Data Available Query<ept id="197404e8-1298-438b-81c3-7abba09a84fe">&lt;/strong&gt;</ept> and <bpt id="b251e454-b940-4989-b138-cecfb13e5bb3">&lt;strong&gt;</bpt>Poll Data Query<ept id="b251e454-b940-4989-b138-cecfb13e5bb3">&lt;/strong&gt;</ept> values.</source>
+          <target state="new">To use the SQL connector as a trigger, enter the <bpt id="197404e8-1298-438b-81c3-7abba09a84fe">&lt;strong&gt;</bpt>Data Available Query<ept id="197404e8-1298-438b-81c3-7abba09a84fe">&lt;/strong&gt;</ept> and <bpt id="b251e454-b940-4989-b138-cecfb13e5bb3">&lt;strong&gt;</bpt>Poll Data Query<ept id="b251e454-b940-4989-b138-cecfb13e5bb3">&lt;/strong&gt;</ept> values.</target>
+        </trans-unit>
+        <trans-unit id="da3c2392-4de8-45ff-9f18-8a4ffa4cd51b" xml:space="preserve">
+          <source><bpt id="26661cfe-85fd-4a33-917f-e0a567c83339">&lt;strong&gt;</bpt>Data Available Query<ept id="26661cfe-85fd-4a33-917f-e0a567c83339">&lt;/strong&gt;</ept> is executed on the schedule you enter and determines if any data is available.</source>
+          <target state="new"><bpt id="26661cfe-85fd-4a33-917f-e0a567c83339">&lt;strong&gt;</bpt>Data Available Query<ept id="26661cfe-85fd-4a33-917f-e0a567c83339">&lt;/strong&gt;</ept> is executed on the schedule you enter and determines if any data is available.</target>
+        </trans-unit>
+        <trans-unit id="b83c0bcf-7810-4865-9773-21a4b4d28b8a" xml:space="preserve">
+          <source>Since this query only returns a scalar number, it can be tuned and optimized for frequent execution.</source>
+          <target state="new">Since this query only returns a scalar number, it can be tuned and optimized for frequent execution.</target>
+        </trans-unit>
+        <trans-unit id="91efbcc0-955c-4c82-937b-1dcaee38e8a8" xml:space="preserve">
+          <source><bpt id="0f764da8-cd21-40aa-900d-c27020a654f5">&lt;strong&gt;</bpt>Poll Data Query<ept id="0f764da8-cd21-40aa-900d-c27020a654f5">&lt;/strong&gt;</ept> is only executed when the Data Available Query indicates that data is available.</source>
+          <target state="new"><bpt id="0f764da8-cd21-40aa-900d-c27020a654f5">&lt;strong&gt;</bpt>Poll Data Query<ept id="0f764da8-cd21-40aa-900d-c27020a654f5">&lt;/strong&gt;</ept> is only executed when the Data Available Query indicates that data is available.</target>
+        </trans-unit>
+        <trans-unit id="1f6e95e4-9a06-4d60-8202-0e11bbfd8d29" xml:space="preserve">
+          <source>This statement executes within a transaction and is only committed when the extracted data is durably stored in your workflow.</source>
+          <target state="new">This statement executes within a transaction and is only committed when the extracted data is durably stored in your workflow.</target>
+        </trans-unit>
+        <trans-unit id="1137c1ea-6522-4f70-87d7-00c776eba584" xml:space="preserve">
+          <source>It is important to avoid infinitely re-extracting the same data.</source>
+          <target state="new">It is important to avoid infinitely re-extracting the same data.</target>
+        </trans-unit>
+        <trans-unit id="f8cab404-d827-4914-aed4-ea8bb478c922" xml:space="preserve">
+          <source>The transactional nature of this execution can be used to delete or update the data to ensure it isn't collected the next time data is queried.</source>
+          <target state="new">The transactional nature of this execution can be used to delete or update the data to ensure it isn't collected the next time data is queried.</target>
+        </trans-unit>
+        <trans-unit id="1936459a-1a8d-4a56-a67f-c411dc245b37" xml:space="preserve">
+          <source>The schema returned by this statement identifies the available properties in your connector.</source>
+          <target state="new">The schema returned by this statement identifies the available properties in your connector.</target>
+        </trans-unit>
+        <trans-unit id="9584fbaa-0599-4677-b203-ccdaa4e088ef" xml:space="preserve">
+          <source>All columns must be named.</source>
+          <target state="new">All columns must be named.</target>
+        </trans-unit>
+        <trans-unit id="040b56c0-b276-4b7f-ae77-dfe233f1f421" xml:space="preserve">
+          <source>When creating or editing a logic app, select the SQL Connector you created as the trigger.</source>
+          <target state="new">When creating or editing a logic app, select the SQL Connector you created as the trigger.</target>
+        </trans-unit>
+        <trans-unit id="10581848-42ec-4e6e-bc36-7b0ee35976e8" xml:space="preserve">
+          <source>This lists the available triggers: <bpt id="26548051-a012-4db0-8e73-b238b899e6de">&lt;strong&gt;</bpt>Poll Data (JSON)<ept id="26548051-a012-4db0-8e73-b238b899e6de">&lt;/strong&gt;</ept> and <bpt id="455d259d-3405-4242-b17e-c60bf9aa89e9">&lt;strong&gt;</bpt>Poll Data (XML)<ept id="455d259d-3405-4242-b17e-c60bf9aa89e9">&lt;/strong&gt;</ept>:  
+<bpt id="a2e6c075-aae9-4d74-95c3-8c1a290a196d">&lt;linkText&gt;</bpt><ept id="a2e6c075-aae9-4d74-95c3-8c1a290a196d">&lt;/linkText&gt;</ept></source>
+          <target state="new">This lists the available triggers: <bpt id="26548051-a012-4db0-8e73-b238b899e6de">&lt;strong&gt;</bpt>Poll Data (JSON)<ept id="26548051-a012-4db0-8e73-b238b899e6de">&lt;/strong&gt;</ept> and <bpt id="455d259d-3405-4242-b17e-c60bf9aa89e9">&lt;strong&gt;</bpt>Poll Data (XML)<ept id="455d259d-3405-4242-b17e-c60bf9aa89e9">&lt;/strong&gt;</ept>:  
+<bpt id="a2e6c075-aae9-4d74-95c3-8c1a290a196d">&lt;linkText&gt;</bpt><ept id="a2e6c075-aae9-4d74-95c3-8c1a290a196d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3cae5dfb-f1a6-4dc1-94cc-5bfd52a6e6f5" xml:space="preserve">
+          <source>Select the <bpt id="60c2f40d-0c43-49d2-812e-d2173538c129">&lt;strong&gt;</bpt>Poll Data (JSON)<ept id="60c2f40d-0c43-49d2-812e-d2173538c129">&lt;/strong&gt;</ept> trigger, enter the frequency, and click the ✓:  
+<bpt id="49e0a095-c98c-4cc6-9c92-f2fae5b11d57">&lt;linkText&gt;</bpt><ept id="49e0a095-c98c-4cc6-9c92-f2fae5b11d57">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select the <bpt id="60c2f40d-0c43-49d2-812e-d2173538c129">&lt;strong&gt;</bpt>Poll Data (JSON)<ept id="60c2f40d-0c43-49d2-812e-d2173538c129">&lt;/strong&gt;</ept> trigger, enter the frequency, and click the ✓:  
+<bpt id="49e0a095-c98c-4cc6-9c92-f2fae5b11d57">&lt;linkText&gt;</bpt><ept id="49e0a095-c98c-4cc6-9c92-f2fae5b11d57">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f72f843f-6376-4bc6-9fea-d4c055f87c40" xml:space="preserve">
+          <source>The trigger now appears as configured in the logic app.</source>
+          <target state="new">The trigger now appears as configured in the logic app.</target>
+        </trans-unit>
+        <trans-unit id="bc46a6b6-ba3b-45fa-8e24-b534549ffe57" xml:space="preserve">
+          <source>The output(s) of the trigger are shown and can be used as inputs in any subsequent actions:  
+<bpt id="684089df-0671-494a-b13c-3e777f3d5aee">&lt;linkText&gt;</bpt><ept id="684089df-0671-494a-b13c-3e777f3d5aee">&lt;/linkText&gt;</ept></source>
+          <target state="new">The output(s) of the trigger are shown and can be used as inputs in any subsequent actions:  
+<bpt id="684089df-0671-494a-b13c-3e777f3d5aee">&lt;linkText&gt;</bpt><ept id="684089df-0671-494a-b13c-3e777f3d5aee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00ca788f-87b4-4c36-8d2c-b3f303be4f56" xml:space="preserve">
+          <source>Using our simple logic app scenario that polls data from a SQL table, adds the data in another table, and updates the data.</source>
+          <target state="new">Using our simple logic app scenario that polls data from a SQL table, adds the data in another table, and updates the data.</target>
+        </trans-unit>
+        <trans-unit id="db66dbab-385c-4048-bf05-9a53945c8af1" xml:space="preserve">
+          <source>To use the SQL Connector as an action, enter the name of the Tables and/or Stored Procedures you entered when you created the SQL Connector:</source>
+          <target state="new">To use the SQL Connector as an action, enter the name of the Tables and/or Stored Procedures you entered when you created the SQL Connector:</target>
+        </trans-unit>
+        <trans-unit id="916dc578-2b8a-42b6-b985-a0ac47762b9e" xml:space="preserve">
+          <source>After your trigger (or choose 'run this logic manually'), add the SQL connector you created from the gallery.</source>
+          <target state="new">After your trigger (or choose 'run this logic manually'), add the SQL connector you created from the gallery.</target>
+        </trans-unit>
+        <trans-unit id="91388764-d4ff-407b-8c95-e228c8fb4910" xml:space="preserve">
+          <source>Select one of the Insert actions, like <bpt id="dd6136ea-1aad-4839-ada6-d8645a959499">&lt;em&gt;</bpt>Insert Into TempEmployeeDetails (JSON)<ept id="dd6136ea-1aad-4839-ada6-d8645a959499">&lt;/em&gt;</ept>:  
+<bpt id="25aea8f3-d93e-486a-ac65-4a1c22bfbb84">&lt;linkText&gt;</bpt><ept id="25aea8f3-d93e-486a-ac65-4a1c22bfbb84">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select one of the Insert actions, like <bpt id="dd6136ea-1aad-4839-ada6-d8645a959499">&lt;em&gt;</bpt>Insert Into TempEmployeeDetails (JSON)<ept id="dd6136ea-1aad-4839-ada6-d8645a959499">&lt;/em&gt;</ept>:  
+<bpt id="25aea8f3-d93e-486a-ac65-4a1c22bfbb84">&lt;linkText&gt;</bpt><ept id="25aea8f3-d93e-486a-ac65-4a1c22bfbb84">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="395e860e-d8cd-48f8-bae7-f5f340aaa251" xml:space="preserve">
+          <source>Enter the input values of the record to be inserted, and click on the ✓:  
+<bpt id="88d267c2-c1fa-4a3b-a829-96cf435c3a66">&lt;linkText&gt;</bpt><ept id="88d267c2-c1fa-4a3b-a829-96cf435c3a66">&lt;/linkText&gt;</ept></source>
+          <target state="new">Enter the input values of the record to be inserted, and click on the ✓:  
+<bpt id="88d267c2-c1fa-4a3b-a829-96cf435c3a66">&lt;linkText&gt;</bpt><ept id="88d267c2-c1fa-4a3b-a829-96cf435c3a66">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1902ee63-eeef-4b27-8189-4f98f07d3e4b" xml:space="preserve">
+          <source>From the gallery, select the same SQL connector you created.</source>
+          <target state="new">From the gallery, select the same SQL connector you created.</target>
+        </trans-unit>
+        <trans-unit id="8a44b7bc-fd3f-4a29-a33f-e6a68d52129a" xml:space="preserve">
+          <source>As an action, select the Update action on the same table, like <bpt id="555c8811-8374-43c1-8205-37a1767111c3">&lt;em&gt;</bpt>Update EmployeeDetails<ept id="555c8811-8374-43c1-8205-37a1767111c3">&lt;/em&gt;</ept>:  
+<bpt id="6ab5a420-aa5b-4bd9-bd76-a076abee359d">&lt;linkText&gt;</bpt><ept id="6ab5a420-aa5b-4bd9-bd76-a076abee359d">&lt;/linkText&gt;</ept></source>
+          <target state="new">As an action, select the Update action on the same table, like <bpt id="555c8811-8374-43c1-8205-37a1767111c3">&lt;em&gt;</bpt>Update EmployeeDetails<ept id="555c8811-8374-43c1-8205-37a1767111c3">&lt;/em&gt;</ept>:  
+<bpt id="6ab5a420-aa5b-4bd9-bd76-a076abee359d">&lt;linkText&gt;</bpt><ept id="6ab5a420-aa5b-4bd9-bd76-a076abee359d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6aa4d6a1-6676-41d2-bca9-cde7655c941f" xml:space="preserve">
+          <source>Enter the input values for the update action, and click on the ✓:  
+<bpt id="79c19d9d-9db0-462c-99ec-31d1183499c3">&lt;linkText&gt;</bpt><ept id="79c19d9d-9db0-462c-99ec-31d1183499c3">&lt;/linkText&gt;</ept></source>
+          <target state="new">Enter the input values for the update action, and click on the ✓:  
+<bpt id="79c19d9d-9db0-462c-99ec-31d1183499c3">&lt;linkText&gt;</bpt><ept id="79c19d9d-9db0-462c-99ec-31d1183499c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62f15937-4b78-49d7-a844-8e77b1415cde" xml:space="preserve">
+          <source>You can test the logic app by adding a new record in the table that is being polled.</source>
+          <target state="new">You can test the logic app by adding a new record in the table that is being polled.</target>
+        </trans-unit>
+        <trans-unit id="63bcff6c-40a9-40ec-9d5e-f9adceb08c56" xml:space="preserve">
+          <source>SQL Query</source>
+          <target state="new">SQL Query</target>
+        </trans-unit>
+        <trans-unit id="a6c0b183-9364-48b8-af0c-9969448003e8" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="7db70ee4-eb68-4a27-8c43-b7fae4257acd" xml:space="preserve">
+          <source>Not Supported</source>
+          <target state="new">Not Supported</target>
+        </trans-unit>
+        <trans-unit id="4cfff827-52f9-4ec4-b628-a42a028e79f6" xml:space="preserve">
+          <source>Where clause</source>
+          <target state="new">Where clause</target>
+        </trans-unit>
+        <trans-unit id="66ad42d2-4888-493f-bc1b-a0a8b7cd3a3b" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Operators: AND, OR, =, &lt;&gt;, &lt;, &lt;=, &gt;, &gt;= and LIKE&lt;/li&gt;&lt;li&gt;Multiple sub conditions can be combined by ‘(‘ and ‘)’&lt;/li&gt;&lt;li&gt;String literals, Datetime (enclosed in single quotes), numbers (should only contain numeric characters)&lt;/li&gt;&lt;li&gt;Should strictly be in a binary expression format, like ((operand operator operand) AND/OR (operand operator operand))*&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Operators: AND, OR, =, &lt;&gt;, &lt;, &lt;=, &gt;, &gt;= and LIKE&lt;/li&gt;&lt;li&gt;Multiple sub conditions can be combined by ‘(‘ and ‘)’&lt;/li&gt;&lt;li&gt;String literals, Datetime (enclosed in single quotes), numbers (should only contain numeric characters)&lt;/li&gt;&lt;li&gt;Should strictly be in a binary expression format, like ((operand operator operand) AND/OR (operand operator operand))*&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="7fd045cd-c7b3-46b9-b6e1-9773099caae5" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Operators: Between, IN&lt;/li&gt;&lt;li&gt;All built-in functions like ADD(), MAX() NOW(), POWER(), and so on&lt;/li&gt;&lt;li&gt;Math operators like *, -, +, and so on&lt;/li&gt;&lt;li&gt;String concatenations using +.&lt;/li&gt;&lt;li&gt;All Joins&lt;/li&gt;&lt;li&gt;IS NULL and IS NOT Null&lt;/li&gt;&lt;li&gt;Any numbers with non-numeric characters, like hexadecimal numbers&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Operators: Between, IN&lt;/li&gt;&lt;li&gt;All built-in functions like ADD(), MAX() NOW(), POWER(), and so on&lt;/li&gt;&lt;li&gt;Math operators like *, -, +, and so on&lt;/li&gt;&lt;li&gt;String concatenations using +.&lt;/li&gt;&lt;li&gt;All Joins&lt;/li&gt;&lt;li&gt;IS NULL and IS NOT Null&lt;/li&gt;&lt;li&gt;Any numbers with non-numeric characters, like hexadecimal numbers&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="9d501e6d-a9e1-453a-a4bc-4224e516a305" xml:space="preserve">
+          <source>Fields (in Select query)</source>
+          <target state="new">Fields (in Select query)</target>
+        </trans-unit>
+        <trans-unit id="a16671b8-ab79-4d72-8aa3-5115cb015274" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Valid column names separated by commas. No table name prefixes allowed (the connector works on one table at a time).&lt;/li&gt;&lt;li&gt;Names can be escaped with ‘[‘ and ‘]’&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Valid column names separated by commas. No table name prefixes allowed (the connector works on one table at a time).&lt;/li&gt;&lt;li&gt;Names can be escaped with ‘[‘ and ‘]’&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="909fb737-6cdb-4ace-94cb-6c249f212a16" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Keywords like TOP, DISTINCT, and so on&lt;/li&gt;&lt;li&gt;Aliasing, like Street + City + Zip AS Address&lt;/li&gt;&lt;li&gt;All built-in functions, like ADD(), MAX() NOW(), POWER(), and so on&lt;/li&gt;&lt;li&gt;Math operators, like *, -, +, and so on&lt;/li&gt;&lt;li&gt;String concatenations using +&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Keywords like TOP, DISTINCT, and so on&lt;/li&gt;&lt;li&gt;Aliasing, like Street + City + Zip AS Address&lt;/li&gt;&lt;li&gt;All built-in functions, like ADD(), MAX() NOW(), POWER(), and so on&lt;/li&gt;&lt;li&gt;Math operators, like *, -, +, and so on&lt;/li&gt;&lt;li&gt;String concatenations using +&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="4445a43f-3828-4f44-a894-af774a411823" xml:space="preserve">
+          <source>For advanced queries, we suggest creating a stored procedure and execute using the execute stored procedure API.</source>
+          <target state="new">For advanced queries, we suggest creating a stored procedure and execute using the execute stored procedure API.</target>
+        </trans-unit>
+        <trans-unit id="460cdaa2-91b8-4924-908d-0c5c18545bbb" xml:space="preserve">
+          <source>When using inner queries, use them within stored procedures.</source>
+          <target state="new">When using inner queries, use them within stored procedures.</target>
+        </trans-unit>
+        <trans-unit id="c5e8c5e4-939d-42da-8b25-6785bec9ad8c" xml:space="preserve">
+          <source>For joining multiple conditions, you can use the 'AND' and 'OR' operators.</source>
+          <target state="new">For joining multiple conditions, you can use the 'AND' and 'OR' operators.</target>
+        </trans-unit>
+        <trans-unit id="eb71532b-74bb-414c-9ba9-dca95b134bcb" xml:space="preserve">
+          <source>This step is required only if you are using SQL Server on-premises behind your firewall.</source>
+          <target state="new">This step is required only if you are using SQL Server on-premises behind your firewall.</target>
+        </trans-unit>
+        <trans-unit id="570bcf2c-d4fb-4be2-9732-eb6d8b8bd6e9" xml:space="preserve">
+          <source>App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system.</source>
+          <target state="new">App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system.</target>
+        </trans-unit>
+        <trans-unit id="030f348e-1bd3-42af-9a8a-dd241fafd99d" xml:space="preserve">
+          <source>If you're connector uses an on-premises SQL Server, the Hybrid Connection Manager is required.</source>
+          <target state="new">If you're connector uses an on-premises SQL Server, the Hybrid Connection Manager is required.</target>
+        </trans-unit>
+        <trans-unit id="5285928f-7823-42a7-a08c-0fdf3bb05c68" xml:space="preserve">
+          <source>See <bpt id="ba8b39eb-5745-4efb-9707-0d26da492010">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager<ept id="ba8b39eb-5745-4efb-9707-0d26da492010">&lt;/linkText&gt;</ept><bpt id="ba8b39eb-5745-4efb-9707-0d26da492010">&lt;title&gt;</bpt><ept id="ba8b39eb-5745-4efb-9707-0d26da492010">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="ba8b39eb-5745-4efb-9707-0d26da492010">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager<ept id="ba8b39eb-5745-4efb-9707-0d26da492010">&lt;/linkText&gt;</ept><bpt id="ba8b39eb-5745-4efb-9707-0d26da492010">&lt;title&gt;</bpt><ept id="ba8b39eb-5745-4efb-9707-0d26da492010">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8c5a4e1-1d27-49b4-ab07-affc920e9b48" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business workflow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business workflow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="46fa128e-31e5-4634-9f04-8eca398cafbf" xml:space="preserve">
+          <source>See <bpt id="cabbf8f4-25fb-4983-b22e-3b19430de66a">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="cabbf8f4-25fb-4983-b22e-3b19430de66a">&lt;/linkText&gt;</ept><bpt id="cabbf8f4-25fb-4983-b22e-3b19430de66a">&lt;title&gt;</bpt><ept id="cabbf8f4-25fb-4983-b22e-3b19430de66a">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="cabbf8f4-25fb-4983-b22e-3b19430de66a">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="cabbf8f4-25fb-4983-b22e-3b19430de66a">&lt;/linkText&gt;</ept><bpt id="cabbf8f4-25fb-4983-b22e-3b19430de66a">&lt;title&gt;</bpt><ept id="cabbf8f4-25fb-4983-b22e-3b19430de66a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ecce2609-5bc5-4acf-bc26-77c0f6b13c28" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="c3b52249-4287-409f-a06b-508c8ffc4e0c">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="c3b52249-4287-409f-a06b-508c8ffc4e0c">&lt;/linkText&gt;</ept><bpt id="c3b52249-4287-409f-a06b-508c8ffc4e0c">&lt;title&gt;</bpt><ept id="c3b52249-4287-409f-a06b-508c8ffc4e0c">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="c3b52249-4287-409f-a06b-508c8ffc4e0c">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="c3b52249-4287-409f-a06b-508c8ffc4e0c">&lt;/linkText&gt;</ept><bpt id="c3b52249-4287-409f-a06b-508c8ffc4e0c">&lt;title&gt;</bpt><ept id="c3b52249-4287-409f-a06b-508c8ffc4e0c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12dd24e3-4b0d-481f-be1e-80021b290fff" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="02657b4c-aeb2-44c2-af86-bb6e5ad51cd8" xml:space="preserve">
+          <source>See <bpt id="f66207fb-2fae-4e98-9a51-93e6995a5d3e">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="f66207fb-2fae-4e98-9a51-93e6995a5d3e">&lt;/linkText&gt;</ept><bpt id="f66207fb-2fae-4e98-9a51-93e6995a5d3e">&lt;title&gt;</bpt><ept id="f66207fb-2fae-4e98-9a51-93e6995a5d3e">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="f66207fb-2fae-4e98-9a51-93e6995a5d3e">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="f66207fb-2fae-4e98-9a51-93e6995a5d3e">&lt;/linkText&gt;</ept><bpt id="f66207fb-2fae-4e98-9a51-93e6995a5d3e">&lt;title&gt;</bpt><ept id="f66207fb-2fae-4e98-9a51-93e6995a5d3e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e19b4f8f-09aa-44ac-abd9-bfe586d7e9cb" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sql/Create.png</source>
+          <target state="new">./media/app-service-logic-connector-sql/Create.png</target>
+        </trans-unit>
+        <trans-unit id="870084bb-5c70-40de-a8f7-a50171062bcd" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sql/LogicApp1.png</source>
+          <target state="new">./media/app-service-logic-connector-sql/LogicApp1.png</target>
+        </trans-unit>
+        <trans-unit id="3fe1dad2-26d1-4bdc-882e-61fe99e99b05" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sql/LogicApp2.png</source>
+          <target state="new">./media/app-service-logic-connector-sql/LogicApp2.png</target>
+        </trans-unit>
+        <trans-unit id="33c3aac4-e7b3-4557-a81f-5dac3381802b" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sql/LogicApp3.png</source>
+          <target state="new">./media/app-service-logic-connector-sql/LogicApp3.png</target>
+        </trans-unit>
+        <trans-unit id="c548b491-0b3a-4713-969f-33973a0a37c7" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sql/LogicApp4.png</source>
+          <target state="new">./media/app-service-logic-connector-sql/LogicApp4.png</target>
+        </trans-unit>
+        <trans-unit id="89db04ab-b37c-44f6-8504-f0cc514cf2b8" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sql/LogicApp5.png</source>
+          <target state="new">./media/app-service-logic-connector-sql/LogicApp5.png</target>
+        </trans-unit>
+        <trans-unit id="35a29b65-14fb-463c-bfa5-8c349c994651" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sql/LogicApp6.png</source>
+          <target state="new">./media/app-service-logic-connector-sql/LogicApp6.png</target>
+        </trans-unit>
+        <trans-unit id="e3f3d714-2405-49f9-abb4-b80348c80c34" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sql/LogicApp7.png</source>
+          <target state="new">./media/app-service-logic-connector-sql/LogicApp7.png</target>
+        </trans-unit>
+        <trans-unit id="68bc66e5-3bd1-4263-ad77-435efc748860" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sql/LogicApp8.png</source>
+          <target state="new">./media/app-service-logic-connector-sql/LogicApp8.png</target>
+        </trans-unit>
+      </group>
+      <group id="4196e4eb-8e63-42e0-bd81-5d9e0c82a1b5" />
+    </body>
+  </file>
+</xliff>

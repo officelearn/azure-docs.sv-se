@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5f351b09-8ad4-414b-8003-c48748fef2bc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5f351b09-8ad4-414b-8003-c48748fef2bc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7ca9c83f-a6e3-464e-a30e-0059c1d6fcfd">
+        <trans-unit id="d55c3154-a078-4501-b455-aea80fe871a6" xml:space="preserve">
+          <source>Go back to Visual Studio and select the Shared Code Client App project (it is named like <bpt id="86add0c1-03e7-4f1a-9bbe-4da5c2fe474e">&lt;code&gt;</bpt>&lt;your app name&gt;.Shared<ept id="86add0c1-03e7-4f1a-9bbe-4da5c2fe474e">&lt;/code&gt;</ept>)</source>
+          <target state="new">Go back to Visual Studio and select the Shared Code Client App project (it is named like <bpt id="86add0c1-03e7-4f1a-9bbe-4da5c2fe474e">&lt;code&gt;</bpt>&lt;your app name&gt;.Shared<ept id="86add0c1-03e7-4f1a-9bbe-4da5c2fe474e">&lt;/code&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="4a6fea7b-7669-41f5-a7b9-7dc18f369171" xml:space="preserve">
+          <source>Expand the <bpt id="12b2c073-1ab8-4bc1-a3ea-3075585f40b4">&lt;strong&gt;</bpt>App.xaml<ept id="12b2c073-1ab8-4bc1-a3ea-3075585f40b4">&lt;/strong&gt;</ept> file and then open the <bpt id="072bb6ee-966a-44e2-889a-84d10a4a5df0">&lt;strong&gt;</bpt>App.xaml.cs<ept id="072bb6ee-966a-44e2-889a-84d10a4a5df0">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Expand the <bpt id="12b2c073-1ab8-4bc1-a3ea-3075585f40b4">&lt;strong&gt;</bpt>App.xaml<ept id="12b2c073-1ab8-4bc1-a3ea-3075585f40b4">&lt;/strong&gt;</ept> file and then open the <bpt id="072bb6ee-966a-44e2-889a-84d10a4a5df0">&lt;strong&gt;</bpt>App.xaml.cs<ept id="072bb6ee-966a-44e2-889a-84d10a4a5df0">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="8c084a53-0c51-41b8-8989-39535ac48a06" xml:space="preserve">
+          <source>Locate the declaration of the <bpt id="822cea59-e663-4e83-bc00-b7a791b69a1c">&lt;code&gt;</bpt>MobileService<ept id="822cea59-e663-4e83-bc00-b7a791b69a1c">&lt;/code&gt;</ept> member which is initialized with a localhost URL.</source>
+          <target state="new">Locate the declaration of the <bpt id="822cea59-e663-4e83-bc00-b7a791b69a1c">&lt;code&gt;</bpt>MobileService<ept id="822cea59-e663-4e83-bc00-b7a791b69a1c">&lt;/code&gt;</ept> member which is initialized with a localhost URL.</target>
+        </trans-unit>
+        <trans-unit id="a088101c-2c7a-4957-aadc-a6acb3d23b55" xml:space="preserve">
+          <source>Comment out this declaration (with <bpt id="7ffb6c0e-b350-4315-b7d1-32ccfa026b29">&lt;code&gt;</bpt>CTRL+K,CTRL+C<ept id="7ffb6c0e-b350-4315-b7d1-32ccfa026b29">&lt;/code&gt;</ept>) and uncomment the declaration (<bpt id="de294a56-0f3e-4520-82c3-0ceb9602d1b6">&lt;code&gt;</bpt>CTRL+K,CTRL+U<ept id="de294a56-0f3e-4520-82c3-0ceb9602d1b6">&lt;/code&gt;</ept>) that connects to your hosted service:</source>
+          <target state="new">Comment out this declaration (with <bpt id="7ffb6c0e-b350-4315-b7d1-32ccfa026b29">&lt;code&gt;</bpt>CTRL+K,CTRL+C<ept id="7ffb6c0e-b350-4315-b7d1-32ccfa026b29">&lt;/code&gt;</ept>) and uncomment the declaration (<bpt id="de294a56-0f3e-4520-82c3-0ceb9602d1b6">&lt;code&gt;</bpt>CTRL+K,CTRL+U<ept id="de294a56-0f3e-4520-82c3-0ceb9602d1b6">&lt;/code&gt;</ept>) that connects to your hosted service:</target>
+        </trans-unit>
+        <trans-unit id="caaa8ab9-492a-498c-8e97-562471b8dc49" xml:space="preserve">
+          <source>Press the F5 key to rebuild the project and start the Windows Store app, which should be your default start up project.</source>
+          <target state="new">Press the F5 key to rebuild the project and start the Windows Store app, which should be your default start up project.</target>
+        </trans-unit>
+        <trans-unit id="eef9ed87-6ef5-475c-8792-ef7241137840" xml:space="preserve">
+          <source>In the app, type meaningful text, such as <bpt id="a23eb11a-6d66-4c06-8b70-5e67adbedc81">&lt;em&gt;</bpt>Complete the tutorial<ept id="a23eb11a-6d66-4c06-8b70-5e67adbedc81">&lt;/em&gt;</ept>, in the <bpt id="99973797-7f09-40a5-b33e-574213b0e6f4">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="99973797-7f09-40a5-b33e-574213b0e6f4">&lt;/strong&gt;</ept> textbox, and then click <bpt id="d24c6ac3-d077-49ca-a879-9aff6b6115f1">&lt;strong&gt;</bpt>Save<ept id="d24c6ac3-d077-49ca-a879-9aff6b6115f1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type meaningful text, such as <bpt id="a23eb11a-6d66-4c06-8b70-5e67adbedc81">&lt;em&gt;</bpt>Complete the tutorial<ept id="a23eb11a-6d66-4c06-8b70-5e67adbedc81">&lt;/em&gt;</ept>, in the <bpt id="99973797-7f09-40a5-b33e-574213b0e6f4">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="99973797-7f09-40a5-b33e-574213b0e6f4">&lt;/strong&gt;</ept> textbox, and then click <bpt id="d24c6ac3-d077-49ca-a879-9aff6b6115f1">&lt;strong&gt;</bpt>Save<ept id="d24c6ac3-d077-49ca-a879-9aff6b6115f1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea4ac54f-710a-414a-a035-f3dffc2c9721" xml:space="preserve">
+          <source><bpt id="5ac03284-0cf3-4b93-97d9-81cb3774a6b8">&lt;linkText&gt;</bpt><ept id="5ac03284-0cf3-4b93-97d9-81cb3774a6b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5ac03284-0cf3-4b93-97d9-81cb3774a6b8">&lt;linkText&gt;</bpt><ept id="5ac03284-0cf3-4b93-97d9-81cb3774a6b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30d99a37-4fa2-4638-aee1-98af379c3fb9" xml:space="preserve">
+          <source>This sends a POST request to the new mobile app backend hosted in Azure.</source>
+          <target state="new">This sends a POST request to the new mobile app backend hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="607e8148-ffe5-4e89-9e74-c00a50fdb50c" xml:space="preserve">
+          <source>Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app (right click the <bpt id="6e9c18d9-ffa9-4957-933f-520d4af0ee80">&lt;code&gt;</bpt>&lt;your app name&gt;.WindowsPhone<ept id="6e9c18d9-ffa9-4957-933f-520d4af0ee80">&lt;/code&gt;</ept> project and click <bpt id="c1f6ff0c-80f7-4188-8b9d-9a64612c8d28">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="c1f6ff0c-80f7-4188-8b9d-9a64612c8d28">&lt;/strong&gt;</ept>) and press F5 again.</source>
+          <target state="new">Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app (right click the <bpt id="6e9c18d9-ffa9-4957-933f-520d4af0ee80">&lt;code&gt;</bpt>&lt;your app name&gt;.WindowsPhone<ept id="6e9c18d9-ffa9-4957-933f-520d4af0ee80">&lt;/code&gt;</ept> project and click <bpt id="c1f6ff0c-80f7-4188-8b9d-9a64612c8d28">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="c1f6ff0c-80f7-4188-8b9d-9a64612c8d28">&lt;/strong&gt;</ept>) and press F5 again.</target>
+        </trans-unit>
+        <trans-unit id="890d239b-b7a3-4eab-8125-ef61a644f39b" xml:space="preserve">
+          <source><bpt id="26641498-66fc-41b8-8274-8b04974a41e6">&lt;linkText&gt;</bpt><ept id="26641498-66fc-41b8-8274-8b04974a41e6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="26641498-66fc-41b8-8274-8b04974a41e6">&lt;linkText&gt;</bpt><ept id="26641498-66fc-41b8-8274-8b04974a41e6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eef697fb-9038-4514-bb49-ea63374211d0" xml:space="preserve">
+          <source>Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.</source>
+          <target state="new">Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

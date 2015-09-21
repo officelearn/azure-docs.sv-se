@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="91ea610f-ad57-4ba6-a582-342fcef8b4c1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="91ea610f-ad57-4ba6-a582-342fcef8b4c1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4dfc3d53-2830-4920-9404-06f3b7e15241">
+        <trans-unit id="13f1b3e1-b2db-46d9-9efb-3c01b8b2818f" xml:space="preserve">
+          <source>Add Azure automation runbooks to recovery plans</source>
+          <target state="new">Add Azure automation runbooks to recovery plans</target>
+        </trans-unit>
+        <trans-unit id="c2c89ba2-caea-4bda-b582-9314a503d6f2" xml:space="preserve">
+          <source>This article describes how Azure Site Recovery now enables you to extend recovery plans using Azure Automation to complete complex tasks during recovery to Azure</source>
+          <target state="new">This article describes how Azure Site Recovery now enables you to extend recovery plans using Azure Automation to complete complex tasks during recovery to Azure</target>
+        </trans-unit>
+        <trans-unit id="6ef013c1-c42d-43e7-893b-6592d08db416" xml:space="preserve">
+          <source>This tutorial describes how Azure Site Recovery integrates with Azure
+Automation to provide extensibility to recovery plans.</source>
+          <target state="new">This tutorial describes how Azure Site Recovery integrates with Azure
+Automation to provide extensibility to recovery plans.</target>
+        </trans-unit>
+        <trans-unit id="abcaba27-acc4-494c-ae3c-7ae5cf11838f" xml:space="preserve">
+          <source>Recovery plans
+can orchestrate recovery of your virtual machines protected using Azure Site Recovery for both replication to secondary cloud and replication to Azure scenarios.</source>
+          <target state="new">Recovery plans
+can orchestrate recovery of your virtual machines protected using Azure Site Recovery for both replication to secondary cloud and replication to Azure scenarios.</target>
+        </trans-unit>
+        <trans-unit id="2048c750-e658-43c5-8760-3e4d04dec1b8" xml:space="preserve">
+          <source>They also help in making the recovery <bpt id="b2eff853-ccb1-4d30-b0d7-7d0fcf340425">&lt;strong&gt;</bpt>consistently accurate<ept id="b2eff853-ccb1-4d30-b0d7-7d0fcf340425">&lt;/strong&gt;</ept>, <bpt id="6f956a27-23ab-4007-a43e-7193b84ef661">&lt;strong&gt;</bpt>repeatable<ept id="6f956a27-23ab-4007-a43e-7193b84ef661">&lt;/strong&gt;</ept>, and <bpt id="fcc7c2fd-acbe-4c61-bbea-c5e24510c55e">&lt;strong&gt;</bpt>automated<ept id="fcc7c2fd-acbe-4c61-bbea-c5e24510c55e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">They also help in making the recovery <bpt id="b2eff853-ccb1-4d30-b0d7-7d0fcf340425">&lt;strong&gt;</bpt>consistently accurate<ept id="b2eff853-ccb1-4d30-b0d7-7d0fcf340425">&lt;/strong&gt;</ept>, <bpt id="6f956a27-23ab-4007-a43e-7193b84ef661">&lt;strong&gt;</bpt>repeatable<ept id="6f956a27-23ab-4007-a43e-7193b84ef661">&lt;/strong&gt;</ept>, and <bpt id="fcc7c2fd-acbe-4c61-bbea-c5e24510c55e">&lt;strong&gt;</bpt>automated<ept id="fcc7c2fd-acbe-4c61-bbea-c5e24510c55e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="957a02f0-e125-42ed-b0b5-556bc281cb4c" xml:space="preserve">
+          <source>If you are failing over your virtual machines to Azure, integration with Azure Automation extends the
+recovery plans and gives you capability to execute runbooks, thus allowing powerful automation tasks.</source>
+          <target state="new">If you are failing over your virtual machines to Azure, integration with Azure Automation extends the
+recovery plans and gives you capability to execute runbooks, thus allowing powerful automation tasks.</target>
+        </trans-unit>
+        <trans-unit id="feae5612-2e43-46d8-933d-98c0042e4bb3" xml:space="preserve">
+          <source>If you have not heard about Azure Automation yet, sign up
+<bpt id="0e813295-e5b0-4947-9521-9483cc52840d">&lt;linkText&gt;</bpt>here<ept id="0e813295-e5b0-4947-9521-9483cc52840d">&lt;/linkText&gt;</ept><bpt id="0e813295-e5b0-4947-9521-9483cc52840d">&lt;title&gt;</bpt><ept id="0e813295-e5b0-4947-9521-9483cc52840d">&lt;/title&gt;</ept> and
+download their sample scripts
+<bpt id="2832a81e-24a3-4ba2-a35e-9ae0316fa61f">&lt;linkText&gt;</bpt>here<ept id="2832a81e-24a3-4ba2-a35e-9ae0316fa61f">&lt;/linkText&gt;</ept><bpt id="2832a81e-24a3-4ba2-a35e-9ae0316fa61f">&lt;title&gt;</bpt><ept id="2832a81e-24a3-4ba2-a35e-9ae0316fa61f">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have not heard about Azure Automation yet, sign up
+<bpt id="0e813295-e5b0-4947-9521-9483cc52840d">&lt;linkText&gt;</bpt>here<ept id="0e813295-e5b0-4947-9521-9483cc52840d">&lt;/linkText&gt;</ept><bpt id="0e813295-e5b0-4947-9521-9483cc52840d">&lt;title&gt;</bpt><ept id="0e813295-e5b0-4947-9521-9483cc52840d">&lt;/title&gt;</ept> and
+download their sample scripts
+<bpt id="2832a81e-24a3-4ba2-a35e-9ae0316fa61f">&lt;linkText&gt;</bpt>here<ept id="2832a81e-24a3-4ba2-a35e-9ae0316fa61f">&lt;/linkText&gt;</ept><bpt id="2832a81e-24a3-4ba2-a35e-9ae0316fa61f">&lt;title&gt;</bpt><ept id="2832a81e-24a3-4ba2-a35e-9ae0316fa61f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f9a2a09-ab67-4747-87ef-b273025ca256" xml:space="preserve">
+          <source>Read
+more about <bpt id="2720a90b-519c-4b5a-bf5d-963fef504ce4">&lt;linkText&gt;</bpt>Azure Site
+Recovery<ept id="2720a90b-519c-4b5a-bf5d-963fef504ce4">&lt;/linkText&gt;</ept><bpt id="2720a90b-519c-4b5a-bf5d-963fef504ce4">&lt;title&gt;</bpt><ept id="2720a90b-519c-4b5a-bf5d-963fef504ce4">&lt;/title&gt;</ept> and
+how to orchestrate recovery to Azure using recovery plans
+<bpt id="42a5f074-5bea-4f18-984b-acd129c5d6b9">&lt;linkText&gt;</bpt>here<ept id="42a5f074-5bea-4f18-984b-acd129c5d6b9">&lt;/linkText&gt;</ept><bpt id="42a5f074-5bea-4f18-984b-acd129c5d6b9">&lt;title&gt;</bpt><ept id="42a5f074-5bea-4f18-984b-acd129c5d6b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read
+more about <bpt id="2720a90b-519c-4b5a-bf5d-963fef504ce4">&lt;linkText&gt;</bpt>Azure Site
+Recovery<ept id="2720a90b-519c-4b5a-bf5d-963fef504ce4">&lt;/linkText&gt;</ept><bpt id="2720a90b-519c-4b5a-bf5d-963fef504ce4">&lt;title&gt;</bpt><ept id="2720a90b-519c-4b5a-bf5d-963fef504ce4">&lt;/title&gt;</ept> and
+how to orchestrate recovery to Azure using recovery plans
+<bpt id="42a5f074-5bea-4f18-984b-acd129c5d6b9">&lt;linkText&gt;</bpt>here<ept id="42a5f074-5bea-4f18-984b-acd129c5d6b9">&lt;/linkText&gt;</ept><bpt id="42a5f074-5bea-4f18-984b-acd129c5d6b9">&lt;title&gt;</bpt><ept id="42a5f074-5bea-4f18-984b-acd129c5d6b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6da88f62-051b-4d56-bb7e-3991eb98ffe3" xml:space="preserve">
+          <source>In this tutorial, we will look at how you can integrate Azure Automation
+runbooks into recovery plans.</source>
+          <target state="new">In this tutorial, we will look at how you can integrate Azure Automation
+runbooks into recovery plans.</target>
+        </trans-unit>
+        <trans-unit id="dbf01bb8-34a5-45bb-90b3-30514dbaa648" xml:space="preserve">
+          <source>We will automate simple tasks that earlier
+required manual intervention and see how to convert a multi-step
+recovery into a single-click recovery action.</source>
+          <target state="new">We will automate simple tasks that earlier
+required manual intervention and see how to convert a multi-step
+recovery into a single-click recovery action.</target>
+        </trans-unit>
+        <trans-unit id="38f730af-f769-4bf1-8372-9285f5efda39" xml:space="preserve">
+          <source>We will also look at how you
+can troubleshoot a simple script if it goes wrong.</source>
+          <target state="new">We will also look at how you
+can troubleshoot a simple script if it goes wrong.</target>
+        </trans-unit>
+        <trans-unit id="ec187456-6292-4419-ba2b-db0f133b9f11" xml:space="preserve">
+          <source>Let us begin with a simple application consisting of two virtual machines.</source>
+          <target state="new">Let us begin with a simple application consisting of two virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="817c8265-ded5-4131-9cd5-c00a4db638c0" xml:space="preserve">
+          <source>Here, we have a HRweb application of Fabrikam.</source>
+          <target state="new">Here, we have a HRweb application of Fabrikam.</target>
+        </trans-unit>
+        <trans-unit id="55612645-1d5f-4393-9bff-6f52a332d419" xml:space="preserve">
+          <source>Fabrikam-HRweb-frontend and Fabrikam-Hrweb-backend are the two virtual machines protected to Azure using Azure Site Recovery.</source>
+          <target state="new">Fabrikam-HRweb-frontend and Fabrikam-Hrweb-backend are the two virtual machines protected to Azure using Azure Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="aa623e46-441c-4404-8816-9cdb9a0cf333" xml:space="preserve">
+          <source>To protect the virtual machines using Azure Site Recovery, follow the steps below.</source>
+          <target state="new">To protect the virtual machines using Azure Site Recovery, follow the steps below.</target>
+        </trans-unit>
+        <trans-unit id="62249693-9aca-46af-89d7-55ed6943d357" xml:space="preserve">
+          <source>Enable protection for your virtual machines.</source>
+          <target state="new">Enable protection for your virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="a5f85c99-cab2-4df4-b05b-9be00599e7df" xml:space="preserve">
+          <source>Ensure that the virtual machines have completed initial replication
+and are replicating.</source>
+          <target state="new">Ensure that the virtual machines have completed initial replication
+and are replicating.</target>
+        </trans-unit>
+        <trans-unit id="0239ad56-396a-42a8-8544-c157762584a4" xml:space="preserve">
+          <source>Wait till the initial replication completes and the Replication status says Protected.</source>
+          <target state="new">Wait till the initial replication completes and the Replication status says Protected.</target>
+        </trans-unit>
+        <trans-unit id="fe1e3c39-026b-491e-9653-e7b33c5c3bf1" xml:space="preserve">
+          <source>In this tutorial, we will create a recovery plan for the Fabrikam HRweb application to failover the application to Azure.</source>
+          <target state="new">In this tutorial, we will create a recovery plan for the Fabrikam HRweb application to failover the application to Azure.</target>
+        </trans-unit>
+        <trans-unit id="05e54b1d-c41b-43d3-b101-b11728b24699" xml:space="preserve">
+          <source>Then we will integrate it with a runbook that will create an endpoint on the failed over Azure virtual machine to serve web pages at port 80.</source>
+          <target state="new">Then we will integrate it with a runbook that will create an endpoint on the failed over Azure virtual machine to serve web pages at port 80.</target>
+        </trans-unit>
+        <trans-unit id="5df52920-d9c2-4f20-9784-e118241804cb" xml:space="preserve">
+          <source>First, let's create a recovery plan for our application.</source>
+          <target state="new">First, let's create a recovery plan for our application.</target>
+        </trans-unit>
+        <trans-unit id="ce77e6a0-7691-4c11-b563-c5fb0e728c0a" xml:space="preserve">
+          <source>To recover the application to Azure, you need to create a recovery plan.</source>
+          <target state="new">To recover the application to Azure, you need to create a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="0aa26404-868d-40a9-8247-b00c2070cd34" xml:space="preserve">
+          <source>Using a recovery plan you can specify the order of recovery of the
+virtual machines.</source>
+          <target state="new">Using a recovery plan you can specify the order of recovery of the
+virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="0401203c-4327-4031-b104-9167c4f07967" xml:space="preserve">
+          <source>The virtual machine placed in group 1 will recover and
+start first, and then the virtual machine in group 2 will follow.</source>
+          <target state="new">The virtual machine placed in group 1 will recover and
+start first, and then the virtual machine in group 2 will follow.</target>
+        </trans-unit>
+        <trans-unit id="168de424-47c7-4846-a598-d5e9aa5ec762" xml:space="preserve">
+          <source>Create a Recovery Plan that looks like below.</source>
+          <target state="new">Create a Recovery Plan that looks like below.</target>
+        </trans-unit>
+        <trans-unit id="8658619a-0617-40e1-9eed-a4269f18c2d3" xml:space="preserve">
+          <source><bpt id="7ef63114-1481-452d-b1b1-687774411057">&lt;linkText&gt;</bpt><ept id="7ef63114-1481-452d-b1b1-687774411057">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ef63114-1481-452d-b1b1-687774411057">&lt;linkText&gt;</bpt><ept id="7ef63114-1481-452d-b1b1-687774411057">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d364ff73-ce17-478a-b25d-df28bf5d8cb7" xml:space="preserve">
+          <source>To read more about recovery plans, read documentation <bpt id="688d601e-1c14-4d0a-9fa9-24381c689cf6">&lt;linkText&gt;</bpt>here<ept id="688d601e-1c14-4d0a-9fa9-24381c689cf6">&lt;/linkText&gt;</ept><bpt id="688d601e-1c14-4d0a-9fa9-24381c689cf6">&lt;title&gt;</bpt>here<ept id="688d601e-1c14-4d0a-9fa9-24381c689cf6">&lt;/title&gt;</ept>.</source>
+          <target state="new">To read more about recovery plans, read documentation <bpt id="688d601e-1c14-4d0a-9fa9-24381c689cf6">&lt;linkText&gt;</bpt>here<ept id="688d601e-1c14-4d0a-9fa9-24381c689cf6">&lt;/linkText&gt;</ept><bpt id="688d601e-1c14-4d0a-9fa9-24381c689cf6">&lt;title&gt;</bpt>here<ept id="688d601e-1c14-4d0a-9fa9-24381c689cf6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20438834-6532-484e-bc8d-ea3eb18001a7" xml:space="preserve">
+          <source>Next, let's create the necessary artifacts in Azure Automation.</source>
+          <target state="new">Next, let's create the necessary artifacts in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="8aa1213e-f599-4596-8543-c71f711d0bf3" xml:space="preserve">
+          <source>You need an Azure Automation account to create runbooks.</source>
+          <target state="new">You need an Azure Automation account to create runbooks.</target>
+        </trans-unit>
+        <trans-unit id="c94c1cd8-b8b6-48d7-965c-50f3e8fb5418" xml:space="preserve">
+          <source>If you do not
+already have an account, navigate to Azure Automation tab denoted by
+<bpt id="e6daf378-a7c1-4044-aab5-7c056313cf72">&lt;linkText&gt;</bpt><ept id="e6daf378-a7c1-4044-aab5-7c056313cf72">&lt;/linkText&gt;</ept>and create a new account.</source>
+          <target state="new">If you do not
+already have an account, navigate to Azure Automation tab denoted by
+<bpt id="e6daf378-a7c1-4044-aab5-7c056313cf72">&lt;linkText&gt;</bpt><ept id="e6daf378-a7c1-4044-aab5-7c056313cf72">&lt;/linkText&gt;</ept>and create a new account.</target>
+        </trans-unit>
+        <trans-unit id="d69276b5-229a-4963-b91c-8aff73b2fb50" xml:space="preserve">
+          <source>Give the account a name to identify with.</source>
+          <target state="new">Give the account a name to identify with.</target>
+        </trans-unit>
+        <trans-unit id="641d3432-a012-44ee-9b9f-7c730e3fe81a" xml:space="preserve">
+          <source>Specify a geographical region where you want to place the account.</source>
+          <target state="new">Specify a geographical region where you want to place the account.</target>
+        </trans-unit>
+        <trans-unit id="bff340b9-dc78-418f-90b5-f1a84c4cd4a9" xml:space="preserve">
+          <source>It is recommended to place the account in the same region as the ASR vault.</source>
+          <target state="new">It is recommended to place the account in the same region as the ASR vault.</target>
+        </trans-unit>
+        <trans-unit id="1e0108ee-37ca-4776-869d-dd8d0d9d6632" xml:space="preserve">
+          <source><bpt id="382d3583-9d4c-45c9-9562-67a26b29daaf">&lt;linkText&gt;</bpt><ept id="382d3583-9d4c-45c9-9562-67a26b29daaf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="382d3583-9d4c-45c9-9562-67a26b29daaf">&lt;linkText&gt;</bpt><ept id="382d3583-9d4c-45c9-9562-67a26b29daaf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ab648f3-3fb0-45e0-8bf5-77e9bdbb4b1f" xml:space="preserve">
+          <source>Next, create the following assets in the Account.</source>
+          <target state="new">Next, create the following assets in the Account.</target>
+        </trans-unit>
+        <trans-unit id="41c83003-b96c-4931-9d7d-be49f4b33754" xml:space="preserve">
+          <source>Add a new setting <bpt id="ceacb58b-6caf-4738-9de1-1b8d63d68a6c">&lt;linkText&gt;</bpt><ept id="ceacb58b-6caf-4738-9de1-1b8d63d68a6c">&lt;/linkText&gt;</ept> in the Azure Automation Assets and select to <bpt id="347a4a42-fb62-4f86-9cfb-0e66c0d3b59c">&lt;linkText&gt;</bpt><ept id="347a4a42-fb62-4f86-9cfb-0e66c0d3b59c">&lt;/linkText&gt;</ept></source>
+          <target state="new">Add a new setting <bpt id="ceacb58b-6caf-4738-9de1-1b8d63d68a6c">&lt;linkText&gt;</bpt><ept id="ceacb58b-6caf-4738-9de1-1b8d63d68a6c">&lt;/linkText&gt;</ept> in the Azure Automation Assets and select to <bpt id="347a4a42-fb62-4f86-9cfb-0e66c0d3b59c">&lt;linkText&gt;</bpt><ept id="347a4a42-fb62-4f86-9cfb-0e66c0d3b59c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23f60c8a-ac8b-4518-b307-63dd69ee4d0d" xml:space="preserve">
+          <source>Select the variable type as <bpt id="b4bc4370-94a4-442f-bde0-b94da0d2aa2b">&lt;strong&gt;</bpt>String<ept id="b4bc4370-94a4-442f-bde0-b94da0d2aa2b">&lt;/strong&gt;</ept></source>
+          <target state="new">Select the variable type as <bpt id="b4bc4370-94a4-442f-bde0-b94da0d2aa2b">&lt;strong&gt;</bpt>String<ept id="b4bc4370-94a4-442f-bde0-b94da0d2aa2b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92d2b28c-2e16-4525-a8da-5e9a0564098d" xml:space="preserve">
+          <source>Specify variable name as <bpt id="f3058b37-0c73-4a2b-ae18-38e5d9b31eee">&lt;strong&gt;</bpt>AzureSubscriptionName<ept id="f3058b37-0c73-4a2b-ae18-38e5d9b31eee">&lt;/strong&gt;</ept></source>
+          <target state="new">Specify variable name as <bpt id="f3058b37-0c73-4a2b-ae18-38e5d9b31eee">&lt;strong&gt;</bpt>AzureSubscriptionName<ept id="f3058b37-0c73-4a2b-ae18-38e5d9b31eee">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccc6f319-f3e7-4f8a-aae7-204299ed0790" xml:space="preserve">
+          <source><bpt id="8df49bcb-6c28-438c-af84-5079b17da138">&lt;linkText&gt;</bpt><ept id="8df49bcb-6c28-438c-af84-5079b17da138">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8df49bcb-6c28-438c-af84-5079b17da138">&lt;linkText&gt;</bpt><ept id="8df49bcb-6c28-438c-af84-5079b17da138">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c5ac927-3e78-4db9-9962-2e54acaa585d" xml:space="preserve">
+          <source>Specify your actual Azure Subscription name as the variable value.</source>
+          <target state="new">Specify your actual Azure Subscription name as the variable value.</target>
+        </trans-unit>
+        <trans-unit id="ac67631c-d141-401d-93c6-a965162f7197" xml:space="preserve">
+          <source><bpt id="160d73da-c9b1-49db-a48d-8ee220bd092e">&lt;linkText&gt;</bpt><ept id="160d73da-c9b1-49db-a48d-8ee220bd092e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="160d73da-c9b1-49db-a48d-8ee220bd092e">&lt;linkText&gt;</bpt><ept id="160d73da-c9b1-49db-a48d-8ee220bd092e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="088126b9-c214-4563-a413-de6b916d890f" xml:space="preserve">
+          <source>You can identify the name of your subscription from the settings page of
+your account on the Azure portal.</source>
+          <target state="new">You can identify the name of your subscription from the settings page of
+your account on the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="c5ea4c5f-0c18-4773-b830-03d4c6003670" xml:space="preserve">
+          <source>Azure Automation uses Azure PowerShell to connect to the
+subscription and operates on the artifacts there.</source>
+          <target state="new">Azure Automation uses Azure PowerShell to connect to the
+subscription and operates on the artifacts there.</target>
+        </trans-unit>
+        <trans-unit id="9fc0e892-e5c6-4e7f-a237-fd465b082605" xml:space="preserve">
+          <source>For this, you need to
+authenticate using your Microsoft account or a work or school account.</source>
+          <target state="new">For this, you need to
+authenticate using your Microsoft account or a work or school account.</target>
+        </trans-unit>
+        <trans-unit id="d0dbba0d-eab3-42f2-8a24-bc05b3c8e1f4" xml:space="preserve">
+          <source>You can store the account credentials in an asset to be used securely by
+the runbook.</source>
+          <target state="new">You can store the account credentials in an asset to be used securely by
+the runbook.</target>
+        </trans-unit>
+        <trans-unit id="21d13d44-274e-4e77-8caf-4a9b47e1f7e5" xml:space="preserve">
+          <source>Add a new setting <bpt id="370e511a-a55c-42ec-8ba3-d617bd05bf8d">&lt;linkText&gt;</bpt><ept id="370e511a-a55c-42ec-8ba3-d617bd05bf8d">&lt;/linkText&gt;</ept> in the Azure Automation Assets and select <bpt id="6e40c70c-75de-4f72-983e-06b8b6e2e00a">&lt;linkText&gt;</bpt><ept id="6e40c70c-75de-4f72-983e-06b8b6e2e00a">&lt;/linkText&gt;</ept></source>
+          <target state="new">Add a new setting <bpt id="370e511a-a55c-42ec-8ba3-d617bd05bf8d">&lt;linkText&gt;</bpt><ept id="370e511a-a55c-42ec-8ba3-d617bd05bf8d">&lt;/linkText&gt;</ept> in the Azure Automation Assets and select <bpt id="6e40c70c-75de-4f72-983e-06b8b6e2e00a">&lt;linkText&gt;</bpt><ept id="6e40c70c-75de-4f72-983e-06b8b6e2e00a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="916169d6-8138-4b74-ba74-b25ca930a8ea" xml:space="preserve">
+          <source>Select the Credential type as <bpt id="48539fa3-efc0-493a-b4ec-b1bcd844903e">&lt;strong&gt;</bpt>Windows PowerShell Credential<ept id="48539fa3-efc0-493a-b4ec-b1bcd844903e">&lt;/strong&gt;</ept></source>
+          <target state="new">Select the Credential type as <bpt id="48539fa3-efc0-493a-b4ec-b1bcd844903e">&lt;strong&gt;</bpt>Windows PowerShell Credential<ept id="48539fa3-efc0-493a-b4ec-b1bcd844903e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b98df67-f1ad-4eac-afc0-2b50776f0ef1" xml:space="preserve">
+          <source>Specify the name as <bpt id="7d2892d4-674d-4f9b-b754-89418205b47e">&lt;strong&gt;</bpt>AzureCredential<ept id="7d2892d4-674d-4f9b-b754-89418205b47e">&lt;/strong&gt;</ept></source>
+          <target state="new">Specify the name as <bpt id="7d2892d4-674d-4f9b-b754-89418205b47e">&lt;strong&gt;</bpt>AzureCredential<ept id="7d2892d4-674d-4f9b-b754-89418205b47e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ea6827f-4c72-4f86-a9d1-b0a59c98a422" xml:space="preserve">
+          <source><bpt id="e63bc49a-0f0c-439a-ba29-9889bb6c5237">&lt;linkText&gt;</bpt><ept id="e63bc49a-0f0c-439a-ba29-9889bb6c5237">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e63bc49a-0f0c-439a-ba29-9889bb6c5237">&lt;linkText&gt;</bpt><ept id="e63bc49a-0f0c-439a-ba29-9889bb6c5237">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb8348be-3346-4bf1-b5ec-166ea00f7d3a" xml:space="preserve">
+          <source>Specify the username and password to sign-in with.</source>
+          <target state="new">Specify the username and password to sign-in with.</target>
+        </trans-unit>
+        <trans-unit id="39373b82-5ec0-4b62-af5f-7b26ca8eb326" xml:space="preserve">
+          <source>Now both these settings are available in your assets.</source>
+          <target state="new">Now both these settings are available in your assets.</target>
+        </trans-unit>
+        <trans-unit id="6b71a6f1-2b22-453a-82b2-bd6ed3c24db5" xml:space="preserve">
+          <source><bpt id="73834f3f-054f-4505-8071-aa69413b8002">&lt;linkText&gt;</bpt><ept id="73834f3f-054f-4505-8071-aa69413b8002">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73834f3f-054f-4505-8071-aa69413b8002">&lt;linkText&gt;</bpt><ept id="73834f3f-054f-4505-8071-aa69413b8002">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97d79bf1-803d-477e-b207-60650b955f9e" xml:space="preserve">
+          <source>More information about how to connect to your subscription via
+powershell is given
+<bpt id="cbbde9b7-2f5e-42d6-a54b-ad169a4e8875">&lt;linkText&gt;</bpt>here<ept id="cbbde9b7-2f5e-42d6-a54b-ad169a4e8875">&lt;/linkText&gt;</ept><bpt id="cbbde9b7-2f5e-42d6-a54b-ad169a4e8875">&lt;title&gt;</bpt><ept id="cbbde9b7-2f5e-42d6-a54b-ad169a4e8875">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information about how to connect to your subscription via
+powershell is given
+<bpt id="cbbde9b7-2f5e-42d6-a54b-ad169a4e8875">&lt;linkText&gt;</bpt>here<ept id="cbbde9b7-2f5e-42d6-a54b-ad169a4e8875">&lt;/linkText&gt;</ept><bpt id="cbbde9b7-2f5e-42d6-a54b-ad169a4e8875">&lt;title&gt;</bpt><ept id="cbbde9b7-2f5e-42d6-a54b-ad169a4e8875">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b73cc3d-293f-481e-987b-48f11cef0885" xml:space="preserve">
+          <source>Next, you will create a runbook in Azure Automation that can add an
+endpoint for the front-end virtual machine after failover.</source>
+          <target state="new">Next, you will create a runbook in Azure Automation that can add an
+endpoint for the front-end virtual machine after failover.</target>
+        </trans-unit>
+        <trans-unit id="56ca3594-ef96-443c-98e6-452814dcbaea" xml:space="preserve">
+          <source>ASR passes a context variable to the runbook to help you write
+deterministic scripts.</source>
+          <target state="new">ASR passes a context variable to the runbook to help you write
+deterministic scripts.</target>
+        </trans-unit>
+        <trans-unit id="ef8f262c-c617-49f1-9001-7f88607801ff" xml:space="preserve">
+          <source>One could argue that the names of the Cloud Service and the Virtual Machine are predictable, but happens that it is not always the case owing to certain scenarios such as the one where the name of the virtual machine name might have changed due to unsupported characters in Azure.</source>
+          <target state="new">One could argue that the names of the Cloud Service and the Virtual Machine are predictable, but happens that it is not always the case owing to certain scenarios such as the one where the name of the virtual machine name might have changed due to unsupported characters in Azure.</target>
+        </trans-unit>
+        <trans-unit id="4d6f1a6d-7b41-4a28-8fd5-bbba81371f02" xml:space="preserve">
+          <source>Hence this information is passed to the ASR recovery plan as part of the <bpt id="eec7609a-00c2-406c-98dc-02f05f9af08b">&lt;em&gt;</bpt>context<ept id="eec7609a-00c2-406c-98dc-02f05f9af08b">&lt;/em&gt;</ept>.</source>
+          <target state="new">Hence this information is passed to the ASR recovery plan as part of the <bpt id="eec7609a-00c2-406c-98dc-02f05f9af08b">&lt;em&gt;</bpt>context<ept id="eec7609a-00c2-406c-98dc-02f05f9af08b">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb52823b-daaa-4639-8538-39128368a332" xml:space="preserve">
+          <source>Below is an example of how the context variable looks.</source>
+          <target state="new">Below is an example of how the context variable looks.</target>
+        </trans-unit>
+        <trans-unit id="43b281da-b80e-4437-905a-b4974f5b8061" xml:space="preserve">
+          <source>The table below contains name and description for each variable in the context.</source>
+          <target state="new">The table below contains name and description for each variable in the context.</target>
+        </trans-unit>
+        <trans-unit id="87e0e217-2e85-4c80-9284-70eea1b45917" xml:space="preserve">
+          <source><bpt id="02b6c1c8-f371-44eb-8d07-68116e5f6b8b">&lt;strong&gt;</bpt>Variable name<ept id="02b6c1c8-f371-44eb-8d07-68116e5f6b8b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="02b6c1c8-f371-44eb-8d07-68116e5f6b8b">&lt;strong&gt;</bpt>Variable name<ept id="02b6c1c8-f371-44eb-8d07-68116e5f6b8b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="748043a1-a330-4277-a4ed-363563a05761" xml:space="preserve">
+          <source><bpt id="86ce8ecf-3d1c-4516-8c3e-bfae569fc173">&lt;strong&gt;</bpt>Description<ept id="86ce8ecf-3d1c-4516-8c3e-bfae569fc173">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="86ce8ecf-3d1c-4516-8c3e-bfae569fc173">&lt;strong&gt;</bpt>Description<ept id="86ce8ecf-3d1c-4516-8c3e-bfae569fc173">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b1e82ad-2f52-4da7-8063-03cf25cf65da" xml:space="preserve">
+          <source>RecoveryPlanName</source>
+          <target state="new">RecoveryPlanName</target>
+        </trans-unit>
+        <trans-unit id="da125328-395b-498c-9a5c-1c32e5608dca" xml:space="preserve">
+          <source>Name of plan being run.</source>
+          <target state="new">Name of plan being run.</target>
+        </trans-unit>
+        <trans-unit id="bc05429b-07c7-4112-8878-826bf50fe024" xml:space="preserve">
+          <source>Helps you take action based on name using the same script</source>
+          <target state="new">Helps you take action based on name using the same script</target>
+        </trans-unit>
+        <trans-unit id="8e173df0-18c8-49f5-96b5-822a9887f343" xml:space="preserve">
+          <source>FailoverType</source>
+          <target state="new">FailoverType</target>
+        </trans-unit>
+        <trans-unit id="abf43328-592d-454b-9b33-ef02bb467657" xml:space="preserve">
+          <source>Specifies whether the failover is test, planned, or unplanned.</source>
+          <target state="new">Specifies whether the failover is test, planned, or unplanned.</target>
+        </trans-unit>
+        <trans-unit id="f1c8cc0e-9b5b-4ebd-ab9b-38d4969a10c6" xml:space="preserve">
+          <source>FailoverDirection</source>
+          <target state="new">FailoverDirection</target>
+        </trans-unit>
+        <trans-unit id="e24a0271-4b2c-4ad4-9f7c-ff912a29db17" xml:space="preserve">
+          <source>Specify whether recovery is to primary or secondary</source>
+          <target state="new">Specify whether recovery is to primary or secondary</target>
+        </trans-unit>
+        <trans-unit id="b5206330-d07b-4440-a4c9-5cad85efd03b" xml:space="preserve">
+          <source>GroupID</source>
+          <target state="new">GroupID</target>
+        </trans-unit>
+        <trans-unit id="cb87b327-425c-4052-b3ba-aa10bcfc7a7b" xml:space="preserve">
+          <source>Identify the group number within the recovery plan when the plan is running</source>
+          <target state="new">Identify the group number within the recovery plan when the plan is running</target>
+        </trans-unit>
+        <trans-unit id="92924c85-51d0-4a08-99d8-d905ef30a23d" xml:space="preserve">
+          <source>VmMap</source>
+          <target state="new">VmMap</target>
+        </trans-unit>
+        <trans-unit id="caa46311-4404-4fa1-a2eb-608e148cfc4b" xml:space="preserve">
+          <source>Array of all the virtual machines in the group</source>
+          <target state="new">Array of all the virtual machines in the group</target>
+        </trans-unit>
+        <trans-unit id="8ec5cb03-2c74-43f7-8775-df6aebc43cd6" xml:space="preserve">
+          <source>VMMap key</source>
+          <target state="new">VMMap key</target>
+        </trans-unit>
+        <trans-unit id="30f854a9-43f7-4cc9-b942-fcecb6c78caf" xml:space="preserve">
+          <source>Unique key (GUID) for each VM.</source>
+          <target state="new">Unique key (GUID) for each VM.</target>
+        </trans-unit>
+        <trans-unit id="180f48f1-7884-426e-942c-830cbb38c296" xml:space="preserve">
+          <source>It's the same as the VMM ID of the virtual machine where applicable.</source>
+          <target state="new">It's the same as the VMM ID of the virtual machine where applicable.</target>
+        </trans-unit>
+        <trans-unit id="fad2755c-ace0-41b6-94d1-146da3142092" xml:space="preserve">
+          <source>RoleName</source>
+          <target state="new">RoleName</target>
+        </trans-unit>
+        <trans-unit id="7f30a648-d751-4174-9dc0-e27be70e7dfa" xml:space="preserve">
+          <source>Name of the Azure VM that's being recovered</source>
+          <target state="new">Name of the Azure VM that's being recovered</target>
+        </trans-unit>
+        <trans-unit id="ea23e4a1-ca9d-4a87-9527-ea7a5104be00" xml:space="preserve">
+          <source>CloudServiceName</source>
+          <target state="new">CloudServiceName</target>
+        </trans-unit>
+        <trans-unit id="f05647a6-0445-410f-98b2-44fe5a74ba5b" xml:space="preserve">
+          <source>Azure Cloud Service name under which the virtual machine is created.</source>
+          <target state="new">Azure Cloud Service name under which the virtual machine is created.</target>
+        </trans-unit>
+        <trans-unit id="7556fe01-7cd4-427f-bea2-b5d1472f558c" xml:space="preserve">
+          <source>To identify the VmMap Key in the context you could also go to the VM properties page in ASR and look at the VM GUID property.</source>
+          <target state="new">To identify the VmMap Key in the context you could also go to the VM properties page in ASR and look at the VM GUID property.</target>
+        </trans-unit>
+        <trans-unit id="7e91da06-7daa-43a1-bd18-9e81ecbfa104" xml:space="preserve">
+          <source><bpt id="31115d2b-5c15-47f2-8052-c5ce2d06ac59">&lt;linkText&gt;</bpt><ept id="31115d2b-5c15-47f2-8052-c5ce2d06ac59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="31115d2b-5c15-47f2-8052-c5ce2d06ac59">&lt;linkText&gt;</bpt><ept id="31115d2b-5c15-47f2-8052-c5ce2d06ac59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87c9ddeb-b406-4195-bd79-de2fd6646101" xml:space="preserve">
+          <source>Now create the runbook to open port 80 on the front-end virtual machine.</source>
+          <target state="new">Now create the runbook to open port 80 on the front-end virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="bae508f7-1514-4e40-8fdf-de521c0421d2" xml:space="preserve">
+          <source>Create a new runbook in the Azure Automation account with the name
+<bpt id="3ba3cdf6-bda8-4862-a2cb-b308d963fe50">&lt;strong&gt;</bpt>OpenPort80<ept id="3ba3cdf6-bda8-4862-a2cb-b308d963fe50">&lt;/strong&gt;</ept></source>
+          <target state="new">Create a new runbook in the Azure Automation account with the name
+<bpt id="3ba3cdf6-bda8-4862-a2cb-b308d963fe50">&lt;strong&gt;</bpt>OpenPort80<ept id="3ba3cdf6-bda8-4862-a2cb-b308d963fe50">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfe877a1-1b89-40aa-9c1d-b99eaf7094fe" xml:space="preserve">
+          <source><bpt id="ebbe63bf-1c6c-4457-82d1-61b569eb517c">&lt;linkText&gt;</bpt><ept id="ebbe63bf-1c6c-4457-82d1-61b569eb517c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ebbe63bf-1c6c-4457-82d1-61b569eb517c">&lt;linkText&gt;</bpt><ept id="ebbe63bf-1c6c-4457-82d1-61b569eb517c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e977f08-ce82-4c00-bb68-d29df9a9cdd4" xml:space="preserve">
+          <source>Navigate to the Author view of the runbook and enter the draft mode.</source>
+          <target state="new">Navigate to the Author view of the runbook and enter the draft mode.</target>
+        </trans-unit>
+        <trans-unit id="2db7a2f0-1c67-4b0c-b2ad-4eab7356bafd" xml:space="preserve">
+          <source>First specify the variable to use as the recovery plan context</source>
+          <target state="new">First specify the variable to use as the recovery plan context</target>
+        </trans-unit>
+        <trans-unit id="9a2ac6fa-6bbf-48cd-a671-c50ea4776083" xml:space="preserve">
+          <source>Next connect to the subscription using the credential and
+subscription name</source>
+          <target state="new">Next connect to the subscription using the credential and
+subscription name</target>
+        </trans-unit>
+        <trans-unit id="7fba2f1f-a68e-4231-a5dd-41625b5d6a88" xml:space="preserve">
+          <source>Note that you use the Azure assets – <bpt id="65eaa5d4-1c1f-4757-b9d4-80903be719a9">&lt;strong&gt;</bpt>AzureCredential<ept id="65eaa5d4-1c1f-4757-b9d4-80903be719a9">&lt;/strong&gt;</ept> and <bpt id="c3d33194-20c4-465a-9c81-4b70755c20e0">&lt;strong&gt;</bpt>AzureSubscriptionName<ept id="c3d33194-20c4-465a-9c81-4b70755c20e0">&lt;/strong&gt;</ept> here.</source>
+          <target state="new">Note that you use the Azure assets – <bpt id="65eaa5d4-1c1f-4757-b9d4-80903be719a9">&lt;strong&gt;</bpt>AzureCredential<ept id="65eaa5d4-1c1f-4757-b9d4-80903be719a9">&lt;/strong&gt;</ept> and <bpt id="c3d33194-20c4-465a-9c81-4b70755c20e0">&lt;strong&gt;</bpt>AzureSubscriptionName<ept id="c3d33194-20c4-465a-9c81-4b70755c20e0">&lt;/strong&gt;</ept> here.</target>
+        </trans-unit>
+        <trans-unit id="50316528-1c0f-4007-a1a7-8c4104d89be9" xml:space="preserve">
+          <source>Now specify the endpoint details and the GUID of the virtual machine for which you want to expose the endpoint, in this case the front-end virtual machine.</source>
+          <target state="new">Now specify the endpoint details and the GUID of the virtual machine for which you want to expose the endpoint, in this case the front-end virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="beb6ed2d-7452-4ae7-8889-e750aee6fa61" xml:space="preserve">
+          <source>This specifies the Azure endpoint protocol, local port on the VM and its mapped public port.</source>
+          <target state="new">This specifies the Azure endpoint protocol, local port on the VM and its mapped public port.</target>
+        </trans-unit>
+        <trans-unit id="6fb15519-b7ff-4d36-bd0e-af149723baa6" xml:space="preserve">
+          <source>These variables are parameters required by the Azure commands that add endpoints to VMs.</source>
+          <target state="new">These variables are parameters required by the Azure commands that add endpoints to VMs.</target>
+        </trans-unit>
+        <trans-unit id="34af4f9d-36ab-4ef2-be19-40953be84d47" xml:space="preserve">
+          <source>The VMGUID holds the GUID of the virtual machine you need to operate on.</source>
+          <target state="new">The VMGUID holds the GUID of the virtual machine you need to operate on.</target>
+        </trans-unit>
+        <trans-unit id="b6b8dd0b-bdb7-4735-91ec-b950c0da5621" xml:space="preserve">
+          <source>The script will now extract the context for the given VM GUID and
+create an endpoint on the virtual machine referenced by it.</source>
+          <target state="new">The script will now extract the context for the given VM GUID and
+create an endpoint on the virtual machine referenced by it.</target>
+        </trans-unit>
+        <trans-unit id="dbf4aeb9-fcbe-4200-aeae-70d3bb99ed1e" xml:space="preserve">
+          <source>Once this is complete, hit Publish <bpt id="16be1bb4-a351-48cb-9ef6-9e4cc218931c">&lt;linkText&gt;</bpt><ept id="16be1bb4-a351-48cb-9ef6-9e4cc218931c">&lt;/linkText&gt;</ept> to allow your script to be available for execution.</source>
+          <target state="new">Once this is complete, hit Publish <bpt id="16be1bb4-a351-48cb-9ef6-9e4cc218931c">&lt;linkText&gt;</bpt><ept id="16be1bb4-a351-48cb-9ef6-9e4cc218931c">&lt;/linkText&gt;</ept> to allow your script to be available for execution.</target>
+        </trans-unit>
+        <trans-unit id="fd8c1a72-f9dc-4292-a35a-7fdbc151c3e0" xml:space="preserve">
+          <source>The complete script is given below for your reference</source>
+          <target state="new">The complete script is given below for your reference</target>
+        </trans-unit>
+        <trans-unit id="37c7fe46-bc22-4132-bf05-b0443e9c6e94" xml:space="preserve">
+          <source>Once the script is ready, you can add it to the recovery plan that you created earlier.</source>
+          <target state="new">Once the script is ready, you can add it to the recovery plan that you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="4963079e-edd3-4188-99f6-d0289b22f3e7" xml:space="preserve">
+          <source>In the recovery plan you created, choose to add a script after the
+group 2.</source>
+          <target state="new">In the recovery plan you created, choose to add a script after the
+group 2.</target>
+        </trans-unit>
+        <trans-unit id="bada1468-dfb1-4742-b549-e8667fcf2704" xml:space="preserve">
+          <source><bpt id="ab343a6e-202f-4b00-9a03-56c827d7209d">&lt;linkText&gt;</bpt><ept id="ab343a6e-202f-4b00-9a03-56c827d7209d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ab343a6e-202f-4b00-9a03-56c827d7209d">&lt;linkText&gt;</bpt><ept id="ab343a6e-202f-4b00-9a03-56c827d7209d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a8a3ccc-92f6-41ed-88ec-fc6a409d3c5f" xml:space="preserve">
+          <source>Specify a script name.</source>
+          <target state="new">Specify a script name.</target>
+        </trans-unit>
+        <trans-unit id="9309d7aa-b48d-46c8-9575-5e44a05ca5c2" xml:space="preserve">
+          <source>This is just a friendly name for this script for showing within the Recovery plan.</source>
+          <target state="new">This is just a friendly name for this script for showing within the Recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="0979d920-a5a5-4937-8eec-5ed2d1d5d626" xml:space="preserve">
+          <source>In the failover to Azure script – Select the Azure Automation
+Account name.</source>
+          <target state="new">In the failover to Azure script – Select the Azure Automation
+Account name.</target>
+        </trans-unit>
+        <trans-unit id="de89c6b1-a127-4115-8c98-fc03f4febc04" xml:space="preserve">
+          <source>In the Azure Runbooks, select the runbook you authored.</source>
+          <target state="new">In the Azure Runbooks, select the runbook you authored.</target>
+        </trans-unit>
+        <trans-unit id="ea8b9c97-7fa8-48b7-b0d4-27ddbc4306c2" xml:space="preserve">
+          <source><bpt id="610fc261-02e3-4267-953e-e0f0d3c55f3d">&lt;linkText&gt;</bpt><ept id="610fc261-02e3-4267-953e-e0f0d3c55f3d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="610fc261-02e3-4267-953e-e0f0d3c55f3d">&lt;linkText&gt;</bpt><ept id="610fc261-02e3-4267-953e-e0f0d3c55f3d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ec0326e-ceb5-424c-8ed9-4c3b6e1fd243" xml:space="preserve">
+          <source>When you are executing a failover to Azure, you can also choose to execute primary side scripts.</source>
+          <target state="new">When you are executing a failover to Azure, you can also choose to execute primary side scripts.</target>
+        </trans-unit>
+        <trans-unit id="4af330b0-0dd3-40c7-be3f-6af8abe935c7" xml:space="preserve">
+          <source>These scripts will run on the VMM server during failover.</source>
+          <target state="new">These scripts will run on the VMM server during failover.</target>
+        </trans-unit>
+        <trans-unit id="e83e2f94-86bc-42d8-84ed-0286cacc991f" xml:space="preserve">
+          <source>Primary side scripts are only available only for pre-shutdown and post shutdown stages.</source>
+          <target state="new">Primary side scripts are only available only for pre-shutdown and post shutdown stages.</target>
+        </trans-unit>
+        <trans-unit id="78f30cb6-1150-4096-974f-622ba73ee75d" xml:space="preserve">
+          <source>This is because we expect the primary site to be typically unavailable when a disaster strikes.</source>
+          <target state="new">This is because we expect the primary site to be typically unavailable when a disaster strikes.</target>
+        </trans-unit>
+        <trans-unit id="85b96aa9-a389-420e-a5cd-f6a9120d4119" xml:space="preserve">
+          <source>During an unplanned failover, only if you opt in for primary site operations, it will attempt to run the primary side scripts.</source>
+          <target state="new">During an unplanned failover, only if you opt in for primary site operations, it will attempt to run the primary side scripts.</target>
+        </trans-unit>
+        <trans-unit id="8d644067-c570-4f57-94fa-65abf154070e" xml:space="preserve">
+          <source>If they are not reachable or timeout, the failover will continue to recover the virtual machines.</source>
+          <target state="new">If they are not reachable or timeout, the failover will continue to recover the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="bd8b38b8-3e94-4dff-a707-ccd489ecb4b2" xml:space="preserve">
+          <source>Primary side scripts are un-available for VMware/Physical/Hyper-v Sites without VMM protected to Azure - while you failover to Azure.</source>
+          <target state="new">Primary side scripts are un-available for VMware/Physical/Hyper-v Sites without VMM protected to Azure - while you failover to Azure.</target>
+        </trans-unit>
+        <trans-unit id="d27e4a61-b305-4d3a-a56c-e9bb7d1b7c75" xml:space="preserve">
+          <source>However, when you failback from Azure to on-premises, priamry side scripts (Runbooks) can be used for all targets except VMware.</source>
+          <target state="new">However, when you failback from Azure to on-premises, priamry side scripts (Runbooks) can be used for all targets except VMware.</target>
+        </trans-unit>
+        <trans-unit id="7a73e4fe-abdd-4f5a-b566-1f915417396c" xml:space="preserve">
+          <source>Once you have added the runbook to the plan you can initiate a test
+failover and see it in action.</source>
+          <target state="new">Once you have added the runbook to the plan you can initiate a test
+failover and see it in action.</target>
+        </trans-unit>
+        <trans-unit id="28f07a5a-d91f-46ea-bc2b-d4d3a3faedf6" xml:space="preserve">
+          <source>It is always recommended to run a test
+failover to test your application and the recovery plan to ensure that
+there are no errors.</source>
+          <target state="new">It is always recommended to run a test
+failover to test your application and the recovery plan to ensure that
+there are no errors.</target>
+        </trans-unit>
+        <trans-unit id="b97d8b39-27ed-4633-9553-19f834d54126" xml:space="preserve">
+          <source>Select the recovery plan and initiate a test failover.</source>
+          <target state="new">Select the recovery plan and initiate a test failover.</target>
+        </trans-unit>
+        <trans-unit id="cc1b6907-3bb7-42cd-89b0-3486ab7e6b1f" xml:space="preserve">
+          <source>During the plan execution, you can see whether the runbook has
+executed or not via its status.</source>
+          <target state="new">During the plan execution, you can see whether the runbook has
+executed or not via its status.</target>
+        </trans-unit>
+        <trans-unit id="6405aae3-f407-4b6f-800a-2450df16724e" xml:space="preserve">
+          <source><bpt id="f647200b-003e-4575-9681-ff8e62128ee0">&lt;linkText&gt;</bpt><ept id="f647200b-003e-4575-9681-ff8e62128ee0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f647200b-003e-4575-9681-ff8e62128ee0">&lt;linkText&gt;</bpt><ept id="f647200b-003e-4575-9681-ff8e62128ee0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ecaeef5-9972-4d6c-9c98-99c941fc0248" xml:space="preserve">
+          <source>You can also see the detailed runbook execution status on
+the Azure Automation jobs page for the runbook.</source>
+          <target state="new">You can also see the detailed runbook execution status on
+the Azure Automation jobs page for the runbook.</target>
+        </trans-unit>
+        <trans-unit id="96a7e661-0c89-46db-8249-f36fd82231c4" xml:space="preserve">
+          <source><bpt id="427fe5a2-6beb-47df-9b89-7aabe074b96a">&lt;linkText&gt;</bpt><ept id="427fe5a2-6beb-47df-9b89-7aabe074b96a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="427fe5a2-6beb-47df-9b89-7aabe074b96a">&lt;linkText&gt;</bpt><ept id="427fe5a2-6beb-47df-9b89-7aabe074b96a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03fcda39-d6ef-4577-9c00-7650e090d01d" xml:space="preserve">
+          <source>After the failover completes, apart from the runbook execution result, you can see whether the execution is successful or not by visiting the Azure virtual machine page and looking at the endpoints.</source>
+          <target state="new">After the failover completes, apart from the runbook execution result, you can see whether the execution is successful or not by visiting the Azure virtual machine page and looking at the endpoints.</target>
+        </trans-unit>
+        <trans-unit id="bc65bdb3-c65d-463d-b46c-7a420f958d5b" xml:space="preserve">
+          <source><bpt id="cde4cf88-7d1e-4a98-8906-fb634b7a1e07">&lt;linkText&gt;</bpt><ept id="cde4cf88-7d1e-4a98-8906-fb634b7a1e07">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cde4cf88-7d1e-4a98-8906-fb634b7a1e07">&lt;linkText&gt;</bpt><ept id="cde4cf88-7d1e-4a98-8906-fb634b7a1e07">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0681bc9c-e863-40aa-9e51-a091f7c84b1e" xml:space="preserve">
+          <source>While we walked through automating one commonly used task of adding an endpoint to an Azure virtual machine in this tutorial, you could do a number of other powerful automation tasks using Azure automation.</source>
+          <target state="new">While we walked through automating one commonly used task of adding an endpoint to an Azure virtual machine in this tutorial, you could do a number of other powerful automation tasks using Azure automation.</target>
+        </trans-unit>
+        <trans-unit id="76615f03-b449-4468-9aa8-af7bc20a10e5" xml:space="preserve">
+          <source>Microsoft and the Azure Automation community provide sample runbooks which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks.</source>
+          <target state="new">Microsoft and the Azure Automation community provide sample runbooks which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks.</target>
+        </trans-unit>
+        <trans-unit id="c9688c30-b211-4714-93da-f79b6bdf0cab" xml:space="preserve">
+          <source>Start using them from the gallery and build  powerful one-click recovery plans for your applications using Azure Site Recovery.</source>
+          <target state="new">Start using them from the gallery and build  powerful one-click recovery plans for your applications using Azure Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="c0b71ff8-5d5f-473a-8b8d-4e0a11852cd9" xml:space="preserve">
+          <source><bpt id="102563b1-ef45-4b96-887b-dccc1a6b4d87">&lt;linkText&gt;</bpt>Azure Automation Overview<ept id="102563b1-ef45-4b96-887b-dccc1a6b4d87">&lt;/linkText&gt;</ept><bpt id="102563b1-ef45-4b96-887b-dccc1a6b4d87">&lt;title&gt;</bpt>Azure Automation Overview<ept id="102563b1-ef45-4b96-887b-dccc1a6b4d87">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="102563b1-ef45-4b96-887b-dccc1a6b4d87">&lt;linkText&gt;</bpt>Azure Automation Overview<ept id="102563b1-ef45-4b96-887b-dccc1a6b4d87">&lt;/linkText&gt;</ept><bpt id="102563b1-ef45-4b96-887b-dccc1a6b4d87">&lt;title&gt;</bpt>Azure Automation Overview<ept id="102563b1-ef45-4b96-887b-dccc1a6b4d87">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e363a74c-4e02-47ba-8002-31d17bf77e75" xml:space="preserve">
+          <source><bpt id="07a85cca-9c92-4d0c-aa77-caea109c005f">&lt;linkText&gt;</bpt>Sample Azure Automation Scripts<ept id="07a85cca-9c92-4d0c-aa77-caea109c005f">&lt;/linkText&gt;</ept><bpt id="07a85cca-9c92-4d0c-aa77-caea109c005f">&lt;title&gt;</bpt>Sample Azure Automation Scripts<ept id="07a85cca-9c92-4d0c-aa77-caea109c005f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="07a85cca-9c92-4d0c-aa77-caea109c005f">&lt;linkText&gt;</bpt>Sample Azure Automation Scripts<ept id="07a85cca-9c92-4d0c-aa77-caea109c005f">&lt;/linkText&gt;</ept><bpt id="07a85cca-9c92-4d0c-aa77-caea109c005f">&lt;title&gt;</bpt>Sample Azure Automation Scripts<ept id="07a85cca-9c92-4d0c-aa77-caea109c005f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="df1febfd-a034-4030-987a-945b39eca2a1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="df1febfd-a034-4030-987a-945b39eca2a1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a08efe80-38ed-4407-90a0-2c94a609d53c">
+        <trans-unit id="7f9ec865-1ce2-485a-a903-4c9b9a1dd9c4" xml:space="preserve">
+          <source>Create a new StorSimple Manager service</source>
+          <target state="new">Create a new StorSimple Manager service</target>
+        </trans-unit>
+        <trans-unit id="81f9c259-f861-41e3-8352-41b1600bee0e" xml:space="preserve">
+          <source>Describes how to create a new instance of the StorSimple Manager service using the Azure Government Portal.</source>
+          <target state="new">Describes how to create a new instance of the StorSimple Manager service using the Azure Government Portal.</target>
+        </trans-unit>
+        <trans-unit id="3385cf99-0ceb-474e-abb4-f44ca7a227a5" xml:space="preserve">
+          <source>Use your Microsoft account credentials to log on to the <bpt id="c2626abb-4444-45fa-9343-ae5f7e665048">&lt;linkText&gt;</bpt>Microsoft Azure Government Portal<ept id="c2626abb-4444-45fa-9343-ae5f7e665048">&lt;/linkText&gt;</ept><bpt id="c2626abb-4444-45fa-9343-ae5f7e665048">&lt;title&gt;</bpt><ept id="c2626abb-4444-45fa-9343-ae5f7e665048">&lt;/title&gt;</ept>.</source>
+          <target state="new">Use your Microsoft account credentials to log on to the <bpt id="c2626abb-4444-45fa-9343-ae5f7e665048">&lt;linkText&gt;</bpt>Microsoft Azure Government Portal<ept id="c2626abb-4444-45fa-9343-ae5f7e665048">&lt;/linkText&gt;</ept><bpt id="c2626abb-4444-45fa-9343-ae5f7e665048">&lt;title&gt;</bpt><ept id="c2626abb-4444-45fa-9343-ae5f7e665048">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="463947f5-7446-4358-9531-3dc0ef0f70c7" xml:space="preserve">
+          <source>In the Government Portal, click <bpt id="efd14593-3c0b-4f9a-abf4-31020b0002a7">&lt;strong&gt;</bpt>New<ept id="efd14593-3c0b-4f9a-abf4-31020b0002a7">&lt;/strong&gt;</ept> &gt; <bpt id="b549d054-f8b5-4745-8d77-ed88fcc609d6">&lt;strong&gt;</bpt>Data Services<ept id="b549d054-f8b5-4745-8d77-ed88fcc609d6">&lt;/strong&gt;</ept> &gt; <bpt id="67d9b71e-69a7-487c-a3f9-de7e175ea46b">&lt;strong&gt;</bpt>StorSimple Manager<ept id="67d9b71e-69a7-487c-a3f9-de7e175ea46b">&lt;/strong&gt;</ept> &gt; <bpt id="84188fcf-8831-4ce5-a267-0c040e3be6a3">&lt;strong&gt;</bpt>Quick Create<ept id="84188fcf-8831-4ce5-a267-0c040e3be6a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Government Portal, click <bpt id="efd14593-3c0b-4f9a-abf4-31020b0002a7">&lt;strong&gt;</bpt>New<ept id="efd14593-3c0b-4f9a-abf4-31020b0002a7">&lt;/strong&gt;</ept> &gt; <bpt id="b549d054-f8b5-4745-8d77-ed88fcc609d6">&lt;strong&gt;</bpt>Data Services<ept id="b549d054-f8b5-4745-8d77-ed88fcc609d6">&lt;/strong&gt;</ept> &gt; <bpt id="67d9b71e-69a7-487c-a3f9-de7e175ea46b">&lt;strong&gt;</bpt>StorSimple Manager<ept id="67d9b71e-69a7-487c-a3f9-de7e175ea46b">&lt;/strong&gt;</ept> &gt; <bpt id="84188fcf-8831-4ce5-a267-0c040e3be6a3">&lt;strong&gt;</bpt>Quick Create<ept id="84188fcf-8831-4ce5-a267-0c040e3be6a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed0cb102-a99a-4fd5-8e53-ae5ef2b17e25" xml:space="preserve">
+          <source>In the form that is displayed, do the following:</source>
+          <target state="new">In the form that is displayed, do the following:</target>
+        </trans-unit>
+        <trans-unit id="4b87e827-d97e-4c35-9252-22df0454919c" xml:space="preserve">
+          <source>Supply a unique <bpt id="2fd3d608-2f11-4fbb-8389-8fbd7d9c9bc0">&lt;strong&gt;</bpt>Name<ept id="2fd3d608-2f11-4fbb-8389-8fbd7d9c9bc0">&lt;/strong&gt;</ept> for your service.</source>
+          <target state="new">Supply a unique <bpt id="2fd3d608-2f11-4fbb-8389-8fbd7d9c9bc0">&lt;strong&gt;</bpt>Name<ept id="2fd3d608-2f11-4fbb-8389-8fbd7d9c9bc0">&lt;/strong&gt;</ept> for your service.</target>
+        </trans-unit>
+        <trans-unit id="4fbb743d-e67e-4de5-9a4d-58bdfd9b07c1" xml:space="preserve">
+          <source>This is a friendly name that can be used to identify the service.</source>
+          <target state="new">This is a friendly name that can be used to identify the service.</target>
+        </trans-unit>
+        <trans-unit id="6ba91e66-085d-4a03-b820-99b367b61af2" xml:space="preserve">
+          <source>The name can have between 2 and 50 characters that can be letters, numbers, and hyphens.</source>
+          <target state="new">The name can have between 2 and 50 characters that can be letters, numbers, and hyphens.</target>
+        </trans-unit>
+        <trans-unit id="d8f13a4d-2791-4d85-8001-5c802d749690" xml:space="preserve">
+          <source>The name must start and end with a letter or a number.</source>
+          <target state="new">The name must start and end with a letter or a number.</target>
+        </trans-unit>
+        <trans-unit id="17e68835-3800-44d3-b6e8-85d4e0b31f3e" xml:space="preserve">
+          <source>Supply a <bpt id="7304fd13-5bbb-4c92-9b74-d50dbe74bc91">&lt;strong&gt;</bpt>Location<ept id="7304fd13-5bbb-4c92-9b74-d50dbe74bc91">&lt;/strong&gt;</ept> for your service.</source>
+          <target state="new">Supply a <bpt id="7304fd13-5bbb-4c92-9b74-d50dbe74bc91">&lt;strong&gt;</bpt>Location<ept id="7304fd13-5bbb-4c92-9b74-d50dbe74bc91">&lt;/strong&gt;</ept> for your service.</target>
+        </trans-unit>
+        <trans-unit id="5a5737e3-5df9-47b1-92a1-bc3582dca06b" xml:space="preserve">
+          <source>Location refers to the geographical region where you want to deploy your device.</source>
+          <target state="new">Location refers to the geographical region where you want to deploy your device.</target>
+        </trans-unit>
+        <trans-unit id="8f4f891e-6ad4-4a29-998b-e7a41a50ae62" xml:space="preserve">
+          <source>Select <bpt id="4671f5ca-f45a-4ad3-a58b-446b1b2c1617">&lt;strong&gt;</bpt>US Govt Iowa<ept id="4671f5ca-f45a-4ad3-a58b-446b1b2c1617">&lt;/strong&gt;</ept> or <bpt id="fdc33136-75b9-4517-a259-3ccb909aec28">&lt;strong&gt;</bpt>US Govt Virgina<ept id="fdc33136-75b9-4517-a259-3ccb909aec28">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="4671f5ca-f45a-4ad3-a58b-446b1b2c1617">&lt;strong&gt;</bpt>US Govt Iowa<ept id="4671f5ca-f45a-4ad3-a58b-446b1b2c1617">&lt;/strong&gt;</ept> or <bpt id="fdc33136-75b9-4517-a259-3ccb909aec28">&lt;strong&gt;</bpt>US Govt Virgina<ept id="fdc33136-75b9-4517-a259-3ccb909aec28">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb255c36-53f2-4341-983b-a6159f764943" xml:space="preserve">
+          <source>Choose a <bpt id="76d5dbb0-54dc-45df-9646-d7bf2127e595">&lt;strong&gt;</bpt>Subscription<ept id="76d5dbb0-54dc-45df-9646-d7bf2127e595">&lt;/strong&gt;</ept> from the drop-down list.</source>
+          <target state="new">Choose a <bpt id="76d5dbb0-54dc-45df-9646-d7bf2127e595">&lt;strong&gt;</bpt>Subscription<ept id="76d5dbb0-54dc-45df-9646-d7bf2127e595">&lt;/strong&gt;</ept> from the drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="1f0cfcb0-539f-4e98-93f5-214b10af966e" xml:space="preserve">
+          <source>The subscription is linked to your billing account.</source>
+          <target state="new">The subscription is linked to your billing account.</target>
+        </trans-unit>
+        <trans-unit id="237b7312-ae13-4541-ba5f-432fbb146e82" xml:space="preserve">
+          <source>This field is not present if you have only one subscription.</source>
+          <target state="new">This field is not present if you have only one subscription.</target>
+        </trans-unit>
+        <trans-unit id="f9a4854e-6c50-4a66-918e-b5fefc1d093c" xml:space="preserve">
+          <source>Select <bpt id="a4629101-500c-48a0-a38f-b1551be9483a">&lt;strong&gt;</bpt>Create a new storage account<ept id="a4629101-500c-48a0-a38f-b1551be9483a">&lt;/strong&gt;</ept> to automatically create a storage account with the service.</source>
+          <target state="new">Select <bpt id="a4629101-500c-48a0-a38f-b1551be9483a">&lt;strong&gt;</bpt>Create a new storage account<ept id="a4629101-500c-48a0-a38f-b1551be9483a">&lt;/strong&gt;</ept> to automatically create a storage account with the service.</target>
+        </trans-unit>
+        <trans-unit id="0a695403-5fcb-4873-a424-3d24aca59bc8" xml:space="preserve">
+          <source>This storage account will have a special name such as "storsimplebwv8c6dcnf."</source>
+          <target state="new">This storage account will have a special name such as "storsimplebwv8c6dcnf."</target>
+        </trans-unit>
+        <trans-unit id="4d94d965-082b-4b45-8884-0ef5679e80f8" xml:space="preserve">
+          <source>Click <bpt id="640381a8-4d6e-43e7-84e7-3aa9b423499f">&lt;strong&gt;</bpt>Create StorSimple Manager<ept id="640381a8-4d6e-43e7-84e7-3aa9b423499f">&lt;/strong&gt;</ept> to create the service.</source>
+          <target state="new">Click <bpt id="640381a8-4d6e-43e7-84e7-3aa9b423499f">&lt;strong&gt;</bpt>Create StorSimple Manager<ept id="640381a8-4d6e-43e7-84e7-3aa9b423499f">&lt;/strong&gt;</ept> to create the service.</target>
+        </trans-unit>
+        <trans-unit id="df59a32d-25d8-44ff-b905-e0ff2c30c8df" xml:space="preserve">
+          <source><bpt id="5d3550f9-e194-4a14-8531-39da3a33fda8">&lt;linkText&gt;</bpt>create a service<ept id="5d3550f9-e194-4a14-8531-39da3a33fda8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5d3550f9-e194-4a14-8531-39da3a33fda8">&lt;linkText&gt;</bpt>create a service<ept id="5d3550f9-e194-4a14-8531-39da3a33fda8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb615c71-6bd6-441a-9748-9d84913d6fc5" xml:space="preserve">
+          <source>You will be directed to the <bpt id="423bc3a4-591f-4839-842d-7ac83b72f0a1">&lt;strong&gt;</bpt>Service<ept id="423bc3a4-591f-4839-842d-7ac83b72f0a1">&lt;/strong&gt;</ept> landing page.</source>
+          <target state="new">You will be directed to the <bpt id="423bc3a4-591f-4839-842d-7ac83b72f0a1">&lt;strong&gt;</bpt>Service<ept id="423bc3a4-591f-4839-842d-7ac83b72f0a1">&lt;/strong&gt;</ept> landing page.</target>
+        </trans-unit>
+        <trans-unit id="7f4f2599-4ba4-4828-8f9f-3543e14dd2b4" xml:space="preserve">
+          <source>The service creation will take a few minutes.</source>
+          <target state="new">The service creation will take a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="3304c499-b3de-4588-afd2-6dc07532aca1" xml:space="preserve">
+          <source>After the service is successfully created, you will be notified appropriately and the status of the service will change to <bpt id="da4ed2b1-7720-4d69-9f95-32a627436645">&lt;strong&gt;</bpt>Active<ept id="da4ed2b1-7720-4d69-9f95-32a627436645">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the service is successfully created, you will be notified appropriately and the status of the service will change to <bpt id="da4ed2b1-7720-4d69-9f95-32a627436645">&lt;strong&gt;</bpt>Active<ept id="da4ed2b1-7720-4d69-9f95-32a627436645">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d6cb5d2-1047-4638-a956-74ff61827229" xml:space="preserve">
+          <source><bpt id="51e66e49-6b1c-42c5-9500-eccb1f64537f">&lt;linkText&gt;</bpt>service creation<ept id="51e66e49-6b1c-42c5-9500-eccb1f64537f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="51e66e49-6b1c-42c5-9500-eccb1f64537f">&lt;linkText&gt;</bpt>service creation<ept id="51e66e49-6b1c-42c5-9500-eccb1f64537f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

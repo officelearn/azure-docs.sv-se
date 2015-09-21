@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="351ffed6-de8c-41cb-94c8-063c709f6a2b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="351ffed6-de8c-41cb-94c8-063c709f6a2b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="871e8c30-a9fe-4e9f-ac32-8a421cdc8093">
+        <trans-unit id="d0a49f4f-fe4e-4027-84ce-2b1e1dc2f826" xml:space="preserve">
+          <source>Using the HTTP Listener and Connector in Logic Apps | Microsoft Azure App Service </source>
+          <target state="new">Using the HTTP Listener and Connector in Logic Apps | Microsoft Azure App Service </target>
+        </trans-unit>
+        <trans-unit id="f654590e-80a7-48ef-b2d7-c6471d6c8e35" xml:space="preserve">
+          <source>How to create and configure the HTTP listener and HTTP action Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the HTTP listener and HTTP action Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="6f2203ce-82a9-4a51-8e25-c1a9e89bea2c" xml:space="preserve">
+          <source>Connect directly to HTTP resources to listen for HTTP requests and configure HTTP web requests.</source>
+          <target state="new">Connect directly to HTTP resources to listen for HTTP requests and configure HTTP web requests.</target>
+        </trans-unit>
+        <trans-unit id="0d95c0f8-949c-4426-813b-900399a35d9e" xml:space="preserve">
+          <source>There are some scenarios where you may need to work with direct HTTP connections, including:</source>
+          <target state="new">There are some scenarios where you may need to work with direct HTTP connections, including:</target>
+        </trans-unit>
+        <trans-unit id="fca19a8d-ce4f-49b1-973a-822feb68752e" xml:space="preserve">
+          <source>To develop a logic App that supports a web or mobile user interactive front end.</source>
+          <target state="new">To develop a logic App that supports a web or mobile user interactive front end.</target>
+        </trans-unit>
+        <trans-unit id="9bf8f493-6f96-4881-b35d-d8a780cf4945" xml:space="preserve">
+          <source>To get and process data from a web service that doesn’t have an out of box connector.</source>
+          <target state="new">To get and process data from a web service that doesn’t have an out of box connector.</target>
+        </trans-unit>
+        <trans-unit id="de38d77b-0e65-44cb-888d-7f62386d3650" xml:space="preserve">
+          <source>To perform actions that are already exposed as a web service, but not available as an API app.</source>
+          <target state="new">To perform actions that are already exposed as a web service, but not available as an API app.</target>
+        </trans-unit>
+        <trans-unit id="28453789-4d6e-4366-98f4-26483c12ce88" xml:space="preserve">
+          <source>For these scenarios, there are two options:</source>
+          <target state="new">For these scenarios, there are two options:</target>
+        </trans-unit>
+        <trans-unit id="5ae91c1a-7d19-4fa5-9882-04a9f300c89d" xml:space="preserve">
+          <source><bpt id="719ecfdd-71fc-4887-9917-2fef204f6ed6">&lt;strong&gt;</bpt>HTTP listener<ept id="719ecfdd-71fc-4887-9917-2fef204f6ed6">&lt;/strong&gt;</ept>: This connector acts as a trigger and listens for HTTP requests on a configured endpoint.</source>
+          <target state="new"><bpt id="719ecfdd-71fc-4887-9917-2fef204f6ed6">&lt;strong&gt;</bpt>HTTP listener<ept id="719ecfdd-71fc-4887-9917-2fef204f6ed6">&lt;/strong&gt;</ept>: This connector acts as a trigger and listens for HTTP requests on a configured endpoint.</target>
+        </trans-unit>
+        <trans-unit id="e6e72b4a-b4e6-46b3-9b69-d96565b60c37" xml:space="preserve">
+          <source>When a call is received on the configured endpoint, it triggers a new instance of the flow and passes the data received in the request to the flow for processing.</source>
+          <target state="new">When a call is received on the configured endpoint, it triggers a new instance of the flow and passes the data received in the request to the flow for processing.</target>
+        </trans-unit>
+        <trans-unit id="da965ee9-b524-474a-bd95-5f167b2ffd07" xml:space="preserve">
+          <source>It can also be configured to automatically respond to the incoming request when the flow has started, or let you construct a response based on the flow execution and send a response to the caller.</source>
+          <target state="new">It can also be configured to automatically respond to the incoming request when the flow has started, or let you construct a response based on the flow execution and send a response to the caller.</target>
+        </trans-unit>
+        <trans-unit id="e06aecab-2701-4de1-a32f-ccf0fa3a591d" xml:space="preserve">
+          <source><bpt id="8e7032ad-c463-4845-91d1-f8f213b4aa0d">&lt;strong&gt;</bpt>HTTP action<ept id="8e7032ad-c463-4845-91d1-f8f213b4aa0d">&lt;/strong&gt;</ept>: This lets you configure a web request to any endpoint available on the internet, gets back a response, and makes it available for additional actions in the flow to consume.</source>
+          <target state="new"><bpt id="8e7032ad-c463-4845-91d1-f8f213b4aa0d">&lt;strong&gt;</bpt>HTTP action<ept id="8e7032ad-c463-4845-91d1-f8f213b4aa0d">&lt;/strong&gt;</ept>: This lets you configure a web request to any endpoint available on the internet, gets back a response, and makes it available for additional actions in the flow to consume.</target>
+        </trans-unit>
+        <trans-unit id="0aa4c011-ceac-44f7-896a-80c5d21eef1a" xml:space="preserve">
+          <source>Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</source>
+          <target state="new">Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</target>
+        </trans-unit>
+        <trans-unit id="48f8d258-b510-4951-9b56-3817456c2eb7" xml:space="preserve">
+          <source>You can add the HTTP connector to your business workflow and process data as part of this workflow within a Logic App.</source>
+          <target state="new">You can add the HTTP connector to your business workflow and process data as part of this workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="62639dc1-ed43-408d-bc00-e1c66cc7eee6" xml:space="preserve">
+          <source>A connector can be created within a logic app or be created directly from the Azure Marketplace.</source>
+          <target state="new">A connector can be created within a logic app or be created directly from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="a1ac75f6-e9d7-496b-b6ae-b1480e4de3be" xml:space="preserve">
+          <source>To create a connector from the Marketplace:</source>
+          <target state="new">To create a connector from the Marketplace:</target>
+        </trans-unit>
+        <trans-unit id="dc09ec9a-125a-4177-9fd8-58d5094e93aa" xml:space="preserve">
+          <source>In the Azure startboard, select <bpt id="95ffdf5e-7bb3-4141-ae74-cc3ae948da41">&lt;strong&gt;</bpt>Marketplace<ept id="95ffdf5e-7bb3-4141-ae74-cc3ae948da41">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure startboard, select <bpt id="95ffdf5e-7bb3-4141-ae74-cc3ae948da41">&lt;strong&gt;</bpt>Marketplace<ept id="95ffdf5e-7bb3-4141-ae74-cc3ae948da41">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d945bbe2-ad40-4666-8c82-3dc300e5d210" xml:space="preserve">
+          <source>Search for “HTTP”, select HTTP Listener, and select <bpt id="dc73543e-e1d6-4283-9eb8-80ef3486a9f6">&lt;strong&gt;</bpt>Create<ept id="dc73543e-e1d6-4283-9eb8-80ef3486a9f6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Search for “HTTP”, select HTTP Listener, and select <bpt id="dc73543e-e1d6-4283-9eb8-80ef3486a9f6">&lt;strong&gt;</bpt>Create<ept id="dc73543e-e1d6-4283-9eb8-80ef3486a9f6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4c202f5-47b5-462c-a81a-a4d8002f0d92" xml:space="preserve">
+          <source>Configure the HTTP listener as follows:  
+<bpt id="cb4d6bdd-7633-4b9e-8558-31c74edc7d57">&lt;linkText&gt;</bpt><ept id="cb4d6bdd-7633-4b9e-8558-31c74edc7d57">&lt;/linkText&gt;</ept></source>
+          <target state="new">Configure the HTTP listener as follows:  
+<bpt id="cb4d6bdd-7633-4b9e-8558-31c74edc7d57">&lt;linkText&gt;</bpt><ept id="cb4d6bdd-7633-4b9e-8558-31c74edc7d57">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e5526fb-b89b-4bff-b9c4-eefe4aa23692" xml:space="preserve">
+          <source>When setting up the package settings, you’ll see the following option on whether the listener should respond automatically or require you to send an explicit response.</source>
+          <target state="new">When setting up the package settings, you’ll see the following option on whether the listener should respond automatically or require you to send an explicit response.</target>
+        </trans-unit>
+        <trans-unit id="d3e5a32b-009b-4834-8c5b-16689edc26bd" xml:space="preserve">
+          <source>Set this to <bpt id="3c6661e2-d447-4ee5-9452-a4e152b44a71">&lt;strong&gt;</bpt>False<ept id="3c6661e2-d447-4ee5-9452-a4e152b44a71">&lt;/strong&gt;</ept> to send your own response:  
+<bpt id="e71b40c9-44d9-481f-a4b7-d4479fb743f8">&lt;linkText&gt;</bpt><ept id="e71b40c9-44d9-481f-a4b7-d4479fb743f8">&lt;/linkText&gt;</ept></source>
+          <target state="new">Set this to <bpt id="3c6661e2-d447-4ee5-9452-a4e152b44a71">&lt;strong&gt;</bpt>False<ept id="3c6661e2-d447-4ee5-9452-a4e152b44a71">&lt;/strong&gt;</ept> to send your own response:  
+<bpt id="e71b40c9-44d9-481f-a4b7-d4479fb743f8">&lt;linkText&gt;</bpt><ept id="e71b40c9-44d9-481f-a4b7-d4479fb743f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c19a82ec-5e49-441f-a0d9-998de60a366f" xml:space="preserve">
+          <source>Click <bpt id="3e8dbcf2-95c7-4865-82aa-f644be75f3f3">&lt;strong&gt;</bpt>OK<ept id="3e8dbcf2-95c7-4865-82aa-f644be75f3f3">&lt;/strong&gt;</ept> to create.</source>
+          <target state="new">Click <bpt id="3e8dbcf2-95c7-4865-82aa-f644be75f3f3">&lt;strong&gt;</bpt>OK<ept id="3e8dbcf2-95c7-4865-82aa-f644be75f3f3">&lt;/strong&gt;</ept> to create.</target>
+        </trans-unit>
+        <trans-unit id="d184fa60-e8fb-4836-8be4-037b43f62209" xml:space="preserve">
+          <source>Once the API app instance is created, open the settings to configure the security.</source>
+          <target state="new">Once the API app instance is created, open the settings to configure the security.</target>
+        </trans-unit>
+        <trans-unit id="93f2433f-16f6-41c3-8df2-1842cefdcadc" xml:space="preserve">
+          <source>The HTTP listener currently supports Basic Authentication.</source>
+          <target state="new">The HTTP listener currently supports Basic Authentication.</target>
+        </trans-unit>
+        <trans-unit id="6c4a6c52-c835-40f8-9f8f-6a9f479aa0f4" xml:space="preserve">
+          <source>You can configure this using the Security option when you open the HTTP listener:  
+<bpt id="142064a2-d770-4cd6-ab49-6aa28149dbb4">&lt;linkText&gt;</bpt><ept id="142064a2-d770-4cd6-ab49-6aa28149dbb4">&lt;/linkText&gt;</ept></source>
+          <target state="new">You can configure this using the Security option when you open the HTTP listener:  
+<bpt id="142064a2-d770-4cd6-ab49-6aa28149dbb4">&lt;linkText&gt;</bpt><ept id="142064a2-d770-4cd6-ab49-6aa28149dbb4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4fcaae4-1726-4d78-b869-3e285fa80a72" xml:space="preserve">
+          <source><bpt id="e50dd0ba-18a2-4e9e-b83b-0f7c7e5168b5">&lt;strong&gt;</bpt>Known issue<ept id="e50dd0ba-18a2-4e9e-b83b-0f7c7e5168b5">&lt;/strong&gt;</ept>  *The Security settings show "None" as the default value, however it is undefined.</source>
+          <target state="new"><bpt id="e50dd0ba-18a2-4e9e-b83b-0f7c7e5168b5">&lt;strong&gt;</bpt>Known issue<ept id="e50dd0ba-18a2-4e9e-b83b-0f7c7e5168b5">&lt;/strong&gt;</ept>  *The Security settings show "None" as the default value, however it is undefined.</target>
+        </trans-unit>
+        <trans-unit id="74dc2cec-da9b-4a96-b660-a1ec763e905b" xml:space="preserve">
+          <source>You must change the setting to Basic and back to None before saving it to ensure that the HTTP Listener is configured correctly.*</source>
+          <target state="new">You must change the setting to Basic and back to None before saving it to ensure that the HTTP Listener is configured correctly.*</target>
+        </trans-unit>
+        <trans-unit id="37de288f-fc95-43f5-ab1f-4d053a566073" xml:space="preserve">
+          <source>Lastly, set the security settings of the API App to Public (Anonymous) to allow external clients to access the end point.</source>
+          <target state="new">Lastly, set the security settings of the API App to Public (Anonymous) to allow external clients to access the end point.</target>
+        </trans-unit>
+        <trans-unit id="8583e141-ed69-4457-b75c-b70638c01363" xml:space="preserve">
+          <source>This setting is available under "All settings &gt; Application Settings" of the HTTP Listener API App:
+<bpt id="20ca3eb7-e15a-4bfa-9cd6-fa8dc6b0b79e">&lt;linkText&gt;</bpt><ept id="20ca3eb7-e15a-4bfa-9cd6-fa8dc6b0b79e">&lt;/linkText&gt;</ept></source>
+          <target state="new">This setting is available under "All settings &gt; Application Settings" of the HTTP Listener API App:
+<bpt id="20ca3eb7-e15a-4bfa-9cd6-fa8dc6b0b79e">&lt;linkText&gt;</bpt><ept id="20ca3eb7-e15a-4bfa-9cd6-fa8dc6b0b79e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e674436-9c19-4321-ab5f-dfa441f3584e" xml:space="preserve">
+          <source>Once that’s done, you can now create a logic app to use the HTTP listener.</source>
+          <target state="new">Once that’s done, you can now create a logic app to use the HTTP listener.</target>
+        </trans-unit>
+        <trans-unit id="57b4b7bb-7603-4794-af8c-1cec15a5b65f" xml:space="preserve">
+          <source>Once your API app is created, you can now use the HTTP listener as a trigger for your Logic App.</source>
+          <target state="new">Once your API app is created, you can now use the HTTP listener as a trigger for your Logic App.</target>
+        </trans-unit>
+        <trans-unit id="1e0cbcff-7eee-48b0-a89d-21b308a242a3" xml:space="preserve">
+          <source>To do this, you need to:</source>
+          <target state="new">To do this, you need to:</target>
+        </trans-unit>
+        <trans-unit id="fac535d2-e6d6-4b97-b445-d15807e4576d" xml:space="preserve">
+          <source>Create a new Logic App.</source>
+          <target state="new">Create a new Logic App.</target>
+        </trans-unit>
+        <trans-unit id="f8eee936-3266-4e47-90b5-6ffd08dbf4cd" xml:space="preserve">
+          <source>Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow.</source>
+          <target state="new">Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow.</target>
+        </trans-unit>
+        <trans-unit id="c498dcc7-377e-4bd8-986e-d247398dfee9" xml:space="preserve">
+          <source>The HTTP Listener is listed in the gallery.</source>
+          <target state="new">The HTTP Listener is listed in the gallery.</target>
+        </trans-unit>
+        <trans-unit id="9b9b83e2-3693-43d2-9b9d-83b0cffadc7d" xml:space="preserve">
+          <source>Select it.</source>
+          <target state="new">Select it.</target>
+        </trans-unit>
+        <trans-unit id="0aecced1-4e32-4a66-b173-fef0a90114cd" xml:space="preserve">
+          <source>You can now set the HTTP Method and the relative URL on which you require the listener to trigger the flow:  
+<bpt id="d78fadc3-2a3e-41d6-9b70-b39a2957dd9b">&lt;linkText&gt;</bpt><ept id="d78fadc3-2a3e-41d6-9b70-b39a2957dd9b">&lt;/linkText&gt;</ept>  
+<bpt id="53288790-6302-4bb3-bfa1-ee290dd4ecaa">&lt;linkText&gt;</bpt><ept id="53288790-6302-4bb3-bfa1-ee290dd4ecaa">&lt;/linkText&gt;</ept></source>
+          <target state="new">You can now set the HTTP Method and the relative URL on which you require the listener to trigger the flow:  
+<bpt id="d78fadc3-2a3e-41d6-9b70-b39a2957dd9b">&lt;linkText&gt;</bpt><ept id="d78fadc3-2a3e-41d6-9b70-b39a2957dd9b">&lt;/linkText&gt;</ept>  
+<bpt id="53288790-6302-4bb3-bfa1-ee290dd4ecaa">&lt;linkText&gt;</bpt><ept id="53288790-6302-4bb3-bfa1-ee290dd4ecaa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="179b78be-b038-41a0-8c0e-dda9b5adea55" xml:space="preserve">
+          <source>To get the complete URI, double click the HTTP Listener to view its configuration settings and copy the URL for the "Host" of your API app:  
+<bpt id="aeb27f71-cd6b-4fd1-b26b-8acb7125aa46">&lt;linkText&gt;</bpt><ept id="aeb27f71-cd6b-4fd1-b26b-8acb7125aa46">&lt;/linkText&gt;</ept></source>
+          <target state="new">To get the complete URI, double click the HTTP Listener to view its configuration settings and copy the URL for the "Host" of your API app:  
+<bpt id="aeb27f71-cd6b-4fd1-b26b-8acb7125aa46">&lt;linkText&gt;</bpt><ept id="aeb27f71-cd6b-4fd1-b26b-8acb7125aa46">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4b8a538-96d5-4277-a621-887501d15a67" xml:space="preserve">
+          <source>You can now use the data received in the HTTP Request in other actions in the flow as follows:  
+<bpt id="8ba06b6e-896f-44fc-a20f-624569375508">&lt;linkText&gt;</bpt><ept id="8ba06b6e-896f-44fc-a20f-624569375508">&lt;/linkText&gt;</ept>  
+<bpt id="f91774b2-ecba-4a9c-a9e5-dc130ee1a980">&lt;linkText&gt;</bpt><ept id="f91774b2-ecba-4a9c-a9e5-dc130ee1a980">&lt;/linkText&gt;</ept></source>
+          <target state="new">You can now use the data received in the HTTP Request in other actions in the flow as follows:  
+<bpt id="8ba06b6e-896f-44fc-a20f-624569375508">&lt;linkText&gt;</bpt><ept id="8ba06b6e-896f-44fc-a20f-624569375508">&lt;/linkText&gt;</ept>  
+<bpt id="f91774b2-ecba-4a9c-a9e5-dc130ee1a980">&lt;linkText&gt;</bpt><ept id="f91774b2-ecba-4a9c-a9e5-dc130ee1a980">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="448838e7-d0f2-446e-8e20-4dd4342bf7c7" xml:space="preserve">
+          <source>Lastly, to send a response, add another HTTP Listener and select the Send HTTP Response action.</source>
+          <target state="new">Lastly, to send a response, add another HTTP Listener and select the Send HTTP Response action.</target>
+        </trans-unit>
+        <trans-unit id="9562d0fa-80e3-4b2f-bf1e-ace39c28183c" xml:space="preserve">
+          <source>Set the Request ID to the RequestID obtained from the HTTP Listener, and populate the response body and HTTP status you want to return back:  
+<bpt id="8b91f7ba-8705-4e33-a73c-b25bd35fac5b">&lt;linkText&gt;</bpt><ept id="8b91f7ba-8705-4e33-a73c-b25bd35fac5b">&lt;/linkText&gt;</ept></source>
+          <target state="new">Set the Request ID to the RequestID obtained from the HTTP Listener, and populate the response body and HTTP status you want to return back:  
+<bpt id="8b91f7ba-8705-4e33-a73c-b25bd35fac5b">&lt;linkText&gt;</bpt><ept id="8b91f7ba-8705-4e33-a73c-b25bd35fac5b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e601141-81db-42f2-9500-14a267daae8d" xml:space="preserve">
+          <source>The HTTP action is natively supported by Logic Apps and doesn't require an API app to be created first to be able to use it.</source>
+          <target state="new">The HTTP action is natively supported by Logic Apps and doesn't require an API app to be created first to be able to use it.</target>
+        </trans-unit>
+        <trans-unit id="cc32ee7b-a8ee-4fd3-8851-d49bd8339bd8" xml:space="preserve">
+          <source>You can insert an HTTP action at any point in your Logic App and choose the URI, headers and body for the call.</source>
+          <target state="new">You can insert an HTTP action at any point in your Logic App and choose the URI, headers and body for the call.</target>
+        </trans-unit>
+        <trans-unit id="ff85200d-5fef-4603-bb1e-131cbf50ea8a" xml:space="preserve">
+          <source>The HTTP action supports multiple options for client side security.</source>
+          <target state="new">The HTTP action supports multiple options for client side security.</target>
+        </trans-unit>
+        <trans-unit id="c3a2516e-bcfe-4180-992f-47447a8d3db8" xml:space="preserve">
+          <source>To use these, please review the article <bpt id="1a8df809-29fa-4692-90c4-c2c74d0ccf52">&lt;linkText&gt;</bpt>here<ept id="1a8df809-29fa-4692-90c4-c2c74d0ccf52">&lt;/linkText&gt;</ept><bpt id="1a8df809-29fa-4692-90c4-c2c74d0ccf52">&lt;title&gt;</bpt><ept id="1a8df809-29fa-4692-90c4-c2c74d0ccf52">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use these, please review the article <bpt id="1a8df809-29fa-4692-90c4-c2c74d0ccf52">&lt;linkText&gt;</bpt>here<ept id="1a8df809-29fa-4692-90c4-c2c74d0ccf52">&lt;/linkText&gt;</ept><bpt id="1a8df809-29fa-4692-90c4-c2c74d0ccf52">&lt;title&gt;</bpt><ept id="1a8df809-29fa-4692-90c4-c2c74d0ccf52">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb1fbd07-cd0c-4c67-ae96-59cf6ee98877" xml:space="preserve">
+          <source>The output of the HTTP action is headers and body, which can be used further downstream in the flow similar to how output of other actions and connectors is consumed.</source>
+          <target state="new">The output of the HTTP action is headers and body, which can be used further downstream in the flow similar to how output of other actions and connectors is consumed.</target>
+        </trans-unit>
+        <trans-unit id="ced147c8-5228-4e2c-9b09-29ce4989990a" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business workflow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business workflow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="2b08deab-7ca3-4a2f-82b4-381417489724" xml:space="preserve">
+          <source>See <bpt id="23c036d9-d1de-4279-8c87-a31fbb6a5fc8">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="23c036d9-d1de-4279-8c87-a31fbb6a5fc8">&lt;/linkText&gt;</ept><bpt id="23c036d9-d1de-4279-8c87-a31fbb6a5fc8">&lt;title&gt;</bpt><ept id="23c036d9-d1de-4279-8c87-a31fbb6a5fc8">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="23c036d9-d1de-4279-8c87-a31fbb6a5fc8">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="23c036d9-d1de-4279-8c87-a31fbb6a5fc8">&lt;/linkText&gt;</ept><bpt id="23c036d9-d1de-4279-8c87-a31fbb6a5fc8">&lt;title&gt;</bpt><ept id="23c036d9-d1de-4279-8c87-a31fbb6a5fc8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1982174a-9493-4a69-865d-2c67f63102fa" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="e98d581b-c012-4281-bb4f-2252e65dc666">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="e98d581b-c012-4281-bb4f-2252e65dc666">&lt;/linkText&gt;</ept><bpt id="e98d581b-c012-4281-bb4f-2252e65dc666">&lt;title&gt;</bpt><ept id="e98d581b-c012-4281-bb4f-2252e65dc666">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="e98d581b-c012-4281-bb4f-2252e65dc666">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="e98d581b-c012-4281-bb4f-2252e65dc666">&lt;/linkText&gt;</ept><bpt id="e98d581b-c012-4281-bb4f-2252e65dc666">&lt;title&gt;</bpt><ept id="e98d581b-c012-4281-bb4f-2252e65dc666">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4cccfd5a-4e97-4bf9-87bb-acd2589da482" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="4e9add2e-9f84-42f7-8e3d-1f4665bffdf2" xml:space="preserve">
+          <source>See <bpt id="0366dce4-1ff4-4df3-916c-e8750655d4b7">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="0366dce4-1ff4-4df3-916c-e8750655d4b7">&lt;/linkText&gt;</ept><bpt id="0366dce4-1ff4-4df3-916c-e8750655d4b7">&lt;title&gt;</bpt><ept id="0366dce4-1ff4-4df3-916c-e8750655d4b7">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="0366dce4-1ff4-4df3-916c-e8750655d4b7">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="0366dce4-1ff4-4df3-916c-e8750655d4b7">&lt;/linkText&gt;</ept><bpt id="0366dce4-1ff4-4df3-916c-e8750655d4b7">&lt;title&gt;</bpt><ept id="0366dce4-1ff4-4df3-916c-e8750655d4b7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfdd821f-352f-4207-bc11-05da80cef9ce" xml:space="preserve">
+          <source>./media/app-service-logic-connector-http/1.png</source>
+          <target state="new">./media/app-service-logic-connector-http/1.png</target>
+        </trans-unit>
+        <trans-unit id="74e401be-d04d-4ef1-8c91-6085721d3a1b" xml:space="preserve">
+          <source>./media/app-service-logic-connector-http/2.png</source>
+          <target state="new">./media/app-service-logic-connector-http/2.png</target>
+        </trans-unit>
+        <trans-unit id="aeeb2a8b-85bf-466a-92d9-a6735f82a13c" xml:space="preserve">
+          <source>./media/app-service-logic-connector-http/3.png</source>
+          <target state="new">./media/app-service-logic-connector-http/3.png</target>
+        </trans-unit>
+        <trans-unit id="a86ab6fa-b171-4297-b35a-842431ccced6" xml:space="preserve">
+          <source>./media/app-service-logic-connector-http/4.png</source>
+          <target state="new">./media/app-service-logic-connector-http/4.png</target>
+        </trans-unit>
+        <trans-unit id="3a4e9aca-b7b6-46df-b6f0-86927d487033" xml:space="preserve">
+          <source>./media/app-service-logic-connector-http/5.png</source>
+          <target state="new">./media/app-service-logic-connector-http/5.png</target>
+        </trans-unit>
+        <trans-unit id="2be5cdad-58d4-4f43-8495-37c137ea7270" xml:space="preserve">
+          <source>./media/app-service-logic-connector-http/6.png</source>
+          <target state="new">./media/app-service-logic-connector-http/6.png</target>
+        </trans-unit>
+        <trans-unit id="e81326eb-3047-4c87-b4c4-886cbec38093" xml:space="preserve">
+          <source>./media/app-service-logic-connector-http/7.png</source>
+          <target state="new">./media/app-service-logic-connector-http/7.png</target>
+        </trans-unit>
+        <trans-unit id="f0406b2e-3280-4308-ae2e-2da1f3f9cea3" xml:space="preserve">
+          <source>./media/app-service-logic-connector-http/8.png</source>
+          <target state="new">./media/app-service-logic-connector-http/8.png</target>
+        </trans-unit>
+        <trans-unit id="feb57475-1c5f-409a-9085-8e0dde492d8c" xml:space="preserve">
+          <source>./media/app-service-logic-connector-http/9.png</source>
+          <target state="new">./media/app-service-logic-connector-http/9.png</target>
+        </trans-unit>
+        <trans-unit id="95e383b9-ebba-4b88-8730-44cb9b8b597f" xml:space="preserve">
+          <source>./media/app-service-logic-connector-http/10.png</source>
+          <target state="new">./media/app-service-logic-connector-http/10.png</target>
+        </trans-unit>
+      </group>
+      <group id="b89f5343-7732-4e1f-8ad5-39ada12a4644" />
+    </body>
+  </file>
+</xliff>

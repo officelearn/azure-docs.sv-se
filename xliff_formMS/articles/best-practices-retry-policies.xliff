@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dc7a661c-e82c-4d22-94ba-fbc55f946204" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dc7a661c-e82c-4d22-94ba-fbc55f946204" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9e3960b6-c9a9-46f6-854d-3f82ae912877">
+        <trans-unit id="1a4a48e8-45b4-454f-a1e5-ae9c9f3c08cb" xml:space="preserve">
+          <source>NuGet Packages | Microsoft Azure</source>
+          <target state="new">NuGet Packages | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e8154081-3209-43cb-af1d-9193672e6e44" xml:space="preserve">
+          <source>Guidance on NuGet Packages for general retry policy work.</source>
+          <target state="new">Guidance on NuGet Packages for general retry policy work.</target>
+        </trans-unit>
+        <trans-unit id="2d297414-dd50-4d38-962f-66b2d634196b" xml:space="preserve">
+          <source>As more components begin to communicate, transient failures become
+more important to smartly handle. The Transient Fault Handling work handled by the
+retry policies NuGet package can help handle retries within a single instance.</source>
+          <target state="new">As more components begin to communicate, transient failures become
+more important to smartly handle. The Transient Fault Handling work handled by the
+retry policies NuGet package can help handle retries within a single instance.</target>
+        </trans-unit>
+        <trans-unit id="8d80db54-32c7-4d7e-92be-e94bbe6da476" xml:space="preserve">
+          <source>This document was based on a draft as a proof of concept.</source>
+          <target state="new">This document was based on a draft as a proof of concept.</target>
+        </trans-unit>
+        <trans-unit id="553dc1fb-18b3-4c88-b4eb-6119899c25ee" xml:space="preserve">
+          <source>It is not the actual
+  reviewed guidance.</source>
+          <target state="new">It is not the actual
+  reviewed guidance.</target>
+        </trans-unit>
+        <trans-unit id="d96b54c6-a845-4940-9595-c33942ba281a" xml:space="preserve">
+          <source>The Patterns &amp; Practices <bpt id="bf6f8755-6b34-46a4-9f12-b7b86b7e4a18">&lt;code&gt;</bpt>TransientFaultHandling<ept id="bf6f8755-6b34-46a4-9f12-b7b86b7e4a18">&lt;/code&gt;</ept> code is recommended for general retry policy work.</source>
+          <target state="new">The Patterns &amp; Practices <bpt id="bf6f8755-6b34-46a4-9f12-b7b86b7e4a18">&lt;code&gt;</bpt>TransientFaultHandling<ept id="bf6f8755-6b34-46a4-9f12-b7b86b7e4a18">&lt;/code&gt;</ept> code is recommended for general retry policy work.</target>
+        </trans-unit>
+        <trans-unit id="7090467c-930c-4c23-b38e-7a6263350fd7" xml:space="preserve">
+          <source>Section includes the configuration information for the retry feature:</source>
+          <target state="new">Section includes the configuration information for the retry feature:</target>
+        </trans-unit>
+        <trans-unit id="ccae85f2-ea6f-4356-8e55-0f1995d19f80" xml:space="preserve">
+          <source>Parameter</source>
+          <target state="new">Parameter</target>
+        </trans-unit>
+        <trans-unit id="33e90cf8-df9f-4090-aabe-488495c5d05c" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="83922c8c-fdb1-4993-92e6-7f4be66e6a15" xml:space="preserve">
+          <source>MaximumExecutionTime</source>
+          <target state="new">MaximumExecutionTime</target>
+        </trans-unit>
+        <trans-unit id="eca39fd6-6009-4dec-a26b-acd3173d3efe" xml:space="preserve">
+          <source>Maximum execution time for the request, including all potential retry attempts.</source>
+          <target state="new">Maximum execution time for the request, including all potential retry attempts.</target>
+        </trans-unit>
+        <trans-unit id="5aeb4035-12d2-46ea-9651-396234643de2" xml:space="preserve">
+          <source>ServerTimeOut</source>
+          <target state="new">ServerTimeOut</target>
+        </trans-unit>
+        <trans-unit id="8503a3a5-ddd2-4efd-81d2-530cb15703cd" xml:space="preserve">
+          <source>Server timeout interval for the request</source>
+          <target state="new">Server timeout interval for the request</target>
+        </trans-unit>
+        <trans-unit id="c3f81e91-1331-4a18-bf9e-d8c167428f2a" xml:space="preserve">
+          <source>RetryPolicy</source>
+          <target state="new">RetryPolicy</target>
+        </trans-unit>
+        <trans-unit id="363eb6ab-993a-4d59-8cf4-d2475d7855a4" xml:space="preserve">
+          <source>Retry policy.</source>
+          <target state="new">Retry policy.</target>
+        </trans-unit>
+        <trans-unit id="f1e208db-eb81-4497-81dd-54aed73ccd42" xml:space="preserve">
+          <source>See Policies section below</source>
+          <target state="new">See Policies section below</target>
+        </trans-unit>
+        <trans-unit id="cf23b805-26fd-466c-a1c0-9e0f88ce7093" xml:space="preserve">
+          <source>Programmatic:</source>
+          <target state="new">Programmatic:</target>
+        </trans-unit>
+        <trans-unit id="07e65fd1-334c-4934-adbc-585d189304b6" xml:space="preserve">
+          <source>Support for setting on the Client.</source>
+          <target state="new">Support for setting on the Client.</target>
+        </trans-unit>
+        <trans-unit id="467d7a9f-789f-4f4f-a167-933f0a73f8b4" xml:space="preserve">
+          <source>Enable overriding at operations provided by client</source>
+          <target state="new">Enable overriding at operations provided by client</target>
+        </trans-unit>
+        <trans-unit id="b594e2a1-d391-4b0d-b9f5-a226e1cd5b4b" xml:space="preserve">
+          <source>Configuration file:</source>
+          <target state="new">Configuration file:</target>
+        </trans-unit>
+        <trans-unit id="6b304e39-fee6-43aa-bbcb-51df088d10fb" xml:space="preserve">
+          <source>Used for spacing out repeated attempts of service invocations exponentially to avoid service throttling.</source>
+          <target state="new">Used for spacing out repeated attempts of service invocations exponentially to avoid service throttling.</target>
+        </trans-unit>
+        <trans-unit id="4830d978-93b8-437e-8527-8740a9a499e2" xml:space="preserve">
+          <source><bpt id="2540359a-a053-42a4-acac-7f464f991b7d">&lt;strong&gt;</bpt>Approach:<ept id="2540359a-a053-42a4-acac-7f464f991b7d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2540359a-a053-42a4-acac-7f464f991b7d">&lt;strong&gt;</bpt>Approach:<ept id="2540359a-a053-42a4-acac-7f464f991b7d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6e22857-dff3-4931-969f-76fc3e15a45a" xml:space="preserve">
+          <source>Exponentially increase the backoff interval between subsequent attempts.</source>
+          <target state="new">Exponentially increase the backoff interval between subsequent attempts.</target>
+        </trans-unit>
+        <trans-unit id="ea9d73b3-81af-4b57-9af8-cfdcdc81e281" xml:space="preserve">
+          <source>Add randomization to (+/- 20%) to backoff interval to avoid all clients retrying simultaneously</source>
+          <target state="new">Add randomization to (+/- 20%) to backoff interval to avoid all clients retrying simultaneously</target>
+        </trans-unit>
+        <trans-unit id="09b05761-953f-446e-9d3e-04a54e51c5d2" xml:space="preserve">
+          <source><bpt id="3498d164-151b-4f26-b81a-7e319f27368d">&lt;strong&gt;</bpt>Configuration:<ept id="3498d164-151b-4f26-b81a-7e319f27368d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3498d164-151b-4f26-b81a-7e319f27368d">&lt;strong&gt;</bpt>Configuration:<ept id="3498d164-151b-4f26-b81a-7e319f27368d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3dcc381-45bb-40c5-8fa5-1a8267528abe" xml:space="preserve">
+          <source>Parameter</source>
+          <target state="new">Parameter</target>
+        </trans-unit>
+        <trans-unit id="8d31d1cc-29a9-4074-9fe3-ea3cf3da3303" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="52d0d402-c48e-4301-bea7-cded559bf26a" xml:space="preserve">
+          <source>maxAttempt</source>
+          <target state="new">maxAttempt</target>
+        </trans-unit>
+        <trans-unit id="0a5fbe40-3c4f-44b6-82f9-beab7ab18a39" xml:space="preserve">
+          <source>Number of retry attempts.</source>
+          <target state="new">Number of retry attempts.</target>
+        </trans-unit>
+        <trans-unit id="f2d2d90f-d883-4e07-ab4d-8321bbcc4332" xml:space="preserve">
+          <source>deltaBackoff</source>
+          <target state="new">deltaBackoff</target>
+        </trans-unit>
+        <trans-unit id="1a1be5c0-dc40-4a0a-808a-fd630be09209" xml:space="preserve">
+          <source>Back-off interval between retries.</source>
+          <target state="new">Back-off interval between retries.</target>
+        </trans-unit>
+        <trans-unit id="efe5d2dc-85c2-4f2d-847e-d5ebb1e10cc5" xml:space="preserve">
+          <source>Multiples of this timespan will be used for subsequent retry attempts.</source>
+          <target state="new">Multiples of this timespan will be used for subsequent retry attempts.</target>
+        </trans-unit>
+        <trans-unit id="75bfa153-7de4-4a11-974e-2a33b94305fc" xml:space="preserve">
+          <source>MinBackoff</source>
+          <target state="new">MinBackoff</target>
+        </trans-unit>
+        <trans-unit id="a0475c35-dfde-4b9a-8a6c-aa788d848dd4" xml:space="preserve">
+          <source>Added to all retry intervals computed from deltaBackoff.</source>
+          <target state="new">Added to all retry intervals computed from deltaBackoff.</target>
+        </trans-unit>
+        <trans-unit id="69f33cb4-36d9-49e5-9927-cd0fbee74348" xml:space="preserve">
+          <source>FastFirst</source>
+          <target state="new">FastFirst</target>
+        </trans-unit>
+        <trans-unit id="83fb4eff-47f8-4fa6-a9cf-4f429b26acd7" xml:space="preserve">
+          <source>Immediate first retry</source>
+          <target state="new">Immediate first retry</target>
+        </trans-unit>
+        <trans-unit id="8ec5623f-dd11-48e9-bc01-3a3f269235f8" xml:space="preserve">
+          <source>MaxBackoff</source>
+          <target state="new">MaxBackoff</target>
+        </trans-unit>
+        <trans-unit id="e6ceef05-be38-4fd0-82ac-bde4c919dc80" xml:space="preserve">
+          <source>MaxBackoff is used if the computed retry interval is greater than MaxBackoff.</source>
+          <target state="new">MaxBackoff is used if the computed retry interval is greater than MaxBackoff.</target>
+        </trans-unit>
+        <trans-unit id="bd038857-d52e-4d8c-8101-750bda38e8f3" xml:space="preserve">
+          <source>This value cannot be changed.</source>
+          <target state="new">This value cannot be changed.</target>
+        </trans-unit>
+        <trans-unit id="d1eaa965-5d5c-4d1d-8e12-a6c607c532bf" xml:space="preserve">
+          <source><bpt id="c88ce01c-f49e-46d0-9829-772dd7a03830">&lt;strong&gt;</bpt>Implementation Logic:<ept id="c88ce01c-f49e-46d0-9829-772dd7a03830">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c88ce01c-f49e-46d0-9829-772dd7a03830">&lt;strong&gt;</bpt>Implementation Logic:<ept id="c88ce01c-f49e-46d0-9829-772dd7a03830">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f9153f2-5d3e-4ac5-9489-ff30d5b1c7b6" xml:space="preserve">
+          <source>Used for spacing out repeated attempts of service invocations linearly to avoid service throttling.</source>
+          <target state="new">Used for spacing out repeated attempts of service invocations linearly to avoid service throttling.</target>
+        </trans-unit>
+        <trans-unit id="01139811-a567-44c4-ba82-88586ffe7687" xml:space="preserve">
+          <source><bpt id="787aec6d-f0fc-4b2b-a42f-d130637c41ce">&lt;strong&gt;</bpt>Approach:<ept id="787aec6d-f0fc-4b2b-a42f-d130637c41ce">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="787aec6d-f0fc-4b2b-a42f-d130637c41ce">&lt;strong&gt;</bpt>Approach:<ept id="787aec6d-f0fc-4b2b-a42f-d130637c41ce">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7461a254-9370-45a0-8e66-1eb2228824e1" xml:space="preserve">
+          <source>Perform a specified number of retries, using a specified fixed time interval between retries.</source>
+          <target state="new">Perform a specified number of retries, using a specified fixed time interval between retries.</target>
+        </trans-unit>
+        <trans-unit id="87f9bc8b-2a0b-49ce-860c-6cf57a5962f4" xml:space="preserve">
+          <source>Add randomization to (+/- 20%) to backoff interval to avoid all clients retrying simultaneously.</source>
+          <target state="new">Add randomization to (+/- 20%) to backoff interval to avoid all clients retrying simultaneously.</target>
+        </trans-unit>
+        <trans-unit id="92f58570-32a5-4007-bfbf-911d25cce4d9" xml:space="preserve">
+          <source><bpt id="1af58184-2cc6-45c5-a7b7-2b1e159a7323">&lt;strong&gt;</bpt>Configuration:<ept id="1af58184-2cc6-45c5-a7b7-2b1e159a7323">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1af58184-2cc6-45c5-a7b7-2b1e159a7323">&lt;strong&gt;</bpt>Configuration:<ept id="1af58184-2cc6-45c5-a7b7-2b1e159a7323">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8b1f0cc-b296-4440-ba35-4687138119e8" xml:space="preserve">
+          <source>Parameter</source>
+          <target state="new">Parameter</target>
+        </trans-unit>
+        <trans-unit id="75589349-18f3-49da-995e-14b518a4ed23" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="ffee7e11-f981-4505-a4fd-c70a5a02e439" xml:space="preserve">
+          <source>maxAttempt</source>
+          <target state="new">maxAttempt</target>
+        </trans-unit>
+        <trans-unit id="9039028f-10de-47a0-8340-7207379ddbe2" xml:space="preserve">
+          <source>Number of retry attempts.</source>
+          <target state="new">Number of retry attempts.</target>
+        </trans-unit>
+        <trans-unit id="1e1986e7-cada-4256-9d16-14cd292e47ca" xml:space="preserve">
+          <source>deltaBackoff</source>
+          <target state="new">deltaBackoff</target>
+        </trans-unit>
+        <trans-unit id="90ff7f69-69b7-4959-b9e7-21483a078e1a" xml:space="preserve">
+          <source>Back-off interval between retries.</source>
+          <target state="new">Back-off interval between retries.</target>
+        </trans-unit>
+        <trans-unit id="25c5aaf8-270d-484a-9991-678656a92312" xml:space="preserve">
+          <source>FastFirst</source>
+          <target state="new">FastFirst</target>
+        </trans-unit>
+        <trans-unit id="240d2556-e665-4734-9b56-80b8443fd3b2" xml:space="preserve">
+          <source>Immediate first retry</source>
+          <target state="new">Immediate first retry</target>
+        </trans-unit>
+        <trans-unit id="8d6e3826-a2c1-4bb7-9905-f76184dc5d17" xml:space="preserve">
+          <source><bpt id="2436eabc-dea1-4200-aefa-2c194b991b81">&lt;strong&gt;</bpt>Implementation Logic:<ept id="2436eabc-dea1-4200-aefa-2c194b991b81">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2436eabc-dea1-4200-aefa-2c194b991b81">&lt;strong&gt;</bpt>Implementation Logic:<ept id="2436eabc-dea1-4200-aefa-2c194b991b81">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a980835-64fe-48e7-a4c1-dad18fbcf820" xml:space="preserve">
+          <source>Used for spacing out repeated attempts of service invocations based on error code / metadata passed by service in response header.</source>
+          <target state="new">Used for spacing out repeated attempts of service invocations based on error code / metadata passed by service in response header.</target>
+        </trans-unit>
+        <trans-unit id="3b31ce83-a9d4-4365-92a1-70bfdbd6df3f" xml:space="preserve">
+          <source><bpt id="98600524-99b5-43ff-bb17-38653bd800cc">&lt;strong&gt;</bpt>Approach:<ept id="98600524-99b5-43ff-bb17-38653bd800cc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="98600524-99b5-43ff-bb17-38653bd800cc">&lt;strong&gt;</bpt>Approach:<ept id="98600524-99b5-43ff-bb17-38653bd800cc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd142e62-2184-4efc-b7db-ddcc34a887ed" xml:space="preserve">
+          <source>Perform a specified number of retries, using a backoff interval calculated based on error code / metadata passed by service in response header</source>
+          <target state="new">Perform a specified number of retries, using a backoff interval calculated based on error code / metadata passed by service in response header</target>
+        </trans-unit>
+        <trans-unit id="1b15b25a-8331-4122-a849-150a2c4d7792" xml:space="preserve">
+          <source><bpt id="6745680c-7bf7-4de6-99f3-4745a7414c87">&lt;strong&gt;</bpt>Configuration:<ept id="6745680c-7bf7-4de6-99f3-4745a7414c87">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6745680c-7bf7-4de6-99f3-4745a7414c87">&lt;strong&gt;</bpt>Configuration:<ept id="6745680c-7bf7-4de6-99f3-4745a7414c87">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbb24349-add0-4c5b-9fe8-42594eb2bf97" xml:space="preserve">
+          <source>Not configurable</source>
+          <target state="new">Not configurable</target>
+        </trans-unit>
+        <trans-unit id="0fb471aa-55e4-4516-9ac9-8d5c611609d3" xml:space="preserve">
+          <source><bpt id="e746c79a-d082-4011-b007-183fd33915f2">&lt;strong&gt;</bpt>Implementation Logic:<ept id="e746c79a-d082-4011-b007-183fd33915f2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e746c79a-d082-4011-b007-183fd33915f2">&lt;strong&gt;</bpt>Implementation Logic:<ept id="e746c79a-d082-4011-b007-183fd33915f2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c36d6b0a-753d-4c3c-aa3e-2b2a368abee1" xml:space="preserve">
+          <source>Based on error code / metadata passed by service in response header</source>
+          <target state="new">Based on error code / metadata passed by service in response header</target>
+        </trans-unit>
+        <trans-unit id="76e33f64-93f5-40e2-8f19-6edacff187b7" xml:space="preserve">
+          <source><bpt id="d1223928-82f5-46ac-a7d1-3dfb528f3ac2">&lt;strong&gt;</bpt>Circuit Break:<ept id="d1223928-82f5-46ac-a7d1-3dfb528f3ac2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d1223928-82f5-46ac-a7d1-3dfb528f3ac2">&lt;strong&gt;</bpt>Circuit Break:<ept id="d1223928-82f5-46ac-a7d1-3dfb528f3ac2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48db8df7-e57f-4571-951e-e6e5d3ed68ba" xml:space="preserve">
+          <source>Based on <bpt id="8b66b3a4-62f6-4ddc-a6dd-0261d36a464b">&lt;linkText&gt;</bpt>Circuit Breaker<ept id="8b66b3a4-62f6-4ddc-a6dd-0261d36a464b">&lt;/linkText&gt;</ept><bpt id="8b66b3a4-62f6-4ddc-a6dd-0261d36a464b">&lt;title&gt;</bpt><ept id="8b66b3a4-62f6-4ddc-a6dd-0261d36a464b">&lt;/title&gt;</ept></source>
+          <target state="new">Based on <bpt id="8b66b3a4-62f6-4ddc-a6dd-0261d36a464b">&lt;linkText&gt;</bpt>Circuit Breaker<ept id="8b66b3a4-62f6-4ddc-a6dd-0261d36a464b">&lt;/linkText&gt;</ept><bpt id="8b66b3a4-62f6-4ddc-a6dd-0261d36a464b">&lt;title&gt;</bpt><ept id="8b66b3a4-62f6-4ddc-a6dd-0261d36a464b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80e16189-2256-4945-9dad-89dcf1606d31" xml:space="preserve">
+          <source>Public interface that can be implemented for providing Custom Retry policy</source>
+          <target state="new">Public interface that can be implemented for providing Custom Retry policy</target>
+        </trans-unit>
+        <trans-unit id="a0f48f2d-b042-433e-8862-ce2fe8b9269c" xml:space="preserve">
+          <source>Log retries as ETW events using an EventSource.</source>
+          <target state="new">Log retries as ETW events using an EventSource.</target>
+        </trans-unit>
+        <trans-unit id="8b381a1d-8d4d-44d7-a7bc-d88768f945a3" xml:space="preserve">
+          <source>Here are the fields that should be logged for every retry attempt</source>
+          <target state="new">Here are the fields that should be logged for every retry attempt</target>
+        </trans-unit>
+        <trans-unit id="ff0ca057-2553-4b7f-a234-4e79f84c7aac" xml:space="preserve">
+          <source>Parameter</source>
+          <target state="new">Parameter</target>
+        </trans-unit>
+        <trans-unit id="66b11a5f-0093-4e38-a84a-1f58be8c6529" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="2dc2dd75-19b8-42d9-95b6-239ea9e62ce5" xml:space="preserve">
+          <source>requestId</source>
+          <target state="new">requestId</target>
+        </trans-unit>
+        <trans-unit id="1a2b23c1-6ffa-4411-888b-c19c42c8a796" xml:space="preserve">
+          <source>""</source>
+          <target state="new">""</target>
+        </trans-unit>
+        <trans-unit id="93f6928c-3969-40eb-981f-f69d2c391020" xml:space="preserve">
+          <source>policyType</source>
+          <target state="new">policyType</target>
+        </trans-unit>
+        <trans-unit id="03d8fedb-3c7a-42bd-80be-c0ba184c6cee" xml:space="preserve">
+          <source>"RetryExponential"</source>
+          <target state="new">"RetryExponential"</target>
+        </trans-unit>
+        <trans-unit id="53e5ba76-3d69-4510-a552-c18784f832f0" xml:space="preserve">
+          <source>operation</source>
+          <target state="new">operation</target>
+        </trans-unit>
+        <trans-unit id="15af73dd-3640-49c4-960a-5b0b65565b1d" xml:space="preserve">
+          <source>"Get:https://retry-guidance-tests.servicebus.windows.net/TestQueue/?api-version=2014-05"</source>
+          <target state="new">"Get:https://retry-guidance-tests.servicebus.windows.net/TestQueue/?api-version=2014-05"</target>
+        </trans-unit>
+        <trans-unit id="8c3f1c10-b6bc-44f4-80ed-1b605efad899" xml:space="preserve">
+          <source>operationStartTime</source>
+          <target state="new">operationStartTime</target>
+        </trans-unit>
+        <trans-unit id="a54ad3b5-ac8c-4ed1-9ee7-de5831dcaedb" xml:space="preserve">
+          <source>"9/5/2014 10:00:13 PM"</source>
+          <target state="new">"9/5/2014 10:00:13 PM"</target>
+        </trans-unit>
+        <trans-unit id="9b0d839b-d93f-407d-847f-60892c6e6e38" xml:space="preserve">
+          <source>operationEndTime</source>
+          <target state="new">operationEndTime</target>
+        </trans-unit>
+        <trans-unit id="50b4f5a9-5a81-49d4-abe8-7f0f7fb0b303" xml:space="preserve">
+          <source>"9/5/2014 10:00:14 PM"</source>
+          <target state="new">"9/5/2014 10:00:14 PM"</target>
+        </trans-unit>
+        <trans-unit id="30537bde-36b3-4788-87e9-80d3cdd2400b" xml:space="preserve">
+          <source>iteration</source>
+          <target state="new">iteration</target>
+        </trans-unit>
+        <trans-unit id="3fa0db5e-6f91-45b4-a3a0-25da11ddd010" xml:space="preserve">
+          <source>"0"</source>
+          <target state="new">"0"</target>
+        </trans-unit>
+        <trans-unit id="19a16110-391e-48fc-a548-64d15e38a8ca" xml:space="preserve">
+          <source>iterationSleep</source>
+          <target state="new">iterationSleep</target>
+        </trans-unit>
+        <trans-unit id="dd96f287-9e81-419a-81be-38698b2cc555" xml:space="preserve">
+          <source>"00:00:00.1000000"</source>
+          <target state="new">"00:00:00.1000000"</target>
+        </trans-unit>
+        <trans-unit id="c7b0096d-ffce-4e97-977c-aa1b6ca45f4e" xml:space="preserve">
+          <source>lastExceptionType</source>
+          <target state="new">lastExceptionType</target>
+        </trans-unit>
+        <trans-unit id="66b201bd-b29d-4f7a-84fd-b19bcf16da3f" xml:space="preserve">
+          <source>"Microsoft.ServiceBus.Messaging.MessagingCommunicationException"</source>
+          <target state="new">"Microsoft.ServiceBus.Messaging.MessagingCommunicationException"</target>
+        </trans-unit>
+        <trans-unit id="da86abf5-207f-4f51-b735-a974c4e3007c" xml:space="preserve">
+          <source>exceptionMessage</source>
+          <target state="new">exceptionMessage</target>
+        </trans-unit>
+        <trans-unit id="379d477e-6707-481c-9679-6ab5502e4c83" xml:space="preserve">
+          <source>"The remote name could not be resolved: 'retry-guidance-tests.servicebus.windows.net'.TrackingId:6a26f99c-dc6d-422e-8565-f89fdd0d4fe3,TimeStamp:9/5/2014 10:00:13 PM"</source>
+          <target state="new">"The remote name could not be resolved: 'retry-guidance-tests.servicebus.windows.net'.TrackingId:6a26f99c-dc6d-422e-8565-f89fdd0d4fe3,TimeStamp:9/5/2014 10:00:13 PM"</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

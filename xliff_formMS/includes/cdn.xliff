@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3a9f53bf-85c2-47cf-8ae6-69309171b26c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3a9f53bf-85c2-47cf-8ae6-69309171b26c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5a9111b0-ecdb-423c-baa4-afc45eb73799">
+        <trans-unit id="4a6f3ca7-87fa-4656-8298-772eedf5b1f6" xml:space="preserve">
+          <source>The Azure Content Delivery Network (CDN) offers developers a
+global solution for delivering high-bandwidth content by caching blobs
+and static content of compute instances at physical nodes in the United
+States, Europe, Asia, Australia and South America.</source>
+          <target state="new">The Azure Content Delivery Network (CDN) offers developers a
+global solution for delivering high-bandwidth content by caching blobs
+and static content of compute instances at physical nodes in the United
+States, Europe, Asia, Australia and South America.</target>
+        </trans-unit>
+        <trans-unit id="9fdcf091-486f-4913-8533-4c0e6629295d" xml:space="preserve">
+          <source>For a current list of
+CDN node locations, see [Azure CDN Node Locations].</source>
+          <target state="new">For a current list of
+CDN node locations, see [Azure CDN Node Locations].</target>
+        </trans-unit>
+        <trans-unit id="1128682d-6c31-4dbb-bc5c-6c1c7187e4b5" xml:space="preserve">
+          <source>This task includes the following steps:</source>
+          <target state="new">This task includes the following steps:</target>
+        </trans-unit>
+        <trans-unit id="e070e049-9b2c-42b2-a4ed-bc8990a52dee" xml:space="preserve">
+          <source><bpt id="d0c2881e-0220-4cd0-a707-f7395e1d7768">&lt;linkText&gt;</bpt>Step 1: Create a storage account<ept id="d0c2881e-0220-4cd0-a707-f7395e1d7768">&lt;/linkText&gt;</ept><bpt id="d0c2881e-0220-4cd0-a707-f7395e1d7768">&lt;title&gt;</bpt><ept id="d0c2881e-0220-4cd0-a707-f7395e1d7768">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d0c2881e-0220-4cd0-a707-f7395e1d7768">&lt;linkText&gt;</bpt>Step 1: Create a storage account<ept id="d0c2881e-0220-4cd0-a707-f7395e1d7768">&lt;/linkText&gt;</ept><bpt id="d0c2881e-0220-4cd0-a707-f7395e1d7768">&lt;title&gt;</bpt><ept id="d0c2881e-0220-4cd0-a707-f7395e1d7768">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecba5072-586f-4f16-b377-9ea62d791098" xml:space="preserve">
+          <source><bpt id="c3ef9f13-3da5-4c7d-88ed-9bb9b73784db">&lt;linkText&gt;</bpt>Step 2: Create a new CDN endpoint for your storage account<ept id="c3ef9f13-3da5-4c7d-88ed-9bb9b73784db">&lt;/linkText&gt;</ept><bpt id="c3ef9f13-3da5-4c7d-88ed-9bb9b73784db">&lt;title&gt;</bpt><ept id="c3ef9f13-3da5-4c7d-88ed-9bb9b73784db">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c3ef9f13-3da5-4c7d-88ed-9bb9b73784db">&lt;linkText&gt;</bpt>Step 2: Create a new CDN endpoint for your storage account<ept id="c3ef9f13-3da5-4c7d-88ed-9bb9b73784db">&lt;/linkText&gt;</ept><bpt id="c3ef9f13-3da5-4c7d-88ed-9bb9b73784db">&lt;title&gt;</bpt><ept id="c3ef9f13-3da5-4c7d-88ed-9bb9b73784db">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57f5343e-a193-44ee-98ff-3763eb1b27b6" xml:space="preserve">
+          <source><bpt id="42035c2c-2a29-4fff-a2c8-621ef145c705">&lt;linkText&gt;</bpt>Step 3: Access your CDN content<ept id="42035c2c-2a29-4fff-a2c8-621ef145c705">&lt;/linkText&gt;</ept><bpt id="42035c2c-2a29-4fff-a2c8-621ef145c705">&lt;title&gt;</bpt><ept id="42035c2c-2a29-4fff-a2c8-621ef145c705">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="42035c2c-2a29-4fff-a2c8-621ef145c705">&lt;linkText&gt;</bpt>Step 3: Access your CDN content<ept id="42035c2c-2a29-4fff-a2c8-621ef145c705">&lt;/linkText&gt;</ept><bpt id="42035c2c-2a29-4fff-a2c8-621ef145c705">&lt;title&gt;</bpt><ept id="42035c2c-2a29-4fff-a2c8-621ef145c705">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af0b570c-7dae-4f58-97ed-a46f57600adf" xml:space="preserve">
+          <source><bpt id="4b7be5b5-d31a-4587-b789-991476ec84ef">&lt;linkText&gt;</bpt>Step 4: Remove your CDN content<ept id="4b7be5b5-d31a-4587-b789-991476ec84ef">&lt;/linkText&gt;</ept><bpt id="4b7be5b5-d31a-4587-b789-991476ec84ef">&lt;title&gt;</bpt><ept id="4b7be5b5-d31a-4587-b789-991476ec84ef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4b7be5b5-d31a-4587-b789-991476ec84ef">&lt;linkText&gt;</bpt>Step 4: Remove your CDN content<ept id="4b7be5b5-d31a-4587-b789-991476ec84ef">&lt;/linkText&gt;</ept><bpt id="4b7be5b5-d31a-4587-b789-991476ec84ef">&lt;title&gt;</bpt><ept id="4b7be5b5-d31a-4587-b789-991476ec84ef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30c7d623-f6a2-496e-9475-985d879bbbd2" xml:space="preserve">
+          <source>The benefits of using CDN to cache Azure data include:</source>
+          <target state="new">The benefits of using CDN to cache Azure data include:</target>
+        </trans-unit>
+        <trans-unit id="510011ae-2717-438b-82b1-334a5fbd505a" xml:space="preserve">
+          <source>Better performance and user experience for end users who are far from a content source, and are using applications where many 'internet trips' are required to load content</source>
+          <target state="new">Better performance and user experience for end users who are far from a content source, and are using applications where many 'internet trips' are required to load content</target>
+        </trans-unit>
+        <trans-unit id="9b576c59-05b0-4ef0-9e6e-249aa3537e21" xml:space="preserve">
+          <source>Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch</source>
+          <target state="new">Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch</target>
+        </trans-unit>
+        <trans-unit id="b6920385-f130-498a-9c92-23dcb78ea2f3" xml:space="preserve">
+          <source>Existing CDN customers can now use the Azure CDN in the [Azure Management Portal].</source>
+          <target state="new">Existing CDN customers can now use the Azure CDN in the [Azure Management Portal].</target>
+        </trans-unit>
+        <trans-unit id="c02fadea-5e17-448b-aae9-cc4b7988adb7" xml:space="preserve">
+          <source>The CDN is an add-on feature to your subscription and has a separate [billing plan].</source>
+          <target state="new">The CDN is an add-on feature to your subscription and has a separate [billing plan].</target>
+        </trans-unit>
+        <trans-unit id="82b8989c-85f3-4688-acfc-65a90cf13bfe" xml:space="preserve">
+          <source><bpt id="f6a753c8-685b-4263-b001-0377cd133c5f">&lt;bookmark&gt;</bpt><ept id="f6a753c8-685b-4263-b001-0377cd133c5f">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="f6a753c8-685b-4263-b001-0377cd133c5f">&lt;bookmark&gt;</bpt><ept id="f6a753c8-685b-4263-b001-0377cd133c5f">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b64f029-14d6-44fe-a91e-00ae828640f7" xml:space="preserve">
+          <source>Step 1: Create a storage account</source>
+          <target state="new">Step 1: Create a storage account</target>
+        </trans-unit>
+        <trans-unit id="4722a468-c53f-4cb6-8f02-0ba6b38258a0" xml:space="preserve">
+          <source>Use the following procedure to create a new storage account for a
+Azure subscription.</source>
+          <target state="new">Use the following procedure to create a new storage account for a
+Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="e498401d-51bb-43c5-b031-afecb5144a7b" xml:space="preserve">
+          <source>A storage account gives access to 
+Azure storage services.</source>
+          <target state="new">A storage account gives access to 
+Azure storage services.</target>
+        </trans-unit>
+        <trans-unit id="ef9de246-5067-4479-9481-cde7e594dfee" xml:space="preserve">
+          <source>The storage account represents the highest level
+of the namespace for accessing each of the Azure storage service
+components: Blob services, Queue services, and Table services.</source>
+          <target state="new">The storage account represents the highest level
+of the namespace for accessing each of the Azure storage service
+components: Blob services, Queue services, and Table services.</target>
+        </trans-unit>
+        <trans-unit id="89bdd1f3-68ef-4dfd-89c0-c7691d6e3acf" xml:space="preserve">
+          <source>For more
+information about the Azure storage services, see <bpt id="cc65193e-5b2d-4e13-89e1-554a74733af0">&lt;linkText&gt;</bpt>Using the
+Azure Storage Services<ept id="cc65193e-5b2d-4e13-89e1-554a74733af0">&lt;/linkText&gt;</ept><bpt id="cc65193e-5b2d-4e13-89e1-554a74733af0">&lt;title&gt;</bpt><ept id="cc65193e-5b2d-4e13-89e1-554a74733af0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more
+information about the Azure storage services, see <bpt id="cc65193e-5b2d-4e13-89e1-554a74733af0">&lt;linkText&gt;</bpt>Using the
+Azure Storage Services<ept id="cc65193e-5b2d-4e13-89e1-554a74733af0">&lt;/linkText&gt;</ept><bpt id="cc65193e-5b2d-4e13-89e1-554a74733af0">&lt;title&gt;</bpt><ept id="cc65193e-5b2d-4e13-89e1-554a74733af0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb8fc2b6-baed-4115-bfe6-e8b3e9183831" xml:space="preserve">
+          <source>To create a storage account, you must be either the service
+administrator or a co-administrator for the associated subscription.</source>
+          <target state="new">To create a storage account, you must be either the service
+administrator or a co-administrator for the associated subscription.</target>
+        </trans-unit>
+        <trans-unit id="e0f71feb-492e-492d-b7b5-b6549bd5b6a9" xml:space="preserve">
+          <source>For information about performing this operation by using the
+Azure Service Management API, see the <bpt id="57b88dfd-5e6c-4ce7-ba90-0c24deb43d7e">&lt;linkText&gt;</bpt>Create Storage Account<ept id="57b88dfd-5e6c-4ce7-ba90-0c24deb43d7e">&lt;/linkText&gt;</ept><bpt id="57b88dfd-5e6c-4ce7-ba90-0c24deb43d7e">&lt;title&gt;</bpt><ept id="57b88dfd-5e6c-4ce7-ba90-0c24deb43d7e">&lt;/title&gt;</ept> reference topic.</source>
+          <target state="new">For information about performing this operation by using the
+Azure Service Management API, see the <bpt id="57b88dfd-5e6c-4ce7-ba90-0c24deb43d7e">&lt;linkText&gt;</bpt>Create Storage Account<ept id="57b88dfd-5e6c-4ce7-ba90-0c24deb43d7e">&lt;/linkText&gt;</ept><bpt id="57b88dfd-5e6c-4ce7-ba90-0c24deb43d7e">&lt;title&gt;</bpt><ept id="57b88dfd-5e6c-4ce7-ba90-0c24deb43d7e">&lt;/title&gt;</ept> reference topic.</target>
+        </trans-unit>
+        <trans-unit id="30bddef5-307b-4d85-b379-4925e63c7e1a" xml:space="preserve">
+          <source><bpt id="64228e35-f492-4e9c-b0d5-96e2fc3b2cd4">&lt;strong&gt;</bpt>To create a storage account for an Azure subscription<ept id="64228e35-f492-4e9c-b0d5-96e2fc3b2cd4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="64228e35-f492-4e9c-b0d5-96e2fc3b2cd4">&lt;strong&gt;</bpt>To create a storage account for an Azure subscription<ept id="64228e35-f492-4e9c-b0d5-96e2fc3b2cd4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0905ab7e-7b12-4225-99e3-3cc9072f0ef3" xml:space="preserve">
+          <source>Log into the [Azure Management Portal].</source>
+          <target state="new">Log into the [Azure Management Portal].</target>
+        </trans-unit>
+        <trans-unit id="6c2e2b1c-1537-4850-9dea-8365b38a7a56" xml:space="preserve">
+          <source>In the lower left corner, click <bpt id="49b24788-ba03-47e6-8872-703baf1a60b2">&lt;strong&gt;</bpt>New<ept id="49b24788-ba03-47e6-8872-703baf1a60b2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the lower left corner, click <bpt id="49b24788-ba03-47e6-8872-703baf1a60b2">&lt;strong&gt;</bpt>New<ept id="49b24788-ba03-47e6-8872-703baf1a60b2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b2c4004-835f-4d97-ba4c-7e50a60691d6" xml:space="preserve">
+          <source>In the <bpt id="7eb765a7-0e73-4b2f-a405-e0982215f53d">&lt;strong&gt;</bpt>New<ept id="7eb765a7-0e73-4b2f-a405-e0982215f53d">&lt;/strong&gt;</ept> Dialog, select <bpt id="44df177b-256d-430c-a9c2-e82b6e29d634">&lt;strong&gt;</bpt>Data Services<ept id="44df177b-256d-430c-a9c2-e82b6e29d634">&lt;/strong&gt;</ept>, then click <bpt id="13b8e0e6-b215-4b3b-ab9d-4386aa37cb95">&lt;strong&gt;</bpt>Storage<ept id="13b8e0e6-b215-4b3b-ab9d-4386aa37cb95">&lt;/strong&gt;</ept>, then <bpt id="05a9f087-07f7-4885-be54-d53e53bab1f2">&lt;strong&gt;</bpt>Quick Create<ept id="05a9f087-07f7-4885-be54-d53e53bab1f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="7eb765a7-0e73-4b2f-a405-e0982215f53d">&lt;strong&gt;</bpt>New<ept id="7eb765a7-0e73-4b2f-a405-e0982215f53d">&lt;/strong&gt;</ept> Dialog, select <bpt id="44df177b-256d-430c-a9c2-e82b6e29d634">&lt;strong&gt;</bpt>Data Services<ept id="44df177b-256d-430c-a9c2-e82b6e29d634">&lt;/strong&gt;</ept>, then click <bpt id="13b8e0e6-b215-4b3b-ab9d-4386aa37cb95">&lt;strong&gt;</bpt>Storage<ept id="13b8e0e6-b215-4b3b-ab9d-4386aa37cb95">&lt;/strong&gt;</ept>, then <bpt id="05a9f087-07f7-4885-be54-d53e53bab1f2">&lt;strong&gt;</bpt>Quick Create<ept id="05a9f087-07f7-4885-be54-d53e53bab1f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95ed4789-c198-4b6b-b379-427d62ab7daf" xml:space="preserve">
+          <source>The <bpt id="24363e4b-c582-4070-9c0a-7ee2cf285e6f">&lt;strong&gt;</bpt>Create Storage Account<ept id="24363e4b-c582-4070-9c0a-7ee2cf285e6f">&lt;/strong&gt;</ept> dialog appears.</source>
+          <target state="new">The <bpt id="24363e4b-c582-4070-9c0a-7ee2cf285e6f">&lt;strong&gt;</bpt>Create Storage Account<ept id="24363e4b-c582-4070-9c0a-7ee2cf285e6f">&lt;/strong&gt;</ept> dialog appears.</target>
+        </trans-unit>
+        <trans-unit id="d03703a4-e45c-45ae-a2ce-97429852a02f" xml:space="preserve">
+          <source><bpt id="9295f053-57b9-464c-8970-4a250a46bbe5">&lt;linkText&gt;</bpt>Create Storage Account<ept id="9295f053-57b9-464c-8970-4a250a46bbe5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9295f053-57b9-464c-8970-4a250a46bbe5">&lt;linkText&gt;</bpt>Create Storage Account<ept id="9295f053-57b9-464c-8970-4a250a46bbe5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a476913-6a71-4fb4-9e25-76d7f3c8a63f" xml:space="preserve">
+          <source>In the <bpt id="555886fa-6c6c-4760-8a34-774b9570dc7d">&lt;strong&gt;</bpt>URL<ept id="555886fa-6c6c-4760-8a34-774b9570dc7d">&lt;/strong&gt;</ept> field, type a subdomain name.</source>
+          <target state="new">In the <bpt id="555886fa-6c6c-4760-8a34-774b9570dc7d">&lt;strong&gt;</bpt>URL<ept id="555886fa-6c6c-4760-8a34-774b9570dc7d">&lt;/strong&gt;</ept> field, type a subdomain name.</target>
+        </trans-unit>
+        <trans-unit id="187ec0b6-152e-4b10-a226-bf189769cd34" xml:space="preserve">
+          <source>This entry can contain from 3-24 lowercase letters and numbers.</source>
+          <target state="new">This entry can contain from 3-24 lowercase letters and numbers.</target>
+        </trans-unit>
+        <trans-unit id="0e574ca7-2910-4fe3-8b14-e7a34c2d4465" xml:space="preserve">
+          <source>This value becomes the host name within the URI that is used to
+address Blob, Queue, or Table resources for the subscription.</source>
+          <target state="new">This value becomes the host name within the URI that is used to
+address Blob, Queue, or Table resources for the subscription.</target>
+        </trans-unit>
+        <trans-unit id="b78af69e-dd3b-4fd6-b12c-3d5901276afd" xml:space="preserve">
+          <source>To
+address a container resource in the Blob service, you would use a
+URI in the following format, where <bpt id="0d6b68a0-42cd-4a92-8b85-16152066b9ff">&lt;em&gt;</bpt>&amp;lt;StorageAccountLabel&amp;gt;<ept id="0d6b68a0-42cd-4a92-8b85-16152066b9ff">&lt;/em&gt;</ept> refers
+to the value you typed in <bpt id="5e2119ce-10ba-49a6-99d5-1c7c478c23c7">&lt;strong&gt;</bpt>Enter a URL<ept id="5e2119ce-10ba-49a6-99d5-1c7c478c23c7">&lt;/strong&gt;</ept>:</source>
+          <target state="new">To
+address a container resource in the Blob service, you would use a
+URI in the following format, where <bpt id="0d6b68a0-42cd-4a92-8b85-16152066b9ff">&lt;em&gt;</bpt>&amp;lt;StorageAccountLabel&amp;gt;<ept id="0d6b68a0-42cd-4a92-8b85-16152066b9ff">&lt;/em&gt;</ept> refers
+to the value you typed in <bpt id="5e2119ce-10ba-49a6-99d5-1c7c478c23c7">&lt;strong&gt;</bpt>Enter a URL<ept id="5e2119ce-10ba-49a6-99d5-1c7c478c23c7">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="92ad1d45-1904-4ecb-abc6-bb487a49de1c" xml:space="preserve">
+          <source>http://<bpt id="17f49042-437b-4455-882b-0e806f0e43f6">&lt;em&gt;</bpt>&amp;lt;StorageAcountLabel&amp;gt;<ept id="17f49042-437b-4455-882b-0e806f0e43f6">&lt;/em&gt;</ept>.blob.core.windows.net/<bpt id="81161a54-6c1d-4ad0-a278-a7dd8d5c278b">&lt;em&gt;</bpt>&amp;lt;mycontainer&amp;gt;<ept id="81161a54-6c1d-4ad0-a278-a7dd8d5c278b">&lt;/em&gt;</ept></source>
+          <target state="new">http://<bpt id="17f49042-437b-4455-882b-0e806f0e43f6">&lt;em&gt;</bpt>&amp;lt;StorageAcountLabel&amp;gt;<ept id="17f49042-437b-4455-882b-0e806f0e43f6">&lt;/em&gt;</ept>.blob.core.windows.net/<bpt id="81161a54-6c1d-4ad0-a278-a7dd8d5c278b">&lt;em&gt;</bpt>&amp;lt;mycontainer&amp;gt;<ept id="81161a54-6c1d-4ad0-a278-a7dd8d5c278b">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5a74e54-c16f-4f3d-a7fe-9add04ac2f0b" xml:space="preserve">
+          <source><bpt id="7c27686c-1c0d-46ee-a24c-e0706d000006">&lt;strong&gt;</bpt>Important:<ept id="7c27686c-1c0d-46ee-a24c-e0706d000006">&lt;/strong&gt;</ept> The URL label forms the subdomain of the storage
+account URI and must be unique among all hosted services in 
+Azure.</source>
+          <target state="new"><bpt id="7c27686c-1c0d-46ee-a24c-e0706d000006">&lt;strong&gt;</bpt>Important:<ept id="7c27686c-1c0d-46ee-a24c-e0706d000006">&lt;/strong&gt;</ept> The URL label forms the subdomain of the storage
+account URI and must be unique among all hosted services in 
+Azure.</target>
+        </trans-unit>
+        <trans-unit id="a10d8b85-1ad1-4506-ba9d-3009ba73ada9" xml:space="preserve">
+          <source>This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.</source>
+          <target state="new">This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.</target>
+        </trans-unit>
+        <trans-unit id="907118d6-7635-4b10-a6ab-5395da50899e" xml:space="preserve">
+          <source>From the <bpt id="0bbb1a01-fda6-456a-bf69-b805eac6c2d0">&lt;strong&gt;</bpt>Region/Affinity Group<ept id="0bbb1a01-fda6-456a-bf69-b805eac6c2d0">&lt;/strong&gt;</ept> drop-down list, select a region or affinity group for the storage account.</source>
+          <target state="new">From the <bpt id="0bbb1a01-fda6-456a-bf69-b805eac6c2d0">&lt;strong&gt;</bpt>Region/Affinity Group<ept id="0bbb1a01-fda6-456a-bf69-b805eac6c2d0">&lt;/strong&gt;</ept> drop-down list, select a region or affinity group for the storage account.</target>
+        </trans-unit>
+        <trans-unit id="f25bc251-16db-4c30-acc3-d50cef45761c" xml:space="preserve">
+          <source>Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using.</source>
+          <target state="new">Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using.</target>
+        </trans-unit>
+        <trans-unit id="91f086c5-44fa-4dee-88a3-0547737430dd" xml:space="preserve">
+          <source>This can improve performance, and no charges are incurred for egress.</source>
+          <target state="new">This can improve performance, and no charges are incurred for egress.</target>
+        </trans-unit>
+        <trans-unit id="2e22cbc0-6462-4acc-b0a8-8a0c21e27c66" xml:space="preserve">
+          <source><bpt id="f87bf8b2-392a-457f-bdb1-fc4274d1f40a">&lt;strong&gt;</bpt>Note:<ept id="f87bf8b2-392a-457f-bdb1-fc4274d1f40a">&lt;/strong&gt;</ept> To create an affinity group, open the <bpt id="3d029085-e5cf-466e-bfe3-d0b7e1c896d2">&lt;strong&gt;</bpt>Settings<ept id="3d029085-e5cf-466e-bfe3-d0b7e1c896d2">&lt;/strong&gt;</ept> area of the Management Portal, click <bpt id="64c7b1d2-527b-44a6-b260-40a69d13818a">&lt;strong&gt;</bpt>Affinity Groups<ept id="64c7b1d2-527b-44a6-b260-40a69d13818a">&lt;/strong&gt;</ept>, and then click either <bpt id="5f91792a-480f-40b5-aba0-6c1d7ce97c7b">&lt;strong&gt;</bpt>Add an affinity group<ept id="5f91792a-480f-40b5-aba0-6c1d7ce97c7b">&lt;/strong&gt;</ept> or <bpt id="150a4f51-7894-4bd6-a983-13a9e97a3ed3">&lt;strong&gt;</bpt>Add<ept id="150a4f51-7894-4bd6-a983-13a9e97a3ed3">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f87bf8b2-392a-457f-bdb1-fc4274d1f40a">&lt;strong&gt;</bpt>Note:<ept id="f87bf8b2-392a-457f-bdb1-fc4274d1f40a">&lt;/strong&gt;</ept> To create an affinity group, open the <bpt id="3d029085-e5cf-466e-bfe3-d0b7e1c896d2">&lt;strong&gt;</bpt>Settings<ept id="3d029085-e5cf-466e-bfe3-d0b7e1c896d2">&lt;/strong&gt;</ept> area of the Management Portal, click <bpt id="64c7b1d2-527b-44a6-b260-40a69d13818a">&lt;strong&gt;</bpt>Affinity Groups<ept id="64c7b1d2-527b-44a6-b260-40a69d13818a">&lt;/strong&gt;</ept>, and then click either <bpt id="5f91792a-480f-40b5-aba0-6c1d7ce97c7b">&lt;strong&gt;</bpt>Add an affinity group<ept id="5f91792a-480f-40b5-aba0-6c1d7ce97c7b">&lt;/strong&gt;</ept> or <bpt id="150a4f51-7894-4bd6-a983-13a9e97a3ed3">&lt;strong&gt;</bpt>Add<ept id="150a4f51-7894-4bd6-a983-13a9e97a3ed3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39581f44-63a6-48cd-a40c-f5d24b92f658" xml:space="preserve">
+          <source>You can also create and manage affinity groups using the Windows Azure Service Management API.</source>
+          <target state="new">You can also create and manage affinity groups using the Windows Azure Service Management API.</target>
+        </trans-unit>
+        <trans-unit id="0a37fcd0-4348-4008-801e-137a080cc41c" xml:space="preserve">
+          <source>For more information, see [Operations on Affinity Groups].</source>
+          <target state="new">For more information, see [Operations on Affinity Groups].</target>
+        </trans-unit>
+        <trans-unit id="b380e186-fa8b-44aa-ae74-24bbd08e33fd" xml:space="preserve">
+          <source>From the <bpt id="3d3fc6aa-8f0d-4c9d-b60e-89c98ebbe17c">&lt;strong&gt;</bpt>Subscription<ept id="3d3fc6aa-8f0d-4c9d-b60e-89c98ebbe17c">&lt;/strong&gt;</ept> drop-down list, select the subscription that the storage account will be used with.</source>
+          <target state="new">From the <bpt id="3d3fc6aa-8f0d-4c9d-b60e-89c98ebbe17c">&lt;strong&gt;</bpt>Subscription<ept id="3d3fc6aa-8f0d-4c9d-b60e-89c98ebbe17c">&lt;/strong&gt;</ept> drop-down list, select the subscription that the storage account will be used with.</target>
+        </trans-unit>
+        <trans-unit id="2a8ccea3-9117-4daf-8697-f34a5815c165" xml:space="preserve">
+          <source>Click <bpt id="81ed835a-bcbc-4b7f-a9e6-f2f3c7a2c58a">&lt;strong&gt;</bpt>Create Storage Account<ept id="81ed835a-bcbc-4b7f-a9e6-f2f3c7a2c58a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="81ed835a-bcbc-4b7f-a9e6-f2f3c7a2c58a">&lt;strong&gt;</bpt>Create Storage Account<ept id="81ed835a-bcbc-4b7f-a9e6-f2f3c7a2c58a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd83aa63-2e80-4263-af79-97c54e736c7d" xml:space="preserve">
+          <source>The process of creating the storage account might take several minutes to complete.</source>
+          <target state="new">The process of creating the storage account might take several minutes to complete.</target>
+        </trans-unit>
+        <trans-unit id="2e40a909-e854-471c-b0e0-01d4e7f6cfdc" xml:space="preserve">
+          <source>To verify that the storage account was created successfully, verify that the account appears in the items listed for <bpt id="e067f15c-6cba-4f62-9750-8e1c7dae2692">&lt;strong&gt;</bpt>Storage<ept id="e067f15c-6cba-4f62-9750-8e1c7dae2692">&lt;/strong&gt;</ept> with a status of <bpt id="e1435465-8f6a-4ac9-b757-181b641f2878">&lt;strong&gt;</bpt>Online<ept id="e1435465-8f6a-4ac9-b757-181b641f2878">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To verify that the storage account was created successfully, verify that the account appears in the items listed for <bpt id="e067f15c-6cba-4f62-9750-8e1c7dae2692">&lt;strong&gt;</bpt>Storage<ept id="e067f15c-6cba-4f62-9750-8e1c7dae2692">&lt;/strong&gt;</ept> with a status of <bpt id="e1435465-8f6a-4ac9-b757-181b641f2878">&lt;strong&gt;</bpt>Online<ept id="e1435465-8f6a-4ac9-b757-181b641f2878">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4bc29cdc-e608-4714-8c8c-3199aea55aaf" xml:space="preserve">
+          <source><bpt id="1d455e24-7cd0-4613-aa8b-8275140a0357">&lt;bookmark&gt;</bpt><ept id="1d455e24-7cd0-4613-aa8b-8275140a0357">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="1d455e24-7cd0-4613-aa8b-8275140a0357">&lt;bookmark&gt;</bpt><ept id="1d455e24-7cd0-4613-aa8b-8275140a0357">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c365112-f5c0-427f-977f-534ed838a92f" xml:space="preserve">
+          <source>Step 2: Create a new CDN endpoint for your storage account</source>
+          <target state="new">Step 2: Create a new CDN endpoint for your storage account</target>
+        </trans-unit>
+        <trans-unit id="9bf4a71a-671f-457f-91d5-6e73975b5cb2" xml:space="preserve">
+          <source>Once you enable CDN access to a storage account or hosted service, all
+publicly available objects are eligible for CDN edge caching.</source>
+          <target state="new">Once you enable CDN access to a storage account or hosted service, all
+publicly available objects are eligible for CDN edge caching.</target>
+        </trans-unit>
+        <trans-unit id="c571398d-5f78-4eb9-93ad-ca35777d6374" xml:space="preserve">
+          <source>If you
+modify an object that is currently cached in the CDN, the new content
+will not be available via the CDN until the CDN refreshes its content
+when the cached content time-to-live period expires.</source>
+          <target state="new">If you
+modify an object that is currently cached in the CDN, the new content
+will not be available via the CDN until the CDN refreshes its content
+when the cached content time-to-live period expires.</target>
+        </trans-unit>
+        <trans-unit id="38e5a354-364c-427d-a54e-9460b5d0a2f9" xml:space="preserve">
+          <source><bpt id="d8ca0606-c084-4b2c-989d-1c9bdda0eed2">&lt;strong&gt;</bpt>To create a new CDN endpoint for your storage account<ept id="d8ca0606-c084-4b2c-989d-1c9bdda0eed2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d8ca0606-c084-4b2c-989d-1c9bdda0eed2">&lt;strong&gt;</bpt>To create a new CDN endpoint for your storage account<ept id="d8ca0606-c084-4b2c-989d-1c9bdda0eed2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8210ee4e-936f-4378-976e-8f6711858c66" xml:space="preserve">
+          <source>In the [Azure Management Portal], in the navigation pane, click <bpt id="b899aa2c-37fe-4ad0-913d-c9b3b50da09d">&lt;strong&gt;</bpt>CDN<ept id="b899aa2c-37fe-4ad0-913d-c9b3b50da09d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the [Azure Management Portal], in the navigation pane, click <bpt id="b899aa2c-37fe-4ad0-913d-c9b3b50da09d">&lt;strong&gt;</bpt>CDN<ept id="b899aa2c-37fe-4ad0-913d-c9b3b50da09d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4ebf340-132e-4ebd-81fa-c25e69061860" xml:space="preserve">
+          <source>On the ribbon, click <bpt id="c2ce3761-d1b6-4731-9050-3ec75e8c5d0e">&lt;strong&gt;</bpt>New<ept id="c2ce3761-d1b6-4731-9050-3ec75e8c5d0e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the ribbon, click <bpt id="c2ce3761-d1b6-4731-9050-3ec75e8c5d0e">&lt;strong&gt;</bpt>New<ept id="c2ce3761-d1b6-4731-9050-3ec75e8c5d0e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac5662a2-f2bc-45e4-a166-1b594959858a" xml:space="preserve">
+          <source>In the <bpt id="8bfa8c22-c50a-4c30-8f2f-6207a80dd4ec">&lt;strong&gt;</bpt>New<ept id="8bfa8c22-c50a-4c30-8f2f-6207a80dd4ec">&lt;/strong&gt;</ept> dialog, select <bpt id="149d6dd0-17fa-4cf3-b6f3-e0caf5b4d950">&lt;strong&gt;</bpt>App Services<ept id="149d6dd0-17fa-4cf3-b6f3-e0caf5b4d950">&lt;/strong&gt;</ept>, then <bpt id="d3e44e9a-8195-4588-beb5-e1011a5bada0">&lt;strong&gt;</bpt>CDN<ept id="d3e44e9a-8195-4588-beb5-e1011a5bada0">&lt;/strong&gt;</ept>, then <bpt id="df77c0a4-ce86-4cb6-9fa8-4fd82e534a9a">&lt;strong&gt;</bpt>Quick Create<ept id="df77c0a4-ce86-4cb6-9fa8-4fd82e534a9a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="8bfa8c22-c50a-4c30-8f2f-6207a80dd4ec">&lt;strong&gt;</bpt>New<ept id="8bfa8c22-c50a-4c30-8f2f-6207a80dd4ec">&lt;/strong&gt;</ept> dialog, select <bpt id="149d6dd0-17fa-4cf3-b6f3-e0caf5b4d950">&lt;strong&gt;</bpt>App Services<ept id="149d6dd0-17fa-4cf3-b6f3-e0caf5b4d950">&lt;/strong&gt;</ept>, then <bpt id="d3e44e9a-8195-4588-beb5-e1011a5bada0">&lt;strong&gt;</bpt>CDN<ept id="d3e44e9a-8195-4588-beb5-e1011a5bada0">&lt;/strong&gt;</ept>, then <bpt id="df77c0a4-ce86-4cb6-9fa8-4fd82e534a9a">&lt;strong&gt;</bpt>Quick Create<ept id="df77c0a4-ce86-4cb6-9fa8-4fd82e534a9a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43666f64-036b-48da-8fd2-0eb50c4ce6be" xml:space="preserve">
+          <source>In the <bpt id="94eb8f55-14ba-447f-be1a-aec7c49b41e5">&lt;strong&gt;</bpt>Origin Domain<ept id="94eb8f55-14ba-447f-be1a-aec7c49b41e5">&lt;/strong&gt;</ept> dropdown, select the storage account you created in the previous section from the list of your available storage accounts.</source>
+          <target state="new">In the <bpt id="94eb8f55-14ba-447f-be1a-aec7c49b41e5">&lt;strong&gt;</bpt>Origin Domain<ept id="94eb8f55-14ba-447f-be1a-aec7c49b41e5">&lt;/strong&gt;</ept> dropdown, select the storage account you created in the previous section from the list of your available storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="9ea7d88e-efbc-4eec-a9a2-5a573fa6b00e" xml:space="preserve">
+          <source>Click the <bpt id="1d041d82-6b23-42f1-841f-870439d307f6">&lt;strong&gt;</bpt>Create<ept id="1d041d82-6b23-42f1-841f-870439d307f6">&lt;/strong&gt;</ept> button to create the new endpoint.</source>
+          <target state="new">Click the <bpt id="1d041d82-6b23-42f1-841f-870439d307f6">&lt;strong&gt;</bpt>Create<ept id="1d041d82-6b23-42f1-841f-870439d307f6">&lt;/strong&gt;</ept> button to create the new endpoint.</target>
+        </trans-unit>
+        <trans-unit id="d01e7641-03e2-4138-b983-c903174e5d71" xml:space="preserve">
+          <source>Once the endpoint is created, it appears in a list of endpoints for the subscription.</source>
+          <target state="new">Once the endpoint is created, it appears in a list of endpoints for the subscription.</target>
+        </trans-unit>
+        <trans-unit id="b3b70426-439e-46b8-b846-0eb0684f892f" xml:space="preserve">
+          <source>The list view shows the URL to use to access cached content, as well as the origin domain.</source>
+          <target state="new">The list view shows the URL to use to access cached content, as well as the origin domain.</target>
+        </trans-unit>
+        <trans-unit id="cfadcb92-d31f-4f3c-844d-206ab0538da3" xml:space="preserve">
+          <source>The origin domain is the location from which the CDN caches
+content.</source>
+          <target state="new">The origin domain is the location from which the CDN caches
+content.</target>
+        </trans-unit>
+        <trans-unit id="de59deea-8926-4dd9-b082-78803c43c91a" xml:space="preserve">
+          <source>The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example.</source>
+          <target state="new">The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example.</target>
+        </trans-unit>
+        <trans-unit id="07a91efa-749b-4175-97b7-982a37944a13" xml:space="preserve">
+          <source>Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network.</source>
+          <target state="new">Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network.</target>
+        </trans-unit>
+        <trans-unit id="7a27a355-9380-4608-b5f7-b849940065fc" xml:space="preserve">
+          <source>The configuration created for the endpoint will not
+immediately be available; it can take up to 60 minutes for the
+registration to propagate through the CDN network.</source>
+          <target state="new">The configuration created for the endpoint will not
+immediately be available; it can take up to 60 minutes for the
+registration to propagate through the CDN network.</target>
+        </trans-unit>
+        <trans-unit id="2f9a3948-a301-40c2-953d-ae7c62d34eb2" xml:space="preserve">
+          <source>Users who try to
+use the CDN domain name immediately may receive status code 400
+(Bad Request) until the content is available via the CDN.</source>
+          <target state="new">Users who try to
+use the CDN domain name immediately may receive status code 400
+(Bad Request) until the content is available via the CDN.</target>
+        </trans-unit>
+        <trans-unit id="58f32e26-2596-4b2f-bc13-d6c9419cc33c" xml:space="preserve">
+          <source><bpt id="f16aab89-e0d2-4f4c-930e-01abcbd62cd3">&lt;bookmark&gt;</bpt><ept id="f16aab89-e0d2-4f4c-930e-01abcbd62cd3">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="f16aab89-e0d2-4f4c-930e-01abcbd62cd3">&lt;bookmark&gt;</bpt><ept id="f16aab89-e0d2-4f4c-930e-01abcbd62cd3">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6954c6c7-438e-4f1d-afdc-b34974a210a8" xml:space="preserve">
+          <source>Step 3: Access CDN content</source>
+          <target state="new">Step 3: Access CDN content</target>
+        </trans-unit>
+        <trans-unit id="834f83e9-9804-4001-9467-8c52b0039f9d" xml:space="preserve">
+          <source>To access cached content on the CDN, use the CDN URL provided in the portal.</source>
+          <target state="new">To access cached content on the CDN, use the CDN URL provided in the portal.</target>
+        </trans-unit>
+        <trans-unit id="c5be1d58-94e1-4b9f-968e-26cee0573d71" xml:space="preserve">
+          <source>The address for a cached blob will be similar to the following:</source>
+          <target state="new">The address for a cached blob will be similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="b3710c7e-869b-4c8e-936e-37e9d35dd724" xml:space="preserve">
+          <source>http://&lt;<bpt id="d91b13e1-fec2-4cae-810c-1fa6aed6ac97">&lt;em&gt;</bpt>CDNNamespace<ept id="d91b13e1-fec2-4cae-810c-1fa6aed6ac97">&lt;/em&gt;</ept>\&gt;.vo.msecnd.net/&lt;<bpt id="feba9377-cb54-4e91-884b-ed0f5f1ed36a">&lt;em&gt;</bpt>myPublicContainer<ept id="feba9377-cb54-4e91-884b-ed0f5f1ed36a">&lt;/em&gt;</ept>\&gt;/&lt;<bpt id="43cc789d-bdac-451d-85b5-0e19328969d8">&lt;em&gt;</bpt>BlobName<ept id="43cc789d-bdac-451d-85b5-0e19328969d8">&lt;/em&gt;</ept>\&gt;</source>
+          <target state="new">http://&lt;<bpt id="d91b13e1-fec2-4cae-810c-1fa6aed6ac97">&lt;em&gt;</bpt>CDNNamespace<ept id="d91b13e1-fec2-4cae-810c-1fa6aed6ac97">&lt;/em&gt;</ept>\&gt;.vo.msecnd.net/&lt;<bpt id="feba9377-cb54-4e91-884b-ed0f5f1ed36a">&lt;em&gt;</bpt>myPublicContainer<ept id="feba9377-cb54-4e91-884b-ed0f5f1ed36a">&lt;/em&gt;</ept>\&gt;/&lt;<bpt id="43cc789d-bdac-451d-85b5-0e19328969d8">&lt;em&gt;</bpt>BlobName<ept id="43cc789d-bdac-451d-85b5-0e19328969d8">&lt;/em&gt;</ept>\&gt;</target>
+        </trans-unit>
+        <trans-unit id="df2d25ce-075e-427a-904b-3d38ada21e98" xml:space="preserve">
+          <source><bpt id="b7033dcc-254e-464c-b1f4-112698838290">&lt;bookmark&gt;</bpt><ept id="b7033dcc-254e-464c-b1f4-112698838290">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="b7033dcc-254e-464c-b1f4-112698838290">&lt;bookmark&gt;</bpt><ept id="b7033dcc-254e-464c-b1f4-112698838290">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d353dd20-f07a-49da-bc57-8c28fae96d08" xml:space="preserve">
+          <source>Step 4: Remove content from the CDN</source>
+          <target state="new">Step 4: Remove content from the CDN</target>
+        </trans-unit>
+        <trans-unit id="29671330-84d9-4c2d-9f16-5e683cea0411" xml:space="preserve">
+          <source>If you no longer wish to cache an object in the Azure Content
+Delivery Network (CDN), you can take one of the following steps:</source>
+          <target state="new">If you no longer wish to cache an object in the Azure Content
+Delivery Network (CDN), you can take one of the following steps:</target>
+        </trans-unit>
+        <trans-unit id="04361e9e-19ec-457b-827d-52cf22fdbfab" xml:space="preserve">
+          <source>For an Azure blob, you can delete the blob from the public
+container.</source>
+          <target state="new">For an Azure blob, you can delete the blob from the public
+container.</target>
+        </trans-unit>
+        <trans-unit id="19a561a2-320e-4f38-9222-5769bc364fb6" xml:space="preserve">
+          <source>You can make the container private instead of public.</source>
+          <target state="new">You can make the container private instead of public.</target>
+        </trans-unit>
+        <trans-unit id="3f980940-ab09-4b92-a24c-6957c8469f98" xml:space="preserve">
+          <source>See <bpt id="9f63d611-1148-4335-934e-65d9b041f189">&lt;linkText&gt;</bpt>Restrict Access to Containers and Blobs<ept id="9f63d611-1148-4335-934e-65d9b041f189">&lt;/linkText&gt;</ept><bpt id="9f63d611-1148-4335-934e-65d9b041f189">&lt;title&gt;</bpt><ept id="9f63d611-1148-4335-934e-65d9b041f189">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="9f63d611-1148-4335-934e-65d9b041f189">&lt;linkText&gt;</bpt>Restrict Access to Containers and Blobs<ept id="9f63d611-1148-4335-934e-65d9b041f189">&lt;/linkText&gt;</ept><bpt id="9f63d611-1148-4335-934e-65d9b041f189">&lt;title&gt;</bpt><ept id="9f63d611-1148-4335-934e-65d9b041f189">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="4871b1ad-49d3-4469-95ed-86eb26da466c" xml:space="preserve">
+          <source>You can disable or delete the CDN endpoint using the Management
+Portal.</source>
+          <target state="new">You can disable or delete the CDN endpoint using the Management
+Portal.</target>
+        </trans-unit>
+        <trans-unit id="f7d66b33-e0ce-4acf-bdce-b74d1906cdae" xml:space="preserve">
+          <source>You can modify your hosted service to no longer respond to requests for the
+object.</source>
+          <target state="new">You can modify your hosted service to no longer respond to requests for the
+object.</target>
+        </trans-unit>
+        <trans-unit id="5b088e80-59ce-4007-8e0d-690f9a8e60c2" xml:space="preserve">
+          <source>An object already cached in the CDN will remain cached until the
+time-to-live period for the object expires.</source>
+          <target state="new">An object already cached in the CDN will remain cached until the
+time-to-live period for the object expires.</target>
+        </trans-unit>
+        <trans-unit id="8cc40b97-51d3-4add-b5f7-772628fe867a" xml:space="preserve">
+          <source>When the time-to-live period
+expires, the CDN will check to see whether the CDN endpoint is still
+valid and the object still anonymously accessible.</source>
+          <target state="new">When the time-to-live period
+expires, the CDN will check to see whether the CDN endpoint is still
+valid and the object still anonymously accessible.</target>
+        </trans-unit>
+        <trans-unit id="6507e3ae-3f3a-4cc4-aee0-621810b014e6" xml:space="preserve">
+          <source>If it is not, then
+the object will no longer be cached.</source>
+          <target state="new">If it is not, then
+the object will no longer be cached.</target>
+        </trans-unit>
+        <trans-unit id="852cb5ab-80cb-4e97-b1fd-727932820749" xml:space="preserve">
+          <source>The ability to immediately purge content is currently not supported on Azure Management Portal.</source>
+          <target state="new">The ability to immediately purge content is currently not supported on Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="5b601625-8e16-4ca1-8f7e-ba8ce5e3b516" xml:space="preserve">
+          <source>Please contact <bpt id="3b27737b-9914-4638-a6ee-dd4d8090d040">&lt;linkText&gt;</bpt>Azure support<ept id="3b27737b-9914-4638-a6ee-dd4d8090d040">&lt;/linkText&gt;</ept><bpt id="3b27737b-9914-4638-a6ee-dd4d8090d040">&lt;title&gt;</bpt><ept id="3b27737b-9914-4638-a6ee-dd4d8090d040">&lt;/title&gt;</ept>  if you need to immediately purge content.</source>
+          <target state="new">Please contact <bpt id="3b27737b-9914-4638-a6ee-dd4d8090d040">&lt;linkText&gt;</bpt>Azure support<ept id="3b27737b-9914-4638-a6ee-dd4d8090d040">&lt;/linkText&gt;</ept><bpt id="3b27737b-9914-4638-a6ee-dd4d8090d040">&lt;title&gt;</bpt><ept id="3b27737b-9914-4638-a6ee-dd4d8090d040">&lt;/title&gt;</ept>  if you need to immediately purge content.</target>
+        </trans-unit>
+        <trans-unit id="a632fa68-712f-46e1-823d-4ac39e0667c4" xml:space="preserve">
+          <source>[How to Create an Affinity Group in Azure]</source>
+          <target state="new">[How to Create an Affinity Group in Azure]</target>
+        </trans-unit>
+        <trans-unit id="867aca97-dc68-4d0a-8009-5791eca42b69" xml:space="preserve">
+          <source>[How to: Manage Storage Accounts for an Azure Subscription]</source>
+          <target state="new">[How to: Manage Storage Accounts for an Azure Subscription]</target>
+        </trans-unit>
+        <trans-unit id="5628ee8f-1a52-459a-ac0d-49259a42563d" xml:space="preserve">
+          <source>[About the Service Management API]</source>
+          <target state="new">[About the Service Management API]</target>
+        </trans-unit>
+        <trans-unit id="6839e595-3f4a-49e2-a5b2-f77b8be234f2" xml:space="preserve">
+          <source>[How to Map CDN Content to a Custom Domain]</source>
+          <target state="new">[How to Map CDN Content to a Custom Domain]</target>
+        </trans-unit>
+        <trans-unit id="a24aff75-92ae-4a36-9316-1db7df6d93b2" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/storage-create-storage-account/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/storage-create-storage-account/</target>
+        </trans-unit>
+        <trans-unit id="376b57ef-c017-4487-bd3e-b2070fc3d14d" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/gg680302.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/gg680302.aspx</target>
+        </trans-unit>
+        <trans-unit id="90a8585f-bed9-4caf-9d05-1fd99b6a4f7a" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="b3e92a44-27c9-419e-abbf-f6b6f24effb3" xml:space="preserve">
+          <source>/pricing/calculator/?scenario=full</source>
+          <target state="new">/pricing/calculator/?scenario=full</target>
+        </trans-unit>
+        <trans-unit id="039c672b-13cb-48b1-9f51-3e10ca2362c4" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/ee460798.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/ee460798.aspx</target>
+        </trans-unit>
+        <trans-unit id="f4f4aa22-9404-4f68-babe-7ec4aa9b843c" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/ff919703.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/ff919703.aspx</target>
+        </trans-unit>
+        <trans-unit id="2da205e5-279d-401c-89b6-99660b7a7153" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/ee460807.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/ee460807.aspx</target>
+        </trans-unit>
+        <trans-unit id="422f30db-b982-414d-82eb-35c3c93ab01b" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/gg680307.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/gg680307.aspx</target>
+        </trans-unit>
+        <trans-unit id="2c45cd18-43eb-4d90-80f1-ad5fe98d163d" xml:space="preserve">
+          <source>./media/cdn/CDN_CreateNewStorageAcct.png</source>
+          <target state="new">./media/cdn/CDN_CreateNewStorageAcct.png</target>
+        </trans-unit>
+        <trans-unit id="cc1388be-5c85-4deb-aef3-fef5b6421a9f" xml:space="preserve">
+          <source>../../Shared/Media/previous-portal.png</source>
+          <target state="new">../../Shared/Media/previous-portal.png</target>
+        </trans-unit>
+      </group>
+      <group id="16b8b0a8-96be-4fdf-87a6-edbf2a2a2fd3" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e394be05-9fdb-445b-9e21-9931ada4c75f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e394be05-9fdb-445b-9e21-9931ada4c75f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4408cc2d-5843-4655-bf9c-d45ff6bae733">
+        <trans-unit id="6f1a21af-594e-428b-96d0-6de7f8ee80d4" xml:space="preserve">
+          <source>Event Hubs Overview</source>
+          <target state="new">Event Hubs Overview</target>
+        </trans-unit>
+        <trans-unit id="5f9433d7-a723-4d20-b8be-e367a731f99a" xml:space="preserve">
+          <source>Introduction and overview of Azure Event Hubs.</source>
+          <target state="new">Introduction and overview of Azure Event Hubs.</target>
+        </trans-unit>
+        <trans-unit id="6e581eec-12a1-40d0-a56d-ba2c701026e8" xml:space="preserve">
+          <source>Many modern solutions intend to provide adaptive customer experiences or to improve products through continuous feedback and automated telemetry.</source>
+          <target state="new">Many modern solutions intend to provide adaptive customer experiences or to improve products through continuous feedback and automated telemetry.</target>
+        </trans-unit>
+        <trans-unit id="7f501a56-add4-404e-9ab2-1418bdc3f8e2" xml:space="preserve">
+          <source>Such solutions are faced with the challenge of how to securely and reliably process very large amounts of information from many concurrent publishers.</source>
+          <target state="new">Such solutions are faced with the challenge of how to securely and reliably process very large amounts of information from many concurrent publishers.</target>
+        </trans-unit>
+        <trans-unit id="5ab760b6-161f-4cff-adf7-b6b1e9fe4ed7" xml:space="preserve">
+          <source>Microsoft Azure Event Hubs is a managed platform service that provides a foundation for large-scale data intake in a broad variety of scenarios.</source>
+          <target state="new">Microsoft Azure Event Hubs is a managed platform service that provides a foundation for large-scale data intake in a broad variety of scenarios.</target>
+        </trans-unit>
+        <trans-unit id="840e5a1b-0ed3-4746-b8bf-cc24061a709a" xml:space="preserve">
+          <source>Examples of such scenarios are behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry data collected from industrial machines or connected vehicles.</source>
+          <target state="new">Examples of such scenarios are behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry data collected from industrial machines or connected vehicles.</target>
+        </trans-unit>
+        <trans-unit id="28db4ef2-9443-4122-9811-0eddec8ab0ee" xml:space="preserve">
+          <source>The common role that Event Hubs plays in solution architectures is that it acts as the "front door" for an event pipeline, often called an <bpt id="8253b3c9-e5f2-450d-b602-7c7cb84f3c31">&lt;em&gt;</bpt>event ingestor<ept id="8253b3c9-e5f2-450d-b602-7c7cb84f3c31">&lt;/em&gt;</ept>.</source>
+          <target state="new">The common role that Event Hubs plays in solution architectures is that it acts as the "front door" for an event pipeline, often called an <bpt id="8253b3c9-e5f2-450d-b602-7c7cb84f3c31">&lt;em&gt;</bpt>event ingestor<ept id="8253b3c9-e5f2-450d-b602-7c7cb84f3c31">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63172c2c-7496-429c-a0b4-86844eb6a042" xml:space="preserve">
+          <source>An event ingestor is a component or service that sits between event producers and event consumers to decouple the production of an event stream from the consumption of those events.</source>
+          <target state="new">An event ingestor is a component or service that sits between event producers and event consumers to decouple the production of an event stream from the consumption of those events.</target>
+        </trans-unit>
+        <trans-unit id="3d385e52-bbb1-48b0-b723-3b891adcd7cb" xml:space="preserve">
+          <source><bpt id="954eba2b-9ac6-4601-9827-40cd8a670dd7">&lt;linkText&gt;</bpt>Event Hubs<ept id="954eba2b-9ac6-4601-9827-40cd8a670dd7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="954eba2b-9ac6-4601-9827-40cd8a670dd7">&lt;linkText&gt;</bpt>Event Hubs<ept id="954eba2b-9ac6-4601-9827-40cd8a670dd7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ebad52d-157c-448f-a6c1-c43e8f3ca1c7" xml:space="preserve">
+          <source>Azure Event Hubs is an event processing service that provides event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.</source>
+          <target state="new">Azure Event Hubs is an event processing service that provides event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.</target>
+        </trans-unit>
+        <trans-unit id="93dec72f-210e-4fb9-87d4-bb15a962b331" xml:space="preserve">
+          <source>This service, used with other downstream services, is particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios.</source>
+          <target state="new">This service, used with other downstream services, is particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios.</target>
+        </trans-unit>
+        <trans-unit id="e53c80a0-e9fb-427d-82d2-63972cdda7e2" xml:space="preserve">
+          <source>Event Hubs provides a message stream handling capability and though an Event Hub is an entity similar to queues and topics, it has characteristics that are very different from traditional enterprise messaging.</source>
+          <target state="new">Event Hubs provides a message stream handling capability and though an Event Hub is an entity similar to queues and topics, it has characteristics that are very different from traditional enterprise messaging.</target>
+        </trans-unit>
+        <trans-unit id="9d6721f7-483b-41d0-ab71-00ab337d0b8a" xml:space="preserve">
+          <source>Enterprise messaging scenarios commonly require a number of sophisticated capabilities such as sequencing, dead-lettering, transaction support, and strong delivery assurances, while the dominant concern for event intake is high throughput and processing flexibility for event streams.</source>
+          <target state="new">Enterprise messaging scenarios commonly require a number of sophisticated capabilities such as sequencing, dead-lettering, transaction support, and strong delivery assurances, while the dominant concern for event intake is high throughput and processing flexibility for event streams.</target>
+        </trans-unit>
+        <trans-unit id="3d1e8717-6850-4877-bcbf-6662166536be" xml:space="preserve">
+          <source>Therefore, Azure Event Hubs capabilities differ from Service Bus topics in that they are strongly biased towards high throughput and event processing scenarios.</source>
+          <target state="new">Therefore, Azure Event Hubs capabilities differ from Service Bus topics in that they are strongly biased towards high throughput and event processing scenarios.</target>
+        </trans-unit>
+        <trans-unit id="1db3560f-7662-4810-98c8-3d122b7b43ff" xml:space="preserve">
+          <source>As such, Event Hubs do not implement some of the messaging capabilities that are available for topics.</source>
+          <target state="new">As such, Event Hubs do not implement some of the messaging capabilities that are available for topics.</target>
+        </trans-unit>
+        <trans-unit id="51f50e2a-021f-481d-8ff1-82018df2cf05" xml:space="preserve">
+          <source>If you need those capabilities, topics remain the optimal choice.</source>
+          <target state="new">If you need those capabilities, topics remain the optimal choice.</target>
+        </trans-unit>
+        <trans-unit id="7d422710-2c44-4f5d-a7b9-b69a3f520bb7" xml:space="preserve">
+          <source>An Event Hub is created at the namespace level in Service Bus, similar to queues and topics.</source>
+          <target state="new">An Event Hub is created at the namespace level in Service Bus, similar to queues and topics.</target>
+        </trans-unit>
+        <trans-unit id="b2132a54-88fc-4faa-b3d8-25a94d0a3203" xml:space="preserve">
+          <source>Event Hubs uses AMQP and HTTP as its primary API interfaces.</source>
+          <target state="new">Event Hubs uses AMQP and HTTP as its primary API interfaces.</target>
+        </trans-unit>
+        <trans-unit id="8601f0e7-6bde-4204-9e97-610900083312" xml:space="preserve">
+          <source>The following diagram shows the relationship between Event Hubs and Service Bus.</source>
+          <target state="new">The following diagram shows the relationship between Event Hubs and Service Bus.</target>
+        </trans-unit>
+        <trans-unit id="40409ab7-778e-40be-b8ba-cabb1a4684fe" xml:space="preserve">
+          <source><bpt id="058ea1d7-18a7-450b-86e9-f7e07c36617a">&lt;linkText&gt;</bpt>Event Hubs<ept id="058ea1d7-18a7-450b-86e9-f7e07c36617a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="058ea1d7-18a7-450b-86e9-f7e07c36617a">&lt;linkText&gt;</bpt>Event Hubs<ept id="058ea1d7-18a7-450b-86e9-f7e07c36617a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4458d63-f9e6-4138-bef0-8ad9e2a7995a" xml:space="preserve">
+          <source>Event Hubs provides message streaming through a partitioned consumer pattern.</source>
+          <target state="new">Event Hubs provides message streaming through a partitioned consumer pattern.</target>
+        </trans-unit>
+        <trans-unit id="7d515c0d-12d1-4c66-8a29-6392abb6f81c" xml:space="preserve">
+          <source>Queues and topics use a <bpt id="ae1b15ff-cbda-47a9-a4a2-500727f92aa6">&lt;linkText&gt;</bpt>Competing Consumer<ept id="ae1b15ff-cbda-47a9-a4a2-500727f92aa6">&lt;/linkText&gt;</ept><bpt id="ae1b15ff-cbda-47a9-a4a2-500727f92aa6">&lt;title&gt;</bpt><ept id="ae1b15ff-cbda-47a9-a4a2-500727f92aa6">&lt;/title&gt;</ept> model in which each consumer attempts to read from the same queue or resource.</source>
+          <target state="new">Queues and topics use a <bpt id="ae1b15ff-cbda-47a9-a4a2-500727f92aa6">&lt;linkText&gt;</bpt>Competing Consumer<ept id="ae1b15ff-cbda-47a9-a4a2-500727f92aa6">&lt;/linkText&gt;</ept><bpt id="ae1b15ff-cbda-47a9-a4a2-500727f92aa6">&lt;title&gt;</bpt><ept id="ae1b15ff-cbda-47a9-a4a2-500727f92aa6">&lt;/title&gt;</ept> model in which each consumer attempts to read from the same queue or resource.</target>
+        </trans-unit>
+        <trans-unit id="3e3af771-7e31-467e-a9e7-25b31858e625" xml:space="preserve">
+          <source>This competition for resources ultimately results in complexity and scale limits for stream processing applications.</source>
+          <target state="new">This competition for resources ultimately results in complexity and scale limits for stream processing applications.</target>
+        </trans-unit>
+        <trans-unit id="c31f6c39-22c4-4619-9a3a-ad8963ac88bb" xml:space="preserve">
+          <source>Event Hubs uses a partitioned consumer pattern in which each consumer only reads a specific subset, or partition, of the message stream.</source>
+          <target state="new">Event Hubs uses a partitioned consumer pattern in which each consumer only reads a specific subset, or partition, of the message stream.</target>
+        </trans-unit>
+        <trans-unit id="dc086b9b-d748-4444-877e-3c1f762dc366" xml:space="preserve">
+          <source>This pattern enables horizontal scale for event processing and provides other stream-focused features that are unavailable in queues and topics.</source>
+          <target state="new">This pattern enables horizontal scale for event processing and provides other stream-focused features that are unavailable in queues and topics.</target>
+        </trans-unit>
+        <trans-unit id="4150c2d9-1037-44d4-9297-e9e05d9b9e14" xml:space="preserve">
+          <source>A partition is an ordered sequence of events that is held in an Event Hub.</source>
+          <target state="new">A partition is an ordered sequence of events that is held in an Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="2d138ebf-e9df-484a-9a8f-e5517344cb2b" xml:space="preserve">
+          <source>As newer events arrive, they are added to the end of this sequence.</source>
+          <target state="new">As newer events arrive, they are added to the end of this sequence.</target>
+        </trans-unit>
+        <trans-unit id="15c16776-54d9-4827-bcf7-448d05460024" xml:space="preserve">
+          <source>A partition can be thought of as a "commit log."</source>
+          <target state="new">A partition can be thought of as a "commit log."</target>
+        </trans-unit>
+        <trans-unit id="85b6de2d-29b7-4781-90af-8b42a043b650" xml:space="preserve">
+          <source><bpt id="3df05406-b7bc-4a77-a1de-81acbe66508d">&lt;linkText&gt;</bpt>Event Hubs<ept id="3df05406-b7bc-4a77-a1de-81acbe66508d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3df05406-b7bc-4a77-a1de-81acbe66508d">&lt;linkText&gt;</bpt>Event Hubs<ept id="3df05406-b7bc-4a77-a1de-81acbe66508d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09b023dc-3abd-4446-b19b-143ed2666560" xml:space="preserve">
+          <source>Partitions retain data for a configured retention time that is set at the Event Hub level.</source>
+          <target state="new">Partitions retain data for a configured retention time that is set at the Event Hub level.</target>
+        </trans-unit>
+        <trans-unit id="453a8a1f-8005-48d0-9f77-4c4ed8572769" xml:space="preserve">
+          <source>This setting applies across all partitions in the Event Hub.</source>
+          <target state="new">This setting applies across all partitions in the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="0b04795f-d895-4f04-8585-5e7bd65cac5b" xml:space="preserve">
+          <source>Events expire on a time basis; you cannot explicitly delete them.</source>
+          <target state="new">Events expire on a time basis; you cannot explicitly delete them.</target>
+        </trans-unit>
+        <trans-unit id="be3d9837-74f4-4903-a495-ef85f56130b5" xml:space="preserve">
+          <source>An Event Hub contains multiple partitions.</source>
+          <target state="new">An Event Hub contains multiple partitions.</target>
+        </trans-unit>
+        <trans-unit id="e8ac9c99-8404-4d03-bd85-f1fbafd1e648" xml:space="preserve">
+          <source>Each partition is independent and contains its own sequence of data.</source>
+          <target state="new">Each partition is independent and contains its own sequence of data.</target>
+        </trans-unit>
+        <trans-unit id="a29e60f4-3186-4831-a04d-9ac205483cbb" xml:space="preserve">
+          <source>As a result, partitions often grow at different rates.</source>
+          <target state="new">As a result, partitions often grow at different rates.</target>
+        </trans-unit>
+        <trans-unit id="0c202449-a243-4a28-bb58-9d6252a4b533" xml:space="preserve">
+          <source><bpt id="aab3b8f9-7472-4571-9c49-120110ed022d">&lt;linkText&gt;</bpt>Event Hubs<ept id="aab3b8f9-7472-4571-9c49-120110ed022d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aab3b8f9-7472-4571-9c49-120110ed022d">&lt;linkText&gt;</bpt>Event Hubs<ept id="aab3b8f9-7472-4571-9c49-120110ed022d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0691f01-2d42-4741-b555-adfd0430b561" xml:space="preserve">
+          <source>The number of partitions is specified at the Event Hub creation time and must be between 8 and 32.</source>
+          <target state="new">The number of partitions is specified at the Event Hub creation time and must be between 8 and 32.</target>
+        </trans-unit>
+        <trans-unit id="d23fb9d5-1e52-4751-866c-194771d309f3" xml:space="preserve">
+          <source>Partitions are a data organization mechanism and are more related to the degree of downstream parallelism required in consuming applications than to Event Hubs throughput.</source>
+          <target state="new">Partitions are a data organization mechanism and are more related to the degree of downstream parallelism required in consuming applications than to Event Hubs throughput.</target>
+        </trans-unit>
+        <trans-unit id="9d6cbb72-6b12-4885-b30d-9fab532d567c" xml:space="preserve">
+          <source>This makes the choice of the number of partitions in an Event Hub directly related to the number of concurrent readers you expect to have.</source>
+          <target state="new">This makes the choice of the number of partitions in an Event Hub directly related to the number of concurrent readers you expect to have.</target>
+        </trans-unit>
+        <trans-unit id="527138e9-9779-476b-8db8-aaa22b2c24df" xml:space="preserve">
+          <source>After Event Hub creation, the partition count is not changeable; you should consider this number in terms of long-term expected scale.</source>
+          <target state="new">After Event Hub creation, the partition count is not changeable; you should consider this number in terms of long-term expected scale.</target>
+        </trans-unit>
+        <trans-unit id="d574f40a-a45b-4e75-a664-df4a63636e45" xml:space="preserve">
+          <source>You can increase the 32 partition limit by contacting the Azure Service Bus team.</source>
+          <target state="new">You can increase the 32 partition limit by contacting the Azure Service Bus team.</target>
+        </trans-unit>
+        <trans-unit id="60e6b0e5-ace3-461d-945c-a45429a84ca0" xml:space="preserve">
+          <source>While partitions are identifiable and can be sent to directly, it is generally best to avoid sending data to specific partitions.</source>
+          <target state="new">While partitions are identifiable and can be sent to directly, it is generally best to avoid sending data to specific partitions.</target>
+        </trans-unit>
+        <trans-unit id="c945e65e-5015-4525-952d-52f24fe1a0ef" xml:space="preserve">
+          <source>Instead, you can use higher level constructs introduced in the <bpt id="28f0fcf7-2635-4833-834d-cd46b34c2784">&lt;linkText&gt;</bpt>Event publisher<ept id="28f0fcf7-2635-4833-834d-cd46b34c2784">&lt;/linkText&gt;</ept><bpt id="28f0fcf7-2635-4833-834d-cd46b34c2784">&lt;title&gt;</bpt><ept id="28f0fcf7-2635-4833-834d-cd46b34c2784">&lt;/title&gt;</ept> and <bpt id="f52b93a5-d4d6-4685-a063-65a9e982b935">&lt;linkText&gt;</bpt>Publisher Policy<ept id="f52b93a5-d4d6-4685-a063-65a9e982b935">&lt;/linkText&gt;</ept><bpt id="f52b93a5-d4d6-4685-a063-65a9e982b935">&lt;title&gt;</bpt><ept id="f52b93a5-d4d6-4685-a063-65a9e982b935">&lt;/title&gt;</ept> sections.</source>
+          <target state="new">Instead, you can use higher level constructs introduced in the <bpt id="28f0fcf7-2635-4833-834d-cd46b34c2784">&lt;linkText&gt;</bpt>Event publisher<ept id="28f0fcf7-2635-4833-834d-cd46b34c2784">&lt;/linkText&gt;</ept><bpt id="28f0fcf7-2635-4833-834d-cd46b34c2784">&lt;title&gt;</bpt><ept id="28f0fcf7-2635-4833-834d-cd46b34c2784">&lt;/title&gt;</ept> and <bpt id="f52b93a5-d4d6-4685-a063-65a9e982b935">&lt;linkText&gt;</bpt>Publisher Policy<ept id="f52b93a5-d4d6-4685-a063-65a9e982b935">&lt;/linkText&gt;</ept><bpt id="f52b93a5-d4d6-4685-a063-65a9e982b935">&lt;title&gt;</bpt><ept id="f52b93a5-d4d6-4685-a063-65a9e982b935">&lt;/title&gt;</ept> sections.</target>
+        </trans-unit>
+        <trans-unit id="2b5e7e09-03af-4241-b034-7f56d07a33aa" xml:space="preserve">
+          <source>In the context of Event Hubs, messages are referred to as <bpt id="16f6ab3c-7ff5-474a-8f46-dc8f1ecd2c1c">&lt;em&gt;</bpt>event data<ept id="16f6ab3c-7ff5-474a-8f46-dc8f1ecd2c1c">&lt;/em&gt;</ept>.</source>
+          <target state="new">In the context of Event Hubs, messages are referred to as <bpt id="16f6ab3c-7ff5-474a-8f46-dc8f1ecd2c1c">&lt;em&gt;</bpt>event data<ept id="16f6ab3c-7ff5-474a-8f46-dc8f1ecd2c1c">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b984012-aac2-4eb5-94a4-722f449df2b4" xml:space="preserve">
+          <source>Event data contains the body of the event, a user defined property bag, and various metadata about the event such as its offset in the partition and its number in the stream sequence.</source>
+          <target state="new">Event data contains the body of the event, a user defined property bag, and various metadata about the event such as its offset in the partition and its number in the stream sequence.</target>
+        </trans-unit>
+        <trans-unit id="8afdc1a7-cc90-4aea-8a86-b2af3e530ee0" xml:space="preserve">
+          <source>Partitions are filled with a sequence of event data.</source>
+          <target state="new">Partitions are filled with a sequence of event data.</target>
+        </trans-unit>
+        <trans-unit id="6da4cc1e-d076-43d4-82ec-3d52d9f04c76" xml:space="preserve">
+          <source>Any entity that sends events or data to an Event Hub is an <bpt id="619a274c-e65c-450b-943c-edca45cdebe6">&lt;em&gt;</bpt>event publisher<ept id="619a274c-e65c-450b-943c-edca45cdebe6">&lt;/em&gt;</ept>.</source>
+          <target state="new">Any entity that sends events or data to an Event Hub is an <bpt id="619a274c-e65c-450b-943c-edca45cdebe6">&lt;em&gt;</bpt>event publisher<ept id="619a274c-e65c-450b-943c-edca45cdebe6">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62ebfd03-f13d-43a9-92a9-bd3e05cc4ffc" xml:space="preserve">
+          <source>Event publishers can publish events using either HTTPS or AMQP 1.0.</source>
+          <target state="new">Event publishers can publish events using either HTTPS or AMQP 1.0.</target>
+        </trans-unit>
+        <trans-unit id="6216f8ec-5fef-41c4-ac8e-417d95e350cc" xml:space="preserve">
+          <source>Event publishers use a Shared Access Signature (SAS) token to identify themselves to an Event Hub, and can have a unique identity, or use a common SAS token, depending on the requirements of the scenario.</source>
+          <target state="new">Event publishers use a Shared Access Signature (SAS) token to identify themselves to an Event Hub, and can have a unique identity, or use a common SAS token, depending on the requirements of the scenario.</target>
+        </trans-unit>
+        <trans-unit id="73a061ab-6ac0-4e50-8543-abdbb041e946" xml:space="preserve">
+          <source>For more information about working with SAS, see <bpt id="1de0fe08-54f4-4f30-b690-6070605465b9">&lt;linkText&gt;</bpt>Shared Access Signature Authentication with Service Bus<ept id="1de0fe08-54f4-4f30-b690-6070605465b9">&lt;/linkText&gt;</ept><bpt id="1de0fe08-54f4-4f30-b690-6070605465b9">&lt;title&gt;</bpt><ept id="1de0fe08-54f4-4f30-b690-6070605465b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about working with SAS, see <bpt id="1de0fe08-54f4-4f30-b690-6070605465b9">&lt;linkText&gt;</bpt>Shared Access Signature Authentication with Service Bus<ept id="1de0fe08-54f4-4f30-b690-6070605465b9">&lt;/linkText&gt;</ept><bpt id="1de0fe08-54f4-4f30-b690-6070605465b9">&lt;title&gt;</bpt><ept id="1de0fe08-54f4-4f30-b690-6070605465b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50638dee-0a6d-44ed-ae87-ff1b50bb1e26" xml:space="preserve">
+          <source>This section describes common tasks for event publishers.</source>
+          <target state="new">This section describes common tasks for event publishers.</target>
+        </trans-unit>
+        <trans-unit id="d89687cd-c2c8-4732-875e-430740aa2835" xml:space="preserve">
+          <source>Shared Access Signature (SAS) is the authentication mechanism for Event Hubs.</source>
+          <target state="new">Shared Access Signature (SAS) is the authentication mechanism for Event Hubs.</target>
+        </trans-unit>
+        <trans-unit id="83dfd6a0-c9e6-4a41-8c20-b7e6c27e6778" xml:space="preserve">
+          <source>Service Bus provides SAS policies at the namespace and Event Hub level.</source>
+          <target state="new">Service Bus provides SAS policies at the namespace and Event Hub level.</target>
+        </trans-unit>
+        <trans-unit id="d237b2a4-03b8-4fcb-bde6-c998ae77eeb9" xml:space="preserve">
+          <source>A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format.</source>
+          <target state="new">A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format.</target>
+        </trans-unit>
+        <trans-unit id="388b61cc-c364-4fce-9d51-06e2fe45f567" xml:space="preserve">
+          <source>Using the name of the key (policy) and the token, Service Bus can regenerate the hash and thus authenticate the sender.</source>
+          <target state="new">Using the name of the key (policy) and the token, Service Bus can regenerate the hash and thus authenticate the sender.</target>
+        </trans-unit>
+        <trans-unit id="765b49e2-8130-49a3-82de-9cfcfe0b5c4b" xml:space="preserve">
+          <source>Normally, SAS tokens for event publishers are created with only <bpt id="6952b0a8-d3b7-45e7-964d-4e1cd5f741fd">&lt;strong&gt;</bpt>send<ept id="6952b0a8-d3b7-45e7-964d-4e1cd5f741fd">&lt;/strong&gt;</ept> privileges on a specific Event Hub.</source>
+          <target state="new">Normally, SAS tokens for event publishers are created with only <bpt id="6952b0a8-d3b7-45e7-964d-4e1cd5f741fd">&lt;strong&gt;</bpt>send<ept id="6952b0a8-d3b7-45e7-964d-4e1cd5f741fd">&lt;/strong&gt;</ept> privileges on a specific Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="e60f1ff1-b2fd-4a62-a724-a2e8120f535c" xml:space="preserve">
+          <source>This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy.</source>
+          <target state="new">This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy.</target>
+        </trans-unit>
+        <trans-unit id="b0c7b489-8efc-4514-866e-8f36843ba0c4" xml:space="preserve">
+          <source>For more information about working with SAS, see <bpt id="af155a46-6d9a-4718-ac2b-9f8663b2cb79">&lt;linkText&gt;</bpt>Shared Access Signature Authentication with Service Bus<ept id="af155a46-6d9a-4718-ac2b-9f8663b2cb79">&lt;/linkText&gt;</ept><bpt id="af155a46-6d9a-4718-ac2b-9f8663b2cb79">&lt;title&gt;</bpt><ept id="af155a46-6d9a-4718-ac2b-9f8663b2cb79">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about working with SAS, see <bpt id="af155a46-6d9a-4718-ac2b-9f8663b2cb79">&lt;linkText&gt;</bpt>Shared Access Signature Authentication with Service Bus<ept id="af155a46-6d9a-4718-ac2b-9f8663b2cb79">&lt;/linkText&gt;</ept><bpt id="af155a46-6d9a-4718-ac2b-9f8663b2cb79">&lt;title&gt;</bpt><ept id="af155a46-6d9a-4718-ac2b-9f8663b2cb79">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="322a319b-a527-4aa7-a144-8617d5886a63" xml:space="preserve">
+          <source>You can publish an event via AMQP 1.0 or HTTPS.</source>
+          <target state="new">You can publish an event via AMQP 1.0 or HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="c817abca-3820-413f-aafc-ad0dd64f9ee5" xml:space="preserve">
+          <source>Service Bus provides an <bpt id="1ba68e2e-60a6-4003-a39e-de4ce02dfa74">&lt;linkText&gt;</bpt>EventHubClient<ept id="1ba68e2e-60a6-4003-a39e-de4ce02dfa74">&lt;/linkText&gt;</ept><bpt id="1ba68e2e-60a6-4003-a39e-de4ce02dfa74">&lt;title&gt;</bpt><ept id="1ba68e2e-60a6-4003-a39e-de4ce02dfa74">&lt;/title&gt;</ept> class for publishing events to an Event Hub from .NET clients.</source>
+          <target state="new">Service Bus provides an <bpt id="1ba68e2e-60a6-4003-a39e-de4ce02dfa74">&lt;linkText&gt;</bpt>EventHubClient<ept id="1ba68e2e-60a6-4003-a39e-de4ce02dfa74">&lt;/linkText&gt;</ept><bpt id="1ba68e2e-60a6-4003-a39e-de4ce02dfa74">&lt;title&gt;</bpt><ept id="1ba68e2e-60a6-4003-a39e-de4ce02dfa74">&lt;/title&gt;</ept> class for publishing events to an Event Hub from .NET clients.</target>
+        </trans-unit>
+        <trans-unit id="6570a70a-1474-4738-8d27-9d9d897d9909" xml:space="preserve">
+          <source>For other runtimes and platforms, you can use any AMQP 1.0 client, such as <bpt id="4c4a3332-e4d1-48f5-b89d-56d9b22231d8">&lt;linkText&gt;</bpt>Apache Qpid<ept id="4c4a3332-e4d1-48f5-b89d-56d9b22231d8">&lt;/linkText&gt;</ept><bpt id="4c4a3332-e4d1-48f5-b89d-56d9b22231d8">&lt;title&gt;</bpt><ept id="4c4a3332-e4d1-48f5-b89d-56d9b22231d8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For other runtimes and platforms, you can use any AMQP 1.0 client, such as <bpt id="4c4a3332-e4d1-48f5-b89d-56d9b22231d8">&lt;linkText&gt;</bpt>Apache Qpid<ept id="4c4a3332-e4d1-48f5-b89d-56d9b22231d8">&lt;/linkText&gt;</ept><bpt id="4c4a3332-e4d1-48f5-b89d-56d9b22231d8">&lt;title&gt;</bpt><ept id="4c4a3332-e4d1-48f5-b89d-56d9b22231d8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e94a822-35e3-40e1-8936-629572b73cf0" xml:space="preserve">
+          <source>You can publish events individually, or batched.</source>
+          <target state="new">You can publish events individually, or batched.</target>
+        </trans-unit>
+        <trans-unit id="30e21353-5e95-4721-af92-6abc7c34b270" xml:space="preserve">
+          <source>A single publication (event data instance) has a limit of 256KB, regardless of whether it is a single event or a batch.</source>
+          <target state="new">A single publication (event data instance) has a limit of 256KB, regardless of whether it is a single event or a batch.</target>
+        </trans-unit>
+        <trans-unit id="29b29620-6992-4e0d-879b-406bd54959a5" xml:space="preserve">
+          <source>Publishing events larger than this results in an error.</source>
+          <target state="new">Publishing events larger than this results in an error.</target>
+        </trans-unit>
+        <trans-unit id="5d1b3e11-beff-41e4-8175-c21522ccf092" xml:space="preserve">
+          <source>It is a best practice for publishers to be unaware of partitions within the Event Hub and to only specify a <bpt id="0d4b6933-d991-48cf-99bb-cf31b7f96c82">&lt;em&gt;</bpt>partition key<ept id="0d4b6933-d991-48cf-99bb-cf31b7f96c82">&lt;/em&gt;</ept> (introduced in the next section), or their identity via their SAS token.</source>
+          <target state="new">It is a best practice for publishers to be unaware of partitions within the Event Hub and to only specify a <bpt id="0d4b6933-d991-48cf-99bb-cf31b7f96c82">&lt;em&gt;</bpt>partition key<ept id="0d4b6933-d991-48cf-99bb-cf31b7f96c82">&lt;/em&gt;</ept> (introduced in the next section), or their identity via their SAS token.</target>
+        </trans-unit>
+        <trans-unit id="c098fcff-b6e8-4a8d-a1a2-6c2d783950f5" xml:space="preserve">
+          <source>The choice to use AMQP or HTTPS is specific to the usage scenario.</source>
+          <target state="new">The choice to use AMQP or HTTPS is specific to the usage scenario.</target>
+        </trans-unit>
+        <trans-unit id="62998f19-bf5c-46cf-85af-a1f98d231c8a" xml:space="preserve">
+          <source>AMQP requires the establishment of a persistent bidirectional socket in addition to transport level security (TLS) or SSL/TLS.</source>
+          <target state="new">AMQP requires the establishment of a persistent bidirectional socket in addition to transport level security (TLS) or SSL/TLS.</target>
+        </trans-unit>
+        <trans-unit id="ef83e26a-d24e-4c5d-9d95-0b2338ca5c05" xml:space="preserve">
+          <source>This can be a costly operation in terms of network traffic, but only happens at the beginning of an AMQP session.</source>
+          <target state="new">This can be a costly operation in terms of network traffic, but only happens at the beginning of an AMQP session.</target>
+        </trans-unit>
+        <trans-unit id="75f68302-223a-4a3d-8ac0-40d95143b590" xml:space="preserve">
+          <source>HTTPS has a lower initial overhead, but requires additional SSL overhead for every request.</source>
+          <target state="new">HTTPS has a lower initial overhead, but requires additional SSL overhead for every request.</target>
+        </trans-unit>
+        <trans-unit id="557508c9-6113-4319-be8a-f82e73a93cfd" xml:space="preserve">
+          <source>For publishers who frequently publish events, AMQP offers significant performance, latency, and throughput savings.</source>
+          <target state="new">For publishers who frequently publish events, AMQP offers significant performance, latency, and throughput savings.</target>
+        </trans-unit>
+        <trans-unit id="9320a12b-e34f-4094-a837-4a6eafeb8c76" xml:space="preserve">
+          <source>A partition key is a value that is used to map incoming event data into specific partitions for the purposes of data organization.</source>
+          <target state="new">A partition key is a value that is used to map incoming event data into specific partitions for the purposes of data organization.</target>
+        </trans-unit>
+        <trans-unit id="40a7eb85-b7f5-4eec-a498-39bb53301f4f" xml:space="preserve">
+          <source>The partition key is a sender-supplied value passed into an Event Hub.</source>
+          <target state="new">The partition key is a sender-supplied value passed into an Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="56727ac7-72d1-4269-bf2a-20c2fcd91777" xml:space="preserve">
+          <source>It is processed through a static hashing function, the result of which creates the partition assignment.</source>
+          <target state="new">It is processed through a static hashing function, the result of which creates the partition assignment.</target>
+        </trans-unit>
+        <trans-unit id="3a0cdd49-1bea-47fe-9f34-bb19e6326fd1" xml:space="preserve">
+          <source>If you don't specify a partition key when publishing an event, a round robin assignment is used.</source>
+          <target state="new">If you don't specify a partition key when publishing an event, a round robin assignment is used.</target>
+        </trans-unit>
+        <trans-unit id="e0bf59e8-162b-48b2-bf7d-227f10f248a2" xml:space="preserve">
+          <source>When using partition keys, the event publisher is only aware of its partition key, not the partition to which the events are published.</source>
+          <target state="new">When using partition keys, the event publisher is only aware of its partition key, not the partition to which the events are published.</target>
+        </trans-unit>
+        <trans-unit id="a30fc6af-3be8-4946-a68d-b6a09b80248c" xml:space="preserve">
+          <source>This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing and storage of events.</source>
+          <target state="new">This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing and storage of events.</target>
+        </trans-unit>
+        <trans-unit id="ffc527a7-71a3-4461-a2a8-8421b3d71b30" xml:space="preserve">
+          <source>Partition keys are important for organizing data for downstream processing, but are fundamentally unrelated to partitions themselves.</source>
+          <target state="new">Partition keys are important for organizing data for downstream processing, but are fundamentally unrelated to partitions themselves.</target>
+        </trans-unit>
+        <trans-unit id="346cab00-74c2-4602-b416-bc32a73075fa" xml:space="preserve">
+          <source>A per-device or user unique identity makes a good partition key, but other attributes such as geography can also be used to group related events into a single partition.</source>
+          <target state="new">A per-device or user unique identity makes a good partition key, but other attributes such as geography can also be used to group related events into a single partition.</target>
+        </trans-unit>
+        <trans-unit id="612008bd-7584-459b-ae52-d142244ae7f5" xml:space="preserve">
+          <source>The following image shows event senders using partition keys to pin to partitions.</source>
+          <target state="new">The following image shows event senders using partition keys to pin to partitions.</target>
+        </trans-unit>
+        <trans-unit id="8bcf50a6-4f2c-42c8-8cf3-27b8c203e7a1" xml:space="preserve">
+          <source><bpt id="17de1537-c0a9-4bf1-b877-b11c56746e8a">&lt;linkText&gt;</bpt>Event Hubs<ept id="17de1537-c0a9-4bf1-b877-b11c56746e8a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="17de1537-c0a9-4bf1-b877-b11c56746e8a">&lt;linkText&gt;</bpt>Event Hubs<ept id="17de1537-c0a9-4bf1-b877-b11c56746e8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="58e7b0d2-4e5e-424b-8714-6052615a2da3" xml:space="preserve">
+          <source>Azure Event Hubs ensures that any and all events sharing the same partition key value are delivered in order, and to the same partition.</source>
+          <target state="new">Azure Event Hubs ensures that any and all events sharing the same partition key value are delivered in order, and to the same partition.</target>
+        </trans-unit>
+        <trans-unit id="04b42aca-4ddb-4444-b86f-7a1e14d231e0" xml:space="preserve">
+          <source>Importantly, if partition keys are used with publisher policies, described in the next section, then the identity of the publisher and the value of the partition key must match.</source>
+          <target state="new">Importantly, if partition keys are used with publisher policies, described in the next section, then the identity of the publisher and the value of the partition key must match.</target>
+        </trans-unit>
+        <trans-unit id="394140a3-f655-4d72-b2e3-c808a785feab" xml:space="preserve">
+          <source>Otherwise, an error occurs.</source>
+          <target state="new">Otherwise, an error occurs.</target>
+        </trans-unit>
+        <trans-unit id="7dc84539-5fb0-4d55-be42-92c50786d531" xml:space="preserve">
+          <source>Any entity that reads event data from an Event Hub is an event consumer.</source>
+          <target state="new">Any entity that reads event data from an Event Hub is an event consumer.</target>
+        </trans-unit>
+        <trans-unit id="d56bed63-be62-454c-a842-7a92ee69691e" xml:space="preserve">
+          <source>All event consumers read the event stream through partitions in a consumer group.</source>
+          <target state="new">All event consumers read the event stream through partitions in a consumer group.</target>
+        </trans-unit>
+        <trans-unit id="11ec2ad5-36af-41e0-b778-90fb82ee86f3" xml:space="preserve">
+          <source>Each partition should have only one active reader at a time.</source>
+          <target state="new">Each partition should have only one active reader at a time.</target>
+        </trans-unit>
+        <trans-unit id="95474eba-94f1-45aa-befa-aafdd74e0995" xml:space="preserve">
+          <source>All Event Hubs consumers connect via the AMQP 1.0 session, in which events are delivered as they become available.</source>
+          <target state="new">All Event Hubs consumers connect via the AMQP 1.0 session, in which events are delivered as they become available.</target>
+        </trans-unit>
+        <trans-unit id="37f9ca23-d745-497f-b5fc-31118be22fce" xml:space="preserve">
+          <source>The client does not need to poll for data availability.</source>
+          <target state="new">The client does not need to poll for data availability.</target>
+        </trans-unit>
+        <trans-unit id="a448ce85-d11a-40cd-9ce1-cd81e596a740" xml:space="preserve">
+          <source>The publish/subscribe mechanism of Event Hubs is enabled through consumer groups.</source>
+          <target state="new">The publish/subscribe mechanism of Event Hubs is enabled through consumer groups.</target>
+        </trans-unit>
+        <trans-unit id="21ebab39-7328-463c-ab7d-10349e6c6537" xml:space="preserve">
+          <source>A consumer group is a view (state, position, or offset) of an entire Event Hub.</source>
+          <target state="new">A consumer group is a view (state, position, or offset) of an entire Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="f30bbf0c-0fed-45d8-8f86-6a38a856fbda" xml:space="preserve">
+          <source>Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.</source>
+          <target state="new">Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.</target>
+        </trans-unit>
+        <trans-unit id="82e36079-57f3-4739-a1f6-b876ba1ba208" xml:space="preserve">
+          <source>In a stream processing architecture, each downstream application equates to a consumer group.</source>
+          <target state="new">In a stream processing architecture, each downstream application equates to a consumer group.</target>
+        </trans-unit>
+        <trans-unit id="b8378ab1-4872-4b3c-bffc-c24148b307d7" xml:space="preserve">
+          <source>If you want to write event data to long-term storage, then that storage writer application is a consumer group.</source>
+          <target state="new">If you want to write event data to long-term storage, then that storage writer application is a consumer group.</target>
+        </trans-unit>
+        <trans-unit id="1665fc4f-7018-481e-95a1-a95bdbea9f21" xml:space="preserve">
+          <source>Complex event processing is performed by another, separate consumer group.</source>
+          <target state="new">Complex event processing is performed by another, separate consumer group.</target>
+        </trans-unit>
+        <trans-unit id="8a5132eb-4fe3-4313-9a2a-f60b0be15281" xml:space="preserve">
+          <source>You can only access partitions through a consumer group.</source>
+          <target state="new">You can only access partitions through a consumer group.</target>
+        </trans-unit>
+        <trans-unit id="00012fb2-6794-45e1-8939-13e5aaaab46b" xml:space="preserve">
+          <source>There is always a default consumer group in an Event Hub, and you can create up to 20 consumer groups for a Standard tier Event Hub.</source>
+          <target state="new">There is always a default consumer group in an Event Hub, and you can create up to 20 consumer groups for a Standard tier Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="b4228356-5b06-4618-b407-c2cedfcca615" xml:space="preserve">
+          <source>The following are examples of the consumer group URI convention:</source>
+          <target state="new">The following are examples of the consumer group URI convention:</target>
+        </trans-unit>
+        <trans-unit id="0a9d3af7-c58f-4841-82a9-fa4832a11f9c" xml:space="preserve">
+          <source>The following image shows the event consumers within consumer groups.</source>
+          <target state="new">The following image shows the event consumers within consumer groups.</target>
+        </trans-unit>
+        <trans-unit id="0c0b7886-3f5d-48a7-acb9-f1029a372401" xml:space="preserve">
+          <source><bpt id="10fe10a4-ec9b-4cf9-a740-58450f507e5c">&lt;linkText&gt;</bpt>Event Hubs<ept id="10fe10a4-ec9b-4cf9-a740-58450f507e5c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10fe10a4-ec9b-4cf9-a740-58450f507e5c">&lt;linkText&gt;</bpt>Event Hubs<ept id="10fe10a4-ec9b-4cf9-a740-58450f507e5c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b802e06-ded7-4558-a86c-803c87c3a130" xml:space="preserve">
+          <source>An offset is the position of an event within a partition.</source>
+          <target state="new">An offset is the position of an event within a partition.</target>
+        </trans-unit>
+        <trans-unit id="8f84b21c-fe14-4d7f-ba4e-e8f8d0312d5b" xml:space="preserve">
+          <source>You can think of an offset as a client-side cursor.</source>
+          <target state="new">You can think of an offset as a client-side cursor.</target>
+        </trans-unit>
+        <trans-unit id="ba73e938-1db9-47af-8537-0133e4ef7167" xml:space="preserve">
+          <source>The offset is a byte numbering of the event.</source>
+          <target state="new">The offset is a byte numbering of the event.</target>
+        </trans-unit>
+        <trans-unit id="3eb1b93d-eedd-47db-8b0f-2281fbe78c95" xml:space="preserve">
+          <source>This enables an event consumer (reader) to specify a point in the event stream from which they want to begin reading events.</source>
+          <target state="new">This enables an event consumer (reader) to specify a point in the event stream from which they want to begin reading events.</target>
+        </trans-unit>
+        <trans-unit id="eebdbe3e-93e0-4e6b-afcc-6657e57379ec" xml:space="preserve">
+          <source>You can specify the offset as a timestamp or as an offset value.</source>
+          <target state="new">You can specify the offset as a timestamp or as an offset value.</target>
+        </trans-unit>
+        <trans-unit id="bece1512-f45c-48ac-a8fb-3234659af797" xml:space="preserve">
+          <source>Consumers are responsible for storing their own offset values outside of the Event Hubs service.</source>
+          <target state="new">Consumers are responsible for storing their own offset values outside of the Event Hubs service.</target>
+        </trans-unit>
+        <trans-unit id="6a7f75aa-1d0e-4a3c-b224-60f538185d81" xml:space="preserve">
+          <source><bpt id="834a0d36-b240-44eb-b3e5-564401b1e431">&lt;linkText&gt;</bpt>Event Hubs<ept id="834a0d36-b240-44eb-b3e5-564401b1e431">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="834a0d36-b240-44eb-b3e5-564401b1e431">&lt;linkText&gt;</bpt>Event Hubs<ept id="834a0d36-b240-44eb-b3e5-564401b1e431">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="146ded96-a0cb-469f-9763-eb5d8afdbd17" xml:space="preserve">
+          <source>Within a partition, each event includes an offset.</source>
+          <target state="new">Within a partition, each event includes an offset.</target>
+        </trans-unit>
+        <trans-unit id="0fa4c28a-e367-44d0-a391-03a81f4223c0" xml:space="preserve">
+          <source>This offset is used by consumers to show the location in the event sequence for a given partition.</source>
+          <target state="new">This offset is used by consumers to show the location in the event sequence for a given partition.</target>
+        </trans-unit>
+        <trans-unit id="ff027d42-0f37-490b-8fd3-817b2119fd8f" xml:space="preserve">
+          <source>Offsets can be passed to the Event Hub as either a number or as a timestamp value when a reader connects.</source>
+          <target state="new">Offsets can be passed to the Event Hub as either a number or as a timestamp value when a reader connects.</target>
+        </trans-unit>
+        <trans-unit id="cb5bce43-25a8-4886-b17c-27ea07311b7d" xml:space="preserve">
+          <source><bpt id="228344f2-64c4-4054-a7c9-e3fe2d7d7a8c">&lt;em&gt;</bpt>Checkpointing<ept id="228344f2-64c4-4054-a7c9-e3fe2d7d7a8c">&lt;/em&gt;</ept> is a process by which readers mark or commit their position within a partition event sequence.</source>
+          <target state="new"><bpt id="228344f2-64c4-4054-a7c9-e3fe2d7d7a8c">&lt;em&gt;</bpt>Checkpointing<ept id="228344f2-64c4-4054-a7c9-e3fe2d7d7a8c">&lt;/em&gt;</ept> is a process by which readers mark or commit their position within a partition event sequence.</target>
+        </trans-unit>
+        <trans-unit id="bb3f40eb-7ecd-4de1-9ce2-4c15216cacd4" xml:space="preserve">
+          <source>Checkpointing is the responsibility of the consumer and occurs on a per-partition basis within a consumer group.</source>
+          <target state="new">Checkpointing is the responsibility of the consumer and occurs on a per-partition basis within a consumer group.</target>
+        </trans-unit>
+        <trans-unit id="14f15b09-bb97-48ec-bf29-998b869fc5bc" xml:space="preserve">
+          <source>This means that for each consumer group, each partition reader must keep track of its current position in the event stream, and can inform the service when it considers the data stream complete.</source>
+          <target state="new">This means that for each consumer group, each partition reader must keep track of its current position in the event stream, and can inform the service when it considers the data stream complete.</target>
+        </trans-unit>
+        <trans-unit id="d52c7c94-0ea7-49e8-8f5a-50561cc34f92" xml:space="preserve">
+          <source>If a reader disconnects from a partition, when it reconnects it begins reading at the checkpoint that was previously submitted by the last reader of that partition in that consumer group.</source>
+          <target state="new">If a reader disconnects from a partition, when it reconnects it begins reading at the checkpoint that was previously submitted by the last reader of that partition in that consumer group.</target>
+        </trans-unit>
+        <trans-unit id="72d60cb9-d450-4421-a542-9ec8585dea1f" xml:space="preserve">
+          <source>When the reader connects, it passes this offset to the Event Hub to specify the location at which to start reading.</source>
+          <target state="new">When the reader connects, it passes this offset to the Event Hub to specify the location at which to start reading.</target>
+        </trans-unit>
+        <trans-unit id="446570e2-d661-48e7-afc7-6efdd74b5f1a" xml:space="preserve">
+          <source>In this way, you can use checkpointing to both mark events as "complete" by downstream applications, and to provide resiliency in the event of a failover between readers running on different machines.</source>
+          <target state="new">In this way, you can use checkpointing to both mark events as "complete" by downstream applications, and to provide resiliency in the event of a failover between readers running on different machines.</target>
+        </trans-unit>
+        <trans-unit id="e206526c-2e60-4ad2-8fbd-5fba8faff133" xml:space="preserve">
+          <source>Because event data is retained for the retention interval specified at the time the Event Hub is created, it is possible to return to older data by specifying a lower offset from this checkpointing process.</source>
+          <target state="new">Because event data is retained for the retention interval specified at the time the Event Hub is created, it is possible to return to older data by specifying a lower offset from this checkpointing process.</target>
+        </trans-unit>
+        <trans-unit id="58404d40-ff41-41c1-9c13-9d42c2aa28c8" xml:space="preserve">
+          <source>Through this mechanism, checkpointing enables both failover resiliency and controlled event stream replay.</source>
+          <target state="new">Through this mechanism, checkpointing enables both failover resiliency and controlled event stream replay.</target>
+        </trans-unit>
+        <trans-unit id="aad08fe6-ca03-4c91-83f7-410b4db18bea" xml:space="preserve">
+          <source>This section describes common tasks for Event Hubs event consumers or readers.</source>
+          <target state="new">This section describes common tasks for Event Hubs event consumers or readers.</target>
+        </trans-unit>
+        <trans-unit id="d505b8f0-42d4-471d-b8d2-ec6756bbab70" xml:space="preserve">
+          <source>All Event Hubs consumers connect via AMQP 1.0.</source>
+          <target state="new">All Event Hubs consumers connect via AMQP 1.0.</target>
+        </trans-unit>
+        <trans-unit id="de2300e7-7708-40a1-9676-13755c43ff63" xml:space="preserve">
+          <source>AMQP 1.0 is a session and state-aware bidirectional communication channel.</source>
+          <target state="new">AMQP 1.0 is a session and state-aware bidirectional communication channel.</target>
+        </trans-unit>
+        <trans-unit id="c62c9e11-2454-4d39-b98c-6b9a7617f30a" xml:space="preserve">
+          <source>Each partition has an AMQP 1.0 link session that facilitates the transport of events segregated by partition.</source>
+          <target state="new">Each partition has an AMQP 1.0 link session that facilitates the transport of events segregated by partition.</target>
+        </trans-unit>
+        <trans-unit id="98a43859-9ae0-45ed-b28d-d21e0b228a0c" xml:space="preserve">
+          <source>In order to consume events from an Event Hub, a consumer must connect to a partition.</source>
+          <target state="new">In order to consume events from an Event Hub, a consumer must connect to a partition.</target>
+        </trans-unit>
+        <trans-unit id="fbb7c3b8-97a5-4916-8136-c35808b33f1a" xml:space="preserve">
+          <source>As mentioned previously, you always access partitions through a consumer group.</source>
+          <target state="new">As mentioned previously, you always access partitions through a consumer group.</target>
+        </trans-unit>
+        <trans-unit id="399b7f4a-1176-4b1e-acdf-76e81a691097" xml:space="preserve">
+          <source>As part of the partitioned consumer model, only a single reader should be active on a partition at any one time within a consumer group.</source>
+          <target state="new">As part of the partitioned consumer model, only a single reader should be active on a partition at any one time within a consumer group.</target>
+        </trans-unit>
+        <trans-unit id="b1ad05b1-c2f8-47e4-a323-cff7cca0e2fb" xml:space="preserve">
+          <source>It is common practice when connecting directly to partitions to use a leasing mechanism in order to coordinate reader connections to specific partitions.</source>
+          <target state="new">It is common practice when connecting directly to partitions to use a leasing mechanism in order to coordinate reader connections to specific partitions.</target>
+        </trans-unit>
+        <trans-unit id="c2e0fc2e-6854-49f9-9b2a-db98717561d9" xml:space="preserve">
+          <source>This way, it is possible for every partition in a consumer group to have only one active reader.</source>
+          <target state="new">This way, it is possible for every partition in a consumer group to have only one active reader.</target>
+        </trans-unit>
+        <trans-unit id="895528cb-fb61-4a73-becb-e2b8313c7a9a" xml:space="preserve">
+          <source>Managing the position in the sequence for a reader is an important task that is achieved through checkpointing.</source>
+          <target state="new">Managing the position in the sequence for a reader is an important task that is achieved through checkpointing.</target>
+        </trans-unit>
+        <trans-unit id="7f88d4bf-2635-47a0-a60c-82b40608aca5" xml:space="preserve">
+          <source>This functionality is simplified by using the <bpt id="12bb2939-88a9-4a11-8aa8-665da6ab963d">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="12bb2939-88a9-4a11-8aa8-665da6ab963d">&lt;/linkText&gt;</ept><bpt id="12bb2939-88a9-4a11-8aa8-665da6ab963d">&lt;title&gt;</bpt><ept id="12bb2939-88a9-4a11-8aa8-665da6ab963d">&lt;/title&gt;</ept> class for .NET clients.</source>
+          <target state="new">This functionality is simplified by using the <bpt id="12bb2939-88a9-4a11-8aa8-665da6ab963d">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="12bb2939-88a9-4a11-8aa8-665da6ab963d">&lt;/linkText&gt;</ept><bpt id="12bb2939-88a9-4a11-8aa8-665da6ab963d">&lt;title&gt;</bpt><ept id="12bb2939-88a9-4a11-8aa8-665da6ab963d">&lt;/title&gt;</ept> class for .NET clients.</target>
+        </trans-unit>
+        <trans-unit id="e2f7624e-37a6-4dec-b704-03d37cce7b36" xml:space="preserve">
+          <source><bpt id="61db56ac-358c-4646-a0e7-83f4d9ab832e">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="61db56ac-358c-4646-a0e7-83f4d9ab832e">&lt;/linkText&gt;</ept><bpt id="61db56ac-358c-4646-a0e7-83f4d9ab832e">&lt;title&gt;</bpt><ept id="61db56ac-358c-4646-a0e7-83f4d9ab832e">&lt;/title&gt;</ept> is an intelligent consumer agent and is described in the next section.</source>
+          <target state="new"><bpt id="61db56ac-358c-4646-a0e7-83f4d9ab832e">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="61db56ac-358c-4646-a0e7-83f4d9ab832e">&lt;/linkText&gt;</ept><bpt id="61db56ac-358c-4646-a0e7-83f4d9ab832e">&lt;title&gt;</bpt><ept id="61db56ac-358c-4646-a0e7-83f4d9ab832e">&lt;/title&gt;</ept> is an intelligent consumer agent and is described in the next section.</target>
+        </trans-unit>
+        <trans-unit id="0de20fc5-2f12-48f3-8b85-ba2be8bf37db" xml:space="preserve">
+          <source>After an AMQP 1.0 session and link is opened for a specific partition, events are delivered to the AMQP 1.0 client by the Event Hubs service.</source>
+          <target state="new">After an AMQP 1.0 session and link is opened for a specific partition, events are delivered to the AMQP 1.0 client by the Event Hubs service.</target>
+        </trans-unit>
+        <trans-unit id="be903ee6-04f6-4aaa-8dbb-d8565274e123" xml:space="preserve">
+          <source>This delivery mechanism enables higher throughput and lower latency than pull-based mechanisms such as HTTP GET.</source>
+          <target state="new">This delivery mechanism enables higher throughput and lower latency than pull-based mechanisms such as HTTP GET.</target>
+        </trans-unit>
+        <trans-unit id="560e1f95-6d92-45a2-8fbf-a7e07d036350" xml:space="preserve">
+          <source>As events are sent to the client, each event data instance contains important metadata such as the offset and sequence number that are used to facilitate checkpointing on the event sequence.</source>
+          <target state="new">As events are sent to the client, each event data instance contains important metadata such as the offset and sequence number that are used to facilitate checkpointing on the event sequence.</target>
+        </trans-unit>
+        <trans-unit id="fcaedc2f-c50a-4512-8fb3-2f16ac7a8778" xml:space="preserve">
+          <source><bpt id="41429def-3a28-4040-a347-7f2c30b824bf">&lt;linkText&gt;</bpt>Event Hubs<ept id="41429def-3a28-4040-a347-7f2c30b824bf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="41429def-3a28-4040-a347-7f2c30b824bf">&lt;linkText&gt;</bpt>Event Hubs<ept id="41429def-3a28-4040-a347-7f2c30b824bf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b5ec8c44-207d-426c-b9ca-160b437a1044" xml:space="preserve">
+          <source>It is the user's responsibility to manage this offset in a way that best enables managing progress in processing the stream.</source>
+          <target state="new">It is the user's responsibility to manage this offset in a way that best enables managing progress in processing the stream.</target>
+        </trans-unit>
+        <trans-unit id="394d9cdc-23b7-4934-b8ce-7df57a42c292" xml:space="preserve">
+          <source>Event Hubs is a highly scalable parallel architecture for stream ingress.</source>
+          <target state="new">Event Hubs is a highly scalable parallel architecture for stream ingress.</target>
+        </trans-unit>
+        <trans-unit id="4bf0bef8-6af3-4324-b26e-845a6ebbb67f" xml:space="preserve">
+          <source>As such, there are several key aspects to consider when sizing and scaling a solution based on Event Hubs.</source>
+          <target state="new">As such, there are several key aspects to consider when sizing and scaling a solution based on Event Hubs.</target>
+        </trans-unit>
+        <trans-unit id="a51c0a18-fb93-4903-866a-7ac834c5aec3" xml:space="preserve">
+          <source>The first of these capacity controls is <bpt id="8b6f644c-039a-49d1-a32e-a812ea790d41">&lt;em&gt;</bpt>throughput units<ept id="8b6f644c-039a-49d1-a32e-a812ea790d41">&lt;/em&gt;</ept>, described in the following section.</source>
+          <target state="new">The first of these capacity controls is <bpt id="8b6f644c-039a-49d1-a32e-a812ea790d41">&lt;em&gt;</bpt>throughput units<ept id="8b6f644c-039a-49d1-a32e-a812ea790d41">&lt;/em&gt;</ept>, described in the following section.</target>
+        </trans-unit>
+        <trans-unit id="04e2464f-89bc-4340-abc4-127d99c1f235" xml:space="preserve">
+          <source>The throughput capacity of Event Hubs is controlled by throughput units.</source>
+          <target state="new">The throughput capacity of Event Hubs is controlled by throughput units.</target>
+        </trans-unit>
+        <trans-unit id="89a6215a-9738-449d-8b5b-675528d26c90" xml:space="preserve">
+          <source>Throughput units are pre-purchased units of capacity.</source>
+          <target state="new">Throughput units are pre-purchased units of capacity.</target>
+        </trans-unit>
+        <trans-unit id="d7ca7d03-9b8d-44a0-9ab9-7cc29c00fbe9" xml:space="preserve">
+          <source>A single throughput unit includes the following:</source>
+          <target state="new">A single throughput unit includes the following:</target>
+        </trans-unit>
+        <trans-unit id="b229f08a-ff41-4832-8ce3-b6e940244293" xml:space="preserve">
+          <source>Ingress: Up to 1MB per second or 1000 events per second.</source>
+          <target state="new">Ingress: Up to 1MB per second or 1000 events per second.</target>
+        </trans-unit>
+        <trans-unit id="8e6b9807-1f84-4169-8f32-dcabd9b4f25b" xml:space="preserve">
+          <source>Egress: Up to 2MB per second.</source>
+          <target state="new">Egress: Up to 2MB per second.</target>
+        </trans-unit>
+        <trans-unit id="bf30cdc2-1b66-4735-b876-b6f4d22bef44" xml:space="preserve">
+          <source>Ingress is throttled to the amount of capacity provided by the number of throughput units purchased.</source>
+          <target state="new">Ingress is throttled to the amount of capacity provided by the number of throughput units purchased.</target>
+        </trans-unit>
+        <trans-unit id="d6c4d4e5-97b5-4992-967d-17a88637a8c9" xml:space="preserve">
+          <source>Sending data above this amount results in a "quota exceeded" exception.</source>
+          <target state="new">Sending data above this amount results in a "quota exceeded" exception.</target>
+        </trans-unit>
+        <trans-unit id="75ce1f80-08cf-4169-9ba9-e6b1cf8165eb" xml:space="preserve">
+          <source>This amount is either 1 MB per second or 1000 events per second, whichever comes first.</source>
+          <target state="new">This amount is either 1 MB per second or 1000 events per second, whichever comes first.</target>
+        </trans-unit>
+        <trans-unit id="ee165e27-c0b8-432f-b57a-c961221cb1be" xml:space="preserve">
+          <source>Egress does not produce throttling exceptions, but is limited to the amount of data transfer provided for by the purchased throughput units: 2 MB per second per throughput unit.</source>
+          <target state="new">Egress does not produce throttling exceptions, but is limited to the amount of data transfer provided for by the purchased throughput units: 2 MB per second per throughput unit.</target>
+        </trans-unit>
+        <trans-unit id="0acdcf7e-42b0-40b9-b007-c23ed0fdc5ef" xml:space="preserve">
+          <source>If you receive publishing rate exceptions or are expecting to see higher egress be sure to check how many throughput units you have purchased for the namespace in which the Event Hub was created.</source>
+          <target state="new">If you receive publishing rate exceptions or are expecting to see higher egress be sure to check how many throughput units you have purchased for the namespace in which the Event Hub was created.</target>
+        </trans-unit>
+        <trans-unit id="5362f2ad-836a-4c7d-a9a1-849c8c7e587b" xml:space="preserve">
+          <source>To obtain more throughput units, you can adjust the setting on the <bpt id="a722bb9c-fbcd-4b1e-bb2d-543f13076263">&lt;strong&gt;</bpt>Namespaces<ept id="a722bb9c-fbcd-4b1e-bb2d-543f13076263">&lt;/strong&gt;</ept> page on the <bpt id="6e0661d5-2def-4130-bcb0-f865e95cd546">&lt;strong&gt;</bpt>Configure<ept id="6e0661d5-2def-4130-bcb0-f865e95cd546">&lt;/strong&gt;</ept> tab in the Azure management portal.</source>
+          <target state="new">To obtain more throughput units, you can adjust the setting on the <bpt id="a722bb9c-fbcd-4b1e-bb2d-543f13076263">&lt;strong&gt;</bpt>Namespaces<ept id="a722bb9c-fbcd-4b1e-bb2d-543f13076263">&lt;/strong&gt;</ept> page on the <bpt id="6e0661d5-2def-4130-bcb0-f865e95cd546">&lt;strong&gt;</bpt>Configure<ept id="6e0661d5-2def-4130-bcb0-f865e95cd546">&lt;/strong&gt;</ept> tab in the Azure management portal.</target>
+        </trans-unit>
+        <trans-unit id="0e9cef50-20f9-4d02-b20a-ef65835896c9" xml:space="preserve">
+          <source>You can also change this setting using the Azure APIs.</source>
+          <target state="new">You can also change this setting using the Azure APIs.</target>
+        </trans-unit>
+        <trans-unit id="5e4ecd27-8f38-418c-a40f-e800bb0c3391" xml:space="preserve">
+          <source>While partitions are a data organization concept, throughput units are purely a capacity concept.</source>
+          <target state="new">While partitions are a data organization concept, throughput units are purely a capacity concept.</target>
+        </trans-unit>
+        <trans-unit id="23878176-04a8-47c2-a399-1bda70514fc3" xml:space="preserve">
+          <source>Throughput units are billed per hour and are pre-purchased.</source>
+          <target state="new">Throughput units are billed per hour and are pre-purchased.</target>
+        </trans-unit>
+        <trans-unit id="370bdd46-38da-43e5-aeae-d7f4a40438cf" xml:space="preserve">
+          <source>Once purchased, throughput units are billed for a minimum of one hour.</source>
+          <target state="new">Once purchased, throughput units are billed for a minimum of one hour.</target>
+        </trans-unit>
+        <trans-unit id="2ea14394-f422-413c-ba34-ed80687470bc" xml:space="preserve">
+          <source>Up to 20 throughput units can be purchased for a Service Bus namespace, and there is an Azure account limit of 20 throughput units.</source>
+          <target state="new">Up to 20 throughput units can be purchased for a Service Bus namespace, and there is an Azure account limit of 20 throughput units.</target>
+        </trans-unit>
+        <trans-unit id="f802ecb8-b75f-4cc8-8efa-cb38737b31d8" xml:space="preserve">
+          <source>These throughput units are shared across all Event Hubs in a given namespace.</source>
+          <target state="new">These throughput units are shared across all Event Hubs in a given namespace.</target>
+        </trans-unit>
+        <trans-unit id="a8d686b2-8952-4a02-a7f9-ffdee14f9684" xml:space="preserve">
+          <source>Throughput units are provisioned on a best effort basis and may not always be available for immediate purchase.</source>
+          <target state="new">Throughput units are provisioned on a best effort basis and may not always be available for immediate purchase.</target>
+        </trans-unit>
+        <trans-unit id="584e5bba-88f1-4a21-b641-bb368f81080b" xml:space="preserve">
+          <source>If you require a specific capacity, it is recommended that you purchase those throughput units ahead of time.</source>
+          <target state="new">If you require a specific capacity, it is recommended that you purchase those throughput units ahead of time.</target>
+        </trans-unit>
+        <trans-unit id="f047f6a2-0bf4-4caf-937a-ac95b661db98" xml:space="preserve">
+          <source>If you require more than 20 throughput units, you can contact Microsoft Azure Service Bus support to purchase more throughput units on a commitment basis in blocks of 20, up to the first 100 throughput units.</source>
+          <target state="new">If you require more than 20 throughput units, you can contact Microsoft Azure Service Bus support to purchase more throughput units on a commitment basis in blocks of 20, up to the first 100 throughput units.</target>
+        </trans-unit>
+        <trans-unit id="3a46a458-6ab1-4f10-82bc-434d5ddf5cb9" xml:space="preserve">
+          <source>Beyond that, you can also purchase blocks of 100 throughput units.</source>
+          <target state="new">Beyond that, you can also purchase blocks of 100 throughput units.</target>
+        </trans-unit>
+        <trans-unit id="c382c702-c554-420c-80d6-737ccc18fb21" xml:space="preserve">
+          <source>It is recommended that you carefully balance throughput units and partitions in order to achieve optimal scale with Event Hubs.</source>
+          <target state="new">It is recommended that you carefully balance throughput units and partitions in order to achieve optimal scale with Event Hubs.</target>
+        </trans-unit>
+        <trans-unit id="2c9557ca-f6fc-4f07-9917-4ec872929cdd" xml:space="preserve">
+          <source>A single partition has a maximum scale of one throughput unit.</source>
+          <target state="new">A single partition has a maximum scale of one throughput unit.</target>
+        </trans-unit>
+        <trans-unit id="5538a23c-cd61-4e21-9574-5ff2fa7fb35b" xml:space="preserve">
+          <source>The number of throughput units should be less than or equal to the number of partitions in an Event Hub.</source>
+          <target state="new">The number of throughput units should be less than or equal to the number of partitions in an Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="bd6a6c98-c1ac-4427-870c-6484a8a1581f" xml:space="preserve">
+          <source>For detailed pricing information, see <bpt id="bd03d3f4-6e14-42e1-b51a-d27ce6d1d9ff">&lt;linkText&gt;</bpt>Event Hubs Pricing<ept id="bd03d3f4-6e14-42e1-b51a-d27ce6d1d9ff">&lt;/linkText&gt;</ept><bpt id="bd03d3f4-6e14-42e1-b51a-d27ce6d1d9ff">&lt;title&gt;</bpt><ept id="bd03d3f4-6e14-42e1-b51a-d27ce6d1d9ff">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed pricing information, see <bpt id="bd03d3f4-6e14-42e1-b51a-d27ce6d1d9ff">&lt;linkText&gt;</bpt>Event Hubs Pricing<ept id="bd03d3f4-6e14-42e1-b51a-d27ce6d1d9ff">&lt;/linkText&gt;</ept><bpt id="bd03d3f4-6e14-42e1-b51a-d27ce6d1d9ff">&lt;title&gt;</bpt><ept id="bd03d3f4-6e14-42e1-b51a-d27ce6d1d9ff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d79bd1b5-611d-44d0-b2c5-f0488d62375e" xml:space="preserve">
+          <source>Event Hubs enables granular control over event producers through <bpt id="b9e8200c-6236-47e8-bc50-8f23c62b7ed3">&lt;em&gt;</bpt>publisher policies<ept id="b9e8200c-6236-47e8-bc50-8f23c62b7ed3">&lt;/em&gt;</ept>.</source>
+          <target state="new">Event Hubs enables granular control over event producers through <bpt id="b9e8200c-6236-47e8-bc50-8f23c62b7ed3">&lt;em&gt;</bpt>publisher policies<ept id="b9e8200c-6236-47e8-bc50-8f23c62b7ed3">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e83ddf79-8957-4b0c-a3da-f3c650fde33f" xml:space="preserve">
+          <source>Publisher policies are a set of run-time features designed to facilitate large numbers of independent event producers.</source>
+          <target state="new">Publisher policies are a set of run-time features designed to facilitate large numbers of independent event producers.</target>
+        </trans-unit>
+        <trans-unit id="d9892cbc-2fb6-4793-985c-43ed8cb16397" xml:space="preserve">
+          <source>With publisher policies, each publisher uses its own unique identifier when publishing events to an Event Hub, using the following mechanism:</source>
+          <target state="new">With publisher policies, each publisher uses its own unique identifier when publishing events to an Event Hub, using the following mechanism:</target>
+        </trans-unit>
+        <trans-unit id="0aef1bff-9853-47b8-861b-9fc887b90ff9" xml:space="preserve">
+          <source>You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities.</source>
+          <target state="new">You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities.</target>
+        </trans-unit>
+        <trans-unit id="bcadd420-254f-4265-8d20-432521eff54d" xml:space="preserve">
+          <source>For more information about SAS, see <bpt id="264b0f89-5101-4100-b64a-91f3e5803e1a">&lt;linkText&gt;</bpt>Shared Access Signature Authentication with Service Bus<ept id="264b0f89-5101-4100-b64a-91f3e5803e1a">&lt;/linkText&gt;</ept><bpt id="264b0f89-5101-4100-b64a-91f3e5803e1a">&lt;title&gt;</bpt><ept id="264b0f89-5101-4100-b64a-91f3e5803e1a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about SAS, see <bpt id="264b0f89-5101-4100-b64a-91f3e5803e1a">&lt;linkText&gt;</bpt>Shared Access Signature Authentication with Service Bus<ept id="264b0f89-5101-4100-b64a-91f3e5803e1a">&lt;/linkText&gt;</ept><bpt id="264b0f89-5101-4100-b64a-91f3e5803e1a">&lt;title&gt;</bpt><ept id="264b0f89-5101-4100-b64a-91f3e5803e1a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b559e51e-ec62-4e5f-ab0b-5b7c7401276e" xml:space="preserve">
+          <source>When using publisher policies, the <bpt id="07c29b31-54eb-4d86-bacc-31fe5049351a">&lt;strong&gt;</bpt>PartitionKey<ept id="07c29b31-54eb-4d86-bacc-31fe5049351a">&lt;/strong&gt;</ept> value is set to the publisher name.</source>
+          <target state="new">When using publisher policies, the <bpt id="07c29b31-54eb-4d86-bacc-31fe5049351a">&lt;strong&gt;</bpt>PartitionKey<ept id="07c29b31-54eb-4d86-bacc-31fe5049351a">&lt;/strong&gt;</ept> value is set to the publisher name.</target>
+        </trans-unit>
+        <trans-unit id="0c49c022-5d24-45af-b83a-0a696073e94b" xml:space="preserve">
+          <source>In order to work properly, these values must match.</source>
+          <target state="new">In order to work properly, these values must match.</target>
+        </trans-unit>
+        <trans-unit id="6648699b-7691-4738-8bc1-ddb47e908125" xml:space="preserve">
+          <source>Azure Event Hubs provides a hyper-scale event and telemetry processing service that can be used for common application and user workflow monitoring at any scale.</source>
+          <target state="new">Azure Event Hubs provides a hyper-scale event and telemetry processing service that can be used for common application and user workflow monitoring at any scale.</target>
+        </trans-unit>
+        <trans-unit id="382a0169-84d8-4e49-9196-1fe1bda21df5" xml:space="preserve">
+          <source>With the ability to provide publish-subscribe capabilities with low latency and at massive scale, Event Hubs serve as the "on ramp" for Big Data.</source>
+          <target state="new">With the ability to provide publish-subscribe capabilities with low latency and at massive scale, Event Hubs serve as the "on ramp" for Big Data.</target>
+        </trans-unit>
+        <trans-unit id="595ebf22-506a-4623-acc2-fd34444b2a15" xml:space="preserve">
+          <source>With publisher-based identity and revocation lists, these capabilities are extended into common Internet of Things scenarios.</source>
+          <target state="new">With publisher-based identity and revocation lists, these capabilities are extended into common Internet of Things scenarios.</target>
+        </trans-unit>
+        <trans-unit id="112e1c3d-51a4-4ccb-b548-134fa45289c2" xml:space="preserve">
+          <source>For more information about developing Event Hubs applications.</source>
+          <target state="new">For more information about developing Event Hubs applications.</target>
+        </trans-unit>
+        <trans-unit id="eaf45652-7104-45c9-a905-6a7bf64646b4" xml:space="preserve">
+          <source>see the <bpt id="e3dc7bd8-903a-4937-9712-9d2ff3f96fa9">&lt;linkText&gt;</bpt>Event Hubs Programming Guide<ept id="e3dc7bd8-903a-4937-9712-9d2ff3f96fa9">&lt;/linkText&gt;</ept><bpt id="e3dc7bd8-903a-4937-9712-9d2ff3f96fa9">&lt;title&gt;</bpt><ept id="e3dc7bd8-903a-4937-9712-9d2ff3f96fa9">&lt;/title&gt;</ept>.</source>
+          <target state="new">see the <bpt id="e3dc7bd8-903a-4937-9712-9d2ff3f96fa9">&lt;linkText&gt;</bpt>Event Hubs Programming Guide<ept id="e3dc7bd8-903a-4937-9712-9d2ff3f96fa9">&lt;/linkText&gt;</ept><bpt id="e3dc7bd8-903a-4937-9712-9d2ff3f96fa9">&lt;title&gt;</bpt><ept id="e3dc7bd8-903a-4937-9712-9d2ff3f96fa9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6671e00-46cb-4054-a23b-a245c00fd375" xml:space="preserve">
+          <source>Now that you've learned about Event Hubs concepts, you can move on to the following scenarios:</source>
+          <target state="new">Now that you've learned about Event Hubs concepts, you can move on to the following scenarios:</target>
+        </trans-unit>
+        <trans-unit id="c5734d73-71dc-4540-94a5-948a82b299b3" xml:space="preserve">
+          <source>Get started with an [Event Hubs tutorial].</source>
+          <target state="new">Get started with an [Event Hubs tutorial].</target>
+        </trans-unit>
+        <trans-unit id="0e248916-7185-4259-b75a-9e611791150c" xml:space="preserve">
+          <source>A complete [sample application that uses Event Hubs].</source>
+          <target state="new">A complete [sample application that uses Event Hubs].</target>
+        </trans-unit>
+        <trans-unit id="4ff3ff77-8c5f-4187-a7ff-81a1b8618093" xml:space="preserve">
+          <source>A [queued messaging solution] using Service Bus queues.</source>
+          <target state="new">A [queued messaging solution] using Service Bus queues.</target>
+        </trans-unit>
+        <trans-unit id="1a1c0e53-cbce-434e-9738-8379a2384c06" xml:space="preserve">
+          <source>service-bus-event-hubs-csharp-ephcs-getstarted.md</source>
+          <target state="new">service-bus-event-hubs-csharp-ephcs-getstarted.md</target>
+        </trans-unit>
+        <trans-unit id="cbfdbcbe-9d80-4710-ab08-1988c1e77cb0" xml:space="preserve">
+          <source>https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097</source>
+          <target state="new">https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097</target>
+        </trans-unit>
+        <trans-unit id="e9e34c6b-48ad-4947-bba0-a74174971fa2" xml:space="preserve">
+          <source>../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md</source>
+          <target state="new">../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md</target>
+        </trans-unit>
+      </group>
+      <group id="7eb850db-ecb5-4a0f-8c94-06157becec7e" />
+    </body>
+  </file>
+</xliff>

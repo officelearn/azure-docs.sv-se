@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="da318a0c-2e15-422b-b8fd-65d3e4d38e50" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="da318a0c-2e15-422b-b8fd-65d3e4d38e50" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="334fde55-8e7c-4dd4-8440-f5d1478e4a80">
+        <trans-unit id="da9a5e26-105e-45cb-b904-ea3c65775914" xml:space="preserve">
+          <source>When you provision a MongoLab database, MongoLab transmits a connection URI to Azure in MongoDB's standard connection string format.</source>
+          <target state="new">When you provision a MongoLab database, MongoLab transmits a connection URI to Azure in MongoDB's standard connection string format.</target>
+        </trans-unit>
+        <trans-unit id="615dace2-cfc9-4d54-9b7b-fa369c114fa9" xml:space="preserve">
+          <source>This value is used to initiate a MongoDB connection through your choice of MongoDB driver.</source>
+          <target state="new">This value is used to initiate a MongoDB connection through your choice of MongoDB driver.</target>
+        </trans-unit>
+        <trans-unit id="1e1a455e-7919-4ce6-863f-32813b76ea5e" xml:space="preserve">
+          <source>For more information about connection strings, see <bpt id="7f2882c1-1e7f-4e54-84ac-97147374614c">&lt;linkText&gt;</bpt>Connections<ept id="7f2882c1-1e7f-4e54-84ac-97147374614c">&lt;/linkText&gt;</ept><bpt id="7f2882c1-1e7f-4e54-84ac-97147374614c">&lt;title&gt;</bpt><ept id="7f2882c1-1e7f-4e54-84ac-97147374614c">&lt;/title&gt;</ept> at mongodb.org.</source>
+          <target state="new">For more information about connection strings, see <bpt id="7f2882c1-1e7f-4e54-84ac-97147374614c">&lt;linkText&gt;</bpt>Connections<ept id="7f2882c1-1e7f-4e54-84ac-97147374614c">&lt;/linkText&gt;</ept><bpt id="7f2882c1-1e7f-4e54-84ac-97147374614c">&lt;title&gt;</bpt><ept id="7f2882c1-1e7f-4e54-84ac-97147374614c">&lt;/title&gt;</ept> at mongodb.org.</target>
+        </trans-unit>
+        <trans-unit id="50918deb-7a70-41d7-bcb8-2d24d7911b94" xml:space="preserve">
+          <source>**This URI contains your database user name and password.</source>
+          <target state="new">**This URI contains your database user name and password.</target>
+        </trans-unit>
+        <trans-unit id="7cf9253e-4c83-4513-93ce-4bce2a133124" xml:space="preserve">
+          <source>Treat it as sensitive information and do not share it.**</source>
+          <target state="new">Treat it as sensitive information and do not share it.**</target>
+        </trans-unit>
+        <trans-unit id="b9352b43-ec5e-4351-a4a3-cfb35b2286d1" xml:space="preserve">
+          <source>You can retrieve this URI in the Azure Portal using the following steps:</source>
+          <target state="new">You can retrieve this URI in the Azure Portal using the following steps:</target>
+        </trans-unit>
+        <trans-unit id="1e2a4a2a-bd07-453b-b27a-aeacc94cd67b" xml:space="preserve">
+          <source>Select <bpt id="c382131b-0817-438d-851e-7a8c24afd184">&lt;strong&gt;</bpt>Add-ons<ept id="c382131b-0817-438d-851e-7a8c24afd184">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="c382131b-0817-438d-851e-7a8c24afd184">&lt;strong&gt;</bpt>Add-ons<ept id="c382131b-0817-438d-851e-7a8c24afd184">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33b0ee5e-029e-45b9-88f3-0e620c32aecf" xml:space="preserve">
+          <source><bpt id="140a5b70-d158-4b7d-9c9a-617e8c515091">&lt;linkText&gt;</bpt>AddonsButton<ept id="140a5b70-d158-4b7d-9c9a-617e8c515091">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="140a5b70-d158-4b7d-9c9a-617e8c515091">&lt;linkText&gt;</bpt>AddonsButton<ept id="140a5b70-d158-4b7d-9c9a-617e8c515091">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29e4a1e1-429a-4b63-9520-bc7369d1e1d3" xml:space="preserve">
+          <source>Locate your MongoLab service in your add-on list.</source>
+          <target state="new">Locate your MongoLab service in your add-on list.</target>
+        </trans-unit>
+        <trans-unit id="9aa6aab2-3ead-4cc9-9493-7e0292770fc9" xml:space="preserve">
+          <source><bpt id="13f340d3-eaad-42b6-86f7-4b98d0c35ec8">&lt;linkText&gt;</bpt>MongolabEntry<ept id="13f340d3-eaad-42b6-86f7-4b98d0c35ec8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="13f340d3-eaad-42b6-86f7-4b98d0c35ec8">&lt;linkText&gt;</bpt>MongolabEntry<ept id="13f340d3-eaad-42b6-86f7-4b98d0c35ec8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="174d00bc-2a8b-4734-9f78-7ab7a000fc54" xml:space="preserve">
+          <source>Cick the name of your add-on to reach the add-on page.</source>
+          <target state="new">Cick the name of your add-on to reach the add-on page.</target>
+        </trans-unit>
+        <trans-unit id="3ed428ce-73eb-4427-9f99-5dcc8ff09bfe" xml:space="preserve">
+          <source>Click <bpt id="076a5b6d-9263-45f1-9f79-1623933183a2">&lt;strong&gt;</bpt>Connection Info<ept id="076a5b6d-9263-45f1-9f79-1623933183a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="076a5b6d-9263-45f1-9f79-1623933183a2">&lt;strong&gt;</bpt>Connection Info<ept id="076a5b6d-9263-45f1-9f79-1623933183a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1afd9324-0455-4e59-80e3-35c03b3e91f8" xml:space="preserve">
+          <source><bpt id="f9493e89-c2a0-41b7-8aee-e4df0962287b">&lt;linkText&gt;</bpt>ConnectionInfoButton<ept id="f9493e89-c2a0-41b7-8aee-e4df0962287b">&lt;/linkText&gt;</ept>  
+Your MongoLab URI displays:  
+<bpt id="ff7079bd-d6b4-4a16-a86d-db346d1864fa">&lt;linkText&gt;</bpt>ConnectionInfoScreen<ept id="ff7079bd-d6b4-4a16-a86d-db346d1864fa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f9493e89-c2a0-41b7-8aee-e4df0962287b">&lt;linkText&gt;</bpt>ConnectionInfoButton<ept id="f9493e89-c2a0-41b7-8aee-e4df0962287b">&lt;/linkText&gt;</ept>  
+Your MongoLab URI displays:  
+<bpt id="ff7079bd-d6b4-4a16-a86d-db346d1864fa">&lt;linkText&gt;</bpt>ConnectionInfoScreen<ept id="ff7079bd-d6b4-4a16-a86d-db346d1864fa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="592f77a7-dd07-4ae7-863d-1c09c8594ddf" xml:space="preserve">
+          <source>Click the clipboard button to the right of the MONGOLAB_URI value to copy the full value to the clipboard.</source>
+          <target state="new">Click the clipboard button to the right of the MONGOLAB_URI value to copy the full value to the clipboard.</target>
+        </trans-unit>
+        <trans-unit id="8a39883a-ede3-48ef-add9-97ab646bf9f7" xml:space="preserve">
+          <source>./media/howto-get-connectioninfo-mongolab/entry-mongolabaddon.png</source>
+          <target state="new">./media/howto-get-connectioninfo-mongolab/entry-mongolabaddon.png</target>
+        </trans-unit>
+        <trans-unit id="8edcd23e-f958-46ce-869d-32f2375522e7" xml:space="preserve">
+          <source>./media/howto-get-connectioninfo-mongolab/button-connectioninfo.png</source>
+          <target state="new">./media/howto-get-connectioninfo-mongolab/button-connectioninfo.png</target>
+        </trans-unit>
+        <trans-unit id="44ed600e-0ba5-4f44-9a4c-b28d793d8980" xml:space="preserve">
+          <source>./media/howto-get-connectioninfo-mongolab/dialog-mongolab_connectioninfo.png</source>
+          <target state="new">./media/howto-get-connectioninfo-mongolab/dialog-mongolab_connectioninfo.png</target>
+        </trans-unit>
+        <trans-unit id="38777551-028b-4b7b-b2e9-0e1ac476aba1" xml:space="preserve">
+          <source>./media/howto-get-connectioninfo-mongolab/button-addons.png</source>
+          <target state="new">./media/howto-get-connectioninfo-mongolab/button-addons.png</target>
+        </trans-unit>
+      </group>
+      <group id="dff558ed-e886-485d-8f49-264571d69855" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="739f2171-e3e1-42f8-b736-6cc847621861" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="739f2171-e3e1-42f8-b736-6cc847621861" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cc0e1ed0-b23a-4470-a0a1-b95f17e90fe6">
+        <trans-unit id="f4765917-e02f-4456-b226-5496e8a76e70" xml:space="preserve">
+          <source>Create and load data into Hive tables from Blob storage | Microsoft Azure</source>
+          <target state="new">Create and load data into Hive tables from Blob storage | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="25e1faf2-71f2-4f6d-804b-6903c01d563b" xml:space="preserve">
+          <source>Create Hive tables and load data in blob to hive tables</source>
+          <target state="new">Create Hive tables and load data in blob to hive tables</target>
+        </trans-unit>
+        <trans-unit id="f9712a89-8502-434e-a629-2af3107b3f09" xml:space="preserve">
+          <source>In this document, generic Hive queries that create Hive tables and load data from Azure blob storage are presented.</source>
+          <target state="new">In this document, generic Hive queries that create Hive tables and load data from Azure blob storage are presented.</target>
+        </trans-unit>
+        <trans-unit id="98fd0685-9472-4ffa-872a-da065ceb2d70" xml:space="preserve">
+          <source>Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.</source>
+          <target state="new">Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.</target>
+        </trans-unit>
+        <trans-unit id="9fdb9fcd-3394-4a34-a56a-0c86fe82ca1b" xml:space="preserve">
+          <source>This article assumes that you have:</source>
+          <target state="new">This article assumes that you have:</target>
+        </trans-unit>
+        <trans-unit id="03c200c3-c3b8-4b56-8ec5-a6607a78a64b" xml:space="preserve">
+          <source>Created an Azure storage account.</source>
+          <target state="new">Created an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="72766c4e-36e8-4e05-85b5-bce1d4d46769" xml:space="preserve">
+          <source>If you need instructions, see <bpt id="452822a4-1c2c-4611-9096-bebed5e0f9ab">&lt;linkText&gt;</bpt>Create an Azure Storage account<ept id="452822a4-1c2c-4611-9096-bebed5e0f9ab">&lt;/linkText&gt;</ept><bpt id="452822a4-1c2c-4611-9096-bebed5e0f9ab">&lt;title&gt;</bpt><ept id="452822a4-1c2c-4611-9096-bebed5e0f9ab">&lt;/title&gt;</ept></source>
+          <target state="new">If you need instructions, see <bpt id="452822a4-1c2c-4611-9096-bebed5e0f9ab">&lt;linkText&gt;</bpt>Create an Azure Storage account<ept id="452822a4-1c2c-4611-9096-bebed5e0f9ab">&lt;/linkText&gt;</ept><bpt id="452822a4-1c2c-4611-9096-bebed5e0f9ab">&lt;title&gt;</bpt><ept id="452822a4-1c2c-4611-9096-bebed5e0f9ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0d8fc73-04c8-49ed-bb68-8850932265d1" xml:space="preserve">
+          <source>Provisioned a customized Hadoop cluster with the HDInsight service.</source>
+          <target state="new">Provisioned a customized Hadoop cluster with the HDInsight service.</target>
+        </trans-unit>
+        <trans-unit id="19dfe65c-a790-493f-aea0-aae7535d605b" xml:space="preserve">
+          <source>If you need instructions, see <bpt id="741e50b2-3277-485b-a70a-52df1f8c5295">&lt;linkText&gt;</bpt>Customize Azure HDInsight Hadoop clusters for advanced analytics<ept id="741e50b2-3277-485b-a70a-52df1f8c5295">&lt;/linkText&gt;</ept><bpt id="741e50b2-3277-485b-a70a-52df1f8c5295">&lt;title&gt;</bpt><ept id="741e50b2-3277-485b-a70a-52df1f8c5295">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need instructions, see <bpt id="741e50b2-3277-485b-a70a-52df1f8c5295">&lt;linkText&gt;</bpt>Customize Azure HDInsight Hadoop clusters for advanced analytics<ept id="741e50b2-3277-485b-a70a-52df1f8c5295">&lt;/linkText&gt;</ept><bpt id="741e50b2-3277-485b-a70a-52df1f8c5295">&lt;title&gt;</bpt><ept id="741e50b2-3277-485b-a70a-52df1f8c5295">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1fe96e5c-7a65-44d9-8b2c-ba9be060fbcd" xml:space="preserve">
+          <source>Enabled remote access to the cluster, logged in, and opened the Hadoop Command Line console.</source>
+          <target state="new">Enabled remote access to the cluster, logged in, and opened the Hadoop Command Line console.</target>
+        </trans-unit>
+        <trans-unit id="ac1ed8c0-012b-43a3-ada8-ee8b61abc117" xml:space="preserve">
+          <source>If you need instructions, see <bpt id="04614627-d4ee-4608-a7a2-09e293af1f6a">&lt;linkText&gt;</bpt>Access the Head Node of Hadoop Cluster<ept id="04614627-d4ee-4608-a7a2-09e293af1f6a">&lt;/linkText&gt;</ept><bpt id="04614627-d4ee-4608-a7a2-09e293af1f6a">&lt;title&gt;</bpt><ept id="04614627-d4ee-4608-a7a2-09e293af1f6a">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need instructions, see <bpt id="04614627-d4ee-4608-a7a2-09e293af1f6a">&lt;linkText&gt;</bpt>Access the Head Node of Hadoop Cluster<ept id="04614627-d4ee-4608-a7a2-09e293af1f6a">&lt;/linkText&gt;</ept><bpt id="04614627-d4ee-4608-a7a2-09e293af1f6a">&lt;title&gt;</bpt><ept id="04614627-d4ee-4608-a7a2-09e293af1f6a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a987afdd-36b2-4f89-9a50-c2d648fbcd2a" xml:space="preserve">
+          <source>If you created an Azure virtual machine by following the instructions provided in <bpt id="6d109d03-5dbd-4f7d-8369-2255e71a307f">&lt;linkText&gt;</bpt>Set up an Azure virtual machine for advanced analytics<ept id="6d109d03-5dbd-4f7d-8369-2255e71a307f">&lt;/linkText&gt;</ept><bpt id="6d109d03-5dbd-4f7d-8369-2255e71a307f">&lt;title&gt;</bpt><ept id="6d109d03-5dbd-4f7d-8369-2255e71a307f">&lt;/title&gt;</ept>, this script file should have been downloaded to the <bpt id="64b23216-6224-4e04-a86b-65cac3d99c91">&lt;em&gt;</bpt>C:\\Users\\\&lt;user name\&gt;\\Documents\\Data Science Scripts<ept id="64b23216-6224-4e04-a86b-65cac3d99c91">&lt;/em&gt;</ept> directory on the virtual machine. These Hive queries only require that you plug in your own data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.</source>
+          <target state="new">If you created an Azure virtual machine by following the instructions provided in <bpt id="6d109d03-5dbd-4f7d-8369-2255e71a307f">&lt;linkText&gt;</bpt>Set up an Azure virtual machine for advanced analytics<ept id="6d109d03-5dbd-4f7d-8369-2255e71a307f">&lt;/linkText&gt;</ept><bpt id="6d109d03-5dbd-4f7d-8369-2255e71a307f">&lt;title&gt;</bpt><ept id="6d109d03-5dbd-4f7d-8369-2255e71a307f">&lt;/title&gt;</ept>, this script file should have been downloaded to the <bpt id="64b23216-6224-4e04-a86b-65cac3d99c91">&lt;em&gt;</bpt>C:\\Users\\\&lt;user name\&gt;\\Documents\\Data Science Scripts<ept id="64b23216-6224-4e04-a86b-65cac3d99c91">&lt;/em&gt;</ept> directory on the virtual machine. These Hive queries only require that you plug in your own data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.</target>
+        </trans-unit>
+        <trans-unit id="853b1eb4-aae7-4589-b87b-481bbb64bd7f" xml:space="preserve">
+          <source>We assume that the data for Hive tables is in an <bpt id="263e6eea-ca8d-4190-9b14-07ca3ff97507">&lt;strong&gt;</bpt>uncompressed<ept id="263e6eea-ca8d-4190-9b14-07ca3ff97507">&lt;/strong&gt;</ept> tabular format, and that the data has been uploaded to the default (or to an additional) container of the storage account used by the Hadoop cluster.</source>
+          <target state="new">We assume that the data for Hive tables is in an <bpt id="263e6eea-ca8d-4190-9b14-07ca3ff97507">&lt;strong&gt;</bpt>uncompressed<ept id="263e6eea-ca8d-4190-9b14-07ca3ff97507">&lt;/strong&gt;</ept> tabular format, and that the data has been uploaded to the default (or to an additional) container of the storage account used by the Hadoop cluster.</target>
+        </trans-unit>
+        <trans-unit id="69b912cd-ef38-4ab9-9d20-d8b1141d3d11" xml:space="preserve">
+          <source>If you want to practice on the <bpt id="ab15bf11-77c7-4877-930f-0906fa86e44c">&lt;em&gt;</bpt>NYC Taxi Trip Data<ept id="ab15bf11-77c7-4877-930f-0906fa86e44c">&lt;/em&gt;</ept>, you need to first  download the 24 &lt;a href="http://www.andresmh.com/nyctaxitrips/" target="_blank"&gt;NYC Taxi Trip Data&lt;/a&gt; files (12 Trip files, and 12 Fare files), <bpt id="c8ab9850-f005-4065-bddd-90db0f560244">&lt;strong&gt;</bpt>unzip<ept id="c8ab9850-f005-4065-bddd-90db0f560244">&lt;/strong&gt;</ept> all files into .csv files, and then upload them to the default (or appropriate container) of the Azure storage account that was created by the procedure outlined in the <bpt id="8171ebad-0e89-4d67-9555-4d73a612d808">&lt;linkText&gt;</bpt>Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process and Technology<ept id="8171ebad-0e89-4d67-9555-4d73a612d808">&lt;/linkText&gt;</ept><bpt id="8171ebad-0e89-4d67-9555-4d73a612d808">&lt;title&gt;</bpt><ept id="8171ebad-0e89-4d67-9555-4d73a612d808">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">If you want to practice on the <bpt id="ab15bf11-77c7-4877-930f-0906fa86e44c">&lt;em&gt;</bpt>NYC Taxi Trip Data<ept id="ab15bf11-77c7-4877-930f-0906fa86e44c">&lt;/em&gt;</ept>, you need to first  download the 24 &lt;a href="http://www.andresmh.com/nyctaxitrips/" target="_blank"&gt;NYC Taxi Trip Data&lt;/a&gt; files (12 Trip files, and 12 Fare files), <bpt id="c8ab9850-f005-4065-bddd-90db0f560244">&lt;strong&gt;</bpt>unzip<ept id="c8ab9850-f005-4065-bddd-90db0f560244">&lt;/strong&gt;</ept> all files into .csv files, and then upload them to the default (or appropriate container) of the Azure storage account that was created by the procedure outlined in the <bpt id="8171ebad-0e89-4d67-9555-4d73a612d808">&lt;linkText&gt;</bpt>Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process and Technology<ept id="8171ebad-0e89-4d67-9555-4d73a612d808">&lt;/linkText&gt;</ept><bpt id="8171ebad-0e89-4d67-9555-4d73a612d808">&lt;title&gt;</bpt><ept id="8171ebad-0e89-4d67-9555-4d73a612d808">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="91c083c4-2628-423a-bb70-900f18e68202" xml:space="preserve">
+          <source>The process to upload the .csv files to the default container on the storage account can be found on this <bpt id="2b42b1e4-fe13-490b-a669-5257709d5871">&lt;linkText&gt;</bpt>page<ept id="2b42b1e4-fe13-490b-a669-5257709d5871">&lt;/linkText&gt;</ept><bpt id="2b42b1e4-fe13-490b-a669-5257709d5871">&lt;title&gt;</bpt><ept id="2b42b1e4-fe13-490b-a669-5257709d5871">&lt;/title&gt;</ept>.</source>
+          <target state="new">The process to upload the .csv files to the default container on the storage account can be found on this <bpt id="2b42b1e4-fe13-490b-a669-5257709d5871">&lt;linkText&gt;</bpt>page<ept id="2b42b1e4-fe13-490b-a669-5257709d5871">&lt;/linkText&gt;</ept><bpt id="2b42b1e4-fe13-490b-a669-5257709d5871">&lt;title&gt;</bpt><ept id="2b42b1e4-fe13-490b-a669-5257709d5871">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a540a857-6238-44e2-92cb-e988bf31d2dd" xml:space="preserve">
+          <source>Hive queries can be submitted from the Hadoop Command Line console on the head node of the Hadoop cluster.</source>
+          <target state="new">Hive queries can be submitted from the Hadoop Command Line console on the head node of the Hadoop cluster.</target>
+        </trans-unit>
+        <trans-unit id="50a862d2-2f20-43d6-b16f-3ecc684b6f61" xml:space="preserve">
+          <source>To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there.</source>
+          <target state="new">To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there.</target>
+        </trans-unit>
+        <trans-unit id="91b8cfb2-5853-4702-8d66-f0ab7aad050b" xml:space="preserve">
+          <source>For instructions on how to do this, see <bpt id="3e9bf5b4-d5cf-4b65-a0b6-0f81b0595ab6">&lt;linkText&gt;</bpt>Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process<ept id="3e9bf5b4-d5cf-4b65-a0b6-0f81b0595ab6">&lt;/linkText&gt;</ept><bpt id="3e9bf5b4-d5cf-4b65-a0b6-0f81b0595ab6">&lt;title&gt;</bpt><ept id="3e9bf5b4-d5cf-4b65-a0b6-0f81b0595ab6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on how to do this, see <bpt id="3e9bf5b4-d5cf-4b65-a0b6-0f81b0595ab6">&lt;linkText&gt;</bpt>Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process<ept id="3e9bf5b4-d5cf-4b65-a0b6-0f81b0595ab6">&lt;/linkText&gt;</ept><bpt id="3e9bf5b4-d5cf-4b65-a0b6-0f81b0595ab6">&lt;title&gt;</bpt><ept id="3e9bf5b4-d5cf-4b65-a0b6-0f81b0595ab6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94d6c1de-6016-4372-bdaa-8bd41ce31a4a" xml:space="preserve">
+          <source>Users can also use the Query Console (Hive Editor) by entering the URL </source>
+          <target state="new">Users can also use the Query Console (Hive Editor) by entering the URL </target>
+        </trans-unit>
+        <trans-unit id="67468ede-e872-478e-a7ee-214d2c282e84" xml:space="preserve">
+          <source>https://&amp;#60;Hadoop cluster name&gt;.azurehdinsight.net/Home/HiveEditor</source>
+          <target state="new">https://&amp;#60;Hadoop cluster name&gt;.azurehdinsight.net/Home/HiveEditor</target>
+        </trans-unit>
+        <trans-unit id="5037da20-ce59-4981-a990-897ae5c72fb7" xml:space="preserve">
+          <source>into a web browser.</source>
+          <target state="new">into a web browser.</target>
+        </trans-unit>
+        <trans-unit id="de483286-ee97-4d50-be59-90c4052c147e" xml:space="preserve">
+          <source>Note that you will be prompted to input the Hadoop cluster credentials to log in, so you should have these credentials handy.</source>
+          <target state="new">Note that you will be prompted to input the Hadoop cluster credentials to log in, so you should have these credentials handy.</target>
+        </trans-unit>
+        <trans-unit id="61700ffc-4c9c-4495-ab76-f21d41ce8158" xml:space="preserve">
+          <source>Alternatively, you can <bpt id="2f440a40-5f0f-41fe-bc9d-53a23a4900f4">&lt;linkText&gt;</bpt>Submit Hive jobs using PowerShell<ept id="2f440a40-5f0f-41fe-bc9d-53a23a4900f4">&lt;/linkText&gt;</ept><bpt id="2f440a40-5f0f-41fe-bc9d-53a23a4900f4">&lt;title&gt;</bpt><ept id="2f440a40-5f0f-41fe-bc9d-53a23a4900f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Alternatively, you can <bpt id="2f440a40-5f0f-41fe-bc9d-53a23a4900f4">&lt;linkText&gt;</bpt>Submit Hive jobs using PowerShell<ept id="2f440a40-5f0f-41fe-bc9d-53a23a4900f4">&lt;/linkText&gt;</ept><bpt id="2f440a40-5f0f-41fe-bc9d-53a23a4900f4">&lt;title&gt;</bpt><ept id="2f440a40-5f0f-41fe-bc9d-53a23a4900f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ff6ea20-5c76-4a9a-9971-469f0930243c" xml:space="preserve">
+          <source>The Hive queries are shared in the [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample<bpt id="b19d345b-5c1a-40e4-871c-8e974418a6e0">&lt;em&gt;</bpt>hive<ept id="b19d345b-5c1a-40e4-871c-8e974418a6e0">&lt;/em&gt;</ept>create<bpt id="a5d1ef35-38d6-46df-9898-db8f16dc62a3">&lt;em&gt;</bpt>db<ept id="a5d1ef35-38d6-46df-9898-db8f16dc62a3">&lt;/em&gt;</ept>tbls<bpt id="c9f2cb93-34a2-4dc8-87a3-003fd35cd0e5">&lt;em&gt;</bpt>load<ept id="c9f2cb93-34a2-4dc8-87a3-003fd35cd0e5">&lt;/em&gt;</ept>data_generic.hql) and can be downloaded from there.</source>
+          <target state="new">The Hive queries are shared in the [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample<bpt id="b19d345b-5c1a-40e4-871c-8e974418a6e0">&lt;em&gt;</bpt>hive<ept id="b19d345b-5c1a-40e4-871c-8e974418a6e0">&lt;/em&gt;</ept>create<bpt id="a5d1ef35-38d6-46df-9898-db8f16dc62a3">&lt;em&gt;</bpt>db<ept id="a5d1ef35-38d6-46df-9898-db8f16dc62a3">&lt;/em&gt;</ept>tbls<bpt id="c9f2cb93-34a2-4dc8-87a3-003fd35cd0e5">&lt;em&gt;</bpt>load<ept id="c9f2cb93-34a2-4dc8-87a3-003fd35cd0e5">&lt;/em&gt;</ept>data_generic.hql) and can be downloaded from there.</target>
+        </trans-unit>
+        <trans-unit id="f9eb426c-2b38-480e-b4f4-8567e7cbabeb" xml:space="preserve">
+          <source>Here is the Hive query that creates a Hive table.</source>
+          <target state="new">Here is the Hive query that creates a Hive table.</target>
+        </trans-unit>
+        <trans-unit id="1f969932-0461-4716-8552-7c15aa522da0" xml:space="preserve">
+          <source>Here are the descriptions of the fields that users need to plug in and other configurations:</source>
+          <target state="new">Here are the descriptions of the fields that users need to plug in and other configurations:</target>
+        </trans-unit>
+        <trans-unit id="e1ad04bc-7ced-4e78-9a5a-12a295d28de3" xml:space="preserve">
+          <source><bpt id="4251445c-4267-4384-9c03-0d64681e8433">&lt;strong&gt;</bpt>&amp;#60;database name&gt;<ept id="4251445c-4267-4384-9c03-0d64681e8433">&lt;/strong&gt;</ept>: the name of the database users want to create.</source>
+          <target state="new"><bpt id="4251445c-4267-4384-9c03-0d64681e8433">&lt;strong&gt;</bpt>&amp;#60;database name&gt;<ept id="4251445c-4267-4384-9c03-0d64681e8433">&lt;/strong&gt;</ept>: the name of the database users want to create.</target>
+        </trans-unit>
+        <trans-unit id="b4e8cf7e-1228-4bee-a5a1-35f05c55cf3f" xml:space="preserve">
+          <source>If users just want to use the default database, the query <bpt id="9a2a041a-a379-4af7-8cd0-fe961b2df4bc">&lt;em&gt;</bpt>create database...<ept id="9a2a041a-a379-4af7-8cd0-fe961b2df4bc">&lt;/em&gt;</ept> can be omitted.</source>
+          <target state="new">If users just want to use the default database, the query <bpt id="9a2a041a-a379-4af7-8cd0-fe961b2df4bc">&lt;em&gt;</bpt>create database...<ept id="9a2a041a-a379-4af7-8cd0-fe961b2df4bc">&lt;/em&gt;</ept> can be omitted.</target>
+        </trans-unit>
+        <trans-unit id="70ea240b-e868-4e68-8b96-9f1c1bebc223" xml:space="preserve">
+          <source><bpt id="f1b3a7b0-e752-494a-aa6f-38684950e618">&lt;strong&gt;</bpt>&amp;#60;table name&gt;<ept id="f1b3a7b0-e752-494a-aa6f-38684950e618">&lt;/strong&gt;</ept>: the name of the table users want to create within the specified database.</source>
+          <target state="new"><bpt id="f1b3a7b0-e752-494a-aa6f-38684950e618">&lt;strong&gt;</bpt>&amp;#60;table name&gt;<ept id="f1b3a7b0-e752-494a-aa6f-38684950e618">&lt;/strong&gt;</ept>: the name of the table users want to create within the specified database.</target>
+        </trans-unit>
+        <trans-unit id="fdb97422-52c8-4e2d-870b-15d27ceadfed" xml:space="preserve">
+          <source>If users want to use the default database, the table can be directly referred by <bpt id="a3c3c5bc-da05-4b67-8566-d55135504b3a">&lt;em&gt;</bpt>&amp;#60;table name&gt;<ept id="a3c3c5bc-da05-4b67-8566-d55135504b3a">&lt;/em&gt;</ept> without &amp;#60;database name&gt;.</source>
+          <target state="new">If users want to use the default database, the table can be directly referred by <bpt id="a3c3c5bc-da05-4b67-8566-d55135504b3a">&lt;em&gt;</bpt>&amp;#60;table name&gt;<ept id="a3c3c5bc-da05-4b67-8566-d55135504b3a">&lt;/em&gt;</ept> without &amp;#60;database name&gt;.</target>
+        </trans-unit>
+        <trans-unit id="040e9e06-5140-4dde-b725-e83f924006c2" xml:space="preserve">
+          <source><bpt id="5cb3e24b-4053-4235-aa47-50cdd06ae725">&lt;strong&gt;</bpt>&amp;#60;field separator&gt;<ept id="5cb3e24b-4053-4235-aa47-50cdd06ae725">&lt;/strong&gt;</ept>: the separator that delimits fields in the data file to be uploaded to the Hive table.</source>
+          <target state="new"><bpt id="5cb3e24b-4053-4235-aa47-50cdd06ae725">&lt;strong&gt;</bpt>&amp;#60;field separator&gt;<ept id="5cb3e24b-4053-4235-aa47-50cdd06ae725">&lt;/strong&gt;</ept>: the separator that delimits fields in the data file to be uploaded to the Hive table.</target>
+        </trans-unit>
+        <trans-unit id="d3be81de-c269-4a8d-884b-5ff3fb249504" xml:space="preserve">
+          <source><bpt id="3be0321d-e71c-4e4c-8076-19207b04bb89">&lt;strong&gt;</bpt>&amp;#60;line separator&gt;<ept id="3be0321d-e71c-4e4c-8076-19207b04bb89">&lt;/strong&gt;</ept>: the separator that delimits lines in the data file.</source>
+          <target state="new"><bpt id="3be0321d-e71c-4e4c-8076-19207b04bb89">&lt;strong&gt;</bpt>&amp;#60;line separator&gt;<ept id="3be0321d-e71c-4e4c-8076-19207b04bb89">&lt;/strong&gt;</ept>: the separator that delimits lines in the data file.</target>
+        </trans-unit>
+        <trans-unit id="e0f517f7-ee8a-4fb0-924f-7fe2ba829051" xml:space="preserve">
+          <source><bpt id="b4275843-fcdc-4226-b23f-167f9264f5ad">&lt;strong&gt;</bpt>&amp;#60;storage location&gt;<ept id="b4275843-fcdc-4226-b23f-167f9264f5ad">&lt;/strong&gt;</ept>: the Azure storage location to save the data of Hive tables.</source>
+          <target state="new"><bpt id="b4275843-fcdc-4226-b23f-167f9264f5ad">&lt;strong&gt;</bpt>&amp;#60;storage location&gt;<ept id="b4275843-fcdc-4226-b23f-167f9264f5ad">&lt;/strong&gt;</ept>: the Azure storage location to save the data of Hive tables.</target>
+        </trans-unit>
+        <trans-unit id="2bb0312e-3deb-466e-927a-71c465815f1f" xml:space="preserve">
+          <source>If users do not specify <bpt id="6222f97c-da20-461d-a712-c854680488fa">&lt;em&gt;</bpt>LOCATION &amp;#60;storage location&gt;<ept id="6222f97c-da20-461d-a712-c854680488fa">&lt;/em&gt;</ept>, the database and the tables are stored in <bpt id="be404eaf-1e74-4f15-8555-07f299581b60">&lt;em&gt;</bpt>hive/warehouse/<ept id="be404eaf-1e74-4f15-8555-07f299581b60">&lt;/em&gt;</ept> directory in the default container of the Hive cluster by default.</source>
+          <target state="new">If users do not specify <bpt id="6222f97c-da20-461d-a712-c854680488fa">&lt;em&gt;</bpt>LOCATION &amp;#60;storage location&gt;<ept id="6222f97c-da20-461d-a712-c854680488fa">&lt;/em&gt;</ept>, the database and the tables are stored in <bpt id="be404eaf-1e74-4f15-8555-07f299581b60">&lt;em&gt;</bpt>hive/warehouse/<ept id="be404eaf-1e74-4f15-8555-07f299581b60">&lt;/em&gt;</ept> directory in the default container of the Hive cluster by default.</target>
+        </trans-unit>
+        <trans-unit id="b9a0b808-b353-40be-a0b1-670f879f162c" xml:space="preserve">
+          <source>If a user wants to specify the storage location, the storage location has to be within the default container for the database and tables.</source>
+          <target state="new">If a user wants to specify the storage location, the storage location has to be within the default container for the database and tables.</target>
+        </trans-unit>
+        <trans-unit id="01ffcb1a-0cdd-4125-ae5b-44c3c4bfe3ea" xml:space="preserve">
+          <source>This location has to be referred as location relative to the default container of the cluster in the format of <bpt id="18a96691-5b83-4039-9e60-306e3719ea23">&lt;em&gt;</bpt>'wasb:///&amp;#60;directory 1&gt;/'<ept id="18a96691-5b83-4039-9e60-306e3719ea23">&lt;/em&gt;</ept> or <bpt id="76948eb7-a470-4e05-97d0-38448f4ae643">&lt;em&gt;</bpt>'wasb:///&amp;#60;directory 1&gt;/&amp;#60;directory 2&gt;/'<ept id="76948eb7-a470-4e05-97d0-38448f4ae643">&lt;/em&gt;</ept>, etc. After the query is executed, the relative directories will be created within the default container.</source>
+          <target state="new">This location has to be referred as location relative to the default container of the cluster in the format of <bpt id="18a96691-5b83-4039-9e60-306e3719ea23">&lt;em&gt;</bpt>'wasb:///&amp;#60;directory 1&gt;/'<ept id="18a96691-5b83-4039-9e60-306e3719ea23">&lt;/em&gt;</ept> or <bpt id="76948eb7-a470-4e05-97d0-38448f4ae643">&lt;em&gt;</bpt>'wasb:///&amp;#60;directory 1&gt;/&amp;#60;directory 2&gt;/'<ept id="76948eb7-a470-4e05-97d0-38448f4ae643">&lt;/em&gt;</ept>, etc. After the query is executed, the relative directories will be created within the default container.</target>
+        </trans-unit>
+        <trans-unit id="2113d86c-0275-4820-92ff-9c55bab6afd7" xml:space="preserve">
+          <source><bpt id="80734fcb-ee09-4350-818a-3b02d98986b4">&lt;strong&gt;</bpt>TBLPROPERTIES("skip.header.line.count"="1")<ept id="80734fcb-ee09-4350-818a-3b02d98986b4">&lt;/strong&gt;</ept>: If the data file has a header line, users have to add this property <bpt id="385477aa-8807-4b01-801e-c348bf96a62c">&lt;strong&gt;</bpt>at the end<ept id="385477aa-8807-4b01-801e-c348bf96a62c">&lt;/strong&gt;</ept> of the <bpt id="50fbe4d9-0fb2-4b6d-8237-bf0e09986e14">&lt;em&gt;</bpt>create table<ept id="50fbe4d9-0fb2-4b6d-8237-bf0e09986e14">&lt;/em&gt;</ept> query.</source>
+          <target state="new"><bpt id="80734fcb-ee09-4350-818a-3b02d98986b4">&lt;strong&gt;</bpt>TBLPROPERTIES("skip.header.line.count"="1")<ept id="80734fcb-ee09-4350-818a-3b02d98986b4">&lt;/strong&gt;</ept>: If the data file has a header line, users have to add this property <bpt id="385477aa-8807-4b01-801e-c348bf96a62c">&lt;strong&gt;</bpt>at the end<ept id="385477aa-8807-4b01-801e-c348bf96a62c">&lt;/strong&gt;</ept> of the <bpt id="50fbe4d9-0fb2-4b6d-8237-bf0e09986e14">&lt;em&gt;</bpt>create table<ept id="50fbe4d9-0fb2-4b6d-8237-bf0e09986e14">&lt;/em&gt;</ept> query.</target>
+        </trans-unit>
+        <trans-unit id="3bdf4a47-873f-4d4e-9c38-8994e36f1f19" xml:space="preserve">
+          <source>Otherwise, the header line will be loaded as a record to the table.</source>
+          <target state="new">Otherwise, the header line will be loaded as a record to the table.</target>
+        </trans-unit>
+        <trans-unit id="f3eefad9-165f-4ebc-8f2b-2f86541ffe12" xml:space="preserve">
+          <source>If the data file does not have a header line, this configuration can be omitted in the query.</source>
+          <target state="new">If the data file does not have a header line, this configuration can be omitted in the query.</target>
+        </trans-unit>
+        <trans-unit id="d60ddb5d-7c35-4c1a-9243-7b30e734727b" xml:space="preserve">
+          <source>Here is the Hive query that loads data into a Hive table.</source>
+          <target state="new">Here is the Hive query that loads data into a Hive table.</target>
+        </trans-unit>
+        <trans-unit id="d466fb37-520b-46cb-b634-34eeb2a24d0f" xml:space="preserve">
+          <source><bpt id="d8a80e21-4859-4c81-868d-afc4a2bd9e9c">&lt;strong&gt;</bpt>&amp;#60;path to blob data&gt;<ept id="d8a80e21-4859-4c81-868d-afc4a2bd9e9c">&lt;/strong&gt;</ept>: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the <bpt id="a1be929c-efcc-4758-b2f4-31ac7fea290e">&lt;em&gt;</bpt>&amp;#60;path to blob data&gt;<ept id="a1be929c-efcc-4758-b2f4-31ac7fea290e">&lt;/em&gt;</ept> should be in the format <bpt id="c6d66e46-c757-4dca-8504-fe555fd26945">&lt;em&gt;</bpt>'wasb:///&amp;#60;directory in this container&gt;/&amp;#60;blob file name&gt;'<ept id="c6d66e46-c757-4dca-8504-fe555fd26945">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="d8a80e21-4859-4c81-868d-afc4a2bd9e9c">&lt;strong&gt;</bpt>&amp;#60;path to blob data&gt;<ept id="d8a80e21-4859-4c81-868d-afc4a2bd9e9c">&lt;/strong&gt;</ept>: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the <bpt id="a1be929c-efcc-4758-b2f4-31ac7fea290e">&lt;em&gt;</bpt>&amp;#60;path to blob data&gt;<ept id="a1be929c-efcc-4758-b2f4-31ac7fea290e">&lt;/em&gt;</ept> should be in the format <bpt id="c6d66e46-c757-4dca-8504-fe555fd26945">&lt;em&gt;</bpt>'wasb:///&amp;#60;directory in this container&gt;/&amp;#60;blob file name&gt;'<ept id="c6d66e46-c757-4dca-8504-fe555fd26945">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="450e1f78-25cf-4006-ade8-6885ccc714dd" xml:space="preserve">
+          <source>The blob file can also be in an additional container of the HDInsight Hadoop cluster.</source>
+          <target state="new">The blob file can also be in an additional container of the HDInsight Hadoop cluster.</target>
+        </trans-unit>
+        <trans-unit id="fe66cf57-6482-4972-81a8-c2092d48879c" xml:space="preserve">
+          <source>In this case, <bpt id="23291a9b-bf68-442b-a478-788b7c436efb">&lt;em&gt;</bpt>&amp;#60;path to blob data&gt;<ept id="23291a9b-bf68-442b-a478-788b7c436efb">&lt;/em&gt;</ept> should be in the format <bpt id="024992e3-d0c8-425a-9cb8-2a165ffc1a6c">&lt;em&gt;</bpt>'wasb://&amp;#60;container name&gt;@&amp;#60;storage account name&gt;.blob.core.windows.net/&amp;#60;blob file name&gt;'<ept id="024992e3-d0c8-425a-9cb8-2a165ffc1a6c">&lt;/em&gt;</ept>.</source>
+          <target state="new">In this case, <bpt id="23291a9b-bf68-442b-a478-788b7c436efb">&lt;em&gt;</bpt>&amp;#60;path to blob data&gt;<ept id="23291a9b-bf68-442b-a478-788b7c436efb">&lt;/em&gt;</ept> should be in the format <bpt id="024992e3-d0c8-425a-9cb8-2a165ffc1a6c">&lt;em&gt;</bpt>'wasb://&amp;#60;container name&gt;@&amp;#60;storage account name&gt;.blob.core.windows.net/&amp;#60;blob file name&gt;'<ept id="024992e3-d0c8-425a-9cb8-2a165ffc1a6c">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2bbe5ef-a442-4d7f-aa66-e09204a03056" xml:space="preserve">
+          <source>The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster.</source>
+          <target state="new">The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster.</target>
+        </trans-unit>
+        <trans-unit id="6bfed115-993e-45b8-add4-247f8729f05a" xml:space="preserve">
+          <source>Otherwise, the <bpt id="ff814b73-2360-4f99-847e-fa0a7c8a1b3e">&lt;em&gt;</bpt>LOAD DATA<ept id="ff814b73-2360-4f99-847e-fa0a7c8a1b3e">&lt;/em&gt;</ept> query will fail complaining that it cannot access the data.</source>
+          <target state="new">Otherwise, the <bpt id="ff814b73-2360-4f99-847e-fa0a7c8a1b3e">&lt;em&gt;</bpt>LOAD DATA<ept id="ff814b73-2360-4f99-847e-fa0a7c8a1b3e">&lt;/em&gt;</ept> query will fail complaining that it cannot access the data.</target>
+        </trans-unit>
+        <trans-unit id="061c3647-2f9e-4fd9-9257-52e667375e4e" xml:space="preserve">
+          <source>If the data is large, partitioning the table is beneficial for queries that only need to scan a few partitions of the table.</source>
+          <target state="new">If the data is large, partitioning the table is beneficial for queries that only need to scan a few partitions of the table.</target>
+        </trans-unit>
+        <trans-unit id="1953a5c3-4d9b-4a1c-8bc3-7185d24c17f0" xml:space="preserve">
+          <source>For instance, it is reasonable to partition the log data of a web site by dates.</source>
+          <target state="new">For instance, it is reasonable to partition the log data of a web site by dates.</target>
+        </trans-unit>
+        <trans-unit id="4584a56d-0698-4721-a388-da693a722047" xml:space="preserve">
+          <source>In addition to partitioning Hive tables, it is also beneficial to store the Hive data in the Optimized Row Columnar (ORC) format.</source>
+          <target state="new">In addition to partitioning Hive tables, it is also beneficial to store the Hive data in the Optimized Row Columnar (ORC) format.</target>
+        </trans-unit>
+        <trans-unit id="343b44ed-9200-4194-b3a2-4129b5c5d53b" xml:space="preserve">
+          <source>For more information on ORC formatting, see &lt;a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank"&gt;Using ORC files improves performance when Hive is reading, writing, and processing data&lt;/a&gt;.</source>
+          <target state="new">For more information on ORC formatting, see &lt;a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank"&gt;Using ORC files improves performance when Hive is reading, writing, and processing data&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="47f1572b-3192-4db0-8c22-b377adc02be1" xml:space="preserve">
+          <source>Here is the Hive query that creates a partitioned table and loads data into it.</source>
+          <target state="new">Here is the Hive query that creates a partitioned table and loads data into it.</target>
+        </trans-unit>
+        <trans-unit id="fcfe1bbb-6ebb-4d12-b732-2dd47e12a8d8" xml:space="preserve">
+          <source>When querying partitioned tables, it is recommended to add the partition condition in the <bpt id="469004ee-533e-4e23-93cc-eaba0b5cee86">&lt;strong&gt;</bpt>beginning<ept id="469004ee-533e-4e23-93cc-eaba0b5cee86">&lt;/strong&gt;</ept> of the <bpt id="805ab4fd-057b-4104-b7fc-d1ce15210612">&lt;code&gt;</bpt>where<ept id="805ab4fd-057b-4104-b7fc-d1ce15210612">&lt;/code&gt;</ept> clause as this improves the efficacy of searching significantly.</source>
+          <target state="new">When querying partitioned tables, it is recommended to add the partition condition in the <bpt id="469004ee-533e-4e23-93cc-eaba0b5cee86">&lt;strong&gt;</bpt>beginning<ept id="469004ee-533e-4e23-93cc-eaba0b5cee86">&lt;/strong&gt;</ept> of the <bpt id="805ab4fd-057b-4104-b7fc-d1ce15210612">&lt;code&gt;</bpt>where<ept id="805ab4fd-057b-4104-b7fc-d1ce15210612">&lt;/code&gt;</ept> clause as this improves the efficacy of searching significantly.</target>
+        </trans-unit>
+        <trans-unit id="6a970429-a217-4c70-9417-a39cac6997d8" xml:space="preserve">
+          <source>Users cannot directly load data from blob storage into Hive tables that is stored in the ORC format.</source>
+          <target state="new">Users cannot directly load data from blob storage into Hive tables that is stored in the ORC format.</target>
+        </trans-unit>
+        <trans-unit id="c4b3af51-de99-44ef-bebc-d151c845873d" xml:space="preserve">
+          <source>Here are the steps that the users need to take in order to load data from Azure blobs to Hive tables stored in ORC format.</source>
+          <target state="new">Here are the steps that the users need to take in order to load data from Azure blobs to Hive tables stored in ORC format.</target>
+        </trans-unit>
+        <trans-unit id="ac78f30c-4904-4ed9-a4a6-c0b7f342622b" xml:space="preserve">
+          <source>Create an external table <bpt id="27a65da5-082a-4e7d-8736-385328c00302">&lt;strong&gt;</bpt>STORED AS TEXTFILE<ept id="27a65da5-082a-4e7d-8736-385328c00302">&lt;/strong&gt;</ept> and load data from blob storage to the table.</source>
+          <target state="new">Create an external table <bpt id="27a65da5-082a-4e7d-8736-385328c00302">&lt;strong&gt;</bpt>STORED AS TEXTFILE<ept id="27a65da5-082a-4e7d-8736-385328c00302">&lt;/strong&gt;</ept> and load data from blob storage to the table.</target>
+        </trans-unit>
+        <trans-unit id="d5ab2fef-c1e7-4a7c-ae77-78289c600ade" xml:space="preserve">
+          <source>Create an internal table with the same schema as the external table in step 1, with the same field delimiter, and store the Hive data in the ORC format.</source>
+          <target state="new">Create an internal table with the same schema as the external table in step 1, with the same field delimiter, and store the Hive data in the ORC format.</target>
+        </trans-unit>
+        <trans-unit id="f7ab7fdf-ae5d-419c-9b57-679f1f80b61b" xml:space="preserve">
+          <source>Select data from the external table in step 1 and insert into the ORC table</source>
+          <target state="new">Select data from the external table in step 1 and insert into the ORC table</target>
+        </trans-unit>
+        <trans-unit id="3cc7aa85-b9b6-42d0-80a7-eb51cd0115c0" xml:space="preserve">
+          <source>If the TEXTFILE table <bpt id="3389b92a-87ab-4a34-8491-8220ed14d2b4">&lt;em&gt;</bpt>&amp;#60;database name&gt;.&amp;#60;external textfile table name&gt;<ept id="3389b92a-87ab-4a34-8491-8220ed14d2b4">&lt;/em&gt;</ept> has partitions, in STEP 3, the <bpt id="f84a571d-3f7e-4207-bf63-25c9c3de5d77">&lt;code&gt;</bpt>SELECT * FROM &lt;database name&gt;.&lt;external textfile table name&gt;<ept id="f84a571d-3f7e-4207-bf63-25c9c3de5d77">&lt;/code&gt;</ept> command will select the partition variable as a field in the returned data set. Inserting it into the <bpt id="57f1cade-be4f-44fd-893a-b66add0987a6">&lt;em&gt;</bpt>&amp;#60;database name&gt;.&amp;#60;ORC table name&gt;<ept id="57f1cade-be4f-44fd-893a-b66add0987a6">&lt;/em&gt;</ept> will fail since <bpt id="f36eb4b5-924c-421a-a090-477ad0e29530">&lt;em&gt;</bpt>&amp;#60;database name&gt;.&amp;#60;ORC table name&gt;<ept id="f36eb4b5-924c-421a-a090-477ad0e29530">&lt;/em&gt;</ept> does not have the partition variable as a field in the table schema. In this case, users need to specifically select the fields to be inserted to <bpt id="2ea12efc-b3d7-4487-b40f-6a5d49f6fa70">&lt;em&gt;</bpt>&amp;#60;database name&gt;.&amp;#60;ORC table name&gt;<ept id="2ea12efc-b3d7-4487-b40f-6a5d49f6fa70">&lt;/em&gt;</ept> as follows:</source>
+          <target state="new">If the TEXTFILE table <bpt id="3389b92a-87ab-4a34-8491-8220ed14d2b4">&lt;em&gt;</bpt>&amp;#60;database name&gt;.&amp;#60;external textfile table name&gt;<ept id="3389b92a-87ab-4a34-8491-8220ed14d2b4">&lt;/em&gt;</ept> has partitions, in STEP 3, the <bpt id="f84a571d-3f7e-4207-bf63-25c9c3de5d77">&lt;code&gt;</bpt>SELECT * FROM &lt;database name&gt;.&lt;external textfile table name&gt;<ept id="f84a571d-3f7e-4207-bf63-25c9c3de5d77">&lt;/code&gt;</ept> command will select the partition variable as a field in the returned data set. Inserting it into the <bpt id="57f1cade-be4f-44fd-893a-b66add0987a6">&lt;em&gt;</bpt>&amp;#60;database name&gt;.&amp;#60;ORC table name&gt;<ept id="57f1cade-be4f-44fd-893a-b66add0987a6">&lt;/em&gt;</ept> will fail since <bpt id="f36eb4b5-924c-421a-a090-477ad0e29530">&lt;em&gt;</bpt>&amp;#60;database name&gt;.&amp;#60;ORC table name&gt;<ept id="f36eb4b5-924c-421a-a090-477ad0e29530">&lt;/em&gt;</ept> does not have the partition variable as a field in the table schema. In this case, users need to specifically select the fields to be inserted to <bpt id="2ea12efc-b3d7-4487-b40f-6a5d49f6fa70">&lt;em&gt;</bpt>&amp;#60;database name&gt;.&amp;#60;ORC table name&gt;<ept id="2ea12efc-b3d7-4487-b40f-6a5d49f6fa70">&lt;/em&gt;</ept> as follows:</target>
+        </trans-unit>
+        <trans-unit id="5ce557ed-3494-4fd6-8111-491cc98eff4a" xml:space="preserve">
+          <source>It is safe to drop the <bpt id="f7c4d203-b52c-4001-ab38-0175ecb72851">&lt;em&gt;</bpt>&amp;#60;external textfile table name&gt;<ept id="f7c4d203-b52c-4001-ab38-0175ecb72851">&lt;/em&gt;</ept> when using the following query after all data has been inserted into <bpt id="cbc5d80c-5b95-45a4-a733-b0b8e6e0027c">&lt;em&gt;</bpt>&amp;#60;database name&gt;.&amp;#60;ORC table name&gt;<ept id="cbc5d80c-5b95-45a4-a733-b0b8e6e0027c">&lt;/em&gt;</ept>:</source>
+          <target state="new">It is safe to drop the <bpt id="f7c4d203-b52c-4001-ab38-0175ecb72851">&lt;em&gt;</bpt>&amp;#60;external textfile table name&gt;<ept id="f7c4d203-b52c-4001-ab38-0175ecb72851">&lt;/em&gt;</ept> when using the following query after all data has been inserted into <bpt id="cbc5d80c-5b95-45a4-a733-b0b8e6e0027c">&lt;em&gt;</bpt>&amp;#60;database name&gt;.&amp;#60;ORC table name&gt;<ept id="cbc5d80c-5b95-45a4-a733-b0b8e6e0027c">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="af4f132f-f0fe-4582-8600-34f97cedf531" xml:space="preserve">
+          <source>After following this procedure, you should have a table with data in the ORC format ready to use.</source>
+          <target state="new">After following this procedure, you should have a table with data in the ORC format ready to use.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

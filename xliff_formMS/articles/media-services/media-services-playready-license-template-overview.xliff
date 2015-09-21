@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="296d3f63-9f92-4006-9b57-6468eb751fdb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="296d3f63-9f92-4006-9b57-6468eb751fdb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3a63dff5-2a4f-4799-b377-48c0cdf26934">
+        <trans-unit id="11fcab1e-9997-4755-ac58-2c65719f8b8c" xml:space="preserve">
+          <source>Media Services PlayReady License Template Overview</source>
+          <target state="new">Media Services PlayReady License Template Overview</target>
+        </trans-unit>
+        <trans-unit id="621e661c-50b2-43c2-81e2-3d25ec7581bb" xml:space="preserve">
+          <source>This topic gives an overview of a PlayReady license template that used to configure PlayReady licenses.</source>
+          <target state="new">This topic gives an overview of a PlayReady license template that used to configure PlayReady licenses.</target>
+        </trans-unit>
+        <trans-unit id="b7dff35f-9e0c-48e0-bd9a-d53091189998" xml:space="preserve">
+          <source>Azure Media Services now provides a service for delivering Microsoft PlayReady licenses.</source>
+          <target state="new">Azure Media Services now provides a service for delivering Microsoft PlayReady licenses.</target>
+        </trans-unit>
+        <trans-unit id="3a40feb6-e571-4361-a64b-0baea3381e90" xml:space="preserve">
+          <source>When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license.</source>
+          <target state="new">When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license.</target>
+        </trans-unit>
+        <trans-unit id="dbdeaf8b-d78a-4ac0-aa38-2c676cc0893d" xml:space="preserve">
+          <source>If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.</source>
+          <target state="new">If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.</target>
+        </trans-unit>
+        <trans-unit id="4c8e7c11-976e-46a1-b5b2-3f00fc074e37" xml:space="preserve">
+          <source>Media Services also provides APIs that let you configure your PlayReady licenses.</source>
+          <target state="new">Media Services also provides APIs that let you configure your PlayReady licenses.</target>
+        </trans-unit>
+        <trans-unit id="7548801b-9b38-4134-9399-22dcaa57cc90" xml:space="preserve">
+          <source>Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content.</source>
+          <target state="new">Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content.</target>
+        </trans-unit>
+        <trans-unit id="750e0229-34bd-4cb2-a4fd-ea1d6054355b" xml:space="preserve">
+          <source>Below are some examples of PlayReady license restrictions that you can specify:</source>
+          <target state="new">Below are some examples of PlayReady license restrictions that you can specify:</target>
+        </trans-unit>
+        <trans-unit id="7af9dbea-4da3-44b1-8e03-1f2c85e78f5c" xml:space="preserve">
+          <source>The DateTime from which the license is valid.</source>
+          <target state="new">The DateTime from which the license is valid.</target>
+        </trans-unit>
+        <trans-unit id="4bc6e549-b5b9-4d58-a962-9425d4ea0592" xml:space="preserve">
+          <source>The DateTime value when the license expires.</source>
+          <target state="new">The DateTime value when the license expires.</target>
+        </trans-unit>
+        <trans-unit id="043f79d8-6551-486c-bd4d-fd6c0697d5a9" xml:space="preserve">
+          <source>For the license to be saved in persistent storage on the client.</source>
+          <target state="new">For the license to be saved in persistent storage on the client.</target>
+        </trans-unit>
+        <trans-unit id="b24544fd-5380-4b75-9656-ff88fa060703" xml:space="preserve">
+          <source>Persistent licenses are typically used to allow offline playback of the content.</source>
+          <target state="new">Persistent licenses are typically used to allow offline playback of the content.</target>
+        </trans-unit>
+        <trans-unit id="54b983cf-2164-4102-97ff-4ed95aab076f" xml:space="preserve">
+          <source>The minimum security level that a player must have to play your content.</source>
+          <target state="new">The minimum security level that a player must have to play your content.</target>
+        </trans-unit>
+        <trans-unit id="91aa3d50-f0e0-484c-8266-f80fa00b15df" xml:space="preserve">
+          <source>The output protection level for the output controls for audio\video content.</source>
+          <target state="new">The output protection level for the output controls for audio\video content.</target>
+        </trans-unit>
+        <trans-unit id="f651802c-1c8f-4c64-b97a-95e0d93ebf2a" xml:space="preserve">
+          <source>For more information, see the Output Controls section (3.5) in the <bpt id="5e40b8e3-8df6-4149-a82d-1e01d338af3a">&lt;linkText&gt;</bpt>PlayReady Compliance Rules<ept id="5e40b8e3-8df6-4149-a82d-1e01d338af3a">&lt;/linkText&gt;</ept><bpt id="5e40b8e3-8df6-4149-a82d-1e01d338af3a">&lt;title&gt;</bpt><ept id="5e40b8e3-8df6-4149-a82d-1e01d338af3a">&lt;/title&gt;</ept> document.</source>
+          <target state="new">For more information, see the Output Controls section (3.5) in the <bpt id="5e40b8e3-8df6-4149-a82d-1e01d338af3a">&lt;linkText&gt;</bpt>PlayReady Compliance Rules<ept id="5e40b8e3-8df6-4149-a82d-1e01d338af3a">&lt;/linkText&gt;</ept><bpt id="5e40b8e3-8df6-4149-a82d-1e01d338af3a">&lt;title&gt;</bpt><ept id="5e40b8e3-8df6-4149-a82d-1e01d338af3a">&lt;/title&gt;</ept> document.</target>
+        </trans-unit>
+        <trans-unit id="f6bc165b-a682-4973-9224-9b43fd102079" xml:space="preserve">
+          <source>Currently, you can only configure the PlayRight of the PlayReady license (this right is required).</source>
+          <target state="new">Currently, you can only configure the PlayRight of the PlayReady license (this right is required).</target>
+        </trans-unit>
+        <trans-unit id="16ac595f-2351-45e7-bd81-78931b313a1c" xml:space="preserve">
+          <source>The PlayRight gives the client the ability to playback the content.</source>
+          <target state="new">The PlayRight gives the client the ability to playback the content.</target>
+        </trans-unit>
+        <trans-unit id="1f547add-7fac-434e-9595-dc3b0c9ae9dc" xml:space="preserve">
+          <source>The PlayRight also allows configuring restrictions specific to playback.</source>
+          <target state="new">The PlayRight also allows configuring restrictions specific to playback.</target>
+        </trans-unit>
+        <trans-unit id="aabe53f3-6f6d-4547-9899-60d66dc3450a" xml:space="preserve">
+          <source>For more information, see <bpt id="44f638a2-472e-46d7-89a9-fa32e6f69620">&lt;linkText&gt;</bpt>PlayReadyPlayRight<ept id="44f638a2-472e-46d7-89a9-fa32e6f69620">&lt;/linkText&gt;</ept><bpt id="44f638a2-472e-46d7-89a9-fa32e6f69620">&lt;title&gt;</bpt><ept id="44f638a2-472e-46d7-89a9-fa32e6f69620">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="44f638a2-472e-46d7-89a9-fa32e6f69620">&lt;linkText&gt;</bpt>PlayReadyPlayRight<ept id="44f638a2-472e-46d7-89a9-fa32e6f69620">&lt;/linkText&gt;</ept><bpt id="44f638a2-472e-46d7-89a9-fa32e6f69620">&lt;title&gt;</bpt><ept id="44f638a2-472e-46d7-89a9-fa32e6f69620">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01219b8f-84e5-43f0-8e3d-b909802d7733" xml:space="preserve">
+          <source>To configure PlayReady licenses using Media Services, you must configure the Media Services PlayReady license template.</source>
+          <target state="new">To configure PlayReady licenses using Media Services, you must configure the Media Services PlayReady license template.</target>
+        </trans-unit>
+        <trans-unit id="ad591fc7-0446-4e3d-9e38-0c90429f61a3" xml:space="preserve">
+          <source>The template is defined in XML.</source>
+          <target state="new">The template is defined in XML.</target>
+        </trans-unit>
+        <trans-unit id="afb86646-2ef4-40d2-9a75-8e9707f392f8" xml:space="preserve">
+          <source>The following example shows the simplest (and most common) template that configures a basic streaming license.</source>
+          <target state="new">The following example shows the simplest (and most common) template that configures a basic streaming license.</target>
+        </trans-unit>
+        <trans-unit id="d878b527-8163-4074-8bf0-75adb0ea7720" xml:space="preserve">
+          <source>With this license, your clients would be able to playback your PlayReady protected content.</source>
+          <target state="new">With this license, your clients would be able to playback your PlayReady protected content.</target>
+        </trans-unit>
+        <trans-unit id="af958cab-10ff-49af-8cbf-6f176e0bcb30" xml:space="preserve">
+          <source>The XML conforms to the PlayReady license template XML schema defined in the PlayReady license template XML schema section.</source>
+          <target state="new">The XML conforms to the PlayReady license template XML schema defined in the PlayReady license template XML schema section.</target>
+        </trans-unit>
+        <trans-unit id="6211d677-c321-4e2b-b9ac-a3138bb7316e" xml:space="preserve">
+          <source>Media Services also defines a set of .NET classes that could be used to serialized and deserialized to and from the XML.</source>
+          <target state="new">Media Services also defines a set of .NET classes that could be used to serialized and deserialized to and from the XML.</target>
+        </trans-unit>
+        <trans-unit id="4c17ea03-dcf1-4767-b02e-1769d679d567" xml:space="preserve">
+          <source>For description of main classes, see [Media Services .NET classes]((media-services-playready-license-template-overview.md#classes).</source>
+          <target state="new">For description of main classes, see [Media Services .NET classes]((media-services-playready-license-template-overview.md#classes).</target>
+        </trans-unit>
+        <trans-unit id="20600ea0-95b9-4960-bf4f-aa38959e963f" xml:space="preserve">
+          <source>that are used to configure license templates.</source>
+          <target state="new">that are used to configure license templates.</target>
+        </trans-unit>
+        <trans-unit id="eedcf7cb-7ad4-496b-bb84-3403b1b1ccd3" xml:space="preserve">
+          <source>For an end-to-end example that uses .NET classes to configure the PlayReady license template, see <bpt id="551eaaca-dcc5-4b70-b6d7-4c9f46e6011f">&lt;linkText&gt;</bpt>Using PlayReady Dynamic Encryption and License Delivery Service<ept id="551eaaca-dcc5-4b70-b6d7-4c9f46e6011f">&lt;/linkText&gt;</ept><bpt id="551eaaca-dcc5-4b70-b6d7-4c9f46e6011f">&lt;title&gt;</bpt><ept id="551eaaca-dcc5-4b70-b6d7-4c9f46e6011f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an end-to-end example that uses .NET classes to configure the PlayReady license template, see <bpt id="551eaaca-dcc5-4b70-b6d7-4c9f46e6011f">&lt;linkText&gt;</bpt>Using PlayReady Dynamic Encryption and License Delivery Service<ept id="551eaaca-dcc5-4b70-b6d7-4c9f46e6011f">&lt;/linkText&gt;</ept><bpt id="551eaaca-dcc5-4b70-b6d7-4c9f46e6011f">&lt;title&gt;</bpt><ept id="551eaaca-dcc5-4b70-b6d7-4c9f46e6011f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3404dee3-ce62-42cf-92ff-794efaa14bed" xml:space="preserve">
+          <source>The following are the main .NET classes are used to configure Media Services PlayReady license templates.</source>
+          <target state="new">The following are the main .NET classes are used to configure Media Services PlayReady license templates.</target>
+        </trans-unit>
+        <trans-unit id="f0401ff0-4e12-4f46-be2f-54849dfa9e1d" xml:space="preserve">
+          <source>These classes map to the types defined in <bpt id="dee61765-cbae-4a23-8862-56b9f57309ab">&lt;linkText&gt;</bpt>PlayReady license template XML schema<ept id="dee61765-cbae-4a23-8862-56b9f57309ab">&lt;/linkText&gt;</ept><bpt id="dee61765-cbae-4a23-8862-56b9f57309ab">&lt;title&gt;</bpt><ept id="dee61765-cbae-4a23-8862-56b9f57309ab">&lt;/title&gt;</ept>.</source>
+          <target state="new">These classes map to the types defined in <bpt id="dee61765-cbae-4a23-8862-56b9f57309ab">&lt;linkText&gt;</bpt>PlayReady license template XML schema<ept id="dee61765-cbae-4a23-8862-56b9f57309ab">&lt;/linkText&gt;</ept><bpt id="dee61765-cbae-4a23-8862-56b9f57309ab">&lt;title&gt;</bpt><ept id="dee61765-cbae-4a23-8862-56b9f57309ab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af16341c-1b9d-4f26-95fe-2c1650c927cb" xml:space="preserve">
+          <source>The <bpt id="15ceb8ef-3087-4972-8833-ad368df3e462">&lt;linkText&gt;</bpt>MediaServicesLicenseTemplateSerializer<ept id="15ceb8ef-3087-4972-8833-ad368df3e462">&lt;/linkText&gt;</ept><bpt id="15ceb8ef-3087-4972-8833-ad368df3e462">&lt;title&gt;</bpt><ept id="15ceb8ef-3087-4972-8833-ad368df3e462">&lt;/title&gt;</ept> class is used to serialize and deserialize to and from the Media Services license template XML.</source>
+          <target state="new">The <bpt id="15ceb8ef-3087-4972-8833-ad368df3e462">&lt;linkText&gt;</bpt>MediaServicesLicenseTemplateSerializer<ept id="15ceb8ef-3087-4972-8833-ad368df3e462">&lt;/linkText&gt;</ept><bpt id="15ceb8ef-3087-4972-8833-ad368df3e462">&lt;title&gt;</bpt><ept id="15ceb8ef-3087-4972-8833-ad368df3e462">&lt;/title&gt;</ept> class is used to serialize and deserialize to and from the Media Services license template XML.</target>
+        </trans-unit>
+        <trans-unit id="77b11fcc-36ab-47f6-9f01-4de0b1857d62" xml:space="preserve">
+          <source><bpt id="15ad48eb-24b8-41c3-bd6c-e38033dd38bb">&lt;linkText&gt;</bpt>PlayReadyLicenseResponseTemplate<ept id="15ad48eb-24b8-41c3-bd6c-e38033dd38bb">&lt;/linkText&gt;</ept><bpt id="15ad48eb-24b8-41c3-bd6c-e38033dd38bb">&lt;title&gt;</bpt><ept id="15ad48eb-24b8-41c3-bd6c-e38033dd38bb">&lt;/title&gt;</ept> - This class represents the template for the response sent back to the end user.</source>
+          <target state="new"><bpt id="15ad48eb-24b8-41c3-bd6c-e38033dd38bb">&lt;linkText&gt;</bpt>PlayReadyLicenseResponseTemplate<ept id="15ad48eb-24b8-41c3-bd6c-e38033dd38bb">&lt;/linkText&gt;</ept><bpt id="15ad48eb-24b8-41c3-bd6c-e38033dd38bb">&lt;title&gt;</bpt><ept id="15ad48eb-24b8-41c3-bd6c-e38033dd38bb">&lt;/title&gt;</ept> - This class represents the template for the response sent back to the end user.</target>
+        </trans-unit>
+        <trans-unit id="d04df74d-30a6-4611-8e1a-acf7c58d5b1d" xml:space="preserve">
+          <source>It contains a field for a custom data string between the license server and the application (may be useful for custom app logic) as well as a list of one or more license templates.</source>
+          <target state="new">It contains a field for a custom data string between the license server and the application (may be useful for custom app logic) as well as a list of one or more license templates.</target>
+        </trans-unit>
+        <trans-unit id="a5667964-cb7d-4991-8ca8-7d0d1dd45f46" xml:space="preserve">
+          <source>This is the “top level” class in the template hierarchy.</source>
+          <target state="new">This is the “top level” class in the template hierarchy.</target>
+        </trans-unit>
+        <trans-unit id="2adf32c9-069b-432b-8e14-f336705569d2" xml:space="preserve">
+          <source>Meaning that the response template includes a list of license templates and the license templates include (directly or indirectly) all of the other classes that make up the template data to be serialized.</source>
+          <target state="new">Meaning that the response template includes a list of license templates and the license templates include (directly or indirectly) all of the other classes that make up the template data to be serialized.</target>
+        </trans-unit>
+        <trans-unit id="cf8c3b01-135d-49e0-959f-3c1b1e79fa4c" xml:space="preserve">
+          <source><bpt id="7ef5c7e6-752e-408e-9e09-8ee0fcb67485">&lt;linkText&gt;</bpt>PlayReadyLicenseTemplate<ept id="7ef5c7e6-752e-408e-9e09-8ee0fcb67485">&lt;/linkText&gt;</ept><bpt id="7ef5c7e6-752e-408e-9e09-8ee0fcb67485">&lt;title&gt;</bpt><ept id="7ef5c7e6-752e-408e-9e09-8ee0fcb67485">&lt;/title&gt;</ept> - The class represents a license template for creating PlayReady licenses to be returned to the end users.</source>
+          <target state="new"><bpt id="7ef5c7e6-752e-408e-9e09-8ee0fcb67485">&lt;linkText&gt;</bpt>PlayReadyLicenseTemplate<ept id="7ef5c7e6-752e-408e-9e09-8ee0fcb67485">&lt;/linkText&gt;</ept><bpt id="7ef5c7e6-752e-408e-9e09-8ee0fcb67485">&lt;title&gt;</bpt><ept id="7ef5c7e6-752e-408e-9e09-8ee0fcb67485">&lt;/title&gt;</ept> - The class represents a license template for creating PlayReady licenses to be returned to the end users.</target>
+        </trans-unit>
+        <trans-unit id="fcf69ecc-2023-4c91-82de-9616a49500f9" xml:space="preserve">
+          <source>It contains the data on the content key in the license and any rights or restrictions to be enforced by the PlayReady DRM runtime when using the content key.</source>
+          <target state="new">It contains the data on the content key in the license and any rights or restrictions to be enforced by the PlayReady DRM runtime when using the content key.</target>
+        </trans-unit>
+        <trans-unit id="4bfd095f-a3ee-42d1-8ea9-bbc40e192275" xml:space="preserve">
+          <source><bpt id="c6f7489d-b660-4137-a68c-07c3ed31b744">&lt;linkText&gt;</bpt>PlayReadyPlayRight<ept id="c6f7489d-b660-4137-a68c-07c3ed31b744">&lt;/linkText&gt;</ept><bpt id="c6f7489d-b660-4137-a68c-07c3ed31b744">&lt;title&gt;</bpt><ept id="c6f7489d-b660-4137-a68c-07c3ed31b744">&lt;/title&gt;</ept> - This class represents the PlayRight of a PlayReady license.</source>
+          <target state="new"><bpt id="c6f7489d-b660-4137-a68c-07c3ed31b744">&lt;linkText&gt;</bpt>PlayReadyPlayRight<ept id="c6f7489d-b660-4137-a68c-07c3ed31b744">&lt;/linkText&gt;</ept><bpt id="c6f7489d-b660-4137-a68c-07c3ed31b744">&lt;title&gt;</bpt><ept id="c6f7489d-b660-4137-a68c-07c3ed31b744">&lt;/title&gt;</ept> - This class represents the PlayRight of a PlayReady license.</target>
+        </trans-unit>
+        <trans-unit id="fa13a7b8-8049-491f-912d-e234995faf50" xml:space="preserve">
+          <source>It grants the user the ability to playback the content subject to the zero or more restrictions configured in the license and on the PlayRight itself (for playback specific policy).</source>
+          <target state="new">It grants the user the ability to playback the content subject to the zero or more restrictions configured in the license and on the PlayRight itself (for playback specific policy).</target>
+        </trans-unit>
+        <trans-unit id="93246540-d848-4407-9f66-7fd6a74d630c" xml:space="preserve">
+          <source>Much of the policy on the PlayRight has to do with output restrictions which control the types of outputs that the content can be played over and any restrictions that must be put in place when using a given output.</source>
+          <target state="new">Much of the policy on the PlayRight has to do with output restrictions which control the types of outputs that the content can be played over and any restrictions that must be put in place when using a given output.</target>
+        </trans-unit>
+        <trans-unit id="ed42b7a2-4f65-4109-874c-797ca8190bc2" xml:space="preserve">
+          <source>For example, if the DigitalVideoOnlyContentRestriction is enabled, then the DRM runtime will only allow the video to be displayed over digital outputs (analog video outputs won’t be allowed to pass the content).</source>
+          <target state="new">For example, if the DigitalVideoOnlyContentRestriction is enabled, then the DRM runtime will only allow the video to be displayed over digital outputs (analog video outputs won’t be allowed to pass the content).</target>
+        </trans-unit>
+        <trans-unit id="bbecf157-a9a2-4a1e-9014-25fbade89bf0" xml:space="preserve">
+          <source>These types of restrictions can be very powerful but can also affect the consumer experience.</source>
+          <target state="new">These types of restrictions can be very powerful but can also affect the consumer experience.</target>
+        </trans-unit>
+        <trans-unit id="e0384e4b-5e64-4aef-8bea-e1ef1cec4dff" xml:space="preserve">
+          <source>If the output protections are configured too restrictive, the content might be unplayable on some clients.</source>
+          <target state="new">If the output protections are configured too restrictive, the content might be unplayable on some clients.</target>
+        </trans-unit>
+        <trans-unit id="db14d20e-7c85-4946-bb01-8630ac5da94f" xml:space="preserve">
+          <source>For more information, see the PlayReady Compliance Rules document.</source>
+          <target state="new">For more information, see the PlayReady Compliance Rules document.</target>
+        </trans-unit>
+        <trans-unit id="40bd5297-6245-4658-b134-0ab8f4c93e94" xml:space="preserve">
+          <source>For an example of what protection levels Silverlight supports, see: <bpt id="d0b22532-bf37-49a1-926b-d3c6a13e50d6">&lt;linkText&gt;</bpt>Silverlight support for output protections<ept id="d0b22532-bf37-49a1-926b-d3c6a13e50d6">&lt;/linkText&gt;</ept><bpt id="d0b22532-bf37-49a1-926b-d3c6a13e50d6">&lt;title&gt;</bpt><ept id="d0b22532-bf37-49a1-926b-d3c6a13e50d6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an example of what protection levels Silverlight supports, see: <bpt id="d0b22532-bf37-49a1-926b-d3c6a13e50d6">&lt;linkText&gt;</bpt>Silverlight support for output protections<ept id="d0b22532-bf37-49a1-926b-d3c6a13e50d6">&lt;/linkText&gt;</ept><bpt id="d0b22532-bf37-49a1-926b-d3c6a13e50d6">&lt;title&gt;</bpt><ept id="d0b22532-bf37-49a1-926b-d3c6a13e50d6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

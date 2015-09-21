@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2a62eaae-867f-4279-8d6f-c1bf79ea47c1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2a62eaae-867f-4279-8d6f-c1bf79ea47c1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="69a9da97-141b-49a1-a4d1-ce11d6acd35c">
+        <trans-unit id="4e66b485-9e00-4178-bea2-0db7cd2fba6e" xml:space="preserve">
+          <source>Call a custom API from a Windows Store JS client - Mobile Services</source>
+          <target state="new">Call a custom API from a Windows Store JS client - Mobile Services</target>
+        </trans-unit>
+        <trans-unit id="61fc6d9e-4d41-41e6-a030-b6ec94b0e32f" xml:space="preserve">
+          <source>Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services.</source>
+          <target state="new">Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="f5b2a3a1-0557-460e-8983-fdad5cc9b0d1" xml:space="preserve">
+          <source><bpt id="917afef0-ef2c-4bba-8cd7-725d76d8df16">&lt;token href="../../includes/mobile-services-selector-call-custom-api.md"&gt;</bpt><ept id="917afef0-ef2c-4bba-8cd7-725d76d8df16">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="917afef0-ef2c-4bba-8cd7-725d76d8df16">&lt;token href="../../includes/mobile-services-selector-call-custom-api.md"&gt;</bpt><ept id="917afef0-ef2c-4bba-8cd7-725d76d8df16">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="070ce6e4-8345-4d66-a919-b85f9552ee69" xml:space="preserve">
+          <source>This topic shows you how to call a custom API from a Windows Store app.</source>
+          <target state="new">This topic shows you how to call a custom API from a Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="edb1f662-f582-4220-9e21-ba9ae873d59d" xml:space="preserve">
+          <source>A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation.</source>
+          <target state="new">A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation.</target>
+        </trans-unit>
+        <trans-unit id="6c9d0e31-3de4-477d-b114-301cfb367c73" xml:space="preserve">
+          <source>By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.</source>
+          <target state="new">By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.</target>
+        </trans-unit>
+        <trans-unit id="4c3740d5-28cb-464c-9bcf-6588fe5c0ddb" xml:space="preserve">
+          <source>The custom API created in this topic gives you the ability to send a single POST request that sets the completed flag to <bpt id="e445d219-71bf-4496-bf5c-376d4d9c1646">&lt;code&gt;</bpt>true<ept id="e445d219-71bf-4496-bf5c-376d4d9c1646">&lt;/code&gt;</ept> for all the todo items in the table.</source>
+          <target state="new">The custom API created in this topic gives you the ability to send a single POST request that sets the completed flag to <bpt id="e445d219-71bf-4496-bf5c-376d4d9c1646">&lt;code&gt;</bpt>true<ept id="e445d219-71bf-4496-bf5c-376d4d9c1646">&lt;/code&gt;</ept> for all the todo items in the table.</target>
+        </trans-unit>
+        <trans-unit id="bcde4ed6-6037-46a0-830f-0d1b0571596d" xml:space="preserve">
+          <source>Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.</source>
+          <target state="new">Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.</target>
+        </trans-unit>
+        <trans-unit id="64e0f255-96d8-4873-ad44-6f15acea2bcc" xml:space="preserve">
+          <source>This tutorial is based on the Mobile Services quickstart.</source>
+          <target state="new">This tutorial is based on the Mobile Services quickstart.</target>
+        </trans-unit>
+        <trans-unit id="a86c1b18-5d80-4dc3-af1d-bc739963ec54" xml:space="preserve">
+          <source>Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Add Mobile Services to an existing app].</source>
+          <target state="new">Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Add Mobile Services to an existing app].</target>
+        </trans-unit>
+        <trans-unit id="c639fc5b-440f-4368-b7c8-274089702b86" xml:space="preserve">
+          <source><bpt id="f68df086-cad5-409f-b597-cb186805c1a4">&lt;token href="../../includes/mobile-services-create-custom-api.md"&gt;</bpt><ept id="f68df086-cad5-409f-b597-cb186805c1a4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f68df086-cad5-409f-b597-cb186805c1a4">&lt;token href="../../includes/mobile-services-create-custom-api.md"&gt;</bpt><ept id="f68df086-cad5-409f-b597-cb186805c1a4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5007f98f-d2b0-4480-957d-988d0fffe443" xml:space="preserve">
+          <source><bpt id="34e7fbe7-535a-44f7-a4c1-46eb448c4d13">&lt;token href="../../includes/mobile-services-windows-store-javascript-call-custom-api.md"&gt;</bpt><ept id="34e7fbe7-535a-44f7-a4c1-46eb448c4d13">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="34e7fbe7-535a-44f7-a4c1-46eb448c4d13">&lt;token href="../../includes/mobile-services-windows-store-javascript-call-custom-api.md"&gt;</bpt><ept id="34e7fbe7-535a-44f7-a4c1-46eb448c4d13">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d93790da-1956-4af3-8b9c-e568e835610c" xml:space="preserve">
+          <source>This topic showed how to use the <bpt id="f4d2042c-3332-476e-b951-6f97dd4f031d">&lt;strong&gt;</bpt>invokeApi<ept id="f4d2042c-3332-476e-b951-6f97dd4f031d">&lt;/strong&gt;</ept> function to call a fairly simple custom API from your Windows app.</source>
+          <target state="new">This topic showed how to use the <bpt id="f4d2042c-3332-476e-b951-6f97dd4f031d">&lt;strong&gt;</bpt>invokeApi<ept id="f4d2042c-3332-476e-b951-6f97dd4f031d">&lt;/strong&gt;</ept> function to call a fairly simple custom API from your Windows app.</target>
+        </trans-unit>
+        <trans-unit id="ec5f361a-09de-4d46-a25f-57365cdb6bf9" xml:space="preserve">
+          <source>To learn more about using the <bpt id="e4300393-592c-481d-9e21-daefd55bdea4">&lt;strong&gt;</bpt>invokeApi<ept id="e4300393-592c-481d-9e21-daefd55bdea4">&lt;/strong&gt;</ept> function, see the post <bpt id="6976c46a-8baf-42d4-9881-8dbd466bec47">&lt;linkText&gt;</bpt>Custom API in Azure Mobile Services<ept id="6976c46a-8baf-42d4-9881-8dbd466bec47">&lt;/linkText&gt;</ept><bpt id="6976c46a-8baf-42d4-9881-8dbd466bec47">&lt;title&gt;</bpt><ept id="6976c46a-8baf-42d4-9881-8dbd466bec47">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about using the <bpt id="e4300393-592c-481d-9e21-daefd55bdea4">&lt;strong&gt;</bpt>invokeApi<ept id="e4300393-592c-481d-9e21-daefd55bdea4">&lt;/strong&gt;</ept> function, see the post <bpt id="6976c46a-8baf-42d4-9881-8dbd466bec47">&lt;linkText&gt;</bpt>Custom API in Azure Mobile Services<ept id="6976c46a-8baf-42d4-9881-8dbd466bec47">&lt;/linkText&gt;</ept><bpt id="6976c46a-8baf-42d4-9881-8dbd466bec47">&lt;title&gt;</bpt><ept id="6976c46a-8baf-42d4-9881-8dbd466bec47">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="28509e8b-c33b-4b94-8a04-4f4ecd1bd387" xml:space="preserve">
+          <source>Also, consider finding out more about the following Mobile Services topics:</source>
+          <target state="new">Also, consider finding out more about the following Mobile Services topics:</target>
+        </trans-unit>
+        <trans-unit id="c7a7ed6a-94a8-4673-88b4-bb6775d70bde" xml:space="preserve">
+          <source>[Mobile Services server script reference]
+&lt;br/&gt;Learn more about creating custom APIs.</source>
+          <target state="new">[Mobile Services server script reference]
+&lt;br/&gt;Learn more about creating custom APIs.</target>
+        </trans-unit>
+        <trans-unit id="70e605e9-6fc3-48fb-aa97-78c6bdbf641c" xml:space="preserve">
+          <source>[Store server scripts in source control]
+&lt;br/&gt; Learn how to use the source control feature to more easily and securely develop and publish custom API script code.</source>
+          <target state="new">[Store server scripts in source control]
+&lt;br/&gt; Learn how to use the source control feature to more easily and securely develop and publish custom API script code.</target>
+        </trans-unit>
+        <trans-unit id="8562050a-0842-4a72-9ed0-8e086c90e121" xml:space="preserve">
+          <source>#define-custom-api</source>
+          <target state="new">#define-custom-api</target>
+        </trans-unit>
+        <trans-unit id="09f95fca-c745-4f7b-9c9d-0f6752bc536f" xml:space="preserve">
+          <source>#update-app</source>
+          <target state="new">#update-app</target>
+        </trans-unit>
+        <trans-unit id="6caf7cd0-792a-4453-bb5e-9d15bf4785e6" xml:space="preserve">
+          <source>#test-app</source>
+          <target state="new">#test-app</target>
+        </trans-unit>
+        <trans-unit id="f0fe44a0-094e-4589-a0ef-c95f2e44d1b0" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="a79a8727-2de9-4d22-83fa-a09a19e4b61c" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262293</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262293</target>
+        </trans-unit>
+        <trans-unit id="60532e0f-5879-45dc-893d-b16cbabc9d2a" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="eadff7fa-5e21-42c7-8256-df2c3691c89e" xml:space="preserve">
+          <source>../mobile-services-windows-store-get-started.md</source>
+          <target state="new">../mobile-services-windows-store-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="7234e92b-ffab-4651-8335-eba6dc7c1106" xml:space="preserve">
+          <source>mobile-services-windows-store-javascript-get-started-data.md</source>
+          <target state="new">mobile-services-windows-store-javascript-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="a054e0c9-bc23-4881-b548-c13aaaecf646" xml:space="preserve">
+          <source>mobile-services-windows-store-javascript-get-started-users.md</source>
+          <target state="new">mobile-services-windows-store-javascript-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="f4fad32f-cfad-4c8f-9693-fc8d18486c1e" xml:space="preserve">
+          <source>mobile-services-javascript-backend-windows-store-javascript-get-started-push.md</source>
+          <target state="new">mobile-services-javascript-backend-windows-store-javascript-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="9d3551dd-73ae-40b3-85b1-25d1b82323b9" xml:space="preserve">
+          <source>mobile-services-windows-store-javascript-create-pull-notifications.md</source>
+          <target state="new">mobile-services-windows-store-javascript-create-pull-notifications.md</target>
+        </trans-unit>
+        <trans-unit id="b6ff3359-fbb6-4758-826e-46283ffbeca2" xml:space="preserve">
+          <source>mobile-services-store-scripts-source-control.md</source>
+          <target state="new">mobile-services-store-scripts-source-control.md</target>
+        </trans-unit>
+      </group>
+      <group id="74962e32-6cec-44f6-9814-3b768824b0a4" />
+    </body>
+  </file>
+</xliff>

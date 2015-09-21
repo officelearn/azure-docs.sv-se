@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fffec03c-10ed-4945-95d3-be0ecbf81002" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fffec03c-10ed-4945-95d3-be0ecbf81002" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ea63d199-1ac3-4c4f-80e2-15b345e5c018">
+        <trans-unit id="572171e1-9169-42d1-b388-7b797c7243b5" xml:space="preserve">
+          <source>Get started with Azure Queue storage and Visual Studio connected services | Microsoft Azure</source>
+          <target state="new">Get started with Azure Queue storage and Visual Studio connected services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="de978a17-5bf3-4c6f-85cd-b5f49c61c7bb" xml:space="preserve">
+          <source>How to get started using Azure Queue storage in an ASP.NET project in Visual Studio</source>
+          <target state="new">How to get started using Azure Queue storage in an ASP.NET project in Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="2e313cb1-12f2-4d4a-8bbb-6cf5d47032f2" xml:space="preserve">
+          <source>This article describes how get started using Azure Queue storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET project by using the  Visual Studio <bpt id="2b85dd5d-ed85-48c0-b8e0-767335762288">&lt;strong&gt;</bpt>Add Connected Services<ept id="2b85dd5d-ed85-48c0-b8e0-767335762288">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">This article describes how get started using Azure Queue storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET project by using the  Visual Studio <bpt id="2b85dd5d-ed85-48c0-b8e0-767335762288">&lt;strong&gt;</bpt>Add Connected Services<ept id="2b85dd5d-ed85-48c0-b8e0-767335762288">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="39a2dd75-42e6-4a86-aa6c-1fb5fb85b0b8" xml:space="preserve">
+          <source>We'll show you how to create and access an Azure Queue in your storage account.</source>
+          <target state="new">We'll show you how to create and access an Azure Queue in your storage account.</target>
+        </trans-unit>
+        <trans-unit id="1cc42734-9d99-4658-9797-23db5009a4a9" xml:space="preserve">
+          <source>We'll also show you how to perform basic queue operations, such as adding, modifying, reading and removing queue messages.</source>
+          <target state="new">We'll also show you how to perform basic queue operations, such as adding, modifying, reading and removing queue messages.</target>
+        </trans-unit>
+        <trans-unit id="8b23af81-54a2-4221-803a-c7bcbc228480" xml:space="preserve">
+          <source>The samples are written in C# code and use the <bpt id="6098d649-1e95-4504-815e-e58073d68f97">&lt;linkText&gt;</bpt>Azure Storage Client Library for .NET<ept id="6098d649-1e95-4504-815e-e58073d68f97">&lt;/linkText&gt;</ept><bpt id="6098d649-1e95-4504-815e-e58073d68f97">&lt;title&gt;</bpt><ept id="6098d649-1e95-4504-815e-e58073d68f97">&lt;/title&gt;</ept>.</source>
+          <target state="new">The samples are written in C# code and use the <bpt id="6098d649-1e95-4504-815e-e58073d68f97">&lt;linkText&gt;</bpt>Azure Storage Client Library for .NET<ept id="6098d649-1e95-4504-815e-e58073d68f97">&lt;/linkText&gt;</ept><bpt id="6098d649-1e95-4504-815e-e58073d68f97">&lt;title&gt;</bpt><ept id="6098d649-1e95-4504-815e-e58073d68f97">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5979c1d2-a1ed-4d7a-ba16-0f4c8f50d364" xml:space="preserve">
+          <source>For more information about ASP.NET, see <bpt id="05141cc4-22c2-45fe-b2e3-bfafe222e7c5">&lt;linkText&gt;</bpt>ASP.NET<ept id="05141cc4-22c2-45fe-b2e3-bfafe222e7c5">&lt;/linkText&gt;</ept><bpt id="05141cc4-22c2-45fe-b2e3-bfafe222e7c5">&lt;title&gt;</bpt><ept id="05141cc4-22c2-45fe-b2e3-bfafe222e7c5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about ASP.NET, see <bpt id="05141cc4-22c2-45fe-b2e3-bfafe222e7c5">&lt;linkText&gt;</bpt>ASP.NET<ept id="05141cc4-22c2-45fe-b2e3-bfafe222e7c5">&lt;/linkText&gt;</ept><bpt id="05141cc4-22c2-45fe-b2e3-bfafe222e7c5">&lt;title&gt;</bpt><ept id="05141cc4-22c2-45fe-b2e3-bfafe222e7c5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc03f3b4-c93a-45c6-a024-5d273e9f835f" xml:space="preserve">
+          <source>Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS.</source>
+          <target state="new">Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="2247831c-0b17-49f2-aef7-514c506adbc3" xml:space="preserve">
+          <source>A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.</source>
+          <target state="new">A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.</target>
+        </trans-unit>
+        <trans-unit id="f07c1b69-e9d7-4613-b0fb-cc772cf8c1a1" xml:space="preserve">
+          <source>To access queues in ASP.NET projects, you need to include the following items to any C# source file that access Azure Queue storage.</source>
+          <target state="new">To access queues in ASP.NET projects, you need to include the following items to any C# source file that access Azure Queue storage.</target>
+        </trans-unit>
+        <trans-unit id="fdf623fc-9326-4a37-a074-92eaa81fa32a" xml:space="preserve">
+          <source>Make sure the namespace declarations at the top of the C# file include these <bpt id="17f5e1f4-aec5-453d-ac19-d8f05838120b">&lt;code&gt;</bpt>using<ept id="17f5e1f4-aec5-453d-ac19-d8f05838120b">&lt;/code&gt;</ept> statements.</source>
+          <target state="new">Make sure the namespace declarations at the top of the C# file include these <bpt id="17f5e1f4-aec5-453d-ac19-d8f05838120b">&lt;code&gt;</bpt>using<ept id="17f5e1f4-aec5-453d-ac19-d8f05838120b">&lt;/code&gt;</ept> statements.</target>
+        </trans-unit>
+        <trans-unit id="af7b4728-7765-408c-87f2-b2efa392beb5" xml:space="preserve">
+          <source>Get a <bpt id="b510ea62-c3c7-4a07-8638-d59c83910234">&lt;code&gt;</bpt>CloudStorageAccount<ept id="b510ea62-c3c7-4a07-8638-d59c83910234">&lt;/code&gt;</ept> object that represents your storage account information.</source>
+          <target state="new">Get a <bpt id="b510ea62-c3c7-4a07-8638-d59c83910234">&lt;code&gt;</bpt>CloudStorageAccount<ept id="b510ea62-c3c7-4a07-8638-d59c83910234">&lt;/code&gt;</ept> object that represents your storage account information.</target>
+        </trans-unit>
+        <trans-unit id="2489b2b6-f8cd-453b-9116-aa924294012a" xml:space="preserve">
+          <source>Use the following code to get the your storage connection string and storage account information from the Azure service configuration.</source>
+          <target state="new">Use the following code to get the your storage connection string and storage account information from the Azure service configuration.</target>
+        </trans-unit>
+        <trans-unit id="792e0bd3-93b4-4cfb-b8ef-acb6f5598809" xml:space="preserve">
+          <source>Get a <bpt id="e42def5b-22c0-4e99-ab39-9c217a32beff">&lt;code&gt;</bpt>CloudQueueClient<ept id="e42def5b-22c0-4e99-ab39-9c217a32beff">&lt;/code&gt;</ept> object to reference the queueobjects in your storage account.</source>
+          <target state="new">Get a <bpt id="e42def5b-22c0-4e99-ab39-9c217a32beff">&lt;code&gt;</bpt>CloudQueueClient<ept id="e42def5b-22c0-4e99-ab39-9c217a32beff">&lt;/code&gt;</ept> object to reference the queueobjects in your storage account.</target>
+        </trans-unit>
+        <trans-unit id="2fd7263f-0a0c-4c50-9474-bc882b39c0d1" xml:space="preserve">
+          <source>Get a <bpt id="82e6121d-9829-45c9-9ced-73da7c30301e">&lt;code&gt;</bpt>CloudQueue<ept id="82e6121d-9829-45c9-9ced-73da7c30301e">&lt;/code&gt;</ept> object to reference a specific queue.</source>
+          <target state="new">Get a <bpt id="82e6121d-9829-45c9-9ced-73da7c30301e">&lt;code&gt;</bpt>CloudQueue<ept id="82e6121d-9829-45c9-9ced-73da7c30301e">&lt;/code&gt;</ept> object to reference a specific queue.</target>
+        </trans-unit>
+        <trans-unit id="8f644b4c-b8af-418a-a89c-084a975d7ce3" xml:space="preserve">
+          <source><bpt id="7ed6195f-8fde-4b17-816c-4e5f68b86c2a">&lt;strong&gt;</bpt>NOTE<ept id="7ed6195f-8fde-4b17-816c-4e5f68b86c2a">&lt;/strong&gt;</ept> Use all of the above code in front of the code in the following samples.</source>
+          <target state="new"><bpt id="7ed6195f-8fde-4b17-816c-4e5f68b86c2a">&lt;strong&gt;</bpt>NOTE<ept id="7ed6195f-8fde-4b17-816c-4e5f68b86c2a">&lt;/strong&gt;</ept> Use all of the above code in front of the code in the following samples.</target>
+        </trans-unit>
+        <trans-unit id="448123c7-3f79-4710-a128-de835720a756" xml:space="preserve">
+          <source>To create an Azure queue in code, just add a call to <bpt id="40393a20-ee1d-40ba-b5f0-3157cce3f5bf">&lt;code&gt;</bpt>CreateIfNotExists<ept id="40393a20-ee1d-40ba-b5f0-3157cce3f5bf">&lt;/code&gt;</ept> to the code above.</source>
+          <target state="new">To create an Azure queue in code, just add a call to <bpt id="40393a20-ee1d-40ba-b5f0-3157cce3f5bf">&lt;code&gt;</bpt>CreateIfNotExists<ept id="40393a20-ee1d-40ba-b5f0-3157cce3f5bf">&lt;/code&gt;</ept> to the code above.</target>
+        </trans-unit>
+        <trans-unit id="56ff819d-da53-4927-9d95-c8bc516545e6" xml:space="preserve">
+          <source>To insert a message into an existing queue, create a new <bpt id="36554fa5-5ba6-4e3b-b97b-187840e815e1">&lt;code&gt;</bpt>CloudQueueMessage<ept id="36554fa5-5ba6-4e3b-b97b-187840e815e1">&lt;/code&gt;</ept> object, then call the <bpt id="ef8d0605-8b5f-49e9-812a-81f56f382243">&lt;code&gt;</bpt>AddMessage<ept id="ef8d0605-8b5f-49e9-812a-81f56f382243">&lt;/code&gt;</ept> method.</source>
+          <target state="new">To insert a message into an existing queue, create a new <bpt id="36554fa5-5ba6-4e3b-b97b-187840e815e1">&lt;code&gt;</bpt>CloudQueueMessage<ept id="36554fa5-5ba6-4e3b-b97b-187840e815e1">&lt;/code&gt;</ept> object, then call the <bpt id="ef8d0605-8b5f-49e9-812a-81f56f382243">&lt;code&gt;</bpt>AddMessage<ept id="ef8d0605-8b5f-49e9-812a-81f56f382243">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="1ae51644-86a4-452a-8d2b-f3f96289ab3c" xml:space="preserve">
+          <source>A <bpt id="19a976cc-0da0-4acf-bebe-111f88239079">&lt;code&gt;</bpt>CloudQueueMessage<ept id="19a976cc-0da0-4acf-bebe-111f88239079">&lt;/code&gt;</ept> object can be created from either a string (in UTF-8 format) or a byte array.</source>
+          <target state="new">A <bpt id="19a976cc-0da0-4acf-bebe-111f88239079">&lt;code&gt;</bpt>CloudQueueMessage<ept id="19a976cc-0da0-4acf-bebe-111f88239079">&lt;/code&gt;</ept> object can be created from either a string (in UTF-8 format) or a byte array.</target>
+        </trans-unit>
+        <trans-unit id="9846aa89-7960-48a1-8a0c-b8b715765819" xml:space="preserve">
+          <source>Here is an example which inserts the message 'Hello, World'.</source>
+          <target state="new">Here is an example which inserts the message 'Hello, World'.</target>
+        </trans-unit>
+        <trans-unit id="96c4da42-dbc2-4a86-8b12-3d2f75a85a9a" xml:space="preserve">
+          <source>You can peek at the message in the front of a queue without removing it from the queue by calling the PeekMessage() method.</source>
+          <target state="new">You can peek at the message in the front of a queue without removing it from the queue by calling the PeekMessage() method.</target>
+        </trans-unit>
+        <trans-unit id="3f7840dc-6aeb-4914-abe2-95a88c689f9e" xml:space="preserve">
+          <source>Your code can remove (de-queue) a message from a queue in two steps.</source>
+          <target state="new">Your code can remove (de-queue) a message from a queue in two steps.</target>
+        </trans-unit>
+        <trans-unit id="af680720-a91b-4b38-9a57-3e69a71a192f" xml:space="preserve">
+          <source>Call GetMessage() to get the next message in a queue.</source>
+          <target state="new">Call GetMessage() to get the next message in a queue.</target>
+        </trans-unit>
+        <trans-unit id="a35c1ecc-eedf-4785-9bfa-236d8b3b5a36" xml:space="preserve">
+          <source>A message returned from GetMessage() becomes invisible to any other code reading messages from this queue.</source>
+          <target state="new">A message returned from GetMessage() becomes invisible to any other code reading messages from this queue.</target>
+        </trans-unit>
+        <trans-unit id="42bc7085-f239-4c61-9a3c-e00535d093e5" xml:space="preserve">
+          <source>By default, this message stays invisible for 30 seconds.</source>
+          <target state="new">By default, this message stays invisible for 30 seconds.</target>
+        </trans-unit>
+        <trans-unit id="3ef5a6d8-75c8-4e26-b364-ec01d69d59cd" xml:space="preserve">
+          <source>To finish removing the message from the queue, call <bpt id="55dfde08-4856-493a-a55a-b38a9d097252">&lt;code&gt;</bpt>DeleteMessage<ept id="55dfde08-4856-493a-a55a-b38a9d097252">&lt;/code&gt;</ept>.</source>
+          <target state="new">To finish removing the message from the queue, call <bpt id="55dfde08-4856-493a-a55a-b38a9d097252">&lt;code&gt;</bpt>DeleteMessage<ept id="55dfde08-4856-493a-a55a-b38a9d097252">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cda88a94-0041-43e6-959d-e1d2fa8c2bd4" xml:space="preserve">
+          <source>This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again.</source>
+          <target state="new">This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again.</target>
+        </trans-unit>
+        <trans-unit id="444256b2-28d0-4127-8558-92f2afc198f4" xml:space="preserve">
+          <source>The following code calls <bpt id="994afb12-f668-4c0d-954b-86e053c4277c">&lt;code&gt;</bpt>DeleteMessage<ept id="994afb12-f668-4c0d-954b-86e053c4277c">&lt;/code&gt;</ept> right after the message has been processed.</source>
+          <target state="new">The following code calls <bpt id="994afb12-f668-4c0d-954b-86e053c4277c">&lt;code&gt;</bpt>DeleteMessage<ept id="994afb12-f668-4c0d-954b-86e053c4277c">&lt;/code&gt;</ept> right after the message has been processed.</target>
+        </trans-unit>
+        <trans-unit id="2580102d-dc1e-4894-ba12-9847e0974c69" xml:space="preserve">
+          <source>There are two ways you can customize message retrieval from a queue.</source>
+          <target state="new">There are two ways you can customize message retrieval from a queue.</target>
+        </trans-unit>
+        <trans-unit id="a189ef81-2516-457e-afb8-aa04eaafd0cd" xml:space="preserve">
+          <source>First, you can get a batch of messages (up to 32).</source>
+          <target state="new">First, you can get a batch of messages (up to 32).</target>
+        </trans-unit>
+        <trans-unit id="7daa9ac1-4f7b-4b1a-acaf-be28684482fc" xml:space="preserve">
+          <source>Second, you can set a
+longer or shorter invisibility timeout, allowing your code more or less
+time to fully process each message.</source>
+          <target state="new">Second, you can set a
+longer or shorter invisibility timeout, allowing your code more or less
+time to fully process each message.</target>
+        </trans-unit>
+        <trans-unit id="c6ea7124-214e-4440-a908-b1c2e698ef7f" xml:space="preserve">
+          <source>The following code example uses the
+<bpt id="5b218817-276b-4f54-bb7b-421fbcd8ea56">&lt;code&gt;</bpt>GetMessages<ept id="5b218817-276b-4f54-bb7b-421fbcd8ea56">&lt;/code&gt;</ept> method to get 20 messages in one call.</source>
+          <target state="new">The following code example uses the
+<bpt id="5b218817-276b-4f54-bb7b-421fbcd8ea56">&lt;code&gt;</bpt>GetMessages<ept id="5b218817-276b-4f54-bb7b-421fbcd8ea56">&lt;/code&gt;</ept> method to get 20 messages in one call.</target>
+        </trans-unit>
+        <trans-unit id="7eb223be-aab2-4f8f-8bea-cf663595084e" xml:space="preserve">
+          <source>Then it processes
+each message using a <bpt id="1882e5b1-7d9d-4227-aa42-648a52d12286">&lt;code&gt;</bpt>foreach<ept id="1882e5b1-7d9d-4227-aa42-648a52d12286">&lt;/code&gt;</ept> loop.</source>
+          <target state="new">Then it processes
+each message using a <bpt id="1882e5b1-7d9d-4227-aa42-648a52d12286">&lt;code&gt;</bpt>foreach<ept id="1882e5b1-7d9d-4227-aa42-648a52d12286">&lt;/code&gt;</ept> loop.</target>
+        </trans-unit>
+        <trans-unit id="b4e0b026-7ce0-43d5-9515-e40edc9df04f" xml:space="preserve">
+          <source>It also sets the invisibility
+timeout to five minutes for each message.</source>
+          <target state="new">It also sets the invisibility
+timeout to five minutes for each message.</target>
+        </trans-unit>
+        <trans-unit id="8eb1d1a1-5944-44fa-9a85-aa93167b9742" xml:space="preserve">
+          <source>Note that the 5 minutes starts
+for all messages at the same time, so after 5 minutes have passed since
+the call to <bpt id="57874343-b72b-427b-9d63-177a2579ddcb">&lt;code&gt;</bpt>GetMessages<ept id="57874343-b72b-427b-9d63-177a2579ddcb">&lt;/code&gt;</ept>, any messages which have not been deleted
+will become visible again.</source>
+          <target state="new">Note that the 5 minutes starts
+for all messages at the same time, so after 5 minutes have passed since
+the call to <bpt id="57874343-b72b-427b-9d63-177a2579ddcb">&lt;code&gt;</bpt>GetMessages<ept id="57874343-b72b-427b-9d63-177a2579ddcb">&lt;/code&gt;</ept>, any messages which have not been deleted
+will become visible again.</target>
+        </trans-unit>
+        <trans-unit id="929b8066-4815-4a83-a9a4-6e1e04cbd2ec" xml:space="preserve">
+          <source>You can get an estimate of the number of messages in a queue.</source>
+          <target state="new">You can get an estimate of the number of messages in a queue.</target>
+        </trans-unit>
+        <trans-unit id="52b90a77-c783-4cd4-a1b8-4f6e0c73503b" xml:space="preserve">
+          <source>The
+<bpt id="1deff2a5-9538-4ee8-9788-bb4312cc6799">&lt;code&gt;</bpt>FetchAttributes<ept id="1deff2a5-9538-4ee8-9788-bb4312cc6799">&lt;/code&gt;</ept> method asks the queueservice to
+retrieve the queue attributes, including the message count.</source>
+          <target state="new">The
+<bpt id="1deff2a5-9538-4ee8-9788-bb4312cc6799">&lt;code&gt;</bpt>FetchAttributes<ept id="1deff2a5-9538-4ee8-9788-bb4312cc6799">&lt;/code&gt;</ept> method asks the queueservice to
+retrieve the queue attributes, including the message count.</target>
+        </trans-unit>
+        <trans-unit id="4d0d18d1-71b5-433c-8bd1-e7a7d6c17d53" xml:space="preserve">
+          <source>The <bpt id="8a158489-4dc3-47df-aaf1-862cd2914e21">&lt;code&gt;</bpt>ApproximateMethodCount<ept id="8a158489-4dc3-47df-aaf1-862cd2914e21">&lt;/code&gt;</ept>
+property returns the last value retrieved by the
+<bpt id="a572e9df-7a13-46c1-9145-042d44774b1f">&lt;code&gt;</bpt>FetchAttributes<ept id="a572e9df-7a13-46c1-9145-042d44774b1f">&lt;/code&gt;</ept> method, without calling the queueservice.</source>
+          <target state="new">The <bpt id="8a158489-4dc3-47df-aaf1-862cd2914e21">&lt;code&gt;</bpt>ApproximateMethodCount<ept id="8a158489-4dc3-47df-aaf1-862cd2914e21">&lt;/code&gt;</ept>
+property returns the last value retrieved by the
+<bpt id="a572e9df-7a13-46c1-9145-042d44774b1f">&lt;code&gt;</bpt>FetchAttributes<ept id="a572e9df-7a13-46c1-9145-042d44774b1f">&lt;/code&gt;</ept> method, without calling the queueservice.</target>
+        </trans-unit>
+        <trans-unit id="53b3277f-7614-47cf-a52c-7358e7ad9301" xml:space="preserve">
+          <source>This example shows how to use the Async-Await pattern with common queueAPIs.</source>
+          <target state="new">This example shows how to use the Async-Await pattern with common queueAPIs.</target>
+        </trans-unit>
+        <trans-unit id="e9c99d0e-7f0f-459a-9778-ca57c0cab888" xml:space="preserve">
+          <source>The sample calls the async version of each of the given methods, this can be seen by the Async post-fix of each method.</source>
+          <target state="new">The sample calls the async version of each of the given methods, this can be seen by the Async post-fix of each method.</target>
+        </trans-unit>
+        <trans-unit id="2b93aad7-4ed1-46dd-bbed-5b9e63951735" xml:space="preserve">
+          <source>When an async method is used the async-await pattern suspends local execution until the call completes.</source>
+          <target state="new">When an async method is used the async-await pattern suspends local execution until the call completes.</target>
+        </trans-unit>
+        <trans-unit id="67b21bad-b642-4924-b216-ff0c96dee58e" xml:space="preserve">
+          <source>This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application.</source>
+          <target state="new">This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application.</target>
+        </trans-unit>
+        <trans-unit id="7567703f-400c-4cbe-b5a2-88ad48df14cb" xml:space="preserve">
+          <source>For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)</source>
+          <target state="new">For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)</target>
+        </trans-unit>
+        <trans-unit id="5ff1a283-eb46-4914-be2a-f2b676d40bef" xml:space="preserve">
+          <source>To delete a queue and all the messages contained in it, call the
+<bpt id="e5bf48e3-ff1f-4cef-9e26-d356ea27b2eb">&lt;code&gt;</bpt>Delete<ept id="e5bf48e3-ff1f-4cef-9e26-d356ea27b2eb">&lt;/code&gt;</ept> method on the queue object.</source>
+          <target state="new">To delete a queue and all the messages contained in it, call the
+<bpt id="e5bf48e3-ff1f-4cef-9e26-d356ea27b2eb">&lt;code&gt;</bpt>Delete<ept id="e5bf48e3-ff1f-4cef-9e26-d356ea27b2eb">&lt;/code&gt;</ept> method on the queue object.</target>
+        </trans-unit>
+        <trans-unit id="ada1612e-40e4-4690-ad7a-d126e428c46e" xml:space="preserve">
+          <source><bpt id="445940e8-7087-4e78-880e-a38d8021690c">&lt;token href="../../includes/vs-storage-dotnet-queues-next-steps.md"&gt;</bpt><ept id="445940e8-7087-4e78-880e-a38d8021690c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="445940e8-7087-4e78-880e-a38d8021690c">&lt;token href="../../includes/vs-storage-dotnet-queues-next-steps.md"&gt;</bpt><ept id="445940e8-7087-4e78-880e-a38d8021690c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

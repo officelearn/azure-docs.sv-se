@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7dd99d68-0b0f-4b6f-957b-4d48e27437cd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7dd99d68-0b0f-4b6f-957b-4d48e27437cd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d7f971f7-b740-4d89-a903-6548b90ff857">
+        <trans-unit id="400308a6-b67c-404f-b793-656de6207a09" xml:space="preserve">
+          <source>Upgrading the PhoneFactor Agent to Azure Multi-Factor Authentication Server</source>
+          <target state="new">Upgrading the PhoneFactor Agent to Azure Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="8f92490e-9221-453b-b0a7-61e8a4614d4d" xml:space="preserve">
+          <source>This document describes how to get started with Azure MFA Server and how to upgrade from the older phonefactor agent.</source>
+          <target state="new">This document describes how to get started with Azure MFA Server and how to upgrade from the older phonefactor agent.</target>
+        </trans-unit>
+        <trans-unit id="4b4cab92-8dbe-4944-9970-a2f53ce99b78" xml:space="preserve">
+          <source>Upgrading from the PhoneFactor Agent v5.x or older to the Azure Multi-Factor Authentication Server requires the PhoneFactor Agent and affiliated components to be uninstalled before the Multi-Factor Authentication Server and its affiliated components can be installed.</source>
+          <target state="new">Upgrading from the PhoneFactor Agent v5.x or older to the Azure Multi-Factor Authentication Server requires the PhoneFactor Agent and affiliated components to be uninstalled before the Multi-Factor Authentication Server and its affiliated components can be installed.</target>
+        </trans-unit>
+        <trans-unit id="c6369934-4c4d-496b-98e7-f06374cd0213" xml:space="preserve">
+          <source>&lt;ol&gt;
+&lt;li&gt;First, back up the PhoneFactor data file. The default installation location is C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.</source>
+          <target state="new">&lt;ol&gt;
+&lt;li&gt;First, back up the PhoneFactor data file. The default installation location is C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.</target>
+        </trans-unit>
+        <trans-unit id="951367bd-e69b-4267-aa05-59060a710acb" xml:space="preserve">
+          <source>&lt;li&gt;If the User Portal is installed:&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;If the User Portal is installed:&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="69839389-b5f9-4eaf-9faf-4f90302f9c46" xml:space="preserve">
+          <source>Navigate to the install folder and back up the web.config file. The default installation location is C:\inetpub\wwwroot\PhoneFactor.</source>
+          <target state="new">Navigate to the install folder and back up the web.config file. The default installation location is C:\inetpub\wwwroot\PhoneFactor.</target>
+        </trans-unit>
+        <trans-unit id="58a6d0ce-1db2-4e13-ac69-b8dd10b55f01" xml:space="preserve">
+          <source>If you have added custom themes to the portal, back up your custom folder below the C:\inetpub\wwwroot\PhoneFactor\App_Themes directory.</source>
+          <target state="new">If you have added custom themes to the portal, back up your custom folder below the C:\inetpub\wwwroot\PhoneFactor\App_Themes directory.</target>
+        </trans-unit>
+        <trans-unit id="905a4d5f-d9ae-46a4-b5e3-82eb48fd3f34" xml:space="preserve">
+          <source>Uninstall the User Portal either through the PhoneFactor Agent (only available if installed on the same server as the PhoneFactor Agent) or through Windows Programs and Features.</source>
+          <target state="new">Uninstall the User Portal either through the PhoneFactor Agent (only available if installed on the same server as the PhoneFactor Agent) or through Windows Programs and Features.</target>
+        </trans-unit>
+        <trans-unit id="a800b0a1-9f3a-484c-bb52-9f8147b8dd31" xml:space="preserve">
+          <source>&lt;li&gt;If the Mobile App Web Service is installed:</source>
+          <target state="new">&lt;li&gt;If the Mobile App Web Service is installed:</target>
+        </trans-unit>
+        <trans-unit id="2347979d-3dff-41e3-bf33-c30700fe03f4" xml:space="preserve">
+          <source>Go to the install folder and back up the web.config file. The default installation location is C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.</source>
+          <target state="new">Go to the install folder and back up the web.config file. The default installation location is C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.</target>
+        </trans-unit>
+        <trans-unit id="a918547e-7f52-4717-b38d-bebc02499dc8" xml:space="preserve">
+          <source>Uninstall the Mobile App Web Service through Windows Programs and Features.</source>
+          <target state="new">Uninstall the Mobile App Web Service through Windows Programs and Features.</target>
+        </trans-unit>
+        <trans-unit id="5f96351d-cb09-4811-abf1-63db6c91a5db" xml:space="preserve">
+          <source>&lt;li&gt;If the Web Service SDK is installed, uninstall it either through the PhoneFactor Agent or through Windows Programs and Features.</source>
+          <target state="new">&lt;li&gt;If the Web Service SDK is installed, uninstall it either through the PhoneFactor Agent or through Windows Programs and Features.</target>
+        </trans-unit>
+        <trans-unit id="dbba8ac3-aa3a-4228-8886-903322b43a88" xml:space="preserve">
+          <source>&lt;li&gt;Uninstall the PhoneFactor Agent through Windows Programs and Features.</source>
+          <target state="new">&lt;li&gt;Uninstall the PhoneFactor Agent through Windows Programs and Features.</target>
+        </trans-unit>
+        <trans-unit id="f2d189cc-dc07-4376-a31a-33835598dcb8" xml:space="preserve">
+          <source>&lt;li&gt;Install the Multi-Factor Authentication Server. Note that the installation path is picked up from the registry from the previous PhoneFactor Agent installation so it should install in the same location (e.g. C:\Program Files\PhoneFactor). New installations will have a different default install path (e.g. C:\Program Files\Multi-Factor Authentication Server). The data file left by the previous PhoneFactor Agent should be upgraded during installation, so your users and settings should still be there after installing the new Multi-Factor Authentication Server.</source>
+          <target state="new">&lt;li&gt;Install the Multi-Factor Authentication Server. Note that the installation path is picked up from the registry from the previous PhoneFactor Agent installation so it should install in the same location (e.g. C:\Program Files\PhoneFactor). New installations will have a different default install path (e.g. C:\Program Files\Multi-Factor Authentication Server). The data file left by the previous PhoneFactor Agent should be upgraded during installation, so your users and settings should still be there after installing the new Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="380db366-a5d1-4cc9-8ce3-04b442908989" xml:space="preserve">
+          <source>&lt;li&gt;If prompted, activate the Multi-Factor Authentication Server and ensure it is assigned to the correct replication group.</source>
+          <target state="new">&lt;li&gt;If prompted, activate the Multi-Factor Authentication Server and ensure it is assigned to the correct replication group.</target>
+        </trans-unit>
+        <trans-unit id="a7c05370-e1b6-4bd7-9e30-791b44e00b42" xml:space="preserve">
+          <source>&lt;li&gt;If the Web Service SDK was previously installed, install the new Web Service SDK through the Multi-Factor Authentication Server User Interface. Note that the default virtual directory name is now “MultiFactorAuthWebServiceSdk” instead of “PhoneFactorWebServiceSdk”. If you want to use the previous name, you must change the name of the virtual directory during installation. Otherwise, if you allow the install to use the new default name, you will have to change the URL in any applications that reference the Web Service SDK such as the User Portal and Mobile App Web Service to point at the correct location.</source>
+          <target state="new">&lt;li&gt;If the Web Service SDK was previously installed, install the new Web Service SDK through the Multi-Factor Authentication Server User Interface. Note that the default virtual directory name is now “MultiFactorAuthWebServiceSdk” instead of “PhoneFactorWebServiceSdk”. If you want to use the previous name, you must change the name of the virtual directory during installation. Otherwise, if you allow the install to use the new default name, you will have to change the URL in any applications that reference the Web Service SDK such as the User Portal and Mobile App Web Service to point at the correct location.</target>
+        </trans-unit>
+        <trans-unit id="b90f17e7-c2f7-4abf-b9ec-c058058c6632" xml:space="preserve">
+          <source>&lt;li&gt;If the User Portal was previously installed on the PhoneFactor Agent Server, install the new Multi-Factor Authentication User Portal through the Multi-Factor Authentication Server User Interface. Note that the default virtual directory name is now “MultiFactorAuth” instead of “PhoneFactor”. If you want to use the previous name, you must change the name of the virtual directory during installation. Otherwise, if you allow the install to use the new default name, you should click the User Portal icon in the Multi-Factor Authentication Server and update the User Portal URL on the Settings tab. </source>
+          <target state="new">&lt;li&gt;If the User Portal was previously installed on the PhoneFactor Agent Server, install the new Multi-Factor Authentication User Portal through the Multi-Factor Authentication Server User Interface. Note that the default virtual directory name is now “MultiFactorAuth” instead of “PhoneFactor”. If you want to use the previous name, you must change the name of the virtual directory during installation. Otherwise, if you allow the install to use the new default name, you should click the User Portal icon in the Multi-Factor Authentication Server and update the User Portal URL on the Settings tab. </target>
+        </trans-unit>
+        <trans-unit id="22e35757-b904-4702-b233-da087c78a484" xml:space="preserve">
+          <source>&lt;li&gt;If the User Portal and/or Mobile App Web Service was previously installed on a different server from the PhoneFactor Agent:</source>
+          <target state="new">&lt;li&gt;If the User Portal and/or Mobile App Web Service was previously installed on a different server from the PhoneFactor Agent:</target>
+        </trans-unit>
+        <trans-unit id="b27b9684-1f1b-452e-ba6c-6ef7210b8bae" xml:space="preserve">
+          <source>Go to the install location (e.g. C:\Program Files\PhoneFactor) and copy the appropriate installer(s) to the other server. There are 32-bit and 64-bit installers for both the User Portal and Mobile App Web Service. They are called MultiFactorAuthenticationUserPortalSetupXX.msi and MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi respectively.</source>
+          <target state="new">Go to the install location (e.g. C:\Program Files\PhoneFactor) and copy the appropriate installer(s) to the other server. There are 32-bit and 64-bit installers for both the User Portal and Mobile App Web Service. They are called MultiFactorAuthenticationUserPortalSetupXX.msi and MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi respectively.</target>
+        </trans-unit>
+        <trans-unit id="650c92a9-857c-4294-bd3a-0050d74393c0" xml:space="preserve">
+          <source>To install the User Portal on the web server, open a command prompt as an administrator and run the MultiFactorAuthenticationUserPortalSetupXX.msi. Note that the default virtual directory name is now “MultiFactorAuth” instead of “PhoneFactor”. If you want to use the previous name, you must change the name of the virtual directory during installation. Otherwise, if you allow the install to use the new default name, you should click the User Portal icon in the Multi-Factor Authentication Server and update the User Portal URL on the Settings tab. Existing users will need to be informed of the new URL.</source>
+          <target state="new">To install the User Portal on the web server, open a command prompt as an administrator and run the MultiFactorAuthenticationUserPortalSetupXX.msi. Note that the default virtual directory name is now “MultiFactorAuth” instead of “PhoneFactor”. If you want to use the previous name, you must change the name of the virtual directory during installation. Otherwise, if you allow the install to use the new default name, you should click the User Portal icon in the Multi-Factor Authentication Server and update the User Portal URL on the Settings tab. Existing users will need to be informed of the new URL.</target>
+        </trans-unit>
+        <trans-unit id="79a415ee-cafe-407a-bcf9-986b429109c6" xml:space="preserve">
+          <source>Go to the User Portal install location (e.g. C:\inetpub\wwwroot\MultiFactorAuth) and edit the web.config file. Copy the values in the appSettings and applicationSettings sections from your original web.config file that was backed up prior to the upgrade into the new web.config file. If the new default virtual directory name was kept when installing the Web Service SDK, change the URL in the applicationSettings section to point to the correct location. If any other defaults were changed in the previous web.config file, apply those same changes to the new web.config file.</source>
+          <target state="new">Go to the User Portal install location (e.g. C:\inetpub\wwwroot\MultiFactorAuth) and edit the web.config file. Copy the values in the appSettings and applicationSettings sections from your original web.config file that was backed up prior to the upgrade into the new web.config file. If the new default virtual directory name was kept when installing the Web Service SDK, change the URL in the applicationSettings section to point to the correct location. If any other defaults were changed in the previous web.config file, apply those same changes to the new web.config file.</target>
+        </trans-unit>
+        <trans-unit id="7cabbdc8-4cf7-47f5-a1f0-bcc6f101dc82" xml:space="preserve">
+          <source>To install the Mobile App Web Service on the web server, open a command prompt as an administrator and run the MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi. Note that the default virtual directory name is now “MultiFactorAuthMobileAppWebService” instead of “PhoneFactorPhoneAppWebService”. If you want to use the previous name, you must change the name of the virtual directory during installation. You may want to choose a shorter name to make it easy for end users to type in on their mobile devices. Otherwise, if you allow the install to use the new default name, you should click the Mobile App icon in the Multi-Factor Authentication Server and update the Mobile App Web Service URL.</source>
+          <target state="new">To install the Mobile App Web Service on the web server, open a command prompt as an administrator and run the MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi. Note that the default virtual directory name is now “MultiFactorAuthMobileAppWebService” instead of “PhoneFactorPhoneAppWebService”. If you want to use the previous name, you must change the name of the virtual directory during installation. You may want to choose a shorter name to make it easy for end users to type in on their mobile devices. Otherwise, if you allow the install to use the new default name, you should click the Mobile App icon in the Multi-Factor Authentication Server and update the Mobile App Web Service URL.</target>
+        </trans-unit>
+        <trans-unit id="3040582f-b4be-4501-b237-1e9e1819a147" xml:space="preserve">
+          <source>Go to the Mobile App Web Service install location (e.g. C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) and edit the web.config file. Copy the values in the appSettings and applicationSettings sections from your original web.config file that was backed up prior to the upgrade into the new web.config file. If the new default virtual directory name was kept when installing the Web Service SDK, change the URL in the applicationSettings section to point to the correct location. If any other defaults were changed in the previous web.config file, apply those same changes to the new web.config file.</source>
+          <target state="new">Go to the Mobile App Web Service install location (e.g. C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) and edit the web.config file. Copy the values in the appSettings and applicationSettings sections from your original web.config file that was backed up prior to the upgrade into the new web.config file. If the new default virtual directory name was kept when installing the Web Service SDK, change the URL in the applicationSettings section to point to the correct location. If any other defaults were changed in the previous web.config file, apply those same changes to the new web.config file.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

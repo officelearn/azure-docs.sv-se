@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6b5367eb-e58c-4781-9bf9-028e655d0f20" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6b5367eb-e58c-4781-9bf9-028e655d0f20" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f5ba7ac5-83cc-441c-914d-13fefaedcbb5">
+        <trans-unit id="577fcb0a-ebd4-48a3-9afc-e2253a7b9cf5" xml:space="preserve">
+          <source>Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure</source>
+          <target state="new">Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="dfbe890a-d352-49d0-91a8-a8675c0a38af" xml:space="preserve">
+          <source>Scoring profiles (Azure Search REST API Version 2015-02-28-Preview)</source>
+          <target state="new">Scoring profiles (Azure Search REST API Version 2015-02-28-Preview)</target>
+        </trans-unit>
+        <trans-unit id="87237bc3-6e70-4524-aeca-83a7a295ab36" xml:space="preserve">
+          <source>This article describes scoring profiles in the <bpt id="c8ef2668-56cf-4bd5-884e-9d5b03d1d2f1">&lt;linkText&gt;</bpt>2015-02-28-Preview<ept id="c8ef2668-56cf-4bd5-884e-9d5b03d1d2f1">&lt;/linkText&gt;</ept><bpt id="c8ef2668-56cf-4bd5-884e-9d5b03d1d2f1">&lt;title&gt;</bpt><ept id="c8ef2668-56cf-4bd5-884e-9d5b03d1d2f1">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article describes scoring profiles in the <bpt id="c8ef2668-56cf-4bd5-884e-9d5b03d1d2f1">&lt;linkText&gt;</bpt>2015-02-28-Preview<ept id="c8ef2668-56cf-4bd5-884e-9d5b03d1d2f1">&lt;/linkText&gt;</ept><bpt id="c8ef2668-56cf-4bd5-884e-9d5b03d1d2f1">&lt;title&gt;</bpt><ept id="c8ef2668-56cf-4bd5-884e-9d5b03d1d2f1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9257d209-04a7-4e1f-ba45-a2425d9c1a53" xml:space="preserve">
+          <source>Currently there is no difference between the <bpt id="5054b37e-a5fd-4868-8af8-9827f29fc973">&lt;code&gt;</bpt>2015-02-28<ept id="5054b37e-a5fd-4868-8af8-9827f29fc973">&lt;/code&gt;</ept> version documented on <bpt id="81b96b7a-11f1-4ffb-8040-6a60f935fbec">&lt;linkText&gt;</bpt>MSDN<ept id="81b96b7a-11f1-4ffb-8040-6a60f935fbec">&lt;/linkText&gt;</ept><bpt id="81b96b7a-11f1-4ffb-8040-6a60f935fbec">&lt;title&gt;</bpt><ept id="81b96b7a-11f1-4ffb-8040-6a60f935fbec">&lt;/title&gt;</ept> and the <bpt id="1b359b07-b586-4574-99b4-8f640118273e">&lt;code&gt;</bpt>2015-02-28-Preview<ept id="1b359b07-b586-4574-99b4-8f640118273e">&lt;/code&gt;</ept> version described here.</source>
+          <target state="new">Currently there is no difference between the <bpt id="5054b37e-a5fd-4868-8af8-9827f29fc973">&lt;code&gt;</bpt>2015-02-28<ept id="5054b37e-a5fd-4868-8af8-9827f29fc973">&lt;/code&gt;</ept> version documented on <bpt id="81b96b7a-11f1-4ffb-8040-6a60f935fbec">&lt;linkText&gt;</bpt>MSDN<ept id="81b96b7a-11f1-4ffb-8040-6a60f935fbec">&lt;/linkText&gt;</ept><bpt id="81b96b7a-11f1-4ffb-8040-6a60f935fbec">&lt;title&gt;</bpt><ept id="81b96b7a-11f1-4ffb-8040-6a60f935fbec">&lt;/title&gt;</ept> and the <bpt id="1b359b07-b586-4574-99b4-8f640118273e">&lt;code&gt;</bpt>2015-02-28-Preview<ept id="1b359b07-b586-4574-99b4-8f640118273e">&lt;/code&gt;</ept> version described here.</target>
+        </trans-unit>
+        <trans-unit id="5bc2b8b1-335a-4456-bc68-3cef95e89031" xml:space="preserve">
+          <source>Scoring refers to the computation of a search score for every item returned in search results.</source>
+          <target state="new">Scoring refers to the computation of a search score for every item returned in search results.</target>
+        </trans-unit>
+        <trans-unit id="625ee36f-1033-46ba-8f29-3e1a1cb2262e" xml:space="preserve">
+          <source>The score is an indicator of an item's relevance in the context of the current search operation.</source>
+          <target state="new">The score is an indicator of an item's relevance in the context of the current search operation.</target>
+        </trans-unit>
+        <trans-unit id="fa202c85-e26b-4708-9e42-f45072bc0169" xml:space="preserve">
+          <source>The higher the score, the more relevant the item.</source>
+          <target state="new">The higher the score, the more relevant the item.</target>
+        </trans-unit>
+        <trans-unit id="5c56769b-e9a1-43a0-a452-39a45f422433" xml:space="preserve">
+          <source>In search results, items are rank ordered from high to low, based on the search score calculated for each item.</source>
+          <target state="new">In search results, items are rank ordered from high to low, based on the search score calculated for each item.</target>
+        </trans-unit>
+        <trans-unit id="a84363ba-8091-4968-b00d-51586f06ac95" xml:space="preserve">
+          <source>Azure Search uses default scoring to compute an initial score, but you can customize the calculation through a scoring profile.</source>
+          <target state="new">Azure Search uses default scoring to compute an initial score, but you can customize the calculation through a scoring profile.</target>
+        </trans-unit>
+        <trans-unit id="4218138c-61df-49d8-85e3-0266b828eb5a" xml:space="preserve">
+          <source>Scoring profiles give you greater control over the ranking of items in search results.</source>
+          <target state="new">Scoring profiles give you greater control over the ranking of items in search results.</target>
+        </trans-unit>
+        <trans-unit id="21f826b5-77e3-4c08-a0d0-36eae70a6e2c" xml:space="preserve">
+          <source>For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.</source>
+          <target state="new">For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.</target>
+        </trans-unit>
+        <trans-unit id="2c93003d-9fa5-428e-9735-d55c0fea4c8b" xml:space="preserve">
+          <source>A scoring profile is part of the index definition, composed of fields, functions, and parameters.</source>
+          <target state="new">A scoring profile is part of the index definition, composed of fields, functions, and parameters.</target>
+        </trans-unit>
+        <trans-unit id="4e8495af-b17f-4dbd-b102-dbc35f6d082b" xml:space="preserve">
+          <source>To give you an idea of what a scoring profile looks like, the following example shows a simple profile named 'geo'.</source>
+          <target state="new">To give you an idea of what a scoring profile looks like, the following example shows a simple profile named 'geo'.</target>
+        </trans-unit>
+        <trans-unit id="703a043a-16c8-4ee2-87de-001ce5522254" xml:space="preserve">
+          <source>This one boosts items that have the search term in the <bpt id="47e66001-2949-487f-a2f5-78c882cf03f8">&lt;code&gt;</bpt>hotelName<ept id="47e66001-2949-487f-a2f5-78c882cf03f8">&lt;/code&gt;</ept> field.</source>
+          <target state="new">This one boosts items that have the search term in the <bpt id="47e66001-2949-487f-a2f5-78c882cf03f8">&lt;code&gt;</bpt>hotelName<ept id="47e66001-2949-487f-a2f5-78c882cf03f8">&lt;/code&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="521438da-c543-4c76-b9e9-5425ffd7ae92" xml:space="preserve">
+          <source>It also uses the <bpt id="60e53998-e816-4845-8fc8-fcdaea22fb84">&lt;code&gt;</bpt>distance<ept id="60e53998-e816-4845-8fc8-fcdaea22fb84">&lt;/code&gt;</ept> function to favor items that are within ten kilometers of the current location.</source>
+          <target state="new">It also uses the <bpt id="60e53998-e816-4845-8fc8-fcdaea22fb84">&lt;code&gt;</bpt>distance<ept id="60e53998-e816-4845-8fc8-fcdaea22fb84">&lt;/code&gt;</ept> function to favor items that are within ten kilometers of the current location.</target>
+        </trans-unit>
+        <trans-unit id="3353db2c-ffbd-4e6e-851e-a263120f5aa4" xml:space="preserve">
+          <source>If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' will appear higher in the search results.</source>
+          <target state="new">If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' will appear higher in the search results.</target>
+        </trans-unit>
+        <trans-unit id="248cf383-4b2b-4430-8553-88ecc8850e10" xml:space="preserve">
+          <source>To use this scoring profile, your query is formulated to specify the profile on the query string.</source>
+          <target state="new">To use this scoring profile, your query is formulated to specify the profile on the query string.</target>
+        </trans-unit>
+        <trans-unit id="4bb3ede4-4bf6-4032-a4c5-4d17982b0b86" xml:space="preserve">
+          <source>In the query below, notice the query parameter, <bpt id="b90c4502-39c2-4590-a82d-995c70146990">&lt;code&gt;</bpt>scoringProfile=geo<ept id="b90c4502-39c2-4590-a82d-995c70146990">&lt;/code&gt;</ept> in the request.</source>
+          <target state="new">In the query below, notice the query parameter, <bpt id="b90c4502-39c2-4590-a82d-995c70146990">&lt;code&gt;</bpt>scoringProfile=geo<ept id="b90c4502-39c2-4590-a82d-995c70146990">&lt;/code&gt;</ept> in the request.</target>
+        </trans-unit>
+        <trans-unit id="47afa366-d1f3-4cdc-9474-e95aed1c9ef3" xml:space="preserve">
+          <source>This query searches on the term 'inn' and passes in the current location.</source>
+          <target state="new">This query searches on the term 'inn' and passes in the current location.</target>
+        </trans-unit>
+        <trans-unit id="c4b42efc-4396-44ac-bb80-949cd3856f12" xml:space="preserve">
+          <source>Note that this query includes other parameters, such as <bpt id="8c477877-a34c-4577-934c-9b2deb4f9d2c">&lt;code&gt;</bpt>scoringParameter<ept id="8c477877-a34c-4577-934c-9b2deb4f9d2c">&lt;/code&gt;</ept>.</source>
+          <target state="new">Note that this query includes other parameters, such as <bpt id="8c477877-a34c-4577-934c-9b2deb4f9d2c">&lt;code&gt;</bpt>scoringParameter<ept id="8c477877-a34c-4577-934c-9b2deb4f9d2c">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99909068-a73c-4a85-8153-82f95a49dbb6" xml:space="preserve">
+          <source>Query parameters are described in <bpt id="bd8c3a62-d8ca-43ce-ac45-08cb6488aa6b">&lt;linkText&gt;</bpt>Search Documents (Azure Search API)<ept id="bd8c3a62-d8ca-43ce-ac45-08cb6488aa6b">&lt;/linkText&gt;</ept><bpt id="bd8c3a62-d8ca-43ce-ac45-08cb6488aa6b">&lt;title&gt;</bpt><ept id="bd8c3a62-d8ca-43ce-ac45-08cb6488aa6b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Query parameters are described in <bpt id="bd8c3a62-d8ca-43ce-ac45-08cb6488aa6b">&lt;linkText&gt;</bpt>Search Documents (Azure Search API)<ept id="bd8c3a62-d8ca-43ce-ac45-08cb6488aa6b">&lt;/linkText&gt;</ept><bpt id="bd8c3a62-d8ca-43ce-ac45-08cb6488aa6b">&lt;title&gt;</bpt><ept id="bd8c3a62-d8ca-43ce-ac45-08cb6488aa6b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4673fffc-f85a-453d-a1b1-7c8c5cf4b719" xml:space="preserve">
+          <source>Click <bpt id="cec62bca-f1bf-4ae1-805e-61dc4b35014d">&lt;linkText&gt;</bpt>Example<ept id="cec62bca-f1bf-4ae1-805e-61dc4b35014d">&lt;/linkText&gt;</ept><bpt id="cec62bca-f1bf-4ae1-805e-61dc4b35014d">&lt;title&gt;</bpt><ept id="cec62bca-f1bf-4ae1-805e-61dc4b35014d">&lt;/title&gt;</ept> to review a more detailed example of a scoring profile.</source>
+          <target state="new">Click <bpt id="cec62bca-f1bf-4ae1-805e-61dc4b35014d">&lt;linkText&gt;</bpt>Example<ept id="cec62bca-f1bf-4ae1-805e-61dc4b35014d">&lt;/linkText&gt;</ept><bpt id="cec62bca-f1bf-4ae1-805e-61dc4b35014d">&lt;title&gt;</bpt><ept id="cec62bca-f1bf-4ae1-805e-61dc4b35014d">&lt;/title&gt;</ept> to review a more detailed example of a scoring profile.</target>
+        </trans-unit>
+        <trans-unit id="9fd2c4c0-5126-4eda-b5c8-cc2f82651469" xml:space="preserve">
+          <source>Scoring computes a search score for each item in a rank ordered result set.</source>
+          <target state="new">Scoring computes a search score for each item in a rank ordered result set.</target>
+        </trans-unit>
+        <trans-unit id="5c08f528-e609-45f0-b2ca-a0ccf956f2c1" xml:space="preserve">
+          <source>Every item in a search result set is assigned a search score, then ranked highest to lowest.</source>
+          <target state="new">Every item in a search result set is assigned a search score, then ranked highest to lowest.</target>
+        </trans-unit>
+        <trans-unit id="6c9d6ebd-d0a7-43d2-ab62-6f7ab0cc6e61" xml:space="preserve">
+          <source>Items with the higher scores are returned to the application.</source>
+          <target state="new">Items with the higher scores are returned to the application.</target>
+        </trans-unit>
+        <trans-unit id="86b791b9-4511-42b7-826b-abd01356acb8" xml:space="preserve">
+          <source>By default, the top 50 are returned, but you can use the <bpt id="93fb1bed-3497-4bd6-9e81-3828e9fc7ab9">&lt;code&gt;</bpt>$top<ept id="93fb1bed-3497-4bd6-9e81-3828e9fc7ab9">&lt;/code&gt;</ept> parameter to return a smaller or larger number of items (up to 1000 in a single response).</source>
+          <target state="new">By default, the top 50 are returned, but you can use the <bpt id="93fb1bed-3497-4bd6-9e81-3828e9fc7ab9">&lt;code&gt;</bpt>$top<ept id="93fb1bed-3497-4bd6-9e81-3828e9fc7ab9">&lt;/code&gt;</ept> parameter to return a smaller or larger number of items (up to 1000 in a single response).</target>
+        </trans-unit>
+        <trans-unit id="105a4757-dd1c-44d6-b1c5-2802d2996ebf" xml:space="preserve">
+          <source>By default, a search score is computed based on statistical properties of the data and the query.</source>
+          <target state="new">By default, a search score is computed based on statistical properties of the data and the query.</target>
+        </trans-unit>
+        <trans-unit id="220c63d9-ea93-42bd-973c-815c1680fa61" xml:space="preserve">
+          <source>Azure Search finds documents that include the search terms in the query string (some or all, depending on <bpt id="8ef3ea89-9807-41f2-a413-88e65fd83128">&lt;code&gt;</bpt>searchMode<ept id="8ef3ea89-9807-41f2-a413-88e65fd83128">&lt;/code&gt;</ept>), favoring documents that contain many instances of the search term.</source>
+          <target state="new">Azure Search finds documents that include the search terms in the query string (some or all, depending on <bpt id="8ef3ea89-9807-41f2-a413-88e65fd83128">&lt;code&gt;</bpt>searchMode<ept id="8ef3ea89-9807-41f2-a413-88e65fd83128">&lt;/code&gt;</ept>), favoring documents that contain many instances of the search term.</target>
+        </trans-unit>
+        <trans-unit id="063b87c2-792a-4b3f-b033-f14734e2b7a6" xml:space="preserve">
+          <source>The search score goes up even higher if the term is rare across the data corpus, but common within the document.</source>
+          <target state="new">The search score goes up even higher if the term is rare across the data corpus, but common within the document.</target>
+        </trans-unit>
+        <trans-unit id="78513a23-3838-4681-bd6e-57e88e6c5215" xml:space="preserve">
+          <source>The basis for this approach to computing relevance is known as TF-IDF or (term frequency-inverse document frequency).</source>
+          <target state="new">The basis for this approach to computing relevance is known as TF-IDF or (term frequency-inverse document frequency).</target>
+        </trans-unit>
+        <trans-unit id="3bed0c68-97e6-4017-a310-95f938b594b5" xml:space="preserve">
+          <source>Assuming there is no custom sorting, results are then ranked by search score before they are returned to the calling application.</source>
+          <target state="new">Assuming there is no custom sorting, results are then ranked by search score before they are returned to the calling application.</target>
+        </trans-unit>
+        <trans-unit id="2bf70fd0-7270-46de-8ffd-89c3b7eea1ea" xml:space="preserve">
+          <source>If <bpt id="e5cae3a3-eb93-4a8c-8761-d6593c30b675">&lt;code&gt;</bpt>$top<ept id="e5cae3a3-eb93-4a8c-8761-d6593c30b675">&lt;/code&gt;</ept> is not specified, 50 items having the highest search score are returned.</source>
+          <target state="new">If <bpt id="e5cae3a3-eb93-4a8c-8761-d6593c30b675">&lt;code&gt;</bpt>$top<ept id="e5cae3a3-eb93-4a8c-8761-d6593c30b675">&lt;/code&gt;</ept> is not specified, 50 items having the highest search score are returned.</target>
+        </trans-unit>
+        <trans-unit id="c4d83db7-456b-48d0-a29c-049ef5afee07" xml:space="preserve">
+          <source>Search score values can be repeated throughout a result set.</source>
+          <target state="new">Search score values can be repeated throughout a result set.</target>
+        </trans-unit>
+        <trans-unit id="e906e2f7-5223-4c70-8900-d4de35648c18" xml:space="preserve">
+          <source>For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5.</source>
+          <target state="new">For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5.</target>
+        </trans-unit>
+        <trans-unit id="23ed7584-abf2-4cf6-b106-e31a58309dc1" xml:space="preserve">
+          <source>When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable.</source>
+          <target state="new">When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable.</target>
+        </trans-unit>
+        <trans-unit id="1c731853-c149-4040-bc54-4d0066cc46b4" xml:space="preserve">
+          <source>Run the query again, and you might see items shift position.</source>
+          <target state="new">Run the query again, and you might see items shift position.</target>
+        </trans-unit>
+        <trans-unit id="4813bb1d-4f66-4828-9e76-ea0e6ae3d824" xml:space="preserve">
+          <source>Given two items with an identical score, there is no guarantee which one appears first.</source>
+          <target state="new">Given two items with an identical score, there is no guarantee which one appears first.</target>
+        </trans-unit>
+        <trans-unit id="dc0f2f96-38dc-4879-a04a-d8b0aede1292" xml:space="preserve">
+          <source>You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives.</source>
+          <target state="new">You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives.</target>
+        </trans-unit>
+        <trans-unit id="381aee25-4520-4aa7-b820-dcae7abbb935" xml:space="preserve">
+          <source>For example, you might decide that search relevance should favor newly added items.</source>
+          <target state="new">For example, you might decide that search relevance should favor newly added items.</target>
+        </trans-unit>
+        <trans-unit id="5a975aa9-1435-4c2c-9bd6-8af8c9498d0a" xml:space="preserve">
+          <source>Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential.</source>
+          <target state="new">Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential.</target>
+        </trans-unit>
+        <trans-unit id="ed2edb6c-af63-43c7-aadb-049b332f8f91" xml:space="preserve">
+          <source>Boosting hits that bring benefits to your business can be an important factor in deciding to use scoring profiles.</source>
+          <target state="new">Boosting hits that bring benefits to your business can be an important factor in deciding to use scoring profiles.</target>
+        </trans-unit>
+        <trans-unit id="4e547dcb-28e7-46d1-96d0-40a08cf23eae" xml:space="preserve">
+          <source>Relevancy-based ordering is also implemented through scoring profiles.</source>
+          <target state="new">Relevancy-based ordering is also implemented through scoring profiles.</target>
+        </trans-unit>
+        <trans-unit id="c42ea66f-1f75-43e5-ae77-2fe55ef21933" xml:space="preserve">
+          <source>Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance.</source>
+          <target state="new">Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance.</target>
+        </trans-unit>
+        <trans-unit id="c0080c38-4358-44da-a9cb-9bdd36ec6603" xml:space="preserve">
+          <source>In Azure Search, scoring profiles drive the 'relevance' option.</source>
+          <target state="new">In Azure Search, scoring profiles drive the 'relevance' option.</target>
+        </trans-unit>
+        <trans-unit id="5ea99c16-d55d-498c-a580-7cf92e927a0d" xml:space="preserve">
+          <source>The definition of relevance is controlled by you, predicated on business objectives and the type of search experience you want to deliver.</source>
+          <target state="new">The definition of relevance is controlled by you, predicated on business objectives and the type of search experience you want to deliver.</target>
+        </trans-unit>
+        <trans-unit id="e2932ada-db93-4da0-867a-959604ec14eb" xml:space="preserve">
+          <source><bpt id="72c2694a-c7ce-4a50-bbb1-074c52354b57">&lt;bookmark&gt;</bpt><ept id="72c2694a-c7ce-4a50-bbb1-074c52354b57">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="72c2694a-c7ce-4a50-bbb1-074c52354b57">&lt;bookmark&gt;</bpt><ept id="72c2694a-c7ce-4a50-bbb1-074c52354b57">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f7a933a-77be-4435-aad8-a107b5107e9e" xml:space="preserve">
+          <source>As noted, customized scoring is implemented through scoring profiles defined in an index schema.</source>
+          <target state="new">As noted, customized scoring is implemented through scoring profiles defined in an index schema.</target>
+        </trans-unit>
+        <trans-unit id="7a92a440-48d1-4ede-9a10-b95fb31800cc" xml:space="preserve">
+          <source>This example shows the schema of an index with two scoring profiles (<bpt id="3c65e808-f6fe-4e08-bc0a-8dfbd15cac91">&lt;code&gt;</bpt>boostGenre<ept id="3c65e808-f6fe-4e08-bc0a-8dfbd15cac91">&lt;/code&gt;</ept>, <bpt id="31146e48-6650-4336-ab31-8ebcbc642d77">&lt;code&gt;</bpt>newAndHighlyRated<ept id="31146e48-6650-4336-ab31-8ebcbc642d77">&lt;/code&gt;</ept>).</source>
+          <target state="new">This example shows the schema of an index with two scoring profiles (<bpt id="3c65e808-f6fe-4e08-bc0a-8dfbd15cac91">&lt;code&gt;</bpt>boostGenre<ept id="3c65e808-f6fe-4e08-bc0a-8dfbd15cac91">&lt;/code&gt;</ept>, <bpt id="31146e48-6650-4336-ab31-8ebcbc642d77">&lt;code&gt;</bpt>newAndHighlyRated<ept id="31146e48-6650-4336-ab31-8ebcbc642d77">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="b4815ee3-9b8d-4115-ba9c-f9b534d8a4a4" xml:space="preserve">
+          <source>Any query against this index that includes either profile as a query parameter will use the profile to score the result set.</source>
+          <target state="new">Any query against this index that includes either profile as a query parameter will use the profile to score the result set.</target>
+        </trans-unit>
+        <trans-unit id="b96150bc-b335-46d1-a2c5-b0787ea30cfc" xml:space="preserve">
+          <source><bpt id="b1e8af73-dd1f-41e3-b053-9611db4194ab">&lt;linkText&gt;</bpt>Try this example<ept id="b1e8af73-dd1f-41e3-b053-9611db4194ab">&lt;/linkText&gt;</ept><bpt id="b1e8af73-dd1f-41e3-b053-9611db4194ab">&lt;title&gt;</bpt><ept id="b1e8af73-dd1f-41e3-b053-9611db4194ab">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="b1e8af73-dd1f-41e3-b053-9611db4194ab">&lt;linkText&gt;</bpt>Try this example<ept id="b1e8af73-dd1f-41e3-b053-9611db4194ab">&lt;/linkText&gt;</ept><bpt id="b1e8af73-dd1f-41e3-b053-9611db4194ab">&lt;title&gt;</bpt><ept id="b1e8af73-dd1f-41e3-b053-9611db4194ab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a4cfc3d-3561-44a1-bb6a-6d1d5258bd31" xml:space="preserve">
+          <source>To implement custom scoring behavior, add a scoring profile to the schema that defines the index.</source>
+          <target state="new">To implement custom scoring behavior, add a scoring profile to the schema that defines the index.</target>
+        </trans-unit>
+        <trans-unit id="dfa2fb1e-883b-4a70-9062-c4698dced6ee" xml:space="preserve">
+          <source>You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query.</source>
+          <target state="new">You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query.</target>
+        </trans-unit>
+        <trans-unit id="ef0142e8-849a-4d4b-aa28-b33cc7bb4be1" xml:space="preserve">
+          <source>Start with the <bpt id="14de67e7-201e-4c7d-a834-7d06c8c13f7a">&lt;linkText&gt;</bpt>Template<ept id="14de67e7-201e-4c7d-a834-7d06c8c13f7a">&lt;/linkText&gt;</ept><bpt id="14de67e7-201e-4c7d-a834-7d06c8c13f7a">&lt;title&gt;</bpt><ept id="14de67e7-201e-4c7d-a834-7d06c8c13f7a">&lt;/title&gt;</ept> provided in this topic.</source>
+          <target state="new">Start with the <bpt id="14de67e7-201e-4c7d-a834-7d06c8c13f7a">&lt;linkText&gt;</bpt>Template<ept id="14de67e7-201e-4c7d-a834-7d06c8c13f7a">&lt;/linkText&gt;</ept><bpt id="14de67e7-201e-4c7d-a834-7d06c8c13f7a">&lt;title&gt;</bpt><ept id="14de67e7-201e-4c7d-a834-7d06c8c13f7a">&lt;/title&gt;</ept> provided in this topic.</target>
+        </trans-unit>
+        <trans-unit id="023a85e4-bcf7-4501-99c8-a2fa7dd6ccc0" xml:space="preserve">
+          <source>Provide a name.</source>
+          <target state="new">Provide a name.</target>
+        </trans-unit>
+        <trans-unit id="4d459f4d-8367-450f-9140-5aade937c4d3" xml:space="preserve">
+          <source>Scoring profiles are optional, but if you add one, the name is required.</source>
+          <target state="new">Scoring profiles are optional, but if you add one, the name is required.</target>
+        </trans-unit>
+        <trans-unit id="6b7ff63e-b32e-4c6f-b4e3-79a8db4ced31" xml:space="preserve">
+          <source>Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words).</source>
+          <target state="new">Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words).</target>
+        </trans-unit>
+        <trans-unit id="43089427-9d1e-483a-a57c-f1947c22ee85" xml:space="preserve">
+          <source>See <bpt id="266b87a5-b6ef-4b0f-a6b3-b667dc9e89d4">&lt;linkText&gt;</bpt>Naming Rules<ept id="266b87a5-b6ef-4b0f-a6b3-b667dc9e89d4">&lt;/linkText&gt;</ept><bpt id="266b87a5-b6ef-4b0f-a6b3-b667dc9e89d4">&lt;title&gt;</bpt><ept id="266b87a5-b6ef-4b0f-a6b3-b667dc9e89d4">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="266b87a5-b6ef-4b0f-a6b3-b667dc9e89d4">&lt;linkText&gt;</bpt>Naming Rules<ept id="266b87a5-b6ef-4b0f-a6b3-b667dc9e89d4">&lt;/linkText&gt;</ept><bpt id="266b87a5-b6ef-4b0f-a6b3-b667dc9e89d4">&lt;title&gt;</bpt><ept id="266b87a5-b6ef-4b0f-a6b3-b667dc9e89d4">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="5fc8ce37-4e6e-484b-8c3f-0acc7387f004" xml:space="preserve">
+          <source>The body of the scoring profile is constructed from weighted fields and functions.</source>
+          <target state="new">The body of the scoring profile is constructed from weighted fields and functions.</target>
+        </trans-unit>
+        <trans-unit id="49461a8d-8399-4aa6-a15a-eed9019a490b" xml:space="preserve">
+          <source>Element</source>
+          <target state="new">Element</target>
+        </trans-unit>
+        <trans-unit id="cc386337-c203-4050-a83c-b4cfe30906b5" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="76da8047-0d3d-416f-b3a8-414fc405425f" xml:space="preserve">
+          <source>Weights</source>
+          <target state="new">Weights</target>
+        </trans-unit>
+        <trans-unit id="c5abed9e-4590-4992-86f2-bfbc8df57898" xml:space="preserve">
+          <source>
+        Specify name-value pairs that assign a relative weight to a field. In the [Example](#example), the albumTitle, genre, and artistName fields are boosted 1, 5, and null, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+      </source>
+          <target state="new">
+        Specify name-value pairs that assign a relative weight to a field. In the [Example](#example), the albumTitle, genre, and artistName fields are boosted 1, 5, and null, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+      </target>
+        </trans-unit>
+        <trans-unit id="5c50ca7d-e359-4e27-9ece-3e60b8bc3374" xml:space="preserve">
+          <source>Functions</source>
+          <target state="new">Functions</target>
+        </trans-unit>
+        <trans-unit id="804a4d51-8c7f-4384-b383-d4ecda00abab" xml:space="preserve">
+          <source>
+        Used when additional calculations are required for specific contexts. Valid values are `freshness`, `magnitude`, `distance` and `tag`. Each function has parameters that are unique to it.
+        </source>
+          <target state="new">
+        Used when additional calculations are required for specific contexts. Valid values are `freshness`, `magnitude`, `distance` and `tag`. Each function has parameters that are unique to it.
+        </target>
+        </trans-unit>
+        <trans-unit id="fe668407-0683-4921-8da7-1cd0dd87e490" xml:space="preserve">
+          <source>
+          - `freshness` should be used when you want to boost by how new or old an item is. This function can only be used with datetime fields (Edm.DataTimeOffset). Note the `boostingDuration` attribute is used only with the freshness function.
+          </source>
+          <target state="new">
+          - `freshness` should be used when you want to boost by how new or old an item is. This function can only be used with datetime fields (Edm.DataTimeOffset). Note the `boostingDuration` attribute is used only with the freshness function.
+          </target>
+        </trans-unit>
+        <trans-unit id="a7b42dc9-4a8e-4e75-9cb9-a7b82f423ed8" xml:space="preserve">
+          <source>
+            - `magnitude` should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with double and integer fields.
+          </source>
+          <target state="new">
+            - `magnitude` should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with double and integer fields.
+          </target>
+        </trans-unit>
+        <trans-unit id="567b07b0-c6a7-45a6-a1c4-f3b231abe198" xml:space="preserve">
+          <source>
+            For the `magnitude` function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set `boostingRangeStart` at 100 and `boostingRangeEnd` at 1 to boost the lower-priced items.
+          </source>
+          <target state="new">
+            For the `magnitude` function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set `boostingRangeStart` at 100 and `boostingRangeEnd` at 1 to boost the lower-priced items.
+          </target>
+        </trans-unit>
+        <trans-unit id="a38b9f5d-9f01-4afa-846d-7be9cad5d14f" xml:space="preserve">
+          <source>
+            - `distance` should be used when you want to boost by proximity or geographic location. This function can only be used with `Edm.GeographyPoint` fields.
+          </source>
+          <target state="new">
+            - `distance` should be used when you want to boost by proximity or geographic location. This function can only be used with `Edm.GeographyPoint` fields.
+          </target>
+        </trans-unit>
+        <trans-unit id="3cc1e1bd-465b-4269-ba4f-7bf9c181fd55" xml:space="preserve">
+          <source>
+            - `tag` should be used when you want to boost by tags in common between documents and search queries. This function can only be used with `Edm.String` and `(Collection(Edm.String) fields.
+          </source>
+          <target state="new">
+            - `tag` should be used when you want to boost by tags in common between documents and search queries. This function can only be used with `Edm.String` and `(Collection(Edm.String) fields.
+          </target>
+        </trans-unit>
+        <trans-unit id="245d8956-4f60-4919-8391-736a25b307a5" xml:space="preserve">
+          <source>Rules for using functions</source>
+          <target state="new">Rules for using functions</target>
+        </trans-unit>
+        <trans-unit id="4a172656-cbf5-43ed-9237-3aced2938a4f" xml:space="preserve">
+          <source>
+            Function type (freshness, magnitude, distance, tag) must be lower case.
+            </source>
+          <target state="new">
+            Function type (freshness, magnitude, distance, tag) must be lower case.
+            </target>
+        </trans-unit>
+        <trans-unit id="f050a9e1-80d5-48d5-a778-9e9763b2118c" xml:space="preserve">
+          <source>
+            Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
+            </source>
+          <target state="new">
+            Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
+            </target>
+        </trans-unit>
+        <trans-unit id="b5cf0b2f-7f74-4f41-b864-273fd0e60f4c" xml:space="preserve">
+          <source>
+             Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28/#createindex) for more information about filterable fields.
+             </source>
+          <target state="new">
+             Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28/#createindex) for more information about filterable fields.
+             </target>
+        </trans-unit>
+        <trans-unit id="e74c4918-9a87-43d9-a425-925c6d26ac87" xml:space="preserve">
+          <source>
+             Functions can only be applied to fields that are defined in the fields collection of an index.
+         </source>
+          <target state="new">
+             Functions can only be applied to fields that are defined in the fields collection of an index.
+         </target>
+        </trans-unit>
+        <trans-unit id="42c75a5a-44ef-480b-8f93-99514acb64ed" xml:space="preserve">
+          <source>After the index is defined, build the index by uploading the index schema, followed by documents.</source>
+          <target state="new">After the index is defined, build the index by uploading the index schema, followed by documents.</target>
+        </trans-unit>
+        <trans-unit id="3b4d909f-bc23-40a1-a506-95a0b3eab953" xml:space="preserve">
+          <source>See <bpt id="ca284316-c35b-4b87-b313-69c70d13a200">&lt;linkText&gt;</bpt>Create Index<ept id="ca284316-c35b-4b87-b313-69c70d13a200">&lt;/linkText&gt;</ept><bpt id="ca284316-c35b-4b87-b313-69c70d13a200">&lt;title&gt;</bpt><ept id="ca284316-c35b-4b87-b313-69c70d13a200">&lt;/title&gt;</ept> and <bpt id="7e7badae-9fd1-4c1f-a68e-554d36119b24">&lt;linkText&gt;</bpt>Add or Update Documents<ept id="7e7badae-9fd1-4c1f-a68e-554d36119b24">&lt;/linkText&gt;</ept><bpt id="7e7badae-9fd1-4c1f-a68e-554d36119b24">&lt;title&gt;</bpt><ept id="7e7badae-9fd1-4c1f-a68e-554d36119b24">&lt;/title&gt;</ept> for instructions on these operations.</source>
+          <target state="new">See <bpt id="ca284316-c35b-4b87-b313-69c70d13a200">&lt;linkText&gt;</bpt>Create Index<ept id="ca284316-c35b-4b87-b313-69c70d13a200">&lt;/linkText&gt;</ept><bpt id="ca284316-c35b-4b87-b313-69c70d13a200">&lt;title&gt;</bpt><ept id="ca284316-c35b-4b87-b313-69c70d13a200">&lt;/title&gt;</ept> and <bpt id="7e7badae-9fd1-4c1f-a68e-554d36119b24">&lt;linkText&gt;</bpt>Add or Update Documents<ept id="7e7badae-9fd1-4c1f-a68e-554d36119b24">&lt;/linkText&gt;</ept><bpt id="7e7badae-9fd1-4c1f-a68e-554d36119b24">&lt;title&gt;</bpt><ept id="7e7badae-9fd1-4c1f-a68e-554d36119b24">&lt;/title&gt;</ept> for instructions on these operations.</target>
+        </trans-unit>
+        <trans-unit id="b28f3bbd-4be4-421b-9939-daf89d57e8b7" xml:space="preserve">
+          <source>Once the index is built, you should have a functional scoring profile that works with your search data.</source>
+          <target state="new">Once the index is built, you should have a functional scoring profile that works with your search data.</target>
+        </trans-unit>
+        <trans-unit id="9e9dfa7a-6993-4f2c-96f3-8cc74e912ad5" xml:space="preserve">
+          <source><bpt id="1a81e42d-4942-4317-b99c-f0f99d77690b">&lt;bookmark&gt;</bpt><ept id="1a81e42d-4942-4317-b99c-f0f99d77690b">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="1a81e42d-4942-4317-b99c-f0f99d77690b">&lt;bookmark&gt;</bpt><ept id="1a81e42d-4942-4317-b99c-f0f99d77690b">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3815203-273c-473d-bd2e-f9471a9c93fd" xml:space="preserve">
+          <source>This section shows the syntax and template for scoring profiles.</source>
+          <target state="new">This section shows the syntax and template for scoring profiles.</target>
+        </trans-unit>
+        <trans-unit id="23517c9b-2124-47f0-87b8-e710820403a3" xml:space="preserve">
+          <source>Refer to <bpt id="c7a7a59f-4e0a-4d48-af4c-67c3c190145f">&lt;linkText&gt;</bpt>Index attribute reference<ept id="c7a7a59f-4e0a-4d48-af4c-67c3c190145f">&lt;/linkText&gt;</ept><bpt id="c7a7a59f-4e0a-4d48-af4c-67c3c190145f">&lt;title&gt;</bpt><ept id="c7a7a59f-4e0a-4d48-af4c-67c3c190145f">&lt;/title&gt;</ept> in the next section for descriptions of the attributes.</source>
+          <target state="new">Refer to <bpt id="c7a7a59f-4e0a-4d48-af4c-67c3c190145f">&lt;linkText&gt;</bpt>Index attribute reference<ept id="c7a7a59f-4e0a-4d48-af4c-67c3c190145f">&lt;/linkText&gt;</ept><bpt id="c7a7a59f-4e0a-4d48-af4c-67c3c190145f">&lt;title&gt;</bpt><ept id="c7a7a59f-4e0a-4d48-af4c-67c3c190145f">&lt;/title&gt;</ept> in the next section for descriptions of the attributes.</target>
+        </trans-unit>
+        <trans-unit id="423c4190-da6e-4369-add5-c29b0ff8a0db" xml:space="preserve">
+          <source><bpt id="e7f055d1-c520-4ca7-8b9e-8b45ff07d3d0">&lt;bookmark&gt;</bpt><ept id="e7f055d1-c520-4ca7-8b9e-8b45ff07d3d0">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e7f055d1-c520-4ca7-8b9e-8b45ff07d3d0">&lt;bookmark&gt;</bpt><ept id="e7f055d1-c520-4ca7-8b9e-8b45ff07d3d0">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="caa0a8a7-b976-43d4-9216-64ebeca7f6bd" xml:space="preserve">
+          <source><bpt id="bdbcc946-53f8-4ccd-9914-9d1f7df5a6d9">&lt;strong&gt;</bpt>Note<ept id="bdbcc946-53f8-4ccd-9914-9d1f7df5a6d9">&lt;/strong&gt;</ept>
+A scoring function can only be applied to fields that are filterable.</source>
+          <target state="new"><bpt id="bdbcc946-53f8-4ccd-9914-9d1f7df5a6d9">&lt;strong&gt;</bpt>Note<ept id="bdbcc946-53f8-4ccd-9914-9d1f7df5a6d9">&lt;/strong&gt;</ept>
+A scoring function can only be applied to fields that are filterable.</target>
+        </trans-unit>
+        <trans-unit id="bfb509c1-915d-40ae-b698-e4f46ad4d375" xml:space="preserve">
+          <source>&lt;table border="1"&gt;
+&lt;tr&gt;
+&lt;th&gt;Attribute&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Name&lt;/td&gt;   &lt;td&gt;Required. This is the name of the scoring profile. It follows the same naming conventions of a field. It must start with a letter, cannot contain dots, colons or @ symbols, and cannot start with the phrase ‘azureSearch’ (case-sensitive). &lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Text&lt;/td&gt;   &lt;td&gt;Contains the Weights property.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Weights&lt;/td&gt;    &lt;td&gt;Optional. A name-value pair that specifies a field name and relative weight. Relative weight must be a positive integer. The maximum value is int32.MaxValue. You can specify the field name without a corresponding weight. Weights are used to indicate the importance of one field relative to another.&lt;/td&gt;
+&lt;tr&gt;
+&lt;td&gt;Functions&lt;/td&gt;  &lt;td&gt;Optional. Note that a scoring function can only be applied to fields that are filterable.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Type&lt;/td&gt;   &lt;td&gt;Required for scoring functions. Indicates the type of function to use. Valid values include magnitude, freshness, distance and tag. You can include more than one function in each scoring profile. The function name must be lower case.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Boost&lt;/td&gt;  &lt;td&gt;Required for scoring functions. A positive number used as multiplier for raw score. It cannot be equal to 1.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Fieldname&lt;/td&gt;  &lt;td&gt;Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, distance with location fields and tag with string or string collection fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Interpolation&lt;/td&gt;  &lt;td&gt;Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include Linear (default), Constant, Quadratic, and Logarithmic. See <bpt id="cd6d4da7-fc68-477f-87e5-07f0e74336da">&lt;linkText&gt;</bpt>Set interpolations<ept id="cd6d4da7-fc68-477f-87e5-07f0e74336da">&lt;/linkText&gt;</ept><bpt id="cd6d4da7-fc68-477f-87e5-07f0e74336da">&lt;title&gt;</bpt><ept id="cd6d4da7-fc68-477f-87e5-07f0e74336da">&lt;/title&gt;</ept> for details.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;magnitude&lt;/td&gt;  &lt;td&gt;The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are:
+&lt;br&gt;</source>
+          <target state="new">&lt;table border="1"&gt;
+&lt;tr&gt;
+&lt;th&gt;Attribute&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Name&lt;/td&gt;   &lt;td&gt;Required. This is the name of the scoring profile. It follows the same naming conventions of a field. It must start with a letter, cannot contain dots, colons or @ symbols, and cannot start with the phrase ‘azureSearch’ (case-sensitive). &lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Text&lt;/td&gt;   &lt;td&gt;Contains the Weights property.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Weights&lt;/td&gt;    &lt;td&gt;Optional. A name-value pair that specifies a field name and relative weight. Relative weight must be a positive integer. The maximum value is int32.MaxValue. You can specify the field name without a corresponding weight. Weights are used to indicate the importance of one field relative to another.&lt;/td&gt;
+&lt;tr&gt;
+&lt;td&gt;Functions&lt;/td&gt;  &lt;td&gt;Optional. Note that a scoring function can only be applied to fields that are filterable.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Type&lt;/td&gt;   &lt;td&gt;Required for scoring functions. Indicates the type of function to use. Valid values include magnitude, freshness, distance and tag. You can include more than one function in each scoring profile. The function name must be lower case.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Boost&lt;/td&gt;  &lt;td&gt;Required for scoring functions. A positive number used as multiplier for raw score. It cannot be equal to 1.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Fieldname&lt;/td&gt;  &lt;td&gt;Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, distance with location fields and tag with string or string collection fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Interpolation&lt;/td&gt;  &lt;td&gt;Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include Linear (default), Constant, Quadratic, and Logarithmic. See <bpt id="cd6d4da7-fc68-477f-87e5-07f0e74336da">&lt;linkText&gt;</bpt>Set interpolations<ept id="cd6d4da7-fc68-477f-87e5-07f0e74336da">&lt;/linkText&gt;</ept><bpt id="cd6d4da7-fc68-477f-87e5-07f0e74336da">&lt;title&gt;</bpt><ept id="cd6d4da7-fc68-477f-87e5-07f0e74336da">&lt;/title&gt;</ept> for details.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;magnitude&lt;/td&gt;  &lt;td&gt;The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are:
+&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="0beeaf6d-1f76-4a2b-892d-c96ac340eeb4" xml:space="preserve">
+          <source>Star ratings: Alter the scoring based on the value within the "Star Rating" field. When two items are relevant, the item with the higher rating will be displayed first.
+&lt;br&gt;</source>
+          <target state="new">Star ratings: Alter the scoring based on the value within the "Star Rating" field. When two items are relevant, the item with the higher rating will be displayed first.
+&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="37177a5b-d228-4cd3-8095-e1263fa270f3" xml:space="preserve">
+          <source>Margin: When two documents are relevant, a retailer may wish to boost documents that have higher margins first.
+&lt;br&gt;</source>
+          <target state="new">Margin: When two documents are relevant, a retailer may wish to boost documents that have higher margins first.
+&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="d52f2736-25dd-4054-a9b9-31451e6bce83" xml:space="preserve">
+          <source>Click counts: For applications that track click through actions to products or pages, you could use magnitude to boost items that tend to get the most traffic.
+&lt;br&gt;</source>
+          <target state="new">Click counts: For applications that track click through actions to products or pages, you could use magnitude to boost items that tend to get the most traffic.
+&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="6c97ccc7-649e-40ef-bbd5-1d48de3dcde0" xml:space="preserve">
+          <source>Download counts: For applications that track downloads, the magnitude function lets you boost items that have the most downloads.
+&lt;tr&gt;
+&lt;td&gt;magnitude | boostingRangeStart&lt;/td&gt; &lt;td&gt;Sets the start value of the range over which magnitude is scored. The value must be an integer or double. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;magnitude | boostingRangeEnd&lt;/td&gt;   &lt;td&gt;Sets the end value of the range over which magnitude is scored. The value must be an integer or double. For star ratings of 1 through 4, this would be 4.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;magnitude | constantBoostBeyondRange&lt;/td&gt;   &lt;td&gt;Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;freshness&lt;/td&gt;  &lt;td&gt;The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. In the current service release, one end of the range will be fixed to the current time. The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;freshness | boostingDuration&lt;/td&gt;   &lt;td&gt;Sets an expiration period after which boosting will stop for a particular document. See <bpt id="c645b354-ddb0-4995-8f29-33a8aadf4e7f">&lt;linkText&gt;</bpt>Set boostingDuration [#bkmk_boostdur]<ept id="c645b354-ddb0-4995-8f29-33a8aadf4e7f">&lt;/linkText&gt;</ept><bpt id="c645b354-ddb0-4995-8f29-33a8aadf4e7f">&lt;title&gt;</bpt><ept id="c645b354-ddb0-4995-8f29-33a8aadf4e7f">&lt;/title&gt;</ept> in the following section for syntax and examples.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;distance&lt;/td&gt;   &lt;td&gt;The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the <bpt id="23c04470-d7b3-4723-9d00-d90a68727527">&lt;code&gt;</bpt>scoringParameterquery<ept id="23c04470-d7b3-4723-9d00-d90a68727527">&lt;/code&gt;</ept> string option) as a lon,lat argument.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;distance | referencePointParameter&lt;/td&gt; &lt;td&gt;A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See <bpt id="ab6e3bb4-c740-47a4-9b4d-052aefb15e9d">&lt;linkText&gt;</bpt>Search Documents<ept id="ab6e3bb4-c740-47a4-9b4d-052aefb15e9d">&lt;/linkText&gt;</ept><bpt id="ab6e3bb4-c740-47a4-9b4d-052aefb15e9d">&lt;title&gt;</bpt><ept id="ab6e3bb4-c740-47a4-9b4d-052aefb15e9d">&lt;/title&gt;</ept> for descriptions of query parameters.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;distance | boostingDistance&lt;/td&gt;    &lt;td&gt;A number that indicates the distance in kilometers from the reference location where the boosting range ends.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;tag&lt;/td&gt;    &lt;td&gt;The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the <bpt id="7b642cd5-0f8b-4183-9915-d83087bcd936">&lt;code&gt;</bpt>scoringParameterquery<ept id="7b642cd5-0f8b-4183-9915-d83087bcd936">&lt;/code&gt;</ept> string option).&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;tag | tagsParameter&lt;/td&gt;    &lt;td&gt;A parameter to be passed in queries to specify tags for a particular request. scoringParameter is a query parameter. See <bpt id="82d09c44-1ef1-44ed-9d65-0868a1dbbdcc">&lt;linkText&gt;</bpt>Search Documents<ept id="82d09c44-1ef1-44ed-9d65-0868a1dbbdcc">&lt;/linkText&gt;</ept><bpt id="82d09c44-1ef1-44ed-9d65-0868a1dbbdcc">&lt;title&gt;</bpt><ept id="82d09c44-1ef1-44ed-9d65-0868a1dbbdcc">&lt;/title&gt;</ept> for descriptions of query parameters.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;functionAggregation&lt;/td&gt;    &lt;td&gt;Optional. Applies only when functions are specified. Valid values include: sum (default), average, minimum, maximum, and firstMatching. A search score is single value that is computed from multiple variables, including multiple functions. This attributes indicates how the boosts of all the functions are combined into a single aggregate boost that then is applied to the base document score. The base score is based on the tf-idf value computed from the document and the search query.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;defaultScoringProfile&lt;/td&gt;  &lt;td&gt;When executing a search request, if no scoring profile is specified, then default scoring is used (tf-idf only).
+A default scoring profile name can be set here, causing Azure Search to use that profile when no specific profile is given in the search request. &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</source>
+          <target state="new">Download counts: For applications that track downloads, the magnitude function lets you boost items that have the most downloads.
+&lt;tr&gt;
+&lt;td&gt;magnitude | boostingRangeStart&lt;/td&gt; &lt;td&gt;Sets the start value of the range over which magnitude is scored. The value must be an integer or double. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;magnitude | boostingRangeEnd&lt;/td&gt;   &lt;td&gt;Sets the end value of the range over which magnitude is scored. The value must be an integer or double. For star ratings of 1 through 4, this would be 4.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;magnitude | constantBoostBeyondRange&lt;/td&gt;   &lt;td&gt;Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;freshness&lt;/td&gt;  &lt;td&gt;The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. In the current service release, one end of the range will be fixed to the current time. The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;freshness | boostingDuration&lt;/td&gt;   &lt;td&gt;Sets an expiration period after which boosting will stop for a particular document. See <bpt id="c645b354-ddb0-4995-8f29-33a8aadf4e7f">&lt;linkText&gt;</bpt>Set boostingDuration [#bkmk_boostdur]<ept id="c645b354-ddb0-4995-8f29-33a8aadf4e7f">&lt;/linkText&gt;</ept><bpt id="c645b354-ddb0-4995-8f29-33a8aadf4e7f">&lt;title&gt;</bpt><ept id="c645b354-ddb0-4995-8f29-33a8aadf4e7f">&lt;/title&gt;</ept> in the following section for syntax and examples.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;distance&lt;/td&gt;   &lt;td&gt;The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the <bpt id="23c04470-d7b3-4723-9d00-d90a68727527">&lt;code&gt;</bpt>scoringParameterquery<ept id="23c04470-d7b3-4723-9d00-d90a68727527">&lt;/code&gt;</ept> string option) as a lon,lat argument.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;distance | referencePointParameter&lt;/td&gt; &lt;td&gt;A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See <bpt id="ab6e3bb4-c740-47a4-9b4d-052aefb15e9d">&lt;linkText&gt;</bpt>Search Documents<ept id="ab6e3bb4-c740-47a4-9b4d-052aefb15e9d">&lt;/linkText&gt;</ept><bpt id="ab6e3bb4-c740-47a4-9b4d-052aefb15e9d">&lt;title&gt;</bpt><ept id="ab6e3bb4-c740-47a4-9b4d-052aefb15e9d">&lt;/title&gt;</ept> for descriptions of query parameters.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;distance | boostingDistance&lt;/td&gt;    &lt;td&gt;A number that indicates the distance in kilometers from the reference location where the boosting range ends.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;tag&lt;/td&gt;    &lt;td&gt;The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the <bpt id="7b642cd5-0f8b-4183-9915-d83087bcd936">&lt;code&gt;</bpt>scoringParameterquery<ept id="7b642cd5-0f8b-4183-9915-d83087bcd936">&lt;/code&gt;</ept> string option).&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;tag | tagsParameter&lt;/td&gt;    &lt;td&gt;A parameter to be passed in queries to specify tags for a particular request. scoringParameter is a query parameter. See <bpt id="82d09c44-1ef1-44ed-9d65-0868a1dbbdcc">&lt;linkText&gt;</bpt>Search Documents<ept id="82d09c44-1ef1-44ed-9d65-0868a1dbbdcc">&lt;/linkText&gt;</ept><bpt id="82d09c44-1ef1-44ed-9d65-0868a1dbbdcc">&lt;title&gt;</bpt><ept id="82d09c44-1ef1-44ed-9d65-0868a1dbbdcc">&lt;/title&gt;</ept> for descriptions of query parameters.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;functionAggregation&lt;/td&gt;    &lt;td&gt;Optional. Applies only when functions are specified. Valid values include: sum (default), average, minimum, maximum, and firstMatching. A search score is single value that is computed from multiple variables, including multiple functions. This attributes indicates how the boosts of all the functions are combined into a single aggregate boost that then is applied to the base document score. The base score is based on the tf-idf value computed from the document and the search query.&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;defaultScoringProfile&lt;/td&gt;  &lt;td&gt;When executing a search request, if no scoring profile is specified, then default scoring is used (tf-idf only).
+A default scoring profile name can be set here, causing Azure Search to use that profile when no specific profile is given in the search request. &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</target>
+        </trans-unit>
+        <trans-unit id="cb34d6c5-0345-4a05-83cf-a9e98abd04d8" xml:space="preserve">
+          <source><bpt id="2e05fc41-67c7-4113-b63a-29265293c599">&lt;bookmark&gt;</bpt><ept id="2e05fc41-67c7-4113-b63a-29265293c599">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="2e05fc41-67c7-4113-b63a-29265293c599">&lt;bookmark&gt;</bpt><ept id="2e05fc41-67c7-4113-b63a-29265293c599">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c2eb742-1f6f-4771-8ceb-520ffcb11022" xml:space="preserve">
+          <source>Interpolations allow you to define the slope for which the score boosting increases from the start of the range to the end of the range.</source>
+          <target state="new">Interpolations allow you to define the slope for which the score boosting increases from the start of the range to the end of the range.</target>
+        </trans-unit>
+        <trans-unit id="c3492243-8378-42c3-aee9-424c2ae7643b" xml:space="preserve">
+          <source>The following interpolations can be used:</source>
+          <target state="new">The following interpolations can be used:</target>
+        </trans-unit>
+        <trans-unit id="9c923723-41bf-4cf9-b7f7-b516808cc07d" xml:space="preserve">
+          <source><bpt id="a5ad3c80-fe8e-4882-a004-ad82eaebbb22">&lt;code&gt;</bpt>Linear<ept id="a5ad3c80-fe8e-4882-a004-ad82eaebbb22">&lt;/code&gt;</ept>  For items that are within the max and min range, the boost applied to the item will be done in a constantly decreasing amount.</source>
+          <target state="new"><bpt id="a5ad3c80-fe8e-4882-a004-ad82eaebbb22">&lt;code&gt;</bpt>Linear<ept id="a5ad3c80-fe8e-4882-a004-ad82eaebbb22">&lt;/code&gt;</ept>  For items that are within the max and min range, the boost applied to the item will be done in a constantly decreasing amount.</target>
+        </trans-unit>
+        <trans-unit id="bc870e04-dfac-4587-a4ca-c1e22dbf84d4" xml:space="preserve">
+          <source>Linear is the default interpolation for a scoring profile.</source>
+          <target state="new">Linear is the default interpolation for a scoring profile.</target>
+        </trans-unit>
+        <trans-unit id="b154b4cb-c6bc-4a7d-a2db-754926fbe39e" xml:space="preserve">
+          <source><bpt id="26df1a17-115b-4e10-9e47-22ef70a96b64">&lt;code&gt;</bpt>Constant<ept id="26df1a17-115b-4e10-9e47-22ef70a96b64">&lt;/code&gt;</ept>    For items that are within the start and ending range, a constant boost will be applied to the rank results.</source>
+          <target state="new"><bpt id="26df1a17-115b-4e10-9e47-22ef70a96b64">&lt;code&gt;</bpt>Constant<ept id="26df1a17-115b-4e10-9e47-22ef70a96b64">&lt;/code&gt;</ept>    For items that are within the start and ending range, a constant boost will be applied to the rank results.</target>
+        </trans-unit>
+        <trans-unit id="66c6449d-0d1a-425b-8cff-69dc58759d08" xml:space="preserve">
+          <source><bpt id="ca277a68-9bec-46c6-82fc-53fef136fcf2">&lt;code&gt;</bpt>Quadratic<ept id="ca277a68-9bec-46c6-82fc-53fef136fcf2">&lt;/code&gt;</ept>   In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval.</source>
+          <target state="new"><bpt id="ca277a68-9bec-46c6-82fc-53fef136fcf2">&lt;code&gt;</bpt>Quadratic<ept id="ca277a68-9bec-46c6-82fc-53fef136fcf2">&lt;/code&gt;</ept>   In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval.</target>
+        </trans-unit>
+        <trans-unit id="86787310-a129-44fd-8275-24059b50d9a9" xml:space="preserve">
+          <source>This interpolation option is not allowed in tag scoring functions.</source>
+          <target state="new">This interpolation option is not allowed in tag scoring functions.</target>
+        </trans-unit>
+        <trans-unit id="216df4b1-9a7c-44c3-b7f3-7a55ccf9055b" xml:space="preserve">
+          <source><bpt id="159d9a06-0fa4-4e82-8508-e77f52e16378">&lt;code&gt;</bpt>Logarithmic<ept id="159d9a06-0fa4-4e82-8508-e77f52e16378">&lt;/code&gt;</ept> In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval.</source>
+          <target state="new"><bpt id="159d9a06-0fa4-4e82-8508-e77f52e16378">&lt;code&gt;</bpt>Logarithmic<ept id="159d9a06-0fa4-4e82-8508-e77f52e16378">&lt;/code&gt;</ept> In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval.</target>
+        </trans-unit>
+        <trans-unit id="92edbcfa-1c2c-4fce-9e17-16a91ba85c12" xml:space="preserve">
+          <source>This interpolation option is not allowed in tag scoring functions.</source>
+          <target state="new">This interpolation option is not allowed in tag scoring functions.</target>
+        </trans-unit>
+        <trans-unit id="e73dbb66-dcc9-4497-b873-5ed4a121bfad" xml:space="preserve">
+          <source><bpt id="14eb7361-683a-411e-975a-5a09d205a136">&lt;bookmark&gt;</bpt><ept id="14eb7361-683a-411e-975a-5a09d205a136">&lt;/bookmark&gt;</ept>
+ <bpt id="a331b31b-a801-4f5b-b615-d720ca8096fd">&lt;linkText&gt;</bpt><ept id="a331b31b-a801-4f5b-b615-d720ca8096fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="14eb7361-683a-411e-975a-5a09d205a136">&lt;bookmark&gt;</bpt><ept id="14eb7361-683a-411e-975a-5a09d205a136">&lt;/bookmark&gt;</ept>
+ <bpt id="a331b31b-a801-4f5b-b615-d720ca8096fd">&lt;linkText&gt;</bpt><ept id="a331b31b-a801-4f5b-b615-d720ca8096fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c31db8a1-39ed-4a77-8eb1-be88d4253f56" xml:space="preserve">
+          <source><bpt id="b89bb500-6d1b-4076-9a74-35bf2b28ed32">&lt;bookmark&gt;</bpt><ept id="b89bb500-6d1b-4076-9a74-35bf2b28ed32">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="b89bb500-6d1b-4076-9a74-35bf2b28ed32">&lt;bookmark&gt;</bpt><ept id="b89bb500-6d1b-4076-9a74-35bf2b28ed32">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7cb3293-81b0-422c-9faf-9a362b53b81a" xml:space="preserve">
+          <source><bpt id="1b950c8a-0053-445a-8d10-a2932188cc53">&lt;code&gt;</bpt>boostingDuration<ept id="1b950c8a-0053-445a-8d10-a2932188cc53">&lt;/code&gt;</ept> is an attribute of the freshness function.</source>
+          <target state="new"><bpt id="1b950c8a-0053-445a-8d10-a2932188cc53">&lt;code&gt;</bpt>boostingDuration<ept id="1b950c8a-0053-445a-8d10-a2932188cc53">&lt;/code&gt;</ept> is an attribute of the freshness function.</target>
+        </trans-unit>
+        <trans-unit id="aba34306-7961-4465-bedb-53388ca61055" xml:space="preserve">
+          <source>You use it to set an expiration period after which boosting will stop for a particular document.</source>
+          <target state="new">You use it to set an expiration period after which boosting will stop for a particular document.</target>
+        </trans-unit>
+        <trans-unit id="ca6f206e-a932-46d2-bfea-ee5e339fd39d" xml:space="preserve">
+          <source>For example, to boost a product line or brand for a 10-day promotional period, you would specify the 10-day period as "P10D" for those documents.</source>
+          <target state="new">For example, to boost a product line or brand for a 10-day promotional period, you would specify the 10-day period as "P10D" for those documents.</target>
+        </trans-unit>
+        <trans-unit id="019cbcfe-2209-49c0-b809-2ce3286fb004" xml:space="preserve">
+          <source><bpt id="f8ee3dff-b7ef-4ab1-91c9-a757dfccd05d">&lt;code&gt;</bpt>boostingDuration<ept id="f8ee3dff-b7ef-4ab1-91c9-a757dfccd05d">&lt;/code&gt;</ept> must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value).</source>
+          <target state="new"><bpt id="f8ee3dff-b7ef-4ab1-91c9-a757dfccd05d">&lt;code&gt;</bpt>boostingDuration<ept id="f8ee3dff-b7ef-4ab1-91c9-a757dfccd05d">&lt;/code&gt;</ept> must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value).</target>
+        </trans-unit>
+        <trans-unit id="bb57ea82-ad68-42d5-8e11-e69fc2eb07c9" xml:space="preserve">
+          <source>The pattern for this is: "P<bpt id="22dbd245-d434-4d9b-89ff-9861d51eeb31">&lt;linkText&gt;</bpt>nD[t[nh]<ept id="22dbd245-d434-4d9b-89ff-9861d51eeb31">&lt;/linkText&gt;</ept><bpt id="22dbd245-d434-4d9b-89ff-9861d51eeb31">&lt;title&gt;</bpt><ept id="22dbd245-d434-4d9b-89ff-9861d51eeb31">&lt;/title&gt;</ept><bpt id="7275f9ba-4e7d-4b9e-a0b4-3b4a0c8a444f">&lt;linkText&gt;</bpt>nM[ns]<ept id="7275f9ba-4e7d-4b9e-a0b4-3b4a0c8a444f">&lt;/linkText&gt;</ept><bpt id="7275f9ba-4e7d-4b9e-a0b4-3b4a0c8a444f">&lt;title&gt;</bpt><ept id="7275f9ba-4e7d-4b9e-a0b4-3b4a0c8a444f">&lt;/title&gt;</ept>]".</source>
+          <target state="new">The pattern for this is: "P<bpt id="22dbd245-d434-4d9b-89ff-9861d51eeb31">&lt;linkText&gt;</bpt>nD[t[nh]<ept id="22dbd245-d434-4d9b-89ff-9861d51eeb31">&lt;/linkText&gt;</ept><bpt id="22dbd245-d434-4d9b-89ff-9861d51eeb31">&lt;title&gt;</bpt><ept id="22dbd245-d434-4d9b-89ff-9861d51eeb31">&lt;/title&gt;</ept><bpt id="7275f9ba-4e7d-4b9e-a0b4-3b4a0c8a444f">&lt;linkText&gt;</bpt>nM[ns]<ept id="7275f9ba-4e7d-4b9e-a0b4-3b4a0c8a444f">&lt;/linkText&gt;</ept><bpt id="7275f9ba-4e7d-4b9e-a0b4-3b4a0c8a444f">&lt;title&gt;</bpt><ept id="7275f9ba-4e7d-4b9e-a0b4-3b4a0c8a444f">&lt;/title&gt;</ept>]".</target>
+        </trans-unit>
+        <trans-unit id="c615d8ab-a958-4647-b579-b25d93f992ec" xml:space="preserve">
+          <source>The following table provides several examples.</source>
+          <target state="new">The following table provides several examples.</target>
+        </trans-unit>
+        <trans-unit id="6d22c3ae-983b-43ed-8f8b-e210cc853786" xml:space="preserve">
+          <source>Duration</source>
+          <target state="new">Duration</target>
+        </trans-unit>
+        <trans-unit id="b22d8035-8f0c-46be-9301-37468adcdf87" xml:space="preserve">
+          <source>boostingDuration</source>
+          <target state="new">boostingDuration</target>
+        </trans-unit>
+        <trans-unit id="c58cb996-1e05-4c71-8543-4bbd12170c57" xml:space="preserve">
+          <source>1 day</source>
+          <target state="new">1 day</target>
+        </trans-unit>
+        <trans-unit id="576be419-2b07-4c1f-83cf-e66ed89ef3ca" xml:space="preserve">
+          <source>"P1D"</source>
+          <target state="new">"P1D"</target>
+        </trans-unit>
+        <trans-unit id="9bdd8dac-bcb3-4799-91ad-8ff3d457d57e" xml:space="preserve">
+          <source>2 days and 12 hours</source>
+          <target state="new">2 days and 12 hours</target>
+        </trans-unit>
+        <trans-unit id="a397b87b-cc8d-411b-8c23-f44337e9d18d" xml:space="preserve">
+          <source>"P2DT12H"</source>
+          <target state="new">"P2DT12H"</target>
+        </trans-unit>
+        <trans-unit id="e6a97df3-c69f-42f1-9c6a-2ebb0e0712fa" xml:space="preserve">
+          <source>15 minutes</source>
+          <target state="new">15 minutes</target>
+        </trans-unit>
+        <trans-unit id="0a203007-ee38-402d-b9d9-baf7f20eb402" xml:space="preserve">
+          <source>"PT15M"</source>
+          <target state="new">"PT15M"</target>
+        </trans-unit>
+        <trans-unit id="d56a57f8-197d-47f8-8b30-7c5fda7429fe" xml:space="preserve">
+          <source>30 days, 5 hours, 10 minutes, and 6.334 seconds</source>
+          <target state="new">30 days, 5 hours, 10 minutes, and 6.334 seconds</target>
+        </trans-unit>
+        <trans-unit id="8f5f7043-27a3-4d0a-b5e3-d2089fd29419" xml:space="preserve">
+          <source>"P30DT5H10M6.334S"</source>
+          <target state="new">"P30DT5H10M6.334S"</target>
+        </trans-unit>
+        <trans-unit id="e5d06ef4-7671-4034-9cc9-838b51568cb3" xml:space="preserve">
+          <source>For more examples, see <bpt id="a3e94590-d49b-4c87-a8a5-5d609d96127b">&lt;linkText&gt;</bpt>XML Schema: Datatypes (W3.org web site)<ept id="a3e94590-d49b-4c87-a8a5-5d609d96127b">&lt;/linkText&gt;</ept><bpt id="a3e94590-d49b-4c87-a8a5-5d609d96127b">&lt;title&gt;</bpt><ept id="a3e94590-d49b-4c87-a8a5-5d609d96127b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more examples, see <bpt id="a3e94590-d49b-4c87-a8a5-5d609d96127b">&lt;linkText&gt;</bpt>XML Schema: Datatypes (W3.org web site)<ept id="a3e94590-d49b-4c87-a8a5-5d609d96127b">&lt;/linkText&gt;</ept><bpt id="a3e94590-d49b-4c87-a8a5-5d609d96127b">&lt;title&gt;</bpt><ept id="a3e94590-d49b-4c87-a8a5-5d609d96127b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="416f60f9-7e79-45f0-8970-ef55d32294c8" xml:space="preserve">
+          <source><bpt id="ddfeb615-13e1-4893-abbf-51077807823a">&lt;strong&gt;</bpt>See Also<ept id="ddfeb615-13e1-4893-abbf-51077807823a">&lt;/strong&gt;</ept>
+<bpt id="23a1f575-0f15-4387-91de-4c931d3c21dd">&lt;linkText&gt;</bpt>Azure Search Service REST API<ept id="23a1f575-0f15-4387-91de-4c931d3c21dd">&lt;/linkText&gt;</ept><bpt id="23a1f575-0f15-4387-91de-4c931d3c21dd">&lt;title&gt;</bpt><ept id="23a1f575-0f15-4387-91de-4c931d3c21dd">&lt;/title&gt;</ept> on MSDN &lt;br/&gt;
+<bpt id="5977cd43-46b3-4a1a-b514-51872538fb8b">&lt;linkText&gt;</bpt>Create Index (Azure Search API)<ept id="5977cd43-46b3-4a1a-b514-51872538fb8b">&lt;/linkText&gt;</ept><bpt id="5977cd43-46b3-4a1a-b514-51872538fb8b">&lt;title&gt;</bpt><ept id="5977cd43-46b3-4a1a-b514-51872538fb8b">&lt;/title&gt;</ept> on MSDN&lt;br/&gt;
+<bpt id="c616c485-8577-4f69-a975-78f09bc9638e">&lt;linkText&gt;</bpt>Add a scoring profile to a search index<ept id="c616c485-8577-4f69-a975-78f09bc9638e">&lt;/linkText&gt;</ept><bpt id="c616c485-8577-4f69-a975-78f09bc9638e">&lt;title&gt;</bpt><ept id="c616c485-8577-4f69-a975-78f09bc9638e">&lt;/title&gt;</ept> on MSDN&lt;br/&gt;</source>
+          <target state="new"><bpt id="ddfeb615-13e1-4893-abbf-51077807823a">&lt;strong&gt;</bpt>See Also<ept id="ddfeb615-13e1-4893-abbf-51077807823a">&lt;/strong&gt;</ept>
+<bpt id="23a1f575-0f15-4387-91de-4c931d3c21dd">&lt;linkText&gt;</bpt>Azure Search Service REST API<ept id="23a1f575-0f15-4387-91de-4c931d3c21dd">&lt;/linkText&gt;</ept><bpt id="23a1f575-0f15-4387-91de-4c931d3c21dd">&lt;title&gt;</bpt><ept id="23a1f575-0f15-4387-91de-4c931d3c21dd">&lt;/title&gt;</ept> on MSDN &lt;br/&gt;
+<bpt id="5977cd43-46b3-4a1a-b514-51872538fb8b">&lt;linkText&gt;</bpt>Create Index (Azure Search API)<ept id="5977cd43-46b3-4a1a-b514-51872538fb8b">&lt;/linkText&gt;</ept><bpt id="5977cd43-46b3-4a1a-b514-51872538fb8b">&lt;title&gt;</bpt><ept id="5977cd43-46b3-4a1a-b514-51872538fb8b">&lt;/title&gt;</ept> on MSDN&lt;br/&gt;
+<bpt id="c616c485-8577-4f69-a975-78f09bc9638e">&lt;linkText&gt;</bpt>Add a scoring profile to a search index<ept id="c616c485-8577-4f69-a975-78f09bc9638e">&lt;/linkText&gt;</ept><bpt id="c616c485-8577-4f69-a975-78f09bc9638e">&lt;title&gt;</bpt><ept id="c616c485-8577-4f69-a975-78f09bc9638e">&lt;/title&gt;</ept> on MSDN&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="87b6d18e-6f36-40ca-83ca-db8f0e945778" xml:space="preserve">
+          <source>./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png</source>
+          <target state="new">./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png</target>
+        </trans-unit>
+      </group>
+      <group id="dffba3cf-5aff-4107-aeed-e2759201782f" />
+    </body>
+  </file>
+</xliff>

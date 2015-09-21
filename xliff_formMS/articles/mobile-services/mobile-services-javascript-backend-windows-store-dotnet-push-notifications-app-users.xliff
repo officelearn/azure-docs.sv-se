@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ed0a7d7e-7ab6-4d15-8ba9-6cbc4ab5dcb7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ed0a7d7e-7ab6-4d15-8ba9-6cbc4ab5dcb7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="735efe7d-2120-4c7b-a2ed-b7dccf769fae">
+        <trans-unit id="788c505d-baa1-4044-b6ec-2f73189e11e9" xml:space="preserve">
+          <source>Send push notifications to authenticated universal Windows app users.</source>
+          <target state="new">Send push notifications to authenticated universal Windows app users.</target>
+        </trans-unit>
+        <trans-unit id="b360ca42-e7e4-4944-a9d5-7f8fa8a87d86" xml:space="preserve">
+          <source>Learn how to send push notifications from Azure Mobile Services to specific users of your universal Windows C# app.</source>
+          <target state="new">Learn how to send push notifications from Azure Mobile Services to specific users of your universal Windows C# app.</target>
+        </trans-unit>
+        <trans-unit id="8718d76b-1621-44ec-9924-2deb60a797eb" xml:space="preserve">
+          <source><bpt id="05bfc742-4e14-4109-a200-bdb4da1cec57">&lt;token href="../../includes/mobile-services-selector-push-users.md"&gt;</bpt><ept id="05bfc742-4e14-4109-a200-bdb4da1cec57">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="05bfc742-4e14-4109-a200-bdb4da1cec57">&lt;token href="../../includes/mobile-services-selector-push-users.md"&gt;</bpt><ept id="05bfc742-4e14-4109-a200-bdb4da1cec57">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b16c08c9-c2e9-4fdf-94cd-cf985e95ead2" xml:space="preserve">
+          <source>This topic shows you how to send push notifications to an authenticated user on any registered device.</source>
+          <target state="new">This topic shows you how to send push notifications to an authenticated user on any registered device.</target>
+        </trans-unit>
+        <trans-unit id="af2bca92-6d80-4baf-8577-bcabc615d1f7" xml:space="preserve">
+          <source>Unlike the previous [Add push notifications to your app] tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications.</source>
+          <target state="new">Unlike the previous [Add push notifications to your app] tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications.</target>
+        </trans-unit>
+        <trans-unit id="e887035f-6edc-4b58-a05b-eec7d04331b1" xml:space="preserve">
+          <source>Registration is also modified to add a tag based on the assigned user ID.</source>
+          <target state="new">Registration is also modified to add a tag based on the assigned user ID.</target>
+        </trans-unit>
+        <trans-unit id="5cd5d21d-6389-44e2-82a1-6c4bbee72822" xml:space="preserve">
+          <source>Finally, the server script is updated to send the notification only to the authenticated user instead of to all registrations.</source>
+          <target state="new">Finally, the server script is updated to send the notification only to the authenticated user instead of to all registrations.</target>
+        </trans-unit>
+        <trans-unit id="302d899f-1d37-4886-994c-e3686f118eb5" xml:space="preserve">
+          <source>This tutorial walks you through the following process:</source>
+          <target state="new">This tutorial walks you through the following process:</target>
+        </trans-unit>
+        <trans-unit id="64c919d5-57b0-45bd-ae36-73277c126bcc" xml:space="preserve">
+          <source>[Updating the service to require authentication for registration]</source>
+          <target state="new">[Updating the service to require authentication for registration]</target>
+        </trans-unit>
+        <trans-unit id="361050b1-d1ef-4961-b779-26d2410ddec8" xml:space="preserve">
+          <source>[Updating the app to log in before registration]</source>
+          <target state="new">[Updating the app to log in before registration]</target>
+        </trans-unit>
+        <trans-unit id="8e53f6c6-e328-4bfc-8971-154bb2a02338" xml:space="preserve">
+          <source>[Testing the app]</source>
+          <target state="new">[Testing the app]</target>
+        </trans-unit>
+        <trans-unit id="d9fe4c55-fb23-4062-a4c1-66f72c77d2d4" xml:space="preserve">
+          <source>This tutorial supports both Windows Store and Windows Phone Store apps.</source>
+          <target state="new">This tutorial supports both Windows Store and Windows Phone Store apps.</target>
+        </trans-unit>
+        <trans-unit id="584dcdf2-8cd5-40c3-99ee-81991767bc90" xml:space="preserve">
+          <source>Before you start this tutorial, you must have already completed these Mobile Services tutorials:</source>
+          <target state="new">Before you start this tutorial, you must have already completed these Mobile Services tutorials:</target>
+        </trans-unit>
+        <trans-unit id="e1060850-c827-4b8d-8117-89accd7bd378" xml:space="preserve">
+          <source>[Add authentication to your app]&lt;br/&gt;Adds a login requirement to the TodoList sample app.</source>
+          <target state="new">[Add authentication to your app]&lt;br/&gt;Adds a login requirement to the TodoList sample app.</target>
+        </trans-unit>
+        <trans-unit id="b1f90c12-f8c0-4e90-8f50-838d8200bbcf" xml:space="preserve">
+          <source>[Add push notifications to your app]&lt;br/&gt;Configures the TodoList sample app for push notifications by using Notification Hubs.</source>
+          <target state="new">[Add push notifications to your app]&lt;br/&gt;Configures the TodoList sample app for push notifications by using Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="aa520838-08a5-4fcf-937b-c95026caf94f" xml:space="preserve">
+          <source>After you have completed both tutorials, you can prevent unauthenticated users from registering for push notifications from your mobile service.</source>
+          <target state="new">After you have completed both tutorials, you can prevent unauthenticated users from registering for push notifications from your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="baee1eb4-c95c-4776-a8e8-dadfea6ee5cb" xml:space="preserve">
+          <source><bpt id="2822cc46-611f-40f4-a326-286a4508165a">&lt;token href="../../includes/mobile-services-javascript-backend-push-notifications-app-users.md"&gt;</bpt><ept id="2822cc46-611f-40f4-a326-286a4508165a">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="2822cc46-611f-40f4-a326-286a4508165a">&lt;token href="../../includes/mobile-services-javascript-backend-push-notifications-app-users.md"&gt;</bpt><ept id="2822cc46-611f-40f4-a326-286a4508165a">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="15570026-d009-4da7-8ab0-e0d6aabcb81e" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;5.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;5.</target>
+        </trans-unit>
+        <trans-unit id="6be955b1-460e-4b3b-94e3-17d1c4ffc4fc" xml:space="preserve">
+          <source>Replace the insert function with the following code, then click <bpt id="e87f6566-b2b1-4f87-8618-3a2e569d4fef">&lt;strong&gt;</bpt>Save<ept id="e87f6566-b2b1-4f87-8618-3a2e569d4fef">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Replace the insert function with the following code, then click <bpt id="e87f6566-b2b1-4f87-8618-3a2e569d4fef">&lt;strong&gt;</bpt>Save<ept id="e87f6566-b2b1-4f87-8618-3a2e569d4fef">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="57248d27-fd72-4554-beeb-0902976bca1c" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;This insert script uses the user ID tag to send a push notification (with the text of the inserted item) to all Windows Store app registrations created by the logged-in user.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;This insert script uses the user ID tag to send a push notification (with the text of the inserted item) to all Windows Store app registrations created by the logged-in user.</target>
+        </trans-unit>
+        <trans-unit id="7626e101-60fb-4884-9932-837e706e714f" xml:space="preserve">
+          <source><bpt id="3daa0e62-7b3f-4456-a4e0-9eee7341ef14">&lt;token href="../../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md"&gt;</bpt><ept id="3daa0e62-7b3f-4456-a4e0-9eee7341ef14">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="3daa0e62-7b3f-4456-a4e0-9eee7341ef14">&lt;token href="../../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md"&gt;</bpt><ept id="3daa0e62-7b3f-4456-a4e0-9eee7341ef14">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a1dde885-97d0-45ae-aba4-8db65edade8c" xml:space="preserve">
+          <source><bpt id="4487bea0-98fb-45df-9ebb-73537ff38353">&lt;token href="../../includes/mobile-services-windows-test-push-users.md"&gt;</bpt><ept id="4487bea0-98fb-45df-9ebb-73537ff38353">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="4487bea0-98fb-45df-9ebb-73537ff38353">&lt;token href="../../includes/mobile-services-windows-test-push-users.md"&gt;</bpt><ept id="4487bea0-98fb-45df-9ebb-73537ff38353">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="743b3b6a-cd54-4fe7-ab24-5ef47089515f" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="1c16eb5c-86b1-4661-98c7-f7cf060177f7" xml:space="preserve">
+          <source>#update-app</source>
+          <target state="new">#update-app</target>
+        </trans-unit>
+        <trans-unit id="a1baedde-ddbe-4b73-ba6a-f0759aecfa5f" xml:space="preserve">
+          <source>#test</source>
+          <target state="new">#test</target>
+        </trans-unit>
+        <trans-unit id="f85e5095-ea06-4dea-be37-c5cf04f5af07" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="a1f0cfcf-d714-4b78-bd2a-b0863a24ab98" xml:space="preserve">
+          <source>../mobile-services-windows-store-dotnet-get-started-users.md</source>
+          <target state="new">../mobile-services-windows-store-dotnet-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="5603702a-e7ac-455e-bd1c-8a0085c0b52d" xml:space="preserve">
+          <source>../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md</source>
+          <target state="new">../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="ff82d912-9e2f-43a0-a215-b0d6c873bfc9" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="64554196-037a-4d84-9e2b-35aef66e4c24" />
+    </body>
+  </file>
+</xliff>

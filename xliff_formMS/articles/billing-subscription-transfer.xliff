@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="138e0ddb-9a5f-4385-a5c8-7accf868a2a1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="138e0ddb-9a5f-4385-a5c8-7accf868a2a1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4a66bf59-c82e-4fe6-8636-22d40809a2e6">
+        <trans-unit id="aef12bc4-d488-4d14-b604-faa0706519db" xml:space="preserve">
+          <source>Transferring an Azure subscription | Microsoft Azure</source>
+          <target state="new">Transferring an Azure subscription | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e3fc2ab0-2a5f-40a8-9ff3-3154d1f8c55b" xml:space="preserve">
+          <source>How to transfer an Azure subscription to another user, and some Frequently Asked Questions (FAQ) about the process</source>
+          <target state="new">How to transfer an Azure subscription to another user, and some Frequently Asked Questions (FAQ) about the process</target>
+        </trans-unit>
+        <trans-unit id="0b4e15a2-bd1f-47c2-80bf-77259731de0b" xml:space="preserve">
+          <source>Do you:</source>
+          <target state="new">Do you:</target>
+        </trans-unit>
+        <trans-unit id="4973eb75-7962-4994-8c1c-559cf1c8e4a1" xml:space="preserve">
+          <source>Need to hand over billing ownership of your Azure subscription to someone else?</source>
+          <target state="new">Need to hand over billing ownership of your Azure subscription to someone else?</target>
+        </trans-unit>
+        <trans-unit id="aaf65169-f875-4d41-9ca4-233b922598da" xml:space="preserve">
+          <source>Want to change the account used to sign up for Azure?</source>
+          <target state="new">Want to change the account used to sign up for Azure?</target>
+        </trans-unit>
+        <trans-unit id="62eaead0-8c5e-4f5b-9408-f10beb9b27d7" xml:space="preserve">
+          <source>Perhaps you used your Microsoft Account but meant to use your work or school account instead?</source>
+          <target state="new">Perhaps you used your Microsoft Account but meant to use your work or school account instead?</target>
+        </trans-unit>
+        <trans-unit id="b47afebe-6ff4-43a6-9a57-6e18c5f26361" xml:space="preserve">
+          <source>Want to move your Azure subscription from one directory to another?</source>
+          <target state="new">Want to move your Azure subscription from one directory to another?</target>
+        </trans-unit>
+        <trans-unit id="d429a2e2-dfd9-4ba1-9da2-c8b31d3ae3c5" xml:space="preserve">
+          <source>Have Azure and Office 365 in different tenants and want to consolidate?</source>
+          <target state="new">Have Azure and Office 365 in different tenants and want to consolidate?</target>
+        </trans-unit>
+        <trans-unit id="7d59892a-8862-467a-8774-bfcd63f582f3" xml:space="preserve">
+          <source>If your account is in the US, you can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go subscriptions.</source>
+          <target state="new">If your account is in the US, you can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="cbc6d8a9-a9ae-4f14-a5b5-c6ff13917795" xml:space="preserve">
+          <source>We’ve added the ability to transfer your subscription to another user.</source>
+          <target state="new">We’ve added the ability to transfer your subscription to another user.</target>
+        </trans-unit>
+        <trans-unit id="950b0455-2f75-46cb-a038-3303c7987754" xml:space="preserve">
+          <source>In other words, you can now change the account admin on any Pay-As-You-Go subscription that you own.</source>
+          <target state="new">In other words, you can now change the account admin on any Pay-As-You-Go subscription that you own.</target>
+        </trans-unit>
+        <trans-unit id="5c422954-de9c-4752-9bc3-f3c4c7ac9c4c" xml:space="preserve">
+          <source>Sign in at &lt;https://account.windowsazure.com/Subscriptions&gt;</source>
+          <target state="new">Sign in at &lt;https://account.windowsazure.com/Subscriptions&gt;</target>
+        </trans-unit>
+        <trans-unit id="928b4e26-86e1-49e3-bd9a-b80fd8857f2b" xml:space="preserve">
+          <source>Select the subscription to transfer.</source>
+          <target state="new">Select the subscription to transfer.</target>
+        </trans-unit>
+        <trans-unit id="23480f13-0532-4321-b791-0852102723cd" xml:space="preserve">
+          <source>Click the <bpt id="26b511ef-b04b-4919-948c-9cb6244784fb">&lt;strong&gt;</bpt>Transfer Subscription<ept id="26b511ef-b04b-4919-948c-9cb6244784fb">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">Click the <bpt id="26b511ef-b04b-4919-948c-9cb6244784fb">&lt;strong&gt;</bpt>Transfer Subscription<ept id="26b511ef-b04b-4919-948c-9cb6244784fb">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="25b28250-7b00-4ade-b924-472edd772a16" xml:space="preserve">
+          <source><bpt id="06557dc8-88eb-468c-a668-3ccc0e2de96c">&lt;linkText&gt;</bpt>Azure account subscriptions tab<ept id="06557dc8-88eb-468c-a668-3ccc0e2de96c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06557dc8-88eb-468c-a668-3ccc0e2de96c">&lt;linkText&gt;</bpt>Azure account subscriptions tab<ept id="06557dc8-88eb-468c-a668-3ccc0e2de96c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a576d03-0cd8-4851-9c43-1eee7adc28d5" xml:space="preserve">
+          <source>Follow the prompts to specify the recipient.</source>
+          <target state="new">Follow the prompts to specify the recipient.</target>
+        </trans-unit>
+        <trans-unit id="17909985-9530-4f7f-95bb-1f1c16ade969" xml:space="preserve">
+          <source><bpt id="41311c41-e177-445a-a488-b8c0c41e230f">&lt;linkText&gt;</bpt>Transfer Subscription dialog box<ept id="41311c41-e177-445a-a488-b8c0c41e230f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="41311c41-e177-445a-a488-b8c0c41e230f">&lt;linkText&gt;</bpt>Transfer Subscription dialog box<ept id="41311c41-e177-445a-a488-b8c0c41e230f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4bd9c82f-a4f3-4d26-bdf6-fa37207fd765" xml:space="preserve">
+          <source>The recipient will automatically get an email with a acceptance link.</source>
+          <target state="new">The recipient will automatically get an email with a acceptance link.</target>
+        </trans-unit>
+        <trans-unit id="43486520-6e9f-49bb-8cb4-563306a175ee" xml:space="preserve">
+          <source><bpt id="0ac371f8-bd90-4afd-be89-2ebaa739de3b">&lt;linkText&gt;</bpt>Subscription transfer email to recipient<ept id="0ac371f8-bd90-4afd-be89-2ebaa739de3b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ac371f8-bd90-4afd-be89-2ebaa739de3b">&lt;linkText&gt;</bpt>Subscription transfer email to recipient<ept id="0ac371f8-bd90-4afd-be89-2ebaa739de3b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0dfa0ce-7736-417c-8d33-739f0acfe256" xml:space="preserve">
+          <source>The recipient clicks on the link and follows the instructions,
+including entering their payment information.</source>
+          <target state="new">The recipient clicks on the link and follows the instructions,
+including entering their payment information.</target>
+        </trans-unit>
+        <trans-unit id="6b1dfbcb-d7c1-458b-acb2-acf6b6560aa4" xml:space="preserve">
+          <source><bpt id="a449ed17-7b36-4daa-9c51-0a3ff7408673">&lt;linkText&gt;</bpt>First subscription transfer web page<ept id="a449ed17-7b36-4daa-9c51-0a3ff7408673">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a449ed17-7b36-4daa-9c51-0a3ff7408673">&lt;linkText&gt;</bpt>First subscription transfer web page<ept id="a449ed17-7b36-4daa-9c51-0a3ff7408673">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a093448-7278-469c-bd79-1bd49c72ff0e" xml:space="preserve">
+          <source><bpt id="ebe2543f-231c-4a5b-8224-ac283fcc3cf0">&lt;linkText&gt;</bpt>Second subscription transfer web page<ept id="ebe2543f-231c-4a5b-8224-ac283fcc3cf0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ebe2543f-231c-4a5b-8224-ac283fcc3cf0">&lt;linkText&gt;</bpt>Second subscription transfer web page<ept id="ebe2543f-231c-4a5b-8224-ac283fcc3cf0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a02eb093-13e6-4b16-a4de-1a8dc8f102ac" xml:space="preserve">
+          <source>Success!</source>
+          <target state="new">Success!</target>
+        </trans-unit>
+        <trans-unit id="cc25be3e-9c78-4bf9-8a3f-a98cb29c829e" xml:space="preserve">
+          <source>The subscription is now transferred.</source>
+          <target state="new">The subscription is now transferred.</target>
+        </trans-unit>
+        <trans-unit id="81e4572b-f788-47a1-a5c2-d97178216487" xml:space="preserve">
+          <source><bpt id="47214b65-9430-4c51-ab24-82d52bef1ac5">&lt;strong&gt;</bpt>Does a subscription transfer result in any service downtime?<ept id="47214b65-9430-4c51-ab24-82d52bef1ac5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="47214b65-9430-4c51-ab24-82d52bef1ac5">&lt;strong&gt;</bpt>Does a subscription transfer result in any service downtime?<ept id="47214b65-9430-4c51-ab24-82d52bef1ac5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2513e816-594e-42bd-8499-4bd3926e3c30" xml:space="preserve">
+          <source>There is no impact to the service.</source>
+          <target state="new">There is no impact to the service.</target>
+        </trans-unit>
+        <trans-unit id="5ee2e161-3130-4a07-afa6-e40650308491" xml:space="preserve">
+          <source>This effectively cancels the
+subscription under the current Account Administrator and creates a
+new one under the recipient’s account, but associates the underlying
+Azure services with the new subscription.</source>
+          <target state="new">This effectively cancels the
+subscription under the current Account Administrator and creates a
+new one under the recipient’s account, but associates the underlying
+Azure services with the new subscription.</target>
+        </trans-unit>
+        <trans-unit id="30f3a14d-2aee-400c-84a7-e2bf64808e12" xml:space="preserve">
+          <source>The subscription ID
+remains the same.</source>
+          <target state="new">The subscription ID
+remains the same.</target>
+        </trans-unit>
+        <trans-unit id="952e9cd2-54cf-4dce-97fa-470eff12f00b" xml:space="preserve">
+          <source><bpt id="5ec7a5fc-272a-4335-8fc3-2215a887a140">&lt;strong&gt;</bpt>If I take over billing ownership of a subscription from another
+organization, will they continue to have access to my resources?<ept id="5ec7a5fc-272a-4335-8fc3-2215a887a140">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5ec7a5fc-272a-4335-8fc3-2215a887a140">&lt;strong&gt;</bpt>If I take over billing ownership of a subscription from another
+organization, will they continue to have access to my resources?<ept id="5ec7a5fc-272a-4335-8fc3-2215a887a140">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b74d1df6-69fb-4ca6-a5d0-65a32590e080" xml:space="preserve">
+          <source>If the subscription is transferred to another tenant, the users associated with the previous tenant will lose access to the subscription.</source>
+          <target state="new">If the subscription is transferred to another tenant, the users associated with the previous tenant will lose access to the subscription.</target>
+        </trans-unit>
+        <trans-unit id="aae988f6-fe7b-4514-9224-2e6ba20f84a2" xml:space="preserve">
+          <source>Even if a user is not a Service Admin or Co-admin anymore, they might still have access to the subscription through other security mechanisms.</source>
+          <target state="new">Even if a user is not a Service Admin or Co-admin anymore, they might still have access to the subscription through other security mechanisms.</target>
+        </trans-unit>
+        <trans-unit id="e00b6691-a852-4b60-84f4-a509be301c3a" xml:space="preserve">
+          <source>These include:</source>
+          <target state="new">These include:</target>
+        </trans-unit>
+        <trans-unit id="5a1ceebf-2a79-4df1-9b81-d88503f68cb3" xml:space="preserve">
+          <source>Management certificates that grant the user admin rights to subscription resources.</source>
+          <target state="new">Management certificates that grant the user admin rights to subscription resources.</target>
+        </trans-unit>
+        <trans-unit id="a0a6536f-41ac-491f-a825-d2bc27fb634d" xml:space="preserve">
+          <source>For more information, see <bpt id="cd81268c-fe61-4c6a-8e95-34ec86cd987c">&lt;linkText&gt;</bpt>Create and Upload a Management Certificate for Azure<ept id="cd81268c-fe61-4c6a-8e95-34ec86cd987c">&lt;/linkText&gt;</ept><bpt id="cd81268c-fe61-4c6a-8e95-34ec86cd987c">&lt;title&gt;</bpt><ept id="cd81268c-fe61-4c6a-8e95-34ec86cd987c">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="cd81268c-fe61-4c6a-8e95-34ec86cd987c">&lt;linkText&gt;</bpt>Create and Upload a Management Certificate for Azure<ept id="cd81268c-fe61-4c6a-8e95-34ec86cd987c">&lt;/linkText&gt;</ept><bpt id="cd81268c-fe61-4c6a-8e95-34ec86cd987c">&lt;title&gt;</bpt><ept id="cd81268c-fe61-4c6a-8e95-34ec86cd987c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f83e5c2-15b8-4100-874f-fdff0e9ed2b1" xml:space="preserve">
+          <source>Access keys for services like Storage.</source>
+          <target state="new">Access keys for services like Storage.</target>
+        </trans-unit>
+        <trans-unit id="07c6ffd6-c007-42af-8eb4-b8fede80d2d4" xml:space="preserve">
+          <source>For more information, see <bpt id="b44c591c-cd75-47df-a308-b4d8306fb4c7">&lt;linkText&gt;</bpt>View, copy, and regenerate storage access keys<ept id="b44c591c-cd75-47df-a308-b4d8306fb4c7">&lt;/linkText&gt;</ept><bpt id="b44c591c-cd75-47df-a308-b4d8306fb4c7">&lt;title&gt;</bpt><ept id="b44c591c-cd75-47df-a308-b4d8306fb4c7">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="b44c591c-cd75-47df-a308-b4d8306fb4c7">&lt;linkText&gt;</bpt>View, copy, and regenerate storage access keys<ept id="b44c591c-cd75-47df-a308-b4d8306fb4c7">&lt;/linkText&gt;</ept><bpt id="b44c591c-cd75-47df-a308-b4d8306fb4c7">&lt;title&gt;</bpt><ept id="b44c591c-cd75-47df-a308-b4d8306fb4c7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71cc5a6b-de27-4261-bf2e-03aeca9cda46" xml:space="preserve">
+          <source>Remote Access credentials for services like Azure Virtual Machines</source>
+          <target state="new">Remote Access credentials for services like Azure Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="79a4a17c-d848-4d0b-babf-b0cd73a07dc1" xml:space="preserve">
+          <source>This is not a complete list.</source>
+          <target state="new">This is not a complete list.</target>
+        </trans-unit>
+        <trans-unit id="fab39de8-711c-4095-8c70-cc0cb2598e94" xml:space="preserve">
+          <source>The recipient should consider updating any secrets associated with the service if they need to restrict access to their resources.</source>
+          <target state="new">The recipient should consider updating any secrets associated with the service if they need to restrict access to their resources.</target>
+        </trans-unit>
+        <trans-unit id="33fa2aaf-f16a-4b5f-86ae-20ed5feb76f0" xml:space="preserve">
+          <source>Most resources can be updated as follows:</source>
+          <target state="new">Most resources can be updated as follows:</target>
+        </trans-unit>
+        <trans-unit id="727b2b39-c2b0-4161-8016-7feb65947fe8" xml:space="preserve">
+          <source>Go to the Azure portal:   [<bpt id="f02d18dd-f585-404a-9fa3-eb536a3bae71">&lt;em&gt;</bpt>https://portal.azure.com<ept id="f02d18dd-f585-404a-9fa3-eb536a3bae71">&lt;/em&gt;</ept>](https://portal.azure.com)</source>
+          <target state="new">Go to the Azure portal:   [<bpt id="f02d18dd-f585-404a-9fa3-eb536a3bae71">&lt;em&gt;</bpt>https://portal.azure.com<ept id="f02d18dd-f585-404a-9fa3-eb536a3bae71">&lt;/em&gt;</ept>](https://portal.azure.com)</target>
+        </trans-unit>
+        <trans-unit id="303e60a1-07d9-49e0-972b-49e13af59104" xml:space="preserve">
+          <source>Click Browse All -&amp;gt; All Resources</source>
+          <target state="new">Click Browse All -&amp;gt; All Resources</target>
+        </trans-unit>
+        <trans-unit id="6f6c1191-cd5a-4d2f-9e92-d3b61904d63f" xml:space="preserve">
+          <source>Select the resource.</source>
+          <target state="new">Select the resource.</target>
+        </trans-unit>
+        <trans-unit id="ad051992-7350-4b83-acb5-c8bd9700997c" xml:space="preserve">
+          <source>This opens the resource blade.</source>
+          <target state="new">This opens the resource blade.</target>
+        </trans-unit>
+        <trans-unit id="71c92856-1ca4-4e86-a135-8e093d5e2a5d" xml:space="preserve">
+          <source>In the resource blade, click <bpt id="083fa28b-ccfa-4de3-b570-b7e5e22f9b80">&lt;strong&gt;</bpt>Settings<ept id="083fa28b-ccfa-4de3-b570-b7e5e22f9b80">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the resource blade, click <bpt id="083fa28b-ccfa-4de3-b570-b7e5e22f9b80">&lt;strong&gt;</bpt>Settings<ept id="083fa28b-ccfa-4de3-b570-b7e5e22f9b80">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c000818-5f1c-4ae4-9440-0cfc497b30c9" xml:space="preserve">
+          <source>Here you can view and update existing secrets.</source>
+          <target state="new">Here you can view and update existing secrets.</target>
+        </trans-unit>
+        <trans-unit id="ccb3268a-cc9a-483a-831c-40e88806ede9" xml:space="preserve">
+          <source><bpt id="a8182962-8fd5-4bd7-ae1f-a779aa799145">&lt;strong&gt;</bpt>If I transfer the subscription in the middle of the billing cycle,
+does the recipient pay for the entire billing cycle?<ept id="a8182962-8fd5-4bd7-ae1f-a779aa799145">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a8182962-8fd5-4bd7-ae1f-a779aa799145">&lt;strong&gt;</bpt>If I transfer the subscription in the middle of the billing cycle,
+does the recipient pay for the entire billing cycle?<ept id="a8182962-8fd5-4bd7-ae1f-a779aa799145">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ae19cca-0ed8-4766-862f-b481481296fb" xml:space="preserve">
+          <source>The sender is responsible for payment for any usage that was reported up to the point that the transfer is completed.</source>
+          <target state="new">The sender is responsible for payment for any usage that was reported up to the point that the transfer is completed.</target>
+        </trans-unit>
+        <trans-unit id="e1dfe47e-8a51-40fa-aeea-3e5d0bf89af7" xml:space="preserve">
+          <source>The recipient is responsible for usage reported from the time of
+transfer onwards.</source>
+          <target state="new">The recipient is responsible for usage reported from the time of
+transfer onwards.</target>
+        </trans-unit>
+        <trans-unit id="12a641e9-3623-451d-bbf2-b5c7f8efc54b" xml:space="preserve">
+          <source>There may be some usage that took place before transfer but was reported afterwards.</source>
+          <target state="new">There may be some usage that took place before transfer but was reported afterwards.</target>
+        </trans-unit>
+        <trans-unit id="fe00fba1-342a-4ddd-84ac-9c622c2f26e2" xml:space="preserve">
+          <source>This will be included in the recipient’s bill.</source>
+          <target state="new">This will be included in the recipient’s bill.</target>
+        </trans-unit>
+        <trans-unit id="9783c88c-39c7-4fb8-9adf-397c80d9a602" xml:space="preserve">
+          <source><bpt id="57fed84e-bf22-4be4-96b4-585592cb33c3">&lt;strong&gt;</bpt>Does the recipient have access to usage and billing history?<ept id="57fed84e-bf22-4be4-96b4-585592cb33c3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="57fed84e-bf22-4be4-96b4-585592cb33c3">&lt;strong&gt;</bpt>Does the recipient have access to usage and billing history?<ept id="57fed84e-bf22-4be4-96b4-585592cb33c3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90bfb274-3db4-49e5-9d81-b8e7444bd346" xml:space="preserve">
+          <source>At this time, the only information revealed to the recipient is the amount of the last bill (or the current balance, if the subscription was transferred before the first bill was generated).</source>
+          <target state="new">At this time, the only information revealed to the recipient is the amount of the last bill (or the current balance, if the subscription was transferred before the first bill was generated).</target>
+        </trans-unit>
+        <trans-unit id="0090e434-ff2c-4c53-8242-daeed8a6e32e" xml:space="preserve">
+          <source>The rest of the usage and billing history does not transfer with the subscription.</source>
+          <target state="new">The rest of the usage and billing history does not transfer with the subscription.</target>
+        </trans-unit>
+        <trans-unit id="c25c7eab-7911-4f56-acec-5a1960187119" xml:space="preserve">
+          <source><bpt id="ab2119f9-183b-477d-a002-2774d216d63b">&lt;strong&gt;</bpt>Can the offer be changed during a transfer?<ept id="ab2119f9-183b-477d-a002-2774d216d63b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ab2119f9-183b-477d-a002-2774d216d63b">&lt;strong&gt;</bpt>Can the offer be changed during a transfer?<ept id="ab2119f9-183b-477d-a002-2774d216d63b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65563124-8ed5-4719-9ca1-ccf6cda3c1e4" xml:space="preserve">
+          <source>The offer must remain the same.</source>
+          <target state="new">The offer must remain the same.</target>
+        </trans-unit>
+        <trans-unit id="9512eb92-de68-4b12-848e-8a66e578f028" xml:space="preserve">
+          <source>To change your offer, you must <bpt id="43277791-cb0a-4f3f-bb02-2793134fbfa2">&lt;linkText&gt;</bpt>contact Support<ept id="43277791-cb0a-4f3f-bb02-2793134fbfa2">&lt;/linkText&gt;</ept><bpt id="43277791-cb0a-4f3f-bb02-2793134fbfa2">&lt;title&gt;</bpt><ept id="43277791-cb0a-4f3f-bb02-2793134fbfa2">&lt;/title&gt;</ept>.</source>
+          <target state="new">To change your offer, you must <bpt id="43277791-cb0a-4f3f-bb02-2793134fbfa2">&lt;linkText&gt;</bpt>contact Support<ept id="43277791-cb0a-4f3f-bb02-2793134fbfa2">&lt;/linkText&gt;</ept><bpt id="43277791-cb0a-4f3f-bb02-2793134fbfa2">&lt;title&gt;</bpt><ept id="43277791-cb0a-4f3f-bb02-2793134fbfa2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9115825-0f6d-4fd2-a7b4-da9dc8250e94" xml:space="preserve">
+          <source><bpt id="81017000-2f6b-4451-92b1-c12511d3c104">&lt;strong&gt;</bpt>Can I transfer a subscription to a user account in another
+country?<ept id="81017000-2f6b-4451-92b1-c12511d3c104">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="81017000-2f6b-4451-92b1-c12511d3c104">&lt;strong&gt;</bpt>Can I transfer a subscription to a user account in another
+country?<ept id="81017000-2f6b-4451-92b1-c12511d3c104">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="356af0c6-4849-4e98-9caa-2341b1f845ad" xml:space="preserve">
+          <source>No, at this time this is not supported.</source>
+          <target state="new">No, at this time this is not supported.</target>
+        </trans-unit>
+        <trans-unit id="bc8f0e83-7d76-4449-866a-c1e54bbf695d" xml:space="preserve">
+          <source>The recipient’s user account must be in the same country.</source>
+          <target state="new">The recipient’s user account must be in the same country.</target>
+        </trans-unit>
+        <trans-unit id="230d783f-1891-469a-9050-21b111cf9e44" xml:space="preserve">
+          <source><bpt id="058a31a5-e629-4628-8456-9200f4bb2524">&lt;strong&gt;</bpt>Can the recipient use a different payment mechanism?<ept id="058a31a5-e629-4628-8456-9200f4bb2524">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="058a31a5-e629-4628-8456-9200f4bb2524">&lt;strong&gt;</bpt>Can the recipient use a different payment mechanism?<ept id="058a31a5-e629-4628-8456-9200f4bb2524">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff82dd9e-8225-4f2e-bed6-205c13ffa7d2" xml:space="preserve">
+          <source>Yes, and in fact you can use this mechanism to change the payment method on your subscription from invoice to credit card.</source>
+          <target state="new">Yes, and in fact you can use this mechanism to change the payment method on your subscription from invoice to credit card.</target>
+        </trans-unit>
+        <trans-unit id="8f40a0d9-5c23-4663-98e8-aad3db3e4264" xml:space="preserve">
+          <source>Just transfer to another account you own, and enter your credit card while receiving the subscription.</source>
+          <target state="new">Just transfer to another account you own, and enter your credit card while receiving the subscription.</target>
+        </trans-unit>
+        <trans-unit id="e1f3b86b-f3d6-4b85-a6fc-ab401a228103" xml:space="preserve">
+          <source>There are limitations here: now the subscription billing history is split across two accounts.</source>
+          <target state="new">There are limitations here: now the subscription billing history is split across two accounts.</target>
+        </trans-unit>
+        <trans-unit id="d44cf5c4-dc0b-4902-9eb8-42fe77cb04ba" xml:space="preserve">
+          <source>But the advantage is that you can do this without having to <bpt id="982a3718-ee31-41fa-bff8-95e6ba853e15">&lt;linkText&gt;</bpt>contact Support<ept id="982a3718-ee31-41fa-bff8-95e6ba853e15">&lt;/linkText&gt;</ept><bpt id="982a3718-ee31-41fa-bff8-95e6ba853e15">&lt;title&gt;</bpt><ept id="982a3718-ee31-41fa-bff8-95e6ba853e15">&lt;/title&gt;</ept>.</source>
+          <target state="new">But the advantage is that you can do this without having to <bpt id="982a3718-ee31-41fa-bff8-95e6ba853e15">&lt;linkText&gt;</bpt>contact Support<ept id="982a3718-ee31-41fa-bff8-95e6ba853e15">&lt;/linkText&gt;</ept><bpt id="982a3718-ee31-41fa-bff8-95e6ba853e15">&lt;title&gt;</bpt><ept id="982a3718-ee31-41fa-bff8-95e6ba853e15">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="955cd57c-42d2-4dcb-93e7-0a0d9e69405e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="955cd57c-42d2-4dcb-93e7-0a0d9e69405e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="53f20de7-9751-44be-b1ab-d5e9c825ee69">
+        <trans-unit id="15910d72-7d53-445b-b37b-dad321a193e3" xml:space="preserve">
+          <source>Integrate with an on-premises SAP server in Microsoft Azure App Service</source>
+          <target state="new">Integrate with an on-premises SAP server in Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="d0e7e8f7-ee9d-47da-8dd4-9f6f29b3ab4d" xml:space="preserve">
+          <source>Learn how to integrate with an on-premises SAP server</source>
+          <target state="new">Learn how to integrate with an on-premises SAP server</target>
+        </trans-unit>
+        <trans-unit id="c149e563-47fe-47ae-ae47-e9159674c8ee" xml:space="preserve">
+          <source>Using the SAP connector, you can connect Azure App Services web, mobile, and logic apps to your existing SAP server.</source>
+          <target state="new">Using the SAP connector, you can connect Azure App Services web, mobile, and logic apps to your existing SAP server.</target>
+        </trans-unit>
+        <trans-unit id="010638ed-7759-46b6-88f9-d05258e11005" xml:space="preserve">
+          <source>You can invoke RFCs, BAPIs, tRFCs as well as send IDOCs to the SAP server.</source>
+          <target state="new">You can invoke RFCs, BAPIs, tRFCs as well as send IDOCs to the SAP server.</target>
+        </trans-unit>
+        <trans-unit id="742f9f0b-2dd3-48e7-9852-55f957744631" xml:space="preserve">
+          <source>The SAP server can even be behind your firewall on-premises.</source>
+          <target state="new">The SAP server can even be behind your firewall on-premises.</target>
+        </trans-unit>
+        <trans-unit id="a405cfda-ace6-4bc8-a861-e3945a2b0c8b" xml:space="preserve">
+          <source>In case of on-premises server, connectivity is established through a hybrid listener, as shown:</source>
+          <target state="new">In case of on-premises server, connectivity is established through a hybrid listener, as shown:</target>
+        </trans-unit>
+        <trans-unit id="979050fd-8b96-4c69-9633-f4f00516d54b" xml:space="preserve">
+          <source><bpt id="232ee977-256b-44f9-aaac-1759afcf86e1">&lt;linkText&gt;</bpt>Hybrid connectivity flow<ept id="232ee977-256b-44f9-aaac-1759afcf86e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="232ee977-256b-44f9-aaac-1759afcf86e1">&lt;linkText&gt;</bpt>Hybrid connectivity flow<ept id="232ee977-256b-44f9-aaac-1759afcf86e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1f3226e-4c4c-47e2-a8d2-83001ed4396b" xml:space="preserve">
+          <source>An SAP Connector in the cloud cannot directly connect to an SAP server behind a firewall.</source>
+          <target state="new">An SAP Connector in the cloud cannot directly connect to an SAP server behind a firewall.</target>
+        </trans-unit>
+        <trans-unit id="261d35cb-dd89-4cd5-a797-9dab7b57af88" xml:space="preserve">
+          <source>The Hybrid listener bridges the gap by hosting a relay endpoint that allows the connector to securely establish connectivity to the SAP server.</source>
+          <target state="new">The Hybrid listener bridges the gap by hosting a relay endpoint that allows the connector to securely establish connectivity to the SAP server.</target>
+        </trans-unit>
+        <trans-unit id="03bb2870-d3e0-4169-b0a4-236c41ed1e55" xml:space="preserve">
+          <source>The following actions are supported:</source>
+          <target state="new">The following actions are supported:</target>
+        </trans-unit>
+        <trans-unit id="b643229f-20fc-409a-92e5-c533aba67a1b" xml:space="preserve">
+          <source>Call RFC</source>
+          <target state="new">Call RFC</target>
+        </trans-unit>
+        <trans-unit id="77dbfea9-4910-44df-b532-af27992fd9b0" xml:space="preserve">
+          <source>Call TRFC</source>
+          <target state="new">Call TRFC</target>
+        </trans-unit>
+        <trans-unit id="c285b0cd-a070-49ac-b1d3-547fb41f9a1a" xml:space="preserve">
+          <source>Call BAPI</source>
+          <target state="new">Call BAPI</target>
+        </trans-unit>
+        <trans-unit id="9c6cdde6-2ee1-41e5-8ab2-3e42bc640d04" xml:space="preserve">
+          <source>Send IDoc</source>
+          <target state="new">Send IDoc</target>
+        </trans-unit>
+        <trans-unit id="e8a543d9-58dd-4ecd-ac5a-c53c185ce6bc" xml:space="preserve">
+          <source>The SAP specific client libraries are required on the client machine where the hybrid listener is installed and running.</source>
+          <target state="new">The SAP specific client libraries are required on the client machine where the hybrid listener is installed and running.</target>
+        </trans-unit>
+        <trans-unit id="cfdde0ed-4be2-43da-a721-abc703bf0d99" xml:space="preserve">
+          <source>The precise details are captured <bpt id="269005d1-183e-40de-8be3-16c402119fa2">&lt;linkText&gt;</bpt>here[9]<ept id="269005d1-183e-40de-8be3-16c402119fa2">&lt;/linkText&gt;</ept><bpt id="269005d1-183e-40de-8be3-16c402119fa2">&lt;title&gt;</bpt><ept id="269005d1-183e-40de-8be3-16c402119fa2">&lt;/title&gt;</ept> under the section titled <bpt id="c1147b06-cafc-4bc1-8ed1-c82846b2f67b">&lt;strong&gt;</bpt>For the SAP adapter<ept id="c1147b06-cafc-4bc1-8ed1-c82846b2f67b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The precise details are captured <bpt id="269005d1-183e-40de-8be3-16c402119fa2">&lt;linkText&gt;</bpt>here[9]<ept id="269005d1-183e-40de-8be3-16c402119fa2">&lt;/linkText&gt;</ept><bpt id="269005d1-183e-40de-8be3-16c402119fa2">&lt;title&gt;</bpt><ept id="269005d1-183e-40de-8be3-16c402119fa2">&lt;/title&gt;</ept> under the section titled <bpt id="c1147b06-cafc-4bc1-8ed1-c82846b2f67b">&lt;strong&gt;</bpt>For the SAP adapter<ept id="c1147b06-cafc-4bc1-8ed1-c82846b2f67b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c000a96-c40f-4050-928b-36c0885ec82e" xml:space="preserve">
+          <source>Sign in to the Microsoft Azure Management portal.</source>
+          <target state="new">Sign in to the Microsoft Azure Management portal.</target>
+        </trans-unit>
+        <trans-unit id="4576bbe4-93fb-43a7-b9cb-e724229509a3" xml:space="preserve">
+          <source>Select <bpt id="76e8076b-129e-4ce7-b66c-b12da734ed58">&lt;strong&gt;</bpt>New<ept id="76e8076b-129e-4ce7-b66c-b12da734ed58">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="76e8076b-129e-4ce7-b66c-b12da734ed58">&lt;strong&gt;</bpt>New<ept id="76e8076b-129e-4ce7-b66c-b12da734ed58">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95f5a2e6-f9ec-405d-bcdf-f2be27dd769c" xml:space="preserve">
+          <source>In the create blade, select <bpt id="d847f869-b907-4bc1-8a93-4d1cb3b46b83">&lt;strong&gt;</bpt>Compute<ept id="d847f869-b907-4bc1-8a93-4d1cb3b46b83">&lt;/strong&gt;</ept> &gt; <bpt id="3fb305d4-6f53-4c08-b35c-513f03b956c4">&lt;strong&gt;</bpt>Azure Marketplace<ept id="3fb305d4-6f53-4c08-b35c-513f03b956c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the create blade, select <bpt id="d847f869-b907-4bc1-8a93-4d1cb3b46b83">&lt;strong&gt;</bpt>Compute<ept id="d847f869-b907-4bc1-8a93-4d1cb3b46b83">&lt;/strong&gt;</ept> &gt; <bpt id="3fb305d4-6f53-4c08-b35c-513f03b956c4">&lt;strong&gt;</bpt>Azure Marketplace<ept id="3fb305d4-6f53-4c08-b35c-513f03b956c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f5fa57b1-ef82-44b8-8bc1-4ccc0a020f69" xml:space="preserve">
+          <source>In the marketplace blade, select <bpt id="dfe34179-2ef4-4086-a1fd-74f88b8b9f0e">&lt;strong&gt;</bpt>API Apps<ept id="dfe34179-2ef4-4086-a1fd-74f88b8b9f0e">&lt;/strong&gt;</ept>, and search for SAP in the search bar:</source>
+          <target state="new">In the marketplace blade, select <bpt id="dfe34179-2ef4-4086-a1fd-74f88b8b9f0e">&lt;strong&gt;</bpt>API Apps<ept id="dfe34179-2ef4-4086-a1fd-74f88b8b9f0e">&lt;/strong&gt;</ept>, and search for SAP in the search bar:</target>
+        </trans-unit>
+        <trans-unit id="6b6345d2-9709-4880-8927-45608a45b1d6" xml:space="preserve">
+          <source><bpt id="35ec0ae3-60c9-4a86-ae6a-bb617ef7e8b8">&lt;linkText&gt;</bpt>SAP Connector API App<ept id="35ec0ae3-60c9-4a86-ae6a-bb617ef7e8b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35ec0ae3-60c9-4a86-ae6a-bb617ef7e8b8">&lt;linkText&gt;</bpt>SAP Connector API App<ept id="35ec0ae3-60c9-4a86-ae6a-bb617ef7e8b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="910148b5-5064-4efd-b785-357b7f1a9655" xml:space="preserve">
+          <source>Select the <bpt id="c2169ff7-ed93-4efa-955d-a444bff68d30">&lt;strong&gt;</bpt>SAP Connector<ept id="c2169ff7-ed93-4efa-955d-a444bff68d30">&lt;/strong&gt;</ept> published by Microsoft.</source>
+          <target state="new">Select the <bpt id="c2169ff7-ed93-4efa-955d-a444bff68d30">&lt;strong&gt;</bpt>SAP Connector<ept id="c2169ff7-ed93-4efa-955d-a444bff68d30">&lt;/strong&gt;</ept> published by Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="97c1ccd2-f90e-4385-ac35-31e150da410b" xml:space="preserve">
+          <source>In the SAP connector blade, select <bpt id="90937722-9797-4ea9-8086-bbf2a66cb253">&lt;strong&gt;</bpt>Create<ept id="90937722-9797-4ea9-8086-bbf2a66cb253">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the SAP connector blade, select <bpt id="90937722-9797-4ea9-8086-bbf2a66cb253">&lt;strong&gt;</bpt>Create<ept id="90937722-9797-4ea9-8086-bbf2a66cb253">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0596da3b-78e5-48ea-aaf0-ee976645a1ed" xml:space="preserve">
+          <source>In the new blade that opens, enter the following:</source>
+          <target state="new">In the new blade that opens, enter the following:</target>
+        </trans-unit>
+        <trans-unit id="a58381d1-59d4-473f-b699-17ec395b1553" xml:space="preserve">
+          <source><bpt id="835f5366-3b78-4e7a-a796-827367884b46">&lt;strong&gt;</bpt>Location<ept id="835f5366-3b78-4e7a-a796-827367884b46">&lt;/strong&gt;</ept> - Choose the geographic location where you would like the connector to deploy</source>
+          <target state="new"><bpt id="835f5366-3b78-4e7a-a796-827367884b46">&lt;strong&gt;</bpt>Location<ept id="835f5366-3b78-4e7a-a796-827367884b46">&lt;/strong&gt;</ept> - Choose the geographic location where you would like the connector to deploy</target>
+        </trans-unit>
+        <trans-unit id="7c331276-d99b-4c4c-90d1-2a4ec7d8c92a" xml:space="preserve">
+          <source><bpt id="97596842-0b33-4381-a95b-b1ce8676a32d">&lt;strong&gt;</bpt>Subscription<ept id="97596842-0b33-4381-a95b-b1ce8676a32d">&lt;/strong&gt;</ept> - Choose a subscription you want this connector to be created in</source>
+          <target state="new"><bpt id="97596842-0b33-4381-a95b-b1ce8676a32d">&lt;strong&gt;</bpt>Subscription<ept id="97596842-0b33-4381-a95b-b1ce8676a32d">&lt;/strong&gt;</ept> - Choose a subscription you want this connector to be created in</target>
+        </trans-unit>
+        <trans-unit id="d60ce787-c992-4ffe-b7f9-3cbe2cda3505" xml:space="preserve">
+          <source><bpt id="6761e85e-fe40-46aa-93a7-085960547d62">&lt;strong&gt;</bpt>Resource group<ept id="6761e85e-fe40-46aa-93a7-085960547d62">&lt;/strong&gt;</ept> - Select or create a resource group where the connector should reside</source>
+          <target state="new"><bpt id="6761e85e-fe40-46aa-93a7-085960547d62">&lt;strong&gt;</bpt>Resource group<ept id="6761e85e-fe40-46aa-93a7-085960547d62">&lt;/strong&gt;</ept> - Select or create a resource group where the connector should reside</target>
+        </trans-unit>
+        <trans-unit id="5e75340a-c444-43b9-b554-426308b415a4" xml:space="preserve">
+          <source><bpt id="4bb539a8-30a9-40b2-a947-3a1095f486f6">&lt;strong&gt;</bpt>Web hosting plan<ept id="4bb539a8-30a9-40b2-a947-3a1095f486f6">&lt;/strong&gt;</ept> - Select or create a web hosting plan</source>
+          <target state="new"><bpt id="4bb539a8-30a9-40b2-a947-3a1095f486f6">&lt;strong&gt;</bpt>Web hosting plan<ept id="4bb539a8-30a9-40b2-a947-3a1095f486f6">&lt;/strong&gt;</ept> - Select or create a web hosting plan</target>
+        </trans-unit>
+        <trans-unit id="463e96a2-1d53-4ebd-9563-6a60f99507e6" xml:space="preserve">
+          <source><bpt id="d3721b81-4bb8-4274-b60c-8508680f06e3">&lt;strong&gt;</bpt>Pricing tier<ept id="d3721b81-4bb8-4274-b60c-8508680f06e3">&lt;/strong&gt;</ept> - Choose a pricing tier for the connector</source>
+          <target state="new"><bpt id="d3721b81-4bb8-4274-b60c-8508680f06e3">&lt;strong&gt;</bpt>Pricing tier<ept id="d3721b81-4bb8-4274-b60c-8508680f06e3">&lt;/strong&gt;</ept> - Choose a pricing tier for the connector</target>
+        </trans-unit>
+        <trans-unit id="72ce2c76-63a7-483a-a554-3932543978cf" xml:space="preserve">
+          <source><bpt id="1f5bcd0d-261f-4d5c-a309-e472a926e7e2">&lt;strong&gt;</bpt>Name<ept id="1f5bcd0d-261f-4d5c-a309-e472a926e7e2">&lt;/strong&gt;</ept> - Enter a name for your SAP Connector</source>
+          <target state="new"><bpt id="1f5bcd0d-261f-4d5c-a309-e472a926e7e2">&lt;strong&gt;</bpt>Name<ept id="1f5bcd0d-261f-4d5c-a309-e472a926e7e2">&lt;/strong&gt;</ept> - Enter a name for your SAP Connector</target>
+        </trans-unit>
+        <trans-unit id="e503107f-6022-42e8-956e-73064f4e25a2" xml:space="preserve">
+          <source><bpt id="504ff5a4-bcfc-4597-99e0-86b88dd24f03">&lt;strong&gt;</bpt>Package settings<ept id="504ff5a4-bcfc-4597-99e0-86b88dd24f03">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="504ff5a4-bcfc-4597-99e0-86b88dd24f03">&lt;strong&gt;</bpt>Package settings<ept id="504ff5a4-bcfc-4597-99e0-86b88dd24f03">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53ff32c5-d1b4-4670-83fb-ce1657cc0e90" xml:space="preserve">
+          <source><bpt id="91423611-1d0e-482b-bd30-552b5dc54d25">&lt;strong&gt;</bpt>Server name<ept id="91423611-1d0e-482b-bd30-552b5dc54d25">&lt;/strong&gt;</ept> - Enter the SAP Server name.</source>
+          <target state="new"><bpt id="91423611-1d0e-482b-bd30-552b5dc54d25">&lt;strong&gt;</bpt>Server name<ept id="91423611-1d0e-482b-bd30-552b5dc54d25">&lt;/strong&gt;</ept> - Enter the SAP Server name.</target>
+        </trans-unit>
+        <trans-unit id="a5763888-92be-427a-b6f4-e5d9cec62946" xml:space="preserve">
+          <source>Example: "SAPserver" or "SAPserver.mydomain.com".</source>
+          <target state="new">Example: "SAPserver" or "SAPserver.mydomain.com".</target>
+        </trans-unit>
+        <trans-unit id="672b1206-9ad7-467b-8b37-cea59fe8b05c" xml:space="preserve">
+          <source><bpt id="b4142147-70dc-4877-95ff-26d8d0fb7cc4">&lt;strong&gt;</bpt>User name<ept id="b4142147-70dc-4877-95ff-26d8d0fb7cc4">&lt;/strong&gt;</ept> - Enter a valid user name to connect to the SAP server.</source>
+          <target state="new"><bpt id="b4142147-70dc-4877-95ff-26d8d0fb7cc4">&lt;strong&gt;</bpt>User name<ept id="b4142147-70dc-4877-95ff-26d8d0fb7cc4">&lt;/strong&gt;</ept> - Enter a valid user name to connect to the SAP server.</target>
+        </trans-unit>
+        <trans-unit id="e5fbee33-4c6d-4a21-9713-1fbeafbf94fc" xml:space="preserve">
+          <source><bpt id="14a9b62f-2538-414d-9f79-ed82cd77263c">&lt;strong&gt;</bpt>Password<ept id="14a9b62f-2538-414d-9f79-ed82cd77263c">&lt;/strong&gt;</ept> - Enter a valid password to connect to the SAP server.</source>
+          <target state="new"><bpt id="14a9b62f-2538-414d-9f79-ed82cd77263c">&lt;strong&gt;</bpt>Password<ept id="14a9b62f-2538-414d-9f79-ed82cd77263c">&lt;/strong&gt;</ept> - Enter a valid password to connect to the SAP server.</target>
+        </trans-unit>
+        <trans-unit id="09ca7f41-5064-4132-a1c4-0f1328f0bd0a" xml:space="preserve">
+          <source><bpt id="b3e6d202-0a1f-43f2-af1e-bab53d95b5de">&lt;strong&gt;</bpt>System number<ept id="b3e6d202-0a1f-43f2-af1e-bab53d95b5de">&lt;/strong&gt;</ept> - Enter the system number of the SAP Application server.</source>
+          <target state="new"><bpt id="b3e6d202-0a1f-43f2-af1e-bab53d95b5de">&lt;strong&gt;</bpt>System number<ept id="b3e6d202-0a1f-43f2-af1e-bab53d95b5de">&lt;/strong&gt;</ept> - Enter the system number of the SAP Application server.</target>
+        </trans-unit>
+        <trans-unit id="0c143bfb-ab4b-411f-b2ac-f97c886b12ca" xml:space="preserve">
+          <source><bpt id="17ff0ef7-75d1-4cad-b363-ac366ce32c51">&lt;strong&gt;</bpt>Language<ept id="17ff0ef7-75d1-4cad-b363-ac366ce32c51">&lt;/strong&gt;</ept> - Enter the logon language, like "EN".</source>
+          <target state="new"><bpt id="17ff0ef7-75d1-4cad-b363-ac366ce32c51">&lt;strong&gt;</bpt>Language<ept id="17ff0ef7-75d1-4cad-b363-ac366ce32c51">&lt;/strong&gt;</ept> - Enter the logon language, like "EN".</target>
+        </trans-unit>
+        <trans-unit id="4ec7ff50-1c51-458c-8386-4546d0297819" xml:space="preserve">
+          <source>If no value is entered, "EN" is considered.</source>
+          <target state="new">If no value is entered, "EN" is considered.</target>
+        </trans-unit>
+        <trans-unit id="ee2fe327-aee1-40ad-b398-6a03e2daf300" xml:space="preserve">
+          <source><bpt id="e8ed579d-84e5-4516-8fb1-950fdd842199">&lt;strong&gt;</bpt>On-premises<ept id="e8ed579d-84e5-4516-8fb1-950fdd842199">&lt;/strong&gt;</ept> - Enter whether your SAP server is on-premises behind a firewall or not.</source>
+          <target state="new"><bpt id="e8ed579d-84e5-4516-8fb1-950fdd842199">&lt;strong&gt;</bpt>On-premises<ept id="e8ed579d-84e5-4516-8fb1-950fdd842199">&lt;/strong&gt;</ept> - Enter whether your SAP server is on-premises behind a firewall or not.</target>
+        </trans-unit>
+        <trans-unit id="0d95fa59-e42e-4232-8cfe-ded951a73976" xml:space="preserve">
+          <source>If set to TRUE, you need to install a listener agent on a server that can access your SAP server.</source>
+          <target state="new">If set to TRUE, you need to install a listener agent on a server that can access your SAP server.</target>
+        </trans-unit>
+        <trans-unit id="5599a70a-009e-4541-bf67-5a27fd2a23c7" xml:space="preserve">
+          <source>You can go to your API App summary page and select 'Hybrid Connection' to install the agent.</source>
+          <target state="new">You can go to your API App summary page and select 'Hybrid Connection' to install the agent.</target>
+        </trans-unit>
+        <trans-unit id="f4efbda8-2487-4718-acbb-fb620e6e8129" xml:space="preserve">
+          <source><bpt id="720e0617-a73b-4ef5-8431-f6f7526c6d84">&lt;strong&gt;</bpt>Service bus connection string<ept id="720e0617-a73b-4ef5-8431-f6f7526c6d84">&lt;/strong&gt;</ept> - Enter this parameter if your SAP Server is on-premises.</source>
+          <target state="new"><bpt id="720e0617-a73b-4ef5-8431-f6f7526c6d84">&lt;strong&gt;</bpt>Service bus connection string<ept id="720e0617-a73b-4ef5-8431-f6f7526c6d84">&lt;/strong&gt;</ept> - Enter this parameter if your SAP Server is on-premises.</target>
+        </trans-unit>
+        <trans-unit id="6c8b229d-55c3-4e74-a6bc-57bf546b3f1d" xml:space="preserve">
+          <source>This should be a valid Service Bus Namespace connection string.</source>
+          <target state="new">This should be a valid Service Bus Namespace connection string.</target>
+        </trans-unit>
+        <trans-unit id="aa7a7d4b-78b0-4336-90e4-345e3f7e1242" xml:space="preserve">
+          <source><bpt id="60a07c2b-1aca-4955-a8df-0d50c0db67f5">&lt;strong&gt;</bpt>RFCs<ept id="60a07c2b-1aca-4955-a8df-0d50c0db67f5">&lt;/strong&gt;</ept> - Enter the RFCs in SAP that are allowed to be called by the connector.</source>
+          <target state="new"><bpt id="60a07c2b-1aca-4955-a8df-0d50c0db67f5">&lt;strong&gt;</bpt>RFCs<ept id="60a07c2b-1aca-4955-a8df-0d50c0db67f5">&lt;/strong&gt;</ept> - Enter the RFCs in SAP that are allowed to be called by the connector.</target>
+        </trans-unit>
+        <trans-unit id="0e4cc9cc-a887-4f8d-b9de-b7df9bead3c6" xml:space="preserve">
+          <source><bpt id="2f7b2092-1c39-4592-810d-a8b5c9b2809c">&lt;strong&gt;</bpt>TRFCs<ept id="2f7b2092-1c39-4592-810d-a8b5c9b2809c">&lt;/strong&gt;</ept> - Enter the TRFCs in SAP that are allowed to be called by the connector.</source>
+          <target state="new"><bpt id="2f7b2092-1c39-4592-810d-a8b5c9b2809c">&lt;strong&gt;</bpt>TRFCs<ept id="2f7b2092-1c39-4592-810d-a8b5c9b2809c">&lt;/strong&gt;</ept> - Enter the TRFCs in SAP that are allowed to be called by the connector.</target>
+        </trans-unit>
+        <trans-unit id="cbfc90d2-41d9-4f12-bbf4-ceb5874d9a4e" xml:space="preserve">
+          <source><bpt id="32589b3e-ec6a-41d1-9887-0388a35b3215">&lt;strong&gt;</bpt>BAPI<ept id="32589b3e-ec6a-41d1-9887-0388a35b3215">&lt;/strong&gt;</ept> - Enter the BAPIs in SAP that are allowed to be called by the connector.</source>
+          <target state="new"><bpt id="32589b3e-ec6a-41d1-9887-0388a35b3215">&lt;strong&gt;</bpt>BAPI<ept id="32589b3e-ec6a-41d1-9887-0388a35b3215">&lt;/strong&gt;</ept> - Enter the BAPIs in SAP that are allowed to be called by the connector.</target>
+        </trans-unit>
+        <trans-unit id="027729db-719e-429b-95a8-48e4b07d3fec" xml:space="preserve">
+          <source><bpt id="ddae7a5b-edce-4b26-8b28-b239bd8bb31b">&lt;strong&gt;</bpt>IDOCs<ept id="ddae7a5b-edce-4b26-8b28-b239bd8bb31b">&lt;/strong&gt;</ept> - Enter the IDOCs in SAP that can be sent by the connector.</source>
+          <target state="new"><bpt id="ddae7a5b-edce-4b26-8b28-b239bd8bb31b">&lt;strong&gt;</bpt>IDOCs<ept id="ddae7a5b-edce-4b26-8b28-b239bd8bb31b">&lt;/strong&gt;</ept> - Enter the IDOCs in SAP that can be sent by the connector.</target>
+        </trans-unit>
+        <trans-unit id="6d88ade3-ba04-457f-8b5e-74272f1b3495" xml:space="preserve">
+          <source>Select Select.</source>
+          <target state="new">Select Select.</target>
+        </trans-unit>
+        <trans-unit id="67c81127-38a5-4830-9959-d27c192be72b" xml:space="preserve">
+          <source>Within a few minutes, your SAP connector is created.</source>
+          <target state="new">Within a few minutes, your SAP connector is created.</target>
+        </trans-unit>
+        <trans-unit id="228b1c89-3eca-41db-b97a-80f2dc0732a3" xml:space="preserve">
+          <source>Browse to the SAP connector you created through <bpt id="5c6e16ca-fe94-441c-9476-6da1516bcf4c">&lt;strong&gt;</bpt>Browse<ept id="5c6e16ca-fe94-441c-9476-6da1516bcf4c">&lt;/strong&gt;</ept> &gt; <bpt id="8aa7824e-71ab-4950-86e6-e52a726ba59b">&lt;strong&gt;</bpt>API Apps<ept id="8aa7824e-71ab-4950-86e6-e52a726ba59b">&lt;/strong&gt;</ept> &gt; <bpt id="94bddf3b-edd9-4498-a801-d4d18ab99175">&lt;em&gt;</bpt>name of your connector<ept id="94bddf3b-edd9-4498-a801-d4d18ab99175">&lt;/em&gt;</ept></source>
+          <target state="new">Browse to the SAP connector you created through <bpt id="5c6e16ca-fe94-441c-9476-6da1516bcf4c">&lt;strong&gt;</bpt>Browse<ept id="5c6e16ca-fe94-441c-9476-6da1516bcf4c">&lt;/strong&gt;</ept> &gt; <bpt id="8aa7824e-71ab-4950-86e6-e52a726ba59b">&lt;strong&gt;</bpt>API Apps<ept id="8aa7824e-71ab-4950-86e6-e52a726ba59b">&lt;/strong&gt;</ept> &gt; <bpt id="94bddf3b-edd9-4498-a801-d4d18ab99175">&lt;em&gt;</bpt>name of your connector<ept id="94bddf3b-edd9-4498-a801-d4d18ab99175">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8718348-a676-4412-bf6a-31296e79ee3b" xml:space="preserve">
+          <source>In the connector blade, notice that the Hybrid connection status is pending.</source>
+          <target state="new">In the connector blade, notice that the Hybrid connection status is pending.</target>
+        </trans-unit>
+        <trans-unit id="86dba9af-2324-4989-8d62-83a849c839a9" xml:space="preserve">
+          <source>Select Hybrid Connection.</source>
+          <target state="new">Select Hybrid Connection.</target>
+        </trans-unit>
+        <trans-unit id="f61bc4c6-2110-4dce-a176-3bd1449a240a" xml:space="preserve">
+          <source>The Hybrid Connection blade opens:</source>
+          <target state="new">The Hybrid Connection blade opens:</target>
+        </trans-unit>
+        <trans-unit id="8de56d79-b665-4eb9-8338-8f06c06469c1" xml:space="preserve">
+          <source><bpt id="09432558-afc5-42f6-8413-5097ec3eb5d0">&lt;linkText&gt;</bpt>Hybrid connection blade<ept id="09432558-afc5-42f6-8413-5097ec3eb5d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09432558-afc5-42f6-8413-5097ec3eb5d0">&lt;linkText&gt;</bpt>Hybrid connection blade<ept id="09432558-afc5-42f6-8413-5097ec3eb5d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5150f4e-736e-4b06-8ab9-24983c3872cf" xml:space="preserve">
+          <source>Copy the primary gateway configuration string.</source>
+          <target state="new">Copy the primary gateway configuration string.</target>
+        </trans-unit>
+        <trans-unit id="2f018307-4bee-4071-bbca-418202e4e5e1" xml:space="preserve">
+          <source>You use it later as part of the hybrid listener installation setup.</source>
+          <target state="new">You use it later as part of the hybrid listener installation setup.</target>
+        </trans-unit>
+        <trans-unit id="9b8d02ce-087a-4b36-ac40-99ab2a94a610" xml:space="preserve">
+          <source>Select <bpt id="12844399-bbb2-461f-a924-3c2cde440b9a">&lt;strong&gt;</bpt>Download and configure<ept id="12844399-bbb2-461f-a924-3c2cde440b9a">&lt;/strong&gt;</ept> link, and run the click once installer:</source>
+          <target state="new">Select <bpt id="12844399-bbb2-461f-a924-3c2cde440b9a">&lt;strong&gt;</bpt>Download and configure<ept id="12844399-bbb2-461f-a924-3c2cde440b9a">&lt;/strong&gt;</ept> link, and run the click once installer:</target>
+        </trans-unit>
+        <trans-unit id="498d0408-685d-43ef-bc8a-175a67d4ba03" xml:space="preserve">
+          <source><bpt id="384ebf35-9ae7-4496-a86e-961e91460e77">&lt;linkText&gt;</bpt>Hybrid connection click once installer<ept id="384ebf35-9ae7-4496-a86e-961e91460e77">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="384ebf35-9ae7-4496-a86e-961e91460e77">&lt;linkText&gt;</bpt>Hybrid connection click once installer<ept id="384ebf35-9ae7-4496-a86e-961e91460e77">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fce6f2cf-79dd-421f-90cd-84f4021a727f" xml:space="preserve">
+          <source>Select <bpt id="e920423d-e99b-4ac8-bf37-82afb36d1eb0">&lt;strong&gt;</bpt>install<ept id="e920423d-e99b-4ac8-bf37-82afb36d1eb0">&lt;/strong&gt;</ept>, and then enter the gateway configuration setting you copied earlier:</source>
+          <target state="new">Select <bpt id="e920423d-e99b-4ac8-bf37-82afb36d1eb0">&lt;strong&gt;</bpt>install<ept id="e920423d-e99b-4ac8-bf37-82afb36d1eb0">&lt;/strong&gt;</ept>, and then enter the gateway configuration setting you copied earlier:</target>
+        </trans-unit>
+        <trans-unit id="c51c9622-25a9-4222-bb08-dcfa74a5e928" xml:space="preserve">
+          <source><bpt id="5de5bd19-2fc8-4d0a-8b87-d33beb9f1538">&lt;linkText&gt;</bpt>Relay listen connection string<ept id="5de5bd19-2fc8-4d0a-8b87-d33beb9f1538">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5de5bd19-2fc8-4d0a-8b87-d33beb9f1538">&lt;linkText&gt;</bpt>Relay listen connection string<ept id="5de5bd19-2fc8-4d0a-8b87-d33beb9f1538">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1be87a50-fc92-459b-97aa-9eea4a838518" xml:space="preserve">
+          <source>Select <bpt id="93be93c6-b435-4999-816e-22392f288ad2">&lt;strong&gt;</bpt>Install<ept id="93be93c6-b435-4999-816e-22392f288ad2">&lt;/strong&gt;</ept> to complete the Hybrid connection manager setup:</source>
+          <target state="new">Select <bpt id="93be93c6-b435-4999-816e-22392f288ad2">&lt;strong&gt;</bpt>Install<ept id="93be93c6-b435-4999-816e-22392f288ad2">&lt;/strong&gt;</ept> to complete the Hybrid connection manager setup:</target>
+        </trans-unit>
+        <trans-unit id="92d6eeb9-b013-48c8-93c6-cf6208f46496" xml:space="preserve">
+          <source><bpt id="d620618c-6875-4568-9204-6923fa898644">&lt;linkText&gt;</bpt>Hybrid connection manager installation in progress<ept id="d620618c-6875-4568-9204-6923fa898644">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d620618c-6875-4568-9204-6923fa898644">&lt;linkText&gt;</bpt>Hybrid connection manager installation in progress<ept id="d620618c-6875-4568-9204-6923fa898644">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09f0d2c2-5a6d-4a29-97fc-33ec811aac5a" xml:space="preserve">
+          <source><bpt id="24f04273-59b1-445a-b975-f23d5b741dd3">&lt;linkText&gt;</bpt>Hybrid connection manager installation completed<ept id="24f04273-59b1-445a-b975-f23d5b741dd3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24f04273-59b1-445a-b975-f23d5b741dd3">&lt;linkText&gt;</bpt>Hybrid connection manager installation completed<ept id="24f04273-59b1-445a-b975-f23d5b741dd3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9953a2d-4262-49f5-ade1-39969ee00a27" xml:space="preserve">
+          <source>Browse to the SAP connector you created through <bpt id="6e804093-996a-4841-824f-191e7362885a">&lt;strong&gt;</bpt>Browse<ept id="6e804093-996a-4841-824f-191e7362885a">&lt;/strong&gt;</ept> &gt; <bpt id="a6473921-3d87-4e4d-b53b-10c500557d09">&lt;strong&gt;</bpt>API Apps<ept id="a6473921-3d87-4e4d-b53b-10c500557d09">&lt;/strong&gt;</ept> &gt; <bpt id="9395f4e9-f584-4bd9-bc6e-07830e9f4e9f">&lt;em&gt;</bpt>name of your connector<ept id="9395f4e9-f584-4bd9-bc6e-07830e9f4e9f">&lt;/em&gt;</ept></source>
+          <target state="new">Browse to the SAP connector you created through <bpt id="6e804093-996a-4841-824f-191e7362885a">&lt;strong&gt;</bpt>Browse<ept id="6e804093-996a-4841-824f-191e7362885a">&lt;/strong&gt;</ept> &gt; <bpt id="a6473921-3d87-4e4d-b53b-10c500557d09">&lt;strong&gt;</bpt>API Apps<ept id="a6473921-3d87-4e4d-b53b-10c500557d09">&lt;/strong&gt;</ept> &gt; <bpt id="9395f4e9-f584-4bd9-bc6e-07830e9f4e9f">&lt;em&gt;</bpt>name of your connector<ept id="9395f4e9-f584-4bd9-bc6e-07830e9f4e9f">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5badd2f-2fd3-4bef-9376-e914c5d54769" xml:space="preserve">
+          <source>In the connector blade, notice that the Hybrid connection status is <bpt id="57ac25a9-2015-49cd-90e6-8815af60e5fd">&lt;em&gt;</bpt>Connected<ept id="57ac25a9-2015-49cd-90e6-8815af60e5fd">&lt;/em&gt;</ept>:</source>
+          <target state="new">In the connector blade, notice that the Hybrid connection status is <bpt id="57ac25a9-2015-49cd-90e6-8815af60e5fd">&lt;em&gt;</bpt>Connected<ept id="57ac25a9-2015-49cd-90e6-8815af60e5fd">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="1432cf2f-a849-46e1-86c9-d0bf557c3f63" xml:space="preserve">
+          <source><bpt id="daf5ad9a-57cf-4f31-a35d-c87dcf246495">&lt;linkText&gt;</bpt>Hybrid connection status - connected<ept id="daf5ad9a-57cf-4f31-a35d-c87dcf246495">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="daf5ad9a-57cf-4f31-a35d-c87dcf246495">&lt;linkText&gt;</bpt>Hybrid connection status - connected<ept id="daf5ad9a-57cf-4f31-a35d-c87dcf246495">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bb37785-38d5-4b08-8b00-5044eec12803" xml:space="preserve">
+          <source>Once the SAP connector is created, it can be used inside your Logic Apps workflow.</source>
+          <target state="new">Once the SAP connector is created, it can be used inside your Logic Apps workflow.</target>
+        </trans-unit>
+        <trans-unit id="beeea95e-9ed1-465c-a923-09be1097fba9" xml:space="preserve">
+          <source>Create a new Logic App through <bpt id="87cd3149-16ed-491f-810d-5bcd750cd7ef">&lt;strong&gt;</bpt>New<ept id="87cd3149-16ed-491f-810d-5bcd750cd7ef">&lt;/strong&gt;</ept> &gt; <bpt id="7373d99f-2324-4b88-9049-c5eee8843bd9">&lt;strong&gt;</bpt>Logic Apps<ept id="7373d99f-2324-4b88-9049-c5eee8843bd9">&lt;/strong&gt;</ept> &gt; <bpt id="b42cdc71-3f19-4dcc-b28b-9e06d0e39237">&lt;strong&gt;</bpt>Create<ept id="b42cdc71-3f19-4dcc-b28b-9e06d0e39237">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a new Logic App through <bpt id="87cd3149-16ed-491f-810d-5bcd750cd7ef">&lt;strong&gt;</bpt>New<ept id="87cd3149-16ed-491f-810d-5bcd750cd7ef">&lt;/strong&gt;</ept> &gt; <bpt id="7373d99f-2324-4b88-9049-c5eee8843bd9">&lt;strong&gt;</bpt>Logic Apps<ept id="7373d99f-2324-4b88-9049-c5eee8843bd9">&lt;/strong&gt;</ept> &gt; <bpt id="b42cdc71-3f19-4dcc-b28b-9e06d0e39237">&lt;strong&gt;</bpt>Create<ept id="b42cdc71-3f19-4dcc-b28b-9e06d0e39237">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4108dbb-6f0f-4d12-8ba2-1a8c26897be0" xml:space="preserve">
+          <source>Enter the metadata for the Logic App including resource group.</source>
+          <target state="new">Enter the metadata for the Logic App including resource group.</target>
+        </trans-unit>
+        <trans-unit id="a19ba168-50b5-481a-8676-d2d8f5cd9cd8" xml:space="preserve">
+          <source>Select T<bpt id="edb84d56-6e8e-4877-8b8d-7fb0311fd1b7">&lt;strong&gt;</bpt>riggers and actions<ept id="edb84d56-6e8e-4877-8b8d-7fb0311fd1b7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select T<bpt id="edb84d56-6e8e-4877-8b8d-7fb0311fd1b7">&lt;strong&gt;</bpt>riggers and actions<ept id="edb84d56-6e8e-4877-8b8d-7fb0311fd1b7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="76aecbed-0f97-4b3f-a1fb-289d409bf8c3" xml:space="preserve">
+          <source>The Logic Apps workflow designer opens.</source>
+          <target state="new">The Logic Apps workflow designer opens.</target>
+        </trans-unit>
+        <trans-unit id="71f23272-5e9f-499c-b309-2636e2c75ad8" xml:space="preserve">
+          <source>Select the SAP connector from the right pane, and select an action from the Actions tab.</source>
+          <target state="new">Select the SAP connector from the right pane, and select an action from the Actions tab.</target>
+        </trans-unit>
+        <trans-unit id="5aaad8fa-e8f4-4b22-aaa3-0abba34cd13f" xml:space="preserve">
+          <source>The list of actions are based on the configuration you entered when you created the SAP connector.</source>
+          <target state="new">The list of actions are based on the configuration you entered when you created the SAP connector.</target>
+        </trans-unit>
+        <trans-unit id="b228c7bf-3f9c-4de4-b5f9-eb9f1f308ad8" xml:space="preserve">
+          <source>For the selected action, you see the input and output parameters.</source>
+          <target state="new">For the selected action, you see the input and output parameters.</target>
+        </trans-unit>
+        <trans-unit id="2996fd83-d134-4ad1-97f1-5e006cac319d" xml:space="preserve">
+          <source>You can enter in the inputs for the action and use the output of the current action in other API Apps, possibly for further decision making in the workflow.</source>
+          <target state="new">You can enter in the inputs for the action and use the output of the current action in other API Apps, possibly for further decision making in the workflow.</target>
+        </trans-unit>
+        <trans-unit id="45712255-da08-4488-be9c-0b47627b1f10" xml:space="preserve">
+          <source>./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectivityFlow.PNG</source>
+          <target state="new">./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectivityFlow.PNG</target>
+        </trans-unit>
+        <trans-unit id="91377592-96cf-4e3d-854f-7a2e7fae8857" xml:space="preserve">
+          <source>./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.APIApp.PNG</source>
+          <target state="new">./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.APIApp.PNG</target>
+        </trans-unit>
+        <trans-unit id="3f110ed3-ca72-429b-a9a9-06579033f3de" xml:space="preserve">
+          <source>./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.PNG</source>
+          <target state="new">./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.PNG</target>
+        </trans-unit>
+        <trans-unit id="2904475e-ada3-455e-9c38-c595b2b583c9" xml:space="preserve">
+          <source>./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.ClickOnceInstaller.PNG</source>
+          <target state="new">./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.ClickOnceInstaller.PNG</target>
+        </trans-unit>
+        <trans-unit id="6b2cfadf-158a-481d-80b3-741cfa09b4e0" xml:space="preserve">
+          <source>./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.ClickOnceInstaller.RelayInformation.PNG</source>
+          <target state="new">./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.ClickOnceInstaller.RelayInformation.PNG</target>
+        </trans-unit>
+        <trans-unit id="a04d9cd5-c6c7-48ad-a79d-e289cc6e1ee3" xml:space="preserve">
+          <source>./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.InProgress.PNG</source>
+          <target state="new">./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.InProgress.PNG</target>
+        </trans-unit>
+        <trans-unit id="fc99598d-dc12-48d8-b577-403e0ea46b92" xml:space="preserve">
+          <source>./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.Completed.PNG</source>
+          <target state="new">./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.Completed.PNG</target>
+        </trans-unit>
+        <trans-unit id="3520d2d8-7dca-4fd7-9032-467f9129d7a8" xml:space="preserve">
+          <source>./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG</source>
+          <target state="new">./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG</target>
+        </trans-unit>
+        <trans-unit id="3bc60d1b-77ef-41f6-8559-cf6d3e178319" xml:space="preserve">
+          <source>http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm</source>
+          <target state="new">http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm</target>
+        </trans-unit>
+      </group>
+      <group id="da99736e-2a85-4be2-a932-5f73e42e97f0" />
+    </body>
+  </file>
+</xliff>

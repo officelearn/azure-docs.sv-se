@@ -1,0 +1,707 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="04deda68-aebb-4e1a-8aa1-5d7a292e2ef3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="04deda68-aebb-4e1a-8aa1-5d7a292e2ef3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6f8004fe-4ce9-48da-b31d-0f12979d0dee">
+        <trans-unit id="708b31d5-2784-429a-afe9-c2a9c41f24c2" xml:space="preserve">
+          <source>Get started with Azure Notification Hubs | Microsoft Azure</source>
+          <target state="new">Get started with Azure Notification Hubs | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="26ab3d1a-e6a6-4ffb-a67b-569ef4d1937c" xml:space="preserve">
+          <source>In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Chrome App.</source>
+          <target state="new">In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Chrome App.</target>
+        </trans-unit>
+        <trans-unit id="64c4792e-9cff-4b27-8def-1492a5641b8c" xml:space="preserve">
+          <source><bpt id="32464558-28fa-4197-b51e-6c32b8391b5c">&lt;token href="../../includes/notification-hubs-selector-get-started.md"&gt;</bpt><ept id="32464558-28fa-4197-b51e-6c32b8391b5c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="32464558-28fa-4197-b51e-6c32b8391b5c">&lt;token href="../../includes/notification-hubs-selector-get-started.md"&gt;</bpt><ept id="32464558-28fa-4197-b51e-6c32b8391b5c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bddf7085-06b2-4ab7-bbfd-c3b1d77d075e" xml:space="preserve">
+          <source>This topic shows you how to use Azure Notification Hubs to send push notifications to a Chrome App.</source>
+          <target state="new">This topic shows you how to use Azure Notification Hubs to send push notifications to a Chrome App.</target>
+        </trans-unit>
+        <trans-unit id="d4e89e01-4511-4e40-9fcc-8b97a633570c" xml:space="preserve">
+          <source>One of the key benefits of using Chrome App notifications is that the notifications show up within the context of the Google Chrome browser.</source>
+          <target state="new">One of the key benefits of using Chrome App notifications is that the notifications show up within the context of the Google Chrome browser.</target>
+        </trans-unit>
+        <trans-unit id="6d443a64-7723-4adb-80b5-ac2668407658" xml:space="preserve">
+          <source>You don't need to have the Chrome App running or open in the browser (though the Chrome browser itself must be running).</source>
+          <target state="new">You don't need to have the Chrome App running or open in the browser (though the Chrome browser itself must be running).</target>
+        </trans-unit>
+        <trans-unit id="97d7aece-4317-4aab-876e-ee49fac7126d" xml:space="preserve">
+          <source>You also get a consolidated view of all your notifications in the Chrome Notifications window.</source>
+          <target state="new">You also get a consolidated view of all your notifications in the Chrome Notifications window.</target>
+        </trans-unit>
+        <trans-unit id="02f305b5-e31b-4f12-a4c1-3aa4248eaefc" xml:space="preserve">
+          <source>This is not a generic in-browser push notification and is specific to Chrome Apps—see [Chrome Apps Overview] for details.</source>
+          <target state="new">This is not a generic in-browser push notification and is specific to Chrome Apps—see [Chrome Apps Overview] for details.</target>
+        </trans-unit>
+        <trans-unit id="f487f258-8a1f-4804-b9fc-ca5fd7472536" xml:space="preserve">
+          <source>Chrome Apps were previously known as "Packaged Apps" and are different from simpler "Hosted Apps".</source>
+          <target state="new">Chrome Apps were previously known as "Packaged Apps" and are different from simpler "Hosted Apps".</target>
+        </trans-unit>
+        <trans-unit id="98c40011-ba8b-4d9e-828b-21d2fa5d495c" xml:space="preserve">
+          <source>See [Installable Web Apps] for the difference.</source>
+          <target state="new">See [Installable Web Apps] for the difference.</target>
+        </trans-unit>
+        <trans-unit id="a9aa30f6-d332-4afe-9ebd-d1109cdd4345" xml:space="preserve">
+          <source>Chrome Apps can also run on mobile (Android and iOS) via Apache Cordova.</source>
+          <target state="new">Chrome Apps can also run on mobile (Android and iOS) via Apache Cordova.</target>
+        </trans-unit>
+        <trans-unit id="7741a867-8a66-4723-ba98-3f372aa60316" xml:space="preserve">
+          <source>See [Chrome Apps on Mobile] to learn more.</source>
+          <target state="new">See [Chrome Apps on Mobile] to learn more.</target>
+        </trans-unit>
+        <trans-unit id="988defd7-4609-4cd3-9feb-aba332e2a3ca" xml:space="preserve">
+          <source>In this tutorial, we will create a Chrome app that receives push notifications by using Google Cloud Messaging (GCM).</source>
+          <target state="new">In this tutorial, we will create a Chrome app that receives push notifications by using Google Cloud Messaging (GCM).</target>
+        </trans-unit>
+        <trans-unit id="63e5e825-64f2-428a-a739-c7cdb8551a89" xml:space="preserve">
+          <source>When you complete the tutorial, you will be able to broadcast push notifications to all the Chrome users who have installed this Chrome App.</source>
+          <target state="new">When you complete the tutorial, you will be able to broadcast push notifications to all the Chrome users who have installed this Chrome App.</target>
+        </trans-unit>
+        <trans-unit id="7354f158-9084-438d-b768-d7721a4fb34a" xml:space="preserve">
+          <source>The tutorial walks you through these basic steps to enable push notifications:</source>
+          <target state="new">The tutorial walks you through these basic steps to enable push notifications:</target>
+        </trans-unit>
+        <trans-unit id="69b27b17-54f7-4ef6-bbda-5eba600581a9" xml:space="preserve">
+          <source><bpt id="43861bbb-9f26-4184-9c14-91ebea371c78">&lt;linkText&gt;</bpt>Enable Google Cloud Messaging<ept id="43861bbb-9f26-4184-9c14-91ebea371c78">&lt;/linkText&gt;</ept><bpt id="43861bbb-9f26-4184-9c14-91ebea371c78">&lt;title&gt;</bpt><ept id="43861bbb-9f26-4184-9c14-91ebea371c78">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="43861bbb-9f26-4184-9c14-91ebea371c78">&lt;linkText&gt;</bpt>Enable Google Cloud Messaging<ept id="43861bbb-9f26-4184-9c14-91ebea371c78">&lt;/linkText&gt;</ept><bpt id="43861bbb-9f26-4184-9c14-91ebea371c78">&lt;title&gt;</bpt><ept id="43861bbb-9f26-4184-9c14-91ebea371c78">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac7d09a0-5ecc-4873-907b-60470737b879" xml:space="preserve">
+          <source><bpt id="18589358-082b-4b6a-ab5d-aaf04b00d1ee">&lt;linkText&gt;</bpt>Configure your notification hub<ept id="18589358-082b-4b6a-ab5d-aaf04b00d1ee">&lt;/linkText&gt;</ept><bpt id="18589358-082b-4b6a-ab5d-aaf04b00d1ee">&lt;title&gt;</bpt><ept id="18589358-082b-4b6a-ab5d-aaf04b00d1ee">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="18589358-082b-4b6a-ab5d-aaf04b00d1ee">&lt;linkText&gt;</bpt>Configure your notification hub<ept id="18589358-082b-4b6a-ab5d-aaf04b00d1ee">&lt;/linkText&gt;</ept><bpt id="18589358-082b-4b6a-ab5d-aaf04b00d1ee">&lt;title&gt;</bpt><ept id="18589358-082b-4b6a-ab5d-aaf04b00d1ee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d89be9d3-4e23-45b6-a8fc-d1434cb36d3a" xml:space="preserve">
+          <source><bpt id="299f9368-019f-4aaf-94ba-2227086985b6">&lt;linkText&gt;</bpt>Connect your Chrome App to the notification hub<ept id="299f9368-019f-4aaf-94ba-2227086985b6">&lt;/linkText&gt;</ept><bpt id="299f9368-019f-4aaf-94ba-2227086985b6">&lt;title&gt;</bpt><ept id="299f9368-019f-4aaf-94ba-2227086985b6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="299f9368-019f-4aaf-94ba-2227086985b6">&lt;linkText&gt;</bpt>Connect your Chrome App to the notification hub<ept id="299f9368-019f-4aaf-94ba-2227086985b6">&lt;/linkText&gt;</ept><bpt id="299f9368-019f-4aaf-94ba-2227086985b6">&lt;title&gt;</bpt><ept id="299f9368-019f-4aaf-94ba-2227086985b6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8de9e2ac-6f43-464b-8373-149c82d3214d" xml:space="preserve">
+          <source><bpt id="5f702137-5a92-455a-b19b-bec86e517585">&lt;linkText&gt;</bpt>Send a notification to your Chrome App<ept id="5f702137-5a92-455a-b19b-bec86e517585">&lt;/linkText&gt;</ept><bpt id="5f702137-5a92-455a-b19b-bec86e517585">&lt;title&gt;</bpt><ept id="5f702137-5a92-455a-b19b-bec86e517585">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5f702137-5a92-455a-b19b-bec86e517585">&lt;linkText&gt;</bpt>Send a notification to your Chrome App<ept id="5f702137-5a92-455a-b19b-bec86e517585">&lt;/linkText&gt;</ept><bpt id="5f702137-5a92-455a-b19b-bec86e517585">&lt;title&gt;</bpt><ept id="5f702137-5a92-455a-b19b-bec86e517585">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5872e12-4fb9-4722-85ba-bd09884dbb8f" xml:space="preserve">
+          <source><bpt id="b373cbba-e00e-4979-843d-fc3e4d77b33a">&lt;linkText&gt;</bpt>Next steps<ept id="b373cbba-e00e-4979-843d-fc3e4d77b33a">&lt;/linkText&gt;</ept><bpt id="b373cbba-e00e-4979-843d-fc3e4d77b33a">&lt;title&gt;</bpt><ept id="b373cbba-e00e-4979-843d-fc3e4d77b33a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b373cbba-e00e-4979-843d-fc3e4d77b33a">&lt;linkText&gt;</bpt>Next steps<ept id="b373cbba-e00e-4979-843d-fc3e4d77b33a">&lt;/linkText&gt;</ept><bpt id="b373cbba-e00e-4979-843d-fc3e4d77b33a">&lt;title&gt;</bpt><ept id="b373cbba-e00e-4979-843d-fc3e4d77b33a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96efa269-f0b3-45cc-bf98-f7d019c321f2" xml:space="preserve">
+          <source>This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.</source>
+          <target state="new">This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="3376d823-7413-497d-9163-b3b5978af793" xml:space="preserve">
+          <source>Configuring GCM and Azure Notification Hubs is identical to configuring for Android, since [Google Cloud Messaging for Chrome] has been deprecated and the same GCM now supports both Android devices and Chrome instances.</source>
+          <target state="new">Configuring GCM and Azure Notification Hubs is identical to configuring for Android, since [Google Cloud Messaging for Chrome] has been deprecated and the same GCM now supports both Android devices and Chrome instances.</target>
+        </trans-unit>
+        <trans-unit id="f343b1e5-d66d-4d01-bff1-6fd41d60ec16" xml:space="preserve">
+          <source>Be sure to follow along with the tutorials in the "Next steps" section to see how to use notification hubs to address specific users and groups of devices.</source>
+          <target state="new">Be sure to follow along with the tutorials in the "Next steps" section to see how to use notification hubs to address specific users and groups of devices.</target>
+        </trans-unit>
+        <trans-unit id="e1ebdb20-a41b-432d-a4ba-caa1a60839be" xml:space="preserve">
+          <source>To complete this tutorial, you must have an active Azure account.</source>
+          <target state="new">To complete this tutorial, you must have an active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="97b2fa9c-e6f6-41fb-a592-dea1fd8502af" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="88718a01-108a-45a6-b944-fbf69064baf2" xml:space="preserve">
+          <source>For details, see <bpt id="6bd1de66-f9eb-48fe-8932-b7a457d5ce0a">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="6bd1de66-f9eb-48fe-8932-b7a457d5ce0a">&lt;/linkText&gt;</ept><bpt id="6bd1de66-f9eb-48fe-8932-b7a457d5ce0a">&lt;title&gt;</bpt><ept id="6bd1de66-f9eb-48fe-8932-b7a457d5ce0a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="6bd1de66-f9eb-48fe-8932-b7a457d5ce0a">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="6bd1de66-f9eb-48fe-8932-b7a457d5ce0a">&lt;/linkText&gt;</ept><bpt id="6bd1de66-f9eb-48fe-8932-b7a457d5ce0a">&lt;title&gt;</bpt><ept id="6bd1de66-f9eb-48fe-8932-b7a457d5ce0a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="846fddab-0f48-43b6-913f-b9b5ca3ae18d" xml:space="preserve">
+          <source>Navigate to the [Google Cloud Console] website, sign in with your Google account credentials, and then click the <bpt id="98051f8f-1a7c-4393-a602-a9f8bbad8b7f">&lt;strong&gt;</bpt>Create Project<ept id="98051f8f-1a7c-4393-a602-a9f8bbad8b7f">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Navigate to the [Google Cloud Console] website, sign in with your Google account credentials, and then click the <bpt id="98051f8f-1a7c-4393-a602-a9f8bbad8b7f">&lt;strong&gt;</bpt>Create Project<ept id="98051f8f-1a7c-4393-a602-a9f8bbad8b7f">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="e2050c53-76cd-4328-b841-0ee85ee4ba47" xml:space="preserve">
+          <source>Provide an appropriate <bpt id="b54cde8b-b983-430d-a029-8946e47494ab">&lt;strong&gt;</bpt>Project Name<ept id="b54cde8b-b983-430d-a029-8946e47494ab">&lt;/strong&gt;</ept>, and then click the <bpt id="672cbc03-05dc-456e-9de8-4e47c93426d4">&lt;strong&gt;</bpt>Create<ept id="672cbc03-05dc-456e-9de8-4e47c93426d4">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Provide an appropriate <bpt id="b54cde8b-b983-430d-a029-8946e47494ab">&lt;strong&gt;</bpt>Project Name<ept id="b54cde8b-b983-430d-a029-8946e47494ab">&lt;/strong&gt;</ept>, and then click the <bpt id="672cbc03-05dc-456e-9de8-4e47c93426d4">&lt;strong&gt;</bpt>Create<ept id="672cbc03-05dc-456e-9de8-4e47c93426d4">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="477610bd-0b0c-4d73-9093-b7e0bf1db0ff" xml:space="preserve">
+          <source><bpt id="b67cce04-11a5-4a28-a22e-90c649bbd632">&lt;linkText&gt;</bpt><ept id="b67cce04-11a5-4a28-a22e-90c649bbd632">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b67cce04-11a5-4a28-a22e-90c649bbd632">&lt;linkText&gt;</bpt><ept id="b67cce04-11a5-4a28-a22e-90c649bbd632">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57e057f9-e5ad-44d8-af10-3b254b156d97" xml:space="preserve">
+          <source>Make a note of the <bpt id="acb6e1d1-a822-461f-8d7e-a30e0f7cd9a9">&lt;strong&gt;</bpt>Project Number<ept id="acb6e1d1-a822-461f-8d7e-a30e0f7cd9a9">&lt;/strong&gt;</ept> on the <bpt id="07f50923-cf28-4f56-9b03-2b5a7038b2dc">&lt;strong&gt;</bpt>Projects<ept id="07f50923-cf28-4f56-9b03-2b5a7038b2dc">&lt;/strong&gt;</ept> page for the project that you just created.</source>
+          <target state="new">Make a note of the <bpt id="acb6e1d1-a822-461f-8d7e-a30e0f7cd9a9">&lt;strong&gt;</bpt>Project Number<ept id="acb6e1d1-a822-461f-8d7e-a30e0f7cd9a9">&lt;/strong&gt;</ept> on the <bpt id="07f50923-cf28-4f56-9b03-2b5a7038b2dc">&lt;strong&gt;</bpt>Projects<ept id="07f50923-cf28-4f56-9b03-2b5a7038b2dc">&lt;/strong&gt;</ept> page for the project that you just created.</target>
+        </trans-unit>
+        <trans-unit id="24f6af9b-468f-4641-af8f-a650029db604" xml:space="preserve">
+          <source>You will use this as the <bpt id="977f9245-a009-42b7-9de9-f4484c21fd2d">&lt;strong&gt;</bpt>GCM Sender ID<ept id="977f9245-a009-42b7-9de9-f4484c21fd2d">&lt;/strong&gt;</ept> in the Chrome App to register with GCM.</source>
+          <target state="new">You will use this as the <bpt id="977f9245-a009-42b7-9de9-f4484c21fd2d">&lt;strong&gt;</bpt>GCM Sender ID<ept id="977f9245-a009-42b7-9de9-f4484c21fd2d">&lt;/strong&gt;</ept> in the Chrome App to register with GCM.</target>
+        </trans-unit>
+        <trans-unit id="d686d56a-a566-4f72-b20f-4fd40e048f7d" xml:space="preserve">
+          <source><bpt id="8dafb504-9392-4d5c-ae65-978ce0aa87cd">&lt;linkText&gt;</bpt><ept id="8dafb504-9392-4d5c-ae65-978ce0aa87cd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8dafb504-9392-4d5c-ae65-978ce0aa87cd">&lt;linkText&gt;</bpt><ept id="8dafb504-9392-4d5c-ae65-978ce0aa87cd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9387ca40-565d-409f-a6ad-075cb9535b19" xml:space="preserve">
+          <source>In the left pane, click <bpt id="b54c62a6-2e98-449d-a407-e23e0286dd08">&lt;strong&gt;</bpt>APIs &amp; auth<ept id="b54c62a6-2e98-449d-a407-e23e0286dd08">&lt;/strong&gt;</ept>, and then scroll down and click the toggle to enable <bpt id="0b1c4db2-9b9c-4dcb-a9c3-18f7228a85d5">&lt;strong&gt;</bpt>Google Cloud Messaging for Android<ept id="0b1c4db2-9b9c-4dcb-a9c3-18f7228a85d5">&lt;/strong&gt;</ept>. You don't have to enable <bpt id="3f27f428-504b-4186-a922-f72a9dc49c61">&lt;strong&gt;</bpt>Google Cloud Messaging for Chrome<ept id="3f27f428-504b-4186-a922-f72a9dc49c61">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, click <bpt id="b54c62a6-2e98-449d-a407-e23e0286dd08">&lt;strong&gt;</bpt>APIs &amp; auth<ept id="b54c62a6-2e98-449d-a407-e23e0286dd08">&lt;/strong&gt;</ept>, and then scroll down and click the toggle to enable <bpt id="0b1c4db2-9b9c-4dcb-a9c3-18f7228a85d5">&lt;strong&gt;</bpt>Google Cloud Messaging for Android<ept id="0b1c4db2-9b9c-4dcb-a9c3-18f7228a85d5">&lt;/strong&gt;</ept>. You don't have to enable <bpt id="3f27f428-504b-4186-a922-f72a9dc49c61">&lt;strong&gt;</bpt>Google Cloud Messaging for Chrome<ept id="3f27f428-504b-4186-a922-f72a9dc49c61">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8f564d2-a135-420b-9037-353d1507964e" xml:space="preserve">
+          <source><bpt id="743ae3be-e4e5-419a-9f37-7f1ba8e7c0b5">&lt;linkText&gt;</bpt><ept id="743ae3be-e4e5-419a-9f37-7f1ba8e7c0b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="743ae3be-e4e5-419a-9f37-7f1ba8e7c0b5">&lt;linkText&gt;</bpt><ept id="743ae3be-e4e5-419a-9f37-7f1ba8e7c0b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d7a42c0-ab0e-4485-aa3a-50028011ff8c" xml:space="preserve">
+          <source>In the left pane, click <bpt id="f187c34e-caf7-47ef-9c86-2b53d224bfbd">&lt;strong&gt;</bpt>Credentials<ept id="f187c34e-caf7-47ef-9c86-2b53d224bfbd">&lt;/strong&gt;</ept> &gt; <bpt id="6e59e429-c6f1-436a-8ab1-cd1c1a614383">&lt;strong&gt;</bpt>Create New Key<ept id="6e59e429-c6f1-436a-8ab1-cd1c1a614383">&lt;/strong&gt;</ept> &gt; <bpt id="b126c626-f4c4-4963-99d7-82c838970e1e">&lt;strong&gt;</bpt>Server Key<ept id="b126c626-f4c4-4963-99d7-82c838970e1e">&lt;/strong&gt;</ept> &gt; <bpt id="00c72836-8bfd-4dbc-a53a-b34074bbacdf">&lt;strong&gt;</bpt>Create<ept id="00c72836-8bfd-4dbc-a53a-b34074bbacdf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, click <bpt id="f187c34e-caf7-47ef-9c86-2b53d224bfbd">&lt;strong&gt;</bpt>Credentials<ept id="f187c34e-caf7-47ef-9c86-2b53d224bfbd">&lt;/strong&gt;</ept> &gt; <bpt id="6e59e429-c6f1-436a-8ab1-cd1c1a614383">&lt;strong&gt;</bpt>Create New Key<ept id="6e59e429-c6f1-436a-8ab1-cd1c1a614383">&lt;/strong&gt;</ept> &gt; <bpt id="b126c626-f4c4-4963-99d7-82c838970e1e">&lt;strong&gt;</bpt>Server Key<ept id="b126c626-f4c4-4963-99d7-82c838970e1e">&lt;/strong&gt;</ept> &gt; <bpt id="00c72836-8bfd-4dbc-a53a-b34074bbacdf">&lt;strong&gt;</bpt>Create<ept id="00c72836-8bfd-4dbc-a53a-b34074bbacdf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0744196-99cb-46df-b43e-1f379aafc832" xml:space="preserve">
+          <source><bpt id="39ee9a2f-7191-4499-9774-a9f0f19b64af">&lt;linkText&gt;</bpt><ept id="39ee9a2f-7191-4499-9774-a9f0f19b64af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="39ee9a2f-7191-4499-9774-a9f0f19b64af">&lt;linkText&gt;</bpt><ept id="39ee9a2f-7191-4499-9774-a9f0f19b64af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e22cf825-eb27-4862-8da6-4745d3ee94d9" xml:space="preserve">
+          <source>Make a note of the server <bpt id="19c40300-41ac-4e08-b8b7-80400c126922">&lt;strong&gt;</bpt>API Key<ept id="19c40300-41ac-4e08-b8b7-80400c126922">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Make a note of the server <bpt id="19c40300-41ac-4e08-b8b7-80400c126922">&lt;strong&gt;</bpt>API Key<ept id="19c40300-41ac-4e08-b8b7-80400c126922">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d774e05f-d9b2-4626-a127-c04e0cc3fe94" xml:space="preserve">
+          <source>You will configure this in your notification hub next, to enable it to send push notifications to GCM.</source>
+          <target state="new">You will configure this in your notification hub next, to enable it to send push notifications to GCM.</target>
+        </trans-unit>
+        <trans-unit id="1b2a41a9-a962-486e-8c94-22f470e00e76" xml:space="preserve">
+          <source><bpt id="d82db84f-f2d1-4ed5-9555-f589bf480588">&lt;linkText&gt;</bpt><ept id="d82db84f-f2d1-4ed5-9555-f589bf480588">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d82db84f-f2d1-4ed5-9555-f589bf480588">&lt;linkText&gt;</bpt><ept id="d82db84f-f2d1-4ed5-9555-f589bf480588">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2af981e9-fce6-49c7-8a4e-c28f94e78815" xml:space="preserve">
+          <source>Sign in to the [Azure portal], and then click <bpt id="5127e954-960c-4937-ae38-4690b0020a58">&lt;strong&gt;</bpt>+ NEW<ept id="5127e954-960c-4937-ae38-4690b0020a58">&lt;/strong&gt;</ept> at the bottom left of the screen.</source>
+          <target state="new">Sign in to the [Azure portal], and then click <bpt id="5127e954-960c-4937-ae38-4690b0020a58">&lt;strong&gt;</bpt>+ NEW<ept id="5127e954-960c-4937-ae38-4690b0020a58">&lt;/strong&gt;</ept> at the bottom left of the screen.</target>
+        </trans-unit>
+        <trans-unit id="6eb4c580-f841-43d8-915b-15d4f9033365" xml:space="preserve">
+          <source>Click <bpt id="12885643-e9d3-4b57-ace7-cfa072f13348">&lt;strong&gt;</bpt>App Services<ept id="12885643-e9d3-4b57-ace7-cfa072f13348">&lt;/strong&gt;</ept> &gt; <bpt id="257ae6d9-7826-41f9-9b0c-0086d1440e4c">&lt;strong&gt;</bpt>Service Bus<ept id="257ae6d9-7826-41f9-9b0c-0086d1440e4c">&lt;/strong&gt;</ept> &gt; <bpt id="9c1fe280-bb4e-43ec-a5e5-8fd6336dc594">&lt;strong&gt;</bpt>Notification Hub<ept id="9c1fe280-bb4e-43ec-a5e5-8fd6336dc594">&lt;/strong&gt;</ept> &gt; <bpt id="46221948-ef72-4c2a-8a0d-11567d15de59">&lt;strong&gt;</bpt>Quick Create<ept id="46221948-ef72-4c2a-8a0d-11567d15de59">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="12885643-e9d3-4b57-ace7-cfa072f13348">&lt;strong&gt;</bpt>App Services<ept id="12885643-e9d3-4b57-ace7-cfa072f13348">&lt;/strong&gt;</ept> &gt; <bpt id="257ae6d9-7826-41f9-9b0c-0086d1440e4c">&lt;strong&gt;</bpt>Service Bus<ept id="257ae6d9-7826-41f9-9b0c-0086d1440e4c">&lt;/strong&gt;</ept> &gt; <bpt id="9c1fe280-bb4e-43ec-a5e5-8fd6336dc594">&lt;strong&gt;</bpt>Notification Hub<ept id="9c1fe280-bb4e-43ec-a5e5-8fd6336dc594">&lt;/strong&gt;</ept> &gt; <bpt id="46221948-ef72-4c2a-8a0d-11567d15de59">&lt;strong&gt;</bpt>Quick Create<ept id="46221948-ef72-4c2a-8a0d-11567d15de59">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="095e5015-d12c-415e-8198-7d1e40dc992a" xml:space="preserve">
+          <source>Type a name for your notification hub, select your desired region, and then click <bpt id="17bed6d5-a97c-4a5b-afc0-ce94e4c3b48e">&lt;strong&gt;</bpt>Create a new Notification Hub<ept id="17bed6d5-a97c-4a5b-afc0-ce94e4c3b48e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type a name for your notification hub, select your desired region, and then click <bpt id="17bed6d5-a97c-4a5b-afc0-ce94e4c3b48e">&lt;strong&gt;</bpt>Create a new Notification Hub<ept id="17bed6d5-a97c-4a5b-afc0-ce94e4c3b48e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93f04a9f-28c7-44c3-b965-b692b8edd43d" xml:space="preserve">
+          <source><bpt id="a9634e31-229f-44c8-8ba5-3ce787202695">&lt;linkText&gt;</bpt><ept id="a9634e31-229f-44c8-8ba5-3ce787202695">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a9634e31-229f-44c8-8ba5-3ce787202695">&lt;linkText&gt;</bpt><ept id="a9634e31-229f-44c8-8ba5-3ce787202695">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="287870b2-79a4-40fb-a37f-dc8bf293c9d2" xml:space="preserve">
+          <source>Go to the notification hub that you just created.</source>
+          <target state="new">Go to the notification hub that you just created.</target>
+        </trans-unit>
+        <trans-unit id="ef3dcb55-1be3-4c74-9280-9f58f4ae6afb" xml:space="preserve">
+          <source>Click the namespace that houses your notification hub (usually <bpt id="caf355e8-7119-4f2d-9bc7-6f18ad9894ac">&lt;strong&gt;</bpt>*notification hub name*-ns<ept id="caf355e8-7119-4f2d-9bc7-6f18ad9894ac">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Click the namespace that houses your notification hub (usually <bpt id="caf355e8-7119-4f2d-9bc7-6f18ad9894ac">&lt;strong&gt;</bpt>*notification hub name*-ns<ept id="caf355e8-7119-4f2d-9bc7-6f18ad9894ac">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="ebeb4d1c-38ac-4b17-bed7-d6f9fab4a2ad" xml:space="preserve">
+          <source><bpt id="443f01bb-21ce-4515-ab1d-6212840ba67d">&lt;linkText&gt;</bpt><ept id="443f01bb-21ce-4515-ab1d-6212840ba67d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="443f01bb-21ce-4515-ab1d-6212840ba67d">&lt;linkText&gt;</bpt><ept id="443f01bb-21ce-4515-ab1d-6212840ba67d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8cff332-69a4-400c-a84f-35d85a767317" xml:space="preserve">
+          <source>Click the <bpt id="531bd12e-ff14-4be2-a3d4-1bd2dc823409">&lt;strong&gt;</bpt>Notification Hubs<ept id="531bd12e-ff14-4be2-a3d4-1bd2dc823409">&lt;/strong&gt;</ept> tab at the top.</source>
+          <target state="new">Click the <bpt id="531bd12e-ff14-4be2-a3d4-1bd2dc823409">&lt;strong&gt;</bpt>Notification Hubs<ept id="531bd12e-ff14-4be2-a3d4-1bd2dc823409">&lt;/strong&gt;</ept> tab at the top.</target>
+        </trans-unit>
+        <trans-unit id="5bc86370-546b-416f-a8bd-ce838a8b0cdd" xml:space="preserve">
+          <source><bpt id="c0ad9842-6a09-4b82-b8b7-7fe58f84e360">&lt;linkText&gt;</bpt><ept id="c0ad9842-6a09-4b82-b8b7-7fe58f84e360">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c0ad9842-6a09-4b82-b8b7-7fe58f84e360">&lt;linkText&gt;</bpt><ept id="c0ad9842-6a09-4b82-b8b7-7fe58f84e360">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d350b59f-dea0-4a0c-8f7f-02711ca70f2f" xml:space="preserve">
+          <source>Click the <bpt id="713755ff-dc60-4928-b7ad-9771675f78ec">&lt;strong&gt;</bpt>Configure<ept id="713755ff-dc60-4928-b7ad-9771675f78ec">&lt;/strong&gt;</ept> tab at the top.</source>
+          <target state="new">Click the <bpt id="713755ff-dc60-4928-b7ad-9771675f78ec">&lt;strong&gt;</bpt>Configure<ept id="713755ff-dc60-4928-b7ad-9771675f78ec">&lt;/strong&gt;</ept> tab at the top.</target>
+        </trans-unit>
+        <trans-unit id="fa771e5c-8049-490f-8665-0562ff7027d4" xml:space="preserve">
+          <source><bpt id="bc6de4f5-1bd3-40f6-aeb4-dad6650c0b11">&lt;linkText&gt;</bpt><ept id="bc6de4f5-1bd3-40f6-aeb4-dad6650c0b11">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bc6de4f5-1bd3-40f6-aeb4-dad6650c0b11">&lt;linkText&gt;</bpt><ept id="bc6de4f5-1bd3-40f6-aeb4-dad6650c0b11">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e540d1d4-4faa-4ca2-91d2-eb0bced0847f" xml:space="preserve">
+          <source>On the <bpt id="e5d8853e-a99f-4334-a2ba-b7bd907dfaae">&lt;strong&gt;</bpt>Configure<ept id="e5d8853e-a99f-4334-a2ba-b7bd907dfaae">&lt;/strong&gt;</ept> tab, scroll down to the <bpt id="a20f9c06-9065-49db-a737-bf224a594b67">&lt;strong&gt;</bpt>google cloud messaging settings<ept id="a20f9c06-9065-49db-a737-bf224a594b67">&lt;/strong&gt;</ept>, enter the <bpt id="c4ba9f6c-e90a-4c4a-819a-c262075aa290">&lt;strong&gt;</bpt>API Key<ept id="c4ba9f6c-e90a-4c4a-819a-c262075aa290">&lt;/strong&gt;</ept> value that you obtained in the previous section, and then click <bpt id="1cebc5b7-bf16-4296-8450-6cd09453176a">&lt;strong&gt;</bpt>Save<ept id="1cebc5b7-bf16-4296-8450-6cd09453176a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e5d8853e-a99f-4334-a2ba-b7bd907dfaae">&lt;strong&gt;</bpt>Configure<ept id="e5d8853e-a99f-4334-a2ba-b7bd907dfaae">&lt;/strong&gt;</ept> tab, scroll down to the <bpt id="a20f9c06-9065-49db-a737-bf224a594b67">&lt;strong&gt;</bpt>google cloud messaging settings<ept id="a20f9c06-9065-49db-a737-bf224a594b67">&lt;/strong&gt;</ept>, enter the <bpt id="c4ba9f6c-e90a-4c4a-819a-c262075aa290">&lt;strong&gt;</bpt>API Key<ept id="c4ba9f6c-e90a-4c4a-819a-c262075aa290">&lt;/strong&gt;</ept> value that you obtained in the previous section, and then click <bpt id="1cebc5b7-bf16-4296-8450-6cd09453176a">&lt;strong&gt;</bpt>Save<ept id="1cebc5b7-bf16-4296-8450-6cd09453176a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b728f2eb-dac0-4446-97ed-f0db6023b50e" xml:space="preserve">
+          <source><bpt id="48744879-eeaf-405b-80f7-6f3f6c8a1eb3">&lt;linkText&gt;</bpt><ept id="48744879-eeaf-405b-80f7-6f3f6c8a1eb3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48744879-eeaf-405b-80f7-6f3f6c8a1eb3">&lt;linkText&gt;</bpt><ept id="48744879-eeaf-405b-80f7-6f3f6c8a1eb3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="228dd161-4bc4-4e48-b92e-b6b9da2b81d9" xml:space="preserve">
+          <source>Select the <bpt id="6edf12a9-0ccb-4501-b9c8-4cdd334217dd">&lt;strong&gt;</bpt>Dashboard<ept id="6edf12a9-0ccb-4501-b9c8-4cdd334217dd">&lt;/strong&gt;</ept> tab at the top, and then click <bpt id="c355c438-3a30-482c-9f51-fd9f59745af6">&lt;strong&gt;</bpt>Connection Information<ept id="c355c438-3a30-482c-9f51-fd9f59745af6">&lt;/strong&gt;</ept> at the bottom.</source>
+          <target state="new">Select the <bpt id="6edf12a9-0ccb-4501-b9c8-4cdd334217dd">&lt;strong&gt;</bpt>Dashboard<ept id="6edf12a9-0ccb-4501-b9c8-4cdd334217dd">&lt;/strong&gt;</ept> tab at the top, and then click <bpt id="c355c438-3a30-482c-9f51-fd9f59745af6">&lt;strong&gt;</bpt>Connection Information<ept id="c355c438-3a30-482c-9f51-fd9f59745af6">&lt;/strong&gt;</ept> at the bottom.</target>
+        </trans-unit>
+        <trans-unit id="92254a9e-616d-4f28-8656-05766e3bc49a" xml:space="preserve">
+          <source><bpt id="b025272d-0a17-428b-90a4-5775561e7706">&lt;linkText&gt;</bpt><ept id="b025272d-0a17-428b-90a4-5775561e7706">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b025272d-0a17-428b-90a4-5775561e7706">&lt;linkText&gt;</bpt><ept id="b025272d-0a17-428b-90a4-5775561e7706">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="345fe03f-c232-440c-9e31-d9295f27c908" xml:space="preserve">
+          <source>Take note of <bpt id="244a0e64-048d-49dd-b175-54455b305477">&lt;strong&gt;</bpt>DefaultListenSharedAccessSignature<ept id="244a0e64-048d-49dd-b175-54455b305477">&lt;/strong&gt;</ept> (which you will need on the Chrome App to register with the notification hub) and <bpt id="dad6a9c9-5801-47fc-bda7-c09b2a7fc53e">&lt;strong&gt;</bpt>DefaultFullSharedAccessSignature<ept id="dad6a9c9-5801-47fc-bda7-c09b2a7fc53e">&lt;/strong&gt;</ept> (which you will need to send notifications).</source>
+          <target state="new">Take note of <bpt id="244a0e64-048d-49dd-b175-54455b305477">&lt;strong&gt;</bpt>DefaultListenSharedAccessSignature<ept id="244a0e64-048d-49dd-b175-54455b305477">&lt;/strong&gt;</ept> (which you will need on the Chrome App to register with the notification hub) and <bpt id="dad6a9c9-5801-47fc-bda7-c09b2a7fc53e">&lt;strong&gt;</bpt>DefaultFullSharedAccessSignature<ept id="dad6a9c9-5801-47fc-bda7-c09b2a7fc53e">&lt;/strong&gt;</ept> (which you will need to send notifications).</target>
+        </trans-unit>
+        <trans-unit id="c51d32a2-2c57-487c-8601-ccd8bc6cce9c" xml:space="preserve">
+          <source><bpt id="965ccdba-56d9-4aae-8785-7bd21ee9be71">&lt;linkText&gt;</bpt><ept id="965ccdba-56d9-4aae-8785-7bd21ee9be71">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="965ccdba-56d9-4aae-8785-7bd21ee9be71">&lt;linkText&gt;</bpt><ept id="965ccdba-56d9-4aae-8785-7bd21ee9be71">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e309f6ca-16e0-4619-9ccf-429912b71244" xml:space="preserve">
+          <source>Your notification hub is now configured to work with GCM, and you have the required connection strings for further configuration.</source>
+          <target state="new">Your notification hub is now configured to work with GCM, and you have the required connection strings for further configuration.</target>
+        </trans-unit>
+        <trans-unit id="0763f960-86b2-445c-8ad6-01d0e8f9781a" xml:space="preserve">
+          <source>The sample below is based on [Chrome App GCM Sample] and uses the recommended way to create a Chrome App.</source>
+          <target state="new">The sample below is based on [Chrome App GCM Sample] and uses the recommended way to create a Chrome App.</target>
+        </trans-unit>
+        <trans-unit id="f505cb92-49a2-476b-8807-a95597238028" xml:space="preserve">
+          <source>In the sections below, we will highlight the steps related to Azure Notification Hubs.</source>
+          <target state="new">In the sections below, we will highlight the steps related to Azure Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="a4213284-cef2-4b4a-af70-b83040168cd6" xml:space="preserve">
+          <source>We recommend that you download the source for this Chrome App from [Chrome App Notification Hub Sample].</source>
+          <target state="new">We recommend that you download the source for this Chrome App from [Chrome App Notification Hub Sample].</target>
+        </trans-unit>
+        <trans-unit id="e7af9594-ef7e-4980-bb6e-f28286870990" xml:space="preserve">
+          <source>The Chrome App is created via JavaScript, and you can use any of your preferred word editors for creating it.</source>
+          <target state="new">The Chrome App is created via JavaScript, and you can use any of your preferred word editors for creating it.</target>
+        </trans-unit>
+        <trans-unit id="15d8383a-d704-4e44-b3e5-12d1b450ef69" xml:space="preserve">
+          <source>Below is what this Chrome App will look like.</source>
+          <target state="new">Below is what this Chrome App will look like.</target>
+        </trans-unit>
+        <trans-unit id="28dd963b-2fe4-42cb-9225-221ccd10b7b6" xml:space="preserve">
+          <source>Create a folder and name it <bpt id="c2375e67-6a04-475d-829e-b367e9c71312">&lt;strong&gt;</bpt>ChromePushApp<ept id="c2375e67-6a04-475d-829e-b367e9c71312">&lt;/strong&gt;</ept> or anything that you want.</source>
+          <target state="new">Create a folder and name it <bpt id="c2375e67-6a04-475d-829e-b367e9c71312">&lt;strong&gt;</bpt>ChromePushApp<ept id="c2375e67-6a04-475d-829e-b367e9c71312">&lt;/strong&gt;</ept> or anything that you want.</target>
+        </trans-unit>
+        <trans-unit id="9eee491e-35a5-440c-9aa7-abc0d8093048" xml:space="preserve">
+          <source>Download <bpt id="2ef4f11c-b920-4753-8ac3-ac658f217d85">&lt;strong&gt;</bpt>cryto-js library<ept id="2ef4f11c-b920-4753-8ac3-ac658f217d85">&lt;/strong&gt;</ept> from [crypto-js library] in this folder.</source>
+          <target state="new">Download <bpt id="2ef4f11c-b920-4753-8ac3-ac658f217d85">&lt;strong&gt;</bpt>cryto-js library<ept id="2ef4f11c-b920-4753-8ac3-ac658f217d85">&lt;/strong&gt;</ept> from [crypto-js library] in this folder.</target>
+        </trans-unit>
+        <trans-unit id="3990f1fa-60b9-4b52-a8e7-8755365facc2" xml:space="preserve">
+          <source>This library folder will contain two subfolders: <bpt id="f5c584c3-8698-4c7e-bc8f-ccb988a932f5">&lt;strong&gt;</bpt>components<ept id="f5c584c3-8698-4c7e-bc8f-ccb988a932f5">&lt;/strong&gt;</ept> and <bpt id="4a5e5878-f23b-4acb-a845-218cf800415e">&lt;strong&gt;</bpt>rollups<ept id="4a5e5878-f23b-4acb-a845-218cf800415e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This library folder will contain two subfolders: <bpt id="f5c584c3-8698-4c7e-bc8f-ccb988a932f5">&lt;strong&gt;</bpt>components<ept id="f5c584c3-8698-4c7e-bc8f-ccb988a932f5">&lt;/strong&gt;</ept> and <bpt id="4a5e5878-f23b-4acb-a845-218cf800415e">&lt;strong&gt;</bpt>rollups<ept id="4a5e5878-f23b-4acb-a845-218cf800415e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5c9140f-19ae-43ea-84f5-9bebf3722eae" xml:space="preserve">
+          <source>Create a <bpt id="587fb968-d83b-4afe-b97c-3e484cf50ede">&lt;strong&gt;</bpt>manifest.json<ept id="587fb968-d83b-4afe-b97c-3e484cf50ede">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Create a <bpt id="587fb968-d83b-4afe-b97c-3e484cf50ede">&lt;strong&gt;</bpt>manifest.json<ept id="587fb968-d83b-4afe-b97c-3e484cf50ede">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="f5b1267f-c6f4-46e5-bfca-2be74a6a26ee" xml:space="preserve">
+          <source>All Chrome Apps are backed by a manifest file that describes the app metadata and, in particular, the permissions that are available to the app.</source>
+          <target state="new">All Chrome Apps are backed by a manifest file that describes the app metadata and, in particular, the permissions that are available to the app.</target>
+        </trans-unit>
+        <trans-unit id="1babe4ff-2270-41d2-85db-227354f6b3a7" xml:space="preserve">
+          <source>Note the <bpt id="ba6be809-1a8d-4295-b61d-94e4d8155e3a">&lt;strong&gt;</bpt>permissions<ept id="ba6be809-1a8d-4295-b61d-94e4d8155e3a">&lt;/strong&gt;</ept> element, which specifies that this Chrome App be able to receive push notifications from GCM.</source>
+          <target state="new">Note the <bpt id="ba6be809-1a8d-4295-b61d-94e4d8155e3a">&lt;strong&gt;</bpt>permissions<ept id="ba6be809-1a8d-4295-b61d-94e4d8155e3a">&lt;/strong&gt;</ept> element, which specifies that this Chrome App be able to receive push notifications from GCM.</target>
+        </trans-unit>
+        <trans-unit id="e61027db-8f34-4d32-913d-6db98053dd09" xml:space="preserve">
+          <source>It must also specify the Azure Notification Hubs URI where the Chrome App will make a REST call to register.</source>
+          <target state="new">It must also specify the Azure Notification Hubs URI where the Chrome App will make a REST call to register.</target>
+        </trans-unit>
+        <trans-unit id="70bfd3ad-0864-4651-8182-c6ad7e7c7e64" xml:space="preserve">
+          <source>This uses an icon file, gcm_128.png, that you will find at the source that's reused from the original GCM sample.</source>
+          <target state="new">This uses an icon file, gcm_128.png, that you will find at the source that's reused from the original GCM sample.</target>
+        </trans-unit>
+        <trans-unit id="055035b6-d205-43b1-90e7-9b3d4b760190" xml:space="preserve">
+          <source>You can use any image that you want.</source>
+          <target state="new">You can use any image that you want.</target>
+        </trans-unit>
+        <trans-unit id="58628805-1800-4e04-995d-11086e1d6a59" xml:space="preserve">
+          <source>Create a file called <bpt id="abccb908-6308-4804-ad84-653f977cdb6d">&lt;strong&gt;</bpt>background.js<ept id="abccb908-6308-4804-ad84-653f977cdb6d">&lt;/strong&gt;</ept> with the following code:</source>
+          <target state="new">Create a file called <bpt id="abccb908-6308-4804-ad84-653f977cdb6d">&lt;strong&gt;</bpt>background.js<ept id="abccb908-6308-4804-ad84-653f977cdb6d">&lt;/strong&gt;</ept> with the following code:</target>
+        </trans-unit>
+        <trans-unit id="a91b2196-42ea-4687-bbda-1deade80fea1" xml:space="preserve">
+          <source>This is the file that pops up the Chrome App window HTML (<bpt id="090d83a5-7485-4454-988d-4a334d9506ea">&lt;strong&gt;</bpt>register.html<ept id="090d83a5-7485-4454-988d-4a334d9506ea">&lt;/strong&gt;</ept>) and also defines the handler <bpt id="c6bad694-08e1-4c79-955d-d7e1fc2316ba">&lt;strong&gt;</bpt>messageReceived<ept id="c6bad694-08e1-4c79-955d-d7e1fc2316ba">&lt;/strong&gt;</ept> to handle the incoming push notification.</source>
+          <target state="new">This is the file that pops up the Chrome App window HTML (<bpt id="090d83a5-7485-4454-988d-4a334d9506ea">&lt;strong&gt;</bpt>register.html<ept id="090d83a5-7485-4454-988d-4a334d9506ea">&lt;/strong&gt;</ept>) and also defines the handler <bpt id="c6bad694-08e1-4c79-955d-d7e1fc2316ba">&lt;strong&gt;</bpt>messageReceived<ept id="c6bad694-08e1-4c79-955d-d7e1fc2316ba">&lt;/strong&gt;</ept> to handle the incoming push notification.</target>
+        </trans-unit>
+        <trans-unit id="5a749f6c-e13d-48bc-9542-1fa8e8eaf77c" xml:space="preserve">
+          <source>Create a file called <bpt id="5368393b-1b9b-4dec-81d6-191799117d29">&lt;strong&gt;</bpt>register.html<ept id="5368393b-1b9b-4dec-81d6-191799117d29">&lt;/strong&gt;</ept> that defines the UI of the Chrome App.</source>
+          <target state="new">Create a file called <bpt id="5368393b-1b9b-4dec-81d6-191799117d29">&lt;strong&gt;</bpt>register.html<ept id="5368393b-1b9b-4dec-81d6-191799117d29">&lt;/strong&gt;</ept> that defines the UI of the Chrome App.</target>
+        </trans-unit>
+        <trans-unit id="f571f982-393e-49dd-b15c-a08ecf0ae17c" xml:space="preserve">
+          <source>Note that this sample uses <bpt id="1fb5c2e7-9de5-4e8b-9e64-5653addf187f">&lt;em&gt;</bpt>CryptoJS v3.1.2<ept id="1fb5c2e7-9de5-4e8b-9e64-5653addf187f">&lt;/em&gt;</ept>.</source>
+          <target state="new">Note that this sample uses <bpt id="1fb5c2e7-9de5-4e8b-9e64-5653addf187f">&lt;em&gt;</bpt>CryptoJS v3.1.2<ept id="1fb5c2e7-9de5-4e8b-9e64-5653addf187f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0fc10aaa-e503-4781-94c7-6522532ea35c" xml:space="preserve">
+          <source>If you downloaded any other version, then fix the script src path.</source>
+          <target state="new">If you downloaded any other version, then fix the script src path.</target>
+        </trans-unit>
+        <trans-unit id="68a4f5ce-741e-4887-bb4c-1eef21be9876" xml:space="preserve">
+          <source>Create a file called <bpt id="fec973f2-4a49-4adb-b209-4debb282ec45">&lt;strong&gt;</bpt>register.js<ept id="fec973f2-4a49-4adb-b209-4debb282ec45">&lt;/strong&gt;</ept> with the code below.</source>
+          <target state="new">Create a file called <bpt id="fec973f2-4a49-4adb-b209-4debb282ec45">&lt;strong&gt;</bpt>register.js<ept id="fec973f2-4a49-4adb-b209-4debb282ec45">&lt;/strong&gt;</ept> with the code below.</target>
+        </trans-unit>
+        <trans-unit id="df995f5d-3b80-43d9-81bc-db4ded1b2b19" xml:space="preserve">
+          <source>This file specifies the script behind <bpt id="689e7f1a-5e2e-46d1-98b5-471dd7a85296">&lt;strong&gt;</bpt>register.html<ept id="689e7f1a-5e2e-46d1-98b5-471dd7a85296">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This file specifies the script behind <bpt id="689e7f1a-5e2e-46d1-98b5-471dd7a85296">&lt;strong&gt;</bpt>register.html<ept id="689e7f1a-5e2e-46d1-98b5-471dd7a85296">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4de7bbe2-cbae-43af-9582-b82417cdd987" xml:space="preserve">
+          <source>Chrome Apps do not allow inline execution, so you have to create a separate backing script for your UI.</source>
+          <target state="new">Chrome Apps do not allow inline execution, so you have to create a separate backing script for your UI.</target>
+        </trans-unit>
+        <trans-unit id="eff2cae6-cc56-433e-81ed-f1c9fe0e9cbd" xml:space="preserve">
+          <source>The above script has the following takeaways:</source>
+          <target state="new">The above script has the following takeaways:</target>
+        </trans-unit>
+        <trans-unit id="ff840090-fca6-43f8-8cd3-8c8c5d64a919" xml:space="preserve">
+          <source><bpt id="16cb0d4f-a64a-4778-93f1-47b882818cf7">&lt;em&gt;</bpt>window.onload<ept id="16cb0d4f-a64a-4778-93f1-47b882818cf7">&lt;/em&gt;</ept> defines the button-click events of the two buttons on the UI.</source>
+          <target state="new"><bpt id="16cb0d4f-a64a-4778-93f1-47b882818cf7">&lt;em&gt;</bpt>window.onload<ept id="16cb0d4f-a64a-4778-93f1-47b882818cf7">&lt;/em&gt;</ept> defines the button-click events of the two buttons on the UI.</target>
+        </trans-unit>
+        <trans-unit id="15b6422e-ffac-4705-aacc-107eaf01818e" xml:space="preserve">
+          <source>One registers with GCM, and the other uses the registration ID that's returned after registration with GCM to register with Azure Notification Hubs.</source>
+          <target state="new">One registers with GCM, and the other uses the registration ID that's returned after registration with GCM to register with Azure Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="ce45593a-0198-40f0-832f-f09e4399c2df" xml:space="preserve">
+          <source><bpt id="a1ba38ff-2838-4040-a084-55dbb9f556d0">&lt;em&gt;</bpt>updateLog<ept id="a1ba38ff-2838-4040-a084-55dbb9f556d0">&lt;/em&gt;</ept> is the function that defines a simple logging function.</source>
+          <target state="new"><bpt id="a1ba38ff-2838-4040-a084-55dbb9f556d0">&lt;em&gt;</bpt>updateLog<ept id="a1ba38ff-2838-4040-a084-55dbb9f556d0">&lt;/em&gt;</ept> is the function that defines a simple logging function.</target>
+        </trans-unit>
+        <trans-unit id="b1b4caad-e1aa-4864-a06e-ef5438b137a3" xml:space="preserve">
+          <source><bpt id="0a843f96-7ca4-4be5-99b0-79bccfa3d070">&lt;em&gt;</bpt>registerWithGCM<ept id="0a843f96-7ca4-4be5-99b0-79bccfa3d070">&lt;/em&gt;</ept> is the first button-click handler, which makes the <bpt id="f5ed4e2f-f574-47df-8018-a13da2617da7">&lt;strong&gt;</bpt>chrome.gcm.register<ept id="f5ed4e2f-f574-47df-8018-a13da2617da7">&lt;/strong&gt;</ept> call to GCM to register this Chrome App instance.</source>
+          <target state="new"><bpt id="0a843f96-7ca4-4be5-99b0-79bccfa3d070">&lt;em&gt;</bpt>registerWithGCM<ept id="0a843f96-7ca4-4be5-99b0-79bccfa3d070">&lt;/em&gt;</ept> is the first button-click handler, which makes the <bpt id="f5ed4e2f-f574-47df-8018-a13da2617da7">&lt;strong&gt;</bpt>chrome.gcm.register<ept id="f5ed4e2f-f574-47df-8018-a13da2617da7">&lt;/strong&gt;</ept> call to GCM to register this Chrome App instance.</target>
+        </trans-unit>
+        <trans-unit id="4bbe0e17-5612-4f43-a2fc-0b9985db66d5" xml:space="preserve">
+          <source><bpt id="a3e4bc6f-015c-4dcd-ad70-b8d23c441d68">&lt;em&gt;</bpt>registerCallback<ept id="a3e4bc6f-015c-4dcd-ad70-b8d23c441d68">&lt;/em&gt;</ept> is the callback function that gets called when the above GCM registration call returns.</source>
+          <target state="new"><bpt id="a3e4bc6f-015c-4dcd-ad70-b8d23c441d68">&lt;em&gt;</bpt>registerCallback<ept id="a3e4bc6f-015c-4dcd-ad70-b8d23c441d68">&lt;/em&gt;</ept> is the callback function that gets called when the above GCM registration call returns.</target>
+        </trans-unit>
+        <trans-unit id="f722dc37-7f87-4d83-9f46-54f657e42676" xml:space="preserve">
+          <source><bpt id="ac663034-e3d4-4425-af8f-43694dad4271">&lt;em&gt;</bpt>registerWithNH<ept id="ac663034-e3d4-4425-af8f-43694dad4271">&lt;/em&gt;</ept> is the second button-click handler, which registers with Notification Hubs.</source>
+          <target state="new"><bpt id="ac663034-e3d4-4425-af8f-43694dad4271">&lt;em&gt;</bpt>registerWithNH<ept id="ac663034-e3d4-4425-af8f-43694dad4271">&lt;/em&gt;</ept> is the second button-click handler, which registers with Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="d981fdaf-5624-4940-be98-715a6a4125b9" xml:space="preserve">
+          <source>It gets <bpt id="2c0d882f-7ec0-412e-92a4-a3c8f949d559">&lt;strong&gt;</bpt>hubName<ept id="2c0d882f-7ec0-412e-92a4-a3c8f949d559">&lt;/strong&gt;</ept> and <bpt id="bacbfbaf-4b6e-4b50-bd2a-520c0d0ede1a">&lt;strong&gt;</bpt>connectionString<ept id="bacbfbaf-4b6e-4b50-bd2a-520c0d0ede1a">&lt;/strong&gt;</ept> (which the user has specified) and crafts the Notification Hubs Registration REST API call.</source>
+          <target state="new">It gets <bpt id="2c0d882f-7ec0-412e-92a4-a3c8f949d559">&lt;strong&gt;</bpt>hubName<ept id="2c0d882f-7ec0-412e-92a4-a3c8f949d559">&lt;/strong&gt;</ept> and <bpt id="bacbfbaf-4b6e-4b50-bd2a-520c0d0ede1a">&lt;strong&gt;</bpt>connectionString<ept id="bacbfbaf-4b6e-4b50-bd2a-520c0d0ede1a">&lt;/strong&gt;</ept> (which the user has specified) and crafts the Notification Hubs Registration REST API call.</target>
+        </trans-unit>
+        <trans-unit id="b5c99baa-b5dc-4566-b0bd-8f0ebb8bf6fb" xml:space="preserve">
+          <source><bpt id="45d6f630-7592-41bb-a167-a5e00e5f7bda">&lt;em&gt;</bpt>splitConnectionString<ept id="45d6f630-7592-41bb-a167-a5e00e5f7bda">&lt;/em&gt;</ept> and <bpt id="0974f127-8a6b-4d6f-9fb6-c406cc886b5d">&lt;em&gt;</bpt>generateSaSToken<ept id="0974f127-8a6b-4d6f-9fb6-c406cc886b5d">&lt;/em&gt;</ept> are a JavaScript implementation of creating a SaS token that must be sent in all REST API calls.</source>
+          <target state="new"><bpt id="45d6f630-7592-41bb-a167-a5e00e5f7bda">&lt;em&gt;</bpt>splitConnectionString<ept id="45d6f630-7592-41bb-a167-a5e00e5f7bda">&lt;/em&gt;</ept> and <bpt id="0974f127-8a6b-4d6f-9fb6-c406cc886b5d">&lt;em&gt;</bpt>generateSaSToken<ept id="0974f127-8a6b-4d6f-9fb6-c406cc886b5d">&lt;/em&gt;</ept> are a JavaScript implementation of creating a SaS token that must be sent in all REST API calls.</target>
+        </trans-unit>
+        <trans-unit id="442aad91-f4bc-4970-ba19-5de7fa280ecf" xml:space="preserve">
+          <source>For more information, see <bpt id="33f4fe33-f4c7-49cd-b3b3-94d6befd04d1">&lt;linkText&gt;</bpt>Common Concepts<ept id="33f4fe33-f4c7-49cd-b3b3-94d6befd04d1">&lt;/linkText&gt;</ept><bpt id="33f4fe33-f4c7-49cd-b3b3-94d6befd04d1">&lt;title&gt;</bpt><ept id="33f4fe33-f4c7-49cd-b3b3-94d6befd04d1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="33f4fe33-f4c7-49cd-b3b3-94d6befd04d1">&lt;linkText&gt;</bpt>Common Concepts<ept id="33f4fe33-f4c7-49cd-b3b3-94d6befd04d1">&lt;/linkText&gt;</ept><bpt id="33f4fe33-f4c7-49cd-b3b3-94d6befd04d1">&lt;title&gt;</bpt><ept id="33f4fe33-f4c7-49cd-b3b3-94d6befd04d1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8af0de95-a7ad-42e5-aee7-27bb8e0192c9" xml:space="preserve">
+          <source><bpt id="9634feda-fcf8-42fc-a708-dff4a169c953">&lt;em&gt;</bpt>sendNHRegistrationRequest<ept id="9634feda-fcf8-42fc-a708-dff4a169c953">&lt;/em&gt;</ept> is the function that makes an HTTP REST call.</source>
+          <target state="new"><bpt id="9634feda-fcf8-42fc-a708-dff4a169c953">&lt;em&gt;</bpt>sendNHRegistrationRequest<ept id="9634feda-fcf8-42fc-a708-dff4a169c953">&lt;/em&gt;</ept> is the function that makes an HTTP REST call.</target>
+        </trans-unit>
+        <trans-unit id="fdc42c97-9701-48e4-82a7-34f7b924218a" xml:space="preserve">
+          <source><bpt id="93eed8fe-23c5-496d-8d5c-1aeadbfbfbfa">&lt;em&gt;</bpt>registrationPayload<ept id="93eed8fe-23c5-496d-8d5c-1aeadbfbfbfa">&lt;/em&gt;</ept> defines the registration XML payload.</source>
+          <target state="new"><bpt id="93eed8fe-23c5-496d-8d5c-1aeadbfbfbfa">&lt;em&gt;</bpt>registrationPayload<ept id="93eed8fe-23c5-496d-8d5c-1aeadbfbfbfa">&lt;/em&gt;</ept> defines the registration XML payload.</target>
+        </trans-unit>
+        <trans-unit id="f94609bc-0109-4629-9fba-3e3000fd85b1" xml:space="preserve">
+          <source>For more information, see [Create Registration NH REST API].</source>
+          <target state="new">For more information, see [Create Registration NH REST API].</target>
+        </trans-unit>
+        <trans-unit id="627db923-66b7-4ad6-b3ba-5d6feee42b01" xml:space="preserve">
+          <source>We update the registration ID in it with what we received from GCM.</source>
+          <target state="new">We update the registration ID in it with what we received from GCM.</target>
+        </trans-unit>
+        <trans-unit id="08319136-b7fc-41c6-8c82-a72724528ae2" xml:space="preserve">
+          <source><bpt id="2014c546-0e95-4622-9cb2-7cc56668dc47">&lt;em&gt;</bpt>client<ept id="2014c546-0e95-4622-9cb2-7cc56668dc47">&lt;/em&gt;</ept> is an instance of <bpt id="89eeac87-ac9e-4782-bcb3-352ebce02ad0">&lt;strong&gt;</bpt>XMLHttpRequest<ept id="89eeac87-ac9e-4782-bcb3-352ebce02ad0">&lt;/strong&gt;</ept> that we use to make the HTTP POST request.</source>
+          <target state="new"><bpt id="2014c546-0e95-4622-9cb2-7cc56668dc47">&lt;em&gt;</bpt>client<ept id="2014c546-0e95-4622-9cb2-7cc56668dc47">&lt;/em&gt;</ept> is an instance of <bpt id="89eeac87-ac9e-4782-bcb3-352ebce02ad0">&lt;strong&gt;</bpt>XMLHttpRequest<ept id="89eeac87-ac9e-4782-bcb3-352ebce02ad0">&lt;/strong&gt;</ept> that we use to make the HTTP POST request.</target>
+        </trans-unit>
+        <trans-unit id="38bb2095-5a5c-44c1-ab6f-54ac3b2c30de" xml:space="preserve">
+          <source>Note that we update the <bpt id="268d3c92-faff-4c22-bcc0-9a820d08f484">&lt;strong&gt;</bpt>Authorization<ept id="268d3c92-faff-4c22-bcc0-9a820d08f484">&lt;/strong&gt;</ept> header with <bpt id="ae8ba987-c217-431c-8a52-94ea4908566b">&lt;strong&gt;</bpt>sasToken<ept id="ae8ba987-c217-431c-8a52-94ea4908566b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Note that we update the <bpt id="268d3c92-faff-4c22-bcc0-9a820d08f484">&lt;strong&gt;</bpt>Authorization<ept id="268d3c92-faff-4c22-bcc0-9a820d08f484">&lt;/strong&gt;</ept> header with <bpt id="ae8ba987-c217-431c-8a52-94ea4908566b">&lt;strong&gt;</bpt>sasToken<ept id="ae8ba987-c217-431c-8a52-94ea4908566b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eafbfe3c-5004-445b-8d1c-d0042d4de175" xml:space="preserve">
+          <source>Successful completion of this call will register this Chrome App instance with Azure Notification Hubs.</source>
+          <target state="new">Successful completion of this call will register this Chrome App instance with Azure Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="92c6dea1-916e-4c16-bcc7-4ab9da80010d" xml:space="preserve">
+          <source>You should see the following view for your folder at the end of this:
+    <bpt id="2eb24f58-0761-4e43-aba2-31917a6cbd92">&lt;linkText&gt;</bpt><ept id="2eb24f58-0761-4e43-aba2-31917a6cbd92">&lt;/linkText&gt;</ept></source>
+          <target state="new">You should see the following view for your folder at the end of this:
+    <bpt id="2eb24f58-0761-4e43-aba2-31917a6cbd92">&lt;linkText&gt;</bpt><ept id="2eb24f58-0761-4e43-aba2-31917a6cbd92">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="773f977b-b1de-4f7f-a1a0-cc54688a3d44" xml:space="preserve">
+          <source>Open your Chrome browser.</source>
+          <target state="new">Open your Chrome browser.</target>
+        </trans-unit>
+        <trans-unit id="edbe83d7-532a-4585-ba2a-d470e3ab1761" xml:space="preserve">
+          <source>Open <bpt id="7645954e-ce51-44ea-951c-edeba7f930df">&lt;strong&gt;</bpt>Chrome extensions<ept id="7645954e-ce51-44ea-951c-edeba7f930df">&lt;/strong&gt;</ept> and enable <bpt id="0fcaca9b-2c25-4fd5-8c89-c1201956656e">&lt;strong&gt;</bpt>Developer mode<ept id="0fcaca9b-2c25-4fd5-8c89-c1201956656e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="7645954e-ce51-44ea-951c-edeba7f930df">&lt;strong&gt;</bpt>Chrome extensions<ept id="7645954e-ce51-44ea-951c-edeba7f930df">&lt;/strong&gt;</ept> and enable <bpt id="0fcaca9b-2c25-4fd5-8c89-c1201956656e">&lt;strong&gt;</bpt>Developer mode<ept id="0fcaca9b-2c25-4fd5-8c89-c1201956656e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2287766-bb49-4bdc-bb9b-5c5b8f48df23" xml:space="preserve">
+          <source><bpt id="8cb7d333-4341-404b-9ac7-089d3c90ebe4">&lt;linkText&gt;</bpt><ept id="8cb7d333-4341-404b-9ac7-089d3c90ebe4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8cb7d333-4341-404b-9ac7-089d3c90ebe4">&lt;linkText&gt;</bpt><ept id="8cb7d333-4341-404b-9ac7-089d3c90ebe4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a86c3790-2f86-4db8-aed0-ebc21576c9b7" xml:space="preserve">
+          <source>Click <bpt id="df6cfbb2-7244-4e74-a95e-5fdebea769a6">&lt;strong&gt;</bpt>Load unpacked extension<ept id="df6cfbb2-7244-4e74-a95e-5fdebea769a6">&lt;/strong&gt;</ept> and navigate to the folder where you created the files. You can also optionally use the <bpt id="96500a39-8f7e-4d35-bc50-6c8a7065b924">&lt;strong&gt;</bpt>Chrome Apps &amp; Extensions Developer Tool<ept id="96500a39-8f7e-4d35-bc50-6c8a7065b924">&lt;/strong&gt;</ept>. This tool is a Chrome App in itself (installed from the Chrome Web Store) and provides advanced debugging capabilities for your Chrome App development.</source>
+          <target state="new">Click <bpt id="df6cfbb2-7244-4e74-a95e-5fdebea769a6">&lt;strong&gt;</bpt>Load unpacked extension<ept id="df6cfbb2-7244-4e74-a95e-5fdebea769a6">&lt;/strong&gt;</ept> and navigate to the folder where you created the files. You can also optionally use the <bpt id="96500a39-8f7e-4d35-bc50-6c8a7065b924">&lt;strong&gt;</bpt>Chrome Apps &amp; Extensions Developer Tool<ept id="96500a39-8f7e-4d35-bc50-6c8a7065b924">&lt;/strong&gt;</ept>. This tool is a Chrome App in itself (installed from the Chrome Web Store) and provides advanced debugging capabilities for your Chrome App development.</target>
+        </trans-unit>
+        <trans-unit id="d6548bc1-6011-4d81-89f3-3f9b0dc9cc9c" xml:space="preserve">
+          <source><bpt id="0b42337a-6720-4f11-b136-1cc4c1cf5dc9">&lt;linkText&gt;</bpt><ept id="0b42337a-6720-4f11-b136-1cc4c1cf5dc9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0b42337a-6720-4f11-b136-1cc4c1cf5dc9">&lt;linkText&gt;</bpt><ept id="0b42337a-6720-4f11-b136-1cc4c1cf5dc9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a837b0b2-653d-4128-91d6-a3cbf8730c7d" xml:space="preserve">
+          <source>If the Chrome App is created without any errors, then you will see your Chrome App show up.</source>
+          <target state="new">If the Chrome App is created without any errors, then you will see your Chrome App show up.</target>
+        </trans-unit>
+        <trans-unit id="769b7f45-8934-411e-ae2a-a7003ff45a5d" xml:space="preserve">
+          <source><bpt id="f06cbeec-cbf6-46b0-a2e6-19bb29c4311d">&lt;linkText&gt;</bpt><ept id="f06cbeec-cbf6-46b0-a2e6-19bb29c4311d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f06cbeec-cbf6-46b0-a2e6-19bb29c4311d">&lt;linkText&gt;</bpt><ept id="f06cbeec-cbf6-46b0-a2e6-19bb29c4311d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="460f4c03-fccf-47e5-b4af-850e8cf7d23f" xml:space="preserve">
+          <source>Enter the <bpt id="3967baa8-7c80-4122-9f00-985ca71bc6aa">&lt;strong&gt;</bpt>Project Number<ept id="3967baa8-7c80-4122-9f00-985ca71bc6aa">&lt;/strong&gt;</ept> that you got earlier from the <bpt id="898a6916-4304-4c07-a2e8-6957c1fb375a">&lt;strong&gt;</bpt>Google Cloud Console<ept id="898a6916-4304-4c07-a2e8-6957c1fb375a">&lt;/strong&gt;</ept> as the sender ID, and click <bpt id="a9842813-7d45-4e3c-a4da-52004c43d8ad">&lt;strong&gt;</bpt>Register with GCM<ept id="a9842813-7d45-4e3c-a4da-52004c43d8ad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the <bpt id="3967baa8-7c80-4122-9f00-985ca71bc6aa">&lt;strong&gt;</bpt>Project Number<ept id="3967baa8-7c80-4122-9f00-985ca71bc6aa">&lt;/strong&gt;</ept> that you got earlier from the <bpt id="898a6916-4304-4c07-a2e8-6957c1fb375a">&lt;strong&gt;</bpt>Google Cloud Console<ept id="898a6916-4304-4c07-a2e8-6957c1fb375a">&lt;/strong&gt;</ept> as the sender ID, and click <bpt id="a9842813-7d45-4e3c-a4da-52004c43d8ad">&lt;strong&gt;</bpt>Register with GCM<ept id="a9842813-7d45-4e3c-a4da-52004c43d8ad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc66751f-ce24-404e-90c8-e64135988040" xml:space="preserve">
+          <source>You must see the message <bpt id="630dede1-a38b-4232-b40e-0ae008ed1d01">&lt;strong&gt;</bpt>Registration with GCM succeeded.<ept id="630dede1-a38b-4232-b40e-0ae008ed1d01">&lt;/strong&gt;</ept></source>
+          <target state="new">You must see the message <bpt id="630dede1-a38b-4232-b40e-0ae008ed1d01">&lt;strong&gt;</bpt>Registration with GCM succeeded.<ept id="630dede1-a38b-4232-b40e-0ae008ed1d01">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd1ba6f0-29f8-4523-90fc-0d6f9e713ea7" xml:space="preserve">
+          <source><bpt id="864c6077-a568-486c-82f3-d2dcb0ebf90d">&lt;linkText&gt;</bpt><ept id="864c6077-a568-486c-82f3-d2dcb0ebf90d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="864c6077-a568-486c-82f3-d2dcb0ebf90d">&lt;linkText&gt;</bpt><ept id="864c6077-a568-486c-82f3-d2dcb0ebf90d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e03de94-c5bb-4382-a0ae-650af7f2955a" xml:space="preserve">
+          <source>Enter your <bpt id="391d9812-0628-4fe1-9710-98474c8b71af">&lt;strong&gt;</bpt>Notification Hub Name<ept id="391d9812-0628-4fe1-9710-98474c8b71af">&lt;/strong&gt;</ept> and the <bpt id="b514c5e4-5114-440e-a726-895091edd267">&lt;strong&gt;</bpt>DefaultListenSharedAccessSignature<ept id="b514c5e4-5114-440e-a726-895091edd267">&lt;/strong&gt;</ept> that you obtained from the Azure portal earlier, and click <bpt id="c3a8fc2d-435b-4e4e-bb83-bb2c1da7f161">&lt;strong&gt;</bpt>Register with Azure Notification Hub<ept id="c3a8fc2d-435b-4e4e-bb83-bb2c1da7f161">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter your <bpt id="391d9812-0628-4fe1-9710-98474c8b71af">&lt;strong&gt;</bpt>Notification Hub Name<ept id="391d9812-0628-4fe1-9710-98474c8b71af">&lt;/strong&gt;</ept> and the <bpt id="b514c5e4-5114-440e-a726-895091edd267">&lt;strong&gt;</bpt>DefaultListenSharedAccessSignature<ept id="b514c5e4-5114-440e-a726-895091edd267">&lt;/strong&gt;</ept> that you obtained from the Azure portal earlier, and click <bpt id="c3a8fc2d-435b-4e4e-bb83-bb2c1da7f161">&lt;strong&gt;</bpt>Register with Azure Notification Hub<ept id="c3a8fc2d-435b-4e4e-bb83-bb2c1da7f161">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="803b829b-cc4a-474b-a7d6-db1a17ae8ffd" xml:space="preserve">
+          <source>You must see the message <bpt id="ecb5bc11-f96c-41e9-bf66-2823e8683636">&lt;strong&gt;</bpt>Notification Hub Registration successful!<ept id="ecb5bc11-f96c-41e9-bf66-2823e8683636">&lt;/strong&gt;</ept> and the details of the registration response, which contains the Azure Notification Hubs registration ID.</source>
+          <target state="new">You must see the message <bpt id="ecb5bc11-f96c-41e9-bf66-2823e8683636">&lt;strong&gt;</bpt>Notification Hub Registration successful!<ept id="ecb5bc11-f96c-41e9-bf66-2823e8683636">&lt;/strong&gt;</ept> and the details of the registration response, which contains the Azure Notification Hubs registration ID.</target>
+        </trans-unit>
+        <trans-unit id="cf0e2a06-b57b-48d3-adbe-bf5c1454126d" xml:space="preserve">
+          <source><bpt id="5d7d2396-9026-4ad3-bb97-c3ba16114d0a">&lt;linkText&gt;</bpt><ept id="5d7d2396-9026-4ad3-bb97-c3ba16114d0a">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="5d7d2396-9026-4ad3-bb97-c3ba16114d0a">&lt;linkText&gt;</bpt><ept id="5d7d2396-9026-4ad3-bb97-c3ba16114d0a">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="a75016b5-6e46-4986-8fa1-f98557200cd3" xml:space="preserve">
+          <source>In this tutorial, you send notifications by using a .NET console application.</source>
+          <target state="new">In this tutorial, you send notifications by using a .NET console application.</target>
+        </trans-unit>
+        <trans-unit id="22d565ed-4278-4023-8d70-656d15db8ab9" xml:space="preserve">
+          <source>However, you can send notifications by using Notification Hubs from any backend via the &lt;a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx"&gt;REST interface&lt;/a&gt;.</source>
+          <target state="new">However, you can send notifications by using Notification Hubs from any backend via the &lt;a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx"&gt;REST interface&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="51e0d11a-cf31-4bbe-87e4-471b2f44b761" xml:space="preserve">
+          <source>For an example of how to send notifications from an Azure Mobile Services backend that's integrated with Notification Hubs, see "Get started with push notifications in Mobile Services" (<bpt id="10795749-82d3-4003-9a4a-028b6385560b">&lt;linkText&gt;</bpt>.NET backend<ept id="10795749-82d3-4003-9a4a-028b6385560b">&lt;/linkText&gt;</ept><bpt id="10795749-82d3-4003-9a4a-028b6385560b">&lt;title&gt;</bpt><ept id="10795749-82d3-4003-9a4a-028b6385560b">&lt;/title&gt;</ept> | <bpt id="c3242771-07be-4e9a-b18c-24f8fbd96fd4">&lt;linkText&gt;</bpt>JavaScript backend<ept id="c3242771-07be-4e9a-b18c-24f8fbd96fd4">&lt;/linkText&gt;</ept><bpt id="c3242771-07be-4e9a-b18c-24f8fbd96fd4">&lt;title&gt;</bpt><ept id="c3242771-07be-4e9a-b18c-24f8fbd96fd4">&lt;/title&gt;</ept>).</source>
+          <target state="new">For an example of how to send notifications from an Azure Mobile Services backend that's integrated with Notification Hubs, see "Get started with push notifications in Mobile Services" (<bpt id="10795749-82d3-4003-9a4a-028b6385560b">&lt;linkText&gt;</bpt>.NET backend<ept id="10795749-82d3-4003-9a4a-028b6385560b">&lt;/linkText&gt;</ept><bpt id="10795749-82d3-4003-9a4a-028b6385560b">&lt;title&gt;</bpt><ept id="10795749-82d3-4003-9a4a-028b6385560b">&lt;/title&gt;</ept> | <bpt id="c3242771-07be-4e9a-b18c-24f8fbd96fd4">&lt;linkText&gt;</bpt>JavaScript backend<ept id="c3242771-07be-4e9a-b18c-24f8fbd96fd4">&lt;/linkText&gt;</ept><bpt id="c3242771-07be-4e9a-b18c-24f8fbd96fd4">&lt;title&gt;</bpt><ept id="c3242771-07be-4e9a-b18c-24f8fbd96fd4">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="bdb13d92-1706-47b1-8e1c-c3dd5d4a8ce7" xml:space="preserve">
+          <source>For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP/Python" (<bpt id="83cc9822-ccd5-4daf-b5ce-d9d906bf71d8">&lt;linkText&gt;</bpt>Java<ept id="83cc9822-ccd5-4daf-b5ce-d9d906bf71d8">&lt;/linkText&gt;</ept><bpt id="83cc9822-ccd5-4daf-b5ce-d9d906bf71d8">&lt;title&gt;</bpt><ept id="83cc9822-ccd5-4daf-b5ce-d9d906bf71d8">&lt;/title&gt;</ept> | <bpt id="da4f21b5-1821-4bb5-82e3-877b6019028c">&lt;linkText&gt;</bpt>PHP<ept id="da4f21b5-1821-4bb5-82e3-877b6019028c">&lt;/linkText&gt;</ept><bpt id="da4f21b5-1821-4bb5-82e3-877b6019028c">&lt;title&gt;</bpt><ept id="da4f21b5-1821-4bb5-82e3-877b6019028c">&lt;/title&gt;</ept> | <bpt id="7795160e-0d66-45d3-ab27-b9f672164b12">&lt;linkText&gt;</bpt>Python<ept id="7795160e-0d66-45d3-ab27-b9f672164b12">&lt;/linkText&gt;</ept><bpt id="7795160e-0d66-45d3-ab27-b9f672164b12">&lt;title&gt;</bpt><ept id="7795160e-0d66-45d3-ab27-b9f672164b12">&lt;/title&gt;</ept>).</source>
+          <target state="new">For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP/Python" (<bpt id="83cc9822-ccd5-4daf-b5ce-d9d906bf71d8">&lt;linkText&gt;</bpt>Java<ept id="83cc9822-ccd5-4daf-b5ce-d9d906bf71d8">&lt;/linkText&gt;</ept><bpt id="83cc9822-ccd5-4daf-b5ce-d9d906bf71d8">&lt;title&gt;</bpt><ept id="83cc9822-ccd5-4daf-b5ce-d9d906bf71d8">&lt;/title&gt;</ept> | <bpt id="da4f21b5-1821-4bb5-82e3-877b6019028c">&lt;linkText&gt;</bpt>PHP<ept id="da4f21b5-1821-4bb5-82e3-877b6019028c">&lt;/linkText&gt;</ept><bpt id="da4f21b5-1821-4bb5-82e3-877b6019028c">&lt;title&gt;</bpt><ept id="da4f21b5-1821-4bb5-82e3-877b6019028c">&lt;/title&gt;</ept> | <bpt id="7795160e-0d66-45d3-ab27-b9f672164b12">&lt;linkText&gt;</bpt>Python<ept id="7795160e-0d66-45d3-ab27-b9f672164b12">&lt;/linkText&gt;</ept><bpt id="7795160e-0d66-45d3-ab27-b9f672164b12">&lt;title&gt;</bpt><ept id="7795160e-0d66-45d3-ab27-b9f672164b12">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="6cd2b8d8-2600-4835-ac3a-481575067c46" xml:space="preserve">
+          <source>In Visual Studio, from the <bpt id="33b1efd6-5ddb-4734-9602-ea7211905803">&lt;strong&gt;</bpt>File<ept id="33b1efd6-5ddb-4734-9602-ea7211905803">&lt;/strong&gt;</ept> menu, select <bpt id="1c3eefbe-7ab5-4652-bf26-250588a4a3b5">&lt;strong&gt;</bpt>New<ept id="1c3eefbe-7ab5-4652-bf26-250588a4a3b5">&lt;/strong&gt;</ept> and then <bpt id="147fddd1-04db-484b-ac4f-7a0641abcb4f">&lt;strong&gt;</bpt>Project<ept id="147fddd1-04db-484b-ac4f-7a0641abcb4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, from the <bpt id="33b1efd6-5ddb-4734-9602-ea7211905803">&lt;strong&gt;</bpt>File<ept id="33b1efd6-5ddb-4734-9602-ea7211905803">&lt;/strong&gt;</ept> menu, select <bpt id="1c3eefbe-7ab5-4652-bf26-250588a4a3b5">&lt;strong&gt;</bpt>New<ept id="1c3eefbe-7ab5-4652-bf26-250588a4a3b5">&lt;/strong&gt;</ept> and then <bpt id="147fddd1-04db-484b-ac4f-7a0641abcb4f">&lt;strong&gt;</bpt>Project<ept id="147fddd1-04db-484b-ac4f-7a0641abcb4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81553fe0-afa2-4177-9416-76b643a66385" xml:space="preserve">
+          <source>Under <bpt id="9fbfdc21-be1a-493b-97ea-a34bf8586989">&lt;strong&gt;</bpt>Visual C#<ept id="9fbfdc21-be1a-493b-97ea-a34bf8586989">&lt;/strong&gt;</ept>, click <bpt id="52df5792-7a44-4388-a7b0-deb7684da245">&lt;strong&gt;</bpt>Windows<ept id="52df5792-7a44-4388-a7b0-deb7684da245">&lt;/strong&gt;</ept> and <bpt id="fdc4d14d-7fed-4d72-ac3a-4f1b4ef58fd1">&lt;strong&gt;</bpt>Console Application<ept id="fdc4d14d-7fed-4d72-ac3a-4f1b4ef58fd1">&lt;/strong&gt;</ept>, and then click <bpt id="7d2a7d71-c4ba-4649-afdc-939e7ae8e011">&lt;strong&gt;</bpt>OK<ept id="7d2a7d71-c4ba-4649-afdc-939e7ae8e011">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="9fbfdc21-be1a-493b-97ea-a34bf8586989">&lt;strong&gt;</bpt>Visual C#<ept id="9fbfdc21-be1a-493b-97ea-a34bf8586989">&lt;/strong&gt;</ept>, click <bpt id="52df5792-7a44-4388-a7b0-deb7684da245">&lt;strong&gt;</bpt>Windows<ept id="52df5792-7a44-4388-a7b0-deb7684da245">&lt;/strong&gt;</ept> and <bpt id="fdc4d14d-7fed-4d72-ac3a-4f1b4ef58fd1">&lt;strong&gt;</bpt>Console Application<ept id="fdc4d14d-7fed-4d72-ac3a-4f1b4ef58fd1">&lt;/strong&gt;</ept>, and then click <bpt id="7d2a7d71-c4ba-4649-afdc-939e7ae8e011">&lt;strong&gt;</bpt>OK<ept id="7d2a7d71-c4ba-4649-afdc-939e7ae8e011">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5bdc9c3e-a022-44f2-81ec-09e3898fb9d0" xml:space="preserve">
+          <source>This creates a new console application project.</source>
+          <target state="new">This creates a new console application project.</target>
+        </trans-unit>
+        <trans-unit id="34fe8904-f312-4370-8c3b-f90f63c73c21" xml:space="preserve">
+          <source>From the <bpt id="a5f86846-76a7-4819-a4d2-37b86d4d71ef">&lt;strong&gt;</bpt>Tools<ept id="a5f86846-76a7-4819-a4d2-37b86d4d71ef">&lt;/strong&gt;</ept> menu, click <bpt id="f536a10d-345e-4efd-9d0a-568cb6d7e515">&lt;strong&gt;</bpt>Library Package Manager<ept id="f536a10d-345e-4efd-9d0a-568cb6d7e515">&lt;/strong&gt;</ept> and then <bpt id="e627b19c-723d-4a52-9beb-8028abac766d">&lt;strong&gt;</bpt>Package Manager Console<ept id="e627b19c-723d-4a52-9beb-8028abac766d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="a5f86846-76a7-4819-a4d2-37b86d4d71ef">&lt;strong&gt;</bpt>Tools<ept id="a5f86846-76a7-4819-a4d2-37b86d4d71ef">&lt;/strong&gt;</ept> menu, click <bpt id="f536a10d-345e-4efd-9d0a-568cb6d7e515">&lt;strong&gt;</bpt>Library Package Manager<ept id="f536a10d-345e-4efd-9d0a-568cb6d7e515">&lt;/strong&gt;</ept> and then <bpt id="e627b19c-723d-4a52-9beb-8028abac766d">&lt;strong&gt;</bpt>Package Manager Console<ept id="e627b19c-723d-4a52-9beb-8028abac766d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93ba50ec-31eb-4755-8396-09c2d3c3869d" xml:space="preserve">
+          <source>This displays the Package Manager Console.</source>
+          <target state="new">This displays the Package Manager Console.</target>
+        </trans-unit>
+        <trans-unit id="4d6804ba-4d69-4e77-b46e-05683a37a310" xml:space="preserve">
+          <source>In the console window, execute the following command:</source>
+          <target state="new">In the console window, execute the following command:</target>
+        </trans-unit>
+        <trans-unit id="64dd7827-eaef-4df0-9fab-0343d2ecc75c" xml:space="preserve">
+          <source>This adds a reference to the Azure Service Bus SDK with the &lt;a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/"&gt;WindowsAzure.ServiceBus NuGet package&lt;/a&gt;.</source>
+          <target state="new">This adds a reference to the Azure Service Bus SDK with the &lt;a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/"&gt;WindowsAzure.ServiceBus NuGet package&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="c69dd095-3034-40ce-bc72-b406f1257808" xml:space="preserve">
+          <source>Open the file <bpt id="15c9792a-b7b5-46fe-981f-28f0171b30de">&lt;strong&gt;</bpt>Program.cs<ept id="15c9792a-b7b5-46fe-981f-28f0171b30de">&lt;/strong&gt;</ept> and add the following <bpt id="c3061500-de20-449b-8af9-daecc17df641">&lt;code&gt;</bpt>using<ept id="c3061500-de20-449b-8af9-daecc17df641">&lt;/code&gt;</ept> statement:</source>
+          <target state="new">Open the file <bpt id="15c9792a-b7b5-46fe-981f-28f0171b30de">&lt;strong&gt;</bpt>Program.cs<ept id="15c9792a-b7b5-46fe-981f-28f0171b30de">&lt;/strong&gt;</ept> and add the following <bpt id="c3061500-de20-449b-8af9-daecc17df641">&lt;code&gt;</bpt>using<ept id="c3061500-de20-449b-8af9-daecc17df641">&lt;/code&gt;</ept> statement:</target>
+        </trans-unit>
+        <trans-unit id="609683ab-4b48-4af8-acfe-b92c79182bbc" xml:space="preserve">
+          <source>In the <bpt id="101478ee-d4d7-47ac-a48f-48b52ec6294d">&lt;strong&gt;</bpt>Program<ept id="101478ee-d4d7-47ac-a48f-48b52ec6294d">&lt;/strong&gt;</ept> class, add the following method:</source>
+          <target state="new">In the <bpt id="101478ee-d4d7-47ac-a48f-48b52ec6294d">&lt;strong&gt;</bpt>Program<ept id="101478ee-d4d7-47ac-a48f-48b52ec6294d">&lt;/strong&gt;</ept> class, add the following method:</target>
+        </trans-unit>
+        <trans-unit id="91274336-2e60-4e49-bfc4-47e551631926" xml:space="preserve">
+          <source>Make sure to replace the <bpt id="35e066c7-0784-41e0-ad65-c3b23ee4e162">&lt;em&gt;</bpt>hub name<ept id="35e066c7-0784-41e0-ad65-c3b23ee4e162">&lt;/em&gt;</ept> placeholder with the name of the notification hub that appears in the portal on the <bpt id="a17c9c0f-5ed2-4496-9abc-90abdfd685e0">&lt;strong&gt;</bpt>Notification Hubs<ept id="a17c9c0f-5ed2-4496-9abc-90abdfd685e0">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Make sure to replace the <bpt id="35e066c7-0784-41e0-ad65-c3b23ee4e162">&lt;em&gt;</bpt>hub name<ept id="35e066c7-0784-41e0-ad65-c3b23ee4e162">&lt;/em&gt;</ept> placeholder with the name of the notification hub that appears in the portal on the <bpt id="a17c9c0f-5ed2-4496-9abc-90abdfd685e0">&lt;strong&gt;</bpt>Notification Hubs<ept id="a17c9c0f-5ed2-4496-9abc-90abdfd685e0">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="908bd9f1-8a25-4345-8c16-bf007bf70bf5" xml:space="preserve">
+          <source>Also, replace the connection string placeholder with the connection string called <bpt id="a5c50b73-31d6-40da-8036-884acbfdc28c">&lt;strong&gt;</bpt>DefaultFullSharedAccessSignature<ept id="a5c50b73-31d6-40da-8036-884acbfdc28c">&lt;/strong&gt;</ept> that you obtained in the section "Configure your notification hub."</source>
+          <target state="new">Also, replace the connection string placeholder with the connection string called <bpt id="a5c50b73-31d6-40da-8036-884acbfdc28c">&lt;strong&gt;</bpt>DefaultFullSharedAccessSignature<ept id="a5c50b73-31d6-40da-8036-884acbfdc28c">&lt;/strong&gt;</ept> that you obtained in the section "Configure your notification hub."</target>
+        </trans-unit>
+        <trans-unit id="203eb50b-ca5e-4845-90cf-ed7664ae86fc" xml:space="preserve">
+          <source>Make sure that you use the connection string with <bpt id="f0e110e0-19b3-4584-96c0-de80d9d5c4dd">&lt;strong&gt;</bpt>Full<ept id="f0e110e0-19b3-4584-96c0-de80d9d5c4dd">&lt;/strong&gt;</ept> access, not <bpt id="20ab8bd7-3f13-4a50-bd4f-5aebd0a933be">&lt;strong&gt;</bpt>Listen<ept id="20ab8bd7-3f13-4a50-bd4f-5aebd0a933be">&lt;/strong&gt;</ept> access.</source>
+          <target state="new">Make sure that you use the connection string with <bpt id="f0e110e0-19b3-4584-96c0-de80d9d5c4dd">&lt;strong&gt;</bpt>Full<ept id="f0e110e0-19b3-4584-96c0-de80d9d5c4dd">&lt;/strong&gt;</ept> access, not <bpt id="20ab8bd7-3f13-4a50-bd4f-5aebd0a933be">&lt;strong&gt;</bpt>Listen<ept id="20ab8bd7-3f13-4a50-bd4f-5aebd0a933be">&lt;/strong&gt;</ept> access.</target>
+        </trans-unit>
+        <trans-unit id="a449fc1a-5677-4bbf-8edd-25f96690bc51" xml:space="preserve">
+          <source>The <bpt id="54c0a893-2efc-40ff-94e3-747a4281a2bf">&lt;strong&gt;</bpt>Listen<ept id="54c0a893-2efc-40ff-94e3-747a4281a2bf">&lt;/strong&gt;</ept> access string does not have permissions to send notifications.</source>
+          <target state="new">The <bpt id="54c0a893-2efc-40ff-94e3-747a4281a2bf">&lt;strong&gt;</bpt>Listen<ept id="54c0a893-2efc-40ff-94e3-747a4281a2bf">&lt;/strong&gt;</ept> access string does not have permissions to send notifications.</target>
+        </trans-unit>
+        <trans-unit id="390e8cf9-271c-467d-bec2-e9d0b3c6c9f2" xml:space="preserve">
+          <source>Add the following lines in the <bpt id="21131ed1-5a63-41c7-ad90-49976d5e5bb0">&lt;strong&gt;</bpt>Main<ept id="21131ed1-5a63-41c7-ad90-49976d5e5bb0">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Add the following lines in the <bpt id="21131ed1-5a63-41c7-ad90-49976d5e5bb0">&lt;strong&gt;</bpt>Main<ept id="21131ed1-5a63-41c7-ad90-49976d5e5bb0">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="afe1bdb0-5e2c-49b5-b719-8efd36b0f336" xml:space="preserve">
+          <source>Make sure that your Chrome browser is open.</source>
+          <target state="new">Make sure that your Chrome browser is open.</target>
+        </trans-unit>
+        <trans-unit id="01dff582-80a4-4182-afbe-4ee9ec17e058" xml:space="preserve">
+          <source>Your Chrome App doesn't need to be opened for this.</source>
+          <target state="new">Your Chrome App doesn't need to be opened for this.</target>
+        </trans-unit>
+        <trans-unit id="46bb9b6b-b02e-4197-b595-d0bed668d7f9" xml:space="preserve">
+          <source>You should see the following notification pop up on your desktop.</source>
+          <target state="new">You should see the following notification pop up on your desktop.</target>
+        </trans-unit>
+        <trans-unit id="b2e44c81-af8d-474b-a2a1-27b6e3144fb9" xml:space="preserve">
+          <source><bpt id="9055af10-e9f9-4787-b466-a10c8a183533">&lt;linkText&gt;</bpt><ept id="9055af10-e9f9-4787-b466-a10c8a183533">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9055af10-e9f9-4787-b466-a10c8a183533">&lt;linkText&gt;</bpt><ept id="9055af10-e9f9-4787-b466-a10c8a183533">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c761ed3-3068-4376-a8ed-3128ce1f74fc" xml:space="preserve">
+          <source>You can also see all your notifications by using the Chrome Notifications window on the taskbar (in Windows) when Chrome is running.</source>
+          <target state="new">You can also see all your notifications by using the Chrome Notifications window on the taskbar (in Windows) when Chrome is running.</target>
+        </trans-unit>
+        <trans-unit id="071c8c33-eeaa-43b9-8281-6601cd75663b" xml:space="preserve">
+          <source><bpt id="21736c76-a690-4dee-826a-ffef1b4fd6b3">&lt;linkText&gt;</bpt><ept id="21736c76-a690-4dee-826a-ffef1b4fd6b3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21736c76-a690-4dee-826a-ffef1b4fd6b3">&lt;linkText&gt;</bpt><ept id="21736c76-a690-4dee-826a-ffef1b4fd6b3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5c06fb6-410f-4eca-9325-169297e4a38f" xml:space="preserve">
+          <source>In this simple example, you broadcasted notifications to your Chrome App.</source>
+          <target state="new">In this simple example, you broadcasted notifications to your Chrome App.</target>
+        </trans-unit>
+        <trans-unit id="f744ea5b-986f-4c26-b92c-264aa1ee870b" xml:space="preserve">
+          <source>Learn more about Notification Hubs in [Notification Hubs Overview].</source>
+          <target state="new">Learn more about Notification Hubs in [Notification Hubs Overview].</target>
+        </trans-unit>
+        <trans-unit id="0d8e9e46-e157-4832-b603-ed9adac1a301" xml:space="preserve">
+          <source>To target specific users, refer to the tutorial [Azure Notification Hubs Notify Users].</source>
+          <target state="new">To target specific users, refer to the tutorial [Azure Notification Hubs Notify Users].</target>
+        </trans-unit>
+        <trans-unit id="667506eb-6f68-4296-868e-5cc7c0028cb6" xml:space="preserve">
+          <source>If you want to segment your users by interest groups, you can read [Azure Notification Hubs breaking news].</source>
+          <target state="new">If you want to segment your users by interest groups, you can read [Azure Notification Hubs breaking news].</target>
+        </trans-unit>
+        <trans-unit id="7d206b91-d439-441a-88e3-d56722f49768" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG</target>
+        </trans-unit>
+        <trans-unit id="fac65e76-d09c-40b5-ac71-ddc3163e4ade" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/GoogleProjectNumber.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/GoogleProjectNumber.png</target>
+        </trans-unit>
+        <trans-unit id="e233b397-1749-4fcf-8550-c13c3af939b4" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/EnableGCM.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/EnableGCM.png</target>
+        </trans-unit>
+        <trans-unit id="cc8125cf-b7b5-42f0-b043-6ea9ce9d79d7" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/CreateServerKey.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/CreateServerKey.png</target>
+        </trans-unit>
+        <trans-unit id="293b119c-3cb3-4b10-944b-bef066bac2b7" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/ServerKey.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/ServerKey.png</target>
+        </trans-unit>
+        <trans-unit id="6b513c66-fd1a-42eb-b87c-4c119eaf36c6" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/CreateNH.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/CreateNH.png</target>
+        </trans-unit>
+        <trans-unit id="a510e328-92cb-4496-963b-d98bbb74cf04" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/NHNamespace.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/NHNamespace.png</target>
+        </trans-unit>
+        <trans-unit id="5a2c4d64-f61a-4899-8317-3addf2c5ee1f" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/NamespaceConfigure.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/NamespaceConfigure.png</target>
+        </trans-unit>
+        <trans-unit id="1f3a602a-a90a-4abe-a707-c5536cc867a3" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/NHConfigure.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/NHConfigure.png</target>
+        </trans-unit>
+        <trans-unit id="67052f90-c53c-4f35-a316-db1f4c1f6eb6" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/NHConfigureGCM.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/NHConfigureGCM.png</target>
+        </trans-unit>
+        <trans-unit id="2c5a6b11-10a1-4317-8c8f-d6c4cceada38" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/NHDashboard.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/NHDashboard.png</target>
+        </trans-unit>
+        <trans-unit id="42742cec-91b2-4b18-93ef-d8c807fc773d" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/NHConnString.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/NHConnString.png</target>
+        </trans-unit>
+        <trans-unit id="8baabf7d-9020-4930-af8c-a8434ed1b9ba" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/ChromeNotification.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/ChromeNotification.png</target>
+        </trans-unit>
+        <trans-unit id="2f3bf528-13ee-4f7f-87df-cad9eb800a83" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/ChromeNotificationWindow.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/ChromeNotificationWindow.png</target>
+        </trans-unit>
+        <trans-unit id="8e70d3c5-14a4-475d-bbdf-43a10c7b41bb" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/ChromeApp.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/ChromeApp.png</target>
+        </trans-unit>
+        <trans-unit id="335fa8b0-b04e-4406-b231-016d40d429df" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/ChromeExtensions.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/ChromeExtensions.png</target>
+        </trans-unit>
+        <trans-unit id="57ed5f48-d733-46d3-b9da-4bfe6e549767" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/ChromeLoadExtension.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/ChromeLoadExtension.png</target>
+        </trans-unit>
+        <trans-unit id="a9b87077-1bbe-4b53-bb77-0500e5820c92" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/ChromeAppLoaded.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/ChromeAppLoaded.png</target>
+        </trans-unit>
+        <trans-unit id="182ca8fa-6d9d-44f3-af94-9d78beb1521d" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/ChromeAppGCM.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/ChromeAppGCM.png</target>
+        </trans-unit>
+        <trans-unit id="7b0d2db2-e7fb-46cf-bd2c-52b2ac41026b" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/ChromeAppNH.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/ChromeAppNH.png</target>
+        </trans-unit>
+        <trans-unit id="7bbdd0f9-2fce-4310-9eb0-1c62b4384ac6" xml:space="preserve">
+          <source>./media/notification-hubs-chrome-get-started/FinalFolderView.png</source>
+          <target state="new">./media/notification-hubs-chrome-get-started/FinalFolderView.png</target>
+        </trans-unit>
+        <trans-unit id="1e7bf2a0-acfb-4d1b-b8f1-d444c9a09efd" xml:space="preserve">
+          <source>http://google.com</source>
+          <target state="new">http://google.com</target>
+        </trans-unit>
+        <trans-unit id="0b03509d-9cd8-4425-bc33-2756bc503475" xml:space="preserve">
+          <source>http://cloud.google.com/console</source>
+          <target state="new">http://cloud.google.com/console</target>
+        </trans-unit>
+        <trans-unit id="0b6b21f5-f60e-4703-9847-434d5fc7bc1a" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="3b61d65f-e20f-4646-b6aa-4b97c39ef8df" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/jj927170.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/jj927170.aspx</target>
+        </trans-unit>
+        <trans-unit id="209fa4d5-6b13-48c1-b8f6-839ccfa33632" xml:space="preserve">
+          <source>https://developer.chrome.com/apps/about_apps</source>
+          <target state="new">https://developer.chrome.com/apps/about_apps</target>
+        </trans-unit>
+        <trans-unit id="0efc065d-305a-446d-b8fb-caa9a809a7b1" xml:space="preserve">
+          <source>https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications</source>
+          <target state="new">https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications</target>
+        </trans-unit>
+        <trans-unit id="0e1c1bc2-0036-43ac-895e-f6a55b6b97dc" xml:space="preserve">
+          <source>https://developers.google.com/chrome/apps/docs/</source>
+          <target state="new">https://developers.google.com/chrome/apps/docs/</target>
+        </trans-unit>
+        <trans-unit id="8c84fea2-e37c-4e35-87ed-f8e51184ea3d" xml:space="preserve">
+          <source>https://developer.chrome.com/apps/chrome_apps_on_mobile</source>
+          <target state="new">https://developer.chrome.com/apps/chrome_apps_on_mobile</target>
+        </trans-unit>
+        <trans-unit id="f795e0e7-5d8c-4fad-b738-8794f32dfe7a" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn223265.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn223265.aspx</target>
+        </trans-unit>
+        <trans-unit id="be4f80ad-80d2-41c2-9fd2-77779e8c1624" xml:space="preserve">
+          <source>http://code.google.com/p/crypto-js/</source>
+          <target state="new">http://code.google.com/p/crypto-js/</target>
+        </trans-unit>
+        <trans-unit id="4451d0ac-6ddc-4fd9-a5ca-eb729ec2a864" xml:space="preserve">
+          <source>https://developer.chrome.com/apps/cloudMessaging</source>
+          <target state="new">https://developer.chrome.com/apps/cloudMessaging</target>
+        </trans-unit>
+        <trans-unit id="f51866a4-4d89-4ca9-bc70-bd129ee497d7" xml:space="preserve">
+          <source>https://developer.chrome.com/apps/cloudMessagingV1</source>
+          <target state="new">https://developer.chrome.com/apps/cloudMessagingV1</target>
+        </trans-unit>
+        <trans-unit id="ed5ee320-7283-40ea-995e-7175b48b4aae" xml:space="preserve">
+          <source>notification-hubs-aspnet-backend-windows-dotnet-notify-users.md</source>
+          <target state="new">notification-hubs-aspnet-backend-windows-dotnet-notify-users.md</target>
+        </trans-unit>
+        <trans-unit id="58b97f6b-1a2d-45dd-8a6b-23384c71c48c" xml:space="preserve">
+          <source>notification-hubs-windows-store-dotnet-send-breaking-news.md</source>
+          <target state="new">notification-hubs-windows-store-dotnet-send-breaking-news.md</target>
+        </trans-unit>
+      </group>
+      <group id="8e194b49-3e4e-4c5b-8144-b74174a2cb28" />
+    </body>
+  </file>
+</xliff>

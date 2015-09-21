@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d08dd91e-a60b-4a7d-b8df-dd93e7ced651" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d08dd91e-a60b-4a7d-b8df-dd93e7ced651" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b88b8a6c-5260-424c-9571-486de0364b0e">
+        <trans-unit id="1222be15-dff5-4226-ab20-bdc96ddbd08e" xml:space="preserve">
+          <source>Mobile &amp; Native Apps</source>
+          <target state="new">Mobile &amp; Native Apps</target>
+        </trans-unit>
+        <trans-unit id="9a807413-dabd-40c3-a8fb-e166034a4e5a" xml:space="preserve">
+          <source>Web Apps &amp; Web APIs</source>
+          <target state="new">Web Apps &amp; Web APIs</target>
+        </trans-unit>
+        <trans-unit id="a80bd6aa-78dd-4669-934c-caf894a7ffdc" xml:space="preserve">
+          <source>Integrate Directly with Protocols</source>
+          <target state="new">Integrate Directly with Protocols</target>
+        </trans-unit>
+        <trans-unit id="8befbe2f-2dac-4b8e-a49e-e567e830c462" xml:space="preserve">
+          <source>Add Sign-In to an iOS App (Coming Soon)</source>
+          <target state="new">Add Sign-In to an iOS App (Coming Soon)</target>
+        </trans-unit>
+        <trans-unit id="936ee0b8-64e8-4856-b37c-58f0dc0c743a" xml:space="preserve">
+          <source>Add Sign-In to an AngularJS SPA (Coming Soon)</source>
+          <target state="new">Add Sign-In to an AngularJS SPA (Coming Soon)</target>
+        </trans-unit>
+        <trans-unit id="48cd496f-b229-423d-9ca1-8b9f3316d861" xml:space="preserve">
+          <source><bpt id="68680626-1ff5-473e-a63e-91f00c210dbe">&lt;linkText&gt;</bpt>Register an Application<ept id="68680626-1ff5-473e-a63e-91f00c210dbe">&lt;/linkText&gt;</ept><bpt id="68680626-1ff5-473e-a63e-91f00c210dbe">&lt;title&gt;</bpt><ept id="68680626-1ff5-473e-a63e-91f00c210dbe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="68680626-1ff5-473e-a63e-91f00c210dbe">&lt;linkText&gt;</bpt>Register an Application<ept id="68680626-1ff5-473e-a63e-91f00c210dbe">&lt;/linkText&gt;</ept><bpt id="68680626-1ff5-473e-a63e-91f00c210dbe">&lt;title&gt;</bpt><ept id="68680626-1ff5-473e-a63e-91f00c210dbe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be54511d-1e42-4859-b704-ddc47e83703b" xml:space="preserve">
+          <source>Add Sign-In to an Android App (Coming Soon)</source>
+          <target state="new">Add Sign-In to an Android App (Coming Soon)</target>
+        </trans-unit>
+        <trans-unit id="8a78caf9-ad2b-4054-b0c6-0267a2a044d8" xml:space="preserve">
+          <source><bpt id="0749d6db-d1ca-4cdd-808e-03f1c18db8aa">&lt;linkText&gt;</bpt>Add Sign-In to a .NET MVC App<ept id="0749d6db-d1ca-4cdd-808e-03f1c18db8aa">&lt;/linkText&gt;</ept><bpt id="0749d6db-d1ca-4cdd-808e-03f1c18db8aa">&lt;title&gt;</bpt><ept id="0749d6db-d1ca-4cdd-808e-03f1c18db8aa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0749d6db-d1ca-4cdd-808e-03f1c18db8aa">&lt;linkText&gt;</bpt>Add Sign-In to a .NET MVC App<ept id="0749d6db-d1ca-4cdd-808e-03f1c18db8aa">&lt;/linkText&gt;</ept><bpt id="0749d6db-d1ca-4cdd-808e-03f1c18db8aa">&lt;title&gt;</bpt><ept id="0749d6db-d1ca-4cdd-808e-03f1c18db8aa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2de25f8-ed36-44e4-aa25-bd3ebc529692" xml:space="preserve">
+          <source><bpt id="04084e27-3c08-4ccb-8d40-796e880bf26c">&lt;linkText&gt;</bpt>Mobile Apps with OAuth 2.0<ept id="04084e27-3c08-4ccb-8d40-796e880bf26c">&lt;/linkText&gt;</ept><bpt id="04084e27-3c08-4ccb-8d40-796e880bf26c">&lt;title&gt;</bpt><ept id="04084e27-3c08-4ccb-8d40-796e880bf26c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="04084e27-3c08-4ccb-8d40-796e880bf26c">&lt;linkText&gt;</bpt>Mobile Apps with OAuth 2.0<ept id="04084e27-3c08-4ccb-8d40-796e880bf26c">&lt;/linkText&gt;</ept><bpt id="04084e27-3c08-4ccb-8d40-796e880bf26c">&lt;title&gt;</bpt><ept id="04084e27-3c08-4ccb-8d40-796e880bf26c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c79d6f1e-06fa-44de-998a-d420e6a38cb2" xml:space="preserve">
+          <source>Add Sign-In to a Windows Universal App (Coming Soon)</source>
+          <target state="new">Add Sign-In to a Windows Universal App (Coming Soon)</target>
+        </trans-unit>
+        <trans-unit id="cf5a8587-c14a-471b-b724-c682d6eceeb3" xml:space="preserve">
+          <source>Add Sign-In to a Node JS Web App (Coming Soon)</source>
+          <target state="new">Add Sign-In to a Node JS Web App (Coming Soon)</target>
+        </trans-unit>
+        <trans-unit id="3dfd814c-bd7f-4f2e-a0dd-6a10759a1448" xml:space="preserve">
+          <source><bpt id="27fc0139-dc68-4c30-a7fe-16d6600feda8">&lt;linkText&gt;</bpt>Web Apps with OpenID Connect<ept id="27fc0139-dc68-4c30-a7fe-16d6600feda8">&lt;/linkText&gt;</ept><bpt id="27fc0139-dc68-4c30-a7fe-16d6600feda8">&lt;title&gt;</bpt><ept id="27fc0139-dc68-4c30-a7fe-16d6600feda8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="27fc0139-dc68-4c30-a7fe-16d6600feda8">&lt;linkText&gt;</bpt>Web Apps with OpenID Connect<ept id="27fc0139-dc68-4c30-a7fe-16d6600feda8">&lt;/linkText&gt;</ept><bpt id="27fc0139-dc68-4c30-a7fe-16d6600feda8">&lt;title&gt;</bpt><ept id="27fc0139-dc68-4c30-a7fe-16d6600feda8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b81e0b3a-c789-4fc8-a9ad-1bc3ee6d294d" xml:space="preserve">
+          <source><bpt id="9bda2bc0-8d0a-45f2-88fa-432f494881ba">&lt;linkText&gt;</bpt>Add Sign-In to a Windows Desktop App<ept id="9bda2bc0-8d0a-45f2-88fa-432f494881ba">&lt;/linkText&gt;</ept><bpt id="9bda2bc0-8d0a-45f2-88fa-432f494881ba">&lt;title&gt;</bpt><ept id="9bda2bc0-8d0a-45f2-88fa-432f494881ba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9bda2bc0-8d0a-45f2-88fa-432f494881ba">&lt;linkText&gt;</bpt>Add Sign-In to a Windows Desktop App<ept id="9bda2bc0-8d0a-45f2-88fa-432f494881ba">&lt;/linkText&gt;</ept><bpt id="9bda2bc0-8d0a-45f2-88fa-432f494881ba">&lt;title&gt;</bpt><ept id="9bda2bc0-8d0a-45f2-88fa-432f494881ba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e19757a7-d704-43ff-a08f-a201b367d4d2" xml:space="preserve">
+          <source><bpt id="4db37180-672b-4588-a465-cb0a29bc6675">&lt;linkText&gt;</bpt>Secure a .NET Web API<ept id="4db37180-672b-4588-a465-cb0a29bc6675">&lt;/linkText&gt;</ept><bpt id="4db37180-672b-4588-a465-cb0a29bc6675">&lt;title&gt;</bpt><ept id="4db37180-672b-4588-a465-cb0a29bc6675">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4db37180-672b-4588-a465-cb0a29bc6675">&lt;linkText&gt;</bpt>Secure a .NET Web API<ept id="4db37180-672b-4588-a465-cb0a29bc6675">&lt;/linkText&gt;</ept><bpt id="4db37180-672b-4588-a465-cb0a29bc6675">&lt;title&gt;</bpt><ept id="4db37180-672b-4588-a465-cb0a29bc6675">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b25ae79-1c8a-4ca7-b6a0-5b6222182261" xml:space="preserve">
+          <source>Single Page Apps with OpenID Connect (Coming Soon)</source>
+          <target state="new">Single Page Apps with OpenID Connect (Coming Soon)</target>
+        </trans-unit>
+        <trans-unit id="3fb513e1-caab-4313-80e8-eb40cdea746e" xml:space="preserve">
+          <source><bpt id="f58e1d87-ca95-4cdf-bd34-41babacd03ef">&lt;linkText&gt;</bpt>Call Office 365 Rest APIs from an app<ept id="f58e1d87-ca95-4cdf-bd34-41babacd03ef">&lt;/linkText&gt;</ept><bpt id="f58e1d87-ca95-4cdf-bd34-41babacd03ef">&lt;title&gt;</bpt><ept id="f58e1d87-ca95-4cdf-bd34-41babacd03ef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f58e1d87-ca95-4cdf-bd34-41babacd03ef">&lt;linkText&gt;</bpt>Call Office 365 Rest APIs from an app<ept id="f58e1d87-ca95-4cdf-bd34-41babacd03ef">&lt;/linkText&gt;</ept><bpt id="f58e1d87-ca95-4cdf-bd34-41babacd03ef">&lt;title&gt;</bpt><ept id="f58e1d87-ca95-4cdf-bd34-41babacd03ef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93387aa0-cb95-4775-8017-8db80ec58b18" xml:space="preserve">
+          <source>Secure a NodeJS Web API (Coming Soon)</source>
+          <target state="new">Secure a NodeJS Web API (Coming Soon)</target>
+        </trans-unit>
+        <trans-unit id="100049b1-78f1-48af-afa2-ddd00b243da0" xml:space="preserve">
+          <source>Server Side Daemons (Coming Soon)</source>
+          <target state="new">Server Side Daemons (Coming Soon)</target>
+        </trans-unit>
+        <trans-unit id="c169cc92-f022-4405-b114-f999f1906a92" xml:space="preserve">
+          <source><bpt id="6c401686-35c3-4ab5-b8f9-79e28edc468d">&lt;linkText&gt;</bpt>Call Office 365 REST APIs from the web<ept id="6c401686-35c3-4ab5-b8f9-79e28edc468d">&lt;/linkText&gt;</ept><bpt id="6c401686-35c3-4ab5-b8f9-79e28edc468d">&lt;title&gt;</bpt><ept id="6c401686-35c3-4ab5-b8f9-79e28edc468d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6c401686-35c3-4ab5-b8f9-79e28edc468d">&lt;linkText&gt;</bpt>Call Office 365 REST APIs from the web<ept id="6c401686-35c3-4ab5-b8f9-79e28edc468d">&lt;/linkText&gt;</ept><bpt id="6c401686-35c3-4ab5-b8f9-79e28edc468d">&lt;title&gt;</bpt><ept id="6c401686-35c3-4ab5-b8f9-79e28edc468d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

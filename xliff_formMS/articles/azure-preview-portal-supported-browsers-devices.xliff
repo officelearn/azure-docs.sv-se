@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="43e8e032-7971-4970-8b2a-1d4689be6e17" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="43e8e032-7971-4970-8b2a-1d4689be6e17" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="afb4b91e-71f6-4617-8d45-437cd10e617a">
+        <trans-unit id="94e00f2c-9121-48bf-b70d-ec9fe93290c0" xml:space="preserve">
+          <source>Supported browsers and devices</source>
+          <target state="new">Supported browsers and devices</target>
+        </trans-unit>
+        <trans-unit id="8e8aa9a9-c836-41d3-a9d2-3bf5a6f59c69" xml:space="preserve">
+          <source>The Microsoft Azure portal runs on all modern desktop and tablet devices and browsers.</source>
+          <target state="new">The Microsoft Azure portal runs on all modern desktop and tablet devices and browsers.</target>
+        </trans-unit>
+        <trans-unit id="bafbc82e-f376-4836-abd9-bddaa458bac4" xml:space="preserve">
+          <source>The portal will run great on modern PCs, Macs, and tablets.</source>
+          <target state="new">The portal will run great on modern PCs, Macs, and tablets.</target>
+        </trans-unit>
+        <trans-unit id="0603a415-6269-4074-9a8f-f308660fc3b6" xml:space="preserve">
+          <source>Mobile phones are not currently supported.</source>
+          <target state="new">Mobile phones are not currently supported.</target>
+        </trans-unit>
+        <trans-unit id="fccd6721-77c8-4d2e-ae30-5ce6161fc920" xml:space="preserve">
+          <source>The latest versions of the following browsers are supported:</source>
+          <target state="new">The latest versions of the following browsers are supported:</target>
+        </trans-unit>
+        <trans-unit id="0faf85cc-65e7-4264-8733-de231d8c184f" xml:space="preserve">
+          <source>Edge (latest)</source>
+          <target state="new">Edge (latest)</target>
+        </trans-unit>
+        <trans-unit id="4cc878b7-cbdc-4074-b9e2-dfbdfb824c0c" xml:space="preserve">
+          <source>Internet Explorer (11 and up)</source>
+          <target state="new">Internet Explorer (11 and up)</target>
+        </trans-unit>
+        <trans-unit id="d50c724c-1e7f-4d68-a781-bdd0509e91de" xml:space="preserve">
+          <source>Safari (7 and up)</source>
+          <target state="new">Safari (7 and up)</target>
+        </trans-unit>
+        <trans-unit id="cfc4d26a-ca99-4bdd-93bc-263669b87b4a" xml:space="preserve">
+          <source>Chrome (latest)</source>
+          <target state="new">Chrome (latest)</target>
+        </trans-unit>
+        <trans-unit id="4a272372-8293-4875-93bd-d0de3e8e2027" xml:space="preserve">
+          <source>Firefox (latest)</source>
+          <target state="new">Firefox (latest)</target>
+        </trans-unit>
+        <trans-unit id="732f5a49-9013-4d1c-99b7-18481c886bc8" xml:space="preserve">
+          <source>*Safari 6 and lower are not supported.</source>
+          <target state="new">*Safari 6 and lower are not supported.</target>
+        </trans-unit>
+        <trans-unit id="3ca49a86-a876-4005-ae47-0d57a247a3eb" xml:space="preserve">
+          <source>If you're using OS X, you can either use Chrome, Firefox, or upgrade to OS X Mavericks to get Safari 7.*</source>
+          <target state="new">If you're using OS X, you can either use Chrome, Firefox, or upgrade to OS X Mavericks to get Safari 7.*</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

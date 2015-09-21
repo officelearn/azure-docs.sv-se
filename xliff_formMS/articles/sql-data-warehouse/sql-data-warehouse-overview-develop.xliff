@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="773588ce-add6-43a9-8543-f6670da2ad92" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="773588ce-add6-43a9-8543-f6670da2ad92" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d7f49d7d-04d2-4606-a946-b317b769df72">
+        <trans-unit id="a189b558-fbc6-4de0-bce4-8090fbbe1d02" xml:space="preserve">
+          <source>Develop solutions for SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Develop solutions for SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8001e646-152a-49e8-b96b-40e683036992" xml:space="preserve">
+          <source>Development techniques and best practices for building solutions with Azure SQL Data Warehouse.</source>
+          <target state="new">Development techniques and best practices for building solutions with Azure SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="0fc542df-afe6-4535-a2e0-53fd67c2290f" xml:space="preserve">
+          <source>Take a look through the development articles to better understand development principles, best practices and coding techniques for SQL Data Warehouse.</source>
+          <target state="new">Take a look through the development articles to better understand development principles, best practices and coding techniques for SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="900a6936-d029-46ee-8c1a-326247019933" xml:space="preserve">
+          <source>The following articles highlight some of the key concepts and design decisions you will need to understand for the development of your distributed data warehouse using SQL Data Warehouse:</source>
+          <target state="new">The following articles highlight some of the key concepts and design decisions you will need to understand for the development of your distributed data warehouse using SQL Data Warehouse:</target>
+        </trans-unit>
+        <trans-unit id="7be42429-c370-499d-b91a-615eef26e7ed" xml:space="preserve">
+          <source><bpt id="27b4d09e-f2ad-4318-90fb-04a389c9041b">&lt;linkText&gt;</bpt>connections<ept id="27b4d09e-f2ad-4318-90fb-04a389c9041b">&lt;/linkText&gt;</ept><bpt id="27b4d09e-f2ad-4318-90fb-04a389c9041b">&lt;title&gt;</bpt><ept id="27b4d09e-f2ad-4318-90fb-04a389c9041b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="27b4d09e-f2ad-4318-90fb-04a389c9041b">&lt;linkText&gt;</bpt>connections<ept id="27b4d09e-f2ad-4318-90fb-04a389c9041b">&lt;/linkText&gt;</ept><bpt id="27b4d09e-f2ad-4318-90fb-04a389c9041b">&lt;title&gt;</bpt><ept id="27b4d09e-f2ad-4318-90fb-04a389c9041b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a017a7c0-0caf-442a-aa06-0e14fa139b36" xml:space="preserve">
+          <source><bpt id="ce6565ee-090f-4bc5-ac9c-0057a60adaf4">&lt;linkText&gt;</bpt>concurrency<ept id="ce6565ee-090f-4bc5-ac9c-0057a60adaf4">&lt;/linkText&gt;</ept><bpt id="ce6565ee-090f-4bc5-ac9c-0057a60adaf4">&lt;title&gt;</bpt><ept id="ce6565ee-090f-4bc5-ac9c-0057a60adaf4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ce6565ee-090f-4bc5-ac9c-0057a60adaf4">&lt;linkText&gt;</bpt>concurrency<ept id="ce6565ee-090f-4bc5-ac9c-0057a60adaf4">&lt;/linkText&gt;</ept><bpt id="ce6565ee-090f-4bc5-ac9c-0057a60adaf4">&lt;title&gt;</bpt><ept id="ce6565ee-090f-4bc5-ac9c-0057a60adaf4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="966250c5-fa8b-4f57-88c8-33e79dbe8861" xml:space="preserve">
+          <source><bpt id="8c58e4b0-2be7-4733-851e-6b1751f822c5">&lt;linkText&gt;</bpt>transactions<ept id="8c58e4b0-2be7-4733-851e-6b1751f822c5">&lt;/linkText&gt;</ept><bpt id="8c58e4b0-2be7-4733-851e-6b1751f822c5">&lt;title&gt;</bpt><ept id="8c58e4b0-2be7-4733-851e-6b1751f822c5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8c58e4b0-2be7-4733-851e-6b1751f822c5">&lt;linkText&gt;</bpt>transactions<ept id="8c58e4b0-2be7-4733-851e-6b1751f822c5">&lt;/linkText&gt;</ept><bpt id="8c58e4b0-2be7-4733-851e-6b1751f822c5">&lt;title&gt;</bpt><ept id="8c58e4b0-2be7-4733-851e-6b1751f822c5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45439910-3f83-40a9-a35c-c65533c951a8" xml:space="preserve">
+          <source><bpt id="e365c066-5dc2-4f18-a40b-7e5bafe5fa85">&lt;linkText&gt;</bpt>user-defined schemas<ept id="e365c066-5dc2-4f18-a40b-7e5bafe5fa85">&lt;/linkText&gt;</ept><bpt id="e365c066-5dc2-4f18-a40b-7e5bafe5fa85">&lt;title&gt;</bpt><ept id="e365c066-5dc2-4f18-a40b-7e5bafe5fa85">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e365c066-5dc2-4f18-a40b-7e5bafe5fa85">&lt;linkText&gt;</bpt>user-defined schemas<ept id="e365c066-5dc2-4f18-a40b-7e5bafe5fa85">&lt;/linkText&gt;</ept><bpt id="e365c066-5dc2-4f18-a40b-7e5bafe5fa85">&lt;title&gt;</bpt><ept id="e365c066-5dc2-4f18-a40b-7e5bafe5fa85">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d71b9478-294b-4a8b-8d9c-9aed2d19f845" xml:space="preserve">
+          <source><bpt id="e6a443aa-3a2e-4d05-ba8b-c74128b4b1c2">&lt;linkText&gt;</bpt>table design<ept id="e6a443aa-3a2e-4d05-ba8b-c74128b4b1c2">&lt;/linkText&gt;</ept><bpt id="e6a443aa-3a2e-4d05-ba8b-c74128b4b1c2">&lt;title&gt;</bpt><ept id="e6a443aa-3a2e-4d05-ba8b-c74128b4b1c2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e6a443aa-3a2e-4d05-ba8b-c74128b4b1c2">&lt;linkText&gt;</bpt>table design<ept id="e6a443aa-3a2e-4d05-ba8b-c74128b4b1c2">&lt;/linkText&gt;</ept><bpt id="e6a443aa-3a2e-4d05-ba8b-c74128b4b1c2">&lt;title&gt;</bpt><ept id="e6a443aa-3a2e-4d05-ba8b-c74128b4b1c2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="618cce3e-9bf4-4825-86fe-29b1a919123c" xml:space="preserve">
+          <source><bpt id="35dbaa6d-1955-4f68-92a1-b24e03c9ee6a">&lt;linkText&gt;</bpt>hash distribution keys<ept id="35dbaa6d-1955-4f68-92a1-b24e03c9ee6a">&lt;/linkText&gt;</ept><bpt id="35dbaa6d-1955-4f68-92a1-b24e03c9ee6a">&lt;title&gt;</bpt><ept id="35dbaa6d-1955-4f68-92a1-b24e03c9ee6a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="35dbaa6d-1955-4f68-92a1-b24e03c9ee6a">&lt;linkText&gt;</bpt>hash distribution keys<ept id="35dbaa6d-1955-4f68-92a1-b24e03c9ee6a">&lt;/linkText&gt;</ept><bpt id="35dbaa6d-1955-4f68-92a1-b24e03c9ee6a">&lt;title&gt;</bpt><ept id="35dbaa6d-1955-4f68-92a1-b24e03c9ee6a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c17c05c9-56eb-46fa-85cd-c483af42ec04" xml:space="preserve">
+          <source><bpt id="a16d478d-6770-4c78-a0da-4e6e0468a725">&lt;linkText&gt;</bpt>table partitions<ept id="a16d478d-6770-4c78-a0da-4e6e0468a725">&lt;/linkText&gt;</ept><bpt id="a16d478d-6770-4c78-a0da-4e6e0468a725">&lt;title&gt;</bpt><ept id="a16d478d-6770-4c78-a0da-4e6e0468a725">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a16d478d-6770-4c78-a0da-4e6e0468a725">&lt;linkText&gt;</bpt>table partitions<ept id="a16d478d-6770-4c78-a0da-4e6e0468a725">&lt;/linkText&gt;</ept><bpt id="a16d478d-6770-4c78-a0da-4e6e0468a725">&lt;title&gt;</bpt><ept id="a16d478d-6770-4c78-a0da-4e6e0468a725">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b399b13-9fbc-4ec4-b7ab-ee402396ad4b" xml:space="preserve">
+          <source><bpt id="3aff8288-6eff-4f15-918b-bfe293011b8b">&lt;linkText&gt;</bpt>CTAS<ept id="3aff8288-6eff-4f15-918b-bfe293011b8b">&lt;/linkText&gt;</ept><bpt id="3aff8288-6eff-4f15-918b-bfe293011b8b">&lt;title&gt;</bpt><ept id="3aff8288-6eff-4f15-918b-bfe293011b8b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3aff8288-6eff-4f15-918b-bfe293011b8b">&lt;linkText&gt;</bpt>CTAS<ept id="3aff8288-6eff-4f15-918b-bfe293011b8b">&lt;/linkText&gt;</ept><bpt id="3aff8288-6eff-4f15-918b-bfe293011b8b">&lt;title&gt;</bpt><ept id="3aff8288-6eff-4f15-918b-bfe293011b8b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6873e8f3-eb41-43c2-a8c2-026f1e9a660b" xml:space="preserve">
+          <source><bpt id="ac132128-60f1-4826-ba03-6c2365a3a7cd">&lt;linkText&gt;</bpt>statistics<ept id="ac132128-60f1-4826-ba03-6c2365a3a7cd">&lt;/linkText&gt;</ept><bpt id="ac132128-60f1-4826-ba03-6c2365a3a7cd">&lt;title&gt;</bpt><ept id="ac132128-60f1-4826-ba03-6c2365a3a7cd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ac132128-60f1-4826-ba03-6c2365a3a7cd">&lt;linkText&gt;</bpt>statistics<ept id="ac132128-60f1-4826-ba03-6c2365a3a7cd">&lt;/linkText&gt;</ept><bpt id="ac132128-60f1-4826-ba03-6c2365a3a7cd">&lt;title&gt;</bpt><ept id="ac132128-60f1-4826-ba03-6c2365a3a7cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55121580-bcb5-42f0-b56c-806bd7ab8c31" xml:space="preserve">
+          <source>These articles highlight specific coding techniques, tips and best practices for developing solutions with SQL Data Warehouse:</source>
+          <target state="new">These articles highlight specific coding techniques, tips and best practices for developing solutions with SQL Data Warehouse:</target>
+        </trans-unit>
+        <trans-unit id="b225016c-7072-414d-915d-bea3820e6294" xml:space="preserve">
+          <source><bpt id="29d60a3e-86c7-4ba7-a32a-3f388188d64a">&lt;linkText&gt;</bpt>stored procedures<ept id="29d60a3e-86c7-4ba7-a32a-3f388188d64a">&lt;/linkText&gt;</ept><bpt id="29d60a3e-86c7-4ba7-a32a-3f388188d64a">&lt;title&gt;</bpt><ept id="29d60a3e-86c7-4ba7-a32a-3f388188d64a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="29d60a3e-86c7-4ba7-a32a-3f388188d64a">&lt;linkText&gt;</bpt>stored procedures<ept id="29d60a3e-86c7-4ba7-a32a-3f388188d64a">&lt;/linkText&gt;</ept><bpt id="29d60a3e-86c7-4ba7-a32a-3f388188d64a">&lt;title&gt;</bpt><ept id="29d60a3e-86c7-4ba7-a32a-3f388188d64a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71e9c4fb-5e90-4688-b939-2c0fa4bbc505" xml:space="preserve">
+          <source><bpt id="263bb8db-4122-46cd-9745-f965705c1b90">&lt;linkText&gt;</bpt>labels<ept id="263bb8db-4122-46cd-9745-f965705c1b90">&lt;/linkText&gt;</ept><bpt id="263bb8db-4122-46cd-9745-f965705c1b90">&lt;title&gt;</bpt><ept id="263bb8db-4122-46cd-9745-f965705c1b90">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="263bb8db-4122-46cd-9745-f965705c1b90">&lt;linkText&gt;</bpt>labels<ept id="263bb8db-4122-46cd-9745-f965705c1b90">&lt;/linkText&gt;</ept><bpt id="263bb8db-4122-46cd-9745-f965705c1b90">&lt;title&gt;</bpt><ept id="263bb8db-4122-46cd-9745-f965705c1b90">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad0c975c-324d-400c-ab7f-dc9ae09a8911" xml:space="preserve">
+          <source><bpt id="a2731cb9-bd58-466a-bf56-6c9941ea4b4a">&lt;linkText&gt;</bpt>views<ept id="a2731cb9-bd58-466a-bf56-6c9941ea4b4a">&lt;/linkText&gt;</ept><bpt id="a2731cb9-bd58-466a-bf56-6c9941ea4b4a">&lt;title&gt;</bpt><ept id="a2731cb9-bd58-466a-bf56-6c9941ea4b4a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a2731cb9-bd58-466a-bf56-6c9941ea4b4a">&lt;linkText&gt;</bpt>views<ept id="a2731cb9-bd58-466a-bf56-6c9941ea4b4a">&lt;/linkText&gt;</ept><bpt id="a2731cb9-bd58-466a-bf56-6c9941ea4b4a">&lt;title&gt;</bpt><ept id="a2731cb9-bd58-466a-bf56-6c9941ea4b4a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8267582c-7890-4f6f-b0db-c0c17b60f8ef" xml:space="preserve">
+          <source><bpt id="d972a450-291c-4baf-a8f8-7a06601a6fef">&lt;linkText&gt;</bpt>temporary tables<ept id="d972a450-291c-4baf-a8f8-7a06601a6fef">&lt;/linkText&gt;</ept><bpt id="d972a450-291c-4baf-a8f8-7a06601a6fef">&lt;title&gt;</bpt><ept id="d972a450-291c-4baf-a8f8-7a06601a6fef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d972a450-291c-4baf-a8f8-7a06601a6fef">&lt;linkText&gt;</bpt>temporary tables<ept id="d972a450-291c-4baf-a8f8-7a06601a6fef">&lt;/linkText&gt;</ept><bpt id="d972a450-291c-4baf-a8f8-7a06601a6fef">&lt;title&gt;</bpt><ept id="d972a450-291c-4baf-a8f8-7a06601a6fef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a68b206-c8c6-4d92-b3b7-52513e36d45c" xml:space="preserve">
+          <source><bpt id="162ba108-10ef-4b25-93f5-18d4710db665">&lt;linkText&gt;</bpt>dynamic SQL<ept id="162ba108-10ef-4b25-93f5-18d4710db665">&lt;/linkText&gt;</ept><bpt id="162ba108-10ef-4b25-93f5-18d4710db665">&lt;title&gt;</bpt><ept id="162ba108-10ef-4b25-93f5-18d4710db665">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="162ba108-10ef-4b25-93f5-18d4710db665">&lt;linkText&gt;</bpt>dynamic SQL<ept id="162ba108-10ef-4b25-93f5-18d4710db665">&lt;/linkText&gt;</ept><bpt id="162ba108-10ef-4b25-93f5-18d4710db665">&lt;title&gt;</bpt><ept id="162ba108-10ef-4b25-93f5-18d4710db665">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80053d04-374e-4ed6-ba78-669be5269d0f" xml:space="preserve">
+          <source><bpt id="bdf28f36-8666-4438-9adc-0a4c460c87e0">&lt;linkText&gt;</bpt>looping<ept id="bdf28f36-8666-4438-9adc-0a4c460c87e0">&lt;/linkText&gt;</ept><bpt id="bdf28f36-8666-4438-9adc-0a4c460c87e0">&lt;title&gt;</bpt><ept id="bdf28f36-8666-4438-9adc-0a4c460c87e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bdf28f36-8666-4438-9adc-0a4c460c87e0">&lt;linkText&gt;</bpt>looping<ept id="bdf28f36-8666-4438-9adc-0a4c460c87e0">&lt;/linkText&gt;</ept><bpt id="bdf28f36-8666-4438-9adc-0a4c460c87e0">&lt;title&gt;</bpt><ept id="bdf28f36-8666-4438-9adc-0a4c460c87e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55bad377-9f08-48f8-82dc-29f174a9f958" xml:space="preserve">
+          <source><bpt id="a3f5df30-bc2e-4b2e-9c90-e5668dd507b6">&lt;linkText&gt;</bpt>renaming objects<ept id="a3f5df30-bc2e-4b2e-9c90-e5668dd507b6">&lt;/linkText&gt;</ept><bpt id="a3f5df30-bc2e-4b2e-9c90-e5668dd507b6">&lt;title&gt;</bpt><ept id="a3f5df30-bc2e-4b2e-9c90-e5668dd507b6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a3f5df30-bc2e-4b2e-9c90-e5668dd507b6">&lt;linkText&gt;</bpt>renaming objects<ept id="a3f5df30-bc2e-4b2e-9c90-e5668dd507b6">&lt;/linkText&gt;</ept><bpt id="a3f5df30-bc2e-4b2e-9c90-e5668dd507b6">&lt;title&gt;</bpt><ept id="a3f5df30-bc2e-4b2e-9c90-e5668dd507b6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f81cafb0-4854-4ed5-a46c-c1dd74e5cace" xml:space="preserve">
+          <source><bpt id="7966584e-9735-4081-919e-09309ab1ca90">&lt;linkText&gt;</bpt>pivoting data<ept id="7966584e-9735-4081-919e-09309ab1ca90">&lt;/linkText&gt;</ept><bpt id="7966584e-9735-4081-919e-09309ab1ca90">&lt;title&gt;</bpt><ept id="7966584e-9735-4081-919e-09309ab1ca90">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7966584e-9735-4081-919e-09309ab1ca90">&lt;linkText&gt;</bpt>pivoting data<ept id="7966584e-9735-4081-919e-09309ab1ca90">&lt;/linkText&gt;</ept><bpt id="7966584e-9735-4081-919e-09309ab1ca90">&lt;title&gt;</bpt><ept id="7966584e-9735-4081-919e-09309ab1ca90">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76ca423b-9621-4f0a-814c-475c9066ce54" xml:space="preserve">
+          <source><bpt id="fb187f7d-018b-494b-af02-da82c80983ca">&lt;linkText&gt;</bpt>group by options<ept id="fb187f7d-018b-494b-af02-da82c80983ca">&lt;/linkText&gt;</ept><bpt id="fb187f7d-018b-494b-af02-da82c80983ca">&lt;title&gt;</bpt><ept id="fb187f7d-018b-494b-af02-da82c80983ca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fb187f7d-018b-494b-af02-da82c80983ca">&lt;linkText&gt;</bpt>group by options<ept id="fb187f7d-018b-494b-af02-da82c80983ca">&lt;/linkText&gt;</ept><bpt id="fb187f7d-018b-494b-af02-da82c80983ca">&lt;title&gt;</bpt><ept id="fb187f7d-018b-494b-af02-da82c80983ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ef28e1d-21c0-48bb-bfa9-b276ce59afbb" xml:space="preserve">
+          <source><bpt id="3126a852-7012-4ae5-8061-78e59ff266b3">&lt;linkText&gt;</bpt>variable assignment<ept id="3126a852-7012-4ae5-8061-78e59ff266b3">&lt;/linkText&gt;</ept><bpt id="3126a852-7012-4ae5-8061-78e59ff266b3">&lt;title&gt;</bpt><ept id="3126a852-7012-4ae5-8061-78e59ff266b3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3126a852-7012-4ae5-8061-78e59ff266b3">&lt;linkText&gt;</bpt>variable assignment<ept id="3126a852-7012-4ae5-8061-78e59ff266b3">&lt;/linkText&gt;</ept><bpt id="3126a852-7012-4ae5-8061-78e59ff266b3">&lt;title&gt;</bpt><ept id="3126a852-7012-4ae5-8061-78e59ff266b3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9af6673-945d-4a3f-ad92-9d6edb4c90e1" xml:space="preserve">
+          <source>Once you have been through the development articles take a look through the <bpt id="d7e68a37-9afb-4924-9099-084455ba1c1e">&lt;linkText&gt;</bpt>Transact-SQL reference<ept id="d7e68a37-9afb-4924-9099-084455ba1c1e">&lt;/linkText&gt;</ept><bpt id="d7e68a37-9afb-4924-9099-084455ba1c1e">&lt;title&gt;</bpt><ept id="d7e68a37-9afb-4924-9099-084455ba1c1e">&lt;/title&gt;</ept> page for more details on the supported syntax for SQL Data Warehouse.</source>
+          <target state="new">Once you have been through the development articles take a look through the <bpt id="d7e68a37-9afb-4924-9099-084455ba1c1e">&lt;linkText&gt;</bpt>Transact-SQL reference<ept id="d7e68a37-9afb-4924-9099-084455ba1c1e">&lt;/linkText&gt;</ept><bpt id="d7e68a37-9afb-4924-9099-084455ba1c1e">&lt;title&gt;</bpt><ept id="d7e68a37-9afb-4924-9099-084455ba1c1e">&lt;/title&gt;</ept> page for more details on the supported syntax for SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="4661564a-8af0-4443-b91e-d134765b7e35" xml:space="preserve">
+          <source>sql-data-warehouse-develop-concurrency.md</source>
+          <target state="new">sql-data-warehouse-develop-concurrency.md</target>
+        </trans-unit>
+        <trans-unit id="cbd1468d-9209-4544-833f-1095f1509b5d" xml:space="preserve">
+          <source>sql-data-warehouse-develop-connections.md</source>
+          <target state="new">sql-data-warehouse-develop-connections.md</target>
+        </trans-unit>
+        <trans-unit id="e9761179-6dc4-442a-9aac-636dce451754" xml:space="preserve">
+          <source>sql-data-warehouse-develop-ctas.md</source>
+          <target state="new">sql-data-warehouse-develop-ctas.md</target>
+        </trans-unit>
+        <trans-unit id="8bc272a9-b5b2-47c1-a778-9d757e36b5c3" xml:space="preserve">
+          <source>sql-data-warehouse-develop-dynamic-sql.md</source>
+          <target state="new">sql-data-warehouse-develop-dynamic-sql.md</target>
+        </trans-unit>
+        <trans-unit id="11183f7d-fda1-4bd1-97c1-634fb080ad97" xml:space="preserve">
+          <source>sql-data-warehouse-develop-group-by-options.md</source>
+          <target state="new">sql-data-warehouse-develop-group-by-options.md</target>
+        </trans-unit>
+        <trans-unit id="9a0768ef-3aac-4b19-8948-dea53823df9d" xml:space="preserve">
+          <source>sql-data-warehouse-develop-hash-distribution-key.md</source>
+          <target state="new">sql-data-warehouse-develop-hash-distribution-key.md</target>
+        </trans-unit>
+        <trans-unit id="558a4103-55ec-489c-9052-3305aed43156" xml:space="preserve">
+          <source>sql-data-warehouse-develop-label.md</source>
+          <target state="new">sql-data-warehouse-develop-label.md</target>
+        </trans-unit>
+        <trans-unit id="75f28278-8b42-40a0-bf79-62fa0ea75bbe" xml:space="preserve">
+          <source>sql-data-warehouse-develop-loops.md</source>
+          <target state="new">sql-data-warehouse-develop-loops.md</target>
+        </trans-unit>
+        <trans-unit id="d6da292c-ac5e-4047-8274-48afb5568ba9" xml:space="preserve">
+          <source>sql-data-warehouse-develop-pivot-unpivot.md</source>
+          <target state="new">sql-data-warehouse-develop-pivot-unpivot.md</target>
+        </trans-unit>
+        <trans-unit id="1ded44bc-13f4-4728-b5a1-2fc1d3d52deb" xml:space="preserve">
+          <source>sql-data-warehouse-develop-rename.md</source>
+          <target state="new">sql-data-warehouse-develop-rename.md</target>
+        </trans-unit>
+        <trans-unit id="55486390-89ad-45e5-a743-c440c2c62010" xml:space="preserve">
+          <source>sql-data-warehouse-develop-statistics.md</source>
+          <target state="new">sql-data-warehouse-develop-statistics.md</target>
+        </trans-unit>
+        <trans-unit id="ac77872c-f98c-4b82-90c0-2752e45704ec" xml:space="preserve">
+          <source>sql-data-warehouse-develop-stored-procedures.md</source>
+          <target state="new">sql-data-warehouse-develop-stored-procedures.md</target>
+        </trans-unit>
+        <trans-unit id="4dd79d15-95a9-44fd-9d56-2ee9aa8e7ce0" xml:space="preserve">
+          <source>sql-data-warehouse-develop-table-design.md</source>
+          <target state="new">sql-data-warehouse-develop-table-design.md</target>
+        </trans-unit>
+        <trans-unit id="69f3308c-a8f6-4d01-ad83-7f830632db73" xml:space="preserve">
+          <source>sql-data-warehouse-develop-table-partitions.md</source>
+          <target state="new">sql-data-warehouse-develop-table-partitions.md</target>
+        </trans-unit>
+        <trans-unit id="0910d0b4-6dbe-41ca-b2ad-5d2b9da3c2e3" xml:space="preserve">
+          <source>sql-data-warehouse-develop-temporary-tables.md</source>
+          <target state="new">sql-data-warehouse-develop-temporary-tables.md</target>
+        </trans-unit>
+        <trans-unit id="e88f9e54-1c02-4a0a-9eb4-1519a318a439" xml:space="preserve">
+          <source>sql-data-warehouse-develop-transactions.md</source>
+          <target state="new">sql-data-warehouse-develop-transactions.md</target>
+        </trans-unit>
+        <trans-unit id="216aa106-d03d-4902-94a1-42e6124a1275" xml:space="preserve">
+          <source>sql-data-warehouse-develop-user-defined-schemas.md</source>
+          <target state="new">sql-data-warehouse-develop-user-defined-schemas.md</target>
+        </trans-unit>
+        <trans-unit id="1258d718-1967-49c2-abc9-25cc48ef59c2" xml:space="preserve">
+          <source>sql-data-warehouse-develop-variable-assignment.md</source>
+          <target state="new">sql-data-warehouse-develop-variable-assignment.md</target>
+        </trans-unit>
+        <trans-unit id="806e4760-9917-4961-85d1-a326d8c2d59c" xml:space="preserve">
+          <source>sql-data-warehouse-develop-views.md</source>
+          <target state="new">sql-data-warehouse-develop-views.md</target>
+        </trans-unit>
+        <trans-unit id="edd523ed-9324-4695-925b-eef81213ac57" xml:space="preserve">
+          <source>sql-data-warehouse-overview-reference.md</source>
+          <target state="new">sql-data-warehouse-overview-reference.md</target>
+        </trans-unit>
+      </group>
+      <group id="e9d3832c-7b66-4d5b-85ac-b9df6ede9f72" />
+    </body>
+  </file>
+</xliff>

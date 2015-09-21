@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b9b75317-fde4-4b1a-8d4b-352ffd14c0ae" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b9b75317-fde4-4b1a-8d4b-352ffd14c0ae" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="14845675-c5d9-4623-b6dc-80b5e705063f">
+        <trans-unit id="8f071bc1-50c4-4ea2-b279-1d83f6dca426" xml:space="preserve">
+          <source>How to Use the Engagement API on Android</source>
+          <target state="new">How to Use the Engagement API on Android</target>
+        </trans-unit>
+        <trans-unit id="7d77dfe6-dbda-4282-b700-94762c05c1e7" xml:space="preserve">
+          <source>Latest Android SDK - How to Use the Engagement API on Android</source>
+          <target state="new">Latest Android SDK - How to Use the Engagement API on Android</target>
+        </trans-unit>
+        <trans-unit id="4ac136a0-30d5-41c9-98b2-93221106a33f" xml:space="preserve">
+          <source>This document is an add-on to the document <bpt id="0c1a85fd-b8b5-4311-b00b-febd890afcc7">&lt;linkText&gt;</bpt>How to Integrate Engagement on Android<ept id="0c1a85fd-b8b5-4311-b00b-febd890afcc7">&lt;/linkText&gt;</ept><bpt id="0c1a85fd-b8b5-4311-b00b-febd890afcc7">&lt;title&gt;</bpt><ept id="0c1a85fd-b8b5-4311-b00b-febd890afcc7">&lt;/title&gt;</ept>.</source>
+          <target state="new">This document is an add-on to the document <bpt id="0c1a85fd-b8b5-4311-b00b-febd890afcc7">&lt;linkText&gt;</bpt>How to Integrate Engagement on Android<ept id="0c1a85fd-b8b5-4311-b00b-febd890afcc7">&lt;/linkText&gt;</ept><bpt id="0c1a85fd-b8b5-4311-b00b-febd890afcc7">&lt;title&gt;</bpt><ept id="0c1a85fd-b8b5-4311-b00b-febd890afcc7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="06f63e91-8dee-46c0-bc53-05e3b535d560" xml:space="preserve">
+          <source>It provides in depth details about how to use the Engagement API to report your application statistics.</source>
+          <target state="new">It provides in depth details about how to use the Engagement API to report your application statistics.</target>
+        </trans-unit>
+        <trans-unit id="65ad4e59-f434-45d7-a0e7-5ebda08cc570" xml:space="preserve">
+          <source>Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your <bpt id="2e30230c-a7dc-499e-bcf0-995c2becd444">&lt;code&gt;</bpt>Activity<ept id="2e30230c-a7dc-499e-bcf0-995c2becd444">&lt;/code&gt;</ept> sub-classes inherit from the corresponding <bpt id="0450b51d-d17f-467f-b29f-8104fa0dacdc">&lt;code&gt;</bpt>EngagementActivity<ept id="0450b51d-d17f-467f-b29f-8104fa0dacdc">&lt;/code&gt;</ept> class.</source>
+          <target state="new">Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your <bpt id="2e30230c-a7dc-499e-bcf0-995c2becd444">&lt;code&gt;</bpt>Activity<ept id="2e30230c-a7dc-499e-bcf0-995c2becd444">&lt;/code&gt;</ept> sub-classes inherit from the corresponding <bpt id="0450b51d-d17f-467f-b29f-8104fa0dacdc">&lt;code&gt;</bpt>EngagementActivity<ept id="0450b51d-d17f-467f-b29f-8104fa0dacdc">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="00a56c7a-da28-4363-9856-07b253a1f8c5" xml:space="preserve">
+          <source>If you want to do more, for example if you need to report application specific events, errors and jobs, or if you have to report your application's activities in a different way than the one implemented in the <bpt id="3339f392-0a67-40c4-9db7-7e47f00db20c">&lt;code&gt;</bpt>EngagementActivity<ept id="3339f392-0a67-40c4-9db7-7e47f00db20c">&lt;/code&gt;</ept> classes, then you need to use the Engagement API.</source>
+          <target state="new">If you want to do more, for example if you need to report application specific events, errors and jobs, or if you have to report your application's activities in a different way than the one implemented in the <bpt id="3339f392-0a67-40c4-9db7-7e47f00db20c">&lt;code&gt;</bpt>EngagementActivity<ept id="3339f392-0a67-40c4-9db7-7e47f00db20c">&lt;/code&gt;</ept> classes, then you need to use the Engagement API.</target>
+        </trans-unit>
+        <trans-unit id="37a7545e-13ec-443d-9837-19441f68e5a6" xml:space="preserve">
+          <source>The Engagement API is provided by the <bpt id="5aae5e7f-6868-452f-8dbc-d26ccda8745b">&lt;code&gt;</bpt>EngagementAgent<ept id="5aae5e7f-6868-452f-8dbc-d26ccda8745b">&lt;/code&gt;</ept> class.</source>
+          <target state="new">The Engagement API is provided by the <bpt id="5aae5e7f-6868-452f-8dbc-d26ccda8745b">&lt;code&gt;</bpt>EngagementAgent<ept id="5aae5e7f-6868-452f-8dbc-d26ccda8745b">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="8d8ef76d-597b-4e74-b31f-48e2145e3244" xml:space="preserve">
+          <source>An instance of this class can be retrieved by calling the <bpt id="2790265b-3d7c-4ca5-afb0-bfb69efba927">&lt;code&gt;</bpt>EngagementAgent.getInstance(Context)<ept id="2790265b-3d7c-4ca5-afb0-bfb69efba927">&lt;/code&gt;</ept> static method (note that the <bpt id="47af26ab-3fdc-4df6-92d4-e5cd93639d04">&lt;code&gt;</bpt>EngagementAgent<ept id="47af26ab-3fdc-4df6-92d4-e5cd93639d04">&lt;/code&gt;</ept> object returned is a singleton).</source>
+          <target state="new">An instance of this class can be retrieved by calling the <bpt id="2790265b-3d7c-4ca5-afb0-bfb69efba927">&lt;code&gt;</bpt>EngagementAgent.getInstance(Context)<ept id="2790265b-3d7c-4ca5-afb0-bfb69efba927">&lt;/code&gt;</ept> static method (note that the <bpt id="47af26ab-3fdc-4df6-92d4-e5cd93639d04">&lt;code&gt;</bpt>EngagementAgent<ept id="47af26ab-3fdc-4df6-92d4-e5cd93639d04">&lt;/code&gt;</ept> object returned is a singleton).</target>
+        </trans-unit>
+        <trans-unit id="013c3dac-ece1-43d1-b6ad-9470b260ef6c" xml:space="preserve">
+          <source>The following parts refine the common <bpt id="80ca5e04-0d4a-42c9-a66f-34d22d89b89c">&lt;linkText&gt;</bpt>Mobile Engagement Concepts<ept id="80ca5e04-0d4a-42c9-a66f-34d22d89b89c">&lt;/linkText&gt;</ept><bpt id="80ca5e04-0d4a-42c9-a66f-34d22d89b89c">&lt;title&gt;</bpt><ept id="80ca5e04-0d4a-42c9-a66f-34d22d89b89c">&lt;/title&gt;</ept>, for the Android platform.</source>
+          <target state="new">The following parts refine the common <bpt id="80ca5e04-0d4a-42c9-a66f-34d22d89b89c">&lt;linkText&gt;</bpt>Mobile Engagement Concepts<ept id="80ca5e04-0d4a-42c9-a66f-34d22d89b89c">&lt;/linkText&gt;</ept><bpt id="80ca5e04-0d4a-42c9-a66f-34d22d89b89c">&lt;title&gt;</bpt><ept id="80ca5e04-0d4a-42c9-a66f-34d22d89b89c">&lt;/title&gt;</ept>, for the Android platform.</target>
+        </trans-unit>
+        <trans-unit id="f684d634-b731-409a-b48a-453d37e7f6f4" xml:space="preserve">
+          <source>If the user stays more than a few seconds idle between two <bpt id="4dc3edc9-eabc-4068-b2dc-8c19c83e2892">&lt;em&gt;</bpt>activities<ept id="4dc3edc9-eabc-4068-b2dc-8c19c83e2892">&lt;/em&gt;</ept>, then his sequence of <bpt id="b156f1b6-effa-49e8-8c2c-0bf5c8dd991e">&lt;em&gt;</bpt>activities<ept id="b156f1b6-effa-49e8-8c2c-0bf5c8dd991e">&lt;/em&gt;</ept> is split in two distinct <bpt id="c36df751-2b9a-4af5-83ea-dc3f10c97d48">&lt;em&gt;</bpt>sessions<ept id="c36df751-2b9a-4af5-83ea-dc3f10c97d48">&lt;/em&gt;</ept>.</source>
+          <target state="new">If the user stays more than a few seconds idle between two <bpt id="4dc3edc9-eabc-4068-b2dc-8c19c83e2892">&lt;em&gt;</bpt>activities<ept id="4dc3edc9-eabc-4068-b2dc-8c19c83e2892">&lt;/em&gt;</ept>, then his sequence of <bpt id="b156f1b6-effa-49e8-8c2c-0bf5c8dd991e">&lt;em&gt;</bpt>activities<ept id="b156f1b6-effa-49e8-8c2c-0bf5c8dd991e">&lt;/em&gt;</ept> is split in two distinct <bpt id="c36df751-2b9a-4af5-83ea-dc3f10c97d48">&lt;em&gt;</bpt>sessions<ept id="c36df751-2b9a-4af5-83ea-dc3f10c97d48">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="848c473c-cb7c-49d7-93df-cdeef83aa898" xml:space="preserve">
+          <source>These few seconds are called the "session timeout".</source>
+          <target state="new">These few seconds are called the "session timeout".</target>
+        </trans-unit>
+        <trans-unit id="c1e2e926-325f-41ab-9025-89d499048e3c" xml:space="preserve">
+          <source>An <bpt id="444e3ce1-65d9-463a-9c54-2bd5c0acbf8a">&lt;em&gt;</bpt>activity<ept id="444e3ce1-65d9-463a-9c54-2bd5c0acbf8a">&lt;/em&gt;</ept> is usually associated with one screen of the application, that is to say the <bpt id="75376997-ae55-4560-b1d2-d5025f29fb35">&lt;em&gt;</bpt>activity<ept id="75376997-ae55-4560-b1d2-d5025f29fb35">&lt;/em&gt;</ept> starts when the screen is displayed and stops when the screen is closed: this is the case when the Engagement SDK is integrated by using the <bpt id="5f6e9bf1-9fd8-4e82-9ca9-e27c3d472e9f">&lt;code&gt;</bpt>EngagementActivity<ept id="5f6e9bf1-9fd8-4e82-9ca9-e27c3d472e9f">&lt;/code&gt;</ept> classes.</source>
+          <target state="new">An <bpt id="444e3ce1-65d9-463a-9c54-2bd5c0acbf8a">&lt;em&gt;</bpt>activity<ept id="444e3ce1-65d9-463a-9c54-2bd5c0acbf8a">&lt;/em&gt;</ept> is usually associated with one screen of the application, that is to say the <bpt id="75376997-ae55-4560-b1d2-d5025f29fb35">&lt;em&gt;</bpt>activity<ept id="75376997-ae55-4560-b1d2-d5025f29fb35">&lt;/em&gt;</ept> starts when the screen is displayed and stops when the screen is closed: this is the case when the Engagement SDK is integrated by using the <bpt id="5f6e9bf1-9fd8-4e82-9ca9-e27c3d472e9f">&lt;code&gt;</bpt>EngagementActivity<ept id="5f6e9bf1-9fd8-4e82-9ca9-e27c3d472e9f">&lt;/code&gt;</ept> classes.</target>
+        </trans-unit>
+        <trans-unit id="7884a9b4-6454-441b-9107-8ea65c3fa9be" xml:space="preserve">
+          <source>But <bpt id="fd35027e-034d-425e-9add-b79528525ab1">&lt;em&gt;</bpt>activities<ept id="fd35027e-034d-425e-9add-b79528525ab1">&lt;/em&gt;</ept> can also be controlled manually by using the Engagement API.</source>
+          <target state="new">But <bpt id="fd35027e-034d-425e-9add-b79528525ab1">&lt;em&gt;</bpt>activities<ept id="fd35027e-034d-425e-9add-b79528525ab1">&lt;/em&gt;</ept> can also be controlled manually by using the Engagement API.</target>
+        </trans-unit>
+        <trans-unit id="ae76c3c0-a960-43e0-855e-8cbeaaa3a1d0" xml:space="preserve">
+          <source>This allows to split a given screen in several sub parts to get more details about the usage of this screen (for example to known how often and how long dialogs are used inside this screen).</source>
+          <target state="new">This allows to split a given screen in several sub parts to get more details about the usage of this screen (for example to known how often and how long dialogs are used inside this screen).</target>
+        </trans-unit>
+        <trans-unit id="ea88cdbf-012f-4b29-950b-3c70971437c9" xml:space="preserve">
+          <source>You don't need to report activities like described in this section if you are using the <bpt id="6d08875f-75c7-4a47-a5fb-68d5d6acb11b">&lt;code&gt;</bpt>EngagementActivity<ept id="6d08875f-75c7-4a47-a5fb-68d5d6acb11b">&lt;/code&gt;</ept> class and its variants as explained in the How to Integrate Engagement on Android document.</source>
+          <target state="new">You don't need to report activities like described in this section if you are using the <bpt id="6d08875f-75c7-4a47-a5fb-68d5d6acb11b">&lt;code&gt;</bpt>EngagementActivity<ept id="6d08875f-75c7-4a47-a5fb-68d5d6acb11b">&lt;/code&gt;</ept> class and its variants as explained in the How to Integrate Engagement on Android document.</target>
+        </trans-unit>
+        <trans-unit id="c98bda8e-1e52-4c84-89b2-36d4c0092cce" xml:space="preserve">
+          <source>You need to call <bpt id="fae40716-65fd-44f6-a361-19cc7b8040b1">&lt;code&gt;</bpt>startActivity()<ept id="fae40716-65fd-44f6-a361-19cc7b8040b1">&lt;/code&gt;</ept> each time the user activity changes.</source>
+          <target state="new">You need to call <bpt id="fae40716-65fd-44f6-a361-19cc7b8040b1">&lt;code&gt;</bpt>startActivity()<ept id="fae40716-65fd-44f6-a361-19cc7b8040b1">&lt;/code&gt;</ept> each time the user activity changes.</target>
+        </trans-unit>
+        <trans-unit id="21436445-be12-4873-a2fe-8774eb1197a3" xml:space="preserve">
+          <source>The first call to this function starts a new user session.</source>
+          <target state="new">The first call to this function starts a new user session.</target>
+        </trans-unit>
+        <trans-unit id="cd55b227-4fb5-4aa2-b4f8-71d37c722c27" xml:space="preserve">
+          <source>The best place to call this function is on each activity <bpt id="7f02d52b-f2be-421d-b308-f2591b7b07ab">&lt;code&gt;</bpt>onResume<ept id="7f02d52b-f2be-421d-b308-f2591b7b07ab">&lt;/code&gt;</ept> callback.</source>
+          <target state="new">The best place to call this function is on each activity <bpt id="7f02d52b-f2be-421d-b308-f2591b7b07ab">&lt;code&gt;</bpt>onResume<ept id="7f02d52b-f2be-421d-b308-f2591b7b07ab">&lt;/code&gt;</ept> callback.</target>
+        </trans-unit>
+        <trans-unit id="b9fc9335-36d0-416a-a5b2-53d8d4beb2f9" xml:space="preserve">
+          <source>You need to call <bpt id="c3a4b604-8b85-4d0b-a7d9-77afeda1e033">&lt;code&gt;</bpt>endActivity()<ept id="c3a4b604-8b85-4d0b-a7d9-77afeda1e033">&lt;/code&gt;</ept> at least once when the user finishes his last activity.</source>
+          <target state="new">You need to call <bpt id="c3a4b604-8b85-4d0b-a7d9-77afeda1e033">&lt;code&gt;</bpt>endActivity()<ept id="c3a4b604-8b85-4d0b-a7d9-77afeda1e033">&lt;/code&gt;</ept> at least once when the user finishes his last activity.</target>
+        </trans-unit>
+        <trans-unit id="9e3548a1-756e-422c-9192-27908fe95b40" xml:space="preserve">
+          <source>This informs the Engagement SDK that the user is currently idle, and that the user session need to be closed once the session timeout will expire (if you call <bpt id="bb862dd1-73f6-4e55-9f0a-279049970ba3">&lt;code&gt;</bpt>startActivity()<ept id="bb862dd1-73f6-4e55-9f0a-279049970ba3">&lt;/code&gt;</ept> before the session timeout expires, the session is simply resumed).</source>
+          <target state="new">This informs the Engagement SDK that the user is currently idle, and that the user session need to be closed once the session timeout will expire (if you call <bpt id="bb862dd1-73f6-4e55-9f0a-279049970ba3">&lt;code&gt;</bpt>startActivity()<ept id="bb862dd1-73f6-4e55-9f0a-279049970ba3">&lt;/code&gt;</ept> before the session timeout expires, the session is simply resumed).</target>
+        </trans-unit>
+        <trans-unit id="202c34f4-b9f0-48bf-afdc-4e3ea26f17e9" xml:space="preserve">
+          <source>The best place to call this function is on each activity <bpt id="63dc44a2-5e7a-43c3-a98c-a4d72d3f6d07">&lt;code&gt;</bpt>onPause<ept id="63dc44a2-5e7a-43c3-a98c-a4d72d3f6d07">&lt;/code&gt;</ept> callback.</source>
+          <target state="new">The best place to call this function is on each activity <bpt id="63dc44a2-5e7a-43c3-a98c-a4d72d3f6d07">&lt;code&gt;</bpt>onPause<ept id="63dc44a2-5e7a-43c3-a98c-a4d72d3f6d07">&lt;/code&gt;</ept> callback.</target>
+        </trans-unit>
+        <trans-unit id="77ed6d4e-76f4-4675-b956-b3db1cda081d" xml:space="preserve">
+          <source>Session events are usually used to report the actions performed by a user during his session.</source>
+          <target state="new">Session events are usually used to report the actions performed by a user during his session.</target>
+        </trans-unit>
+        <trans-unit id="51a9c855-dcad-4dca-9af3-c067d854a438" xml:space="preserve">
+          <source><bpt id="9c446fc8-9815-4aa9-bf8a-f77f28fbf6c4">&lt;strong&gt;</bpt>Example without extra data:<ept id="9c446fc8-9815-4aa9-bf8a-f77f28fbf6c4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9c446fc8-9815-4aa9-bf8a-f77f28fbf6c4">&lt;strong&gt;</bpt>Example without extra data:<ept id="9c446fc8-9815-4aa9-bf8a-f77f28fbf6c4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9affc0f-d2b5-4fe2-a6b9-f6746d8af277" xml:space="preserve">
+          <source><bpt id="a4262412-0af7-4c27-8603-e63ccdf09049">&lt;strong&gt;</bpt>Example with extra data:<ept id="a4262412-0af7-4c27-8603-e63ccdf09049">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a4262412-0af7-4c27-8603-e63ccdf09049">&lt;strong&gt;</bpt>Example with extra data:<ept id="a4262412-0af7-4c27-8603-e63ccdf09049">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ba54a90-5fd2-4c05-a459-c9e2474cb248" xml:space="preserve">
+          <source>Contrary to session events, standalone events can occur outside of the context of a session.</source>
+          <target state="new">Contrary to session events, standalone events can occur outside of the context of a session.</target>
+        </trans-unit>
+        <trans-unit id="3e25f687-c44f-4be6-86c9-e39b00d9f057" xml:space="preserve">
+          <source><bpt id="ef3868e1-ec44-44a1-b675-65600f31700f">&lt;strong&gt;</bpt>Example:<ept id="ef3868e1-ec44-44a1-b675-65600f31700f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ef3868e1-ec44-44a1-b675-65600f31700f">&lt;strong&gt;</bpt>Example:<ept id="ef3868e1-ec44-44a1-b675-65600f31700f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fdbbdb88-1abc-43e4-b36f-6768c7544b38" xml:space="preserve">
+          <source>Suppose you want to report events occurring when a broadcast receiver is triggered:</source>
+          <target state="new">Suppose you want to report events occurring when a broadcast receiver is triggered:</target>
+        </trans-unit>
+        <trans-unit id="33d334eb-2fa5-4be0-b2bd-9986c0decbd9" xml:space="preserve">
+          <source>Session errors are usually used to report the errors impacting the user during his session.</source>
+          <target state="new">Session errors are usually used to report the errors impacting the user during his session.</target>
+        </trans-unit>
+        <trans-unit id="0d24092c-95b3-4ba7-9468-40c1f2c879ee" xml:space="preserve">
+          <source><bpt id="7f4b6c2c-c848-4154-bb29-6cd9bab0db77">&lt;strong&gt;</bpt>Example:<ept id="7f4b6c2c-c848-4154-bb29-6cd9bab0db77">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7f4b6c2c-c848-4154-bb29-6cd9bab0db77">&lt;strong&gt;</bpt>Example:<ept id="7f4b6c2c-c848-4154-bb29-6cd9bab0db77">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de7a1752-52c1-48a8-9736-a0f776d7ba34" xml:space="preserve">
+          <source>Contrary to session errors, standalone errors can occur outside of the context of a session.</source>
+          <target state="new">Contrary to session errors, standalone errors can occur outside of the context of a session.</target>
+        </trans-unit>
+        <trans-unit id="a16a3788-6675-46c5-8c78-5a62adba4cd0" xml:space="preserve">
+          <source><bpt id="df71afb9-ed01-407a-bd25-eace6dd1b63f">&lt;strong&gt;</bpt>Example:<ept id="df71afb9-ed01-407a-bd25-eace6dd1b63f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="df71afb9-ed01-407a-bd25-eace6dd1b63f">&lt;strong&gt;</bpt>Example:<ept id="df71afb9-ed01-407a-bd25-eace6dd1b63f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dcfa13fe-74f5-47c2-b7d0-76bdcebddd9d" xml:space="preserve">
+          <source>The following example shows how to report an error whenever the memory becomes low on the phone while your application process is running.</source>
+          <target state="new">The following example shows how to report an error whenever the memory becomes low on the phone while your application process is running.</target>
+        </trans-unit>
+        <trans-unit id="d30cdd4e-d47d-4e01-bca7-93af71331f58" xml:space="preserve">
+          <source>Suppose you want to report the duration of your login process:</source>
+          <target state="new">Suppose you want to report the duration of your login process:</target>
+        </trans-unit>
+        <trans-unit id="32e1c988-e475-4239-a040-b6b95cb56cee" xml:space="preserve">
+          <source>Errors can be related to a running job instead of being related to the current user session.</source>
+          <target state="new">Errors can be related to a running job instead of being related to the current user session.</target>
+        </trans-unit>
+        <trans-unit id="abefb6b5-aa9b-4392-84c2-9aa70dcfdc50" xml:space="preserve">
+          <source><bpt id="a0a6d1ff-8d1c-4796-9e02-c0ec126af38f">&lt;strong&gt;</bpt>Example:<ept id="a0a6d1ff-8d1c-4796-9e02-c0ec126af38f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a0a6d1ff-8d1c-4796-9e02-c0ec126af38f">&lt;strong&gt;</bpt>Example:<ept id="a0a6d1ff-8d1c-4796-9e02-c0ec126af38f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61e96612-0b9c-4389-8ffd-f985b89ff238" xml:space="preserve">
+          <source>Suppose you want to report an error during you login process:</source>
+          <target state="new">Suppose you want to report an error during you login process:</target>
+        </trans-unit>
+        <trans-unit id="cb0d0de2-eac9-4a4c-a549-9f5f52f927be" xml:space="preserve">
+          <source>[...]
+public void signIn(Context context, ...) {</source>
+          <target state="new">[...]
+public void signIn(Context context, ...) {</target>
+        </trans-unit>
+        <trans-unit id="20f2950d-014f-4fc9-94c0-7b076f361f2f" xml:space="preserve">
+          <source>Events can be related to a running job instead of being related to the current user session.</source>
+          <target state="new">Events can be related to a running job instead of being related to the current user session.</target>
+        </trans-unit>
+        <trans-unit id="50cbe30f-4187-4fb9-8a54-057ff0c421f9" xml:space="preserve">
+          <source><bpt id="52d70840-288a-4f0f-8634-dc72ab8553cc">&lt;strong&gt;</bpt>Example:<ept id="52d70840-288a-4f0f-8634-dc72ab8553cc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="52d70840-288a-4f0f-8634-dc72ab8553cc">&lt;strong&gt;</bpt>Example:<ept id="52d70840-288a-4f0f-8634-dc72ab8553cc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8645eca-e5da-49d9-9f64-461403f67b42" xml:space="preserve">
+          <source>Suppose we have a social network, and we use a job to report the total time during which the user is connected to the server.</source>
+          <target state="new">Suppose we have a social network, and we use a job to report the total time during which the user is connected to the server.</target>
+        </trans-unit>
+        <trans-unit id="ce65283e-ce67-40b2-8b4a-9e5feeacd45e" xml:space="preserve">
+          <source>The user can stay connected in background even when he's using another application or when the phone is sleeping, so there is no session.</source>
+          <target state="new">The user can stay connected in background even when he's using another application or when the phone is sleeping, so there is no session.</target>
+        </trans-unit>
+        <trans-unit id="fc3ebc65-1aec-4cec-a5eb-da0e359830d2" xml:space="preserve">
+          <source>The user can receive messages from his friends, this is a job event.</source>
+          <target state="new">The user can receive messages from his friends, this is a job event.</target>
+        </trans-unit>
+        <trans-unit id="576d46e8-b2b9-43e0-aeeb-e77c5a464c00" xml:space="preserve">
+          <source>Arbitrary data can be attached to events, errors, activities and jobs.</source>
+          <target state="new">Arbitrary data can be attached to events, errors, activities and jobs.</target>
+        </trans-unit>
+        <trans-unit id="f7bfad8a-af0e-4ac3-86c9-9ef3dd9dac80" xml:space="preserve">
+          <source>This data can be structured, it uses Android's Bundle class (actually, it works like extra parameters in Android Intents).</source>
+          <target state="new">This data can be structured, it uses Android's Bundle class (actually, it works like extra parameters in Android Intents).</target>
+        </trans-unit>
+        <trans-unit id="d09a9ac0-9351-4763-be9e-b28e7fc5d536" xml:space="preserve">
+          <source>Note that a Bundle can contain arrays or another Bundle instances.</source>
+          <target state="new">Note that a Bundle can contain arrays or another Bundle instances.</target>
+        </trans-unit>
+        <trans-unit id="38389639-be2d-4940-a6c2-e031c913071e" xml:space="preserve">
+          <source>If you put in parcelable or serializable parameters, make sure their <bpt id="80fb9dd2-ae91-4426-85ed-70ef1fb852f8">&lt;code&gt;</bpt>toString()<ept id="80fb9dd2-ae91-4426-85ed-70ef1fb852f8">&lt;/code&gt;</ept> method is implemented to return a human-readable string.</source>
+          <target state="new">If you put in parcelable or serializable parameters, make sure their <bpt id="80fb9dd2-ae91-4426-85ed-70ef1fb852f8">&lt;code&gt;</bpt>toString()<ept id="80fb9dd2-ae91-4426-85ed-70ef1fb852f8">&lt;/code&gt;</ept> method is implemented to return a human-readable string.</target>
+        </trans-unit>
+        <trans-unit id="c7691aa5-f11b-4c40-82b1-3bf1b95a200c" xml:space="preserve">
+          <source>Serializable classes that contain non transient fields that are not serializable will make Android crash when you will call <bpt id="6f918e93-082a-4d21-94d9-f67bfd4c4f90">&lt;code&gt;</bpt>bundle.putSerializable("key",value);<ept id="6f918e93-082a-4d21-94d9-f67bfd4c4f90">&lt;/code&gt;</ept></source>
+          <target state="new">Serializable classes that contain non transient fields that are not serializable will make Android crash when you will call <bpt id="6f918e93-082a-4d21-94d9-f67bfd4c4f90">&lt;code&gt;</bpt>bundle.putSerializable("key",value);<ept id="6f918e93-082a-4d21-94d9-f67bfd4c4f90">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c69ba6bf-6ef9-4696-af9a-be337f3e3d49" xml:space="preserve">
+          <source>Sparse arrays in extra parameters are not supported, that is, it won't be serialized as an array.</source>
+          <target state="new">Sparse arrays in extra parameters are not supported, that is, it won't be serialized as an array.</target>
+        </trans-unit>
+        <trans-unit id="aef8115f-4aac-4065-8b91-7d9606d861bf" xml:space="preserve">
+          <source>You should convert them into standard arrays before using it in extra parameters.</source>
+          <target state="new">You should convert them into standard arrays before using it in extra parameters.</target>
+        </trans-unit>
+        <trans-unit id="c69ec839-1fa0-44c9-ac5b-0aea03d634e8" xml:space="preserve">
+          <source>Each key in the <bpt id="1be8b07e-22bb-4733-9186-7f5051e8bfd7">&lt;code&gt;</bpt>Bundle<ept id="1be8b07e-22bb-4733-9186-7f5051e8bfd7">&lt;/code&gt;</ept> must match the following regular expression:</source>
+          <target state="new">Each key in the <bpt id="1be8b07e-22bb-4733-9186-7f5051e8bfd7">&lt;code&gt;</bpt>Bundle<ept id="1be8b07e-22bb-4733-9186-7f5051e8bfd7">&lt;/code&gt;</ept> must match the following regular expression:</target>
+        </trans-unit>
+        <trans-unit id="22e22978-d3b2-4a2f-9fff-a36beb83ee52" xml:space="preserve">
+          <source><bpt id="9377416f-7dd7-4561-8b7d-42799b0dc998">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*<ept id="9377416f-7dd7-4561-8b7d-42799b0dc998">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="9377416f-7dd7-4561-8b7d-42799b0dc998">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*<ept id="9377416f-7dd7-4561-8b7d-42799b0dc998">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30f1fe26-9426-47d8-95f0-e995e005b7b5" xml:space="preserve">
+          <source>It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</source>
+          <target state="new">It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</target>
+        </trans-unit>
+        <trans-unit id="56131d3e-0da1-45a9-9f98-468a47b24c1a" xml:space="preserve">
+          <source>Extras are limited to <bpt id="bc781f7c-83cb-438a-a8cb-ee0df6a0acdc">&lt;strong&gt;</bpt>1024<ept id="bc781f7c-83cb-438a-a8cb-ee0df6a0acdc">&lt;/strong&gt;</ept> characters per call (once encoded in JSON by the Engagement service).</source>
+          <target state="new">Extras are limited to <bpt id="bc781f7c-83cb-438a-a8cb-ee0df6a0acdc">&lt;strong&gt;</bpt>1024<ept id="bc781f7c-83cb-438a-a8cb-ee0df6a0acdc">&lt;/strong&gt;</ept> characters per call (once encoded in JSON by the Engagement service).</target>
+        </trans-unit>
+        <trans-unit id="803da580-5bf0-4c82-af12-4dbf08c09040" xml:space="preserve">
+          <source>In the previous example, the JSON sent to the server is 58 characters long:</source>
+          <target state="new">In the previous example, the JSON sent to the server is 58 characters long:</target>
+        </trans-unit>
+        <trans-unit id="eeb22eaa-4cd3-4128-af2f-e85e3aeeb1fa" xml:space="preserve">
+          <source>You can manually report tracking information (or any other application specific information) using the <bpt id="05842855-91ee-4632-9e76-face4e795f59">&lt;code&gt;</bpt>sendAppInfo()<ept id="05842855-91ee-4632-9e76-face4e795f59">&lt;/code&gt;</ept> function.</source>
+          <target state="new">You can manually report tracking information (or any other application specific information) using the <bpt id="05842855-91ee-4632-9e76-face4e795f59">&lt;code&gt;</bpt>sendAppInfo()<ept id="05842855-91ee-4632-9e76-face4e795f59">&lt;/code&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="41289f8e-d4cb-4053-9049-211740c67a43" xml:space="preserve">
+          <source>Note that these information can be sent incrementally: only the latest value for a given key will be kept for a given device.</source>
+          <target state="new">Note that these information can be sent incrementally: only the latest value for a given key will be kept for a given device.</target>
+        </trans-unit>
+        <trans-unit id="00b18a6d-5252-43b7-bd67-0706dc698fd8" xml:space="preserve">
+          <source>Like event extras, the Bundle class is used to abstract application information, note that arrays or sub-bundles will be treated as flat strings (using JSON serialization).</source>
+          <target state="new">Like event extras, the Bundle class is used to abstract application information, note that arrays or sub-bundles will be treated as flat strings (using JSON serialization).</target>
+        </trans-unit>
+        <trans-unit id="84d73b3f-a0c7-4f83-9746-228e5a919ca3" xml:space="preserve">
+          <source>Here is a code sample to send user gender and birthdate:</source>
+          <target state="new">Here is a code sample to send user gender and birthdate:</target>
+        </trans-unit>
+        <trans-unit id="55399ff3-9076-40db-8884-6b6b4cfe45a7" xml:space="preserve">
+          <source>Each key in the <bpt id="02bb755a-c22d-4460-ac66-ba2f9b8a49f7">&lt;code&gt;</bpt>Bundle<ept id="02bb755a-c22d-4460-ac66-ba2f9b8a49f7">&lt;/code&gt;</ept> must match the following regular expression:</source>
+          <target state="new">Each key in the <bpt id="02bb755a-c22d-4460-ac66-ba2f9b8a49f7">&lt;code&gt;</bpt>Bundle<ept id="02bb755a-c22d-4460-ac66-ba2f9b8a49f7">&lt;/code&gt;</ept> must match the following regular expression:</target>
+        </trans-unit>
+        <trans-unit id="b4fb24f4-16f2-4566-960d-54817ea064b6" xml:space="preserve">
+          <source><bpt id="ea1121bd-3748-45a5-905f-4c8e4752f2f6">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*<ept id="ea1121bd-3748-45a5-905f-4c8e4752f2f6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ea1121bd-3748-45a5-905f-4c8e4752f2f6">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*<ept id="ea1121bd-3748-45a5-905f-4c8e4752f2f6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e6e5dd0-6481-4fb9-bdd3-844d8c6cda32" xml:space="preserve">
+          <source>It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</source>
+          <target state="new">It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</target>
+        </trans-unit>
+        <trans-unit id="f723815e-816f-4c7f-88ff-a18c7930dbf7" xml:space="preserve">
+          <source>Application information are limited to <bpt id="f5577d39-88c8-4d32-baf6-55d1205bbc70">&lt;strong&gt;</bpt>1024<ept id="f5577d39-88c8-4d32-baf6-55d1205bbc70">&lt;/strong&gt;</ept> characters per call (once encoded in JSON by the Engagement service).</source>
+          <target state="new">Application information are limited to <bpt id="f5577d39-88c8-4d32-baf6-55d1205bbc70">&lt;strong&gt;</bpt>1024<ept id="f5577d39-88c8-4d32-baf6-55d1205bbc70">&lt;/strong&gt;</ept> characters per call (once encoded in JSON by the Engagement service).</target>
+        </trans-unit>
+        <trans-unit id="04bf15e0-10d3-4398-815b-070f81c427d7" xml:space="preserve">
+          <source>In the previous example, the JSON sent to the server is 44 characters long:</source>
+          <target state="new">In the previous example, the JSON sent to the server is 44 characters long:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dcadc60e-7caf-4941-a690-6be7d460d874" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dcadc60e-7caf-4941-a690-6be7d460d874" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="460355f9-3b94-4cb0-98bc-5f07969bc2dd">
+        <trans-unit id="d85dfb77-ce51-4189-ae10-722d37daee88" xml:space="preserve">
+          <source>Accessing private Azure clouds with Visual Studio</source>
+          <target state="new">Accessing private Azure clouds with Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="499a6e1b-50bb-4c92-8382-bf206b51959d" xml:space="preserve">
+          <source>Learn how to access private cloud resources by using Visual Studio.</source>
+          <target state="new">Learn how to access private cloud resources by using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="010ea513-f51f-4022-9e3f-21440026a9f6" xml:space="preserve">
+          <source>By default, Visual Studio supports public Azure cloud REST endpoints.</source>
+          <target state="new">By default, Visual Studio supports public Azure cloud REST endpoints.</target>
+        </trans-unit>
+        <trans-unit id="9ac73736-a4b5-4cfa-a8c1-cefc430bdfea" xml:space="preserve">
+          <source>This can be a problem, though, if you're using Visual Studio with a private Azure cloud.</source>
+          <target state="new">This can be a problem, though, if you're using Visual Studio with a private Azure cloud.</target>
+        </trans-unit>
+        <trans-unit id="7d5470ef-3ae6-45f4-ab2f-45a217ef04ed" xml:space="preserve">
+          <source>You can use certificates to configure Visual Studio to access private Azure cloud REST endpoints.</source>
+          <target state="new">You can use certificates to configure Visual Studio to access private Azure cloud REST endpoints.</target>
+        </trans-unit>
+        <trans-unit id="51196442-02fa-4b05-ac8c-a42f4623b618" xml:space="preserve">
+          <source>You can get these certificates through your Azure publish settings file.</source>
+          <target state="new">You can get these certificates through your Azure publish settings file.</target>
+        </trans-unit>
+        <trans-unit id="dc223fe5-38d6-4b37-bc8a-00355be1959e" xml:space="preserve">
+          <source>In the management portal for the private cloud, download your publish settings file, or contact your administrator for a publish settings file.</source>
+          <target state="new">In the management portal for the private cloud, download your publish settings file, or contact your administrator for a publish settings file.</target>
+        </trans-unit>
+        <trans-unit id="1cfce1c5-5ae3-46de-a60d-e0a5a03650bc" xml:space="preserve">
+          <source>On the public version of Azure, the link to download this is <bpt id="92b00791-93cb-4bd9-bd1f-1a095c0ff75a">&lt;linkText&gt;</bpt>https://manage.windowsazure.com/publishsettings/<ept id="92b00791-93cb-4bd9-bd1f-1a095c0ff75a">&lt;/linkText&gt;</ept><bpt id="92b00791-93cb-4bd9-bd1f-1a095c0ff75a">&lt;title&gt;</bpt><ept id="92b00791-93cb-4bd9-bd1f-1a095c0ff75a">&lt;/title&gt;</ept>.</source>
+          <target state="new">On the public version of Azure, the link to download this is <bpt id="92b00791-93cb-4bd9-bd1f-1a095c0ff75a">&lt;linkText&gt;</bpt>https://manage.windowsazure.com/publishsettings/<ept id="92b00791-93cb-4bd9-bd1f-1a095c0ff75a">&lt;/linkText&gt;</ept><bpt id="92b00791-93cb-4bd9-bd1f-1a095c0ff75a">&lt;title&gt;</bpt><ept id="92b00791-93cb-4bd9-bd1f-1a095c0ff75a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac41c078-b1ae-440e-a7d9-3eee1bdcb9bc" xml:space="preserve">
+          <source>(The file you download should have a .publishsettings extension.)</source>
+          <target state="new">(The file you download should have a .publishsettings extension.)</target>
+        </trans-unit>
+        <trans-unit id="285936fb-685b-45a6-b69e-130bdaefb141" xml:space="preserve">
+          <source>In <bpt id="4e0694d2-385b-47ec-a569-e0e6d78599a1">&lt;strong&gt;</bpt>Server Explorer<ept id="4e0694d2-385b-47ec-a569-e0e6d78599a1">&lt;/strong&gt;</ept> in Visual Studio, choose the <bpt id="41973681-a635-4f27-bbb0-569037bda4ad">&lt;strong&gt;</bpt>Azure<ept id="41973681-a635-4f27-bbb0-569037bda4ad">&lt;/strong&gt;</ept> node and, on the shortcut menu, choose the <bpt id="90eef327-739c-4599-a29c-67b8244d9f1c">&lt;strong&gt;</bpt>Manage Subscriptions<ept id="90eef327-739c-4599-a29c-67b8244d9f1c">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">In <bpt id="4e0694d2-385b-47ec-a569-e0e6d78599a1">&lt;strong&gt;</bpt>Server Explorer<ept id="4e0694d2-385b-47ec-a569-e0e6d78599a1">&lt;/strong&gt;</ept> in Visual Studio, choose the <bpt id="41973681-a635-4f27-bbb0-569037bda4ad">&lt;strong&gt;</bpt>Azure<ept id="41973681-a635-4f27-bbb0-569037bda4ad">&lt;/strong&gt;</ept> node and, on the shortcut menu, choose the <bpt id="90eef327-739c-4599-a29c-67b8244d9f1c">&lt;strong&gt;</bpt>Manage Subscriptions<ept id="90eef327-739c-4599-a29c-67b8244d9f1c">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="d115c034-3393-4860-9a87-1ec63dc75b73" xml:space="preserve">
+          <source><bpt id="c2a63f58-c0d3-439c-bec1-2cd1fd605f30">&lt;linkText&gt;</bpt>Manage subscriptions command<ept id="c2a63f58-c0d3-439c-bec1-2cd1fd605f30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c2a63f58-c0d3-439c-bec1-2cd1fd605f30">&lt;linkText&gt;</bpt>Manage subscriptions command<ept id="c2a63f58-c0d3-439c-bec1-2cd1fd605f30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aaac8069-b7ee-4164-a127-54da6862a5fa" xml:space="preserve">
+          <source>In the <bpt id="bbad4e2f-9c92-47d0-9684-386fc6d7a490">&lt;strong&gt;</bpt>Manage Microsoft Azure Subscriptions<ept id="bbad4e2f-9c92-47d0-9684-386fc6d7a490">&lt;/strong&gt;</ept> dialog box, choose the <bpt id="e00c956a-ba40-4957-9616-a44a437b17e4">&lt;strong&gt;</bpt>Certificates<ept id="e00c956a-ba40-4957-9616-a44a437b17e4">&lt;/strong&gt;</ept> tab, and then choose the <bpt id="42454c9b-5380-4205-bb4c-22aba6ae11c0">&lt;strong&gt;</bpt>Import<ept id="42454c9b-5380-4205-bb4c-22aba6ae11c0">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the <bpt id="bbad4e2f-9c92-47d0-9684-386fc6d7a490">&lt;strong&gt;</bpt>Manage Microsoft Azure Subscriptions<ept id="bbad4e2f-9c92-47d0-9684-386fc6d7a490">&lt;/strong&gt;</ept> dialog box, choose the <bpt id="e00c956a-ba40-4957-9616-a44a437b17e4">&lt;strong&gt;</bpt>Certificates<ept id="e00c956a-ba40-4957-9616-a44a437b17e4">&lt;/strong&gt;</ept> tab, and then choose the <bpt id="42454c9b-5380-4205-bb4c-22aba6ae11c0">&lt;strong&gt;</bpt>Import<ept id="42454c9b-5380-4205-bb4c-22aba6ae11c0">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="95c7d7a2-5e86-4946-a6ec-59725cb1ea4a" xml:space="preserve">
+          <source><bpt id="ee02c69d-fb73-4979-9442-abb346d3ade7">&lt;linkText&gt;</bpt>Importing Azure certificates<ept id="ee02c69d-fb73-4979-9442-abb346d3ade7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ee02c69d-fb73-4979-9442-abb346d3ade7">&lt;linkText&gt;</bpt>Importing Azure certificates<ept id="ee02c69d-fb73-4979-9442-abb346d3ade7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef4323fa-13c2-488c-b251-95855b837a06" xml:space="preserve">
+          <source>In the <bpt id="51f51b97-0a06-454f-937a-f479acb673fa">&lt;strong&gt;</bpt>Import Microsoft Azure Subscriptions<ept id="51f51b97-0a06-454f-937a-f479acb673fa">&lt;/strong&gt;</ept> dialog box, browse to the folder where you saved the publish settings file and choose the file, then choose the <bpt id="58743f1c-cbe2-480b-9095-feef94039850">&lt;strong&gt;</bpt>Import<ept id="58743f1c-cbe2-480b-9095-feef94039850">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the <bpt id="51f51b97-0a06-454f-937a-f479acb673fa">&lt;strong&gt;</bpt>Import Microsoft Azure Subscriptions<ept id="51f51b97-0a06-454f-937a-f479acb673fa">&lt;/strong&gt;</ept> dialog box, browse to the folder where you saved the publish settings file and choose the file, then choose the <bpt id="58743f1c-cbe2-480b-9095-feef94039850">&lt;strong&gt;</bpt>Import<ept id="58743f1c-cbe2-480b-9095-feef94039850">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="ea6a7a52-3ebe-4266-967a-ed7417b1397b" xml:space="preserve">
+          <source>This imports the certificates in the publish settings file into Visual Studio.</source>
+          <target state="new">This imports the certificates in the publish settings file into Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="83ae8993-9cf0-47b9-ba59-f8819224ac83" xml:space="preserve">
+          <source>You should now be able to interact with your private cloud resources.</source>
+          <target state="new">You should now be able to interact with your private cloud resources.</target>
+        </trans-unit>
+        <trans-unit id="fc8d7c00-9a16-4595-afce-a0fb12f0fa1d" xml:space="preserve">
+          <source><bpt id="97b19d6b-53c0-4fff-95b4-04e72277a1ee">&lt;linkText&gt;</bpt>Importing publish settings<ept id="97b19d6b-53c0-4fff-95b4-04e72277a1ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="97b19d6b-53c0-4fff-95b4-04e72277a1ee">&lt;linkText&gt;</bpt>Importing publish settings<ept id="97b19d6b-53c0-4fff-95b4-04e72277a1ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff108eb9-3280-4227-bf1b-9f800e00054b" xml:space="preserve">
+          <source><bpt id="d514f8d9-1156-431f-80b1-5f9f6b34cdf1">&lt;linkText&gt;</bpt>Publishing to an Azure Cloud Service from Visual Studio<ept id="d514f8d9-1156-431f-80b1-5f9f6b34cdf1">&lt;/linkText&gt;</ept><bpt id="d514f8d9-1156-431f-80b1-5f9f6b34cdf1">&lt;title&gt;</bpt><ept id="d514f8d9-1156-431f-80b1-5f9f6b34cdf1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d514f8d9-1156-431f-80b1-5f9f6b34cdf1">&lt;linkText&gt;</bpt>Publishing to an Azure Cloud Service from Visual Studio<ept id="d514f8d9-1156-431f-80b1-5f9f6b34cdf1">&lt;/linkText&gt;</ept><bpt id="d514f8d9-1156-431f-80b1-5f9f6b34cdf1">&lt;title&gt;</bpt><ept id="d514f8d9-1156-431f-80b1-5f9f6b34cdf1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a0aaf87-01ef-471c-8814-f95ed741c006" xml:space="preserve">
+          <source>[How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)</source>
+          <target state="new">[How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

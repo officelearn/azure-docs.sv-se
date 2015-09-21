@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a84b644c-0a18-4d94-8e96-6033812b7901" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a84b644c-0a18-4d94-8e96-6033812b7901" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2d942a74-ebbc-4221-8b07-6a1955eb75b0">
+        <trans-unit id="1a1d2e17-0435-444a-9692-59fb1139f990" xml:space="preserve">
+          <source>Configuring Azure Automation</source>
+          <target state="new">Configuring Azure Automation</target>
+        </trans-unit>
+        <trans-unit id="d2d74d97-43cb-4239-aa80-2c5f00ba6dd6" xml:space="preserve">
+          <source>Describes steps that you must perform to configure Azure Automation for initial use.</source>
+          <target state="new">Describes steps that you must perform to configure Azure Automation for initial use.</target>
+        </trans-unit>
+        <trans-unit id="24c0a33a-2672-4584-b97c-bd6db6a967dd" xml:space="preserve">
+          <source>This article describes the actions you must perform to initially start using Azure Automation.</source>
+          <target state="new">This article describes the actions you must perform to initially start using Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="7a75e988-b4bf-47f0-9851-e4c5b791e482" xml:space="preserve">
+          <source>When you start Azure Automation for the first time, you must create at least one Automation account.</source>
+          <target state="new">When you start Azure Automation for the first time, you must create at least one Automation account.</target>
+        </trans-unit>
+        <trans-unit id="3256607e-6c8e-4a89-85c9-0386c40c742e" xml:space="preserve">
+          <source>Automation accounts allow you to isolate your Automation resources (runbooks, assets) from the Automation resources contained in other Automation accounts.</source>
+          <target state="new">Automation accounts allow you to isolate your Automation resources (runbooks, assets) from the Automation resources contained in other Automation accounts.</target>
+        </trans-unit>
+        <trans-unit id="ffea5b76-ae3d-4b02-b112-78b75ec31b5c" xml:space="preserve">
+          <source>You can use Automation accounts to separate Automation resources into separate logical environments.</source>
+          <target state="new">You can use Automation accounts to separate Automation resources into separate logical environments.</target>
+        </trans-unit>
+        <trans-unit id="f258f6ca-b273-4e06-80ee-d33465cfc74d" xml:space="preserve">
+          <source>For example, you might use one account for development and another for production.</source>
+          <target state="new">For example, you might use one account for development and another for production.</target>
+        </trans-unit>
+        <trans-unit id="6bcd4a8e-8185-4b8d-981f-b37a57c22485" xml:space="preserve">
+          <source>The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage Azure services in any region.</source>
+          <target state="new">The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage Azure services in any region.</target>
+        </trans-unit>
+        <trans-unit id="0e21fd09-f065-418a-9c70-73baa99949b3" xml:space="preserve">
+          <source>The main reason to create Automation accounts in different regions would be if you have policies that require data and resources to be isolated to a specific region.</source>
+          <target state="new">The main reason to create Automation accounts in different regions would be if you have policies that require data and resources to be isolated to a specific region.</target>
+        </trans-unit>
+        <trans-unit id="dd9f27df-49b4-4f4b-a760-0b162ef18c4f" xml:space="preserve">
+          <source>Automation accounts, and the resources they contain, that are created with the Azure preview portal cannot be accessed in the Azure portal.</source>
+          <target state="new">Automation accounts, and the resources they contain, that are created with the Azure preview portal cannot be accessed in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="9183a509-1c65-4dfa-b320-c7ae2fe7c72e" xml:space="preserve">
+          <source>If you want to manage these accounts or their resources with Windows PowerShell, you must use the Azure Resource Manager modules.</source>
+          <target state="new">If you want to manage these accounts or their resources with Windows PowerShell, you must use the Azure Resource Manager modules.</target>
+        </trans-unit>
+        <trans-unit id="0ca654a1-fd05-41d1-a6bd-e95b31e35425" xml:space="preserve">
+          <source>Automation accounts created with the Azure portal can be managed by either portal and either set of cmdlets.</source>
+          <target state="new">Automation accounts created with the Azure portal can be managed by either portal and either set of cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="653e3709-7fb4-4aa1-9943-9589944b868c" xml:space="preserve">
+          <source>Once the account is created, it makes no difference how you create and manage resources within the account.</source>
+          <target state="new">Once the account is created, it makes no difference how you create and manage resources within the account.</target>
+        </trans-unit>
+        <trans-unit id="c78b9c86-2803-4278-945d-8d7e93a3a748" xml:space="preserve">
+          <source>If you are planning to continue to use the Azure portal, then you should use it instead of the Azure preview portal to create any Automation accounts.</source>
+          <target state="new">If you are planning to continue to use the Azure portal, then you should use it instead of the Azure preview portal to create any Automation accounts.</target>
+        </trans-unit>
+        <trans-unit id="b51d9392-b1c1-4ee8-a1b8-b33423aafd7c" xml:space="preserve">
+          <source>An Automation account may be suspended if there is an issue with your Azure account, such as an overdue payment.</source>
+          <target state="new">An Automation account may be suspended if there is an issue with your Azure account, such as an overdue payment.</target>
+        </trans-unit>
+        <trans-unit id="44d031af-95e7-4abb-9924-b091d839345e" xml:space="preserve">
+          <source>In this case, you can’t access the account, any running jobs will be suspended, and all schedules will be disabled.</source>
+          <target state="new">In this case, you can’t access the account, any running jobs will be suspended, and all schedules will be disabled.</target>
+        </trans-unit>
+        <trans-unit id="dad03f04-dfc6-4561-81a2-515dabf98e43" xml:space="preserve">
+          <source>You will be able to view the account, but you won’t be able to see any resources in it.</source>
+          <target state="new">You will be able to view the account, but you won’t be able to see any resources in it.</target>
+        </trans-unit>
+        <trans-unit id="4652b08c-22eb-4d36-9e6a-a6c804cc9138" xml:space="preserve">
+          <source>Once you correct the issue and the Automation account is enabled, you will have to enable your schedules and restart any runbooks that were suspended.</source>
+          <target state="new">Once you correct the issue and the Automation account is enabled, you will have to enable your schedules and restart any runbooks that were suspended.</target>
+        </trans-unit>
+        <trans-unit id="20614a5e-9db8-45c8-bbae-cc368a962e95" xml:space="preserve">
+          <source>When you access Azure resources using the <bpt id="1a08c6f0-fa10-4bc5-9412-b6c0d85fb188">&lt;linkText&gt;</bpt>Azure cmdlets<ept id="1a08c6f0-fa10-4bc5-9412-b6c0d85fb188">&lt;/linkText&gt;</ept><bpt id="1a08c6f0-fa10-4bc5-9412-b6c0d85fb188">&lt;title&gt;</bpt><ept id="1a08c6f0-fa10-4bc5-9412-b6c0d85fb188">&lt;/title&gt;</ept>, you need to provide authentication to your Azure subscription.</source>
+          <target state="new">When you access Azure resources using the <bpt id="1a08c6f0-fa10-4bc5-9412-b6c0d85fb188">&lt;linkText&gt;</bpt>Azure cmdlets<ept id="1a08c6f0-fa10-4bc5-9412-b6c0d85fb188">&lt;/linkText&gt;</ept><bpt id="1a08c6f0-fa10-4bc5-9412-b6c0d85fb188">&lt;title&gt;</bpt><ept id="1a08c6f0-fa10-4bc5-9412-b6c0d85fb188">&lt;/title&gt;</ept>, you need to provide authentication to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="437453db-1bce-4c09-b69a-7015c95bc556" xml:space="preserve">
+          <source>In Azure Automation, this is done with an organizational account in Azure Active Directory that you configure as an administrator for your subscription.</source>
+          <target state="new">In Azure Automation, this is done with an organizational account in Azure Active Directory that you configure as an administrator for your subscription.</target>
+        </trans-unit>
+        <trans-unit id="5a6d2199-587d-40b6-9f00-7f72e8fc73de" xml:space="preserve">
+          <source>You can then create a <bpt id="c7792296-1e0d-4598-887a-9c8b4a1f57bf">&lt;linkText&gt;</bpt>credential<ept id="c7792296-1e0d-4598-887a-9c8b4a1f57bf">&lt;/linkText&gt;</ept><bpt id="c7792296-1e0d-4598-887a-9c8b4a1f57bf">&lt;title&gt;</bpt><ept id="c7792296-1e0d-4598-887a-9c8b4a1f57bf">&lt;/title&gt;</ept> for this user account and use it with <bpt id="a9ca76aa-3343-4aa1-9869-eec7c48e8529">&lt;linkText&gt;</bpt>Add-AzureAccount<ept id="a9ca76aa-3343-4aa1-9869-eec7c48e8529">&lt;/linkText&gt;</ept><bpt id="a9ca76aa-3343-4aa1-9869-eec7c48e8529">&lt;title&gt;</bpt><ept id="a9ca76aa-3343-4aa1-9869-eec7c48e8529">&lt;/title&gt;</ept> in your runbook.</source>
+          <target state="new">You can then create a <bpt id="c7792296-1e0d-4598-887a-9c8b4a1f57bf">&lt;linkText&gt;</bpt>credential<ept id="c7792296-1e0d-4598-887a-9c8b4a1f57bf">&lt;/linkText&gt;</ept><bpt id="c7792296-1e0d-4598-887a-9c8b4a1f57bf">&lt;title&gt;</bpt><ept id="c7792296-1e0d-4598-887a-9c8b4a1f57bf">&lt;/title&gt;</ept> for this user account and use it with <bpt id="a9ca76aa-3343-4aa1-9869-eec7c48e8529">&lt;linkText&gt;</bpt>Add-AzureAccount<ept id="a9ca76aa-3343-4aa1-9869-eec7c48e8529">&lt;/linkText&gt;</ept><bpt id="a9ca76aa-3343-4aa1-9869-eec7c48e8529">&lt;title&gt;</bpt><ept id="a9ca76aa-3343-4aa1-9869-eec7c48e8529">&lt;/title&gt;</ept> in your runbook.</target>
+        </trans-unit>
+        <trans-unit id="940dc922-5d76-49ab-a1fa-26bd4751f805" xml:space="preserve">
+          <source>Microsoft accounts, formerly known as LiveIDs, cannot be used with Azure Automation.</source>
+          <target state="new">Microsoft accounts, formerly known as LiveIDs, cannot be used with Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="62dc65af-bd0b-4424-80b7-34ffdda1298e" xml:space="preserve">
+          <source>Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.</source>
+          <target state="new">Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.</target>
+        </trans-unit>
+        <trans-unit id="11760614-bb97-46d1-a323-a402516ecea4" xml:space="preserve">
+          <source>Select <bpt id="4dc6d2d0-4772-47bd-af7d-da37a9b91082">&lt;strong&gt;</bpt>Active Directory<ept id="4dc6d2d0-4772-47bd-af7d-da37a9b91082">&lt;/strong&gt;</ept></source>
+          <target state="new">Select <bpt id="4dc6d2d0-4772-47bd-af7d-da37a9b91082">&lt;strong&gt;</bpt>Active Directory<ept id="4dc6d2d0-4772-47bd-af7d-da37a9b91082">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cf3fa50-de2e-47e6-add1-1709dccd2f0a" xml:space="preserve">
+          <source>Select the directory name that is associated with your Azure subscription.</source>
+          <target state="new">Select the directory name that is associated with your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="f40d1365-d9bd-4ce5-bc6d-4d6ad8da4737" xml:space="preserve">
+          <source>If necessary, you can change this association from <bpt id="77afbb00-24aa-40a3-ab3d-a4f7a1428632">&lt;strong&gt;</bpt>Settings &gt; Subscriptions &gt; Edit Directory<ept id="77afbb00-24aa-40a3-ab3d-a4f7a1428632">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If necessary, you can change this association from <bpt id="77afbb00-24aa-40a3-ab3d-a4f7a1428632">&lt;strong&gt;</bpt>Settings &gt; Subscriptions &gt; Edit Directory<ept id="77afbb00-24aa-40a3-ab3d-a4f7a1428632">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7246d92c-12fd-47dc-a104-51aee0a5aa10" xml:space="preserve">
+          <source><bpt id="45364cda-a257-47b0-a7dc-16e06c761b73">&lt;linkText&gt;</bpt>Create a new Active Directory user<ept id="45364cda-a257-47b0-a7dc-16e06c761b73">&lt;/linkText&gt;</ept><bpt id="45364cda-a257-47b0-a7dc-16e06c761b73">&lt;title&gt;</bpt><ept id="45364cda-a257-47b0-a7dc-16e06c761b73">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="45364cda-a257-47b0-a7dc-16e06c761b73">&lt;linkText&gt;</bpt>Create a new Active Directory user<ept id="45364cda-a257-47b0-a7dc-16e06c761b73">&lt;/linkText&gt;</ept><bpt id="45364cda-a257-47b0-a7dc-16e06c761b73">&lt;title&gt;</bpt><ept id="45364cda-a257-47b0-a7dc-16e06c761b73">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8a4ce6e-787d-4b3d-9fe6-cec52c0c2a51" xml:space="preserve">
+          <source>Select <bpt id="b285b8f0-0f95-46ed-b179-6a33099b2ae8">&lt;strong&gt;</bpt>New user in your organization<ept id="b285b8f0-0f95-46ed-b179-6a33099b2ae8">&lt;/strong&gt;</ept> for the <bpt id="30b428e9-fbf3-40a9-baba-d5cc199e3f81">&lt;strong&gt;</bpt>Type of user<ept id="30b428e9-fbf3-40a9-baba-d5cc199e3f81">&lt;/strong&gt;</ept> and do not <bpt id="baeda159-2bf7-4644-98ef-8581391f4a99">&lt;strong&gt;</bpt>Enable Multi-Factor Authentication<ept id="baeda159-2bf7-4644-98ef-8581391f4a99">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="b285b8f0-0f95-46ed-b179-6a33099b2ae8">&lt;strong&gt;</bpt>New user in your organization<ept id="b285b8f0-0f95-46ed-b179-6a33099b2ae8">&lt;/strong&gt;</ept> for the <bpt id="30b428e9-fbf3-40a9-baba-d5cc199e3f81">&lt;strong&gt;</bpt>Type of user<ept id="30b428e9-fbf3-40a9-baba-d5cc199e3f81">&lt;/strong&gt;</ept> and do not <bpt id="baeda159-2bf7-4644-98ef-8581391f4a99">&lt;strong&gt;</bpt>Enable Multi-Factor Authentication<ept id="baeda159-2bf7-4644-98ef-8581391f4a99">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f4ebc3c-cf81-4323-b177-b7b73118e6fb" xml:space="preserve">
+          <source>Note the user’s full name and temporary password.</source>
+          <target state="new">Note the user’s full name and temporary password.</target>
+        </trans-unit>
+        <trans-unit id="fc9e6c96-835f-4549-9943-0d224a231cea" xml:space="preserve">
+          <source>Select <bpt id="c0c67f9f-81a5-4fd6-ba5e-43392e71c5b1">&lt;strong&gt;</bpt>Settings &gt; Administrators &gt; Add<ept id="c0c67f9f-81a5-4fd6-ba5e-43392e71c5b1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="c0c67f9f-81a5-4fd6-ba5e-43392e71c5b1">&lt;strong&gt;</bpt>Settings &gt; Administrators &gt; Add<ept id="c0c67f9f-81a5-4fd6-ba5e-43392e71c5b1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e234c25-48b3-4f21-b49a-46f2b5455cc4" xml:space="preserve">
+          <source>Type the full user name of the user that you created.</source>
+          <target state="new">Type the full user name of the user that you created.</target>
+        </trans-unit>
+        <trans-unit id="818798a8-39b1-4c71-b148-5167ad10b0b3" xml:space="preserve">
+          <source>Select the subscription that you want the user to manage.</source>
+          <target state="new">Select the subscription that you want the user to manage.</target>
+        </trans-unit>
+        <trans-unit id="5e8b8679-5c93-440c-bf48-e0ca0e0d81b9" xml:space="preserve">
+          <source>Log out of Azure and then log back in with the account you just created.</source>
+          <target state="new">Log out of Azure and then log back in with the account you just created.</target>
+        </trans-unit>
+        <trans-unit id="383baadc-c6c5-4b66-bca3-0b143dc34ef1" xml:space="preserve">
+          <source>You will be prompted to change the user’s password.</source>
+          <target state="new">You will be prompted to change the user’s password.</target>
+        </trans-unit>
+        <trans-unit id="813ee4c0-8d6e-4edf-b87f-47e1d338d836" xml:space="preserve">
+          <source>Create a new <bpt id="83a68a52-40b1-46f3-90e2-df1fa3f5c904">&lt;linkText&gt;</bpt>Azure Automation Credential asset<ept id="83a68a52-40b1-46f3-90e2-df1fa3f5c904">&lt;/linkText&gt;</ept><bpt id="83a68a52-40b1-46f3-90e2-df1fa3f5c904">&lt;title&gt;</bpt><ept id="83a68a52-40b1-46f3-90e2-df1fa3f5c904">&lt;/title&gt;</ept> for the user account that you created.</source>
+          <target state="new">Create a new <bpt id="83a68a52-40b1-46f3-90e2-df1fa3f5c904">&lt;linkText&gt;</bpt>Azure Automation Credential asset<ept id="83a68a52-40b1-46f3-90e2-df1fa3f5c904">&lt;/linkText&gt;</ept><bpt id="83a68a52-40b1-46f3-90e2-df1fa3f5c904">&lt;title&gt;</bpt><ept id="83a68a52-40b1-46f3-90e2-df1fa3f5c904">&lt;/title&gt;</ept> for the user account that you created.</target>
+        </trans-unit>
+        <trans-unit id="e8bc179c-2aaa-4014-b317-e0c1d2a038e9" xml:space="preserve">
+          <source>The <bpt id="c6cd2e18-6120-4b7b-a6b5-d9b70eb838aa">&lt;strong&gt;</bpt>Credential Type<ept id="c6cd2e18-6120-4b7b-a6b5-d9b70eb838aa">&lt;/strong&gt;</ept> should be <bpt id="099a17a8-9c8c-44d5-ad3e-5f632fb0c479">&lt;strong&gt;</bpt>Windows PowerShell Credential<ept id="099a17a8-9c8c-44d5-ad3e-5f632fb0c479">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="c6cd2e18-6120-4b7b-a6b5-d9b70eb838aa">&lt;strong&gt;</bpt>Credential Type<ept id="c6cd2e18-6120-4b7b-a6b5-d9b70eb838aa">&lt;/strong&gt;</ept> should be <bpt id="099a17a8-9c8c-44d5-ad3e-5f632fb0c479">&lt;strong&gt;</bpt>Windows PowerShell Credential<ept id="099a17a8-9c8c-44d5-ad3e-5f632fb0c479">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e449ed5b-9bb3-4a83-a383-5339e9c76158" xml:space="preserve">
+          <source>You can retrieve the credential in a runbook using the <bpt id="42f3f077-2917-4e3d-b578-2cc0eaaa2442">&lt;linkText&gt;</bpt>Get-AutomationPSCredential<ept id="42f3f077-2917-4e3d-b578-2cc0eaaa2442">&lt;/linkText&gt;</ept><bpt id="42f3f077-2917-4e3d-b578-2cc0eaaa2442">&lt;title&gt;</bpt><ept id="42f3f077-2917-4e3d-b578-2cc0eaaa2442">&lt;/title&gt;</ept> activity and then use it with <bpt id="07870280-c722-4421-a0bb-c30ef4e73737">&lt;linkText&gt;</bpt>Add-AzureAccount<ept id="07870280-c722-4421-a0bb-c30ef4e73737">&lt;/linkText&gt;</ept><bpt id="07870280-c722-4421-a0bb-c30ef4e73737">&lt;title&gt;</bpt><ept id="07870280-c722-4421-a0bb-c30ef4e73737">&lt;/title&gt;</ept> to connect to your Azure subscription.</source>
+          <target state="new">You can retrieve the credential in a runbook using the <bpt id="42f3f077-2917-4e3d-b578-2cc0eaaa2442">&lt;linkText&gt;</bpt>Get-AutomationPSCredential<ept id="42f3f077-2917-4e3d-b578-2cc0eaaa2442">&lt;/linkText&gt;</ept><bpt id="42f3f077-2917-4e3d-b578-2cc0eaaa2442">&lt;title&gt;</bpt><ept id="42f3f077-2917-4e3d-b578-2cc0eaaa2442">&lt;/title&gt;</ept> activity and then use it with <bpt id="07870280-c722-4421-a0bb-c30ef4e73737">&lt;linkText&gt;</bpt>Add-AzureAccount<ept id="07870280-c722-4421-a0bb-c30ef4e73737">&lt;/linkText&gt;</ept><bpt id="07870280-c722-4421-a0bb-c30ef4e73737">&lt;title&gt;</bpt><ept id="07870280-c722-4421-a0bb-c30ef4e73737">&lt;/title&gt;</ept> to connect to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="56ce6aa1-a17c-446e-89c1-a773f8acee4b" xml:space="preserve">
+          <source>If the credential is an administrator of multiple Azure subscriptions, then you should also use <bpt id="71b73389-0417-4d35-b4d8-cb3d0f0d9c34">&lt;linkText&gt;</bpt>Select-AzureSubscription<ept id="71b73389-0417-4d35-b4d8-cb3d0f0d9c34">&lt;/linkText&gt;</ept><bpt id="71b73389-0417-4d35-b4d8-cb3d0f0d9c34">&lt;title&gt;</bpt><ept id="71b73389-0417-4d35-b4d8-cb3d0f0d9c34">&lt;/title&gt;</ept> to specify the correct one.</source>
+          <target state="new">If the credential is an administrator of multiple Azure subscriptions, then you should also use <bpt id="71b73389-0417-4d35-b4d8-cb3d0f0d9c34">&lt;linkText&gt;</bpt>Select-AzureSubscription<ept id="71b73389-0417-4d35-b4d8-cb3d0f0d9c34">&lt;/linkText&gt;</ept><bpt id="71b73389-0417-4d35-b4d8-cb3d0f0d9c34">&lt;title&gt;</bpt><ept id="71b73389-0417-4d35-b4d8-cb3d0f0d9c34">&lt;/title&gt;</ept> to specify the correct one.</target>
+        </trans-unit>
+        <trans-unit id="5426fec3-6bf2-473e-aa85-0dd7399c1c2d" xml:space="preserve">
+          <source>This is shown in the sample Windows PowerShell below that will typically appear at the top of most Azure Automation runbooks.</source>
+          <target state="new">This is shown in the sample Windows PowerShell below that will typically appear at the top of most Azure Automation runbooks.</target>
+        </trans-unit>
+        <trans-unit id="d4ac21af-ac4a-4a69-bc96-5b828f4f5a4f" xml:space="preserve">
+          <source>You should repeat these lines after any <bpt id="0cc6ef0b-a4fd-4fb8-a8ae-10408fb8abad">&lt;linkText&gt;</bpt>checkpoints<ept id="0cc6ef0b-a4fd-4fb8-a8ae-10408fb8abad">&lt;/linkText&gt;</ept><bpt id="0cc6ef0b-a4fd-4fb8-a8ae-10408fb8abad">&lt;title&gt;</bpt><ept id="0cc6ef0b-a4fd-4fb8-a8ae-10408fb8abad">&lt;/title&gt;</ept> in your runbook.</source>
+          <target state="new">You should repeat these lines after any <bpt id="0cc6ef0b-a4fd-4fb8-a8ae-10408fb8abad">&lt;linkText&gt;</bpt>checkpoints<ept id="0cc6ef0b-a4fd-4fb8-a8ae-10408fb8abad">&lt;/linkText&gt;</ept><bpt id="0cc6ef0b-a4fd-4fb8-a8ae-10408fb8abad">&lt;title&gt;</bpt><ept id="0cc6ef0b-a4fd-4fb8-a8ae-10408fb8abad">&lt;/title&gt;</ept> in your runbook.</target>
+        </trans-unit>
+        <trans-unit id="5e919251-f930-45ab-86ea-1312eb667e14" xml:space="preserve">
+          <source>If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.</source>
+          <target state="new">If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.</target>
+        </trans-unit>
+        <trans-unit id="cd566b5b-992f-4513-be29-daab411421d6" xml:space="preserve">
+          <source><bpt id="63956a0a-6fe8-4971-b75c-409b9cf16d2f">&lt;linkText&gt;</bpt>Azure Automation: Authenticating to Azure using Azure Active Directory<ept id="63956a0a-6fe8-4971-b75c-409b9cf16d2f">&lt;/linkText&gt;</ept><bpt id="63956a0a-6fe8-4971-b75c-409b9cf16d2f">&lt;title&gt;</bpt><ept id="63956a0a-6fe8-4971-b75c-409b9cf16d2f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="63956a0a-6fe8-4971-b75c-409b9cf16d2f">&lt;linkText&gt;</bpt>Azure Automation: Authenticating to Azure using Azure Active Directory<ept id="63956a0a-6fe8-4971-b75c-409b9cf16d2f">&lt;/linkText&gt;</ept><bpt id="63956a0a-6fe8-4971-b75c-409b9cf16d2f">&lt;title&gt;</bpt><ept id="63956a0a-6fe8-4971-b75c-409b9cf16d2f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5a824292-a88b-4c9d-8f12-901fcaaa9ea3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5a824292-a88b-4c9d-8f12-901fcaaa9ea3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c016190f-6949-4a66-9301-7f89b16d26e2">
+        <trans-unit id="8aba67c6-1323-4d88-b377-c43e9653e6c4" xml:space="preserve">
+          <source>Use PuTTY to connect to the device serial console</source>
+          <target state="new">Use PuTTY to connect to the device serial console</target>
+        </trans-unit>
+        <trans-unit id="f6f2b817-f56e-48ba-a566-4f0237cc8f97" xml:space="preserve">
+          <source>Explains how to use PuTTY terminal emulation software to connect to the StorSimple device.</source>
+          <target state="new">Explains how to use PuTTY terminal emulation software to connect to the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="7f7cabd9-d47b-4cb5-82f5-4c6c31fd61f4" xml:space="preserve">
+          <source>Connect your serial cable to the device (directly or through a USB-serial adapter).</source>
+          <target state="new">Connect your serial cable to the device (directly or through a USB-serial adapter).</target>
+        </trans-unit>
+        <trans-unit id="9013c5f2-14c9-4233-a0a8-fea4f2ffcbd7" xml:space="preserve">
+          <source>Open the <bpt id="b967b895-73d5-48f5-a876-b354bf546758">&lt;strong&gt;</bpt>Control Panel<ept id="b967b895-73d5-48f5-a876-b354bf546758">&lt;/strong&gt;</ept>, and then open the <bpt id="d6add19a-bde7-4926-8cc6-e2316f56f341">&lt;strong&gt;</bpt>Device Manager<ept id="d6add19a-bde7-4926-8cc6-e2316f56f341">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the <bpt id="b967b895-73d5-48f5-a876-b354bf546758">&lt;strong&gt;</bpt>Control Panel<ept id="b967b895-73d5-48f5-a876-b354bf546758">&lt;/strong&gt;</ept>, and then open the <bpt id="d6add19a-bde7-4926-8cc6-e2316f56f341">&lt;strong&gt;</bpt>Device Manager<ept id="d6add19a-bde7-4926-8cc6-e2316f56f341">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4d95d5c-cfd9-4743-b7ce-60c10f952403" xml:space="preserve">
+          <source>Identify the COM port as shown in the following illustration.</source>
+          <target state="new">Identify the COM port as shown in the following illustration.</target>
+        </trans-unit>
+        <trans-unit id="e8edcf70-edde-4160-b843-f214eeebbb49" xml:space="preserve">
+          <source> <bpt id="7c416137-96e9-4c90-8fea-1312dc914b31">&lt;linkText&gt;</bpt>Connecting through serial console<ept id="7c416137-96e9-4c90-8fea-1312dc914b31">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="7c416137-96e9-4c90-8fea-1312dc914b31">&lt;linkText&gt;</bpt>Connecting through serial console<ept id="7c416137-96e9-4c90-8fea-1312dc914b31">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="389dcb35-c519-4112-bbea-3ed240b7ea4d" xml:space="preserve">
+          <source>Start PuTTY.</source>
+          <target state="new">Start PuTTY.</target>
+        </trans-unit>
+        <trans-unit id="24b73e48-2f14-4e56-92c1-241a5fde8848" xml:space="preserve">
+          <source>In the right pane, change the <bpt id="0b57f896-6cc5-4c77-bb08-a805059548fe">&lt;strong&gt;</bpt>Connection type<ept id="0b57f896-6cc5-4c77-bb08-a805059548fe">&lt;/strong&gt;</ept> to <bpt id="e3c64c27-fea5-4262-a98e-c66db1650f43">&lt;strong&gt;</bpt>Serial<ept id="e3c64c27-fea5-4262-a98e-c66db1650f43">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the right pane, change the <bpt id="0b57f896-6cc5-4c77-bb08-a805059548fe">&lt;strong&gt;</bpt>Connection type<ept id="0b57f896-6cc5-4c77-bb08-a805059548fe">&lt;/strong&gt;</ept> to <bpt id="e3c64c27-fea5-4262-a98e-c66db1650f43">&lt;strong&gt;</bpt>Serial<ept id="e3c64c27-fea5-4262-a98e-c66db1650f43">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c12a4f66-8844-438a-8a26-35a964a240b6" xml:space="preserve">
+          <source>In the right pane, type the appropriate COM port.</source>
+          <target state="new">In the right pane, type the appropriate COM port.</target>
+        </trans-unit>
+        <trans-unit id="02043fa4-7c16-4229-9eb8-8fbad6bb3c30" xml:space="preserve">
+          <source>Make sure that the serial configuration parameters are set as follows:</source>
+          <target state="new">Make sure that the serial configuration parameters are set as follows:</target>
+        </trans-unit>
+        <trans-unit id="e2f5fb2a-82a7-4a58-8130-c284eb42308d" xml:space="preserve">
+          <source>Speed: 115,200</source>
+          <target state="new">Speed: 115,200</target>
+        </trans-unit>
+        <trans-unit id="086d1764-8cf3-4374-80bf-6363fd6246f1" xml:space="preserve">
+          <source>Data bits: 8</source>
+          <target state="new">Data bits: 8</target>
+        </trans-unit>
+        <trans-unit id="fa56a27c-49f6-4844-8051-6a4b51340a27" xml:space="preserve">
+          <source>Stop bits: 1</source>
+          <target state="new">Stop bits: 1</target>
+        </trans-unit>
+        <trans-unit id="e7383f9c-c628-4dab-97f9-c0bdb85958b7" xml:space="preserve">
+          <source>Parity: None</source>
+          <target state="new">Parity: None</target>
+        </trans-unit>
+        <trans-unit id="6239ab09-704f-48e6-83b2-3c6298dc05ff" xml:space="preserve">
+          <source>Flow control: None</source>
+          <target state="new">Flow control: None</target>
+        </trans-unit>
+        <trans-unit id="2d57baa2-c6c9-4277-aea6-5ae809df186b" xml:space="preserve">
+          <source>These settings are shown in the following illustration.</source>
+          <target state="new">These settings are shown in the following illustration.</target>
+        </trans-unit>
+        <trans-unit id="c1da041d-d877-46bc-92dd-89cdd4b960b3" xml:space="preserve">
+          <source> <bpt id="0aa97fb3-f272-445d-9cb8-941e5b696880">&lt;linkText&gt;</bpt>PuTTY settings<ept id="0aa97fb3-f272-445d-9cb8-941e5b696880">&lt;/linkText&gt;</ept> </source>
+          <target state="new"> <bpt id="0aa97fb3-f272-445d-9cb8-941e5b696880">&lt;linkText&gt;</bpt>PuTTY settings<ept id="0aa97fb3-f272-445d-9cb8-941e5b696880">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="54175577-d964-4792-a0d5-47861a80d4f2" xml:space="preserve">
+          <source>If the default flow control setting does not work, try setting the flow control to XON/XOFF.</source>
+          <target state="new">If the default flow control setting does not work, try setting the flow control to XON/XOFF.</target>
+        </trans-unit>
+        <trans-unit id="5304e51f-b3db-4281-b815-abbe9ac15f6f" xml:space="preserve">
+          <source>Click <bpt id="c873b924-12c7-4a97-bd84-6b1be8134e22">&lt;strong&gt;</bpt>Open<ept id="c873b924-12c7-4a97-bd84-6b1be8134e22">&lt;/strong&gt;</ept> to start a serial session.</source>
+          <target state="new">Click <bpt id="c873b924-12c7-4a97-bd84-6b1be8134e22">&lt;strong&gt;</bpt>Open<ept id="c873b924-12c7-4a97-bd84-6b1be8134e22">&lt;/strong&gt;</ept> to start a serial session.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

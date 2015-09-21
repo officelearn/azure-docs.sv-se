@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="053164d0-5e56-4260-a1fc-40ad9729b188" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="053164d0-5e56-4260-a1fc-40ad9729b188" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="46896484-edd9-4e55-aa04-c6288cd15bca">
+        <trans-unit id="bfdb9212-951f-4a0b-aea0-a94eb2172ddb" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="372a4522-506a-40cd-a0ab-7634da06e84f" xml:space="preserve">
+          <source>Default Limit</source>
+          <target state="new">Default Limit</target>
+        </trans-unit>
+        <trans-unit id="3571c403-5e75-49c5-a8d8-6d93bf366ce3" xml:space="preserve">
+          <source>Maximum Limit</source>
+          <target state="new">Maximum Limit</target>
+        </trans-unit>
+        <trans-unit id="8d171b39-0bc6-4635-87da-aac6a2980877" xml:space="preserve">
+          <source>Azure Media Services (AMS) accounts in a single subscription</source>
+          <target state="new">Azure Media Services (AMS) accounts in a single subscription</target>
+        </trans-unit>
+        <trans-unit id="359b140b-07e8-40ed-a85d-11b559a2c341" xml:space="preserve">
+          <source>25</source>
+          <target state="new">25</target>
+        </trans-unit>
+        <trans-unit id="ce1559ee-a4b5-475e-8d72-ba092fad2507" xml:space="preserve">
+          <source>Assets per AMS account</source>
+          <target state="new">Assets per AMS account</target>
+        </trans-unit>
+        <trans-unit id="6250e9a8-d68d-491f-8204-08201b5ed814" xml:space="preserve">
+          <source>1,000,000</source>
+          <target state="new">1,000,000</target>
+        </trans-unit>
+        <trans-unit id="6baacd0d-71ff-4496-b296-fd774038d155" xml:space="preserve">
+          <source>Chained tasks per job</source>
+          <target state="new">Chained tasks per job</target>
+        </trans-unit>
+        <trans-unit id="d8d3083f-1a71-456f-9ddd-a65e4fe83888" xml:space="preserve">
+          <source>30</source>
+          <target state="new">30</target>
+        </trans-unit>
+        <trans-unit id="0f507ce5-8b41-4528-bb2b-efe418eca600" xml:space="preserve">
+          <source>Assets per task</source>
+          <target state="new">Assets per task</target>
+        </trans-unit>
+        <trans-unit id="2e61c360-059f-4684-82b0-879e662f22fc" xml:space="preserve">
+          <source>50</source>
+          <target state="new">50</target>
+        </trans-unit>
+        <trans-unit id="583a49a1-1099-43da-9456-c9fbbaa3b993" xml:space="preserve">
+          <source>Assets per job</source>
+          <target state="new">Assets per job</target>
+        </trans-unit>
+        <trans-unit id="ff4f137a-fc2a-4740-be78-7b5198227a6d" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="87415744-4b3b-4570-81f8-fb3322224c3b" xml:space="preserve">
+          <source>Jobs per AMS account</source>
+          <target state="new">Jobs per AMS account</target>
+        </trans-unit>
+        <trans-unit id="f7609b70-ae60-4951-975b-a099aaaed60b" xml:space="preserve">
+          <source>50,000&lt;sup&gt;2&lt;/sup&gt;</source>
+          <target state="new">50,000&lt;sup&gt;2&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="f42cc279-43db-45d6-a73b-cc5666396227" xml:space="preserve">
+          <source>Unique locators associated with an asset at one time</source>
+          <target state="new">Unique locators associated with an asset at one time</target>
+        </trans-unit>
+        <trans-unit id="ce286443-fecd-46bf-98a9-96b57d577a92" xml:space="preserve">
+          <source>5&lt;sup&gt;4&lt;/sup&gt;</source>
+          <target state="new">5&lt;sup&gt;4&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="7894d59a-cc31-4c67-9135-8777004b597f" xml:space="preserve">
+          <source>Live channels per AMS account &lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">Live channels per AMS account &lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="06c04293-6452-4397-9fa3-7faf4b120a01" xml:space="preserve">
+          <source>5&lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">5&lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="27a98d52-b346-470c-973a-6f66166129bd" xml:space="preserve">
+          <source>N/A&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">N/A&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="79ff03fa-63e5-4be1-b234-1ab5f9a3746c" xml:space="preserve">
+          <source>Programs in stopped state per channel &lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">Programs in stopped state per channel &lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="1a55cef8-f83c-4187-80ff-709de0422e5a" xml:space="preserve">
+          <source>50&lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">50&lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="0848581f-5b30-43d3-b1a3-68625c96fd44" xml:space="preserve">
+          <source>N/A&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">N/A&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="39bfab12-a5c1-4bd7-b1ef-6f80e1ba517a" xml:space="preserve">
+          <source>Programs in running state per channel &lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">Programs in running state per channel &lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="74d0c18d-7c4d-4299-8f2e-be491149d91f" xml:space="preserve">
+          <source>3&lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">3&lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="485c18c5-80c2-47b6-9067-b5684ecc7ef8" xml:space="preserve">
+          <source>N/A&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">N/A&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="c5d33d45-782e-45fa-a649-14586954fbb2" xml:space="preserve">
+          <source>Streaming endpoints in running state per AMS account&lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">Streaming endpoints in running state per AMS account&lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="43df07ae-fae5-442c-9e05-7fab88a5adbb" xml:space="preserve">
+          <source>2&lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">2&lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="67633ffa-3f1b-4e65-9bd4-a6a07ba5d7e6" xml:space="preserve">
+          <source>N/A&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">N/A&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="129c4d2a-ac2a-411e-a7a1-6715df74d062" xml:space="preserve">
+          <source>Streaming units per streaming endpoint &lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">Streaming units per streaming endpoint &lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="5825fad1-5b54-4844-bbc4-59ee39966f9c" xml:space="preserve">
+          <source>10 &lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">10 &lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="0bc9268b-b84c-47bf-bc57-daa77d0348b0" xml:space="preserve">
+          <source>N/A&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">N/A&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="088af917-7111-4f8d-9dc6-02c1952aa1d0" xml:space="preserve">
+          <source>Encoding units per AMS account &lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">Encoding units per AMS account &lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="4b50119e-76a9-4023-9218-665d87870c7c" xml:space="preserve">
+          <source>25&lt;/p&gt;&lt;/td&gt;</source>
+          <target state="new">25&lt;/p&gt;&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="949c80e7-613a-414d-bee0-a5ba284b9c01" xml:space="preserve">
+          <source>N/A&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">N/A&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="84105dad-d743-44f5-a1d0-8166536d4f0a" xml:space="preserve">
+          <source>Storage accounts</source>
+          <target state="new">Storage accounts</target>
+        </trans-unit>
+        <trans-unit id="a1a57e19-49c7-459d-8729-caef14a91df8" xml:space="preserve">
+          <source>1,000&lt;sup&gt;5&lt;/sup&gt;</source>
+          <target state="new">1,000&lt;sup&gt;5&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="2c355a32-ee05-429c-8535-98d0245e2887" xml:space="preserve">
+          <source>&lt;sup&gt;1&lt;/sup&gt; You can request to update the limits for this quota by opening a support ticket.</source>
+          <target state="new">&lt;sup&gt;1&lt;/sup&gt; You can request to update the limits for this quota by opening a support ticket.</target>
+        </trans-unit>
+        <trans-unit id="03cf32d4-de18-4567-bed7-3adae0aef3f3" xml:space="preserve">
+          <source>Do not create more AMS accounts to increase limits, instead submit a support ticket.</source>
+          <target state="new">Do not create more AMS accounts to increase limits, instead submit a support ticket.</target>
+        </trans-unit>
+        <trans-unit id="7ebebe20-66c2-42cb-b6c3-e00c0c5c186a" xml:space="preserve">
+          <source>&lt;sup&gt;2&lt;/sup&gt; This number includes queued, finished, active, and canceled jobs.</source>
+          <target state="new">&lt;sup&gt;2&lt;/sup&gt; This number includes queued, finished, active, and canceled jobs.</target>
+        </trans-unit>
+        <trans-unit id="16b3cff3-b91d-443f-8dbe-9230b71a5975" xml:space="preserve">
+          <source>It does not include deleted jobs.</source>
+          <target state="new">It does not include deleted jobs.</target>
+        </trans-unit>
+        <trans-unit id="fdab28da-1fd9-42ee-bb48-4b227a7e5f0b" xml:space="preserve">
+          <source>You can delete the old jobs using <bpt id="297dc3b5-b491-424e-ab1f-f1944ff1547b">&lt;strong&gt;</bpt>IJob.Delete<ept id="297dc3b5-b491-424e-ab1f-f1944ff1547b">&lt;/strong&gt;</ept> or the <bpt id="d07c2e0d-ac08-4e49-a8d5-30da08d2ea82">&lt;strong&gt;</bpt>DELETE<ept id="d07c2e0d-ac08-4e49-a8d5-30da08d2ea82">&lt;/strong&gt;</ept> HTTP request.</source>
+          <target state="new">You can delete the old jobs using <bpt id="297dc3b5-b491-424e-ab1f-f1944ff1547b">&lt;strong&gt;</bpt>IJob.Delete<ept id="297dc3b5-b491-424e-ab1f-f1944ff1547b">&lt;/strong&gt;</ept> or the <bpt id="d07c2e0d-ac08-4e49-a8d5-30da08d2ea82">&lt;strong&gt;</bpt>DELETE<ept id="d07c2e0d-ac08-4e49-a8d5-30da08d2ea82">&lt;/strong&gt;</ept> HTTP request.</target>
+        </trans-unit>
+        <trans-unit id="35990e80-82e1-4e21-a7ab-736928a20aa5" xml:space="preserve">
+          <source>&lt;sup&gt;3&lt;/sup&gt; When making a request to list Job entities, a maximum of 1,000 will be returned per request.</source>
+          <target state="new">&lt;sup&gt;3&lt;/sup&gt; When making a request to list Job entities, a maximum of 1,000 will be returned per request.</target>
+        </trans-unit>
+        <trans-unit id="c72624e5-69d0-49a5-b423-998b13fecc45" xml:space="preserve">
+          <source>If you need to keep track of all submitted Jobs, you can use top/skip as described in <bpt id="6a21c466-2bed-4e53-a12d-f25618ac36d0">&lt;linkText&gt;</bpt>OData system query options<ept id="6a21c466-2bed-4e53-a12d-f25618ac36d0">&lt;/linkText&gt;</ept><bpt id="6a21c466-2bed-4e53-a12d-f25618ac36d0">&lt;title&gt;</bpt><ept id="6a21c466-2bed-4e53-a12d-f25618ac36d0">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need to keep track of all submitted Jobs, you can use top/skip as described in <bpt id="6a21c466-2bed-4e53-a12d-f25618ac36d0">&lt;linkText&gt;</bpt>OData system query options<ept id="6a21c466-2bed-4e53-a12d-f25618ac36d0">&lt;/linkText&gt;</ept><bpt id="6a21c466-2bed-4e53-a12d-f25618ac36d0">&lt;title&gt;</bpt><ept id="6a21c466-2bed-4e53-a12d-f25618ac36d0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95339022-513f-4f6e-8c69-bb8b9743cadd" xml:space="preserve">
+          <source>&lt;sup&gt;4&lt;/sup&gt; Locators are not designed for managing per-user access control.</source>
+          <target state="new">&lt;sup&gt;4&lt;/sup&gt; Locators are not designed for managing per-user access control.</target>
+        </trans-unit>
+        <trans-unit id="133930a8-faec-49f9-b0c3-c1453d6127ea" xml:space="preserve">
+          <source>To give different access rights to individual users, use Digital Rights Management (DRM) solutions.</source>
+          <target state="new">To give different access rights to individual users, use Digital Rights Management (DRM) solutions.</target>
+        </trans-unit>
+        <trans-unit id="bae3b53f-37a8-4615-a821-d0274fed5d27" xml:space="preserve">
+          <source>&lt;sup&gt;5&lt;/sup&gt; The storage accounts must be from the same Azure subscription.</source>
+          <target state="new">&lt;sup&gt;5&lt;/sup&gt; The storage accounts must be from the same Azure subscription.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

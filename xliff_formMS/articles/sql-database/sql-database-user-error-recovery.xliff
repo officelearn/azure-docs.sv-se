@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="24a5bfea-3467-4d80-8055-a4dcf85d4f78" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="24a5bfea-3467-4d80-8055-a4dcf85d4f78" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="996c0ffc-454c-4c57-89fc-4278c43afb16">
+        <trans-unit id="d003fcdc-c962-4ae7-80e7-de5040a8d4d5" xml:space="preserve">
+          <source>SQL Database User Error Recovery</source>
+          <target state="new">SQL Database User Error Recovery</target>
+        </trans-unit>
+        <trans-unit id="5d40cb1e-da20-433d-8501-d82808605182" xml:space="preserve">
+          <source>Learn how to recover from user error, accidental data corruption, or a deleted database using the Point-in-time Restore (PITR) feature of Azure SQL Database.</source>
+          <target state="new">Learn how to recover from user error, accidental data corruption, or a deleted database using the Point-in-time Restore (PITR) feature of Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="a4a8040a-97f9-440c-90dd-686d4cd835a0" xml:space="preserve">
+          <source>Azure SQL Database offers two core capabilities for recovering from user error or unintended data modification.</source>
+          <target state="new">Azure SQL Database offers two core capabilities for recovering from user error or unintended data modification.</target>
+        </trans-unit>
+        <trans-unit id="3aa5be9d-9f3d-455b-aa3d-2b973479f780" xml:space="preserve">
+          <source>Point In Time Restore </source>
+          <target state="new">Point In Time Restore </target>
+        </trans-unit>
+        <trans-unit id="33b41184-55a0-44ea-95d6-4173596a07ed" xml:space="preserve">
+          <source>Restore deleted database</source>
+          <target state="new">Restore deleted database</target>
+        </trans-unit>
+        <trans-unit id="f4e07a3d-778e-4fd1-af4c-3d9a660550a2" xml:space="preserve">
+          <source>You can learn more about these capabilities on this <bpt id="bf33938e-5d4e-4865-8643-fc3ad6d43505">&lt;linkText&gt;</bpt>blog post<ept id="bf33938e-5d4e-4865-8643-fc3ad6d43505">&lt;/linkText&gt;</ept><bpt id="bf33938e-5d4e-4865-8643-fc3ad6d43505">&lt;title&gt;</bpt><ept id="bf33938e-5d4e-4865-8643-fc3ad6d43505">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn more about these capabilities on this <bpt id="bf33938e-5d4e-4865-8643-fc3ad6d43505">&lt;linkText&gt;</bpt>blog post<ept id="bf33938e-5d4e-4865-8643-fc3ad6d43505">&lt;/linkText&gt;</ept><bpt id="bf33938e-5d4e-4865-8643-fc3ad6d43505">&lt;title&gt;</bpt><ept id="bf33938e-5d4e-4865-8643-fc3ad6d43505">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05bd0ca5-1620-4130-b9ea-7d869d76bddd" xml:space="preserve">
+          <source>Azure SQL Database always restores to a new database.</source>
+          <target state="new">Azure SQL Database always restores to a new database.</target>
+        </trans-unit>
+        <trans-unit id="9dc410ea-e859-41d1-aeac-f013a5cf78a6" xml:space="preserve">
+          <source>These restore capabilities are offered to all Basic, Standard, and Premium databases.</source>
+          <target state="new">These restore capabilities are offered to all Basic, Standard, and Premium databases.</target>
+        </trans-unit>
+        <trans-unit id="f32ad03e-e513-4027-928f-4ebe79f776bd" xml:space="preserve">
+          <source>In the event of a user error or unintended data modification, Point In Time Restore can be used to restore your database to any point in time within your databases retention period.</source>
+          <target state="new">In the event of a user error or unintended data modification, Point In Time Restore can be used to restore your database to any point in time within your databases retention period.</target>
+        </trans-unit>
+        <trans-unit id="985e4926-5d8e-4696-b3b5-8cc2a59ae963" xml:space="preserve">
+          <source>Basic databases have 7 days of retention, Standard databases have 14 days of retention, and Premium databases have 35 days of retention.</source>
+          <target state="new">Basic databases have 7 days of retention, Standard databases have 14 days of retention, and Premium databases have 35 days of retention.</target>
+        </trans-unit>
+        <trans-unit id="2e269bdb-2ae2-4b82-8283-dc8393cf3812" xml:space="preserve">
+          <source>To learn more about database retention please read our <bpt id="428b5226-b47b-499d-b818-a22c23eda7c6">&lt;linkText&gt;</bpt>business continuity overview<ept id="428b5226-b47b-499d-b818-a22c23eda7c6">&lt;/linkText&gt;</ept><bpt id="428b5226-b47b-499d-b818-a22c23eda7c6">&lt;title&gt;</bpt><ept id="428b5226-b47b-499d-b818-a22c23eda7c6">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about database retention please read our <bpt id="428b5226-b47b-499d-b818-a22c23eda7c6">&lt;linkText&gt;</bpt>business continuity overview<ept id="428b5226-b47b-499d-b818-a22c23eda7c6">&lt;/linkText&gt;</ept><bpt id="428b5226-b47b-499d-b818-a22c23eda7c6">&lt;title&gt;</bpt><ept id="428b5226-b47b-499d-b818-a22c23eda7c6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6289046a-a420-4df1-b4d5-cc385655552c" xml:space="preserve">
+          <source>Restoring a database creates a new database.</source>
+          <target state="new">Restoring a database creates a new database.</target>
+        </trans-unit>
+        <trans-unit id="08afe445-b65b-4066-a2ac-ff053878a22d" xml:space="preserve">
+          <source>It is important to make sure the server you are restoring to has enough DTU capacity for the new database.</source>
+          <target state="new">It is important to make sure the server you are restoring to has enough DTU capacity for the new database.</target>
+        </trans-unit>
+        <trans-unit id="20653718-36fe-4c5d-a76d-db191f814a84" xml:space="preserve">
+          <source>You can request an increase of this quota by <bpt id="95cc6f8c-0875-48dd-9d77-2dd7d9f70c55">&lt;linkText&gt;</bpt>contacting support<ept id="95cc6f8c-0875-48dd-9d77-2dd7d9f70c55">&lt;/linkText&gt;</ept><bpt id="95cc6f8c-0875-48dd-9d77-2dd7d9f70c55">&lt;title&gt;</bpt><ept id="95cc6f8c-0875-48dd-9d77-2dd7d9f70c55">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can request an increase of this quota by <bpt id="95cc6f8c-0875-48dd-9d77-2dd7d9f70c55">&lt;linkText&gt;</bpt>contacting support<ept id="95cc6f8c-0875-48dd-9d77-2dd7d9f70c55">&lt;/linkText&gt;</ept><bpt id="95cc6f8c-0875-48dd-9d77-2dd7d9f70c55">&lt;title&gt;</bpt><ept id="95cc6f8c-0875-48dd-9d77-2dd7d9f70c55">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21235c6e-e777-47df-900c-f2caac85f2d3" xml:space="preserve">
+          <source>Log in to the <bpt id="b84c9b8f-2b34-41fc-9d44-b61b8b6254e9">&lt;linkText&gt;</bpt>Azure Portal<ept id="b84c9b8f-2b34-41fc-9d44-b61b8b6254e9">&lt;/linkText&gt;</ept><bpt id="b84c9b8f-2b34-41fc-9d44-b61b8b6254e9">&lt;title&gt;</bpt><ept id="b84c9b8f-2b34-41fc-9d44-b61b8b6254e9">&lt;/title&gt;</ept></source>
+          <target state="new">Log in to the <bpt id="b84c9b8f-2b34-41fc-9d44-b61b8b6254e9">&lt;linkText&gt;</bpt>Azure Portal<ept id="b84c9b8f-2b34-41fc-9d44-b61b8b6254e9">&lt;/linkText&gt;</ept><bpt id="b84c9b8f-2b34-41fc-9d44-b61b8b6254e9">&lt;title&gt;</bpt><ept id="b84c9b8f-2b34-41fc-9d44-b61b8b6254e9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcaaa39d-8371-4c02-8016-0b1458a80fee" xml:space="preserve">
+          <source>On the left side of the screen select <bpt id="4fdae1cb-b156-4e21-a47d-da8ea670098e">&lt;strong&gt;</bpt>BROWSE<ept id="4fdae1cb-b156-4e21-a47d-da8ea670098e">&lt;/strong&gt;</ept> and then select <bpt id="7ecb5959-c2ab-4c33-8770-aa815809e099">&lt;strong&gt;</bpt>SQL Databases<ept id="7ecb5959-c2ab-4c33-8770-aa815809e099">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left side of the screen select <bpt id="4fdae1cb-b156-4e21-a47d-da8ea670098e">&lt;strong&gt;</bpt>BROWSE<ept id="4fdae1cb-b156-4e21-a47d-da8ea670098e">&lt;/strong&gt;</ept> and then select <bpt id="7ecb5959-c2ab-4c33-8770-aa815809e099">&lt;strong&gt;</bpt>SQL Databases<ept id="7ecb5959-c2ab-4c33-8770-aa815809e099">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b24e7a95-b929-4343-8592-b240a3d5b331" xml:space="preserve">
+          <source>Navigate to your database and select it.</source>
+          <target state="new">Navigate to your database and select it.</target>
+        </trans-unit>
+        <trans-unit id="9126b547-0c58-4820-83ff-8d58ad500171" xml:space="preserve">
+          <source>At the top of your database's blade, select <bpt id="511bcdcb-4044-4b65-b8c1-4f82cf60379e">&lt;strong&gt;</bpt>Restore<ept id="511bcdcb-4044-4b65-b8c1-4f82cf60379e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the top of your database's blade, select <bpt id="511bcdcb-4044-4b65-b8c1-4f82cf60379e">&lt;strong&gt;</bpt>Restore<ept id="511bcdcb-4044-4b65-b8c1-4f82cf60379e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="595ffb7b-6b3e-4aa3-a8ac-026d2fefc159" xml:space="preserve">
+          <source>Specify a database name, point in time and then click <bpt id="25d77d07-531b-476b-80eb-207ae9106fad">&lt;strong&gt;</bpt>Create<ept id="25d77d07-531b-476b-80eb-207ae9106fad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify a database name, point in time and then click <bpt id="25d77d07-531b-476b-80eb-207ae9106fad">&lt;strong&gt;</bpt>Create<ept id="25d77d07-531b-476b-80eb-207ae9106fad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b21d9e2c-53ee-4615-84ed-66b506901388" xml:space="preserve">
+          <source>The database restore process will begin and can be monitored using <bpt id="f472c953-ba0b-48fc-a32e-4a995986cb0c">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="f472c953-ba0b-48fc-a32e-4a995986cb0c">&lt;/strong&gt;</ept> on the left side of the screen.</source>
+          <target state="new">The database restore process will begin and can be monitored using <bpt id="f472c953-ba0b-48fc-a32e-4a995986cb0c">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="f472c953-ba0b-48fc-a32e-4a995986cb0c">&lt;/strong&gt;</ept> on the left side of the screen.</target>
+        </trans-unit>
+        <trans-unit id="576c18bc-460e-437c-8234-820b7645ba95" xml:space="preserve">
+          <source>After the restore has completed, you can configure your recovered database to be used by following the <bpt id="60eac392-6114-4d07-abfa-00876db486c8">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="60eac392-6114-4d07-abfa-00876db486c8">&lt;/linkText&gt;</ept><bpt id="60eac392-6114-4d07-abfa-00876db486c8">&lt;title&gt;</bpt><ept id="60eac392-6114-4d07-abfa-00876db486c8">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the restore has completed, you can configure your recovered database to be used by following the <bpt id="60eac392-6114-4d07-abfa-00876db486c8">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="60eac392-6114-4d07-abfa-00876db486c8">&lt;/linkText&gt;</ept><bpt id="60eac392-6114-4d07-abfa-00876db486c8">&lt;title&gt;</bpt><ept id="60eac392-6114-4d07-abfa-00876db486c8">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="bebccfc0-80ea-471e-a8ad-4c207b9b4c59" xml:space="preserve">
+          <source>Use PowerShell to programmatically perform database restore.</source>
+          <target state="new">Use PowerShell to programmatically perform database restore.</target>
+        </trans-unit>
+        <trans-unit id="cd0482b0-48fc-40f4-aa47-d5ff2b8b94a9" xml:space="preserve">
+          <source>To restore a database with Point In Time Restore, use the <bpt id="cee5bc8b-a825-4142-ba9f-801f48a60e12">&lt;linkText&gt;</bpt>Start-AzureSqlDatabaseRestore<ept id="cee5bc8b-a825-4142-ba9f-801f48a60e12">&lt;/linkText&gt;</ept><bpt id="cee5bc8b-a825-4142-ba9f-801f48a60e12">&lt;title&gt;</bpt><ept id="cee5bc8b-a825-4142-ba9f-801f48a60e12">&lt;/title&gt;</ept> cmdlet. For a detailed walk through, please see our <bpt id="8f410151-a46a-452f-afd4-b37a36d94488">&lt;linkText&gt;</bpt>how-to video<ept id="8f410151-a46a-452f-afd4-b37a36d94488">&lt;/linkText&gt;</ept><bpt id="8f410151-a46a-452f-afd4-b37a36d94488">&lt;title&gt;</bpt><ept id="8f410151-a46a-452f-afd4-b37a36d94488">&lt;/title&gt;</ept>.</source>
+          <target state="new">To restore a database with Point In Time Restore, use the <bpt id="cee5bc8b-a825-4142-ba9f-801f48a60e12">&lt;linkText&gt;</bpt>Start-AzureSqlDatabaseRestore<ept id="cee5bc8b-a825-4142-ba9f-801f48a60e12">&lt;/linkText&gt;</ept><bpt id="cee5bc8b-a825-4142-ba9f-801f48a60e12">&lt;title&gt;</bpt><ept id="cee5bc8b-a825-4142-ba9f-801f48a60e12">&lt;/title&gt;</ept> cmdlet. For a detailed walk through, please see our <bpt id="8f410151-a46a-452f-afd4-b37a36d94488">&lt;linkText&gt;</bpt>how-to video<ept id="8f410151-a46a-452f-afd4-b37a36d94488">&lt;/linkText&gt;</ept><bpt id="8f410151-a46a-452f-afd4-b37a36d94488">&lt;title&gt;</bpt><ept id="8f410151-a46a-452f-afd4-b37a36d94488">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7115c6b3-ac59-479c-be2b-125d5e8a4b29" xml:space="preserve">
+          <source>After the restore has completed, you can configure your recovered database to be used by following the <bpt id="da5aa7b6-bb30-4704-9a3a-57a277c9ecb2">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="da5aa7b6-bb30-4704-9a3a-57a277c9ecb2">&lt;/linkText&gt;</ept><bpt id="da5aa7b6-bb30-4704-9a3a-57a277c9ecb2">&lt;title&gt;</bpt><ept id="da5aa7b6-bb30-4704-9a3a-57a277c9ecb2">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the restore has completed, you can configure your recovered database to be used by following the <bpt id="da5aa7b6-bb30-4704-9a3a-57a277c9ecb2">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="da5aa7b6-bb30-4704-9a3a-57a277c9ecb2">&lt;/linkText&gt;</ept><bpt id="da5aa7b6-bb30-4704-9a3a-57a277c9ecb2">&lt;title&gt;</bpt><ept id="da5aa7b6-bb30-4704-9a3a-57a277c9ecb2">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="91eb39cc-4e6d-497b-8f77-073344968d84" xml:space="preserve">
+          <source>Use REST to programmatically perform database restore.</source>
+          <target state="new">Use REST to programmatically perform database restore.</target>
+        </trans-unit>
+        <trans-unit id="5fd9c37b-bbff-4752-b52a-e84e852a9054" xml:space="preserve">
+          <source>Get the database you want to restore using the <bpt id="2771faf2-abf8-4a19-9780-242e46f3e28c">&lt;linkText&gt;</bpt>Get Database<ept id="2771faf2-abf8-4a19-9780-242e46f3e28c">&lt;/linkText&gt;</ept><bpt id="2771faf2-abf8-4a19-9780-242e46f3e28c">&lt;title&gt;</bpt><ept id="2771faf2-abf8-4a19-9780-242e46f3e28c">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Get the database you want to restore using the <bpt id="2771faf2-abf8-4a19-9780-242e46f3e28c">&lt;linkText&gt;</bpt>Get Database<ept id="2771faf2-abf8-4a19-9780-242e46f3e28c">&lt;/linkText&gt;</ept><bpt id="2771faf2-abf8-4a19-9780-242e46f3e28c">&lt;title&gt;</bpt><ept id="2771faf2-abf8-4a19-9780-242e46f3e28c">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="25324cbd-82c3-4444-9062-d888035bbfaa" xml:space="preserve">
+          <source>Create the restore request using the <bpt id="03b645c1-4240-46a5-852e-3ae8dca324d9">&lt;linkText&gt;</bpt>Create Database Restore Request<ept id="03b645c1-4240-46a5-852e-3ae8dca324d9">&lt;/linkText&gt;</ept><bpt id="03b645c1-4240-46a5-852e-3ae8dca324d9">&lt;title&gt;</bpt><ept id="03b645c1-4240-46a5-852e-3ae8dca324d9">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Create the restore request using the <bpt id="03b645c1-4240-46a5-852e-3ae8dca324d9">&lt;linkText&gt;</bpt>Create Database Restore Request<ept id="03b645c1-4240-46a5-852e-3ae8dca324d9">&lt;/linkText&gt;</ept><bpt id="03b645c1-4240-46a5-852e-3ae8dca324d9">&lt;title&gt;</bpt><ept id="03b645c1-4240-46a5-852e-3ae8dca324d9">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="ecfc0438-bd24-4918-b89d-103501985343" xml:space="preserve">
+          <source>Track the restore request using the <bpt id="58858fac-c0fb-489f-9662-247e7c2e3d7f">&lt;linkText&gt;</bpt>Database Operation Status<ept id="58858fac-c0fb-489f-9662-247e7c2e3d7f">&lt;/linkText&gt;</ept><bpt id="58858fac-c0fb-489f-9662-247e7c2e3d7f">&lt;title&gt;</bpt><ept id="58858fac-c0fb-489f-9662-247e7c2e3d7f">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Track the restore request using the <bpt id="58858fac-c0fb-489f-9662-247e7c2e3d7f">&lt;linkText&gt;</bpt>Database Operation Status<ept id="58858fac-c0fb-489f-9662-247e7c2e3d7f">&lt;/linkText&gt;</ept><bpt id="58858fac-c0fb-489f-9662-247e7c2e3d7f">&lt;title&gt;</bpt><ept id="58858fac-c0fb-489f-9662-247e7c2e3d7f">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="06b66278-7e4e-4b49-b40f-dc3ad8a73496" xml:space="preserve">
+          <source>After the restore has completed, you can configure your recovered database to be used by following the <bpt id="e40f9792-fff4-49d3-8e3c-6fb3e37fec05">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="e40f9792-fff4-49d3-8e3c-6fb3e37fec05">&lt;/linkText&gt;</ept><bpt id="e40f9792-fff4-49d3-8e3c-6fb3e37fec05">&lt;title&gt;</bpt><ept id="e40f9792-fff4-49d3-8e3c-6fb3e37fec05">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the restore has completed, you can configure your recovered database to be used by following the <bpt id="e40f9792-fff4-49d3-8e3c-6fb3e37fec05">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="e40f9792-fff4-49d3-8e3c-6fb3e37fec05">&lt;/linkText&gt;</ept><bpt id="e40f9792-fff4-49d3-8e3c-6fb3e37fec05">&lt;title&gt;</bpt><ept id="e40f9792-fff4-49d3-8e3c-6fb3e37fec05">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="a9fa4750-f3a5-4292-83b7-0267bf17e20b" xml:space="preserve">
+          <source>In the event a database is deleted, Azure SQL Database allows you to restore the deleted database to the point in time of deletion.</source>
+          <target state="new">In the event a database is deleted, Azure SQL Database allows you to restore the deleted database to the point in time of deletion.</target>
+        </trans-unit>
+        <trans-unit id="73fc6c26-0d44-4619-bee1-94af1b621029" xml:space="preserve">
+          <source>Azure SQL Database stores the deleted database backup for the retention period of the database.</source>
+          <target state="new">Azure SQL Database stores the deleted database backup for the retention period of the database.</target>
+        </trans-unit>
+        <trans-unit id="29ccf498-4ac7-4403-b4c7-02a8da75c6fa" xml:space="preserve">
+          <source>The retention period of a deleted database is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less.</source>
+          <target state="new">The retention period of a deleted database is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less.</target>
+        </trans-unit>
+        <trans-unit id="6dcbb097-7d01-4bd9-8f7d-b97795601cff" xml:space="preserve">
+          <source>To learn more about database retention read our <bpt id="c6820d9b-0c4f-4578-8819-8815faa76d6c">&lt;linkText&gt;</bpt>business continuity overview<ept id="c6820d9b-0c4f-4578-8819-8815faa76d6c">&lt;/linkText&gt;</ept><bpt id="c6820d9b-0c4f-4578-8819-8815faa76d6c">&lt;title&gt;</bpt><ept id="c6820d9b-0c4f-4578-8819-8815faa76d6c">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about database retention read our <bpt id="c6820d9b-0c4f-4578-8819-8815faa76d6c">&lt;linkText&gt;</bpt>business continuity overview<ept id="c6820d9b-0c4f-4578-8819-8815faa76d6c">&lt;/linkText&gt;</ept><bpt id="c6820d9b-0c4f-4578-8819-8815faa76d6c">&lt;title&gt;</bpt><ept id="c6820d9b-0c4f-4578-8819-8815faa76d6c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9507f3a3-32bb-44f0-89bd-7fbcbe050438" xml:space="preserve">
+          <source>Restoring a database creates a new database.</source>
+          <target state="new">Restoring a database creates a new database.</target>
+        </trans-unit>
+        <trans-unit id="4c261afb-7598-46d2-8eb6-c57086aefc80" xml:space="preserve">
+          <source>It is important to make sure the server you are restoring to has enough DTU capacity for the new database.</source>
+          <target state="new">It is important to make sure the server you are restoring to has enough DTU capacity for the new database.</target>
+        </trans-unit>
+        <trans-unit id="e2dce174-4598-4167-9e69-a70b7700c2c0" xml:space="preserve">
+          <source>You can request an increase of this quota by <bpt id="75a1cdb1-f59c-4120-903a-340567cd09a3">&lt;linkText&gt;</bpt>contacting support<ept id="75a1cdb1-f59c-4120-903a-340567cd09a3">&lt;/linkText&gt;</ept><bpt id="75a1cdb1-f59c-4120-903a-340567cd09a3">&lt;title&gt;</bpt><ept id="75a1cdb1-f59c-4120-903a-340567cd09a3">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can request an increase of this quota by <bpt id="75a1cdb1-f59c-4120-903a-340567cd09a3">&lt;linkText&gt;</bpt>contacting support<ept id="75a1cdb1-f59c-4120-903a-340567cd09a3">&lt;/linkText&gt;</ept><bpt id="75a1cdb1-f59c-4120-903a-340567cd09a3">&lt;title&gt;</bpt><ept id="75a1cdb1-f59c-4120-903a-340567cd09a3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0549c4c-4c49-4017-ba69-07ec4672ce71" xml:space="preserve">
+          <source>Log in to the <bpt id="0596835c-d186-44e3-959f-4db1b1d6618a">&lt;linkText&gt;</bpt>Azure Portal<ept id="0596835c-d186-44e3-959f-4db1b1d6618a">&lt;/linkText&gt;</ept><bpt id="0596835c-d186-44e3-959f-4db1b1d6618a">&lt;title&gt;</bpt><ept id="0596835c-d186-44e3-959f-4db1b1d6618a">&lt;/title&gt;</ept></source>
+          <target state="new">Log in to the <bpt id="0596835c-d186-44e3-959f-4db1b1d6618a">&lt;linkText&gt;</bpt>Azure Portal<ept id="0596835c-d186-44e3-959f-4db1b1d6618a">&lt;/linkText&gt;</ept><bpt id="0596835c-d186-44e3-959f-4db1b1d6618a">&lt;title&gt;</bpt><ept id="0596835c-d186-44e3-959f-4db1b1d6618a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfcd52a7-3807-49c6-a0a9-ccd51cf0084b" xml:space="preserve">
+          <source>On the left side of the screen select <bpt id="6cbf5a39-5b63-4698-a179-aa0d8267f97d">&lt;strong&gt;</bpt>BROWSE<ept id="6cbf5a39-5b63-4698-a179-aa0d8267f97d">&lt;/strong&gt;</ept> and then select <bpt id="47ba187a-3a40-4b4a-9ee6-60770ac3e7eb">&lt;strong&gt;</bpt>SQL Servers<ept id="47ba187a-3a40-4b4a-9ee6-60770ac3e7eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left side of the screen select <bpt id="6cbf5a39-5b63-4698-a179-aa0d8267f97d">&lt;strong&gt;</bpt>BROWSE<ept id="6cbf5a39-5b63-4698-a179-aa0d8267f97d">&lt;/strong&gt;</ept> and then select <bpt id="47ba187a-3a40-4b4a-9ee6-60770ac3e7eb">&lt;strong&gt;</bpt>SQL Servers<ept id="47ba187a-3a40-4b4a-9ee6-60770ac3e7eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="269a5291-21b5-4f63-8cf0-aa72b4f3da42" xml:space="preserve">
+          <source>Navigate to your sever and select it.</source>
+          <target state="new">Navigate to your sever and select it.</target>
+        </trans-unit>
+        <trans-unit id="448c8e66-f9cb-4ae7-845a-2e26e56645cb" xml:space="preserve">
+          <source>Under <bpt id="a3df1b27-0272-4baa-b943-53da8e095efb">&lt;strong&gt;</bpt>Operations<ept id="a3df1b27-0272-4baa-b943-53da8e095efb">&lt;/strong&gt;</ept> on you server's blade, select <bpt id="f3b3c5a6-10bd-4eb1-8963-07888aa75fb4">&lt;strong&gt;</bpt>Deleted Databases<ept id="f3b3c5a6-10bd-4eb1-8963-07888aa75fb4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="a3df1b27-0272-4baa-b943-53da8e095efb">&lt;strong&gt;</bpt>Operations<ept id="a3df1b27-0272-4baa-b943-53da8e095efb">&lt;/strong&gt;</ept> on you server's blade, select <bpt id="f3b3c5a6-10bd-4eb1-8963-07888aa75fb4">&lt;strong&gt;</bpt>Deleted Databases<ept id="f3b3c5a6-10bd-4eb1-8963-07888aa75fb4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c005468c-4f46-43a6-ba1c-f3f6d99827bf" xml:space="preserve">
+          <source>Select the deleted database you want to restore.</source>
+          <target state="new">Select the deleted database you want to restore.</target>
+        </trans-unit>
+        <trans-unit id="6b7da36c-da92-43d0-9581-2582e98cf122" xml:space="preserve">
+          <source>Specify a database name and click <bpt id="bd7120ec-50ed-47a9-b752-eb5c2822d6ee">&lt;strong&gt;</bpt>Create<ept id="bd7120ec-50ed-47a9-b752-eb5c2822d6ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify a database name and click <bpt id="bd7120ec-50ed-47a9-b752-eb5c2822d6ee">&lt;strong&gt;</bpt>Create<ept id="bd7120ec-50ed-47a9-b752-eb5c2822d6ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cc35b40-14d2-4350-b8c4-21e85354bbae" xml:space="preserve">
+          <source>The database restore process will begin and can be monitored using <bpt id="90789401-5d1d-486a-99ab-7cd231838f8e">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="90789401-5d1d-486a-99ab-7cd231838f8e">&lt;/strong&gt;</ept> on the left side of the screen.</source>
+          <target state="new">The database restore process will begin and can be monitored using <bpt id="90789401-5d1d-486a-99ab-7cd231838f8e">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="90789401-5d1d-486a-99ab-7cd231838f8e">&lt;/strong&gt;</ept> on the left side of the screen.</target>
+        </trans-unit>
+        <trans-unit id="0afc0ab1-828b-46bf-bdd0-a2d122d9f9c3" xml:space="preserve">
+          <source>After the restore has completed, you can configure your recovered database to be used by following the <bpt id="512095d8-d579-45bd-b65d-4b963099015c">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="512095d8-d579-45bd-b65d-4b963099015c">&lt;/linkText&gt;</ept><bpt id="512095d8-d579-45bd-b65d-4b963099015c">&lt;title&gt;</bpt><ept id="512095d8-d579-45bd-b65d-4b963099015c">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the restore has completed, you can configure your recovered database to be used by following the <bpt id="512095d8-d579-45bd-b65d-4b963099015c">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="512095d8-d579-45bd-b65d-4b963099015c">&lt;/linkText&gt;</ept><bpt id="512095d8-d579-45bd-b65d-4b963099015c">&lt;title&gt;</bpt><ept id="512095d8-d579-45bd-b65d-4b963099015c">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="78b813a7-16e4-464d-a771-0fcacaa5ab36" xml:space="preserve">
+          <source>Use PowerShell to programmatically perform database restore.</source>
+          <target state="new">Use PowerShell to programmatically perform database restore.</target>
+        </trans-unit>
+        <trans-unit id="fefce58e-fabe-41ec-99ff-b702592b7728" xml:space="preserve">
+          <source>To restore a deleted database, use the <bpt id="be966116-dc89-4ac9-90ae-8712d1f8bb17">&lt;linkText&gt;</bpt>Start-AzureSqlDatabaseRestore<ept id="be966116-dc89-4ac9-90ae-8712d1f8bb17">&lt;/linkText&gt;</ept><bpt id="be966116-dc89-4ac9-90ae-8712d1f8bb17">&lt;title&gt;</bpt><ept id="be966116-dc89-4ac9-90ae-8712d1f8bb17">&lt;/title&gt;</ept> cmdlet.  For a detailed walk through, please see our <bpt id="031ed8fb-82db-4856-9359-c1af35422009">&lt;linkText&gt;</bpt>how-to video<ept id="031ed8fb-82db-4856-9359-c1af35422009">&lt;/linkText&gt;</ept><bpt id="031ed8fb-82db-4856-9359-c1af35422009">&lt;title&gt;</bpt><ept id="031ed8fb-82db-4856-9359-c1af35422009">&lt;/title&gt;</ept>.</source>
+          <target state="new">To restore a deleted database, use the <bpt id="be966116-dc89-4ac9-90ae-8712d1f8bb17">&lt;linkText&gt;</bpt>Start-AzureSqlDatabaseRestore<ept id="be966116-dc89-4ac9-90ae-8712d1f8bb17">&lt;/linkText&gt;</ept><bpt id="be966116-dc89-4ac9-90ae-8712d1f8bb17">&lt;title&gt;</bpt><ept id="be966116-dc89-4ac9-90ae-8712d1f8bb17">&lt;/title&gt;</ept> cmdlet.  For a detailed walk through, please see our <bpt id="031ed8fb-82db-4856-9359-c1af35422009">&lt;linkText&gt;</bpt>how-to video<ept id="031ed8fb-82db-4856-9359-c1af35422009">&lt;/linkText&gt;</ept><bpt id="031ed8fb-82db-4856-9359-c1af35422009">&lt;title&gt;</bpt><ept id="031ed8fb-82db-4856-9359-c1af35422009">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8000ea32-3024-4fec-9601-2e4223cbe6b3" xml:space="preserve">
+          <source>Find the deleted database and its deletion date from the list of deleted databases.</source>
+          <target state="new">Find the deleted database and its deletion date from the list of deleted databases.</target>
+        </trans-unit>
+        <trans-unit id="485f6336-e589-406e-9fb1-7406e3aaf576" xml:space="preserve">
+          <source>Get the specific deleted database and start the restore.</source>
+          <target state="new">Get the specific deleted database and start the restore.</target>
+        </trans-unit>
+        <trans-unit id="cb4f342c-7192-4e47-8cd7-e653957cb1ff" xml:space="preserve">
+          <source>After the restore has completed, you can configure your recovered database to be used by following the <bpt id="47231fbd-40be-4052-9137-bef65944a242">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="47231fbd-40be-4052-9137-bef65944a242">&lt;/linkText&gt;</ept><bpt id="47231fbd-40be-4052-9137-bef65944a242">&lt;title&gt;</bpt><ept id="47231fbd-40be-4052-9137-bef65944a242">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the restore has completed, you can configure your recovered database to be used by following the <bpt id="47231fbd-40be-4052-9137-bef65944a242">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="47231fbd-40be-4052-9137-bef65944a242">&lt;/linkText&gt;</ept><bpt id="47231fbd-40be-4052-9137-bef65944a242">&lt;title&gt;</bpt><ept id="47231fbd-40be-4052-9137-bef65944a242">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="b1cdcb62-b071-4b37-8b1d-c03d20891667" xml:space="preserve">
+          <source>Use REST to programmatically perform database restore.</source>
+          <target state="new">Use REST to programmatically perform database restore.</target>
+        </trans-unit>
+        <trans-unit id="f5bfe5ba-82d2-420c-b6b8-3f36cfad620e" xml:space="preserve">
+          <source>List all of your restorable deleted databases by using the <bpt id="a771340b-724f-4dc7-a6d4-980c8d035ff4">&lt;linkText&gt;</bpt>List Restorable Dropped Databases<ept id="a771340b-724f-4dc7-a6d4-980c8d035ff4">&lt;/linkText&gt;</ept><bpt id="a771340b-724f-4dc7-a6d4-980c8d035ff4">&lt;title&gt;</bpt><ept id="a771340b-724f-4dc7-a6d4-980c8d035ff4">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">List all of your restorable deleted databases by using the <bpt id="a771340b-724f-4dc7-a6d4-980c8d035ff4">&lt;linkText&gt;</bpt>List Restorable Dropped Databases<ept id="a771340b-724f-4dc7-a6d4-980c8d035ff4">&lt;/linkText&gt;</ept><bpt id="a771340b-724f-4dc7-a6d4-980c8d035ff4">&lt;title&gt;</bpt><ept id="a771340b-724f-4dc7-a6d4-980c8d035ff4">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="5cd2ee59-bf5d-48be-b614-52a3e5e949ab" xml:space="preserve">
+          <source>Get the details for the deleted database you want to restore by using the <bpt id="793f12a4-211f-4c93-bfd2-03b55c9f626b">&lt;linkText&gt;</bpt>Get Restorable Dropped Database<ept id="793f12a4-211f-4c93-bfd2-03b55c9f626b">&lt;/linkText&gt;</ept><bpt id="793f12a4-211f-4c93-bfd2-03b55c9f626b">&lt;title&gt;</bpt><ept id="793f12a4-211f-4c93-bfd2-03b55c9f626b">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Get the details for the deleted database you want to restore by using the <bpt id="793f12a4-211f-4c93-bfd2-03b55c9f626b">&lt;linkText&gt;</bpt>Get Restorable Dropped Database<ept id="793f12a4-211f-4c93-bfd2-03b55c9f626b">&lt;/linkText&gt;</ept><bpt id="793f12a4-211f-4c93-bfd2-03b55c9f626b">&lt;title&gt;</bpt><ept id="793f12a4-211f-4c93-bfd2-03b55c9f626b">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="b2f3e42b-63db-464e-8c7e-d915a1f377c8" xml:space="preserve">
+          <source>Begin your restore by using the <bpt id="c0cfb8d4-c66d-4d0a-881d-2276b31ffcb0">&lt;linkText&gt;</bpt>Create Database Restore Request<ept id="c0cfb8d4-c66d-4d0a-881d-2276b31ffcb0">&lt;/linkText&gt;</ept><bpt id="c0cfb8d4-c66d-4d0a-881d-2276b31ffcb0">&lt;title&gt;</bpt><ept id="c0cfb8d4-c66d-4d0a-881d-2276b31ffcb0">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Begin your restore by using the <bpt id="c0cfb8d4-c66d-4d0a-881d-2276b31ffcb0">&lt;linkText&gt;</bpt>Create Database Restore Request<ept id="c0cfb8d4-c66d-4d0a-881d-2276b31ffcb0">&lt;/linkText&gt;</ept><bpt id="c0cfb8d4-c66d-4d0a-881d-2276b31ffcb0">&lt;title&gt;</bpt><ept id="c0cfb8d4-c66d-4d0a-881d-2276b31ffcb0">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="b3f89726-1d72-44d8-8565-c8b590436985" xml:space="preserve">
+          <source>Track the status of your restore by using the <bpt id="adbb3cc2-6f40-42eb-8277-abe7483ae71e">&lt;linkText&gt;</bpt>Database Operation Status<ept id="adbb3cc2-6f40-42eb-8277-abe7483ae71e">&lt;/linkText&gt;</ept><bpt id="adbb3cc2-6f40-42eb-8277-abe7483ae71e">&lt;title&gt;</bpt><ept id="adbb3cc2-6f40-42eb-8277-abe7483ae71e">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Track the status of your restore by using the <bpt id="adbb3cc2-6f40-42eb-8277-abe7483ae71e">&lt;linkText&gt;</bpt>Database Operation Status<ept id="adbb3cc2-6f40-42eb-8277-abe7483ae71e">&lt;/linkText&gt;</ept><bpt id="adbb3cc2-6f40-42eb-8277-abe7483ae71e">&lt;title&gt;</bpt><ept id="adbb3cc2-6f40-42eb-8277-abe7483ae71e">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="6ad0cfbf-d65e-4f4d-b965-b310551c3301" xml:space="preserve">
+          <source>After the restore has completed, you can configure your recovered database to be used by following the <bpt id="1c472280-f54a-437c-92ed-4a433c811fd5">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="1c472280-f54a-437c-92ed-4a433c811fd5">&lt;/linkText&gt;</ept><bpt id="1c472280-f54a-437c-92ed-4a433c811fd5">&lt;title&gt;</bpt><ept id="1c472280-f54a-437c-92ed-4a433c811fd5">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">After the restore has completed, you can configure your recovered database to be used by following the <bpt id="1c472280-f54a-437c-92ed-4a433c811fd5">&lt;linkText&gt;</bpt>Finalize a Recovered Database<ept id="1c472280-f54a-437c-92ed-4a433c811fd5">&lt;/linkText&gt;</ept><bpt id="1c472280-f54a-437c-92ed-4a433c811fd5">&lt;title&gt;</bpt><ept id="1c472280-f54a-437c-92ed-4a433c811fd5">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

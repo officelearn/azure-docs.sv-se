@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="24f7a1ac-3cc5-4497-a54e-e80eee866639" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="24f7a1ac-3cc5-4497-a54e-e80eee866639" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bd052dda-0f5b-4d51-827a-85ee2386bc7d">
+        <trans-unit id="26eca40c-3c24-4d27-a647-ce0d30b6fe7a" xml:space="preserve">
+          <source>Create a virtual machine running MySQL in Azure</source>
+          <target state="new">Create a virtual machine running MySQL in Azure</target>
+        </trans-unit>
+        <trans-unit id="8f34c14a-8780-4ccf-8042-ffc9a384afd1" xml:space="preserve">
+          <source>Create an Azure virtual machine running Windows Server 2012 R2, and then install and configure the MySQL database on it.</source>
+          <target state="new">Create an Azure virtual machine running Windows Server 2012 R2, and then install and configure the MySQL database on it.</target>
+        </trans-unit>
+        <trans-unit id="a0f0871a-1d3f-47bf-9ed1-fb9c0099c573" xml:space="preserve">
+          <source><bpt id="63780c1e-4a48-4d57-8f2f-e4460eae2019">&lt;linkText&gt;</bpt>MySQL<ept id="63780c1e-4a48-4d57-8f2f-e4460eae2019">&lt;/linkText&gt;</ept><bpt id="63780c1e-4a48-4d57-8f2f-e4460eae2019">&lt;title&gt;</bpt><ept id="63780c1e-4a48-4d57-8f2f-e4460eae2019">&lt;/title&gt;</ept> is a popular open source, SQL database.</source>
+          <target state="new"><bpt id="63780c1e-4a48-4d57-8f2f-e4460eae2019">&lt;linkText&gt;</bpt>MySQL<ept id="63780c1e-4a48-4d57-8f2f-e4460eae2019">&lt;/linkText&gt;</ept><bpt id="63780c1e-4a48-4d57-8f2f-e4460eae2019">&lt;title&gt;</bpt><ept id="63780c1e-4a48-4d57-8f2f-e4460eae2019">&lt;/title&gt;</ept> is a popular open source, SQL database.</target>
+        </trans-unit>
+        <trans-unit id="34a1b195-9709-4b7d-84d2-1f488d2a4a66" xml:space="preserve">
+          <source>Using the <bpt id="69376932-df6a-4cd0-a54d-b726dad944c9">&lt;linkText&gt;</bpt>Azure portal<ept id="69376932-df6a-4cd0-a54d-b726dad944c9">&lt;/linkText&gt;</ept><bpt id="69376932-df6a-4cd0-a54d-b726dad944c9">&lt;title&gt;</bpt><ept id="69376932-df6a-4cd0-a54d-b726dad944c9">&lt;/title&gt;</ept>, you can create a virtual machine running Windows Server 2012 R2 from the Image Gallery.</source>
+          <target state="new">Using the <bpt id="69376932-df6a-4cd0-a54d-b726dad944c9">&lt;linkText&gt;</bpt>Azure portal<ept id="69376932-df6a-4cd0-a54d-b726dad944c9">&lt;/linkText&gt;</ept><bpt id="69376932-df6a-4cd0-a54d-b726dad944c9">&lt;title&gt;</bpt><ept id="69376932-df6a-4cd0-a54d-b726dad944c9">&lt;/title&gt;</ept>, you can create a virtual machine running Windows Server 2012 R2 from the Image Gallery.</target>
+        </trans-unit>
+        <trans-unit id="53ae0827-beb8-4aa9-8d5b-5cf9c302c55e" xml:space="preserve">
+          <source>You can then install and configure it as a MySQL Server.</source>
+          <target state="new">You can then install and configure it as a MySQL Server.</target>
+        </trans-unit>
+        <trans-unit id="b349b45a-03ed-4fdf-8819-416f72b34e32" xml:space="preserve">
+          <source>For instructions on installing MySQL on Linux, refer to: <bpt id="ff1a4427-84a3-4aab-bf9a-4724414d38f7">&lt;linkText&gt;</bpt>How to install MySQL on Azure<ept id="ff1a4427-84a3-4aab-bf9a-4724414d38f7">&lt;/linkText&gt;</ept><bpt id="ff1a4427-84a3-4aab-bf9a-4724414d38f7">&lt;title&gt;</bpt><ept id="ff1a4427-84a3-4aab-bf9a-4724414d38f7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on installing MySQL on Linux, refer to: <bpt id="ff1a4427-84a3-4aab-bf9a-4724414d38f7">&lt;linkText&gt;</bpt>How to install MySQL on Azure<ept id="ff1a4427-84a3-4aab-bf9a-4724414d38f7">&lt;/linkText&gt;</ept><bpt id="ff1a4427-84a3-4aab-bf9a-4724414d38f7">&lt;title&gt;</bpt><ept id="ff1a4427-84a3-4aab-bf9a-4724414d38f7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80e4289e-7067-4876-a06e-bbb443cc3085" xml:space="preserve">
+          <source>This tutorial shows you how to:</source>
+          <target state="new">This tutorial shows you how to:</target>
+        </trans-unit>
+        <trans-unit id="af9d69db-ec30-4b55-af72-163828f670f9" xml:space="preserve">
+          <source>Use the Azure portal to create a virtual machine running Windows Server 2012 R2.</source>
+          <target state="new">Use the Azure portal to create a virtual machine running Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="52cbb11d-d07e-47cb-bf94-5150c2008457" xml:space="preserve">
+          <source>Install and run the community version of MySQL 5.6.23 as a MySQL Server on the virtual machine.</source>
+          <target state="new">Install and run the community version of MySQL 5.6.23 as a MySQL Server on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="a925c125-ae56-4af0-8c9a-3e54217e82b6" xml:space="preserve">
+          <source><bpt id="011b6530-dc89-4b19-b397-b135d5b9af2e">&lt;token href="../../includes/virtual-machines-create-windowsvm.md"&gt;</bpt><ept id="011b6530-dc89-4b19-b397-b135d5b9af2e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="011b6530-dc89-4b19-b397-b135d5b9af2e">&lt;token href="../../includes/virtual-machines-create-windowsvm.md"&gt;</bpt><ept id="011b6530-dc89-4b19-b397-b135d5b9af2e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f3fe83d-f478-4529-85b9-7d190eead899" xml:space="preserve">
+          <source>After the virtual machine is created, you can optionally attach an additional data disk.</source>
+          <target state="new">After the virtual machine is created, you can optionally attach an additional data disk.</target>
+        </trans-unit>
+        <trans-unit id="c01b318e-0d81-46ba-b661-2c01429fd599" xml:space="preserve">
+          <source>This is recommended for production workloads and to avoid running out of space on the OS drive (C:), which  includes the operating system.</source>
+          <target state="new">This is recommended for production workloads and to avoid running out of space on the OS drive (C:), which  includes the operating system.</target>
+        </trans-unit>
+        <trans-unit id="e2524531-e440-4aa2-a18a-3014eabd0188" xml:space="preserve">
+          <source>See <bpt id="8a602938-25db-4d61-a046-d68f8fde2038">&lt;linkText&gt;</bpt>How to attach a data disk to a Windows virtual machine<ept id="8a602938-25db-4d61-a046-d68f8fde2038">&lt;/linkText&gt;</ept><bpt id="8a602938-25db-4d61-a046-d68f8fde2038">&lt;title&gt;</bpt><ept id="8a602938-25db-4d61-a046-d68f8fde2038">&lt;/title&gt;</ept> and follow the instructions for attaching an empty disk.</source>
+          <target state="new">See <bpt id="8a602938-25db-4d61-a046-d68f8fde2038">&lt;linkText&gt;</bpt>How to attach a data disk to a Windows virtual machine<ept id="8a602938-25db-4d61-a046-d68f8fde2038">&lt;/linkText&gt;</ept><bpt id="8a602938-25db-4d61-a046-d68f8fde2038">&lt;title&gt;</bpt><ept id="8a602938-25db-4d61-a046-d68f8fde2038">&lt;/title&gt;</ept> and follow the instructions for attaching an empty disk.</target>
+        </trans-unit>
+        <trans-unit id="e68dcdec-7361-4660-9c14-b61e2b4be79c" xml:space="preserve">
+          <source>Set the host cache setting to <bpt id="33938352-19ea-4edd-916e-21fd612164d2">&lt;strong&gt;</bpt>None<ept id="33938352-19ea-4edd-916e-21fd612164d2">&lt;/strong&gt;</ept> or <bpt id="72afa653-1a86-44aa-bee3-61c92c46ae74">&lt;strong&gt;</bpt>Read-only<ept id="72afa653-1a86-44aa-bee3-61c92c46ae74">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Set the host cache setting to <bpt id="33938352-19ea-4edd-916e-21fd612164d2">&lt;strong&gt;</bpt>None<ept id="33938352-19ea-4edd-916e-21fd612164d2">&lt;/strong&gt;</ept> or <bpt id="72afa653-1a86-44aa-bee3-61c92c46ae74">&lt;strong&gt;</bpt>Read-only<ept id="72afa653-1a86-44aa-bee3-61c92c46ae74">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4646da7a-859c-4de4-9536-14b39da547f1" xml:space="preserve">
+          <source>Next, you'll log on to the virtual machine so you can install MySQL.</source>
+          <target state="new">Next, you'll log on to the virtual machine so you can install MySQL.</target>
+        </trans-unit>
+        <trans-unit id="a3623c14-fb7c-4ec7-885a-346ae932cf3e" xml:space="preserve">
+          <source><bpt id="734d4542-4e93-48fb-8ede-0ac381289c8a">&lt;token href="../../includes/virtual-machines-log-on-win-server.md"&gt;</bpt><ept id="734d4542-4e93-48fb-8ede-0ac381289c8a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="734d4542-4e93-48fb-8ede-0ac381289c8a">&lt;token href="../../includes/virtual-machines-log-on-win-server.md"&gt;</bpt><ept id="734d4542-4e93-48fb-8ede-0ac381289c8a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e25d391-7050-4d04-95fc-2772c79f87c1" xml:space="preserve">
+          <source>Follow these steps to install, configure, and run the Community version of MySQL Server:</source>
+          <target state="new">Follow these steps to install, configure, and run the Community version of MySQL Server:</target>
+        </trans-unit>
+        <trans-unit id="ad5706b8-985f-4e96-8d1b-ac70e48a7b0b" xml:space="preserve">
+          <source>These steps are for the 5.6.23.0 Community version of MySQL and Windows Server 2012 R2.</source>
+          <target state="new">These steps are for the 5.6.23.0 Community version of MySQL and Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="f0128f24-eb7e-4d72-8ff4-d0261ea5dd16" xml:space="preserve">
+          <source>Your experience might be different for different versions of MySQL or Windows Server.</source>
+          <target state="new">Your experience might be different for different versions of MySQL or Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="9d20a5d0-25aa-4bfb-bc37-30c57006d891" xml:space="preserve">
+          <source>After you've connected to the virtual machine using Remote Desktop, click <bpt id="697ac2d5-ec76-4e58-bef3-21dcf1c7ed1f">&lt;strong&gt;</bpt>Internet Explorer<ept id="697ac2d5-ec76-4e58-bef3-21dcf1c7ed1f">&lt;/strong&gt;</ept> from the start screen.</source>
+          <target state="new">After you've connected to the virtual machine using Remote Desktop, click <bpt id="697ac2d5-ec76-4e58-bef3-21dcf1c7ed1f">&lt;strong&gt;</bpt>Internet Explorer<ept id="697ac2d5-ec76-4e58-bef3-21dcf1c7ed1f">&lt;/strong&gt;</ept> from the start screen.</target>
+        </trans-unit>
+        <trans-unit id="ce5d8b5b-83c6-4644-beb2-2a9e282ea539" xml:space="preserve">
+          <source>Select the <bpt id="a06b2638-7ff2-4ae4-a2aa-594e84a1bafa">&lt;strong&gt;</bpt>Tools<ept id="a06b2638-7ff2-4ae4-a2aa-594e84a1bafa">&lt;/strong&gt;</ept> button in the upper-right corner (the cogged wheel icon), and then click <bpt id="8700e563-80c9-45c3-a5f8-413e55a8af73">&lt;strong&gt;</bpt>Internet Options<ept id="8700e563-80c9-45c3-a5f8-413e55a8af73">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="a06b2638-7ff2-4ae4-a2aa-594e84a1bafa">&lt;strong&gt;</bpt>Tools<ept id="a06b2638-7ff2-4ae4-a2aa-594e84a1bafa">&lt;/strong&gt;</ept> button in the upper-right corner (the cogged wheel icon), and then click <bpt id="8700e563-80c9-45c3-a5f8-413e55a8af73">&lt;strong&gt;</bpt>Internet Options<ept id="8700e563-80c9-45c3-a5f8-413e55a8af73">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93b9950a-59c0-47a3-9a37-f72cc1affbc2" xml:space="preserve">
+          <source>Click the <bpt id="fb83d632-af69-446a-9661-773a8995e0b2">&lt;strong&gt;</bpt>Security<ept id="fb83d632-af69-446a-9661-773a8995e0b2">&lt;/strong&gt;</ept> tab, click the <bpt id="4931bbdb-c8aa-4614-93ec-a4eb21bd70f3">&lt;strong&gt;</bpt>Trusted Sites<ept id="4931bbdb-c8aa-4614-93ec-a4eb21bd70f3">&lt;/strong&gt;</ept> icon, and then click the <bpt id="8c2c9089-33e0-4555-b72a-c212d297394d">&lt;strong&gt;</bpt>Sites<ept id="8c2c9089-33e0-4555-b72a-c212d297394d">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="fb83d632-af69-446a-9661-773a8995e0b2">&lt;strong&gt;</bpt>Security<ept id="fb83d632-af69-446a-9661-773a8995e0b2">&lt;/strong&gt;</ept> tab, click the <bpt id="4931bbdb-c8aa-4614-93ec-a4eb21bd70f3">&lt;strong&gt;</bpt>Trusted Sites<ept id="4931bbdb-c8aa-4614-93ec-a4eb21bd70f3">&lt;/strong&gt;</ept> icon, and then click the <bpt id="8c2c9089-33e0-4555-b72a-c212d297394d">&lt;strong&gt;</bpt>Sites<ept id="8c2c9089-33e0-4555-b72a-c212d297394d">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="9b5e2028-74f4-4410-8f63-b5e42052d461" xml:space="preserve">
+          <source>Add http://*.mysql.com to the list of trusted sites.</source>
+          <target state="new">Add http://*.mysql.com to the list of trusted sites.</target>
+        </trans-unit>
+        <trans-unit id="01105192-9e11-455a-b028-d42cf3ad43c2" xml:space="preserve">
+          <source>Click <bpt id="2242d307-91a1-4a36-9fe1-3088231843c2">&lt;strong&gt;</bpt>Close<ept id="2242d307-91a1-4a36-9fe1-3088231843c2">&lt;/strong&gt;</ept>, and then click <bpt id="098a0a3a-d37f-4f4b-aff5-c79a6db7bce2">&lt;strong&gt;</bpt>OK<ept id="098a0a3a-d37f-4f4b-aff5-c79a6db7bce2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="2242d307-91a1-4a36-9fe1-3088231843c2">&lt;strong&gt;</bpt>Close<ept id="2242d307-91a1-4a36-9fe1-3088231843c2">&lt;/strong&gt;</ept>, and then click <bpt id="098a0a3a-d37f-4f4b-aff5-c79a6db7bce2">&lt;strong&gt;</bpt>OK<ept id="098a0a3a-d37f-4f4b-aff5-c79a6db7bce2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc940c24-6a3b-4d51-a80d-37ce51f1f7f9" xml:space="preserve">
+          <source>In the address bar of Internet Explorer, type http://dev.mysql.com/downloads/mysql/.</source>
+          <target state="new">In the address bar of Internet Explorer, type http://dev.mysql.com/downloads/mysql/.</target>
+        </trans-unit>
+        <trans-unit id="1a99633d-8e28-4d00-8356-52ebaff46fdb" xml:space="preserve">
+          <source>Use the MySQL site to locate and download the latest version of the MySQL Installer for Windows.</source>
+          <target state="new">Use the MySQL site to locate and download the latest version of the MySQL Installer for Windows.</target>
+        </trans-unit>
+        <trans-unit id="1254c494-4b86-48fe-96a3-17d451e65f1b" xml:space="preserve">
+          <source>When choosing the MySQL Installer, download the version that has the complete file set (for example, the mysql-installer-community-5.6.23.0.msi with a file size of 282.4 MB), and save the installer file to the Windows desktop.</source>
+          <target state="new">When choosing the MySQL Installer, download the version that has the complete file set (for example, the mysql-installer-community-5.6.23.0.msi with a file size of 282.4 MB), and save the installer file to the Windows desktop.</target>
+        </trans-unit>
+        <trans-unit id="5303498e-e9b1-47b9-bf40-ac464c8ede9e" xml:space="preserve">
+          <source>From the desktop, double-click the installer file to begin installation.</source>
+          <target state="new">From the desktop, double-click the installer file to begin installation.</target>
+        </trans-unit>
+        <trans-unit id="fcd9c6af-6b72-4f59-a2d9-185c04d74ecf" xml:space="preserve">
+          <source>On the <bpt id="5d5485df-c653-4305-a659-82335927ffb7">&lt;strong&gt;</bpt>License Agreement<ept id="5d5485df-c653-4305-a659-82335927ffb7">&lt;/strong&gt;</ept> page, accept the license agreement and click <bpt id="cf87c624-9dc9-424a-8ce6-e36cfc9f3cbd">&lt;strong&gt;</bpt>Next<ept id="cf87c624-9dc9-424a-8ce6-e36cfc9f3cbd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5d5485df-c653-4305-a659-82335927ffb7">&lt;strong&gt;</bpt>License Agreement<ept id="5d5485df-c653-4305-a659-82335927ffb7">&lt;/strong&gt;</ept> page, accept the license agreement and click <bpt id="cf87c624-9dc9-424a-8ce6-e36cfc9f3cbd">&lt;strong&gt;</bpt>Next<ept id="cf87c624-9dc9-424a-8ce6-e36cfc9f3cbd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82344aa6-cd4e-4858-bbbe-f0118d6cb787" xml:space="preserve">
+          <source>On the <bpt id="b904aa63-21dd-4892-a5ca-5f2bddec4acf">&lt;strong&gt;</bpt>Choosing a Setup Type<ept id="b904aa63-21dd-4892-a5ca-5f2bddec4acf">&lt;/strong&gt;</ept> page, click the setup type that you want, and then click <bpt id="d02f7b0f-83fd-4bb3-bf7b-1bbf3f59d40d">&lt;strong&gt;</bpt>Next<ept id="d02f7b0f-83fd-4bb3-bf7b-1bbf3f59d40d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b904aa63-21dd-4892-a5ca-5f2bddec4acf">&lt;strong&gt;</bpt>Choosing a Setup Type<ept id="b904aa63-21dd-4892-a5ca-5f2bddec4acf">&lt;/strong&gt;</ept> page, click the setup type that you want, and then click <bpt id="d02f7b0f-83fd-4bb3-bf7b-1bbf3f59d40d">&lt;strong&gt;</bpt>Next<ept id="d02f7b0f-83fd-4bb3-bf7b-1bbf3f59d40d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="810331df-c1ff-4029-a71f-76e8cacfe978" xml:space="preserve">
+          <source>The following steps assume the selection of the <bpt id="7412d66f-3cbe-4e83-b4bb-9fd10f2c5d9d">&lt;strong&gt;</bpt>Server only<ept id="7412d66f-3cbe-4e83-b4bb-9fd10f2c5d9d">&lt;/strong&gt;</ept> setup type.</source>
+          <target state="new">The following steps assume the selection of the <bpt id="7412d66f-3cbe-4e83-b4bb-9fd10f2c5d9d">&lt;strong&gt;</bpt>Server only<ept id="7412d66f-3cbe-4e83-b4bb-9fd10f2c5d9d">&lt;/strong&gt;</ept> setup type.</target>
+        </trans-unit>
+        <trans-unit id="fab0af8e-5af0-4e2e-9a6c-5efe302ba3bb" xml:space="preserve">
+          <source>On the <bpt id="6b4fd854-7f0a-4ddc-bfd4-deb5b1fcf0ca">&lt;strong&gt;</bpt>Installation<ept id="6b4fd854-7f0a-4ddc-bfd4-deb5b1fcf0ca">&lt;/strong&gt;</ept> page, click <bpt id="c3264720-1fb8-4835-b4b3-f12b96cabddc">&lt;strong&gt;</bpt>Execute<ept id="c3264720-1fb8-4835-b4b3-f12b96cabddc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6b4fd854-7f0a-4ddc-bfd4-deb5b1fcf0ca">&lt;strong&gt;</bpt>Installation<ept id="6b4fd854-7f0a-4ddc-bfd4-deb5b1fcf0ca">&lt;/strong&gt;</ept> page, click <bpt id="c3264720-1fb8-4835-b4b3-f12b96cabddc">&lt;strong&gt;</bpt>Execute<ept id="c3264720-1fb8-4835-b4b3-f12b96cabddc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f591dddb-0952-44ce-8fc2-920ad65eb2c1" xml:space="preserve">
+          <source>When installation is complete, click <bpt id="3c80fad5-4a0a-4e6e-8985-adf41a9216af">&lt;strong&gt;</bpt>Next<ept id="3c80fad5-4a0a-4e6e-8985-adf41a9216af">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When installation is complete, click <bpt id="3c80fad5-4a0a-4e6e-8985-adf41a9216af">&lt;strong&gt;</bpt>Next<ept id="3c80fad5-4a0a-4e6e-8985-adf41a9216af">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="45e63fcf-5b0a-4668-8cf9-462aa0cd3ed4" xml:space="preserve">
+          <source>On the <bpt id="298eabaa-ed32-4c27-ab38-63823e7d9d22">&lt;strong&gt;</bpt>Product Configuration<ept id="298eabaa-ed32-4c27-ab38-63823e7d9d22">&lt;/strong&gt;</ept> page, click <bpt id="a8000e43-8f64-46c8-a5f4-e61f8306e18a">&lt;strong&gt;</bpt>Next<ept id="a8000e43-8f64-46c8-a5f4-e61f8306e18a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="298eabaa-ed32-4c27-ab38-63823e7d9d22">&lt;strong&gt;</bpt>Product Configuration<ept id="298eabaa-ed32-4c27-ab38-63823e7d9d22">&lt;/strong&gt;</ept> page, click <bpt id="a8000e43-8f64-46c8-a5f4-e61f8306e18a">&lt;strong&gt;</bpt>Next<ept id="a8000e43-8f64-46c8-a5f4-e61f8306e18a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f8700f3-c48a-417c-a9d9-8d43caaa5f50" xml:space="preserve">
+          <source>On the <bpt id="3a6b7b31-c063-4099-84ed-7ee949f581ed">&lt;strong&gt;</bpt>Type and Networking<ept id="3a6b7b31-c063-4099-84ed-7ee949f581ed">&lt;/strong&gt;</ept> page, specify your desired configuration type and connectivity options, including the TCP port if needed.</source>
+          <target state="new">On the <bpt id="3a6b7b31-c063-4099-84ed-7ee949f581ed">&lt;strong&gt;</bpt>Type and Networking<ept id="3a6b7b31-c063-4099-84ed-7ee949f581ed">&lt;/strong&gt;</ept> page, specify your desired configuration type and connectivity options, including the TCP port if needed.</target>
+        </trans-unit>
+        <trans-unit id="2a28d350-519e-45ab-a8b8-aa8878a88d1e" xml:space="preserve">
+          <source>Select <bpt id="5094b287-3329-44bd-870a-a9b832d07730">&lt;strong&gt;</bpt>Show Advanced Options<ept id="5094b287-3329-44bd-870a-a9b832d07730">&lt;/strong&gt;</ept>, and then click <bpt id="1ee8a4c6-0b55-4f43-871c-4ebdc119fd65">&lt;strong&gt;</bpt>Next<ept id="1ee8a4c6-0b55-4f43-871c-4ebdc119fd65">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="5094b287-3329-44bd-870a-a9b832d07730">&lt;strong&gt;</bpt>Show Advanced Options<ept id="5094b287-3329-44bd-870a-a9b832d07730">&lt;/strong&gt;</ept>, and then click <bpt id="1ee8a4c6-0b55-4f43-871c-4ebdc119fd65">&lt;strong&gt;</bpt>Next<ept id="1ee8a4c6-0b55-4f43-871c-4ebdc119fd65">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="044fa11e-a3b9-45f6-8752-d6c31dd8e7f2" xml:space="preserve">
+          <source><bpt id="a176d4e7-1d1d-43ce-9643-420834dd30ad">&lt;linkText&gt;</bpt><ept id="a176d4e7-1d1d-43ce-9643-420834dd30ad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a176d4e7-1d1d-43ce-9643-420834dd30ad">&lt;linkText&gt;</bpt><ept id="a176d4e7-1d1d-43ce-9643-420834dd30ad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0916bb8-1d15-4f7f-9574-81ceef5bb1b8" xml:space="preserve">
+          <source>On the <bpt id="0217e46e-8baf-409b-9964-8cbcb08872d7">&lt;strong&gt;</bpt>Accounts and Roles<ept id="0217e46e-8baf-409b-9964-8cbcb08872d7">&lt;/strong&gt;</ept> page, specify a strong MySQL root password.</source>
+          <target state="new">On the <bpt id="0217e46e-8baf-409b-9964-8cbcb08872d7">&lt;strong&gt;</bpt>Accounts and Roles<ept id="0217e46e-8baf-409b-9964-8cbcb08872d7">&lt;/strong&gt;</ept> page, specify a strong MySQL root password.</target>
+        </trans-unit>
+        <trans-unit id="455fea33-6f79-4eed-9ac5-5956715bc004" xml:space="preserve">
+          <source>Add additional MySQL user accounts as needed, and then click <bpt id="43f58670-40c0-4a57-859a-182faa14e677">&lt;strong&gt;</bpt>Next<ept id="43f58670-40c0-4a57-859a-182faa14e677">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add additional MySQL user accounts as needed, and then click <bpt id="43f58670-40c0-4a57-859a-182faa14e677">&lt;strong&gt;</bpt>Next<ept id="43f58670-40c0-4a57-859a-182faa14e677">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c649dd19-08a3-4884-9104-c83d37282203" xml:space="preserve">
+          <source><bpt id="47166c15-b4e1-40a7-ab45-631c4d7d5f5f">&lt;linkText&gt;</bpt><ept id="47166c15-b4e1-40a7-ab45-631c4d7d5f5f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="47166c15-b4e1-40a7-ab45-631c4d7d5f5f">&lt;linkText&gt;</bpt><ept id="47166c15-b4e1-40a7-ab45-631c4d7d5f5f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f3e71e9-9f05-4e40-8efd-c444d7f4efd8" xml:space="preserve">
+          <source>On the <bpt id="f5bc8a75-10c5-4eec-ace7-77e927371c81">&lt;strong&gt;</bpt>Windows Service<ept id="f5bc8a75-10c5-4eec-ace7-77e927371c81">&lt;/strong&gt;</ept> page, specify changes to the default settings for running the MySQL Server as a Windows service as needed, and then click <bpt id="3c41ff33-8902-4046-983f-10e1bf2241bf">&lt;strong&gt;</bpt>Next<ept id="3c41ff33-8902-4046-983f-10e1bf2241bf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f5bc8a75-10c5-4eec-ace7-77e927371c81">&lt;strong&gt;</bpt>Windows Service<ept id="f5bc8a75-10c5-4eec-ace7-77e927371c81">&lt;/strong&gt;</ept> page, specify changes to the default settings for running the MySQL Server as a Windows service as needed, and then click <bpt id="3c41ff33-8902-4046-983f-10e1bf2241bf">&lt;strong&gt;</bpt>Next<ept id="3c41ff33-8902-4046-983f-10e1bf2241bf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19d3b133-5c82-4229-8926-3e268b611684" xml:space="preserve">
+          <source><bpt id="eef4626e-6f07-45fc-a86a-80bb68aafec1">&lt;linkText&gt;</bpt><ept id="eef4626e-6f07-45fc-a86a-80bb68aafec1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eef4626e-6f07-45fc-a86a-80bb68aafec1">&lt;linkText&gt;</bpt><ept id="eef4626e-6f07-45fc-a86a-80bb68aafec1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="817c0355-a715-482c-8dbc-33014a29cd12" xml:space="preserve">
+          <source>On the <bpt id="252026c3-04ef-478f-ba9a-8b408e9fb4c8">&lt;strong&gt;</bpt>Advanced Options<ept id="252026c3-04ef-478f-ba9a-8b408e9fb4c8">&lt;/strong&gt;</ept> page, specify changes to logging options as needed, and then click <bpt id="32c27151-b3aa-4e51-b712-e47c1ba184d0">&lt;strong&gt;</bpt>Next<ept id="32c27151-b3aa-4e51-b712-e47c1ba184d0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="252026c3-04ef-478f-ba9a-8b408e9fb4c8">&lt;strong&gt;</bpt>Advanced Options<ept id="252026c3-04ef-478f-ba9a-8b408e9fb4c8">&lt;/strong&gt;</ept> page, specify changes to logging options as needed, and then click <bpt id="32c27151-b3aa-4e51-b712-e47c1ba184d0">&lt;strong&gt;</bpt>Next<ept id="32c27151-b3aa-4e51-b712-e47c1ba184d0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2d02133-502b-438a-a2e2-bddf0f9d61cd" xml:space="preserve">
+          <source><bpt id="c0f083d8-2123-4eba-b807-32ff3f3b3df2">&lt;linkText&gt;</bpt><ept id="c0f083d8-2123-4eba-b807-32ff3f3b3df2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c0f083d8-2123-4eba-b807-32ff3f3b3df2">&lt;linkText&gt;</bpt><ept id="c0f083d8-2123-4eba-b807-32ff3f3b3df2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="110eff20-da97-4151-b7db-723934ff85d1" xml:space="preserve">
+          <source>On the <bpt id="1aa2da97-60c1-4f28-a061-d3f4086e4a56">&lt;strong&gt;</bpt>Apply Server Configuration<ept id="1aa2da97-60c1-4f28-a061-d3f4086e4a56">&lt;/strong&gt;</ept> page, click <bpt id="cbdb82b4-7d69-4235-9357-fb3193e6bffd">&lt;strong&gt;</bpt>Execute<ept id="cbdb82b4-7d69-4235-9357-fb3193e6bffd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="1aa2da97-60c1-4f28-a061-d3f4086e4a56">&lt;strong&gt;</bpt>Apply Server Configuration<ept id="1aa2da97-60c1-4f28-a061-d3f4086e4a56">&lt;/strong&gt;</ept> page, click <bpt id="cbdb82b4-7d69-4235-9357-fb3193e6bffd">&lt;strong&gt;</bpt>Execute<ept id="cbdb82b4-7d69-4235-9357-fb3193e6bffd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ddfb96ac-8ad3-434a-af2a-96af90523772" xml:space="preserve">
+          <source>When the configuration steps are complete, click <bpt id="8b38cbea-29a9-44ea-b9d1-81f256cd8ce9">&lt;strong&gt;</bpt>Finish<ept id="8b38cbea-29a9-44ea-b9d1-81f256cd8ce9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the configuration steps are complete, click <bpt id="8b38cbea-29a9-44ea-b9d1-81f256cd8ce9">&lt;strong&gt;</bpt>Finish<ept id="8b38cbea-29a9-44ea-b9d1-81f256cd8ce9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84a15083-5fe0-46e3-b8d1-6bb936acdb12" xml:space="preserve">
+          <source>On the <bpt id="d5768d25-c71b-4d16-8215-72c2a278e9b6">&lt;strong&gt;</bpt>Product Configuration<ept id="d5768d25-c71b-4d16-8215-72c2a278e9b6">&lt;/strong&gt;</ept> page, click <bpt id="3f4f0ef1-a61d-4ae5-be07-bacb63550fe7">&lt;strong&gt;</bpt>Next<ept id="3f4f0ef1-a61d-4ae5-be07-bacb63550fe7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d5768d25-c71b-4d16-8215-72c2a278e9b6">&lt;strong&gt;</bpt>Product Configuration<ept id="d5768d25-c71b-4d16-8215-72c2a278e9b6">&lt;/strong&gt;</ept> page, click <bpt id="3f4f0ef1-a61d-4ae5-be07-bacb63550fe7">&lt;strong&gt;</bpt>Next<ept id="3f4f0ef1-a61d-4ae5-be07-bacb63550fe7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c158068-112d-4e80-a0c9-c23598f404ce" xml:space="preserve">
+          <source>On the <bpt id="ef8f9027-e450-4d78-bc70-bd980fbf0dcd">&lt;strong&gt;</bpt>Installation Complete<ept id="ef8f9027-e450-4d78-bc70-bd980fbf0dcd">&lt;/strong&gt;</ept> page, click <bpt id="12b5f532-7464-4917-9474-88552a6506c8">&lt;strong&gt;</bpt>Copy Log to Clipboard<ept id="12b5f532-7464-4917-9474-88552a6506c8">&lt;/strong&gt;</ept> if you want to examine it later, and then click <bpt id="b81039fb-7bfa-4be7-ab36-ef533bb7440d">&lt;strong&gt;</bpt>Finish<ept id="b81039fb-7bfa-4be7-ab36-ef533bb7440d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ef8f9027-e450-4d78-bc70-bd980fbf0dcd">&lt;strong&gt;</bpt>Installation Complete<ept id="ef8f9027-e450-4d78-bc70-bd980fbf0dcd">&lt;/strong&gt;</ept> page, click <bpt id="12b5f532-7464-4917-9474-88552a6506c8">&lt;strong&gt;</bpt>Copy Log to Clipboard<ept id="12b5f532-7464-4917-9474-88552a6506c8">&lt;/strong&gt;</ept> if you want to examine it later, and then click <bpt id="b81039fb-7bfa-4be7-ab36-ef533bb7440d">&lt;strong&gt;</bpt>Finish<ept id="b81039fb-7bfa-4be7-ab36-ef533bb7440d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47d6534f-aa72-440e-b7a6-c25abf0892c7" xml:space="preserve">
+          <source>From the start screen, type <bpt id="f5dd4a1f-ffd5-48a7-81cd-dd4b9c0caa4e">&lt;strong&gt;</bpt>mysql<ept id="f5dd4a1f-ffd5-48a7-81cd-dd4b9c0caa4e">&lt;/strong&gt;</ept>, and then click <bpt id="21b09d06-17e5-4093-b6fe-6168b347704d">&lt;strong&gt;</bpt>MySQL 5.6 Command Line Client<ept id="21b09d06-17e5-4093-b6fe-6168b347704d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the start screen, type <bpt id="f5dd4a1f-ffd5-48a7-81cd-dd4b9c0caa4e">&lt;strong&gt;</bpt>mysql<ept id="f5dd4a1f-ffd5-48a7-81cd-dd4b9c0caa4e">&lt;/strong&gt;</ept>, and then click <bpt id="21b09d06-17e5-4093-b6fe-6168b347704d">&lt;strong&gt;</bpt>MySQL 5.6 Command Line Client<ept id="21b09d06-17e5-4093-b6fe-6168b347704d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d50bd3f-d094-4dd9-8a99-48b697e6c631" xml:space="preserve">
+          <source>Enter the root password that you specified in step 11 and you'll be presented with a prompt where you can issue commands to configure MySQL.</source>
+          <target state="new">Enter the root password that you specified in step 11 and you'll be presented with a prompt where you can issue commands to configure MySQL.</target>
+        </trans-unit>
+        <trans-unit id="1c5692ec-f062-4580-a902-ae23154e33e5" xml:space="preserve">
+          <source>For the details of commands and syntax, see <bpt id="ae0891e3-f56b-4024-9406-edaaf731d62a">&lt;linkText&gt;</bpt>MySQL Reference Manuals<ept id="ae0891e3-f56b-4024-9406-edaaf731d62a">&lt;/linkText&gt;</ept><bpt id="ae0891e3-f56b-4024-9406-edaaf731d62a">&lt;title&gt;</bpt><ept id="ae0891e3-f56b-4024-9406-edaaf731d62a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the details of commands and syntax, see <bpt id="ae0891e3-f56b-4024-9406-edaaf731d62a">&lt;linkText&gt;</bpt>MySQL Reference Manuals<ept id="ae0891e3-f56b-4024-9406-edaaf731d62a">&lt;/linkText&gt;</ept><bpt id="ae0891e3-f56b-4024-9406-edaaf731d62a">&lt;title&gt;</bpt><ept id="ae0891e3-f56b-4024-9406-edaaf731d62a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0f7873f-44a9-48a5-9a66-3265e15a5d64" xml:space="preserve">
+          <source><bpt id="81569273-4df7-4e0e-a96c-9b3a63fcb72d">&lt;linkText&gt;</bpt><ept id="81569273-4df7-4e0e-a96c-9b3a63fcb72d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="81569273-4df7-4e0e-a96c-9b3a63fcb72d">&lt;linkText&gt;</bpt><ept id="81569273-4df7-4e0e-a96c-9b3a63fcb72d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d11ce42-b2c4-41dc-8655-65d6fbf57a52" xml:space="preserve">
+          <source>You can also configure server configuration default settings, such as the base and data directories and drives, with entries in the C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini file.</source>
+          <target state="new">You can also configure server configuration default settings, such as the base and data directories and drives, with entries in the C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini file.</target>
+        </trans-unit>
+        <trans-unit id="898998dd-b1e5-46ac-8c77-36056a16a22a" xml:space="preserve">
+          <source>For more information, see <bpt id="89243220-10da-4925-95d9-c365ac805532">&lt;linkText&gt;</bpt>5.1.2 Server Configuration Defaults<ept id="89243220-10da-4925-95d9-c365ac805532">&lt;/linkText&gt;</ept><bpt id="89243220-10da-4925-95d9-c365ac805532">&lt;title&gt;</bpt><ept id="89243220-10da-4925-95d9-c365ac805532">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="89243220-10da-4925-95d9-c365ac805532">&lt;linkText&gt;</bpt>5.1.2 Server Configuration Defaults<ept id="89243220-10da-4925-95d9-c365ac805532">&lt;/linkText&gt;</ept><bpt id="89243220-10da-4925-95d9-c365ac805532">&lt;title&gt;</bpt><ept id="89243220-10da-4925-95d9-c365ac805532">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bff1778-b9d0-4032-acf4-ce66cafe0119" xml:space="preserve">
+          <source>If you want the MySQL Server service to be available to MySQL client computers on the Internet, you must configure an endpoint for the TCP port on which the MySQL Server service is listening and create an additional Windows Firewall rule.</source>
+          <target state="new">If you want the MySQL Server service to be available to MySQL client computers on the Internet, you must configure an endpoint for the TCP port on which the MySQL Server service is listening and create an additional Windows Firewall rule.</target>
+        </trans-unit>
+        <trans-unit id="31e8e657-6cd9-4ac5-96ee-3c8ded16953d" xml:space="preserve">
+          <source>This is TCP port 3306 unless you specified a different port on the <bpt id="53ede1f8-89eb-4322-8124-d359be88aa6b">&lt;strong&gt;</bpt>Type and Networking<ept id="53ede1f8-89eb-4322-8124-d359be88aa6b">&lt;/strong&gt;</ept> page (step 10 of the previous procedure).</source>
+          <target state="new">This is TCP port 3306 unless you specified a different port on the <bpt id="53ede1f8-89eb-4322-8124-d359be88aa6b">&lt;strong&gt;</bpt>Type and Networking<ept id="53ede1f8-89eb-4322-8124-d359be88aa6b">&lt;/strong&gt;</ept> page (step 10 of the previous procedure).</target>
+        </trans-unit>
+        <trans-unit id="2c045d76-46d1-4b66-9396-06577559bf3b" xml:space="preserve">
+          <source>You should carefully consider the security implications of doing this, because this will make the MySQL Server service available to all computers on the Internet.</source>
+          <target state="new">You should carefully consider the security implications of doing this, because this will make the MySQL Server service available to all computers on the Internet.</target>
+        </trans-unit>
+        <trans-unit id="4f59ed64-45d7-49f2-a50a-1e57ced9bfdc" xml:space="preserve">
+          <source>You can define the set of source IP addresses that are allowed to use the endpoint with an Access Control List (ACL).</source>
+          <target state="new">You can define the set of source IP addresses that are allowed to use the endpoint with an Access Control List (ACL).</target>
+        </trans-unit>
+        <trans-unit id="51bd0eff-73da-47a3-a5d3-70e0db74ef86" xml:space="preserve">
+          <source>For more information, see <bpt id="bcdf9c04-3b94-47c8-ab47-da228f9e5e39">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="bcdf9c04-3b94-47c8-ab47-da228f9e5e39">&lt;/linkText&gt;</ept><bpt id="bcdf9c04-3b94-47c8-ab47-da228f9e5e39">&lt;title&gt;</bpt><ept id="bcdf9c04-3b94-47c8-ab47-da228f9e5e39">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="bcdf9c04-3b94-47c8-ab47-da228f9e5e39">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="bcdf9c04-3b94-47c8-ab47-da228f9e5e39">&lt;/linkText&gt;</ept><bpt id="bcdf9c04-3b94-47c8-ab47-da228f9e5e39">&lt;title&gt;</bpt><ept id="bcdf9c04-3b94-47c8-ab47-da228f9e5e39">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de17cd4e-ced6-4ff6-8440-df70a4c2199e" xml:space="preserve">
+          <source>To configure an endpoint for the MySQL Server service:</source>
+          <target state="new">To configure an endpoint for the MySQL Server service:</target>
+        </trans-unit>
+        <trans-unit id="64ad2b4f-1d95-4817-ab10-b642988e7ec6" xml:space="preserve">
+          <source>In the Azure portal, click <bpt id="9cfe3fb0-58c6-45f0-8a7b-09c30294b5c4">&lt;strong&gt;</bpt>Virtual Machines<ept id="9cfe3fb0-58c6-45f0-8a7b-09c30294b5c4">&lt;/strong&gt;</ept>, click the name of your MySQL virtual machine, and then click <bpt id="c29fa611-68a0-42dd-b9f8-179e86f4450c">&lt;strong&gt;</bpt>Endpoints<ept id="c29fa611-68a0-42dd-b9f8-179e86f4450c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal, click <bpt id="9cfe3fb0-58c6-45f0-8a7b-09c30294b5c4">&lt;strong&gt;</bpt>Virtual Machines<ept id="9cfe3fb0-58c6-45f0-8a7b-09c30294b5c4">&lt;/strong&gt;</ept>, click the name of your MySQL virtual machine, and then click <bpt id="c29fa611-68a0-42dd-b9f8-179e86f4450c">&lt;strong&gt;</bpt>Endpoints<ept id="c29fa611-68a0-42dd-b9f8-179e86f4450c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="755c328a-3203-44e4-b66a-5228b7ecc043" xml:space="preserve">
+          <source>In the command bar, click <bpt id="c6bf066e-63a7-4555-b288-e638aa909883">&lt;strong&gt;</bpt>Add<ept id="c6bf066e-63a7-4555-b288-e638aa909883">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the command bar, click <bpt id="c6bf066e-63a7-4555-b288-e638aa909883">&lt;strong&gt;</bpt>Add<ept id="c6bf066e-63a7-4555-b288-e638aa909883">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="202a4471-49f1-48ca-9454-b035f20cd9fb" xml:space="preserve">
+          <source>On the <bpt id="5dcccc54-a4de-4991-8d89-ce6ff7f52923">&lt;strong&gt;</bpt>Add an endpoint to a virtual machine<ept id="5dcccc54-a4de-4991-8d89-ce6ff7f52923">&lt;/strong&gt;</ept> page, click the right arrow.</source>
+          <target state="new">On the <bpt id="5dcccc54-a4de-4991-8d89-ce6ff7f52923">&lt;strong&gt;</bpt>Add an endpoint to a virtual machine<ept id="5dcccc54-a4de-4991-8d89-ce6ff7f52923">&lt;/strong&gt;</ept> page, click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="0ad57fdd-3df4-41b4-aa48-01775a7b745d" xml:space="preserve">
+          <source>If you are using the default MySQL TCP port of 3306, click <bpt id="66c7b4b4-5b1b-4118-8e1f-fd51805db101">&lt;strong&gt;</bpt>MySQL<ept id="66c7b4b4-5b1b-4118-8e1f-fd51805db101">&lt;/strong&gt;</ept> in <bpt id="8d1ee3bc-d006-4742-afdd-b9a663baa824">&lt;strong&gt;</bpt>Name<ept id="8d1ee3bc-d006-4742-afdd-b9a663baa824">&lt;/strong&gt;</ept>, and then click the check mark.</source>
+          <target state="new">If you are using the default MySQL TCP port of 3306, click <bpt id="66c7b4b4-5b1b-4118-8e1f-fd51805db101">&lt;strong&gt;</bpt>MySQL<ept id="66c7b4b4-5b1b-4118-8e1f-fd51805db101">&lt;/strong&gt;</ept> in <bpt id="8d1ee3bc-d006-4742-afdd-b9a663baa824">&lt;strong&gt;</bpt>Name<ept id="8d1ee3bc-d006-4742-afdd-b9a663baa824">&lt;/strong&gt;</ept>, and then click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="95582c16-a9da-492e-8188-cc59fcb52c3f" xml:space="preserve">
+          <source>If you are using a different TCP port, type a unique name in <bpt id="105462d8-3a74-44ee-a0bc-174d95af2f2e">&lt;strong&gt;</bpt>Name<ept id="105462d8-3a74-44ee-a0bc-174d95af2f2e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are using a different TCP port, type a unique name in <bpt id="105462d8-3a74-44ee-a0bc-174d95af2f2e">&lt;strong&gt;</bpt>Name<ept id="105462d8-3a74-44ee-a0bc-174d95af2f2e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc03fbfd-3c6f-4a15-aa29-1c87fbc539f0" xml:space="preserve">
+          <source>Select <bpt id="4394178c-1b1f-4897-94fc-37eadeeaeb31">&lt;strong&gt;</bpt>TCP<ept id="4394178c-1b1f-4897-94fc-37eadeeaeb31">&lt;/strong&gt;</ept> in protocol, type the port number in both <bpt id="9770c932-20ef-4c02-ac02-d08644335c6c">&lt;strong&gt;</bpt>Public Port<ept id="9770c932-20ef-4c02-ac02-d08644335c6c">&lt;/strong&gt;</ept> and <bpt id="00af2409-3ccc-4198-b2ed-64f591d0d522">&lt;strong&gt;</bpt>Private Port<ept id="00af2409-3ccc-4198-b2ed-64f591d0d522">&lt;/strong&gt;</ept>, and then click the check mark.</source>
+          <target state="new">Select <bpt id="4394178c-1b1f-4897-94fc-37eadeeaeb31">&lt;strong&gt;</bpt>TCP<ept id="4394178c-1b1f-4897-94fc-37eadeeaeb31">&lt;/strong&gt;</ept> in protocol, type the port number in both <bpt id="9770c932-20ef-4c02-ac02-d08644335c6c">&lt;strong&gt;</bpt>Public Port<ept id="9770c932-20ef-4c02-ac02-d08644335c6c">&lt;/strong&gt;</ept> and <bpt id="00af2409-3ccc-4198-b2ed-64f591d0d522">&lt;strong&gt;</bpt>Private Port<ept id="00af2409-3ccc-4198-b2ed-64f591d0d522">&lt;/strong&gt;</ept>, and then click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="f51b2f01-cccc-46cc-9aae-66078d1cc062" xml:space="preserve">
+          <source>To add a Windows Firewall rule that allows MySQL traffic from the Internet, run the following command at an administrator-level Windows PowerShell command prompt on the MySQL server computer.</source>
+          <target state="new">To add a Windows Firewall rule that allows MySQL traffic from the Internet, run the following command at an administrator-level Windows PowerShell command prompt on the MySQL server computer.</target>
+        </trans-unit>
+        <trans-unit id="2c214ab6-200d-4755-8865-f18951140174" xml:space="preserve">
+          <source>To test your remote connection to the MySQL Server service running on the Azure virtual machine, you must first determine the DNS name corresponding to the cloud service that contains the virtual machine running MySQL Server.</source>
+          <target state="new">To test your remote connection to the MySQL Server service running on the Azure virtual machine, you must first determine the DNS name corresponding to the cloud service that contains the virtual machine running MySQL Server.</target>
+        </trans-unit>
+        <trans-unit id="08de7395-0d3f-44ac-82bd-87918ed30c43" xml:space="preserve">
+          <source>In the Azure portal, click <bpt id="43f34976-1599-49dd-8913-e873fb442de6">&lt;strong&gt;</bpt>Virtual Machines<ept id="43f34976-1599-49dd-8913-e873fb442de6">&lt;/strong&gt;</ept>, click the name of your MySQL server virtual machine, and then click <bpt id="af1ec434-9e1c-4e5e-b976-dc2fca50dab1">&lt;strong&gt;</bpt>Dashboard<ept id="af1ec434-9e1c-4e5e-b976-dc2fca50dab1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal, click <bpt id="43f34976-1599-49dd-8913-e873fb442de6">&lt;strong&gt;</bpt>Virtual Machines<ept id="43f34976-1599-49dd-8913-e873fb442de6">&lt;/strong&gt;</ept>, click the name of your MySQL server virtual machine, and then click <bpt id="af1ec434-9e1c-4e5e-b976-dc2fca50dab1">&lt;strong&gt;</bpt>Dashboard<ept id="af1ec434-9e1c-4e5e-b976-dc2fca50dab1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8588615c-479e-4a83-8b2f-1785113dd5f6" xml:space="preserve">
+          <source>From the virtual machine dashboard, note the <bpt id="958560cb-b872-48ec-b747-0830ace77fc9">&lt;strong&gt;</bpt>DNS Name<ept id="958560cb-b872-48ec-b747-0830ace77fc9">&lt;/strong&gt;</ept> value under the <bpt id="8e7fff04-034b-47e3-9533-0eb0b2ffcd6f">&lt;strong&gt;</bpt>Quick Glance<ept id="8e7fff04-034b-47e3-9533-0eb0b2ffcd6f">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">From the virtual machine dashboard, note the <bpt id="958560cb-b872-48ec-b747-0830ace77fc9">&lt;strong&gt;</bpt>DNS Name<ept id="958560cb-b872-48ec-b747-0830ace77fc9">&lt;/strong&gt;</ept> value under the <bpt id="8e7fff04-034b-47e3-9533-0eb0b2ffcd6f">&lt;strong&gt;</bpt>Quick Glance<ept id="8e7fff04-034b-47e3-9533-0eb0b2ffcd6f">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="45306f59-d0ca-45e5-982a-b04d08a1b134" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="2a5d8994-0e44-4506-b015-9805f37f161b" xml:space="preserve">
+          <source><bpt id="e725fb3a-5d27-4b3e-9ded-3ff221c0af74">&lt;linkText&gt;</bpt><ept id="e725fb3a-5d27-4b3e-9ded-3ff221c0af74">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e725fb3a-5d27-4b3e-9ded-3ff221c0af74">&lt;linkText&gt;</bpt><ept id="e725fb3a-5d27-4b3e-9ded-3ff221c0af74">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ff8e0b5-ff6d-4e9c-b570-9a5ef001e7c2" xml:space="preserve">
+          <source>From a local computer running MySQL or the MySQL client, run the following command to log in as a MySQL user.</source>
+          <target state="new">From a local computer running MySQL or the MySQL client, run the following command to log in as a MySQL user.</target>
+        </trans-unit>
+        <trans-unit id="472826b7-f82b-4b6e-800e-f685d9d30ecf" xml:space="preserve">
+          <source>For example, for the MySQL user name dbadmin3 and the testmysql.cloudapp.net DNS name for the virtual machine, use the following command.</source>
+          <target state="new">For example, for the MySQL user name dbadmin3 and the testmysql.cloudapp.net DNS name for the virtual machine, use the following command.</target>
+        </trans-unit>
+        <trans-unit id="eb71ac59-8523-46ef-a733-9c8d29679a9c" xml:space="preserve">
+          <source>For information on MySQL, see the <bpt id="8d20a59a-91f9-4ec9-a59d-71d16304c17a">&lt;linkText&gt;</bpt>MySQL Documentation<ept id="8d20a59a-91f9-4ec9-a59d-71d16304c17a">&lt;/linkText&gt;</ept><bpt id="8d20a59a-91f9-4ec9-a59d-71d16304c17a">&lt;title&gt;</bpt><ept id="8d20a59a-91f9-4ec9-a59d-71d16304c17a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on MySQL, see the <bpt id="8d20a59a-91f9-4ec9-a59d-71d16304c17a">&lt;linkText&gt;</bpt>MySQL Documentation<ept id="8d20a59a-91f9-4ec9-a59d-71d16304c17a">&lt;/linkText&gt;</ept><bpt id="8d20a59a-91f9-4ec9-a59d-71d16304c17a">&lt;title&gt;</bpt><ept id="8d20a59a-91f9-4ec9-a59d-71d16304c17a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

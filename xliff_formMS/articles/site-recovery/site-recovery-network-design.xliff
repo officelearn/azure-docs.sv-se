@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="036ed758-13e2-4fd4-9463-60946d2b26f0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="036ed758-13e2-4fd4-9463-60946d2b26f0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a04b180d-66eb-456b-b822-dc502fdddb5b">
+        <trans-unit id="c07420b8-755d-4f1d-b29d-5937a967d08f" xml:space="preserve">
+          <source>Network infrastructure considerations for Site Recovery</source>
+          <target state="new">Network infrastructure considerations for Site Recovery</target>
+        </trans-unit>
+        <trans-unit id="1371ce57-51d4-46f5-afe5-283dbeb4124b" xml:space="preserve">
+          <source>This article discusses practical network design considerations for failover with Site Recovery</source>
+          <target state="new">This article discusses practical network design considerations for failover with Site Recovery</target>
+        </trans-unit>
+        <trans-unit id="6a6f39a7-28ae-4729-bae5-517ba9fb7054" xml:space="preserve">
+          <source>The Azure Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution by protecting and recovering your on-premises physical servers and virtual machines with orchestration and automation of replication and failover to Azure, or to a secondary on-premises datacenter.</source>
+          <target state="new">The Azure Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution by protecting and recovering your on-premises physical servers and virtual machines with orchestration and automation of replication and failover to Azure, or to a secondary on-premises datacenter.</target>
+        </trans-unit>
+        <trans-unit id="cb484867-778a-42ed-ac3f-278379d2f535" xml:space="preserve">
+          <source>This article is aimed at the virtualization team responsible for architecting, implementing, and supporting a BCDR solution and infrastructure that includes System Center VMM and Azure Site Recovery.</source>
+          <target state="new">This article is aimed at the virtualization team responsible for architecting, implementing, and supporting a BCDR solution and infrastructure that includes System Center VMM and Azure Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="04e618d9-1bee-40d2-b277-f2368533c856" xml:space="preserve">
+          <source>The purpose of your BCDR strategy is to keep your business applications running, and to  restore failed workloads and services so the organization can quickly resume normal operations.</source>
+          <target state="new">The purpose of your BCDR strategy is to keep your business applications running, and to  restore failed workloads and services so the organization can quickly resume normal operations.</target>
+        </trans-unit>
+        <trans-unit id="d393a52a-6db8-4f2b-92a6-8b5f8ad41660" xml:space="preserve">
+          <source>Developing disaster recovery strategies is challenging, due inherent difficulty of predicting unforeseen events, and the high cost of implementing adequate protection against far-reaching failures.</source>
+          <target state="new">Developing disaster recovery strategies is challenging, due inherent difficulty of predicting unforeseen events, and the high cost of implementing adequate protection against far-reaching failures.</target>
+        </trans-unit>
+        <trans-unit id="f3567a9d-b784-46b2-a687-42e1c749de0d" xml:space="preserve">
+          <source>Azure Site Recovery helps you implement protection and failover from your primary data center to a secondary data center (or to Azure) by initially copying (replicating) your primary data, and then periodically refreshing the replicas.</source>
+          <target state="new">Azure Site Recovery helps you implement protection and failover from your primary data center to a secondary data center (or to Azure) by initially copying (replicating) your primary data, and then periodically refreshing the replicas.</target>
+        </trans-unit>
+        <trans-unit id="dc188778-c15c-4bea-8116-c2e2f7214c8e" xml:space="preserve">
+          <source>As a crucial part of your BCDR planning you need to define your Recovery Time Objective (RTO) and Recovery Point Objective (RPO) so that can you get your organization data back online as quickly as possible (with a low RTO) and with minimum data loss (low RPO).</source>
+          <target state="new">As a crucial part of your BCDR planning you need to define your Recovery Time Objective (RTO) and Recovery Point Objective (RPO) so that can you get your organization data back online as quickly as possible (with a low RTO) and with minimum data loss (low RPO).</target>
+        </trans-unit>
+        <trans-unit id="81b84acd-3cb6-4671-a867-9bb82e7fbd6e" xml:space="preserve">
+          <source>The network design in your organization is a potential bottleneck to your RTO and RPO objectives and solid design planning can help avoid this bottleneck.</source>
+          <target state="new">The network design in your organization is a potential bottleneck to your RTO and RPO objectives and solid design planning can help avoid this bottleneck.</target>
+        </trans-unit>
+        <trans-unit id="919995d4-e36f-49cc-afe8-3ee31b71f022" xml:space="preserve">
+          <source>If you've decided to use the Azure Site Recovery service to help implement protection and failover there are a couple of key issues in network design for BCDR:</source>
+          <target state="new">If you've decided to use the Azure Site Recovery service to help implement protection and failover there are a couple of key issues in network design for BCDR:</target>
+        </trans-unit>
+        <trans-unit id="8e7f9f75-bfb0-4bf1-8420-9dcae0fff508" xml:space="preserve">
+          <source><bpt id="db47a90c-2182-46f6-8bcd-1e5cc8455974">&lt;strong&gt;</bpt>VMM design<ept id="db47a90c-2182-46f6-8bcd-1e5cc8455974">&lt;/strong&gt;</ept>: I'm using System Center VMM.</source>
+          <target state="new"><bpt id="db47a90c-2182-46f6-8bcd-1e5cc8455974">&lt;strong&gt;</bpt>VMM design<ept id="db47a90c-2182-46f6-8bcd-1e5cc8455974">&lt;/strong&gt;</ept>: I'm using System Center VMM.</target>
+        </trans-unit>
+        <trans-unit id="ffda2fc2-0fe0-48d8-aab9-2b151a48c63c" xml:space="preserve">
+          <source>How should I handle the network design to integrate VMM and Site Recover?</source>
+          <target state="new">How should I handle the network design to integrate VMM and Site Recover?</target>
+        </trans-unit>
+        <trans-unit id="47388c4a-afd2-45a3-b8aa-32c22ff9f727" xml:space="preserve">
+          <source><bpt id="89d0ab61-f96b-4ae1-a602-d86958b2255b">&lt;strong&gt;</bpt>Connectivity after failover<ept id="89d0ab61-f96b-4ae1-a602-d86958b2255b">&lt;/strong&gt;</ept>: I'm using Site Recovery to run a failover.</source>
+          <target state="new"><bpt id="89d0ab61-f96b-4ae1-a602-d86958b2255b">&lt;strong&gt;</bpt>Connectivity after failover<ept id="89d0ab61-f96b-4ae1-a602-d86958b2255b">&lt;/strong&gt;</ept>: I'm using Site Recovery to run a failover.</target>
+        </trans-unit>
+        <trans-unit id="9d37b831-df21-406f-b49e-6f6065290fd2" xml:space="preserve">
+          <source>How can I make sure my applications and workloads are available and reachable after failover completes?</source>
+          <target state="new">How can I make sure my applications and workloads are available and reachable after failover completes?</target>
+        </trans-unit>
+        <trans-unit id="69af9363-ce44-4d82-bf63-7172c926cdc9" xml:space="preserve">
+          <source>You can layer Site Recovery on top of your existing VMM design, regardless of whether that design uses a single or multiple VMM servers.</source>
+          <target state="new">You can layer Site Recovery on top of your existing VMM design, regardless of whether that design uses a single or multiple VMM servers.</target>
+        </trans-unit>
+        <trans-unit id="ac3f285a-c639-43d2-b5ff-5da4c1e446e5" xml:space="preserve">
+          <source>In this topology, you'll deploy a VMM server on a virtual machine in the primary site, and then replicate this virtual machine to a secondary site with Site Recovery and Hyper-V Replica.</source>
+          <target state="new">In this topology, you'll deploy a VMM server on a virtual machine in the primary site, and then replicate this virtual machine to a secondary site with Site Recovery and Hyper-V Replica.</target>
+        </trans-unit>
+        <trans-unit id="3e5c5097-f6ef-4ac5-891a-d81d04071f0b" xml:space="preserve">
+          <source>You might consider installing the VMM sever and its supporting SQL Server on the same virtual machine can reduce downtime, because only one VM has to be instantiated.</source>
+          <target state="new">You might consider installing the VMM sever and its supporting SQL Server on the same virtual machine can reduce downtime, because only one VM has to be instantiated.</target>
+        </trans-unit>
+        <trans-unit id="71913294-d069-479f-a916-d470a2fd3fe2" xml:space="preserve">
+          <source>When the VMM service is using a remote SQL Server you'll need to recover the SQL Server instance before recovering the VMM server.</source>
+          <target state="new">When the VMM service is using a remote SQL Server you'll need to recover the SQL Server instance before recovering the VMM server.</target>
+        </trans-unit>
+        <trans-unit id="18e1eb0e-8f13-4b64-9812-4e5fc42b486d" xml:space="preserve">
+          <source>To deploy a single VMM on a VM with Hyper-V Replica:</source>
+          <target state="new">To deploy a single VMM on a VM with Hyper-V Replica:</target>
+        </trans-unit>
+        <trans-unit id="78a70a1f-3a5c-457b-a268-34d9b5751aee" xml:space="preserve">
+          <source>Set up the VMM on a VM with SQL Server installed.</source>
+          <target state="new">Set up the VMM on a VM with SQL Server installed.</target>
+        </trans-unit>
+        <trans-unit id="e8fa7102-478d-4240-81ce-4de9bcc39f29" xml:space="preserve">
+          <source>Add the hosts to be managed to clouds on this VMM server.</source>
+          <target state="new">Add the hosts to be managed to clouds on this VMM server.</target>
+        </trans-unit>
+        <trans-unit id="54a6745c-1d85-4960-8d2f-a4daca597f27" xml:space="preserve">
+          <source>Log in to the Azure portal and then configure clouds for protection.</source>
+          <target state="new">Log in to the Azure portal and then configure clouds for protection.</target>
+        </trans-unit>
+        <trans-unit id="2b80288d-420e-41cd-946d-1cf221333153" xml:space="preserve">
+          <source>Enable replication for all the VMs that need to be protected by the VMM server.</source>
+          <target state="new">Enable replication for all the VMs that need to be protected by the VMM server.</target>
+        </trans-unit>
+        <trans-unit id="39e8bcfe-fb55-46f0-b73c-da7cb4c4e059" xml:space="preserve">
+          <source>Go to the Hyper-V Manager console, choose Hyper-V Replica, and then enable replication on the VMM VM.</source>
+          <target state="new">Go to the Hyper-V Manager console, choose Hyper-V Replica, and then enable replication on the VMM VM.</target>
+        </trans-unit>
+        <trans-unit id="2244e813-ed9d-4a62-a298-0248d77fbeb7" xml:space="preserve">
+          <source>Ensure that the VMM VM is not added to the clouds that are protected by ASR service so that the Hyper-V Replication settings are not overridden by ASR.</source>
+          <target state="new">Ensure that the VMM VM is not added to the clouds that are protected by ASR service so that the Hyper-V Replication settings are not overridden by ASR.</target>
+        </trans-unit>
+        <trans-unit id="6c46c9e4-aa12-49a7-8408-a4d23ca2778b" xml:space="preserve">
+          <source>In the event of a disaster, workloads can be recovered as follows:</source>
+          <target state="new">In the event of a disaster, workloads can be recovered as follows:</target>
+        </trans-unit>
+        <trans-unit id="899f07c9-da2d-4761-8a4f-87b801228a76" xml:space="preserve">
+          <source>Fail over the replica VMM VM to the recovery site, using Hyper-V Manager.</source>
+          <target state="new">Fail over the replica VMM VM to the recovery site, using Hyper-V Manager.</target>
+        </trans-unit>
+        <trans-unit id="7e4bb3f0-7fac-40fa-b379-fe04c3bd5bfb" xml:space="preserve">
+          <source>After the VMM VM has been recovered, the user can login to the Hyper-V Recovery Manager from the secondary site.</source>
+          <target state="new">After the VMM VM has been recovered, the user can login to the Hyper-V Recovery Manager from the secondary site.</target>
+        </trans-unit>
+        <trans-unit id="28900837-f179-4851-92a7-80883eb53da7" xml:space="preserve">
+          <source>After the unplanned failover is complete, the user can access all the resources at the primary site.</source>
+          <target state="new">After the unplanned failover is complete, the user can access all the resources at the primary site.</target>
+        </trans-unit>
+        <trans-unit id="3faba1ca-6e54-4c90-8249-2f8d466e5814" xml:space="preserve">
+          <source>Note that the VMM VM will need to be failed over manually to the secondary site before workloads can be failed over.</source>
+          <target state="new">Note that the VMM VM will need to be failed over manually to the secondary site before workloads can be failed over.</target>
+        </trans-unit>
+        <trans-unit id="e9f58f38-931c-47b7-b6b1-3b25c4a01850" xml:space="preserve">
+          <source><bpt id="762bbfc4-d0fe-4a3b-8fe0-861473fb8038">&lt;linkText&gt;</bpt>Deploying VMM in a cluster<ept id="762bbfc4-d0fe-4a3b-8fe0-861473fb8038">&lt;/linkText&gt;</ept><bpt id="762bbfc4-d0fe-4a3b-8fe0-861473fb8038">&lt;title&gt;</bpt><ept id="762bbfc4-d0fe-4a3b-8fe0-861473fb8038">&lt;/title&gt;</ept> provides high availability and protection against hardware failover.</source>
+          <target state="new"><bpt id="762bbfc4-d0fe-4a3b-8fe0-861473fb8038">&lt;linkText&gt;</bpt>Deploying VMM in a cluster<ept id="762bbfc4-d0fe-4a3b-8fe0-861473fb8038">&lt;/linkText&gt;</ept><bpt id="762bbfc4-d0fe-4a3b-8fe0-861473fb8038">&lt;title&gt;</bpt><ept id="762bbfc4-d0fe-4a3b-8fe0-861473fb8038">&lt;/title&gt;</ept> provides high availability and protection against hardware failover.</target>
+        </trans-unit>
+        <trans-unit id="c63f19c0-0a64-4622-b718-236f44c73080" xml:space="preserve">
+          <source>If you're deploying your VMM cluster with Site Recovery note that:</source>
+          <target state="new">If you're deploying your VMM cluster with Site Recovery note that:</target>
+        </trans-unit>
+        <trans-unit id="1f2c1445-79f1-44e0-9598-39b68a3aeaa9" xml:space="preserve">
+          <source>The VMM server should be deployed in a stretched cluster across geographically separate sites.</source>
+          <target state="new">The VMM server should be deployed in a stretched cluster across geographically separate sites.</target>
+        </trans-unit>
+        <trans-unit id="5b4c165f-a560-4a64-99f6-2aacf114edca" xml:space="preserve">
+          <source>The SQL Server database used by VMM should be protected with SQL Server AlwaysOn availability groups with a replica on the secondary site.</source>
+          <target state="new">The SQL Server database used by VMM should be protected with SQL Server AlwaysOn availability groups with a replica on the secondary site.</target>
+        </trans-unit>
+        <trans-unit id="ba8ef558-df72-4e4b-902a-03afbc3d4fda" xml:space="preserve">
+          <source>If disaster occurs the VMM server and its corresponding SQL Server will automatically fail over to the recovery site.</source>
+          <target state="new">If disaster occurs the VMM server and its corresponding SQL Server will automatically fail over to the recovery site.</target>
+        </trans-unit>
+        <trans-unit id="68bafbac-a231-4147-b7a7-107f96ca43b3" xml:space="preserve">
+          <source>You can then fail over workloads using Site Recovery.</source>
+          <target state="new">You can then fail over workloads using Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="a7ba3859-187a-429e-9ee8-235fb4ef35ab" xml:space="preserve">
+          <source><bpt id="d5cc50f6-f704-4dde-9294-bcc03906c3c7">&lt;linkText&gt;</bpt>Stretched VMM cluster<ept id="d5cc50f6-f704-4dde-9294-bcc03906c3c7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d5cc50f6-f704-4dde-9294-bcc03906c3c7">&lt;linkText&gt;</bpt>Stretched VMM cluster<ept id="d5cc50f6-f704-4dde-9294-bcc03906c3c7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9a48e6b-8c97-4f96-9256-993f9ce5b475" xml:space="preserve">
+          <source>Modern applications are almost always dependent on networking to some degree, so physically moving a service from one site to another represents a networking challenge to make sure applications and workloads are reachable after failover.</source>
+          <target state="new">Modern applications are almost always dependent on networking to some degree, so physically moving a service from one site to another represents a networking challenge to make sure applications and workloads are reachable after failover.</target>
+        </trans-unit>
+        <trans-unit id="b597b660-6be0-4b06-9b2e-e810ca56e65e" xml:space="preserve">
+          <source>There are two main solutions to this issue:</source>
+          <target state="new">There are two main solutions to this issue:</target>
+        </trans-unit>
+        <trans-unit id="321d1cbb-e545-4ad6-9527-cf2690444022" xml:space="preserve">
+          <source><bpt id="1a0dce39-bfba-430c-b407-dd5438ddb4ab">&lt;strong&gt;</bpt>Fixed IP addresses<ept id="1a0dce39-bfba-430c-b407-dd5438ddb4ab">&lt;/strong&gt;</ept>: The first approach is to maintain fixed IP addresses.</source>
+          <target state="new"><bpt id="1a0dce39-bfba-430c-b407-dd5438ddb4ab">&lt;strong&gt;</bpt>Fixed IP addresses<ept id="1a0dce39-bfba-430c-b407-dd5438ddb4ab">&lt;/strong&gt;</ept>: The first approach is to maintain fixed IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="c9063bbd-2eb6-4303-a72b-0656ffab6bfe" xml:space="preserve">
+          <source>Despite the services moving and the hosting servers being in different physical locations, applications take the IP address configuration with them to the new location.</source>
+          <target state="new">Despite the services moving and the hosting servers being in different physical locations, applications take the IP address configuration with them to the new location.</target>
+        </trans-unit>
+        <trans-unit id="ecc7083d-4604-4740-ae79-285441c87b8a" xml:space="preserve">
+          <source><bpt id="6899c6e3-9333-4837-9027-7181a5fba8cc">&lt;strong&gt;</bpt>Modified IP addresses<ept id="6899c6e3-9333-4837-9027-7181a5fba8cc">&lt;/strong&gt;</ept>: The second approach requires changing the IP address during the transition into the recovered site.</source>
+          <target state="new"><bpt id="6899c6e3-9333-4837-9027-7181a5fba8cc">&lt;strong&gt;</bpt>Modified IP addresses<ept id="6899c6e3-9333-4837-9027-7181a5fba8cc">&lt;/strong&gt;</ept>: The second approach requires changing the IP address during the transition into the recovered site.</target>
+        </trans-unit>
+        <trans-unit id="cb5adfab-001f-41e8-9628-e0a090e566b9" xml:space="preserve">
+          <source>From a disaster recovery perspective, using fixed IP addresses appears to be the easiest method to implement.</source>
+          <target state="new">From a disaster recovery perspective, using fixed IP addresses appears to be the easiest method to implement.</target>
+        </trans-unit>
+        <trans-unit id="e541a7f2-9a7c-4fa6-9053-60f44e944a98" xml:space="preserve">
+          <source>However there are a number of potential challenges which in practice make it the least popular approach.</source>
+          <target state="new">However there are a number of potential challenges which in practice make it the least popular approach.</target>
+        </trans-unit>
+        <trans-unit id="d528be78-2979-4de8-ac3e-a75029fa6457" xml:space="preserve">
+          <source>Azure Site Recovery provides the capability to retain the IP addresses in all scenarios.</source>
+          <target state="new">Azure Site Recovery provides the capability to retain the IP addresses in all scenarios.</target>
+        </trans-unit>
+        <trans-unit id="01bcaf08-a879-42e5-ad86-50e1c4c95ac7" xml:space="preserve">
+          <source>Before you decide to take this approach let's look at the considerations for the main scenarios (stretched subnet and subnet failover).</source>
+          <target state="new">Before you decide to take this approach let's look at the considerations for the main scenarios (stretched subnet and subnet failover).</target>
+        </trans-unit>
+        <trans-unit id="c129d845-090b-41e5-b491-0f5d4b548760" xml:space="preserve">
+          <source>In a stretched subnet the subnet is available simultaneously in both the primary and target locations.</source>
+          <target state="new">In a stretched subnet the subnet is available simultaneously in both the primary and target locations.</target>
+        </trans-unit>
+        <trans-unit id="1e18bb7f-9483-4897-be22-2afef936a8e4" xml:space="preserve">
+          <source>In simple terms this means you can move a server and its IP (Layer 3) configuration to the secondary site, and the network will route traffic to the new location automatically.</source>
+          <target state="new">In simple terms this means you can move a server and its IP (Layer 3) configuration to the secondary site, and the network will route traffic to the new location automatically.</target>
+        </trans-unit>
+        <trans-unit id="9525ae17-c6a5-4cef-837c-52d6334bb5b6" xml:space="preserve">
+          <source>This is trivial to deal with from a server perspective but it has a number of challenges:</source>
+          <target state="new">This is trivial to deal with from a server perspective but it has a number of challenges:</target>
+        </trans-unit>
+        <trans-unit id="1790e885-08e2-471e-a5cd-c81e9f6867f1" xml:space="preserve">
+          <source>From a Layer 2 (data link layer) perspective it requires networking equipment that can manage a stretched VLAN, although this type of equipment is now widely available.</source>
+          <target state="new">From a Layer 2 (data link layer) perspective it requires networking equipment that can manage a stretched VLAN, although this type of equipment is now widely available.</target>
+        </trans-unit>
+        <trans-unit id="7c72762d-81d6-4485-bf5a-3c05ea332622" xml:space="preserve">
+          <source>The second and more difficult problem is that by stretching the VLAN the potential fault domain extends to both sites, essentially becoming a single point of failure.</source>
+          <target state="new">The second and more difficult problem is that by stretching the VLAN the potential fault domain extends to both sites, essentially becoming a single point of failure.</target>
+        </trans-unit>
+        <trans-unit id="328f509a-36bb-4f7b-adfa-296ab249be7d" xml:space="preserve">
+          <source>Although unlikely it could happen that a broadcast storm starts and cannot be isolated.</source>
+          <target state="new">Although unlikely it could happen that a broadcast storm starts and cannot be isolated.</target>
+        </trans-unit>
+        <trans-unit id="4b9d25e1-167c-4533-b0b9-e8594d9fe70c" xml:space="preserve">
+          <source>We've seen mixed opinions about this issue, that range from successful implementation to “never”.</source>
+          <target state="new">We've seen mixed opinions about this issue, that range from successful implementation to “never”.</target>
+        </trans-unit>
+        <trans-unit id="b1ee11bd-2bfd-451b-8def-49bdce105501" xml:space="preserve">
+          <source>A stretched subnet isn't possible if you're failing over to Azure as your DR site.</source>
+          <target state="new">A stretched subnet isn't possible if you're failing over to Azure as your DR site.</target>
+        </trans-unit>
+        <trans-unit id="6c7351f4-39d6-49e4-8a0b-4737f06efe47" xml:space="preserve">
+          <source>It's possible to implement subnet failover in order to obtain the benefits of a stretched subnet without actually stretching it.</source>
+          <target state="new">It's possible to implement subnet failover in order to obtain the benefits of a stretched subnet without actually stretching it.</target>
+        </trans-unit>
+        <trans-unit id="b0ca03d9-25f2-4989-bf1e-75294687cad4" xml:space="preserve">
+          <source>In this configuration any given subnet is present at Site 1 or Site 2, but never at both sites simultaneously.</source>
+          <target state="new">In this configuration any given subnet is present at Site 1 or Site 2, but never at both sites simultaneously.</target>
+        </trans-unit>
+        <trans-unit id="10831efa-afe6-4bc2-86ac-45cdad0beac3" xml:space="preserve">
+          <source>To maintain the IP address space in the event of a failover, you can programmatically arrange for the router infrastructure to move the subnets from one site to another.</source>
+          <target state="new">To maintain the IP address space in the event of a failover, you can programmatically arrange for the router infrastructure to move the subnets from one site to another.</target>
+        </trans-unit>
+        <trans-unit id="045fb18e-e588-4424-a641-d3fdc63e4287" xml:space="preserve">
+          <source>In a failover scenario the subnets move with their associated protected VMs.</source>
+          <target state="new">In a failover scenario the subnets move with their associated protected VMs.</target>
+        </trans-unit>
+        <trans-unit id="37341aea-8d23-43c9-9cd4-25e5c53cb9b9" xml:space="preserve">
+          <source>The main drawback to this approach is that in the event of a failure you have to move the whole subnet, which might be a reasonable solution, but could affect failover granularity considerations.</source>
+          <target state="new">The main drawback to this approach is that in the event of a failure you have to move the whole subnet, which might be a reasonable solution, but could affect failover granularity considerations.</target>
+        </trans-unit>
+        <trans-unit id="6c006569-0643-4741-bb13-cbc8bec8a47b" xml:space="preserve">
+          <source>Let’s take a look at how a fictional enterprise (Contoso) is able to replicate its VMs to a recovery location, while failing over the entire subnet.</source>
+          <target state="new">Let’s take a look at how a fictional enterprise (Contoso) is able to replicate its VMs to a recovery location, while failing over the entire subnet.</target>
+        </trans-unit>
+        <trans-unit id="d4a30dab-3a8f-4959-bbf9-0adc1a6d6c7e" xml:space="preserve">
+          <source>We'll look at how Contoso is able to manages its subnets while replicating VMs between two on-premises locations, and discuss how subnet failover works when Azure is used as the disaster recovery site.</source>
+          <target state="new">We'll look at how Contoso is able to manages its subnets while replicating VMs between two on-premises locations, and discuss how subnet failover works when Azure is used as the disaster recovery site.</target>
+        </trans-unit>
+        <trans-unit id="af204598-25ad-4bc2-afb4-c3da774d7a01" xml:space="preserve">
+          <source>The primary site has applications running in subnet 192.168.1.0/24.</source>
+          <target state="new">The primary site has applications running in subnet 192.168.1.0/24.</target>
+        </trans-unit>
+        <trans-unit id="85313dbb-c304-461e-9cfb-246ac529e11d" xml:space="preserve">
+          <source>The entire subnet will fail over, and all the virtual machines in the subnet will be failed over to the recovery site and retain their IP addresses</source>
+          <target state="new">The entire subnet will fail over, and all the virtual machines in the subnet will be failed over to the recovery site and retain their IP addresses</target>
+        </trans-unit>
+        <trans-unit id="a6dbeb50-712e-4e44-8ce0-d2a0b8432cd0" xml:space="preserve">
+          <source>As shown in the diagram below the routes between primary site and recovery site, third site and primary site, and third site and recovery site will have to be appropriately modified to reflect the fact that all the virtual machines belonging to subnet 192.168.1.0/24 have been moved to the recovery site.</source>
+          <target state="new">As shown in the diagram below the routes between primary site and recovery site, third site and primary site, and third site and recovery site will have to be appropriately modified to reflect the fact that all the virtual machines belonging to subnet 192.168.1.0/24 have been moved to the recovery site.</target>
+        </trans-unit>
+        <trans-unit id="7a40a8d1-20de-494b-a36b-356d5ea7ecd9" xml:space="preserve">
+          <source>This diagram assumes that:</source>
+          <target state="new">This diagram assumes that:</target>
+        </trans-unit>
+        <trans-unit id="b70a7288-0206-4120-af2d-408d1afceab4" xml:space="preserve">
+          <source>Each data center is serviced by its own instance of VMM.</source>
+          <target state="new">Each data center is serviced by its own instance of VMM.</target>
+        </trans-unit>
+        <trans-unit id="d356e1b2-c116-4f32-ba63-e168e250f4f8" xml:space="preserve">
+          <source>There will be no replication of the System Center VMM databases between datacenters.</source>
+          <target state="new">There will be no replication of the System Center VMM databases between datacenters.</target>
+        </trans-unit>
+        <trans-unit id="62ef33a3-d8f2-4f2d-9d30-e407b18a8e05" xml:space="preserve">
+          <source>Each data center uses static IP addresses for the virtual machines.</source>
+          <target state="new">Each data center uses static IP addresses for the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="bce02bb0-4678-42b8-94b6-e3d03da3301d" xml:space="preserve">
+          <source>Connectivity between the data centers is via a dedicated circuit and not via VPN connectivity over the internet.</source>
+          <target state="new">Connectivity between the data centers is via a dedicated circuit and not via VPN connectivity over the internet.</target>
+        </trans-unit>
+        <trans-unit id="fbacd035-542a-4875-b146-4ed90949fe21" xml:space="preserve">
+          <source><bpt id="63711d74-af5f-4d0d-9b72-7e0e4d2af6bc">&lt;strong&gt;</bpt>Before failover<ept id="63711d74-af5f-4d0d-9b72-7e0e4d2af6bc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="63711d74-af5f-4d0d-9b72-7e0e4d2af6bc">&lt;strong&gt;</bpt>Before failover<ept id="63711d74-af5f-4d0d-9b72-7e0e4d2af6bc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b994c99-e628-42d7-a1d7-81f6bd303bcc" xml:space="preserve">
+          <source><bpt id="a1bdc971-be12-4e51-96ac-c13308be46f0">&lt;linkText&gt;</bpt>Before failover<ept id="a1bdc971-be12-4e51-96ac-c13308be46f0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a1bdc971-be12-4e51-96ac-c13308be46f0">&lt;linkText&gt;</bpt>Before failover<ept id="a1bdc971-be12-4e51-96ac-c13308be46f0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9276f9eb-26d6-4ff1-a619-3844435bf06b" xml:space="preserve">
+          <source><bpt id="1747eb46-6b51-4dda-a9fd-c4be91da8cce">&lt;strong&gt;</bpt>After failover<ept id="1747eb46-6b51-4dda-a9fd-c4be91da8cce">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1747eb46-6b51-4dda-a9fd-c4be91da8cce">&lt;strong&gt;</bpt>After failover<ept id="1747eb46-6b51-4dda-a9fd-c4be91da8cce">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4aa46ac7-8af5-423f-b8b7-cfc6c087eb0b" xml:space="preserve">
+          <source><bpt id="edaa2634-c2a1-4640-9c52-6866350d1106">&lt;linkText&gt;</bpt>After failover<ept id="edaa2634-c2a1-4640-9c52-6866350d1106">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="edaa2634-c2a1-4640-9c52-6866350d1106">&lt;linkText&gt;</bpt>After failover<ept id="edaa2634-c2a1-4640-9c52-6866350d1106">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5da2a8c2-e1e9-4d05-8dbf-8b81bc932ea0" xml:space="preserve">
+          <source>When enabling protection for a specific virtual machine, Site Recovery allocates networking resources as follows:</source>
+          <target state="new">When enabling protection for a specific virtual machine, Site Recovery allocates networking resources as follows:</target>
+        </trans-unit>
+        <trans-unit id="01a608c2-86bc-4dfd-8288-d0a012596026" xml:space="preserve">
+          <source>Site Recovery allocates an IP address for each network interface on the virtual machine from the static IP address pool defined on the relevant network for each VMM instance.</source>
+          <target state="new">Site Recovery allocates an IP address for each network interface on the virtual machine from the static IP address pool defined on the relevant network for each VMM instance.</target>
+        </trans-unit>
+        <trans-unit id="e0bec4b3-e0a2-413f-a4d8-2278a7fda6cf" xml:space="preserve">
+          <source>If the administrator defines the same IP address pool that's used on the primary site for the network on the recovery site Site Recovery will allocate the same IP address that's allocated to the primary virtual machine to the replica virtual machine  The IP address is reserved in VMM but isn't set as the failover IP address.</source>
+          <target state="new">If the administrator defines the same IP address pool that's used on the primary site for the network on the recovery site Site Recovery will allocate the same IP address that's allocated to the primary virtual machine to the replica virtual machine  The IP address is reserved in VMM but isn't set as the failover IP address.</target>
+        </trans-unit>
+        <trans-unit id="3225159f-8a4d-4e6c-b69d-beeabf5a59df" xml:space="preserve">
+          <source>The failover IP address is set just before the failover.</source>
+          <target state="new">The failover IP address is set just before the failover.</target>
+        </trans-unit>
+        <trans-unit id="bc690359-6b9c-44a8-9d3b-b6e4630c19db" xml:space="preserve">
+          <source>This screenshot shows the failover TCP/IP settings for the replica virtual machine (on the Hyper-V console).</source>
+          <target state="new">This screenshot shows the failover TCP/IP settings for the replica virtual machine (on the Hyper-V console).</target>
+        </trans-unit>
+        <trans-unit id="b01ca52b-5fd7-4d12-a292-1083285dabe9" xml:space="preserve">
+          <source>These settings are replicated just between failover starts for the virtual machine.</source>
+          <target state="new">These settings are replicated just between failover starts for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3d701b89-1f13-4975-9be3-5e76a95640f8" xml:space="preserve">
+          <source><bpt id="10226586-9e76-45e2-a559-ae1a2e8d2251">&lt;linkText&gt;</bpt>Set IP address<ept id="10226586-9e76-45e2-a559-ae1a2e8d2251">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10226586-9e76-45e2-a559-ae1a2e8d2251">&lt;linkText&gt;</bpt>Set IP address<ept id="10226586-9e76-45e2-a559-ae1a2e8d2251">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="295d29e8-88d9-4277-a5d0-965a79b600a4" xml:space="preserve">
+          <source>If the same IP address isn't available Site Recovery will allocate a different address from the pool.</source>
+          <target state="new">If the same IP address isn't available Site Recovery will allocate a different address from the pool.</target>
+        </trans-unit>
+        <trans-unit id="ba91aa3e-8a75-48e0-a1de-e8b79af0b29e" xml:space="preserve">
+          <source>After the virtual machine is enabled for protection you can use following sample script to verify the IP address that has been allocated to the virtual machine.</source>
+          <target state="new">After the virtual machine is enabled for protection you can use following sample script to verify the IP address that has been allocated to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3b4599cc-b073-4c16-98c7-195df3928b76" xml:space="preserve">
+          <source>The same IP address would be set as failover IP address and assigned to the VM at the time of failover.</source>
+          <target state="new">The same IP address would be set as failover IP address and assigned to the VM at the time of failover.</target>
+        </trans-unit>
+        <trans-unit id="9d1f0fb3-be67-441c-ba2f-b49971ba85b8" xml:space="preserve">
+          <source>$vm = Get-SCVirtualMachine -Name 
+$na = $vm[0].VirtualNetworkAdapters
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id 
+$ip.address</source>
+          <target state="new">$vm = Get-SCVirtualMachine -Name 
+$na = $vm[0].VirtualNetworkAdapters
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id 
+$ip.address</target>
+        </trans-unit>
+        <trans-unit id="3f5a08d6-e21b-4691-9d3c-92b8b3e85d7d" xml:space="preserve">
+          <source>Note that if virtual machines use DHCP,  IP address management isn't handled by Site Recovery.</source>
+          <target state="new">Note that if virtual machines use DHCP,  IP address management isn't handled by Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="360e381c-03a1-4fd2-835f-499011b9d738" xml:space="preserve">
+          <source>You'll need to ensure that the DHCP server allocating IP addresses on the recovery site can allocate addresses from the same range as that of the primary site.</source>
+          <target state="new">You'll need to ensure that the DHCP server allocating IP addresses on the recovery site can allocate addresses from the same range as that of the primary site.</target>
+        </trans-unit>
+        <trans-unit id="886de286-36bb-42fb-a56c-2105d7758a83" xml:space="preserve">
+          <source>If you're failing over to Azure there are a couple more constraints.</source>
+          <target state="new">If you're failing over to Azure there are a couple more constraints.</target>
+        </trans-unit>
+        <trans-unit id="99fe3803-60fd-478f-849a-74c3f60ac71a" xml:space="preserve">
+          <source>Let's look at a fictional company (Woodgrove Bank) that has on-premises infrastructure hosting their line of business applications, and Azure hosting their mobile applications.</source>
+          <target state="new">Let's look at a fictional company (Woodgrove Bank) that has on-premises infrastructure hosting their line of business applications, and Azure hosting their mobile applications.</target>
+        </trans-unit>
+        <trans-unit id="3f119206-69db-441d-90bf-ef5a3f739071" xml:space="preserve">
+          <source>Connectivity between Woodgrove Bank VMs in Azure and on-premises servers is over site-to-site VPN which shows the virtual network in Azure asn a extension of Woodgrove Bank’s on-premises network.</source>
+          <target state="new">Connectivity between Woodgrove Bank VMs in Azure and on-premises servers is over site-to-site VPN which shows the virtual network in Azure asn a extension of Woodgrove Bank’s on-premises network.</target>
+        </trans-unit>
+        <trans-unit id="b5960646-50f0-4c52-84fc-4f5b32657bee" xml:space="preserve">
+          <source>Woodgrove wants to use Site Recovery to replicate its on-premises workloads to Azure.</source>
+          <target state="new">Woodgrove wants to use Site Recovery to replicate its on-premises workloads to Azure.</target>
+        </trans-unit>
+        <trans-unit id="d1f2c7ef-7d65-4204-a189-8fa41c3849fc" xml:space="preserve">
+          <source>Woodgrove has to deal with applications and configurations which depend on hard-coded IP addresses, so they need to retain IP addresses for their applications after failover to Azure.</source>
+          <target state="new">Woodgrove has to deal with applications and configurations which depend on hard-coded IP addresses, so they need to retain IP addresses for their applications after failover to Azure.</target>
+        </trans-unit>
+        <trans-unit id="30b2096b-cd72-4677-858a-d9f6edcb9f08" xml:space="preserve">
+          <source>Woodgrove’s on-premises infrastructure is managed by a VMM 2012 R2 server.</source>
+          <target state="new">Woodgrove’s on-premises infrastructure is managed by a VMM 2012 R2 server.</target>
+        </trans-unit>
+        <trans-unit id="73271692-80bc-4438-b494-9d134191b918" xml:space="preserve">
+          <source>There's a VLAN-based logical network (Application Network) has been created on the VMM server.</source>
+          <target state="new">There's a VLAN-based logical network (Application Network) has been created on the VMM server.</target>
+        </trans-unit>
+        <trans-unit id="9e5ccd93-13d5-4a92-ac1f-17c92f1eeb2c" xml:space="preserve">
+          <source><bpt id="7de4ce07-208f-4ebf-b488-ea4003b08370">&lt;linkText&gt;</bpt>Logical network<ept id="7de4ce07-208f-4ebf-b488-ea4003b08370">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7de4ce07-208f-4ebf-b488-ea4003b08370">&lt;linkText&gt;</bpt>Logical network<ept id="7de4ce07-208f-4ebf-b488-ea4003b08370">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="885ebc7d-8110-477f-b4ef-0792906efbaa" xml:space="preserve">
+          <source>A VM network (Application VM Network) was created using the logical network.</source>
+          <target state="new">A VM network (Application VM Network) was created using the logical network.</target>
+        </trans-unit>
+        <trans-unit id="0bd0dd1c-656d-44cd-a6d2-04b15b0ebabf" xml:space="preserve">
+          <source><bpt id="daccc52e-f8c8-494e-9f79-59951eda3f35">&lt;linkText&gt;</bpt>VM network<ept id="daccc52e-f8c8-494e-9f79-59951eda3f35">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="daccc52e-f8c8-494e-9f79-59951eda3f35">&lt;linkText&gt;</bpt>VM network<ept id="daccc52e-f8c8-494e-9f79-59951eda3f35">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5831d4c-7b31-4ccf-a56e-b6913e394b79" xml:space="preserve">
+          <source>All the virtual machines in the application use static IP addresses, so a static IP pool is also defined for the logical network.</source>
+          <target state="new">All the virtual machines in the application use static IP addresses, so a static IP pool is also defined for the logical network.</target>
+        </trans-unit>
+        <trans-unit id="1ac5f8c3-40f5-4721-b5bd-7530d87f46c9" xml:space="preserve">
+          <source>Woodgrove is assigning IP addresses from IP address range (172.16.1.0/24, 172.16.2.0/24) to its resources running in Azure.</source>
+          <target state="new">Woodgrove is assigning IP addresses from IP address range (172.16.1.0/24, 172.16.2.0/24) to its resources running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="014ae8e6-b878-4fb3-9ee3-60c13c3e8959" xml:space="preserve">
+          <source>For Woodgrove to deploy replication and maintain IP addresses the following is required:</source>
+          <target state="new">For Woodgrove to deploy replication and maintain IP addresses the following is required:</target>
+        </trans-unit>
+        <trans-unit id="95f86b38-27d9-4718-93fc-4c2ecf86ff96" xml:space="preserve">
+          <source>An Azure virtual machine that's an extension of the on-premises network so that applications can fail over seamlessly.</source>
+          <target state="new">An Azure virtual machine that's an extension of the on-premises network so that applications can fail over seamlessly.</target>
+        </trans-unit>
+        <trans-unit id="e242a6ca-4336-4649-b67e-1fe1a5970258" xml:space="preserve">
+          <source>Note that when you set up your site-to-site connection in Azure, an Azure network allows you to route traffic to the on-premises location (Azure calls it local-network) only if the IP address range is different from the on-premises IP address range, because Azure doesn’t support stretching subnets.</source>
+          <target state="new">Note that when you set up your site-to-site connection in Azure, an Azure network allows you to route traffic to the on-premises location (Azure calls it local-network) only if the IP address range is different from the on-premises IP address range, because Azure doesn’t support stretching subnets.</target>
+        </trans-unit>
+        <trans-unit id="d4d76dc6-0e3b-4b54-9075-f5ef6989bc06" xml:space="preserve">
+          <source>This means that if you have a subnet 192.168.1.0/24 on-premises, you can’t add a local-network 192.168.1.0/24 in the Azure network.</source>
+          <target state="new">This means that if you have a subnet 192.168.1.0/24 on-premises, you can’t add a local-network 192.168.1.0/24 in the Azure network.</target>
+        </trans-unit>
+        <trans-unit id="8f59f2be-50b0-4434-bce2-7320b53f3fff" xml:space="preserve">
+          <source>This is expected because Azure doesn’t know that there are no active VMs in the subnet and that the subnet is being created only for DR purposes.</source>
+          <target state="new">This is expected because Azure doesn’t know that there are no active VMs in the subnet and that the subnet is being created only for DR purposes.</target>
+        </trans-unit>
+        <trans-unit id="0c604520-cc75-4668-9100-190ba63cdcca" xml:space="preserve">
+          <source>To be able to correctly route network traffic out of an Azure network the subnets in the network and the local-network must not conflict.</source>
+          <target state="new">To be able to correctly route network traffic out of an Azure network the subnets in the network and the local-network must not conflict.</target>
+        </trans-unit>
+        <trans-unit id="f044399b-ce09-4c75-9d4e-d2ecaa07d04f" xml:space="preserve">
+          <source>We'll need to created an additional network in Azure (Recovery Network) where the failed over VMs will be created.</source>
+          <target state="new">We'll need to created an additional network in Azure (Recovery Network) where the failed over VMs will be created.</target>
+        </trans-unit>
+        <trans-unit id="fac95835-f390-4a59-8460-d4a257469d1c" xml:space="preserve">
+          <source><bpt id="cb7499fc-3c21-4da3-9723-c1e90fe0d08d">&lt;linkText&gt;</bpt>Azure networks<ept id="cb7499fc-3c21-4da3-9723-c1e90fe0d08d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb7499fc-3c21-4da3-9723-c1e90fe0d08d">&lt;linkText&gt;</bpt>Azure networks<ept id="cb7499fc-3c21-4da3-9723-c1e90fe0d08d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0f22d83-4346-4b0f-a866-49d27b5203c8" xml:space="preserve">
+          <source>To ensure that the IP address for the VM is retained, in the VM properties in Site Recovery we'll specify that the same IP address should be used.</source>
+          <target state="new">To ensure that the IP address for the VM is retained, in the VM properties in Site Recovery we'll specify that the same IP address should be used.</target>
+        </trans-unit>
+        <trans-unit id="1b6b3dd3-97bb-4304-a092-7fe103c638f9" xml:space="preserve">
+          <source>Then nafter failover Site Recover will assign the specified IP address to the VM.</source>
+          <target state="new">Then nafter failover Site Recover will assign the specified IP address to the VM.</target>
+        </trans-unit>
+        <trans-unit id="71aed8ba-57eb-4398-91d4-f9bcfde3c040" xml:space="preserve">
+          <source><bpt id="ea4062da-26a7-4dc1-9ef7-4b5a357baef8">&lt;linkText&gt;</bpt>Azure networks<ept id="ea4062da-26a7-4dc1-9ef7-4b5a357baef8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea4062da-26a7-4dc1-9ef7-4b5a357baef8">&lt;linkText&gt;</bpt>Azure networks<ept id="ea4062da-26a7-4dc1-9ef7-4b5a357baef8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d243fae-9abf-4e58-8eff-a3fb79b6a3e3" xml:space="preserve">
+          <source>When failover is triggered and the VMs are created in the Recovery Network with the required IP address, connectivity to the VM can be established using a.</source>
+          <target state="new">When failover is triggered and the VMs are created in the Recovery Network with the required IP address, connectivity to the VM can be established using a.</target>
+        </trans-unit>
+        <trans-unit id="7660a218-9f1c-4854-8414-71e41bfe3468" xml:space="preserve">
+          <source>Th</source>
+          <target state="new">Th</target>
+        </trans-unit>
+        <trans-unit id="e70154d1-529d-4499-ac9b-44f1aaf67db4" xml:space="preserve">
+          <source>is action can be scripted.</source>
+          <target state="new">is action can be scripted.</target>
+        </trans-unit>
+        <trans-unit id="9d18bc80-1c85-4f4f-8154-9ea59bcea600" xml:space="preserve">
+          <source>As we discussed in the previous section about subnet failover, also in the case of failover to Azure routes would have to be appropriately modified to reflect that 192.168.1.0/24 has now moved to Azure.</source>
+          <target state="new">As we discussed in the previous section about subnet failover, also in the case of failover to Azure routes would have to be appropriately modified to reflect that 192.168.1.0/24 has now moved to Azure.</target>
+        </trans-unit>
+        <trans-unit id="84c35d66-e716-4c19-bfce-b8dbf61e2eb5" xml:space="preserve">
+          <source><bpt id="ca286515-7fe4-430c-9269-d65245ea2c71">&lt;linkText&gt;</bpt>Azure networks<ept id="ca286515-7fe4-430c-9269-d65245ea2c71">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ca286515-7fe4-430c-9269-d65245ea2c71">&lt;linkText&gt;</bpt>Azure networks<ept id="ca286515-7fe4-430c-9269-d65245ea2c71">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5ff6b5d-10ff-41ac-a0f7-8f5890858ab5" xml:space="preserve">
+          <source>This approach seems to be the most common and means that the IP address of every VM that fails over will change.</source>
+          <target state="new">This approach seems to be the most common and means that the IP address of every VM that fails over will change.</target>
+        </trans-unit>
+        <trans-unit id="cfc9273a-e96a-44aa-93c9-bae3a4cf8634" xml:space="preserve">
+          <source>The main disadvantage of this approach is that your network infrastructure needs to be aware that IP addresses have changed and that DNS entries will typically have to be changed or flushed throughout the network, as will cached entries in network tables.</source>
+          <target state="new">The main disadvantage of this approach is that your network infrastructure needs to be aware that IP addresses have changed and that DNS entries will typically have to be changed or flushed throughout the network, as will cached entries in network tables.</target>
+        </trans-unit>
+        <trans-unit id="3b9333ee-b346-4974-a919-8b953be11ea2" xml:space="preserve">
+          <source>This could incur downtime depending upon how the DNS infrastructure is setup.</source>
+          <target state="new">This could incur downtime depending upon how the DNS infrastructure is setup.</target>
+        </trans-unit>
+        <trans-unit id="1afbcd82-f748-4a21-84f9-5582e3480bfc" xml:space="preserve">
+          <source>These issues can be mitigated by using low TTL values in the case of intranet applications and using <bpt id="e45b96e2-6838-4a06-b789-7ce1df86fedd">&lt;linkText&gt;</bpt>Azure Traffic Manager with Site Recovery<ept id="e45b96e2-6838-4a06-b789-7ce1df86fedd">&lt;/linkText&gt;</ept><bpt id="e45b96e2-6838-4a06-b789-7ce1df86fedd">&lt;title&gt;</bpt><ept id="e45b96e2-6838-4a06-b789-7ce1df86fedd">&lt;/title&gt;</ept> for internet-based applications.</source>
+          <target state="new">These issues can be mitigated by using low TTL values in the case of intranet applications and using <bpt id="e45b96e2-6838-4a06-b789-7ce1df86fedd">&lt;linkText&gt;</bpt>Azure Traffic Manager with Site Recovery<ept id="e45b96e2-6838-4a06-b789-7ce1df86fedd">&lt;/linkText&gt;</ept><bpt id="e45b96e2-6838-4a06-b789-7ce1df86fedd">&lt;title&gt;</bpt><ept id="e45b96e2-6838-4a06-b789-7ce1df86fedd">&lt;/title&gt;</ept> for internet-based applications.</target>
+        </trans-unit>
+        <trans-unit id="b75ade95-d4e9-4939-89e4-e7fcf7efd3e9" xml:space="preserve">
+          <source>Let's look at this scenario with an example that has a third site from which the applications hosted on primary or recovery site can be accessed.</source>
+          <target state="new">Let's look at this scenario with an example that has a third site from which the applications hosted on primary or recovery site can be accessed.</target>
+        </trans-unit>
+        <trans-unit id="48c706d9-2402-4105-b355-41c85c768a9a" xml:space="preserve">
+          <source><bpt id="160370f0-7539-4e2a-8faf-acc4195128e7">&lt;linkText&gt;</bpt>Azure networks<ept id="160370f0-7539-4e2a-8faf-acc4195128e7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="160370f0-7539-4e2a-8faf-acc4195128e7">&lt;linkText&gt;</bpt>Azure networks<ept id="160370f0-7539-4e2a-8faf-acc4195128e7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b05f9640-1395-4d76-9dbc-f3a39d608a10" xml:space="preserve">
+          <source>Some applications are hosted in subnet 192.168.1.0/24 subnet on the primary site, and they have been configured to come up on the recovery site in subnet 172.16.1.0/24 after a failover.</source>
+          <target state="new">Some applications are hosted in subnet 192.168.1.0/24 subnet on the primary site, and they have been configured to come up on the recovery site in subnet 172.16.1.0/24 after a failover.</target>
+        </trans-unit>
+        <trans-unit id="89490ff9-230c-46f5-9d4b-bab5cc3baec0" xml:space="preserve">
+          <source>VPN connections/network routes have been configured appropriately so that all three sites can access each other.</source>
+          <target state="new">VPN connections/network routes have been configured appropriately so that all three sites can access each other.</target>
+        </trans-unit>
+        <trans-unit id="8d646415-97d9-48f4-95ed-00b42f356d0a" xml:space="preserve">
+          <source>After failing over one or more applications, they'll be restored in the recovery subnet.</source>
+          <target state="new">After failing over one or more applications, they'll be restored in the recovery subnet.</target>
+        </trans-unit>
+        <trans-unit id="feb9e2b2-6ed9-46e3-93be-368bff6e362a" xml:space="preserve">
+          <source>In this case we don't need to fail over the entire subnet at the same time and no changes are required to reconfigure VPN or network routes.</source>
+          <target state="new">In this case we don't need to fail over the entire subnet at the same time and no changes are required to reconfigure VPN or network routes.</target>
+        </trans-unit>
+        <trans-unit id="d1a67c7e-2f6f-4807-bae6-88202c9fe911" xml:space="preserve">
+          <source>A failover and some DNS updates will keep the applications accessible.</source>
+          <target state="new">A failover and some DNS updates will keep the applications accessible.</target>
+        </trans-unit>
+        <trans-unit id="1b147e4e-b65e-4fb5-ad8e-e793975f0729" xml:space="preserve">
+          <source>If the DNS server is configured to allow dynamic updates then the virtual machines would register themselves using the new IP address once they start after a failover.</source>
+          <target state="new">If the DNS server is configured to allow dynamic updates then the virtual machines would register themselves using the new IP address once they start after a failover.</target>
+        </trans-unit>
+        <trans-unit id="04d890d7-954d-48b6-8caa-cd2beaa38c4c" xml:space="preserve">
+          <source><bpt id="a7c554fe-b9af-4553-976b-87e32772ad4c">&lt;linkText&gt;</bpt>Azure networks<ept id="a7c554fe-b9af-4553-976b-87e32772ad4c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a7c554fe-b9af-4553-976b-87e32772ad4c">&lt;linkText&gt;</bpt>Azure networks<ept id="a7c554fe-b9af-4553-976b-87e32772ad4c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0c8847b-916d-4e55-b22a-470971360d6d" xml:space="preserve">
+          <source>After failover the replica virtual machine might have an IP address that isn’t the same as the IP address of the primary virtual machine.</source>
+          <target state="new">After failover the replica virtual machine might have an IP address that isn’t the same as the IP address of the primary virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c653903e-ae63-45fe-ab74-8bac027bf79a" xml:space="preserve">
+          <source>Virtual machines will update the DNS server that they are using after they start.</source>
+          <target state="new">Virtual machines will update the DNS server that they are using after they start.</target>
+        </trans-unit>
+        <trans-unit id="d1bc6155-0611-469b-a546-1dbe949a184d" xml:space="preserve">
+          <source>DNS entries typically have to be changed or flushed throughout the network, and cached entries in network tables have to be updated or flushed, so it is not uncommon to be faced with downtime while these state changes take place.</source>
+          <target state="new">DNS entries typically have to be changed or flushed throughout the network, and cached entries in network tables have to be updated or flushed, so it is not uncommon to be faced with downtime while these state changes take place.</target>
+        </trans-unit>
+        <trans-unit id="3b413bdd-7c83-4c6a-97d8-a35a39dce56c" xml:space="preserve">
+          <source>This can be mitigated by:</source>
+          <target state="new">This can be mitigated by:</target>
+        </trans-unit>
+        <trans-unit id="9ac6bdd8-a45d-4013-a4d3-73cb1807e3fa" xml:space="preserve">
+          <source>Using low TTL values for intranet applications.</source>
+          <target state="new">Using low TTL values for intranet applications.</target>
+        </trans-unit>
+        <trans-unit id="c7b18d22-d873-4caf-b994-e832620f3318" xml:space="preserve">
+          <source>Using [Azure Traffic Manger with Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ for internet based applications).</source>
+          <target state="new">Using [Azure Traffic Manger with Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ for internet based applications).</target>
+        </trans-unit>
+        <trans-unit id="fefdd2df-0fd4-4e26-a775-489c7d6adb9f" xml:space="preserve">
+          <source>Using the following script within your recovery plan to update the DNS Server to ensure a timely update (The script is not required if the Dynamic DNS registration is configured)</source>
+          <target state="new">Using the following script within your recovery plan to update the DNS Server to ensure a timely update (The script is not required if the Dynamic DNS registration is configured)</target>
+        </trans-unit>
+        <trans-unit id="cb518893-69e5-42c9-9a0e-3998d4e21855" xml:space="preserve">
+          <source>[string]$Zone,
+[string]$name,
+[string]$IP
+)
+$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+$newrecord = $record.clone()
+$newrecord.RecordData[0].IPv4Address  =  $IP
+Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord</source>
+          <target state="new">[string]$Zone,
+[string]$name,
+[string]$IP
+)
+$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+$newrecord = $record.clone()
+$newrecord.RecordData[0].IPv4Address  =  $IP
+Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord</target>
+        </trans-unit>
+        <trans-unit id="38b84b90-c1fb-411e-98e5-37e64b1efca1" xml:space="preserve">
+          <source>The Networking infrastructure setup for Azure as a Disaster Recovery Site <bpt id="a6b5016e-6541-491b-8bb3-25cc0ba655e2">&lt;linkText&gt;</bpt>blog post<ept id="a6b5016e-6541-491b-8bb3-25cc0ba655e2">&lt;/linkText&gt;</ept><bpt id="a6b5016e-6541-491b-8bb3-25cc0ba655e2">&lt;title&gt;</bpt><ept id="a6b5016e-6541-491b-8bb3-25cc0ba655e2">&lt;/title&gt;</ept> explains how to setup the required Azure networking infrastructure when retaining IP addresses isn’t a requirement.</source>
+          <target state="new">The Networking infrastructure setup for Azure as a Disaster Recovery Site <bpt id="a6b5016e-6541-491b-8bb3-25cc0ba655e2">&lt;linkText&gt;</bpt>blog post<ept id="a6b5016e-6541-491b-8bb3-25cc0ba655e2">&lt;/linkText&gt;</ept><bpt id="a6b5016e-6541-491b-8bb3-25cc0ba655e2">&lt;title&gt;</bpt><ept id="a6b5016e-6541-491b-8bb3-25cc0ba655e2">&lt;/title&gt;</ept> explains how to setup the required Azure networking infrastructure when retaining IP addresses isn’t a requirement.</target>
+        </trans-unit>
+        <trans-unit id="c2d6af35-9013-42c4-9fa9-99eec1f50567" xml:space="preserve">
+          <source>It starts with describing the application and then looks at how to set up networking on-premises and in Azure.</source>
+          <target state="new">It starts with describing the application and then looks at how to set up networking on-premises and in Azure.</target>
+        </trans-unit>
+        <trans-unit id="197dab0b-292b-416f-99f7-6929827bcd34" xml:space="preserve">
+          <source>It concludes with instructions for running a test failover and a planned failover.</source>
+          <target state="new">It concludes with instructions for running a test failover and a planned failover.</target>
+        </trans-unit>
+        <trans-unit id="5c1a7117-9915-4fa1-9490-d2ab15324607" xml:space="preserve">
+          <source><bpt id="e15ae62a-bf7a-4a86-8901-ddf6fae7a178">&lt;linkText&gt;</bpt>Learn<ept id="e15ae62a-bf7a-4a86-8901-ddf6fae7a178">&lt;/linkText&gt;</ept><bpt id="e15ae62a-bf7a-4a86-8901-ddf6fae7a178">&lt;title&gt;</bpt><ept id="e15ae62a-bf7a-4a86-8901-ddf6fae7a178">&lt;/title&gt;</ept> how Site Recovery maps source and target networks.</source>
+          <target state="new"><bpt id="e15ae62a-bf7a-4a86-8901-ddf6fae7a178">&lt;linkText&gt;</bpt>Learn<ept id="e15ae62a-bf7a-4a86-8901-ddf6fae7a178">&lt;/linkText&gt;</ept><bpt id="e15ae62a-bf7a-4a86-8901-ddf6fae7a178">&lt;title&gt;</bpt><ept id="e15ae62a-bf7a-4a86-8901-ddf6fae7a178">&lt;/title&gt;</ept> how Site Recovery maps source and target networks.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

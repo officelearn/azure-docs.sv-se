@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="76b23aca-7c56-4e5b-a09c-cf03f336e150" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="76b23aca-7c56-4e5b-a09c-cf03f336e150" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c05bc130-78fa-4a50-805a-f049a0e67441">
+        <trans-unit id="14da65fe-bf11-4a52-920d-939ad46e378c" xml:space="preserve">
+          <source>Configure DNS between two Azure virtual networks | Microsoft Azure</source>
+          <target state="new">Configure DNS between two Azure virtual networks | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="88334d68-6c20-4ad4-a6e8-3f3dbc48d4fa" xml:space="preserve">
+          <source>Learn how to configure VPN connections and domain name resolution between two virtual networks, and how to configure HBase geo-replication.</source>
+          <target state="new">Learn how to configure VPN connections and domain name resolution between two virtual networks, and how to configure HBase geo-replication.</target>
+        </trans-unit>
+        <trans-unit id="96ba3fb9-87f6-4d3f-9cf9-1f8b5dc5b048" xml:space="preserve">
+          <source>Learn how to add and configure DNS servers to Azure virtual networks to handle name resolution within and across the virtual networks.</source>
+          <target state="new">Learn how to add and configure DNS servers to Azure virtual networks to handle name resolution within and across the virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="651762a6-cd00-4d29-9361-7d80708c16d1" xml:space="preserve">
+          <source>This tutorial is the second part of the <bpt id="bcf7d770-300c-4875-9443-c2a5906965d3">&lt;linkText&gt;</bpt>series[hdinsight-hbase-geo-replication]<ept id="bcf7d770-300c-4875-9443-c2a5906965d3">&lt;/linkText&gt;</ept><bpt id="bcf7d770-300c-4875-9443-c2a5906965d3">&lt;title&gt;</bpt><ept id="bcf7d770-300c-4875-9443-c2a5906965d3">&lt;/title&gt;</ept> on creating HBase geo-replication:</source>
+          <target state="new">This tutorial is the second part of the <bpt id="bcf7d770-300c-4875-9443-c2a5906965d3">&lt;linkText&gt;</bpt>series[hdinsight-hbase-geo-replication]<ept id="bcf7d770-300c-4875-9443-c2a5906965d3">&lt;/linkText&gt;</ept><bpt id="bcf7d770-300c-4875-9443-c2a5906965d3">&lt;title&gt;</bpt><ept id="bcf7d770-300c-4875-9443-c2a5906965d3">&lt;/title&gt;</ept> on creating HBase geo-replication:</target>
+        </trans-unit>
+        <trans-unit id="01cb70b8-17fe-4098-b841-9ff49ecce5d5" xml:space="preserve">
+          <source><bpt id="0c5b9a71-a087-4bfa-b195-d97f5d78ec12">&lt;linkText&gt;</bpt>Configure a VPN connectivity between two virtual networks[hdinsight-hbase-geo-replication-vnet]<ept id="0c5b9a71-a087-4bfa-b195-d97f5d78ec12">&lt;/linkText&gt;</ept><bpt id="0c5b9a71-a087-4bfa-b195-d97f5d78ec12">&lt;title&gt;</bpt><ept id="0c5b9a71-a087-4bfa-b195-d97f5d78ec12">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0c5b9a71-a087-4bfa-b195-d97f5d78ec12">&lt;linkText&gt;</bpt>Configure a VPN connectivity between two virtual networks[hdinsight-hbase-geo-replication-vnet]<ept id="0c5b9a71-a087-4bfa-b195-d97f5d78ec12">&lt;/linkText&gt;</ept><bpt id="0c5b9a71-a087-4bfa-b195-d97f5d78ec12">&lt;title&gt;</bpt><ept id="0c5b9a71-a087-4bfa-b195-d97f5d78ec12">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ab04d3e-657a-4277-8064-71a92001c057" xml:space="preserve">
+          <source>Configure DNS for the virtual networks (this tutorial)</source>
+          <target state="new">Configure DNS for the virtual networks (this tutorial)</target>
+        </trans-unit>
+        <trans-unit id="d52cb8e3-8850-44e6-8fe6-9b27c93741a1" xml:space="preserve">
+          <source><bpt id="04ddfe81-f63e-4721-a642-69d7ee1e1ff1">&lt;linkText&gt;</bpt>Configure HBase geo replication[hdinsight-hbase-geo-replication]<ept id="04ddfe81-f63e-4721-a642-69d7ee1e1ff1">&lt;/linkText&gt;</ept><bpt id="04ddfe81-f63e-4721-a642-69d7ee1e1ff1">&lt;title&gt;</bpt><ept id="04ddfe81-f63e-4721-a642-69d7ee1e1ff1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="04ddfe81-f63e-4721-a642-69d7ee1e1ff1">&lt;linkText&gt;</bpt>Configure HBase geo replication[hdinsight-hbase-geo-replication]<ept id="04ddfe81-f63e-4721-a642-69d7ee1e1ff1">&lt;/linkText&gt;</ept><bpt id="04ddfe81-f63e-4721-a642-69d7ee1e1ff1">&lt;title&gt;</bpt><ept id="04ddfe81-f63e-4721-a642-69d7ee1e1ff1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a60215a-1675-4bbf-ad79-1cfa0bad8c8b" xml:space="preserve">
+          <source>The following diagram illustrates the two virtual networks you created in <bpt id="42078456-62b2-4a87-bd0a-17b9f0d5b32f">&lt;linkText&gt;</bpt>Configure a VPN connectivity between two virtual networks[hdinsight-hbase-geo-replication-vnet]<ept id="42078456-62b2-4a87-bd0a-17b9f0d5b32f">&lt;/linkText&gt;</ept><bpt id="42078456-62b2-4a87-bd0a-17b9f0d5b32f">&lt;title&gt;</bpt><ept id="42078456-62b2-4a87-bd0a-17b9f0d5b32f">&lt;/title&gt;</ept>:</source>
+          <target state="new">The following diagram illustrates the two virtual networks you created in <bpt id="42078456-62b2-4a87-bd0a-17b9f0d5b32f">&lt;linkText&gt;</bpt>Configure a VPN connectivity between two virtual networks[hdinsight-hbase-geo-replication-vnet]<ept id="42078456-62b2-4a87-bd0a-17b9f0d5b32f">&lt;/linkText&gt;</ept><bpt id="42078456-62b2-4a87-bd0a-17b9f0d5b32f">&lt;title&gt;</bpt><ept id="42078456-62b2-4a87-bd0a-17b9f0d5b32f">&lt;/title&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="3c5c0ad4-ab8b-4daf-8b44-6db5bd3e07f9" xml:space="preserve">
+          <source><bpt id="161c10da-8c80-498d-b152-3c8bf8ba8221">&lt;linkText&gt;</bpt>HDInsight HBase replication virtual network diagram<ept id="161c10da-8c80-498d-b152-3c8bf8ba8221">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="161c10da-8c80-498d-b152-3c8bf8ba8221">&lt;linkText&gt;</bpt>HDInsight HBase replication virtual network diagram<ept id="161c10da-8c80-498d-b152-3c8bf8ba8221">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebff8289-c6bc-4a3b-bd63-a63121136f98" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have the following:</source>
+          <target state="new">Before you begin this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="3730c247-ea44-4246-b610-4a29629ea6b9" xml:space="preserve">
+          <source><bpt id="f4b0895c-330e-4b51-9dbc-da39e9217a61">&lt;strong&gt;</bpt>An Azure subscription<ept id="f4b0895c-330e-4b51-9dbc-da39e9217a61">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f4b0895c-330e-4b51-9dbc-da39e9217a61">&lt;strong&gt;</bpt>An Azure subscription<ept id="f4b0895c-330e-4b51-9dbc-da39e9217a61">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb1ef207-c7fa-4973-a3dd-c00f6866e10b" xml:space="preserve">
+          <source>See <bpt id="938130f4-7f0b-42b9-a9de-a5462a3ae6f1">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="938130f4-7f0b-42b9-a9de-a5462a3ae6f1">&lt;/linkText&gt;</ept><bpt id="938130f4-7f0b-42b9-a9de-a5462a3ae6f1">&lt;title&gt;</bpt><ept id="938130f4-7f0b-42b9-a9de-a5462a3ae6f1">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="938130f4-7f0b-42b9-a9de-a5462a3ae6f1">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="938130f4-7f0b-42b9-a9de-a5462a3ae6f1">&lt;/linkText&gt;</ept><bpt id="938130f4-7f0b-42b9-a9de-a5462a3ae6f1">&lt;title&gt;</bpt><ept id="938130f4-7f0b-42b9-a9de-a5462a3ae6f1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eed4ccb4-cb4e-490c-86f0-d12d275aac79" xml:space="preserve">
+          <source><bpt id="e3107388-247b-4c79-a549-b4bb09283288">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="e3107388-247b-4c79-a549-b4bb09283288">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="e3107388-247b-4c79-a549-b4bb09283288">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="e3107388-247b-4c79-a549-b4bb09283288">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="038220ee-5232-4c9e-b2a1-3ffdacca24ca" xml:space="preserve">
+          <source>See <bpt id="e2aa9279-6302-4be3-bbcf-0233dd405e8f">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="e2aa9279-6302-4be3-bbcf-0233dd405e8f">&lt;/linkText&gt;</ept><bpt id="e2aa9279-6302-4be3-bbcf-0233dd405e8f">&lt;title&gt;</bpt><ept id="e2aa9279-6302-4be3-bbcf-0233dd405e8f">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="e2aa9279-6302-4be3-bbcf-0233dd405e8f">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="e2aa9279-6302-4be3-bbcf-0233dd405e8f">&lt;/linkText&gt;</ept><bpt id="e2aa9279-6302-4be3-bbcf-0233dd405e8f">&lt;title&gt;</bpt><ept id="e2aa9279-6302-4be3-bbcf-0233dd405e8f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6588816b-2b4e-4fee-9379-76eb99f2971b" xml:space="preserve">
+          <source>Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:</source>
+          <target state="new">Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="536569e5-0690-4484-98c4-b3b9c9f14e16" xml:space="preserve">
+          <source>If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:</source>
+          <target state="new">If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:</target>
+        </trans-unit>
+        <trans-unit id="60e1d80e-530a-40e0-a014-037e46aa730a" xml:space="preserve">
+          <source><bpt id="d72a5132-abd7-4bf8-8e5b-98a56fd00869">&lt;strong&gt;</bpt>Two Azure virtual network with VPN connectivity<ept id="d72a5132-abd7-4bf8-8e5b-98a56fd00869">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="d72a5132-abd7-4bf8-8e5b-98a56fd00869">&lt;strong&gt;</bpt>Two Azure virtual network with VPN connectivity<ept id="d72a5132-abd7-4bf8-8e5b-98a56fd00869">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c01328b-c53f-46ea-88b1-e764969ed8f0" xml:space="preserve">
+          <source>For instructions, see <bpt id="54ef7053-5b3a-48c8-92be-69ab5b286575">&lt;linkText&gt;</bpt>Configure a VPN connection between two Azure virtual networks[hdinsight-hbase-geo-replication-vnet]<ept id="54ef7053-5b3a-48c8-92be-69ab5b286575">&lt;/linkText&gt;</ept><bpt id="54ef7053-5b3a-48c8-92be-69ab5b286575">&lt;title&gt;</bpt><ept id="54ef7053-5b3a-48c8-92be-69ab5b286575">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="54ef7053-5b3a-48c8-92be-69ab5b286575">&lt;linkText&gt;</bpt>Configure a VPN connection between two Azure virtual networks[hdinsight-hbase-geo-replication-vnet]<ept id="54ef7053-5b3a-48c8-92be-69ab5b286575">&lt;/linkText&gt;</ept><bpt id="54ef7053-5b3a-48c8-92be-69ab5b286575">&lt;title&gt;</bpt><ept id="54ef7053-5b3a-48c8-92be-69ab5b286575">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f47480ea-676e-48bf-b358-a9818b147b8a" xml:space="preserve">
+          <source>Azure service names and virtual machine names must be unique.</source>
+          <target state="new">Azure service names and virtual machine names must be unique.</target>
+        </trans-unit>
+        <trans-unit id="934b7f0c-327b-4b86-96ce-315321a412c1" xml:space="preserve">
+          <source>The name used in this tutorial is Contoso-[Azure Service/VM name]-[EU/US].</source>
+          <target state="new">The name used in this tutorial is Contoso-[Azure Service/VM name]-[EU/US].</target>
+        </trans-unit>
+        <trans-unit id="14854ea9-347c-41d7-8b55-13502eb63a08" xml:space="preserve">
+          <source>For example, Contoso-VNet-EU is the Azure virtual network in the North Europe data center; Contoso-DNS-US is the DNS server VM in the East U.S. data center.</source>
+          <target state="new">For example, Contoso-VNet-EU is the Azure virtual network in the North Europe data center; Contoso-DNS-US is the DNS server VM in the East U.S. data center.</target>
+        </trans-unit>
+        <trans-unit id="4abc7dcd-c6b0-4dcc-b009-62e545b9fc98" xml:space="preserve">
+          <source>You must come up with your own names.</source>
+          <target state="new">You must come up with your own names.</target>
+        </trans-unit>
+        <trans-unit id="55bc214f-36e5-4355-853c-8fe4d14aa0fa" xml:space="preserve">
+          <source><bpt id="d5e8e199-a931-47f6-b78b-7e5c6a665deb">&lt;strong&gt;</bpt>To create a virtual machine within Contoso-VNet-EU, called Contoso-DNS-EU<ept id="d5e8e199-a931-47f6-b78b-7e5c6a665deb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d5e8e199-a931-47f6-b78b-7e5c6a665deb">&lt;strong&gt;</bpt>To create a virtual machine within Contoso-VNet-EU, called Contoso-DNS-EU<ept id="d5e8e199-a931-47f6-b78b-7e5c6a665deb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18d27d51-a10a-4fcb-98c1-15bfe5e66dea" xml:space="preserve">
+          <source>Click <bpt id="f1df5d37-3f30-4d83-b1e3-1bd86e12057e">&lt;strong&gt;</bpt>NEW<ept id="f1df5d37-3f30-4d83-b1e3-1bd86e12057e">&lt;/strong&gt;</ept>, <bpt id="45c97bb4-580a-4ead-9534-753b1cbfdd8d">&lt;strong&gt;</bpt>COMPUTE<ept id="45c97bb4-580a-4ead-9534-753b1cbfdd8d">&lt;/strong&gt;</ept>, <bpt id="4b1dd5e5-7573-4e20-b3d3-4e02bca981cc">&lt;strong&gt;</bpt>VIRTUAL MACHINE<ept id="4b1dd5e5-7573-4e20-b3d3-4e02bca981cc">&lt;/strong&gt;</ept>, <bpt id="d4d6a8a4-dd9c-4d9b-8d32-599c76f9cf0b">&lt;strong&gt;</bpt>FROM GALLERY<ept id="d4d6a8a4-dd9c-4d9b-8d32-599c76f9cf0b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f1df5d37-3f30-4d83-b1e3-1bd86e12057e">&lt;strong&gt;</bpt>NEW<ept id="f1df5d37-3f30-4d83-b1e3-1bd86e12057e">&lt;/strong&gt;</ept>, <bpt id="45c97bb4-580a-4ead-9534-753b1cbfdd8d">&lt;strong&gt;</bpt>COMPUTE<ept id="45c97bb4-580a-4ead-9534-753b1cbfdd8d">&lt;/strong&gt;</ept>, <bpt id="4b1dd5e5-7573-4e20-b3d3-4e02bca981cc">&lt;strong&gt;</bpt>VIRTUAL MACHINE<ept id="4b1dd5e5-7573-4e20-b3d3-4e02bca981cc">&lt;/strong&gt;</ept>, <bpt id="d4d6a8a4-dd9c-4d9b-8d32-599c76f9cf0b">&lt;strong&gt;</bpt>FROM GALLERY<ept id="d4d6a8a4-dd9c-4d9b-8d32-599c76f9cf0b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba02182f-a2aa-4227-9608-e423da635fce" xml:space="preserve">
+          <source>Choose <bpt id="2f18a0cc-0235-4243-a68d-607ea09b37b4">&lt;strong&gt;</bpt>Windows Server 2012 R2 Datacenter<ept id="2f18a0cc-0235-4243-a68d-607ea09b37b4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose <bpt id="2f18a0cc-0235-4243-a68d-607ea09b37b4">&lt;strong&gt;</bpt>Windows Server 2012 R2 Datacenter<ept id="2f18a0cc-0235-4243-a68d-607ea09b37b4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dad49c80-f902-4edd-9797-f32d0f9bcb6f" xml:space="preserve">
+          <source>Enter:</source>
+          <target state="new">Enter:</target>
+        </trans-unit>
+        <trans-unit id="15686f4c-fa84-452a-a4e9-ddf41ad8e773" xml:space="preserve">
+          <source><bpt id="7d073824-bd05-40d0-87f1-e9f879e358eb">&lt;strong&gt;</bpt>VIRTUAL MACHINE NAME<ept id="7d073824-bd05-40d0-87f1-e9f879e358eb">&lt;/strong&gt;</ept>: Contoso-DNS-EU</source>
+          <target state="new"><bpt id="7d073824-bd05-40d0-87f1-e9f879e358eb">&lt;strong&gt;</bpt>VIRTUAL MACHINE NAME<ept id="7d073824-bd05-40d0-87f1-e9f879e358eb">&lt;/strong&gt;</ept>: Contoso-DNS-EU</target>
+        </trans-unit>
+        <trans-unit id="66ab74d0-f73a-46ad-ae49-aeab4a294405" xml:space="preserve">
+          <source><bpt id="3325aef4-8e14-4157-a96b-d39060668f90">&lt;strong&gt;</bpt>NEW USER NAME<ept id="3325aef4-8e14-4157-a96b-d39060668f90">&lt;/strong&gt;</ept>: </source>
+          <target state="new"><bpt id="3325aef4-8e14-4157-a96b-d39060668f90">&lt;strong&gt;</bpt>NEW USER NAME<ept id="3325aef4-8e14-4157-a96b-d39060668f90">&lt;/strong&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="ef8ec1bd-00d1-4b56-8098-33d2506c6f47" xml:space="preserve">
+          <source><bpt id="2258530c-cd0f-46a4-9bde-71eb0413c5e2">&lt;strong&gt;</bpt>NEW PASSWORD<ept id="2258530c-cd0f-46a4-9bde-71eb0413c5e2">&lt;/strong&gt;</ept>: </source>
+          <target state="new"><bpt id="2258530c-cd0f-46a4-9bde-71eb0413c5e2">&lt;strong&gt;</bpt>NEW PASSWORD<ept id="2258530c-cd0f-46a4-9bde-71eb0413c5e2">&lt;/strong&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="6126f989-730e-49ad-a076-0d73568c1269" xml:space="preserve">
+          <source>Enter:</source>
+          <target state="new">Enter:</target>
+        </trans-unit>
+        <trans-unit id="ec6c13bd-1d85-446b-9318-0a282e6343f8" xml:space="preserve">
+          <source><bpt id="899024c5-0359-4ad1-b3a6-126ac64c1eab">&lt;strong&gt;</bpt>CLOUD SERVICE<ept id="899024c5-0359-4ad1-b3a6-126ac64c1eab">&lt;/strong&gt;</ept>: Create a new cloud service</source>
+          <target state="new"><bpt id="899024c5-0359-4ad1-b3a6-126ac64c1eab">&lt;strong&gt;</bpt>CLOUD SERVICE<ept id="899024c5-0359-4ad1-b3a6-126ac64c1eab">&lt;/strong&gt;</ept>: Create a new cloud service</target>
+        </trans-unit>
+        <trans-unit id="29b83246-5bea-4e76-952d-45e3df7bdc72" xml:space="preserve">
+          <source><bpt id="8fa3bd0c-6b18-4e9c-8af3-905f531d5ed5">&lt;strong&gt;</bpt>REGION/AFFINITY GROUP/VIRTUAL NETWORK<ept id="8fa3bd0c-6b18-4e9c-8af3-905f531d5ed5">&lt;/strong&gt;</ept>: (Select Contoso-VNet-EU)</source>
+          <target state="new"><bpt id="8fa3bd0c-6b18-4e9c-8af3-905f531d5ed5">&lt;strong&gt;</bpt>REGION/AFFINITY GROUP/VIRTUAL NETWORK<ept id="8fa3bd0c-6b18-4e9c-8af3-905f531d5ed5">&lt;/strong&gt;</ept>: (Select Contoso-VNet-EU)</target>
+        </trans-unit>
+        <trans-unit id="ae8a9c7d-bc1f-43ab-b635-60bc83d0d0a7" xml:space="preserve">
+          <source><bpt id="cf948d5f-fb5d-4734-9699-b149a70802d1">&lt;strong&gt;</bpt>VIRTUAL NETWORK SUBNETS<ept id="cf948d5f-fb5d-4734-9699-b149a70802d1">&lt;/strong&gt;</ept>: Subnet-1</source>
+          <target state="new"><bpt id="cf948d5f-fb5d-4734-9699-b149a70802d1">&lt;strong&gt;</bpt>VIRTUAL NETWORK SUBNETS<ept id="cf948d5f-fb5d-4734-9699-b149a70802d1">&lt;/strong&gt;</ept>: Subnet-1</target>
+        </trans-unit>
+        <trans-unit id="69ece657-ff07-47de-965d-fa52d2cabb8d" xml:space="preserve">
+          <source><bpt id="7a2d9bd4-b2cb-4e5f-810d-668d4ede4772">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="7a2d9bd4-b2cb-4e5f-810d-668d4ede4772">&lt;/strong&gt;</ept>: Use an automatically generated storage account</source>
+          <target state="new"><bpt id="7a2d9bd4-b2cb-4e5f-810d-668d4ede4772">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="7a2d9bd4-b2cb-4e5f-810d-668d4ede4772">&lt;/strong&gt;</ept>: Use an automatically generated storage account</target>
+        </trans-unit>
+        <trans-unit id="a23627b7-7a63-43ba-8b4d-2e176b465230" xml:space="preserve">
+          <source>The cloud service name will be the same as the virtual machine name.</source>
+          <target state="new">The cloud service name will be the same as the virtual machine name.</target>
+        </trans-unit>
+        <trans-unit id="989cc3d4-6b1e-4599-9445-38e8c7c0bdb3" xml:space="preserve">
+          <source>In this case, that is Contoso-DNS-EU.</source>
+          <target state="new">In this case, that is Contoso-DNS-EU.</target>
+        </trans-unit>
+        <trans-unit id="1dbaaca6-6898-4c15-8d4e-02f6c0e12f6b" xml:space="preserve">
+          <source>For subsequent virtual machines, I can choose to use the same cloud service.</source>
+          <target state="new">For subsequent virtual machines, I can choose to use the same cloud service.</target>
+        </trans-unit>
+        <trans-unit id="62e75b67-f0a1-4348-a6a8-c41080c7f3e8" xml:space="preserve">
+          <source>All the virtual machines under the same cloud service share the same virtual network and domain suffix.</source>
+          <target state="new">All the virtual machines under the same cloud service share the same virtual network and domain suffix.</target>
+        </trans-unit>
+        <trans-unit id="d4b5aeaa-e1ed-488e-b693-a929910173bb" xml:space="preserve">
+          <source>The storage account is used to store the virtual machine image file.</source>
+          <target state="new">The storage account is used to store the virtual machine image file.</target>
+        </trans-unit>
+        <trans-unit id="cb38d40e-1065-4af2-a804-89cfe78bfe03" xml:space="preserve">
+          <source><bpt id="c0d5e4c4-304d-4d00-821e-6eb54d7cf0fa">&lt;strong&gt;</bpt>ENDPOINTS<ept id="c0d5e4c4-304d-4d00-821e-6eb54d7cf0fa">&lt;/strong&gt;</ept>: (scroll down and select <bpt id="f8eafcd2-3d9d-4071-b38b-36dbb2055172">&lt;strong&gt;</bpt>DNS<ept id="f8eafcd2-3d9d-4071-b38b-36dbb2055172">&lt;/strong&gt;</ept>) </source>
+          <target state="new"><bpt id="c0d5e4c4-304d-4d00-821e-6eb54d7cf0fa">&lt;strong&gt;</bpt>ENDPOINTS<ept id="c0d5e4c4-304d-4d00-821e-6eb54d7cf0fa">&lt;/strong&gt;</ept>: (scroll down and select <bpt id="f8eafcd2-3d9d-4071-b38b-36dbb2055172">&lt;strong&gt;</bpt>DNS<ept id="f8eafcd2-3d9d-4071-b38b-36dbb2055172">&lt;/strong&gt;</ept>) </target>
+        </trans-unit>
+        <trans-unit id="fb1e296e-4efa-491a-8639-352cee1ea6b3" xml:space="preserve">
+          <source>After the virtual machine is created, find out the internal IP and external IP.</source>
+          <target state="new">After the virtual machine is created, find out the internal IP and external IP.</target>
+        </trans-unit>
+        <trans-unit id="e1ae25e3-6337-49a3-936d-26134ec4292f" xml:space="preserve">
+          <source>Click the virtual machine name, <bpt id="1a6250b9-64a2-4b28-83e5-1220be57c62d">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="1a6250b9-64a2-4b28-83e5-1220be57c62d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the virtual machine name, <bpt id="1a6250b9-64a2-4b28-83e5-1220be57c62d">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="1a6250b9-64a2-4b28-83e5-1220be57c62d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="812d529a-f2ce-421e-8ddb-2a2ba2e6f282" xml:space="preserve">
+          <source>Click <bpt id="882c3bab-49b0-41be-bdf2-d7452f62e78c">&lt;strong&gt;</bpt>DashBoard<ept id="882c3bab-49b0-41be-bdf2-d7452f62e78c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="882c3bab-49b0-41be-bdf2-d7452f62e78c">&lt;strong&gt;</bpt>DashBoard<ept id="882c3bab-49b0-41be-bdf2-d7452f62e78c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72a8aafd-a536-404d-a6f4-5b3afadb7fe3" xml:space="preserve">
+          <source>Write down:</source>
+          <target state="new">Write down:</target>
+        </trans-unit>
+        <trans-unit id="f78248cb-5918-4aa1-b337-cb8b63f36cf7" xml:space="preserve">
+          <source>PUBLIC VIRTUAL IP ADDRESS</source>
+          <target state="new">PUBLIC VIRTUAL IP ADDRESS</target>
+        </trans-unit>
+        <trans-unit id="353c7101-2e6c-4e2d-a98e-d4e0ed881028" xml:space="preserve">
+          <source>INTERNAL IP ADDRESS</source>
+          <target state="new">INTERNAL IP ADDRESS</target>
+        </trans-unit>
+        <trans-unit id="61357687-970a-42c6-97f9-528d907b28d6" xml:space="preserve">
+          <source><bpt id="8d7b54ed-6f28-4526-bc64-449c185ab833">&lt;strong&gt;</bpt>To create a virtual machine within Contoso-VNet-US, called Contoso-DNS-US<ept id="8d7b54ed-6f28-4526-bc64-449c185ab833">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="8d7b54ed-6f28-4526-bc64-449c185ab833">&lt;strong&gt;</bpt>To create a virtual machine within Contoso-VNet-US, called Contoso-DNS-US<ept id="8d7b54ed-6f28-4526-bc64-449c185ab833">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="9a20c72c-d8db-48f3-a0f4-af3d908a085c" xml:space="preserve">
+          <source>Repeat the same procedure to create a virtual machine with the following values:</source>
+          <target state="new">Repeat the same procedure to create a virtual machine with the following values:</target>
+        </trans-unit>
+        <trans-unit id="e67e3182-9ca3-4627-b1ad-0aa33480ab8a" xml:space="preserve">
+          <source>VIRTUAL MACHINE NAME: Contoso-DNS-US</source>
+          <target state="new">VIRTUAL MACHINE NAME: Contoso-DNS-US</target>
+        </trans-unit>
+        <trans-unit id="cb585f93-561f-4e81-9d17-eb454700475e" xml:space="preserve">
+          <source>REGION/AFFINITY GROUP/VIRTUAL NETWORK: Select Contoso-VNET-US</source>
+          <target state="new">REGION/AFFINITY GROUP/VIRTUAL NETWORK: Select Contoso-VNET-US</target>
+        </trans-unit>
+        <trans-unit id="2498c0e1-e0c5-4636-806d-37eaaa3d5802" xml:space="preserve">
+          <source>VIRTUAL NETWORK SUBNETS: Subnet-1</source>
+          <target state="new">VIRTUAL NETWORK SUBNETS: Subnet-1</target>
+        </trans-unit>
+        <trans-unit id="c4156bbb-aada-4cf3-8c34-42b951d991b9" xml:space="preserve">
+          <source>STORAGE ACCOUNT: Use an automatically generated storage account</source>
+          <target state="new">STORAGE ACCOUNT: Use an automatically generated storage account</target>
+        </trans-unit>
+        <trans-unit id="854f1355-a17d-4955-aa45-257f4fc29539" xml:space="preserve">
+          <source>ENDPOINTS: (select DNS)</source>
+          <target state="new">ENDPOINTS: (select DNS)</target>
+        </trans-unit>
+        <trans-unit id="c3d8b3a0-5d3a-44ea-a8d8-a7d7f54e600e" xml:space="preserve">
+          <source>DNS servers requires static IP addresses.</source>
+          <target state="new">DNS servers requires static IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="7901ae60-db4f-4684-82fe-15f00df52682" xml:space="preserve">
+          <source>This step can't be done from the Azure portal.</source>
+          <target state="new">This step can't be done from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="1f680280-2295-4873-987c-4a8745080c35" xml:space="preserve">
+          <source>You will use Azure PowerShell.</source>
+          <target state="new">You will use Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="969c91c0-e5b1-4194-9b19-25dc627152d9" xml:space="preserve">
+          <source><bpt id="df88a45e-e1bc-4207-879b-911f8c59f363">&lt;strong&gt;</bpt>To configure static IP address for the two virtual machines<ept id="df88a45e-e1bc-4207-879b-911f8c59f363">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="df88a45e-e1bc-4207-879b-911f8c59f363">&lt;strong&gt;</bpt>To configure static IP address for the two virtual machines<ept id="df88a45e-e1bc-4207-879b-911f8c59f363">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ac84b79-18cf-4d6d-a731-318a944c0455" xml:space="preserve">
+          <source>Open Windows PowerShell ISE.</source>
+          <target state="new">Open Windows PowerShell ISE.</target>
+        </trans-unit>
+        <trans-unit id="aeadb8df-0548-4630-961b-9e88f2a73d0c" xml:space="preserve">
+          <source>Run the following cmdlets.</source>
+          <target state="new">Run the following cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="af6ab010-c6df-42a0-9f43-9644fdfe4712" xml:space="preserve">
+          <source>ServiceName is the cloud service name.</source>
+          <target state="new">ServiceName is the cloud service name.</target>
+        </trans-unit>
+        <trans-unit id="46ab2cf2-056f-4e0e-9b14-e3745bc5f8ed" xml:space="preserve">
+          <source>Because the DNS server is the first virtual machine of the cloud service, the cloud service name is the same as the virtual machine name.</source>
+          <target state="new">Because the DNS server is the first virtual machine of the cloud service, the cloud service name is the same as the virtual machine name.</target>
+        </trans-unit>
+        <trans-unit id="65216d57-3f9f-40ca-a500-86ad59dbaa93" xml:space="preserve">
+          <source>You might need to update ServiceName and Name to match the names that you have.</source>
+          <target state="new">You might need to update ServiceName and Name to match the names that you have.</target>
+        </trans-unit>
+        <trans-unit id="261d2ba9-0b5f-4183-97e6-bcd594a66941" xml:space="preserve">
+          <source><bpt id="18da3e78-8d38-4816-b715-dc3ee8445479">&lt;strong&gt;</bpt>To add the DNS Server role for Contoso-DNS-EU<ept id="18da3e78-8d38-4816-b715-dc3ee8445479">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="18da3e78-8d38-4816-b715-dc3ee8445479">&lt;strong&gt;</bpt>To add the DNS Server role for Contoso-DNS-EU<ept id="18da3e78-8d38-4816-b715-dc3ee8445479">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3b4481d-671b-401b-8703-c616c1c071ca" xml:space="preserve">
+          <source>From the Azure portal, click <bpt id="22a3f971-0524-4071-bd44-c9a72e2793e2">&lt;strong&gt;</bpt>Virtual Machines<ept id="22a3f971-0524-4071-bd44-c9a72e2793e2">&lt;/strong&gt;</ept> on the left.</source>
+          <target state="new">From the Azure portal, click <bpt id="22a3f971-0524-4071-bd44-c9a72e2793e2">&lt;strong&gt;</bpt>Virtual Machines<ept id="22a3f971-0524-4071-bd44-c9a72e2793e2">&lt;/strong&gt;</ept> on the left.</target>
+        </trans-unit>
+        <trans-unit id="7dc2cab5-4a0e-4516-8c1b-0ac87e55f838" xml:space="preserve">
+          <source>Click <bpt id="817e82b4-87d4-46c0-9a8d-eccbf21aa6b8">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="817e82b4-87d4-46c0-9a8d-eccbf21aa6b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="817e82b4-87d4-46c0-9a8d-eccbf21aa6b8">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="817e82b4-87d4-46c0-9a8d-eccbf21aa6b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="028e432c-9b4e-4a98-abda-047f69a9e924" xml:space="preserve">
+          <source>Click <bpt id="a064d76f-f121-438e-9a5b-7250249f4b64">&lt;strong&gt;</bpt>DASHBOARD<ept id="a064d76f-f121-438e-9a5b-7250249f4b64">&lt;/strong&gt;</ept> from the top.</source>
+          <target state="new">Click <bpt id="a064d76f-f121-438e-9a5b-7250249f4b64">&lt;strong&gt;</bpt>DASHBOARD<ept id="a064d76f-f121-438e-9a5b-7250249f4b64">&lt;/strong&gt;</ept> from the top.</target>
+        </trans-unit>
+        <trans-unit id="53b035af-8199-478d-87ae-7b9ff3a14950" xml:space="preserve">
+          <source>Click <bpt id="f2a48189-cd89-4e23-8b45-e2629e849b4f">&lt;strong&gt;</bpt>CONNECT<ept id="f2a48189-cd89-4e23-8b45-e2629e849b4f">&lt;/strong&gt;</ept> from the bottom and follow the instructions to connect to the virtual machine via RDP.</source>
+          <target state="new">Click <bpt id="f2a48189-cd89-4e23-8b45-e2629e849b4f">&lt;strong&gt;</bpt>CONNECT<ept id="f2a48189-cd89-4e23-8b45-e2629e849b4f">&lt;/strong&gt;</ept> from the bottom and follow the instructions to connect to the virtual machine via RDP.</target>
+        </trans-unit>
+        <trans-unit id="919b660c-bdc5-40c9-bea0-f104fee05bd4" xml:space="preserve">
+          <source>Within the RDP session, click the Windows button on the bottom left corner to open the Start screen.</source>
+          <target state="new">Within the RDP session, click the Windows button on the bottom left corner to open the Start screen.</target>
+        </trans-unit>
+        <trans-unit id="f54f58bb-94bc-4b2a-a727-ce7e6ecc0f96" xml:space="preserve">
+          <source>Click the <bpt id="5baa5819-ffc6-4653-a0fe-d8eb525021bd">&lt;strong&gt;</bpt>Server Manager<ept id="5baa5819-ffc6-4653-a0fe-d8eb525021bd">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new">Click the <bpt id="5baa5819-ffc6-4653-a0fe-d8eb525021bd">&lt;strong&gt;</bpt>Server Manager<ept id="5baa5819-ffc6-4653-a0fe-d8eb525021bd">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+        <trans-unit id="d9117f3b-1371-4633-89f4-a0b9d8517b11" xml:space="preserve">
+          <source>Click <bpt id="f4a87d52-9783-4449-a50e-c8e660703f95">&lt;strong&gt;</bpt>Add Roles and Features<ept id="f4a87d52-9783-4449-a50e-c8e660703f95">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f4a87d52-9783-4449-a50e-c8e660703f95">&lt;strong&gt;</bpt>Add Roles and Features<ept id="f4a87d52-9783-4449-a50e-c8e660703f95">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86ce6885-dcc7-49f8-a497-6c9950fbb597" xml:space="preserve">
+          <source>Click <bpt id="8c3e7d20-3037-4a3b-b1b2-f817f60ee38b">&lt;strong&gt;</bpt>Next<ept id="8c3e7d20-3037-4a3b-b1b2-f817f60ee38b">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="8c3e7d20-3037-4a3b-b1b2-f817f60ee38b">&lt;strong&gt;</bpt>Next<ept id="8c3e7d20-3037-4a3b-b1b2-f817f60ee38b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef9f97b0-b3d3-4e8d-9497-75fdf726865b" xml:space="preserve">
+          <source>Select <bpt id="4fbfa244-0d90-4ca3-9066-a710602c3fd5">&lt;strong&gt;</bpt>Role-based or feature-based installation<ept id="4fbfa244-0d90-4ca3-9066-a710602c3fd5">&lt;/strong&gt;</ept>, and then click <bpt id="c13c4a67-92c1-4432-88d5-b5ce3974b8e6">&lt;strong&gt;</bpt>Next<ept id="c13c4a67-92c1-4432-88d5-b5ce3974b8e6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="4fbfa244-0d90-4ca3-9066-a710602c3fd5">&lt;strong&gt;</bpt>Role-based or feature-based installation<ept id="4fbfa244-0d90-4ca3-9066-a710602c3fd5">&lt;/strong&gt;</ept>, and then click <bpt id="c13c4a67-92c1-4432-88d5-b5ce3974b8e6">&lt;strong&gt;</bpt>Next<ept id="c13c4a67-92c1-4432-88d5-b5ce3974b8e6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1190c516-634a-4103-aa10-01c9abe3477e" xml:space="preserve">
+          <source>Select your DNS virtual machine (it shall be highlighted already), and then click <bpt id="b3443fcf-c873-4ccc-9fec-4d7cadcf419a">&lt;strong&gt;</bpt>Next<ept id="b3443fcf-c873-4ccc-9fec-4d7cadcf419a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select your DNS virtual machine (it shall be highlighted already), and then click <bpt id="b3443fcf-c873-4ccc-9fec-4d7cadcf419a">&lt;strong&gt;</bpt>Next<ept id="b3443fcf-c873-4ccc-9fec-4d7cadcf419a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="42c36bc7-3d49-49c3-95be-67697e49243a" xml:space="preserve">
+          <source>Check <bpt id="f3cba5f6-1b38-48c4-b782-87091d9db986">&lt;strong&gt;</bpt>DNS Server<ept id="f3cba5f6-1b38-48c4-b782-87091d9db986">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Check <bpt id="f3cba5f6-1b38-48c4-b782-87091d9db986">&lt;strong&gt;</bpt>DNS Server<ept id="f3cba5f6-1b38-48c4-b782-87091d9db986">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c9533ea-0d2f-4ab6-bc7c-8799fe115edd" xml:space="preserve">
+          <source>Click <bpt id="84273d54-f4f9-4672-bb2d-27f41142031c">&lt;strong&gt;</bpt>Add Features<ept id="84273d54-f4f9-4672-bb2d-27f41142031c">&lt;/strong&gt;</ept>, and then click <bpt id="f5cfb9dd-a2c4-4931-8d94-df599948648b">&lt;strong&gt;</bpt>Continue<ept id="f5cfb9dd-a2c4-4931-8d94-df599948648b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="84273d54-f4f9-4672-bb2d-27f41142031c">&lt;strong&gt;</bpt>Add Features<ept id="84273d54-f4f9-4672-bb2d-27f41142031c">&lt;/strong&gt;</ept>, and then click <bpt id="f5cfb9dd-a2c4-4931-8d94-df599948648b">&lt;strong&gt;</bpt>Continue<ept id="f5cfb9dd-a2c4-4931-8d94-df599948648b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c757850-3d94-406f-8637-5a1afdf28d86" xml:space="preserve">
+          <source>Click <bpt id="ded7fbe1-ad69-44dd-a58a-6d23d6244018">&lt;strong&gt;</bpt>Next<ept id="ded7fbe1-ad69-44dd-a58a-6d23d6244018">&lt;/strong&gt;</ept> three times, and then click <bpt id="830d643d-1758-4abf-8ebd-6e9f9491922b">&lt;strong&gt;</bpt>Install<ept id="830d643d-1758-4abf-8ebd-6e9f9491922b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ded7fbe1-ad69-44dd-a58a-6d23d6244018">&lt;strong&gt;</bpt>Next<ept id="ded7fbe1-ad69-44dd-a58a-6d23d6244018">&lt;/strong&gt;</ept> three times, and then click <bpt id="830d643d-1758-4abf-8ebd-6e9f9491922b">&lt;strong&gt;</bpt>Install<ept id="830d643d-1758-4abf-8ebd-6e9f9491922b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a7f8c06-6531-4419-951d-1b6aae59e98e" xml:space="preserve">
+          <source><bpt id="20835bff-cabd-47e9-90c7-6dffdd1ddb1c">&lt;strong&gt;</bpt>To add the DNS Server role for Contoso-DNS-US<ept id="20835bff-cabd-47e9-90c7-6dffdd1ddb1c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="20835bff-cabd-47e9-90c7-6dffdd1ddb1c">&lt;strong&gt;</bpt>To add the DNS Server role for Contoso-DNS-US<ept id="20835bff-cabd-47e9-90c7-6dffdd1ddb1c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="335c8c56-ebff-4cb4-a070-bca2ddf9b1bf" xml:space="preserve">
+          <source>Repeat the steps to add DNS role to <bpt id="9a68858d-55a4-4009-b74c-7e192debba2c">&lt;strong&gt;</bpt>Contoso-DNS-US<ept id="9a68858d-55a4-4009-b74c-7e192debba2c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Repeat the steps to add DNS role to <bpt id="9a68858d-55a4-4009-b74c-7e192debba2c">&lt;strong&gt;</bpt>Contoso-DNS-US<ept id="9a68858d-55a4-4009-b74c-7e192debba2c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a91e507-b8f2-4490-8fd6-b69aef40e8b7" xml:space="preserve">
+          <source><bpt id="9cd379fd-b2f2-4103-ae4b-e26c948fa50e">&lt;strong&gt;</bpt>To register the two DNS servers<ept id="9cd379fd-b2f2-4103-ae4b-e26c948fa50e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9cd379fd-b2f2-4103-ae4b-e26c948fa50e">&lt;strong&gt;</bpt>To register the two DNS servers<ept id="9cd379fd-b2f2-4103-ae4b-e26c948fa50e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f22225d-ec6b-40c3-9567-d09671e3bc92" xml:space="preserve">
+          <source>From the Azure portal, click <bpt id="1696a2d4-4d83-462b-b28d-737b6a6b097e">&lt;strong&gt;</bpt>NEW<ept id="1696a2d4-4d83-462b-b28d-737b6a6b097e">&lt;/strong&gt;</ept>, <bpt id="c2157e41-77a7-4a7a-af9f-148da2dbce14">&lt;strong&gt;</bpt>NETWORK SERVICES<ept id="c2157e41-77a7-4a7a-af9f-148da2dbce14">&lt;/strong&gt;</ept>, <bpt id="fd17c69c-198d-47db-bcb1-9c3ba60c9af9">&lt;strong&gt;</bpt>VIRTUAL NETWORK<ept id="fd17c69c-198d-47db-bcb1-9c3ba60c9af9">&lt;/strong&gt;</ept>, <bpt id="611fb5c7-25f9-4bbd-b30e-3bda7ebfe3f1">&lt;strong&gt;</bpt>REGISTER DNS SERVER<ept id="611fb5c7-25f9-4bbd-b30e-3bda7ebfe3f1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure portal, click <bpt id="1696a2d4-4d83-462b-b28d-737b6a6b097e">&lt;strong&gt;</bpt>NEW<ept id="1696a2d4-4d83-462b-b28d-737b6a6b097e">&lt;/strong&gt;</ept>, <bpt id="c2157e41-77a7-4a7a-af9f-148da2dbce14">&lt;strong&gt;</bpt>NETWORK SERVICES<ept id="c2157e41-77a7-4a7a-af9f-148da2dbce14">&lt;/strong&gt;</ept>, <bpt id="fd17c69c-198d-47db-bcb1-9c3ba60c9af9">&lt;strong&gt;</bpt>VIRTUAL NETWORK<ept id="fd17c69c-198d-47db-bcb1-9c3ba60c9af9">&lt;/strong&gt;</ept>, <bpt id="611fb5c7-25f9-4bbd-b30e-3bda7ebfe3f1">&lt;strong&gt;</bpt>REGISTER DNS SERVER<ept id="611fb5c7-25f9-4bbd-b30e-3bda7ebfe3f1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8551470f-59d8-472d-9b24-68c7fb3e201d" xml:space="preserve">
+          <source>Enter:</source>
+          <target state="new">Enter:</target>
+        </trans-unit>
+        <trans-unit id="cf870e62-3f7d-437f-9fe5-90f27f0f3819" xml:space="preserve">
+          <source><bpt id="41fac86e-d277-4b31-955f-7189d39e7599">&lt;strong&gt;</bpt>NAME<ept id="41fac86e-d277-4b31-955f-7189d39e7599">&lt;/strong&gt;</ept>: Contoso-DNS-EU</source>
+          <target state="new"><bpt id="41fac86e-d277-4b31-955f-7189d39e7599">&lt;strong&gt;</bpt>NAME<ept id="41fac86e-d277-4b31-955f-7189d39e7599">&lt;/strong&gt;</ept>: Contoso-DNS-EU</target>
+        </trans-unit>
+        <trans-unit id="6a38e853-6b13-4d60-b66a-55cad1d752ac" xml:space="preserve">
+          <source><bpt id="aa04b14d-741c-4c00-987e-69270fef618c">&lt;strong&gt;</bpt>DNS SERVER IP ADDRESS<ept id="aa04b14d-741c-4c00-987e-69270fef618c">&lt;/strong&gt;</ept>: 10.1.0.4 – the IP address must matching the DNS server virtual machine IP address.</source>
+          <target state="new"><bpt id="aa04b14d-741c-4c00-987e-69270fef618c">&lt;strong&gt;</bpt>DNS SERVER IP ADDRESS<ept id="aa04b14d-741c-4c00-987e-69270fef618c">&lt;/strong&gt;</ept>: 10.1.0.4 – the IP address must matching the DNS server virtual machine IP address.</target>
+        </trans-unit>
+        <trans-unit id="d9a46bc1-9886-4c93-a881-361e5bdd0fa3" xml:space="preserve">
+          <source>Repeat the process to register Contoso-DNS-US with the following settings:</source>
+          <target state="new">Repeat the process to register Contoso-DNS-US with the following settings:</target>
+        </trans-unit>
+        <trans-unit id="520badf8-7832-4b5e-95ed-b2510ab96201" xml:space="preserve">
+          <source><bpt id="551fca48-719f-4017-8551-1f3e100765bb">&lt;strong&gt;</bpt>NAME<ept id="551fca48-719f-4017-8551-1f3e100765bb">&lt;/strong&gt;</ept>: Contoso-DNS-US</source>
+          <target state="new"><bpt id="551fca48-719f-4017-8551-1f3e100765bb">&lt;strong&gt;</bpt>NAME<ept id="551fca48-719f-4017-8551-1f3e100765bb">&lt;/strong&gt;</ept>: Contoso-DNS-US</target>
+        </trans-unit>
+        <trans-unit id="720dde87-6141-44e0-b378-79a13915c6a7" xml:space="preserve">
+          <source><bpt id="25245f09-f319-486b-9cb1-4c9a550190dd">&lt;strong&gt;</bpt>DNS SERVER IP ADDRESS<ept id="25245f09-f319-486b-9cb1-4c9a550190dd">&lt;/strong&gt;</ept>: 10.2.0.4</source>
+          <target state="new"><bpt id="25245f09-f319-486b-9cb1-4c9a550190dd">&lt;strong&gt;</bpt>DNS SERVER IP ADDRESS<ept id="25245f09-f319-486b-9cb1-4c9a550190dd">&lt;/strong&gt;</ept>: 10.2.0.4</target>
+        </trans-unit>
+        <trans-unit id="4f8db8a4-0d17-490c-ad88-72d67e31f477" xml:space="preserve">
+          <source><bpt id="6dbde7ea-2955-44ae-8dee-511036a03d97">&lt;strong&gt;</bpt>To assign the two DNS servers to the two virtual networks<ept id="6dbde7ea-2955-44ae-8dee-511036a03d97">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6dbde7ea-2955-44ae-8dee-511036a03d97">&lt;strong&gt;</bpt>To assign the two DNS servers to the two virtual networks<ept id="6dbde7ea-2955-44ae-8dee-511036a03d97">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3e1bd29-c0da-4d90-81c3-12f1e1a01a12" xml:space="preserve">
+          <source>Click <bpt id="a01da7ee-6723-4daf-8762-99a92ab4885c">&lt;strong&gt;</bpt>Networks<ept id="a01da7ee-6723-4daf-8762-99a92ab4885c">&lt;/strong&gt;</ept> from the left pane in the Management portal.</source>
+          <target state="new">Click <bpt id="a01da7ee-6723-4daf-8762-99a92ab4885c">&lt;strong&gt;</bpt>Networks<ept id="a01da7ee-6723-4daf-8762-99a92ab4885c">&lt;/strong&gt;</ept> from the left pane in the Management portal.</target>
+        </trans-unit>
+        <trans-unit id="1e3d092b-901d-47ce-aefe-d55f4be9b255" xml:space="preserve">
+          <source>Click <bpt id="981eb7aa-40c4-42e1-9205-aec11230fdb4">&lt;strong&gt;</bpt>Contoso-VNet-EU<ept id="981eb7aa-40c4-42e1-9205-aec11230fdb4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="981eb7aa-40c4-42e1-9205-aec11230fdb4">&lt;strong&gt;</bpt>Contoso-VNet-EU<ept id="981eb7aa-40c4-42e1-9205-aec11230fdb4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0dde377-c279-459a-9926-af066eea85ce" xml:space="preserve">
+          <source>Click <bpt id="275c342d-d1e3-444b-a490-68224ff69f8b">&lt;strong&gt;</bpt>CONFIGURE<ept id="275c342d-d1e3-444b-a490-68224ff69f8b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="275c342d-d1e3-444b-a490-68224ff69f8b">&lt;strong&gt;</bpt>CONFIGURE<ept id="275c342d-d1e3-444b-a490-68224ff69f8b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62debe86-3a03-4d37-bfeb-fe29132a8d11" xml:space="preserve">
+          <source>Select <bpt id="f120e8e5-fb04-4e32-b35d-7df18b4807bf">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="f120e8e5-fb04-4e32-b35d-7df18b4807bf">&lt;/strong&gt;</ept> in the <bpt id="bc5d6a85-1c23-4221-841d-f3ea2cb7aef3">&lt;strong&gt;</bpt>dns servers<ept id="bc5d6a85-1c23-4221-841d-f3ea2cb7aef3">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Select <bpt id="f120e8e5-fb04-4e32-b35d-7df18b4807bf">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="f120e8e5-fb04-4e32-b35d-7df18b4807bf">&lt;/strong&gt;</ept> in the <bpt id="bc5d6a85-1c23-4221-841d-f3ea2cb7aef3">&lt;strong&gt;</bpt>dns servers<ept id="bc5d6a85-1c23-4221-841d-f3ea2cb7aef3">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="736fad55-3967-4740-8bff-2c9310bbce95" xml:space="preserve">
+          <source>Click <bpt id="9e618842-37f1-459d-ae6f-83df0362e05a">&lt;strong&gt;</bpt>SAVE<ept id="9e618842-37f1-459d-ae6f-83df0362e05a">&lt;/strong&gt;</ept> on the bottom of the page, and click <bpt id="268a3e44-a55a-4a2e-8113-3a02b5a40bc2">&lt;strong&gt;</bpt>Yes<ept id="268a3e44-a55a-4a2e-8113-3a02b5a40bc2">&lt;/strong&gt;</ept> to confirm.</source>
+          <target state="new">Click <bpt id="9e618842-37f1-459d-ae6f-83df0362e05a">&lt;strong&gt;</bpt>SAVE<ept id="9e618842-37f1-459d-ae6f-83df0362e05a">&lt;/strong&gt;</ept> on the bottom of the page, and click <bpt id="268a3e44-a55a-4a2e-8113-3a02b5a40bc2">&lt;strong&gt;</bpt>Yes<ept id="268a3e44-a55a-4a2e-8113-3a02b5a40bc2">&lt;/strong&gt;</ept> to confirm.</target>
+        </trans-unit>
+        <trans-unit id="f95694ac-202e-4a84-8ffe-623e819daa02" xml:space="preserve">
+          <source>Repeat the process to assign the <bpt id="d4c87367-5905-4fdf-b2ef-32b4b61ff3a6">&lt;strong&gt;</bpt>Contoso-DNS-US<ept id="d4c87367-5905-4fdf-b2ef-32b4b61ff3a6">&lt;/strong&gt;</ept> DNS server to the <bpt id="a7d38461-e223-4430-9d01-8823b78227e5">&lt;strong&gt;</bpt>Contoso-VNet-US<ept id="a7d38461-e223-4430-9d01-8823b78227e5">&lt;/strong&gt;</ept> virtual network.</source>
+          <target state="new">Repeat the process to assign the <bpt id="d4c87367-5905-4fdf-b2ef-32b4b61ff3a6">&lt;strong&gt;</bpt>Contoso-DNS-US<ept id="d4c87367-5905-4fdf-b2ef-32b4b61ff3a6">&lt;/strong&gt;</ept> DNS server to the <bpt id="a7d38461-e223-4430-9d01-8823b78227e5">&lt;strong&gt;</bpt>Contoso-VNet-US<ept id="a7d38461-e223-4430-9d01-8823b78227e5">&lt;/strong&gt;</ept> virtual network.</target>
+        </trans-unit>
+        <trans-unit id="e1acae7b-df19-4d2c-9740-d3634b0078f5" xml:space="preserve">
+          <source>All the virtual machines that have been deployed to the virtual networks must be rebooted to update the DNS server configuration.</source>
+          <target state="new">All the virtual machines that have been deployed to the virtual networks must be rebooted to update the DNS server configuration.</target>
+        </trans-unit>
+        <trans-unit id="8b91519f-bb70-4e09-9f15-f2778bb2c6f8" xml:space="preserve">
+          <source><bpt id="8a9b10d3-8a4b-420a-828f-039ba40f7636">&lt;strong&gt;</bpt>To reboot the virtual machines<ept id="8a9b10d3-8a4b-420a-828f-039ba40f7636">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8a9b10d3-8a4b-420a-828f-039ba40f7636">&lt;strong&gt;</bpt>To reboot the virtual machines<ept id="8a9b10d3-8a4b-420a-828f-039ba40f7636">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6696ed90-5fc8-4732-97b8-b4bfcc9fb7a1" xml:space="preserve">
+          <source>From the Azure portal, click <bpt id="df821b65-c0d2-47eb-b801-fec0386555ba">&lt;strong&gt;</bpt>Virtual Machines<ept id="df821b65-c0d2-47eb-b801-fec0386555ba">&lt;/strong&gt;</ept> on the left.</source>
+          <target state="new">From the Azure portal, click <bpt id="df821b65-c0d2-47eb-b801-fec0386555ba">&lt;strong&gt;</bpt>Virtual Machines<ept id="df821b65-c0d2-47eb-b801-fec0386555ba">&lt;/strong&gt;</ept> on the left.</target>
+        </trans-unit>
+        <trans-unit id="e7bd93d4-893b-4c42-8dd4-a4054b67cfdf" xml:space="preserve">
+          <source>Click <bpt id="5aa93131-0a5f-4b5f-86b1-d47c6d8a6a47">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="5aa93131-0a5f-4b5f-86b1-d47c6d8a6a47">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5aa93131-0a5f-4b5f-86b1-d47c6d8a6a47">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="5aa93131-0a5f-4b5f-86b1-d47c6d8a6a47">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27fad4af-fb7f-49f3-a02b-669ea37ec9ba" xml:space="preserve">
+          <source>Click <bpt id="92fed7c3-5342-419f-9715-1a51b45aca85">&lt;strong&gt;</bpt>Dashboard<ept id="92fed7c3-5342-419f-9715-1a51b45aca85">&lt;/strong&gt;</ept> from the top.</source>
+          <target state="new">Click <bpt id="92fed7c3-5342-419f-9715-1a51b45aca85">&lt;strong&gt;</bpt>Dashboard<ept id="92fed7c3-5342-419f-9715-1a51b45aca85">&lt;/strong&gt;</ept> from the top.</target>
+        </trans-unit>
+        <trans-unit id="0644239e-a972-4c1e-86c2-e1764e8bbaad" xml:space="preserve">
+          <source>Click <bpt id="4fb486ee-3306-44b5-8856-ec154860c029">&lt;strong&gt;</bpt>RESTART<ept id="4fb486ee-3306-44b5-8856-ec154860c029">&lt;/strong&gt;</ept> on the bottom.</source>
+          <target state="new">Click <bpt id="4fb486ee-3306-44b5-8856-ec154860c029">&lt;strong&gt;</bpt>RESTART<ept id="4fb486ee-3306-44b5-8856-ec154860c029">&lt;/strong&gt;</ept> on the bottom.</target>
+        </trans-unit>
+        <trans-unit id="35e51329-d268-46eb-97be-9a8010a9e5e1" xml:space="preserve">
+          <source>Repeat the same steps to reboot <bpt id="c50bbf42-5f5c-460c-93ec-6ea429dee409">&lt;strong&gt;</bpt>Contoso-DNS-US<ept id="c50bbf42-5f5c-460c-93ec-6ea429dee409">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Repeat the same steps to reboot <bpt id="c50bbf42-5f5c-460c-93ec-6ea429dee409">&lt;strong&gt;</bpt>Contoso-DNS-US<ept id="c50bbf42-5f5c-460c-93ec-6ea429dee409">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7d3d43d-d38c-49b7-afb3-8c605aa865ac" xml:space="preserve">
+          <source>The DNS server on each virtual network can only resolve DNS names within that virtual network.</source>
+          <target state="new">The DNS server on each virtual network can only resolve DNS names within that virtual network.</target>
+        </trans-unit>
+        <trans-unit id="af149dfc-d0de-4271-8040-b70766050491" xml:space="preserve">
+          <source>You need to configure a conditional forwarder to point to the peer DNS server for name resolutions in the peer virtual network.</source>
+          <target state="new">You need to configure a conditional forwarder to point to the peer DNS server for name resolutions in the peer virtual network.</target>
+        </trans-unit>
+        <trans-unit id="1da72f00-85e0-4bc0-aa3e-ea8b04c63c4d" xml:space="preserve">
+          <source>To configure conditional forwarder, you need to know the domain suffixes of the two DNS servers.</source>
+          <target state="new">To configure conditional forwarder, you need to know the domain suffixes of the two DNS servers.</target>
+        </trans-unit>
+        <trans-unit id="84e4a653-0c61-4541-a84b-a68516e7f791" xml:space="preserve">
+          <source>The DNS suffixes can be different depending on the Cloud Services configuration you used when you created the virtual machines.</source>
+          <target state="new">The DNS suffixes can be different depending on the Cloud Services configuration you used when you created the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="4812cfbf-ebba-4f38-970a-37f428b3b77a" xml:space="preserve">
+          <source>For each DNS suffix used in the virtual network, you must add a conditional forwarder.</source>
+          <target state="new">For each DNS suffix used in the virtual network, you must add a conditional forwarder.</target>
+        </trans-unit>
+        <trans-unit id="1b1db888-cdcf-4df3-a53c-396e147ffd25" xml:space="preserve">
+          <source><bpt id="3c997f50-7d6e-43c7-b69d-c32cf10b2b24">&lt;strong&gt;</bpt>To find the domain suffixes of the two DNS servers<ept id="3c997f50-7d6e-43c7-b69d-c32cf10b2b24">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3c997f50-7d6e-43c7-b69d-c32cf10b2b24">&lt;strong&gt;</bpt>To find the domain suffixes of the two DNS servers<ept id="3c997f50-7d6e-43c7-b69d-c32cf10b2b24">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92a3f88f-a16a-428c-b339-8cacfce7ab5e" xml:space="preserve">
+          <source>RDP into <bpt id="56f5ad2d-0686-4e8b-b665-6df02f44ffeb">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="56f5ad2d-0686-4e8b-b665-6df02f44ffeb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">RDP into <bpt id="56f5ad2d-0686-4e8b-b665-6df02f44ffeb">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="56f5ad2d-0686-4e8b-b665-6df02f44ffeb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b16f77f3-3fb3-4408-89cb-a87ae0b800fa" xml:space="preserve">
+          <source>Open Windows PowerShell console, or command prompt.</source>
+          <target state="new">Open Windows PowerShell console, or command prompt.</target>
+        </trans-unit>
+        <trans-unit id="4994eada-498f-43f1-aae5-3ae72c4a8b52" xml:space="preserve">
+          <source>Run <bpt id="0e61e8a4-e190-477a-9a9e-8bc261de1d6e">&lt;strong&gt;</bpt>ipconfig<ept id="0e61e8a4-e190-477a-9a9e-8bc261de1d6e">&lt;/strong&gt;</ept>, and write down <bpt id="c2d9f324-aa20-4e67-acfc-cd2a11b431e2">&lt;strong&gt;</bpt>Connection-specific DNS suffix<ept id="c2d9f324-aa20-4e67-acfc-cd2a11b431e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Run <bpt id="0e61e8a4-e190-477a-9a9e-8bc261de1d6e">&lt;strong&gt;</bpt>ipconfig<ept id="0e61e8a4-e190-477a-9a9e-8bc261de1d6e">&lt;/strong&gt;</ept>, and write down <bpt id="c2d9f324-aa20-4e67-acfc-cd2a11b431e2">&lt;strong&gt;</bpt>Connection-specific DNS suffix<ept id="c2d9f324-aa20-4e67-acfc-cd2a11b431e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9f911dd-8349-4be2-b61f-4ce4ffdfe3a7" xml:space="preserve">
+          <source>Do not close the RDP session, you will still need it.</source>
+          <target state="new">Do not close the RDP session, you will still need it.</target>
+        </trans-unit>
+        <trans-unit id="c676f4e1-ae08-41ca-b1d7-923c100dd5d6" xml:space="preserve">
+          <source>Repeat the same steps to find out the <bpt id="277c821e-bff4-4de3-8443-970a38bcd149">&lt;strong&gt;</bpt>Connection-specific DNS suffix<ept id="277c821e-bff4-4de3-8443-970a38bcd149">&lt;/strong&gt;</ept> of <bpt id="8a90ac1f-dc71-4923-b0b3-5af6f597bb49">&lt;strong&gt;</bpt>Contoso-DNS-US<ept id="8a90ac1f-dc71-4923-b0b3-5af6f597bb49">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Repeat the same steps to find out the <bpt id="277c821e-bff4-4de3-8443-970a38bcd149">&lt;strong&gt;</bpt>Connection-specific DNS suffix<ept id="277c821e-bff4-4de3-8443-970a38bcd149">&lt;/strong&gt;</ept> of <bpt id="8a90ac1f-dc71-4923-b0b3-5af6f597bb49">&lt;strong&gt;</bpt>Contoso-DNS-US<ept id="8a90ac1f-dc71-4923-b0b3-5af6f597bb49">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="daa43f35-08c7-4b61-ac42-c512f6bb2359" xml:space="preserve">
+          <source><bpt id="adbf9c5e-7768-4116-8d45-15d52a4ab95a">&lt;strong&gt;</bpt>To configure DNS forwarders<ept id="adbf9c5e-7768-4116-8d45-15d52a4ab95a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="adbf9c5e-7768-4116-8d45-15d52a4ab95a">&lt;strong&gt;</bpt>To configure DNS forwarders<ept id="adbf9c5e-7768-4116-8d45-15d52a4ab95a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4fd0a3c-4179-429f-a181-95c8de5c9f0f" xml:space="preserve">
+          <source>From the RDP session to <bpt id="cb27baf3-55f2-4254-b0b9-8b07475f4450">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="cb27baf3-55f2-4254-b0b9-8b07475f4450">&lt;/strong&gt;</ept>, click the Windows key on the lower left.</source>
+          <target state="new">From the RDP session to <bpt id="cb27baf3-55f2-4254-b0b9-8b07475f4450">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="cb27baf3-55f2-4254-b0b9-8b07475f4450">&lt;/strong&gt;</ept>, click the Windows key on the lower left.</target>
+        </trans-unit>
+        <trans-unit id="f8f1b2b0-a292-45f9-b237-eba7ed5ea8c2" xml:space="preserve">
+          <source>Click <bpt id="ff78598c-00e7-42b5-8c5c-4d26eae533a1">&lt;strong&gt;</bpt>Administrative Tools<ept id="ff78598c-00e7-42b5-8c5c-4d26eae533a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ff78598c-00e7-42b5-8c5c-4d26eae533a1">&lt;strong&gt;</bpt>Administrative Tools<ept id="ff78598c-00e7-42b5-8c5c-4d26eae533a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5f02b8d-23b3-451f-996b-b1a3013b6c02" xml:space="preserve">
+          <source>Click <bpt id="d2ae234e-edce-4f61-b3ba-00da0a80b9cb">&lt;strong&gt;</bpt>DNS<ept id="d2ae234e-edce-4f61-b3ba-00da0a80b9cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d2ae234e-edce-4f61-b3ba-00da0a80b9cb">&lt;strong&gt;</bpt>DNS<ept id="d2ae234e-edce-4f61-b3ba-00da0a80b9cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="714ac723-37a8-4eae-b11c-22e99acd25c4" xml:space="preserve">
+          <source>In the left pane, expand <bpt id="11daf9e4-239d-47e3-a318-caf50f0590b9">&lt;strong&gt;</bpt>DSN<ept id="11daf9e4-239d-47e3-a318-caf50f0590b9">&lt;/strong&gt;</ept>, <bpt id="fcc484b9-57a4-42d6-ba3b-aa74053f6673">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="fcc484b9-57a4-42d6-ba3b-aa74053f6673">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, expand <bpt id="11daf9e4-239d-47e3-a318-caf50f0590b9">&lt;strong&gt;</bpt>DSN<ept id="11daf9e4-239d-47e3-a318-caf50f0590b9">&lt;/strong&gt;</ept>, <bpt id="fcc484b9-57a4-42d6-ba3b-aa74053f6673">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="fcc484b9-57a4-42d6-ba3b-aa74053f6673">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3dd4ff9c-fcd8-4723-8bdd-a0c15192f01e" xml:space="preserve">
+          <source>Enter the following information:</source>
+          <target state="new">Enter the following information:</target>
+        </trans-unit>
+        <trans-unit id="da7353f8-abe0-456f-8af8-2138a8e40a3d" xml:space="preserve">
+          <source><bpt id="94a08c01-5358-4216-b5cb-495ca05fa075">&lt;strong&gt;</bpt>DNS Domain<ept id="94a08c01-5358-4216-b5cb-495ca05fa075">&lt;/strong&gt;</ept>: enter the DNS suffix of the Contoso-DNS-US.</source>
+          <target state="new"><bpt id="94a08c01-5358-4216-b5cb-495ca05fa075">&lt;strong&gt;</bpt>DNS Domain<ept id="94a08c01-5358-4216-b5cb-495ca05fa075">&lt;/strong&gt;</ept>: enter the DNS suffix of the Contoso-DNS-US.</target>
+        </trans-unit>
+        <trans-unit id="5f1b8a4b-55fe-4727-86fc-11cb0678684c" xml:space="preserve">
+          <source>For example: Contoso-DNS-US.b5.internal.cloudapp.net.</source>
+          <target state="new">For example: Contoso-DNS-US.b5.internal.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="0a34d62e-9db8-49f8-b97e-a530fda4efa7" xml:space="preserve">
+          <source><bpt id="e95660e4-e472-4fd6-bfa6-e53b4c233a66">&lt;strong&gt;</bpt>IP addresses of the master servers<ept id="e95660e4-e472-4fd6-bfa6-e53b4c233a66">&lt;/strong&gt;</ept>: enter 10.2.0.4, which is the Contoso-DNS-US’s IP address.</source>
+          <target state="new"><bpt id="e95660e4-e472-4fd6-bfa6-e53b4c233a66">&lt;strong&gt;</bpt>IP addresses of the master servers<ept id="e95660e4-e472-4fd6-bfa6-e53b4c233a66">&lt;/strong&gt;</ept>: enter 10.2.0.4, which is the Contoso-DNS-US’s IP address.</target>
+        </trans-unit>
+        <trans-unit id="3d97fbed-59c3-43a0-82c8-f823a15e545f" xml:space="preserve">
+          <source>Press <bpt id="5e8e4fd0-bff7-4254-b079-9220409eb3dc">&lt;strong&gt;</bpt>ENTER<ept id="5e8e4fd0-bff7-4254-b079-9220409eb3dc">&lt;/strong&gt;</ept>, and then click <bpt id="0f16bf31-7124-41ab-9081-a5ee5d95f8cd">&lt;strong&gt;</bpt>OK<ept id="0f16bf31-7124-41ab-9081-a5ee5d95f8cd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Press <bpt id="5e8e4fd0-bff7-4254-b079-9220409eb3dc">&lt;strong&gt;</bpt>ENTER<ept id="5e8e4fd0-bff7-4254-b079-9220409eb3dc">&lt;/strong&gt;</ept>, and then click <bpt id="0f16bf31-7124-41ab-9081-a5ee5d95f8cd">&lt;strong&gt;</bpt>OK<ept id="0f16bf31-7124-41ab-9081-a5ee5d95f8cd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc3ec1cc-f9c4-40b6-b3e1-8076588e97a9" xml:space="preserve">
+          <source>Now you will be able to resolve the Contoso-DNS-US’s IP address from Contoso-DNS-EU.</source>
+          <target state="new">Now you will be able to resolve the Contoso-DNS-US’s IP address from Contoso-DNS-EU.</target>
+        </trans-unit>
+        <trans-unit id="3ff047c9-92de-40d9-81a5-3b0a88a0ab49" xml:space="preserve">
+          <source>Repeat the steps to add a DNS forwarder to the DNS service on the Contoso-DNS-US virtual machine with the following values:</source>
+          <target state="new">Repeat the steps to add a DNS forwarder to the DNS service on the Contoso-DNS-US virtual machine with the following values:</target>
+        </trans-unit>
+        <trans-unit id="7e29105d-a92a-418e-b7f3-5999b70e0e6f" xml:space="preserve">
+          <source><bpt id="edc9b5db-1a26-49ff-ac35-b5e4d4449438">&lt;strong&gt;</bpt>DNS Domain<ept id="edc9b5db-1a26-49ff-ac35-b5e4d4449438">&lt;/strong&gt;</ept>: enter the DNS suffix of the Contoso-DNS-EU.</source>
+          <target state="new"><bpt id="edc9b5db-1a26-49ff-ac35-b5e4d4449438">&lt;strong&gt;</bpt>DNS Domain<ept id="edc9b5db-1a26-49ff-ac35-b5e4d4449438">&lt;/strong&gt;</ept>: enter the DNS suffix of the Contoso-DNS-EU.</target>
+        </trans-unit>
+        <trans-unit id="73a4d4af-42cb-4248-b990-d40feae340bf" xml:space="preserve">
+          <source><bpt id="3dceccf5-7f16-40b8-b837-c10841600a1d">&lt;strong&gt;</bpt>IP addresses of the master servers<ept id="3dceccf5-7f16-40b8-b837-c10841600a1d">&lt;/strong&gt;</ept>: enter 10.2.0.4, which is the Contoso-DNS-EU’s IP address.</source>
+          <target state="new"><bpt id="3dceccf5-7f16-40b8-b837-c10841600a1d">&lt;strong&gt;</bpt>IP addresses of the master servers<ept id="3dceccf5-7f16-40b8-b837-c10841600a1d">&lt;/strong&gt;</ept>: enter 10.2.0.4, which is the Contoso-DNS-EU’s IP address.</target>
+        </trans-unit>
+        <trans-unit id="6ad2367c-b5b1-434d-af9a-88a106126959" xml:space="preserve">
+          <source>Now you can test host name resolution across the virtual networks.</source>
+          <target state="new">Now you can test host name resolution across the virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="52213ea4-73bb-4dcc-b0ed-3db6e3025be1" xml:space="preserve">
+          <source>Ping is blocked by firewall by default.</source>
+          <target state="new">Ping is blocked by firewall by default.</target>
+        </trans-unit>
+        <trans-unit id="33ddce49-0747-4f95-a13c-354e7ea99efe" xml:space="preserve">
+          <source>You can use nslookup to resolve the DNS server virtual machines (you must use FQDN) in the peer networks.</source>
+          <target state="new">You can use nslookup to resolve the DNS server virtual machines (you must use FQDN) in the peer networks.</target>
+        </trans-unit>
+        <trans-unit id="c49de478-5749-4f39-8793-2e10daa892ba" xml:space="preserve">
+          <source>In this tutorial, you have learned how to configure name resolution across virtual networks with VPN connections.</source>
+          <target state="new">In this tutorial, you have learned how to configure name resolution across virtual networks with VPN connections.</target>
+        </trans-unit>
+        <trans-unit id="8052d319-4dc0-4609-a6bd-b1c736752343" xml:space="preserve">
+          <source>The other two articles in the series cover:</source>
+          <target state="new">The other two articles in the series cover:</target>
+        </trans-unit>
+        <trans-unit id="3f65adbf-eb4b-4ade-b688-4163daceb8c6" xml:space="preserve">
+          <source><bpt id="934884df-a1fe-496a-b279-3d39dd74768e">&lt;linkText&gt;</bpt>Configure a VPN connection between two Azure virtual networks[hdinsight-hbase-geo-replication-vnet]<ept id="934884df-a1fe-496a-b279-3d39dd74768e">&lt;/linkText&gt;</ept><bpt id="934884df-a1fe-496a-b279-3d39dd74768e">&lt;title&gt;</bpt><ept id="934884df-a1fe-496a-b279-3d39dd74768e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="934884df-a1fe-496a-b279-3d39dd74768e">&lt;linkText&gt;</bpt>Configure a VPN connection between two Azure virtual networks[hdinsight-hbase-geo-replication-vnet]<ept id="934884df-a1fe-496a-b279-3d39dd74768e">&lt;/linkText&gt;</ept><bpt id="934884df-a1fe-496a-b279-3d39dd74768e">&lt;title&gt;</bpt><ept id="934884df-a1fe-496a-b279-3d39dd74768e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad7cf96b-6992-4e58-969d-844021b549e2" xml:space="preserve">
+          <source><bpt id="e0764aa1-8eed-46cc-b426-592fbafbc707">&lt;linkText&gt;</bpt>Configure HBase geo replication[hdinsight-hbase-geo-replication]<ept id="e0764aa1-8eed-46cc-b426-592fbafbc707">&lt;/linkText&gt;</ept><bpt id="e0764aa1-8eed-46cc-b426-592fbafbc707">&lt;title&gt;</bpt><ept id="e0764aa1-8eed-46cc-b426-592fbafbc707">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e0764aa1-8eed-46cc-b426-592fbafbc707">&lt;linkText&gt;</bpt>Configure HBase geo replication[hdinsight-hbase-geo-replication]<ept id="e0764aa1-8eed-46cc-b426-592fbafbc707">&lt;/linkText&gt;</ept><bpt id="e0764aa1-8eed-46cc-b426-592fbafbc707">&lt;title&gt;</bpt><ept id="e0764aa1-8eed-46cc-b426-592fbafbc707">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6dc255aa-f13e-4735-9b84-8ac6a2b2f425" xml:space="preserve">
+          <source>hdinsight-hbase-geo-replication.md</source>
+          <target state="new">hdinsight-hbase-geo-replication.md</target>
+        </trans-unit>
+        <trans-unit id="7f46eead-8f0c-4b6a-8e16-f245e9bcc720" xml:space="preserve">
+          <source>hdinsight-hbase-geo-replication-configure-VNets.md</source>
+          <target state="new">hdinsight-hbase-geo-replication-configure-VNets.md</target>
+        </trans-unit>
+        <trans-unit id="a2c45681-91cc-40e7-8a9c-d32903e821c8" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="09141046-1f1a-4cec-9765-194e2a96fbfc" xml:space="preserve">
+          <source>./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png</source>
+          <target state="new">./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png</target>
+        </trans-unit>
+      </group>
+      <group id="58d8f5e8-3f25-4800-a009-79a4f43514f5" />
+    </body>
+  </file>
+</xliff>

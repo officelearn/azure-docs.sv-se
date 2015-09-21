@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="de2ef95b-28c0-4cb9-9bfa-63049615f0f6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="de2ef95b-28c0-4cb9-9bfa-63049615f0f6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5d7910d3-4d93-4751-97b0-dbbed9148329">
+        <trans-unit id="4e2d98d9-91d5-48c0-86bc-eebf99d912cb" xml:space="preserve">
+          <source>Get Started with authentication in Mobile Services for Xamarin Android apps | Microsoft Azure</source>
+          <target state="new">Get Started with authentication in Mobile Services for Xamarin Android apps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="46c7e2bb-fac1-46cb-9f38-8584531f89b3" xml:space="preserve">
+          <source>Learn how to use Mobile Services to authenticate users of your Xamarin Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft.</source>
+          <target state="new">Learn how to use Mobile Services to authenticate users of your Xamarin Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="f3711372-02cd-41c5-923b-1808bda2b70d" xml:space="preserve">
+          <source><bpt id="ff54448d-e483-42b7-9982-5a731537968c">&lt;token href="../../includes/mobile-services-selector-get-started-users.md"&gt;</bpt><ept id="ff54448d-e483-42b7-9982-5a731537968c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ff54448d-e483-42b7-9982-5a731537968c">&lt;token href="../../includes/mobile-services-selector-get-started-users.md"&gt;</bpt><ept id="ff54448d-e483-42b7-9982-5a731537968c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e181b567-59c4-4355-8fad-7ad8ea4a59db" xml:space="preserve">
+          <source>This topic shows you how to authenticate users in Azure Mobile Services from your app.</source>
+          <target state="new">This topic shows you how to authenticate users in Azure Mobile Services from your app.</target>
+        </trans-unit>
+        <trans-unit id="90cbbc81-4089-4a52-b7a3-655a8bc31e39" xml:space="preserve">
+          <source>In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services.</source>
+          <target state="new">In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="7a7639ad-6c0e-41be-9f9a-14c183305ad3" xml:space="preserve">
+          <source>After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.</source>
+          <target state="new">After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.</target>
+        </trans-unit>
+        <trans-unit id="692d0bb0-5c95-4c7a-a5c3-99848e0f9cb8" xml:space="preserve">
+          <source>This tutorial walks you through these basic steps to enable authentication in your app:</source>
+          <target state="new">This tutorial walks you through these basic steps to enable authentication in your app:</target>
+        </trans-unit>
+        <trans-unit id="9538c0ea-e0d6-4977-9930-7325953d4cdc" xml:space="preserve">
+          <source>[Register your app for authentication and configure Mobile Services]</source>
+          <target state="new">[Register your app for authentication and configure Mobile Services]</target>
+        </trans-unit>
+        <trans-unit id="647bd85e-f863-436d-8582-3b36e5c8205f" xml:space="preserve">
+          <source>[Restrict table permissions to authenticated users]</source>
+          <target state="new">[Restrict table permissions to authenticated users]</target>
+        </trans-unit>
+        <trans-unit id="fb9f4809-a830-4c2c-97a9-cbe90dc69de1" xml:space="preserve">
+          <source>[Add authentication to the app]</source>
+          <target state="new">[Add authentication to the app]</target>
+        </trans-unit>
+        <trans-unit id="cd0a8c6c-6425-4964-bcb3-da9445eff4e2" xml:space="preserve">
+          <source>This tutorial is based on the Mobile Services quickstart.</source>
+          <target state="new">This tutorial is based on the Mobile Services quickstart.</target>
+        </trans-unit>
+        <trans-unit id="20bcb40b-c326-482a-9b4a-c42143cc4de9" xml:space="preserve">
+          <source>You must also first complete the tutorial [Get started with Mobile Services].</source>
+          <target state="new">You must also first complete the tutorial [Get started with Mobile Services].</target>
+        </trans-unit>
+        <trans-unit id="026720dd-8b1b-4e4c-b211-2ef1342b8b81" xml:space="preserve">
+          <source><bpt id="7fa7468d-cc2f-481e-8dc8-d08fd3574dcf">&lt;token href="../../includes/mobile-services-register-authentication.md"&gt;</bpt><ept id="7fa7468d-cc2f-481e-8dc8-d08fd3574dcf">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7fa7468d-cc2f-481e-8dc8-d08fd3574dcf">&lt;token href="../../includes/mobile-services-register-authentication.md"&gt;</bpt><ept id="7fa7468d-cc2f-481e-8dc8-d08fd3574dcf">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0559947c-976c-41e2-893a-98466df6ef44" xml:space="preserve">
+          <source><bpt id="72754300-fd47-421b-bb6b-2f0c61f14392">&lt;token href="../../includes/mobile-services-dotnet-backend-aad-server-extension.md"&gt;</bpt><ept id="72754300-fd47-421b-bb6b-2f0c61f14392">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="72754300-fd47-421b-bb6b-2f0c61f14392">&lt;token href="../../includes/mobile-services-dotnet-backend-aad-server-extension.md"&gt;</bpt><ept id="72754300-fd47-421b-bb6b-2f0c61f14392">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6076e13f-1a83-47f4-bafe-23649a1688cd" xml:space="preserve">
+          <source><bpt id="f9564ab8-4aaf-41e0-a88a-51c7784334fe">&lt;token href="../../includes/mobile-services-restrict-permissions-dotnet-backend.md"&gt;</bpt><ept id="f9564ab8-4aaf-41e0-a88a-51c7784334fe">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f9564ab8-4aaf-41e0-a88a-51c7784334fe">&lt;token href="../../includes/mobile-services-restrict-permissions-dotnet-backend.md"&gt;</bpt><ept id="f9564ab8-4aaf-41e0-a88a-51c7784334fe">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b2f1a22-6aec-4769-ad22-1413a87d3842" xml:space="preserve">
+          <source>In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</source>
+          <target state="new">In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</target>
+        </trans-unit>
+        <trans-unit id="10d40bc6-7624-458c-b006-d3e01386c50f" xml:space="preserve">
+          <source>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the </source>
+          <target state="new">This happens because the app attempts to access Mobile Services as an unauthenticated user, but the </target>
+        </trans-unit>
+        <trans-unit id="7ee54309-4163-4d69-8677-890f4b4382bb" xml:space="preserve">
+          <source>TodoItem</source>
+          <target state="new">TodoItem</target>
+        </trans-unit>
+        <trans-unit id="b249c672-81ef-432d-aaf3-0c6e34ccc7a4" xml:space="preserve">
+          <source> table now requires authentication.</source>
+          <target state="new"> table now requires authentication.</target>
+        </trans-unit>
+        <trans-unit id="a51ab210-ecc4-4e64-b35d-c6cbb3c29737" xml:space="preserve">
+          <source>Next, you will update the app to authenticate users before requesting resources from the mobile service.</source>
+          <target state="new">Next, you will update the app to authenticate users before requesting resources from the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="ab3bfb30-93f7-4130-8b9a-b79d399fde65" xml:space="preserve">
+          <source>Add the following property to the <bpt id="26189842-9711-45ed-aea2-01caf42f5503">&lt;strong&gt;</bpt>TodoActivity<ept id="26189842-9711-45ed-aea2-01caf42f5503">&lt;/strong&gt;</ept> class:</source>
+          <target state="new">Add the following property to the <bpt id="26189842-9711-45ed-aea2-01caf42f5503">&lt;strong&gt;</bpt>TodoActivity<ept id="26189842-9711-45ed-aea2-01caf42f5503">&lt;/strong&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="25edf481-140b-45fc-9d55-e06ac90cb782" xml:space="preserve">
+          <source>Add the following method to the <bpt id="d4bd655b-6a3d-4618-8fbd-7baa5614562a">&lt;strong&gt;</bpt>TodoActivity<ept id="d4bd655b-6a3d-4618-8fbd-7baa5614562a">&lt;/strong&gt;</ept> class:</source>
+          <target state="new">Add the following method to the <bpt id="d4bd655b-6a3d-4618-8fbd-7baa5614562a">&lt;strong&gt;</bpt>TodoActivity<ept id="d4bd655b-6a3d-4618-8fbd-7baa5614562a">&lt;/strong&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="6c6def98-9290-49a2-9190-112bbef1a090" xml:space="preserve">
+          <source>This creates a new method to handle the authentication process.</source>
+          <target state="new">This creates a new method to handle the authentication process.</target>
+        </trans-unit>
+        <trans-unit id="68ffb0a1-1f9e-4d9b-8e5f-e22fafbdeac0" xml:space="preserve">
+          <source>The user is authenticated by using a Facebook login.</source>
+          <target state="new">The user is authenticated by using a Facebook login.</target>
+        </trans-unit>
+        <trans-unit id="46ab56f0-581d-4744-b092-c8dfe8079315" xml:space="preserve">
+          <source>A dialog is displayed which displays the ID of the authenticated user.</source>
+          <target state="new">A dialog is displayed which displays the ID of the authenticated user.</target>
+        </trans-unit>
+        <trans-unit id="50c8c622-f113-4efa-85b0-30e60ca75c14" xml:space="preserve">
+          <source>If you are using an identity provider other than a Facebook, change the value passed to <bpt id="a5b2856f-9e98-4e8a-8c77-b01f4ef633b8">&lt;strong&gt;</bpt>LoginAsync<ept id="a5b2856f-9e98-4e8a-8c77-b01f4ef633b8">&lt;/strong&gt;</ept> above to one of the following: <bpt id="0b00072d-265c-4a14-869a-d2d607cb257d">&lt;em&gt;</bpt>MicrosoftAccount<ept id="0b00072d-265c-4a14-869a-d2d607cb257d">&lt;/em&gt;</ept>, <bpt id="b348a4e5-ccda-4b3d-b708-16f35d8aca98">&lt;em&gt;</bpt>Twitter<ept id="b348a4e5-ccda-4b3d-b708-16f35d8aca98">&lt;/em&gt;</ept>, <bpt id="6971d2e4-4f67-49f4-93fb-65b784926d52">&lt;em&gt;</bpt>Google<ept id="6971d2e4-4f67-49f4-93fb-65b784926d52">&lt;/em&gt;</ept>, or <bpt id="570d55e6-3d4b-4ed2-9383-0f585c0316bd">&lt;em&gt;</bpt>WindowsAzureActiveDirectory<ept id="570d55e6-3d4b-4ed2-9383-0f585c0316bd">&lt;/em&gt;</ept>.</source>
+          <target state="new">If you are using an identity provider other than a Facebook, change the value passed to <bpt id="a5b2856f-9e98-4e8a-8c77-b01f4ef633b8">&lt;strong&gt;</bpt>LoginAsync<ept id="a5b2856f-9e98-4e8a-8c77-b01f4ef633b8">&lt;/strong&gt;</ept> above to one of the following: <bpt id="0b00072d-265c-4a14-869a-d2d607cb257d">&lt;em&gt;</bpt>MicrosoftAccount<ept id="0b00072d-265c-4a14-869a-d2d607cb257d">&lt;/em&gt;</ept>, <bpt id="b348a4e5-ccda-4b3d-b708-16f35d8aca98">&lt;em&gt;</bpt>Twitter<ept id="b348a4e5-ccda-4b3d-b708-16f35d8aca98">&lt;/em&gt;</ept>, <bpt id="6971d2e4-4f67-49f4-93fb-65b784926d52">&lt;em&gt;</bpt>Google<ept id="6971d2e4-4f67-49f4-93fb-65b784926d52">&lt;/em&gt;</ept>, or <bpt id="570d55e6-3d4b-4ed2-9383-0f585c0316bd">&lt;em&gt;</bpt>WindowsAzureActiveDirectory<ept id="570d55e6-3d4b-4ed2-9383-0f585c0316bd">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d542c794-429a-4f63-a275-da807a1cd750" xml:space="preserve">
+          <source>In the <bpt id="db03a8c5-4532-404c-8e66-9c4295e772c8">&lt;strong&gt;</bpt>OnCreate<ept id="db03a8c5-4532-404c-8e66-9c4295e772c8">&lt;/strong&gt;</ept> method, add the following line of code after the code that instantiates the <bpt id="2560502c-0e32-44e3-a2d2-587e84ee0a60">&lt;code&gt;</bpt>MobileServiceClient<ept id="2560502c-0e32-44e3-a2d2-587e84ee0a60">&lt;/code&gt;</ept> object.</source>
+          <target state="new">In the <bpt id="db03a8c5-4532-404c-8e66-9c4295e772c8">&lt;strong&gt;</bpt>OnCreate<ept id="db03a8c5-4532-404c-8e66-9c4295e772c8">&lt;/strong&gt;</ept> method, add the following line of code after the code that instantiates the <bpt id="2560502c-0e32-44e3-a2d2-587e84ee0a60">&lt;code&gt;</bpt>MobileServiceClient<ept id="2560502c-0e32-44e3-a2d2-587e84ee0a60">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="e8abc35b-d683-4775-b28c-649863d269f5" xml:space="preserve">
+          <source>This call starts the authentication process and awaits it asynchronously.</source>
+          <target state="new">This call starts the authentication process and awaits it asynchronously.</target>
+        </trans-unit>
+        <trans-unit id="fdac6381-33b1-4230-9494-82e8c8eda56f" xml:space="preserve">
+          <source>From the <bpt id="62e470a8-d690-4011-939b-6d93ca158a2d">&lt;strong&gt;</bpt>Run<ept id="62e470a8-d690-4011-939b-6d93ca158a2d">&lt;/strong&gt;</ept> menu, then click <bpt id="35fbf9ba-1b07-4aa1-85c0-491e08a11728">&lt;strong&gt;</bpt>Run<ept id="35fbf9ba-1b07-4aa1-85c0-491e08a11728">&lt;/strong&gt;</ept> to start the app and sign in with your chosen identity provider.</source>
+          <target state="new">From the <bpt id="62e470a8-d690-4011-939b-6d93ca158a2d">&lt;strong&gt;</bpt>Run<ept id="62e470a8-d690-4011-939b-6d93ca158a2d">&lt;/strong&gt;</ept> menu, then click <bpt id="35fbf9ba-1b07-4aa1-85c0-491e08a11728">&lt;strong&gt;</bpt>Run<ept id="35fbf9ba-1b07-4aa1-85c0-491e08a11728">&lt;/strong&gt;</ept> to start the app and sign in with your chosen identity provider.</target>
+        </trans-unit>
+        <trans-unit id="adfebc78-de19-4ba0-9ff2-d430e9357ecf" xml:space="preserve">
+          <source>When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.</source>
+          <target state="new">When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.</target>
+        </trans-unit>
+        <trans-unit id="c30b50c7-db1e-4fca-a98f-6794f4731296" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="0def74da-aa80-41c6-bf8e-8ef8250d613e" xml:space="preserve">
+          <source>#permissions</source>
+          <target state="new">#permissions</target>
+        </trans-unit>
+        <trans-unit id="1cf9fe8f-63c0-41b4-a321-876a65df202f" xml:space="preserve">
+          <source>#add-authentication</source>
+          <target state="new">#add-authentication</target>
+        </trans-unit>
+        <trans-unit id="ccb3d398-5e3f-4b56-955d-7d84ed7b9200" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="761e46d2-44ba-4bac-ae63-a1fe79ac55a5" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=266582</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=266582</target>
+        </trans-unit>
+        <trans-unit id="45bc3229-9131-458c-9f6b-4b5c8052fb35" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="31a9e8bf-4c30-472c-ab96-8671e6f17e23" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262253</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262253</target>
+        </trans-unit>
+        <trans-unit id="ebd5abb2-8182-4420-8a10-1d7c9e068fb0" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-xamarin-android-get-started.md</source>
+          <target state="new">mobile-services-dotnet-backend-xamarin-android-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="f77e2cd2-1bbb-4b78-9934-d795294b2719" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-xamarin-android-get-started-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-xamarin-android-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="df317092-4b88-440b-af15-8a262d08fd48" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-xamarin-android-get-started-push.md</source>
+          <target state="new">mobile-services-dotnet-backend-xamarin-android-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="d2d9919f-b018-46d4-8209-3fa9db4ea824" xml:space="preserve">
+          <source>../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md</source>
+          <target state="new">../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md</target>
+        </trans-unit>
+        <trans-unit id="bae4349f-b718-44f7-99f0-508dd085f459" xml:space="preserve">
+          <source>../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md</source>
+          <target state="new">../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="bc026224-5aaf-4209-ba81-35268dd0da01" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="30a2a88a-f8dd-4090-8a1c-e06bcb118723" />
+    </body>
+  </file>
+</xliff>

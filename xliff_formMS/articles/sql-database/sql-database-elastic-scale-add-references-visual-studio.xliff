@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="298ef539-6e58-4069-8512-ce239afaf935" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="298ef539-6e58-4069-8512-ce239afaf935" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ab768fde-2769-44e2-aa42-c3c0ea7cd553">
+        <trans-unit id="d70dad15-cf5f-47cc-82b5-e046efa520a5" xml:space="preserve">
+          <source>Add Azure SQL DB Elastic Scale References to a Visual Studio Project</source>
+          <target state="new">Add Azure SQL DB Elastic Scale References to a Visual Studio Project</target>
+        </trans-unit>
+        <trans-unit id="115075ec-b237-45cd-8c2d-e0badb5320c9" xml:space="preserve">
+          <source>How to add .NET references for Elastic Scale APIs to Visual Studio projects using Nuget.</source>
+          <target state="new">How to add .NET references for Elastic Scale APIs to Visual Studio projects using Nuget.</target>
+        </trans-unit>
+        <trans-unit id="431dd6db-75cb-4828-80b7-2db28a11127f" xml:space="preserve">
+          <source>Install <bpt id="8386ae81-c01f-4a8e-b597-71f67257411e">&lt;linkText&gt;</bpt>NuGet Visual Studio Extension Gallery<ept id="8386ae81-c01f-4a8e-b597-71f67257411e">&lt;/linkText&gt;</ept><bpt id="8386ae81-c01f-4a8e-b597-71f67257411e">&lt;title&gt;</bpt><ept id="8386ae81-c01f-4a8e-b597-71f67257411e">&lt;/title&gt;</ept> for Visual Studio </source>
+          <target state="new">Install <bpt id="8386ae81-c01f-4a8e-b597-71f67257411e">&lt;linkText&gt;</bpt>NuGet Visual Studio Extension Gallery<ept id="8386ae81-c01f-4a8e-b597-71f67257411e">&lt;/linkText&gt;</ept><bpt id="8386ae81-c01f-4a8e-b597-71f67257411e">&lt;title&gt;</bpt><ept id="8386ae81-c01f-4a8e-b597-71f67257411e">&lt;/title&gt;</ept> for Visual Studio </target>
+        </trans-unit>
+        <trans-unit id="d7eea94b-85c9-4f35-ab6a-9b29845f2797" xml:space="preserve">
+          <source>Open an existing project, or create a new project using the New Project dialog box located at <bpt id="044450f3-6b16-4d4f-aad4-99f0e8eec354">&lt;strong&gt;</bpt>File<ept id="044450f3-6b16-4d4f-aad4-99f0e8eec354">&lt;/strong&gt;</ept> --&gt; <bpt id="486f9c40-36dc-4b8e-9a4f-1abb59b8b8e6">&lt;strong&gt;</bpt>New<ept id="486f9c40-36dc-4b8e-9a4f-1abb59b8b8e6">&lt;/strong&gt;</ept> --&gt; <bpt id="5463c6e1-4f67-4724-bebf-1488f2a1a054">&lt;strong&gt;</bpt>Project<ept id="5463c6e1-4f67-4724-bebf-1488f2a1a054">&lt;/strong&gt;</ept> </source>
+          <target state="new">Open an existing project, or create a new project using the New Project dialog box located at <bpt id="044450f3-6b16-4d4f-aad4-99f0e8eec354">&lt;strong&gt;</bpt>File<ept id="044450f3-6b16-4d4f-aad4-99f0e8eec354">&lt;/strong&gt;</ept> --&gt; <bpt id="486f9c40-36dc-4b8e-9a4f-1abb59b8b8e6">&lt;strong&gt;</bpt>New<ept id="486f9c40-36dc-4b8e-9a4f-1abb59b8b8e6">&lt;/strong&gt;</ept> --&gt; <bpt id="5463c6e1-4f67-4724-bebf-1488f2a1a054">&lt;strong&gt;</bpt>Project<ept id="5463c6e1-4f67-4724-bebf-1488f2a1a054">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e3c18659-ce7a-4bd3-9274-2222522c74fb" xml:space="preserve">
+          <source>In the Solution Explorer, right-click on <bpt id="7fc1659a-0bd4-4325-b021-bb79c651aff2">&lt;strong&gt;</bpt>References<ept id="7fc1659a-0bd4-4325-b021-bb79c651aff2">&lt;/strong&gt;</ept> and select <bpt id="ae0c08f1-cac6-4fce-ab8d-edef59a62b93">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="ae0c08f1-cac6-4fce-ab8d-edef59a62b93">&lt;/strong&gt;</ept></source>
+          <target state="new">In the Solution Explorer, right-click on <bpt id="7fc1659a-0bd4-4325-b021-bb79c651aff2">&lt;strong&gt;</bpt>References<ept id="7fc1659a-0bd4-4325-b021-bb79c651aff2">&lt;/strong&gt;</ept> and select <bpt id="ae0c08f1-cac6-4fce-ab8d-edef59a62b93">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="ae0c08f1-cac6-4fce-ab8d-edef59a62b93">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ea1ec50-8b76-4557-9e39-e879388f8778" xml:space="preserve">
+          <source>In the menu on the left-hand side of the Manage NuGet Packages window, select <bpt id="023865cc-436f-46e9-becc-2f1083340021">&lt;strong&gt;</bpt>Online<ept id="023865cc-436f-46e9-becc-2f1083340021">&lt;/strong&gt;</ept> and then <bpt id="91b85624-5060-4ea9-bbda-c7951161d546">&lt;strong&gt;</bpt>nuget.org<ept id="91b85624-5060-4ea9-bbda-c7951161d546">&lt;/strong&gt;</ept> or “All” </source>
+          <target state="new">In the menu on the left-hand side of the Manage NuGet Packages window, select <bpt id="023865cc-436f-46e9-becc-2f1083340021">&lt;strong&gt;</bpt>Online<ept id="023865cc-436f-46e9-becc-2f1083340021">&lt;/strong&gt;</ept> and then <bpt id="91b85624-5060-4ea9-bbda-c7951161d546">&lt;strong&gt;</bpt>nuget.org<ept id="91b85624-5060-4ea9-bbda-c7951161d546">&lt;/strong&gt;</ept> or “All” </target>
+        </trans-unit>
+        <trans-unit id="8b95a60c-0868-4664-8050-5ad9ea318b74" xml:space="preserve">
+          <source>In the <bpt id="84e1d77b-0423-41b0-b327-18309e7b8bbc">&lt;strong&gt;</bpt>Search Online<ept id="84e1d77b-0423-41b0-b327-18309e7b8bbc">&lt;/strong&gt;</ept> dialog box, type <bpt id="fa0f3f09-4123-4d43-8da8-01411c033bae">&lt;strong&gt;</bpt>Elastic Database<ept id="fa0f3f09-4123-4d43-8da8-01411c033bae">&lt;/strong&gt;</ept>, select the <bpt id="c97a87e1-066c-47c2-8822-0c105ba6514c">&lt;strong&gt;</bpt>Elastic Database client library<ept id="c97a87e1-066c-47c2-8822-0c105ba6514c">&lt;/strong&gt;</ept> and click <bpt id="cd9ac9c1-5f63-4c13-b4f0-d993982b52e7">&lt;strong&gt;</bpt>Install<ept id="cd9ac9c1-5f63-4c13-b4f0-d993982b52e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="84e1d77b-0423-41b0-b327-18309e7b8bbc">&lt;strong&gt;</bpt>Search Online<ept id="84e1d77b-0423-41b0-b327-18309e7b8bbc">&lt;/strong&gt;</ept> dialog box, type <bpt id="fa0f3f09-4123-4d43-8da8-01411c033bae">&lt;strong&gt;</bpt>Elastic Database<ept id="fa0f3f09-4123-4d43-8da8-01411c033bae">&lt;/strong&gt;</ept>, select the <bpt id="c97a87e1-066c-47c2-8822-0c105ba6514c">&lt;strong&gt;</bpt>Elastic Database client library<ept id="c97a87e1-066c-47c2-8822-0c105ba6514c">&lt;/strong&gt;</ept> and click <bpt id="cd9ac9c1-5f63-4c13-b4f0-d993982b52e7">&lt;strong&gt;</bpt>Install<ept id="cd9ac9c1-5f63-4c13-b4f0-d993982b52e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a8ce065-e910-4289-8558-41698c60bf12" xml:space="preserve">
+          <source><bpt id="bf24a154-f848-41be-93ec-1073df252d89">&lt;linkText&gt;</bpt>Search online<ept id="bf24a154-f848-41be-93ec-1073df252d89">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bf24a154-f848-41be-93ec-1073df252d89">&lt;linkText&gt;</bpt>Search online<ept id="bf24a154-f848-41be-93ec-1073df252d89">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d5a0760-484c-4fd4-a731-cf35a46dac97" xml:space="preserve">
+          <source>Review the license, and click <bpt id="93e5eecd-5d2a-4dac-b0a1-eede81f4a497">&lt;strong&gt;</bpt>I Accept<ept id="93e5eecd-5d2a-4dac-b0a1-eede81f4a497">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Review the license, and click <bpt id="93e5eecd-5d2a-4dac-b0a1-eede81f4a497">&lt;strong&gt;</bpt>I Accept<ept id="93e5eecd-5d2a-4dac-b0a1-eede81f4a497">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4c7d420-19a7-47ab-a2bf-2c7fdb32961d" xml:space="preserve">
+          <source>The client library reference has now been added to your project.</source>
+          <target state="new">The client library reference has now been added to your project.</target>
+        </trans-unit>
+        <trans-unit id="49fe5c24-eb30-40a5-8f34-f8f481363e37" xml:space="preserve">
+          <source><bpt id="82d27e75-2b3d-4f51-bd22-b9fd37c159c6">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="82d27e75-2b3d-4f51-bd22-b9fd37c159c6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="82d27e75-2b3d-4f51-bd22-b9fd37c159c6">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="82d27e75-2b3d-4f51-bd22-b9fd37c159c6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8780a224-f083-4861-8fc4-811442dbbfa2" xml:space="preserve">
+          <source> </source>
+          <target state="new"> </target>
+        </trans-unit>
+        <trans-unit id="15fd16b9-df8a-4cf7-822d-80ec44660d49" xml:space="preserve">
+          <source>./media/sql-database-elastic-scale-add-references-visual-studio/search-online.png</source>
+          <target state="new">./media/sql-database-elastic-scale-add-references-visual-studio/search-online.png</target>
+        </trans-unit>
+      </group>
+      <group id="23488c8f-b916-4b62-85d9-3b06e6daa69a" />
+    </body>
+  </file>
+</xliff>

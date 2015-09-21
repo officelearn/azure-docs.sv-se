@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f355318d-6006-4376-aa96-9d84d8813e80" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f355318d-6006-4376-aa96-9d84d8813e80" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6fb7e253-9c91-4cd1-a2dc-a4d9c881a318">
+        <trans-unit id="b83a5ab1-e803-465c-8ac9-7c62f18381d6" xml:space="preserve">
+          <source>Log on to a virtual machine running Windows Server</source>
+          <target state="new">Log on to a virtual machine running Windows Server</target>
+        </trans-unit>
+        <trans-unit id="324bb7c4-3fa3-44f5-ae0a-ab871b6b872b" xml:space="preserve">
+          <source>Learn to use the Azure portal to log on to a virtual machine running Windows Server.</source>
+          <target state="new">Learn to use the Azure portal to log on to a virtual machine running Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="5891d6c7-1b77-43f7-b723-d04e3a7d793e" xml:space="preserve">
+          <source>You'll use the <bpt id="497e27ed-dc41-42aa-aeed-92f32e3e1316">&lt;strong&gt;</bpt>Connect<ept id="497e27ed-dc41-42aa-aeed-92f32e3e1316">&lt;/strong&gt;</ept> button in the Azure portal to start a Remote Desktop session.</source>
+          <target state="new">You'll use the <bpt id="497e27ed-dc41-42aa-aeed-92f32e3e1316">&lt;strong&gt;</bpt>Connect<ept id="497e27ed-dc41-42aa-aeed-92f32e3e1316">&lt;/strong&gt;</ept> button in the Azure portal to start a Remote Desktop session.</target>
+        </trans-unit>
+        <trans-unit id="294779c0-e9b4-4eac-8631-4a2c7eb949eb" xml:space="preserve">
+          <source>(For Linux VMs, see <bpt id="eda6ccb2-c032-46a3-901b-c8fe622af5e7">&lt;linkText&gt;</bpt>How to log on to a virtual machine running Linux<ept id="eda6ccb2-c032-46a3-901b-c8fe622af5e7">&lt;/linkText&gt;</ept><bpt id="eda6ccb2-c032-46a3-901b-c8fe622af5e7">&lt;title&gt;</bpt><ept id="eda6ccb2-c032-46a3-901b-c8fe622af5e7">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(For Linux VMs, see <bpt id="eda6ccb2-c032-46a3-901b-c8fe622af5e7">&lt;linkText&gt;</bpt>How to log on to a virtual machine running Linux<ept id="eda6ccb2-c032-46a3-901b-c8fe622af5e7">&lt;/linkText&gt;</ept><bpt id="eda6ccb2-c032-46a3-901b-c8fe622af5e7">&lt;title&gt;</bpt><ept id="eda6ccb2-c032-46a3-901b-c8fe622af5e7">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="7181eb24-49f1-4e6b-bdc3-48f53bdfb6b8" xml:space="preserve">
+          <source><bpt id="6806f217-751f-4c76-a256-2ff34addb531">&lt;token href="../../includes/virtual-machines-log-on-win-server.md"&gt;</bpt><ept id="6806f217-751f-4c76-a256-2ff34addb531">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6806f217-751f-4c76-a256-2ff34addb531">&lt;token href="../../includes/virtual-machines-log-on-win-server.md"&gt;</bpt><ept id="6806f217-751f-4c76-a256-2ff34addb531">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="232e4ce7-0693-4f02-b3bb-06abc58828c6" xml:space="preserve">
+          <source>Here are a few things to try quickly:</source>
+          <target state="new">Here are a few things to try quickly:</target>
+        </trans-unit>
+        <trans-unit id="92e26274-8e73-4e62-b7d7-d7f51b31f00a" xml:space="preserve">
+          <source>For problems with the Remote Desktop connection, try resetting the configuration from the portal.</source>
+          <target state="new">For problems with the Remote Desktop connection, try resetting the configuration from the portal.</target>
+        </trans-unit>
+        <trans-unit id="7ea960ee-424f-42c1-ba5f-b730a545ab44" xml:space="preserve">
+          <source>From the virtual machine dashboard, under <bpt id="2cd5bdcd-0543-4221-a170-47f33b4b2515">&lt;strong&gt;</bpt>Quick Glance<ept id="2cd5bdcd-0543-4221-a170-47f33b4b2515">&lt;/strong&gt;</ept>, click <bpt id="203c80bb-af30-4a6e-8882-952e3f6598f4">&lt;strong&gt;</bpt>Reset remote configuration<ept id="203c80bb-af30-4a6e-8882-952e3f6598f4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the virtual machine dashboard, under <bpt id="2cd5bdcd-0543-4221-a170-47f33b4b2515">&lt;strong&gt;</bpt>Quick Glance<ept id="2cd5bdcd-0543-4221-a170-47f33b4b2515">&lt;/strong&gt;</ept>, click <bpt id="203c80bb-af30-4a6e-8882-952e3f6598f4">&lt;strong&gt;</bpt>Reset remote configuration<ept id="203c80bb-af30-4a6e-8882-952e3f6598f4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="adea2ff9-80bc-400c-952a-3c12ee6dea3d" xml:space="preserve">
+          <source>For problems with your password, try resetting it from the portal.</source>
+          <target state="new">For problems with your password, try resetting it from the portal.</target>
+        </trans-unit>
+        <trans-unit id="0dd5c182-3258-4a09-a9b4-52d20069a8ab" xml:space="preserve">
+          <source>From the virtual machine dashboard, under <bpt id="0de8b805-ce8e-4ead-9f97-f771ba69e7fb">&lt;strong&gt;</bpt>Quick Glance<ept id="0de8b805-ce8e-4ead-9f97-f771ba69e7fb">&lt;/strong&gt;</ept>, click <bpt id="7da5c196-b330-4d66-a3e8-bf79f5935330">&lt;strong&gt;</bpt>Reset password<ept id="7da5c196-b330-4d66-a3e8-bf79f5935330">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the virtual machine dashboard, under <bpt id="0de8b805-ce8e-4ead-9f97-f771ba69e7fb">&lt;strong&gt;</bpt>Quick Glance<ept id="0de8b805-ce8e-4ead-9f97-f771ba69e7fb">&lt;/strong&gt;</ept>, click <bpt id="7da5c196-b330-4d66-a3e8-bf79f5935330">&lt;strong&gt;</bpt>Reset password<ept id="7da5c196-b330-4d66-a3e8-bf79f5935330">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7ecea48-1c38-4fb4-bfe8-0eb9dc03fbb3" xml:space="preserve">
+          <source>If those don't work, you'll need to do more extensive troubleshooting.</source>
+          <target state="new">If those don't work, you'll need to do more extensive troubleshooting.</target>
+        </trans-unit>
+        <trans-unit id="dc92e959-94b2-4e41-9355-65c599214e83" xml:space="preserve">
+          <source>For instructions, see <bpt id="a9735dc4-e9cf-41b2-9c2d-cc5eed24fcb0">&lt;linkText&gt;</bpt>Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine<ept id="a9735dc4-e9cf-41b2-9c2d-cc5eed24fcb0">&lt;/linkText&gt;</ept><bpt id="a9735dc4-e9cf-41b2-9c2d-cc5eed24fcb0">&lt;title&gt;</bpt><ept id="a9735dc4-e9cf-41b2-9c2d-cc5eed24fcb0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="a9735dc4-e9cf-41b2-9c2d-cc5eed24fcb0">&lt;linkText&gt;</bpt>Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine<ept id="a9735dc4-e9cf-41b2-9c2d-cc5eed24fcb0">&lt;/linkText&gt;</ept><bpt id="a9735dc4-e9cf-41b2-9c2d-cc5eed24fcb0">&lt;title&gt;</bpt><ept id="a9735dc4-e9cf-41b2-9c2d-cc5eed24fcb0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,937 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3cdb1468-ce55-4127-b571-82eaba4a8ec5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3cdb1468-ce55-4127-b571-82eaba4a8ec5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4e574441-5067-4022-b7b9-da16fd54bbbb">
+        <trans-unit id="9785fdc9-6843-4ab2-a27b-1cabf5348677" xml:space="preserve">
+          <source>Build a web application with ASP.NET MVC using DocumentDB | Microsoft Azure</source>
+          <target state="new">Build a web application with ASP.NET MVC using DocumentDB | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="db9397fe-7d88-4804-8de9-8b0baab319a4" xml:space="preserve">
+          <source>Learn how to use DocumentDB with .NET to build a To Do List web application. You'll store and access data from an ASP.NET MVC web application hosted on Azure Websites.</source>
+          <target state="new">Learn how to use DocumentDB with .NET to build a To Do List web application. You'll store and access data from an ASP.NET MVC web application hosted on Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="2a5c9a26-361c-43de-8a7a-5af76276dd60" xml:space="preserve">
+          <source>To highlight how you can efficiently leverage Azure DocumentDB to store and query JSON documents, this article provides an end-to-end walk-through showing you how to build a todo list web application using Azure DocumentDB.</source>
+          <target state="new">To highlight how you can efficiently leverage Azure DocumentDB to store and query JSON documents, this article provides an end-to-end walk-through showing you how to build a todo list web application using Azure DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="eb6cc781-a143-4162-9721-df9ba7ad2740" xml:space="preserve">
+          <source>The tasks will be stored as JSON documents in Azure DocumentDB.</source>
+          <target state="new">The tasks will be stored as JSON documents in Azure DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="3040726c-8892-4e2d-bd5d-b526e6a52ab0" xml:space="preserve">
+          <source><bpt id="4905f67f-a837-4c40-ad24-b81d584fbb1c">&lt;linkText&gt;</bpt>Screen shot of the todo list web application created by this tutorial<ept id="4905f67f-a837-4c40-ad24-b81d584fbb1c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4905f67f-a837-4c40-ad24-b81d584fbb1c">&lt;linkText&gt;</bpt>Screen shot of the todo list web application created by this tutorial<ept id="4905f67f-a837-4c40-ad24-b81d584fbb1c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2db4c83-a3d3-4b16-af79-c6877848d3b2" xml:space="preserve">
+          <source>This walk-through shows you how to use the DocumentDB service provided by Azure to store and access data from an ASP.NET MVC web application hosted on Azure.</source>
+          <target state="new">This walk-through shows you how to use the DocumentDB service provided by Azure to store and access data from an ASP.NET MVC web application hosted on Azure.</target>
+        </trans-unit>
+        <trans-unit id="a05dc5df-50a9-48c5-b27e-97820a5d73d7" xml:space="preserve">
+          <source>This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites.</source>
+          <target state="new">This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="798ee9b5-ede9-4edb-952d-7a635c9f9da2" xml:space="preserve">
+          <source>If you are new to ASP.NET or the <bpt id="f56915c2-50a7-4e70-89f4-85e857a75e34">&lt;linkText&gt;</bpt>prerequisite tools<ept id="f56915c2-50a7-4e70-89f4-85e857a75e34">&lt;/linkText&gt;</ept><bpt id="f56915c2-50a7-4e70-89f4-85e857a75e34">&lt;title&gt;</bpt><ept id="f56915c2-50a7-4e70-89f4-85e857a75e34">&lt;/title&gt;</ept>, we recommend downloading the complete <bpt id="4ad11548-1bf0-4739-950a-059dd62b006a">&lt;linkText&gt;</bpt>todo<ept id="4ad11548-1bf0-4739-950a-059dd62b006a">&lt;/linkText&gt;</ept><bpt id="4ad11548-1bf0-4739-950a-059dd62b006a">&lt;title&gt;</bpt><ept id="4ad11548-1bf0-4739-950a-059dd62b006a">&lt;/title&gt;</ept> tutorial project from <bpt id="05b3be7b-8de6-4ce7-9062-56d6394b0119">&lt;linkText&gt;</bpt>GitHub<ept id="05b3be7b-8de6-4ce7-9062-56d6394b0119">&lt;/linkText&gt;</ept><bpt id="05b3be7b-8de6-4ce7-9062-56d6394b0119">&lt;title&gt;</bpt><ept id="05b3be7b-8de6-4ce7-9062-56d6394b0119">&lt;/title&gt;</ept> and building it using the <bpt id="58be767b-7a1f-432e-9a67-d50c03addee4">&lt;linkText&gt;</bpt>instructions at the end of this article<ept id="58be767b-7a1f-432e-9a67-d50c03addee4">&lt;/linkText&gt;</ept><bpt id="58be767b-7a1f-432e-9a67-d50c03addee4">&lt;title&gt;</bpt><ept id="58be767b-7a1f-432e-9a67-d50c03addee4">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are new to ASP.NET or the <bpt id="f56915c2-50a7-4e70-89f4-85e857a75e34">&lt;linkText&gt;</bpt>prerequisite tools<ept id="f56915c2-50a7-4e70-89f4-85e857a75e34">&lt;/linkText&gt;</ept><bpt id="f56915c2-50a7-4e70-89f4-85e857a75e34">&lt;title&gt;</bpt><ept id="f56915c2-50a7-4e70-89f4-85e857a75e34">&lt;/title&gt;</ept>, we recommend downloading the complete <bpt id="4ad11548-1bf0-4739-950a-059dd62b006a">&lt;linkText&gt;</bpt>todo<ept id="4ad11548-1bf0-4739-950a-059dd62b006a">&lt;/linkText&gt;</ept><bpt id="4ad11548-1bf0-4739-950a-059dd62b006a">&lt;title&gt;</bpt><ept id="4ad11548-1bf0-4739-950a-059dd62b006a">&lt;/title&gt;</ept> tutorial project from <bpt id="05b3be7b-8de6-4ce7-9062-56d6394b0119">&lt;linkText&gt;</bpt>GitHub<ept id="05b3be7b-8de6-4ce7-9062-56d6394b0119">&lt;/linkText&gt;</ept><bpt id="05b3be7b-8de6-4ce7-9062-56d6394b0119">&lt;title&gt;</bpt><ept id="05b3be7b-8de6-4ce7-9062-56d6394b0119">&lt;/title&gt;</ept> and building it using the <bpt id="58be767b-7a1f-432e-9a67-d50c03addee4">&lt;linkText&gt;</bpt>instructions at the end of this article<ept id="58be767b-7a1f-432e-9a67-d50c03addee4">&lt;/linkText&gt;</ept><bpt id="58be767b-7a1f-432e-9a67-d50c03addee4">&lt;title&gt;</bpt><ept id="58be767b-7a1f-432e-9a67-d50c03addee4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56b83331-666b-4819-a09f-81e4e8592a4c" xml:space="preserve">
+          <source>Once you have it built, you can review the article to gain insight on the code in the context of the project.</source>
+          <target state="new">Once you have it built, you can review the article to gain insight on the code in the context of the project.</target>
+        </trans-unit>
+        <trans-unit id="ff1a5f99-e3c2-493a-8c88-7d659f22f779" xml:space="preserve">
+          <source>Before following the instructions in this article, you should ensure that you have the following:</source>
+          <target state="new">Before following the instructions in this article, you should ensure that you have the following:</target>
+        </trans-unit>
+        <trans-unit id="2c2d4590-bd77-4691-bd6d-5ae34f528455" xml:space="preserve">
+          <source>An active Azure account.</source>
+          <target state="new">An active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="f9a6f41f-2ba2-41f0-a90a-cfdea78a0448" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="b2a8e2f0-cdcd-4a22-98b6-d108e164ac2a" xml:space="preserve">
+          <source>For details, see <bpt id="d06101a4-e308-4b50-b775-5e0241c56d0d">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="d06101a4-e308-4b50-b775-5e0241c56d0d">&lt;/linkText&gt;</ept><bpt id="d06101a4-e308-4b50-b775-5e0241c56d0d">&lt;title&gt;</bpt><ept id="d06101a4-e308-4b50-b775-5e0241c56d0d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="d06101a4-e308-4b50-b775-5e0241c56d0d">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="d06101a4-e308-4b50-b775-5e0241c56d0d">&lt;/linkText&gt;</ept><bpt id="d06101a4-e308-4b50-b775-5e0241c56d0d">&lt;title&gt;</bpt><ept id="d06101a4-e308-4b50-b775-5e0241c56d0d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bbaa4cf6-586b-4dde-bb50-6fb9d9a19fbc" xml:space="preserve">
+          <source><bpt id="6b5c2e2f-fbd8-4ef6-a0e4-dd5dd2053860">&lt;linkText&gt;</bpt>Visual Studio 2013<ept id="6b5c2e2f-fbd8-4ef6-a0e4-dd5dd2053860">&lt;/linkText&gt;</ept><bpt id="6b5c2e2f-fbd8-4ef6-a0e4-dd5dd2053860">&lt;title&gt;</bpt><ept id="6b5c2e2f-fbd8-4ef6-a0e4-dd5dd2053860">&lt;/title&gt;</ept> Update 4 or higher.</source>
+          <target state="new"><bpt id="6b5c2e2f-fbd8-4ef6-a0e4-dd5dd2053860">&lt;linkText&gt;</bpt>Visual Studio 2013<ept id="6b5c2e2f-fbd8-4ef6-a0e4-dd5dd2053860">&lt;/linkText&gt;</ept><bpt id="6b5c2e2f-fbd8-4ef6-a0e4-dd5dd2053860">&lt;title&gt;</bpt><ept id="6b5c2e2f-fbd8-4ef6-a0e4-dd5dd2053860">&lt;/title&gt;</ept> Update 4 or higher.</target>
+        </trans-unit>
+        <trans-unit id="6e6002c9-0839-439e-88af-a68467b28ca9" xml:space="preserve">
+          <source>Azure SDK for .NET version 2.5.1 or higher, available through the <bpt id="fa88f4fc-9115-4cf5-854c-4416b693d4b0">&lt;linkText&gt;</bpt>Microsoft Web Platform Installer<ept id="fa88f4fc-9115-4cf5-854c-4416b693d4b0">&lt;/linkText&gt;</ept><bpt id="fa88f4fc-9115-4cf5-854c-4416b693d4b0">&lt;title&gt;</bpt><ept id="fa88f4fc-9115-4cf5-854c-4416b693d4b0">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure SDK for .NET version 2.5.1 or higher, available through the <bpt id="fa88f4fc-9115-4cf5-854c-4416b693d4b0">&lt;linkText&gt;</bpt>Microsoft Web Platform Installer<ept id="fa88f4fc-9115-4cf5-854c-4416b693d4b0">&lt;/linkText&gt;</ept><bpt id="fa88f4fc-9115-4cf5-854c-4416b693d4b0">&lt;title&gt;</bpt><ept id="fa88f4fc-9115-4cf5-854c-4416b693d4b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6dbf25c-2b64-428f-a703-2c6a00062df4" xml:space="preserve">
+          <source>All the screen shots in this article have been taken using Visual Studio 2013 with Update 4 applied and the Azure SDK for .NET version 2.5.1.</source>
+          <target state="new">All the screen shots in this article have been taken using Visual Studio 2013 with Update 4 applied and the Azure SDK for .NET version 2.5.1.</target>
+        </trans-unit>
+        <trans-unit id="9d278239-ecd3-4ed3-9c3c-df5545ef5c20" xml:space="preserve">
+          <source>If your system is configured with different versions it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.</source>
+          <target state="new">If your system is configured with different versions it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.</target>
+        </trans-unit>
+        <trans-unit id="08349ab6-fdd4-47f6-967e-91e629dd4b79" xml:space="preserve">
+          <source>Let's start by creating a DocumentDB account.</source>
+          <target state="new">Let's start by creating a DocumentDB account.</target>
+        </trans-unit>
+        <trans-unit id="55d35b7d-d7dc-472b-9c54-5fbdfa371c04" xml:space="preserve">
+          <source>If you already have an account, you can skip to <bpt id="8523faa4-cd9c-4e08-9e6e-f30420b3f1ec">&lt;linkText&gt;</bpt>Create a new ASP.NET MVC application<ept id="8523faa4-cd9c-4e08-9e6e-f30420b3f1ec">&lt;/linkText&gt;</ept><bpt id="8523faa4-cd9c-4e08-9e6e-f30420b3f1ec">&lt;title&gt;</bpt><ept id="8523faa4-cd9c-4e08-9e6e-f30420b3f1ec">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you already have an account, you can skip to <bpt id="8523faa4-cd9c-4e08-9e6e-f30420b3f1ec">&lt;linkText&gt;</bpt>Create a new ASP.NET MVC application<ept id="8523faa4-cd9c-4e08-9e6e-f30420b3f1ec">&lt;/linkText&gt;</ept><bpt id="8523faa4-cd9c-4e08-9e6e-f30420b3f1ec">&lt;title&gt;</bpt><ept id="8523faa4-cd9c-4e08-9e6e-f30420b3f1ec">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8afa6c57-e332-4212-805b-c1d35fcffc7f" xml:space="preserve">
+          <source><bpt id="601a5403-5ea2-44e1-8144-97711c6ea4a4">&lt;token href="../../includes/documentdb-create-dbaccount.md"&gt;</bpt><ept id="601a5403-5ea2-44e1-8144-97711c6ea4a4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="601a5403-5ea2-44e1-8144-97711c6ea4a4">&lt;token href="../../includes/documentdb-create-dbaccount.md"&gt;</bpt><ept id="601a5403-5ea2-44e1-8144-97711c6ea4a4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af2ae70c-e3b4-4159-a3ef-28b56cc1ce0b" xml:space="preserve">
+          <source><bpt id="adfd811f-c2dc-4d4d-b9c1-ae3ef8ec9fba">&lt;token href="../../includes/documentdb-keys.md"&gt;</bpt><ept id="adfd811f-c2dc-4d4d-b9c1-ae3ef8ec9fba">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="adfd811f-c2dc-4d4d-b9c1-ae3ef8ec9fba">&lt;token href="../../includes/documentdb-keys.md"&gt;</bpt><ept id="adfd811f-c2dc-4d4d-b9c1-ae3ef8ec9fba">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b56058f2-d069-4058-90d1-f498d04baab0" xml:space="preserve">
+          <source>&lt;br/&gt;
+We will now walk through how to create a new ASP.NET MVC application from the ground-up.</source>
+          <target state="new">&lt;br/&gt;
+We will now walk through how to create a new ASP.NET MVC application from the ground-up.</target>
+        </trans-unit>
+        <trans-unit id="4b0d9a47-0339-430c-b9b0-986a2ae7b9c9" xml:space="preserve">
+          <source>Now that you have an account, let's create our new ASP.NET project.</source>
+          <target state="new">Now that you have an account, let's create our new ASP.NET project.</target>
+        </trans-unit>
+        <trans-unit id="1c099530-f841-4ac8-b274-2a298d807e1b" xml:space="preserve">
+          <source>In Visual Studio, on the <bpt id="1718fc6c-6844-4bd3-b8d2-878ddb4b2865">&lt;strong&gt;</bpt>File<ept id="1718fc6c-6844-4bd3-b8d2-878ddb4b2865">&lt;/strong&gt;</ept> menu, point to <bpt id="add0cc8a-7744-4900-8687-99ccbf7614d0">&lt;strong&gt;</bpt>New<ept id="add0cc8a-7744-4900-8687-99ccbf7614d0">&lt;/strong&gt;</ept>, and then click <bpt id="db3e82bd-4e9f-4fd3-baf3-3c3803cda3e9">&lt;strong&gt;</bpt>Project<ept id="db3e82bd-4e9f-4fd3-baf3-3c3803cda3e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, on the <bpt id="1718fc6c-6844-4bd3-b8d2-878ddb4b2865">&lt;strong&gt;</bpt>File<ept id="1718fc6c-6844-4bd3-b8d2-878ddb4b2865">&lt;/strong&gt;</ept> menu, point to <bpt id="add0cc8a-7744-4900-8687-99ccbf7614d0">&lt;strong&gt;</bpt>New<ept id="add0cc8a-7744-4900-8687-99ccbf7614d0">&lt;/strong&gt;</ept>, and then click <bpt id="db3e82bd-4e9f-4fd3-baf3-3c3803cda3e9">&lt;strong&gt;</bpt>Project<ept id="db3e82bd-4e9f-4fd3-baf3-3c3803cda3e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea985dc9-133d-4fab-913b-9c35edb7af67" xml:space="preserve">
+          <source>The <bpt id="938e684e-ed22-4096-9409-8f8609526f8c">&lt;strong&gt;</bpt>New Project<ept id="938e684e-ed22-4096-9409-8f8609526f8c">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="938e684e-ed22-4096-9409-8f8609526f8c">&lt;strong&gt;</bpt>New Project<ept id="938e684e-ed22-4096-9409-8f8609526f8c">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="20eaffc8-3301-4b1e-8102-b16b1418fa8d" xml:space="preserve">
+          <source>In the <bpt id="eff967e7-afeb-424c-853d-5baa7916d71b">&lt;strong&gt;</bpt>Project types<ept id="eff967e7-afeb-424c-853d-5baa7916d71b">&lt;/strong&gt;</ept> pane, expand <bpt id="a428dc89-c9e8-40f8-a519-64959115b27f">&lt;strong&gt;</bpt>Templates<ept id="a428dc89-c9e8-40f8-a519-64959115b27f">&lt;/strong&gt;</ept>, <bpt id="5fdd9c6a-dea5-49ba-947e-eaaabf0fae01">&lt;strong&gt;</bpt>Visual C#<ept id="5fdd9c6a-dea5-49ba-947e-eaaabf0fae01">&lt;/strong&gt;</ept>, <bpt id="56102b78-9d20-4d84-901b-bec62887f994">&lt;strong&gt;</bpt>Web<ept id="56102b78-9d20-4d84-901b-bec62887f994">&lt;/strong&gt;</ept>, and then select <bpt id="9d31e19c-26cb-4ab0-8363-f7448675439c">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="9d31e19c-26cb-4ab0-8363-f7448675439c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="eff967e7-afeb-424c-853d-5baa7916d71b">&lt;strong&gt;</bpt>Project types<ept id="eff967e7-afeb-424c-853d-5baa7916d71b">&lt;/strong&gt;</ept> pane, expand <bpt id="a428dc89-c9e8-40f8-a519-64959115b27f">&lt;strong&gt;</bpt>Templates<ept id="a428dc89-c9e8-40f8-a519-64959115b27f">&lt;/strong&gt;</ept>, <bpt id="5fdd9c6a-dea5-49ba-947e-eaaabf0fae01">&lt;strong&gt;</bpt>Visual C#<ept id="5fdd9c6a-dea5-49ba-947e-eaaabf0fae01">&lt;/strong&gt;</ept>, <bpt id="56102b78-9d20-4d84-901b-bec62887f994">&lt;strong&gt;</bpt>Web<ept id="56102b78-9d20-4d84-901b-bec62887f994">&lt;/strong&gt;</ept>, and then select <bpt id="9d31e19c-26cb-4ab0-8363-f7448675439c">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="9d31e19c-26cb-4ab0-8363-f7448675439c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a176908-c599-4b10-9c99-89cd84f2f3b1" xml:space="preserve">
+          <source><bpt id="abfa32dc-00d4-4c1f-9122-3785cd995460">&lt;linkText&gt;</bpt>Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted<ept id="abfa32dc-00d4-4c1f-9122-3785cd995460">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="abfa32dc-00d4-4c1f-9122-3785cd995460">&lt;linkText&gt;</bpt>Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted<ept id="abfa32dc-00d4-4c1f-9122-3785cd995460">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52081bce-74b6-4269-9dcf-332aaf6f11b3" xml:space="preserve">
+          <source>In the <bpt id="c50e3df5-6162-4335-b0be-6715c7ddf1de">&lt;strong&gt;</bpt>Name<ept id="c50e3df5-6162-4335-b0be-6715c7ddf1de">&lt;/strong&gt;</ept> box, type the name of the project.</source>
+          <target state="new">In the <bpt id="c50e3df5-6162-4335-b0be-6715c7ddf1de">&lt;strong&gt;</bpt>Name<ept id="c50e3df5-6162-4335-b0be-6715c7ddf1de">&lt;/strong&gt;</ept> box, type the name of the project.</target>
+        </trans-unit>
+        <trans-unit id="65e88ef0-2021-41b5-8fd1-4037d79df475" xml:space="preserve">
+          <source>This tutorial uses the name "todo".</source>
+          <target state="new">This tutorial uses the name "todo".</target>
+        </trans-unit>
+        <trans-unit id="3636172d-601e-4865-b8a6-71e5722b7304" xml:space="preserve">
+          <source>If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, you need to adjust the provided code samples to use whatever you named your application.</source>
+          <target state="new">If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, you need to adjust the provided code samples to use whatever you named your application.</target>
+        </trans-unit>
+        <trans-unit id="5895a2c5-fd95-4e60-8221-4a4b817531d6" xml:space="preserve">
+          <source>Click <bpt id="36fd6fb4-ddc8-4a2b-bbce-bae97c70a549">&lt;strong&gt;</bpt>Browse<ept id="36fd6fb4-ddc8-4a2b-bbce-bae97c70a549">&lt;/strong&gt;</ept> to navigate to the folder where you would like to create the project, and then click <bpt id="2eaf19e6-b551-4bc3-b50c-af8930e1d6a9">&lt;strong&gt;</bpt>OK<ept id="2eaf19e6-b551-4bc3-b50c-af8930e1d6a9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="36fd6fb4-ddc8-4a2b-bbce-bae97c70a549">&lt;strong&gt;</bpt>Browse<ept id="36fd6fb4-ddc8-4a2b-bbce-bae97c70a549">&lt;/strong&gt;</ept> to navigate to the folder where you would like to create the project, and then click <bpt id="2eaf19e6-b551-4bc3-b50c-af8930e1d6a9">&lt;strong&gt;</bpt>OK<ept id="2eaf19e6-b551-4bc3-b50c-af8930e1d6a9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac38a307-3294-46f9-9a87-60fd7321abb2" xml:space="preserve">
+          <source>The <bpt id="146b89ac-5c03-4ce9-91ba-a86810f5ad2f">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="146b89ac-5c03-4ce9-91ba-a86810f5ad2f">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="146b89ac-5c03-4ce9-91ba-a86810f5ad2f">&lt;strong&gt;</bpt>New ASP.NET Project<ept id="146b89ac-5c03-4ce9-91ba-a86810f5ad2f">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="8daeebf1-a020-4875-961b-bec090e73ac8" xml:space="preserve">
+          <source><bpt id="b02a3680-5553-4043-b9cb-c11799700c86">&lt;linkText&gt;</bpt>Screen shot of the New ASP.NET Project dialog box with the MVC template highlighted and the Host in the cloud box checked<ept id="b02a3680-5553-4043-b9cb-c11799700c86">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b02a3680-5553-4043-b9cb-c11799700c86">&lt;linkText&gt;</bpt>Screen shot of the New ASP.NET Project dialog box with the MVC template highlighted and the Host in the cloud box checked<ept id="b02a3680-5553-4043-b9cb-c11799700c86">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9c9d9a8-64d0-4f24-9d8b-9bbe51a44b8a" xml:space="preserve">
+          <source>In the templates pane, select <bpt id="9d2ef926-cb1f-43fc-8f12-26fbbb6a719f">&lt;strong&gt;</bpt>MVC<ept id="9d2ef926-cb1f-43fc-8f12-26fbbb6a719f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the templates pane, select <bpt id="9d2ef926-cb1f-43fc-8f12-26fbbb6a719f">&lt;strong&gt;</bpt>MVC<ept id="9d2ef926-cb1f-43fc-8f12-26fbbb6a719f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10ccc29c-6d15-4209-ade5-bfe161e7c059" xml:space="preserve">
+          <source>If you plan on hosting your application in Azure then select <bpt id="7eae83b2-ac73-460a-a222-080efaabfc14">&lt;strong&gt;</bpt>Host in the cloud<ept id="7eae83b2-ac73-460a-a222-080efaabfc14">&lt;/strong&gt;</ept> on the lower right to have Azure host the application.</source>
+          <target state="new">If you plan on hosting your application in Azure then select <bpt id="7eae83b2-ac73-460a-a222-080efaabfc14">&lt;strong&gt;</bpt>Host in the cloud<ept id="7eae83b2-ac73-460a-a222-080efaabfc14">&lt;/strong&gt;</ept> on the lower right to have Azure host the application.</target>
+        </trans-unit>
+        <trans-unit id="86a7de98-2847-41ad-95c5-bac05cc91b89" xml:space="preserve">
+          <source>We've selected to host in the cloud, and to run the application hosted in an Azure Website.</source>
+          <target state="new">We've selected to host in the cloud, and to run the application hosted in an Azure Website.</target>
+        </trans-unit>
+        <trans-unit id="2aa41789-27e4-44f6-90cc-4d41a819ea59" xml:space="preserve">
+          <source>Selecting this option will preprovision an Azure Website for you and make life a lot easier when it comes time to deploy the final working application.</source>
+          <target state="new">Selecting this option will preprovision an Azure Website for you and make life a lot easier when it comes time to deploy the final working application.</target>
+        </trans-unit>
+        <trans-unit id="dea85a70-751e-4bfc-8484-d9d2ddb8bb0b" xml:space="preserve">
+          <source>If you want to host this elsewhere or don't want to configure Azure upfront, then just clear <bpt id="accf94b2-e7fb-4ede-9113-7e451fef999d">&lt;strong&gt;</bpt>Host in the Cloud<ept id="accf94b2-e7fb-4ede-9113-7e451fef999d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you want to host this elsewhere or don't want to configure Azure upfront, then just clear <bpt id="accf94b2-e7fb-4ede-9113-7e451fef999d">&lt;strong&gt;</bpt>Host in the Cloud<ept id="accf94b2-e7fb-4ede-9113-7e451fef999d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f5f44548-a40e-4dea-adce-315a2fb1a89e" xml:space="preserve">
+          <source>Click <bpt id="1bac59a4-ccd0-4805-b64e-37be838ca2df">&lt;strong&gt;</bpt>OK<ept id="1bac59a4-ccd0-4805-b64e-37be838ca2df">&lt;/strong&gt;</ept> and let Visual Studio do its thing around scaffolding the empty ASP.NET MVC template.</source>
+          <target state="new">Click <bpt id="1bac59a4-ccd0-4805-b64e-37be838ca2df">&lt;strong&gt;</bpt>OK<ept id="1bac59a4-ccd0-4805-b64e-37be838ca2df">&lt;/strong&gt;</ept> and let Visual Studio do its thing around scaffolding the empty ASP.NET MVC template.</target>
+        </trans-unit>
+        <trans-unit id="39c0cf1f-bc31-49f9-8392-f836c841ea64" xml:space="preserve">
+          <source>If you chose to host this in the cloud you will see at least one additional screen asking you to login to your Azure account and provide some values for your new website.</source>
+          <target state="new">If you chose to host this in the cloud you will see at least one additional screen asking you to login to your Azure account and provide some values for your new website.</target>
+        </trans-unit>
+        <trans-unit id="d8da89da-93fa-440a-a928-0237153c3803" xml:space="preserve">
+          <source>Supply all the additional values and continue.</source>
+          <target state="new">Supply all the additional values and continue.</target>
+        </trans-unit>
+        <trans-unit id="b4323896-7c78-4d85-ae11-ebeffff0cd2f" xml:space="preserve">
+          <source>I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Azure Preview portal.</source>
+          <target state="new">I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Azure Preview portal.</target>
+        </trans-unit>
+        <trans-unit id="c51f628d-449e-4a13-a341-1dcb3383acb3" xml:space="preserve">
+          <source>For more information about choosing an <bpt id="77500e09-4353-4004-aa27-ee7e1888901b">&lt;strong&gt;</bpt>App Service plan<ept id="77500e09-4353-4004-aa27-ee7e1888901b">&lt;/strong&gt;</ept> and <bpt id="076e0ae7-acf7-4128-a26e-761dc28b5ac0">&lt;strong&gt;</bpt>Resource group<ept id="076e0ae7-acf7-4128-a26e-761dc28b5ac0">&lt;/strong&gt;</ept>, see <bpt id="b9a6daaf-8884-452b-8a6a-102a11743ff0">&lt;linkText&gt;</bpt>Azure App Service plans in-depth overview<ept id="b9a6daaf-8884-452b-8a6a-102a11743ff0">&lt;/linkText&gt;</ept><bpt id="b9a6daaf-8884-452b-8a6a-102a11743ff0">&lt;title&gt;</bpt><ept id="b9a6daaf-8884-452b-8a6a-102a11743ff0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about choosing an <bpt id="77500e09-4353-4004-aa27-ee7e1888901b">&lt;strong&gt;</bpt>App Service plan<ept id="77500e09-4353-4004-aa27-ee7e1888901b">&lt;/strong&gt;</ept> and <bpt id="076e0ae7-acf7-4128-a26e-761dc28b5ac0">&lt;strong&gt;</bpt>Resource group<ept id="076e0ae7-acf7-4128-a26e-761dc28b5ac0">&lt;/strong&gt;</ept>, see <bpt id="b9a6daaf-8884-452b-8a6a-102a11743ff0">&lt;linkText&gt;</bpt>Azure App Service plans in-depth overview<ept id="b9a6daaf-8884-452b-8a6a-102a11743ff0">&lt;/linkText&gt;</ept><bpt id="b9a6daaf-8884-452b-8a6a-102a11743ff0">&lt;title&gt;</bpt><ept id="b9a6daaf-8884-452b-8a6a-102a11743ff0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7fb0b54-ad8d-4e43-a6b6-9f5e3410d326" xml:space="preserve">
+          <source><bpt id="e33492be-a90a-4ec4-b52a-5d37f9f6fc8a">&lt;linkText&gt;</bpt>Screen shot of the Configure Microsoft Azure Website dialog box<ept id="e33492be-a90a-4ec4-b52a-5d37f9f6fc8a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e33492be-a90a-4ec4-b52a-5d37f9f6fc8a">&lt;linkText&gt;</bpt>Screen shot of the Configure Microsoft Azure Website dialog box<ept id="e33492be-a90a-4ec4-b52a-5d37f9f6fc8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e61a8c4-7b14-4272-89e6-6457a0d577a6" xml:space="preserve">
+          <source>Once Visual Studio has finished creating the boilerplate MVC application you have an empty ASP.NET application that you can run locally.</source>
+          <target state="new">Once Visual Studio has finished creating the boilerplate MVC application you have an empty ASP.NET application that you can run locally.</target>
+        </trans-unit>
+        <trans-unit id="bca63c5a-58a9-4ee9-8179-5dbc9754b568" xml:space="preserve">
+          <source>We'll skip running the project locally because I'm sure we've all seen the ASP.NET "Hello World" application.</source>
+          <target state="new">We'll skip running the project locally because I'm sure we've all seen the ASP.NET "Hello World" application.</target>
+        </trans-unit>
+        <trans-unit id="d13229f5-f761-4fb6-9386-7e6a3e0aca36" xml:space="preserve">
+          <source>Let's go straight to adding DocumentDB to this project and building our application.</source>
+          <target state="new">Let's go straight to adding DocumentDB to this project and building our application.</target>
+        </trans-unit>
+        <trans-unit id="d3ccb0f3-d48f-439e-b1ea-91f6bb255081" xml:space="preserve">
+          <source>Now that we have most of the ASP.NET MVC plumbing that we need for
+this solution, let's get to the real purpose of this tutorial, adding Azure DocumentDB to our web application.</source>
+          <target state="new">Now that we have most of the ASP.NET MVC plumbing that we need for
+this solution, let's get to the real purpose of this tutorial, adding Azure DocumentDB to our web application.</target>
+        </trans-unit>
+        <trans-unit id="f4e3f2ed-d467-449b-8ec5-0755bd6b6ec6" xml:space="preserve">
+          <source>The DocumentDB .NET SDK is packaged and distributed as a NuGet package.</source>
+          <target state="new">The DocumentDB .NET SDK is packaged and distributed as a NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="11377785-61f3-4bbc-843d-13f229654897" xml:space="preserve">
+          <source>To get the NuGet package in Visual Studio, use the NuGet package manager in Visual Studio by right-clicking on the project in <bpt id="7f2e9a3f-03bd-47d6-bc0e-b37e882f69ad">&lt;strong&gt;</bpt>Solution Explorer<ept id="7f2e9a3f-03bd-47d6-bc0e-b37e882f69ad">&lt;/strong&gt;</ept> and then clicking <bpt id="2e6d1a86-64b6-4391-9692-034459504cd1">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="2e6d1a86-64b6-4391-9692-034459504cd1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To get the NuGet package in Visual Studio, use the NuGet package manager in Visual Studio by right-clicking on the project in <bpt id="7f2e9a3f-03bd-47d6-bc0e-b37e882f69ad">&lt;strong&gt;</bpt>Solution Explorer<ept id="7f2e9a3f-03bd-47d6-bc0e-b37e882f69ad">&lt;/strong&gt;</ept> and then clicking <bpt id="2e6d1a86-64b6-4391-9692-034459504cd1">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="2e6d1a86-64b6-4391-9692-034459504cd1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a05d8ce-04ba-4a6e-8b5b-6a602f3bf7a3" xml:space="preserve">
+          <source><bpt id="281f35b6-cb3a-4f1f-a908-e12456329b05">&lt;linkText&gt;</bpt>Sreen shot of the right-click options for the project in Solution Explorer, with Manage NuGet Packages highlighted.<ept id="281f35b6-cb3a-4f1f-a908-e12456329b05">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="281f35b6-cb3a-4f1f-a908-e12456329b05">&lt;linkText&gt;</bpt>Sreen shot of the right-click options for the project in Solution Explorer, with Manage NuGet Packages highlighted.<ept id="281f35b6-cb3a-4f1f-a908-e12456329b05">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92557d0e-e0ac-4b09-82a9-0b6797277120" xml:space="preserve">
+          <source>The <bpt id="603edf10-9a48-42a0-90ca-7c6e96916e3d">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="603edf10-9a48-42a0-90ca-7c6e96916e3d">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="603edf10-9a48-42a0-90ca-7c6e96916e3d">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="603edf10-9a48-42a0-90ca-7c6e96916e3d">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="55a737a3-1f67-4dc2-b724-337b466869f9" xml:space="preserve">
+          <source>In the <bpt id="691b303c-f061-4395-bf9d-954d1ab0e93d">&lt;strong&gt;</bpt>Search Online<ept id="691b303c-f061-4395-bf9d-954d1ab0e93d">&lt;/strong&gt;</ept> box, type <bpt id="9821baaa-e91f-4c6c-94ab-31f6d0e08086">&lt;strong&gt;</bpt>*Azure DocumentDB*<ept id="9821baaa-e91f-4c6c-94ab-31f6d0e08086">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="691b303c-f061-4395-bf9d-954d1ab0e93d">&lt;strong&gt;</bpt>Search Online<ept id="691b303c-f061-4395-bf9d-954d1ab0e93d">&lt;/strong&gt;</ept> box, type <bpt id="9821baaa-e91f-4c6c-94ab-31f6d0e08086">&lt;strong&gt;</bpt>*Azure DocumentDB*<ept id="9821baaa-e91f-4c6c-94ab-31f6d0e08086">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64eb27f0-e328-484e-8fde-11f53c8a1526" xml:space="preserve">
+          <source>From the results, install the <bpt id="6ddd8e37-9006-4be5-89de-f72988329f1e">&lt;strong&gt;</bpt>Microsoft Azure DocumentDB Client Library<ept id="6ddd8e37-9006-4be5-89de-f72988329f1e">&lt;/strong&gt;</ept> package.</source>
+          <target state="new">From the results, install the <bpt id="6ddd8e37-9006-4be5-89de-f72988329f1e">&lt;strong&gt;</bpt>Microsoft Azure DocumentDB Client Library<ept id="6ddd8e37-9006-4be5-89de-f72988329f1e">&lt;/strong&gt;</ept> package.</target>
+        </trans-unit>
+        <trans-unit id="2faa4121-8a83-4e06-833e-eff4b15c7606" xml:space="preserve">
+          <source>This will download and install the DocumentDB package as well as all dependencies, like Newtonsoft.Json.</source>
+          <target state="new">This will download and install the DocumentDB package as well as all dependencies, like Newtonsoft.Json.</target>
+        </trans-unit>
+        <trans-unit id="a8282a39-1f4e-48cc-9561-646507a5c006" xml:space="preserve">
+          <source><bpt id="791b65f9-6ab5-481c-a4ba-8354687fcabb">&lt;linkText&gt;</bpt>Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure DocumentDB Client Library highlighted<ept id="791b65f9-6ab5-481c-a4ba-8354687fcabb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="791b65f9-6ab5-481c-a4ba-8354687fcabb">&lt;linkText&gt;</bpt>Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure DocumentDB Client Library highlighted<ept id="791b65f9-6ab5-481c-a4ba-8354687fcabb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="357b044f-aefa-4e81-aa6d-d30040ad8f7b" xml:space="preserve">
+          <source>Alternatively you can use the Package Manager Console to install the package.</source>
+          <target state="new">Alternatively you can use the Package Manager Console to install the package.</target>
+        </trans-unit>
+        <trans-unit id="efa70fd8-6fca-47de-b259-600d126d75c0" xml:space="preserve">
+          <source>To do so, on the <bpt id="8407edef-61c2-4dd0-b5ce-ab4740c4573f">&lt;strong&gt;</bpt>Tools<ept id="8407edef-61c2-4dd0-b5ce-ab4740c4573f">&lt;/strong&gt;</ept> menu, click <bpt id="4c0145f8-9acf-4f5e-914a-c7f56844a7d1">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="4c0145f8-9acf-4f5e-914a-c7f56844a7d1">&lt;/strong&gt;</ept>, and then click <bpt id="06f950b3-7141-48e8-8389-d932a0794aaa">&lt;strong&gt;</bpt>Package Manager Console<ept id="06f950b3-7141-48e8-8389-d932a0794aaa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To do so, on the <bpt id="8407edef-61c2-4dd0-b5ce-ab4740c4573f">&lt;strong&gt;</bpt>Tools<ept id="8407edef-61c2-4dd0-b5ce-ab4740c4573f">&lt;/strong&gt;</ept> menu, click <bpt id="4c0145f8-9acf-4f5e-914a-c7f56844a7d1">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="4c0145f8-9acf-4f5e-914a-c7f56844a7d1">&lt;/strong&gt;</ept>, and then click <bpt id="06f950b3-7141-48e8-8389-d932a0794aaa">&lt;strong&gt;</bpt>Package Manager Console<ept id="06f950b3-7141-48e8-8389-d932a0794aaa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74b598cd-75bf-4643-89a0-8eb085228d52" xml:space="preserve">
+          <source>At the prompt, type the following.</source>
+          <target state="new">At the prompt, type the following.</target>
+        </trans-unit>
+        <trans-unit id="74132861-c6a7-465e-b70b-61e9af00cba4" xml:space="preserve">
+          <source>Once the package is installed, your Visual Studio solution should resemble the following with two new references added, Microsoft.Azure.Documents.Client and Newtonsoft.Json.</source>
+          <target state="new">Once the package is installed, your Visual Studio solution should resemble the following with two new references added, Microsoft.Azure.Documents.Client and Newtonsoft.Json.</target>
+        </trans-unit>
+        <trans-unit id="0603341e-503d-476d-8afa-014f23e4801c" xml:space="preserve">
+          <source><bpt id="1bfb63e4-4972-4387-8e53-76931deba5ad">&lt;linkText&gt;</bpt>Sreen shot of the two references added to the project in Solution Explorer<ept id="1bfb63e4-4972-4387-8e53-76931deba5ad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1bfb63e4-4972-4387-8e53-76931deba5ad">&lt;linkText&gt;</bpt>Sreen shot of the two references added to the project in Solution Explorer<ept id="1bfb63e4-4972-4387-8e53-76931deba5ad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30dec1a0-ba2a-42d5-a6d5-6a1a12cf1e19" xml:space="preserve">
+          <source>Now let's add the models, views, and controllers to this MVC application:</source>
+          <target state="new">Now let's add the models, views, and controllers to this MVC application:</target>
+        </trans-unit>
+        <trans-unit id="f07cce25-903b-4e6c-b942-df0a9ae19543" xml:space="preserve">
+          <source><bpt id="4185779f-d993-40b5-afeb-4205ee21b416">&lt;linkText&gt;</bpt>Add a model<ept id="4185779f-d993-40b5-afeb-4205ee21b416">&lt;/linkText&gt;</ept><bpt id="4185779f-d993-40b5-afeb-4205ee21b416">&lt;title&gt;</bpt><ept id="4185779f-d993-40b5-afeb-4205ee21b416">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="4185779f-d993-40b5-afeb-4205ee21b416">&lt;linkText&gt;</bpt>Add a model<ept id="4185779f-d993-40b5-afeb-4205ee21b416">&lt;/linkText&gt;</ept><bpt id="4185779f-d993-40b5-afeb-4205ee21b416">&lt;title&gt;</bpt><ept id="4185779f-d993-40b5-afeb-4205ee21b416">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7eab9e85-756f-4019-8f16-b1195f1edfa8" xml:space="preserve">
+          <source><bpt id="1f0c1c86-d814-4f27-8483-a119f0c1d278">&lt;linkText&gt;</bpt>Add a controller<ept id="1f0c1c86-d814-4f27-8483-a119f0c1d278">&lt;/linkText&gt;</ept><bpt id="1f0c1c86-d814-4f27-8483-a119f0c1d278">&lt;title&gt;</bpt><ept id="1f0c1c86-d814-4f27-8483-a119f0c1d278">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="1f0c1c86-d814-4f27-8483-a119f0c1d278">&lt;linkText&gt;</bpt>Add a controller<ept id="1f0c1c86-d814-4f27-8483-a119f0c1d278">&lt;/linkText&gt;</ept><bpt id="1f0c1c86-d814-4f27-8483-a119f0c1d278">&lt;title&gt;</bpt><ept id="1f0c1c86-d814-4f27-8483-a119f0c1d278">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86e3ec8f-b5d9-438c-ae70-70cf692be05a" xml:space="preserve">
+          <source><bpt id="1ba5cc16-52de-46a3-b602-e42be8278541">&lt;linkText&gt;</bpt>Add views<ept id="1ba5cc16-52de-46a3-b602-e42be8278541">&lt;/linkText&gt;</ept><bpt id="1ba5cc16-52de-46a3-b602-e42be8278541">&lt;title&gt;</bpt><ept id="1ba5cc16-52de-46a3-b602-e42be8278541">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="1ba5cc16-52de-46a3-b602-e42be8278541">&lt;linkText&gt;</bpt>Add views<ept id="1ba5cc16-52de-46a3-b602-e42be8278541">&lt;/linkText&gt;</ept><bpt id="1ba5cc16-52de-46a3-b602-e42be8278541">&lt;title&gt;</bpt><ept id="1ba5cc16-52de-46a3-b602-e42be8278541">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="564aec40-1041-4428-8765-a7ac67629154" xml:space="preserve">
+          <source>Let's begin by creating the <bpt id="e543c27f-a2bb-49c6-b7dc-111e3b3ba8f1">&lt;strong&gt;</bpt>M<ept id="e543c27f-a2bb-49c6-b7dc-111e3b3ba8f1">&lt;/strong&gt;</ept> in MVC, the model.</source>
+          <target state="new">Let's begin by creating the <bpt id="e543c27f-a2bb-49c6-b7dc-111e3b3ba8f1">&lt;strong&gt;</bpt>M<ept id="e543c27f-a2bb-49c6-b7dc-111e3b3ba8f1">&lt;/strong&gt;</ept> in MVC, the model.</target>
+        </trans-unit>
+        <trans-unit id="2f4c1565-1b21-4d00-b345-4300573ae756" xml:space="preserve">
+          <source>In <bpt id="2348f8ea-c2ce-4a03-a67c-e53789bafd12">&lt;strong&gt;</bpt>Solution Explorer<ept id="2348f8ea-c2ce-4a03-a67c-e53789bafd12">&lt;/strong&gt;</ept>, right-click the <bpt id="5a3afeb5-a966-41ad-89db-64cf8f1cc495">&lt;strong&gt;</bpt>Models<ept id="5a3afeb5-a966-41ad-89db-64cf8f1cc495">&lt;/strong&gt;</ept> folder, click <bpt id="64f8a510-950b-4393-81e6-1158a47ddb96">&lt;strong&gt;</bpt>Add<ept id="64f8a510-950b-4393-81e6-1158a47ddb96">&lt;/strong&gt;</ept>, and then click <bpt id="0e005f4a-ef22-40f2-8b3c-5b59658e8808">&lt;strong&gt;</bpt>Class<ept id="0e005f4a-ef22-40f2-8b3c-5b59658e8808">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="2348f8ea-c2ce-4a03-a67c-e53789bafd12">&lt;strong&gt;</bpt>Solution Explorer<ept id="2348f8ea-c2ce-4a03-a67c-e53789bafd12">&lt;/strong&gt;</ept>, right-click the <bpt id="5a3afeb5-a966-41ad-89db-64cf8f1cc495">&lt;strong&gt;</bpt>Models<ept id="5a3afeb5-a966-41ad-89db-64cf8f1cc495">&lt;/strong&gt;</ept> folder, click <bpt id="64f8a510-950b-4393-81e6-1158a47ddb96">&lt;strong&gt;</bpt>Add<ept id="64f8a510-950b-4393-81e6-1158a47ddb96">&lt;/strong&gt;</ept>, and then click <bpt id="0e005f4a-ef22-40f2-8b3c-5b59658e8808">&lt;strong&gt;</bpt>Class<ept id="0e005f4a-ef22-40f2-8b3c-5b59658e8808">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78397c2f-656a-4132-a2a2-10c40216e98d" xml:space="preserve">
+          <source>The <bpt id="bb8e5c16-8290-4238-aea5-cae8704c0cc6">&lt;strong&gt;</bpt>Add New Item<ept id="bb8e5c16-8290-4238-aea5-cae8704c0cc6">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="bb8e5c16-8290-4238-aea5-cae8704c0cc6">&lt;strong&gt;</bpt>Add New Item<ept id="bb8e5c16-8290-4238-aea5-cae8704c0cc6">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="2f8d2c5b-876e-45f0-9d42-eb255946ac48" xml:space="preserve">
+          <source>Name your new class <bpt id="ead28448-647d-41cd-804b-5c834a5bb9ca">&lt;strong&gt;</bpt>Item.cs<ept id="ead28448-647d-41cd-804b-5c834a5bb9ca">&lt;/strong&gt;</ept> and click <bpt id="29714b01-0cba-4d66-abc4-0c2d5244d646">&lt;strong&gt;</bpt>Add<ept id="29714b01-0cba-4d66-abc4-0c2d5244d646">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name your new class <bpt id="ead28448-647d-41cd-804b-5c834a5bb9ca">&lt;strong&gt;</bpt>Item.cs<ept id="ead28448-647d-41cd-804b-5c834a5bb9ca">&lt;/strong&gt;</ept> and click <bpt id="29714b01-0cba-4d66-abc4-0c2d5244d646">&lt;strong&gt;</bpt>Add<ept id="29714b01-0cba-4d66-abc4-0c2d5244d646">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0429dfb7-e8b2-43c5-91ce-3165330fe90f" xml:space="preserve">
+          <source>In this new <bpt id="d6bc475c-5660-499b-acb5-b971cde966f1">&lt;strong&gt;</bpt>Item.cs<ept id="d6bc475c-5660-499b-acb5-b971cde966f1">&lt;/strong&gt;</ept> file, add the following after the last <bpt id="cf567fcb-6f59-4484-b9b6-c0b887ac05c9">&lt;em&gt;</bpt>using statement<ept id="cf567fcb-6f59-4484-b9b6-c0b887ac05c9">&lt;/em&gt;</ept>.</source>
+          <target state="new">In this new <bpt id="d6bc475c-5660-499b-acb5-b971cde966f1">&lt;strong&gt;</bpt>Item.cs<ept id="d6bc475c-5660-499b-acb5-b971cde966f1">&lt;/strong&gt;</ept> file, add the following after the last <bpt id="cf567fcb-6f59-4484-b9b6-c0b887ac05c9">&lt;em&gt;</bpt>using statement<ept id="cf567fcb-6f59-4484-b9b6-c0b887ac05c9">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="331cda17-1750-49d6-b66c-156568364936" xml:space="preserve">
+          <source>Now replace this code </source>
+          <target state="new">Now replace this code </target>
+        </trans-unit>
+        <trans-unit id="5b9b396c-2283-4f67-9eb1-c5ac34658333" xml:space="preserve">
+          <source>with the following code.</source>
+          <target state="new">with the following code.</target>
+        </trans-unit>
+        <trans-unit id="7cc6fe5c-7bc1-4801-8fc1-62793403240e" xml:space="preserve">
+          <source>All data in DocumentDB is passed over the wire and stored as JSON.</source>
+          <target state="new">All data in DocumentDB is passed over the wire and stored as JSON.</target>
+        </trans-unit>
+        <trans-unit id="18738e40-7e19-4fc7-92bb-d855d4f86a0c" xml:space="preserve">
+          <source>To control the way your objects are serialized/deserialized by JSON.NET you can use the <bpt id="c0e28092-ba9b-4653-af6b-617ba688a06f">&lt;strong&gt;</bpt>JsonProperty<ept id="c0e28092-ba9b-4653-af6b-617ba688a06f">&lt;/strong&gt;</ept> attribute as demonstrated in the <bpt id="e3191afe-f96e-49e2-941f-73903ed25607">&lt;strong&gt;</bpt>Item<ept id="e3191afe-f96e-49e2-941f-73903ed25607">&lt;/strong&gt;</ept> class we just created.</source>
+          <target state="new">To control the way your objects are serialized/deserialized by JSON.NET you can use the <bpt id="c0e28092-ba9b-4653-af6b-617ba688a06f">&lt;strong&gt;</bpt>JsonProperty<ept id="c0e28092-ba9b-4653-af6b-617ba688a06f">&lt;/strong&gt;</ept> attribute as demonstrated in the <bpt id="e3191afe-f96e-49e2-941f-73903ed25607">&lt;strong&gt;</bpt>Item<ept id="e3191afe-f96e-49e2-941f-73903ed25607">&lt;/strong&gt;</ept> class we just created.</target>
+        </trans-unit>
+        <trans-unit id="b58e62d9-6b02-43d1-b03f-cd1284f7bb3a" xml:space="preserve">
+          <source>You don't <bpt id="fb43a2f4-7b9e-4893-bbac-d0009daf0fc5">&lt;strong&gt;</bpt>have<ept id="fb43a2f4-7b9e-4893-bbac-d0009daf0fc5">&lt;/strong&gt;</ept> to do this but I want to ensure that my properties follow the JSON camelCase naming conventions.</source>
+          <target state="new">You don't <bpt id="fb43a2f4-7b9e-4893-bbac-d0009daf0fc5">&lt;strong&gt;</bpt>have<ept id="fb43a2f4-7b9e-4893-bbac-d0009daf0fc5">&lt;/strong&gt;</ept> to do this but I want to ensure that my properties follow the JSON camelCase naming conventions.</target>
+        </trans-unit>
+        <trans-unit id="d0f2f2ec-500a-4cef-86e6-fdf36127605a" xml:space="preserve">
+          <source>Not only can you control the format of the property name when it goes into JSON, but you can entirely rename your .NET properties like I did with the <bpt id="23d9dce7-4709-4f0c-a0d8-8f8f6d701f1a">&lt;strong&gt;</bpt>Description<ept id="23d9dce7-4709-4f0c-a0d8-8f8f6d701f1a">&lt;/strong&gt;</ept> property.</source>
+          <target state="new">Not only can you control the format of the property name when it goes into JSON, but you can entirely rename your .NET properties like I did with the <bpt id="23d9dce7-4709-4f0c-a0d8-8f8f6d701f1a">&lt;strong&gt;</bpt>Description<ept id="23d9dce7-4709-4f0c-a0d8-8f8f6d701f1a">&lt;/strong&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="aa04060c-e3a8-4d02-b442-86a8c6ba8700" xml:space="preserve">
+          <source>That takes care of the <bpt id="c70b87ec-b8be-4a09-b508-6a0c3b7ff8d1">&lt;strong&gt;</bpt>M<ept id="c70b87ec-b8be-4a09-b508-6a0c3b7ff8d1">&lt;/strong&gt;</ept>, now let's create the <bpt id="d08e94ac-6ffd-4184-b569-a16b44f0a7a9">&lt;strong&gt;</bpt>C<ept id="d08e94ac-6ffd-4184-b569-a16b44f0a7a9">&lt;/strong&gt;</ept> in MVC, a controller class.</source>
+          <target state="new">That takes care of the <bpt id="c70b87ec-b8be-4a09-b508-6a0c3b7ff8d1">&lt;strong&gt;</bpt>M<ept id="c70b87ec-b8be-4a09-b508-6a0c3b7ff8d1">&lt;/strong&gt;</ept>, now let's create the <bpt id="d08e94ac-6ffd-4184-b569-a16b44f0a7a9">&lt;strong&gt;</bpt>C<ept id="d08e94ac-6ffd-4184-b569-a16b44f0a7a9">&lt;/strong&gt;</ept> in MVC, a controller class.</target>
+        </trans-unit>
+        <trans-unit id="a670550d-9f46-46ac-ae58-bb9751f77b65" xml:space="preserve">
+          <source>In <bpt id="c37d2434-6acd-4e74-ad96-668922bd2dde">&lt;strong&gt;</bpt>Solution Explorer<ept id="c37d2434-6acd-4e74-ad96-668922bd2dde">&lt;/strong&gt;</ept>, right-click the <bpt id="ccd5909d-6b63-43fe-a815-879c8da084c0">&lt;strong&gt;</bpt>Controllers<ept id="ccd5909d-6b63-43fe-a815-879c8da084c0">&lt;/strong&gt;</ept> folder, click <bpt id="625a4ffe-f1d7-4329-ad19-5ff5f5316ffa">&lt;strong&gt;</bpt>Add<ept id="625a4ffe-f1d7-4329-ad19-5ff5f5316ffa">&lt;/strong&gt;</ept>, and then click <bpt id="ee824786-952c-4897-9069-7f92069d8724">&lt;strong&gt;</bpt>Controller<ept id="ee824786-952c-4897-9069-7f92069d8724">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="c37d2434-6acd-4e74-ad96-668922bd2dde">&lt;strong&gt;</bpt>Solution Explorer<ept id="c37d2434-6acd-4e74-ad96-668922bd2dde">&lt;/strong&gt;</ept>, right-click the <bpt id="ccd5909d-6b63-43fe-a815-879c8da084c0">&lt;strong&gt;</bpt>Controllers<ept id="ccd5909d-6b63-43fe-a815-879c8da084c0">&lt;/strong&gt;</ept> folder, click <bpt id="625a4ffe-f1d7-4329-ad19-5ff5f5316ffa">&lt;strong&gt;</bpt>Add<ept id="625a4ffe-f1d7-4329-ad19-5ff5f5316ffa">&lt;/strong&gt;</ept>, and then click <bpt id="ee824786-952c-4897-9069-7f92069d8724">&lt;strong&gt;</bpt>Controller<ept id="ee824786-952c-4897-9069-7f92069d8724">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34efc324-bdb3-42a8-83dc-b6f5aa868f07" xml:space="preserve">
+          <source>The <bpt id="b1b4e5ad-4ff9-44bc-aad3-5b665c9b02a7">&lt;strong&gt;</bpt>Add Scaffold<ept id="b1b4e5ad-4ff9-44bc-aad3-5b665c9b02a7">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="b1b4e5ad-4ff9-44bc-aad3-5b665c9b02a7">&lt;strong&gt;</bpt>Add Scaffold<ept id="b1b4e5ad-4ff9-44bc-aad3-5b665c9b02a7">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="76908902-65f4-4437-94ee-c0ce1abe37ae" xml:space="preserve">
+          <source>Select <bpt id="9e580ea9-41c4-4f7b-be09-7d334af1297f">&lt;strong&gt;</bpt>MVC 5 Controller - Empty<ept id="9e580ea9-41c4-4f7b-be09-7d334af1297f">&lt;/strong&gt;</ept> and then click <bpt id="07e2812c-1e16-481e-ad2d-6324466ef5e2">&lt;strong&gt;</bpt>Add<ept id="07e2812c-1e16-481e-ad2d-6324466ef5e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="9e580ea9-41c4-4f7b-be09-7d334af1297f">&lt;strong&gt;</bpt>MVC 5 Controller - Empty<ept id="9e580ea9-41c4-4f7b-be09-7d334af1297f">&lt;/strong&gt;</ept> and then click <bpt id="07e2812c-1e16-481e-ad2d-6324466ef5e2">&lt;strong&gt;</bpt>Add<ept id="07e2812c-1e16-481e-ad2d-6324466ef5e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8987acc2-a11d-434a-8e47-438a1204621a" xml:space="preserve">
+          <source><bpt id="9ae5095c-266a-46e2-b2e4-5d11bc4de725">&lt;linkText&gt;</bpt>Screen shot of the Add Scaffold dialog box with the MVC 5 Controller - Empty option highlighted<ept id="9ae5095c-266a-46e2-b2e4-5d11bc4de725">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ae5095c-266a-46e2-b2e4-5d11bc4de725">&lt;linkText&gt;</bpt>Screen shot of the Add Scaffold dialog box with the MVC 5 Controller - Empty option highlighted<ept id="9ae5095c-266a-46e2-b2e4-5d11bc4de725">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7d46a70-e23e-422e-8750-4067ee2b453a" xml:space="preserve">
+          <source>Name your new Controller, <bpt id="b78a198c-676a-4cc0-917e-7cb282ced413">&lt;strong&gt;</bpt>ItemController.<ept id="b78a198c-676a-4cc0-917e-7cb282ced413">&lt;/strong&gt;</ept></source>
+          <target state="new">Name your new Controller, <bpt id="b78a198c-676a-4cc0-917e-7cb282ced413">&lt;strong&gt;</bpt>ItemController.<ept id="b78a198c-676a-4cc0-917e-7cb282ced413">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d09a6e88-887a-45f9-882c-c8556429514f" xml:space="preserve">
+          <source><bpt id="7d6651f3-fa92-4824-97aa-1601b04c8f22">&lt;linkText&gt;</bpt>Screen shot of the Add Controller dialog box<ept id="7d6651f3-fa92-4824-97aa-1601b04c8f22">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7d6651f3-fa92-4824-97aa-1601b04c8f22">&lt;linkText&gt;</bpt>Screen shot of the Add Controller dialog box<ept id="7d6651f3-fa92-4824-97aa-1601b04c8f22">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96bc3781-c85e-42f0-bf53-b9fe3bdb0da0" xml:space="preserve">
+          <source>Once the file is created, your Visual Studio solution should resemble the following with the new ItemController.cs file in <bpt id="f46ad538-460b-45c9-86cb-eb9985ed8a63">&lt;strong&gt;</bpt>Solution Explorer<ept id="f46ad538-460b-45c9-86cb-eb9985ed8a63">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the file is created, your Visual Studio solution should resemble the following with the new ItemController.cs file in <bpt id="f46ad538-460b-45c9-86cb-eb9985ed8a63">&lt;strong&gt;</bpt>Solution Explorer<ept id="f46ad538-460b-45c9-86cb-eb9985ed8a63">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7cf4c50e-a1c5-45e8-9f57-049494c2834c" xml:space="preserve">
+          <source>The new Item.cs file created earlier is also shown.</source>
+          <target state="new">The new Item.cs file created earlier is also shown.</target>
+        </trans-unit>
+        <trans-unit id="5eecc3d6-3b4a-4651-b4c7-7e63fd632bd1" xml:space="preserve">
+          <source><bpt id="321e1f31-e39b-4520-a40c-93d99675ec11">&lt;linkText&gt;</bpt>Screen shot of Solution Explorer with the new ItemController.cs file and Item.cs file highlighted<ept id="321e1f31-e39b-4520-a40c-93d99675ec11">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="321e1f31-e39b-4520-a40c-93d99675ec11">&lt;linkText&gt;</bpt>Screen shot of Solution Explorer with the new ItemController.cs file and Item.cs file highlighted<ept id="321e1f31-e39b-4520-a40c-93d99675ec11">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e8dd7f6-5082-4fa6-a34e-c87e4db4190d" xml:space="preserve">
+          <source>You can close ItemController.cs, we'll come back to it later.</source>
+          <target state="new">You can close ItemController.cs, we'll come back to it later.</target>
+        </trans-unit>
+        <trans-unit id="cb10784e-cd00-4a2f-84cc-da49db39208b" xml:space="preserve">
+          <source>Now, let's create the <bpt id="f56688a2-341d-4393-8a3d-43efff660ae8">&lt;strong&gt;</bpt>V<ept id="f56688a2-341d-4393-8a3d-43efff660ae8">&lt;/strong&gt;</ept> in MVC, the views:</source>
+          <target state="new">Now, let's create the <bpt id="f56688a2-341d-4393-8a3d-43efff660ae8">&lt;strong&gt;</bpt>V<ept id="f56688a2-341d-4393-8a3d-43efff660ae8">&lt;/strong&gt;</ept> in MVC, the views:</target>
+        </trans-unit>
+        <trans-unit id="6d7cec30-61b7-4109-ab6f-ba1066e3d8d6" xml:space="preserve">
+          <source><bpt id="d0b6ee4e-7d06-4133-9046-19120711539a">&lt;linkText&gt;</bpt>Add an Item Index view<ept id="d0b6ee4e-7d06-4133-9046-19120711539a">&lt;/linkText&gt;</ept><bpt id="d0b6ee4e-7d06-4133-9046-19120711539a">&lt;title&gt;</bpt><ept id="d0b6ee4e-7d06-4133-9046-19120711539a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d0b6ee4e-7d06-4133-9046-19120711539a">&lt;linkText&gt;</bpt>Add an Item Index view<ept id="d0b6ee4e-7d06-4133-9046-19120711539a">&lt;/linkText&gt;</ept><bpt id="d0b6ee4e-7d06-4133-9046-19120711539a">&lt;title&gt;</bpt><ept id="d0b6ee4e-7d06-4133-9046-19120711539a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11603781-5c7d-4cdc-9584-6ff011736423" xml:space="preserve">
+          <source><bpt id="605daf57-5ed0-442c-abbd-43e9a2a233a6">&lt;linkText&gt;</bpt>Add a New Item view<ept id="605daf57-5ed0-442c-abbd-43e9a2a233a6">&lt;/linkText&gt;</ept><bpt id="605daf57-5ed0-442c-abbd-43e9a2a233a6">&lt;title&gt;</bpt><ept id="605daf57-5ed0-442c-abbd-43e9a2a233a6">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="605daf57-5ed0-442c-abbd-43e9a2a233a6">&lt;linkText&gt;</bpt>Add a New Item view<ept id="605daf57-5ed0-442c-abbd-43e9a2a233a6">&lt;/linkText&gt;</ept><bpt id="605daf57-5ed0-442c-abbd-43e9a2a233a6">&lt;title&gt;</bpt><ept id="605daf57-5ed0-442c-abbd-43e9a2a233a6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32450e00-20cb-4307-96f0-88928196d973" xml:space="preserve">
+          <source><bpt id="3aa429ed-a894-46d9-b66b-861730d42181">&lt;linkText&gt;</bpt>Add an Edit Item view<ept id="3aa429ed-a894-46d9-b66b-861730d42181">&lt;/linkText&gt;</ept><bpt id="3aa429ed-a894-46d9-b66b-861730d42181">&lt;title&gt;</bpt><ept id="3aa429ed-a894-46d9-b66b-861730d42181">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="3aa429ed-a894-46d9-b66b-861730d42181">&lt;linkText&gt;</bpt>Add an Edit Item view<ept id="3aa429ed-a894-46d9-b66b-861730d42181">&lt;/linkText&gt;</ept><bpt id="3aa429ed-a894-46d9-b66b-861730d42181">&lt;title&gt;</bpt><ept id="3aa429ed-a894-46d9-b66b-861730d42181">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d450e57d-51c9-4c54-818d-c4e91192ffac" xml:space="preserve">
+          <source>In <bpt id="0d7a5bf7-6fc4-4719-9056-b0ef0ae97032">&lt;strong&gt;</bpt>Solution Explorer<ept id="0d7a5bf7-6fc4-4719-9056-b0ef0ae97032">&lt;/strong&gt;</ept>, expand the <bpt id="03d97f36-48c4-42e0-8f23-7fa232f201be">&lt;strong&gt;</bpt>Views<ept id="03d97f36-48c4-42e0-8f23-7fa232f201be">&lt;/strong&gt;</ept>  folder, right-click the empty <bpt id="3e7b5edc-0e48-429c-8aff-a99e48feb914">&lt;strong&gt;</bpt>Item<ept id="3e7b5edc-0e48-429c-8aff-a99e48feb914">&lt;/strong&gt;</ept> folder that Visual Studio created for you when you added the <bpt id="f3c4c78a-25fa-4e1c-bb78-15975b67af41">&lt;strong&gt;</bpt>ItemController<ept id="f3c4c78a-25fa-4e1c-bb78-15975b67af41">&lt;/strong&gt;</ept> earlier, click <bpt id="08bd25b2-8443-4414-a21c-a930e6651f0c">&lt;strong&gt;</bpt>Add<ept id="08bd25b2-8443-4414-a21c-a930e6651f0c">&lt;/strong&gt;</ept>, and then click <bpt id="ae6f2dc4-7400-44b5-b2e8-c93391faa006">&lt;strong&gt;</bpt>View<ept id="ae6f2dc4-7400-44b5-b2e8-c93391faa006">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="0d7a5bf7-6fc4-4719-9056-b0ef0ae97032">&lt;strong&gt;</bpt>Solution Explorer<ept id="0d7a5bf7-6fc4-4719-9056-b0ef0ae97032">&lt;/strong&gt;</ept>, expand the <bpt id="03d97f36-48c4-42e0-8f23-7fa232f201be">&lt;strong&gt;</bpt>Views<ept id="03d97f36-48c4-42e0-8f23-7fa232f201be">&lt;/strong&gt;</ept>  folder, right-click the empty <bpt id="3e7b5edc-0e48-429c-8aff-a99e48feb914">&lt;strong&gt;</bpt>Item<ept id="3e7b5edc-0e48-429c-8aff-a99e48feb914">&lt;/strong&gt;</ept> folder that Visual Studio created for you when you added the <bpt id="f3c4c78a-25fa-4e1c-bb78-15975b67af41">&lt;strong&gt;</bpt>ItemController<ept id="f3c4c78a-25fa-4e1c-bb78-15975b67af41">&lt;/strong&gt;</ept> earlier, click <bpt id="08bd25b2-8443-4414-a21c-a930e6651f0c">&lt;strong&gt;</bpt>Add<ept id="08bd25b2-8443-4414-a21c-a930e6651f0c">&lt;/strong&gt;</ept>, and then click <bpt id="ae6f2dc4-7400-44b5-b2e8-c93391faa006">&lt;strong&gt;</bpt>View<ept id="ae6f2dc4-7400-44b5-b2e8-c93391faa006">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb5f5a45-e612-49fd-bc9c-58d605a784c1" xml:space="preserve">
+          <source><bpt id="d92130f2-b539-49fd-9df7-7464efe67917">&lt;linkText&gt;</bpt>Screen shot of Solution Explorer showing the Item folder with the Add View commands highlighted<ept id="d92130f2-b539-49fd-9df7-7464efe67917">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d92130f2-b539-49fd-9df7-7464efe67917">&lt;linkText&gt;</bpt>Screen shot of Solution Explorer showing the Item folder with the Add View commands highlighted<ept id="d92130f2-b539-49fd-9df7-7464efe67917">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ddf66fce-8020-4943-9599-9c986fe686fd" xml:space="preserve">
+          <source>In the <bpt id="870932b6-655f-45a2-b4e6-db5940ddef12">&lt;strong&gt;</bpt>Add View<ept id="870932b6-655f-45a2-b4e6-db5940ddef12">&lt;/strong&gt;</ept> dialog box, do the following:</source>
+          <target state="new">In the <bpt id="870932b6-655f-45a2-b4e6-db5940ddef12">&lt;strong&gt;</bpt>Add View<ept id="870932b6-655f-45a2-b4e6-db5940ddef12">&lt;/strong&gt;</ept> dialog box, do the following:</target>
+        </trans-unit>
+        <trans-unit id="c301ec02-8ed1-4673-a613-39feb23ee212" xml:space="preserve">
+          <source>In the <bpt id="52b5207a-f453-445d-8e72-ee1ea963ae1a">&lt;strong&gt;</bpt>View name<ept id="52b5207a-f453-445d-8e72-ee1ea963ae1a">&lt;/strong&gt;</ept> box, type <bpt id="e2f796a2-a6d3-43f8-9f8c-977b5fe74bcc">&lt;strong&gt;</bpt>*Index*<ept id="e2f796a2-a6d3-43f8-9f8c-977b5fe74bcc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="52b5207a-f453-445d-8e72-ee1ea963ae1a">&lt;strong&gt;</bpt>View name<ept id="52b5207a-f453-445d-8e72-ee1ea963ae1a">&lt;/strong&gt;</ept> box, type <bpt id="e2f796a2-a6d3-43f8-9f8c-977b5fe74bcc">&lt;strong&gt;</bpt>*Index*<ept id="e2f796a2-a6d3-43f8-9f8c-977b5fe74bcc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c1e0af9-27e0-426b-b67e-bf61fb78fdab" xml:space="preserve">
+          <source>In the <bpt id="517eb356-2018-4136-a333-bb4b5d9d2290">&lt;strong&gt;</bpt>Template<ept id="517eb356-2018-4136-a333-bb4b5d9d2290">&lt;/strong&gt;</ept> box, select <bpt id="a731496b-7b4d-42ca-8469-e4b085cefc69">&lt;strong&gt;</bpt>*List*<ept id="a731496b-7b4d-42ca-8469-e4b085cefc69">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="517eb356-2018-4136-a333-bb4b5d9d2290">&lt;strong&gt;</bpt>Template<ept id="517eb356-2018-4136-a333-bb4b5d9d2290">&lt;/strong&gt;</ept> box, select <bpt id="a731496b-7b4d-42ca-8469-e4b085cefc69">&lt;strong&gt;</bpt>*List*<ept id="a731496b-7b4d-42ca-8469-e4b085cefc69">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="323a23d4-293e-4a35-ad68-4b935f3ead28" xml:space="preserve">
+          <source>In the <bpt id="82db821b-7953-485a-8ded-cad9986df8af">&lt;strong&gt;</bpt>Model class<ept id="82db821b-7953-485a-8ded-cad9986df8af">&lt;/strong&gt;</ept> box, select <bpt id="930e00b7-adfc-4706-879c-785457817680">&lt;strong&gt;</bpt>*Item (todo.Models)*<ept id="930e00b7-adfc-4706-879c-785457817680">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="82db821b-7953-485a-8ded-cad9986df8af">&lt;strong&gt;</bpt>Model class<ept id="82db821b-7953-485a-8ded-cad9986df8af">&lt;/strong&gt;</ept> box, select <bpt id="930e00b7-adfc-4706-879c-785457817680">&lt;strong&gt;</bpt>*Item (todo.Models)*<ept id="930e00b7-adfc-4706-879c-785457817680">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e045ea7d-f49b-41a8-a839-2a2206305a8c" xml:space="preserve">
+          <source>Leave the <bpt id="65ca17a4-ae04-41eb-9578-0d415595195b">&lt;strong&gt;</bpt>Data context class<ept id="65ca17a4-ae04-41eb-9578-0d415595195b">&lt;/strong&gt;</ept> box empty.</source>
+          <target state="new">Leave the <bpt id="65ca17a4-ae04-41eb-9578-0d415595195b">&lt;strong&gt;</bpt>Data context class<ept id="65ca17a4-ae04-41eb-9578-0d415595195b">&lt;/strong&gt;</ept> box empty.</target>
+        </trans-unit>
+        <trans-unit id="7386e6f8-cd37-47ae-a91a-f4adce3b1a90" xml:space="preserve">
+          <source>In the layout page box, type <bpt id="ddc9f9e3-4aaf-4b49-a6c4-0b571bb36011">&lt;strong&gt;</bpt>*~/Views/Shared/_Layout.cshtml*<ept id="ddc9f9e3-4aaf-4b49-a6c4-0b571bb36011">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the layout page box, type <bpt id="ddc9f9e3-4aaf-4b49-a6c4-0b571bb36011">&lt;strong&gt;</bpt>*~/Views/Shared/_Layout.cshtml*<ept id="ddc9f9e3-4aaf-4b49-a6c4-0b571bb36011">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4a28660-bf60-477e-a252-5de5447d8072" xml:space="preserve">
+          <source><bpt id="9a463333-9d1b-4f3b-af32-75593d66166f">&lt;linkText&gt;</bpt>Screen shot showing the Add View dialog box<ept id="9a463333-9d1b-4f3b-af32-75593d66166f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9a463333-9d1b-4f3b-af32-75593d66166f">&lt;linkText&gt;</bpt>Screen shot showing the Add View dialog box<ept id="9a463333-9d1b-4f3b-af32-75593d66166f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdc3f36f-04ab-4c9d-8e53-b3e75b71cf91" xml:space="preserve">
+          <source>Once all these values are set, click <bpt id="ee0d9c25-fc21-4518-a5f6-a3cdd4bf3ea2">&lt;strong&gt;</bpt>Add<ept id="ee0d9c25-fc21-4518-a5f6-a3cdd4bf3ea2">&lt;/strong&gt;</ept> and let Visual Studio create a new template view.</source>
+          <target state="new">Once all these values are set, click <bpt id="ee0d9c25-fc21-4518-a5f6-a3cdd4bf3ea2">&lt;strong&gt;</bpt>Add<ept id="ee0d9c25-fc21-4518-a5f6-a3cdd4bf3ea2">&lt;/strong&gt;</ept> and let Visual Studio create a new template view.</target>
+        </trans-unit>
+        <trans-unit id="f7cec49a-3e7b-4bde-bc41-d95e50f07758" xml:space="preserve">
+          <source>Once it is done, it will open the cshtml file  that was created.</source>
+          <target state="new">Once it is done, it will open the cshtml file  that was created.</target>
+        </trans-unit>
+        <trans-unit id="4949ce2f-0bcc-42ee-80b2-471117b97d36" xml:space="preserve">
+          <source>We can close that file in Visual Studio as we will come back to it later.</source>
+          <target state="new">We can close that file in Visual Studio as we will come back to it later.</target>
+        </trans-unit>
+        <trans-unit id="8d4de7ac-3ece-44ab-b9fa-b2c71bd92bb5" xml:space="preserve">
+          <source>Similar to how we created an <bpt id="5b5cb962-1401-4292-ac6e-79762c5665d7">&lt;strong&gt;</bpt>Item Index<ept id="5b5cb962-1401-4292-ac6e-79762c5665d7">&lt;/strong&gt;</ept> view, we will now create a new view for creating new <bpt id="fda3079d-5651-4bcd-b27d-85ef1f7812c9">&lt;strong&gt;</bpt>Items<ept id="fda3079d-5651-4bcd-b27d-85ef1f7812c9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Similar to how we created an <bpt id="5b5cb962-1401-4292-ac6e-79762c5665d7">&lt;strong&gt;</bpt>Item Index<ept id="5b5cb962-1401-4292-ac6e-79762c5665d7">&lt;/strong&gt;</ept> view, we will now create a new view for creating new <bpt id="fda3079d-5651-4bcd-b27d-85ef1f7812c9">&lt;strong&gt;</bpt>Items<ept id="fda3079d-5651-4bcd-b27d-85ef1f7812c9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c05d158-0c7e-4f4e-94f7-fe6c1d77ae32" xml:space="preserve">
+          <source>In <bpt id="5fdf9fe4-9090-4e82-90b4-4cbf21803281">&lt;strong&gt;</bpt>Solution Explorer<ept id="5fdf9fe4-9090-4e82-90b4-4cbf21803281">&lt;/strong&gt;</ept>, right-click the <bpt id="238027c9-9813-423b-adab-2d194e78a62a">&lt;strong&gt;</bpt>Item<ept id="238027c9-9813-423b-adab-2d194e78a62a">&lt;/strong&gt;</ept> folder again, click <bpt id="e19472d4-ebd1-4902-93bd-325a51728356">&lt;strong&gt;</bpt>Add<ept id="e19472d4-ebd1-4902-93bd-325a51728356">&lt;/strong&gt;</ept>, and then click <bpt id="d704193c-035d-430b-b0b6-1dc9096700d5">&lt;strong&gt;</bpt>View<ept id="d704193c-035d-430b-b0b6-1dc9096700d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="5fdf9fe4-9090-4e82-90b4-4cbf21803281">&lt;strong&gt;</bpt>Solution Explorer<ept id="5fdf9fe4-9090-4e82-90b4-4cbf21803281">&lt;/strong&gt;</ept>, right-click the <bpt id="238027c9-9813-423b-adab-2d194e78a62a">&lt;strong&gt;</bpt>Item<ept id="238027c9-9813-423b-adab-2d194e78a62a">&lt;/strong&gt;</ept> folder again, click <bpt id="e19472d4-ebd1-4902-93bd-325a51728356">&lt;strong&gt;</bpt>Add<ept id="e19472d4-ebd1-4902-93bd-325a51728356">&lt;/strong&gt;</ept>, and then click <bpt id="d704193c-035d-430b-b0b6-1dc9096700d5">&lt;strong&gt;</bpt>View<ept id="d704193c-035d-430b-b0b6-1dc9096700d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="135be464-4671-4271-b04b-e97256bd2597" xml:space="preserve">
+          <source>In the <bpt id="dfaf26f8-34a4-4556-9098-e80f137e18de">&lt;strong&gt;</bpt>Add View<ept id="dfaf26f8-34a4-4556-9098-e80f137e18de">&lt;/strong&gt;</ept> dialog box, do the following:</source>
+          <target state="new">In the <bpt id="dfaf26f8-34a4-4556-9098-e80f137e18de">&lt;strong&gt;</bpt>Add View<ept id="dfaf26f8-34a4-4556-9098-e80f137e18de">&lt;/strong&gt;</ept> dialog box, do the following:</target>
+        </trans-unit>
+        <trans-unit id="59145c59-f34a-4a10-ad13-5a1d0d0e2dfd" xml:space="preserve">
+          <source>In the <bpt id="94476b28-9d24-400c-bdd2-af53db4c3254">&lt;strong&gt;</bpt>View name<ept id="94476b28-9d24-400c-bdd2-af53db4c3254">&lt;/strong&gt;</ept> box, type <bpt id="a65be047-5f2d-4c99-b796-f114e0efa663">&lt;strong&gt;</bpt>*Create*<ept id="a65be047-5f2d-4c99-b796-f114e0efa663">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="94476b28-9d24-400c-bdd2-af53db4c3254">&lt;strong&gt;</bpt>View name<ept id="94476b28-9d24-400c-bdd2-af53db4c3254">&lt;/strong&gt;</ept> box, type <bpt id="a65be047-5f2d-4c99-b796-f114e0efa663">&lt;strong&gt;</bpt>*Create*<ept id="a65be047-5f2d-4c99-b796-f114e0efa663">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7fbf4f2b-074e-451e-9966-676dd44fad87" xml:space="preserve">
+          <source>In the <bpt id="a5508ca3-c608-4151-86cb-6bd30202a5f4">&lt;strong&gt;</bpt>Template<ept id="a5508ca3-c608-4151-86cb-6bd30202a5f4">&lt;/strong&gt;</ept> box, select <bpt id="0971e8cd-e48e-400e-9157-da7ef7c5968f">&lt;strong&gt;</bpt>*Create*<ept id="0971e8cd-e48e-400e-9157-da7ef7c5968f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a5508ca3-c608-4151-86cb-6bd30202a5f4">&lt;strong&gt;</bpt>Template<ept id="a5508ca3-c608-4151-86cb-6bd30202a5f4">&lt;/strong&gt;</ept> box, select <bpt id="0971e8cd-e48e-400e-9157-da7ef7c5968f">&lt;strong&gt;</bpt>*Create*<ept id="0971e8cd-e48e-400e-9157-da7ef7c5968f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8722193-aeb1-4455-9601-8ba0acfb2d57" xml:space="preserve">
+          <source>In the <bpt id="d0666280-95f0-409f-82bb-040e53c2160b">&lt;strong&gt;</bpt>Model class<ept id="d0666280-95f0-409f-82bb-040e53c2160b">&lt;/strong&gt;</ept> box, select <bpt id="99cef917-b869-4433-985f-983b70987194">&lt;strong&gt;</bpt>*Item (todo.Models)*<ept id="99cef917-b869-4433-985f-983b70987194">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d0666280-95f0-409f-82bb-040e53c2160b">&lt;strong&gt;</bpt>Model class<ept id="d0666280-95f0-409f-82bb-040e53c2160b">&lt;/strong&gt;</ept> box, select <bpt id="99cef917-b869-4433-985f-983b70987194">&lt;strong&gt;</bpt>*Item (todo.Models)*<ept id="99cef917-b869-4433-985f-983b70987194">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe4f15ae-c9a7-47b8-9d8e-402a45dd340f" xml:space="preserve">
+          <source>Leave the <bpt id="3eb3f932-20f5-4dfc-9efc-7238c6f92c0c">&lt;strong&gt;</bpt>Data context class<ept id="3eb3f932-20f5-4dfc-9efc-7238c6f92c0c">&lt;/strong&gt;</ept> box empty.</source>
+          <target state="new">Leave the <bpt id="3eb3f932-20f5-4dfc-9efc-7238c6f92c0c">&lt;strong&gt;</bpt>Data context class<ept id="3eb3f932-20f5-4dfc-9efc-7238c6f92c0c">&lt;/strong&gt;</ept> box empty.</target>
+        </trans-unit>
+        <trans-unit id="0e24d291-c562-46fa-987e-d7203d0198d0" xml:space="preserve">
+          <source>In the layout page box, type <bpt id="20289d05-c364-4c56-a868-af5e73f84f23">&lt;strong&gt;</bpt>*~/Views/Shared/_Layout.cshtml*<ept id="20289d05-c364-4c56-a868-af5e73f84f23">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the layout page box, type <bpt id="20289d05-c364-4c56-a868-af5e73f84f23">&lt;strong&gt;</bpt>*~/Views/Shared/_Layout.cshtml*<ept id="20289d05-c364-4c56-a868-af5e73f84f23">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="762f3f14-cc79-46cb-bbe7-a5d38edee9a9" xml:space="preserve">
+          <source>Click <bpt id="8a9f0b42-da3c-4c50-8a00-2bfef9c0558b">&lt;strong&gt;</bpt>Add<ept id="8a9f0b42-da3c-4c50-8a00-2bfef9c0558b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8a9f0b42-da3c-4c50-8a00-2bfef9c0558b">&lt;strong&gt;</bpt>Add<ept id="8a9f0b42-da3c-4c50-8a00-2bfef9c0558b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1424e76-dcae-48ec-bc77-f1e92336b506" xml:space="preserve">
+          <source>And finally, add one last view for editing an <bpt id="b0ce6df4-c1cc-4f67-ae75-4e98a461ab5a">&lt;strong&gt;</bpt>Item<ept id="b0ce6df4-c1cc-4f67-ae75-4e98a461ab5a">&lt;/strong&gt;</ept> in the same way as before.</source>
+          <target state="new">And finally, add one last view for editing an <bpt id="b0ce6df4-c1cc-4f67-ae75-4e98a461ab5a">&lt;strong&gt;</bpt>Item<ept id="b0ce6df4-c1cc-4f67-ae75-4e98a461ab5a">&lt;/strong&gt;</ept> in the same way as before.</target>
+        </trans-unit>
+        <trans-unit id="c9c547e0-ddea-4fbf-a3e6-7fd594f3bff1" xml:space="preserve">
+          <source>In <bpt id="f56e6ee3-94ac-4601-b505-03906dfb05c1">&lt;strong&gt;</bpt>Solution Explorer<ept id="f56e6ee3-94ac-4601-b505-03906dfb05c1">&lt;/strong&gt;</ept>, right-click the <bpt id="e3bc20c3-c174-46ee-b520-41fc59aaa49d">&lt;strong&gt;</bpt>Item<ept id="e3bc20c3-c174-46ee-b520-41fc59aaa49d">&lt;/strong&gt;</ept> folder again, click <bpt id="b376a1a2-13c5-4262-a0a5-3d9e293723e0">&lt;strong&gt;</bpt>Add<ept id="b376a1a2-13c5-4262-a0a5-3d9e293723e0">&lt;/strong&gt;</ept>, and then click <bpt id="fa00a17e-543a-45f7-88de-07ea3cd15281">&lt;strong&gt;</bpt>View<ept id="fa00a17e-543a-45f7-88de-07ea3cd15281">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="f56e6ee3-94ac-4601-b505-03906dfb05c1">&lt;strong&gt;</bpt>Solution Explorer<ept id="f56e6ee3-94ac-4601-b505-03906dfb05c1">&lt;/strong&gt;</ept>, right-click the <bpt id="e3bc20c3-c174-46ee-b520-41fc59aaa49d">&lt;strong&gt;</bpt>Item<ept id="e3bc20c3-c174-46ee-b520-41fc59aaa49d">&lt;/strong&gt;</ept> folder again, click <bpt id="b376a1a2-13c5-4262-a0a5-3d9e293723e0">&lt;strong&gt;</bpt>Add<ept id="b376a1a2-13c5-4262-a0a5-3d9e293723e0">&lt;/strong&gt;</ept>, and then click <bpt id="fa00a17e-543a-45f7-88de-07ea3cd15281">&lt;strong&gt;</bpt>View<ept id="fa00a17e-543a-45f7-88de-07ea3cd15281">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="155e28c7-6074-45b5-a65c-b742c0b56179" xml:space="preserve">
+          <source>In the <bpt id="e0f8b683-97ad-4926-96d2-20a7425957e8">&lt;strong&gt;</bpt>Add View<ept id="e0f8b683-97ad-4926-96d2-20a7425957e8">&lt;/strong&gt;</ept> dialog box, do the following:</source>
+          <target state="new">In the <bpt id="e0f8b683-97ad-4926-96d2-20a7425957e8">&lt;strong&gt;</bpt>Add View<ept id="e0f8b683-97ad-4926-96d2-20a7425957e8">&lt;/strong&gt;</ept> dialog box, do the following:</target>
+        </trans-unit>
+        <trans-unit id="ee5ca30b-82f5-4ed2-ac69-0554954c6ea6" xml:space="preserve">
+          <source>In the <bpt id="ec4a7a7f-cd60-4255-aa03-97b9a598c329">&lt;strong&gt;</bpt>View name<ept id="ec4a7a7f-cd60-4255-aa03-97b9a598c329">&lt;/strong&gt;</ept> box, type <bpt id="851a5996-38b3-4ada-afb4-a8513b7adeec">&lt;strong&gt;</bpt>*Edit*<ept id="851a5996-38b3-4ada-afb4-a8513b7adeec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ec4a7a7f-cd60-4255-aa03-97b9a598c329">&lt;strong&gt;</bpt>View name<ept id="ec4a7a7f-cd60-4255-aa03-97b9a598c329">&lt;/strong&gt;</ept> box, type <bpt id="851a5996-38b3-4ada-afb4-a8513b7adeec">&lt;strong&gt;</bpt>*Edit*<ept id="851a5996-38b3-4ada-afb4-a8513b7adeec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e0b99f7-7526-4337-909d-e87a3ee403a5" xml:space="preserve">
+          <source>In the <bpt id="001f68b9-1d36-44e5-974c-476a0f8e0e84">&lt;strong&gt;</bpt>Template<ept id="001f68b9-1d36-44e5-974c-476a0f8e0e84">&lt;/strong&gt;</ept> box, select <bpt id="c5934592-887b-4919-a36c-14675d5a1ea6">&lt;strong&gt;</bpt>*Edit*<ept id="c5934592-887b-4919-a36c-14675d5a1ea6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="001f68b9-1d36-44e5-974c-476a0f8e0e84">&lt;strong&gt;</bpt>Template<ept id="001f68b9-1d36-44e5-974c-476a0f8e0e84">&lt;/strong&gt;</ept> box, select <bpt id="c5934592-887b-4919-a36c-14675d5a1ea6">&lt;strong&gt;</bpt>*Edit*<ept id="c5934592-887b-4919-a36c-14675d5a1ea6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5dd486e-821f-4ddb-9c29-810de8c1cf98" xml:space="preserve">
+          <source>In the <bpt id="4f2fd52a-2768-40d0-b28b-dfe0b08a7291">&lt;strong&gt;</bpt>Model class<ept id="4f2fd52a-2768-40d0-b28b-dfe0b08a7291">&lt;/strong&gt;</ept> box, select <bpt id="5c311ac4-e18a-468d-8420-c0d4c2e1156a">&lt;strong&gt;</bpt>*Item (todo.Models)*<ept id="5c311ac4-e18a-468d-8420-c0d4c2e1156a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4f2fd52a-2768-40d0-b28b-dfe0b08a7291">&lt;strong&gt;</bpt>Model class<ept id="4f2fd52a-2768-40d0-b28b-dfe0b08a7291">&lt;/strong&gt;</ept> box, select <bpt id="5c311ac4-e18a-468d-8420-c0d4c2e1156a">&lt;strong&gt;</bpt>*Item (todo.Models)*<ept id="5c311ac4-e18a-468d-8420-c0d4c2e1156a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02ee1dba-2487-46db-be10-6d3cda1c2b34" xml:space="preserve">
+          <source>Leave the <bpt id="6ce56884-8bb2-45c7-bb5b-72d8f0f8753f">&lt;strong&gt;</bpt>Data context class<ept id="6ce56884-8bb2-45c7-bb5b-72d8f0f8753f">&lt;/strong&gt;</ept> box empty.</source>
+          <target state="new">Leave the <bpt id="6ce56884-8bb2-45c7-bb5b-72d8f0f8753f">&lt;strong&gt;</bpt>Data context class<ept id="6ce56884-8bb2-45c7-bb5b-72d8f0f8753f">&lt;/strong&gt;</ept> box empty.</target>
+        </trans-unit>
+        <trans-unit id="d1b06c36-e54e-4ace-ae1e-2369456d06be" xml:space="preserve">
+          <source>In the layout page box, type <bpt id="f2be80e1-c589-4bdf-84a1-048ee17d6ede">&lt;strong&gt;</bpt>*~/Views/Shared/_Layout.cshtml*<ept id="f2be80e1-c589-4bdf-84a1-048ee17d6ede">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the layout page box, type <bpt id="f2be80e1-c589-4bdf-84a1-048ee17d6ede">&lt;strong&gt;</bpt>*~/Views/Shared/_Layout.cshtml*<ept id="f2be80e1-c589-4bdf-84a1-048ee17d6ede">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ff7d4da-d2ed-4b1a-a020-17e9769302c7" xml:space="preserve">
+          <source>Click <bpt id="af8e0a3f-4e49-4b39-9c56-949329115f11">&lt;strong&gt;</bpt>Add<ept id="af8e0a3f-4e49-4b39-9c56-949329115f11">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="af8e0a3f-4e49-4b39-9c56-949329115f11">&lt;strong&gt;</bpt>Add<ept id="af8e0a3f-4e49-4b39-9c56-949329115f11">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4d9b5f9-b627-4763-b6bd-5a9deca9cefc" xml:space="preserve">
+          <source>Once this is done, close all the cshtml documents in Visual Studio as we will return to these views later.</source>
+          <target state="new">Once this is done, close all the cshtml documents in Visual Studio as we will return to these views later.</target>
+        </trans-unit>
+        <trans-unit id="f880445f-7820-44a1-b738-74bb1f044694" xml:space="preserve">
+          <source>Now that the standard MVC stuff is taken care of, let's turn to adding the code for DocumentDB.</source>
+          <target state="new">Now that the standard MVC stuff is taken care of, let's turn to adding the code for DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="ba14de3b-41a8-4fe5-9431-586ecd351855" xml:space="preserve">
+          <source>In this section, we'll add code to handle the following:</source>
+          <target state="new">In this section, we'll add code to handle the following:</target>
+        </trans-unit>
+        <trans-unit id="afd576b9-dfa2-40e0-9a47-71e2c75570d2" xml:space="preserve">
+          <source><bpt id="1b25ca24-8460-4a67-a14e-ef25d924d2a5">&lt;linkText&gt;</bpt>Listing incomplete Items<ept id="1b25ca24-8460-4a67-a14e-ef25d924d2a5">&lt;/linkText&gt;</ept><bpt id="1b25ca24-8460-4a67-a14e-ef25d924d2a5">&lt;title&gt;</bpt><ept id="1b25ca24-8460-4a67-a14e-ef25d924d2a5">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="1b25ca24-8460-4a67-a14e-ef25d924d2a5">&lt;linkText&gt;</bpt>Listing incomplete Items<ept id="1b25ca24-8460-4a67-a14e-ef25d924d2a5">&lt;/linkText&gt;</ept><bpt id="1b25ca24-8460-4a67-a14e-ef25d924d2a5">&lt;title&gt;</bpt><ept id="1b25ca24-8460-4a67-a14e-ef25d924d2a5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e1ab68a-a3bb-490a-bc34-834eefe85ee6" xml:space="preserve">
+          <source><bpt id="f690020d-7741-4899-8a92-67525dc082e0">&lt;linkText&gt;</bpt>Adding Items<ept id="f690020d-7741-4899-8a92-67525dc082e0">&lt;/linkText&gt;</ept><bpt id="f690020d-7741-4899-8a92-67525dc082e0">&lt;title&gt;</bpt><ept id="f690020d-7741-4899-8a92-67525dc082e0">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="f690020d-7741-4899-8a92-67525dc082e0">&lt;linkText&gt;</bpt>Adding Items<ept id="f690020d-7741-4899-8a92-67525dc082e0">&lt;/linkText&gt;</ept><bpt id="f690020d-7741-4899-8a92-67525dc082e0">&lt;title&gt;</bpt><ept id="f690020d-7741-4899-8a92-67525dc082e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="599256bf-43d8-40ba-b4df-1345bcf5ecac" xml:space="preserve">
+          <source><bpt id="3512ca99-9de7-40d8-98cd-e45d657a0e82">&lt;linkText&gt;</bpt>Editing Items<ept id="3512ca99-9de7-40d8-98cd-e45d657a0e82">&lt;/linkText&gt;</ept><bpt id="3512ca99-9de7-40d8-98cd-e45d657a0e82">&lt;title&gt;</bpt><ept id="3512ca99-9de7-40d8-98cd-e45d657a0e82">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="3512ca99-9de7-40d8-98cd-e45d657a0e82">&lt;linkText&gt;</bpt>Editing Items<ept id="3512ca99-9de7-40d8-98cd-e45d657a0e82">&lt;/linkText&gt;</ept><bpt id="3512ca99-9de7-40d8-98cd-e45d657a0e82">&lt;title&gt;</bpt><ept id="3512ca99-9de7-40d8-98cd-e45d657a0e82">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87d49878-d063-40d5-bdc7-f4caaf64e321" xml:space="preserve">
+          <source>The first thing to do here is add a class that contains all the logic to connect to and use DocumentDB.</source>
+          <target state="new">The first thing to do here is add a class that contains all the logic to connect to and use DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="0a9e2c43-3cb1-495b-b412-a26218087fed" xml:space="preserve">
+          <source>For this tutorial we'll encapsulate all this logic in to a repository class called DocumentDBRepository.</source>
+          <target state="new">For this tutorial we'll encapsulate all this logic in to a repository class called DocumentDBRepository.</target>
+        </trans-unit>
+        <trans-unit id="5cd47629-b2ae-4734-a18e-6a6920c5ed37" xml:space="preserve">
+          <source>In <bpt id="67774206-626b-452e-b49c-d73500cc9df0">&lt;strong&gt;</bpt>Solution Explorer<ept id="67774206-626b-452e-b49c-d73500cc9df0">&lt;/strong&gt;</ept>, right-click on the project, click <bpt id="52737189-f5a0-4aac-91cd-bb929051a22b">&lt;strong&gt;</bpt>Add<ept id="52737189-f5a0-4aac-91cd-bb929051a22b">&lt;/strong&gt;</ept>, and then click <bpt id="e1166e9a-bf7c-4bba-800b-2e9b7108c769">&lt;strong&gt;</bpt>Class<ept id="e1166e9a-bf7c-4bba-800b-2e9b7108c769">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="67774206-626b-452e-b49c-d73500cc9df0">&lt;strong&gt;</bpt>Solution Explorer<ept id="67774206-626b-452e-b49c-d73500cc9df0">&lt;/strong&gt;</ept>, right-click on the project, click <bpt id="52737189-f5a0-4aac-91cd-bb929051a22b">&lt;strong&gt;</bpt>Add<ept id="52737189-f5a0-4aac-91cd-bb929051a22b">&lt;/strong&gt;</ept>, and then click <bpt id="e1166e9a-bf7c-4bba-800b-2e9b7108c769">&lt;strong&gt;</bpt>Class<ept id="e1166e9a-bf7c-4bba-800b-2e9b7108c769">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c32e44a7-4cac-4c6e-93a4-7221ca6f6c04" xml:space="preserve">
+          <source>Name the new class <bpt id="43eabb3f-356f-45a9-8702-2607cefd0907">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="43eabb3f-356f-45a9-8702-2607cefd0907">&lt;/strong&gt;</ept> and click <bpt id="22591426-1cc0-48d6-b644-57c60dbf786d">&lt;strong&gt;</bpt>Add<ept id="22591426-1cc0-48d6-b644-57c60dbf786d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the new class <bpt id="43eabb3f-356f-45a9-8702-2607cefd0907">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="43eabb3f-356f-45a9-8702-2607cefd0907">&lt;/strong&gt;</ept> and click <bpt id="22591426-1cc0-48d6-b644-57c60dbf786d">&lt;strong&gt;</bpt>Add<ept id="22591426-1cc0-48d6-b644-57c60dbf786d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c60e6394-8fd5-4004-b97f-567f0a29a9da" xml:space="preserve">
+          <source>In the newly created <bpt id="630cce3c-868a-4ed8-b052-d988169994ba">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="630cce3c-868a-4ed8-b052-d988169994ba">&lt;/strong&gt;</ept> class and add the following <bpt id="65491820-5547-41fc-bbbf-7b0ae0d8f99b">&lt;em&gt;</bpt>using statements<ept id="65491820-5547-41fc-bbbf-7b0ae0d8f99b">&lt;/em&gt;</ept> above the <bpt id="666c4a67-2b1d-4cf8-99e6-7d604b21411f">&lt;em&gt;</bpt>namespace<ept id="666c4a67-2b1d-4cf8-99e6-7d604b21411f">&lt;/em&gt;</ept> declaration</source>
+          <target state="new">In the newly created <bpt id="630cce3c-868a-4ed8-b052-d988169994ba">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="630cce3c-868a-4ed8-b052-d988169994ba">&lt;/strong&gt;</ept> class and add the following <bpt id="65491820-5547-41fc-bbbf-7b0ae0d8f99b">&lt;em&gt;</bpt>using statements<ept id="65491820-5547-41fc-bbbf-7b0ae0d8f99b">&lt;/em&gt;</ept> above the <bpt id="666c4a67-2b1d-4cf8-99e6-7d604b21411f">&lt;em&gt;</bpt>namespace<ept id="666c4a67-2b1d-4cf8-99e6-7d604b21411f">&lt;/em&gt;</ept> declaration</target>
+        </trans-unit>
+        <trans-unit id="a6674fd9-9a46-4453-abf4-b18792f1ae17" xml:space="preserve">
+          <source>Now replace this code </source>
+          <target state="new">Now replace this code </target>
+        </trans-unit>
+        <trans-unit id="2ba71963-8868-40cd-8b95-d64972c194bb" xml:space="preserve">
+          <source>with the following code.</source>
+          <target state="new">with the following code.</target>
+        </trans-unit>
+        <trans-unit id="89911b3b-c522-4823-a7f6-a7e402b22146" xml:space="preserve">
+          <source>When creating a new DocumentCollection you can supply an optional RequestOptions parameter of OfferType, which allows you to specify the performance level of the new collection.</source>
+          <target state="new">When creating a new DocumentCollection you can supply an optional RequestOptions parameter of OfferType, which allows you to specify the performance level of the new collection.</target>
+        </trans-unit>
+        <trans-unit id="01421826-83d5-49fd-96a4-477f33963f2d" xml:space="preserve">
+          <source>If this parameter is not passed the default offer type will be used.</source>
+          <target state="new">If this parameter is not passed the default offer type will be used.</target>
+        </trans-unit>
+        <trans-unit id="89fe37ae-33ec-4bb1-a230-8cd593e99970" xml:space="preserve">
+          <source>For more on DocumentDB offer types please refer to <bpt id="346a5e7d-9c92-4814-8323-35870371efab">&lt;linkText&gt;</bpt>DocumentDB Performance Levels<ept id="346a5e7d-9c92-4814-8323-35870371efab">&lt;/linkText&gt;</ept><bpt id="346a5e7d-9c92-4814-8323-35870371efab">&lt;title&gt;</bpt><ept id="346a5e7d-9c92-4814-8323-35870371efab">&lt;/title&gt;</ept></source>
+          <target state="new">For more on DocumentDB offer types please refer to <bpt id="346a5e7d-9c92-4814-8323-35870371efab">&lt;linkText&gt;</bpt>DocumentDB Performance Levels<ept id="346a5e7d-9c92-4814-8323-35870371efab">&lt;/linkText&gt;</ept><bpt id="346a5e7d-9c92-4814-8323-35870371efab">&lt;title&gt;</bpt><ept id="346a5e7d-9c92-4814-8323-35870371efab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcae5b67-08ad-4bcd-a123-fd8192d98204" xml:space="preserve">
+          <source>We're reading some values from configuration, so open the <bpt id="8e75da1d-cce4-4efe-ab33-a15238def7aa">&lt;strong&gt;</bpt>Web.config<ept id="8e75da1d-cce4-4efe-ab33-a15238def7aa">&lt;/strong&gt;</ept> file of your application and add the following lines under the <bpt id="b544d35b-f294-4600-b655-a4588ef132f9">&lt;code&gt;</bpt>&lt;AppSettings&gt;<ept id="b544d35b-f294-4600-b655-a4588ef132f9">&lt;/code&gt;</ept> section.</source>
+          <target state="new">We're reading some values from configuration, so open the <bpt id="8e75da1d-cce4-4efe-ab33-a15238def7aa">&lt;strong&gt;</bpt>Web.config<ept id="8e75da1d-cce4-4efe-ab33-a15238def7aa">&lt;/strong&gt;</ept> file of your application and add the following lines under the <bpt id="b544d35b-f294-4600-b655-a4588ef132f9">&lt;code&gt;</bpt>&lt;AppSettings&gt;<ept id="b544d35b-f294-4600-b655-a4588ef132f9">&lt;/code&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="0513c3a9-11c2-4cf6-94e7-52d71395f092" xml:space="preserve">
+          <source>Now, update the values for <bpt id="b3b80c17-a300-40e4-89f2-e6aa18407b4b">&lt;em&gt;</bpt>endpoint<ept id="b3b80c17-a300-40e4-89f2-e6aa18407b4b">&lt;/em&gt;</ept> and <bpt id="c9583b83-1ae5-479e-9f06-a2bb67e032bc">&lt;em&gt;</bpt>authKey<ept id="c9583b83-1ae5-479e-9f06-a2bb67e032bc">&lt;/em&gt;</ept> using the Keys blade of the Azure Preview portal.</source>
+          <target state="new">Now, update the values for <bpt id="b3b80c17-a300-40e4-89f2-e6aa18407b4b">&lt;em&gt;</bpt>endpoint<ept id="b3b80c17-a300-40e4-89f2-e6aa18407b4b">&lt;/em&gt;</ept> and <bpt id="c9583b83-1ae5-479e-9f06-a2bb67e032bc">&lt;em&gt;</bpt>authKey<ept id="c9583b83-1ae5-479e-9f06-a2bb67e032bc">&lt;/em&gt;</ept> using the Keys blade of the Azure Preview portal.</target>
+        </trans-unit>
+        <trans-unit id="60714d83-3b2f-49fc-995f-81daacfd16a3" xml:space="preserve">
+          <source>Use the <bpt id="06bc612d-4c34-44e2-8265-74c0fa625cff">&lt;strong&gt;</bpt>URI<ept id="06bc612d-4c34-44e2-8265-74c0fa625cff">&lt;/strong&gt;</ept> from the Keys blade as the value of the endpoint setting, and use the <bpt id="57d7a0e3-b9a7-4d3b-916a-a366d68d0f68">&lt;strong&gt;</bpt>PRIMARY KEY<ept id="57d7a0e3-b9a7-4d3b-916a-a366d68d0f68">&lt;/strong&gt;</ept>, or <bpt id="8999788a-84da-4e40-989a-3e4db99948a0">&lt;strong&gt;</bpt>SECONDARY KEY<ept id="8999788a-84da-4e40-989a-3e4db99948a0">&lt;/strong&gt;</ept> from the Keys blade as the value of the authKey setting.</source>
+          <target state="new">Use the <bpt id="06bc612d-4c34-44e2-8265-74c0fa625cff">&lt;strong&gt;</bpt>URI<ept id="06bc612d-4c34-44e2-8265-74c0fa625cff">&lt;/strong&gt;</ept> from the Keys blade as the value of the endpoint setting, and use the <bpt id="57d7a0e3-b9a7-4d3b-916a-a366d68d0f68">&lt;strong&gt;</bpt>PRIMARY KEY<ept id="57d7a0e3-b9a7-4d3b-916a-a366d68d0f68">&lt;/strong&gt;</ept>, or <bpt id="8999788a-84da-4e40-989a-3e4db99948a0">&lt;strong&gt;</bpt>SECONDARY KEY<ept id="8999788a-84da-4e40-989a-3e4db99948a0">&lt;/strong&gt;</ept> from the Keys blade as the value of the authKey setting.</target>
+        </trans-unit>
+        <trans-unit id="21a5facd-5896-4cec-8850-e4e8bdcbbfc7" xml:space="preserve">
+          <source>That takes care of wiring up the DocumentDB repository, now let's add our application logic.</source>
+          <target state="new">That takes care of wiring up the DocumentDB repository, now let's add our application logic.</target>
+        </trans-unit>
+        <trans-unit id="7013864f-bc42-45a6-a9e0-fc4d044ccfae" xml:space="preserve">
+          <source>The first thing we want to be able to do with a todo list application is to display the incomplete items.</source>
+          <target state="new">The first thing we want to be able to do with a todo list application is to display the incomplete items.</target>
+        </trans-unit>
+        <trans-unit id="e512990b-2c34-41dc-9072-42ab82e678dd" xml:space="preserve">
+          <source>Copy and paste the following code snippet anywhere within the <bpt id="24258088-17ec-40a2-b0d8-ad01be82937f">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="24258088-17ec-40a2-b0d8-ad01be82937f">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">Copy and paste the following code snippet anywhere within the <bpt id="24258088-17ec-40a2-b0d8-ad01be82937f">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="24258088-17ec-40a2-b0d8-ad01be82937f">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="0c2116e9-18d6-49f2-927d-8f69ac54006c" xml:space="preserve">
+          <source>Open the <bpt id="2f429b36-a894-48b7-9bcf-d3d40bb0854e">&lt;strong&gt;</bpt>ItemController<ept id="2f429b36-a894-48b7-9bcf-d3d40bb0854e">&lt;/strong&gt;</ept> we added earlier and add the following <bpt id="57b64521-c02a-4caf-b86e-978597053632">&lt;em&gt;</bpt>using statements<ept id="57b64521-c02a-4caf-b86e-978597053632">&lt;/em&gt;</ept> above the namespace declaration.</source>
+          <target state="new">Open the <bpt id="2f429b36-a894-48b7-9bcf-d3d40bb0854e">&lt;strong&gt;</bpt>ItemController<ept id="2f429b36-a894-48b7-9bcf-d3d40bb0854e">&lt;/strong&gt;</ept> we added earlier and add the following <bpt id="57b64521-c02a-4caf-b86e-978597053632">&lt;em&gt;</bpt>using statements<ept id="57b64521-c02a-4caf-b86e-978597053632">&lt;/em&gt;</ept> above the namespace declaration.</target>
+        </trans-unit>
+        <trans-unit id="db5a8f7e-044d-4187-b78d-dfbe22863599" xml:space="preserve">
+          <source>If your project is not named "todo", then you need to update using "todo.Models"; to reflect the name of your project.</source>
+          <target state="new">If your project is not named "todo", then you need to update using "todo.Models"; to reflect the name of your project.</target>
+        </trans-unit>
+        <trans-unit id="bc43dfa7-8369-45d6-af3c-a64f234804b9" xml:space="preserve">
+          <source>Now replace this code</source>
+          <target state="new">Now replace this code</target>
+        </trans-unit>
+        <trans-unit id="b5e0296f-c165-4ee8-9fc8-62a7072f6ae4" xml:space="preserve">
+          <source>with the following code.</source>
+          <target state="new">with the following code.</target>
+        </trans-unit>
+        <trans-unit id="eac09d11-6d82-4395-a3ad-9861736ad67e" xml:space="preserve">
+          <source>At this point your solution should be able to build without any errors.</source>
+          <target state="new">At this point your solution should be able to build without any errors.</target>
+        </trans-unit>
+        <trans-unit id="277f8d36-d1fd-4068-903d-31c9ee92261e" xml:space="preserve">
+          <source>If you ran the application now, you would go to the <bpt id="89cc7caa-aed4-415d-b715-cf7af4c15c6d">&lt;strong&gt;</bpt>HomeController<ept id="89cc7caa-aed4-415d-b715-cf7af4c15c6d">&lt;/strong&gt;</ept> and the <bpt id="3a78552c-159b-4c06-8557-8d4e5741e4b8">&lt;strong&gt;</bpt>Index<ept id="3a78552c-159b-4c06-8557-8d4e5741e4b8">&lt;/strong&gt;</ept> view of that controller.</source>
+          <target state="new">If you ran the application now, you would go to the <bpt id="89cc7caa-aed4-415d-b715-cf7af4c15c6d">&lt;strong&gt;</bpt>HomeController<ept id="89cc7caa-aed4-415d-b715-cf7af4c15c6d">&lt;/strong&gt;</ept> and the <bpt id="3a78552c-159b-4c06-8557-8d4e5741e4b8">&lt;strong&gt;</bpt>Index<ept id="3a78552c-159b-4c06-8557-8d4e5741e4b8">&lt;/strong&gt;</ept> view of that controller.</target>
+        </trans-unit>
+        <trans-unit id="8fc46bc1-c6c9-4e11-be33-cfbd82f54dd9" xml:space="preserve">
+          <source>This is the default behavior for the MVC template project we chose at the start but we don't want that!</source>
+          <target state="new">This is the default behavior for the MVC template project we chose at the start but we don't want that!</target>
+        </trans-unit>
+        <trans-unit id="b0961b79-be57-45c2-bce6-7522dd962fc2" xml:space="preserve">
+          <source>Let's change the routing on this MVC application to alter this behavior.</source>
+          <target state="new">Let's change the routing on this MVC application to alter this behavior.</target>
+        </trans-unit>
+        <trans-unit id="baa0b6f1-6253-4972-8753-8d88884b8882" xml:space="preserve">
+          <source>Open <bpt id="d117eeb5-fea0-4e12-a399-b37c6c92522b">&lt;strong&gt;</bpt>*App\_Start\RouteConfig.cs*<ept id="d117eeb5-fea0-4e12-a399-b37c6c92522b">&lt;/strong&gt;</ept> and locate the line starting with "defaults:" and change it to resemble the following.</source>
+          <target state="new">Open <bpt id="d117eeb5-fea0-4e12-a399-b37c6c92522b">&lt;strong&gt;</bpt>*App\_Start\RouteConfig.cs*<ept id="d117eeb5-fea0-4e12-a399-b37c6c92522b">&lt;/strong&gt;</ept> and locate the line starting with "defaults:" and change it to resemble the following.</target>
+        </trans-unit>
+        <trans-unit id="4d4f06ee-2e21-46bd-a001-8a6a1d2cf855" xml:space="preserve">
+          <source>This now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior that instead of <bpt id="87c8bb58-895f-4705-b554-0b9805e84009">&lt;strong&gt;</bpt>Home<ept id="87c8bb58-895f-4705-b554-0b9805e84009">&lt;/strong&gt;</ept>, use <bpt id="26b537b7-421f-44a3-8eec-c85ba61f545b">&lt;strong&gt;</bpt>Item<ept id="26b537b7-421f-44a3-8eec-c85ba61f545b">&lt;/strong&gt;</ept> as the controller and user <bpt id="183bab04-1de5-42af-af1e-01a5d4098a8f">&lt;strong&gt;</bpt>Index<ept id="183bab04-1de5-42af-af1e-01a5d4098a8f">&lt;/strong&gt;</ept> as the view.</source>
+          <target state="new">This now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior that instead of <bpt id="87c8bb58-895f-4705-b554-0b9805e84009">&lt;strong&gt;</bpt>Home<ept id="87c8bb58-895f-4705-b554-0b9805e84009">&lt;/strong&gt;</ept>, use <bpt id="26b537b7-421f-44a3-8eec-c85ba61f545b">&lt;strong&gt;</bpt>Item<ept id="26b537b7-421f-44a3-8eec-c85ba61f545b">&lt;/strong&gt;</ept> as the controller and user <bpt id="183bab04-1de5-42af-af1e-01a5d4098a8f">&lt;strong&gt;</bpt>Index<ept id="183bab04-1de5-42af-af1e-01a5d4098a8f">&lt;/strong&gt;</ept> as the view.</target>
+        </trans-unit>
+        <trans-unit id="babaed98-bad5-488b-83ef-f3b7db6476e2" xml:space="preserve">
+          <source>Now if you run the application, it will call into your <bpt id="e740db1d-dbff-4972-8705-deefbb4d6dda">&lt;strong&gt;</bpt>ItemController<ept id="e740db1d-dbff-4972-8705-deefbb4d6dda">&lt;/strong&gt;</ept> which will call in to the repository class and use the GetItems method to return all the incomplete items to the <bpt id="039af8a4-a9b5-478b-953d-5fb6e6743f08">&lt;strong&gt;</bpt>Views<ept id="039af8a4-a9b5-478b-953d-5fb6e6743f08">&lt;/strong&gt;</ept>\\<bpt id="474680da-fbe9-4012-abfa-469aa62e04f2">&lt;strong&gt;</bpt>Item<ept id="474680da-fbe9-4012-abfa-469aa62e04f2">&lt;/strong&gt;</ept>\\<bpt id="dbbd2345-e6d2-49ef-9c41-e5cbeb2c5420">&lt;strong&gt;</bpt>Index<ept id="dbbd2345-e6d2-49ef-9c41-e5cbeb2c5420">&lt;/strong&gt;</ept> view.</source>
+          <target state="new">Now if you run the application, it will call into your <bpt id="e740db1d-dbff-4972-8705-deefbb4d6dda">&lt;strong&gt;</bpt>ItemController<ept id="e740db1d-dbff-4972-8705-deefbb4d6dda">&lt;/strong&gt;</ept> which will call in to the repository class and use the GetItems method to return all the incomplete items to the <bpt id="039af8a4-a9b5-478b-953d-5fb6e6743f08">&lt;strong&gt;</bpt>Views<ept id="039af8a4-a9b5-478b-953d-5fb6e6743f08">&lt;/strong&gt;</ept>\\<bpt id="474680da-fbe9-4012-abfa-469aa62e04f2">&lt;strong&gt;</bpt>Item<ept id="474680da-fbe9-4012-abfa-469aa62e04f2">&lt;/strong&gt;</ept>\\<bpt id="dbbd2345-e6d2-49ef-9c41-e5cbeb2c5420">&lt;strong&gt;</bpt>Index<ept id="dbbd2345-e6d2-49ef-9c41-e5cbeb2c5420">&lt;/strong&gt;</ept> view.</target>
+        </trans-unit>
+        <trans-unit id="4d875af8-2420-4990-8067-48a4488171ec" xml:space="preserve">
+          <source>If you build and run this project now, you should now see something that looks this.</source>
+          <target state="new">If you build and run this project now, you should now see something that looks this.</target>
+        </trans-unit>
+        <trans-unit id="01c72d14-213f-4ef6-9589-83dc4a04d119" xml:space="preserve">
+          <source><bpt id="30fcce94-f405-481f-aed0-2974b186a983">&lt;linkText&gt;</bpt>Screen shot of the todo list web application created by this tutorial<ept id="30fcce94-f405-481f-aed0-2974b186a983">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="30fcce94-f405-481f-aed0-2974b186a983">&lt;linkText&gt;</bpt>Screen shot of the todo list web application created by this tutorial<ept id="30fcce94-f405-481f-aed0-2974b186a983">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc93b82c-c7fd-4e3f-82d5-8b272ab7bfb1" xml:space="preserve">
+          <source>Let's put some items into our database so we have something more than an empty grid to look at.</source>
+          <target state="new">Let's put some items into our database so we have something more than an empty grid to look at.</target>
+        </trans-unit>
+        <trans-unit id="f1bbebb8-7ad3-44ec-b8d7-2e1b799707ff" xml:space="preserve">
+          <source>Let's add some code to  DocumentDBRepository and ItemController to persist the record in DocumentDB.</source>
+          <target state="new">Let's add some code to  DocumentDBRepository and ItemController to persist the record in DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="1ae3f0a3-4966-4b0c-a300-214cb39beaec" xml:space="preserve">
+          <source>Add the following method to your <bpt id="50331ac2-3f33-4b5d-8d8e-ad35bb9220d2">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="50331ac2-3f33-4b5d-8d8e-ad35bb9220d2">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">Add the following method to your <bpt id="50331ac2-3f33-4b5d-8d8e-ad35bb9220d2">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="50331ac2-3f33-4b5d-8d8e-ad35bb9220d2">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="76a06a28-f105-4b47-a8ce-d10618164a8c" xml:space="preserve">
+          <source>This method simply takes an object passed to it and persists it in DocumentDB.</source>
+          <target state="new">This method simply takes an object passed to it and persists it in DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="8cff0ab1-0b24-4f77-a150-25035425c015" xml:space="preserve">
+          <source>Open the ItemController.cs file and add the following code snippet within the class.</source>
+          <target state="new">Open the ItemController.cs file and add the following code snippet within the class.</target>
+        </trans-unit>
+        <trans-unit id="f595bf80-b6f9-4dad-8cb4-18f0208cced9" xml:space="preserve">
+          <source>This is how ASP.NET MVC knows what to do for the <bpt id="f5e6c1f1-d937-4fc3-b012-afd88e23ce74">&lt;strong&gt;</bpt>Create<ept id="f5e6c1f1-d937-4fc3-b012-afd88e23ce74">&lt;/strong&gt;</ept> action.</source>
+          <target state="new">This is how ASP.NET MVC knows what to do for the <bpt id="f5e6c1f1-d937-4fc3-b012-afd88e23ce74">&lt;strong&gt;</bpt>Create<ept id="f5e6c1f1-d937-4fc3-b012-afd88e23ce74">&lt;/strong&gt;</ept> action.</target>
+        </trans-unit>
+        <trans-unit id="afbdea3e-ce4d-4509-9627-052722118cf2" xml:space="preserve">
+          <source>In this case just render the associated Create.cshtml view created earlier.</source>
+          <target state="new">In this case just render the associated Create.cshtml view created earlier.</target>
+        </trans-unit>
+        <trans-unit id="0795baea-5a87-4c51-819d-59dcf8adcc47" xml:space="preserve">
+          <source>We now need some more code in this controller that will accept the submission from the <bpt id="bd7f1e82-5e7a-4af7-b792-f218b8b1345c">&lt;strong&gt;</bpt>Create<ept id="bd7f1e82-5e7a-4af7-b792-f218b8b1345c">&lt;/strong&gt;</ept> view.</source>
+          <target state="new">We now need some more code in this controller that will accept the submission from the <bpt id="bd7f1e82-5e7a-4af7-b792-f218b8b1345c">&lt;strong&gt;</bpt>Create<ept id="bd7f1e82-5e7a-4af7-b792-f218b8b1345c">&lt;/strong&gt;</ept> view.</target>
+        </trans-unit>
+        <trans-unit id="28fcb422-ec79-450b-ba31-4331d2a8568e" xml:space="preserve">
+          <source>Add the next block of code to the ItemController.cs class that tells ASP.NET MVC what to do with a form POST for this controller.</source>
+          <target state="new">Add the next block of code to the ItemController.cs class that tells ASP.NET MVC what to do with a form POST for this controller.</target>
+        </trans-unit>
+        <trans-unit id="932383e3-372f-4a43-a48f-60e6e3f0f3c5" xml:space="preserve">
+          <source><bpt id="d9b13567-041e-4f71-9caa-4422d3c636b5">&lt;strong&gt;</bpt>Security Note<ept id="d9b13567-041e-4f71-9caa-4422d3c636b5">&lt;/strong&gt;</ept>: The <bpt id="160dce0c-4dfb-45bd-885b-3b51a789faf3">&lt;strong&gt;</bpt>ValidateAntiForgeryToken<ept id="160dce0c-4dfb-45bd-885b-3b51a789faf3">&lt;/strong&gt;</ept> attribute is used here to help protect this application against cross-site request forgery attacks.</source>
+          <target state="new"><bpt id="d9b13567-041e-4f71-9caa-4422d3c636b5">&lt;strong&gt;</bpt>Security Note<ept id="d9b13567-041e-4f71-9caa-4422d3c636b5">&lt;/strong&gt;</ept>: The <bpt id="160dce0c-4dfb-45bd-885b-3b51a789faf3">&lt;strong&gt;</bpt>ValidateAntiForgeryToken<ept id="160dce0c-4dfb-45bd-885b-3b51a789faf3">&lt;/strong&gt;</ept> attribute is used here to help protect this application against cross-site request forgery attacks.</target>
+        </trans-unit>
+        <trans-unit id="313b360c-2e2c-46ee-948e-41665e5bd6bc" xml:space="preserve">
+          <source>There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well.</source>
+          <target state="new">There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well.</target>
+        </trans-unit>
+        <trans-unit id="fac549fa-1d6a-4623-8929-2b25212d807f" xml:space="preserve">
+          <source>For more on the subject, and examples of how to implement this correctly, please see <bpt id="ec4871cd-7685-4d70-bef9-15cd52bb2233">&lt;linkText&gt;</bpt>Preventing Cross-Site Request Forgery<ept id="ec4871cd-7685-4d70-bef9-15cd52bb2233">&lt;/linkText&gt;</ept><bpt id="ec4871cd-7685-4d70-bef9-15cd52bb2233">&lt;title&gt;</bpt><ept id="ec4871cd-7685-4d70-bef9-15cd52bb2233">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more on the subject, and examples of how to implement this correctly, please see <bpt id="ec4871cd-7685-4d70-bef9-15cd52bb2233">&lt;linkText&gt;</bpt>Preventing Cross-Site Request Forgery<ept id="ec4871cd-7685-4d70-bef9-15cd52bb2233">&lt;/linkText&gt;</ept><bpt id="ec4871cd-7685-4d70-bef9-15cd52bb2233">&lt;title&gt;</bpt><ept id="ec4871cd-7685-4d70-bef9-15cd52bb2233">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a33a1804-59ae-4cde-bd63-7908b1153613" xml:space="preserve">
+          <source>The source code provided on <bpt id="1e1a8595-d324-4b53-a16e-51e5f8f24b8c">&lt;linkText&gt;</bpt>GitHub<ept id="1e1a8595-d324-4b53-a16e-51e5f8f24b8c">&lt;/linkText&gt;</ept><bpt id="1e1a8595-d324-4b53-a16e-51e5f8f24b8c">&lt;title&gt;</bpt><ept id="1e1a8595-d324-4b53-a16e-51e5f8f24b8c">&lt;/title&gt;</ept> has the full implementation in place.</source>
+          <target state="new">The source code provided on <bpt id="1e1a8595-d324-4b53-a16e-51e5f8f24b8c">&lt;linkText&gt;</bpt>GitHub<ept id="1e1a8595-d324-4b53-a16e-51e5f8f24b8c">&lt;/linkText&gt;</ept><bpt id="1e1a8595-d324-4b53-a16e-51e5f8f24b8c">&lt;title&gt;</bpt><ept id="1e1a8595-d324-4b53-a16e-51e5f8f24b8c">&lt;/title&gt;</ept> has the full implementation in place.</target>
+        </trans-unit>
+        <trans-unit id="c9950486-dbd7-41b2-8c82-24a671c5108d" xml:space="preserve">
+          <source><bpt id="f09d31c1-1739-46f7-b2e1-698d8c55d2b3">&lt;strong&gt;</bpt>Security Note<ept id="f09d31c1-1739-46f7-b2e1-698d8c55d2b3">&lt;/strong&gt;</ept>: We also use the <bpt id="973e1cce-cb65-41ef-8e41-efdb241d6370">&lt;strong&gt;</bpt>Bind<ept id="973e1cce-cb65-41ef-8e41-efdb241d6370">&lt;/strong&gt;</ept> attribute on the method parameter to help protect against over-posting attacks.</source>
+          <target state="new"><bpt id="f09d31c1-1739-46f7-b2e1-698d8c55d2b3">&lt;strong&gt;</bpt>Security Note<ept id="f09d31c1-1739-46f7-b2e1-698d8c55d2b3">&lt;/strong&gt;</ept>: We also use the <bpt id="973e1cce-cb65-41ef-8e41-efdb241d6370">&lt;strong&gt;</bpt>Bind<ept id="973e1cce-cb65-41ef-8e41-efdb241d6370">&lt;/strong&gt;</ept> attribute on the method parameter to help protect against over-posting attacks.</target>
+        </trans-unit>
+        <trans-unit id="70322356-47a1-4d22-93c4-28f3fa053536" xml:space="preserve">
+          <source>For more details please see <bpt id="b6259087-ce41-43cc-87bb-065a287589c8">&lt;linkText&gt;</bpt>Basic CRUD Operations in ASP.NET MVC<ept id="b6259087-ce41-43cc-87bb-065a287589c8">&lt;/linkText&gt;</ept><bpt id="b6259087-ce41-43cc-87bb-065a287589c8">&lt;title&gt;</bpt><ept id="b6259087-ce41-43cc-87bb-065a287589c8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details please see <bpt id="b6259087-ce41-43cc-87bb-065a287589c8">&lt;linkText&gt;</bpt>Basic CRUD Operations in ASP.NET MVC<ept id="b6259087-ce41-43cc-87bb-065a287589c8">&lt;/linkText&gt;</ept><bpt id="b6259087-ce41-43cc-87bb-065a287589c8">&lt;title&gt;</bpt><ept id="b6259087-ce41-43cc-87bb-065a287589c8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29f6e032-66c6-4c2a-888e-2e01e5f667cb" xml:space="preserve">
+          <source>This concludes the code required to add new Items to our database.</source>
+          <target state="new">This concludes the code required to add new Items to our database.</target>
+        </trans-unit>
+        <trans-unit id="7745f56a-6cda-4b1d-8f69-7ca4bafdd3eb" xml:space="preserve">
+          <source>There is one last thing for us to do, and that is to add the ability to edit <bpt id="d88dfd95-8bec-4d93-bd98-c929aaa57429">&lt;strong&gt;</bpt>Items<ept id="d88dfd95-8bec-4d93-bd98-c929aaa57429">&lt;/strong&gt;</ept> in the database and to mark them as complete.</source>
+          <target state="new">There is one last thing for us to do, and that is to add the ability to edit <bpt id="d88dfd95-8bec-4d93-bd98-c929aaa57429">&lt;strong&gt;</bpt>Items<ept id="d88dfd95-8bec-4d93-bd98-c929aaa57429">&lt;/strong&gt;</ept> in the database and to mark them as complete.</target>
+        </trans-unit>
+        <trans-unit id="142bea6d-d64c-4600-8385-1a7d78be42c9" xml:space="preserve">
+          <source>The view for editing was already added to the project, so we just need to add some code to our controller and to the <bpt id="e981ed90-02d2-4f0a-b76a-0ef661b8b7ea">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="e981ed90-02d2-4f0a-b76a-0ef661b8b7ea">&lt;/strong&gt;</ept> class again.</source>
+          <target state="new">The view for editing was already added to the project, so we just need to add some code to our controller and to the <bpt id="e981ed90-02d2-4f0a-b76a-0ef661b8b7ea">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="e981ed90-02d2-4f0a-b76a-0ef661b8b7ea">&lt;/strong&gt;</ept> class again.</target>
+        </trans-unit>
+        <trans-unit id="08f2e20e-abcc-4d6f-87f6-9ac51c9d0cf9" xml:space="preserve">
+          <source>Add the following to the <bpt id="194c5140-cb9c-4fc6-a53c-6b91a8f8a7cd">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="194c5140-cb9c-4fc6-a53c-6b91a8f8a7cd">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">Add the following to the <bpt id="194c5140-cb9c-4fc6-a53c-6b91a8f8a7cd">&lt;strong&gt;</bpt>DocumentDBRepository<ept id="194c5140-cb9c-4fc6-a53c-6b91a8f8a7cd">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="48855eae-f809-49af-b96c-4194ed8053de" xml:space="preserve">
+          <source>The first of these methods, <bpt id="5f6e10dc-a585-495f-b8e3-eb54b0ffe821">&lt;strong&gt;</bpt>GetItem<ept id="5f6e10dc-a585-495f-b8e3-eb54b0ffe821">&lt;/strong&gt;</ept> fetches an Item from DocumentDB which is passed back to the <bpt id="6cc6f0f4-bb5d-4e96-b832-f417281d9b73">&lt;strong&gt;</bpt>ItemController<ept id="6cc6f0f4-bb5d-4e96-b832-f417281d9b73">&lt;/strong&gt;</ept> and then on to the <bpt id="ba8eab16-6452-4f27-87c3-59c1c64561bb">&lt;strong&gt;</bpt>Edit<ept id="ba8eab16-6452-4f27-87c3-59c1c64561bb">&lt;/strong&gt;</ept> view.</source>
+          <target state="new">The first of these methods, <bpt id="5f6e10dc-a585-495f-b8e3-eb54b0ffe821">&lt;strong&gt;</bpt>GetItem<ept id="5f6e10dc-a585-495f-b8e3-eb54b0ffe821">&lt;/strong&gt;</ept> fetches an Item from DocumentDB which is passed back to the <bpt id="6cc6f0f4-bb5d-4e96-b832-f417281d9b73">&lt;strong&gt;</bpt>ItemController<ept id="6cc6f0f4-bb5d-4e96-b832-f417281d9b73">&lt;/strong&gt;</ept> and then on to the <bpt id="ba8eab16-6452-4f27-87c3-59c1c64561bb">&lt;strong&gt;</bpt>Edit<ept id="ba8eab16-6452-4f27-87c3-59c1c64561bb">&lt;/strong&gt;</ept> view.</target>
+        </trans-unit>
+        <trans-unit id="ec50b291-cf33-4a89-9e7a-b0a2d3cc9109" xml:space="preserve">
+          <source>The second of the methods we just added replaces the <bpt id="e255f4ce-6648-4448-a442-dc0829e7456e">&lt;strong&gt;</bpt>Document<ept id="e255f4ce-6648-4448-a442-dc0829e7456e">&lt;/strong&gt;</ept> in DocumentDB with the version of the <bpt id="4c3a7f8d-add8-44ba-8d72-086cffad6ae6">&lt;strong&gt;</bpt>Document<ept id="4c3a7f8d-add8-44ba-8d72-086cffad6ae6">&lt;/strong&gt;</ept> passed in from the <bpt id="9069974c-7855-4d6f-b8f3-b086042c5073">&lt;strong&gt;</bpt>ItemController<ept id="9069974c-7855-4d6f-b8f3-b086042c5073">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The second of the methods we just added replaces the <bpt id="e255f4ce-6648-4448-a442-dc0829e7456e">&lt;strong&gt;</bpt>Document<ept id="e255f4ce-6648-4448-a442-dc0829e7456e">&lt;/strong&gt;</ept> in DocumentDB with the version of the <bpt id="4c3a7f8d-add8-44ba-8d72-086cffad6ae6">&lt;strong&gt;</bpt>Document<ept id="4c3a7f8d-add8-44ba-8d72-086cffad6ae6">&lt;/strong&gt;</ept> passed in from the <bpt id="9069974c-7855-4d6f-b8f3-b086042c5073">&lt;strong&gt;</bpt>ItemController<ept id="9069974c-7855-4d6f-b8f3-b086042c5073">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="79906ef8-3795-4fc9-9835-1b5e6835dbf0" xml:space="preserve">
+          <source>Add the following to the <bpt id="b7d8894e-6a14-48db-a6f1-a38ba1033579">&lt;strong&gt;</bpt>ItemController<ept id="b7d8894e-6a14-48db-a6f1-a38ba1033579">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">Add the following to the <bpt id="b7d8894e-6a14-48db-a6f1-a38ba1033579">&lt;strong&gt;</bpt>ItemController<ept id="b7d8894e-6a14-48db-a6f1-a38ba1033579">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="19200679-ae00-41ed-9451-ad30b098ac0e" xml:space="preserve">
+          <source>The first method handles the Http GET that happens when the user clicks on the <bpt id="673343cf-98d7-4fae-adb7-56a386db0f6d">&lt;strong&gt;</bpt>Edit<ept id="673343cf-98d7-4fae-adb7-56a386db0f6d">&lt;/strong&gt;</ept> link from the <bpt id="68b29785-5cea-4566-9c97-d8e234fc0105">&lt;strong&gt;</bpt>Index<ept id="68b29785-5cea-4566-9c97-d8e234fc0105">&lt;/strong&gt;</ept> view.</source>
+          <target state="new">The first method handles the Http GET that happens when the user clicks on the <bpt id="673343cf-98d7-4fae-adb7-56a386db0f6d">&lt;strong&gt;</bpt>Edit<ept id="673343cf-98d7-4fae-adb7-56a386db0f6d">&lt;/strong&gt;</ept> link from the <bpt id="68b29785-5cea-4566-9c97-d8e234fc0105">&lt;strong&gt;</bpt>Index<ept id="68b29785-5cea-4566-9c97-d8e234fc0105">&lt;/strong&gt;</ept> view.</target>
+        </trans-unit>
+        <trans-unit id="0efbc245-702d-4554-a034-faeca0957b75" xml:space="preserve">
+          <source>This method fetches a [<bpt id="88c22758-8c99-4cc5-bd54-034aa24ddbd8">&lt;strong&gt;</bpt>Document<ept id="88c22758-8c99-4cc5-bd54-034aa24ddbd8">&lt;/strong&gt;</ept>](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from DocumentDB and passes it to the <bpt id="f87eca9a-e27f-41a7-bca7-18449c611b22">&lt;strong&gt;</bpt>Edit<ept id="f87eca9a-e27f-41a7-bca7-18449c611b22">&lt;/strong&gt;</ept> view.</source>
+          <target state="new">This method fetches a [<bpt id="88c22758-8c99-4cc5-bd54-034aa24ddbd8">&lt;strong&gt;</bpt>Document<ept id="88c22758-8c99-4cc5-bd54-034aa24ddbd8">&lt;/strong&gt;</ept>](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from DocumentDB and passes it to the <bpt id="f87eca9a-e27f-41a7-bca7-18449c611b22">&lt;strong&gt;</bpt>Edit<ept id="f87eca9a-e27f-41a7-bca7-18449c611b22">&lt;/strong&gt;</ept> view.</target>
+        </trans-unit>
+        <trans-unit id="b240744c-6f99-4265-945d-075599fe5da5" xml:space="preserve">
+          <source>The <bpt id="8d24307b-0edc-49ef-975e-3712b51cc3e8">&lt;strong&gt;</bpt>Edit<ept id="8d24307b-0edc-49ef-975e-3712b51cc3e8">&lt;/strong&gt;</ept> view will then do an Http POST to the <bpt id="807467df-d898-4c17-b937-1683fc1a8691">&lt;strong&gt;</bpt>IndexController<ept id="807467df-d898-4c17-b937-1683fc1a8691">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="8d24307b-0edc-49ef-975e-3712b51cc3e8">&lt;strong&gt;</bpt>Edit<ept id="8d24307b-0edc-49ef-975e-3712b51cc3e8">&lt;/strong&gt;</ept> view will then do an Http POST to the <bpt id="807467df-d898-4c17-b937-1683fc1a8691">&lt;strong&gt;</bpt>IndexController<ept id="807467df-d898-4c17-b937-1683fc1a8691">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50b49359-c3ec-4dc0-bf6a-4937e522660e" xml:space="preserve">
+          <source>The second method we added handles passing the updated object to DocumentDB to be persisted in the database.</source>
+          <target state="new">The second method we added handles passing the updated object to DocumentDB to be persisted in the database.</target>
+        </trans-unit>
+        <trans-unit id="818c6edf-49a9-44bc-a509-234b1b79febc" xml:space="preserve">
+          <source>That's it, that is everything we need to run our application, list incomplete <bpt id="e841a1c4-e22c-4975-b0f0-f28cb3acc9dc">&lt;strong&gt;</bpt>Items<ept id="e841a1c4-e22c-4975-b0f0-f28cb3acc9dc">&lt;/strong&gt;</ept>, add new <bpt id="ceead8c1-1ee3-469b-b36e-b96ad43ebaae">&lt;strong&gt;</bpt>Items<ept id="ceead8c1-1ee3-469b-b36e-b96ad43ebaae">&lt;/strong&gt;</ept>, and edit <bpt id="22e0d672-d301-4dd2-a456-13f6c325a025">&lt;strong&gt;</bpt>Items<ept id="22e0d672-d301-4dd2-a456-13f6c325a025">&lt;/strong&gt;</ept>.</source>
+          <target state="new">That's it, that is everything we need to run our application, list incomplete <bpt id="e841a1c4-e22c-4975-b0f0-f28cb3acc9dc">&lt;strong&gt;</bpt>Items<ept id="e841a1c4-e22c-4975-b0f0-f28cb3acc9dc">&lt;/strong&gt;</ept>, add new <bpt id="ceead8c1-1ee3-469b-b36e-b96ad43ebaae">&lt;strong&gt;</bpt>Items<ept id="ceead8c1-1ee3-469b-b36e-b96ad43ebaae">&lt;/strong&gt;</ept>, and edit <bpt id="22e0d672-d301-4dd2-a456-13f6c325a025">&lt;strong&gt;</bpt>Items<ept id="22e0d672-d301-4dd2-a456-13f6c325a025">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfbd13ff-78eb-46db-a2d3-8b55e369c7f5" xml:space="preserve">
+          <source>To test the application on your local machine, do the following:</source>
+          <target state="new">To test the application on your local machine, do the following:</target>
+        </trans-unit>
+        <trans-unit id="479eb402-34ee-4ec3-9486-5644edaa7637" xml:space="preserve">
+          <source>Hit F5 in Visual Studio to build the application in debug mode.</source>
+          <target state="new">Hit F5 in Visual Studio to build the application in debug mode.</target>
+        </trans-unit>
+        <trans-unit id="5abdf604-dfb5-4217-8c8c-83c0f63cabdd" xml:space="preserve">
+          <source>It should build the application and launch a browser with the empty grid page we saw before:</source>
+          <target state="new">It should build the application and launch a browser with the empty grid page we saw before:</target>
+        </trans-unit>
+        <trans-unit id="e4cc5bb7-4ab4-4e9d-9d16-db076765e16d" xml:space="preserve">
+          <source><bpt id="2c671eea-b00d-4a67-9509-350a58aed9a6">&lt;linkText&gt;</bpt>Screen shot of the todo list web application created by this tutorial<ept id="2c671eea-b00d-4a67-9509-350a58aed9a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c671eea-b00d-4a67-9509-350a58aed9a6">&lt;linkText&gt;</bpt>Screen shot of the todo list web application created by this tutorial<ept id="2c671eea-b00d-4a67-9509-350a58aed9a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aae214b7-8c18-4466-8501-d4493f3a0ee2" xml:space="preserve">
+          <source>If you run into errors at this point, you can compare your code against the todo tutorial on <bpt id="6ab2836a-ba21-4a0b-ac85-e197e86de460">&lt;linkText&gt;</bpt>GitHub<ept id="6ab2836a-ba21-4a0b-ac85-e197e86de460">&lt;/linkText&gt;</ept><bpt id="6ab2836a-ba21-4a0b-ac85-e197e86de460">&lt;title&gt;</bpt><ept id="6ab2836a-ba21-4a0b-ac85-e197e86de460">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you run into errors at this point, you can compare your code against the todo tutorial on <bpt id="6ab2836a-ba21-4a0b-ac85-e197e86de460">&lt;linkText&gt;</bpt>GitHub<ept id="6ab2836a-ba21-4a0b-ac85-e197e86de460">&lt;/linkText&gt;</ept><bpt id="6ab2836a-ba21-4a0b-ac85-e197e86de460">&lt;title&gt;</bpt><ept id="6ab2836a-ba21-4a0b-ac85-e197e86de460">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6a846ab-7dce-4968-8bd5-28f309129254" xml:space="preserve">
+          <source>Click the <bpt id="1460f0bd-5e1d-4aeb-b709-25ab299d9996">&lt;strong&gt;</bpt>Create New<ept id="1460f0bd-5e1d-4aeb-b709-25ab299d9996">&lt;/strong&gt;</ept> link and add values to the <bpt id="5be358e9-3154-4054-ac37-0953278853af">&lt;strong&gt;</bpt>Name<ept id="5be358e9-3154-4054-ac37-0953278853af">&lt;/strong&gt;</ept> and <bpt id="4df0ed78-41cd-4ae7-9a60-b067ec297c85">&lt;strong&gt;</bpt>Description<ept id="4df0ed78-41cd-4ae7-9a60-b067ec297c85">&lt;/strong&gt;</ept> fields.</source>
+          <target state="new">Click the <bpt id="1460f0bd-5e1d-4aeb-b709-25ab299d9996">&lt;strong&gt;</bpt>Create New<ept id="1460f0bd-5e1d-4aeb-b709-25ab299d9996">&lt;/strong&gt;</ept> link and add values to the <bpt id="5be358e9-3154-4054-ac37-0953278853af">&lt;strong&gt;</bpt>Name<ept id="5be358e9-3154-4054-ac37-0953278853af">&lt;/strong&gt;</ept> and <bpt id="4df0ed78-41cd-4ae7-9a60-b067ec297c85">&lt;strong&gt;</bpt>Description<ept id="4df0ed78-41cd-4ae7-9a60-b067ec297c85">&lt;/strong&gt;</ept> fields.</target>
+        </trans-unit>
+        <trans-unit id="14e28ff0-914d-4f71-865f-30036a9d4058" xml:space="preserve">
+          <source>Leave the <bpt id="a291b099-baa0-4653-b8c1-9fdcfed389a5">&lt;strong&gt;</bpt>Completed<ept id="a291b099-baa0-4653-b8c1-9fdcfed389a5">&lt;/strong&gt;</ept> check box unselected otherwise the new <bpt id="8e38ad1c-707c-41ee-8a9d-b3956cd871dc">&lt;strong&gt;</bpt>Item<ept id="8e38ad1c-707c-41ee-8a9d-b3956cd871dc">&lt;/strong&gt;</ept> will be added in a completed state and will not appear on the initial list.</source>
+          <target state="new">Leave the <bpt id="a291b099-baa0-4653-b8c1-9fdcfed389a5">&lt;strong&gt;</bpt>Completed<ept id="a291b099-baa0-4653-b8c1-9fdcfed389a5">&lt;/strong&gt;</ept> check box unselected otherwise the new <bpt id="8e38ad1c-707c-41ee-8a9d-b3956cd871dc">&lt;strong&gt;</bpt>Item<ept id="8e38ad1c-707c-41ee-8a9d-b3956cd871dc">&lt;/strong&gt;</ept> will be added in a completed state and will not appear on the initial list.</target>
+        </trans-unit>
+        <trans-unit id="463fdbd9-188e-4934-a679-a8632966224f" xml:space="preserve">
+          <source><bpt id="285e498c-fa3b-49b3-8fb6-aa8d002644d1">&lt;linkText&gt;</bpt>Screen shot of the Create view<ept id="285e498c-fa3b-49b3-8fb6-aa8d002644d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="285e498c-fa3b-49b3-8fb6-aa8d002644d1">&lt;linkText&gt;</bpt>Screen shot of the Create view<ept id="285e498c-fa3b-49b3-8fb6-aa8d002644d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9fa7d0b-69e5-4204-a693-49df4fc371d7" xml:space="preserve">
+          <source>Click <bpt id="c36c01d2-1f39-458f-8464-7a398a9093df">&lt;strong&gt;</bpt>Create<ept id="c36c01d2-1f39-458f-8464-7a398a9093df">&lt;/strong&gt;</ept> and you are redirected back to the <bpt id="56e2e066-fe22-47d1-87db-cd9253f928b0">&lt;strong&gt;</bpt>Index<ept id="56e2e066-fe22-47d1-87db-cd9253f928b0">&lt;/strong&gt;</ept> view and your <bpt id="e8e59a21-855c-4b87-889c-f7a5b9a42022">&lt;strong&gt;</bpt>Item<ept id="e8e59a21-855c-4b87-889c-f7a5b9a42022">&lt;/strong&gt;</ept> appears in the list.</source>
+          <target state="new">Click <bpt id="c36c01d2-1f39-458f-8464-7a398a9093df">&lt;strong&gt;</bpt>Create<ept id="c36c01d2-1f39-458f-8464-7a398a9093df">&lt;/strong&gt;</ept> and you are redirected back to the <bpt id="56e2e066-fe22-47d1-87db-cd9253f928b0">&lt;strong&gt;</bpt>Index<ept id="56e2e066-fe22-47d1-87db-cd9253f928b0">&lt;/strong&gt;</ept> view and your <bpt id="e8e59a21-855c-4b87-889c-f7a5b9a42022">&lt;strong&gt;</bpt>Item<ept id="e8e59a21-855c-4b87-889c-f7a5b9a42022">&lt;/strong&gt;</ept> appears in the list.</target>
+        </trans-unit>
+        <trans-unit id="fbf08538-161f-4184-93cc-7e60581f45a9" xml:space="preserve">
+          <source><bpt id="503005be-5ad5-4c53-aff8-b25a9fb626f5">&lt;linkText&gt;</bpt>Screen shot of the Index view<ept id="503005be-5ad5-4c53-aff8-b25a9fb626f5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="503005be-5ad5-4c53-aff8-b25a9fb626f5">&lt;linkText&gt;</bpt>Screen shot of the Index view<ept id="503005be-5ad5-4c53-aff8-b25a9fb626f5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="039cc137-211e-49c8-8806-1cd31f3dc6b4" xml:space="preserve">
+          <source>Feel free to add a few more <bpt id="bf4b7e6d-9d90-4c84-bc40-68adfab0d66d">&lt;strong&gt;</bpt>Items<ept id="bf4b7e6d-9d90-4c84-bc40-68adfab0d66d">&lt;/strong&gt;</ept> to your todo list.</source>
+          <target state="new">Feel free to add a few more <bpt id="bf4b7e6d-9d90-4c84-bc40-68adfab0d66d">&lt;strong&gt;</bpt>Items<ept id="bf4b7e6d-9d90-4c84-bc40-68adfab0d66d">&lt;/strong&gt;</ept> to your todo list.</target>
+        </trans-unit>
+        <trans-unit id="70edf5f3-5a72-4a05-93da-ecd95018e3e4" xml:space="preserve">
+          <source>Click <bpt id="81e43541-5fc2-4e16-a197-03b7024d5e83">&lt;strong&gt;</bpt>Edit<ept id="81e43541-5fc2-4e16-a197-03b7024d5e83">&lt;/strong&gt;</ept> next to an <bpt id="e88992fc-c37f-4015-b295-ed3c1686c59d">&lt;strong&gt;</bpt>Item<ept id="e88992fc-c37f-4015-b295-ed3c1686c59d">&lt;/strong&gt;</ept> on the list and you are taken to the <bpt id="73f72a68-2cdb-47b3-8b43-7b98b2d086cd">&lt;strong&gt;</bpt>Edit<ept id="73f72a68-2cdb-47b3-8b43-7b98b2d086cd">&lt;/strong&gt;</ept> view where you can update any property of your object, including the <bpt id="5a0c82d4-4fa5-4b7d-8ba3-829cefc80f4a">&lt;strong&gt;</bpt>Completed<ept id="5a0c82d4-4fa5-4b7d-8ba3-829cefc80f4a">&lt;/strong&gt;</ept> flag.</source>
+          <target state="new">Click <bpt id="81e43541-5fc2-4e16-a197-03b7024d5e83">&lt;strong&gt;</bpt>Edit<ept id="81e43541-5fc2-4e16-a197-03b7024d5e83">&lt;/strong&gt;</ept> next to an <bpt id="e88992fc-c37f-4015-b295-ed3c1686c59d">&lt;strong&gt;</bpt>Item<ept id="e88992fc-c37f-4015-b295-ed3c1686c59d">&lt;/strong&gt;</ept> on the list and you are taken to the <bpt id="73f72a68-2cdb-47b3-8b43-7b98b2d086cd">&lt;strong&gt;</bpt>Edit<ept id="73f72a68-2cdb-47b3-8b43-7b98b2d086cd">&lt;/strong&gt;</ept> view where you can update any property of your object, including the <bpt id="5a0c82d4-4fa5-4b7d-8ba3-829cefc80f4a">&lt;strong&gt;</bpt>Completed<ept id="5a0c82d4-4fa5-4b7d-8ba3-829cefc80f4a">&lt;/strong&gt;</ept> flag.</target>
+        </trans-unit>
+        <trans-unit id="9e39c7e9-2c9b-4680-87e5-186521934778" xml:space="preserve">
+          <source>If you mark the <bpt id="5261b234-31f6-4918-99c9-bd38cbc847f9">&lt;strong&gt;</bpt>Complete<ept id="5261b234-31f6-4918-99c9-bd38cbc847f9">&lt;/strong&gt;</ept> flag and click <bpt id="7d7186a5-03df-4100-bf29-7e2239dcccbf">&lt;strong&gt;</bpt>Save<ept id="7d7186a5-03df-4100-bf29-7e2239dcccbf">&lt;/strong&gt;</ept>, the <bpt id="2fa75065-dfdc-4673-b07b-338a97c962a9">&lt;strong&gt;</bpt>Item<ept id="2fa75065-dfdc-4673-b07b-338a97c962a9">&lt;/strong&gt;</ept> is removed from the list of incomplete tasks.</source>
+          <target state="new">If you mark the <bpt id="5261b234-31f6-4918-99c9-bd38cbc847f9">&lt;strong&gt;</bpt>Complete<ept id="5261b234-31f6-4918-99c9-bd38cbc847f9">&lt;/strong&gt;</ept> flag and click <bpt id="7d7186a5-03df-4100-bf29-7e2239dcccbf">&lt;strong&gt;</bpt>Save<ept id="7d7186a5-03df-4100-bf29-7e2239dcccbf">&lt;/strong&gt;</ept>, the <bpt id="2fa75065-dfdc-4673-b07b-338a97c962a9">&lt;strong&gt;</bpt>Item<ept id="2fa75065-dfdc-4673-b07b-338a97c962a9">&lt;/strong&gt;</ept> is removed from the list of incomplete tasks.</target>
+        </trans-unit>
+        <trans-unit id="f1060b49-9ce9-4b0d-9086-9596aea470c7" xml:space="preserve">
+          <source><bpt id="98c503ed-e600-47de-8114-c4ec0825b8b7">&lt;linkText&gt;</bpt>Screen shot of the Index view with the Completed box checked<ept id="98c503ed-e600-47de-8114-c4ec0825b8b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="98c503ed-e600-47de-8114-c4ec0825b8b7">&lt;linkText&gt;</bpt>Screen shot of the Index view with the Completed box checked<ept id="98c503ed-e600-47de-8114-c4ec0825b8b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb35f4ff-6efe-462a-a69b-d800a43a0b15" xml:space="preserve">
+          <source>Once you've tested the app, press Ctrl+F5 to stop debugging the app.</source>
+          <target state="new">Once you've tested the app, press Ctrl+F5 to stop debugging the app.</target>
+        </trans-unit>
+        <trans-unit id="ea633d58-ed55-4588-9fbd-77ad17a78580" xml:space="preserve">
+          <source>You're ready to deploy!</source>
+          <target state="new">You're ready to deploy!</target>
+        </trans-unit>
+        <trans-unit id="a05c1c84-487b-46f0-95c5-a8be0efabb92" xml:space="preserve">
+          <source>Now that you have the complete application working correctly with DocumentDB we're going to deploy this web app to Azure Websites.</source>
+          <target state="new">Now that you have the complete application working correctly with DocumentDB we're going to deploy this web app to Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="89c69c18-ec57-47b0-94f5-84b6acbd5d41" xml:space="preserve">
+          <source>If you selected <bpt id="1959aef5-a335-4f52-af6d-23dfc626c577">&lt;strong&gt;</bpt>Host in the cloud<ept id="1959aef5-a335-4f52-af6d-23dfc626c577">&lt;/strong&gt;</ept> when you created the empty ASP.NET MVC project then Visual Studio makes this really easy and does most of the work for you.</source>
+          <target state="new">If you selected <bpt id="1959aef5-a335-4f52-af6d-23dfc626c577">&lt;strong&gt;</bpt>Host in the cloud<ept id="1959aef5-a335-4f52-af6d-23dfc626c577">&lt;/strong&gt;</ept> when you created the empty ASP.NET MVC project then Visual Studio makes this really easy and does most of the work for you.</target>
+        </trans-unit>
+        <trans-unit id="4fba8175-a53f-49a8-a1d3-58f3e8f804a1" xml:space="preserve">
+          <source>To publish this application all you need to do is right-click on the project in <bpt id="e787c9b8-89b7-4e2e-bfb3-3dbb1838f720">&lt;strong&gt;</bpt>Solution Explorer<ept id="e787c9b8-89b7-4e2e-bfb3-3dbb1838f720">&lt;/strong&gt;</ept> and click <bpt id="a3e736b8-0322-4b87-b405-72859326f711">&lt;strong&gt;</bpt>Publish<ept id="a3e736b8-0322-4b87-b405-72859326f711">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To publish this application all you need to do is right-click on the project in <bpt id="e787c9b8-89b7-4e2e-bfb3-3dbb1838f720">&lt;strong&gt;</bpt>Solution Explorer<ept id="e787c9b8-89b7-4e2e-bfb3-3dbb1838f720">&lt;/strong&gt;</ept> and click <bpt id="a3e736b8-0322-4b87-b405-72859326f711">&lt;strong&gt;</bpt>Publish<ept id="a3e736b8-0322-4b87-b405-72859326f711">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9c88963-fb84-48b0-96bf-a45b7c26fdfb" xml:space="preserve">
+          <source><bpt id="4e986974-2b0c-4954-b560-b8cc7da33f32">&lt;linkText&gt;</bpt>Screen shot of the Publish option in Solution Explorer<ept id="4e986974-2b0c-4954-b560-b8cc7da33f32">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e986974-2b0c-4954-b560-b8cc7da33f32">&lt;linkText&gt;</bpt>Screen shot of the Publish option in Solution Explorer<ept id="4e986974-2b0c-4954-b560-b8cc7da33f32">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dcb0b148-2392-41ab-82f9-92f981b898ce" xml:space="preserve">
+          <source>Everything should already be configured according to your credentials; in fact the website has already been created in Azure for you at the <bpt id="f0562303-427c-4239-9480-7da44108b363">&lt;strong&gt;</bpt>Destination URL<ept id="f0562303-427c-4239-9480-7da44108b363">&lt;/strong&gt;</ept> shown, all you need to do is click <bpt id="e13da840-aa6e-476f-ab2f-f2a85d4b0210">&lt;strong&gt;</bpt>Publish<ept id="e13da840-aa6e-476f-ab2f-f2a85d4b0210">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Everything should already be configured according to your credentials; in fact the website has already been created in Azure for you at the <bpt id="f0562303-427c-4239-9480-7da44108b363">&lt;strong&gt;</bpt>Destination URL<ept id="f0562303-427c-4239-9480-7da44108b363">&lt;/strong&gt;</ept> shown, all you need to do is click <bpt id="e13da840-aa6e-476f-ab2f-f2a85d4b0210">&lt;strong&gt;</bpt>Publish<ept id="e13da840-aa6e-476f-ab2f-f2a85d4b0210">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7fd62076-16cf-424e-9ca3-b221f1b56055" xml:space="preserve">
+          <source><bpt id="2c1e6d05-8ff1-4c06-a266-96116ede3e44">&lt;linkText&gt;</bpt>Screen shot of the Publish Web dialog box<ept id="2c1e6d05-8ff1-4c06-a266-96116ede3e44">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c1e6d05-8ff1-4c06-a266-96116ede3e44">&lt;linkText&gt;</bpt>Screen shot of the Publish Web dialog box<ept id="2c1e6d05-8ff1-4c06-a266-96116ede3e44">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="669cecbf-4299-48c6-93d1-fe34694092f8" xml:space="preserve">
+          <source>In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your handy work running in Azure!</source>
+          <target state="new">In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your handy work running in Azure!</target>
+        </trans-unit>
+        <trans-unit id="22530a79-b385-4d81-a06e-50cf378dbd9d" xml:space="preserve">
+          <source>Congratulations!</source>
+          <target state="new">Congratulations!</target>
+        </trans-unit>
+        <trans-unit id="e08109b3-a283-41f1-b107-6f4dcc4b1ce2" xml:space="preserve">
+          <source>You just built your first ASP.NET MVC application using Azure DocumentDB and published it to Azure Websites.</source>
+          <target state="new">You just built your first ASP.NET MVC application using Azure DocumentDB and published it to Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="62a913d8-6e1f-4ac1-aa33-00a70cc51519" xml:space="preserve">
+          <source>The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from <bpt id="3371261c-7866-4224-bbf3-c656182c8aab">&lt;linkText&gt;</bpt>GitHub<ept id="3371261c-7866-4224-bbf3-c656182c8aab">&lt;/linkText&gt;</ept><bpt id="3371261c-7866-4224-bbf3-c656182c8aab">&lt;title&gt;</bpt><ept id="3371261c-7866-4224-bbf3-c656182c8aab">&lt;/title&gt;</ept>.</source>
+          <target state="new">The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from <bpt id="3371261c-7866-4224-bbf3-c656182c8aab">&lt;linkText&gt;</bpt>GitHub<ept id="3371261c-7866-4224-bbf3-c656182c8aab">&lt;/linkText&gt;</ept><bpt id="3371261c-7866-4224-bbf3-c656182c8aab">&lt;title&gt;</bpt><ept id="3371261c-7866-4224-bbf3-c656182c8aab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="734e17d8-4c7e-426d-ae1e-5f5f6b15baf7" xml:space="preserve">
+          <source>So if you're interested in adding that to your app, grab the code and add it to this app.</source>
+          <target state="new">So if you're interested in adding that to your app, grab the code and add it to this app.</target>
+        </trans-unit>
+        <trans-unit id="f5b9f4ca-d576-4bc6-ba9b-569e02445bb6" xml:space="preserve">
+          <source>To add additional functionality to your application, review the APIs available in the <bpt id="6d57fdc9-6984-4723-9733-a06742f70e3a">&lt;linkText&gt;</bpt>Document DB .NET Library<ept id="6d57fdc9-6984-4723-9733-a06742f70e3a">&lt;/linkText&gt;</ept><bpt id="6d57fdc9-6984-4723-9733-a06742f70e3a">&lt;title&gt;</bpt><ept id="6d57fdc9-6984-4723-9733-a06742f70e3a">&lt;/title&gt;</ept> and feel free to contribute to the DocumentDB .NET Library on <bpt id="5d1a7f76-ff44-44e6-bb90-a077fc801619">&lt;linkText&gt;</bpt>GitHub<ept id="5d1a7f76-ff44-44e6-bb90-a077fc801619">&lt;/linkText&gt;</ept><bpt id="5d1a7f76-ff44-44e6-bb90-a077fc801619">&lt;title&gt;</bpt><ept id="5d1a7f76-ff44-44e6-bb90-a077fc801619">&lt;/title&gt;</ept>.</source>
+          <target state="new">To add additional functionality to your application, review the APIs available in the <bpt id="6d57fdc9-6984-4723-9733-a06742f70e3a">&lt;linkText&gt;</bpt>Document DB .NET Library<ept id="6d57fdc9-6984-4723-9733-a06742f70e3a">&lt;/linkText&gt;</ept><bpt id="6d57fdc9-6984-4723-9733-a06742f70e3a">&lt;title&gt;</bpt><ept id="6d57fdc9-6984-4723-9733-a06742f70e3a">&lt;/title&gt;</ept> and feel free to contribute to the DocumentDB .NET Library on <bpt id="5d1a7f76-ff44-44e6-bb90-a077fc801619">&lt;linkText&gt;</bpt>GitHub<ept id="5d1a7f76-ff44-44e6-bb90-a077fc801619">&lt;/linkText&gt;</ept><bpt id="5d1a7f76-ff44-44e6-bb90-a077fc801619">&lt;title&gt;</bpt><ept id="5d1a7f76-ff44-44e6-bb90-a077fc801619">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e37df87-d95f-43f7-9d44-2098fc5160df" xml:space="preserve">
+          <source>If you're looking to save time and just want to build the complete todo solution, and not  add the code yourself, you're in luck.</source>
+          <target state="new">If you're looking to save time and just want to build the complete todo solution, and not  add the code yourself, you're in luck.</target>
+        </trans-unit>
+        <trans-unit id="8989c04f-b10f-4b83-9fa5-c39025e6b535" xml:space="preserve">
+          <source>The complete solution is available on GitHub and you can build it and deploy it in a few minutes using the following instructions.</source>
+          <target state="new">The complete solution is available on GitHub and you can build it and deploy it in a few minutes using the following instructions.</target>
+        </trans-unit>
+        <trans-unit id="b7dd8bc6-5f8e-4e1d-8ead-bb9309d50f83" xml:space="preserve">
+          <source>Ensure you have the <bpt id="55d48e45-716b-4b10-b7ee-26b81e9c0856">&lt;linkText&gt;</bpt>prerequisite software<ept id="55d48e45-716b-4b10-b7ee-26b81e9c0856">&lt;/linkText&gt;</ept><bpt id="55d48e45-716b-4b10-b7ee-26b81e9c0856">&lt;title&gt;</bpt><ept id="55d48e45-716b-4b10-b7ee-26b81e9c0856">&lt;/title&gt;</ept> installed, which includes Visual Studio and Azure SDK for .NET version 2.3 or higher.</source>
+          <target state="new">Ensure you have the <bpt id="55d48e45-716b-4b10-b7ee-26b81e9c0856">&lt;linkText&gt;</bpt>prerequisite software<ept id="55d48e45-716b-4b10-b7ee-26b81e9c0856">&lt;/linkText&gt;</ept><bpt id="55d48e45-716b-4b10-b7ee-26b81e9c0856">&lt;title&gt;</bpt><ept id="55d48e45-716b-4b10-b7ee-26b81e9c0856">&lt;/title&gt;</ept> installed, which includes Visual Studio and Azure SDK for .NET version 2.3 or higher.</target>
+        </trans-unit>
+        <trans-unit id="344524c2-9ffc-4183-9cc9-1d632de1a76a" xml:space="preserve">
+          <source>Clone the azure-documentdb-net repository using Git for Windows (<bpt id="d3e9bc57-8037-422a-b74f-fbfa5cca6268">&lt;linkText&gt;</bpt>http://www.git-scm.com/<ept id="d3e9bc57-8037-422a-b74f-fbfa5cca6268">&lt;/linkText&gt;</ept><bpt id="d3e9bc57-8037-422a-b74f-fbfa5cca6268">&lt;title&gt;</bpt><ept id="d3e9bc57-8037-422a-b74f-fbfa5cca6268">&lt;/title&gt;</ept>), or download the zip file from <bpt id="ac0270c9-d5b6-46c0-b423-ea91bb1b0cad">&lt;linkText&gt;</bpt>GitHub<ept id="ac0270c9-d5b6-46c0-b423-ea91bb1b0cad">&lt;/linkText&gt;</ept><bpt id="ac0270c9-d5b6-46c0-b423-ea91bb1b0cad">&lt;title&gt;</bpt><ept id="ac0270c9-d5b6-46c0-b423-ea91bb1b0cad">&lt;/title&gt;</ept>.</source>
+          <target state="new">Clone the azure-documentdb-net repository using Git for Windows (<bpt id="d3e9bc57-8037-422a-b74f-fbfa5cca6268">&lt;linkText&gt;</bpt>http://www.git-scm.com/<ept id="d3e9bc57-8037-422a-b74f-fbfa5cca6268">&lt;/linkText&gt;</ept><bpt id="d3e9bc57-8037-422a-b74f-fbfa5cca6268">&lt;title&gt;</bpt><ept id="d3e9bc57-8037-422a-b74f-fbfa5cca6268">&lt;/title&gt;</ept>), or download the zip file from <bpt id="ac0270c9-d5b6-46c0-b423-ea91bb1b0cad">&lt;linkText&gt;</bpt>GitHub<ept id="ac0270c9-d5b6-46c0-b423-ea91bb1b0cad">&lt;/linkText&gt;</ept><bpt id="ac0270c9-d5b6-46c0-b423-ea91bb1b0cad">&lt;title&gt;</bpt><ept id="ac0270c9-d5b6-46c0-b423-ea91bb1b0cad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3bbf4aed-a105-4064-8635-422665aede07" xml:space="preserve">
+          <source>From Visual Studio, open the todo.sln file from the azure-documentdb-net/tutorials/todo directory.</source>
+          <target state="new">From Visual Studio, open the todo.sln file from the azure-documentdb-net/tutorials/todo directory.</target>
+        </trans-unit>
+        <trans-unit id="6e1d41d2-a812-4e58-9896-672db269ab15" xml:space="preserve">
+          <source>To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the todo solution in <bpt id="d8ebcec5-7f6c-4076-801d-e21c1988c9d9">&lt;strong&gt;</bpt>Solution Explorer<ept id="d8ebcec5-7f6c-4076-801d-e21c1988c9d9">&lt;/strong&gt;</ept>, and then click <bpt id="a7e7eecf-5d1f-4734-89f2-ec21f8225ab9">&lt;strong&gt;</bpt>Enable NuGet Package Restore<ept id="a7e7eecf-5d1f-4734-89f2-ec21f8225ab9">&lt;/strong&gt;</ept>, which will restore the references.</source>
+          <target state="new">To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the todo solution in <bpt id="d8ebcec5-7f6c-4076-801d-e21c1988c9d9">&lt;strong&gt;</bpt>Solution Explorer<ept id="d8ebcec5-7f6c-4076-801d-e21c1988c9d9">&lt;/strong&gt;</ept>, and then click <bpt id="a7e7eecf-5d1f-4734-89f2-ec21f8225ab9">&lt;strong&gt;</bpt>Enable NuGet Package Restore<ept id="a7e7eecf-5d1f-4734-89f2-ec21f8225ab9">&lt;/strong&gt;</ept>, which will restore the references.</target>
+        </trans-unit>
+        <trans-unit id="908046a4-9eaf-428b-9415-298589687c4e" xml:space="preserve">
+          <source>Retrieve the <bpt id="700a0edc-58be-4695-89a5-0c5e7f5fb440">&lt;strong&gt;</bpt>URI<ept id="700a0edc-58be-4695-89a5-0c5e7f5fb440">&lt;/strong&gt;</ept> and <bpt id="5d6a7eb1-9994-4b2e-bef2-8cc27d84023f">&lt;strong&gt;</bpt>PRIMARY KEY<ept id="5d6a7eb1-9994-4b2e-bef2-8cc27d84023f">&lt;/strong&gt;</ept> or <bpt id="b1b47af8-8d83-42e6-9e46-f57bbafd8763">&lt;strong&gt;</bpt>SECONDARY KEY<ept id="b1b47af8-8d83-42e6-9e46-f57bbafd8763">&lt;/strong&gt;</ept> values from the <bpt id="9f6c7dd3-0520-4a5a-95de-184509f4c895">&lt;strong&gt;</bpt>Keys<ept id="9f6c7dd3-0520-4a5a-95de-184509f4c895">&lt;/strong&gt;</ept> blade of your DocumentDB account in the <bpt id="5640ee7f-e404-4078-b7b5-250ffad9f1f4">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="5640ee7f-e404-4078-b7b5-250ffad9f1f4">&lt;/linkText&gt;</ept><bpt id="5640ee7f-e404-4078-b7b5-250ffad9f1f4">&lt;title&gt;</bpt><ept id="5640ee7f-e404-4078-b7b5-250ffad9f1f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Retrieve the <bpt id="700a0edc-58be-4695-89a5-0c5e7f5fb440">&lt;strong&gt;</bpt>URI<ept id="700a0edc-58be-4695-89a5-0c5e7f5fb440">&lt;/strong&gt;</ept> and <bpt id="5d6a7eb1-9994-4b2e-bef2-8cc27d84023f">&lt;strong&gt;</bpt>PRIMARY KEY<ept id="5d6a7eb1-9994-4b2e-bef2-8cc27d84023f">&lt;/strong&gt;</ept> or <bpt id="b1b47af8-8d83-42e6-9e46-f57bbafd8763">&lt;strong&gt;</bpt>SECONDARY KEY<ept id="b1b47af8-8d83-42e6-9e46-f57bbafd8763">&lt;/strong&gt;</ept> values from the <bpt id="9f6c7dd3-0520-4a5a-95de-184509f4c895">&lt;strong&gt;</bpt>Keys<ept id="9f6c7dd3-0520-4a5a-95de-184509f4c895">&lt;/strong&gt;</ept> blade of your DocumentDB account in the <bpt id="5640ee7f-e404-4078-b7b5-250ffad9f1f4">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="5640ee7f-e404-4078-b7b5-250ffad9f1f4">&lt;/linkText&gt;</ept><bpt id="5640ee7f-e404-4078-b7b5-250ffad9f1f4">&lt;title&gt;</bpt><ept id="5640ee7f-e404-4078-b7b5-250ffad9f1f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="314bf554-e898-4713-87f8-c287e922d422" xml:space="preserve">
+          <source>If you don't have an account, see <bpt id="99c98a78-632b-4ad7-b090-d45531afbba5">&lt;linkText&gt;</bpt>Create a database account<ept id="99c98a78-632b-4ad7-b090-d45531afbba5">&lt;/linkText&gt;</ept><bpt id="99c98a78-632b-4ad7-b090-d45531afbba5">&lt;title&gt;</bpt><ept id="99c98a78-632b-4ad7-b090-d45531afbba5">&lt;/title&gt;</ept> to set one up.</source>
+          <target state="new">If you don't have an account, see <bpt id="99c98a78-632b-4ad7-b090-d45531afbba5">&lt;linkText&gt;</bpt>Create a database account<ept id="99c98a78-632b-4ad7-b090-d45531afbba5">&lt;/linkText&gt;</ept><bpt id="99c98a78-632b-4ad7-b090-d45531afbba5">&lt;title&gt;</bpt><ept id="99c98a78-632b-4ad7-b090-d45531afbba5">&lt;/title&gt;</ept> to set one up.</target>
+        </trans-unit>
+        <trans-unit id="18bd44a4-ef8b-40b7-bb5f-a59b77157163" xml:space="preserve">
+          <source><bpt id="013ea640-78dc-4504-a906-04b7964aac69">&lt;linkText&gt;</bpt>Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade<ept id="013ea640-78dc-4504-a906-04b7964aac69">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="013ea640-78dc-4504-a906-04b7964aac69">&lt;linkText&gt;</bpt>Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade<ept id="013ea640-78dc-4504-a906-04b7964aac69">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b896f68b-fca6-4481-8088-9baea42d6e79" xml:space="preserve">
+          <source>In the Web.config file, update the default values for the <bpt id="d572d718-9e2f-4f37-b20f-1414565cba27">&lt;strong&gt;</bpt>endpoint<ept id="d572d718-9e2f-4f37-b20f-1414565cba27">&lt;/strong&gt;</ept> and <bpt id="111305f7-9779-452d-9230-f61a290aeb6a">&lt;strong&gt;</bpt>authKey<ept id="111305f7-9779-452d-9230-f61a290aeb6a">&lt;/strong&gt;</ept> keys.</source>
+          <target state="new">In the Web.config file, update the default values for the <bpt id="d572d718-9e2f-4f37-b20f-1414565cba27">&lt;strong&gt;</bpt>endpoint<ept id="d572d718-9e2f-4f37-b20f-1414565cba27">&lt;/strong&gt;</ept> and <bpt id="111305f7-9779-452d-9230-f61a290aeb6a">&lt;strong&gt;</bpt>authKey<ept id="111305f7-9779-452d-9230-f61a290aeb6a">&lt;/strong&gt;</ept> keys.</target>
+        </trans-unit>
+        <trans-unit id="e9856510-7213-4090-a86b-94674ec1c21d" xml:space="preserve">
+          <source>Copy the <bpt id="c07f406b-925f-4720-b983-9c15ff98e29a">&lt;strong&gt;</bpt>URI<ept id="c07f406b-925f-4720-b983-9c15ff98e29a">&lt;/strong&gt;</ept> value from the Keys blade and paste it into the <bpt id="65ba49c9-a4d6-45e3-98e4-30b2123ea2e7">&lt;strong&gt;</bpt>endpoint<ept id="65ba49c9-a4d6-45e3-98e4-30b2123ea2e7">&lt;/strong&gt;</ept> property value.</source>
+          <target state="new">Copy the <bpt id="c07f406b-925f-4720-b983-9c15ff98e29a">&lt;strong&gt;</bpt>URI<ept id="c07f406b-925f-4720-b983-9c15ff98e29a">&lt;/strong&gt;</ept> value from the Keys blade and paste it into the <bpt id="65ba49c9-a4d6-45e3-98e4-30b2123ea2e7">&lt;strong&gt;</bpt>endpoint<ept id="65ba49c9-a4d6-45e3-98e4-30b2123ea2e7">&lt;/strong&gt;</ept> property value.</target>
+        </trans-unit>
+        <trans-unit id="b43791e1-c133-4a6f-ad6a-3d115422f8e9" xml:space="preserve">
+          <source>Copy the <bpt id="87c7a517-362c-447f-b57b-242338d286b9">&lt;strong&gt;</bpt>PRIMARY KEY<ept id="87c7a517-362c-447f-b57b-242338d286b9">&lt;/strong&gt;</ept> or <bpt id="f1c4f4e4-f9b6-4d39-9a71-71ce78629ede">&lt;strong&gt;</bpt>SECONDARY KEY<ept id="f1c4f4e4-f9b6-4d39-9a71-71ce78629ede">&lt;/strong&gt;</ept> value from the <bpt id="592a9d05-c6b2-451e-8ed4-2c2b160e81ee">&lt;strong&gt;</bpt>Keys<ept id="592a9d05-c6b2-451e-8ed4-2c2b160e81ee">&lt;/strong&gt;</ept> blade and paste it into the <bpt id="d87c8802-eed7-425d-b5a5-10cb269c8772">&lt;strong&gt;</bpt>authKey<ept id="d87c8802-eed7-425d-b5a5-10cb269c8772">&lt;/strong&gt;</ept> property value.</source>
+          <target state="new">Copy the <bpt id="87c7a517-362c-447f-b57b-242338d286b9">&lt;strong&gt;</bpt>PRIMARY KEY<ept id="87c7a517-362c-447f-b57b-242338d286b9">&lt;/strong&gt;</ept> or <bpt id="f1c4f4e4-f9b6-4d39-9a71-71ce78629ede">&lt;strong&gt;</bpt>SECONDARY KEY<ept id="f1c4f4e4-f9b6-4d39-9a71-71ce78629ede">&lt;/strong&gt;</ept> value from the <bpt id="592a9d05-c6b2-451e-8ed4-2c2b160e81ee">&lt;strong&gt;</bpt>Keys<ept id="592a9d05-c6b2-451e-8ed4-2c2b160e81ee">&lt;/strong&gt;</ept> blade and paste it into the <bpt id="d87c8802-eed7-425d-b5a5-10cb269c8772">&lt;strong&gt;</bpt>authKey<ept id="d87c8802-eed7-425d-b5a5-10cb269c8772">&lt;/strong&gt;</ept> property value.</target>
+        </trans-unit>
+        <trans-unit id="38c5d493-7d82-4835-9388-82766138cd46" xml:space="preserve">
+          <source>You can now [run your application locally](#<bpt id="7ba5be3a-557d-456b-b577-958cba0fe967">&lt;em&gt;</bpt>Toc395637773) and then [deploy it to Azure Websites](#<ept id="7ba5be3a-557d-456b-b577-958cba0fe967">&lt;/em&gt;</ept>Toc395637774).</source>
+          <target state="new">You can now [run your application locally](#<bpt id="7ba5be3a-557d-456b-b577-958cba0fe967">&lt;em&gt;</bpt>Toc395637773) and then [deploy it to Azure Websites](#<ept id="7ba5be3a-557d-456b-b577-958cba0fe967">&lt;/em&gt;</ept>Toc395637774).</target>
+        </trans-unit>
+        <trans-unit id="61ac5b4e-ebad-4848-aa8b-dc7dca028d08" xml:space="preserve">
+          <source>https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError</source>
+          <target state="new">https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError</target>
+        </trans-unit>
+        <trans-unit id="e6c53802-a775-4208-b107-c3335ff1d234" xml:space="preserve">
+          <source>http://www.visualstudio.com/products/visual-studio-express-vs.aspx</source>
+          <target state="new">http://www.visualstudio.com/products/visual-studio-express-vs.aspx</target>
+        </trans-unit>
+        <trans-unit id="fcd8c022-5c6b-48cf-9620-b4912523502f" xml:space="preserve">
+          <source>http://www.microsoft.com/web/downloads/platform.aspx</source>
+          <target state="new">http://www.microsoft.com/web/downloads/platform.aspx</target>
+        </trans-unit>
+        <trans-unit id="8673e6d3-fbfa-49f4-a92a-edee527e3a4f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=509838&amp;clcid=0x409</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=509838&amp;clcid=0x409</target>
+        </trans-unit>
+        <trans-unit id="838db79e-5432-4bd2-b622-e6ee5fe8e407" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=517254</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=517254</target>
+        </trans-unit>
+        <trans-unit id="963bcaec-1484-4366-bfc0-8f276fc287b3" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=317598</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=317598</target>
+        </trans-unit>
+      </group>
+      <group id="2bfb10c7-8636-4870-b2b8-49d6e508cbf9" />
+    </body>
+  </file>
+</xliff>

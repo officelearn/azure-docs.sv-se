@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="28717b27-6aae-4d97-a364-59b88aaf326a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="28717b27-6aae-4d97-a364-59b88aaf326a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="24a9ac3d-af12-4da0-8172-e41cd84d133c">
+        <trans-unit id="3170045e-dd4b-4cc2-ae26-42e8338f6f4e" xml:space="preserve">
+          <source>Option 2: Use the Azure Management Portal to apply Update 1</source>
+          <target state="new">Option 2: Use the Azure Management Portal to apply Update 1</target>
+        </trans-unit>
+        <trans-unit id="bfd035be-2930-4764-acc9-1ad129577fed" xml:space="preserve">
+          <source>Explains how to use the Management Portal to install StorSimple 8000 Series Update 1.</source>
+          <target state="new">Explains how to use the Management Portal to install StorSimple 8000 Series Update 1.</target>
+        </trans-unit>
+        <trans-unit id="58ff6a09-1898-4300-880b-85d1c166714d" xml:space="preserve">
+          <source>In the Management Portal, go to the <bpt id="d02b3796-c22b-48d6-a270-02bc44ba836b">&lt;strong&gt;</bpt>Devices<ept id="d02b3796-c22b-48d6-a270-02bc44ba836b">&lt;/strong&gt;</ept> page and select your device.</source>
+          <target state="new">In the Management Portal, go to the <bpt id="d02b3796-c22b-48d6-a270-02bc44ba836b">&lt;strong&gt;</bpt>Devices<ept id="d02b3796-c22b-48d6-a270-02bc44ba836b">&lt;/strong&gt;</ept> page and select your device.</target>
+        </trans-unit>
+        <trans-unit id="0aface73-1979-4e44-86ad-cf789be82f6c" xml:space="preserve">
+          <source>Navigate to <bpt id="31718fe6-1fee-42e4-bca0-90dc3324db94">&lt;strong&gt;</bpt>Devices<ept id="31718fe6-1fee-42e4-bca0-90dc3324db94">&lt;/strong&gt;</ept> &gt; <bpt id="09c3fde8-2b89-4599-b49c-2eba17ab71b7">&lt;strong&gt;</bpt>Configure<ept id="09c3fde8-2b89-4599-b49c-2eba17ab71b7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to <bpt id="31718fe6-1fee-42e4-bca0-90dc3324db94">&lt;strong&gt;</bpt>Devices<ept id="31718fe6-1fee-42e4-bca0-90dc3324db94">&lt;/strong&gt;</ept> &gt; <bpt id="09c3fde8-2b89-4599-b49c-2eba17ab71b7">&lt;strong&gt;</bpt>Configure<ept id="09c3fde8-2b89-4599-b49c-2eba17ab71b7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c060d52-590f-497f-af5e-fa05eb29674e" xml:space="preserve">
+          <source>Under <bpt id="ddfe2016-4deb-41f3-a746-f81c22f684ea">&lt;strong&gt;</bpt>Network Interfaces<ept id="ddfe2016-4deb-41f3-a746-f81c22f684ea">&lt;/strong&gt;</ept>, locate the network interface that has a gateway assigned.</source>
+          <target state="new">Under <bpt id="ddfe2016-4deb-41f3-a746-f81c22f684ea">&lt;strong&gt;</bpt>Network Interfaces<ept id="ddfe2016-4deb-41f3-a746-f81c22f684ea">&lt;/strong&gt;</ept>, locate the network interface that has a gateway assigned.</target>
+        </trans-unit>
+        <trans-unit id="30272126-c214-479b-8213-4ccf849e3c37" xml:space="preserve">
+          <source>This will be a network interface other than DATA 0.</source>
+          <target state="new">This will be a network interface other than DATA 0.</target>
+        </trans-unit>
+        <trans-unit id="87f55cf0-9cf7-4bf1-b715-4b68ff376f32" xml:space="preserve">
+          <source>Clear the gateway setting.</source>
+          <target state="new">Clear the gateway setting.</target>
+        </trans-unit>
+        <trans-unit id="62e61346-5c00-4fd9-94ae-40a691922fa1" xml:space="preserve">
+          <source>Note that because gateway settings are required on a cloud-enabled network interface, you will need to disable the cloud access for this interface to clear the setting.</source>
+          <target state="new">Note that because gateway settings are required on a cloud-enabled network interface, you will need to disable the cloud access for this interface to clear the setting.</target>
+        </trans-unit>
+        <trans-unit id="90c4cee3-ca2b-4536-a31a-97cc79833065" xml:space="preserve">
+          <source>Repeat step 4 for any other network interface that has a gateway assigned (excluding DATA 0).</source>
+          <target state="new">Repeat step 4 for any other network interface that has a gateway assigned (excluding DATA 0).</target>
+        </trans-unit>
+        <trans-unit id="ca793153-0a4c-4346-9945-8299a502c40a" xml:space="preserve">
+          <source>Save the modified configuration.</source>
+          <target state="new">Save the modified configuration.</target>
+        </trans-unit>
+        <trans-unit id="bbdc2327-3a33-4506-b6b9-d11da8686444" xml:space="preserve">
+          <source>You can now <bpt id="35f6097f-6e45-46c2-94fc-b584443e2e53">&lt;linkText&gt;</bpt>use the Management Portal to install Update 1<ept id="35f6097f-6e45-46c2-94fc-b584443e2e53">&lt;/linkText&gt;</ept><bpt id="35f6097f-6e45-46c2-94fc-b584443e2e53">&lt;title&gt;</bpt><ept id="35f6097f-6e45-46c2-94fc-b584443e2e53">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can now <bpt id="35f6097f-6e45-46c2-94fc-b584443e2e53">&lt;linkText&gt;</bpt>use the Management Portal to install Update 1<ept id="35f6097f-6e45-46c2-94fc-b584443e2e53">&lt;/linkText&gt;</ept><bpt id="35f6097f-6e45-46c2-94fc-b584443e2e53">&lt;title&gt;</bpt><ept id="35f6097f-6e45-46c2-94fc-b584443e2e53">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

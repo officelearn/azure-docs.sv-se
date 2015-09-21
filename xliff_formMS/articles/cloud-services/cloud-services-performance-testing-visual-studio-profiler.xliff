@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="75aedfec-0489-4322-9eeb-7f75f5e9c370" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="75aedfec-0489-4322-9eeb-7f75f5e9c370" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8e7a6fae-3fb4-453e-a277-d1b523a487fd">
+        <trans-unit id="51d4165e-fa1d-4ad0-b9a1-851f1af18960" xml:space="preserve">
+          <source>Profiling a Cloud Service Locally in the Compute Emulator</source>
+          <target state="new">Profiling a Cloud Service Locally in the Compute Emulator</target>
+        </trans-unit>
+        <trans-unit id="5494073b-4474-4ccb-8e60-ef77f25334b8" xml:space="preserve">
+          <source>Investigate performance issues in cloud services with the Visual Studio profiler</source>
+          <target state="new">Investigate performance issues in cloud services with the Visual Studio profiler</target>
+        </trans-unit>
+        <trans-unit id="47efdb4e-840a-4b14-a931-e5636217fca3" xml:space="preserve">
+          <source>A variety of tools and techniques are available for testing the performance of cloud services.</source>
+          <target state="new">A variety of tools and techniques are available for testing the performance of cloud services.</target>
+        </trans-unit>
+        <trans-unit id="4ab35f72-b5af-4593-ae7f-116227572f3e" xml:space="preserve">
+          <source>When you publish a cloud service to Azure, you can have Visual Studio collect profiling
+data and then analyze it locally, as described in <bpt id="6c45219b-b29f-4f8b-83db-fee2a618552c">&lt;linkText&gt;</bpt>Profiling an Azure Application[1]<ept id="6c45219b-b29f-4f8b-83db-fee2a618552c">&lt;/linkText&gt;</ept><bpt id="6c45219b-b29f-4f8b-83db-fee2a618552c">&lt;title&gt;</bpt><ept id="6c45219b-b29f-4f8b-83db-fee2a618552c">&lt;/title&gt;</ept>.</source>
+          <target state="new">When you publish a cloud service to Azure, you can have Visual Studio collect profiling
+data and then analyze it locally, as described in <bpt id="6c45219b-b29f-4f8b-83db-fee2a618552c">&lt;linkText&gt;</bpt>Profiling an Azure Application[1]<ept id="6c45219b-b29f-4f8b-83db-fee2a618552c">&lt;/linkText&gt;</ept><bpt id="6c45219b-b29f-4f8b-83db-fee2a618552c">&lt;title&gt;</bpt><ept id="6c45219b-b29f-4f8b-83db-fee2a618552c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a97a7cb-3423-4c72-9450-25426da053f9" xml:space="preserve">
+          <source>You can also use diagnostics to track a variety of performance
+counters, as described in <bpt id="6eb6daac-49ec-407c-b35b-84521d2c5b8c">&lt;linkText&gt;</bpt>Using performance counters in Azure[2]<ept id="6eb6daac-49ec-407c-b35b-84521d2c5b8c">&lt;/linkText&gt;</ept><bpt id="6eb6daac-49ec-407c-b35b-84521d2c5b8c">&lt;title&gt;</bpt><ept id="6eb6daac-49ec-407c-b35b-84521d2c5b8c">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also use diagnostics to track a variety of performance
+counters, as described in <bpt id="6eb6daac-49ec-407c-b35b-84521d2c5b8c">&lt;linkText&gt;</bpt>Using performance counters in Azure[2]<ept id="6eb6daac-49ec-407c-b35b-84521d2c5b8c">&lt;/linkText&gt;</ept><bpt id="6eb6daac-49ec-407c-b35b-84521d2c5b8c">&lt;title&gt;</bpt><ept id="6eb6daac-49ec-407c-b35b-84521d2c5b8c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e931d10f-f7b2-41e3-aa9b-2192e04066fd" xml:space="preserve">
+          <source>You might also want to profile your application locally in the compute emulator before deploying it to the cloud.</source>
+          <target state="new">You might also want to profile your application locally in the compute emulator before deploying it to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="8a140ed7-4bb2-4f0f-97a8-132e87d5a640" xml:space="preserve">
+          <source>This article covers the CPU Sampling method of profiling, which can be done locally in the emulator.</source>
+          <target state="new">This article covers the CPU Sampling method of profiling, which can be done locally in the emulator.</target>
+        </trans-unit>
+        <trans-unit id="8ff74dfa-000b-4a2d-a950-2912bb08d4eb" xml:space="preserve">
+          <source>CPU sampling is a method of profiling that is not very intrusive.</source>
+          <target state="new">CPU sampling is a method of profiling that is not very intrusive.</target>
+        </trans-unit>
+        <trans-unit id="5ccb9a4d-8d3f-4b02-8cf8-4166aac170b7" xml:space="preserve">
+          <source>At a designated sampling interval, the profiler takes a snapshot of the call stack.</source>
+          <target state="new">At a designated sampling interval, the profiler takes a snapshot of the call stack.</target>
+        </trans-unit>
+        <trans-unit id="a99b8351-426d-473b-854a-9ae720ead155" xml:space="preserve">
+          <source>The data is collected over a period of time, and shown in a report.</source>
+          <target state="new">The data is collected over a period of time, and shown in a report.</target>
+        </trans-unit>
+        <trans-unit id="3d283d9c-01d3-4b88-8a52-d667a9feceab" xml:space="preserve">
+          <source>This method of profiling tends to indicate where in a computationally intensive application most of the CPU work is being done.</source>
+          <target state="new">This method of profiling tends to indicate where in a computationally intensive application most of the CPU work is being done.</target>
+        </trans-unit>
+        <trans-unit id="515f0051-a365-42f8-bd20-24d15f3e9f8e" xml:space="preserve">
+          <source>This gives you the opportunity to focus on the "hot path" where your application is spending the most time.</source>
+          <target state="new">This gives you the opportunity to focus on the "hot path" where your application is spending the most time.</target>
+        </trans-unit>
+        <trans-unit id="2b6793c6-0d7d-4c21-9052-fdc562385909" xml:space="preserve">
+          <source>You can run the profiler locally only if you have Visual Studio Premium or Visual Studio Ultimate.</source>
+          <target state="new">You can run the profiler locally only if you have Visual Studio Premium or Visual Studio Ultimate.</target>
+        </trans-unit>
+        <trans-unit id="8889fb1d-ff60-4df5-b25f-179eaa2a55b8" xml:space="preserve">
+          <source>First, there are a few Visual Studio configuration options that might be helpful when profiling.</source>
+          <target state="new">First, there are a few Visual Studio configuration options that might be helpful when profiling.</target>
+        </trans-unit>
+        <trans-unit id="bb816a93-dbbe-4442-80d8-f7e15d619743" xml:space="preserve">
+          <source>To make sense of the profiling reports, you'll need symbols (.pdb files) for your application and also symbols for system libraries.</source>
+          <target state="new">To make sense of the profiling reports, you'll need symbols (.pdb files) for your application and also symbols for system libraries.</target>
+        </trans-unit>
+        <trans-unit id="ea629bec-1ec6-4510-be55-24ef86854b52" xml:space="preserve">
+          <source>You'll want to make sure that you reference the available symbol servers.</source>
+          <target state="new">You'll want to make sure that you reference the available symbol servers.</target>
+        </trans-unit>
+        <trans-unit id="a1f1ca87-54b1-449a-8387-d6d0565e84c8" xml:space="preserve">
+          <source>To do this, on the <bpt id="4a3f1ac4-a6f8-4540-8dec-e44ae2fc3e10">&lt;strong&gt;</bpt>Tools<ept id="4a3f1ac4-a6f8-4540-8dec-e44ae2fc3e10">&lt;/strong&gt;</ept> menu in Visual Studio, choose <bpt id="f2ae9506-d4ec-4276-9738-cca14af8d258">&lt;strong&gt;</bpt>Options<ept id="f2ae9506-d4ec-4276-9738-cca14af8d258">&lt;/strong&gt;</ept>, then choose <bpt id="c05321be-e283-4ec6-8444-12ba066a79bb">&lt;strong&gt;</bpt>Debugging<ept id="c05321be-e283-4ec6-8444-12ba066a79bb">&lt;/strong&gt;</ept>, then <bpt id="a49e812d-0862-4da9-b54b-1b0ad74e14fd">&lt;strong&gt;</bpt>Symbols<ept id="a49e812d-0862-4da9-b54b-1b0ad74e14fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To do this, on the <bpt id="4a3f1ac4-a6f8-4540-8dec-e44ae2fc3e10">&lt;strong&gt;</bpt>Tools<ept id="4a3f1ac4-a6f8-4540-8dec-e44ae2fc3e10">&lt;/strong&gt;</ept> menu in Visual Studio, choose <bpt id="f2ae9506-d4ec-4276-9738-cca14af8d258">&lt;strong&gt;</bpt>Options<ept id="f2ae9506-d4ec-4276-9738-cca14af8d258">&lt;/strong&gt;</ept>, then choose <bpt id="c05321be-e283-4ec6-8444-12ba066a79bb">&lt;strong&gt;</bpt>Debugging<ept id="c05321be-e283-4ec6-8444-12ba066a79bb">&lt;/strong&gt;</ept>, then <bpt id="a49e812d-0862-4da9-b54b-1b0ad74e14fd">&lt;strong&gt;</bpt>Symbols<ept id="a49e812d-0862-4da9-b54b-1b0ad74e14fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3723a8f8-5d2a-41bf-a118-f9fafe1bcc2b" xml:space="preserve">
+          <source>Make sure that Microsoft Symbol Servers is listed under <bpt id="fd678cfc-9c81-42f5-b7e2-1056ee8fdf88">&lt;strong&gt;</bpt>Symbol file (.pdb) locations<ept id="fd678cfc-9c81-42f5-b7e2-1056ee8fdf88">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Make sure that Microsoft Symbol Servers is listed under <bpt id="fd678cfc-9c81-42f5-b7e2-1056ee8fdf88">&lt;strong&gt;</bpt>Symbol file (.pdb) locations<ept id="fd678cfc-9c81-42f5-b7e2-1056ee8fdf88">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="210ced39-fd32-4c30-9f2b-130163604568" xml:space="preserve">
+          <source>You can also reference http://referencesource.microsoft.com/symbols, which might have additional symbol files.</source>
+          <target state="new">You can also reference http://referencesource.microsoft.com/symbols, which might have additional symbol files.</target>
+        </trans-unit>
+        <trans-unit id="984073f3-8aaf-4abc-8e19-3c851f1ca883" xml:space="preserve">
+          <source><bpt id="f475ca15-1972-4880-9b65-bb664abb9073">&lt;linkText&gt;</bpt><ept id="f475ca15-1972-4880-9b65-bb664abb9073">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f475ca15-1972-4880-9b65-bb664abb9073">&lt;linkText&gt;</bpt><ept id="f475ca15-1972-4880-9b65-bb664abb9073">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9799e5e-b7f7-40c6-984b-2450474907f9" xml:space="preserve">
+          <source>If desired, you can simplify the reports that the profiler generates by setting Just My Code.</source>
+          <target state="new">If desired, you can simplify the reports that the profiler generates by setting Just My Code.</target>
+        </trans-unit>
+        <trans-unit id="764b0c7b-413d-4738-93d7-bcdd671f0fa3" xml:space="preserve">
+          <source>With Just My Code enabled, function call stacks are simplified so that calls entirely internal to libraries and the .NET Framework are hidden from the reports.</source>
+          <target state="new">With Just My Code enabled, function call stacks are simplified so that calls entirely internal to libraries and the .NET Framework are hidden from the reports.</target>
+        </trans-unit>
+        <trans-unit id="799b2dba-1d4f-45f8-abcd-57b3cc638e47" xml:space="preserve">
+          <source>On the <bpt id="e8673ef3-a7b2-49ed-9368-ae8fe604d3cb">&lt;strong&gt;</bpt>Tools<ept id="e8673ef3-a7b2-49ed-9368-ae8fe604d3cb">&lt;/strong&gt;</ept> menu, choose <bpt id="d7ec1cc8-e7df-4108-86c8-fb9905d7b248">&lt;strong&gt;</bpt>Options<ept id="d7ec1cc8-e7df-4108-86c8-fb9905d7b248">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e8673ef3-a7b2-49ed-9368-ae8fe604d3cb">&lt;strong&gt;</bpt>Tools<ept id="e8673ef3-a7b2-49ed-9368-ae8fe604d3cb">&lt;/strong&gt;</ept> menu, choose <bpt id="d7ec1cc8-e7df-4108-86c8-fb9905d7b248">&lt;strong&gt;</bpt>Options<ept id="d7ec1cc8-e7df-4108-86c8-fb9905d7b248">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd3e004d-e4b0-4398-87f1-3f8b6e311c78" xml:space="preserve">
+          <source>Then expand the <bpt id="85ad4ae1-a5c3-4638-8b89-cd995bec3a70">&lt;strong&gt;</bpt>Performance Tools<ept id="85ad4ae1-a5c3-4638-8b89-cd995bec3a70">&lt;/strong&gt;</ept> node, and choose <bpt id="d1113440-c076-47d6-b510-1763fd7e7af0">&lt;strong&gt;</bpt>General<ept id="d1113440-c076-47d6-b510-1763fd7e7af0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then expand the <bpt id="85ad4ae1-a5c3-4638-8b89-cd995bec3a70">&lt;strong&gt;</bpt>Performance Tools<ept id="85ad4ae1-a5c3-4638-8b89-cd995bec3a70">&lt;/strong&gt;</ept> node, and choose <bpt id="d1113440-c076-47d6-b510-1763fd7e7af0">&lt;strong&gt;</bpt>General<ept id="d1113440-c076-47d6-b510-1763fd7e7af0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfec1ac8-687d-4118-aeea-f58119efa8a1" xml:space="preserve">
+          <source>Select the checkbox for <bpt id="2723549d-be14-40e4-bed0-c29d1b9a54a0">&lt;strong&gt;</bpt>Enable Just My Code for profiler reports<ept id="2723549d-be14-40e4-bed0-c29d1b9a54a0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the checkbox for <bpt id="2723549d-be14-40e4-bed0-c29d1b9a54a0">&lt;strong&gt;</bpt>Enable Just My Code for profiler reports<ept id="2723549d-be14-40e4-bed0-c29d1b9a54a0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0f78772-e917-4c8e-a5a9-846b1994bd4d" xml:space="preserve">
+          <source><bpt id="a7815f96-0de7-4772-a0e4-f09325c1fffa">&lt;linkText&gt;</bpt><ept id="a7815f96-0de7-4772-a0e4-f09325c1fffa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a7815f96-0de7-4772-a0e4-f09325c1fffa">&lt;linkText&gt;</bpt><ept id="a7815f96-0de7-4772-a0e4-f09325c1fffa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d718e8a1-e121-45dd-89df-f1c2a6a9df55" xml:space="preserve">
+          <source>You can use these instructions with an existing project or with a new project.</source>
+          <target state="new">You can use these instructions with an existing project or with a new project.</target>
+        </trans-unit>
+        <trans-unit id="f9908647-dc13-4445-8dda-7501fee64915" xml:space="preserve">
+          <source>If you create a new project to try the techniques described below, choose a C# <bpt id="c11e5024-ee8e-4550-a2b9-0a39c2a16d6d">&lt;strong&gt;</bpt>Azure Cloud Service<ept id="c11e5024-ee8e-4550-a2b9-0a39c2a16d6d">&lt;/strong&gt;</ept> project, and select a <bpt id="42eae201-cad6-44d7-8625-8c3e82519038">&lt;strong&gt;</bpt>Web Role<ept id="42eae201-cad6-44d7-8625-8c3e82519038">&lt;/strong&gt;</ept> and a <bpt id="70eb6039-9a44-4edf-93f5-aae83b41c459">&lt;strong&gt;</bpt>Worker Role<ept id="70eb6039-9a44-4edf-93f5-aae83b41c459">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you create a new project to try the techniques described below, choose a C# <bpt id="c11e5024-ee8e-4550-a2b9-0a39c2a16d6d">&lt;strong&gt;</bpt>Azure Cloud Service<ept id="c11e5024-ee8e-4550-a2b9-0a39c2a16d6d">&lt;/strong&gt;</ept> project, and select a <bpt id="42eae201-cad6-44d7-8625-8c3e82519038">&lt;strong&gt;</bpt>Web Role<ept id="42eae201-cad6-44d7-8625-8c3e82519038">&lt;/strong&gt;</ept> and a <bpt id="70eb6039-9a44-4edf-93f5-aae83b41c459">&lt;strong&gt;</bpt>Worker Role<ept id="70eb6039-9a44-4edf-93f5-aae83b41c459">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75a967cb-e12e-4d8e-b630-02ba34dfa86c" xml:space="preserve">
+          <source><bpt id="cfbaf196-9a99-43ae-af62-165cbd647fcf">&lt;linkText&gt;</bpt><ept id="cfbaf196-9a99-43ae-af62-165cbd647fcf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cfbaf196-9a99-43ae-af62-165cbd647fcf">&lt;linkText&gt;</bpt><ept id="cfbaf196-9a99-43ae-af62-165cbd647fcf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ed8780f-bd84-4f5b-ae56-6db1296cacc2" xml:space="preserve">
+          <source>For example purposes, add some code to your project that takes
+a lot of time and demonstrates some obvious performance problem.</source>
+          <target state="new">For example purposes, add some code to your project that takes
+a lot of time and demonstrates some obvious performance problem.</target>
+        </trans-unit>
+        <trans-unit id="68ef2120-fcc6-4ec0-a719-f5335379e1c5" xml:space="preserve">
+          <source>For example, add the following code to a worker role project:</source>
+          <target state="new">For example, add the following code to a worker role project:</target>
+        </trans-unit>
+        <trans-unit id="3f95c260-535b-44e8-8ebb-fab8d7c85117" xml:space="preserve">
+          <source>Call this code from the RunAsync method in the worker role's RoleEntryPoint-derived class.</source>
+          <target state="new">Call this code from the RunAsync method in the worker role's RoleEntryPoint-derived class.</target>
+        </trans-unit>
+        <trans-unit id="b2b2e30c-084a-4a36-ab3a-7f7b21d65ab3" xml:space="preserve">
+          <source>(Ignore the warning about the method running synchronously.)</source>
+          <target state="new">(Ignore the warning about the method running synchronously.)</target>
+        </trans-unit>
+        <trans-unit id="fc38faae-f6a8-453c-b082-8126c0ada3d8" xml:space="preserve">
+          <source>Build and run your cloud service locally without debugging (Ctrl+F5), with the solution configuration set to <bpt id="ff283e07-e3e7-4fa0-900e-ce22d0bb1ddd">&lt;strong&gt;</bpt>Release<ept id="ff283e07-e3e7-4fa0-900e-ce22d0bb1ddd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Build and run your cloud service locally without debugging (Ctrl+F5), with the solution configuration set to <bpt id="ff283e07-e3e7-4fa0-900e-ce22d0bb1ddd">&lt;strong&gt;</bpt>Release<ept id="ff283e07-e3e7-4fa0-900e-ce22d0bb1ddd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23c3ec31-5cdc-46b0-bd91-ba6ccd0c12a4" xml:space="preserve">
+          <source>This ensures that all files and folders are created for running the application locally, and ensures that all the emulators are started.</source>
+          <target state="new">This ensures that all files and folders are created for running the application locally, and ensures that all the emulators are started.</target>
+        </trans-unit>
+        <trans-unit id="d2271cd7-4f57-4e8b-9546-9973c9c93437" xml:space="preserve">
+          <source>Start the Compute Emulator UI from the taskbar to verify that your worker role is running.</source>
+          <target state="new">Start the Compute Emulator UI from the taskbar to verify that your worker role is running.</target>
+        </trans-unit>
+        <trans-unit id="53209a1d-becb-4d67-830c-a372032c46fb" xml:space="preserve">
+          <source>Instead of profiling the application by starting it from the Visual Studio 2010 IDE, you must attach the profiler to a running process.</source>
+          <target state="new">Instead of profiling the application by starting it from the Visual Studio 2010 IDE, you must attach the profiler to a running process.</target>
+        </trans-unit>
+        <trans-unit id="c1f68985-4b6b-4c02-a688-afbf7260c018" xml:space="preserve">
+          <source>To attach the profiler to a process, on the <bpt id="77175837-2c5d-45c0-a686-61cd10746327">&lt;strong&gt;</bpt>Analyze<ept id="77175837-2c5d-45c0-a686-61cd10746327">&lt;/strong&gt;</ept> menu, choose <bpt id="d3b5ac2a-eb00-4683-9d7f-bf2a98a7fad7">&lt;strong&gt;</bpt>Profiler<ept id="d3b5ac2a-eb00-4683-9d7f-bf2a98a7fad7">&lt;/strong&gt;</ept> and <bpt id="c01e7e69-e1f9-47e4-8e6f-99c70a00b0a0">&lt;strong&gt;</bpt>Attach/Detach<ept id="c01e7e69-e1f9-47e4-8e6f-99c70a00b0a0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To attach the profiler to a process, on the <bpt id="77175837-2c5d-45c0-a686-61cd10746327">&lt;strong&gt;</bpt>Analyze<ept id="77175837-2c5d-45c0-a686-61cd10746327">&lt;/strong&gt;</ept> menu, choose <bpt id="d3b5ac2a-eb00-4683-9d7f-bf2a98a7fad7">&lt;strong&gt;</bpt>Profiler<ept id="d3b5ac2a-eb00-4683-9d7f-bf2a98a7fad7">&lt;/strong&gt;</ept> and <bpt id="c01e7e69-e1f9-47e4-8e6f-99c70a00b0a0">&lt;strong&gt;</bpt>Attach/Detach<ept id="c01e7e69-e1f9-47e4-8e6f-99c70a00b0a0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2bdbb9e-9fd9-41d9-acc0-42ad47574f3c" xml:space="preserve">
+          <source><bpt id="9dd34aa5-8885-491b-ade2-219c10cd23e7">&lt;linkText&gt;</bpt><ept id="9dd34aa5-8885-491b-ade2-219c10cd23e7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9dd34aa5-8885-491b-ade2-219c10cd23e7">&lt;linkText&gt;</bpt><ept id="9dd34aa5-8885-491b-ade2-219c10cd23e7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdceee86-3224-4296-9b0f-c29b8dac6ccb" xml:space="preserve">
+          <source>For a worker role, find the WaWorkerHost.exe process.</source>
+          <target state="new">For a worker role, find the WaWorkerHost.exe process.</target>
+        </trans-unit>
+        <trans-unit id="85c6eb27-a650-4106-9c68-5ea75a0018e4" xml:space="preserve">
+          <source><bpt id="85e21f23-840f-4548-8cb4-882c1cc463db">&lt;linkText&gt;</bpt><ept id="85e21f23-840f-4548-8cb4-882c1cc463db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="85e21f23-840f-4548-8cb4-882c1cc463db">&lt;linkText&gt;</bpt><ept id="85e21f23-840f-4548-8cb4-882c1cc463db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c641f53b-bef0-4aa4-bc86-2761282bb891" xml:space="preserve">
+          <source>If your project folder is on a network drive, the profiler will ask you to provide another location to save the profiling reports.</source>
+          <target state="new">If your project folder is on a network drive, the profiler will ask you to provide another location to save the profiling reports.</target>
+        </trans-unit>
+        <trans-unit id="7f130091-0dea-4abd-b1b7-6e1dc2a41de9" xml:space="preserve">
+          <source>You can also attach to a web role by attaching to WaIISHost.exe.</source>
+          <target state="new">You can also attach to a web role by attaching to WaIISHost.exe.</target>
+        </trans-unit>
+        <trans-unit id="18556284-6c2d-496a-a05b-ecc56ca626fa" xml:space="preserve">
+          <source>If there are multiple worker role processes in your application, you need to use the processID to distinguish them.</source>
+          <target state="new">If there are multiple worker role processes in your application, you need to use the processID to distinguish them.</target>
+        </trans-unit>
+        <trans-unit id="4e831630-09ef-4e4e-94a6-d6437157e7ba" xml:space="preserve">
+          <source>You can query the processID programmatically by accessing the Process object.</source>
+          <target state="new">You can query the processID programmatically by accessing the Process object.</target>
+        </trans-unit>
+        <trans-unit id="b5defd02-f122-4e43-8306-5ab96db3a403" xml:space="preserve">
+          <source>For example, if you add this code to the Run method of the RoleEntryPoint-derived class in a role, you can look at the
+log in the Compute Emulator UI to know what process to connect to.</source>
+          <target state="new">For example, if you add this code to the Run method of the RoleEntryPoint-derived class in a role, you can look at the
+log in the Compute Emulator UI to know what process to connect to.</target>
+        </trans-unit>
+        <trans-unit id="45d2ea52-379d-4f3d-a87f-6195569b9615" xml:space="preserve">
+          <source>To view the log, start the Compute Emulator UI.</source>
+          <target state="new">To view the log, start the Compute Emulator UI.</target>
+        </trans-unit>
+        <trans-unit id="9f0f6cb9-1f9d-41cd-bbb4-61ff1220093f" xml:space="preserve">
+          <source><bpt id="ede876d8-2669-4faf-ba9a-387d02472440">&lt;linkText&gt;</bpt><ept id="ede876d8-2669-4faf-ba9a-387d02472440">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ede876d8-2669-4faf-ba9a-387d02472440">&lt;linkText&gt;</bpt><ept id="ede876d8-2669-4faf-ba9a-387d02472440">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f93d402-2800-4f93-ae53-f36d80680c87" xml:space="preserve">
+          <source>Open the worker role log console window in the Compute Emulator UI by clicking on the console window's title bar.</source>
+          <target state="new">Open the worker role log console window in the Compute Emulator UI by clicking on the console window's title bar.</target>
+        </trans-unit>
+        <trans-unit id="e83e34fe-9cad-4bbe-aed0-dec564348a09" xml:space="preserve">
+          <source>You can see the process ID in the log.</source>
+          <target state="new">You can see the process ID in the log.</target>
+        </trans-unit>
+        <trans-unit id="18110e3b-f9f0-4fd3-9b6c-ed071e5c20d9" xml:space="preserve">
+          <source><bpt id="cbd039fd-fad2-4230-8251-abcb2481622d">&lt;linkText&gt;</bpt><ept id="cbd039fd-fad2-4230-8251-abcb2481622d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cbd039fd-fad2-4230-8251-abcb2481622d">&lt;linkText&gt;</bpt><ept id="cbd039fd-fad2-4230-8251-abcb2481622d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edd64ad2-6c17-4e0f-b37c-13e5b1d7b3ef" xml:space="preserve">
+          <source>One you've attached, perform the steps in your application's UI (if needed) to reproduce the scenario.</source>
+          <target state="new">One you've attached, perform the steps in your application's UI (if needed) to reproduce the scenario.</target>
+        </trans-unit>
+        <trans-unit id="0f64ca29-5b1d-40a0-a9d3-c0556b919e99" xml:space="preserve">
+          <source>When you want to stop profiling, choose the <bpt id="83f7635c-1b11-4f98-af2a-07d9264f217e">&lt;strong&gt;</bpt>Stop Profiling<ept id="83f7635c-1b11-4f98-af2a-07d9264f217e">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">When you want to stop profiling, choose the <bpt id="83f7635c-1b11-4f98-af2a-07d9264f217e">&lt;strong&gt;</bpt>Stop Profiling<ept id="83f7635c-1b11-4f98-af2a-07d9264f217e">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="ad5df06d-8871-40f1-9c12-cbf088adee61" xml:space="preserve">
+          <source><bpt id="b7b73c6d-4ad4-4e20-8a9e-04fec455b5a2">&lt;linkText&gt;</bpt><ept id="b7b73c6d-4ad4-4e20-8a9e-04fec455b5a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7b73c6d-4ad4-4e20-8a9e-04fec455b5a2">&lt;linkText&gt;</bpt><ept id="b7b73c6d-4ad4-4e20-8a9e-04fec455b5a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72f8b489-b3dd-467d-a70c-a8559d9d02c2" xml:space="preserve">
+          <source>The performance report for your application is displayed.</source>
+          <target state="new">The performance report for your application is displayed.</target>
+        </trans-unit>
+        <trans-unit id="891e1bb1-2b92-4fce-be46-5351f546dc62" xml:space="preserve">
+          <source>At this point, the profiler stops executing, saves data in a .vsp file, and displays a report
+that shows an analysis of this data.</source>
+          <target state="new">At this point, the profiler stops executing, saves data in a .vsp file, and displays a report
+that shows an analysis of this data.</target>
+        </trans-unit>
+        <trans-unit id="a4e06f5d-d992-4ca0-8fea-48227b9b802f" xml:space="preserve">
+          <source><bpt id="370b0508-9a6b-4217-bdfb-c71370a168c3">&lt;linkText&gt;</bpt><ept id="370b0508-9a6b-4217-bdfb-c71370a168c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="370b0508-9a6b-4217-bdfb-c71370a168c3">&lt;linkText&gt;</bpt><ept id="370b0508-9a6b-4217-bdfb-c71370a168c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77e65580-4c62-4a81-9b6f-3df00d481ceb" xml:space="preserve">
+          <source>If you see String.wstrcpy in the Hot Path, click on Just My Code to change the view to show user code only.</source>
+          <target state="new">If you see String.wstrcpy in the Hot Path, click on Just My Code to change the view to show user code only.</target>
+        </trans-unit>
+        <trans-unit id="bb497c5a-e960-4f76-84a8-f2cd73820a40" xml:space="preserve">
+          <source>If you see String.Concat, try pressing the Show All Code button.</source>
+          <target state="new">If you see String.Concat, try pressing the Show All Code button.</target>
+        </trans-unit>
+        <trans-unit id="038b89e9-6c25-4cdf-92b3-bd3d8cda646f" xml:space="preserve">
+          <source>You should see the Concatenate method and String.Concat taking up a large portion
+of the execution time.</source>
+          <target state="new">You should see the Concatenate method and String.Concat taking up a large portion
+of the execution time.</target>
+        </trans-unit>
+        <trans-unit id="610137f3-7e59-439c-b26b-ef872300a825" xml:space="preserve">
+          <source><bpt id="8a55a5a0-ef09-4014-9145-b0a1b7f09eee">&lt;linkText&gt;</bpt><ept id="8a55a5a0-ef09-4014-9145-b0a1b7f09eee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8a55a5a0-ef09-4014-9145-b0a1b7f09eee">&lt;linkText&gt;</bpt><ept id="8a55a5a0-ef09-4014-9145-b0a1b7f09eee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75a90b7d-7763-4fbd-9700-9ec9b15d203b" xml:space="preserve">
+          <source>If you added the string concatenation code in this article, you should see a warning in the Task List for this.</source>
+          <target state="new">If you added the string concatenation code in this article, you should see a warning in the Task List for this.</target>
+        </trans-unit>
+        <trans-unit id="f9cabcab-1cad-4e35-a3f0-c62c1c239120" xml:space="preserve">
+          <source>You may also see a warning that there is an excessive amount of garbage collection, which is due to the number of strings that are created and disposed.</source>
+          <target state="new">You may also see a warning that there is an excessive amount of garbage collection, which is due to the number of strings that are created and disposed.</target>
+        </trans-unit>
+        <trans-unit id="90f59f75-a37c-44fe-bafd-7b66e1acf32d" xml:space="preserve">
+          <source><bpt id="18031db9-8529-40a5-b608-68ff4d4f4d6e">&lt;linkText&gt;</bpt><ept id="18031db9-8529-40a5-b608-68ff4d4f4d6e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="18031db9-8529-40a5-b608-68ff4d4f4d6e">&lt;linkText&gt;</bpt><ept id="18031db9-8529-40a5-b608-68ff4d4f4d6e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9dba63e9-6e50-4b95-a417-97ed5abad256" xml:space="preserve">
+          <source>You can also compare the performance before and after a code change.</source>
+          <target state="new">You can also compare the performance before and after a code change.</target>
+        </trans-unit>
+        <trans-unit id="17e806cd-5081-4410-991f-cf31f064d4fe" xml:space="preserve">
+          <source>Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:</source>
+          <target state="new">Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:</target>
+        </trans-unit>
+        <trans-unit id="0db6a543-1c74-45b8-bacd-471f9bcb0f0b" xml:space="preserve">
+          <source>Do another performance run, and then compare the performance.</source>
+          <target state="new">Do another performance run, and then compare the performance.</target>
+        </trans-unit>
+        <trans-unit id="b68cece7-c0d0-4dcd-befc-0b96427fbb73" xml:space="preserve">
+          <source>In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose <bpt id="c4226332-b9f0-440e-b9ea-9227e58db767">&lt;strong&gt;</bpt>Compare Performance Reports<ept id="c4226332-b9f0-440e-b9ea-9227e58db767">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose <bpt id="c4226332-b9f0-440e-b9ea-9227e58db767">&lt;strong&gt;</bpt>Compare Performance Reports<ept id="c4226332-b9f0-440e-b9ea-9227e58db767">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6aec0ad5-b58a-4659-8c77-2d0eab146007" xml:space="preserve">
+          <source>If you want to compare with a run in another performance session, open the <bpt id="59e87faa-d27b-4fa6-9529-ea58cd903a17">&lt;strong&gt;</bpt>Analyze<ept id="59e87faa-d27b-4fa6-9529-ea58cd903a17">&lt;/strong&gt;</ept> menu, and choose <bpt id="b279153d-2230-4a40-801d-4807b50a09f9">&lt;strong&gt;</bpt>Compare Performance Reports<ept id="b279153d-2230-4a40-801d-4807b50a09f9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you want to compare with a run in another performance session, open the <bpt id="59e87faa-d27b-4fa6-9529-ea58cd903a17">&lt;strong&gt;</bpt>Analyze<ept id="59e87faa-d27b-4fa6-9529-ea58cd903a17">&lt;/strong&gt;</ept> menu, and choose <bpt id="b279153d-2230-4a40-801d-4807b50a09f9">&lt;strong&gt;</bpt>Compare Performance Reports<ept id="b279153d-2230-4a40-801d-4807b50a09f9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4f7b267-0307-45ff-bdb5-4791dec6ab58" xml:space="preserve">
+          <source>Specify both files in the dialog box that appears.</source>
+          <target state="new">Specify both files in the dialog box that appears.</target>
+        </trans-unit>
+        <trans-unit id="9e6bce45-7d5f-42fd-b66b-158afc77f63d" xml:space="preserve">
+          <source><bpt id="cec5a448-c967-4e8d-959a-13514403360d">&lt;linkText&gt;</bpt><ept id="cec5a448-c967-4e8d-959a-13514403360d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cec5a448-c967-4e8d-959a-13514403360d">&lt;linkText&gt;</bpt><ept id="cec5a448-c967-4e8d-959a-13514403360d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25da6f62-ba5d-468f-acc8-80d60c92d765" xml:space="preserve">
+          <source>The reports highlight differences between the two runs.</source>
+          <target state="new">The reports highlight differences between the two runs.</target>
+        </trans-unit>
+        <trans-unit id="82a30c5e-8d2a-4ee2-b4d7-78c8c5f4584b" xml:space="preserve">
+          <source><bpt id="11ff9065-c34c-4d56-a1fa-63e643515b6d">&lt;linkText&gt;</bpt><ept id="11ff9065-c34c-4d56-a1fa-63e643515b6d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="11ff9065-c34c-4d56-a1fa-63e643515b6d">&lt;linkText&gt;</bpt><ept id="11ff9065-c34c-4d56-a1fa-63e643515b6d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5654e3a7-1093-490b-9efd-df39f69d745c" xml:space="preserve">
+          <source>Congratulations!</source>
+          <target state="new">Congratulations!</target>
+        </trans-unit>
+        <trans-unit id="f8457df6-8bb6-4c6c-9eae-99d3c3bb8bb5" xml:space="preserve">
+          <source>You've gotten started with the profiler.</source>
+          <target state="new">You've gotten started with the profiler.</target>
+        </trans-unit>
+        <trans-unit id="457fd23c-0821-4830-b600-5fb1212c0172" xml:space="preserve">
+          <source>Make sure you are profiling a Release build and start without debugging.</source>
+          <target state="new">Make sure you are profiling a Release build and start without debugging.</target>
+        </trans-unit>
+        <trans-unit id="72f32405-6d80-4244-acb0-681346cf77c4" xml:space="preserve">
+          <source>If the Attach/Detach option is not enabled on the Profiler menu, run the Performance Wizard.</source>
+          <target state="new">If the Attach/Detach option is not enabled on the Profiler menu, run the Performance Wizard.</target>
+        </trans-unit>
+        <trans-unit id="098cfe68-e21d-4d47-8519-9772ef6f93df" xml:space="preserve">
+          <source>Use the Compute Emulator UI to view the status of your application.</source>
+          <target state="new">Use the Compute Emulator UI to view the status of your application.</target>
+        </trans-unit>
+        <trans-unit id="d246a5d2-5be3-4e3a-92bd-081db9e16cf7" xml:space="preserve">
+          <source>If you have problems starting applications in the emulator, or attaching the profiler, shut down the compute emulator and restart it.</source>
+          <target state="new">If you have problems starting applications in the emulator, or attaching the profiler, shut down the compute emulator and restart it.</target>
+        </trans-unit>
+        <trans-unit id="5cb0e86b-618f-43ac-b4ce-80559258106f" xml:space="preserve">
+          <source>If that doesn't solve the problem, try rebooting.</source>
+          <target state="new">If that doesn't solve the problem, try rebooting.</target>
+        </trans-unit>
+        <trans-unit id="a5a3cf58-6f95-4911-a3de-e4a5730a1424" xml:space="preserve">
+          <source>This problem can occur if you use the Compute Emulator to suspend and remove running deployments.</source>
+          <target state="new">This problem can occur if you use the Compute Emulator to suspend and remove running deployments.</target>
+        </trans-unit>
+        <trans-unit id="eb5a17a6-c316-48a3-8349-cdfe65c3c11a" xml:space="preserve">
+          <source>If you have used any of the profiling commands from the
+command line, especially the global settings, make sure that VSPerfClrEnv /globaloff has been called and that VsPerfMon.exe has been shut down.</source>
+          <target state="new">If you have used any of the profiling commands from the
+command line, especially the global settings, make sure that VSPerfClrEnv /globaloff has been called and that VsPerfMon.exe has been shut down.</target>
+        </trans-unit>
+        <trans-unit id="d47550b2-973c-4dc1-ba02-4a0995b4e202" xml:space="preserve">
+          <source>If when sampling, you see the message "PRF0025: No data was collected," check that the process you attached to has CPU activity.</source>
+          <target state="new">If when sampling, you see the message "PRF0025: No data was collected," check that the process you attached to has CPU activity.</target>
+        </trans-unit>
+        <trans-unit id="effd5ae2-c881-4f6d-a24d-cf697fa36225" xml:space="preserve">
+          <source>Applications that are not doing any computational work might not produce any sampling data.</source>
+          <target state="new">Applications that are not doing any computational work might not produce any sampling data.</target>
+        </trans-unit>
+        <trans-unit id="f6417de8-6856-43dd-82ad-2836ad8f3ece" xml:space="preserve">
+          <source>It's also possible that the process exited before any sampling was done.</source>
+          <target state="new">It's also possible that the process exited before any sampling was done.</target>
+        </trans-unit>
+        <trans-unit id="fb6a85c1-4723-47fc-b761-9567a62146c3" xml:space="preserve">
+          <source>Check to see that the Run method for a role that you are profiling does not terminate.</source>
+          <target state="new">Check to see that the Run method for a role that you are profiling does not terminate.</target>
+        </trans-unit>
+        <trans-unit id="54bcc89f-1fe5-422a-a9a5-28a149d86a4e" xml:space="preserve">
+          <source>Instrumenting Azure binaries in the emulator is not supported in the Visual Studio profiler, but if you want to test memory allocation, you can choose that option when profiling.</source>
+          <target state="new">Instrumenting Azure binaries in the emulator is not supported in the Visual Studio profiler, but if you want to test memory allocation, you can choose that option when profiling.</target>
+        </trans-unit>
+        <trans-unit id="b1cb6482-d0c7-48d2-9ea3-f78c198db902" xml:space="preserve">
+          <source>You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.</source>
+          <target state="new">You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.</target>
+        </trans-unit>
+        <trans-unit id="0ca46009-931e-415a-b9cf-1a051fcd6f2b" xml:space="preserve">
+          <source>You can view the database queries that your app generates and use the profiling data to improve your use of the database.</source>
+          <target state="new">You can view the database queries that your app generates and use the profiling data to improve your use of the database.</target>
+        </trans-unit>
+        <trans-unit id="bb5f63fb-f6e1-436c-b588-da2e6514a416" xml:space="preserve">
+          <source>For information about tier interaction profiling, see <bpt id="0be56c55-833f-48cf-9b3b-87770140da1e">&lt;linkText&gt;</bpt>Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010[3]<ept id="0be56c55-833f-48cf-9b3b-87770140da1e">&lt;/linkText&gt;</ept><bpt id="0be56c55-833f-48cf-9b3b-87770140da1e">&lt;title&gt;</bpt><ept id="0be56c55-833f-48cf-9b3b-87770140da1e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about tier interaction profiling, see <bpt id="0be56c55-833f-48cf-9b3b-87770140da1e">&lt;linkText&gt;</bpt>Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010[3]<ept id="0be56c55-833f-48cf-9b3b-87770140da1e">&lt;/linkText&gt;</ept><bpt id="0be56c55-833f-48cf-9b3b-87770140da1e">&lt;title&gt;</bpt><ept id="0be56c55-833f-48cf-9b3b-87770140da1e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1a0ae76-288e-4f82-970a-7a68295122ce" xml:space="preserve">
+          <source>#step1</source>
+          <target state="new">#step1</target>
+        </trans-unit>
+        <trans-unit id="2bf191a3-e45b-4d4c-8128-945e4572d800" xml:space="preserve">
+          <source>#step2</source>
+          <target state="new">#step2</target>
+        </trans-unit>
+        <trans-unit id="a5fc5978-dc06-4ba8-b80f-aabe6bce482d" xml:space="preserve">
+          <source>#step3</source>
+          <target state="new">#step3</target>
+        </trans-unit>
+        <trans-unit id="8cbfa242-e17f-411d-90dd-ed3d8957ff0c" xml:space="preserve">
+          <source>#step4</source>
+          <target state="new">#step4</target>
+        </trans-unit>
+        <trans-unit id="81f846d6-86e9-4161-b064-f9f495bb1b28" xml:space="preserve">
+          <source>#troubleshooting</source>
+          <target state="new">#troubleshooting</target>
+        </trans-unit>
+        <trans-unit id="47c180fa-5a4a-4ffa-8912-e264953db62a" xml:space="preserve">
+          <source>#nextSteps</source>
+          <target state="new">#nextSteps</target>
+        </trans-unit>
+        <trans-unit id="7896d991-9e81-47a6-a5da-87e3f90c3cb2" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/hh369930.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/hh369930.aspx</target>
+        </trans-unit>
+        <trans-unit id="342f0df3-7ad7-4ed6-b23e-7b019cab3615" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/hh411542.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/hh411542.aspx</target>
+        </trans-unit>
+        <trans-unit id="e72aad86-6289-4c52-a023-ed1fce322b9f" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx</source>
+          <target state="new">http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx</target>
+        </trans-unit>
+        <trans-unit id="331228d7-3450-4dd0-838e-7b2ac2f43b00" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png</target>
+        </trans-unit>
+        <trans-unit id="9e7a0de0-6104-44bb-9c8e-822dc9894f61" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png</target>
+        </trans-unit>
+        <trans-unit id="f5752cc1-7b9e-4075-9f84-bb13754649e6" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png</target>
+        </trans-unit>
+        <trans-unit id="0da09aef-9eec-4065-b988-20ca2a21e832" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally05.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally05.png</target>
+        </trans-unit>
+        <trans-unit id="ff4867f7-d42a-4430-9349-70358e86d5ca" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally010.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally010.png</target>
+        </trans-unit>
+        <trans-unit id="0f6ea244-b8d9-4cf6-9f90-e75557784a84" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally07.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally07.png</target>
+        </trans-unit>
+        <trans-unit id="4e831022-eb9c-40bf-be93-4be794004d09" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally06.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally06.png</target>
+        </trans-unit>
+        <trans-unit id="7dd5f4ce-c9bb-4b59-bf55-ccf0339a830c" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally03.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally03.png</target>
+        </trans-unit>
+        <trans-unit id="bbafe21f-5bd3-4f93-be48-812a5b7a2130" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally011.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally011.png</target>
+        </trans-unit>
+        <trans-unit id="1ccf0217-a8a5-4dd0-9cbf-361236a0c851" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally04.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally04.png</target>
+        </trans-unit>
+        <trans-unit id="1fefeba7-d670-4454-b5f5-2da1bade641d" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png</target>
+        </trans-unit>
+        <trans-unit id="caa91027-9344-4671-8211-fd033eb02de1" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png</target>
+        </trans-unit>
+        <trans-unit id="5b5a1907-5bb9-45be-b54c-7ab05942cca7" xml:space="preserve">
+          <source>./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png</source>
+          <target state="new">./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png</target>
+        </trans-unit>
+      </group>
+      <group id="7d9a57dd-77c7-49c3-85ea-0ac9fff1c79a" />
+    </body>
+  </file>
+</xliff>

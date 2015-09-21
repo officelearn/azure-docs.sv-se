@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6090550b-ca19-4a05-8535-a3cd94b5da53" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6090550b-ca19-4a05-8535-a3cd94b5da53" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5fbe0d37-c687-45dc-8e78-3d654b416523">
+        <trans-unit id="44e26491-7100-43d1-a319-e4e09d608313" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with AppDynamics | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with AppDynamics | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5c095f2a-2113-442f-84c0-faa1139ee6a3" xml:space="preserve">
+          <source>Learn how to use AppDynamics with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use AppDynamics with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="c7a5d10b-2eac-4a1f-82d4-368ed6fed0b1" xml:space="preserve">
+          <source>For feedback, click <bpt id="10e09951-ce2c-4be3-b5a3-f494e2f38dfc">&lt;linkText&gt;</bpt>here<ept id="10e09951-ce2c-4be3-b5a3-f494e2f38dfc">&lt;/linkText&gt;</ept><bpt id="10e09951-ce2c-4be3-b5a3-f494e2f38dfc">&lt;title&gt;</bpt><ept id="10e09951-ce2c-4be3-b5a3-f494e2f38dfc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="10e09951-ce2c-4be3-b5a3-f494e2f38dfc">&lt;linkText&gt;</bpt>here<ept id="10e09951-ce2c-4be3-b5a3-f494e2f38dfc">&lt;/linkText&gt;</ept><bpt id="10e09951-ce2c-4be3-b5a3-f494e2f38dfc">&lt;title&gt;</bpt><ept id="10e09951-ce2c-4be3-b5a3-f494e2f38dfc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2fcb3ebc-2644-4f18-a1e1-6208cbda8df7" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and AppDynamics.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and AppDynamics.</target>
+        </trans-unit>
+        <trans-unit id="cc854689-2914-4721-955a-c8e70dc81b0a" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="81d49cb8-804c-48cc-8a65-1b44b6b44a28" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="5f600824-e1db-4849-9558-ae5f01a49754" xml:space="preserve">
+          <source>An AppDynamics single sign-on enabled subscription</source>
+          <target state="new">An AppDynamics single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="79fb28c0-44eb-4e70-bbd4-069100ed4c02" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to AppDynamics will be able to single sign into the application at your AppDynamics company site (service provider initiated sign on), or using the <bpt id="153af3c0-ebfe-4992-a1bd-ccc68a08d8b1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="153af3c0-ebfe-4992-a1bd-ccc68a08d8b1">&lt;/linkText&gt;</ept><bpt id="153af3c0-ebfe-4992-a1bd-ccc68a08d8b1">&lt;title&gt;</bpt><ept id="153af3c0-ebfe-4992-a1bd-ccc68a08d8b1">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to AppDynamics will be able to single sign into the application at your AppDynamics company site (service provider initiated sign on), or using the <bpt id="153af3c0-ebfe-4992-a1bd-ccc68a08d8b1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="153af3c0-ebfe-4992-a1bd-ccc68a08d8b1">&lt;/linkText&gt;</ept><bpt id="153af3c0-ebfe-4992-a1bd-ccc68a08d8b1">&lt;title&gt;</bpt><ept id="153af3c0-ebfe-4992-a1bd-ccc68a08d8b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce8b4a64-5ac0-4935-b5cb-2eff6b16d3ed" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="45593383-0bf3-4d89-b665-a4ba667e8854" xml:space="preserve">
+          <source>Enabling the application integration for AppDynamics</source>
+          <target state="new">Enabling the application integration for AppDynamics</target>
+        </trans-unit>
+        <trans-unit id="927cc028-3aca-4f32-8b91-dbfe17e9f502" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="07e066bc-2705-4da4-b344-e4cdb3f84e2c" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="05b885f9-f00c-4c88-aa9c-18eabf2786b3" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="b3c309f6-f9bb-456e-bc48-dfc0a4096987" xml:space="preserve">
+          <source><bpt id="fe548af1-d418-47c2-b383-072e9abca0b9">&lt;linkText&gt;</bpt>Scenario<ept id="fe548af1-d418-47c2-b383-072e9abca0b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe548af1-d418-47c2-b383-072e9abca0b9">&lt;linkText&gt;</bpt>Scenario<ept id="fe548af1-d418-47c2-b383-072e9abca0b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="117d17e1-3785-4b6b-87fe-3bbd961c2642" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for AppDynamics.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for AppDynamics.</target>
+        </trans-unit>
+        <trans-unit id="66ea3d7a-9826-4efe-9cd0-b40e7d0fc878" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="46adf9e1-a6e3-4a5a-8c19-fe12f7c6f3f9">&lt;strong&gt;</bpt>Active Directory<ept id="46adf9e1-a6e3-4a5a-8c19-fe12f7c6f3f9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="46adf9e1-a6e3-4a5a-8c19-fe12f7c6f3f9">&lt;strong&gt;</bpt>Active Directory<ept id="46adf9e1-a6e3-4a5a-8c19-fe12f7c6f3f9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d06ced0-39df-470b-9664-f2a5d1785e0f" xml:space="preserve">
+          <source><bpt id="6eece127-9d87-41de-9922-d220972b65c1">&lt;linkText&gt;</bpt>Active Directory<ept id="6eece127-9d87-41de-9922-d220972b65c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6eece127-9d87-41de-9922-d220972b65c1">&lt;linkText&gt;</bpt>Active Directory<ept id="6eece127-9d87-41de-9922-d220972b65c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32a60cbc-4213-41c2-9769-2b63a563f420" xml:space="preserve">
+          <source>From the <bpt id="87d3eed4-74fd-43f3-b1d4-44da8e7a716f">&lt;strong&gt;</bpt>Directory<ept id="87d3eed4-74fd-43f3-b1d4-44da8e7a716f">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="87d3eed4-74fd-43f3-b1d4-44da8e7a716f">&lt;strong&gt;</bpt>Directory<ept id="87d3eed4-74fd-43f3-b1d4-44da8e7a716f">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="dcf3123d-fada-46f1-a024-712ac05ccebb" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="44e5e832-9839-415f-bced-a7d8f9ccccc0">&lt;strong&gt;</bpt>Applications<ept id="44e5e832-9839-415f-bced-a7d8f9ccccc0">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="44e5e832-9839-415f-bced-a7d8f9ccccc0">&lt;strong&gt;</bpt>Applications<ept id="44e5e832-9839-415f-bced-a7d8f9ccccc0">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="c7e4ea5f-639b-4d62-8df0-b40654c73880" xml:space="preserve">
+          <source><bpt id="8843a244-e758-4538-8607-38b5ab8c1dce">&lt;linkText&gt;</bpt>Applications<ept id="8843a244-e758-4538-8607-38b5ab8c1dce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8843a244-e758-4538-8607-38b5ab8c1dce">&lt;linkText&gt;</bpt>Applications<ept id="8843a244-e758-4538-8607-38b5ab8c1dce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="628c7737-e03e-42c6-b673-f093bccea9ce" xml:space="preserve">
+          <source>Click <bpt id="0564afa5-9cf9-4e85-be97-e9d0e8879d7e">&lt;strong&gt;</bpt>Add<ept id="0564afa5-9cf9-4e85-be97-e9d0e8879d7e">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="0564afa5-9cf9-4e85-be97-e9d0e8879d7e">&lt;strong&gt;</bpt>Add<ept id="0564afa5-9cf9-4e85-be97-e9d0e8879d7e">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="fa4d2d84-15d4-446d-a1ee-a472eddcad05" xml:space="preserve">
+          <source><bpt id="fbb66e05-1c6c-458f-95fc-4bab7917699f">&lt;linkText&gt;</bpt>Add application<ept id="fbb66e05-1c6c-458f-95fc-4bab7917699f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fbb66e05-1c6c-458f-95fc-4bab7917699f">&lt;linkText&gt;</bpt>Add application<ept id="fbb66e05-1c6c-458f-95fc-4bab7917699f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3059c11-843d-4c63-8e86-01388243ab41" xml:space="preserve">
+          <source>On the <bpt id="28012b7f-ff88-4970-9f85-feaa01fe7092">&lt;strong&gt;</bpt>What do you want to do<ept id="28012b7f-ff88-4970-9f85-feaa01fe7092">&lt;/strong&gt;</ept> dialog, click <bpt id="0614bb33-a794-446c-87e4-69f7c5673665">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="0614bb33-a794-446c-87e4-69f7c5673665">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="28012b7f-ff88-4970-9f85-feaa01fe7092">&lt;strong&gt;</bpt>What do you want to do<ept id="28012b7f-ff88-4970-9f85-feaa01fe7092">&lt;/strong&gt;</ept> dialog, click <bpt id="0614bb33-a794-446c-87e4-69f7c5673665">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="0614bb33-a794-446c-87e4-69f7c5673665">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e917441-a28f-4a56-82d1-3f42b3eb209d" xml:space="preserve">
+          <source><bpt id="3067507f-35f1-4c3d-9211-1aa2acfacd45">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="3067507f-35f1-4c3d-9211-1aa2acfacd45">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3067507f-35f1-4c3d-9211-1aa2acfacd45">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="3067507f-35f1-4c3d-9211-1aa2acfacd45">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c5f678b-e4c5-4f01-86f8-6285dea1b8bc" xml:space="preserve">
+          <source>In the <bpt id="b57826d4-13cc-4a45-b365-8e063ea0e1a4">&lt;strong&gt;</bpt>search box<ept id="b57826d4-13cc-4a45-b365-8e063ea0e1a4">&lt;/strong&gt;</ept>, type <bpt id="b48c6b74-e315-43d6-8495-63de22864c5a">&lt;strong&gt;</bpt>AppDynamics<ept id="b48c6b74-e315-43d6-8495-63de22864c5a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b57826d4-13cc-4a45-b365-8e063ea0e1a4">&lt;strong&gt;</bpt>search box<ept id="b57826d4-13cc-4a45-b365-8e063ea0e1a4">&lt;/strong&gt;</ept>, type <bpt id="b48c6b74-e315-43d6-8495-63de22864c5a">&lt;strong&gt;</bpt>AppDynamics<ept id="b48c6b74-e315-43d6-8495-63de22864c5a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a1b6b6b-b9d2-49f2-81dd-19eed9caf1b0" xml:space="preserve">
+          <source><bpt id="bb07e417-c80e-41fd-8d8e-695094330ace">&lt;linkText&gt;</bpt>Application Gallery<ept id="bb07e417-c80e-41fd-8d8e-695094330ace">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb07e417-c80e-41fd-8d8e-695094330ace">&lt;linkText&gt;</bpt>Application Gallery<ept id="bb07e417-c80e-41fd-8d8e-695094330ace">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec069a56-0ef1-44c6-a788-a75fba321fda" xml:space="preserve">
+          <source>In the results pane, select <bpt id="38297707-41ea-4692-8fb5-ab774a6b2422">&lt;strong&gt;</bpt>AppDynamics<ept id="38297707-41ea-4692-8fb5-ab774a6b2422">&lt;/strong&gt;</ept>, and then click <bpt id="17cba24d-574f-40a1-bc96-abef7f99019d">&lt;strong&gt;</bpt>Complete<ept id="17cba24d-574f-40a1-bc96-abef7f99019d">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="38297707-41ea-4692-8fb5-ab774a6b2422">&lt;strong&gt;</bpt>AppDynamics<ept id="38297707-41ea-4692-8fb5-ab774a6b2422">&lt;/strong&gt;</ept>, and then click <bpt id="17cba24d-574f-40a1-bc96-abef7f99019d">&lt;strong&gt;</bpt>Complete<ept id="17cba24d-574f-40a1-bc96-abef7f99019d">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="c5d19430-c851-4df6-9e95-5c9bb857fd17" xml:space="preserve">
+          <source><bpt id="0fda09d8-af1d-432b-b9d6-66a3005a1c91">&lt;linkText&gt;</bpt>AppDynamics<ept id="0fda09d8-af1d-432b-b9d6-66a3005a1c91">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0fda09d8-af1d-432b-b9d6-66a3005a1c91">&lt;linkText&gt;</bpt>AppDynamics<ept id="0fda09d8-af1d-432b-b9d6-66a3005a1c91">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="84a08be6-10bb-4205-a5c5-8a209e738051" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to AppDynamics with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to AppDynamics with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="15b272f1-b297-489c-bb75-86b1dd27c8a7" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="84806786-3f8b-4aa4-a865-e0ab1965da87" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="37f1795d-a6e9-4f4d-ab2f-cbd68921c96d">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="37f1795d-a6e9-4f4d-ab2f-cbd68921c96d">&lt;/linkText&gt;</ept><bpt id="37f1795d-a6e9-4f4d-ab2f-cbd68921c96d">&lt;title&gt;</bpt><ept id="37f1795d-a6e9-4f4d-ab2f-cbd68921c96d">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="37f1795d-a6e9-4f4d-ab2f-cbd68921c96d">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="37f1795d-a6e9-4f4d-ab2f-cbd68921c96d">&lt;/linkText&gt;</ept><bpt id="37f1795d-a6e9-4f4d-ab2f-cbd68921c96d">&lt;title&gt;</bpt><ept id="37f1795d-a6e9-4f4d-ab2f-cbd68921c96d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35cedf98-0bc8-4c24-88ab-15ba2e912484" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="6cdcdf7d-0fd4-41ea-85e0-9377a0602caf">&lt;strong&gt;</bpt>AppDynamics<ept id="6cdcdf7d-0fd4-41ea-85e0-9377a0602caf">&lt;/strong&gt;</ept> application integration page, click <bpt id="81a70715-7df6-483d-abb7-42fb9cbccfa5">&lt;strong&gt;</bpt>Configure single sign-on<ept id="81a70715-7df6-483d-abb7-42fb9cbccfa5">&lt;/strong&gt;</ept> to open the <bpt id="30071aa2-dde1-4649-ba3f-c81f54c20b98">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="30071aa2-dde1-4649-ba3f-c81f54c20b98">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="6cdcdf7d-0fd4-41ea-85e0-9377a0602caf">&lt;strong&gt;</bpt>AppDynamics<ept id="6cdcdf7d-0fd4-41ea-85e0-9377a0602caf">&lt;/strong&gt;</ept> application integration page, click <bpt id="81a70715-7df6-483d-abb7-42fb9cbccfa5">&lt;strong&gt;</bpt>Configure single sign-on<ept id="81a70715-7df6-483d-abb7-42fb9cbccfa5">&lt;/strong&gt;</ept> to open the <bpt id="30071aa2-dde1-4649-ba3f-c81f54c20b98">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="30071aa2-dde1-4649-ba3f-c81f54c20b98">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="01088c6a-8eca-41f8-a3e8-e3e661fc46f5" xml:space="preserve">
+          <source><bpt id="fb825510-5c7e-4e7b-be84-74fe160e2546">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="fb825510-5c7e-4e7b-be84-74fe160e2546">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb825510-5c7e-4e7b-be84-74fe160e2546">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="fb825510-5c7e-4e7b-be84-74fe160e2546">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b5b3b03-0bd0-41bc-a616-733e913b2a20" xml:space="preserve">
+          <source>On the <bpt id="19eb900b-fc0d-4d3f-9795-ee478a67eef7">&lt;strong&gt;</bpt>How would you like users to sign on to AppDynamics<ept id="19eb900b-fc0d-4d3f-9795-ee478a67eef7">&lt;/strong&gt;</ept> page, select <bpt id="f18f6d47-2218-423f-9b3b-9b0ef97c75b3">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="f18f6d47-2218-423f-9b3b-9b0ef97c75b3">&lt;/strong&gt;</ept>, and then click <bpt id="de9433b0-49d6-464b-8623-15e1a57412f5">&lt;strong&gt;</bpt>Next<ept id="de9433b0-49d6-464b-8623-15e1a57412f5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="19eb900b-fc0d-4d3f-9795-ee478a67eef7">&lt;strong&gt;</bpt>How would you like users to sign on to AppDynamics<ept id="19eb900b-fc0d-4d3f-9795-ee478a67eef7">&lt;/strong&gt;</ept> page, select <bpt id="f18f6d47-2218-423f-9b3b-9b0ef97c75b3">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="f18f6d47-2218-423f-9b3b-9b0ef97c75b3">&lt;/strong&gt;</ept>, and then click <bpt id="de9433b0-49d6-464b-8623-15e1a57412f5">&lt;strong&gt;</bpt>Next<ept id="de9433b0-49d6-464b-8623-15e1a57412f5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="befc5d28-0945-499a-87c0-c9e1134e5c59" xml:space="preserve">
+          <source><bpt id="cc55bdd9-645b-48cf-ab2a-8ea27c1268df">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="cc55bdd9-645b-48cf-ab2a-8ea27c1268df">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cc55bdd9-645b-48cf-ab2a-8ea27c1268df">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="cc55bdd9-645b-48cf-ab2a-8ea27c1268df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0fc894c-d854-4821-83e8-1a1a9ee0d42a" xml:space="preserve">
+          <source>On the <bpt id="3c1e0061-4c1d-4b47-833c-86ce251d055c">&lt;strong&gt;</bpt>Configure App URL<ept id="3c1e0061-4c1d-4b47-833c-86ce251d055c">&lt;/strong&gt;</ept> page, in the <bpt id="e979109d-45b1-46e4-bde3-1f73e40499bb">&lt;strong&gt;</bpt>AppDynamics Sign On URL<ept id="e979109d-45b1-46e4-bde3-1f73e40499bb">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign-on to AppDynamics ("<bpt id="ec41a8eb-4074-4a1b-af76-e3ccfcc5b92e">&lt;em&gt;</bpt>https://companyname.saas.appdynamics.com<ept id="ec41a8eb-4074-4a1b-af76-e3ccfcc5b92e">&lt;/em&gt;</ept>"), and then click <bpt id="739c7b07-285b-4ede-8160-80b4b7ea7913">&lt;strong&gt;</bpt>Next<ept id="739c7b07-285b-4ede-8160-80b4b7ea7913">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="3c1e0061-4c1d-4b47-833c-86ce251d055c">&lt;strong&gt;</bpt>Configure App URL<ept id="3c1e0061-4c1d-4b47-833c-86ce251d055c">&lt;/strong&gt;</ept> page, in the <bpt id="e979109d-45b1-46e4-bde3-1f73e40499bb">&lt;strong&gt;</bpt>AppDynamics Sign On URL<ept id="e979109d-45b1-46e4-bde3-1f73e40499bb">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign-on to AppDynamics ("<bpt id="ec41a8eb-4074-4a1b-af76-e3ccfcc5b92e">&lt;em&gt;</bpt>https://companyname.saas.appdynamics.com<ept id="ec41a8eb-4074-4a1b-af76-e3ccfcc5b92e">&lt;/em&gt;</ept>"), and then click <bpt id="739c7b07-285b-4ede-8160-80b4b7ea7913">&lt;strong&gt;</bpt>Next<ept id="739c7b07-285b-4ede-8160-80b4b7ea7913">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="913f192e-052e-4fe0-9ce1-016ad212cc88" xml:space="preserve">
+          <source><bpt id="cb5eb0f4-5980-489d-8a84-da3550e787d0">&lt;linkText&gt;</bpt>Configure App URL<ept id="cb5eb0f4-5980-489d-8a84-da3550e787d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb5eb0f4-5980-489d-8a84-da3550e787d0">&lt;linkText&gt;</bpt>Configure App URL<ept id="cb5eb0f4-5980-489d-8a84-da3550e787d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d9ac79a-b0ae-4791-a034-386b57d344a2" xml:space="preserve">
+          <source>On the <bpt id="67c06f4a-90e0-4cf9-b874-a311d632ea5c">&lt;strong&gt;</bpt>Configure single sign-on at AppDynamics<ept id="67c06f4a-90e0-4cf9-b874-a311d632ea5c">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="6c6a0bb1-04cd-4ebe-98ea-5b80e11853fd">&lt;strong&gt;</bpt>Download certificate<ept id="6c6a0bb1-04cd-4ebe-98ea-5b80e11853fd">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="67c06f4a-90e0-4cf9-b874-a311d632ea5c">&lt;strong&gt;</bpt>Configure single sign-on at AppDynamics<ept id="67c06f4a-90e0-4cf9-b874-a311d632ea5c">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="6c6a0bb1-04cd-4ebe-98ea-5b80e11853fd">&lt;strong&gt;</bpt>Download certificate<ept id="6c6a0bb1-04cd-4ebe-98ea-5b80e11853fd">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="d101a77e-fa98-47c9-9455-f006bcaaab6d" xml:space="preserve">
+          <source><bpt id="c4f0e9eb-6468-4987-85e7-b5e05242b12a">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="c4f0e9eb-6468-4987-85e7-b5e05242b12a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c4f0e9eb-6468-4987-85e7-b5e05242b12a">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="c4f0e9eb-6468-4987-85e7-b5e05242b12a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f102467-237a-439f-9ab6-626bd4227abc" xml:space="preserve">
+          <source>In a different web browser window, log into your AppDynamics company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your AppDynamics company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="6eb6619b-c04c-46bb-b824-dd29a43d34be" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="7f578080-81ac-4221-9c63-ba3f4fc1861f">&lt;strong&gt;</bpt>Settings<ept id="7f578080-81ac-4221-9c63-ba3f4fc1861f">&lt;/strong&gt;</ept>, and then click <bpt id="68968ea0-1d9d-46bd-beab-36c2eaa33919">&lt;strong&gt;</bpt>Administration<ept id="68968ea0-1d9d-46bd-beab-36c2eaa33919">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="7f578080-81ac-4221-9c63-ba3f4fc1861f">&lt;strong&gt;</bpt>Settings<ept id="7f578080-81ac-4221-9c63-ba3f4fc1861f">&lt;/strong&gt;</ept>, and then click <bpt id="68968ea0-1d9d-46bd-beab-36c2eaa33919">&lt;strong&gt;</bpt>Administration<ept id="68968ea0-1d9d-46bd-beab-36c2eaa33919">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6792a82-a4e7-4621-b967-69ed34aabe13" xml:space="preserve">
+          <source><bpt id="970c2676-42bd-47a9-9753-8221ba3a5894">&lt;linkText&gt;</bpt>Administration<ept id="970c2676-42bd-47a9-9753-8221ba3a5894">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="970c2676-42bd-47a9-9753-8221ba3a5894">&lt;linkText&gt;</bpt>Administration<ept id="970c2676-42bd-47a9-9753-8221ba3a5894">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90b94ee2-5b2b-45d7-88de-394942effecb" xml:space="preserve">
+          <source>Click the <bpt id="28247205-9bc8-4a19-a534-ce67a76763c7">&lt;strong&gt;</bpt>Authentication Provider<ept id="28247205-9bc8-4a19-a534-ce67a76763c7">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="28247205-9bc8-4a19-a534-ce67a76763c7">&lt;strong&gt;</bpt>Authentication Provider<ept id="28247205-9bc8-4a19-a534-ce67a76763c7">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="15bbf288-42df-4437-b33c-2fa2a1297fa0" xml:space="preserve">
+          <source><bpt id="538fde57-9323-4fab-99f9-bc141bf92ca0">&lt;linkText&gt;</bpt>Authentication Provider<ept id="538fde57-9323-4fab-99f9-bc141bf92ca0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="538fde57-9323-4fab-99f9-bc141bf92ca0">&lt;linkText&gt;</bpt>Authentication Provider<ept id="538fde57-9323-4fab-99f9-bc141bf92ca0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69fc9a50-b42e-46bd-aae8-f859996d7490" xml:space="preserve">
+          <source>In the <bpt id="0494f915-a73c-4891-9423-e77ef4067828">&lt;strong&gt;</bpt>Authentication Provider<ept id="0494f915-a73c-4891-9423-e77ef4067828">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="0494f915-a73c-4891-9423-e77ef4067828">&lt;strong&gt;</bpt>Authentication Provider<ept id="0494f915-a73c-4891-9423-e77ef4067828">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="e0130699-61f2-4bb2-935e-2654c4908e55" xml:space="preserve">
+          <source><bpt id="4128d09f-ca00-437f-93e5-cdfb6460313c">&lt;linkText&gt;</bpt>SAML Configuration<ept id="4128d09f-ca00-437f-93e5-cdfb6460313c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4128d09f-ca00-437f-93e5-cdfb6460313c">&lt;linkText&gt;</bpt>SAML Configuration<ept id="4128d09f-ca00-437f-93e5-cdfb6460313c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3e3da08-652e-4f19-848c-0f1dc5ced208" xml:space="preserve">
+          <source>As <bpt id="d9631697-ad9e-4347-bdac-950fbfa2b8a8">&lt;strong&gt;</bpt>Authentication Provider<ept id="d9631697-ad9e-4347-bdac-950fbfa2b8a8">&lt;/strong&gt;</ept>, select <bpt id="4583d9aa-286b-47f3-809c-4c45107d9b0e">&lt;strong&gt;</bpt>SAML<ept id="4583d9aa-286b-47f3-809c-4c45107d9b0e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="d9631697-ad9e-4347-bdac-950fbfa2b8a8">&lt;strong&gt;</bpt>Authentication Provider<ept id="d9631697-ad9e-4347-bdac-950fbfa2b8a8">&lt;/strong&gt;</ept>, select <bpt id="4583d9aa-286b-47f3-809c-4c45107d9b0e">&lt;strong&gt;</bpt>SAML<ept id="4583d9aa-286b-47f3-809c-4c45107d9b0e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9aa87a32-a6f2-4ec7-8c52-e190533d891b" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="68e255d0-ae8f-4532-a5f7-4384740b6731">&lt;strong&gt;</bpt>Configure single sign-on at AppDynamics<ept id="68e255d0-ae8f-4532-a5f7-4384740b6731">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="faee8ba9-1fe6-4fbe-900e-a49630dc223f">&lt;strong&gt;</bpt>Remote Login URL<ept id="faee8ba9-1fe6-4fbe-900e-a49630dc223f">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="bb823b1c-f75b-425a-a2ba-97ccd6363315">&lt;strong&gt;</bpt>Login URL<ept id="bb823b1c-f75b-425a-a2ba-97ccd6363315">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="68e255d0-ae8f-4532-a5f7-4384740b6731">&lt;strong&gt;</bpt>Configure single sign-on at AppDynamics<ept id="68e255d0-ae8f-4532-a5f7-4384740b6731">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="faee8ba9-1fe6-4fbe-900e-a49630dc223f">&lt;strong&gt;</bpt>Remote Login URL<ept id="faee8ba9-1fe6-4fbe-900e-a49630dc223f">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="bb823b1c-f75b-425a-a2ba-97ccd6363315">&lt;strong&gt;</bpt>Login URL<ept id="bb823b1c-f75b-425a-a2ba-97ccd6363315">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="a651701f-b60b-4383-9c81-b2a891eb8d79" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="ad327920-6f50-4a67-8376-37511b37643f">&lt;strong&gt;</bpt>Configure single sign-on at AppDynamics<ept id="ad327920-6f50-4a67-8376-37511b37643f">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="d8721299-cca8-41d1-88bc-9f98cb66b57a">&lt;strong&gt;</bpt>Remote Logout URL<ept id="d8721299-cca8-41d1-88bc-9f98cb66b57a">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="e785976b-2f9e-4bb6-8fa8-c7a72717aa5d">&lt;strong&gt;</bpt>Logout URL<ept id="e785976b-2f9e-4bb6-8fa8-c7a72717aa5d">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="ad327920-6f50-4a67-8376-37511b37643f">&lt;strong&gt;</bpt>Configure single sign-on at AppDynamics<ept id="ad327920-6f50-4a67-8376-37511b37643f">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="d8721299-cca8-41d1-88bc-9f98cb66b57a">&lt;strong&gt;</bpt>Remote Logout URL<ept id="d8721299-cca8-41d1-88bc-9f98cb66b57a">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="e785976b-2f9e-4bb6-8fa8-c7a72717aa5d">&lt;strong&gt;</bpt>Logout URL<ept id="e785976b-2f9e-4bb6-8fa8-c7a72717aa5d">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="0efdf1bb-590c-4ea1-b358-ef00a1353a32" xml:space="preserve">
+          <source>Create a <bpt id="7a351321-79e1-4b50-923c-f774fc66114b">&lt;strong&gt;</bpt>base-64 encoded<ept id="7a351321-79e1-4b50-923c-f774fc66114b">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="7a351321-79e1-4b50-923c-f774fc66114b">&lt;strong&gt;</bpt>base-64 encoded<ept id="7a351321-79e1-4b50-923c-f774fc66114b">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="ce2a3fba-972b-4676-9b40-78906f0169d9" xml:space="preserve">
+          <source>For more details, see <bpt id="86ce130b-6b2d-4510-b3f1-8437bc77262f">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="86ce130b-6b2d-4510-b3f1-8437bc77262f">&lt;/linkText&gt;</ept><bpt id="86ce130b-6b2d-4510-b3f1-8437bc77262f">&lt;title&gt;</bpt><ept id="86ce130b-6b2d-4510-b3f1-8437bc77262f">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="86ce130b-6b2d-4510-b3f1-8437bc77262f">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="86ce130b-6b2d-4510-b3f1-8437bc77262f">&lt;/linkText&gt;</ept><bpt id="86ce130b-6b2d-4510-b3f1-8437bc77262f">&lt;title&gt;</bpt><ept id="86ce130b-6b2d-4510-b3f1-8437bc77262f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="372057e1-efbb-4ad5-9efa-b1488f20dc2d" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="2f0d480f-cbb5-4b9b-a2a6-08ac6a0afe16">&lt;strong&gt;</bpt>Certificate<ept id="2f0d480f-cbb5-4b9b-a2a6-08ac6a0afe16">&lt;/strong&gt;</ept> textbox</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="2f0d480f-cbb5-4b9b-a2a6-08ac6a0afe16">&lt;strong&gt;</bpt>Certificate<ept id="2f0d480f-cbb5-4b9b-a2a6-08ac6a0afe16">&lt;/strong&gt;</ept> textbox</target>
+        </trans-unit>
+        <trans-unit id="fccdabfa-19c4-4f8b-b7d8-43801ec2de84" xml:space="preserve">
+          <source>Click <bpt id="804e266a-e1de-428e-a77b-ade20d2ffa28">&lt;strong&gt;</bpt>Save<ept id="804e266a-e1de-428e-a77b-ade20d2ffa28">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="804e266a-e1de-428e-a77b-ade20d2ffa28">&lt;strong&gt;</bpt>Save<ept id="804e266a-e1de-428e-a77b-ade20d2ffa28">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffb9d7cf-01de-42b0-8455-3f50b799db4d" xml:space="preserve">
+          <source><bpt id="c39b4c34-e0cd-4d17-9279-11d15f47ac9a">&lt;linkText&gt;</bpt>Save<ept id="c39b4c34-e0cd-4d17-9279-11d15f47ac9a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c39b4c34-e0cd-4d17-9279-11d15f47ac9a">&lt;linkText&gt;</bpt>Save<ept id="c39b4c34-e0cd-4d17-9279-11d15f47ac9a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="226fa20b-04ad-40d0-af4f-dfe8f7a8e03d" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="68ad45fe-f3ae-4176-b196-594eb671692f">&lt;strong&gt;</bpt>Complete<ept id="68ad45fe-f3ae-4176-b196-594eb671692f">&lt;/strong&gt;</ept> to close the <bpt id="21c60446-9678-42f1-aeaa-44cac0122925">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="21c60446-9678-42f1-aeaa-44cac0122925">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="68ad45fe-f3ae-4176-b196-594eb671692f">&lt;strong&gt;</bpt>Complete<ept id="68ad45fe-f3ae-4176-b196-594eb671692f">&lt;/strong&gt;</ept> to close the <bpt id="21c60446-9678-42f1-aeaa-44cac0122925">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="21c60446-9678-42f1-aeaa-44cac0122925">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="0fbc4a03-aee7-4f91-97f2-b5a7fcf482ea" xml:space="preserve">
+          <source><bpt id="0d8c57b2-ab9a-4a8a-a7f8-4ed080cdf016">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="0d8c57b2-ab9a-4a8a-a7f8-4ed080cdf016">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d8c57b2-ab9a-4a8a-a7f8-4ed080cdf016">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="0d8c57b2-ab9a-4a8a-a7f8-4ed080cdf016">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd3ac923-dbff-479c-8c3f-a92b3a00ed16" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into AppDynamics, they must be provisioned into AppDynamics.</source>
+          <target state="new">In order to enable Azure AD users to log into AppDynamics, they must be provisioned into AppDynamics.</target>
+        </trans-unit>
+        <trans-unit id="ff203808-f5b0-4887-b4da-098d57037b9c" xml:space="preserve">
+          <source>In the case of AppDynamics, provisioning is a manual task.</source>
+          <target state="new">In the case of AppDynamics, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="b57968be-1410-491f-9206-624e5a0667e3" xml:space="preserve">
+          <source>Log into your AppDynamics company site as an administrator.</source>
+          <target state="new">Log into your AppDynamics company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="ba0baef4-60c8-4c34-b2cf-5b4389c228a8" xml:space="preserve">
+          <source>Go to <bpt id="d6869ab7-6dd1-4792-a564-0edf05251442">&lt;strong&gt;</bpt>Users<ept id="d6869ab7-6dd1-4792-a564-0edf05251442">&lt;/strong&gt;</ept>, and then click <bpt id="51bc664b-e348-40a5-8337-5753ed23d28e">&lt;strong&gt;</bpt>+<ept id="51bc664b-e348-40a5-8337-5753ed23d28e">&lt;/strong&gt;</ept> to open the <bpt id="af66ae71-0eae-4e03-9271-b17bb6c29078">&lt;strong&gt;</bpt>Create User<ept id="af66ae71-0eae-4e03-9271-b17bb6c29078">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Go to <bpt id="d6869ab7-6dd1-4792-a564-0edf05251442">&lt;strong&gt;</bpt>Users<ept id="d6869ab7-6dd1-4792-a564-0edf05251442">&lt;/strong&gt;</ept>, and then click <bpt id="51bc664b-e348-40a5-8337-5753ed23d28e">&lt;strong&gt;</bpt>+<ept id="51bc664b-e348-40a5-8337-5753ed23d28e">&lt;/strong&gt;</ept> to open the <bpt id="af66ae71-0eae-4e03-9271-b17bb6c29078">&lt;strong&gt;</bpt>Create User<ept id="af66ae71-0eae-4e03-9271-b17bb6c29078">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="aa91c57f-fb08-4613-a22f-8930a0e44c67" xml:space="preserve">
+          <source><bpt id="02a960d7-195c-4b27-9ad6-4029e7506784">&lt;linkText&gt;</bpt>Users<ept id="02a960d7-195c-4b27-9ad6-4029e7506784">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="02a960d7-195c-4b27-9ad6-4029e7506784">&lt;linkText&gt;</bpt>Users<ept id="02a960d7-195c-4b27-9ad6-4029e7506784">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9186ec52-9253-4116-98a4-66d4d91281c4" xml:space="preserve">
+          <source>In the <bpt id="aec66b36-f014-4d2e-b2cf-066e0b78dc3f">&lt;strong&gt;</bpt>Create User<ept id="aec66b36-f014-4d2e-b2cf-066e0b78dc3f">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="aec66b36-f014-4d2e-b2cf-066e0b78dc3f">&lt;strong&gt;</bpt>Create User<ept id="aec66b36-f014-4d2e-b2cf-066e0b78dc3f">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="93724426-6e1f-41d1-a384-cd52d809c163" xml:space="preserve">
+          <source><bpt id="4672803f-2a97-4eb1-acaa-9b4c9bab837d">&lt;linkText&gt;</bpt>Create User<ept id="4672803f-2a97-4eb1-acaa-9b4c9bab837d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4672803f-2a97-4eb1-acaa-9b4c9bab837d">&lt;linkText&gt;</bpt>Create User<ept id="4672803f-2a97-4eb1-acaa-9b4c9bab837d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0a3571d-2244-4280-b56c-2fa694761dd7" xml:space="preserve">
+          <source>Type the <bpt id="c0c7fcf5-4d49-4247-b3ae-9d164405c6c2">&lt;strong&gt;</bpt>Username<ept id="c0c7fcf5-4d49-4247-b3ae-9d164405c6c2">&lt;/strong&gt;</ept>, <bpt id="286ff7e1-eb40-46d9-8025-2c72847d7d09">&lt;strong&gt;</bpt>Name<ept id="286ff7e1-eb40-46d9-8025-2c72847d7d09">&lt;/strong&gt;</ept>, <bpt id="63c5e319-c1b9-436f-8332-736a88ae3e00">&lt;strong&gt;</bpt>Email<ept id="63c5e319-c1b9-436f-8332-736a88ae3e00">&lt;/strong&gt;</ept>, <bpt id="37bff1e6-dafa-4188-9f5e-879b3bebd460">&lt;strong&gt;</bpt>New Password<ept id="37bff1e6-dafa-4188-9f5e-879b3bebd460">&lt;/strong&gt;</ept>, <bpt id="f690d6f5-6879-4745-8043-cfbbca58e10e">&lt;strong&gt;</bpt>Repeat New Password<ept id="f690d6f5-6879-4745-8043-cfbbca58e10e">&lt;/strong&gt;</ept> of a valid AAD account you want to provision into the related textboxes.</source>
+          <target state="new">Type the <bpt id="c0c7fcf5-4d49-4247-b3ae-9d164405c6c2">&lt;strong&gt;</bpt>Username<ept id="c0c7fcf5-4d49-4247-b3ae-9d164405c6c2">&lt;/strong&gt;</ept>, <bpt id="286ff7e1-eb40-46d9-8025-2c72847d7d09">&lt;strong&gt;</bpt>Name<ept id="286ff7e1-eb40-46d9-8025-2c72847d7d09">&lt;/strong&gt;</ept>, <bpt id="63c5e319-c1b9-436f-8332-736a88ae3e00">&lt;strong&gt;</bpt>Email<ept id="63c5e319-c1b9-436f-8332-736a88ae3e00">&lt;/strong&gt;</ept>, <bpt id="37bff1e6-dafa-4188-9f5e-879b3bebd460">&lt;strong&gt;</bpt>New Password<ept id="37bff1e6-dafa-4188-9f5e-879b3bebd460">&lt;/strong&gt;</ept>, <bpt id="f690d6f5-6879-4745-8043-cfbbca58e10e">&lt;strong&gt;</bpt>Repeat New Password<ept id="f690d6f5-6879-4745-8043-cfbbca58e10e">&lt;/strong&gt;</ept> of a valid AAD account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="8c171cee-2170-4eba-851c-899ee69be896" xml:space="preserve">
+          <source>Click <bpt id="0fcdbbcd-9304-4878-9f69-8cd3b2e5f46e">&lt;strong&gt;</bpt>Save<ept id="0fcdbbcd-9304-4878-9f69-8cd3b2e5f46e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0fcdbbcd-9304-4878-9f69-8cd3b2e5f46e">&lt;strong&gt;</bpt>Save<ept id="0fcdbbcd-9304-4878-9f69-8cd3b2e5f46e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="206c8c7f-5088-41e7-8593-32476b26302a" xml:space="preserve">
+          <source>You can use any other AppDynamics user account creation tools or APIs provided by AppDynamics to provision Azure AD user accounts.</source>
+          <target state="new">You can use any other AppDynamics user account creation tools or APIs provided by AppDynamics to provision Azure AD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="311f9a9a-ca86-4c4b-957a-5aa809455fbd" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="985a1788-134e-4325-a90c-6957b2fd6aad" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="5ea424fd-63f7-4123-8a95-16326d8ef012" xml:space="preserve">
+          <source>On the <bpt id="c49ef396-2e8a-4e1c-ab2b-f049ac2c170f">&lt;strong&gt;</bpt>AppDynamics **application integration page, click **Assign users<ept id="c49ef396-2e8a-4e1c-ab2b-f049ac2c170f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c49ef396-2e8a-4e1c-ab2b-f049ac2c170f">&lt;strong&gt;</bpt>AppDynamics **application integration page, click **Assign users<ept id="c49ef396-2e8a-4e1c-ab2b-f049ac2c170f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d70d698a-38b4-4134-aa2d-5f4bb09bab2f" xml:space="preserve">
+          <source><bpt id="34c94307-a978-4d53-a44d-b6f069aec7c3">&lt;linkText&gt;</bpt>Assign Users<ept id="34c94307-a978-4d53-a44d-b6f069aec7c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="34c94307-a978-4d53-a44d-b6f069aec7c3">&lt;linkText&gt;</bpt>Assign Users<ept id="34c94307-a978-4d53-a44d-b6f069aec7c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c9cdd1a-b8ca-4a9d-9fd9-485856329545" xml:space="preserve">
+          <source>Select your test user, click <bpt id="f3e39f65-1c7b-4926-96ce-0acc91950edc">&lt;strong&gt;</bpt>Assign<ept id="f3e39f65-1c7b-4926-96ce-0acc91950edc">&lt;/strong&gt;</ept>, and then click <bpt id="ed7d34be-b4d9-4ef5-8bd0-6ddb35d429de">&lt;strong&gt;</bpt>Yes<ept id="ed7d34be-b4d9-4ef5-8bd0-6ddb35d429de">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="f3e39f65-1c7b-4926-96ce-0acc91950edc">&lt;strong&gt;</bpt>Assign<ept id="f3e39f65-1c7b-4926-96ce-0acc91950edc">&lt;/strong&gt;</ept>, and then click <bpt id="ed7d34be-b4d9-4ef5-8bd0-6ddb35d429de">&lt;strong&gt;</bpt>Yes<ept id="ed7d34be-b4d9-4ef5-8bd0-6ddb35d429de">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="c9b0cd78-9c11-49e9-a73d-07187f4867ed" xml:space="preserve">
+          <source><bpt id="e3615e2b-ef5a-43a7-bd76-be46be181f9d">&lt;linkText&gt;</bpt>Yes<ept id="e3615e2b-ef5a-43a7-bd76-be46be181f9d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3615e2b-ef5a-43a7-bd76-be46be181f9d">&lt;linkText&gt;</bpt>Yes<ept id="e3615e2b-ef5a-43a7-bd76-be46be181f9d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53980e84-e8f5-4f29-a863-d2b7ec9e14f1" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="cae67873-77b5-4a57-875f-f3c7f66acfbd" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="6579e919-f1fb-4377-854d-ba00f896013e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="6579e919-f1fb-4377-854d-ba00f896013e">&lt;/linkText&gt;</ept><bpt id="6579e919-f1fb-4377-854d-ba00f896013e">&lt;title&gt;</bpt><ept id="6579e919-f1fb-4377-854d-ba00f896013e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="6579e919-f1fb-4377-854d-ba00f896013e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="6579e919-f1fb-4377-854d-ba00f896013e">&lt;/linkText&gt;</ept><bpt id="6579e919-f1fb-4377-854d-ba00f896013e">&lt;title&gt;</bpt><ept id="6579e919-f1fb-4377-854d-ba00f896013e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

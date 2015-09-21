@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9cae72aa-8957-4475-bf50-8dd46bca595f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9cae72aa-8957-4475-bf50-8dd46bca595f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eb1c2ac2-d957-46aa-9a7a-1874494dadb7">
+        <trans-unit id="40e41e0b-2448-4550-a33c-1b83e9eeefe9" xml:space="preserve">
+          <source>Azure Data Catalog release notes</source>
+          <target state="new">Azure Data Catalog release notes</target>
+        </trans-unit>
+        <trans-unit id="5e5b9cb4-489d-4957-b8ae-8839d15c2f15" xml:space="preserve">
+          <source>Release notes for the 28 August 2015 public preview release of Azure Data Catalog.</source>
+          <target state="new">Release notes for the 28 August 2015 public preview release of Azure Data Catalog.</target>
+        </trans-unit>
+        <trans-unit id="2f6a1554-df52-4b26-89b4-9c95f59317f3" xml:space="preserve">
+          <source>When registering data sources with the data profiling option selected in the data source registration tool, the data profile information may not be included in the following scenarios:</source>
+          <target state="new">When registering data sources with the data profiling option selected in the data source registration tool, the data profile information may not be included in the following scenarios:</target>
+        </trans-unit>
+        <trans-unit id="dfc1828d-a7ca-4484-bff2-bae8af04d579" xml:space="preserve">
+          <source>Azure SQL Database tables</source>
+          <target state="new">Azure SQL Database tables</target>
+        </trans-unit>
+        <trans-unit id="de4b91c4-0e0a-4246-9cec-5be6bae5efd8" xml:space="preserve">
+          <source>SQL Server tables and views where there are multiple objects with the same name in different schemas</source>
+          <target state="new">SQL Server tables and views where there are multiple objects with the same name in different schemas</target>
+        </trans-unit>
+        <trans-unit id="4864d7a5-f616-430e-b6b7-dc9137ec98fa" xml:space="preserve">
+          <source>SQL Server tables and views with column names greater than 118 characters</source>
+          <target state="new">SQL Server tables and views with column names greater than 118 characters</target>
+        </trans-unit>
+        <trans-unit id="bbd6ebfc-85d2-4780-a286-e1e5f28b23da" xml:space="preserve">
+          <source>Oracle tables and views with column names greater than 20 characters</source>
+          <target state="new">Oracle tables and views with column names greater than 20 characters</target>
+        </trans-unit>
+        <trans-unit id="bb11dc7a-d342-40a2-b839-b9ac03546fb4" xml:space="preserve">
+          <source>Oracle tables and views with spaces or multu-byte characters in column names</source>
+          <target state="new">Oracle tables and views with spaces or multu-byte characters in column names</target>
+        </trans-unit>
+        <trans-unit id="0cf51668-6b3a-4dff-8a0c-0da68cb0a85f" xml:space="preserve">
+          <source>These restrictions are due to a known issue in the August 28 release, and will be addressed in a future update to Azure Data Catalog.</source>
+          <target state="new">These restrictions are due to a known issue in the August 28 release, and will be addressed in a future update to Azure Data Catalog.</target>
+        </trans-unit>
+        <trans-unit id="1ccc4094-4f6c-446e-aebf-ec57e3c0488f" xml:space="preserve">
+          <source>When connecting to Oracle Database data sources users must have installed the correct Oracle drivers that match the bitness (32-bit or 64-bit) of the software being used.</source>
+          <target state="new">When connecting to Oracle Database data sources users must have installed the correct Oracle drivers that match the bitness (32-bit or 64-bit) of the software being used.</target>
+        </trans-unit>
+        <trans-unit id="a1a3a9d9-a86e-489a-822e-c32b90996615" xml:space="preserve">
+          <source>When registering Oracle data sources on a computer running 32-bit Windows, the 32-bit Oracle drivers will be used</source>
+          <target state="new">When registering Oracle data sources on a computer running 32-bit Windows, the 32-bit Oracle drivers will be used</target>
+        </trans-unit>
+        <trans-unit id="674bad30-f3cf-4a55-9e66-b0da74f59c0d" xml:space="preserve">
+          <source>When registering Oracle data sources on a computer running 64-bit Windows, the 64-bit Oracle drivers will be used</source>
+          <target state="new">When registering Oracle data sources on a computer running 64-bit Windows, the 64-bit Oracle drivers will be used</target>
+        </trans-unit>
+        <trans-unit id="5beb01d6-ab3e-4c38-83db-fb8b8d69d487" xml:space="preserve">
+          <source>When connecting to Oracle data sources using Excel on a computer running the 32-bit version of Microsoft Office, including on 64-bit Windows, the 32-bit Oracle drivers will be used</source>
+          <target state="new">When connecting to Oracle data sources using Excel on a computer running the 32-bit version of Microsoft Office, including on 64-bit Windows, the 32-bit Oracle drivers will be used</target>
+        </trans-unit>
+        <trans-unit id="1a4f4792-5fbc-440f-8b4e-11fce92a8bba" xml:space="preserve">
+          <source>When connecting to Oracle data sources using Excel on a computer running the 64-bit version of Microsoft Office, the 64-bit Oracle drivers will be used</source>
+          <target state="new">When connecting to Oracle data sources using Excel on a computer running the 64-bit version of Microsoft Office, the 64-bit Oracle drivers will be used</target>
+        </trans-unit>
+        <trans-unit id="5712ee3e-7a5e-4f68-99a1-45393a9c5a9b" xml:space="preserve">
+          <source>Support for SQL Server Reporting Services (SSRS) data sources in the initial preview release of Azure Data Catalog is limited to Native Mode servers only.</source>
+          <target state="new">Support for SQL Server Reporting Services (SSRS) data sources in the initial preview release of Azure Data Catalog is limited to Native Mode servers only.</target>
+        </trans-unit>
+        <trans-unit id="d29ccc54-9796-4485-97c9-b78a75d98e6c" xml:space="preserve">
+          <source>Support for SSRS in SharePoint mode will be added in a later release.</source>
+          <target state="new">Support for SSRS in SharePoint mode will be added in a later release.</target>
+        </trans-unit>
+        <trans-unit id="6ee7eeb7-ee75-4a58-93c9-a82188fe95b8" xml:space="preserve">
+          <source>When opening data assets in Microsoft Excel from the Azure Data Catalog portal, users may be prompted with a <bpt id="a91d2d3a-91c6-4855-8336-59bcae72d20b">&lt;strong&gt;</bpt>Microsoft Excel Security Notice<ept id="a91d2d3a-91c6-4855-8336-59bcae72d20b">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">When opening data assets in Microsoft Excel from the Azure Data Catalog portal, users may be prompted with a <bpt id="a91d2d3a-91c6-4855-8336-59bcae72d20b">&lt;strong&gt;</bpt>Microsoft Excel Security Notice<ept id="a91d2d3a-91c6-4855-8336-59bcae72d20b">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="f8e86c3a-a27f-421e-bd60-7c945a336550" xml:space="preserve">
+          <source>This is standard, expected behavior, and users can select <bpt id="f35ef9d4-b04f-4317-808d-88d67426acb4">&lt;strong&gt;</bpt>Enable<ept id="f35ef9d4-b04f-4317-808d-88d67426acb4">&lt;/strong&gt;</ept> to continue.</source>
+          <target state="new">This is standard, expected behavior, and users can select <bpt id="f35ef9d4-b04f-4317-808d-88d67426acb4">&lt;strong&gt;</bpt>Enable<ept id="f35ef9d4-b04f-4317-808d-88d67426acb4">&lt;/strong&gt;</ept> to continue.</target>
+        </trans-unit>
+        <trans-unit id="4574a1f3-9d79-468e-bfdc-e16629150088" xml:space="preserve">
+          <source>For more information, see <bpt id="bde7d008-2161-4502-9a97-af96d947d422">&lt;linkText&gt;</bpt>Enable or disable security alerts about links and files from suspicious websites<ept id="bde7d008-2161-4502-9a97-af96d947d422">&lt;/linkText&gt;</ept><bpt id="bde7d008-2161-4502-9a97-af96d947d422">&lt;title&gt;</bpt><ept id="bde7d008-2161-4502-9a97-af96d947d422">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="bde7d008-2161-4502-9a97-af96d947d422">&lt;linkText&gt;</bpt>Enable or disable security alerts about links and files from suspicious websites<ept id="bde7d008-2161-4502-9a97-af96d947d422">&lt;/linkText&gt;</ept><bpt id="bde7d008-2161-4502-9a97-af96d947d422">&lt;title&gt;</bpt><ept id="bde7d008-2161-4502-9a97-af96d947d422">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0c83f7a-3b54-4891-9028-e3692831c275" xml:space="preserve">
+          <source>When registering tables and views that contain binary large object (BLOB) and user-defined data type (UDT) columns, and selecting to include preview for the data assets, these columns will not be included in the preview.</source>
+          <target state="new">When registering tables and views that contain binary large object (BLOB) and user-defined data type (UDT) columns, and selecting to include preview for the data assets, these columns will not be included in the preview.</target>
+        </trans-unit>
+        <trans-unit id="6a462178-444e-46de-ba8c-4d646a09aefc" xml:space="preserve">
+          <source>Users may encounter a situation where they can log on to the Azure Data Catalog portal, but when they attempt to log on to the data source registration tool they encounter an error message that prevents them from logging on.</source>
+          <target state="new">Users may encounter a situation where they can log on to the Azure Data Catalog portal, but when they attempt to log on to the data source registration tool they encounter an error message that prevents them from logging on.</target>
+        </trans-unit>
+        <trans-unit id="d987e998-e706-4c3c-b3f9-b9aefe751eaa" xml:space="preserve">
+          <source>There are two potential causes for this problem behavior:</source>
+          <target state="new">There are two potential causes for this problem behavior:</target>
+        </trans-unit>
+        <trans-unit id="f2856eb5-22f0-460e-a02c-a345b1b5f1d9" xml:space="preserve">
+          <source><bpt id="67c0b81d-49ac-42ec-bfdc-bfa0c4a63599">&lt;strong&gt;</bpt>Cause 1: Active Directory Federation Services Configuration<ept id="67c0b81d-49ac-42ec-bfdc-bfa0c4a63599">&lt;/strong&gt;</ept>
+The data source registration tool uses Forms Authentication to validate user logons against Active Directory.</source>
+          <target state="new"><bpt id="67c0b81d-49ac-42ec-bfdc-bfa0c4a63599">&lt;strong&gt;</bpt>Cause 1: Active Directory Federation Services Configuration<ept id="67c0b81d-49ac-42ec-bfdc-bfa0c4a63599">&lt;/strong&gt;</ept>
+The data source registration tool uses Forms Authentication to validate user logons against Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="37142b6a-654e-4c8e-b623-5a20ebdc5d3d" xml:space="preserve">
+          <source>For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.</source>
+          <target state="new">For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.</target>
+        </trans-unit>
+        <trans-unit id="994520ff-93e7-49a4-9921-7aa39843b3a0" xml:space="preserve">
+          <source>In some situations, this error behavior may occur only when the user is on the company network, or only when the user is connecting from outside the company network.</source>
+          <target state="new">In some situations, this error behavior may occur only when the user is on the company network, or only when the user is connecting from outside the company network.</target>
+        </trans-unit>
+        <trans-unit id="899eaaf4-941b-4ed7-8c5a-120b328d8e3f" xml:space="preserve">
+          <source>The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections.</source>
+          <target state="new">The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections.</target>
+        </trans-unit>
+        <trans-unit id="91f2725c-65b2-4c3d-8ce1-22779fc4c461" xml:space="preserve">
+          <source>Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.</source>
+          <target state="new">Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.</target>
+        </trans-unit>
+        <trans-unit id="892afea9-9b79-438d-bbc0-69ea3f182c2f" xml:space="preserve">
+          <source>For more information, see <bpt id="3bc0e463-25c0-4357-9e70-7f9795547c3e">&lt;linkText&gt;</bpt>Configuring intranet forms-based authentication for devices that do not support WIA<ept id="3bc0e463-25c0-4357-9e70-7f9795547c3e">&lt;/linkText&gt;</ept><bpt id="3bc0e463-25c0-4357-9e70-7f9795547c3e">&lt;title&gt;</bpt><ept id="3bc0e463-25c0-4357-9e70-7f9795547c3e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="3bc0e463-25c0-4357-9e70-7f9795547c3e">&lt;linkText&gt;</bpt>Configuring intranet forms-based authentication for devices that do not support WIA<ept id="3bc0e463-25c0-4357-9e70-7f9795547c3e">&lt;/linkText&gt;</ept><bpt id="3bc0e463-25c0-4357-9e70-7f9795547c3e">&lt;title&gt;</bpt><ept id="3bc0e463-25c0-4357-9e70-7f9795547c3e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f4ba667-8673-416c-9681-ca6dfbafd8b2" xml:space="preserve">
+          <source><bpt id="0a047797-c098-4d58-9d26-2e281390e98a">&lt;strong&gt;</bpt>Cause 2: Network Proxy Configuration<ept id="0a047797-c098-4d58-9d26-2e281390e98a">&lt;/strong&gt;</ept>
+If the corporate network uses a proxy server, the registration tool may not be able to connect to Azure Active Directory through the proxy.</source>
+          <target state="new"><bpt id="0a047797-c098-4d58-9d26-2e281390e98a">&lt;strong&gt;</bpt>Cause 2: Network Proxy Configuration<ept id="0a047797-c098-4d58-9d26-2e281390e98a">&lt;/strong&gt;</ept>
+If the corporate network uses a proxy server, the registration tool may not be able to connect to Azure Active Directory through the proxy.</target>
+        </trans-unit>
+        <trans-unit id="7b9cf1a4-529a-416b-b16e-b69efc7f674e" xml:space="preserve">
+          <source>Users can ensure that the registration tool by editing the tool’s configuration file, adding this section to the file:</source>
+          <target state="new">Users can ensure that the registration tool by editing the tool’s configuration file, adding this section to the file:</target>
+        </trans-unit>
+        <trans-unit id="28659edb-a9a1-447b-9218-f45e5fe82e75" xml:space="preserve">
+          <source>To locate the RegistrationTool.exe.config file, launch the registration tool, and then open the Windows Task Manager utility.</source>
+          <target state="new">To locate the RegistrationTool.exe.config file, launch the registration tool, and then open the Windows Task Manager utility.</target>
+        </trans-unit>
+        <trans-unit id="89ee8242-e464-4d65-85c5-e146f65b2c1f" xml:space="preserve">
+          <source>On the Details tab in Task manager, right-click on RegistrationTool.exe and choose Open file location from the pop-up menu.</source>
+          <target state="new">On the Details tab in Task manager, right-click on RegistrationTool.exe and choose Open file location from the pop-up menu.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

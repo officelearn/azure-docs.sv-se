@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5e055108-08fe-4fb9-861e-dd82674312a1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5e055108-08fe-4fb9-861e-dd82674312a1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="38e255cc-0eb1-4600-abf5-573f25d18b23">
+        <trans-unit id="f665fe7e-9196-41ec-abf1-528fbc9230be" xml:space="preserve">
+          <source>Typical workflow for Azure Search development | Microsoft Azure</source>
+          <target state="new">Typical workflow for Azure Search development | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="111013cd-e08f-4429-bd59-8fbff38b4bb0" xml:space="preserve">
+          <source>A workflow or roadmap for building prototype and production applications that integrate with Azure Search.</source>
+          <target state="new">A workflow or roadmap for building prototype and production applications that integrate with Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="17f3e7dd-a1e2-4e32-9321-3e20791df5e5" xml:space="preserve">
+          <source>This article is a roadmap for including Azure Search as a component that provides the search experience in your custom application.</source>
+          <target state="new">This article is a roadmap for including Azure Search as a component that provides the search experience in your custom application.</target>
+        </trans-unit>
+        <trans-unit id="a2badc13-25cd-4362-a0a6-7bcc0cb4a32a" xml:space="preserve">
+          <source>Depending on whether you are testing the waters or ready to dive right in, you’ll want some preliminary guidance on how to integrate Azure Search into your custom development project.</source>
+          <target state="new">Depending on whether you are testing the waters or ready to dive right in, you’ll want some preliminary guidance on how to integrate Azure Search into your custom development project.</target>
+        </trans-unit>
+        <trans-unit id="432f4ace-5227-4667-b316-8992ada06a2d" xml:space="preserve">
+          <source>In the following sections, we break out a typical workflow for an initial prototype that will help you evaluate how well Azure Search meets the search requirements of your application.</source>
+          <target state="new">In the following sections, we break out a typical workflow for an initial prototype that will help you evaluate how well Azure Search meets the search requirements of your application.</target>
+        </trans-unit>
+        <trans-unit id="80e2f8ee-3fa4-4a91-8e11-94dc59bcd033" xml:space="preserve">
+          <source>Part two of this article covers important design decisions that factor into a more serious application development effort.</source>
+          <target state="new">Part two of this article covers important design decisions that factor into a more serious application development effort.</target>
+        </trans-unit>
+        <trans-unit id="16a2d890-3bba-49d8-b511-f76ebe35201c" xml:space="preserve">
+          <source>Before you start prototyping, we recommend that you ramp up with one of our Getting Started tutorials or this <bpt id="9f94c03b-9ba6-41e9-8add-baf4c9476859">&lt;linkText&gt;</bpt>one-hour deep dive presentation video<ept id="9f94c03b-9ba6-41e9-8add-baf4c9476859">&lt;/linkText&gt;</ept><bpt id="9f94c03b-9ba6-41e9-8add-baf4c9476859">&lt;title&gt;</bpt><ept id="9f94c03b-9ba6-41e9-8add-baf4c9476859">&lt;/title&gt;</ept>.</source>
+          <target state="new">Before you start prototyping, we recommend that you ramp up with one of our Getting Started tutorials or this <bpt id="9f94c03b-9ba6-41e9-8add-baf4c9476859">&lt;linkText&gt;</bpt>one-hour deep dive presentation video<ept id="9f94c03b-9ba6-41e9-8add-baf4c9476859">&lt;/linkText&gt;</ept><bpt id="9f94c03b-9ba6-41e9-8add-baf4c9476859">&lt;title&gt;</bpt><ept id="9f94c03b-9ba6-41e9-8add-baf4c9476859">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91674ecc-311a-4019-a8e3-55ef7cabcd5a" xml:space="preserve">
+          <source>Get Started tutorials are offered in these languages: <bpt id="b6c37561-8f11-48cd-a887-2bff6cec8ed0">&lt;linkText&gt;</bpt>.NET<ept id="b6c37561-8f11-48cd-a887-2bff6cec8ed0">&lt;/linkText&gt;</ept><bpt id="b6c37561-8f11-48cd-a887-2bff6cec8ed0">&lt;title&gt;</bpt><ept id="b6c37561-8f11-48cd-a887-2bff6cec8ed0">&lt;/title&gt;</ept>, <bpt id="f9f9d24c-e492-4089-9dfc-e371f4d6c07d">&lt;linkText&gt;</bpt>Java<ept id="f9f9d24c-e492-4089-9dfc-e371f4d6c07d">&lt;/linkText&gt;</ept><bpt id="f9f9d24c-e492-4089-9dfc-e371f4d6c07d">&lt;title&gt;</bpt><ept id="f9f9d24c-e492-4089-9dfc-e371f4d6c07d">&lt;/title&gt;</ept>, <bpt id="c75c8bc5-15db-4caf-a3fd-1ab1d6ef9020">&lt;linkText&gt;</bpt>Node.JS<ept id="c75c8bc5-15db-4caf-a3fd-1ab1d6ef9020">&lt;/linkText&gt;</ept><bpt id="c75c8bc5-15db-4caf-a3fd-1ab1d6ef9020">&lt;title&gt;</bpt><ept id="c75c8bc5-15db-4caf-a3fd-1ab1d6ef9020">&lt;/title&gt;</ept>.</source>
+          <target state="new">Get Started tutorials are offered in these languages: <bpt id="b6c37561-8f11-48cd-a887-2bff6cec8ed0">&lt;linkText&gt;</bpt>.NET<ept id="b6c37561-8f11-48cd-a887-2bff6cec8ed0">&lt;/linkText&gt;</ept><bpt id="b6c37561-8f11-48cd-a887-2bff6cec8ed0">&lt;title&gt;</bpt><ept id="b6c37561-8f11-48cd-a887-2bff6cec8ed0">&lt;/title&gt;</ept>, <bpt id="f9f9d24c-e492-4089-9dfc-e371f4d6c07d">&lt;linkText&gt;</bpt>Java<ept id="f9f9d24c-e492-4089-9dfc-e371f4d6c07d">&lt;/linkText&gt;</ept><bpt id="f9f9d24c-e492-4089-9dfc-e371f4d6c07d">&lt;title&gt;</bpt><ept id="f9f9d24c-e492-4089-9dfc-e371f4d6c07d">&lt;/title&gt;</ept>, <bpt id="c75c8bc5-15db-4caf-a3fd-1ab1d6ef9020">&lt;linkText&gt;</bpt>Node.JS<ept id="c75c8bc5-15db-4caf-a3fd-1ab1d6ef9020">&lt;/linkText&gt;</ept><bpt id="c75c8bc5-15db-4caf-a3fd-1ab1d6ef9020">&lt;title&gt;</bpt><ept id="c75c8bc5-15db-4caf-a3fd-1ab1d6ef9020">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d35fe245-a03b-40e7-89b6-52bb02faeaee" xml:space="preserve">
+          <source>The quickest path to a successful prototype typically includes the steps in this section.</source>
+          <target state="new">The quickest path to a successful prototype typically includes the steps in this section.</target>
+        </trans-unit>
+        <trans-unit id="6558be21-c379-4be0-8ea0-3c55e2501180" xml:space="preserve">
+          <source>Steps include provisioning a service, define a schema for your index, load the index with documents, and query the index.</source>
+          <target state="new">Steps include provisioning a service, define a schema for your index, load the index with documents, and query the index.</target>
+        </trans-unit>
+        <trans-unit id="fad24747-da09-46da-92a3-5d5c06dbde22" xml:space="preserve">
+          <source>For applications with volatile data (for example, if the common case includes rapid changes to inventory or content), your prototype should include a component for updating documents as well.</source>
+          <target state="new">For applications with volatile data (for example, if the common case includes rapid changes to inventory or content), your prototype should include a component for updating documents as well.</target>
+        </trans-unit>
+        <trans-unit id="2f1221be-badd-414d-a4c8-3ca308c8242f" xml:space="preserve">
+          <source>   <bpt id="c90bec3f-f8c6-4c76-9bc2-258e8c4eae30">&lt;linkText&gt;</bpt><ept id="c90bec3f-f8c6-4c76-9bc2-258e8c4eae30">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="c90bec3f-f8c6-4c76-9bc2-258e8c4eae30">&lt;linkText&gt;</bpt><ept id="c90bec3f-f8c6-4c76-9bc2-258e8c4eae30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75dff920-6039-4c59-b9e6-a9499cc37374" xml:space="preserve">
+          <source>Azure Search is a fully-managed online service available through an Azure subscription.</source>
+          <target state="new">Azure Search is a fully-managed online service available through an Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="90d860bc-b0a6-4e30-8a37-aed1b0f2861c" xml:space="preserve">
+          <source><bpt id="3e6f53de-5b77-44d0-8fd0-c205a1d0f9ba">&lt;linkText&gt;</bpt>Once you sign up for Azure<ept id="3e6f53de-5b77-44d0-8fd0-c205a1d0f9ba">&lt;/linkText&gt;</ept><bpt id="3e6f53de-5b77-44d0-8fd0-c205a1d0f9ba">&lt;title&gt;</bpt><ept id="3e6f53de-5b77-44d0-8fd0-c205a1d0f9ba">&lt;/title&gt;</ept>, adding the Search service is quick.</source>
+          <target state="new"><bpt id="3e6f53de-5b77-44d0-8fd0-c205a1d0f9ba">&lt;linkText&gt;</bpt>Once you sign up for Azure<ept id="3e6f53de-5b77-44d0-8fd0-c205a1d0f9ba">&lt;/linkText&gt;</ept><bpt id="3e6f53de-5b77-44d0-8fd0-c205a1d0f9ba">&lt;title&gt;</bpt><ept id="3e6f53de-5b77-44d0-8fd0-c205a1d0f9ba">&lt;/title&gt;</ept>, adding the Search service is quick.</target>
+        </trans-unit>
+        <trans-unit id="def6d021-2eef-417b-b848-a1ac52073e63" xml:space="preserve">
+          <source>Visit <bpt id="72458ff5-d940-43c5-89b5-a18924cfe2bd">&lt;linkText&gt;</bpt>Create a Search service in the portal<ept id="72458ff5-d940-43c5-89b5-a18924cfe2bd">&lt;/linkText&gt;</ept><bpt id="72458ff5-d940-43c5-89b5-a18924cfe2bd">&lt;title&gt;</bpt><ept id="72458ff5-d940-43c5-89b5-a18924cfe2bd">&lt;/title&gt;</ept> for instructions on how to add a Search service to your subscription.</source>
+          <target state="new">Visit <bpt id="72458ff5-d940-43c5-89b5-a18924cfe2bd">&lt;linkText&gt;</bpt>Create a Search service in the portal<ept id="72458ff5-d940-43c5-89b5-a18924cfe2bd">&lt;/linkText&gt;</ept><bpt id="72458ff5-d940-43c5-89b5-a18924cfe2bd">&lt;title&gt;</bpt><ept id="72458ff5-d940-43c5-89b5-a18924cfe2bd">&lt;/title&gt;</ept> for instructions on how to add a Search service to your subscription.</target>
+        </trans-unit>
+        <trans-unit id="69527a79-6f2a-4064-aacc-b71f328db5ff" xml:space="preserve">
+          <source>There are two pricing tiers to choose from.</source>
+          <target state="new">There are two pricing tiers to choose from.</target>
+        </trans-unit>
+        <trans-unit id="40301ee6-9c41-40cb-a940-539efc155f04" xml:space="preserve">
+          <source>We recommend the shared (free) service for prototyping, with the caveat that you will need to work with a small subset of your data.</source>
+          <target state="new">We recommend the shared (free) service for prototyping, with the caveat that you will need to work with a small subset of your data.</target>
+        </trans-unit>
+        <trans-unit id="7e5d5bb0-a0f1-43c2-9dbd-895118e2befc" xml:space="preserve">
+          <source>The shared service is free to existing subscribers (through trial or regular memberships) and is fast to set up, but it constrains the number of indexes and documents you can use to 3 indexes, up to 10,000 documents per index, or 50 MB of storage total, whichever comes first.</source>
+          <target state="new">The shared service is free to existing subscribers (through trial or regular memberships) and is fast to set up, but it constrains the number of indexes and documents you can use to 3 indexes, up to 10,000 documents per index, or 50 MB of storage total, whichever comes first.</target>
+        </trans-unit>
+        <trans-unit id="6ab68b4a-03fc-4611-bb8e-74b00e6c6e73" xml:space="preserve">
+          <source>After you create the service, you are ready to create an index, starting with its schema definition.</source>
+          <target state="new">After you create the service, you are ready to create an index, starting with its schema definition.</target>
+        </trans-unit>
+        <trans-unit id="2cc6fc93-3ffd-4b26-b5d5-a44949abc8d2" xml:space="preserve">
+          <source>The fastest and easiest way to create an index is through the Azure portal.</source>
+          <target state="new">The fastest and easiest way to create an index is through the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="cc589f52-3903-41de-828e-191399910b04" xml:space="preserve">
+          <source>At a minimum, each document must have a unique key and at least one field that contains searchable data.</source>
+          <target state="new">At a minimum, each document must have a unique key and at least one field that contains searchable data.</target>
+        </trans-unit>
+        <trans-unit id="d3c63ba5-6d6c-4aec-8def-884e927d85ab" xml:space="preserve">
+          <source>To get started, see <bpt id="551d5f12-d688-4023-9a48-08431be8537e">&lt;linkText&gt;</bpt>Create an index in the portal<ept id="551d5f12-d688-4023-9a48-08431be8537e">&lt;/linkText&gt;</ept><bpt id="551d5f12-d688-4023-9a48-08431be8537e">&lt;title&gt;</bpt><ept id="551d5f12-d688-4023-9a48-08431be8537e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started, see <bpt id="551d5f12-d688-4023-9a48-08431be8537e">&lt;linkText&gt;</bpt>Create an index in the portal<ept id="551d5f12-d688-4023-9a48-08431be8537e">&lt;/linkText&gt;</ept><bpt id="551d5f12-d688-4023-9a48-08431be8537e">&lt;title&gt;</bpt><ept id="551d5f12-d688-4023-9a48-08431be8537e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74346a20-1cac-4d34-9fa0-c5c48f07bb06" xml:space="preserve">
+          <source>Inside an Azure Search Index</source>
+          <target state="new">Inside an Azure Search Index</target>
+        </trans-unit>
+        <trans-unit id="ebaa4688-ed52-4e84-94ce-ac370d8b4b19" xml:space="preserve">
+          <source>An <bpt id="b243ec19-45ea-429a-819e-5bb55171f19d">&lt;em&gt;</bpt>index<ept id="b243ec19-45ea-429a-819e-5bb55171f19d">&lt;/em&gt;</ept> is organized, persisted data that serves as the <bpt id="76d7a4f6-ee3a-4a30-8773-370e15cf0407">&lt;em&gt;</bpt>search corpus<ept id="76d7a4f6-ee3a-4a30-8773-370e15cf0407">&lt;/em&gt;</ept> for all subsequent search operations.</source>
+          <target state="new">An <bpt id="b243ec19-45ea-429a-819e-5bb55171f19d">&lt;em&gt;</bpt>index<ept id="b243ec19-45ea-429a-819e-5bb55171f19d">&lt;/em&gt;</ept> is organized, persisted data that serves as the <bpt id="76d7a4f6-ee3a-4a30-8773-370e15cf0407">&lt;em&gt;</bpt>search corpus<ept id="76d7a4f6-ee3a-4a30-8773-370e15cf0407">&lt;/em&gt;</ept> for all subsequent search operations.</target>
+        </trans-unit>
+        <trans-unit id="c345a051-8537-4f50-8100-7110c6572ffd" xml:space="preserve">
+          <source>Your search corpus is stored in the cloud as part of your Search service subscription, which enables search operations to execute quickly and consistently.</source>
+          <target state="new">Your search corpus is stored in the cloud as part of your Search service subscription, which enables search operations to execute quickly and consistently.</target>
+        </trans-unit>
+        <trans-unit id="46baa23d-f2fc-43e8-9837-4af9696785b4" xml:space="preserve">
+          <source>In search terminology, an item in your search corpus is called a <bpt id="aac06e63-7f79-4966-af32-830c2c5ce7a9">&lt;em&gt;</bpt>document<ept id="aac06e63-7f79-4966-af32-830c2c5ce7a9">&lt;/em&gt;</ept>, and the sum total of all documents is the <bpt id="a59f4feb-0593-4007-9504-69d30c13a9c6">&lt;em&gt;</bpt>documents collection<ept id="a59f4feb-0593-4007-9504-69d30c13a9c6">&lt;/em&gt;</ept>.</source>
+          <target state="new">In search terminology, an item in your search corpus is called a <bpt id="aac06e63-7f79-4966-af32-830c2c5ce7a9">&lt;em&gt;</bpt>document<ept id="aac06e63-7f79-4966-af32-830c2c5ce7a9">&lt;/em&gt;</ept>, and the sum total of all documents is the <bpt id="a59f4feb-0593-4007-9504-69d30c13a9c6">&lt;em&gt;</bpt>documents collection<ept id="a59f4feb-0593-4007-9504-69d30c13a9c6">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="771b9c9d-682d-4ff8-8062-24eb45a3fa5c" xml:space="preserve">
+          <source>An <bpt id="46a10fc2-5fc1-47a2-b05f-2b2d206c78f9">&lt;em&gt;</bpt>index schema<ept id="46a10fc2-5fc1-47a2-b05f-2b2d206c78f9">&lt;/em&gt;</ept> defines all of the fields within a document by name, data type, and attributes that specify whether the field is searchable, filterable, facetable, and so forth.</source>
+          <target state="new">An <bpt id="46a10fc2-5fc1-47a2-b05f-2b2d206c78f9">&lt;em&gt;</bpt>index schema<ept id="46a10fc2-5fc1-47a2-b05f-2b2d206c78f9">&lt;/em&gt;</ept> defines all of the fields within a document by name, data type, and attributes that specify whether the field is searchable, filterable, facetable, and so forth.</target>
+        </trans-unit>
+        <trans-unit id="d68fed72-1850-4744-90b9-a91761e89d2f" xml:space="preserve">
+          <source>Besides document structure, an index schema also specifies scoring profiles that provide criteria for boosting a search score, and configuration settings that enable auto-complete queries (suggesters) and CORS for cross-domain query requests.</source>
+          <target state="new">Besides document structure, an index schema also specifies scoring profiles that provide criteria for boosting a search score, and configuration settings that enable auto-complete queries (suggesters) and CORS for cross-domain query requests.</target>
+        </trans-unit>
+        <trans-unit id="e6db6c3b-766d-4417-aeab-e11aa879646b" xml:space="preserve">
+          <source><bpt id="93eb5a11-7f8b-4810-9883-daf43bba8d79">&lt;em&gt;</bpt>For prototypes, we recommend that you start out simply by specifying just the fields in a document<ept id="93eb5a11-7f8b-4810-9883-daf43bba8d79">&lt;/em&gt;</ept>, and then add other features incrementally (see Step 5 for a list of additional functionality to add later).</source>
+          <target state="new"><bpt id="93eb5a11-7f8b-4810-9883-daf43bba8d79">&lt;em&gt;</bpt>For prototypes, we recommend that you start out simply by specifying just the fields in a document<ept id="93eb5a11-7f8b-4810-9883-daf43bba8d79">&lt;/em&gt;</ept>, and then add other features incrementally (see Step 5 for a list of additional functionality to add later).</target>
+        </trans-unit>
+        <trans-unit id="cf836fcb-1276-4ab8-87a3-b3785ef1c2c1" xml:space="preserve">
+          <source>Applied to a real-world example, consider an e-commerce application.</source>
+          <target state="new">Applied to a real-world example, consider an e-commerce application.</target>
+        </trans-unit>
+        <trans-unit id="2eb0369c-ea73-4a74-a8a6-2cde42d7b284" xml:space="preserve">
+          <source>The search index would contain all of the products or services that are searchable in your application (anything that comes back in a search results).</source>
+          <target state="new">The search index would contain all of the products or services that are searchable in your application (anything that comes back in a search results).</target>
+        </trans-unit>
+        <trans-unit id="1bd8c09b-b3c5-4742-9d35-ec93e276eafa" xml:space="preserve">
+          <source>There would be one document for each SKU.</source>
+          <target state="new">There would be one document for each SKU.</target>
+        </trans-unit>
+        <trans-unit id="bec65177-2f89-408e-b8be-58e30b952a1d" xml:space="preserve">
+          <source>Each document would include the product name, brand, sizes, price, colors, and even references to images or other resource files that you want returned within search results.</source>
+          <target state="new">Each document would include the product name, brand, sizes, price, colors, and even references to images or other resource files that you want returned within search results.</target>
+        </trans-unit>
+        <trans-unit id="e3e87602-7b01-4039-8888-29435161aee7" xml:space="preserve">
+          <source>After saving the index in Azure Search, the next step is to populate the index with documents.</source>
+          <target state="new">After saving the index in Azure Search, the next step is to populate the index with documents.</target>
+        </trans-unit>
+        <trans-unit id="50ee50aa-d514-4717-8293-b38e74f31290" xml:space="preserve">
+          <source>In this step, data is uploaded, analyzed, tokenized, and stored in data structures (such as inverted indexes) that are designed for search workloads.</source>
+          <target state="new">In this step, data is uploaded, analyzed, tokenized, and stored in data structures (such as inverted indexes) that are designed for search workloads.</target>
+        </trans-unit>
+        <trans-unit id="fe133ff5-624d-44e0-9fab-0459ff30466b" xml:space="preserve">
+          <source>Data that you upload to an index must conform to the schema you defined in the previous step.</source>
+          <target state="new">Data that you upload to an index must conform to the schema you defined in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="b28f40c6-4455-4c69-a9ad-90c4b21ee546" xml:space="preserve">
+          <source>Document data is represented as a set of key/value pairs for each field, in JSON format.</source>
+          <target state="new">Document data is represented as a set of key/value pairs for each field, in JSON format.</target>
+        </trans-unit>
+        <trans-unit id="c62951d0-5725-444f-b67e-120b59f2cbfd" xml:space="preserve">
+          <source>If your schema specifies an ID (key) field, a name field, a number field, and a URL field (which you might do if external images are part of your search results), then all the documents you feed into the index must have values (or null) for each field.</source>
+          <target state="new">If your schema specifies an ID (key) field, a name field, a number field, and a URL field (which you might do if external images are part of your search results), then all the documents you feed into the index must have values (or null) for each field.</target>
+        </trans-unit>
+        <trans-unit id="a7d50387-dd68-4653-ac21-463604d28f85" xml:space="preserve">
+          <source>There are several ways to load documents, but right now, all of them require an API.</source>
+          <target state="new">There are several ways to load documents, but right now, all of them require an API.</target>
+        </trans-unit>
+        <trans-unit id="5e33d6a8-b327-4717-81d1-b859bd2094b7" xml:space="preserve">
+          <source>For most prototypes, this step might be the most time consuming due to a coding requirement.</source>
+          <target state="new">For most prototypes, this step might be the most time consuming due to a coding requirement.</target>
+        </trans-unit>
+        <trans-unit id="619b248a-8152-45fa-b878-a0ca7b84b73a" xml:space="preserve">
+          <source>Options are described later in this article.</source>
+          <target state="new">Options are described later in this article.</target>
+        </trans-unit>
+        <trans-unit id="e95e1690-14d2-4e78-bc9b-a52b028c7c74" xml:space="preserve">
+          <source>Remember that the shared service limits you to 10,000 documents per index.</source>
+          <target state="new">Remember that the shared service limits you to 10,000 documents per index.</target>
+        </trans-unit>
+        <trans-unit id="75e94b65-3160-4fe8-9350-99fa7d9a2ec6" xml:space="preserve">
+          <source>Be sure to reduce your dataset so that it stays under the limits.</source>
+          <target state="new">Be sure to reduce your dataset so that it stays under the limits.</target>
+        </trans-unit>
+        <trans-unit id="71a993e2-a0b2-46e0-9fe0-c96a3974f707" xml:space="preserve">
+          <source>See <bpt id="1fd1d6f2-ac61-41e9-afa1-b8318782bde7">&lt;linkText&gt;</bpt>Limits and constraints<ept id="1fd1d6f2-ac61-41e9-afa1-b8318782bde7">&lt;/linkText&gt;</ept><bpt id="1fd1d6f2-ac61-41e9-afa1-b8318782bde7">&lt;title&gt;</bpt><ept id="1fd1d6f2-ac61-41e9-afa1-b8318782bde7">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="1fd1d6f2-ac61-41e9-afa1-b8318782bde7">&lt;linkText&gt;</bpt>Limits and constraints<ept id="1fd1d6f2-ac61-41e9-afa1-b8318782bde7">&lt;/linkText&gt;</ept><bpt id="1fd1d6f2-ac61-41e9-afa1-b8318782bde7">&lt;title&gt;</bpt><ept id="1fd1d6f2-ac61-41e9-afa1-b8318782bde7">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="b5e69af2-7592-4660-a417-51c64e891764" xml:space="preserve">
+          <source>One approach is to use an indexer.</source>
+          <target state="new">One approach is to use an indexer.</target>
+        </trans-unit>
+        <trans-unit id="4841ab81-fca9-47d3-81fc-34fe4a94627f" xml:space="preserve">
+          <source>For Azure DocumentDB or SQL Server relational data sources in Azure (specifically Azure SQL Database, or SQL Server in an Azure VM), you can use <bpt id="1eb32acc-cb78-437b-89e9-2e9f6ab03ef9">&lt;linkText&gt;</bpt>indexers<ept id="1eb32acc-cb78-437b-89e9-2e9f6ab03ef9">&lt;/linkText&gt;</ept><bpt id="1eb32acc-cb78-437b-89e9-2e9f6ab03ef9">&lt;title&gt;</bpt><ept id="1eb32acc-cb78-437b-89e9-2e9f6ab03ef9">&lt;/title&gt;</ept> to retrieve documents from a supported data source.</source>
+          <target state="new">For Azure DocumentDB or SQL Server relational data sources in Azure (specifically Azure SQL Database, or SQL Server in an Azure VM), you can use <bpt id="1eb32acc-cb78-437b-89e9-2e9f6ab03ef9">&lt;linkText&gt;</bpt>indexers<ept id="1eb32acc-cb78-437b-89e9-2e9f6ab03ef9">&lt;/linkText&gt;</ept><bpt id="1eb32acc-cb78-437b-89e9-2e9f6ab03ef9">&lt;title&gt;</bpt><ept id="1eb32acc-cb78-437b-89e9-2e9f6ab03ef9">&lt;/title&gt;</ept> to retrieve documents from a supported data source.</target>
+        </trans-unit>
+        <trans-unit id="be19dd38-8975-4aac-bd11-0cdf0ee203c8" xml:space="preserve">
+          <source>Code samples that use indexers for loading documents can be found in any of these getting started tutorials: <bpt id="90e266fe-85e6-4268-90c8-c0f520767b77">&lt;linkText&gt;</bpt>.NET<ept id="90e266fe-85e6-4268-90c8-c0f520767b77">&lt;/linkText&gt;</ept><bpt id="90e266fe-85e6-4268-90c8-c0f520767b77">&lt;title&gt;</bpt><ept id="90e266fe-85e6-4268-90c8-c0f520767b77">&lt;/title&gt;</ept>, <bpt id="aa4ca32f-f0dc-4a94-b7d0-3fe0277b1a9e">&lt;linkText&gt;</bpt>Java<ept id="aa4ca32f-f0dc-4a94-b7d0-3fe0277b1a9e">&lt;/linkText&gt;</ept><bpt id="aa4ca32f-f0dc-4a94-b7d0-3fe0277b1a9e">&lt;title&gt;</bpt><ept id="aa4ca32f-f0dc-4a94-b7d0-3fe0277b1a9e">&lt;/title&gt;</ept>, <bpt id="3440bd58-9418-46a1-93aa-96bdfe041e06">&lt;linkText&gt;</bpt>Node.JS<ept id="3440bd58-9418-46a1-93aa-96bdfe041e06">&lt;/linkText&gt;</ept><bpt id="3440bd58-9418-46a1-93aa-96bdfe041e06">&lt;title&gt;</bpt><ept id="3440bd58-9418-46a1-93aa-96bdfe041e06">&lt;/title&gt;</ept>.</source>
+          <target state="new">Code samples that use indexers for loading documents can be found in any of these getting started tutorials: <bpt id="90e266fe-85e6-4268-90c8-c0f520767b77">&lt;linkText&gt;</bpt>.NET<ept id="90e266fe-85e6-4268-90c8-c0f520767b77">&lt;/linkText&gt;</ept><bpt id="90e266fe-85e6-4268-90c8-c0f520767b77">&lt;title&gt;</bpt><ept id="90e266fe-85e6-4268-90c8-c0f520767b77">&lt;/title&gt;</ept>, <bpt id="aa4ca32f-f0dc-4a94-b7d0-3fe0277b1a9e">&lt;linkText&gt;</bpt>Java<ept id="aa4ca32f-f0dc-4a94-b7d0-3fe0277b1a9e">&lt;/linkText&gt;</ept><bpt id="aa4ca32f-f0dc-4a94-b7d0-3fe0277b1a9e">&lt;title&gt;</bpt><ept id="aa4ca32f-f0dc-4a94-b7d0-3fe0277b1a9e">&lt;/title&gt;</ept>, <bpt id="3440bd58-9418-46a1-93aa-96bdfe041e06">&lt;linkText&gt;</bpt>Node.JS<ept id="3440bd58-9418-46a1-93aa-96bdfe041e06">&lt;/linkText&gt;</ept><bpt id="3440bd58-9418-46a1-93aa-96bdfe041e06">&lt;title&gt;</bpt><ept id="3440bd58-9418-46a1-93aa-96bdfe041e06">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="965ea54f-f8df-4ddb-97cc-3c2ba743b8db" xml:space="preserve">
+          <source>A second option is to write a simple program using either the REST API or the .NET library that loads the documents:</source>
+          <target state="new">A second option is to write a simple program using either the REST API or the .NET library that loads the documents:</target>
+        </trans-unit>
+        <trans-unit id="e0567076-146e-46ba-9d58-b7d603a6f77d" xml:space="preserve">
+          <source><bpt id="2ed3b6df-ec60-4dbb-a968-7e7b48b6c8dc">&lt;linkText&gt;</bpt>Add, update, or delete documents (REST API)<ept id="2ed3b6df-ec60-4dbb-a968-7e7b48b6c8dc">&lt;/linkText&gt;</ept><bpt id="2ed3b6df-ec60-4dbb-a968-7e7b48b6c8dc">&lt;title&gt;</bpt><ept id="2ed3b6df-ec60-4dbb-a968-7e7b48b6c8dc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2ed3b6df-ec60-4dbb-a968-7e7b48b6c8dc">&lt;linkText&gt;</bpt>Add, update, or delete documents (REST API)<ept id="2ed3b6df-ec60-4dbb-a968-7e7b48b6c8dc">&lt;/linkText&gt;</ept><bpt id="2ed3b6df-ec60-4dbb-a968-7e7b48b6c8dc">&lt;title&gt;</bpt><ept id="2ed3b6df-ec60-4dbb-a968-7e7b48b6c8dc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="912214f5-9599-4a8f-a3c8-d14183cb053f" xml:space="preserve">
+          <source><bpt id="bca655d6-fb85-4980-9277-862485e70379">&lt;linkText&gt;</bpt>DocumentOperationsExtensions Class<ept id="bca655d6-fb85-4980-9277-862485e70379">&lt;/linkText&gt;</ept><bpt id="bca655d6-fb85-4980-9277-862485e70379">&lt;title&gt;</bpt><ept id="bca655d6-fb85-4980-9277-862485e70379">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bca655d6-fb85-4980-9277-862485e70379">&lt;linkText&gt;</bpt>DocumentOperationsExtensions Class<ept id="bca655d6-fb85-4980-9277-862485e70379">&lt;/linkText&gt;</ept><bpt id="bca655d6-fb85-4980-9277-862485e70379">&lt;title&gt;</bpt><ept id="bca655d6-fb85-4980-9277-862485e70379">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7e5169a-db31-4819-9304-5ea0d81f8c89" xml:space="preserve">
+          <source>A third option that works for very small datasets is to use <bpt id="b5712850-ab32-404b-8e08-f2ad8a67db98">&lt;linkText&gt;</bpt>Fiddler<ept id="b5712850-ab32-404b-8e08-f2ad8a67db98">&lt;/linkText&gt;</ept><bpt id="b5712850-ab32-404b-8e08-f2ad8a67db98">&lt;title&gt;</bpt><ept id="b5712850-ab32-404b-8e08-f2ad8a67db98">&lt;/title&gt;</ept> or <bpt id="c30b8150-6787-46a5-9f84-97e63ee8f790">&lt;linkText&gt;</bpt>Chrome Postman<ept id="c30b8150-6787-46a5-9f84-97e63ee8f790">&lt;/linkText&gt;</ept><bpt id="c30b8150-6787-46a5-9f84-97e63ee8f790">&lt;title&gt;</bpt><ept id="c30b8150-6787-46a5-9f84-97e63ee8f790">&lt;/title&gt;</ept> to upload documents.</source>
+          <target state="new">A third option that works for very small datasets is to use <bpt id="b5712850-ab32-404b-8e08-f2ad8a67db98">&lt;linkText&gt;</bpt>Fiddler<ept id="b5712850-ab32-404b-8e08-f2ad8a67db98">&lt;/linkText&gt;</ept><bpt id="b5712850-ab32-404b-8e08-f2ad8a67db98">&lt;title&gt;</bpt><ept id="b5712850-ab32-404b-8e08-f2ad8a67db98">&lt;/title&gt;</ept> or <bpt id="c30b8150-6787-46a5-9f84-97e63ee8f790">&lt;linkText&gt;</bpt>Chrome Postman<ept id="c30b8150-6787-46a5-9f84-97e63ee8f790">&lt;/linkText&gt;</ept><bpt id="c30b8150-6787-46a5-9f84-97e63ee8f790">&lt;title&gt;</bpt><ept id="c30b8150-6787-46a5-9f84-97e63ee8f790">&lt;/title&gt;</ept> to upload documents.</target>
+        </trans-unit>
+        <trans-unit id="84d26dab-31cc-4837-b205-f3b0dc0e9c0f" xml:space="preserve">
+          <source>A fourth option, perhaps the easiest one, is to borrow code from either the <bpt id="b8b85e2d-ad33-417d-9e64-4b5fba1d4b87">&lt;linkText&gt;</bpt>Adventure Works C# REST API Example<ept id="b8b85e2d-ad33-417d-9e64-4b5fba1d4b87">&lt;/linkText&gt;</ept><bpt id="b8b85e2d-ad33-417d-9e64-4b5fba1d4b87">&lt;title&gt;</bpt><ept id="b8b85e2d-ad33-417d-9e64-4b5fba1d4b87">&lt;/title&gt;</ept> that loads documents from an embedded database (.mdf) in the solution, or <bpt id="dd13aed1-9470-450b-8b7e-c4563482f80a">&lt;linkText&gt;</bpt>Scoring Profiles C# REST API Example<ept id="dd13aed1-9470-450b-8b7e-c4563482f80a">&lt;/linkText&gt;</ept><bpt id="dd13aed1-9470-450b-8b7e-c4563482f80a">&lt;title&gt;</bpt><ept id="dd13aed1-9470-450b-8b7e-c4563482f80a">&lt;/title&gt;</ept> that loads data from JSON data files included in the solution.</source>
+          <target state="new">A fourth option, perhaps the easiest one, is to borrow code from either the <bpt id="b8b85e2d-ad33-417d-9e64-4b5fba1d4b87">&lt;linkText&gt;</bpt>Adventure Works C# REST API Example<ept id="b8b85e2d-ad33-417d-9e64-4b5fba1d4b87">&lt;/linkText&gt;</ept><bpt id="b8b85e2d-ad33-417d-9e64-4b5fba1d4b87">&lt;title&gt;</bpt><ept id="b8b85e2d-ad33-417d-9e64-4b5fba1d4b87">&lt;/title&gt;</ept> that loads documents from an embedded database (.mdf) in the solution, or <bpt id="dd13aed1-9470-450b-8b7e-c4563482f80a">&lt;linkText&gt;</bpt>Scoring Profiles C# REST API Example<ept id="dd13aed1-9470-450b-8b7e-c4563482f80a">&lt;/linkText&gt;</ept><bpt id="dd13aed1-9470-450b-8b7e-c4563482f80a">&lt;title&gt;</bpt><ept id="dd13aed1-9470-450b-8b7e-c4563482f80a">&lt;/title&gt;</ept> that loads data from JSON data files included in the solution.</target>
+        </trans-unit>
+        <trans-unit id="e9ef6e9d-5ba8-4a63-a157-60e4c6201a27" xml:space="preserve">
+          <source>You could modify and run the <bpt id="5d396c65-133e-49c4-bf9b-538a3504120e">&lt;linkText&gt;</bpt>scoring profiles sample<ept id="5d396c65-133e-49c4-bf9b-538a3504120e">&lt;/linkText&gt;</ept><bpt id="5d396c65-133e-49c4-bf9b-538a3504120e">&lt;title&gt;</bpt><ept id="5d396c65-133e-49c4-bf9b-538a3504120e">&lt;/title&gt;</ept>, replacing the data JSON files and schema.json file with data that is valid for your application.</source>
+          <target state="new">You could modify and run the <bpt id="5d396c65-133e-49c4-bf9b-538a3504120e">&lt;linkText&gt;</bpt>scoring profiles sample<ept id="5d396c65-133e-49c4-bf9b-538a3504120e">&lt;/linkText&gt;</ept><bpt id="5d396c65-133e-49c4-bf9b-538a3504120e">&lt;title&gt;</bpt><ept id="5d396c65-133e-49c4-bf9b-538a3504120e">&lt;/title&gt;</ept>, replacing the data JSON files and schema.json file with data that is valid for your application.</target>
+        </trans-unit>
+        <trans-unit id="b4ddb654-74a7-4ad1-b2f1-c3691ef1ec84" xml:space="preserve">
+          <source>Once documents are loaded into the index, you can write your first query.</source>
+          <target state="new">Once documents are loaded into the index, you can write your first query.</target>
+        </trans-unit>
+        <trans-unit id="82348945-0bc1-4be6-acde-36906d57bd59" xml:space="preserve">
+          <source>The fastest way to get initial search results back from your Search service is to use <bpt id="c47cc0f7-c02c-4da1-b9ea-bf83788ace13">&lt;linkText&gt;</bpt>Fiddler<ept id="c47cc0f7-c02c-4da1-b9ea-bf83788ace13">&lt;/linkText&gt;</ept><bpt id="c47cc0f7-c02c-4da1-b9ea-bf83788ace13">&lt;title&gt;</bpt><ept id="c47cc0f7-c02c-4da1-b9ea-bf83788ace13">&lt;/title&gt;</ept> or <bpt id="cf5854dd-ff97-4645-bab5-452ae56c08b4">&lt;linkText&gt;</bpt>Chrome Postman<ept id="cf5854dd-ff97-4645-bab5-452ae56c08b4">&lt;/linkText&gt;</ept><bpt id="cf5854dd-ff97-4645-bab5-452ae56c08b4">&lt;title&gt;</bpt><ept id="cf5854dd-ff97-4645-bab5-452ae56c08b4">&lt;/title&gt;</ept> to view a response, but realistically, you will want to write some simple UI code to view the results in a readable format.</source>
+          <target state="new">The fastest way to get initial search results back from your Search service is to use <bpt id="c47cc0f7-c02c-4da1-b9ea-bf83788ace13">&lt;linkText&gt;</bpt>Fiddler<ept id="c47cc0f7-c02c-4da1-b9ea-bf83788ace13">&lt;/linkText&gt;</ept><bpt id="c47cc0f7-c02c-4da1-b9ea-bf83788ace13">&lt;title&gt;</bpt><ept id="c47cc0f7-c02c-4da1-b9ea-bf83788ace13">&lt;/title&gt;</ept> or <bpt id="cf5854dd-ff97-4645-bab5-452ae56c08b4">&lt;linkText&gt;</bpt>Chrome Postman<ept id="cf5854dd-ff97-4645-bab5-452ae56c08b4">&lt;/linkText&gt;</ept><bpt id="cf5854dd-ff97-4645-bab5-452ae56c08b4">&lt;title&gt;</bpt><ept id="cf5854dd-ff97-4645-bab5-452ae56c08b4">&lt;/title&gt;</ept> to view a response, but realistically, you will want to write some simple UI code to view the results in a readable format.</target>
+        </trans-unit>
+        <trans-unit id="83bf9064-b028-4983-acc8-1db3fd18364a" xml:space="preserve">
+          <source>APIs for search operations include:</source>
+          <target state="new">APIs for search operations include:</target>
+        </trans-unit>
+        <trans-unit id="a9490634-85d5-4f48-a9ad-3043298eb442" xml:space="preserve">
+          <source><bpt id="d8875098-6ccf-47ab-9a71-9b97edbc8f03">&lt;linkText&gt;</bpt>Search Documents operation<ept id="d8875098-6ccf-47ab-9a71-9b97edbc8f03">&lt;/linkText&gt;</ept><bpt id="d8875098-6ccf-47ab-9a71-9b97edbc8f03">&lt;title&gt;</bpt><ept id="d8875098-6ccf-47ab-9a71-9b97edbc8f03">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d8875098-6ccf-47ab-9a71-9b97edbc8f03">&lt;linkText&gt;</bpt>Search Documents operation<ept id="d8875098-6ccf-47ab-9a71-9b97edbc8f03">&lt;/linkText&gt;</ept><bpt id="d8875098-6ccf-47ab-9a71-9b97edbc8f03">&lt;title&gt;</bpt><ept id="d8875098-6ccf-47ab-9a71-9b97edbc8f03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca7f2347-dc7a-4d6f-9302-ad6dd4a07f50" xml:space="preserve">
+          <source><bpt id="416293ea-e2cc-4ace-ad2e-428bfc5e1606">&lt;linkText&gt;</bpt>SearchIndexClient Class<ept id="416293ea-e2cc-4ace-ad2e-428bfc5e1606">&lt;/linkText&gt;</ept><bpt id="416293ea-e2cc-4ace-ad2e-428bfc5e1606">&lt;title&gt;</bpt><ept id="416293ea-e2cc-4ace-ad2e-428bfc5e1606">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="416293ea-e2cc-4ace-ad2e-428bfc5e1606">&lt;linkText&gt;</bpt>SearchIndexClient Class<ept id="416293ea-e2cc-4ace-ad2e-428bfc5e1606">&lt;/linkText&gt;</ept><bpt id="416293ea-e2cc-4ace-ad2e-428bfc5e1606">&lt;title&gt;</bpt><ept id="416293ea-e2cc-4ace-ad2e-428bfc5e1606">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="100c7878-eeab-4f66-a496-7fb92be2ec4f" xml:space="preserve">
+          <source>Queries in Azure Search can be very simple. Including <bpt id="dde86f17-b531-4d6f-89bd-2e9a70e5b043">&lt;code&gt;</bpt>search=*<ept id="dde86f17-b531-4d6f-89bd-2e9a70e5b043">&lt;/code&gt;</ept> on the URI will return the first 50 items in your search corpus; specifying <bpt id="b2f0b773-b586-4511-864e-4e74b3457be0">&lt;code&gt;</bpt>search=&lt;some phrase&gt;<ept id="b2f0b773-b586-4511-864e-4e74b3457be0">&lt;/code&gt;</ept> will perform a full-text search on the phrase, returning up to 50 documents, assuming there are at least 50 documents that contain a match on the term input.</source>
+          <target state="new">Queries in Azure Search can be very simple. Including <bpt id="dde86f17-b531-4d6f-89bd-2e9a70e5b043">&lt;code&gt;</bpt>search=*<ept id="dde86f17-b531-4d6f-89bd-2e9a70e5b043">&lt;/code&gt;</ept> on the URI will return the first 50 items in your search corpus; specifying <bpt id="b2f0b773-b586-4511-864e-4e74b3457be0">&lt;code&gt;</bpt>search=&lt;some phrase&gt;<ept id="b2f0b773-b586-4511-864e-4e74b3457be0">&lt;/code&gt;</ept> will perform a full-text search on the phrase, returning up to 50 documents, assuming there are at least 50 documents that contain a match on the term input.</target>
+        </trans-unit>
+        <trans-unit id="ea835ccc-8fa2-434e-9f67-5d6289accef9" xml:space="preserve">
+          <source>50 documents is the default.</source>
+          <target state="new">50 documents is the default.</target>
+        </trans-unit>
+        <trans-unit id="f4ff3d3f-7c1a-487f-9b89-07b9dec0c313" xml:space="preserve">
+          <source>You can change the number of items returned using the <bpt id="f6312929-c173-4438-8fec-c2e2d9418763">&lt;code&gt;</bpt>$Count<ept id="f6312929-c173-4438-8fec-c2e2d9418763">&lt;/code&gt;</ept> query parameter.</source>
+          <target state="new">You can change the number of items returned using the <bpt id="f6312929-c173-4438-8fec-c2e2d9418763">&lt;code&gt;</bpt>$Count<ept id="f6312929-c173-4438-8fec-c2e2d9418763">&lt;/code&gt;</ept> query parameter.</target>
+        </trans-unit>
+        <trans-unit id="97d468d0-8c4e-46e5-b17f-326ecc61e39d" xml:space="preserve">
+          <source>This parameter is documented in <bpt id="7b390746-9509-4f0c-9ec9-ab2f77926cdf">&lt;linkText&gt;</bpt>Search Documents<ept id="7b390746-9509-4f0c-9ec9-ab2f77926cdf">&lt;/linkText&gt;</ept><bpt id="7b390746-9509-4f0c-9ec9-ab2f77926cdf">&lt;title&gt;</bpt><ept id="7b390746-9509-4f0c-9ec9-ab2f77926cdf">&lt;/title&gt;</ept>.</source>
+          <target state="new">This parameter is documented in <bpt id="7b390746-9509-4f0c-9ec9-ab2f77926cdf">&lt;linkText&gt;</bpt>Search Documents<ept id="7b390746-9509-4f0c-9ec9-ab2f77926cdf">&lt;/linkText&gt;</ept><bpt id="7b390746-9509-4f0c-9ec9-ab2f77926cdf">&lt;title&gt;</bpt><ept id="7b390746-9509-4f0c-9ec9-ab2f77926cdf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b34f90c5-2ad0-453a-96e9-2b6f40f42dd3" xml:space="preserve">
+          <source>The most comprehensive list of query examples can be found in <bpt id="7795a49b-e3ba-4352-a88b-07af3d064199">&lt;linkText&gt;</bpt>Search Documents<ept id="7795a49b-e3ba-4352-a88b-07af3d064199">&lt;/linkText&gt;</ept><bpt id="7795a49b-e3ba-4352-a88b-07af3d064199">&lt;title&gt;</bpt><ept id="7795a49b-e3ba-4352-a88b-07af3d064199">&lt;/title&gt;</ept>, but you might also want to review the <bpt id="1b124f38-c9ff-4795-ac4e-c136d776a3bb">&lt;linkText&gt;</bpt>syntax reference<ept id="1b124f38-c9ff-4795-ac4e-c136d776a3bb">&lt;/linkText&gt;</ept><bpt id="1b124f38-c9ff-4795-ac4e-c136d776a3bb">&lt;title&gt;</bpt><ept id="1b124f38-c9ff-4795-ac4e-c136d776a3bb">&lt;/title&gt;</ept> to review the list of supported operators.</source>
+          <target state="new">The most comprehensive list of query examples can be found in <bpt id="7795a49b-e3ba-4352-a88b-07af3d064199">&lt;linkText&gt;</bpt>Search Documents<ept id="7795a49b-e3ba-4352-a88b-07af3d064199">&lt;/linkText&gt;</ept><bpt id="7795a49b-e3ba-4352-a88b-07af3d064199">&lt;title&gt;</bpt><ept id="7795a49b-e3ba-4352-a88b-07af3d064199">&lt;/title&gt;</ept>, but you might also want to review the <bpt id="1b124f38-c9ff-4795-ac4e-c136d776a3bb">&lt;linkText&gt;</bpt>syntax reference<ept id="1b124f38-c9ff-4795-ac4e-c136d776a3bb">&lt;/linkText&gt;</ept><bpt id="1b124f38-c9ff-4795-ac4e-c136d776a3bb">&lt;title&gt;</bpt><ept id="1b124f38-c9ff-4795-ac4e-c136d776a3bb">&lt;/title&gt;</ept> to review the list of supported operators.</target>
+        </trans-unit>
+        <trans-unit id="ea9074e4-ea4a-422a-b132-dd59835b3aec" xml:space="preserve">
+          <source>Now that you have a service and index, you can experiment with features to further evolve the search experience.</source>
+          <target state="new">Now that you have a service and index, you can experiment with features to further evolve the search experience.</target>
+        </trans-unit>
+        <trans-unit id="4cc08d59-236f-4d41-81e4-d14c2d8ff887" xml:space="preserve">
+          <source>A short list of features to investigate are listed next.</source>
+          <target state="new">A short list of features to investigate are listed next.</target>
+        </trans-unit>
+        <trans-unit id="6d723e76-5ba1-4265-8e73-7a29018188a4" xml:space="preserve">
+          <source><bpt id="91e99fd4-3b59-4aac-b2b5-cf84459e513d">&lt;strong&gt;</bpt>Search pages<ept id="91e99fd4-3b59-4aac-b2b5-cf84459e513d">&lt;/strong&gt;</ept> often include document counts in a result set, or use pagination to subdivide results into more manageable numbers.</source>
+          <target state="new"><bpt id="91e99fd4-3b59-4aac-b2b5-cf84459e513d">&lt;strong&gt;</bpt>Search pages<ept id="91e99fd4-3b59-4aac-b2b5-cf84459e513d">&lt;/strong&gt;</ept> often include document counts in a result set, or use pagination to subdivide results into more manageable numbers.</target>
+        </trans-unit>
+        <trans-unit id="b88a3109-8468-447d-b2aa-49129f9d4530" xml:space="preserve">
+          <source>See <bpt id="7732b773-869b-4154-b350-cbcf24facf4a">&lt;linkText&gt;</bpt>Pagination<ept id="7732b773-869b-4154-b350-cbcf24facf4a">&lt;/linkText&gt;</ept><bpt id="7732b773-869b-4154-b350-cbcf24facf4a">&lt;title&gt;</bpt><ept id="7732b773-869b-4154-b350-cbcf24facf4a">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="7732b773-869b-4154-b350-cbcf24facf4a">&lt;linkText&gt;</bpt>Pagination<ept id="7732b773-869b-4154-b350-cbcf24facf4a">&lt;/linkText&gt;</ept><bpt id="7732b773-869b-4154-b350-cbcf24facf4a">&lt;title&gt;</bpt><ept id="7732b773-869b-4154-b350-cbcf24facf4a">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="398b0dcf-a26d-4cb2-887f-61dd97fe9a03" xml:space="preserve">
+          <source><bpt id="6b2690b7-a911-4c01-9ee3-2d17e4e13e8f">&lt;strong&gt;</bpt>searchMode=all<ept id="6b2690b7-a911-4c01-9ee3-2d17e4e13e8f">&lt;/strong&gt;</ept> is a query parameter that changes how Azure Search evaluates the NOT operator.</source>
+          <target state="new"><bpt id="6b2690b7-a911-4c01-9ee3-2d17e4e13e8f">&lt;strong&gt;</bpt>searchMode=all<ept id="6b2690b7-a911-4c01-9ee3-2d17e4e13e8f">&lt;/strong&gt;</ept> is a query parameter that changes how Azure Search evaluates the NOT operator.</target>
+        </trans-unit>
+        <trans-unit id="ad7d9461-da2a-4b19-bc63-b1c8ca1b0719" xml:space="preserve">
+          <source>By default, queries that include NOT (-) expand rather than narrow the results.</source>
+          <target state="new">By default, queries that include NOT (-) expand rather than narrow the results.</target>
+        </trans-unit>
+        <trans-unit id="eb36522e-9434-43d4-8370-97a64083ab31" xml:space="preserve">
+          <source>You can set this parameter to change how the operator is evaluated.</source>
+          <target state="new">You can set this parameter to change how the operator is evaluated.</target>
+        </trans-unit>
+        <trans-unit id="08de26f4-d55c-4600-b16b-b2e89d768b2e" xml:space="preserve">
+          <source>It’s documented in <bpt id="9dd7b738-aac7-460f-bd50-620fa8da6989">&lt;linkText&gt;</bpt>Search Documents<ept id="9dd7b738-aac7-460f-bd50-620fa8da6989">&lt;/linkText&gt;</ept><bpt id="9dd7b738-aac7-460f-bd50-620fa8da6989">&lt;title&gt;</bpt><ept id="9dd7b738-aac7-460f-bd50-620fa8da6989">&lt;/title&gt;</ept> or <bpt id="9f76cd89-f7f2-4486-8e2b-3b096add2731">&lt;linkText&gt;</bpt>SearchMode Enumeration<ept id="9f76cd89-f7f2-4486-8e2b-3b096add2731">&lt;/linkText&gt;</ept><bpt id="9f76cd89-f7f2-4486-8e2b-3b096add2731">&lt;title&gt;</bpt><ept id="9f76cd89-f7f2-4486-8e2b-3b096add2731">&lt;/title&gt;</ept>.</source>
+          <target state="new">It’s documented in <bpt id="9dd7b738-aac7-460f-bd50-620fa8da6989">&lt;linkText&gt;</bpt>Search Documents<ept id="9dd7b738-aac7-460f-bd50-620fa8da6989">&lt;/linkText&gt;</ept><bpt id="9dd7b738-aac7-460f-bd50-620fa8da6989">&lt;title&gt;</bpt><ept id="9dd7b738-aac7-460f-bd50-620fa8da6989">&lt;/title&gt;</ept> or <bpt id="9f76cd89-f7f2-4486-8e2b-3b096add2731">&lt;linkText&gt;</bpt>SearchMode Enumeration<ept id="9f76cd89-f7f2-4486-8e2b-3b096add2731">&lt;/linkText&gt;</ept><bpt id="9f76cd89-f7f2-4486-8e2b-3b096add2731">&lt;title&gt;</bpt><ept id="9f76cd89-f7f2-4486-8e2b-3b096add2731">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="980b2e44-7078-4659-b900-c197b2b314de" xml:space="preserve">
+          <source><bpt id="a5488f46-8b5a-49de-b57f-e56d7e6f2c96">&lt;strong&gt;</bpt>Scoring profiles<ept id="a5488f46-8b5a-49de-b57f-e56d7e6f2c96">&lt;/strong&gt;</ept> are used to boost search scores, causing items that meet predefined criteria to appear higher in the search results.</source>
+          <target state="new"><bpt id="a5488f46-8b5a-49de-b57f-e56d7e6f2c96">&lt;strong&gt;</bpt>Scoring profiles<ept id="a5488f46-8b5a-49de-b57f-e56d7e6f2c96">&lt;/strong&gt;</ept> are used to boost search scores, causing items that meet predefined criteria to appear higher in the search results.</target>
+        </trans-unit>
+        <trans-unit id="5ae6f187-e668-4a21-9773-8e18f5b1a5ce" xml:space="preserve">
+          <source>See <bpt id="151cc3e4-8937-4941-a1d3-85c269c8c4d0">&lt;linkText&gt;</bpt>Get started with scoring profiles<ept id="151cc3e4-8937-4941-a1d3-85c269c8c4d0">&lt;/linkText&gt;</ept><bpt id="151cc3e4-8937-4941-a1d3-85c269c8c4d0">&lt;title&gt;</bpt><ept id="151cc3e4-8937-4941-a1d3-85c269c8c4d0">&lt;/title&gt;</ept> to step through this feature.</source>
+          <target state="new">See <bpt id="151cc3e4-8937-4941-a1d3-85c269c8c4d0">&lt;linkText&gt;</bpt>Get started with scoring profiles<ept id="151cc3e4-8937-4941-a1d3-85c269c8c4d0">&lt;/linkText&gt;</ept><bpt id="151cc3e4-8937-4941-a1d3-85c269c8c4d0">&lt;title&gt;</bpt><ept id="151cc3e4-8937-4941-a1d3-85c269c8c4d0">&lt;/title&gt;</ept> to step through this feature.</target>
+        </trans-unit>
+        <trans-unit id="a5d13773-e6ba-429a-a00e-cc8bf27bb83a" xml:space="preserve">
+          <source><bpt id="93d85988-5c43-4401-ad32-697ede545938">&lt;strong&gt;</bpt>Filters<ept id="93d85988-5c43-4401-ad32-697ede545938">&lt;/strong&gt;</ept> are used to narrow search results by providing additional criteria on the selection.</source>
+          <target state="new"><bpt id="93d85988-5c43-4401-ad32-697ede545938">&lt;strong&gt;</bpt>Filters<ept id="93d85988-5c43-4401-ad32-697ede545938">&lt;/strong&gt;</ept> are used to narrow search results by providing additional criteria on the selection.</target>
+        </trans-unit>
+        <trans-unit id="bfbb529c-260b-4eb3-8dfa-daefbc99507a" xml:space="preserve">
+          <source>Filter expressions are placed within the query.</source>
+          <target state="new">Filter expressions are placed within the query.</target>
+        </trans-unit>
+        <trans-unit id="337f83eb-738d-48fe-abe2-816be48c7fe9" xml:space="preserve">
+          <source>See <bpt id="aec06c48-a728-40cf-b98e-4f9121c7fcbb">&lt;linkText&gt;</bpt>Search Documents<ept id="aec06c48-a728-40cf-b98e-4f9121c7fcbb">&lt;/linkText&gt;</ept><bpt id="aec06c48-a728-40cf-b98e-4f9121c7fcbb">&lt;title&gt;</bpt><ept id="aec06c48-a728-40cf-b98e-4f9121c7fcbb">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="aec06c48-a728-40cf-b98e-4f9121c7fcbb">&lt;linkText&gt;</bpt>Search Documents<ept id="aec06c48-a728-40cf-b98e-4f9121c7fcbb">&lt;/linkText&gt;</ept><bpt id="aec06c48-a728-40cf-b98e-4f9121c7fcbb">&lt;title&gt;</bpt><ept id="aec06c48-a728-40cf-b98e-4f9121c7fcbb">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="c58f897d-084a-48ea-96bd-98f7decc7650" xml:space="preserve">
+          <source><bpt id="57de98a6-2609-4e79-b045-12975d0caa6f">&lt;strong&gt;</bpt>Faceted navigation<ept id="57de98a6-2609-4e79-b045-12975d0caa6f">&lt;/strong&gt;</ept> is used for self-directed filtering.</source>
+          <target state="new"><bpt id="57de98a6-2609-4e79-b045-12975d0caa6f">&lt;strong&gt;</bpt>Faceted navigation<ept id="57de98a6-2609-4e79-b045-12975d0caa6f">&lt;/strong&gt;</ept> is used for self-directed filtering.</target>
+        </trans-unit>
+        <trans-unit id="21f09e6f-1477-4e28-a1af-d7d85b099115" xml:space="preserve">
+          <source>Azure Search builds and returns the structure, and your code renders the faceted navigation structure in a search results page.</source>
+          <target state="new">Azure Search builds and returns the structure, and your code renders the faceted navigation structure in a search results page.</target>
+        </trans-unit>
+        <trans-unit id="e1adc2e1-afed-4a93-92d7-39f35eaf224d" xml:space="preserve">
+          <source>See <bpt id="00c88f20-d0b7-49a9-8a19-04b21012d009">&lt;linkText&gt;</bpt>Faceted Navigation<ept id="00c88f20-d0b7-49a9-8a19-04b21012d009">&lt;/linkText&gt;</ept><bpt id="00c88f20-d0b7-49a9-8a19-04b21012d009">&lt;title&gt;</bpt><ept id="00c88f20-d0b7-49a9-8a19-04b21012d009">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="00c88f20-d0b7-49a9-8a19-04b21012d009">&lt;linkText&gt;</bpt>Faceted Navigation<ept id="00c88f20-d0b7-49a9-8a19-04b21012d009">&lt;/linkText&gt;</ept><bpt id="00c88f20-d0b7-49a9-8a19-04b21012d009">&lt;title&gt;</bpt><ept id="00c88f20-d0b7-49a9-8a19-04b21012d009">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="4a5d914d-8cda-43db-a4da-1d816c9404f7" xml:space="preserve">
+          <source><bpt id="85cf583b-b2de-489f-ab14-2ebb8b7f37ce">&lt;strong&gt;</bpt>Suggesters<ept id="85cf583b-b2de-489f-ab14-2ebb8b7f37ce">&lt;/strong&gt;</ept> refers to type-ahead or auto-complete queries that return suggested search terms as the user types in the first characters of a search phrase.</source>
+          <target state="new"><bpt id="85cf583b-b2de-489f-ab14-2ebb8b7f37ce">&lt;strong&gt;</bpt>Suggesters<ept id="85cf583b-b2de-489f-ab14-2ebb8b7f37ce">&lt;/strong&gt;</ept> refers to type-ahead or auto-complete queries that return suggested search terms as the user types in the first characters of a search phrase.</target>
+        </trans-unit>
+        <trans-unit id="18c6100b-4980-4197-8ae2-d487827f5001" xml:space="preserve">
+          <source>See <bpt id="71c9bda0-e14f-46c9-a067-654985df8d8d">&lt;linkText&gt;</bpt>Suggestions operation<ept id="71c9bda0-e14f-46c9-a067-654985df8d8d">&lt;/linkText&gt;</ept><bpt id="71c9bda0-e14f-46c9-a067-654985df8d8d">&lt;title&gt;</bpt><ept id="71c9bda0-e14f-46c9-a067-654985df8d8d">&lt;/title&gt;</ept> or <bpt id="9d8633fc-4b3f-460c-9251-590ca00291fd">&lt;linkText&gt;</bpt>Suggesters Class<ept id="9d8633fc-4b3f-460c-9251-590ca00291fd">&lt;/linkText&gt;</ept><bpt id="9d8633fc-4b3f-460c-9251-590ca00291fd">&lt;title&gt;</bpt><ept id="9d8633fc-4b3f-460c-9251-590ca00291fd">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="71c9bda0-e14f-46c9-a067-654985df8d8d">&lt;linkText&gt;</bpt>Suggestions operation<ept id="71c9bda0-e14f-46c9-a067-654985df8d8d">&lt;/linkText&gt;</ept><bpt id="71c9bda0-e14f-46c9-a067-654985df8d8d">&lt;title&gt;</bpt><ept id="71c9bda0-e14f-46c9-a067-654985df8d8d">&lt;/title&gt;</ept> or <bpt id="9d8633fc-4b3f-460c-9251-590ca00291fd">&lt;linkText&gt;</bpt>Suggesters Class<ept id="9d8633fc-4b3f-460c-9251-590ca00291fd">&lt;/linkText&gt;</ept><bpt id="9d8633fc-4b3f-460c-9251-590ca00291fd">&lt;title&gt;</bpt><ept id="9d8633fc-4b3f-460c-9251-590ca00291fd">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="58097b77-587c-4207-b1eb-e7d21ca5111c" xml:space="preserve">
+          <source><bpt id="3217fe60-4436-4f7b-b8d2-6a8055c43c44">&lt;strong&gt;</bpt>Language analyzers<ept id="3217fe60-4436-4f7b-b8d2-6a8055c43c44">&lt;/strong&gt;</ept> provide the linguistic rules used during text analysis.</source>
+          <target state="new"><bpt id="3217fe60-4436-4f7b-b8d2-6a8055c43c44">&lt;strong&gt;</bpt>Language analyzers<ept id="3217fe60-4436-4f7b-b8d2-6a8055c43c44">&lt;/strong&gt;</ept> provide the linguistic rules used during text analysis.</target>
+        </trans-unit>
+        <trans-unit id="a6a09489-822d-4ec6-ab97-91e2c3440723" xml:space="preserve">
+          <source>The default language analyzer for Azure Search is Lucene English, but you can use different, or even multiple, analyzers by specifying them in your index.</source>
+          <target state="new">The default language analyzer for Azure Search is Lucene English, but you can use different, or even multiple, analyzers by specifying them in your index.</target>
+        </trans-unit>
+        <trans-unit id="ebeb68d7-c2f7-4943-94aa-7ac555c5273c" xml:space="preserve">
+          <source>Lucene analyzers are available in all APIs.</source>
+          <target state="new">Lucene analyzers are available in all APIs.</target>
+        </trans-unit>
+        <trans-unit id="3ac39d72-5de6-4449-96b4-dea010a9109c" xml:space="preserve">
+          <source>Microsoft natural language processors are only available in <bpt id="e77eb621-66e6-43d4-a402-208c460550e4">&lt;linkText&gt;</bpt>2015-02-28-Preview REST API<ept id="e77eb621-66e6-43d4-a402-208c460550e4">&lt;/linkText&gt;</ept><bpt id="e77eb621-66e6-43d4-a402-208c460550e4">&lt;title&gt;</bpt><ept id="e77eb621-66e6-43d4-a402-208c460550e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Microsoft natural language processors are only available in <bpt id="e77eb621-66e6-43d4-a402-208c460550e4">&lt;linkText&gt;</bpt>2015-02-28-Preview REST API<ept id="e77eb621-66e6-43d4-a402-208c460550e4">&lt;/linkText&gt;</ept><bpt id="e77eb621-66e6-43d4-a402-208c460550e4">&lt;title&gt;</bpt><ept id="e77eb621-66e6-43d4-a402-208c460550e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e540921a-0229-44a1-86f0-e759ff3a1e20" xml:space="preserve">
+          <source>See <bpt id="76cf4592-6621-4ec7-9c11-be6a7bd89695">&lt;linkText&gt;</bpt>Language Support<ept id="76cf4592-6621-4ec7-9c11-be6a7bd89695">&lt;/linkText&gt;</ept><bpt id="76cf4592-6621-4ec7-9c11-be6a7bd89695">&lt;title&gt;</bpt><ept id="76cf4592-6621-4ec7-9c11-be6a7bd89695">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="76cf4592-6621-4ec7-9c11-be6a7bd89695">&lt;linkText&gt;</bpt>Language Support<ept id="76cf4592-6621-4ec7-9c11-be6a7bd89695">&lt;/linkText&gt;</ept><bpt id="76cf4592-6621-4ec7-9c11-be6a7bd89695">&lt;title&gt;</bpt><ept id="76cf4592-6621-4ec7-9c11-be6a7bd89695">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="4420b6b7-a99d-4c71-8e3c-912b3f6a2ff6" xml:space="preserve">
+          <source>Some of the features that you want to evaluate might require an update to your index, which often has the downstream effect of requiring updates to your documents.</source>
+          <target state="new">Some of the features that you want to evaluate might require an update to your index, which often has the downstream effect of requiring updates to your documents.</target>
+        </trans-unit>
+        <trans-unit id="fc8822a9-fe48-45f0-b470-12a28ee252c0" xml:space="preserve">
+          <source>If you need to update an index or documents, for example to add suggesters or specify language analyzers on fields that you’ve added for that purpose, see the following links for instructions:</source>
+          <target state="new">If you need to update an index or documents, for example to add suggesters or specify language analyzers on fields that you’ve added for that purpose, see the following links for instructions:</target>
+        </trans-unit>
+        <trans-unit id="d13b4b4b-fb3e-4552-b06c-0d3fea073bfd" xml:space="preserve">
+          <source><bpt id="ba0c890e-36f4-4fad-94cc-51b11551484f">&lt;linkText&gt;</bpt>Update Index operation (REST API)<ept id="ba0c890e-36f4-4fad-94cc-51b11551484f">&lt;/linkText&gt;</ept><bpt id="ba0c890e-36f4-4fad-94cc-51b11551484f">&lt;title&gt;</bpt><ept id="ba0c890e-36f4-4fad-94cc-51b11551484f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba0c890e-36f4-4fad-94cc-51b11551484f">&lt;linkText&gt;</bpt>Update Index operation (REST API)<ept id="ba0c890e-36f4-4fad-94cc-51b11551484f">&lt;/linkText&gt;</ept><bpt id="ba0c890e-36f4-4fad-94cc-51b11551484f">&lt;title&gt;</bpt><ept id="ba0c890e-36f4-4fad-94cc-51b11551484f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32cc29aa-20df-4556-95ee-16b14f682259" xml:space="preserve">
+          <source><bpt id="8b9fa487-664a-462c-9624-ceeda12430ef">&lt;linkText&gt;</bpt>Update Indexer operation (REST API)<ept id="8b9fa487-664a-462c-9624-ceeda12430ef">&lt;/linkText&gt;</ept><bpt id="8b9fa487-664a-462c-9624-ceeda12430ef">&lt;title&gt;</bpt><ept id="8b9fa487-664a-462c-9624-ceeda12430ef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8b9fa487-664a-462c-9624-ceeda12430ef">&lt;linkText&gt;</bpt>Update Indexer operation (REST API)<ept id="8b9fa487-664a-462c-9624-ceeda12430ef">&lt;/linkText&gt;</ept><bpt id="8b9fa487-664a-462c-9624-ceeda12430ef">&lt;title&gt;</bpt><ept id="8b9fa487-664a-462c-9624-ceeda12430ef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e73919c0-8716-4295-8384-6b7e725d84c1" xml:space="preserve">
+          <source><bpt id="5c32fd1b-d375-436d-a19c-5ef8a3e187f2">&lt;linkText&gt;</bpt>Add, update or delete documents operation (REST API)<ept id="5c32fd1b-d375-436d-a19c-5ef8a3e187f2">&lt;/linkText&gt;</ept><bpt id="5c32fd1b-d375-436d-a19c-5ef8a3e187f2">&lt;title&gt;</bpt><ept id="5c32fd1b-d375-436d-a19c-5ef8a3e187f2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5c32fd1b-d375-436d-a19c-5ef8a3e187f2">&lt;linkText&gt;</bpt>Add, update or delete documents operation (REST API)<ept id="5c32fd1b-d375-436d-a19c-5ef8a3e187f2">&lt;/linkText&gt;</ept><bpt id="5c32fd1b-d375-436d-a19c-5ef8a3e187f2">&lt;title&gt;</bpt><ept id="5c32fd1b-d375-436d-a19c-5ef8a3e187f2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c267b782-560f-43e0-a61e-a694cdda6a97" xml:space="preserve">
+          <source><bpt id="1bdf890d-6e28-46c3-9b71-59c5737f4fd5">&lt;linkText&gt;</bpt>Index Class (.NET library)<ept id="1bdf890d-6e28-46c3-9b71-59c5737f4fd5">&lt;/linkText&gt;</ept><bpt id="1bdf890d-6e28-46c3-9b71-59c5737f4fd5">&lt;title&gt;</bpt><ept id="1bdf890d-6e28-46c3-9b71-59c5737f4fd5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1bdf890d-6e28-46c3-9b71-59c5737f4fd5">&lt;linkText&gt;</bpt>Index Class (.NET library)<ept id="1bdf890d-6e28-46c3-9b71-59c5737f4fd5">&lt;/linkText&gt;</ept><bpt id="1bdf890d-6e28-46c3-9b71-59c5737f4fd5">&lt;title&gt;</bpt><ept id="1bdf890d-6e28-46c3-9b71-59c5737f4fd5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24eecca3-ae5e-4e82-9387-1b47ce580e1e" xml:space="preserve">
+          <source><bpt id="c2069067-8c8a-4f5b-9164-b842d8c1f6c2">&lt;linkText&gt;</bpt>Documents Class (.NET library)<ept id="c2069067-8c8a-4f5b-9164-b842d8c1f6c2">&lt;/linkText&gt;</ept><bpt id="c2069067-8c8a-4f5b-9164-b842d8c1f6c2">&lt;title&gt;</bpt><ept id="c2069067-8c8a-4f5b-9164-b842d8c1f6c2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c2069067-8c8a-4f5b-9164-b842d8c1f6c2">&lt;linkText&gt;</bpt>Documents Class (.NET library)<ept id="c2069067-8c8a-4f5b-9164-b842d8c1f6c2">&lt;/linkText&gt;</ept><bpt id="c2069067-8c8a-4f5b-9164-b842d8c1f6c2">&lt;title&gt;</bpt><ept id="c2069067-8c8a-4f5b-9164-b842d8c1f6c2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35651536-4ff7-41e6-b685-0fe062406112" xml:space="preserve">
+          <source>Once you have built a prototype that establishes proof-of-concept, you can take what you’ve learned to the next level by designing a development project that can support production workloads.</source>
+          <target state="new">Once you have built a prototype that establishes proof-of-concept, you can take what you’ve learned to the next level by designing a development project that can support production workloads.</target>
+        </trans-unit>
+        <trans-unit id="5d07866b-1666-4ceb-bacc-85757d46f59b" xml:space="preserve">
+          <source>Advancing to the next phase now requires decisions about which APIs to use, how to manage documents and upload frequency, and whether to include external resources in your search results.</source>
+          <target state="new">Advancing to the next phase now requires decisions about which APIs to use, how to manage documents and upload frequency, and whether to include external resources in your search results.</target>
+        </trans-unit>
+        <trans-unit id="f9acef08-da41-4b8c-a682-b44f97ce0ba5" xml:space="preserve">
+          <source>Your solution design will still need to include all of the steps described for prototypes, but instead of prioritizing the most expedient path, you will want to consider which approaches are the most compatible with your overall solution.</source>
+          <target state="new">Your solution design will still need to include all of the steps described for prototypes, but instead of prioritizing the most expedient path, you will want to consider which approaches are the most compatible with your overall solution.</target>
+        </trans-unit>
+        <trans-unit id="03c80381-4171-4ad3-942e-061af13a1ecc" xml:space="preserve">
+          <source>Azure Search provides two programming models: the .NET library for managed code, and a REST API for programming languages like Java, JavaScript, or another language that does not target the Microsoft .NET Framework.</source>
+          <target state="new">Azure Search provides two programming models: the .NET library for managed code, and a REST API for programming languages like Java, JavaScript, or another language that does not target the Microsoft .NET Framework.</target>
+        </trans-unit>
+        <trans-unit id="80086ecb-e8d6-482e-b0dd-da40c36a2243" xml:space="preserve">
+          <source>Currently, a small subset of features are not yet in the .NET library, so even if you prefer to write managed code, you might need to use the REST API to get the features you want.</source>
+          <target state="new">Currently, a small subset of features are not yet in the .NET library, so even if you prefer to write managed code, you might need to use the REST API to get the features you want.</target>
+        </trans-unit>
+        <trans-unit id="4f62292f-1529-49e6-85f3-76c53b8a3ebb" xml:space="preserve">
+          <source>Features that are only available in the REST API include:</source>
+          <target state="new">Features that are only available in the REST API include:</target>
+        </trans-unit>
+        <trans-unit id="0d1201d3-6274-49a8-a57c-b743e6a8aa4a" xml:space="preserve">
+          <source><bpt id="745ade09-0501-4644-b325-926a111022b3">&lt;linkText&gt;</bpt>Microsoft Natural Language processors - preview only<ept id="745ade09-0501-4644-b325-926a111022b3">&lt;/linkText&gt;</ept><bpt id="745ade09-0501-4644-b325-926a111022b3">&lt;title&gt;</bpt><ept id="745ade09-0501-4644-b325-926a111022b3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="745ade09-0501-4644-b325-926a111022b3">&lt;linkText&gt;</bpt>Microsoft Natural Language processors - preview only<ept id="745ade09-0501-4644-b325-926a111022b3">&lt;/linkText&gt;</ept><bpt id="745ade09-0501-4644-b325-926a111022b3">&lt;title&gt;</bpt><ept id="745ade09-0501-4644-b325-926a111022b3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07b89a9a-8552-48d6-8752-1a9209fdaf2a" xml:space="preserve">
+          <source><bpt id="328a369b-1beb-44f9-a205-83f8899946e2">&lt;linkText&gt;</bpt>moreLikeThis feature - preview only<ept id="328a369b-1beb-44f9-a205-83f8899946e2">&lt;/linkText&gt;</ept><bpt id="328a369b-1beb-44f9-a205-83f8899946e2">&lt;title&gt;</bpt><ept id="328a369b-1beb-44f9-a205-83f8899946e2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="328a369b-1beb-44f9-a205-83f8899946e2">&lt;linkText&gt;</bpt>moreLikeThis feature - preview only<ept id="328a369b-1beb-44f9-a205-83f8899946e2">&lt;/linkText&gt;</ept><bpt id="328a369b-1beb-44f9-a205-83f8899946e2">&lt;title&gt;</bpt><ept id="328a369b-1beb-44f9-a205-83f8899946e2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac25707c-86b6-4f8c-94b9-d78b4550abdf" xml:space="preserve">
+          <source><bpt id="796a295b-745c-45de-bc5a-64dc061db6b8">&lt;linkText&gt;</bpt>Management API<ept id="796a295b-745c-45de-bc5a-64dc061db6b8">&lt;/linkText&gt;</ept><bpt id="796a295b-745c-45de-bc5a-64dc061db6b8">&lt;title&gt;</bpt><ept id="796a295b-745c-45de-bc5a-64dc061db6b8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="796a295b-745c-45de-bc5a-64dc061db6b8">&lt;linkText&gt;</bpt>Management API<ept id="796a295b-745c-45de-bc5a-64dc061db6b8">&lt;/linkText&gt;</ept><bpt id="796a295b-745c-45de-bc5a-64dc061db6b8">&lt;title&gt;</bpt><ept id="796a295b-745c-45de-bc5a-64dc061db6b8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f90884af-d269-4eca-aa03-745772d21b48" xml:space="preserve">
+          <source>You can periodically check the <bpt id="2a3e0739-8648-4ccf-98a6-2a8d4eedecf1">&lt;linkText&gt;</bpt>What’s New<ept id="2a3e0739-8648-4ccf-98a6-2a8d4eedecf1">&lt;/linkText&gt;</ept><bpt id="2a3e0739-8648-4ccf-98a6-2a8d4eedecf1">&lt;title&gt;</bpt><ept id="2a3e0739-8648-4ccf-98a6-2a8d4eedecf1">&lt;/title&gt;</ept> article to monitor changes in feature status.</source>
+          <target state="new">You can periodically check the <bpt id="2a3e0739-8648-4ccf-98a6-2a8d4eedecf1">&lt;linkText&gt;</bpt>What’s New<ept id="2a3e0739-8648-4ccf-98a6-2a8d4eedecf1">&lt;/linkText&gt;</ept><bpt id="2a3e0739-8648-4ccf-98a6-2a8d4eedecf1">&lt;title&gt;</bpt><ept id="2a3e0739-8648-4ccf-98a6-2a8d4eedecf1">&lt;/title&gt;</ept> article to monitor changes in feature status.</target>
+        </trans-unit>
+        <trans-unit id="cd3d90bb-e3d7-474e-8766-2949def37d0a" xml:space="preserve">
+          <source>Push and pull models refer to how documents are updated in the index.</source>
+          <target state="new">Push and pull models refer to how documents are updated in the index.</target>
+        </trans-unit>
+        <trans-unit id="3a1a258f-d7c7-4f59-b715-a50c39e34f4c" xml:space="preserve">
+          <source>Often, the scenario dictates which model is right for you.</source>
+          <target state="new">Often, the scenario dictates which model is right for you.</target>
+        </trans-unit>
+        <trans-unit id="0fa7abc9-6712-4b4a-a5b0-a334a3725f65" xml:space="preserve">
+          <source>If your business is online retail, you most likely need a push model so that you can push or double-write any change in inventory to both your OLTP database and your Azure Search index.</source>
+          <target state="new">If your business is online retail, you most likely need a push model so that you can push or double-write any change in inventory to both your OLTP database and your Azure Search index.</target>
+        </trans-unit>
+        <trans-unit id="e3824f58-c145-429b-ac45-e9118d73a619" xml:space="preserve">
+          <source>When a specific SKU is sold out, or a size or color becomes unavailable, you will want the index to be updated as quickly as possible to avoid customer frustration.</source>
+          <target state="new">When a specific SKU is sold out, or a size or color becomes unavailable, you will want the index to be updated as quickly as possible to avoid customer frustration.</target>
+        </trans-unit>
+        <trans-unit id="6aabfff6-3ad0-499f-96b1-a69a0b072451" xml:space="preserve">
+          <source>Only push models can provide near real-time updates to your search index.</source>
+          <target state="new">Only push models can provide near real-time updates to your search index.</target>
+        </trans-unit>
+        <trans-unit id="44758c63-50b8-46aa-966b-4c3a93d311ae" xml:space="preserve">
+          <source>There is no specific mechanism in Azure Search for implementing a push model.</source>
+          <target state="new">There is no specific mechanism in Azure Search for implementing a push model.</target>
+        </trans-unit>
+        <trans-unit id="4d23c920-ed2e-4af0-b47b-307ab75bad60" xml:space="preserve">
+          <source>Your application code, at the data layer, must handle the documents update operation using either the <bpt id="e4e9ee08-e91c-4ed1-87b4-1f4aa50a9739">&lt;linkText&gt;</bpt>REST API<ept id="e4e9ee08-e91c-4ed1-87b4-1f4aa50a9739">&lt;/linkText&gt;</ept><bpt id="e4e9ee08-e91c-4ed1-87b4-1f4aa50a9739">&lt;title&gt;</bpt><ept id="e4e9ee08-e91c-4ed1-87b4-1f4aa50a9739">&lt;/title&gt;</ept> or <bpt id="bc9791ae-7e2b-4a51-be38-ae5e613603c8">&lt;linkText&gt;</bpt>.NET Library<ept id="bc9791ae-7e2b-4a51-be38-ae5e613603c8">&lt;/linkText&gt;</ept><bpt id="bc9791ae-7e2b-4a51-be38-ae5e613603c8">&lt;title&gt;</bpt><ept id="bc9791ae-7e2b-4a51-be38-ae5e613603c8">&lt;/title&gt;</ept> to update documents in the collection.</source>
+          <target state="new">Your application code, at the data layer, must handle the documents update operation using either the <bpt id="e4e9ee08-e91c-4ed1-87b4-1f4aa50a9739">&lt;linkText&gt;</bpt>REST API<ept id="e4e9ee08-e91c-4ed1-87b4-1f4aa50a9739">&lt;/linkText&gt;</ept><bpt id="e4e9ee08-e91c-4ed1-87b4-1f4aa50a9739">&lt;title&gt;</bpt><ept id="e4e9ee08-e91c-4ed1-87b4-1f4aa50a9739">&lt;/title&gt;</ept> or <bpt id="bc9791ae-7e2b-4a51-be38-ae5e613603c8">&lt;linkText&gt;</bpt>.NET Library<ept id="bc9791ae-7e2b-4a51-be38-ae5e613603c8">&lt;/linkText&gt;</ept><bpt id="bc9791ae-7e2b-4a51-be38-ae5e613603c8">&lt;title&gt;</bpt><ept id="bc9791ae-7e2b-4a51-be38-ae5e613603c8">&lt;/title&gt;</ept> to update documents in the collection.</target>
+        </trans-unit>
+        <trans-unit id="a8a724a8-ba0b-40e1-a206-aa73b118aeee" xml:space="preserve">
+          <source>As an implementation detail, using a product SKU for the document key can help with this task.</source>
+          <target state="new">As an implementation detail, using a product SKU for the document key can help with this task.</target>
+        </trans-unit>
+        <trans-unit id="25043bd7-cb14-4b02-94a8-460e5a209036" xml:space="preserve">
+          <source>Pull models are usually scheduled operations that retrieve data from external data sources.</source>
+          <target state="new">Pull models are usually scheduled operations that retrieve data from external data sources.</target>
+        </trans-unit>
+        <trans-unit id="2bfbd68f-5422-41de-8cce-10ee1b2b952c" xml:space="preserve">
+          <source>In Azure Search, a pull model is available through <bpt id="da982c3c-fcdf-4e5b-a299-ff79adf997b7">&lt;linkText&gt;</bpt>Indexers<ept id="da982c3c-fcdf-4e5b-a299-ff79adf997b7">&lt;/linkText&gt;</ept><bpt id="da982c3c-fcdf-4e5b-a299-ff79adf997b7">&lt;title&gt;</bpt><ept id="da982c3c-fcdf-4e5b-a299-ff79adf997b7">&lt;/title&gt;</ept>, which are in turn available for specific data sources: Azure DocumentDB or Azure SQL Database (and also SQL Server on Azure VMs).</source>
+          <target state="new">In Azure Search, a pull model is available through <bpt id="da982c3c-fcdf-4e5b-a299-ff79adf997b7">&lt;linkText&gt;</bpt>Indexers<ept id="da982c3c-fcdf-4e5b-a299-ff79adf997b7">&lt;/linkText&gt;</ept><bpt id="da982c3c-fcdf-4e5b-a299-ff79adf997b7">&lt;title&gt;</bpt><ept id="da982c3c-fcdf-4e5b-a299-ff79adf997b7">&lt;/title&gt;</ept>, which are in turn available for specific data sources: Azure DocumentDB or Azure SQL Database (and also SQL Server on Azure VMs).</target>
+        </trans-unit>
+        <trans-unit id="5af04afb-0beb-4306-aa87-7763785db4c0" xml:space="preserve">
+          <source>We recommend adding documents in batches to improve throughput.</source>
+          <target state="new">We recommend adding documents in batches to improve throughput.</target>
+        </trans-unit>
+        <trans-unit id="c907106c-0b1d-40f6-b36c-6d53868b1a55" xml:space="preserve">
+          <source>You can batch up to 1,000 documents, assuming an average document size of about 1 to 2 KB.</source>
+          <target state="new">You can batch up to 1,000 documents, assuming an average document size of about 1 to 2 KB.</target>
+        </trans-unit>
+        <trans-unit id="74bd1dcc-53f6-41c7-a828-b04c37e08df9" xml:space="preserve">
+          <source>There is an overall status code for the POST request.</source>
+          <target state="new">There is an overall status code for the POST request.</target>
+        </trans-unit>
+        <trans-unit id="c57b1b5f-d130-4c4d-a4b5-55f89fce53ca" xml:space="preserve">
+          <source>Status codes are either HTTP 200 (Success) or HTTP 207 (Multi-Status) if there is combination of successful and failed documents.</source>
+          <target state="new">Status codes are either HTTP 200 (Success) or HTTP 207 (Multi-Status) if there is combination of successful and failed documents.</target>
+        </trans-unit>
+        <trans-unit id="b80df70b-c481-4748-9d98-419d8697c4da" xml:space="preserve">
+          <source>In addition to the status code for the POST request, Azure Search maintains a status field for each document.</source>
+          <target state="new">In addition to the status code for the POST request, Azure Search maintains a status field for each document.</target>
+        </trans-unit>
+        <trans-unit id="2d43f73b-87cf-4c04-86a0-7677dce98751" xml:space="preserve">
+          <source>Given a batch upload, you need a way to get per-document status that indicates whether the insert succeeded or failed for each document.</source>
+          <target state="new">Given a batch upload, you need a way to get per-document status that indicates whether the insert succeeded or failed for each document.</target>
+        </trans-unit>
+        <trans-unit id="27868962-3293-4da8-a9eb-27a62bbab41b" xml:space="preserve">
+          <source>The status field provides that information.</source>
+          <target state="new">The status field provides that information.</target>
+        </trans-unit>
+        <trans-unit id="e0875881-c2c4-4151-b51e-e985ed486bb5" xml:space="preserve">
+          <source>It will be set to false if the document failed to load.</source>
+          <target state="new">It will be set to false if the document failed to load.</target>
+        </trans-unit>
+        <trans-unit id="c7d6586c-7bae-47e4-8b56-f1b6e1913746" xml:space="preserve">
+          <source>Under heavy load, it's not uncommon to have some upload failures.</source>
+          <target state="new">Under heavy load, it's not uncommon to have some upload failures.</target>
+        </trans-unit>
+        <trans-unit id="4d4098e3-6f65-4fe8-82e3-7ff95b18bc84" xml:space="preserve">
+          <source>Should this occur, the overall status code is 207, indicating a partial success, and the documents that failed indexing will have the 'status' property set to false.</source>
+          <target state="new">Should this occur, the overall status code is 207, indicating a partial success, and the documents that failed indexing will have the 'status' property set to false.</target>
+        </trans-unit>
+        <trans-unit id="7b14c30e-0d34-46e7-be51-64505848f09b" xml:space="preserve">
+          <source>When the service receives documents, they are queued up for indexing and may not be immediately included in search results.</source>
+          <target state="new">When the service receives documents, they are queued up for indexing and may not be immediately included in search results.</target>
+        </trans-unit>
+        <trans-unit id="ddd0e236-9ee4-4fbd-9c80-ca0186ef5ed8" xml:space="preserve">
+          <source>When not under a heavy load, documents are typically indexed within a few seconds.</source>
+          <target state="new">When not under a heavy load, documents are typically indexed within a few seconds.</target>
+        </trans-unit>
+        <trans-unit id="a5cdfea5-4a1a-4734-8c94-ed1f7b0213fd" xml:space="preserve">
+          <source>When updating an index, you can combine multiple actions (insert, merge, delete) into the same batch, eliminating the need for multiple round trips.</source>
+          <target state="new">When updating an index, you can combine multiple actions (insert, merge, delete) into the same batch, eliminating the need for multiple round trips.</target>
+        </trans-unit>
+        <trans-unit id="cf3c07a0-f88e-4eef-8aad-edf192154492" xml:space="preserve">
+          <source>Currently Azure Search does not support partial updates (HTTP PATCH), so if you need to update an index, you must resend the index definition.</source>
+          <target state="new">Currently Azure Search does not support partial updates (HTTP PATCH), so if you need to update an index, you must resend the index definition.</target>
+        </trans-unit>
+        <trans-unit id="041d31e3-5890-4364-a184-7732812afc34" xml:space="preserve">
+          <source>Azure Search uses internal storage for the indexes and documents used in search operations.</source>
+          <target state="new">Azure Search uses internal storage for the indexes and documents used in search operations.</target>
+        </trans-unit>
+        <trans-unit id="d75042bc-1bad-4577-b413-85b682ebc590" xml:space="preserve">
+          <source>Text analysis and index parsing is dependent on having all searchable fields and associated attributes readily available.</source>
+          <target state="new">Text analysis and index parsing is dependent on having all searchable fields and associated attributes readily available.</target>
+        </trans-unit>
+        <trans-unit id="a9a70167-37be-45f7-9800-af43a9304f44" xml:space="preserve">
+          <source>However, not all fields in a document will be searchable.</source>
+          <target state="new">However, not all fields in a document will be searchable.</target>
+        </trans-unit>
+        <trans-unit id="106f6643-d455-4a54-923a-23e70f2153f8" xml:space="preserve">
+          <source>For example, if your application is an online catalog for music or videos, we recommend storing binary files in the Azure Blob service or some other storage format.</source>
+          <target state="new">For example, if your application is an online catalog for music or videos, we recommend storing binary files in the Azure Blob service or some other storage format.</target>
+        </trans-unit>
+        <trans-unit id="f2b3a2a6-a032-49e7-a461-4a1dfcc164a6" xml:space="preserve">
+          <source>The binary files themselves are not searchable, hence there is no need to persist them in Azure Search storage.</source>
+          <target state="new">The binary files themselves are not searchable, hence there is no need to persist them in Azure Search storage.</target>
+        </trans-unit>
+        <trans-unit id="f5a1b08a-fc29-4bd3-9aca-52665f4674c9" xml:space="preserve">
+          <source>Although you should store images, videos, and audio files in other services or locations, you should include a field that references the URL to the file location.</source>
+          <target state="new">Although you should store images, videos, and audio files in other services or locations, you should include a field that references the URL to the file location.</target>
+        </trans-unit>
+        <trans-unit id="1977ae28-28fa-4fed-aa31-25ca7b75d50f" xml:space="preserve">
+          <source>This way, you can return the external data as part of your search results.</source>
+          <target state="new">This way, you can return the external data as part of your search results.</target>
+        </trans-unit>
+        <trans-unit id="9fef1a34-275c-4f7b-b4e3-a43290b4d9b2" xml:space="preserve">
+          <source>To use external data, you should define a field in your index that stores a URL pointer to the external data file.</source>
+          <target state="new">To use external data, you should define a field in your index that stores a URL pointer to the external data file.</target>
+        </trans-unit>
+        <trans-unit id="622225d9-8ac1-4250-b6a7-973302a3727d" xml:space="preserve">
+          <source>If you issue a <bpt id="e71f1a16-2eac-43af-9479-723f715a9b97">&lt;linkText&gt;</bpt>Lookup Documents<ept id="e71f1a16-2eac-43af-9479-723f715a9b97">&lt;/linkText&gt;</ept><bpt id="e71f1a16-2eac-43af-9479-723f715a9b97">&lt;title&gt;</bpt><ept id="e71f1a16-2eac-43af-9479-723f715a9b97">&lt;/title&gt;</ept> request, or include the field in search results, the binary file appears in the context of a document.</source>
+          <target state="new">If you issue a <bpt id="e71f1a16-2eac-43af-9479-723f715a9b97">&lt;linkText&gt;</bpt>Lookup Documents<ept id="e71f1a16-2eac-43af-9479-723f715a9b97">&lt;/linkText&gt;</ept><bpt id="e71f1a16-2eac-43af-9479-723f715a9b97">&lt;title&gt;</bpt><ept id="e71f1a16-2eac-43af-9479-723f715a9b97">&lt;/title&gt;</ept> request, or include the field in search results, the binary file appears in the context of a document.</target>
+        </trans-unit>
+        <trans-unit id="b704db59-b3b5-4ad6-bea2-a4fc859fbe4d" xml:space="preserve">
+          <source>One of the more compelling feature in Azure Search is the ease with which you can scale up or scale down resources in response to demand.</source>
+          <target state="new">One of the more compelling feature in Azure Search is the ease with which you can scale up or scale down resources in response to demand.</target>
+        </trans-unit>
+        <trans-unit id="e6dd1476-413f-48a4-8638-97d170afb9ef" xml:space="preserve">
+          <source>While this capability doesn’t eliminate the need for capacity planning, it does minimize most of the risk.</source>
+          <target state="new">While this capability doesn’t eliminate the need for capacity planning, it does minimize most of the risk.</target>
+        </trans-unit>
+        <trans-unit id="430cd13e-885a-4ec2-92a9-8b2ec5322acb" xml:space="preserve">
+          <source>You’re not stuck with extra hardware, or the wrong hardware, for running your search workloads.</source>
+          <target state="new">You’re not stuck with extra hardware, or the wrong hardware, for running your search workloads.</target>
+        </trans-unit>
+        <trans-unit id="c0facba2-de26-4614-bc1b-bd7f498db54c" xml:space="preserve">
+          <source>As a last step, review the existing resource levels for both replicas and partitions, and determine whether adjustments are needed.</source>
+          <target state="new">As a last step, review the existing resource levels for both replicas and partitions, and determine whether adjustments are needed.</target>
+        </trans-unit>
+        <trans-unit id="6c4f0e81-952a-4e62-a6ad-75da9b6cea6b" xml:space="preserve">
+          <source>The easiest way to adjust capacity is in the <bpt id="3739dd20-7216-4385-8bdc-f1c6686602ed">&lt;linkText&gt;</bpt>Azure portal<ept id="3739dd20-7216-4385-8bdc-f1c6686602ed">&lt;/linkText&gt;</ept><bpt id="3739dd20-7216-4385-8bdc-f1c6686602ed">&lt;title&gt;</bpt><ept id="3739dd20-7216-4385-8bdc-f1c6686602ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">The easiest way to adjust capacity is in the <bpt id="3739dd20-7216-4385-8bdc-f1c6686602ed">&lt;linkText&gt;</bpt>Azure portal<ept id="3739dd20-7216-4385-8bdc-f1c6686602ed">&lt;/linkText&gt;</ept><bpt id="3739dd20-7216-4385-8bdc-f1c6686602ed">&lt;title&gt;</bpt><ept id="3739dd20-7216-4385-8bdc-f1c6686602ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72da73fb-75f8-4bfd-9860-b7034fe89320" xml:space="preserve">
+          <source>Remember that only the standard pricing tier can be scaled up or down.</source>
+          <target state="new">Remember that only the standard pricing tier can be scaled up or down.</target>
+        </trans-unit>
+        <trans-unit id="7267d088-f917-4b88-8d24-5bde294579a9" xml:space="preserve">
+          <source>Additionally, depending on the degree of adjustment, it can take anywhere from several minutes to several hours to deploy additional clusters for your service.</source>
+          <target state="new">Additionally, depending on the degree of adjustment, it can take anywhere from several minutes to several hours to deploy additional clusters for your service.</target>
+        </trans-unit>
+        <trans-unit id="f76d64b1-6076-40c0-bedd-8db2a69179de" xml:space="preserve">
+          <source>Capacity can be adjusted programmatically by using the Management REST API.</source>
+          <target state="new">Capacity can be adjusted programmatically by using the Management REST API.</target>
+        </trans-unit>
+        <trans-unit id="5dcb30a2-4476-461c-b0d4-961aa6b0e044" xml:space="preserve">
+          <source>For more information, see <bpt id="0ce98382-4be4-4e6b-8355-4e4ad3c195ad">&lt;linkText&gt;</bpt>Management REST API<ept id="0ce98382-4be4-4e6b-8355-4e4ad3c195ad">&lt;/linkText&gt;</ept><bpt id="0ce98382-4be4-4e6b-8355-4e4ad3c195ad">&lt;title&gt;</bpt><ept id="0ce98382-4be4-4e6b-8355-4e4ad3c195ad">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="0ce98382-4be4-4e6b-8355-4e4ad3c195ad">&lt;linkText&gt;</bpt>Management REST API<ept id="0ce98382-4be4-4e6b-8355-4e4ad3c195ad">&lt;/linkText&gt;</ept><bpt id="0ce98382-4be4-4e6b-8355-4e4ad3c195ad">&lt;title&gt;</bpt><ept id="0ce98382-4be4-4e6b-8355-4e4ad3c195ad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b71a3144-fd3c-430d-981c-b56aeb4dcdc7" xml:space="preserve">
+          <source>./media/search-workflow/AzSearch-Workflow.png</source>
+          <target state="new">./media/search-workflow/AzSearch-Workflow.png</target>
+        </trans-unit>
+      </group>
+      <group id="48fc48e9-1f9f-4be9-a93d-ca7147e30038" />
+    </body>
+  </file>
+</xliff>

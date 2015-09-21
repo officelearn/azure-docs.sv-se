@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="663fec0f-5cee-4e89-86ed-1a027553755b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="663fec0f-5cee-4e89-86ed-1a027553755b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="af130912-a4f0-4942-bd94-d514a74af8df">
+        <trans-unit id="b25ada7e-2c25-4ecb-81df-7831ec68bc86" xml:space="preserve">
+          <source>Dynamic Load Reporting</source>
+          <target state="new">Dynamic Load Reporting</target>
+        </trans-unit>
+        <trans-unit id="74054b04-8c13-48a5-a2b2-962a09596f19" xml:space="preserve">
+          <source>An overview of Dynamic Load Reporting to the Resource Balancer</source>
+          <target state="new">An overview of Dynamic Load Reporting to the Resource Balancer</target>
+        </trans-unit>
+        <trans-unit id="c2ff3d5c-2037-4c82-b160-93dacc4d7424" xml:space="preserve">
+          <source>During runtime, stateful and stateless service objects can report load via the ReportLoad method (member of the IStatefulServicePartition and IStatelessServicePartition interfaces).</source>
+          <target state="new">During runtime, stateful and stateless service objects can report load via the ReportLoad method (member of the IStatefulServicePartition and IStatelessServicePartition interfaces).</target>
+        </trans-unit>
+        <trans-unit id="1ed892e4-a42a-469e-b6d4-459828dd3eae" xml:space="preserve">
+          <source>To report runtime load values is important because it enables accurate packing of services into the nodes and helps ensure that resource utilization is tracked accurately by the central Service Fabric Resource Balancer, as services are experiencing it on the nodes.</source>
+          <target state="new">To report runtime load values is important because it enables accurate packing of services into the nodes and helps ensure that resource utilization is tracked accurately by the central Service Fabric Resource Balancer, as services are experiencing it on the nodes.</target>
+        </trans-unit>
+        <trans-unit id="d979c454-15f1-4e7e-a619-c7bbbc5c56f0" xml:space="preserve">
+          <source>Note that when a replica reports load, it is first batched up with other load reports locally, and then a single report is sent to the Resource Balancer.</source>
+          <target state="new">Note that when a replica reports load, it is first batched up with other load reports locally, and then a single report is sent to the Resource Balancer.</target>
+        </trans-unit>
+        <trans-unit id="4522e51d-6c6f-44f8-a6f7-65666b60de3f" xml:space="preserve">
+          <source>This process means that if a service reports load repeatedly and very quickly, only the last report actually gets sent to the Resource Balancer.</source>
+          <target state="new">This process means that if a service reports load repeatedly and very quickly, only the last report actually gets sent to the Resource Balancer.</target>
+        </trans-unit>
+        <trans-unit id="c17428be-8a21-49a4-9915-b26de1c60796" xml:space="preserve">
+          <source>When the Service Fabric Resource Balancer runs, it examines all of the load information that is aggregated from all of the nodes and performs some checks.</source>
+          <target state="new">When the Service Fabric Resource Balancer runs, it examines all of the load information that is aggregated from all of the nodes and performs some checks.</target>
+        </trans-unit>
+        <trans-unit id="af32fea2-f81a-4691-903c-6ea16d92280b" xml:space="preserve">
+          <source>These checks include the balancing threshold and activity thresholds for the metrics as defined in the cluster manifest.</source>
+          <target state="new">These checks include the balancing threshold and activity thresholds for the metrics as defined in the cluster manifest.</target>
+        </trans-unit>
+        <trans-unit id="a33cccdf-886a-4b6b-a6b7-a60392ef72f6" xml:space="preserve">
+          <source>They determine whether the cluster is imbalanced enough to run the Resource Balancer and whether any specific node is above capacity for any of the metrics for which it has a defined capacity.</source>
+          <target state="new">They determine whether the cluster is imbalanced enough to run the Resource Balancer and whether any specific node is above capacity for any of the metrics for which it has a defined capacity.</target>
+        </trans-unit>
+        <trans-unit id="cb37e48e-ee58-4324-b2a6-3b08c7c0142d" xml:space="preserve">
+          <source>In the over-capacity case, the Resource Balancer first only considers services on the node or nodes over capacity that share the metric, which is over capacity.</source>
+          <target state="new">In the over-capacity case, the Resource Balancer first only considers services on the node or nodes over capacity that share the metric, which is over capacity.</target>
+        </trans-unit>
+        <trans-unit id="0bdfdd05-cfc3-473e-a388-8a5166643330" xml:space="preserve">
+          <source>For a cluster imbalance, the Resource Balancer considers all services that are related by metrics to any service that reports the imbalanced metric.</source>
+          <target state="new">For a cluster imbalance, the Resource Balancer considers all services that are related by metrics to any service that reports the imbalanced metric.</target>
+        </trans-unit>
+        <trans-unit id="3a61e94b-f32a-489a-95ff-244cfccab78f" xml:space="preserve">
+          <source>If the Service Fabric Resource Balancer determines that any of these situations has occurred, it runs a simulation that attempts to find a better arrangement of services.</source>
+          <target state="new">If the Service Fabric Resource Balancer determines that any of these situations has occurred, it runs a simulation that attempts to find a better arrangement of services.</target>
+        </trans-unit>
+        <trans-unit id="0375e356-30b5-4fb0-93f9-6dd22a9c4e79" xml:space="preserve">
+          <source>Services should report load whenever the load changes and not perform any aggregation or smoothing of load reports on their own.</source>
+          <target state="new">Services should report load whenever the load changes and not perform any aggregation or smoothing of load reports on their own.</target>
+        </trans-unit>
+        <trans-unit id="5cf074f1-dd20-4103-aaa5-4331e10b28e6" xml:space="preserve">
+          <source>Note that when a service reports load, those load reports replace the default Primary and Secondary load values that were defined when the service was created, and become the new load values that are used when the Service Fabric Resource Balancer has to make balancing or placement decisions from then on.</source>
+          <target state="new">Note that when a service reports load, those load reports replace the default Primary and Secondary load values that were defined when the service was created, and become the new load values that are used when the Service Fabric Resource Balancer has to make balancing or placement decisions from then on.</target>
+        </trans-unit>
+        <trans-unit id="ce279cf8-2b35-42ed-a38b-00d26dc8a0f4" xml:space="preserve">
+          <source>For more information: <bpt id="17a7bc16-2c83-48c1-aaf0-b6e59c813927">&lt;linkText&gt;</bpt>Resource Balancer Architecture<ept id="17a7bc16-2c83-48c1-aaf0-b6e59c813927">&lt;/linkText&gt;</ept><bpt id="17a7bc16-2c83-48c1-aaf0-b6e59c813927">&lt;title&gt;</bpt><ept id="17a7bc16-2c83-48c1-aaf0-b6e59c813927">&lt;/title&gt;</ept></source>
+          <target state="new">For more information: <bpt id="17a7bc16-2c83-48c1-aaf0-b6e59c813927">&lt;linkText&gt;</bpt>Resource Balancer Architecture<ept id="17a7bc16-2c83-48c1-aaf0-b6e59c813927">&lt;/linkText&gt;</ept><bpt id="17a7bc16-2c83-48c1-aaf0-b6e59c813927">&lt;title&gt;</bpt><ept id="17a7bc16-2c83-48c1-aaf0-b6e59c813927">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

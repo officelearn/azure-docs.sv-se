@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f8ba654d-9fa8-4482-9d9f-93ce55264f95" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f8ba654d-9fa8-4482-9d9f-93ce55264f95" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9d1b87a7-d80e-4c29-bdb9-ee39589f9370">
+        <trans-unit id="6e967050-5f5c-49d4-af24-264d80cc37fa" xml:space="preserve">
+          <source>Getting Started with Azure Active Directory (.NET Projects)</source>
+          <target state="new">Getting Started with Azure Active Directory (.NET Projects)</target>
+        </trans-unit>
+        <trans-unit id="f0e1a4ad-8994-4d1b-8518-4c62a6fc72c9" xml:space="preserve">
+          <source>How to get started using Azure Active Directory in Visual Studio</source>
+          <target state="new">How to get started using Azure Active Directory in Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="955f3e9a-7e95-407e-b1ed-d12c9bb04341" xml:space="preserve">
+          <source>All controllers in your project were adorned with the <bpt id="b389bf1f-3390-4d67-bde5-677f5e9da02e">&lt;strong&gt;</bpt>Authorize<ept id="b389bf1f-3390-4d67-bde5-677f5e9da02e">&lt;/strong&gt;</ept> attribute.</source>
+          <target state="new">All controllers in your project were adorned with the <bpt id="b389bf1f-3390-4d67-bde5-677f5e9da02e">&lt;strong&gt;</bpt>Authorize<ept id="b389bf1f-3390-4d67-bde5-677f5e9da02e">&lt;/strong&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="4609d618-c1db-4628-a5c8-7e1168686bd8" xml:space="preserve">
+          <source>This attribute will require the user to be authenticated before accessing these controllers.</source>
+          <target state="new">This attribute will require the user to be authenticated before accessing these controllers.</target>
+        </trans-unit>
+        <trans-unit id="2a941dc0-b653-4012-9aa6-99787c23eacf" xml:space="preserve">
+          <source>To allow the controller to be accessed anonymously, remove this attribute from the controller.</source>
+          <target state="new">To allow the controller to be accessed anonymously, remove this attribute from the controller.</target>
+        </trans-unit>
+        <trans-unit id="b2efa82a-9e41-42a6-892a-450218bf4f58" xml:space="preserve">
+          <source>If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.</source>
+          <target state="new">If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.</target>
+        </trans-unit>
+        <trans-unit id="9dbb1ed8-1b1e-4d1b-ae6f-8c9a4e04cd26" xml:space="preserve">
+          <source>To add a the SignIn/SignOut controls to your view, you can use the <bpt id="2b74c968-fcda-42da-81b4-b136ba3fd748">&lt;strong&gt;</bpt>_LoginPartial.cshtml<ept id="2b74c968-fcda-42da-81b4-b136ba3fd748">&lt;/strong&gt;</ept> partial view to add the functionality to one of your views.</source>
+          <target state="new">To add a the SignIn/SignOut controls to your view, you can use the <bpt id="2b74c968-fcda-42da-81b4-b136ba3fd748">&lt;strong&gt;</bpt>_LoginPartial.cshtml<ept id="2b74c968-fcda-42da-81b4-b136ba3fd748">&lt;/strong&gt;</ept> partial view to add the functionality to one of your views.</target>
+        </trans-unit>
+        <trans-unit id="33352b5d-f84f-44e3-8e16-544ffa5e1536" xml:space="preserve">
+          <source>Here is an example of the functionality added to the standard <bpt id="7d481dc1-4849-4f32-8482-a22680ff4703">&lt;strong&gt;</bpt>_Layout.cshtml<ept id="7d481dc1-4849-4f32-8482-a22680ff4703">&lt;/strong&gt;</ept> view.</source>
+          <target state="new">Here is an example of the functionality added to the standard <bpt id="7d481dc1-4849-4f32-8482-a22680ff4703">&lt;strong&gt;</bpt>_Layout.cshtml<ept id="7d481dc1-4849-4f32-8482-a22680ff4703">&lt;/strong&gt;</ept> view.</target>
+        </trans-unit>
+        <trans-unit id="7b6047ba-741f-4fe8-97ea-af88568f4636" xml:space="preserve">
+          <source>(Note the last element in the div with class navbar-collapse):</source>
+          <target state="new">(Note the last element in the div with class navbar-collapse):</target>
+        </trans-unit>
+        <trans-unit id="7d46545e-5fc4-40a1-90c8-cb7dbeed5d95" xml:space="preserve">
+          <source>
+    &amp;lt;!DOCTYPE html&amp;gt; 
+     &amp;lt;html&amp;gt; 
+     &amp;lt;head&amp;gt; 
+         &amp;lt;meta charset="utf-8" /&amp;gt; 
+        &amp;lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&amp;gt; 
+        &amp;lt;title&amp;gt;@ViewBag.Title - My ASP.NET Application&amp;lt;/title&amp;gt; 
+        @Styles.Render("~/Content/css") 
+        @Scripts.Render("~/bundles/modernizr") 
+    &amp;lt;/head&amp;gt; 
+    &amp;lt;body&amp;gt; 
+        &amp;lt;div class="navbar navbar-inverse navbar-fixed-top"&amp;gt; 
+            &amp;lt;div class="container"&amp;gt; 
+                &amp;lt;div class="navbar-header"&amp;gt; 
+                    &amp;lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&amp;gt; 
+                        &amp;lt;span class="icon-bar"&amp;gt;&amp;lt;/span&amp;gt; 
+                        &amp;lt;span class="icon-bar"&amp;gt;&amp;lt;/span&amp;gt; 
+                        &amp;lt;span class="icon-bar"&amp;gt;&amp;lt;/span&amp;gt; 
+                    &amp;lt;/button&amp;gt; 
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) 
+                &amp;lt;/div&amp;gt; 
+                &amp;lt;div class="navbar-collapse collapse"&amp;gt; 
+                    &amp;lt;ul class="nav navbar-nav"&amp;gt; 
+                        &amp;lt;li&amp;gt;@Html.ActionLink("Home", "Index", "Home")&amp;lt;/li&amp;gt; 
+                        &amp;lt;li&amp;gt;@Html.ActionLink("About", "About", "Home")&amp;lt;/li&amp;gt; 
+                        &amp;lt;li&amp;gt;@Html.ActionLink("Contact", "Contact", "Home")&amp;lt;/li&amp;gt; 
+                    &amp;lt;/ul&amp;gt; 
+                    </source>
+          <target state="new">
+    &amp;lt;!DOCTYPE html&amp;gt; 
+     &amp;lt;html&amp;gt; 
+     &amp;lt;head&amp;gt; 
+         &amp;lt;meta charset="utf-8" /&amp;gt; 
+        &amp;lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&amp;gt; 
+        &amp;lt;title&amp;gt;@ViewBag.Title - My ASP.NET Application&amp;lt;/title&amp;gt; 
+        @Styles.Render("~/Content/css") 
+        @Scripts.Render("~/bundles/modernizr") 
+    &amp;lt;/head&amp;gt; 
+    &amp;lt;body&amp;gt; 
+        &amp;lt;div class="navbar navbar-inverse navbar-fixed-top"&amp;gt; 
+            &amp;lt;div class="container"&amp;gt; 
+                &amp;lt;div class="navbar-header"&amp;gt; 
+                    &amp;lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&amp;gt; 
+                        &amp;lt;span class="icon-bar"&amp;gt;&amp;lt;/span&amp;gt; 
+                        &amp;lt;span class="icon-bar"&amp;gt;&amp;lt;/span&amp;gt; 
+                        &amp;lt;span class="icon-bar"&amp;gt;&amp;lt;/span&amp;gt; 
+                    &amp;lt;/button&amp;gt; 
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) 
+                &amp;lt;/div&amp;gt; 
+                &amp;lt;div class="navbar-collapse collapse"&amp;gt; 
+                    &amp;lt;ul class="nav navbar-nav"&amp;gt; 
+                        &amp;lt;li&amp;gt;@Html.ActionLink("Home", "Index", "Home")&amp;lt;/li&amp;gt; 
+                        &amp;lt;li&amp;gt;@Html.ActionLink("About", "About", "Home")&amp;lt;/li&amp;gt; 
+                        &amp;lt;li&amp;gt;@Html.ActionLink("Contact", "Contact", "Home")&amp;lt;/li&amp;gt; 
+                    &amp;lt;/ul&amp;gt; 
+                    </target>
+        </trans-unit>
+        <trans-unit id="7272de04-0633-4051-a156-d1e0bfcb629d" xml:space="preserve">
+          <source>@Html.Partial("_LoginPartial")</source>
+          <target state="new">@Html.Partial("_LoginPartial")</target>
+        </trans-unit>
+        <trans-unit id="5e2e921d-cf34-4cd6-a219-15461e17a548" xml:space="preserve">
+          <source> 
+                &amp;lt;/div&amp;gt; 
+            &amp;lt;/div&amp;gt; 
+        &amp;lt;/div&amp;gt; 
+        &amp;lt;div class="container body-content"&amp;gt; 
+            @RenderBody() 
+            &amp;lt;hr /&amp;gt; 
+            &amp;lt;footer&amp;gt; 
+                &amp;lt;p&amp;gt;&amp;amp;copy; @DateTime.Now.Year - My ASP.NET Application&amp;lt;/p&amp;gt; 
+            &amp;lt;/footer&amp;gt; 
+        &amp;lt;/div&amp;gt; 
+        @Scripts.Render("~/bundles/jquery") 
+        @Scripts.Render("~/bundles/bootstrap") 
+        @RenderSection("scripts", required: false) 
+    &amp;lt;/body&amp;gt; 
+    &amp;lt;/html&amp;gt;
+</source>
+          <target state="new"> 
+                &amp;lt;/div&amp;gt; 
+            &amp;lt;/div&amp;gt; 
+        &amp;lt;/div&amp;gt; 
+        &amp;lt;div class="container body-content"&amp;gt; 
+            @RenderBody() 
+            &amp;lt;hr /&amp;gt; 
+            &amp;lt;footer&amp;gt; 
+                &amp;lt;p&amp;gt;&amp;amp;copy; @DateTime.Now.Year - My ASP.NET Application&amp;lt;/p&amp;gt; 
+            &amp;lt;/footer&amp;gt; 
+        &amp;lt;/div&amp;gt; 
+        @Scripts.Render("~/bundles/jquery") 
+        @Scripts.Render("~/bundles/bootstrap") 
+        @RenderSection("scripts", required: false) 
+    &amp;lt;/body&amp;gt; 
+    &amp;lt;/html&amp;gt;
+</target>
+        </trans-unit>
+        <trans-unit id="303cb3d6-c27b-46ec-a831-c179e84c103c" xml:space="preserve">
+          <source><bpt id="b0605bf1-094d-415a-a6f8-939f7f5444ff">&lt;linkText&gt;</bpt>Learn more about Azure Active Directory<ept id="b0605bf1-094d-415a-a6f8-939f7f5444ff">&lt;/linkText&gt;</ept><bpt id="b0605bf1-094d-415a-a6f8-939f7f5444ff">&lt;title&gt;</bpt><ept id="b0605bf1-094d-415a-a6f8-939f7f5444ff">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="b0605bf1-094d-415a-a6f8-939f7f5444ff">&lt;linkText&gt;</bpt>Learn more about Azure Active Directory<ept id="b0605bf1-094d-415a-a6f8-939f7f5444ff">&lt;/linkText&gt;</ept><bpt id="b0605bf1-094d-415a-a6f8-939f7f5444ff">&lt;title&gt;</bpt><ept id="b0605bf1-094d-415a-a6f8-939f7f5444ff">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

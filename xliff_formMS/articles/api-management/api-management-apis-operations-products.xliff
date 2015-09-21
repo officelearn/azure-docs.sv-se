@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dfa50605-e6f0-4ab7-834d-3b30e0b52ebe" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dfa50605-e6f0-4ab7-834d-3b30e0b52ebe" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="51c1107b-3d78-497a-a065-efdb67ab88d9">
+        <trans-unit id="a4d5b481-b84b-4f31-b5de-17df9716afb5" xml:space="preserve">
+          <source>How to create APIs, operations, and products in Azure API Management</source>
+          <target state="new">How to create APIs, operations, and products in Azure API Management</target>
+        </trans-unit>
+        <trans-unit id="5bb7d3d4-7355-4e37-8abe-0429557970b5" xml:space="preserve">
+          <source>Learn how to create APIs, operations, and products in API Management.</source>
+          <target state="new">Learn how to create APIs, operations, and products in API Management.</target>
+        </trans-unit>
+        <trans-unit id="04c55d91-0f74-4db2-b701-7d0a36c7e468" xml:space="preserve">
+          <source>In Azure API Management, APIs and their operations are added to products, where they can be used by the developers building applications that use the APIs.</source>
+          <target state="new">In Azure API Management, APIs and their operations are added to products, where they can be used by the developers building applications that use the APIs.</target>
+        </trans-unit>
+        <trans-unit id="228c6a6e-905c-4ac1-8d5f-f67f12af3296" xml:space="preserve">
+          <source>The guides in this section show how to create an API, add operations to it, and then associate the API with a product and publish it for developers to use.</source>
+          <target state="new">The guides in this section show how to create an API, add operations to it, and then associate the API with a product and publish it for developers to use.</target>
+        </trans-unit>
+        <trans-unit id="5fc0adf0-b19a-4c5f-96d4-957747ec6d4f" xml:space="preserve">
+          <source>An API in API Management represents a set of operations that can be invoked by client applications.</source>
+          <target state="new">An API in API Management represents a set of operations that can be invoked by client applications.</target>
+        </trans-unit>
+        <trans-unit id="7a6dd046-1786-4035-a2ec-fb3aadb06ee9" xml:space="preserve">
+          <source>New APIs are created in the API Management portal.</source>
+          <target state="new">New APIs are created in the API Management portal.</target>
+        </trans-unit>
+        <trans-unit id="38036154-b862-47cb-8ad6-1fdb3ce2c26b" xml:space="preserve">
+          <source>This guide shows how to create and configure a new API in API Management.</source>
+          <target state="new">This guide shows how to create and configure a new API in API Management.</target>
+        </trans-unit>
+        <trans-unit id="c671ec32-4f80-4c5d-8b98-4a5626a299b4" xml:space="preserve">
+          <source><bpt id="4379149c-b6e6-415d-af59-2fd43a6f1ad2">&lt;linkText&gt;</bpt>How to create APIs<ept id="4379149c-b6e6-415d-af59-2fd43a6f1ad2">&lt;/linkText&gt;</ept><bpt id="4379149c-b6e6-415d-af59-2fd43a6f1ad2">&lt;title&gt;</bpt><ept id="4379149c-b6e6-415d-af59-2fd43a6f1ad2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4379149c-b6e6-415d-af59-2fd43a6f1ad2">&lt;linkText&gt;</bpt>How to create APIs<ept id="4379149c-b6e6-415d-af59-2fd43a6f1ad2">&lt;/linkText&gt;</ept><bpt id="4379149c-b6e6-415d-af59-2fd43a6f1ad2">&lt;title&gt;</bpt><ept id="4379149c-b6e6-415d-af59-2fd43a6f1ad2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea961bdf-a10a-46fc-a6fd-80636d69f112" xml:space="preserve">
+          <source>Before an API in API Management can be used, operations must be added.</source>
+          <target state="new">Before an API in API Management can be used, operations must be added.</target>
+        </trans-unit>
+        <trans-unit id="1f1c6598-2640-4edc-a5bb-09e7901acef5" xml:space="preserve">
+          <source>This guide shows how to add and configure different types of operations to an API in API Management.</source>
+          <target state="new">This guide shows how to add and configure different types of operations to an API in API Management.</target>
+        </trans-unit>
+        <trans-unit id="c37b971f-a3d8-4cf7-92a2-3db5e0d142dd" xml:space="preserve">
+          <source><bpt id="463b8a24-c1ba-4c5a-acd0-f5f88eb2031e">&lt;linkText&gt;</bpt>How to add operations to an API<ept id="463b8a24-c1ba-4c5a-acd0-f5f88eb2031e">&lt;/linkText&gt;</ept><bpt id="463b8a24-c1ba-4c5a-acd0-f5f88eb2031e">&lt;title&gt;</bpt><ept id="463b8a24-c1ba-4c5a-acd0-f5f88eb2031e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="463b8a24-c1ba-4c5a-acd0-f5f88eb2031e">&lt;linkText&gt;</bpt>How to add operations to an API<ept id="463b8a24-c1ba-4c5a-acd0-f5f88eb2031e">&lt;/linkText&gt;</ept><bpt id="463b8a24-c1ba-4c5a-acd0-f5f88eb2031e">&lt;title&gt;</bpt><ept id="463b8a24-c1ba-4c5a-acd0-f5f88eb2031e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69d3ab8c-8ace-4f94-83dc-d20737f30bd5" xml:space="preserve">
+          <source>An API and its operations can also be imported in one steps, in either WADL or Swagger format.</source>
+          <target state="new">An API and its operations can also be imported in one steps, in either WADL or Swagger format.</target>
+        </trans-unit>
+        <trans-unit id="1f1f45cf-5311-438e-bf10-d4127061b15b" xml:space="preserve">
+          <source><bpt id="dde543ea-5bcb-44e8-8aeb-db617153bb5a">&lt;linkText&gt;</bpt>How to import the definition of an API with operations<ept id="dde543ea-5bcb-44e8-8aeb-db617153bb5a">&lt;/linkText&gt;</ept><bpt id="dde543ea-5bcb-44e8-8aeb-db617153bb5a">&lt;title&gt;</bpt><ept id="dde543ea-5bcb-44e8-8aeb-db617153bb5a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dde543ea-5bcb-44e8-8aeb-db617153bb5a">&lt;linkText&gt;</bpt>How to import the definition of an API with operations<ept id="dde543ea-5bcb-44e8-8aeb-db617153bb5a">&lt;/linkText&gt;</ept><bpt id="dde543ea-5bcb-44e8-8aeb-db617153bb5a">&lt;title&gt;</bpt><ept id="dde543ea-5bcb-44e8-8aeb-db617153bb5a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c803bdc1-268a-48a6-a6b1-5cb2d077d742" xml:space="preserve">
+          <source>In API Management, a product contains one or more APIs as well as a usage quota and the terms of use.</source>
+          <target state="new">In API Management, a product contains one or more APIs as well as a usage quota and the terms of use.</target>
+        </trans-unit>
+        <trans-unit id="fa1765a1-c3db-4e7f-8fc0-e3e6137afcae" xml:space="preserve">
+          <source>Once a product is published, developers can subscribe to the product and begin to use the product's APIs.</source>
+          <target state="new">Once a product is published, developers can subscribe to the product and begin to use the product's APIs.</target>
+        </trans-unit>
+        <trans-unit id="df656ec6-d4f7-4c3a-a29a-2f2d33e431b3" xml:space="preserve">
+          <source>these topics provide a guide to creating a product, adding an API, and publishing it for developers.</source>
+          <target state="new">these topics provide a guide to creating a product, adding an API, and publishing it for developers.</target>
+        </trans-unit>
+        <trans-unit id="b92b2f26-0319-4710-9639-03010a7ca704" xml:space="preserve">
+          <source><bpt id="27d96184-a8a0-4f80-90fd-3f22f086bd70">&lt;linkText&gt;</bpt>How to add and publish a product<ept id="27d96184-a8a0-4f80-90fd-3f22f086bd70">&lt;/linkText&gt;</ept><bpt id="27d96184-a8a0-4f80-90fd-3f22f086bd70">&lt;title&gt;</bpt><ept id="27d96184-a8a0-4f80-90fd-3f22f086bd70">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="27d96184-a8a0-4f80-90fd-3f22f086bd70">&lt;linkText&gt;</bpt>How to add and publish a product<ept id="27d96184-a8a0-4f80-90fd-3f22f086bd70">&lt;/linkText&gt;</ept><bpt id="27d96184-a8a0-4f80-90fd-3f22f086bd70">&lt;title&gt;</bpt><ept id="27d96184-a8a0-4f80-90fd-3f22f086bd70">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0351a7d8-c9e3-4f27-a2b6-a58ff1db285c" xml:space="preserve">
+          <source><bpt id="0e9dc38e-5d08-474b-b47e-eb4d46a97cfa">&lt;linkText&gt;</bpt>How create and configure advanced product settings<ept id="0e9dc38e-5d08-474b-b47e-eb4d46a97cfa">&lt;/linkText&gt;</ept><bpt id="0e9dc38e-5d08-474b-b47e-eb4d46a97cfa">&lt;title&gt;</bpt><ept id="0e9dc38e-5d08-474b-b47e-eb4d46a97cfa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0e9dc38e-5d08-474b-b47e-eb4d46a97cfa">&lt;linkText&gt;</bpt>How create and configure advanced product settings<ept id="0e9dc38e-5d08-474b-b47e-eb4d46a97cfa">&lt;/linkText&gt;</ept><bpt id="0e9dc38e-5d08-474b-b47e-eb4d46a97cfa">&lt;title&gt;</bpt><ept id="0e9dc38e-5d08-474b-b47e-eb4d46a97cfa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecacc17a-a340-4d2d-b835-70c3f0b9b75b" xml:space="preserve">
+          <source>#create-product</source>
+          <target state="new">#create-product</target>
+        </trans-unit>
+        <trans-unit id="ac2d06bd-6345-432c-952f-075318da9691" xml:space="preserve">
+          <source>#add-apis</source>
+          <target state="new">#add-apis</target>
+        </trans-unit>
+        <trans-unit id="c19aba6c-50ef-490f-ba45-b06993f23875" xml:space="preserve">
+          <source>#add-description</source>
+          <target state="new">#add-description</target>
+        </trans-unit>
+        <trans-unit id="3e88fa3a-23e9-4314-a8da-f242ab461490" xml:space="preserve">
+          <source>#publish-product</source>
+          <target state="new">#publish-product</target>
+        </trans-unit>
+        <trans-unit id="10f38e88-ba48-4e2f-829c-bb9fa736279b" xml:space="preserve">
+          <source>#make-visible</source>
+          <target state="new">#make-visible</target>
+        </trans-unit>
+        <trans-unit id="189059d5-5ae4-4a53-8ae3-3d8770e5a420" xml:space="preserve">
+          <source>#view-subscribers</source>
+          <target state="new">#view-subscribers</target>
+        </trans-unit>
+        <trans-unit id="c85cd9f4-9033-4ba6-9af7-4359488e6160" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="e8edd5eb-11d3-4dd5-ab2f-f8afcf905d55" xml:space="preserve">
+          <source>./media/</source>
+          <target state="new">./media/</target>
+        </trans-unit>
+        <trans-unit id="1cf1542f-4183-4a24-a07b-44886c2ea215" xml:space="preserve">
+          <source>api-management-howto-create-apis.md</source>
+          <target state="new">api-management-howto-create-apis.md</target>
+        </trans-unit>
+        <trans-unit id="6d3d6895-d9aa-41a2-aa4d-ed934701fe5c" xml:space="preserve">
+          <source>api-management-howto-add-operations.md</source>
+          <target state="new">api-management-howto-add-operations.md</target>
+        </trans-unit>
+        <trans-unit id="1659a418-a8aa-4d84-be2a-87775929aaa1" xml:space="preserve">
+          <source>api-management-howto-add-products.md</source>
+          <target state="new">api-management-howto-add-products.md</target>
+        </trans-unit>
+        <trans-unit id="74f1bfcd-a679-4965-891a-ff7aae68a7ee" xml:space="preserve">
+          <source>../api-management-monitoring.md</source>
+          <target state="new">../api-management-monitoring.md</target>
+        </trans-unit>
+        <trans-unit id="523851cc-0381-430c-bce8-751bf733a469" xml:space="preserve">
+          <source>api-management-howto-import-api.md</source>
+          <target state="new">api-management-howto-import-api.md</target>
+        </trans-unit>
+        <trans-unit id="a5e7e89f-f4b8-4025-b7c8-dd806a20f228" xml:space="preserve">
+          <source>api-management-howto-product-with-rules.md</source>
+          <target state="new">api-management-howto-product-with-rules.md</target>
+        </trans-unit>
+      </group>
+      <group id="7fa850fe-46fa-4b72-819a-85d00828127e" />
+    </body>
+  </file>
+</xliff>

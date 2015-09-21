@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0d0b53f8-1add-4cdf-a368-238928b1e273" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0d0b53f8-1add-4cdf-a368-238928b1e273" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0903bae3-0e3e-4e80-9dbb-1b977e57886d">
+        <trans-unit id="89b2600f-8f61-4d88-a5df-b73ea482f153" xml:space="preserve">
+          <source>Cloud Platform Integration Framework | Microsoft Azure</source>
+          <target state="new">Cloud Platform Integration Framework | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1fcac5a3-e675-4e29-a05e-8d271ebdf8ba" xml:space="preserve">
+          <source>The Cloud Platform Integration Framework provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution consisting of architectural patterns for Microsoft Azure</source>
+          <target state="new">The Cloud Platform Integration Framework provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution consisting of architectural patterns for Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="086bd89d-d5e0-4096-a149-2c5e480af879" xml:space="preserve">
+          <source>The Cloud Platform Integration Framework (CPIF) provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution.</source>
+          <target state="new">The Cloud Platform Integration Framework (CPIF) provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution.</target>
+        </trans-unit>
+        <trans-unit id="8ba3c669-3e64-40ac-9b5f-9def747bc0e1" xml:space="preserve">
+          <source>CPIF describes how organizations, customers and partners should design and deploy Cloud-targeted workloads utilizing the hybrid cloud platform and management capabilities of Azure, System Center and Windows Server.</source>
+          <target state="new">CPIF describes how organizations, customers and partners should design and deploy Cloud-targeted workloads utilizing the hybrid cloud platform and management capabilities of Azure, System Center and Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="26187fd4-6a6b-4688-a2ea-67e2511bd4bb" xml:space="preserve">
+          <source>The CPIF domains have been decomposed into the following functions:</source>
+          <target state="new">The CPIF domains have been decomposed into the following functions:</target>
+        </trans-unit>
+        <trans-unit id="ca0835cb-15ad-4610-8cd2-ce05927fd349" xml:space="preserve">
+          <source><bpt id="0e1eee7b-04d6-41c3-b0ce-4bd56a172aa0">&lt;linkText&gt;</bpt>Tags part on resource and resource group blades<ept id="0e1eee7b-04d6-41c3-b0ce-4bd56a172aa0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e1eee7b-04d6-41c3-b0ce-4bd56a172aa0">&lt;linkText&gt;</bpt>Tags part on resource and resource group blades<ept id="0e1eee7b-04d6-41c3-b0ce-4bd56a172aa0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cc6e6e3-e6e6-46d2-ab59-7be7b906bd85" xml:space="preserve">
+          <source>Both public and private cloud environments provide common elements to support the running of complex workloads.</source>
+          <target state="new">Both public and private cloud environments provide common elements to support the running of complex workloads.</target>
+        </trans-unit>
+        <trans-unit id="b5bcbbf9-4a55-43f7-b9a5-4321aba78aab" xml:space="preserve">
+          <source>While these architectures are relatively well understood in traditional on-premises physical and virtualized environments, the constructs found within the Microsoft Azure require additional planning to rationalize the infrastructure and platform capabilities found within public cloud environments.</source>
+          <target state="new">While these architectures are relatively well understood in traditional on-premises physical and virtualized environments, the constructs found within the Microsoft Azure require additional planning to rationalize the infrastructure and platform capabilities found within public cloud environments.</target>
+        </trans-unit>
+        <trans-unit id="3f67516e-ae3f-42a7-a10b-4d27a786f9e6" xml:space="preserve">
+          <source>To support the development of a hosted application or service in Azure, a series of patterns are required outlining the various components required to compose a given workload Solution.</source>
+          <target state="new">To support the development of a hosted application or service in Azure, a series of patterns are required outlining the various components required to compose a given workload Solution.</target>
+        </trans-unit>
+        <trans-unit id="41b7e219-85cf-489a-bcbd-bbe2595d7606" xml:space="preserve">
+          <source>These architectural patterns fall within the following categories:</source>
+          <target state="new">These architectural patterns fall within the following categories:</target>
+        </trans-unit>
+        <trans-unit id="e07caba0-75f0-46ce-a35c-6c7828210d88" xml:space="preserve">
+          <source><bpt id="57161a86-d3ef-4818-9735-13205b395146">&lt;strong&gt;</bpt>Infrastructure<ept id="57161a86-d3ef-4818-9735-13205b395146">&lt;/strong&gt;</ept>– Microsoft Azure is an Infrastructure- and Platform-as-a-Service Solution which is comprised of several underlying services and capabilities.</source>
+          <target state="new"><bpt id="57161a86-d3ef-4818-9735-13205b395146">&lt;strong&gt;</bpt>Infrastructure<ept id="57161a86-d3ef-4818-9735-13205b395146">&lt;/strong&gt;</ept>– Microsoft Azure is an Infrastructure- and Platform-as-a-Service Solution which is comprised of several underlying services and capabilities.</target>
+        </trans-unit>
+        <trans-unit id="6cf8229f-e0d8-44bb-b1e0-051f4aa8787d" xml:space="preserve">
+          <source>These services largely can be decomposed into compute, storage and network services, however there are several capabilities which may fall outside of these definitions.</source>
+          <target state="new">These services largely can be decomposed into compute, storage and network services, however there are several capabilities which may fall outside of these definitions.</target>
+        </trans-unit>
+        <trans-unit id="9f9ba17a-6aaf-4d60-9094-18414856decf" xml:space="preserve">
+          <source>Infrastructure patterns detail a given functional area of Microsoft Azure which is required to provide a given service to one or more Solutions hosted within a given Azure subscription.</source>
+          <target state="new">Infrastructure patterns detail a given functional area of Microsoft Azure which is required to provide a given service to one or more Solutions hosted within a given Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="5243c6ad-0deb-4607-9f85-9b83d76b2b94" xml:space="preserve">
+          <source><bpt id="83228a0c-f265-4bf6-8d88-83545c926cf0">&lt;strong&gt;</bpt>Foundation<ept id="83228a0c-f265-4bf6-8d88-83545c926cf0">&lt;/strong&gt;</ept> – When composing a multi-tiered application or service within Azure, several components must be used in combination to provide a suitable hosting environment.</source>
+          <target state="new"><bpt id="83228a0c-f265-4bf6-8d88-83545c926cf0">&lt;strong&gt;</bpt>Foundation<ept id="83228a0c-f265-4bf6-8d88-83545c926cf0">&lt;/strong&gt;</ept> – When composing a multi-tiered application or service within Azure, several components must be used in combination to provide a suitable hosting environment.</target>
+        </trans-unit>
+        <trans-unit id="786a6b71-ec15-42f4-905c-984d615283be" xml:space="preserve">
+          <source>Foundation patterns compose one or more services from Microsoft Azure to support a given layer of functionality within an application.</source>
+          <target state="new">Foundation patterns compose one or more services from Microsoft Azure to support a given layer of functionality within an application.</target>
+        </trans-unit>
+        <trans-unit id="37a5e42a-e13a-4f4b-9c3a-29873f95945e" xml:space="preserve">
+          <source>This may require the use of one or more components described in the infrastructure patterns outlined above.</source>
+          <target state="new">This may require the use of one or more components described in the infrastructure patterns outlined above.</target>
+        </trans-unit>
+        <trans-unit id="616fbcfe-6e7b-4729-bf1a-9a0221f6fba6" xml:space="preserve">
+          <source>For example, the presentation layer of a multi-tier application requires compute, network and storage capabilities within Azure to become functional.</source>
+          <target state="new">For example, the presentation layer of a multi-tier application requires compute, network and storage capabilities within Azure to become functional.</target>
+        </trans-unit>
+        <trans-unit id="9dddb20d-ee56-4fcf-ae14-cbf2fc0fd891" xml:space="preserve">
+          <source>Foundation patterns are meant to be composed with other patterns as part of a given Solution.</source>
+          <target state="new">Foundation patterns are meant to be composed with other patterns as part of a given Solution.</target>
+        </trans-unit>
+        <trans-unit id="ac986638-1c52-4400-ac3a-331aff33cf51" xml:space="preserve">
+          <source><bpt id="675ed9f0-bf80-4e26-8b60-89a5a6ba9128">&lt;strong&gt;</bpt>Solution<ept id="675ed9f0-bf80-4e26-8b60-89a5a6ba9128">&lt;/strong&gt;</ept> – Solution patterns are composed of infrastructure and/or foundation patterns to represent an end application or service being developed.</source>
+          <target state="new"><bpt id="675ed9f0-bf80-4e26-8b60-89a5a6ba9128">&lt;strong&gt;</bpt>Solution<ept id="675ed9f0-bf80-4e26-8b60-89a5a6ba9128">&lt;/strong&gt;</ept> – Solution patterns are composed of infrastructure and/or foundation patterns to represent an end application or service being developed.</target>
+        </trans-unit>
+        <trans-unit id="8b4971d2-7821-4540-ac30-9a8b05822280" xml:space="preserve">
+          <source>It is envisioned that complex solutions would not be developed independently of other patterns.</source>
+          <target state="new">It is envisioned that complex solutions would not be developed independently of other patterns.</target>
+        </trans-unit>
+        <trans-unit id="674755c4-6a98-48da-804d-226f324044c9" xml:space="preserve">
+          <source>Rather, they should utilize the components and interfaces defined in each of the pattern categories outlined above.</source>
+          <target state="new">Rather, they should utilize the components and interfaces defined in each of the pattern categories outlined above.</target>
+        </trans-unit>
+        <trans-unit id="46dca540-7b43-4ae0-b19d-a179e855f75b" xml:space="preserve">
+          <source>To support the development of Solution architectures within Azure, a series of pattern guides are provided for common scenarios.</source>
+          <target state="new">To support the development of Solution architectures within Azure, a series of pattern guides are provided for common scenarios.</target>
+        </trans-unit>
+        <trans-unit id="5b971a96-9db4-417e-88f5-e900fe85e78e" xml:space="preserve">
+          <source>While these scenario guides will be constructed over time, envisioned patterns include:</source>
+          <target state="new">While these scenario guides will be constructed over time, envisioned patterns include:</target>
+        </trans-unit>
+        <trans-unit id="71a362e3-6085-4205-b23b-63c4fc36fefe" xml:space="preserve">
+          <source>Global Load Balanced Web Tier </source>
+          <target state="new">Global Load Balanced Web Tier </target>
+        </trans-unit>
+        <trans-unit id="54fb246d-6e3c-4da1-9758-cfafdc31eb68" xml:space="preserve">
+          <source>Load Balanced Data Tier</source>
+          <target state="new">Load Balanced Data Tier</target>
+        </trans-unit>
+        <trans-unit id="a4a31e00-8de7-4773-9224-8c40b0b3e419" xml:space="preserve">
+          <source>Batch Processing Tier</source>
+          <target state="new">Batch Processing Tier</target>
+        </trans-unit>
+        <trans-unit id="1a063753-589b-427e-ac93-dfdda408b3bd" xml:space="preserve">
+          <source>Hybrid Networking</source>
+          <target state="new">Hybrid Networking</target>
+        </trans-unit>
+        <trans-unit id="ec040a01-8d36-4311-8355-c3deabc41c0d" xml:space="preserve">
+          <source>Azure Search </source>
+          <target state="new">Azure Search </target>
+        </trans-unit>
+        <trans-unit id="1b762ac9-da3f-483c-b0aa-ff2355536ccf" xml:space="preserve">
+          <source><bpt id="a0d0c2eb-b884-4125-81ea-e2cf645bea36">&lt;linkText&gt;</bpt>CPIF Architecture (pdf)<ept id="a0d0c2eb-b884-4125-81ea-e2cf645bea36">&lt;/linkText&gt;</ept><bpt id="a0d0c2eb-b884-4125-81ea-e2cf645bea36">&lt;title&gt;</bpt><ept id="a0d0c2eb-b884-4125-81ea-e2cf645bea36">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="a0d0c2eb-b884-4125-81ea-e2cf645bea36">&lt;linkText&gt;</bpt>CPIF Architecture (pdf)<ept id="a0d0c2eb-b884-4125-81ea-e2cf645bea36">&lt;/linkText&gt;</ept><bpt id="a0d0c2eb-b884-4125-81ea-e2cf645bea36">&lt;title&gt;</bpt><ept id="a0d0c2eb-b884-4125-81ea-e2cf645bea36">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="9d0dfb5b-daad-4355-8f1a-2584b4ae8e78" xml:space="preserve">
+          <source><bpt id="e80493e4-5807-4e84-ad6b-b5f4519f02a4">&lt;linkText&gt;</bpt>Global Load Balanced Web Tier<ept id="e80493e4-5807-4e84-ad6b-b5f4519f02a4">&lt;/linkText&gt;</ept><bpt id="e80493e4-5807-4e84-ad6b-b5f4519f02a4">&lt;title&gt;</bpt><ept id="e80493e4-5807-4e84-ad6b-b5f4519f02a4">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="e80493e4-5807-4e84-ad6b-b5f4519f02a4">&lt;linkText&gt;</bpt>Global Load Balanced Web Tier<ept id="e80493e4-5807-4e84-ad6b-b5f4519f02a4">&lt;/linkText&gt;</ept><bpt id="e80493e4-5807-4e84-ad6b-b5f4519f02a4">&lt;title&gt;</bpt><ept id="e80493e4-5807-4e84-ad6b-b5f4519f02a4">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="94fd96ec-288d-45a9-afbe-fb7f28db5a39" xml:space="preserve">
+          <source><bpt id="f100ea2f-e5a8-4f38-9ed8-196a2bc169f5">&lt;linkText&gt;</bpt>Load Balanced Data Tier<ept id="f100ea2f-e5a8-4f38-9ed8-196a2bc169f5">&lt;/linkText&gt;</ept><bpt id="f100ea2f-e5a8-4f38-9ed8-196a2bc169f5">&lt;title&gt;</bpt><ept id="f100ea2f-e5a8-4f38-9ed8-196a2bc169f5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f100ea2f-e5a8-4f38-9ed8-196a2bc169f5">&lt;linkText&gt;</bpt>Load Balanced Data Tier<ept id="f100ea2f-e5a8-4f38-9ed8-196a2bc169f5">&lt;/linkText&gt;</ept><bpt id="f100ea2f-e5a8-4f38-9ed8-196a2bc169f5">&lt;title&gt;</bpt><ept id="f100ea2f-e5a8-4f38-9ed8-196a2bc169f5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="389be61c-1b23-4d96-a97a-18f5f0d8421e" xml:space="preserve">
+          <source><bpt id="e1cbf35b-075a-45c9-a82b-e0f078c16bbc">&lt;linkText&gt;</bpt>Batch Processing Tier<ept id="e1cbf35b-075a-45c9-a82b-e0f078c16bbc">&lt;/linkText&gt;</ept><bpt id="e1cbf35b-075a-45c9-a82b-e0f078c16bbc">&lt;title&gt;</bpt><ept id="e1cbf35b-075a-45c9-a82b-e0f078c16bbc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e1cbf35b-075a-45c9-a82b-e0f078c16bbc">&lt;linkText&gt;</bpt>Batch Processing Tier<ept id="e1cbf35b-075a-45c9-a82b-e0f078c16bbc">&lt;/linkText&gt;</ept><bpt id="e1cbf35b-075a-45c9-a82b-e0f078c16bbc">&lt;title&gt;</bpt><ept id="e1cbf35b-075a-45c9-a82b-e0f078c16bbc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7825f83f-17d7-4662-9ace-8593b17072d5" xml:space="preserve">
+          <source><bpt id="a1c0e80e-5915-4c08-96b6-b24672aa8e67">&lt;linkText&gt;</bpt>Azure Networking<ept id="a1c0e80e-5915-4c08-96b6-b24672aa8e67">&lt;/linkText&gt;</ept><bpt id="a1c0e80e-5915-4c08-96b6-b24672aa8e67">&lt;title&gt;</bpt><ept id="a1c0e80e-5915-4c08-96b6-b24672aa8e67">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a1c0e80e-5915-4c08-96b6-b24672aa8e67">&lt;linkText&gt;</bpt>Azure Networking<ept id="a1c0e80e-5915-4c08-96b6-b24672aa8e67">&lt;/linkText&gt;</ept><bpt id="a1c0e80e-5915-4c08-96b6-b24672aa8e67">&lt;title&gt;</bpt><ept id="a1c0e80e-5915-4c08-96b6-b24672aa8e67">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="faefea87-7a2d-4ba7-9682-085ea7320795" xml:space="preserve">
+          <source><bpt id="8095b546-b4e1-41a6-ad68-0b6658de03d0">&lt;linkText&gt;</bpt>Azure Search<ept id="8095b546-b4e1-41a6-ad68-0b6658de03d0">&lt;/linkText&gt;</ept><bpt id="8095b546-b4e1-41a6-ad68-0b6658de03d0">&lt;title&gt;</bpt><ept id="8095b546-b4e1-41a6-ad68-0b6658de03d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8095b546-b4e1-41a6-ad68-0b6658de03d0">&lt;linkText&gt;</bpt>Azure Search<ept id="8095b546-b4e1-41a6-ad68-0b6658de03d0">&lt;/linkText&gt;</ept><bpt id="8095b546-b4e1-41a6-ad68-0b6658de03d0">&lt;title&gt;</bpt><ept id="8095b546-b4e1-41a6-ad68-0b6658de03d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

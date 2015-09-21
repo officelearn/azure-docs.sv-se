@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="aa5d3397-da8a-437d-83fe-3795636ef0e2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="aa5d3397-da8a-437d-83fe-3795636ef0e2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="193f1f1e-6918-43d0-8f27-cb437a287d06">
+        <trans-unit id="6ed453bb-37a7-4c57-9c95-ec972634e5d3" xml:space="preserve">
+          <source>Get started with delivering Video-on-Demand (VoD) content using .NET SDK</source>
+          <target state="new">Get started with delivering Video-on-Demand (VoD) content using .NET SDK</target>
+        </trans-unit>
+        <trans-unit id="f6fdce90-50e2-4901-922a-f083ce53f956" xml:space="preserve">
+          <source>This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using .NET.</source>
+          <target state="new">This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using .NET.</target>
+        </trans-unit>
+        <trans-unit id="14897819-9c79-4008-ad5f-9ed96fa2e60a" xml:space="preserve">
+          <source><bpt id="e1a8383a-052e-437a-89be-9cbca4df92a6">&lt;token href="../../includes/media-services-selector-get-started.md"&gt;</bpt><ept id="e1a8383a-052e-437a-89be-9cbca4df92a6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e1a8383a-052e-437a-89be-9cbca4df92a6">&lt;token href="../../includes/media-services-selector-get-started.md"&gt;</bpt><ept id="e1a8383a-052e-437a-89be-9cbca4df92a6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="386c613d-5faf-4048-bdba-e70cca32388b" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="051b28a0-2bc2-4950-ba63-378f2877bc14" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="c3db7d74-b13a-48f1-9bc3-0f2d89cb4e5b" xml:space="preserve">
+          <source>For details, see &lt;a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc<bpt id="f1abda49-a61d-4cad-bc98-1c9c83685f5b">&lt;em&gt;</bpt>id=A8A8397B5" target="<ept id="f1abda49-a61d-4cad-bc98-1c9c83685f5b">&lt;/em&gt;</ept>blank"&gt;Azure Free Trial&lt;/a&gt;.</source>
+          <target state="new">For details, see &lt;a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc<bpt id="f1abda49-a61d-4cad-bc98-1c9c83685f5b">&lt;em&gt;</bpt>id=A8A8397B5" target="<ept id="f1abda49-a61d-4cad-bc98-1c9c83685f5b">&lt;/em&gt;</ept>blank"&gt;Azure Free Trial&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="4b4601e3-3b25-41e6-a911-81cf79fc25bf" xml:space="preserve">
+          <source>This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) SDK for .NET.</source>
+          <target state="new">This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) SDK for .NET.</target>
+        </trans-unit>
+        <trans-unit id="f7959a37-c9c7-4328-9016-9c792d505a75" xml:space="preserve">
+          <source>The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development.</source>
+          <target state="new">The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development.</target>
+        </trans-unit>
+        <trans-unit id="8d479950-feb7-4b29-8570-4d1daa482381" xml:space="preserve">
+          <source>At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.</source>
+          <target state="new">At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.</target>
+        </trans-unit>
+        <trans-unit id="bb6e3dba-b380-481c-b09e-ffdf3d5fce47" xml:space="preserve">
+          <source>The following prerequisites are required to start developing with Media Services SDK for .NET.</source>
+          <target state="new">The following prerequisites are required to start developing with Media Services SDK for .NET.</target>
+        </trans-unit>
+        <trans-unit id="b96bee32-58da-4a89-b039-8a1d3d870f64" xml:space="preserve">
+          <source>Operating Systems: Windows 8 or later, Windows 2008 R2, Windows 7.</source>
+          <target state="new">Operating Systems: Windows 8 or later, Windows 2008 R2, Windows 7.</target>
+        </trans-unit>
+        <trans-unit id="e20e32df-a5ce-4b40-9c18-02b6242897dd" xml:space="preserve">
+          <source>.NET Framework 4.5 or .NET Framework 4.0</source>
+          <target state="new">.NET Framework 4.5 or .NET Framework 4.0</target>
+        </trans-unit>
+        <trans-unit id="8d603240-cb70-4657-b68a-fbb0cba935ce" xml:space="preserve">
+          <source>Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).</source>
+          <target state="new">Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).</target>
+        </trans-unit>
+        <trans-unit id="4d5e8bee-00b3-4a86-98cf-f798bbb968fe" xml:space="preserve">
+          <source>The following tasks are shown in this Quickstart.</source>
+          <target state="new">The following tasks are shown in this Quickstart.</target>
+        </trans-unit>
+        <trans-unit id="daaf1818-1866-4aaf-ac7d-b27b20128954" xml:space="preserve">
+          <source>Create a Media Services account (using the Azure portal).</source>
+          <target state="new">Create a Media Services account (using the Azure portal).</target>
+        </trans-unit>
+        <trans-unit id="4aa93b7e-9645-4b47-b132-c656701217de" xml:space="preserve">
+          <source>Configure streaming endpoint (using the portal).</source>
+          <target state="new">Configure streaming endpoint (using the portal).</target>
+        </trans-unit>
+        <trans-unit id="ce3e59dd-6ef5-4956-92e1-aea713a2e016" xml:space="preserve">
+          <source>Create and configure a Visual Studio project.</source>
+          <target state="new">Create and configure a Visual Studio project.</target>
+        </trans-unit>
+        <trans-unit id="a3f2998f-7e10-4b34-80fc-b5e3f8a912fd" xml:space="preserve">
+          <source>Connect to the Media Services account.</source>
+          <target state="new">Connect to the Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="e112271d-452b-4577-bc4b-6dda5daeb29d" xml:space="preserve">
+          <source>Create a new asset and upload a video file.</source>
+          <target state="new">Create a new asset and upload a video file.</target>
+        </trans-unit>
+        <trans-unit id="7da3aefa-ee7f-417d-9372-e80cc9c97de1" xml:space="preserve">
+          <source>Encode the source file into a set of adaptive bitrate MP4 files.</source>
+          <target state="new">Encode the source file into a set of adaptive bitrate MP4 files.</target>
+        </trans-unit>
+        <trans-unit id="1ffdf92a-c9c4-453a-bf30-f803347dbc9a" xml:space="preserve">
+          <source>Publish the asset and get URLs for streaming and progressive download.</source>
+          <target state="new">Publish the asset and get URLs for streaming and progressive download.</target>
+        </trans-unit>
+        <trans-unit id="0ed246b1-b5cd-48b7-86c3-903dffbd218c" xml:space="preserve">
+          <source>Play your content.</source>
+          <target state="new">Play your content.</target>
+        </trans-unit>
+        <trans-unit id="8c5e9ce5-ee1a-44d6-913c-82989f50e811" xml:space="preserve">
+          <source>In the Azure portal, click <bpt id="5ca330cf-f450-4bb0-8df7-4016ecc173e8">&lt;strong&gt;</bpt>New<ept id="5ca330cf-f450-4bb0-8df7-4016ecc173e8">&lt;/strong&gt;</ept>, click <bpt id="7a1187a1-3e8b-4ee1-8f90-2594c923ffc6">&lt;strong&gt;</bpt>Media Service<ept id="7a1187a1-3e8b-4ee1-8f90-2594c923ffc6">&lt;/strong&gt;</ept>, and then click <bpt id="24c101dd-1eb3-46dd-b0c8-60574159452e">&lt;strong&gt;</bpt>Quick Create<ept id="24c101dd-1eb3-46dd-b0c8-60574159452e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal, click <bpt id="5ca330cf-f450-4bb0-8df7-4016ecc173e8">&lt;strong&gt;</bpt>New<ept id="5ca330cf-f450-4bb0-8df7-4016ecc173e8">&lt;/strong&gt;</ept>, click <bpt id="7a1187a1-3e8b-4ee1-8f90-2594c923ffc6">&lt;strong&gt;</bpt>Media Service<ept id="7a1187a1-3e8b-4ee1-8f90-2594c923ffc6">&lt;/strong&gt;</ept>, and then click <bpt id="24c101dd-1eb3-46dd-b0c8-60574159452e">&lt;strong&gt;</bpt>Quick Create<ept id="24c101dd-1eb3-46dd-b0c8-60574159452e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f18ceb7-59cf-4462-9408-ed86689e023e" xml:space="preserve">
+          <source><bpt id="88292883-fe61-4bc5-9b97-e0df7a2e6615">&lt;linkText&gt;</bpt>Media Services Quick Create<ept id="88292883-fe61-4bc5-9b97-e0df7a2e6615">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="88292883-fe61-4bc5-9b97-e0df7a2e6615">&lt;linkText&gt;</bpt>Media Services Quick Create<ept id="88292883-fe61-4bc5-9b97-e0df7a2e6615">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aae4705a-7716-4e55-b937-09d10165b45d" xml:space="preserve">
+          <source>In <bpt id="88be7c79-c12a-49a7-8964-eab67e5c3b0a">&lt;strong&gt;</bpt>NAME<ept id="88be7c79-c12a-49a7-8964-eab67e5c3b0a">&lt;/strong&gt;</ept>, enter the name of the new account.</source>
+          <target state="new">In <bpt id="88be7c79-c12a-49a7-8964-eab67e5c3b0a">&lt;strong&gt;</bpt>NAME<ept id="88be7c79-c12a-49a7-8964-eab67e5c3b0a">&lt;/strong&gt;</ept>, enter the name of the new account.</target>
+        </trans-unit>
+        <trans-unit id="83213ff0-b084-4905-95ef-8ac9553bc06c" xml:space="preserve">
+          <source>A Media Services account name is all lower-case numbers or letters with no spaces, and is 3 - 24 characters in length.</source>
+          <target state="new">A Media Services account name is all lower-case numbers or letters with no spaces, and is 3 - 24 characters in length.</target>
+        </trans-unit>
+        <trans-unit id="a6a03e13-98a3-4243-b860-c6a2ac2100ac" xml:space="preserve">
+          <source>In <bpt id="494e012a-68d4-4c12-bd3a-442284c4f288">&lt;strong&gt;</bpt>REGION<ept id="494e012a-68d4-4c12-bd3a-442284c4f288">&lt;/strong&gt;</ept>, select the geographic region that will be used to store the metadata records for your Media Services account.</source>
+          <target state="new">In <bpt id="494e012a-68d4-4c12-bd3a-442284c4f288">&lt;strong&gt;</bpt>REGION<ept id="494e012a-68d4-4c12-bd3a-442284c4f288">&lt;/strong&gt;</ept>, select the geographic region that will be used to store the metadata records for your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="79439729-d678-4a80-a133-644b35bac7b7" xml:space="preserve">
+          <source>Only the available Media Services regions appear in the drop-down list.</source>
+          <target state="new">Only the available Media Services regions appear in the drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="7541ed22-fddc-4b11-960e-cb779cdba138" xml:space="preserve">
+          <source>In <bpt id="658b2505-af5c-44dc-9b43-0b552c6891ea">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="658b2505-af5c-44dc-9b43-0b552c6891ea">&lt;/strong&gt;</ept>, select a storage account to provide blob storage of the media content from your Media Services account.</source>
+          <target state="new">In <bpt id="658b2505-af5c-44dc-9b43-0b552c6891ea">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="658b2505-af5c-44dc-9b43-0b552c6891ea">&lt;/strong&gt;</ept>, select a storage account to provide blob storage of the media content from your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="1a647d1e-707c-4181-b7f1-1b709db8b112" xml:space="preserve">
+          <source>You can select an existing storage account in the same geographic region as your Media Services account, or you can create a new storage account.</source>
+          <target state="new">You can select an existing storage account in the same geographic region as your Media Services account, or you can create a new storage account.</target>
+        </trans-unit>
+        <trans-unit id="2113b03e-e0f5-4370-943a-b780c9683a32" xml:space="preserve">
+          <source>A new storage account is created in the same region.</source>
+          <target state="new">A new storage account is created in the same region.</target>
+        </trans-unit>
+        <trans-unit id="59d0652e-ea78-4ab1-b904-bccb8b14394e" xml:space="preserve">
+          <source>If you created a new storage account, in <bpt id="0d6fa722-ab83-4e7f-b3d7-1dd2ad3eeb44">&lt;strong&gt;</bpt>NEW STORAGE ACCOUNT NAME<ept id="0d6fa722-ab83-4e7f-b3d7-1dd2ad3eeb44">&lt;/strong&gt;</ept>, enter a name for the storage account.</source>
+          <target state="new">If you created a new storage account, in <bpt id="0d6fa722-ab83-4e7f-b3d7-1dd2ad3eeb44">&lt;strong&gt;</bpt>NEW STORAGE ACCOUNT NAME<ept id="0d6fa722-ab83-4e7f-b3d7-1dd2ad3eeb44">&lt;/strong&gt;</ept>, enter a name for the storage account.</target>
+        </trans-unit>
+        <trans-unit id="b09c51f4-3062-4952-b24c-8ae021f1de7a" xml:space="preserve">
+          <source>The rules for storage account names are the same as for Media Services accounts.</source>
+          <target state="new">The rules for storage account names are the same as for Media Services accounts.</target>
+        </trans-unit>
+        <trans-unit id="5e5ccc51-9de3-4651-a622-7211f8fed054" xml:space="preserve">
+          <source>Click <bpt id="c46c461f-701b-465b-ba6b-5550c1947b1d">&lt;strong&gt;</bpt>Quick Create<ept id="c46c461f-701b-465b-ba6b-5550c1947b1d">&lt;/strong&gt;</ept> at the bottom of the form.</source>
+          <target state="new">Click <bpt id="c46c461f-701b-465b-ba6b-5550c1947b1d">&lt;strong&gt;</bpt>Quick Create<ept id="c46c461f-701b-465b-ba6b-5550c1947b1d">&lt;/strong&gt;</ept> at the bottom of the form.</target>
+        </trans-unit>
+        <trans-unit id="82faddea-7910-483a-8110-ec7957ad3c57" xml:space="preserve">
+          <source>You can monitor the status of the process in the message area at the bottom of the window.</source>
+          <target state="new">You can monitor the status of the process in the message area at the bottom of the window.</target>
+        </trans-unit>
+        <trans-unit id="73cfc7c2-eca6-4cf4-a9ff-895b21aaa416" xml:space="preserve">
+          <source>Once your account is successfully created, the status changes to <bpt id="4c2a7b37-dc7c-4002-b2d8-df8a88ebead9">&lt;strong&gt;</bpt>Active<ept id="4c2a7b37-dc7c-4002-b2d8-df8a88ebead9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once your account is successfully created, the status changes to <bpt id="4c2a7b37-dc7c-4002-b2d8-df8a88ebead9">&lt;strong&gt;</bpt>Active<ept id="4c2a7b37-dc7c-4002-b2d8-df8a88ebead9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a321de4-8e0f-4a20-a22c-d2d9ebfd4f9c" xml:space="preserve">
+          <source>At the bottom of the page, the <bpt id="dc6991c0-784a-43cf-b548-2bf982a27ce0">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="dc6991c0-784a-43cf-b548-2bf982a27ce0">&lt;/strong&gt;</ept> button appears.</source>
+          <target state="new">At the bottom of the page, the <bpt id="dc6991c0-784a-43cf-b548-2bf982a27ce0">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="dc6991c0-784a-43cf-b548-2bf982a27ce0">&lt;/strong&gt;</ept> button appears.</target>
+        </trans-unit>
+        <trans-unit id="4176b8e1-895f-4be0-b8a2-f4053dc6ecb6" xml:space="preserve">
+          <source>When you click this button, a dialog with the Media Services account name and the primary and secondary keys is displayed.</source>
+          <target state="new">When you click this button, a dialog with the Media Services account name and the primary and secondary keys is displayed.</target>
+        </trans-unit>
+        <trans-unit id="8bee1dcd-caf6-4c41-a7f4-bc500244f7f3" xml:space="preserve">
+          <source>You will need the account name and the primary key information to programmatically access the Media Services account.</source>
+          <target state="new">You will need the account name and the primary key information to programmatically access the Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="aa5b2f06-a2e5-42a8-bcb7-4aa0db0b2218" xml:space="preserve">
+          <source><bpt id="cd530963-e538-464c-8046-e227e95ac100">&lt;linkText&gt;</bpt>Media Services Page<ept id="cd530963-e538-464c-8046-e227e95ac100">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cd530963-e538-464c-8046-e227e95ac100">&lt;linkText&gt;</bpt>Media Services Page<ept id="cd530963-e538-464c-8046-e227e95ac100">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b5d1b30b-5d40-41b1-83ac-964c73897fab" xml:space="preserve">
+          <source>When you double-click on the account name, the <bpt id="597a240c-971c-48c5-96a9-3a8b5e851997">&lt;strong&gt;</bpt>Quickstart<ept id="597a240c-971c-48c5-96a9-3a8b5e851997">&lt;/strong&gt;</ept> page is displayed by default.</source>
+          <target state="new">When you double-click on the account name, the <bpt id="597a240c-971c-48c5-96a9-3a8b5e851997">&lt;strong&gt;</bpt>Quickstart<ept id="597a240c-971c-48c5-96a9-3a8b5e851997">&lt;/strong&gt;</ept> page is displayed by default.</target>
+        </trans-unit>
+        <trans-unit id="203ffdae-fdef-4dd2-9b11-ad6bf3274567" xml:space="preserve">
+          <source>This page enables you to do some management tasks that are also available on other pages of the portal.</source>
+          <target state="new">This page enables you to do some management tasks that are also available on other pages of the portal.</target>
+        </trans-unit>
+        <trans-unit id="15fe8270-3006-4a1d-8419-19907454b7f7" xml:space="preserve">
+          <source>For example, you can upload a video file from this page or do it from the CONTENT page.</source>
+          <target state="new">For example, you can upload a video file from this page or do it from the CONTENT page.</target>
+        </trans-unit>
+        <trans-unit id="00078edb-593d-4154-a9ae-3ea1535b532c" xml:space="preserve">
+          <source>When working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients.</source>
+          <target state="new">When working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients.</target>
+        </trans-unit>
+        <trans-unit id="6cb58f49-9920-4d03-9049-0df7b88687d9" xml:space="preserve">
+          <source>With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors.</source>
+          <target state="new">With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors.</target>
+        </trans-unit>
+        <trans-unit id="e4fd790f-3923-433a-a188-d6ee5bf2ecc7" xml:space="preserve">
+          <source>Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</source>
+          <target state="new">Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</target>
+        </trans-unit>
+        <trans-unit id="6e974383-3441-429d-8ec2-3297bf2018ab" xml:space="preserve">
+          <source>Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.</source>
+          <target state="new">Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.</target>
+        </trans-unit>
+        <trans-unit id="df3c29cb-cf72-465e-aa50-2958c4c94c14" xml:space="preserve">
+          <source>To take advantage of dynamic packaging, you need to do the following:</source>
+          <target state="new">To take advantage of dynamic packaging, you need to do the following:</target>
+        </trans-unit>
+        <trans-unit id="9d183930-59c2-4087-93d4-850cb95bab8a" xml:space="preserve">
+          <source>Encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  </source>
+          <target state="new">Encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  </target>
+        </trans-unit>
+        <trans-unit id="2c9622c2-b82b-4cf2-8788-5414f9af679f" xml:space="preserve">
+          <source>Get at least one streaming unit for the <bpt id="4e5aeb31-e8e3-457b-a78e-8c661d30489d">&lt;strong&gt;</bpt>streaming endpoint<ept id="4e5aeb31-e8e3-457b-a78e-8c661d30489d">&lt;/strong&gt;</ept> from which you plan to delivery your content.</source>
+          <target state="new">Get at least one streaming unit for the <bpt id="4e5aeb31-e8e3-457b-a78e-8c661d30489d">&lt;strong&gt;</bpt>streaming endpoint<ept id="4e5aeb31-e8e3-457b-a78e-8c661d30489d">&lt;/strong&gt;</ept> from which you plan to delivery your content.</target>
+        </trans-unit>
+        <trans-unit id="890e3e55-2815-470f-bfca-a723c7c2a821" xml:space="preserve">
+          <source>With dynamic packaging, you only need to store and pay for the files in single storage format, and Media Services will build and serve the appropriate response based on requests from a client.</source>
+          <target state="new">With dynamic packaging, you only need to store and pay for the files in single storage format, and Media Services will build and serve the appropriate response based on requests from a client.</target>
+        </trans-unit>
+        <trans-unit id="3907d8a1-6e86-485b-98bf-4306f3ad954f" xml:space="preserve">
+          <source>To change the number of streaming reserved units, do the following:</source>
+          <target state="new">To change the number of streaming reserved units, do the following:</target>
+        </trans-unit>
+        <trans-unit id="2cd5c6d7-9404-4776-86dc-544d0514fe1a" xml:space="preserve">
+          <source>In the <bpt id="54203209-6336-4f68-968d-d11d89b5d7a4">&lt;linkText&gt;</bpt>portal<ept id="54203209-6336-4f68-968d-d11d89b5d7a4">&lt;/linkText&gt;</ept><bpt id="54203209-6336-4f68-968d-d11d89b5d7a4">&lt;title&gt;</bpt><ept id="54203209-6336-4f68-968d-d11d89b5d7a4">&lt;/title&gt;</ept>, click <bpt id="2a49eb43-df77-4bc5-9e1a-a6ab17b9f09b">&lt;strong&gt;</bpt>Media Services<ept id="2a49eb43-df77-4bc5-9e1a-a6ab17b9f09b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="54203209-6336-4f68-968d-d11d89b5d7a4">&lt;linkText&gt;</bpt>portal<ept id="54203209-6336-4f68-968d-d11d89b5d7a4">&lt;/linkText&gt;</ept><bpt id="54203209-6336-4f68-968d-d11d89b5d7a4">&lt;title&gt;</bpt><ept id="54203209-6336-4f68-968d-d11d89b5d7a4">&lt;/title&gt;</ept>, click <bpt id="2a49eb43-df77-4bc5-9e1a-a6ab17b9f09b">&lt;strong&gt;</bpt>Media Services<ept id="2a49eb43-df77-4bc5-9e1a-a6ab17b9f09b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9526de76-b5e0-4894-ac22-5a0a3d571370" xml:space="preserve">
+          <source>Then, click the name of the media service.</source>
+          <target state="new">Then, click the name of the media service.</target>
+        </trans-unit>
+        <trans-unit id="326b8584-6817-4fc3-a80d-31694b0c7d47" xml:space="preserve">
+          <source>Select the STREAMING ENDPOINTS page.</source>
+          <target state="new">Select the STREAMING ENDPOINTS page.</target>
+        </trans-unit>
+        <trans-unit id="02a78797-4c1e-4326-aed7-55900ba40911" xml:space="preserve">
+          <source>Then, click on the streaming endpoint that you want to modify.</source>
+          <target state="new">Then, click on the streaming endpoint that you want to modify.</target>
+        </trans-unit>
+        <trans-unit id="b3ffbf51-75d5-425c-9e0b-a31f8fa6b73e" xml:space="preserve">
+          <source>To specify the number of streaming units, click the SCALE tab, and then move the <bpt id="5880edc7-019b-47f0-8080-01e980af7e3c">&lt;strong&gt;</bpt>reserved capacity<ept id="5880edc7-019b-47f0-8080-01e980af7e3c">&lt;/strong&gt;</ept> slider.</source>
+          <target state="new">To specify the number of streaming units, click the SCALE tab, and then move the <bpt id="5880edc7-019b-47f0-8080-01e980af7e3c">&lt;strong&gt;</bpt>reserved capacity<ept id="5880edc7-019b-47f0-8080-01e980af7e3c">&lt;/strong&gt;</ept> slider.</target>
+        </trans-unit>
+        <trans-unit id="104f35e6-6685-4c64-9778-518c86b4bbca" xml:space="preserve">
+          <source><bpt id="2a2c3ce3-8551-4687-8d4c-d840b0890d63">&lt;linkText&gt;</bpt>Scale page<ept id="2a2c3ce3-8551-4687-8d4c-d840b0890d63">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a2c3ce3-8551-4687-8d4c-d840b0890d63">&lt;linkText&gt;</bpt>Scale page<ept id="2a2c3ce3-8551-4687-8d4c-d840b0890d63">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01b73c4c-5e46-47e7-be65-f588506340dd" xml:space="preserve">
+          <source>Press <bpt id="37801f59-9d00-486b-8b41-2a738f706892">&lt;strong&gt;</bpt>SAVE<ept id="37801f59-9d00-486b-8b41-2a738f706892">&lt;/strong&gt;</ept> to save your changes.</source>
+          <target state="new">Press <bpt id="37801f59-9d00-486b-8b41-2a738f706892">&lt;strong&gt;</bpt>SAVE<ept id="37801f59-9d00-486b-8b41-2a738f706892">&lt;/strong&gt;</ept> to save your changes.</target>
+        </trans-unit>
+        <trans-unit id="bcc7151a-3a6c-4114-8e09-b187b66412af" xml:space="preserve">
+          <source>The allocation of any new units takes around 20 minutes to complete.</source>
+          <target state="new">The allocation of any new units takes around 20 minutes to complete.</target>
+        </trans-unit>
+        <trans-unit id="0b379a23-fa47-4310-92cd-6af70f25a228" xml:space="preserve">
+          <source>Currently, going from any positive value of streaming units back to none can disable streaming for up to an hour.</source>
+          <target state="new">Currently, going from any positive value of streaming units back to none can disable streaming for up to an hour.</target>
+        </trans-unit>
+        <trans-unit id="ad5cfcfb-176c-4d8f-9a63-2e935442ff4f" xml:space="preserve">
+          <source>The highest number of units specified for the 24-hour period is used in calculating the cost.</source>
+          <target state="new">The highest number of units specified for the 24-hour period is used in calculating the cost.</target>
+        </trans-unit>
+        <trans-unit id="63a92e31-eeab-4bc0-9433-a1d7a6d3a836" xml:space="preserve">
+          <source>For information about pricing details, see <bpt id="19d12304-f516-4286-9ee3-27e4bc36ff82">&lt;linkText&gt;</bpt>Media Services pricing details<ept id="19d12304-f516-4286-9ee3-27e4bc36ff82">&lt;/linkText&gt;</ept><bpt id="19d12304-f516-4286-9ee3-27e4bc36ff82">&lt;title&gt;</bpt><ept id="19d12304-f516-4286-9ee3-27e4bc36ff82">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about pricing details, see <bpt id="19d12304-f516-4286-9ee3-27e4bc36ff82">&lt;linkText&gt;</bpt>Media Services pricing details<ept id="19d12304-f516-4286-9ee3-27e4bc36ff82">&lt;/linkText&gt;</ept><bpt id="19d12304-f516-4286-9ee3-27e4bc36ff82">&lt;title&gt;</bpt><ept id="19d12304-f516-4286-9ee3-27e4bc36ff82">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="864e1893-e3da-44b4-8148-a5529dac526e" xml:space="preserve">
+          <source>Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1.</source>
+          <target state="new">Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1.</target>
+        </trans-unit>
+        <trans-unit id="a23c84c7-fd66-4fd9-aa99-238c4714d87e" xml:space="preserve">
+          <source>Enter the <bpt id="e14d7cf3-d9ea-49af-bb45-1807f3298412">&lt;strong&gt;</bpt>Name<ept id="e14d7cf3-d9ea-49af-bb45-1807f3298412">&lt;/strong&gt;</ept>, <bpt id="d4c0f77f-51b4-4075-b5ea-687c2b11c5df">&lt;strong&gt;</bpt>Location<ept id="d4c0f77f-51b4-4075-b5ea-687c2b11c5df">&lt;/strong&gt;</ept>, and <bpt id="066d4498-0004-4314-a8f6-1fc9cdb5d782">&lt;strong&gt;</bpt>Solution name<ept id="066d4498-0004-4314-a8f6-1fc9cdb5d782">&lt;/strong&gt;</ept>, and then click <bpt id="65804d24-8da9-47d0-adb6-5770a704b5e9">&lt;strong&gt;</bpt>OK<ept id="65804d24-8da9-47d0-adb6-5770a704b5e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the <bpt id="e14d7cf3-d9ea-49af-bb45-1807f3298412">&lt;strong&gt;</bpt>Name<ept id="e14d7cf3-d9ea-49af-bb45-1807f3298412">&lt;/strong&gt;</ept>, <bpt id="d4c0f77f-51b4-4075-b5ea-687c2b11c5df">&lt;strong&gt;</bpt>Location<ept id="d4c0f77f-51b4-4075-b5ea-687c2b11c5df">&lt;/strong&gt;</ept>, and <bpt id="066d4498-0004-4314-a8f6-1fc9cdb5d782">&lt;strong&gt;</bpt>Solution name<ept id="066d4498-0004-4314-a8f6-1fc9cdb5d782">&lt;/strong&gt;</ept>, and then click <bpt id="65804d24-8da9-47d0-adb6-5770a704b5e9">&lt;strong&gt;</bpt>OK<ept id="65804d24-8da9-47d0-adb6-5770a704b5e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d5ea864-7800-4f73-b430-e19f9a6ca53b" xml:space="preserve">
+          <source>Use the  <bpt id="788a0672-f846-407a-aeb0-24e7f7252c17">&lt;linkText&gt;</bpt>windowsazure.mediaservices.extensions<ept id="788a0672-f846-407a-aeb0-24e7f7252c17">&lt;/linkText&gt;</ept><bpt id="788a0672-f846-407a-aeb0-24e7f7252c17">&lt;title&gt;</bpt><ept id="788a0672-f846-407a-aeb0-24e7f7252c17">&lt;/title&gt;</ept> Nuget package to install <bpt id="0643b4ed-8b80-4409-ba3c-bf152e9175b6">&lt;strong&gt;</bpt>Azure Media Services .NET SDK Extensions<ept id="0643b4ed-8b80-4409-ba3c-bf152e9175b6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Use the  <bpt id="788a0672-f846-407a-aeb0-24e7f7252c17">&lt;linkText&gt;</bpt>windowsazure.mediaservices.extensions<ept id="788a0672-f846-407a-aeb0-24e7f7252c17">&lt;/linkText&gt;</ept><bpt id="788a0672-f846-407a-aeb0-24e7f7252c17">&lt;title&gt;</bpt><ept id="788a0672-f846-407a-aeb0-24e7f7252c17">&lt;/title&gt;</ept> Nuget package to install <bpt id="0643b4ed-8b80-4409-ba3c-bf152e9175b6">&lt;strong&gt;</bpt>Azure Media Services .NET SDK Extensions<ept id="0643b4ed-8b80-4409-ba3c-bf152e9175b6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12dbeca8-9fa5-429f-93d2-be5b117a21fb" xml:space="preserve">
+          <source>The Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Media Services.</source>
+          <target state="new">The Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Media Services.</target>
+        </trans-unit>
+        <trans-unit id="4a191643-c2a8-4a98-a3dd-cc01e1b7658d" xml:space="preserve">
+          <source>Installing this package, also installs <bpt id="beb35767-a966-490f-80cf-a1d0b14602fc">&lt;strong&gt;</bpt>Media Services .NET SDK<ept id="beb35767-a966-490f-80cf-a1d0b14602fc">&lt;/strong&gt;</ept> and adds all other required dependencies.</source>
+          <target state="new">Installing this package, also installs <bpt id="beb35767-a966-490f-80cf-a1d0b14602fc">&lt;strong&gt;</bpt>Media Services .NET SDK<ept id="beb35767-a966-490f-80cf-a1d0b14602fc">&lt;/strong&gt;</ept> and adds all other required dependencies.</target>
+        </trans-unit>
+        <trans-unit id="04ef8f23-84a9-4077-a01d-526ab1fb10d2" xml:space="preserve">
+          <source>Add a reference to System.Configuration assembly.</source>
+          <target state="new">Add a reference to System.Configuration assembly.</target>
+        </trans-unit>
+        <trans-unit id="a8d80c1d-52f6-43dc-b18d-cecd3ee04ffb" xml:space="preserve">
+          <source>This assembly contains the <bpt id="51bd0d7d-e178-4c63-8eed-2f0e5b8563d4">&lt;strong&gt;</bpt>System.Configuration.ConfigurationManager<ept id="51bd0d7d-e178-4c63-8eed-2f0e5b8563d4">&lt;/strong&gt;</ept> class that is used to access configuration files, for example, App.config.</source>
+          <target state="new">This assembly contains the <bpt id="51bd0d7d-e178-4c63-8eed-2f0e5b8563d4">&lt;strong&gt;</bpt>System.Configuration.ConfigurationManager<ept id="51bd0d7d-e178-4c63-8eed-2f0e5b8563d4">&lt;/strong&gt;</ept> class that is used to access configuration files, for example, App.config.</target>
+        </trans-unit>
+        <trans-unit id="743b4ffd-70ca-4eb0-b8c9-4787c19efa2a" xml:space="preserve">
+          <source>Open the App.config file (add the file to your project if it was not added by default) and add an <bpt id="92365465-a70b-4811-bacf-afd5ecf22989">&lt;em&gt;</bpt>appSettings<ept id="92365465-a70b-4811-bacf-afd5ecf22989">&lt;/em&gt;</ept> section to the file.</source>
+          <target state="new">Open the App.config file (add the file to your project if it was not added by default) and add an <bpt id="92365465-a70b-4811-bacf-afd5ecf22989">&lt;em&gt;</bpt>appSettings<ept id="92365465-a70b-4811-bacf-afd5ecf22989">&lt;/em&gt;</ept> section to the file.</target>
+        </trans-unit>
+        <trans-unit id="da132832-a839-4ced-9f27-d30d673f1b8b" xml:space="preserve">
+          <source>Set the values for your Azure Media Services account name and account key, as shown in the following example.</source>
+          <target state="new">Set the values for your Azure Media Services account name and account key, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="5f125a5f-5279-4330-9e27-24cd042b1449" xml:space="preserve">
+          <source>To obtain the account name and key information, open the Azure portal, select your media services account, and then click the <bpt id="6b62dc6b-2f52-43a0-b5dd-c4be1f02b66d">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="6b62dc6b-2f52-43a0-b5dd-c4be1f02b66d">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">To obtain the account name and key information, open the Azure portal, select your media services account, and then click the <bpt id="6b62dc6b-2f52-43a0-b5dd-c4be1f02b66d">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="6b62dc6b-2f52-43a0-b5dd-c4be1f02b66d">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="b9d4edda-f442-4e9e-9f9f-63d793f71b80" xml:space="preserve">
+          <source>
+&amp;lt;configuration&amp;gt;
+    &amp;lt;appSettings&amp;gt;
+    &amp;lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&amp;gt;
+        &amp;lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&amp;gt;
+    &amp;lt;/appSettings&amp;gt;
+&amp;lt;/configuration&amp;gt;
+</source>
+          <target state="new">
+&amp;lt;configuration&amp;gt;
+    &amp;lt;appSettings&amp;gt;
+    &amp;lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&amp;gt;
+        &amp;lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&amp;gt;
+    &amp;lt;/appSettings&amp;gt;
+&amp;lt;/configuration&amp;gt;
+</target>
+        </trans-unit>
+        <trans-unit id="373f4b79-8a38-4868-b52c-9be7a83119c4" xml:space="preserve">
+          <source>Overwrite the existing <bpt id="cf7d0814-4138-48fd-b739-7c1bdaaa4619">&lt;strong&gt;</bpt>using<ept id="cf7d0814-4138-48fd-b739-7c1bdaaa4619">&lt;/strong&gt;</ept> statements at the beginning of the Program.cs file with the following code.</source>
+          <target state="new">Overwrite the existing <bpt id="cf7d0814-4138-48fd-b739-7c1bdaaa4619">&lt;strong&gt;</bpt>using<ept id="cf7d0814-4138-48fd-b739-7c1bdaaa4619">&lt;/strong&gt;</ept> statements at the beginning of the Program.cs file with the following code.</target>
+        </trans-unit>
+        <trans-unit id="cad7f93c-6574-4c8c-950a-7642df598aa1" xml:space="preserve">
+          <source>Create a new folder under the projects directory and copy an .mp4 or .wmv file that you want to encode and stream or progressively download.</source>
+          <target state="new">Create a new folder under the projects directory and copy an .mp4 or .wmv file that you want to encode and stream or progressively download.</target>
+        </trans-unit>
+        <trans-unit id="1d111be0-fc38-4519-b4c4-a28f648192e2" xml:space="preserve">
+          <source>In this example, the "C:\VideoFiles" path is used.</source>
+          <target state="new">In this example, the "C:\VideoFiles" path is used.</target>
+        </trans-unit>
+        <trans-unit id="289000f8-621f-4ef1-9485-25dca18fe304" xml:space="preserve">
+          <source>When using Media Services with .NET, you must use the <bpt id="2ade54e9-530d-4225-abb6-38f1675c3c11">&lt;strong&gt;</bpt>CloudMediaContext<ept id="2ade54e9-530d-4225-abb6-38f1675c3c11">&lt;/strong&gt;</ept> class for most Media Services programming tasks: connecting to Media Services account; creating, updating, accessing, and deleting the following objects: assets, asset files, jobs, access policies, locators, etc.</source>
+          <target state="new">When using Media Services with .NET, you must use the <bpt id="2ade54e9-530d-4225-abb6-38f1675c3c11">&lt;strong&gt;</bpt>CloudMediaContext<ept id="2ade54e9-530d-4225-abb6-38f1675c3c11">&lt;/strong&gt;</ept> class for most Media Services programming tasks: connecting to Media Services account; creating, updating, accessing, and deleting the following objects: assets, asset files, jobs, access policies, locators, etc.</target>
+        </trans-unit>
+        <trans-unit id="65fec1d2-46d8-4891-9f8e-599a1bf4a92a" xml:space="preserve">
+          <source>Overwrite the default Program class with the following code.</source>
+          <target state="new">Overwrite the default Program class with the following code.</target>
+        </trans-unit>
+        <trans-unit id="0d415e0b-1374-48a1-9f4e-6a76a42f070b" xml:space="preserve">
+          <source>The code demonstrates how to read the connection values from the App.config file and how to create the <bpt id="5b8fe32e-5142-4e12-b836-a81f0ba8a8da">&lt;strong&gt;</bpt>CloudMediaContext<ept id="5b8fe32e-5142-4e12-b836-a81f0ba8a8da">&lt;/strong&gt;</ept> object in order to connect to Media Services.</source>
+          <target state="new">The code demonstrates how to read the connection values from the App.config file and how to create the <bpt id="5b8fe32e-5142-4e12-b836-a81f0ba8a8da">&lt;strong&gt;</bpt>CloudMediaContext<ept id="5b8fe32e-5142-4e12-b836-a81f0ba8a8da">&lt;/strong&gt;</ept> object in order to connect to Media Services.</target>
+        </trans-unit>
+        <trans-unit id="1a7af86f-6b5c-4a1d-94fa-43feaf843d6f" xml:space="preserve">
+          <source>For more information about connecting to Media Services, see <bpt id="a0122e1b-3851-4ac7-b12e-884cdd207ea3">&lt;linkText&gt;</bpt>Connecting to Media Services with the Media Services SDK for .NET<ept id="a0122e1b-3851-4ac7-b12e-884cdd207ea3">&lt;/linkText&gt;</ept><bpt id="a0122e1b-3851-4ac7-b12e-884cdd207ea3">&lt;title&gt;</bpt><ept id="a0122e1b-3851-4ac7-b12e-884cdd207ea3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about connecting to Media Services, see <bpt id="a0122e1b-3851-4ac7-b12e-884cdd207ea3">&lt;linkText&gt;</bpt>Connecting to Media Services with the Media Services SDK for .NET<ept id="a0122e1b-3851-4ac7-b12e-884cdd207ea3">&lt;/linkText&gt;</ept><bpt id="a0122e1b-3851-4ac7-b12e-884cdd207ea3">&lt;title&gt;</bpt><ept id="a0122e1b-3851-4ac7-b12e-884cdd207ea3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9954c157-ac5c-4b4d-a9c0-e259465ab023" xml:space="preserve">
+          <source>The <bpt id="fec27de6-afce-448f-b2f8-7fb788860836">&lt;strong&gt;</bpt>Main<ept id="fec27de6-afce-448f-b2f8-7fb788860836">&lt;/strong&gt;</ept> function calls methods that will be defined further in this section.</source>
+          <target state="new">The <bpt id="fec27de6-afce-448f-b2f8-7fb788860836">&lt;strong&gt;</bpt>Main<ept id="fec27de6-afce-448f-b2f8-7fb788860836">&lt;/strong&gt;</ept> function calls methods that will be defined further in this section.</target>
+        </trans-unit>
+        <trans-unit id="ba2bfde6-3940-4cf6-8842-db746badf3e7" xml:space="preserve">
+          <source>In Media Services, you upload (or ingest) your digital files into an asset.</source>
+          <target state="new">In Media Services, you upload (or ingest) your digital files into an asset.</target>
+        </trans-unit>
+        <trans-unit id="3c4625b1-da8e-46db-aceb-1509ac6916ee" xml:space="preserve">
+          <source>The <bpt id="765b869d-e854-4823-a62e-63a822bcaac7">&lt;strong&gt;</bpt>Asset<ept id="765b869d-e854-4823-a62e-63a822bcaac7">&lt;/strong&gt;</ept> entity can contain video, audio, images, thumbnail collections, text tracks, and closed caption files (and the metadata about these files.)</source>
+          <target state="new">The <bpt id="765b869d-e854-4823-a62e-63a822bcaac7">&lt;strong&gt;</bpt>Asset<ept id="765b869d-e854-4823-a62e-63a822bcaac7">&lt;/strong&gt;</ept> entity can contain video, audio, images, thumbnail collections, text tracks, and closed caption files (and the metadata about these files.)</target>
+        </trans-unit>
+        <trans-unit id="98e1ae93-aca5-4ee0-b906-0cd8f162082b" xml:space="preserve">
+          <source>Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.</source>
+          <target state="new">Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.</target>
+        </trans-unit>
+        <trans-unit id="2e936b7c-3efd-4916-9c26-75bca807a1e8" xml:space="preserve">
+          <source>The files in the asset are called <bpt id="50a78090-c81e-4b6f-a658-85cd7fde93d7">&lt;strong&gt;</bpt>Asset Files<ept id="50a78090-c81e-4b6f-a658-85cd7fde93d7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The files in the asset are called <bpt id="50a78090-c81e-4b6f-a658-85cd7fde93d7">&lt;strong&gt;</bpt>Asset Files<ept id="50a78090-c81e-4b6f-a658-85cd7fde93d7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f31dd922-426a-4e4a-b477-20be391d64d9" xml:space="preserve">
+          <source>The <bpt id="bf49e7a5-dc38-4b3a-b57c-8aae103ea210">&lt;strong&gt;</bpt>UploadFile<ept id="bf49e7a5-dc38-4b3a-b57c-8aae103ea210">&lt;/strong&gt;</ept> method defined below calls <bpt id="e597107f-78b6-4156-a308-848177cc1fc4">&lt;strong&gt;</bpt>CreateFromFile<ept id="e597107f-78b6-4156-a308-848177cc1fc4">&lt;/strong&gt;</ept> (defined in .NET SDK Extensions).</source>
+          <target state="new">The <bpt id="bf49e7a5-dc38-4b3a-b57c-8aae103ea210">&lt;strong&gt;</bpt>UploadFile<ept id="bf49e7a5-dc38-4b3a-b57c-8aae103ea210">&lt;/strong&gt;</ept> method defined below calls <bpt id="e597107f-78b6-4156-a308-848177cc1fc4">&lt;strong&gt;</bpt>CreateFromFile<ept id="e597107f-78b6-4156-a308-848177cc1fc4">&lt;/strong&gt;</ept> (defined in .NET SDK Extensions).</target>
+        </trans-unit>
+        <trans-unit id="2a9ec3bb-92bd-4350-9116-0b099d226bcb" xml:space="preserve">
+          <source><bpt id="642c80cb-9271-4993-a5fa-27d05b15b641">&lt;strong&gt;</bpt>CreateFromFile<ept id="642c80cb-9271-4993-a5fa-27d05b15b641">&lt;/strong&gt;</ept> creates a new asset into which the specified source file is uploaded.</source>
+          <target state="new"><bpt id="642c80cb-9271-4993-a5fa-27d05b15b641">&lt;strong&gt;</bpt>CreateFromFile<ept id="642c80cb-9271-4993-a5fa-27d05b15b641">&lt;/strong&gt;</ept> creates a new asset into which the specified source file is uploaded.</target>
+        </trans-unit>
+        <trans-unit id="1bf59072-2706-4604-9cc7-c2f8b1d4b25d" xml:space="preserve">
+          <source>The <bpt id="213a1201-e9e2-49e0-8fd3-8d0905810ff1">&lt;strong&gt;</bpt>CreateFromFile<ept id="213a1201-e9e2-49e0-8fd3-8d0905810ff1">&lt;/strong&gt;</ept> method takes <bpt id="dde2101b-8fcb-490b-9da6-50657fecd7d2">&lt;strong&gt;</bpt>AssetCreationOptions<ept id="dde2101b-8fcb-490b-9da6-50657fecd7d2">&lt;/strong&gt;</ept> which lets you specify one of the following asset creation options:</source>
+          <target state="new">The <bpt id="213a1201-e9e2-49e0-8fd3-8d0905810ff1">&lt;strong&gt;</bpt>CreateFromFile<ept id="213a1201-e9e2-49e0-8fd3-8d0905810ff1">&lt;/strong&gt;</ept> method takes <bpt id="dde2101b-8fcb-490b-9da6-50657fecd7d2">&lt;strong&gt;</bpt>AssetCreationOptions<ept id="dde2101b-8fcb-490b-9da6-50657fecd7d2">&lt;/strong&gt;</ept> which lets you specify one of the following asset creation options:</target>
+        </trans-unit>
+        <trans-unit id="9d7872a0-ff0b-48d3-89fc-9dbeb4622bd6" xml:space="preserve">
+          <source><bpt id="1b311612-a674-4e82-adac-0c1049d811bd">&lt;strong&gt;</bpt>None<ept id="1b311612-a674-4e82-adac-0c1049d811bd">&lt;/strong&gt;</ept> - No encryption is used.</source>
+          <target state="new"><bpt id="1b311612-a674-4e82-adac-0c1049d811bd">&lt;strong&gt;</bpt>None<ept id="1b311612-a674-4e82-adac-0c1049d811bd">&lt;/strong&gt;</ept> - No encryption is used.</target>
+        </trans-unit>
+        <trans-unit id="3b0a9bc7-19a9-4f55-b71f-1c973779ed52" xml:space="preserve">
+          <source>This is the default value.</source>
+          <target state="new">This is the default value.</target>
+        </trans-unit>
+        <trans-unit id="dc515ed8-b1d7-4c0c-8091-57915e88491a" xml:space="preserve">
+          <source>Note that when using this option, your content is not protected in transit or at rest in storage.</source>
+          <target state="new">Note that when using this option, your content is not protected in transit or at rest in storage.</target>
+        </trans-unit>
+        <trans-unit id="db534378-1a31-4222-926d-ab0d59a12d40" xml:space="preserve">
+          <source>If you plan to deliver an MP4 using progressive download, use this option.</source>
+          <target state="new">If you plan to deliver an MP4 using progressive download, use this option.</target>
+        </trans-unit>
+        <trans-unit id="c8a77775-206b-4e49-823a-1d4f71a6e6d9" xml:space="preserve">
+          <source><bpt id="3da01fb1-e977-4a8b-ba72-6118527c8912">&lt;strong&gt;</bpt>StorageEncrypted<ept id="3da01fb1-e977-4a8b-ba72-6118527c8912">&lt;/strong&gt;</ept> - Use this option to encrypt your clear content locally using Advanced Encryption Standard (AES)-256 bit encryption, which then uploads it to Azure Storage where it is stored encrypted at rest.</source>
+          <target state="new"><bpt id="3da01fb1-e977-4a8b-ba72-6118527c8912">&lt;strong&gt;</bpt>StorageEncrypted<ept id="3da01fb1-e977-4a8b-ba72-6118527c8912">&lt;/strong&gt;</ept> - Use this option to encrypt your clear content locally using Advanced Encryption Standard (AES)-256 bit encryption, which then uploads it to Azure Storage where it is stored encrypted at rest.</target>
+        </trans-unit>
+        <trans-unit id="70b6fc81-efe9-4a3f-9571-34500b446975" xml:space="preserve">
+          <source>Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset.</source>
+          <target state="new">Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset.</target>
+        </trans-unit>
+        <trans-unit id="82c0395e-82c1-4cd0-8fb4-d234329af0c9" xml:space="preserve">
+          <source>The primary use case for Storage Encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.</source>
+          <target state="new">The primary use case for Storage Encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.</target>
+        </trans-unit>
+        <trans-unit id="b5cb373a-8a04-453f-8bbc-b30dd53609e1" xml:space="preserve">
+          <source><bpt id="436334bb-47c0-4526-afc1-71cd609a7386">&lt;strong&gt;</bpt>CommonEncryptionProtected<ept id="436334bb-47c0-4526-afc1-71cd609a7386">&lt;/strong&gt;</ept> - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).</source>
+          <target state="new"><bpt id="436334bb-47c0-4526-afc1-71cd609a7386">&lt;strong&gt;</bpt>CommonEncryptionProtected<ept id="436334bb-47c0-4526-afc1-71cd609a7386">&lt;/strong&gt;</ept> - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).</target>
+        </trans-unit>
+        <trans-unit id="d2d7268d-78e6-42bc-82e3-4295866435fc" xml:space="preserve">
+          <source><bpt id="5e94b812-0993-4439-a299-c26f9fe82f7d">&lt;strong&gt;</bpt>EnvelopeEncryptionProtected<ept id="5e94b812-0993-4439-a299-c26f9fe82f7d">&lt;/strong&gt;</ept> – Use this option if you are uploading HLS encrypted with AES.</source>
+          <target state="new"><bpt id="5e94b812-0993-4439-a299-c26f9fe82f7d">&lt;strong&gt;</bpt>EnvelopeEncryptionProtected<ept id="5e94b812-0993-4439-a299-c26f9fe82f7d">&lt;/strong&gt;</ept> – Use this option if you are uploading HLS encrypted with AES.</target>
+        </trans-unit>
+        <trans-unit id="554481b8-bd27-46ba-9ce5-353f1261c9e7" xml:space="preserve">
+          <source>Note that the files must have been encoded and encrypted by Transform Manager.</source>
+          <target state="new">Note that the files must have been encoded and encrypted by Transform Manager.</target>
+        </trans-unit>
+        <trans-unit id="ceaa567e-5c16-4879-8360-7a6df0a17c94" xml:space="preserve">
+          <source>The <bpt id="0dcdfd33-0f1b-4651-ad5e-2eff0b236a88">&lt;strong&gt;</bpt>CreateFromFile<ept id="0dcdfd33-0f1b-4651-ad5e-2eff0b236a88">&lt;/strong&gt;</ept> method also lets you specify a callback in order to report the upload progress of the file.</source>
+          <target state="new">The <bpt id="0dcdfd33-0f1b-4651-ad5e-2eff0b236a88">&lt;strong&gt;</bpt>CreateFromFile<ept id="0dcdfd33-0f1b-4651-ad5e-2eff0b236a88">&lt;/strong&gt;</ept> method also lets you specify a callback in order to report the upload progress of the file.</target>
+        </trans-unit>
+        <trans-unit id="fdf0fed7-0334-417c-8e7d-6e586b3ffd44" xml:space="preserve">
+          <source>In the following example, we specify <bpt id="adb22abd-85f7-4cb2-ba47-841283d8c937">&lt;strong&gt;</bpt>None<ept id="adb22abd-85f7-4cb2-ba47-841283d8c937">&lt;/strong&gt;</ept> for the asset options.</source>
+          <target state="new">In the following example, we specify <bpt id="adb22abd-85f7-4cb2-ba47-841283d8c937">&lt;strong&gt;</bpt>None<ept id="adb22abd-85f7-4cb2-ba47-841283d8c937">&lt;/strong&gt;</ept> for the asset options.</target>
+        </trans-unit>
+        <trans-unit id="bfdc3dda-411b-40fe-ab74-0108841b2dd1" xml:space="preserve">
+          <source>Add the following method to the Program class.</source>
+          <target state="new">Add the following method to the Program class.</target>
+        </trans-unit>
+        <trans-unit id="9f8292e9-ee65-4103-8c45-4f0ecc216bb9" xml:space="preserve">
+          <source>After ingesting assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients.</source>
+          <target state="new">After ingesting assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients.</target>
+        </trans-unit>
+        <trans-unit id="7832b059-f733-4035-8f0d-84ee0bb1b2e6" xml:space="preserve">
+          <source>These activities are scheduled and run against multiple background role instances to ensure high performance and availability.</source>
+          <target state="new">These activities are scheduled and run against multiple background role instances to ensure high performance and availability.</target>
+        </trans-unit>
+        <trans-unit id="e9557601-ad82-452c-a134-c23e3f7ea317" xml:space="preserve">
+          <source>These activities are called Jobs, and each Job is comprised of atomic Tasks that do the actual work on the Asset file.</source>
+          <target state="new">These activities are called Jobs, and each Job is comprised of atomic Tasks that do the actual work on the Asset file.</target>
+        </trans-unit>
+        <trans-unit id="ac6cf0a5-9d7d-467c-b9cc-25f3d86fa2f0" xml:space="preserve">
+          <source>As was mentioned earlier, when working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients.</source>
+          <target state="new">As was mentioned earlier, when working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients.</target>
+        </trans-unit>
+        <trans-unit id="651ef5d3-64cd-408f-aee3-1f81d79ade9f" xml:space="preserve">
+          <source>Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</source>
+          <target state="new">Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</target>
+        </trans-unit>
+        <trans-unit id="b05b1328-c3a0-4bd7-8f3c-035c0cff1244" xml:space="preserve">
+          <source>To take advantage of dynamic packaging, you need to do the following:</source>
+          <target state="new">To take advantage of dynamic packaging, you need to do the following:</target>
+        </trans-unit>
+        <trans-unit id="807619bd-fa6c-4a43-b475-9a69cbcffb55" xml:space="preserve">
+          <source>Encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files.</source>
+          <target state="new">Encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files.</target>
+        </trans-unit>
+        <trans-unit id="aefe1499-3534-4d45-a825-49381e9b5920" xml:space="preserve">
+          <source>Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.</source>
+          <target state="new">Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.</target>
+        </trans-unit>
+        <trans-unit id="66d4f810-4e81-4637-8138-2398c5a7c3f3" xml:space="preserve">
+          <source>The following code shows how to submit an encoding job.</source>
+          <target state="new">The following code shows how to submit an encoding job.</target>
+        </trans-unit>
+        <trans-unit id="a170c3dc-3b27-47ac-8f7b-c206a8082df9" xml:space="preserve">
+          <source>The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using <bpt id="abc71987-16e2-4fed-a8f1-51166bf1ddbe">&lt;strong&gt;</bpt>Azure Media Encoder<ept id="abc71987-16e2-4fed-a8f1-51166bf1ddbe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using <bpt id="abc71987-16e2-4fed-a8f1-51166bf1ddbe">&lt;strong&gt;</bpt>Azure Media Encoder<ept id="abc71987-16e2-4fed-a8f1-51166bf1ddbe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2425d39a-1ee7-40c4-ba35-ae5d7e33aba8" xml:space="preserve">
+          <source>The code submits the job and waits until it is completed.</source>
+          <target state="new">The code submits the job and waits until it is completed.</target>
+        </trans-unit>
+        <trans-unit id="7ad0abbe-20ba-4fd1-93b1-0250b8f6d861" xml:space="preserve">
+          <source>Once the job is completed, you would be able to stream your asset or progressively download MP4 files that were created as a result of transcoding.</source>
+          <target state="new">Once the job is completed, you would be able to stream your asset or progressively download MP4 files that were created as a result of transcoding.</target>
+        </trans-unit>
+        <trans-unit id="5675238b-56f7-4a4f-8fbe-50de4161da7f" xml:space="preserve">
+          <source>Note that you do not need to have more than 0 streaming units in order to progressively download MP4 files.</source>
+          <target state="new">Note that you do not need to have more than 0 streaming units in order to progressively download MP4 files.</target>
+        </trans-unit>
+        <trans-unit id="f23fc5e0-7de6-4971-ad8f-8cb190f6fc6d" xml:space="preserve">
+          <source>Add the following method to the Program class.</source>
+          <target state="new">Add the following method to the Program class.</target>
+        </trans-unit>
+        <trans-unit id="605c5c61-b81b-47c8-a121-30f60842c8c2" xml:space="preserve">
+          <source>To stream or download an asset, you first need to "publish" it by creating a locator.</source>
+          <target state="new">To stream or download an asset, you first need to "publish" it by creating a locator.</target>
+        </trans-unit>
+        <trans-unit id="d3b4bb76-158f-438d-bb0f-cbaa674268e1" xml:space="preserve">
+          <source>Locators provide access to files contained in the asset.</source>
+          <target state="new">Locators provide access to files contained in the asset.</target>
+        </trans-unit>
+        <trans-unit id="2658d9b5-6ce2-4adb-b0d7-c0be55d1ed52" xml:space="preserve">
+          <source>Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.</source>
+          <target state="new">Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.</target>
+        </trans-unit>
+        <trans-unit id="fc218951-64d7-44e0-8ac2-405ce41e5a0f" xml:space="preserve">
+          <source>After you create the locators, you can build the URLs that are used to stream or download your files.</source>
+          <target state="new">After you create the locators, you can build the URLs that are used to stream or download your files.</target>
+        </trans-unit>
+        <trans-unit id="194a5834-55eb-4fd3-86b6-5c9d75f54f8a" xml:space="preserve">
+          <source>A streaming URL for Smooth Streaming has the following format:</source>
+          <target state="new">A streaming URL for Smooth Streaming has the following format:</target>
+        </trans-unit>
+        <trans-unit id="017754a1-0eba-49f0-a969-b883896f245e" xml:space="preserve">
+          <source>A streaming URL for HLS has the following format:</source>
+          <target state="new">A streaming URL for HLS has the following format:</target>
+        </trans-unit>
+        <trans-unit id="45414617-2a72-4654-a8e8-274230061fab" xml:space="preserve">
+          <source>A streaming URL for MPEG DASH has the following format:</source>
+          <target state="new">A streaming URL for MPEG DASH has the following format:</target>
+        </trans-unit>
+        <trans-unit id="b7027f93-3361-482f-ada8-c9eaf557acb7" xml:space="preserve">
+          <source>A SAS URL used to download files has the following format:</source>
+          <target state="new">A SAS URL used to download files has the following format:</target>
+        </trans-unit>
+        <trans-unit id="f8c528db-21e2-4f9e-a764-c729b6e9b556" xml:space="preserve">
+          <source>Media Services .NET SDK extensions provide convenient helper methods that return formatted URLs for the published asset.</source>
+          <target state="new">Media Services .NET SDK extensions provide convenient helper methods that return formatted URLs for the published asset.</target>
+        </trans-unit>
+        <trans-unit id="8e0f00f1-946b-4fe3-9a70-782b97bea085" xml:space="preserve">
+          <source>The following code uses .NET SDK Extensions to create locators and to get streaming and progressive download URLs.</source>
+          <target state="new">The following code uses .NET SDK Extensions to create locators and to get streaming and progressive download URLs.</target>
+        </trans-unit>
+        <trans-unit id="25d43780-5181-4b84-b46c-53171801be1d" xml:space="preserve">
+          <source>The code also shows how to download files to a local folder.</source>
+          <target state="new">The code also shows how to download files to a local folder.</target>
+        </trans-unit>
+        <trans-unit id="27b806b7-a138-4c0a-aa1a-35df5a333df3" xml:space="preserve">
+          <source>Add the following method to the Program class.</source>
+          <target state="new">Add the following method to the Program class.</target>
+        </trans-unit>
+        <trans-unit id="7e825c9b-3398-4d5b-b8f9-7261e1c81ce6" xml:space="preserve">
+          <source>Once you run the program defined in the previous section, the URLs similar to the following will be displayed in the console window.</source>
+          <target state="new">Once you run the program defined in the previous section, the URLs similar to the following will be displayed in the console window.</target>
+        </trans-unit>
+        <trans-unit id="0b3cbaf9-dfa1-4d33-bad4-ceda361bb4c2" xml:space="preserve">
+          <source>Adaptive streaming URLs:</source>
+          <target state="new">Adaptive streaming URLs:</target>
+        </trans-unit>
+        <trans-unit id="840c944e-4091-4c18-a3d4-56bc0f7028fd" xml:space="preserve">
+          <source>Smooth Streaming</source>
+          <target state="new">Smooth Streaming</target>
+        </trans-unit>
+        <trans-unit id="893dfce8-c599-478d-9acb-12ea43e0af7a" xml:space="preserve">
+          <source>HLS</source>
+          <target state="new">HLS</target>
+        </trans-unit>
+        <trans-unit id="cde18a75-7428-4849-8f1b-901d27840e80" xml:space="preserve">
+          <source>MPEG DASH</source>
+          <target state="new">MPEG DASH</target>
+        </trans-unit>
+        <trans-unit id="18a543f5-e1be-4ba0-be4c-a6406f5e0910" xml:space="preserve">
+          <source>Progressive download URLs (audio and video).</source>
+          <target state="new">Progressive download URLs (audio and video).</target>
+        </trans-unit>
+        <trans-unit id="5e6c2b19-28d4-4233-ad91-95ddd3d1ae72" xml:space="preserve">
+          <source>To stream you video, use <bpt id="a0fe8070-2a67-4b3f-a0af-f04e7a9dd802">&lt;linkText&gt;</bpt>Azure Media Services Player<ept id="a0fe8070-2a67-4b3f-a0af-f04e7a9dd802">&lt;/linkText&gt;</ept><bpt id="a0fe8070-2a67-4b3f-a0af-f04e7a9dd802">&lt;title&gt;</bpt><ept id="a0fe8070-2a67-4b3f-a0af-f04e7a9dd802">&lt;/title&gt;</ept>.</source>
+          <target state="new">To stream you video, use <bpt id="a0fe8070-2a67-4b3f-a0af-f04e7a9dd802">&lt;linkText&gt;</bpt>Azure Media Services Player<ept id="a0fe8070-2a67-4b3f-a0af-f04e7a9dd802">&lt;/linkText&gt;</ept><bpt id="a0fe8070-2a67-4b3f-a0af-f04e7a9dd802">&lt;title&gt;</bpt><ept id="a0fe8070-2a67-4b3f-a0af-f04e7a9dd802">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00fb2296-8d3d-418f-87ca-438c8c9cc2d9" xml:space="preserve">
+          <source>To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).</source>
+          <target state="new">To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).</target>
+        </trans-unit>
+        <trans-unit id="011b2213-927b-4598-91cd-0fdeedb2ad45" xml:space="preserve">
+          <source>To learn more about building Video-on-Demand applications, see <bpt id="6e32a006-caa6-47db-a158-04842900a0b7">&lt;linkText&gt;</bpt>Build VoD applications<ept id="6e32a006-caa6-47db-a158-04842900a0b7">&lt;/linkText&gt;</ept><bpt id="6e32a006-caa6-47db-a158-04842900a0b7">&lt;title&gt;</bpt><ept id="6e32a006-caa6-47db-a158-04842900a0b7">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about building Video-on-Demand applications, see <bpt id="6e32a006-caa6-47db-a158-04842900a0b7">&lt;linkText&gt;</bpt>Build VoD applications<ept id="6e32a006-caa6-47db-a158-04842900a0b7">&lt;/linkText&gt;</ept><bpt id="6e32a006-caa6-47db-a158-04842900a0b7">&lt;title&gt;</bpt><ept id="6e32a006-caa6-47db-a158-04842900a0b7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f748837c-f705-40cd-be04-9f5a937ababb" xml:space="preserve">
+          <source>&lt;a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-"&gt;Azure Media Services 101 - Get your video online now!&lt;/a&gt;</source>
+          <target state="new">&lt;a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-"&gt;Azure Media Services 101 - Get your video online now!&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="1ac268bc-3c20-48c9-b278-2b7d74506a25" xml:space="preserve">
+          <source>&lt;a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices"&gt;Azure Media Services 102 - Dynamic packaging and mobile devices&lt;/a&gt;</source>
+          <target state="new">&lt;a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices"&gt;Azure Media Services 102 - Dynamic packaging and mobile devices&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="0d1c67ce-ef35-4189-a997-51d83752590f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?linkid=255386</source>
+          <target state="new">http://go.microsoft.com/fwlink/?linkid=255386</target>
+        </trans-unit>
+        <trans-unit id="42c22f4d-7125-4cf7-b23a-99afca73d42f" xml:space="preserve">
+          <source>http://manage.windowsazure.com/</source>
+          <target state="new">http://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="b688ceeb-a6d5-40e6-b47d-98f1fd717adc" />
+    </body>
+  </file>
+</xliff>

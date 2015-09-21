@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="78bb35c1-9db6-4bce-9310-3d58a1a233b0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="78bb35c1-9db6-4bce-9310-3d58a1a233b0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ef7ae274-67ed-411b-b4b6-048663cb88d7">
+        <trans-unit id="baece506-82aa-4766-aeae-fbd68e7d3d27" xml:space="preserve">
+          <source>Use Emoji emoticon within Push Notifications</source>
+          <target state="new">Use Emoji emoticon within Push Notifications</target>
+        </trans-unit>
+        <trans-unit id="1a0a0b2d-fa68-417e-b7c0-b6ed474d69fd" xml:space="preserve">
+          <source>How to use Emoji emoticons within your push notifications</source>
+          <target state="new">How to use Emoji emoticons within your push notifications</target>
+        </trans-unit>
+        <trans-unit id="dcbab36a-32c7-48c8-a9c9-15ea0c0661c2" xml:space="preserve">
+          <source>You can include Emoji emoticons in you push notification.</source>
+          <target state="new">You can include Emoji emoticons in you push notification.</target>
+        </trans-unit>
+        <trans-unit id="fc4f013b-0adc-4991-aec4-758909610e2d" xml:space="preserve">
+          <source>Currently, Azure Mobile Engagement only supports the 3 bytes Emoji emoticon set for in and out of app text notifications.</source>
+          <target state="new">Currently, Azure Mobile Engagement only supports the 3 bytes Emoji emoticon set for in and out of app text notifications.</target>
+        </trans-unit>
+        <trans-unit id="e14c02cc-8f5b-492c-8683-18af4931638c" xml:space="preserve">
+          <source>Please follow the steps below:</source>
+          <target state="new">Please follow the steps below:</target>
+        </trans-unit>
+        <trans-unit id="e85f5fd1-56a3-4cad-8b5c-39f3ed397344" xml:space="preserve">
+          <source>First you need to find a 3 bytes Emoji emoticon library.</source>
+          <target state="new">First you need to find a 3 bytes Emoji emoticon library.</target>
+        </trans-unit>
+        <trans-unit id="029759b5-77f1-4b89-88a2-1f7f3ca5a2ae" xml:space="preserve">
+          <source>You can find all Emoji emoticons you can use at the following <bpt id="26aff6c4-5eca-4ea1-b2ad-a23b398d1c0b">&lt;linkText&gt;</bpt>link<ept id="26aff6c4-5eca-4ea1-b2ad-a23b398d1c0b">&lt;/linkText&gt;</ept><bpt id="26aff6c4-5eca-4ea1-b2ad-a23b398d1c0b">&lt;title&gt;</bpt><ept id="26aff6c4-5eca-4ea1-b2ad-a23b398d1c0b">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find all Emoji emoticons you can use at the following <bpt id="26aff6c4-5eca-4ea1-b2ad-a23b398d1c0b">&lt;linkText&gt;</bpt>link<ept id="26aff6c4-5eca-4ea1-b2ad-a23b398d1c0b">&lt;/linkText&gt;</ept><bpt id="26aff6c4-5eca-4ea1-b2ad-a23b398d1c0b">&lt;title&gt;</bpt><ept id="26aff6c4-5eca-4ea1-b2ad-a23b398d1c0b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d0dce05-e837-4129-95a5-ce460a45f939" xml:space="preserve">
+          <source><bpt id="106b3f4a-ff0f-4f31-9bfd-9476fc21d652">&lt;linkText&gt;</bpt><ept id="106b3f4a-ff0f-4f31-9bfd-9476fc21d652">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="106b3f4a-ff0f-4f31-9bfd-9476fc21d652">&lt;linkText&gt;</bpt><ept id="106b3f4a-ff0f-4f31-9bfd-9476fc21d652">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b440e695-2ad6-4193-8862-af96bbe59bdf" xml:space="preserve">
+          <source>Go to the Reach tab on the the Azure Mobile Engagement portal.</source>
+          <target state="new">Go to the Reach tab on the the Azure Mobile Engagement portal.</target>
+        </trans-unit>
+        <trans-unit id="62e9d9bb-4d12-419a-a296-29abd55efd70" xml:space="preserve">
+          <source>Select the type of your push notification (Announcement, polls etc).</source>
+          <target state="new">Select the type of your push notification (Announcement, polls etc).</target>
+        </trans-unit>
+        <trans-unit id="b8fc84d6-48ba-4ce0-a576-355e7a80b505" xml:space="preserve">
+          <source>For this example we choose an announcement push.</source>
+          <target state="new">For this example we choose an announcement push.</target>
+        </trans-unit>
+        <trans-unit id="3168ebed-5cf4-4ab4-a697-f47fdf3a5174" xml:space="preserve">
+          <source>Specify the different fields of the notification until you reach the text of the notification.</source>
+          <target state="new">Specify the different fields of the notification until you reach the text of the notification.</target>
+        </trans-unit>
+        <trans-unit id="f8b73336-ecca-4eef-a0fb-c81d886c3596" xml:space="preserve">
+          <source>This is where you will add your Emoji Emoticon.</source>
+          <target state="new">This is where you will add your Emoji Emoticon.</target>
+        </trans-unit>
+        <trans-unit id="f10a108c-2be6-4add-b242-17bea0dfc4c1" xml:space="preserve">
+          <source>You can choose to put it in the title, the message, or both.</source>
+          <target state="new">You can choose to put it in the title, the message, or both.</target>
+        </trans-unit>
+        <trans-unit id="29962aa5-e365-478c-89f1-5f4c493d56ba" xml:space="preserve">
+          <source><bpt id="a6b516ab-c902-413b-baac-fb0e87b871d9">&lt;linkText&gt;</bpt><ept id="a6b516ab-c902-413b-baac-fb0e87b871d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6b516ab-c902-413b-baac-fb0e87b871d9">&lt;linkText&gt;</bpt><ept id="a6b516ab-c902-413b-baac-fb0e87b871d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6354b833-ff12-4f38-91c9-8cbe5d286c0e" xml:space="preserve">
+          <source>Cut the Emoji emoticon you want to use from the previous link.</source>
+          <target state="new">Cut the Emoji emoticon you want to use from the previous link.</target>
+        </trans-unit>
+        <trans-unit id="8ecb3f1e-4e74-42ce-9474-56aa7e73a696" xml:space="preserve">
+          <source>Paste it directly in the title and/or message, at the place you chose.</source>
+          <target state="new">Paste it directly in the title and/or message, at the place you chose.</target>
+        </trans-unit>
+        <trans-unit id="dfc22edb-020e-45e7-a66f-9f8fdd396b85" xml:space="preserve">
+          <source>Complete the other fields for the notification and save it.</source>
+          <target state="new">Complete the other fields for the notification and save it.</target>
+        </trans-unit>
+        <trans-unit id="f8398b30-ea3a-448b-8581-ae8ed05306d3" xml:space="preserve">
+          <source>When you run a test or activate the announcement you will see a notification with the emoticon as specified.</source>
+          <target state="new">When you run a test or activate the announcement you will see a notification with the emoticon as specified.</target>
+        </trans-unit>
+        <trans-unit id="b9a02e0a-1541-470b-895d-ef81d00d4a54" xml:space="preserve">
+          <source><bpt id="8fd64d66-9d9f-41a9-a269-c2ba850dcfd9">&lt;linkText&gt;</bpt><ept id="8fd64d66-9d9f-41a9-a269-c2ba850dcfd9">&lt;/linkText&gt;</ept> 
+<bpt id="80b22326-58a6-41e4-8004-39dee6b3c5f4">&lt;linkText&gt;</bpt><ept id="80b22326-58a6-41e4-8004-39dee6b3c5f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8fd64d66-9d9f-41a9-a269-c2ba850dcfd9">&lt;linkText&gt;</bpt><ept id="8fd64d66-9d9f-41a9-a269-c2ba850dcfd9">&lt;/linkText&gt;</ept> 
+<bpt id="80b22326-58a6-41e4-8004-39dee6b3c5f4">&lt;linkText&gt;</bpt><ept id="80b22326-58a6-41e4-8004-39dee6b3c5f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b01a900c-c6d3-4e31-9bba-fc389e16ea7d" xml:space="preserve">
+          <source>./media/mobile-engagement-use-emoji-with-push/emoji.png</source>
+          <target state="new">./media/mobile-engagement-use-emoji-with-push/emoji.png</target>
+        </trans-unit>
+        <trans-unit id="86e77b6e-f369-4bae-bcf5-e9c57e215a43" xml:space="preserve">
+          <source>./media/mobile-engagement-use-emoji-with-push/notification_input.png</source>
+          <target state="new">./media/mobile-engagement-use-emoji-with-push/notification_input.png</target>
+        </trans-unit>
+        <trans-unit id="bef49112-2df7-49a4-af23-9cdc3986acf6" xml:space="preserve">
+          <source>./media/mobile-engagement-use-emoji-with-push/notification_android.png</source>
+          <target state="new">./media/mobile-engagement-use-emoji-with-push/notification_android.png</target>
+        </trans-unit>
+        <trans-unit id="09481aef-fac0-4e9d-a0a8-68f13fa6c1bc" xml:space="preserve">
+          <source>./media/mobile-engagement-use-emoji-with-push/notification_ios.png</source>
+          <target state="new">./media/mobile-engagement-use-emoji-with-push/notification_ios.png</target>
+        </trans-unit>
+      </group>
+      <group id="252b6caa-f886-4728-ba78-e409af1bf5b9" />
+    </body>
+  </file>
+</xliff>

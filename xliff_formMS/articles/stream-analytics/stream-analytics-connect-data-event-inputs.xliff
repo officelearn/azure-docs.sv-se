@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="41582600-5367-4686-a91e-a97b898855b9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="41582600-5367-4686-a91e-a97b898855b9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d36d9e56-33f0-45f2-bc6a-1a3c302d86c3">
+        <trans-unit id="245d9e01-273d-4e40-9dac-29a1eef4e597" xml:space="preserve">
+          <source>Create Stream Analytics Inputs | Microsoft Azure</source>
+          <target state="new">Create Stream Analytics Inputs | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="34777f02-3387-42e9-8ff2-eccd3b59e8af" xml:space="preserve">
+          <source>Learn how to connect to and configure the input sources for Stream Analytics solutions.</source>
+          <target state="new">Learn how to connect to and configure the input sources for Stream Analytics solutions.</target>
+        </trans-unit>
+        <trans-unit id="267cc6cb-fa17-483d-b996-21b6ccec1f85" xml:space="preserve">
+          <source>Stream Analytics inputs are defined as a connection to a data source.</source>
+          <target state="new">Stream Analytics inputs are defined as a connection to a data source.</target>
+        </trans-unit>
+        <trans-unit id="925226e0-42f6-4a79-b87e-e129a3c9762a" xml:space="preserve">
+          <source>Stream Analytics has first class integration with the Azure sources Event Hub and Blob storage from within and outside of the job subscription.</source>
+          <target state="new">Stream Analytics has first class integration with the Azure sources Event Hub and Blob storage from within and outside of the job subscription.</target>
+        </trans-unit>
+        <trans-unit id="12b6ccc6-0bc1-41a2-abcd-89892c78e864" xml:space="preserve">
+          <source>As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time.</source>
+          <target state="new">As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time.</target>
+        </trans-unit>
+        <trans-unit id="47a08dc8-060a-4352-ba3f-c52a54f2060a" xml:space="preserve">
+          <source>Inputs are divided into two distinct types: data stream inputs and reference data inputs.</source>
+          <target state="new">Inputs are divided into two distinct types: data stream inputs and reference data inputs.</target>
+        </trans-unit>
+        <trans-unit id="dc163106-2294-4048-b05c-d70c392728ea" xml:space="preserve">
+          <source>Stream Analytics jobs must include at least one data stream input to be consumed and transformed by the job.</source>
+          <target state="new">Stream Analytics jobs must include at least one data stream input to be consumed and transformed by the job.</target>
+        </trans-unit>
+        <trans-unit id="a49c8b4e-c0c2-4d55-82d7-918defed06e5" xml:space="preserve">
+          <source>Azure Blob storage and Azure Event Hubs are supported as data stream input sources.</source>
+          <target state="new">Azure Blob storage and Azure Event Hubs are supported as data stream input sources.</target>
+        </trans-unit>
+        <trans-unit id="4265e470-0084-43fa-98c3-c1a0242ebdbc" xml:space="preserve">
+          <source>Azure Event Hubs are used to collect event streams from multiple devices and services, such as social media activity feeds, stock trade information or data from sensors.</source>
+          <target state="new">Azure Event Hubs are used to collect event streams from multiple devices and services, such as social media activity feeds, stock trade information or data from sensors.</target>
+        </trans-unit>
+        <trans-unit id="3ddb2637-4ec1-4fc8-8938-da7081317eee" xml:space="preserve">
+          <source>Alternately, Azure Blob storage can be used as an input source for ingesting bulk data.</source>
+          <target state="new">Alternately, Azure Blob storage can be used as an input source for ingesting bulk data.</target>
+        </trans-unit>
+        <trans-unit id="18b1f7a4-b5ae-4454-a38b-5e7a6670d302" xml:space="preserve">
+          <source>Stream Analytics supports a second type of input known as reference data.</source>
+          <target state="new">Stream Analytics supports a second type of input known as reference data.</target>
+        </trans-unit>
+        <trans-unit id="79dadf33-0024-46aa-a657-cb28561765ed" xml:space="preserve">
+          <source>This is auxiliary data which is typically used for performing correlation and look-ups, and the data here is usually static or infrequently changed.</source>
+          <target state="new">This is auxiliary data which is typically used for performing correlation and look-ups, and the data here is usually static or infrequently changed.</target>
+        </trans-unit>
+        <trans-unit id="517d8449-5b83-4e74-9a61-f21f3fd960f4" xml:space="preserve">
+          <source>Azure Blob storage is currently the only supported input source for reference data.</source>
+          <target state="new">Azure Blob storage is currently the only supported input source for reference data.</target>
+        </trans-unit>
+        <trans-unit id="c2c6f8ed-e3b0-4f4f-a9a5-5c0f0feee949" xml:space="preserve">
+          <source>Reference data source blobs are limited to 50MB in size.</source>
+          <target state="new">Reference data source blobs are limited to 50MB in size.</target>
+        </trans-unit>
+        <trans-unit id="b5db5e58-23ae-4076-a4db-4bfc88b1169d" xml:space="preserve">
+          <source>Event Hubs are a highly scalable event ingestor, and are the most common method of data ingestion to a Stream Analytics job.</source>
+          <target state="new">Event Hubs are a highly scalable event ingestor, and are the most common method of data ingestion to a Stream Analytics job.</target>
+        </trans-unit>
+        <trans-unit id="17c9291d-bfe6-4359-a598-cb53f524293b" xml:space="preserve">
+          <source>Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers to feed events into Azure in real time, and Stream Analytics jobs can process them in real time.</source>
+          <target state="new">Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers to feed events into Azure in real time, and Stream Analytics jobs can process them in real time.</target>
+        </trans-unit>
+        <trans-unit id="24832836-7c89-41ed-a270-f83ca05a7747" xml:space="preserve">
+          <source>For example, customers can send web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining.</source>
+          <target state="new">For example, customers can send web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining.</target>
+        </trans-unit>
+        <trans-unit id="e17b1f84-412c-411b-8c88-44ac49f62b93" xml:space="preserve">
+          <source>Event Hubs can be used for data egress also.</source>
+          <target state="new">Event Hubs can be used for data egress also.</target>
+        </trans-unit>
+        <trans-unit id="258e5400-d624-442e-85d9-d9aeedf06eaf" xml:space="preserve">
+          <source>For further details on Event Hubs see the <bpt id="21eae780-2186-4f93-923d-d4177742d467">&lt;linkText&gt;</bpt>Event Hubs<ept id="21eae780-2186-4f93-923d-d4177742d467">&lt;/linkText&gt;</ept><bpt id="21eae780-2186-4f93-923d-d4177742d467">&lt;title&gt;</bpt>Event Hubs<ept id="21eae780-2186-4f93-923d-d4177742d467">&lt;/title&gt;</ept> documentation.</source>
+          <target state="new">For further details on Event Hubs see the <bpt id="21eae780-2186-4f93-923d-d4177742d467">&lt;linkText&gt;</bpt>Event Hubs<ept id="21eae780-2186-4f93-923d-d4177742d467">&lt;/linkText&gt;</ept><bpt id="21eae780-2186-4f93-923d-d4177742d467">&lt;title&gt;</bpt>Event Hubs<ept id="21eae780-2186-4f93-923d-d4177742d467">&lt;/title&gt;</ept> documentation.</target>
+        </trans-unit>
+        <trans-unit id="2cfc86c3-6358-477c-aa5c-4cef8059dce7" xml:space="preserve">
+          <source>Each Stream Analytics Event Hub input should be configured to have its own consumer group.</source>
+          <target state="new">Each Stream Analytics Event Hub input should be configured to have its own consumer group.</target>
+        </trans-unit>
+        <trans-unit id="697fdb60-e158-44fb-bc42-3e96316b655e" xml:space="preserve">
+          <source>When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group.</source>
+          <target state="new">When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group.</target>
+        </trans-unit>
+        <trans-unit id="eadd7470-491e-4bc5-804a-2e1e6cc2abfd" xml:space="preserve">
+          <source>To avoid exceeding Event Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job.</source>
+          <target state="new">To avoid exceeding Event Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job.</target>
+        </trans-unit>
+        <trans-unit id="95746f7d-9155-4584-8395-d660af00f7b7" xml:space="preserve">
+          <source>Note that there is also a limit of 20 consumer groups per Event Hub.</source>
+          <target state="new">Note that there is also a limit of 20 consumer groups per Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="122ae6b6-932e-4678-8abb-d53684d8a32d" xml:space="preserve">
+          <source>For details, see the <bpt id="fb4b0a79-16b0-4b9c-8163-f34df61d1669">&lt;linkText&gt;</bpt>Event Hubs Programming Guide<ept id="fb4b0a79-16b0-4b9c-8163-f34df61d1669">&lt;/linkText&gt;</ept><bpt id="fb4b0a79-16b0-4b9c-8163-f34df61d1669">&lt;title&gt;</bpt>Event Hubs Programming Guide<ept id="fb4b0a79-16b0-4b9c-8163-f34df61d1669">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see the <bpt id="fb4b0a79-16b0-4b9c-8163-f34df61d1669">&lt;linkText&gt;</bpt>Event Hubs Programming Guide<ept id="fb4b0a79-16b0-4b9c-8163-f34df61d1669">&lt;/linkText&gt;</ept><bpt id="fb4b0a79-16b0-4b9c-8163-f34df61d1669">&lt;title&gt;</bpt>Event Hubs Programming Guide<ept id="fb4b0a79-16b0-4b9c-8163-f34df61d1669">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a83530b6-e64a-4a83-90a8-032df2b6666c" xml:space="preserve">
+          <source>On the inputs tab of the Stream Analytics job, click <bpt id="6bdb8b26-8578-4ef5-88a4-a90c96b95b7e">&lt;strong&gt;</bpt>ADD INPUT<ept id="6bdb8b26-8578-4ef5-88a4-a90c96b95b7e">&lt;/strong&gt;</ept> and then select the default option, <bpt id="7c0870f3-7c42-4116-9996-6958d029e87e">&lt;strong&gt;</bpt>Data stream<ept id="7c0870f3-7c42-4116-9996-6958d029e87e">&lt;/strong&gt;</ept>, and click the right button.</source>
+          <target state="new">On the inputs tab of the Stream Analytics job, click <bpt id="6bdb8b26-8578-4ef5-88a4-a90c96b95b7e">&lt;strong&gt;</bpt>ADD INPUT<ept id="6bdb8b26-8578-4ef5-88a4-a90c96b95b7e">&lt;/strong&gt;</ept> and then select the default option, <bpt id="7c0870f3-7c42-4116-9996-6958d029e87e">&lt;strong&gt;</bpt>Data stream<ept id="7c0870f3-7c42-4116-9996-6958d029e87e">&lt;/strong&gt;</ept>, and click the right button.</target>
+        </trans-unit>
+        <trans-unit id="bc0fb1e5-75b0-4c58-bd17-0ecfbcabfb37" xml:space="preserve">
+          <source><bpt id="0c03d10a-da38-4566-a0c7-6e0bb5f365c1">&lt;linkText&gt;</bpt>image1<ept id="0c03d10a-da38-4566-a0c7-6e0bb5f365c1">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="0c03d10a-da38-4566-a0c7-6e0bb5f365c1">&lt;linkText&gt;</bpt>image1<ept id="0c03d10a-da38-4566-a0c7-6e0bb5f365c1">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="f28cc9cc-c187-43e9-9e31-1a5a1da79ee7" xml:space="preserve">
+          <source>Next select <bpt id="de401d70-7893-45f7-8646-452322566461">&lt;strong&gt;</bpt>Event Hub<ept id="de401d70-7893-45f7-8646-452322566461">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Next select <bpt id="de401d70-7893-45f7-8646-452322566461">&lt;strong&gt;</bpt>Event Hub<ept id="de401d70-7893-45f7-8646-452322566461">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94ddf961-4051-4bf8-bb39-513179aa9de4" xml:space="preserve">
+          <source><bpt id="68cf65f9-5750-4597-8806-21953a311f0f">&lt;linkText&gt;</bpt>image6<ept id="68cf65f9-5750-4597-8806-21953a311f0f">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="68cf65f9-5750-4597-8806-21953a311f0f">&lt;linkText&gt;</bpt>image6<ept id="68cf65f9-5750-4597-8806-21953a311f0f">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="f135dd01-c2ee-4f88-9c50-18a0ee35e9b0" xml:space="preserve">
+          <source>Type or select the following fields and click the right button:</source>
+          <target state="new">Type or select the following fields and click the right button:</target>
+        </trans-unit>
+        <trans-unit id="45a92cae-de85-4c10-8cd6-419a930192fa" xml:space="preserve">
+          <source><bpt id="e24d07f9-afea-4c69-b88d-0cda324d5537">&lt;strong&gt;</bpt>Input Alias<ept id="e24d07f9-afea-4c69-b88d-0cda324d5537">&lt;/strong&gt;</ept>: A friendly name that will be used in the job query to reference this input  </source>
+          <target state="new"><bpt id="e24d07f9-afea-4c69-b88d-0cda324d5537">&lt;strong&gt;</bpt>Input Alias<ept id="e24d07f9-afea-4c69-b88d-0cda324d5537">&lt;/strong&gt;</ept>: A friendly name that will be used in the job query to reference this input  </target>
+        </trans-unit>
+        <trans-unit id="046c2c53-f411-441b-8c57-7536b420b3d5" xml:space="preserve">
+          <source><bpt id="81f4cf1d-732b-43ef-897a-de122c9eebee">&lt;strong&gt;</bpt>Service Bus Namespace<ept id="81f4cf1d-732b-43ef-897a-de122c9eebee">&lt;/strong&gt;</ept>: A Service Bus namespace is a container for a set of messaging entities.</source>
+          <target state="new"><bpt id="81f4cf1d-732b-43ef-897a-de122c9eebee">&lt;strong&gt;</bpt>Service Bus Namespace<ept id="81f4cf1d-732b-43ef-897a-de122c9eebee">&lt;/strong&gt;</ept>: A Service Bus namespace is a container for a set of messaging entities.</target>
+        </trans-unit>
+        <trans-unit id="884d2369-a949-4e08-a424-d19b5403eb0e" xml:space="preserve">
+          <source>When you created a new Event Hub, you also created a Service Bus namespace.</source>
+          <target state="new">When you created a new Event Hub, you also created a Service Bus namespace.</target>
+        </trans-unit>
+        <trans-unit id="0e89584a-cb15-40b3-abf7-17e65a964753" xml:space="preserve">
+          <source><bpt id="eee7e70f-e0fe-4cac-8a19-8f595f55d39d">&lt;strong&gt;</bpt>Event Hub<ept id="eee7e70f-e0fe-4cac-8a19-8f595f55d39d">&lt;/strong&gt;</ept>: The name of your Event Hub input  </source>
+          <target state="new"><bpt id="eee7e70f-e0fe-4cac-8a19-8f595f55d39d">&lt;strong&gt;</bpt>Event Hub<ept id="eee7e70f-e0fe-4cac-8a19-8f595f55d39d">&lt;/strong&gt;</ept>: The name of your Event Hub input  </target>
+        </trans-unit>
+        <trans-unit id="fc136fb3-c540-47f0-922e-b97980a6f6b9" xml:space="preserve">
+          <source><bpt id="8aac7980-e265-40ae-95f2-354c62d66aed">&lt;strong&gt;</bpt>Event Hub Policy Name<ept id="8aac7980-e265-40ae-95f2-354c62d66aed">&lt;/strong&gt;</ept>: The shared access policy, which can be created on the Event Hub Configure tab.</source>
+          <target state="new"><bpt id="8aac7980-e265-40ae-95f2-354c62d66aed">&lt;strong&gt;</bpt>Event Hub Policy Name<ept id="8aac7980-e265-40ae-95f2-354c62d66aed">&lt;/strong&gt;</ept>: The shared access policy, which can be created on the Event Hub Configure tab.</target>
+        </trans-unit>
+        <trans-unit id="991d5342-8226-4fe9-93f9-26a486eca098" xml:space="preserve">
+          <source>Each shared access policy will have a name, permissions that you set, and access keys.</source>
+          <target state="new">Each shared access policy will have a name, permissions that you set, and access keys.</target>
+        </trans-unit>
+        <trans-unit id="9608575d-a17d-4ba3-ad1c-df5395ac41fa" xml:space="preserve">
+          <source><bpt id="af9ab953-006a-44bd-b9db-d7963b01c6c9">&lt;strong&gt;</bpt>Event Hub Consumer Group<ept id="af9ab953-006a-44bd-b9db-d7963b01c6c9">&lt;/strong&gt;</ept> (Optional): The Consumer Group to ingest data from the Event Hub.</source>
+          <target state="new"><bpt id="af9ab953-006a-44bd-b9db-d7963b01c6c9">&lt;strong&gt;</bpt>Event Hub Consumer Group<ept id="af9ab953-006a-44bd-b9db-d7963b01c6c9">&lt;/strong&gt;</ept> (Optional): The Consumer Group to ingest data from the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="da5bd16d-f613-4f5f-bf68-383f242135a6" xml:space="preserve">
+          <source>If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.</source>
+          <target state="new">If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="fff06aa2-62d3-44e9-acdb-96f7c14885a9" xml:space="preserve">
+          <source>It is recommended to use a distinct consumer Group for each Stream Analytics job.</source>
+          <target state="new">It is recommended to use a distinct consumer Group for each Stream Analytics job.</target>
+        </trans-unit>
+        <trans-unit id="42d450c1-b87d-47b5-b9c5-b38891e4be42" xml:space="preserve">
+          <source><bpt id="ca0d6b9f-6c50-4682-b558-e8c48d9a072e">&lt;linkText&gt;</bpt>image7<ept id="ca0d6b9f-6c50-4682-b558-e8c48d9a072e">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="ca0d6b9f-6c50-4682-b558-e8c48d9a072e">&lt;linkText&gt;</bpt>image7<ept id="ca0d6b9f-6c50-4682-b558-e8c48d9a072e">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="b0042384-8225-4a18-962d-73792287f86b" xml:space="preserve">
+          <source>Specify the following settings:</source>
+          <target state="new">Specify the following settings:</target>
+        </trans-unit>
+        <trans-unit id="491b881e-fa34-4657-a17a-90ec02ace20d" xml:space="preserve">
+          <source><bpt id="c93605a2-887f-40c0-9225-bc14c3a9a0b4">&lt;strong&gt;</bpt>Event Serialization Format<ept id="c93605a2-887f-40c0-9225-bc14c3a9a0b4">&lt;/strong&gt;</ept>: To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams.</source>
+          <target state="new"><bpt id="c93605a2-887f-40c0-9225-bc14c3a9a0b4">&lt;strong&gt;</bpt>Event Serialization Format<ept id="c93605a2-887f-40c0-9225-bc14c3a9a0b4">&lt;/strong&gt;</ept>: To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams.</target>
+        </trans-unit>
+        <trans-unit id="8a06b3d1-df44-4d5b-afcb-fe65a92a59ab" xml:space="preserve">
+          <source><bpt id="8f66ea66-952f-4958-a3f3-65481a7fa267">&lt;strong&gt;</bpt>Encoding<ept id="8f66ea66-952f-4958-a3f3-65481a7fa267">&lt;/strong&gt;</ept>: UTF-8 is the only supported encoding format at this time.</source>
+          <target state="new"><bpt id="8f66ea66-952f-4958-a3f3-65481a7fa267">&lt;strong&gt;</bpt>Encoding<ept id="8f66ea66-952f-4958-a3f3-65481a7fa267">&lt;/strong&gt;</ept>: UTF-8 is the only supported encoding format at this time.</target>
+        </trans-unit>
+        <trans-unit id="e1cd9cae-15be-4f48-9344-5a67909644fc" xml:space="preserve">
+          <source><bpt id="133e2ac9-1a71-4072-9c3d-1d4843127cf9">&lt;linkText&gt;</bpt>image8<ept id="133e2ac9-1a71-4072-9c3d-1d4843127cf9">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="133e2ac9-1a71-4072-9c3d-1d4843127cf9">&lt;linkText&gt;</bpt>image8<ept id="133e2ac9-1a71-4072-9c3d-1d4843127cf9">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="fe5a958a-9b72-4071-b7be-f9a13762155d" xml:space="preserve">
+          <source>Click the check button to complete the wizard and verify that Stream Analytics can successfully connect to the Event Hub.</source>
+          <target state="new">Click the check button to complete the wizard and verify that Stream Analytics can successfully connect to the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="c43a1478-02a0-491a-8a91-90a0bba489ad" xml:space="preserve">
+          <source>For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution.</source>
+          <target state="new">For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution.</target>
+        </trans-unit>
+        <trans-unit id="47d31a46-b46f-452f-aa3d-f3b2fdf6a144" xml:space="preserve">
+          <source>Data in Blob storage is generally considered data “at rest” but it can be processed as a data stream by Stream Analytics.</source>
+          <target state="new">Data in Blob storage is generally considered data “at rest” but it can be processed as a data stream by Stream Analytics.</target>
+        </trans-unit>
+        <trans-unit id="d52b4463-83dd-4588-b161-f2bab6c9fabf" xml:space="preserve">
+          <source>One common scenario for Blob storage inputs with Stream Analytics is log processing, where telemetry is captured from a system and needs to be parsed and processed to extract meaningful data.</source>
+          <target state="new">One common scenario for Blob storage inputs with Stream Analytics is log processing, where telemetry is captured from a system and needs to be parsed and processed to extract meaningful data.</target>
+        </trans-unit>
+        <trans-unit id="699e23a4-e4ac-4bdd-8f43-f6542306f190" xml:space="preserve">
+          <source>It is important to note that the default timestamp of Blob storage events in Stream Analytics is the timestamp that the blob was created.</source>
+          <target state="new">It is important to note that the default timestamp of Blob storage events in Stream Analytics is the timestamp that the blob was created.</target>
+        </trans-unit>
+        <trans-unit id="020dae0f-c77f-47f7-9795-f10362093cdb" xml:space="preserve">
+          <source>To process the data as a stream using a timestamp in the event payload, the <bpt id="34a9fcaa-90ba-4a41-8b33-d0dae1b306ba">&lt;linkText&gt;</bpt>TIMESTAMP BY<ept id="34a9fcaa-90ba-4a41-8b33-d0dae1b306ba">&lt;/linkText&gt;</ept><bpt id="34a9fcaa-90ba-4a41-8b33-d0dae1b306ba">&lt;title&gt;</bpt><ept id="34a9fcaa-90ba-4a41-8b33-d0dae1b306ba">&lt;/title&gt;</ept> keyword must be used.</source>
+          <target state="new">To process the data as a stream using a timestamp in the event payload, the <bpt id="34a9fcaa-90ba-4a41-8b33-d0dae1b306ba">&lt;linkText&gt;</bpt>TIMESTAMP BY<ept id="34a9fcaa-90ba-4a41-8b33-d0dae1b306ba">&lt;/linkText&gt;</ept><bpt id="34a9fcaa-90ba-4a41-8b33-d0dae1b306ba">&lt;title&gt;</bpt><ept id="34a9fcaa-90ba-4a41-8b33-d0dae1b306ba">&lt;/title&gt;</ept> keyword must be used.</target>
+        </trans-unit>
+        <trans-unit id="4c5ee1bb-1e6b-49f1-b115-fa8adf786fd7" xml:space="preserve">
+          <source>For further information on Blob storage see the <bpt id="58eb0f7d-1daf-425d-a96f-c727cf6a0379">&lt;linkText&gt;</bpt>Blob storage<ept id="58eb0f7d-1daf-425d-a96f-c727cf6a0379">&lt;/linkText&gt;</ept><bpt id="58eb0f7d-1daf-425d-a96f-c727cf6a0379">&lt;title&gt;</bpt><ept id="58eb0f7d-1daf-425d-a96f-c727cf6a0379">&lt;/title&gt;</ept> documentation.</source>
+          <target state="new">For further information on Blob storage see the <bpt id="58eb0f7d-1daf-425d-a96f-c727cf6a0379">&lt;linkText&gt;</bpt>Blob storage<ept id="58eb0f7d-1daf-425d-a96f-c727cf6a0379">&lt;/linkText&gt;</ept><bpt id="58eb0f7d-1daf-425d-a96f-c727cf6a0379">&lt;title&gt;</bpt><ept id="58eb0f7d-1daf-425d-a96f-c727cf6a0379">&lt;/title&gt;</ept> documentation.</target>
+        </trans-unit>
+        <trans-unit id="3ae1651a-dd17-480d-83ce-0935357849b3" xml:space="preserve">
+          <source>On the inputs tab of the Stream Analytics job, click <bpt id="9e526094-b733-4b99-b859-637468692aa3">&lt;strong&gt;</bpt>ADD INPUT<ept id="9e526094-b733-4b99-b859-637468692aa3">&lt;/strong&gt;</ept> and then select the default option, <bpt id="65477faf-5cd5-413d-9780-8422d2c74dad">&lt;strong&gt;</bpt>Data stream<ept id="65477faf-5cd5-413d-9780-8422d2c74dad">&lt;/strong&gt;</ept>, and click the right button.</source>
+          <target state="new">On the inputs tab of the Stream Analytics job, click <bpt id="9e526094-b733-4b99-b859-637468692aa3">&lt;strong&gt;</bpt>ADD INPUT<ept id="9e526094-b733-4b99-b859-637468692aa3">&lt;/strong&gt;</ept> and then select the default option, <bpt id="65477faf-5cd5-413d-9780-8422d2c74dad">&lt;strong&gt;</bpt>Data stream<ept id="65477faf-5cd5-413d-9780-8422d2c74dad">&lt;/strong&gt;</ept>, and click the right button.</target>
+        </trans-unit>
+        <trans-unit id="e2425bc0-41d2-4dff-bce3-fbb2a23d2504" xml:space="preserve">
+          <source><bpt id="eecfe268-4495-439f-aa09-1770baa4ba5f">&lt;linkText&gt;</bpt>image1<ept id="eecfe268-4495-439f-aa09-1770baa4ba5f">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="eecfe268-4495-439f-aa09-1770baa4ba5f">&lt;linkText&gt;</bpt>image1<ept id="eecfe268-4495-439f-aa09-1770baa4ba5f">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="a6283b2d-b5b2-4df8-890f-f85c81da54ea" xml:space="preserve">
+          <source>Select <bpt id="8cef3a64-c5e4-47ad-9bf8-55b854fa2056">&lt;strong&gt;</bpt>Blob storage<ept id="8cef3a64-c5e4-47ad-9bf8-55b854fa2056">&lt;/strong&gt;</ept> and click the right button.</source>
+          <target state="new">Select <bpt id="8cef3a64-c5e4-47ad-9bf8-55b854fa2056">&lt;strong&gt;</bpt>Blob storage<ept id="8cef3a64-c5e4-47ad-9bf8-55b854fa2056">&lt;/strong&gt;</ept> and click the right button.</target>
+        </trans-unit>
+        <trans-unit id="9b0c9ecd-d93f-4499-ac6d-8dcb6803c367" xml:space="preserve">
+          <source><bpt id="c16637c8-2186-42d0-898a-bc22f60bd9da">&lt;linkText&gt;</bpt>image2<ept id="c16637c8-2186-42d0-898a-bc22f60bd9da">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="c16637c8-2186-42d0-898a-bc22f60bd9da">&lt;linkText&gt;</bpt>image2<ept id="c16637c8-2186-42d0-898a-bc22f60bd9da">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="1a6c40b5-be3c-4fa5-9a00-83bb7ec222ee" xml:space="preserve">
+          <source>Type or select the following fields:</source>
+          <target state="new">Type or select the following fields:</target>
+        </trans-unit>
+        <trans-unit id="5f4209ee-3620-4fdc-8029-98b7eca96508" xml:space="preserve">
+          <source><bpt id="07309404-ef06-43a8-ab31-6b5675b079dc">&lt;strong&gt;</bpt>Input Alias<ept id="07309404-ef06-43a8-ab31-6b5675b079dc">&lt;/strong&gt;</ept>: A friendly name that  will be used in the job query to reference this input  </source>
+          <target state="new"><bpt id="07309404-ef06-43a8-ab31-6b5675b079dc">&lt;strong&gt;</bpt>Input Alias<ept id="07309404-ef06-43a8-ab31-6b5675b079dc">&lt;/strong&gt;</ept>: A friendly name that  will be used in the job query to reference this input  </target>
+        </trans-unit>
+        <trans-unit id="2523ed76-9053-44d4-b905-b8ecfba83ea0" xml:space="preserve">
+          <source><bpt id="4c80fc63-1b27-4a48-983b-cad07c10770b">&lt;strong&gt;</bpt>Storage Account<ept id="4c80fc63-1b27-4a48-983b-cad07c10770b">&lt;/strong&gt;</ept>: If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.</source>
+          <target state="new"><bpt id="4c80fc63-1b27-4a48-983b-cad07c10770b">&lt;strong&gt;</bpt>Storage Account<ept id="4c80fc63-1b27-4a48-983b-cad07c10770b">&lt;/strong&gt;</ept>: If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.</target>
+        </trans-unit>
+        <trans-unit id="a468dbff-5458-47d5-b2fd-8fbfa40c2780" xml:space="preserve">
+          <source><bpt id="8dfdd22b-65f5-447e-addf-4047d64e6fc2">&lt;strong&gt;</bpt>Storage Container<ept id="8dfdd22b-65f5-447e-addf-4047d64e6fc2">&lt;/strong&gt;</ept>: Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service.</source>
+          <target state="new"><bpt id="8dfdd22b-65f5-447e-addf-4047d64e6fc2">&lt;strong&gt;</bpt>Storage Container<ept id="8dfdd22b-65f5-447e-addf-4047d64e6fc2">&lt;/strong&gt;</ept>: Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service.</target>
+        </trans-unit>
+        <trans-unit id="7de462e4-8613-41f1-968e-54a42631cdd8" xml:space="preserve">
+          <source>When you upload a blob to the Blob service, you must specify a container for that blob.</source>
+          <target state="new">When you upload a blob to the Blob service, you must specify a container for that blob.</target>
+        </trans-unit>
+        <trans-unit id="18ba7a19-173c-4d92-84b3-14290d8cd976" xml:space="preserve">
+          <source><bpt id="18baa79e-e16f-4522-9600-2d2a86767557">&lt;linkText&gt;</bpt>image3<ept id="18baa79e-e16f-4522-9600-2d2a86767557">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="18baa79e-e16f-4522-9600-2d2a86767557">&lt;linkText&gt;</bpt>image3<ept id="18baa79e-e16f-4522-9600-2d2a86767557">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="34be862f-e8b1-4497-b046-50f86f3ca66b" xml:space="preserve">
+          <source>Click the <bpt id="f5d51c84-4b08-4d6c-9456-bc9e5dab5d20">&lt;strong&gt;</bpt>Configure Advanced Settings<ept id="f5d51c84-4b08-4d6c-9456-bc9e5dab5d20">&lt;/strong&gt;</ept> box for the option to configure the Path Prefix Pattern for readings blobs in a customized path.</source>
+          <target state="new">Click the <bpt id="f5d51c84-4b08-4d6c-9456-bc9e5dab5d20">&lt;strong&gt;</bpt>Configure Advanced Settings<ept id="f5d51c84-4b08-4d6c-9456-bc9e5dab5d20">&lt;/strong&gt;</ept> box for the option to configure the Path Prefix Pattern for readings blobs in a customized path.</target>
+        </trans-unit>
+        <trans-unit id="8cfcb324-6fa3-4212-bf57-9b4351ac5343" xml:space="preserve">
+          <source>If this field is not specified, Stream Analytics will read all blobs in the container.</source>
+          <target state="new">If this field is not specified, Stream Analytics will read all blobs in the container.</target>
+        </trans-unit>
+        <trans-unit id="000c9494-fb45-4d14-b98e-d5a238e936a2" xml:space="preserve">
+          <source><bpt id="18149abc-8343-46d2-a147-5b51663d5c67">&lt;linkText&gt;</bpt>image4<ept id="18149abc-8343-46d2-a147-5b51663d5c67">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="18149abc-8343-46d2-a147-5b51663d5c67">&lt;linkText&gt;</bpt>image4<ept id="18149abc-8343-46d2-a147-5b51663d5c67">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="72b2822d-e65d-4788-8df9-e848feeeea1a" xml:space="preserve">
+          <source>Choose the following settings:</source>
+          <target state="new">Choose the following settings:</target>
+        </trans-unit>
+        <trans-unit id="f9e7a7e9-8278-403f-ab20-d39613272ffe" xml:space="preserve">
+          <source><bpt id="18dcb368-0aad-4846-a482-2c818b6ba00e">&lt;strong&gt;</bpt>Event Serialization Format<ept id="18dcb368-0aad-4846-a482-2c818b6ba00e">&lt;/strong&gt;</ept>: To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams.</source>
+          <target state="new"><bpt id="18dcb368-0aad-4846-a482-2c818b6ba00e">&lt;strong&gt;</bpt>Event Serialization Format<ept id="18dcb368-0aad-4846-a482-2c818b6ba00e">&lt;/strong&gt;</ept>: To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams.</target>
+        </trans-unit>
+        <trans-unit id="ff10f8f2-38a2-477e-b8f4-9bab29de82cc" xml:space="preserve">
+          <source><bpt id="926ddd48-448c-4e67-83ef-236b4ecebdfa">&lt;strong&gt;</bpt>Encoding<ept id="926ddd48-448c-4e67-83ef-236b4ecebdfa">&lt;/strong&gt;</ept>: UTF-8 is the only supported encoding format at this time.</source>
+          <target state="new"><bpt id="926ddd48-448c-4e67-83ef-236b4ecebdfa">&lt;strong&gt;</bpt>Encoding<ept id="926ddd48-448c-4e67-83ef-236b4ecebdfa">&lt;/strong&gt;</ept>: UTF-8 is the only supported encoding format at this time.</target>
+        </trans-unit>
+        <trans-unit id="f948755a-c2f9-4206-8270-e203de1e7dd6" xml:space="preserve">
+          <source><bpt id="7f570abd-8b50-4cbb-8318-955f8cacc857">&lt;linkText&gt;</bpt>image5<ept id="7f570abd-8b50-4cbb-8318-955f8cacc857">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="7f570abd-8b50-4cbb-8318-955f8cacc857">&lt;linkText&gt;</bpt>image5<ept id="7f570abd-8b50-4cbb-8318-955f8cacc857">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="fd2a4394-2424-4b6b-abb8-3bd20abe1f5a" xml:space="preserve">
+          <source>Click the check button to complete the wizard and verify that Stream Analytics can successfully connect to the Blob storage account.</source>
+          <target state="new">Click the check button to complete the wizard and verify that Stream Analytics can successfully connect to the Blob storage account.</target>
+        </trans-unit>
+        <trans-unit id="e81cbf69-c797-44ae-9458-424edbd3bdd3" xml:space="preserve">
+          <source>Blob storage can be used to define reference data for a Stream Analytics job.</source>
+          <target state="new">Blob storage can be used to define reference data for a Stream Analytics job.</target>
+        </trans-unit>
+        <trans-unit id="b3a8fdd3-2508-49fb-ba2d-f36a0d00ac9e" xml:space="preserve">
+          <source>This is static or slow-changing data that is used for performing lookups or correlating data.</source>
+          <target state="new">This is static or slow-changing data that is used for performing lookups or correlating data.</target>
+        </trans-unit>
+        <trans-unit id="bd3182a9-d970-47c2-896e-40d1c3182f28" xml:space="preserve">
+          <source>Support for refreshing reference data can be enabled by specifying a path pattern in the input configuration using the {date} and {time} tokens.</source>
+          <target state="new">Support for refreshing reference data can be enabled by specifying a path pattern in the input configuration using the {date} and {time} tokens.</target>
+        </trans-unit>
+        <trans-unit id="a4f25a68-e4f8-441e-8440-cd63f806803e" xml:space="preserve">
+          <source>Stream Analytics will update reference data definitions based on this path pattern.</source>
+          <target state="new">Stream Analytics will update reference data definitions based on this path pattern.</target>
+        </trans-unit>
+        <trans-unit id="41254a6e-5eba-4bca-97e9-da2fe3165f1a" xml:space="preserve">
+          <source>For example, a pattern of <bpt id="ccfa5c52-78b0-47e7-b3cd-7842f8de7822">&lt;code&gt;</bpt>"/sample/{date}/{time}/products.csv"<ept id="ccfa5c52-78b0-47e7-b3cd-7842f8de7822">&lt;/code&gt;</ept> with a date format of “YYYY-MM-DD” and a time format of “HH:mm” tells Stream Analytics to pick up the updated blob <bpt id="bb377d12-2863-4e14-9e86-d4671e2e62f2">&lt;code&gt;</bpt>"/sample/2015-04-16/17:30/products.csv"<ept id="bb377d12-2863-4e14-9e86-d4671e2e62f2">&lt;/code&gt;</ept> at 5:30 PM on April 16th 2015 UTC time zone .</source>
+          <target state="new">For example, a pattern of <bpt id="ccfa5c52-78b0-47e7-b3cd-7842f8de7822">&lt;code&gt;</bpt>"/sample/{date}/{time}/products.csv"<ept id="ccfa5c52-78b0-47e7-b3cd-7842f8de7822">&lt;/code&gt;</ept> with a date format of “YYYY-MM-DD” and a time format of “HH:mm” tells Stream Analytics to pick up the updated blob <bpt id="bb377d12-2863-4e14-9e86-d4671e2e62f2">&lt;code&gt;</bpt>"/sample/2015-04-16/17:30/products.csv"<ept id="bb377d12-2863-4e14-9e86-d4671e2e62f2">&lt;/code&gt;</ept> at 5:30 PM on April 16th 2015 UTC time zone .</target>
+        </trans-unit>
+        <trans-unit id="b212f725-b544-4ac8-a8ba-fa5784ec7309" xml:space="preserve">
+          <source>Currently Stream Analytics jobs look for reference blob refresh data only when the time coincides with the time encoded in the blob name: e.g. jobs look for /sample/2015-04-16/17:30/products.csv between 5:30 PM and 5:30:59.999999999PM on April 16th 2015 UTC time zone.</source>
+          <target state="new">Currently Stream Analytics jobs look for reference blob refresh data only when the time coincides with the time encoded in the blob name: e.g. jobs look for /sample/2015-04-16/17:30/products.csv between 5:30 PM and 5:30:59.999999999PM on April 16th 2015 UTC time zone.</target>
+        </trans-unit>
+        <trans-unit id="76e0ab79-5a7a-49ee-b1ba-3a32b11d90f3" xml:space="preserve">
+          <source>When the clock strikes 5:31PM it stops looking for /sample/2015-04-16/17:30/products.csv and starts looking for /sample/2015-04-16/17:31/products.csv.</source>
+          <target state="new">When the clock strikes 5:31PM it stops looking for /sample/2015-04-16/17:30/products.csv and starts looking for /sample/2015-04-16/17:31/products.csv.</target>
+        </trans-unit>
+        <trans-unit id="fbff6bbe-baf9-4d27-8863-3a129b8071af" xml:space="preserve">
+          <source>The only time previous reference data blobs are considered is when the job starts.</source>
+          <target state="new">The only time previous reference data blobs are considered is when the job starts.</target>
+        </trans-unit>
+        <trans-unit id="736677c2-46f7-4cb7-a616-cd8fddd22bf6" xml:space="preserve">
+          <source>At that time the job is looking for the blob which has a latest date/time encoded in its name with a value before than the job start time (the newest reference data blob from before the job start time).</source>
+          <target state="new">At that time the job is looking for the blob which has a latest date/time encoded in its name with a value before than the job start time (the newest reference data blob from before the job start time).</target>
+        </trans-unit>
+        <trans-unit id="253444e0-bb8d-456b-8b55-4cad8e4e887f" xml:space="preserve">
+          <source>This is done to ensure there is a non-empty reference data set at the start of the job.</source>
+          <target state="new">This is done to ensure there is a non-empty reference data set at the start of the job.</target>
+        </trans-unit>
+        <trans-unit id="b9ce26a4-eaaa-4423-8c50-4ed8fd74bb6e" xml:space="preserve">
+          <source>If one cannot be found, the job will fail and display a diagnostic notice to the user:</source>
+          <target state="new">If one cannot be found, the job will fail and display a diagnostic notice to the user:</target>
+        </trans-unit>
+        <trans-unit id="74197d0e-3227-4e31-a7bb-429fc1e47d8e" xml:space="preserve">
+          <source>On the inputs tab of the Stream Analytics job, click <bpt id="b15dc5f7-c139-44d2-b683-0bcccd9de6a2">&lt;strong&gt;</bpt>ADD INPUT<ept id="b15dc5f7-c139-44d2-b683-0bcccd9de6a2">&lt;/strong&gt;</ept> and then select <bpt id="664d66e5-3d06-474e-97b6-0e99c0711f72">&lt;strong&gt;</bpt>Reference data<ept id="664d66e5-3d06-474e-97b6-0e99c0711f72">&lt;/strong&gt;</ept> and click the right button.</source>
+          <target state="new">On the inputs tab of the Stream Analytics job, click <bpt id="b15dc5f7-c139-44d2-b683-0bcccd9de6a2">&lt;strong&gt;</bpt>ADD INPUT<ept id="b15dc5f7-c139-44d2-b683-0bcccd9de6a2">&lt;/strong&gt;</ept> and then select <bpt id="664d66e5-3d06-474e-97b6-0e99c0711f72">&lt;strong&gt;</bpt>Reference data<ept id="664d66e5-3d06-474e-97b6-0e99c0711f72">&lt;/strong&gt;</ept> and click the right button.</target>
+        </trans-unit>
+        <trans-unit id="3ac3c78f-510d-4db4-9685-2573ef553acd" xml:space="preserve">
+          <source><bpt id="fedf0a84-31d9-4cf3-b988-6631dc796f2f">&lt;linkText&gt;</bpt>image9<ept id="fedf0a84-31d9-4cf3-b988-6631dc796f2f">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="fedf0a84-31d9-4cf3-b988-6631dc796f2f">&lt;linkText&gt;</bpt>image9<ept id="fedf0a84-31d9-4cf3-b988-6631dc796f2f">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="c1f699ad-8428-4e04-b6b9-9f049c069592" xml:space="preserve">
+          <source>Type or select the following fields:</source>
+          <target state="new">Type or select the following fields:</target>
+        </trans-unit>
+        <trans-unit id="e6378bd3-ec44-4751-8337-4dd1ac413e1e" xml:space="preserve">
+          <source><bpt id="d3d24f49-ac6f-4d40-9469-25c953ad2472">&lt;strong&gt;</bpt>Input Alias<ept id="d3d24f49-ac6f-4d40-9469-25c953ad2472">&lt;/strong&gt;</ept>: A friendly name that  will be used in the job query to reference this input  </source>
+          <target state="new"><bpt id="d3d24f49-ac6f-4d40-9469-25c953ad2472">&lt;strong&gt;</bpt>Input Alias<ept id="d3d24f49-ac6f-4d40-9469-25c953ad2472">&lt;/strong&gt;</ept>: A friendly name that  will be used in the job query to reference this input  </target>
+        </trans-unit>
+        <trans-unit id="9163559a-00fc-4cde-94b3-88e8f389f86f" xml:space="preserve">
+          <source><bpt id="67c6deed-fa38-4958-98f7-4d42ab90fcd1">&lt;strong&gt;</bpt>Storage Account<ept id="67c6deed-fa38-4958-98f7-4d42ab90fcd1">&lt;/strong&gt;</ept>: If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.</source>
+          <target state="new"><bpt id="67c6deed-fa38-4958-98f7-4d42ab90fcd1">&lt;strong&gt;</bpt>Storage Account<ept id="67c6deed-fa38-4958-98f7-4d42ab90fcd1">&lt;/strong&gt;</ept>: If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.</target>
+        </trans-unit>
+        <trans-unit id="de68f15d-4d40-4d60-9e22-4baba28173b6" xml:space="preserve">
+          <source><bpt id="f748c0f0-3a53-443e-a59b-bad2cd08c0b9">&lt;strong&gt;</bpt>Storage Container<ept id="f748c0f0-3a53-443e-a59b-bad2cd08c0b9">&lt;/strong&gt;</ept>: Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service.</source>
+          <target state="new"><bpt id="f748c0f0-3a53-443e-a59b-bad2cd08c0b9">&lt;strong&gt;</bpt>Storage Container<ept id="f748c0f0-3a53-443e-a59b-bad2cd08c0b9">&lt;/strong&gt;</ept>: Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service.</target>
+        </trans-unit>
+        <trans-unit id="78b9a649-6e38-45fb-809e-d464c40e872b" xml:space="preserve">
+          <source>When you upload a blob to the Blob service, you must specify a container for that blob.</source>
+          <target state="new">When you upload a blob to the Blob service, you must specify a container for that blob.</target>
+        </trans-unit>
+        <trans-unit id="7d0bd248-6e75-48f8-ace2-0ed4cb0bcd48" xml:space="preserve">
+          <source><bpt id="652597b0-6e5a-47d8-b448-5136f25c1975">&lt;strong&gt;</bpt>Path Pattern<ept id="652597b0-6e5a-47d8-b448-5136f25c1975">&lt;/strong&gt;</ept>: The file path used to locate your blobs within the specified container.</source>
+          <target state="new"><bpt id="652597b0-6e5a-47d8-b448-5136f25c1975">&lt;strong&gt;</bpt>Path Pattern<ept id="652597b0-6e5a-47d8-b448-5136f25c1975">&lt;/strong&gt;</ept>: The file path used to locate your blobs within the specified container.</target>
+        </trans-unit>
+        <trans-unit id="c83112b4-874c-470c-91e7-04c4ca69ad7d" xml:space="preserve">
+          <source>Within the path, you may choose to specify one or more instances of the following 2 variables: {date}, {time}</source>
+          <target state="new">Within the path, you may choose to specify one or more instances of the following 2 variables: {date}, {time}</target>
+        </trans-unit>
+        <trans-unit id="edd5e857-4a76-4dc3-b6dd-4ea56f9781dc" xml:space="preserve">
+          <source><bpt id="c97f4ab0-b251-4eac-8296-bc7a4ced45ae">&lt;linkText&gt;</bpt>image10<ept id="c97f4ab0-b251-4eac-8296-bc7a4ced45ae">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="c97f4ab0-b251-4eac-8296-bc7a4ced45ae">&lt;linkText&gt;</bpt>image10<ept id="c97f4ab0-b251-4eac-8296-bc7a4ced45ae">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="a30357ee-1122-4dbc-9a5d-24566f9b9a27" xml:space="preserve">
+          <source>Choose the following settings:</source>
+          <target state="new">Choose the following settings:</target>
+        </trans-unit>
+        <trans-unit id="059aa8d5-6f6a-487f-8a8c-fa226c217517" xml:space="preserve">
+          <source><bpt id="4d44e282-4549-46d5-b486-b7e72b16102b">&lt;strong&gt;</bpt>Event Serialization Format<ept id="4d44e282-4549-46d5-b486-b7e72b16102b">&lt;/strong&gt;</ept>: To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams.</source>
+          <target state="new"><bpt id="4d44e282-4549-46d5-b486-b7e72b16102b">&lt;strong&gt;</bpt>Event Serialization Format<ept id="4d44e282-4549-46d5-b486-b7e72b16102b">&lt;/strong&gt;</ept>: To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams.</target>
+        </trans-unit>
+        <trans-unit id="aafc666d-464d-49f6-8a2e-d9f90ad1e6f9" xml:space="preserve">
+          <source><bpt id="550b0b9e-81c7-4c03-b064-1943f6fec299">&lt;strong&gt;</bpt>Encoding<ept id="550b0b9e-81c7-4c03-b064-1943f6fec299">&lt;/strong&gt;</ept>: UTF-8 is the only supported encoding format at this time.</source>
+          <target state="new"><bpt id="550b0b9e-81c7-4c03-b064-1943f6fec299">&lt;strong&gt;</bpt>Encoding<ept id="550b0b9e-81c7-4c03-b064-1943f6fec299">&lt;/strong&gt;</ept>: UTF-8 is the only supported encoding format at this time.</target>
+        </trans-unit>
+        <trans-unit id="88f217c4-f034-4fc2-a2d3-55449a30efa9" xml:space="preserve">
+          <source><bpt id="6ff448a6-eb5a-4178-9c6b-3cb3b9cd61a2">&lt;linkText&gt;</bpt>image12<ept id="6ff448a6-eb5a-4178-9c6b-3cb3b9cd61a2">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="6ff448a6-eb5a-4178-9c6b-3cb3b9cd61a2">&lt;linkText&gt;</bpt>image12<ept id="6ff448a6-eb5a-4178-9c6b-3cb3b9cd61a2">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="25935cd1-d9bd-4600-98bd-8822f82ed283" xml:space="preserve">
+          <source>Click the check button to complete the wizard and verify that Stream Analytics can successfully connect to the Blob storage account.</source>
+          <target state="new">Click the check button to complete the wizard and verify that Stream Analytics can successfully connect to the Blob storage account.</target>
+        </trans-unit>
+        <trans-unit id="ad477368-f1a0-495b-99dd-f198a96c2253" xml:space="preserve">
+          <source><bpt id="1d0c37c4-7a2a-4fcc-950f-392cb9c85b49">&lt;linkText&gt;</bpt>image11<ept id="1d0c37c4-7a2a-4fcc-950f-392cb9c85b49">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="1d0c37c4-7a2a-4fcc-950f-392cb9c85b49">&lt;linkText&gt;</bpt>image11<ept id="1d0c37c4-7a2a-4fcc-950f-392cb9c85b49">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="98dfbd5a-0ea6-4b5d-92c4-c70436e4ae83" xml:space="preserve">
+          <source>For further assistance, try our <bpt id="12346b85-49f1-4dd3-9ce8-761401d27473">&lt;linkText&gt;</bpt>Azure Stream Analytics forum<ept id="12346b85-49f1-4dd3-9ce8-761401d27473">&lt;/linkText&gt;</ept><bpt id="12346b85-49f1-4dd3-9ce8-761401d27473">&lt;title&gt;</bpt><ept id="12346b85-49f1-4dd3-9ce8-761401d27473">&lt;/title&gt;</ept></source>
+          <target state="new">For further assistance, try our <bpt id="12346b85-49f1-4dd3-9ce8-761401d27473">&lt;linkText&gt;</bpt>Azure Stream Analytics forum<ept id="12346b85-49f1-4dd3-9ce8-761401d27473">&lt;/linkText&gt;</ept><bpt id="12346b85-49f1-4dd3-9ce8-761401d27473">&lt;title&gt;</bpt><ept id="12346b85-49f1-4dd3-9ce8-761401d27473">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e85434ae-03dd-40a4-aa18-83a2e36d23a5" xml:space="preserve">
+          <source><bpt id="b74dfbca-0249-413f-ac53-d5f20786f2df">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="b74dfbca-0249-413f-ac53-d5f20786f2df">&lt;/linkText&gt;</ept><bpt id="b74dfbca-0249-413f-ac53-d5f20786f2df">&lt;title&gt;</bpt><ept id="b74dfbca-0249-413f-ac53-d5f20786f2df">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b74dfbca-0249-413f-ac53-d5f20786f2df">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="b74dfbca-0249-413f-ac53-d5f20786f2df">&lt;/linkText&gt;</ept><bpt id="b74dfbca-0249-413f-ac53-d5f20786f2df">&lt;title&gt;</bpt><ept id="b74dfbca-0249-413f-ac53-d5f20786f2df">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f2f6a03-1708-43b1-bff2-230fc995bfd9" xml:space="preserve">
+          <source><bpt id="3d92dddf-732e-4d33-b68e-8b227ae19f14">&lt;linkText&gt;</bpt>Get started using Azure Stream Analytics<ept id="3d92dddf-732e-4d33-b68e-8b227ae19f14">&lt;/linkText&gt;</ept><bpt id="3d92dddf-732e-4d33-b68e-8b227ae19f14">&lt;title&gt;</bpt><ept id="3d92dddf-732e-4d33-b68e-8b227ae19f14">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d92dddf-732e-4d33-b68e-8b227ae19f14">&lt;linkText&gt;</bpt>Get started using Azure Stream Analytics<ept id="3d92dddf-732e-4d33-b68e-8b227ae19f14">&lt;/linkText&gt;</ept><bpt id="3d92dddf-732e-4d33-b68e-8b227ae19f14">&lt;title&gt;</bpt><ept id="3d92dddf-732e-4d33-b68e-8b227ae19f14">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17810aa8-e15a-4dc8-b11e-f1536af40d2f" xml:space="preserve">
+          <source><bpt id="ec08099c-8bd0-4729-b197-67d1e797564e">&lt;linkText&gt;</bpt>Scale Azure Stream Analytics jobs<ept id="ec08099c-8bd0-4729-b197-67d1e797564e">&lt;/linkText&gt;</ept><bpt id="ec08099c-8bd0-4729-b197-67d1e797564e">&lt;title&gt;</bpt><ept id="ec08099c-8bd0-4729-b197-67d1e797564e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ec08099c-8bd0-4729-b197-67d1e797564e">&lt;linkText&gt;</bpt>Scale Azure Stream Analytics jobs<ept id="ec08099c-8bd0-4729-b197-67d1e797564e">&lt;/linkText&gt;</ept><bpt id="ec08099c-8bd0-4729-b197-67d1e797564e">&lt;title&gt;</bpt><ept id="ec08099c-8bd0-4729-b197-67d1e797564e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9823e726-51b0-4d9f-a7f6-02dffb2b3f3a" xml:space="preserve">
+          <source><bpt id="a09dec39-1e21-4ed2-b779-01bb037b4435">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="a09dec39-1e21-4ed2-b779-01bb037b4435">&lt;/linkText&gt;</ept><bpt id="a09dec39-1e21-4ed2-b779-01bb037b4435">&lt;title&gt;</bpt><ept id="a09dec39-1e21-4ed2-b779-01bb037b4435">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a09dec39-1e21-4ed2-b779-01bb037b4435">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="a09dec39-1e21-4ed2-b779-01bb037b4435">&lt;/linkText&gt;</ept><bpt id="a09dec39-1e21-4ed2-b779-01bb037b4435">&lt;title&gt;</bpt><ept id="a09dec39-1e21-4ed2-b779-01bb037b4435">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26e06782-9498-4455-b7a4-a702695e7795" xml:space="preserve">
+          <source><bpt id="694653fc-19fc-4f56-8b24-6913595e37e4">&lt;linkText&gt;</bpt>Azure Stream Analytics Management REST API Reference<ept id="694653fc-19fc-4f56-8b24-6913595e37e4">&lt;/linkText&gt;</ept><bpt id="694653fc-19fc-4f56-8b24-6913595e37e4">&lt;title&gt;</bpt><ept id="694653fc-19fc-4f56-8b24-6913595e37e4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="694653fc-19fc-4f56-8b24-6913595e37e4">&lt;linkText&gt;</bpt>Azure Stream Analytics Management REST API Reference<ept id="694653fc-19fc-4f56-8b24-6913595e37e4">&lt;/linkText&gt;</ept><bpt id="694653fc-19fc-4f56-8b24-6913595e37e4">&lt;title&gt;</bpt><ept id="694653fc-19fc-4f56-8b24-6913595e37e4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

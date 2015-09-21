@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="515222b7-3183-4083-9920-218fc0c7013d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="515222b7-3183-4083-9920-218fc0c7013d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="41273a14-6b8e-4667-9f30-61282bfa8ffd">
+        <trans-unit id="401d072f-5572-4dbb-b4b1-4024f819687f" xml:space="preserve">
+          <source>Open the Android SDK Manager by clicking <bpt id="cb346099-a197-4b6b-b881-9f4c14b2997e">&lt;strong&gt;</bpt>Window<ept id="cb346099-a197-4b6b-b881-9f4c14b2997e">&lt;/strong&gt;</ept> from the top toolbar of Eclipse.</source>
+          <target state="new">Open the Android SDK Manager by clicking <bpt id="cb346099-a197-4b6b-b881-9f4c14b2997e">&lt;strong&gt;</bpt>Window<ept id="cb346099-a197-4b6b-b881-9f4c14b2997e">&lt;/strong&gt;</ept> from the top toolbar of Eclipse.</target>
+        </trans-unit>
+        <trans-unit id="1534944b-7aa1-4d88-bd0b-b3ae6e4d75ad" xml:space="preserve">
+          <source>Locate the target version of the Android SDK that is specified in your project properties, open it, and choose <bpt id="9c0ed0d4-45d0-4cf4-9dc5-d2ec9ed75c3a">&lt;strong&gt;</bpt>Google APIs<ept id="9c0ed0d4-45d0-4cf4-9dc5-d2ec9ed75c3a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Locate the target version of the Android SDK that is specified in your project properties, open it, and choose <bpt id="9c0ed0d4-45d0-4cf4-9dc5-d2ec9ed75c3a">&lt;strong&gt;</bpt>Google APIs<ept id="9c0ed0d4-45d0-4cf4-9dc5-d2ec9ed75c3a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01a79666-f2c2-4684-9ceb-a707dc5c3380" xml:space="preserve">
+          <source>Scroll down to <bpt id="e7b07077-8c82-4889-a33c-9d32e58e11b2">&lt;strong&gt;</bpt>Extras<ept id="e7b07077-8c82-4889-a33c-9d32e58e11b2">&lt;/strong&gt;</ept>, expand it, and choose <bpt id="fbf74431-495f-442b-a8f6-ce048e783161">&lt;strong&gt;</bpt>Google Play Services<ept id="fbf74431-495f-442b-a8f6-ce048e783161">&lt;/strong&gt;</ept>, as shown below.</source>
+          <target state="new">Scroll down to <bpt id="e7b07077-8c82-4889-a33c-9d32e58e11b2">&lt;strong&gt;</bpt>Extras<ept id="e7b07077-8c82-4889-a33c-9d32e58e11b2">&lt;/strong&gt;</ept>, expand it, and choose <bpt id="fbf74431-495f-442b-a8f6-ce048e783161">&lt;strong&gt;</bpt>Google Play Services<ept id="fbf74431-495f-442b-a8f6-ce048e783161">&lt;/strong&gt;</ept>, as shown below.</target>
+        </trans-unit>
+        <trans-unit id="97de18b9-973a-4256-a680-1ef13e2ce698" xml:space="preserve">
+          <source>Click <bpt id="9da6323a-b531-4b08-a6cd-87fbb949ab12">&lt;strong&gt;</bpt>Install Packages<ept id="9da6323a-b531-4b08-a6cd-87fbb949ab12">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9da6323a-b531-4b08-a6cd-87fbb949ab12">&lt;strong&gt;</bpt>Install Packages<ept id="9da6323a-b531-4b08-a6cd-87fbb949ab12">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04e64226-9d2c-4162-afc8-3b60bd0f52c7" xml:space="preserve">
+          <source>Note the SDK path, for use in the following step.</source>
+          <target state="new">Note the SDK path, for use in the following step.</target>
+        </trans-unit>
+        <trans-unit id="e853ced2-4c6e-476b-9e94-627a27e0d6b9" xml:space="preserve">
+          <source>Restart Eclipse.</source>
+          <target state="new">Restart Eclipse.</target>
+        </trans-unit>
+        <trans-unit id="19727641-6548-4a88-b9e4-ff4e3ae27742" xml:space="preserve">
+          <source><bpt id="9de33050-d998-4f92-a439-f9caaf713a0e">&lt;linkText&gt;</bpt><ept id="9de33050-d998-4f92-a439-f9caaf713a0e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9de33050-d998-4f92-a439-f9caaf713a0e">&lt;linkText&gt;</bpt><ept id="9de33050-d998-4f92-a439-f9caaf713a0e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5dd90c7c-f7e2-4109-b3bc-af9dd49cb934" xml:space="preserve">
+          <source>Install the Google Play Services SDK in your project.</source>
+          <target state="new">Install the Google Play Services SDK in your project.</target>
+        </trans-unit>
+        <trans-unit id="ee2220f8-55d4-4610-9efc-6fcebc078acd" xml:space="preserve">
+          <source>In Eclipse, click <bpt id="f58621d4-4b85-47cf-828b-7f7b49dac2b3">&lt;strong&gt;</bpt>File<ept id="f58621d4-4b85-47cf-828b-7f7b49dac2b3">&lt;/strong&gt;</ept>, then <bpt id="86ceda80-948b-4a90-a22c-ea046c70bd8a">&lt;strong&gt;</bpt>Import<ept id="86ceda80-948b-4a90-a22c-ea046c70bd8a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Eclipse, click <bpt id="f58621d4-4b85-47cf-828b-7f7b49dac2b3">&lt;strong&gt;</bpt>File<ept id="f58621d4-4b85-47cf-828b-7f7b49dac2b3">&lt;/strong&gt;</ept>, then <bpt id="86ceda80-948b-4a90-a22c-ea046c70bd8a">&lt;strong&gt;</bpt>Import<ept id="86ceda80-948b-4a90-a22c-ea046c70bd8a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f6f3dc1-ce70-478c-a17c-ba4254cee7ff" xml:space="preserve">
+          <source>Select <bpt id="25270152-6fe5-4b42-8832-18f56373c89c">&lt;strong&gt;</bpt>Android<ept id="25270152-6fe5-4b42-8832-18f56373c89c">&lt;/strong&gt;</ept>, then <bpt id="7c7c4996-0a35-4b5d-8999-e507b780e326">&lt;strong&gt;</bpt>Existing Android Code into Workspace<ept id="7c7c4996-0a35-4b5d-8999-e507b780e326">&lt;/strong&gt;</ept>, and click <bpt id="dcf433d7-de14-4bd6-988c-8f77c53eeaf6">&lt;strong&gt;</bpt>Next<ept id="dcf433d7-de14-4bd6-988c-8f77c53eeaf6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="25270152-6fe5-4b42-8832-18f56373c89c">&lt;strong&gt;</bpt>Android<ept id="25270152-6fe5-4b42-8832-18f56373c89c">&lt;/strong&gt;</ept>, then <bpt id="7c7c4996-0a35-4b5d-8999-e507b780e326">&lt;strong&gt;</bpt>Existing Android Code into Workspace<ept id="7c7c4996-0a35-4b5d-8999-e507b780e326">&lt;/strong&gt;</ept>, and click <bpt id="dcf433d7-de14-4bd6-988c-8f77c53eeaf6">&lt;strong&gt;</bpt>Next<ept id="dcf433d7-de14-4bd6-988c-8f77c53eeaf6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0af63306-f9de-4326-b566-eef28cae64a4" xml:space="preserve">
+          <source>Click <bpt id="d3ec6c5e-8b6b-48aa-8fc4-0d2e18e21676">&lt;strong&gt;</bpt>Browse<ept id="d3ec6c5e-8b6b-48aa-8fc4-0d2e18e21676">&lt;/strong&gt;</ept>, navigate to the Android SDK path (usually in a folder named <bpt id="034a062f-441c-4acd-bdb4-0253463b4759">&lt;code&gt;</bpt>adt-bundle-windows-x86_64<ept id="034a062f-441c-4acd-bdb4-0253463b4759">&lt;/code&gt;</ept> inside the folder that contains Eclipse), then go to the <bpt id="b775c08e-6323-4455-91f9-1068e7113b66">&lt;code&gt;</bpt>\extras\google\google_play_services\libproject<ept id="b775c08e-6323-4455-91f9-1068e7113b66">&lt;/code&gt;</ept> subfolder, and there select the google-play-services-lib folder, and click <bpt id="1c86bbf3-594f-499d-828b-d93769ed00db">&lt;strong&gt;</bpt>OK<ept id="1c86bbf3-594f-499d-828b-d93769ed00db">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d3ec6c5e-8b6b-48aa-8fc4-0d2e18e21676">&lt;strong&gt;</bpt>Browse<ept id="d3ec6c5e-8b6b-48aa-8fc4-0d2e18e21676">&lt;/strong&gt;</ept>, navigate to the Android SDK path (usually in a folder named <bpt id="034a062f-441c-4acd-bdb4-0253463b4759">&lt;code&gt;</bpt>adt-bundle-windows-x86_64<ept id="034a062f-441c-4acd-bdb4-0253463b4759">&lt;/code&gt;</ept> inside the folder that contains Eclipse), then go to the <bpt id="b775c08e-6323-4455-91f9-1068e7113b66">&lt;code&gt;</bpt>\extras\google\google_play_services\libproject<ept id="b775c08e-6323-4455-91f9-1068e7113b66">&lt;/code&gt;</ept> subfolder, and there select the google-play-services-lib folder, and click <bpt id="1c86bbf3-594f-499d-828b-d93769ed00db">&lt;strong&gt;</bpt>OK<ept id="1c86bbf3-594f-499d-828b-d93769ed00db">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f6638b0-6a1b-49ab-8697-01698e1d61d3" xml:space="preserve">
+          <source>Check the <bpt id="601fea64-4f2a-4e51-b527-94e3be2d0fbf">&lt;strong&gt;</bpt>Copy projects into workspace<ept id="601fea64-4f2a-4e51-b527-94e3be2d0fbf">&lt;/strong&gt;</ept> checkbox, and then click <bpt id="91f96cbe-a897-4a15-a505-8def1d8c195e">&lt;strong&gt;</bpt>Finish<ept id="91f96cbe-a897-4a15-a505-8def1d8c195e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Check the <bpt id="601fea64-4f2a-4e51-b527-94e3be2d0fbf">&lt;strong&gt;</bpt>Copy projects into workspace<ept id="601fea64-4f2a-4e51-b527-94e3be2d0fbf">&lt;/strong&gt;</ept> checkbox, and then click <bpt id="91f96cbe-a897-4a15-a505-8def1d8c195e">&lt;strong&gt;</bpt>Finish<ept id="91f96cbe-a897-4a15-a505-8def1d8c195e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58e3f34b-79a5-488f-9183-19ac98cd00a9" xml:space="preserve">
+          <source><bpt id="d7d4e328-471f-48fa-be05-1d2403b36447">&lt;linkText&gt;</bpt><ept id="d7d4e328-471f-48fa-be05-1d2403b36447">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d7d4e328-471f-48fa-be05-1d2403b36447">&lt;linkText&gt;</bpt><ept id="d7d4e328-471f-48fa-be05-1d2403b36447">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bdd2eba-491c-4615-a5cb-7fccc7a20136" xml:space="preserve">
+          <source>Next you must reference the Google Play Services SDK library that you just imported, from your project.</source>
+          <target state="new">Next you must reference the Google Play Services SDK library that you just imported, from your project.</target>
+        </trans-unit>
+        <trans-unit id="a5e908bc-3daa-4652-a677-9e2708c1e3e3" xml:space="preserve">
+          <source>In <bpt id="b2a7762a-13a2-4b37-b99a-2f27418ce0cb">&lt;strong&gt;</bpt>Package Explorer<ept id="b2a7762a-13a2-4b37-b99a-2f27418ce0cb">&lt;/strong&gt;</ept>, right-click your project and choose <bpt id="192eeb7e-9982-4bcc-8526-56c778e33677">&lt;em&gt;</bpt>Properties<ept id="192eeb7e-9982-4bcc-8526-56c778e33677">&lt;/em&gt;</ept>.</source>
+          <target state="new">In <bpt id="b2a7762a-13a2-4b37-b99a-2f27418ce0cb">&lt;strong&gt;</bpt>Package Explorer<ept id="b2a7762a-13a2-4b37-b99a-2f27418ce0cb">&lt;/strong&gt;</ept>, right-click your project and choose <bpt id="192eeb7e-9982-4bcc-8526-56c778e33677">&lt;em&gt;</bpt>Properties<ept id="192eeb7e-9982-4bcc-8526-56c778e33677">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a877e6c2-02ff-4805-bdc2-c86948578c88" xml:space="preserve">
+          <source>In the Properties window, choose Android on the left.</source>
+          <target state="new">In the Properties window, choose Android on the left.</target>
+        </trans-unit>
+        <trans-unit id="ad71ed3a-96c3-43ba-aa45-3eabc4301634" xml:space="preserve">
+          <source><bpt id="5427302f-df5e-44cd-b438-0af3bc8121e0">&lt;linkText&gt;</bpt><ept id="5427302f-df5e-44cd-b438-0af3bc8121e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5427302f-df5e-44cd-b438-0af3bc8121e0">&lt;linkText&gt;</bpt><ept id="5427302f-df5e-44cd-b438-0af3bc8121e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e1ff9ba-7417-4d3b-b390-f032ec62daa4" xml:space="preserve">
+          <source>Under <bpt id="37a69b05-ad17-45a0-8263-d8647322583d">&lt;strong&gt;</bpt>Project Build Target<ept id="37a69b05-ad17-45a0-8263-d8647322583d">&lt;/strong&gt;</ept>, ensure that <bpt id="5bb75a2b-21f9-45ba-832c-303a7089d772">&lt;code&gt;</bpt>Google APIs x86<ept id="5bb75a2b-21f9-45ba-832c-303a7089d772">&lt;/code&gt;</ept> (or <bpt id="b379ac61-8049-4310-955d-0a23147d38a0">&lt;code&gt;</bpt>Google APIs<ept id="b379ac61-8049-4310-955d-0a23147d38a0">&lt;/code&gt;</ept>, depending on your development platform) is selected for the appropriate SDK level.</source>
+          <target state="new">Under <bpt id="37a69b05-ad17-45a0-8263-d8647322583d">&lt;strong&gt;</bpt>Project Build Target<ept id="37a69b05-ad17-45a0-8263-d8647322583d">&lt;/strong&gt;</ept>, ensure that <bpt id="5bb75a2b-21f9-45ba-832c-303a7089d772">&lt;code&gt;</bpt>Google APIs x86<ept id="5bb75a2b-21f9-45ba-832c-303a7089d772">&lt;/code&gt;</ept> (or <bpt id="b379ac61-8049-4310-955d-0a23147d38a0">&lt;code&gt;</bpt>Google APIs<ept id="b379ac61-8049-4310-955d-0a23147d38a0">&lt;/code&gt;</ept>, depending on your development platform) is selected for the appropriate SDK level.</target>
+        </trans-unit>
+        <trans-unit id="c6cb0fa8-f3e9-4e9b-bd7f-7791f678a918" xml:space="preserve">
+          <source>In the <bpt id="90072c36-54cb-4539-b4ff-a9fdc5be6e93">&lt;strong&gt;</bpt>Library<ept id="90072c36-54cb-4539-b4ff-a9fdc5be6e93">&lt;/strong&gt;</ept> section, choose <bpt id="2d7b01ea-2a90-4baf-8acf-9f78473189b0">&lt;strong&gt;</bpt>Add<ept id="2d7b01ea-2a90-4baf-8acf-9f78473189b0">&lt;/strong&gt;</ept> , and select the Google Play Services project (<bpt id="83a78c20-3c88-47ad-b3b5-6d532187f65e">&lt;em&gt;</bpt>google-play-services-lib<ept id="83a78c20-3c88-47ad-b3b5-6d532187f65e">&lt;/em&gt;</ept>) and click <bpt id="164ca5e0-1be7-4fdf-94d1-8f1341e119ca">&lt;strong&gt;</bpt>OK<ept id="164ca5e0-1be7-4fdf-94d1-8f1341e119ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="90072c36-54cb-4539-b4ff-a9fdc5be6e93">&lt;strong&gt;</bpt>Library<ept id="90072c36-54cb-4539-b4ff-a9fdc5be6e93">&lt;/strong&gt;</ept> section, choose <bpt id="2d7b01ea-2a90-4baf-8acf-9f78473189b0">&lt;strong&gt;</bpt>Add<ept id="2d7b01ea-2a90-4baf-8acf-9f78473189b0">&lt;/strong&gt;</ept> , and select the Google Play Services project (<bpt id="83a78c20-3c88-47ad-b3b5-6d532187f65e">&lt;em&gt;</bpt>google-play-services-lib<ept id="83a78c20-3c88-47ad-b3b5-6d532187f65e">&lt;/em&gt;</ept>) and click <bpt id="164ca5e0-1be7-4fdf-94d1-8f1341e119ca">&lt;strong&gt;</bpt>OK<ept id="164ca5e0-1be7-4fdf-94d1-8f1341e119ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b12edc35-0aff-418f-a1a8-aeef113338c7" xml:space="preserve">
+          <source>Click <bpt id="ecfbc67f-4bcf-4d00-991f-90e989767bf5">&lt;strong&gt;</bpt>Apply<ept id="ecfbc67f-4bcf-4d00-991f-90e989767bf5">&lt;/strong&gt;</ept> and then <bpt id="19240247-6d09-4827-8ede-362754896eb3">&lt;strong&gt;</bpt>OK<ept id="19240247-6d09-4827-8ede-362754896eb3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ecfbc67f-4bcf-4d00-991f-90e989767bf5">&lt;strong&gt;</bpt>Apply<ept id="ecfbc67f-4bcf-4d00-991f-90e989767bf5">&lt;/strong&gt;</ept> and then <bpt id="19240247-6d09-4827-8ede-362754896eb3">&lt;strong&gt;</bpt>OK<ept id="19240247-6d09-4827-8ede-362754896eb3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

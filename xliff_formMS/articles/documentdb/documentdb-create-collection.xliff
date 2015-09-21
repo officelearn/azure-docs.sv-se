@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fb5966d5-6cd1-4e38-b0a0-1019deb134a6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fb5966d5-6cd1-4e38-b0a0-1019deb134a6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eafa4885-c8b9-4b97-b2e4-254a8dd82707">
+        <trans-unit id="32b19fc1-947e-45b2-bf1b-4fe9cc453bad" xml:space="preserve">
+          <source>Create a DocumentDB database collection | Microsoft Azure</source>
+          <target state="new">Create a DocumentDB database collection | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8bc08a89-9bc8-47d5-ba66-7f6ad6d380d6" xml:space="preserve">
+          <source>Learn how to create collections using the online service portal for Azure DocumentDB, a managed NoSQL document database for JSON. Get a free trial today.</source>
+          <target state="new">Learn how to create collections using the online service portal for Azure DocumentDB, a managed NoSQL document database for JSON. Get a free trial today.</target>
+        </trans-unit>
+        <trans-unit id="92cadfc2-ad72-4dc1-b6b2-595090cb65db" xml:space="preserve">
+          <source>To use Microsoft Azure DocumentDB, you must have a <bpt id="71084348-dc42-4fec-812d-0a898630fdcd">&lt;linkText&gt;</bpt>DocumentDB account<ept id="71084348-dc42-4fec-812d-0a898630fdcd">&lt;/linkText&gt;</ept><bpt id="71084348-dc42-4fec-812d-0a898630fdcd">&lt;title&gt;</bpt><ept id="71084348-dc42-4fec-812d-0a898630fdcd">&lt;/title&gt;</ept>, a <bpt id="4d91c6a1-d13e-4298-8dad-f02e8cad00fd">&lt;linkText&gt;</bpt>database<ept id="4d91c6a1-d13e-4298-8dad-f02e8cad00fd">&lt;/linkText&gt;</ept><bpt id="4d91c6a1-d13e-4298-8dad-f02e8cad00fd">&lt;title&gt;</bpt><ept id="4d91c6a1-d13e-4298-8dad-f02e8cad00fd">&lt;/title&gt;</ept>, a collection, and documents.</source>
+          <target state="new">To use Microsoft Azure DocumentDB, you must have a <bpt id="71084348-dc42-4fec-812d-0a898630fdcd">&lt;linkText&gt;</bpt>DocumentDB account<ept id="71084348-dc42-4fec-812d-0a898630fdcd">&lt;/linkText&gt;</ept><bpt id="71084348-dc42-4fec-812d-0a898630fdcd">&lt;title&gt;</bpt><ept id="71084348-dc42-4fec-812d-0a898630fdcd">&lt;/title&gt;</ept>, a <bpt id="4d91c6a1-d13e-4298-8dad-f02e8cad00fd">&lt;linkText&gt;</bpt>database<ept id="4d91c6a1-d13e-4298-8dad-f02e8cad00fd">&lt;/linkText&gt;</ept><bpt id="4d91c6a1-d13e-4298-8dad-f02e8cad00fd">&lt;title&gt;</bpt><ept id="4d91c6a1-d13e-4298-8dad-f02e8cad00fd">&lt;/title&gt;</ept>, a collection, and documents.</target>
+        </trans-unit>
+        <trans-unit id="620e145b-9140-45a9-94bc-6c36d07ae827" xml:space="preserve">
+          <source>This topic describes how to create a DocumentDB collection in the Azure preview portal.</source>
+          <target state="new">This topic describes how to create a DocumentDB collection in the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="e4fa1a0e-4ec0-413f-8ad7-dea51d729416" xml:space="preserve">
+          <source>Collections do not have to be created using the preview portal, you can also create them using the <bpt id="533b7cd9-7b16-40e6-89e9-27b1a6bc9ba8">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="533b7cd9-7b16-40e6-89e9-27b1a6bc9ba8">&lt;/linkText&gt;</ept><bpt id="533b7cd9-7b16-40e6-89e9-27b1a6bc9ba8">&lt;title&gt;</bpt><ept id="533b7cd9-7b16-40e6-89e9-27b1a6bc9ba8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Collections do not have to be created using the preview portal, you can also create them using the <bpt id="533b7cd9-7b16-40e6-89e9-27b1a6bc9ba8">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="533b7cd9-7b16-40e6-89e9-27b1a6bc9ba8">&lt;/linkText&gt;</ept><bpt id="533b7cd9-7b16-40e6-89e9-27b1a6bc9ba8">&lt;title&gt;</bpt><ept id="533b7cd9-7b16-40e6-89e9-27b1a6bc9ba8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="afc302bc-9715-4095-8d59-c62e510589a2" xml:space="preserve">
+          <source>For a C# code sample showing how to create a collection using the DocumentDB .NET SDK, see the <bpt id="aee45e5a-6b35-4f50-9901-f1d16781a90e">&lt;linkText&gt;</bpt>Program.cs<ept id="aee45e5a-6b35-4f50-9901-f1d16781a90e">&lt;/linkText&gt;</ept><bpt id="aee45e5a-6b35-4f50-9901-f1d16781a90e">&lt;title&gt;</bpt><ept id="aee45e5a-6b35-4f50-9901-f1d16781a90e">&lt;/title&gt;</ept> file in the CollectionManagement project, available in the <bpt id="2fd9c924-c317-426f-a311-9a125b9076ce">&lt;linkText&gt;</bpt>azure-documentdb-net<ept id="2fd9c924-c317-426f-a311-9a125b9076ce">&lt;/linkText&gt;</ept><bpt id="2fd9c924-c317-426f-a311-9a125b9076ce">&lt;title&gt;</bpt><ept id="2fd9c924-c317-426f-a311-9a125b9076ce">&lt;/title&gt;</ept> repository on <bpt id="02589168-93d3-4dc9-ae4f-7717ad0accaf">&lt;linkText&gt;</bpt>GitHub.com<ept id="02589168-93d3-4dc9-ae4f-7717ad0accaf">&lt;/linkText&gt;</ept><bpt id="02589168-93d3-4dc9-ae4f-7717ad0accaf">&lt;title&gt;</bpt><ept id="02589168-93d3-4dc9-ae4f-7717ad0accaf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a C# code sample showing how to create a collection using the DocumentDB .NET SDK, see the <bpt id="aee45e5a-6b35-4f50-9901-f1d16781a90e">&lt;linkText&gt;</bpt>Program.cs<ept id="aee45e5a-6b35-4f50-9901-f1d16781a90e">&lt;/linkText&gt;</ept><bpt id="aee45e5a-6b35-4f50-9901-f1d16781a90e">&lt;title&gt;</bpt><ept id="aee45e5a-6b35-4f50-9901-f1d16781a90e">&lt;/title&gt;</ept> file in the CollectionManagement project, available in the <bpt id="2fd9c924-c317-426f-a311-9a125b9076ce">&lt;linkText&gt;</bpt>azure-documentdb-net<ept id="2fd9c924-c317-426f-a311-9a125b9076ce">&lt;/linkText&gt;</ept><bpt id="2fd9c924-c317-426f-a311-9a125b9076ce">&lt;title&gt;</bpt><ept id="2fd9c924-c317-426f-a311-9a125b9076ce">&lt;/title&gt;</ept> repository on <bpt id="02589168-93d3-4dc9-ae4f-7717ad0accaf">&lt;linkText&gt;</bpt>GitHub.com<ept id="02589168-93d3-4dc9-ae4f-7717ad0accaf">&lt;/linkText&gt;</ept><bpt id="02589168-93d3-4dc9-ae4f-7717ad0accaf">&lt;title&gt;</bpt><ept id="02589168-93d3-4dc9-ae4f-7717ad0accaf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94c97b86-177d-4b96-a95f-1b44dde156c0" xml:space="preserve">
+          <source>In the <bpt id="d2245de9-818c-4243-a19a-511b7bbc1a49">&lt;linkText&gt;</bpt>Azure preview portal<ept id="d2245de9-818c-4243-a19a-511b7bbc1a49">&lt;/linkText&gt;</ept><bpt id="d2245de9-818c-4243-a19a-511b7bbc1a49">&lt;title&gt;</bpt><ept id="d2245de9-818c-4243-a19a-511b7bbc1a49">&lt;/title&gt;</ept>, click <bpt id="e6328bff-3092-4975-ba7c-2d42b3a0bb0c">&lt;strong&gt;</bpt>Browse all<ept id="e6328bff-3092-4975-ba7c-2d42b3a0bb0c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d2245de9-818c-4243-a19a-511b7bbc1a49">&lt;linkText&gt;</bpt>Azure preview portal<ept id="d2245de9-818c-4243-a19a-511b7bbc1a49">&lt;/linkText&gt;</ept><bpt id="d2245de9-818c-4243-a19a-511b7bbc1a49">&lt;title&gt;</bpt><ept id="d2245de9-818c-4243-a19a-511b7bbc1a49">&lt;/title&gt;</ept>, click <bpt id="e6328bff-3092-4975-ba7c-2d42b3a0bb0c">&lt;strong&gt;</bpt>Browse all<ept id="e6328bff-3092-4975-ba7c-2d42b3a0bb0c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8cc8afd6-ea82-4afa-ab4f-f51734855847" xml:space="preserve">
+          <source>In the <bpt id="ae84e929-6994-4794-ab25-a0ce4747611c">&lt;strong&gt;</bpt>Browse<ept id="ae84e929-6994-4794-ab25-a0ce4747611c">&lt;/strong&gt;</ept> blade, click <bpt id="14915660-fa5f-4b96-84b8-1b5490d897ef">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="14915660-fa5f-4b96-84b8-1b5490d897ef">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ae84e929-6994-4794-ab25-a0ce4747611c">&lt;strong&gt;</bpt>Browse<ept id="ae84e929-6994-4794-ab25-a0ce4747611c">&lt;/strong&gt;</ept> blade, click <bpt id="14915660-fa5f-4b96-84b8-1b5490d897ef">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="14915660-fa5f-4b96-84b8-1b5490d897ef">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e86a446d-b9fa-4588-97ff-56590143f340" xml:space="preserve">
+          <source>In the <bpt id="3a79f66f-f887-4adf-9e7a-e2ddea2f4114">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="3a79f66f-f887-4adf-9e7a-e2ddea2f4114">&lt;/strong&gt;</ept> blade, select the account that contains the database in which to add a collection.</source>
+          <target state="new">In the <bpt id="3a79f66f-f887-4adf-9e7a-e2ddea2f4114">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="3a79f66f-f887-4adf-9e7a-e2ddea2f4114">&lt;/strong&gt;</ept> blade, select the account that contains the database in which to add a collection.</target>
+        </trans-unit>
+        <trans-unit id="7221850d-c017-47a0-8f28-394a62c1edf9" xml:space="preserve">
+          <source>If you don't have any accounts listed, you'll need to <bpt id="ff1b98ef-9825-442c-9b09-7c31168c3f9e">&lt;linkText&gt;</bpt>create a DocumentDB account<ept id="ff1b98ef-9825-442c-9b09-7c31168c3f9e">&lt;/linkText&gt;</ept><bpt id="ff1b98ef-9825-442c-9b09-7c31168c3f9e">&lt;title&gt;</bpt><ept id="ff1b98ef-9825-442c-9b09-7c31168c3f9e">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have any accounts listed, you'll need to <bpt id="ff1b98ef-9825-442c-9b09-7c31168c3f9e">&lt;linkText&gt;</bpt>create a DocumentDB account<ept id="ff1b98ef-9825-442c-9b09-7c31168c3f9e">&lt;/linkText&gt;</ept><bpt id="ff1b98ef-9825-442c-9b09-7c31168c3f9e">&lt;title&gt;</bpt><ept id="ff1b98ef-9825-442c-9b09-7c31168c3f9e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75d67946-382c-42e4-b05f-53ab2958eed7" xml:space="preserve">
+          <source><bpt id="d88456fd-d558-4727-b2c5-e2673267a97b">&lt;linkText&gt;</bpt>Screen shot highlighting the Browse button, DocumentDB Accounts on the Browse blade, and a DocumentDB account on the DocumentDB Accounts blade<ept id="d88456fd-d558-4727-b2c5-e2673267a97b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d88456fd-d558-4727-b2c5-e2673267a97b">&lt;linkText&gt;</bpt>Screen shot highlighting the Browse button, DocumentDB Accounts on the Browse blade, and a DocumentDB account on the DocumentDB Accounts blade<ept id="d88456fd-d558-4727-b2c5-e2673267a97b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab2a3591-3e15-4c0b-83e7-957032cf703a" xml:space="preserve">
+          <source>In the <bpt id="d448b827-572a-4a67-92bb-c8d82031f2cf">&lt;strong&gt;</bpt>Database<ept id="d448b827-572a-4a67-92bb-c8d82031f2cf">&lt;/strong&gt;</ept> blade, click <bpt id="8b751f86-344c-4820-b1ad-f8f274f363d2">&lt;strong&gt;</bpt>Add collections<ept id="8b751f86-344c-4820-b1ad-f8f274f363d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d448b827-572a-4a67-92bb-c8d82031f2cf">&lt;strong&gt;</bpt>Database<ept id="d448b827-572a-4a67-92bb-c8d82031f2cf">&lt;/strong&gt;</ept> blade, click <bpt id="8b751f86-344c-4820-b1ad-f8f274f363d2">&lt;strong&gt;</bpt>Add collections<ept id="8b751f86-344c-4820-b1ad-f8f274f363d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="334f57a1-c2bf-4b92-9f6f-c17d0bd9090b" xml:space="preserve">
+          <source>In the <bpt id="9d59d799-afc3-4ccc-a3d7-e032160ee452">&lt;strong&gt;</bpt>Add Collection<ept id="9d59d799-afc3-4ccc-a3d7-e032160ee452">&lt;/strong&gt;</ept> blade, enter the ID for your new collection.</source>
+          <target state="new">In the <bpt id="9d59d799-afc3-4ccc-a3d7-e032160ee452">&lt;strong&gt;</bpt>Add Collection<ept id="9d59d799-afc3-4ccc-a3d7-e032160ee452">&lt;/strong&gt;</ept> blade, enter the ID for your new collection.</target>
+        </trans-unit>
+        <trans-unit id="4413a8d9-30d4-4b91-ac99-b90f94f98d73" xml:space="preserve">
+          <source>When the name is validated, a green check mark appears in the ID box.</source>
+          <target state="new">When the name is validated, a green check mark appears in the ID box.</target>
+        </trans-unit>
+        <trans-unit id="1ee2486a-4938-4b97-b403-7a197c584d78" xml:space="preserve">
+          <source>Select a pricing tier for the new collection.</source>
+          <target state="new">Select a pricing tier for the new collection.</target>
+        </trans-unit>
+        <trans-unit id="a7549ab4-8846-4af5-a15b-35fbf09a351f" xml:space="preserve">
+          <source>Each collection you create is a billable entity.</source>
+          <target state="new">Each collection you create is a billable entity.</target>
+        </trans-unit>
+        <trans-unit id="02af9d3a-3c1f-4a7f-8168-a4d423253249" xml:space="preserve">
+          <source>For more information about the performance levels available, see <bpt id="3aff9ccb-2507-4b89-b3fc-54afae7319f4">&lt;linkText&gt;</bpt>Performance levels in DocumentDB<ept id="3aff9ccb-2507-4b89-b3fc-54afae7319f4">&lt;/linkText&gt;</ept><bpt id="3aff9ccb-2507-4b89-b3fc-54afae7319f4">&lt;title&gt;</bpt><ept id="3aff9ccb-2507-4b89-b3fc-54afae7319f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the performance levels available, see <bpt id="3aff9ccb-2507-4b89-b3fc-54afae7319f4">&lt;linkText&gt;</bpt>Performance levels in DocumentDB<ept id="3aff9ccb-2507-4b89-b3fc-54afae7319f4">&lt;/linkText&gt;</ept><bpt id="3aff9ccb-2507-4b89-b3fc-54afae7319f4">&lt;title&gt;</bpt><ept id="3aff9ccb-2507-4b89-b3fc-54afae7319f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="099d546a-bc54-405c-b20b-e8ad9200a5b2" xml:space="preserve">
+          <source>Select one of the following <bpt id="5bbb3ef2-6642-4371-8f75-ffcd7ffa453d">&lt;strong&gt;</bpt>Indexing Policies<ept id="5bbb3ef2-6642-4371-8f75-ffcd7ffa453d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select one of the following <bpt id="5bbb3ef2-6642-4371-8f75-ffcd7ffa453d">&lt;strong&gt;</bpt>Indexing Policies<ept id="5bbb3ef2-6642-4371-8f75-ffcd7ffa453d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2131cccd-531d-4beb-97a5-0812fb166c68" xml:space="preserve">
+          <source><bpt id="85d6e096-bb8f-4b44-9c68-96740cf74569">&lt;strong&gt;</bpt>Default<ept id="85d6e096-bb8f-4b44-9c68-96740cf74569">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="85d6e096-bb8f-4b44-9c68-96740cf74569">&lt;strong&gt;</bpt>Default<ept id="85d6e096-bb8f-4b44-9c68-96740cf74569">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34f1b62d-116e-458d-b6a7-c77e09b85909" xml:space="preserve">
+          <source>This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers.</source>
+          <target state="new">This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers.</target>
+        </trans-unit>
+        <trans-unit id="42f43fd5-f855-4a4f-b98e-ec788182ddb6" xml:space="preserve">
+          <source>This policy has a lower index storage overhead than <bpt id="5deda6b7-a13c-4909-8ca8-ca3c3951b4f8">&lt;strong&gt;</bpt>Range<ept id="5deda6b7-a13c-4909-8ca8-ca3c3951b4f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This policy has a lower index storage overhead than <bpt id="5deda6b7-a13c-4909-8ca8-ca3c3951b4f8">&lt;strong&gt;</bpt>Range<ept id="5deda6b7-a13c-4909-8ca8-ca3c3951b4f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f01a51fe-adaa-4537-a428-b61b1902b630" xml:space="preserve">
+          <source><bpt id="ab4290f0-6c70-4d0b-b668-6e01565aa13e">&lt;strong&gt;</bpt>Hash<ept id="ab4290f0-6c70-4d0b-b668-6e01565aa13e">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ab4290f0-6c70-4d0b-b668-6e01565aa13e">&lt;strong&gt;</bpt>Hash<ept id="ab4290f0-6c70-4d0b-b668-6e01565aa13e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="277da95e-0115-4724-ad26-b390be0e2e67" xml:space="preserve">
+          <source>This policy is best when you’re performing equality queries for both numbers and strings.</source>
+          <target state="new">This policy is best when you’re performing equality queries for both numbers and strings.</target>
+        </trans-unit>
+        <trans-unit id="e1fd69fd-4df0-4aee-aafd-9bc9498bb9e3" xml:space="preserve">
+          <source>This policy has the lowest index storage overhead.</source>
+          <target state="new">This policy has the lowest index storage overhead.</target>
+        </trans-unit>
+        <trans-unit id="abd7a057-c1e2-4793-8193-590ebce773e3" xml:space="preserve">
+          <source><bpt id="6fe90479-8267-4f78-b29e-8edf634051a5">&lt;strong&gt;</bpt>Range<ept id="6fe90479-8267-4f78-b29e-8edf634051a5">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="6fe90479-8267-4f78-b29e-8edf634051a5">&lt;strong&gt;</bpt>Range<ept id="6fe90479-8267-4f78-b29e-8edf634051a5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="883a99b6-2168-4a57-bbea-a75e9618f2fd" xml:space="preserve">
+          <source>This policy is best you’re using ORDER BY, range and equality queries on both numbers and strings.</source>
+          <target state="new">This policy is best you’re using ORDER BY, range and equality queries on both numbers and strings.</target>
+        </trans-unit>
+        <trans-unit id="2fd1231d-31a6-4786-bd23-4361ee85e653" xml:space="preserve">
+          <source>This policy has a higher index storage overhead than <bpt id="4e29e845-cefb-41a3-811a-1149c136a26f">&lt;strong&gt;</bpt>Default<ept id="4e29e845-cefb-41a3-811a-1149c136a26f">&lt;/strong&gt;</ept> or <bpt id="5b28f49e-d9c0-4026-8df5-af776e32eb0f">&lt;strong&gt;</bpt>Hash<ept id="5b28f49e-d9c0-4026-8df5-af776e32eb0f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This policy has a higher index storage overhead than <bpt id="4e29e845-cefb-41a3-811a-1149c136a26f">&lt;strong&gt;</bpt>Default<ept id="4e29e845-cefb-41a3-811a-1149c136a26f">&lt;/strong&gt;</ept> or <bpt id="5b28f49e-d9c0-4026-8df5-af776e32eb0f">&lt;strong&gt;</bpt>Hash<ept id="5b28f49e-d9c0-4026-8df5-af776e32eb0f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf76b7c1-fa7b-4729-b5a8-a22877f0c707" xml:space="preserve">
+          <source>For more information about the indexing policies, see <bpt id="b9bbbd4a-bfa3-4996-af1d-54591af87bc5">&lt;linkText&gt;</bpt>DocumentDB indexing policies<ept id="b9bbbd4a-bfa3-4996-af1d-54591af87bc5">&lt;/linkText&gt;</ept><bpt id="b9bbbd4a-bfa3-4996-af1d-54591af87bc5">&lt;title&gt;</bpt><ept id="b9bbbd4a-bfa3-4996-af1d-54591af87bc5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the indexing policies, see <bpt id="b9bbbd4a-bfa3-4996-af1d-54591af87bc5">&lt;linkText&gt;</bpt>DocumentDB indexing policies<ept id="b9bbbd4a-bfa3-4996-af1d-54591af87bc5">&lt;/linkText&gt;</ept><bpt id="b9bbbd4a-bfa3-4996-af1d-54591af87bc5">&lt;title&gt;</bpt><ept id="b9bbbd4a-bfa3-4996-af1d-54591af87bc5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d48e28b-b1dc-4013-8845-0ff208ff387c" xml:space="preserve">
+          <source>Click <bpt id="78b6221e-b7c9-489c-bcf0-43eff0db2c8e">&lt;strong&gt;</bpt>OK<ept id="78b6221e-b7c9-489c-bcf0-43eff0db2c8e">&lt;/strong&gt;</ept> at the bottom of the screen to create the new collection.</source>
+          <target state="new">Click <bpt id="78b6221e-b7c9-489c-bcf0-43eff0db2c8e">&lt;strong&gt;</bpt>OK<ept id="78b6221e-b7c9-489c-bcf0-43eff0db2c8e">&lt;/strong&gt;</ept> at the bottom of the screen to create the new collection.</target>
+        </trans-unit>
+        <trans-unit id="33580301-763f-4e47-b8a8-4b931e782c70" xml:space="preserve">
+          <source><bpt id="47ef9b7e-16d6-43d1-aefb-e09c3efaa0a7">&lt;linkText&gt;</bpt>Screen shot highlighting the Add Collection button on the Database blade, the ID box on the Add Collection blade, and the OK button<ept id="47ef9b7e-16d6-43d1-aefb-e09c3efaa0a7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="47ef9b7e-16d6-43d1-aefb-e09c3efaa0a7">&lt;linkText&gt;</bpt>Screen shot highlighting the Add Collection button on the Database blade, the ID box on the Add Collection blade, and the OK button<ept id="47ef9b7e-16d6-43d1-aefb-e09c3efaa0a7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d24a612d-1601-43c3-b69e-919c1d6923e0" xml:space="preserve">
+          <source>The new collection now appears in the <bpt id="4029c98e-d6aa-41b5-a3c0-5026e2f3450e">&lt;strong&gt;</bpt>Collections<ept id="4029c98e-d6aa-41b5-a3c0-5026e2f3450e">&lt;/strong&gt;</ept> lens on the <bpt id="477a52ed-02bc-4e7a-beb1-741c0959dec7">&lt;strong&gt;</bpt>Database<ept id="477a52ed-02bc-4e7a-beb1-741c0959dec7">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">The new collection now appears in the <bpt id="4029c98e-d6aa-41b5-a3c0-5026e2f3450e">&lt;strong&gt;</bpt>Collections<ept id="4029c98e-d6aa-41b5-a3c0-5026e2f3450e">&lt;/strong&gt;</ept> lens on the <bpt id="477a52ed-02bc-4e7a-beb1-741c0959dec7">&lt;strong&gt;</bpt>Database<ept id="477a52ed-02bc-4e7a-beb1-741c0959dec7">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="a9f74d5b-58c4-4938-8774-014dbfc017f2" xml:space="preserve">
+          <source><bpt id="e25b4925-5b66-4a7b-8c5e-147775f55115">&lt;linkText&gt;</bpt>Screen shot of the new database in the DocumentDB Account blade<ept id="e25b4925-5b66-4a7b-8c5e-147775f55115">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e25b4925-5b66-4a7b-8c5e-147775f55115">&lt;linkText&gt;</bpt>Screen shot of the new database in the DocumentDB Account blade<ept id="e25b4925-5b66-4a7b-8c5e-147775f55115">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e88e684-26c9-453c-ab2d-0df3342f1133" xml:space="preserve">
+          <source>Now that you have a collection, the next step is to add documents or import documents into the collection.</source>
+          <target state="new">Now that you have a collection, the next step is to add documents or import documents into the collection.</target>
+        </trans-unit>
+        <trans-unit id="5e549bda-5a1e-41a7-98a5-70d9989ca613" xml:space="preserve">
+          <source>When it comes to adding documents to a collection, you have a few choices:</source>
+          <target state="new">When it comes to adding documents to a collection, you have a few choices:</target>
+        </trans-unit>
+        <trans-unit id="5b9b935c-ce2f-482e-8ddd-7783ed5fa5ce" xml:space="preserve">
+          <source>You can <bpt id="b9b37bcc-e1c1-430f-8bbf-4233f4444308">&lt;linkText&gt;</bpt>add documents<ept id="b9b37bcc-e1c1-430f-8bbf-4233f4444308">&lt;/linkText&gt;</ept><bpt id="b9b37bcc-e1c1-430f-8bbf-4233f4444308">&lt;title&gt;</bpt><ept id="b9b37bcc-e1c1-430f-8bbf-4233f4444308">&lt;/title&gt;</ept> by using the Document Explorer in the preview portal.</source>
+          <target state="new">You can <bpt id="b9b37bcc-e1c1-430f-8bbf-4233f4444308">&lt;linkText&gt;</bpt>add documents<ept id="b9b37bcc-e1c1-430f-8bbf-4233f4444308">&lt;/linkText&gt;</ept><bpt id="b9b37bcc-e1c1-430f-8bbf-4233f4444308">&lt;title&gt;</bpt><ept id="b9b37bcc-e1c1-430f-8bbf-4233f4444308">&lt;/title&gt;</ept> by using the Document Explorer in the preview portal.</target>
+        </trans-unit>
+        <trans-unit id="dedec176-0552-4ff9-aec0-d9e7c3a94f8c" xml:space="preserve">
+          <source>You can <bpt id="831e0242-dcd1-4538-bab5-9d3a1a672946">&lt;linkText&gt;</bpt>import documents and data<ept id="831e0242-dcd1-4538-bab5-9d3a1a672946">&lt;/linkText&gt;</ept><bpt id="831e0242-dcd1-4538-bab5-9d3a1a672946">&lt;title&gt;</bpt><ept id="831e0242-dcd1-4538-bab5-9d3a1a672946">&lt;/title&gt;</ept> by using the DocumentDB Data Migration Tool, which enables you to import JSON and CSV files, as well as data from SQL Server, MongoDB, Azure Table storage, and other DocumentDB collections.</source>
+          <target state="new">You can <bpt id="831e0242-dcd1-4538-bab5-9d3a1a672946">&lt;linkText&gt;</bpt>import documents and data<ept id="831e0242-dcd1-4538-bab5-9d3a1a672946">&lt;/linkText&gt;</ept><bpt id="831e0242-dcd1-4538-bab5-9d3a1a672946">&lt;title&gt;</bpt><ept id="831e0242-dcd1-4538-bab5-9d3a1a672946">&lt;/title&gt;</ept> by using the DocumentDB Data Migration Tool, which enables you to import JSON and CSV files, as well as data from SQL Server, MongoDB, Azure Table storage, and other DocumentDB collections.</target>
+        </trans-unit>
+        <trans-unit id="517739ed-1f60-44d5-82de-ebc475930fcd" xml:space="preserve">
+          <source>Or you can add documents by using one of the <bpt id="9a0fd130-401d-4f49-9b27-d30787a4a37b">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="9a0fd130-401d-4f49-9b27-d30787a4a37b">&lt;/linkText&gt;</ept><bpt id="9a0fd130-401d-4f49-9b27-d30787a4a37b">&lt;title&gt;</bpt><ept id="9a0fd130-401d-4f49-9b27-d30787a4a37b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Or you can add documents by using one of the <bpt id="9a0fd130-401d-4f49-9b27-d30787a4a37b">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="9a0fd130-401d-4f49-9b27-d30787a4a37b">&lt;/linkText&gt;</ept><bpt id="9a0fd130-401d-4f49-9b27-d30787a4a37b">&lt;title&gt;</bpt><ept id="9a0fd130-401d-4f49-9b27-d30787a4a37b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8abae75-93fb-40bb-a31a-7f1ccefceecd" xml:space="preserve">
+          <source>DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs.</source>
+          <target state="new">DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs.</target>
+        </trans-unit>
+        <trans-unit id="e786cabf-16cb-4c7c-a024-416361b00f77" xml:space="preserve">
+          <source>The <bpt id="e8b7317e-a44c-4281-8d57-18dfc35f99f2">&lt;linkText&gt;</bpt>Program.cs<ept id="e8b7317e-a44c-4281-8d57-18dfc35f99f2">&lt;/linkText&gt;</ept><bpt id="e8b7317e-a44c-4281-8d57-18dfc35f99f2">&lt;title&gt;</bpt><ept id="e8b7317e-a44c-4281-8d57-18dfc35f99f2">&lt;/title&gt;</ept> file in the DocumentManagement project, available in the <bpt id="10a6e683-bba0-4b64-9739-bd6e7c51deda">&lt;linkText&gt;</bpt>azure-documentdb-net<ept id="10a6e683-bba0-4b64-9739-bd6e7c51deda">&lt;/linkText&gt;</ept><bpt id="10a6e683-bba0-4b64-9739-bd6e7c51deda">&lt;title&gt;</bpt><ept id="10a6e683-bba0-4b64-9739-bd6e7c51deda">&lt;/title&gt;</ept> repository on <bpt id="816ea68f-3f93-474b-b456-10d9b09102fc">&lt;linkText&gt;</bpt>GitHub.com<ept id="816ea68f-3f93-474b-b456-10d9b09102fc">&lt;/linkText&gt;</ept><bpt id="816ea68f-3f93-474b-b456-10d9b09102fc">&lt;title&gt;</bpt><ept id="816ea68f-3f93-474b-b456-10d9b09102fc">&lt;/title&gt;</ept>, demonstrates CRUD operations on documents by using the DocumentDB .NET SDK.</source>
+          <target state="new">The <bpt id="e8b7317e-a44c-4281-8d57-18dfc35f99f2">&lt;linkText&gt;</bpt>Program.cs<ept id="e8b7317e-a44c-4281-8d57-18dfc35f99f2">&lt;/linkText&gt;</ept><bpt id="e8b7317e-a44c-4281-8d57-18dfc35f99f2">&lt;title&gt;</bpt><ept id="e8b7317e-a44c-4281-8d57-18dfc35f99f2">&lt;/title&gt;</ept> file in the DocumentManagement project, available in the <bpt id="10a6e683-bba0-4b64-9739-bd6e7c51deda">&lt;linkText&gt;</bpt>azure-documentdb-net<ept id="10a6e683-bba0-4b64-9739-bd6e7c51deda">&lt;/linkText&gt;</ept><bpt id="10a6e683-bba0-4b64-9739-bd6e7c51deda">&lt;title&gt;</bpt><ept id="10a6e683-bba0-4b64-9739-bd6e7c51deda">&lt;/title&gt;</ept> repository on <bpt id="816ea68f-3f93-474b-b456-10d9b09102fc">&lt;linkText&gt;</bpt>GitHub.com<ept id="816ea68f-3f93-474b-b456-10d9b09102fc">&lt;/linkText&gt;</ept><bpt id="816ea68f-3f93-474b-b456-10d9b09102fc">&lt;title&gt;</bpt><ept id="816ea68f-3f93-474b-b456-10d9b09102fc">&lt;/title&gt;</ept>, demonstrates CRUD operations on documents by using the DocumentDB .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="ac6a4e85-0267-4756-bb9a-070dda1f2ffd" xml:space="preserve">
+          <source>After you have documents in a collection, you can use <bpt id="5b9efcff-ddc7-4eb4-ba3a-db0c47510f13">&lt;linkText&gt;</bpt>DocumentDB SQL<ept id="5b9efcff-ddc7-4eb4-ba3a-db0c47510f13">&lt;/linkText&gt;</ept><bpt id="5b9efcff-ddc7-4eb4-ba3a-db0c47510f13">&lt;title&gt;</bpt><ept id="5b9efcff-ddc7-4eb4-ba3a-db0c47510f13">&lt;/title&gt;</ept> to <bpt id="d7658c07-33bd-497e-a716-fd88b8d932d3">&lt;linkText&gt;</bpt>execute queries<ept id="d7658c07-33bd-497e-a716-fd88b8d932d3">&lt;/linkText&gt;</ept><bpt id="d7658c07-33bd-497e-a716-fd88b8d932d3">&lt;title&gt;</bpt><ept id="d7658c07-33bd-497e-a716-fd88b8d932d3">&lt;/title&gt;</ept> against your documents by using the <bpt id="de1698f2-b63f-41bc-b40c-af1bc1c82492">&lt;linkText&gt;</bpt>Query Explorer<ept id="de1698f2-b63f-41bc-b40c-af1bc1c82492">&lt;/linkText&gt;</ept><bpt id="de1698f2-b63f-41bc-b40c-af1bc1c82492">&lt;title&gt;</bpt><ept id="de1698f2-b63f-41bc-b40c-af1bc1c82492">&lt;/title&gt;</ept> in the preview portal, the <bpt id="16af5076-23bd-40eb-a99b-570ede9b23b3">&lt;linkText&gt;</bpt>REST API<ept id="16af5076-23bd-40eb-a99b-570ede9b23b3">&lt;/linkText&gt;</ept><bpt id="16af5076-23bd-40eb-a99b-570ede9b23b3">&lt;title&gt;</bpt><ept id="16af5076-23bd-40eb-a99b-570ede9b23b3">&lt;/title&gt;</ept>, or one of the <bpt id="0476e327-d4b4-4584-af75-929bb92041fe">&lt;linkText&gt;</bpt>SDKs<ept id="0476e327-d4b4-4584-af75-929bb92041fe">&lt;/linkText&gt;</ept><bpt id="0476e327-d4b4-4584-af75-929bb92041fe">&lt;title&gt;</bpt><ept id="0476e327-d4b4-4584-af75-929bb92041fe">&lt;/title&gt;</ept>.</source>
+          <target state="new">After you have documents in a collection, you can use <bpt id="5b9efcff-ddc7-4eb4-ba3a-db0c47510f13">&lt;linkText&gt;</bpt>DocumentDB SQL<ept id="5b9efcff-ddc7-4eb4-ba3a-db0c47510f13">&lt;/linkText&gt;</ept><bpt id="5b9efcff-ddc7-4eb4-ba3a-db0c47510f13">&lt;title&gt;</bpt><ept id="5b9efcff-ddc7-4eb4-ba3a-db0c47510f13">&lt;/title&gt;</ept> to <bpt id="d7658c07-33bd-497e-a716-fd88b8d932d3">&lt;linkText&gt;</bpt>execute queries<ept id="d7658c07-33bd-497e-a716-fd88b8d932d3">&lt;/linkText&gt;</ept><bpt id="d7658c07-33bd-497e-a716-fd88b8d932d3">&lt;title&gt;</bpt><ept id="d7658c07-33bd-497e-a716-fd88b8d932d3">&lt;/title&gt;</ept> against your documents by using the <bpt id="de1698f2-b63f-41bc-b40c-af1bc1c82492">&lt;linkText&gt;</bpt>Query Explorer<ept id="de1698f2-b63f-41bc-b40c-af1bc1c82492">&lt;/linkText&gt;</ept><bpt id="de1698f2-b63f-41bc-b40c-af1bc1c82492">&lt;title&gt;</bpt><ept id="de1698f2-b63f-41bc-b40c-af1bc1c82492">&lt;/title&gt;</ept> in the preview portal, the <bpt id="16af5076-23bd-40eb-a99b-570ede9b23b3">&lt;linkText&gt;</bpt>REST API<ept id="16af5076-23bd-40eb-a99b-570ede9b23b3">&lt;/linkText&gt;</ept><bpt id="16af5076-23bd-40eb-a99b-570ede9b23b3">&lt;title&gt;</bpt><ept id="16af5076-23bd-40eb-a99b-570ede9b23b3">&lt;/title&gt;</ept>, or one of the <bpt id="0476e327-d4b4-4584-af75-929bb92041fe">&lt;linkText&gt;</bpt>SDKs<ept id="0476e327-d4b4-4584-af75-929bb92041fe">&lt;/linkText&gt;</ept><bpt id="0476e327-d4b4-4584-af75-929bb92041fe">&lt;title&gt;</bpt><ept id="0476e327-d4b4-4584-af75-929bb92041fe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

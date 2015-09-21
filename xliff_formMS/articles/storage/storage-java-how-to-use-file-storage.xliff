@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e361e3a2-fcd3-410e-abe9-a3163d1157f0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e361e3a2-fcd3-410e-abe9-a3163d1157f0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="aee5ca46-bed0-4809-8e6f-231039edf8da">
+        <trans-unit id="789b06ea-d024-478f-8f8c-a60ad92769ce" xml:space="preserve">
+          <source>How to use File storage from Java | Microsoft Azure</source>
+          <target state="new">How to use File storage from Java | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b6e4e93d-4c42-4120-b7ca-77bdd96b0e63" xml:space="preserve">
+          <source>Learn how to use the Azure file service to upload, download, list, and delete files. Samples written in Java.</source>
+          <target state="new">Learn how to use the Azure file service to upload, download, list, and delete files. Samples written in Java.</target>
+        </trans-unit>
+        <trans-unit id="6778e07b-5fff-45a4-bd6a-06e57ae1211b" xml:space="preserve">
+          <source><bpt id="a0e6a5d0-eeb9-48d8-a72a-cc926d68ef19">&lt;token href="../../includes/storage-selector-file-include.md"&gt;</bpt><ept id="a0e6a5d0-eeb9-48d8-a72a-cc926d68ef19">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a0e6a5d0-eeb9-48d8-a72a-cc926d68ef19">&lt;token href="../../includes/storage-selector-file-include.md"&gt;</bpt><ept id="a0e6a5d0-eeb9-48d8-a72a-cc926d68ef19">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a6de043-948a-454f-aefc-0837072e669b" xml:space="preserve">
+          <source>In this guide you'll learn how to perform basic operations on the  Microsoft Azure File storage service.</source>
+          <target state="new">In this guide you'll learn how to perform basic operations on the  Microsoft Azure File storage service.</target>
+        </trans-unit>
+        <trans-unit id="a16b6b64-3bc1-4d18-bfd8-2b4f2ed0cea2" xml:space="preserve">
+          <source>Through samples written in Java you'll learn how to  create shares and directories, upload, list, and delete files.</source>
+          <target state="new">Through samples written in Java you'll learn how to  create shares and directories, upload, list, and delete files.</target>
+        </trans-unit>
+        <trans-unit id="4133a76f-12a5-4f15-ac9c-ca47ae96c1b9" xml:space="preserve">
+          <source>If you are new to Microsoft Azure's File Storage service, going through the concepts in the sections that follow will be very helpful in understanding the samples.</source>
+          <target state="new">If you are new to Microsoft Azure's File Storage service, going through the concepts in the sections that follow will be very helpful in understanding the samples.</target>
+        </trans-unit>
+        <trans-unit id="c326443b-a10a-432d-89ca-b068af9f571c" xml:space="preserve">
+          <source><bpt id="e5571893-c56a-4c72-88aa-d3aee12a6451">&lt;token href="../../includes/storage-file-concepts-include.md"&gt;</bpt><ept id="e5571893-c56a-4c72-88aa-d3aee12a6451">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e5571893-c56a-4c72-88aa-d3aee12a6451">&lt;token href="../../includes/storage-file-concepts-include.md"&gt;</bpt><ept id="e5571893-c56a-4c72-88aa-d3aee12a6451">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcc88ce9-31c8-4333-8a9c-e22f24c83b80" xml:space="preserve">
+          <source><bpt id="70cdabfd-0e1a-4833-9f2c-a64a885216d3">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="70cdabfd-0e1a-4833-9f2c-a64a885216d3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="70cdabfd-0e1a-4833-9f2c-a64a885216d3">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="70cdabfd-0e1a-4833-9f2c-a64a885216d3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ab35d79-d169-4bf6-a59c-4e9296ba043d" xml:space="preserve">
+          <source>To build the samples, you will need the Java Development Kit (JDK) and the <bpt id="bb105cac-9a4f-4481-8f62-694918d1825a">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="bb105cac-9a4f-4481-8f62-694918d1825a">&lt;/linkText&gt;</ept><bpt id="bb105cac-9a4f-4481-8f62-694918d1825a">&lt;title&gt;</bpt><ept id="bb105cac-9a4f-4481-8f62-694918d1825a">&lt;/title&gt;</ept>.</source>
+          <target state="new">To build the samples, you will need the Java Development Kit (JDK) and the <bpt id="bb105cac-9a4f-4481-8f62-694918d1825a">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="bb105cac-9a4f-4481-8f62-694918d1825a">&lt;/linkText&gt;</ept><bpt id="bb105cac-9a4f-4481-8f62-694918d1825a">&lt;title&gt;</bpt><ept id="bb105cac-9a4f-4481-8f62-694918d1825a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db844fa8-ccbc-42cb-bb06-c9eff3c3abde" xml:space="preserve">
+          <source>You should also have created an Azure storage account.</source>
+          <target state="new">You should also have created an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="25dd0ce9-9a0b-4647-9c5f-14756bca08a5" xml:space="preserve">
+          <source>To use the Azure storage APIs, add the following statement to the top of the Java file where you intend to access the storage service from.</source>
+          <target state="new">To use the Azure storage APIs, add the following statement to the top of the Java file where you intend to access the storage service from.</target>
+        </trans-unit>
+        <trans-unit id="8c53e80f-8b79-4c80-9281-87fcbc33967d" xml:space="preserve">
+          <source>To use File storage, you need to connect to your Azure storage account.</source>
+          <target state="new">To use File storage, you need to connect to your Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="6ed43f18-540c-4c50-98b3-83e81d617371" xml:space="preserve">
+          <source>The first step would be to configure a connection string which we'll use to connect to your storage account.</source>
+          <target state="new">The first step would be to configure a connection string which we'll use to connect to your storage account.</target>
+        </trans-unit>
+        <trans-unit id="6c59682f-f746-4236-91f2-d6477684fc25" xml:space="preserve">
+          <source>Let's define a static variable to do that.</source>
+          <target state="new">Let's define a static variable to do that.</target>
+        </trans-unit>
+        <trans-unit id="ce57dfec-5869-4279-a71c-1c4b6b420fab" xml:space="preserve">
+          <source>Replace your<bpt id="847e28b8-a896-46df-b437-d7d2d1006fcb">&lt;em&gt;</bpt>storage<ept id="847e28b8-a896-46df-b437-d7d2d1006fcb">&lt;/em&gt;</ept>account<bpt id="4a66571c-ed1f-43ff-a913-a22084ea25be">&lt;em&gt;</bpt>name and your<ept id="4a66571c-ed1f-43ff-a913-a22084ea25be">&lt;/em&gt;</ept>storage<bpt id="a9a4c80b-8269-4e78-94fb-2529da19f836">&lt;em&gt;</bpt>account<ept id="a9a4c80b-8269-4e78-94fb-2529da19f836">&lt;/em&gt;</ept>key with the actual values for your storage account.</source>
+          <target state="new">Replace your<bpt id="847e28b8-a896-46df-b437-d7d2d1006fcb">&lt;em&gt;</bpt>storage<ept id="847e28b8-a896-46df-b437-d7d2d1006fcb">&lt;/em&gt;</ept>account<bpt id="4a66571c-ed1f-43ff-a913-a22084ea25be">&lt;em&gt;</bpt>name and your<ept id="4a66571c-ed1f-43ff-a913-a22084ea25be">&lt;/em&gt;</ept>storage<bpt id="a9a4c80b-8269-4e78-94fb-2529da19f836">&lt;em&gt;</bpt>account<ept id="a9a4c80b-8269-4e78-94fb-2529da19f836">&lt;/em&gt;</ept>key with the actual values for your storage account.</target>
+        </trans-unit>
+        <trans-unit id="080d3fd7-d001-41cd-a940-40149a74d337" xml:space="preserve">
+          <source>To connect to your storage account, you need to use the <bpt id="1674787b-15ff-496a-8ffa-13b08f9da698">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="1674787b-15ff-496a-8ffa-13b08f9da698">&lt;/strong&gt;</ept> object, passing a connection string to its <bpt id="797f3727-0cd7-4aa3-9ae5-1dcfe7e8206b">&lt;strong&gt;</bpt>parse<ept id="797f3727-0cd7-4aa3-9ae5-1dcfe7e8206b">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To connect to your storage account, you need to use the <bpt id="1674787b-15ff-496a-8ffa-13b08f9da698">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="1674787b-15ff-496a-8ffa-13b08f9da698">&lt;/strong&gt;</ept> object, passing a connection string to its <bpt id="797f3727-0cd7-4aa3-9ae5-1dcfe7e8206b">&lt;strong&gt;</bpt>parse<ept id="797f3727-0cd7-4aa3-9ae5-1dcfe7e8206b">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="6a1ed407-2684-44c5-8370-ae05693d4ac2" xml:space="preserve">
+          <source><bpt id="2eb5129f-1b1a-4f54-95d4-92f46c0ff046">&lt;strong&gt;</bpt>CloudStorageAccount.parse<ept id="2eb5129f-1b1a-4f54-95d4-92f46c0ff046">&lt;/strong&gt;</ept> throws an InvalidKeyException so you'll need to put it inside a try/catch block.</source>
+          <target state="new"><bpt id="2eb5129f-1b1a-4f54-95d4-92f46c0ff046">&lt;strong&gt;</bpt>CloudStorageAccount.parse<ept id="2eb5129f-1b1a-4f54-95d4-92f46c0ff046">&lt;/strong&gt;</ept> throws an InvalidKeyException so you'll need to put it inside a try/catch block.</target>
+        </trans-unit>
+        <trans-unit id="2223037e-6e6f-440c-9bf8-be21d3aedc23" xml:space="preserve">
+          <source>All files and directories in File storage reside in a container called a <bpt id="d7efce81-f1b0-457f-912d-f32a3e4e592e">&lt;strong&gt;</bpt>Share<ept id="d7efce81-f1b0-457f-912d-f32a3e4e592e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">All files and directories in File storage reside in a container called a <bpt id="d7efce81-f1b0-457f-912d-f32a3e4e592e">&lt;strong&gt;</bpt>Share<ept id="d7efce81-f1b0-457f-912d-f32a3e4e592e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="632a3455-5dd8-4b12-8f38-5f46355a392e" xml:space="preserve">
+          <source>Your storage account can have as much shares as your account capacity allows.</source>
+          <target state="new">Your storage account can have as much shares as your account capacity allows.</target>
+        </trans-unit>
+        <trans-unit id="29c94336-52bf-4b8c-b565-dcde5f0e2c20" xml:space="preserve">
+          <source>To obtain access to a share and its contents, you need to use a File storage client.</source>
+          <target state="new">To obtain access to a share and its contents, you need to use a File storage client.</target>
+        </trans-unit>
+        <trans-unit id="f4f9b4c4-eed7-431c-b25e-c13887d1540c" xml:space="preserve">
+          <source>Using the File storage client, you can then obtain a reference to a share.</source>
+          <target state="new">Using the File storage client, you can then obtain a reference to a share.</target>
+        </trans-unit>
+        <trans-unit id="919489aa-75e8-47f6-ad25-31fe6b6aa233" xml:space="preserve">
+          <source>To actually create the share, use the <bpt id="fd36804c-568e-4e6b-bdbd-f1deaee6da1b">&lt;strong&gt;</bpt>createIfNotExists<ept id="fd36804c-568e-4e6b-bdbd-f1deaee6da1b">&lt;/strong&gt;</ept> method of the CloudFileShare object.</source>
+          <target state="new">To actually create the share, use the <bpt id="fd36804c-568e-4e6b-bdbd-f1deaee6da1b">&lt;strong&gt;</bpt>createIfNotExists<ept id="fd36804c-568e-4e6b-bdbd-f1deaee6da1b">&lt;/strong&gt;</ept> method of the CloudFileShare object.</target>
+        </trans-unit>
+        <trans-unit id="1620e968-0e85-45d0-8f5e-3fa633c6e925" xml:space="preserve">
+          <source>At this point, <bpt id="1b255655-2a19-4373-9343-cae35def9c91">&lt;strong&gt;</bpt>share<ept id="1b255655-2a19-4373-9343-cae35def9c91">&lt;/strong&gt;</ept> holds a reference to a share named <bpt id="c748bb4f-c69f-49dd-a5ca-f55b6f7962ee">&lt;strong&gt;</bpt>sampleshare<ept id="c748bb4f-c69f-49dd-a5ca-f55b6f7962ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At this point, <bpt id="1b255655-2a19-4373-9343-cae35def9c91">&lt;strong&gt;</bpt>share<ept id="1b255655-2a19-4373-9343-cae35def9c91">&lt;/strong&gt;</ept> holds a reference to a share named <bpt id="c748bb4f-c69f-49dd-a5ca-f55b6f7962ee">&lt;strong&gt;</bpt>sampleshare<ept id="c748bb4f-c69f-49dd-a5ca-f55b6f7962ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7df2c200-850d-480e-a90d-b53b2a1afaab" xml:space="preserve">
+          <source>An Azure File Storage Share contains at the very least, a root directory where files can reside.</source>
+          <target state="new">An Azure File Storage Share contains at the very least, a root directory where files can reside.</target>
+        </trans-unit>
+        <trans-unit id="0ddb06bf-45f9-4dc0-a5cf-d6f610b340cf" xml:space="preserve">
+          <source>In this section, you'll learn how to upload a file from local storage onto the root directory of a share.</source>
+          <target state="new">In this section, you'll learn how to upload a file from local storage onto the root directory of a share.</target>
+        </trans-unit>
+        <trans-unit id="d86d273c-5b40-4a0f-a355-00a20024b3b0" xml:space="preserve">
+          <source>The first step in uploading a file is to obtain a reference to the directory where it should reside.</source>
+          <target state="new">The first step in uploading a file is to obtain a reference to the directory where it should reside.</target>
+        </trans-unit>
+        <trans-unit id="6bfb9d34-cdd6-4138-8f28-3fc41f0c9e72" xml:space="preserve">
+          <source>You do this by calling the <bpt id="9c27e8be-0145-4f6a-91e0-5b13bf574ad5">&lt;strong&gt;</bpt>getRootDirectoryReference<ept id="9c27e8be-0145-4f6a-91e0-5b13bf574ad5">&lt;/strong&gt;</ept> method of the share object.</source>
+          <target state="new">You do this by calling the <bpt id="9c27e8be-0145-4f6a-91e0-5b13bf574ad5">&lt;strong&gt;</bpt>getRootDirectoryReference<ept id="9c27e8be-0145-4f6a-91e0-5b13bf574ad5">&lt;/strong&gt;</ept> method of the share object.</target>
+        </trans-unit>
+        <trans-unit id="f24fda74-1d68-4fe2-9bdf-694cebf09f66" xml:space="preserve">
+          <source>Now that you have a reference to the root directory of the share, you can upload a file onto it using the following code.</source>
+          <target state="new">Now that you have a reference to the root directory of the share, you can upload a file onto it using the following code.</target>
+        </trans-unit>
+        <trans-unit id="164feafa-ea58-41d8-bec6-eab68b885a1c" xml:space="preserve">
+          <source>You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory.</source>
+          <target state="new">You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory.</target>
+        </trans-unit>
+        <trans-unit id="809d7ac2-b958-417f-8395-cddeb4b0b01b" xml:space="preserve">
+          <source>The Azure file storage service allows you to create as much directories as your account will allow.</source>
+          <target state="new">The Azure file storage service allows you to create as much directories as your account will allow.</target>
+        </trans-unit>
+        <trans-unit id="7e14cdb4-d2ca-494d-9faa-31e9592c0d0b" xml:space="preserve">
+          <source>The code below will create a sub-directory named <bpt id="3be6ccae-e225-4f16-b4f6-9651a8fb4a3a">&lt;strong&gt;</bpt>sampledir<ept id="3be6ccae-e225-4f16-b4f6-9651a8fb4a3a">&lt;/strong&gt;</ept> under the root directory.</source>
+          <target state="new">The code below will create a sub-directory named <bpt id="3be6ccae-e225-4f16-b4f6-9651a8fb4a3a">&lt;strong&gt;</bpt>sampledir<ept id="3be6ccae-e225-4f16-b4f6-9651a8fb4a3a">&lt;/strong&gt;</ept> under the root directory.</target>
+        </trans-unit>
+        <trans-unit id="b9830ab7-b6dc-473f-a8b0-938b5c772465" xml:space="preserve">
+          <source>Obtaining a list of files and directories within a share is easily done by calling <bpt id="3f5ec2fd-8eee-498a-b46e-b3dcaf7c8ba2">&lt;strong&gt;</bpt>listFilesAndDirectories<ept id="3f5ec2fd-8eee-498a-b46e-b3dcaf7c8ba2">&lt;/strong&gt;</ept> on a CloudFileDirectory reference.</source>
+          <target state="new">Obtaining a list of files and directories within a share is easily done by calling <bpt id="3f5ec2fd-8eee-498a-b46e-b3dcaf7c8ba2">&lt;strong&gt;</bpt>listFilesAndDirectories<ept id="3f5ec2fd-8eee-498a-b46e-b3dcaf7c8ba2">&lt;/strong&gt;</ept> on a CloudFileDirectory reference.</target>
+        </trans-unit>
+        <trans-unit id="c25642a2-dc58-4d34-95a2-5266eabbd30b" xml:space="preserve">
+          <source>The method returns a list of ListFileItem objects which you can iterate on.</source>
+          <target state="new">The method returns a list of ListFileItem objects which you can iterate on.</target>
+        </trans-unit>
+        <trans-unit id="a1693f1f-b404-4fc8-8ae7-a527aa471b18" xml:space="preserve">
+          <source>As an example, the following code will list files and directories inside the root directory.</source>
+          <target state="new">As an example, the following code will list files and directories inside the root directory.</target>
+        </trans-unit>
+        <trans-unit id="c574eb94-1e14-4789-bdf1-9430501f19f3" xml:space="preserve">
+          <source>One of the more frequent operations you will perform against file storage is to download files.</source>
+          <target state="new">One of the more frequent operations you will perform against file storage is to download files.</target>
+        </trans-unit>
+        <trans-unit id="f47d9639-7f31-43fe-b7a4-09fe8200f910" xml:space="preserve">
+          <source>In the following example, the code downloads SampleFile.txt and displays its contents.</source>
+          <target state="new">In the following example, the code downloads SampleFile.txt and displays its contents.</target>
+        </trans-unit>
+        <trans-unit id="d07bc556-f441-48f1-a728-4e7c4f8d78e8" xml:space="preserve">
+          <source>Another common file storage operation is file deletion.</source>
+          <target state="new">Another common file storage operation is file deletion.</target>
+        </trans-unit>
+        <trans-unit id="cf34ec22-00eb-4334-887e-4b5a0844d646" xml:space="preserve">
+          <source>The following code deletes a file named SampleFile.txt stored inside a directory named <bpt id="35ead808-a63a-4cff-94d5-4ddbc6d6ccea">&lt;strong&gt;</bpt>sampledir<ept id="35ead808-a63a-4cff-94d5-4ddbc6d6ccea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following code deletes a file named SampleFile.txt stored inside a directory named <bpt id="35ead808-a63a-4cff-94d5-4ddbc6d6ccea">&lt;strong&gt;</bpt>sampledir<ept id="35ead808-a63a-4cff-94d5-4ddbc6d6ccea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e16bd0d-9f3b-46cd-8e95-a133185207ba" xml:space="preserve">
+          <source>Deleting a directory is a fairly simple task, although it should be noted that you cannot delete a directory that still contains files or other directories.</source>
+          <target state="new">Deleting a directory is a fairly simple task, although it should be noted that you cannot delete a directory that still contains files or other directories.</target>
+        </trans-unit>
+        <trans-unit id="4df53caf-4c49-40f1-887b-98a8c816ae6c" xml:space="preserve">
+          <source>Deleting a share is done by calling the <bpt id="59af413f-500a-4bbd-ba3d-3bd05912ec7f">&lt;strong&gt;</bpt>deleteIfExists<ept id="59af413f-500a-4bbd-ba3d-3bd05912ec7f">&lt;/strong&gt;</ept> method on a CloudFileShare object.</source>
+          <target state="new">Deleting a share is done by calling the <bpt id="59af413f-500a-4bbd-ba3d-3bd05912ec7f">&lt;strong&gt;</bpt>deleteIfExists<ept id="59af413f-500a-4bbd-ba3d-3bd05912ec7f">&lt;/strong&gt;</ept> method on a CloudFileShare object.</target>
+        </trans-unit>
+        <trans-unit id="c2f7dd9d-2626-430c-94e8-69eafb2db3a9" xml:space="preserve">
+          <source>Here's sample code that does that.</source>
+          <target state="new">Here's sample code that does that.</target>
+        </trans-unit>
+        <trans-unit id="411494d7-1cf7-4cae-baab-e7db81b47596" xml:space="preserve">
+          <source>If you would like to learn more about other Azure storage APIs, follow these links.</source>
+          <target state="new">If you would like to learn more about other Azure storage APIs, follow these links.</target>
+        </trans-unit>
+        <trans-unit id="8f4a8c83-8234-421b-b315-d6f989d4dd1b" xml:space="preserve">
+          <source>[Azure Storage SDK for Java]</source>
+          <target state="new">[Azure Storage SDK for Java]</target>
+        </trans-unit>
+        <trans-unit id="bc8a6ece-364c-463f-81bf-7881801386f4" xml:space="preserve">
+          <source>[Azure Storage Client SDK Reference]</source>
+          <target state="new">[Azure Storage Client SDK Reference]</target>
+        </trans-unit>
+        <trans-unit id="c21d7cba-ea45-465d-a6b6-d149832b8964" xml:space="preserve">
+          <source>[Azure Storage REST API]</source>
+          <target state="new">[Azure Storage REST API]</target>
+        </trans-unit>
+        <trans-unit id="51cbc354-0751-4213-ad47-1f173203054a" xml:space="preserve">
+          <source>[Azure Storage Team Blog]</source>
+          <target state="new">[Azure Storage Team Blog]</target>
+        </trans-unit>
+        <trans-unit id="fd09fffd-be24-40c9-86a7-837c0d735454" xml:space="preserve">
+          <source>http://azure.microsoft.com/develop/java/</source>
+          <target state="new">http://azure.microsoft.com/develop/java/</target>
+        </trans-unit>
+        <trans-unit id="42d45c9e-e257-4140-948a-5526856d609c" xml:space="preserve">
+          <source>https://github.com/azure/azure-storage-java</source>
+          <target state="new">https://github.com/azure/azure-storage-java</target>
+        </trans-unit>
+        <trans-unit id="f6ffed91-10f3-49da-89a7-9284a86562d6" xml:space="preserve">
+          <source>https://github.com/azure/azure-storage-android</source>
+          <target state="new">https://github.com/azure/azure-storage-android</target>
+        </trans-unit>
+        <trans-unit id="1907d5fb-4340-4438-9c06-ba588ba9a352" xml:space="preserve">
+          <source>http://dl.windowsazure.com/storage/javadoc/</source>
+          <target state="new">http://dl.windowsazure.com/storage/javadoc/</target>
+        </trans-unit>
+        <trans-unit id="ee47ed29-f501-4621-b378-0115bf4d0cc6" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/gg433040.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/gg433040.aspx</target>
+        </trans-unit>
+        <trans-unit id="42e58d89-0b7b-4ef6-96e8-e6696bba1272" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/windowsazurestorage/</source>
+          <target state="new">http://blogs.msdn.com/b/windowsazurestorage/</target>
+        </trans-unit>
+      </group>
+      <group id="803be478-7453-42c3-8f3a-c31a59bc4522" />
+    </body>
+  </file>
+</xliff>

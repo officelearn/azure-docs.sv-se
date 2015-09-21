@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a002c15a-1fed-45c9-a450-42896d02016e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a002c15a-1fed-45c9-a450-42896d02016e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="17771fc1-fa4a-429a-a48b-f31925f05883">
+        <trans-unit id="b9b30707-4f66-41da-a2da-042eaa2b015a" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="Signing in to the mobile app using a verification code with Azure Multi-Factor Authentication" 
+    description="This page will describe how a user can signin using a mobile app verification code with Azure MFA." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="Signing in to the mobile app using a verification code with Azure Multi-Factor Authentication" 
+    description="This page will describe how a user can signin using a mobile app verification code with Azure MFA." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="64ebf0dc-897e-4614-b808-05916c74d030" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2015" 
+    ms.author="billmath"/&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2015" 
+    ms.author="billmath"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="2dc6cf18-f5b3-4283-b3f5-d321e84677a4" xml:space="preserve">
+          <source>The following information will describe the experience of using multi-factor authentication with your mobile app when you are using it with a verification code.</source>
+          <target state="new">The following information will describe the experience of using multi-factor authentication with your mobile app when you are using it with a verification code.</target>
+        </trans-unit>
+        <trans-unit id="d03b0a88-5c63-4040-915e-08e8d041242e" xml:space="preserve">
+          <source>&lt;ol&gt;</source>
+          <target state="new">&lt;ol&gt;</target>
+        </trans-unit>
+        <trans-unit id="f51a2e04-1b09-45f7-ae1b-3c57a3e0d3ca" xml:space="preserve">
+          <source>&lt;li&gt;Sign in to an application or service such as Office 365 using your user name and password.&lt;/li&gt;
+&lt;li&gt;Microsoft will prompt you for a verification code.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Sign in to an application or service such as Office 365 using your user name and password.&lt;/li&gt;
+&lt;li&gt;Microsoft will prompt you for a verification code.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="20e6e3f0-8a59-4e29-9eaf-73c9a215d911" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="900e9b5e-6f12-4311-bc3b-00216aae1c3d">&lt;linkText&gt;</bpt>Setup<ept id="900e9b5e-6f12-4311-bc3b-00216aae1c3d">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="900e9b5e-6f12-4311-bc3b-00216aae1c3d">&lt;linkText&gt;</bpt>Setup<ept id="900e9b5e-6f12-4311-bc3b-00216aae1c3d">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="553171d9-8944-4bac-a058-1f8829bec414" xml:space="preserve">
+          <source>&lt;li&gt;Open the Azure Authenticatior app on your phone and enter the code in the box where you are signing in.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Open the Azure Authenticatior app on your phone and enter the code in the box where you are signing in.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="15c053c1-0658-428f-b3bb-ac0e44444cdf" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="e154f7c4-2f6a-42e9-9d42-595c040d0fa2">&lt;linkText&gt;</bpt>Setup<ept id="e154f7c4-2f6a-42e9-9d42-595c040d0fa2">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="e154f7c4-2f6a-42e9-9d42-595c040d0fa2">&lt;linkText&gt;</bpt>Setup<ept id="e154f7c4-2f6a-42e9-9d42-595c040d0fa2">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="040bc858-c6de-4765-84be-09040c33bfe7" xml:space="preserve">
+          <source>&lt;li&gt;You should now be signed in.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;You should now be signed in.&lt;/li&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

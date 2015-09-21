@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e86a26ea-dec7-4d4b-b457-41a8c85a3db5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e86a26ea-dec7-4d4b-b457-41a8c85a3db5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3420da0f-5531-4e48-ba7b-b9a0a91d99de">
+        <trans-unit id="664e9db5-3837-424e-a7b6-7c5cf0b57677" xml:space="preserve">
+          <source>For more details about disks, see <bpt id="2760aae5-4033-428f-b3c7-8f01281937bd">&lt;linkText&gt;</bpt>About Disks and VHDs for Virtual Machines<ept id="2760aae5-4033-428f-b3c7-8f01281937bd">&lt;/linkText&gt;</ept><bpt id="2760aae5-4033-428f-b3c7-8f01281937bd">&lt;title&gt;</bpt><ept id="2760aae5-4033-428f-b3c7-8f01281937bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about disks, see <bpt id="2760aae5-4033-428f-b3c7-8f01281937bd">&lt;linkText&gt;</bpt>About Disks and VHDs for Virtual Machines<ept id="2760aae5-4033-428f-b3c7-8f01281937bd">&lt;/linkText&gt;</ept><bpt id="2760aae5-4033-428f-b3c7-8f01281937bd">&lt;title&gt;</bpt><ept id="2760aae5-4033-428f-b3c7-8f01281937bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49038cf7-d3ca-48c7-9319-d4b0983c62c7" xml:space="preserve">
+          <source><bpt id="ab9b1175-ca4b-4a30-b6f9-73da724bf297">&lt;bookmark&gt;</bpt><ept id="ab9b1175-ca4b-4a30-b6f9-73da724bf297">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="ab9b1175-ca4b-4a30-b6f9-73da724bf297">&lt;bookmark&gt;</bpt><ept id="ab9b1175-ca4b-4a30-b6f9-73da724bf297">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a99b3b9-7d31-46d3-bad6-1c7e9e97831b" xml:space="preserve">
+          <source>Attaching an empty disk is the simpler way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.</source>
+          <target state="new">Attaching an empty disk is the simpler way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.</target>
+        </trans-unit>
+        <trans-unit id="51b6ac8c-2185-4750-925b-aa2e89d83a5c" xml:space="preserve">
+          <source>Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription.</source>
+          <target state="new">Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="8ef6451c-71bf-4cc7-b040-3eb527269c85" xml:space="preserve">
+          <source>See <bpt id="e18d3d80-31e9-4597-809d-4386436296c0">&lt;linkText&gt;</bpt>Connect
+to Azure from Azure CLI<ept id="e18d3d80-31e9-4597-809d-4386436296c0">&lt;/linkText&gt;</ept><bpt id="e18d3d80-31e9-4597-809d-4386436296c0">&lt;title&gt;</bpt><ept id="e18d3d80-31e9-4597-809d-4386436296c0">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See <bpt id="e18d3d80-31e9-4597-809d-4386436296c0">&lt;linkText&gt;</bpt>Connect
+to Azure from Azure CLI<ept id="e18d3d80-31e9-4597-809d-4386436296c0">&lt;/linkText&gt;</ept><bpt id="e18d3d80-31e9-4597-809d-4386436296c0">&lt;title&gt;</bpt><ept id="e18d3d80-31e9-4597-809d-4386436296c0">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="caa440ae-3e20-4b89-8510-b9510696c914" xml:space="preserve">
+          <source>Make sure you are in Azure Service Management mode, which is the default by typing <bpt id="d31bcc79-5ba9-46c9-a636-d2823cf42095">&lt;code&gt;</bpt>azure config
+mode asm<ept id="d31bcc79-5ba9-46c9-a636-d2823cf42095">&lt;/code&gt;</ept>.</source>
+          <target state="new">Make sure you are in Azure Service Management mode, which is the default by typing <bpt id="d31bcc79-5ba9-46c9-a636-d2823cf42095">&lt;code&gt;</bpt>azure config
+mode asm<ept id="d31bcc79-5ba9-46c9-a636-d2823cf42095">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc8b5cb1-8668-4881-b664-4e3d55ee56f3" xml:space="preserve">
+          <source>Use the command <bpt id="1558d08b-7bf7-43a6-8365-b0d84249bfd8">&lt;code&gt;</bpt>azure vm disk attach-new<ept id="1558d08b-7bf7-43a6-8365-b0d84249bfd8">&lt;/code&gt;</ept> to create and attach a new disk as shown below.</source>
+          <target state="new">Use the command <bpt id="1558d08b-7bf7-43a6-8365-b0d84249bfd8">&lt;code&gt;</bpt>azure vm disk attach-new<ept id="1558d08b-7bf7-43a6-8365-b0d84249bfd8">&lt;/code&gt;</ept> to create and attach a new disk as shown below.</target>
+        </trans-unit>
+        <trans-unit id="21851f3b-7b6b-4c91-8bbf-30a72e96fc5d" xml:space="preserve">
+          <source>Note that the
+<bpt id="a56474f9-5b10-4a69-8422-7a4d4d226190">&lt;em&gt;</bpt>ubuntuVMasm<ept id="a56474f9-5b10-4a69-8422-7a4d4d226190">&lt;/em&gt;</ept> will be replaced by the name of the Linux Virtual Machine that you have created in your subscription.</source>
+          <target state="new">Note that the
+<bpt id="a56474f9-5b10-4a69-8422-7a4d4d226190">&lt;em&gt;</bpt>ubuntuVMasm<ept id="a56474f9-5b10-4a69-8422-7a4d4d226190">&lt;/em&gt;</ept> will be replaced by the name of the Linux Virtual Machine that you have created in your subscription.</target>
+        </trans-unit>
+        <trans-unit id="ea1d8c81-970c-4fbd-8fb1-f39d2cc7c12f" xml:space="preserve">
+          <source>The number 30 is the size of the disk in GB in this example.</source>
+          <target state="new">The number 30 is the size of the disk in GB in this example.</target>
+        </trans-unit>
+        <trans-unit id="ed425e0d-b891-43f2-ad0e-4f6f44615dd5" xml:space="preserve">
+          <source>After the data disk is created and attached, it's listed in the output of <bpt id="d86fa489-a31c-416d-ab84-4d0f7f0f9f85">&lt;code&gt;</bpt>azure vm disk list
+&lt;virtual-machine-name&gt;<ept id="d86fa489-a31c-416d-ab84-4d0f7f0f9f85">&lt;/code&gt;</ept> like this:</source>
+          <target state="new">After the data disk is created and attached, it's listed in the output of <bpt id="d86fa489-a31c-416d-ab84-4d0f7f0f9f85">&lt;code&gt;</bpt>azure vm disk list
+&lt;virtual-machine-name&gt;<ept id="d86fa489-a31c-416d-ab84-4d0f7f0f9f85">&lt;/code&gt;</ept> like this:</target>
+        </trans-unit>
+        <trans-unit id="51f78067-8253-4950-ae0a-35f5cbe1955c" xml:space="preserve">
+          <source><bpt id="68990951-956a-4a96-8c58-36f36383f708">&lt;bookmark&gt;</bpt><ept id="68990951-956a-4a96-8c58-36f36383f708">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="68990951-956a-4a96-8c58-36f36383f708">&lt;bookmark&gt;</bpt><ept id="68990951-956a-4a96-8c58-36f36383f708">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9113efc2-348c-489c-b89d-d265509b8077" xml:space="preserve">
+          <source>Attaching an existing disk requires that you have a .vhd available in a storage account.</source>
+          <target state="new">Attaching an existing disk requires that you have a .vhd available in a storage account.</target>
+        </trans-unit>
+        <trans-unit id="5d47d724-d0c4-4274-986d-533b7a4feab7" xml:space="preserve">
+          <source>Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription.</source>
+          <target state="new">Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="518c1467-a7e4-4d73-b5e8-5638dbe4b1f8" xml:space="preserve">
+          <source>See <bpt id="dcf8b786-9bab-4575-9951-bb1f112c60d0">&lt;linkText&gt;</bpt>Connect
+to Azure from Azure CLI<ept id="dcf8b786-9bab-4575-9951-bb1f112c60d0">&lt;/linkText&gt;</ept><bpt id="dcf8b786-9bab-4575-9951-bb1f112c60d0">&lt;title&gt;</bpt><ept id="dcf8b786-9bab-4575-9951-bb1f112c60d0">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See <bpt id="dcf8b786-9bab-4575-9951-bb1f112c60d0">&lt;linkText&gt;</bpt>Connect
+to Azure from Azure CLI<ept id="dcf8b786-9bab-4575-9951-bb1f112c60d0">&lt;/linkText&gt;</ept><bpt id="dcf8b786-9bab-4575-9951-bb1f112c60d0">&lt;title&gt;</bpt><ept id="dcf8b786-9bab-4575-9951-bb1f112c60d0">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="2f050981-f581-42bc-9e7f-0effcf17da7e" xml:space="preserve">
+          <source>Make sure you are in Azure Service Management mode, which is the default.</source>
+          <target state="new">Make sure you are in Azure Service Management mode, which is the default.</target>
+        </trans-unit>
+        <trans-unit id="4dde0b73-44cd-4185-a78a-a16d972bde11" xml:space="preserve">
+          <source>If you have changed
+mode to Resource Management, simply revert by typing <bpt id="d61a0fc4-27c2-407c-9c6f-eefff070f0b3">&lt;code&gt;</bpt>azure config mode asm<ept id="d61a0fc4-27c2-407c-9c6f-eefff070f0b3">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you have changed
+mode to Resource Management, simply revert by typing <bpt id="d61a0fc4-27c2-407c-9c6f-eefff070f0b3">&lt;code&gt;</bpt>azure config mode asm<ept id="d61a0fc4-27c2-407c-9c6f-eefff070f0b3">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9761abf3-e5cd-4033-9e6e-f06fa1b94b47" xml:space="preserve">
+          <source>Find out if the VHD you want to attach is already uploaded to your Azure subscription by using:</source>
+          <target state="new">Find out if the VHD you want to attach is already uploaded to your Azure subscription by using:</target>
+        </trans-unit>
+        <trans-unit id="124b5aef-fbc1-4e3a-b58e-0474c77ed170" xml:space="preserve">
+          <source>If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using
+<bpt id="d294c577-8da1-4228-a5bd-24be822484fe">&lt;code&gt;</bpt>azure vm disk create<ept id="d294c577-8da1-4228-a5bd-24be822484fe">&lt;/code&gt;</ept> or <bpt id="324ed2d5-5ef2-4295-bed2-94eba21a3463">&lt;code&gt;</bpt>azure vm disk upload<ept id="324ed2d5-5ef2-4295-bed2-94eba21a3463">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using
+<bpt id="d294c577-8da1-4228-a5bd-24be822484fe">&lt;code&gt;</bpt>azure vm disk create<ept id="d294c577-8da1-4228-a5bd-24be822484fe">&lt;/code&gt;</ept> or <bpt id="324ed2d5-5ef2-4295-bed2-94eba21a3463">&lt;code&gt;</bpt>azure vm disk upload<ept id="324ed2d5-5ef2-4295-bed2-94eba21a3463">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="546f19f3-9f74-4324-8850-fd5953bee35e" xml:space="preserve">
+          <source>An example would be this:</source>
+          <target state="new">An example would be this:</target>
+        </trans-unit>
+        <trans-unit id="de4abe9e-7076-4921-b6b8-4470bd59f43f" xml:space="preserve">
+          <source>You may also use the <bpt id="36d009af-8725-43eb-a9ff-d7f5a37d0a04">&lt;code&gt;</bpt>azure vm disk upload<ept id="36d009af-8725-43eb-a9ff-d7f5a37d0a04">&lt;/code&gt;</ept> command to upload a VHD to a specific storage account.</source>
+          <target state="new">You may also use the <bpt id="36d009af-8725-43eb-a9ff-d7f5a37d0a04">&lt;code&gt;</bpt>azure vm disk upload<ept id="36d009af-8725-43eb-a9ff-d7f5a37d0a04">&lt;/code&gt;</ept> command to upload a VHD to a specific storage account.</target>
+        </trans-unit>
+        <trans-unit id="e9d30db3-d6d3-4689-8ee0-2e60d9f5f236" xml:space="preserve">
+          <source>Read more about the commands to manage your Azure virtual machine data disks <bpt id="cc9a5a86-605d-4997-af58-38f9b59641d7">&lt;linkText&gt;</bpt>over here<ept id="cc9a5a86-605d-4997-af58-38f9b59641d7">&lt;/linkText&gt;</ept><bpt id="cc9a5a86-605d-4997-af58-38f9b59641d7">&lt;title&gt;</bpt><ept id="cc9a5a86-605d-4997-af58-38f9b59641d7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more about the commands to manage your Azure virtual machine data disks <bpt id="cc9a5a86-605d-4997-af58-38f9b59641d7">&lt;linkText&gt;</bpt>over here<ept id="cc9a5a86-605d-4997-af58-38f9b59641d7">&lt;/linkText&gt;</ept><bpt id="cc9a5a86-605d-4997-af58-38f9b59641d7">&lt;title&gt;</bpt><ept id="cc9a5a86-605d-4997-af58-38f9b59641d7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1938210c-444e-4054-81dc-f64d05718851" xml:space="preserve">
+          <source>Type the following command to attach the desired uploaded VHD to your virtual machine:</source>
+          <target state="new">Type the following command to attach the desired uploaded VHD to your virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="788f08f6-2012-490c-84f2-5cdf8dfca789" xml:space="preserve">
+          <source>Make sure to replace <bpt id="3c844a3a-d805-4b35-b926-cedb9292821c">&lt;em&gt;</bpt>ubuntuVMasm<ept id="3c844a3a-d805-4b35-b926-cedb9292821c">&lt;/em&gt;</ept> with the name of your virtual machine, and <bpt id="7e85dd22-a43a-4e99-bcb1-d00b59ae5019">&lt;em&gt;</bpt>myTestVhd<ept id="7e85dd22-a43a-4e99-bcb1-d00b59ae5019">&lt;/em&gt;</ept> with your desired VHD.</source>
+          <target state="new">Make sure to replace <bpt id="3c844a3a-d805-4b35-b926-cedb9292821c">&lt;em&gt;</bpt>ubuntuVMasm<ept id="3c844a3a-d805-4b35-b926-cedb9292821c">&lt;/em&gt;</ept> with the name of your virtual machine, and <bpt id="7e85dd22-a43a-4e99-bcb1-d00b59ae5019">&lt;em&gt;</bpt>myTestVhd<ept id="7e85dd22-a43a-4e99-bcb1-d00b59ae5019">&lt;/em&gt;</ept> with your desired VHD.</target>
+        </trans-unit>
+        <trans-unit id="1223515d-4869-45f2-8e54-4ddcb84fa854" xml:space="preserve">
+          <source>You can verify if the disk is attached to the virtual machine with the command <bpt id="43c9fe7e-8e89-4122-a95f-d868a7371460">&lt;code&gt;</bpt>azure vm disk list
+&lt;virtual-machine-name&gt;<ept id="43c9fe7e-8e89-4122-a95f-d868a7371460">&lt;/code&gt;</ept> as:</source>
+          <target state="new">You can verify if the disk is attached to the virtual machine with the command <bpt id="43c9fe7e-8e89-4122-a95f-d868a7371460">&lt;code&gt;</bpt>azure vm disk list
+&lt;virtual-machine-name&gt;<ept id="43c9fe7e-8e89-4122-a95f-d868a7371460">&lt;/code&gt;</ept> as:</target>
+        </trans-unit>
+        <trans-unit id="1ab3467f-b855-474d-b546-2aa75b0fda8f" xml:space="preserve">
+          <source>After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage.</source>
+          <target state="new">After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

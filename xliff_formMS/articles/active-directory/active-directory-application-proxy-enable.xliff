@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ba15393b-12a1-4a7c-aea7-3a20a751f65f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ba15393b-12a1-4a7c-aea7-3a20a751f65f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c7bfa7a4-302c-44be-8769-0c4aca5f9331">
+        <trans-unit id="a6e7413c-6d33-4e66-ae21-d0fefdba951f" xml:space="preserve">
+          <source>Enabling Azure AD Application Proxy</source>
+          <target state="new">Enabling Azure AD Application Proxy</target>
+        </trans-unit>
+        <trans-unit id="af485cb8-e379-43c4-bfa2-df633d800d07" xml:space="preserve">
+          <source>Covers how to get up and running with Azure AD Application Proxy.</source>
+          <target state="new">Covers how to get up and running with Azure AD Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="8ccb9e3f-e02d-4dbf-b535-d032359896fb" xml:space="preserve">
+          <source>Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</source>
+          <target state="new">Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="5ea1e32c-bd12-4e10-be32-983195683d00" xml:space="preserve">
+          <source>For more information, see <bpt id="6246006a-45b7-4d29-8005-424214e17a89">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="6246006a-45b7-4d29-8005-424214e17a89">&lt;/linkText&gt;</ept><bpt id="6246006a-45b7-4d29-8005-424214e17a89">&lt;title&gt;</bpt><ept id="6246006a-45b7-4d29-8005-424214e17a89">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="6246006a-45b7-4d29-8005-424214e17a89">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="6246006a-45b7-4d29-8005-424214e17a89">&lt;/linkText&gt;</ept><bpt id="6246006a-45b7-4d29-8005-424214e17a89">&lt;title&gt;</bpt><ept id="6246006a-45b7-4d29-8005-424214e17a89">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9c6f582-5955-4134-bdc4-bf1a71048a02" xml:space="preserve">
+          <source>Microsoft Azure AD Application Proxy lets you publish applications, such as SharePoint sites, Outlook Web Access and IIS-based apps, inside your private network and provides secure access to users outside your network.</source>
+          <target state="new">Microsoft Azure AD Application Proxy lets you publish applications, such as SharePoint sites, Outlook Web Access and IIS-based apps, inside your private network and provides secure access to users outside your network.</target>
+        </trans-unit>
+        <trans-unit id="55771062-7da6-4a19-89d7-2693a5ce5e16" xml:space="preserve">
+          <source>Employees can log into your apps from home, on their own devices and authenticate through this cloud-based proxy</source>
+          <target state="new">Employees can log into your apps from home, on their own devices and authenticate through this cloud-based proxy</target>
+        </trans-unit>
+        <trans-unit id="30fa24a7-06d1-417f-a63a-4d665057a449" xml:space="preserve">
+          <source>This section walks you through enabling Microsoft Azure AD Application Proxy for your cloud directory in Azure AD, installing the Application Proxy Connector on your private network, registering the Connector with your Microsoft Azure AD tenant subscription.</source>
+          <target state="new">This section walks you through enabling Microsoft Azure AD Application Proxy for your cloud directory in Azure AD, installing the Application Proxy Connector on your private network, registering the Connector with your Microsoft Azure AD tenant subscription.</target>
+        </trans-unit>
+        <trans-unit id="5e3b2200-2a06-4231-b822-47b384e891fc" xml:space="preserve">
+          <source>Before you can enable and use Application Proxy services, you need to have:</source>
+          <target state="new">Before you can enable and use Application Proxy services, you need to have:</target>
+        </trans-unit>
+        <trans-unit id="08f42007-3a06-4ff6-b4c9-70a88af4fd99" xml:space="preserve">
+          <source>An Microsoft Azure administrator account.</source>
+          <target state="new">An Microsoft Azure administrator account.</target>
+        </trans-unit>
+        <trans-unit id="28130a2d-4efc-4cca-87e9-da2e14a466fd" xml:space="preserve">
+          <source>If you don’t’ have one, you can get one here.</source>
+          <target state="new">If you don’t’ have one, you can get one here.</target>
+        </trans-unit>
+        <trans-unit id="5be7faa7-ffaa-4c2e-996b-b5b77fa7fa11" xml:space="preserve">
+          <source>A server running Windows Server 2012 R2 or Windows 8.1 or higher on which you can install the Application Proxy Connector.</source>
+          <target state="new">A server running Windows Server 2012 R2 or Windows 8.1 or higher on which you can install the Application Proxy Connector.</target>
+        </trans-unit>
+        <trans-unit id="e12a20ca-69a3-4d9f-932f-50ac14fee5ee" xml:space="preserve">
+          <source>The server must be able to send HTTPS requests to the Application Proxy services in the cloud, and it must have an HTTPS connection to the applications that you intend to publish.</source>
+          <target state="new">The server must be able to send HTTPS requests to the Application Proxy services in the cloud, and it must have an HTTPS connection to the applications that you intend to publish.</target>
+        </trans-unit>
+        <trans-unit id="dc675cc4-5d2f-43f3-9bdd-a540a902d10f" xml:space="preserve">
+          <source>If a firewall is placed in the path, make sure the firewall is open to allow HTTPS (TCP) requests that originate from the Connector to the Application Proxy.</source>
+          <target state="new">If a firewall is placed in the path, make sure the firewall is open to allow HTTPS (TCP) requests that originate from the Connector to the Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="2a346424-6f08-4331-be26-460fff3d80ad" xml:space="preserve">
+          <source>The Connector uses these ports together with subdomains that are part of the high level domain: msappproxy.net.</source>
+          <target state="new">The Connector uses these ports together with subdomains that are part of the high level domain: msappproxy.net.</target>
+        </trans-unit>
+        <trans-unit id="2320a4fa-7dae-4f24-ac0b-669ae23b6149" xml:space="preserve">
+          <source>Make sure to open <bpt id="ac139208-4667-45e5-80c8-cf791f68511b">&lt;strong&gt;</bpt>all<ept id="ac139208-4667-45e5-80c8-cf791f68511b">&lt;/strong&gt;</ept> the following ports to <bpt id="3d7f457f-3160-4e4f-b3fb-e43dd044ea20">&lt;strong&gt;</bpt>outbound<ept id="3d7f457f-3160-4e4f-b3fb-e43dd044ea20">&lt;/strong&gt;</ept> traffic:</source>
+          <target state="new">Make sure to open <bpt id="ac139208-4667-45e5-80c8-cf791f68511b">&lt;strong&gt;</bpt>all<ept id="ac139208-4667-45e5-80c8-cf791f68511b">&lt;/strong&gt;</ept> the following ports to <bpt id="3d7f457f-3160-4e4f-b3fb-e43dd044ea20">&lt;strong&gt;</bpt>outbound<ept id="3d7f457f-3160-4e4f-b3fb-e43dd044ea20">&lt;/strong&gt;</ept> traffic:</target>
+        </trans-unit>
+        <trans-unit id="146943d4-3510-45ec-9846-45e175722b8f" xml:space="preserve">
+          <source>Port Number</source>
+          <target state="new">Port Number</target>
+        </trans-unit>
+        <trans-unit id="93f84b7c-eb23-401b-91c2-aacfaf108f9a" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="810b550a-49a4-4cb5-9920-264189e9cbcc" xml:space="preserve">
+          <source>80</source>
+          <target state="new">80</target>
+        </trans-unit>
+        <trans-unit id="27d3e5e2-5b04-4178-a23b-18b65af36f81" xml:space="preserve">
+          <source>To enable outbound HTTP traffic for security validation.</source>
+          <target state="new">To enable outbound HTTP traffic for security validation.</target>
+        </trans-unit>
+        <trans-unit id="eff9290e-fbc5-4339-9a6b-510fd0158f42" xml:space="preserve">
+          <source>443</source>
+          <target state="new">443</target>
+        </trans-unit>
+        <trans-unit id="1b9ebf29-b91e-4e39-a951-3014f81b6b71" xml:space="preserve">
+          <source>To enable user authentication against Azure AD (required only for the Connector registration process)</source>
+          <target state="new">To enable user authentication against Azure AD (required only for the Connector registration process)</target>
+        </trans-unit>
+        <trans-unit id="9024288e-c789-4d70-8dad-76be62eef9e2" xml:space="preserve">
+          <source>10100 - 10120</source>
+          <target state="new">10100 - 10120</target>
+        </trans-unit>
+        <trans-unit id="30d2844b-8261-4ec5-90fd-18696e5427d3" xml:space="preserve">
+          <source>To enable LOB HTTP responses sent back to the proxy</source>
+          <target state="new">To enable LOB HTTP responses sent back to the proxy</target>
+        </trans-unit>
+        <trans-unit id="bfa1d5a6-67eb-4135-8117-80c72ff72220" xml:space="preserve">
+          <source>9352, 5671</source>
+          <target state="new">9352, 5671</target>
+        </trans-unit>
+        <trans-unit id="1bc9c002-b4e4-4957-a643-1b50632b4aca" xml:space="preserve">
+          <source>To enable communication between the Connector toward the Azure service for incoming requests.</source>
+          <target state="new">To enable communication between the Connector toward the Azure service for incoming requests.</target>
+        </trans-unit>
+        <trans-unit id="6fa871f7-4bad-4f5f-9732-b525586ef942" xml:space="preserve">
+          <source>9350</source>
+          <target state="new">9350</target>
+        </trans-unit>
+        <trans-unit id="a04879bc-a750-47e1-bf26-c643c3d4b9a1" xml:space="preserve">
+          <source>Optional.</source>
+          <target state="new">Optional.</target>
+        </trans-unit>
+        <trans-unit id="87f9ca86-9fad-4f40-b73e-38c6c84fd8f3" xml:space="preserve">
+          <source>To enable better performance for incoming requests.</source>
+          <target state="new">To enable better performance for incoming requests.</target>
+        </trans-unit>
+        <trans-unit id="633f1cda-be7a-4ca2-8de2-3fb6fbd013e5" xml:space="preserve">
+          <source>8080</source>
+          <target state="new">8080</target>
+        </trans-unit>
+        <trans-unit id="c9805782-647b-47d5-8e6a-d0c1eb9aa79e" xml:space="preserve">
+          <source>To enable the Connector bootstrap sequence and to enable Connector automatic update</source>
+          <target state="new">To enable the Connector bootstrap sequence and to enable Connector automatic update</target>
+        </trans-unit>
+        <trans-unit id="8c1ae337-4a34-4aef-a762-c5d7c0b06dc2" xml:space="preserve">
+          <source>9090</source>
+          <target state="new">9090</target>
+        </trans-unit>
+        <trans-unit id="c684d03a-4476-4c31-8596-494968544f21" xml:space="preserve">
+          <source>To enable Connector registration (required only for the Connector registration process)</source>
+          <target state="new">To enable Connector registration (required only for the Connector registration process)</target>
+        </trans-unit>
+        <trans-unit id="22f065bc-cb0c-4c49-adea-345a410aef20" xml:space="preserve">
+          <source>9091</source>
+          <target state="new">9091</target>
+        </trans-unit>
+        <trans-unit id="e9a3b2bb-d3c4-4721-8f64-cbef8411e046" xml:space="preserve">
+          <source>To enable Connector trust certificate automatic renewal</source>
+          <target state="new">To enable Connector trust certificate automatic renewal</target>
+        </trans-unit>
+        <trans-unit id="908c41e7-2c7e-4cdf-8957-e098d2122083" xml:space="preserve">
+          <source>If your firewall enforces traffic according to originating users, open these ports for traffic coming from Windows services running as a Network Service.</source>
+          <target state="new">If your firewall enforces traffic according to originating users, open these ports for traffic coming from Windows services running as a Network Service.</target>
+        </trans-unit>
+        <trans-unit id="467a6cea-e955-49bc-8262-3b4d88d54540" xml:space="preserve">
+          <source>Also, make sure to enable port 8080 for NT Authority\System.</source>
+          <target state="new">Also, make sure to enable port 8080 for NT Authority\System.</target>
+        </trans-unit>
+        <trans-unit id="5d693285-7b34-41e6-adc2-6d29470058f3" xml:space="preserve">
+          <source>Sign in as an administrator in the Azure Management Portal.</source>
+          <target state="new">Sign in as an administrator in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="74792af5-ac62-403e-b471-5f2242fb6d57" xml:space="preserve">
+          <source>Go to Active Directory and select the directory in which you want to enable Application Proxy.</source>
+          <target state="new">Go to Active Directory and select the directory in which you want to enable Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="c090fc5d-a07f-4434-893a-f329dc99d73e" xml:space="preserve">
+          <source>Click Configure, scroll down to Application Proxy and toggle Enable Application Proxy Services for this Directory to Enabled.</source>
+          <target state="new">Click Configure, scroll down to Application Proxy and toggle Enable Application Proxy Services for this Directory to Enabled.</target>
+        </trans-unit>
+        <trans-unit id="34a5c735-6f9f-4935-a48b-1c757f0d9ffd" xml:space="preserve">
+          <source><bpt id="25c46554-d8fd-4f2c-a5b7-a885c72560e0">&lt;linkText&gt;</bpt>Enable Application Proxy<ept id="25c46554-d8fd-4f2c-a5b7-a885c72560e0">&lt;/linkText&gt;</ept> &lt;p&gt;</source>
+          <target state="new"><bpt id="25c46554-d8fd-4f2c-a5b7-a885c72560e0">&lt;linkText&gt;</bpt>Enable Application Proxy<ept id="25c46554-d8fd-4f2c-a5b7-a885c72560e0">&lt;/linkText&gt;</ept> &lt;p&gt;</target>
+        </trans-unit>
+        <trans-unit id="f1d306ee-efe5-429c-93ba-c09b809c1950" xml:space="preserve">
+          <source>Click Download now at the bottom of the screen.</source>
+          <target state="new">Click Download now at the bottom of the screen.</target>
+        </trans-unit>
+        <trans-unit id="87739efb-8709-422d-a4d1-43aadf6fcfb3" xml:space="preserve">
+          <source>This will take you to the download page.</source>
+          <target state="new">This will take you to the download page.</target>
+        </trans-unit>
+        <trans-unit id="b4d842b4-8bb4-4f44-aabb-da1f25e844c3" xml:space="preserve">
+          <source>Read and accept the license terms and click Download to save the Windows Installer file (.exe) for the Application Proxy Connector.</source>
+          <target state="new">Read and accept the license terms and click Download to save the Windows Installer file (.exe) for the Application Proxy Connector.</target>
+        </trans-unit>
+        <trans-unit id="bd8be4f8-2167-4fd4-866b-97438329d639" xml:space="preserve">
+          <source>Run AADApplicationProxyConnectorInstaller.exe on the server you prepared (see Application Proxy prerequisites).</source>
+          <target state="new">Run AADApplicationProxyConnectorInstaller.exe on the server you prepared (see Application Proxy prerequisites).</target>
+        </trans-unit>
+        <trans-unit id="4641e692-fd40-490a-b5db-818617eb0a96" xml:space="preserve">
+          <source>Follow the instructions in the wizard to install.</source>
+          <target state="new">Follow the instructions in the wizard to install.</target>
+        </trans-unit>
+        <trans-unit id="fffebca0-4175-4d99-bfcc-195e334c7c46" xml:space="preserve">
+          <source>During installation you will be prompted to register the Connector with your active Application Proxy account.
+&lt;p&gt;Provide your Azure AD global administrator credentials.</source>
+          <target state="new">During installation you will be prompted to register the Connector with your active Application Proxy account.
+&lt;p&gt;Provide your Azure AD global administrator credentials.</target>
+        </trans-unit>
+        <trans-unit id="e1ff490f-c6cf-4025-bf73-22291d0a9f1c" xml:space="preserve">
+          <source>Make sure the admin who registers the Connector is in the same directory where you enabled the Application Proxy service, for example if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other alias on that domain.</source>
+          <target state="new">Make sure the admin who registers the Connector is in the same directory where you enabled the Application Proxy service, for example if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other alias on that domain.</target>
+        </trans-unit>
+        <trans-unit id="4b2e7b2f-9ff9-4855-bb12-62249db95b2c" xml:space="preserve">
+          <source>And that you are a global administrator of the Azure AD tenant.</source>
+          <target state="new">And that you are a global administrator of the Azure AD tenant.</target>
+        </trans-unit>
+        <trans-unit id="cb6d3ede-aecb-41aa-bd3e-f91dc531b6f2" xml:space="preserve">
+          <source>Your global administrator tenant may be different from your Microsoft Azure credentials.</source>
+          <target state="new">Your global administrator tenant may be different from your Microsoft Azure credentials.</target>
+        </trans-unit>
+        <trans-unit id="3c88b27e-9a01-46b2-b305-eb2d08361a5a" xml:space="preserve">
+          <source>If IE Enhanced Security Configuration is set to On on the server where you are installing the Azure AD Connector, the registration screen might be blocked.</source>
+          <target state="new">If IE Enhanced Security Configuration is set to On on the server where you are installing the Azure AD Connector, the registration screen might be blocked.</target>
+        </trans-unit>
+        <trans-unit id="3dd22ff5-33ad-4ec8-a225-5eb4fcd48157" xml:space="preserve">
+          <source>If this happens, follow the instructions in the error message to allow access.</source>
+          <target state="new">If this happens, follow the instructions in the error message to allow access.</target>
+        </trans-unit>
+        <trans-unit id="d526ba88-99d1-405f-9f2b-6a63d483804b" xml:space="preserve">
+          <source>Make sure that Internet Explorer Enhanced Security is off.</source>
+          <target state="new">Make sure that Internet Explorer Enhanced Security is off.</target>
+        </trans-unit>
+        <trans-unit id="ffdb74fc-5389-4985-94f6-e7a43142f593" xml:space="preserve">
+          <source>If Connector registration does not succeed, see Troubleshoot Application Proxy.</source>
+          <target state="new">If Connector registration does not succeed, see Troubleshoot Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="819e70f7-1519-459a-9a4b-c7739f5b7a4c" xml:space="preserve">
+          <source>When the installation completes, two new services are added to your server, as shown below. These are the Connector service, which enables connectivity, and an automated update service, which periodically checks for new versions of the Connector and updates the Connector as needed. Click Finish in the installation window to complete installation
+<bpt id="9bafa66e-cf4e-465a-8c6a-6f8a0527749d">&lt;linkText&gt;</bpt>Application Proxy Connector Service<ept id="9bafa66e-cf4e-465a-8c6a-6f8a0527749d">&lt;/linkText&gt;</ept> &lt;p&gt;</source>
+          <target state="new">When the installation completes, two new services are added to your server, as shown below. These are the Connector service, which enables connectivity, and an automated update service, which periodically checks for new versions of the Connector and updates the Connector as needed. Click Finish in the installation window to complete installation
+<bpt id="9bafa66e-cf4e-465a-8c6a-6f8a0527749d">&lt;linkText&gt;</bpt>Application Proxy Connector Service<ept id="9bafa66e-cf4e-465a-8c6a-6f8a0527749d">&lt;/linkText&gt;</ept> &lt;p&gt;</target>
+        </trans-unit>
+        <trans-unit id="bc9dbb73-99e7-4fcf-9685-2695bb46c370" xml:space="preserve">
+          <source>You are now ready to Publish applications with Application Proxy.</source>
+          <target state="new">You are now ready to Publish applications with Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="2f1e795f-29fb-47b2-aa19-6dec87e0dcfa" xml:space="preserve">
+          <source>If you want to uninstall the Connector, after uninstalling the Connector service and the Updater service, make sure to restart your computer to fully remove the service.
+&lt;p&gt;For high availability purposes, you must deploy at least one additional Connector. To deploy an additional Connector, repeat steps 2 and 3, above. Each Connector must be registered separately.</source>
+          <target state="new">If you want to uninstall the Connector, after uninstalling the Connector service and the Updater service, make sure to restart your computer to fully remove the service.
+&lt;p&gt;For high availability purposes, you must deploy at least one additional Connector. To deploy an additional Connector, repeat steps 2 and 3, above. Each Connector must be registered separately.</target>
+        </trans-unit>
+        <trans-unit id="c380079a-4829-49bd-83af-1445fbf4a501" xml:space="preserve">
+          <source><bpt id="9b986cb8-b265-47be-b1eb-65f5f6363336">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="9b986cb8-b265-47be-b1eb-65f5f6363336">&lt;/linkText&gt;</ept><bpt id="9b986cb8-b265-47be-b1eb-65f5f6363336">&lt;title&gt;</bpt><ept id="9b986cb8-b265-47be-b1eb-65f5f6363336">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9b986cb8-b265-47be-b1eb-65f5f6363336">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="9b986cb8-b265-47be-b1eb-65f5f6363336">&lt;/linkText&gt;</ept><bpt id="9b986cb8-b265-47be-b1eb-65f5f6363336">&lt;title&gt;</bpt><ept id="9b986cb8-b265-47be-b1eb-65f5f6363336">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8faf9b4e-6685-461b-957a-e52f10d858df" xml:space="preserve">
+          <source><bpt id="50f78a16-d48d-4487-adfb-7f4f291bdf0a">&lt;linkText&gt;</bpt>Azure Identity<ept id="50f78a16-d48d-4487-adfb-7f4f291bdf0a">&lt;/linkText&gt;</ept><bpt id="50f78a16-d48d-4487-adfb-7f4f291bdf0a">&lt;title&gt;</bpt><ept id="50f78a16-d48d-4487-adfb-7f4f291bdf0a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="50f78a16-d48d-4487-adfb-7f4f291bdf0a">&lt;linkText&gt;</bpt>Azure Identity<ept id="50f78a16-d48d-4487-adfb-7f4f291bdf0a">&lt;/linkText&gt;</ept><bpt id="50f78a16-d48d-4487-adfb-7f4f291bdf0a">&lt;title&gt;</bpt><ept id="50f78a16-d48d-4487-adfb-7f4f291bdf0a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

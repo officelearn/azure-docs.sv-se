@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d88894fc-06f5-4454-97b0-9342122f009b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d88894fc-06f5-4454-97b0-9342122f009b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a237d65f-b7b2-4012-960f-efed9da7814a">
+        <trans-unit id="06168ce6-6163-4e3c-a9f9-89faed5ca1b0" xml:space="preserve">
+          <source>Use Azure Stream Analytics with SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Use Azure Stream Analytics with SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6a244b85-4240-4d1f-84ae-d25521c838c0" xml:space="preserve">
+          <source>Tips for using Azure Stream Analytics with Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tips for using Azure Stream Analytics with Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="b2a9ca3e-8cb1-459e-ae62-29846222cbfa" xml:space="preserve">
+          <source>Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud.</source>
+          <target state="new">Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="36effe49-5b0e-4d58-bacf-9c055e05c9a5" xml:space="preserve">
+          <source>You can learn the basics by reading <bpt id="e80ed152-df2d-42aa-a3be-621c4bda02df">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="e80ed152-df2d-42aa-a3be-621c4bda02df">&lt;/linkText&gt;</ept><bpt id="e80ed152-df2d-42aa-a3be-621c4bda02df">&lt;title&gt;</bpt><ept id="e80ed152-df2d-42aa-a3be-621c4bda02df">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn the basics by reading <bpt id="e80ed152-df2d-42aa-a3be-621c4bda02df">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="e80ed152-df2d-42aa-a3be-621c4bda02df">&lt;/linkText&gt;</ept><bpt id="e80ed152-df2d-42aa-a3be-621c4bda02df">&lt;title&gt;</bpt><ept id="e80ed152-df2d-42aa-a3be-621c4bda02df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e98d855-7c37-4876-921d-382b25180229" xml:space="preserve">
+          <source>You can then learn how to create an end-to-end solution with Stream Analytics using <bpt id="fc98a540-3d7f-44bb-bc3f-7355ed960c00">&lt;linkText&gt;</bpt>Get Started tutorial<ept id="fc98a540-3d7f-44bb-bc3f-7355ed960c00">&lt;/linkText&gt;</ept><bpt id="fc98a540-3d7f-44bb-bc3f-7355ed960c00">&lt;title&gt;</bpt><ept id="fc98a540-3d7f-44bb-bc3f-7355ed960c00">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can then learn how to create an end-to-end solution with Stream Analytics using <bpt id="fc98a540-3d7f-44bb-bc3f-7355ed960c00">&lt;linkText&gt;</bpt>Get Started tutorial<ept id="fc98a540-3d7f-44bb-bc3f-7355ed960c00">&lt;/linkText&gt;</ept><bpt id="fc98a540-3d7f-44bb-bc3f-7355ed960c00">&lt;title&gt;</bpt><ept id="fc98a540-3d7f-44bb-bc3f-7355ed960c00">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f5132daa-3b91-4385-8066-985a98bf7034" xml:space="preserve">
+          <source>In this article, you will learn how to use your Azure SQL Data Warehouse database as an output sink for your Steam Analytics jobs.</source>
+          <target state="new">In this article, you will learn how to use your Azure SQL Data Warehouse database as an output sink for your Steam Analytics jobs.</target>
+        </trans-unit>
+        <trans-unit id="a9824104-bc28-4db8-a54c-bd6e178b2b10" xml:space="preserve">
+          <source>First, run through the following steps in <bpt id="daa2df40-cd1e-455e-89e9-2ccd6579cc93">&lt;linkText&gt;</bpt>Get Started tutorial<ept id="daa2df40-cd1e-455e-89e9-2ccd6579cc93">&lt;/linkText&gt;</ept><bpt id="daa2df40-cd1e-455e-89e9-2ccd6579cc93">&lt;title&gt;</bpt><ept id="daa2df40-cd1e-455e-89e9-2ccd6579cc93">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">First, run through the following steps in <bpt id="daa2df40-cd1e-455e-89e9-2ccd6579cc93">&lt;linkText&gt;</bpt>Get Started tutorial<ept id="daa2df40-cd1e-455e-89e9-2ccd6579cc93">&lt;/linkText&gt;</ept><bpt id="daa2df40-cd1e-455e-89e9-2ccd6579cc93">&lt;title&gt;</bpt><ept id="daa2df40-cd1e-455e-89e9-2ccd6579cc93">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="01d45e8d-418b-466b-ad8b-d8f46347676d" xml:space="preserve">
+          <source>Create an Event Hub input</source>
+          <target state="new">Create an Event Hub input</target>
+        </trans-unit>
+        <trans-unit id="3001accf-88a3-4478-bd14-97a005591182" xml:space="preserve">
+          <source>Configure and start event generator application</source>
+          <target state="new">Configure and start event generator application</target>
+        </trans-unit>
+        <trans-unit id="828cd129-7af1-4e04-a6c0-4b3b7d6a9fa8" xml:space="preserve">
+          <source>Provision a Stream Analytics job</source>
+          <target state="new">Provision a Stream Analytics job</target>
+        </trans-unit>
+        <trans-unit id="e6d6ebe9-d7a2-40fa-9628-5f363d7bceb3" xml:space="preserve">
+          <source>Specify job input and query</source>
+          <target state="new">Specify job input and query</target>
+        </trans-unit>
+        <trans-unit id="61f15150-a792-44d5-893c-9b936559f659" xml:space="preserve">
+          <source>Then, create an Azure SQL Data Warehouse database</source>
+          <target state="new">Then, create an Azure SQL Data Warehouse database</target>
+        </trans-unit>
+        <trans-unit id="168c6a90-76ae-4c91-9231-a785a771dd05" xml:space="preserve">
+          <source>In your Stream Analytics job click <bpt id="da4aeaf4-7a43-425e-a406-cd13a98f3819">&lt;strong&gt;</bpt>OUTPUT<ept id="da4aeaf4-7a43-425e-a406-cd13a98f3819">&lt;/strong&gt;</ept> from the top of the page, and then click <bpt id="865fc3ad-b716-441b-bd95-0a2568178d37">&lt;strong&gt;</bpt>ADD OUTPUT<ept id="865fc3ad-b716-441b-bd95-0a2568178d37">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In your Stream Analytics job click <bpt id="da4aeaf4-7a43-425e-a406-cd13a98f3819">&lt;strong&gt;</bpt>OUTPUT<ept id="da4aeaf4-7a43-425e-a406-cd13a98f3819">&lt;/strong&gt;</ept> from the top of the page, and then click <bpt id="865fc3ad-b716-441b-bd95-0a2568178d37">&lt;strong&gt;</bpt>ADD OUTPUT<ept id="865fc3ad-b716-441b-bd95-0a2568178d37">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="280aec75-908d-440f-bb34-e6aa9c096af5" xml:space="preserve">
+          <source>Select SQL Database and click next.</source>
+          <target state="new">Select SQL Database and click next.</target>
+        </trans-unit>
+        <trans-unit id="ede3d17c-520a-4ec1-8da3-a0cb2f20005c" xml:space="preserve">
+          <source><bpt id="ff46bbd5-d481-489d-a631-2d153826f3bd">&lt;linkText&gt;</bpt><ept id="ff46bbd5-d481-489d-a631-2d153826f3bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff46bbd5-d481-489d-a631-2d153826f3bd">&lt;linkText&gt;</bpt><ept id="ff46bbd5-d481-489d-a631-2d153826f3bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2bc6d4a9-b28d-4889-9957-7064a9ddac70" xml:space="preserve">
+          <source>Enter the following values on the next page</source>
+          <target state="new">Enter the following values on the next page</target>
+        </trans-unit>
+        <trans-unit id="993d5ba5-1815-4362-9a47-6e5d19512fc2" xml:space="preserve">
+          <source>Output Alias: Enter a friendly name for this job output.</source>
+          <target state="new">Output Alias: Enter a friendly name for this job output.</target>
+        </trans-unit>
+        <trans-unit id="ade22e12-f3bd-493b-ad65-1e87a32c774a" xml:space="preserve">
+          <source>Subscription: </source>
+          <target state="new">Subscription: </target>
+        </trans-unit>
+        <trans-unit id="44ac7322-1212-4468-b186-f820d9f8206f" xml:space="preserve">
+          <source>If your SQL Data Warehouse database is in the same subscription as the Stream Analytics job, select Use SQL Database from Current Subscription.</source>
+          <target state="new">If your SQL Data Warehouse database is in the same subscription as the Stream Analytics job, select Use SQL Database from Current Subscription.</target>
+        </trans-unit>
+        <trans-unit id="6730e07b-590a-4904-bf85-a3e7450f7099" xml:space="preserve">
+          <source>If your database is in a different subscription, select Use SQL Database from Another Subscription.</source>
+          <target state="new">If your database is in a different subscription, select Use SQL Database from Another Subscription.</target>
+        </trans-unit>
+        <trans-unit id="d2c02958-8bec-4938-a516-c2cda18b795b" xml:space="preserve">
+          <source>Database: Specify the name of a destination database.</source>
+          <target state="new">Database: Specify the name of a destination database.</target>
+        </trans-unit>
+        <trans-unit id="4f4d6231-b007-47f3-a956-9374e7f0b4f9" xml:space="preserve">
+          <source>Server Name: Specify the server name for the database you just specified.</source>
+          <target state="new">Server Name: Specify the server name for the database you just specified.</target>
+        </trans-unit>
+        <trans-unit id="d3bdac93-ce00-4e4b-ad83-7098922a7ed6" xml:space="preserve">
+          <source>You can use the Azure Portal to find this.</source>
+          <target state="new">You can use the Azure Portal to find this.</target>
+        </trans-unit>
+        <trans-unit id="c43b6508-da6a-4e82-bb05-3640d2381673" xml:space="preserve">
+          <source><bpt id="116e24f4-229e-4031-8b41-2d1e8adc1c57">&lt;linkText&gt;</bpt><ept id="116e24f4-229e-4031-8b41-2d1e8adc1c57">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="116e24f4-229e-4031-8b41-2d1e8adc1c57">&lt;linkText&gt;</bpt><ept id="116e24f4-229e-4031-8b41-2d1e8adc1c57">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6171fdb-5f54-42a2-b002-336f8db06978" xml:space="preserve">
+          <source>User Name: Specify the user name of an account that has write permissions for the database.</source>
+          <target state="new">User Name: Specify the user name of an account that has write permissions for the database.</target>
+        </trans-unit>
+        <trans-unit id="5d726695-79a6-4c25-aeca-580cd59cf758" xml:space="preserve">
+          <source>Password: Provide the password for the specified user account.</source>
+          <target state="new">Password: Provide the password for the specified user account.</target>
+        </trans-unit>
+        <trans-unit id="02e7562a-3ae9-48cd-848e-8ce996822e8a" xml:space="preserve">
+          <source>Table: Specify the name of the target table in the database.</source>
+          <target state="new">Table: Specify the name of the target table in the database.</target>
+        </trans-unit>
+        <trans-unit id="21508744-fa51-41fa-94ff-6760a96690ce" xml:space="preserve">
+          <source><bpt id="58b33fbd-31e1-4728-b055-ab4e6335dd62">&lt;linkText&gt;</bpt><ept id="58b33fbd-31e1-4728-b055-ab4e6335dd62">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="58b33fbd-31e1-4728-b055-ab4e6335dd62">&lt;linkText&gt;</bpt><ept id="58b33fbd-31e1-4728-b055-ab4e6335dd62">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e75b590c-20e1-4e79-9bd8-85f2f4de6a1a" xml:space="preserve">
+          <source>Click the check button to add this job output and to verify that Stream Analytics can successfully connect to the database.</source>
+          <target state="new">Click the check button to add this job output and to verify that Stream Analytics can successfully connect to the database.</target>
+        </trans-unit>
+        <trans-unit id="8f508d88-6b4f-49b1-a915-f18cef03aa07" xml:space="preserve">
+          <source><bpt id="b9c6568b-bc20-4a81-9589-97ea7268edc2">&lt;linkText&gt;</bpt><ept id="b9c6568b-bc20-4a81-9589-97ea7268edc2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b9c6568b-bc20-4a81-9589-97ea7268edc2">&lt;linkText&gt;</bpt><ept id="b9c6568b-bc20-4a81-9589-97ea7268edc2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15a6ef84-f8cb-4d08-934d-3caba38a814e" xml:space="preserve">
+          <source>When the connection to the database succeeds, you will see a notification at the bottom of the portal.</source>
+          <target state="new">When the connection to the database succeeds, you will see a notification at the bottom of the portal.</target>
+        </trans-unit>
+        <trans-unit id="c8edccc1-21a2-43bf-ad62-855894a792a2" xml:space="preserve">
+          <source>You can click Test Connection at the bottom to test the connection to the database.</source>
+          <target state="new">You can click Test Connection at the bottom to test the connection to the database.</target>
+        </trans-unit>
+        <trans-unit id="5e7289b7-ff6d-4fc9-855a-b3bb6eedc9bc" xml:space="preserve">
+          <source>For an overview of integration, see <bpt id="68d7d8f1-125e-4d06-84a9-5f5f6c09eac8">&lt;linkText&gt;</bpt>SQL Data Warehouse integration overview<ept id="68d7d8f1-125e-4d06-84a9-5f5f6c09eac8">&lt;/linkText&gt;</ept><bpt id="68d7d8f1-125e-4d06-84a9-5f5f6c09eac8">&lt;title&gt;</bpt><ept id="68d7d8f1-125e-4d06-84a9-5f5f6c09eac8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an overview of integration, see <bpt id="68d7d8f1-125e-4d06-84a9-5f5f6c09eac8">&lt;linkText&gt;</bpt>SQL Data Warehouse integration overview<ept id="68d7d8f1-125e-4d06-84a9-5f5f6c09eac8">&lt;/linkText&gt;</ept><bpt id="68d7d8f1-125e-4d06-84a9-5f5f6c09eac8">&lt;title&gt;</bpt><ept id="68d7d8f1-125e-4d06-84a9-5f5f6c09eac8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f2d5601e-eb57-4634-85ef-58d875af9e19" xml:space="preserve">
+          <source>For more development tips, see <bpt id="4cfb45ab-acc6-4cda-8183-8cb8c66e838c">&lt;linkText&gt;</bpt>SQL Data Warehouse development overview<ept id="4cfb45ab-acc6-4cda-8183-8cb8c66e838c">&lt;/linkText&gt;</ept><bpt id="4cfb45ab-acc6-4cda-8183-8cb8c66e838c">&lt;title&gt;</bpt><ept id="4cfb45ab-acc6-4cda-8183-8cb8c66e838c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="4cfb45ab-acc6-4cda-8183-8cb8c66e838c">&lt;linkText&gt;</bpt>SQL Data Warehouse development overview<ept id="4cfb45ab-acc6-4cda-8183-8cb8c66e838c">&lt;/linkText&gt;</ept><bpt id="4cfb45ab-acc6-4cda-8183-8cb8c66e838c">&lt;title&gt;</bpt><ept id="4cfb45ab-acc6-4cda-8183-8cb8c66e838c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9bf6283-b285-460d-825a-48a5219801ff" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png</target>
+        </trans-unit>
+        <trans-unit id="437b5574-458c-4ca4-9b13-8556f7f9edc5" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png</target>
+        </trans-unit>
+        <trans-unit id="15454ea7-d5c5-445b-8bd8-ae46a0b49f8f" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png</target>
+        </trans-unit>
+        <trans-unit id="d634e7ea-e818-4c9c-a2d1-21266c3524f8" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-stream-analytics/test-connection.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-stream-analytics/test-connection.png</target>
+        </trans-unit>
+        <trans-unit id="34b9cc33-f5de-4383-8973-fca0b7a24872" xml:space="preserve">
+          <source>./stream-analytics-introduction/</source>
+          <target state="new">./stream-analytics-introduction/</target>
+        </trans-unit>
+        <trans-unit id="8abb98c9-1d05-4230-a56f-75fd41702c3f" xml:space="preserve">
+          <source>./articles/stream-analytics-get-started/</source>
+          <target state="new">./articles/stream-analytics-get-started/</target>
+        </trans-unit>
+        <trans-unit id="9869372e-fc87-479b-a4e9-c241e016b8e2" xml:space="preserve">
+          <source>./sql-data-warehouse-overview-develop/</source>
+          <target state="new">./sql-data-warehouse-overview-develop/</target>
+        </trans-unit>
+        <trans-unit id="7ab4d819-d158-4b6b-8304-e75b864b72a7" xml:space="preserve">
+          <source>./sql-data-warehouse-overview-integration/</source>
+          <target state="new">./sql-data-warehouse-overview-integration/</target>
+        </trans-unit>
+        <trans-unit id="344a9913-baa1-4fbc-b8a5-f88c95a655c0" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/services/stream-analytics/</source>
+          <target state="new">http://azure.microsoft.com/documentation/services/stream-analytics/</target>
+        </trans-unit>
+      </group>
+      <group id="a3d21ecd-fe1e-428e-8be8-60e7961c35f5" />
+    </body>
+  </file>
+</xliff>

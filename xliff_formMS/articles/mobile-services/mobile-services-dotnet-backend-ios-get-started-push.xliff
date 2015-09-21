@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="44df7023-523b-492b-a0dc-d961a7706cfe" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="44df7023-523b-492b-a0dc-d961a7706cfe" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bf403b6c-84da-4c4c-86fb-2575ef802f3b">
+        <trans-unit id="2b5d5f78-d00b-44e3-99f2-26b10e6f2f14" xml:space="preserve">
+          <source>Add Push Notifications to App (iOS) | .NET Backend</source>
+          <target state="new">Add Push Notifications to App (iOS) | .NET Backend</target>
+        </trans-unit>
+        <trans-unit id="fe22c297-0dad-4ba5-8703-e0621b91424b" xml:space="preserve">
+          <source>Learn how to use Azure Mobile Services to send push notifications to your iOS app.</source>
+          <target state="new">Learn how to use Azure Mobile Services to send push notifications to your iOS app.</target>
+        </trans-unit>
+        <trans-unit id="dfe407be-799e-486c-9b7d-1a60ec033151" xml:space="preserve">
+          <source><bpt id="307b8038-6f4e-468c-8e37-b1c8bcc7f1c7">&lt;token href="../../includes/mobile-services-selector-get-started-push.md"&gt;</bpt><ept id="307b8038-6f4e-468c-8e37-b1c8bcc7f1c7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="307b8038-6f4e-468c-8e37-b1c8bcc7f1c7">&lt;token href="../../includes/mobile-services-selector-get-started-push.md"&gt;</bpt><ept id="307b8038-6f4e-468c-8e37-b1c8bcc7f1c7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ef25212-4d18-4a61-949b-0d1741803764" xml:space="preserve">
+          <source>This topic shows you how to add push notifications to the <bpt id="3426befa-58ed-433d-958b-734df4171e99">&lt;linkText&gt;</bpt>quickstart project<ept id="3426befa-58ed-433d-958b-734df4171e99">&lt;/linkText&gt;</ept><bpt id="3426befa-58ed-433d-958b-734df4171e99">&lt;title&gt;</bpt><ept id="3426befa-58ed-433d-958b-734df4171e99">&lt;/title&gt;</ept>, so that your mobile service sends a push notification each time a record is inserted.</source>
+          <target state="new">This topic shows you how to add push notifications to the <bpt id="3426befa-58ed-433d-958b-734df4171e99">&lt;linkText&gt;</bpt>quickstart project<ept id="3426befa-58ed-433d-958b-734df4171e99">&lt;/linkText&gt;</ept><bpt id="3426befa-58ed-433d-958b-734df4171e99">&lt;title&gt;</bpt><ept id="3426befa-58ed-433d-958b-734df4171e99">&lt;/title&gt;</ept>, so that your mobile service sends a push notification each time a record is inserted.</target>
+        </trans-unit>
+        <trans-unit id="5a72c4a5-5ecf-4dc8-b9b1-a9176d6d5605" xml:space="preserve">
+          <source>You must complete [Get Started with Mobile Services] first.</source>
+          <target state="new">You must complete [Get Started with Mobile Services] first.</target>
+        </trans-unit>
+        <trans-unit id="9017ba5f-3ee3-4a8f-8aaf-172c7ec9381c" xml:space="preserve">
+          <source><bpt id="ef45db18-342d-4067-84ae-5e22de98266a">&lt;token href="../../includes/enable-apple-push-notifications.md"&gt;</bpt><ept id="ef45db18-342d-4067-84ae-5e22de98266a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ef45db18-342d-4067-84ae-5e22de98266a">&lt;token href="../../includes/enable-apple-push-notifications.md"&gt;</bpt><ept id="ef45db18-342d-4067-84ae-5e22de98266a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c44ea7c-40fb-4d55-b850-92bbf4dd3ea3" xml:space="preserve">
+          <source><bpt id="ed7c128a-8b83-4bb4-8272-55bd56287354">&lt;token href="../../includes/mobile-services-apns-configure-push.md"&gt;</bpt><ept id="ed7c128a-8b83-4bb4-8272-55bd56287354">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ed7c128a-8b83-4bb4-8272-55bd56287354">&lt;token href="../../includes/mobile-services-apns-configure-push.md"&gt;</bpt><ept id="ed7c128a-8b83-4bb4-8272-55bd56287354">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24c347e2-3677-453b-955e-bf720bbe3e48" xml:space="preserve">
+          <source>Open Visual Studio project &gt; <bpt id="8d5e77d5-0947-4ebd-9ee2-d4a34ceb504a">&lt;strong&gt;</bpt>Controllers<ept id="8d5e77d5-0947-4ebd-9ee2-d4a34ceb504a">&lt;/strong&gt;</ept> folder &gt; <bpt id="faafc420-212d-4fc0-b95d-d03c6b9d6222">&lt;strong&gt;</bpt>TodoItemController.cs<ept id="faafc420-212d-4fc0-b95d-d03c6b9d6222">&lt;/strong&gt;</ept> &gt; method <bpt id="d674aa04-3286-4131-88a1-ef7770b73476">&lt;code&gt;</bpt>PostTodoItem<ept id="d674aa04-3286-4131-88a1-ef7770b73476">&lt;/code&gt;</ept>.</source>
+          <target state="new">Open Visual Studio project &gt; <bpt id="8d5e77d5-0947-4ebd-9ee2-d4a34ceb504a">&lt;strong&gt;</bpt>Controllers<ept id="8d5e77d5-0947-4ebd-9ee2-d4a34ceb504a">&lt;/strong&gt;</ept> folder &gt; <bpt id="faafc420-212d-4fc0-b95d-d03c6b9d6222">&lt;strong&gt;</bpt>TodoItemController.cs<ept id="faafc420-212d-4fc0-b95d-d03c6b9d6222">&lt;/strong&gt;</ept> &gt; method <bpt id="d674aa04-3286-4131-88a1-ef7770b73476">&lt;code&gt;</bpt>PostTodoItem<ept id="d674aa04-3286-4131-88a1-ef7770b73476">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2dd00f9-5232-4a40-9fc1-093b9084ec6e" xml:space="preserve">
+          <source>Replace the method with the following.</source>
+          <target state="new">Replace the method with the following.</target>
+        </trans-unit>
+        <trans-unit id="40dd5460-7452-46f4-ac33-582ee742a880" xml:space="preserve">
+          <source>When a todo item is inserted, this code sends out a push notification with the item text.</source>
+          <target state="new">When a todo item is inserted, this code sends out a push notification with the item text.</target>
+        </trans-unit>
+        <trans-unit id="79c46877-a84f-47f6-a97b-be1e03dc8d7a" xml:space="preserve">
+          <source>If there's an error, the code adds an error log entry that is viewable via the logs section of the portal.</source>
+          <target state="new">If there's an error, the code adds an error log entry that is viewable via the logs section of the portal.</target>
+        </trans-unit>
+        <trans-unit id="f53833d4-85d4-438e-b703-1bb760408ca0" xml:space="preserve">
+          <source><bpt id="0abc2612-a5b9-4b06-b211-f4b814a6b7ce">&lt;token href="../../includes/mobile-services-dotnet-backend-publish-service.md"&gt;</bpt><ept id="0abc2612-a5b9-4b06-b211-f4b814a6b7ce">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0abc2612-a5b9-4b06-b211-f4b814a6b7ce">&lt;token href="../../includes/mobile-services-dotnet-backend-publish-service.md"&gt;</bpt><ept id="0abc2612-a5b9-4b06-b211-f4b814a6b7ce">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40b5f4a1-4f3a-4993-9fca-0535b84f5199" xml:space="preserve">
+          <source><bpt id="fd225153-d68b-468a-9195-4a304f4555d2">&lt;token href="../../includes/add-push-notifications-to-app.md"&gt;</bpt><ept id="fd225153-d68b-468a-9195-4a304f4555d2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="fd225153-d68b-468a-9195-4a304f4555d2">&lt;token href="../../includes/add-push-notifications-to-app.md"&gt;</bpt><ept id="fd225153-d68b-468a-9195-4a304f4555d2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="84c6a339-8518-46e0-b22c-9426ba7e55c2" xml:space="preserve">
+          <source><bpt id="eea7c223-b32f-4aac-b6cd-42bcdb6f782b">&lt;token href="../../includes/test-push-notifications-in-app.md"&gt;</bpt><ept id="eea7c223-b32f-4aac-b6cd-42bcdb6f782b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="eea7c223-b32f-4aac-b6cd-42bcdb6f782b">&lt;token href="../../includes/test-push-notifications-in-app.md"&gt;</bpt><ept id="eea7c223-b32f-4aac-b6cd-42bcdb6f782b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7c3db47-2a6c-4d00-b08e-329febadd41e" xml:space="preserve">
+          <source>#certificates</source>
+          <target state="new">#certificates</target>
+        </trans-unit>
+        <trans-unit id="811cc952-b3b0-4932-ac86-34f3f8f016b4" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="0cd52d56-7fc4-4d4c-aad0-7a6fea1ea973" xml:space="preserve">
+          <source>#profile</source>
+          <target state="new">#profile</target>
+        </trans-unit>
+        <trans-unit id="6d06fdda-e0b1-490e-9dee-1ee73af4e58c" xml:space="preserve">
+          <source>#configure</source>
+          <target state="new">#configure</target>
+        </trans-unit>
+        <trans-unit id="db05804d-7e57-4720-8dd0-9237809a54b9" xml:space="preserve">
+          <source>#update-scripts</source>
+          <target state="new">#update-scripts</target>
+        </trans-unit>
+        <trans-unit id="79e719cb-3b4d-4f13-a8d0-2ef7170fdfc9" xml:space="preserve">
+          <source>#add-push</source>
+          <target state="new">#add-push</target>
+        </trans-unit>
+        <trans-unit id="6cb8ba77-575f-4831-b526-be71a8cccc8e" xml:space="preserve">
+          <source>#test</source>
+          <target state="new">#test</target>
+        </trans-unit>
+        <trans-unit id="122b660a-9fc6-452c-aa7a-de996273e827" xml:space="preserve">
+          <source>#test-app</source>
+          <target state="new">#test-app</target>
+        </trans-unit>
+        <trans-unit id="3150d67b-58d2-44e4-a85c-d0d832b2c3f7" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="85e342f2-50a0-4048-b79a-f04ec32baadf" xml:space="preserve">
+          <source>#download-the-service-locally</source>
+          <target state="new">#download-the-service-locally</target>
+        </trans-unit>
+        <trans-unit id="3c663ddf-d3e2-4ab4-a64e-1e53b727b85e" xml:space="preserve">
+          <source>#test-the-service</source>
+          <target state="new">#test-the-service</target>
+        </trans-unit>
+        <trans-unit id="1e454fb6-4a4a-4866-b29d-0eecde8ccc23" xml:space="preserve">
+          <source>#publish-mobile-service</source>
+          <target state="new">#publish-mobile-service</target>
+        </trans-unit>
+        <trans-unit id="229c4700-14c9-4b6a-8345-29cde41843c0" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png</target>
+        </trans-unit>
+        <trans-unit id="dcf0bde7-8d2a-491f-b040-7968afe0a60c" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png</target>
+        </trans-unit>
+        <trans-unit id="682f8dfd-d29b-48f1-8acd-697f630d687e" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step7.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step7.png</target>
+        </trans-unit>
+        <trans-unit id="1a80f6a9-91d8-4b12-83d6-89b15d438887" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step9.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step9.png</target>
+        </trans-unit>
+        <trans-unit id="11d3992a-7fe2-49c1-a45c-ba9b4620c48d" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step10.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step10.png</target>
+        </trans-unit>
+        <trans-unit id="1b7819ee-52d1-498c-96e9-0f5638e179c6" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step17.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step17.png</target>
+        </trans-unit>
+        <trans-unit id="6a3d4bb4-d041-4bbc-b6a7-6a357b5e9b03" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-selection.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-selection.png</target>
+        </trans-unit>
+        <trans-unit id="0c089dfb-683a-4772-a74c-cc860dafd109" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-push-tab-ios.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-push-tab-ios.png</target>
+        </trans-unit>
+        <trans-unit id="b4e94675-6855-472e-856c-dc539a5156e5" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-push-tab-ios-upload.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-push-tab-ios-upload.png</target>
+        </trans-unit>
+        <trans-unit id="965e9cae-584a-4154-a448-6be44d45ea60" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png</target>
+        </trans-unit>
+        <trans-unit id="7e4c8fdb-daa5-4fec-9a2f-facb41f0a599" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png</target>
+        </trans-unit>
+        <trans-unit id="c28f20ff-2c8d-4072-8521-a20066142ca8" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png</target>
+        </trans-unit>
+        <trans-unit id="b5706b60-87d2-4967-88ac-16291a570348" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png</target>
+        </trans-unit>
+        <trans-unit id="6177c025-3127-454c-8815-5a4722dc6114" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png</target>
+        </trans-unit>
+        <trans-unit id="3d9d8992-b986-4d20-8181-8cf1a339e640" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png</target>
+        </trans-unit>
+        <trans-unit id="43750527-3700-4882-878c-92c88a13d34f" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step18.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step18.png</target>
+        </trans-unit>
+        <trans-unit id="cfd23514-0965-4091-a174-d3f7590ef5a8" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-01.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-01.png</target>
+        </trans-unit>
+        <trans-unit id="8c14ab15-be98-4f3b-b752-35fab4ba86e5" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-02.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-02.png</target>
+        </trans-unit>
+        <trans-unit id="928e53a9-2c9c-4f5d-9e08-e55e0654a4cd" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-03.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-03.png</target>
+        </trans-unit>
+        <trans-unit id="54a05a9a-6342-462a-9709-2beeef1145c3" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-04.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-04.png</target>
+        </trans-unit>
+        <trans-unit id="191b40f1-2af0-4217-8cbd-10b0c2ec8313" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-05.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-05.png</target>
+        </trans-unit>
+        <trans-unit id="d2999cc3-c674-4bf9-96fe-5e651e0c50c6" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-06.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-06.png</target>
+        </trans-unit>
+        <trans-unit id="5ceebbdb-3e3e-4090-b257-aab0f1dfcf96" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-07.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-07.png</target>
+        </trans-unit>
+        <trans-unit id="bdaba32e-d414-4ace-8a22-25aab4d9f588" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-08.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-08.png</target>
+        </trans-unit>
+        <trans-unit id="b4a11247-090c-4c57-b9a8-8900a1bbecf5" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-10.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-10.png</target>
+        </trans-unit>
+        <trans-unit id="01b57f2e-be18-4019-928e-80d62b92a436" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-11.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-11.png</target>
+        </trans-unit>
+        <trans-unit id="d15125d3-733e-4b24-bda8-b06864a6bd79" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-12.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-12.png</target>
+        </trans-unit>
+        <trans-unit id="2243eb73-70e8-4b5d-bea8-9ef4ae4dcb6b" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-13.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-13.png</target>
+        </trans-unit>
+        <trans-unit id="afc8da7d-244f-484c-83fc-3c253a793d13" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-14.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-14.png</target>
+        </trans-unit>
+        <trans-unit id="dceb93f0-7e74-4437-aa77-db149f28c85e" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-15.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-15.png</target>
+        </trans-unit>
+        <trans-unit id="7d08a7e7-c39d-4557-acdb-fbdf95ee9356" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-16.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-16.png</target>
+        </trans-unit>
+        <trans-unit id="2eba32eb-b854-4c1e-bfb1-4374f92d116b" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png</target>
+        </trans-unit>
+        <trans-unit id="7b1e166d-f292-4e74-babd-a57074610875" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/p/?LinkID=266532</source>
+          <target state="new">https://go.microsoft.com/fwLink/p/?LinkID=266532</target>
+        </trans-unit>
+        <trans-unit id="1eff703c-3e58-4622-a106-9181ea6e9c0e" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=272456</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=272456</target>
+        </trans-unit>
+        <trans-unit id="8c31841b-daf3-4cd9-a4d4-dd59eedb549a" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/p/?LinkID=266533</source>
+          <target state="new">https://go.microsoft.com/fwLink/p/?LinkID=266533</target>
+        </trans-unit>
+        <trans-unit id="06c17cb0-9008-44d7-95ac-016d34d6e6d9" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=272584</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=272584</target>
+        </trans-unit>
+        <trans-unit id="da88157a-9547-4ab0-a7a8-3c5fb02cacba" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="c22157a9-4079-49cc-bcca-cb8774c2a1b7" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="3d1c4c84-be83-454e-9ba5-c79b07fdd65b" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=272333</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=272333</target>
+        </trans-unit>
+        <trans-unit id="6c4b23b3-c28f-4042-b1c2-8b85153b9dd7" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started-data.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="e4cf9f4a-ab72-4feb-96a3-0f11a7f800b7" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="14e6c6fb-fa80-42a0-b4a6-7eb5b4c1aae5" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-push-notifications-app-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-push-notifications-app-users.md</target>
+        </trans-unit>
+        <trans-unit id="40ea2948-88f4-4d8e-b35a-3d428f604d69" xml:space="preserve">
+          <source>mobile-services-windows-dotnet-how-to-use-client-library.md</source>
+          <target state="new">mobile-services-windows-dotnet-how-to-use-client-library.md</target>
+        </trans-unit>
+        <trans-unit id="7b3fea0f-38f7-4471-97f7-1f30f1f332cd" xml:space="preserve">
+          <source>../notification-hubs-overview.md</source>
+          <target state="new">../notification-hubs-overview.md</target>
+        </trans-unit>
+        <trans-unit id="b7950854-7eef-462f-a1ab-e91c3bd56ca4" xml:space="preserve">
+          <source>../notification-hubs-ios-send-breaking-news.md</source>
+          <target state="new">../notification-hubs-ios-send-breaking-news.md</target>
+        </trans-unit>
+        <trans-unit id="74648cac-df03-4c51-b173-30001a1cf1dc" xml:space="preserve">
+          <source>../notification-hubs-ios-send-localized-breaking-news.md</source>
+          <target state="new">../notification-hubs-ios-send-localized-breaking-news.md</target>
+        </trans-unit>
+      </group>
+      <group id="af2c27e9-d68b-4ffa-8e27-3fd483243e8e" />
+    </body>
+  </file>
+</xliff>

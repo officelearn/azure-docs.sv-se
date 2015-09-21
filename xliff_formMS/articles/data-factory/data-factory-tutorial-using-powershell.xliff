@@ -1,0 +1,1359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="143c66be-af0a-4032-a550-4e8ff4955765" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="143c66be-af0a-4032-a550-4e8ff4955765" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="93a55cbc-d490-4f43-8b0a-bf4cf0d9d7aa">
+        <trans-unit id="b87d6746-5840-4166-a557-a0c8cb12cdea" xml:space="preserve">
+          <source>Move and process log files using Azure Data Factory (Azure PowerShell)</source>
+          <target state="new">Move and process log files using Azure Data Factory (Azure PowerShell)</target>
+        </trans-unit>
+        <trans-unit id="dd2c6252-7060-4fb1-a006-0f7384b75854" xml:space="preserve">
+          <source>This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Azure PowerShell.</source>
+          <target state="new">This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="52b64de0-74bf-4060-87f5-385ff2e39564" xml:space="preserve">
+          <source>This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights.</source>
+          <target state="new">This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights.</target>
+        </trans-unit>
+        <trans-unit id="6fa38d17-b6fc-4f69-804e-93deec47087b" xml:space="preserve">
+          <source>Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs).</source>
+          <target state="new">Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs).</target>
+        </trans-unit>
+        <trans-unit id="3e6fd246-2bf9-452b-bc20-3ef2d1e7f439" xml:space="preserve">
+          <source>Each of these games produces tons of logs.</source>
+          <target state="new">Each of these games produces tons of logs.</target>
+        </trans-unit>
+        <trans-unit id="faf71b48-313b-406c-8083-151d5968b9fb" xml:space="preserve">
+          <source>Contoso’s goal is to collect and analyze the logs produced by these games to get usage information, identify up-sell and cross-sell opportunities, develop new compelling features etc. to improve business and provide better experience to customers.</source>
+          <target state="new">Contoso’s goal is to collect and analyze the logs produced by these games to get usage information, identify up-sell and cross-sell opportunities, develop new compelling features etc. to improve business and provide better experience to customers.</target>
+        </trans-unit>
+        <trans-unit id="dd92ca66-96e3-4f63-a05d-9b969a003622" xml:space="preserve">
+          <source>In this walkthrough, we will collect sample logs, process and enrich them with reference data, and transform the data to evaluate the effectiveness of a marketing campaign that Contoso has recently launched.</source>
+          <target state="new">In this walkthrough, we will collect sample logs, process and enrich them with reference data, and transform the data to evaluate the effectiveness of a marketing campaign that Contoso has recently launched.</target>
+        </trans-unit>
+        <trans-unit id="533407ed-7a6e-4a89-b369-e4b979b6badb" xml:space="preserve">
+          <source>Read <bpt id="e8d2648a-fe65-40bc-a269-8331c6a901c9">&lt;linkText&gt;</bpt>Introduction to Azure Data Factory[adfintroduction]<ept id="e8d2648a-fe65-40bc-a269-8331c6a901c9">&lt;/linkText&gt;</ept><bpt id="e8d2648a-fe65-40bc-a269-8331c6a901c9">&lt;title&gt;</bpt><ept id="e8d2648a-fe65-40bc-a269-8331c6a901c9">&lt;/title&gt;</ept> to get an overview of Azure Data Factory and understanding of the top level concepts.</source>
+          <target state="new">Read <bpt id="e8d2648a-fe65-40bc-a269-8331c6a901c9">&lt;linkText&gt;</bpt>Introduction to Azure Data Factory[adfintroduction]<ept id="e8d2648a-fe65-40bc-a269-8331c6a901c9">&lt;/linkText&gt;</ept><bpt id="e8d2648a-fe65-40bc-a269-8331c6a901c9">&lt;title&gt;</bpt><ept id="e8d2648a-fe65-40bc-a269-8331c6a901c9">&lt;/title&gt;</ept> to get an overview of Azure Data Factory and understanding of the top level concepts.</target>
+        </trans-unit>
+        <trans-unit id="a319964f-8dc6-4dd9-a5f9-9b4559dcefae" xml:space="preserve">
+          <source>You must have an Azure subscription to perform this tutorial.</source>
+          <target state="new">You must have an Azure subscription to perform this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="108e0972-613d-4eb6-a67f-b4ac955a3767" xml:space="preserve">
+          <source>For information about obtaining a subscription, see <bpt id="c900fdc9-b5c5-4fc9-bb36-3c672a842072">&lt;linkText&gt;</bpt>Purchase Options[azure-purchase-options]<ept id="c900fdc9-b5c5-4fc9-bb36-3c672a842072">&lt;/linkText&gt;</ept><bpt id="c900fdc9-b5c5-4fc9-bb36-3c672a842072">&lt;title&gt;</bpt><ept id="c900fdc9-b5c5-4fc9-bb36-3c672a842072">&lt;/title&gt;</ept>, <bpt id="9bc9a855-3444-4c78-a6df-214f21332009">&lt;linkText&gt;</bpt>Member Offers[azure-member-offers]<ept id="9bc9a855-3444-4c78-a6df-214f21332009">&lt;/linkText&gt;</ept><bpt id="9bc9a855-3444-4c78-a6df-214f21332009">&lt;title&gt;</bpt><ept id="9bc9a855-3444-4c78-a6df-214f21332009">&lt;/title&gt;</ept>, or <bpt id="67290b55-58d4-4c04-9705-2bc208956181">&lt;linkText&gt;</bpt>Free Trial[azure-free-trial]<ept id="67290b55-58d4-4c04-9705-2bc208956181">&lt;/linkText&gt;</ept><bpt id="67290b55-58d4-4c04-9705-2bc208956181">&lt;title&gt;</bpt><ept id="67290b55-58d4-4c04-9705-2bc208956181">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about obtaining a subscription, see <bpt id="c900fdc9-b5c5-4fc9-bb36-3c672a842072">&lt;linkText&gt;</bpt>Purchase Options[azure-purchase-options]<ept id="c900fdc9-b5c5-4fc9-bb36-3c672a842072">&lt;/linkText&gt;</ept><bpt id="c900fdc9-b5c5-4fc9-bb36-3c672a842072">&lt;title&gt;</bpt><ept id="c900fdc9-b5c5-4fc9-bb36-3c672a842072">&lt;/title&gt;</ept>, <bpt id="9bc9a855-3444-4c78-a6df-214f21332009">&lt;linkText&gt;</bpt>Member Offers[azure-member-offers]<ept id="9bc9a855-3444-4c78-a6df-214f21332009">&lt;/linkText&gt;</ept><bpt id="9bc9a855-3444-4c78-a6df-214f21332009">&lt;title&gt;</bpt><ept id="9bc9a855-3444-4c78-a6df-214f21332009">&lt;/title&gt;</ept>, or <bpt id="67290b55-58d4-4c04-9705-2bc208956181">&lt;linkText&gt;</bpt>Free Trial[azure-free-trial]<ept id="67290b55-58d4-4c04-9705-2bc208956181">&lt;/linkText&gt;</ept><bpt id="67290b55-58d4-4c04-9705-2bc208956181">&lt;title&gt;</bpt><ept id="67290b55-58d4-4c04-9705-2bc208956181">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1818b44-e5ce-4cc0-9c7a-2b51fa59e14d" xml:space="preserve">
+          <source>You must download and install <bpt id="6600828c-f59c-4d87-9c98-b99baf3d45f4">&lt;linkText&gt;</bpt>Azure PowerShell[download-azure-powershell]<ept id="6600828c-f59c-4d87-9c98-b99baf3d45f4">&lt;/linkText&gt;</ept><bpt id="6600828c-f59c-4d87-9c98-b99baf3d45f4">&lt;title&gt;</bpt><ept id="6600828c-f59c-4d87-9c98-b99baf3d45f4">&lt;/title&gt;</ept> on your computer.</source>
+          <target state="new">You must download and install <bpt id="6600828c-f59c-4d87-9c98-b99baf3d45f4">&lt;linkText&gt;</bpt>Azure PowerShell[download-azure-powershell]<ept id="6600828c-f59c-4d87-9c98-b99baf3d45f4">&lt;/linkText&gt;</ept><bpt id="6600828c-f59c-4d87-9c98-b99baf3d45f4">&lt;title&gt;</bpt><ept id="6600828c-f59c-4d87-9c98-b99baf3d45f4">&lt;/title&gt;</ept> on your computer.</target>
+        </trans-unit>
+        <trans-unit id="9d2699ac-d761-4da1-9a04-f152071169d1" xml:space="preserve">
+          <source><bpt id="4d40fd69-e66e-47cf-993a-28f804f4b482">&lt;strong&gt;</bpt>(recommended)<ept id="4d40fd69-e66e-47cf-993a-28f804f4b482">&lt;/strong&gt;</ept> Review and practice the tutorial in the <bpt id="071c2023-5a51-4d97-9a47-08a7da055938">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="071c2023-5a51-4d97-9a47-08a7da055938">&lt;/linkText&gt;</ept><bpt id="071c2023-5a51-4d97-9a47-08a7da055938">&lt;title&gt;</bpt><ept id="071c2023-5a51-4d97-9a47-08a7da055938">&lt;/title&gt;</ept> article for a simple tutorial to get familiar with the portal and cmdlets.</source>
+          <target state="new"><bpt id="4d40fd69-e66e-47cf-993a-28f804f4b482">&lt;strong&gt;</bpt>(recommended)<ept id="4d40fd69-e66e-47cf-993a-28f804f4b482">&lt;/strong&gt;</ept> Review and practice the tutorial in the <bpt id="071c2023-5a51-4d97-9a47-08a7da055938">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="071c2023-5a51-4d97-9a47-08a7da055938">&lt;/linkText&gt;</ept><bpt id="071c2023-5a51-4d97-9a47-08a7da055938">&lt;title&gt;</bpt><ept id="071c2023-5a51-4d97-9a47-08a7da055938">&lt;/title&gt;</ept> article for a simple tutorial to get familiar with the portal and cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="b494241f-4c71-4e4c-a76f-ef97679f56b5" xml:space="preserve">
+          <source><bpt id="afb22bb5-014a-49bf-b72c-94bb56e06421">&lt;strong&gt;</bpt>(recommended)<ept id="afb22bb5-014a-49bf-b72c-94bb56e06421">&lt;/strong&gt;</ept> Review and practice the walkthrough in the <bpt id="78622ada-51b2-46ab-a5fc-9fa7ff5eee4b">&lt;linkText&gt;</bpt>Use Pig and Hive with Azure Data Factory[usepigandhive]<ept id="78622ada-51b2-46ab-a5fc-9fa7ff5eee4b">&lt;/linkText&gt;</ept><bpt id="78622ada-51b2-46ab-a5fc-9fa7ff5eee4b">&lt;title&gt;</bpt><ept id="78622ada-51b2-46ab-a5fc-9fa7ff5eee4b">&lt;/title&gt;</ept> article for a walkthrough on creating a pipeline to move data from on-premises data source to an Azure blob store.</source>
+          <target state="new"><bpt id="afb22bb5-014a-49bf-b72c-94bb56e06421">&lt;strong&gt;</bpt>(recommended)<ept id="afb22bb5-014a-49bf-b72c-94bb56e06421">&lt;/strong&gt;</ept> Review and practice the walkthrough in the <bpt id="78622ada-51b2-46ab-a5fc-9fa7ff5eee4b">&lt;linkText&gt;</bpt>Use Pig and Hive with Azure Data Factory[usepigandhive]<ept id="78622ada-51b2-46ab-a5fc-9fa7ff5eee4b">&lt;/linkText&gt;</ept><bpt id="78622ada-51b2-46ab-a5fc-9fa7ff5eee4b">&lt;title&gt;</bpt><ept id="78622ada-51b2-46ab-a5fc-9fa7ff5eee4b">&lt;/title&gt;</ept> article for a walkthrough on creating a pipeline to move data from on-premises data source to an Azure blob store.</target>
+        </trans-unit>
+        <trans-unit id="2887501d-1fc3-4373-9c65-590df3780c36" xml:space="preserve">
+          <source>Download <bpt id="f008ec7b-69a0-4eff-8c1b-6a20e649bd72">&lt;linkText&gt;</bpt>ADFWalkthrough[adfwalkthrough-download]<ept id="f008ec7b-69a0-4eff-8c1b-6a20e649bd72">&lt;/linkText&gt;</ept><bpt id="f008ec7b-69a0-4eff-8c1b-6a20e649bd72">&lt;title&gt;</bpt><ept id="f008ec7b-69a0-4eff-8c1b-6a20e649bd72">&lt;/title&gt;</ept> files to <bpt id="7a42d162-03a6-4215-b913-d89d1192f403">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="7a42d162-03a6-4215-b913-d89d1192f403">&lt;/strong&gt;</ept> folder <bpt id="68a50dbd-f8b2-43c4-b80c-58e3c6fac605">&lt;strong&gt;</bpt>preserving the folder structure<ept id="68a50dbd-f8b2-43c4-b80c-58e3c6fac605">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Download <bpt id="f008ec7b-69a0-4eff-8c1b-6a20e649bd72">&lt;linkText&gt;</bpt>ADFWalkthrough[adfwalkthrough-download]<ept id="f008ec7b-69a0-4eff-8c1b-6a20e649bd72">&lt;/linkText&gt;</ept><bpt id="f008ec7b-69a0-4eff-8c1b-6a20e649bd72">&lt;title&gt;</bpt><ept id="f008ec7b-69a0-4eff-8c1b-6a20e649bd72">&lt;/title&gt;</ept> files to <bpt id="7a42d162-03a6-4215-b913-d89d1192f403">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="7a42d162-03a6-4215-b913-d89d1192f403">&lt;/strong&gt;</ept> folder <bpt id="68a50dbd-f8b2-43c4-b80c-58e3c6fac605">&lt;strong&gt;</bpt>preserving the folder structure<ept id="68a50dbd-f8b2-43c4-b80c-58e3c6fac605">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="75791629-48d5-4177-bacf-67c2c62cf05b" xml:space="preserve">
+          <source><bpt id="7bd1c0a7-27ec-45b3-aadf-32e7034a188c">&lt;strong&gt;</bpt>Pipelines:<ept id="7bd1c0a7-27ec-45b3-aadf-32e7034a188c">&lt;/strong&gt;</ept> It includes  JSON files containing the definition of the pipelines.</source>
+          <target state="new"><bpt id="7bd1c0a7-27ec-45b3-aadf-32e7034a188c">&lt;strong&gt;</bpt>Pipelines:<ept id="7bd1c0a7-27ec-45b3-aadf-32e7034a188c">&lt;/strong&gt;</ept> It includes  JSON files containing the definition of the pipelines.</target>
+        </trans-unit>
+        <trans-unit id="4bc2e78e-2349-4301-8ba7-af906f84b614" xml:space="preserve">
+          <source><bpt id="c5051ee2-d782-49be-9ba2-3af7e7116087">&lt;strong&gt;</bpt>Tables:<ept id="c5051ee2-d782-49be-9ba2-3af7e7116087">&lt;/strong&gt;</ept> It includes  JSON files containing the definition of the Tables.</source>
+          <target state="new"><bpt id="c5051ee2-d782-49be-9ba2-3af7e7116087">&lt;strong&gt;</bpt>Tables:<ept id="c5051ee2-d782-49be-9ba2-3af7e7116087">&lt;/strong&gt;</ept> It includes  JSON files containing the definition of the Tables.</target>
+        </trans-unit>
+        <trans-unit id="43b72687-37e5-4544-920f-73143147fcbe" xml:space="preserve">
+          <source><bpt id="0e801ebc-6306-47b7-85c1-cec2bd4f31d2">&lt;strong&gt;</bpt>LinkedServices:<ept id="0e801ebc-6306-47b7-85c1-cec2bd4f31d2">&lt;/strong&gt;</ept> It includes JSON files containing the definition of your storage and compute (HDInsight) cluster </source>
+          <target state="new"><bpt id="0e801ebc-6306-47b7-85c1-cec2bd4f31d2">&lt;strong&gt;</bpt>LinkedServices:<ept id="0e801ebc-6306-47b7-85c1-cec2bd4f31d2">&lt;/strong&gt;</ept> It includes JSON files containing the definition of your storage and compute (HDInsight) cluster </target>
+        </trans-unit>
+        <trans-unit id="9f8a8ef1-2c75-446f-9bd1-2822e3a84b7d" xml:space="preserve">
+          <source><bpt id="75faa7a4-1c26-4986-933b-1088f23627df">&lt;strong&gt;</bpt>Scripts:<ept id="75faa7a4-1c26-4986-933b-1088f23627df">&lt;/strong&gt;</ept> It includes Hive and Pig scripts that are used for processing the data and invoked from the pipelines</source>
+          <target state="new"><bpt id="75faa7a4-1c26-4986-933b-1088f23627df">&lt;strong&gt;</bpt>Scripts:<ept id="75faa7a4-1c26-4986-933b-1088f23627df">&lt;/strong&gt;</ept> It includes Hive and Pig scripts that are used for processing the data and invoked from the pipelines</target>
+        </trans-unit>
+        <trans-unit id="1e8bc824-5cab-4874-8a84-15b698aadf51" xml:space="preserve">
+          <source><bpt id="1d1c9e22-d184-48cb-a92b-8f070cb792c2">&lt;strong&gt;</bpt>SampleData:<ept id="1d1c9e22-d184-48cb-a92b-8f070cb792c2">&lt;/strong&gt;</ept> It includes sample data for this walkthrough</source>
+          <target state="new"><bpt id="1d1c9e22-d184-48cb-a92b-8f070cb792c2">&lt;strong&gt;</bpt>SampleData:<ept id="1d1c9e22-d184-48cb-a92b-8f070cb792c2">&lt;/strong&gt;</ept> It includes sample data for this walkthrough</target>
+        </trans-unit>
+        <trans-unit id="7c472705-fac4-4be3-974c-94fb848e549c" xml:space="preserve">
+          <source><bpt id="171422b1-29ea-4c37-951c-d4711b21b539">&lt;strong&gt;</bpt>OnPremises:<ept id="171422b1-29ea-4c37-951c-d4711b21b539">&lt;/strong&gt;</ept> It includes JSON files and script that are used for demonstrating accessing your on-premises data</source>
+          <target state="new"><bpt id="171422b1-29ea-4c37-951c-d4711b21b539">&lt;strong&gt;</bpt>OnPremises:<ept id="171422b1-29ea-4c37-951c-d4711b21b539">&lt;/strong&gt;</ept> It includes JSON files and script that are used for demonstrating accessing your on-premises data</target>
+        </trans-unit>
+        <trans-unit id="bf65664e-9b09-4e99-a610-8302b94fd6c0" xml:space="preserve">
+          <source><bpt id="044b2a33-5176-4838-8e0c-bfd391fe78b5">&lt;strong&gt;</bpt>uploadSampleDataAndScripts.ps1:<ept id="044b2a33-5176-4838-8e0c-bfd391fe78b5">&lt;/strong&gt;</ept> This script uploads the sample data &amp; scripts to Azure.</source>
+          <target state="new"><bpt id="044b2a33-5176-4838-8e0c-bfd391fe78b5">&lt;strong&gt;</bpt>uploadSampleDataAndScripts.ps1:<ept id="044b2a33-5176-4838-8e0c-bfd391fe78b5">&lt;/strong&gt;</ept> This script uploads the sample data &amp; scripts to Azure.</target>
+        </trans-unit>
+        <trans-unit id="f094afaa-2f61-4da2-8f80-a8321f7b12b7" xml:space="preserve">
+          <source>Make sure you have created the following Azure Resources:            </source>
+          <target state="new">Make sure you have created the following Azure Resources:            </target>
+        </trans-unit>
+        <trans-unit id="b0c6f278-fb4c-4fdb-846f-fe2d2bea56e5" xml:space="preserve">
+          <source>Azure Storage Account.</source>
+          <target state="new">Azure Storage Account.</target>
+        </trans-unit>
+        <trans-unit id="13ec2b81-d29e-4c35-bfa6-b46818b378f4" xml:space="preserve">
+          <source>Azure SQL Database</source>
+          <target state="new">Azure SQL Database</target>
+        </trans-unit>
+        <trans-unit id="64de00c3-dbd9-47bf-8c09-b9a31bcb8be0" xml:space="preserve">
+          <source>Azure HDInsight Cluster of version 3.1 or above (or use an on-demand HDInsight cluster that the Data Factory service will create automatically)   </source>
+          <target state="new">Azure HDInsight Cluster of version 3.1 or above (or use an on-demand HDInsight cluster that the Data Factory service will create automatically)   </target>
+        </trans-unit>
+        <trans-unit id="a08b1652-45f3-412c-a4c3-ead0e9f758fa" xml:space="preserve">
+          <source>Once the Azure Resources are created, make sure you have the information needed to connect to each of these resources.</source>
+          <target state="new">Once the Azure Resources are created, make sure you have the information needed to connect to each of these resources.</target>
+        </trans-unit>
+        <trans-unit id="7240bcff-d8b2-4668-a348-0903240b1641" xml:space="preserve">
+          <source><bpt id="92ac61dc-f714-4275-97bc-a2cf8a5abe98">&lt;strong&gt;</bpt>Azure Storage Account<ept id="92ac61dc-f714-4275-97bc-a2cf8a5abe98">&lt;/strong&gt;</ept> - Account name and account key.</source>
+          <target state="new"><bpt id="92ac61dc-f714-4275-97bc-a2cf8a5abe98">&lt;strong&gt;</bpt>Azure Storage Account<ept id="92ac61dc-f714-4275-97bc-a2cf8a5abe98">&lt;/strong&gt;</ept> - Account name and account key.</target>
+        </trans-unit>
+        <trans-unit id="5196298a-720d-4a88-b726-b6adab229b83" xml:space="preserve">
+          <source><bpt id="2ba8ca5f-b5ab-493b-88a6-321fdb1ce7e2">&lt;strong&gt;</bpt>Azure SQL Database<ept id="2ba8ca5f-b5ab-493b-88a6-321fdb1ce7e2">&lt;/strong&gt;</ept> - Server, database, user name, and password.</source>
+          <target state="new"><bpt id="2ba8ca5f-b5ab-493b-88a6-321fdb1ce7e2">&lt;strong&gt;</bpt>Azure SQL Database<ept id="2ba8ca5f-b5ab-493b-88a6-321fdb1ce7e2">&lt;/strong&gt;</ept> - Server, database, user name, and password.</target>
+        </trans-unit>
+        <trans-unit id="add04908-dad4-490c-ab6f-a9327ee4a036" xml:space="preserve">
+          <source><bpt id="4c040e8f-fb88-444d-abeb-d32788a09f7c">&lt;strong&gt;</bpt>Azure HDInsight Cluster<ept id="4c040e8f-fb88-444d-abeb-d32788a09f7c">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="4c040e8f-fb88-444d-abeb-d32788a09f7c">&lt;strong&gt;</bpt>Azure HDInsight Cluster<ept id="4c040e8f-fb88-444d-abeb-d32788a09f7c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a718344-5543-4a09-a081-f6ae37fcb5c1" xml:space="preserve">
+          <source>- Name of the HDInsight cluster, user name, password, and account name and account key for the Azure storage associated with this cluster.</source>
+          <target state="new">- Name of the HDInsight cluster, user name, password, and account name and account key for the Azure storage associated with this cluster.</target>
+        </trans-unit>
+        <trans-unit id="f7a02550-64a5-4115-a941-f0cbeb416031" xml:space="preserve">
+          <source>If you want to use an on-demand HDInsight cluster instead of your own HDInsight cluster you can skip this step.</source>
+          <target state="new">If you want to use an on-demand HDInsight cluster instead of your own HDInsight cluster you can skip this step.</target>
+        </trans-unit>
+        <trans-unit id="8f27625a-e5b6-425e-b6f0-b8bf31afb509" xml:space="preserve">
+          <source>Launch <bpt id="21b6cda9-4ddc-480c-a0fa-bbc445bbedcc">&lt;strong&gt;</bpt>Azure PowerShell<ept id="21b6cda9-4ddc-480c-a0fa-bbc445bbedcc">&lt;/strong&gt;</ept> and execute the following commands.</source>
+          <target state="new">Launch <bpt id="21b6cda9-4ddc-480c-a0fa-bbc445bbedcc">&lt;strong&gt;</bpt>Azure PowerShell<ept id="21b6cda9-4ddc-480c-a0fa-bbc445bbedcc">&lt;/strong&gt;</ept> and execute the following commands.</target>
+        </trans-unit>
+        <trans-unit id="ae179716-3b00-44d5-a090-2602c3df1121" xml:space="preserve">
+          <source>Keep the Azure PowerShell open.</source>
+          <target state="new">Keep the Azure PowerShell open.</target>
+        </trans-unit>
+        <trans-unit id="65808202-0e3f-484e-8ac8-875249227860" xml:space="preserve">
+          <source>If you close and reopen, you need to run these commands again.</source>
+          <target state="new">If you close and reopen, you need to run these commands again.</target>
+        </trans-unit>
+        <trans-unit id="70d28f15-948f-416e-b2f5-8f44b629d28f" xml:space="preserve">
+          <source>Run <bpt id="83fb8838-d84f-4015-b756-3cac7f0e97cd">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="83fb8838-d84f-4015-b756-3cac7f0e97cd">&lt;/strong&gt;</ept> and enter the  user name and password that you use to sign-in to the Azure Preview Portal.</source>
+          <target state="new">Run <bpt id="83fb8838-d84f-4015-b756-3cac7f0e97cd">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="83fb8838-d84f-4015-b756-3cac7f0e97cd">&lt;/strong&gt;</ept> and enter the  user name and password that you use to sign-in to the Azure Preview Portal.</target>
+        </trans-unit>
+        <trans-unit id="bd4b64c9-10de-4259-a8e4-c2f68fa0311b" xml:space="preserve">
+          <source>Run <bpt id="22f7da8f-09d2-4f3a-9052-9be01f1297f2">&lt;strong&gt;</bpt>Get-AzureSubscription<ept id="22f7da8f-09d2-4f3a-9052-9be01f1297f2">&lt;/strong&gt;</ept> to view all the subscriptions for this account.</source>
+          <target state="new">Run <bpt id="22f7da8f-09d2-4f3a-9052-9be01f1297f2">&lt;strong&gt;</bpt>Get-AzureSubscription<ept id="22f7da8f-09d2-4f3a-9052-9be01f1297f2">&lt;/strong&gt;</ept> to view all the subscriptions for this account.</target>
+        </trans-unit>
+        <trans-unit id="84a7f717-aa9a-488d-bae4-92d0e2379a45" xml:space="preserve">
+          <source>Run <bpt id="a4787228-92d2-4154-b5a6-9379101af76d">&lt;strong&gt;</bpt>Select-AzureSubscription<ept id="a4787228-92d2-4154-b5a6-9379101af76d">&lt;/strong&gt;</ept> to select the subscription that you want to work with.</source>
+          <target state="new">Run <bpt id="a4787228-92d2-4154-b5a6-9379101af76d">&lt;strong&gt;</bpt>Select-AzureSubscription<ept id="a4787228-92d2-4154-b5a6-9379101af76d">&lt;/strong&gt;</ept> to select the subscription that you want to work with.</target>
+        </trans-unit>
+        <trans-unit id="c031285c-864c-4f42-ab30-d57e52b28623" xml:space="preserve">
+          <source>This subscription should be the same as the one you used in the Azure Preview Portal.</source>
+          <target state="new">This subscription should be the same as the one you used in the Azure Preview Portal.</target>
+        </trans-unit>
+        <trans-unit id="207e7d5b-d941-4231-afdd-e75d669f7660" xml:space="preserve">
+          <source>The end-to-end workflow is depicted below:
+    <bpt id="c349941b-1028-4198-a891-5bcfd9ba8539">&lt;linkText&gt;</bpt>Tutorial End to End Flow<ept id="c349941b-1028-4198-a891-5bcfd9ba8539">&lt;/linkText&gt;</ept></source>
+          <target state="new">The end-to-end workflow is depicted below:
+    <bpt id="c349941b-1028-4198-a891-5bcfd9ba8539">&lt;linkText&gt;</bpt>Tutorial End to End Flow<ept id="c349941b-1028-4198-a891-5bcfd9ba8539">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="065f2975-ec57-4ed1-98f4-d09091b98ad5" xml:space="preserve">
+          <source>The <bpt id="5b19b1f9-d7d2-4885-95a2-4dedeaa7a6c5">&lt;strong&gt;</bpt>PartitionGameLogsPipeline<ept id="5b19b1f9-d7d2-4885-95a2-4dedeaa7a6c5">&lt;/strong&gt;</ept> reads the raw game events from a blob storage (RawGameEventsTable) and creates partitions based on year, month, and day (PartitionedGameEventsTable).</source>
+          <target state="new">The <bpt id="5b19b1f9-d7d2-4885-95a2-4dedeaa7a6c5">&lt;strong&gt;</bpt>PartitionGameLogsPipeline<ept id="5b19b1f9-d7d2-4885-95a2-4dedeaa7a6c5">&lt;/strong&gt;</ept> reads the raw game events from a blob storage (RawGameEventsTable) and creates partitions based on year, month, and day (PartitionedGameEventsTable).</target>
+        </trans-unit>
+        <trans-unit id="68571fe6-1680-4358-b816-544ab21e8988" xml:space="preserve">
+          <source>The <bpt id="4fd1cd2a-d4e3-4ad2-ab58-2f823318cefa">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="4fd1cd2a-d4e3-4ad2-ab58-2f823318cefa">&lt;/strong&gt;</ept> joins partitioned game events (PartitionedGameEvents table, which is an output of the PartitionGameLogsPipeline) with geo code (RefGetoCodeDictionaryTable) and enriches the data by mapping an IP address to the corresponding geo-location (EnrichedGameEventsTable).</source>
+          <target state="new">The <bpt id="4fd1cd2a-d4e3-4ad2-ab58-2f823318cefa">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="4fd1cd2a-d4e3-4ad2-ab58-2f823318cefa">&lt;/strong&gt;</ept> joins partitioned game events (PartitionedGameEvents table, which is an output of the PartitionGameLogsPipeline) with geo code (RefGetoCodeDictionaryTable) and enriches the data by mapping an IP address to the corresponding geo-location (EnrichedGameEventsTable).</target>
+        </trans-unit>
+        <trans-unit id="4316cd7a-9108-4d33-a7e0-cef81871bc4d" xml:space="preserve">
+          <source>The <bpt id="13baa9b7-7009-44ab-8e70-af53708b21fa">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="13baa9b7-7009-44ab-8e70-af53708b21fa">&lt;/strong&gt;</ept> pipeline leverages the enriched data (EnrichedGameEventTable produced by the EnrichGameLogsPipeline) and processes it with the advertising data (RefMarketingCampaignnTable) to create the final output of marketing campaign effectiveness, which is copied to the Azure SQL database (MarketingCampainEffectivensessSQLTable) and an Azure blob storage (MarketingCampaignEffectivenessBlobTable) for analytics.</source>
+          <target state="new">The <bpt id="13baa9b7-7009-44ab-8e70-af53708b21fa">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="13baa9b7-7009-44ab-8e70-af53708b21fa">&lt;/strong&gt;</ept> pipeline leverages the enriched data (EnrichedGameEventTable produced by the EnrichGameLogsPipeline) and processes it with the advertising data (RefMarketingCampaignnTable) to create the final output of marketing campaign effectiveness, which is copied to the Azure SQL database (MarketingCampainEffectivensessSQLTable) and an Azure blob storage (MarketingCampaignEffectivenessBlobTable) for analytics.</target>
+        </trans-unit>
+        <trans-unit id="ebab815d-6a97-44cd-8b7f-0f5dd6a2605c" xml:space="preserve">
+          <source><bpt id="1fe0ea3a-c549-47df-a205-a569634e6436">&lt;linkText&gt;</bpt>Step 1: Upload sample data and scripts<ept id="1fe0ea3a-c549-47df-a205-a569634e6436">&lt;/linkText&gt;</ept><bpt id="1fe0ea3a-c549-47df-a205-a569634e6436">&lt;title&gt;</bpt><ept id="1fe0ea3a-c549-47df-a205-a569634e6436">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="1fe0ea3a-c549-47df-a205-a569634e6436">&lt;linkText&gt;</bpt>Step 1: Upload sample data and scripts<ept id="1fe0ea3a-c549-47df-a205-a569634e6436">&lt;/linkText&gt;</ept><bpt id="1fe0ea3a-c549-47df-a205-a569634e6436">&lt;title&gt;</bpt><ept id="1fe0ea3a-c549-47df-a205-a569634e6436">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="daa15d5f-ba33-4de1-b9df-d7d8fb1a6789" xml:space="preserve">
+          <source>In this step, you will upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that will be executed by the workflows.</source>
+          <target state="new">In this step, you will upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that will be executed by the workflows.</target>
+        </trans-unit>
+        <trans-unit id="1207d58f-a081-4868-9902-7d8a74e07667" xml:space="preserve">
+          <source>The scripts you execute also create an Azure SQL database (named MarketingCampaigns), tables, user-defined types, and stored procedures.</source>
+          <target state="new">The scripts you execute also create an Azure SQL database (named MarketingCampaigns), tables, user-defined types, and stored procedures.</target>
+        </trans-unit>
+        <trans-unit id="648226b3-c4a2-474e-9533-cad96d35fd9b" xml:space="preserve">
+          <source><bpt id="ba25fc70-ae8b-42ca-9d87-1aff2cf602b4">&lt;linkText&gt;</bpt>Step 2: Create an Azure data factory<ept id="ba25fc70-ae8b-42ca-9d87-1aff2cf602b4">&lt;/linkText&gt;</ept><bpt id="ba25fc70-ae8b-42ca-9d87-1aff2cf602b4">&lt;title&gt;</bpt><ept id="ba25fc70-ae8b-42ca-9d87-1aff2cf602b4">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="ba25fc70-ae8b-42ca-9d87-1aff2cf602b4">&lt;linkText&gt;</bpt>Step 2: Create an Azure data factory<ept id="ba25fc70-ae8b-42ca-9d87-1aff2cf602b4">&lt;/linkText&gt;</ept><bpt id="ba25fc70-ae8b-42ca-9d87-1aff2cf602b4">&lt;title&gt;</bpt><ept id="ba25fc70-ae8b-42ca-9d87-1aff2cf602b4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32e9caff-0601-466d-b164-0743957f6085" xml:space="preserve">
+          <source>In this step, you will create an Azure data factory named LogProcessingFactory.</source>
+          <target state="new">In this step, you will create an Azure data factory named LogProcessingFactory.</target>
+        </trans-unit>
+        <trans-unit id="81ed971d-b6c8-4edd-b125-51997469c49a" xml:space="preserve">
+          <source><bpt id="488cea3a-ed3e-4dd1-b530-ad503c0f2313">&lt;linkText&gt;</bpt>Step 3: Create linked services<ept id="488cea3a-ed3e-4dd1-b530-ad503c0f2313">&lt;/linkText&gt;</ept><bpt id="488cea3a-ed3e-4dd1-b530-ad503c0f2313">&lt;title&gt;</bpt><ept id="488cea3a-ed3e-4dd1-b530-ad503c0f2313">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="488cea3a-ed3e-4dd1-b530-ad503c0f2313">&lt;linkText&gt;</bpt>Step 3: Create linked services<ept id="488cea3a-ed3e-4dd1-b530-ad503c0f2313">&lt;/linkText&gt;</ept><bpt id="488cea3a-ed3e-4dd1-b530-ad503c0f2313">&lt;title&gt;</bpt><ept id="488cea3a-ed3e-4dd1-b530-ad503c0f2313">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b61657f-a459-4689-9d54-f7a6d21525da" xml:space="preserve">
+          <source>In this step, you will create the following linked services:</source>
+          <target state="new">In this step, you will create the following linked services:</target>
+        </trans-unit>
+        <trans-unit id="e1286c5a-2be2-4613-8293-a1d635d3be78" xml:space="preserve">
+          <source><bpt id="c17dd404-6bb1-45ac-8e48-7fe155627a22">&lt;strong&gt;</bpt>StorageLinkedService<ept id="c17dd404-6bb1-45ac-8e48-7fe155627a22">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="c17dd404-6bb1-45ac-8e48-7fe155627a22">&lt;strong&gt;</bpt>StorageLinkedService<ept id="c17dd404-6bb1-45ac-8e48-7fe155627a22">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6abec048-9f8e-4af2-8462-0cc6ecc89da0" xml:space="preserve">
+          <source>Links the Azure storage location that contains raw game events, partitioned game events, enriched game events, marketing campaign effective information, reference geo-code data, and reference marketing campaign data to the LogProcessingFactory</source>
+          <target state="new">Links the Azure storage location that contains raw game events, partitioned game events, enriched game events, marketing campaign effective information, reference geo-code data, and reference marketing campaign data to the LogProcessingFactory</target>
+        </trans-unit>
+        <trans-unit id="95cf8d6b-b3da-426e-b2b4-5294bad48e9b" xml:space="preserve">
+          <source><bpt id="8d80e1f6-7b25-4442-b3b9-1190fd77e862">&lt;strong&gt;</bpt>AzureSqlLinkedService<ept id="8d80e1f6-7b25-4442-b3b9-1190fd77e862">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="8d80e1f6-7b25-4442-b3b9-1190fd77e862">&lt;strong&gt;</bpt>AzureSqlLinkedService<ept id="8d80e1f6-7b25-4442-b3b9-1190fd77e862">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ec23240-af71-4fe8-93d0-960503bd1800" xml:space="preserve">
+          <source>Links an Azure SQL database that contains marketing campaign effectiveness information.</source>
+          <target state="new">Links an Azure SQL database that contains marketing campaign effectiveness information.</target>
+        </trans-unit>
+        <trans-unit id="9d10313a-34a4-49ff-a9df-d01ae8faa28c" xml:space="preserve">
+          <source><bpt id="5617c115-f277-4b04-a194-69ed3b918c71">&lt;strong&gt;</bpt>HDInsightStorageLinkedService<ept id="5617c115-f277-4b04-a194-69ed3b918c71">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="5617c115-f277-4b04-a194-69ed3b918c71">&lt;strong&gt;</bpt>HDInsightStorageLinkedService<ept id="5617c115-f277-4b04-a194-69ed3b918c71">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d85f90d5-4918-4281-9ed8-80d2548fcb97" xml:space="preserve">
+          <source>Links an Azure blob storage that is associated with the HDInsight cluster that the HDInsightLinkedService refers to.</source>
+          <target state="new">Links an Azure blob storage that is associated with the HDInsight cluster that the HDInsightLinkedService refers to.</target>
+        </trans-unit>
+        <trans-unit id="4eafa23e-ecbf-48db-b95d-58b351cb049a" xml:space="preserve">
+          <source><bpt id="c5eafae2-35bc-44b8-8b82-8e562f664cc4">&lt;strong&gt;</bpt>HDInsightLinkedService<ept id="c5eafae2-35bc-44b8-8b82-8e562f664cc4">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="c5eafae2-35bc-44b8-8b82-8e562f664cc4">&lt;strong&gt;</bpt>HDInsightLinkedService<ept id="c5eafae2-35bc-44b8-8b82-8e562f664cc4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e0e2ffc-096a-469d-9882-f34dc40c3879" xml:space="preserve">
+          <source>Links an Azure HDInsight cluster to the LogProcessingFactory.</source>
+          <target state="new">Links an Azure HDInsight cluster to the LogProcessingFactory.</target>
+        </trans-unit>
+        <trans-unit id="b463cc5f-e038-42f7-97c8-92350027c621" xml:space="preserve">
+          <source>This cluster is used to perform pig/hive processing on the data.</source>
+          <target state="new">This cluster is used to perform pig/hive processing on the data.</target>
+        </trans-unit>
+        <trans-unit id="b30dd5dd-2388-4518-9651-b7be9923e7b2" xml:space="preserve">
+          <source><bpt id="d87188b5-7ffa-455e-aa31-aa8aa58c6dae">&lt;linkText&gt;</bpt>Step 4: Create tables<ept id="d87188b5-7ffa-455e-aa31-aa8aa58c6dae">&lt;/linkText&gt;</ept><bpt id="d87188b5-7ffa-455e-aa31-aa8aa58c6dae">&lt;title&gt;</bpt><ept id="d87188b5-7ffa-455e-aa31-aa8aa58c6dae">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d87188b5-7ffa-455e-aa31-aa8aa58c6dae">&lt;linkText&gt;</bpt>Step 4: Create tables<ept id="d87188b5-7ffa-455e-aa31-aa8aa58c6dae">&lt;/linkText&gt;</ept><bpt id="d87188b5-7ffa-455e-aa31-aa8aa58c6dae">&lt;title&gt;</bpt><ept id="d87188b5-7ffa-455e-aa31-aa8aa58c6dae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4c7c84a-06de-425f-9204-adc7a0aef257" xml:space="preserve">
+          <source>In this step, you will create the following tables:</source>
+          <target state="new">In this step, you will create the following tables:</target>
+        </trans-unit>
+        <trans-unit id="86501ef8-13c6-41b8-83ac-463f81653fcf" xml:space="preserve">
+          <source><bpt id="af3df105-5d4d-41a8-97d7-97cf2a953100">&lt;strong&gt;</bpt>RawGameEventsTable<ept id="af3df105-5d4d-41a8-97d7-97cf2a953100">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="af3df105-5d4d-41a8-97d7-97cf2a953100">&lt;strong&gt;</bpt>RawGameEventsTable<ept id="af3df105-5d4d-41a8-97d7-97cf2a953100">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b193c7ba-547e-4875-a2bf-1c5dd155d1bb" xml:space="preserve">
+          <source>This table specifies the location of the raw game event data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/logs/rawgameevents/) .</source>
+          <target state="new">This table specifies the location of the raw game event data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/logs/rawgameevents/) .</target>
+        </trans-unit>
+        <trans-unit id="dfcc528c-c65d-4b5a-a0eb-f7727b94e6fc" xml:space="preserve">
+          <source><bpt id="7592701a-f328-4cc5-aa77-e387933fb1c1">&lt;strong&gt;</bpt>PartitionedGameEventsTable<ept id="7592701a-f328-4cc5-aa77-e387933fb1c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="7592701a-f328-4cc5-aa77-e387933fb1c1">&lt;strong&gt;</bpt>PartitionedGameEventsTable<ept id="7592701a-f328-4cc5-aa77-e387933fb1c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b761d20b-2bd0-4ffe-87a3-177c236b420e" xml:space="preserve">
+          <source>This table specifies the location of the partitioned game event data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/logs/partitionedgameevents/) .</source>
+          <target state="new">This table specifies the location of the partitioned game event data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/logs/partitionedgameevents/) .</target>
+        </trans-unit>
+        <trans-unit id="5538c1cf-b4a6-4705-b41a-36af3f64e749" xml:space="preserve">
+          <source><bpt id="1b209065-bf2b-4c1d-b726-d5bf907274bc">&lt;strong&gt;</bpt>RefGeoCodeDictionaryTable<ept id="1b209065-bf2b-4c1d-b726-d5bf907274bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="1b209065-bf2b-4c1d-b726-d5bf907274bc">&lt;strong&gt;</bpt>RefGeoCodeDictionaryTable<ept id="1b209065-bf2b-4c1d-b726-d5bf907274bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bff755a5-52fa-46a5-9c09-264a28c8a724" xml:space="preserve">
+          <source>This table specifies the location of the refernce geo-code data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/refdata/refgeocodedictionary/).</source>
+          <target state="new">This table specifies the location of the refernce geo-code data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/refdata/refgeocodedictionary/).</target>
+        </trans-unit>
+        <trans-unit id="67cba2aa-2296-4237-9d35-86998a2eb254" xml:space="preserve">
+          <source><bpt id="611f63a1-50c0-49c2-b780-bedccbdfdd13">&lt;strong&gt;</bpt>RefMarketingCampaignTable<ept id="611f63a1-50c0-49c2-b780-bedccbdfdd13">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="611f63a1-50c0-49c2-b780-bedccbdfdd13">&lt;strong&gt;</bpt>RefMarketingCampaignTable<ept id="611f63a1-50c0-49c2-b780-bedccbdfdd13">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec09e95d-9d36-4d34-ade6-0a1e783f196a" xml:space="preserve">
+          <source>This table specifies the location of the refernce marketing campaign data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/refdata/refmarketingcampaign/).</source>
+          <target state="new">This table specifies the location of the refernce marketing campaign data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/refdata/refmarketingcampaign/).</target>
+        </trans-unit>
+        <trans-unit id="8d402b04-2a78-491d-9df5-89fc06b80115" xml:space="preserve">
+          <source><bpt id="3dc2698b-1a8c-4f48-b3bf-506a47c37477">&lt;strong&gt;</bpt>EnrichedGameEventsTable<ept id="3dc2698b-1a8c-4f48-b3bf-506a47c37477">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3dc2698b-1a8c-4f48-b3bf-506a47c37477">&lt;strong&gt;</bpt>EnrichedGameEventsTable<ept id="3dc2698b-1a8c-4f48-b3bf-506a47c37477">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="342903a9-173b-4acf-809e-69cb312e19c3" xml:space="preserve">
+          <source>This table specifies the location of the enriched game event data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/logs/enrichedgameevents/).</source>
+          <target state="new">This table specifies the location of the enriched game event data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/logs/enrichedgameevents/).</target>
+        </trans-unit>
+        <trans-unit id="b36f7da9-9617-43a6-badf-79b36d11ad9d" xml:space="preserve">
+          <source><bpt id="1b80e65c-0c55-415c-ad53-aaab5520501b">&lt;strong&gt;</bpt>MarketingCampaignEffectivenessSQLTable<ept id="1b80e65c-0c55-415c-ad53-aaab5520501b">&lt;/strong&gt;</ept>.This table specifies the SQL table (MarketingCampaignEffectiveness) in the Azure SQL Database defined by AzureSqlLinkedService that contains the marketing campaign effectiveness data.</source>
+          <target state="new"><bpt id="1b80e65c-0c55-415c-ad53-aaab5520501b">&lt;strong&gt;</bpt>MarketingCampaignEffectivenessSQLTable<ept id="1b80e65c-0c55-415c-ad53-aaab5520501b">&lt;/strong&gt;</ept>.This table specifies the SQL table (MarketingCampaignEffectiveness) in the Azure SQL Database defined by AzureSqlLinkedService that contains the marketing campaign effectiveness data.</target>
+        </trans-unit>
+        <trans-unit id="7128f84b-c056-4e75-bc53-d7c2fc695602" xml:space="preserve">
+          <source><bpt id="2818f5fd-1e6d-4435-b232-dd8fbe7bd9a1">&lt;strong&gt;</bpt>MarketingCampaignEffectivenessBlobTable<ept id="2818f5fd-1e6d-4435-b232-dd8fbe7bd9a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="2818f5fd-1e6d-4435-b232-dd8fbe7bd9a1">&lt;strong&gt;</bpt>MarketingCampaignEffectivenessBlobTable<ept id="2818f5fd-1e6d-4435-b232-dd8fbe7bd9a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43adc1d8-9015-4a1d-9099-928f6bd97455" xml:space="preserve">
+          <source>This table specifies the location of the marketing campaign effectiveness data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/marketingcampaigneffectiveness/).</source>
+          <target state="new">This table specifies the location of the marketing campaign effectiveness data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/marketingcampaigneffectiveness/).</target>
+        </trans-unit>
+        <trans-unit id="26cbe6d5-2c9b-4f82-a047-afdabcd16362" xml:space="preserve">
+          <source><bpt id="5d6baed7-b6ca-4e7e-8629-4f34b2fdc153">&lt;linkText&gt;</bpt>Step 5: Create and schedule pipelines<ept id="5d6baed7-b6ca-4e7e-8629-4f34b2fdc153">&lt;/linkText&gt;</ept><bpt id="5d6baed7-b6ca-4e7e-8629-4f34b2fdc153">&lt;title&gt;</bpt><ept id="5d6baed7-b6ca-4e7e-8629-4f34b2fdc153">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="5d6baed7-b6ca-4e7e-8629-4f34b2fdc153">&lt;linkText&gt;</bpt>Step 5: Create and schedule pipelines<ept id="5d6baed7-b6ca-4e7e-8629-4f34b2fdc153">&lt;/linkText&gt;</ept><bpt id="5d6baed7-b6ca-4e7e-8629-4f34b2fdc153">&lt;title&gt;</bpt><ept id="5d6baed7-b6ca-4e7e-8629-4f34b2fdc153">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31c85323-8404-4692-b954-971049d288d0" xml:space="preserve">
+          <source>In this step, you will create the following pipelines:</source>
+          <target state="new">In this step, you will create the following pipelines:</target>
+        </trans-unit>
+        <trans-unit id="9ccf2813-1226-4b4a-a252-8c9056565f20" xml:space="preserve">
+          <source><bpt id="09c55859-d160-45a2-b903-8c7ad61f78e6">&lt;strong&gt;</bpt>PartitionGameLogsPipeline<ept id="09c55859-d160-45a2-b903-8c7ad61f78e6">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="09c55859-d160-45a2-b903-8c7ad61f78e6">&lt;strong&gt;</bpt>PartitionGameLogsPipeline<ept id="09c55859-d160-45a2-b903-8c7ad61f78e6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc7f34eb-8b0f-448e-a8f2-7ef0359f4462" xml:space="preserve">
+          <source>This pipeline reads the raw game events from a blob storage (RawGameEventsTable) and creates partitions based on year, month, and day (PartitionedGameEventsTable).</source>
+          <target state="new">This pipeline reads the raw game events from a blob storage (RawGameEventsTable) and creates partitions based on year, month, and day (PartitionedGameEventsTable).</target>
+        </trans-unit>
+        <trans-unit id="d96d1cef-c9a9-4056-8939-92aef67993bc" xml:space="preserve">
+          <source><bpt id="b253bd4c-e025-4e42-8c21-3ad864701589">&lt;linkText&gt;</bpt>PartitionGamesLogs pipeline<ept id="b253bd4c-e025-4e42-8c21-3ad864701589">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b253bd4c-e025-4e42-8c21-3ad864701589">&lt;linkText&gt;</bpt>PartitionGamesLogs pipeline<ept id="b253bd4c-e025-4e42-8c21-3ad864701589">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75fe222b-e3d0-4e99-8338-1b8413170ba0" xml:space="preserve">
+          <source><bpt id="825579bc-0038-4dba-b442-3b558d5a6e6a">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="825579bc-0038-4dba-b442-3b558d5a6e6a">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="825579bc-0038-4dba-b442-3b558d5a6e6a">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="825579bc-0038-4dba-b442-3b558d5a6e6a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed818fd3-3152-43cd-85d5-29eb686bda52" xml:space="preserve">
+          <source>This pipeline joins partitioned game events (PartitionedGameEvents table, which is an output of the PartitionGameLogsPipeline) with geo-code (RefGetoCodeDictionaryTable) and enriches the data by mapping an IP address to the corresponding geo-location (EnrichedGameEventsTable)</source>
+          <target state="new">This pipeline joins partitioned game events (PartitionedGameEvents table, which is an output of the PartitionGameLogsPipeline) with geo-code (RefGetoCodeDictionaryTable) and enriches the data by mapping an IP address to the corresponding geo-location (EnrichedGameEventsTable)</target>
+        </trans-unit>
+        <trans-unit id="d5f663a5-ae32-4c21-8f7e-2a85c674ec1f" xml:space="preserve">
+          <source><bpt id="fec39058-f139-4998-a80f-8cbd58df787e">&lt;linkText&gt;</bpt>EnrichedGameLogsPipeline<ept id="fec39058-f139-4998-a80f-8cbd58df787e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fec39058-f139-4998-a80f-8cbd58df787e">&lt;linkText&gt;</bpt>EnrichedGameLogsPipeline<ept id="fec39058-f139-4998-a80f-8cbd58df787e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb313d49-b826-46da-85fe-7234aaad25f4" xml:space="preserve">
+          <source><bpt id="b32c4523-2023-410f-b389-04d4ea366841">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="b32c4523-2023-410f-b389-04d4ea366841">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="b32c4523-2023-410f-b389-04d4ea366841">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="b32c4523-2023-410f-b389-04d4ea366841">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="beceb8b0-b514-4427-86b6-ac994f58e044" xml:space="preserve">
+          <source>This pipeline leverages the enriched game event data (EnrichedGameEventTable produced by the EnrichGameLogsPipeline) and processes it with the advertising data (RefMarketingCampaignnTable) to create the final output of marketing campaign effectiveness, which is copied to the Azure SQL database (MarketingCampainEffectivensessSQLTable) and an Azure blob storage (MarketingCampaignEffectivenessBlobTable) for analytics</source>
+          <target state="new">This pipeline leverages the enriched game event data (EnrichedGameEventTable produced by the EnrichGameLogsPipeline) and processes it with the advertising data (RefMarketingCampaignnTable) to create the final output of marketing campaign effectiveness, which is copied to the Azure SQL database (MarketingCampainEffectivensessSQLTable) and an Azure blob storage (MarketingCampaignEffectivenessBlobTable) for analytics</target>
+        </trans-unit>
+        <trans-unit id="005bcfe5-9f68-47a1-8a75-2740c1284e3e" xml:space="preserve">
+          <source><bpt id="ca34b562-5734-43d8-83ec-0b97b4abb7a3">&lt;linkText&gt;</bpt>MarketingCampaignPipeline<ept id="ca34b562-5734-43d8-83ec-0b97b4abb7a3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ca34b562-5734-43d8-83ec-0b97b4abb7a3">&lt;linkText&gt;</bpt>MarketingCampaignPipeline<ept id="ca34b562-5734-43d8-83ec-0b97b4abb7a3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73612853-73b2-4da8-a4ae-bbeb637ba394" xml:space="preserve">
+          <source><bpt id="e6459413-bc73-4241-bfc7-0975315344ba">&lt;linkText&gt;</bpt>Step 6: Monitor pipelines and data slices<ept id="e6459413-bc73-4241-bfc7-0975315344ba">&lt;/linkText&gt;</ept><bpt id="e6459413-bc73-4241-bfc7-0975315344ba">&lt;title&gt;</bpt><ept id="e6459413-bc73-4241-bfc7-0975315344ba">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="e6459413-bc73-4241-bfc7-0975315344ba">&lt;linkText&gt;</bpt>Step 6: Monitor pipelines and data slices<ept id="e6459413-bc73-4241-bfc7-0975315344ba">&lt;/linkText&gt;</ept><bpt id="e6459413-bc73-4241-bfc7-0975315344ba">&lt;title&gt;</bpt><ept id="e6459413-bc73-4241-bfc7-0975315344ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="776262f8-79b7-4c07-a3f4-8b16495f86cd" xml:space="preserve">
+          <source>In this step, you will monitor the pipelines, tables, and data slices by using the Azure Portal.</source>
+          <target state="new">In this step, you will monitor the pipelines, tables, and data slices by using the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="9ad66768-9dc1-4ebe-9809-bd91b9a77e6d" xml:space="preserve">
+          <source>In this step, you upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that are invoked by the workflows.</source>
+          <target state="new">In this step, you upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that are invoked by the workflows.</target>
+        </trans-unit>
+        <trans-unit id="e57b2642-d82c-4d25-9284-2d36b8fb2f3f" xml:space="preserve">
+          <source>The scripts you execute also create an Azure SQL database called <bpt id="38b8a03e-f23e-4cae-bdb6-d8fe8cbb438a">&lt;strong&gt;</bpt>MarketingCampaigns<ept id="38b8a03e-f23e-4cae-bdb6-d8fe8cbb438a">&lt;/strong&gt;</ept>, tables, user-defined types, and stored procedures.</source>
+          <target state="new">The scripts you execute also create an Azure SQL database called <bpt id="38b8a03e-f23e-4cae-bdb6-d8fe8cbb438a">&lt;strong&gt;</bpt>MarketingCampaigns<ept id="38b8a03e-f23e-4cae-bdb6-d8fe8cbb438a">&lt;/strong&gt;</ept>, tables, user-defined types, and stored procedures.</target>
+        </trans-unit>
+        <trans-unit id="4463dd61-249c-44e8-b128-e12ae63c23e4" xml:space="preserve">
+          <source>The tables, user-defined types and stored procedures are used when moving the Marketing Campaign Effectiveness results from Azure blob storage to the Azure SQL database.</source>
+          <target state="new">The tables, user-defined types and stored procedures are used when moving the Marketing Campaign Effectiveness results from Azure blob storage to the Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="4cf710f0-7b38-4b8a-8dcf-094d3633b872" xml:space="preserve">
+          <source>Open <bpt id="ae05a5d6-fb2f-4e1d-b64c-6e2e909c37a9">&lt;strong&gt;</bpt>uploadSampleDataAndScripts.ps1<ept id="ae05a5d6-fb2f-4e1d-b64c-6e2e909c37a9">&lt;/strong&gt;</ept> from <bpt id="0e750024-6837-474c-a5dc-134859c5b6de">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="0e750024-6837-474c-a5dc-134859c5b6de">&lt;/strong&gt;</ept> folder (or the folder that contains the extracted files) in your favorite editor, replace the highlighted with your cluster information, and save the file.</source>
+          <target state="new">Open <bpt id="ae05a5d6-fb2f-4e1d-b64c-6e2e909c37a9">&lt;strong&gt;</bpt>uploadSampleDataAndScripts.ps1<ept id="ae05a5d6-fb2f-4e1d-b64c-6e2e909c37a9">&lt;/strong&gt;</ept> from <bpt id="0e750024-6837-474c-a5dc-134859c5b6de">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="0e750024-6837-474c-a5dc-134859c5b6de">&lt;/strong&gt;</ept> folder (or the folder that contains the extracted files) in your favorite editor, replace the highlighted with your cluster information, and save the file.</target>
+        </trans-unit>
+        <trans-unit id="6fc6ed35-5920-45eb-8df9-72c50053a43a" xml:space="preserve">
+          <source>This script requires you have sqlcmd utility installed on your machine.</source>
+          <target state="new">This script requires you have sqlcmd utility installed on your machine.</target>
+        </trans-unit>
+        <trans-unit id="b36cc28c-6d57-4b3f-a2d0-8efdb238ac1b" xml:space="preserve">
+          <source>If you have SQL Server isntalled, you already have it.</source>
+          <target state="new">If you have SQL Server isntalled, you already have it.</target>
+        </trans-unit>
+        <trans-unit id="14b2174d-36ec-4da3-bed1-6303c81f9d30" xml:space="preserve">
+          <source>Otherwise, <bpt id="7b133198-4798-464d-89b0-519b01203f38">&lt;linkText&gt;</bpt>download[sqlcmd-install]<ept id="7b133198-4798-464d-89b0-519b01203f38">&lt;/linkText&gt;</ept><bpt id="7b133198-4798-464d-89b0-519b01203f38">&lt;title&gt;</bpt><ept id="7b133198-4798-464d-89b0-519b01203f38">&lt;/title&gt;</ept> and install the utility.</source>
+          <target state="new">Otherwise, <bpt id="7b133198-4798-464d-89b0-519b01203f38">&lt;linkText&gt;</bpt>download[sqlcmd-install]<ept id="7b133198-4798-464d-89b0-519b01203f38">&lt;/linkText&gt;</ept><bpt id="7b133198-4798-464d-89b0-519b01203f38">&lt;title&gt;</bpt><ept id="7b133198-4798-464d-89b0-519b01203f38">&lt;/title&gt;</ept> and install the utility.</target>
+        </trans-unit>
+        <trans-unit id="13aac04a-860f-4795-9efa-57472d4f0842" xml:space="preserve">
+          <source>Alternatively, you can use the files in the folder: C:\ADFWalkthrough\Scripts to upload pig/hive scripts and sample files to the adfwalkthrough container in the blob storage, and create MarketingCampaignEffectiveness table in the MarketingCamapaigns Azure SQL database.</source>
+          <target state="new">Alternatively, you can use the files in the folder: C:\ADFWalkthrough\Scripts to upload pig/hive scripts and sample files to the adfwalkthrough container in the blob storage, and create MarketingCampaignEffectiveness table in the MarketingCamapaigns Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="ee268918-0b71-4f0f-91bc-52e0f7373cc5" xml:space="preserve">
+          <source>Confirm that your local machine is allowed to access the Azure SQL Database.</source>
+          <target state="new">Confirm that your local machine is allowed to access the Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="74195396-115e-4f09-a836-bb32c9311688" xml:space="preserve">
+          <source>To enable access, use the <bpt id="12d7886f-1e4c-424a-be32-b9cacdfa1df4">&lt;strong&gt;</bpt>Azure Management Portal<ept id="12d7886f-1e4c-424a-be32-b9cacdfa1df4">&lt;/strong&gt;</ept> or <bpt id="2cb73d8f-f833-4a0b-82a6-a83ec51a23d4">&lt;strong&gt;</bpt>sp_set_firewall_rule<ept id="2cb73d8f-f833-4a0b-82a6-a83ec51a23d4">&lt;/strong&gt;</ept> on the master database to create a firewall rule for the IP address of your machine.</source>
+          <target state="new">To enable access, use the <bpt id="12d7886f-1e4c-424a-be32-b9cacdfa1df4">&lt;strong&gt;</bpt>Azure Management Portal<ept id="12d7886f-1e4c-424a-be32-b9cacdfa1df4">&lt;/strong&gt;</ept> or <bpt id="2cb73d8f-f833-4a0b-82a6-a83ec51a23d4">&lt;strong&gt;</bpt>sp_set_firewall_rule<ept id="2cb73d8f-f833-4a0b-82a6-a83ec51a23d4">&lt;/strong&gt;</ept> on the master database to create a firewall rule for the IP address of your machine.</target>
+        </trans-unit>
+        <trans-unit id="4b1e6b1d-4701-44bb-bef6-b051010569dd" xml:space="preserve">
+          <source>It may take up to five minutes for this change to take effect.</source>
+          <target state="new">It may take up to five minutes for this change to take effect.</target>
+        </trans-unit>
+        <trans-unit id="ac36d19c-c556-4b78-a5fc-18cd52709df2" xml:space="preserve">
+          <source>See <bpt id="9b82d7f3-c67f-40f2-a93f-9683334326df">&lt;linkText&gt;</bpt>Setting firewall rules for Azure SQL[azure-sql-firewall]<ept id="9b82d7f3-c67f-40f2-a93f-9683334326df">&lt;/linkText&gt;</ept><bpt id="9b82d7f3-c67f-40f2-a93f-9683334326df">&lt;title&gt;</bpt><ept id="9b82d7f3-c67f-40f2-a93f-9683334326df">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="9b82d7f3-c67f-40f2-a93f-9683334326df">&lt;linkText&gt;</bpt>Setting firewall rules for Azure SQL[azure-sql-firewall]<ept id="9b82d7f3-c67f-40f2-a93f-9683334326df">&lt;/linkText&gt;</ept><bpt id="9b82d7f3-c67f-40f2-a93f-9683334326df">&lt;title&gt;</bpt><ept id="9b82d7f3-c67f-40f2-a93f-9683334326df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="770fbf89-fc3c-423c-9cab-66ddf5fa7bdc" xml:space="preserve">
+          <source>In Azure PowerShell, navigate to the location where you have extracted the samples (for example: <bpt id="005557b6-64ed-4b6f-b2e4-13430db631a2">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="005557b6-64ed-4b6f-b2e4-13430db631a2">&lt;/strong&gt;</ept>)</source>
+          <target state="new">In Azure PowerShell, navigate to the location where you have extracted the samples (for example: <bpt id="005557b6-64ed-4b6f-b2e4-13430db631a2">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="005557b6-64ed-4b6f-b2e4-13430db631a2">&lt;/strong&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="8b108cad-38a4-44e0-9e8b-bea5e4c03252" xml:space="preserve">
+          <source>Run <bpt id="5730887d-198e-40b9-908a-d67be51cae95">&lt;strong&gt;</bpt>uploadSampleDataAndScripts.ps1<ept id="5730887d-198e-40b9-908a-d67be51cae95">&lt;/strong&gt;</ept> </source>
+          <target state="new">Run <bpt id="5730887d-198e-40b9-908a-d67be51cae95">&lt;strong&gt;</bpt>uploadSampleDataAndScripts.ps1<ept id="5730887d-198e-40b9-908a-d67be51cae95">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="357f4c60-17d9-4a4c-bc76-6d9e5c86076a" xml:space="preserve">
+          <source>Once the script executes successfully, you will see the following:</source>
+          <target state="new">Once the script executes successfully, you will see the following:</target>
+        </trans-unit>
+        <trans-unit id="e95c97da-5d9b-4dba-8d45-66aa04f39dc1" xml:space="preserve">
+          <source>In this step, you create an Azure data factory named <bpt id="f80d4680-90a0-4d2d-8678-455248a7816b">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="f80d4680-90a0-4d2d-8678-455248a7816b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this step, you create an Azure data factory named <bpt id="f80d4680-90a0-4d2d-8678-455248a7816b">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="f80d4680-90a0-4d2d-8678-455248a7816b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="872a8f09-7bf5-410e-a5d8-d3b054b8f38d" xml:space="preserve">
+          <source>After logging into the <bpt id="abaa0091-4c19-4f99-a8b2-441759682018">&lt;linkText&gt;</bpt>Azure Preview Portal[azure-preview-portal]<ept id="abaa0091-4c19-4f99-a8b2-441759682018">&lt;/linkText&gt;</ept><bpt id="abaa0091-4c19-4f99-a8b2-441759682018">&lt;title&gt;</bpt><ept id="abaa0091-4c19-4f99-a8b2-441759682018">&lt;/title&gt;</ept>, click <bpt id="1c91da79-060f-4649-8dca-046066ea7254">&lt;strong&gt;</bpt>NEW<ept id="1c91da79-060f-4649-8dca-046066ea7254">&lt;/strong&gt;</ept> from the bottom-left corner, and click <bpt id="6be3a93e-fc79-4da7-b508-152cae2f91bb">&lt;strong&gt;</bpt>Data Factory<ept id="6be3a93e-fc79-4da7-b508-152cae2f91bb">&lt;/strong&gt;</ept> on the <bpt id="a5321914-4a86-422a-a0e1-1564e2541c82">&lt;strong&gt;</bpt>New<ept id="a5321914-4a86-422a-a0e1-1564e2541c82">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">After logging into the <bpt id="abaa0091-4c19-4f99-a8b2-441759682018">&lt;linkText&gt;</bpt>Azure Preview Portal[azure-preview-portal]<ept id="abaa0091-4c19-4f99-a8b2-441759682018">&lt;/linkText&gt;</ept><bpt id="abaa0091-4c19-4f99-a8b2-441759682018">&lt;title&gt;</bpt><ept id="abaa0091-4c19-4f99-a8b2-441759682018">&lt;/title&gt;</ept>, click <bpt id="1c91da79-060f-4649-8dca-046066ea7254">&lt;strong&gt;</bpt>NEW<ept id="1c91da79-060f-4649-8dca-046066ea7254">&lt;/strong&gt;</ept> from the bottom-left corner, and click <bpt id="6be3a93e-fc79-4da7-b508-152cae2f91bb">&lt;strong&gt;</bpt>Data Factory<ept id="6be3a93e-fc79-4da7-b508-152cae2f91bb">&lt;/strong&gt;</ept> on the <bpt id="a5321914-4a86-422a-a0e1-1564e2541c82">&lt;strong&gt;</bpt>New<ept id="a5321914-4a86-422a-a0e1-1564e2541c82">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="74f8e5f7-3fb5-471d-a761-a69f6d4cf031" xml:space="preserve">
+          <source><bpt id="a42e4015-83a3-404a-ac34-60d05eca266a">&lt;linkText&gt;</bpt>New-&gt;DataFactory<ept id="a42e4015-83a3-404a-ac34-60d05eca266a">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="a42e4015-83a3-404a-ac34-60d05eca266a">&lt;linkText&gt;</bpt>New-&gt;DataFactory<ept id="a42e4015-83a3-404a-ac34-60d05eca266a">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="2ecd3183-a42b-447a-8b41-f3ec265e62a8" xml:space="preserve">
+          <source>If you do not see <bpt id="7b1047cc-ce57-4ed9-bb55-3f2b9db7b2a2">&lt;strong&gt;</bpt>Data Factory<ept id="7b1047cc-ce57-4ed9-bb55-3f2b9db7b2a2">&lt;/strong&gt;</ept> on the <bpt id="ebc6ff2c-db86-4cc7-8ac1-475a2a6bb72f">&lt;strong&gt;</bpt>New<ept id="ebc6ff2c-db86-4cc7-8ac1-475a2a6bb72f">&lt;/strong&gt;</ept> blade, scroll down.</source>
+          <target state="new">If you do not see <bpt id="7b1047cc-ce57-4ed9-bb55-3f2b9db7b2a2">&lt;strong&gt;</bpt>Data Factory<ept id="7b1047cc-ce57-4ed9-bb55-3f2b9db7b2a2">&lt;/strong&gt;</ept> on the <bpt id="ebc6ff2c-db86-4cc7-8ac1-475a2a6bb72f">&lt;strong&gt;</bpt>New<ept id="ebc6ff2c-db86-4cc7-8ac1-475a2a6bb72f">&lt;/strong&gt;</ept> blade, scroll down.</target>
+        </trans-unit>
+        <trans-unit id="9df2aa6d-a4fc-40e6-af64-0bd6bfb7866f" xml:space="preserve">
+          <source>In the <bpt id="b3b0b849-6961-4794-8126-f5e0ef23fd80">&lt;strong&gt;</bpt>New data factory<ept id="b3b0b849-6961-4794-8126-f5e0ef23fd80">&lt;/strong&gt;</ept> blade, enter <bpt id="15d56fe8-7256-4555-9aa2-70d12c5a24d8">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="15d56fe8-7256-4555-9aa2-70d12c5a24d8">&lt;/strong&gt;</ept> for the <bpt id="93625f5a-f760-42d9-8da2-a2e5c0024745">&lt;strong&gt;</bpt>Name<ept id="93625f5a-f760-42d9-8da2-a2e5c0024745">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b3b0b849-6961-4794-8126-f5e0ef23fd80">&lt;strong&gt;</bpt>New data factory<ept id="b3b0b849-6961-4794-8126-f5e0ef23fd80">&lt;/strong&gt;</ept> blade, enter <bpt id="15d56fe8-7256-4555-9aa2-70d12c5a24d8">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="15d56fe8-7256-4555-9aa2-70d12c5a24d8">&lt;/strong&gt;</ept> for the <bpt id="93625f5a-f760-42d9-8da2-a2e5c0024745">&lt;strong&gt;</bpt>Name<ept id="93625f5a-f760-42d9-8da2-a2e5c0024745">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a8d7235-2223-4bfb-adb1-cdb2fd5be7be" xml:space="preserve">
+          <source><bpt id="a90afbc4-ddce-4b0f-9507-9510640d4fff">&lt;linkText&gt;</bpt>Data Factory Blade<ept id="a90afbc4-ddce-4b0f-9507-9510640d4fff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a90afbc4-ddce-4b0f-9507-9510640d4fff">&lt;linkText&gt;</bpt>Data Factory Blade<ept id="a90afbc4-ddce-4b0f-9507-9510640d4fff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c92f9bb3-992e-4f0a-9f1a-9fe3fff513b3" xml:space="preserve">
+          <source>If you haven’t created an Azure resource group named <bpt id="056c0798-98ea-49f8-984b-58a662181930">&lt;strong&gt;</bpt>ADF<ept id="056c0798-98ea-49f8-984b-58a662181930">&lt;/strong&gt;</ept> already, do the following:</source>
+          <target state="new">If you haven’t created an Azure resource group named <bpt id="056c0798-98ea-49f8-984b-58a662181930">&lt;strong&gt;</bpt>ADF<ept id="056c0798-98ea-49f8-984b-58a662181930">&lt;/strong&gt;</ept> already, do the following:</target>
+        </trans-unit>
+        <trans-unit id="be5dff3f-4ac8-451a-846a-d78240b42ba9" xml:space="preserve">
+          <source>Click <bpt id="39b318d9-838d-4580-adfd-14333c843799">&lt;strong&gt;</bpt>RESOURCE GROUP NAME<ept id="39b318d9-838d-4580-adfd-14333c843799">&lt;/strong&gt;</ept>, and click <bpt id="9b9f5014-62b1-41f7-89ff-584ebba3c59e">&lt;strong&gt;</bpt>Create a new resource group<ept id="9b9f5014-62b1-41f7-89ff-584ebba3c59e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="39b318d9-838d-4580-adfd-14333c843799">&lt;strong&gt;</bpt>RESOURCE GROUP NAME<ept id="39b318d9-838d-4580-adfd-14333c843799">&lt;/strong&gt;</ept>, and click <bpt id="9b9f5014-62b1-41f7-89ff-584ebba3c59e">&lt;strong&gt;</bpt>Create a new resource group<ept id="9b9f5014-62b1-41f7-89ff-584ebba3c59e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32ae26f0-0d2b-46f5-9341-306eb3efa166" xml:space="preserve">
+          <source><bpt id="a16412e9-3351-4211-9255-b520f7a62b6b">&lt;linkText&gt;</bpt>Resource Group Blade<ept id="a16412e9-3351-4211-9255-b520f7a62b6b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a16412e9-3351-4211-9255-b520f7a62b6b">&lt;linkText&gt;</bpt>Resource Group Blade<ept id="a16412e9-3351-4211-9255-b520f7a62b6b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2958f07-59b0-4b69-9b8d-0cf5279b2101" xml:space="preserve">
+          <source>In the <bpt id="2dfbc052-05e3-40f5-9aa8-fb449e313f14">&lt;strong&gt;</bpt>Create resource group<ept id="2dfbc052-05e3-40f5-9aa8-fb449e313f14">&lt;/strong&gt;</ept> blade, enter <bpt id="f7dbfecb-ffd7-406f-8dd8-4b193eecf858">&lt;strong&gt;</bpt>ADF<ept id="f7dbfecb-ffd7-406f-8dd8-4b193eecf858">&lt;/strong&gt;</ept> for the name of the resource group, and click <bpt id="df6d6b5a-7276-4f60-8542-c7de4e7a20eb">&lt;strong&gt;</bpt>OK<ept id="df6d6b5a-7276-4f60-8542-c7de4e7a20eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2dfbc052-05e3-40f5-9aa8-fb449e313f14">&lt;strong&gt;</bpt>Create resource group<ept id="2dfbc052-05e3-40f5-9aa8-fb449e313f14">&lt;/strong&gt;</ept> blade, enter <bpt id="f7dbfecb-ffd7-406f-8dd8-4b193eecf858">&lt;strong&gt;</bpt>ADF<ept id="f7dbfecb-ffd7-406f-8dd8-4b193eecf858">&lt;/strong&gt;</ept> for the name of the resource group, and click <bpt id="df6d6b5a-7276-4f60-8542-c7de4e7a20eb">&lt;strong&gt;</bpt>OK<ept id="df6d6b5a-7276-4f60-8542-c7de4e7a20eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0bd1177-ebbc-4a88-9fae-63299ece4354" xml:space="preserve">
+          <source><bpt id="ff246b3a-2bc0-42bf-9ee9-ab7b6687b6f0">&lt;linkText&gt;</bpt>Create Resource Group<ept id="ff246b3a-2bc0-42bf-9ee9-ab7b6687b6f0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff246b3a-2bc0-42bf-9ee9-ab7b6687b6f0">&lt;linkText&gt;</bpt>Create Resource Group<ept id="ff246b3a-2bc0-42bf-9ee9-ab7b6687b6f0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73d70654-e746-4d29-8b16-80ef7e83e5e8" xml:space="preserve">
+          <source>Select <bpt id="9799d554-1bb9-46ee-b9ba-b139f9dea811">&lt;strong&gt;</bpt>ADF<ept id="9799d554-1bb9-46ee-b9ba-b139f9dea811">&lt;/strong&gt;</ept> for the <bpt id="cf5ed50d-bf29-4415-88c8-6ff36969697a">&lt;strong&gt;</bpt>RESOURCE GROUP NAME<ept id="cf5ed50d-bf29-4415-88c8-6ff36969697a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="9799d554-1bb9-46ee-b9ba-b139f9dea811">&lt;strong&gt;</bpt>ADF<ept id="9799d554-1bb9-46ee-b9ba-b139f9dea811">&lt;/strong&gt;</ept> for the <bpt id="cf5ed50d-bf29-4415-88c8-6ff36969697a">&lt;strong&gt;</bpt>RESOURCE GROUP NAME<ept id="cf5ed50d-bf29-4415-88c8-6ff36969697a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11f7713f-0b5e-4c2d-af99-a3c82e0db606" xml:space="preserve">
+          <source>In the <bpt id="50bcd86b-3025-4504-a9f7-97e99f99cd9a">&lt;strong&gt;</bpt>New data factory<ept id="50bcd86b-3025-4504-a9f7-97e99f99cd9a">&lt;/strong&gt;</ept> blade, notice that <bpt id="65417277-8f73-4eef-82d0-c93b9f94ab07">&lt;strong&gt;</bpt>Add to Startboard<ept id="65417277-8f73-4eef-82d0-c93b9f94ab07">&lt;/strong&gt;</ept> is selected by default.</source>
+          <target state="new">In the <bpt id="50bcd86b-3025-4504-a9f7-97e99f99cd9a">&lt;strong&gt;</bpt>New data factory<ept id="50bcd86b-3025-4504-a9f7-97e99f99cd9a">&lt;/strong&gt;</ept> blade, notice that <bpt id="65417277-8f73-4eef-82d0-c93b9f94ab07">&lt;strong&gt;</bpt>Add to Startboard<ept id="65417277-8f73-4eef-82d0-c93b9f94ab07">&lt;/strong&gt;</ept> is selected by default.</target>
+        </trans-unit>
+        <trans-unit id="dcdd270b-c6f2-440f-a7e8-46f5dcbeda6f" xml:space="preserve">
+          <source>This add a link to data factory on the startboard (what you see when you login to Azure Preview Portal).</source>
+          <target state="new">This add a link to data factory on the startboard (what you see when you login to Azure Preview Portal).</target>
+        </trans-unit>
+        <trans-unit id="7c2d50f0-bd14-4bdc-aad7-6df597d8f90a" xml:space="preserve">
+          <source><bpt id="0c5c43f2-0cac-4ebe-91b9-6e009e3bd2c1">&lt;linkText&gt;</bpt>Create Data Factory Blade<ept id="0c5c43f2-0cac-4ebe-91b9-6e009e3bd2c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c5c43f2-0cac-4ebe-91b9-6e009e3bd2c1">&lt;linkText&gt;</bpt>Create Data Factory Blade<ept id="0c5c43f2-0cac-4ebe-91b9-6e009e3bd2c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd720c8a-02bf-4d53-b58c-d7eba816cb88" xml:space="preserve">
+          <source>In the <bpt id="3ebe6a58-b4c4-49ed-a251-e160c320f93e">&lt;strong&gt;</bpt>New data factory<ept id="3ebe6a58-b4c4-49ed-a251-e160c320f93e">&lt;/strong&gt;</ept> blade, click <bpt id="fd32309d-f850-4d4a-835c-1e44d1a17099">&lt;strong&gt;</bpt>Create<ept id="fd32309d-f850-4d4a-835c-1e44d1a17099">&lt;/strong&gt;</ept> to create the data factory.</source>
+          <target state="new">In the <bpt id="3ebe6a58-b4c4-49ed-a251-e160c320f93e">&lt;strong&gt;</bpt>New data factory<ept id="3ebe6a58-b4c4-49ed-a251-e160c320f93e">&lt;/strong&gt;</ept> blade, click <bpt id="fd32309d-f850-4d4a-835c-1e44d1a17099">&lt;strong&gt;</bpt>Create<ept id="fd32309d-f850-4d4a-835c-1e44d1a17099">&lt;/strong&gt;</ept> to create the data factory.</target>
+        </trans-unit>
+        <trans-unit id="b1d5b5d8-78f8-4e96-bfcc-0ed04df83490" xml:space="preserve">
+          <source>After the data factory is created, you should see the <bpt id="e60a802c-53de-4f5a-abf5-95cdc3743608">&lt;strong&gt;</bpt>DATA FACTORY<ept id="e60a802c-53de-4f5a-abf5-95cdc3743608">&lt;/strong&gt;</ept> blade titled <bpt id="68b3b894-fac7-4a05-a7f0-fcbee1f1ceba">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="68b3b894-fac7-4a05-a7f0-fcbee1f1ceba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the data factory is created, you should see the <bpt id="e60a802c-53de-4f5a-abf5-95cdc3743608">&lt;strong&gt;</bpt>DATA FACTORY<ept id="e60a802c-53de-4f5a-abf5-95cdc3743608">&lt;/strong&gt;</ept> blade titled <bpt id="68b3b894-fac7-4a05-a7f0-fcbee1f1ceba">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="68b3b894-fac7-4a05-a7f0-fcbee1f1ceba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d32c4e7-9ab0-4f95-8dd0-f95e5b80babf" xml:space="preserve">
+          <source><bpt id="5775762c-39dd-425d-be02-f0912c81a5fd">&lt;linkText&gt;</bpt>Data Factory Homepage<ept id="5775762c-39dd-425d-be02-f0912c81a5fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5775762c-39dd-425d-be02-f0912c81a5fd">&lt;linkText&gt;</bpt>Data Factory Homepage<ept id="5775762c-39dd-425d-be02-f0912c81a5fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94e0ec48-f0ac-44ac-9756-e4b41bb664a9" xml:space="preserve">
+          <source>If you do not see it, do one of the following:</source>
+          <target state="new">If you do not see it, do one of the following:</target>
+        </trans-unit>
+        <trans-unit id="e4d62002-07a7-4fab-a997-ad095c5599c5" xml:space="preserve">
+          <source>Click <bpt id="a23b0491-1cf8-4f03-ae6e-3b0efa7d6ecd">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="a23b0491-1cf8-4f03-ae6e-3b0efa7d6ecd">&lt;/strong&gt;</ept> on the <bpt id="a1c1a674-547b-4191-84f2-c3384142c63c">&lt;strong&gt;</bpt>Startboard<ept id="a1c1a674-547b-4191-84f2-c3384142c63c">&lt;/strong&gt;</ept> (home page)</source>
+          <target state="new">Click <bpt id="a23b0491-1cf8-4f03-ae6e-3b0efa7d6ecd">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="a23b0491-1cf8-4f03-ae6e-3b0efa7d6ecd">&lt;/strong&gt;</ept> on the <bpt id="a1c1a674-547b-4191-84f2-c3384142c63c">&lt;strong&gt;</bpt>Startboard<ept id="a1c1a674-547b-4191-84f2-c3384142c63c">&lt;/strong&gt;</ept> (home page)</target>
+        </trans-unit>
+        <trans-unit id="ed72444f-79fe-45ee-a34c-d8a28845fbfc" xml:space="preserve">
+          <source>Click <bpt id="f8de4c88-ef8a-4661-a7eb-e4655e5ebb62">&lt;strong&gt;</bpt>BROWSE<ept id="f8de4c88-ef8a-4661-a7eb-e4655e5ebb62">&lt;/strong&gt;</ept> on the left, click <bpt id="51f53129-eff1-49d6-b0ec-a524e530cd00">&lt;strong&gt;</bpt>Everything<ept id="51f53129-eff1-49d6-b0ec-a524e530cd00">&lt;/strong&gt;</ept>, click <bpt id="b27d2584-4b97-4ea5-8ec1-98850c0f4f20">&lt;strong&gt;</bpt>Data factories<ept id="b27d2584-4b97-4ea5-8ec1-98850c0f4f20">&lt;/strong&gt;</ept>, and click the data factory.</source>
+          <target state="new">Click <bpt id="f8de4c88-ef8a-4661-a7eb-e4655e5ebb62">&lt;strong&gt;</bpt>BROWSE<ept id="f8de4c88-ef8a-4661-a7eb-e4655e5ebb62">&lt;/strong&gt;</ept> on the left, click <bpt id="51f53129-eff1-49d6-b0ec-a524e530cd00">&lt;strong&gt;</bpt>Everything<ept id="51f53129-eff1-49d6-b0ec-a524e530cd00">&lt;/strong&gt;</ept>, click <bpt id="b27d2584-4b97-4ea5-8ec1-98850c0f4f20">&lt;strong&gt;</bpt>Data factories<ept id="b27d2584-4b97-4ea5-8ec1-98850c0f4f20">&lt;/strong&gt;</ept>, and click the data factory.</target>
+        </trans-unit>
+        <trans-unit id="a67204d6-f100-4e3f-926b-4bc860be839f" xml:space="preserve">
+          <source>The name of the Azure data factory must be globally unique.</source>
+          <target state="new">The name of the Azure data factory must be globally unique.</target>
+        </trans-unit>
+        <trans-unit id="dd365c95-9188-4586-8a21-2b30fc18cd1a" xml:space="preserve">
+          <source>If you receive the error: <bpt id="20fe08fe-1ebd-4be9-89b3-882c7f88d6ba">&lt;strong&gt;</bpt>Data factory name “LogProcessingFactory” is not available<ept id="20fe08fe-1ebd-4be9-89b3-882c7f88d6ba">&lt;/strong&gt;</ept>, change the name (for example, yournameLogProcessingFactory).</source>
+          <target state="new">If you receive the error: <bpt id="20fe08fe-1ebd-4be9-89b3-882c7f88d6ba">&lt;strong&gt;</bpt>Data factory name “LogProcessingFactory” is not available<ept id="20fe08fe-1ebd-4be9-89b3-882c7f88d6ba">&lt;/strong&gt;</ept>, change the name (for example, yournameLogProcessingFactory).</target>
+        </trans-unit>
+        <trans-unit id="4127b16a-448c-4703-9cbf-a88f4244a60b" xml:space="preserve">
+          <source>Use this name in place of LogProcessingFactory while performing steps in this tutorial.</source>
+          <target state="new">Use this name in place of LogProcessingFactory while performing steps in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="5d65e14a-8507-47a3-94f1-8c38d22d78f3" xml:space="preserve">
+          <source>This articles uses the Azure PowerShell to create linked services, tables, and pipelines.</source>
+          <target state="new">This articles uses the Azure PowerShell to create linked services, tables, and pipelines.</target>
+        </trans-unit>
+        <trans-unit id="bc200d17-0e97-477a-9424-99eb6528ab97" xml:space="preserve">
+          <source>See <bpt id="09cd6f02-9139-4a3a-a85f-72ccec8f68b7">&lt;linkText&gt;</bpt>Tutorial using Data Factory Editor[adftutorial-using-editor]<ept id="09cd6f02-9139-4a3a-a85f-72ccec8f68b7">&lt;/linkText&gt;</ept><bpt id="09cd6f02-9139-4a3a-a85f-72ccec8f68b7">&lt;title&gt;</bpt><ept id="09cd6f02-9139-4a3a-a85f-72ccec8f68b7">&lt;/title&gt;</ept> if you want to perform this tutorial using Azure Portal, specifically Data Factory Editor.</source>
+          <target state="new">See <bpt id="09cd6f02-9139-4a3a-a85f-72ccec8f68b7">&lt;linkText&gt;</bpt>Tutorial using Data Factory Editor[adftutorial-using-editor]<ept id="09cd6f02-9139-4a3a-a85f-72ccec8f68b7">&lt;/linkText&gt;</ept><bpt id="09cd6f02-9139-4a3a-a85f-72ccec8f68b7">&lt;title&gt;</bpt><ept id="09cd6f02-9139-4a3a-a85f-72ccec8f68b7">&lt;/title&gt;</ept> if you want to perform this tutorial using Azure Portal, specifically Data Factory Editor.</target>
+        </trans-unit>
+        <trans-unit id="4aff5f5c-3834-42db-844c-277bda8ea349" xml:space="preserve">
+          <source>In this step, you will create the following linked services: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService, and HDInsightLinkedService.</source>
+          <target state="new">In this step, you will create the following linked services: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService, and HDInsightLinkedService.</target>
+        </trans-unit>
+        <trans-unit id="5d11d594-5ce1-4f33-aa09-cbc5168a1ada" xml:space="preserve">
+          <source>In the <bpt id="84ebb83f-28eb-4635-9223-bf5dc6e8ffcb">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="84ebb83f-28eb-4635-9223-bf5dc6e8ffcb">&lt;/strong&gt;</ept> blade, click <bpt id="ee0f2f1a-ca12-46f1-8f2c-b8843bced724">&lt;strong&gt;</bpt>Linked Services<ept id="ee0f2f1a-ca12-46f1-8f2c-b8843bced724">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new">In the <bpt id="84ebb83f-28eb-4635-9223-bf5dc6e8ffcb">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="84ebb83f-28eb-4635-9223-bf5dc6e8ffcb">&lt;/strong&gt;</ept> blade, click <bpt id="ee0f2f1a-ca12-46f1-8f2c-b8843bced724">&lt;strong&gt;</bpt>Linked Services<ept id="ee0f2f1a-ca12-46f1-8f2c-b8843bced724">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+        <trans-unit id="ec17542d-5781-46e7-b1b3-5fb2bc301f59" xml:space="preserve">
+          <source><bpt id="af7990a5-bd4e-45c5-9d51-4ebbe13aabc3">&lt;linkText&gt;</bpt>Linked Services Tile<ept id="af7990a5-bd4e-45c5-9d51-4ebbe13aabc3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af7990a5-bd4e-45c5-9d51-4ebbe13aabc3">&lt;linkText&gt;</bpt>Linked Services Tile<ept id="af7990a5-bd4e-45c5-9d51-4ebbe13aabc3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="860f3e50-696e-42f4-9b12-6b8c4457ecd6" xml:space="preserve">
+          <source>In the <bpt id="1e4c84d7-82bb-4862-832c-6156d89313f3">&lt;strong&gt;</bpt>Linked Services<ept id="1e4c84d7-82bb-4862-832c-6156d89313f3">&lt;/strong&gt;</ept> blade, click <bpt id="f8cc9f1e-5a82-4458-8e3e-a1fd396e8b8a">&lt;strong&gt;</bpt>+ Data Store<ept id="f8cc9f1e-5a82-4458-8e3e-a1fd396e8b8a">&lt;/strong&gt;</ept> from the command bar.</source>
+          <target state="new">In the <bpt id="1e4c84d7-82bb-4862-832c-6156d89313f3">&lt;strong&gt;</bpt>Linked Services<ept id="1e4c84d7-82bb-4862-832c-6156d89313f3">&lt;/strong&gt;</ept> blade, click <bpt id="f8cc9f1e-5a82-4458-8e3e-a1fd396e8b8a">&lt;strong&gt;</bpt>+ Data Store<ept id="f8cc9f1e-5a82-4458-8e3e-a1fd396e8b8a">&lt;/strong&gt;</ept> from the command bar.</target>
+        </trans-unit>
+        <trans-unit id="f6360d3c-15cb-44aa-9019-b5e81c01b26b" xml:space="preserve">
+          <source><bpt id="d50d5999-c555-4495-9944-18672bcdcdf6">&lt;linkText&gt;</bpt>Linked Services - Add Store<ept id="d50d5999-c555-4495-9944-18672bcdcdf6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d50d5999-c555-4495-9944-18672bcdcdf6">&lt;linkText&gt;</bpt>Linked Services - Add Store<ept id="d50d5999-c555-4495-9944-18672bcdcdf6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6eae62f-38eb-405d-a607-7d535016033d" xml:space="preserve">
+          <source>In the <bpt id="158833a9-2d65-4bcc-b2d5-a1a5d13daae7">&lt;strong&gt;</bpt>New data store<ept id="158833a9-2d65-4bcc-b2d5-a1a5d13daae7">&lt;/strong&gt;</ept> blade, enter <bpt id="4e0b92a0-1a48-448d-837a-8fda1c632246">&lt;strong&gt;</bpt>StorageLinkedService<ept id="4e0b92a0-1a48-448d-837a-8fda1c632246">&lt;/strong&gt;</ept> for the <bpt id="dec99b3c-67f4-4d1a-8aac-ff51421f9e74">&lt;strong&gt;</bpt>Name<ept id="dec99b3c-67f4-4d1a-8aac-ff51421f9e74">&lt;/strong&gt;</ept>, click <bpt id="d3afe12f-52d8-4ba6-a7f3-73a0e2bf822c">&lt;strong&gt;</bpt>TYPE (settings required)<ept id="d3afe12f-52d8-4ba6-a7f3-73a0e2bf822c">&lt;/strong&gt;</ept>, and select <bpt id="c6216761-05de-46cc-8019-64b0ec399a94">&lt;strong&gt;</bpt>Azure storage account<ept id="c6216761-05de-46cc-8019-64b0ec399a94">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="158833a9-2d65-4bcc-b2d5-a1a5d13daae7">&lt;strong&gt;</bpt>New data store<ept id="158833a9-2d65-4bcc-b2d5-a1a5d13daae7">&lt;/strong&gt;</ept> blade, enter <bpt id="4e0b92a0-1a48-448d-837a-8fda1c632246">&lt;strong&gt;</bpt>StorageLinkedService<ept id="4e0b92a0-1a48-448d-837a-8fda1c632246">&lt;/strong&gt;</ept> for the <bpt id="dec99b3c-67f4-4d1a-8aac-ff51421f9e74">&lt;strong&gt;</bpt>Name<ept id="dec99b3c-67f4-4d1a-8aac-ff51421f9e74">&lt;/strong&gt;</ept>, click <bpt id="d3afe12f-52d8-4ba6-a7f3-73a0e2bf822c">&lt;strong&gt;</bpt>TYPE (settings required)<ept id="d3afe12f-52d8-4ba6-a7f3-73a0e2bf822c">&lt;/strong&gt;</ept>, and select <bpt id="c6216761-05de-46cc-8019-64b0ec399a94">&lt;strong&gt;</bpt>Azure storage account<ept id="c6216761-05de-46cc-8019-64b0ec399a94">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e12ff76-ba4b-47be-979a-abd2456f47c7" xml:space="preserve">
+          <source><bpt id="b984e251-d717-4786-badc-086d25da8e4b">&lt;linkText&gt;</bpt>Data Store Type - Azure Storage<ept id="b984e251-d717-4786-badc-086d25da8e4b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b984e251-d717-4786-badc-086d25da8e4b">&lt;linkText&gt;</bpt>Data Store Type - Azure Storage<ept id="b984e251-d717-4786-badc-086d25da8e4b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88488909-d73e-4a48-a379-fba400d9406a" xml:space="preserve">
+          <source>In the <bpt id="78e64a36-17ce-4e0e-8b38-12ad2e908e26">&lt;strong&gt;</bpt>New data store<ept id="78e64a36-17ce-4e0e-8b38-12ad2e908e26">&lt;/strong&gt;</ept> blade, you will see two new fields: <bpt id="3ceca6bd-1837-43c0-8540-5b3cbcd800fc">&lt;strong&gt;</bpt>Account Name<ept id="3ceca6bd-1837-43c0-8540-5b3cbcd800fc">&lt;/strong&gt;</ept> and <bpt id="d0a80714-49b8-48c5-afa2-5c3b86cb3a1d">&lt;strong&gt;</bpt>Account Key<ept id="d0a80714-49b8-48c5-afa2-5c3b86cb3a1d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="78e64a36-17ce-4e0e-8b38-12ad2e908e26">&lt;strong&gt;</bpt>New data store<ept id="78e64a36-17ce-4e0e-8b38-12ad2e908e26">&lt;/strong&gt;</ept> blade, you will see two new fields: <bpt id="3ceca6bd-1837-43c0-8540-5b3cbcd800fc">&lt;strong&gt;</bpt>Account Name<ept id="3ceca6bd-1837-43c0-8540-5b3cbcd800fc">&lt;/strong&gt;</ept> and <bpt id="d0a80714-49b8-48c5-afa2-5c3b86cb3a1d">&lt;strong&gt;</bpt>Account Key<ept id="d0a80714-49b8-48c5-afa2-5c3b86cb3a1d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ec14164-a9ac-4b0f-a8f4-dabfa193cacf" xml:space="preserve">
+          <source>Enter account name and account key for your <bpt id="eed2e72d-38d3-44b8-b72b-c2f9c05499c9">&lt;strong&gt;</bpt>Azure Storage Account<ept id="eed2e72d-38d3-44b8-b72b-c2f9c05499c9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter account name and account key for your <bpt id="eed2e72d-38d3-44b8-b72b-c2f9c05499c9">&lt;strong&gt;</bpt>Azure Storage Account<ept id="eed2e72d-38d3-44b8-b72b-c2f9c05499c9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96e0b063-ceea-4848-9437-70d24b676c32" xml:space="preserve">
+          <source><bpt id="48851043-c343-4328-97db-32531a5f04e0">&lt;linkText&gt;</bpt>Azure Storage Settings<ept id="48851043-c343-4328-97db-32531a5f04e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48851043-c343-4328-97db-32531a5f04e0">&lt;linkText&gt;</bpt>Azure Storage Settings<ept id="48851043-c343-4328-97db-32531a5f04e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd1d95ba-e264-41fa-8915-7530b03aa521" xml:space="preserve">
+          <source>You can get account name and account key your Azure storage account from the portal as shown below:</source>
+          <target state="new">You can get account name and account key your Azure storage account from the portal as shown below:</target>
+        </trans-unit>
+        <trans-unit id="cf3ac824-ae8f-4fc7-bb2b-8be4e3f29282" xml:space="preserve">
+          <source><bpt id="c0f1e698-9402-487e-b98b-168214f918a1">&lt;linkText&gt;</bpt>Storage Key<ept id="c0f1e698-9402-487e-b98b-168214f918a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c0f1e698-9402-487e-b98b-168214f918a1">&lt;linkText&gt;</bpt>Storage Key<ept id="c0f1e698-9402-487e-b98b-168214f918a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="482919d3-0e31-421d-973d-bda4ee3f34e4" xml:space="preserve">
+          <source>After you click <bpt id="fb137ea6-671d-448d-b28d-2f54b2ca8923">&lt;strong&gt;</bpt>OK<ept id="fb137ea6-671d-448d-b28d-2f54b2ca8923">&lt;/strong&gt;</ept> on the New data store blade, you should see <bpt id="c9989bae-fa06-4c28-8477-122279b959d7">&lt;strong&gt;</bpt>StorageLinkedService<ept id="c9989bae-fa06-4c28-8477-122279b959d7">&lt;/strong&gt;</ept> in the list of <bpt id="a5546afc-67e8-4409-887e-17cbe0d8889b">&lt;strong&gt;</bpt>DATA STORES<ept id="a5546afc-67e8-4409-887e-17cbe0d8889b">&lt;/strong&gt;</ept> on the <bpt id="e1c47ce4-a900-4471-a03c-41253172fe80">&lt;strong&gt;</bpt>Linked Services<ept id="e1c47ce4-a900-4471-a03c-41253172fe80">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">After you click <bpt id="fb137ea6-671d-448d-b28d-2f54b2ca8923">&lt;strong&gt;</bpt>OK<ept id="fb137ea6-671d-448d-b28d-2f54b2ca8923">&lt;/strong&gt;</ept> on the New data store blade, you should see <bpt id="c9989bae-fa06-4c28-8477-122279b959d7">&lt;strong&gt;</bpt>StorageLinkedService<ept id="c9989bae-fa06-4c28-8477-122279b959d7">&lt;/strong&gt;</ept> in the list of <bpt id="a5546afc-67e8-4409-887e-17cbe0d8889b">&lt;strong&gt;</bpt>DATA STORES<ept id="a5546afc-67e8-4409-887e-17cbe0d8889b">&lt;/strong&gt;</ept> on the <bpt id="e1c47ce4-a900-4471-a03c-41253172fe80">&lt;strong&gt;</bpt>Linked Services<ept id="e1c47ce4-a900-4471-a03c-41253172fe80">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="6e7f9a32-ac7e-43e5-b26c-11f56d869633" xml:space="preserve">
+          <source>Check <bpt id="b71ec820-937c-49e3-bb73-91dc6f2db652">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="b71ec820-937c-49e3-bb73-91dc6f2db652">&lt;/strong&gt;</ept> Hub (on the left) to see any messages.</source>
+          <target state="new">Check <bpt id="b71ec820-937c-49e3-bb73-91dc6f2db652">&lt;strong&gt;</bpt>NOTIFICATIONS<ept id="b71ec820-937c-49e3-bb73-91dc6f2db652">&lt;/strong&gt;</ept> Hub (on the left) to see any messages.</target>
+        </trans-unit>
+        <trans-unit id="c14a99aa-ec5e-449f-afa3-fd4b70c5d27c" xml:space="preserve">
+          <source><bpt id="12e4e7fc-2732-4393-8d34-7f4d55d4710b">&lt;linkText&gt;</bpt>Linked Services Blade with Storage<ept id="12e4e7fc-2732-4393-8d34-7f4d55d4710b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="12e4e7fc-2732-4393-8d34-7f4d55d4710b">&lt;linkText&gt;</bpt>Linked Services Blade with Storage<ept id="12e4e7fc-2732-4393-8d34-7f4d55d4710b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8762efb4-546a-4f30-959c-606d73a7ff65" xml:space="preserve">
+          <source>Repeat <bpt id="2750b5c3-cb6e-4264-9dad-7ac6c313b684">&lt;strong&gt;</bpt>steps 2-5<ept id="2750b5c3-cb6e-4264-9dad-7ac6c313b684">&lt;/strong&gt;</ept> to create another linked service named: <bpt id="30c2392e-7853-4177-93bd-e2e09823791c">&lt;strong&gt;</bpt>HDInsightStorageLinkedService<ept id="30c2392e-7853-4177-93bd-e2e09823791c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Repeat <bpt id="2750b5c3-cb6e-4264-9dad-7ac6c313b684">&lt;strong&gt;</bpt>steps 2-5<ept id="2750b5c3-cb6e-4264-9dad-7ac6c313b684">&lt;/strong&gt;</ept> to create another linked service named: <bpt id="30c2392e-7853-4177-93bd-e2e09823791c">&lt;strong&gt;</bpt>HDInsightStorageLinkedService<ept id="30c2392e-7853-4177-93bd-e2e09823791c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="088966e1-5964-46d8-a888-75e41a885244" xml:space="preserve">
+          <source>This is the storage used by your HDInsight cluster.</source>
+          <target state="new">This is the storage used by your HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="0dbf2326-beaf-41dd-939a-2134ff165c88" xml:space="preserve">
+          <source>Confirm that you see both <bpt id="55058e33-5ebd-4d9b-a851-2595a689d5f2">&lt;strong&gt;</bpt>StorageLinkedService<ept id="55058e33-5ebd-4d9b-a851-2595a689d5f2">&lt;/strong&gt;</ept> and <bpt id="0117aa9f-5020-4c95-a340-afcbfca7481b">&lt;strong&gt;</bpt>HDInsightStorageLinkedService<ept id="0117aa9f-5020-4c95-a340-afcbfca7481b">&lt;/strong&gt;</ept> in the list in the Linked Services blade.</source>
+          <target state="new">Confirm that you see both <bpt id="55058e33-5ebd-4d9b-a851-2595a689d5f2">&lt;strong&gt;</bpt>StorageLinkedService<ept id="55058e33-5ebd-4d9b-a851-2595a689d5f2">&lt;/strong&gt;</ept> and <bpt id="0117aa9f-5020-4c95-a340-afcbfca7481b">&lt;strong&gt;</bpt>HDInsightStorageLinkedService<ept id="0117aa9f-5020-4c95-a340-afcbfca7481b">&lt;/strong&gt;</ept> in the list in the Linked Services blade.</target>
+        </trans-unit>
+        <trans-unit id="53840bc2-0cf5-4e86-a368-9001f209cd12" xml:space="preserve">
+          <source>In the <bpt id="b1fc093d-3c37-45ea-bdcb-95e6db51a573">&lt;strong&gt;</bpt>Linked Services<ept id="b1fc093d-3c37-45ea-bdcb-95e6db51a573">&lt;/strong&gt;</ept> blade, click <bpt id="3fbc7789-ce67-46d3-9c16-3abf16ca1207">&lt;strong&gt;</bpt>Add (+) Data Store<ept id="3fbc7789-ce67-46d3-9c16-3abf16ca1207">&lt;/strong&gt;</ept> from the command bar.</source>
+          <target state="new">In the <bpt id="b1fc093d-3c37-45ea-bdcb-95e6db51a573">&lt;strong&gt;</bpt>Linked Services<ept id="b1fc093d-3c37-45ea-bdcb-95e6db51a573">&lt;/strong&gt;</ept> blade, click <bpt id="3fbc7789-ce67-46d3-9c16-3abf16ca1207">&lt;strong&gt;</bpt>Add (+) Data Store<ept id="3fbc7789-ce67-46d3-9c16-3abf16ca1207">&lt;/strong&gt;</ept> from the command bar.</target>
+        </trans-unit>
+        <trans-unit id="e8ebfcfa-fda4-4a83-8e13-82ba5b6971ec" xml:space="preserve">
+          <source>Enter <bpt id="40cff134-392a-4f27-bd4c-583f314918a3">&lt;strong&gt;</bpt>AzureSqlLinkedService<ept id="40cff134-392a-4f27-bd4c-583f314918a3">&lt;/strong&gt;</ept> for the name.</source>
+          <target state="new">Enter <bpt id="40cff134-392a-4f27-bd4c-583f314918a3">&lt;strong&gt;</bpt>AzureSqlLinkedService<ept id="40cff134-392a-4f27-bd4c-583f314918a3">&lt;/strong&gt;</ept> for the name.</target>
+        </trans-unit>
+        <trans-unit id="6b38e828-d542-43d9-8175-0c59eda909a1" xml:space="preserve">
+          <source>Click <bpt id="c78eb9bf-8b0a-46bc-bfe1-dc12b0df85c0">&lt;strong&gt;</bpt>TYPE (settings required)<ept id="c78eb9bf-8b0a-46bc-bfe1-dc12b0df85c0">&lt;/strong&gt;</ept>, select <bpt id="8a61114f-eae2-4f44-bf95-7e39c60d26e8">&lt;strong&gt;</bpt>Azure SQL Database<ept id="8a61114f-eae2-4f44-bf95-7e39c60d26e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c78eb9bf-8b0a-46bc-bfe1-dc12b0df85c0">&lt;strong&gt;</bpt>TYPE (settings required)<ept id="c78eb9bf-8b0a-46bc-bfe1-dc12b0df85c0">&lt;/strong&gt;</ept>, select <bpt id="8a61114f-eae2-4f44-bf95-7e39c60d26e8">&lt;strong&gt;</bpt>Azure SQL Database<ept id="8a61114f-eae2-4f44-bf95-7e39c60d26e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67c78bf8-8d15-4b81-9903-c0993f717894" xml:space="preserve">
+          <source>Now, you should the following additional fields on the <bpt id="821546a9-bafa-4036-bf5f-929cbdf177ea">&lt;strong&gt;</bpt>New data store<ept id="821546a9-bafa-4036-bf5f-929cbdf177ea">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Now, you should the following additional fields on the <bpt id="821546a9-bafa-4036-bf5f-929cbdf177ea">&lt;strong&gt;</bpt>New data store<ept id="821546a9-bafa-4036-bf5f-929cbdf177ea">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="06f78dec-5857-402a-95a0-83dae46ce259" xml:space="preserve">
+          <source>Enter name of the Azure SQL Database <bpt id="ba3bf6b7-d3ee-4f0c-9c07-1e4ed5ab32f2">&lt;strong&gt;</bpt>server<ept id="ba3bf6b7-d3ee-4f0c-9c07-1e4ed5ab32f2">&lt;/strong&gt;</ept>, <bpt id="28f83e3c-2537-4a70-a316-ebcbd2fe8141">&lt;strong&gt;</bpt>database<ept id="28f83e3c-2537-4a70-a316-ebcbd2fe8141">&lt;/strong&gt;</ept> name, <bpt id="11efe481-7b9d-41e1-8c4a-44ccc3fee88d">&lt;strong&gt;</bpt>user name<ept id="11efe481-7b9d-41e1-8c4a-44ccc3fee88d">&lt;/strong&gt;</ept>, and <bpt id="c853a528-9e6e-4391-a797-b28fc7c178ea">&lt;strong&gt;</bpt>password<ept id="c853a528-9e6e-4391-a797-b28fc7c178ea">&lt;/strong&gt;</ept>, and click <bpt id="4db96d6d-a017-4d35-be59-0a6b29d2d5f2">&lt;strong&gt;</bpt>OK<ept id="4db96d6d-a017-4d35-be59-0a6b29d2d5f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter name of the Azure SQL Database <bpt id="ba3bf6b7-d3ee-4f0c-9c07-1e4ed5ab32f2">&lt;strong&gt;</bpt>server<ept id="ba3bf6b7-d3ee-4f0c-9c07-1e4ed5ab32f2">&lt;/strong&gt;</ept>, <bpt id="28f83e3c-2537-4a70-a316-ebcbd2fe8141">&lt;strong&gt;</bpt>database<ept id="28f83e3c-2537-4a70-a316-ebcbd2fe8141">&lt;/strong&gt;</ept> name, <bpt id="11efe481-7b9d-41e1-8c4a-44ccc3fee88d">&lt;strong&gt;</bpt>user name<ept id="11efe481-7b9d-41e1-8c4a-44ccc3fee88d">&lt;/strong&gt;</ept>, and <bpt id="c853a528-9e6e-4391-a797-b28fc7c178ea">&lt;strong&gt;</bpt>password<ept id="c853a528-9e6e-4391-a797-b28fc7c178ea">&lt;/strong&gt;</ept>, and click <bpt id="4db96d6d-a017-4d35-be59-0a6b29d2d5f2">&lt;strong&gt;</bpt>OK<ept id="4db96d6d-a017-4d35-be59-0a6b29d2d5f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad801321-e2cc-49ca-a79b-7bfaae32f8fc" xml:space="preserve">
+          <source>Enter <bpt id="0bd0c878-ab81-48f7-a70d-650118692885">&lt;strong&gt;</bpt>MarketingCampaigns<ept id="0bd0c878-ab81-48f7-a70d-650118692885">&lt;/strong&gt;</ept> for the <bpt id="91406d4b-7b13-4967-ba9d-8c9cff2d56cb">&lt;strong&gt;</bpt>database<ept id="91406d4b-7b13-4967-ba9d-8c9cff2d56cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter <bpt id="0bd0c878-ab81-48f7-a70d-650118692885">&lt;strong&gt;</bpt>MarketingCampaigns<ept id="0bd0c878-ab81-48f7-a70d-650118692885">&lt;/strong&gt;</ept> for the <bpt id="91406d4b-7b13-4967-ba9d-8c9cff2d56cb">&lt;strong&gt;</bpt>database<ept id="91406d4b-7b13-4967-ba9d-8c9cff2d56cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd9b83fe-3264-4823-a80e-d5729bbb1e8d" xml:space="preserve">
+          <source>This is the Azure SQL database created by the scripts you ran in Step 1.</source>
+          <target state="new">This is the Azure SQL database created by the scripts you ran in Step 1.</target>
+        </trans-unit>
+        <trans-unit id="1ae17a36-094f-4f6c-8763-ae99fe700f0d" xml:space="preserve">
+          <source>You should confirm that this database was indeed created by the scripts (in case there were errors).</source>
+          <target state="new">You should confirm that this database was indeed created by the scripts (in case there were errors).</target>
+        </trans-unit>
+        <trans-unit id="17da9663-dc4e-496d-bbad-cce38048fd82" xml:space="preserve">
+          <source><bpt id="e00f0588-cd8d-46f5-a8c3-5458a2e92d5d">&lt;linkText&gt;</bpt>Azure SQL Settings<ept id="e00f0588-cd8d-46f5-a8c3-5458a2e92d5d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e00f0588-cd8d-46f5-a8c3-5458a2e92d5d">&lt;linkText&gt;</bpt>Azure SQL Settings<ept id="e00f0588-cd8d-46f5-a8c3-5458a2e92d5d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3a51762-c2d4-42d8-92d2-ce8591f1784c" xml:space="preserve">
+          <source>To get these values from the Azure Management Portal: click View SQL Database connection strings for MarketingCampaigns database</source>
+          <target state="new">To get these values from the Azure Management Portal: click View SQL Database connection strings for MarketingCampaigns database</target>
+        </trans-unit>
+        <trans-unit id="67195ff2-fe66-477f-b382-14d8c2cff73f" xml:space="preserve">
+          <source><bpt id="139ce49d-5ddc-4019-8a9b-b6bf6a0a8d87">&lt;linkText&gt;</bpt>Azure SQL Database Connection String<ept id="139ce49d-5ddc-4019-8a9b-b6bf6a0a8d87">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="139ce49d-5ddc-4019-8a9b-b6bf6a0a8d87">&lt;linkText&gt;</bpt>Azure SQL Database Connection String<ept id="139ce49d-5ddc-4019-8a9b-b6bf6a0a8d87">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd6be5c7-8a2e-48e8-8eaf-2e4f277a0906" xml:space="preserve">
+          <source>Confirm that you see all the three data stores you have created: <bpt id="aad651fb-0942-4b9c-a519-4eb7b9358ae2">&lt;strong&gt;</bpt>StorageLinkedService<ept id="aad651fb-0942-4b9c-a519-4eb7b9358ae2">&lt;/strong&gt;</ept>, <bpt id="9350a073-c583-4053-bf3f-7644489cdb04">&lt;strong&gt;</bpt>HDInsightStorageLinkedService<ept id="9350a073-c583-4053-bf3f-7644489cdb04">&lt;/strong&gt;</ept>, and <bpt id="73f5388d-9922-4bac-b454-70109741de8c">&lt;strong&gt;</bpt>AzureSqlLinkedService<ept id="73f5388d-9922-4bac-b454-70109741de8c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Confirm that you see all the three data stores you have created: <bpt id="aad651fb-0942-4b9c-a519-4eb7b9358ae2">&lt;strong&gt;</bpt>StorageLinkedService<ept id="aad651fb-0942-4b9c-a519-4eb7b9358ae2">&lt;/strong&gt;</ept>, <bpt id="9350a073-c583-4053-bf3f-7644489cdb04">&lt;strong&gt;</bpt>HDInsightStorageLinkedService<ept id="9350a073-c583-4053-bf3f-7644489cdb04">&lt;/strong&gt;</ept>, and <bpt id="73f5388d-9922-4bac-b454-70109741de8c">&lt;strong&gt;</bpt>AzureSqlLinkedService<ept id="73f5388d-9922-4bac-b454-70109741de8c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ec7aea7-aba8-4824-b19b-e4641e0d01db" xml:space="preserve">
+          <source>You need to create another linked service, but this one is to a Compute service, specifically <bpt id="29f858c4-d7e6-4065-8d20-c1325fd72dfc">&lt;strong&gt;</bpt>Azure HDInsight cluster<ept id="29f858c4-d7e6-4065-8d20-c1325fd72dfc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You need to create another linked service, but this one is to a Compute service, specifically <bpt id="29f858c4-d7e6-4065-8d20-c1325fd72dfc">&lt;strong&gt;</bpt>Azure HDInsight cluster<ept id="29f858c4-d7e6-4065-8d20-c1325fd72dfc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d83f8ca4-88da-4c0e-97dd-b137928d1049" xml:space="preserve">
+          <source>The portal does not support creating a compute linked service yet.</source>
+          <target state="new">The portal does not support creating a compute linked service yet.</target>
+        </trans-unit>
+        <trans-unit id="9d23cd36-5f99-4a1d-9d15-a791bb42feff" xml:space="preserve">
+          <source>Therefore, you need to use Azure PowerShell to create this linked service.</source>
+          <target state="new">Therefore, you need to use Azure PowerShell to create this linked service.</target>
+        </trans-unit>
+        <trans-unit id="4a7eb167-cd28-4a27-9537-1a5b0f235cb5" xml:space="preserve">
+          <source>Switch to <bpt id="350b162b-d9df-4e56-b5c7-047dfc4955c9">&lt;strong&gt;</bpt>Azure PowerShell<ept id="350b162b-d9df-4e56-b5c7-047dfc4955c9">&lt;/strong&gt;</ept> if you have it already open (or) launch <bpt id="4cd5aaa6-24aa-4d55-ba05-436a9cc7f6bd">&lt;strong&gt;</bpt>Azure PowerShell<ept id="4cd5aaa6-24aa-4d55-ba05-436a9cc7f6bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Switch to <bpt id="350b162b-d9df-4e56-b5c7-047dfc4955c9">&lt;strong&gt;</bpt>Azure PowerShell<ept id="350b162b-d9df-4e56-b5c7-047dfc4955c9">&lt;/strong&gt;</ept> if you have it already open (or) launch <bpt id="4cd5aaa6-24aa-4d55-ba05-436a9cc7f6bd">&lt;strong&gt;</bpt>Azure PowerShell<ept id="4cd5aaa6-24aa-4d55-ba05-436a9cc7f6bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ddba088-a905-4eab-a1d5-4451f7c36ee8" xml:space="preserve">
+          <source>If you had closed and reopened Azure PowerShell, you need to run the following commands:</source>
+          <target state="new">If you had closed and reopened Azure PowerShell, you need to run the following commands:</target>
+        </trans-unit>
+        <trans-unit id="3e05d1d5-c142-434a-b323-980a825aabcb" xml:space="preserve">
+          <source>Run <bpt id="ad949af3-dff0-483b-adbc-650ccf834427">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="ad949af3-dff0-483b-adbc-650ccf834427">&lt;/strong&gt;</ept> and enter the  user name and password that you use to sign-in to the Azure Preview Portal.</source>
+          <target state="new">Run <bpt id="ad949af3-dff0-483b-adbc-650ccf834427">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="ad949af3-dff0-483b-adbc-650ccf834427">&lt;/strong&gt;</ept> and enter the  user name and password that you use to sign-in to the Azure Preview Portal.</target>
+        </trans-unit>
+        <trans-unit id="854b79c4-7a6c-476a-824c-a9e9b0e7ec50" xml:space="preserve">
+          <source>Run <bpt id="e9b3ee2b-b84d-485d-917d-7251f984ccfe">&lt;strong&gt;</bpt>Get-AzureSubscription<ept id="e9b3ee2b-b84d-485d-917d-7251f984ccfe">&lt;/strong&gt;</ept> to view all the subscriptions for this account.</source>
+          <target state="new">Run <bpt id="e9b3ee2b-b84d-485d-917d-7251f984ccfe">&lt;strong&gt;</bpt>Get-AzureSubscription<ept id="e9b3ee2b-b84d-485d-917d-7251f984ccfe">&lt;/strong&gt;</ept> to view all the subscriptions for this account.</target>
+        </trans-unit>
+        <trans-unit id="bf00591c-2f91-4dfa-8ed3-52975353df14" xml:space="preserve">
+          <source>Run <bpt id="398940d5-0eea-4a2e-8c7e-968199479112">&lt;strong&gt;</bpt>Select-AzureSubscription<ept id="398940d5-0eea-4a2e-8c7e-968199479112">&lt;/strong&gt;</ept> to select the subscription that you want to work with.</source>
+          <target state="new">Run <bpt id="398940d5-0eea-4a2e-8c7e-968199479112">&lt;strong&gt;</bpt>Select-AzureSubscription<ept id="398940d5-0eea-4a2e-8c7e-968199479112">&lt;/strong&gt;</ept> to select the subscription that you want to work with.</target>
+        </trans-unit>
+        <trans-unit id="6b11106b-4fce-4674-a4c5-f5da6f4ba3a9" xml:space="preserve">
+          <source>This subscription should be the same as the one you used in the Azure Preview Portal.</source>
+          <target state="new">This subscription should be the same as the one you used in the Azure Preview Portal.</target>
+        </trans-unit>
+        <trans-unit id="1365d4ee-d679-4212-bf96-d02ad16223b3" xml:space="preserve">
+          <source>Switch to <bpt id="4b485076-9360-4449-9df9-e15035c7327d">&lt;strong&gt;</bpt>AzureResourceManager<ept id="4b485076-9360-4449-9df9-e15035c7327d">&lt;/strong&gt;</ept> mode as the Azure Data Factory cmdlets are available in this mode.</source>
+          <target state="new">Switch to <bpt id="4b485076-9360-4449-9df9-e15035c7327d">&lt;strong&gt;</bpt>AzureResourceManager<ept id="4b485076-9360-4449-9df9-e15035c7327d">&lt;/strong&gt;</ept> mode as the Azure Data Factory cmdlets are available in this mode.</target>
+        </trans-unit>
+        <trans-unit id="5b166d01-db15-42f7-a30a-dc2b0e779f0b" xml:space="preserve">
+          <source>Navigate to the <bpt id="294af368-00ac-4600-811a-8cbdf4f8ca17">&lt;strong&gt;</bpt>LinkedServices<ept id="294af368-00ac-4600-811a-8cbdf4f8ca17">&lt;/strong&gt;</ept> subfolder in <bpt id="d72fc8b9-e76e-4460-bc74-33b54a478fd1">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="d72fc8b9-e76e-4460-bc74-33b54a478fd1">&lt;/strong&gt;</ept> (or) from the folder from the location where you have extracted the files.</source>
+          <target state="new">Navigate to the <bpt id="294af368-00ac-4600-811a-8cbdf4f8ca17">&lt;strong&gt;</bpt>LinkedServices<ept id="294af368-00ac-4600-811a-8cbdf4f8ca17">&lt;/strong&gt;</ept> subfolder in <bpt id="d72fc8b9-e76e-4460-bc74-33b54a478fd1">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="d72fc8b9-e76e-4460-bc74-33b54a478fd1">&lt;/strong&gt;</ept> (or) from the folder from the location where you have extracted the files.</target>
+        </trans-unit>
+        <trans-unit id="895a149c-44d9-4466-8d66-a1d01a661699" xml:space="preserve">
+          <source>Open <bpt id="69541f20-76bc-41cd-b318-ebd16e581924">&lt;strong&gt;</bpt>HDInsightLinkedService.json<ept id="69541f20-76bc-41cd-b318-ebd16e581924">&lt;/strong&gt;</ept> in your favorite editor and notice that the type is set to <bpt id="44953a1f-fd46-469c-bfb4-c3f209a4fe11">&lt;strong&gt;</bpt>HDInsightOnDemandLinkedService<ept id="44953a1f-fd46-469c-bfb4-c3f209a4fe11">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="69541f20-76bc-41cd-b318-ebd16e581924">&lt;strong&gt;</bpt>HDInsightLinkedService.json<ept id="69541f20-76bc-41cd-b318-ebd16e581924">&lt;/strong&gt;</ept> in your favorite editor and notice that the type is set to <bpt id="44953a1f-fd46-469c-bfb4-c3f209a4fe11">&lt;strong&gt;</bpt>HDInsightOnDemandLinkedService<ept id="44953a1f-fd46-469c-bfb4-c3f209a4fe11">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c368d1ef-d7fe-4a17-a4c0-9482f594e41b" xml:space="preserve">
+          <source>The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data.</source>
+          <target state="new">The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data.</target>
+        </trans-unit>
+        <trans-unit id="3aaed0de-9578-4b6c-8139-afdb598abeec" xml:space="preserve">
+          <source>You can also use your own cluster to perform the same.</source>
+          <target state="new">You can also use your own cluster to perform the same.</target>
+        </trans-unit>
+        <trans-unit id="6a0e68d5-c916-42f0-9308-270621ad7ef2" xml:space="preserve">
+          <source>When you use on-demand HDInsight cluster, a cluster gets created for each slice.</source>
+          <target state="new">When you use on-demand HDInsight cluster, a cluster gets created for each slice.</target>
+        </trans-unit>
+        <trans-unit id="4fd04357-be5f-479b-954d-a53398532b64" xml:space="preserve">
+          <source>Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately.</source>
+          <target state="new">Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately.</target>
+        </trans-unit>
+        <trans-unit id="3e0aea35-ca01-4028-bc65-35ec25f1c104" xml:space="preserve">
+          <source>Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster.</source>
+          <target state="new">Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster.</target>
+        </trans-unit>
+        <trans-unit id="41061ee7-6d53-4a90-845d-32b835e11b86" xml:space="preserve">
+          <source>For the purpose of the sample, let's use an on-demand cluster.</source>
+          <target state="new">For the purpose of the sample, let's use an on-demand cluster.</target>
+        </trans-unit>
+        <trans-unit id="a9e9fb17-ee85-44c8-9356-1c5cccafc030" xml:space="preserve">
+          <source>The HDInsightLinkedService links an on-demand HDInsight cluster to the data factory.</source>
+          <target state="new">The HDInsightLinkedService links an on-demand HDInsight cluster to the data factory.</target>
+        </trans-unit>
+        <trans-unit id="f0f31b09-ee41-49ff-9450-9c50255f84f5" xml:space="preserve">
+          <source>To use your own HDInsight cluster, update the Properties section of the HDInsightLinkedService.json file as shown below (replace clustername, username, and password with appropriate values):</source>
+          <target state="new">To use your own HDInsight cluster, update the Properties section of the HDInsightLinkedService.json file as shown below (replace clustername, username, and password with appropriate values):</target>
+        </trans-unit>
+        <trans-unit id="8a625c06-ec45-47c3-b32e-fcd813810416" xml:space="preserve">
+          <source>Use the following command to set $df variable to the name of the data factory.</source>
+          <target state="new">Use the following command to set $df variable to the name of the data factory.</target>
+        </trans-unit>
+        <trans-unit id="c1c7e213-4e2a-49b9-b853-552c10f9d466" xml:space="preserve">
+          <source>Use the cmdlet <bpt id="6dbaff34-0ba9-4330-af74-7b03aa06dbf5">&lt;strong&gt;</bpt>New-AzureDataFactoryLinkedService<ept id="6dbaff34-0ba9-4330-af74-7b03aa06dbf5">&lt;/strong&gt;</ept> to create a Linked Service as follows.</source>
+          <target state="new">Use the cmdlet <bpt id="6dbaff34-0ba9-4330-af74-7b03aa06dbf5">&lt;strong&gt;</bpt>New-AzureDataFactoryLinkedService<ept id="6dbaff34-0ba9-4330-af74-7b03aa06dbf5">&lt;/strong&gt;</ept> to create a Linked Service as follows.</target>
+        </trans-unit>
+        <trans-unit id="fff19be0-8c17-41b5-b8b9-eb6ae94552c1" xml:space="preserve">
+          <source>Start with the storage account:</source>
+          <target state="new">Start with the storage account:</target>
+        </trans-unit>
+        <trans-unit id="e266415f-8521-434e-978d-255a7499f793" xml:space="preserve">
+          <source>If you are using a different name for ResourceGroupName, DataFactoryName or LinkedService name, refer them in the above cmdlet.</source>
+          <target state="new">If you are using a different name for ResourceGroupName, DataFactoryName or LinkedService name, refer them in the above cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="35b5217c-8622-47f8-95c6-fc375df83957" xml:space="preserve">
+          <source>Also, provide the full file path of the Linked Service JSON file if the file cannot be found.</source>
+          <target state="new">Also, provide the full file path of the Linked Service JSON file if the file cannot be found.</target>
+        </trans-unit>
+        <trans-unit id="f464e465-1a54-4eb0-9d19-b995bd3f28ba" xml:space="preserve">
+          <source>You should see all the four linked services in the <bpt id="b32f302b-f8ad-4319-a9fc-2b2e02889ed0">&lt;strong&gt;</bpt>Linked Services<ept id="b32f302b-f8ad-4319-a9fc-2b2e02889ed0">&lt;/strong&gt;</ept> blade as shown below.</source>
+          <target state="new">You should see all the four linked services in the <bpt id="b32f302b-f8ad-4319-a9fc-2b2e02889ed0">&lt;strong&gt;</bpt>Linked Services<ept id="b32f302b-f8ad-4319-a9fc-2b2e02889ed0">&lt;/strong&gt;</ept> blade as shown below.</target>
+        </trans-unit>
+        <trans-unit id="d56bd502-200b-4166-8ebd-af59be6ac8d5" xml:space="preserve">
+          <source>If the Linked services blade is not open, click Linked Services in the <bpt id="5bff2a0a-a8a3-4c30-8cd9-2d79165424fe">&lt;strong&gt;</bpt>DATA FACTORY<ept id="5bff2a0a-a8a3-4c30-8cd9-2d79165424fe">&lt;/strong&gt;</ept> page for <bpt id="b4f64e66-bf68-4660-8f1c-00ec5d99d0f4">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="b4f64e66-bf68-4660-8f1c-00ec5d99d0f4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the Linked services blade is not open, click Linked Services in the <bpt id="5bff2a0a-a8a3-4c30-8cd9-2d79165424fe">&lt;strong&gt;</bpt>DATA FACTORY<ept id="5bff2a0a-a8a3-4c30-8cd9-2d79165424fe">&lt;/strong&gt;</ept> page for <bpt id="b4f64e66-bf68-4660-8f1c-00ec5d99d0f4">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="b4f64e66-bf68-4660-8f1c-00ec5d99d0f4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="940c9f22-7b4f-4ed8-856a-d39fd8965587" xml:space="preserve">
+          <source>It may take a few seconds for the Linked services blade to refresh.</source>
+          <target state="new">It may take a few seconds for the Linked services blade to refresh.</target>
+        </trans-unit>
+        <trans-unit id="69deea94-94d7-432f-af5e-46c77cd89a5d" xml:space="preserve">
+          <source><bpt id="f5594d3e-d770-42e9-b78f-38c2d0ae4f64">&lt;linkText&gt;</bpt>Linked Services All<ept id="f5594d3e-d770-42e9-b78f-38c2d0ae4f64">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f5594d3e-d770-42e9-b78f-38c2d0ae4f64">&lt;linkText&gt;</bpt>Linked Services All<ept id="f5594d3e-d770-42e9-b78f-38c2d0ae4f64">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71c30769-558c-4747-a9d1-84e9bf7a8778" xml:space="preserve">
+          <source>In this step, you will create the following tables: </source>
+          <target state="new">In this step, you will create the following tables: </target>
+        </trans-unit>
+        <trans-unit id="f67ef1f1-153c-40b0-8640-0f085564d9d1" xml:space="preserve">
+          <source>RawGameEventsTable</source>
+          <target state="new">RawGameEventsTable</target>
+        </trans-unit>
+        <trans-unit id="37be63bc-83be-4dc3-96e2-c78006b6a99e" xml:space="preserve">
+          <source>PartitionedGameEventsTable</source>
+          <target state="new">PartitionedGameEventsTable</target>
+        </trans-unit>
+        <trans-unit id="bec1d7bf-509a-4d1a-8519-24a395b6d2d5" xml:space="preserve">
+          <source>RefGeoCodeDictionaryTable</source>
+          <target state="new">RefGeoCodeDictionaryTable</target>
+        </trans-unit>
+        <trans-unit id="805f9ed4-6195-4818-a80a-57640424e564" xml:space="preserve">
+          <source>RefMarketingCampaignTable</source>
+          <target state="new">RefMarketingCampaignTable</target>
+        </trans-unit>
+        <trans-unit id="8ec5ad0e-3748-4e04-af7b-7b800f8c5324" xml:space="preserve">
+          <source>EnrichedGameEventsTable</source>
+          <target state="new">EnrichedGameEventsTable</target>
+        </trans-unit>
+        <trans-unit id="cd390991-0607-42af-86a9-d58026107e34" xml:space="preserve">
+          <source>MarketingCampaignEffectivenessSQLTable</source>
+          <target state="new">MarketingCampaignEffectivenessSQLTable</target>
+        </trans-unit>
+        <trans-unit id="801d378d-8fbe-4cc6-9d08-cd6d8780219e" xml:space="preserve">
+          <source>MarketingCampaignEffectivenessBlobTable</source>
+          <target state="new">MarketingCampaignEffectivenessBlobTable</target>
+        </trans-unit>
+        <trans-unit id="45da29a1-b3e4-49ab-9deb-ffe1962c7b59" xml:space="preserve">
+          <source><bpt id="7fab55ac-0c9a-4048-aadc-aa7a33bdb303">&lt;linkText&gt;</bpt>Tutorial End-to-End Flow<ept id="7fab55ac-0c9a-4048-aadc-aa7a33bdb303">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7fab55ac-0c9a-4048-aadc-aa7a33bdb303">&lt;linkText&gt;</bpt>Tutorial End-to-End Flow<ept id="7fab55ac-0c9a-4048-aadc-aa7a33bdb303">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a7bef55-b12b-4da9-b7d2-f5fb83b1a8ce" xml:space="preserve">
+          <source>The picture above displays pipelines in the middle row and tables in the top and bottom rows.</source>
+          <target state="new">The picture above displays pipelines in the middle row and tables in the top and bottom rows.</target>
+        </trans-unit>
+        <trans-unit id="ab509a9f-f4fe-49a3-929f-73fafad8e971" xml:space="preserve">
+          <source>The Azure Portal does not support creating data sets/tables yet, so you will need to use Azure PowerShell to create tables in this release.</source>
+          <target state="new">The Azure Portal does not support creating data sets/tables yet, so you will need to use Azure PowerShell to create tables in this release.</target>
+        </trans-unit>
+        <trans-unit id="eea6421a-0178-416a-b15f-3a214a3a00b7" xml:space="preserve">
+          <source>In the Azure PowerShell, navigate to the <bpt id="181c90e2-ed0f-4d08-8f15-8eab0ee6ce2b">&lt;strong&gt;</bpt>Tables<ept id="181c90e2-ed0f-4d08-8f15-8eab0ee6ce2b">&lt;/strong&gt;</ept> folder (<bpt id="3f496884-b798-42e6-9dc8-50cd745e3395">&lt;strong&gt;</bpt>C:\ADFWalkthrough\Tables\<ept id="3f496884-b798-42e6-9dc8-50cd745e3395">&lt;/strong&gt;</ept>) from the location where you have extracted the samples.</source>
+          <target state="new">In the Azure PowerShell, navigate to the <bpt id="181c90e2-ed0f-4d08-8f15-8eab0ee6ce2b">&lt;strong&gt;</bpt>Tables<ept id="181c90e2-ed0f-4d08-8f15-8eab0ee6ce2b">&lt;/strong&gt;</ept> folder (<bpt id="3f496884-b798-42e6-9dc8-50cd745e3395">&lt;strong&gt;</bpt>C:\ADFWalkthrough\Tables\<ept id="3f496884-b798-42e6-9dc8-50cd745e3395">&lt;/strong&gt;</ept>) from the location where you have extracted the samples.</target>
+        </trans-unit>
+        <trans-unit id="824f601e-3fdd-4505-9c2c-dea4e77d38b1" xml:space="preserve">
+          <source>Use the cmdlet <bpt id="a133a95d-388d-437a-9505-387d4a1e45ca">&lt;strong&gt;</bpt>New-AzureDataFactoryTable<ept id="a133a95d-388d-437a-9505-387d4a1e45ca">&lt;/strong&gt;</ept> to create the Tables as follows for <bpt id="af7b080d-c55a-4e3e-8be2-46c79d179765">&lt;strong&gt;</bpt>RawGameEventsTable<ept id="af7b080d-c55a-4e3e-8be2-46c79d179765">&lt;/strong&gt;</ept>.json    </source>
+          <target state="new">Use the cmdlet <bpt id="a133a95d-388d-437a-9505-387d4a1e45ca">&lt;strong&gt;</bpt>New-AzureDataFactoryTable<ept id="a133a95d-388d-437a-9505-387d4a1e45ca">&lt;/strong&gt;</ept> to create the Tables as follows for <bpt id="af7b080d-c55a-4e3e-8be2-46c79d179765">&lt;strong&gt;</bpt>RawGameEventsTable<ept id="af7b080d-c55a-4e3e-8be2-46c79d179765">&lt;/strong&gt;</ept>.json    </target>
+        </trans-unit>
+        <trans-unit id="4a4668ee-3683-46d7-9ae1-5562597f347c" xml:space="preserve">
+          <source>If you are using a different name for ResourceGroupName and DataFactoryName, refer them in the above cmdlet.</source>
+          <target state="new">If you are using a different name for ResourceGroupName and DataFactoryName, refer them in the above cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="64e8a478-d960-4a33-9e82-cd1999f5be22" xml:space="preserve">
+          <source>Also, provide the full file path of the Table JSON file if the file cannot be found by the cmdlet.</source>
+          <target state="new">Also, provide the full file path of the Table JSON file if the file cannot be found by the cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="eaad27a2-e67c-405f-8cc9-a4557fd2eedb" xml:space="preserve">
+          <source>Repeat the previous step to create the following tables: </source>
+          <target state="new">Repeat the previous step to create the following tables: </target>
+        </trans-unit>
+        <trans-unit id="46cb04ac-425a-4d6d-b865-16b8681726a6" xml:space="preserve">
+          <source>In the <bpt id="85c1b077-daac-403b-aa25-b4f7760d2b45">&lt;strong&gt;</bpt>Azure Preview Portal<ept id="85c1b077-daac-403b-aa25-b4f7760d2b45">&lt;/strong&gt;</ept>, click <bpt id="95dfa582-b599-49cb-90b1-9a21675887bc">&lt;strong&gt;</bpt>Datasets<ept id="95dfa582-b599-49cb-90b1-9a21675887bc">&lt;/strong&gt;</ept> in the <bpt id="fbd8e36f-4a57-4713-908b-9204cf8f780f">&lt;strong&gt;</bpt>DATA FACTORY<ept id="fbd8e36f-4a57-4713-908b-9204cf8f780f">&lt;/strong&gt;</ept> blade for <bpt id="ba447d06-1a6f-4efa-8b9c-d7b287ce49fd">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="ba447d06-1a6f-4efa-8b9c-d7b287ce49fd">&lt;/strong&gt;</ept> and confirm that you see all the datasets (tables are rectangular datasets).</source>
+          <target state="new">In the <bpt id="85c1b077-daac-403b-aa25-b4f7760d2b45">&lt;strong&gt;</bpt>Azure Preview Portal<ept id="85c1b077-daac-403b-aa25-b4f7760d2b45">&lt;/strong&gt;</ept>, click <bpt id="95dfa582-b599-49cb-90b1-9a21675887bc">&lt;strong&gt;</bpt>Datasets<ept id="95dfa582-b599-49cb-90b1-9a21675887bc">&lt;/strong&gt;</ept> in the <bpt id="fbd8e36f-4a57-4713-908b-9204cf8f780f">&lt;strong&gt;</bpt>DATA FACTORY<ept id="fbd8e36f-4a57-4713-908b-9204cf8f780f">&lt;/strong&gt;</ept> blade for <bpt id="ba447d06-1a6f-4efa-8b9c-d7b287ce49fd">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="ba447d06-1a6f-4efa-8b9c-d7b287ce49fd">&lt;/strong&gt;</ept> and confirm that you see all the datasets (tables are rectangular datasets).</target>
+        </trans-unit>
+        <trans-unit id="70ed587b-8aaa-448d-bd0b-60a56e176a9b" xml:space="preserve">
+          <source><bpt id="cbabb0c5-dbee-4237-ba6f-8a257658fb74">&lt;linkText&gt;</bpt>Data Sets All<ept id="cbabb0c5-dbee-4237-ba6f-8a257658fb74">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cbabb0c5-dbee-4237-ba6f-8a257658fb74">&lt;linkText&gt;</bpt>Data Sets All<ept id="cbabb0c5-dbee-4237-ba6f-8a257658fb74">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d9b6063-b2f0-43cf-8232-2f596329e849" xml:space="preserve">
+          <source>You can also use the following command from Azure PowerShell:</source>
+          <target state="new">You can also use the following command from Azure PowerShell:</target>
+        </trans-unit>
+        <trans-unit id="9a8c3c61-b718-4a57-b458-c747a1419116" xml:space="preserve">
+          <source>In this step, you will create the following pipelines: PartitionGameLogsPipeline, EnrichGameLogsPipeline, and AnalyzeMarketingCampaignPipeline.</source>
+          <target state="new">In this step, you will create the following pipelines: PartitionGameLogsPipeline, EnrichGameLogsPipeline, and AnalyzeMarketingCampaignPipeline.</target>
+        </trans-unit>
+        <trans-unit id="b1701154-3704-4d94-b8c2-45df8f3063c2" xml:space="preserve">
+          <source>In <bpt id="6eb50cf3-85a7-4a9e-820b-46542f6ed588">&lt;strong&gt;</bpt>Windows Explorer<ept id="6eb50cf3-85a7-4a9e-820b-46542f6ed588">&lt;/strong&gt;</ept>, navigate to the <bpt id="d9694f7a-b9bb-4b57-b8de-2c0833cf1fbb">&lt;strong&gt;</bpt>Pipelines<ept id="d9694f7a-b9bb-4b57-b8de-2c0833cf1fbb">&lt;/strong&gt;</ept> sub folder in <bpt id="4b77c81a-dec0-4ec0-a221-88cfb7a957e8">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="4b77c81a-dec0-4ec0-a221-88cfb7a957e8">&lt;/strong&gt;</ept> folder (or from the location where you have extracted the samples).</source>
+          <target state="new">In <bpt id="6eb50cf3-85a7-4a9e-820b-46542f6ed588">&lt;strong&gt;</bpt>Windows Explorer<ept id="6eb50cf3-85a7-4a9e-820b-46542f6ed588">&lt;/strong&gt;</ept>, navigate to the <bpt id="d9694f7a-b9bb-4b57-b8de-2c0833cf1fbb">&lt;strong&gt;</bpt>Pipelines<ept id="d9694f7a-b9bb-4b57-b8de-2c0833cf1fbb">&lt;/strong&gt;</ept> sub folder in <bpt id="4b77c81a-dec0-4ec0-a221-88cfb7a957e8">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="4b77c81a-dec0-4ec0-a221-88cfb7a957e8">&lt;/strong&gt;</ept> folder (or from the location where you have extracted the samples).</target>
+        </trans-unit>
+        <trans-unit id="ab17692a-aaa7-46ed-90ad-da71c4734bda" xml:space="preserve">
+          <source>Open <bpt id="7951b1c4-b9d1-4ef3-891e-a4a9cdb64f3f">&lt;strong&gt;</bpt>PartitionGameLogsPipeline.json<ept id="7951b1c4-b9d1-4ef3-891e-a4a9cdb64f3f">&lt;/strong&gt;</ept> in your favorite editor, replace the highlighted with your storage account for the data storage account information and save the file.</source>
+          <target state="new">Open <bpt id="7951b1c4-b9d1-4ef3-891e-a4a9cdb64f3f">&lt;strong&gt;</bpt>PartitionGameLogsPipeline.json<ept id="7951b1c4-b9d1-4ef3-891e-a4a9cdb64f3f">&lt;/strong&gt;</ept> in your favorite editor, replace the highlighted with your storage account for the data storage account information and save the file.</target>
+        </trans-unit>
+        <trans-unit id="243c7997-b0bc-4568-b27e-041489849b84" xml:space="preserve">
+          <source>Repeat the step to create the following pipelines:</source>
+          <target state="new">Repeat the step to create the following pipelines:</target>
+        </trans-unit>
+        <trans-unit id="06ca618b-0e45-4d78-842f-2f4a0f656973" xml:space="preserve">
+          <source><bpt id="12391ea6-87cd-47f6-873d-5cd9fb092f48">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="12391ea6-87cd-47f6-873d-5cd9fb092f48">&lt;/strong&gt;</ept>.json (3 occurrences)</source>
+          <target state="new"><bpt id="12391ea6-87cd-47f6-873d-5cd9fb092f48">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="12391ea6-87cd-47f6-873d-5cd9fb092f48">&lt;/strong&gt;</ept>.json (3 occurrences)</target>
+        </trans-unit>
+        <trans-unit id="e1860e18-0e0b-49ae-970d-f16e4a4b3fa5" xml:space="preserve">
+          <source><bpt id="4d65a2c7-9a15-4eeb-aa65-c4d3f99e2e4e">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="4d65a2c7-9a15-4eeb-aa65-c4d3f99e2e4e">&lt;/strong&gt;</ept>.json (3 occurrences)</source>
+          <target state="new"><bpt id="4d65a2c7-9a15-4eeb-aa65-c4d3f99e2e4e">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="4d65a2c7-9a15-4eeb-aa65-c4d3f99e2e4e">&lt;/strong&gt;</ept>.json (3 occurrences)</target>
+        </trans-unit>
+        <trans-unit id="cf002e95-e01a-4803-82ea-88d19e9a78c4" xml:space="preserve">
+          <source><bpt id="fd135317-c769-41c3-a261-7f11e7bf148b">&lt;strong&gt;</bpt>IMPORTANT:<ept id="fd135317-c769-41c3-a261-7f11e7bf148b">&lt;/strong&gt;</ept> Confirm that you have replaced all &lt;storageaccountname&gt; with your storage account name. </source>
+          <target state="new"><bpt id="fd135317-c769-41c3-a261-7f11e7bf148b">&lt;strong&gt;</bpt>IMPORTANT:<ept id="fd135317-c769-41c3-a261-7f11e7bf148b">&lt;/strong&gt;</ept> Confirm that you have replaced all &lt;storageaccountname&gt; with your storage account name. </target>
+        </trans-unit>
+        <trans-unit id="45f3c90d-ee3b-4416-a662-d2837d49023c" xml:space="preserve">
+          <source>In <bpt id="26cf38f7-356d-4e90-949d-c70cfd9821ec">&lt;strong&gt;</bpt>Azure PowerShell<ept id="26cf38f7-356d-4e90-949d-c70cfd9821ec">&lt;/strong&gt;</ept>, navigate to the <bpt id="2c9960ea-114b-4f9b-925a-3eddbe125b71">&lt;strong&gt;</bpt>Pipelines<ept id="2c9960ea-114b-4f9b-925a-3eddbe125b71">&lt;/strong&gt;</ept> sub folder in <bpt id="224faff5-0616-4e81-9de7-d2f2bd1597db">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="224faff5-0616-4e81-9de7-d2f2bd1597db">&lt;/strong&gt;</ept> folder (or from the location where you have extracted the samples).</source>
+          <target state="new">In <bpt id="26cf38f7-356d-4e90-949d-c70cfd9821ec">&lt;strong&gt;</bpt>Azure PowerShell<ept id="26cf38f7-356d-4e90-949d-c70cfd9821ec">&lt;/strong&gt;</ept>, navigate to the <bpt id="2c9960ea-114b-4f9b-925a-3eddbe125b71">&lt;strong&gt;</bpt>Pipelines<ept id="2c9960ea-114b-4f9b-925a-3eddbe125b71">&lt;/strong&gt;</ept> sub folder in <bpt id="224faff5-0616-4e81-9de7-d2f2bd1597db">&lt;strong&gt;</bpt>C:\ADFWalkthrough<ept id="224faff5-0616-4e81-9de7-d2f2bd1597db">&lt;/strong&gt;</ept> folder (or from the location where you have extracted the samples).</target>
+        </trans-unit>
+        <trans-unit id="e5fbdaae-53bc-4101-883b-4ea734d10368" xml:space="preserve">
+          <source>Use the cmdlet <bpt id="489578e6-8f24-4d18-b9b2-bb758cf52643">&lt;strong&gt;</bpt>New-AzureDataFactoryPipeline<ept id="489578e6-8f24-4d18-b9b2-bb758cf52643">&lt;/strong&gt;</ept> to create the Pipelines as follows for <bpt id="72729528-7c60-464c-a7a8-b8455d862fc3">&lt;strong&gt;</bpt>PartitionGameLogspeline<ept id="72729528-7c60-464c-a7a8-b8455d862fc3">&lt;/strong&gt;</ept>.json  </source>
+          <target state="new">Use the cmdlet <bpt id="489578e6-8f24-4d18-b9b2-bb758cf52643">&lt;strong&gt;</bpt>New-AzureDataFactoryPipeline<ept id="489578e6-8f24-4d18-b9b2-bb758cf52643">&lt;/strong&gt;</ept> to create the Pipelines as follows for <bpt id="72729528-7c60-464c-a7a8-b8455d862fc3">&lt;strong&gt;</bpt>PartitionGameLogspeline<ept id="72729528-7c60-464c-a7a8-b8455d862fc3">&lt;/strong&gt;</ept>.json  </target>
+        </trans-unit>
+        <trans-unit id="0e9ae308-b636-4ffd-a71d-250bc60803c7" xml:space="preserve">
+          <source>If you are using a different name for ResourceGroupName, DataFactoryName or Pipeline name, refer them in the above cmdlet.</source>
+          <target state="new">If you are using a different name for ResourceGroupName, DataFactoryName or Pipeline name, refer them in the above cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="b1921442-4fee-45d0-aa17-c9208c965b44" xml:space="preserve">
+          <source>Also, provide the full file path of the Pipeline JSON file.</source>
+          <target state="new">Also, provide the full file path of the Pipeline JSON file.</target>
+        </trans-unit>
+        <trans-unit id="847cdbab-4c2d-492f-969c-389e3f129c19" xml:space="preserve">
+          <source>Repeat the previous step to create the following pipelines:</source>
+          <target state="new">Repeat the previous step to create the following pipelines:</target>
+        </trans-unit>
+        <trans-unit id="30910021-45db-4ecd-b347-832e122f197b" xml:space="preserve">
+          <source><bpt id="9dca9126-8cb6-4b36-a78e-ee99bf7d3a66">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="9dca9126-8cb6-4b36-a78e-ee99bf7d3a66">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9dca9126-8cb6-4b36-a78e-ee99bf7d3a66">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="9dca9126-8cb6-4b36-a78e-ee99bf7d3a66">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98a844e1-b06a-4a9f-bf7c-3d971d28505d" xml:space="preserve">
+          <source><bpt id="61927cae-3f48-4fed-8eec-e36e498096d0">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="61927cae-3f48-4fed-8eec-e36e498096d0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="61927cae-3f48-4fed-8eec-e36e498096d0">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="61927cae-3f48-4fed-8eec-e36e498096d0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9adcb5e4-3c35-4d17-9ddf-45cf98f082d2" xml:space="preserve">
+          <source>Use the cmdlet <bpt id="de5a998f-2fa4-48ef-ade4-6b483fb5593d">&lt;strong&gt;</bpt>Get-AzureDataFactoryPipeline<ept id="de5a998f-2fa4-48ef-ade4-6b483fb5593d">&lt;/strong&gt;</ept> to get the listing of the Pipelines.</source>
+          <target state="new">Use the cmdlet <bpt id="de5a998f-2fa4-48ef-ade4-6b483fb5593d">&lt;strong&gt;</bpt>Get-AzureDataFactoryPipeline<ept id="de5a998f-2fa4-48ef-ade4-6b483fb5593d">&lt;/strong&gt;</ept> to get the listing of the Pipelines.</target>
+        </trans-unit>
+        <trans-unit id="1084f455-e075-424f-8667-019c04015de2" xml:space="preserve">
+          <source>Once the pipelines are created, you can specify the duration in which data processing will occur.</source>
+          <target state="new">Once the pipelines are created, you can specify the duration in which data processing will occur.</target>
+        </trans-unit>
+        <trans-unit id="f6719e83-dbf0-425a-b3c7-1aa24bfd781d" xml:space="preserve">
+          <source>By specifying the active period for a pipeline, you are defining the time duration in which the data slices will be processed based on the Availability properties that were defined for each ADF table.</source>
+          <target state="new">By specifying the active period for a pipeline, you are defining the time duration in which the data slices will be processed based on the Availability properties that were defined for each ADF table.</target>
+        </trans-unit>
+        <trans-unit id="1bd0bb98-9869-4398-b274-1815302eecd1" xml:space="preserve">
+          <source>To specify the active period for the pipeline, you can use the cmdlet Set-AzureDataFactoryPipelineActivePeriod.</source>
+          <target state="new">To specify the active period for the pipeline, you can use the cmdlet Set-AzureDataFactoryPipelineActivePeriod.</target>
+        </trans-unit>
+        <trans-unit id="01687625-a1fd-4a5e-be2e-ed4c4d18e3d0" xml:space="preserve">
+          <source>In this walkthrough, the sample data is from 05/01 to 05/05.</source>
+          <target state="new">In this walkthrough, the sample data is from 05/01 to 05/05.</target>
+        </trans-unit>
+        <trans-unit id="e0c921ec-a940-4c7b-b73a-7933ce23a921" xml:space="preserve">
+          <source>Use 2014-05-01 as the StartDateTime.</source>
+          <target state="new">Use 2014-05-01 as the StartDateTime.</target>
+        </trans-unit>
+        <trans-unit id="a458e8dc-a540-485f-a762-60d110ea7608" xml:space="preserve">
+          <source>EndDateTime is optional.</source>
+          <target state="new">EndDateTime is optional.</target>
+        </trans-unit>
+        <trans-unit id="862dec86-2b18-4425-8f0b-936880815a0b" xml:space="preserve">
+          <source>Confirm to set the active period for the pipeline.</source>
+          <target state="new">Confirm to set the active period for the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="bed07cf7-92d4-4bc1-b477-41b34e412520" xml:space="preserve">
+          <source>Repeat the previous two steps to set active period for the following pipelines.</source>
+          <target state="new">Repeat the previous two steps to set active period for the following pipelines.</target>
+        </trans-unit>
+        <trans-unit id="57cde858-b484-40ae-b6fc-2dd954cd29ab" xml:space="preserve">
+          <source><bpt id="fb483304-146b-4a91-a9ad-38a5f981c30e">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="fb483304-146b-4a91-a9ad-38a5f981c30e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fb483304-146b-4a91-a9ad-38a5f981c30e">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="fb483304-146b-4a91-a9ad-38a5f981c30e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fc1a05f-81db-47b8-bbbf-bd014668e23e" xml:space="preserve">
+          <source><bpt id="9cfc83af-0740-422f-b416-4b3e6aa0d041">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="9cfc83af-0740-422f-b416-4b3e6aa0d041">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="9cfc83af-0740-422f-b416-4b3e6aa0d041">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="9cfc83af-0740-422f-b416-4b3e6aa0d041">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="3dbe919a-b9e9-43f0-95b4-05efead35dda" xml:space="preserve">
+          <source>In the <bpt id="7dfdd8a3-ca27-443e-96b9-078c50567a45">&lt;strong&gt;</bpt>Azure Preview Portal<ept id="7dfdd8a3-ca27-443e-96b9-078c50567a45">&lt;/strong&gt;</ept>, click <bpt id="3343586b-83b9-4ed1-ab8e-ac9d35f31bd0">&lt;strong&gt;</bpt>Pipelines<ept id="3343586b-83b9-4ed1-ab8e-ac9d35f31bd0">&lt;/strong&gt;</ept> tile (not on the names of the pipelines) in the <bpt id="495a7f22-9496-4b32-9540-f84bfb7f7a6f">&lt;strong&gt;</bpt>DATA FACTORY<ept id="495a7f22-9496-4b32-9540-f84bfb7f7a6f">&lt;/strong&gt;</ept> blade for the <bpt id="43b385bb-807e-4573-944d-7f1183eee2a4">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="43b385bb-807e-4573-944d-7f1183eee2a4">&lt;/strong&gt;</ept>, you should see the pipelines you created.</source>
+          <target state="new">In the <bpt id="7dfdd8a3-ca27-443e-96b9-078c50567a45">&lt;strong&gt;</bpt>Azure Preview Portal<ept id="7dfdd8a3-ca27-443e-96b9-078c50567a45">&lt;/strong&gt;</ept>, click <bpt id="3343586b-83b9-4ed1-ab8e-ac9d35f31bd0">&lt;strong&gt;</bpt>Pipelines<ept id="3343586b-83b9-4ed1-ab8e-ac9d35f31bd0">&lt;/strong&gt;</ept> tile (not on the names of the pipelines) in the <bpt id="495a7f22-9496-4b32-9540-f84bfb7f7a6f">&lt;strong&gt;</bpt>DATA FACTORY<ept id="495a7f22-9496-4b32-9540-f84bfb7f7a6f">&lt;/strong&gt;</ept> blade for the <bpt id="43b385bb-807e-4573-944d-7f1183eee2a4">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="43b385bb-807e-4573-944d-7f1183eee2a4">&lt;/strong&gt;</ept>, you should see the pipelines you created.</target>
+        </trans-unit>
+        <trans-unit id="a110a1d0-8e48-4855-bd63-2fcf7eb8cfcb" xml:space="preserve">
+          <source><bpt id="68e85a1a-628e-47d5-bcbc-3a6307d7192a">&lt;linkText&gt;</bpt>All Pipelines<ept id="68e85a1a-628e-47d5-bcbc-3a6307d7192a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="68e85a1a-628e-47d5-bcbc-3a6307d7192a">&lt;linkText&gt;</bpt>All Pipelines<ept id="68e85a1a-628e-47d5-bcbc-3a6307d7192a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d594afd-f114-4727-b9c7-17529cecb094" xml:space="preserve">
+          <source>In the <bpt id="e1953a04-bd90-4d07-aef9-c871cabb81b4">&lt;strong&gt;</bpt>DATA FACTORY<ept id="e1953a04-bd90-4d07-aef9-c871cabb81b4">&lt;/strong&gt;</ept> blade for the <bpt id="52875732-85fd-46f2-9fa3-8cc76a5895e0">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="52875732-85fd-46f2-9fa3-8cc76a5895e0">&lt;/strong&gt;</ept>, click <bpt id="35476c8b-d58a-47e8-8da0-8a99a4d06014">&lt;strong&gt;</bpt>Diagram<ept id="35476c8b-d58a-47e8-8da0-8a99a4d06014">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="e1953a04-bd90-4d07-aef9-c871cabb81b4">&lt;strong&gt;</bpt>DATA FACTORY<ept id="e1953a04-bd90-4d07-aef9-c871cabb81b4">&lt;/strong&gt;</ept> blade for the <bpt id="52875732-85fd-46f2-9fa3-8cc76a5895e0">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="52875732-85fd-46f2-9fa3-8cc76a5895e0">&lt;/strong&gt;</ept>, click <bpt id="35476c8b-d58a-47e8-8da0-8a99a4d06014">&lt;strong&gt;</bpt>Diagram<ept id="35476c8b-d58a-47e8-8da0-8a99a4d06014">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac97856e-f754-4563-b3c3-4052cd28ea9d" xml:space="preserve">
+          <source><bpt id="bbff373e-e746-43e4-8eb8-cf16f30abbdd">&lt;linkText&gt;</bpt>Diagram Link<ept id="bbff373e-e746-43e4-8eb8-cf16f30abbdd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bbff373e-e746-43e4-8eb8-cf16f30abbdd">&lt;linkText&gt;</bpt>Diagram Link<ept id="bbff373e-e746-43e4-8eb8-cf16f30abbdd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a952d2e-7225-45ec-877c-4b03a5874882" xml:space="preserve">
+          <source>You can rearrange the diagram you see and here is a rearranged diagram that shows direct inputs at the top and outputs at the bottom.</source>
+          <target state="new">You can rearrange the diagram you see and here is a rearranged diagram that shows direct inputs at the top and outputs at the bottom.</target>
+        </trans-unit>
+        <trans-unit id="c14d6a15-64a8-476e-8b8a-8c90de281cdb" xml:space="preserve">
+          <source>You can see that the output of the <bpt id="1ca501fc-aae2-4a17-8607-0196cc427949">&lt;strong&gt;</bpt>PartitionGameLogsPipeline<ept id="1ca501fc-aae2-4a17-8607-0196cc427949">&lt;/strong&gt;</ept> is passed in as an input to the EnrichGameLogsPipeline and output of the <bpt id="098313ad-2967-4243-9fcb-d0edc52d55fb">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="098313ad-2967-4243-9fcb-d0edc52d55fb">&lt;/strong&gt;</ept> is passed to the <bpt id="ae804840-40e4-44bb-8a31-e546700bc41a">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="ae804840-40e4-44bb-8a31-e546700bc41a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can see that the output of the <bpt id="1ca501fc-aae2-4a17-8607-0196cc427949">&lt;strong&gt;</bpt>PartitionGameLogsPipeline<ept id="1ca501fc-aae2-4a17-8607-0196cc427949">&lt;/strong&gt;</ept> is passed in as an input to the EnrichGameLogsPipeline and output of the <bpt id="098313ad-2967-4243-9fcb-d0edc52d55fb">&lt;strong&gt;</bpt>EnrichGameLogsPipeline<ept id="098313ad-2967-4243-9fcb-d0edc52d55fb">&lt;/strong&gt;</ept> is passed to the <bpt id="ae804840-40e4-44bb-8a31-e546700bc41a">&lt;strong&gt;</bpt>AnalyzeMarketingCampaignPipeline<ept id="ae804840-40e4-44bb-8a31-e546700bc41a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac8a5d52-6b90-4abf-b50a-f3a2cb2a6384" xml:space="preserve">
+          <source>Double-click on a title to see details about the artifact that the blade represents.</source>
+          <target state="new">Double-click on a title to see details about the artifact that the blade represents.</target>
+        </trans-unit>
+        <trans-unit id="eae47a3d-fdf7-4841-b408-c6b816213616" xml:space="preserve">
+          <source><bpt id="7bd147db-9927-49c8-8454-5a7420b88130">&lt;linkText&gt;</bpt>Diagram View<ept id="7bd147db-9927-49c8-8454-5a7420b88130">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7bd147db-9927-49c8-8454-5a7420b88130">&lt;linkText&gt;</bpt>Diagram View<ept id="7bd147db-9927-49c8-8454-5a7420b88130">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f98d3901-85ac-4dd9-9031-5db320432116" xml:space="preserve">
+          <source><bpt id="29774670-fb0b-4870-b7f8-d05ffe0f2740">&lt;strong&gt;</bpt>Congratulations!<ept id="29774670-fb0b-4870-b7f8-d05ffe0f2740">&lt;/strong&gt;</ept> You have successfully created the Azure Data Factory, Linked Services, Pipelines, Tables and started the workflow.</source>
+          <target state="new"><bpt id="29774670-fb0b-4870-b7f8-d05ffe0f2740">&lt;strong&gt;</bpt>Congratulations!<ept id="29774670-fb0b-4870-b7f8-d05ffe0f2740">&lt;/strong&gt;</ept> You have successfully created the Azure Data Factory, Linked Services, Pipelines, Tables and started the workflow.</target>
+        </trans-unit>
+        <trans-unit id="cb8b33a5-b510-4dae-b601-b1d02926ffec" xml:space="preserve">
+          <source>If you do not have the DATA FACTORY blade for the LogProcessingFactory open, you can do one of the following:</source>
+          <target state="new">If you do not have the DATA FACTORY blade for the LogProcessingFactory open, you can do one of the following:</target>
+        </trans-unit>
+        <trans-unit id="fa4d00a9-efa5-436f-9d92-0e3ef1c24d78" xml:space="preserve">
+          <source>Click <bpt id="07562a6d-74f6-4fc7-9d2a-90c7553a1545">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="07562a6d-74f6-4fc7-9d2a-90c7553a1545">&lt;/strong&gt;</ept> on the <bpt id="20e43796-c9c5-4d54-af37-a65f917d053c">&lt;strong&gt;</bpt>Startboard<ept id="20e43796-c9c5-4d54-af37-a65f917d053c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="07562a6d-74f6-4fc7-9d2a-90c7553a1545">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="07562a6d-74f6-4fc7-9d2a-90c7553a1545">&lt;/strong&gt;</ept> on the <bpt id="20e43796-c9c5-4d54-af37-a65f917d053c">&lt;strong&gt;</bpt>Startboard<ept id="20e43796-c9c5-4d54-af37-a65f917d053c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b4c6b33-74cc-457f-ba04-53e9e8b2aea1" xml:space="preserve">
+          <source>While creating the data factory, the <bpt id="f301d39e-1e14-4302-a153-6b684d611210">&lt;strong&gt;</bpt>Add to Startboard<ept id="f301d39e-1e14-4302-a153-6b684d611210">&lt;/strong&gt;</ept> option was automatically checked.</source>
+          <target state="new">While creating the data factory, the <bpt id="f301d39e-1e14-4302-a153-6b684d611210">&lt;strong&gt;</bpt>Add to Startboard<ept id="f301d39e-1e14-4302-a153-6b684d611210">&lt;/strong&gt;</ept> option was automatically checked.</target>
+        </trans-unit>
+        <trans-unit id="091883dd-276b-4333-9622-e91f37a520b2" xml:space="preserve">
+          <source><bpt id="079802f5-9e59-4999-aa27-737e70170e8f">&lt;linkText&gt;</bpt>Monitoring Startboard<ept id="079802f5-9e59-4999-aa27-737e70170e8f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="079802f5-9e59-4999-aa27-737e70170e8f">&lt;linkText&gt;</bpt>Monitoring Startboard<ept id="079802f5-9e59-4999-aa27-737e70170e8f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0323e794-0245-4039-9d69-23f09e0369f5" xml:space="preserve">
+          <source>Click <bpt id="b618ed30-e536-4055-a5c3-e46cb986f45f">&lt;strong&gt;</bpt>BROWSE<ept id="b618ed30-e536-4055-a5c3-e46cb986f45f">&lt;/strong&gt;</ept> hub, and click <bpt id="c78a3beb-db21-4093-a678-f8f1c77791fe">&lt;strong&gt;</bpt>Everything<ept id="c78a3beb-db21-4093-a678-f8f1c77791fe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b618ed30-e536-4055-a5c3-e46cb986f45f">&lt;strong&gt;</bpt>BROWSE<ept id="b618ed30-e536-4055-a5c3-e46cb986f45f">&lt;/strong&gt;</ept> hub, and click <bpt id="c78a3beb-db21-4093-a678-f8f1c77791fe">&lt;strong&gt;</bpt>Everything<ept id="c78a3beb-db21-4093-a678-f8f1c77791fe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b60e780-9a0f-4845-8c28-99b80b4155a8" xml:space="preserve">
+          <source><bpt id="13a51b88-1dda-4025-b1bf-ee8f7b1aa3d3">&lt;linkText&gt;</bpt>Monitoring Hub Everything<ept id="13a51b88-1dda-4025-b1bf-ee8f7b1aa3d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="13a51b88-1dda-4025-b1bf-ee8f7b1aa3d3">&lt;linkText&gt;</bpt>Monitoring Hub Everything<ept id="13a51b88-1dda-4025-b1bf-ee8f7b1aa3d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06893727-b854-49dd-8b0c-4c55fe8e0e4e" xml:space="preserve">
+          <source>In the <bpt id="d1789587-02fd-4705-8cd3-b7ed9d6bb87f">&lt;strong&gt;</bpt>Browse<ept id="d1789587-02fd-4705-8cd3-b7ed9d6bb87f">&lt;/strong&gt;</ept> blade, select <bpt id="4306dfbb-5c81-4a1f-a1ed-90b66a473a11">&lt;strong&gt;</bpt>Data factories<ept id="4306dfbb-5c81-4a1f-a1ed-90b66a473a11">&lt;/strong&gt;</ept> and select <bpt id="b14e96e9-4a70-4547-ad80-c1de94bad6e8">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="b14e96e9-4a70-4547-ad80-c1de94bad6e8">&lt;/strong&gt;</ept> in the <bpt id="512efa1e-321a-4d20-b64e-3d01f7834112">&lt;strong&gt;</bpt>Data factories<ept id="512efa1e-321a-4d20-b64e-3d01f7834112">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">In the <bpt id="d1789587-02fd-4705-8cd3-b7ed9d6bb87f">&lt;strong&gt;</bpt>Browse<ept id="d1789587-02fd-4705-8cd3-b7ed9d6bb87f">&lt;/strong&gt;</ept> blade, select <bpt id="4306dfbb-5c81-4a1f-a1ed-90b66a473a11">&lt;strong&gt;</bpt>Data factories<ept id="4306dfbb-5c81-4a1f-a1ed-90b66a473a11">&lt;/strong&gt;</ept> and select <bpt id="b14e96e9-4a70-4547-ad80-c1de94bad6e8">&lt;strong&gt;</bpt>LogProcessingFactory<ept id="b14e96e9-4a70-4547-ad80-c1de94bad6e8">&lt;/strong&gt;</ept> in the <bpt id="512efa1e-321a-4d20-b64e-3d01f7834112">&lt;strong&gt;</bpt>Data factories<ept id="512efa1e-321a-4d20-b64e-3d01f7834112">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="92eb04e0-8bf9-4c8c-8f0c-4c9bc45a3ac8" xml:space="preserve">
+          <source><bpt id="51ab3274-7159-4ce6-9dfe-fc963a33430a">&lt;linkText&gt;</bpt>Monitoring Browse Datafactories<ept id="51ab3274-7159-4ce6-9dfe-fc963a33430a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="51ab3274-7159-4ce6-9dfe-fc963a33430a">&lt;linkText&gt;</bpt>Monitoring Browse Datafactories<ept id="51ab3274-7159-4ce6-9dfe-fc963a33430a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0bea1cbe-090d-46c0-8b09-5d5e970f4c2f" xml:space="preserve">
+          <source>You can monitor your data factory in several ways.</source>
+          <target state="new">You can monitor your data factory in several ways.</target>
+        </trans-unit>
+        <trans-unit id="fa9f20d6-e416-4215-96f9-5f3d77fdd5b7" xml:space="preserve">
+          <source>You can start with pipelines or data sets.</source>
+          <target state="new">You can start with pipelines or data sets.</target>
+        </trans-unit>
+        <trans-unit id="00f2a031-3162-40eb-9a10-7fe25fefaed0" xml:space="preserve">
+          <source>Let’s start with Pipelines and drill further.</source>
+          <target state="new">Let’s start with Pipelines and drill further.</target>
+        </trans-unit>
+        <trans-unit id="50e18639-243b-4491-ad48-dc8716419c1e" xml:space="preserve">
+          <source>Click <bpt id="59e93235-61eb-4435-b63f-c318451d9aae">&lt;strong&gt;</bpt>Pipelines<ept id="59e93235-61eb-4435-b63f-c318451d9aae">&lt;/strong&gt;</ept> on the <bpt id="cc983151-f74d-434a-8736-f6e221d5203f">&lt;strong&gt;</bpt>DATA FACTORY<ept id="cc983151-f74d-434a-8736-f6e221d5203f">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click <bpt id="59e93235-61eb-4435-b63f-c318451d9aae">&lt;strong&gt;</bpt>Pipelines<ept id="59e93235-61eb-4435-b63f-c318451d9aae">&lt;/strong&gt;</ept> on the <bpt id="cc983151-f74d-434a-8736-f6e221d5203f">&lt;strong&gt;</bpt>DATA FACTORY<ept id="cc983151-f74d-434a-8736-f6e221d5203f">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="50d2d685-617e-408c-9012-c0be38659e0d" xml:space="preserve">
+          <source>Click <bpt id="4a7fb0e3-ef35-43e0-a262-b4df6c82ab54">&lt;strong&gt;</bpt>PartitionGameLogsPipeline<ept id="4a7fb0e3-ef35-43e0-a262-b4df6c82ab54">&lt;/strong&gt;</ept> in the Pipelines blade.</source>
+          <target state="new">Click <bpt id="4a7fb0e3-ef35-43e0-a262-b4df6c82ab54">&lt;strong&gt;</bpt>PartitionGameLogsPipeline<ept id="4a7fb0e3-ef35-43e0-a262-b4df6c82ab54">&lt;/strong&gt;</ept> in the Pipelines blade.</target>
+        </trans-unit>
+        <trans-unit id="6228c6e9-6ee4-4f76-97c3-becad327d0c9" xml:space="preserve">
+          <source>In the <bpt id="3d2e9716-2745-46cf-9ac1-272c9ef7c513">&lt;strong&gt;</bpt>PIPELINE<ept id="3d2e9716-2745-46cf-9ac1-272c9ef7c513">&lt;/strong&gt;</ept> blade for <bpt id="38583235-923f-4827-bcd5-9caa93d9e017">&lt;strong&gt;</bpt>PartitionGameLogsPipeline<ept id="38583235-923f-4827-bcd5-9caa93d9e017">&lt;/strong&gt;</ept>, you see that the pipeline consumes <bpt id="444ace54-a26e-4f20-9098-3b1286d0686b">&lt;strong&gt;</bpt>RawGameEventsTable<ept id="444ace54-a26e-4f20-9098-3b1286d0686b">&lt;/strong&gt;</ept> dataset.</source>
+          <target state="new">In the <bpt id="3d2e9716-2745-46cf-9ac1-272c9ef7c513">&lt;strong&gt;</bpt>PIPELINE<ept id="3d2e9716-2745-46cf-9ac1-272c9ef7c513">&lt;/strong&gt;</ept> blade for <bpt id="38583235-923f-4827-bcd5-9caa93d9e017">&lt;strong&gt;</bpt>PartitionGameLogsPipeline<ept id="38583235-923f-4827-bcd5-9caa93d9e017">&lt;/strong&gt;</ept>, you see that the pipeline consumes <bpt id="444ace54-a26e-4f20-9098-3b1286d0686b">&lt;strong&gt;</bpt>RawGameEventsTable<ept id="444ace54-a26e-4f20-9098-3b1286d0686b">&lt;/strong&gt;</ept> dataset.</target>
+        </trans-unit>
+        <trans-unit id="3f5c19dc-7cbf-4fd4-8596-ce4ab2e4d8de" xml:space="preserve">
+          <source>Click <bpt id="9ce77300-0eca-4451-a5c6-c50f678b933b">&lt;strong&gt;</bpt>RawGameEventsTable<ept id="9ce77300-0eca-4451-a5c6-c50f678b933b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9ce77300-0eca-4451-a5c6-c50f678b933b">&lt;strong&gt;</bpt>RawGameEventsTable<ept id="9ce77300-0eca-4451-a5c6-c50f678b933b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="71d29ca7-5945-49f0-ab1a-b448bceeb5eb" xml:space="preserve">
+          <source><bpt id="889a705c-2b3e-419d-a02b-b58aef006b1a">&lt;linkText&gt;</bpt>Pipeline Consumed and Produced<ept id="889a705c-2b3e-419d-a02b-b58aef006b1a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="889a705c-2b3e-419d-a02b-b58aef006b1a">&lt;linkText&gt;</bpt>Pipeline Consumed and Produced<ept id="889a705c-2b3e-419d-a02b-b58aef006b1a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a2504e1-1b90-4ebe-adf1-fd8e3c0d6070" xml:space="preserve">
+          <source>In the TABLE blade for <bpt id="d50da0f1-9f1f-4977-9154-299e2c7d039d">&lt;strong&gt;</bpt>RawGameEventsTable<ept id="d50da0f1-9f1f-4977-9154-299e2c7d039d">&lt;/strong&gt;</ept>, you see all the slices.</source>
+          <target state="new">In the TABLE blade for <bpt id="d50da0f1-9f1f-4977-9154-299e2c7d039d">&lt;strong&gt;</bpt>RawGameEventsTable<ept id="d50da0f1-9f1f-4977-9154-299e2c7d039d">&lt;/strong&gt;</ept>, you see all the slices.</target>
+        </trans-unit>
+        <trans-unit id="dcbebcf5-06e6-4396-a883-43d2bcf32979" xml:space="preserve">
+          <source>In the following screen shot, all the slices are in <bpt id="f97eea73-30a7-4f13-96b9-7b4b60edcf49">&lt;strong&gt;</bpt>Ready<ept id="f97eea73-30a7-4f13-96b9-7b4b60edcf49">&lt;/strong&gt;</ept> state and there are no problem slices.</source>
+          <target state="new">In the following screen shot, all the slices are in <bpt id="f97eea73-30a7-4f13-96b9-7b4b60edcf49">&lt;strong&gt;</bpt>Ready<ept id="f97eea73-30a7-4f13-96b9-7b4b60edcf49">&lt;/strong&gt;</ept> state and there are no problem slices.</target>
+        </trans-unit>
+        <trans-unit id="76112fe8-4d45-4e5c-8ff9-0065f3b0d124" xml:space="preserve">
+          <source>It means that the data is ready to be processed.</source>
+          <target state="new">It means that the data is ready to be processed.</target>
+        </trans-unit>
+        <trans-unit id="bdb24441-2950-4ea9-a474-a85add5dfe4d" xml:space="preserve">
+          <source><bpt id="c6021664-0fd3-4f61-9890-b336b03e4967">&lt;linkText&gt;</bpt>RawGameEventsTable TABLE blade<ept id="c6021664-0fd3-4f61-9890-b336b03e4967">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c6021664-0fd3-4f61-9890-b336b03e4967">&lt;linkText&gt;</bpt>RawGameEventsTable TABLE blade<ept id="c6021664-0fd3-4f61-9890-b336b03e4967">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b66b3ec5-35c6-430f-8923-23978a6568cf" xml:space="preserve">
+          <source>Now, on the <bpt id="fc89265e-347a-4c33-aef2-4a9621f14f70">&lt;strong&gt;</bpt>PIPELINE<ept id="fc89265e-347a-4c33-aef2-4a9621f14f70">&lt;/strong&gt;</ept> blade for <bpt id="04348f79-99d6-49ce-88b0-582236882d94">&lt;strong&gt;</bpt>PartiionGameLogsPipeline<ept id="04348f79-99d6-49ce-88b0-582236882d94">&lt;/strong&gt;</ept>, click <bpt id="662080f1-a1ba-4a51-a86e-0e64d8a1aa91">&lt;strong&gt;</bpt>Produced<ept id="662080f1-a1ba-4a51-a86e-0e64d8a1aa91">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Now, on the <bpt id="fc89265e-347a-4c33-aef2-4a9621f14f70">&lt;strong&gt;</bpt>PIPELINE<ept id="fc89265e-347a-4c33-aef2-4a9621f14f70">&lt;/strong&gt;</ept> blade for <bpt id="04348f79-99d6-49ce-88b0-582236882d94">&lt;strong&gt;</bpt>PartiionGameLogsPipeline<ept id="04348f79-99d6-49ce-88b0-582236882d94">&lt;/strong&gt;</ept>, click <bpt id="662080f1-a1ba-4a51-a86e-0e64d8a1aa91">&lt;strong&gt;</bpt>Produced<ept id="662080f1-a1ba-4a51-a86e-0e64d8a1aa91">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87ee277a-1692-4bbd-ab48-a2755fc59a55" xml:space="preserve">
+          <source>You should see the list of data sets that this pipeline produces: </source>
+          <target state="new">You should see the list of data sets that this pipeline produces: </target>
+        </trans-unit>
+        <trans-unit id="86903235-488d-4fda-ab69-d924ea0d2ba3" xml:space="preserve">
+          <source>Click <bpt id="b0fb4193-5c40-4a44-8777-edad5d01629b">&lt;strong&gt;</bpt>PartitionedGameEvents<ept id="b0fb4193-5c40-4a44-8777-edad5d01629b">&lt;/strong&gt;</ept> table in the <bpt id="a3b224b6-ef7f-4c7c-a360-7954672435d5">&lt;strong&gt;</bpt>Produced datasets<ept id="a3b224b6-ef7f-4c7c-a360-7954672435d5">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click <bpt id="b0fb4193-5c40-4a44-8777-edad5d01629b">&lt;strong&gt;</bpt>PartitionedGameEvents<ept id="b0fb4193-5c40-4a44-8777-edad5d01629b">&lt;/strong&gt;</ept> table in the <bpt id="a3b224b6-ef7f-4c7c-a360-7954672435d5">&lt;strong&gt;</bpt>Produced datasets<ept id="a3b224b6-ef7f-4c7c-a360-7954672435d5">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="2056764c-99e8-46a5-a0ca-73eb49119d58" xml:space="preserve">
+          <source>Confirm that the <bpt id="462e4d48-999e-466f-8a18-49acb7d31f2c">&lt;strong&gt;</bpt>status<ept id="462e4d48-999e-466f-8a18-49acb7d31f2c">&lt;/strong&gt;</ept> of all slices is set to <bpt id="a91d2f2b-e026-4ba4-9b54-8d02d3129dd5">&lt;strong&gt;</bpt>Ready<ept id="a91d2f2b-e026-4ba4-9b54-8d02d3129dd5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Confirm that the <bpt id="462e4d48-999e-466f-8a18-49acb7d31f2c">&lt;strong&gt;</bpt>status<ept id="462e4d48-999e-466f-8a18-49acb7d31f2c">&lt;/strong&gt;</ept> of all slices is set to <bpt id="a91d2f2b-e026-4ba4-9b54-8d02d3129dd5">&lt;strong&gt;</bpt>Ready<ept id="a91d2f2b-e026-4ba4-9b54-8d02d3129dd5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="755cafc5-6ee4-4910-b411-f721ed1667ee" xml:space="preserve">
+          <source>Click on one of the slices that is <bpt id="f538f736-0c6b-4d0a-abac-878269d5789f">&lt;strong&gt;</bpt>Ready<ept id="f538f736-0c6b-4d0a-abac-878269d5789f">&lt;/strong&gt;</ept> to see the <bpt id="e8efaecb-7a84-4d6c-93ff-65e714c5da7d">&lt;strong&gt;</bpt>DATA SLICE<ept id="e8efaecb-7a84-4d6c-93ff-65e714c5da7d">&lt;/strong&gt;</ept> blade for that slice.</source>
+          <target state="new">Click on one of the slices that is <bpt id="f538f736-0c6b-4d0a-abac-878269d5789f">&lt;strong&gt;</bpt>Ready<ept id="f538f736-0c6b-4d0a-abac-878269d5789f">&lt;/strong&gt;</ept> to see the <bpt id="e8efaecb-7a84-4d6c-93ff-65e714c5da7d">&lt;strong&gt;</bpt>DATA SLICE<ept id="e8efaecb-7a84-4d6c-93ff-65e714c5da7d">&lt;/strong&gt;</ept> blade for that slice.</target>
+        </trans-unit>
+        <trans-unit id="2a5006e4-2649-4065-8465-fa93442297ff" xml:space="preserve">
+          <source><bpt id="dc93c17f-20e2-4d3f-aee7-bd528d96073e">&lt;linkText&gt;</bpt>RawGameEventsTable DATA SLICE blade<ept id="dc93c17f-20e2-4d3f-aee7-bd528d96073e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dc93c17f-20e2-4d3f-aee7-bd528d96073e">&lt;linkText&gt;</bpt>RawGameEventsTable DATA SLICE blade<ept id="dc93c17f-20e2-4d3f-aee7-bd528d96073e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d2bbde0-6ce0-47ae-83cd-bb25ef3f8eaf" xml:space="preserve">
+          <source>If there was an error, you would see a <bpt id="0c827b5a-9b9b-4d5d-9474-7c4e47d3189b">&lt;em&gt;</bpt>*Failed *<ept id="0c827b5a-9b9b-4d5d-9474-7c4e47d3189b">&lt;/em&gt;</ept>status here.</source>
+          <target state="new">If there was an error, you would see a <bpt id="0c827b5a-9b9b-4d5d-9474-7c4e47d3189b">&lt;em&gt;</bpt>*Failed *<ept id="0c827b5a-9b9b-4d5d-9474-7c4e47d3189b">&lt;/em&gt;</ept>status here.</target>
+        </trans-unit>
+        <trans-unit id="f88f418c-6e08-4932-9973-661510334647" xml:space="preserve">
+          <source>You might also see either both slices with status <bpt id="3e70bda3-6743-4f38-b7fa-04ff8d81041c">&lt;strong&gt;</bpt>Ready<ept id="3e70bda3-6743-4f38-b7fa-04ff8d81041c">&lt;/strong&gt;</ept>, or both with status <bpt id="9b644695-3cbb-498f-9186-edfc0c8ad1a7">&lt;strong&gt;</bpt>PendingValidation<ept id="9b644695-3cbb-498f-9186-edfc0c8ad1a7">&lt;/strong&gt;</ept>, depending on how quickly the slices are processed.</source>
+          <target state="new">You might also see either both slices with status <bpt id="3e70bda3-6743-4f38-b7fa-04ff8d81041c">&lt;strong&gt;</bpt>Ready<ept id="3e70bda3-6743-4f38-b7fa-04ff8d81041c">&lt;/strong&gt;</ept>, or both with status <bpt id="9b644695-3cbb-498f-9186-edfc0c8ad1a7">&lt;strong&gt;</bpt>PendingValidation<ept id="9b644695-3cbb-498f-9186-edfc0c8ad1a7">&lt;/strong&gt;</ept>, depending on how quickly the slices are processed.</target>
+        </trans-unit>
+        <trans-unit id="d4a6e635-2773-459d-b2f5-329faaf6f879" xml:space="preserve">
+          <source>Refer to the <bpt id="94a9f406-1518-447d-b62e-69c6b26b01e1">&lt;linkText&gt;</bpt>Azure Data Factory Developer Reference[developer-reference]<ept id="94a9f406-1518-447d-b62e-69c6b26b01e1">&lt;/linkText&gt;</ept><bpt id="94a9f406-1518-447d-b62e-69c6b26b01e1">&lt;title&gt;</bpt><ept id="94a9f406-1518-447d-b62e-69c6b26b01e1">&lt;/title&gt;</ept> to get an understanding of all possible slice statuses.</source>
+          <target state="new">Refer to the <bpt id="94a9f406-1518-447d-b62e-69c6b26b01e1">&lt;linkText&gt;</bpt>Azure Data Factory Developer Reference[developer-reference]<ept id="94a9f406-1518-447d-b62e-69c6b26b01e1">&lt;/linkText&gt;</ept><bpt id="94a9f406-1518-447d-b62e-69c6b26b01e1">&lt;title&gt;</bpt><ept id="94a9f406-1518-447d-b62e-69c6b26b01e1">&lt;/title&gt;</ept> to get an understanding of all possible slice statuses.</target>
+        </trans-unit>
+        <trans-unit id="a5b95d46-9c79-4f8c-8518-dca74e824f58" xml:space="preserve">
+          <source>In the <bpt id="f8a1452f-04ce-4054-b9fc-1a2a1ad0cfde">&lt;strong&gt;</bpt>DATA SLICE<ept id="f8a1452f-04ce-4054-b9fc-1a2a1ad0cfde">&lt;/strong&gt;</ept> blade, click the run from the <bpt id="e251f2e1-a8ef-4819-affd-07fc4a97603c">&lt;strong&gt;</bpt>Activity Runs<ept id="e251f2e1-a8ef-4819-affd-07fc4a97603c">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">In the <bpt id="f8a1452f-04ce-4054-b9fc-1a2a1ad0cfde">&lt;strong&gt;</bpt>DATA SLICE<ept id="f8a1452f-04ce-4054-b9fc-1a2a1ad0cfde">&lt;/strong&gt;</ept> blade, click the run from the <bpt id="e251f2e1-a8ef-4819-affd-07fc4a97603c">&lt;strong&gt;</bpt>Activity Runs<ept id="e251f2e1-a8ef-4819-affd-07fc4a97603c">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="0530e82b-1fcf-4150-84a2-b72d17638727" xml:space="preserve">
+          <source>You should see the Activity Run blade for that slice.</source>
+          <target state="new">You should see the Activity Run blade for that slice.</target>
+        </trans-unit>
+        <trans-unit id="ab614f33-d13c-48c9-91a9-f0398d4d6b29" xml:space="preserve">
+          <source>You should see the following <bpt id="5025b991-dd96-4a98-9dc1-7026d808dac5">&lt;strong&gt;</bpt>ACTIVITY RUN DETAILS<ept id="5025b991-dd96-4a98-9dc1-7026d808dac5">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">You should see the following <bpt id="5025b991-dd96-4a98-9dc1-7026d808dac5">&lt;strong&gt;</bpt>ACTIVITY RUN DETAILS<ept id="5025b991-dd96-4a98-9dc1-7026d808dac5">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="d264e585-8ab8-4c7d-9f3f-072fb98a08a9" xml:space="preserve">
+          <source><bpt id="76a90165-ca8e-461a-a814-5076ccf550d8">&lt;linkText&gt;</bpt>Activity Run Details blade<ept id="76a90165-ca8e-461a-a814-5076ccf550d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="76a90165-ca8e-461a-a814-5076ccf550d8">&lt;linkText&gt;</bpt>Activity Run Details blade<ept id="76a90165-ca8e-461a-a814-5076ccf550d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb58fe41-017f-4011-9986-dae9eb4adc17" xml:space="preserve">
+          <source>Click <bpt id="564288d8-1eb0-4a13-bb6f-ee92a1c64756">&lt;strong&gt;</bpt>Download<ept id="564288d8-1eb0-4a13-bb6f-ee92a1c64756">&lt;/strong&gt;</ept> to download the files.</source>
+          <target state="new">Click <bpt id="564288d8-1eb0-4a13-bb6f-ee92a1c64756">&lt;strong&gt;</bpt>Download<ept id="564288d8-1eb0-4a13-bb6f-ee92a1c64756">&lt;/strong&gt;</ept> to download the files.</target>
+        </trans-unit>
+        <trans-unit id="f1156988-c0d3-4702-95c1-c57611d9834a" xml:space="preserve">
+          <source>This screen is especially useful when you are troubleshooting errors from HDInsight processing.</source>
+          <target state="new">This screen is especially useful when you are troubleshooting errors from HDInsight processing.</target>
+        </trans-unit>
+        <trans-unit id="d51e0b96-996b-4b76-92d8-7dc1830b7020" xml:space="preserve">
+          <source>When all the pipeline have completed execution, you can look into the <bpt id="eab04967-03f3-4349-a752-d3f67bb15200">&lt;strong&gt;</bpt>MarketingCampaignEffectivenessTable<ept id="eab04967-03f3-4349-a752-d3f67bb15200">&lt;/strong&gt;</ept> in the <bpt id="6e6d8a76-1ec0-437a-b78c-4cda96a59edb">&lt;strong&gt;</bpt>MarketingCampaigns<ept id="6e6d8a76-1ec0-437a-b78c-4cda96a59edb">&lt;/strong&gt;</ept> Azure SQL database to view the results.</source>
+          <target state="new">When all the pipeline have completed execution, you can look into the <bpt id="eab04967-03f3-4349-a752-d3f67bb15200">&lt;strong&gt;</bpt>MarketingCampaignEffectivenessTable<ept id="eab04967-03f3-4349-a752-d3f67bb15200">&lt;/strong&gt;</ept> in the <bpt id="6e6d8a76-1ec0-437a-b78c-4cda96a59edb">&lt;strong&gt;</bpt>MarketingCampaigns<ept id="6e6d8a76-1ec0-437a-b78c-4cda96a59edb">&lt;/strong&gt;</ept> Azure SQL database to view the results.</target>
+        </trans-unit>
+        <trans-unit id="0da3110a-1ef7-4030-9571-4fef41357769" xml:space="preserve">
+          <source><bpt id="1269f19d-9305-4699-bb82-3d2edc3fe53c">&lt;strong&gt;</bpt>Congratulations!<ept id="1269f19d-9305-4699-bb82-3d2edc3fe53c">&lt;/strong&gt;</ept> You can now monitor and troubleshoot the workflows.</source>
+          <target state="new"><bpt id="1269f19d-9305-4699-bb82-3d2edc3fe53c">&lt;strong&gt;</bpt>Congratulations!<ept id="1269f19d-9305-4699-bb82-3d2edc3fe53c">&lt;/strong&gt;</ept> You can now monitor and troubleshoot the workflows.</target>
+        </trans-unit>
+        <trans-unit id="15d141a1-ab28-45b9-8b39-c2ebdfe2f45a" xml:space="preserve">
+          <source>You have learned how to use Azure Data Factory to process data and get analytics.</source>
+          <target state="new">You have learned how to use Azure Data Factory to process data and get analytics.</target>
+        </trans-unit>
+        <trans-unit id="a429d98e-8d5f-4241-b284-295c7cad2345" xml:space="preserve">
+          <source>In the last step of log processing scenario from the walkthrough in this article, the marketing campaign effectiveness output was copied to an Azure SQL database.</source>
+          <target state="new">In the last step of log processing scenario from the walkthrough in this article, the marketing campaign effectiveness output was copied to an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="189e63ae-0759-426f-9d7c-e23658c709cb" xml:space="preserve">
+          <source>You could also move this data to on-premises SQL Server for analytics within your organization.</source>
+          <target state="new">You could also move this data to on-premises SQL Server for analytics within your organization.</target>
+        </trans-unit>
+        <trans-unit id="efde9428-5054-4a8f-8f01-71adfb2e2d3f" xml:space="preserve">
+          <source>In order to copy the marketing campaign effectiveness data from Azure Blob to on-premises SQL Server, you need to create additional on-premises Linked Service, Table and Pipeline introduced in the walkthrough in this article.</source>
+          <target state="new">In order to copy the marketing campaign effectiveness data from Azure Blob to on-premises SQL Server, you need to create additional on-premises Linked Service, Table and Pipeline introduced in the walkthrough in this article.</target>
+        </trans-unit>
+        <trans-unit id="e2b063f0-f9dd-4fb0-aa5f-d519351bb154" xml:space="preserve">
+          <source>Practice the <bpt id="b559dd88-aa74-4d38-8ba6-3f022abe70c5">&lt;linkText&gt;</bpt>Walkthrough: Using on-premises data source[tutorial-onpremises-using-powershell]<ept id="b559dd88-aa74-4d38-8ba6-3f022abe70c5">&lt;/linkText&gt;</ept><bpt id="b559dd88-aa74-4d38-8ba6-3f022abe70c5">&lt;title&gt;</bpt><ept id="b559dd88-aa74-4d38-8ba6-3f022abe70c5">&lt;/title&gt;</ept> to learn how to create a pipeline to copy marketing campaign effectiveness data to an on-premises SQL Server database.</source>
+          <target state="new">Practice the <bpt id="b559dd88-aa74-4d38-8ba6-3f022abe70c5">&lt;linkText&gt;</bpt>Walkthrough: Using on-premises data source[tutorial-onpremises-using-powershell]<ept id="b559dd88-aa74-4d38-8ba6-3f022abe70c5">&lt;/linkText&gt;</ept><bpt id="b559dd88-aa74-4d38-8ba6-3f022abe70c5">&lt;title&gt;</bpt><ept id="b559dd88-aa74-4d38-8ba6-3f022abe70c5">&lt;/title&gt;</ept> to learn how to create a pipeline to copy marketing campaign effectiveness data to an on-premises SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="feb5139c-1685-4f97-a458-3cfa137cf448" xml:space="preserve">
+          <source>data-factory-monitor-manage-using-powershell.md</source>
+          <target state="new">data-factory-monitor-manage-using-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="b34e4215-dcf8-4b7d-85e4-5ec5913a6398" xml:space="preserve">
+          <source>data-factory-use-custom-activities.md</source>
+          <target state="new">data-factory-use-custom-activities.md</target>
+        </trans-unit>
+        <trans-unit id="ede9ddb2-ead9-4420-bcfb-c7da2592030d" xml:space="preserve">
+          <source>data-factory-troubleshoot.md</source>
+          <target state="new">data-factory-troubleshoot.md</target>
+        </trans-unit>
+        <trans-unit id="eaeca194-9513-44f5-be06-d326524b6b06" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=517456</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=517456</target>
+        </trans-unit>
+        <trans-unit id="fdad9414-e318-4a60-b50d-1200c8515a3e" xml:space="preserve">
+          <source>data-factory-tutorial.md</source>
+          <target state="new">data-factory-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="7dedfc21-82da-4e12-a80b-78ac33164d7d" xml:space="preserve">
+          <source>data-factory-get-started.md</source>
+          <target state="new">data-factory-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="d9845464-02f9-4bc8-983d-3ac0f0133ffb" xml:space="preserve">
+          <source>data-factory-introduction.md</source>
+          <target state="new">data-factory-introduction.md</target>
+        </trans-unit>
+        <trans-unit id="6839f6b9-d4b3-462e-985f-9ddb096b9977" xml:space="preserve">
+          <source>data-factory-data-transformation-activities.md</source>
+          <target state="new">data-factory-data-transformation-activities.md</target>
+        </trans-unit>
+        <trans-unit id="14625e90-db2e-43de-b144-bd269390931e" xml:space="preserve">
+          <source>data-factory-tutorial-extend-onpremises-using-powershell.md</source>
+          <target state="new">data-factory-tutorial-extend-onpremises-using-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="975fb6b7-ba09-4001-a917-4e07e7a2f0fe" xml:space="preserve">
+          <source>../powershell-install-configure.md</source>
+          <target state="new">../powershell-install-configure.md</target>
+        </trans-unit>
+        <trans-unit id="33784cd4-666b-4c7b-980c-bb4d5375fb95" xml:space="preserve">
+          <source>http://portal.azure.com</source>
+          <target state="new">http://portal.azure.com</target>
+        </trans-unit>
+        <trans-unit id="f42bc2ef-08e7-4c84-8d2a-fc91e5e2a6d4" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="c7b44ebc-d575-41e8-ab21-feae7903bc64" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="7592536e-07dd-41ad-8d3e-2f85fb9be2b1" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="b72adffc-0629-4489-9cef-16d9e5e1a8e0" xml:space="preserve">
+          <source>http://www.microsoft.com/download/details.aspx?id=35580</source>
+          <target state="new">http://www.microsoft.com/download/details.aspx?id=35580</target>
+        </trans-unit>
+        <trans-unit id="3a69eb65-1cb7-41bb-b3c4-6f1522bab1e2" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/jj553530.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/jj553530.aspx</target>
+        </trans-unit>
+        <trans-unit id="6e55503d-2a32-4ba4-a29f-e03ef6cf971c" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=517495</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=517495</target>
+        </trans-unit>
+        <trans-unit id="1ba8b6fd-1e61-4f27-a08a-7bfde30f32bb" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=516908</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=516908</target>
+        </trans-unit>
+        <trans-unit id="6772d2ec-1b28-4630-bed5-cd39c95020c9" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/EndToEndWorkflow.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/EndToEndWorkflow.png</target>
+        </trans-unit>
+        <trans-unit id="a4d77863-ebfa-44b4-b668-0b3a51fe7713" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/PartitionGameLogsPipeline.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/PartitionGameLogsPipeline.png</target>
+        </trans-unit>
+        <trans-unit id="600e08ec-b798-4864-8e88-b71adb795c64" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/EnrichGameLogsPipeline.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/EnrichGameLogsPipeline.png</target>
+        </trans-unit>
+        <trans-unit id="7d6159dc-56c2-471f-9ccd-e940a9a2bb10" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/AnalyzeMarketingCampaignPipeline.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/AnalyzeMarketingCampaignPipeline.png</target>
+        </trans-unit>
+        <trans-unit id="7cb1009f-2da7-462a-90d2-d5218a67914e" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/EgreeDataToOnPremPipeline.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/EgreeDataToOnPremPipeline.png</target>
+        </trans-unit>
+        <trans-unit id="d141f1ff-0d17-4131-b5a7-055a0cb13c06" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/SetFirewallRuleForAzureDatabase.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/SetFirewallRuleForAzureDatabase.png</target>
+        </trans-unit>
+        <trans-unit id="43eac91a-f0a5-4491-9ed3-9de86fb36d2a" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/PortalNewEverything.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/PortalNewEverything.png</target>
+        </trans-unit>
+        <trans-unit id="7bbb0146-d2dd-4411-8251-eefdff11b471" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/DataStorageCacheBackup.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/DataStorageCacheBackup.png</target>
+        </trans-unit>
+        <trans-unit id="609f68a8-2847-4ae6-adc4-87c7b55d7772" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/DataServicesBlade.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/DataServicesBlade.png</target>
+        </trans-unit>
+        <trans-unit id="26b1c7f2-6b58-4bf6-a9e4-afff60524a0e" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/NewDataFactoryBlade.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/NewDataFactoryBlade.png</target>
+        </trans-unit>
+        <trans-unit id="49d670cb-653d-46c2-a531-ad36867470fb" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/ResourceGroupBlade.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/ResourceGroupBlade.png</target>
+        </trans-unit>
+        <trans-unit id="ba895b7b-b298-42ff-9366-0edb84603cc3" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/CreateResourceGroup.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/CreateResourceGroup.png</target>
+        </trans-unit>
+        <trans-unit id="6eb3388b-d82b-41de-9ea9-bca09f4681d2" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/DataFactoryHomePage.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/DataFactoryHomePage.png</target>
+        </trans-unit>
+        <trans-unit id="d0150667-e5f6-4841-85c7-053ce39b96da" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/CreateDataFactory.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/CreateDataFactory.png</target>
+        </trans-unit>
+        <trans-unit id="44227afd-ceea-46d8-97be-92cffbe92cf6" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/LinkedServiceTile.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/LinkedServiceTile.png</target>
+        </trans-unit>
+        <trans-unit id="810a037c-ad11-47bd-8325-07eed2c936b7" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/LinkedServicesAddDataStore.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/LinkedServicesAddDataStore.png</target>
+        </trans-unit>
+        <trans-unit id="3337a753-5660-43f1-a916-ce2e27cf84cd" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/DataStoreTypeAzureStorageAccount.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/DataStoreTypeAzureStorageAccount.png</target>
+        </trans-unit>
+        <trans-unit id="b1b4bbe9-5434-476e-b6b9-8db8d0fb8d0a" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/AzureStorageSettings.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/AzureStorageSettings.png</target>
+        </trans-unit>
+        <trans-unit id="4e761b79-eca5-4c92-93bb-158e6d6ab518" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/StorageKeyFromAzurePortal.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/StorageKeyFromAzurePortal.png</target>
+        </trans-unit>
+        <trans-unit id="70b23483-d1b8-434f-a46c-06c254749f8e" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/LinkedServicesBladeWithAzureStorage.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/LinkedServicesBladeWithAzureStorage.png</target>
+        </trans-unit>
+        <trans-unit id="9dbef1b1-2af1-4cfb-92dd-94d1eee6fed2" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/AzureSQLDatabaseSettings.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/AzureSQLDatabaseSettings.png</target>
+        </trans-unit>
+        <trans-unit id="58006042-6929-4883-8656-0fb66f8b90d1" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/DatabaseConnectionString.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/DatabaseConnectionString.png</target>
+        </trans-unit>
+        <trans-unit id="be5ed8b2-f0ca-4510-99f1-c872c60ff549" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/LinkedServicesAll.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/LinkedServicesAll.png</target>
+        </trans-unit>
+        <trans-unit id="05c6bb17-c5f7-46c0-a5e3-e7ee209b4014" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/DataSetsAllTables.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/DataSetsAllTables.png</target>
+        </trans-unit>
+        <trans-unit id="22352f0a-76c7-4753-a794-c27738d36c64" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/AllPipelines.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/AllPipelines.png</target>
+        </trans-unit>
+        <trans-unit id="43dc751f-efb1-4120-80f0-10d1544d9f1c" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/DataFactoryDiagramLink.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/DataFactoryDiagramLink.png</target>
+        </trans-unit>
+        <trans-unit id="8ab11780-0450-4db6-a4ba-90374c4f55de" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/DiagramView.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/DiagramView.png</target>
+        </trans-unit>
+        <trans-unit id="3d259f9c-4e42-4b6f-9779-8a5e968163c2" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/MonitoringStartBoard.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/MonitoringStartBoard.png</target>
+        </trans-unit>
+        <trans-unit id="cf881a58-a8ea-4ccd-8c84-4903469e7f6f" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/MonitoringHubEverything.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/MonitoringHubEverything.png</target>
+        </trans-unit>
+        <trans-unit id="0e36499c-fe04-481d-9d47-ef007771c929" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/MonitoringBrowseDataFactories.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/MonitoringBrowseDataFactories.png</target>
+        </trans-unit>
+        <trans-unit id="dfddf49b-ca70-4c36-b91e-f44ae6fb5a26" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/MonitoringPipelineConsumedProduced.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/MonitoringPipelineConsumedProduced.png</target>
+        </trans-unit>
+        <trans-unit id="a96f0792-93c2-4f4a-a0af-b5bc57e8b20f" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/MonitoringRawGameEventsTable.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/MonitoringRawGameEventsTable.png</target>
+        </trans-unit>
+        <trans-unit id="34629067-08b3-44a6-8253-cfe281ab5201" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/MonitoringPartitionGameEventsTableDataSliceBlade.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/MonitoringPartitionGameEventsTableDataSliceBlade.png</target>
+        </trans-unit>
+        <trans-unit id="84090573-435c-4a34-8fb0-2e15bc23deee" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/MonitoringActivityRunDetails.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/MonitoringActivityRunDetails.png</target>
+        </trans-unit>
+        <trans-unit id="aa136548-6434-46ce-b636-d61277e837ef" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/DataManagementGatewayConfigurationManager.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/DataManagementGatewayConfigurationManager.png</target>
+        </trans-unit>
+        <trans-unit id="945c09bf-f915-46b7-ae22-ce29296d06bf" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png</target>
+        </trans-unit>
+        <trans-unit id="02a80222-2b43-4a38-aee7-df4b43a8b434" xml:space="preserve">
+          <source>./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png</source>
+          <target state="new">./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png</target>
+        </trans-unit>
+      </group>
+      <group id="ef37a974-e014-455e-a7be-aa7db90ea216" />
+    </body>
+  </file>
+</xliff>

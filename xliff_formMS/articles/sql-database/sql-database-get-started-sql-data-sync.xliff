@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3ee21ca1-cc3c-4069-b674-07d2243750ef" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3ee21ca1-cc3c-4069-b674-07d2243750ef" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ef0237bb-e0c5-436d-a39a-c8a829325532">
+        <trans-unit id="0e90fbe5-8086-410a-88ac-5164cd3931bf" xml:space="preserve">
+          <source>Getting started with SQL Databases Data Sync</source>
+          <target state="new">Getting started with SQL Databases Data Sync</target>
+        </trans-unit>
+        <trans-unit id="e631dc88-07ba-4729-aa76-fb337f727356" xml:space="preserve">
+          <source>This tutorial helps you get started with the Azure SQL Data Sync (Preview).</source>
+          <target state="new">This tutorial helps you get started with the Azure SQL Data Sync (Preview).</target>
+        </trans-unit>
+        <trans-unit id="27044d94-ea81-407e-baaf-da7c87a65d79" xml:space="preserve">
+          <source>In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure (Preview) portal.</source>
+          <target state="new">In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure (Preview) portal.</target>
+        </trans-unit>
+        <trans-unit id="9e27f050-0b9a-4e75-a74d-dd09015a4866" xml:space="preserve">
+          <source>This tutorial assumes minimal prior experience with SQL Server and Azure SQL Database.</source>
+          <target state="new">This tutorial assumes minimal prior experience with SQL Server and Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="7b614534-f991-4cab-acc3-6b4b8dd4094b" xml:space="preserve">
+          <source>In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.</source>
+          <target state="new">In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.</target>
+        </trans-unit>
+        <trans-unit id="d1eded82-435c-413d-93ce-46cefa5d793d" xml:space="preserve">
+          <source>Sign in to the <bpt id="f5dc9438-d4d7-48f4-892d-9ba61070fb4e">&lt;linkText&gt;</bpt>Management Portal<ept id="f5dc9438-d4d7-48f4-892d-9ba61070fb4e">&lt;/linkText&gt;</ept><bpt id="f5dc9438-d4d7-48f4-892d-9ba61070fb4e">&lt;title&gt;</bpt><ept id="f5dc9438-d4d7-48f4-892d-9ba61070fb4e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="f5dc9438-d4d7-48f4-892d-9ba61070fb4e">&lt;linkText&gt;</bpt>Management Portal<ept id="f5dc9438-d4d7-48f4-892d-9ba61070fb4e">&lt;/linkText&gt;</ept><bpt id="f5dc9438-d4d7-48f4-892d-9ba61070fb4e">&lt;title&gt;</bpt><ept id="f5dc9438-d4d7-48f4-892d-9ba61070fb4e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ee0a780-b055-4f09-a15c-134ae89480ad" xml:space="preserve">
+          <source>Click <bpt id="503c2f38-3bb9-4a2f-9a5b-eb7ca776a747">&lt;strong&gt;</bpt>SQL DATABASES<ept id="503c2f38-3bb9-4a2f-9a5b-eb7ca776a747">&lt;/strong&gt;</ept> in the left pane.</source>
+          <target state="new">Click <bpt id="503c2f38-3bb9-4a2f-9a5b-eb7ca776a747">&lt;strong&gt;</bpt>SQL DATABASES<ept id="503c2f38-3bb9-4a2f-9a5b-eb7ca776a747">&lt;/strong&gt;</ept> in the left pane.</target>
+        </trans-unit>
+        <trans-unit id="c3a41d65-c7f1-496e-a78f-1aad3de09497" xml:space="preserve">
+          <source>Click <bpt id="6d14d7f4-b0e2-449c-99ec-0791fee0d700">&lt;strong&gt;</bpt>SYNC<ept id="6d14d7f4-b0e2-449c-99ec-0791fee0d700">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="6d14d7f4-b0e2-449c-99ec-0791fee0d700">&lt;strong&gt;</bpt>SYNC<ept id="6d14d7f4-b0e2-449c-99ec-0791fee0d700">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="d2546d2f-05c3-4665-9f08-170c54ac0a61" xml:space="preserve">
+          <source>When you click SYNC, a list appears showing the things you can add - <bpt id="9b3f19f5-bf9e-44bf-bf02-dae51343c2f9">&lt;strong&gt;</bpt>New Sync Group<ept id="9b3f19f5-bf9e-44bf-bf02-dae51343c2f9">&lt;/strong&gt;</ept> and <bpt id="4a86c554-7ade-4443-9562-03cb6bb0a7df">&lt;strong&gt;</bpt>New Sync Agent<ept id="4a86c554-7ade-4443-9562-03cb6bb0a7df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you click SYNC, a list appears showing the things you can add - <bpt id="9b3f19f5-bf9e-44bf-bf02-dae51343c2f9">&lt;strong&gt;</bpt>New Sync Group<ept id="9b3f19f5-bf9e-44bf-bf02-dae51343c2f9">&lt;/strong&gt;</ept> and <bpt id="4a86c554-7ade-4443-9562-03cb6bb0a7df">&lt;strong&gt;</bpt>New Sync Agent<ept id="4a86c554-7ade-4443-9562-03cb6bb0a7df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2dbae1e-cf02-4bf8-bd0c-536cf4fb9303" xml:space="preserve">
+          <source>To launch the New SQL Data Sync Agent wizard, click <bpt id="a09cda5a-9650-4abc-b8ff-3917c5e88d5f">&lt;strong&gt;</bpt>New Sync Agent<ept id="a09cda5a-9650-4abc-b8ff-3917c5e88d5f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To launch the New SQL Data Sync Agent wizard, click <bpt id="a09cda5a-9650-4abc-b8ff-3917c5e88d5f">&lt;strong&gt;</bpt>New Sync Agent<ept id="a09cda5a-9650-4abc-b8ff-3917c5e88d5f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="641ab4ce-8ca4-4a1a-aa8e-5ae616b073ae" xml:space="preserve">
+          <source>If you haven't added an agent before, <bpt id="044dc528-5d71-45e3-b19d-1fec3d539b2b">&lt;strong&gt;</bpt>click download it here<ept id="044dc528-5d71-45e3-b19d-1fec3d539b2b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you haven't added an agent before, <bpt id="044dc528-5d71-45e3-b19d-1fec3d539b2b">&lt;strong&gt;</bpt>click download it here<ept id="044dc528-5d71-45e3-b19d-1fec3d539b2b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88b18959-03b6-459d-80a5-b569484e3362" xml:space="preserve">
+          <source><bpt id="7df58677-e6e8-469e-b281-a50df602fdb8">&lt;linkText&gt;</bpt>Image1<ept id="7df58677-e6e8-469e-b281-a50df602fdb8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7df58677-e6e8-469e-b281-a50df602fdb8">&lt;linkText&gt;</bpt>Image1<ept id="7df58677-e6e8-469e-b281-a50df602fdb8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edc50d52-6d71-4821-9124-a2b6421b11bd" xml:space="preserve">
+          <source>This step is required only if you are going to have an on-premises SQL Server database included in your sync group.</source>
+          <target state="new">This step is required only if you are going to have an on-premises SQL Server database included in your sync group.</target>
+        </trans-unit>
+        <trans-unit id="9c7df56d-e31a-4e18-bb55-ae608d88f42d" xml:space="preserve">
+          <source>You can skip to Step 4: Create a sync group if your sync group has only SQL Database instances.</source>
+          <target state="new">You can skip to Step 4: Create a sync group if your sync group has only SQL Database instances.</target>
+        </trans-unit>
+        <trans-unit id="0eed70b3-1829-4b68-9d64-bc96114588d5" xml:space="preserve">
+          <source><bpt id="8a254058-e936-41c2-beb3-b883d1193a6f">&lt;bookmark&gt;</bpt><ept id="8a254058-e936-41c2-beb3-b883d1193a6f">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="8a254058-e936-41c2-beb3-b883d1193a6f">&lt;bookmark&gt;</bpt><ept id="8a254058-e936-41c2-beb3-b883d1193a6f">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10b7285c-5446-407d-820c-4ef64c9fd604" xml:space="preserve">
+          <source>Be sure that you have the following installed on the computer you install the Client Agent.</source>
+          <target state="new">Be sure that you have the following installed on the computer you install the Client Agent.</target>
+        </trans-unit>
+        <trans-unit id="a22f684f-d977-4eaf-ba2f-d8164a935e9f" xml:space="preserve">
+          <source><bpt id="e6c086f8-24be-4e32-bc77-b33126efe43a">&lt;strong&gt;</bpt>.NET Framework 4.0<ept id="e6c086f8-24be-4e32-bc77-b33126efe43a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e6c086f8-24be-4e32-bc77-b33126efe43a">&lt;strong&gt;</bpt>.NET Framework 4.0<ept id="e6c086f8-24be-4e32-bc77-b33126efe43a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be4d5c87-a506-42a3-b8e5-fec298092c13" xml:space="preserve">
+          <source>You can install .NET Framework 4.0 from <bpt id="0ebbebc2-edee-4a1f-be6d-fa74d2545a3f">&lt;linkText&gt;</bpt>here<ept id="0ebbebc2-edee-4a1f-be6d-fa74d2545a3f">&lt;/linkText&gt;</ept><bpt id="0ebbebc2-edee-4a1f-be6d-fa74d2545a3f">&lt;title&gt;</bpt><ept id="0ebbebc2-edee-4a1f-be6d-fa74d2545a3f">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can install .NET Framework 4.0 from <bpt id="0ebbebc2-edee-4a1f-be6d-fa74d2545a3f">&lt;linkText&gt;</bpt>here<ept id="0ebbebc2-edee-4a1f-be6d-fa74d2545a3f">&lt;/linkText&gt;</ept><bpt id="0ebbebc2-edee-4a1f-be6d-fa74d2545a3f">&lt;title&gt;</bpt><ept id="0ebbebc2-edee-4a1f-be6d-fa74d2545a3f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a37cddb-7586-4dab-9c13-b5b90b3fde58" xml:space="preserve">
+          <source><bpt id="be0d5e13-a20b-4d36-b0ac-095d7e80a928">&lt;strong&gt;</bpt>Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)<ept id="be0d5e13-a20b-4d36-b0ac-095d7e80a928">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="be0d5e13-a20b-4d36-b0ac-095d7e80a928">&lt;strong&gt;</bpt>Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)<ept id="be0d5e13-a20b-4d36-b0ac-095d7e80a928">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0e52787-bcf1-4d43-85c0-33bc7188b1ae" xml:space="preserve">
+          <source>You can install the Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) from <bpt id="a572bf64-9bd8-49a1-9dcf-8ecb72ff17ca">&lt;linkText&gt;</bpt>here<ept id="a572bf64-9bd8-49a1-9dcf-8ecb72ff17ca">&lt;/linkText&gt;</ept><bpt id="a572bf64-9bd8-49a1-9dcf-8ecb72ff17ca">&lt;title&gt;</bpt><ept id="a572bf64-9bd8-49a1-9dcf-8ecb72ff17ca">&lt;/title&gt;</ept></source>
+          <target state="new">You can install the Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) from <bpt id="a572bf64-9bd8-49a1-9dcf-8ecb72ff17ca">&lt;linkText&gt;</bpt>here<ept id="a572bf64-9bd8-49a1-9dcf-8ecb72ff17ca">&lt;/linkText&gt;</ept><bpt id="a572bf64-9bd8-49a1-9dcf-8ecb72ff17ca">&lt;title&gt;</bpt><ept id="a572bf64-9bd8-49a1-9dcf-8ecb72ff17ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08b197cf-5959-415d-b39d-4e4cde24892d" xml:space="preserve">
+          <source><bpt id="46e0383d-3bc1-433a-81c6-09502bec38af">&lt;strong&gt;</bpt>Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)<ept id="46e0383d-3bc1-433a-81c6-09502bec38af">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="46e0383d-3bc1-433a-81c6-09502bec38af">&lt;strong&gt;</bpt>Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)<ept id="46e0383d-3bc1-433a-81c6-09502bec38af">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5076b8c6-94f5-4f42-8d50-7f4b65b21210" xml:space="preserve">
+          <source>You can install the Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) from <bpt id="90bbebb2-0542-4f98-837b-85027f8a7c94">&lt;linkText&gt;</bpt>here<ept id="90bbebb2-0542-4f98-837b-85027f8a7c94">&lt;/linkText&gt;</ept><bpt id="90bbebb2-0542-4f98-837b-85027f8a7c94">&lt;title&gt;</bpt><ept id="90bbebb2-0542-4f98-837b-85027f8a7c94">&lt;/title&gt;</ept></source>
+          <target state="new">You can install the Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) from <bpt id="90bbebb2-0542-4f98-837b-85027f8a7c94">&lt;linkText&gt;</bpt>here<ept id="90bbebb2-0542-4f98-837b-85027f8a7c94">&lt;/linkText&gt;</ept><bpt id="90bbebb2-0542-4f98-837b-85027f8a7c94">&lt;title&gt;</bpt><ept id="90bbebb2-0542-4f98-837b-85027f8a7c94">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c306cd9-1f54-4b48-98fc-53c47a64e286" xml:space="preserve">
+          <source><bpt id="52bd0190-a399-47b9-9156-34e1a16366db">&lt;bookmark&gt;</bpt><ept id="52bd0190-a399-47b9-9156-34e1a16366db">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="52bd0190-a399-47b9-9156-34e1a16366db">&lt;bookmark&gt;</bpt><ept id="52bd0190-a399-47b9-9156-34e1a16366db">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54f35175-7308-463a-a7ef-88d548fc432a" xml:space="preserve">
+          <source>Follow the instruction at <bpt id="276ced7b-6822-4b3b-92f0-5a062c37414c">&lt;linkText&gt;</bpt>Install a Client Agent (SQL Data Sync)<ept id="276ced7b-6822-4b3b-92f0-5a062c37414c">&lt;/linkText&gt;</ept><bpt id="276ced7b-6822-4b3b-92f0-5a062c37414c">&lt;title&gt;</bpt><ept id="276ced7b-6822-4b3b-92f0-5a062c37414c">&lt;/title&gt;</ept> to install the agent.</source>
+          <target state="new">Follow the instruction at <bpt id="276ced7b-6822-4b3b-92f0-5a062c37414c">&lt;linkText&gt;</bpt>Install a Client Agent (SQL Data Sync)<ept id="276ced7b-6822-4b3b-92f0-5a062c37414c">&lt;/linkText&gt;</ept><bpt id="276ced7b-6822-4b3b-92f0-5a062c37414c">&lt;title&gt;</bpt><ept id="276ced7b-6822-4b3b-92f0-5a062c37414c">&lt;/title&gt;</ept> to install the agent.</target>
+        </trans-unit>
+        <trans-unit id="08fcdaee-d106-47ce-84f6-adb77b2501ac" xml:space="preserve">
+          <source><bpt id="af994c00-950d-4b1e-911e-e3506c2a8ec0">&lt;bookmark&gt;</bpt><ept id="af994c00-950d-4b1e-911e-e3506c2a8ec0">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="af994c00-950d-4b1e-911e-e3506c2a8ec0">&lt;bookmark&gt;</bpt><ept id="af994c00-950d-4b1e-911e-e3506c2a8ec0">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23ad411f-3b12-4426-bf6f-3e84395ae68b" xml:space="preserve">
+          <source>Return to the New SQL Data Sync Agent wizard.</source>
+          <target state="new">Return to the New SQL Data Sync Agent wizard.</target>
+        </trans-unit>
+        <trans-unit id="a9e27892-eae4-4ea8-88ba-3c1cb59d0c05" xml:space="preserve">
+          <source>Give the agent a meaningful name.</source>
+          <target state="new">Give the agent a meaningful name.</target>
+        </trans-unit>
+        <trans-unit id="05215bc0-2745-4fa4-9c15-6d787e915931" xml:space="preserve">
+          <source>From the dropdown, select the <bpt id="32d4d484-2626-4e52-bea0-a54084c5b6d6">&lt;strong&gt;</bpt>REGION<ept id="32d4d484-2626-4e52-bea0-a54084c5b6d6">&lt;/strong&gt;</ept> (data center) to host this agent.</source>
+          <target state="new">From the dropdown, select the <bpt id="32d4d484-2626-4e52-bea0-a54084c5b6d6">&lt;strong&gt;</bpt>REGION<ept id="32d4d484-2626-4e52-bea0-a54084c5b6d6">&lt;/strong&gt;</ept> (data center) to host this agent.</target>
+        </trans-unit>
+        <trans-unit id="fcbbafd6-e0b6-437e-be7a-8eec03543507" xml:space="preserve">
+          <source>From the dropdown, select the <bpt id="91010893-2021-4c7c-b52c-390faef9aa72">&lt;strong&gt;</bpt>SUBSCRIPTION<ept id="91010893-2021-4c7c-b52c-390faef9aa72">&lt;/strong&gt;</ept> to host this agent.</source>
+          <target state="new">From the dropdown, select the <bpt id="91010893-2021-4c7c-b52c-390faef9aa72">&lt;strong&gt;</bpt>SUBSCRIPTION<ept id="91010893-2021-4c7c-b52c-390faef9aa72">&lt;/strong&gt;</ept> to host this agent.</target>
+        </trans-unit>
+        <trans-unit id="e20ca2cf-6c6c-4e3a-9415-1ed8f83c6a39" xml:space="preserve">
+          <source>Click the right-arrow.</source>
+          <target state="new">Click the right-arrow.</target>
+        </trans-unit>
+        <trans-unit id="c9a11887-2f4d-48b2-a642-dd37442a31a1" xml:space="preserve">
+          <source>After the Client Agent is installed, register every on-premises SQL Server database that you intend to include in a sync group with the agent.</source>
+          <target state="new">After the Client Agent is installed, register every on-premises SQL Server database that you intend to include in a sync group with the agent.</target>
+        </trans-unit>
+        <trans-unit id="4fd9c413-647c-4436-b03a-8f3d7fb5d45a" xml:space="preserve">
+          <source>To register a database with the agent, follow the instructions at <bpt id="960b8ef3-6ca3-4911-9109-fcb69a5b91af">&lt;linkText&gt;</bpt>Register a SQL Server Database with a Client Agent<ept id="960b8ef3-6ca3-4911-9109-fcb69a5b91af">&lt;/linkText&gt;</ept><bpt id="960b8ef3-6ca3-4911-9109-fcb69a5b91af">&lt;title&gt;</bpt><ept id="960b8ef3-6ca3-4911-9109-fcb69a5b91af">&lt;/title&gt;</ept>.</source>
+          <target state="new">To register a database with the agent, follow the instructions at <bpt id="960b8ef3-6ca3-4911-9109-fcb69a5b91af">&lt;linkText&gt;</bpt>Register a SQL Server Database with a Client Agent<ept id="960b8ef3-6ca3-4911-9109-fcb69a5b91af">&lt;/linkText&gt;</ept><bpt id="960b8ef3-6ca3-4911-9109-fcb69a5b91af">&lt;title&gt;</bpt><ept id="960b8ef3-6ca3-4911-9109-fcb69a5b91af">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25d23e53-03d3-4fa0-a7f6-6865890aa9a8" xml:space="preserve">
+          <source><bpt id="08a2c4b6-7158-44bf-b208-5fe40fbba6fe">&lt;bookmark&gt;</bpt><ept id="08a2c4b6-7158-44bf-b208-5fe40fbba6fe">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="08a2c4b6-7158-44bf-b208-5fe40fbba6fe">&lt;bookmark&gt;</bpt><ept id="08a2c4b6-7158-44bf-b208-5fe40fbba6fe">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c11b43f1-b895-4350-a097-01a6410a23d6" xml:space="preserve">
+          <source>Return to the <bpt id="b51ca25e-c85f-4f14-8fb5-d99f2462af07">&lt;linkText&gt;</bpt>Management Portal<ept id="b51ca25e-c85f-4f14-8fb5-d99f2462af07">&lt;/linkText&gt;</ept><bpt id="b51ca25e-c85f-4f14-8fb5-d99f2462af07">&lt;title&gt;</bpt><ept id="b51ca25e-c85f-4f14-8fb5-d99f2462af07">&lt;/title&gt;</ept>.</source>
+          <target state="new">Return to the <bpt id="b51ca25e-c85f-4f14-8fb5-d99f2462af07">&lt;linkText&gt;</bpt>Management Portal<ept id="b51ca25e-c85f-4f14-8fb5-d99f2462af07">&lt;/linkText&gt;</ept><bpt id="b51ca25e-c85f-4f14-8fb5-d99f2462af07">&lt;title&gt;</bpt><ept id="b51ca25e-c85f-4f14-8fb5-d99f2462af07">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="560aac58-c5be-4e0c-a63c-101e87f92d88" xml:space="preserve">
+          <source>Click <bpt id="01f4626b-79ac-4966-ae05-c590ffea5671">&lt;strong&gt;</bpt>SQL DATABASES<ept id="01f4626b-79ac-4966-ae05-c590ffea5671">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="01f4626b-79ac-4966-ae05-c590ffea5671">&lt;strong&gt;</bpt>SQL DATABASES<ept id="01f4626b-79ac-4966-ae05-c590ffea5671">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6d1fe38-2e52-4a30-9209-ebbbfba3593b" xml:space="preserve">
+          <source>Click <bpt id="a45d23ac-8dd7-4644-a8e6-bb5619fc1903">&lt;strong&gt;</bpt>ADD SYNC<ept id="a45d23ac-8dd7-4644-a8e6-bb5619fc1903">&lt;/strong&gt;</ept> at the bottom of the page then select New Sync Group from the drawer.</source>
+          <target state="new">Click <bpt id="a45d23ac-8dd7-4644-a8e6-bb5619fc1903">&lt;strong&gt;</bpt>ADD SYNC<ept id="a45d23ac-8dd7-4644-a8e6-bb5619fc1903">&lt;/strong&gt;</ept> at the bottom of the page then select New Sync Group from the drawer.</target>
+        </trans-unit>
+        <trans-unit id="a3a25901-f7b8-46cb-81e2-098a003532d6" xml:space="preserve">
+          <source><bpt id="ed8d3170-a2ab-4f77-96f8-08f07fec2a5e">&lt;linkText&gt;</bpt>Image2<ept id="ed8d3170-a2ab-4f77-96f8-08f07fec2a5e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ed8d3170-a2ab-4f77-96f8-08f07fec2a5e">&lt;linkText&gt;</bpt>Image2<ept id="ed8d3170-a2ab-4f77-96f8-08f07fec2a5e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08e2c949-fa4b-4aab-a0a9-113e4e58f80f" xml:space="preserve">
+          <source><bpt id="76572647-d040-4cca-8b43-1e0aed3edbff">&lt;bookmark&gt;</bpt><ept id="76572647-d040-4cca-8b43-1e0aed3edbff">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="76572647-d040-4cca-8b43-1e0aed3edbff">&lt;bookmark&gt;</bpt><ept id="76572647-d040-4cca-8b43-1e0aed3edbff">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53882e0e-80d4-4d23-921c-c5382cd4528b" xml:space="preserve">
+          <source>Enter a meaningful name for the sync group.</source>
+          <target state="new">Enter a meaningful name for the sync group.</target>
+        </trans-unit>
+        <trans-unit id="b536ebc8-9354-4b0e-afb6-e6cebd5ca3d9" xml:space="preserve">
+          <source>From the dropdown, select the <bpt id="b251c329-a415-4ed4-9b02-8b0bfd263deb">&lt;strong&gt;</bpt>REGION<ept id="b251c329-a415-4ed4-9b02-8b0bfd263deb">&lt;/strong&gt;</ept> (Data Center) to host this sync group.</source>
+          <target state="new">From the dropdown, select the <bpt id="b251c329-a415-4ed4-9b02-8b0bfd263deb">&lt;strong&gt;</bpt>REGION<ept id="b251c329-a415-4ed4-9b02-8b0bfd263deb">&lt;/strong&gt;</ept> (Data Center) to host this sync group.</target>
+        </trans-unit>
+        <trans-unit id="556d0731-30a4-42f4-9fba-c00ac1486d1d" xml:space="preserve">
+          <source>Click the right-arrow.</source>
+          <target state="new">Click the right-arrow.</target>
+        </trans-unit>
+        <trans-unit id="17d128b2-2e47-4620-92cf-9e1ce8b1ef84" xml:space="preserve">
+          <source><bpt id="5fd4df07-0ae8-4b09-b9ff-9d1f5217e480">&lt;linkText&gt;</bpt>Image3<ept id="5fd4df07-0ae8-4b09-b9ff-9d1f5217e480">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5fd4df07-0ae8-4b09-b9ff-9d1f5217e480">&lt;linkText&gt;</bpt>Image3<ept id="5fd4df07-0ae8-4b09-b9ff-9d1f5217e480">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="673578aa-6001-4ebf-9353-3f435710ddca" xml:space="preserve">
+          <source><bpt id="c4e125e3-a9c5-45b8-9ec9-34670a83860e">&lt;bookmark&gt;</bpt><ept id="c4e125e3-a9c5-45b8-9ec9-34670a83860e">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="c4e125e3-a9c5-45b8-9ec9-34670a83860e">&lt;bookmark&gt;</bpt><ept id="c4e125e3-a9c5-45b8-9ec9-34670a83860e">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e443a1b8-481c-426e-b7ab-a09a1cb562f9" xml:space="preserve">
+          <source>From the dropdown, select the SQL Database instance to serve as the sync group hub.</source>
+          <target state="new">From the dropdown, select the SQL Database instance to serve as the sync group hub.</target>
+        </trans-unit>
+        <trans-unit id="77c83f6c-77e5-44c7-a3e6-059ec3cd1553" xml:space="preserve">
+          <source>Enter the credentials for this SQL Database instance - <bpt id="6a4eedce-0557-4487-9d42-dc5da235ecfa">&lt;strong&gt;</bpt>HUB USERNAME<ept id="6a4eedce-0557-4487-9d42-dc5da235ecfa">&lt;/strong&gt;</ept> and <bpt id="c431d837-3b9f-48bd-9738-71252be21452">&lt;strong&gt;</bpt>HUB PASSWORD<ept id="c431d837-3b9f-48bd-9738-71252be21452">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the credentials for this SQL Database instance - <bpt id="6a4eedce-0557-4487-9d42-dc5da235ecfa">&lt;strong&gt;</bpt>HUB USERNAME<ept id="6a4eedce-0557-4487-9d42-dc5da235ecfa">&lt;/strong&gt;</ept> and <bpt id="c431d837-3b9f-48bd-9738-71252be21452">&lt;strong&gt;</bpt>HUB PASSWORD<ept id="c431d837-3b9f-48bd-9738-71252be21452">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ac3a7f6-fab8-462d-9faf-f9ead3b549e1" xml:space="preserve">
+          <source>Wait for SQL Data Sync to confirm the USERNAME and PASSWORD.</source>
+          <target state="new">Wait for SQL Data Sync to confirm the USERNAME and PASSWORD.</target>
+        </trans-unit>
+        <trans-unit id="fa3d3e7a-6a9b-4d55-9fd8-4ad9b898762f" xml:space="preserve">
+          <source>A green check mark appears to the right of the PASSWORD when the credentials are confirmed.</source>
+          <target state="new">A green check mark appears to the right of the PASSWORD when the credentials are confirmed.</target>
+        </trans-unit>
+        <trans-unit id="e36c9f37-bde6-443c-b9a1-090b129b9d1a" xml:space="preserve">
+          <source>From the dropdown, select the <bpt id="33b7b7cc-3289-4150-b9c8-e8e0ff5e898d">&lt;strong&gt;</bpt>CONFLICT RESOLUTION<ept id="33b7b7cc-3289-4150-b9c8-e8e0ff5e898d">&lt;/strong&gt;</ept> policy.</source>
+          <target state="new">From the dropdown, select the <bpt id="33b7b7cc-3289-4150-b9c8-e8e0ff5e898d">&lt;strong&gt;</bpt>CONFLICT RESOLUTION<ept id="33b7b7cc-3289-4150-b9c8-e8e0ff5e898d">&lt;/strong&gt;</ept> policy.</target>
+        </trans-unit>
+        <trans-unit id="e0568ef6-e71b-4037-aae9-ab21e839f332" xml:space="preserve">
+          <source><bpt id="ebb280cb-3465-4dbd-9cb2-b8a1c305f691">&lt;strong&gt;</bpt>Hub Wins<ept id="ebb280cb-3465-4dbd-9cb2-b8a1c305f691">&lt;/strong&gt;</ept> - any change written to the hub database is written to the reference databases, overwriting changes in the same reference database record.</source>
+          <target state="new"><bpt id="ebb280cb-3465-4dbd-9cb2-b8a1c305f691">&lt;strong&gt;</bpt>Hub Wins<ept id="ebb280cb-3465-4dbd-9cb2-b8a1c305f691">&lt;/strong&gt;</ept> - any change written to the hub database is written to the reference databases, overwriting changes in the same reference database record.</target>
+        </trans-unit>
+        <trans-unit id="9aa6b5c2-0716-41ff-9eaa-e41152148ff1" xml:space="preserve">
+          <source>Functionally, this means that the first change written to the hub is propagated to the other databases.</source>
+          <target state="new">Functionally, this means that the first change written to the hub is propagated to the other databases.</target>
+        </trans-unit>
+        <trans-unit id="fa97086a-93cf-4336-b651-864b386e24e2" xml:space="preserve">
+          <source><bpt id="96c0a472-2fe8-4424-930f-036a8e81fdc9">&lt;strong&gt;</bpt>Client Wins<ept id="96c0a472-2fe8-4424-930f-036a8e81fdc9">&lt;/strong&gt;</ept> - changes written to the hub are overwritten by changes in reference databases.</source>
+          <target state="new"><bpt id="96c0a472-2fe8-4424-930f-036a8e81fdc9">&lt;strong&gt;</bpt>Client Wins<ept id="96c0a472-2fe8-4424-930f-036a8e81fdc9">&lt;/strong&gt;</ept> - changes written to the hub are overwritten by changes in reference databases.</target>
+        </trans-unit>
+        <trans-unit id="02991e09-f275-4040-bb51-16b588b2fc3f" xml:space="preserve">
+          <source>Functionally, this means that the last change written to the hub is the one kept and propagated to the other databases.</source>
+          <target state="new">Functionally, this means that the last change written to the hub is the one kept and propagated to the other databases.</target>
+        </trans-unit>
+        <trans-unit id="4ccac382-4a8c-42f4-8ae1-e2b0289a8a67" xml:space="preserve">
+          <source>Click the right-arrow.</source>
+          <target state="new">Click the right-arrow.</target>
+        </trans-unit>
+        <trans-unit id="4bbcd3d5-59bd-491f-b0f9-8ad97e9fb928" xml:space="preserve">
+          <source><bpt id="2a1f81b1-6751-4010-9e4f-658cf4733752">&lt;linkText&gt;</bpt>Image4<ept id="2a1f81b1-6751-4010-9e4f-658cf4733752">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a1f81b1-6751-4010-9e4f-658cf4733752">&lt;linkText&gt;</bpt>Image4<ept id="2a1f81b1-6751-4010-9e4f-658cf4733752">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b58cb534-5f75-4a58-9e56-f91b982bfaa4" xml:space="preserve">
+          <source><bpt id="5a878cc4-e225-4ca3-a1b9-17ee64300796">&lt;bookmark&gt;</bpt><ept id="5a878cc4-e225-4ca3-a1b9-17ee64300796">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="5a878cc4-e225-4ca3-a1b9-17ee64300796">&lt;bookmark&gt;</bpt><ept id="5a878cc4-e225-4ca3-a1b9-17ee64300796">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8456a48a-a7d4-461c-9ef3-a6bc29f8a646" xml:space="preserve">
+          <source>Repeat this step for each additional database you want to add to the sync group.</source>
+          <target state="new">Repeat this step for each additional database you want to add to the sync group.</target>
+        </trans-unit>
+        <trans-unit id="648d3193-01a4-47d2-b2c4-408674e2764e" xml:space="preserve">
+          <source>From the dropdown, select the database to add.</source>
+          <target state="new">From the dropdown, select the database to add.</target>
+        </trans-unit>
+        <trans-unit id="c3ea2a3a-bc85-4e37-8a39-97abe6fdefdb" xml:space="preserve">
+          <source>Databases in the dropdown include both SQL Server databases that have been registered with the agent and SQL Database instances.</source>
+          <target state="new">Databases in the dropdown include both SQL Server databases that have been registered with the agent and SQL Database instances.</target>
+        </trans-unit>
+        <trans-unit id="298afa8d-8529-4d69-9b09-c95ca9cfa51b" xml:space="preserve">
+          <source>Enter credentials for this database - <bpt id="57cb6bb0-d587-4424-947c-3a56dc56a762">&lt;strong&gt;</bpt>USERNAME<ept id="57cb6bb0-d587-4424-947c-3a56dc56a762">&lt;/strong&gt;</ept> and <bpt id="c00fcfd9-b4d7-4cc4-9ea0-0b92d98ddd55">&lt;strong&gt;</bpt>PASSWORD<ept id="c00fcfd9-b4d7-4cc4-9ea0-0b92d98ddd55">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter credentials for this database - <bpt id="57cb6bb0-d587-4424-947c-3a56dc56a762">&lt;strong&gt;</bpt>USERNAME<ept id="57cb6bb0-d587-4424-947c-3a56dc56a762">&lt;/strong&gt;</ept> and <bpt id="c00fcfd9-b4d7-4cc4-9ea0-0b92d98ddd55">&lt;strong&gt;</bpt>PASSWORD<ept id="c00fcfd9-b4d7-4cc4-9ea0-0b92d98ddd55">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0217ad38-9817-4831-930a-91c18cebefe7" xml:space="preserve">
+          <source>From the dropdown, select the <bpt id="3475f6ba-ce70-4184-8aa8-5f94ca0a5819">&lt;strong&gt;</bpt>SYNC DIRECTION<ept id="3475f6ba-ce70-4184-8aa8-5f94ca0a5819">&lt;/strong&gt;</ept> for this database.</source>
+          <target state="new">From the dropdown, select the <bpt id="3475f6ba-ce70-4184-8aa8-5f94ca0a5819">&lt;strong&gt;</bpt>SYNC DIRECTION<ept id="3475f6ba-ce70-4184-8aa8-5f94ca0a5819">&lt;/strong&gt;</ept> for this database.</target>
+        </trans-unit>
+        <trans-unit id="07152065-4591-4c41-a874-dfe79abc51dd" xml:space="preserve">
+          <source><bpt id="61af1b95-b043-4100-a98b-40f52b23f204">&lt;strong&gt;</bpt>Bi-directional<ept id="61af1b95-b043-4100-a98b-40f52b23f204">&lt;/strong&gt;</ept> - changes in the reference database are written to the hub database, and changes to the hub database are written to the reference database.</source>
+          <target state="new"><bpt id="61af1b95-b043-4100-a98b-40f52b23f204">&lt;strong&gt;</bpt>Bi-directional<ept id="61af1b95-b043-4100-a98b-40f52b23f204">&lt;/strong&gt;</ept> - changes in the reference database are written to the hub database, and changes to the hub database are written to the reference database.</target>
+        </trans-unit>
+        <trans-unit id="9a19036a-0b40-485c-baaf-034adc6c6b60" xml:space="preserve">
+          <source><bpt id="dc4abb03-ff05-4948-af73-feb80a6824a9">&lt;strong&gt;</bpt>Sync from the Hub<ept id="dc4abb03-ff05-4948-af73-feb80a6824a9">&lt;/strong&gt;</ept> - The database receives updates from the Hub.</source>
+          <target state="new"><bpt id="dc4abb03-ff05-4948-af73-feb80a6824a9">&lt;strong&gt;</bpt>Sync from the Hub<ept id="dc4abb03-ff05-4948-af73-feb80a6824a9">&lt;/strong&gt;</ept> - The database receives updates from the Hub.</target>
+        </trans-unit>
+        <trans-unit id="324c26a3-d57d-463e-913b-07f679dba248" xml:space="preserve">
+          <source>It does not send changes to the Hub.</source>
+          <target state="new">It does not send changes to the Hub.</target>
+        </trans-unit>
+        <trans-unit id="0ee8134a-30d5-43fd-afd7-d3da860e226b" xml:space="preserve">
+          <source><bpt id="0abc7258-4470-45af-ab60-fef03d072f1d">&lt;strong&gt;</bpt>Sync to the Hub<ept id="0abc7258-4470-45af-ab60-fef03d072f1d">&lt;/strong&gt;</ept> - The database sends updates to the Hub.</source>
+          <target state="new"><bpt id="0abc7258-4470-45af-ab60-fef03d072f1d">&lt;strong&gt;</bpt>Sync to the Hub<ept id="0abc7258-4470-45af-ab60-fef03d072f1d">&lt;/strong&gt;</ept> - The database sends updates to the Hub.</target>
+        </trans-unit>
+        <trans-unit id="5630ffc9-b2ee-4b83-ad5c-0629fb9334b3" xml:space="preserve">
+          <source>Changes in the Hub are not written to this database.</source>
+          <target state="new">Changes in the Hub are not written to this database.</target>
+        </trans-unit>
+        <trans-unit id="50def3a6-ffc2-4c61-83a8-ba04f5a345fc" xml:space="preserve">
+          <source>To finish creating the sync group, click the check mark in the lower right of the wizard.</source>
+          <target state="new">To finish creating the sync group, click the check mark in the lower right of the wizard.</target>
+        </trans-unit>
+        <trans-unit id="12d2602b-1fd9-40dc-adc9-7e4b5b830c2a" xml:space="preserve">
+          <source>Wait for the SQL Data Sync to confirm the credentials.</source>
+          <target state="new">Wait for the SQL Data Sync to confirm the credentials.</target>
+        </trans-unit>
+        <trans-unit id="3ec69d18-e6cd-496c-a08d-dbd2052c4574" xml:space="preserve">
+          <source>A green check indicates that the credentials are confirmed.</source>
+          <target state="new">A green check indicates that the credentials are confirmed.</target>
+        </trans-unit>
+        <trans-unit id="fae623f4-04df-4560-a02f-6f95d764623d" xml:space="preserve">
+          <source>Click the check mark a second time.</source>
+          <target state="new">Click the check mark a second time.</target>
+        </trans-unit>
+        <trans-unit id="eeb7eac6-43ba-4238-a717-9f325f005a5a" xml:space="preserve">
+          <source>This returns you to the <bpt id="2a7430b0-e02a-4089-99e2-d11c9624ae44">&lt;strong&gt;</bpt>SYNC<ept id="2a7430b0-e02a-4089-99e2-d11c9624ae44">&lt;/strong&gt;</ept> page under SQL Databases.</source>
+          <target state="new">This returns you to the <bpt id="2a7430b0-e02a-4089-99e2-d11c9624ae44">&lt;strong&gt;</bpt>SYNC<ept id="2a7430b0-e02a-4089-99e2-d11c9624ae44">&lt;/strong&gt;</ept> page under SQL Databases.</target>
+        </trans-unit>
+        <trans-unit id="f741e3f2-bcd2-4263-a15f-fac51a0a56c3" xml:space="preserve">
+          <source>This sync group is now listed with your other sync groups and agents.</source>
+          <target state="new">This sync group is now listed with your other sync groups and agents.</target>
+        </trans-unit>
+        <trans-unit id="7c04478e-4101-4604-97f9-b0f8835fc007" xml:space="preserve">
+          <source><bpt id="9091778f-e485-4870-a64f-20bce673b864">&lt;linkText&gt;</bpt>Image5<ept id="9091778f-e485-4870-a64f-20bce673b864">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9091778f-e485-4870-a64f-20bce673b864">&lt;linkText&gt;</bpt>Image5<ept id="9091778f-e485-4870-a64f-20bce673b864">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a0a5a63-e602-4aae-88ae-434905faecdb" xml:space="preserve">
+          <source>Azure SQL Data Sync allows you to select tables and columns to synchronize.</source>
+          <target state="new">Azure SQL Data Sync allows you to select tables and columns to synchronize.</target>
+        </trans-unit>
+        <trans-unit id="9d353441-cd06-42c1-ad12-07149e4fba2a" xml:space="preserve">
+          <source>If you also want to filter a column so that only rows with specific values (such as, Age&gt;=65) are synchronized, use the SQL Data Sync portal at Azure and the documentation at Select the Tables, Columns, and Rows to Synchronize to define the data to sync.</source>
+          <target state="new">If you also want to filter a column so that only rows with specific values (such as, Age&gt;=65) are synchronized, use the SQL Data Sync portal at Azure and the documentation at Select the Tables, Columns, and Rows to Synchronize to define the data to sync.</target>
+        </trans-unit>
+        <trans-unit id="eb870479-c3f7-4523-8635-094f7b8566ba" xml:space="preserve">
+          <source>Return to the <bpt id="0fc8f26b-c219-4243-9299-c807e9eba418">&lt;linkText&gt;</bpt>Management Portal<ept id="0fc8f26b-c219-4243-9299-c807e9eba418">&lt;/linkText&gt;</ept><bpt id="0fc8f26b-c219-4243-9299-c807e9eba418">&lt;title&gt;</bpt><ept id="0fc8f26b-c219-4243-9299-c807e9eba418">&lt;/title&gt;</ept>.</source>
+          <target state="new">Return to the <bpt id="0fc8f26b-c219-4243-9299-c807e9eba418">&lt;linkText&gt;</bpt>Management Portal<ept id="0fc8f26b-c219-4243-9299-c807e9eba418">&lt;/linkText&gt;</ept><bpt id="0fc8f26b-c219-4243-9299-c807e9eba418">&lt;title&gt;</bpt><ept id="0fc8f26b-c219-4243-9299-c807e9eba418">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd1cda8f-4275-4845-8320-90a8a2ad8b7d" xml:space="preserve">
+          <source>Click <bpt id="bf4208f6-ed00-4fbc-a84e-dc4fe1313add">&lt;strong&gt;</bpt>SQL DATABASES<ept id="bf4208f6-ed00-4fbc-a84e-dc4fe1313add">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="bf4208f6-ed00-4fbc-a84e-dc4fe1313add">&lt;strong&gt;</bpt>SQL DATABASES<ept id="bf4208f6-ed00-4fbc-a84e-dc4fe1313add">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6df151a4-3c58-47e8-a7be-4c1e2f9e160c" xml:space="preserve">
+          <source>Click the <bpt id="17fa7757-d5bd-4cae-b93d-17495265efe8">&lt;strong&gt;</bpt>SYNC<ept id="17fa7757-d5bd-4cae-b93d-17495265efe8">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="17fa7757-d5bd-4cae-b93d-17495265efe8">&lt;strong&gt;</bpt>SYNC<ept id="17fa7757-d5bd-4cae-b93d-17495265efe8">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="18744470-020d-49cd-a104-23ab08751653" xml:space="preserve">
+          <source>Click the name of this sync group.</source>
+          <target state="new">Click the name of this sync group.</target>
+        </trans-unit>
+        <trans-unit id="129d5753-37a0-4773-99e4-cc0c88b5cb3b" xml:space="preserve">
+          <source>Click the <bpt id="80b0d7d4-661c-4f3d-9a09-facf9eae7f20">&lt;strong&gt;</bpt>SYNC RULES<ept id="80b0d7d4-661c-4f3d-9a09-facf9eae7f20">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="80b0d7d4-661c-4f3d-9a09-facf9eae7f20">&lt;strong&gt;</bpt>SYNC RULES<ept id="80b0d7d4-661c-4f3d-9a09-facf9eae7f20">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="5cb8e2a3-80ec-4bd0-9f99-1331caa8244d" xml:space="preserve">
+          <source>Select the database you want to provide the sync group schema.</source>
+          <target state="new">Select the database you want to provide the sync group schema.</target>
+        </trans-unit>
+        <trans-unit id="36094a10-2d16-4213-8ff2-8c404eaaf295" xml:space="preserve">
+          <source>Click the right-arrow.</source>
+          <target state="new">Click the right-arrow.</target>
+        </trans-unit>
+        <trans-unit id="4c864ba4-201c-4622-9dc2-2156ebebee6c" xml:space="preserve">
+          <source>Click <bpt id="5817b813-f2bc-442c-9c88-b2b135931d66">&lt;strong&gt;</bpt>REFRESH SCHEMA<ept id="5817b813-f2bc-442c-9c88-b2b135931d66">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5817b813-f2bc-442c-9c88-b2b135931d66">&lt;strong&gt;</bpt>REFRESH SCHEMA<ept id="5817b813-f2bc-442c-9c88-b2b135931d66">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1c36a67-f4b3-4aa7-8b60-3da3fa950fd2" xml:space="preserve">
+          <source>For each table in the database, select the columns to include in the synchronizations.</source>
+          <target state="new">For each table in the database, select the columns to include in the synchronizations.</target>
+        </trans-unit>
+        <trans-unit id="488577d8-f5d5-46a1-8d35-5cb69044bc7d" xml:space="preserve">
+          <source>Columns with unsupported data types cannot be selected.</source>
+          <target state="new">Columns with unsupported data types cannot be selected.</target>
+        </trans-unit>
+        <trans-unit id="82612fd3-e031-4736-a719-ec141078e205" xml:space="preserve">
+          <source>If no columns in a table are selected, the table is not included in the sync group.</source>
+          <target state="new">If no columns in a table are selected, the table is not included in the sync group.</target>
+        </trans-unit>
+        <trans-unit id="1c4f692d-00b6-42cf-91fe-4fc31330849e" xml:space="preserve">
+          <source>To select/unselect all the tables, click SELECT at the bottom of the screen.</source>
+          <target state="new">To select/unselect all the tables, click SELECT at the bottom of the screen.</target>
+        </trans-unit>
+        <trans-unit id="1a55c7f7-5e30-4e18-a13b-226ed906ed22" xml:space="preserve">
+          <source>Click <bpt id="c7305a90-d479-4174-a463-bfd007cacb7e">&lt;strong&gt;</bpt>SAVE<ept id="c7305a90-d479-4174-a463-bfd007cacb7e">&lt;/strong&gt;</ept>, then wait for the sync group to finish provisioning.</source>
+          <target state="new">Click <bpt id="c7305a90-d479-4174-a463-bfd007cacb7e">&lt;strong&gt;</bpt>SAVE<ept id="c7305a90-d479-4174-a463-bfd007cacb7e">&lt;/strong&gt;</ept>, then wait for the sync group to finish provisioning.</target>
+        </trans-unit>
+        <trans-unit id="de427a7c-bb98-461f-aba5-a2fc2ddce273" xml:space="preserve">
+          <source>To return to the Data Sync landing page, click the back-arrow in the upper left of the screen (above the sync group's name).</source>
+          <target state="new">To return to the Data Sync landing page, click the back-arrow in the upper left of the screen (above the sync group's name).</target>
+        </trans-unit>
+        <trans-unit id="78d73d9d-b2e9-4e5e-a25c-955321f0fcf2" xml:space="preserve">
+          <source><bpt id="b1bc0392-a4d9-49fe-9db4-c5aff5b0d49a">&lt;linkText&gt;</bpt>Image6<ept id="b1bc0392-a4d9-49fe-9db4-c5aff5b0d49a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1bc0392-a4d9-49fe-9db4-c5aff5b0d49a">&lt;linkText&gt;</bpt>Image6<ept id="b1bc0392-a4d9-49fe-9db4-c5aff5b0d49a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b6f5ff5-762f-4341-a5a4-683126043a49" xml:space="preserve">
+          <source>You can always synchronize a sync group by clicking SYNC at the bottom of the Data Sync landing page.</source>
+          <target state="new">You can always synchronize a sync group by clicking SYNC at the bottom of the Data Sync landing page.</target>
+        </trans-unit>
+        <trans-unit id="4f63b557-3868-479f-b050-f882ed22b4b4" xml:space="preserve">
+          <source>If you want a sync group to synchronize on a schedule, you configure the sync group.</source>
+          <target state="new">If you want a sync group to synchronize on a schedule, you configure the sync group.</target>
+        </trans-unit>
+        <trans-unit id="2f74cb98-6b65-4870-9a82-2240f25a7876" xml:space="preserve">
+          <source>Return to the <bpt id="efb75a0c-3732-4248-9f20-65a28f619a15">&lt;linkText&gt;</bpt>Management Portal<ept id="efb75a0c-3732-4248-9f20-65a28f619a15">&lt;/linkText&gt;</ept><bpt id="efb75a0c-3732-4248-9f20-65a28f619a15">&lt;title&gt;</bpt><ept id="efb75a0c-3732-4248-9f20-65a28f619a15">&lt;/title&gt;</ept>.</source>
+          <target state="new">Return to the <bpt id="efb75a0c-3732-4248-9f20-65a28f619a15">&lt;linkText&gt;</bpt>Management Portal<ept id="efb75a0c-3732-4248-9f20-65a28f619a15">&lt;/linkText&gt;</ept><bpt id="efb75a0c-3732-4248-9f20-65a28f619a15">&lt;title&gt;</bpt><ept id="efb75a0c-3732-4248-9f20-65a28f619a15">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f77f75f-25ae-42e2-bf43-3f5f9aa4e0f9" xml:space="preserve">
+          <source>Click <bpt id="5ac0c80f-5636-4609-8398-8b9bb2a83661">&lt;strong&gt;</bpt>SQL DATABASES<ept id="5ac0c80f-5636-4609-8398-8b9bb2a83661">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5ac0c80f-5636-4609-8398-8b9bb2a83661">&lt;strong&gt;</bpt>SQL DATABASES<ept id="5ac0c80f-5636-4609-8398-8b9bb2a83661">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c2d3744c-09fb-458f-9c78-44b8e8021827" xml:space="preserve">
+          <source>Click the <bpt id="3745eb32-ec62-41c6-9901-f7a3781967c9">&lt;strong&gt;</bpt>SYNC<ept id="3745eb32-ec62-41c6-9901-f7a3781967c9">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="3745eb32-ec62-41c6-9901-f7a3781967c9">&lt;strong&gt;</bpt>SYNC<ept id="3745eb32-ec62-41c6-9901-f7a3781967c9">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="d3551bc5-e71f-49c7-b51f-096b883d7977" xml:space="preserve">
+          <source>Click the name of this sync group.</source>
+          <target state="new">Click the name of this sync group.</target>
+        </trans-unit>
+        <trans-unit id="4be4dc6d-5328-4de4-a330-740b65a5f88a" xml:space="preserve">
+          <source>Click the <bpt id="6b8517bf-21bb-4353-8e6e-ca072800aefb">&lt;strong&gt;</bpt>CONFIGURE<ept id="6b8517bf-21bb-4353-8e6e-ca072800aefb">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="6b8517bf-21bb-4353-8e6e-ca072800aefb">&lt;strong&gt;</bpt>CONFIGURE<ept id="6b8517bf-21bb-4353-8e6e-ca072800aefb">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="fe16e4b7-9324-451c-ab62-8bcaecd96dec" xml:space="preserve">
+          <source><bpt id="ce2ef3ce-12ae-4e6f-9126-1bad3e8b3f0d">&lt;strong&gt;</bpt>AUTOMATIC SYNC<ept id="ce2ef3ce-12ae-4e6f-9126-1bad3e8b3f0d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ce2ef3ce-12ae-4e6f-9126-1bad3e8b3f0d">&lt;strong&gt;</bpt>AUTOMATIC SYNC<ept id="ce2ef3ce-12ae-4e6f-9126-1bad3e8b3f0d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1e85c69-24db-42c5-ab88-efb65609789b" xml:space="preserve">
+          <source>To configure the sync group to sync on a set frequency, click <bpt id="0d975608-644f-4f6a-83ef-bdfc0d1f804f">&lt;strong&gt;</bpt>ON<ept id="0d975608-644f-4f6a-83ef-bdfc0d1f804f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To configure the sync group to sync on a set frequency, click <bpt id="0d975608-644f-4f6a-83ef-bdfc0d1f804f">&lt;strong&gt;</bpt>ON<ept id="0d975608-644f-4f6a-83ef-bdfc0d1f804f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0ce5d95-712c-419b-bfc0-e77d09c3dc5e" xml:space="preserve">
+          <source>You can still sync on demand by clicking SYNC.</source>
+          <target state="new">You can still sync on demand by clicking SYNC.</target>
+        </trans-unit>
+        <trans-unit id="4c41f62e-0452-48a1-b397-1239087ec0c3" xml:space="preserve">
+          <source>Click <bpt id="b422e2c3-81db-403f-9733-664bbf99cc9f">&lt;strong&gt;</bpt>OFF<ept id="b422e2c3-81db-403f-9733-664bbf99cc9f">&lt;/strong&gt;</ept> to configure the sync group to sync only when you click SYNC.</source>
+          <target state="new">Click <bpt id="b422e2c3-81db-403f-9733-664bbf99cc9f">&lt;strong&gt;</bpt>OFF<ept id="b422e2c3-81db-403f-9733-664bbf99cc9f">&lt;/strong&gt;</ept> to configure the sync group to sync only when you click SYNC.</target>
+        </trans-unit>
+        <trans-unit id="317335b4-6347-41f1-904e-f2d41a8b7fa7" xml:space="preserve">
+          <source><bpt id="413e60e8-c3f4-48c4-aa4b-683058824c50">&lt;strong&gt;</bpt>SYNC FREQUENCY<ept id="413e60e8-c3f4-48c4-aa4b-683058824c50">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="413e60e8-c3f4-48c4-aa4b-683058824c50">&lt;strong&gt;</bpt>SYNC FREQUENCY<ept id="413e60e8-c3f4-48c4-aa4b-683058824c50">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1562dafd-a179-4c92-9b06-b1d96e3a3f92" xml:space="preserve">
+          <source>If AUTOMATIC SYNC is ON, set the synchronization frequency.</source>
+          <target state="new">If AUTOMATIC SYNC is ON, set the synchronization frequency.</target>
+        </trans-unit>
+        <trans-unit id="f474e81d-ca47-45c7-ab2f-ce918183f804" xml:space="preserve">
+          <source>The frequency must be between 5 Minutes and 1 Month.</source>
+          <target state="new">The frequency must be between 5 Minutes and 1 Month.</target>
+        </trans-unit>
+        <trans-unit id="ef4f6e2c-9433-4e67-adec-64f9e3e0796f" xml:space="preserve">
+          <source>Click <bpt id="73fed538-412b-46f1-b205-95a68251233f">&lt;strong&gt;</bpt>SAVE<ept id="73fed538-412b-46f1-b205-95a68251233f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="73fed538-412b-46f1-b205-95a68251233f">&lt;strong&gt;</bpt>SAVE<ept id="73fed538-412b-46f1-b205-95a68251233f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d81346b-82f4-495c-845f-fd8f23d86c23" xml:space="preserve">
+          <source><bpt id="90a22b9b-8497-44cf-afb5-88c80aee49df">&lt;linkText&gt;</bpt>Image7<ept id="90a22b9b-8497-44cf-afb5-88c80aee49df">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="90a22b9b-8497-44cf-afb5-88c80aee49df">&lt;linkText&gt;</bpt>Image7<ept id="90a22b9b-8497-44cf-afb5-88c80aee49df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3da35e47-f53a-4d60-a45b-40211d8b807b" xml:space="preserve">
+          <source>Congratulations.</source>
+          <target state="new">Congratulations.</target>
+        </trans-unit>
+        <trans-unit id="ff10b6bf-29f1-4be1-933d-d9fcb7a94ce9" xml:space="preserve">
+          <source>You have created a sync group that includes both a SQL Database instance and a SQL Server database.</source>
+          <target state="new">You have created a sync group that includes both a SQL Database instance and a SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="e42d183e-c13c-4335-8dc9-792b80056232" xml:space="preserve">
+          <source>For additional information on SQL Database and SQL Data Sync see:</source>
+          <target state="new">For additional information on SQL Database and SQL Data Sync see:</target>
+        </trans-unit>
+        <trans-unit id="c343cc21-d8ca-40ad-9a72-1edbf9e39958" xml:space="preserve">
+          <source><bpt id="1e25cb9b-f477-4413-ab44-ec9c82e5af3b">&lt;linkText&gt;</bpt>SQL Data Sync content on MSDN Library<ept id="1e25cb9b-f477-4413-ab44-ec9c82e5af3b">&lt;/linkText&gt;</ept><bpt id="1e25cb9b-f477-4413-ab44-ec9c82e5af3b">&lt;title&gt;</bpt><ept id="1e25cb9b-f477-4413-ab44-ec9c82e5af3b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e25cb9b-f477-4413-ab44-ec9c82e5af3b">&lt;linkText&gt;</bpt>SQL Data Sync content on MSDN Library<ept id="1e25cb9b-f477-4413-ab44-ec9c82e5af3b">&lt;/linkText&gt;</ept><bpt id="1e25cb9b-f477-4413-ab44-ec9c82e5af3b">&lt;title&gt;</bpt><ept id="1e25cb9b-f477-4413-ab44-ec9c82e5af3b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc114ae1-a23d-41a3-b989-922bae75532a" xml:space="preserve">
+          <source><bpt id="5e8f45e4-0387-464c-bcae-5d60af08dd74">&lt;linkText&gt;</bpt>SQL Database Overview<ept id="5e8f45e4-0387-464c-bcae-5d60af08dd74">&lt;/linkText&gt;</ept><bpt id="5e8f45e4-0387-464c-bcae-5d60af08dd74">&lt;title&gt;</bpt><ept id="5e8f45e4-0387-464c-bcae-5d60af08dd74">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5e8f45e4-0387-464c-bcae-5d60af08dd74">&lt;linkText&gt;</bpt>SQL Database Overview<ept id="5e8f45e4-0387-464c-bcae-5d60af08dd74">&lt;/linkText&gt;</ept><bpt id="5e8f45e4-0387-464c-bcae-5d60af08dd74">&lt;title&gt;</bpt><ept id="5e8f45e4-0387-464c-bcae-5d60af08dd74">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56eaedef-6b60-4e3c-b0ce-b15cf459b579" xml:space="preserve">
+          <source><bpt id="36e8b1a8-0c19-4223-b1fb-38a2f330a811">&lt;linkText&gt;</bpt>Database Lifecycle Management<ept id="36e8b1a8-0c19-4223-b1fb-38a2f330a811">&lt;/linkText&gt;</ept><bpt id="36e8b1a8-0c19-4223-b1fb-38a2f330a811">&lt;title&gt;</bpt><ept id="36e8b1a8-0c19-4223-b1fb-38a2f330a811">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="36e8b1a8-0c19-4223-b1fb-38a2f330a811">&lt;linkText&gt;</bpt>Database Lifecycle Management<ept id="36e8b1a8-0c19-4223-b1fb-38a2f330a811">&lt;/linkText&gt;</ept><bpt id="36e8b1a8-0c19-4223-b1fb-38a2f330a811">&lt;title&gt;</bpt><ept id="36e8b1a8-0c19-4223-b1fb-38a2f330a811">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

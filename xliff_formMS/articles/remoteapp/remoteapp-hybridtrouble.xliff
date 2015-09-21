@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1f7bbcc3-0014-49a4-8ca8-9f0b613e53f5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1f7bbcc3-0014-49a4-8ca8-9f0b613e53f5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7b8fd788-8ba3-4a7b-8edb-01482c7b903b">
+        <trans-unit id="60794f7c-c1dd-48d3-8ab4-6235c585065f" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="Troubleshoot creating RemoteApp hybrid collections"
+    description="Learn how to troubleshoot RemoteApp hybrid collection creation failures" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="vkbucha" 
+    manager="mbaldwin" /&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="Troubleshoot creating RemoteApp hybrid collections"
+    description="Learn how to troubleshoot RemoteApp hybrid collection creation failures" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="vkbucha" 
+    manager="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="e5b09c8c-c05c-47ff-8ad7-fb015e17e4da" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" /&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="9b41bfd9-1f7b-4d7c-b971-56799197162b" xml:space="preserve">
+          <source>A hybrid collection is hosted in and stores data in the Azure cloud but also lets users access data and resources stored on your local network.</source>
+          <target state="new">A hybrid collection is hosted in and stores data in the Azure cloud but also lets users access data and resources stored on your local network.</target>
+        </trans-unit>
+        <trans-unit id="3d00b33a-887e-4574-b041-02a467888334" xml:space="preserve">
+          <source>Users can access apps by logging in with their corporate credentials synchronized or federated with Azure Active Directory.</source>
+          <target state="new">Users can access apps by logging in with their corporate credentials synchronized or federated with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="5278f6e1-75d8-46b6-842d-4d3005127c12" xml:space="preserve">
+          <source>You can deploy a hybrid collection that uses an existing Azure Virtual Network, or you can create a new virtual network.</source>
+          <target state="new">You can deploy a hybrid collection that uses an existing Azure Virtual Network, or you can create a new virtual network.</target>
+        </trans-unit>
+        <trans-unit id="2015845c-24b1-4260-b539-3a8a4af6b936" xml:space="preserve">
+          <source>We recommend that you create or use a virtual network subnet with a CIDR range large enough for expected future growth for Azure RemoteApp.</source>
+          <target state="new">We recommend that you create or use a virtual network subnet with a CIDR range large enough for expected future growth for Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="2311ffd0-0fe5-4bba-afcb-261de4891e05" xml:space="preserve">
+          <source>Haven't created your collection yet?</source>
+          <target state="new">Haven't created your collection yet?</target>
+        </trans-unit>
+        <trans-unit id="4e7e9c2c-95fa-4bf7-91c5-70032609b324" xml:space="preserve">
+          <source>See <bpt id="1a625565-bce7-4ad0-956c-e82b02037ac6">&lt;linkText&gt;</bpt>Create a hybrid collection<ept id="1a625565-bce7-4ad0-956c-e82b02037ac6">&lt;/linkText&gt;</ept><bpt id="1a625565-bce7-4ad0-956c-e82b02037ac6">&lt;title&gt;</bpt><ept id="1a625565-bce7-4ad0-956c-e82b02037ac6">&lt;/title&gt;</ept> for the steps.</source>
+          <target state="new">See <bpt id="1a625565-bce7-4ad0-956c-e82b02037ac6">&lt;linkText&gt;</bpt>Create a hybrid collection<ept id="1a625565-bce7-4ad0-956c-e82b02037ac6">&lt;/linkText&gt;</ept><bpt id="1a625565-bce7-4ad0-956c-e82b02037ac6">&lt;title&gt;</bpt><ept id="1a625565-bce7-4ad0-956c-e82b02037ac6">&lt;/title&gt;</ept> for the steps.</target>
+        </trans-unit>
+        <trans-unit id="b873a69a-8701-4112-a7fa-6c4d582fc856" xml:space="preserve">
+          <source>If you are having trouble creating your collection, or if the collection isn't working the way you think it should, check out the following information.</source>
+          <target state="new">If you are having trouble creating your collection, or if the collection isn't working the way you think it should, check out the following information.</target>
+        </trans-unit>
+        <trans-unit id="64f5095c-5084-47b2-8ab3-d486a57751d5" xml:space="preserve">
+          <source>RemoteApp does not currently support using VNETs that have forced tunneling enabled.</source>
+          <target state="new">RemoteApp does not currently support using VNETs that have forced tunneling enabled.</target>
+        </trans-unit>
+        <trans-unit id="bf20eeff-821b-4539-9c34-635f59766679" xml:space="preserve">
+          <source>If you need this function, contact the <bpt id="b1eae6b8-aba8-4d71-80cb-1d4c001efcfd">&lt;linkText&gt;</bpt>RemoteApp team<ept id="b1eae6b8-aba8-4d71-80cb-1d4c001efcfd">&lt;/linkText&gt;</ept><bpt id="b1eae6b8-aba8-4d71-80cb-1d4c001efcfd">&lt;title&gt;</bpt><ept id="b1eae6b8-aba8-4d71-80cb-1d4c001efcfd">&lt;/title&gt;</ept> to request support.</source>
+          <target state="new">If you need this function, contact the <bpt id="b1eae6b8-aba8-4d71-80cb-1d4c001efcfd">&lt;linkText&gt;</bpt>RemoteApp team<ept id="b1eae6b8-aba8-4d71-80cb-1d4c001efcfd">&lt;/linkText&gt;</ept><bpt id="b1eae6b8-aba8-4d71-80cb-1d4c001efcfd">&lt;title&gt;</bpt><ept id="b1eae6b8-aba8-4d71-80cb-1d4c001efcfd">&lt;/title&gt;</ept> to request support.</target>
+        </trans-unit>
+        <trans-unit id="70778c2f-ceb6-4b73-a075-bddda49735df" xml:space="preserve">
+          <source>After your request is approved, make sure the following ports are opened on the subnet you chose for Azure RemoteApp and the VMs in the subnet.</source>
+          <target state="new">After your request is approved, make sure the following ports are opened on the subnet you chose for Azure RemoteApp and the VMs in the subnet.</target>
+        </trans-unit>
+        <trans-unit id="2f6a816f-aeab-462a-8cbb-13196ba0a8b5" xml:space="preserve">
+          <source>The VMs in your subnets should also be able to access the URLs mentioned in the section about network security groups.</source>
+          <target state="new">The VMs in your subnets should also be able to access the URLs mentioned in the section about network security groups.</target>
+        </trans-unit>
+        <trans-unit id="346e3afa-dd84-4032-a71b-7999d738993f" xml:space="preserve">
+          <source>Outbound: TCP: 443, TCP: 10101-10175</source>
+          <target state="new">Outbound: TCP: 443, TCP: 10101-10175</target>
+        </trans-unit>
+        <trans-unit id="4ebbe838-02fe-49aa-a800-4afbe7e5ad03" xml:space="preserve">
+          <source>If you have network security groups defined on the subnet you are using for your collection, make sure the following URLs are accessible from within your subnet: </source>
+          <target state="new">If you have network security groups defined on the subnet you are using for your collection, make sure the following URLs are accessible from within your subnet: </target>
+        </trans-unit>
+        <trans-unit id="5890bd84-180c-4587-9756-79731c6b13dd" xml:space="preserve">
+          <source>Open the following ports on the virtual network subnet:</source>
+          <target state="new">Open the following ports on the virtual network subnet:</target>
+        </trans-unit>
+        <trans-unit id="e63f12e0-bbd2-49de-a968-e3499d230602" xml:space="preserve">
+          <source>Inbound - TCP: 3030, TCP: 443  
+OUtbound - TCP: 443  </source>
+          <target state="new">Inbound - TCP: 3030, TCP: 443  
+OUtbound - TCP: 443  </target>
+        </trans-unit>
+        <trans-unit id="b0bebaf3-10a8-4186-b042-3b6801c9584e" xml:space="preserve">
+          <source>You can add additional network security groups to the VMs deployed by you in the subnet for tighter control.</source>
+          <target state="new">You can add additional network security groups to the VMs deployed by you in the subnet for tighter control.</target>
+        </trans-unit>
+        <trans-unit id="e9314c78-efc7-4ef3-8c45-bdb9433586cd" xml:space="preserve">
+          <source>For hybrid collections you use your own DNS servers.</source>
+          <target state="new">For hybrid collections you use your own DNS servers.</target>
+        </trans-unit>
+        <trans-unit id="0dc828b2-ac83-4c25-beca-7efbaec33ae1" xml:space="preserve">
+          <source>You specify them in your network configuration schema or through the management portal when you create your virtual network.</source>
+          <target state="new">You specify them in your network configuration schema or through the management portal when you create your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="e5dcd15e-d4df-4175-a499-298a8cc1993d" xml:space="preserve">
+          <source>DNS servers are used in the order that they are specified in a failover manner (as opposed to round robin).</source>
+          <target state="new">DNS servers are used in the order that they are specified in a failover manner (as opposed to round robin).</target>
+        </trans-unit>
+        <trans-unit id="74f7f8fa-7b67-4b08-874c-0e9a3481ab5d" xml:space="preserve">
+          <source>Make sure the DNS servers for your collection are accessible and available from the VNET subnet you specified for this collection.</source>
+          <target state="new">Make sure the DNS servers for your collection are accessible and available from the VNET subnet you specified for this collection.</target>
+        </trans-unit>
+        <trans-unit id="004f5540-643b-4300-b100-08f9a1583e31" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="0ae82a1a-0659-4aa8-8597-600e5b6f2e3c" xml:space="preserve">
+          <source><bpt id="bbe78513-2e6f-40f6-b55f-d6b4d15b2a6f">&lt;linkText&gt;</bpt>Define your DNS<ept id="bbe78513-2e6f-40f6-b55f-d6b4d15b2a6f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bbe78513-2e6f-40f6-b55f-d6b4d15b2a6f">&lt;linkText&gt;</bpt>Define your DNS<ept id="bbe78513-2e6f-40f6-b55f-d6b4d15b2a6f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49ca68a4-14e5-4ccd-959e-dae841ed69de" xml:space="preserve">
+          <source>Currently only one Active Directory domain can be associated with Azure RemoteApp.</source>
+          <target state="new">Currently only one Active Directory domain can be associated with Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="6261240c-3372-4bad-ab28-aee6ecaf9104" xml:space="preserve">
+          <source>The hybrid collection supports only Azure Active Directory accounts that have been synced using DirSync tool from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured.</source>
+          <target state="new">The hybrid collection supports only Azure Active Directory accounts that have been synced using DirSync tool from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured.</target>
+        </trans-unit>
+        <trans-unit id="ef9be931-717e-41c3-a17c-fc8898ba17ef" xml:space="preserve">
+          <source>You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration.</source>
+          <target state="new">You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration.</target>
+        </trans-unit>
+        <trans-unit id="99db8c8c-f1f2-4f49-96f2-2897bc84faa5" xml:space="preserve">
+          <source>See <bpt id="e7c17bb0-0e28-453f-8f5c-81479c306961">&lt;linkText&gt;</bpt>Configuring Active Directory for Azure RemoteApp<ept id="e7c17bb0-0e28-453f-8f5c-81479c306961">&lt;/linkText&gt;</ept><bpt id="e7c17bb0-0e28-453f-8f5c-81479c306961">&lt;title&gt;</bpt><ept id="e7c17bb0-0e28-453f-8f5c-81479c306961">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="e7c17bb0-0e28-453f-8f5c-81479c306961">&lt;linkText&gt;</bpt>Configuring Active Directory for Azure RemoteApp<ept id="e7c17bb0-0e28-453f-8f5c-81479c306961">&lt;/linkText&gt;</ept><bpt id="e7c17bb0-0e28-453f-8f5c-81479c306961">&lt;title&gt;</bpt><ept id="e7c17bb0-0e28-453f-8f5c-81479c306961">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="6b1163f7-62cd-47ec-918b-8770f0197247" xml:space="preserve">
+          <source>Make sure the domain details provided are valid and the domain controller is reachable from the VM created in the subnet used for Azure Remote App.</source>
+          <target state="new">Make sure the domain details provided are valid and the domain controller is reachable from the VM created in the subnet used for Azure Remote App.</target>
+        </trans-unit>
+        <trans-unit id="b8e44248-e91e-4dc7-a1db-7356d2b30545" xml:space="preserve">
+          <source>Also make sure the service account credentials supplied have permissions to add computers to the provided domain and that the AD name provided can be resolved from the DNS provided in the VNET.</source>
+          <target state="new">Also make sure the service account credentials supplied have permissions to add computers to the provided domain and that the AD name provided can be resolved from the DNS provided in the VNET.</target>
+        </trans-unit>
+        <trans-unit id="7c02ccd0-687b-47c2-b0d7-dda2c41cdf4c" xml:space="preserve">
+          <source>The domain name you created or added must be an internal domain name (not your Azure AD domain name) and must be in resolvable DNS format (contoso.local).</source>
+          <target state="new">The domain name you created or added must be an internal domain name (not your Azure AD domain name) and must be in resolvable DNS format (contoso.local).</target>
+        </trans-unit>
+        <trans-unit id="262ee670-52e3-42b0-9207-e58bddc2b1d4" xml:space="preserve">
+          <source>For example, you have an Active Directory internal name (contoso.local) and an Active Directory UPN (contoso.com) - you have to use the internal name when you create your collection.</source>
+          <target state="new">For example, you have an Active Directory internal name (contoso.local) and an Active Directory UPN (contoso.com) - you have to use the internal name when you create your collection.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

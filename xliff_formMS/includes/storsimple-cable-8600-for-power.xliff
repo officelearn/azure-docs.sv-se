@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="17f61c0c-a239-4d48-adfd-ff44f67e2103" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="17f61c0c-a239-4d48-adfd-ff44f67e2103" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5d4400e1-1ea1-41b3-84a1-83020f0c9977">
+        <trans-unit id="d58bc60d-ef49-4580-a661-8a1fbb311315" xml:space="preserve">
+          <source>Cable your StorSimple 8600 for power | Microsoft Azure</source>
+          <target state="new">Cable your StorSimple 8600 for power | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="470c431b-ca29-4462-a76c-49798f04ed62" xml:space="preserve">
+          <source>Explains how to attach the power cables and then turn on a StorSimple 8600 device for the first time..</source>
+          <target state="new">Explains how to attach the power cables and then turn on a StorSimple 8600 device for the first time..</target>
+        </trans-unit>
+        <trans-unit id="dc1c313d-23d9-4d22-bebd-29f6d4eff597" xml:space="preserve">
+          <source>Both enclosures on your StorSimple device include redundant PCMs.</source>
+          <target state="new">Both enclosures on your StorSimple device include redundant PCMs.</target>
+        </trans-unit>
+        <trans-unit id="a40dadf3-ea94-477b-b603-1f7209c4e63f" xml:space="preserve">
+          <source>For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.</source>
+          <target state="new">For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.</target>
+        </trans-unit>
+        <trans-unit id="8853b6d9-e43d-4761-838e-d8715ceb8ea4" xml:space="preserve">
+          <source>Make sure that the power switches on all the PCMs are in the OFF position.</source>
+          <target state="new">Make sure that the power switches on all the PCMs are in the OFF position.</target>
+        </trans-unit>
+        <trans-unit id="702f884e-25e7-441b-9d76-444bbfb7d8cb" xml:space="preserve">
+          <source>On the primary enclosure, connect the power cords to both PCMs.</source>
+          <target state="new">On the primary enclosure, connect the power cords to both PCMs.</target>
+        </trans-unit>
+        <trans-unit id="d5073c58-6dd1-479a-831a-2a119a713973" xml:space="preserve">
+          <source>The power cords are identified in red in the power cabling diagram, below.</source>
+          <target state="new">The power cords are identified in red in the power cabling diagram, below.</target>
+        </trans-unit>
+        <trans-unit id="b7cb20f9-61b9-4a10-aae3-f22fa1af84da" xml:space="preserve">
+          <source>Make sure that the two PCMs on the primary enclosure use separate power sources.</source>
+          <target state="new">Make sure that the two PCMs on the primary enclosure use separate power sources.</target>
+        </trans-unit>
+        <trans-unit id="9dc00520-7f5f-43f5-83f0-15edb49465c7" xml:space="preserve">
+          <source>Attach the power cords to the power on the rack distribution units as shown in the power cabling diagram.</source>
+          <target state="new">Attach the power cords to the power on the rack distribution units as shown in the power cabling diagram.</target>
+        </trans-unit>
+        <trans-unit id="0f84e0c0-87d4-4f0e-8c56-00daf8bf7e73" xml:space="preserve">
+          <source>Repeat steps 2 through 4 for the EBOD enclosure.</source>
+          <target state="new">Repeat steps 2 through 4 for the EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="fcd8a538-86bf-46a1-97fa-b61eb20a5b6f" xml:space="preserve">
+          <source>Turn on the EBOD enclosure by flipping the power switch on each PCM to the ON position.</source>
+          <target state="new">Turn on the EBOD enclosure by flipping the power switch on each PCM to the ON position.</target>
+        </trans-unit>
+        <trans-unit id="255059e9-2bfa-4649-aba2-8984fc91e9e4" xml:space="preserve">
+          <source>Verify that the EBOD enclosure is turned on by checking that the green LEDs on the back of the EBOD controller are turned ON.</source>
+          <target state="new">Verify that the EBOD enclosure is turned on by checking that the green LEDs on the back of the EBOD controller are turned ON.</target>
+        </trans-unit>
+        <trans-unit id="49a34d20-e061-4aab-915a-42400ffa6ed2" xml:space="preserve">
+          <source>Turn on the primary enclosure by flipping each PCM switch to the ON position.</source>
+          <target state="new">Turn on the primary enclosure by flipping each PCM switch to the ON position.</target>
+        </trans-unit>
+        <trans-unit id="58df0311-8938-459c-9206-39a09cdeab59" xml:space="preserve">
+          <source>Verify that the system is on by ensuring the device controller LEDs have turned ON.</source>
+          <target state="new">Verify that the system is on by ensuring the device controller LEDs have turned ON.</target>
+        </trans-unit>
+        <trans-unit id="4a8865df-44b3-48d3-adb2-90fdeb73aeaf" xml:space="preserve">
+          <source>Make sure that the connection between the EBOD controller and the device controller is active by verifying that the four LEDs next to the SAS port on the EBOD controller are green.</source>
+          <target state="new">Make sure that the connection between the EBOD controller and the device controller is active by verifying that the four LEDs next to the SAS port on the EBOD controller are green.</target>
+        </trans-unit>
+        <trans-unit id="12131afc-8c21-4846-89ce-d2673890edc2" xml:space="preserve">
+          <source>To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram.</source>
+          <target state="new">To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram.</target>
+        </trans-unit>
+        <trans-unit id="beb91b93-cd54-42c6-99e6-5db443b875ff" xml:space="preserve">
+          <source><bpt id="2ad49195-42fd-435d-b9b0-b117eb2198a6">&lt;linkText&gt;</bpt>Cable your 4U device for power<ept id="2ad49195-42fd-435d-b9b0-b117eb2198a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ad49195-42fd-435d-b9b0-b117eb2198a6">&lt;linkText&gt;</bpt>Cable your 4U device for power<ept id="2ad49195-42fd-435d-b9b0-b117eb2198a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cfe4857-4510-449f-90fb-8ef393e84cf7" xml:space="preserve">
+          <source><bpt id="08a200bc-f02f-47e5-9c4a-90e108ff339f">&lt;strong&gt;</bpt>Power cabling<ept id="08a200bc-f02f-47e5-9c4a-90e108ff339f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="08a200bc-f02f-47e5-9c4a-90e108ff339f">&lt;strong&gt;</bpt>Power cabling<ept id="08a200bc-f02f-47e5-9c4a-90e108ff339f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8653b720-a811-4b04-bbf7-2650a703e4ea" xml:space="preserve">
+          <source>|Label|Description|
+|:----|:----------|
+|1|Primary enclosure|
+|2|PCM 0|
+|3|PCM 1|
+|4|Controller 0|
+|5|Controller 1|
+|6|EBOD controller 0|
+|7|EBOD controller 1|
+|8|EBOD enclosure|
+|9|PDUs|</source>
+          <target state="new">|Label|Description|
+|:----|:----------|
+|1|Primary enclosure|
+|2|PCM 0|
+|3|PCM 1|
+|4|Controller 0|
+|5|Controller 1|
+|6|EBOD controller 0|
+|7|EBOD controller 1|
+|8|EBOD enclosure|
+|9|PDUs|</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7abb27e4-3250-4477-b0a9-41683cb4c36b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7abb27e4-3250-4477-b0a9-41683cb4c36b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bca9777e-381f-458b-b88c-92c0a5abcf8a">
+        <trans-unit id="5a7c2b85-fa18-45ae-9820-82601d9a5b31" xml:space="preserve">
+          <source>Configure automatic device registration for Windows 8.1 domain joined devices| Microsoft Azure</source>
+          <target state="new">Configure automatic device registration for Windows 8.1 domain joined devices| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="fa4362d5-cc23-481d-806a-04e921cec6c5" xml:space="preserve">
+          <source> Steps to configure group policy for Windows 8.1 domain-joined devices to automatically register with Azure AD. </source>
+          <target state="new"> Steps to configure group policy for Windows 8.1 domain-joined devices to automatically register with Azure AD. </target>
+        </trans-unit>
+        <trans-unit id="dfcf2c3e-fc9b-4f6c-93a2-15804e0a8fdc" xml:space="preserve">
+          <source>You can use an Active Directory Group Policy to configure your Windows 8.1 domain joined devices to automatically register with Azure AD.</source>
+          <target state="new">You can use an Active Directory Group Policy to configure your Windows 8.1 domain joined devices to automatically register with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="91d6af1e-dae5-428b-b190-c410d5022bc7" xml:space="preserve">
+          <source>To configure the Group Policy, you must have at least one domain joined Windows Server 2012 R2 or Windows 8.1 machine with the Group Policy Management feature installed.Once this Group Policy is enabled for your domain, any domain user that logs into the machine will be automatically and silently registered with a device object in Azure AD.</source>
+          <target state="new">To configure the Group Policy, you must have at least one domain joined Windows Server 2012 R2 or Windows 8.1 machine with the Group Policy Management feature installed.Once this Group Policy is enabled for your domain, any domain user that logs into the machine will be automatically and silently registered with a device object in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="310c36cb-d131-48b3-a97c-0216756ee866" xml:space="preserve">
+          <source>There will be one device object in Azure AD for every registered user of the physical device.Be sure to read through and complete the prerequisites from the Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices.</source>
+          <target state="new">There will be one device object in Azure AD for every registered user of the physical device.Be sure to read through and complete the prerequisites from the Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices.</target>
+        </trans-unit>
+        <trans-unit id="0264e897-5738-44f0-8ceb-11656bd05079" xml:space="preserve">
+          <source>Open Server Manager and navigate to <bpt id="46768187-d64f-4451-89a6-569fb788504e">&lt;strong&gt;</bpt>Tools<ept id="46768187-d64f-4451-89a6-569fb788504e">&lt;/strong&gt;</ept> &gt; <bpt id="4dde43b0-8f87-4f5a-82e2-5b07d23487b5">&lt;strong&gt;</bpt>Group Policy Management<ept id="4dde43b0-8f87-4f5a-82e2-5b07d23487b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open Server Manager and navigate to <bpt id="46768187-d64f-4451-89a6-569fb788504e">&lt;strong&gt;</bpt>Tools<ept id="46768187-d64f-4451-89a6-569fb788504e">&lt;/strong&gt;</ept> &gt; <bpt id="4dde43b0-8f87-4f5a-82e2-5b07d23487b5">&lt;strong&gt;</bpt>Group Policy Management<ept id="4dde43b0-8f87-4f5a-82e2-5b07d23487b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d759f39-69d6-4d68-a4f8-6be7ca407b87" xml:space="preserve">
+          <source>From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable <bpt id="6e7e83f5-0112-4592-8979-93ba0ebcf755">&lt;strong&gt;</bpt>Automatic Workplace Join<ept id="6e7e83f5-0112-4592-8979-93ba0ebcf755">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable <bpt id="6e7e83f5-0112-4592-8979-93ba0ebcf755">&lt;strong&gt;</bpt>Automatic Workplace Join<ept id="6e7e83f5-0112-4592-8979-93ba0ebcf755">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9407d91-c0f8-470f-b8d8-834d73d95322" xml:space="preserve">
+          <source>Right-click <bpt id="a6a08337-51f5-4f6b-bbed-cd169264abba">&lt;strong&gt;</bpt>Group Policy Objects<ept id="a6a08337-51f5-4f6b-bbed-cd169264abba">&lt;/strong&gt;</ept> and select <bpt id="fe7068ec-b80f-44b1-9bb6-244bc8dbb157">&lt;strong&gt;</bpt>New<ept id="fe7068ec-b80f-44b1-9bb6-244bc8dbb157">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="a6a08337-51f5-4f6b-bbed-cd169264abba">&lt;strong&gt;</bpt>Group Policy Objects<ept id="a6a08337-51f5-4f6b-bbed-cd169264abba">&lt;/strong&gt;</ept> and select <bpt id="fe7068ec-b80f-44b1-9bb6-244bc8dbb157">&lt;strong&gt;</bpt>New<ept id="fe7068ec-b80f-44b1-9bb6-244bc8dbb157">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="445b84cc-e96a-4947-b432-ac49dba882bf" xml:space="preserve">
+          <source>Give your Group Policy object a name, for example, <bpt id="d2f951a5-e2e8-41ba-b7df-b7c1c6695ddd">&lt;strong&gt;</bpt>Automatic Workplace Join<ept id="d2f951a5-e2e8-41ba-b7df-b7c1c6695ddd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Give your Group Policy object a name, for example, <bpt id="d2f951a5-e2e8-41ba-b7df-b7c1c6695ddd">&lt;strong&gt;</bpt>Automatic Workplace Join<ept id="d2f951a5-e2e8-41ba-b7df-b7c1c6695ddd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec41b746-3f8c-4e38-90b8-6534feadc201" xml:space="preserve">
+          <source>Click <bpt id="b14b4667-011f-45ee-926d-8175eb18df16">&lt;strong&gt;</bpt>OK<ept id="b14b4667-011f-45ee-926d-8175eb18df16">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b14b4667-011f-45ee-926d-8175eb18df16">&lt;strong&gt;</bpt>OK<ept id="b14b4667-011f-45ee-926d-8175eb18df16">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e026f397-ef44-4d77-b65c-edaeabcaaece" xml:space="preserve">
+          <source>Right-click on your new Group Policy object and then select <bpt id="70c51494-63a7-46fb-b2b5-a83d89b7628d">&lt;strong&gt;</bpt>Edit<ept id="70c51494-63a7-46fb-b2b5-a83d89b7628d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click on your new Group Policy object and then select <bpt id="70c51494-63a7-46fb-b2b5-a83d89b7628d">&lt;strong&gt;</bpt>Edit<ept id="70c51494-63a7-46fb-b2b5-a83d89b7628d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8bc8ae5f-c609-4a00-9a95-259d17eed7e5" xml:space="preserve">
+          <source>Navigate to <bpt id="8450349f-0318-430b-b292-3e61b9e324d4">&lt;strong&gt;</bpt>Computer Configuration<ept id="8450349f-0318-430b-b292-3e61b9e324d4">&lt;/strong&gt;</ept> &gt; <bpt id="b589d3b2-c144-457b-b1b7-bc3965181308">&lt;strong&gt;</bpt>Policies<ept id="b589d3b2-c144-457b-b1b7-bc3965181308">&lt;/strong&gt;</ept> &gt; <bpt id="b60c4f12-7cc6-491a-87ef-2c99ee275428">&lt;strong&gt;</bpt>Administrative Templates<ept id="b60c4f12-7cc6-491a-87ef-2c99ee275428">&lt;/strong&gt;</ept> &gt; <bpt id="5fcf3f1d-28c8-481b-82e8-67941f049e02">&lt;strong&gt;</bpt>Windows Components<ept id="5fcf3f1d-28c8-481b-82e8-67941f049e02">&lt;/strong&gt;</ept> &gt; <bpt id="b33b28f6-19ea-46c3-a30c-83b814d9dd81">&lt;strong&gt;</bpt>Workplace Join<ept id="b33b28f6-19ea-46c3-a30c-83b814d9dd81">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to <bpt id="8450349f-0318-430b-b292-3e61b9e324d4">&lt;strong&gt;</bpt>Computer Configuration<ept id="8450349f-0318-430b-b292-3e61b9e324d4">&lt;/strong&gt;</ept> &gt; <bpt id="b589d3b2-c144-457b-b1b7-bc3965181308">&lt;strong&gt;</bpt>Policies<ept id="b589d3b2-c144-457b-b1b7-bc3965181308">&lt;/strong&gt;</ept> &gt; <bpt id="b60c4f12-7cc6-491a-87ef-2c99ee275428">&lt;strong&gt;</bpt>Administrative Templates<ept id="b60c4f12-7cc6-491a-87ef-2c99ee275428">&lt;/strong&gt;</ept> &gt; <bpt id="5fcf3f1d-28c8-481b-82e8-67941f049e02">&lt;strong&gt;</bpt>Windows Components<ept id="5fcf3f1d-28c8-481b-82e8-67941f049e02">&lt;/strong&gt;</ept> &gt; <bpt id="b33b28f6-19ea-46c3-a30c-83b814d9dd81">&lt;strong&gt;</bpt>Workplace Join<ept id="b33b28f6-19ea-46c3-a30c-83b814d9dd81">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34013b0a-874b-4849-8f7d-048113e3e1fe" xml:space="preserve">
+          <source>Right-click Automatically workplace join client computers and then select <bpt id="f94f62aa-8ffc-45a6-a42b-cea0eb398ebc">&lt;strong&gt;</bpt>Edit<ept id="f94f62aa-8ffc-45a6-a42b-cea0eb398ebc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click Automatically workplace join client computers and then select <bpt id="f94f62aa-8ffc-45a6-a42b-cea0eb398ebc">&lt;strong&gt;</bpt>Edit<ept id="f94f62aa-8ffc-45a6-a42b-cea0eb398ebc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bcd60601-6c93-49aa-92bb-ee5399236e7e" xml:space="preserve">
+          <source>Select the Enabled radio button and then click Apply.</source>
+          <target state="new">Select the Enabled radio button and then click Apply.</target>
+        </trans-unit>
+        <trans-unit id="9e2cc0f4-b284-42c9-b481-0cd7209bfd8c" xml:space="preserve">
+          <source>Click <bpt id="531b3f76-829f-4d17-89b2-da5273a079e5">&lt;strong&gt;</bpt>OK<ept id="531b3f76-829f-4d17-89b2-da5273a079e5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="531b3f76-829f-4d17-89b2-da5273a079e5">&lt;strong&gt;</bpt>OK<ept id="531b3f76-829f-4d17-89b2-da5273a079e5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1aff26c7-f96e-4a47-bff9-9794ba0f2c44" xml:space="preserve">
+          <source>You may now link the Group Policy object to a location of your choice.</source>
+          <target state="new">You may now link the Group Policy object to a location of your choice.</target>
+        </trans-unit>
+        <trans-unit id="34c4df69-3d9f-4e0d-bbc6-ef7dab18a2d3" xml:space="preserve">
+          <source>To enable this policy for all of the domain joined Windows 8.1 devices at your organization, link the Group Policy to the domain.</source>
+          <target state="new">To enable this policy for all of the domain joined Windows 8.1 devices at your organization, link the Group Policy to the domain.</target>
+        </trans-unit>
+        <trans-unit id="87ec84d6-e188-4ff0-927f-28b0c116a342" xml:space="preserve">
+          <source>You may choose unregister your domain joined Windows 8.1 devices by doing the following:
+Modify the Workplace Join Group Policy settings created in the previous section.</source>
+          <target state="new">You may choose unregister your domain joined Windows 8.1 devices by doing the following:
+Modify the Workplace Join Group Policy settings created in the previous section.</target>
+        </trans-unit>
+        <trans-unit id="6bbd5088-78a0-4c5d-ab0a-7d3ba56a1794" xml:space="preserve">
+          <source>Set the Automatically workplace join client computers policy to disabled.</source>
+          <target state="new">Set the Automatically workplace join client computers policy to disabled.</target>
+        </trans-unit>
+        <trans-unit id="05065505-eea2-4105-a632-cc1caa5d3dcc" xml:space="preserve">
+          <source>This will prevent new devices from automatically joining the workplace.</source>
+          <target state="new">This will prevent new devices from automatically joining the workplace.</target>
+        </trans-unit>
+        <trans-unit id="6db6ba62-8279-481e-a771-566433ad476a" xml:space="preserve">
+          <source>Unregister the existing domain joined Windows 8.1 machines by following one of the two options below:</source>
+          <target state="new">Unregister the existing domain joined Windows 8.1 machines by following one of the two options below:</target>
+        </trans-unit>
+        <trans-unit id="947ff610-869e-45cc-bcfd-8d2b7e8e5e3d" xml:space="preserve">
+          <source>Option 1: <bpt id="39453b7d-55c6-4883-a4b9-7447abe56cf9">&lt;strong&gt;</bpt>Unregister a Windows 8.1 domain joined device using PC Settings<ept id="39453b7d-55c6-4883-a4b9-7447abe56cf9">&lt;/strong&gt;</ept></source>
+          <target state="new">Option 1: <bpt id="39453b7d-55c6-4883-a4b9-7447abe56cf9">&lt;strong&gt;</bpt>Unregister a Windows 8.1 domain joined device using PC Settings<ept id="39453b7d-55c6-4883-a4b9-7447abe56cf9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e436b17d-7d15-420e-805f-91c3921ea429" xml:space="preserve">
+          <source>On the Windows 8.1 device, navigate to <bpt id="8ba9f9a6-4a12-4d4d-a23b-322191ad76fc">&lt;strong&gt;</bpt>PC Settings<ept id="8ba9f9a6-4a12-4d4d-a23b-322191ad76fc">&lt;/strong&gt;</ept> &gt; <bpt id="61f9c01e-c75d-4e88-a5d2-f16df94923d6">&lt;strong&gt;</bpt>Network<ept id="61f9c01e-c75d-4e88-a5d2-f16df94923d6">&lt;/strong&gt;</ept> &gt; <bpt id="98150cb6-b12a-4691-9bf7-006581fb2cb3">&lt;strong&gt;</bpt>Workplace<ept id="98150cb6-b12a-4691-9bf7-006581fb2cb3">&lt;/strong&gt;</ept></source>
+          <target state="new">On the Windows 8.1 device, navigate to <bpt id="8ba9f9a6-4a12-4d4d-a23b-322191ad76fc">&lt;strong&gt;</bpt>PC Settings<ept id="8ba9f9a6-4a12-4d4d-a23b-322191ad76fc">&lt;/strong&gt;</ept> &gt; <bpt id="61f9c01e-c75d-4e88-a5d2-f16df94923d6">&lt;strong&gt;</bpt>Network<ept id="61f9c01e-c75d-4e88-a5d2-f16df94923d6">&lt;/strong&gt;</ept> &gt; <bpt id="98150cb6-b12a-4691-9bf7-006581fb2cb3">&lt;strong&gt;</bpt>Workplace<ept id="98150cb6-b12a-4691-9bf7-006581fb2cb3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="669e6503-9b7d-4eda-9b7d-305aff74779a" xml:space="preserve">
+          <source>Select <bpt id="37e030e5-3469-46fa-99c8-c14e989a698e">&lt;strong&gt;</bpt>Leave<ept id="37e030e5-3469-46fa-99c8-c14e989a698e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="37e030e5-3469-46fa-99c8-c14e989a698e">&lt;strong&gt;</bpt>Leave<ept id="37e030e5-3469-46fa-99c8-c14e989a698e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94d3a88b-c39d-4b46-a6b7-b17ff38ca425" xml:space="preserve">
+          <source>This process must be repeated for each domain user that has signed into the machine and has been automatically workplace joined.</source>
+          <target state="new">This process must be repeated for each domain user that has signed into the machine and has been automatically workplace joined.</target>
+        </trans-unit>
+        <trans-unit id="62b2e5c2-fa40-4f8f-b568-2f94e8abca20" xml:space="preserve">
+          <source>Option 2: Unregister a Windows 8.1 domain joined device using a script</source>
+          <target state="new">Option 2: Unregister a Windows 8.1 domain joined device using a script</target>
+        </trans-unit>
+        <trans-unit id="35a6138f-97a9-4dad-a2bc-c978e6fe5233" xml:space="preserve">
+          <source>Open a command prompt on the Windows 8.1 machine and execute the following command:
+<bpt id="2b4feedc-b1bd-49da-b264-699a6eb684a2">&lt;code&gt;</bpt> %SystemRoot%\System32\AutoWorkplace.exe leave<ept id="2b4feedc-b1bd-49da-b264-699a6eb684a2">&lt;/code&gt;</ept></source>
+          <target state="new">Open a command prompt on the Windows 8.1 machine and execute the following command:
+<bpt id="2b4feedc-b1bd-49da-b264-699a6eb684a2">&lt;code&gt;</bpt> %SystemRoot%\System32\AutoWorkplace.exe leave<ept id="2b4feedc-b1bd-49da-b264-699a6eb684a2">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86f27551-84e1-437e-8bcb-7f157adf36a8" xml:space="preserve">
+          <source>This command must be run in the context of each domain user that has signed into the machine.
+Event Viewer &amp; Errors for Windows 8.1 domain joined devices</source>
+          <target state="new">This command must be run in the context of each domain user that has signed into the machine.
+Event Viewer &amp; Errors for Windows 8.1 domain joined devices</target>
+        </trans-unit>
+        <trans-unit id="587dfafc-70e7-4c92-949a-ceb3e8c9756b" xml:space="preserve">
+          <source>The Windows Event Log on the Windows 8.1 machine will display messages related to device registration.</source>
+          <target state="new">The Windows Event Log on the Windows 8.1 machine will display messages related to device registration.</target>
+        </trans-unit>
+        <trans-unit id="8ffd36a8-e94c-433f-8585-61cf38476664" xml:space="preserve">
+          <source>You will find messages for both successful and unsuccessful events.</source>
+          <target state="new">You will find messages for both successful and unsuccessful events.</target>
+        </trans-unit>
+        <trans-unit id="273ffe06-3d41-48c0-8af7-84d4c0b0dc55" xml:space="preserve">
+          <source>The Event Log can be found in the Event Viewer under Applications and Services <bpt id="1fedc158-75ed-444d-a48d-0cd2ba832a85">&lt;strong&gt;</bpt>Logs<ept id="1fedc158-75ed-444d-a48d-0cd2ba832a85">&lt;/strong&gt;</ept> &gt; <bpt id="22f1136d-9aaf-4253-841d-4316f9d57d4e">&lt;strong&gt;</bpt>Microsoft<ept id="22f1136d-9aaf-4253-841d-4316f9d57d4e">&lt;/strong&gt;</ept> &gt; <bpt id="de24f089-6661-467f-ad20-3452e2d8f63a">&lt;strong&gt;</bpt>Windows &gt; Workplace Join<ept id="de24f089-6661-467f-ad20-3452e2d8f63a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The Event Log can be found in the Event Viewer under Applications and Services <bpt id="1fedc158-75ed-444d-a48d-0cd2ba832a85">&lt;strong&gt;</bpt>Logs<ept id="1fedc158-75ed-444d-a48d-0cd2ba832a85">&lt;/strong&gt;</ept> &gt; <bpt id="22f1136d-9aaf-4253-841d-4316f9d57d4e">&lt;strong&gt;</bpt>Microsoft<ept id="22f1136d-9aaf-4253-841d-4316f9d57d4e">&lt;/strong&gt;</ept> &gt; <bpt id="de24f089-6661-467f-ad20-3452e2d8f63a">&lt;strong&gt;</bpt>Windows &gt; Workplace Join<ept id="de24f089-6661-467f-ad20-3452e2d8f63a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84700023-fe19-480b-8ab6-ebc5913ca66e" xml:space="preserve">
+          <source>The Group Policy enables a Scheduled Task on the system that runs in the user’s context and is triggered on user sign-in.</source>
+          <target state="new">The Group Policy enables a Scheduled Task on the system that runs in the user’s context and is triggered on user sign-in.</target>
+        </trans-unit>
+        <trans-unit id="af66daba-7835-4ce5-9c8d-d3f67c2d87ae" xml:space="preserve">
+          <source>The task will silently register the user and device with Azure AD after the sign-in is complete.</source>
+          <target state="new">The task will silently register the user and device with Azure AD after the sign-in is complete.</target>
+        </trans-unit>
+        <trans-unit id="f72b8ac5-e246-4dc2-b8e6-e5aeb52bb06a" xml:space="preserve">
+          <source>The Scheduled Task can be found on Windows 8.1 devices in the Task Scheduler Library under <bpt id="d96e1b01-1215-439c-8879-7b69c4cf31e4">&lt;strong&gt;</bpt>Microsoft<ept id="d96e1b01-1215-439c-8879-7b69c4cf31e4">&lt;/strong&gt;</ept> &gt; <bpt id="22458d79-ac88-4f32-80e4-b2578ec84613">&lt;strong&gt;</bpt>Windows<ept id="22458d79-ac88-4f32-80e4-b2578ec84613">&lt;/strong&gt;</ept> &gt; <bpt id="f6b1e7be-d20a-4819-9e0f-2b1626e24ae0">&lt;strong&gt;</bpt>Workplace Join<ept id="f6b1e7be-d20a-4819-9e0f-2b1626e24ae0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The Scheduled Task can be found on Windows 8.1 devices in the Task Scheduler Library under <bpt id="d96e1b01-1215-439c-8879-7b69c4cf31e4">&lt;strong&gt;</bpt>Microsoft<ept id="d96e1b01-1215-439c-8879-7b69c4cf31e4">&lt;/strong&gt;</ept> &gt; <bpt id="22458d79-ac88-4f32-80e4-b2578ec84613">&lt;strong&gt;</bpt>Windows<ept id="22458d79-ac88-4f32-80e4-b2578ec84613">&lt;/strong&gt;</ept> &gt; <bpt id="f6b1e7be-d20a-4819-9e0f-2b1626e24ae0">&lt;strong&gt;</bpt>Workplace Join<ept id="f6b1e7be-d20a-4819-9e0f-2b1626e24ae0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="42413b00-67d4-4a54-8746-b22ea79edc53" xml:space="preserve">
+          <source>The task will run and register any and all Active Directory users that sign-into.</source>
+          <target state="new">The task will run and register any and all Active Directory users that sign-into.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

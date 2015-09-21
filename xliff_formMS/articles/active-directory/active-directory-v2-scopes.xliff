@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bc9c98bd-2f0e-4a6f-a013-638d9d8b0167" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bc9c98bd-2f0e-4a6f-a013-638d9d8b0167" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ec19424e-32c4-430b-99ad-ef3ad90286b8">
+        <trans-unit id="f90ebfc3-c263-4c5a-8067-28ca280cba03" xml:space="preserve">
+          <source>App Model v2.0 | Microsoft Azure</source>
+          <target state="new">App Model v2.0 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b940b8dd-065a-4f52-9850-f8b65716eb18" xml:space="preserve">
+          <source>A description of authorization in the Azure AD v2.0 app model, including scopes, permissions, and consent.</source>
+          <target state="new">A description of authorization in the Azure AD v2.0 app model, including scopes, permissions, and consent.</target>
+        </trans-unit>
+        <trans-unit id="f16cb0e2-7332-4354-97b0-b446865e2f3d" xml:space="preserve">
+          <source>Apps that integrate with Azure AD follow a particular authorization model that allows users to control how an app can access their data.</source>
+          <target state="new">Apps that integrate with Azure AD follow a particular authorization model that allows users to control how an app can access their data.</target>
+        </trans-unit>
+        <trans-unit id="26cb7128-04ff-46ba-97c3-e38dc0218600" xml:space="preserve">
+          <source>In app model v2.0, the implementation of this authorization model has been updated, changing how an app must interact with Azure AD.</source>
+          <target state="new">In app model v2.0, the implementation of this authorization model has been updated, changing how an app must interact with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="94e76dda-0a4c-4c80-88f4-3cf210e2ef3f" xml:space="preserve">
+          <source>This topic covers the basic concepts of this authorization model, including scopes, permissions, and consent.</source>
+          <target state="new">This topic covers the basic concepts of this authorization model, including scopes, permissions, and consent.</target>
+        </trans-unit>
+        <trans-unit id="c998ff79-80de-4994-838b-cd8343d233d9" xml:space="preserve">
+          <source>This information applies to the v2.0 app model public preview.</source>
+          <target state="new">This information applies to the v2.0 app model public preview.</target>
+        </trans-unit>
+        <trans-unit id="da3d1652-c5b8-4691-a865-379f85b631b0" xml:space="preserve">
+          <source>For instructions on how to integrate with the generally available Azure AD service, please refer to the <bpt id="25e4f041-5e5c-4d82-8ac1-9c98cc4be12d">&lt;linkText&gt;</bpt>Azure Active Directory Developer Guide<ept id="25e4f041-5e5c-4d82-8ac1-9c98cc4be12d">&lt;/linkText&gt;</ept><bpt id="25e4f041-5e5c-4d82-8ac1-9c98cc4be12d">&lt;title&gt;</bpt><ept id="25e4f041-5e5c-4d82-8ac1-9c98cc4be12d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on how to integrate with the generally available Azure AD service, please refer to the <bpt id="25e4f041-5e5c-4d82-8ac1-9c98cc4be12d">&lt;linkText&gt;</bpt>Azure Active Directory Developer Guide<ept id="25e4f041-5e5c-4d82-8ac1-9c98cc4be12d">&lt;/linkText&gt;</ept><bpt id="25e4f041-5e5c-4d82-8ac1-9c98cc4be12d">&lt;title&gt;</bpt><ept id="25e4f041-5e5c-4d82-8ac1-9c98cc4be12d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f5396d5-92dd-47a6-b542-7d95efa8e684" xml:space="preserve">
+          <source>App model v2.0 implements the <bpt id="5fe182db-8887-4230-a690-1bc7d5a6fd23">&lt;linkText&gt;</bpt>OAuth 2.0<ept id="5fe182db-8887-4230-a690-1bc7d5a6fd23">&lt;/linkText&gt;</ept><bpt id="5fe182db-8887-4230-a690-1bc7d5a6fd23">&lt;title&gt;</bpt><ept id="5fe182db-8887-4230-a690-1bc7d5a6fd23">&lt;/title&gt;</ept> authorization protocol, which is a method for allowing a 3rd party app to access web-hosted resources on behalf of a user.</source>
+          <target state="new">App model v2.0 implements the <bpt id="5fe182db-8887-4230-a690-1bc7d5a6fd23">&lt;linkText&gt;</bpt>OAuth 2.0<ept id="5fe182db-8887-4230-a690-1bc7d5a6fd23">&lt;/linkText&gt;</ept><bpt id="5fe182db-8887-4230-a690-1bc7d5a6fd23">&lt;title&gt;</bpt><ept id="5fe182db-8887-4230-a690-1bc7d5a6fd23">&lt;/title&gt;</ept> authorization protocol, which is a method for allowing a 3rd party app to access web-hosted resources on behalf of a user.</target>
+        </trans-unit>
+        <trans-unit id="8c2919c8-2241-428e-ac2f-321aefc61791" xml:space="preserve">
+          <source>Any web-hosted resource that integrates with Azure AD will have a resource identifier, or <bpt id="b7fd3c65-362c-492e-98f9-1702a5c7417f">&lt;strong&gt;</bpt>App ID URI<ept id="b7fd3c65-362c-492e-98f9-1702a5c7417f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Any web-hosted resource that integrates with Azure AD will have a resource identifier, or <bpt id="b7fd3c65-362c-492e-98f9-1702a5c7417f">&lt;strong&gt;</bpt>App ID URI<ept id="b7fd3c65-362c-492e-98f9-1702a5c7417f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f16944c-ce80-4290-b7ca-3f7c058eabe0" xml:space="preserve">
+          <source>For example, some of Microsoft's web-hosted resources include:</source>
+          <target state="new">For example, some of Microsoft's web-hosted resources include:</target>
+        </trans-unit>
+        <trans-unit id="b3d5332e-0864-4aa6-a0cf-03cc1da09134" xml:space="preserve">
+          <source>The Office 365 Unified Mail API: <bpt id="c8db3422-a244-463b-8798-3eb77ee0bb11">&lt;code&gt;</bpt>https://outlook.office.com<ept id="c8db3422-a244-463b-8798-3eb77ee0bb11">&lt;/code&gt;</ept></source>
+          <target state="new">The Office 365 Unified Mail API: <bpt id="c8db3422-a244-463b-8798-3eb77ee0bb11">&lt;code&gt;</bpt>https://outlook.office.com<ept id="c8db3422-a244-463b-8798-3eb77ee0bb11">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9131d0b-eb09-4f3b-b39b-b4ac06a9932e" xml:space="preserve">
+          <source>The Azure Resource Manager API: <bpt id="bd36bcaa-66b6-4279-9693-c569f79b4359">&lt;code&gt;</bpt>https://management.azure.com<ept id="bd36bcaa-66b6-4279-9693-c569f79b4359">&lt;/code&gt;</ept></source>
+          <target state="new">The Azure Resource Manager API: <bpt id="bd36bcaa-66b6-4279-9693-c569f79b4359">&lt;code&gt;</bpt>https://management.azure.com<ept id="bd36bcaa-66b6-4279-9693-c569f79b4359">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e96e4f7-fc52-4adb-a7d9-b0bc53683f23" xml:space="preserve">
+          <source>The Azure AD Graph API: <bpt id="2b4ecdd4-4186-4e66-b6d3-cd184008d53b">&lt;code&gt;</bpt>https://graph.windows.net<ept id="2b4ecdd4-4186-4e66-b6d3-cd184008d53b">&lt;/code&gt;</ept></source>
+          <target state="new">The Azure AD Graph API: <bpt id="2b4ecdd4-4186-4e66-b6d3-cd184008d53b">&lt;code&gt;</bpt>https://graph.windows.net<ept id="2b4ecdd4-4186-4e66-b6d3-cd184008d53b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="def10092-fca4-472b-9c1d-49a4bc5c3f87" xml:space="preserve">
+          <source>The same is true for any 3rd party resources that has integrated with Azure AD.</source>
+          <target state="new">The same is true for any 3rd party resources that has integrated with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="d1da89f8-2882-4179-bdbd-096ec46bfdd9" xml:space="preserve">
+          <source>Any of these resources can also define a set of permissions that can be used to divide up the functionality of that resource into smaller chunks.</source>
+          <target state="new">Any of these resources can also define a set of permissions that can be used to divide up the functionality of that resource into smaller chunks.</target>
+        </trans-unit>
+        <trans-unit id="cb8a1380-f8f2-4e46-9445-31e68685d76d" xml:space="preserve">
+          <source>As an example, the Office 365 Unified Mail API has defined these basic permissions:</source>
+          <target state="new">As an example, the Office 365 Unified Mail API has defined these basic permissions:</target>
+        </trans-unit>
+        <trans-unit id="76124ea5-f090-4b83-b801-c46cd8529209" xml:space="preserve">
+          <source>Read a user's mailbox</source>
+          <target state="new">Read a user's mailbox</target>
+        </trans-unit>
+        <trans-unit id="8d8e14f1-b1ec-418c-a597-880a513bae7a" xml:space="preserve">
+          <source>Write to a user's mailbox</source>
+          <target state="new">Write to a user's mailbox</target>
+        </trans-unit>
+        <trans-unit id="c2684c9a-ae0d-45b3-9212-2f38c12896d1" xml:space="preserve">
+          <source>Send mail as a user</source>
+          <target state="new">Send mail as a user</target>
+        </trans-unit>
+        <trans-unit id="91c562c5-1322-4e38-b8fe-3a14c12d2e67" xml:space="preserve">
+          <source>By defining these permissions, the resource can have fine-grained control over its data and how it is exposed to the outside world.</source>
+          <target state="new">By defining these permissions, the resource can have fine-grained control over its data and how it is exposed to the outside world.</target>
+        </trans-unit>
+        <trans-unit id="28c40c72-1eeb-42b8-9977-d32cc288edcd" xml:space="preserve">
+          <source>A 3rd party app can then request these permissions from an end user - and the end-user must approve the permissions before the app can act on their behalf.</source>
+          <target state="new">A 3rd party app can then request these permissions from an end user - and the end-user must approve the permissions before the app can act on their behalf.</target>
+        </trans-unit>
+        <trans-unit id="06beb234-92b8-4642-8bbf-be16435e8ae6" xml:space="preserve">
+          <source>By chunking the resource's functionality into smaller permission sets, 3rd party apps can be built to request only the specific permissions that they need in order to perform their duty.</source>
+          <target state="new">By chunking the resource's functionality into smaller permission sets, 3rd party apps can be built to request only the specific permissions that they need in order to perform their duty.</target>
+        </trans-unit>
+        <trans-unit id="bc16f680-4cc7-4c41-a22d-fb4f4e6bd64b" xml:space="preserve">
+          <source>It also enables end users to know exactly how an app will use their data, so that they are more confident that the app is not behaving with malicious intent.</source>
+          <target state="new">It also enables end users to know exactly how an app will use their data, so that they are more confident that the app is not behaving with malicious intent.</target>
+        </trans-unit>
+        <trans-unit id="1e1b13a9-1c74-4df9-b1a6-2f46990ba27d" xml:space="preserve">
+          <source>In Azure AD and OAuth, these permissions are known as <bpt id="8a6ad448-b480-4906-81fb-5cd833284a47">&lt;strong&gt;</bpt>scopes<ept id="8a6ad448-b480-4906-81fb-5cd833284a47">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Azure AD and OAuth, these permissions are known as <bpt id="8a6ad448-b480-4906-81fb-5cd833284a47">&lt;strong&gt;</bpt>scopes<ept id="8a6ad448-b480-4906-81fb-5cd833284a47">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e438ef4-6def-4b33-8087-6093e70aa8c8" xml:space="preserve">
+          <source>You may also see them referred to as <bpt id="169fa89a-f78b-46bc-8e3b-6d1fcfaaf2b2">&lt;strong&gt;</bpt>oAuth2Permissions<ept id="169fa89a-f78b-46bc-8e3b-6d1fcfaaf2b2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You may also see them referred to as <bpt id="169fa89a-f78b-46bc-8e3b-6d1fcfaaf2b2">&lt;strong&gt;</bpt>oAuth2Permissions<ept id="169fa89a-f78b-46bc-8e3b-6d1fcfaaf2b2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17f27020-e1a1-4fdf-8686-ff4dc2735155" xml:space="preserve">
+          <source>A scope is represented in Azure AD as a string value.</source>
+          <target state="new">A scope is represented in Azure AD as a string value.</target>
+        </trans-unit>
+        <trans-unit id="d6b46ce4-d698-4dad-bb99-e21e53af0405" xml:space="preserve">
+          <source>Sticking with the Office 365 Unified Mail API example, the scope value for each permission is:</source>
+          <target state="new">Sticking with the Office 365 Unified Mail API example, the scope value for each permission is:</target>
+        </trans-unit>
+        <trans-unit id="716f1f91-cdb4-472b-a98e-b96cc53489d9" xml:space="preserve">
+          <source>Read a user's mailbox: <bpt id="bd64e7b7-d441-46a5-a145-7b2047ab3292">&lt;code&gt;</bpt>Mail.Read<ept id="bd64e7b7-d441-46a5-a145-7b2047ab3292">&lt;/code&gt;</ept></source>
+          <target state="new">Read a user's mailbox: <bpt id="bd64e7b7-d441-46a5-a145-7b2047ab3292">&lt;code&gt;</bpt>Mail.Read<ept id="bd64e7b7-d441-46a5-a145-7b2047ab3292">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff06509a-c42a-467f-9fca-ec7dc3c795d1" xml:space="preserve">
+          <source>Write to a user's mailbox: <bpt id="e20c80eb-d2f9-4e16-b93a-6f42d162f8e7">&lt;code&gt;</bpt>Mail.ReadWrite<ept id="e20c80eb-d2f9-4e16-b93a-6f42d162f8e7">&lt;/code&gt;</ept></source>
+          <target state="new">Write to a user's mailbox: <bpt id="e20c80eb-d2f9-4e16-b93a-6f42d162f8e7">&lt;code&gt;</bpt>Mail.ReadWrite<ept id="e20c80eb-d2f9-4e16-b93a-6f42d162f8e7">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e15d639-ade2-4c38-9e4a-2166e2126b10" xml:space="preserve">
+          <source>Send mail as a user: <bpt id="203d36ab-cb31-4454-af3e-f1b6dd064da0">&lt;code&gt;</bpt>Mail.Send<ept id="203d36ab-cb31-4454-af3e-f1b6dd064da0">&lt;/code&gt;</ept></source>
+          <target state="new">Send mail as a user: <bpt id="203d36ab-cb31-4454-af3e-f1b6dd064da0">&lt;code&gt;</bpt>Mail.Send<ept id="203d36ab-cb31-4454-af3e-f1b6dd064da0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f38fb3c-0f31-4338-ad51-c68e17b196ce" xml:space="preserve">
+          <source>An app can request these permissions by specifying the scopes in requests to the v2.0 endpoint, as described below.</source>
+          <target state="new">An app can request these permissions by specifying the scopes in requests to the v2.0 endpoint, as described below.</target>
+        </trans-unit>
+        <trans-unit id="db0ca818-c34a-4bae-8317-7382adf4411f" xml:space="preserve">
+          <source>In an <bpt id="d8803617-40ba-4da7-b78f-3717f4b403f2">&lt;linkText&gt;</bpt>OpenID Connect or OAuth 2.0<ept id="d8803617-40ba-4da7-b78f-3717f4b403f2">&lt;/linkText&gt;</ept><bpt id="d8803617-40ba-4da7-b78f-3717f4b403f2">&lt;title&gt;</bpt><ept id="d8803617-40ba-4da7-b78f-3717f4b403f2">&lt;/title&gt;</ept> authorization request, an app can request the permissions it needs using the <bpt id="59dcc5ad-96f0-4bb9-bf94-8482a2088dbe">&lt;code&gt;</bpt>scope<ept id="59dcc5ad-96f0-4bb9-bf94-8482a2088dbe">&lt;/code&gt;</ept> query parameter.</source>
+          <target state="new">In an <bpt id="d8803617-40ba-4da7-b78f-3717f4b403f2">&lt;linkText&gt;</bpt>OpenID Connect or OAuth 2.0<ept id="d8803617-40ba-4da7-b78f-3717f4b403f2">&lt;/linkText&gt;</ept><bpt id="d8803617-40ba-4da7-b78f-3717f4b403f2">&lt;title&gt;</bpt><ept id="d8803617-40ba-4da7-b78f-3717f4b403f2">&lt;/title&gt;</ept> authorization request, an app can request the permissions it needs using the <bpt id="59dcc5ad-96f0-4bb9-bf94-8482a2088dbe">&lt;code&gt;</bpt>scope<ept id="59dcc5ad-96f0-4bb9-bf94-8482a2088dbe">&lt;/code&gt;</ept> query parameter.</target>
+        </trans-unit>
+        <trans-unit id="3275cc1d-e78a-4525-96e8-3d2f005e11a0" xml:space="preserve">
+          <source>For example, when a user signs into an app, the app would send a request like the following (with line breaks for readability):</source>
+          <target state="new">For example, when a user signs into an app, the app would send a request like the following (with line breaks for readability):</target>
+        </trans-unit>
+        <trans-unit id="0f9e855d-c3a8-4a59-8e36-5bd154039295" xml:space="preserve">
+          <source>The <bpt id="100ac1e1-4241-49a7-b91a-518b396cd8b0">&lt;code&gt;</bpt>scope<ept id="100ac1e1-4241-49a7-b91a-518b396cd8b0">&lt;/code&gt;</ept> parameter is a space-separated list of scopes that the app is requesting.</source>
+          <target state="new">The <bpt id="100ac1e1-4241-49a7-b91a-518b396cd8b0">&lt;code&gt;</bpt>scope<ept id="100ac1e1-4241-49a7-b91a-518b396cd8b0">&lt;/code&gt;</ept> parameter is a space-separated list of scopes that the app is requesting.</target>
+        </trans-unit>
+        <trans-unit id="6b0cc95a-db06-4ac9-a756-c7748560ffdf" xml:space="preserve">
+          <source>Each individual scope is indicated by appending the scope value to the resource's identifier (App ID URI).</source>
+          <target state="new">Each individual scope is indicated by appending the scope value to the resource's identifier (App ID URI).</target>
+        </trans-unit>
+        <trans-unit id="8eff25b6-4f12-441f-a41c-c461c8a6e6e7" xml:space="preserve">
+          <source>The above request indicates that the app needs permission to read the user's mailbox and send mail as the user.</source>
+          <target state="new">The above request indicates that the app needs permission to read the user's mailbox and send mail as the user.</target>
+        </trans-unit>
+        <trans-unit id="a49b1a9a-f954-48cf-b536-c596b397d343" xml:space="preserve">
+          <source>After the user enters their credentials, the v2.0 endpoint will check for a matching record of <bpt id="4000df1f-2468-45e4-9d4f-879485cca6c4">&lt;strong&gt;</bpt>user consent<ept id="4000df1f-2468-45e4-9d4f-879485cca6c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the user enters their credentials, the v2.0 endpoint will check for a matching record of <bpt id="4000df1f-2468-45e4-9d4f-879485cca6c4">&lt;strong&gt;</bpt>user consent<ept id="4000df1f-2468-45e4-9d4f-879485cca6c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7100c3b2-8817-492f-8635-ae11928efa43" xml:space="preserve">
+          <source>If the user has not consented to any of the requested permissions in the past, the v2.0 endpoint will ask the user to grant the requested permissions.</source>
+          <target state="new">If the user has not consented to any of the requested permissions in the past, the v2.0 endpoint will ask the user to grant the requested permissions.</target>
+        </trans-unit>
+        <trans-unit id="7948623f-50dd-4eed-83e1-6537ad59e759" xml:space="preserve">
+          <source><bpt id="ea722ce4-a289-4085-ba60-22282b3e7f49">&lt;linkText&gt;</bpt>Work Account Consent Screenshot<ept id="ea722ce4-a289-4085-ba60-22282b3e7f49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea722ce4-a289-4085-ba60-22282b3e7f49">&lt;linkText&gt;</bpt>Work Account Consent Screenshot<ept id="ea722ce4-a289-4085-ba60-22282b3e7f49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b52ab0f8-d008-4f23-ad9a-591334b436ff" xml:space="preserve">
+          <source>When the user approves the permission, the consent will be recorded so that the user does not have to re-consent on subsequent sign-ins.</source>
+          <target state="new">When the user approves the permission, the consent will be recorded so that the user does not have to re-consent on subsequent sign-ins.</target>
+        </trans-unit>
+        <trans-unit id="f1704652-2d00-49ca-89ac-97c36398eff3" xml:space="preserve">
+          <source>Your app does not have to ask for every permission it needs upon initial user sign-in or sign-up.</source>
+          <target state="new">Your app does not have to ask for every permission it needs upon initial user sign-in or sign-up.</target>
+        </trans-unit>
+        <trans-unit id="f427d9b4-e2a3-4af5-8be2-288a9b96aa0f" xml:space="preserve">
+          <source>Because you can specify scopes on a per-request basis, your app can perform "incremental consent", and choose when the best time to ask the user for consent will be.</source>
+          <target state="new">Because you can specify scopes on a per-request basis, your app can perform "incremental consent", and choose when the best time to ask the user for consent will be.</target>
+        </trans-unit>
+        <trans-unit id="f05562f9-eed2-41c2-a8f2-1ea928b56b02" xml:space="preserve">
+          <source>There are a few common reasons that an app might not ask for all permissions at once:</source>
+          <target state="new">There are a few common reasons that an app might not ask for all permissions at once:</target>
+        </trans-unit>
+        <trans-unit id="12a6ec69-4e9e-49dd-b869-4d4eee6f50db" xml:space="preserve">
+          <source>Apps that need many permissions.</source>
+          <target state="new">Apps that need many permissions.</target>
+        </trans-unit>
+        <trans-unit id="58153347-8c37-475b-86ce-55c42afde1ee" xml:space="preserve">
+          <source>If your app accesses many different resources and performs rich functionality at each one, the list of permissions your app needs can become long very quickly.</source>
+          <target state="new">If your app accesses many different resources and performs rich functionality at each one, the list of permissions your app needs can become long very quickly.</target>
+        </trans-unit>
+        <trans-unit id="9f3df49f-455f-430b-a8e7-38e8df992bff" xml:space="preserve">
+          <source>Historically, long lists of permissions have discouraged users from signing up for an app and decreased user adoption.</source>
+          <target state="new">Historically, long lists of permissions have discouraged users from signing up for an app and decreased user adoption.</target>
+        </trans-unit>
+        <trans-unit id="32122017-782c-4f4f-9e4c-1a099889e498" xml:space="preserve">
+          <source>Instead of asking for these permissions all at once, your app can ask for a subset upon initial sign-in, and then incrementally ask for additional permissions as the user attempts to use advanced features.</source>
+          <target state="new">Instead of asking for these permissions all at once, your app can ask for a subset upon initial sign-in, and then incrementally ask for additional permissions as the user attempts to use advanced features.</target>
+        </trans-unit>
+        <trans-unit id="929b4618-b92e-4ef6-a975-65a22fa9bd34" xml:space="preserve">
+          <source>Apps that grow over time.</source>
+          <target state="new">Apps that grow over time.</target>
+        </trans-unit>
+        <trans-unit id="8917c24f-559a-425c-8243-8697081d191d" xml:space="preserve">
+          <source>Almost every app begins with a smaller set of functionality and grow over time to incorporate new features.</source>
+          <target state="new">Almost every app begins with a smaller set of functionality and grow over time to incorporate new features.</target>
+        </trans-unit>
+        <trans-unit id="89646d1b-4634-4033-9fdc-2c9c4cfc8e69" xml:space="preserve">
+          <source>With incremental consent, you can easily make changes to your app and smoothly request new permissions from the user.</source>
+          <target state="new">With incremental consent, you can easily make changes to your app and smoothly request new permissions from the user.</target>
+        </trans-unit>
+        <trans-unit id="3bf4451a-2f57-43f5-9284-2600e6396d58" xml:space="preserve">
+          <source>You simply update your code to send additional scopes in authorization requests.</source>
+          <target state="new">You simply update your code to send additional scopes in authorization requests.</target>
+        </trans-unit>
+        <trans-unit id="e36a5744-41dc-4198-8c61-1f5b0d478f8b" xml:space="preserve">
+          <source>Admin-Only permissions.  Some resources will define permissions that <bpt id="c5eea206-d857-44e7-ae00-bed21b337900">&lt;strong&gt;</bpt>only<ept id="c5eea206-d857-44e7-ae00-bed21b337900">&lt;/strong&gt;</ept> an organization's administrator can consent to, or approve.  For example, the Azure AD Graph API defines the <bpt id="0e82b820-9b64-4a10-a6d8-8c6ee656d8a9">&lt;code&gt;</bpt>Directory.Write<ept id="0e82b820-9b64-4a10-a6d8-8c6ee656d8a9">&lt;/code&gt;</ept> permission, which allows an app to create, update, and delete users &amp; groups, amognst other things.  You can imagine why that permission might require approval from a highly privileged admin.  By using incremental consent, your app can expose a basic set of functionality that any user can sign up for without an admin's approval.  However, once they attempt to perform a highly-privileged action, you can request the admin-only permission and require that an admin signs up before accessing that portion of your app.</source>
+          <target state="new">Admin-Only permissions.  Some resources will define permissions that <bpt id="c5eea206-d857-44e7-ae00-bed21b337900">&lt;strong&gt;</bpt>only<ept id="c5eea206-d857-44e7-ae00-bed21b337900">&lt;/strong&gt;</ept> an organization's administrator can consent to, or approve.  For example, the Azure AD Graph API defines the <bpt id="0e82b820-9b64-4a10-a6d8-8c6ee656d8a9">&lt;code&gt;</bpt>Directory.Write<ept id="0e82b820-9b64-4a10-a6d8-8c6ee656d8a9">&lt;/code&gt;</ept> permission, which allows an app to create, update, and delete users &amp; groups, amognst other things.  You can imagine why that permission might require approval from a highly privileged admin.  By using incremental consent, your app can expose a basic set of functionality that any user can sign up for without an admin's approval.  However, once they attempt to perform a highly-privileged action, you can request the admin-only permission and require that an admin signs up before accessing that portion of your app.</target>
+        </trans-unit>
+        <trans-unit id="d24e33af-5908-497d-a584-1db312eae794" xml:space="preserve">
+          <source>After the user consents to permissions for your app, your app can acquire access tokens that represent your app's permission to access a resource in some capacity.</source>
+          <target state="new">After the user consents to permissions for your app, your app can acquire access tokens that represent your app's permission to access a resource in some capacity.</target>
+        </trans-unit>
+        <trans-unit id="c59a7ab9-20a2-4640-abdc-39e755cf718d" xml:space="preserve">
+          <source>A given access token can only be used for a single resorce, but encoded inside it will be every permission that your app has been granted for that resource.</source>
+          <target state="new">A given access token can only be used for a single resorce, but encoded inside it will be every permission that your app has been granted for that resource.</target>
+        </trans-unit>
+        <trans-unit id="10aec14b-f7fd-4174-b65f-231ff40fa841" xml:space="preserve">
+          <source>To acquire an access token, your app can make a request to the v2.0 token endpoint:</source>
+          <target state="new">To acquire an access token, your app can make a request to the v2.0 token endpoint:</target>
+        </trans-unit>
+        <trans-unit id="0946ce30-06e0-47dc-b13e-a875ccc65248" xml:space="preserve">
+          <source>The resulting access token can then be used in HTTP requests to the resource - it will reliably indicate to the resource that your app has the proper permission to perform a given task.</source>
+          <target state="new">The resulting access token can then be used in HTTP requests to the resource - it will reliably indicate to the resource that your app has the proper permission to perform a given task.</target>
+        </trans-unit>
+        <trans-unit id="2997c161-621e-459e-bb82-8a616d590d74" xml:space="preserve">
+          <source>For more detail on the OAuth 2.0 protocol and how to acquire access tokens, see the <bpt id="90d67311-41f0-4294-a400-d8653cc6b5df">&lt;linkText&gt;</bpt>app model v2.0 protocol reference<ept id="90d67311-41f0-4294-a400-d8653cc6b5df">&lt;/linkText&gt;</ept><bpt id="90d67311-41f0-4294-a400-d8653cc6b5df">&lt;title&gt;</bpt><ept id="90d67311-41f0-4294-a400-d8653cc6b5df">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more detail on the OAuth 2.0 protocol and how to acquire access tokens, see the <bpt id="90d67311-41f0-4294-a400-d8653cc6b5df">&lt;linkText&gt;</bpt>app model v2.0 protocol reference<ept id="90d67311-41f0-4294-a400-d8653cc6b5df">&lt;/linkText&gt;</ept><bpt id="90d67311-41f0-4294-a400-d8653cc6b5df">&lt;title&gt;</bpt><ept id="90d67311-41f0-4294-a400-d8653cc6b5df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e56e57ee-31f6-4bdd-8cd1-9cabf60d3771" xml:space="preserve">
+          <source>The app model v2.0 has two well defined scopes that do not apply to a particular resource - <bpt id="c02332cd-8654-42d3-964e-867c79975307">&lt;code&gt;</bpt>openid<ept id="c02332cd-8654-42d3-964e-867c79975307">&lt;/code&gt;</ept> and <bpt id="5d26d6b0-9e83-4774-849e-ce56ff80a67b">&lt;code&gt;</bpt>offline_access<ept id="5d26d6b0-9e83-4774-849e-ce56ff80a67b">&lt;/code&gt;</ept>.</source>
+          <target state="new">The app model v2.0 has two well defined scopes that do not apply to a particular resource - <bpt id="c02332cd-8654-42d3-964e-867c79975307">&lt;code&gt;</bpt>openid<ept id="c02332cd-8654-42d3-964e-867c79975307">&lt;/code&gt;</ept> and <bpt id="5d26d6b0-9e83-4774-849e-ce56ff80a67b">&lt;code&gt;</bpt>offline_access<ept id="5d26d6b0-9e83-4774-849e-ce56ff80a67b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6438611a-9bff-4043-9174-76170989e682" xml:space="preserve">
+          <source>If an app performs sign-in using <bpt id="268158b1-bbc0-4602-9c36-f74ec4f8ba29">&lt;linkText&gt;</bpt>OpenID Connect<ept id="268158b1-bbc0-4602-9c36-f74ec4f8ba29">&lt;/linkText&gt;</ept><bpt id="268158b1-bbc0-4602-9c36-f74ec4f8ba29">&lt;title&gt;</bpt><ept id="268158b1-bbc0-4602-9c36-f74ec4f8ba29">&lt;/title&gt;</ept>, it must request the <bpt id="7b8767ef-6480-4f23-9917-61023f3bc605">&lt;code&gt;</bpt>openid<ept id="7b8767ef-6480-4f23-9917-61023f3bc605">&lt;/code&gt;</ept> scope.</source>
+          <target state="new">If an app performs sign-in using <bpt id="268158b1-bbc0-4602-9c36-f74ec4f8ba29">&lt;linkText&gt;</bpt>OpenID Connect<ept id="268158b1-bbc0-4602-9c36-f74ec4f8ba29">&lt;/linkText&gt;</ept><bpt id="268158b1-bbc0-4602-9c36-f74ec4f8ba29">&lt;title&gt;</bpt><ept id="268158b1-bbc0-4602-9c36-f74ec4f8ba29">&lt;/title&gt;</ept>, it must request the <bpt id="7b8767ef-6480-4f23-9917-61023f3bc605">&lt;code&gt;</bpt>openid<ept id="7b8767ef-6480-4f23-9917-61023f3bc605">&lt;/code&gt;</ept> scope.</target>
+        </trans-unit>
+        <trans-unit id="1ed190b2-a5e4-4ab2-90d7-f586c7ec0e0b" xml:space="preserve">
+          <source>The <bpt id="90fd1693-0d44-497a-89fa-8a998e3e4a15">&lt;code&gt;</bpt>openid<ept id="90fd1693-0d44-497a-89fa-8a998e3e4a15">&lt;/code&gt;</ept> scope will show up in the work account consent screen as the "Sign you in" permission, and in the personal Microsoft account consent screen as the "View your profile and connect to apps and services using your Microsoft account" permission.</source>
+          <target state="new">The <bpt id="90fd1693-0d44-497a-89fa-8a998e3e4a15">&lt;code&gt;</bpt>openid<ept id="90fd1693-0d44-497a-89fa-8a998e3e4a15">&lt;/code&gt;</ept> scope will show up in the work account consent screen as the "Sign you in" permission, and in the personal Microsoft account consent screen as the "View your profile and connect to apps and services using your Microsoft account" permission.</target>
+        </trans-unit>
+        <trans-unit id="4914dfe9-8531-4eb1-8b51-dd80baf8aa17" xml:space="preserve">
+          <source>This permission enables an app to access the OpenID Connect user info endpoint, and thus requires user approval.</source>
+          <target state="new">This permission enables an app to access the OpenID Connect user info endpoint, and thus requires user approval.</target>
+        </trans-unit>
+        <trans-unit id="e14a3cde-747d-4ad1-ba46-68614ed09433" xml:space="preserve">
+          <source>The <bpt id="4fdfee3b-b92b-46f3-9a13-87ed96920e4c">&lt;code&gt;</bpt>openid<ept id="4fdfee3b-b92b-46f3-9a13-87ed96920e4c">&lt;/code&gt;</ept> scope can also be used at the v2.0 token endpoint to acquire id_tokens, which can be used to secure HTTP calls between different components of an app.</source>
+          <target state="new">The <bpt id="4fdfee3b-b92b-46f3-9a13-87ed96920e4c">&lt;code&gt;</bpt>openid<ept id="4fdfee3b-b92b-46f3-9a13-87ed96920e4c">&lt;/code&gt;</ept> scope can also be used at the v2.0 token endpoint to acquire id_tokens, which can be used to secure HTTP calls between different components of an app.</target>
+        </trans-unit>
+        <trans-unit id="fc6e4153-265d-464e-98cc-bcc5fee744e1" xml:space="preserve">
+          <source>The <bpt id="1cf4f8f4-95a7-4714-98f4-a8a99cb49068">&lt;code&gt;</bpt>offline_access<ept id="1cf4f8f4-95a7-4714-98f4-a8a99cb49068">&lt;/code&gt;</ept> scope allows your app to access resources on behalf of the user for an extended period of time.</source>
+          <target state="new">The <bpt id="1cf4f8f4-95a7-4714-98f4-a8a99cb49068">&lt;code&gt;</bpt>offline_access<ept id="1cf4f8f4-95a7-4714-98f4-a8a99cb49068">&lt;/code&gt;</ept> scope allows your app to access resources on behalf of the user for an extended period of time.</target>
+        </trans-unit>
+        <trans-unit id="a07a51b3-518b-44e1-b232-0380dd044e1f" xml:space="preserve">
+          <source>In the work account consent screen, this scope will appear as the "Access your data anytime" permission.</source>
+          <target state="new">In the work account consent screen, this scope will appear as the "Access your data anytime" permission.</target>
+        </trans-unit>
+        <trans-unit id="680adf0e-ac0d-4465-a22e-f2eaa3c671f8" xml:space="preserve">
+          <source>In the personal Microsoft account consent screen, it will appear as the "Access your info anytime" permission.</source>
+          <target state="new">In the personal Microsoft account consent screen, it will appear as the "Access your info anytime" permission.</target>
+        </trans-unit>
+        <trans-unit id="5c7134ed-2673-40d8-94d1-bed4ef5396aa" xml:space="preserve">
+          <source>When a user approves the <bpt id="af1fd5a7-bcc1-418d-ab47-d8f59ce394e1">&lt;code&gt;</bpt>offline_access<ept id="af1fd5a7-bcc1-418d-ab47-d8f59ce394e1">&lt;/code&gt;</ept> scope, your app will be enabled to receive refresh tokens from the v2.0 token endpoint.</source>
+          <target state="new">When a user approves the <bpt id="af1fd5a7-bcc1-418d-ab47-d8f59ce394e1">&lt;code&gt;</bpt>offline_access<ept id="af1fd5a7-bcc1-418d-ab47-d8f59ce394e1">&lt;/code&gt;</ept> scope, your app will be enabled to receive refresh tokens from the v2.0 token endpoint.</target>
+        </trans-unit>
+        <trans-unit id="8bf5f1f3-8a3e-4259-8a6a-c56657ed105b" xml:space="preserve">
+          <source>Refresh tokens are long-lived and allow your app to acquire new access tokens as older ones expire.</source>
+          <target state="new">Refresh tokens are long-lived and allow your app to acquire new access tokens as older ones expire.</target>
+        </trans-unit>
+        <trans-unit id="1dbe4178-e3af-4fa3-ad5c-88b598ff6e49" xml:space="preserve">
+          <source>If your app does not request the <bpt id="5826d984-9c89-48d2-aec8-773ce926a23f">&lt;code&gt;</bpt>offline_access<ept id="5826d984-9c89-48d2-aec8-773ce926a23f">&lt;/code&gt;</ept> scope, it will not receive refresh_tokens.</source>
+          <target state="new">If your app does not request the <bpt id="5826d984-9c89-48d2-aec8-773ce926a23f">&lt;code&gt;</bpt>offline_access<ept id="5826d984-9c89-48d2-aec8-773ce926a23f">&lt;/code&gt;</ept> scope, it will not receive refresh_tokens.</target>
+        </trans-unit>
+        <trans-unit id="c00c9bcb-ec2c-4481-adfd-4fef43d24a22" xml:space="preserve">
+          <source>This means that when you redeem an authorization<bpt id="a5275c8c-70d5-4bd0-a0a8-61808d1a855d">&lt;em&gt;</bpt>code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow), you will only receive back an access<ept id="a5275c8c-70d5-4bd0-a0a8-61808d1a855d">&lt;/em&gt;</ept>token from the <bpt id="d467ed1d-9ee6-45c1-aefa-cba631028747">&lt;code&gt;</bpt>/token<ept id="d467ed1d-9ee6-45c1-aefa-cba631028747">&lt;/code&gt;</ept> endpoint.</source>
+          <target state="new">This means that when you redeem an authorization<bpt id="a5275c8c-70d5-4bd0-a0a8-61808d1a855d">&lt;em&gt;</bpt>code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow), you will only receive back an access<ept id="a5275c8c-70d5-4bd0-a0a8-61808d1a855d">&lt;/em&gt;</ept>token from the <bpt id="d467ed1d-9ee6-45c1-aefa-cba631028747">&lt;code&gt;</bpt>/token<ept id="d467ed1d-9ee6-45c1-aefa-cba631028747">&lt;/code&gt;</ept> endpoint.</target>
+        </trans-unit>
+        <trans-unit id="9c11b9f6-bc22-4b5b-837a-0fa490c03dec" xml:space="preserve">
+          <source>That access_token will remain valid for a short period of time (typically one hour), but will eventually expire.</source>
+          <target state="new">That access_token will remain valid for a short period of time (typically one hour), but will eventually expire.</target>
+        </trans-unit>
+        <trans-unit id="8a5bcdb3-0afb-4bca-825b-bdabf19c7df3" xml:space="preserve">
+          <source>At that point in time, your app will need to redirect the user back to the <bpt id="8fce03bf-c7e8-464d-8ba8-a2eb9a0ac3c9">&lt;code&gt;</bpt>/authorize<ept id="8fce03bf-c7e8-464d-8ba8-a2eb9a0ac3c9">&lt;/code&gt;</ept> endpoint to retrieve a new authorization_code.</source>
+          <target state="new">At that point in time, your app will need to redirect the user back to the <bpt id="8fce03bf-c7e8-464d-8ba8-a2eb9a0ac3c9">&lt;code&gt;</bpt>/authorize<ept id="8fce03bf-c7e8-464d-8ba8-a2eb9a0ac3c9">&lt;/code&gt;</ept> endpoint to retrieve a new authorization_code.</target>
+        </trans-unit>
+        <trans-unit id="de909a58-cd4b-4bdf-bccb-6693500e06b0" xml:space="preserve">
+          <source>During this redirect, the user may or may not need to enter their credentials again or re-consent to permissions, depending on the the type of app.</source>
+          <target state="new">During this redirect, the user may or may not need to enter their credentials again or re-consent to permissions, depending on the the type of app.</target>
+        </trans-unit>
+        <trans-unit id="f15b3eb3-7aa6-4b3f-a997-3e8c2d19b713" xml:space="preserve">
+          <source>For more information on how to get and use refresh tokens, refer to the <bpt id="4846cd40-4f6a-4d27-895d-5e7ef72c2c66">&lt;linkText&gt;</bpt>app model v2.0 protocol reference<ept id="4846cd40-4f6a-4d27-895d-5e7ef72c2c66">&lt;/linkText&gt;</ept><bpt id="4846cd40-4f6a-4d27-895d-5e7ef72c2c66">&lt;title&gt;</bpt><ept id="4846cd40-4f6a-4d27-895d-5e7ef72c2c66">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on how to get and use refresh tokens, refer to the <bpt id="4846cd40-4f6a-4d27-895d-5e7ef72c2c66">&lt;linkText&gt;</bpt>app model v2.0 protocol reference<ept id="4846cd40-4f6a-4d27-895d-5e7ef72c2c66">&lt;/linkText&gt;</ept><bpt id="4846cd40-4f6a-4d27-895d-5e7ef72c2c66">&lt;title&gt;</bpt><ept id="4846cd40-4f6a-4d27-895d-5e7ef72c2c66">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

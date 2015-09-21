@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="85df8a1b-b973-422f-becd-d47f1e425501" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="85df8a1b-b973-422f-becd-d47f1e425501" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="09e82dca-7ccc-428f-a4a0-aed2508d2452">
+        <trans-unit id="3fffe55a-0810-4248-a03b-ff626143a40a" xml:space="preserve">
+          <source>Common Scenarios for using Azure Data Factory</source>
+          <target state="new">Common Scenarios for using Azure Data Factory</target>
+        </trans-unit>
+        <trans-unit id="a2aa81c3-34f5-4a62-91b4-3d0930329312" xml:space="preserve">
+          <source>Learn about a few common scenarios for using the Azure Data Factory service</source>
+          <target state="new">Learn about a few common scenarios for using the Azure Data Factory service</target>
+        </trans-unit>
+        <trans-unit id="a2407ad0-6e24-4dc2-9001-4dcfb00dc81c" xml:space="preserve">
+          <source>This section describes a few example scenarios that the Azure Data Factory can support today, and will continue to grow as Hub scenarios.</source>
+          <target state="new">This section describes a few example scenarios that the Azure Data Factory can support today, and will continue to grow as Hub scenarios.</target>
+        </trans-unit>
+        <trans-unit id="1c2cc769-2b63-4c51-93d0-2b2dff14cfe7" xml:space="preserve">
+          <source>Read through the <bpt id="37dfc2d4-a8ea-4bcf-b5b9-c73cadd8434d">&lt;linkText&gt;</bpt>Introduction to Azure Data Factory[datafactory-introduction]<ept id="37dfc2d4-a8ea-4bcf-b5b9-c73cadd8434d">&lt;/linkText&gt;</ept><bpt id="37dfc2d4-a8ea-4bcf-b5b9-c73cadd8434d">&lt;title&gt;</bpt><ept id="37dfc2d4-a8ea-4bcf-b5b9-c73cadd8434d">&lt;/title&gt;</ept> article before reading through this one.</source>
+          <target state="new">Read through the <bpt id="37dfc2d4-a8ea-4bcf-b5b9-c73cadd8434d">&lt;linkText&gt;</bpt>Introduction to Azure Data Factory[datafactory-introduction]<ept id="37dfc2d4-a8ea-4bcf-b5b9-c73cadd8434d">&lt;/linkText&gt;</ept><bpt id="37dfc2d4-a8ea-4bcf-b5b9-c73cadd8434d">&lt;title&gt;</bpt><ept id="37dfc2d4-a8ea-4bcf-b5b9-c73cadd8434d">&lt;/title&gt;</ept> article before reading through this one.</target>
+        </trans-unit>
+        <trans-unit id="19853126-13e5-4804-874b-f81e7ef81b57" xml:space="preserve">
+          <source><bpt id="32961615-9eb4-4d97-8c7b-446a2be305cf">&lt;linkText&gt;</bpt>Source the Data Hub<ept id="32961615-9eb4-4d97-8c7b-446a2be305cf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="32961615-9eb4-4d97-8c7b-446a2be305cf">&lt;linkText&gt;</bpt>Source the Data Hub<ept id="32961615-9eb4-4d97-8c7b-446a2be305cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c326bea6-debe-4376-9ebb-1bd721422174" xml:space="preserve">
+          <source>Enterprises have data of disparate types located in disparate sources.</source>
+          <target state="new">Enterprises have data of disparate types located in disparate sources.</target>
+        </trans-unit>
+        <trans-unit id="18a4986c-9b66-4226-9293-174abb3c179b" xml:space="preserve">
+          <source>The first step in building an information production system is to connect to all the required sources of data and processing, such as SaaS services, file shares, FTP, web services, and move the data as-needed for subsequent processing.</source>
+          <target state="new">The first step in building an information production system is to connect to all the required sources of data and processing, such as SaaS services, file shares, FTP, web services, and move the data as-needed for subsequent processing.</target>
+        </trans-unit>
+        <trans-unit id="c61a0993-1f77-471d-a116-551da3a1a768" xml:space="preserve">
+          <source>Without Data Factory, enterprises must build custom data movement components or write custom services to integrate these data sources and processing.</source>
+          <target state="new">Without Data Factory, enterprises must build custom data movement components or write custom services to integrate these data sources and processing.</target>
+        </trans-unit>
+        <trans-unit id="7d7a770e-0598-458a-9986-f0dfb744c187" xml:space="preserve">
+          <source>This is expensive, and hard to integrate and maintain such systems, and it often lacks the enterprise grade monitoring and alerting, and the controls that a fully managed service can offer.</source>
+          <target state="new">This is expensive, and hard to integrate and maintain such systems, and it often lacks the enterprise grade monitoring and alerting, and the controls that a fully managed service can offer.</target>
+        </trans-unit>
+        <trans-unit id="d5ca6cf1-9ebc-42c0-89b0-c1ec30fcc8b5" xml:space="preserve">
+          <source>With Azure Data Factory data storage and processing services are collected into a Hub container which facilitates and optimizes computation and storage activities, enables unified resource consumption management, and provides services for data movement as-needed.</source>
+          <target state="new">With Azure Data Factory data storage and processing services are collected into a Hub container which facilitates and optimizes computation and storage activities, enables unified resource consumption management, and provides services for data movement as-needed.</target>
+        </trans-unit>
+        <trans-unit id="2dcaec45-226f-4a57-b73e-3e4547d4035f" xml:space="preserve">
+          <source>Operationalization scenarios are the next logical step after data sourcing scenarios.</source>
+          <target state="new">Operationalization scenarios are the next logical step after data sourcing scenarios.</target>
+        </trans-unit>
+        <trans-unit id="14a98de5-f8f4-44fe-861f-94ec921122b7" xml:space="preserve">
+          <source>Once data is present in a Hub, you want to author and operationalize data pipelines to reliably produce transformed data on a maintainable and controlled schedule to feed production environments with trusted data.</source>
+          <target state="new">Once data is present in a Hub, you want to author and operationalize data pipelines to reliably produce transformed data on a maintainable and controlled schedule to feed production environments with trusted data.</target>
+        </trans-unit>
+        <trans-unit id="3a1745a5-7b8c-4217-afd3-bdeae836fb77" xml:space="preserve">
+          <source>Data transformation in Azure Data Factory is through Hive, Pig and custom C# processing running on Hadoop (Azure HDInsight).</source>
+          <target state="new">Data transformation in Azure Data Factory is through Hive, Pig and custom C# processing running on Hadoop (Azure HDInsight).</target>
+        </trans-unit>
+        <trans-unit id="46ad2e94-a3d3-42b5-8e23-efe67a5a301c" xml:space="preserve">
+          <source>These transformations can be used to clean data, mask critical data fields, and perform other operations on the data in a wide variety of complex ways.</source>
+          <target state="new">These transformations can be used to clean data, mask critical data fields, and perform other operations on the data in a wide variety of complex ways.</target>
+        </trans-unit>
+        <trans-unit id="659ba30c-ef2a-4b62-831c-4326066d1b66" xml:space="preserve">
+          <source>Ordinarily, operationalization is achieved with complex and hard to maintain infrastructure and custom services, and poses a number of challenges for implementation, management, scaling, troubleshooting, and versioning such a solution.</source>
+          <target state="new">Ordinarily, operationalization is achieved with complex and hard to maintain infrastructure and custom services, and poses a number of challenges for implementation, management, scaling, troubleshooting, and versioning such a solution.</target>
+        </trans-unit>
+        <trans-unit id="ae0d9ffd-4180-4b29-8550-5a39ab9de742" xml:space="preserve">
+          <source>With Data Factory as a fully managed service, users can operationalize these pipelines by defining them with one-time or complex recurring schedules, and orchestration is handled directly by the Data Factory service.</source>
+          <target state="new">With Data Factory as a fully managed service, users can operationalize these pipelines by defining them with one-time or complex recurring schedules, and orchestration is handled directly by the Data Factory service.</target>
+        </trans-unit>
+        <trans-unit id="3f2727f8-9d61-4e7e-867c-2dfafe9aac8e" xml:space="preserve">
+          <source>With Hubs, cluster management for all of the data and processing within a Hub is handled on behalf of the user, so users can focus on transformative analytics instead on infrastructure management.</source>
+          <target state="new">With Hubs, cluster management for all of the data and processing within a Hub is handled on behalf of the user, so users can focus on transformative analytics instead on infrastructure management.</target>
+        </trans-unit>
+        <trans-unit id="870ab6a2-7307-45df-aa8b-ba7f84a63c44" xml:space="preserve">
+          <source>Azure Data Factory removes the challenges of working with brittle custom services, and enables enterprises to produce trusted information reliably and reproducibly.</source>
+          <target state="new">Azure Data Factory removes the challenges of working with brittle custom services, and enables enterprises to produce trusted information reliably and reproducibly.</target>
+        </trans-unit>
+        <trans-unit id="daa45d2a-e0b2-4a2a-ab74-9d32189184ca" xml:space="preserve">
+          <source>Traditional BI approaches and technologies, while providing an “authoritative source of the truth”, almost always have a serious side effect: a constant backlog of requests due to a carefully controlled change request process.</source>
+          <target state="new">Traditional BI approaches and technologies, while providing an “authoritative source of the truth”, almost always have a serious side effect: a constant backlog of requests due to a carefully controlled change request process.</target>
+        </trans-unit>
+        <trans-unit id="00114e45-8d00-4bea-baf2-06e48250ef89" xml:space="preserve">
+          <source>To adapt to quickly changing business questions, there is a need for greater flexibility for enterprises to connect their information production systems with their information consumption systems.</source>
+          <target state="new">To adapt to quickly changing business questions, there is a need for greater flexibility for enterprises to connect their information production systems with their information consumption systems.</target>
+        </trans-unit>
+        <trans-unit id="79de8955-71d3-47c7-b317-822cb246b81a" xml:space="preserve">
+          <source>Azure Data Factory helps address the challenge of connecting these systems with streamlined data pipelines for information production, and the information consumption challenge by making up-to-date trusted data available in easily consumable forms.</source>
+          <target state="new">Azure Data Factory helps address the challenge of connecting these systems with streamlined data pipelines for information production, and the information consumption challenge by making up-to-date trusted data available in easily consumable forms.</target>
+        </trans-unit>
+        <trans-unit id="dd8fbd9d-6cad-4088-b08d-b31ab3c65296" xml:space="preserve">
+          <source>Azure Data Factory supports the following capabilities to enable simple consumption of the data produced:</source>
+          <target state="new">Azure Data Factory supports the following capabilities to enable simple consumption of the data produced:</target>
+        </trans-unit>
+        <trans-unit id="aebae4b3-273d-4a56-becd-a031fe909a3b" xml:space="preserve">
+          <source>Easily move (one time or scheduled) the produced data assets to relational data marts for consumption using existing BI tools (Excel, Tableau, etc…).</source>
+          <target state="new">Easily move (one time or scheduled) the produced data assets to relational data marts for consumption using existing BI tools (Excel, Tableau, etc…).</target>
+        </trans-unit>
+        <trans-unit id="f9540a55-37df-4061-a13c-ed108e34d9c7" xml:space="preserve">
+          <source>Consume data assets produced by a data factory directly using Power Query in Excel.</source>
+          <target state="new">Consume data assets produced by a data factory directly using Power Query in Excel.</target>
+        </trans-unit>
+        <trans-unit id="0f9fa4ab-d20a-4a7d-ae1b-70c0e5fd610b" xml:space="preserve">
+          <source>See the following topics for consuming data using Power Query: </source>
+          <target state="new">See the following topics for consuming data using Power Query: </target>
+        </trans-unit>
+        <trans-unit id="cf0d4c2b-bbb6-4cd3-81f9-6bb9cd0795ac" xml:space="preserve">
+          <source><bpt id="dd8e7345-d5da-4e74-b83d-66991f0cc1e7">&lt;linkText&gt;</bpt>Power Query: Connect to Microsoft Azure Table Storage[power-query-azure-table]<ept id="dd8e7345-d5da-4e74-b83d-66991f0cc1e7">&lt;/linkText&gt;</ept><bpt id="dd8e7345-d5da-4e74-b83d-66991f0cc1e7">&lt;title&gt;</bpt><ept id="dd8e7345-d5da-4e74-b83d-66991f0cc1e7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dd8e7345-d5da-4e74-b83d-66991f0cc1e7">&lt;linkText&gt;</bpt>Power Query: Connect to Microsoft Azure Table Storage[power-query-azure-table]<ept id="dd8e7345-d5da-4e74-b83d-66991f0cc1e7">&lt;/linkText&gt;</ept><bpt id="dd8e7345-d5da-4e74-b83d-66991f0cc1e7">&lt;title&gt;</bpt><ept id="dd8e7345-d5da-4e74-b83d-66991f0cc1e7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fe4802b-9691-4778-9a3c-01fca975dc76" xml:space="preserve">
+          <source><bpt id="f49d18b8-4fbb-4be1-bb60-691a87772e3c">&lt;linkText&gt;</bpt>Power Query: Connect to Microsoft Azure Blob Storage[power-query-azure-blob]<ept id="f49d18b8-4fbb-4be1-bb60-691a87772e3c">&lt;/linkText&gt;</ept><bpt id="f49d18b8-4fbb-4be1-bb60-691a87772e3c">&lt;title&gt;</bpt><ept id="f49d18b8-4fbb-4be1-bb60-691a87772e3c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f49d18b8-4fbb-4be1-bb60-691a87772e3c">&lt;linkText&gt;</bpt>Power Query: Connect to Microsoft Azure Blob Storage[power-query-azure-blob]<ept id="f49d18b8-4fbb-4be1-bb60-691a87772e3c">&lt;/linkText&gt;</ept><bpt id="f49d18b8-4fbb-4be1-bb60-691a87772e3c">&lt;title&gt;</bpt><ept id="f49d18b8-4fbb-4be1-bb60-691a87772e3c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="752695f7-9abf-4ac6-8944-d63ce3a7fece" xml:space="preserve">
+          <source><bpt id="783134c1-2073-405d-b993-732339abee07">&lt;linkText&gt;</bpt>Power Query: Connect to Microsoft Azure SQL Database[power-query-azure-sql]<ept id="783134c1-2073-405d-b993-732339abee07">&lt;/linkText&gt;</ept><bpt id="783134c1-2073-405d-b993-732339abee07">&lt;title&gt;</bpt><ept id="783134c1-2073-405d-b993-732339abee07">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="783134c1-2073-405d-b993-732339abee07">&lt;linkText&gt;</bpt>Power Query: Connect to Microsoft Azure SQL Database[power-query-azure-sql]<ept id="783134c1-2073-405d-b993-732339abee07">&lt;/linkText&gt;</ept><bpt id="783134c1-2073-405d-b993-732339abee07">&lt;title&gt;</bpt><ept id="783134c1-2073-405d-b993-732339abee07">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ffeb26da-b411-44b9-9c2f-d53c773419cd" xml:space="preserve">
+          <source><bpt id="753edb5c-bde2-4a40-88ca-0e1942c568f6">&lt;linkText&gt;</bpt>Power Query: Connect to Microsoft On-premises SQL Server[power-query-onprem-sql]<ept id="753edb5c-bde2-4a40-88ca-0e1942c568f6">&lt;/linkText&gt;</ept><bpt id="753edb5c-bde2-4a40-88ca-0e1942c568f6">&lt;title&gt;</bpt><ept id="753edb5c-bde2-4a40-88ca-0e1942c568f6">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="753edb5c-bde2-4a40-88ca-0e1942c568f6">&lt;linkText&gt;</bpt>Power Query: Connect to Microsoft On-premises SQL Server[power-query-onprem-sql]<ept id="753edb5c-bde2-4a40-88ca-0e1942c568f6">&lt;/linkText&gt;</ept><bpt id="753edb5c-bde2-4a40-88ca-0e1942c568f6">&lt;title&gt;</bpt><ept id="753edb5c-bde2-4a40-88ca-0e1942c568f6">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="1de9cf7b-fc61-45c5-8f56-818a857f43dc" xml:space="preserve">
+          <source>http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx</source>
+          <target state="new">http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx</target>
+        </trans-unit>
+        <trans-unit id="7e4214bb-d827-49e2-a05e-db7d837fe598" xml:space="preserve">
+          <source>http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azure-blob-storage-HA104113447.aspx</source>
+          <target state="new">http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azure-blob-storage-HA104113447.aspx</target>
+        </trans-unit>
+        <trans-unit id="1b95008f-21e4-4c9a-84f4-53d21a305ce5" xml:space="preserve">
+          <source>http://office.microsoft.com/en-001/excel-help/connect-to-a-microsoft-azure-sql-database-HA104019809.aspx</source>
+          <target state="new">http://office.microsoft.com/en-001/excel-help/connect-to-a-microsoft-azure-sql-database-HA104019809.aspx</target>
+        </trans-unit>
+        <trans-unit id="8d4319d9-0719-43ee-b679-548178ec7107" xml:space="preserve">
+          <source>http://office.microsoft.com/en-001/excel-help/connect-to-a-sql-server-database-HA104019808.aspx</source>
+          <target state="new">http://office.microsoft.com/en-001/excel-help/connect-to-a-sql-server-database-HA104019808.aspx</target>
+        </trans-unit>
+        <trans-unit id="b6b935c0-ef24-431d-8097-6a514ca3b768" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/data-factory-copy-activity/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/data-factory-copy-activity/</target>
+        </trans-unit>
+        <trans-unit id="60c26dd4-4085-4bdc-af75-82a8e6da7914" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/data-factory-pig-hive-activities/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/data-factory-pig-hive-activities/</target>
+        </trans-unit>
+        <trans-unit id="6e9a8b17-6b60-443e-a1eb-8ef9835562e3" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/data-factory-map-reduce/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/data-factory-map-reduce/</target>
+        </trans-unit>
+        <trans-unit id="a8d1d49e-37e8-4a1c-9d5e-6d6f405360db" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/data-factory-create-predictive-pipelines/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/data-factory-create-predictive-pipelines/</target>
+        </trans-unit>
+        <trans-unit id="0586c70c-4769-4cd7-afcc-4fb8eb272ca5" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn912649.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn912649.aspx</target>
+        </trans-unit>
+        <trans-unit id="6705435b-17d0-4c8b-a2c8-1ab6be669c31" xml:space="preserve">
+          <source>data-factory-tutorial.md</source>
+          <target state="new">data-factory-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="dacec800-357f-4dcb-995f-83bfa61ac57a" xml:space="preserve">
+          <source>data-factory-get-started.md</source>
+          <target state="new">data-factory-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="24674a2b-6ff5-4420-afe5-90a1190eb427" xml:space="preserve">
+          <source>data-factory-introduction.md</source>
+          <target state="new">data-factory-introduction.md</target>
+        </trans-unit>
+        <trans-unit id="0a3c60f5-a11e-4e60-a048-b73445222b5a" xml:space="preserve">
+          <source>./media/data-factory-common-scenarios/Scenario1SourceDataHub.png</source>
+          <target state="new">./media/data-factory-common-scenarios/Scenario1SourceDataHub.png</target>
+        </trans-unit>
+        <trans-unit id="c63179e4-1ce8-4a21-b62a-726ffc455bf2" xml:space="preserve">
+          <source>./media/data-factory-common-scenarios/Scenario2-OperationalizeInformationProduction.png</source>
+          <target state="new">./media/data-factory-common-scenarios/Scenario2-OperationalizeInformationProduction.png</target>
+        </trans-unit>
+      </group>
+      <group id="e2ce98bd-faf1-4ca7-8acb-2bbe1ec1917e" />
+    </body>
+  </file>
+</xliff>

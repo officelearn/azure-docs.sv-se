@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="23794739-d70e-482e-81ed-dc142ec1fd4c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="23794739-d70e-482e-81ed-dc142ec1fd4c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b69cbedd-f28d-414e-bf86-054e0bfe457d">
+        <trans-unit id="9f5e5a5a-3afe-42f3-b679-9ecc27af9975" xml:space="preserve">
+          <source>Using the BizTalk Trading Partner Management Connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the BizTalk Trading Partner Management Connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="e688c04d-b6fd-4f9a-af1f-f52961744182" xml:space="preserve">
+          <source>How to create and configure the BizTalk Trading Partner Management Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the BizTalk Trading Partner Management Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="86aadc05-2987-401d-a099-86b5d2d8b942" xml:space="preserve">
+          <source>The BizTalk Trading Partner Management (TPM) service lets you define and persist business to business relationships such as partners and agreements along with associated artifacts such as schemas and certificates.</source>
+          <target state="new">The BizTalk Trading Partner Management (TPM) service lets you define and persist business to business relationships such as partners and agreements along with associated artifacts such as schemas and certificates.</target>
+        </trans-unit>
+        <trans-unit id="a0a3d913-35a3-4ea8-b0d7-72e5170c893f" xml:space="preserve">
+          <source>These relationships can then be enforced by related API services such as AS2, EDIFACT, and X12.</source>
+          <target state="new">These relationships can then be enforced by related API services such as AS2, EDIFACT, and X12.</target>
+        </trans-unit>
+        <trans-unit id="1dcf874d-6463-4206-8d30-80bc90c16dde" xml:space="preserve">
+          <source>The TPM API App is the base requirement of the AS2 connector, the X12 API App, and the EDIFACT API App.</source>
+          <target state="new">The TPM API App is the base requirement of the AS2 connector, the X12 API App, and the EDIFACT API App.</target>
+        </trans-unit>
+        <trans-unit id="3b0ad735-e8c3-4c10-bf0f-e3b59e03426d" xml:space="preserve">
+          <source>You can add BizTalk Trading Partner Management to your business workflow and process data as part of a business-to-business workflow within a Logic App.</source>
+          <target state="new">You can add BizTalk Trading Partner Management to your business workflow and process data as part of a business-to-business workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="63efa997-65c0-431a-ae77-7d3d9f2292e6" xml:space="preserve">
+          <source>Blank SQL Azure database - You have to create a blank SQL Azure database first, before creating a new TPM API App.</source>
+          <target state="new">Blank SQL Azure database - You have to create a blank SQL Azure database first, before creating a new TPM API App.</target>
+        </trans-unit>
+        <trans-unit id="da4ab2c3-3fa8-4acb-9dcb-36d652674daf" xml:space="preserve">
+          <source>To know more about trading partner agreement, click <bpt id="b1736dae-e630-42a2-9928-057a8ff92249">&lt;linkText&gt;</bpt>here[1]<ept id="b1736dae-e630-42a2-9928-057a8ff92249">&lt;/linkText&gt;</ept><bpt id="b1736dae-e630-42a2-9928-057a8ff92249">&lt;title&gt;</bpt><ept id="b1736dae-e630-42a2-9928-057a8ff92249">&lt;/title&gt;</ept>.</source>
+          <target state="new">To know more about trading partner agreement, click <bpt id="b1736dae-e630-42a2-9928-057a8ff92249">&lt;linkText&gt;</bpt>here[1]<ept id="b1736dae-e630-42a2-9928-057a8ff92249">&lt;/linkText&gt;</ept><bpt id="b1736dae-e630-42a2-9928-057a8ff92249">&lt;title&gt;</bpt><ept id="b1736dae-e630-42a2-9928-057a8ff92249">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="453db308-bcec-43ac-a6e2-a470a2e48a6b" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business workflow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business workflow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="a65fc5d2-6135-45b2-a5da-61eb88043e78" xml:space="preserve">
+          <source>See <bpt id="045dfdb1-185a-42ec-a119-8706e99edbeb">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="045dfdb1-185a-42ec-a119-8706e99edbeb">&lt;/linkText&gt;</ept><bpt id="045dfdb1-185a-42ec-a119-8706e99edbeb">&lt;title&gt;</bpt><ept id="045dfdb1-185a-42ec-a119-8706e99edbeb">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="045dfdb1-185a-42ec-a119-8706e99edbeb">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="045dfdb1-185a-42ec-a119-8706e99edbeb">&lt;/linkText&gt;</ept><bpt id="045dfdb1-185a-42ec-a119-8706e99edbeb">&lt;title&gt;</bpt><ept id="045dfdb1-185a-42ec-a119-8706e99edbeb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f59f85e4-ac37-4959-8278-ec666330c331" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="4a4c167a-1b6a-444a-82ef-3640b8909678">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="4a4c167a-1b6a-444a-82ef-3640b8909678">&lt;/linkText&gt;</ept><bpt id="4a4c167a-1b6a-444a-82ef-3640b8909678">&lt;title&gt;</bpt><ept id="4a4c167a-1b6a-444a-82ef-3640b8909678">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="4a4c167a-1b6a-444a-82ef-3640b8909678">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="4a4c167a-1b6a-444a-82ef-3640b8909678">&lt;/linkText&gt;</ept><bpt id="4a4c167a-1b6a-444a-82ef-3640b8909678">&lt;title&gt;</bpt><ept id="4a4c167a-1b6a-444a-82ef-3640b8909678">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ded1e1b-4960-4f12-8708-e21bff9f0895" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="6f929a2f-5a1a-460a-a053-4a1847c2aad0" xml:space="preserve">
+          <source>See <bpt id="f5af8b48-f6c1-45c1-bc34-603ad01d6168">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="f5af8b48-f6c1-45c1-bc34-603ad01d6168">&lt;/linkText&gt;</ept><bpt id="f5af8b48-f6c1-45c1-bc34-603ad01d6168">&lt;title&gt;</bpt><ept id="f5af8b48-f6c1-45c1-bc34-603ad01d6168">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="f5af8b48-f6c1-45c1-bc34-603ad01d6168">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="f5af8b48-f6c1-45c1-bc34-603ad01d6168">&lt;/linkText&gt;</ept><bpt id="f5af8b48-f6c1-45c1-bc34-603ad01d6168">&lt;title&gt;</bpt><ept id="f5af8b48-f6c1-45c1-bc34-603ad01d6168">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="655a0d21-21f8-4ccc-bec3-c8d1b1e2ef8d" xml:space="preserve">
+          <source>app-service-logic-create-a-trading-partner-agreement.md</source>
+          <target state="new">app-service-logic-create-a-trading-partner-agreement.md</target>
+        </trans-unit>
+      </group>
+      <group id="2bfd2b74-54cb-4aa8-83b8-f262f9aa82b4" />
+    </body>
+  </file>
+</xliff>

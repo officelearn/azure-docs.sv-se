@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a287aab1-b4bf-4a33-833a-0dac48f34518" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a287aab1-b4bf-4a33-833a-0dac48f34518" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7e67a207-9fb1-4fe5-a38d-cc81ecda2dd4">
+        <trans-unit id="056e5050-bb1d-4fe9-bbb0-8a97b02cb603" xml:space="preserve">
+          <source>StorSimple system requirements | Microsoft Azure</source>
+          <target state="new">StorSimple system requirements | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4f7881d6-1687-42fb-9e45-17e55e664d26" xml:space="preserve">
+          <source>Describes system requirements and best practices for software,  high availability, and networking for an Azure StorSimple solution.</source>
+          <target state="new">Describes system requirements and best practices for software,  high availability, and networking for an Azure StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="1a3976f7-c4f0-4f6c-b593-90cbacbc8307" xml:space="preserve">
+          <source>Welcome to Microsoft Azure StorSimple.</source>
+          <target state="new">Welcome to Microsoft Azure StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="7f213054-0f1f-48e8-927e-7ef47023b637" xml:space="preserve">
+          <source>This article describes important system requirements and best practices for your StorSimple device and for the storage clients accessing the device.</source>
+          <target state="new">This article describes important system requirements and best practices for your StorSimple device and for the storage clients accessing the device.</target>
+        </trans-unit>
+        <trans-unit id="ec2c7a62-2f2a-442e-b671-452616194deb" xml:space="preserve">
+          <source>These requirements include:</source>
+          <target state="new">These requirements include:</target>
+        </trans-unit>
+        <trans-unit id="186d6216-1ecb-4754-922e-a419a524329f" xml:space="preserve">
+          <source><bpt id="6a335ced-6972-4719-84f2-2d466302b425">&lt;strong&gt;</bpt>Software requirements for storage clients<ept id="6a335ced-6972-4719-84f2-2d466302b425">&lt;/strong&gt;</ept> - describes the supported operating systems and any additional requirements for those operating systems.</source>
+          <target state="new"><bpt id="6a335ced-6972-4719-84f2-2d466302b425">&lt;strong&gt;</bpt>Software requirements for storage clients<ept id="6a335ced-6972-4719-84f2-2d466302b425">&lt;/strong&gt;</ept> - describes the supported operating systems and any additional requirements for those operating systems.</target>
+        </trans-unit>
+        <trans-unit id="37c95775-e852-4932-bb8e-8d375ae789d9" xml:space="preserve">
+          <source><bpt id="8913054c-85ce-45b4-973c-4d71120e0404">&lt;strong&gt;</bpt>High availability requirements for StorSimple<ept id="8913054c-85ce-45b4-973c-4d71120e0404">&lt;/strong&gt;</ept> - describes high availability requirements and best practices for your StorSimple device and host computer.</source>
+          <target state="new"><bpt id="8913054c-85ce-45b4-973c-4d71120e0404">&lt;strong&gt;</bpt>High availability requirements for StorSimple<ept id="8913054c-85ce-45b4-973c-4d71120e0404">&lt;/strong&gt;</ept> - describes high availability requirements and best practices for your StorSimple device and host computer.</target>
+        </trans-unit>
+        <trans-unit id="ae06e841-5527-4239-bf67-d57840e807a8" xml:space="preserve">
+          <source><bpt id="6c0ca939-3da1-4b7e-9fad-db6acf20af5e">&lt;strong&gt;</bpt>Networking requirements for the StorSimple device<ept id="6c0ca939-3da1-4b7e-9fad-db6acf20af5e">&lt;/strong&gt;</ept> - provides information about the ports that need to be open in your firewall to allow for iSCSI, cloud, or management traffic.</source>
+          <target state="new"><bpt id="6c0ca939-3da1-4b7e-9fad-db6acf20af5e">&lt;strong&gt;</bpt>Networking requirements for the StorSimple device<ept id="6c0ca939-3da1-4b7e-9fad-db6acf20af5e">&lt;/strong&gt;</ept> - provides information about the ports that need to be open in your firewall to allow for iSCSI, cloud, or management traffic.</target>
+        </trans-unit>
+        <trans-unit id="77da5b78-6ef2-46f3-8850-3977dd9ac7a4" xml:space="preserve">
+          <source>We recommend that you review the following information carefully before you deploy your Azure StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.</source>
+          <target state="new">We recommend that you review the following information carefully before you deploy your Azure StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.</target>
+        </trans-unit>
+        <trans-unit id="f426191f-2d0e-48df-ae99-26eebff8fb37" xml:space="preserve">
+          <source>The following software requirements are for the storage clients that access your StorSimple device.</source>
+          <target state="new">The following software requirements are for the storage clients that access your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="0ec37d7c-6563-413d-95c9-d0fb4a2d6e10" xml:space="preserve">
+          <source>Supported operating systems</source>
+          <target state="new">Supported operating systems</target>
+        </trans-unit>
+        <trans-unit id="d39a69c2-6d34-4d47-8d00-e7ebd9edacdc" xml:space="preserve">
+          <source>Version required</source>
+          <target state="new">Version required</target>
+        </trans-unit>
+        <trans-unit id="85683cb6-9554-4553-a63e-f981f6b69e65" xml:space="preserve">
+          <source>Details/notes</source>
+          <target state="new">Details/notes</target>
+        </trans-unit>
+        <trans-unit id="3ac88bf8-483c-40f2-89c6-983e87963d83" xml:space="preserve">
+          <source>Windows Server</source>
+          <target state="new">Windows Server</target>
+        </trans-unit>
+        <trans-unit id="f406319d-5b60-46b7-8a3d-b5695e05d45d" xml:space="preserve">
+          <source>2008R2 SP1, 2012, 2012R2</source>
+          <target state="new">2008R2 SP1, 2012, 2012R2</target>
+        </trans-unit>
+        <trans-unit id="2b9632f3-9545-458a-a82b-c11531f8e3ac" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;StorSimple iSCSI volumes are supported for use on only the following Windows disk types:&lt;ul&gt;&lt;li&gt;Simple volume on basic disk&lt;/li&gt;&lt;li&gt;Simple and mirrored volume on dynamic disk&lt;/li&gt;&lt;/ul&gt;Use of StorSimple Snapshot Manager on Windows Server is required for backup/restore of mirrored dynamic disks and for any application-consistent backups.&lt;/li&gt;&lt;li&gt;StorSimple Snapshot Manager is supported only on Windows Server 2008 R2 SP1 (64-bit), Windows 2012 R2, and Windows Server 2012. &lt;ul&gt;&lt;li&gt;If you are using Window Server 2012, you must install .NET 3.5–4.5 before you install StorSimple Snapshot Manager.&lt;/li&gt;&lt;li&gt;If you are using Windows Server 2008 R2 SP1, you must install Windows Management Framework 3.0 before you install StorSimple Snapshot Manager.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;Windows Server 2012 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.&lt;ul&gt;&lt;li&gt;StorSimple can create thinly provisioned volumes only. It cannot create fully provisioned or partially provisioned volumes.&lt;/li&gt;&lt;li&gt;Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting.&lt;/li&gt;&lt;li&gt;If you still prefer to reformat a volume:&lt;ul&gt;&lt;li&gt;Run the following command before the reformat to avoid space reclamation delays: &lt;br&gt;<bpt id="df4e9370-a680-45ea-b11f-a2b9f8f11f1b">&lt;code&gt;</bpt>fsutil behavior set disabledeletenotify 1<ept id="df4e9370-a680-45ea-b11f-a2b9f8f11f1b">&lt;/code&gt;</ept>&lt;/br&gt;&lt;/li&gt;&lt;li&gt;After the formatting is complete, use the following command to re-enable space reclamation:&lt;br&gt;<bpt id="85824e4a-267b-4e2d-9469-8ebe0b2048f1">&lt;code&gt;</bpt>fsutil behavior set disabledeletenotify 0<ept id="85824e4a-267b-4e2d-9469-8ebe0b2048f1">&lt;/code&gt;</ept>&lt;/br&gt;&lt;/li&gt;&lt;li&gt;Apply the Windows Server 2012 hotfix as described in KB2870270 to your Windows Server computer.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;StorSimple Adapter for SharePoint is only supported on SharePoint 2010 and SharePoint 2013. RBS requires SQL Server Enterprise Edition, version 2008 R2 or 2012.&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;StorSimple iSCSI volumes are supported for use on only the following Windows disk types:&lt;ul&gt;&lt;li&gt;Simple volume on basic disk&lt;/li&gt;&lt;li&gt;Simple and mirrored volume on dynamic disk&lt;/li&gt;&lt;/ul&gt;Use of StorSimple Snapshot Manager on Windows Server is required for backup/restore of mirrored dynamic disks and for any application-consistent backups.&lt;/li&gt;&lt;li&gt;StorSimple Snapshot Manager is supported only on Windows Server 2008 R2 SP1 (64-bit), Windows 2012 R2, and Windows Server 2012. &lt;ul&gt;&lt;li&gt;If you are using Window Server 2012, you must install .NET 3.5–4.5 before you install StorSimple Snapshot Manager.&lt;/li&gt;&lt;li&gt;If you are using Windows Server 2008 R2 SP1, you must install Windows Management Framework 3.0 before you install StorSimple Snapshot Manager.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;Windows Server 2012 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.&lt;ul&gt;&lt;li&gt;StorSimple can create thinly provisioned volumes only. It cannot create fully provisioned or partially provisioned volumes.&lt;/li&gt;&lt;li&gt;Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting.&lt;/li&gt;&lt;li&gt;If you still prefer to reformat a volume:&lt;ul&gt;&lt;li&gt;Run the following command before the reformat to avoid space reclamation delays: &lt;br&gt;<bpt id="df4e9370-a680-45ea-b11f-a2b9f8f11f1b">&lt;code&gt;</bpt>fsutil behavior set disabledeletenotify 1<ept id="df4e9370-a680-45ea-b11f-a2b9f8f11f1b">&lt;/code&gt;</ept>&lt;/br&gt;&lt;/li&gt;&lt;li&gt;After the formatting is complete, use the following command to re-enable space reclamation:&lt;br&gt;<bpt id="85824e4a-267b-4e2d-9469-8ebe0b2048f1">&lt;code&gt;</bpt>fsutil behavior set disabledeletenotify 0<ept id="85824e4a-267b-4e2d-9469-8ebe0b2048f1">&lt;/code&gt;</ept>&lt;/br&gt;&lt;/li&gt;&lt;li&gt;Apply the Windows Server 2012 hotfix as described in KB2870270 to your Windows Server computer.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;StorSimple Adapter for SharePoint is only supported on SharePoint 2010 and SharePoint 2013. RBS requires SQL Server Enterprise Edition, version 2008 R2 or 2012.&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="a5b61cce-6fb3-4121-846e-ebe09c31766a" xml:space="preserve">
+          <source>VMWare</source>
+          <target state="new">VMWare</target>
+        </trans-unit>
+        <trans-unit id="980abc30-705d-424e-8193-4767c2919c4d" xml:space="preserve">
+          <source>Tested with VMware vSphere 5.1 as iSCSI client</source>
+          <target state="new">Tested with VMware vSphere 5.1 as iSCSI client</target>
+        </trans-unit>
+        <trans-unit id="5e12b429-a02d-442d-b682-798590cadfe4" xml:space="preserve">
+          <source>VAAI-block feature is tested with VMware vSphere v.5.1 on StorSimple devices.</source>
+          <target state="new">VAAI-block feature is tested with VMware vSphere v.5.1 on StorSimple devices.</target>
+        </trans-unit>
+        <trans-unit id="01708c90-2d7c-43cb-b0ac-69ccf58e62d3" xml:space="preserve">
+          <source>Linux RHEL/CentOS</source>
+          <target state="new">Linux RHEL/CentOS</target>
+        </trans-unit>
+        <trans-unit id="3234046b-d1ec-437b-83b3-e1e5fad8fc18" xml:space="preserve">
+          <source>Support for Linux iSCSI clients with Open-iSCSI initiator versions 5 and 6</source>
+          <target state="new">Support for Linux iSCSI clients with Open-iSCSI initiator versions 5 and 6</target>
+        </trans-unit>
+        <trans-unit id="e2fcc52f-ce70-431d-8455-009c19194dbf" xml:space="preserve">
+          <source>Supported with open-iSCSI initiator only.</source>
+          <target state="new">Supported with open-iSCSI initiator only.</target>
+        </trans-unit>
+        <trans-unit id="c380732b-28bc-44be-8d54-f49400df8cc0" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="69667fbc-1857-4f23-8cdc-c9f63f2a6934" xml:space="preserve">
+          <source>SUSE Linux 11</source>
+          <target state="new">SUSE Linux 11</target>
+        </trans-unit>
+        <trans-unit id="90198459-4ba8-4589-9d51-20ecede71a38" xml:space="preserve">
+          <source>Based on the limited testing performed in-house, IBM AIX is currently not supported with StorSimple.</source>
+          <target state="new">Based on the limited testing performed in-house, IBM AIX is currently not supported with StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="9d7d6946-909c-446c-aa59-1fe300a0741c" xml:space="preserve">
+          <source>The hardware platform that is included with the StorSimple solution has enterprise-grade availability and reliability features that provide a foundation for a highly available, fault-tolerant storage infrastructure in your datacenter.</source>
+          <target state="new">The hardware platform that is included with the StorSimple solution has enterprise-grade availability and reliability features that provide a foundation for a highly available, fault-tolerant storage infrastructure in your datacenter.</target>
+        </trans-unit>
+        <trans-unit id="01ffd01d-6e62-4550-a901-726f30fc7867" xml:space="preserve">
+          <source>However, there are requirements and best practices that you should comply with to help ensure the availability of your Azure StorSimple solution.</source>
+          <target state="new">However, there are requirements and best practices that you should comply with to help ensure the availability of your Azure StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="0407c206-227d-4db0-9103-3882bce1063a" xml:space="preserve">
+          <source>Before you deploy Azure StorSimple, carefully review the following requirements and best practices for the StorSimple device and connected host computers.</source>
+          <target state="new">Before you deploy Azure StorSimple, carefully review the following requirements and best practices for the StorSimple device and connected host computers.</target>
+        </trans-unit>
+        <trans-unit id="a4ad7f96-0ae4-4e60-ab3c-53ab938e347e" xml:space="preserve">
+          <source>Review the following information carefully to ensure the high availability of your StorSimple device.</source>
+          <target state="new">Review the following information carefully to ensure the high availability of your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="71e9db4a-fe98-473c-81d5-a67938339d54" xml:space="preserve">
+          <source>StorSimple devices include redundant, hot-swappable PCMs.</source>
+          <target state="new">StorSimple devices include redundant, hot-swappable PCMs.</target>
+        </trans-unit>
+        <trans-unit id="60b73f6f-b7dd-48d4-b001-c015112ba8f7" xml:space="preserve">
+          <source>Each PCM has enough capacity to provide service for the entire chassis.</source>
+          <target state="new">Each PCM has enough capacity to provide service for the entire chassis.</target>
+        </trans-unit>
+        <trans-unit id="6a4eaef6-598a-4106-90d9-865054212a7d" xml:space="preserve">
+          <source>To ensure high availability, both PCMs must be installed.</source>
+          <target state="new">To ensure high availability, both PCMs must be installed.</target>
+        </trans-unit>
+        <trans-unit id="48c5852b-9215-46e9-b7ee-a1c43851e3d1" xml:space="preserve">
+          <source>Connect your PCMs to different power sources to provide availability if a power source fails.</source>
+          <target state="new">Connect your PCMs to different power sources to provide availability if a power source fails.</target>
+        </trans-unit>
+        <trans-unit id="f6c0c1ef-1379-44da-ba01-b93d85a743a4" xml:space="preserve">
+          <source>If a PCM fails, request a replacement immediately.</source>
+          <target state="new">If a PCM fails, request a replacement immediately.</target>
+        </trans-unit>
+        <trans-unit id="46094cab-a159-4af1-9cbd-de288345a767" xml:space="preserve">
+          <source>Remove a failed PCM only when you have the replacement and are ready to install it.</source>
+          <target state="new">Remove a failed PCM only when you have the replacement and are ready to install it.</target>
+        </trans-unit>
+        <trans-unit id="060f5645-5712-46d8-8ec7-66a5f094f42e" xml:space="preserve">
+          <source>Do not remove both PCMs concurrently.</source>
+          <target state="new">Do not remove both PCMs concurrently.</target>
+        </trans-unit>
+        <trans-unit id="e2aafd22-b11f-4cea-9e04-2db0b98a5382" xml:space="preserve">
+          <source>The PCM module includes the battery.</source>
+          <target state="new">The PCM module includes the battery.</target>
+        </trans-unit>
+        <trans-unit id="d395c3b3-dbc9-4fc6-90b4-18ca9b83e7fd" xml:space="preserve">
+          <source>Removing both of the PCMs will result in a no battery-protected shutdown.</source>
+          <target state="new">Removing both of the PCMs will result in a no battery-protected shutdown.</target>
+        </trans-unit>
+        <trans-unit id="1a926f79-4aff-4b16-8442-f60b61dfae5e" xml:space="preserve">
+          <source>StorSimple devices include redundant, hot-swappable controller modules.</source>
+          <target state="new">StorSimple devices include redundant, hot-swappable controller modules.</target>
+        </trans-unit>
+        <trans-unit id="8d0013f3-4613-429f-89ee-8292da08da53" xml:space="preserve">
+          <source>The controller modules operate in an active/passive manner.</source>
+          <target state="new">The controller modules operate in an active/passive manner.</target>
+        </trans-unit>
+        <trans-unit id="26bca64a-06a5-4d2e-8b8f-07b2f4ecaed7" xml:space="preserve">
+          <source>At any given time, one controller module is active and is providing service, while the other controller module is passive.</source>
+          <target state="new">At any given time, one controller module is active and is providing service, while the other controller module is passive.</target>
+        </trans-unit>
+        <trans-unit id="499b254e-4f4d-4aa9-8200-b0047b82dcc3" xml:space="preserve">
+          <source>The passive controller module is powered on and becomes operational if the active controller module fails or is removed.</source>
+          <target state="new">The passive controller module is powered on and becomes operational if the active controller module fails or is removed.</target>
+        </trans-unit>
+        <trans-unit id="485c503e-0ce5-403c-8b27-74aaf3cbec27" xml:space="preserve">
+          <source>Each controller module has enough capacity to provide service for the entire chassis.</source>
+          <target state="new">Each controller module has enough capacity to provide service for the entire chassis.</target>
+        </trans-unit>
+        <trans-unit id="4cfc2743-da89-4251-b7c8-2545d263571e" xml:space="preserve">
+          <source>Both controller modules must be installed to ensure high availability.</source>
+          <target state="new">Both controller modules must be installed to ensure high availability.</target>
+        </trans-unit>
+        <trans-unit id="2ff515b0-09ba-4991-ad4c-f719a1767439" xml:space="preserve">
+          <source>Make sure that both controller modules are installed at all times.</source>
+          <target state="new">Make sure that both controller modules are installed at all times.</target>
+        </trans-unit>
+        <trans-unit id="641d378b-c16a-49f0-9563-771512e426cb" xml:space="preserve">
+          <source>If a controller module fails, request a replacement immediately.</source>
+          <target state="new">If a controller module fails, request a replacement immediately.</target>
+        </trans-unit>
+        <trans-unit id="d3f0d9c4-dc15-4c9f-961d-2cc51d7d7935" xml:space="preserve">
+          <source>Remove a failed controller module only when you have the replacement and are ready to install it.</source>
+          <target state="new">Remove a failed controller module only when you have the replacement and are ready to install it.</target>
+        </trans-unit>
+        <trans-unit id="48be2d81-fb0a-4a9e-a794-e0123f5e5f38" xml:space="preserve">
+          <source>Removing a module for extended periods will affect the airflow and hence the cooling of the system.</source>
+          <target state="new">Removing a module for extended periods will affect the airflow and hence the cooling of the system.</target>
+        </trans-unit>
+        <trans-unit id="1fd1c12d-bcac-413b-a06f-fa4b5569683e" xml:space="preserve">
+          <source>Make sure that the network connections to both controller modules are identical, and the connected network interfaces have an identical network configuration.</source>
+          <target state="new">Make sure that the network connections to both controller modules are identical, and the connected network interfaces have an identical network configuration.</target>
+        </trans-unit>
+        <trans-unit id="ccad1c4b-4aae-48a3-b21b-4713a8312684" xml:space="preserve">
+          <source>If a controller module fails or needs replacement, make sure that the other controller module is in an active state before replacing the failed controller module.</source>
+          <target state="new">If a controller module fails or needs replacement, make sure that the other controller module is in an active state before replacing the failed controller module.</target>
+        </trans-unit>
+        <trans-unit id="7ddf9b79-5894-4bf3-9a8f-fafb8007bed3" xml:space="preserve">
+          <source>Do not remove both controller modules at the same time.</source>
+          <target state="new">Do not remove both controller modules at the same time.</target>
+        </trans-unit>
+        <trans-unit id="d7b0178c-aa60-4fa9-8a36-0fd84550ba4f" xml:space="preserve">
+          <source>If a controller failover is in progress, do not shut down the standby controller module or remove it from the chassis.</source>
+          <target state="new">If a controller failover is in progress, do not shut down the standby controller module or remove it from the chassis.</target>
+        </trans-unit>
+        <trans-unit id="497f0b78-76d4-48e0-a70b-066ef3fc4c58" xml:space="preserve">
+          <source>After a controller failover, wait at least five minutes before removing either controller module.</source>
+          <target state="new">After a controller failover, wait at least five minutes before removing either controller module.</target>
+        </trans-unit>
+        <trans-unit id="4e5af042-2514-4e34-9dea-4b53f91e9662" xml:space="preserve">
+          <source>StorSimple device controller modules each have four 1 Gigabit and two 10 Gigabit Ethernet network interfaces.</source>
+          <target state="new">StorSimple device controller modules each have four 1 Gigabit and two 10 Gigabit Ethernet network interfaces.</target>
+        </trans-unit>
+        <trans-unit id="4a0a8e02-d3d2-4402-aee8-0eb3ea02934e" xml:space="preserve">
+          <source>Make sure that the network connections to both controller modules are identical, and the network interfaces that the controller module interfaces are connected to have an identical network configuration.</source>
+          <target state="new">Make sure that the network connections to both controller modules are identical, and the network interfaces that the controller module interfaces are connected to have an identical network configuration.</target>
+        </trans-unit>
+        <trans-unit id="175238fc-0403-461c-ad79-0cb0cd953f36" xml:space="preserve">
+          <source>When possible, deploy network connections across different switches to ensure service availability in the event of a network device failure.</source>
+          <target state="new">When possible, deploy network connections across different switches to ensure service availability in the event of a network device failure.</target>
+        </trans-unit>
+        <trans-unit id="0f4d2444-a3de-49d0-a4c6-bbd3ca24f6cf" xml:space="preserve">
+          <source>When unplugging the only or the last remaining iSCSI-enabled interface (with IPs assigned), disable the interface first and then unplug the cables.</source>
+          <target state="new">When unplugging the only or the last remaining iSCSI-enabled interface (with IPs assigned), disable the interface first and then unplug the cables.</target>
+        </trans-unit>
+        <trans-unit id="1cd4beb7-84bd-4c35-a2cc-755cc7fef736" xml:space="preserve">
+          <source>If the interface is unplugged first, then it will cause the active controller to fail over to the passive controller.</source>
+          <target state="new">If the interface is unplugged first, then it will cause the active controller to fail over to the passive controller.</target>
+        </trans-unit>
+        <trans-unit id="ff5c590b-dd33-4278-80b7-de36a2692b40" xml:space="preserve">
+          <source>If the passive controller also has its corresponding interfaces unplugged, then both the controllers will reboot multiple times before settling on one controller.</source>
+          <target state="new">If the passive controller also has its corresponding interfaces unplugged, then both the controllers will reboot multiple times before settling on one controller.</target>
+        </trans-unit>
+        <trans-unit id="8677bbd2-af13-4466-bc56-2e7012ad9dbb" xml:space="preserve">
+          <source>Connect at least two DATA interfaces to the network from each controller module.</source>
+          <target state="new">Connect at least two DATA interfaces to the network from each controller module.</target>
+        </trans-unit>
+        <trans-unit id="01fb7676-445d-4b90-9824-52419c09699f" xml:space="preserve">
+          <source>If you have enabled the two 10 GbE interfaces, deploy those across different switches.</source>
+          <target state="new">If you have enabled the two 10 GbE interfaces, deploy those across different switches.</target>
+        </trans-unit>
+        <trans-unit id="37faf119-7526-43fe-874c-cfc7f8372db9" xml:space="preserve">
+          <source>When possible, use MPIO on servers to ensure that the servers can tolerate a link, network, or interface failure.</source>
+          <target state="new">When possible, use MPIO on servers to ensure that the servers can tolerate a link, network, or interface failure.</target>
+        </trans-unit>
+        <trans-unit id="ff4fcdfc-1897-48e3-b5e5-252b0862e5e0" xml:space="preserve">
+          <source>For more information about networking your device for high availability and performance, go to <bpt id="97cdce1c-cc8f-4bbf-a49b-e1a69eee6eaf">&lt;linkText&gt;</bpt>Install your StorSimple 8100 device<ept id="97cdce1c-cc8f-4bbf-a49b-e1a69eee6eaf">&lt;/linkText&gt;</ept><bpt id="97cdce1c-cc8f-4bbf-a49b-e1a69eee6eaf">&lt;title&gt;</bpt><ept id="97cdce1c-cc8f-4bbf-a49b-e1a69eee6eaf">&lt;/title&gt;</ept> or <bpt id="68f71d18-02d3-49b1-ae5e-05ceef36a8bd">&lt;linkText&gt;</bpt>Install your StorSimple 8600 device<ept id="68f71d18-02d3-49b1-ae5e-05ceef36a8bd">&lt;/linkText&gt;</ept><bpt id="68f71d18-02d3-49b1-ae5e-05ceef36a8bd">&lt;title&gt;</bpt><ept id="68f71d18-02d3-49b1-ae5e-05ceef36a8bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about networking your device for high availability and performance, go to <bpt id="97cdce1c-cc8f-4bbf-a49b-e1a69eee6eaf">&lt;linkText&gt;</bpt>Install your StorSimple 8100 device<ept id="97cdce1c-cc8f-4bbf-a49b-e1a69eee6eaf">&lt;/linkText&gt;</ept><bpt id="97cdce1c-cc8f-4bbf-a49b-e1a69eee6eaf">&lt;title&gt;</bpt><ept id="97cdce1c-cc8f-4bbf-a49b-e1a69eee6eaf">&lt;/title&gt;</ept> or <bpt id="68f71d18-02d3-49b1-ae5e-05ceef36a8bd">&lt;linkText&gt;</bpt>Install your StorSimple 8600 device<ept id="68f71d18-02d3-49b1-ae5e-05ceef36a8bd">&lt;/linkText&gt;</ept><bpt id="68f71d18-02d3-49b1-ae5e-05ceef36a8bd">&lt;title&gt;</bpt><ept id="68f71d18-02d3-49b1-ae5e-05ceef36a8bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e55797b1-23c3-448a-ac81-c2dd39c4297f" xml:space="preserve">
+          <source>StorSimple devices include solid state disks (SSDs) and hard disk drives (HDDs) that are protected using mirrored spaces, and a hot-spare is provided for the HDDs.</source>
+          <target state="new">StorSimple devices include solid state disks (SSDs) and hard disk drives (HDDs) that are protected using mirrored spaces, and a hot-spare is provided for the HDDs.</target>
+        </trans-unit>
+        <trans-unit id="604150b4-ea22-4dcb-93ac-6c4310ebc456" xml:space="preserve">
+          <source>Use of mirrored spaces ensures that the device is able to tolerate the failure of one or more SSDs or HDDs.</source>
+          <target state="new">Use of mirrored spaces ensures that the device is able to tolerate the failure of one or more SSDs or HDDs.</target>
+        </trans-unit>
+        <trans-unit id="f65e62e3-d5d4-4a79-8435-0c708eab7f39" xml:space="preserve">
+          <source>Make sure that all SSD and HDD modules are installed.</source>
+          <target state="new">Make sure that all SSD and HDD modules are installed.</target>
+        </trans-unit>
+        <trans-unit id="2b316b61-148e-438b-bdbc-faa29c250888" xml:space="preserve">
+          <source>If an SSD or HDD fails, request a replacement immediately.</source>
+          <target state="new">If an SSD or HDD fails, request a replacement immediately.</target>
+        </trans-unit>
+        <trans-unit id="fb570959-5f5a-43b1-a148-fa6042754f73" xml:space="preserve">
+          <source>If an SSD or HDD fails or requires replacement, make sure that you remove only the SSD or HDD that requires replacement.</source>
+          <target state="new">If an SSD or HDD fails or requires replacement, make sure that you remove only the SSD or HDD that requires replacement.</target>
+        </trans-unit>
+        <trans-unit id="62273425-01a4-4a94-b9e1-ca88ee6ff53e" xml:space="preserve">
+          <source>Do not remove more than one SSD or HDD from the system at any point in time.</source>
+          <target state="new">Do not remove more than one SSD or HDD from the system at any point in time.</target>
+        </trans-unit>
+        <trans-unit id="a12759a0-d352-4e82-8973-9205132a6457" xml:space="preserve">
+          <source>During replacement, monitor the <bpt id="faeff7bf-24f4-4dbf-aa57-219e6ab4f450">&lt;strong&gt;</bpt>Hardware Status<ept id="faeff7bf-24f4-4dbf-aa57-219e6ab4f450">&lt;/strong&gt;</ept> in the <bpt id="63bb9e28-94b1-4c05-ab87-f7bef150568e">&lt;strong&gt;</bpt>Maintenance<ept id="63bb9e28-94b1-4c05-ab87-f7bef150568e">&lt;/strong&gt;</ept> page for the drives in the SSDs and HDDs.</source>
+          <target state="new">During replacement, monitor the <bpt id="faeff7bf-24f4-4dbf-aa57-219e6ab4f450">&lt;strong&gt;</bpt>Hardware Status<ept id="faeff7bf-24f4-4dbf-aa57-219e6ab4f450">&lt;/strong&gt;</ept> in the <bpt id="63bb9e28-94b1-4c05-ab87-f7bef150568e">&lt;strong&gt;</bpt>Maintenance<ept id="63bb9e28-94b1-4c05-ab87-f7bef150568e">&lt;/strong&gt;</ept> page for the drives in the SSDs and HDDs.</target>
+        </trans-unit>
+        <trans-unit id="5f8fac4d-19b3-4a7a-b28d-ed1cecfffac6" xml:space="preserve">
+          <source>A green check status indicates that the disks are healthy or OK, whereas a red exclamation point indicates a failed SSD or HDD.</source>
+          <target state="new">A green check status indicates that the disks are healthy or OK, whereas a red exclamation point indicates a failed SSD or HDD.</target>
+        </trans-unit>
+        <trans-unit id="0bcc4385-6db8-4955-aa98-3d985c8b9f95" xml:space="preserve">
+          <source>A failure of 2 or more disks of certain type (HDD, SSD) or consecutive failure within a short time frame may result in system malfunction and potential data loss.</source>
+          <target state="new">A failure of 2 or more disks of certain type (HDD, SSD) or consecutive failure within a short time frame may result in system malfunction and potential data loss.</target>
+        </trans-unit>
+        <trans-unit id="071817c2-63b6-4280-81c3-9e03e770c52b" xml:space="preserve">
+          <source>If this occurs, contact technical support for assistance.</source>
+          <target state="new">If this occurs, contact technical support for assistance.</target>
+        </trans-unit>
+        <trans-unit id="c3ce8f9b-0620-492f-8b77-8348e700329b" xml:space="preserve">
+          <source>We recommend that you configure cloud snapshots for all volumes that you need to protect in case of a system failure.</source>
+          <target state="new">We recommend that you configure cloud snapshots for all volumes that you need to protect in case of a system failure.</target>
+        </trans-unit>
+        <trans-unit id="f216d414-4428-4a2a-852e-4a810f890599" xml:space="preserve">
+          <source>StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosure in addition to the primary enclosure.</source>
+          <target state="new">StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosure in addition to the primary enclosure.</target>
+        </trans-unit>
+        <trans-unit id="6e4855d3-4f7b-4d95-b399-a9d0ec04c20c" xml:space="preserve">
+          <source>An EBOD contains EBOD controllers and hard disk drives (HDDs) that are protected using mirrored spaces.</source>
+          <target state="new">An EBOD contains EBOD controllers and hard disk drives (HDDs) that are protected using mirrored spaces.</target>
+        </trans-unit>
+        <trans-unit id="90cd2426-f841-43ab-96b4-093e85801c98" xml:space="preserve">
+          <source>Use of mirrored spaces ensures that the device is able to tolerate the failure of one or more HDDs.</source>
+          <target state="new">Use of mirrored spaces ensures that the device is able to tolerate the failure of one or more HDDs.</target>
+        </trans-unit>
+        <trans-unit id="58aecac5-9819-4dfd-9ffb-ed178408c9c6" xml:space="preserve">
+          <source>The EBOD enclosure is connected to the primary enclosure through redundant SAS cables.</source>
+          <target state="new">The EBOD enclosure is connected to the primary enclosure through redundant SAS cables.</target>
+        </trans-unit>
+        <trans-unit id="fe2340aa-88ca-4054-9d58-00f6a8c1b00e" xml:space="preserve">
+          <source>Make sure that both EBOD enclosure controller modules, both SAS cables, and all the hard disk drives are installed at all times.</source>
+          <target state="new">Make sure that both EBOD enclosure controller modules, both SAS cables, and all the hard disk drives are installed at all times.</target>
+        </trans-unit>
+        <trans-unit id="56fd434c-106b-4564-8b2c-6b28bf638fcf" xml:space="preserve">
+          <source>If an EBOD enclosure controller module or an HDD fails, request a replacement immediately.</source>
+          <target state="new">If an EBOD enclosure controller module or an HDD fails, request a replacement immediately.</target>
+        </trans-unit>
+        <trans-unit id="fd028169-75da-4661-a78d-18d117010e50" xml:space="preserve">
+          <source>If an EBOD enclosure controller module fails, make sure that the other controller module is active before you replace the failed module.</source>
+          <target state="new">If an EBOD enclosure controller module fails, make sure that the other controller module is active before you replace the failed module.</target>
+        </trans-unit>
+        <trans-unit id="367099a6-ceb2-42f6-8d22-71e4a1be599d" xml:space="preserve">
+          <source>If an HDD fails or requires replacement, make sure that you remove only the HDD that requires replacement.</source>
+          <target state="new">If an HDD fails or requires replacement, make sure that you remove only the HDD that requires replacement.</target>
+        </trans-unit>
+        <trans-unit id="8dd126a9-108b-43c7-9ade-f392248c3956" xml:space="preserve">
+          <source>Do not remove an HDD until there is an indication that the disks and the array are healthy.</source>
+          <target state="new">Do not remove an HDD until there is an indication that the disks and the array are healthy.</target>
+        </trans-unit>
+        <trans-unit id="d02a18f8-a89c-41ac-b7c9-c359bc6d616b" xml:space="preserve">
+          <source>Do not remove more than one HDD from the system at any point in time.</source>
+          <target state="new">Do not remove more than one HDD from the system at any point in time.</target>
+        </trans-unit>
+        <trans-unit id="9cf667a2-c7d9-4c72-a0a3-6860f5ba38cb" xml:space="preserve">
+          <source>During an EBOD controller module or HDD replacement, continuously monitor the status of the relevant component in the StorSimple Manager service by accessing <bpt id="2cdc2c15-4c18-4512-b3e5-d91eacdc394a">&lt;strong&gt;</bpt>Maintenance<ept id="2cdc2c15-4c18-4512-b3e5-d91eacdc394a">&lt;/strong&gt;</ept> - <bpt id="fa4a9b55-376c-48a7-9e1e-1cba6565f1e0">&lt;strong&gt;</bpt>Hardware<ept id="fa4a9b55-376c-48a7-9e1e-1cba6565f1e0">&lt;/strong&gt;</ept> status.</source>
+          <target state="new">During an EBOD controller module or HDD replacement, continuously monitor the status of the relevant component in the StorSimple Manager service by accessing <bpt id="2cdc2c15-4c18-4512-b3e5-d91eacdc394a">&lt;strong&gt;</bpt>Maintenance<ept id="2cdc2c15-4c18-4512-b3e5-d91eacdc394a">&lt;/strong&gt;</ept> - <bpt id="fa4a9b55-376c-48a7-9e1e-1cba6565f1e0">&lt;strong&gt;</bpt>Hardware<ept id="fa4a9b55-376c-48a7-9e1e-1cba6565f1e0">&lt;/strong&gt;</ept> status.</target>
+        </trans-unit>
+        <trans-unit id="f58e18c9-b748-408d-8540-461e174e4a1f" xml:space="preserve">
+          <source>If an SAS cable fails or requires replacement (Microsoft Support should be involved to make such a determination), make sure that you remove only the SAS cable that requires replacement.</source>
+          <target state="new">If an SAS cable fails or requires replacement (Microsoft Support should be involved to make such a determination), make sure that you remove only the SAS cable that requires replacement.</target>
+        </trans-unit>
+        <trans-unit id="47eaf186-660f-4baa-a95d-10c44bc79ce3" xml:space="preserve">
+          <source>Do not concurrently remove both SAS cables from the system at any point in time.</source>
+          <target state="new">Do not concurrently remove both SAS cables from the system at any point in time.</target>
+        </trans-unit>
+        <trans-unit id="eb8ac8d8-7404-4ca5-b623-d52df50aa1d3" xml:space="preserve">
+          <source>Carefully review these requirements and best practices to ensure the high availability of hosts connected to your StorSimple device.</source>
+          <target state="new">Carefully review these requirements and best practices to ensure the high availability of hosts connected to your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="520fa92f-a9e5-454e-a4ca-e6de977b35d3" xml:space="preserve">
+          <source>Configure StorSimple with <bpt id="4e8e29ec-38be-4672-8f24-09fd9867c9cb">&lt;linkText&gt;</bpt>two-node file server cluster configurations[1]<ept id="4e8e29ec-38be-4672-8f24-09fd9867c9cb">&lt;/linkText&gt;</ept><bpt id="4e8e29ec-38be-4672-8f24-09fd9867c9cb">&lt;title&gt;</bpt><ept id="4e8e29ec-38be-4672-8f24-09fd9867c9cb">&lt;/title&gt;</ept>.</source>
+          <target state="new">Configure StorSimple with <bpt id="4e8e29ec-38be-4672-8f24-09fd9867c9cb">&lt;linkText&gt;</bpt>two-node file server cluster configurations[1]<ept id="4e8e29ec-38be-4672-8f24-09fd9867c9cb">&lt;/linkText&gt;</ept><bpt id="4e8e29ec-38be-4672-8f24-09fd9867c9cb">&lt;title&gt;</bpt><ept id="4e8e29ec-38be-4672-8f24-09fd9867c9cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50a7bda5-146a-4c2e-bc67-9ace5c018c78" xml:space="preserve">
+          <source>By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.</source>
+          <target state="new">By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.</target>
+        </trans-unit>
+        <trans-unit id="a5c19516-c04f-4057-aede-a654a04fc079" xml:space="preserve">
+          <source>Use Continuously available (CA) shares available with Windows Server 2012 (SMB 3.0) for high availability during failover of the storage controllers.</source>
+          <target state="new">Use Continuously available (CA) shares available with Windows Server 2012 (SMB 3.0) for high availability during failover of the storage controllers.</target>
+        </trans-unit>
+        <trans-unit id="0ceb20a0-344f-40c8-aa01-14a9a175459e" xml:space="preserve">
+          <source>For additional information for configuring file server clusters and Continuously Available shares with Windows Server 2012, refer to this <bpt id="5c4dd5ed-3d03-484c-b1ba-598cf253a9b0">&lt;linkText&gt;</bpt>video demo<ept id="5c4dd5ed-3d03-484c-b1ba-598cf253a9b0">&lt;/linkText&gt;</ept><bpt id="5c4dd5ed-3d03-484c-b1ba-598cf253a9b0">&lt;title&gt;</bpt><ept id="5c4dd5ed-3d03-484c-b1ba-598cf253a9b0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information for configuring file server clusters and Continuously Available shares with Windows Server 2012, refer to this <bpt id="5c4dd5ed-3d03-484c-b1ba-598cf253a9b0">&lt;linkText&gt;</bpt>video demo<ept id="5c4dd5ed-3d03-484c-b1ba-598cf253a9b0">&lt;/linkText&gt;</ept><bpt id="5c4dd5ed-3d03-484c-b1ba-598cf253a9b0">&lt;title&gt;</bpt><ept id="5c4dd5ed-3d03-484c-b1ba-598cf253a9b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a14a85bf-74a0-4d64-a15c-23c42f09a9dc" xml:space="preserve">
+          <source>Your StorSimple device is a locked-down device.</source>
+          <target state="new">Your StorSimple device is a locked-down device.</target>
+        </trans-unit>
+        <trans-unit id="55ebefc6-4409-4cc5-abc1-f06d8ff67288" xml:space="preserve">
+          <source>However, ports need to be opened in your firewall to allow for iSCSI, cloud, or management traffic.</source>
+          <target state="new">However, ports need to be opened in your firewall to allow for iSCSI, cloud, or management traffic.</target>
+        </trans-unit>
+        <trans-unit id="60adda6d-6ef3-4824-81a5-ece9764a3002" xml:space="preserve">
+          <source>The following table lists the ports that need to be opened in your firewall.</source>
+          <target state="new">The following table lists the ports that need to be opened in your firewall.</target>
+        </trans-unit>
+        <trans-unit id="bb300f17-e215-4329-a659-21a3bac702c8" xml:space="preserve">
+          <source>In this table, <bpt id="536b4c93-81a4-450e-b9c6-e419d8139a96">&lt;em&gt;</bpt>in<ept id="536b4c93-81a4-450e-b9c6-e419d8139a96">&lt;/em&gt;</ept> or <bpt id="4b8eeedc-846f-45b2-955a-e7fc27050013">&lt;em&gt;</bpt>inbound<ept id="4b8eeedc-846f-45b2-955a-e7fc27050013">&lt;/em&gt;</ept> refers to the direction from which incoming client requests access your device.</source>
+          <target state="new">In this table, <bpt id="536b4c93-81a4-450e-b9c6-e419d8139a96">&lt;em&gt;</bpt>in<ept id="536b4c93-81a4-450e-b9c6-e419d8139a96">&lt;/em&gt;</ept> or <bpt id="4b8eeedc-846f-45b2-955a-e7fc27050013">&lt;em&gt;</bpt>inbound<ept id="4b8eeedc-846f-45b2-955a-e7fc27050013">&lt;/em&gt;</ept> refers to the direction from which incoming client requests access your device.</target>
+        </trans-unit>
+        <trans-unit id="9e5e239b-8b28-4aeb-aaea-ccf888100dd9" xml:space="preserve">
+          <source><bpt id="a3a5776a-be72-4600-98ec-c293704a7cbe">&lt;em&gt;</bpt>Out<ept id="a3a5776a-be72-4600-98ec-c293704a7cbe">&lt;/em&gt;</ept> or <bpt id="6ae1c2df-a5d7-4d0a-a134-7aa9dc9db149">&lt;em&gt;</bpt>outbound<ept id="6ae1c2df-a5d7-4d0a-a134-7aa9dc9db149">&lt;/em&gt;</ept> refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.</source>
+          <target state="new"><bpt id="a3a5776a-be72-4600-98ec-c293704a7cbe">&lt;em&gt;</bpt>Out<ept id="a3a5776a-be72-4600-98ec-c293704a7cbe">&lt;/em&gt;</ept> or <bpt id="6ae1c2df-a5d7-4d0a-a134-7aa9dc9db149">&lt;em&gt;</bpt>outbound<ept id="6ae1c2df-a5d7-4d0a-a134-7aa9dc9db149">&lt;/em&gt;</ept> refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="362e4cc5-0014-4cfe-9d1c-2eb3dcbc7caa" xml:space="preserve">
+          <source>Port No.&lt;sup&gt;1,2&lt;/sup&gt;</source>
+          <target state="new">Port No.&lt;sup&gt;1,2&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="4286dbe2-a2a9-4a95-ae53-a6570991fef1" xml:space="preserve">
+          <source>In or out</source>
+          <target state="new">In or out</target>
+        </trans-unit>
+        <trans-unit id="589bd9a2-9c62-4e71-9214-721ea3e2dbe7" xml:space="preserve">
+          <source>Port scope</source>
+          <target state="new">Port scope</target>
+        </trans-unit>
+        <trans-unit id="c7396f14-958d-43b0-af68-32f4a79be303" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="1c6c7373-6c54-414b-a105-602f6f3ec461" xml:space="preserve">
+          <source>Notes</source>
+          <target state="new">Notes</target>
+        </trans-unit>
+        <trans-unit id="109bb1dd-91ad-4bde-9e7b-f35475c0146f" xml:space="preserve">
+          <source>TCP 80 (HTTP)&lt;sup&gt;3&lt;/sup&gt;</source>
+          <target state="new">TCP 80 (HTTP)&lt;sup&gt;3&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="ef2c50da-dfb2-4bc2-9be7-7eb3cb4dca10" xml:space="preserve">
+          <source>Out</source>
+          <target state="new">Out</target>
+        </trans-unit>
+        <trans-unit id="0a488023-351b-44b9-8209-ea3bf0127326" xml:space="preserve">
+          <source>WAN</source>
+          <target state="new">WAN</target>
+        </trans-unit>
+        <trans-unit id="fab5f4db-6b99-4423-ac45-09d4a26142ec" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="6f3fec49-5884-4d44-ab0d-b2394ea3c57d" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Outbound port is used for Internet access to retrieve updates.&lt;/li&gt;&lt;li&gt;The outbound web proxy is user configurable.&lt;/li&gt;&lt;li&gt;To allow system updates, this port must also be open for the controller fixed IPs.&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Outbound port is used for Internet access to retrieve updates.&lt;/li&gt;&lt;li&gt;The outbound web proxy is user configurable.&lt;/li&gt;&lt;li&gt;To allow system updates, this port must also be open for the controller fixed IPs.&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="a5613e81-96a8-40bf-98c6-f4bb7f171b05" xml:space="preserve">
+          <source>TCP 443 (HTTPS)&lt;sup&gt;3&lt;/sup&gt;</source>
+          <target state="new">TCP 443 (HTTPS)&lt;sup&gt;3&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="9290c712-8ece-4f7a-8151-f3988dca9787" xml:space="preserve">
+          <source>Out</source>
+          <target state="new">Out</target>
+        </trans-unit>
+        <trans-unit id="22cf48f3-303f-43d2-9ef0-d80dca546e43" xml:space="preserve">
+          <source>WAN</source>
+          <target state="new">WAN</target>
+        </trans-unit>
+        <trans-unit id="e04d2362-02ff-4f41-bf79-3a2bfa88a190" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="3d7c775b-5427-4a58-9431-ab3117f0aadb" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Outbound port is used for accessing data in the cloud.&lt;/li&gt;&lt;li&gt;The outbound web proxy is user configurable.&lt;/li&gt;&lt;li&gt;To allow system updates, this port must also be open for the controller fixed IPs.&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Outbound port is used for accessing data in the cloud.&lt;/li&gt;&lt;li&gt;The outbound web proxy is user configurable.&lt;/li&gt;&lt;li&gt;To allow system updates, this port must also be open for the controller fixed IPs.&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="28d62bd6-e788-496f-9140-ab227c8d5353" xml:space="preserve">
+          <source>UDP 53 (DNS)</source>
+          <target state="new">UDP 53 (DNS)</target>
+        </trans-unit>
+        <trans-unit id="d26ebd01-0c95-4e68-827c-125584094e55" xml:space="preserve">
+          <source>Out</source>
+          <target state="new">Out</target>
+        </trans-unit>
+        <trans-unit id="02f7f71d-32cf-40b2-b2c1-cc62e5102d9d" xml:space="preserve">
+          <source>WAN</source>
+          <target state="new">WAN</target>
+        </trans-unit>
+        <trans-unit id="2737373b-6b8f-44a9-a26d-7602c6f73efd" xml:space="preserve">
+          <source>In some cases; see notes.</source>
+          <target state="new">In some cases; see notes.</target>
+        </trans-unit>
+        <trans-unit id="dd7d4938-8699-4576-aa35-11fc8b258dd4" xml:space="preserve">
+          <source>This port is required only if you are using an Internet-based DNS server.</source>
+          <target state="new">This port is required only if you are using an Internet-based DNS server.</target>
+        </trans-unit>
+        <trans-unit id="d43df79e-b9f1-4e84-9684-f5e70763ab4a" xml:space="preserve">
+          <source>UDP 123 (NTP)</source>
+          <target state="new">UDP 123 (NTP)</target>
+        </trans-unit>
+        <trans-unit id="b1a8a38b-ee72-40b7-8baa-4537ca75ceba" xml:space="preserve">
+          <source>Out</source>
+          <target state="new">Out</target>
+        </trans-unit>
+        <trans-unit id="09e958b8-a483-43f4-9fa6-2639e7df70cd" xml:space="preserve">
+          <source>WAN</source>
+          <target state="new">WAN</target>
+        </trans-unit>
+        <trans-unit id="68098a34-b311-4eab-9b3d-6ffbee91223b" xml:space="preserve">
+          <source>In some cases; see notes.</source>
+          <target state="new">In some cases; see notes.</target>
+        </trans-unit>
+        <trans-unit id="225e53f3-419d-4cf9-95c1-faf057fb1b45" xml:space="preserve">
+          <source>This port is required only if you are using an Internet-based NTP server.</source>
+          <target state="new">This port is required only if you are using an Internet-based NTP server.</target>
+        </trans-unit>
+        <trans-unit id="d8723086-be58-41ca-af52-58325216e7d5" xml:space="preserve">
+          <source>TCP 9354</source>
+          <target state="new">TCP 9354</target>
+        </trans-unit>
+        <trans-unit id="cf05ddd1-2807-488e-b7d0-18673f330ffc" xml:space="preserve">
+          <source>Out</source>
+          <target state="new">Out</target>
+        </trans-unit>
+        <trans-unit id="5455177b-4854-42c8-bf35-c705691b010d" xml:space="preserve">
+          <source>WAN</source>
+          <target state="new">WAN</target>
+        </trans-unit>
+        <trans-unit id="85d1238c-1e1e-41ea-bf52-652e5b04c99f" xml:space="preserve">
+          <source>In some cases; see notes.</source>
+          <target state="new">In some cases; see notes.</target>
+        </trans-unit>
+        <trans-unit id="6cd08923-6cf4-41cc-b085-3834dd0464b6" xml:space="preserve">
+          <source>The outbound port is used by the StorSimple Manager service to communicate with the device. This port is required if your current network does not support using HTTP 1.1 to connect to the Internet; for instance if you are using an HTTP 1.0-based proxy server.&lt;br&gt; If connecting via a proxy server, refer to <bpt id="f961faec-20f8-4336-8b72-d842c8dca819">&lt;linkText&gt;</bpt>service bus requirements<ept id="f961faec-20f8-4336-8b72-d842c8dca819">&lt;/linkText&gt;</ept><bpt id="f961faec-20f8-4336-8b72-d842c8dca819">&lt;title&gt;</bpt><ept id="f961faec-20f8-4336-8b72-d842c8dca819">&lt;/title&gt;</ept> for detailed information.</source>
+          <target state="new">The outbound port is used by the StorSimple Manager service to communicate with the device. This port is required if your current network does not support using HTTP 1.1 to connect to the Internet; for instance if you are using an HTTP 1.0-based proxy server.&lt;br&gt; If connecting via a proxy server, refer to <bpt id="f961faec-20f8-4336-8b72-d842c8dca819">&lt;linkText&gt;</bpt>service bus requirements<ept id="f961faec-20f8-4336-8b72-d842c8dca819">&lt;/linkText&gt;</ept><bpt id="f961faec-20f8-4336-8b72-d842c8dca819">&lt;title&gt;</bpt><ept id="f961faec-20f8-4336-8b72-d842c8dca819">&lt;/title&gt;</ept> for detailed information.</target>
+        </trans-unit>
+        <trans-unit id="49bce524-391b-4dea-bc85-1dfb749c351a" xml:space="preserve">
+          <source>3260 (iSCSI)</source>
+          <target state="new">3260 (iSCSI)</target>
+        </trans-unit>
+        <trans-unit id="1d02d0b0-97a1-4089-bcb7-5fe32a9921a7" xml:space="preserve">
+          <source>In</source>
+          <target state="new">In</target>
+        </trans-unit>
+        <trans-unit id="12a12d13-eded-4cdf-a224-c270a42ad4c5" xml:space="preserve">
+          <source>LAN</source>
+          <target state="new">LAN</target>
+        </trans-unit>
+        <trans-unit id="06a6293e-581a-44bf-b02d-ecbc8b73022a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="54b3a465-4d1e-4524-aa8c-b2680da0d7a5" xml:space="preserve">
+          <source>This port is used to access data over iSCSI.</source>
+          <target state="new">This port is used to access data over iSCSI.</target>
+        </trans-unit>
+        <trans-unit id="363752f7-91e8-4396-b5af-b9ed091a3e72" xml:space="preserve">
+          <source>5985</source>
+          <target state="new">5985</target>
+        </trans-unit>
+        <trans-unit id="bb345db9-ad18-4b35-9614-05745151f5c4" xml:space="preserve">
+          <source>In</source>
+          <target state="new">In</target>
+        </trans-unit>
+        <trans-unit id="74e0e054-eee1-4b3e-a490-a86c70cf38dd" xml:space="preserve">
+          <source>LAN</source>
+          <target state="new">LAN</target>
+        </trans-unit>
+        <trans-unit id="018d78c8-fae5-4252-9e0a-7f89c9ef7573" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="4a71b8ac-9fda-49fa-b990-082226f1dd33" xml:space="preserve">
+          <source>Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.&lt;br&gt;This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP or HTTPS.</source>
+          <target state="new">Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.&lt;br&gt;This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP or HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="9c9f1b70-d6f3-4062-a48e-dc14c44a2e99" xml:space="preserve">
+          <source>&lt;sup&gt;1&lt;/sup&gt; No inbound ports need to be opened on the public Internet.</source>
+          <target state="new">&lt;sup&gt;1&lt;/sup&gt; No inbound ports need to be opened on the public Internet.</target>
+        </trans-unit>
+        <trans-unit id="bd0cc409-8a41-45bc-bfdf-e841c98663f4" xml:space="preserve">
+          <source>&lt;sup&gt;2&lt;/sup&gt; If multiple ports carry a gateway configuration, the outbound routed traffic order will be determined based on the port routing order described below.</source>
+          <target state="new">&lt;sup&gt;2&lt;/sup&gt; If multiple ports carry a gateway configuration, the outbound routed traffic order will be determined based on the port routing order described below.</target>
+        </trans-unit>
+        <trans-unit id="5b3fdb36-dce6-4981-a33c-75d6725fc6f5" xml:space="preserve">
+          <source>&lt;sup&gt;3&lt;/sup&gt; The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet.</source>
+          <target state="new">&lt;sup&gt;3&lt;/sup&gt; The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="25e1a1df-041b-49d1-86e8-7c7c2175dc18" xml:space="preserve">
+          <source>The fixed IP addresses are used for servicing the updates to the device.</source>
+          <target state="new">The fixed IP addresses are used for servicing the updates to the device.</target>
+        </trans-unit>
+        <trans-unit id="98421e96-4d8b-4709-8585-c72adc2f7f96" xml:space="preserve">
+          <source>If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.</source>
+          <target state="new">If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="28b239d4-ae56-44b6-8c7a-b57f6f466031" xml:space="preserve">
+          <source>Port routing is different depending on the software version running on your StorSimple device.</source>
+          <target state="new">Port routing is different depending on the software version running on your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="5b20812f-1605-4f5c-a8fc-38156a622872" xml:space="preserve">
+          <source>If the device is running a software version earlier that Update 1, such as the GA, 0.1, 0.2, or 0.3 release, then the port routing is decided as follows:</source>
+          <target state="new">If the device is running a software version earlier that Update 1, such as the GA, 0.1, 0.2, or 0.3 release, then the port routing is decided as follows:</target>
+        </trans-unit>
+        <trans-unit id="dceda338-3976-45c8-bf90-1b1192b267b7" xml:space="preserve">
+          <source> Last configured 10 GbE network interface &gt; Other 10 GbE network interface &gt; Last configured 1 GbE network interface &gt; Other 1 GbE network interface</source>
+          <target state="new"> Last configured 10 GbE network interface &gt; Other 10 GbE network interface &gt; Last configured 1 GbE network interface &gt; Other 1 GbE network interface</target>
+        </trans-unit>
+        <trans-unit id="50e6f64e-dc18-4d09-a186-fa82dda8ea71" xml:space="preserve">
+          <source>If the device is running Update 1, then the port routing is decided as follows:</source>
+          <target state="new">If the device is running Update 1, then the port routing is decided as follows:</target>
+        </trans-unit>
+        <trans-unit id="19c1fccb-786e-4325-9cb0-27782e45761a" xml:space="preserve">
+          <source> DATA 0 &gt; Last configured 10 GbE network interface &gt; Other 10 GbE network interface &gt; Last configured 1 GbE network interface &gt; Other 1 GbE network interface</source>
+          <target state="new"> DATA 0 &gt; Last configured 10 GbE network interface &gt; Other 10 GbE network interface &gt; Last configured 1 GbE network interface &gt; Other 1 GbE network interface</target>
+        </trans-unit>
+        <trans-unit id="9fe151a2-acb8-4623-8f0a-67543f80dbc3" xml:space="preserve">
+          <source>In Update 1, the routing metric of DATA 0 is made the lowest; therefore, all the cloud-traffic is routed through DATA 0.</source>
+          <target state="new">In Update 1, the routing metric of DATA 0 is made the lowest; therefore, all the cloud-traffic is routed through DATA 0.</target>
+        </trans-unit>
+        <trans-unit id="33b1c332-871d-46c4-8d6a-175751e9fa2d" xml:space="preserve">
+          <source>Make a note of this if there are more than one cloud-enabled network interfaces on your StorSimple device.</source>
+          <target state="new">Make a note of this if there are more than one cloud-enabled network interfaces on your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="a2912fc5-988d-4a6f-b765-d074291eaf00" xml:space="preserve">
+          <source>In addition to the above networking requirements, for the optimal performance of your StorSimple solution, please adhere to the following best practices:</source>
+          <target state="new">In addition to the above networking requirements, for the optimal performance of your StorSimple solution, please adhere to the following best practices:</target>
+        </trans-unit>
+        <trans-unit id="f9aaf9c3-9400-40c6-8c8c-6cedb95212fa" xml:space="preserve">
+          <source>Ensure that your StorSimple device has a dedicated 40 Mbps bandwidth (or more) available at all times.</source>
+          <target state="new">Ensure that your StorSimple device has a dedicated 40 Mbps bandwidth (or more) available at all times.</target>
+        </trans-unit>
+        <trans-unit id="63119673-045a-48da-b81b-1cce49981a3c" xml:space="preserve">
+          <source>This bandwidth should not be shared with any other applications.</source>
+          <target state="new">This bandwidth should not be shared with any other applications.</target>
+        </trans-unit>
+        <trans-unit id="f55a8f58-73ec-4d0d-b2d5-0db80f0bbd4c" xml:space="preserve">
+          <source>Ensure network connectivity to the Internet is available at all times.</source>
+          <target state="new">Ensure network connectivity to the Internet is available at all times.</target>
+        </trans-unit>
+        <trans-unit id="26f8af13-0cd6-4447-990e-3d3a0d63df50" xml:space="preserve">
+          <source>Sporadic or unreliable Internet connections to the devices, including no Internet connectivity whatsoever, will result in an unsupported configuration.</source>
+          <target state="new">Sporadic or unreliable Internet connections to the devices, including no Internet connectivity whatsoever, will result in an unsupported configuration.</target>
+        </trans-unit>
+        <trans-unit id="1ed1ed9b-9f24-4d1a-9585-8dc6b805a974" xml:space="preserve">
+          <source>Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access.</source>
+          <target state="new">Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access.</target>
+        </trans-unit>
+        <trans-unit id="b0b35300-07e7-490a-a725-a0b37a8a403f" xml:space="preserve">
+          <source>For more information, see how to <bpt id="3949f5f9-aa53-4520-9c92-f5f247628c2f">&lt;linkText&gt;</bpt>modify network interfaces<ept id="3949f5f9-aa53-4520-9c92-f5f247628c2f">&lt;/linkText&gt;</ept><bpt id="3949f5f9-aa53-4520-9c92-f5f247628c2f">&lt;title&gt;</bpt><ept id="3949f5f9-aa53-4520-9c92-f5f247628c2f">&lt;/title&gt;</ept> on your StorSimple device.</source>
+          <target state="new">For more information, see how to <bpt id="3949f5f9-aa53-4520-9c92-f5f247628c2f">&lt;linkText&gt;</bpt>modify network interfaces<ept id="3949f5f9-aa53-4520-9c92-f5f247628c2f">&lt;/linkText&gt;</ept><bpt id="3949f5f9-aa53-4520-9c92-f5f247628c2f">&lt;title&gt;</bpt><ept id="3949f5f9-aa53-4520-9c92-f5f247628c2f">&lt;/title&gt;</ept> on your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="2f63cb14-58e3-4aa1-8bc4-65bfe5efa141" xml:space="preserve">
+          <source><bpt id="22bc7602-b92a-4cc8-a449-6e9879df866c">&lt;linkText&gt;</bpt>Learn about StorSimple system limits<ept id="22bc7602-b92a-4cc8-a449-6e9879df866c">&lt;/linkText&gt;</ept><bpt id="22bc7602-b92a-4cc8-a449-6e9879df866c">&lt;title&gt;</bpt><ept id="22bc7602-b92a-4cc8-a449-6e9879df866c">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="22bc7602-b92a-4cc8-a449-6e9879df866c">&lt;linkText&gt;</bpt>Learn about StorSimple system limits<ept id="22bc7602-b92a-4cc8-a449-6e9879df866c">&lt;/linkText&gt;</ept><bpt id="22bc7602-b92a-4cc8-a449-6e9879df866c">&lt;title&gt;</bpt><ept id="22bc7602-b92a-4cc8-a449-6e9879df866c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c8e5cbd-0a3a-45b6-8c99-68dcc7289770" xml:space="preserve">
+          <source><bpt id="63b3488c-6537-44ec-b3e3-f9418c78565f">&lt;linkText&gt;</bpt>Learn how to deploy your StorSimple solution<ept id="63b3488c-6537-44ec-b3e3-f9418c78565f">&lt;/linkText&gt;</ept><bpt id="63b3488c-6537-44ec-b3e3-f9418c78565f">&lt;title&gt;</bpt><ept id="63b3488c-6537-44ec-b3e3-f9418c78565f">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="63b3488c-6537-44ec-b3e3-f9418c78565f">&lt;linkText&gt;</bpt>Learn how to deploy your StorSimple solution<ept id="63b3488c-6537-44ec-b3e3-f9418c78565f">&lt;/linkText&gt;</ept><bpt id="63b3488c-6537-44ec-b3e3-f9418c78565f">&lt;title&gt;</bpt><ept id="63b3488c-6537-44ec-b3e3-f9418c78565f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdd3e8c5-b1c6-49ff-881c-0dcc7808e120" xml:space="preserve">
+          <source>https://technet.microsoft.com/library/cc731844(v=WS.10).aspx</source>
+          <target state="new">https://technet.microsoft.com/library/cc731844(v=WS.10).aspx</target>
+        </trans-unit>
+      </group>
+      <group id="0d504bf0-de5b-4e28-8f97-a4a769ac4959" />
+    </body>
+  </file>
+</xliff>

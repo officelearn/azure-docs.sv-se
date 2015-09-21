@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7591a119-837c-406a-82ad-0944d58d8d27" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7591a119-837c-406a-82ad-0944d58d8d27" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="315b9724-da91-4997-a71a-b740ab0b814e">
+        <trans-unit id="5ecc6051-ea49-4e2e-ac26-a61b20a36c27" xml:space="preserve">
+          <source>Provision HBase clusters on a Virtual Network | Microsoft Azure</source>
+          <target state="new">Provision HBase clusters on a Virtual Network | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a1413a69-5b1c-43a4-917a-eeb8c062fa34" xml:space="preserve">
+          <source>Get started using HBase in Azure HDInsight. Learn how to create HDInsight HBase clusters on Azure Virtual Network.</source>
+          <target state="new">Get started using HBase in Azure HDInsight. Learn how to create HDInsight HBase clusters on Azure Virtual Network.</target>
+        </trans-unit>
+        <trans-unit id="9019f0a1-0081-4098-867f-37bb3dfb4750" xml:space="preserve">
+          <source>Learn how to create Azure HDInsight HBase clusters on an <bpt id="e2788312-803f-4768-aa4a-34d7717d52aa">&lt;linkText&gt;</bpt>Azure Virtual Network[1]<ept id="e2788312-803f-4768-aa4a-34d7717d52aa">&lt;/linkText&gt;</ept><bpt id="e2788312-803f-4768-aa4a-34d7717d52aa">&lt;title&gt;</bpt><ept id="e2788312-803f-4768-aa4a-34d7717d52aa">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn how to create Azure HDInsight HBase clusters on an <bpt id="e2788312-803f-4768-aa4a-34d7717d52aa">&lt;linkText&gt;</bpt>Azure Virtual Network[1]<ept id="e2788312-803f-4768-aa4a-34d7717d52aa">&lt;/linkText&gt;</ept><bpt id="e2788312-803f-4768-aa4a-34d7717d52aa">&lt;title&gt;</bpt><ept id="e2788312-803f-4768-aa4a-34d7717d52aa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e765daf0-77f5-4783-8a91-f54d09df7c35" xml:space="preserve">
+          <source><bpt id="9ae50274-5951-4ed3-9517-ae31307e8442">&lt;token href="../../includes/hdinsight-azure-preview-portal.md"&gt;</bpt><ept id="9ae50274-5951-4ed3-9517-ae31307e8442">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9ae50274-5951-4ed3-9517-ae31307e8442">&lt;token href="../../includes/hdinsight-azure-preview-portal.md"&gt;</bpt><ept id="9ae50274-5951-4ed3-9517-ae31307e8442">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb1bfd82-8807-4355-955b-53c85f0f6808" xml:space="preserve">
+          <source><bpt id="cb6ded22-3322-4775-99c5-c23d66ccea3c">&lt;linkText&gt;</bpt>Provision HBase clusters on Azure Virtual Network<ept id="cb6ded22-3322-4775-99c5-c23d66ccea3c">&lt;/linkText&gt;</ept><bpt id="cb6ded22-3322-4775-99c5-c23d66ccea3c">&lt;title&gt;</bpt><ept id="cb6ded22-3322-4775-99c5-c23d66ccea3c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cb6ded22-3322-4775-99c5-c23d66ccea3c">&lt;linkText&gt;</bpt>Provision HBase clusters on Azure Virtual Network<ept id="cb6ded22-3322-4775-99c5-c23d66ccea3c">&lt;/linkText&gt;</ept><bpt id="cb6ded22-3322-4775-99c5-c23d66ccea3c">&lt;title&gt;</bpt><ept id="cb6ded22-3322-4775-99c5-c23d66ccea3c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae5aad69-a9bb-4bb8-ab6d-b4944f824047" xml:space="preserve">
+          <source>With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.</source>
+          <target state="new">With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.</target>
+        </trans-unit>
+        <trans-unit id="3846c0e3-0e36-4aba-bf04-0fb05ce5c713" xml:space="preserve">
+          <source>The benefits include:</source>
+          <target state="new">The benefits include:</target>
+        </trans-unit>
+        <trans-unit id="7e3e7c3e-a368-4365-9a6e-093f3ea78142" xml:space="preserve">
+          <source>Direct connectivity of the web application to the nodes of the HBase cluster, which enables communication via HBase Java remote procedure call (RPC) APIs.</source>
+          <target state="new">Direct connectivity of the web application to the nodes of the HBase cluster, which enables communication via HBase Java remote procedure call (RPC) APIs.</target>
+        </trans-unit>
+        <trans-unit id="4ade8169-66a6-4d09-85a1-9a1b3601dc76" xml:space="preserve">
+          <source>Improved performance by not having your traffic go over multiple gateways and load-balancers.</source>
+          <target state="new">Improved performance by not having your traffic go over multiple gateways and load-balancers.</target>
+        </trans-unit>
+        <trans-unit id="0cf525c3-86d2-4799-82da-767ae74c63dc" xml:space="preserve">
+          <source>The ability to process sensitive information in a more secure manner without exposing a public endpoint.</source>
+          <target state="new">The ability to process sensitive information in a more secure manner without exposing a public endpoint.</target>
+        </trans-unit>
+        <trans-unit id="579e7f3c-471d-48e8-810d-69ae2a8f335b" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have the following:</source>
+          <target state="new">Before you begin this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="780f906c-85ca-4c40-8a12-fe5efbdb1820" xml:space="preserve">
+          <source><bpt id="4716c764-c3f3-4dc9-9c44-ea439625bfae">&lt;strong&gt;</bpt>An Azure subscription<ept id="4716c764-c3f3-4dc9-9c44-ea439625bfae">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="4716c764-c3f3-4dc9-9c44-ea439625bfae">&lt;strong&gt;</bpt>An Azure subscription<ept id="4716c764-c3f3-4dc9-9c44-ea439625bfae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="863a1bf7-5688-4496-a27f-3b8a927a522f" xml:space="preserve">
+          <source>See <bpt id="3ba85b8c-2a53-4641-a391-71f043154bc4">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="3ba85b8c-2a53-4641-a391-71f043154bc4">&lt;/linkText&gt;</ept><bpt id="3ba85b8c-2a53-4641-a391-71f043154bc4">&lt;title&gt;</bpt><ept id="3ba85b8c-2a53-4641-a391-71f043154bc4">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="3ba85b8c-2a53-4641-a391-71f043154bc4">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="3ba85b8c-2a53-4641-a391-71f043154bc4">&lt;/linkText&gt;</ept><bpt id="3ba85b8c-2a53-4641-a391-71f043154bc4">&lt;title&gt;</bpt><ept id="3ba85b8c-2a53-4641-a391-71f043154bc4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ef6b0cc-c9cf-43dd-a382-fd9e4692c76d" xml:space="preserve">
+          <source><bpt id="8bee773d-55d8-4109-91fe-31fc503ae018">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="8bee773d-55d8-4109-91fe-31fc503ae018">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="8bee773d-55d8-4109-91fe-31fc503ae018">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="8bee773d-55d8-4109-91fe-31fc503ae018">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9850563f-3292-4bda-8206-c1dac75299ec" xml:space="preserve">
+          <source>See <bpt id="9f25adc3-f175-4f6f-ae82-db65678dca26">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="9f25adc3-f175-4f6f-ae82-db65678dca26">&lt;/linkText&gt;</ept><bpt id="9f25adc3-f175-4f6f-ae82-db65678dca26">&lt;title&gt;</bpt><ept id="9f25adc3-f175-4f6f-ae82-db65678dca26">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="9f25adc3-f175-4f6f-ae82-db65678dca26">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="9f25adc3-f175-4f6f-ae82-db65678dca26">&lt;/linkText&gt;</ept><bpt id="9f25adc3-f175-4f6f-ae82-db65678dca26">&lt;title&gt;</bpt><ept id="9f25adc3-f175-4f6f-ae82-db65678dca26">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="655e2638-44c8-41d4-b0d8-d6caa91e3384" xml:space="preserve">
+          <source>For instructions, see <bpt id="47db1c41-3911-4cdc-86df-b5ac9c337eab">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell<ept id="47db1c41-3911-4cdc-86df-b5ac9c337eab">&lt;/linkText&gt;</ept><bpt id="47db1c41-3911-4cdc-86df-b5ac9c337eab">&lt;title&gt;</bpt><ept id="47db1c41-3911-4cdc-86df-b5ac9c337eab">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="47db1c41-3911-4cdc-86df-b5ac9c337eab">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell<ept id="47db1c41-3911-4cdc-86df-b5ac9c337eab">&lt;/linkText&gt;</ept><bpt id="47db1c41-3911-4cdc-86df-b5ac9c337eab">&lt;title&gt;</bpt><ept id="47db1c41-3911-4cdc-86df-b5ac9c337eab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f67a474-49b8-4ec8-a776-eae408b0e809" xml:space="preserve">
+          <source>To execute Azure PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to <bpt id="704c6dc7-cbbc-4d7f-bda9-d9c3e3c0900c">&lt;em&gt;</bpt>RemoteSigned<ept id="704c6dc7-cbbc-4d7f-bda9-d9c3e3c0900c">&lt;/em&gt;</ept>.</source>
+          <target state="new">To execute Azure PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to <bpt id="704c6dc7-cbbc-4d7f-bda9-d9c3e3c0900c">&lt;em&gt;</bpt>RemoteSigned<ept id="704c6dc7-cbbc-4d7f-bda9-d9c3e3c0900c">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8373fa8-9c56-4472-86c4-b77df92dac79" xml:space="preserve">
+          <source>See <bpt id="3d131b85-c9c7-412d-a6d8-d2c875b77af3">&lt;linkText&gt;</bpt>Using the Set-ExecutionPolicy cmdlet[2]<ept id="3d131b85-c9c7-412d-a6d8-d2c875b77af3">&lt;/linkText&gt;</ept><bpt id="3d131b85-c9c7-412d-a6d8-d2c875b77af3">&lt;title&gt;</bpt><ept id="3d131b85-c9c7-412d-a6d8-d2c875b77af3">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="3d131b85-c9c7-412d-a6d8-d2c875b77af3">&lt;linkText&gt;</bpt>Using the Set-ExecutionPolicy cmdlet[2]<ept id="3d131b85-c9c7-412d-a6d8-d2c875b77af3">&lt;/linkText&gt;</ept><bpt id="3d131b85-c9c7-412d-a6d8-d2c875b77af3">&lt;title&gt;</bpt><ept id="3d131b85-c9c7-412d-a6d8-d2c875b77af3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf7eb481-4dfc-4e3c-82a6-01510993b90e" xml:space="preserve">
+          <source>Before running Azure PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:</source>
+          <target state="new">Before running Azure PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="404e737c-9704-4bb1-afb8-02f10b5e19ee" xml:space="preserve">
+          <source>If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:</source>
+          <target state="new">If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:</target>
+        </trans-unit>
+        <trans-unit id="e2fa7cb4-75f0-4db1-9129-00bd66fa3800" xml:space="preserve">
+          <source>Applications are typically made up of many components.</source>
+          <target state="new">Applications are typically made up of many components.</target>
+        </trans-unit>
+        <trans-unit id="8ee1ebac-7f9c-474b-8d76-9679df74ff16" xml:space="preserve">
+          <source>In this tutorial, you will have:</source>
+          <target state="new">In this tutorial, you will have:</target>
+        </trans-unit>
+        <trans-unit id="95902247-6efd-4c78-808c-11cc25063d44" xml:space="preserve">
+          <source>an Azure virtual network</source>
+          <target state="new">an Azure virtual network</target>
+        </trans-unit>
+        <trans-unit id="35ec55e7-f9dd-466a-b884-cec9a2c19a9c" xml:space="preserve">
+          <source>an Azure Storage Account</source>
+          <target state="new">an Azure Storage Account</target>
+        </trans-unit>
+        <trans-unit id="a906d159-1ef2-48a1-b74e-589c52e15b0d" xml:space="preserve">
+          <source>an Azure HDInsight HBase Cluster</source>
+          <target state="new">an Azure HDInsight HBase Cluster</target>
+        </trans-unit>
+        <trans-unit id="881005b1-c1bf-4a73-beb6-c18780ad97dc" xml:space="preserve">
+          <source>(optional) an Azure virtual machine serving as a DNS server</source>
+          <target state="new">(optional) an Azure virtual machine serving as a DNS server</target>
+        </trans-unit>
+        <trans-unit id="0dff2d4b-4642-4e58-a0d4-384192e118d0" xml:space="preserve">
+          <source>Azure Resource Manager enables you to work with the resources in your application as a group.</source>
+          <target state="new">Azure Resource Manager enables you to work with the resources in your application as a group.</target>
+        </trans-unit>
+        <trans-unit id="d9950335-e4f0-4ad6-9f99-ac0f5d535564" xml:space="preserve">
+          <source>You can deploy, update or delete all of the resources for your application in a single, coordinated operation.</source>
+          <target state="new">You can deploy, update or delete all of the resources for your application in a single, coordinated operation.</target>
+        </trans-unit>
+        <trans-unit id="738932c2-c93b-42b2-9c60-0f07619895f3" xml:space="preserve">
+          <source>You use a template for deployment and that template can work for different environments such as testing, staging and production.</source>
+          <target state="new">You use a template for deployment and that template can work for different environments such as testing, staging and production.</target>
+        </trans-unit>
+        <trans-unit id="7867a9cf-37d4-4371-93c4-1f817d3f6700" xml:space="preserve">
+          <source>You can clarify billing for your organization by viewing the rolled-up costs for the entire group.</source>
+          <target state="new">You can clarify billing for your organization by viewing the rolled-up costs for the entire group.</target>
+        </trans-unit>
+        <trans-unit id="9738627e-2cad-4f64-b17b-6c6f191af89a" xml:space="preserve">
+          <source><bpt id="fa4a7ab3-7257-497d-8f10-cee776a2d443">&lt;strong&gt;</bpt>To create a resource group<ept id="fa4a7ab3-7257-497d-8f10-cee776a2d443">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fa4a7ab3-7257-497d-8f10-cee776a2d443">&lt;strong&gt;</bpt>To create a resource group<ept id="fa4a7ab3-7257-497d-8f10-cee776a2d443">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c5f9e1a-1fff-4785-98e1-df3d587eaecd" xml:space="preserve">
+          <source>Sign in to the <bpt id="c818e7b9-3014-4324-9088-d856eb7385d7">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="c818e7b9-3014-4324-9088-d856eb7385d7">&lt;/linkText&gt;</ept><bpt id="c818e7b9-3014-4324-9088-d856eb7385d7">&lt;title&gt;</bpt><ept id="c818e7b9-3014-4324-9088-d856eb7385d7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="c818e7b9-3014-4324-9088-d856eb7385d7">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="c818e7b9-3014-4324-9088-d856eb7385d7">&lt;/linkText&gt;</ept><bpt id="c818e7b9-3014-4324-9088-d856eb7385d7">&lt;title&gt;</bpt><ept id="c818e7b9-3014-4324-9088-d856eb7385d7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63d3163f-fd47-4a0c-95ac-b62f1d790073" xml:space="preserve">
+          <source>Click <bpt id="88cc7b3d-85db-4172-91c3-cebb0ff4281a">&lt;strong&gt;</bpt>NEW<ept id="88cc7b3d-85db-4172-91c3-cebb0ff4281a">&lt;/strong&gt;</ept>, click <bpt id="ab34c4a4-b155-4358-9f6b-4a551b9a117a">&lt;strong&gt;</bpt>Management<ept id="ab34c4a4-b155-4358-9f6b-4a551b9a117a">&lt;/strong&gt;</ept>, and then click <bpt id="376e8813-89ae-4d5f-9d05-d76b38067da4">&lt;strong&gt;</bpt>Resource group<ept id="376e8813-89ae-4d5f-9d05-d76b38067da4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="88cc7b3d-85db-4172-91c3-cebb0ff4281a">&lt;strong&gt;</bpt>NEW<ept id="88cc7b3d-85db-4172-91c3-cebb0ff4281a">&lt;/strong&gt;</ept>, click <bpt id="ab34c4a4-b155-4358-9f6b-4a551b9a117a">&lt;strong&gt;</bpt>Management<ept id="ab34c4a4-b155-4358-9f6b-4a551b9a117a">&lt;/strong&gt;</ept>, and then click <bpt id="376e8813-89ae-4d5f-9d05-d76b38067da4">&lt;strong&gt;</bpt>Resource group<ept id="376e8813-89ae-4d5f-9d05-d76b38067da4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b28722b3-b7da-40f8-8c66-db7175a1e744" xml:space="preserve">
+          <source>Type or select the following values:</source>
+          <target state="new">Type or select the following values:</target>
+        </trans-unit>
+        <trans-unit id="a5b1816b-986c-4f7e-b126-430b23d3dd40" xml:space="preserve">
+          <source><bpt id="8c0e7a49-1386-4f49-b396-bc3693e5345c">&lt;strong&gt;</bpt>Resource group name<ept id="8c0e7a49-1386-4f49-b396-bc3693e5345c">&lt;/strong&gt;</ept>: Enter a name for the resource group.</source>
+          <target state="new"><bpt id="8c0e7a49-1386-4f49-b396-bc3693e5345c">&lt;strong&gt;</bpt>Resource group name<ept id="8c0e7a49-1386-4f49-b396-bc3693e5345c">&lt;/strong&gt;</ept>: Enter a name for the resource group.</target>
+        </trans-unit>
+        <trans-unit id="5d305f10-97a6-424b-80a8-b6dfdcf87cde" xml:space="preserve">
+          <source><bpt id="9eacd996-bfa1-4ddd-9015-715c7d89cefa">&lt;strong&gt;</bpt>Subscription<ept id="9eacd996-bfa1-4ddd-9015-715c7d89cefa">&lt;/strong&gt;</ept>: Select the Azure subscription used for this resource group.</source>
+          <target state="new"><bpt id="9eacd996-bfa1-4ddd-9015-715c7d89cefa">&lt;strong&gt;</bpt>Subscription<ept id="9eacd996-bfa1-4ddd-9015-715c7d89cefa">&lt;/strong&gt;</ept>: Select the Azure subscription used for this resource group.</target>
+        </trans-unit>
+        <trans-unit id="4d6a9a52-1d62-4211-9a60-12577aab9598" xml:space="preserve">
+          <source><bpt id="d761d284-4241-4302-b9bb-382f536c4936">&lt;strong&gt;</bpt>Resource group location<ept id="d761d284-4241-4302-b9bb-382f536c4936">&lt;/strong&gt;</ept>: Select an Azure data center.</source>
+          <target state="new"><bpt id="d761d284-4241-4302-b9bb-382f536c4936">&lt;strong&gt;</bpt>Resource group location<ept id="d761d284-4241-4302-b9bb-382f536c4936">&lt;/strong&gt;</ept>: Select an Azure data center.</target>
+        </trans-unit>
+        <trans-unit id="5530164c-c2dd-46a3-b146-5c791c2ee611" xml:space="preserve">
+          <source>This location doesn't have to match the HDInsight cluster location.</source>
+          <target state="new">This location doesn't have to match the HDInsight cluster location.</target>
+        </trans-unit>
+        <trans-unit id="953bdd96-4d6e-4aaf-82a1-012ead8ee49e" xml:space="preserve">
+          <source>Click <bpt id="25c95b0e-f863-4e1d-8a6e-b78eb6f32646">&lt;strong&gt;</bpt>Create<ept id="25c95b0e-f863-4e1d-8a6e-b78eb6f32646">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="25c95b0e-f863-4e1d-8a6e-b78eb6f32646">&lt;strong&gt;</bpt>Create<ept id="25c95b0e-f863-4e1d-8a6e-b78eb6f32646">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ce9aa3a-8332-43fd-8fb5-fe3641f8452f" xml:space="preserve">
+          <source>Before provisioning an HBase cluster, you need to have an Azure virtual network.</source>
+          <target state="new">Before provisioning an HBase cluster, you need to have an Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="d10cfa1a-f474-4dc6-8924-76d02328971a" xml:space="preserve">
+          <source><bpt id="8213bc0f-9547-405d-b76b-64412ca46f95">&lt;strong&gt;</bpt>To create a virtual network by using the Azure portal<ept id="8213bc0f-9547-405d-b76b-64412ca46f95">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8213bc0f-9547-405d-b76b-64412ca46f95">&lt;strong&gt;</bpt>To create a virtual network by using the Azure portal<ept id="8213bc0f-9547-405d-b76b-64412ca46f95">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e7b6d18-506a-4d1b-a833-29d872661267" xml:space="preserve">
+          <source>Sign in to the <bpt id="3e2d72ab-091c-48c5-a2fa-b28c6adb6402">&lt;linkText&gt;</bpt>preview portal<ept id="3e2d72ab-091c-48c5-a2fa-b28c6adb6402">&lt;/linkText&gt;</ept><bpt id="3e2d72ab-091c-48c5-a2fa-b28c6adb6402">&lt;title&gt;</bpt><ept id="3e2d72ab-091c-48c5-a2fa-b28c6adb6402">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="3e2d72ab-091c-48c5-a2fa-b28c6adb6402">&lt;linkText&gt;</bpt>preview portal<ept id="3e2d72ab-091c-48c5-a2fa-b28c6adb6402">&lt;/linkText&gt;</ept><bpt id="3e2d72ab-091c-48c5-a2fa-b28c6adb6402">&lt;title&gt;</bpt><ept id="3e2d72ab-091c-48c5-a2fa-b28c6adb6402">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e4090f4-6ba8-47bf-9df3-43668acfb2fc" xml:space="preserve">
+          <source>Click <bpt id="21bfc1d9-ae88-4272-9912-c82df6acc27b">&lt;strong&gt;</bpt>NEW<ept id="21bfc1d9-ae88-4272-9912-c82df6acc27b">&lt;/strong&gt;</ept>, click <bpt id="ef2d7bf8-7eff-487d-8f34-c2f8107d3ded">&lt;strong&gt;</bpt>Networking<ept id="ef2d7bf8-7eff-487d-8f34-c2f8107d3ded">&lt;/strong&gt;</ept>, and then click <bpt id="3002ef82-2308-46ea-807d-03bec89b8deb">&lt;strong&gt;</bpt>Virtual network<ept id="3002ef82-2308-46ea-807d-03bec89b8deb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="21bfc1d9-ae88-4272-9912-c82df6acc27b">&lt;strong&gt;</bpt>NEW<ept id="21bfc1d9-ae88-4272-9912-c82df6acc27b">&lt;/strong&gt;</ept>, click <bpt id="ef2d7bf8-7eff-487d-8f34-c2f8107d3ded">&lt;strong&gt;</bpt>Networking<ept id="ef2d7bf8-7eff-487d-8f34-c2f8107d3ded">&lt;/strong&gt;</ept>, and then click <bpt id="3002ef82-2308-46ea-807d-03bec89b8deb">&lt;strong&gt;</bpt>Virtual network<ept id="3002ef82-2308-46ea-807d-03bec89b8deb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b3a3bfe-013e-4221-9364-e428a127eb80" xml:space="preserve">
+          <source>In <bpt id="97ec6135-6cba-47e7-90fc-9b0d586c8016">&lt;strong&gt;</bpt>Select a deployment model<ept id="97ec6135-6cba-47e7-90fc-9b0d586c8016">&lt;/strong&gt;</ept>, select <bpt id="2c33f631-7a32-474b-b1c4-99f8151a15cd">&lt;strong&gt;</bpt>Classic<ept id="2c33f631-7a32-474b-b1c4-99f8151a15cd">&lt;/strong&gt;</ept>, and then click <bpt id="f8f8a044-7043-4f91-8288-82f146dee9e7">&lt;strong&gt;</bpt>Create<ept id="f8f8a044-7043-4f91-8288-82f146dee9e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="97ec6135-6cba-47e7-90fc-9b0d586c8016">&lt;strong&gt;</bpt>Select a deployment model<ept id="97ec6135-6cba-47e7-90fc-9b0d586c8016">&lt;/strong&gt;</ept>, select <bpt id="2c33f631-7a32-474b-b1c4-99f8151a15cd">&lt;strong&gt;</bpt>Classic<ept id="2c33f631-7a32-474b-b1c4-99f8151a15cd">&lt;/strong&gt;</ept>, and then click <bpt id="f8f8a044-7043-4f91-8288-82f146dee9e7">&lt;strong&gt;</bpt>Create<ept id="f8f8a044-7043-4f91-8288-82f146dee9e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36f586a0-36f1-4b8d-9850-768fd22a2745" xml:space="preserve">
+          <source>Windows based HDInsight cluster can only be deployed to a classic virtual network.</source>
+          <target state="new">Windows based HDInsight cluster can only be deployed to a classic virtual network.</target>
+        </trans-unit>
+        <trans-unit id="ec177346-91a8-42c9-916c-8461da0be4a7" xml:space="preserve">
+          <source>Type or select the following values:</source>
+          <target state="new">Type or select the following values:</target>
+        </trans-unit>
+        <trans-unit id="3f1fa9e1-747c-45f9-9509-f7e176700827" xml:space="preserve">
+          <source><bpt id="5c24f61a-7f0d-433b-80da-4696214600f0">&lt;strong&gt;</bpt>Name<ept id="5c24f61a-7f0d-433b-80da-4696214600f0">&lt;/strong&gt;</ept>: The name of your virtual network.</source>
+          <target state="new"><bpt id="5c24f61a-7f0d-433b-80da-4696214600f0">&lt;strong&gt;</bpt>Name<ept id="5c24f61a-7f0d-433b-80da-4696214600f0">&lt;/strong&gt;</ept>: The name of your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="18cd1122-5cd9-4ecf-a82e-48c5a3bd1ad3" xml:space="preserve">
+          <source><bpt id="0613d5f0-ec30-4967-857c-90454a04bc7d">&lt;strong&gt;</bpt>Address space<ept id="0613d5f0-ec30-4967-857c-90454a04bc7d">&lt;/strong&gt;</ept>:  Choose an address space for the virtual network that is large enough to provide addresses for all nodes in the cluster.</source>
+          <target state="new"><bpt id="0613d5f0-ec30-4967-857c-90454a04bc7d">&lt;strong&gt;</bpt>Address space<ept id="0613d5f0-ec30-4967-857c-90454a04bc7d">&lt;/strong&gt;</ept>:  Choose an address space for the virtual network that is large enough to provide addresses for all nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="1a260a6e-fd97-49d0-8bb4-0f48dda95455" xml:space="preserve">
+          <source>Otherwise the provision will fail.</source>
+          <target state="new">Otherwise the provision will fail.</target>
+        </trans-unit>
+        <trans-unit id="94e1b35c-67a7-4b41-85b2-958cd722aa47" xml:space="preserve">
+          <source>For walking through this tutorial, you can use the default values.</source>
+          <target state="new">For walking through this tutorial, you can use the default values.</target>
+        </trans-unit>
+        <trans-unit id="38e43277-36af-40d2-b2b9-ce34e495c01d" xml:space="preserve">
+          <source>Click <bpt id="3d7a0484-b10c-4af4-bef4-985fb35df86f">&lt;strong&gt;</bpt>OK<ept id="3d7a0484-b10c-4af4-bef4-985fb35df86f">&lt;/strong&gt;</ept> to save the changes.</source>
+          <target state="new">Click <bpt id="3d7a0484-b10c-4af4-bef4-985fb35df86f">&lt;strong&gt;</bpt>OK<ept id="3d7a0484-b10c-4af4-bef4-985fb35df86f">&lt;/strong&gt;</ept> to save the changes.</target>
+        </trans-unit>
+        <trans-unit id="f9568a1e-4126-4c7a-b540-f8f00bfba181" xml:space="preserve">
+          <source><bpt id="db91714f-06fc-42d6-a261-4e2d3d6cb926">&lt;strong&gt;</bpt>Resource group<ept id="db91714f-06fc-42d6-a261-4e2d3d6cb926">&lt;/strong&gt;</ept>: Select the resource group you created earlier in the tutorial.</source>
+          <target state="new"><bpt id="db91714f-06fc-42d6-a261-4e2d3d6cb926">&lt;strong&gt;</bpt>Resource group<ept id="db91714f-06fc-42d6-a261-4e2d3d6cb926">&lt;/strong&gt;</ept>: Select the resource group you created earlier in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="c165f186-c0dd-4b07-90cc-56e6434f28ac" xml:space="preserve">
+          <source><bpt id="99b134a4-a773-4c30-8a7d-418d039f3adb">&lt;strong&gt;</bpt>Subscription<ept id="99b134a4-a773-4c30-8a7d-418d039f3adb">&lt;/strong&gt;</ept>: Select the Azure subscription you like to use for this virtual network.</source>
+          <target state="new"><bpt id="99b134a4-a773-4c30-8a7d-418d039f3adb">&lt;strong&gt;</bpt>Subscription<ept id="99b134a4-a773-4c30-8a7d-418d039f3adb">&lt;/strong&gt;</ept>: Select the Azure subscription you like to use for this virtual network.</target>
+        </trans-unit>
+        <trans-unit id="d99c71af-a6a5-4beb-a2fd-0f767dfa5d4e" xml:space="preserve">
+          <source><bpt id="6e363fe5-d20f-4c92-a47f-8a1865d56159">&lt;strong&gt;</bpt>Location<ept id="6e363fe5-d20f-4c92-a47f-8a1865d56159">&lt;/strong&gt;</ept> - The location must be the same as the HBase cluster that you will create.</source>
+          <target state="new"><bpt id="6e363fe5-d20f-4c92-a47f-8a1865d56159">&lt;strong&gt;</bpt>Location<ept id="6e363fe5-d20f-4c92-a47f-8a1865d56159">&lt;/strong&gt;</ept> - The location must be the same as the HBase cluster that you will create.</target>
+        </trans-unit>
+        <trans-unit id="b6f7e890-6fea-4ff0-8db1-726440a77464" xml:space="preserve">
+          <source>Click <bpt id="f1bbd9f1-7a42-4e8f-8e14-eac38b705e6e">&lt;strong&gt;</bpt>Create<ept id="f1bbd9f1-7a42-4e8f-8e14-eac38b705e6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f1bbd9f1-7a42-4e8f-8e14-eac38b705e6e">&lt;strong&gt;</bpt>Create<ept id="f1bbd9f1-7a42-4e8f-8e14-eac38b705e6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d08dba2-6bb3-4763-a02b-beba070fe092" xml:space="preserve">
+          <source>By default, the virtual network uses an internal Domain Name System (DNS) server provided by Azure.</source>
+          <target state="new">By default, the virtual network uses an internal Domain Name System (DNS) server provided by Azure.</target>
+        </trans-unit>
+        <trans-unit id="7fecc6a5-6db9-49b6-a4d7-2bdecda14854" xml:space="preserve">
+          <source>More advanced networking configurations with custom DNS servers are also supported.</source>
+          <target state="new">More advanced networking configurations with custom DNS servers are also supported.</target>
+        </trans-unit>
+        <trans-unit id="36c191d9-25e8-4bb0-a833-f2440866f418" xml:space="preserve">
+          <source>For detailed guidance, see <bpt id="2e5ccacb-ec75-475b-b82c-6c6dbe6082f2">&lt;linkText&gt;</bpt>Name Resolution (DNS)<ept id="2e5ccacb-ec75-475b-b82c-6c6dbe6082f2">&lt;/linkText&gt;</ept><bpt id="2e5ccacb-ec75-475b-b82c-6c6dbe6082f2">&lt;title&gt;</bpt><ept id="2e5ccacb-ec75-475b-b82c-6c6dbe6082f2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed guidance, see <bpt id="2e5ccacb-ec75-475b-b82c-6c6dbe6082f2">&lt;linkText&gt;</bpt>Name Resolution (DNS)<ept id="2e5ccacb-ec75-475b-b82c-6c6dbe6082f2">&lt;/linkText&gt;</ept><bpt id="2e5ccacb-ec75-475b-b82c-6c6dbe6082f2">&lt;title&gt;</bpt><ept id="2e5ccacb-ec75-475b-b82c-6c6dbe6082f2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f845e15-bb73-4cbb-9597-63054ba082d0" xml:space="preserve">
+          <source><bpt id="7e89e1a1-5760-4663-850b-7e3e23a22045">&lt;strong&gt;</bpt>(Optinoal) To add a DNS server virtual machine to the virtual network<ept id="7e89e1a1-5760-4663-850b-7e3e23a22045">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7e89e1a1-5760-4663-850b-7e3e23a22045">&lt;strong&gt;</bpt>(Optinoal) To add a DNS server virtual machine to the virtual network<ept id="7e89e1a1-5760-4663-850b-7e3e23a22045">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99531e3f-4192-4e39-ad42-01c882765744" xml:space="preserve">
+          <source>A DNS server is optional, but necessary in some cases.</source>
+          <target state="new">A DNS server is optional, but necessary in some cases.</target>
+        </trans-unit>
+        <trans-unit id="e4af4645-d521-4b2b-ba74-085c1936e4c4" xml:space="preserve">
+          <source>The procedure has been documented in <bpt id="693803b9-27a5-44d4-a668-0969c07b1d81">&lt;linkText&gt;</bpt>Configure DNS between two Azure virtual networks[hdinsight-hbase-replication-dns]<ept id="693803b9-27a5-44d4-a668-0969c07b1d81">&lt;/linkText&gt;</ept><bpt id="693803b9-27a5-44d4-a668-0969c07b1d81">&lt;title&gt;</bpt><ept id="693803b9-27a5-44d4-a668-0969c07b1d81">&lt;/title&gt;</ept>.</source>
+          <target state="new">The procedure has been documented in <bpt id="693803b9-27a5-44d4-a668-0969c07b1d81">&lt;linkText&gt;</bpt>Configure DNS between two Azure virtual networks[hdinsight-hbase-replication-dns]<ept id="693803b9-27a5-44d4-a668-0969c07b1d81">&lt;/linkText&gt;</ept><bpt id="693803b9-27a5-44d4-a668-0969c07b1d81">&lt;title&gt;</bpt><ept id="693803b9-27a5-44d4-a668-0969c07b1d81">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a8b0e69-d45a-4ed1-838d-f1a9a6988f27" xml:space="preserve">
+          <source>Basically, you will need to perform these steps:</source>
+          <target state="new">Basically, you will need to perform these steps:</target>
+        </trans-unit>
+        <trans-unit id="23c8274c-f1a1-4263-9c7e-c310359d6704" xml:space="preserve">
+          <source>add an Azure virtual machine to the virtual network</source>
+          <target state="new">add an Azure virtual machine to the virtual network</target>
+        </trans-unit>
+        <trans-unit id="bd0e5382-0f6e-41e2-b0a1-1d7a32128e0d" xml:space="preserve">
+          <source>set a static IP address for the virtual machine</source>
+          <target state="new">set a static IP address for the virtual machine</target>
+        </trans-unit>
+        <trans-unit id="5379daaf-9d90-4f49-bf8a-633050a35d8f" xml:space="preserve">
+          <source>add the DNS server role to the virtual machine</source>
+          <target state="new">add the DNS server role to the virtual machine</target>
+        </trans-unit>
+        <trans-unit id="26f82219-9eb6-4628-bc45-d8a9d8e5030c" xml:space="preserve">
+          <source>Assign the DNS server to the virtual network</source>
+          <target state="new">Assign the DNS server to the virtual network</target>
+        </trans-unit>
+        <trans-unit id="259da327-9a9f-4685-9e8c-7b5355eee344" xml:space="preserve">
+          <source><bpt id="9547f459-c55c-4c48-b72e-83eb2dee25ec">&lt;strong&gt;</bpt>To provision an HBase cluster by using the Azure portal<ept id="9547f459-c55c-4c48-b72e-83eb2dee25ec">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9547f459-c55c-4c48-b72e-83eb2dee25ec">&lt;strong&gt;</bpt>To provision an HBase cluster by using the Azure portal<ept id="9547f459-c55c-4c48-b72e-83eb2dee25ec">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1938b3d-fefc-40f6-994e-ecd0b5bab96d" xml:space="preserve">
+          <source>For information on provisioning a new HBase cluster by using Azure PowerShell, see <bpt id="d0d556a5-4974-45db-ae7b-63f78409165f">&lt;linkText&gt;</bpt>Provision an HBase cluster using Azure PowerShell<ept id="d0d556a5-4974-45db-ae7b-63f78409165f">&lt;/linkText&gt;</ept><bpt id="d0d556a5-4974-45db-ae7b-63f78409165f">&lt;title&gt;</bpt><ept id="d0d556a5-4974-45db-ae7b-63f78409165f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on provisioning a new HBase cluster by using Azure PowerShell, see <bpt id="d0d556a5-4974-45db-ae7b-63f78409165f">&lt;linkText&gt;</bpt>Provision an HBase cluster using Azure PowerShell<ept id="d0d556a5-4974-45db-ae7b-63f78409165f">&lt;/linkText&gt;</ept><bpt id="d0d556a5-4974-45db-ae7b-63f78409165f">&lt;title&gt;</bpt><ept id="d0d556a5-4974-45db-ae7b-63f78409165f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="739b5f6e-a096-46fc-90e4-2d0745ed667a" xml:space="preserve">
+          <source><bpt id="70c0e4ad-c844-4338-aba6-cb4796c602c0">&lt;strong&gt;</bpt>To create an HDInsight cluster<ept id="70c0e4ad-c844-4338-aba6-cb4796c602c0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="70c0e4ad-c844-4338-aba6-cb4796c602c0">&lt;strong&gt;</bpt>To create an HDInsight cluster<ept id="70c0e4ad-c844-4338-aba6-cb4796c602c0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0712e174-f4a2-476c-b836-f5780d2326eb" xml:space="preserve">
+          <source>Sign in to the <bpt id="f4ad6b15-1173-4205-9c37-2afaadcb7cad">&lt;linkText&gt;</bpt>Azure preview portal<ept id="f4ad6b15-1173-4205-9c37-2afaadcb7cad">&lt;/linkText&gt;</ept><bpt id="f4ad6b15-1173-4205-9c37-2afaadcb7cad">&lt;title&gt;</bpt><ept id="f4ad6b15-1173-4205-9c37-2afaadcb7cad">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="f4ad6b15-1173-4205-9c37-2afaadcb7cad">&lt;linkText&gt;</bpt>Azure preview portal<ept id="f4ad6b15-1173-4205-9c37-2afaadcb7cad">&lt;/linkText&gt;</ept><bpt id="f4ad6b15-1173-4205-9c37-2afaadcb7cad">&lt;title&gt;</bpt><ept id="f4ad6b15-1173-4205-9c37-2afaadcb7cad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f085a9b-8f7e-422c-b79f-8e47c351fdd7" xml:space="preserve">
+          <source>Click <bpt id="af067ee0-300a-444f-9845-56aaf4830271">&lt;strong&gt;</bpt>NEW<ept id="af067ee0-300a-444f-9845-56aaf4830271">&lt;/strong&gt;</ept>, Click <bpt id="68ed4b8d-6732-4163-8157-a9f641ffcf4f">&lt;strong&gt;</bpt>Data Analytics<ept id="68ed4b8d-6732-4163-8157-a9f641ffcf4f">&lt;/strong&gt;</ept>, and then click <bpt id="b004c1a6-41c4-4de6-b020-0335834bc46a">&lt;strong&gt;</bpt>HDInsight<ept id="b004c1a6-41c4-4de6-b020-0335834bc46a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="af067ee0-300a-444f-9845-56aaf4830271">&lt;strong&gt;</bpt>NEW<ept id="af067ee0-300a-444f-9845-56aaf4830271">&lt;/strong&gt;</ept>, Click <bpt id="68ed4b8d-6732-4163-8157-a9f641ffcf4f">&lt;strong&gt;</bpt>Data Analytics<ept id="68ed4b8d-6732-4163-8157-a9f641ffcf4f">&lt;/strong&gt;</ept>, and then click <bpt id="b004c1a6-41c4-4de6-b020-0335834bc46a">&lt;strong&gt;</bpt>HDInsight<ept id="b004c1a6-41c4-4de6-b020-0335834bc46a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a28423e-4c27-4820-9699-891e33929880" xml:space="preserve">
+          <source><bpt id="e3af1611-20a6-40fe-bd74-82648c092911">&lt;linkText&gt;</bpt>Creating a new cluster in the Azure preview portal<ept id="e3af1611-20a6-40fe-bd74-82648c092911">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3af1611-20a6-40fe-bd74-82648c092911">&lt;linkText&gt;</bpt>Creating a new cluster in the Azure preview portal<ept id="e3af1611-20a6-40fe-bd74-82648c092911">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a493db91-2d0b-4486-afc2-8c007d2808b6" xml:space="preserve">
+          <source>Type or select the following values:</source>
+          <target state="new">Type or select the following values:</target>
+        </trans-unit>
+        <trans-unit id="ef0413db-49e7-49b4-9c19-bd161d3dbc67" xml:space="preserve">
+          <source><bpt id="ec09073d-1ede-414f-a3d8-ec56c22addfd">&lt;strong&gt;</bpt>Cluster Name<ept id="ec09073d-1ede-414f-a3d8-ec56c22addfd">&lt;/strong&gt;</ept>: Enter a name for the cluster.</source>
+          <target state="new"><bpt id="ec09073d-1ede-414f-a3d8-ec56c22addfd">&lt;strong&gt;</bpt>Cluster Name<ept id="ec09073d-1ede-414f-a3d8-ec56c22addfd">&lt;/strong&gt;</ept>: Enter a name for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="673849be-c2d9-4c0a-b847-a62c51b9cde0" xml:space="preserve">
+          <source>A green check will appear beside the cluster name if the name is available.</source>
+          <target state="new">A green check will appear beside the cluster name if the name is available.</target>
+        </trans-unit>
+        <trans-unit id="ec2d4805-4a81-48ad-a7b7-4e193dcf0b42" xml:space="preserve">
+          <source><bpt id="170ca9b0-a22d-430d-bfea-cc14ace42d14">&lt;strong&gt;</bpt>Cluster Type<ept id="170ca9b0-a22d-430d-bfea-cc14ace42d14">&lt;/strong&gt;</ept>: Select <bpt id="c1e72856-74fb-404f-80be-1c5711026a33">&lt;strong&gt;</bpt>HBase<ept id="c1e72856-74fb-404f-80be-1c5711026a33">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="170ca9b0-a22d-430d-bfea-cc14ace42d14">&lt;strong&gt;</bpt>Cluster Type<ept id="170ca9b0-a22d-430d-bfea-cc14ace42d14">&lt;/strong&gt;</ept>: Select <bpt id="c1e72856-74fb-404f-80be-1c5711026a33">&lt;strong&gt;</bpt>HBase<ept id="c1e72856-74fb-404f-80be-1c5711026a33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e9dc188-4370-4de9-b4d6-c6d7abb59edc" xml:space="preserve">
+          <source><bpt id="a557b6ae-283e-4ba4-9bc4-ef3d8f4db3a0">&lt;strong&gt;</bpt>Cluster Operating System<ept id="a557b6ae-283e-4ba4-9bc4-ef3d8f4db3a0">&lt;/strong&gt;</ept>: Select <bpt id="3a7fe990-aeae-4900-9e02-0953d046f73f">&lt;strong&gt;</bpt>Windows Server 2012 R2 Datacenter<ept id="3a7fe990-aeae-4900-9e02-0953d046f73f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="a557b6ae-283e-4ba4-9bc4-ef3d8f4db3a0">&lt;strong&gt;</bpt>Cluster Operating System<ept id="a557b6ae-283e-4ba4-9bc4-ef3d8f4db3a0">&lt;/strong&gt;</ept>: Select <bpt id="3a7fe990-aeae-4900-9e02-0953d046f73f">&lt;strong&gt;</bpt>Windows Server 2012 R2 Datacenter<ept id="3a7fe990-aeae-4900-9e02-0953d046f73f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65e84aaa-da74-481a-b87f-597e0cab995d" xml:space="preserve">
+          <source><bpt id="12d92386-782c-49f4-a98f-402c37792b45">&lt;strong&gt;</bpt>Subscription<ept id="12d92386-782c-49f4-a98f-402c37792b45">&lt;/strong&gt;</ept>: Select the Azure subscription that will be used for provision this cluster.</source>
+          <target state="new"><bpt id="12d92386-782c-49f4-a98f-402c37792b45">&lt;strong&gt;</bpt>Subscription<ept id="12d92386-782c-49f4-a98f-402c37792b45">&lt;/strong&gt;</ept>: Select the Azure subscription that will be used for provision this cluster.</target>
+        </trans-unit>
+        <trans-unit id="abb3bafb-f117-41cd-8afd-33faca1dd01c" xml:space="preserve">
+          <source><bpt id="306f2057-d71d-46d9-b220-7d424210fc61">&lt;strong&gt;</bpt>Resource Group<ept id="306f2057-d71d-46d9-b220-7d424210fc61">&lt;/strong&gt;</ept>: Select the resource group you created earlier in the tutorial.</source>
+          <target state="new"><bpt id="306f2057-d71d-46d9-b220-7d424210fc61">&lt;strong&gt;</bpt>Resource Group<ept id="306f2057-d71d-46d9-b220-7d424210fc61">&lt;/strong&gt;</ept>: Select the resource group you created earlier in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="9bf8506e-2499-42c9-9c01-a1ad779332c6" xml:space="preserve">
+          <source><bpt id="0de3a9dc-abd3-4344-83af-f3329f60c1ac">&lt;strong&gt;</bpt>Credentials<ept id="0de3a9dc-abd3-4344-83af-f3329f60c1ac">&lt;/strong&gt;</ept>: Configure the username and the password for the Hadoop user (HTTP user).</source>
+          <target state="new"><bpt id="0de3a9dc-abd3-4344-83af-f3329f60c1ac">&lt;strong&gt;</bpt>Credentials<ept id="0de3a9dc-abd3-4344-83af-f3329f60c1ac">&lt;/strong&gt;</ept>: Configure the username and the password for the Hadoop user (HTTP user).</target>
+        </trans-unit>
+        <trans-unit id="8dbfecc7-28e1-45c5-9f4e-077c2d2e0c3d" xml:space="preserve">
+          <source>If you enable remote desktop for the cluster, you will need to configure the remote desktop user username and password, and an account expiration date.</source>
+          <target state="new">If you enable remote desktop for the cluster, you will need to configure the remote desktop user username and password, and an account expiration date.</target>
+        </trans-unit>
+        <trans-unit id="a16c3354-0714-48aa-8ab0-328c18217eac" xml:space="preserve">
+          <source>Click <bpt id="d50f3f5d-d248-4575-bc10-2f4951a857a0">&lt;strong&gt;</bpt>Select<ept id="d50f3f5d-d248-4575-bc10-2f4951a857a0">&lt;/strong&gt;</ept> at the bottom to save the changes.</source>
+          <target state="new">Click <bpt id="d50f3f5d-d248-4575-bc10-2f4951a857a0">&lt;strong&gt;</bpt>Select<ept id="d50f3f5d-d248-4575-bc10-2f4951a857a0">&lt;/strong&gt;</ept> at the bottom to save the changes.</target>
+        </trans-unit>
+        <trans-unit id="174996df-28c1-46d6-9313-a2ff1dea2db8" xml:space="preserve">
+          <source><bpt id="8ceeb204-f6ac-4bd0-84e2-32f762c3cdf9">&lt;strong&gt;</bpt>Data Source<ept id="8ceeb204-f6ac-4bd0-84e2-32f762c3cdf9">&lt;/strong&gt;</ept>: Select an existing or create a new Azure Storage account that will be used as the default file system for the cluster.</source>
+          <target state="new"><bpt id="8ceeb204-f6ac-4bd0-84e2-32f762c3cdf9">&lt;strong&gt;</bpt>Data Source<ept id="8ceeb204-f6ac-4bd0-84e2-32f762c3cdf9">&lt;/strong&gt;</ept>: Select an existing or create a new Azure Storage account that will be used as the default file system for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="51c68342-1ae1-4ec0-88a3-e2f4ebd07fec" xml:space="preserve">
+          <source>The default name for the default container is the cluster name.</source>
+          <target state="new">The default name for the default container is the cluster name.</target>
+        </trans-unit>
+        <trans-unit id="d575b4f3-59d9-476f-ba2d-7fcfd64c6446" xml:space="preserve">
+          <source>The location of the storage account also determine the location of the cluster.</source>
+          <target state="new">The location of the storage account also determine the location of the cluster.</target>
+        </trans-unit>
+        <trans-unit id="fb45d3fb-f727-49d3-a1c8-ecd94243a305" xml:space="preserve">
+          <source><bpt id="564a92d7-b88e-4b7b-b363-621bee30a38e">&lt;strong&gt;</bpt>Node Pricing Tier<ept id="564a92d7-b88e-4b7b-b363-621bee30a38e">&lt;/strong&gt;</ept>: For learning or evaluation purpose, select 1 region node to minimize the cost.</source>
+          <target state="new"><bpt id="564a92d7-b88e-4b7b-b363-621bee30a38e">&lt;strong&gt;</bpt>Node Pricing Tier<ept id="564a92d7-b88e-4b7b-b363-621bee30a38e">&lt;/strong&gt;</ept>: For learning or evaluation purpose, select 1 region node to minimize the cost.</target>
+        </trans-unit>
+        <trans-unit id="69ad06b3-9a98-4d82-8a94-42f58a751248" xml:space="preserve">
+          <source><bpt id="fd47a975-ad75-4453-9abb-38aea13f3db3">&lt;strong&gt;</bpt>Selection Method<ept id="fd47a975-ad75-4453-9abb-38aea13f3db3">&lt;/strong&gt;</ept>: Set this to <bpt id="a5375717-fe88-4a46-a673-0bfbd395089e">&lt;strong&gt;</bpt>From all subscriptions<ept id="a5375717-fe88-4a46-a673-0bfbd395089e">&lt;/strong&gt;</ept> to enable browsing of storage accounts from all your subscriptions.</source>
+          <target state="new"><bpt id="fd47a975-ad75-4453-9abb-38aea13f3db3">&lt;strong&gt;</bpt>Selection Method<ept id="fd47a975-ad75-4453-9abb-38aea13f3db3">&lt;/strong&gt;</ept>: Set this to <bpt id="a5375717-fe88-4a46-a673-0bfbd395089e">&lt;strong&gt;</bpt>From all subscriptions<ept id="a5375717-fe88-4a46-a673-0bfbd395089e">&lt;/strong&gt;</ept> to enable browsing of storage accounts from all your subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="5945f027-7eb4-462e-aa61-0965be3e7c22" xml:space="preserve">
+          <source>Set this to <bpt id="b93fedc2-331c-42a1-abcd-2430549bb7ac">&lt;strong&gt;</bpt>Access Key<ept id="b93fedc2-331c-42a1-abcd-2430549bb7ac">&lt;/strong&gt;</ept> if you want to enter the <bpt id="943d77b6-eaec-48d4-8465-46b779c01228">&lt;strong&gt;</bpt>Storage Name<ept id="943d77b6-eaec-48d4-8465-46b779c01228">&lt;/strong&gt;</ept> and <bpt id="9957d751-d882-4566-8293-8f2467a0f1b3">&lt;strong&gt;</bpt>Access Key<ept id="9957d751-d882-4566-8293-8f2467a0f1b3">&lt;/strong&gt;</ept> of an existing storage account.</source>
+          <target state="new">Set this to <bpt id="b93fedc2-331c-42a1-abcd-2430549bb7ac">&lt;strong&gt;</bpt>Access Key<ept id="b93fedc2-331c-42a1-abcd-2430549bb7ac">&lt;/strong&gt;</ept> if you want to enter the <bpt id="943d77b6-eaec-48d4-8465-46b779c01228">&lt;strong&gt;</bpt>Storage Name<ept id="943d77b6-eaec-48d4-8465-46b779c01228">&lt;/strong&gt;</ept> and <bpt id="9957d751-d882-4566-8293-8f2467a0f1b3">&lt;strong&gt;</bpt>Access Key<ept id="9957d751-d882-4566-8293-8f2467a0f1b3">&lt;/strong&gt;</ept> of an existing storage account.</target>
+        </trans-unit>
+        <trans-unit id="874258b1-8de2-4706-907d-acb1561de3b4" xml:space="preserve">
+          <source><bpt id="bfbd5bac-b765-44c1-9a3a-45d55678bd1b">&lt;strong&gt;</bpt>Select storage account / Create New<ept id="bfbd5bac-b765-44c1-9a3a-45d55678bd1b">&lt;/strong&gt;</ept>: Click <bpt id="13c6fae8-ce38-4630-ba3a-631ea1629cf9">&lt;strong&gt;</bpt>Select storage account<ept id="13c6fae8-ce38-4630-ba3a-631ea1629cf9">&lt;/strong&gt;</ept> to browse and select an existing storage account you want to associate with the cluster.</source>
+          <target state="new"><bpt id="bfbd5bac-b765-44c1-9a3a-45d55678bd1b">&lt;strong&gt;</bpt>Select storage account / Create New<ept id="bfbd5bac-b765-44c1-9a3a-45d55678bd1b">&lt;/strong&gt;</ept>: Click <bpt id="13c6fae8-ce38-4630-ba3a-631ea1629cf9">&lt;strong&gt;</bpt>Select storage account<ept id="13c6fae8-ce38-4630-ba3a-631ea1629cf9">&lt;/strong&gt;</ept> to browse and select an existing storage account you want to associate with the cluster.</target>
+        </trans-unit>
+        <trans-unit id="1048aaec-855c-4a06-921d-e28952869af1" xml:space="preserve">
+          <source>Or, click <bpt id="998a4502-369a-4214-979d-49000027626a">&lt;strong&gt;</bpt>Create New<ept id="998a4502-369a-4214-979d-49000027626a">&lt;/strong&gt;</ept> to create a new storage account.</source>
+          <target state="new">Or, click <bpt id="998a4502-369a-4214-979d-49000027626a">&lt;strong&gt;</bpt>Create New<ept id="998a4502-369a-4214-979d-49000027626a">&lt;/strong&gt;</ept> to create a new storage account.</target>
+        </trans-unit>
+        <trans-unit id="2e902933-563f-48ac-bcce-0775f99284ae" xml:space="preserve">
+          <source>Use the field that appears to enter the name of the storage account.</source>
+          <target state="new">Use the field that appears to enter the name of the storage account.</target>
+        </trans-unit>
+        <trans-unit id="a9ea8e7e-2b43-4c73-afcb-eee4a240e3a7" xml:space="preserve">
+          <source>A green check will appear if the name is available.</source>
+          <target state="new">A green check will appear if the name is available.</target>
+        </trans-unit>
+        <trans-unit id="071a49fe-a38b-4c05-bfa6-ab74082e48a9" xml:space="preserve">
+          <source><bpt id="dea574c4-ef82-4bb4-9def-fe47807c9ce1">&lt;strong&gt;</bpt>Choose Default Container<ept id="dea574c4-ef82-4bb4-9def-fe47807c9ce1">&lt;/strong&gt;</ept>: Use this to enter the name of the default container to use for the cluster.</source>
+          <target state="new"><bpt id="dea574c4-ef82-4bb4-9def-fe47807c9ce1">&lt;strong&gt;</bpt>Choose Default Container<ept id="dea574c4-ef82-4bb4-9def-fe47807c9ce1">&lt;/strong&gt;</ept>: Use this to enter the name of the default container to use for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="7e4805b4-9d49-4c63-bc4e-3ceb32da6d30" xml:space="preserve">
+          <source>While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.</source>
+          <target state="new">While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.</target>
+        </trans-unit>
+        <trans-unit id="4cd425ab-f0bb-47dd-ba1c-7f87c00dc509" xml:space="preserve">
+          <source><bpt id="6de5ae65-0e93-4c94-abb9-df25d97c1e10">&lt;strong&gt;</bpt>Location<ept id="6de5ae65-0e93-4c94-abb9-df25d97c1e10">&lt;/strong&gt;</ept>: The geographic region that the storage account is in, or will be created in.</source>
+          <target state="new"><bpt id="6de5ae65-0e93-4c94-abb9-df25d97c1e10">&lt;strong&gt;</bpt>Location<ept id="6de5ae65-0e93-4c94-abb9-df25d97c1e10">&lt;/strong&gt;</ept>: The geographic region that the storage account is in, or will be created in.</target>
+        </trans-unit>
+        <trans-unit id="96b778ad-0f94-47f6-a265-a8f92aac09b5" xml:space="preserve">
+          <source>This location will determine the cluster location.</source>
+          <target state="new">This location will determine the cluster location.</target>
+        </trans-unit>
+        <trans-unit id="6fa28869-4f26-4bff-8321-d3644f144401" xml:space="preserve">
+          <source>The cluster and its default storage account must co-locate in the same Azure data center.</source>
+          <target state="new">The cluster and its default storage account must co-locate in the same Azure data center.</target>
+        </trans-unit>
+        <trans-unit id="a0bfa10f-63e9-415f-afad-367832d93a37" xml:space="preserve">
+          <source><bpt id="09931caa-3bb0-48e3-b28e-986e3a900f43">&lt;strong&gt;</bpt>Node Pricing Tiers<ept id="09931caa-3bb0-48e3-b28e-986e3a900f43">&lt;/strong&gt;</ept>: Set the number of worker nodes that you need for the cluster.</source>
+          <target state="new"><bpt id="09931caa-3bb0-48e3-b28e-986e3a900f43">&lt;strong&gt;</bpt>Node Pricing Tiers<ept id="09931caa-3bb0-48e3-b28e-986e3a900f43">&lt;/strong&gt;</ept>: Set the number of worker nodes that you need for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="3ef4e7fd-7a44-48a3-a972-849a0f35a8c9" xml:space="preserve">
+          <source>The estimated cost of the cluster will be shown within the blade.</source>
+          <target state="new">The estimated cost of the cluster will be shown within the blade.</target>
+        </trans-unit>
+        <trans-unit id="62b7243f-f176-415e-9c64-6872d3d4e73e" xml:space="preserve">
+          <source><bpt id="cd6acdab-2cfe-43b7-b57c-ef71fb651adf">&lt;strong&gt;</bpt>Optional Configuration<ept id="cd6acdab-2cfe-43b7-b57c-ef71fb651adf">&lt;/strong&gt;</ept>: For this tutorial, you only need to configure <bpt id="e56ae69c-01ad-424a-8d64-4fdd8add952e">&lt;strong&gt;</bpt>Virtual Network<ept id="e56ae69c-01ad-424a-8d64-4fdd8add952e">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="cd6acdab-2cfe-43b7-b57c-ef71fb651adf">&lt;strong&gt;</bpt>Optional Configuration<ept id="cd6acdab-2cfe-43b7-b57c-ef71fb651adf">&lt;/strong&gt;</ept>: For this tutorial, you only need to configure <bpt id="e56ae69c-01ad-424a-8d64-4fdd8add952e">&lt;strong&gt;</bpt>Virtual Network<ept id="e56ae69c-01ad-424a-8d64-4fdd8add952e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2516edab-9bb4-4124-98b5-f6dcf297f2b1" xml:space="preserve">
+          <source>Select the virtual network you created earlier in the tutorial.</source>
+          <target state="new">Select the virtual network you created earlier in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="02d20722-27a2-42e0-ad67-431f8c6be8e5" xml:space="preserve">
+          <source>Make sure you also select a subnet.</source>
+          <target state="new">Make sure you also select a subnet.</target>
+        </trans-unit>
+        <trans-unit id="a3cefa26-6515-441c-9c51-be3e7cda6aef" xml:space="preserve">
+          <source>Click <bpt id="09f0d2df-0f41-40ee-9acb-f43d6a0c452e">&lt;strong&gt;</bpt>Create<ept id="09f0d2df-0f41-40ee-9acb-f43d6a0c452e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="09f0d2df-0f41-40ee-9acb-f43d6a0c452e">&lt;strong&gt;</bpt>Create<ept id="09f0d2df-0f41-40ee-9acb-f43d6a0c452e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2774f99b-d9e2-4a1d-ae9c-abf8ffb655e7" xml:space="preserve">
+          <source>To begin working with your new HBase cluster, you can use the procedures found in <bpt id="e6ed4581-9c46-4d23-9ae7-1a2d6b9121b9">&lt;linkText&gt;</bpt>Get started using HBase with Hadoop in HDInsight<ept id="e6ed4581-9c46-4d23-9ae7-1a2d6b9121b9">&lt;/linkText&gt;</ept><bpt id="e6ed4581-9c46-4d23-9ae7-1a2d6b9121b9">&lt;title&gt;</bpt><ept id="e6ed4581-9c46-4d23-9ae7-1a2d6b9121b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">To begin working with your new HBase cluster, you can use the procedures found in <bpt id="e6ed4581-9c46-4d23-9ae7-1a2d6b9121b9">&lt;linkText&gt;</bpt>Get started using HBase with Hadoop in HDInsight<ept id="e6ed4581-9c46-4d23-9ae7-1a2d6b9121b9">&lt;/linkText&gt;</ept><bpt id="e6ed4581-9c46-4d23-9ae7-1a2d6b9121b9">&lt;title&gt;</bpt><ept id="e6ed4581-9c46-4d23-9ae7-1a2d6b9121b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04de6ad2-2f51-4cc3-98e8-6027dab9fba7" xml:space="preserve">
+          <source>Provision an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet.</source>
+          <target state="new">Provision an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet.</target>
+        </trans-unit>
+        <trans-unit id="09762189-96b1-4948-b50b-d4364489fcb9" xml:space="preserve">
+          <source>So both the virtual machine and the HBase cluster use the same internal DNS server to resolve host names.</source>
+          <target state="new">So both the virtual machine and the HBase cluster use the same internal DNS server to resolve host names.</target>
+        </trans-unit>
+        <trans-unit id="e520a3ec-a67c-4768-beea-476966da2f81" xml:space="preserve">
+          <source>To do so, you must choose the <bpt id="7c62479b-7f90-4f49-a754-1ebe9dc1b0a5">&lt;strong&gt;</bpt>From Gallery<ept id="7c62479b-7f90-4f49-a754-1ebe9dc1b0a5">&lt;/strong&gt;</ept> option, and select the virtual network instead of a data center.</source>
+          <target state="new">To do so, you must choose the <bpt id="7c62479b-7f90-4f49-a754-1ebe9dc1b0a5">&lt;strong&gt;</bpt>From Gallery<ept id="7c62479b-7f90-4f49-a754-1ebe9dc1b0a5">&lt;/strong&gt;</ept> option, and select the virtual network instead of a data center.</target>
+        </trans-unit>
+        <trans-unit id="6431252b-fd13-4001-9c7f-0bc081195817" xml:space="preserve">
+          <source>For instructions, see <bpt id="1cfb177d-a62d-4e5a-a7f6-ebae1cfe0eff">&lt;linkText&gt;</bpt>Create a Virtual Machine Running Windows Server<ept id="1cfb177d-a62d-4e5a-a7f6-ebae1cfe0eff">&lt;/linkText&gt;</ept><bpt id="1cfb177d-a62d-4e5a-a7f6-ebae1cfe0eff">&lt;title&gt;</bpt><ept id="1cfb177d-a62d-4e5a-a7f6-ebae1cfe0eff">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="1cfb177d-a62d-4e5a-a7f6-ebae1cfe0eff">&lt;linkText&gt;</bpt>Create a Virtual Machine Running Windows Server<ept id="1cfb177d-a62d-4e5a-a7f6-ebae1cfe0eff">&lt;/linkText&gt;</ept><bpt id="1cfb177d-a62d-4e5a-a7f6-ebae1cfe0eff">&lt;title&gt;</bpt><ept id="1cfb177d-a62d-4e5a-a7f6-ebae1cfe0eff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3165a3ea-7681-4126-b376-d3c5c0266b1c" xml:space="preserve">
+          <source>A standard Windows Server 2012 image with a small VM size is sufficient.</source>
+          <target state="new">A standard Windows Server 2012 image with a small VM size is sufficient.</target>
+        </trans-unit>
+        <trans-unit id="fee31af3-489a-4339-940d-3626d9b7f0f9" xml:space="preserve">
+          <source>When using a Java application to connect to HBase remotely, you must use the fully qualified domain name (FQDN).</source>
+          <target state="new">When using a Java application to connect to HBase remotely, you must use the fully qualified domain name (FQDN).</target>
+        </trans-unit>
+        <trans-unit id="c03f6c97-a6ba-4d34-956f-1387b647dfc0" xml:space="preserve">
+          <source>To determine this, you must get the connection-specific DNS suffix of the HBase cluster.</source>
+          <target state="new">To determine this, you must get the connection-specific DNS suffix of the HBase cluster.</target>
+        </trans-unit>
+        <trans-unit id="2ee3cfde-4b46-4cff-a02d-c3f5aa405ad1" xml:space="preserve">
+          <source>To do that, use Curl to query Ambari, or use Remote Desktop to connect to the cluster.</source>
+          <target state="new">To do that, use Curl to query Ambari, or use Remote Desktop to connect to the cluster.</target>
+        </trans-unit>
+        <trans-unit id="19ab02da-e838-4103-b018-ee1c0487b56f" xml:space="preserve">
+          <source><bpt id="159a63a3-1a9d-490e-bcf6-e92e099cbf4e">&lt;strong&gt;</bpt>Curl<ept id="159a63a3-1a9d-490e-bcf6-e92e099cbf4e">&lt;/strong&gt;</ept> - Use the following command:</source>
+          <target state="new"><bpt id="159a63a3-1a9d-490e-bcf6-e92e099cbf4e">&lt;strong&gt;</bpt>Curl<ept id="159a63a3-1a9d-490e-bcf6-e92e099cbf4e">&lt;/strong&gt;</ept> - Use the following command:</target>
+        </trans-unit>
+        <trans-unit id="b7fb8b35-457f-42ab-9d01-f42dc4909df3" xml:space="preserve">
+          <source>In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry.</source>
+          <target state="new">In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry.</target>
+        </trans-unit>
+        <trans-unit id="d5fd6a3d-2532-4d62-b07b-c8b2d2da0641" xml:space="preserve">
+          <source>This will contain the FQDN for the nodes in the cluster.</source>
+          <target state="new">This will contain the FQDN for the nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="604a3745-e18c-4a75-bf0b-dbc8ad2b5d4c" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="f1160a8a-b335-44ae-8729-fff4c6ce5116" xml:space="preserve">
+          <source>The portion of the domain name beginning with the cluster name is the DNS suffix.</source>
+          <target state="new">The portion of the domain name beginning with the cluster name is the DNS suffix.</target>
+        </trans-unit>
+        <trans-unit id="77c78d94-11d2-4feb-948f-7c49c8784269" xml:space="preserve">
+          <source>For example, mycluster.b1.cloudapp.net.</source>
+          <target state="new">For example, mycluster.b1.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="977be028-f9c8-4ea9-a5cb-00e8d21033dd" xml:space="preserve">
+          <source><bpt id="aaf19785-2a9f-4513-a541-bf41504448d5">&lt;strong&gt;</bpt>Azure PowerShell<ept id="aaf19785-2a9f-4513-a541-bf41504448d5">&lt;/strong&gt;</ept> - Use the following Azure PowerShell script to register the <bpt id="6afb9e9f-3ed1-40de-b209-d1a49abceea0">&lt;strong&gt;</bpt>Get-ClusterDetail<ept id="6afb9e9f-3ed1-40de-b209-d1a49abceea0">&lt;/strong&gt;</ept> function, which can be used to return the DNS suffix:</source>
+          <target state="new"><bpt id="aaf19785-2a9f-4513-a541-bf41504448d5">&lt;strong&gt;</bpt>Azure PowerShell<ept id="aaf19785-2a9f-4513-a541-bf41504448d5">&lt;/strong&gt;</ept> - Use the following Azure PowerShell script to register the <bpt id="6afb9e9f-3ed1-40de-b209-d1a49abceea0">&lt;strong&gt;</bpt>Get-ClusterDetail<ept id="6afb9e9f-3ed1-40de-b209-d1a49abceea0">&lt;/strong&gt;</ept> function, which can be used to return the DNS suffix:</target>
+        </trans-unit>
+        <trans-unit id="ab4770e1-07f9-4619-9751-bd3a9e64e6a8" xml:space="preserve">
+          <source>After running the Azure PowerShell script, use the following command to return the DNS suffix by using the <bpt id="ef50e207-e05e-4209-a918-67362a585215">&lt;strong&gt;</bpt>Get-ClusterDetail<ept id="ef50e207-e05e-4209-a918-67362a585215">&lt;/strong&gt;</ept> function.</source>
+          <target state="new">After running the Azure PowerShell script, use the following command to return the DNS suffix by using the <bpt id="ef50e207-e05e-4209-a918-67362a585215">&lt;strong&gt;</bpt>Get-ClusterDetail<ept id="ef50e207-e05e-4209-a918-67362a585215">&lt;/strong&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="2243ea2e-6f90-4de5-acb0-b1d796d9cc65" xml:space="preserve">
+          <source>Specify your HDInsight HBase cluster name, admin name, and admin password when using this command.</source>
+          <target state="new">Specify your HDInsight HBase cluster name, admin name, and admin password when using this command.</target>
+        </trans-unit>
+        <trans-unit id="3652eba3-ac13-404a-b08a-0d4e5ea45d5e" xml:space="preserve">
+          <source>This will return the DNS suffix.</source>
+          <target state="new">This will return the DNS suffix.</target>
+        </trans-unit>
+        <trans-unit id="b61fbaa9-4eef-4969-960f-59b6aae14f7a" xml:space="preserve">
+          <source>For example, <bpt id="f9a07ce8-d9e9-454f-ae19-e78b580fd6dc">&lt;strong&gt;</bpt>yourclustername.b4.internal.cloudapp.net<ept id="f9a07ce8-d9e9-454f-ae19-e78b580fd6dc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="f9a07ce8-d9e9-454f-ae19-e78b580fd6dc">&lt;strong&gt;</bpt>yourclustername.b4.internal.cloudapp.net<ept id="f9a07ce8-d9e9-454f-ae19-e78b580fd6dc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d9f4a53-2a0d-4771-a520-4b86eb4be24d" xml:space="preserve">
+          <source>You can also use Remote Desktop to connect to the HBase cluster (you will be connected to the head node) and run <bpt id="8dd586af-8a9b-4f7b-a131-8da2cd7999c7">&lt;strong&gt;</bpt>ipconfig<ept id="8dd586af-8a9b-4f7b-a131-8da2cd7999c7">&lt;/strong&gt;</ept> from a command prompt to obtain the DNS suffix.</source>
+          <target state="new">You can also use Remote Desktop to connect to the HBase cluster (you will be connected to the head node) and run <bpt id="8dd586af-8a9b-4f7b-a131-8da2cd7999c7">&lt;strong&gt;</bpt>ipconfig<ept id="8dd586af-8a9b-4f7b-a131-8da2cd7999c7">&lt;/strong&gt;</ept> from a command prompt to obtain the DNS suffix.</target>
+        </trans-unit>
+        <trans-unit id="7370962a-3679-40f8-9fe4-ca0c5a776cec" xml:space="preserve">
+          <source>For instructions on enabling Remote Desktop Protocol (RDP) and connecting to the cluster by using RDP, see <bpt id="0dde2f2e-f8ed-4891-b57c-85d1697bb83a">&lt;linkText&gt;</bpt>Manage Hadoop clusters in HDInsight using the Azure portal[hdinsight-admin-portal]<ept id="0dde2f2e-f8ed-4891-b57c-85d1697bb83a">&lt;/linkText&gt;</ept><bpt id="0dde2f2e-f8ed-4891-b57c-85d1697bb83a">&lt;title&gt;</bpt><ept id="0dde2f2e-f8ed-4891-b57c-85d1697bb83a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on enabling Remote Desktop Protocol (RDP) and connecting to the cluster by using RDP, see <bpt id="0dde2f2e-f8ed-4891-b57c-85d1697bb83a">&lt;linkText&gt;</bpt>Manage Hadoop clusters in HDInsight using the Azure portal[hdinsight-admin-portal]<ept id="0dde2f2e-f8ed-4891-b57c-85d1697bb83a">&lt;/linkText&gt;</ept><bpt id="0dde2f2e-f8ed-4891-b57c-85d1697bb83a">&lt;title&gt;</bpt><ept id="0dde2f2e-f8ed-4891-b57c-85d1697bb83a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35fdacaf-ac6c-49c4-b483-d3255cd306a8" xml:space="preserve">
+          <source><bpt id="6a96e041-b7cd-4102-a83f-a6c2ff9d8378">&lt;linkText&gt;</bpt>hdinsight.hbase.dns.surffix<ept id="6a96e041-b7cd-4102-a83f-a6c2ff9d8378">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6a96e041-b7cd-4102-a83f-a6c2ff9d8378">&lt;linkText&gt;</bpt>hdinsight.hbase.dns.surffix<ept id="6a96e041-b7cd-4102-a83f-a6c2ff9d8378">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="374e6aec-e283-48a6-bce4-a2a8f3fd3441" xml:space="preserve">
+          <source>To verify that the virtual machine can communicate with the HBase cluster, use the command <bpt id="27d45878-61e5-490f-b1eb-ecacd9a28a73">&lt;code&gt;</bpt>ping headnode0.&lt;dns suffix&gt;<ept id="27d45878-61e5-490f-b1eb-ecacd9a28a73">&lt;/code&gt;</ept> from the virtual machine. For example, ping headnode0.mycluster.b1.cloudapp.net.</source>
+          <target state="new">To verify that the virtual machine can communicate with the HBase cluster, use the command <bpt id="27d45878-61e5-490f-b1eb-ecacd9a28a73">&lt;code&gt;</bpt>ping headnode0.&lt;dns suffix&gt;<ept id="27d45878-61e5-490f-b1eb-ecacd9a28a73">&lt;/code&gt;</ept> from the virtual machine. For example, ping headnode0.mycluster.b1.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="829c3c16-effe-4531-8b3d-3bd08e172ee0" xml:space="preserve">
+          <source>To use this information in a Java application, you can follow the steps in <bpt id="36ceea99-2108-46af-99cd-4fda7e0e05d9">&lt;linkText&gt;</bpt>Use Maven to build Java applications that use HBase with HDInsight (Hadoop)<ept id="36ceea99-2108-46af-99cd-4fda7e0e05d9">&lt;/linkText&gt;</ept><bpt id="36ceea99-2108-46af-99cd-4fda7e0e05d9">&lt;title&gt;</bpt><ept id="36ceea99-2108-46af-99cd-4fda7e0e05d9">&lt;/title&gt;</ept> to create an application.</source>
+          <target state="new">To use this information in a Java application, you can follow the steps in <bpt id="36ceea99-2108-46af-99cd-4fda7e0e05d9">&lt;linkText&gt;</bpt>Use Maven to build Java applications that use HBase with HDInsight (Hadoop)<ept id="36ceea99-2108-46af-99cd-4fda7e0e05d9">&lt;/linkText&gt;</ept><bpt id="36ceea99-2108-46af-99cd-4fda7e0e05d9">&lt;title&gt;</bpt><ept id="36ceea99-2108-46af-99cd-4fda7e0e05d9">&lt;/title&gt;</ept> to create an application.</target>
+        </trans-unit>
+        <trans-unit id="508a2ffb-5e17-4bdf-a152-a979e7af80ef" xml:space="preserve">
+          <source>To have the application connect to a remote HBase server, modify the <bpt id="7fde4f49-38e7-4f16-ab08-5c8d0b9ca06a">&lt;strong&gt;</bpt>hbase-site.xml<ept id="7fde4f49-38e7-4f16-ab08-5c8d0b9ca06a">&lt;/strong&gt;</ept> file in this example to use the FQDN for Zookeeper.</source>
+          <target state="new">To have the application connect to a remote HBase server, modify the <bpt id="7fde4f49-38e7-4f16-ab08-5c8d0b9ca06a">&lt;strong&gt;</bpt>hbase-site.xml<ept id="7fde4f49-38e7-4f16-ab08-5c8d0b9ca06a">&lt;/strong&gt;</ept> file in this example to use the FQDN for Zookeeper.</target>
+        </trans-unit>
+        <trans-unit id="d3e17933-b747-40f0-a4d9-e2fb4b8e4b4d" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="a27972f6-12d1-4bdb-8049-a85f67aeb8c1" xml:space="preserve">
+          <source>For more information on name resolution in Azure virtual networks, including how to use your own DNS server, see <bpt id="6810aa9a-9326-41f5-aace-18d6a49b9c2d">&lt;linkText&gt;</bpt>Name Resolution (DNS)<ept id="6810aa9a-9326-41f5-aace-18d6a49b9c2d">&lt;/linkText&gt;</ept><bpt id="6810aa9a-9326-41f5-aace-18d6a49b9c2d">&lt;title&gt;</bpt><ept id="6810aa9a-9326-41f5-aace-18d6a49b9c2d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on name resolution in Azure virtual networks, including how to use your own DNS server, see <bpt id="6810aa9a-9326-41f5-aace-18d6a49b9c2d">&lt;linkText&gt;</bpt>Name Resolution (DNS)<ept id="6810aa9a-9326-41f5-aace-18d6a49b9c2d">&lt;/linkText&gt;</ept><bpt id="6810aa9a-9326-41f5-aace-18d6a49b9c2d">&lt;title&gt;</bpt><ept id="6810aa9a-9326-41f5-aace-18d6a49b9c2d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="920bb55a-e8e1-4956-af89-6b16d61259ca" xml:space="preserve">
+          <source><bpt id="f639b6c5-a7c6-412b-b2f1-cf9d4b54b36a">&lt;strong&gt;</bpt>To provision an HBase cluster by using Azure PowerShell<ept id="f639b6c5-a7c6-412b-b2f1-cf9d4b54b36a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f639b6c5-a7c6-412b-b2f1-cf9d4b54b36a">&lt;strong&gt;</bpt>To provision an HBase cluster by using Azure PowerShell<ept id="f639b6c5-a7c6-412b-b2f1-cf9d4b54b36a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1189ec59-3fe4-41c0-926b-1d7ea7ed571c" xml:space="preserve">
+          <source>Open the Azure PowerShell Integrated Scripting Environment (ISE).</source>
+          <target state="new">Open the Azure PowerShell Integrated Scripting Environment (ISE).</target>
+        </trans-unit>
+        <trans-unit id="77d9eca3-5272-4c83-a6a8-1d4c4c117887" xml:space="preserve">
+          <source>Copy and paste the following into the script pane:</source>
+          <target state="new">Copy and paste the following into the script pane:</target>
+        </trans-unit>
+        <trans-unit id="2e892a5e-7fc0-4ee3-89c5-726179b950bd" xml:space="preserve">
+          <source>Click <bpt id="6af31709-6d2b-46f4-b2f3-5d2bb693e663">&lt;strong&gt;</bpt>Run Script<ept id="6af31709-6d2b-46f4-b2f3-5d2bb693e663">&lt;/strong&gt;</ept>, or press <bpt id="dd1dcf7e-1625-4946-a47b-4227db81a4d5">&lt;strong&gt;</bpt>F5<ept id="dd1dcf7e-1625-4946-a47b-4227db81a4d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6af31709-6d2b-46f4-b2f3-5d2bb693e663">&lt;strong&gt;</bpt>Run Script<ept id="6af31709-6d2b-46f4-b2f3-5d2bb693e663">&lt;/strong&gt;</ept>, or press <bpt id="dd1dcf7e-1625-4946-a47b-4227db81a4d5">&lt;strong&gt;</bpt>F5<ept id="dd1dcf7e-1625-4946-a47b-4227db81a4d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="872ff77a-3242-48c6-b615-63d0d1d84463" xml:space="preserve">
+          <source>To validate the cluster, you can either check the cluster from the Azure portal, or run the following Azure PowerShell cmdlet from the bottom pane:</source>
+          <target state="new">To validate the cluster, you can either check the cluster from the Azure portal, or run the following Azure PowerShell cmdlet from the bottom pane:</target>
+        </trans-unit>
+        <trans-unit id="89382280-bb22-45d3-b93c-6dcdd3562685" xml:space="preserve">
+          <source>Get-AzureHDInsightCluster</source>
+          <target state="new">Get-AzureHDInsightCluster</target>
+        </trans-unit>
+        <trans-unit id="41926b52-f8ef-4601-85f9-0cc7b52127ce" xml:space="preserve">
+          <source>In this tutorial you learned how to provision an HBase cluster.</source>
+          <target state="new">In this tutorial you learned how to provision an HBase cluster.</target>
+        </trans-unit>
+        <trans-unit id="61055ce0-b6d9-48ac-8336-3abfe9618ddd" xml:space="preserve">
+          <source>To learn more, see:</source>
+          <target state="new">To learn more, see:</target>
+        </trans-unit>
+        <trans-unit id="8fef27b9-0716-4b46-ac61-c475bedbcdde" xml:space="preserve">
+          <source><bpt id="2c176f7a-1481-4001-9338-86b74a96188d">&lt;linkText&gt;</bpt>Get started with HDInsight<ept id="2c176f7a-1481-4001-9338-86b74a96188d">&lt;/linkText&gt;</ept><bpt id="2c176f7a-1481-4001-9338-86b74a96188d">&lt;title&gt;</bpt><ept id="2c176f7a-1481-4001-9338-86b74a96188d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c176f7a-1481-4001-9338-86b74a96188d">&lt;linkText&gt;</bpt>Get started with HDInsight<ept id="2c176f7a-1481-4001-9338-86b74a96188d">&lt;/linkText&gt;</ept><bpt id="2c176f7a-1481-4001-9338-86b74a96188d">&lt;title&gt;</bpt><ept id="2c176f7a-1481-4001-9338-86b74a96188d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1197019-9c34-43a1-8a91-20702895c89c" xml:space="preserve">
+          <source><bpt id="67904776-5f5d-4b5d-b8f2-dcf064e1f14f">&lt;linkText&gt;</bpt>Configure HBase replication in HDInsight<ept id="67904776-5f5d-4b5d-b8f2-dcf064e1f14f">&lt;/linkText&gt;</ept><bpt id="67904776-5f5d-4b5d-b8f2-dcf064e1f14f">&lt;title&gt;</bpt><ept id="67904776-5f5d-4b5d-b8f2-dcf064e1f14f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="67904776-5f5d-4b5d-b8f2-dcf064e1f14f">&lt;linkText&gt;</bpt>Configure HBase replication in HDInsight<ept id="67904776-5f5d-4b5d-b8f2-dcf064e1f14f">&lt;/linkText&gt;</ept><bpt id="67904776-5f5d-4b5d-b8f2-dcf064e1f14f">&lt;title&gt;</bpt><ept id="67904776-5f5d-4b5d-b8f2-dcf064e1f14f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="533a951a-63e4-4455-b087-85b92fe6daf6" xml:space="preserve">
+          <source><bpt id="916f13c0-e0df-4388-b522-37556e323ee9">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight<ept id="916f13c0-e0df-4388-b522-37556e323ee9">&lt;/linkText&gt;</ept><bpt id="916f13c0-e0df-4388-b522-37556e323ee9">&lt;title&gt;</bpt><ept id="916f13c0-e0df-4388-b522-37556e323ee9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="916f13c0-e0df-4388-b522-37556e323ee9">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight<ept id="916f13c0-e0df-4388-b522-37556e323ee9">&lt;/linkText&gt;</ept><bpt id="916f13c0-e0df-4388-b522-37556e323ee9">&lt;title&gt;</bpt><ept id="916f13c0-e0df-4388-b522-37556e323ee9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77086f7b-9886-4911-bd8e-16b80a098892" xml:space="preserve">
+          <source><bpt id="e72e9a24-8937-4b96-af76-92bbcb7a1e30">&lt;linkText&gt;</bpt>Get started using HBase with Hadoop in HDInsight<ept id="e72e9a24-8937-4b96-af76-92bbcb7a1e30">&lt;/linkText&gt;</ept><bpt id="e72e9a24-8937-4b96-af76-92bbcb7a1e30">&lt;title&gt;</bpt><ept id="e72e9a24-8937-4b96-af76-92bbcb7a1e30">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e72e9a24-8937-4b96-af76-92bbcb7a1e30">&lt;linkText&gt;</bpt>Get started using HBase with Hadoop in HDInsight<ept id="e72e9a24-8937-4b96-af76-92bbcb7a1e30">&lt;/linkText&gt;</ept><bpt id="e72e9a24-8937-4b96-af76-92bbcb7a1e30">&lt;title&gt;</bpt><ept id="e72e9a24-8937-4b96-af76-92bbcb7a1e30">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca4ec0cd-2641-40fa-9285-b16b0eb630cc" xml:space="preserve">
+          <source><bpt id="58352010-987b-4f29-9e91-5318b021383e">&lt;linkText&gt;</bpt>Analyze Twitter sentiment with HBase in HDInsight<ept id="58352010-987b-4f29-9e91-5318b021383e">&lt;/linkText&gt;</ept><bpt id="58352010-987b-4f29-9e91-5318b021383e">&lt;title&gt;</bpt><ept id="58352010-987b-4f29-9e91-5318b021383e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="58352010-987b-4f29-9e91-5318b021383e">&lt;linkText&gt;</bpt>Analyze Twitter sentiment with HBase in HDInsight<ept id="58352010-987b-4f29-9e91-5318b021383e">&lt;/linkText&gt;</ept><bpt id="58352010-987b-4f29-9e91-5318b021383e">&lt;title&gt;</bpt><ept id="58352010-987b-4f29-9e91-5318b021383e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ee7087c-16d5-47af-a89c-e8c4e83f8933" xml:space="preserve">
+          <source><bpt id="0826c1a5-951b-4b37-a935-0964fb2463ad">&lt;linkText&gt;</bpt>Virtual Network Overview[vnet-overview]<ept id="0826c1a5-951b-4b37-a935-0964fb2463ad">&lt;/linkText&gt;</ept><bpt id="0826c1a5-951b-4b37-a935-0964fb2463ad">&lt;title&gt;</bpt><ept id="0826c1a5-951b-4b37-a935-0964fb2463ad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0826c1a5-951b-4b37-a935-0964fb2463ad">&lt;linkText&gt;</bpt>Virtual Network Overview[vnet-overview]<ept id="0826c1a5-951b-4b37-a935-0964fb2463ad">&lt;/linkText&gt;</ept><bpt id="0826c1a5-951b-4b37-a935-0964fb2463ad">&lt;title&gt;</bpt><ept id="0826c1a5-951b-4b37-a935-0964fb2463ad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1760dcc1-df2b-4ffa-96ca-b282bea7f4b8" xml:space="preserve">
+          <source>http://azure.microsoft.com/services/virtual-network/</source>
+          <target state="new">http://azure.microsoft.com/services/virtual-network/</target>
+        </trans-unit>
+        <trans-unit id="9b3bc99f-ecd6-437e-b788-dd283e04cb53" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/ee176961.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/ee176961.aspx</target>
+        </trans-unit>
+        <trans-unit id="99465e95-cc49-426e-87ae-e1129eb48228" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/hh847889.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/hh847889.aspx</target>
+        </trans-unit>
+        <trans-unit id="ad1bdc0b-30e4-40aa-9479-8ec35d8d7b9c" xml:space="preserve">
+          <source>../hdinsight-hbase-get-started.md</source>
+          <target state="new">../hdinsight-hbase-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="34c9866a-b1bd-404d-a445-6fa1c854a7f0" xml:space="preserve">
+          <source>../hdinsight-hbase-twitter-sentiment.md</source>
+          <target state="new">../hdinsight-hbase-twitter-sentiment.md</target>
+        </trans-unit>
+        <trans-unit id="492bc81d-1342-46eb-ab37-c33b32361f48" xml:space="preserve">
+          <source>../virtual-network/virtual-networks-overview.md</source>
+          <target state="new">../virtual-network/virtual-networks-overview.md</target>
+        </trans-unit>
+        <trans-unit id="5ffe7604-ee30-474f-aec5-315802c7a017" xml:space="preserve">
+          <source>../virtual-machines-windows-tutorial.md</source>
+          <target state="new">../virtual-machines-windows-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="fb6b2732-9398-4dd1-8af2-115298cc642e" xml:space="preserve">
+          <source>https://portal.azure.com</source>
+          <target state="new">https://portal.azure.com</target>
+        </trans-unit>
+        <trans-unit id="5bbd790e-0b14-4cf8-97a6-1d3c1bec862b" xml:space="preserve">
+          <source>../storage-create-storage-account.md</source>
+          <target state="new">../storage-create-storage-account.md</target>
+        </trans-unit>
+        <trans-unit id="741a57cd-33ef-4fc1-96f7-827d4a5d90c6" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="ccf87330-8a6a-4012-bfd6-edbc661b44f5" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="dd5f3d85-9f46-49d7-9b21-42cd4dc5e602" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="514a420f-6e72-4bbf-84ac-6b29dc5b7224" xml:space="preserve">
+          <source>hdinsight-administer-use-powershell.md</source>
+          <target state="new">hdinsight-administer-use-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="faaf4fef-3213-4634-aa09-fd9c02fe67ae" xml:space="preserve">
+          <source>hdinsight-administer-use-management-portal.md#rdp</source>
+          <target state="new">hdinsight-administer-use-management-portal.md#rdp</target>
+        </trans-unit>
+        <trans-unit id="e50a7373-6338-4b0f-adb4-6f2b049a4dc1" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn858087.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn858087.aspx</target>
+        </trans-unit>
+        <trans-unit id="dd7042d0-65db-4dd6-b729-2b2dc9e744b3" xml:space="preserve">
+          <source>https://dev.twitter.com/docs/streaming-apis</source>
+          <target state="new">https://dev.twitter.com/docs/streaming-apis</target>
+        </trans-unit>
+        <trans-unit id="f767ab29-d071-4163-9925-862507f1e182" xml:space="preserve">
+          <source>https://dev.twitter.com/docs/api/1.1/post/statuses/filter</source>
+          <target state="new">https://dev.twitter.com/docs/api/1.1/post/statuses/filter</target>
+        </trans-unit>
+        <trans-unit id="5c66c1c4-4403-4bb6-b2e5-2bec0fe1d3cb" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="fa794819-97e0-41b6-bbc0-3a473506145c" xml:space="preserve">
+          <source>hdinsight-hadoop-customize-cluster.md</source>
+          <target state="new">hdinsight-hadoop-customize-cluster.md</target>
+        </trans-unit>
+        <trans-unit id="4008cfee-b032-478f-9046-fc4420c39fa4" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="4de803ce-12bf-4f43-aa85-ec6f47fbd3f5" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="447f065b-3665-48f8-8f7f-eed249a87572" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md#powershell</source>
+          <target state="new">../hdinsight-use-blob-storage.md#powershell</target>
+        </trans-unit>
+        <trans-unit id="158dc34d-8270-4dbe-a7e9-9ab7d926c0c4" xml:space="preserve">
+          <source>hdinsight-analyze-flight-delay-data.md</source>
+          <target state="new">hdinsight-analyze-flight-delay-data.md</target>
+        </trans-unit>
+        <trans-unit id="7a8d9759-c0a4-496f-8e4a-d06f88a4a577" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="93fff775-865e-4985-ad66-83e07e9bf7d7" xml:space="preserve">
+          <source>hdinsight-use-sqoop.md</source>
+          <target state="new">hdinsight-use-sqoop.md</target>
+        </trans-unit>
+        <trans-unit id="7477e2d5-ad5a-443f-b46c-700cfa5cb5d0" xml:space="preserve">
+          <source>hdinsight-connect-excel-power-query.md</source>
+          <target state="new">hdinsight-connect-excel-power-query.md</target>
+        </trans-unit>
+        <trans-unit id="80b9f452-0825-44bb-b078-d4143251c9e3" xml:space="preserve">
+          <source>hdinsight-connect-excel-hive-ODBC-driver.md</source>
+          <target state="new">hdinsight-connect-excel-hive-ODBC-driver.md</target>
+        </trans-unit>
+        <trans-unit id="a3511328-a974-4fd8-a9fa-4a87f2afd3c2" xml:space="preserve">
+          <source>hdinsight-hbase-geo-replication-configure-DNS.md</source>
+          <target state="new">hdinsight-hbase-geo-replication-configure-DNS.md</target>
+        </trans-unit>
+        <trans-unit id="e76b5da1-bbf8-4042-ab6a-f80620ed77d0" xml:space="preserve">
+          <source>./media/hdinsight-hbase-provision-vnet/DNSSuffix.png</source>
+          <target state="new">./media/hdinsight-hbase-provision-vnet/DNSSuffix.png</target>
+        </trans-unit>
+        <trans-unit id="c8bed70f-e122-429a-bab5-4de60b0b85d3" xml:space="preserve">
+          <source>./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png</source>
+          <target state="new">./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png</target>
+        </trans-unit>
+        <trans-unit id="97d27d11-a034-4a5b-abfd-becfa6de09d8" xml:space="preserve">
+          <source>./media/hdinsight-hbase-provision-vnet/hbasewizard1.png</source>
+          <target state="new">./media/hdinsight-hbase-provision-vnet/hbasewizard1.png</target>
+        </trans-unit>
+        <trans-unit id="4f96aba6-54b4-463b-b56f-73e79071e34c" xml:space="preserve">
+          <source>./media/hdinsight-hbase-provision-vnet/hbasewizard5.png</source>
+          <target state="new">./media/hdinsight-hbase-provision-vnet/hbasewizard5.png</target>
+        </trans-unit>
+      </group>
+      <group id="74f6c3b7-50b7-4127-ba16-aaa3d3d0cf85" />
+    </body>
+  </file>
+</xliff>

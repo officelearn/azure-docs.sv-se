@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8118bf76-35b9-460b-847b-4e17b78d7739" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8118bf76-35b9-460b-847b-4e17b78d7739" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="14f9962a-78cb-425a-9379-b2471f151c3a">
+        <trans-unit id="a18b4851-e71c-4308-9657-cdac3c090710" xml:space="preserve">
+          <source>U.S. airport codes.&lt;p&gt; &lt;/p&gt;This dataset contains one row for each U.S. airport, providing the airport ID number and name along with the location city and state.</source>
+          <target state="new">U.S. airport codes.&lt;p&gt; &lt;/p&gt;This dataset contains one row for each U.S. airport, providing the airport ID number and name along with the location city and state.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

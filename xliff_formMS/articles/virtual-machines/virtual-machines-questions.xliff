@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0edeabd7-f9bf-469b-8399-6ddc01839875" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0edeabd7-f9bf-469b-8399-6ddc01839875" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="60df04cb-cec7-477b-a6d1-396696b4e064">
+        <trans-unit id="7df0adf5-0721-4154-a3b5-4053113291a5" xml:space="preserve">
+          <source>Frequently asked questions for Azure Virtual Machines</source>
+          <target state="new">Frequently asked questions for Azure Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="91d98f04-7ed9-4bd9-8796-c2317c6d6933" xml:space="preserve">
+          <source>Provides answers to some of the most common questions about Azure virtual machines</source>
+          <target state="new">Provides answers to some of the most common questions about Azure virtual machines</target>
+        </trans-unit>
+        <trans-unit id="bf7f3dfe-8e1b-4cfb-a144-2529e4e21dbb" xml:space="preserve">
+          <source>This article addresses some common questions users ask about Azure virtual machines, based on input from the Azure VM Support team, as well as from forums, newsgroups, and comments in other articles.</source>
+          <target state="new">This article addresses some common questions users ask about Azure virtual machines, based on input from the Azure VM Support team, as well as from forums, newsgroups, and comments in other articles.</target>
+        </trans-unit>
+        <trans-unit id="d11e6702-2a71-4253-9a15-3020ae64d076" xml:space="preserve">
+          <source>For basic information, start with <bpt id="c0099150-6a58-40f2-b345-e4e10bc4e3bb">&lt;linkText&gt;</bpt>About Virtual Machines<ept id="c0099150-6a58-40f2-b345-e4e10bc4e3bb">&lt;/linkText&gt;</ept><bpt id="c0099150-6a58-40f2-b345-e4e10bc4e3bb">&lt;title&gt;</bpt><ept id="c0099150-6a58-40f2-b345-e4e10bc4e3bb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For basic information, start with <bpt id="c0099150-6a58-40f2-b345-e4e10bc4e3bb">&lt;linkText&gt;</bpt>About Virtual Machines<ept id="c0099150-6a58-40f2-b345-e4e10bc4e3bb">&lt;/linkText&gt;</ept><bpt id="c0099150-6a58-40f2-b345-e4e10bc4e3bb">&lt;title&gt;</bpt><ept id="c0099150-6a58-40f2-b345-e4e10bc4e3bb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80f758e2-caef-4275-af52-547c66762c61" xml:space="preserve">
+          <source>All subscribers can run server software on an Azure virtual machine.</source>
+          <target state="new">All subscribers can run server software on an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3d8575df-bf16-4a44-9108-a753a25c4736" xml:space="preserve">
+          <source>Additionally, MSDN subscribers have access to certain Windows client images provided by Azure.</source>
+          <target state="new">Additionally, MSDN subscribers have access to certain Windows client images provided by Azure.</target>
+        </trans-unit>
+        <trans-unit id="e37cb9e9-3d63-447e-8e23-2ab1e32af4c3" xml:space="preserve">
+          <source>For server software, you can run recent versions of Windows Server, as well as a variety of Linux distributions, and host various server workloads and services on them.</source>
+          <target state="new">For server software, you can run recent versions of Windows Server, as well as a variety of Linux distributions, and host various server workloads and services on them.</target>
+        </trans-unit>
+        <trans-unit id="9b809d24-f726-488a-bf59-84d9d90ed6b9" xml:space="preserve">
+          <source>For support details, see:</source>
+          <target state="new">For support details, see:</target>
+        </trans-unit>
+        <trans-unit id="4f9c7e5e-0f88-48af-9936-f510b3e47981" xml:space="preserve">
+          <source>• For Windows VMs -- <bpt id="e2d43a28-73ee-4a5d-9bd0-ad5afc8b074b">&lt;linkText&gt;</bpt>Microsoft server software support for Azure Virtual Machines<ept id="e2d43a28-73ee-4a5d-9bd0-ad5afc8b074b">&lt;/linkText&gt;</ept><bpt id="e2d43a28-73ee-4a5d-9bd0-ad5afc8b074b">&lt;title&gt;</bpt><ept id="e2d43a28-73ee-4a5d-9bd0-ad5afc8b074b">&lt;/title&gt;</ept></source>
+          <target state="new">• For Windows VMs -- <bpt id="e2d43a28-73ee-4a5d-9bd0-ad5afc8b074b">&lt;linkText&gt;</bpt>Microsoft server software support for Azure Virtual Machines<ept id="e2d43a28-73ee-4a5d-9bd0-ad5afc8b074b">&lt;/linkText&gt;</ept><bpt id="e2d43a28-73ee-4a5d-9bd0-ad5afc8b074b">&lt;title&gt;</bpt><ept id="e2d43a28-73ee-4a5d-9bd0-ad5afc8b074b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcf6addc-83f1-45c8-9c15-530ff921216e" xml:space="preserve">
+          <source>• For Linux VMs -- <bpt id="ab5b1b41-5913-4d81-a435-f8ed83f2c103">&lt;linkText&gt;</bpt>Linux on Azure-Endorsed Distributions<ept id="ab5b1b41-5913-4d81-a435-f8ed83f2c103">&lt;/linkText&gt;</ept><bpt id="ab5b1b41-5913-4d81-a435-f8ed83f2c103">&lt;title&gt;</bpt><ept id="ab5b1b41-5913-4d81-a435-f8ed83f2c103">&lt;/title&gt;</ept></source>
+          <target state="new">• For Linux VMs -- <bpt id="ab5b1b41-5913-4d81-a435-f8ed83f2c103">&lt;linkText&gt;</bpt>Linux on Azure-Endorsed Distributions<ept id="ab5b1b41-5913-4d81-a435-f8ed83f2c103">&lt;/linkText&gt;</ept><bpt id="ab5b1b41-5913-4d81-a435-f8ed83f2c103">&lt;title&gt;</bpt><ept id="ab5b1b41-5913-4d81-a435-f8ed83f2c103">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cc7f9f6-75b8-40af-8c0e-9a9cb9490841" xml:space="preserve">
+          <source>For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks.</source>
+          <target state="new">For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks.</target>
+        </trans-unit>
+        <trans-unit id="27926331-01e7-4e61-a7b9-8af7b745226a" xml:space="preserve">
+          <source>For details, including instructions and limitations, see <bpt id="b516048d-9df0-49b2-8cf5-924ad98b92f7">&lt;linkText&gt;</bpt>Windows Client images for MSDN subscribers<ept id="b516048d-9df0-49b2-8cf5-924ad98b92f7">&lt;/linkText&gt;</ept><bpt id="b516048d-9df0-49b2-8cf5-924ad98b92f7">&lt;title&gt;</bpt><ept id="b516048d-9df0-49b2-8cf5-924ad98b92f7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, including instructions and limitations, see <bpt id="b516048d-9df0-49b2-8cf5-924ad98b92f7">&lt;linkText&gt;</bpt>Windows Client images for MSDN subscribers<ept id="b516048d-9df0-49b2-8cf5-924ad98b92f7">&lt;/linkText&gt;</ept><bpt id="b516048d-9df0-49b2-8cf5-924ad98b92f7">&lt;title&gt;</bpt><ept id="b516048d-9df0-49b2-8cf5-924ad98b92f7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ccb81ff-e97e-47cc-a902-69386399995a" xml:space="preserve">
+          <source>Each data disk can be up to 1 TB.</source>
+          <target state="new">Each data disk can be up to 1 TB.</target>
+        </trans-unit>
+        <trans-unit id="020b1187-96e5-4875-bc67-dc77f2cc110f" xml:space="preserve">
+          <source>The number of data disks you can use depends on the size of the virtual machine.</source>
+          <target state="new">The number of data disks you can use depends on the size of the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="82955056-9ba2-4651-abd5-351163be493e" xml:space="preserve">
+          <source>For details, see <bpt id="e0a9fba2-eeca-4d32-9e27-d235f35e55e8">&lt;linkText&gt;</bpt>Sizes for Virtual Machines<ept id="e0a9fba2-eeca-4d32-9e27-d235f35e55e8">&lt;/linkText&gt;</ept><bpt id="e0a9fba2-eeca-4d32-9e27-d235f35e55e8">&lt;title&gt;</bpt><ept id="e0a9fba2-eeca-4d32-9e27-d235f35e55e8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="e0a9fba2-eeca-4d32-9e27-d235f35e55e8">&lt;linkText&gt;</bpt>Sizes for Virtual Machines<ept id="e0a9fba2-eeca-4d32-9e27-d235f35e55e8">&lt;/linkText&gt;</ept><bpt id="e0a9fba2-eeca-4d32-9e27-d235f35e55e8">&lt;title&gt;</bpt><ept id="e0a9fba2-eeca-4d32-9e27-d235f35e55e8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2094c07-d97e-47ff-85d9-955fd45deede" xml:space="preserve">
+          <source>An Azure storage account provides storage for the operating system disk and any data disks.</source>
+          <target state="new">An Azure storage account provides storage for the operating system disk and any data disks.</target>
+        </trans-unit>
+        <trans-unit id="b75e455d-0352-4070-b95e-ce2677153283" xml:space="preserve">
+          <source>Each disk is a .vhd file stored as a page blob.</source>
+          <target state="new">Each disk is a .vhd file stored as a page blob.</target>
+        </trans-unit>
+        <trans-unit id="c62bb849-bcfd-4f54-820e-e775f82ca412" xml:space="preserve">
+          <source>For pricing details, see <bpt id="c94c686b-13dd-4225-9d5e-02b625c514f8">&lt;linkText&gt;</bpt>Storage Pricing Details<ept id="c94c686b-13dd-4225-9d5e-02b625c514f8">&lt;/linkText&gt;</ept><bpt id="c94c686b-13dd-4225-9d5e-02b625c514f8">&lt;title&gt;</bpt><ept id="c94c686b-13dd-4225-9d5e-02b625c514f8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For pricing details, see <bpt id="c94c686b-13dd-4225-9d5e-02b625c514f8">&lt;linkText&gt;</bpt>Storage Pricing Details<ept id="c94c686b-13dd-4225-9d5e-02b625c514f8">&lt;/linkText&gt;</ept><bpt id="c94c686b-13dd-4225-9d5e-02b625c514f8">&lt;title&gt;</bpt><ept id="c94c686b-13dd-4225-9d5e-02b625c514f8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04c11a42-cbb3-4ea2-afc9-5b812134c1fe" xml:space="preserve">
+          <source>Azure supports fixed, VHD-format virtual hard disks.</source>
+          <target state="new">Azure supports fixed, VHD-format virtual hard disks.</target>
+        </trans-unit>
+        <trans-unit id="37f56b2c-6ddb-4573-b6cf-b73c00145c2e" xml:space="preserve">
+          <source>If you want to use a VHDX-format disk in Azure, convert it by using Hyper-V Manager or the <bpt id="e3c06ed3-1540-4b83-8f31-214482f25f56">&lt;linkText&gt;</bpt>convert-VHD<ept id="e3c06ed3-1540-4b83-8f31-214482f25f56">&lt;/linkText&gt;</ept><bpt id="e3c06ed3-1540-4b83-8f31-214482f25f56">&lt;title&gt;</bpt><ept id="e3c06ed3-1540-4b83-8f31-214482f25f56">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">If you want to use a VHDX-format disk in Azure, convert it by using Hyper-V Manager or the <bpt id="e3c06ed3-1540-4b83-8f31-214482f25f56">&lt;linkText&gt;</bpt>convert-VHD<ept id="e3c06ed3-1540-4b83-8f31-214482f25f56">&lt;/linkText&gt;</ept><bpt id="e3c06ed3-1540-4b83-8f31-214482f25f56">&lt;title&gt;</bpt><ept id="e3c06ed3-1540-4b83-8f31-214482f25f56">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="478f3cea-373b-4e13-bd21-0dc61d1d561b" xml:space="preserve">
+          <source>After you do that, use <bpt id="b1ab2725-3a98-454e-9160-70080f4b6edd">&lt;linkText&gt;</bpt>Add-AzureVHD<ept id="b1ab2725-3a98-454e-9160-70080f4b6edd">&lt;/linkText&gt;</ept><bpt id="b1ab2725-3a98-454e-9160-70080f4b6edd">&lt;title&gt;</bpt><ept id="b1ab2725-3a98-454e-9160-70080f4b6edd">&lt;/title&gt;</ept> cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.</source>
+          <target state="new">After you do that, use <bpt id="b1ab2725-3a98-454e-9160-70080f4b6edd">&lt;linkText&gt;</bpt>Add-AzureVHD<ept id="b1ab2725-3a98-454e-9160-70080f4b6edd">&lt;/linkText&gt;</ept><bpt id="b1ab2725-3a98-454e-9160-70080f4b6edd">&lt;title&gt;</bpt><ept id="b1ab2725-3a98-454e-9160-70080f4b6edd">&lt;/title&gt;</ept> cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="84925175-887c-49b4-9207-9e07d3cbc9e5" xml:space="preserve">
+          <source>The cmdlet converts a dynamic VHD to a fixed VHD, but doesn’t convert from VHDX to VHD.</source>
+          <target state="new">The cmdlet converts a dynamic VHD to a fixed VHD, but doesn’t convert from VHDX to VHD.</target>
+        </trans-unit>
+        <trans-unit id="7fe97e9e-edaf-413c-a82b-ba3dd61518f0" xml:space="preserve">
+          <source>For Linux instructions, see <bpt id="114080d4-f7da-425b-844f-e9a3f57e4389">&lt;linkText&gt;</bpt>Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System<ept id="114080d4-f7da-425b-844f-e9a3f57e4389">&lt;/linkText&gt;</ept><bpt id="114080d4-f7da-425b-844f-e9a3f57e4389">&lt;title&gt;</bpt><ept id="114080d4-f7da-425b-844f-e9a3f57e4389">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Linux instructions, see <bpt id="114080d4-f7da-425b-844f-e9a3f57e4389">&lt;linkText&gt;</bpt>Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System<ept id="114080d4-f7da-425b-844f-e9a3f57e4389">&lt;/linkText&gt;</ept><bpt id="114080d4-f7da-425b-844f-e9a3f57e4389">&lt;title&gt;</bpt><ept id="114080d4-f7da-425b-844f-e9a3f57e4389">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd970f2c-8d5f-461f-8f1d-406f1f17747d" xml:space="preserve">
+          <source>For Windows instructions, see <bpt id="2b73732f-b10d-43ae-877d-75cbdb444c08">&lt;linkText&gt;</bpt>Create and upload a Windows Server VHD to Azure<ept id="2b73732f-b10d-43ae-877d-75cbdb444c08">&lt;/linkText&gt;</ept><bpt id="2b73732f-b10d-43ae-877d-75cbdb444c08">&lt;title&gt;</bpt><ept id="2b73732f-b10d-43ae-877d-75cbdb444c08">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Windows instructions, see <bpt id="2b73732f-b10d-43ae-877d-75cbdb444c08">&lt;linkText&gt;</bpt>Create and upload a Windows Server VHD to Azure<ept id="2b73732f-b10d-43ae-877d-75cbdb444c08">&lt;/linkText&gt;</ept><bpt id="2b73732f-b10d-43ae-877d-75cbdb444c08">&lt;title&gt;</bpt><ept id="2b73732f-b10d-43ae-877d-75cbdb444c08">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6af98339-b488-4a62-97b9-d7de567e86a5" xml:space="preserve">
+          <source>For instructions on uploading a data disk, see the Linux or Windows article and start with the steps for connecting to Azure.</source>
+          <target state="new">For instructions on uploading a data disk, see the Linux or Windows article and start with the steps for connecting to Azure.</target>
+        </trans-unit>
+        <trans-unit id="a18ab8ee-b22c-4b8d-9051-e268c7a16aee" xml:space="preserve">
+          <source>In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same.</source>
+          <target state="new">In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same.</target>
+        </trans-unit>
+        <trans-unit id="36559563-9023-4bea-a156-619e769eee29" xml:space="preserve">
+          <source>Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible.</source>
+          <target state="new">Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible.</target>
+        </trans-unit>
+        <trans-unit id="175e4acb-739a-4880-bae2-c9ab33c3a70f" xml:space="preserve">
+          <source>This means you can move them between Hyper-V and Azure.</source>
+          <target state="new">This means you can move them between Hyper-V and Azure.</target>
+        </trans-unit>
+        <trans-unit id="54170265-1f43-446d-a57b-d6751b1deddb" xml:space="preserve">
+          <source>Three key differences that sometimes surprise Hyper-V users are:</source>
+          <target state="new">Three key differences that sometimes surprise Hyper-V users are:</target>
+        </trans-unit>
+        <trans-unit id="60b5d1e2-7342-49c4-85e5-fc470f153194" xml:space="preserve">
+          <source>Azure doesn’t provide console access to a virtual machine.</source>
+          <target state="new">Azure doesn’t provide console access to a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="0e95bd96-184a-479e-934f-ba2d4bd90b1c" xml:space="preserve">
+          <source>Azure VMs in most <bpt id="e82c1c69-83f8-4169-a2bc-e2fa1dcbc341">&lt;linkText&gt;</bpt>sizes<ept id="e82c1c69-83f8-4169-a2bc-e2fa1dcbc341">&lt;/linkText&gt;</ept><bpt id="e82c1c69-83f8-4169-a2bc-e2fa1dcbc341">&lt;title&gt;</bpt><ept id="e82c1c69-83f8-4169-a2bc-e2fa1dcbc341">&lt;/title&gt;</ept> have only 1 virtual network adapter, which means that they also can have only 1 external IP address.</source>
+          <target state="new">Azure VMs in most <bpt id="e82c1c69-83f8-4169-a2bc-e2fa1dcbc341">&lt;linkText&gt;</bpt>sizes<ept id="e82c1c69-83f8-4169-a2bc-e2fa1dcbc341">&lt;/linkText&gt;</ept><bpt id="e82c1c69-83f8-4169-a2bc-e2fa1dcbc341">&lt;title&gt;</bpt><ept id="e82c1c69-83f8-4169-a2bc-e2fa1dcbc341">&lt;/title&gt;</ept> have only 1 virtual network adapter, which means that they also can have only 1 external IP address.</target>
+        </trans-unit>
+        <trans-unit id="b5e08189-24b6-4764-8f6b-943fe6dbc32f" xml:space="preserve">
+          <source>(The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)</source>
+          <target state="new">(The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)</target>
+        </trans-unit>
+        <trans-unit id="ed2852a5-c44c-4565-af70-39d49f738330" xml:space="preserve">
+          <source>Azure VMs don't support Generation 2 Hyper-V VM features.</source>
+          <target state="new">Azure VMs don't support Generation 2 Hyper-V VM features.</target>
+        </trans-unit>
+        <trans-unit id="1d0a3a52-a637-4c52-bbae-e68d61598814" xml:space="preserve">
+          <source>For details about these features, see <bpt id="766de452-718c-4c83-8df5-00db84d0c350">&lt;linkText&gt;</bpt>Virtual Machine Specifications for Hyper-V<ept id="766de452-718c-4c83-8df5-00db84d0c350">&lt;/linkText&gt;</ept><bpt id="766de452-718c-4c83-8df5-00db84d0c350">&lt;title&gt;</bpt><ept id="766de452-718c-4c83-8df5-00db84d0c350">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about these features, see <bpt id="766de452-718c-4c83-8df5-00db84d0c350">&lt;linkText&gt;</bpt>Virtual Machine Specifications for Hyper-V<ept id="766de452-718c-4c83-8df5-00db84d0c350">&lt;/linkText&gt;</ept><bpt id="766de452-718c-4c83-8df5-00db84d0c350">&lt;title&gt;</bpt><ept id="766de452-718c-4c83-8df5-00db84d0c350">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6641154-75e8-45d2-82fd-1b1679d66a95" xml:space="preserve">
+          <source>For virtual machines created in Service Management, you can use Azure Virtual Network to extend your existing infrastructure.</source>
+          <target state="new">For virtual machines created in Service Management, you can use Azure Virtual Network to extend your existing infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="b1f523c6-9e8e-436c-bb65-7cb315f0cf8e" xml:space="preserve">
+          <source>The approach is like setting up a branch office.</source>
+          <target state="new">The approach is like setting up a branch office.</target>
+        </trans-unit>
+        <trans-unit id="79300df3-8341-49ea-8569-eabfe45a8205" xml:space="preserve">
+          <source>You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect these to on-premises IT infrastructure.</source>
+          <target state="new">You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect these to on-premises IT infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="03370ebb-6f62-45cd-b661-db4a9ac65034" xml:space="preserve">
+          <source>For details, see <bpt id="790f95fe-573b-4a77-91ec-08cd70954ce1">&lt;linkText&gt;</bpt>Virtual Network Overview<ept id="790f95fe-573b-4a77-91ec-08cd70954ce1">&lt;/linkText&gt;</ept><bpt id="790f95fe-573b-4a77-91ec-08cd70954ce1">&lt;title&gt;</bpt><ept id="790f95fe-573b-4a77-91ec-08cd70954ce1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="790f95fe-573b-4a77-91ec-08cd70954ce1">&lt;linkText&gt;</bpt>Virtual Network Overview<ept id="790f95fe-573b-4a77-91ec-08cd70954ce1">&lt;/linkText&gt;</ept><bpt id="790f95fe-573b-4a77-91ec-08cd70954ce1">&lt;title&gt;</bpt><ept id="790f95fe-573b-4a77-91ec-08cd70954ce1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9270612-0574-41e3-aabd-b394852ff2a1" xml:space="preserve">
+          <source>You’ll need to specify the network that you want the virtual machine to belong to when you create the virtual machine.</source>
+          <target state="new">You’ll need to specify the network that you want the virtual machine to belong to when you create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="fb369c10-d909-4f26-acb4-e258a98e1193" xml:space="preserve">
+          <source>This means, for example, that you can’t join an existing virtual machine to a virtual network.</source>
+          <target state="new">This means, for example, that you can’t join an existing virtual machine to a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="2347cd97-a012-4f25-9975-50eba61f51e5" xml:space="preserve">
+          <source>However, you can work around this by detaching the virtual hard disk (VHD) from the existing virtual machine, and then use it to create a new virtual machine with the networking configuration you want.</source>
+          <target state="new">However, you can work around this by detaching the virtual hard disk (VHD) from the existing virtual machine, and then use it to create a new virtual machine with the networking configuration you want.</target>
+        </trans-unit>
+        <trans-unit id="99c4c9a4-e554-4d96-b85d-0a36168cb8e8" xml:space="preserve">
+          <source>You need to establish a remote connection to log on to the virtual machine, using Remote Desktop Connection for a Windows VM or a Secure Shell (SSH) for a Linux VM.</source>
+          <target state="new">You need to establish a remote connection to log on to the virtual machine, using Remote Desktop Connection for a Windows VM or a Secure Shell (SSH) for a Linux VM.</target>
+        </trans-unit>
+        <trans-unit id="7925a298-e2bc-4b75-9ce0-e047415f24e8" xml:space="preserve">
+          <source>For instructions, see:</source>
+          <target state="new">For instructions, see:</target>
+        </trans-unit>
+        <trans-unit id="c3e61c0d-2408-4b80-89fe-c1f540d4d916" xml:space="preserve">
+          <source><bpt id="b64228da-bcb2-4aeb-a6ff-7950a8f2c782">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Windows Server<ept id="b64228da-bcb2-4aeb-a6ff-7950a8f2c782">&lt;/linkText&gt;</ept><bpt id="b64228da-bcb2-4aeb-a6ff-7950a8f2c782">&lt;title&gt;</bpt><ept id="b64228da-bcb2-4aeb-a6ff-7950a8f2c782">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="b64228da-bcb2-4aeb-a6ff-7950a8f2c782">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Windows Server<ept id="b64228da-bcb2-4aeb-a6ff-7950a8f2c782">&lt;/linkText&gt;</ept><bpt id="b64228da-bcb2-4aeb-a6ff-7950a8f2c782">&lt;title&gt;</bpt><ept id="b64228da-bcb2-4aeb-a6ff-7950a8f2c782">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98f335e6-1b56-4303-9deb-3f16ecb127e4" xml:space="preserve">
+          <source>A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.</source>
+          <target state="new">A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.</target>
+        </trans-unit>
+        <trans-unit id="f7c8f20b-4b29-4cd7-aca2-a30d4a5221ac" xml:space="preserve">
+          <source><bpt id="ea6e8d89-71b6-474d-8d58-45e1059778e0">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Linux<ept id="ea6e8d89-71b6-474d-8d58-45e1059778e0">&lt;/linkText&gt;</ept><bpt id="ea6e8d89-71b6-474d-8d58-45e1059778e0">&lt;title&gt;</bpt><ept id="ea6e8d89-71b6-474d-8d58-45e1059778e0">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="ea6e8d89-71b6-474d-8d58-45e1059778e0">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Linux<ept id="ea6e8d89-71b6-474d-8d58-45e1059778e0">&lt;/linkText&gt;</ept><bpt id="ea6e8d89-71b6-474d-8d58-45e1059778e0">&lt;title&gt;</bpt><ept id="ea6e8d89-71b6-474d-8d58-45e1059778e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4baddd94-0bb8-48ce-b7df-e3e5f7fa4710" xml:space="preserve">
+          <source>By default, SSH allows a maximum of 10 concurrent connections.</source>
+          <target state="new">By default, SSH allows a maximum of 10 concurrent connections.</target>
+        </trans-unit>
+        <trans-unit id="01113cd5-69ab-4e2a-af44-fa2568362f8b" xml:space="preserve">
+          <source>You can increase this number by editing the configuration file.</source>
+          <target state="new">You can increase this number by editing the configuration file.</target>
+        </trans-unit>
+        <trans-unit id="867c241b-b118-4773-8224-185b336be19e" xml:space="preserve">
+          <source>If you’re having problems with Remote Desktop or SSH, install and use the <bpt id="682aeeee-38c9-4c69-9e58-faf1a2e7b688">&lt;linkText&gt;</bpt>VMAccess<ept id="682aeeee-38c9-4c69-9e58-faf1a2e7b688">&lt;/linkText&gt;</ept><bpt id="682aeeee-38c9-4c69-9e58-faf1a2e7b688">&lt;title&gt;</bpt><ept id="682aeeee-38c9-4c69-9e58-faf1a2e7b688">&lt;/title&gt;</ept> extension to help fix the problem.</source>
+          <target state="new">If you’re having problems with Remote Desktop or SSH, install and use the <bpt id="682aeeee-38c9-4c69-9e58-faf1a2e7b688">&lt;linkText&gt;</bpt>VMAccess<ept id="682aeeee-38c9-4c69-9e58-faf1a2e7b688">&lt;/linkText&gt;</ept><bpt id="682aeeee-38c9-4c69-9e58-faf1a2e7b688">&lt;title&gt;</bpt><ept id="682aeeee-38c9-4c69-9e58-faf1a2e7b688">&lt;/title&gt;</ept> extension to help fix the problem.</target>
+        </trans-unit>
+        <trans-unit id="02f01426-c985-47fa-8a15-24f33c07bf87" xml:space="preserve">
+          <source>For Windows VMs, additional options include:</source>
+          <target state="new">For Windows VMs, additional options include:</target>
+        </trans-unit>
+        <trans-unit id="bb6eaf3a-887f-4309-94fa-81465f4da027" xml:space="preserve">
+          <source>In the Azure Preview Portal, find the VM, then click <bpt id="1ab2b817-94ff-486f-99bb-51ae46533048">&lt;strong&gt;</bpt>Reset Remote Access<ept id="1ab2b817-94ff-486f-99bb-51ae46533048">&lt;/strong&gt;</ept> from the Command bar.</source>
+          <target state="new">In the Azure Preview Portal, find the VM, then click <bpt id="1ab2b817-94ff-486f-99bb-51ae46533048">&lt;strong&gt;</bpt>Reset Remote Access<ept id="1ab2b817-94ff-486f-99bb-51ae46533048">&lt;/strong&gt;</ept> from the Command bar.</target>
+        </trans-unit>
+        <trans-unit id="81c91f84-f404-4d99-8ba7-8cc06a024fcc" xml:space="preserve">
+          <source>Review <bpt id="cb222b73-b737-4404-a8fa-922a00aac59a">&lt;linkText&gt;</bpt>Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine<ept id="cb222b73-b737-4404-a8fa-922a00aac59a">&lt;/linkText&gt;</ept><bpt id="cb222b73-b737-4404-a8fa-922a00aac59a">&lt;title&gt;</bpt><ept id="cb222b73-b737-4404-a8fa-922a00aac59a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Review <bpt id="cb222b73-b737-4404-a8fa-922a00aac59a">&lt;linkText&gt;</bpt>Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine<ept id="cb222b73-b737-4404-a8fa-922a00aac59a">&lt;/linkText&gt;</ept><bpt id="cb222b73-b737-4404-a8fa-922a00aac59a">&lt;title&gt;</bpt><ept id="cb222b73-b737-4404-a8fa-922a00aac59a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb7bf530-330d-4813-a26c-2a732c14ad65" xml:space="preserve">
+          <source>Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM.</source>
+          <target state="new">Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM.</target>
+        </trans-unit>
+        <trans-unit id="9100da1f-f0da-414a-b43a-1e9bd513efd1" xml:space="preserve">
+          <source>For details, see <bpt id="98d39978-35be-48f1-b068-89576504b9c8">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="98d39978-35be-48f1-b068-89576504b9c8">&lt;/linkText&gt;</ept><bpt id="98d39978-35be-48f1-b068-89576504b9c8">&lt;title&gt;</bpt><ept id="98d39978-35be-48f1-b068-89576504b9c8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="98d39978-35be-48f1-b068-89576504b9c8">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="98d39978-35be-48f1-b068-89576504b9c8">&lt;/linkText&gt;</ept><bpt id="98d39978-35be-48f1-b068-89576504b9c8">&lt;title&gt;</bpt><ept id="98d39978-35be-48f1-b068-89576504b9c8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e143df96-e493-4a2f-8f76-3bc2f4c81a88" xml:space="preserve">
+          <source>If you’re familiar with Hyper-V, you might be looking for a tool similar to Virtual Machine Connection.</source>
+          <target state="new">If you’re familiar with Hyper-V, you might be looking for a tool similar to Virtual Machine Connection.</target>
+        </trans-unit>
+        <trans-unit id="e68bf001-beb9-482c-8d6b-0d5cffeb36aa" xml:space="preserve">
+          <source>Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.</source>
+          <target state="new">Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.</target>
+        </trans-unit>
+        <trans-unit id="748ea5f1-29a0-4d36-94c5-411c44f98a62" xml:space="preserve">
+          <source>You shouldn’t use the D: drive (Windows) or /dev/sdb1 (Linux).</source>
+          <target state="new">You shouldn’t use the D: drive (Windows) or /dev/sdb1 (Linux).</target>
+        </trans-unit>
+        <trans-unit id="93c2a28f-3e29-4c1d-8c5d-44b95e6889c7" xml:space="preserve">
+          <source>They provide temporary storage only, so you would risk losing data that can’t be recovered.</source>
+          <target state="new">They provide temporary storage only, so you would risk losing data that can’t be recovered.</target>
+        </trans-unit>
+        <trans-unit id="0a8438ef-fa25-4eb5-a985-880a99732e22" xml:space="preserve">
+          <source>A common way this could occur is when the virtual machine moves to a different host.</source>
+          <target state="new">A common way this could occur is when the virtual machine moves to a different host.</target>
+        </trans-unit>
+        <trans-unit id="c53299c3-9ee2-4d25-906e-54da4f3ce2a8" xml:space="preserve">
+          <source>Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.</source>
+          <target state="new">Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.</target>
+        </trans-unit>
+        <trans-unit id="263f908b-b790-4cb4-a5f3-20dfa48c689a" xml:space="preserve">
+          <source>On a Windows virtual machine, you can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order.</source>
+          <target state="new">On a Windows virtual machine, you can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order.</target>
+        </trans-unit>
+        <trans-unit id="8b6f1a99-84b1-40e1-ac0d-ff8f5603de43" xml:space="preserve">
+          <source>For instructions, see <bpt id="758ffa55-d795-4b1d-862f-f78ff28a4b99">&lt;linkText&gt;</bpt>Change the drive letter of the Windows temporary disk<ept id="758ffa55-d795-4b1d-862f-f78ff28a4b99">&lt;/linkText&gt;</ept><bpt id="758ffa55-d795-4b1d-862f-f78ff28a4b99">&lt;title&gt;</bpt><ept id="758ffa55-d795-4b1d-862f-f78ff28a4b99">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="758ffa55-d795-4b1d-862f-f78ff28a4b99">&lt;linkText&gt;</bpt>Change the drive letter of the Windows temporary disk<ept id="758ffa55-d795-4b1d-862f-f78ff28a4b99">&lt;/linkText&gt;</ept><bpt id="758ffa55-d795-4b1d-862f-f78ff28a4b99">&lt;title&gt;</bpt><ept id="758ffa55-d795-4b1d-862f-f78ff28a4b99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c2e0051-cae2-4891-96a9-eaf7fbfe035d" xml:space="preserve">
+          <source>The term upgrade generally means moving to a more recent release of your operating system, while staying on the same hardware.</source>
+          <target state="new">The term upgrade generally means moving to a more recent release of your operating system, while staying on the same hardware.</target>
+        </trans-unit>
+        <trans-unit id="4bb3a91f-2e5d-4ac4-9403-4cc9eb83b2a8" xml:space="preserve">
+          <source>For Azure VMs, the process for moving to a more recent release differs for Linux and Windows:</source>
+          <target state="new">For Azure VMs, the process for moving to a more recent release differs for Linux and Windows:</target>
+        </trans-unit>
+        <trans-unit id="c5f8eef9-85c1-4fde-bd67-bff291314312" xml:space="preserve">
+          <source>For Linux VMs, use the package management tools and procedures appropriate for the distribution.</source>
+          <target state="new">For Linux VMs, use the package management tools and procedures appropriate for the distribution.</target>
+        </trans-unit>
+        <trans-unit id="1d1f17ff-6747-446e-98b8-11ff9c49583e" xml:space="preserve">
+          <source>For a Windows virtual machine, use Windows Server Migration Tools.</source>
+          <target state="new">For a Windows virtual machine, use Windows Server Migration Tools.</target>
+        </trans-unit>
+        <trans-unit id="83f1330a-8ab6-41da-a1d3-1eb6ad82c48e" xml:space="preserve">
+          <source>Don’t attempt to upgrade the guest OS while it resides on Azure.</source>
+          <target state="new">Don’t attempt to upgrade the guest OS while it resides on Azure.</target>
+        </trans-unit>
+        <trans-unit id="d39e14fb-a6a2-4bc1-910e-b9bd5d287198" xml:space="preserve">
+          <source>It isn’t supported because of the risk of losing access to a virtual machine.</source>
+          <target state="new">It isn’t supported because of the risk of losing access to a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="82dff426-f498-4d56-bfd0-53e7e88f1445" xml:space="preserve">
+          <source>If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn’t be able to troubleshoot the problems.</source>
+          <target state="new">If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn’t be able to troubleshoot the problems.</target>
+        </trans-unit>
+        <trans-unit id="b15035f4-3718-480b-bc37-65cd188df33c" xml:space="preserve">
+          <source>For general details about the tools and process, see <bpt id="aabac630-0afc-41c6-a404-27651e0be3a4">&lt;linkText&gt;</bpt>Migrate Roles and Features to Windows Server<ept id="aabac630-0afc-41c6-a404-27651e0be3a4">&lt;/linkText&gt;</ept><bpt id="aabac630-0afc-41c6-a404-27651e0be3a4">&lt;title&gt;</bpt><ept id="aabac630-0afc-41c6-a404-27651e0be3a4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For general details about the tools and process, see <bpt id="aabac630-0afc-41c6-a404-27651e0be3a4">&lt;linkText&gt;</bpt>Migrate Roles and Features to Windows Server<ept id="aabac630-0afc-41c6-a404-27651e0be3a4">&lt;/linkText&gt;</ept><bpt id="aabac630-0afc-41c6-a404-27651e0be3a4">&lt;title&gt;</bpt><ept id="aabac630-0afc-41c6-a404-27651e0be3a4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77b8da86-8f07-4eca-9bdd-d6fa0d6a0914" xml:space="preserve">
+          <source>For details on upgrading to Windows Server 2012 R2, see <bpt id="a4e5e2d1-935e-44b4-8de3-33208c43ae36">&lt;linkText&gt;</bpt>Upgrade Options for Windows Server 2012 R2<ept id="a4e5e2d1-935e-44b4-8de3-33208c43ae36">&lt;/linkText&gt;</ept><bpt id="a4e5e2d1-935e-44b4-8de3-33208c43ae36">&lt;title&gt;</bpt><ept id="a4e5e2d1-935e-44b4-8de3-33208c43ae36">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on upgrading to Windows Server 2012 R2, see <bpt id="a4e5e2d1-935e-44b4-8de3-33208c43ae36">&lt;linkText&gt;</bpt>Upgrade Options for Windows Server 2012 R2<ept id="a4e5e2d1-935e-44b4-8de3-33208c43ae36">&lt;/linkText&gt;</ept><bpt id="a4e5e2d1-935e-44b4-8de3-33208c43ae36">&lt;title&gt;</bpt><ept id="a4e5e2d1-935e-44b4-8de3-33208c43ae36">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc72d5eb-5283-4c47-8e8c-415ff04f467d" xml:space="preserve">
+          <source>The images provided by Azure don’t have a pre-configured user name and password.</source>
+          <target state="new">The images provided by Azure don’t have a pre-configured user name and password.</target>
+        </trans-unit>
+        <trans-unit id="f9302cef-c468-4723-88cd-f84b5f2ee099" xml:space="preserve">
+          <source>When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.</source>
+          <target state="new">When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3af0b5a5-9059-421f-a692-1f823bea20ae" xml:space="preserve">
+          <source>If you’ve forgotten the user name or password and you’ve installed the VM Agent, you can install and use the VMAccess extension to fix the problem.</source>
+          <target state="new">If you’ve forgotten the user name or password and you’ve installed the VM Agent, you can install and use the VMAccess extension to fix the problem.</target>
+        </trans-unit>
+        <trans-unit id="6ac083f3-6430-41d9-bdb4-ca3e3adc7c45" xml:space="preserve">
+          <source>Additional details:</source>
+          <target state="new">Additional details:</target>
+        </trans-unit>
+        <trans-unit id="2fe47b87-b2ce-4f1c-9b8c-901d35ae158d" xml:space="preserve">
+          <source>For the Linux images, if you use the Management Portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine.</source>
+          <target state="new">For the Linux images, if you use the Management Portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="39c1d739-82be-4881-8f97-2dde0eeb421d" xml:space="preserve">
+          <source>Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in.</source>
+          <target state="new">Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in.</target>
+        </trans-unit>
+        <trans-unit id="ed444b5f-4afb-408c-80f2-5135023bbd5c" xml:space="preserve">
+          <source>The user account is a non-privileged user that has ‘sudo’ access to run privileged commands.</source>
+          <target state="new">The user account is a non-privileged user that has ‘sudo’ access to run privileged commands.</target>
+        </trans-unit>
+        <trans-unit id="847348e1-f861-41a9-a151-333ab448d517" xml:space="preserve">
+          <source>The ‘root’ account is disabled.</source>
+          <target state="new">The ‘root’ account is disabled.</target>
+        </trans-unit>
+        <trans-unit id="3fafe5ca-feb6-45e6-a216-4c394ba0601d" xml:space="preserve">
+          <source>For Windows images, you’ll need to provide a user name and password when you create the VM.</source>
+          <target state="new">For Windows images, you’ll need to provide a user name and password when you create the VM.</target>
+        </trans-unit>
+        <trans-unit id="2285f9b9-b9e5-4fc4-bc8c-6ea8d46d6428" xml:space="preserve">
+          <source>The account is added to the Administrators group.</source>
+          <target state="new">The account is added to the Administrators group.</target>
+        </trans-unit>
+        <trans-unit id="4cf20aac-2f66-4896-9c5a-e28f067b0045" xml:space="preserve">
+          <source>Azure offers several options for anti-virus solutions, but it’s up to you to manage it.</source>
+          <target state="new">Azure offers several options for anti-virus solutions, but it’s up to you to manage it.</target>
+        </trans-unit>
+        <trans-unit id="28bb37ad-8300-4a7f-830a-bc6ecdf2db2d" xml:space="preserve">
+          <source>For example, you might need a separate subscription for antimalware software, and you’ll need to decide when to run scans and install updates.</source>
+          <target state="new">For example, you might need a separate subscription for antimalware software, and you’ll need to decide when to run scans and install updates.</target>
+        </trans-unit>
+        <trans-unit id="9b12a0a6-f14e-4f13-920a-7094e1515a38" xml:space="preserve">
+          <source>You can add anti-virus support with a VM extension for Microsoft Antimalware, Symantec Endpoint Protection, or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point.</source>
+          <target state="new">You can add anti-virus support with a VM extension for Microsoft Antimalware, Symantec Endpoint Protection, or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point.</target>
+        </trans-unit>
+        <trans-unit id="ca60d479-203b-4c04-8192-112e14b22743" xml:space="preserve">
+          <source>The Symantec and TrendMicro extensions let you use a free limited-time trial subscription or an existing enterprise subscription.</source>
+          <target state="new">The Symantec and TrendMicro extensions let you use a free limited-time trial subscription or an existing enterprise subscription.</target>
+        </trans-unit>
+        <trans-unit id="51d9999b-1ed9-42ed-ab2c-1af149957f16" xml:space="preserve">
+          <source>Microsoft Antimalware is free of charge.</source>
+          <target state="new">Microsoft Antimalware is free of charge.</target>
+        </trans-unit>
+        <trans-unit id="ff7726cd-cd1b-4937-aaf8-3149bfc0ceba" xml:space="preserve">
+          <source>For details, see:</source>
+          <target state="new">For details, see:</target>
+        </trans-unit>
+        <trans-unit id="ec33bac9-75c8-4544-be2e-8cf39a47de7e" xml:space="preserve">
+          <source><bpt id="4820ceda-b8d7-424c-98c0-b987e9ba82f4">&lt;linkText&gt;</bpt>How to install and configure Symantec Endpoint Protection on an Azure VM<ept id="4820ceda-b8d7-424c-98c0-b987e9ba82f4">&lt;/linkText&gt;</ept><bpt id="4820ceda-b8d7-424c-98c0-b987e9ba82f4">&lt;title&gt;</bpt><ept id="4820ceda-b8d7-424c-98c0-b987e9ba82f4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4820ceda-b8d7-424c-98c0-b987e9ba82f4">&lt;linkText&gt;</bpt>How to install and configure Symantec Endpoint Protection on an Azure VM<ept id="4820ceda-b8d7-424c-98c0-b987e9ba82f4">&lt;/linkText&gt;</ept><bpt id="4820ceda-b8d7-424c-98c0-b987e9ba82f4">&lt;title&gt;</bpt><ept id="4820ceda-b8d7-424c-98c0-b987e9ba82f4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad9e3c87-7105-4b93-bcb7-7a3c481fc1e0" xml:space="preserve">
+          <source><bpt id="4b3173f8-8e9d-4cab-9e15-da005281af8c">&lt;linkText&gt;</bpt>How to install and configure Trend Micro Deep Security as a Service on an Azure VM<ept id="4b3173f8-8e9d-4cab-9e15-da005281af8c">&lt;/linkText&gt;</ept><bpt id="4b3173f8-8e9d-4cab-9e15-da005281af8c">&lt;title&gt;</bpt><ept id="4b3173f8-8e9d-4cab-9e15-da005281af8c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4b3173f8-8e9d-4cab-9e15-da005281af8c">&lt;linkText&gt;</bpt>How to install and configure Trend Micro Deep Security as a Service on an Azure VM<ept id="4b3173f8-8e9d-4cab-9e15-da005281af8c">&lt;/linkText&gt;</ept><bpt id="4b3173f8-8e9d-4cab-9e15-da005281af8c">&lt;title&gt;</bpt><ept id="4b3173f8-8e9d-4cab-9e15-da005281af8c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3883d89-c863-48f3-bf5c-66fbfb0e144f" xml:space="preserve">
+          <source><bpt id="d3553005-3678-4347-947b-4283b3604678">&lt;linkText&gt;</bpt>Deploying Antimalware Solutions on Azure Virtual Machines<ept id="d3553005-3678-4347-947b-4283b3604678">&lt;/linkText&gt;</ept><bpt id="d3553005-3678-4347-947b-4283b3604678">&lt;title&gt;</bpt><ept id="d3553005-3678-4347-947b-4283b3604678">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d3553005-3678-4347-947b-4283b3604678">&lt;linkText&gt;</bpt>Deploying Antimalware Solutions on Azure Virtual Machines<ept id="d3553005-3678-4347-947b-4283b3604678">&lt;/linkText&gt;</ept><bpt id="d3553005-3678-4347-947b-4283b3604678">&lt;title&gt;</bpt><ept id="d3553005-3678-4347-947b-4283b3604678">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a169181-eb84-40df-a62c-16e5b2f648d8" xml:space="preserve">
+          <source>Azure Backup is available as a preview in certain regions.</source>
+          <target state="new">Azure Backup is available as a preview in certain regions.</target>
+        </trans-unit>
+        <trans-unit id="c1a8fbfd-b4d6-41d5-93c6-ae6dd411da67" xml:space="preserve">
+          <source>For details, see <bpt id="f494a87f-fe03-4968-989e-f5e027459a91">&lt;linkText&gt;</bpt>Back up Azure virtual machines<ept id="f494a87f-fe03-4968-989e-f5e027459a91">&lt;/linkText&gt;</ept><bpt id="f494a87f-fe03-4968-989e-f5e027459a91">&lt;title&gt;</bpt><ept id="f494a87f-fe03-4968-989e-f5e027459a91">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="f494a87f-fe03-4968-989e-f5e027459a91">&lt;linkText&gt;</bpt>Back up Azure virtual machines<ept id="f494a87f-fe03-4968-989e-f5e027459a91">&lt;/linkText&gt;</ept><bpt id="f494a87f-fe03-4968-989e-f5e027459a91">&lt;title&gt;</bpt><ept id="f494a87f-fe03-4968-989e-f5e027459a91">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0f67532-fcdf-4c2e-b641-5794a826c942" xml:space="preserve">
+          <source>Other solutions are available from certified partners.</source>
+          <target state="new">Other solutions are available from certified partners.</target>
+        </trans-unit>
+        <trans-unit id="d273824b-5226-4b98-be03-25ea2a24a2a4" xml:space="preserve">
+          <source>To find out what’s currently available, search the Azure Marketplace.</source>
+          <target state="new">To find out what’s currently available, search the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="a649bf3a-36a9-4e50-b0e5-58afe006fa95" xml:space="preserve">
+          <source>An additional option is to use the snapshot capabilities of blob storage.</source>
+          <target state="new">An additional option is to use the snapshot capabilities of blob storage.</target>
+        </trans-unit>
+        <trans-unit id="05fafdd0-7ab1-428f-8637-452dcfcb2bcd" xml:space="preserve">
+          <source>To do this, you’ll need to shut down the VM before any operation that relies on a blob snapshot.</source>
+          <target state="new">To do this, you’ll need to shut down the VM before any operation that relies on a blob snapshot.</target>
+        </trans-unit>
+        <trans-unit id="4b36d537-a334-48e1-8d89-1c6019c89ce4" xml:space="preserve">
+          <source>This saves pending data writes and puts the file system in a consistent state.</source>
+          <target state="new">This saves pending data writes and puts the file system in a consistent state.</target>
+        </trans-unit>
+        <trans-unit id="5924ff7f-3811-4aea-a00e-7f5805efd597" xml:space="preserve">
+          <source>Azure charges an hourly price based on the VM’s size and operating system.</source>
+          <target state="new">Azure charges an hourly price based on the VM’s size and operating system.</target>
+        </trans-unit>
+        <trans-unit id="f42e4d8e-2a03-4f27-9ed6-223a5d745818" xml:space="preserve">
+          <source>For partial hours, Azure charges only for the minutes of use.</source>
+          <target state="new">For partial hours, Azure charges only for the minutes of use.</target>
+        </trans-unit>
+        <trans-unit id="aac50cc1-3cd9-4d18-b530-7627598c5019" xml:space="preserve">
+          <source>If you create the VM with a VM image containing certain pre-installed software, additional hourly software charges may apply.</source>
+          <target state="new">If you create the VM with a VM image containing certain pre-installed software, additional hourly software charges may apply.</target>
+        </trans-unit>
+        <trans-unit id="a09551f6-c244-4e31-bb3b-7e14426da1d5" xml:space="preserve">
+          <source>Azure charges separately for storage for the VM’s operating system and data disks.</source>
+          <target state="new">Azure charges separately for storage for the VM’s operating system and data disks.</target>
+        </trans-unit>
+        <trans-unit id="2e15c470-5331-4156-9799-e30cd976c899" xml:space="preserve">
+          <source>Temporary disk storage is free.</source>
+          <target state="new">Temporary disk storage is free.</target>
+        </trans-unit>
+        <trans-unit id="de95bfc3-cade-47f4-af27-68f7208b1cd1" xml:space="preserve">
+          <source>You are charged when the VM status is Running or Stopped, but you are not charged when the VM status is Stopped (De-allocated).</source>
+          <target state="new">You are charged when the VM status is Running or Stopped, but you are not charged when the VM status is Stopped (De-allocated).</target>
+        </trans-unit>
+        <trans-unit id="60a62bc6-d556-45cd-8bc4-ebd30cf06ed8" xml:space="preserve">
+          <source>To put a VM in the Stopped (De-allocated) state, do one of the following:</source>
+          <target state="new">To put a VM in the Stopped (De-allocated) state, do one of the following:</target>
+        </trans-unit>
+        <trans-unit id="2e74d457-9517-4009-be0e-afa00e295286" xml:space="preserve">
+          <source>Shut down or delete the VM from the Management Portal.</source>
+          <target state="new">Shut down or delete the VM from the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="3e6a951d-59ba-438f-8245-086588962666" xml:space="preserve">
+          <source>Use the Stop-AzureVM cmdlet, available in the Azure PowerShell module.</source>
+          <target state="new">Use the Stop-AzureVM cmdlet, available in the Azure PowerShell module.</target>
+        </trans-unit>
+        <trans-unit id="2e2d399f-0764-4c13-ac3a-e744aa8e935b" xml:space="preserve">
+          <source>Use the Shutdown Role operation in the Service Management REST API and specify StoppedDeallocated for the PostShutdownAction element.</source>
+          <target state="new">Use the Shutdown Role operation in the Service Management REST API and specify StoppedDeallocated for the PostShutdownAction element.</target>
+        </trans-unit>
+        <trans-unit id="c9ffe4e1-dcc5-4719-8511-e6c6e3b6386d" xml:space="preserve">
+          <source>For more details, see <bpt id="a9176f4f-4dbb-4c2c-935a-ed10a73a7652">&lt;linkText&gt;</bpt>Virtual Machines Pricing<ept id="a9176f4f-4dbb-4c2c-935a-ed10a73a7652">&lt;/linkText&gt;</ept><bpt id="a9176f4f-4dbb-4c2c-935a-ed10a73a7652">&lt;title&gt;</bpt><ept id="a9176f4f-4dbb-4c2c-935a-ed10a73a7652">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="a9176f4f-4dbb-4c2c-935a-ed10a73a7652">&lt;linkText&gt;</bpt>Virtual Machines Pricing<ept id="a9176f4f-4dbb-4c2c-935a-ed10a73a7652">&lt;/linkText&gt;</ept><bpt id="a9176f4f-4dbb-4c2c-935a-ed10a73a7652">&lt;title&gt;</bpt><ept id="a9176f4f-4dbb-4c2c-935a-ed10a73a7652">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9888bc19-4a2d-4a29-a96a-70dc0dc5b6cd" xml:space="preserve">
+          <source>Generally, you can start, stop, or restart your VM whenever you need to.</source>
+          <target state="new">Generally, you can start, stop, or restart your VM whenever you need to.</target>
+        </trans-unit>
+        <trans-unit id="69c59678-df12-4a18-9088-0d8059f38a27" xml:space="preserve">
+          <source>(For details, see <bpt id="c05e0a34-d646-4abf-a73d-1dbf8bea1507">&lt;linkText&gt;</bpt>About starting, stopping, and restarting an Azure VM<ept id="c05e0a34-d646-4abf-a73d-1dbf8bea1507">&lt;/linkText&gt;</ept><bpt id="c05e0a34-d646-4abf-a73d-1dbf8bea1507">&lt;title&gt;</bpt><ept id="c05e0a34-d646-4abf-a73d-1dbf8bea1507">&lt;/title&gt;</ept>).</source>
+          <target state="new">(For details, see <bpt id="c05e0a34-d646-4abf-a73d-1dbf8bea1507">&lt;linkText&gt;</bpt>About starting, stopping, and restarting an Azure VM<ept id="c05e0a34-d646-4abf-a73d-1dbf8bea1507">&lt;/linkText&gt;</ept><bpt id="c05e0a34-d646-4abf-a73d-1dbf8bea1507">&lt;title&gt;</bpt><ept id="c05e0a34-d646-4abf-a73d-1dbf8bea1507">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="56ab720a-7e53-43a0-8d04-1c148a3177ef" xml:space="preserve">
+          <source>Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters.</source>
+          <target state="new">Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters.</target>
+        </trans-unit>
+        <trans-unit id="7c3cfa3f-9349-4db4-bcdb-55fe4b4396ce" xml:space="preserve">
+          <source>Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM.</source>
+          <target state="new">Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM.</target>
+        </trans-unit>
+        <trans-unit id="f9ee4648-c39d-4f2e-89f6-b5485d9e28a3" xml:space="preserve">
+          <source>For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.</source>
+          <target state="new">For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.</target>
+        </trans-unit>
+        <trans-unit id="94f69aa9-152f-485b-8022-692c0034f19c" xml:space="preserve">
+          <source>For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update.</source>
+          <target state="new">For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update.</target>
+        </trans-unit>
+        <trans-unit id="74a66721-9283-4e12-9b08-a3fe052b3582" xml:space="preserve">
+          <source>Applications running on the VMs could experience downtime.</source>
+          <target state="new">Applications running on the VMs could experience downtime.</target>
+        </trans-unit>
+        <trans-unit id="3ba8ac0b-a3f2-4740-86de-17bf995cd1a1" xml:space="preserve">
+          <source>You also can use the Azure portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance.</source>
+          <target state="new">You also can use the Azure portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance.</target>
+        </trans-unit>
+        <trans-unit id="f9b8117e-645b-408c-abcd-db34819c4e48" xml:space="preserve">
+          <source>For details, see <bpt id="92602679-8445-4614-8117-e482afe0674d">&lt;linkText&gt;</bpt>Viewing VM Reboot Logs<ept id="92602679-8445-4614-8117-e482afe0674d">&lt;/linkText&gt;</ept><bpt id="92602679-8445-4614-8117-e482afe0674d">&lt;title&gt;</bpt><ept id="92602679-8445-4614-8117-e482afe0674d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="92602679-8445-4614-8117-e482afe0674d">&lt;linkText&gt;</bpt>Viewing VM Reboot Logs<ept id="92602679-8445-4614-8117-e482afe0674d">&lt;/linkText&gt;</ept><bpt id="92602679-8445-4614-8117-e482afe0674d">&lt;title&gt;</bpt><ept id="92602679-8445-4614-8117-e482afe0674d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1eeec528-e3fb-4512-a69e-972387370535" xml:space="preserve">
+          <source>To provide redundancy, put two or more similarly configured VMs in the same availability set.</source>
+          <target state="new">To provide redundancy, put two or more similarly configured VMs in the same availability set.</target>
+        </trans-unit>
+        <trans-unit id="9f878ed9-6190-463c-9e01-04e8bac14b2c" xml:space="preserve">
+          <source>This helps ensure at least one VM is available during planned or unplanned maintenance.</source>
+          <target state="new">This helps ensure at least one VM is available during planned or unplanned maintenance.</target>
+        </trans-unit>
+        <trans-unit id="b5a0eda8-9d72-47ff-9212-dc93586abdab" xml:space="preserve">
+          <source>Azure guarantees certain levels of VM availability for this configuration.</source>
+          <target state="new">Azure guarantees certain levels of VM availability for this configuration.</target>
+        </trans-unit>
+        <trans-unit id="6ef4590e-0681-4486-b922-b1d92ded66f1" xml:space="preserve">
+          <source>For details, see <bpt id="73581010-876f-45a2-9ce9-540a7b68f528">&lt;linkText&gt;</bpt>Manage the availability of virtual machines<ept id="73581010-876f-45a2-9ce9-540a7b68f528">&lt;/linkText&gt;</ept><bpt id="73581010-876f-45a2-9ce9-540a7b68f528">&lt;title&gt;</bpt><ept id="73581010-876f-45a2-9ce9-540a7b68f528">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="73581010-876f-45a2-9ce9-540a7b68f528">&lt;linkText&gt;</bpt>Manage the availability of virtual machines<ept id="73581010-876f-45a2-9ce9-540a7b68f528">&lt;/linkText&gt;</ept><bpt id="73581010-876f-45a2-9ce9-540a7b68f528">&lt;title&gt;</bpt><ept id="73581010-876f-45a2-9ce9-540a7b68f528">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf27c554-2022-4da9-9a8c-2706d1879af1" xml:space="preserve">
+          <source><bpt id="80f405c1-fcb6-4484-8de4-f945aa75e11e">&lt;linkText&gt;</bpt>About Azure Virtual Machines<ept id="80f405c1-fcb6-4484-8de4-f945aa75e11e">&lt;/linkText&gt;</ept><bpt id="80f405c1-fcb6-4484-8de4-f945aa75e11e">&lt;title&gt;</bpt><ept id="80f405c1-fcb6-4484-8de4-f945aa75e11e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="80f405c1-fcb6-4484-8de4-f945aa75e11e">&lt;linkText&gt;</bpt>About Azure Virtual Machines<ept id="80f405c1-fcb6-4484-8de4-f945aa75e11e">&lt;/linkText&gt;</ept><bpt id="80f405c1-fcb6-4484-8de4-f945aa75e11e">&lt;title&gt;</bpt><ept id="80f405c1-fcb6-4484-8de4-f945aa75e11e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa8d0c08-5d8f-48f7-9cff-358348f9ef7b" xml:space="preserve">
+          <source><bpt id="89c12c43-bcff-4b1b-9e9d-d2e54a0dbdfe">&lt;linkText&gt;</bpt>Different Ways to Create a Linux Virtual Machine<ept id="89c12c43-bcff-4b1b-9e9d-d2e54a0dbdfe">&lt;/linkText&gt;</ept><bpt id="89c12c43-bcff-4b1b-9e9d-d2e54a0dbdfe">&lt;title&gt;</bpt><ept id="89c12c43-bcff-4b1b-9e9d-d2e54a0dbdfe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="89c12c43-bcff-4b1b-9e9d-d2e54a0dbdfe">&lt;linkText&gt;</bpt>Different Ways to Create a Linux Virtual Machine<ept id="89c12c43-bcff-4b1b-9e9d-d2e54a0dbdfe">&lt;/linkText&gt;</ept><bpt id="89c12c43-bcff-4b1b-9e9d-d2e54a0dbdfe">&lt;title&gt;</bpt><ept id="89c12c43-bcff-4b1b-9e9d-d2e54a0dbdfe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d2b5d18-d5a0-44e9-bcac-74123392e884" xml:space="preserve">
+          <source><bpt id="300c1b1e-7072-44f3-b234-0f929f7d1814">&lt;linkText&gt;</bpt>Different Ways to Create a Windows Virtual Machine<ept id="300c1b1e-7072-44f3-b234-0f929f7d1814">&lt;/linkText&gt;</ept><bpt id="300c1b1e-7072-44f3-b234-0f929f7d1814">&lt;title&gt;</bpt><ept id="300c1b1e-7072-44f3-b234-0f929f7d1814">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="300c1b1e-7072-44f3-b234-0f929f7d1814">&lt;linkText&gt;</bpt>Different Ways to Create a Windows Virtual Machine<ept id="300c1b1e-7072-44f3-b234-0f929f7d1814">&lt;/linkText&gt;</ept><bpt id="300c1b1e-7072-44f3-b234-0f929f7d1814">&lt;title&gt;</bpt><ept id="300c1b1e-7072-44f3-b234-0f929f7d1814">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

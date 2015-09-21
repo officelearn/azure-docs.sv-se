@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9aada912-94f7-4bdf-822b-2ffdcac5b55f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9aada912-94f7-4bdf-822b-2ffdcac5b55f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="300e1923-54fd-47ee-909f-c227bebe2d51">
+        <trans-unit id="f897ad8b-82bc-468e-866c-4808416dd64c" xml:space="preserve">
+          <source>Azure AD .NET Getting Started | Microsoft Azure</source>
+          <target state="new">Azure AD .NET Getting Started | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4e836ad5-d22c-4079-8bf2-ccbe1697dc74" xml:space="preserve">
+          <source>How to build a .NET MVC Web API that integrates with Azure AD for authentication and authorization.</source>
+          <target state="new">How to build a .NET MVC Web API that integrates with Azure AD for authentication and authorization.</target>
+        </trans-unit>
+        <trans-unit id="f6778019-73d6-461b-8429-960027ddbbd8" xml:space="preserve">
+          <source><bpt id="93e6a57e-2004-4752-8743-c5634d8cd531">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="93e6a57e-2004-4752-8743-c5634d8cd531">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="93e6a57e-2004-4752-8743-c5634d8cd531">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="93e6a57e-2004-4752-8743-c5634d8cd531">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7194dcb3-5490-4be4-9f64-8ce5b39172cc" xml:space="preserve">
+          <source>If you’re building an application that provides access to protected resources you will need to know how to protect those resources from unwarranted access.</source>
+          <target state="new">If you’re building an application that provides access to protected resources you will need to know how to protect those resources from unwarranted access.</target>
+        </trans-unit>
+        <trans-unit id="c2729349-4a78-4477-93af-65fac6a96179" xml:space="preserve">
+          <source>Azure AD makes it simple and straightforward to protect a web API using OAuth Bearer 2.0 Access Tokens with only a few lines of code.</source>
+          <target state="new">Azure AD makes it simple and straightforward to protect a web API using OAuth Bearer 2.0 Access Tokens with only a few lines of code.</target>
+        </trans-unit>
+        <trans-unit id="c74a8709-9055-4cf2-897c-70f94e44169e" xml:space="preserve">
+          <source>In Asp.NET web apps, you can accomplish this using Microsoft’s implementation of the community-driven OWIN middleware included in .NET Framework 4.5.</source>
+          <target state="new">In Asp.NET web apps, you can accomplish this using Microsoft’s implementation of the community-driven OWIN middleware included in .NET Framework 4.5.</target>
+        </trans-unit>
+        <trans-unit id="bf068d40-e4d9-4e91-a386-f76fe1111c1b" xml:space="preserve">
+          <source>Here we’ll use OWIN to build a "To Do List" web API that:</source>
+          <target state="new">Here we’ll use OWIN to build a "To Do List" web API that:</target>
+        </trans-unit>
+        <trans-unit id="adbcf8a3-1e7e-412b-a7db-2ad4bd470cf5" xml:space="preserve">
+          <source>Designates which API's are protected.</source>
+          <target state="new">Designates which API's are protected.</target>
+        </trans-unit>
+        <trans-unit id="42e0d5d8-af17-4c73-8f03-355a84e061dd" xml:space="preserve">
+          <source>Validates that the Web API calls contain a valid Access Token.</source>
+          <target state="new">Validates that the Web API calls contain a valid Access Token.</target>
+        </trans-unit>
+        <trans-unit id="30feea73-ad9f-4550-a922-35ed33b8fd41" xml:space="preserve">
+          <source>In order to do this, you’ll need to:</source>
+          <target state="new">In order to do this, you’ll need to:</target>
+        </trans-unit>
+        <trans-unit id="18a41697-bb7e-4875-b3ab-e23ba54a44d7" xml:space="preserve">
+          <source>Register an application with Azure AD</source>
+          <target state="new">Register an application with Azure AD</target>
+        </trans-unit>
+        <trans-unit id="5d31dd0d-bde2-4832-9c7a-c265077fcfb4" xml:space="preserve">
+          <source>Set up your app to use the OWIN authentication pipeline.</source>
+          <target state="new">Set up your app to use the OWIN authentication pipeline.</target>
+        </trans-unit>
+        <trans-unit id="1fae3180-94dd-40f9-99e2-0675610aa242" xml:space="preserve">
+          <source>Configure a client application to call the To Do List Web API</source>
+          <target state="new">Configure a client application to call the To Do List Web API</target>
+        </trans-unit>
+        <trans-unit id="ab076992-d9e9-4570-b430-c66cccacd1ac" xml:space="preserve">
+          <source>To get started, <bpt id="85286bf0-2168-48a6-932d-08b8bfba5b48">&lt;linkText&gt;</bpt>download the app skeleton<ept id="85286bf0-2168-48a6-932d-08b8bfba5b48">&lt;/linkText&gt;</ept><bpt id="85286bf0-2168-48a6-932d-08b8bfba5b48">&lt;title&gt;</bpt><ept id="85286bf0-2168-48a6-932d-08b8bfba5b48">&lt;/title&gt;</ept> or <bpt id="ca013da8-2384-4ea7-8e0f-36d09dfed366">&lt;linkText&gt;</bpt>download the completed sample<ept id="ca013da8-2384-4ea7-8e0f-36d09dfed366">&lt;/linkText&gt;</ept><bpt id="ca013da8-2384-4ea7-8e0f-36d09dfed366">&lt;title&gt;</bpt><ept id="ca013da8-2384-4ea7-8e0f-36d09dfed366">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started, <bpt id="85286bf0-2168-48a6-932d-08b8bfba5b48">&lt;linkText&gt;</bpt>download the app skeleton<ept id="85286bf0-2168-48a6-932d-08b8bfba5b48">&lt;/linkText&gt;</ept><bpt id="85286bf0-2168-48a6-932d-08b8bfba5b48">&lt;title&gt;</bpt><ept id="85286bf0-2168-48a6-932d-08b8bfba5b48">&lt;/title&gt;</ept> or <bpt id="ca013da8-2384-4ea7-8e0f-36d09dfed366">&lt;linkText&gt;</bpt>download the completed sample<ept id="ca013da8-2384-4ea7-8e0f-36d09dfed366">&lt;/linkText&gt;</ept><bpt id="ca013da8-2384-4ea7-8e0f-36d09dfed366">&lt;title&gt;</bpt><ept id="ca013da8-2384-4ea7-8e0f-36d09dfed366">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86fadd2e-5040-45c9-9a67-4ffad314c2ed" xml:space="preserve">
+          <source>Each is a Visual Studio 2013 solution.</source>
+          <target state="new">Each is a Visual Studio 2013 solution.</target>
+        </trans-unit>
+        <trans-unit id="06e0043a-baac-4cbd-8092-7b7bd818d496" xml:space="preserve">
+          <source>You'll also need an Azure AD tenant in which to register your application.</source>
+          <target state="new">You'll also need an Azure AD tenant in which to register your application.</target>
+        </trans-unit>
+        <trans-unit id="cbf84f07-5007-4ad4-93a2-24f706bf03b6" xml:space="preserve">
+          <source>If you don't have one already, <bpt id="a68fed25-95ff-433e-ade7-f7a69096f8fa">&lt;linkText&gt;</bpt>learn how to get one<ept id="a68fed25-95ff-433e-ade7-f7a69096f8fa">&lt;/linkText&gt;</ept><bpt id="a68fed25-95ff-433e-ade7-f7a69096f8fa">&lt;title&gt;</bpt><ept id="a68fed25-95ff-433e-ade7-f7a69096f8fa">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have one already, <bpt id="a68fed25-95ff-433e-ade7-f7a69096f8fa">&lt;linkText&gt;</bpt>learn how to get one<ept id="a68fed25-95ff-433e-ade7-f7a69096f8fa">&lt;/linkText&gt;</ept><bpt id="a68fed25-95ff-433e-ade7-f7a69096f8fa">&lt;title&gt;</bpt><ept id="a68fed25-95ff-433e-ade7-f7a69096f8fa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80f012fd-ff21-48d5-b8cd-3956c3c2fbf6" xml:space="preserve">
+          <source>To secure your application, you’ll first need to create an application in your tenant and provide Azure AD with a few key pieces of information.</source>
+          <target state="new">To secure your application, you’ll first need to create an application in your tenant and provide Azure AD with a few key pieces of information.</target>
+        </trans-unit>
+        <trans-unit id="4a3125d7-90dc-437f-a843-a8d5953d45e1" xml:space="preserve">
+          <source>Sign into the <bpt id="3fea739d-aa1c-4c04-94eb-7fb570fd41a1">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="3fea739d-aa1c-4c04-94eb-7fb570fd41a1">&lt;/linkText&gt;</ept><bpt id="3fea739d-aa1c-4c04-94eb-7fb570fd41a1">&lt;title&gt;</bpt><ept id="3fea739d-aa1c-4c04-94eb-7fb570fd41a1">&lt;/title&gt;</ept></source>
+          <target state="new">Sign into the <bpt id="3fea739d-aa1c-4c04-94eb-7fb570fd41a1">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="3fea739d-aa1c-4c04-94eb-7fb570fd41a1">&lt;/linkText&gt;</ept><bpt id="3fea739d-aa1c-4c04-94eb-7fb570fd41a1">&lt;title&gt;</bpt><ept id="3fea739d-aa1c-4c04-94eb-7fb570fd41a1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b1f0ff4-f0f1-4164-8006-59af6c4233a9" xml:space="preserve">
+          <source>In the left hand nav, click on <bpt id="9e0ec9ef-502d-4029-b262-e8a10659cb23">&lt;strong&gt;</bpt>Active Directory<ept id="9e0ec9ef-502d-4029-b262-e8a10659cb23">&lt;/strong&gt;</ept></source>
+          <target state="new">In the left hand nav, click on <bpt id="9e0ec9ef-502d-4029-b262-e8a10659cb23">&lt;strong&gt;</bpt>Active Directory<ept id="9e0ec9ef-502d-4029-b262-e8a10659cb23">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1e3fc81-e27b-429a-b002-6abed1bd4a18" xml:space="preserve">
+          <source>Select a tenant in which to register the application.</source>
+          <target state="new">Select a tenant in which to register the application.</target>
+        </trans-unit>
+        <trans-unit id="a5e86342-9215-42af-a670-0cabe18e93bb" xml:space="preserve">
+          <source>Click the <bpt id="1187bd85-e290-4b1c-9c6d-6599ffa33153">&lt;strong&gt;</bpt>Applications<ept id="1187bd85-e290-4b1c-9c6d-6599ffa33153">&lt;/strong&gt;</ept> tab, and click <bpt id="80a6ee5c-c7ac-4b26-bd54-f503007389f0">&lt;strong&gt;</bpt>Add<ept id="80a6ee5c-c7ac-4b26-bd54-f503007389f0">&lt;/strong&gt;</ept> in the bottom drawer.</source>
+          <target state="new">Click the <bpt id="1187bd85-e290-4b1c-9c6d-6599ffa33153">&lt;strong&gt;</bpt>Applications<ept id="1187bd85-e290-4b1c-9c6d-6599ffa33153">&lt;/strong&gt;</ept> tab, and click <bpt id="80a6ee5c-c7ac-4b26-bd54-f503007389f0">&lt;strong&gt;</bpt>Add<ept id="80a6ee5c-c7ac-4b26-bd54-f503007389f0">&lt;/strong&gt;</ept> in the bottom drawer.</target>
+        </trans-unit>
+        <trans-unit id="1f374866-155b-406a-8e8a-ddef352b7c7d" xml:space="preserve">
+          <source>Follow the prompts and create a new <bpt id="0d1707ee-7f90-4380-b9a3-2e6e884bdd27">&lt;strong&gt;</bpt>Web Application and/or WebAPI<ept id="0d1707ee-7f90-4380-b9a3-2e6e884bdd27">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Follow the prompts and create a new <bpt id="0d1707ee-7f90-4380-b9a3-2e6e884bdd27">&lt;strong&gt;</bpt>Web Application and/or WebAPI<ept id="0d1707ee-7f90-4380-b9a3-2e6e884bdd27">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13fcebe1-8278-40f9-9b62-fe84acfb074b" xml:space="preserve">
+          <source>The <bpt id="dc4bc335-daf0-496a-8892-02ee8c2f91d7">&lt;strong&gt;</bpt>Name<ept id="dc4bc335-daf0-496a-8892-02ee8c2f91d7">&lt;/strong&gt;</ept> of the application will describe your application to end-users.</source>
+          <target state="new">The <bpt id="dc4bc335-daf0-496a-8892-02ee8c2f91d7">&lt;strong&gt;</bpt>Name<ept id="dc4bc335-daf0-496a-8892-02ee8c2f91d7">&lt;/strong&gt;</ept> of the application will describe your application to end-users.</target>
+        </trans-unit>
+        <trans-unit id="78897573-4e6d-4252-aaef-5ffc07277e4e" xml:space="preserve">
+          <source>Enter "To Do List Service".</source>
+          <target state="new">Enter "To Do List Service".</target>
+        </trans-unit>
+        <trans-unit id="bfe34348-e1b1-435d-831b-5abaf9924ef5" xml:space="preserve">
+          <source>The <bpt id="11cdc3b3-a651-4269-986e-1f9702a81620">&lt;strong&gt;</bpt>Redirect Uri<ept id="11cdc3b3-a651-4269-986e-1f9702a81620">&lt;/strong&gt;</ept> is a scheme and string combination that Azure AD would use to return any tokens your app requested.</source>
+          <target state="new">The <bpt id="11cdc3b3-a651-4269-986e-1f9702a81620">&lt;strong&gt;</bpt>Redirect Uri<ept id="11cdc3b3-a651-4269-986e-1f9702a81620">&lt;/strong&gt;</ept> is a scheme and string combination that Azure AD would use to return any tokens your app requested.</target>
+        </trans-unit>
+        <trans-unit id="a595c73e-6385-4bb8-a991-0eb0f32b5883" xml:space="preserve">
+          <source>Enter <bpt id="6491be3c-39f4-4fcb-bfb4-a75a16ea6198">&lt;code&gt;</bpt>https://localhost:44321/<ept id="6491be3c-39f4-4fcb-bfb4-a75a16ea6198">&lt;/code&gt;</ept> for this value.</source>
+          <target state="new">Enter <bpt id="6491be3c-39f4-4fcb-bfb4-a75a16ea6198">&lt;code&gt;</bpt>https://localhost:44321/<ept id="6491be3c-39f4-4fcb-bfb4-a75a16ea6198">&lt;/code&gt;</ept> for this value.</target>
+        </trans-unit>
+        <trans-unit id="f5ab25cf-048c-426e-b747-83d8ce015f20" xml:space="preserve">
+          <source>Once you’ve completed registration, navigate to <bpt id="d5c17ea1-f1c0-4d9b-af58-ffa3f972c176">&lt;strong&gt;</bpt>Configure<ept id="d5c17ea1-f1c0-4d9b-af58-ffa3f972c176">&lt;/strong&gt;</ept> tab and locate the <bpt id="88b4564d-3650-4a74-a4b6-9a3a0dd6d048">&lt;strong&gt;</bpt>App ID URI<ept id="88b4564d-3650-4a74-a4b6-9a3a0dd6d048">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Once you’ve completed registration, navigate to <bpt id="d5c17ea1-f1c0-4d9b-af58-ffa3f972c176">&lt;strong&gt;</bpt>Configure<ept id="d5c17ea1-f1c0-4d9b-af58-ffa3f972c176">&lt;/strong&gt;</ept> tab and locate the <bpt id="88b4564d-3650-4a74-a4b6-9a3a0dd6d048">&lt;strong&gt;</bpt>App ID URI<ept id="88b4564d-3650-4a74-a4b6-9a3a0dd6d048">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="8b78549f-0d16-4a35-ba97-91f51e7ee4d2" xml:space="preserve">
+          <source>Enter a tenant-specific identifier for this value, e.g. <bpt id="0a04aa98-90e6-49b0-91b1-b5c55b55b86a">&lt;code&gt;</bpt>https://contoso.onmicrosoft.com/TodoListService<ept id="0a04aa98-90e6-49b0-91b1-b5c55b55b86a">&lt;/code&gt;</ept></source>
+          <target state="new">Enter a tenant-specific identifier for this value, e.g. <bpt id="0a04aa98-90e6-49b0-91b1-b5c55b55b86a">&lt;code&gt;</bpt>https://contoso.onmicrosoft.com/TodoListService<ept id="0a04aa98-90e6-49b0-91b1-b5c55b55b86a">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ffe40630-5b5e-4e55-88c5-1e89eb3a7111" xml:space="preserve">
+          <source>Save the configuration.</source>
+          <target state="new">Save the configuration.</target>
+        </trans-unit>
+        <trans-unit id="79d3d7f6-3a23-4bd8-9ea6-333f7b3eb59c" xml:space="preserve">
+          <source>Leave the portal open - you'll also need to register your client application shortly.</source>
+          <target state="new">Leave the portal open - you'll also need to register your client application shortly.</target>
+        </trans-unit>
+        <trans-unit id="61ad1f97-56ca-4383-8c72-e34eee24dd22" xml:space="preserve">
+          <source>Now that you’ve registered an application with Azure AD, you need to set up your application to communicate with Azure AD in order to validate incoming requests &amp; tokens.</source>
+          <target state="new">Now that you’ve registered an application with Azure AD, you need to set up your application to communicate with Azure AD in order to validate incoming requests &amp; tokens.</target>
+        </trans-unit>
+        <trans-unit id="bf18b248-50ff-4186-9f9d-b7654d64e8e0" xml:space="preserve">
+          <source>To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project using the Package Manager Console.</source>
+          <target state="new">To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project using the Package Manager Console.</target>
+        </trans-unit>
+        <trans-unit id="bb23ec2a-006f-471e-b587-bf0a74678914" xml:space="preserve">
+          <source>Add an OWIN Startup class to the TodoListService project called <bpt id="35862b8f-9e6a-4aeb-a2f4-5c07478a6c26">&lt;code&gt;</bpt>Startup.cs<ept id="35862b8f-9e6a-4aeb-a2f4-5c07478a6c26">&lt;/code&gt;</ept>.</source>
+          <target state="new">Add an OWIN Startup class to the TodoListService project called <bpt id="35862b8f-9e6a-4aeb-a2f4-5c07478a6c26">&lt;code&gt;</bpt>Startup.cs<ept id="35862b8f-9e6a-4aeb-a2f4-5c07478a6c26">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89a52b25-50f7-4ed0-9312-ed7a835183f0" xml:space="preserve">
+          <source>Right click on the project --&gt; <bpt id="364405eb-48ad-4f2b-8fe6-3468ad740afb">&lt;strong&gt;</bpt>Add<ept id="364405eb-48ad-4f2b-8fe6-3468ad740afb">&lt;/strong&gt;</ept> --&gt; <bpt id="383269a5-1d94-494a-89e0-df10c6b10a21">&lt;strong&gt;</bpt>New Item<ept id="383269a5-1d94-494a-89e0-df10c6b10a21">&lt;/strong&gt;</ept> --&gt; Search for “OWIN”.</source>
+          <target state="new">Right click on the project --&gt; <bpt id="364405eb-48ad-4f2b-8fe6-3468ad740afb">&lt;strong&gt;</bpt>Add<ept id="364405eb-48ad-4f2b-8fe6-3468ad740afb">&lt;/strong&gt;</ept> --&gt; <bpt id="383269a5-1d94-494a-89e0-df10c6b10a21">&lt;strong&gt;</bpt>New Item<ept id="383269a5-1d94-494a-89e0-df10c6b10a21">&lt;/strong&gt;</ept> --&gt; Search for “OWIN”.</target>
+        </trans-unit>
+        <trans-unit id="75756c77-ffdd-4790-9118-1451eca7c722" xml:space="preserve">
+          <source>The OWIN middleware will invoke the <bpt id="5531a970-ecdb-45af-acc2-7fe76892cd2f">&lt;code&gt;</bpt>Configuration(…)<ept id="5531a970-ecdb-45af-acc2-7fe76892cd2f">&lt;/code&gt;</ept> method when your app starts.</source>
+          <target state="new">The OWIN middleware will invoke the <bpt id="5531a970-ecdb-45af-acc2-7fe76892cd2f">&lt;code&gt;</bpt>Configuration(…)<ept id="5531a970-ecdb-45af-acc2-7fe76892cd2f">&lt;/code&gt;</ept> method when your app starts.</target>
+        </trans-unit>
+        <trans-unit id="070f30da-e7d4-40c0-b503-74c0da0a1da9" xml:space="preserve">
+          <source>Change the class declaration to <bpt id="3143bb1e-46ef-4986-abdc-92b9ad770a86">&lt;code&gt;</bpt>public partial class Startup<ept id="3143bb1e-46ef-4986-abdc-92b9ad770a86">&lt;/code&gt;</ept> - we’ve already implemented part of this class for you in another file.</source>
+          <target state="new">Change the class declaration to <bpt id="3143bb1e-46ef-4986-abdc-92b9ad770a86">&lt;code&gt;</bpt>public partial class Startup<ept id="3143bb1e-46ef-4986-abdc-92b9ad770a86">&lt;/code&gt;</ept> - we’ve already implemented part of this class for you in another file.</target>
+        </trans-unit>
+        <trans-unit id="2ed8243f-452d-441e-9f24-9980c9e61b4b" xml:space="preserve">
+          <source>In the <bpt id="768186d2-3e6a-4b58-8f61-e7a291ea3213">&lt;code&gt;</bpt>Configuration(…)<ept id="768186d2-3e6a-4b58-8f61-e7a291ea3213">&lt;/code&gt;</ept> method, make a call to ConfgureAuth(…)</source>
+          <target state="new">In the <bpt id="768186d2-3e6a-4b58-8f61-e7a291ea3213">&lt;code&gt;</bpt>Configuration(…)<ept id="768186d2-3e6a-4b58-8f61-e7a291ea3213">&lt;/code&gt;</ept> method, make a call to ConfgureAuth(…)</target>
+        </trans-unit>
+        <trans-unit id="96c3ab1d-3251-4550-baad-b707d9436427" xml:space="preserve">
+          <source>to set up authentication for your web app.</source>
+          <target state="new">to set up authentication for your web app.</target>
+        </trans-unit>
+        <trans-unit id="6586c24a-c4bd-4c54-a5f6-1f2bc9534e0e" xml:space="preserve">
+          <source>Open the file <bpt id="c5b6a3cb-4536-4a8f-ae51-1d99f700f206">&lt;code&gt;</bpt>App_Start\Startup.Auth.cs<ept id="c5b6a3cb-4536-4a8f-ae51-1d99f700f206">&lt;/code&gt;</ept> and implement the <bpt id="94add186-390b-400a-85f1-c08994067273">&lt;code&gt;</bpt>ConfigureAuth(…)<ept id="94add186-390b-400a-85f1-c08994067273">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Open the file <bpt id="c5b6a3cb-4536-4a8f-ae51-1d99f700f206">&lt;code&gt;</bpt>App_Start\Startup.Auth.cs<ept id="c5b6a3cb-4536-4a8f-ae51-1d99f700f206">&lt;/code&gt;</ept> and implement the <bpt id="94add186-390b-400a-85f1-c08994067273">&lt;code&gt;</bpt>ConfigureAuth(…)<ept id="94add186-390b-400a-85f1-c08994067273">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="6b2e8402-d0d2-4d0a-a305-08093bb6d1ab" xml:space="preserve">
+          <source>The parameters you provide in <bpt id="d5ff950e-019e-466a-8f52-c5afbb22d94e">&lt;code&gt;</bpt>WindowsAzureActiveDirectoryBearerAuthenticationOptions<ept id="d5ff950e-019e-466a-8f52-c5afbb22d94e">&lt;/code&gt;</ept> will serve as coordinates for your app to communicate with Azure AD.</source>
+          <target state="new">The parameters you provide in <bpt id="d5ff950e-019e-466a-8f52-c5afbb22d94e">&lt;code&gt;</bpt>WindowsAzureActiveDirectoryBearerAuthenticationOptions<ept id="d5ff950e-019e-466a-8f52-c5afbb22d94e">&lt;/code&gt;</ept> will serve as coordinates for your app to communicate with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="f5b9ec35-8734-4361-9aea-f6e1bd09a06d" xml:space="preserve">
+          <source>Now you can use <bpt id="d2c9e5af-b50a-48fc-acce-540569550296">&lt;code&gt;</bpt>[Authorize]<ept id="d2c9e5af-b50a-48fc-acce-540569550296">&lt;/code&gt;</ept> attributes to protect your controllers and actions with JWT bearer authentication.</source>
+          <target state="new">Now you can use <bpt id="d2c9e5af-b50a-48fc-acce-540569550296">&lt;code&gt;</bpt>[Authorize]<ept id="d2c9e5af-b50a-48fc-acce-540569550296">&lt;/code&gt;</ept> attributes to protect your controllers and actions with JWT bearer authentication.</target>
+        </trans-unit>
+        <trans-unit id="bb9d8e6d-ad1d-4f2b-85c1-d2f52aa22688" xml:space="preserve">
+          <source>Decorate the <bpt id="c6212416-9d87-4fa9-bf3d-2e5a1d7467c7">&lt;code&gt;</bpt>Controllers\TodoListController.cs<ept id="c6212416-9d87-4fa9-bf3d-2e5a1d7467c7">&lt;/code&gt;</ept> class with an authorize tag.</source>
+          <target state="new">Decorate the <bpt id="c6212416-9d87-4fa9-bf3d-2e5a1d7467c7">&lt;code&gt;</bpt>Controllers\TodoListController.cs<ept id="c6212416-9d87-4fa9-bf3d-2e5a1d7467c7">&lt;/code&gt;</ept> class with an authorize tag.</target>
+        </trans-unit>
+        <trans-unit id="66cc263e-1e20-49ed-a3a6-ea417f485a91" xml:space="preserve">
+          <source>This will force the user to sign in before accessing that page.</source>
+          <target state="new">This will force the user to sign in before accessing that page.</target>
+        </trans-unit>
+        <trans-unit id="fb29e3fa-25c9-424e-8df9-88c7ad198497" xml:space="preserve">
+          <source>When an authorized caller successfully invokes one of the <bpt id="d29d8a5a-d79a-4ceb-9fbe-7d774e97bc11">&lt;code&gt;</bpt>TodoListController<ept id="d29d8a5a-d79a-4ceb-9fbe-7d774e97bc11">&lt;/code&gt;</ept> APIs, the action might need access to information about the caller.</source>
+          <target state="new">When an authorized caller successfully invokes one of the <bpt id="d29d8a5a-d79a-4ceb-9fbe-7d774e97bc11">&lt;code&gt;</bpt>TodoListController<ept id="d29d8a5a-d79a-4ceb-9fbe-7d774e97bc11">&lt;/code&gt;</ept> APIs, the action might need access to information about the caller.</target>
+        </trans-unit>
+        <trans-unit id="0277ccc0-a7a6-4c6d-8e47-b9d5459cd952" xml:space="preserve">
+          <source>OWIN provides access to the claims inside the bearer token via the <bpt id="13c38b71-5a63-4d88-a984-973ec1d9f2fd">&lt;code&gt;</bpt>ClaimsPrincpal<ept id="13c38b71-5a63-4d88-a984-973ec1d9f2fd">&lt;/code&gt;</ept> object.</source>
+          <target state="new">OWIN provides access to the claims inside the bearer token via the <bpt id="13c38b71-5a63-4d88-a984-973ec1d9f2fd">&lt;code&gt;</bpt>ClaimsPrincpal<ept id="13c38b71-5a63-4d88-a984-973ec1d9f2fd">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="4203e0e2-0ca8-4565-a72b-fdacdbcb3f83" xml:space="preserve">
+          <source>A common requirement for web APIs is to validate the "scopes" present in the token - this ensures that the end user has consented to the permissions required to access the Todo List Service:</source>
+          <target state="new">A common requirement for web APIs is to validate the "scopes" present in the token - this ensures that the end user has consented to the permissions required to access the Todo List Service:</target>
+        </trans-unit>
+        <trans-unit id="ea3532be-14c5-41b9-baf7-7e74e0bfd465" xml:space="preserve">
+          <source>Finally, open the <bpt id="735f300b-3285-460b-b7dc-b578f841c8fe">&lt;code&gt;</bpt>web.config<ept id="735f300b-3285-460b-b7dc-b578f841c8fe">&lt;/code&gt;</ept> file in the root of the TodoListService project, and enter your configuration values in the <bpt id="62cdc057-7ef6-480d-9241-6ad523982a32">&lt;code&gt;</bpt>&lt;appSettings&gt;<ept id="62cdc057-7ef6-480d-9241-6ad523982a32">&lt;/code&gt;</ept> section.</source>
+          <target state="new">Finally, open the <bpt id="735f300b-3285-460b-b7dc-b578f841c8fe">&lt;code&gt;</bpt>web.config<ept id="735f300b-3285-460b-b7dc-b578f841c8fe">&lt;/code&gt;</ept> file in the root of the TodoListService project, and enter your configuration values in the <bpt id="62cdc057-7ef6-480d-9241-6ad523982a32">&lt;code&gt;</bpt>&lt;appSettings&gt;<ept id="62cdc057-7ef6-480d-9241-6ad523982a32">&lt;/code&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="f8728d2a-63df-486c-8dc9-2ffb5e28e06d" xml:space="preserve">
+          <source>The <bpt id="13f5c54a-d2a4-4608-bad0-d083521a095a">&lt;code&gt;</bpt>ida:Tenant<ept id="13f5c54a-d2a4-4608-bad0-d083521a095a">&lt;/code&gt;</ept> is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".</source>
+          <target state="new">The <bpt id="13f5c54a-d2a4-4608-bad0-d083521a095a">&lt;code&gt;</bpt>ida:Tenant<ept id="13f5c54a-d2a4-4608-bad0-d083521a095a">&lt;/code&gt;</ept> is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".</target>
+        </trans-unit>
+        <trans-unit id="73ac9831-5789-4dfe-b90c-ce903a0b41ee" xml:space="preserve">
+          <source>Your <bpt id="89f55c2f-4078-4d2c-a6ce-25783ae740bf">&lt;code&gt;</bpt>ida:Audience<ept id="89f55c2f-4078-4d2c-a6ce-25783ae740bf">&lt;/code&gt;</ept> is the App ID URI of the application that you entered in the Azure Portal.</source>
+          <target state="new">Your <bpt id="89f55c2f-4078-4d2c-a6ce-25783ae740bf">&lt;code&gt;</bpt>ida:Audience<ept id="89f55c2f-4078-4d2c-a6ce-25783ae740bf">&lt;/code&gt;</ept> is the App ID URI of the application that you entered in the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="149dcba9-c92f-446a-94d5-9429f17f9cd4" xml:space="preserve">
+          <source>Before you can see the Todo List Service in action, you need to configure the Todo List Client so it can get tokens from AAD and make calls to the service.</source>
+          <target state="new">Before you can see the Todo List Service in action, you need to configure the Todo List Client so it can get tokens from AAD and make calls to the service.</target>
+        </trans-unit>
+        <trans-unit id="367ee7f9-86a8-4805-baba-6f0ecede0c88" xml:space="preserve">
+          <source>Navigate back to the <bpt id="d822fba6-9403-4850-8d9f-75187d96a987">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="d822fba6-9403-4850-8d9f-75187d96a987">&lt;/linkText&gt;</ept><bpt id="d822fba6-9403-4850-8d9f-75187d96a987">&lt;title&gt;</bpt><ept id="d822fba6-9403-4850-8d9f-75187d96a987">&lt;/title&gt;</ept></source>
+          <target state="new">Navigate back to the <bpt id="d822fba6-9403-4850-8d9f-75187d96a987">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="d822fba6-9403-4850-8d9f-75187d96a987">&lt;/linkText&gt;</ept><bpt id="d822fba6-9403-4850-8d9f-75187d96a987">&lt;title&gt;</bpt><ept id="d822fba6-9403-4850-8d9f-75187d96a987">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b687f43d-e194-4072-b813-ad2e0e9aef75" xml:space="preserve">
+          <source>Create a new application in your Azure AD tenant, and select <bpt id="72b576b6-3dd4-45e1-b399-a17b2538d728">&lt;strong&gt;</bpt>Native Client Application<ept id="72b576b6-3dd4-45e1-b399-a17b2538d728">&lt;/strong&gt;</ept> in the resulting prompt.</source>
+          <target state="new">Create a new application in your Azure AD tenant, and select <bpt id="72b576b6-3dd4-45e1-b399-a17b2538d728">&lt;strong&gt;</bpt>Native Client Application<ept id="72b576b6-3dd4-45e1-b399-a17b2538d728">&lt;/strong&gt;</ept> in the resulting prompt.</target>
+        </trans-unit>
+        <trans-unit id="bd43c622-208e-447a-ac34-ba9b9e5b9cc6" xml:space="preserve">
+          <source>The <bpt id="f73a8dc8-249f-414c-ac77-8e2f0c2cd137">&lt;strong&gt;</bpt>Name<ept id="f73a8dc8-249f-414c-ac77-8e2f0c2cd137">&lt;/strong&gt;</ept> of the application will describe your application to end-users</source>
+          <target state="new">The <bpt id="f73a8dc8-249f-414c-ac77-8e2f0c2cd137">&lt;strong&gt;</bpt>Name<ept id="f73a8dc8-249f-414c-ac77-8e2f0c2cd137">&lt;/strong&gt;</ept> of the application will describe your application to end-users</target>
+        </trans-unit>
+        <trans-unit id="ed9a6ee2-f74f-4bbe-ba9b-6605d5c24119" xml:space="preserve">
+          <source>Enter <bpt id="97d2bcbb-f938-487e-a658-34b2b6fa003a">&lt;code&gt;</bpt>http://TodoListClient/<ept id="97d2bcbb-f938-487e-a658-34b2b6fa003a">&lt;/code&gt;</ept> for the <bpt id="2279515f-8abb-48a6-815c-e8e0aa9bf013">&lt;strong&gt;</bpt>Redirect Uri<ept id="2279515f-8abb-48a6-815c-e8e0aa9bf013">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">Enter <bpt id="97d2bcbb-f938-487e-a658-34b2b6fa003a">&lt;code&gt;</bpt>http://TodoListClient/<ept id="97d2bcbb-f938-487e-a658-34b2b6fa003a">&lt;/code&gt;</ept> for the <bpt id="2279515f-8abb-48a6-815c-e8e0aa9bf013">&lt;strong&gt;</bpt>Redirect Uri<ept id="2279515f-8abb-48a6-815c-e8e0aa9bf013">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="c5202c04-6f2b-4c55-922d-1d5b3840ac30" xml:space="preserve">
+          <source>Once you’ve completed registration, AAD will assign your app a unique <bpt id="c97278be-d84d-4573-9f86-d1d4ba909a80">&lt;strong&gt;</bpt>App Id<ept id="c97278be-d84d-4573-9f86-d1d4ba909a80">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you’ve completed registration, AAD will assign your app a unique <bpt id="c97278be-d84d-4573-9f86-d1d4ba909a80">&lt;strong&gt;</bpt>App Id<ept id="c97278be-d84d-4573-9f86-d1d4ba909a80">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7eb440f4-c1e7-4b8c-916d-a3ca86d56f67" xml:space="preserve">
+          <source>You’ll need this value in the next steps, so copy it from the Configure tab.</source>
+          <target state="new">You’ll need this value in the next steps, so copy it from the Configure tab.</target>
+        </trans-unit>
+        <trans-unit id="73b0d73c-0da5-4115-af30-e07fb9111be3" xml:space="preserve">
+          <source>Once you’ve completed registration, navigate to <bpt id="600febd9-940d-4562-91a6-e0e95bc0dbaf">&lt;strong&gt;</bpt>Configure<ept id="600febd9-940d-4562-91a6-e0e95bc0dbaf">&lt;/strong&gt;</ept> tab and locate the <bpt id="c003100c-96d4-4390-a607-6ecac75dd762">&lt;strong&gt;</bpt>App ID URI<ept id="c003100c-96d4-4390-a607-6ecac75dd762">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Once you’ve completed registration, navigate to <bpt id="600febd9-940d-4562-91a6-e0e95bc0dbaf">&lt;strong&gt;</bpt>Configure<ept id="600febd9-940d-4562-91a6-e0e95bc0dbaf">&lt;/strong&gt;</ept> tab and locate the <bpt id="c003100c-96d4-4390-a607-6ecac75dd762">&lt;strong&gt;</bpt>App ID URI<ept id="c003100c-96d4-4390-a607-6ecac75dd762">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="44a9761c-dcd8-42ab-bcd3-4ad305813698" xml:space="preserve">
+          <source>Enter a tenant-specific identifier for this value, e.g. <bpt id="db97af1d-5e08-466e-9a48-58ce81520b54">&lt;code&gt;</bpt>https://contoso.onmicrosoft.com/TodoListService<ept id="db97af1d-5e08-466e-9a48-58ce81520b54">&lt;/code&gt;</ept></source>
+          <target state="new">Enter a tenant-specific identifier for this value, e.g. <bpt id="db97af1d-5e08-466e-9a48-58ce81520b54">&lt;code&gt;</bpt>https://contoso.onmicrosoft.com/TodoListService<ept id="db97af1d-5e08-466e-9a48-58ce81520b54">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a4d10d2-1967-4438-8d63-8e04cd97059a" xml:space="preserve">
+          <source>Also in <bpt id="f436eb49-a87d-42a4-943d-dedaf148fb99">&lt;strong&gt;</bpt>Configure<ept id="f436eb49-a87d-42a4-943d-dedaf148fb99">&lt;/strong&gt;</ept> tab, locate the "Permissions to Other Applications" section. Click "Add Application." Select "Other" in the "Show" dropdown, and click the upper check mark. Locate &amp; click on your To Do List Service, and click the bottom check mark to add the application. Select "Access To Do List Service" from the "Delegated Permissions" dropdown, and save the configuration.</source>
+          <target state="new">Also in <bpt id="f436eb49-a87d-42a4-943d-dedaf148fb99">&lt;strong&gt;</bpt>Configure<ept id="f436eb49-a87d-42a4-943d-dedaf148fb99">&lt;/strong&gt;</ept> tab, locate the "Permissions to Other Applications" section. Click "Add Application." Select "Other" in the "Show" dropdown, and click the upper check mark. Locate &amp; click on your To Do List Service, and click the bottom check mark to add the application. Select "Access To Do List Service" from the "Delegated Permissions" dropdown, and save the configuration.</target>
+        </trans-unit>
+        <trans-unit id="d38e41ac-655f-43ef-a60a-72c8483eef85" xml:space="preserve">
+          <source>In Visual Studio, open <bpt id="b8ebc060-71a0-4154-b17a-676d6d9e505c">&lt;code&gt;</bpt>App.config<ept id="b8ebc060-71a0-4154-b17a-676d6d9e505c">&lt;/code&gt;</ept> in the TodoListClient project and enter your configuration values in the <bpt id="5259e350-98eb-476a-a809-cf14b8d5a3a6">&lt;code&gt;</bpt>&lt;appSettings&gt;<ept id="5259e350-98eb-476a-a809-cf14b8d5a3a6">&lt;/code&gt;</ept> section.</source>
+          <target state="new">In Visual Studio, open <bpt id="b8ebc060-71a0-4154-b17a-676d6d9e505c">&lt;code&gt;</bpt>App.config<ept id="b8ebc060-71a0-4154-b17a-676d6d9e505c">&lt;/code&gt;</ept> in the TodoListClient project and enter your configuration values in the <bpt id="5259e350-98eb-476a-a809-cf14b8d5a3a6">&lt;code&gt;</bpt>&lt;appSettings&gt;<ept id="5259e350-98eb-476a-a809-cf14b8d5a3a6">&lt;/code&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="153f7dfd-af7e-4344-9280-577ead81ea02" xml:space="preserve">
+          <source>The <bpt id="71e3f18a-4d5f-4263-98b4-56aadd422a07">&lt;code&gt;</bpt>ida:Tenant<ept id="71e3f18a-4d5f-4263-98b4-56aadd422a07">&lt;/code&gt;</ept> is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".</source>
+          <target state="new">The <bpt id="71e3f18a-4d5f-4263-98b4-56aadd422a07">&lt;code&gt;</bpt>ida:Tenant<ept id="71e3f18a-4d5f-4263-98b4-56aadd422a07">&lt;/code&gt;</ept> is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".</target>
+        </trans-unit>
+        <trans-unit id="f9a32d2d-d47c-4cd5-b961-7ee7a2d44872" xml:space="preserve">
+          <source>Your <bpt id="1bc6f9bc-29b3-4a16-b60f-4a70c41e8be8">&lt;code&gt;</bpt>ida:ClientId<ept id="1bc6f9bc-29b3-4a16-b60f-4a70c41e8be8">&lt;/code&gt;</ept> app ID you copied from the Azure Portal.</source>
+          <target state="new">Your <bpt id="1bc6f9bc-29b3-4a16-b60f-4a70c41e8be8">&lt;code&gt;</bpt>ida:ClientId<ept id="1bc6f9bc-29b3-4a16-b60f-4a70c41e8be8">&lt;/code&gt;</ept> app ID you copied from the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="b64aba01-eed7-4c47-8b00-9076fc49d70f" xml:space="preserve">
+          <source>Your <bpt id="ceef19cc-5ecc-4aea-afed-bdb2f158e7ec">&lt;code&gt;</bpt>todo:TodoListResourceId<ept id="ceef19cc-5ecc-4aea-afed-bdb2f158e7ec">&lt;/code&gt;</ept> is the App ID URI of the To Do List Service application that you entered in the Azure Portal.</source>
+          <target state="new">Your <bpt id="ceef19cc-5ecc-4aea-afed-bdb2f158e7ec">&lt;code&gt;</bpt>todo:TodoListResourceId<ept id="ceef19cc-5ecc-4aea-afed-bdb2f158e7ec">&lt;/code&gt;</ept> is the App ID URI of the To Do List Service application that you entered in the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="1f43dec9-8636-4f77-9a1c-2828bf7d7002" xml:space="preserve">
+          <source>Finally, clean, build and run each project!</source>
+          <target state="new">Finally, clean, build and run each project!</target>
+        </trans-unit>
+        <trans-unit id="d8f67810-8ffe-47fc-8151-002b611a4ea7" xml:space="preserve">
+          <source>If you haven’t already, now is the time to create a new user in your tenant with a *.onmicrosoft.com domain.</source>
+          <target state="new">If you haven’t already, now is the time to create a new user in your tenant with a *.onmicrosoft.com domain.</target>
+        </trans-unit>
+        <trans-unit id="402f7b7d-74f1-4384-8d83-bd79d8e73191" xml:space="preserve">
+          <source>Sign in to the To Do List client with that user, and add some tasks to the user's To Do List.</source>
+          <target state="new">Sign in to the To Do List client with that user, and add some tasks to the user's To Do List.</target>
+        </trans-unit>
+        <trans-unit id="11733553-3644-47ca-b590-206ffac489df" xml:space="preserve">
+          <source>For reference, the completed sample (without your configuration values) is provided <bpt id="db144899-c4b6-47b5-9155-1699f8729bd0">&lt;linkText&gt;</bpt>here<ept id="db144899-c4b6-47b5-9155-1699f8729bd0">&lt;/linkText&gt;</ept><bpt id="db144899-c4b6-47b5-9155-1699f8729bd0">&lt;title&gt;</bpt><ept id="db144899-c4b6-47b5-9155-1699f8729bd0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For reference, the completed sample (without your configuration values) is provided <bpt id="db144899-c4b6-47b5-9155-1699f8729bd0">&lt;linkText&gt;</bpt>here<ept id="db144899-c4b6-47b5-9155-1699f8729bd0">&lt;/linkText&gt;</ept><bpt id="db144899-c4b6-47b5-9155-1699f8729bd0">&lt;title&gt;</bpt><ept id="db144899-c4b6-47b5-9155-1699f8729bd0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39a56356-8ca9-402a-98c3-8e311e61a595" xml:space="preserve">
+          <source>You can now move on to more additional identity scenarios  You may want to try:</source>
+          <target state="new">You can now move on to more additional identity scenarios  You may want to try:</target>
+        </trans-unit>
+        <trans-unit id="12fd3e15-fca8-40d3-b314-069fa66df5c3" xml:space="preserve">
+          <source><bpt id="9bf3f872-79f5-4ad8-bd97-c8b03c790cb1">&lt;linkText&gt;</bpt>Build a .NET Native Client with Azure AD &gt;&gt;<ept id="9bf3f872-79f5-4ad8-bd97-c8b03c790cb1">&lt;/linkText&gt;</ept><bpt id="9bf3f872-79f5-4ad8-bd97-c8b03c790cb1">&lt;title&gt;</bpt><ept id="9bf3f872-79f5-4ad8-bd97-c8b03c790cb1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9bf3f872-79f5-4ad8-bd97-c8b03c790cb1">&lt;linkText&gt;</bpt>Build a .NET Native Client with Azure AD &gt;&gt;<ept id="9bf3f872-79f5-4ad8-bd97-c8b03c790cb1">&lt;/linkText&gt;</ept><bpt id="9bf3f872-79f5-4ad8-bd97-c8b03c790cb1">&lt;title&gt;</bpt><ept id="9bf3f872-79f5-4ad8-bd97-c8b03c790cb1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28982b88-b9a0-4c44-8342-4aaf33addad6" xml:space="preserve">
+          <source><bpt id="e8c7c875-1bc5-4ab9-9a93-9c6baf6710ac">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="e8c7c875-1bc5-4ab9-9a93-9c6baf6710ac">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e8c7c875-1bc5-4ab9-9a93-9c6baf6710ac">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="e8c7c875-1bc5-4ab9-9a93-9c6baf6710ac">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

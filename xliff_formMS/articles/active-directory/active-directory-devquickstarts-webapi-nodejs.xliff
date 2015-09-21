@@ -1,0 +1,892 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e661db39-edfa-47b2-856c-2f4e9edbf9c9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e661db39-edfa-47b2-856c-2f4e9edbf9c9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="420c20c6-9a09-4e27-b3a9-9efaa1d2d6fe">
+        <trans-unit id="a7063a45-c72a-4d07-9d77-52682354996f" xml:space="preserve">
+          <source>Azure AD NodeJS Getting Started | Microsoft Azure</source>
+          <target state="new">Azure AD NodeJS Getting Started | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e52f8118-6ee9-4a98-a125-a37a06f48b20" xml:space="preserve">
+          <source>How to build a Node.js Web API that integrates with Azure AD for authentication.</source>
+          <target state="new">How to build a Node.js Web API that integrates with Azure AD for authentication.</target>
+        </trans-unit>
+        <trans-unit id="77ab6334-3af1-49cc-a522-05f862d8e95f" xml:space="preserve">
+          <source><bpt id="48f15007-8160-4560-8bb1-d57aae232e2b">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="48f15007-8160-4560-8bb1-d57aae232e2b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="48f15007-8160-4560-8bb1-d57aae232e2b">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="48f15007-8160-4560-8bb1-d57aae232e2b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9da07f7-7952-4f3a-86c5-6d652249e56d" xml:space="preserve">
+          <source>This walkthrough will give you  a quick and easy way to set up a REST API Service that is integrated with  Azure Active Directory for API protection using the OAuth2 protocol.</source>
+          <target state="new">This walkthrough will give you  a quick and easy way to set up a REST API Service that is integrated with  Azure Active Directory for API protection using the OAuth2 protocol.</target>
+        </trans-unit>
+        <trans-unit id="12d1f149-4a52-43e1-862d-52123c09db7b" xml:space="preserve">
+          <source>The sample server included in the download are designed to run on any platform but target OSX and Linux.</source>
+          <target state="new">The sample server included in the download are designed to run on any platform but target OSX and Linux.</target>
+        </trans-unit>
+        <trans-unit id="41db301e-fbdd-41be-a7fc-ba5715abdb13" xml:space="preserve">
+          <source>By the end of this walk-through, you should be able to build a running REST API server with the following features:</source>
+          <target state="new">By the end of this walk-through, you should be able to build a running REST API server with the following features:</target>
+        </trans-unit>
+        <trans-unit id="351b9984-60ae-430d-85d7-3f2b310cc80f" xml:space="preserve">
+          <source>A node.js server running an REST API interface with JSON using MongoDB as persistant storage</source>
+          <target state="new">A node.js server running an REST API interface with JSON using MongoDB as persistant storage</target>
+        </trans-unit>
+        <trans-unit id="34280178-70b4-47e5-92c7-2db80ce9eed7" xml:space="preserve">
+          <source>REST APIs leveraging OAuth2 API protection with Bearer tokens using Azure Active Directory</source>
+          <target state="new">REST APIs leveraging OAuth2 API protection with Bearer tokens using Azure Active Directory</target>
+        </trans-unit>
+        <trans-unit id="0e49a3e8-121e-494f-a4da-251dfc1e5992" xml:space="preserve">
+          <source>We've released all of the source code for this running example in GitHub under an Apache 2.0 license, so feel free to clone (or even better, fork!)</source>
+          <target state="new">We've released all of the source code for this running example in GitHub under an Apache 2.0 license, so feel free to clone (or even better, fork!)</target>
+        </trans-unit>
+        <trans-unit id="c16d3a79-ed6f-42eb-be14-9bbf0432b3e3" xml:space="preserve">
+          <source>and provide feedback and pull requests.</source>
+          <target state="new">and provide feedback and pull requests.</target>
+        </trans-unit>
+        <trans-unit id="365befa8-06b3-4f96-9e27-843073a2b0f4" xml:space="preserve">
+          <source>We will be using Node.js modules in this walkthrough.</source>
+          <target state="new">We will be using Node.js modules in this walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="1460e0df-f940-4618-815f-88441a457dcf" xml:space="preserve">
+          <source>Modules are loadable JavaScript packages that provide specific functionality for your application.</source>
+          <target state="new">Modules are loadable JavaScript packages that provide specific functionality for your application.</target>
+        </trans-unit>
+        <trans-unit id="152f71af-9fd2-4604-84bc-710d1dd5e6cb" xml:space="preserve">
+          <source>You usually install modules by using the Node.js NPM command-line tool in the NPM installation directory, but some modules, such as the HTTP module, are included the core Node.js package.</source>
+          <target state="new">You usually install modules by using the Node.js NPM command-line tool in the NPM installation directory, but some modules, such as the HTTP module, are included the core Node.js package.</target>
+        </trans-unit>
+        <trans-unit id="fe35fa68-0206-4514-b3ab-44b9c3588be6" xml:space="preserve">
+          <source>Installed modules are saved in the node_modules directory at the root of your Node.js installation directory.</source>
+          <target state="new">Installed modules are saved in the node_modules directory at the root of your Node.js installation directory.</target>
+        </trans-unit>
+        <trans-unit id="7b46e49d-9c3f-4874-b313-01f87118a1da" xml:space="preserve">
+          <source>Each module in the node<bpt id="bd5c8bda-342f-42ed-b899-836628cc37ab">&lt;em&gt;</bpt>modules directory maintains its own node<ept id="bd5c8bda-342f-42ed-b899-836628cc37ab">&lt;/em&gt;</ept>modules directory that contains any modules that it depends on, and each required module has a node_modules directory.</source>
+          <target state="new">Each module in the node<bpt id="bd5c8bda-342f-42ed-b899-836628cc37ab">&lt;em&gt;</bpt>modules directory maintains its own node<ept id="bd5c8bda-342f-42ed-b899-836628cc37ab">&lt;/em&gt;</ept>modules directory that contains any modules that it depends on, and each required module has a node_modules directory.</target>
+        </trans-unit>
+        <trans-unit id="62205643-a124-444e-9386-7b6b395114a1" xml:space="preserve">
+          <source>This recursive directory structure represents the dependency chain.</source>
+          <target state="new">This recursive directory structure represents the dependency chain.</target>
+        </trans-unit>
+        <trans-unit id="673f7149-2cb0-455e-8563-275b0e2b198c" xml:space="preserve">
+          <source>This dependency chain structure results in a larger application footprint, but it guarantees that all dependencies are met and that the version of the modules used in development will also be used in production.</source>
+          <target state="new">This dependency chain structure results in a larger application footprint, but it guarantees that all dependencies are met and that the version of the modules used in development will also be used in production.</target>
+        </trans-unit>
+        <trans-unit id="06be7fb3-094a-472c-92cf-c82f35b5321d" xml:space="preserve">
+          <source>This makes the production app behavior more predictable and prevents versioning problems that might affect users.</source>
+          <target state="new">This makes the production app behavior more predictable and prevents versioning problems that might affect users.</target>
+        </trans-unit>
+        <trans-unit id="02dec4fe-f954-4da9-b999-6ebf04fea39c" xml:space="preserve">
+          <source>To use this sample you will need a Azure Active Directory Tenant.</source>
+          <target state="new">To use this sample you will need a Azure Active Directory Tenant.</target>
+        </trans-unit>
+        <trans-unit id="6014d244-79ba-4a01-b5d0-e48977769753" xml:space="preserve">
+          <source>If you're not sure what a tenant is or how you would get one, see  <bpt id="9e92a4bd-1edb-4276-a97a-b7edcc99dcc6">&lt;linkText&gt;</bpt>How to get an Azure AD tenant<ept id="9e92a4bd-1edb-4276-a97a-b7edcc99dcc6">&lt;/linkText&gt;</ept><bpt id="9e92a4bd-1edb-4276-a97a-b7edcc99dcc6">&lt;title&gt;</bpt><ept id="9e92a4bd-1edb-4276-a97a-b7edcc99dcc6">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you're not sure what a tenant is or how you would get one, see  <bpt id="9e92a4bd-1edb-4276-a97a-b7edcc99dcc6">&lt;linkText&gt;</bpt>How to get an Azure AD tenant<ept id="9e92a4bd-1edb-4276-a97a-b7edcc99dcc6">&lt;/linkText&gt;</ept><bpt id="9e92a4bd-1edb-4276-a97a-b7edcc99dcc6">&lt;title&gt;</bpt><ept id="9e92a4bd-1edb-4276-a97a-b7edcc99dcc6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6826f4e-5fd8-4bbf-950d-2f4cd4efbf34" xml:space="preserve">
+          <source>After you get your Azure Active Directory tenant, add this sample app to your tenant so you can use it to protect the API.</source>
+          <target state="new">After you get your Azure Active Directory tenant, add this sample app to your tenant so you can use it to protect the API.</target>
+        </trans-unit>
+        <trans-unit id="0bddc7a1-0c04-4aa4-83a2-f655be4a2a39" xml:space="preserve">
+          <source>To enable your app to authenticate users, you'll first need to register a new application in your tenant.</source>
+          <target state="new">To enable your app to authenticate users, you'll first need to register a new application in your tenant.</target>
+        </trans-unit>
+        <trans-unit id="f0c81a9a-f9a7-4535-9e33-0ac6c8e8583d" xml:space="preserve">
+          <source>Sign into the Azure Management Portal.</source>
+          <target state="new">Sign into the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="8d0bbe4c-d35e-496a-b842-701faf2b3ef2" xml:space="preserve">
+          <source>In the left hand nav, click on <bpt id="7d6859a8-9ad0-497c-b54c-ec410bb76f13">&lt;strong&gt;</bpt>Active Directory<ept id="7d6859a8-9ad0-497c-b54c-ec410bb76f13">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left hand nav, click on <bpt id="7d6859a8-9ad0-497c-b54c-ec410bb76f13">&lt;strong&gt;</bpt>Active Directory<ept id="7d6859a8-9ad0-497c-b54c-ec410bb76f13">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7dc9381-887c-45cb-b173-b4139cd649be" xml:space="preserve">
+          <source>Select the tenant where you wish to register the application.</source>
+          <target state="new">Select the tenant where you wish to register the application.</target>
+        </trans-unit>
+        <trans-unit id="df05c27c-87ed-45f5-ad51-7a6e636b34f0" xml:space="preserve">
+          <source>Click the <bpt id="7db7149e-38a8-47e8-a761-6a906438e79c">&lt;strong&gt;</bpt>Applications<ept id="7db7149e-38a8-47e8-a761-6a906438e79c">&lt;/strong&gt;</ept> tab, and click add in the bottom drawer.</source>
+          <target state="new">Click the <bpt id="7db7149e-38a8-47e8-a761-6a906438e79c">&lt;strong&gt;</bpt>Applications<ept id="7db7149e-38a8-47e8-a761-6a906438e79c">&lt;/strong&gt;</ept> tab, and click add in the bottom drawer.</target>
+        </trans-unit>
+        <trans-unit id="79d06bae-f5b3-4743-970e-4b0ba774c2de" xml:space="preserve">
+          <source>Follow the prompts and create a new <bpt id="4ae7f250-3bbc-4f40-a48e-ec9e7207930e">&lt;strong&gt;</bpt>Web Application and/or WebAPI<ept id="4ae7f250-3bbc-4f40-a48e-ec9e7207930e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Follow the prompts and create a new <bpt id="4ae7f250-3bbc-4f40-a48e-ec9e7207930e">&lt;strong&gt;</bpt>Web Application and/or WebAPI<ept id="4ae7f250-3bbc-4f40-a48e-ec9e7207930e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4fe6421-afba-47b3-ab3d-b50f87b2d11f" xml:space="preserve">
+          <source>The <bpt id="0be64ade-f07c-4f0f-a345-59b190bfa34e">&lt;strong&gt;</bpt>name<ept id="0be64ade-f07c-4f0f-a345-59b190bfa34e">&lt;/strong&gt;</ept> of the application will describe your application to end-users</source>
+          <target state="new">The <bpt id="0be64ade-f07c-4f0f-a345-59b190bfa34e">&lt;strong&gt;</bpt>name<ept id="0be64ade-f07c-4f0f-a345-59b190bfa34e">&lt;/strong&gt;</ept> of the application will describe your application to end-users</target>
+        </trans-unit>
+        <trans-unit id="a9d15dd7-981e-4e07-87e8-3e8610edc3fb" xml:space="preserve">
+          <source>The <bpt id="f7fcba8d-4ef8-470d-a8fa-427e6246f85b">&lt;strong&gt;</bpt>Sign-On URL<ept id="f7fcba8d-4ef8-470d-a8fa-427e6246f85b">&lt;/strong&gt;</ept> is the base URL of your app.</source>
+          <target state="new">The <bpt id="f7fcba8d-4ef8-470d-a8fa-427e6246f85b">&lt;strong&gt;</bpt>Sign-On URL<ept id="f7fcba8d-4ef8-470d-a8fa-427e6246f85b">&lt;/strong&gt;</ept> is the base URL of your app.</target>
+        </trans-unit>
+        <trans-unit id="e85eb271-4c87-455e-b8ff-901e73ecd8b3" xml:space="preserve">
+          <source>The skeleton’s default is <bpt id="c9eaa0df-8990-4b7c-8000-e70a0d9395fb">&lt;code&gt;</bpt>https://localhost:8888<ept id="c9eaa0df-8990-4b7c-8000-e70a0d9395fb">&lt;/code&gt;</ept>.</source>
+          <target state="new">The skeleton’s default is <bpt id="c9eaa0df-8990-4b7c-8000-e70a0d9395fb">&lt;code&gt;</bpt>https://localhost:8888<ept id="c9eaa0df-8990-4b7c-8000-e70a0d9395fb">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fefdf438-73a5-4194-b6b4-a500e85e38d0" xml:space="preserve">
+          <source>The <bpt id="66d10f32-7c8d-47da-87f2-8b1539879c0e">&lt;strong&gt;</bpt>App ID URI<ept id="66d10f32-7c8d-47da-87f2-8b1539879c0e">&lt;/strong&gt;</ept> is a unique identifier for your application.  The convention is to use <bpt id="d4161d91-67c3-4d9e-87e7-b8de057b8a95">&lt;code&gt;</bpt>https://&lt;tenant-domain&gt;/&lt;app-name&gt;<ept id="d4161d91-67c3-4d9e-87e7-b8de057b8a95">&lt;/code&gt;</ept>, e.g. <bpt id="a1dbf849-c444-4db3-a012-c46029209e42">&lt;code&gt;</bpt>https://contoso.onmicrosoft.com/my-first-aad-app<ept id="a1dbf849-c444-4db3-a012-c46029209e42">&lt;/code&gt;</ept></source>
+          <target state="new">The <bpt id="66d10f32-7c8d-47da-87f2-8b1539879c0e">&lt;strong&gt;</bpt>App ID URI<ept id="66d10f32-7c8d-47da-87f2-8b1539879c0e">&lt;/strong&gt;</ept> is a unique identifier for your application.  The convention is to use <bpt id="d4161d91-67c3-4d9e-87e7-b8de057b8a95">&lt;code&gt;</bpt>https://&lt;tenant-domain&gt;/&lt;app-name&gt;<ept id="d4161d91-67c3-4d9e-87e7-b8de057b8a95">&lt;/code&gt;</ept>, e.g. <bpt id="a1dbf849-c444-4db3-a012-c46029209e42">&lt;code&gt;</bpt>https://contoso.onmicrosoft.com/my-first-aad-app<ept id="a1dbf849-c444-4db3-a012-c46029209e42">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1cd009b9-aec0-4fe7-83f4-47645f276e88" xml:space="preserve">
+          <source>Once you’ve completed registration, AAD will assign your app a unique client identifier.</source>
+          <target state="new">Once you’ve completed registration, AAD will assign your app a unique client identifier.</target>
+        </trans-unit>
+        <trans-unit id="3302885b-4cdb-4908-8f12-d57ae469b00f" xml:space="preserve">
+          <source>You’ll need this value in the next sections, so copy it from the Configure tab.</source>
+          <target state="new">You’ll need this value in the next sections, so copy it from the Configure tab.</target>
+        </trans-unit>
+        <trans-unit id="2bb41549-3647-4fb8-9c0d-2cdddff422d1" xml:space="preserve">
+          <source>To successfully use this sample, you must have a working installation of Node.js.</source>
+          <target state="new">To successfully use this sample, you must have a working installation of Node.js.</target>
+        </trans-unit>
+        <trans-unit id="6a987f86-f8b3-46d2-9b21-c72dd5f0e5aa" xml:space="preserve">
+          <source>Install Node.js from <bpt id="fcc0f55a-5ea1-4ade-96ef-cfaa5eaee1e9">&lt;linkText&gt;</bpt>http://nodejs.org<ept id="fcc0f55a-5ea1-4ade-96ef-cfaa5eaee1e9">&lt;/linkText&gt;</ept><bpt id="fcc0f55a-5ea1-4ade-96ef-cfaa5eaee1e9">&lt;title&gt;</bpt><ept id="fcc0f55a-5ea1-4ade-96ef-cfaa5eaee1e9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Install Node.js from <bpt id="fcc0f55a-5ea1-4ade-96ef-cfaa5eaee1e9">&lt;linkText&gt;</bpt>http://nodejs.org<ept id="fcc0f55a-5ea1-4ade-96ef-cfaa5eaee1e9">&lt;/linkText&gt;</ept><bpt id="fcc0f55a-5ea1-4ade-96ef-cfaa5eaee1e9">&lt;title&gt;</bpt><ept id="fcc0f55a-5ea1-4ade-96ef-cfaa5eaee1e9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="723e1e63-a10f-4d66-9e5b-b6a1265da4d5" xml:space="preserve">
+          <source>To successfully use this sample, you must have a working installation of MongoDB.</source>
+          <target state="new">To successfully use this sample, you must have a working installation of MongoDB.</target>
+        </trans-unit>
+        <trans-unit id="75c41732-3789-4150-972e-ff6ee66f84b8" xml:space="preserve">
+          <source>We will use MongoDB to make our REST API persistant across server instances.</source>
+          <target state="new">We will use MongoDB to make our REST API persistant across server instances.</target>
+        </trans-unit>
+        <trans-unit id="6a94d708-151b-463b-9f23-b4e8d4b18c24" xml:space="preserve">
+          <source>Install MongoDB from <bpt id="11e9b70e-4978-4ebe-a8ec-64b575778b9e">&lt;linkText&gt;</bpt>http://mongodb.org<ept id="11e9b70e-4978-4ebe-a8ec-64b575778b9e">&lt;/linkText&gt;</ept><bpt id="11e9b70e-4978-4ebe-a8ec-64b575778b9e">&lt;title&gt;</bpt><ept id="11e9b70e-4978-4ebe-a8ec-64b575778b9e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Install MongoDB from <bpt id="11e9b70e-4978-4ebe-a8ec-64b575778b9e">&lt;linkText&gt;</bpt>http://mongodb.org<ept id="11e9b70e-4978-4ebe-a8ec-64b575778b9e">&lt;/linkText&gt;</ept><bpt id="11e9b70e-4978-4ebe-a8ec-64b575778b9e">&lt;title&gt;</bpt><ept id="11e9b70e-4978-4ebe-a8ec-64b575778b9e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90d117f5-a5c1-45ef-88a3-860eff4a26b1" xml:space="preserve">
+          <source><bpt id="0a3afab1-5af1-433c-bd87-5960fd3fbd42">&lt;strong&gt;</bpt>NOTE:<ept id="0a3afab1-5af1-433c-bd87-5960fd3fbd42">&lt;/strong&gt;</ept> This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost</source>
+          <target state="new"><bpt id="0a3afab1-5af1-433c-bd87-5960fd3fbd42">&lt;strong&gt;</bpt>NOTE:<ept id="0a3afab1-5af1-433c-bd87-5960fd3fbd42">&lt;/strong&gt;</ept> This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost</target>
+        </trans-unit>
+        <trans-unit id="6d05da50-d863-4775-853e-1aaea40fd278" xml:space="preserve">
+          <source>We will be using Resitfy to build our REST API.</source>
+          <target state="new">We will be using Resitfy to build our REST API.</target>
+        </trans-unit>
+        <trans-unit id="47d8251f-c10b-4cd1-a868-9d0eafc3b559" xml:space="preserve">
+          <source>Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.</source>
+          <target state="new">Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.</target>
+        </trans-unit>
+        <trans-unit id="1eac2130-6c51-4626-90cd-390ee0814bed" xml:space="preserve">
+          <source>From the command-line, change directories to the azuread directory.</source>
+          <target state="new">From the command-line, change directories to the azuread directory.</target>
+        </trans-unit>
+        <trans-unit id="e9382eee-c52d-41c7-8075-3a7b993e23ca" xml:space="preserve">
+          <source>If the <bpt id="f7026a5a-5bb3-4fd3-a836-567a07ab4cd0">&lt;strong&gt;</bpt>azuread<ept id="f7026a5a-5bb3-4fd3-a836-567a07ab4cd0">&lt;/strong&gt;</ept> directory does not exist, create it.</source>
+          <target state="new">If the <bpt id="f7026a5a-5bb3-4fd3-a836-567a07ab4cd0">&lt;strong&gt;</bpt>azuread<ept id="f7026a5a-5bb3-4fd3-a836-567a07ab4cd0">&lt;/strong&gt;</ept> directory does not exist, create it.</target>
+        </trans-unit>
+        <trans-unit id="38928ac3-2f33-4597-8f4e-08f3e7d97091" xml:space="preserve">
+          <source><bpt id="76aa15b0-3cd8-4ae2-8bb1-e150b9ff81d6">&lt;code&gt;</bpt>cd azuread - or- mkdir azuread; cd azuread<ept id="76aa15b0-3cd8-4ae2-8bb1-e150b9ff81d6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="76aa15b0-3cd8-4ae2-8bb1-e150b9ff81d6">&lt;code&gt;</bpt>cd azuread - or- mkdir azuread; cd azuread<ept id="76aa15b0-3cd8-4ae2-8bb1-e150b9ff81d6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4116ed2b-ecd8-4cb5-85a1-7a9b4d623fb5" xml:space="preserve">
+          <source>Type the following command:</source>
+          <target state="new">Type the following command:</target>
+        </trans-unit>
+        <trans-unit id="2105cbcf-fc46-4e26-9197-7e74a4337137" xml:space="preserve">
+          <source><bpt id="44a28ea0-9ff6-4ab1-a958-63c49f13911b">&lt;code&gt;</bpt>npm install restify<ept id="44a28ea0-9ff6-4ab1-a958-63c49f13911b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="44a28ea0-9ff6-4ab1-a958-63c49f13911b">&lt;code&gt;</bpt>npm install restify<ept id="44a28ea0-9ff6-4ab1-a958-63c49f13911b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3cbfba48-7e27-4aff-b184-2ce383010d5d" xml:space="preserve">
+          <source>This command installs Restify.</source>
+          <target state="new">This command installs Restify.</target>
+        </trans-unit>
+        <trans-unit id="1476e769-6e5e-49cf-b04a-8b1d4851c9e7" xml:space="preserve">
+          <source>When using npm on some operating systems, you may receive an error of Error: EPERM, chmod '/usr/local/bin/..'</source>
+          <target state="new">When using npm on some operating systems, you may receive an error of Error: EPERM, chmod '/usr/local/bin/..'</target>
+        </trans-unit>
+        <trans-unit id="8172ee27-05f8-40bf-bef2-c1cea9010cff" xml:space="preserve">
+          <source>and a request to try running the account as an administrator.</source>
+          <target state="new">and a request to try running the account as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="95e871c6-6450-4e9e-a90f-3be8be8168fa" xml:space="preserve">
+          <source>If this occurs, use the sudo command to run npm at a higher privilege level.</source>
+          <target state="new">If this occurs, use the sudo command to run npm at a higher privilege level.</target>
+        </trans-unit>
+        <trans-unit id="50d45333-4496-4009-aebc-d6786c7cb89e" xml:space="preserve">
+          <source>You may see something like this when installing Restify:</source>
+          <target state="new">You may see something like this when installing Restify:</target>
+        </trans-unit>
+        <trans-unit id="a95e500d-9194-45a9-88ba-16f120ecf5ec" xml:space="preserve">
+          <source>Restify provides a powerful mechanism to trace REST calls using DTrace.</source>
+          <target state="new">Restify provides a powerful mechanism to trace REST calls using DTrace.</target>
+        </trans-unit>
+        <trans-unit id="d9f18279-7669-4ce7-8a12-67e5e6da6295" xml:space="preserve">
+          <source>However, many operating systems do not have DTrace available.</source>
+          <target state="new">However, many operating systems do not have DTrace available.</target>
+        </trans-unit>
+        <trans-unit id="5316a998-15dc-464b-b974-a01d7c266103" xml:space="preserve">
+          <source>You can safely ignore these errors.</source>
+          <target state="new">You can safely ignore these errors.</target>
+        </trans-unit>
+        <trans-unit id="cac3f114-8979-4150-86c4-22ab83d4b220" xml:space="preserve">
+          <source>The output of this command should appear similar to the following:</source>
+          <target state="new">The output of this command should appear similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="b7908d23-2f51-404c-b134-1b5fc6b50b74" xml:space="preserve">
+          <source><bpt id="8a7b71f2-9a06-45eb-b940-ff27efaa4fbc">&lt;linkText&gt;</bpt>Passport<ept id="8a7b71f2-9a06-45eb-b940-ff27efaa4fbc">&lt;/linkText&gt;</ept><bpt id="8a7b71f2-9a06-45eb-b940-ff27efaa4fbc">&lt;title&gt;</bpt><ept id="8a7b71f2-9a06-45eb-b940-ff27efaa4fbc">&lt;/title&gt;</ept> is authentication middleware for Node.js.</source>
+          <target state="new"><bpt id="8a7b71f2-9a06-45eb-b940-ff27efaa4fbc">&lt;linkText&gt;</bpt>Passport<ept id="8a7b71f2-9a06-45eb-b940-ff27efaa4fbc">&lt;/linkText&gt;</ept><bpt id="8a7b71f2-9a06-45eb-b940-ff27efaa4fbc">&lt;title&gt;</bpt><ept id="8a7b71f2-9a06-45eb-b940-ff27efaa4fbc">&lt;/title&gt;</ept> is authentication middleware for Node.js.</target>
+        </trans-unit>
+        <trans-unit id="f37389a5-e2a9-4d52-a05b-eaceadf806b6" xml:space="preserve">
+          <source>Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application.</source>
+          <target state="new">Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application.</target>
+        </trans-unit>
+        <trans-unit id="cb3466e8-968b-48d8-9e2a-7aae09a6a441" xml:space="preserve">
+          <source>A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.</source>
+          <target state="new">A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.</target>
+        </trans-unit>
+        <trans-unit id="75c4baaa-0601-4943-97c7-35dee522f217" xml:space="preserve">
+          <source>We have developed a strategy for Azure Active Directory.</source>
+          <target state="new">We have developed a strategy for Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="b4ded89f-d732-4991-a9b6-27a9ce5a1055" xml:space="preserve">
+          <source>We will install this module and then add the Azure Active Directory strategy plug-in.</source>
+          <target state="new">We will install this module and then add the Azure Active Directory strategy plug-in.</target>
+        </trans-unit>
+        <trans-unit id="61e7aa89-d55b-428c-8055-b84ec0288e59" xml:space="preserve">
+          <source>From the command-line, change directories to the azuread directory.</source>
+          <target state="new">From the command-line, change directories to the azuread directory.</target>
+        </trans-unit>
+        <trans-unit id="289bb4f7-a618-4cbe-957b-60e8048c3081" xml:space="preserve">
+          <source>Enter the following command to install passport.js</source>
+          <target state="new">Enter the following command to install passport.js</target>
+        </trans-unit>
+        <trans-unit id="a6e57413-045b-46e0-a236-baeb60c41b38" xml:space="preserve">
+          <source><bpt id="dbb99101-fe73-45a8-a4f6-2834fb9cd09e">&lt;code&gt;</bpt>npm install passport<ept id="dbb99101-fe73-45a8-a4f6-2834fb9cd09e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="dbb99101-fe73-45a8-a4f6-2834fb9cd09e">&lt;code&gt;</bpt>npm install passport<ept id="dbb99101-fe73-45a8-a4f6-2834fb9cd09e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="519e05d4-50c1-49a1-98ae-f146ff31839f" xml:space="preserve">
+          <source>The output of the commadn should appear similar to the following:</source>
+          <target state="new">The output of the commadn should appear similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="9f35b873-e811-446f-8b5e-fa8a10e94989" xml:space="preserve">
+          <source>Next, we will add the Bearer strategy, using passport-bearer-http, a Bearner handler for <bpt id="c918af37-b198-48aa-b81b-4a06477f5239">&lt;linkText&gt;</bpt>Passport<ept id="c918af37-b198-48aa-b81b-4a06477f5239">&lt;/linkText&gt;</ept><bpt id="c918af37-b198-48aa-b81b-4a06477f5239">&lt;title&gt;</bpt><ept id="c918af37-b198-48aa-b81b-4a06477f5239">&lt;/title&gt;</ept>.</source>
+          <target state="new">Next, we will add the Bearer strategy, using passport-bearer-http, a Bearner handler for <bpt id="c918af37-b198-48aa-b81b-4a06477f5239">&lt;linkText&gt;</bpt>Passport<ept id="c918af37-b198-48aa-b81b-4a06477f5239">&lt;/linkText&gt;</ept><bpt id="c918af37-b198-48aa-b81b-4a06477f5239">&lt;title&gt;</bpt><ept id="c918af37-b198-48aa-b81b-4a06477f5239">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="845f13fe-6803-4ddc-ae41-8dc59b81e43f" xml:space="preserve">
+          <source>We will also add JWT token handler support by using node-jwt.</source>
+          <target state="new">We will also add JWT token handler support by using node-jwt.</target>
+        </trans-unit>
+        <trans-unit id="9045c5c2-4324-49ba-81df-9327662b78e0" xml:space="preserve">
+          <source><bpt id="93dd40b0-e46f-41c9-9a6f-c309125d5afb">&lt;strong&gt;</bpt>NOTE:<ept id="93dd40b0-e46f-41c9-9a6f-c309125d5afb">&lt;/strong&gt;</ept> Although OAuth2 provides a framework in which any known token type can be issued, only certain token types have gained wide-spread use.</source>
+          <target state="new"><bpt id="93dd40b0-e46f-41c9-9a6f-c309125d5afb">&lt;strong&gt;</bpt>NOTE:<ept id="93dd40b0-e46f-41c9-9a6f-c309125d5afb">&lt;/strong&gt;</ept> Although OAuth2 provides a framework in which any known token type can be issued, only certain token types have gained wide-spread use.</target>
+        </trans-unit>
+        <trans-unit id="7f162953-385c-4886-a114-b8a17f66892a" xml:space="preserve">
+          <source>For protecting endpoints, that has turned out to be Bearer Tokens.</source>
+          <target state="new">For protecting endpoints, that has turned out to be Bearer Tokens.</target>
+        </trans-unit>
+        <trans-unit id="6e3724b2-28a1-4250-a05e-1b17f3b74593" xml:space="preserve">
+          <source>Bearer tokens are the most widely issued type of token in OAuth2, and many implementations assume that bearer tokens are the only type of token issued.</source>
+          <target state="new">Bearer tokens are the most widely issued type of token in OAuth2, and many implementations assume that bearer tokens are the only type of token issued.</target>
+        </trans-unit>
+        <trans-unit id="f3de9809-5dba-4182-9edd-fe378d7f987b" xml:space="preserve">
+          <source>From the command-line, change directories to the <bpt id="f3d2c6f9-20b0-479e-88c2-9fc63ebd0ba5">&lt;strong&gt;</bpt>azuread<ept id="f3d2c6f9-20b0-479e-88c2-9fc63ebd0ba5">&lt;/strong&gt;</ept> directory.</source>
+          <target state="new">From the command-line, change directories to the <bpt id="f3d2c6f9-20b0-479e-88c2-9fc63ebd0ba5">&lt;strong&gt;</bpt>azuread<ept id="f3d2c6f9-20b0-479e-88c2-9fc63ebd0ba5">&lt;/strong&gt;</ept> directory.</target>
+        </trans-unit>
+        <trans-unit id="f8c964cd-3690-4ca6-8a04-2e3f10b70412" xml:space="preserve">
+          <source>Type the following command to install Passport.js modules:</source>
+          <target state="new">Type the following command to install Passport.js modules:</target>
+        </trans-unit>
+        <trans-unit id="c756cb46-09b8-4103-b7f6-eb850b22050f" xml:space="preserve">
+          <source><bpt id="abc23d94-5232-448b-89c2-016e0e10b57b">&lt;code&gt;</bpt>npm install passport-oauth<ept id="abc23d94-5232-448b-89c2-016e0e10b57b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="abc23d94-5232-448b-89c2-016e0e10b57b">&lt;code&gt;</bpt>npm install passport-oauth<ept id="abc23d94-5232-448b-89c2-016e0e10b57b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0825275-89aa-43d8-a1e5-af5d9bb0da7a" xml:space="preserve">
+          <source><bpt id="bf274207-8b89-480b-ba5f-8707bf1cb6d5">&lt;code&gt;</bpt>npm install passport-http-bearer<ept id="bf274207-8b89-480b-ba5f-8707bf1cb6d5">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="bf274207-8b89-480b-ba5f-8707bf1cb6d5">&lt;code&gt;</bpt>npm install passport-http-bearer<ept id="bf274207-8b89-480b-ba5f-8707bf1cb6d5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad4f8e6c-1038-4226-8d0b-5276808252ef" xml:space="preserve">
+          <source><bpt id="820e8019-c0e4-48f2-9bda-b2b4002bc311">&lt;code&gt;</bpt>npm install node-jwt<ept id="820e8019-c0e4-48f2-9bda-b2b4002bc311">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="820e8019-c0e4-48f2-9bda-b2b4002bc311">&lt;code&gt;</bpt>npm install node-jwt<ept id="820e8019-c0e4-48f2-9bda-b2b4002bc311">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b191df5e-e210-416b-833b-3aeeadeb33b9" xml:space="preserve">
+          <source>The output of the commamd should appear similar to the following:</source>
+          <target state="new">The output of the commamd should appear similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="616e893d-0146-40a3-9fff-77aa43d5955f" xml:space="preserve">
+          <source>We will be using MongoDB as our datastore For that reason, we need to install both the widely used plug-in to manage models and schemas called Mongoose, as well as the database driver for MongoDB, also called MongoDB.</source>
+          <target state="new">We will be using MongoDB as our datastore For that reason, we need to install both the widely used plug-in to manage models and schemas called Mongoose, as well as the database driver for MongoDB, also called MongoDB.</target>
+        </trans-unit>
+        <trans-unit id="2b900892-3fc2-45f2-ac3a-5bb991480693" xml:space="preserve">
+          <source><bpt id="9f76b426-71f0-43ce-ba84-b432d8926b6d">&lt;code&gt;</bpt>npm install mongoose<ept id="9f76b426-71f0-43ce-ba84-b432d8926b6d">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="9f76b426-71f0-43ce-ba84-b432d8926b6d">&lt;code&gt;</bpt>npm install mongoose<ept id="9f76b426-71f0-43ce-ba84-b432d8926b6d">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="814498e8-cbca-4ca5-b307-802aa281a223" xml:space="preserve">
+          <source><bpt id="203d0b75-4cf6-465a-8d0b-ebb3acc81a2a">&lt;code&gt;</bpt>npm install mongodb<ept id="203d0b75-4cf6-465a-8d0b-ebb3acc81a2a">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="203d0b75-4cf6-465a-8d0b-ebb3acc81a2a">&lt;code&gt;</bpt>npm install mongodb<ept id="203d0b75-4cf6-465a-8d0b-ebb3acc81a2a">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13b74905-99cf-436b-8798-cea621816112" xml:space="preserve">
+          <source>Next, we'll install the remaining required modules.</source>
+          <target state="new">Next, we'll install the remaining required modules.</target>
+        </trans-unit>
+        <trans-unit id="6ca08ee6-75c5-42bc-a1ef-4aab030800f7" xml:space="preserve">
+          <source>From the command-line, change directories to the <bpt id="c1703d2f-9c9d-47ce-8e75-4c5820ad7c5d">&lt;strong&gt;</bpt>azuread<ept id="c1703d2f-9c9d-47ce-8e75-4c5820ad7c5d">&lt;/strong&gt;</ept> folder if not already there:</source>
+          <target state="new">From the command-line, change directories to the <bpt id="c1703d2f-9c9d-47ce-8e75-4c5820ad7c5d">&lt;strong&gt;</bpt>azuread<ept id="c1703d2f-9c9d-47ce-8e75-4c5820ad7c5d">&lt;/strong&gt;</ept> folder if not already there:</target>
+        </trans-unit>
+        <trans-unit id="9fe27b6b-a502-47b4-9f58-edd2a2df7f5e" xml:space="preserve">
+          <source><bpt id="fa04a291-5174-4036-ba47-3f25c5ef63c5">&lt;code&gt;</bpt>cd azuread<ept id="fa04a291-5174-4036-ba47-3f25c5ef63c5">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="fa04a291-5174-4036-ba47-3f25c5ef63c5">&lt;code&gt;</bpt>cd azuread<ept id="fa04a291-5174-4036-ba47-3f25c5ef63c5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="265de18f-609b-4762-b5e3-805f0992bdb7" xml:space="preserve">
+          <source>Enter the following commands to install the following modules in your node_modules directory:</source>
+          <target state="new">Enter the following commands to install the following modules in your node_modules directory:</target>
+        </trans-unit>
+        <trans-unit id="43bcc1aa-c8b4-4057-a0c8-bf11e21039a1" xml:space="preserve">
+          <source><bpt id="7c08220d-3f0f-4c37-a3fc-4f9a1004e324">&lt;code&gt;</bpt>npm install crypto<ept id="7c08220d-3f0f-4c37-a3fc-4f9a1004e324">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="7c08220d-3f0f-4c37-a3fc-4f9a1004e324">&lt;code&gt;</bpt>npm install crypto<ept id="7c08220d-3f0f-4c37-a3fc-4f9a1004e324">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6737e3c5-93f1-4fc4-abc9-29676e4dac3a" xml:space="preserve">
+          <source><bpt id="251d4f95-e338-4b12-93bc-9a92ff12d9cf">&lt;code&gt;</bpt>npm install assert-plus<ept id="251d4f95-e338-4b12-93bc-9a92ff12d9cf">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="251d4f95-e338-4b12-93bc-9a92ff12d9cf">&lt;code&gt;</bpt>npm install assert-plus<ept id="251d4f95-e338-4b12-93bc-9a92ff12d9cf">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a168bef2-d646-48a2-9927-b36e1c88baef" xml:space="preserve">
+          <source><bpt id="bc6649fb-01ba-4aaa-a9c2-a1512410585b">&lt;code&gt;</bpt>npm install posix-getopt<ept id="bc6649fb-01ba-4aaa-a9c2-a1512410585b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="bc6649fb-01ba-4aaa-a9c2-a1512410585b">&lt;code&gt;</bpt>npm install posix-getopt<ept id="bc6649fb-01ba-4aaa-a9c2-a1512410585b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a17bb2a3-c774-49c3-87b1-9dd715989060" xml:space="preserve">
+          <source><bpt id="4d32f92e-7cea-4c32-857b-1e10aaf67bf9">&lt;code&gt;</bpt>npm install util<ept id="4d32f92e-7cea-4c32-857b-1e10aaf67bf9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="4d32f92e-7cea-4c32-857b-1e10aaf67bf9">&lt;code&gt;</bpt>npm install util<ept id="4d32f92e-7cea-4c32-857b-1e10aaf67bf9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a1c0ece-f14f-4121-91ea-4eb5ca8af2ca" xml:space="preserve">
+          <source><bpt id="5ee1ea94-c8ec-4976-93f9-8de4911816ab">&lt;code&gt;</bpt>npm install path<ept id="5ee1ea94-c8ec-4976-93f9-8de4911816ab">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="5ee1ea94-c8ec-4976-93f9-8de4911816ab">&lt;code&gt;</bpt>npm install path<ept id="5ee1ea94-c8ec-4976-93f9-8de4911816ab">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab30b04b-87ad-45b7-862b-1600c7ac2549" xml:space="preserve">
+          <source><bpt id="625d70f0-5e40-425b-a1c6-362754d5cdf7">&lt;code&gt;</bpt>npm install connect<ept id="625d70f0-5e40-425b-a1c6-362754d5cdf7">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="625d70f0-5e40-425b-a1c6-362754d5cdf7">&lt;code&gt;</bpt>npm install connect<ept id="625d70f0-5e40-425b-a1c6-362754d5cdf7">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1123be51-92b5-458e-9d33-8edfeaf252eb" xml:space="preserve">
+          <source><bpt id="c79d6001-ce17-4a32-9aa5-c2ca6240e84b">&lt;code&gt;</bpt>npm install xml-crypto<ept id="c79d6001-ce17-4a32-9aa5-c2ca6240e84b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c79d6001-ce17-4a32-9aa5-c2ca6240e84b">&lt;code&gt;</bpt>npm install xml-crypto<ept id="c79d6001-ce17-4a32-9aa5-c2ca6240e84b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93a9f590-e76c-4d06-9596-67c7db5cdd97" xml:space="preserve">
+          <source><bpt id="99588aff-9697-432b-bc16-de38187d54e6">&lt;code&gt;</bpt>npm install xml2js<ept id="99588aff-9697-432b-bc16-de38187d54e6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="99588aff-9697-432b-bc16-de38187d54e6">&lt;code&gt;</bpt>npm install xml2js<ept id="99588aff-9697-432b-bc16-de38187d54e6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f5e9d2d-41c6-4826-a3b7-c99892ea9b7a" xml:space="preserve">
+          <source><bpt id="db641938-76da-46c9-8b40-69befb05fa13">&lt;code&gt;</bpt>npm install xmldom<ept id="db641938-76da-46c9-8b40-69befb05fa13">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="db641938-76da-46c9-8b40-69befb05fa13">&lt;code&gt;</bpt>npm install xmldom<ept id="db641938-76da-46c9-8b40-69befb05fa13">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3adeff92-2031-4ed3-bb92-e5abf99d20a3" xml:space="preserve">
+          <source><bpt id="2face902-6619-428d-8030-760a2230d001">&lt;code&gt;</bpt>npm install async<ept id="2face902-6619-428d-8030-760a2230d001">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="2face902-6619-428d-8030-760a2230d001">&lt;code&gt;</bpt>npm install async<ept id="2face902-6619-428d-8030-760a2230d001">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51a456c9-b94f-407a-a10a-fef54bcbb57f" xml:space="preserve">
+          <source><bpt id="530ad278-8770-4f4f-bca8-be153891c6e0">&lt;code&gt;</bpt>npm install request<ept id="530ad278-8770-4f4f-bca8-be153891c6e0">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="530ad278-8770-4f4f-bca8-be153891c6e0">&lt;code&gt;</bpt>npm install request<ept id="530ad278-8770-4f4f-bca8-be153891c6e0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97785d7c-14a4-44dd-83ea-7ad1e843f54b" xml:space="preserve">
+          <source><bpt id="4205e133-5a23-46c8-ac3c-3afef92539f8">&lt;code&gt;</bpt>npm install underscore<ept id="4205e133-5a23-46c8-ac3c-3afef92539f8">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="4205e133-5a23-46c8-ac3c-3afef92539f8">&lt;code&gt;</bpt>npm install underscore<ept id="4205e133-5a23-46c8-ac3c-3afef92539f8">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="946a2996-4b8e-4694-92d1-9e841afbf691" xml:space="preserve">
+          <source><bpt id="18f1ae77-4339-4d50-a4f8-551abf7b0066">&lt;code&gt;</bpt>npm install grunt-contrib-jshint@0.1.1<ept id="18f1ae77-4339-4d50-a4f8-551abf7b0066">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="18f1ae77-4339-4d50-a4f8-551abf7b0066">&lt;code&gt;</bpt>npm install grunt-contrib-jshint@0.1.1<ept id="18f1ae77-4339-4d50-a4f8-551abf7b0066">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f741d3fe-a117-4514-b8be-8e938b565517" xml:space="preserve">
+          <source><bpt id="cbad2118-d8bb-4243-832c-fde9533ed712">&lt;code&gt;</bpt>npm install grunt-contrib-nodeunit@0.1.2<ept id="cbad2118-d8bb-4243-832c-fde9533ed712">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="cbad2118-d8bb-4243-832c-fde9533ed712">&lt;code&gt;</bpt>npm install grunt-contrib-nodeunit@0.1.2<ept id="cbad2118-d8bb-4243-832c-fde9533ed712">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c227ecb9-a7ee-452b-a6b2-7aff2b11f4b1" xml:space="preserve">
+          <source><bpt id="dd75fffe-2c12-4647-a17c-3fd36a12662a">&lt;code&gt;</bpt>npm install grunt-contrib-watch@0.2.0<ept id="dd75fffe-2c12-4647-a17c-3fd36a12662a">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="dd75fffe-2c12-4647-a17c-3fd36a12662a">&lt;code&gt;</bpt>npm install grunt-contrib-watch@0.2.0<ept id="dd75fffe-2c12-4647-a17c-3fd36a12662a">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4bbd417c-d5d3-4042-8bd7-43363aefeaba" xml:space="preserve">
+          <source><bpt id="87c6ef90-c130-4e59-98f3-27cb45981c3f">&lt;code&gt;</bpt>npm install grunt@0.4.1<ept id="87c6ef90-c130-4e59-98f3-27cb45981c3f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="87c6ef90-c130-4e59-98f3-27cb45981c3f">&lt;code&gt;</bpt>npm install grunt@0.4.1<ept id="87c6ef90-c130-4e59-98f3-27cb45981c3f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5dab9451-3b99-4fa3-a7dd-825a250e8e37" xml:space="preserve">
+          <source><bpt id="43726c34-8090-4004-9e9e-0a95893fcf0e">&lt;code&gt;</bpt>npm install xtend@2.0.3<ept id="43726c34-8090-4004-9e9e-0a95893fcf0e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="43726c34-8090-4004-9e9e-0a95893fcf0e">&lt;code&gt;</bpt>npm install xtend@2.0.3<ept id="43726c34-8090-4004-9e9e-0a95893fcf0e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d3bdb4d-f819-481b-ac73-c51f959807c9" xml:space="preserve">
+          <source><bpt id="44625f3d-2b1e-46fe-90e4-65691b91cb3f">&lt;code&gt;</bpt>npm install bunyan<ept id="44625f3d-2b1e-46fe-90e4-65691b91cb3f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="44625f3d-2b1e-46fe-90e4-65691b91cb3f">&lt;code&gt;</bpt>npm install bunyan<ept id="44625f3d-2b1e-46fe-90e4-65691b91cb3f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="182970b2-77ed-4291-9644-b4153e9d562f" xml:space="preserve">
+          <source><bpt id="c551a55b-ee1b-4c7b-8f78-a1249a8c7a07">&lt;code&gt;</bpt>npm update<ept id="c551a55b-ee1b-4c7b-8f78-a1249a8c7a07">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c551a55b-ee1b-4c7b-8f78-a1249a8c7a07">&lt;code&gt;</bpt>npm update<ept id="c551a55b-ee1b-4c7b-8f78-a1249a8c7a07">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55bf858d-185c-4174-863f-f3a4cd38ff01" xml:space="preserve">
+          <source>The server.js file will be providing the majority of our functionality for our Web API server.</source>
+          <target state="new">The server.js file will be providing the majority of our functionality for our Web API server.</target>
+        </trans-unit>
+        <trans-unit id="97d977d0-f8f9-4155-a16a-9a33d529ce55" xml:space="preserve">
+          <source>We will be adding most of our code to this file.</source>
+          <target state="new">We will be adding most of our code to this file.</target>
+        </trans-unit>
+        <trans-unit id="12cbfc86-efc5-4913-8e8f-a5a14197ae08" xml:space="preserve">
+          <source>For production purposes you would refactor the functionality in to smaller files, such as separate routes and controllers.</source>
+          <target state="new">For production purposes you would refactor the functionality in to smaller files, such as separate routes and controllers.</target>
+        </trans-unit>
+        <trans-unit id="fb7d6a69-8a0c-45bd-801e-d634676cada0" xml:space="preserve">
+          <source>For the purpose of this demo we will use server.js for this functionality.</source>
+          <target state="new">For the purpose of this demo we will use server.js for this functionality.</target>
+        </trans-unit>
+        <trans-unit id="1a642dca-783a-49e9-a1c9-df405696b01f" xml:space="preserve">
+          <source>From the command-line, change directories to the <bpt id="eee16c07-9ff3-4758-9da2-276e33b164e1">&lt;strong&gt;</bpt>azuread<ept id="eee16c07-9ff3-4758-9da2-276e33b164e1">&lt;/strong&gt;</ept> folder if not already there:</source>
+          <target state="new">From the command-line, change directories to the <bpt id="eee16c07-9ff3-4758-9da2-276e33b164e1">&lt;strong&gt;</bpt>azuread<ept id="eee16c07-9ff3-4758-9da2-276e33b164e1">&lt;/strong&gt;</ept> folder if not already there:</target>
+        </trans-unit>
+        <trans-unit id="6025db31-e38b-4ab8-ad27-c6613fa1fdaf" xml:space="preserve">
+          <source><bpt id="38549656-3ea2-434f-b04b-ef3ebc90a090">&lt;code&gt;</bpt>cd azuread<ept id="38549656-3ea2-434f-b04b-ef3ebc90a090">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="38549656-3ea2-434f-b04b-ef3ebc90a090">&lt;code&gt;</bpt>cd azuread<ept id="38549656-3ea2-434f-b04b-ef3ebc90a090">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="516e6ed8-5c83-4714-903d-2052e2e4996a" xml:space="preserve">
+          <source>Create a <bpt id="6d4d3552-4ba9-40d5-83db-2bd2c629ecd9">&lt;code&gt;</bpt>server.js<ept id="6d4d3552-4ba9-40d5-83db-2bd2c629ecd9">&lt;/code&gt;</ept> file in our favorite editor and add the following information:</source>
+          <target state="new">Create a <bpt id="6d4d3552-4ba9-40d5-83db-2bd2c629ecd9">&lt;code&gt;</bpt>server.js<ept id="6d4d3552-4ba9-40d5-83db-2bd2c629ecd9">&lt;/code&gt;</ept> file in our favorite editor and add the following information:</target>
+        </trans-unit>
+        <trans-unit id="205c8e4f-b052-496a-aa07-044a26249753" xml:space="preserve">
+          <source>Save the file.</source>
+          <target state="new">Save the file.</target>
+        </trans-unit>
+        <trans-unit id="bd2b15c2-1cff-44c7-be2e-4fa00b6f9fb2" xml:space="preserve">
+          <source>We will return to it shortly.</source>
+          <target state="new">We will return to it shortly.</target>
+        </trans-unit>
+        <trans-unit id="6a12ae1f-dd3a-4e10-aa2e-e6289a1d8b47" xml:space="preserve">
+          <source>This code file passes the configuration parameters from your Azure Active Directory Portal to Passport.js.</source>
+          <target state="new">This code file passes the configuration parameters from your Azure Active Directory Portal to Passport.js.</target>
+        </trans-unit>
+        <trans-unit id="feeab81d-02a9-4ad0-97b6-c5e4a8bc9700" xml:space="preserve">
+          <source>You created these configuration values when you added the Web API to the portal in the first part of the walkthrough.</source>
+          <target state="new">You created these configuration values when you added the Web API to the portal in the first part of the walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="ae6835a6-9638-40a0-8d3e-25f4be7b8b44" xml:space="preserve">
+          <source>We will explain what to put in the values of these parameters after you've copied the code.</source>
+          <target state="new">We will explain what to put in the values of these parameters after you've copied the code.</target>
+        </trans-unit>
+        <trans-unit id="452567b8-f6ec-4690-a2fb-8986c274ae6f" xml:space="preserve">
+          <source>From the command-line, change directories to the <bpt id="e20a7d6c-7f15-4099-a180-a92c0c6430d2">&lt;strong&gt;</bpt>azuread<ept id="e20a7d6c-7f15-4099-a180-a92c0c6430d2">&lt;/strong&gt;</ept> folder if not already there:</source>
+          <target state="new">From the command-line, change directories to the <bpt id="e20a7d6c-7f15-4099-a180-a92c0c6430d2">&lt;strong&gt;</bpt>azuread<ept id="e20a7d6c-7f15-4099-a180-a92c0c6430d2">&lt;/strong&gt;</ept> folder if not already there:</target>
+        </trans-unit>
+        <trans-unit id="5b00a240-9423-4e31-9ef0-e4c697b598f3" xml:space="preserve">
+          <source><bpt id="037e6cfd-ac36-4ded-a182-1005b3a679bc">&lt;code&gt;</bpt>cd azuread<ept id="037e6cfd-ac36-4ded-a182-1005b3a679bc">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="037e6cfd-ac36-4ded-a182-1005b3a679bc">&lt;code&gt;</bpt>cd azuread<ept id="037e6cfd-ac36-4ded-a182-1005b3a679bc">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="059151ed-7e62-4b66-98be-6cea240508c2" xml:space="preserve">
+          <source>Create a <bpt id="93629d56-a07f-4703-9bcb-5af86fd7fb22">&lt;code&gt;</bpt>config.js<ept id="93629d56-a07f-4703-9bcb-5af86fd7fb22">&lt;/code&gt;</ept> file in our favorite editor and add the following information:</source>
+          <target state="new">Create a <bpt id="93629d56-a07f-4703-9bcb-5af86fd7fb22">&lt;code&gt;</bpt>config.js<ept id="93629d56-a07f-4703-9bcb-5af86fd7fb22">&lt;/code&gt;</ept> file in our favorite editor and add the following information:</target>
+        </trans-unit>
+        <trans-unit id="5b9ef0f5-fc46-4f33-92a5-268aa8a35ef3" xml:space="preserve">
+          <source><bpt id="0769d9d2-ae7a-4b33-9ed0-52d2830ca488">&lt;strong&gt;</bpt>NOTE:<ept id="0769d9d2-ae7a-4b33-9ed0-52d2830ca488">&lt;/strong&gt;</ept> You will most likely never need to change these values.</source>
+          <target state="new"><bpt id="0769d9d2-ae7a-4b33-9ed0-52d2830ca488">&lt;strong&gt;</bpt>NOTE:<ept id="0769d9d2-ae7a-4b33-9ed0-52d2830ca488">&lt;/strong&gt;</ept> You will most likely never need to change these values.</target>
+        </trans-unit>
+        <trans-unit id="55c14d7c-3c71-4747-8a18-996287dca49c" xml:space="preserve">
+          <source><bpt id="bf990086-0b01-48ff-aaf1-097cc1d87c37">&lt;strong&gt;</bpt>NOTE:<ept id="bf990086-0b01-48ff-aaf1-097cc1d87c37">&lt;/strong&gt;</ept> We roll our keys at frequent intervals.</source>
+          <target state="new"><bpt id="bf990086-0b01-48ff-aaf1-097cc1d87c37">&lt;strong&gt;</bpt>NOTE:<ept id="bf990086-0b01-48ff-aaf1-097cc1d87c37">&lt;/strong&gt;</ept> We roll our keys at frequent intervals.</target>
+        </trans-unit>
+        <trans-unit id="f57a85ea-2715-4b32-b61e-50775c1d3552" xml:space="preserve">
+          <source>Please ensure that you are always pulling from the "openid_keys" URL and that the app can access the internet.</source>
+          <target state="new">Please ensure that you are always pulling from the "openid_keys" URL and that the app can access the internet.</target>
+        </trans-unit>
+        <trans-unit id="1461cb01-11ae-43b3-926c-8b52052a6744" xml:space="preserve">
+          <source>We need to read these values from the Config file you just created across our application.</source>
+          <target state="new">We need to read these values from the Config file you just created across our application.</target>
+        </trans-unit>
+        <trans-unit id="5fa1fe5e-e391-463f-8c2d-d5c6328579b8" xml:space="preserve">
+          <source>To do this, we simply add the .config file as a required resource in our application and then set the global variables to those in the config.js document</source>
+          <target state="new">To do this, we simply add the .config file as a required resource in our application and then set the global variables to those in the config.js document</target>
+        </trans-unit>
+        <trans-unit id="bd596c98-4c22-4b55-a619-49eef61e37db" xml:space="preserve">
+          <source>From the command-line, change directories to the <bpt id="194ccac9-0be1-4087-bcbb-f825b813d5e9">&lt;strong&gt;</bpt>azuread<ept id="194ccac9-0be1-4087-bcbb-f825b813d5e9">&lt;/strong&gt;</ept> folder if not already there:</source>
+          <target state="new">From the command-line, change directories to the <bpt id="194ccac9-0be1-4087-bcbb-f825b813d5e9">&lt;strong&gt;</bpt>azuread<ept id="194ccac9-0be1-4087-bcbb-f825b813d5e9">&lt;/strong&gt;</ept> folder if not already there:</target>
+        </trans-unit>
+        <trans-unit id="88228afb-75cf-4ddc-b23a-b53feab70f19" xml:space="preserve">
+          <source><bpt id="ce87ffbc-446b-426c-b0fb-3f6624eb387c">&lt;code&gt;</bpt>cd azuread<ept id="ce87ffbc-446b-426c-b0fb-3f6624eb387c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ce87ffbc-446b-426c-b0fb-3f6624eb387c">&lt;code&gt;</bpt>cd azuread<ept id="ce87ffbc-446b-426c-b0fb-3f6624eb387c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4bd79977-5bdb-4e59-aab8-303f9dd58b9e" xml:space="preserve">
+          <source>Open your <bpt id="b0542907-cfe8-40b3-90e2-c39fce68806a">&lt;code&gt;</bpt>server.js<ept id="b0542907-cfe8-40b3-90e2-c39fce68806a">&lt;/code&gt;</ept> file in our favorite editor and add the following information:</source>
+          <target state="new">Open your <bpt id="b0542907-cfe8-40b3-90e2-c39fce68806a">&lt;code&gt;</bpt>server.js<ept id="b0542907-cfe8-40b3-90e2-c39fce68806a">&lt;/code&gt;</ept> file in our favorite editor and add the following information:</target>
+        </trans-unit>
+        <trans-unit id="b73ae434-a006-4916-9e55-8cb75d38c23f" xml:space="preserve">
+          <source>Then, add a new section to <bpt id="7d8f8860-28f9-472e-9522-82f88990d37a">&lt;code&gt;</bpt>server.js<ept id="7d8f8860-28f9-472e-9522-82f88990d37a">&lt;/code&gt;</ept> with the following code:</source>
+          <target state="new">Then, add a new section to <bpt id="7d8f8860-28f9-472e-9522-82f88990d37a">&lt;code&gt;</bpt>server.js<ept id="7d8f8860-28f9-472e-9522-82f88990d37a">&lt;/code&gt;</ept> with the following code:</target>
+        </trans-unit>
+        <trans-unit id="5b39f1e2-cf43-417d-9b3b-b01fcb84a942" xml:space="preserve">
+          <source>Since the goal is to keep only application logic in the server.js file, it makes sense to put some helper methods in a separate file.</source>
+          <target state="new">Since the goal is to keep only application logic in the server.js file, it makes sense to put some helper methods in a separate file.</target>
+        </trans-unit>
+        <trans-unit id="e3f9e4b1-9fee-46d9-ad40-fc1c2e0e435b" xml:space="preserve">
+          <source>These methods simply help us parse the OpenID Connect metadata and do not relate to the core scenario.</source>
+          <target state="new">These methods simply help us parse the OpenID Connect metadata and do not relate to the core scenario.</target>
+        </trans-unit>
+        <trans-unit id="a240a8ef-c66b-47bd-a3ed-ef518f245379" xml:space="preserve">
+          <source>It's better to stuff them away.</source>
+          <target state="new">It's better to stuff them away.</target>
+        </trans-unit>
+        <trans-unit id="083822d5-a5c6-45a7-8783-d1e46a805fa5" xml:space="preserve">
+          <source>We will be adding more to this file as we go through the Walkthrough.</source>
+          <target state="new">We will be adding more to this file as we go through the Walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="e8acee28-5b7f-42f6-a9af-970b14da2837" xml:space="preserve">
+          <source><bpt id="23f8e5bb-a51b-41f2-ba52-e4ad6e96cba6">&lt;strong&gt;</bpt>*NOTE:*<ept id="23f8e5bb-a51b-41f2-ba52-e4ad6e96cba6">&lt;/strong&gt;</ept> You'll notice that this metadata.js file parses XML for SAML and WS-Fed as well as JSON for OpenID Connect.</source>
+          <target state="new"><bpt id="23f8e5bb-a51b-41f2-ba52-e4ad6e96cba6">&lt;strong&gt;</bpt>*NOTE:*<ept id="23f8e5bb-a51b-41f2-ba52-e4ad6e96cba6">&lt;/strong&gt;</ept> You'll notice that this metadata.js file parses XML for SAML and WS-Fed as well as JSON for OpenID Connect.</target>
+        </trans-unit>
+        <trans-unit id="13896c7b-fa8b-439f-bdf3-a446fe7f0f27" xml:space="preserve">
+          <source>That is by design as you'll use this file in our other samples as well.</source>
+          <target state="new">That is by design as you'll use this file in our other samples as well.</target>
+        </trans-unit>
+        <trans-unit id="237c0839-ef22-4094-b43b-4eb9352a71db" xml:space="preserve">
+          <source>You can safely ignore it now.</source>
+          <target state="new">You can safely ignore it now.</target>
+        </trans-unit>
+        <trans-unit id="e931214f-b2b9-41cd-9141-ab8e9abcd43a" xml:space="preserve">
+          <source>From the command-line, change directories to the <bpt id="c3d99b9d-9ab8-4fcb-878c-2f21f55e3846">&lt;strong&gt;</bpt>azuread<ept id="c3d99b9d-9ab8-4fcb-878c-2f21f55e3846">&lt;/strong&gt;</ept> folder if not already there:</source>
+          <target state="new">From the command-line, change directories to the <bpt id="c3d99b9d-9ab8-4fcb-878c-2f21f55e3846">&lt;strong&gt;</bpt>azuread<ept id="c3d99b9d-9ab8-4fcb-878c-2f21f55e3846">&lt;/strong&gt;</ept> folder if not already there:</target>
+        </trans-unit>
+        <trans-unit id="6072d7e8-5f66-45b9-8f1b-d9608a6a8a7b" xml:space="preserve">
+          <source><bpt id="86c38c23-7f5b-44a5-9a06-8b591d8049f7">&lt;code&gt;</bpt>cd azuread<ept id="86c38c23-7f5b-44a5-9a06-8b591d8049f7">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="86c38c23-7f5b-44a5-9a06-8b591d8049f7">&lt;code&gt;</bpt>cd azuread<ept id="86c38c23-7f5b-44a5-9a06-8b591d8049f7">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2125c584-6cfa-4d9a-ba4f-1aa1fe9a60cd" xml:space="preserve">
+          <source>Create a <bpt id="fc16cebd-871b-487b-abba-4869e941a56f">&lt;code&gt;</bpt>metadata.js<ept id="fc16cebd-871b-487b-abba-4869e941a56f">&lt;/code&gt;</ept> file in our favorite editor and add the following information:</source>
+          <target state="new">Create a <bpt id="fc16cebd-871b-487b-abba-4869e941a56f">&lt;code&gt;</bpt>metadata.js<ept id="fc16cebd-871b-487b-abba-4869e941a56f">&lt;/code&gt;</ept> file in our favorite editor and add the following information:</target>
+        </trans-unit>
+        <trans-unit id="9625c86c-89c8-4ed5-aced-c3cdb3f070fe" xml:space="preserve">
+          <source>As you can see from the code, it simply takes the openid URL you passed in <bpt id="b8246791-351d-499e-905d-7c6b85d4b293">&lt;code&gt;</bpt>config.js<ept id="b8246791-351d-499e-905d-7c6b85d4b293">&lt;/code&gt;</ept> and then parses it for information which we will use in the <bpt id="e85d5c25-df84-4844-a828-e909313f06a8">&lt;code&gt;</bpt>server.js<ept id="e85d5c25-df84-4844-a828-e909313f06a8">&lt;/code&gt;</ept> file.</source>
+          <target state="new">As you can see from the code, it simply takes the openid URL you passed in <bpt id="b8246791-351d-499e-905d-7c6b85d4b293">&lt;code&gt;</bpt>config.js<ept id="b8246791-351d-499e-905d-7c6b85d4b293">&lt;/code&gt;</ept> and then parses it for information which we will use in the <bpt id="e85d5c25-df84-4844-a828-e909313f06a8">&lt;code&gt;</bpt>server.js<ept id="e85d5c25-df84-4844-a828-e909313f06a8">&lt;/code&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="4068cae7-27eb-404e-8ed0-7a3d16c834b4" xml:space="preserve">
+          <source>You are more than welcome to investigate this code and expand it if needed.</source>
+          <target state="new">You are more than welcome to investigate this code and expand it if needed.</target>
+        </trans-unit>
+        <trans-unit id="1f30b80f-1994-4da0-b4ab-54392b83fe47" xml:space="preserve">
+          <source>We need to tell our server where to get the methods you jus wrote.</source>
+          <target state="new">We need to tell our server where to get the methods you jus wrote.</target>
+        </trans-unit>
+        <trans-unit id="ff192f6f-f556-405e-a516-2ce1f3c83c97" xml:space="preserve">
+          <source>From the command-line, change directories to the <bpt id="1656381d-dd05-43c3-8dd0-272cf143fdcb">&lt;strong&gt;</bpt>azuread<ept id="1656381d-dd05-43c3-8dd0-272cf143fdcb">&lt;/strong&gt;</ept> folder if not already there:</source>
+          <target state="new">From the command-line, change directories to the <bpt id="1656381d-dd05-43c3-8dd0-272cf143fdcb">&lt;strong&gt;</bpt>azuread<ept id="1656381d-dd05-43c3-8dd0-272cf143fdcb">&lt;/strong&gt;</ept> folder if not already there:</target>
+        </trans-unit>
+        <trans-unit id="25c97355-58e9-4039-a6de-da5a202e7a37" xml:space="preserve">
+          <source><bpt id="029b8635-c043-4ada-92d0-4aa494de7cf9">&lt;code&gt;</bpt>cd azuread<ept id="029b8635-c043-4ada-92d0-4aa494de7cf9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="029b8635-c043-4ada-92d0-4aa494de7cf9">&lt;code&gt;</bpt>cd azuread<ept id="029b8635-c043-4ada-92d0-4aa494de7cf9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35822a83-431c-4fb8-a7e5-b7fddac59060" xml:space="preserve">
+          <source>Open your <bpt id="501ab418-f8a3-4c61-9986-b6751c568ffb">&lt;code&gt;</bpt>server.js<ept id="501ab418-f8a3-4c61-9986-b6751c568ffb">&lt;/code&gt;</ept> file in our favorite editor and add the following information:</source>
+          <target state="new">Open your <bpt id="501ab418-f8a3-4c61-9986-b6751c568ffb">&lt;code&gt;</bpt>server.js<ept id="501ab418-f8a3-4c61-9986-b6751c568ffb">&lt;/code&gt;</ept> file in our favorite editor and add the following information:</target>
+        </trans-unit>
+        <trans-unit id="3741b04d-7225-459a-a0a0-fba91be9fb1e" xml:space="preserve">
+          <source>Next, add to the end of the <bpt id="066a3091-ed95-4290-b4e0-5e83b50107cf">&lt;code&gt;</bpt>Configuration<ept id="066a3091-ed95-4290-b4e0-5e83b50107cf">&lt;/code&gt;</ept> section this call to send the metadata document in our <bpt id="7b2dfd5c-12fd-4646-95d7-581065668c01">&lt;code&gt;</bpt>config.js<ept id="7b2dfd5c-12fd-4646-95d7-581065668c01">&lt;/code&gt;</ept> to the parser we just wrote:</source>
+          <target state="new">Next, add to the end of the <bpt id="066a3091-ed95-4290-b4e0-5e83b50107cf">&lt;code&gt;</bpt>Configuration<ept id="066a3091-ed95-4290-b4e0-5e83b50107cf">&lt;/code&gt;</ept> section this call to send the metadata document in our <bpt id="7b2dfd5c-12fd-4646-95d7-581065668c01">&lt;code&gt;</bpt>config.js<ept id="7b2dfd5c-12fd-4646-95d7-581065668c01">&lt;/code&gt;</ept> to the parser we just wrote:</target>
+        </trans-unit>
+        <trans-unit id="95a27c63-a282-425f-9378-b28ea8aa2a12" xml:space="preserve">
+          <source>Now all this preparation is going to start paying off as we wind these three files together in to a REST API service.</source>
+          <target state="new">Now all this preparation is going to start paying off as we wind these three files together in to a REST API service.</target>
+        </trans-unit>
+        <trans-unit id="913c8be2-f8e8-4620-a674-7366ff146bc7" xml:space="preserve">
+          <source>For this walkthrough we will be using MongoDB to store our Tasks as discussed in <bpt id="58b8f90f-2639-4e37-b472-999b4d89e2a8">&lt;strong&gt;</bpt>*Step 4*<ept id="58b8f90f-2639-4e37-b472-999b4d89e2a8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For this walkthrough we will be using MongoDB to store our Tasks as discussed in <bpt id="58b8f90f-2639-4e37-b472-999b4d89e2a8">&lt;strong&gt;</bpt>*Step 4*<ept id="58b8f90f-2639-4e37-b472-999b4d89e2a8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c56a37d5-3a91-450c-a439-fab0fec6cc0f" xml:space="preserve">
+          <source>If you recall from the <bpt id="409b52b4-c8a7-47d7-9a6b-16a53b6f4ffd">&lt;code&gt;</bpt>config.js<ept id="409b52b4-c8a7-47d7-9a6b-16a53b6f4ffd">&lt;/code&gt;</ept> file we created in <bpt id="67569181-1306-40e3-a696-cccd957e4783">&lt;strong&gt;</bpt>*Step 11*<ept id="67569181-1306-40e3-a696-cccd957e4783">&lt;/strong&gt;</ept> we called our database <bpt id="124a51d2-762d-4811-9867-0e01c1a3a4d1">&lt;code&gt;</bpt>tasklist<ept id="124a51d2-762d-4811-9867-0e01c1a3a4d1">&lt;/code&gt;</ept> as that was what we put at the end of our mogoose<bpt id="2aec5e6b-9f36-4f2d-891b-3b6c01916260">&lt;em&gt;</bpt>auth<ept id="2aec5e6b-9f36-4f2d-891b-3b6c01916260">&lt;/em&gt;</ept>local connection URL.</source>
+          <target state="new">If you recall from the <bpt id="409b52b4-c8a7-47d7-9a6b-16a53b6f4ffd">&lt;code&gt;</bpt>config.js<ept id="409b52b4-c8a7-47d7-9a6b-16a53b6f4ffd">&lt;/code&gt;</ept> file we created in <bpt id="67569181-1306-40e3-a696-cccd957e4783">&lt;strong&gt;</bpt>*Step 11*<ept id="67569181-1306-40e3-a696-cccd957e4783">&lt;/strong&gt;</ept> we called our database <bpt id="124a51d2-762d-4811-9867-0e01c1a3a4d1">&lt;code&gt;</bpt>tasklist<ept id="124a51d2-762d-4811-9867-0e01c1a3a4d1">&lt;/code&gt;</ept> as that was what we put at the end of our mogoose<bpt id="2aec5e6b-9f36-4f2d-891b-3b6c01916260">&lt;em&gt;</bpt>auth<ept id="2aec5e6b-9f36-4f2d-891b-3b6c01916260">&lt;/em&gt;</ept>local connection URL.</target>
+        </trans-unit>
+        <trans-unit id="479a8646-8848-492e-9e3e-26b61d60c454" xml:space="preserve">
+          <source>You don't need to create this database beforehand in MongoDB, it will create this for us on first run of our server application (assuming it does not already exist).</source>
+          <target state="new">You don't need to create this database beforehand in MongoDB, it will create this for us on first run of our server application (assuming it does not already exist).</target>
+        </trans-unit>
+        <trans-unit id="50f1bbfb-8b7b-4835-8a6b-195674252074" xml:space="preserve">
+          <source>Now that we've told the server what MongoDB database we'd like to use, we need to write some additional code to create the model and schema for our server's Tasks.</source>
+          <target state="new">Now that we've told the server what MongoDB database we'd like to use, we need to write some additional code to create the model and schema for our server's Tasks.</target>
+        </trans-unit>
+        <trans-unit id="2308e3e2-3f4e-4b82-a578-68f8c334d84a" xml:space="preserve">
+          <source>Our Schema model is very simple, and you expand it as required.</source>
+          <target state="new">Our Schema model is very simple, and you expand it as required.</target>
+        </trans-unit>
+        <trans-unit id="23129d37-0853-4393-823a-65ade5e7445d" xml:space="preserve">
+          <source>NAME - The name of who is assigned to the task.</source>
+          <target state="new">NAME - The name of who is assigned to the task.</target>
+        </trans-unit>
+        <trans-unit id="52f0eda7-5c19-4615-84c5-330585628329" xml:space="preserve">
+          <source>A <bpt id="e04f7118-f558-4b0d-a067-edb50804e367">&lt;strong&gt;</bpt>*String*<ept id="e04f7118-f558-4b0d-a067-edb50804e367">&lt;/strong&gt;</ept></source>
+          <target state="new">A <bpt id="e04f7118-f558-4b0d-a067-edb50804e367">&lt;strong&gt;</bpt>*String*<ept id="e04f7118-f558-4b0d-a067-edb50804e367">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4a164cd-76e2-4812-98d7-4453caedeb76" xml:space="preserve">
+          <source>TASK - The task itself.</source>
+          <target state="new">TASK - The task itself.</target>
+        </trans-unit>
+        <trans-unit id="96992084-8400-4796-b4c9-4563d6a20e17" xml:space="preserve">
+          <source>A <bpt id="80c42bcb-6519-408a-86d1-e4cf4ee9004a">&lt;strong&gt;</bpt>*String*<ept id="80c42bcb-6519-408a-86d1-e4cf4ee9004a">&lt;/strong&gt;</ept></source>
+          <target state="new">A <bpt id="80c42bcb-6519-408a-86d1-e4cf4ee9004a">&lt;strong&gt;</bpt>*String*<ept id="80c42bcb-6519-408a-86d1-e4cf4ee9004a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8916a1b6-ead4-4520-9e37-7b24eeb7e887" xml:space="preserve">
+          <source>DATE - The date that the task is due.</source>
+          <target state="new">DATE - The date that the task is due.</target>
+        </trans-unit>
+        <trans-unit id="3b5a05aa-5b76-49c9-9e76-c04f8247c82e" xml:space="preserve">
+          <source>A <bpt id="46141b61-5b0b-4fed-bfe2-f64c6c74b81a">&lt;strong&gt;</bpt>*DATETIME*<ept id="46141b61-5b0b-4fed-bfe2-f64c6c74b81a">&lt;/strong&gt;</ept></source>
+          <target state="new">A <bpt id="46141b61-5b0b-4fed-bfe2-f64c6c74b81a">&lt;strong&gt;</bpt>*DATETIME*<ept id="46141b61-5b0b-4fed-bfe2-f64c6c74b81a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="503ab1b5-71a7-481e-b368-5422a7b63b70" xml:space="preserve">
+          <source>COMPLETED - If the Task is completed or not.</source>
+          <target state="new">COMPLETED - If the Task is completed or not.</target>
+        </trans-unit>
+        <trans-unit id="12218146-85db-4a80-be8f-fcb5c2959781" xml:space="preserve">
+          <source>A <bpt id="e9913fbe-48aa-4ea0-aba7-7a75a7f9b34c">&lt;strong&gt;</bpt>*BOOLEAN*<ept id="e9913fbe-48aa-4ea0-aba7-7a75a7f9b34c">&lt;/strong&gt;</ept></source>
+          <target state="new">A <bpt id="e9913fbe-48aa-4ea0-aba7-7a75a7f9b34c">&lt;strong&gt;</bpt>*BOOLEAN*<ept id="e9913fbe-48aa-4ea0-aba7-7a75a7f9b34c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="017f7845-38db-4ef4-b90f-d28ee13a81fe" xml:space="preserve">
+          <source>From the command-line, change directories to the <bpt id="febccd30-0edc-4f1a-a956-d2c7714e9fac">&lt;strong&gt;</bpt>azuread<ept id="febccd30-0edc-4f1a-a956-d2c7714e9fac">&lt;/strong&gt;</ept> folder if not already there:</source>
+          <target state="new">From the command-line, change directories to the <bpt id="febccd30-0edc-4f1a-a956-d2c7714e9fac">&lt;strong&gt;</bpt>azuread<ept id="febccd30-0edc-4f1a-a956-d2c7714e9fac">&lt;/strong&gt;</ept> folder if not already there:</target>
+        </trans-unit>
+        <trans-unit id="ff930682-ec4d-4afd-859c-d66c1180f5a2" xml:space="preserve">
+          <source><bpt id="905a8c1f-b5a5-4e47-8c9e-12f87cbbd4a5">&lt;code&gt;</bpt>cd azuread<ept id="905a8c1f-b5a5-4e47-8c9e-12f87cbbd4a5">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="905a8c1f-b5a5-4e47-8c9e-12f87cbbd4a5">&lt;code&gt;</bpt>cd azuread<ept id="905a8c1f-b5a5-4e47-8c9e-12f87cbbd4a5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1f0e6da-6af5-47cf-93b5-43dd690979d1" xml:space="preserve">
+          <source>Open your <bpt id="09cdc0b2-be1b-4c0b-9180-221d835d37b6">&lt;code&gt;</bpt>server.js<ept id="09cdc0b2-be1b-4c0b-9180-221d835d37b6">&lt;/code&gt;</ept> file in our favorite editor and add the following information below the configuration entry:</source>
+          <target state="new">Open your <bpt id="09cdc0b2-be1b-4c0b-9180-221d835d37b6">&lt;code&gt;</bpt>server.js<ept id="09cdc0b2-be1b-4c0b-9180-221d835d37b6">&lt;/code&gt;</ept> file in our favorite editor and add the following information below the configuration entry:</target>
+        </trans-unit>
+        <trans-unit id="db35bc3b-a34f-4e3b-8024-83f520914191" xml:space="preserve">
+          <source>This will connect to the MongoDB server and hand back a Schema object to us.</source>
+          <target state="new">This will connect to the MongoDB server and hand back a Schema object to us.</target>
+        </trans-unit>
+        <trans-unit id="c7045a7c-933c-4ab2-8a95-95eebbe69773" xml:space="preserve">
+          <source>Below the code you wrote above, add the following code:</source>
+          <target state="new">Below the code you wrote above, add the following code:</target>
+        </trans-unit>
+        <trans-unit id="94ea953a-8450-4629-80a1-e5ada1c45de7" xml:space="preserve">
+          <source>As you can tell from the code, we create our Schema and then create a model object we will use to store our data throughout the code when we define our <bpt id="94fa0136-b4ad-4527-9f53-5c686bb3778f">&lt;strong&gt;</bpt>*Routes*<ept id="94fa0136-b4ad-4527-9f53-5c686bb3778f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As you can tell from the code, we create our Schema and then create a model object we will use to store our data throughout the code when we define our <bpt id="94fa0136-b4ad-4527-9f53-5c686bb3778f">&lt;strong&gt;</bpt>*Routes*<ept id="94fa0136-b4ad-4527-9f53-5c686bb3778f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="262c7812-4c79-4353-9a3e-a888e4f0bd35" xml:space="preserve">
+          <source>Now that we have a database model to work with, let's add the routes we will use for our REST API server.</source>
+          <target state="new">Now that we have a database model to work with, let's add the routes we will use for our REST API server.</target>
+        </trans-unit>
+        <trans-unit id="3afa39bb-0054-4ccb-bcd2-5e2d76159c00" xml:space="preserve">
+          <source>Routes work in Restify in the exact same way they do using the Express stack.</source>
+          <target state="new">Routes work in Restify in the exact same way they do using the Express stack.</target>
+        </trans-unit>
+        <trans-unit id="86d06324-a579-4ce8-a5cc-cab26428b5f7" xml:space="preserve">
+          <source>You define routes using the URI that you expect the client applicaitons to call.</source>
+          <target state="new">You define routes using the URI that you expect the client applicaitons to call.</target>
+        </trans-unit>
+        <trans-unit id="48cc1ad4-bf89-4e72-85c1-3ade889b0ed0" xml:space="preserve">
+          <source>Usually, you define your routes in a separate file.</source>
+          <target state="new">Usually, you define your routes in a separate file.</target>
+        </trans-unit>
+        <trans-unit id="feffce4c-1525-4f37-8680-1060ac470bc0" xml:space="preserve">
+          <source>For our purposes, we will put our routes in the server.js file.</source>
+          <target state="new">For our purposes, we will put our routes in the server.js file.</target>
+        </trans-unit>
+        <trans-unit id="0ba35b30-40a4-40c1-8f11-84df7bc83dd3" xml:space="preserve">
+          <source>We recommend you factor these in to their own file for production use.</source>
+          <target state="new">We recommend you factor these in to their own file for production use.</target>
+        </trans-unit>
+        <trans-unit id="e36a070c-23de-4e38-891b-c6ffca6d4d5c" xml:space="preserve">
+          <source>A typical pattern for a Restify Route is:</source>
+          <target state="new">A typical pattern for a Restify Route is:</target>
+        </trans-unit>
+        <trans-unit id="3a98a575-c837-41f5-bf89-0ba016e136a2" xml:space="preserve">
+          <source>This is the pattern at the most basic level.</source>
+          <target state="new">This is the pattern at the most basic level.</target>
+        </trans-unit>
+        <trans-unit id="3cb56137-0607-478d-ac87-85f063f88c9b" xml:space="preserve">
+          <source>Resitfy (and Express) provide much deeper functionaltiy such as defining application types and doing complex routing across different endpoints.</source>
+          <target state="new">Resitfy (and Express) provide much deeper functionaltiy such as defining application types and doing complex routing across different endpoints.</target>
+        </trans-unit>
+        <trans-unit id="305e5de5-d4b8-464c-9068-1734a7f916f4" xml:space="preserve">
+          <source>For our purposes, we will keep these routes very simply.</source>
+          <target state="new">For our purposes, we will keep these routes very simply.</target>
+        </trans-unit>
+        <trans-unit id="b2c2c886-7aa3-418a-a844-e0f9a6c51ed8" xml:space="preserve">
+          <source>We will now add the basic CRUD routes of Create, Retrieve, Update, and Delete.</source>
+          <target state="new">We will now add the basic CRUD routes of Create, Retrieve, Update, and Delete.</target>
+        </trans-unit>
+        <trans-unit id="363b0533-cd8a-417f-995d-5702d10fcf3a" xml:space="preserve">
+          <source>From the command-line, change directories to the <bpt id="05e94c44-70a6-4c5c-879c-5a3d79929e1c">&lt;strong&gt;</bpt>azuread<ept id="05e94c44-70a6-4c5c-879c-5a3d79929e1c">&lt;/strong&gt;</ept> folder if not already there:</source>
+          <target state="new">From the command-line, change directories to the <bpt id="05e94c44-70a6-4c5c-879c-5a3d79929e1c">&lt;strong&gt;</bpt>azuread<ept id="05e94c44-70a6-4c5c-879c-5a3d79929e1c">&lt;/strong&gt;</ept> folder if not already there:</target>
+        </trans-unit>
+        <trans-unit id="299cb8ed-2009-4a7d-9aa9-3162c943f0e7" xml:space="preserve">
+          <source><bpt id="115d7b38-801c-4e38-af24-9f76d7601669">&lt;code&gt;</bpt>cd azuread<ept id="115d7b38-801c-4e38-af24-9f76d7601669">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="115d7b38-801c-4e38-af24-9f76d7601669">&lt;code&gt;</bpt>cd azuread<ept id="115d7b38-801c-4e38-af24-9f76d7601669">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5162c546-1a26-4426-b615-bb21813014ce" xml:space="preserve">
+          <source>Open your <bpt id="bb21e3d3-0c2b-4493-8632-f5c565d10c66">&lt;code&gt;</bpt>server.js<ept id="bb21e3d3-0c2b-4493-8632-f5c565d10c66">&lt;/code&gt;</ept> file in our favorite editor and add the following information below the database entries you made above:</source>
+          <target state="new">Open your <bpt id="bb21e3d3-0c2b-4493-8632-f5c565d10c66">&lt;code&gt;</bpt>server.js<ept id="bb21e3d3-0c2b-4493-8632-f5c565d10c66">&lt;/code&gt;</ept> file in our favorite editor and add the following information below the database entries you made above:</target>
+        </trans-unit>
+        <trans-unit id="a561c790-7edf-498f-877d-79f2f085e9c9" xml:space="preserve">
+          <source>It makes sense to add some error handling so we can communicate back to the client the problem we encountered in a way it can understand.</source>
+          <target state="new">It makes sense to add some error handling so we can communicate back to the client the problem we encountered in a way it can understand.</target>
+        </trans-unit>
+        <trans-unit id="3050f9fb-b42a-4825-b25a-6de41078d1f9" xml:space="preserve">
+          <source>Add the following code underneath the code you've written above:</source>
+          <target state="new">Add the following code underneath the code you've written above:</target>
+        </trans-unit>
+        <trans-unit id="1c7509e0-213a-486c-ba28-462c0b1e36ed" xml:space="preserve">
+          <source>We have our database defined, we have our routes in place, and the last thing to do is add our server instance that will manage our calls.</source>
+          <target state="new">We have our database defined, we have our routes in place, and the last thing to do is add our server instance that will manage our calls.</target>
+        </trans-unit>
+        <trans-unit id="90aa8373-1c7b-45c0-a602-c73004d5771a" xml:space="preserve">
+          <source>Restify (and Express) have a lot of deep customization you can do for a REST API server, but again we will use the most basic setup for our purposes.</source>
+          <target state="new">Restify (and Express) have a lot of deep customization you can do for a REST API server, but again we will use the most basic setup for our purposes.</target>
+        </trans-unit>
+        <trans-unit id="a5f62286-d26b-47a8-a7f3-7a98e08e03a2" xml:space="preserve">
+          <source>It's a good idea to make sure we have no mistakes before we continue on to the OAuth part of the Walkthrough.</source>
+          <target state="new">It's a good idea to make sure we have no mistakes before we continue on to the OAuth part of the Walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="f2e117c4-8f4f-4646-b3f6-51c66546a529" xml:space="preserve">
+          <source>The easiest way to do this is by using <bpt id="520a84d4-1404-46c8-9a55-6ed0878a4b70">&lt;code&gt;</bpt>curl<ept id="520a84d4-1404-46c8-9a55-6ed0878a4b70">&lt;/code&gt;</ept> in a command line.</source>
+          <target state="new">The easiest way to do this is by using <bpt id="520a84d4-1404-46c8-9a55-6ed0878a4b70">&lt;code&gt;</bpt>curl<ept id="520a84d4-1404-46c8-9a55-6ed0878a4b70">&lt;/code&gt;</ept> in a command line.</target>
+        </trans-unit>
+        <trans-unit id="5d0bf1be-9336-4738-9ed0-791b0fbcebd6" xml:space="preserve">
+          <source>Before we do that, we need a simple utility that allows us to parse output as JSON.</source>
+          <target state="new">Before we do that, we need a simple utility that allows us to parse output as JSON.</target>
+        </trans-unit>
+        <trans-unit id="881769ad-5160-4c46-8293-fcd6208b999c" xml:space="preserve">
+          <source>To do that, install the <bpt id="b47bc2c2-c9ec-4eb2-aee7-c32c8e2c30b7">&lt;linkText&gt;</bpt>json<ept id="b47bc2c2-c9ec-4eb2-aee7-c32c8e2c30b7">&lt;/linkText&gt;</ept><bpt id="b47bc2c2-c9ec-4eb2-aee7-c32c8e2c30b7">&lt;title&gt;</bpt><ept id="b47bc2c2-c9ec-4eb2-aee7-c32c8e2c30b7">&lt;/title&gt;</ept> tool as all the examples below use that.</source>
+          <target state="new">To do that, install the <bpt id="b47bc2c2-c9ec-4eb2-aee7-c32c8e2c30b7">&lt;linkText&gt;</bpt>json<ept id="b47bc2c2-c9ec-4eb2-aee7-c32c8e2c30b7">&lt;/linkText&gt;</ept><bpt id="b47bc2c2-c9ec-4eb2-aee7-c32c8e2c30b7">&lt;title&gt;</bpt><ept id="b47bc2c2-c9ec-4eb2-aee7-c32c8e2c30b7">&lt;/title&gt;</ept> tool as all the examples below use that.</target>
+        </trans-unit>
+        <trans-unit id="9f7c652d-f87e-43f0-ac16-aecd99ba50c4" xml:space="preserve">
+          <source>This installs the JSON tool globally.</source>
+          <target state="new">This installs the JSON tool globally.</target>
+        </trans-unit>
+        <trans-unit id="15c7f001-1221-4dc6-b43a-4acd716b1661" xml:space="preserve">
+          <source>Now that we've accomplished that - let's play with the server:</source>
+          <target state="new">Now that we've accomplished that - let's play with the server:</target>
+        </trans-unit>
+        <trans-unit id="e61505de-7025-4429-afb2-b51a66663583" xml:space="preserve">
+          <source>First, make sure that your monogoDB isntance is running..</source>
+          <target state="new">First, make sure that your monogoDB isntance is running..</target>
+        </trans-unit>
+        <trans-unit id="91038465-ec11-4589-91d5-b07319ac2f64" xml:space="preserve">
+          <source>Then, change to the directory and start curling..</source>
+          <target state="new">Then, change to the directory and start curling..</target>
+        </trans-unit>
+        <trans-unit id="3aabc1d6-2c57-491f-b558-792c7dab8e89" xml:space="preserve">
+          <source>Then, we can add a task this way:</source>
+          <target state="new">Then, we can add a task this way:</target>
+        </trans-unit>
+        <trans-unit id="f4938753-309b-466f-a598-c70d14e087ae" xml:space="preserve">
+          <source>The response should be:</source>
+          <target state="new">The response should be:</target>
+        </trans-unit>
+        <trans-unit id="8a198b5c-ec9d-4bdd-a6a7-d2579f7fb490" xml:space="preserve">
+          <source>And we can list tasks for Brandon this way:</source>
+          <target state="new">And we can list tasks for Brandon this way:</target>
+        </trans-unit>
+        <trans-unit id="b5c7916c-f076-4005-aa1c-f796a9cd1f4c" xml:space="preserve">
+          <source>If all this works out, we are ready to add OAuth to the REST API server.</source>
+          <target state="new">If all this works out, we are ready to add OAuth to the REST API server.</target>
+        </trans-unit>
+        <trans-unit id="8aa79afe-c6eb-449d-a6a3-8486683cb564" xml:space="preserve">
+          <source>Now that we have a running REST API (congrats, btw!)</source>
+          <target state="new">Now that we have a running REST API (congrats, btw!)</target>
+        </trans-unit>
+        <trans-unit id="f7d58f9c-99ed-4b89-9ba9-80362423ca8f" xml:space="preserve">
+          <source>let's get to making it useful against Azure AD.</source>
+          <target state="new">let's get to making it useful against Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="08e7dc31-d020-41c9-a9a0-511768e8453a" xml:space="preserve">
+          <source>From the command-line, change directories to the <bpt id="36e2c355-f95a-4108-a5fd-dc623f559661">&lt;strong&gt;</bpt>azuread<ept id="36e2c355-f95a-4108-a5fd-dc623f559661">&lt;/strong&gt;</ept> folder if not already there:</source>
+          <target state="new">From the command-line, change directories to the <bpt id="36e2c355-f95a-4108-a5fd-dc623f559661">&lt;strong&gt;</bpt>azuread<ept id="36e2c355-f95a-4108-a5fd-dc623f559661">&lt;/strong&gt;</ept> folder if not already there:</target>
+        </trans-unit>
+        <trans-unit id="2ed2a1e0-e425-44f1-bca4-535feb429b1a" xml:space="preserve">
+          <source><bpt id="178d1cd4-cd86-49f3-9de4-514e7b66844c">&lt;code&gt;</bpt>cd azuread<ept id="178d1cd4-cd86-49f3-9de4-514e7b66844c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="178d1cd4-cd86-49f3-9de4-514e7b66844c">&lt;code&gt;</bpt>cd azuread<ept id="178d1cd4-cd86-49f3-9de4-514e7b66844c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf684ce7-100b-4e1a-a02b-1da634ca8f97" xml:space="preserve">
+          <source>Open your <bpt id="d97c1cd6-daf2-4d78-9c05-7017ad4c0c6f">&lt;code&gt;</bpt>server.js<ept id="d97c1cd6-daf2-4d78-9c05-7017ad4c0c6f">&lt;/code&gt;</ept> file in our favorite editor and add the following information below where you previously stated the modules to load.</source>
+          <target state="new">Open your <bpt id="d97c1cd6-daf2-4d78-9c05-7017ad4c0c6f">&lt;code&gt;</bpt>server.js<ept id="d97c1cd6-daf2-4d78-9c05-7017ad4c0c6f">&lt;/code&gt;</ept> file in our favorite editor and add the following information below where you previously stated the modules to load.</target>
+        </trans-unit>
+        <trans-unit id="ec41191b-d3d4-4e4b-a703-3e7d4575e564" xml:space="preserve">
+          <source>This is towards the top of the file and should be right after the <bpt id="04baa5e8-1834-4564-b538-fbf924d2bcd5">&lt;code&gt;</bpt>var aadutils = require('./aadutils');<ept id="04baa5e8-1834-4564-b538-fbf924d2bcd5">&lt;/code&gt;</ept> import.</source>
+          <target state="new">This is towards the top of the file and should be right after the <bpt id="04baa5e8-1834-4564-b538-fbf924d2bcd5">&lt;code&gt;</bpt>var aadutils = require('./aadutils');<ept id="04baa5e8-1834-4564-b538-fbf924d2bcd5">&lt;/code&gt;</ept> import.</target>
+        </trans-unit>
+        <trans-unit id="79e220b3-cf05-4029-8e2b-6fe6f6a55b83" xml:space="preserve">
+          <source>Open your <bpt id="9bf10831-0ae6-4682-99cf-2cae70819073">&lt;code&gt;</bpt>server.js<ept id="9bf10831-0ae6-4682-99cf-2cae70819073">&lt;/code&gt;</ept> file in our favorite editor and add the following information <bpt id="8fce2162-361a-49e6-8667-66e1d497a8f9">&lt;strong&gt;</bpt>below the server.get()<ept id="8fce2162-361a-49e6-8667-66e1d497a8f9">&lt;/strong&gt;</ept> where you defined your Routes but above the <bpt id="b2c006af-66bf-4cdb-8850-734dac4902a9">&lt;strong&gt;</bpt>server.listen()<ept id="b2c006af-66bf-4cdb-8850-734dac4902a9">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">Open your <bpt id="9bf10831-0ae6-4682-99cf-2cae70819073">&lt;code&gt;</bpt>server.js<ept id="9bf10831-0ae6-4682-99cf-2cae70819073">&lt;/code&gt;</ept> file in our favorite editor and add the following information <bpt id="8fce2162-361a-49e6-8667-66e1d497a8f9">&lt;strong&gt;</bpt>below the server.get()<ept id="8fce2162-361a-49e6-8667-66e1d497a8f9">&lt;/strong&gt;</ept> where you defined your Routes but above the <bpt id="b2c006af-66bf-4cdb-8850-734dac4902a9">&lt;strong&gt;</bpt>server.listen()<ept id="b2c006af-66bf-4cdb-8850-734dac4902a9">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="241af0a3-f776-44ea-a9ff-5cced2edd03f" xml:space="preserve">
+          <source>We need to tell Restify to begin using its <bpt id="edac9580-aee7-44b3-8160-7536c85be408">&lt;code&gt;</bpt>authorizationParser()<ept id="edac9580-aee7-44b3-8160-7536c85be408">&lt;/code&gt;</ept> and look at the contents of the Authorization header.</source>
+          <target state="new">We need to tell Restify to begin using its <bpt id="edac9580-aee7-44b3-8160-7536c85be408">&lt;code&gt;</bpt>authorizationParser()<ept id="edac9580-aee7-44b3-8160-7536c85be408">&lt;/code&gt;</ept> and look at the contents of the Authorization header.</target>
+        </trans-unit>
+        <trans-unit id="77af5349-46c4-4829-a676-6c68f42ed8d1" xml:space="preserve">
+          <source>Here we use the specific OAuth2 parameters we added to the config.js file.</source>
+          <target state="new">Here we use the specific OAuth2 parameters we added to the config.js file.</target>
+        </trans-unit>
+        <trans-unit id="65d40f81-a50c-45eb-8f8e-0676b9749bfd" xml:space="preserve">
+          <source>If our <bpt id="e5f3de0d-acd6-46c0-bb44-3a638f1ce651">&lt;code&gt;</bpt>aadutils.js<ept id="e5f3de0d-acd6-46c0-bb44-3a638f1ce651">&lt;/code&gt;</ept> file did its job parsing our Federation Metadata document, all these values should be populated for us even if they are blank in the config.js file.</source>
+          <target state="new">If our <bpt id="e5f3de0d-acd6-46c0-bb44-3a638f1ce651">&lt;code&gt;</bpt>aadutils.js<ept id="e5f3de0d-acd6-46c0-bb44-3a638f1ce651">&lt;/code&gt;</ept> file did its job parsing our Federation Metadata document, all these values should be populated for us even if they are blank in the config.js file.</target>
+        </trans-unit>
+        <trans-unit id="13b6344a-b431-4d09-850c-0c16f4076443" xml:space="preserve">
+          <source>You protect endpoints by specifying the passport.authenticate() call with the protocol you wish to use.</source>
+          <target state="new">You protect endpoints by specifying the passport.authenticate() call with the protocol you wish to use.</target>
+        </trans-unit>
+        <trans-unit id="bfc39571-92ee-4e80-89a6-16d288e2e0b3" xml:space="preserve">
+          <source>Let's edit our route in our server code to do something more interesting:</source>
+          <target state="new">Let's edit our route in our server code to do something more interesting:</target>
+        </trans-unit>
+        <trans-unit id="7713660c-5ca8-406c-99b6-ca990d1e7eae" xml:space="preserve">
+          <source>Let's use <bpt id="c1e6a041-d07f-4213-b673-64d3429ecf5f">&lt;code&gt;</bpt>curl<ept id="c1e6a041-d07f-4213-b673-64d3429ecf5f">&lt;/code&gt;</ept> again to see if we now have OAuth2 protection against our endpoints.</source>
+          <target state="new">Let's use <bpt id="c1e6a041-d07f-4213-b673-64d3429ecf5f">&lt;code&gt;</bpt>curl<ept id="c1e6a041-d07f-4213-b673-64d3429ecf5f">&lt;/code&gt;</ept> again to see if we now have OAuth2 protection against our endpoints.</target>
+        </trans-unit>
+        <trans-unit id="12f0f5fd-82c7-4ab6-bb35-a68444f19784" xml:space="preserve">
+          <source>We will do this before runnning any of our client SDKs against this endpoint.</source>
+          <target state="new">We will do this before runnning any of our client SDKs against this endpoint.</target>
+        </trans-unit>
+        <trans-unit id="a8caf76b-8f93-4002-aff5-0e25565e9b1a" xml:space="preserve">
+          <source>The headers returned should be enough to tell us we are down the right path.</source>
+          <target state="new">The headers returned should be enough to tell us we are down the right path.</target>
+        </trans-unit>
+        <trans-unit id="50b7645b-bbf9-42bf-8754-866e8ea3e984" xml:space="preserve">
+          <source>First, make sure that your monogoDB isntance is running..</source>
+          <target state="new">First, make sure that your monogoDB isntance is running..</target>
+        </trans-unit>
+        <trans-unit id="63fa15ea-5a16-4477-a652-c6751fd0272b" xml:space="preserve">
+          <source>Then, change to the directory and start curling..</source>
+          <target state="new">Then, change to the directory and start curling..</target>
+        </trans-unit>
+        <trans-unit id="c23ebb54-7df7-4a3f-91f7-08af4095e645" xml:space="preserve">
+          <source>Try a basic GET:</source>
+          <target state="new">Try a basic GET:</target>
+        </trans-unit>
+        <trans-unit id="bb24e449-c2ca-4f58-94e6-5a0cbd6a2117" xml:space="preserve">
+          <source>A 302 is the response you are looking for here, as that indicates that the Passport layer is trying to redirect to the authorize endpoint, which is exactly what you want.</source>
+          <target state="new">A 302 is the response you are looking for here, as that indicates that the Passport layer is trying to redirect to the authorize endpoint, which is exactly what you want.</target>
+        </trans-unit>
+        <trans-unit id="43892e20-f514-43b1-8f21-964340852563" xml:space="preserve">
+          <source>You've went as far as you can with this server without using an OAuth2 compatible client.</source>
+          <target state="new">You've went as far as you can with this server without using an OAuth2 compatible client.</target>
+        </trans-unit>
+        <trans-unit id="ea6d532a-9c19-4e66-a033-40d29ab1036e" xml:space="preserve">
+          <source>You will need to go through an additional walkthrough.</source>
+          <target state="new">You will need to go through an additional walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="61f737cd-9d3d-4158-b0bc-dde839ffe71a" xml:space="preserve">
+          <source>If you were just looking for information on how to implement a REST API using Restify and OAuth2, you have more than enough code to keep developing your service and learning how to build on this example.</source>
+          <target state="new">If you were just looking for information on how to implement a REST API using Restify and OAuth2, you have more than enough code to keep developing your service and learning how to build on this example.</target>
+        </trans-unit>
+        <trans-unit id="cfc80b3d-6558-4b2d-b176-5bcfa44b7dcb" xml:space="preserve">
+          <source>If you are interested in the next steps in your ADAL journey, here are some supported ADAL clients we recommend for you to keep working:</source>
+          <target state="new">If you are interested in the next steps in your ADAL journey, here are some supported ADAL clients we recommend for you to keep working:</target>
+        </trans-unit>
+        <trans-unit id="47c09b71-e3aa-4fa0-9467-6d693b445790" xml:space="preserve">
+          <source>Simply clone down to your developer machine and configure as stated in the Walkthrough.</source>
+          <target state="new">Simply clone down to your developer machine and configure as stated in the Walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="6db305f1-c9aa-4667-8ca9-046832e4daaa" xml:space="preserve">
+          <source><bpt id="4bd8665d-7eb7-4c14-8b8c-51938e37b097">&lt;linkText&gt;</bpt>ADAL for iOS<ept id="4bd8665d-7eb7-4c14-8b8c-51938e37b097">&lt;/linkText&gt;</ept><bpt id="4bd8665d-7eb7-4c14-8b8c-51938e37b097">&lt;title&gt;</bpt><ept id="4bd8665d-7eb7-4c14-8b8c-51938e37b097">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4bd8665d-7eb7-4c14-8b8c-51938e37b097">&lt;linkText&gt;</bpt>ADAL for iOS<ept id="4bd8665d-7eb7-4c14-8b8c-51938e37b097">&lt;/linkText&gt;</ept><bpt id="4bd8665d-7eb7-4c14-8b8c-51938e37b097">&lt;title&gt;</bpt><ept id="4bd8665d-7eb7-4c14-8b8c-51938e37b097">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf49280a-df38-49e5-9ddb-dcd88578f44b" xml:space="preserve">
+          <source><bpt id="1fc139af-6b3b-4e20-96d6-412d8cbc34f9">&lt;linkText&gt;</bpt>ADAL for Android<ept id="1fc139af-6b3b-4e20-96d6-412d8cbc34f9">&lt;/linkText&gt;</ept><bpt id="1fc139af-6b3b-4e20-96d6-412d8cbc34f9">&lt;title&gt;</bpt><ept id="1fc139af-6b3b-4e20-96d6-412d8cbc34f9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1fc139af-6b3b-4e20-96d6-412d8cbc34f9">&lt;linkText&gt;</bpt>ADAL for Android<ept id="1fc139af-6b3b-4e20-96d6-412d8cbc34f9">&lt;/linkText&gt;</ept><bpt id="1fc139af-6b3b-4e20-96d6-412d8cbc34f9">&lt;title&gt;</bpt><ept id="1fc139af-6b3b-4e20-96d6-412d8cbc34f9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7960e5c-450a-4630-a3ae-499d2133b5bd" xml:space="preserve">
+          <source><bpt id="de8a2151-73e9-4c9d-992b-7a43f0ba3603">&lt;linkText&gt;</bpt>ADAL for .Net<ept id="de8a2151-73e9-4c9d-992b-7a43f0ba3603">&lt;/linkText&gt;</ept><bpt id="de8a2151-73e9-4c9d-992b-7a43f0ba3603">&lt;title&gt;</bpt><ept id="de8a2151-73e9-4c9d-992b-7a43f0ba3603">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="de8a2151-73e9-4c9d-992b-7a43f0ba3603">&lt;linkText&gt;</bpt>ADAL for .Net<ept id="de8a2151-73e9-4c9d-992b-7a43f0ba3603">&lt;/linkText&gt;</ept><bpt id="de8a2151-73e9-4c9d-992b-7a43f0ba3603">&lt;title&gt;</bpt><ept id="de8a2151-73e9-4c9d-992b-7a43f0ba3603">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c928d744-4746-413a-ae93-3866a268f469" xml:space="preserve">
+          <source><bpt id="2ebe5060-1c0e-4f3f-a32f-dcb4abbfe2c7">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="2ebe5060-1c0e-4f3f-a32f-dcb4abbfe2c7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2ebe5060-1c0e-4f3f-a32f-dcb4abbfe2c7">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="2ebe5060-1c0e-4f3f-a32f-dcb4abbfe2c7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

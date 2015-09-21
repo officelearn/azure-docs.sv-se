@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e61d247c-ef24-497b-bd82-d45f1d15e219" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e61d247c-ef24-497b-bd82-d45f1d15e219" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="149f62fc-52ca-47c5-aaad-f0144593dadc">
+        <trans-unit id="e79682bb-b391-4ac9-98f7-e0a49024bd96" xml:space="preserve">
+          <source>The storage emulator supports a single fixed account and a well-known authentication key for Shared Key authentication.</source>
+          <target state="new">The storage emulator supports a single fixed account and a well-known authentication key for Shared Key authentication.</target>
+        </trans-unit>
+        <trans-unit id="7657e1c9-892d-4c72-9ac5-1aafd3341358" xml:space="preserve">
+          <source>This account and key are the only Shared Key credentials permitted for use with the storage emulator.</source>
+          <target state="new">This account and key are the only Shared Key credentials permitted for use with the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="fb714e2c-2f56-4e66-9bd1-4c8bde99238a" xml:space="preserve">
+          <source>They are:</source>
+          <target state="new">They are:</target>
+        </trans-unit>
+        <trans-unit id="35a94170-d233-4a20-9f05-183fbc4e1432" xml:space="preserve">
+          <source>The authentication key supported by the storage emulator is intended only for testing the functionality of your client authentication code.</source>
+          <target state="new">The authentication key supported by the storage emulator is intended only for testing the functionality of your client authentication code.</target>
+        </trans-unit>
+        <trans-unit id="a3d43369-3d21-4c24-a3d8-9e3442755c76" xml:space="preserve">
+          <source>It does not serve any security purpose.</source>
+          <target state="new">It does not serve any security purpose.</target>
+        </trans-unit>
+        <trans-unit id="f39044b9-3e2b-4774-aba3-bb36099b9e54" xml:space="preserve">
+          <source>You cannot use your production storage account and key with the storage emulator.</source>
+          <target state="new">You cannot use your production storage account and key with the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="37444f23-15db-4c84-b17a-714974d567b0" xml:space="preserve">
+          <source>Also note that you should not use the development account with production data.</source>
+          <target state="new">Also note that you should not use the development account with production data.</target>
+        </trans-unit>
+        <trans-unit id="6e60c733-b36c-4637-afdc-1dbf6e59ffda" xml:space="preserve">
+          <source>Note that the storage emulator supports connection via HTTP only.</source>
+          <target state="new">Note that the storage emulator supports connection via HTTP only.</target>
+        </trans-unit>
+        <trans-unit id="88d07214-c214-4df8-adfa-91f38801d17d" xml:space="preserve">
+          <source>However, HTTPS is the recommended protocol for accessing resources in an Azure production storage account.</source>
+          <target state="new">However, HTTPS is the recommended protocol for accessing resources in an Azure production storage account.</target>
+        </trans-unit>
+        <trans-unit id="846bb747-71c3-4b0b-a2fa-b5c493dd2a5c" xml:space="preserve">
+          <source>The easiest way to connect to the storage emulator from your application is to configure a connection string from within your application's configuration file that references the shortcut <bpt id="f94c268a-c953-427c-92e2-9ef7f1b6ef5c">&lt;code&gt;</bpt>UseDevelopmentStorage=true<ept id="f94c268a-c953-427c-92e2-9ef7f1b6ef5c">&lt;/code&gt;</ept>.</source>
+          <target state="new">The easiest way to connect to the storage emulator from your application is to configure a connection string from within your application's configuration file that references the shortcut <bpt id="f94c268a-c953-427c-92e2-9ef7f1b6ef5c">&lt;code&gt;</bpt>UseDevelopmentStorage=true<ept id="f94c268a-c953-427c-92e2-9ef7f1b6ef5c">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c324317c-2c3e-41a2-bcae-3e7c523f64a8" xml:space="preserve">
+          <source>Here's an example of a connection string to the storage emulator in an app.config file:</source>
+          <target state="new">Here's an example of a connection string to the storage emulator in an app.config file:</target>
+        </trans-unit>
+        <trans-unit id="86d8e1a6-53c8-4484-bb85-0f88081c8cf9" xml:space="preserve">
+          <source>To create a connection string that references the emulator account name and key, note that you must specify the endpoints for each of the services that you wish to use from the emulator in the connection string.</source>
+          <target state="new">To create a connection string that references the emulator account name and key, note that you must specify the endpoints for each of the services that you wish to use from the emulator in the connection string.</target>
+        </trans-unit>
+        <trans-unit id="22d80ba5-8052-46cb-8dfd-23db19f526e7" xml:space="preserve">
+          <source>This is necessary so that the connection string will reference the emulator endpoints, which are different than those for a production storage account.</source>
+          <target state="new">This is necessary so that the connection string will reference the emulator endpoints, which are different than those for a production storage account.</target>
+        </trans-unit>
+        <trans-unit id="6bc57ef2-6f28-4dd4-99ba-b17d38dafb7d" xml:space="preserve">
+          <source>For example, the value of your connection string will look like this:</source>
+          <target state="new">For example, the value of your connection string will look like this:</target>
+        </trans-unit>
+        <trans-unit id="d09276af-79a9-4872-a237-d96b6fd1f913" xml:space="preserve">
+          <source>This value is identical to the shortcut shown above, <bpt id="3ebfeaea-94b7-4c45-af33-e59d6b065873">&lt;code&gt;</bpt>UseDevelopmentStorage=true<ept id="3ebfeaea-94b7-4c45-af33-e59d6b065873">&lt;/code&gt;</ept>.</source>
+          <target state="new">This value is identical to the shortcut shown above, <bpt id="3ebfeaea-94b7-4c45-af33-e59d6b065873">&lt;code&gt;</bpt>UseDevelopmentStorage=true<ept id="3ebfeaea-94b7-4c45-af33-e59d6b065873">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5f6c784-1029-4998-b4ee-c0aa3ffcb7b1" xml:space="preserve">
+          <source>You can also specify an HTTP proxy to use when you're testing your service against the storage emulator.</source>
+          <target state="new">You can also specify an HTTP proxy to use when you're testing your service against the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="49382df0-da7f-4195-a84f-54c399a4a18c" xml:space="preserve">
+          <source>This can be useful for observing HTTP requests and responses while you're debugging operations against the storage services.</source>
+          <target state="new">This can be useful for observing HTTP requests and responses while you're debugging operations against the storage services.</target>
+        </trans-unit>
+        <trans-unit id="96dee800-b5ea-47c0-b6db-f104ba9c0f93" xml:space="preserve">
+          <source>To specify a proxy, add the <bpt id="8a1bf0f3-e736-40d2-bd1b-539139f95d49">&lt;code&gt;</bpt>DevelopmentStorageProxyUri<ept id="8a1bf0f3-e736-40d2-bd1b-539139f95d49">&lt;/code&gt;</ept> option to the connection string, and set its value to the proxy URI.</source>
+          <target state="new">To specify a proxy, add the <bpt id="8a1bf0f3-e736-40d2-bd1b-539139f95d49">&lt;code&gt;</bpt>DevelopmentStorageProxyUri<ept id="8a1bf0f3-e736-40d2-bd1b-539139f95d49">&lt;/code&gt;</ept> option to the connection string, and set its value to the proxy URI.</target>
+        </trans-unit>
+        <trans-unit id="39ae502e-4ca8-4882-8aef-8aad2bd429f9" xml:space="preserve">
+          <source>For example, here is a connection string that points to the storage emulator and configures an HTTP proxy:</source>
+          <target state="new">For example, here is a connection string that points to the storage emulator and configures an HTTP proxy:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

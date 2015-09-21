@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4f1db8ee-b32b-4e56-8dfc-369cc9a09e6d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4f1db8ee-b32b-4e56-8dfc-369cc9a09e6d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="41b187f9-6003-496b-8186-fdff8b5726ed">
+        <trans-unit id="75ea59e6-c8aa-4d5e-9e26-bffc1ddbc45d" xml:space="preserve">
+          <source>Azure Mobile Engagement Troubleshooting Guide - SDK</source>
+          <target state="new">Azure Mobile Engagement Troubleshooting Guide - SDK</target>
+        </trans-unit>
+        <trans-unit id="43d64a76-f5fc-4408-a7a9-ec0f5d8b62f6" xml:space="preserve">
+          <source>Troubleshooting SDK integration issues in Azure Mobile Engagement</source>
+          <target state="new">Troubleshooting SDK integration issues in Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="68931276-88b5-434d-8db6-f695493c24b6" xml:space="preserve">
+          <source>The following are possible issues you may encounter with how Azure Mobile Engagement integrates into your application.</source>
+          <target state="new">The following are possible issues you may encounter with how Azure Mobile Engagement integrates into your application.</target>
+        </trans-unit>
+        <trans-unit id="d1595f09-a9d8-4a4d-a246-fa43ed8d5531" xml:space="preserve">
+          <source>UI data collection failure (in Analytics, Monitoring, Segmentation, or Dashboards).</source>
+          <target state="new">UI data collection failure (in Analytics, Monitoring, Segmentation, or Dashboards).</target>
+        </trans-unit>
+        <trans-unit id="b95df807-8c85-4ae8-8f40-85fdde58c3d5" xml:space="preserve">
+          <source>Push Failures (Pushes don't work in app, out of app, or both).</source>
+          <target state="new">Push Failures (Pushes don't work in app, out of app, or both).</target>
+        </trans-unit>
+        <trans-unit id="ee86343d-d36d-4ee1-b100-b0cd123964ba" xml:space="preserve">
+          <source>Advanced Feature Failures (Tracking, Geolocation, or platform specific Pushes don’t work).</source>
+          <target state="new">Advanced Feature Failures (Tracking, Geolocation, or platform specific Pushes don’t work).</target>
+        </trans-unit>
+        <trans-unit id="269a847f-6561-4737-bb7e-a72e50106896" xml:space="preserve">
+          <source>API Failures (APIs fail often silently without error messages).</source>
+          <target state="new">API Failures (APIs fail often silently without error messages).</target>
+        </trans-unit>
+        <trans-unit id="bd4d8f5b-2d13-409d-8d1b-7dbde5b73023" xml:space="preserve">
+          <source>Service Failures (none of Azure Mobile Engagement works for your application).</source>
+          <target state="new">Service Failures (none of Azure Mobile Engagement works for your application).</target>
+        </trans-unit>
+        <trans-unit id="6765f07e-42ef-4a8e-9f5a-11c8dad97242" xml:space="preserve">
+          <source>Most issues that need to be resolved with the Azure Mobile Engagement SDK will be discovered by a failure in your application (such as a UI data collection failure, push failure, advanced feature failure, API failure, Application crashes, or apparent service outage).</source>
+          <target state="new">Most issues that need to be resolved with the Azure Mobile Engagement SDK will be discovered by a failure in your application (such as a UI data collection failure, push failure, advanced feature failure, API failure, Application crashes, or apparent service outage).</target>
+        </trans-unit>
+        <trans-unit id="294f13ae-3a3c-4b19-bc57-c0e9b1cfe97f" xml:space="preserve">
+          <source>If a particular feature of Azure Mobile Engagement has never worked in your app before, you will need to complete the integration.</source>
+          <target state="new">If a particular feature of Azure Mobile Engagement has never worked in your app before, you will need to complete the integration.</target>
+        </trans-unit>
+        <trans-unit id="cac2bd87-0197-40fe-ae27-11bd009e832a" xml:space="preserve">
+          <source>If a particular feature of Azure Mobile Engagement was working and stopped, you may need to upgrade to the last version with the Azure Mobile Engagement SDK.</source>
+          <target state="new">If a particular feature of Azure Mobile Engagement was working and stopped, you may need to upgrade to the last version with the Azure Mobile Engagement SDK.</target>
+        </trans-unit>
+        <trans-unit id="1dd95089-c1fd-4d3c-9375-4f12138a0819" xml:space="preserve">
+          <source>Remember that there is a different version of the Azure Mobile Engagement SDK for each platform supported by Azure Mobile Engagement (Android, iOS, Windows, and Windows Phone).</source>
+          <target state="new">Remember that there is a different version of the Azure Mobile Engagement SDK for each platform supported by Azure Mobile Engagement (Android, iOS, Windows, and Windows Phone).</target>
+        </trans-unit>
+        <trans-unit id="1f7cfa8f-e495-41ae-bd28-cd00c7aa3ade" xml:space="preserve">
+          <source>Azure Mobile Engagement not correctly integrated in SDK (Analytics).</source>
+          <target state="new">Azure Mobile Engagement not correctly integrated in SDK (Analytics).</target>
+        </trans-unit>
+        <trans-unit id="aba84b9e-1bc9-428f-8af6-29c9ff2545b5" xml:space="preserve">
+          <source>Reach not correctly integrated in SDK (In App and Out of App Pushes).</source>
+          <target state="new">Reach not correctly integrated in SDK (In App and Out of App Pushes).</target>
+        </trans-unit>
+        <trans-unit id="5eca8aef-4b6b-496b-8f25-6dfae4c924eb" xml:space="preserve">
+          <source>Certificate expired or incorrect PROD vs. DEV (iOS only).</source>
+          <target state="new">Certificate expired or incorrect PROD vs. DEV (iOS only).</target>
+        </trans-unit>
+        <trans-unit id="81315503-d153-45c2-bef0-9cc571cdea5f" xml:space="preserve">
+          <source>GCM or ADM not correctly integrated in SDK (Android only - Service Specific Pushes).</source>
+          <target state="new">GCM or ADM not correctly integrated in SDK (Android only - Service Specific Pushes).</target>
+        </trans-unit>
+        <trans-unit id="07b15c17-f37f-4a3a-afb2-74c7ae627e39" xml:space="preserve">
+          <source>Tracking not correctly integrated in SDK (Install store tracking).</source>
+          <target state="new">Tracking not correctly integrated in SDK (Install store tracking).</target>
+        </trans-unit>
+        <trans-unit id="9ee696b4-9c02-4e7a-90f2-ef07e61c468e" xml:space="preserve">
+          <source>Lazy Location or GPS Location not correctly integrated in SDK (Targeting by geo-location).</source>
+          <target state="new">Lazy Location or GPS Location not correctly integrated in SDK (Targeting by geo-location).</target>
+        </trans-unit>
+        <trans-unit id="3fe236bf-d271-4eec-9c23-75d4a5e4799e" xml:space="preserve">
+          <source><bpt id="a869d8b4-28f9-455b-9d12-8c535f3b932e">&lt;strong&gt;</bpt>See also:<ept id="a869d8b4-28f9-455b-9d12-8c535f3b932e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a869d8b4-28f9-455b-9d12-8c535f3b932e">&lt;strong&gt;</bpt>See also:<ept id="a869d8b4-28f9-455b-9d12-8c535f3b932e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="328ab8ba-8352-421c-8edc-627d2bfe288d" xml:space="preserve">
+          <source><bpt id="d55d73e6-b20e-43e1-b826-90300a53d591">&lt;linkText&gt;</bpt>SDK Documentation - Integration Guides[link 5]<ept id="d55d73e6-b20e-43e1-b826-90300a53d591">&lt;/linkText&gt;</ept><bpt id="d55d73e6-b20e-43e1-b826-90300a53d591">&lt;title&gt;</bpt><ept id="d55d73e6-b20e-43e1-b826-90300a53d591">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="d55d73e6-b20e-43e1-b826-90300a53d591">&lt;linkText&gt;</bpt>SDK Documentation - Integration Guides[link 5]<ept id="d55d73e6-b20e-43e1-b826-90300a53d591">&lt;/linkText&gt;</ept><bpt id="d55d73e6-b20e-43e1-b826-90300a53d591">&lt;title&gt;</bpt><ept id="d55d73e6-b20e-43e1-b826-90300a53d591">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="fc9d8d6d-0714-40db-a58d-4664c4a2b0f0" xml:space="preserve">
+          <source><bpt id="26879b9c-c712-40c4-afc7-725c5cb65c1a">&lt;linkText&gt;</bpt>Troubleshooting Guide - Push[link 23]<ept id="26879b9c-c712-40c4-afc7-725c5cb65c1a">&lt;/linkText&gt;</ept><bpt id="26879b9c-c712-40c4-afc7-725c5cb65c1a">&lt;title&gt;</bpt><ept id="26879b9c-c712-40c4-afc7-725c5cb65c1a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="26879b9c-c712-40c4-afc7-725c5cb65c1a">&lt;linkText&gt;</bpt>Troubleshooting Guide - Push[link 23]<ept id="26879b9c-c712-40c4-afc7-725c5cb65c1a">&lt;/linkText&gt;</ept><bpt id="26879b9c-c712-40c4-afc7-725c5cb65c1a">&lt;title&gt;</bpt><ept id="26879b9c-c712-40c4-afc7-725c5cb65c1a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5416b29-4e9d-4b6c-a618-cf030be351fc" xml:space="preserve">
+          <source>Need to upgrade SDK to resolve issues with older versions of the SDK (often related to newer versions of the device OS).</source>
+          <target state="new">Need to upgrade SDK to resolve issues with older versions of the SDK (often related to newer versions of the device OS).</target>
+        </trans-unit>
+        <trans-unit id="c376e2a6-b5f4-4d9d-a8d0-56c664afcdfd" xml:space="preserve">
+          <source>Uninstall all previous versions of your app from your device and reinstall the newest version of your app, the re-register your Device ID from the Azure Mobile Engagement UI to confirm that your device is using the newest version of your app.</source>
+          <target state="new">Uninstall all previous versions of your app from your device and reinstall the newest version of your app, the re-register your Device ID from the Azure Mobile Engagement UI to confirm that your device is using the newest version of your app.</target>
+        </trans-unit>
+        <trans-unit id="c75f76d0-017d-4856-8b92-02f816737712" xml:space="preserve">
+          <source><bpt id="fc71b648-f5c4-46ab-b9f0-2ac2643946ea">&lt;strong&gt;</bpt>See also:<ept id="fc71b648-f5c4-46ab-b9f0-2ac2643946ea">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fc71b648-f5c4-46ab-b9f0-2ac2643946ea">&lt;strong&gt;</bpt>See also:<ept id="fc71b648-f5c4-46ab-b9f0-2ac2643946ea">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98503374-1976-4c8a-aee1-f96a63cfc250" xml:space="preserve">
+          <source>[SDK Documentation - Release Notes](http://go.microsoft.com/fwlink/?LinkId= 525554) </source>
+          <target state="new">[SDK Documentation - Release Notes](http://go.microsoft.com/fwlink/?LinkId= 525554) </target>
+        </trans-unit>
+        <trans-unit id="91683110-4cf1-48c7-a3c4-980bebcb33fa" xml:space="preserve">
+          <source>[SDK Documentation - Upgrade Guides](http://go.microsoft.com/fwlink/?LinkId= 525554)</source>
+          <target state="new">[SDK Documentation - Upgrade Guides](http://go.microsoft.com/fwlink/?LinkId= 525554)</target>
+        </trans-unit>
+        <trans-unit id="4a667c63-1841-48c1-b928-c006f838756f" xml:space="preserve">
+          <source>Errors in Application Manifest "AndroidManifest.xml" can cause Azure Mobile Engagement not to work (Android only).</source>
+          <target state="new">Errors in Application Manifest "AndroidManifest.xml" can cause Azure Mobile Engagement not to work (Android only).</target>
+        </trans-unit>
+        <trans-unit id="b803be7e-2a33-4801-b74a-24f3e6ea7984" xml:space="preserve">
+          <source>A common issue with SDK integration and API usage is to confuse the SDK Key and the API Key.</source>
+          <target state="new">A common issue with SDK integration and API usage is to confuse the SDK Key and the API Key.</target>
+        </trans-unit>
+        <trans-unit id="e12d57d6-df42-4fae-a71d-9687890b0206" xml:space="preserve">
+          <source><bpt id="96067d78-0c22-424d-9079-5037448a3c39">&lt;strong&gt;</bpt>See also:<ept id="96067d78-0c22-424d-9079-5037448a3c39">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="96067d78-0c22-424d-9079-5037448a3c39">&lt;strong&gt;</bpt>See also:<ept id="96067d78-0c22-424d-9079-5037448a3c39">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed6f4c54-e2ab-486d-891f-66ae13c6bcee" xml:space="preserve">
+          <source><bpt id="d6eb53ab-59a2-4df2-be6d-a9d9be7adfd8">&lt;linkText&gt;</bpt>Concepts - Glossary[link 6]<ept id="d6eb53ab-59a2-4df2-be6d-a9d9be7adfd8">&lt;/linkText&gt;</ept><bpt id="d6eb53ab-59a2-4df2-be6d-a9d9be7adfd8">&lt;title&gt;</bpt><ept id="d6eb53ab-59a2-4df2-be6d-a9d9be7adfd8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d6eb53ab-59a2-4df2-be6d-a9d9be7adfd8">&lt;linkText&gt;</bpt>Concepts - Glossary[link 6]<ept id="d6eb53ab-59a2-4df2-be6d-a9d9be7adfd8">&lt;/linkText&gt;</ept><bpt id="d6eb53ab-59a2-4df2-be6d-a9d9be7adfd8">&lt;title&gt;</bpt><ept id="d6eb53ab-59a2-4df2-be6d-a9d9be7adfd8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5edd4e9e-487a-48a0-8d93-47f8e1fd4caa" xml:space="preserve">
+          <source>Platform specific code not directly related to Azure Mobile Engagement can cause issues on iOS, Android, and Windows Phone.</source>
+          <target state="new">Platform specific code not directly related to Azure Mobile Engagement can cause issues on iOS, Android, and Windows Phone.</target>
+        </trans-unit>
+        <trans-unit id="bbf15828-f820-4204-9810-46437a93264a" xml:space="preserve">
+          <source>Many advanced coding issues with Azure Mobile Engagement are caused by improperly written platform specific code not directly related to Azure Mobile Engagement.</source>
+          <target state="new">Many advanced coding issues with Azure Mobile Engagement are caused by improperly written platform specific code not directly related to Azure Mobile Engagement.</target>
+        </trans-unit>
+        <trans-unit id="8bb5d996-bead-4013-9b96-00f4d9d6487e" xml:space="preserve">
+          <source>You will need to consult documentation specific to the platform you are developing for in addition to Azure Mobile Engagement documentation (Android, iOS, Web, Windows, and Windows Phone).</source>
+          <target state="new">You will need to consult documentation specific to the platform you are developing for in addition to Azure Mobile Engagement documentation (Android, iOS, Web, Windows, and Windows Phone).</target>
+        </trans-unit>
+        <trans-unit id="b4dac433-98f8-431d-8c7a-dafeb082a41a" xml:space="preserve">
+          <source>Not correctly configuring "categories", prevents linking from a notification to another location either inside or outside of the app (Android only).</source>
+          <target state="new">Not correctly configuring "categories", prevents linking from a notification to another location either inside or outside of the app (Android only).</target>
+        </trans-unit>
+        <trans-unit id="9029abde-e707-4b52-9a28-55fe54a32783" xml:space="preserve">
+          <source>Not setting "UIKit.framework" to "optional" in your iOS code, shows a "Symbol not found error" and/or crashes on older iOS devices (iOS only).</source>
+          <target state="new">Not setting "UIKit.framework" to "optional" in your iOS code, shows a "Symbol not found error" and/or crashes on older iOS devices (iOS only).</target>
+        </trans-unit>
+        <trans-unit id="aafdd2da-b085-48d0-996f-2ec8325c0443" xml:space="preserve">
+          <source>Expired certificates or not correctly using the DEV or Prod version of the cert, causes push issues (iOS only).</source>
+          <target state="new">Expired certificates or not correctly using the DEV or Prod version of the cert, causes push issues (iOS only).</target>
+        </trans-unit>
+        <trans-unit id="21f12b80-2758-462c-b18c-42e9c09069cf" xml:space="preserve">
+          <source>There are some limitations inherent to a platform that Azure Mobile Engagement can't control (like how the system center works for out of app pushes in Android and iOS).</source>
+          <target state="new">There are some limitations inherent to a platform that Azure Mobile Engagement can't control (like how the system center works for out of app pushes in Android and iOS).</target>
+        </trans-unit>
+        <trans-unit id="4e1b348e-6266-4aeb-8851-0c0457577b5a" xml:space="preserve">
+          <source>Azure Mobile Engagement publishes a full list of the internal packages used by Azure Mobile Engagement for iOS and Android for reference.</source>
+          <target state="new">Azure Mobile Engagement publishes a full list of the internal packages used by Azure Mobile Engagement for iOS and Android for reference.</target>
+        </trans-unit>
+        <trans-unit id="da0827cf-7c12-49df-864f-7a7b025380cd" xml:space="preserve">
+          <source>Keep in mind that some features of Azure Mobile Engagement are specific to the platform (Android, iOS, Web, Windows, and Windows Phone).</source>
+          <target state="new">Keep in mind that some features of Azure Mobile Engagement are specific to the platform (Android, iOS, Web, Windows, and Windows Phone).</target>
+        </trans-unit>
+        <trans-unit id="6bc157bb-24a0-4224-9ef5-7f411aa0fd72" xml:space="preserve">
+          <source><bpt id="b5254faf-3786-4a1b-86d0-0e783ee142ec">&lt;linkText&gt;</bpt>Troubleshooting Guide - Push[link 23]<ept id="b5254faf-3786-4a1b-86d0-0e783ee142ec">&lt;/linkText&gt;</ept><bpt id="b5254faf-3786-4a1b-86d0-0e783ee142ec">&lt;title&gt;</bpt><ept id="b5254faf-3786-4a1b-86d0-0e783ee142ec">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="b5254faf-3786-4a1b-86d0-0e783ee142ec">&lt;linkText&gt;</bpt>Troubleshooting Guide - Push[link 23]<ept id="b5254faf-3786-4a1b-86d0-0e783ee142ec">&lt;/linkText&gt;</ept><bpt id="b5254faf-3786-4a1b-86d0-0e783ee142ec">&lt;title&gt;</bpt><ept id="b5254faf-3786-4a1b-86d0-0e783ee142ec">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d6bcbb4c-ffba-4e2d-9df8-0589f040018e" xml:space="preserve">
+          <source><bpt id="060c6add-6e73-4dc0-a0f9-3eac427da549">&lt;linkText&gt;</bpt>SDK Documentation - Release Notes[link 5]<ept id="060c6add-6e73-4dc0-a0f9-3eac427da549">&lt;/linkText&gt;</ept><bpt id="060c6add-6e73-4dc0-a0f9-3eac427da549">&lt;title&gt;</bpt><ept id="060c6add-6e73-4dc0-a0f9-3eac427da549">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="060c6add-6e73-4dc0-a0f9-3eac427da549">&lt;linkText&gt;</bpt>SDK Documentation - Release Notes[link 5]<ept id="060c6add-6e73-4dc0-a0f9-3eac427da549">&lt;/linkText&gt;</ept><bpt id="060c6add-6e73-4dc0-a0f9-3eac427da549">&lt;title&gt;</bpt><ept id="060c6add-6e73-4dc0-a0f9-3eac427da549">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4257608b-93fc-40bf-b6cc-b7ab96099e7c" xml:space="preserve">
+          <source><bpt id="27240060-e042-4b89-acd1-7c494e6bc10d">&lt;linkText&gt;</bpt>SDK Documentation - Upgrade Guides[link 5]<ept id="27240060-e042-4b89-acd1-7c494e6bc10d">&lt;/linkText&gt;</ept><bpt id="27240060-e042-4b89-acd1-7c494e6bc10d">&lt;title&gt;</bpt><ept id="27240060-e042-4b89-acd1-7c494e6bc10d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="27240060-e042-4b89-acd1-7c494e6bc10d">&lt;linkText&gt;</bpt>SDK Documentation - Upgrade Guides[link 5]<ept id="27240060-e042-4b89-acd1-7c494e6bc10d">&lt;/linkText&gt;</ept><bpt id="27240060-e042-4b89-acd1-7c494e6bc10d">&lt;title&gt;</bpt><ept id="27240060-e042-4b89-acd1-7c494e6bc10d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ad86211-5a21-4c01-8d2d-13a61229fef3" xml:space="preserve">
+          <source>Your application crashes on the end users' device.</source>
+          <target state="new">Your application crashes on the end users' device.</target>
+        </trans-unit>
+        <trans-unit id="75565b5d-c865-4807-ae72-a81f9b8b0b2d" xml:space="preserve">
+          <source>Crash information can be viewed in the <bpt id="a6394ae4-7ff2-48b0-8569-5e8ab1044f62">&lt;em&gt;</bpt>Analytics UI<ept id="a6394ae4-7ff2-48b0-8569-5e8ab1044f62">&lt;/em&gt;</ept> or the <bpt id="1ac76c1d-f45b-4e10-9498-f7baac8cae04">&lt;em&gt;</bpt>Analytics API<ept id="1ac76c1d-f45b-4e10-9498-f7baac8cae04">&lt;/em&gt;</ept></source>
+          <target state="new">Crash information can be viewed in the <bpt id="a6394ae4-7ff2-48b0-8569-5e8ab1044f62">&lt;em&gt;</bpt>Analytics UI<ept id="a6394ae4-7ff2-48b0-8569-5e8ab1044f62">&lt;/em&gt;</ept> or the <bpt id="1ac76c1d-f45b-4e10-9498-f7baac8cae04">&lt;em&gt;</bpt>Analytics API<ept id="1ac76c1d-f45b-4e10-9498-f7baac8cae04">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05e4e660-3ad0-427b-91a6-650b6842a19b" xml:space="preserve">
+          <source>You can find the Device ID of your test device and take the same action that caused your application to crash for an end user to help identify the cause of your crash.</source>
+          <target state="new">You can find the Device ID of your test device and take the same action that caused your application to crash for an end user to help identify the cause of your crash.</target>
+        </trans-unit>
+        <trans-unit id="629dce55-3579-4646-8e80-3c625a5831dd" xml:space="preserve">
+          <source>Known issues with the Azure Mobile Engagement SDK that cause applications to crash are sometimes resolved by upgrading to the latest version of the SDK.</source>
+          <target state="new">Known issues with the Azure Mobile Engagement SDK that cause applications to crash are sometimes resolved by upgrading to the latest version of the SDK.</target>
+        </trans-unit>
+        <trans-unit id="633a26a5-f795-47e5-abfa-7600f3ad854a" xml:space="preserve">
+          <source>Make sure to check the release notes about your platform when investigating crashes.</source>
+          <target state="new">Make sure to check the release notes about your platform when investigating crashes.</target>
+        </trans-unit>
+        <trans-unit id="61a05bc0-20bf-41a8-afda-297dbcbd9365" xml:space="preserve">
+          <source><bpt id="fa2194ec-f16b-4a4b-82b6-c1c54b086bfb">&lt;linkText&gt;</bpt>SDK Documentation - Release Notes[link 5]<ept id="fa2194ec-f16b-4a4b-82b6-c1c54b086bfb">&lt;/linkText&gt;</ept><bpt id="fa2194ec-f16b-4a4b-82b6-c1c54b086bfb">&lt;title&gt;</bpt><ept id="fa2194ec-f16b-4a4b-82b6-c1c54b086bfb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fa2194ec-f16b-4a4b-82b6-c1c54b086bfb">&lt;linkText&gt;</bpt>SDK Documentation - Release Notes[link 5]<ept id="fa2194ec-f16b-4a4b-82b6-c1c54b086bfb">&lt;/linkText&gt;</ept><bpt id="fa2194ec-f16b-4a4b-82b6-c1c54b086bfb">&lt;title&gt;</bpt><ept id="fa2194ec-f16b-4a4b-82b6-c1c54b086bfb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afc24cfb-e102-4327-9b8a-42189618480e" xml:space="preserve">
+          <source><bpt id="cf0cd349-ff2b-4102-816e-00f592e1a58a">&lt;linkText&gt;</bpt>SDK Documentation - Upgrade Guides[link 5]<ept id="cf0cd349-ff2b-4102-816e-00f592e1a58a">&lt;/linkText&gt;</ept><bpt id="cf0cd349-ff2b-4102-816e-00f592e1a58a">&lt;title&gt;</bpt><ept id="cf0cd349-ff2b-4102-816e-00f592e1a58a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cf0cd349-ff2b-4102-816e-00f592e1a58a">&lt;linkText&gt;</bpt>SDK Documentation - Upgrade Guides[link 5]<ept id="cf0cd349-ff2b-4102-816e-00f592e1a58a">&lt;/linkText&gt;</ept><bpt id="cf0cd349-ff2b-4102-816e-00f592e1a58a">&lt;title&gt;</bpt><ept id="cf0cd349-ff2b-4102-816e-00f592e1a58a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b86285f5-20ab-4bbd-bc58-e9b193892f44" xml:space="preserve">
+          <source>Errors related to uploading the latest version of your app to Apple, Google, or the Windows App store.</source>
+          <target state="new">Errors related to uploading the latest version of your app to Apple, Google, or the Windows App store.</target>
+        </trans-unit>
+        <trans-unit id="64607941-00e5-4b5e-bdec-a78983074428" xml:space="preserve">
+          <source>App stores sometimes block apps with certain features enabled (e.g. the Apple Store prevents the use of IDFV in apps in the store and the GooglePlay store prevents the sharing of application information between apps).</source>
+          <target state="new">App stores sometimes block apps with certain features enabled (e.g. the Apple Store prevents the use of IDFV in apps in the store and the GooglePlay store prevents the sharing of application information between apps).</target>
+        </trans-unit>
+        <trans-unit id="f9e71922-2190-4ee0-92d1-586da4a0e235" xml:space="preserve">
+          <source>Make sure that you check the release notes about your platform and current version of the SDK if you have difficulty uploading an app to the store.</source>
+          <target state="new">Make sure that you check the release notes about your platform and current version of the SDK if you have difficulty uploading an app to the store.</target>
+        </trans-unit>
+        <trans-unit id="f160bba0-33a3-4cc7-a82c-5a9dee839841" xml:space="preserve">
+          <source>mobile-engagement-user-interface.md</source>
+          <target state="new">mobile-engagement-user-interface.md</target>
+        </trans-unit>
+        <trans-unit id="de781345-e9d5-4a58-ac89-7653d54dd75a" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide.md</target>
+        </trans-unit>
+        <trans-unit id="3edec63b-6940-4b67-ad34-c54563b5439f" xml:space="preserve">
+          <source>mobile-engagement-how-tos.md</source>
+          <target state="new">mobile-engagement-how-tos.md</target>
+        </trans-unit>
+        <trans-unit id="1cd1fc2a-f26d-4dbe-b1cb-2ffffa8ec6da" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525553</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525553</target>
+        </trans-unit>
+        <trans-unit id="ef77de96-9f5a-4e72-9964-1b27404a606b" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525554</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525554</target>
+        </trans-unit>
+        <trans-unit id="ceae49ec-865f-4bfc-886d-de62d456d3cb" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=525555</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=525555</target>
+        </trans-unit>
+        <trans-unit id="8291c2c1-2c28-4ba7-926d-f213e0f349e0" xml:space="preserve">
+          <source>https://account.windowsazure.com/PreviewFeatures</source>
+          <target state="new">https://account.windowsazure.com/PreviewFeatures</target>
+        </trans-unit>
+        <trans-unit id="d5617294-148d-45ca-bc11-280abc5e8de0" xml:space="preserve">
+          <source>https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement</source>
+          <target state="new">https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement</target>
+        </trans-unit>
+        <trans-unit id="b727ccc7-dfc1-4621-8a0b-b29993328892" xml:space="preserve">
+          <source>http://azure.microsoft.com/en-us/services/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/en-us/services/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="a27089a2-db84-47a5-8536-0d51e5d026a8" xml:space="preserve">
+          <source>http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="68157cf3-335b-4dad-b9ea-dcc526f13187" xml:space="preserve">
+          <source>http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="5b0ce4bf-d826-438e-8306-769adf52bc1c" xml:space="preserve">
+          <source>mobile-engagement-user-interface-navigation.md</source>
+          <target state="new">mobile-engagement-user-interface-navigation.md</target>
+        </trans-unit>
+        <trans-unit id="5bd1c225-73a5-492f-8751-88c8fdcc97c7" xml:space="preserve">
+          <source>mobile-engagement-user-interface-home.md</source>
+          <target state="new">mobile-engagement-user-interface-home.md</target>
+        </trans-unit>
+        <trans-unit id="38d6eb3d-dae9-4f9f-8972-ed663ddc5fe8" xml:space="preserve">
+          <source>mobile-engagement-user-interface-my-account.md</source>
+          <target state="new">mobile-engagement-user-interface-my-account.md</target>
+        </trans-unit>
+        <trans-unit id="7500388a-72a8-4753-b2cf-05982c7cbeef" xml:space="preserve">
+          <source>mobile-engagement-user-interface-analytics.md</source>
+          <target state="new">mobile-engagement-user-interface-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="ee6b6135-60c7-4f9b-90ca-00fe81fd5ebd" xml:space="preserve">
+          <source>mobile-engagement-user-interface-monitor.md</source>
+          <target state="new">mobile-engagement-user-interface-monitor.md</target>
+        </trans-unit>
+        <trans-unit id="e609dde6-3de0-433b-8b84-caa088a476af" xml:space="preserve">
+          <source>mobile-engagement-user-interface-reach.md</source>
+          <target state="new">mobile-engagement-user-interface-reach.md</target>
+        </trans-unit>
+        <trans-unit id="0d7d7aa0-40c6-4ea5-b15b-ad080e1ec0f3" xml:space="preserve">
+          <source>mobile-engagement-user-interface-segments.md</source>
+          <target state="new">mobile-engagement-user-interface-segments.md</target>
+        </trans-unit>
+        <trans-unit id="7659495a-8f82-48a7-8a7c-a3c2a5df02df" xml:space="preserve">
+          <source>mobile-engagement-user-interface-dashboard.md</source>
+          <target state="new">mobile-engagement-user-interface-dashboard.md</target>
+        </trans-unit>
+        <trans-unit id="114f3e53-c00b-434a-af7b-ee25098eb247" xml:space="preserve">
+          <source>mobile-engagement-user-interface-settings.md</source>
+          <target state="new">mobile-engagement-user-interface-settings.md</target>
+        </trans-unit>
+        <trans-unit id="2fcdc3ce-388d-4d18-b47e-97e3c8dd8670" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-analytics.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="8bfba259-4753-4ae7-9f57-e2dccf9e8a37" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-apis.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-apis.md</target>
+        </trans-unit>
+        <trans-unit id="b7e15379-768a-4447-b0ec-9a1d40dad015" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-push-reach.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-push-reach.md</target>
+        </trans-unit>
+        <trans-unit id="36a2f1b0-39bb-4c0b-9095-189c1c601cf8" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-service.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-service.md</target>
+        </trans-unit>
+        <trans-unit id="c0dea893-e44f-40c3-808a-8c16ed4da7b2" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-sdk.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-sdk.md</target>
+        </trans-unit>
+        <trans-unit id="dfb376f8-0d5e-4be0-9ce7-8b088e863c47" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-sr-info.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-sr-info.md</target>
+        </trans-unit>
+        <trans-unit id="2e1986c7-7ba8-4559-a166-2c1f478e94ad" xml:space="preserve">
+          <source>mobile-engagement-user-interface-reach-campaign.md</source>
+          <target state="new">mobile-engagement-user-interface-reach-campaign.md</target>
+        </trans-unit>
+        <trans-unit id="fffa939c-15d9-41cc-a2c2-8719361d1fe2" xml:space="preserve">
+          <source>mobile-engagement-user-interface-reach-criterion.md</source>
+          <target state="new">mobile-engagement-user-interface-reach-criterion.md</target>
+        </trans-unit>
+        <trans-unit id="ddb9e92e-380d-49a7-8099-ba8087456e43" xml:space="preserve">
+          <source>mobile-engagement-user-interface-reach-content.md</source>
+          <target state="new">mobile-engagement-user-interface-reach-content.md</target>
+        </trans-unit>
+      </group>
+      <group id="5bcf1ca1-2289-4de8-b00c-d5c1b3ce4800" />
+    </body>
+  </file>
+</xliff>

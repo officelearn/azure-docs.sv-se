@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="73ce2747-a40f-482d-905a-cf565de006e1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="73ce2747-a40f-482d-905a-cf565de006e1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bf98d86e-cf29-4263-863a-d4810549459f">
+        <trans-unit id="7c50b0f4-ced8-4b5b-975e-c3282f3df632" xml:space="preserve">
+          <source>How to use the SendGrid email service (.NET) | Microsoft Azure</source>
+          <target state="new">How to use the SendGrid email service (.NET) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f304babd-05ad-4ff6-b580-b7045f274830" xml:space="preserve">
+          <source>Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API.</source>
+          <target state="new">Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API.</target>
+        </trans-unit>
+        <trans-unit id="45fc45d6-cbe9-42ef-8ce3-c589ae813d70" xml:space="preserve">
+          <source>Last Update: Feburary 24, 2015</source>
+          <target state="new">Last Update: Feburary 24, 2015</target>
+        </trans-unit>
+        <trans-unit id="91916359-7b0a-429b-aae7-553c8fbfc074" xml:space="preserve">
+          <source>This guide demonstrates how to perform common programming tasks with the
+SendGrid email service on Azure.</source>
+          <target state="new">This guide demonstrates how to perform common programming tasks with the
+SendGrid email service on Azure.</target>
+        </trans-unit>
+        <trans-unit id="45bf8f38-dcad-4741-ad33-bf77fe108bb9" xml:space="preserve">
+          <source>The samples are written in C\#
+and use the .NET API.</source>
+          <target state="new">The samples are written in C\#
+and use the .NET API.</target>
+        </trans-unit>
+        <trans-unit id="629f451e-88fd-4de4-8d80-2ab6733fbea0" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="0923262f-8819-4702-b405-13665763d7a8">&lt;strong&gt;</bpt>constructing
+email<ept id="0923262f-8819-4702-b405-13665763d7a8">&lt;/strong&gt;</ept>, <bpt id="6197b225-e077-42a6-80c5-155ab61909ab">&lt;strong&gt;</bpt>sending email<ept id="6197b225-e077-42a6-80c5-155ab61909ab">&lt;/strong&gt;</ept>, <bpt id="4810a2b4-47fc-4958-b9f5-2820e911a039">&lt;strong&gt;</bpt>adding attachments<ept id="4810a2b4-47fc-4958-b9f5-2820e911a039">&lt;/strong&gt;</ept>, and <bpt id="6b02e947-cb15-4d04-bca9-807bd8c433df">&lt;strong&gt;</bpt>using
+filters<ept id="6b02e947-cb15-4d04-bca9-807bd8c433df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The scenarios covered include <bpt id="0923262f-8819-4702-b405-13665763d7a8">&lt;strong&gt;</bpt>constructing
+email<ept id="0923262f-8819-4702-b405-13665763d7a8">&lt;/strong&gt;</ept>, <bpt id="6197b225-e077-42a6-80c5-155ab61909ab">&lt;strong&gt;</bpt>sending email<ept id="6197b225-e077-42a6-80c5-155ab61909ab">&lt;/strong&gt;</ept>, <bpt id="4810a2b4-47fc-4958-b9f5-2820e911a039">&lt;strong&gt;</bpt>adding attachments<ept id="4810a2b4-47fc-4958-b9f5-2820e911a039">&lt;/strong&gt;</ept>, and <bpt id="6b02e947-cb15-4d04-bca9-807bd8c433df">&lt;strong&gt;</bpt>using
+filters<ept id="6b02e947-cb15-4d04-bca9-807bd8c433df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfbf1f0d-5f9f-4975-9477-cbe80e8c6acb" xml:space="preserve">
+          <source>For more information on SendGrid and sending email, see the
+<bpt id="c23f19d7-f3ce-4748-9cd9-411062b90d4f">&lt;linkText&gt;</bpt>Next steps<ept id="c23f19d7-f3ce-4748-9cd9-411062b90d4f">&lt;/linkText&gt;</ept><bpt id="c23f19d7-f3ce-4748-9cd9-411062b90d4f">&lt;title&gt;</bpt><ept id="c23f19d7-f3ce-4748-9cd9-411062b90d4f">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information on SendGrid and sending email, see the
+<bpt id="c23f19d7-f3ce-4748-9cd9-411062b90d4f">&lt;linkText&gt;</bpt>Next steps<ept id="c23f19d7-f3ce-4748-9cd9-411062b90d4f">&lt;/linkText&gt;</ept><bpt id="c23f19d7-f3ce-4748-9cd9-411062b90d4f">&lt;title&gt;</bpt><ept id="c23f19d7-f3ce-4748-9cd9-411062b90d4f">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="7071e339-2cb6-4090-b871-e8d8de6355df" xml:space="preserve">
+          <source>SendGrid is a [cloud-based email service] that provides reliable
+[transactional email delivery], scalability, and real-time analytics along with flexible APIs
+that make custom integration easy.</source>
+          <target state="new">SendGrid is a [cloud-based email service] that provides reliable
+[transactional email delivery], scalability, and real-time analytics along with flexible APIs
+that make custom integration easy.</target>
+        </trans-unit>
+        <trans-unit id="61884d6c-19ad-40a4-ba15-c96b378456d1" xml:space="preserve">
+          <source>Common SendGrid usage scenarios
+include:</source>
+          <target state="new">Common SendGrid usage scenarios
+include:</target>
+        </trans-unit>
+        <trans-unit id="3e14f509-0655-4359-87e7-48c4863722d2" xml:space="preserve">
+          <source>Automatically sending receipts to customers.</source>
+          <target state="new">Automatically sending receipts to customers.</target>
+        </trans-unit>
+        <trans-unit id="6ee502fc-7fcf-4e0b-b404-419f81bfefb4" xml:space="preserve">
+          <source>Administering distribution lists for sending customers monthly
+e-fliers and special offers.</source>
+          <target state="new">Administering distribution lists for sending customers monthly
+e-fliers and special offers.</target>
+        </trans-unit>
+        <trans-unit id="ea85c86a-da96-4226-a7fb-128ea9d770bc" xml:space="preserve">
+          <source>Collecting real-time metrics for things like blocked email, and
+customer responsiveness.</source>
+          <target state="new">Collecting real-time metrics for things like blocked email, and
+customer responsiveness.</target>
+        </trans-unit>
+        <trans-unit id="9777e59c-fd36-4084-987a-eb2ba45bae26" xml:space="preserve">
+          <source>Generating reports to help identify trends.</source>
+          <target state="new">Generating reports to help identify trends.</target>
+        </trans-unit>
+        <trans-unit id="31e86c4e-b79a-4d41-890d-2cd237e0ce69" xml:space="preserve">
+          <source>Forwarding customer inquiries.</source>
+          <target state="new">Forwarding customer inquiries.</target>
+        </trans-unit>
+        <trans-unit id="d8abf2dc-a2a4-4664-8e53-15b173469e7d" xml:space="preserve">
+          <source>Processing incoming emails.</source>
+          <target state="new">Processing incoming emails.</target>
+        </trans-unit>
+        <trans-unit id="6eb3b476-7f37-4e30-81c2-15524a57a4d9" xml:space="preserve">
+          <source>For more information, see <bpt id="d1bb5866-142e-42e0-822d-4c436259fcf3">&lt;linkText&gt;</bpt>https://sendgrid.com<ept id="d1bb5866-142e-42e0-822d-4c436259fcf3">&lt;/linkText&gt;</ept><bpt id="d1bb5866-142e-42e0-822d-4c436259fcf3">&lt;title&gt;</bpt><ept id="d1bb5866-142e-42e0-822d-4c436259fcf3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d1bb5866-142e-42e0-822d-4c436259fcf3">&lt;linkText&gt;</bpt>https://sendgrid.com<ept id="d1bb5866-142e-42e0-822d-4c436259fcf3">&lt;/linkText&gt;</ept><bpt id="d1bb5866-142e-42e0-822d-4c436259fcf3">&lt;title&gt;</bpt><ept id="d1bb5866-142e-42e0-822d-4c436259fcf3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa71bb37-58f4-41db-bf09-5031adbef026" xml:space="preserve">
+          <source><bpt id="fbe0fda6-bd9d-4226-a448-53aba61e0423">&lt;token href="../../includes/sendgrid-sign-up.md"&gt;</bpt><ept id="fbe0fda6-bd9d-4226-a448-53aba61e0423">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="fbe0fda6-bd9d-4226-a448-53aba61e0423">&lt;token href="../../includes/sendgrid-sign-up.md"&gt;</bpt><ept id="fbe0fda6-bd9d-4226-a448-53aba61e0423">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4211185-4adb-4e86-b4e3-cfcdd8af6e25" xml:space="preserve">
+          <source>The <bpt id="c3d9d6f1-8bd6-4149-8da5-948efb03831c">&lt;linkText&gt;</bpt>SendGrid NuGet package<ept id="c3d9d6f1-8bd6-4149-8da5-948efb03831c">&lt;/linkText&gt;</ept><bpt id="c3d9d6f1-8bd6-4149-8da5-948efb03831c">&lt;title&gt;</bpt><ept id="c3d9d6f1-8bd6-4149-8da5-948efb03831c">&lt;/title&gt;</ept> is the easiest way to get the SendGrid API
+and to configure your application with all dependencies.</source>
+          <target state="new">The <bpt id="c3d9d6f1-8bd6-4149-8da5-948efb03831c">&lt;linkText&gt;</bpt>SendGrid NuGet package<ept id="c3d9d6f1-8bd6-4149-8da5-948efb03831c">&lt;/linkText&gt;</ept><bpt id="c3d9d6f1-8bd6-4149-8da5-948efb03831c">&lt;title&gt;</bpt><ept id="c3d9d6f1-8bd6-4149-8da5-948efb03831c">&lt;/title&gt;</ept> is the easiest way to get the SendGrid API
+and to configure your application with all dependencies.</target>
+        </trans-unit>
+        <trans-unit id="799316cc-a3a6-41a6-9412-a807173247ac" xml:space="preserve">
+          <source>NuGet is a
+Visual Studio extension included with Microsoft Visual Studio 2012 that makes it easy to install and update
+libraries and tools.</source>
+          <target state="new">NuGet is a
+Visual Studio extension included with Microsoft Visual Studio 2012 that makes it easy to install and update
+libraries and tools.</target>
+        </trans-unit>
+        <trans-unit id="edd244dc-2632-428a-aa37-b113fefcb44e" xml:space="preserve">
+          <source>To install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2012, visit <bpt id="fd36ed1f-f821-4f04-b35e-61234f5901dd">&lt;linkText&gt;</bpt>http://www.nuget.org<ept id="fd36ed1f-f821-4f04-b35e-61234f5901dd">&lt;/linkText&gt;</ept><bpt id="fd36ed1f-f821-4f04-b35e-61234f5901dd">&lt;title&gt;</bpt><ept id="fd36ed1f-f821-4f04-b35e-61234f5901dd">&lt;/title&gt;</ept>, and click the <bpt id="4e5fb767-290d-4d33-9cde-457cfc2fc0aa">&lt;strong&gt;</bpt>Install NuGet<ept id="4e5fb767-290d-4d33-9cde-457cfc2fc0aa">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">To install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2012, visit <bpt id="fd36ed1f-f821-4f04-b35e-61234f5901dd">&lt;linkText&gt;</bpt>http://www.nuget.org<ept id="fd36ed1f-f821-4f04-b35e-61234f5901dd">&lt;/linkText&gt;</ept><bpt id="fd36ed1f-f821-4f04-b35e-61234f5901dd">&lt;title&gt;</bpt><ept id="fd36ed1f-f821-4f04-b35e-61234f5901dd">&lt;/title&gt;</ept>, and click the <bpt id="4e5fb767-290d-4d33-9cde-457cfc2fc0aa">&lt;strong&gt;</bpt>Install NuGet<ept id="4e5fb767-290d-4d33-9cde-457cfc2fc0aa">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="65bdab83-06de-40d1-8bdd-44503ca28fd6" xml:space="preserve">
+          <source>To install the SendGrid NuGet package in your application, do the following:</source>
+          <target state="new">To install the SendGrid NuGet package in your application, do the following:</target>
+        </trans-unit>
+        <trans-unit id="73cb184b-283a-4c6a-8200-eb863c0e58d1" xml:space="preserve">
+          <source>In <bpt id="6e4bd989-f6ae-45fd-a1b4-80af1ac6b7f5">&lt;strong&gt;</bpt>Solution Explorer<ept id="6e4bd989-f6ae-45fd-a1b4-80af1ac6b7f5">&lt;/strong&gt;</ept>, right-click <bpt id="46e3313e-5ae1-47fe-8e41-f1577b205d1e">&lt;strong&gt;</bpt>References<ept id="46e3313e-5ae1-47fe-8e41-f1577b205d1e">&lt;/strong&gt;</ept>, then click
+<bpt id="5ca6d44d-aa6a-4bd9-9cc9-92ba8d28c490">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="5ca6d44d-aa6a-4bd9-9cc9-92ba8d28c490">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="6e4bd989-f6ae-45fd-a1b4-80af1ac6b7f5">&lt;strong&gt;</bpt>Solution Explorer<ept id="6e4bd989-f6ae-45fd-a1b4-80af1ac6b7f5">&lt;/strong&gt;</ept>, right-click <bpt id="46e3313e-5ae1-47fe-8e41-f1577b205d1e">&lt;strong&gt;</bpt>References<ept id="46e3313e-5ae1-47fe-8e41-f1577b205d1e">&lt;/strong&gt;</ept>, then click
+<bpt id="5ca6d44d-aa6a-4bd9-9cc9-92ba8d28c490">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="5ca6d44d-aa6a-4bd9-9cc9-92ba8d28c490">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f7dda71-e716-4d83-b29c-36b4fba58138" xml:space="preserve">
+          <source>In the left-hand pane of the <bpt id="2b93d226-c823-4916-a3ec-9dc521548f6e">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="2b93d226-c823-4916-a3ec-9dc521548f6e">&lt;/strong&gt;</ept> dialog, click <bpt id="6c077c8a-d9a6-4e2f-a8e0-1d4e09cfaf5a">&lt;strong&gt;</bpt>Online<ept id="6c077c8a-d9a6-4e2f-a8e0-1d4e09cfaf5a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left-hand pane of the <bpt id="2b93d226-c823-4916-a3ec-9dc521548f6e">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="2b93d226-c823-4916-a3ec-9dc521548f6e">&lt;/strong&gt;</ept> dialog, click <bpt id="6c077c8a-d9a6-4e2f-a8e0-1d4e09cfaf5a">&lt;strong&gt;</bpt>Online<ept id="6c077c8a-d9a6-4e2f-a8e0-1d4e09cfaf5a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d475628-2441-4dc3-a114-fd6b17e5c3db" xml:space="preserve">
+          <source>Search for <bpt id="43ffef6a-90d8-4d7a-80b0-99fc12cdaf14">&lt;strong&gt;</bpt>SendGrid<ept id="43ffef6a-90d8-4d7a-80b0-99fc12cdaf14">&lt;/strong&gt;</ept> and select the <bpt id="f2109d44-0e3a-4491-9303-e3d67846a0fc">&lt;strong&gt;</bpt>SendGrid<ept id="f2109d44-0e3a-4491-9303-e3d67846a0fc">&lt;/strong&gt;</ept> item in the
+results list (the current version is 5.0.0).</source>
+          <target state="new">Search for <bpt id="43ffef6a-90d8-4d7a-80b0-99fc12cdaf14">&lt;strong&gt;</bpt>SendGrid<ept id="43ffef6a-90d8-4d7a-80b0-99fc12cdaf14">&lt;/strong&gt;</ept> and select the <bpt id="f2109d44-0e3a-4491-9303-e3d67846a0fc">&lt;strong&gt;</bpt>SendGrid<ept id="f2109d44-0e3a-4491-9303-e3d67846a0fc">&lt;/strong&gt;</ept> item in the
+results list (the current version is 5.0.0).</target>
+        </trans-unit>
+        <trans-unit id="616bd75a-7374-4f81-96c5-e5756e592bb8" xml:space="preserve">
+          <source><bpt id="b327d095-9608-48fc-a7d6-d3b48f67c392">&lt;linkText&gt;</bpt>SendGrid NuGet package<ept id="b327d095-9608-48fc-a7d6-d3b48f67c392">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b327d095-9608-48fc-a7d6-d3b48f67c392">&lt;linkText&gt;</bpt>SendGrid NuGet package<ept id="b327d095-9608-48fc-a7d6-d3b48f67c392">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="202c2416-4c79-4d67-9fc7-46b4a2c2acba" xml:space="preserve">
+          <source>Click <bpt id="73e65cb8-ab76-4cd2-8124-14f341eea5de">&lt;strong&gt;</bpt>Install<ept id="73e65cb8-ab76-4cd2-8124-14f341eea5de">&lt;/strong&gt;</ept> to complete the installation, and then close this
+dialog.</source>
+          <target state="new">Click <bpt id="73e65cb8-ab76-4cd2-8124-14f341eea5de">&lt;strong&gt;</bpt>Install<ept id="73e65cb8-ab76-4cd2-8124-14f341eea5de">&lt;/strong&gt;</ept> to complete the installation, and then close this
+dialog.</target>
+        </trans-unit>
+        <trans-unit id="9ec79b05-a55c-4d9a-8751-4d17ee7f846c" xml:space="preserve">
+          <source>SendGrid's .NET class library is called <bpt id="28ba81ff-7cf0-446b-ae22-7fc3ef8ede96">&lt;strong&gt;</bpt>SendGridMail<ept id="28ba81ff-7cf0-446b-ae22-7fc3ef8ede96">&lt;/strong&gt;</ept>.</source>
+          <target state="new">SendGrid's .NET class library is called <bpt id="28ba81ff-7cf0-446b-ae22-7fc3ef8ede96">&lt;strong&gt;</bpt>SendGridMail<ept id="28ba81ff-7cf0-446b-ae22-7fc3ef8ede96">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="426ee528-f416-4aa4-b02e-d8b0c8204055" xml:space="preserve">
+          <source>It contains
+the following namespaces:</source>
+          <target state="new">It contains
+the following namespaces:</target>
+        </trans-unit>
+        <trans-unit id="c95f7294-896d-45d8-931f-aae57577dd96" xml:space="preserve">
+          <source><bpt id="ea13fade-18d9-42f7-b799-7bcfa569145d">&lt;strong&gt;</bpt>SendGridMail<ept id="ea13fade-18d9-42f7-b799-7bcfa569145d">&lt;/strong&gt;</ept> for creating and working with email items.</source>
+          <target state="new"><bpt id="ea13fade-18d9-42f7-b799-7bcfa569145d">&lt;strong&gt;</bpt>SendGridMail<ept id="ea13fade-18d9-42f7-b799-7bcfa569145d">&lt;/strong&gt;</ept> for creating and working with email items.</target>
+        </trans-unit>
+        <trans-unit id="8a210054-3362-4c00-ae76-fd83fc294501" xml:space="preserve">
+          <source><bpt id="7b5b2f96-4ea9-4f79-9083-67d50675d48b">&lt;strong&gt;</bpt>SendGridMail.Transport<ept id="7b5b2f96-4ea9-4f79-9083-67d50675d48b">&lt;/strong&gt;</ept> for sending email using either the
+<bpt id="8a939243-8c04-4f6d-8da6-006129d3b2e7">&lt;strong&gt;</bpt>SMTP<ept id="8a939243-8c04-4f6d-8da6-006129d3b2e7">&lt;/strong&gt;</ept> protocol, or the HTTP 1.1 protocol with <bpt id="59732fb2-67aa-4247-8f7a-c1ab91ff6199">&lt;strong&gt;</bpt>Web/REST<ept id="59732fb2-67aa-4247-8f7a-c1ab91ff6199">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="7b5b2f96-4ea9-4f79-9083-67d50675d48b">&lt;strong&gt;</bpt>SendGridMail.Transport<ept id="7b5b2f96-4ea9-4f79-9083-67d50675d48b">&lt;/strong&gt;</ept> for sending email using either the
+<bpt id="8a939243-8c04-4f6d-8da6-006129d3b2e7">&lt;strong&gt;</bpt>SMTP<ept id="8a939243-8c04-4f6d-8da6-006129d3b2e7">&lt;/strong&gt;</ept> protocol, or the HTTP 1.1 protocol with <bpt id="59732fb2-67aa-4247-8f7a-c1ab91ff6199">&lt;strong&gt;</bpt>Web/REST<ept id="59732fb2-67aa-4247-8f7a-c1ab91ff6199">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="751724b7-4f9a-4f63-855a-db1054bd9db4" xml:space="preserve">
+          <source>Add the following code namespace declarations to the top of any C\# file
+in which you want to programmatically access the SendGrid email service.</source>
+          <target state="new">Add the following code namespace declarations to the top of any C\# file
+in which you want to programmatically access the SendGrid email service.</target>
+        </trans-unit>
+        <trans-unit id="2ee735cb-0c05-4fef-929f-d289075e794e" xml:space="preserve">
+          <source><bpt id="6c262ecf-5564-415a-a36d-7abdbe8d3a70">&lt;strong&gt;</bpt>System.Net<ept id="6c262ecf-5564-415a-a36d-7abdbe8d3a70">&lt;/strong&gt;</ept> and <bpt id="7e6d4fa9-0139-4ee7-ad72-82c0e6205856">&lt;strong&gt;</bpt>System.Net.Mail<ept id="7e6d4fa9-0139-4ee7-ad72-82c0e6205856">&lt;/strong&gt;</ept> are .NET Framework namespaces
+that are included because they include types you will commonly use with
+the SendGrid APIs.</source>
+          <target state="new"><bpt id="6c262ecf-5564-415a-a36d-7abdbe8d3a70">&lt;strong&gt;</bpt>System.Net<ept id="6c262ecf-5564-415a-a36d-7abdbe8d3a70">&lt;/strong&gt;</ept> and <bpt id="7e6d4fa9-0139-4ee7-ad72-82c0e6205856">&lt;strong&gt;</bpt>System.Net.Mail<ept id="7e6d4fa9-0139-4ee7-ad72-82c0e6205856">&lt;/strong&gt;</ept> are .NET Framework namespaces
+that are included because they include types you will commonly use with
+the SendGrid APIs.</target>
+        </trans-unit>
+        <trans-unit id="4ccbac7e-5d3a-4ea7-8c5b-fa2983c2da12" xml:space="preserve">
+          <source>Use the <bpt id="409831e1-3ee3-44d9-b043-58ad85d9022b">&lt;strong&gt;</bpt>SendGridMessage<ept id="409831e1-3ee3-44d9-b043-58ad85d9022b">&lt;/strong&gt;</ept> object to create an email
+message.</source>
+          <target state="new">Use the <bpt id="409831e1-3ee3-44d9-b043-58ad85d9022b">&lt;strong&gt;</bpt>SendGridMessage<ept id="409831e1-3ee3-44d9-b043-58ad85d9022b">&lt;/strong&gt;</ept> object to create an email
+message.</target>
+        </trans-unit>
+        <trans-unit id="4537fe39-fb9a-44af-a0ba-ab20064cfd82" xml:space="preserve">
+          <source>Once the message object is created, you
+can set properties and methods, including the
+email sender, the email recipient, and the subject and body of the
+email.</source>
+          <target state="new">Once the message object is created, you
+can set properties and methods, including the
+email sender, the email recipient, and the subject and body of the
+email.</target>
+        </trans-unit>
+        <trans-unit id="6ae8053b-306e-4bdf-913b-bb5aaba4cc6b" xml:space="preserve">
+          <source>The following example demonstrates how to create a fully populated email
+object:</source>
+          <target state="new">The following example demonstrates how to create a fully populated email
+object:</target>
+        </trans-unit>
+        <trans-unit id="aea9523d-7f5d-489a-9db3-53ae079dda02" xml:space="preserve">
+          <source>For more information on all properties and methods supported by the
+<bpt id="6f1ed0b9-1d47-4fef-bac6-7a11120e0015">&lt;strong&gt;</bpt>SendGrid<ept id="6f1ed0b9-1d47-4fef-bac6-7a11120e0015">&lt;/strong&gt;</ept> type, see <bpt id="e5eef0b1-698a-48c3-8db9-ad0efbfc6b06">&lt;linkText&gt;</bpt>sendgrid-csharp<ept id="e5eef0b1-698a-48c3-8db9-ad0efbfc6b06">&lt;/linkText&gt;</ept><bpt id="e5eef0b1-698a-48c3-8db9-ad0efbfc6b06">&lt;title&gt;</bpt><ept id="e5eef0b1-698a-48c3-8db9-ad0efbfc6b06">&lt;/title&gt;</ept> on GitHub.</source>
+          <target state="new">For more information on all properties and methods supported by the
+<bpt id="6f1ed0b9-1d47-4fef-bac6-7a11120e0015">&lt;strong&gt;</bpt>SendGrid<ept id="6f1ed0b9-1d47-4fef-bac6-7a11120e0015">&lt;/strong&gt;</ept> type, see <bpt id="e5eef0b1-698a-48c3-8db9-ad0efbfc6b06">&lt;linkText&gt;</bpt>sendgrid-csharp<ept id="e5eef0b1-698a-48c3-8db9-ad0efbfc6b06">&lt;/linkText&gt;</ept><bpt id="e5eef0b1-698a-48c3-8db9-ad0efbfc6b06">&lt;title&gt;</bpt><ept id="e5eef0b1-698a-48c3-8db9-ad0efbfc6b06">&lt;/title&gt;</ept> on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="283ee9a3-3a9c-4bea-a324-f16a5e165b4b" xml:space="preserve">
+          <source>After creating an email message, you can send it using
+the Web API provided by SendGrid.</source>
+          <target state="new">After creating an email message, you can send it using
+the Web API provided by SendGrid.</target>
+        </trans-unit>
+        <trans-unit id="a5fe22fb-5302-4e0e-a647-a579e7d1ece5" xml:space="preserve">
+          <source>Alternatively, you may <bpt id="533fa18c-46e1-4953-9499-47a2e03283b1">&lt;linkText&gt;</bpt>use .NET's built in library<ept id="533fa18c-46e1-4953-9499-47a2e03283b1">&lt;/linkText&gt;</ept><bpt id="533fa18c-46e1-4953-9499-47a2e03283b1">&lt;title&gt;</bpt><ept id="533fa18c-46e1-4953-9499-47a2e03283b1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Alternatively, you may <bpt id="533fa18c-46e1-4953-9499-47a2e03283b1">&lt;linkText&gt;</bpt>use .NET's built in library<ept id="533fa18c-46e1-4953-9499-47a2e03283b1">&lt;/linkText&gt;</ept><bpt id="533fa18c-46e1-4953-9499-47a2e03283b1">&lt;title&gt;</bpt><ept id="533fa18c-46e1-4953-9499-47a2e03283b1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1624981a-ea2b-4189-87d9-1c45889abd91" xml:space="preserve">
+          <source>Sending email requires that you supply your
+SendGrid account credentials (username and password).</source>
+          <target state="new">Sending email requires that you supply your
+SendGrid account credentials (username and password).</target>
+        </trans-unit>
+        <trans-unit id="4396bdab-8683-4919-888c-a8d15441566a" xml:space="preserve">
+          <source>The following code
+demonstrates how to wrap your credentials in a <bpt id="44367649-36b3-469b-8bbd-eaa4e54e939d">&lt;strong&gt;</bpt>NetworkCredential<ept id="44367649-36b3-469b-8bbd-eaa4e54e939d">&lt;/strong&gt;</ept>
+object:</source>
+          <target state="new">The following code
+demonstrates how to wrap your credentials in a <bpt id="44367649-36b3-469b-8bbd-eaa4e54e939d">&lt;strong&gt;</bpt>NetworkCredential<ept id="44367649-36b3-469b-8bbd-eaa4e54e939d">&lt;/strong&gt;</ept>
+object:</target>
+        </trans-unit>
+        <trans-unit id="d716cbad-afc3-459c-819f-b2ec950fcc3d" xml:space="preserve">
+          <source>The following examples show how to send a message using the Web API.</source>
+          <target state="new">The following examples show how to send a message using the Web API.</target>
+        </trans-unit>
+        <trans-unit id="1bbb544b-1eb7-45a0-96cd-063228a296f9" xml:space="preserve">
+          <source>Attachments can be added to a message by calling the <bpt id="8b641cf0-b1fa-4f81-a7d5-efdce37a90a6">&lt;strong&gt;</bpt>AddAttachment<ept id="8b641cf0-b1fa-4f81-a7d5-efdce37a90a6">&lt;/strong&gt;</ept>
+method and specifying the name and path of the file you want to attach.</source>
+          <target state="new">Attachments can be added to a message by calling the <bpt id="8b641cf0-b1fa-4f81-a7d5-efdce37a90a6">&lt;strong&gt;</bpt>AddAttachment<ept id="8b641cf0-b1fa-4f81-a7d5-efdce37a90a6">&lt;/strong&gt;</ept>
+method and specifying the name and path of the file you want to attach.</target>
+        </trans-unit>
+        <trans-unit id="6ed68de1-6c7e-4cd9-a22a-1f38462b0932" xml:space="preserve">
+          <source>You can include multiple attachments by calling this method once for
+each file you wish to attach.</source>
+          <target state="new">You can include multiple attachments by calling this method once for
+each file you wish to attach.</target>
+        </trans-unit>
+        <trans-unit id="69fe19c4-0d6e-49a7-bed9-25ded63a9769" xml:space="preserve">
+          <source>The following example demonstrates adding
+an attachment to a message:</source>
+          <target state="new">The following example demonstrates adding
+an attachment to a message:</target>
+        </trans-unit>
+        <trans-unit id="175e4fe7-ecc2-4180-a990-774094934761" xml:space="preserve">
+          <source>You can also add attachments from the data's <bpt id="48bc9870-f11e-4240-a22b-f7a3c105ffa9">&lt;strong&gt;</bpt>Stream<ept id="48bc9870-f11e-4240-a22b-f7a3c105ffa9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can also add attachments from the data's <bpt id="48bc9870-f11e-4240-a22b-f7a3c105ffa9">&lt;strong&gt;</bpt>Stream<ept id="48bc9870-f11e-4240-a22b-f7a3c105ffa9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b72c67e5-1bed-4ca3-9604-43e9970f5ef7" xml:space="preserve">
+          <source>It can be done by calling the same method as above, <bpt id="3236f3cb-8c1b-4760-8112-5320f87b2f96">&lt;strong&gt;</bpt>AddAttachment<ept id="3236f3cb-8c1b-4760-8112-5320f87b2f96">&lt;/strong&gt;</ept>, but by passing in the Stream of the data, and the filename you want it to show as in the message.</source>
+          <target state="new">It can be done by calling the same method as above, <bpt id="3236f3cb-8c1b-4760-8112-5320f87b2f96">&lt;strong&gt;</bpt>AddAttachment<ept id="3236f3cb-8c1b-4760-8112-5320f87b2f96">&lt;/strong&gt;</ept>, but by passing in the Stream of the data, and the filename you want it to show as in the message.</target>
+        </trans-unit>
+        <trans-unit id="b3a3548d-863a-44ad-990c-f9c35c7e0053" xml:space="preserve">
+          <source>In this case you will need to add the System.IO library.</source>
+          <target state="new">In this case you will need to add the System.IO library.</target>
+        </trans-unit>
+        <trans-unit id="f2a1a913-a436-4473-82a9-6fa6228b453f" xml:space="preserve">
+          <source>SendGrid provides additional email functionality through the use of
+apps.</source>
+          <target state="new">SendGrid provides additional email functionality through the use of
+apps.</target>
+        </trans-unit>
+        <trans-unit id="0e1ec8e8-c5b3-439b-9624-532290db0940" xml:space="preserve">
+          <source>These are settings that can be added to an email message to
+enable specific functionality such as click tracking, Google analytics,
+subscription tracking, and so on.</source>
+          <target state="new">These are settings that can be added to an email message to
+enable specific functionality such as click tracking, Google analytics,
+subscription tracking, and so on.</target>
+        </trans-unit>
+        <trans-unit id="f9333b2e-a9ea-4fe1-bf8b-dd2ab0329112" xml:space="preserve">
+          <source>For a full list of apps, see
+<bpt id="5cdacac6-2361-4257-9b22-54ac7d2e9492">&lt;linkText&gt;</bpt>App Settings<ept id="5cdacac6-2361-4257-9b22-54ac7d2e9492">&lt;/linkText&gt;</ept><bpt id="5cdacac6-2361-4257-9b22-54ac7d2e9492">&lt;title&gt;</bpt><ept id="5cdacac6-2361-4257-9b22-54ac7d2e9492">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a full list of apps, see
+<bpt id="5cdacac6-2361-4257-9b22-54ac7d2e9492">&lt;linkText&gt;</bpt>App Settings<ept id="5cdacac6-2361-4257-9b22-54ac7d2e9492">&lt;/linkText&gt;</ept><bpt id="5cdacac6-2361-4257-9b22-54ac7d2e9492">&lt;title&gt;</bpt><ept id="5cdacac6-2361-4257-9b22-54ac7d2e9492">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d67adf6-5097-4749-9a29-e464435bbdf0" xml:space="preserve">
+          <source>Apps can be applied to <bpt id="e74ffb15-9ba0-47b9-b84d-71c8acad3633">&lt;strong&gt;</bpt>SendGrid<ept id="e74ffb15-9ba0-47b9-b84d-71c8acad3633">&lt;/strong&gt;</ept> email messages using methods
+implemented as part of the <bpt id="255da47c-78ba-4657-a922-44e02bb8eb9f">&lt;strong&gt;</bpt>SendGrid<ept id="255da47c-78ba-4657-a922-44e02bb8eb9f">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">Apps can be applied to <bpt id="e74ffb15-9ba0-47b9-b84d-71c8acad3633">&lt;strong&gt;</bpt>SendGrid<ept id="e74ffb15-9ba0-47b9-b84d-71c8acad3633">&lt;/strong&gt;</ept> email messages using methods
+implemented as part of the <bpt id="255da47c-78ba-4657-a922-44e02bb8eb9f">&lt;strong&gt;</bpt>SendGrid<ept id="255da47c-78ba-4657-a922-44e02bb8eb9f">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="ac4e5ea3-c1cc-4fe1-961b-2f9d63ee259f" xml:space="preserve">
+          <source>The following examples demonstrate the footer and click tracking
+filters:</source>
+          <target state="new">The following examples demonstrate the footer and click tracking
+filters:</target>
+        </trans-unit>
+        <trans-unit id="061fdde9-d4da-4e59-b0d1-34f58c12786e" xml:space="preserve">
+          <source>SendGrid offers web-based APIs and webhooks that you can use to leverage additional
+SendGrid functionality from your Azure application.</source>
+          <target state="new">SendGrid offers web-based APIs and webhooks that you can use to leverage additional
+SendGrid functionality from your Azure application.</target>
+        </trans-unit>
+        <trans-unit id="c64c318e-7fc8-4d07-a6e3-17906db6331e" xml:space="preserve">
+          <source>For full
+details, see the <bpt id="4c44c1dc-fd90-49d4-96a6-584a5f12058c">&lt;linkText&gt;</bpt>SendGrid API documentation<ept id="4c44c1dc-fd90-49d4-96a6-584a5f12058c">&lt;/linkText&gt;</ept><bpt id="4c44c1dc-fd90-49d4-96a6-584a5f12058c">&lt;title&gt;</bpt><ept id="4c44c1dc-fd90-49d4-96a6-584a5f12058c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For full
+details, see the <bpt id="4c44c1dc-fd90-49d4-96a6-584a5f12058c">&lt;linkText&gt;</bpt>SendGrid API documentation<ept id="4c44c1dc-fd90-49d4-96a6-584a5f12058c">&lt;/linkText&gt;</ept><bpt id="4c44c1dc-fd90-49d4-96a6-584a5f12058c">&lt;title&gt;</bpt><ept id="4c44c1dc-fd90-49d4-96a6-584a5f12058c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4869aaa7-4fd8-4ff5-b1ab-76198b8df043" xml:space="preserve">
+          <source>Now that you've learned the basics of the SendGrid Email service, follow
+these links to learn more.</source>
+          <target state="new">Now that you've learned the basics of the SendGrid Email service, follow
+these links to learn more.</target>
+        </trans-unit>
+        <trans-unit id="a210e164-41eb-47a6-a697-c7c9ff3cc262" xml:space="preserve">
+          <source>SendGrid C\# library repo: <bpt id="f6b00f21-dd51-4c4b-9d21-7988735b76e1">&lt;linkText&gt;</bpt>sendgrid-csharp<ept id="f6b00f21-dd51-4c4b-9d21-7988735b76e1">&lt;/linkText&gt;</ept><bpt id="f6b00f21-dd51-4c4b-9d21-7988735b76e1">&lt;title&gt;</bpt><ept id="f6b00f21-dd51-4c4b-9d21-7988735b76e1">&lt;/title&gt;</ept></source>
+          <target state="new">SendGrid C\# library repo: <bpt id="f6b00f21-dd51-4c4b-9d21-7988735b76e1">&lt;linkText&gt;</bpt>sendgrid-csharp<ept id="f6b00f21-dd51-4c4b-9d21-7988735b76e1">&lt;/linkText&gt;</ept><bpt id="f6b00f21-dd51-4c4b-9d21-7988735b76e1">&lt;title&gt;</bpt><ept id="f6b00f21-dd51-4c4b-9d21-7988735b76e1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea2c4e38-3bf9-4691-8896-349e277557bd" xml:space="preserve">
+          <source>SendGrid API documentation: &lt;https://sendgrid.com/docs&gt;</source>
+          <target state="new">SendGrid API documentation: &lt;https://sendgrid.com/docs&gt;</target>
+        </trans-unit>
+        <trans-unit id="7257e97b-ea71-4c50-86e8-85ed6e8c68c4" xml:space="preserve">
+          <source>SendGrid special offer for Azure customers: <bpt id="8a7f5be8-9f8d-4e3c-a975-5d80b08dec20">&lt;linkText&gt;</bpt>https://sendgrid.com<ept id="8a7f5be8-9f8d-4e3c-a975-5d80b08dec20">&lt;/linkText&gt;</ept><bpt id="8a7f5be8-9f8d-4e3c-a975-5d80b08dec20">&lt;title&gt;</bpt><ept id="8a7f5be8-9f8d-4e3c-a975-5d80b08dec20">&lt;/title&gt;</ept></source>
+          <target state="new">SendGrid special offer for Azure customers: <bpt id="8a7f5be8-9f8d-4e3c-a975-5d80b08dec20">&lt;linkText&gt;</bpt>https://sendgrid.com<ept id="8a7f5be8-9f8d-4e3c-a975-5d80b08dec20">&lt;/linkText&gt;</ept><bpt id="8a7f5be8-9f8d-4e3c-a975-5d80b08dec20">&lt;title&gt;</bpt><ept id="8a7f5be8-9f8d-4e3c-a975-5d80b08dec20">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d600f70-fa02-4dd7-aac1-9362ed6e24b9" xml:space="preserve">
+          <source>#nextsteps</source>
+          <target state="new">#nextsteps</target>
+        </trans-unit>
+        <trans-unit id="e5ad1b18-93ba-439c-8b3b-f3dfff76d57a" xml:space="preserve">
+          <source>#whatis</source>
+          <target state="new">#whatis</target>
+        </trans-unit>
+        <trans-unit id="f32e43f1-a000-46f8-889e-f042add73017" xml:space="preserve">
+          <source>#createaccount</source>
+          <target state="new">#createaccount</target>
+        </trans-unit>
+        <trans-unit id="be997229-d66d-4d9b-94e5-dd3fe5a9bcc8" xml:space="preserve">
+          <source>#reference</source>
+          <target state="new">#reference</target>
+        </trans-unit>
+        <trans-unit id="f1244561-727a-4454-9edd-a715108e477e" xml:space="preserve">
+          <source>#createemail</source>
+          <target state="new">#createemail</target>
+        </trans-unit>
+        <trans-unit id="368781c6-ff92-4f71-b5c5-5ed9534f3918" xml:space="preserve">
+          <source>#sendemail</source>
+          <target state="new">#sendemail</target>
+        </trans-unit>
+        <trans-unit id="162e8a01-b408-48cc-8e9c-1e35f2fa41aa" xml:space="preserve">
+          <source>#addattachment</source>
+          <target state="new">#addattachment</target>
+        </trans-unit>
+        <trans-unit id="a2261c8d-7e51-4c58-98b5-9d8f549d66c9" xml:space="preserve">
+          <source>#usefilters</source>
+          <target state="new">#usefilters</target>
+        </trans-unit>
+        <trans-unit id="c9a71836-79a0-4743-937d-7e1dfe8c505f" xml:space="preserve">
+          <source>#useservices</source>
+          <target state="new">#useservices</target>
+        </trans-unit>
+        <trans-unit id="60ba4622-7d73-4e1e-90aa-e61fcfeaa8c2" xml:space="preserve">
+          <source>https://www.sendgrid.com/windowsazure.html</source>
+          <target state="new">https://www.sendgrid.com/windowsazure.html</target>
+        </trans-unit>
+        <trans-unit id="72cca14a-a6dd-4f37-9775-3cab2c318e43" xml:space="preserve">
+          <source>./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png</source>
+          <target state="new">./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png</target>
+        </trans-unit>
+        <trans-unit id="9f34b7c6-bb64-4715-8fd4-032c8842a757" xml:space="preserve">
+          <source>https://github.com/sendgrid/sendgrid-csharp</source>
+          <target state="new">https://github.com/sendgrid/sendgrid-csharp</target>
+        </trans-unit>
+        <trans-unit id="88916474-8c45-4411-a37e-644721caf89f" xml:space="preserve">
+          <source>https://sendgrid.com/docs/Integrate/index.html</source>
+          <target state="new">https://sendgrid.com/docs/Integrate/index.html</target>
+        </trans-unit>
+        <trans-unit id="f2d39351-6e98-4d26-92e5-41e5d8d41b1b" xml:space="preserve">
+          <source>https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html</source>
+          <target state="new">https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html</target>
+        </trans-unit>
+        <trans-unit id="7df1a00f-f1bf-47d2-924d-c9d0ed035503" xml:space="preserve">
+          <source>https://sendgrid.com/docs</source>
+          <target state="new">https://sendgrid.com/docs</target>
+        </trans-unit>
+        <trans-unit id="771141ed-45c4-4279-bdfe-75457f1f07e0" xml:space="preserve">
+          <source>https://sendgrid.com/email-solutions</source>
+          <target state="new">https://sendgrid.com/email-solutions</target>
+        </trans-unit>
+        <trans-unit id="cafc1c02-0b3d-453a-b1a0-615a6c09bddc" xml:space="preserve">
+          <source>https://sendgrid.com/transactional-email</source>
+          <target state="new">https://sendgrid.com/transactional-email</target>
+        </trans-unit>
+      </group>
+      <group id="4f942048-7e85-499a-98c0-dcc21b0460f6" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="560e92d5-0fa9-4bb1-a73d-a79338bee6e4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="560e92d5-0fa9-4bb1-a73d-a79338bee6e4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9af9e3d8-c22c-4864-a9a6-0dabcbb4146a">
+        <trans-unit id="048af774-c905-4ef7-8819-4b6f92fe97e5" xml:space="preserve">
+          <source>Getting started with the Azure Multi-Factor Authentication Server</source>
+          <target state="new">Getting started with the Azure Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="587134c6-641e-4c3c-80c7-4e2cfaee32c0" xml:space="preserve">
+          <source>This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA Server.</source>
+          <target state="new">This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA Server.</target>
+        </trans-unit>
+        <trans-unit id="d56bca20-b661-4d6c-a049-2a60bbc1f798" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="18e3616d-7184-41c8-b2ee-59341ec5c002">&lt;linkText&gt;</bpt>Cloud<ept id="18e3616d-7184-41c8-b2ee-59341ec5c002">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="18e3616d-7184-41c8-b2ee-59341ec5c002">&lt;linkText&gt;</bpt>Cloud<ept id="18e3616d-7184-41c8-b2ee-59341ec5c002">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="20b92163-b242-480d-b298-17c73f1af2cb" xml:space="preserve">
+          <source>Now that we have determined whether to use on-premises multi-factor authentication, lets get going.</source>
+          <target state="new">Now that we have determined whether to use on-premises multi-factor authentication, lets get going.</target>
+        </trans-unit>
+        <trans-unit id="a01089bb-cf53-4db8-b6d0-1f56f1dd89a1" xml:space="preserve">
+          <source>This page covers a new installation of the server and getting it setup with on-premises Active Directory.</source>
+          <target state="new">This page covers a new installation of the server and getting it setup with on-premises Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="6d123436-9cb9-4e99-9616-53d2a9e18fda" xml:space="preserve">
+          <source>If you already have the Phonefactor server installed and are looking for how to do this see Upgrading to the Azure Multi-Factor Server or if you are looking for information on installing just the web service see Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service.</source>
+          <target state="new">If you already have the Phonefactor server installed and are looking for how to do this see Upgrading to the Azure Multi-Factor Server or if you are looking for information on installing just the web service see Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service.</target>
+        </trans-unit>
+        <trans-unit id="89205baa-1f84-4b5f-9761-4969f42ad7ad" xml:space="preserve">
+          <source>There are two different ways that you can download the Azure Multi-Factor Authentication Server.</source>
+          <target state="new">There are two different ways that you can download the Azure Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="06768e82-b8f2-4b8b-9f93-71738772abf6" xml:space="preserve">
+          <source>Both are done via the Azure portal.</source>
+          <target state="new">Both are done via the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="14aef356-640a-43f4-b1c5-1980c71fc134" xml:space="preserve">
+          <source>The first is by managing the Multi-Factor Auth Provider directly.</source>
+          <target state="new">The first is by managing the Multi-Factor Auth Provider directly.</target>
+        </trans-unit>
+        <trans-unit id="a01c8277-c5c7-4bc7-9f9c-a3bc40963692" xml:space="preserve">
+          <source>The second is via the service settings.</source>
+          <target state="new">The second is via the service settings.</target>
+        </trans-unit>
+        <trans-unit id="848c02a8-420d-4220-99f7-e98ee8527bcf" xml:space="preserve">
+          <source>The second option requires either a Multi-Factor Auth Provider or an Azure AD Premium license.</source>
+          <target state="new">The second option requires either a Multi-Factor Auth Provider or an Azure AD Premium license.</target>
+        </trans-unit>
+        <trans-unit id="a818152b-d1ea-4a9d-b4da-9efebb7d49d0" xml:space="preserve">
+          <source>Sign in to the Azure Portal as an Administrator.</source>
+          <target state="new">Sign in to the Azure Portal as an Administrator.</target>
+        </trans-unit>
+        <trans-unit id="cbeb4f53-abb7-4a09-8bdb-695dfd462ceb" xml:space="preserve">
+          <source>On the left, select Active Directory.</source>
+          <target state="new">On the left, select Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="f25cc334-282e-4225-8a88-ed44dc51df14" xml:space="preserve">
+          <source>On the Active Directory page, at the top click <bpt id="51075977-0991-4117-ace6-a9c6517d00c6">&lt;strong&gt;</bpt>Multi-Factor Auth Providers<ept id="51075977-0991-4117-ace6-a9c6517d00c6">&lt;/strong&gt;</ept></source>
+          <target state="new">On the Active Directory page, at the top click <bpt id="51075977-0991-4117-ace6-a9c6517d00c6">&lt;strong&gt;</bpt>Multi-Factor Auth Providers<ept id="51075977-0991-4117-ace6-a9c6517d00c6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd04db16-acd8-4da6-8f53-4f333cc683ea" xml:space="preserve">
+          <source>At the bottom click <bpt id="7deb02d4-97eb-4d07-b590-e0a2fe80ec51">&lt;strong&gt;</bpt>Manage<ept id="7deb02d4-97eb-4d07-b590-e0a2fe80ec51">&lt;/strong&gt;</ept></source>
+          <target state="new">At the bottom click <bpt id="7deb02d4-97eb-4d07-b590-e0a2fe80ec51">&lt;strong&gt;</bpt>Manage<ept id="7deb02d4-97eb-4d07-b590-e0a2fe80ec51">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5344187-488a-4b5d-bce9-084821ac0e98" xml:space="preserve">
+          <source>This will open a new page.</source>
+          <target state="new">This will open a new page.</target>
+        </trans-unit>
+        <trans-unit id="5d63e2b7-6e9d-4a87-8812-39719973c296" xml:space="preserve">
+          <source>Click <bpt id="e3632e4b-8a56-4b1d-82b8-fee5c915d26e">&lt;strong&gt;</bpt>Downloads.<ept id="e3632e4b-8a56-4b1d-82b8-fee5c915d26e">&lt;/strong&gt;</ept>
+<bpt id="e9ca31ef-7c51-4157-93d9-f41b3f3813e8">&lt;linkText&gt;</bpt>Download<ept id="e9ca31ef-7c51-4157-93d9-f41b3f3813e8">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click <bpt id="e3632e4b-8a56-4b1d-82b8-fee5c915d26e">&lt;strong&gt;</bpt>Downloads.<ept id="e3632e4b-8a56-4b1d-82b8-fee5c915d26e">&lt;/strong&gt;</ept>
+<bpt id="e9ca31ef-7c51-4157-93d9-f41b3f3813e8">&lt;linkText&gt;</bpt>Download<ept id="e9ca31ef-7c51-4157-93d9-f41b3f3813e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67496e17-5e49-4bd9-ac8b-a49f1895fe11" xml:space="preserve">
+          <source>Above <bpt id="6b6ca70a-40ac-4301-9d80-8ff30ba20b17">&lt;strong&gt;</bpt>Generate Activation Credentials<ept id="6b6ca70a-40ac-4301-9d80-8ff30ba20b17">&lt;/strong&gt;</ept>, click <bpt id="e8bcf265-facd-4d85-a879-bcf0324431e3">&lt;strong&gt;</bpt>Download.<ept id="e8bcf265-facd-4d85-a879-bcf0324431e3">&lt;/strong&gt;</ept>
+<bpt id="ee6e1575-2c0b-4a2a-9ba2-50cf267179ce">&lt;linkText&gt;</bpt>Download<ept id="ee6e1575-2c0b-4a2a-9ba2-50cf267179ce">&lt;/linkText&gt;</ept></source>
+          <target state="new">Above <bpt id="6b6ca70a-40ac-4301-9d80-8ff30ba20b17">&lt;strong&gt;</bpt>Generate Activation Credentials<ept id="6b6ca70a-40ac-4301-9d80-8ff30ba20b17">&lt;/strong&gt;</ept>, click <bpt id="e8bcf265-facd-4d85-a879-bcf0324431e3">&lt;strong&gt;</bpt>Download.<ept id="e8bcf265-facd-4d85-a879-bcf0324431e3">&lt;/strong&gt;</ept>
+<bpt id="ee6e1575-2c0b-4a2a-9ba2-50cf267179ce">&lt;linkText&gt;</bpt>Download<ept id="ee6e1575-2c0b-4a2a-9ba2-50cf267179ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37009f84-7bc7-4b0d-b81e-521d8fe289c7" xml:space="preserve">
+          <source>Save the download.</source>
+          <target state="new">Save the download.</target>
+        </trans-unit>
+        <trans-unit id="625082b1-cfe3-457e-8422-525426f56b0b" xml:space="preserve">
+          <source>Sign in to the Azure Portal as an Administrator.</source>
+          <target state="new">Sign in to the Azure Portal as an Administrator.</target>
+        </trans-unit>
+        <trans-unit id="81fc744e-0209-4284-be1f-d6a753dc12bd" xml:space="preserve">
+          <source>On the left, select Active Directory.</source>
+          <target state="new">On the left, select Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="0cab9798-738b-40e6-81f1-62ecbc14be55" xml:space="preserve">
+          <source>Double click on your instance of Azure AD.</source>
+          <target state="new">Double click on your instance of Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="59438024-3948-4982-8775-11a9ae569c92" xml:space="preserve">
+          <source>At the top click <bpt id="5d68bfa5-e9e6-4f63-af92-386de4c4c87b">&lt;strong&gt;</bpt>Configure<ept id="5d68bfa5-e9e6-4f63-af92-386de4c4c87b">&lt;/strong&gt;</ept>
+<bpt id="01ec2a0b-31c7-4c47-bb33-4be79072c15b">&lt;linkText&gt;</bpt>Download<ept id="01ec2a0b-31c7-4c47-bb33-4be79072c15b">&lt;/linkText&gt;</ept></source>
+          <target state="new">At the top click <bpt id="5d68bfa5-e9e6-4f63-af92-386de4c4c87b">&lt;strong&gt;</bpt>Configure<ept id="5d68bfa5-e9e6-4f63-af92-386de4c4c87b">&lt;/strong&gt;</ept>
+<bpt id="01ec2a0b-31c7-4c47-bb33-4be79072c15b">&lt;linkText&gt;</bpt>Download<ept id="01ec2a0b-31c7-4c47-bb33-4be79072c15b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31d2d465-26fe-494b-b935-c86ad184d34a" xml:space="preserve">
+          <source>Under multi-factor authentication select <bpt id="8f7c77c2-b799-41b6-8c27-c7538f9d8925">&lt;strong&gt;</bpt>Manage service settings<ept id="8f7c77c2-b799-41b6-8c27-c7538f9d8925">&lt;/strong&gt;</ept></source>
+          <target state="new">Under multi-factor authentication select <bpt id="8f7c77c2-b799-41b6-8c27-c7538f9d8925">&lt;strong&gt;</bpt>Manage service settings<ept id="8f7c77c2-b799-41b6-8c27-c7538f9d8925">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="925ed32a-d5e2-4124-8372-7505c2471df2" xml:space="preserve">
+          <source>On the services settings page, at the bottom of the screen click <bpt id="b09f1e88-1f55-4476-98fb-a52792e33ec3">&lt;strong&gt;</bpt>Go to the portal<ept id="b09f1e88-1f55-4476-98fb-a52792e33ec3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the services settings page, at the bottom of the screen click <bpt id="b09f1e88-1f55-4476-98fb-a52792e33ec3">&lt;strong&gt;</bpt>Go to the portal<ept id="b09f1e88-1f55-4476-98fb-a52792e33ec3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="841bd4e9-d0d1-418a-ba74-5cbc11996e64" xml:space="preserve">
+          <source><bpt id="742af2dc-b109-4bce-93f2-e1565264543b">&lt;linkText&gt;</bpt>Download<ept id="742af2dc-b109-4bce-93f2-e1565264543b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="742af2dc-b109-4bce-93f2-e1565264543b">&lt;linkText&gt;</bpt>Download<ept id="742af2dc-b109-4bce-93f2-e1565264543b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33900725-3f24-4964-aa97-681d8af39f4e" xml:space="preserve">
+          <source>This will open a new page.</source>
+          <target state="new">This will open a new page.</target>
+        </trans-unit>
+        <trans-unit id="4213a40a-5bd0-47d4-ba59-ae7071bae7ce" xml:space="preserve">
+          <source>Click <bpt id="068e4393-b2b5-4427-82a2-5d381307ef68">&lt;strong&gt;</bpt>Downloads.<ept id="068e4393-b2b5-4427-82a2-5d381307ef68">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="068e4393-b2b5-4427-82a2-5d381307ef68">&lt;strong&gt;</bpt>Downloads.<ept id="068e4393-b2b5-4427-82a2-5d381307ef68">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02d3974e-7ca3-44e4-a5d4-bf0841c55f73" xml:space="preserve">
+          <source>Above <bpt id="07cc5684-c24b-4773-9dd4-820a8e451bc0">&lt;strong&gt;</bpt>Generate Activation Credentials<ept id="07cc5684-c24b-4773-9dd4-820a8e451bc0">&lt;/strong&gt;</ept>, click <bpt id="f712d907-4bef-4977-a7b9-bb9fa419a70e">&lt;strong&gt;</bpt>Download.<ept id="f712d907-4bef-4977-a7b9-bb9fa419a70e">&lt;/strong&gt;</ept></source>
+          <target state="new">Above <bpt id="07cc5684-c24b-4773-9dd4-820a8e451bc0">&lt;strong&gt;</bpt>Generate Activation Credentials<ept id="07cc5684-c24b-4773-9dd4-820a8e451bc0">&lt;/strong&gt;</ept>, click <bpt id="f712d907-4bef-4977-a7b9-bb9fa419a70e">&lt;strong&gt;</bpt>Download.<ept id="f712d907-4bef-4977-a7b9-bb9fa419a70e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28011c81-02c7-4fb5-9a5d-be0c78c47593" xml:space="preserve">
+          <source>Save the download.</source>
+          <target state="new">Save the download.</target>
+        </trans-unit>
+        <trans-unit id="b4628a45-6ead-4bc3-a99a-56eb468a1fce" xml:space="preserve">
+          <source>Now that you have downloaded the server you can install it and configure it.</source>
+          <target state="new">Now that you have downloaded the server you can install it and configure it.</target>
+        </trans-unit>
+        <trans-unit id="1f6c4f69-5cba-4406-813c-275a988c6319" xml:space="preserve">
+          <source>Be sure that the server you are installing it on meets the following requirements:</source>
+          <target state="new">Be sure that the server you are installing it on meets the following requirements:</target>
+        </trans-unit>
+        <trans-unit id="530815df-cd0d-4fb5-a430-64e8a7288f69" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication Server Requirements</source>
+          <target state="new">Azure Multi-Factor Authentication Server Requirements</target>
+        </trans-unit>
+        <trans-unit id="fc2b24a8-23a9-43d5-b526-98de55e5f18c" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="235d852b-c27a-4eda-8c27-10f988950eae" xml:space="preserve">
+          <source>Hardware</source>
+          <target state="new">Hardware</target>
+        </trans-unit>
+        <trans-unit id="8024235f-75c6-4fee-9b91-7df96cb7794c" xml:space="preserve">
+          <source>&lt;li&gt;200 MB of hard disk space&lt;/li&gt;&lt;li&gt;x32 or x64 capable processor&lt;/li&gt;&lt;li&gt;1 GB or greater RAM&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;200 MB of hard disk space&lt;/li&gt;&lt;li&gt;x32 or x64 capable processor&lt;/li&gt;&lt;li&gt;1 GB or greater RAM&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="2ab00672-73f7-4153-9d56-5a895cae9f15" xml:space="preserve">
+          <source>Software</source>
+          <target state="new">Software</target>
+        </trans-unit>
+        <trans-unit id="aba23e94-c2df-4c5b-84cd-3626632371b3" xml:space="preserve">
+          <source>&lt;li&gt;Windows Server 2003 or greater if the host is a server OS&lt;/li&gt;&lt;li&gt;Windows Vista or greater if the host is a client OS&lt;/li&gt;&lt;li&gt;Microsoft .NET 2.0 Framework&lt;/li&gt;&lt;li&gt;IIS 6.0 or greater if installing the user portal or web service SDK&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Windows Server 2003 or greater if the host is a server OS&lt;/li&gt;&lt;li&gt;Windows Vista or greater if the host is a client OS&lt;/li&gt;&lt;li&gt;Microsoft .NET 2.0 Framework&lt;/li&gt;&lt;li&gt;IIS 6.0 or greater if installing the user portal or web service SDK&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="098c0a7e-8b51-4f76-90e9-b11cf87a9958" xml:space="preserve">
+          <source>Each MFA server must be able to communicate on port 443 outbound to the following:</source>
+          <target state="new">Each MFA server must be able to communicate on port 443 outbound to the following:</target>
+        </trans-unit>
+        <trans-unit id="de33ee2a-024b-4bc4-af5c-83dd05d23c9e" xml:space="preserve">
+          <source>https://pfd.phonefactor.net</source>
+          <target state="new">https://pfd.phonefactor.net</target>
+        </trans-unit>
+        <trans-unit id="57e6d299-2491-4936-9942-6b2b97b8bb3d" xml:space="preserve">
+          <source>https://pfd2.phonefactor.net</source>
+          <target state="new">https://pfd2.phonefactor.net</target>
+        </trans-unit>
+        <trans-unit id="43224059-a17c-45da-8f12-dadd69802c1a" xml:space="preserve">
+          <source>https://css.phonefactor.net</source>
+          <target state="new">https://css.phonefactor.net</target>
+        </trans-unit>
+        <trans-unit id="6cc298d4-9605-498f-b237-e20a2fcd8790" xml:space="preserve">
+          <source>If outbound firewalls are restricted on port 443, the following IP address ranges will need to be opened:</source>
+          <target state="new">If outbound firewalls are restricted on port 443, the following IP address ranges will need to be opened:</target>
+        </trans-unit>
+        <trans-unit id="2c4d5543-7c46-44cc-9c3d-07d61e7dace5" xml:space="preserve">
+          <source>IP Subnet</source>
+          <target state="new">IP Subnet</target>
+        </trans-unit>
+        <trans-unit id="7080db32-c348-4fa2-888b-1de674c4dea1" xml:space="preserve">
+          <source>Netmask</source>
+          <target state="new">Netmask</target>
+        </trans-unit>
+        <trans-unit id="59a88440-a063-4de3-92f5-6175bec0ec84" xml:space="preserve">
+          <source>IP Range</source>
+          <target state="new">IP Range</target>
+        </trans-unit>
+        <trans-unit id="ab5d58c4-af85-474c-9742-bc9d73703833" xml:space="preserve">
+          <source>134.170.116.0/25</source>
+          <target state="new">134.170.116.0/25</target>
+        </trans-unit>
+        <trans-unit id="1fd5fc6a-aabf-41a3-a444-cbce3827acfe" xml:space="preserve">
+          <source>255.255.255.128</source>
+          <target state="new">255.255.255.128</target>
+        </trans-unit>
+        <trans-unit id="505ae6cf-b55d-410b-ac33-e88d47e03d70" xml:space="preserve">
+          <source>134.170.116.1 – 134.170.116.126</source>
+          <target state="new">134.170.116.1 – 134.170.116.126</target>
+        </trans-unit>
+        <trans-unit id="dc99993f-fb3a-4196-9f98-9916f2c21f2a" xml:space="preserve">
+          <source>134.170.165.0/25</source>
+          <target state="new">134.170.165.0/25</target>
+        </trans-unit>
+        <trans-unit id="09d87bff-d6a4-4774-9948-503fd1b0eb5c" xml:space="preserve">
+          <source>255.255.255.128</source>
+          <target state="new">255.255.255.128</target>
+        </trans-unit>
+        <trans-unit id="f245ff16-2a3a-44ca-84fb-84fd5bc69cd9" xml:space="preserve">
+          <source>134.170.165.1 – 134.170.165.126</source>
+          <target state="new">134.170.165.1 – 134.170.165.126</target>
+        </trans-unit>
+        <trans-unit id="cf88baf2-9d3f-4ff0-8c33-319a8c249882" xml:space="preserve">
+          <source>70.37.154.128/25</source>
+          <target state="new">70.37.154.128/25</target>
+        </trans-unit>
+        <trans-unit id="125ea9cd-812c-457e-9bb2-948590601a0f" xml:space="preserve">
+          <source>255.255.255.128</source>
+          <target state="new">255.255.255.128</target>
+        </trans-unit>
+        <trans-unit id="2690e4db-9ed2-4cf9-b25c-2a2b0e5666a9" xml:space="preserve">
+          <source>70.37.154.129 – 70.37.154.254</source>
+          <target state="new">70.37.154.129 – 70.37.154.254</target>
+        </trans-unit>
+        <trans-unit id="afbb0c41-9fa7-4442-bb3c-d47991aada33" xml:space="preserve">
+          <source>If you are not using Azure Multi-Factor Authentication Event Confirmation features and if users are not authenticating with the Multi-Factor Auth mobile apps from devices on the corporate network the IP ranges can be reduced to the following:</source>
+          <target state="new">If you are not using Azure Multi-Factor Authentication Event Confirmation features and if users are not authenticating with the Multi-Factor Auth mobile apps from devices on the corporate network the IP ranges can be reduced to the following:</target>
+        </trans-unit>
+        <trans-unit id="86356df8-08b0-4db9-b855-e4781a00faf7" xml:space="preserve">
+          <source>IP Subnet</source>
+          <target state="new">IP Subnet</target>
+        </trans-unit>
+        <trans-unit id="a0827805-0853-4d52-b12d-75e2cbb96b0f" xml:space="preserve">
+          <source>Netmask</source>
+          <target state="new">Netmask</target>
+        </trans-unit>
+        <trans-unit id="e7051285-3eb1-416b-b33e-5e020f4ba372" xml:space="preserve">
+          <source>IP Range</source>
+          <target state="new">IP Range</target>
+        </trans-unit>
+        <trans-unit id="07f66828-e2a7-48e6-8dc7-2c3c7c7933a3" xml:space="preserve">
+          <source>134.170.116.72/29</source>
+          <target state="new">134.170.116.72/29</target>
+        </trans-unit>
+        <trans-unit id="05e3488c-306b-4c6f-b1d5-7533edba7cb1" xml:space="preserve">
+          <source>255.255.255.248</source>
+          <target state="new">255.255.255.248</target>
+        </trans-unit>
+        <trans-unit id="32d0f81e-f08a-4e9e-8a50-7be45a13f715" xml:space="preserve">
+          <source>134.170.116.72 – 134.170.116.79</source>
+          <target state="new">134.170.116.72 – 134.170.116.79</target>
+        </trans-unit>
+        <trans-unit id="474c0892-7ccd-4086-ba15-051d73421d11" xml:space="preserve">
+          <source>134.170.165.72/29</source>
+          <target state="new">134.170.165.72/29</target>
+        </trans-unit>
+        <trans-unit id="81fc5e53-c5f5-42b6-94af-0bc1483f5ae2" xml:space="preserve">
+          <source>255.255.255.248</source>
+          <target state="new">255.255.255.248</target>
+        </trans-unit>
+        <trans-unit id="1253517b-2d53-4b9f-88e0-9de26f92e458" xml:space="preserve">
+          <source>134.170.165.72 – 134.170.165.79</source>
+          <target state="new">134.170.165.72 – 134.170.165.79</target>
+        </trans-unit>
+        <trans-unit id="a68e042d-53fe-4577-bf2b-9817b4972e42" xml:space="preserve">
+          <source>70.37.154.200/29</source>
+          <target state="new">70.37.154.200/29</target>
+        </trans-unit>
+        <trans-unit id="f86efac7-3342-4719-ad84-4e0c8d56c9e2" xml:space="preserve">
+          <source>255.255.255.248</source>
+          <target state="new">255.255.255.248</target>
+        </trans-unit>
+        <trans-unit id="de099661-96d2-4827-824b-2f21fcc1ee92" xml:space="preserve">
+          <source>70.37.154.201 – 70.37.154.206</source>
+          <target state="new">70.37.154.201 – 70.37.154.206</target>
+        </trans-unit>
+        <trans-unit id="2a67f7d6-d579-4506-9179-1a416e638909" xml:space="preserve">
+          <source>Double-click on the executable.</source>
+          <target state="new">Double-click on the executable.</target>
+        </trans-unit>
+        <trans-unit id="75522308-d193-4a5d-b39d-9efdce23f191" xml:space="preserve">
+          <source>This will begin the installation.</source>
+          <target state="new">This will begin the installation.</target>
+        </trans-unit>
+        <trans-unit id="ee272996-c989-4dab-b1fb-65d6f3b848d1" xml:space="preserve">
+          <source>On the Select Installation Folder screen, make sure that the folder is correct and click Next.</source>
+          <target state="new">On the Select Installation Folder screen, make sure that the folder is correct and click Next.</target>
+        </trans-unit>
+        <trans-unit id="3f253c0a-206b-4b81-a9ed-10817962fe80" xml:space="preserve">
+          <source>Once the installation complete, click Finish.</source>
+          <target state="new">Once the installation complete, click Finish.</target>
+        </trans-unit>
+        <trans-unit id="4d57ae4a-de82-483e-8752-3b89a5357e5a" xml:space="preserve">
+          <source>This will launch the configuration wizard.</source>
+          <target state="new">This will launch the configuration wizard.</target>
+        </trans-unit>
+        <trans-unit id="943e0b21-f8ee-4b22-87ac-38bf7d4c6d45" xml:space="preserve">
+          <source>On the configuration wizard welcome screen, place a check in <bpt id="3071001d-bace-4e13-888f-777b74323d4c">&lt;strong&gt;</bpt>Skip using the Authentication Configuration Wizard<ept id="3071001d-bace-4e13-888f-777b74323d4c">&lt;/strong&gt;</ept> and click <bpt id="76c04429-966c-434a-a491-a34919ea0fe2">&lt;strong&gt;</bpt>Next<ept id="76c04429-966c-434a-a491-a34919ea0fe2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the configuration wizard welcome screen, place a check in <bpt id="3071001d-bace-4e13-888f-777b74323d4c">&lt;strong&gt;</bpt>Skip using the Authentication Configuration Wizard<ept id="3071001d-bace-4e13-888f-777b74323d4c">&lt;/strong&gt;</ept> and click <bpt id="76c04429-966c-434a-a491-a34919ea0fe2">&lt;strong&gt;</bpt>Next<ept id="76c04429-966c-434a-a491-a34919ea0fe2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="efa97461-f3af-48df-ba4b-485a2f42eadb" xml:space="preserve">
+          <source>This will close the wizard and start the server.</source>
+          <target state="new">This will close the wizard and start the server.</target>
+        </trans-unit>
+        <trans-unit id="dffcd500-6315-487c-beaf-4b7d322d2ecb" xml:space="preserve">
+          <source><bpt id="32a8841c-9eba-4619-bd93-6f40744d0498">&lt;linkText&gt;</bpt>Cloud<ept id="32a8841c-9eba-4619-bd93-6f40744d0498">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="32a8841c-9eba-4619-bd93-6f40744d0498">&lt;linkText&gt;</bpt>Cloud<ept id="32a8841c-9eba-4619-bd93-6f40744d0498">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="595e306c-3ce8-4cbc-9fea-b586c070a059" xml:space="preserve">
+          <source>Back on the page that we downloaded the server from, click the <bpt id="049073ef-4b92-4de1-aa0b-1953f67c4880">&lt;strong&gt;</bpt>Generate Activation Credentials<ept id="049073ef-4b92-4de1-aa0b-1953f67c4880">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Back on the page that we downloaded the server from, click the <bpt id="049073ef-4b92-4de1-aa0b-1953f67c4880">&lt;strong&gt;</bpt>Generate Activation Credentials<ept id="049073ef-4b92-4de1-aa0b-1953f67c4880">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="f372b197-978d-4696-8576-13bb9839b0b4" xml:space="preserve">
+          <source>Copy this information into the Azure MFA Server in the boxes provided and click <bpt id="59861a82-f57c-4e84-b1fe-d869c30428ee">&lt;strong&gt;</bpt>Activate<ept id="59861a82-f57c-4e84-b1fe-d869c30428ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy this information into the Azure MFA Server in the boxes provided and click <bpt id="59861a82-f57c-4e84-b1fe-d869c30428ee">&lt;strong&gt;</bpt>Activate<ept id="59861a82-f57c-4e84-b1fe-d869c30428ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8ddf131-8fb0-416d-9aa7-4a054b898db9" xml:space="preserve">
+          <source>The above steps show an express setup with the configuration wizard.</source>
+          <target state="new">The above steps show an express setup with the configuration wizard.</target>
+        </trans-unit>
+        <trans-unit id="8b8b84ef-5551-435d-899a-44b665205791" xml:space="preserve">
+          <source>You can re-run the authentication wizard by selecting it from the Tools menu on the server.</source>
+          <target state="new">You can re-run the authentication wizard by selecting it from the Tools menu on the server.</target>
+        </trans-unit>
+        <trans-unit id="ec7bb730-96ca-4457-94ae-ed4ac444615a" xml:space="preserve">
+          <source>Now that the server is installed and configured you can quickly import users into the Azure MFA Server.</source>
+          <target state="new">Now that the server is installed and configured you can quickly import users into the Azure MFA Server.</target>
+        </trans-unit>
+        <trans-unit id="2f68d308-795c-43d0-8314-355cb07485fb" xml:space="preserve">
+          <source>In the Azure MFA Server, on the left, select <bpt id="8608e2cc-e8f3-452a-86ac-c0bef1256779">&lt;strong&gt;</bpt>Users<ept id="8608e2cc-e8f3-452a-86ac-c0bef1256779">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure MFA Server, on the left, select <bpt id="8608e2cc-e8f3-452a-86ac-c0bef1256779">&lt;strong&gt;</bpt>Users<ept id="8608e2cc-e8f3-452a-86ac-c0bef1256779">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7aae972-c6b3-4697-9705-75de02d6181b" xml:space="preserve">
+          <source>At the bottom, select <bpt id="c8f6a280-f333-45e1-b7bd-f5515550ff7c">&lt;strong&gt;</bpt>Import from Active Directory<ept id="c8f6a280-f333-45e1-b7bd-f5515550ff7c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom, select <bpt id="c8f6a280-f333-45e1-b7bd-f5515550ff7c">&lt;strong&gt;</bpt>Import from Active Directory<ept id="c8f6a280-f333-45e1-b7bd-f5515550ff7c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="028c3d3c-6c12-40a7-800f-14a22dd4033b" xml:space="preserve">
+          <source>Now you can either search for individual users or search the AD directory for OUs with users in them.</source>
+          <target state="new">Now you can either search for individual users or search the AD directory for OUs with users in them.</target>
+        </trans-unit>
+        <trans-unit id="0601e7c7-8d61-48a0-96f0-e6e209411b7b" xml:space="preserve">
+          <source>In this case, we will specify the users OU.</source>
+          <target state="new">In this case, we will specify the users OU.</target>
+        </trans-unit>
+        <trans-unit id="5dff4cd5-4925-40a0-8d7c-50368f2e3778" xml:space="preserve">
+          <source>Highlight all of the users on the right and click <bpt id="f2caab42-4358-47c6-a883-735c13d9ca38">&lt;strong&gt;</bpt>Import<ept id="f2caab42-4358-47c6-a883-735c13d9ca38">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Highlight all of the users on the right and click <bpt id="f2caab42-4358-47c6-a883-735c13d9ca38">&lt;strong&gt;</bpt>Import<ept id="f2caab42-4358-47c6-a883-735c13d9ca38">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75d6a095-fd9e-438e-8ce7-ab27b7b52cfa" xml:space="preserve">
+          <source>You should receive a pop-up telling you that you were successful.</source>
+          <target state="new">You should receive a pop-up telling you that you were successful.</target>
+        </trans-unit>
+        <trans-unit id="f3c34ecc-64b9-4916-9edc-3f61dea77eb7" xml:space="preserve">
+          <source>Close the import window.</source>
+          <target state="new">Close the import window.</target>
+        </trans-unit>
+        <trans-unit id="5282f9a9-44c9-499b-8ebe-10cca5da627d" xml:space="preserve">
+          <source><bpt id="22cde796-4c72-443e-801a-c3013112de70">&lt;linkText&gt;</bpt>Cloud<ept id="22cde796-4c72-443e-801a-c3013112de70">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22cde796-4c72-443e-801a-c3013112de70">&lt;linkText&gt;</bpt>Cloud<ept id="22cde796-4c72-443e-801a-c3013112de70">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23232da5-8913-4557-a57f-8c312a18aa80" xml:space="preserve">
+          <source>Now that you have imported your users into the Azure Multi-Factor Authentication server, it is advised that you send your users an email that informs them that they have been enrolled in multi-factor authentication.</source>
+          <target state="new">Now that you have imported your users into the Azure Multi-Factor Authentication server, it is advised that you send your users an email that informs them that they have been enrolled in multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="cfe32b32-575b-4381-9f56-cddfe635d09c" xml:space="preserve">
+          <source>With the Azure Multi-Factor Authentication Server there are various ways to configure your users for using multi-factor authentication.</source>
+          <target state="new">With the Azure Multi-Factor Authentication Server there are various ways to configure your users for using multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="8a996597-96f1-407a-8339-b66136c21102" xml:space="preserve">
+          <source>For instance, if you know the users’ phone numbers or were able to import the phone numbers into the Azure Multi-Factor Authentication Server from their company’s directory, the email will let users know that they have been configured to use Azure Multi-Factor Authentication, provide some instructions on using Azure Multi-Factor Authentication and inform the user of the phone number they will receive their authentications on.</source>
+          <target state="new">For instance, if you know the users’ phone numbers or were able to import the phone numbers into the Azure Multi-Factor Authentication Server from their company’s directory, the email will let users know that they have been configured to use Azure Multi-Factor Authentication, provide some instructions on using Azure Multi-Factor Authentication and inform the user of the phone number they will receive their authentications on.</target>
+        </trans-unit>
+        <trans-unit id="1cd1c4bd-7cda-4279-adad-21e390a8c4ab" xml:space="preserve">
+          <source>The content of the email will vary depending on the method of authentication that has been set for the user (e.g. phone call, SMS, mobile app).</source>
+          <target state="new">The content of the email will vary depending on the method of authentication that has been set for the user (e.g. phone call, SMS, mobile app).</target>
+        </trans-unit>
+        <trans-unit id="a6b9a87c-6219-45eb-8bad-e943c1f9f099" xml:space="preserve">
+          <source>For example, if the user is required to use a PIN when they authenticate, the email will tell them what their initial PIN has been set to.</source>
+          <target state="new">For example, if the user is required to use a PIN when they authenticate, the email will tell them what their initial PIN has been set to.</target>
+        </trans-unit>
+        <trans-unit id="2bd6f237-ac20-4406-9584-27b6bc05b72f" xml:space="preserve">
+          <source>Users are usually required to change their PIN during their first authentication.</source>
+          <target state="new">Users are usually required to change their PIN during their first authentication.</target>
+        </trans-unit>
+        <trans-unit id="8bf59b61-4b5a-45a1-a46c-35b5e125d03d" xml:space="preserve">
+          <source>If users’ phone numbers have not been configured or imported into the Azure Multi-Factor Authentication Server, or users are pre-configured to use the mobile app for authentication, you can send them an email that lets them know that they have been configured to use Azure Multi-Factor Authentication and it will direct them to complete their account enrollment through the Azure Multi-Factor Authentication User Portal.</source>
+          <target state="new">If users’ phone numbers have not been configured or imported into the Azure Multi-Factor Authentication Server, or users are pre-configured to use the mobile app for authentication, you can send them an email that lets them know that they have been configured to use Azure Multi-Factor Authentication and it will direct them to complete their account enrollment through the Azure Multi-Factor Authentication User Portal.</target>
+        </trans-unit>
+        <trans-unit id="a09b1679-fbaa-4249-9c19-651a847398df" xml:space="preserve">
+          <source>A hyperlink will be included that the user clicks on to access the User Portal.</source>
+          <target state="new">A hyperlink will be included that the user clicks on to access the User Portal.</target>
+        </trans-unit>
+        <trans-unit id="78346fbb-5b23-490f-971a-b82eb6703afb" xml:space="preserve">
+          <source>When the user clicks on the hyperlink, their web browser will open and take them to their company’s Azure Multi-Factor Authentication User Portal.</source>
+          <target state="new">When the user clicks on the hyperlink, their web browser will open and take them to their company’s Azure Multi-Factor Authentication User Portal.</target>
+        </trans-unit>
+        <trans-unit id="f872cbcb-f83c-46cd-99ef-2a86bcea5ea7" xml:space="preserve">
+          <source>By clicking on the email icon on the left you can setup the settings for sending these emails.</source>
+          <target state="new">By clicking on the email icon on the left you can setup the settings for sending these emails.</target>
+        </trans-unit>
+        <trans-unit id="a4c4dd76-4b0e-4cc9-a780-a53edb5dea90" xml:space="preserve">
+          <source>This is where you can enter the SMTP information of your mail server and it allows you to send a blanket wide email by adding a check to the Send mails to users check box.</source>
+          <target state="new">This is where you can enter the SMTP information of your mail server and it allows you to send a blanket wide email by adding a check to the Send mails to users check box.</target>
+        </trans-unit>
+        <trans-unit id="b32c85bc-623b-4134-804d-2379b3495ae6" xml:space="preserve">
+          <source><bpt id="3ec12cf1-1a2a-4483-9e6e-e55f4c67325f">&lt;linkText&gt;</bpt>Email Settings<ept id="3ec12cf1-1a2a-4483-9e6e-e55f4c67325f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ec12cf1-1a2a-4483-9e6e-e55f4c67325f">&lt;linkText&gt;</bpt>Email Settings<ept id="3ec12cf1-1a2a-4483-9e6e-e55f4c67325f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e256d48-8627-4e51-a7e9-c4680f991548" xml:space="preserve">
+          <source>On the Email Content tab, you will see all of the various email templates that are available to choose from.</source>
+          <target state="new">On the Email Content tab, you will see all of the various email templates that are available to choose from.</target>
+        </trans-unit>
+        <trans-unit id="02aa6051-c819-407f-8f19-964ad7328897" xml:space="preserve">
+          <source>So depending on how you have configured your users to use multi-factor authentication, you can choose the template that best suits you.</source>
+          <target state="new">So depending on how you have configured your users to use multi-factor authentication, you can choose the template that best suits you.</target>
+        </trans-unit>
+        <trans-unit id="1d7ffb01-653e-4f9c-9deb-1b93480615f4" xml:space="preserve">
+          <source><bpt id="461ebcfd-fce7-4e47-a0b2-5323baa54ac4">&lt;linkText&gt;</bpt>Email templates<ept id="461ebcfd-fce7-4e47-a0b2-5323baa54ac4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="461ebcfd-fce7-4e47-a0b2-5323baa54ac4">&lt;linkText&gt;</bpt>Email templates<ept id="461ebcfd-fce7-4e47-a0b2-5323baa54ac4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c2d2442-c2b3-4d3b-9607-2712a807d0c9" xml:space="preserve">
+          <source>For additional information on advanced setup and configuration information use the table below.</source>
+          <target state="new">For additional information on advanced setup and configuration information use the table below.</target>
+        </trans-unit>
+        <trans-unit id="3d59265a-5163-4144-bb72-a7b4ec1c0fb9" xml:space="preserve">
+          <source>Method</source>
+          <target state="new">Method</target>
+        </trans-unit>
+        <trans-unit id="77e4b37f-45c7-401e-8119-40084a4a746e" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="1d193e3d-f260-4ca3-b61b-da009431d502" xml:space="preserve">
+          <source><bpt id="96012235-f3e6-4c6b-9cfa-89efa08cbdef">&lt;linkText&gt;</bpt>User Portal<ept id="96012235-f3e6-4c6b-9cfa-89efa08cbdef">&lt;/linkText&gt;</ept><bpt id="96012235-f3e6-4c6b-9cfa-89efa08cbdef">&lt;title&gt;</bpt><ept id="96012235-f3e6-4c6b-9cfa-89efa08cbdef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="96012235-f3e6-4c6b-9cfa-89efa08cbdef">&lt;linkText&gt;</bpt>User Portal<ept id="96012235-f3e6-4c6b-9cfa-89efa08cbdef">&lt;/linkText&gt;</ept><bpt id="96012235-f3e6-4c6b-9cfa-89efa08cbdef">&lt;title&gt;</bpt><ept id="96012235-f3e6-4c6b-9cfa-89efa08cbdef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38f1f3b4-b825-4d78-a419-e16fe616f5e2" xml:space="preserve">
+          <source>Information on setup and configuring the User portal including deployment and user self-service.</source>
+          <target state="new">Information on setup and configuring the User portal including deployment and user self-service.</target>
+        </trans-unit>
+        <trans-unit id="4a225675-6d43-427c-af9d-606a9872f986" xml:space="preserve">
+          <source><bpt id="a0b2fde0-d2c7-4cf9-a91e-384cf79cf1b9">&lt;linkText&gt;</bpt>Active Directory Federation Service<ept id="a0b2fde0-d2c7-4cf9-a91e-384cf79cf1b9">&lt;/linkText&gt;</ept><bpt id="a0b2fde0-d2c7-4cf9-a91e-384cf79cf1b9">&lt;title&gt;</bpt><ept id="a0b2fde0-d2c7-4cf9-a91e-384cf79cf1b9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a0b2fde0-d2c7-4cf9-a91e-384cf79cf1b9">&lt;linkText&gt;</bpt>Active Directory Federation Service<ept id="a0b2fde0-d2c7-4cf9-a91e-384cf79cf1b9">&lt;/linkText&gt;</ept><bpt id="a0b2fde0-d2c7-4cf9-a91e-384cf79cf1b9">&lt;title&gt;</bpt><ept id="a0b2fde0-d2c7-4cf9-a91e-384cf79cf1b9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb18763b-ae54-483d-84b6-5f82a58227ab" xml:space="preserve">
+          <source>Information on setting up Azure Multi-Factor Authentication with AD FS.</source>
+          <target state="new">Information on setting up Azure Multi-Factor Authentication with AD FS.</target>
+        </trans-unit>
+        <trans-unit id="4dbf8689-0fc6-4fa2-b2c0-f1d12b4a7e31" xml:space="preserve">
+          <source><bpt id="94975ac3-8a6a-4534-b84b-15ee741237ea">&lt;linkText&gt;</bpt>RADIUS Authenticaton<ept id="94975ac3-8a6a-4534-b84b-15ee741237ea">&lt;/linkText&gt;</ept><bpt id="94975ac3-8a6a-4534-b84b-15ee741237ea">&lt;title&gt;</bpt><ept id="94975ac3-8a6a-4534-b84b-15ee741237ea">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="94975ac3-8a6a-4534-b84b-15ee741237ea">&lt;linkText&gt;</bpt>RADIUS Authenticaton<ept id="94975ac3-8a6a-4534-b84b-15ee741237ea">&lt;/linkText&gt;</ept><bpt id="94975ac3-8a6a-4534-b84b-15ee741237ea">&lt;title&gt;</bpt><ept id="94975ac3-8a6a-4534-b84b-15ee741237ea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d725851-f641-4100-9f83-5a87b5ac5360" xml:space="preserve">
+          <source>Information on setup and configuring the Azure MFA Server with RADIUS.</source>
+          <target state="new">Information on setup and configuring the Azure MFA Server with RADIUS.</target>
+        </trans-unit>
+        <trans-unit id="cfd1f31b-3c7b-490c-a99f-d2540e13bcab" xml:space="preserve">
+          <source><bpt id="36dc927a-1502-4972-9455-4b230a4dc65a">&lt;linkText&gt;</bpt>IIS Authentication<ept id="36dc927a-1502-4972-9455-4b230a4dc65a">&lt;/linkText&gt;</ept><bpt id="36dc927a-1502-4972-9455-4b230a4dc65a">&lt;title&gt;</bpt><ept id="36dc927a-1502-4972-9455-4b230a4dc65a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="36dc927a-1502-4972-9455-4b230a4dc65a">&lt;linkText&gt;</bpt>IIS Authentication<ept id="36dc927a-1502-4972-9455-4b230a4dc65a">&lt;/linkText&gt;</ept><bpt id="36dc927a-1502-4972-9455-4b230a4dc65a">&lt;title&gt;</bpt><ept id="36dc927a-1502-4972-9455-4b230a4dc65a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="657aa503-1839-48ac-a648-4f458f9bbc75" xml:space="preserve">
+          <source>Information on setup and configuring the Azure MFA Server with IIS.</source>
+          <target state="new">Information on setup and configuring the Azure MFA Server with IIS.</target>
+        </trans-unit>
+        <trans-unit id="d67afe12-f548-4959-af50-095730d43d15" xml:space="preserve">
+          <source><bpt id="a86ebeca-a878-41d8-9bd6-37926f859b91">&lt;linkText&gt;</bpt>Windows Authenticaton<ept id="a86ebeca-a878-41d8-9bd6-37926f859b91">&lt;/linkText&gt;</ept><bpt id="a86ebeca-a878-41d8-9bd6-37926f859b91">&lt;title&gt;</bpt><ept id="a86ebeca-a878-41d8-9bd6-37926f859b91">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a86ebeca-a878-41d8-9bd6-37926f859b91">&lt;linkText&gt;</bpt>Windows Authenticaton<ept id="a86ebeca-a878-41d8-9bd6-37926f859b91">&lt;/linkText&gt;</ept><bpt id="a86ebeca-a878-41d8-9bd6-37926f859b91">&lt;title&gt;</bpt><ept id="a86ebeca-a878-41d8-9bd6-37926f859b91">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b9d7d86-726b-4852-80ed-6a3d240cca95" xml:space="preserve">
+          <source>Information on setup and configuring the Azure MFA Server with Windows Authentication.</source>
+          <target state="new">Information on setup and configuring the Azure MFA Server with Windows Authentication.</target>
+        </trans-unit>
+        <trans-unit id="accf8b62-c4f3-44de-9354-c1af54919093" xml:space="preserve">
+          <source><bpt id="d7dbda0b-3b97-492d-a0c7-9c4ca0880e71">&lt;linkText&gt;</bpt>LDAP Authentication<ept id="d7dbda0b-3b97-492d-a0c7-9c4ca0880e71">&lt;/linkText&gt;</ept><bpt id="d7dbda0b-3b97-492d-a0c7-9c4ca0880e71">&lt;title&gt;</bpt><ept id="d7dbda0b-3b97-492d-a0c7-9c4ca0880e71">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d7dbda0b-3b97-492d-a0c7-9c4ca0880e71">&lt;linkText&gt;</bpt>LDAP Authentication<ept id="d7dbda0b-3b97-492d-a0c7-9c4ca0880e71">&lt;/linkText&gt;</ept><bpt id="d7dbda0b-3b97-492d-a0c7-9c4ca0880e71">&lt;title&gt;</bpt><ept id="d7dbda0b-3b97-492d-a0c7-9c4ca0880e71">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da7f0b4b-7f9d-4781-b552-9cc5675a7f48" xml:space="preserve">
+          <source>Information on setup and configuring the Azure MFA Server with LDAP Authentication.</source>
+          <target state="new">Information on setup and configuring the Azure MFA Server with LDAP Authentication.</target>
+        </trans-unit>
+        <trans-unit id="35e98f35-cc10-40b7-b8cb-1d1dffa34a67" xml:space="preserve">
+          <source><bpt id="3ce3a1c8-4a30-41e1-9b1a-fcad42b9996a">&lt;linkText&gt;</bpt>Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS<ept id="3ce3a1c8-4a30-41e1-9b1a-fcad42b9996a">&lt;/linkText&gt;</ept><bpt id="3ce3a1c8-4a30-41e1-9b1a-fcad42b9996a">&lt;title&gt;</bpt><ept id="3ce3a1c8-4a30-41e1-9b1a-fcad42b9996a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3ce3a1c8-4a30-41e1-9b1a-fcad42b9996a">&lt;linkText&gt;</bpt>Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS<ept id="3ce3a1c8-4a30-41e1-9b1a-fcad42b9996a">&lt;/linkText&gt;</ept><bpt id="3ce3a1c8-4a30-41e1-9b1a-fcad42b9996a">&lt;title&gt;</bpt><ept id="3ce3a1c8-4a30-41e1-9b1a-fcad42b9996a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd6cafeb-7587-41fe-92b2-e44adbfcf341" xml:space="preserve">
+          <source>Information on setup and configuring the Azure MFA Server with Remote Desktop Gateway using RADIUS.</source>
+          <target state="new">Information on setup and configuring the Azure MFA Server with Remote Desktop Gateway using RADIUS.</target>
+        </trans-unit>
+        <trans-unit id="1dad5cbb-517e-4365-8f5b-61097706b6fd" xml:space="preserve">
+          <source><bpt id="69e7913e-be6d-4a0e-a2ff-8525537ee673">&lt;linkText&gt;</bpt>Sync with Windows Server Active Directory<ept id="69e7913e-be6d-4a0e-a2ff-8525537ee673">&lt;/linkText&gt;</ept><bpt id="69e7913e-be6d-4a0e-a2ff-8525537ee673">&lt;title&gt;</bpt><ept id="69e7913e-be6d-4a0e-a2ff-8525537ee673">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="69e7913e-be6d-4a0e-a2ff-8525537ee673">&lt;linkText&gt;</bpt>Sync with Windows Server Active Directory<ept id="69e7913e-be6d-4a0e-a2ff-8525537ee673">&lt;/linkText&gt;</ept><bpt id="69e7913e-be6d-4a0e-a2ff-8525537ee673">&lt;title&gt;</bpt><ept id="69e7913e-be6d-4a0e-a2ff-8525537ee673">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="374c017d-8df5-48b4-b464-4c36bedce2be" xml:space="preserve">
+          <source>Information on setup and configuring synchronization between Active Directory and the Azure MFA Server.</source>
+          <target state="new">Information on setup and configuring synchronization between Active Directory and the Azure MFA Server.</target>
+        </trans-unit>
+        <trans-unit id="e7accedd-a916-4678-ac30-6aaaeb5374ce" xml:space="preserve">
+          <source><bpt id="0ec54fc9-bbd3-41b6-b262-d371e99b61a8">&lt;linkText&gt;</bpt>Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service<ept id="0ec54fc9-bbd3-41b6-b262-d371e99b61a8">&lt;/linkText&gt;</ept><bpt id="0ec54fc9-bbd3-41b6-b262-d371e99b61a8">&lt;title&gt;</bpt><ept id="0ec54fc9-bbd3-41b6-b262-d371e99b61a8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0ec54fc9-bbd3-41b6-b262-d371e99b61a8">&lt;linkText&gt;</bpt>Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service<ept id="0ec54fc9-bbd3-41b6-b262-d371e99b61a8">&lt;/linkText&gt;</ept><bpt id="0ec54fc9-bbd3-41b6-b262-d371e99b61a8">&lt;title&gt;</bpt><ept id="0ec54fc9-bbd3-41b6-b262-d371e99b61a8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb525d83-96ae-42cb-9519-4e54d4d4e2ed" xml:space="preserve">
+          <source>Information on setup and configuring the Azure MFA server web service.</source>
+          <target state="new">Information on setup and configuring the Azure MFA server web service.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

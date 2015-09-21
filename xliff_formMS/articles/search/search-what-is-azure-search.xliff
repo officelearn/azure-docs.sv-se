@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d56533e4-5961-42dc-92f6-8576b8f146ae" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d56533e4-5961-42dc-92f6-8576b8f146ae" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f9c18098-45e3-48b5-81bc-fd7a08a6f46a">
+        <trans-unit id="a5f9abe1-6067-4380-bf79-e9ec20c8936e" xml:space="preserve">
+          <source>What is Azure Search</source>
+          <target state="new">What is Azure Search</target>
+        </trans-unit>
+        <trans-unit id="2d002bbb-1291-419c-86fc-d85a23f9edfc" xml:space="preserve">
+          <source>Azure Search technical overview and feature summary.</source>
+          <target state="new">Azure Search technical overview and feature summary.</target>
+        </trans-unit>
+        <trans-unit id="7f5c6630-5caa-416f-8c18-229289342b5c" xml:space="preserve">
+          <source>Azure Search Service is a fully managed cloud service that allows developers to build rich search applications using a .NET SDK or REST APIs.</source>
+          <target state="new">Azure Search Service is a fully managed cloud service that allows developers to build rich search applications using a .NET SDK or REST APIs.</target>
+        </trans-unit>
+        <trans-unit id="4815226f-3196-49f7-93fc-ad959bbe7049" xml:space="preserve">
+          <source>It includes full-text search scoped over your content, plus advanced search behaviors similar to those found in commercial web search engines, such as type-ahead query suggestions based on a partial term input, hit-highlighting, and faceted navigation.</source>
+          <target state="new">It includes full-text search scoped over your content, plus advanced search behaviors similar to those found in commercial web search engines, such as type-ahead query suggestions based on a partial term input, hit-highlighting, and faceted navigation.</target>
+        </trans-unit>
+        <trans-unit id="f7e6c660-bcdc-41fa-9191-bcba73f4d03e" xml:space="preserve">
+          <source>Natural language support is built-in, using the linguistic rules that are appropriate to the specified language.</source>
+          <target state="new">Natural language support is built-in, using the linguistic rules that are appropriate to the specified language.</target>
+        </trans-unit>
+        <trans-unit id="1050a468-0f74-450e-9230-9df04010e20d" xml:space="preserve">
+          <source>You can scale your service based on the need for increased search or storage capacity.</source>
+          <target state="new">You can scale your service based on the need for increased search or storage capacity.</target>
+        </trans-unit>
+        <trans-unit id="c49119aa-24f1-42d8-bb24-1d0e23b8f3fc" xml:space="preserve">
+          <source>For example, retailers can increase capacity to meet the extra volumes associated with holiday shopping or promotional events.</source>
+          <target state="new">For example, retailers can increase capacity to meet the extra volumes associated with holiday shopping or promotional events.</target>
+        </trans-unit>
+        <trans-unit id="c0f4f001-d8b9-45d5-a9fb-8dcc2433f456" xml:space="preserve">
+          <source>Azure Search is an API-based service for developers and system integrators who know how to work with web services and HTTP.</source>
+          <target state="new">Azure Search is an API-based service for developers and system integrators who know how to work with web services and HTTP.</target>
+        </trans-unit>
+        <trans-unit id="3caf130b-f4d1-4a00-b2eb-466840bf9315" xml:space="preserve">
+          <source>Azure Search takes the complexity out of managing a cloud search service and simplifies the creation of search-based web and mobile applications.</source>
+          <target state="new">Azure Search takes the complexity out of managing a cloud search service and simplifies the creation of search-based web and mobile applications.</target>
+        </trans-unit>
+        <trans-unit id="39598f84-f635-4dfa-8eff-22dfa4e383db" xml:space="preserve">
+          <source>Azure Search is a [PaaS service](https://wikipedia.org/wiki/Platform<bpt id="ab0dec0b-321f-4f98-88d8-5b1f9ea338c2">&lt;em&gt;</bpt>as<ept id="ab0dec0b-321f-4f98-88d8-5b1f9ea338c2">&lt;/em&gt;</ept>a_service) that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you populate with search data, and then access from your application.</source>
+          <target state="new">Azure Search is a [PaaS service](https://wikipedia.org/wiki/Platform<bpt id="ab0dec0b-321f-4f98-88d8-5b1f9ea338c2">&lt;em&gt;</bpt>as<ept id="ab0dec0b-321f-4f98-88d8-5b1f9ea338c2">&lt;/em&gt;</ept>a_service) that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you populate with search data, and then access from your application.</target>
+        </trans-unit>
+        <trans-unit id="565033d0-8a06-4a93-bc36-ee0622b462e2" xml:space="preserve">
+          <source>Depending on how you configure the service, you'll use either the free service that is shared with other Azure Search subscribers, or the Standard pricing tier that offers dedicated resources used only by your service.</source>
+          <target state="new">Depending on how you configure the service, you'll use either the free service that is shared with other Azure Search subscribers, or the Standard pricing tier that offers dedicated resources used only by your service.</target>
+        </trans-unit>
+        <trans-unit id="cec8cd90-8ec2-4aec-88c6-20bd5e8af2f2" xml:space="preserve">
+          <source>Standard search is scalable, with options to meet increased demands for storage or query loads.</source>
+          <target state="new">Standard search is scalable, with options to meet increased demands for storage or query loads.</target>
+        </trans-unit>
+        <trans-unit id="60b23190-160f-4e14-a761-7c9970573e93" xml:space="preserve">
+          <source>Azure Search stores your data in an index that can be searched through full text queries.</source>
+          <target state="new">Azure Search stores your data in an index that can be searched through full text queries.</target>
+        </trans-unit>
+        <trans-unit id="4bbce803-f93b-4d1b-b470-576a72d9a637" xml:space="preserve">
+          <source>The schema of these indexes can either be created in the Azure Portal, or programmatically using the client library or REST APIs.</source>
+          <target state="new">The schema of these indexes can either be created in the Azure Portal, or programmatically using the client library or REST APIs.</target>
+        </trans-unit>
+        <trans-unit id="f0ddaaf1-0d48-43f0-bed7-e429e74fa939" xml:space="preserve">
+          <source>Once the schema is defined, you can then upload your data to the Azure Search service where it is subsequently indexed.</source>
+          <target state="new">Once the schema is defined, you can then upload your data to the Azure Search service where it is subsequently indexed.</target>
+        </trans-unit>
+        <trans-unit id="3975f6b9-4061-44a6-bffd-f6088563bee4" xml:space="preserve">
+          <source>You can use either push or pull models to upload data to the index.</source>
+          <target state="new">You can use either push or pull models to upload data to the index.</target>
+        </trans-unit>
+        <trans-unit id="66926e01-f6c4-44b6-a032-7f9705accdb8" xml:space="preserve">
+          <source>The pull model is provided through indexers that can be configured for on demand or scheduled updates (see <bpt id="eb2c1744-a051-472c-869d-ab839d89f597">&lt;linkText&gt;</bpt>Indexer operations (Azure Search Service REST API)<ept id="eb2c1744-a051-472c-869d-ab839d89f597">&lt;/linkText&gt;</ept><bpt id="eb2c1744-a051-472c-869d-ab839d89f597">&lt;title&gt;</bpt><ept id="eb2c1744-a051-472c-869d-ab839d89f597">&lt;/title&gt;</ept>), allowing you to easily ingest data and data changes from an Azure DocumentDB, Azure SQL Database, or SQL Server hosted in an Azure VM.</source>
+          <target state="new">The pull model is provided through indexers that can be configured for on demand or scheduled updates (see <bpt id="eb2c1744-a051-472c-869d-ab839d89f597">&lt;linkText&gt;</bpt>Indexer operations (Azure Search Service REST API)<ept id="eb2c1744-a051-472c-869d-ab839d89f597">&lt;/linkText&gt;</ept><bpt id="eb2c1744-a051-472c-869d-ab839d89f597">&lt;title&gt;</bpt><ept id="eb2c1744-a051-472c-869d-ab839d89f597">&lt;/title&gt;</ept>), allowing you to easily ingest data and data changes from an Azure DocumentDB, Azure SQL Database, or SQL Server hosted in an Azure VM.</target>
+        </trans-unit>
+        <trans-unit id="7c64baab-0749-40fa-9e29-fc548e6e7471" xml:space="preserve">
+          <source>The push model is provided through the SDK or REST APIs used for sending updated documents to an index.</source>
+          <target state="new">The push model is provided through the SDK or REST APIs used for sending updated documents to an index.</target>
+        </trans-unit>
+        <trans-unit id="d97f05cb-d5cf-495f-bc30-303905a91aa1" xml:space="preserve">
+          <source>You can push data from virtually any dataset, as long as its in JSON format.</source>
+          <target state="new">You can push data from virtually any dataset, as long as its in JSON format.</target>
+        </trans-unit>
+        <trans-unit id="88bac6f1-2205-4a1e-ad18-8b049f47a85b" xml:space="preserve">
+          <source>See <bpt id="d5786f13-c5f5-42c6-a972-350d8cbaba6d">&lt;linkText&gt;</bpt>Add, update, or delete Documents<ept id="d5786f13-c5f5-42c6-a972-350d8cbaba6d">&lt;/linkText&gt;</ept><bpt id="d5786f13-c5f5-42c6-a972-350d8cbaba6d">&lt;title&gt;</bpt><ept id="d5786f13-c5f5-42c6-a972-350d8cbaba6d">&lt;/title&gt;</ept> or <bpt id="2024997d-6f86-496b-8800-8ba9fa560bcd">&lt;linkText&gt;</bpt>How to use the .NET SDK)<ept id="2024997d-6f86-496b-8800-8ba9fa560bcd">&lt;/linkText&gt;</ept><bpt id="2024997d-6f86-496b-8800-8ba9fa560bcd">&lt;title&gt;</bpt><ept id="2024997d-6f86-496b-8800-8ba9fa560bcd">&lt;/title&gt;</ept> for guidance on loading data.</source>
+          <target state="new">See <bpt id="d5786f13-c5f5-42c6-a972-350d8cbaba6d">&lt;linkText&gt;</bpt>Add, update, or delete Documents<ept id="d5786f13-c5f5-42c6-a972-350d8cbaba6d">&lt;/linkText&gt;</ept><bpt id="d5786f13-c5f5-42c6-a972-350d8cbaba6d">&lt;title&gt;</bpt><ept id="d5786f13-c5f5-42c6-a972-350d8cbaba6d">&lt;/title&gt;</ept> or <bpt id="2024997d-6f86-496b-8800-8ba9fa560bcd">&lt;linkText&gt;</bpt>How to use the .NET SDK)<ept id="2024997d-6f86-496b-8800-8ba9fa560bcd">&lt;/linkText&gt;</ept><bpt id="2024997d-6f86-496b-8800-8ba9fa560bcd">&lt;title&gt;</bpt><ept id="2024997d-6f86-496b-8800-8ba9fa560bcd">&lt;/title&gt;</ept> for guidance on loading data.</target>
+        </trans-unit>
+        <trans-unit id="c93e8836-3e8a-4caa-a100-fb9113f9ad1f" xml:space="preserve">
+          <source>Some developers will choose an indexer for the convenience it provides.</source>
+          <target state="new">Some developers will choose an indexer for the convenience it provides.</target>
+        </trans-unit>
+        <trans-unit id="d1fb2253-e84c-4db3-8802-b43fbb85455d" xml:space="preserve">
+          <source>For other developers, the push model is worth a little extra work.</source>
+          <target state="new">For other developers, the push model is worth a little extra work.</target>
+        </trans-unit>
+        <trans-unit id="15f371aa-3ac4-4314-83de-594794ab13cf" xml:space="preserve">
+          <source>Reasons for choosing a push model are twofold.</source>
+          <target state="new">Reasons for choosing a push model are twofold.</target>
+        </trans-unit>
+        <trans-unit id="59f8279a-74a0-44b0-92c5-976d2f095e16" xml:space="preserve">
+          <source>First, you avoid the extra load that crawler-style mechanisms place on your data servers.</source>
+          <target state="new">First, you avoid the extra load that crawler-style mechanisms place on your data servers.</target>
+        </trans-unit>
+        <trans-unit id="4b23a30a-3b73-4ece-b069-1ea57c3986d0" xml:space="preserve">
+          <source>Secondly, you avoid the inherent latency that comes with scheduled indexing.</source>
+          <target state="new">Secondly, you avoid the inherent latency that comes with scheduled indexing.</target>
+        </trans-unit>
+        <trans-unit id="54d72da6-71b3-4bf0-9fcc-6bf1c3ef9b65" xml:space="preserve">
+          <source>On Cyber Monday or Black Friday, you’ll want search to reflect up-to-the-second status on available inventory.</source>
+          <target state="new">On Cyber Monday or Black Friday, you’ll want search to reflect up-to-the-second status on available inventory.</target>
+        </trans-unit>
+        <trans-unit id="e33f5204-77e0-4aac-a58f-32351bf15fae" xml:space="preserve">
+          <source>A push model can give you that degree of precision.</source>
+          <target state="new">A push model can give you that degree of precision.</target>
+        </trans-unit>
+        <trans-unit id="4ff0265e-83c5-40e4-a797-d02c41e80839" xml:space="preserve">
+          <source>The typical workflow is to build the schema and documents in a local development environment and then use the .NET SDK or REST API to upload, process, and ultimately query the data.</source>
+          <target state="new">The typical workflow is to build the schema and documents in a local development environment and then use the .NET SDK or REST API to upload, process, and ultimately query the data.</target>
+        </trans-unit>
+        <trans-unit id="15c05516-b806-424b-ba4d-42052b4cd47e" xml:space="preserve">
+          <source>All of the indexed data is persisted within Azure Search for better performance and to ensure consistency across search operations.</source>
+          <target state="new">All of the indexed data is persisted within Azure Search for better performance and to ensure consistency across search operations.</target>
+        </trans-unit>
+        <trans-unit id="a4a9eb43-24f0-4926-a855-820e48df35c9" xml:space="preserve">
+          <source>You can use the portal's built-in editor to create the index schema and scoring profiles, which is ideal for prototyping.</source>
+          <target state="new">You can use the portal's built-in editor to create the index schema and scoring profiles, which is ideal for prototyping.</target>
+        </trans-unit>
+        <trans-unit id="f9c2a9b8-48d0-4161-869b-4f67be5c061c" xml:space="preserve">
+          <source>Developers who need a repeatable, automated approach might prefer to create the index in code.</source>
+          <target state="new">Developers who need a repeatable, automated approach might prefer to create the index in code.</target>
+        </trans-unit>
+        <trans-unit id="fc9c68bd-fa52-45b1-b27d-e530b5cb80d3" xml:space="preserve">
+          <source>Newer features are added to the API first, so depending on your application requirements, a programmatic approach might be your only option.</source>
+          <target state="new">Newer features are added to the API first, so depending on your application requirements, a programmatic approach might be your only option.</target>
+        </trans-unit>
+        <trans-unit id="1c0c152b-0bd6-4448-885c-5ce405b14a77" xml:space="preserve">
+          <source>When you build the schema, you're defining the fields and their attributes supported in your search application.</source>
+          <target state="new">When you build the schema, you're defining the fields and their attributes supported in your search application.</target>
+        </trans-unit>
+        <trans-unit id="15f2053f-3784-444c-95c7-b4ec180a1f3b" xml:space="preserve">
+          <source>Fields contain searchable data, such as product names, descriptions, customer comments, brands, prices, promotional notifications, and so forth.</source>
+          <target state="new">Fields contain searchable data, such as product names, descriptions, customer comments, brands, prices, promotional notifications, and so forth.</target>
+        </trans-unit>
+        <trans-unit id="e6735962-f650-4fae-9ee7-31409f078d6c" xml:space="preserve">
+          <source>Attributes inform the types of operations that can be performed.</source>
+          <target state="new">Attributes inform the types of operations that can be performed.</target>
+        </trans-unit>
+        <trans-unit id="a12f4df7-240e-4057-b1d4-80592d87bd60" xml:space="preserve">
+          <source>Examples of the more commonly used attributes include whether a field supports full-text search (searchable=true), filters (filterable=true), or facets (facetable=true).</source>
+          <target state="new">Examples of the more commonly used attributes include whether a field supports full-text search (searchable=true), filters (filterable=true), or facets (facetable=true).</target>
+        </trans-unit>
+        <trans-unit id="8d7c5cff-6db6-4fb5-bf61-d9a99300b837" xml:space="preserve">
+          <source>Fields also contain non-searchable data relevant to your search application, such as values used internally in filters and scoring profiles, or perhaps URLs to content stored in other storage platforms (for example, video or image files kept in BLOB storage).</source>
+          <target state="new">Fields also contain non-searchable data relevant to your search application, such as values used internally in filters and scoring profiles, or perhaps URLs to content stored in other storage platforms (for example, video or image files kept in BLOB storage).</target>
+        </trans-unit>
+        <trans-unit id="17361c67-901f-41a0-b28a-fec456308180" xml:space="preserve">
+          <source>An oft-cited example of an internal-only field is a profit margin or another value that indicates revenue potential.</source>
+          <target state="new">An oft-cited example of an internal-only field is a profit margin or another value that indicates revenue potential.</target>
+        </trans-unit>
+        <trans-unit id="aa40dbc1-c0df-45d7-be91-2544fdfd715c" xml:space="preserve">
+          <source>Perhaps your search application needs to promote specific items that bring higher financial benefit to your company.</source>
+          <target state="new">Perhaps your search application needs to promote specific items that bring higher financial benefit to your company.</target>
+        </trans-unit>
+        <trans-unit id="efac2f60-6d81-4e9a-8d96-303ed203f177" xml:space="preserve">
+          <source>Your schema can include field attributes allowing these kinds of search behaviors.</source>
+          <target state="new">Your schema can include field attributes allowing these kinds of search behaviors.</target>
+        </trans-unit>
+        <trans-unit id="e5b29bfd-244e-484d-8cdd-c16f3e0c8716" xml:space="preserve">
+          <source>Documents are the detailed data returned by the search engine in search results.</source>
+          <target state="new">Documents are the detailed data returned by the search engine in search results.</target>
+        </trans-unit>
+        <trans-unit id="68cfa234-ded4-44a3-8046-b1dca6698e1c" xml:space="preserve">
+          <source>For example, if your search application is an online catalog, you would have one document for each SKU, and the search results page would be built using values returned from documents that match the search terms.</source>
+          <target state="new">For example, if your search application is an online catalog, you would have one document for each SKU, and the search results page would be built using values returned from documents that match the search terms.</target>
+        </trans-unit>
+        <trans-unit id="b8b9ec02-479c-4b08-92e9-d312140e53d3" xml:space="preserve">
+          <source>Watch our videos to learn about scenarios and capabilities.</source>
+          <target state="new">Watch our videos to learn about scenarios and capabilities.</target>
+        </trans-unit>
+        <trans-unit id="33b5bee0-6491-4c77-ad46-7b8c228fb6f9" xml:space="preserve">
+          <source>Visit <bpt id="df973f39-847e-4818-98bd-636405262767">&lt;linkText&gt;</bpt>Azure Search: tutorials, video demos, and samples<ept id="df973f39-847e-4818-98bd-636405262767">&lt;/linkText&gt;</ept><bpt id="df973f39-847e-4818-98bd-636405262767">&lt;title&gt;</bpt><ept id="df973f39-847e-4818-98bd-636405262767">&lt;/title&gt;</ept> for links to video content.</source>
+          <target state="new">Visit <bpt id="df973f39-847e-4818-98bd-636405262767">&lt;linkText&gt;</bpt>Azure Search: tutorials, video demos, and samples<ept id="df973f39-847e-4818-98bd-636405262767">&lt;/linkText&gt;</ept><bpt id="df973f39-847e-4818-98bd-636405262767">&lt;title&gt;</bpt><ept id="df973f39-847e-4818-98bd-636405262767">&lt;/title&gt;</ept> for links to video content.</target>
+        </trans-unit>
+        <trans-unit id="30cfd5c9-6532-4e91-b614-df1f6ce97420" xml:space="preserve">
+          <source>Azure Search delivers value in multiple categories, including provisioning and scale, programmability, access and control, and in the features that you choose to implement in your custom search application.</source>
+          <target state="new">Azure Search delivers value in multiple categories, including provisioning and scale, programmability, access and control, and in the features that you choose to implement in your custom search application.</target>
+        </trans-unit>
+        <trans-unit id="4ce3da08-f444-4789-b50f-ee8dcd957117" xml:space="preserve">
+          <source>The following feature checklist can help you evaluate Azure Search for your search application needs.</source>
+          <target state="new">The following feature checklist can help you evaluate Azure Search for your search application needs.</target>
+        </trans-unit>
+        <trans-unit id="c819bcfb-ac0d-405b-b9d5-ff27965b9e09" xml:space="preserve">
+          <source>New feature announcements can be found at Latest updates to Azure Search.</source>
+          <target state="new">New feature announcements can be found at Latest updates to Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="e84c72d5-b7a6-4011-b9ec-637473b75ead" xml:space="preserve">
+          <source>You can also review the Azure Search feature request page to check on the status of features not yet implemented.</source>
+          <target state="new">You can also review the Azure Search feature request page to check on the status of features not yet implemented.</target>
+        </trans-unit>
+        <trans-unit id="aa653df1-7cd3-45c9-a05a-45c7bfdc321d" xml:space="preserve">
+          <source>Questions about a specific feature?</source>
+          <target state="new">Questions about a specific feature?</target>
+        </trans-unit>
+        <trans-unit id="2d1395d3-81f0-479a-9207-548b82b320f8" xml:space="preserve">
+          <source>Try the <bpt id="e44dee5d-a0b6-44d2-8d9f-002d6b547f12">&lt;linkText&gt;</bpt>Azure Search forum on MSDN<ept id="e44dee5d-a0b6-44d2-8d9f-002d6b547f12">&lt;/linkText&gt;</ept><bpt id="e44dee5d-a0b6-44d2-8d9f-002d6b547f12">&lt;title&gt;</bpt><ept id="e44dee5d-a0b6-44d2-8d9f-002d6b547f12">&lt;/title&gt;</ept>.</source>
+          <target state="new">Try the <bpt id="e44dee5d-a0b6-44d2-8d9f-002d6b547f12">&lt;linkText&gt;</bpt>Azure Search forum on MSDN<ept id="e44dee5d-a0b6-44d2-8d9f-002d6b547f12">&lt;/linkText&gt;</ept><bpt id="e44dee5d-a0b6-44d2-8d9f-002d6b547f12">&lt;title&gt;</bpt><ept id="e44dee5d-a0b6-44d2-8d9f-002d6b547f12">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8faff4a7-9d07-4754-8b59-d567dfd33439" xml:space="preserve">
+          <source>You can also review the <bpt id="1a5e8233-20f4-4f17-a4cd-5bacb83a2f18">&lt;linkText&gt;</bpt>Azure Search feature request page<ept id="1a5e8233-20f4-4f17-a4cd-5bacb83a2f18">&lt;/linkText&gt;</ept><bpt id="1a5e8233-20f4-4f17-a4cd-5bacb83a2f18">&lt;title&gt;</bpt><ept id="1a5e8233-20f4-4f17-a4cd-5bacb83a2f18">&lt;/title&gt;</ept> to check on the status of features not yet implemented.</source>
+          <target state="new">You can also review the <bpt id="1a5e8233-20f4-4f17-a4cd-5bacb83a2f18">&lt;linkText&gt;</bpt>Azure Search feature request page<ept id="1a5e8233-20f4-4f17-a4cd-5bacb83a2f18">&lt;/linkText&gt;</ept><bpt id="1a5e8233-20f4-4f17-a4cd-5bacb83a2f18">&lt;title&gt;</bpt><ept id="1a5e8233-20f4-4f17-a4cd-5bacb83a2f18">&lt;/title&gt;</ept> to check on the status of features not yet implemented.</target>
+        </trans-unit>
+        <trans-unit id="c861ae40-08f2-4a99-8ede-cd3a885c4707" xml:space="preserve">
+          <source>The service can run as either a Standard or shared service deployment.</source>
+          <target state="new">The service can run as either a Standard or shared service deployment.</target>
+        </trans-unit>
+        <trans-unit id="158c1665-0c83-4a69-9d48-16a2cdaa8bf5" xml:space="preserve">
+          <source>Standard search supports dedicated resource that can be scaled based on workloads.</source>
+          <target state="new">Standard search supports dedicated resource that can be scaled based on workloads.</target>
+        </trans-unit>
+        <trans-unit id="2412bc1b-6bd8-4568-82a5-7c92c6e3060f" xml:space="preserve">
+          <source>The shared service is free and is meant for testing out the services functionality as there are no performance guarantees.</source>
+          <target state="new">The shared service is free and is meant for testing out the services functionality as there are no performance guarantees.</target>
+        </trans-unit>
+        <trans-unit id="88cbda2c-49c1-407f-8a7c-1c0f95fcfde1" xml:space="preserve">
+          <source><bpt id="0afe1a12-471f-41ec-8142-9ebb98f2bc50">&lt;strong&gt;</bpt>Scalable<ept id="0afe1a12-471f-41ec-8142-9ebb98f2bc50">&lt;/strong&gt;</ept> in increments of storage and document counts (partitions) or in query load (replicas).</source>
+          <target state="new"><bpt id="0afe1a12-471f-41ec-8142-9ebb98f2bc50">&lt;strong&gt;</bpt>Scalable<ept id="0afe1a12-471f-41ec-8142-9ebb98f2bc50">&lt;/strong&gt;</ept> in increments of storage and document counts (partitions) or in query load (replicas).</target>
+        </trans-unit>
+        <trans-unit id="97ac31ad-c7a5-44b4-b311-e801202153a4" xml:space="preserve">
+          <source>Each replica runs one copy of an index.</source>
+          <target state="new">Each replica runs one copy of an index.</target>
+        </trans-unit>
+        <trans-unit id="65259b6e-2288-4be4-9968-0e8ed41606d6" xml:space="preserve">
+          <source>High availability requires 2 replicas for query workloads, and 3 replicas for read-write (query and indexing) workloads.</source>
+          <target state="new">High availability requires 2 replicas for query workloads, and 3 replicas for read-write (query and indexing) workloads.</target>
+        </trans-unit>
+        <trans-unit id="5b013c7b-fccc-4afa-bf55-b1ec8e79d45a" xml:space="preserve">
+          <source>See Limits and constraints (Azure Search) for more about capacity planning.</source>
+          <target state="new">See Limits and constraints (Azure Search) for more about capacity planning.</target>
+        </trans-unit>
+        <trans-unit id="30378520-ea95-4c39-8ae2-5a8c87f7ff31" xml:space="preserve">
+          <source>Azure Search automatically spans indexes and documents across the partitions you have allocated for this service.</source>
+          <target state="new">Azure Search automatically spans indexes and documents across the partitions you have allocated for this service.</target>
+        </trans-unit>
+        <trans-unit id="a6bc11d5-f648-48ed-b437-417bfe2607b4" xml:space="preserve">
+          <source>This means that you cannot peg indexes and documents to a set of partitions and replicas.</source>
+          <target state="new">This means that you cannot peg indexes and documents to a set of partitions and replicas.</target>
+        </trans-unit>
+        <trans-unit id="c58afa97-1454-46f9-bcb0-341b93c7482b" xml:space="preserve">
+          <source>Partitions and replicas are service-wide resources, with all indexes running on all replicas.</source>
+          <target state="new">Partitions and replicas are service-wide resources, with all indexes running on all replicas.</target>
+        </trans-unit>
+        <trans-unit id="cf5432c0-f1cd-47b0-a2cc-b2524841be13" xml:space="preserve">
+          <source>If you need index isolation, or perhaps you have requirements for geographic dispersion of services and resources in different data centers, you could create a second service.</source>
+          <target state="new">If you need index isolation, or perhaps you have requirements for geographic dispersion of services and resources in different data centers, you could create a second service.</target>
+        </trans-unit>
+        <trans-unit id="f57a091e-f99b-49ad-bde3-1dbe6d12c72d" xml:space="preserve">
+          <source>There are limits on storage, and on the number of indexes and documents loaded into the service.</source>
+          <target state="new">There are limits on storage, and on the number of indexes and documents loaded into the service.</target>
+        </trans-unit>
+        <trans-unit id="727d1b66-f54f-4617-90cd-913861dc8d3d" xml:space="preserve">
+          <source>Your effective limit will be whichever comes first: exhausting physical storage, or meeting the upper limit on indexes and document counts.</source>
+          <target state="new">Your effective limit will be whichever comes first: exhausting physical storage, or meeting the upper limit on indexes and document counts.</target>
+        </trans-unit>
+        <trans-unit id="511586be-9cff-46e3-88c5-c7acb0de8627" xml:space="preserve">
+          <source>See <bpt id="75fa0feb-ceaa-495f-8830-d2226ca2aaf9">&lt;linkText&gt;</bpt>Limits and constraints (Azure Search)<ept id="75fa0feb-ceaa-495f-8830-d2226ca2aaf9">&lt;/linkText&gt;</ept><bpt id="75fa0feb-ceaa-495f-8830-d2226ca2aaf9">&lt;title&gt;</bpt><ept id="75fa0feb-ceaa-495f-8830-d2226ca2aaf9">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="75fa0feb-ceaa-495f-8830-d2226ca2aaf9">&lt;linkText&gt;</bpt>Limits and constraints (Azure Search)<ept id="75fa0feb-ceaa-495f-8830-d2226ca2aaf9">&lt;/linkText&gt;</ept><bpt id="75fa0feb-ceaa-495f-8830-d2226ca2aaf9">&lt;title&gt;</bpt><ept id="75fa0feb-ceaa-495f-8830-d2226ca2aaf9">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="3e6304e2-dd63-410d-83ef-b472eb6c9d33" xml:space="preserve">
+          <source>REST API consists of HTTP requests and responses, with content in JSON format.</source>
+          <target state="new">REST API consists of HTTP requests and responses, with content in JSON format.</target>
+        </trans-unit>
+        <trans-unit id="d41a4e3e-d003-456e-ba06-20d8980ad55d" xml:space="preserve">
+          <source>There is an API for accessing the service, and an API for managing the service.</source>
+          <target state="new">There is an API for accessing the service, and an API for managing the service.</target>
+        </trans-unit>
+        <trans-unit id="9c0cced2-64ea-4a81-af92-a5eb7a0b9eda" xml:space="preserve">
+          <source>See <bpt id="ae4ae62d-e0f9-44aa-9c7d-11646c2b9fb0">&lt;linkText&gt;</bpt>Azure Search Service REST API<ept id="ae4ae62d-e0f9-44aa-9c7d-11646c2b9fb0">&lt;/linkText&gt;</ept><bpt id="ae4ae62d-e0f9-44aa-9c7d-11646c2b9fb0">&lt;title&gt;</bpt><ept id="ae4ae62d-e0f9-44aa-9c7d-11646c2b9fb0">&lt;/title&gt;</ept> and <bpt id="69c175ee-050b-4418-aa1a-4fcd827f1b11">&lt;linkText&gt;</bpt>Azure Search Management REST API<ept id="69c175ee-050b-4418-aa1a-4fcd827f1b11">&lt;/linkText&gt;</ept><bpt id="69c175ee-050b-4418-aa1a-4fcd827f1b11">&lt;title&gt;</bpt><ept id="69c175ee-050b-4418-aa1a-4fcd827f1b11">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="ae4ae62d-e0f9-44aa-9c7d-11646c2b9fb0">&lt;linkText&gt;</bpt>Azure Search Service REST API<ept id="ae4ae62d-e0f9-44aa-9c7d-11646c2b9fb0">&lt;/linkText&gt;</ept><bpt id="ae4ae62d-e0f9-44aa-9c7d-11646c2b9fb0">&lt;title&gt;</bpt><ept id="ae4ae62d-e0f9-44aa-9c7d-11646c2b9fb0">&lt;/title&gt;</ept> and <bpt id="69c175ee-050b-4418-aa1a-4fcd827f1b11">&lt;linkText&gt;</bpt>Azure Search Management REST API<ept id="69c175ee-050b-4418-aa1a-4fcd827f1b11">&lt;/linkText&gt;</ept><bpt id="69c175ee-050b-4418-aa1a-4fcd827f1b11">&lt;title&gt;</bpt><ept id="69c175ee-050b-4418-aa1a-4fcd827f1b11">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="a5439b1d-43ab-455c-93e5-c63cfd2133fd" xml:space="preserve">
+          <source>The .NET SDK includes classes that make it easy to use your Azure Search service without having to work directly with HTTP and JSON.</source>
+          <target state="new">The .NET SDK includes classes that make it easy to use your Azure Search service without having to work directly with HTTP and JSON.</target>
+        </trans-unit>
+        <trans-unit id="9e132342-7218-4297-9487-89de996af4aa" xml:space="preserve">
+          <source>See <bpt id="8b264ba4-920e-41c2-a684-7d58a7e68bb5">&lt;linkText&gt;</bpt>How to use the Azure Search .NET SDK<ept id="8b264ba4-920e-41c2-a684-7d58a7e68bb5">&lt;/linkText&gt;</ept><bpt id="8b264ba4-920e-41c2-a684-7d58a7e68bb5">&lt;title&gt;</bpt><ept id="8b264ba4-920e-41c2-a684-7d58a7e68bb5">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="8b264ba4-920e-41c2-a684-7d58a7e68bb5">&lt;linkText&gt;</bpt>How to use the Azure Search .NET SDK<ept id="8b264ba4-920e-41c2-a684-7d58a7e68bb5">&lt;/linkText&gt;</ept><bpt id="8b264ba4-920e-41c2-a684-7d58a7e68bb5">&lt;title&gt;</bpt><ept id="8b264ba4-920e-41c2-a684-7d58a7e68bb5">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="cf285dcd-25d8-4dda-b687-2a94b8beb6c6" xml:space="preserve">
+          <source>Search is accessible over HTTPS only.</source>
+          <target state="new">Search is accessible over HTTPS only.</target>
+        </trans-unit>
+        <trans-unit id="8ab54373-cfe7-439e-8c05-86ce61094e53" xml:space="preserve">
+          <source>Authentication from your host application to Azure Search is through an admin api-key in an HTTP header.</source>
+          <target state="new">Authentication from your host application to Azure Search is through an admin api-key in an HTTP header.</target>
+        </trans-unit>
+        <trans-unit id="be7e17b5-4cd5-46d6-89af-e3ac939da71a" xml:space="preserve">
+          <source>There is no per-user authentication or authorization model.</source>
+          <target state="new">There is no per-user authentication or authorization model.</target>
+        </trans-unit>
+        <trans-unit id="79df6339-84ff-4d8e-9fb0-7fb1b51e99d8" xml:space="preserve">
+          <source>However, you can use $filter to restrict access by user identity.</source>
+          <target state="new">However, you can use $filter to restrict access by user identity.</target>
+        </trans-unit>
+        <trans-unit id="4be1d2a9-8e22-4a25-a90b-3fcf7d53624b" xml:space="preserve">
+          <source>You can also use multiple query api-keys that you can assign to different client applications.</source>
+          <target state="new">You can also use multiple query api-keys that you can assign to different client applications.</target>
+        </trans-unit>
+        <trans-unit id="c4a69a46-e23b-487e-84ff-ce803591d731" xml:space="preserve">
+          <source>For more information about key management, see <bpt id="0b28a232-f6d1-46b6-a7dd-5003e3a9340a">&lt;linkText&gt;</bpt>Manage your search service on Microsoft Azure<ept id="0b28a232-f6d1-46b6-a7dd-5003e3a9340a">&lt;/linkText&gt;</ept><bpt id="0b28a232-f6d1-46b6-a7dd-5003e3a9340a">&lt;title&gt;</bpt><ept id="0b28a232-f6d1-46b6-a7dd-5003e3a9340a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about key management, see <bpt id="0b28a232-f6d1-46b6-a7dd-5003e3a9340a">&lt;linkText&gt;</bpt>Manage your search service on Microsoft Azure<ept id="0b28a232-f6d1-46b6-a7dd-5003e3a9340a">&lt;/linkText&gt;</ept><bpt id="0b28a232-f6d1-46b6-a7dd-5003e3a9340a">&lt;title&gt;</bpt><ept id="0b28a232-f6d1-46b6-a7dd-5003e3a9340a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83489bbe-d4da-460c-84a0-91e90ae8cee5" xml:space="preserve">
+          <source>See <bpt id="d482105c-f330-47d9-ad34-bb7e9b5549c2">&lt;linkText&gt;</bpt>Search Documents (Azure Search Service REST API)<ept id="d482105c-f330-47d9-ad34-bb7e9b5549c2">&lt;/linkText&gt;</ept><bpt id="d482105c-f330-47d9-ad34-bb7e9b5549c2">&lt;title&gt;</bpt><ept id="d482105c-f330-47d9-ad34-bb7e9b5549c2">&lt;/title&gt;</ept> for details about $filter.</source>
+          <target state="new">See <bpt id="d482105c-f330-47d9-ad34-bb7e9b5549c2">&lt;linkText&gt;</bpt>Search Documents (Azure Search Service REST API)<ept id="d482105c-f330-47d9-ad34-bb7e9b5549c2">&lt;/linkText&gt;</ept><bpt id="d482105c-f330-47d9-ad34-bb7e9b5549c2">&lt;title&gt;</bpt><ept id="d482105c-f330-47d9-ad34-bb7e9b5549c2">&lt;/title&gt;</ept> for details about $filter.</target>
+        </trans-unit>
+        <trans-unit id="247b5681-ea1a-4456-9530-f33fe9a38da0" xml:space="preserve">
+          <source>You can have multiple indexes (see <bpt id="5d43a4e8-bd2b-46ac-afbb-b97456c7643f">&lt;linkText&gt;</bpt>Limits and constraints (Azure Search)<ept id="5d43a4e8-bd2b-46ac-afbb-b97456c7643f">&lt;/linkText&gt;</ept><bpt id="5d43a4e8-bd2b-46ac-afbb-b97456c7643f">&lt;title&gt;</bpt><ept id="5d43a4e8-bd2b-46ac-afbb-b97456c7643f">&lt;/title&gt;</ept> for limits based on pricing tiers).</source>
+          <target state="new">You can have multiple indexes (see <bpt id="5d43a4e8-bd2b-46ac-afbb-b97456c7643f">&lt;linkText&gt;</bpt>Limits and constraints (Azure Search)<ept id="5d43a4e8-bd2b-46ac-afbb-b97456c7643f">&lt;/linkText&gt;</ept><bpt id="5d43a4e8-bd2b-46ac-afbb-b97456c7643f">&lt;title&gt;</bpt><ept id="5d43a4e8-bd2b-46ac-afbb-b97456c7643f">&lt;/title&gt;</ept> for limits based on pricing tiers).</target>
+        </trans-unit>
+        <trans-unit id="e61eeb98-5849-4d82-9620-ff07c329ae32" xml:space="preserve">
+          <source>Note that there is currently no support for joining indexes.</source>
+          <target state="new">Note that there is currently no support for joining indexes.</target>
+        </trans-unit>
+        <trans-unit id="2a18eabc-7190-4577-928e-465194f729d9" xml:space="preserve">
+          <source>A search request can specify one index.</source>
+          <target state="new">A search request can specify one index.</target>
+        </trans-unit>
+        <trans-unit id="bcfa012f-f705-4e98-a644-ddf47b82dfdc" xml:space="preserve">
+          <source><bpt id="3ec23e47-fba8-4821-890f-dd7ba105192d">&lt;strong&gt;</bpt>Documents<ept id="3ec23e47-fba8-4821-890f-dd7ba105192d">&lt;/strong&gt;</ept> contain fields and associated attributes.</source>
+          <target state="new"><bpt id="3ec23e47-fba8-4821-890f-dd7ba105192d">&lt;strong&gt;</bpt>Documents<ept id="3ec23e47-fba8-4821-890f-dd7ba105192d">&lt;/strong&gt;</ept> contain fields and associated attributes.</target>
+        </trans-unit>
+        <trans-unit id="f1f82d99-2c60-40ef-b3af-c52bb1829dd9" xml:space="preserve">
+          <source>Fields include searchable text, values used predominantly (or even exclusively) in filters and scoring profiles, and very likely – URLs or pointers to content, such as images, in other data stores.</source>
+          <target state="new">Fields include searchable text, values used predominantly (or even exclusively) in filters and scoring profiles, and very likely – URLs or pointers to content, such as images, in other data stores.</target>
+        </trans-unit>
+        <trans-unit id="d3fab8bb-d194-4abe-b259-cf1ded329520" xml:space="preserve">
+          <source>Many search applications use multiple forms of storage.</source>
+          <target state="new">Many search applications use multiple forms of storage.</target>
+        </trans-unit>
+        <trans-unit id="edb37bdc-cfb4-4c8c-a6e2-38fdfe037fec" xml:space="preserve">
+          <source>Images or videos can be stored more cheaply in other storage media, such as Azure Blob storage.</source>
+          <target state="new">Images or videos can be stored more cheaply in other storage media, such as Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="b7e42bdb-e3a3-496b-a147-b6bcdc355d5c" xml:space="preserve">
+          <source><bpt id="16b8afe4-c47b-487b-9e12-63f1007f2495">&lt;strong&gt;</bpt>Indexers<ept id="16b8afe4-c47b-487b-9e12-63f1007f2495">&lt;/strong&gt;</ept> can be used to schedule index updates from changed data in Azure SQL Database, SQL Server on Azure VMs, or Azure DocumentDB.</source>
+          <target state="new"><bpt id="16b8afe4-c47b-487b-9e12-63f1007f2495">&lt;strong&gt;</bpt>Indexers<ept id="16b8afe4-c47b-487b-9e12-63f1007f2495">&lt;/strong&gt;</ept> can be used to schedule index updates from changed data in Azure SQL Database, SQL Server on Azure VMs, or Azure DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="f428003c-f4f3-4730-8e18-36df46bdd0b9" xml:space="preserve">
+          <source>See [Indexer operations (Azure Search Service REST API)]((https://msdn.microsoft.com/library/azure/dn946891.aspx) for details.</source>
+          <target state="new">See [Indexer operations (Azure Search Service REST API)]((https://msdn.microsoft.com/library/azure/dn946891.aspx) for details.</target>
+        </trans-unit>
+        <trans-unit id="9d918bff-258a-429f-a012-6613923f0bc4" xml:space="preserve">
+          <source><bpt id="8d12569d-86b0-43d4-8816-f30ce448a09d">&lt;strong&gt;</bpt>Queries<ept id="8d12569d-86b0-43d4-8816-f30ce448a09d">&lt;/strong&gt;</ept> can be formulated using OData syntax for Boolean filters and a simple query syntax for full-text search.</source>
+          <target state="new"><bpt id="8d12569d-86b0-43d4-8816-f30ce448a09d">&lt;strong&gt;</bpt>Queries<ept id="8d12569d-86b0-43d4-8816-f30ce448a09d">&lt;/strong&gt;</ept> can be formulated using OData syntax for Boolean filters and a simple query syntax for full-text search.</target>
+        </trans-unit>
+        <trans-unit id="9b3a4ccc-2353-4bf4-8a43-911dd9c7db71" xml:space="preserve">
+          <source>See <bpt id="39f27ae4-8c93-4ae7-ad19-5accef7a96da">&lt;linkText&gt;</bpt>OData Expression Syntax for Azure Search<ept id="39f27ae4-8c93-4ae7-ad19-5accef7a96da">&lt;/linkText&gt;</ept><bpt id="39f27ae4-8c93-4ae7-ad19-5accef7a96da">&lt;title&gt;</bpt><ept id="39f27ae4-8c93-4ae7-ad19-5accef7a96da">&lt;/title&gt;</ept> and <bpt id="4d4f614a-ec96-42bb-b03c-f4c5e716bad1">&lt;linkText&gt;</bpt>Simple query syntax in Azure Search<ept id="4d4f614a-ec96-42bb-b03c-f4c5e716bad1">&lt;/linkText&gt;</ept><bpt id="4d4f614a-ec96-42bb-b03c-f4c5e716bad1">&lt;title&gt;</bpt><ept id="4d4f614a-ec96-42bb-b03c-f4c5e716bad1">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="39f27ae4-8c93-4ae7-ad19-5accef7a96da">&lt;linkText&gt;</bpt>OData Expression Syntax for Azure Search<ept id="39f27ae4-8c93-4ae7-ad19-5accef7a96da">&lt;/linkText&gt;</ept><bpt id="39f27ae4-8c93-4ae7-ad19-5accef7a96da">&lt;title&gt;</bpt><ept id="39f27ae4-8c93-4ae7-ad19-5accef7a96da">&lt;/title&gt;</ept> and <bpt id="4d4f614a-ec96-42bb-b03c-f4c5e716bad1">&lt;linkText&gt;</bpt>Simple query syntax in Azure Search<ept id="4d4f614a-ec96-42bb-b03c-f4c5e716bad1">&lt;/linkText&gt;</ept><bpt id="4d4f614a-ec96-42bb-b03c-f4c5e716bad1">&lt;title&gt;</bpt><ept id="4d4f614a-ec96-42bb-b03c-f4c5e716bad1">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="05cf1a63-5a52-4eea-af35-12785fcb78c4" xml:space="preserve">
+          <source>You can look up specific documents based on their ID to quickly retrieve specific items.</source>
+          <target state="new">You can look up specific documents based on their ID to quickly retrieve specific items.</target>
+        </trans-unit>
+        <trans-unit id="69bc43c7-fc49-46f0-8932-1587b29dbfac" xml:space="preserve">
+          <source>This is useful when a user clicks on a specific search result and you want to do a look up specific details about that document.</source>
+          <target state="new">This is useful when a user clicks on a specific search result and you want to do a look up specific details about that document.</target>
+        </trans-unit>
+        <trans-unit id="35c0d541-9710-4f65-9e5b-24e125fb8261" xml:space="preserve">
+          <source>See <bpt id="66dfe60f-67e6-4a57-825d-826eb62a8022">&lt;linkText&gt;</bpt>Lookup Document (Azure Search Service REST API)<ept id="66dfe60f-67e6-4a57-825d-826eb62a8022">&lt;/linkText&gt;</ept><bpt id="66dfe60f-67e6-4a57-825d-826eb62a8022">&lt;title&gt;</bpt><ept id="66dfe60f-67e6-4a57-825d-826eb62a8022">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="66dfe60f-67e6-4a57-825d-826eb62a8022">&lt;linkText&gt;</bpt>Lookup Document (Azure Search Service REST API)<ept id="66dfe60f-67e6-4a57-825d-826eb62a8022">&lt;/linkText&gt;</ept><bpt id="66dfe60f-67e6-4a57-825d-826eb62a8022">&lt;title&gt;</bpt><ept id="66dfe60f-67e6-4a57-825d-826eb62a8022">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="932f89a1-bae9-4ee8-aeb0-dcb47e9e756c" xml:space="preserve">
+          <source><bpt id="0a83238b-7ea5-4978-83aa-431819fee40f">&lt;strong&gt;</bpt>Full-text search<ept id="0a83238b-7ea5-4978-83aa-431819fee40f">&lt;/strong&gt;</ept> (on by default for text fields) is enabled for any field having the searchable attribute.</source>
+          <target state="new"><bpt id="0a83238b-7ea5-4978-83aa-431819fee40f">&lt;strong&gt;</bpt>Full-text search<ept id="0a83238b-7ea5-4978-83aa-431819fee40f">&lt;/strong&gt;</ept> (on by default for text fields) is enabled for any field having the searchable attribute.</target>
+        </trans-unit>
+        <trans-unit id="d628c114-b431-476f-968f-34d598a810c4" xml:space="preserve">
+          <source>Full-text search is based on prefix matching, which means that matches are based on the first part of a search term, and not in the middle or end of word.</source>
+          <target state="new">Full-text search is based on prefix matching, which means that matches are based on the first part of a search term, and not in the middle or end of word.</target>
+        </trans-unit>
+        <trans-unit id="e1d9de4d-ee74-4eab-8c9f-988b6aa5d6b4" xml:space="preserve">
+          <source>See <bpt id="dc97cef2-4613-4af3-a2c4-cfe3cca55f2f">&lt;linkText&gt;</bpt>Create Index (Azure Search Service REST API)<ept id="dc97cef2-4613-4af3-a2c4-cfe3cca55f2f">&lt;/linkText&gt;</ept><bpt id="dc97cef2-4613-4af3-a2c4-cfe3cca55f2f">&lt;title&gt;</bpt><ept id="dc97cef2-4613-4af3-a2c4-cfe3cca55f2f">&lt;/title&gt;</ept> or <bpt id="614f7fbb-8348-4956-9c5d-3971bd3c7974">&lt;linkText&gt;</bpt>Create an index in the portal<ept id="614f7fbb-8348-4956-9c5d-3971bd3c7974">&lt;/linkText&gt;</ept><bpt id="614f7fbb-8348-4956-9c5d-3971bd3c7974">&lt;title&gt;</bpt><ept id="614f7fbb-8348-4956-9c5d-3971bd3c7974">&lt;/title&gt;</ept> for steps on how to define an index.</source>
+          <target state="new">See <bpt id="dc97cef2-4613-4af3-a2c4-cfe3cca55f2f">&lt;linkText&gt;</bpt>Create Index (Azure Search Service REST API)<ept id="dc97cef2-4613-4af3-a2c4-cfe3cca55f2f">&lt;/linkText&gt;</ept><bpt id="dc97cef2-4613-4af3-a2c4-cfe3cca55f2f">&lt;title&gt;</bpt><ept id="dc97cef2-4613-4af3-a2c4-cfe3cca55f2f">&lt;/title&gt;</ept> or <bpt id="614f7fbb-8348-4956-9c5d-3971bd3c7974">&lt;linkText&gt;</bpt>Create an index in the portal<ept id="614f7fbb-8348-4956-9c5d-3971bd3c7974">&lt;/linkText&gt;</ept><bpt id="614f7fbb-8348-4956-9c5d-3971bd3c7974">&lt;title&gt;</bpt><ept id="614f7fbb-8348-4956-9c5d-3971bd3c7974">&lt;/title&gt;</ept> for steps on how to define an index.</target>
+        </trans-unit>
+        <trans-unit id="0512ef9a-52f6-479e-9076-68a83bc10a2a" xml:space="preserve">
+          <source><bpt id="953db2a1-4998-4bce-923a-02b075bc10a3">&lt;strong&gt;</bpt>Scoring profiles<ept id="953db2a1-4998-4bce-923a-02b075bc10a3">&lt;/strong&gt;</ept> are used to build ranking models that optimize search based on business objectives.</source>
+          <target state="new"><bpt id="953db2a1-4998-4bce-923a-02b075bc10a3">&lt;strong&gt;</bpt>Scoring profiles<ept id="953db2a1-4998-4bce-923a-02b075bc10a3">&lt;/strong&gt;</ept> are used to build ranking models that optimize search based on business objectives.</target>
+        </trans-unit>
+        <trans-unit id="e0f1a3ac-441c-473b-8555-6a0f3475311f" xml:space="preserve">
+          <source>For example, you might want newer products or discounted products to appear higher in the search results.</source>
+          <target state="new">For example, you might want newer products or discounted products to appear higher in the search results.</target>
+        </trans-unit>
+        <trans-unit id="561ce3e7-52b8-4c21-bcb3-1927fe8a33e3" xml:space="preserve">
+          <source>You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately.</source>
+          <target state="new">You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately.</target>
+        </trans-unit>
+        <trans-unit id="3d6801bb-e25a-45ec-a676-b412d25985ba" xml:space="preserve">
+          <source>See <bpt id="2f36e15f-6fce-4212-bee0-20df58e67537">&lt;linkText&gt;</bpt>Add scoring profiles to a search index (Azure Search Service REST API)<ept id="2f36e15f-6fce-4212-bee0-20df58e67537">&lt;/linkText&gt;</ept><bpt id="2f36e15f-6fce-4212-bee0-20df58e67537">&lt;title&gt;</bpt><ept id="2f36e15f-6fce-4212-bee0-20df58e67537">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="2f36e15f-6fce-4212-bee0-20df58e67537">&lt;linkText&gt;</bpt>Add scoring profiles to a search index (Azure Search Service REST API)<ept id="2f36e15f-6fce-4212-bee0-20df58e67537">&lt;/linkText&gt;</ept><bpt id="2f36e15f-6fce-4212-bee0-20df58e67537">&lt;title&gt;</bpt><ept id="2f36e15f-6fce-4212-bee0-20df58e67537">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="9e488d7d-bcea-4776-9926-669f1e868e94" xml:space="preserve">
+          <source><bpt id="8811b774-d17a-47eb-b97e-2449daa95a85">&lt;strong&gt;</bpt>Language support<ept id="8811b774-d17a-47eb-b97e-2449daa95a85">&lt;/strong&gt;</ept> is built-in for fifty different languages, using multiple options of natural language processing stacks, including the well-known Lucene analyzers and Microsoft's own analyzers that power Microsoft Office and Bing (preview only).</source>
+          <target state="new"><bpt id="8811b774-d17a-47eb-b97e-2449daa95a85">&lt;strong&gt;</bpt>Language support<ept id="8811b774-d17a-47eb-b97e-2449daa95a85">&lt;/strong&gt;</ept> is built-in for fifty different languages, using multiple options of natural language processing stacks, including the well-known Lucene analyzers and Microsoft's own analyzers that power Microsoft Office and Bing (preview only).</target>
+        </trans-unit>
+        <trans-unit id="9a7dfc2d-378d-4e85-a4b2-e27b6d03a638" xml:space="preserve">
+          <source>See <bpt id="02799f45-1daa-4324-9f7d-f9750577c8ff">&lt;linkText&gt;</bpt>Language support (Azure Search Service REST API)<ept id="02799f45-1daa-4324-9f7d-f9750577c8ff">&lt;/linkText&gt;</ept><bpt id="02799f45-1daa-4324-9f7d-f9750577c8ff">&lt;title&gt;</bpt><ept id="02799f45-1daa-4324-9f7d-f9750577c8ff">&lt;/title&gt;</ept> for Lucene, and <bpt id="9815278d-dbd6-4f2d-b308-bb6075ee50b7">&lt;linkText&gt;</bpt>Azure Search Service REST API Version 2015-02-28-Preview<ept id="9815278d-dbd6-4f2d-b308-bb6075ee50b7">&lt;/linkText&gt;</ept><bpt id="9815278d-dbd6-4f2d-b308-bb6075ee50b7">&lt;title&gt;</bpt><ept id="9815278d-dbd6-4f2d-b308-bb6075ee50b7">&lt;/title&gt;</ept> for the natural language processors.</source>
+          <target state="new">See <bpt id="02799f45-1daa-4324-9f7d-f9750577c8ff">&lt;linkText&gt;</bpt>Language support (Azure Search Service REST API)<ept id="02799f45-1daa-4324-9f7d-f9750577c8ff">&lt;/linkText&gt;</ept><bpt id="02799f45-1daa-4324-9f7d-f9750577c8ff">&lt;title&gt;</bpt><ept id="02799f45-1daa-4324-9f7d-f9750577c8ff">&lt;/title&gt;</ept> for Lucene, and <bpt id="9815278d-dbd6-4f2d-b308-bb6075ee50b7">&lt;linkText&gt;</bpt>Azure Search Service REST API Version 2015-02-28-Preview<ept id="9815278d-dbd6-4f2d-b308-bb6075ee50b7">&lt;/linkText&gt;</ept><bpt id="9815278d-dbd6-4f2d-b308-bb6075ee50b7">&lt;title&gt;</bpt><ept id="9815278d-dbd6-4f2d-b308-bb6075ee50b7">&lt;/title&gt;</ept> for the natural language processors.</target>
+        </trans-unit>
+        <trans-unit id="d4ebbbc2-2f82-4aad-8111-4206670e6a59" xml:space="preserve">
+          <source><bpt id="ff414671-08d4-4d7b-b933-e7d8a9892336">&lt;strong&gt;</bpt>Faceted navigation<ept id="ff414671-08d4-4d7b-b933-e7d8a9892336">&lt;/strong&gt;</ept> refers to a categorization tree used for self-directed search, often based on brands, models, sizes, or whatever categories make sense for your data.</source>
+          <target state="new"><bpt id="ff414671-08d4-4d7b-b933-e7d8a9892336">&lt;strong&gt;</bpt>Faceted navigation<ept id="ff414671-08d4-4d7b-b933-e7d8a9892336">&lt;/strong&gt;</ept> refers to a categorization tree used for self-directed search, often based on brands, models, sizes, or whatever categories make sense for your data.</target>
+        </trans-unit>
+        <trans-unit id="aa215938-0656-46d9-9e6f-95bd23b769af" xml:space="preserve">
+          <source>Faceted navigation is implemented through attributes in your index, combined with a facet field that is provided in a query.</source>
+          <target state="new">Faceted navigation is implemented through attributes in your index, combined with a facet field that is provided in a query.</target>
+        </trans-unit>
+        <trans-unit id="827609e4-5f31-4bc7-9fec-e2255ccbe0e4" xml:space="preserve">
+          <source>See <bpt id="b4fdc8ae-edf3-4548-824b-c2af33b96bcf">&lt;linkText&gt;</bpt>Faceted navigation<ept id="b4fdc8ae-edf3-4548-824b-c2af33b96bcf">&lt;/linkText&gt;</ept><bpt id="b4fdc8ae-edf3-4548-824b-c2af33b96bcf">&lt;title&gt;</bpt><ept id="b4fdc8ae-edf3-4548-824b-c2af33b96bcf">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="b4fdc8ae-edf3-4548-824b-c2af33b96bcf">&lt;linkText&gt;</bpt>Faceted navigation<ept id="b4fdc8ae-edf3-4548-824b-c2af33b96bcf">&lt;/linkText&gt;</ept><bpt id="b4fdc8ae-edf3-4548-824b-c2af33b96bcf">&lt;title&gt;</bpt><ept id="b4fdc8ae-edf3-4548-824b-c2af33b96bcf">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="0e85fe50-f46b-4acb-bbe4-663bf6fbc096" xml:space="preserve">
+          <source><bpt id="748b9f94-4523-4476-b2f8-5150f3b5e7ba">&lt;strong&gt;</bpt>Suggestions<ept id="748b9f94-4523-4476-b2f8-5150f3b5e7ba">&lt;/strong&gt;</ept> for type-ahead or autocomplete queries is supported through attributes in your index.</source>
+          <target state="new"><bpt id="748b9f94-4523-4476-b2f8-5150f3b5e7ba">&lt;strong&gt;</bpt>Suggestions<ept id="748b9f94-4523-4476-b2f8-5150f3b5e7ba">&lt;/strong&gt;</ept> for type-ahead or autocomplete queries is supported through attributes in your index.</target>
+        </trans-unit>
+        <trans-unit id="6bf9644c-2c2f-405d-afc0-0f67dde00d00" xml:space="preserve">
+          <source>Azure Search supports both fuzzy matching and infix matching (matching on any part of the field content).</source>
+          <target state="new">Azure Search supports both fuzzy matching and infix matching (matching on any part of the field content).</target>
+        </trans-unit>
+        <trans-unit id="b708ed58-7179-49ef-9629-a5e00cf0018a" xml:space="preserve">
+          <source>You can do both; they are not mutually exclusive.</source>
+          <target state="new">You can do both; they are not mutually exclusive.</target>
+        </trans-unit>
+        <trans-unit id="dbf78d54-e086-44f3-8de2-2410cf886d16" xml:space="preserve">
+          <source>See <bpt id="3da5c351-c912-494b-83e9-84aa403d7c21">&lt;linkText&gt;</bpt>Create Index (Azure Search Service REST API)<ept id="3da5c351-c912-494b-83e9-84aa403d7c21">&lt;/linkText&gt;</ept><bpt id="3da5c351-c912-494b-83e9-84aa403d7c21">&lt;title&gt;</bpt><ept id="3da5c351-c912-494b-83e9-84aa403d7c21">&lt;/title&gt;</ept> for information about enabling suggestions, and <bpt id="2976f425-8c91-459e-ad43-4ae48ec80d30">&lt;linkText&gt;</bpt>Suggestions (Azure Search Service REST API)<ept id="2976f425-8c91-459e-ad43-4ae48ec80d30">&lt;/linkText&gt;</ept><bpt id="2976f425-8c91-459e-ad43-4ae48ec80d30">&lt;title&gt;</bpt><ept id="2976f425-8c91-459e-ad43-4ae48ec80d30">&lt;/title&gt;</ept> for using them.</source>
+          <target state="new">See <bpt id="3da5c351-c912-494b-83e9-84aa403d7c21">&lt;linkText&gt;</bpt>Create Index (Azure Search Service REST API)<ept id="3da5c351-c912-494b-83e9-84aa403d7c21">&lt;/linkText&gt;</ept><bpt id="3da5c351-c912-494b-83e9-84aa403d7c21">&lt;title&gt;</bpt><ept id="3da5c351-c912-494b-83e9-84aa403d7c21">&lt;/title&gt;</ept> for information about enabling suggestions, and <bpt id="2976f425-8c91-459e-ad43-4ae48ec80d30">&lt;linkText&gt;</bpt>Suggestions (Azure Search Service REST API)<ept id="2976f425-8c91-459e-ad43-4ae48ec80d30">&lt;/linkText&gt;</ept><bpt id="2976f425-8c91-459e-ad43-4ae48ec80d30">&lt;title&gt;</bpt><ept id="2976f425-8c91-459e-ad43-4ae48ec80d30">&lt;/title&gt;</ept> for using them.</target>
+        </trans-unit>
+        <trans-unit id="1bc8fc64-4f5b-48c9-a1d0-506660954499" xml:space="preserve">
+          <source><bpt id="92e32446-a62d-4a7c-9520-1abd1b4a9146">&lt;strong&gt;</bpt>Filters<ept id="92e32446-a62d-4a7c-9520-1abd1b4a9146">&lt;/strong&gt;</ept> can be used to implement faceted navigation, used in query construction, or used globally to constrain search operations to filter criteria you establish in code.</source>
+          <target state="new"><bpt id="92e32446-a62d-4a7c-9520-1abd1b4a9146">&lt;strong&gt;</bpt>Filters<ept id="92e32446-a62d-4a7c-9520-1abd1b4a9146">&lt;/strong&gt;</ept> can be used to implement faceted navigation, used in query construction, or used globally to constrain search operations to filter criteria you establish in code.</target>
+        </trans-unit>
+        <trans-unit id="15bfa38f-5c27-4ce7-bbfd-b63235a3ef9a" xml:space="preserve">
+          <source>Filters are enabled for specific fields via your index schema, and through the $Filter search parameter.</source>
+          <target state="new">Filters are enabled for specific fields via your index schema, and through the $Filter search parameter.</target>
+        </trans-unit>
+        <trans-unit id="13c67701-472c-4872-98f7-038b9be9007e" xml:space="preserve">
+          <source>See <bpt id="a42316c1-db00-4535-a870-de3c50e6125b">&lt;linkText&gt;</bpt>Create Index (Azure Search Service REST API)<ept id="a42316c1-db00-4535-a870-de3c50e6125b">&lt;/linkText&gt;</ept><bpt id="a42316c1-db00-4535-a870-de3c50e6125b">&lt;title&gt;</bpt><ept id="a42316c1-db00-4535-a870-de3c50e6125b">&lt;/title&gt;</ept> and <bpt id="0de5ce73-42c5-4a81-8bac-aa42ae73ea86">&lt;linkText&gt;</bpt>Search Documents (Azure Search Service REST API)<ept id="0de5ce73-42c5-4a81-8bac-aa42ae73ea86">&lt;/linkText&gt;</ept><bpt id="0de5ce73-42c5-4a81-8bac-aa42ae73ea86">&lt;title&gt;</bpt><ept id="0de5ce73-42c5-4a81-8bac-aa42ae73ea86">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="a42316c1-db00-4535-a870-de3c50e6125b">&lt;linkText&gt;</bpt>Create Index (Azure Search Service REST API)<ept id="a42316c1-db00-4535-a870-de3c50e6125b">&lt;/linkText&gt;</ept><bpt id="a42316c1-db00-4535-a870-de3c50e6125b">&lt;title&gt;</bpt><ept id="a42316c1-db00-4535-a870-de3c50e6125b">&lt;/title&gt;</ept> and <bpt id="0de5ce73-42c5-4a81-8bac-aa42ae73ea86">&lt;linkText&gt;</bpt>Search Documents (Azure Search Service REST API)<ept id="0de5ce73-42c5-4a81-8bac-aa42ae73ea86">&lt;/linkText&gt;</ept><bpt id="0de5ce73-42c5-4a81-8bac-aa42ae73ea86">&lt;title&gt;</bpt><ept id="0de5ce73-42c5-4a81-8bac-aa42ae73ea86">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="b0db3658-ced7-4526-893b-eeb9c7212532" xml:space="preserve">
+          <source><bpt id="23eebc77-4d78-40b1-9867-aaba08c8adbe">&lt;strong&gt;</bpt>Sort<ept id="23eebc77-4d78-40b1-9867-aaba08c8adbe">&lt;/strong&gt;</ept> is also enabled for specific fields via the index schema and then implemented as a search parameter via the $orderBy parameter.</source>
+          <target state="new"><bpt id="23eebc77-4d78-40b1-9867-aaba08c8adbe">&lt;strong&gt;</bpt>Sort<ept id="23eebc77-4d78-40b1-9867-aaba08c8adbe">&lt;/strong&gt;</ept> is also enabled for specific fields via the index schema and then implemented as a search parameter via the $orderBy parameter.</target>
+        </trans-unit>
+        <trans-unit id="fee615bf-b3a1-4f99-aea8-9e44d5b7027b" xml:space="preserve">
+          <source>Once again, <bpt id="c0e1a017-a109-4c4a-8f38-9edc6abf66a3">&lt;linkText&gt;</bpt>Create Index (Azure Search Service REST API)<ept id="c0e1a017-a109-4c4a-8f38-9edc6abf66a3">&lt;/linkText&gt;</ept><bpt id="c0e1a017-a109-4c4a-8f38-9edc6abf66a3">&lt;title&gt;</bpt><ept id="c0e1a017-a109-4c4a-8f38-9edc6abf66a3">&lt;/title&gt;</ept> and <bpt id="3346f728-9706-4a93-8dc2-649bc42d533d">&lt;linkText&gt;</bpt>Search Documents (Azure Search Service REST API)<ept id="3346f728-9706-4a93-8dc2-649bc42d533d">&lt;/linkText&gt;</ept><bpt id="3346f728-9706-4a93-8dc2-649bc42d533d">&lt;title&gt;</bpt><ept id="3346f728-9706-4a93-8dc2-649bc42d533d">&lt;/title&gt;</ept> has the details</source>
+          <target state="new">Once again, <bpt id="c0e1a017-a109-4c4a-8f38-9edc6abf66a3">&lt;linkText&gt;</bpt>Create Index (Azure Search Service REST API)<ept id="c0e1a017-a109-4c4a-8f38-9edc6abf66a3">&lt;/linkText&gt;</ept><bpt id="c0e1a017-a109-4c4a-8f38-9edc6abf66a3">&lt;title&gt;</bpt><ept id="c0e1a017-a109-4c4a-8f38-9edc6abf66a3">&lt;/title&gt;</ept> and <bpt id="3346f728-9706-4a93-8dc2-649bc42d533d">&lt;linkText&gt;</bpt>Search Documents (Azure Search Service REST API)<ept id="3346f728-9706-4a93-8dc2-649bc42d533d">&lt;/linkText&gt;</ept><bpt id="3346f728-9706-4a93-8dc2-649bc42d533d">&lt;title&gt;</bpt><ept id="3346f728-9706-4a93-8dc2-649bc42d533d">&lt;/title&gt;</ept> has the details</target>
+        </trans-unit>
+        <trans-unit id="9c24eb6a-8831-45da-be21-1b776eb3312a" xml:space="preserve">
+          <source><bpt id="d23c7426-a960-4255-ba94-925a6206856a">&lt;strong&gt;</bpt>Count<ept id="d23c7426-a960-4255-ba94-925a6206856a">&lt;/strong&gt;</ept> of the search hits returned for a query, and the ability to throttle how many hits are returned at a time, are implemented through $top and $skip.</source>
+          <target state="new"><bpt id="d23c7426-a960-4255-ba94-925a6206856a">&lt;strong&gt;</bpt>Count<ept id="d23c7426-a960-4255-ba94-925a6206856a">&lt;/strong&gt;</ept> of the search hits returned for a query, and the ability to throttle how many hits are returned at a time, are implemented through $top and $skip.</target>
+        </trans-unit>
+        <trans-unit id="c9421b67-cb13-45eb-bb17-567767c6b1a8" xml:space="preserve">
+          <source>See <bpt id="746767ff-da06-4781-98b6-2116534c1d11">&lt;linkText&gt;</bpt>Search Documents (Azure Search Service REST API)<ept id="746767ff-da06-4781-98b6-2116534c1d11">&lt;/linkText&gt;</ept><bpt id="746767ff-da06-4781-98b6-2116534c1d11">&lt;title&gt;</bpt><ept id="746767ff-da06-4781-98b6-2116534c1d11">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="746767ff-da06-4781-98b6-2116534c1d11">&lt;linkText&gt;</bpt>Search Documents (Azure Search Service REST API)<ept id="746767ff-da06-4781-98b6-2116534c1d11">&lt;/linkText&gt;</ept><bpt id="746767ff-da06-4781-98b6-2116534c1d11">&lt;title&gt;</bpt><ept id="746767ff-da06-4781-98b6-2116534c1d11">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="de701c9d-06b9-45b9-9852-ac72e1596f1a" xml:space="preserve">
+          <source><bpt id="b2f7e286-9850-450f-9da7-1721f8cfa18a">&lt;strong&gt;</bpt>Highlighted hits<ept id="b2f7e286-9850-450f-9da7-1721f8cfa18a">&lt;/strong&gt;</ept> are specified via the highlight query parameter, and allow you to display to a user a snippet of text highlighting key words found from the search terms entered by the user.</source>
+          <target state="new"><bpt id="b2f7e286-9850-450f-9da7-1721f8cfa18a">&lt;strong&gt;</bpt>Highlighted hits<ept id="b2f7e286-9850-450f-9da7-1721f8cfa18a">&lt;/strong&gt;</ept> are specified via the highlight query parameter, and allow you to display to a user a snippet of text highlighting key words found from the search terms entered by the user.</target>
+        </trans-unit>
+        <trans-unit id="991418bd-8029-478e-9a1e-b3da45508e39" xml:space="preserve">
+          <source>See <bpt id="f5caac57-90da-4461-8375-920ccbbf550a">&lt;linkText&gt;</bpt>Search Documents (Azure Search Service REST API)<ept id="f5caac57-90da-4461-8375-920ccbbf550a">&lt;/linkText&gt;</ept><bpt id="f5caac57-90da-4461-8375-920ccbbf550a">&lt;title&gt;</bpt><ept id="f5caac57-90da-4461-8375-920ccbbf550a">&lt;/title&gt;</ept> for more information about query parameters.</source>
+          <target state="new">See <bpt id="f5caac57-90da-4461-8375-920ccbbf550a">&lt;linkText&gt;</bpt>Search Documents (Azure Search Service REST API)<ept id="f5caac57-90da-4461-8375-920ccbbf550a">&lt;/linkText&gt;</ept><bpt id="f5caac57-90da-4461-8375-920ccbbf550a">&lt;title&gt;</bpt><ept id="f5caac57-90da-4461-8375-920ccbbf550a">&lt;/title&gt;</ept> for more information about query parameters.</target>
+        </trans-unit>
+        <trans-unit id="f721b24a-c41b-4a23-923d-1d3d3f767a19" xml:space="preserve">
+          <source>Resource usage is displayed on the service dashboard so that you can quickly get an idea of how your storage is being used.</source>
+          <target state="new">Resource usage is displayed on the service dashboard so that you can quickly get an idea of how your storage is being used.</target>
+        </trans-unit>
+        <trans-unit id="0e25b1a5-3f92-4ebf-ac4a-2c8504f4b4a1" xml:space="preserve">
+          <source>Storage consumption, document count, and index count are available in the portal.</source>
+          <target state="new">Storage consumption, document count, and index count are available in the portal.</target>
+        </trans-unit>
+        <trans-unit id="e3b16756-09a4-4131-8bd3-36137cd95917" xml:space="preserve">
+          <source>You can also use the API.</source>
+          <target state="new">You can also use the API.</target>
+        </trans-unit>
+        <trans-unit id="9e9f3685-17c8-4c2e-af63-d0bec03077d0" xml:space="preserve">
+          <source>See <bpt id="9ceaef53-9d6a-42e0-b486-c5df43b4427c">&lt;linkText&gt;</bpt>Get Index Statistics (Azure Search Service REST API)<ept id="9ceaef53-9d6a-42e0-b486-c5df43b4427c">&lt;/linkText&gt;</ept><bpt id="9ceaef53-9d6a-42e0-b486-c5df43b4427c">&lt;title&gt;</bpt><ept id="9ceaef53-9d6a-42e0-b486-c5df43b4427c">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="9ceaef53-9d6a-42e0-b486-c5df43b4427c">&lt;linkText&gt;</bpt>Get Index Statistics (Azure Search Service REST API)<ept id="9ceaef53-9d6a-42e0-b486-c5df43b4427c">&lt;/linkText&gt;</ept><bpt id="9ceaef53-9d6a-42e0-b486-c5df43b4427c">&lt;title&gt;</bpt><ept id="9ceaef53-9d6a-42e0-b486-c5df43b4427c">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="02b20dcc-6b9d-465f-895a-77c089873323" xml:space="preserve">
+          <source>There is no built-in mechanism for measuring query throughput or other service operations.</source>
+          <target state="new">There is no built-in mechanism for measuring query throughput or other service operations.</target>
+        </trans-unit>
+        <trans-unit id="9fa5d0a6-8304-43d4-9c19-d03fca04179b" xml:space="preserve">
+          <source>In addition, there is currently no support for logging or analysis of search results (for example, retrieving a list of search terms that yielded no results, or reporting on the origin of search requests).</source>
+          <target state="new">In addition, there is currently no support for logging or analysis of search results (for example, retrieving a list of search terms that yielded no results, or reporting on the origin of search requests).</target>
+        </trans-unit>
+        <trans-unit id="c7212e24-4319-4bff-8b7f-f7d0ccfaf414" xml:space="preserve">
+          <source>Visit <bpt id="05cb9119-64bc-46ca-a38d-f0caffa68bb6">&lt;linkText&gt;</bpt>Create an Azure Search service<ept id="05cb9119-64bc-46ca-a38d-f0caffa68bb6">&lt;/linkText&gt;</ept><bpt id="05cb9119-64bc-46ca-a38d-f0caffa68bb6">&lt;title&gt;</bpt><ept id="05cb9119-64bc-46ca-a38d-f0caffa68bb6">&lt;/title&gt;</ept> to set up the service or use <bpt id="33e17392-6873-40a7-9210-e516f243234e">&lt;linkText&gt;</bpt>Try Azure App Service<ept id="33e17392-6873-40a7-9210-e516f243234e">&lt;/linkText&gt;</ept><bpt id="33e17392-6873-40a7-9210-e516f243234e">&lt;title&gt;</bpt><ept id="33e17392-6873-40a7-9210-e516f243234e">&lt;/title&gt;</ept> for a free one-hour session with no setup or subscription required.</source>
+          <target state="new">Visit <bpt id="05cb9119-64bc-46ca-a38d-f0caffa68bb6">&lt;linkText&gt;</bpt>Create an Azure Search service<ept id="05cb9119-64bc-46ca-a38d-f0caffa68bb6">&lt;/linkText&gt;</ept><bpt id="05cb9119-64bc-46ca-a38d-f0caffa68bb6">&lt;title&gt;</bpt><ept id="05cb9119-64bc-46ca-a38d-f0caffa68bb6">&lt;/title&gt;</ept> to set up the service or use <bpt id="33e17392-6873-40a7-9210-e516f243234e">&lt;linkText&gt;</bpt>Try Azure App Service<ept id="33e17392-6873-40a7-9210-e516f243234e">&lt;/linkText&gt;</ept><bpt id="33e17392-6873-40a7-9210-e516f243234e">&lt;title&gt;</bpt><ept id="33e17392-6873-40a7-9210-e516f243234e">&lt;/title&gt;</ept> for a free one-hour session with no setup or subscription required.</target>
+        </trans-unit>
+        <trans-unit id="e833d1d1-cb95-4fcc-b8e4-40176a535a3c" xml:space="preserve">
+          <source>You can also try these tutorials:</source>
+          <target state="new">You can also try these tutorials:</target>
+        </trans-unit>
+        <trans-unit id="ad04a9b6-c6a6-402b-aa1d-ae888afce142" xml:space="preserve">
+          <source><bpt id="447a637a-d49e-4dc3-ba4f-6365f8a5bfb2">&lt;linkText&gt;</bpt>How to use Azure Search in .NET<ept id="447a637a-d49e-4dc3-ba4f-6365f8a5bfb2">&lt;/linkText&gt;</ept><bpt id="447a637a-d49e-4dc3-ba4f-6365f8a5bfb2">&lt;title&gt;</bpt><ept id="447a637a-d49e-4dc3-ba4f-6365f8a5bfb2">&lt;/title&gt;</ept>
+<bpt id="07f3de7d-38c8-4f61-a3fb-3716896edbf0">&lt;linkText&gt;</bpt>Get Started with Azure Search .NET<ept id="07f3de7d-38c8-4f61-a3fb-3716896edbf0">&lt;/linkText&gt;</ept><bpt id="07f3de7d-38c8-4f61-a3fb-3716896edbf0">&lt;title&gt;</bpt><ept id="07f3de7d-38c8-4f61-a3fb-3716896edbf0">&lt;/title&gt;</ept>
+<bpt id="ef01122c-f93b-4fc8-b983-5e6bd6ae4a7d">&lt;linkText&gt;</bpt>Azure Search: tutorials, video demos, and samples<ept id="ef01122c-f93b-4fc8-b983-5e6bd6ae4a7d">&lt;/linkText&gt;</ept><bpt id="ef01122c-f93b-4fc8-b983-5e6bd6ae4a7d">&lt;title&gt;</bpt><ept id="ef01122c-f93b-4fc8-b983-5e6bd6ae4a7d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="447a637a-d49e-4dc3-ba4f-6365f8a5bfb2">&lt;linkText&gt;</bpt>How to use Azure Search in .NET<ept id="447a637a-d49e-4dc3-ba4f-6365f8a5bfb2">&lt;/linkText&gt;</ept><bpt id="447a637a-d49e-4dc3-ba4f-6365f8a5bfb2">&lt;title&gt;</bpt><ept id="447a637a-d49e-4dc3-ba4f-6365f8a5bfb2">&lt;/title&gt;</ept>
+<bpt id="07f3de7d-38c8-4f61-a3fb-3716896edbf0">&lt;linkText&gt;</bpt>Get Started with Azure Search .NET<ept id="07f3de7d-38c8-4f61-a3fb-3716896edbf0">&lt;/linkText&gt;</ept><bpt id="07f3de7d-38c8-4f61-a3fb-3716896edbf0">&lt;title&gt;</bpt><ept id="07f3de7d-38c8-4f61-a3fb-3716896edbf0">&lt;/title&gt;</ept>
+<bpt id="ef01122c-f93b-4fc8-b983-5e6bd6ae4a7d">&lt;linkText&gt;</bpt>Azure Search: tutorials, video demos, and samples<ept id="ef01122c-f93b-4fc8-b983-5e6bd6ae4a7d">&lt;/linkText&gt;</ept><bpt id="ef01122c-f93b-4fc8-b983-5e6bd6ae4a7d">&lt;title&gt;</bpt><ept id="ef01122c-f93b-4fc8-b983-5e6bd6ae4a7d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

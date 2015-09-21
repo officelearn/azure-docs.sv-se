@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a7a63fec-fe30-4964-ab77-943e0cd90255" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a7a63fec-fe30-4964-ab77-943e0cd90255" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bb837d4b-4744-4881-9489-180c048308be">
+        <trans-unit id="fb3fdfaf-661b-4e0e-8c29-1e2539600170" xml:space="preserve">
+          <source>In <bpt id="222eca5d-1c62-441c-ab65-86ee55d86f7e">&lt;strong&gt;</bpt>Project Explorer<ept id="222eca5d-1c62-441c-ab65-86ee55d86f7e">&lt;/strong&gt;</ept> in Android Studio, open the ToDoActivity.java file and add the following import statements.</source>
+          <target state="new">In <bpt id="222eca5d-1c62-441c-ab65-86ee55d86f7e">&lt;strong&gt;</bpt>Project Explorer<ept id="222eca5d-1c62-441c-ab65-86ee55d86f7e">&lt;/strong&gt;</ept> in Android Studio, open the ToDoActivity.java file and add the following import statements.</target>
+        </trans-unit>
+        <trans-unit id="fbf2d1a8-7df9-4fcb-9241-68a2b757d243" xml:space="preserve">
+          <source>Add the following method to the <bpt id="f172d484-17df-40df-a564-72e535f2cc75">&lt;strong&gt;</bpt>ToDoActivity<ept id="f172d484-17df-40df-a564-72e535f2cc75">&lt;/strong&gt;</ept> class: </source>
+          <target state="new">Add the following method to the <bpt id="f172d484-17df-40df-a564-72e535f2cc75">&lt;strong&gt;</bpt>ToDoActivity<ept id="f172d484-17df-40df-a564-72e535f2cc75">&lt;/strong&gt;</ept> class: </target>
+        </trans-unit>
+        <trans-unit id="978a7a0e-724c-42b2-a93a-546b74bf93aa" xml:space="preserve">
+          <source>This creates a new method to handle the authentication process.</source>
+          <target state="new">This creates a new method to handle the authentication process.</target>
+        </trans-unit>
+        <trans-unit id="0f5f7342-85c0-4383-9136-fdb4dcafabdd" xml:space="preserve">
+          <source>The user is authenticated by using a Google login.</source>
+          <target state="new">The user is authenticated by using a Google login.</target>
+        </trans-unit>
+        <trans-unit id="c03d4e6c-4890-45bc-9465-0d0d88cf1fcb" xml:space="preserve">
+          <source>A dialog is displayed which displays the ID of the authenticated user.</source>
+          <target state="new">A dialog is displayed which displays the ID of the authenticated user.</target>
+        </trans-unit>
+        <trans-unit id="c823468a-14b4-4732-90a7-9a3cf068b465" xml:space="preserve">
+          <source>You cannot proceed without a positive authentication.</source>
+          <target state="new">You cannot proceed without a positive authentication.</target>
+        </trans-unit>
+        <trans-unit id="b283f261-f017-4abc-8304-f76ebbc2481c" xml:space="preserve">
+          <source>If you are using an identity provider other than Google, change the value passed to the <bpt id="cb0667bb-5ce2-4a2d-bfa5-319f5efc5ccc">&lt;strong&gt;</bpt>login<ept id="cb0667bb-5ce2-4a2d-bfa5-319f5efc5ccc">&lt;/strong&gt;</ept> method above to one of the following: <bpt id="dba4ee39-e0af-4f9d-b3ec-fb4b1c2d21c5">&lt;em&gt;</bpt>MicrosoftAccount<ept id="dba4ee39-e0af-4f9d-b3ec-fb4b1c2d21c5">&lt;/em&gt;</ept>, <bpt id="8cf9aede-8e21-4867-872f-2140688741b2">&lt;em&gt;</bpt>Facebook<ept id="8cf9aede-8e21-4867-872f-2140688741b2">&lt;/em&gt;</ept>, <bpt id="547d4193-6ccb-4412-be3e-0237c2c5b5f7">&lt;em&gt;</bpt>Twitter<ept id="547d4193-6ccb-4412-be3e-0237c2c5b5f7">&lt;/em&gt;</ept>, or <bpt id="1a302016-c51f-434f-bc02-cb1d72da5e3e">&lt;em&gt;</bpt>windowsazureactivedirectory<ept id="1a302016-c51f-434f-bc02-cb1d72da5e3e">&lt;/em&gt;</ept>.</source>
+          <target state="new">If you are using an identity provider other than Google, change the value passed to the <bpt id="cb0667bb-5ce2-4a2d-bfa5-319f5efc5ccc">&lt;strong&gt;</bpt>login<ept id="cb0667bb-5ce2-4a2d-bfa5-319f5efc5ccc">&lt;/strong&gt;</ept> method above to one of the following: <bpt id="dba4ee39-e0af-4f9d-b3ec-fb4b1c2d21c5">&lt;em&gt;</bpt>MicrosoftAccount<ept id="dba4ee39-e0af-4f9d-b3ec-fb4b1c2d21c5">&lt;/em&gt;</ept>, <bpt id="8cf9aede-8e21-4867-872f-2140688741b2">&lt;em&gt;</bpt>Facebook<ept id="8cf9aede-8e21-4867-872f-2140688741b2">&lt;/em&gt;</ept>, <bpt id="547d4193-6ccb-4412-be3e-0237c2c5b5f7">&lt;em&gt;</bpt>Twitter<ept id="547d4193-6ccb-4412-be3e-0237c2c5b5f7">&lt;/em&gt;</ept>, or <bpt id="1a302016-c51f-434f-bc02-cb1d72da5e3e">&lt;em&gt;</bpt>windowsazureactivedirectory<ept id="1a302016-c51f-434f-bc02-cb1d72da5e3e">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="675f5166-b544-4301-aac9-06bf73b240a3" xml:space="preserve">
+          <source>In the <bpt id="f710139a-9d36-43b1-a20f-6f7d5592e7fd">&lt;strong&gt;</bpt>onCreate<ept id="f710139a-9d36-43b1-a20f-6f7d5592e7fd">&lt;/strong&gt;</ept> method, add the following line of code after the code that instantiates the <bpt id="e12e50d0-bbb7-4e69-a08a-b2327d4cafd6">&lt;code&gt;</bpt>MobileServiceClient<ept id="e12e50d0-bbb7-4e69-a08a-b2327d4cafd6">&lt;/code&gt;</ept> object.</source>
+          <target state="new">In the <bpt id="f710139a-9d36-43b1-a20f-6f7d5592e7fd">&lt;strong&gt;</bpt>onCreate<ept id="f710139a-9d36-43b1-a20f-6f7d5592e7fd">&lt;/strong&gt;</ept> method, add the following line of code after the code that instantiates the <bpt id="e12e50d0-bbb7-4e69-a08a-b2327d4cafd6">&lt;code&gt;</bpt>MobileServiceClient<ept id="e12e50d0-bbb7-4e69-a08a-b2327d4cafd6">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="c4cc3307-da3b-4023-90ed-84460febfbde" xml:space="preserve">
+          <source>This call starts the authentication process.</source>
+          <target state="new">This call starts the authentication process.</target>
+        </trans-unit>
+        <trans-unit id="027f2052-f729-418f-9166-498df9e35957" xml:space="preserve">
+          <source>Move the remaining code after <bpt id="9d36fb27-388c-4782-affd-e06f2aa041a0">&lt;code&gt;</bpt>authenticate();<ept id="9d36fb27-388c-4782-affd-e06f2aa041a0">&lt;/code&gt;</ept> in the <bpt id="0e1a8299-8cc4-402e-970c-00903a9b892c">&lt;strong&gt;</bpt>onCreate<ept id="0e1a8299-8cc4-402e-970c-00903a9b892c">&lt;/strong&gt;</ept> method to a new <bpt id="a7cdecdf-5165-4f67-bcf1-6af0a79fe93f">&lt;strong&gt;</bpt>createTable<ept id="a7cdecdf-5165-4f67-bcf1-6af0a79fe93f">&lt;/strong&gt;</ept> method, which looks like this:</source>
+          <target state="new">Move the remaining code after <bpt id="9d36fb27-388c-4782-affd-e06f2aa041a0">&lt;code&gt;</bpt>authenticate();<ept id="9d36fb27-388c-4782-affd-e06f2aa041a0">&lt;/code&gt;</ept> in the <bpt id="0e1a8299-8cc4-402e-970c-00903a9b892c">&lt;strong&gt;</bpt>onCreate<ept id="0e1a8299-8cc4-402e-970c-00903a9b892c">&lt;/strong&gt;</ept> method to a new <bpt id="a7cdecdf-5165-4f67-bcf1-6af0a79fe93f">&lt;strong&gt;</bpt>createTable<ept id="a7cdecdf-5165-4f67-bcf1-6af0a79fe93f">&lt;/strong&gt;</ept> method, which looks like this:</target>
+        </trans-unit>
+        <trans-unit id="9d8442b7-2cf8-4af8-8e9b-59f26b3d89dc" xml:space="preserve">
+          <source>From the <bpt id="e8217485-b8f8-4155-9da0-9f1eb67b26ed">&lt;strong&gt;</bpt>Run<ept id="e8217485-b8f8-4155-9da0-9f1eb67b26ed">&lt;/strong&gt;</ept> menu, then click <bpt id="ca48507d-6294-4dec-ba79-2f21d6765594">&lt;strong&gt;</bpt>Run app<ept id="ca48507d-6294-4dec-ba79-2f21d6765594">&lt;/strong&gt;</ept> to start the app and sign in with your chosen identity provider.</source>
+          <target state="new">From the <bpt id="e8217485-b8f8-4155-9da0-9f1eb67b26ed">&lt;strong&gt;</bpt>Run<ept id="e8217485-b8f8-4155-9da0-9f1eb67b26ed">&lt;/strong&gt;</ept> menu, then click <bpt id="ca48507d-6294-4dec-ba79-2f21d6765594">&lt;strong&gt;</bpt>Run app<ept id="ca48507d-6294-4dec-ba79-2f21d6765594">&lt;/strong&gt;</ept> to start the app and sign in with your chosen identity provider.</target>
+        </trans-unit>
+        <trans-unit id="3110f369-d46d-469e-a328-4f7ed0044843" xml:space="preserve">
+          <source>When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.</source>
+          <target state="new">When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

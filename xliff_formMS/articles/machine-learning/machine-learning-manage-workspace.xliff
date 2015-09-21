@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b3bde13e-560f-496d-8455-285612578ff4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b3bde13e-560f-496d-8455-285612578ff4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="75c37867-83fc-48e4-a275-aa1b8ac1a236">
+        <trans-unit id="b5bdcdd4-97eb-4483-9924-75530d64c399" xml:space="preserve">
+          <source>Manage a Machine Learning workspace | Microsoft Azure</source>
+          <target state="new">Manage a Machine Learning workspace | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b895c9ae-31e1-43da-8a5e-2a1028009ef7" xml:space="preserve">
+          <source>Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services</source>
+          <target state="new">Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services</target>
+        </trans-unit>
+        <trans-unit id="4ddf6665-be23-49fd-b9b1-3fd688bc66e5" xml:space="preserve">
+          <source>Using the Azure management portal, you can manage your Machine Learning workspaces to:</source>
+          <target state="new">Using the Azure management portal, you can manage your Machine Learning workspaces to:</target>
+        </trans-unit>
+        <trans-unit id="f0079034-db2a-48d9-90f4-843e8b219680" xml:space="preserve">
+          <source>Monitor how the workspace is being used</source>
+          <target state="new">Monitor how the workspace is being used</target>
+        </trans-unit>
+        <trans-unit id="d03d0c6b-ad57-45a6-910e-f57b87ac42c3" xml:space="preserve">
+          <source>Configure the workspace to allow or deny access</source>
+          <target state="new">Configure the workspace to allow or deny access</target>
+        </trans-unit>
+        <trans-unit id="21c16a98-dacc-447d-9c6f-68b4273643dd" xml:space="preserve">
+          <source>Manage web services created in the workspace</source>
+          <target state="new">Manage web services created in the workspace</target>
+        </trans-unit>
+        <trans-unit id="9e568466-b9ba-448f-8409-aa8e936a554b" xml:space="preserve">
+          <source>Delete the workspace</source>
+          <target state="new">Delete the workspace</target>
+        </trans-unit>
+        <trans-unit id="c3c584f8-3871-4b04-850d-e5ad048ffc12" xml:space="preserve">
+          <source><bpt id="72300064-689f-4769-8707-ade2a860f0eb">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="72300064-689f-4769-8707-ade2a860f0eb">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="72300064-689f-4769-8707-ade2a860f0eb">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="72300064-689f-4769-8707-ade2a860f0eb">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="582c4e28-e35d-426b-946e-37769323056e" xml:space="preserve">
+          <source>In addition, the dashboard tab provides an overview of your workspace usage and a quick glance of your workspace information.</source>
+          <target state="new">In addition, the dashboard tab provides an overview of your workspace usage and a quick glance of your workspace information.</target>
+        </trans-unit>
+        <trans-unit id="8e66c3db-4bf1-403c-99de-b44690df5907" xml:space="preserve">
+          <source>In Azure Machine Learning Studio, on the <bpt id="dd955282-2b42-4747-8df7-76d4c2760110">&lt;strong&gt;</bpt>WEB SERVICES<ept id="dd955282-2b42-4747-8df7-76d4c2760110">&lt;/strong&gt;</ept> tab, you can add, update, or delete a Machine Learning web service.</source>
+          <target state="new">In Azure Machine Learning Studio, on the <bpt id="dd955282-2b42-4747-8df7-76d4c2760110">&lt;strong&gt;</bpt>WEB SERVICES<ept id="dd955282-2b42-4747-8df7-76d4c2760110">&lt;/strong&gt;</ept> tab, you can add, update, or delete a Machine Learning web service.</target>
+        </trans-unit>
+        <trans-unit id="88a6b7e5-6a0f-4965-a94d-42d0aaee34ec" xml:space="preserve">
+          <source>To manage a workspace:</source>
+          <target state="new">To manage a workspace:</target>
+        </trans-unit>
+        <trans-unit id="bf860489-4f97-4094-aecd-d59ccbd2f2f8" xml:space="preserve">
+          <source>Sign-in to your Microsoft Azure account - use the account that's associated with the Azure subscription.</source>
+          <target state="new">Sign-in to your Microsoft Azure account - use the account that's associated with the Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="68503612-4eb2-4de1-99d2-e651df661386" xml:space="preserve">
+          <source>In the <bpt id="ed11a0ed-aa28-4b9c-b0a2-46d7028fc8a9">&lt;linkText&gt;</bpt>Azure management portal<ept id="ed11a0ed-aa28-4b9c-b0a2-46d7028fc8a9">&lt;/linkText&gt;</ept><bpt id="ed11a0ed-aa28-4b9c-b0a2-46d7028fc8a9">&lt;title&gt;</bpt><ept id="ed11a0ed-aa28-4b9c-b0a2-46d7028fc8a9">&lt;/title&gt;</ept>, in the Microsoft Azure services panel, click <bpt id="48dbb068-8a79-4089-861e-882f453d4ceb">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="48dbb068-8a79-4089-861e-882f453d4ceb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ed11a0ed-aa28-4b9c-b0a2-46d7028fc8a9">&lt;linkText&gt;</bpt>Azure management portal<ept id="ed11a0ed-aa28-4b9c-b0a2-46d7028fc8a9">&lt;/linkText&gt;</ept><bpt id="ed11a0ed-aa28-4b9c-b0a2-46d7028fc8a9">&lt;title&gt;</bpt><ept id="ed11a0ed-aa28-4b9c-b0a2-46d7028fc8a9">&lt;/title&gt;</ept>, in the Microsoft Azure services panel, click <bpt id="48dbb068-8a79-4089-861e-882f453d4ceb">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="48dbb068-8a79-4089-861e-882f453d4ceb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df02827b-0c32-4293-9cab-d9373be00f18" xml:space="preserve">
+          <source>Click the workspace you want to manage.</source>
+          <target state="new">Click the workspace you want to manage.</target>
+        </trans-unit>
+        <trans-unit id="b21f2812-1f9b-4b2f-b882-1e970649a5cf" xml:space="preserve">
+          <source>The workspace page has three tabs:</source>
+          <target state="new">The workspace page has three tabs:</target>
+        </trans-unit>
+        <trans-unit id="e40761ca-4352-497e-9d4e-8d26cc07019a" xml:space="preserve">
+          <source><bpt id="17b982fc-d745-43e2-8070-512133156f45">&lt;strong&gt;</bpt>DASHBOARD<ept id="17b982fc-d745-43e2-8070-512133156f45">&lt;/strong&gt;</ept> - Allows you to view workspace usage and information</source>
+          <target state="new"><bpt id="17b982fc-d745-43e2-8070-512133156f45">&lt;strong&gt;</bpt>DASHBOARD<ept id="17b982fc-d745-43e2-8070-512133156f45">&lt;/strong&gt;</ept> - Allows you to view workspace usage and information</target>
+        </trans-unit>
+        <trans-unit id="a39eaf69-5f45-42e3-b1dc-88da193ff4cb" xml:space="preserve">
+          <source><bpt id="8697ea4c-54f2-4a7f-bfbb-6a8ca67b28e8">&lt;strong&gt;</bpt>CONFIGURE<ept id="8697ea4c-54f2-4a7f-bfbb-6a8ca67b28e8">&lt;/strong&gt;</ept> - Allows you to manage access to the workspace</source>
+          <target state="new"><bpt id="8697ea4c-54f2-4a7f-bfbb-6a8ca67b28e8">&lt;strong&gt;</bpt>CONFIGURE<ept id="8697ea4c-54f2-4a7f-bfbb-6a8ca67b28e8">&lt;/strong&gt;</ept> - Allows you to manage access to the workspace</target>
+        </trans-unit>
+        <trans-unit id="d6b5ce7a-dbad-4f39-a5b5-93f61ef3c508" xml:space="preserve">
+          <source><bpt id="b942f283-3c31-482d-b30c-71d66d3b07df">&lt;strong&gt;</bpt>WEB SERVICES<ept id="b942f283-3c31-482d-b30c-71d66d3b07df">&lt;/strong&gt;</ept> - Allows you to manage web services that have been published from this workspace</source>
+          <target state="new"><bpt id="b942f283-3c31-482d-b30c-71d66d3b07df">&lt;strong&gt;</bpt>WEB SERVICES<ept id="b942f283-3c31-482d-b30c-71d66d3b07df">&lt;/strong&gt;</ept> - Allows you to manage web services that have been published from this workspace</target>
+        </trans-unit>
+        <trans-unit id="a53666b8-7745-415e-849b-879f45dd87ab" xml:space="preserve">
+          <source>Click the <bpt id="906a62cf-8e4c-4254-ae2b-d13d231fca6a">&lt;strong&gt;</bpt>DASHBOARD<ept id="906a62cf-8e4c-4254-ae2b-d13d231fca6a">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="906a62cf-8e4c-4254-ae2b-d13d231fca6a">&lt;strong&gt;</bpt>DASHBOARD<ept id="906a62cf-8e4c-4254-ae2b-d13d231fca6a">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="6f79b285-f865-42b4-a3ba-dfd4d3d47463" xml:space="preserve">
+          <source>From the dashboard you can view overall usage of your workspace and get a quick glance of workspace information.</source>
+          <target state="new">From the dashboard you can view overall usage of your workspace and get a quick glance of workspace information.</target>
+        </trans-unit>
+        <trans-unit id="bc6587d9-86b3-45bd-a307-bf65e9cf18fe" xml:space="preserve">
+          <source>The <bpt id="c78f6ce8-f1bd-4825-9862-50d1ba2765f6">&lt;strong&gt;</bpt>COMPUTE<ept id="c78f6ce8-f1bd-4825-9862-50d1ba2765f6">&lt;/strong&gt;</ept> chart shows the compute resources being used by the workspace.</source>
+          <target state="new">The <bpt id="c78f6ce8-f1bd-4825-9862-50d1ba2765f6">&lt;strong&gt;</bpt>COMPUTE<ept id="c78f6ce8-f1bd-4825-9862-50d1ba2765f6">&lt;/strong&gt;</ept> chart shows the compute resources being used by the workspace.</target>
+        </trans-unit>
+        <trans-unit id="cb54e9af-2959-4a7a-b819-c4d0befbbfe5" xml:space="preserve">
+          <source>You can change the view to display relative or absolute values, and you can change the timeframe displayed in the chart.</source>
+          <target state="new">You can change the view to display relative or absolute values, and you can change the timeframe displayed in the chart.</target>
+        </trans-unit>
+        <trans-unit id="38fc3f9d-8a2a-4e53-af8d-ecb94dd0116d" xml:space="preserve">
+          <source><bpt id="780328b9-5cbc-4264-8f77-61a459d40ae3">&lt;strong&gt;</bpt>Usage overview<ept id="780328b9-5cbc-4264-8f77-61a459d40ae3">&lt;/strong&gt;</ept> displays Azure storage being used by the workspace.</source>
+          <target state="new"><bpt id="780328b9-5cbc-4264-8f77-61a459d40ae3">&lt;strong&gt;</bpt>Usage overview<ept id="780328b9-5cbc-4264-8f77-61a459d40ae3">&lt;/strong&gt;</ept> displays Azure storage being used by the workspace.</target>
+        </trans-unit>
+        <trans-unit id="d3d28013-4687-4006-9325-ca03b141c0d3" xml:space="preserve">
+          <source><bpt id="594d195e-f238-4400-b3c0-18b5be458543">&lt;strong&gt;</bpt>Quick glance<ept id="594d195e-f238-4400-b3c0-18b5be458543">&lt;/strong&gt;</ept> provides a summary of workspace information and useful links.</source>
+          <target state="new"><bpt id="594d195e-f238-4400-b3c0-18b5be458543">&lt;strong&gt;</bpt>Quick glance<ept id="594d195e-f238-4400-b3c0-18b5be458543">&lt;/strong&gt;</ept> provides a summary of workspace information and useful links.</target>
+        </trans-unit>
+        <trans-unit id="dff5cfd4-d7e6-4edf-bd22-0e4cd3fa970e" xml:space="preserve">
+          <source>The <bpt id="a16a8cc5-6e12-4436-8a27-41d26530df31">&lt;strong&gt;</bpt>Sign-in to ML Studio<ept id="a16a8cc5-6e12-4436-8a27-41d26530df31">&lt;/strong&gt;</ept> link opens Machine Learning Studio using the Microsoft Account you are currently signed into.</source>
+          <target state="new">The <bpt id="a16a8cc5-6e12-4436-8a27-41d26530df31">&lt;strong&gt;</bpt>Sign-in to ML Studio<ept id="a16a8cc5-6e12-4436-8a27-41d26530df31">&lt;/strong&gt;</ept> link opens Machine Learning Studio using the Microsoft Account you are currently signed into.</target>
+        </trans-unit>
+        <trans-unit id="d4430b58-dad8-49fe-a2ee-ce49bc2fc345" xml:space="preserve">
+          <source>The Microsoft Account you used to sign in to the Azure portal to create a workspace does not automatically have permission to open that workspace.</source>
+          <target state="new">The Microsoft Account you used to sign in to the Azure portal to create a workspace does not automatically have permission to open that workspace.</target>
+        </trans-unit>
+        <trans-unit id="fa6b6750-c72e-451f-b8b8-8456f806c73f" xml:space="preserve">
+          <source>To open a workspace, you must be signed in to the Microsoft Account that was defined as the owner of the workspace, or you need to receive an invitation from the owner to join the workspace.</source>
+          <target state="new">To open a workspace, you must be signed in to the Microsoft Account that was defined as the owner of the workspace, or you need to receive an invitation from the owner to join the workspace.</target>
+        </trans-unit>
+        <trans-unit id="f79a56ee-82b7-434f-a0b3-a5c262f2d28b" xml:space="preserve">
+          <source>Click the <bpt id="3d47ad3e-1eec-4111-8b94-a0e61501673f">&lt;strong&gt;</bpt>CONFIGURE<ept id="3d47ad3e-1eec-4111-8b94-a0e61501673f">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="3d47ad3e-1eec-4111-8b94-a0e61501673f">&lt;strong&gt;</bpt>CONFIGURE<ept id="3d47ad3e-1eec-4111-8b94-a0e61501673f">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="3b12f9e3-d0f4-4981-b1df-57b65e3bd514" xml:space="preserve">
+          <source>From the configuration tab you can</source>
+          <target state="new">From the configuration tab you can</target>
+        </trans-unit>
+        <trans-unit id="16f8c634-4f50-4971-b182-bbccc49572bb" xml:space="preserve">
+          <source>Suspend access to the Machine Learning workspace by clicking DENY.</source>
+          <target state="new">Suspend access to the Machine Learning workspace by clicking DENY.</target>
+        </trans-unit>
+        <trans-unit id="2d2a170b-ae91-4f27-8d45-7537f58f3ba4" xml:space="preserve">
+          <source>Users will no longer be able to open the workspace in Machine Learning Studio.</source>
+          <target state="new">Users will no longer be able to open the workspace in Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="f1a0934c-abf6-447d-8fd3-0a0e3695285d" xml:space="preserve">
+          <source>To restore access, click ALLOW.</source>
+          <target state="new">To restore access, click ALLOW.</target>
+        </trans-unit>
+        <trans-unit id="1e23cf9a-8c90-468c-8eb3-abcfaee283f1" xml:space="preserve">
+          <source>Change the workspace owner by specifying a different Microsoft Account.</source>
+          <target state="new">Change the workspace owner by specifying a different Microsoft Account.</target>
+        </trans-unit>
+        <trans-unit id="82050334-9fa7-474d-bd7f-f04c71f144bd" xml:space="preserve">
+          <source>To manage who has access to the workspace in Machine Learning Studio, click <bpt id="6a0bd950-21af-4690-9fe5-40fbacf2b8a7">&lt;strong&gt;</bpt>Sign-in to ML Studio<ept id="6a0bd950-21af-4690-9fe5-40fbacf2b8a7">&lt;/strong&gt;</ept> in the <bpt id="88195a7f-79ab-4510-8e57-b67a3338b979">&lt;strong&gt;</bpt>DASHBOARD<ept id="88195a7f-79ab-4510-8e57-b67a3338b979">&lt;/strong&gt;</ept> tab (see note above regarding <bpt id="34ccc8cb-bfdb-4584-9e4f-3479f672fe3d">&lt;strong&gt;</bpt>Sign-in to ML Studio<ept id="34ccc8cb-bfdb-4584-9e4f-3479f672fe3d">&lt;/strong&gt;</ept>).</source>
+          <target state="new">To manage who has access to the workspace in Machine Learning Studio, click <bpt id="6a0bd950-21af-4690-9fe5-40fbacf2b8a7">&lt;strong&gt;</bpt>Sign-in to ML Studio<ept id="6a0bd950-21af-4690-9fe5-40fbacf2b8a7">&lt;/strong&gt;</ept> in the <bpt id="88195a7f-79ab-4510-8e57-b67a3338b979">&lt;strong&gt;</bpt>DASHBOARD<ept id="88195a7f-79ab-4510-8e57-b67a3338b979">&lt;/strong&gt;</ept> tab (see note above regarding <bpt id="34ccc8cb-bfdb-4584-9e4f-3479f672fe3d">&lt;strong&gt;</bpt>Sign-in to ML Studio<ept id="34ccc8cb-bfdb-4584-9e4f-3479f672fe3d">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="8bfa763f-4312-4b58-98bc-8235c3312195" xml:space="preserve">
+          <source>This opens the workspace in Machine Learning Studio.</source>
+          <target state="new">This opens the workspace in Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="e72650b3-0b93-4b1e-bb38-9cf8f89012dd" xml:space="preserve">
+          <source>From here, click the <bpt id="8a456642-725c-4b6f-a0b6-b7e1bf6f8a88">&lt;strong&gt;</bpt>SETTINGS<ept id="8a456642-725c-4b6f-a0b6-b7e1bf6f8a88">&lt;/strong&gt;</ept> tab and then <bpt id="24c32d23-8d38-42c5-812e-f13f736c6925">&lt;strong&gt;</bpt>USERS<ept id="24c32d23-8d38-42c5-812e-f13f736c6925">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From here, click the <bpt id="8a456642-725c-4b6f-a0b6-b7e1bf6f8a88">&lt;strong&gt;</bpt>SETTINGS<ept id="8a456642-725c-4b6f-a0b6-b7e1bf6f8a88">&lt;/strong&gt;</ept> tab and then <bpt id="24c32d23-8d38-42c5-812e-f13f736c6925">&lt;strong&gt;</bpt>USERS<ept id="24c32d23-8d38-42c5-812e-f13f736c6925">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e79945c-2e94-4013-8658-bb50d609378f" xml:space="preserve">
+          <source>You can click <bpt id="fcc3169e-fca4-4e56-b9a3-c1c647fdc04c">&lt;strong&gt;</bpt>INVITE MORE USERS<ept id="fcc3169e-fca4-4e56-b9a3-c1c647fdc04c">&lt;/strong&gt;</ept> to give users access to the workspace, or select a user and click <bpt id="10b61eee-9873-4f16-aef7-2a26e31dcbf5">&lt;strong&gt;</bpt>REMOVE<ept id="10b61eee-9873-4f16-aef7-2a26e31dcbf5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can click <bpt id="fcc3169e-fca4-4e56-b9a3-c1c647fdc04c">&lt;strong&gt;</bpt>INVITE MORE USERS<ept id="fcc3169e-fca4-4e56-b9a3-c1c647fdc04c">&lt;/strong&gt;</ept> to give users access to the workspace, or select a user and click <bpt id="10b61eee-9873-4f16-aef7-2a26e31dcbf5">&lt;strong&gt;</bpt>REMOVE<ept id="10b61eee-9873-4f16-aef7-2a26e31dcbf5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4629324e-1774-4c18-b8a7-d60ffe67853a" xml:space="preserve">
+          <source>Click the <bpt id="54b16df4-bc4b-4a7d-aef4-2a3cdc44df49">&lt;strong&gt;</bpt>WEB SERVICES<ept id="54b16df4-bc4b-4a7d-aef4-2a3cdc44df49">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="54b16df4-bc4b-4a7d-aef4-2a3cdc44df49">&lt;strong&gt;</bpt>WEB SERVICES<ept id="54b16df4-bc4b-4a7d-aef4-2a3cdc44df49">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="f0e9827a-b7aa-40d0-b8ea-12487ae783af" xml:space="preserve">
+          <source>This displays a list of web services published from this workspace.</source>
+          <target state="new">This displays a list of web services published from this workspace.</target>
+        </trans-unit>
+        <trans-unit id="623f9684-190d-4e69-b439-69264aebb1fd" xml:space="preserve">
+          <source>To manage a web service, click the name in the list to open the web service page.</source>
+          <target state="new">To manage a web service, click the name in the list to open the web service page.</target>
+        </trans-unit>
+        <trans-unit id="eeae8ce5-ebf4-4640-b51c-b994dc444de3" xml:space="preserve">
+          <source>A web service may have one or more endpoints defined.</source>
+          <target state="new">A web service may have one or more endpoints defined.</target>
+        </trans-unit>
+        <trans-unit id="83abdd30-c402-450e-bb4c-a17c8b18b448" xml:space="preserve">
+          <source>You can define additional endpoints in addition to the "Default" endpoint.</source>
+          <target state="new">You can define additional endpoints in addition to the "Default" endpoint.</target>
+        </trans-unit>
+        <trans-unit id="3f785216-1d85-4ae2-8bd2-43db6f41ded3" xml:space="preserve">
+          <source>To add the endpoint, click <bpt id="2ddc5708-0be3-4331-88c6-0a3048349450">&lt;strong&gt;</bpt>ADD ENDPOINT<ept id="2ddc5708-0be3-4331-88c6-0a3048349450">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">To add the endpoint, click <bpt id="2ddc5708-0be3-4331-88c6-0a3048349450">&lt;strong&gt;</bpt>ADD ENDPOINT<ept id="2ddc5708-0be3-4331-88c6-0a3048349450">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="5808703f-cba3-43b4-9012-78f4a07e32dd" xml:space="preserve">
+          <source>To delete an endpoint (you cannot delete the "Default" endpoint), click anywhere on the endpoint row except the name, and click <bpt id="2d8fb992-1044-4e55-8525-c367af176f3b">&lt;strong&gt;</bpt>DELETE ENDPOINT<ept id="2d8fb992-1044-4e55-8525-c367af176f3b">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">To delete an endpoint (you cannot delete the "Default" endpoint), click anywhere on the endpoint row except the name, and click <bpt id="2d8fb992-1044-4e55-8525-c367af176f3b">&lt;strong&gt;</bpt>DELETE ENDPOINT<ept id="2d8fb992-1044-4e55-8525-c367af176f3b">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="0ab3fe3c-4c65-48ac-abe7-fc2ff8adabe7" xml:space="preserve">
+          <source>This removes the endpoint from the web service.</source>
+          <target state="new">This removes the endpoint from the web service.</target>
+        </trans-unit>
+        <trans-unit id="e0ac4c0e-7528-47fb-a07f-89c5122ef2af" xml:space="preserve">
+          <source>If an application is using the web service endpoint when the endpoint is deleted, the application will receive an error the next time it tries to access the service.</source>
+          <target state="new">If an application is using the web service endpoint when the endpoint is deleted, the application will receive an error the next time it tries to access the service.</target>
+        </trans-unit>
+        <trans-unit id="38a01335-c490-40c1-9de4-927ee9ab2fed" xml:space="preserve">
+          <source>Click the name of a web service endpoint to open it.</source>
+          <target state="new">Click the name of a web service endpoint to open it.</target>
+        </trans-unit>
+        <trans-unit id="bdcc0f19-6a58-4c06-b48c-4ea6e9e0b471" xml:space="preserve">
+          <source>The usage chart shows the compute and prediction resources being used by the web service endpoint.</source>
+          <target state="new">The usage chart shows the compute and prediction resources being used by the web service endpoint.</target>
+        </trans-unit>
+        <trans-unit id="ad186ba2-0513-46c9-b0e8-1c180dd10b76" xml:space="preserve">
+          <source>You can change the view to display relative or absolute values, and you can change the timeframe displayed in the chart.</source>
+          <target state="new">You can change the view to display relative or absolute values, and you can change the timeframe displayed in the chart.</target>
+        </trans-unit>
+        <trans-unit id="eab17e06-585b-44c9-9668-9268803e98b8" xml:space="preserve">
+          <source>This page also gives you the information you need to be able to access the endpoint using the web service REST API.</source>
+          <target state="new">This page also gives you the information you need to be able to access the endpoint using the web service REST API.</target>
+        </trans-unit>
+        <trans-unit id="e306add2-5c4c-4d0a-8949-b9a338fb9b22" xml:space="preserve">
+          <source>For more information, see <bpt id="4a904714-d88d-4a62-bde5-27a20954f62e">&lt;linkText&gt;</bpt>How to consume an Azure Machine Learning web service[consume]<ept id="4a904714-d88d-4a62-bde5-27a20954f62e">&lt;/linkText&gt;</ept><bpt id="4a904714-d88d-4a62-bde5-27a20954f62e">&lt;title&gt;</bpt><ept id="4a904714-d88d-4a62-bde5-27a20954f62e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4a904714-d88d-4a62-bde5-27a20954f62e">&lt;linkText&gt;</bpt>How to consume an Azure Machine Learning web service[consume]<ept id="4a904714-d88d-4a62-bde5-27a20954f62e">&lt;/linkText&gt;</ept><bpt id="4a904714-d88d-4a62-bde5-27a20954f62e">&lt;title&gt;</bpt><ept id="4a904714-d88d-4a62-bde5-27a20954f62e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0350b19a-cfed-45e8-b15b-d31302df3699" xml:space="preserve">
+          <source>You can also publish the web service to the Azure data marketplace from this page.</source>
+          <target state="new">You can also publish the web service to the Azure data marketplace from this page.</target>
+        </trans-unit>
+        <trans-unit id="0987e244-e33e-4687-a71d-d15462857829" xml:space="preserve">
+          <source>For more information, see <bpt id="a9ecd907-c68e-4633-b1b9-0fbbd5b2e7c7">&lt;linkText&gt;</bpt>Publish Azure Machine Learning Web Service to the Azure Marketplace[marketplace]<ept id="a9ecd907-c68e-4633-b1b9-0fbbd5b2e7c7">&lt;/linkText&gt;</ept><bpt id="a9ecd907-c68e-4633-b1b9-0fbbd5b2e7c7">&lt;title&gt;</bpt><ept id="a9ecd907-c68e-4633-b1b9-0fbbd5b2e7c7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="a9ecd907-c68e-4633-b1b9-0fbbd5b2e7c7">&lt;linkText&gt;</bpt>Publish Azure Machine Learning Web Service to the Azure Marketplace[marketplace]<ept id="a9ecd907-c68e-4633-b1b9-0fbbd5b2e7c7">&lt;/linkText&gt;</ept><bpt id="a9ecd907-c68e-4633-b1b9-0fbbd5b2e7c7">&lt;title&gt;</bpt><ept id="a9ecd907-c68e-4633-b1b9-0fbbd5b2e7c7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0799526-57b5-47da-93aa-afeae227e841" xml:space="preserve">
+          <source>machine-learning-consume-web-services.md</source>
+          <target state="new">machine-learning-consume-web-services.md</target>
+        </trans-unit>
+        <trans-unit id="edfdef63-f80b-4b0e-8fbc-8cd6c8d067bd" xml:space="preserve">
+          <source>machine-learning-publish-web-service-to-azure-marketplace.md</source>
+          <target state="new">machine-learning-publish-web-service-to-azure-marketplace.md</target>
+        </trans-unit>
+      </group>
+      <group id="d86d26e5-83ac-4eba-9b58-ce7d5ae4b399" />
+    </body>
+  </file>
+</xliff>

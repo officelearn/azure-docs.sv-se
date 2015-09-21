@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6ac8c61a-26f6-4978-9673-56e2fde77b82" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6ac8c61a-26f6-4978-9673-56e2fde77b82" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="529008b8-074b-4431-a373-8b7d809c19d9">
+        <trans-unit id="3ac608cc-e430-458e-a135-6a08bc64761d" xml:space="preserve">
+          <source>Create a VM with multiple NICs</source>
+          <target state="new">Create a VM with multiple NICs</target>
+        </trans-unit>
+        <trans-unit id="d8629edb-fdde-4770-9e43-65861e2dbe7a" xml:space="preserve">
+          <source>Learn how to create and configure vms with multiple nics</source>
+          <target state="new">Learn how to create and configure vms with multiple nics</target>
+        </trans-unit>
+        <trans-unit id="4691077a-6b2e-43d1-9486-7b275944b119" xml:space="preserve">
+          <source>The multi NIC feature lets you create and manage multiple virtual network interface cards (NICs) on your Azure virtual machines (VMs).</source>
+          <target state="new">The multi NIC feature lets you create and manage multiple virtual network interface cards (NICs) on your Azure virtual machines (VMs).</target>
+        </trans-unit>
+        <trans-unit id="175c55f7-aff2-48ff-8126-cc0413657843" xml:space="preserve">
+          <source>Multi NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions.</source>
+          <target state="new">Multi NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions.</target>
+        </trans-unit>
+        <trans-unit id="fc115a80-bdbe-4f14-ad95-53799c8589aa" xml:space="preserve">
+          <source>Multi NIC also provides more network traffic management functionality, including isolation of traffic between a frontend NIC and backend NIC(s), or separation of data plane traffic from management plane traffic.</source>
+          <target state="new">Multi NIC also provides more network traffic management functionality, including isolation of traffic between a frontend NIC and backend NIC(s), or separation of data plane traffic from management plane traffic.</target>
+        </trans-unit>
+        <trans-unit id="90174a59-53d2-41b7-bd00-34e8b0205458" xml:space="preserve">
+          <source><bpt id="63eb9c65-fc07-479f-8c32-616f253cbf95">&lt;linkText&gt;</bpt>Multi NIC for VM<ept id="63eb9c65-fc07-479f-8c32-616f253cbf95">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="63eb9c65-fc07-479f-8c32-616f253cbf95">&lt;linkText&gt;</bpt>Multi NIC for VM<ept id="63eb9c65-fc07-479f-8c32-616f253cbf95">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e80dd10-49dd-49cb-a969-9672321eedd1" xml:space="preserve">
+          <source>The figure above shows a VM with three NICs, each connected to a different subnet.</source>
+          <target state="new">The figure above shows a VM with three NICs, each connected to a different subnet.</target>
+        </trans-unit>
+        <trans-unit id="47016d65-af69-4ae9-a46f-c6e26d448de5" xml:space="preserve">
+          <source>At this time, multi NIC has the following requirements and constraints: </source>
+          <target state="new">At this time, multi NIC has the following requirements and constraints: </target>
+        </trans-unit>
+        <trans-unit id="ca104fae-2eb6-4322-8a6d-b5a31f8f341e" xml:space="preserve">
+          <source>Multi NIC VMs must be created in Azure virtual networks (VNets).</source>
+          <target state="new">Multi NIC VMs must be created in Azure virtual networks (VNets).</target>
+        </trans-unit>
+        <trans-unit id="32098d31-ec6e-459e-8e2e-c9fd18e8b26e" xml:space="preserve">
+          <source>Non-VNet VMs are not supported.</source>
+          <target state="new">Non-VNet VMs are not supported.</target>
+        </trans-unit>
+        <trans-unit id="4773e867-c2b9-411e-be2f-6f7eac755218" xml:space="preserve">
+          <source>Within a single cloud service, only the following settings are allowed: </source>
+          <target state="new">Within a single cloud service, only the following settings are allowed: </target>
+        </trans-unit>
+        <trans-unit id="e23ade19-a496-438d-8bca-466bcb301a8f" xml:space="preserve">
+          <source>All VMs in that cloud service must be multi NIC enabled, or </source>
+          <target state="new">All VMs in that cloud service must be multi NIC enabled, or </target>
+        </trans-unit>
+        <trans-unit id="f2826137-188a-49a2-99da-9c706331f83c" xml:space="preserve">
+          <source>All VMs in that cloud service must each have a single NIC </source>
+          <target state="new">All VMs in that cloud service must each have a single NIC </target>
+        </trans-unit>
+        <trans-unit id="c9c30586-de43-4a88-a99a-bdb107b9d054" xml:space="preserve">
+          <source>If you try to add a multi NIC VM to a deployment (cloud service) that already contains a single NIC VM (or vice-versa), you will receive the following error: 
+Virtual machines with secondary network interfaces and virtual machines with no secondary network interfaces are not supported in the same deployment, also a virtual machine having no secondary network interfaces cannot be updated to have secondary network interfaces and vice-versa.</source>
+          <target state="new">If you try to add a multi NIC VM to a deployment (cloud service) that already contains a single NIC VM (or vice-versa), you will receive the following error: 
+Virtual machines with secondary network interfaces and virtual machines with no secondary network interfaces are not supported in the same deployment, also a virtual machine having no secondary network interfaces cannot be updated to have secondary network interfaces and vice-versa.</target>
+        </trans-unit>
+        <trans-unit id="511033f2-ab44-4988-9837-dade9685f9f0" xml:space="preserve">
+          <source>Internet-facing VIP is only supported on the “default” NIC.</source>
+          <target state="new">Internet-facing VIP is only supported on the “default” NIC.</target>
+        </trans-unit>
+        <trans-unit id="ba848f71-e330-4b51-8c7c-4dea180b2801" xml:space="preserve">
+          <source>There is only one VIP to the IP of the default NIC.</source>
+          <target state="new">There is only one VIP to the IP of the default NIC.</target>
+        </trans-unit>
+        <trans-unit id="9b82b0eb-bbdc-41e4-8790-be49e0277746" xml:space="preserve">
+          <source>At this time, Instance Level Public IP (LPIP) addresses are not supported for multi NIC VMs.</source>
+          <target state="new">At this time, Instance Level Public IP (LPIP) addresses are not supported for multi NIC VMs.</target>
+        </trans-unit>
+        <trans-unit id="5fb18a6a-1bfe-4573-9e56-09e70852dcba" xml:space="preserve">
+          <source>The order of the NICs from inside the VM will be random, and could also change across Azure infrastructure updates.</source>
+          <target state="new">The order of the NICs from inside the VM will be random, and could also change across Azure infrastructure updates.</target>
+        </trans-unit>
+        <trans-unit id="e3b26554-bb45-41be-8e17-f19b1fe10123" xml:space="preserve">
+          <source>However, the IP addresses, and the corresponding ethernet MAC addresses will remain the same.</source>
+          <target state="new">However, the IP addresses, and the corresponding ethernet MAC addresses will remain the same.</target>
+        </trans-unit>
+        <trans-unit id="3a3831ac-469f-43b1-84d9-8b8820d154a1" xml:space="preserve">
+          <source>For example, assume <bpt id="9028e299-d805-4fd6-a607-6c372f1ba2f9">&lt;strong&gt;</bpt>Eth1<ept id="9028e299-d805-4fd6-a607-6c372f1ba2f9">&lt;/strong&gt;</ept> has IP address 10.1.0.100 and MAC address 00-0D-3A-B0-39-0D; after an Azure infrastructure update and reboot, it could be changed to Eth2, but the IP and MAC pairing will remain the same.</source>
+          <target state="new">For example, assume <bpt id="9028e299-d805-4fd6-a607-6c372f1ba2f9">&lt;strong&gt;</bpt>Eth1<ept id="9028e299-d805-4fd6-a607-6c372f1ba2f9">&lt;/strong&gt;</ept> has IP address 10.1.0.100 and MAC address 00-0D-3A-B0-39-0D; after an Azure infrastructure update and reboot, it could be changed to Eth2, but the IP and MAC pairing will remain the same.</target>
+        </trans-unit>
+        <trans-unit id="b7510daf-3c6f-43ad-b312-c98fba46247a" xml:space="preserve">
+          <source>When a restart is customer-initiated, the NIC order will remain the same.</source>
+          <target state="new">When a restart is customer-initiated, the NIC order will remain the same.</target>
+        </trans-unit>
+        <trans-unit id="1f26a70c-072d-424f-aa81-302c87d5902e" xml:space="preserve">
+          <source>The address for each NIC on each VM must be located in a subnet, multiple NICs on a single VM can each be assigned addresses that are in the same subnet.</source>
+          <target state="new">The address for each NIC on each VM must be located in a subnet, multiple NICs on a single VM can each be assigned addresses that are in the same subnet.</target>
+        </trans-unit>
+        <trans-unit id="59156794-549f-4c54-a6de-b48db4e4dc58" xml:space="preserve">
+          <source>The VM size determines the number of NICS that you can create for a VM.</source>
+          <target state="new">The VM size determines the number of NICS that you can create for a VM.</target>
+        </trans-unit>
+        <trans-unit id="8b1d3341-6f4e-4d0d-9f78-8376a4d0648b" xml:space="preserve">
+          <source>The table below lists the numbers of NICs corresponding to the size of the VMs:</source>
+          <target state="new">The table below lists the numbers of NICs corresponding to the size of the VMs:</target>
+        </trans-unit>
+        <trans-unit id="3f9e8546-5143-4ee6-aecf-742eb4234b67" xml:space="preserve">
+          <source>VM Size (Standard SKUs)</source>
+          <target state="new">VM Size (Standard SKUs)</target>
+        </trans-unit>
+        <trans-unit id="af0034eb-02bb-47ef-8473-fd90ba3e3b20" xml:space="preserve">
+          <source>NICs (max allowed per VM)</source>
+          <target state="new">NICs (max allowed per VM)</target>
+        </trans-unit>
+        <trans-unit id="68f5e185-3fa4-4ecd-b96c-d037c87e7b2c" xml:space="preserve">
+          <source>All Basic Sizes</source>
+          <target state="new">All Basic Sizes</target>
+        </trans-unit>
+        <trans-unit id="e2c72060-a1f6-4122-81db-be3c3261ec8f" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="a1537716-de16-4abb-a2e2-6bd8916bad89" xml:space="preserve">
+          <source>A0\extra small</source>
+          <target state="new">A0\extra small</target>
+        </trans-unit>
+        <trans-unit id="f7d84607-8583-4ed3-a9d9-b6c2201bc9f3" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="648ccc0d-c9a1-4449-8f50-4c1843fed697" xml:space="preserve">
+          <source>A1\small</source>
+          <target state="new">A1\small</target>
+        </trans-unit>
+        <trans-unit id="860f8760-af5f-407a-b3f7-8fa3c5a95d48" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="8713fc31-89b8-4c45-89b4-e9195b33e84a" xml:space="preserve">
+          <source>A2\medium</source>
+          <target state="new">A2\medium</target>
+        </trans-unit>
+        <trans-unit id="d2c09913-508d-49e4-9813-51132ecf1743" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="0a0a7c72-8d92-4277-a3f5-962808dc1eaa" xml:space="preserve">
+          <source>A3\large</source>
+          <target state="new">A3\large</target>
+        </trans-unit>
+        <trans-unit id="1be197de-5cf1-4bb1-a90a-a914ccd3f49b" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="7cd26e00-e0d9-4172-b679-9e840074ff89" xml:space="preserve">
+          <source>A4\extra large</source>
+          <target state="new">A4\extra large</target>
+        </trans-unit>
+        <trans-unit id="faf1b7fb-7bc9-4c5d-a598-5f04abaf33b3" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="0e517168-0c2c-4e62-89e3-be21c2eb82cf" xml:space="preserve">
+          <source>A5</source>
+          <target state="new">A5</target>
+        </trans-unit>
+        <trans-unit id="d9683931-5472-474f-8378-3cb21fca52f5" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="7360d85f-f037-4191-8d6d-b50847011152" xml:space="preserve">
+          <source>A6</source>
+          <target state="new">A6</target>
+        </trans-unit>
+        <trans-unit id="a9a2f694-a6b8-434f-a2c8-fb180f5f946b" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="0c99f4cc-c97f-45f3-949b-fc7deb85b55f" xml:space="preserve">
+          <source>A7</source>
+          <target state="new">A7</target>
+        </trans-unit>
+        <trans-unit id="86ea7497-6b30-44f9-ba40-94a6a90e3672" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="9f50c8c2-8e5d-41cf-a947-4a9e8ec78d54" xml:space="preserve">
+          <source>A8</source>
+          <target state="new">A8</target>
+        </trans-unit>
+        <trans-unit id="752043ff-55cc-4702-a54a-b13604d18e1a" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="2e045d26-51dc-4783-bad0-e85e0e88658b" xml:space="preserve">
+          <source>A9</source>
+          <target state="new">A9</target>
+        </trans-unit>
+        <trans-unit id="a0a71c9a-5858-4cf1-b3f8-4ec112387cd5" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="459845fb-1e16-44a3-bce2-675fe97daaba" xml:space="preserve">
+          <source>A10</source>
+          <target state="new">A10</target>
+        </trans-unit>
+        <trans-unit id="d2869114-cb96-4045-9968-27bb0e81d853" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="922419d4-36d2-4092-acbd-30791b20a16d" xml:space="preserve">
+          <source>A11</source>
+          <target state="new">A11</target>
+        </trans-unit>
+        <trans-unit id="fa944dd2-ad64-4004-8d1b-b9a001499c88" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="c3ca0103-334d-432f-b9c5-20daaa0bf4ad" xml:space="preserve">
+          <source>D1</source>
+          <target state="new">D1</target>
+        </trans-unit>
+        <trans-unit id="29ff7196-fcc8-47cb-82c8-242d88e65fb8" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="19654e77-ab90-4147-bd54-18122de066fd" xml:space="preserve">
+          <source>D2</source>
+          <target state="new">D2</target>
+        </trans-unit>
+        <trans-unit id="44651fcb-57a8-47d1-b740-c68fc7eb9e19" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="cf050258-7796-4d5d-9655-0476625713a4" xml:space="preserve">
+          <source>D3</source>
+          <target state="new">D3</target>
+        </trans-unit>
+        <trans-unit id="a0c64a6d-54e3-4871-bf9e-0a07a52a03d9" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="dd027ead-32b0-4bea-ad32-7bcf2df64318" xml:space="preserve">
+          <source>D4</source>
+          <target state="new">D4</target>
+        </trans-unit>
+        <trans-unit id="e242dfd6-164e-4151-afef-70fb1b59d8dd" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="7ca7961e-fdc1-4e7f-a49b-b4c317a64db7" xml:space="preserve">
+          <source>D11</source>
+          <target state="new">D11</target>
+        </trans-unit>
+        <trans-unit id="ff3ebd8e-57d1-47f9-a9c9-d3661d797a64" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="360f4c7e-49c8-429e-8cc6-c6450bf5be24" xml:space="preserve">
+          <source>D12</source>
+          <target state="new">D12</target>
+        </trans-unit>
+        <trans-unit id="d0bd3393-0507-496d-929b-34f36d83f7c9" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="82b4f6a3-4e5c-4628-a64b-23a582a0cda9" xml:space="preserve">
+          <source>D13</source>
+          <target state="new">D13</target>
+        </trans-unit>
+        <trans-unit id="d27b9c2b-54cd-4f6c-bcfb-3bbb2e9d1fcb" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="4f5a44ea-385c-438f-b631-9aee003d06ef" xml:space="preserve">
+          <source>D14</source>
+          <target state="new">D14</target>
+        </trans-unit>
+        <trans-unit id="d9abe66b-459c-4fa3-b921-dadb8ec5284e" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="a25bebc7-eca1-4141-99a5-736370f9df6a" xml:space="preserve">
+          <source>DS1</source>
+          <target state="new">DS1</target>
+        </trans-unit>
+        <trans-unit id="dc7d1116-08ff-4d81-9c07-4db49af38872" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="460fefa1-aa8e-467c-bc71-73bc6b76e320" xml:space="preserve">
+          <source>DS2</source>
+          <target state="new">DS2</target>
+        </trans-unit>
+        <trans-unit id="d3c48db2-1354-45ec-b9ac-da93df321ed8" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="04840f3b-7613-41c0-9778-2ac9d549f830" xml:space="preserve">
+          <source>DS3</source>
+          <target state="new">DS3</target>
+        </trans-unit>
+        <trans-unit id="dea746d6-5b13-4eb2-9106-606fe76c6dc7" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="fefbbf72-2ec3-435e-a4f3-97f532af2545" xml:space="preserve">
+          <source>DS4</source>
+          <target state="new">DS4</target>
+        </trans-unit>
+        <trans-unit id="08d0b874-ca55-439d-8f37-434e4ff40394" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="5cb9bffb-6af6-49f2-af9a-d91f3884f448" xml:space="preserve">
+          <source>DS11</source>
+          <target state="new">DS11</target>
+        </trans-unit>
+        <trans-unit id="ee89a74b-1b1e-44dc-9c95-9ea7f4d35e84" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="29514664-10cd-4290-b85a-8193ffa31d7c" xml:space="preserve">
+          <source>DS12</source>
+          <target state="new">DS12</target>
+        </trans-unit>
+        <trans-unit id="453f99dc-831a-48b3-8a99-27234cf5585c" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="f3b01493-1321-42cf-a05f-76ac065ba2e9" xml:space="preserve">
+          <source>DS13</source>
+          <target state="new">DS13</target>
+        </trans-unit>
+        <trans-unit id="1f54f2a4-9cc4-4110-8a21-4253234f23fb" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="52382c06-9e12-4a6b-a214-b645f6f806e9" xml:space="preserve">
+          <source>DS14</source>
+          <target state="new">DS14</target>
+        </trans-unit>
+        <trans-unit id="f5b48313-5ec6-492c-ab92-98c11c084b50" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="8879168b-2f2b-4b12-a829-2e9a0d6cbb5c" xml:space="preserve">
+          <source>G1</source>
+          <target state="new">G1</target>
+        </trans-unit>
+        <trans-unit id="d4b78656-0b42-4809-8f1c-d84b939e6fff" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="021ca84e-2277-4c0d-9282-879d128f2c42" xml:space="preserve">
+          <source>G2</source>
+          <target state="new">G2</target>
+        </trans-unit>
+        <trans-unit id="6cc451df-df25-445e-90af-390f152e1395" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="599ded50-380a-4fe3-ab52-168757d55d42" xml:space="preserve">
+          <source>G3</source>
+          <target state="new">G3</target>
+        </trans-unit>
+        <trans-unit id="0305d92d-2bc0-4e1f-9a4d-3c946152bef2" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="4531efae-f8d6-4337-81a4-ed1e517c5d26" xml:space="preserve">
+          <source>G4</source>
+          <target state="new">G4</target>
+        </trans-unit>
+        <trans-unit id="820b94da-7193-45df-9db2-d051f43ecd2e" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="2b2fc4ab-7559-4632-ab55-a7ef29350e7e" xml:space="preserve">
+          <source>G5</source>
+          <target state="new">G5</target>
+        </trans-unit>
+        <trans-unit id="0576ea17-3c94-4194-9c98-710d6d0ab87c" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="f02015dc-2254-4a32-a14f-54f2f49ced40" xml:space="preserve">
+          <source>All Other Sizes</source>
+          <target state="new">All Other Sizes</target>
+        </trans-unit>
+        <trans-unit id="5ffb5fe7-b29c-48fe-89a6-7c371809c89b" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="bb5043f1-c933-494c-a0d3-928879965b51" xml:space="preserve">
+          <source>Any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has multiple NICs enabled.</source>
+          <target state="new">Any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has multiple NICs enabled.</target>
+        </trans-unit>
+        <trans-unit id="3d874618-046b-4a81-981d-6ff7934dfb25" xml:space="preserve">
+          <source>If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC.</source>
+          <target state="new">If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC.</target>
+        </trans-unit>
+        <trans-unit id="31ebc366-7181-4b39-ac0d-6d24554cd06d" xml:space="preserve">
+          <source>In addition to associating subnets with NSGs, you can also associate a NIC with an NSG.</source>
+          <target state="new">In addition to associating subnets with NSGs, you can also associate a NIC with an NSG.</target>
+        </trans-unit>
+        <trans-unit id="f9e72e95-b2fe-45fc-bbb2-f81863d4d27d" xml:space="preserve">
+          <source>If a subnet is associated with an NSG, and a NIC within that subnet is individually associated with an NSG, the associated NSG rules are applied in “<bpt id="d3cafc78-1bd8-45e2-959a-4a6b26f9f8eb">&lt;strong&gt;</bpt>flow order<ept id="d3cafc78-1bd8-45e2-959a-4a6b26f9f8eb">&lt;/strong&gt;</ept>” according to the direction of the traffic being passed into or out of the NIC: </source>
+          <target state="new">If a subnet is associated with an NSG, and a NIC within that subnet is individually associated with an NSG, the associated NSG rules are applied in “<bpt id="d3cafc78-1bd8-45e2-959a-4a6b26f9f8eb">&lt;strong&gt;</bpt>flow order<ept id="d3cafc78-1bd8-45e2-959a-4a6b26f9f8eb">&lt;/strong&gt;</ept>” according to the direction of the traffic being passed into or out of the NIC: </target>
+        </trans-unit>
+        <trans-unit id="960d082e-4f4e-4605-8a27-091cd3111f72" xml:space="preserve">
+          <source><bpt id="cb6f1c1a-e486-4023-9836-c3a4daa0ef2f">&lt;em&gt;</bpt>*Incoming traffic *<ept id="cb6f1c1a-e486-4023-9836-c3a4daa0ef2f">&lt;/em&gt;</ept>whose destination is the NIC in question flows first through the subnet, triggering the subnet’s NSG rules, before passing into the NIC, then triggering the NIC’s NSG rules.</source>
+          <target state="new"><bpt id="cb6f1c1a-e486-4023-9836-c3a4daa0ef2f">&lt;em&gt;</bpt>*Incoming traffic *<ept id="cb6f1c1a-e486-4023-9836-c3a4daa0ef2f">&lt;/em&gt;</ept>whose destination is the NIC in question flows first through the subnet, triggering the subnet’s NSG rules, before passing into the NIC, then triggering the NIC’s NSG rules.</target>
+        </trans-unit>
+        <trans-unit id="ccf6bb53-4770-4354-93d8-837cc1bc9d40" xml:space="preserve">
+          <source><bpt id="2e88d3a1-21c7-4ea3-8322-27053a8938ff">&lt;strong&gt;</bpt>Outgoing traffic<ept id="2e88d3a1-21c7-4ea3-8322-27053a8938ff">&lt;/strong&gt;</ept> whose source is the NIC in question flows first out from the NIC, triggering the NIC’s NSG rules, before passing through the subnet, then triggering the subnet’s NSG rules.</source>
+          <target state="new"><bpt id="2e88d3a1-21c7-4ea3-8322-27053a8938ff">&lt;strong&gt;</bpt>Outgoing traffic<ept id="2e88d3a1-21c7-4ea3-8322-27053a8938ff">&lt;/strong&gt;</ept> whose source is the NIC in question flows first out from the NIC, triggering the NIC’s NSG rules, before passing through the subnet, then triggering the subnet’s NSG rules.</target>
+        </trans-unit>
+        <trans-unit id="8ada24e2-7a51-45a6-b9dd-23e50a61b5a3" xml:space="preserve">
+          <source>The figure above represents how NSG rules application is done based on traffice flow (from VM to subnet, or from subnet to VM).</source>
+          <target state="new">The figure above represents how NSG rules application is done based on traffice flow (from VM to subnet, or from subnet to VM).</target>
+        </trans-unit>
+        <trans-unit id="8491759e-bcd0-4a63-a108-f009f5051fa4" xml:space="preserve">
+          <source>The instructions below will help you create a multi NIC VM containing 3 NICs: a default NIC and two additional NICs.</source>
+          <target state="new">The instructions below will help you create a multi NIC VM containing 3 NICs: a default NIC and two additional NICs.</target>
+        </trans-unit>
+        <trans-unit id="4e5cdf16-87f0-4952-a534-ff212d581b8e" xml:space="preserve">
+          <source>The configuration steps will create a VM that will be configured according to the service configuration file fragment below:</source>
+          <target state="new">The configuration steps will create a VM that will be configured according to the service configuration file fragment below:</target>
+        </trans-unit>
+        <trans-unit id="bef14013-f77b-4616-a5d9-b1c804889227" xml:space="preserve">
+          <source>You need the following prerequisites before trying to run the PowerShell commands in the example.</source>
+          <target state="new">You need the following prerequisites before trying to run the PowerShell commands in the example.</target>
+        </trans-unit>
+        <trans-unit id="742d139c-2a29-41a7-a9f1-bc7d4a0def92" xml:space="preserve">
+          <source>An Azure subscription.</source>
+          <target state="new">An Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="d56aea99-3a4f-4447-b8b9-5141ae3e5862" xml:space="preserve">
+          <source>A configured virtual network.</source>
+          <target state="new">A configured virtual network.</target>
+        </trans-unit>
+        <trans-unit id="20197a0a-9812-4acb-a929-2400bf47c61d" xml:space="preserve">
+          <source>See <bpt id="decad034-48be-4a85-91c6-3f9cc582f009">&lt;linkText&gt;</bpt>Virtual Network Overview<ept id="decad034-48be-4a85-91c6-3f9cc582f009">&lt;/linkText&gt;</ept><bpt id="decad034-48be-4a85-91c6-3f9cc582f009">&lt;title&gt;</bpt><ept id="decad034-48be-4a85-91c6-3f9cc582f009">&lt;/title&gt;</ept> for more information about VNets.</source>
+          <target state="new">See <bpt id="decad034-48be-4a85-91c6-3f9cc582f009">&lt;linkText&gt;</bpt>Virtual Network Overview<ept id="decad034-48be-4a85-91c6-3f9cc582f009">&lt;/linkText&gt;</ept><bpt id="decad034-48be-4a85-91c6-3f9cc582f009">&lt;title&gt;</bpt><ept id="decad034-48be-4a85-91c6-3f9cc582f009">&lt;/title&gt;</ept> for more information about VNets.</target>
+        </trans-unit>
+        <trans-unit id="31906455-c76b-460b-bdd1-2afe4f8df78d" xml:space="preserve">
+          <source>The latest version of Azure PowerShell downloaded and installed.</source>
+          <target state="new">The latest version of Azure PowerShell downloaded and installed.</target>
+        </trans-unit>
+        <trans-unit id="dfbb4e92-7258-4ac0-8917-efd52ab50440" xml:space="preserve">
+          <source>See <bpt id="45ec8aff-1e38-4f2c-813c-0b07e057e4a0">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="45ec8aff-1e38-4f2c-813c-0b07e057e4a0">&lt;/linkText&gt;</ept><bpt id="45ec8aff-1e38-4f2c-813c-0b07e057e4a0">&lt;title&gt;</bpt><ept id="45ec8aff-1e38-4f2c-813c-0b07e057e4a0">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="45ec8aff-1e38-4f2c-813c-0b07e057e4a0">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="45ec8aff-1e38-4f2c-813c-0b07e057e4a0">&lt;/linkText&gt;</ept><bpt id="45ec8aff-1e38-4f2c-813c-0b07e057e4a0">&lt;title&gt;</bpt><ept id="45ec8aff-1e38-4f2c-813c-0b07e057e4a0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60779a97-ad42-4131-a209-31096364c6a4" xml:space="preserve">
+          <source>To create a VM with multiple NICs, follow the steps below:</source>
+          <target state="new">To create a VM with multiple NICs, follow the steps below:</target>
+        </trans-unit>
+        <trans-unit id="b8a2664c-1548-4fa7-9ab9-27f366f89b46" xml:space="preserve">
+          <source>Select a VM image from Azure VM image gallery.</source>
+          <target state="new">Select a VM image from Azure VM image gallery.</target>
+        </trans-unit>
+        <trans-unit id="1d7b4a63-0f64-4351-b954-ddb2778f7e72" xml:space="preserve">
+          <source>Note that images change frequently and are available by region.</source>
+          <target state="new">Note that images change frequently and are available by region.</target>
+        </trans-unit>
+        <trans-unit id="ec0c52ad-4e3a-4d2d-8ce2-0c784c97bb61" xml:space="preserve">
+          <source>The image specified in the example below may change or might not be in your region, so be sure to specify the image you need.</source>
+          <target state="new">The image specified in the example below may change or might not be in your region, so be sure to specify the image you need.</target>
+        </trans-unit>
+        <trans-unit id="cb9a03e6-7c49-4291-a761-94a0d122fa6d" xml:space="preserve">
+          <source>Create a VM configuration.</source>
+          <target state="new">Create a VM configuration.</target>
+        </trans-unit>
+        <trans-unit id="a635d819-e4be-4b54-9472-af75926e6781" xml:space="preserve">
+          <source>Create the default administrator login.</source>
+          <target state="new">Create the default administrator login.</target>
+        </trans-unit>
+        <trans-unit id="3bee9f6b-feb8-4e66-acf4-9c466ec9853a" xml:space="preserve">
+          <source>Add additional NICs to the VM configuration.</source>
+          <target state="new">Add additional NICs to the VM configuration.</target>
+        </trans-unit>
+        <trans-unit id="d15e8dfd-9f90-44d3-885a-966baea90035" xml:space="preserve">
+          <source>Specify the subnet and IP address for the default NIC.</source>
+          <target state="new">Specify the subnet and IP address for the default NIC.</target>
+        </trans-unit>
+        <trans-unit id="0b7a63f8-22a5-4ebc-be24-b6caec240103" xml:space="preserve">
+          <source>Create the VM in your virtual network.</source>
+          <target state="new">Create the VM in your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="f6b1a2d7-c8b0-451d-842f-db5c7c4a740b" xml:space="preserve">
+          <source>The VNet that you specify here must already exist (as mentioned in the prerequisites).</source>
+          <target state="new">The VNet that you specify here must already exist (as mentioned in the prerequisites).</target>
+        </trans-unit>
+        <trans-unit id="ccd40c69-0ed0-435c-aa39-39193aa940f5" xml:space="preserve">
+          <source>The example below specifies a virtual network named <bpt id="ddde7049-a576-451f-91e1-95723aaf300c">&lt;strong&gt;</bpt>MultiNIC-VNet<ept id="ddde7049-a576-451f-91e1-95723aaf300c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The example below specifies a virtual network named <bpt id="ddde7049-a576-451f-91e1-95723aaf300c">&lt;strong&gt;</bpt>MultiNIC-VNet<ept id="ddde7049-a576-451f-91e1-95723aaf300c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57376863-f2b9-40c8-82d1-73e7dfa8c721" xml:space="preserve">
+          <source>The current model in Azure is that, all NICs in a virtual machine are set up with a default gateway.</source>
+          <target state="new">The current model in Azure is that, all NICs in a virtual machine are set up with a default gateway.</target>
+        </trans-unit>
+        <trans-unit id="35022083-ec2d-4a35-a978-e38394026ab0" xml:space="preserve">
+          <source>This allows the NICs to communicate with IP addresses outside their subnet.</source>
+          <target state="new">This allows the NICs to communicate with IP addresses outside their subnet.</target>
+        </trans-unit>
+        <trans-unit id="647ee3d3-b305-4284-9e86-b7edc9412e4a" xml:space="preserve">
+          <source>In Operating systems that use the weak host routing model such as Linux, the internet connectivity will break if the ingress and egress traffic use different NICs.</source>
+          <target state="new">In Operating systems that use the weak host routing model such as Linux, the internet connectivity will break if the ingress and egress traffic use different NICs.</target>
+        </trans-unit>
+        <trans-unit id="56244b4e-8975-428f-bfdf-13c2d0949a3e" xml:space="preserve">
+          <source>In order to fix this, Azure will be rolling out an update in the first weeks of July 2015 to the platform which will remove the default gateway from the secondary NICs.</source>
+          <target state="new">In order to fix this, Azure will be rolling out an update in the first weeks of July 2015 to the platform which will remove the default gateway from the secondary NICs.</target>
+        </trans-unit>
+        <trans-unit id="0784cee2-a145-46aa-a5d0-dccf98cdb444" xml:space="preserve">
+          <source>This will not impact existing virtual machines until they are rebooted.</source>
+          <target state="new">This will not impact existing virtual machines until they are rebooted.</target>
+        </trans-unit>
+        <trans-unit id="9e1bfaf2-81df-46d2-8012-be32fc3d161f" xml:space="preserve">
+          <source>After the reboot the new settings will take effect, at which point, the traffic flow on the secondary NICs will be limited to be within the same subnet.</source>
+          <target state="new">After the reboot the new settings will take effect, at which point, the traffic flow on the secondary NICs will be limited to be within the same subnet.</target>
+        </trans-unit>
+        <trans-unit id="9f5178bd-4148-487c-8e19-bf4f130f3f08" xml:space="preserve">
+          <source>If the users want to enable secondary NICs to talk outside its own subnet, they will have to add an entry in the routing table to configure the gateway as described below.</source>
+          <target state="new">If the users want to enable secondary NICs to talk outside its own subnet, they will have to add an entry in the routing table to configure the gateway as described below.</target>
+        </trans-unit>
+        <trans-unit id="2133c7e6-25f6-4b39-a9e1-7a5d94f2bfe8" xml:space="preserve">
+          <source>Suppose that you have a Windows VM with two NICs as follows:</source>
+          <target state="new">Suppose that you have a Windows VM with two NICs as follows:</target>
+        </trans-unit>
+        <trans-unit id="c83ce0a3-318a-4031-acf0-ef5aacbbd138" xml:space="preserve">
+          <source>Primary NIC IP address: 192.168.1.4</source>
+          <target state="new">Primary NIC IP address: 192.168.1.4</target>
+        </trans-unit>
+        <trans-unit id="4fa0a418-74fd-4195-b18c-63f59b1130a9" xml:space="preserve">
+          <source>Secondary NIC IP address: 192.168.2.5</source>
+          <target state="new">Secondary NIC IP address: 192.168.2.5</target>
+        </trans-unit>
+        <trans-unit id="1f03d93b-6a1c-4c69-a204-c71c40200ae7" xml:space="preserve">
+          <source>The IPv4 route table for this VM would look like this:</source>
+          <target state="new">The IPv4 route table for this VM would look like this:</target>
+        </trans-unit>
+        <trans-unit id="88bd1f08-e9c6-47ac-ab43-1516dffcdef0" xml:space="preserve">
+          <source>Notice that the default route (0.0.0.0) is only available to the primary NIC.</source>
+          <target state="new">Notice that the default route (0.0.0.0) is only available to the primary NIC.</target>
+        </trans-unit>
+        <trans-unit id="d9c6baca-4c5b-49f2-aac6-aaf743fd6a2c" xml:space="preserve">
+          <source>You will not be able to access resources outside the subnet for the secondary NIC, as seen below:</source>
+          <target state="new">You will not be able to access resources outside the subnet for the secondary NIC, as seen below:</target>
+        </trans-unit>
+        <trans-unit id="e5fcb306-68b5-4bb4-a496-d951413268d2" xml:space="preserve">
+          <source>To add a default route on the secondary NIC, follow the steps below:</source>
+          <target state="new">To add a default route on the secondary NIC, follow the steps below:</target>
+        </trans-unit>
+        <trans-unit id="b9398bfc-2ac2-401b-8028-fa8b6916dfe0" xml:space="preserve">
+          <source>From a command prompt, run the command below to identify the index number for the secondary NIC:</source>
+          <target state="new">From a command prompt, run the command below to identify the index number for the secondary NIC:</target>
+        </trans-unit>
+        <trans-unit id="57ffbb87-79a9-438e-8fc7-9fd0a3669aa0" xml:space="preserve">
+          <source>Notice the second entry in the table, with an index of 27 (in this example).</source>
+          <target state="new">Notice the second entry in the table, with an index of 27 (in this example).</target>
+        </trans-unit>
+        <trans-unit id="7bdd10f9-57cd-4336-b550-0b9470187f33" xml:space="preserve">
+          <source>From the command prompt, run the <bpt id="561d5b48-4b78-4677-bcfe-1df408a3c12e">&lt;strong&gt;</bpt>route add<ept id="561d5b48-4b78-4677-bcfe-1df408a3c12e">&lt;/strong&gt;</ept> command as shown below.</source>
+          <target state="new">From the command prompt, run the <bpt id="561d5b48-4b78-4677-bcfe-1df408a3c12e">&lt;strong&gt;</bpt>route add<ept id="561d5b48-4b78-4677-bcfe-1df408a3c12e">&lt;/strong&gt;</ept> command as shown below.</target>
+        </trans-unit>
+        <trans-unit id="b1ab9e10-ec45-42c5-8c81-2aa180d59160" xml:space="preserve">
+          <source>In this example, you are specifying 192.168.2.1 as the default gateway for the secondary NIC:</source>
+          <target state="new">In this example, you are specifying 192.168.2.1 as the default gateway for the secondary NIC:</target>
+        </trans-unit>
+        <trans-unit id="f49a0b7d-a173-4b55-984a-708e1382bb9e" xml:space="preserve">
+          <source>To test connectivity, go back to the command prompt and try to ping a different subnet from the secondary NIC as shown int eh example below:</source>
+          <target state="new">To test connectivity, go back to the command prompt and try to ping a different subnet from the secondary NIC as shown int eh example below:</target>
+        </trans-unit>
+        <trans-unit id="f13fa3ae-46e5-4eb3-9640-412093ba6630" xml:space="preserve">
+          <source>You can also check your route table to check the newly added route, as shown below:</source>
+          <target state="new">You can also check your route table to check the newly added route, as shown below:</target>
+        </trans-unit>
+        <trans-unit id="fe0d9684-605e-4120-9620-75b0bc8771ab" xml:space="preserve">
+          <source>For Linux VMs, since the default behavior uses weak host routing, we recommend that the secondary NICs are restricted to traffic flows only within the same subnet.</source>
+          <target state="new">For Linux VMs, since the default behavior uses weak host routing, we recommend that the secondary NICs are restricted to traffic flows only within the same subnet.</target>
+        </trans-unit>
+        <trans-unit id="77fbc349-a4c1-4de6-bc26-fe9a464de7d2" xml:space="preserve">
+          <source>However if certain scenarios demand connectivity outside the subnet, users should enable policy based routing to ensure that the ingress and egress traffic uses the same NIC.</source>
+          <target state="new">However if certain scenarios demand connectivity outside the subnet, users should enable policy based routing to ensure that the ingress and egress traffic uses the same NIC.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

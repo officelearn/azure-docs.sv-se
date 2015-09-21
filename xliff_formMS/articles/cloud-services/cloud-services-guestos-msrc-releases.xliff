@@ -1,0 +1,2325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c0f8d60d-1255-4e78-b568-d39e3ff040d8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c0f8d60d-1255-4e78-b568-d39e3ff040d8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5b5089ab-aa4b-476a-a22e-f01765033ff9">
+        <trans-unit id="82a64ee9-57b6-4a68-87af-7778f626521a" xml:space="preserve">
+          <source>List of updates applied to the Azure Guest OS | Microsoft Azure</source>
+          <target state="new">List of updates applied to the Azure Guest OS | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b15c1d43-224d-4980-960f-c3625a3efdd6" xml:space="preserve">
+          <source>The list of updates applied to Guest OS releases</source>
+          <target state="new">The list of updates applied to Guest OS releases</target>
+        </trans-unit>
+        <trans-unit id="967f6b46-5a7d-464f-9cb3-e55e5f2a1e0f" xml:space="preserve">
+          <source>The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS.</source>
+          <target state="new">The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS.</target>
+        </trans-unit>
+        <trans-unit id="db10a3ce-5d5b-42a6-8784-db17252d0349" xml:space="preserve">
+          <source>Search this article to determine if a particular update applies to the Guest OS you are using.</source>
+          <target state="new">Search this article to determine if a particular update applies to the Guest OS you are using.</target>
+        </trans-unit>
+        <trans-unit id="50c9c566-78a9-41d9-a0ae-3fa2ea430152" xml:space="preserve">
+          <source>Updates always carry forward for the particular <bpt id="7fa4070d-861d-42c2-92ca-d674731573d8">&lt;linkText&gt;</bpt>family[family-explain]<ept id="7fa4070d-861d-42c2-92ca-d674731573d8">&lt;/linkText&gt;</ept><bpt id="7fa4070d-861d-42c2-92ca-d674731573d8">&lt;title&gt;</bpt><ept id="7fa4070d-861d-42c2-92ca-d674731573d8">&lt;/title&gt;</ept> they were introduced in.</source>
+          <target state="new">Updates always carry forward for the particular <bpt id="7fa4070d-861d-42c2-92ca-d674731573d8">&lt;linkText&gt;</bpt>family[family-explain]<ept id="7fa4070d-861d-42c2-92ca-d674731573d8">&lt;/linkText&gt;</ept><bpt id="7fa4070d-861d-42c2-92ca-d674731573d8">&lt;title&gt;</bpt><ept id="7fa4070d-861d-42c2-92ca-d674731573d8">&lt;/title&gt;</ept> they were introduced in.</target>
+        </trans-unit>
+        <trans-unit id="ff895dc0-3216-4c2d-b90f-352d4c71975b" xml:space="preserve">
+          <source>Bulletin ID</source>
+          <target state="new">Bulletin ID</target>
+        </trans-unit>
+        <trans-unit id="c59d05ba-84f2-4e78-bf58-3fba2c256265" xml:space="preserve">
+          <source>Parent KB Article</source>
+          <target state="new">Parent KB Article</target>
+        </trans-unit>
+        <trans-unit id="f55d1850-1766-4608-85ea-d9c93dcbbb45" xml:space="preserve">
+          <source>Vulnerability Description</source>
+          <target state="new">Vulnerability Description</target>
+        </trans-unit>
+        <trans-unit id="b93ef00e-39b0-44d5-9156-08abf80c65fa" xml:space="preserve">
+          <source>Guest OS</source>
+          <target state="new">Guest OS</target>
+        </trans-unit>
+        <trans-unit id="b17940c8-ed3f-4827-a97a-6223b8be38ae" xml:space="preserve">
+          <source>Date First Introduced</source>
+          <target state="new">Date First Introduced</target>
+        </trans-unit>
+        <trans-unit id="fa763621-41b1-4c06-b090-8aea9776c44d" xml:space="preserve">
+          <source>MS15-079</source>
+          <target state="new">MS15-079</target>
+        </trans-unit>
+        <trans-unit id="64083200-b16c-41a5-9ca2-35cd9edb46c1" xml:space="preserve">
+          <source>[3082442]</source>
+          <target state="new">[3082442]</target>
+        </trans-unit>
+        <trans-unit id="96325c69-258c-4f98-86c0-5c467254d520" xml:space="preserve">
+          <source>Cumulative Security Update for Internet Explorer</source>
+          <target state="new">Cumulative Security Update for Internet Explorer</target>
+        </trans-unit>
+        <trans-unit id="c7f54beb-7bd3-4405-9bdb-953b07a30984" xml:space="preserve">
+          <source>4.23, 3.30, 2.42</source>
+          <target state="new">4.23, 3.30, 2.42</target>
+        </trans-unit>
+        <trans-unit id="8de11b16-9050-4b14-8c02-cddd8239e735" xml:space="preserve">
+          <source>August 11, 2015</source>
+          <target state="new">August 11, 2015</target>
+        </trans-unit>
+        <trans-unit id="8eba90d9-cbb5-4108-81e8-dce17e448eb3" xml:space="preserve">
+          <source>MS15-080</source>
+          <target state="new">MS15-080</target>
+        </trans-unit>
+        <trans-unit id="50658adf-312d-416c-b991-71c32ed9e8a8" xml:space="preserve">
+          <source>[3078662]</source>
+          <target state="new">[3078662]</target>
+        </trans-unit>
+        <trans-unit id="d268080c-47f3-4376-8117-190902dcf0ff" xml:space="preserve">
+          <source>Vulnerabilities in Microsoft Graphics Component Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerabilities in Microsoft Graphics Component Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="d20ff55a-4c3f-4ef0-86a2-f63dec36e0ee" xml:space="preserve">
+          <source>4.23, 3.30, 2.42</source>
+          <target state="new">4.23, 3.30, 2.42</target>
+        </trans-unit>
+        <trans-unit id="703ca070-942a-41e7-86ea-ecc350f2cfb6" xml:space="preserve">
+          <source>August 11, 2015</source>
+          <target state="new">August 11, 2015</target>
+        </trans-unit>
+        <trans-unit id="d554d518-df10-47d8-a797-0bcd32c1a405" xml:space="preserve">
+          <source>MS15-082</source>
+          <target state="new">MS15-082</target>
+        </trans-unit>
+        <trans-unit id="4181dcee-e27f-4d0a-997c-6693ba71cd57" xml:space="preserve">
+          <source>[3080348]</source>
+          <target state="new">[3080348]</target>
+        </trans-unit>
+        <trans-unit id="14efabcd-4326-4b32-a4bb-5a356416df6a" xml:space="preserve">
+          <source>Vulnerabilities in RDP could allow Remote Code Execution</source>
+          <target state="new">Vulnerabilities in RDP could allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="df4689f8-deb6-4034-ba5d-b9ff06fdeba3" xml:space="preserve">
+          <source>4.23, 3.30, 2.42</source>
+          <target state="new">4.23, 3.30, 2.42</target>
+        </trans-unit>
+        <trans-unit id="18946701-67ff-4b7c-9411-f3aaa4bda9ec" xml:space="preserve">
+          <source>August 11, 2015</source>
+          <target state="new">August 11, 2015</target>
+        </trans-unit>
+        <trans-unit id="5237d018-2564-4168-830b-72300512ccda" xml:space="preserve">
+          <source>MS15-084</source>
+          <target state="new">MS15-084</target>
+        </trans-unit>
+        <trans-unit id="52a76e2a-706e-46de-bfde-a33cec3ab9e2" xml:space="preserve">
+          <source>[3080129]</source>
+          <target state="new">[3080129]</target>
+        </trans-unit>
+        <trans-unit id="3244d20c-a3a0-44ea-b121-5a1d124e1ab4" xml:space="preserve">
+          <source>Vulnerabilities in XML Core Services Could Allow Information Disclosure</source>
+          <target state="new">Vulnerabilities in XML Core Services Could Allow Information Disclosure</target>
+        </trans-unit>
+        <trans-unit id="9c5af2e3-cafd-4b29-b238-03734f057b28" xml:space="preserve">
+          <source>4.23, 3.30, 2.42</source>
+          <target state="new">4.23, 3.30, 2.42</target>
+        </trans-unit>
+        <trans-unit id="582b13fb-7850-43b4-abae-82d2e06a2c15" xml:space="preserve">
+          <source>August 11, 2015</source>
+          <target state="new">August 11, 2015</target>
+        </trans-unit>
+        <trans-unit id="7699b85d-9826-48eb-97ab-dd9e64295687" xml:space="preserve">
+          <source>MS15-085</source>
+          <target state="new">MS15-085</target>
+        </trans-unit>
+        <trans-unit id="84d0035c-ddb4-4ff8-8dad-60e3dcdb741f" xml:space="preserve">
+          <source>[3082487]</source>
+          <target state="new">[3082487]</target>
+        </trans-unit>
+        <trans-unit id="10e36a1d-e1a1-4f00-9569-c7abe08af41a" xml:space="preserve">
+          <source>Vulnerability in Mount Manager Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Mount Manager Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="6270ba7d-4eb6-4206-a85a-867398baaf1e" xml:space="preserve">
+          <source>4.23, 3.30, 2.42</source>
+          <target state="new">4.23, 3.30, 2.42</target>
+        </trans-unit>
+        <trans-unit id="9b4d1d38-8695-4134-9e95-709f3bbef2db" xml:space="preserve">
+          <source>August 11, 2015</source>
+          <target state="new">August 11, 2015</target>
+        </trans-unit>
+        <trans-unit id="ad2e1968-08c3-4982-845c-824f82f69774" xml:space="preserve">
+          <source>MS15-088</source>
+          <target state="new">MS15-088</target>
+        </trans-unit>
+        <trans-unit id="514124ba-3fc6-4c41-8e48-9fd645959fff" xml:space="preserve">
+          <source>[3082458]</source>
+          <target state="new">[3082458]</target>
+        </trans-unit>
+        <trans-unit id="e863bbc7-77c3-4fc0-ac1a-766fe05a367e" xml:space="preserve">
+          <source>Unsafe Command Line Parameter Passing Could Allow Information Disclosure</source>
+          <target state="new">Unsafe Command Line Parameter Passing Could Allow Information Disclosure</target>
+        </trans-unit>
+        <trans-unit id="a90aa042-3965-4c38-a20a-3df44c677025" xml:space="preserve">
+          <source>4.23, 3.30, 2.42</source>
+          <target state="new">4.23, 3.30, 2.42</target>
+        </trans-unit>
+        <trans-unit id="d6b56db7-cde2-40f9-a190-b230a71b4d0e" xml:space="preserve">
+          <source>August 11, 2015</source>
+          <target state="new">August 11, 2015</target>
+        </trans-unit>
+        <trans-unit id="11bf3f58-06f8-491c-89e6-b39b973515cf" xml:space="preserve">
+          <source>MS15-089</source>
+          <target state="new">MS15-089</target>
+        </trans-unit>
+        <trans-unit id="a2873929-8f59-48e6-b64d-2d98509fb9cd" xml:space="preserve">
+          <source>[3060716]</source>
+          <target state="new">[3060716]</target>
+        </trans-unit>
+        <trans-unit id="48708006-9b8f-4336-9d36-47867cd290a0" xml:space="preserve">
+          <source>Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="24a12756-8662-4659-beec-00720ca6e646" xml:space="preserve">
+          <source>4.23, 3.30, 2.42</source>
+          <target state="new">4.23, 3.30, 2.42</target>
+        </trans-unit>
+        <trans-unit id="e0ca44d1-4ecf-4b08-9fc5-eb5dfa1796b0" xml:space="preserve">
+          <source>August 11, 2015</source>
+          <target state="new">August 11, 2015</target>
+        </trans-unit>
+        <trans-unit id="df0cb4d1-0479-416d-9048-eb52bcfd058e" xml:space="preserve">
+          <source>MS15-090</source>
+          <target state="new">MS15-090</target>
+        </trans-unit>
+        <trans-unit id="ffd61628-8dc3-4d90-8222-fb4e75b0ee3e" xml:space="preserve">
+          <source>[3076949]</source>
+          <target state="new">[3076949]</target>
+        </trans-unit>
+        <trans-unit id="38840018-bb02-498c-9f95-a9e89c0b04db" xml:space="preserve">
+          <source>Vulnerability in WebDAV Could Allow Information Disclosure</source>
+          <target state="new">Vulnerability in WebDAV Could Allow Information Disclosure</target>
+        </trans-unit>
+        <trans-unit id="b3dc9e1d-906e-445c-ae99-252ecfd72cdc" xml:space="preserve">
+          <source>4.23, 3.30, 2.42</source>
+          <target state="new">4.23, 3.30, 2.42</target>
+        </trans-unit>
+        <trans-unit id="86dc027d-acd2-46a4-9210-85ed5e9492e3" xml:space="preserve">
+          <source>August 11, 2015</source>
+          <target state="new">August 11, 2015</target>
+        </trans-unit>
+        <trans-unit id="39a28efb-8949-493d-8aef-98a8985a7a05" xml:space="preserve">
+          <source>Bulletin ID</source>
+          <target state="new">Bulletin ID</target>
+        </trans-unit>
+        <trans-unit id="2cf9e23f-236f-48fe-949d-8b2b3cc16dbe" xml:space="preserve">
+          <source>Parent KB Article</source>
+          <target state="new">Parent KB Article</target>
+        </trans-unit>
+        <trans-unit id="9ed1acc6-9c11-4abf-85d2-8ce30e0d3e49" xml:space="preserve">
+          <source>Vulnerability Description</source>
+          <target state="new">Vulnerability Description</target>
+        </trans-unit>
+        <trans-unit id="748aff83-93eb-4be4-a5dd-214bb119cf24" xml:space="preserve">
+          <source>Guest OS</source>
+          <target state="new">Guest OS</target>
+        </trans-unit>
+        <trans-unit id="bffe1e79-7aa7-4246-8402-6d493578d868" xml:space="preserve">
+          <source>Date First Introduced</source>
+          <target state="new">Date First Introduced</target>
+        </trans-unit>
+        <trans-unit id="86c62e4a-ac88-4817-9ce5-ad70dcfb466a" xml:space="preserve">
+          <source>MS15-065</source>
+          <target state="new">MS15-065</target>
+        </trans-unit>
+        <trans-unit id="b2a4c269-1108-4550-8aa0-48f8066418fd" xml:space="preserve">
+          <source>[3076321]</source>
+          <target state="new">[3076321]</target>
+        </trans-unit>
+        <trans-unit id="742b4679-a6d2-48b4-87ef-e24cc1fa14e9" xml:space="preserve">
+          <source>Cumulative Security Update for Internet Explorer</source>
+          <target state="new">Cumulative Security Update for Internet Explorer</target>
+        </trans-unit>
+        <trans-unit id="2f520a38-9999-4724-b9d0-9539763e7093" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="9a858d51-cea1-4b55-8196-054bb21c3741" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="a9532e27-faa8-4bce-83ab-b7bd6a7d4ee0" xml:space="preserve">
+          <source>MS15-066</source>
+          <target state="new">MS15-066</target>
+        </trans-unit>
+        <trans-unit id="27834e46-4d07-488f-b526-fced842a28fb" xml:space="preserve">
+          <source>[3072604]</source>
+          <target state="new">[3072604]</target>
+        </trans-unit>
+        <trans-unit id="3e665f45-443a-4532-a14f-e29f0d887955" xml:space="preserve">
+          <source>Vulnerability in VBScript could allow Remote Code Execution</source>
+          <target state="new">Vulnerability in VBScript could allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="fbd31f70-dc9d-49a3-afb9-52800307cb13" xml:space="preserve">
+          <source>2.41</source>
+          <target state="new">2.41</target>
+        </trans-unit>
+        <trans-unit id="6bbfc4d9-f68d-4650-9f40-3bdca601a278" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="fd60c653-d478-4ad1-af34-ac071c60a23b" xml:space="preserve">
+          <source>MS15-067</source>
+          <target state="new">MS15-067</target>
+        </trans-unit>
+        <trans-unit id="519d4ff7-fa02-4cbc-a5eb-aa26fa1c2c42" xml:space="preserve">
+          <source>[3073094]</source>
+          <target state="new">[3073094]</target>
+        </trans-unit>
+        <trans-unit id="8f2b4d14-ad32-4425-a508-a8f321597f4d" xml:space="preserve">
+          <source>Vulnerability in RDP could allow Remote Code Execution</source>
+          <target state="new">Vulnerability in RDP could allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="4e7b7aa7-0c87-429b-98f2-27edd9bf76ee" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="ef558b36-634d-4818-a21a-0acabd55d95f" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="cdf40618-5328-48d1-8f11-b1d72ff27032" xml:space="preserve">
+          <source>MS15-068</source>
+          <target state="new">MS15-068</target>
+        </trans-unit>
+        <trans-unit id="4dbbbe99-c5d6-46b3-8c68-4c10131e4d47" xml:space="preserve">
+          <source>[3072000]</source>
+          <target state="new">[3072000]</target>
+        </trans-unit>
+        <trans-unit id="67a9f859-b44b-400c-9061-64f8671db6f9" xml:space="preserve">
+          <source>Vulnerability in Windows Hyper-V Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerability in Windows Hyper-V Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="fc4fa758-4396-4130-9a9c-fa3e3d7335af" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="e4fd5785-f7de-43b8-b3d0-0649c55f0d1a" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="2f299ae6-7e69-4a24-9079-c9effec45a21" xml:space="preserve">
+          <source>MS15-069</source>
+          <target state="new">MS15-069</target>
+        </trans-unit>
+        <trans-unit id="f03dcfd6-e00a-41ae-ae7d-04c6c27199a0" xml:space="preserve">
+          <source>[3072631]</source>
+          <target state="new">[3072631]</target>
+        </trans-unit>
+        <trans-unit id="9af215c5-29f0-46bd-84fb-7acf7eac6151" xml:space="preserve">
+          <source>Vulnerabilities in Windows Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerabilities in Windows Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="33b1ef54-cb09-4a09-acb5-b0bf91de1857" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="73fadab3-7140-4084-ab0d-ab409837125a" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="0ec1ac62-1f6b-4230-b282-c1886f769e54" xml:space="preserve">
+          <source>MS15-071</source>
+          <target state="new">MS15-071</target>
+        </trans-unit>
+        <trans-unit id="c7420b8b-7a6e-41d7-9739-60695d0e45f1" xml:space="preserve">
+          <source>[3068457]</source>
+          <target state="new">[3068457]</target>
+        </trans-unit>
+        <trans-unit id="9ba3917f-86e0-4178-a761-c489173da740" xml:space="preserve">
+          <source>Vulnerability in NETLOGON Could Allow Spoofing</source>
+          <target state="new">Vulnerability in NETLOGON Could Allow Spoofing</target>
+        </trans-unit>
+        <trans-unit id="3b394a50-ee66-4607-b23c-4bacd684aebd" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="19d23ac2-5940-4dc0-a5e0-eda315e8e6a8" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="2fac55d4-d85b-4ebe-9bb6-344699012616" xml:space="preserve">
+          <source>MS15-072</source>
+          <target state="new">MS15-072</target>
+        </trans-unit>
+        <trans-unit id="8141d322-c72f-41ca-90f4-97546e3c23fb" xml:space="preserve">
+          <source>[3069392]</source>
+          <target state="new">[3069392]</target>
+        </trans-unit>
+        <trans-unit id="bb98254e-8168-41ef-ba68-718d8e89c58a" xml:space="preserve">
+          <source>Vulnerability in Graphics Driver Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Graphics Driver Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="5d59b1bc-d2cf-4488-be66-4a9293fafbb8" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="97696b8f-cd5a-448a-84fd-a4a4730aef59" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="d31e32aa-795d-401f-8f7a-0f54966f636a" xml:space="preserve">
+          <source>MS15-073</source>
+          <target state="new">MS15-073</target>
+        </trans-unit>
+        <trans-unit id="45255d1b-d50c-4547-9442-91fecca67ab3" xml:space="preserve">
+          <source>[3070102]</source>
+          <target state="new">[3070102]</target>
+        </trans-unit>
+        <trans-unit id="2a798d03-5c3b-4c75-85ae-3fcba766eacb" xml:space="preserve">
+          <source>Vulnerabilities in Kernel-Mode Driver Could allow Elevation of Privilege</source>
+          <target state="new">Vulnerabilities in Kernel-Mode Driver Could allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="013195b1-ba47-492f-ba3c-6669d5f88de8" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="473d7dc5-4fa3-4ba4-ace8-1c3a091cce8e" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="fc62c53e-d0ad-416b-a126-487b5acefb14" xml:space="preserve">
+          <source>MS15-074</source>
+          <target state="new">MS15-074</target>
+        </trans-unit>
+        <trans-unit id="9ab45c45-b073-4065-8106-859d4fd5f8eb" xml:space="preserve">
+          <source>[3072630]</source>
+          <target state="new">[3072630]</target>
+        </trans-unit>
+        <trans-unit id="b6a1fd8e-7e6b-4a63-8d60-47f04907a283" xml:space="preserve">
+          <source>Vulnerability in Windows Installer Service Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Windows Installer Service Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="9e813a99-0656-4a57-9dd0-e92bc927d068" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="f7aeab9c-ce93-4c37-896a-2ba74b8e73f6" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="4cc81ea6-1cea-4ab3-8616-5cd5d7ccf845" xml:space="preserve">
+          <source>MS15-075</source>
+          <target state="new">MS15-075</target>
+        </trans-unit>
+        <trans-unit id="612f3919-a23c-4995-811b-27c380cd211b" xml:space="preserve">
+          <source>[3072633]</source>
+          <target state="new">[3072633]</target>
+        </trans-unit>
+        <trans-unit id="9be4881b-6647-413d-8473-80aa201e572a" xml:space="preserve">
+          <source>Vulnerabilities in OLE could allow Elevation of Privilege</source>
+          <target state="new">Vulnerabilities in OLE could allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="37c86ea2-cc0f-4255-9475-615220638af1" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="f0334565-f0c8-4883-880e-e71e66f3b8b3" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="8c00dae4-ca27-44b6-af9d-07ea5b315495" xml:space="preserve">
+          <source>MS15-076</source>
+          <target state="new">MS15-076</target>
+        </trans-unit>
+        <trans-unit id="372f9304-6250-4118-9193-d879452bbaac" xml:space="preserve">
+          <source>[3067505]</source>
+          <target state="new">[3067505]</target>
+        </trans-unit>
+        <trans-unit id="454d9952-8ec2-4ccf-9ab8-8de867dece42" xml:space="preserve">
+          <source>Vulnerability in Windows Remote Procedure Call Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Windows Remote Procedure Call Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="4f0df419-2e02-4cc3-8739-b650432aae58" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="ae55d21c-089a-4018-bf81-e2db16a05267" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="38a9cebc-051f-4992-9f6c-9ac65b282e44" xml:space="preserve">
+          <source>MS15-077</source>
+          <target state="new">MS15-077</target>
+        </trans-unit>
+        <trans-unit id="1f1ad78c-6b5e-4216-855a-de754934aafa" xml:space="preserve">
+          <source>[3077657]</source>
+          <target state="new">[3077657]</target>
+        </trans-unit>
+        <trans-unit id="72fa3f96-83ca-4d61-8f11-62096b992048" xml:space="preserve">
+          <source>Vulnerability in ATM Font Driver Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in ATM Font Driver Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="bc998838-78cb-439f-a60d-e66b6407778c" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="74ed5a2a-b474-4828-a476-1425920c24f7" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="52db2523-0d9c-4763-97b3-7e6a41ed4dcf" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="49c25a58-5b25-41cf-8fb8-933f1980a589" xml:space="preserve">
+          <source>[3057154]</source>
+          <target state="new">[3057154]</target>
+        </trans-unit>
+        <trans-unit id="3dd6f82a-7ba1-4552-a87c-21fefc2f539d" xml:space="preserve">
+          <source>Update to Restrict Use of DES Encryption</source>
+          <target state="new">Update to Restrict Use of DES Encryption</target>
+        </trans-unit>
+        <trans-unit id="05590738-4c4b-46ef-a59a-c148ed726c09" xml:space="preserve">
+          <source>4.22, 3.29, 2.41</source>
+          <target state="new">4.22, 3.29, 2.41</target>
+        </trans-unit>
+        <trans-unit id="651e96b6-5a05-4580-afc8-ea4098ecae81" xml:space="preserve">
+          <source>July 14, 2015</source>
+          <target state="new">July 14, 2015</target>
+        </trans-unit>
+        <trans-unit id="ad4e8566-c7b4-45c4-a11e-d55371607812" xml:space="preserve">
+          <source>Bulletin ID</source>
+          <target state="new">Bulletin ID</target>
+        </trans-unit>
+        <trans-unit id="f74699f9-e752-4b9f-842d-e13a5e4e9587" xml:space="preserve">
+          <source>Parent KB Article</source>
+          <target state="new">Parent KB Article</target>
+        </trans-unit>
+        <trans-unit id="ed5884a6-2de8-42c5-ae82-f1b725d9c76b" xml:space="preserve">
+          <source>Vulnerability Description</source>
+          <target state="new">Vulnerability Description</target>
+        </trans-unit>
+        <trans-unit id="fe030c4d-bd95-4808-9b0c-302e0087a14c" xml:space="preserve">
+          <source>Guest OS</source>
+          <target state="new">Guest OS</target>
+        </trans-unit>
+        <trans-unit id="57bb1c26-b81c-4f4b-b27f-36376633bf64" xml:space="preserve">
+          <source>Date First Introduced</source>
+          <target state="new">Date First Introduced</target>
+        </trans-unit>
+        <trans-unit id="ff523cd2-5f07-452f-bd73-eb5e78980e30" xml:space="preserve">
+          <source>MS15-056</source>
+          <target state="new">MS15-056</target>
+        </trans-unit>
+        <trans-unit id="99ff710e-e454-4361-a712-014d7491f605" xml:space="preserve">
+          <source>[3058515]</source>
+          <target state="new">[3058515]</target>
+        </trans-unit>
+        <trans-unit id="86ea5469-6051-4c91-af7b-a9ad56635604" xml:space="preserve">
+          <source>Cumulative Security Update for Internet Explorer</source>
+          <target state="new">Cumulative Security Update for Internet Explorer</target>
+        </trans-unit>
+        <trans-unit id="8aa699d7-0574-43f9-a14b-cf11bca58ec2" xml:space="preserve">
+          <source>4.21, 3.28, 2.40</source>
+          <target state="new">4.21, 3.28, 2.40</target>
+        </trans-unit>
+        <trans-unit id="9995e30a-c862-44f6-af37-1edb24227384" xml:space="preserve">
+          <source>June 9, 2015</source>
+          <target state="new">June 9, 2015</target>
+        </trans-unit>
+        <trans-unit id="85cdca49-95c1-4503-b451-8ad98994b335" xml:space="preserve">
+          <source>MS15-057</source>
+          <target state="new">MS15-057</target>
+        </trans-unit>
+        <trans-unit id="f61ba90b-c8a8-4b83-b159-1f76f0d863ae" xml:space="preserve">
+          <source>[3033890]</source>
+          <target state="new">[3033890]</target>
+        </trans-unit>
+        <trans-unit id="56b40a75-0cba-450c-8fb6-f9f06374c948" xml:space="preserve">
+          <source>Vulnerability in Windows Media Player Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerability in Windows Media Player Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="65fb4b93-a718-4956-ac08-7eb99c62eb9a" xml:space="preserve">
+          <source>4.21, 3.28, 2.40</source>
+          <target state="new">4.21, 3.28, 2.40</target>
+        </trans-unit>
+        <trans-unit id="b54489d5-ecbb-4565-965e-f7e7befedda5" xml:space="preserve">
+          <source>June 9, 2015</source>
+          <target state="new">June 9, 2015</target>
+        </trans-unit>
+        <trans-unit id="6ab2c358-0a86-452a-a748-96b12ec7ff80" xml:space="preserve">
+          <source>MS15-060</source>
+          <target state="new">MS15-060</target>
+        </trans-unit>
+        <trans-unit id="7a28fa13-0c3c-4706-bff8-b5ee694fe51d" xml:space="preserve">
+          <source>[3059317]</source>
+          <target state="new">[3059317]</target>
+        </trans-unit>
+        <trans-unit id="72951006-158d-48e3-90d6-de89b1cf9b44" xml:space="preserve">
+          <source>Vulnerability in Microsoft Common Controls Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerability in Microsoft Common Controls Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="63855119-1ad6-43a5-bf79-1e4e47a6d5e9" xml:space="preserve">
+          <source>4.21, 3.28, 2.40</source>
+          <target state="new">4.21, 3.28, 2.40</target>
+        </trans-unit>
+        <trans-unit id="fc6cc7b4-b603-4eb1-bdea-bc57dffd3eb0" xml:space="preserve">
+          <source>June 9, 2015</source>
+          <target state="new">June 9, 2015</target>
+        </trans-unit>
+        <trans-unit id="5b940625-440b-4315-9f8e-6202b522bf25" xml:space="preserve">
+          <source>MS15-061</source>
+          <target state="new">MS15-061</target>
+        </trans-unit>
+        <trans-unit id="00e38fcd-80f7-4661-be7b-e5444d8ebbc0" xml:space="preserve">
+          <source>[3057839]</source>
+          <target state="new">[3057839]</target>
+        </trans-unit>
+        <trans-unit id="fef95035-70e1-4690-ace0-4e25f91b1c80" xml:space="preserve">
+          <source>Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="381b9f3b-3497-49b4-8ec7-02da1ac472fa" xml:space="preserve">
+          <source>4.21, 3.28, 2.40</source>
+          <target state="new">4.21, 3.28, 2.40</target>
+        </trans-unit>
+        <trans-unit id="3acc059c-a2c7-4d63-917c-c6dc5c2caeac" xml:space="preserve">
+          <source>June 9, 2015</source>
+          <target state="new">June 9, 2015</target>
+        </trans-unit>
+        <trans-unit id="e48bf1a8-4810-4ce2-8cc2-ceca0610ff81" xml:space="preserve">
+          <source>MS15-062</source>
+          <target state="new">MS15-062</target>
+        </trans-unit>
+        <trans-unit id="7e7c239f-97f4-4b15-9936-e367ea5abd5a" xml:space="preserve">
+          <source>[3062577]</source>
+          <target state="new">[3062577]</target>
+        </trans-unit>
+        <trans-unit id="32a44c0f-8141-400d-8262-4e4ce424287c" xml:space="preserve">
+          <source>Vulnerability in Active Directory Federation Services Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Active Directory Federation Services Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="7d4e277d-3493-4268-912f-1e6ccd877517" xml:space="preserve">
+          <source>4.21, 3.28, 2.40</source>
+          <target state="new">4.21, 3.28, 2.40</target>
+        </trans-unit>
+        <trans-unit id="d51ed055-bb30-4adc-81a1-ae273d260f62" xml:space="preserve">
+          <source>June 9, 2015</source>
+          <target state="new">June 9, 2015</target>
+        </trans-unit>
+        <trans-unit id="6c4e2ca2-3448-4a26-89ae-e0b16b39149a" xml:space="preserve">
+          <source>MS15-063</source>
+          <target state="new">MS15-063</target>
+        </trans-unit>
+        <trans-unit id="1f4817bc-99ae-492d-a450-be089c26d628" xml:space="preserve">
+          <source>[3063858]</source>
+          <target state="new">[3063858]</target>
+        </trans-unit>
+        <trans-unit id="8b74c91e-8f51-40fd-bc56-6a6acec540e5" xml:space="preserve">
+          <source>Vulnerability in Windows Kernel Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Windows Kernel Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="fde7587e-4e90-4b11-a9a8-21b06f3531e2" xml:space="preserve">
+          <source>4.21, 3.28, 2.40</source>
+          <target state="new">4.21, 3.28, 2.40</target>
+        </trans-unit>
+        <trans-unit id="c05d12d7-1d5c-4c9d-a2bd-343a160a1257" xml:space="preserve">
+          <source>June 9, 2015</source>
+          <target state="new">June 9, 2015</target>
+        </trans-unit>
+        <trans-unit id="72fff899-bb48-45fb-92f9-3452ff3d2d7f" xml:space="preserve">
+          <source>Bulletin ID</source>
+          <target state="new">Bulletin ID</target>
+        </trans-unit>
+        <trans-unit id="7c92fc75-1506-4ce2-93e7-b5ab72a410b1" xml:space="preserve">
+          <source>Parent KB Article</source>
+          <target state="new">Parent KB Article</target>
+        </trans-unit>
+        <trans-unit id="878dacc3-3bcc-4bf2-b808-db18553a5fdd" xml:space="preserve">
+          <source>Vulnerability Description</source>
+          <target state="new">Vulnerability Description</target>
+        </trans-unit>
+        <trans-unit id="70eabbd6-d396-4f82-9a56-eadda2880535" xml:space="preserve">
+          <source>Guest OS</source>
+          <target state="new">Guest OS</target>
+        </trans-unit>
+        <trans-unit id="4596c874-8897-4462-8c9e-d3af0eb78648" xml:space="preserve">
+          <source>Date First Introduced</source>
+          <target state="new">Date First Introduced</target>
+        </trans-unit>
+        <trans-unit id="2c73d7d6-bccf-4c68-9fb9-e052fc9924f3" xml:space="preserve">
+          <source>MS15-043</source>
+          <target state="new">MS15-043</target>
+        </trans-unit>
+        <trans-unit id="5844fcca-138f-4739-8d04-1cf3bd712b90" xml:space="preserve">
+          <source>[3049563]</source>
+          <target state="new">[3049563]</target>
+        </trans-unit>
+        <trans-unit id="0cbad9cd-e12d-45b7-b5ff-cb2b7e91145a" xml:space="preserve">
+          <source>Cumulative Security Update for Internet Explorer</source>
+          <target state="new">Cumulative Security Update for Internet Explorer</target>
+        </trans-unit>
+        <trans-unit id="e26aeffb-78c8-4e55-8aef-82df69d5f8e3" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="4d1cebbf-8ea4-43f1-b1d6-30e7a5d41ee5" xml:space="preserve">
+          <source>May 12, 2015</source>
+          <target state="new">May 12, 2015</target>
+        </trans-unit>
+        <trans-unit id="d7f4af9c-6225-45bf-8d90-15942217b400" xml:space="preserve">
+          <source>MS15-044</source>
+          <target state="new">MS15-044</target>
+        </trans-unit>
+        <trans-unit id="72ecbf04-d95b-409b-a671-a9c8e1efaa99" xml:space="preserve">
+          <source>[3057110]</source>
+          <target state="new">[3057110]</target>
+        </trans-unit>
+        <trans-unit id="568b1389-67bf-49a7-b69f-5d53575d1d96" xml:space="preserve">
+          <source>Vulnerabilities in Microsoft Font Drivers Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerabilities in Microsoft Font Drivers Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="e09b1609-1009-475f-8da4-adad46f52667" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="8aaddab3-039c-4515-ab42-534479a3314c" xml:space="preserve">
+          <source>May 12, 2015</source>
+          <target state="new">May 12, 2015</target>
+        </trans-unit>
+        <trans-unit id="2384baa1-74a1-415b-af39-ad6e125f2443" xml:space="preserve">
+          <source>MS15-045</source>
+          <target state="new">MS15-045</target>
+        </trans-unit>
+        <trans-unit id="5fb728be-0945-4f7b-b2a8-afc91f61a122" xml:space="preserve">
+          <source>[3046002]</source>
+          <target state="new">[3046002]</target>
+        </trans-unit>
+        <trans-unit id="5c15c594-14cb-4a80-b571-6460140631ca" xml:space="preserve">
+          <source>Vulnerability in Windows Journal Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerability in Windows Journal Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="02fef12a-a5d2-45b3-83c4-097ba1646f69" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="691f197e-2016-4f64-9d93-604c17ec9ffa" xml:space="preserve">
+          <source>May 12, 2015</source>
+          <target state="new">May 12, 2015</target>
+        </trans-unit>
+        <trans-unit id="2aa99b1c-7a4c-4eec-953a-52e761f2dde0" xml:space="preserve">
+          <source>MS15-048</source>
+          <target state="new">MS15-048</target>
+        </trans-unit>
+        <trans-unit id="85731908-af4f-46b8-b95a-6af5738765f0" xml:space="preserve">
+          <source>[3057134]</source>
+          <target state="new">[3057134]</target>
+        </trans-unit>
+        <trans-unit id="6f8f9bd4-adbf-4eeb-96b0-9d8513b30b8d" xml:space="preserve">
+          <source>Vulnerabilities in .NET Framework Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerabilities in .NET Framework Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="224c04af-3f8a-460d-abf7-f5aa2b3d0347" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="fef7825a-1263-46af-a267-4a3033748847" xml:space="preserve">
+          <source>May 12, 2015</source>
+          <target state="new">May 12, 2015</target>
+        </trans-unit>
+        <trans-unit id="d7ccc641-cb5b-43e3-9b07-20630cb63fa0" xml:space="preserve">
+          <source>MS15-050</source>
+          <target state="new">MS15-050</target>
+        </trans-unit>
+        <trans-unit id="a3bf8d5d-47bc-4aa8-babf-a317c3de9e11" xml:space="preserve">
+          <source>[3055642]</source>
+          <target state="new">[3055642]</target>
+        </trans-unit>
+        <trans-unit id="65035d09-2b58-4c56-896d-811b0c3a3a11" xml:space="preserve">
+          <source>Vulnerability in Service Control Manager Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Service Control Manager Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="c8e574aa-203a-49a6-86ee-7afa22bbaa49" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="52aa9fd7-6b17-46f7-be63-7e55d343c506" xml:space="preserve">
+          <source>May 12, 2015</source>
+          <target state="new">May 12, 2015</target>
+        </trans-unit>
+        <trans-unit id="3781bc34-7935-42d5-8388-fcae41de14a4" xml:space="preserve">
+          <source>MS15-051</source>
+          <target state="new">MS15-051</target>
+        </trans-unit>
+        <trans-unit id="96a4c7b2-726a-4910-9e00-765be3bfacf3" xml:space="preserve">
+          <source>[3057191]</source>
+          <target state="new">[3057191]</target>
+        </trans-unit>
+        <trans-unit id="615a6b93-d610-434b-a4a4-043908462d2a" xml:space="preserve">
+          <source>Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="8f188f81-1ebc-429e-8598-9a5217c503f3" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="e0a7bdb4-5a76-4417-9ad1-53d81004e117" xml:space="preserve">
+          <source>May 12, 2015</source>
+          <target state="new">May 12, 2015</target>
+        </trans-unit>
+        <trans-unit id="42e1b326-a887-4013-a0eb-45271b3311a4" xml:space="preserve">
+          <source>MS15-052</source>
+          <target state="new">MS15-052</target>
+        </trans-unit>
+        <trans-unit id="dcfc48e2-0b3c-467d-8586-a4bcae7d8d33" xml:space="preserve">
+          <source>[3050514]</source>
+          <target state="new">[3050514]</target>
+        </trans-unit>
+        <trans-unit id="096f988c-ace1-4ec4-9566-6b0fc2560650" xml:space="preserve">
+          <source>Vulnerability in Windows Kernel Could Allow Security Feature Bypass</source>
+          <target state="new">Vulnerability in Windows Kernel Could Allow Security Feature Bypass</target>
+        </trans-unit>
+        <trans-unit id="29ea2685-d6b5-41cc-af11-87c8ac4aec2f" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="adc46315-834a-483e-9a3d-1314f25266ad" xml:space="preserve">
+          <source>May 12, 2015</source>
+          <target state="new">May 12, 2015</target>
+        </trans-unit>
+        <trans-unit id="940509ab-bf65-4878-9713-0c3d354db322" xml:space="preserve">
+          <source>MS15-053</source>
+          <target state="new">MS15-053</target>
+        </trans-unit>
+        <trans-unit id="d7430361-2bf9-460e-8445-b51e00a9349a" xml:space="preserve">
+          <source>[3057263]</source>
+          <target state="new">[3057263]</target>
+        </trans-unit>
+        <trans-unit id="fa8896f3-b99f-4d6f-acf1-b7fbeeeb2cde" xml:space="preserve">
+          <source>Vulnerabilities in JScript and VBScript Scripting Engine Could Allow Security Feature Bypass</source>
+          <target state="new">Vulnerabilities in JScript and VBScript Scripting Engine Could Allow Security Feature Bypass</target>
+        </trans-unit>
+        <trans-unit id="0311bd66-399d-494f-8246-6ad37cd8c26e" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="b2cd448a-c6ae-4376-94bf-f3951a940919" xml:space="preserve">
+          <source>May 12, 2015</source>
+          <target state="new">May 12, 2015</target>
+        </trans-unit>
+        <trans-unit id="b4ffd3de-b94a-4dcb-a160-185219c9e536" xml:space="preserve">
+          <source>MS15-054</source>
+          <target state="new">MS15-054</target>
+        </trans-unit>
+        <trans-unit id="94e9d371-1e85-4fab-9caf-14ff72885134" xml:space="preserve">
+          <source>[3051768]</source>
+          <target state="new">[3051768]</target>
+        </trans-unit>
+        <trans-unit id="6dd28677-eb30-4406-963f-8f6ef19e27f1" xml:space="preserve">
+          <source>Vulnerability in Microsoft Management Console File Format Could Allow Denial of Service</source>
+          <target state="new">Vulnerability in Microsoft Management Console File Format Could Allow Denial of Service</target>
+        </trans-unit>
+        <trans-unit id="35be383e-c571-40df-ad4f-b83fc325987b" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="074dabd7-74d1-4053-a62f-4a28af6e7321" xml:space="preserve">
+          <source>May 12, 2015</source>
+          <target state="new">May 12, 2015</target>
+        </trans-unit>
+        <trans-unit id="c763cc78-27ee-4d02-b23d-4e6a81120916" xml:space="preserve">
+          <source>MS15-055</source>
+          <target state="new">MS15-055</target>
+        </trans-unit>
+        <trans-unit id="cc442d63-b97f-4d3c-a822-c978d6fdcbb1" xml:space="preserve">
+          <source>[3061518]</source>
+          <target state="new">[3061518]</target>
+        </trans-unit>
+        <trans-unit id="93a55c1f-0096-400c-b411-6141ca4148b4" xml:space="preserve">
+          <source>Vulnerability in Schannel Could Allow Security Feature Bypass Important Information Disclosure</source>
+          <target state="new">Vulnerability in Schannel Could Allow Security Feature Bypass Important Information Disclosure</target>
+        </trans-unit>
+        <trans-unit id="5b5500b8-8713-45ed-85e4-32f15d45d8a9" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="2e12d58a-c5ea-4837-9bbd-7d83c761de11" xml:space="preserve">
+          <source>May 12, 2015</source>
+          <target state="new">May 12, 2015</target>
+        </trans-unit>
+        <trans-unit id="204e64ef-b94f-44b1-bea3-9424c46b5889" xml:space="preserve">
+          <source>MS15-032</source>
+          <target state="new">MS15-032</target>
+        </trans-unit>
+        <trans-unit id="0a1d3da8-aed7-44a6-b91b-7d714151ea80" xml:space="preserve">
+          <source>[3038314]</source>
+          <target state="new">[3038314]</target>
+        </trans-unit>
+        <trans-unit id="68e02295-86e3-4f00-b2e7-e2bbfe6cc5f0" xml:space="preserve">
+          <source>Cumulative Security Update for Internet Explorer</source>
+          <target state="new">Cumulative Security Update for Internet Explorer</target>
+        </trans-unit>
+        <trans-unit id="1a5bf5d9-ac16-42d4-be6d-da20cf74ff14" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="6ad053c4-b812-4aa3-b741-b4a0336a8f26" xml:space="preserve">
+          <source>Apr 17, 2015</source>
+          <target state="new">Apr 17, 2015</target>
+        </trans-unit>
+        <trans-unit id="e06aeae1-ccc2-4f3f-8f16-172c3d12a9fe" xml:space="preserve">
+          <source>MS15-035</source>
+          <target state="new">MS15-035</target>
+        </trans-unit>
+        <trans-unit id="1662a35b-5f93-406c-8a3d-4e9ee6aa22e0" xml:space="preserve">
+          <source>[3046306]</source>
+          <target state="new">[3046306]</target>
+        </trans-unit>
+        <trans-unit id="853d4170-e9a9-4752-95f2-df7e6b7ca106" xml:space="preserve">
+          <source>Vulnerability in Microsoft Graphics Component Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerability in Microsoft Graphics Component Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="c6eef3b1-82a9-40f9-b8c5-357cdac09346" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="ef025090-0b1e-494a-86d7-baaa2bbbf29e" xml:space="preserve">
+          <source>Apr 17, 2015</source>
+          <target state="new">Apr 17, 2015</target>
+        </trans-unit>
+        <trans-unit id="f169cab3-a317-416c-b980-62e8580b97cb" xml:space="preserve">
+          <source>MS15-037</source>
+          <target state="new">MS15-037</target>
+        </trans-unit>
+        <trans-unit id="61d99f5d-9db0-4d87-a69d-e312119e4dc6" xml:space="preserve">
+          <source>[3046269]</source>
+          <target state="new">[3046269]</target>
+        </trans-unit>
+        <trans-unit id="983b7ef5-5e6a-49ae-acb8-e0d4674ab909" xml:space="preserve">
+          <source>Vulnerability in Windows Task Scheduler Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Windows Task Scheduler Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="b6c9fc4a-ee0e-47fa-bc1e-0043da63f83e" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="1db6e509-5c70-4833-93d8-54e040d9584b" xml:space="preserve">
+          <source>Apr 17, 2015</source>
+          <target state="new">Apr 17, 2015</target>
+        </trans-unit>
+        <trans-unit id="a5bcab33-0baf-4105-ad9d-e1dc17b62658" xml:space="preserve">
+          <source>MS15-038</source>
+          <target state="new">MS15-038</target>
+        </trans-unit>
+        <trans-unit id="3c0da71b-cd32-4eac-8cb1-96ce17e81534" xml:space="preserve">
+          <source>[3049576]</source>
+          <target state="new">[3049576]</target>
+        </trans-unit>
+        <trans-unit id="a2736736-9bcc-4885-911c-d37bc07a0c63" xml:space="preserve">
+          <source>Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege Important</source>
+          <target state="new">Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege Important</target>
+        </trans-unit>
+        <trans-unit id="d47095d0-31ad-4099-a125-734bf561b8a7" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="8169596e-35c3-410d-8883-47d95c97943d" xml:space="preserve">
+          <source>Apr 17, 2015</source>
+          <target state="new">Apr 17, 2015</target>
+        </trans-unit>
+        <trans-unit id="0619d33b-e951-4ca6-b811-d87689b239c5" xml:space="preserve">
+          <source>MS15-039</source>
+          <target state="new">MS15-039</target>
+        </trans-unit>
+        <trans-unit id="57d340b6-040c-4d5e-8972-b5ea0bf8ce9d" xml:space="preserve">
+          <source>[3046482]</source>
+          <target state="new">[3046482]</target>
+        </trans-unit>
+        <trans-unit id="ea4ac4f4-b880-4387-8f19-0e7bbe42bee4" xml:space="preserve">
+          <source>Vulnerability in XML Core Services Could Allow Security Feature Bypass</source>
+          <target state="new">Vulnerability in XML Core Services Could Allow Security Feature Bypass</target>
+        </trans-unit>
+        <trans-unit id="2066f4b5-a11d-417d-b554-43e6c69c9bfc" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="6c66d0c0-c29f-4537-b842-98465d8cb835" xml:space="preserve">
+          <source>Apr 17, 2015</source>
+          <target state="new">Apr 17, 2015</target>
+        </trans-unit>
+        <trans-unit id="22bc87f6-b5f5-48ab-8d35-9967b6a013c8" xml:space="preserve">
+          <source>MS15-040</source>
+          <target state="new">MS15-040</target>
+        </trans-unit>
+        <trans-unit id="205069e1-7cfc-4f30-883e-f532506027c5" xml:space="preserve">
+          <source>[3045711]</source>
+          <target state="new">[3045711]</target>
+        </trans-unit>
+        <trans-unit id="63c810be-8299-49da-983a-3c0f9600687a" xml:space="preserve">
+          <source>Vulnerability in ADFS Could Allow Information Disclosure</source>
+          <target state="new">Vulnerability in ADFS Could Allow Information Disclosure</target>
+        </trans-unit>
+        <trans-unit id="c580eadc-b893-4ad8-96e1-61d6e4de9ae7" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="cd39c3f7-8271-4c34-8bf4-187f54c072d6" xml:space="preserve">
+          <source>Apr 17, 2015</source>
+          <target state="new">Apr 17, 2015</target>
+        </trans-unit>
+        <trans-unit id="41c30aee-26ed-440e-b674-dc9498214f30" xml:space="preserve">
+          <source>MS15-041</source>
+          <target state="new">MS15-041</target>
+        </trans-unit>
+        <trans-unit id="124f2dd7-367e-4045-8a87-0a990af88a46" xml:space="preserve">
+          <source>[3048010]</source>
+          <target state="new">[3048010]</target>
+        </trans-unit>
+        <trans-unit id="664023fa-d5d5-4937-a68f-218170cff2b4" xml:space="preserve">
+          <source>Vulnerability in .NET Framework Could Allow Information Disclosure</source>
+          <target state="new">Vulnerability in .NET Framework Could Allow Information Disclosure</target>
+        </trans-unit>
+        <trans-unit id="ca24885b-5a47-4ec9-82ab-fc3fbfea643f" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="57ce5b94-49bf-4b7f-92d8-60177237f78c" xml:space="preserve">
+          <source>Apr 17, 2015</source>
+          <target state="new">Apr 17, 2015</target>
+        </trans-unit>
+        <trans-unit id="111c7c31-f1f5-46b4-bf6f-b2d0c474f467" xml:space="preserve">
+          <source>MS15-042</source>
+          <target state="new">MS15-042</target>
+        </trans-unit>
+        <trans-unit id="2d095473-6f15-449b-a457-3f069f362b3e" xml:space="preserve">
+          <source>[3047234]</source>
+          <target state="new">[3047234]</target>
+        </trans-unit>
+        <trans-unit id="5f236053-b5ac-47e1-8138-85b3baa5b95d" xml:space="preserve">
+          <source>Vulnerability in Windows Hyper-V Could Allow Denial of Service</source>
+          <target state="new">Vulnerability in Windows Hyper-V Could Allow Denial of Service</target>
+        </trans-unit>
+        <trans-unit id="fd37afae-dccc-4415-9208-f94d3dcca933" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="c55ec24d-62c5-470e-8208-55c131df1586" xml:space="preserve">
+          <source>Apr 17, 2015</source>
+          <target state="new">Apr 17, 2015</target>
+        </trans-unit>
+        <trans-unit id="9b77cc98-3c66-4047-b4fd-b2f0747c4c80" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="7b786afc-2e61-4427-9bf5-7de0b6d8b2ae" xml:space="preserve">
+          <source>[3045755]</source>
+          <target state="new">[3045755]</target>
+        </trans-unit>
+        <trans-unit id="f65d9865-c467-4f72-9e23-e4f871119735" xml:space="preserve">
+          <source>Update to Improve PKU2U Authentication</source>
+          <target state="new">Update to Improve PKU2U Authentication</target>
+        </trans-unit>
+        <trans-unit id="72384756-23e3-4a55-98b4-ac7eda701696" xml:space="preserve">
+          <source>4.20, 3.27, 2.39</source>
+          <target state="new">4.20, 3.27, 2.39</target>
+        </trans-unit>
+        <trans-unit id="902eeebc-9c30-416d-acb2-e853bca58c89" xml:space="preserve">
+          <source>Apr 17, 2015</source>
+          <target state="new">Apr 17, 2015</target>
+        </trans-unit>
+        <trans-unit id="de8bb0ec-4f2e-4ddf-9e75-435074ed306d" xml:space="preserve">
+          <source>Bulletin ID</source>
+          <target state="new">Bulletin ID</target>
+        </trans-unit>
+        <trans-unit id="4e2d6acc-9f28-4680-8378-916da6ccbb8f" xml:space="preserve">
+          <source>Parent KB Article</source>
+          <target state="new">Parent KB Article</target>
+        </trans-unit>
+        <trans-unit id="33653999-5f31-4dec-aeda-a81f52d1aab4" xml:space="preserve">
+          <source>Vulnerability Description</source>
+          <target state="new">Vulnerability Description</target>
+        </trans-unit>
+        <trans-unit id="cc60f295-5503-4c61-aafb-b7a20a4ff823" xml:space="preserve">
+          <source>Guest OS</source>
+          <target state="new">Guest OS</target>
+        </trans-unit>
+        <trans-unit id="d6459b3f-d3ba-478b-82a9-c33904c1ec66" xml:space="preserve">
+          <source>Date First Introduced</source>
+          <target state="new">Date First Introduced</target>
+        </trans-unit>
+        <trans-unit id="dcfbe14a-79ca-40c2-af66-4a1486c15c67" xml:space="preserve">
+          <source>[MS15-034]</source>
+          <target state="new">[MS15-034]</target>
+        </trans-unit>
+        <trans-unit id="a6efeee6-fcab-494f-8f0c-5194ce9ed99e" xml:space="preserve">
+          <source><bpt id="e15b8b74-bfd4-4dff-9ac4-f9b0c4c69176">&lt;linkText&gt;</bpt>3042553[3042553]<ept id="e15b8b74-bfd4-4dff-9ac4-f9b0c4c69176">&lt;/linkText&gt;</ept><bpt id="e15b8b74-bfd4-4dff-9ac4-f9b0c4c69176">&lt;title&gt;</bpt><ept id="e15b8b74-bfd4-4dff-9ac4-f9b0c4c69176">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e15b8b74-bfd4-4dff-9ac4-f9b0c4c69176">&lt;linkText&gt;</bpt>3042553[3042553]<ept id="e15b8b74-bfd4-4dff-9ac4-f9b0c4c69176">&lt;/linkText&gt;</ept><bpt id="e15b8b74-bfd4-4dff-9ac4-f9b0c4c69176">&lt;title&gt;</bpt><ept id="e15b8b74-bfd4-4dff-9ac4-f9b0c4c69176">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3541b2c-a044-491b-b5c3-65347976af2c" xml:space="preserve">
+          <source>Vulnerability in HTTP.sys could allow remote code execution</source>
+          <target state="new">Vulnerability in HTTP.sys could allow remote code execution</target>
+        </trans-unit>
+        <trans-unit id="2a412940-d4ec-4552-8b6e-a4dbc7822213" xml:space="preserve">
+          <source>4.19, 3.26, 2.38</source>
+          <target state="new">4.19, 3.26, 2.38</target>
+        </trans-unit>
+        <trans-unit id="8625ce5c-fde0-457b-bec7-55921b2e8b6c" xml:space="preserve">
+          <source>Apr 17, 2015</source>
+          <target state="new">Apr 17, 2015</target>
+        </trans-unit>
+        <trans-unit id="1129a1bc-2282-4559-a8e5-ecbf0eb32197" xml:space="preserve">
+          <source>Bulletin ID</source>
+          <target state="new">Bulletin ID</target>
+        </trans-unit>
+        <trans-unit id="466b29ad-bb1f-4b4a-a848-34be2a71aff3" xml:space="preserve">
+          <source>Parent KB Article</source>
+          <target state="new">Parent KB Article</target>
+        </trans-unit>
+        <trans-unit id="cb5639a2-2122-4c67-8fc8-076deaa89bfc" xml:space="preserve">
+          <source>Vulnerability Description</source>
+          <target state="new">Vulnerability Description</target>
+        </trans-unit>
+        <trans-unit id="350ad89d-9b77-4036-90a0-48196928ee93" xml:space="preserve">
+          <source>Guest OS</source>
+          <target state="new">Guest OS</target>
+        </trans-unit>
+        <trans-unit id="56d37fbe-718a-4d26-b5be-021264b5eeb3" xml:space="preserve">
+          <source>Date First Introduced</source>
+          <target state="new">Date First Introduced</target>
+        </trans-unit>
+        <trans-unit id="16532af6-3c73-48e7-b3a3-9b11e5844a3d" xml:space="preserve">
+          <source>MS15-018</source>
+          <target state="new">MS15-018</target>
+        </trans-unit>
+        <trans-unit id="20e2c4dd-7671-4c06-94dc-0d3ec06d95c7" xml:space="preserve">
+          <source><bpt id="171fa8dc-1aa2-4aa0-aec4-d56623972186">&lt;linkText&gt;</bpt>3032359[3032359]<ept id="171fa8dc-1aa2-4aa0-aec4-d56623972186">&lt;/linkText&gt;</ept><bpt id="171fa8dc-1aa2-4aa0-aec4-d56623972186">&lt;title&gt;</bpt><ept id="171fa8dc-1aa2-4aa0-aec4-d56623972186">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="171fa8dc-1aa2-4aa0-aec4-d56623972186">&lt;linkText&gt;</bpt>3032359[3032359]<ept id="171fa8dc-1aa2-4aa0-aec4-d56623972186">&lt;/linkText&gt;</ept><bpt id="171fa8dc-1aa2-4aa0-aec4-d56623972186">&lt;title&gt;</bpt><ept id="171fa8dc-1aa2-4aa0-aec4-d56623972186">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7422016-cdeb-481e-972e-d443d3327372" xml:space="preserve">
+          <source>Cumulative Security Update for Internet Explorer</source>
+          <target state="new">Cumulative Security Update for Internet Explorer</target>
+        </trans-unit>
+        <trans-unit id="a49819f5-9f09-4976-b763-bb44ed8e69e6" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="d88a6fa7-0ea1-4340-bfbe-e323f58b4528" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="d8a12f37-2d38-42bc-84df-a65d23875858" xml:space="preserve">
+          <source>MS15-019</source>
+          <target state="new">MS15-019</target>
+        </trans-unit>
+        <trans-unit id="417ba9e9-ce66-473f-a74d-c2067b2d6302" xml:space="preserve">
+          <source><bpt id="10e5b1d5-157e-4f56-a97f-be8014f117ad">&lt;linkText&gt;</bpt>3040297[3040297]<ept id="10e5b1d5-157e-4f56-a97f-be8014f117ad">&lt;/linkText&gt;</ept><bpt id="10e5b1d5-157e-4f56-a97f-be8014f117ad">&lt;title&gt;</bpt><ept id="10e5b1d5-157e-4f56-a97f-be8014f117ad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="10e5b1d5-157e-4f56-a97f-be8014f117ad">&lt;linkText&gt;</bpt>3040297[3040297]<ept id="10e5b1d5-157e-4f56-a97f-be8014f117ad">&lt;/linkText&gt;</ept><bpt id="10e5b1d5-157e-4f56-a97f-be8014f117ad">&lt;title&gt;</bpt><ept id="10e5b1d5-157e-4f56-a97f-be8014f117ad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cec293a8-f07b-45cb-80ac-2ba43802828a" xml:space="preserve">
+          <source>Vulnerability in VBScript Scripting Engine Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerability in VBScript Scripting Engine Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="67e8ec47-6fcc-44bf-a714-e773585395c9" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="24cab71f-690b-437f-aafd-8ed04f7731bf" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="9d11cc7d-044a-40f9-8814-e564d246a479" xml:space="preserve">
+          <source>MS15-020</source>
+          <target state="new">MS15-020</target>
+        </trans-unit>
+        <trans-unit id="45f91f62-f621-4ca0-a4f0-bec8d7b93b29" xml:space="preserve">
+          <source><bpt id="91edbe4e-1248-4988-a198-0d26d90a9a7d">&lt;linkText&gt;</bpt>3041836[3041836]<ept id="91edbe4e-1248-4988-a198-0d26d90a9a7d">&lt;/linkText&gt;</ept><bpt id="91edbe4e-1248-4988-a198-0d26d90a9a7d">&lt;title&gt;</bpt><ept id="91edbe4e-1248-4988-a198-0d26d90a9a7d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="91edbe4e-1248-4988-a198-0d26d90a9a7d">&lt;linkText&gt;</bpt>3041836[3041836]<ept id="91edbe4e-1248-4988-a198-0d26d90a9a7d">&lt;/linkText&gt;</ept><bpt id="91edbe4e-1248-4988-a198-0d26d90a9a7d">&lt;title&gt;</bpt><ept id="91edbe4e-1248-4988-a198-0d26d90a9a7d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="943203e5-7d32-4199-801f-a59c3e314d15" xml:space="preserve">
+          <source>Vulnerabilities in Windows could allow Remote Code Execution</source>
+          <target state="new">Vulnerabilities in Windows could allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="12fae339-c6a8-4248-996c-2aa61210d9e6" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="2f40601d-9bd7-4f2e-9e08-23cd068d6906" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="3a3f2e39-f3ea-40cb-90bc-4a35bf0bd874" xml:space="preserve">
+          <source>MS15-021</source>
+          <target state="new">MS15-021</target>
+        </trans-unit>
+        <trans-unit id="6072b17b-eadb-4fe9-9585-6fdbb73d25e6" xml:space="preserve">
+          <source><bpt id="718740e6-eca3-4d92-a9d8-a503c3150323">&lt;linkText&gt;</bpt>3032323[3032323]<ept id="718740e6-eca3-4d92-a9d8-a503c3150323">&lt;/linkText&gt;</ept><bpt id="718740e6-eca3-4d92-a9d8-a503c3150323">&lt;title&gt;</bpt><ept id="718740e6-eca3-4d92-a9d8-a503c3150323">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="718740e6-eca3-4d92-a9d8-a503c3150323">&lt;linkText&gt;</bpt>3032323[3032323]<ept id="718740e6-eca3-4d92-a9d8-a503c3150323">&lt;/linkText&gt;</ept><bpt id="718740e6-eca3-4d92-a9d8-a503c3150323">&lt;title&gt;</bpt><ept id="718740e6-eca3-4d92-a9d8-a503c3150323">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08e8c2c0-6837-4d35-9605-d9f42deca49d" xml:space="preserve">
+          <source>Vulnerabilities Adobe Font Driver Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerabilities Adobe Font Driver Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="86f8bf06-8447-45ba-be66-26d6f347e2c1" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="5327e09a-bf44-42fd-ac8f-06548c29c2a7" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="e9e03256-5e82-45e6-af61-5c186647cff2" xml:space="preserve">
+          <source>MS15-023</source>
+          <target state="new">MS15-023</target>
+        </trans-unit>
+        <trans-unit id="9d7b6ab6-1d1a-4f1a-88c0-28332fce842e" xml:space="preserve">
+          <source><bpt id="908bb62d-58fd-457c-b6a0-1e9fa6ff4912">&lt;linkText&gt;</bpt>3034344[3034344]<ept id="908bb62d-58fd-457c-b6a0-1e9fa6ff4912">&lt;/linkText&gt;</ept><bpt id="908bb62d-58fd-457c-b6a0-1e9fa6ff4912">&lt;title&gt;</bpt><ept id="908bb62d-58fd-457c-b6a0-1e9fa6ff4912">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="908bb62d-58fd-457c-b6a0-1e9fa6ff4912">&lt;linkText&gt;</bpt>3034344[3034344]<ept id="908bb62d-58fd-457c-b6a0-1e9fa6ff4912">&lt;/linkText&gt;</ept><bpt id="908bb62d-58fd-457c-b6a0-1e9fa6ff4912">&lt;title&gt;</bpt><ept id="908bb62d-58fd-457c-b6a0-1e9fa6ff4912">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c76f2e1-1813-428d-99b7-33d1c32e4e16" xml:space="preserve">
+          <source>Vulnerabilities in Kernel Mode Driver Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerabilities in Kernel Mode Driver Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="92395c97-8517-4b61-8ee9-cb1eaf6b13b0" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="11a202c5-4da2-4d5f-a2a8-118179d8d0ec" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="159158c1-6032-427f-98cc-133ca1622201" xml:space="preserve">
+          <source>MS15-024</source>
+          <target state="new">MS15-024</target>
+        </trans-unit>
+        <trans-unit id="e1cb04c3-0984-43f6-a2c5-9b1dd6ea98a6" xml:space="preserve">
+          <source><bpt id="dcdb0ea1-3f22-4439-b384-8013a1092c14">&lt;linkText&gt;</bpt>3035132[3035132]<ept id="dcdb0ea1-3f22-4439-b384-8013a1092c14">&lt;/linkText&gt;</ept><bpt id="dcdb0ea1-3f22-4439-b384-8013a1092c14">&lt;title&gt;</bpt><ept id="dcdb0ea1-3f22-4439-b384-8013a1092c14">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dcdb0ea1-3f22-4439-b384-8013a1092c14">&lt;linkText&gt;</bpt>3035132[3035132]<ept id="dcdb0ea1-3f22-4439-b384-8013a1092c14">&lt;/linkText&gt;</ept><bpt id="dcdb0ea1-3f22-4439-b384-8013a1092c14">&lt;title&gt;</bpt><ept id="dcdb0ea1-3f22-4439-b384-8013a1092c14">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c78329c3-d30d-46a7-b4d2-46102f00dbd5" xml:space="preserve">
+          <source>Vulnerability in PNG Processing Could Allow Information Disclosure</source>
+          <target state="new">Vulnerability in PNG Processing Could Allow Information Disclosure</target>
+        </trans-unit>
+        <trans-unit id="6dd2472a-6a2d-4e50-8b2a-6fbdcf726dd3" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="cf24f556-7383-4e86-bf84-8e5e567fb5f8" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="411e2840-f2cf-4596-a29f-2f53718d851a" xml:space="preserve">
+          <source>MS15-025</source>
+          <target state="new">MS15-025</target>
+        </trans-unit>
+        <trans-unit id="afdf6a4d-ab0a-4574-a002-62dfdbf28692" xml:space="preserve">
+          <source><bpt id="bf7251bb-c1a3-4087-9c4e-1531ce98f94e">&lt;linkText&gt;</bpt>3038680[3038680]<ept id="bf7251bb-c1a3-4087-9c4e-1531ce98f94e">&lt;/linkText&gt;</ept><bpt id="bf7251bb-c1a3-4087-9c4e-1531ce98f94e">&lt;title&gt;</bpt><ept id="bf7251bb-c1a3-4087-9c4e-1531ce98f94e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bf7251bb-c1a3-4087-9c4e-1531ce98f94e">&lt;linkText&gt;</bpt>3038680[3038680]<ept id="bf7251bb-c1a3-4087-9c4e-1531ce98f94e">&lt;/linkText&gt;</ept><bpt id="bf7251bb-c1a3-4087-9c4e-1531ce98f94e">&lt;title&gt;</bpt><ept id="bf7251bb-c1a3-4087-9c4e-1531ce98f94e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7983670-8180-403e-8a6e-06b1a2f1fee6" xml:space="preserve">
+          <source>Vulnerabilities in Windows Kernel could allow Elevation of Privilege</source>
+          <target state="new">Vulnerabilities in Windows Kernel could allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="c4ff9c80-7e73-4aad-bc3f-d72001162896" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="77d21a78-73b9-47dc-96d6-fcf2789d4d6f" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="ec086175-a631-499f-9279-4d16d2583d8c" xml:space="preserve">
+          <source>MS15-027</source>
+          <target state="new">MS15-027</target>
+        </trans-unit>
+        <trans-unit id="19b51076-a61b-41c3-a47b-c5765c50a2f9" xml:space="preserve">
+          <source><bpt id="77f8deba-918c-48c0-b773-74da9a80d2a6">&lt;linkText&gt;</bpt>3002657[3002657]<ept id="77f8deba-918c-48c0-b773-74da9a80d2a6">&lt;/linkText&gt;</ept><bpt id="77f8deba-918c-48c0-b773-74da9a80d2a6">&lt;title&gt;</bpt><ept id="77f8deba-918c-48c0-b773-74da9a80d2a6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="77f8deba-918c-48c0-b773-74da9a80d2a6">&lt;linkText&gt;</bpt>3002657[3002657]<ept id="77f8deba-918c-48c0-b773-74da9a80d2a6">&lt;/linkText&gt;</ept><bpt id="77f8deba-918c-48c0-b773-74da9a80d2a6">&lt;title&gt;</bpt><ept id="77f8deba-918c-48c0-b773-74da9a80d2a6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ca2a97e-6df6-433c-9f06-00e6d895de7b" xml:space="preserve">
+          <source>Vulnerability in NETLOGON Could Allow Spoofing</source>
+          <target state="new">Vulnerability in NETLOGON Could Allow Spoofing</target>
+        </trans-unit>
+        <trans-unit id="d4de61c7-7d6e-45dd-bd66-1774657dc1d8" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="556c2bb8-ce25-4af3-a031-11681121769c" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="ae80882b-8612-4d36-8738-9ff86d626386" xml:space="preserve">
+          <source>MS15-028</source>
+          <target state="new">MS15-028</target>
+        </trans-unit>
+        <trans-unit id="32e7f7a9-7527-4d75-8086-bde1b5046455" xml:space="preserve">
+          <source>[3030377]</source>
+          <target state="new">[3030377]</target>
+        </trans-unit>
+        <trans-unit id="9dd0be55-c9e3-4522-a698-4bc28eee2bd5" xml:space="preserve">
+          <source>Vulnerability in Windows Task Scheduler Could Allow Security Feature Bypass</source>
+          <target state="new">Vulnerability in Windows Task Scheduler Could Allow Security Feature Bypass</target>
+        </trans-unit>
+        <trans-unit id="845b60ab-44f1-403e-9d35-7ffc39ef92ab" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="a15acd99-bfb5-4c9e-a23b-e1ce7c5e634f" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="ba48180d-3fd2-4156-8a38-87731867bb34" xml:space="preserve">
+          <source>MS15-029</source>
+          <target state="new">MS15-029</target>
+        </trans-unit>
+        <trans-unit id="51580b09-cc1c-4306-8ad1-eb1759d88df5" xml:space="preserve">
+          <source><bpt id="d81f1b97-d596-449b-b509-a69efc5939d2">&lt;linkText&gt;</bpt>3035126[3035126]<ept id="d81f1b97-d596-449b-b509-a69efc5939d2">&lt;/linkText&gt;</ept><bpt id="d81f1b97-d596-449b-b509-a69efc5939d2">&lt;title&gt;</bpt><ept id="d81f1b97-d596-449b-b509-a69efc5939d2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d81f1b97-d596-449b-b509-a69efc5939d2">&lt;linkText&gt;</bpt>3035126[3035126]<ept id="d81f1b97-d596-449b-b509-a69efc5939d2">&lt;/linkText&gt;</ept><bpt id="d81f1b97-d596-449b-b509-a69efc5939d2">&lt;title&gt;</bpt><ept id="d81f1b97-d596-449b-b509-a69efc5939d2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="779d9fd8-6729-4bf8-9831-77ba2c61dc36" xml:space="preserve">
+          <source>Vulnerability in Windows Photo Decoder Component Could Allow Information Disclosure</source>
+          <target state="new">Vulnerability in Windows Photo Decoder Component Could Allow Information Disclosure</target>
+        </trans-unit>
+        <trans-unit id="27365711-4ad6-4c2e-8035-75da25b66db3" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="e06fd909-7695-46cb-b28b-dd5b5d337289" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="b6a6de50-9031-45d9-9135-9345fbd24d97" xml:space="preserve">
+          <source>MS15-030</source>
+          <target state="new">MS15-030</target>
+        </trans-unit>
+        <trans-unit id="3061fe64-5e86-40cf-bb5e-4f186f9fd30e" xml:space="preserve">
+          <source>[3039976]</source>
+          <target state="new">[3039976]</target>
+        </trans-unit>
+        <trans-unit id="71d870a5-3c98-4086-b26e-a909cd434705" xml:space="preserve">
+          <source>Vulnerability in Remote Desktop Protocol Could Allow Denial of Service</source>
+          <target state="new">Vulnerability in Remote Desktop Protocol Could Allow Denial of Service</target>
+        </trans-unit>
+        <trans-unit id="a77b4897-466d-4726-8fdc-bf294cee8da6" xml:space="preserve">
+          <source>4.18, 3.25, 2.37</source>
+          <target state="new">4.18, 3.25, 2.37</target>
+        </trans-unit>
+        <trans-unit id="69314575-6f86-4d97-936b-bff4850c42ed" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="f14eac95-23c4-4342-b082-db096f57eb9d" xml:space="preserve">
+          <source>Bulletin MS15-031 may appear as uninstalled.</source>
+          <target state="new">Bulletin MS15-031 may appear as uninstalled.</target>
+        </trans-unit>
+        <trans-unit id="508b9e17-7369-45c8-97e7-42ffe129abff" xml:space="preserve">
+          <source>However, it does not apply to this Guest OS release.</source>
+          <target state="new">However, it does not apply to this Guest OS release.</target>
+        </trans-unit>
+        <trans-unit id="e46e5044-5a15-4857-b31d-03ff844a0460" xml:space="preserve">
+          <source>Bulletin ID</source>
+          <target state="new">Bulletin ID</target>
+        </trans-unit>
+        <trans-unit id="69b8d970-eb96-47d3-b53f-a9d45fc926fc" xml:space="preserve">
+          <source>Parent KB Article</source>
+          <target state="new">Parent KB Article</target>
+        </trans-unit>
+        <trans-unit id="d2bd3360-761a-48a4-8f85-d1d8cab57138" xml:space="preserve">
+          <source>Vulnerability Description</source>
+          <target state="new">Vulnerability Description</target>
+        </trans-unit>
+        <trans-unit id="64cefad7-6350-42ee-b0a5-42edccd3ff78" xml:space="preserve">
+          <source>Guest OS</source>
+          <target state="new">Guest OS</target>
+        </trans-unit>
+        <trans-unit id="8ca31258-0eb2-495d-ad87-2b6febc4b21d" xml:space="preserve">
+          <source>Date First Introduced</source>
+          <target state="new">Date First Introduced</target>
+        </trans-unit>
+        <trans-unit id="4ead5884-3dbf-4882-927e-8cbdd76d9d87" xml:space="preserve">
+          <source>MS15-009</source>
+          <target state="new">MS15-009</target>
+        </trans-unit>
+        <trans-unit id="42ca8743-4361-46e2-bc3a-d832b78edc90" xml:space="preserve">
+          <source><bpt id="7fa731ee-3a2a-4f30-871c-bf0f0cbab88f">&lt;linkText&gt;</bpt>3034682[3034682]<ept id="7fa731ee-3a2a-4f30-871c-bf0f0cbab88f">&lt;/linkText&gt;</ept><bpt id="7fa731ee-3a2a-4f30-871c-bf0f0cbab88f">&lt;title&gt;</bpt><ept id="7fa731ee-3a2a-4f30-871c-bf0f0cbab88f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7fa731ee-3a2a-4f30-871c-bf0f0cbab88f">&lt;linkText&gt;</bpt>3034682[3034682]<ept id="7fa731ee-3a2a-4f30-871c-bf0f0cbab88f">&lt;/linkText&gt;</ept><bpt id="7fa731ee-3a2a-4f30-871c-bf0f0cbab88f">&lt;title&gt;</bpt><ept id="7fa731ee-3a2a-4f30-871c-bf0f0cbab88f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73487024-dfe3-4af3-a473-e0f562a4a6a1" xml:space="preserve">
+          <source>Security Update for Internet Explorer</source>
+          <target state="new">Security Update for Internet Explorer</target>
+        </trans-unit>
+        <trans-unit id="4fd9e94a-f3b5-4a39-8b6b-278f97ba969c" xml:space="preserve">
+          <source>4.17, 3.24, 2.36</source>
+          <target state="new">4.17, 3.24, 2.36</target>
+        </trans-unit>
+        <trans-unit id="47047436-4eae-4a6a-89b9-812f2f0dc449" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="e721a307-1420-4fa4-b3d0-75a775e386a5" xml:space="preserve">
+          <source>MS15-010</source>
+          <target state="new">MS15-010</target>
+        </trans-unit>
+        <trans-unit id="c0f51207-bf62-4797-870e-7cd009723e25" xml:space="preserve">
+          <source><bpt id="e94dcedb-7acc-4e5b-b8db-52c8250c8564">&lt;linkText&gt;</bpt>3036220[3036220]<ept id="e94dcedb-7acc-4e5b-b8db-52c8250c8564">&lt;/linkText&gt;</ept><bpt id="e94dcedb-7acc-4e5b-b8db-52c8250c8564">&lt;title&gt;</bpt><ept id="e94dcedb-7acc-4e5b-b8db-52c8250c8564">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e94dcedb-7acc-4e5b-b8db-52c8250c8564">&lt;linkText&gt;</bpt>3036220[3036220]<ept id="e94dcedb-7acc-4e5b-b8db-52c8250c8564">&lt;/linkText&gt;</ept><bpt id="e94dcedb-7acc-4e5b-b8db-52c8250c8564">&lt;title&gt;</bpt><ept id="e94dcedb-7acc-4e5b-b8db-52c8250c8564">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="296f8c98-db4d-4722-a7db-abe9728aa667" xml:space="preserve">
+          <source>Vulnerabilities in Windows Kernel Mode Drivers Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerabilities in Windows Kernel Mode Drivers Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="ca947e21-8e28-4f01-933b-dead1041797d" xml:space="preserve">
+          <source>4.17, 3.24, 2.36</source>
+          <target state="new">4.17, 3.24, 2.36</target>
+        </trans-unit>
+        <trans-unit id="97883e4e-5515-499c-a101-13bdc172ab62" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="cf99a271-768e-4fde-be03-904b6bad9495" xml:space="preserve">
+          <source>MS15-011</source>
+          <target state="new">MS15-011</target>
+        </trans-unit>
+        <trans-unit id="a5036ca0-4b09-4750-be69-b26ce505cd2c" xml:space="preserve">
+          <source><bpt id="6c773eeb-7d31-4c7a-a23c-49b2b1ec8792">&lt;linkText&gt;</bpt>3000483[3000483]<ept id="6c773eeb-7d31-4c7a-a23c-49b2b1ec8792">&lt;/linkText&gt;</ept><bpt id="6c773eeb-7d31-4c7a-a23c-49b2b1ec8792">&lt;title&gt;</bpt><ept id="6c773eeb-7d31-4c7a-a23c-49b2b1ec8792">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6c773eeb-7d31-4c7a-a23c-49b2b1ec8792">&lt;linkText&gt;</bpt>3000483[3000483]<ept id="6c773eeb-7d31-4c7a-a23c-49b2b1ec8792">&lt;/linkText&gt;</ept><bpt id="6c773eeb-7d31-4c7a-a23c-49b2b1ec8792">&lt;title&gt;</bpt><ept id="6c773eeb-7d31-4c7a-a23c-49b2b1ec8792">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0955587-1a75-4952-a7e7-65ba5bb67817" xml:space="preserve">
+          <source>Vulnerability in Group Policy Could Allow Remote Code Execution</source>
+          <target state="new">Vulnerability in Group Policy Could Allow Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="7aa8905c-21dc-4b50-a823-bb71402e9906" xml:space="preserve">
+          <source>4.17, 3.24, 2.36</source>
+          <target state="new">4.17, 3.24, 2.36</target>
+        </trans-unit>
+        <trans-unit id="23252c88-73b6-4f15-b2f9-f9527a5688f1" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="5a44fa94-43de-4182-92b3-7a7cebb8f904" xml:space="preserve">
+          <source>MS15-014</source>
+          <target state="new">MS15-014</target>
+        </trans-unit>
+        <trans-unit id="72961d42-a92d-4be0-86ea-5bf5fd19dec6" xml:space="preserve">
+          <source><bpt id="a96e2977-68a7-41cb-8d36-d33988bead1c">&lt;linkText&gt;</bpt>3004361[3004361]<ept id="a96e2977-68a7-41cb-8d36-d33988bead1c">&lt;/linkText&gt;</ept><bpt id="a96e2977-68a7-41cb-8d36-d33988bead1c">&lt;title&gt;</bpt><ept id="a96e2977-68a7-41cb-8d36-d33988bead1c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a96e2977-68a7-41cb-8d36-d33988bead1c">&lt;linkText&gt;</bpt>3004361[3004361]<ept id="a96e2977-68a7-41cb-8d36-d33988bead1c">&lt;/linkText&gt;</ept><bpt id="a96e2977-68a7-41cb-8d36-d33988bead1c">&lt;title&gt;</bpt><ept id="a96e2977-68a7-41cb-8d36-d33988bead1c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f05fbb36-42df-4436-9c88-ce93b786ce6e" xml:space="preserve">
+          <source>Vulnerability in SMB Could Allow Security Feature Bypass</source>
+          <target state="new">Vulnerability in SMB Could Allow Security Feature Bypass</target>
+        </trans-unit>
+        <trans-unit id="85ceb68a-d0d2-4191-867d-c8824ab64d64" xml:space="preserve">
+          <source>4.17, 3.24, 2.36</source>
+          <target state="new">4.17, 3.24, 2.36</target>
+        </trans-unit>
+        <trans-unit id="b7d41481-d0bc-43d5-b4ea-e8528b9e2b40" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="677ef8a0-7dc1-4dd1-ab42-e8ad423fa3bd" xml:space="preserve">
+          <source>MS15-015</source>
+          <target state="new">MS15-015</target>
+        </trans-unit>
+        <trans-unit id="3bda80a1-a300-4dc1-bbf0-ff4c2ed3df4c" xml:space="preserve">
+          <source><bpt id="6b12d2e0-03de-4455-a572-ddbd4a08b311">&lt;linkText&gt;</bpt>3031432[3031432]<ept id="6b12d2e0-03de-4455-a572-ddbd4a08b311">&lt;/linkText&gt;</ept><bpt id="6b12d2e0-03de-4455-a572-ddbd4a08b311">&lt;title&gt;</bpt><ept id="6b12d2e0-03de-4455-a572-ddbd4a08b311">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b12d2e0-03de-4455-a572-ddbd4a08b311">&lt;linkText&gt;</bpt>3031432[3031432]<ept id="6b12d2e0-03de-4455-a572-ddbd4a08b311">&lt;/linkText&gt;</ept><bpt id="6b12d2e0-03de-4455-a572-ddbd4a08b311">&lt;title&gt;</bpt><ept id="6b12d2e0-03de-4455-a572-ddbd4a08b311">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79dd233d-586d-4a84-8d12-a1b69edccfc6" xml:space="preserve">
+          <source>Vulnerability in Microsoft Windows Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Microsoft Windows Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="0eb3f87e-2171-4701-b756-4df24a40bb5d" xml:space="preserve">
+          <source>4.17, 3.24, 2.36</source>
+          <target state="new">4.17, 3.24, 2.36</target>
+        </trans-unit>
+        <trans-unit id="d2982bd2-7305-4714-8536-23b0e5b5bbe3" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="5ebc940a-f9ad-425d-8a54-eb881b0fa339" xml:space="preserve">
+          <source>MS15-016</source>
+          <target state="new">MS15-016</target>
+        </trans-unit>
+        <trans-unit id="32bdd894-2215-45c5-810d-452c8202a0e0" xml:space="preserve">
+          <source><bpt id="af3c4548-e7f0-48ea-8b70-55cf3eb75093">&lt;linkText&gt;</bpt>3029944[3029944]<ept id="af3c4548-e7f0-48ea-8b70-55cf3eb75093">&lt;/linkText&gt;</ept><bpt id="af3c4548-e7f0-48ea-8b70-55cf3eb75093">&lt;title&gt;</bpt><ept id="af3c4548-e7f0-48ea-8b70-55cf3eb75093">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="af3c4548-e7f0-48ea-8b70-55cf3eb75093">&lt;linkText&gt;</bpt>3029944[3029944]<ept id="af3c4548-e7f0-48ea-8b70-55cf3eb75093">&lt;/linkText&gt;</ept><bpt id="af3c4548-e7f0-48ea-8b70-55cf3eb75093">&lt;title&gt;</bpt><ept id="af3c4548-e7f0-48ea-8b70-55cf3eb75093">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c640bf27-9b1c-41ba-bb25-18d81bfe0ec2" xml:space="preserve">
+          <source>Vulnerability in Microsoft Graphics Component Could Allow Information Disclosure</source>
+          <target state="new">Vulnerability in Microsoft Graphics Component Could Allow Information Disclosure</target>
+        </trans-unit>
+        <trans-unit id="3a1cff0d-467d-41fb-a26c-7d0680a1dbfd" xml:space="preserve">
+          <source>4.17, 3.24, 2.36</source>
+          <target state="new">4.17, 3.24, 2.36</target>
+        </trans-unit>
+        <trans-unit id="a9c6f607-4724-44bf-8480-566f32b1b580" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="22a16fa2-25cd-4c9b-b927-3f5b891e742f" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="da159f99-b7b4-4c04-a474-2d3f7e7f7efe" xml:space="preserve">
+          <source><bpt id="46741eca-fb46-48e8-a33c-d3e0fac9d087">&lt;linkText&gt;</bpt>3004375[3004375]<ept id="46741eca-fb46-48e8-a33c-d3e0fac9d087">&lt;/linkText&gt;</ept><bpt id="46741eca-fb46-48e8-a33c-d3e0fac9d087">&lt;title&gt;</bpt><ept id="46741eca-fb46-48e8-a33c-d3e0fac9d087">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="46741eca-fb46-48e8-a33c-d3e0fac9d087">&lt;linkText&gt;</bpt>3004375[3004375]<ept id="46741eca-fb46-48e8-a33c-d3e0fac9d087">&lt;/linkText&gt;</ept><bpt id="46741eca-fb46-48e8-a33c-d3e0fac9d087">&lt;title&gt;</bpt><ept id="46741eca-fb46-48e8-a33c-d3e0fac9d087">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0047f14f-6fc6-45e5-87c9-31238c3585fb" xml:space="preserve">
+          <source>Update to Improve Windows Command Line Auditing&lt;p/&gt;<bpt id="8ce9d8e2-dd0b-4b97-b9f1-b848b6a041cd">&lt;strong&gt;</bpt>Note<ept id="8ce9d8e2-dd0b-4b97-b9f1-b848b6a041cd">&lt;/strong&gt;</ept>: This is installed but the registry key to enable it is turned off</source>
+          <target state="new">Update to Improve Windows Command Line Auditing&lt;p/&gt;<bpt id="8ce9d8e2-dd0b-4b97-b9f1-b848b6a041cd">&lt;strong&gt;</bpt>Note<ept id="8ce9d8e2-dd0b-4b97-b9f1-b848b6a041cd">&lt;/strong&gt;</ept>: This is installed but the registry key to enable it is turned off</target>
+        </trans-unit>
+        <trans-unit id="2ce55bc4-f957-420d-b432-4502d16abd7a" xml:space="preserve">
+          <source>4.17, 3.24, 2.36</source>
+          <target state="new">4.17, 3.24, 2.36</target>
+        </trans-unit>
+        <trans-unit id="892e23b5-1efb-45ee-a2f0-f6dc34452421" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="b2f2a5e2-9efa-4cbe-8f50-2ba570c9df2c" xml:space="preserve">
+          <source>Bulletin ID</source>
+          <target state="new">Bulletin ID</target>
+        </trans-unit>
+        <trans-unit id="3850cb1b-b5fb-482c-b616-f2bbc9ca2194" xml:space="preserve">
+          <source>Parent KB Article</source>
+          <target state="new">Parent KB Article</target>
+        </trans-unit>
+        <trans-unit id="b85c00bf-b0fc-4d8b-abac-da2e62d92a1c" xml:space="preserve">
+          <source>Vulnerability Description</source>
+          <target state="new">Vulnerability Description</target>
+        </trans-unit>
+        <trans-unit id="6a053568-bec5-4248-b9dc-71447d12f847" xml:space="preserve">
+          <source>Guest OS</source>
+          <target state="new">Guest OS</target>
+        </trans-unit>
+        <trans-unit id="e56ddf3b-1f36-44da-8204-686ebbe97cd5" xml:space="preserve">
+          <source>Date First Introduced</source>
+          <target state="new">Date First Introduced</target>
+        </trans-unit>
+        <trans-unit id="ddecd3ad-78df-4e29-ac28-c92f77c3781e" xml:space="preserve">
+          <source>MS15-001</source>
+          <target state="new">MS15-001</target>
+        </trans-unit>
+        <trans-unit id="86510942-e47d-4cbc-91fa-11cfdf106e26" xml:space="preserve">
+          <source><bpt id="7bc7ebf1-2f21-443a-aa98-2e7097bfc61d">&lt;linkText&gt;</bpt>3023266[3023266]<ept id="7bc7ebf1-2f21-443a-aa98-2e7097bfc61d">&lt;/linkText&gt;</ept><bpt id="7bc7ebf1-2f21-443a-aa98-2e7097bfc61d">&lt;title&gt;</bpt><ept id="7bc7ebf1-2f21-443a-aa98-2e7097bfc61d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7bc7ebf1-2f21-443a-aa98-2e7097bfc61d">&lt;linkText&gt;</bpt>3023266[3023266]<ept id="7bc7ebf1-2f21-443a-aa98-2e7097bfc61d">&lt;/linkText&gt;</ept><bpt id="7bc7ebf1-2f21-443a-aa98-2e7097bfc61d">&lt;title&gt;</bpt><ept id="7bc7ebf1-2f21-443a-aa98-2e7097bfc61d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3d80476-6bc0-4987-9d22-520dfc68400b" xml:space="preserve">
+          <source>Vulnerability in Windows AppCompatCache could allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Windows AppCompatCache could allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="5d2b1d17-fdf1-4b06-878b-f44cf732758f" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="67de05c9-3cbb-4abd-8efc-35ffbdedce7c" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="d2d77352-f295-43d7-a672-c4eeef5e951d" xml:space="preserve">
+          <source>MS15-002</source>
+          <target state="new">MS15-002</target>
+        </trans-unit>
+        <trans-unit id="32260b0a-7108-40a1-b9e2-b7af40d49a53" xml:space="preserve">
+          <source><bpt id="846196de-d1f1-491b-bd29-afd441f9c365">&lt;linkText&gt;</bpt>3020393[3020393]<ept id="846196de-d1f1-491b-bd29-afd441f9c365">&lt;/linkText&gt;</ept><bpt id="846196de-d1f1-491b-bd29-afd441f9c365">&lt;title&gt;</bpt><ept id="846196de-d1f1-491b-bd29-afd441f9c365">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="846196de-d1f1-491b-bd29-afd441f9c365">&lt;linkText&gt;</bpt>3020393[3020393]<ept id="846196de-d1f1-491b-bd29-afd441f9c365">&lt;/linkText&gt;</ept><bpt id="846196de-d1f1-491b-bd29-afd441f9c365">&lt;title&gt;</bpt><ept id="846196de-d1f1-491b-bd29-afd441f9c365">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79abf757-8986-461f-9b03-cc2880ec8a2c" xml:space="preserve">
+          <source>Vulnerability in Windows Telnet Service Could Cause Remote Code Execution</source>
+          <target state="new">Vulnerability in Windows Telnet Service Could Cause Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="c5694b74-7585-4ab3-a59f-cc375cc644bf" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="4f6f7aca-35ca-4552-8a66-1014f48a4603" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="898b9309-1acc-4a75-9886-85034530f169" xml:space="preserve">
+          <source>MS15-003</source>
+          <target state="new">MS15-003</target>
+        </trans-unit>
+        <trans-unit id="70753ef2-756c-4fca-a8fa-a73688672088" xml:space="preserve">
+          <source><bpt id="d8fd3f96-b7c3-461d-87f4-4c6a512f35e8">&lt;linkText&gt;</bpt>3021674[3021674]<ept id="d8fd3f96-b7c3-461d-87f4-4c6a512f35e8">&lt;/linkText&gt;</ept><bpt id="d8fd3f96-b7c3-461d-87f4-4c6a512f35e8">&lt;title&gt;</bpt><ept id="d8fd3f96-b7c3-461d-87f4-4c6a512f35e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d8fd3f96-b7c3-461d-87f4-4c6a512f35e8">&lt;linkText&gt;</bpt>3021674[3021674]<ept id="d8fd3f96-b7c3-461d-87f4-4c6a512f35e8">&lt;/linkText&gt;</ept><bpt id="d8fd3f96-b7c3-461d-87f4-4c6a512f35e8">&lt;title&gt;</bpt><ept id="d8fd3f96-b7c3-461d-87f4-4c6a512f35e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d9e332e-0a43-43e6-96f1-72345b18ca30" xml:space="preserve">
+          <source>Vulnerability in Windows User Profile Service could allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Windows User Profile Service could allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="32c6f160-9414-4592-9b6f-8a0f539dae8d" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="131baa1f-2535-47cf-b632-fb8465602b79" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="90155c1b-53eb-4ace-a0b1-76f72f26bb4d" xml:space="preserve">
+          <source>MS15-004</source>
+          <target state="new">MS15-004</target>
+        </trans-unit>
+        <trans-unit id="0874fa09-2412-4d63-97c8-87c6b0238f61" xml:space="preserve">
+          <source><bpt id="0f2fc21a-46a9-4fae-83f9-c637ef3cd31d">&lt;linkText&gt;</bpt>3019978[3019978]<ept id="0f2fc21a-46a9-4fae-83f9-c637ef3cd31d">&lt;/linkText&gt;</ept><bpt id="0f2fc21a-46a9-4fae-83f9-c637ef3cd31d">&lt;title&gt;</bpt><ept id="0f2fc21a-46a9-4fae-83f9-c637ef3cd31d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0f2fc21a-46a9-4fae-83f9-c637ef3cd31d">&lt;linkText&gt;</bpt>3019978[3019978]<ept id="0f2fc21a-46a9-4fae-83f9-c637ef3cd31d">&lt;/linkText&gt;</ept><bpt id="0f2fc21a-46a9-4fae-83f9-c637ef3cd31d">&lt;title&gt;</bpt><ept id="0f2fc21a-46a9-4fae-83f9-c637ef3cd31d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba76be5d-52ad-48db-a4ec-01a02efd0e1e" xml:space="preserve">
+          <source>Vulnerability in Windows Components Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Windows Components Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="492fed1c-be9a-46f5-a543-b33327ccb4a5" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="3ba5478a-bf6a-45fc-a678-e57530771c31" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="cce75b27-97ed-47cc-ad14-377c8c6baa21" xml:space="preserve">
+          <source>MS15-005</source>
+          <target state="new">MS15-005</target>
+        </trans-unit>
+        <trans-unit id="4434d3d6-df0f-4b19-aa91-32c1a572fda2" xml:space="preserve">
+          <source><bpt id="b29b8fb8-0531-49f4-bfcc-e47d9272b994">&lt;linkText&gt;</bpt>3022777[3022777]<ept id="b29b8fb8-0531-49f4-bfcc-e47d9272b994">&lt;/linkText&gt;</ept><bpt id="b29b8fb8-0531-49f4-bfcc-e47d9272b994">&lt;title&gt;</bpt><ept id="b29b8fb8-0531-49f4-bfcc-e47d9272b994">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b29b8fb8-0531-49f4-bfcc-e47d9272b994">&lt;linkText&gt;</bpt>3022777[3022777]<ept id="b29b8fb8-0531-49f4-bfcc-e47d9272b994">&lt;/linkText&gt;</ept><bpt id="b29b8fb8-0531-49f4-bfcc-e47d9272b994">&lt;title&gt;</bpt><ept id="b29b8fb8-0531-49f4-bfcc-e47d9272b994">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65e797a8-2835-4f0c-90c3-c470be036463" xml:space="preserve">
+          <source>Vulnerability in NLA Could Allow Security Feature Bypass</source>
+          <target state="new">Vulnerability in NLA Could Allow Security Feature Bypass</target>
+        </trans-unit>
+        <trans-unit id="ca615ad1-a715-4ca8-8030-a215f1bf646f" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="35e7bbba-4c89-4718-abc4-d2341e50eff1" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="284ff61e-6bbb-472f-807e-d5601a2aabf2" xml:space="preserve">
+          <source>MS15-006</source>
+          <target state="new">MS15-006</target>
+        </trans-unit>
+        <trans-unit id="2171e6bf-5f0f-4f5f-b021-02e2cfbe9c2d" xml:space="preserve">
+          <source><bpt id="e1231681-cb08-4976-b00f-902bfe50e7a9">&lt;linkText&gt;</bpt>3004365[3004365]<ept id="e1231681-cb08-4976-b00f-902bfe50e7a9">&lt;/linkText&gt;</ept><bpt id="e1231681-cb08-4976-b00f-902bfe50e7a9">&lt;title&gt;</bpt><ept id="e1231681-cb08-4976-b00f-902bfe50e7a9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e1231681-cb08-4976-b00f-902bfe50e7a9">&lt;linkText&gt;</bpt>3004365[3004365]<ept id="e1231681-cb08-4976-b00f-902bfe50e7a9">&lt;/linkText&gt;</ept><bpt id="e1231681-cb08-4976-b00f-902bfe50e7a9">&lt;title&gt;</bpt><ept id="e1231681-cb08-4976-b00f-902bfe50e7a9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7419d5b-94f4-4d85-8b4b-286f9135dbd7" xml:space="preserve">
+          <source>Vulnerability in Windows Error Reporting could Allow Security Feature Bypass</source>
+          <target state="new">Vulnerability in Windows Error Reporting could Allow Security Feature Bypass</target>
+        </trans-unit>
+        <trans-unit id="04d44bb4-df16-48c7-a3bc-369dfe772c5f" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="ebdc6de4-6748-4130-b776-faa6df5e1581" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="16bdd5f3-af1a-4cc6-9e7b-acf50728684d" xml:space="preserve">
+          <source>MS15-007</source>
+          <target state="new">MS15-007</target>
+        </trans-unit>
+        <trans-unit id="d8765bf6-63fa-4a2a-b535-9e0c49b16911" xml:space="preserve">
+          <source><bpt id="b0c71e64-5bee-4dcf-b0e9-6213de93c403">&lt;linkText&gt;</bpt>3014029[3014029]<ept id="b0c71e64-5bee-4dcf-b0e9-6213de93c403">&lt;/linkText&gt;</ept><bpt id="b0c71e64-5bee-4dcf-b0e9-6213de93c403">&lt;title&gt;</bpt><ept id="b0c71e64-5bee-4dcf-b0e9-6213de93c403">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b0c71e64-5bee-4dcf-b0e9-6213de93c403">&lt;linkText&gt;</bpt>3014029[3014029]<ept id="b0c71e64-5bee-4dcf-b0e9-6213de93c403">&lt;/linkText&gt;</ept><bpt id="b0c71e64-5bee-4dcf-b0e9-6213de93c403">&lt;title&gt;</bpt><ept id="b0c71e64-5bee-4dcf-b0e9-6213de93c403">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47b5523d-8d96-45ae-9e48-8da62ef0b12e" xml:space="preserve">
+          <source>Vulnerability in Network Policy Server RADIUS Could Cause Denial of Service</source>
+          <target state="new">Vulnerability in Network Policy Server RADIUS Could Cause Denial of Service</target>
+        </trans-unit>
+        <trans-unit id="b5c7c8a3-2415-4e3f-996c-55cee3d57f94" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="d9076f7e-48c8-4a4f-b05e-e0022f98728f" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="ab24d603-d3ab-4ac3-b6ca-d9c3e2a071c2" xml:space="preserve">
+          <source>MS15-008</source>
+          <target state="new">MS15-008</target>
+        </trans-unit>
+        <trans-unit id="7d382790-f2ea-45b7-9575-cac6c190e4e7" xml:space="preserve">
+          <source><bpt id="10a8d30a-b2fd-4485-a6a3-1dea39b1fe83">&lt;linkText&gt;</bpt>3019215[3019215]<ept id="10a8d30a-b2fd-4485-a6a3-1dea39b1fe83">&lt;/linkText&gt;</ept><bpt id="10a8d30a-b2fd-4485-a6a3-1dea39b1fe83">&lt;title&gt;</bpt><ept id="10a8d30a-b2fd-4485-a6a3-1dea39b1fe83">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="10a8d30a-b2fd-4485-a6a3-1dea39b1fe83">&lt;linkText&gt;</bpt>3019215[3019215]<ept id="10a8d30a-b2fd-4485-a6a3-1dea39b1fe83">&lt;/linkText&gt;</ept><bpt id="10a8d30a-b2fd-4485-a6a3-1dea39b1fe83">&lt;title&gt;</bpt><ept id="10a8d30a-b2fd-4485-a6a3-1dea39b1fe83">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7da3851d-0ccb-490b-af8f-d4c47ea0f6a1" xml:space="preserve">
+          <source>Vulnerability in Windows Kernel Mode Driver Could Allow Elevation of Privilege</source>
+          <target state="new">Vulnerability in Windows Kernel Mode Driver Could Allow Elevation of Privilege</target>
+        </trans-unit>
+        <trans-unit id="3205b3fb-01aa-4467-92a7-fe64d4ac9aa1" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="b7e00549-da17-4339-a3c2-f129ac4ff128" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="5c47e024-2ef4-4982-bcd9-d664aab7b04c" xml:space="preserve">
+          <source>MS14-080</source>
+          <target state="new">MS14-080</target>
+        </trans-unit>
+        <trans-unit id="a37585f9-4cf9-45ba-8817-757fdfdc9615" xml:space="preserve">
+          <source><bpt id="3e077eed-d952-42a8-b27d-3efc619cbc73">&lt;linkText&gt;</bpt>3008923[3008923]<ept id="3e077eed-d952-42a8-b27d-3efc619cbc73">&lt;/linkText&gt;</ept><bpt id="3e077eed-d952-42a8-b27d-3efc619cbc73">&lt;title&gt;</bpt><ept id="3e077eed-d952-42a8-b27d-3efc619cbc73">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3e077eed-d952-42a8-b27d-3efc619cbc73">&lt;linkText&gt;</bpt>3008923[3008923]<ept id="3e077eed-d952-42a8-b27d-3efc619cbc73">&lt;/linkText&gt;</ept><bpt id="3e077eed-d952-42a8-b27d-3efc619cbc73">&lt;title&gt;</bpt><ept id="3e077eed-d952-42a8-b27d-3efc619cbc73">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37a1852c-4138-47db-ac1e-9fbb9e18693d" xml:space="preserve">
+          <source>Cumulative Security Update for Internet Explorer</source>
+          <target state="new">Cumulative Security Update for Internet Explorer</target>
+        </trans-unit>
+        <trans-unit id="f7b79a0f-f972-4136-bbe5-22a38b4f42bd" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="a2e76206-c1dc-4a95-b7af-8edb1f00837f" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="3a21197c-7ec8-4c62-a9fe-15f9029f9dad" xml:space="preserve">
+          <source>MS15-002</source>
+          <target state="new">MS15-002</target>
+        </trans-unit>
+        <trans-unit id="c6ec33dc-2001-45ce-9506-e2de192349d4" xml:space="preserve">
+          <source><bpt id="e880d86a-b8c5-4667-b11d-04527cc04da3">&lt;linkText&gt;</bpt>3020393[3020393]<ept id="e880d86a-b8c5-4667-b11d-04527cc04da3">&lt;/linkText&gt;</ept><bpt id="e880d86a-b8c5-4667-b11d-04527cc04da3">&lt;title&gt;</bpt><ept id="e880d86a-b8c5-4667-b11d-04527cc04da3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e880d86a-b8c5-4667-b11d-04527cc04da3">&lt;linkText&gt;</bpt>3020393[3020393]<ept id="e880d86a-b8c5-4667-b11d-04527cc04da3">&lt;/linkText&gt;</ept><bpt id="e880d86a-b8c5-4667-b11d-04527cc04da3">&lt;title&gt;</bpt><ept id="e880d86a-b8c5-4667-b11d-04527cc04da3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41931eb4-287f-4876-848a-abcead2d4eb6" xml:space="preserve">
+          <source>Vulnerability in Windows Telnet Service Could Cause Remote Code Execution</source>
+          <target state="new">Vulnerability in Windows Telnet Service Could Cause Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="bd6f3d14-effd-421e-a233-d3cfe32a7295" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="d72984ed-4e15-40e4-b314-a6459ec108bf" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="b3dd6b1c-0669-431c-a511-ea55937da64e" xml:space="preserve">
+          <source>MS15-002</source>
+          <target state="new">MS15-002</target>
+        </trans-unit>
+        <trans-unit id="8690f57d-fa01-4885-a9af-1582b14654e0" xml:space="preserve">
+          <source><bpt id="3f1bdaf9-897b-44b7-98a2-e4c543a1d745">&lt;linkText&gt;</bpt>3020393[3020393]<ept id="3f1bdaf9-897b-44b7-98a2-e4c543a1d745">&lt;/linkText&gt;</ept><bpt id="3f1bdaf9-897b-44b7-98a2-e4c543a1d745">&lt;title&gt;</bpt><ept id="3f1bdaf9-897b-44b7-98a2-e4c543a1d745">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3f1bdaf9-897b-44b7-98a2-e4c543a1d745">&lt;linkText&gt;</bpt>3020393[3020393]<ept id="3f1bdaf9-897b-44b7-98a2-e4c543a1d745">&lt;/linkText&gt;</ept><bpt id="3f1bdaf9-897b-44b7-98a2-e4c543a1d745">&lt;title&gt;</bpt><ept id="3f1bdaf9-897b-44b7-98a2-e4c543a1d745">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2a0d892-f8f4-4eb7-8f61-0e9d224c2612" xml:space="preserve">
+          <source>Vulnerability in Windows Telnet Service Could Cause Remote Code Execution</source>
+          <target state="new">Vulnerability in Windows Telnet Service Could Cause Remote Code Execution</target>
+        </trans-unit>
+        <trans-unit id="112a2161-66b3-4e79-84c4-47d5b5c26672" xml:space="preserve">
+          <source>4.16, 3.23, 2.35</source>
+          <target state="new">4.16, 3.23, 2.35</target>
+        </trans-unit>
+        <trans-unit id="816ae3d2-0877-4a00-aecf-7075ad1ad09f" xml:space="preserve">
+          <source>Jan 19 2015</source>
+          <target state="new">Jan 19 2015</target>
+        </trans-unit>
+        <trans-unit id="f2bdc5ba-9da3-4d92-b9bf-dbc56ac8be13" xml:space="preserve">
+          <source>Bulletin ID</source>
+          <target state="new">Bulletin ID</target>
+        </trans-unit>
+        <trans-unit id="59f112f1-f7d3-4d55-b8d5-75ff0be7d3c9" xml:space="preserve">
+          <source>Parent KB Article</source>
+          <target state="new">Parent KB Article</target>
+        </trans-unit>
+        <trans-unit id="f4fcfadc-aee4-4dc0-80c2-e9082ccb7622" xml:space="preserve">
+          <source>Vulnerability Description</source>
+          <target state="new">Vulnerability Description</target>
+        </trans-unit>
+        <trans-unit id="d515c180-3cf2-4a3d-82ec-4034411090c4" xml:space="preserve">
+          <source>Guest OS</source>
+          <target state="new">Guest OS</target>
+        </trans-unit>
+        <trans-unit id="a0786d29-c978-4da8-a5f6-3b3db57f1ab7" xml:space="preserve">
+          <source>Date First Introduced</source>
+          <target state="new">Date First Introduced</target>
+        </trans-unit>
+        <trans-unit id="0f30a835-4d06-44e4-9984-04eb8f16ffe7" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="f1d13408-6f96-4751-b980-2a78ea806052" xml:space="preserve">
+          <source><bpt id="ee6ec7cf-7d4f-4147-ac69-f7171b29ecb2">&lt;linkText&gt;</bpt>3013776[3013776]<ept id="ee6ec7cf-7d4f-4147-ac69-f7171b29ecb2">&lt;/linkText&gt;</ept><bpt id="ee6ec7cf-7d4f-4147-ac69-f7171b29ecb2">&lt;title&gt;</bpt><ept id="ee6ec7cf-7d4f-4147-ac69-f7171b29ecb2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ee6ec7cf-7d4f-4147-ac69-f7171b29ecb2">&lt;linkText&gt;</bpt>3013776[3013776]<ept id="ee6ec7cf-7d4f-4147-ac69-f7171b29ecb2">&lt;/linkText&gt;</ept><bpt id="ee6ec7cf-7d4f-4147-ac69-f7171b29ecb2">&lt;title&gt;</bpt><ept id="ee6ec7cf-7d4f-4147-ac69-f7171b29ecb2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fca0c635-cd8d-434b-ad86-3d1473dd4856" xml:space="preserve">
+          <source>System freezes when you use a domain account to start an application</source>
+          <target state="new">System freezes when you use a domain account to start an application</target>
+        </trans-unit>
+        <trans-unit id="df364c99-abf1-452c-844c-0e8af022de52" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="c9f0bdb3-cc66-404f-8990-1146d44276fe" xml:space="preserve">
+          <source>Jan 13 2015</source>
+          <target state="new">Jan 13 2015</target>
+        </trans-unit>
+        <trans-unit id="3fa4c774-5430-4ee3-8844-bb341dbe1801" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="c7c898bc-0334-4728-be95-74b74fc5e2a6" xml:space="preserve">
+          <source><bpt id="aa1eb0c6-410b-48a7-bd82-eab206c88287">&lt;linkText&gt;</bpt>3013043[3013043]<ept id="aa1eb0c6-410b-48a7-bd82-eab206c88287">&lt;/linkText&gt;</ept><bpt id="aa1eb0c6-410b-48a7-bd82-eab206c88287">&lt;title&gt;</bpt><ept id="aa1eb0c6-410b-48a7-bd82-eab206c88287">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aa1eb0c6-410b-48a7-bd82-eab206c88287">&lt;linkText&gt;</bpt>3013043[3013043]<ept id="aa1eb0c6-410b-48a7-bd82-eab206c88287">&lt;/linkText&gt;</ept><bpt id="aa1eb0c6-410b-48a7-bd82-eab206c88287">&lt;title&gt;</bpt><ept id="aa1eb0c6-410b-48a7-bd82-eab206c88287">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="767b7db5-4424-4452-8886-f1c2ed3c5589" xml:space="preserve">
+          <source>File system data is corrupted on a Windows-based computer that has more than one NUMA node</source>
+          <target state="new">File system data is corrupted on a Windows-based computer that has more than one NUMA node</target>
+        </trans-unit>
+        <trans-unit id="cf47b4ce-80aa-4a79-898f-c7427964666b" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="fae13eb1-a2f3-4d50-ab3e-a94fd0e989de" xml:space="preserve">
+          <source>Jan 13 2015</source>
+          <target state="new">Jan 13 2015</target>
+        </trans-unit>
+        <trans-unit id="01243936-bfcf-4615-b547-fb3fd0a0b212" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="b27755b7-cb2b-4a47-8769-f85eec046542" xml:space="preserve">
+          <source><bpt id="2146ac41-353a-4d06-b93b-2895b08225e9">&lt;linkText&gt;</bpt>3012712[3012712]<ept id="2146ac41-353a-4d06-b93b-2895b08225e9">&lt;/linkText&gt;</ept><bpt id="2146ac41-353a-4d06-b93b-2895b08225e9">&lt;title&gt;</bpt><ept id="2146ac41-353a-4d06-b93b-2895b08225e9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2146ac41-353a-4d06-b93b-2895b08225e9">&lt;linkText&gt;</bpt>3012712[3012712]<ept id="2146ac41-353a-4d06-b93b-2895b08225e9">&lt;/linkText&gt;</ept><bpt id="2146ac41-353a-4d06-b93b-2895b08225e9">&lt;title&gt;</bpt><ept id="2146ac41-353a-4d06-b93b-2895b08225e9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e1602f1-e215-485f-a3b4-c832ca49f367" xml:space="preserve">
+          <source>New data blocks initialize incorrectly when a differencing VHD is expanded</source>
+          <target state="new">New data blocks initialize incorrectly when a differencing VHD is expanded</target>
+        </trans-unit>
+        <trans-unit id="85ac50bc-8a31-4a59-b33d-410f979b3c4a" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="b1a4479d-5609-412f-9bda-bb4fb0981460" xml:space="preserve">
+          <source>Jan 13 201</source>
+          <target state="new">Jan 13 201</target>
+        </trans-unit>
+        <trans-unit id="2d45d302-0dc4-45ff-8a72-b9e9275d96e9" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="dee99374-a71b-4343-9f1b-d708ffdf0bda" xml:space="preserve">
+          <source><bpt id="068f4842-3c1d-4ff6-8547-0a35f9a0ad7c">&lt;linkText&gt;</bpt>3004905[3004905]<ept id="068f4842-3c1d-4ff6-8547-0a35f9a0ad7c">&lt;/linkText&gt;</ept><bpt id="068f4842-3c1d-4ff6-8547-0a35f9a0ad7c">&lt;title&gt;</bpt><ept id="068f4842-3c1d-4ff6-8547-0a35f9a0ad7c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="068f4842-3c1d-4ff6-8547-0a35f9a0ad7c">&lt;linkText&gt;</bpt>3004905[3004905]<ept id="068f4842-3c1d-4ff6-8547-0a35f9a0ad7c">&lt;/linkText&gt;</ept><bpt id="068f4842-3c1d-4ff6-8547-0a35f9a0ad7c">&lt;title&gt;</bpt><ept id="068f4842-3c1d-4ff6-8547-0a35f9a0ad7c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ecc796a-192b-45b9-aa9c-e76428105197" xml:space="preserve">
+          <source>Windows Hyper-V improvement for Linux virtual machines that have file systems that are larger than 2 TB</source>
+          <target state="new">Windows Hyper-V improvement for Linux virtual machines that have file systems that are larger than 2 TB</target>
+        </trans-unit>
+        <trans-unit id="85ea04e6-a58d-4bd9-88e4-c38bab8e35ab" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="e9a0c6ce-246c-4ccf-8fb8-7ffefca1b9f8" xml:space="preserve">
+          <source>Jan 13 2015</source>
+          <target state="new">Jan 13 2015</target>
+        </trans-unit>
+        <trans-unit id="7bc3fb69-56a0-4f4f-8d4d-d2943ac52448" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="61fed2f7-0abf-4bf6-8429-500151d582b2" xml:space="preserve">
+          <source><bpt id="33ee0586-2610-4788-bf3a-b3b34399853d">&lt;linkText&gt;</bpt>3004394[3004394]<ept id="33ee0586-2610-4788-bf3a-b3b34399853d">&lt;/linkText&gt;</ept><bpt id="33ee0586-2610-4788-bf3a-b3b34399853d">&lt;title&gt;</bpt><ept id="33ee0586-2610-4788-bf3a-b3b34399853d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="33ee0586-2610-4788-bf3a-b3b34399853d">&lt;linkText&gt;</bpt>3004394[3004394]<ept id="33ee0586-2610-4788-bf3a-b3b34399853d">&lt;/linkText&gt;</ept><bpt id="33ee0586-2610-4788-bf3a-b3b34399853d">&lt;title&gt;</bpt><ept id="33ee0586-2610-4788-bf3a-b3b34399853d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="050f28d3-60bf-450f-a654-53298051c1fe" xml:space="preserve">
+          <source>December 2014 update for Windows Root Certificate Program in Windows</source>
+          <target state="new">December 2014 update for Windows Root Certificate Program in Windows</target>
+        </trans-unit>
+        <trans-unit id="cd575d28-6d04-49e9-a230-b4383d59d3e6" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="3bb6790e-4e51-41fe-8578-4cdf3925ed0e" xml:space="preserve">
+          <source>Jan 13 2015</source>
+          <target state="new">Jan 13 2015</target>
+        </trans-unit>
+        <trans-unit id="edaa5d03-912e-411b-870f-3ea380e6d04c" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="907816f7-f49f-4774-830d-00b40956880a" xml:space="preserve">
+          <source><bpt id="77207f6e-90ed-4905-a4c8-100e7a2776fb">&lt;linkText&gt;</bpt>2999323[2999323]<ept id="77207f6e-90ed-4905-a4c8-100e7a2776fb">&lt;/linkText&gt;</ept><bpt id="77207f6e-90ed-4905-a4c8-100e7a2776fb">&lt;title&gt;</bpt><ept id="77207f6e-90ed-4905-a4c8-100e7a2776fb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="77207f6e-90ed-4905-a4c8-100e7a2776fb">&lt;linkText&gt;</bpt>2999323[2999323]<ept id="77207f6e-90ed-4905-a4c8-100e7a2776fb">&lt;/linkText&gt;</ept><bpt id="77207f6e-90ed-4905-a4c8-100e7a2776fb">&lt;title&gt;</bpt><ept id="77207f6e-90ed-4905-a4c8-100e7a2776fb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="909fabeb-7bf6-4700-8e23-34c4ae71daea" xml:space="preserve">
+          <source>The text for event ID 17 is changed</source>
+          <target state="new">The text for event ID 17 is changed</target>
+        </trans-unit>
+        <trans-unit id="69ec9674-2bc8-45c4-8591-728bfa6cfb4a" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="f806a77b-2153-4c8a-a5f1-2f00e81bb11f" xml:space="preserve">
+          <source>Jan 13 2015</source>
+          <target state="new">Jan 13 2015</target>
+        </trans-unit>
+        <trans-unit id="4560c013-72f4-4791-8b5b-c0342195cb37" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="2d396ba8-8bb6-4109-9506-6002be9171d0" xml:space="preserve">
+          <source><bpt id="a9bb9b7f-7d37-4608-8dfd-96e8b683791c">&lt;linkText&gt;</bpt>3013488[3013488]<ept id="a9bb9b7f-7d37-4608-8dfd-96e8b683791c">&lt;/linkText&gt;</ept><bpt id="a9bb9b7f-7d37-4608-8dfd-96e8b683791c">&lt;title&gt;</bpt><ept id="a9bb9b7f-7d37-4608-8dfd-96e8b683791c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a9bb9b7f-7d37-4608-8dfd-96e8b683791c">&lt;linkText&gt;</bpt>3013488[3013488]<ept id="a9bb9b7f-7d37-4608-8dfd-96e8b683791c">&lt;/linkText&gt;</ept><bpt id="a9bb9b7f-7d37-4608-8dfd-96e8b683791c">&lt;title&gt;</bpt><ept id="a9bb9b7f-7d37-4608-8dfd-96e8b683791c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="465cbbbb-7188-44d6-85bb-dd07d7ab72fe" xml:space="preserve">
+          <source>Long wait to reset WSUS server when you import CSA files in Windows Server 2012 R2 or Windows Server 2012</source>
+          <target state="new">Long wait to reset WSUS server when you import CSA files in Windows Server 2012 R2 or Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="15c2d945-19f4-433f-bdd8-be13026c429b" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="da3356b4-7490-4e26-a5ba-852e8063df25" xml:space="preserve">
+          <source>Jan 13 2015</source>
+          <target state="new">Jan 13 2015</target>
+        </trans-unit>
+        <trans-unit id="1a30da8a-d243-4ebb-8634-b5e16c9c3d90" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="a4407c61-f50b-439e-80bf-ee3873d10d83" xml:space="preserve">
+          <source><bpt id="706ac39c-e97c-44c2-bf9e-3aa30ced998c">&lt;linkText&gt;</bpt>3012325[3012325]<ept id="706ac39c-e97c-44c2-bf9e-3aa30ced998c">&lt;/linkText&gt;</ept><bpt id="706ac39c-e97c-44c2-bf9e-3aa30ced998c">&lt;title&gt;</bpt><ept id="706ac39c-e97c-44c2-bf9e-3aa30ced998c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="706ac39c-e97c-44c2-bf9e-3aa30ced998c">&lt;linkText&gt;</bpt>3012325[3012325]<ept id="706ac39c-e97c-44c2-bf9e-3aa30ced998c">&lt;/linkText&gt;</ept><bpt id="706ac39c-e97c-44c2-bf9e-3aa30ced998c">&lt;title&gt;</bpt><ept id="706ac39c-e97c-44c2-bf9e-3aa30ced998c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="827424e1-45d0-46e5-b2d2-9ef2efecb262" xml:space="preserve">
+          <source>Windows APN database entries update for DIGI, Vodafone, and Telekom mobile operators in Windows 8.1 and Windows 8</source>
+          <target state="new">Windows APN database entries update for DIGI, Vodafone, and Telekom mobile operators in Windows 8.1 and Windows 8</target>
+        </trans-unit>
+        <trans-unit id="af8f3c8d-081a-4bd9-b92c-9271c5389dc2" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="c0bbb96c-1fb7-4e57-9492-89e712b9d81b" xml:space="preserve">
+          <source>Jan 13 2015</source>
+          <target state="new">Jan 13 2015</target>
+        </trans-unit>
+        <trans-unit id="b5660b41-b23e-45c5-97ac-b12dd1b515b1" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="cf71a29e-60d4-4736-b71c-388bbd3db493" xml:space="preserve">
+          <source><bpt id="1ed463eb-b210-4f4e-92be-b7d6f27f2fc9">&lt;linkText&gt;</bpt>3007054[3007054]<ept id="1ed463eb-b210-4f4e-92be-b7d6f27f2fc9">&lt;/linkText&gt;</ept><bpt id="1ed463eb-b210-4f4e-92be-b7d6f27f2fc9">&lt;title&gt;</bpt><ept id="1ed463eb-b210-4f4e-92be-b7d6f27f2fc9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1ed463eb-b210-4f4e-92be-b7d6f27f2fc9">&lt;linkText&gt;</bpt>3007054[3007054]<ept id="1ed463eb-b210-4f4e-92be-b7d6f27f2fc9">&lt;/linkText&gt;</ept><bpt id="1ed463eb-b210-4f4e-92be-b7d6f27f2fc9">&lt;title&gt;</bpt><ept id="1ed463eb-b210-4f4e-92be-b7d6f27f2fc9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d2e8892-d655-4d36-a1b0-812116a645db" xml:space="preserve">
+          <source>PIN-protected printing option always shows when you print a document within a Windows Store application in Windows</source>
+          <target state="new">PIN-protected printing option always shows when you print a document within a Windows Store application in Windows</target>
+        </trans-unit>
+        <trans-unit id="8e779ad6-64f6-4587-8a81-0d95433d54e1" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="72f7e501-f15d-4158-9175-9fe4658a3c84" xml:space="preserve">
+          <source>Jan 13 2015</source>
+          <target state="new">Jan 13 2015</target>
+        </trans-unit>
+        <trans-unit id="c1f5f3d0-762b-4dd1-9006-4a2445d33f57" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="601a26ce-810c-4931-806e-5f8c36bfc0c9" xml:space="preserve">
+          <source><bpt id="bd17fd0b-ac39-42ae-a60c-b2683bd07e2f">&lt;linkText&gt;</bpt>2999802[2999802]<ept id="bd17fd0b-ac39-42ae-a60c-b2683bd07e2f">&lt;/linkText&gt;</ept><bpt id="bd17fd0b-ac39-42ae-a60c-b2683bd07e2f">&lt;title&gt;</bpt><ept id="bd17fd0b-ac39-42ae-a60c-b2683bd07e2f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bd17fd0b-ac39-42ae-a60c-b2683bd07e2f">&lt;linkText&gt;</bpt>2999802[2999802]<ept id="bd17fd0b-ac39-42ae-a60c-b2683bd07e2f">&lt;/linkText&gt;</ept><bpt id="bd17fd0b-ac39-42ae-a60c-b2683bd07e2f">&lt;title&gt;</bpt><ept id="bd17fd0b-ac39-42ae-a60c-b2683bd07e2f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7573e356-e714-4e9f-8405-05542f730c52" xml:space="preserve">
+          <source>Solid lines instead of dotted lines are printed in Windows</source>
+          <target state="new">Solid lines instead of dotted lines are printed in Windows</target>
+        </trans-unit>
+        <trans-unit id="d9e265a4-04be-44ca-9b78-b2fd722c4797" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="175b6275-1a24-427a-ac69-e51133f17dd3" xml:space="preserve">
+          <source>Jan 13 2015</source>
+          <target state="new">Jan 13 2015</target>
+        </trans-unit>
+        <trans-unit id="a7aa7614-cebd-49b2-a424-5ec2aee6add2" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="3cd178bb-b0b2-4dfb-bc80-812283b1f352" xml:space="preserve">
+          <source><bpt id="7769f6f7-34c5-4888-8714-8ee02e639882">&lt;linkText&gt;</bpt>2896881[2896881]<ept id="7769f6f7-34c5-4888-8714-8ee02e639882">&lt;/linkText&gt;</ept><bpt id="7769f6f7-34c5-4888-8714-8ee02e639882">&lt;title&gt;</bpt><ept id="7769f6f7-34c5-4888-8714-8ee02e639882">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7769f6f7-34c5-4888-8714-8ee02e639882">&lt;linkText&gt;</bpt>2896881[2896881]<ept id="7769f6f7-34c5-4888-8714-8ee02e639882">&lt;/linkText&gt;</ept><bpt id="7769f6f7-34c5-4888-8714-8ee02e639882">&lt;title&gt;</bpt><ept id="7769f6f7-34c5-4888-8714-8ee02e639882">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90c0b790-8a6d-47ab-96c8-d318f3451196" xml:space="preserve">
+          <source>Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows</source>
+          <target state="new">Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows</target>
+        </trans-unit>
+        <trans-unit id="face813b-085c-4ee9-88f7-1c6cf5d54b4d" xml:space="preserve">
+          <source>4.15, 3.22, 2.34</source>
+          <target state="new">4.15, 3.22, 2.34</target>
+        </trans-unit>
+        <trans-unit id="7db3fb4d-fb1c-47c5-a5cd-a475afa87424" xml:space="preserve">
+          <source>Jan 13 2015</source>
+          <target state="new">Jan 13 2015</target>
+        </trans-unit>
+        <trans-unit id="6e986fb0-85b8-4735-bae6-432f05c47623" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3082442</source>
+          <target state="new">http://support.microsoft.com/kb/3082442</target>
+        </trans-unit>
+        <trans-unit id="b63e873d-1466-4ce3-b14a-eef7eb329d66" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3078662</source>
+          <target state="new">http://support.microsoft.com/kb/3078662</target>
+        </trans-unit>
+        <trans-unit id="4330a2e7-c746-4991-bcdd-648a5e54d5f3" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3080348</source>
+          <target state="new">http://support.microsoft.com/kb/3080348</target>
+        </trans-unit>
+        <trans-unit id="ae10a2cc-00fb-44be-8428-aed5aa7031b1" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3080129</source>
+          <target state="new">http://support.microsoft.com/kb/3080129</target>
+        </trans-unit>
+        <trans-unit id="3be633f2-f86a-4c22-971e-0ea3c0d228f4" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3082487</source>
+          <target state="new">http://support.microsoft.com/kb/3082487</target>
+        </trans-unit>
+        <trans-unit id="b7c47abd-2700-41df-a62b-1fbc49117ab4" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3082458</source>
+          <target state="new">http://support.microsoft.com/kb/3082458</target>
+        </trans-unit>
+        <trans-unit id="3508b348-a758-420d-9a19-a603878ccfce" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3060716</source>
+          <target state="new">http://support.microsoft.com/kb/3060716</target>
+        </trans-unit>
+        <trans-unit id="9a005bad-e4f2-4678-a66e-9dcd8701020c" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3076949</source>
+          <target state="new">http://support.microsoft.com/kb/3076949</target>
+        </trans-unit>
+        <trans-unit id="a1b5953d-b8ca-46a7-9317-3f65dc94110a" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3086251</source>
+          <target state="new">http://support.microsoft.com/kb/3086251</target>
+        </trans-unit>
+        <trans-unit id="0015a0db-a8c6-4882-9b47-b97465f26196" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3076321</source>
+          <target state="new">http://support.microsoft.com/kb/3076321</target>
+        </trans-unit>
+        <trans-unit id="641bafe2-0c3f-4f77-bf9f-5f13a285effd" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3072604</source>
+          <target state="new">http://support.microsoft.com/kb/3072604</target>
+        </trans-unit>
+        <trans-unit id="0f1b87b0-4d40-4acd-9b22-8a95ad6acf08" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3073094</source>
+          <target state="new">http://support.microsoft.com/kb/3073094</target>
+        </trans-unit>
+        <trans-unit id="7bb20a22-21a8-4637-ac83-f12dcfc8d3e2" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3072000</source>
+          <target state="new">http://support.microsoft.com/kb/3072000</target>
+        </trans-unit>
+        <trans-unit id="e676ed38-ea3e-4149-95dc-877d08079cef" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3072631</source>
+          <target state="new">http://support.microsoft.com/kb/3072631</target>
+        </trans-unit>
+        <trans-unit id="993d2f15-d5a9-4652-8a25-d68de5ae75d1" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3068457</source>
+          <target state="new">http://support.microsoft.com/kb/3068457</target>
+        </trans-unit>
+        <trans-unit id="eac830bc-1b21-4839-b7f1-a2fc45979e5d" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3069392</source>
+          <target state="new">http://support.microsoft.com/kb/3069392</target>
+        </trans-unit>
+        <trans-unit id="05a623dd-a750-405d-a6fb-6d76fd619fb4" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3070102</source>
+          <target state="new">http://support.microsoft.com/kb/3070102</target>
+        </trans-unit>
+        <trans-unit id="6bd65d59-c7f5-4d7b-bea3-5a1d442d4571" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3072630</source>
+          <target state="new">http://support.microsoft.com/kb/3072630</target>
+        </trans-unit>
+        <trans-unit id="0a90a503-7573-4d62-abaa-68dac6ea8fa8" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3072633</source>
+          <target state="new">http://support.microsoft.com/kb/3072633</target>
+        </trans-unit>
+        <trans-unit id="07dba5af-32ee-4de5-aa5c-fb302e7579bc" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3067505</source>
+          <target state="new">http://support.microsoft.com/kb/3067505</target>
+        </trans-unit>
+        <trans-unit id="7d012684-a5f7-40e4-a3bc-ee565bc16b24" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3077657</source>
+          <target state="new">http://support.microsoft.com/kb/3077657</target>
+        </trans-unit>
+        <trans-unit id="d06d624b-e9b4-446a-8d9b-e4ed76755aa9" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3057154</source>
+          <target state="new">http://support.microsoft.com/kb/3057154</target>
+        </trans-unit>
+        <trans-unit id="83da3b43-f5b1-4d16-a0f9-07d89219a6bd" xml:space="preserve">
+          <source>https://technet.microsoft.com/library/security/MS15-034</source>
+          <target state="new">https://technet.microsoft.com/library/security/MS15-034</target>
+        </trans-unit>
+        <trans-unit id="a12631ea-400a-4d1d-b63f-88e4f0860877" xml:space="preserve">
+          <source>https://support.microsoft.com/en-us/kb/3042553/</source>
+          <target state="new">https://support.microsoft.com/en-us/kb/3042553/</target>
+        </trans-unit>
+        <trans-unit id="d00face8-2419-4769-b58b-c01a45900f7b" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3034682</source>
+          <target state="new">http://support.microsoft.com/kb/3034682</target>
+        </trans-unit>
+        <trans-unit id="670787a6-4204-49ad-b7e3-8e368b4b4fdf" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3036220</source>
+          <target state="new">http://support.microsoft.com/kb/3036220</target>
+        </trans-unit>
+        <trans-unit id="e0f0566b-5c4f-42af-8683-a14a421616aa" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3000483</source>
+          <target state="new">http://support.microsoft.com/kb/3000483</target>
+        </trans-unit>
+        <trans-unit id="abc1c966-7044-4899-8f48-3f61b6b2c1a5" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3004361</source>
+          <target state="new">http://support.microsoft.com/kb/3004361</target>
+        </trans-unit>
+        <trans-unit id="db3bd3c2-b6bb-46da-b6bb-17287d51c7d6" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3031432</source>
+          <target state="new">http://support.microsoft.com/kb/3031432</target>
+        </trans-unit>
+        <trans-unit id="2ef06051-d95f-4b51-a500-ea66273a3c90" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3029944</source>
+          <target state="new">http://support.microsoft.com/kb/3029944</target>
+        </trans-unit>
+        <trans-unit id="ecbb0c82-4197-4fe7-895e-2d6fcc0077bf" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3004375</source>
+          <target state="new">http://support.microsoft.com/kb/3004375</target>
+        </trans-unit>
+        <trans-unit id="871aa03e-8626-4171-9695-cdf82fb1f4c7" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3023266</source>
+          <target state="new">http://support.microsoft.com/kb/3023266</target>
+        </trans-unit>
+        <trans-unit id="f7b7416f-1999-4b2e-8859-34586087a786" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3020393</source>
+          <target state="new">http://support.microsoft.com/kb/3020393</target>
+        </trans-unit>
+        <trans-unit id="5a7be0e7-3939-46fe-9b28-1e6f1d7a50d9" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3021674</source>
+          <target state="new">http://support.microsoft.com/kb/3021674</target>
+        </trans-unit>
+        <trans-unit id="e0099d29-8095-40d7-8dbd-316fbb45efc2" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3019978</source>
+          <target state="new">http://support.microsoft.com/kb/3019978</target>
+        </trans-unit>
+        <trans-unit id="053434d5-85b9-4877-bd60-1176836a852c" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3022777</source>
+          <target state="new">http://support.microsoft.com/kb/3022777</target>
+        </trans-unit>
+        <trans-unit id="938d2164-de65-44fa-ac22-36cb0cb86469" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3004365</source>
+          <target state="new">http://support.microsoft.com/kb/3004365</target>
+        </trans-unit>
+        <trans-unit id="c8d2329b-cfc7-4370-aea5-16fc304df294" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3014029</source>
+          <target state="new">http://support.microsoft.com/kb/3014029</target>
+        </trans-unit>
+        <trans-unit id="d43fa63e-efaa-4747-b995-df291a53fdf6" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3019215</source>
+          <target state="new">http://support.microsoft.com/kb/3019215</target>
+        </trans-unit>
+        <trans-unit id="7ff574af-6ea1-4f0b-8c9d-aa7032a51f05" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3008923</source>
+          <target state="new">http://support.microsoft.com/kb/3008923</target>
+        </trans-unit>
+        <trans-unit id="b577829b-5d02-457a-b168-205cdf88eca8" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3020393</source>
+          <target state="new">http://support.microsoft.com/kb/3020393</target>
+        </trans-unit>
+        <trans-unit id="c57ed490-073b-4e78-92a5-58f917064f78" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3013776</source>
+          <target state="new">http://support.microsoft.com/kb/3013776</target>
+        </trans-unit>
+        <trans-unit id="985ea608-d206-4666-a2b0-e4ca2179f097" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3013043</source>
+          <target state="new">http://support.microsoft.com/kb/3013043</target>
+        </trans-unit>
+        <trans-unit id="4763d9f8-2c4e-43cd-a028-d1f1b9f7f3c1" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3012712</source>
+          <target state="new">http://support.microsoft.com/kb/3012712</target>
+        </trans-unit>
+        <trans-unit id="03847c68-f1e2-4fc6-ac66-474e74baea75" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3004905</source>
+          <target state="new">http://support.microsoft.com/kb/3004905</target>
+        </trans-unit>
+        <trans-unit id="6987c431-c689-4219-867e-9c72c16381ea" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3004394</source>
+          <target state="new">http://support.microsoft.com/kb/3004394</target>
+        </trans-unit>
+        <trans-unit id="2ad9b875-5156-41f7-a187-b5764452d87c" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/2999323</source>
+          <target state="new">http://support.microsoft.com/kb/2999323</target>
+        </trans-unit>
+        <trans-unit id="4842f93c-d6ab-452f-9e8f-71216869c44b" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3013488</source>
+          <target state="new">http://support.microsoft.com/kb/3013488</target>
+        </trans-unit>
+        <trans-unit id="7042769b-e832-4c8e-abdd-12de9adb9ed9" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3012325</source>
+          <target state="new">http://support.microsoft.com/kb/3012325</target>
+        </trans-unit>
+        <trans-unit id="7cb80831-0430-4d0d-b129-693955440438" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3007054</source>
+          <target state="new">http://support.microsoft.com/kb/3007054</target>
+        </trans-unit>
+        <trans-unit id="1741919e-2b63-418d-adc1-4d492660b1f7" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/2999802</source>
+          <target state="new">http://support.microsoft.com/kb/2999802</target>
+        </trans-unit>
+        <trans-unit id="f0717b7b-5f5b-4a21-b2fa-e7a50651650c" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/2896881</source>
+          <target state="new">http://support.microsoft.com/kb/2896881</target>
+        </trans-unit>
+        <trans-unit id="b850ae32-0534-4234-8de3-d4e13a4cc4ed" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3032359</source>
+          <target state="new">http://support.microsoft.com/kb/3032359</target>
+        </trans-unit>
+        <trans-unit id="2b4e5341-0065-4c59-ae43-b702dedc7427" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3040297</source>
+          <target state="new">http://support.microsoft.com/kb/3040297</target>
+        </trans-unit>
+        <trans-unit id="c1cf2154-d8d1-47da-9bd8-2c9ddafbe5b4" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3041836</source>
+          <target state="new">http://support.microsoft.com/kb/3041836</target>
+        </trans-unit>
+        <trans-unit id="ece63e2c-8dd8-4a3b-a3ed-52b30447ae63" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3032323</source>
+          <target state="new">http://support.microsoft.com/kb/3032323</target>
+        </trans-unit>
+        <trans-unit id="562e68e5-9b46-460e-835b-433f856c70aa" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3034344</source>
+          <target state="new">http://support.microsoft.com/kb/3034344</target>
+        </trans-unit>
+        <trans-unit id="7802485f-e0f7-4f39-ac37-adc8dffed60e" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3035132</source>
+          <target state="new">http://support.microsoft.com/kb/3035132</target>
+        </trans-unit>
+        <trans-unit id="5b73b82a-0479-46e5-a71f-045aaddcfe5a" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3038680</source>
+          <target state="new">http://support.microsoft.com/kb/3038680</target>
+        </trans-unit>
+        <trans-unit id="f6f634b6-656a-48ac-bf6f-e4ca5cc4b63a" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3002657</source>
+          <target state="new">http://support.microsoft.com/kb/3002657</target>
+        </trans-unit>
+        <trans-unit id="1447dff2-05ec-4e46-b0b7-dc375957e0d0" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3035126</source>
+          <target state="new">http://support.microsoft.com/kb/3035126</target>
+        </trans-unit>
+        <trans-unit id="a4f68ba6-d653-469e-a19d-5c5e019797e8" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3049563</source>
+          <target state="new">http://support.microsoft.com/kb/3049563</target>
+        </trans-unit>
+        <trans-unit id="c6bb19ea-e02d-4b99-933d-51daa49d4d8a" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3057110</source>
+          <target state="new">http://support.microsoft.com/kb/3057110</target>
+        </trans-unit>
+        <trans-unit id="c61bf517-4462-4cf0-bb41-c0997a6e8c26" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3046002</source>
+          <target state="new">http://support.microsoft.com/kb/3046002</target>
+        </trans-unit>
+        <trans-unit id="6878984a-8215-43d7-928f-1590f990f7d6" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3057134</source>
+          <target state="new">http://support.microsoft.com/kb/3057134</target>
+        </trans-unit>
+        <trans-unit id="57aa1364-490e-485b-a384-019b42cd9202" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3055642</source>
+          <target state="new">http://support.microsoft.com/kb/3055642</target>
+        </trans-unit>
+        <trans-unit id="e21005a1-58c8-420c-9af4-9485d1f5bb39" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3057191</source>
+          <target state="new">http://support.microsoft.com/kb/3057191</target>
+        </trans-unit>
+        <trans-unit id="7fe69326-ca04-41fc-8cb8-8ff5fed41355" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3050514</source>
+          <target state="new">http://support.microsoft.com/kb/3050514</target>
+        </trans-unit>
+        <trans-unit id="c80b6fd6-611d-45b4-85a9-fa5ca5ec3f19" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3057263</source>
+          <target state="new">http://support.microsoft.com/kb/3057263</target>
+        </trans-unit>
+        <trans-unit id="a0c38117-65e3-4130-b34f-9ff61f6e045f" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3051768</source>
+          <target state="new">http://support.microsoft.com/kb/3051768</target>
+        </trans-unit>
+        <trans-unit id="5edf82e2-5b8b-4a7e-998b-678fb910131f" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3061518</source>
+          <target state="new">http://support.microsoft.com/kb/3061518</target>
+        </trans-unit>
+        <trans-unit id="070253ac-892c-4d3e-be6a-0ae7848decb9" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3038314</source>
+          <target state="new">http://support.microsoft.com/kb/3038314</target>
+        </trans-unit>
+        <trans-unit id="06335f57-4218-4feb-82e3-d1a954d904bc" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3042553</source>
+          <target state="new">http://support.microsoft.com/kb/3042553</target>
+        </trans-unit>
+        <trans-unit id="d8246c42-d452-4bb0-a6e7-06f03813dfb4" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3046306</source>
+          <target state="new">http://support.microsoft.com/kb/3046306</target>
+        </trans-unit>
+        <trans-unit id="57adfe41-5ff1-4b98-8392-081e0a490930" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3046269</source>
+          <target state="new">http://support.microsoft.com/kb/3046269</target>
+        </trans-unit>
+        <trans-unit id="1e693a48-c4eb-4f66-aa63-e95fbcf1af11" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3049576</source>
+          <target state="new">http://support.microsoft.com/kb/3049576</target>
+        </trans-unit>
+        <trans-unit id="197ee942-b90e-4742-8b1d-368d6de5d640" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3046482</source>
+          <target state="new">http://support.microsoft.com/kb/3046482</target>
+        </trans-unit>
+        <trans-unit id="a2a52817-be2c-4925-b058-e6472ac0277c" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3045711</source>
+          <target state="new">http://support.microsoft.com/kb/3045711</target>
+        </trans-unit>
+        <trans-unit id="cd09b34c-fecf-4cda-8dfa-ba4f32f2f40f" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3048010</source>
+          <target state="new">http://support.microsoft.com/kb/3048010</target>
+        </trans-unit>
+        <trans-unit id="d6192078-d16a-4a8e-8172-40e8d2a17562" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3047234</source>
+          <target state="new">http://support.microsoft.com/kb/3047234</target>
+        </trans-unit>
+        <trans-unit id="bd088594-032c-40bc-ae23-3e9c9ad98ea6" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3045755</source>
+          <target state="new">http://support.microsoft.com/kb/3045755</target>
+        </trans-unit>
+        <trans-unit id="860a412d-7af7-4b02-b470-edcd9b73a32f" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3030377</source>
+          <target state="new">http://support.microsoft.com/kb/3030377</target>
+        </trans-unit>
+        <trans-unit id="f9d54164-4352-45c9-8fda-3bbfe7ce9045" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3039976</source>
+          <target state="new">http://support.microsoft.com/kb/3039976</target>
+        </trans-unit>
+        <trans-unit id="abc5435e-e266-413b-9b36-c6db1ed64aa8" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3058515</source>
+          <target state="new">http://support.microsoft.com/kb/3058515</target>
+        </trans-unit>
+        <trans-unit id="daf82d2b-1242-4078-81e5-7bfda91a7132" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3033890</source>
+          <target state="new">http://support.microsoft.com/kb/3033890</target>
+        </trans-unit>
+        <trans-unit id="34ac8c3b-8d7b-4bef-8147-719b72cb354e" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3059317</source>
+          <target state="new">http://support.microsoft.com/kb/3059317</target>
+        </trans-unit>
+        <trans-unit id="a1877967-6cfc-4264-8988-5664143451f6" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3057839</source>
+          <target state="new">http://support.microsoft.com/kb/3057839</target>
+        </trans-unit>
+        <trans-unit id="e052e322-b82f-4035-9ae8-3090bd82c282" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3062577</source>
+          <target state="new">http://support.microsoft.com/kb/3062577</target>
+        </trans-unit>
+        <trans-unit id="2402d673-99f7-4aab-837a-b001fc363a47" xml:space="preserve">
+          <source>http://support.microsoft.com/kb/3063858</source>
+          <target state="new">http://support.microsoft.com/kb/3063858</target>
+        </trans-unit>
+        <trans-unit id="a900e263-df88-440c-8a42-1f08742b3418" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn391773.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn391773.aspx</target>
+        </trans-unit>
+        <trans-unit id="d3e1bf22-1114-4bde-84ac-d3c8c885e26a" xml:space="preserve">
+          <source>cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation</source>
+          <target state="new">cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation</target>
+        </trans-unit>
+      </group>
+      <group id="68ff3a02-c26a-4df9-bbc1-f46c215c0968" />
+    </body>
+  </file>
+</xliff>

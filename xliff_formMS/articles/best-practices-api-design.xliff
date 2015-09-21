@@ -1,0 +1,1124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="11a86700-6d52-4ac5-92aa-355b9b282390" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="11a86700-6d52-4ac5-92aa-355b9b282390" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5e074365-9a7b-4a4f-b71a-5a11c9af52a6">
+        <trans-unit id="87f71fda-958b-497c-8246-ff6069360d56" xml:space="preserve">
+          <source>API design guidance | Microsoft Azure</source>
+          <target state="new">API design guidance | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7b1eacd6-4a4b-492d-92b1-78e426bb6ce7" xml:space="preserve">
+          <source>Guidance upon how to create a well designed API.</source>
+          <target state="new">Guidance upon how to create a well designed API.</target>
+        </trans-unit>
+        <trans-unit id="3ff7cea2-046f-4789-8878-522b9a0673d0" xml:space="preserve">
+          <source><bpt id="9a622e64-4db1-4141-ac20-334538cfa3d2">&lt;linkText&gt;</bpt><ept id="9a622e64-4db1-4141-ac20-334538cfa3d2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9a622e64-4db1-4141-ac20-334538cfa3d2">&lt;linkText&gt;</bpt><ept id="9a622e64-4db1-4141-ac20-334538cfa3d2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4cb050ed-5ecf-420d-b336-184f56e2f24b" xml:space="preserve">
+          <source>Some topics in this guidance are under discussion and may change in the future.</source>
+          <target state="new">Some topics in this guidance are under discussion and may change in the future.</target>
+        </trans-unit>
+        <trans-unit id="bef538db-628a-470f-9ea3-63a1e23da85a" xml:space="preserve">
+          <source>We welcome your feedback!</source>
+          <target state="new">We welcome your feedback!</target>
+        </trans-unit>
+        <trans-unit id="9706a2fc-464b-44ff-9315-50cdb373f89d" xml:space="preserve">
+          <source>Many modern web-based solutions make the use of web services, hosted by web servers, to provide functionality for remote client applications.</source>
+          <target state="new">Many modern web-based solutions make the use of web services, hosted by web servers, to provide functionality for remote client applications.</target>
+        </trans-unit>
+        <trans-unit id="35d1394f-72d0-4ccc-a1a2-7be9d5e23432" xml:space="preserve">
+          <source>The operations that a web service exposes constitute a web API.</source>
+          <target state="new">The operations that a web service exposes constitute a web API.</target>
+        </trans-unit>
+        <trans-unit id="fdc24e85-d3e4-4a37-8b08-c1868e009dff" xml:space="preserve">
+          <source>A well-designed web API should aim to support:</source>
+          <target state="new">A well-designed web API should aim to support:</target>
+        </trans-unit>
+        <trans-unit id="54ce1a0c-a2bb-4ae4-a416-9a3027b0d3bb" xml:space="preserve">
+          <source><bpt id="296b9cbb-f31a-4804-81e5-edab84998907">&lt;strong&gt;</bpt>Platform independence<ept id="296b9cbb-f31a-4804-81e5-edab84998907">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="296b9cbb-f31a-4804-81e5-edab84998907">&lt;strong&gt;</bpt>Platform independence<ept id="296b9cbb-f31a-4804-81e5-edab84998907">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a5f1bcc-3c3a-4d59-a609-f5f90bbaaf75" xml:space="preserve">
+          <source>Client applications should be able to utilize the API that the web service provides without requiring how the data or operations that API exposes are physically implemented.</source>
+          <target state="new">Client applications should be able to utilize the API that the web service provides without requiring how the data or operations that API exposes are physically implemented.</target>
+        </trans-unit>
+        <trans-unit id="cf1ead2d-aa90-4987-afec-8b38824c8117" xml:space="preserve">
+          <source>This requires that the API abides by common standards that enable a client application and web service to agree on which data formats to use, and the structure of the data that is exchanged between client applications and the web service.</source>
+          <target state="new">This requires that the API abides by common standards that enable a client application and web service to agree on which data formats to use, and the structure of the data that is exchanged between client applications and the web service.</target>
+        </trans-unit>
+        <trans-unit id="0be36c61-cda4-4251-ab17-3ac84dbe7203" xml:space="preserve">
+          <source><bpt id="db53ab6d-0b57-4df8-a256-d9a2214801ca">&lt;strong&gt;</bpt>Service evolution<ept id="db53ab6d-0b57-4df8-a256-d9a2214801ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="db53ab6d-0b57-4df8-a256-d9a2214801ca">&lt;strong&gt;</bpt>Service evolution<ept id="db53ab6d-0b57-4df8-a256-d9a2214801ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d47b438c-d0ea-4f94-866c-77ed88d8164c" xml:space="preserve">
+          <source>The web service should be able to evolve and add (or remove) functionality independently from client applications.</source>
+          <target state="new">The web service should be able to evolve and add (or remove) functionality independently from client applications.</target>
+        </trans-unit>
+        <trans-unit id="264a5442-2f0e-4a2f-9a41-3f91011a4f2f" xml:space="preserve">
+          <source>Existing client applications should be able to continue to operate unmodified as the features provided by the web service change.</source>
+          <target state="new">Existing client applications should be able to continue to operate unmodified as the features provided by the web service change.</target>
+        </trans-unit>
+        <trans-unit id="b82ab8f4-f5e4-46af-abfb-04917deecb3a" xml:space="preserve">
+          <source>All functionality should also be discoverable, so that client applications can fully utilize it.</source>
+          <target state="new">All functionality should also be discoverable, so that client applications can fully utilize it.</target>
+        </trans-unit>
+        <trans-unit id="adb4faf3-737c-43a6-9eac-f43cd9bfaeae" xml:space="preserve">
+          <source>The purpose of this guidance is to describe the issues that you should consider when designing a web API.</source>
+          <target state="new">The purpose of this guidance is to describe the issues that you should consider when designing a web API.</target>
+        </trans-unit>
+        <trans-unit id="f0040d2f-a481-4c79-bd3b-40b3f1d99071" xml:space="preserve">
+          <source>In his dissertation in 2000, Roy Fielding proposed an alternative architectural approach to structuring the operations exposed by web services; REST.</source>
+          <target state="new">In his dissertation in 2000, Roy Fielding proposed an alternative architectural approach to structuring the operations exposed by web services; REST.</target>
+        </trans-unit>
+        <trans-unit id="3505ef9d-a7ff-4695-a2e5-f6924ff9a5a8" xml:space="preserve">
+          <source>REST is an architectural style for building distributed systems based on hypermedia.</source>
+          <target state="new">REST is an architectural style for building distributed systems based on hypermedia.</target>
+        </trans-unit>
+        <trans-unit id="d4744a8d-ebf9-4b35-b213-43ff32001f9f" xml:space="preserve">
+          <source>A primary advantage of the REST model is that it is based on open standards and does not bind the implementation of the model or the client applications that access it to any specific implementation.</source>
+          <target state="new">A primary advantage of the REST model is that it is based on open standards and does not bind the implementation of the model or the client applications that access it to any specific implementation.</target>
+        </trans-unit>
+        <trans-unit id="71e0a2fd-b946-4404-80b4-b3443e852776" xml:space="preserve">
+          <source>For example, a REST web service could be implemented by using the Microsoft ASP.NET Web API, and client applications could be developed by using any language and toolset that can generate HTTP requests and parse HTTP responses.</source>
+          <target state="new">For example, a REST web service could be implemented by using the Microsoft ASP.NET Web API, and client applications could be developed by using any language and toolset that can generate HTTP requests and parse HTTP responses.</target>
+        </trans-unit>
+        <trans-unit id="80f20d31-2167-4d74-8ca7-1f31a35643be" xml:space="preserve">
+          <source>: REST is actually independent of any underlying protocol and is not necessarily tied to HTTP.</source>
+          <target state="new">: REST is actually independent of any underlying protocol and is not necessarily tied to HTTP.</target>
+        </trans-unit>
+        <trans-unit id="6d7b3d0f-1084-4aa0-b85b-344e2478cd10" xml:space="preserve">
+          <source>However, most common implementations of systems that are based on REST utilize HTTP as the application protocol for sending and receiving requests.</source>
+          <target state="new">However, most common implementations of systems that are based on REST utilize HTTP as the application protocol for sending and receiving requests.</target>
+        </trans-unit>
+        <trans-unit id="921d35b6-1290-474b-955f-a97f4a6285a5" xml:space="preserve">
+          <source>This document focusses on mapping REST principles to systems designed to operate using HTTP.</source>
+          <target state="new">This document focusses on mapping REST principles to systems designed to operate using HTTP.</target>
+        </trans-unit>
+        <trans-unit id="e2545f6c-b5b4-4cd6-9b69-75f963f6f0bf" xml:space="preserve">
+          <source>The REST model uses a navigational scheme to represent objects and services over a network (referred to as <bpt id="bcb34e70-99ad-418b-a27a-41aa90ce00b8">&lt;em&gt;</bpt>resources<ept id="bcb34e70-99ad-418b-a27a-41aa90ce00b8">&lt;/em&gt;</ept>).</source>
+          <target state="new">The REST model uses a navigational scheme to represent objects and services over a network (referred to as <bpt id="bcb34e70-99ad-418b-a27a-41aa90ce00b8">&lt;em&gt;</bpt>resources<ept id="bcb34e70-99ad-418b-a27a-41aa90ce00b8">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="2030b1ee-8271-4e40-9d19-670f4bf042ec" xml:space="preserve">
+          <source>Many systems that implement REST typically use the HTTP protocol to transmit requests to access these resources.</source>
+          <target state="new">Many systems that implement REST typically use the HTTP protocol to transmit requests to access these resources.</target>
+        </trans-unit>
+        <trans-unit id="7dd402f8-47b5-40e5-ae85-308f60a517b1" xml:space="preserve">
+          <source>In these systems, a client application submits a request in the form of a URI that identifies a resource, and an HTTP method (the most common being GET, POST, PUT, or DELETE) that indicates the operation to be performed on that resource.</source>
+          <target state="new">In these systems, a client application submits a request in the form of a URI that identifies a resource, and an HTTP method (the most common being GET, POST, PUT, or DELETE) that indicates the operation to be performed on that resource.</target>
+        </trans-unit>
+        <trans-unit id="96b42443-ae0e-4016-b7c7-cfaa49130775" xml:space="preserve">
+          <source>The body of the HTTP request contains the data required to perform the operation.</source>
+          <target state="new">The body of the HTTP request contains the data required to perform the operation.</target>
+        </trans-unit>
+        <trans-unit id="ebb1d7a3-a94f-40ce-8e39-2d14ab832738" xml:space="preserve">
+          <source>The important point to understand is that REST defines a stateless request model.</source>
+          <target state="new">The important point to understand is that REST defines a stateless request model.</target>
+        </trans-unit>
+        <trans-unit id="ba80ae5e-dc97-47bc-a7cd-3ff49204c8b6" xml:space="preserve">
+          <source>HTTP requests should be independent and may occur in any order, so attempting to retain transient state information between requests is not feasible.</source>
+          <target state="new">HTTP requests should be independent and may occur in any order, so attempting to retain transient state information between requests is not feasible.</target>
+        </trans-unit>
+        <trans-unit id="99ad5c9a-8126-472b-8866-0c93acbd04f3" xml:space="preserve">
+          <source>The only place where information is stored is in the resources themselves, and each request should be an atomic operation.</source>
+          <target state="new">The only place where information is stored is in the resources themselves, and each request should be an atomic operation.</target>
+        </trans-unit>
+        <trans-unit id="2a9d876e-3c95-4eff-9330-823b57bc4591" xml:space="preserve">
+          <source>Effectively, a REST model implements a finite state machine where a request transitions a resource from one well-defined non-transient state to another.</source>
+          <target state="new">Effectively, a REST model implements a finite state machine where a request transitions a resource from one well-defined non-transient state to another.</target>
+        </trans-unit>
+        <trans-unit id="c64a4728-c581-4678-8c37-d21ec0ca726f" xml:space="preserve">
+          <source>The stateless nature of individual requests in the REST model enables a system constructed by following these principles to be highly scalable.</source>
+          <target state="new">The stateless nature of individual requests in the REST model enables a system constructed by following these principles to be highly scalable.</target>
+        </trans-unit>
+        <trans-unit id="8b12dbd9-8c22-4c96-9c34-a8c8a9af74c2" xml:space="preserve">
+          <source>There is no need to retain any affinity between a client application making a series of requests and the specific web servers handling those requests.</source>
+          <target state="new">There is no need to retain any affinity between a client application making a series of requests and the specific web servers handling those requests.</target>
+        </trans-unit>
+        <trans-unit id="9a3ab93a-a918-45a5-ab46-cf602acc15ce" xml:space="preserve">
+          <source>Another crucial point in implementing an effective REST model is to understand the relationships between the various resources to which the model provides access.</source>
+          <target state="new">Another crucial point in implementing an effective REST model is to understand the relationships between the various resources to which the model provides access.</target>
+        </trans-unit>
+        <trans-unit id="54583095-02ec-45ee-acd8-c1145aba1326" xml:space="preserve">
+          <source>These resources are typically organized as collections and relationships.</source>
+          <target state="new">These resources are typically organized as collections and relationships.</target>
+        </trans-unit>
+        <trans-unit id="c4929572-cb4f-4712-9bc3-7fce4258f5e7" xml:space="preserve">
+          <source>For example, suppose that a quick analysis of an ecommerce system shows that there are two collections in which client applications are likely to be interested: orders and customers.</source>
+          <target state="new">For example, suppose that a quick analysis of an ecommerce system shows that there are two collections in which client applications are likely to be interested: orders and customers.</target>
+        </trans-unit>
+        <trans-unit id="62123468-4bc6-4fba-8996-40b61cda2f49" xml:space="preserve">
+          <source>Each order and customer should have its own unique key for identification purposes.</source>
+          <target state="new">Each order and customer should have its own unique key for identification purposes.</target>
+        </trans-unit>
+        <trans-unit id="a0cec017-4230-4753-8c93-c61e5d1f3f90" xml:space="preserve">
+          <source>The URI to access the collection of orders could be something as simple as <bpt id="7a6c1b49-ff0e-4272-ad9b-f01baf1d91df">&lt;em&gt;</bpt>/orders<ept id="7a6c1b49-ff0e-4272-ad9b-f01baf1d91df">&lt;/em&gt;</ept>, and similarly the URI for retrieving all customers could be <bpt id="a5a18c58-2a64-443d-a128-d6c3d523cc98">&lt;em&gt;</bpt>/customers<ept id="a5a18c58-2a64-443d-a128-d6c3d523cc98">&lt;/em&gt;</ept>.</source>
+          <target state="new">The URI to access the collection of orders could be something as simple as <bpt id="7a6c1b49-ff0e-4272-ad9b-f01baf1d91df">&lt;em&gt;</bpt>/orders<ept id="7a6c1b49-ff0e-4272-ad9b-f01baf1d91df">&lt;/em&gt;</ept>, and similarly the URI for retrieving all customers could be <bpt id="a5a18c58-2a64-443d-a128-d6c3d523cc98">&lt;em&gt;</bpt>/customers<ept id="a5a18c58-2a64-443d-a128-d6c3d523cc98">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35dd360a-30e3-4651-bf99-0e39524fe454" xml:space="preserve">
+          <source>Issuing an HTTP GET request to the <bpt id="25e58f36-7a01-43f2-b9cc-789c2264fb3a">&lt;em&gt;</bpt>/orders<ept id="25e58f36-7a01-43f2-b9cc-789c2264fb3a">&lt;/em&gt;</ept> URI should return a list representing all orders in the collection encoded as an HTTP response:</source>
+          <target state="new">Issuing an HTTP GET request to the <bpt id="25e58f36-7a01-43f2-b9cc-789c2264fb3a">&lt;em&gt;</bpt>/orders<ept id="25e58f36-7a01-43f2-b9cc-789c2264fb3a">&lt;/em&gt;</ept> URI should return a list representing all orders in the collection encoded as an HTTP response:</target>
+        </trans-unit>
+        <trans-unit id="d81a85b3-3b68-4a7a-9b99-4a85bbf47dcc" xml:space="preserve">
+          <source>The response shown below encodes the orders as an XML list structure.</source>
+          <target state="new">The response shown below encodes the orders as an XML list structure.</target>
+        </trans-unit>
+        <trans-unit id="b74b9d3b-f82d-47a3-8283-5c59720cc45e" xml:space="preserve">
+          <source>The list contains 7 orders:</source>
+          <target state="new">The list contains 7 orders:</target>
+        </trans-unit>
+        <trans-unit id="6f5772a4-5b5e-4f78-889f-985f1b9ac704" xml:space="preserve">
+          <source>To fetch an individual order requires specifying the identifier for the order from the <bpt id="efdac33e-a210-4544-905d-4ad0a3bd3d84">&lt;em&gt;</bpt>orders<ept id="efdac33e-a210-4544-905d-4ad0a3bd3d84">&lt;/em&gt;</ept> resource, such as <bpt id="efbf4a3f-a87b-4b10-bf9c-295cd49c3859">&lt;em&gt;</bpt>/orders/2<ept id="efbf4a3f-a87b-4b10-bf9c-295cd49c3859">&lt;/em&gt;</ept>:</source>
+          <target state="new">To fetch an individual order requires specifying the identifier for the order from the <bpt id="efdac33e-a210-4544-905d-4ad0a3bd3d84">&lt;em&gt;</bpt>orders<ept id="efdac33e-a210-4544-905d-4ad0a3bd3d84">&lt;/em&gt;</ept> resource, such as <bpt id="efbf4a3f-a87b-4b10-bf9c-295cd49c3859">&lt;em&gt;</bpt>/orders/2<ept id="efbf4a3f-a87b-4b10-bf9c-295cd49c3859">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="e3e884f9-7278-4a5b-9033-2721b14d4e9d" xml:space="preserve">
+          <source>For simplicity, these examples show the information in responses being returned as XML text data.</source>
+          <target state="new">For simplicity, these examples show the information in responses being returned as XML text data.</target>
+        </trans-unit>
+        <trans-unit id="7a6a5bad-8966-4581-8920-f9a34df1cb4a" xml:space="preserve">
+          <source>However, there is no reason why resources should not contain any other type of data supported by HTTP, such as binary or encrypted information; the content-type in the HTTP response should specify the type.</source>
+          <target state="new">However, there is no reason why resources should not contain any other type of data supported by HTTP, such as binary or encrypted information; the content-type in the HTTP response should specify the type.</target>
+        </trans-unit>
+        <trans-unit id="c55c1168-5911-490d-8a03-f21989ea71c0" xml:space="preserve">
+          <source>Also, a REST model may be able to return the same data in different formats, such as XML or JSON.</source>
+          <target state="new">Also, a REST model may be able to return the same data in different formats, such as XML or JSON.</target>
+        </trans-unit>
+        <trans-unit id="2ef82d43-4eeb-43c6-bc76-59aa869080b2" xml:space="preserve">
+          <source>In this case, the web service should be able to perform content negotiation with the client making the request.</source>
+          <target state="new">In this case, the web service should be able to perform content negotiation with the client making the request.</target>
+        </trans-unit>
+        <trans-unit id="25bc3753-0e57-448e-ba55-0b719c380326" xml:space="preserve">
+          <source>The request can include an <bpt id="16828834-9cae-47e3-8d21-545361e0b3f1">&lt;em&gt;</bpt>Accept<ept id="16828834-9cae-47e3-8d21-545361e0b3f1">&lt;/em&gt;</ept> header which specifies the preferred format that the client would like to receive and the web service should attempt to honor this format if at all possible.</source>
+          <target state="new">The request can include an <bpt id="16828834-9cae-47e3-8d21-545361e0b3f1">&lt;em&gt;</bpt>Accept<ept id="16828834-9cae-47e3-8d21-545361e0b3f1">&lt;/em&gt;</ept> header which specifies the preferred format that the client would like to receive and the web service should attempt to honor this format if at all possible.</target>
+        </trans-unit>
+        <trans-unit id="8f1b3245-8a0b-454d-bdaa-2ba1f813a95d" xml:space="preserve">
+          <source>Notice that the response from a REST request makes use of the standard HTTP status codes.</source>
+          <target state="new">Notice that the response from a REST request makes use of the standard HTTP status codes.</target>
+        </trans-unit>
+        <trans-unit id="2d328204-ba36-429a-9267-00061c69f14c" xml:space="preserve">
+          <source>For example, a request that returns valid data should include the HTTP response code 200 (OK), while a request that fails to find or delete a specified resource should return a response that includes the HTTP status code 404 (Not Found).</source>
+          <target state="new">For example, a request that returns valid data should include the HTTP response code 200 (OK), while a request that fails to find or delete a specified resource should return a response that includes the HTTP status code 404 (Not Found).</target>
+        </trans-unit>
+        <trans-unit id="d1ca0b52-a04f-4d53-8346-07ba89a7f5ff" xml:space="preserve">
+          <source>The keys to designing a successful web API are simplicity and consistency.</source>
+          <target state="new">The keys to designing a successful web API are simplicity and consistency.</target>
+        </trans-unit>
+        <trans-unit id="36a0c405-1a56-4221-8e77-63346d70fe98" xml:space="preserve">
+          <source>A Web API that exhibits these two factors makes it easier to build client applications that need to consume the API.</source>
+          <target state="new">A Web API that exhibits these two factors makes it easier to build client applications that need to consume the API.</target>
+        </trans-unit>
+        <trans-unit id="89f84361-95ae-4602-8dbd-461a0ebe7493" xml:space="preserve">
+          <source>A RESTful web API is focused on exposing a set of connected resources, and providing the core operations that enable an application to manipulate these resources and easily navigate between them.</source>
+          <target state="new">A RESTful web API is focused on exposing a set of connected resources, and providing the core operations that enable an application to manipulate these resources and easily navigate between them.</target>
+        </trans-unit>
+        <trans-unit id="b2498b0b-2665-49fe-9c15-682357c9b1e0" xml:space="preserve">
+          <source>For this reason, the URIs that constitute a typical RESTful web API should be oriented towards the data that it exposes, and use the facilities provided by HTTP to operate on this data.</source>
+          <target state="new">For this reason, the URIs that constitute a typical RESTful web API should be oriented towards the data that it exposes, and use the facilities provided by HTTP to operate on this data.</target>
+        </trans-unit>
+        <trans-unit id="be0ebae1-52cf-4264-a813-f6cb34522427" xml:space="preserve">
+          <source>This approach requires a different mindset from that typically employed when designing a set of classes in an object-oriented API which tends to be more motivated by the behavior of objects and classes.</source>
+          <target state="new">This approach requires a different mindset from that typically employed when designing a set of classes in an object-oriented API which tends to be more motivated by the behavior of objects and classes.</target>
+        </trans-unit>
+        <trans-unit id="86af1ffd-a764-4d40-b82d-d1f643e5ca3a" xml:space="preserve">
+          <source>Additionally, a RESTful web API should be stateless and not depend on operations being invoked in a particular sequence.</source>
+          <target state="new">Additionally, a RESTful web API should be stateless and not depend on operations being invoked in a particular sequence.</target>
+        </trans-unit>
+        <trans-unit id="a3db506d-3853-4416-9ea0-2b218dfc2c16" xml:space="preserve">
+          <source>The following sections summarize the points you should consider when designing a RESTful web API.</source>
+          <target state="new">The following sections summarize the points you should consider when designing a RESTful web API.</target>
+        </trans-unit>
+        <trans-unit id="bdafa7f8-692e-42a4-9bbf-c4d4786d133e" xml:space="preserve">
+          <source>The URIs exposed by a REST web service should be based on nouns (the data to which the web API provides access) and not verbs (what an application can do with the data).</source>
+          <target state="new">The URIs exposed by a REST web service should be based on nouns (the data to which the web API provides access) and not verbs (what an application can do with the data).</target>
+        </trans-unit>
+        <trans-unit id="628283aa-031a-47fb-8f9f-dafdc12ec602" xml:space="preserve">
+          <source>Focus on the business entities that the web API exposes.</source>
+          <target state="new">Focus on the business entities that the web API exposes.</target>
+        </trans-unit>
+        <trans-unit id="ef3a16fb-ee93-4f92-bf81-d9f52e830fc0" xml:space="preserve">
+          <source>For example, in a web API designed to support the ecommerce system described earlier, the primary entities are customers and orders.</source>
+          <target state="new">For example, in a web API designed to support the ecommerce system described earlier, the primary entities are customers and orders.</target>
+        </trans-unit>
+        <trans-unit id="83bb66ae-89ec-44a6-a511-11770f599c56" xml:space="preserve">
+          <source>Processes such as the act of placing an order can be achieved by providing an HTTP POST operation that takes the order information and adds it to the list of orders for the customer.</source>
+          <target state="new">Processes such as the act of placing an order can be achieved by providing an HTTP POST operation that takes the order information and adds it to the list of orders for the customer.</target>
+        </trans-unit>
+        <trans-unit id="971a9bf8-6610-4b9d-927a-27d5fed5c450" xml:space="preserve">
+          <source>Internally, this POST operation can perform tasks such as checking stock levels, and billing the customer.</source>
+          <target state="new">Internally, this POST operation can perform tasks such as checking stock levels, and billing the customer.</target>
+        </trans-unit>
+        <trans-unit id="4585183e-664c-4aaf-a6c6-3a390541d56c" xml:space="preserve">
+          <source>The HTTP response can indicate whether the order was placed successfully or not.</source>
+          <target state="new">The HTTP response can indicate whether the order was placed successfully or not.</target>
+        </trans-unit>
+        <trans-unit id="4e0ad6fd-600c-424a-9534-91082a7101bb" xml:space="preserve">
+          <source>Also note that a resource does not have to be based on a single physical data item.</source>
+          <target state="new">Also note that a resource does not have to be based on a single physical data item.</target>
+        </trans-unit>
+        <trans-unit id="d07dc447-b70f-49cb-be79-6d5d590ef4fc" xml:space="preserve">
+          <source>As an example, an order resource might be implemented internally by using information aggregated from many rows spread across several tables in a relational database but presented to the client as a single entity.</source>
+          <target state="new">As an example, an order resource might be implemented internally by using information aggregated from many rows spread across several tables in a relational database but presented to the client as a single entity.</target>
+        </trans-unit>
+        <trans-unit id="455bd33a-d540-4ad2-b11f-f08fff7d8e00" xml:space="preserve">
+          <source>Avoid designing a REST interface that mirrors or depends on the internal structure of the data that it exposes.</source>
+          <target state="new">Avoid designing a REST interface that mirrors or depends on the internal structure of the data that it exposes.</target>
+        </trans-unit>
+        <trans-unit id="be50d85c-2fb1-4aff-913b-ec7614d68ad2" xml:space="preserve">
+          <source>REST is about more than implementing simple CRUD (Create, Retrieve, Update, Delete) operations over separate tables in a relational database.</source>
+          <target state="new">REST is about more than implementing simple CRUD (Create, Retrieve, Update, Delete) operations over separate tables in a relational database.</target>
+        </trans-unit>
+        <trans-unit id="2d3d2f06-0adf-4c87-a0c7-bc774f7c697b" xml:space="preserve">
+          <source>The purpose of REST is to map business entities and the operations that an application can perform on these entities to the physical implementation of these entities, but a client should not be exposed to these physical details.</source>
+          <target state="new">The purpose of REST is to map business entities and the operations that an application can perform on these entities to the physical implementation of these entities, but a client should not be exposed to these physical details.</target>
+        </trans-unit>
+        <trans-unit id="f7e39aaf-3dc4-4a6e-87c9-7d3e5b35aee2" xml:space="preserve">
+          <source>Individual business entities rarely exist in isolation (although some singleton objects may exist), but instead tend to be grouped together into collections.</source>
+          <target state="new">Individual business entities rarely exist in isolation (although some singleton objects may exist), but instead tend to be grouped together into collections.</target>
+        </trans-unit>
+        <trans-unit id="88e44c59-0b72-40f3-b1be-631e1a42376e" xml:space="preserve">
+          <source>In REST terms, each entity and each collection are resources.</source>
+          <target state="new">In REST terms, each entity and each collection are resources.</target>
+        </trans-unit>
+        <trans-unit id="3a3db68d-f7e4-4e50-8af3-e2813c55545c" xml:space="preserve">
+          <source>In a RESTful web API, each collection has its own URI within the web service, and performing an HTTP GET request over a URI for a collection retrieves a list of items in that collection.</source>
+          <target state="new">In a RESTful web API, each collection has its own URI within the web service, and performing an HTTP GET request over a URI for a collection retrieves a list of items in that collection.</target>
+        </trans-unit>
+        <trans-unit id="b2f79613-34b5-4bb0-ac45-ea73763f400a" xml:space="preserve">
+          <source>Each individual item also has its own URI, and an application can submit another HTTP GET request using that URI to retrieve the details of that item.</source>
+          <target state="new">Each individual item also has its own URI, and an application can submit another HTTP GET request using that URI to retrieve the details of that item.</target>
+        </trans-unit>
+        <trans-unit id="b30dea2b-2b16-44ba-825e-d85837b3ae3a" xml:space="preserve">
+          <source>You should organize the URIs for collections and items in a hierarchical manner.</source>
+          <target state="new">You should organize the URIs for collections and items in a hierarchical manner.</target>
+        </trans-unit>
+        <trans-unit id="1694450b-45f7-475f-9a14-35e843bdfede" xml:space="preserve">
+          <source>In the ecommerce system, the URI <bpt id="623a05e1-9a1b-400c-bd3b-ad56c0829c55">&lt;em&gt;</bpt>/customers<ept id="623a05e1-9a1b-400c-bd3b-ad56c0829c55">&lt;/em&gt;</ept> denotes the customer’s collection, and <bpt id="dd5591c8-eaaf-4071-a12f-d3914f171a3b">&lt;em&gt;</bpt>/customers/5<ept id="dd5591c8-eaaf-4071-a12f-d3914f171a3b">&lt;/em&gt;</ept> retrieves the details for the single customer with the ID 5 from this collection.</source>
+          <target state="new">In the ecommerce system, the URI <bpt id="623a05e1-9a1b-400c-bd3b-ad56c0829c55">&lt;em&gt;</bpt>/customers<ept id="623a05e1-9a1b-400c-bd3b-ad56c0829c55">&lt;/em&gt;</ept> denotes the customer’s collection, and <bpt id="dd5591c8-eaaf-4071-a12f-d3914f171a3b">&lt;em&gt;</bpt>/customers/5<ept id="dd5591c8-eaaf-4071-a12f-d3914f171a3b">&lt;/em&gt;</ept> retrieves the details for the single customer with the ID 5 from this collection.</target>
+        </trans-unit>
+        <trans-unit id="f464f8a1-7993-49a0-a761-6ad1c9900f15" xml:space="preserve">
+          <source>This approach helps to keep the web API intuitive.</source>
+          <target state="new">This approach helps to keep the web API intuitive.</target>
+        </trans-unit>
+        <trans-unit id="3f2506a9-6abd-4d24-a06e-b00e671e96e6" xml:space="preserve">
+          <source>Adopt a consistent naming convention in URIs; in general it helps to use plural nouns for URIs that reference collections.</source>
+          <target state="new">Adopt a consistent naming convention in URIs; in general it helps to use plural nouns for URIs that reference collections.</target>
+        </trans-unit>
+        <trans-unit id="d3a9fb33-590a-4a99-ae93-5762e4c64431" xml:space="preserve">
+          <source>You also need to consider the relationships between different types of resources and how you might expose these associations.</source>
+          <target state="new">You also need to consider the relationships between different types of resources and how you might expose these associations.</target>
+        </trans-unit>
+        <trans-unit id="f4d6e259-90a5-4381-b91c-b8c6634fb26c" xml:space="preserve">
+          <source>For example, customers may place zero or more orders.</source>
+          <target state="new">For example, customers may place zero or more orders.</target>
+        </trans-unit>
+        <trans-unit id="3cd6ea6b-5c48-4d53-8412-ab87631884c8" xml:space="preserve">
+          <source>A natural way to represent this relationship would be through a URI such as <bpt id="1edef2d7-5cee-4483-a2da-df7fb2ae2f6c">&lt;em&gt;</bpt>/customers/5/orders<ept id="1edef2d7-5cee-4483-a2da-df7fb2ae2f6c">&lt;/em&gt;</ept> to find all the orders for customer 5.</source>
+          <target state="new">A natural way to represent this relationship would be through a URI such as <bpt id="1edef2d7-5cee-4483-a2da-df7fb2ae2f6c">&lt;em&gt;</bpt>/customers/5/orders<ept id="1edef2d7-5cee-4483-a2da-df7fb2ae2f6c">&lt;/em&gt;</ept> to find all the orders for customer 5.</target>
+        </trans-unit>
+        <trans-unit id="75fcadf0-9035-4c2a-8351-1b46b446feac" xml:space="preserve">
+          <source>You might also consider representing the association from an order back to a specific customer through a URI such as <bpt id="3f3ee082-b991-493c-a453-8bc4edbb1358">&lt;em&gt;</bpt>/orders/99/customer<ept id="3f3ee082-b991-493c-a453-8bc4edbb1358">&lt;/em&gt;</ept> to find the customer for order 99, but extending this model too far can become cumbersome to implement.</source>
+          <target state="new">You might also consider representing the association from an order back to a specific customer through a URI such as <bpt id="3f3ee082-b991-493c-a453-8bc4edbb1358">&lt;em&gt;</bpt>/orders/99/customer<ept id="3f3ee082-b991-493c-a453-8bc4edbb1358">&lt;/em&gt;</ept> to find the customer for order 99, but extending this model too far can become cumbersome to implement.</target>
+        </trans-unit>
+        <trans-unit id="1b5363e6-3e52-4cd7-bc48-df5055c3c416" xml:space="preserve">
+          <source>A better solution is to provide navigable links to associated resources, such as the customer, in the body of the HTTP response message returned when the order is queried.</source>
+          <target state="new">A better solution is to provide navigable links to associated resources, such as the customer, in the body of the HTTP response message returned when the order is queried.</target>
+        </trans-unit>
+        <trans-unit id="de418c93-a6b9-4fee-8df1-bfa5d526020a" xml:space="preserve">
+          <source>This mechanism is described in more detail in the section Using the HATEOAS Approach to Enable Navigation To Related Resources later in this guidance.</source>
+          <target state="new">This mechanism is described in more detail in the section Using the HATEOAS Approach to Enable Navigation To Related Resources later in this guidance.</target>
+        </trans-unit>
+        <trans-unit id="47f58a70-f992-4a00-9aef-ad6facd5be21" xml:space="preserve">
+          <source>In more complex systems there may be many more types of entity, and it can be tempting to provide URIs that enable a client application to navigate through several levels of relationships, such as <bpt id="a1b1b761-151c-46f8-afb1-d0a97c7fb65d">&lt;em&gt;</bpt>/customers/1/orders/99/products<ept id="a1b1b761-151c-46f8-afb1-d0a97c7fb65d">&lt;/em&gt;</ept> to obtain the list of products in order 99 placed by customer 1.</source>
+          <target state="new">In more complex systems there may be many more types of entity, and it can be tempting to provide URIs that enable a client application to navigate through several levels of relationships, such as <bpt id="a1b1b761-151c-46f8-afb1-d0a97c7fb65d">&lt;em&gt;</bpt>/customers/1/orders/99/products<ept id="a1b1b761-151c-46f8-afb1-d0a97c7fb65d">&lt;/em&gt;</ept> to obtain the list of products in order 99 placed by customer 1.</target>
+        </trans-unit>
+        <trans-unit id="f92c350c-502e-4ded-aa18-f2501ec0c916" xml:space="preserve">
+          <source>However, this level of complexity can be difficult to maintain and is inflexible if the relationships between resources change in the future.</source>
+          <target state="new">However, this level of complexity can be difficult to maintain and is inflexible if the relationships between resources change in the future.</target>
+        </trans-unit>
+        <trans-unit id="ff503d73-0b30-4d01-8e99-b4043b885383" xml:space="preserve">
+          <source>Rather, you should seek to keep URIs relatively simple.</source>
+          <target state="new">Rather, you should seek to keep URIs relatively simple.</target>
+        </trans-unit>
+        <trans-unit id="3cec94c0-58fc-4b5d-8a58-c90d8405e95b" xml:space="preserve">
+          <source>Bear in mind that once an application has a reference to a resource, it should be possible to use this reference to find items related to that resource.</source>
+          <target state="new">Bear in mind that once an application has a reference to a resource, it should be possible to use this reference to find items related to that resource.</target>
+        </trans-unit>
+        <trans-unit id="497fd25c-c41b-41fb-b386-0aaf1c3b8055" xml:space="preserve">
+          <source>The preceding query can be replaced with the URI <bpt id="5c5dca33-2353-42a0-8149-52a7b8919fc2">&lt;em&gt;</bpt>/customers/1/orders<ept id="5c5dca33-2353-42a0-8149-52a7b8919fc2">&lt;/em&gt;</ept> to find all the orders for customer 1, and then query the URI <bpt id="8c6dd0f0-7481-417c-a068-52979d71c395">&lt;em&gt;</bpt>/orders/99/products<ept id="8c6dd0f0-7481-417c-a068-52979d71c395">&lt;/em&gt;</ept> to find the products in this order (assuming order 99 was placed by customer 1).</source>
+          <target state="new">The preceding query can be replaced with the URI <bpt id="5c5dca33-2353-42a0-8149-52a7b8919fc2">&lt;em&gt;</bpt>/customers/1/orders<ept id="5c5dca33-2353-42a0-8149-52a7b8919fc2">&lt;/em&gt;</ept> to find all the orders for customer 1, and then query the URI <bpt id="8c6dd0f0-7481-417c-a068-52979d71c395">&lt;em&gt;</bpt>/orders/99/products<ept id="8c6dd0f0-7481-417c-a068-52979d71c395">&lt;/em&gt;</ept> to find the products in this order (assuming order 99 was placed by customer 1).</target>
+        </trans-unit>
+        <trans-unit id="a5d4981b-5d04-4d9e-8440-6efdf3ad64b9" xml:space="preserve">
+          <source>Avoid requiring resource URIs more complex than <bpt id="a4278d4f-b0f4-48b5-ad3f-133888cbbf2a">&lt;em&gt;</bpt>collection/item/collection<ept id="a4278d4f-b0f4-48b5-ad3f-133888cbbf2a">&lt;/em&gt;</ept>.</source>
+          <target state="new">Avoid requiring resource URIs more complex than <bpt id="a4278d4f-b0f4-48b5-ad3f-133888cbbf2a">&lt;em&gt;</bpt>collection/item/collection<ept id="a4278d4f-b0f4-48b5-ad3f-133888cbbf2a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="430b81f2-b51d-47c1-a20f-a1a07bae30bb" xml:space="preserve">
+          <source>Another point to consider is that all web requests impose a load on the web server, and the greater the number of requests the bigger the load.</source>
+          <target state="new">Another point to consider is that all web requests impose a load on the web server, and the greater the number of requests the bigger the load.</target>
+        </trans-unit>
+        <trans-unit id="408089c3-2793-4fd8-aac7-870d074d323c" xml:space="preserve">
+          <source>You should attempt to define your resources to avoid “chatty” web APIs that expose a large number of small resources.</source>
+          <target state="new">You should attempt to define your resources to avoid “chatty” web APIs that expose a large number of small resources.</target>
+        </trans-unit>
+        <trans-unit id="f8eb1509-9095-4a70-a188-58e48eb7bad3" xml:space="preserve">
+          <source>Such an API may require a client application to submit multiple requests to find all the data that it requires.</source>
+          <target state="new">Such an API may require a client application to submit multiple requests to find all the data that it requires.</target>
+        </trans-unit>
+        <trans-unit id="0579e9da-d2ea-49f8-9470-20ad19a1e341" xml:space="preserve">
+          <source>It may be beneficial to denormalize data and combine related information together into bigger resources that can be retrieved by issuing a single request.</source>
+          <target state="new">It may be beneficial to denormalize data and combine related information together into bigger resources that can be retrieved by issuing a single request.</target>
+        </trans-unit>
+        <trans-unit id="381fdff6-bb6d-422e-8760-cfc5eb7e197d" xml:space="preserve">
+          <source>However, you need to balance this approach against the overhead of fetching data that might not be frequently required by the client.</source>
+          <target state="new">However, you need to balance this approach against the overhead of fetching data that might not be frequently required by the client.</target>
+        </trans-unit>
+        <trans-unit id="f7549675-da8a-407b-8764-376367c9dcb5" xml:space="preserve">
+          <source>Retrieving large objects can increase the latency of a request and incur additional bandwidth costs for little advantage if the additional data is not often used.</source>
+          <target state="new">Retrieving large objects can increase the latency of a request and incur additional bandwidth costs for little advantage if the additional data is not often used.</target>
+        </trans-unit>
+        <trans-unit id="31d8b73e-67bc-481b-af5f-9b8a0d331bba" xml:space="preserve">
+          <source>Avoid introducing dependencies between the web API to the structure, type, or location of the underlying data sources.</source>
+          <target state="new">Avoid introducing dependencies between the web API to the structure, type, or location of the underlying data sources.</target>
+        </trans-unit>
+        <trans-unit id="8ca68e49-1a03-4c0c-8f91-c21fdba891a7" xml:space="preserve">
+          <source>For example, if your data is located in a relational database, the web API does not need to expose each table as a collection of resources.</source>
+          <target state="new">For example, if your data is located in a relational database, the web API does not need to expose each table as a collection of resources.</target>
+        </trans-unit>
+        <trans-unit id="f8912e96-2aac-4d38-9ccb-61ebd406ee6e" xml:space="preserve">
+          <source>Think of the web API as an abstraction of the database, and if necessary introduce a mapping layer between the database and the web API.</source>
+          <target state="new">Think of the web API as an abstraction of the database, and if necessary introduce a mapping layer between the database and the web API.</target>
+        </trans-unit>
+        <trans-unit id="bff4dc5b-956f-40ca-8b92-5a1d9d209c9a" xml:space="preserve">
+          <source>In this way, if the design or implementation of the database changes (for example, you move from a relational database containing a collection of normalized tables to a denormalized NoSQL storage system such as a document database) client applications are insulated from these changes.</source>
+          <target state="new">In this way, if the design or implementation of the database changes (for example, you move from a relational database containing a collection of normalized tables to a denormalized NoSQL storage system such as a document database) client applications are insulated from these changes.</target>
+        </trans-unit>
+        <trans-unit id="3b03fdc1-8006-4621-b4b3-92dc3eb6157c" xml:space="preserve">
+          <source>The source of the data that underpins a web API does not have to be a data store; it could be another service or line-of-business application or even a legacy application running on-premises within an organization.</source>
+          <target state="new">The source of the data that underpins a web API does not have to be a data store; it could be another service or line-of-business application or even a legacy application running on-premises within an organization.</target>
+        </trans-unit>
+        <trans-unit id="cce82b37-3a02-4f91-aa10-f890ac3a1fa5" xml:space="preserve">
+          <source>Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such <bpt id="ed47af8b-a2d2-4cba-9d8a-d654de45f71e">&lt;em&gt;</bpt>non-resource<ept id="ed47af8b-a2d2-4cba-9d8a-d654de45f71e">&lt;/em&gt;</ept> scenarios through HTTP GET requests that invoke a piece of functionality and return the results as an HTTP response message. A web API that implements simple calculator-style operations such as add and subtract could provide URIs that expose these operations as pseudo resources and utilize the query string to specify the parameters required. For example a GET request to the URI <bpt id="df89fcb3-34a8-41aa-ba86-a1a0367bf18d">&lt;em&gt;</bpt>/add?operand1=99&amp;operand2=1<ept id="df89fcb3-34a8-41aa-ba86-a1a0367bf18d">&lt;/em&gt;</ept> could return a response message with the body containing the value 100, and GET request to the URI <bpt id="b58aaa85-7537-4e47-b753-f479ccc88e3e">&lt;em&gt;</bpt>/subtract?operand1=50&amp;operand2=20<ept id="b58aaa85-7537-4e47-b753-f479ccc88e3e">&lt;/em&gt;</ept> could return a response message with the body containing the value 30. However, only use these forms of URIs sparingly.</source>
+          <target state="new">Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such <bpt id="ed47af8b-a2d2-4cba-9d8a-d654de45f71e">&lt;em&gt;</bpt>non-resource<ept id="ed47af8b-a2d2-4cba-9d8a-d654de45f71e">&lt;/em&gt;</ept> scenarios through HTTP GET requests that invoke a piece of functionality and return the results as an HTTP response message. A web API that implements simple calculator-style operations such as add and subtract could provide URIs that expose these operations as pseudo resources and utilize the query string to specify the parameters required. For example a GET request to the URI <bpt id="df89fcb3-34a8-41aa-ba86-a1a0367bf18d">&lt;em&gt;</bpt>/add?operand1=99&amp;operand2=1<ept id="df89fcb3-34a8-41aa-ba86-a1a0367bf18d">&lt;/em&gt;</ept> could return a response message with the body containing the value 100, and GET request to the URI <bpt id="b58aaa85-7537-4e47-b753-f479ccc88e3e">&lt;em&gt;</bpt>/subtract?operand1=50&amp;operand2=20<ept id="b58aaa85-7537-4e47-b753-f479ccc88e3e">&lt;/em&gt;</ept> could return a response message with the body containing the value 30. However, only use these forms of URIs sparingly.</target>
+        </trans-unit>
+        <trans-unit id="b6aec5a4-a307-420f-9bdb-46c1cf1550ec" xml:space="preserve">
+          <source>The HTTP protocol defines a number of methods that assign semantic meaning to a request.</source>
+          <target state="new">The HTTP protocol defines a number of methods that assign semantic meaning to a request.</target>
+        </trans-unit>
+        <trans-unit id="e8b35690-e2b5-45cb-b3d8-9230af2586d7" xml:space="preserve">
+          <source>The common HTTP methods used by most RESTful web APIs are:</source>
+          <target state="new">The common HTTP methods used by most RESTful web APIs are:</target>
+        </trans-unit>
+        <trans-unit id="28f787b5-fc37-4fc0-bbef-e8ac115bbfa8" xml:space="preserve">
+          <source><bpt id="f3971798-fe2e-42bd-81c9-8775dfe69d59">&lt;strong&gt;</bpt>GET<ept id="f3971798-fe2e-42bd-81c9-8775dfe69d59">&lt;/strong&gt;</ept>, to retrieve a copy of the resource at the specified URI.</source>
+          <target state="new"><bpt id="f3971798-fe2e-42bd-81c9-8775dfe69d59">&lt;strong&gt;</bpt>GET<ept id="f3971798-fe2e-42bd-81c9-8775dfe69d59">&lt;/strong&gt;</ept>, to retrieve a copy of the resource at the specified URI.</target>
+        </trans-unit>
+        <trans-unit id="b82f548b-b32d-42c2-90f5-a54a62e59e22" xml:space="preserve">
+          <source>The body of the response message contains the details of the requested resource.</source>
+          <target state="new">The body of the response message contains the details of the requested resource.</target>
+        </trans-unit>
+        <trans-unit id="cf12bb8e-d379-4981-b32d-000d99d051b1" xml:space="preserve">
+          <source><bpt id="29c0ed8d-2167-498d-ace2-50d840813bf9">&lt;strong&gt;</bpt>POST<ept id="29c0ed8d-2167-498d-ace2-50d840813bf9">&lt;/strong&gt;</ept>, to create a new resource at the specified URI.</source>
+          <target state="new"><bpt id="29c0ed8d-2167-498d-ace2-50d840813bf9">&lt;strong&gt;</bpt>POST<ept id="29c0ed8d-2167-498d-ace2-50d840813bf9">&lt;/strong&gt;</ept>, to create a new resource at the specified URI.</target>
+        </trans-unit>
+        <trans-unit id="9663b01b-26cd-4746-a8f5-8b2984578940" xml:space="preserve">
+          <source>The body of the request message provides the details of the new resource.</source>
+          <target state="new">The body of the request message provides the details of the new resource.</target>
+        </trans-unit>
+        <trans-unit id="00375b80-cfa8-4367-aedf-09f21c3a86ad" xml:space="preserve">
+          <source>Note that POST can also be used to trigger operations that don't actually create resources.</source>
+          <target state="new">Note that POST can also be used to trigger operations that don't actually create resources.</target>
+        </trans-unit>
+        <trans-unit id="b7586aac-4bd7-4b79-944b-a1ac5a38cea6" xml:space="preserve">
+          <source><bpt id="ea629e7b-2adc-469d-8635-a23d73ea1574">&lt;strong&gt;</bpt>PUT<ept id="ea629e7b-2adc-469d-8635-a23d73ea1574">&lt;/strong&gt;</ept>, to replace or update the resource at the specified URI.</source>
+          <target state="new"><bpt id="ea629e7b-2adc-469d-8635-a23d73ea1574">&lt;strong&gt;</bpt>PUT<ept id="ea629e7b-2adc-469d-8635-a23d73ea1574">&lt;/strong&gt;</ept>, to replace or update the resource at the specified URI.</target>
+        </trans-unit>
+        <trans-unit id="d1e1d5ae-40c7-4a48-a277-54b51c48c5c7" xml:space="preserve">
+          <source>The body of the request message specifies the resource to be modified and the values to be applied.</source>
+          <target state="new">The body of the request message specifies the resource to be modified and the values to be applied.</target>
+        </trans-unit>
+        <trans-unit id="5f358911-c69b-46b0-9572-963c6d261b45" xml:space="preserve">
+          <source><bpt id="665e3492-01e6-42b7-b3d8-e255e2e413c2">&lt;strong&gt;</bpt>DELETE<ept id="665e3492-01e6-42b7-b3d8-e255e2e413c2">&lt;/strong&gt;</ept>, to remove the resource at the specified URI.</source>
+          <target state="new"><bpt id="665e3492-01e6-42b7-b3d8-e255e2e413c2">&lt;strong&gt;</bpt>DELETE<ept id="665e3492-01e6-42b7-b3d8-e255e2e413c2">&lt;/strong&gt;</ept>, to remove the resource at the specified URI.</target>
+        </trans-unit>
+        <trans-unit id="1b6f9fdd-59e4-4469-b9cc-886e036e1958" xml:space="preserve">
+          <source>The HTTP protocol also defines other less commonly-used methods, such as PATCH which is used to request selective updates to a resource, HEAD which is used to request a description of a resource, OPTIONS which enables a client information to obtain information about the communication options supported by the server, and TRACE which allows a client to request information that it can use for testing and diagnostics purposes.</source>
+          <target state="new">The HTTP protocol also defines other less commonly-used methods, such as PATCH which is used to request selective updates to a resource, HEAD which is used to request a description of a resource, OPTIONS which enables a client information to obtain information about the communication options supported by the server, and TRACE which allows a client to request information that it can use for testing and diagnostics purposes.</target>
+        </trans-unit>
+        <trans-unit id="9aa07f4f-5fda-4b33-9919-4feb7727db2b" xml:space="preserve">
+          <source>The effect of a specific request should depend on whether the resource to which it is applied is a collection or an individual item.</source>
+          <target state="new">The effect of a specific request should depend on whether the resource to which it is applied is a collection or an individual item.</target>
+        </trans-unit>
+        <trans-unit id="7155bba6-c235-405c-8d5b-6aa4acba05bf" xml:space="preserve">
+          <source>The following table summarizes the common conventions adopted by most RESTful implementations using the ecommerce example.</source>
+          <target state="new">The following table summarizes the common conventions adopted by most RESTful implementations using the ecommerce example.</target>
+        </trans-unit>
+        <trans-unit id="839440ef-3b6f-43f4-9e2f-d4aaf5a3c959" xml:space="preserve">
+          <source>Note that not all of these requests might be implemented; it depends on the specific scenario.</source>
+          <target state="new">Note that not all of these requests might be implemented; it depends on the specific scenario.</target>
+        </trans-unit>
+        <trans-unit id="b2b74505-edd2-4a13-9e17-235b5d0a9b0e" xml:space="preserve">
+          <source><bpt id="0124b6d1-4613-48da-bdc4-42734a1abb3d">&lt;strong&gt;</bpt>Resource<ept id="0124b6d1-4613-48da-bdc4-42734a1abb3d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0124b6d1-4613-48da-bdc4-42734a1abb3d">&lt;strong&gt;</bpt>Resource<ept id="0124b6d1-4613-48da-bdc4-42734a1abb3d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa47d06b-891a-4aaa-a9aa-632505039a03" xml:space="preserve">
+          <source><bpt id="59ad2681-6b58-4e61-ad0b-b931552b7d88">&lt;strong&gt;</bpt>POST<ept id="59ad2681-6b58-4e61-ad0b-b931552b7d88">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="59ad2681-6b58-4e61-ad0b-b931552b7d88">&lt;strong&gt;</bpt>POST<ept id="59ad2681-6b58-4e61-ad0b-b931552b7d88">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c68b2db-2313-48b2-b8c2-5700d9a3d9dd" xml:space="preserve">
+          <source><bpt id="56f22a2c-c7e0-457c-a819-75587608bcbd">&lt;strong&gt;</bpt>GET<ept id="56f22a2c-c7e0-457c-a819-75587608bcbd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="56f22a2c-c7e0-457c-a819-75587608bcbd">&lt;strong&gt;</bpt>GET<ept id="56f22a2c-c7e0-457c-a819-75587608bcbd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2616a078-3a35-44e3-8c85-f60d6caa01a6" xml:space="preserve">
+          <source><bpt id="979b3130-8cd2-4ad8-94cf-22a5ef6f9f88">&lt;strong&gt;</bpt>PUT<ept id="979b3130-8cd2-4ad8-94cf-22a5ef6f9f88">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="979b3130-8cd2-4ad8-94cf-22a5ef6f9f88">&lt;strong&gt;</bpt>PUT<ept id="979b3130-8cd2-4ad8-94cf-22a5ef6f9f88">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89393b5e-9d01-4105-880d-edc66ee3e5f4" xml:space="preserve">
+          <source><bpt id="df23ab4e-0aa2-4c00-954c-6561f5d70bd7">&lt;strong&gt;</bpt>DELETE<ept id="df23ab4e-0aa2-4c00-954c-6561f5d70bd7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="df23ab4e-0aa2-4c00-954c-6561f5d70bd7">&lt;strong&gt;</bpt>DELETE<ept id="df23ab4e-0aa2-4c00-954c-6561f5d70bd7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="835c7f95-0f31-4739-831d-e054317e77fd" xml:space="preserve">
+          <source>/customers</source>
+          <target state="new">/customers</target>
+        </trans-unit>
+        <trans-unit id="78afdd7b-952b-43bd-aed1-992bafd30c24" xml:space="preserve">
+          <source>Create a new customer</source>
+          <target state="new">Create a new customer</target>
+        </trans-unit>
+        <trans-unit id="732ded79-b8f6-4013-900e-b0b62a2e3bca" xml:space="preserve">
+          <source>Retrieve all customers</source>
+          <target state="new">Retrieve all customers</target>
+        </trans-unit>
+        <trans-unit id="7a4c4d3a-57eb-457f-9042-fc0007c71ac9" xml:space="preserve">
+          <source>Bulk update of customers (<bpt id="9fc91546-3fcf-4116-9748-972a575e5328">&lt;em&gt;</bpt>if implemented<ept id="9fc91546-3fcf-4116-9748-972a575e5328">&lt;/em&gt;</ept>)</source>
+          <target state="new">Bulk update of customers (<bpt id="9fc91546-3fcf-4116-9748-972a575e5328">&lt;em&gt;</bpt>if implemented<ept id="9fc91546-3fcf-4116-9748-972a575e5328">&lt;/em&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="f96f974c-42c2-4a50-b561-55b1345ece82" xml:space="preserve">
+          <source>Remove all customers</source>
+          <target state="new">Remove all customers</target>
+        </trans-unit>
+        <trans-unit id="07e361dc-f945-43ed-84d5-1eb49abe97ee" xml:space="preserve">
+          <source>/customers/1</source>
+          <target state="new">/customers/1</target>
+        </trans-unit>
+        <trans-unit id="82a71d49-0177-411a-a745-270ccf20bb5e" xml:space="preserve">
+          <source>Error</source>
+          <target state="new">Error</target>
+        </trans-unit>
+        <trans-unit id="4d380572-81ec-4fcf-9873-f9a94c95581c" xml:space="preserve">
+          <source>Retrieve the details for customer 1</source>
+          <target state="new">Retrieve the details for customer 1</target>
+        </trans-unit>
+        <trans-unit id="73b8c2df-5bfe-440d-af34-702ca2f82e4d" xml:space="preserve">
+          <source>Update the details of customer 1 if it exists, otherwise return an error</source>
+          <target state="new">Update the details of customer 1 if it exists, otherwise return an error</target>
+        </trans-unit>
+        <trans-unit id="243575d2-8149-4eb9-ace7-7113af5275a9" xml:space="preserve">
+          <source>Remove customer 1</source>
+          <target state="new">Remove customer 1</target>
+        </trans-unit>
+        <trans-unit id="8016e047-55db-40b3-ba57-74075b754069" xml:space="preserve">
+          <source>/customers/1/orders</source>
+          <target state="new">/customers/1/orders</target>
+        </trans-unit>
+        <trans-unit id="63f93e24-8197-40e1-93f7-b6a193db0c73" xml:space="preserve">
+          <source>Create a new order for customer 1</source>
+          <target state="new">Create a new order for customer 1</target>
+        </trans-unit>
+        <trans-unit id="0cf08320-feca-433e-aa0e-3c2c3d11b242" xml:space="preserve">
+          <source>Retrieve all orders for customer 1</source>
+          <target state="new">Retrieve all orders for customer 1</target>
+        </trans-unit>
+        <trans-unit id="2288fc17-e7c8-4008-8ddd-4fbb47207e3e" xml:space="preserve">
+          <source>Bulk update of orders for customer 1 (<bpt id="31cc919d-7ba5-4274-ab62-7c65dc09e9e9">&lt;em&gt;</bpt>if implemented<ept id="31cc919d-7ba5-4274-ab62-7c65dc09e9e9">&lt;/em&gt;</ept>)</source>
+          <target state="new">Bulk update of orders for customer 1 (<bpt id="31cc919d-7ba5-4274-ab62-7c65dc09e9e9">&lt;em&gt;</bpt>if implemented<ept id="31cc919d-7ba5-4274-ab62-7c65dc09e9e9">&lt;/em&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="b07084d6-77be-4020-9466-4da999062dc2" xml:space="preserve">
+          <source>Remove all orders for customer 1(<bpt id="397d94d9-3e6e-4838-97ed-c349d26fe456">&lt;em&gt;</bpt>if implemented<ept id="397d94d9-3e6e-4838-97ed-c349d26fe456">&lt;/em&gt;</ept>)</source>
+          <target state="new">Remove all orders for customer 1(<bpt id="397d94d9-3e6e-4838-97ed-c349d26fe456">&lt;em&gt;</bpt>if implemented<ept id="397d94d9-3e6e-4838-97ed-c349d26fe456">&lt;/em&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="36ffa568-7f80-4e47-8693-f9e1c0f6ab75" xml:space="preserve">
+          <source>The purpose of GET and DELETE requests are relatively straightforward, but there is scope for confusion concerning the purpose and effects of POST and PUT requests.</source>
+          <target state="new">The purpose of GET and DELETE requests are relatively straightforward, but there is scope for confusion concerning the purpose and effects of POST and PUT requests.</target>
+        </trans-unit>
+        <trans-unit id="604d8c8e-cd56-4593-9481-e7f97a64f42d" xml:space="preserve">
+          <source>A POST request should create a new resource with data provided in the body of the request.</source>
+          <target state="new">A POST request should create a new resource with data provided in the body of the request.</target>
+        </trans-unit>
+        <trans-unit id="4ed5ea5a-9c48-4608-aa1e-0f3067f49496" xml:space="preserve">
+          <source>In the REST model, you frequently apply POST requests to resources that are collections; the new resource is added to the collection.</source>
+          <target state="new">In the REST model, you frequently apply POST requests to resources that are collections; the new resource is added to the collection.</target>
+        </trans-unit>
+        <trans-unit id="a269bd32-7fbc-4cc0-a3ad-d9bcd6ac0690" xml:space="preserve">
+          <source>You can also define POST requests that trigger some functionality (and that don't necessarily return data), and these types of request can be applied to collections.</source>
+          <target state="new">You can also define POST requests that trigger some functionality (and that don't necessarily return data), and these types of request can be applied to collections.</target>
+        </trans-unit>
+        <trans-unit id="21898d6a-e6b7-430d-a193-6fced2850dcd" xml:space="preserve">
+          <source>For example you could use a POST request to pass a timesheet to a payroll processing service and get the calculated taxes back as a response.</source>
+          <target state="new">For example you could use a POST request to pass a timesheet to a payroll processing service and get the calculated taxes back as a response.</target>
+        </trans-unit>
+        <trans-unit id="5948e433-2194-4375-8a0a-9fec9e65f1ec" xml:space="preserve">
+          <source>A PUT request is intended to modify an existing resource.</source>
+          <target state="new">A PUT request is intended to modify an existing resource.</target>
+        </trans-unit>
+        <trans-unit id="4cbb5e2c-328e-4a1b-80c8-13fb95ca70f8" xml:space="preserve">
+          <source>If the specified resource does not exist, the PUT request could return an error (in some cases, it might actually create the resource).</source>
+          <target state="new">If the specified resource does not exist, the PUT request could return an error (in some cases, it might actually create the resource).</target>
+        </trans-unit>
+        <trans-unit id="7928c041-ad44-47b6-ad34-470b40fbcf40" xml:space="preserve">
+          <source>PUT requests are most frequently applied to resources that are individual items (such as a specific customer or order), although they can be applied to collections, although this is less-commonly implemented.</source>
+          <target state="new">PUT requests are most frequently applied to resources that are individual items (such as a specific customer or order), although they can be applied to collections, although this is less-commonly implemented.</target>
+        </trans-unit>
+        <trans-unit id="1f5a1a1c-3a65-4d02-a6f4-7a8f47416658" xml:space="preserve">
+          <source>Note that PUT requests are idempotent whereas POST requests are not; if an application submits the same PUT request multiple times the results should always be the same (the same resource will be modified with the same values), but if an application repeats the same POST request the result will be the creation of multiple resources.</source>
+          <target state="new">Note that PUT requests are idempotent whereas POST requests are not; if an application submits the same PUT request multiple times the results should always be the same (the same resource will be modified with the same values), but if an application repeats the same POST request the result will be the creation of multiple resources.</target>
+        </trans-unit>
+        <trans-unit id="2e19cde1-6ec4-49f2-8ecc-f13166d3dd36" xml:space="preserve">
+          <source>Strictly speaking, an HTTP PUT request replaces an existing resource with the resource specified in the body of the request.</source>
+          <target state="new">Strictly speaking, an HTTP PUT request replaces an existing resource with the resource specified in the body of the request.</target>
+        </trans-unit>
+        <trans-unit id="5b36ec47-5fed-4d18-b3c5-04cf083bda93" xml:space="preserve">
+          <source>If the intention is to modify a selection of properties in a resource but leave other properties unchanged, then this should be implemented by using an HTTP PATCH request.</source>
+          <target state="new">If the intention is to modify a selection of properties in a resource but leave other properties unchanged, then this should be implemented by using an HTTP PATCH request.</target>
+        </trans-unit>
+        <trans-unit id="79669ae2-4f83-49c2-b476-8a2d76434f99" xml:space="preserve">
+          <source>However, many RESTful implementations relax this rule and use PUT for both situations.</source>
+          <target state="new">However, many RESTful implementations relax this rule and use PUT for both situations.</target>
+        </trans-unit>
+        <trans-unit id="2a71bc1e-d222-40a1-a327-99f96cb57538" xml:space="preserve">
+          <source>The data included by a client application in many HTTP requests, and the corresponding response messages from the web server, could be presented in a variety of formats (or media types).</source>
+          <target state="new">The data included by a client application in many HTTP requests, and the corresponding response messages from the web server, could be presented in a variety of formats (or media types).</target>
+        </trans-unit>
+        <trans-unit id="c136733e-de1f-4501-9ef3-6af297914f3b" xml:space="preserve">
+          <source>For example, the data that specifies the details for a customer or order could be provided as XML, JSON, or some other encoded and compressed format.</source>
+          <target state="new">For example, the data that specifies the details for a customer or order could be provided as XML, JSON, or some other encoded and compressed format.</target>
+        </trans-unit>
+        <trans-unit id="42c0b76e-7ada-4208-9f1c-59606a11aa20" xml:space="preserve">
+          <source>A RESTful web API should support different media types as requested by the client application that submits a request.</source>
+          <target state="new">A RESTful web API should support different media types as requested by the client application that submits a request.</target>
+        </trans-unit>
+        <trans-unit id="8b7f6d79-6e86-4144-82f6-895cfbddd6f4" xml:space="preserve">
+          <source>When a client application sends a request that returns data in the body of a message, it can specify the media types it can handle in the Accept header of the request.</source>
+          <target state="new">When a client application sends a request that returns data in the body of a message, it can specify the media types it can handle in the Accept header of the request.</target>
+        </trans-unit>
+        <trans-unit id="be96b3ed-223f-48c4-b5eb-c4dd79128f56" xml:space="preserve">
+          <source>The following code illustrates an HTTP GET request that retrieves the details of customer 1 and requests the result to be returned as JSON (the client should still examine the media type of the data in the response to verify the format of the data returned):</source>
+          <target state="new">The following code illustrates an HTTP GET request that retrieves the details of customer 1 and requests the result to be returned as JSON (the client should still examine the media type of the data in the response to verify the format of the data returned):</target>
+        </trans-unit>
+        <trans-unit id="45d36bcf-a72c-492c-89e7-14fcd2e12e2d" xml:space="preserve">
+          <source>If the web server supports this media type, it can reply with a response that includes Content-Type header that specifies the format of the data in the body of the message:</source>
+          <target state="new">If the web server supports this media type, it can reply with a response that includes Content-Type header that specifies the format of the data in the body of the message:</target>
+        </trans-unit>
+        <trans-unit id="ed5bac9f-7d7a-420d-b39e-e0e109c5b7ae" xml:space="preserve">
+          <source>For maximum interoperability, the media types referenced in the Accept and Content-Type headers should be recognized MIME types rather than some custom media type.</source>
+          <target state="new">For maximum interoperability, the media types referenced in the Accept and Content-Type headers should be recognized MIME types rather than some custom media type.</target>
+        </trans-unit>
+        <trans-unit id="3cd6dcbd-55e7-474c-a37d-6df850bbd380" xml:space="preserve">
+          <source>If the web server does not support the requested media type, it can send the data in a different format.</source>
+          <target state="new">If the web server does not support the requested media type, it can send the data in a different format.</target>
+        </trans-unit>
+        <trans-unit id="c9cafa03-df61-440a-8c4c-533a2ac6991b" xml:space="preserve">
+          <source>IN all cases it must specify the media type (such as <bpt id="89ed7360-9802-4608-ba6e-5fac487a8a7e">&lt;em&gt;</bpt>text/xml<ept id="89ed7360-9802-4608-ba6e-5fac487a8a7e">&lt;/em&gt;</ept>) in the Content-Type header.</source>
+          <target state="new">IN all cases it must specify the media type (such as <bpt id="89ed7360-9802-4608-ba6e-5fac487a8a7e">&lt;em&gt;</bpt>text/xml<ept id="89ed7360-9802-4608-ba6e-5fac487a8a7e">&lt;/em&gt;</ept>) in the Content-Type header.</target>
+        </trans-unit>
+        <trans-unit id="fede3040-2e06-4381-962f-a0f481928296" xml:space="preserve">
+          <source>It is the responsibility of the client application to parse the response message and interpret the results in the message body appropriately.</source>
+          <target state="new">It is the responsibility of the client application to parse the response message and interpret the results in the message body appropriately.</target>
+        </trans-unit>
+        <trans-unit id="aeda6032-8d49-4054-8ba4-62bcce56e7a3" xml:space="preserve">
+          <source>Note that in this example, the web server successfully retrieves the requested data and indicates success by passing back a status code of 200 in the response header.</source>
+          <target state="new">Note that in this example, the web server successfully retrieves the requested data and indicates success by passing back a status code of 200 in the response header.</target>
+        </trans-unit>
+        <trans-unit id="adc38f28-46af-4089-959f-6b660bd93b41" xml:space="preserve">
+          <source>If no matching data is found, it should instead return a status code of 404 (not found) and the body of the response message can contain additional information.</source>
+          <target state="new">If no matching data is found, it should instead return a status code of 404 (not found) and the body of the response message can contain additional information.</target>
+        </trans-unit>
+        <trans-unit id="b03dfd26-1615-4812-8111-a90187a3d10b" xml:space="preserve">
+          <source>The format of this information is specified by the Content-Type header, as shown in the following example:</source>
+          <target state="new">The format of this information is specified by the Content-Type header, as shown in the following example:</target>
+        </trans-unit>
+        <trans-unit id="04075cb1-268e-41bc-9dc5-efb3a467d7af" xml:space="preserve">
+          <source>Order 222 does not exist, so the response message looks like this:</source>
+          <target state="new">Order 222 does not exist, so the response message looks like this:</target>
+        </trans-unit>
+        <trans-unit id="a93d9097-2446-4a12-b854-3ea9075fb21f" xml:space="preserve">
+          <source>When an application sends an HTTP PUT request to update a resource, it specifies the URI of the resource and provides the data to be modified in the body of the request message. It should also specify the format of this data by using the Content-Type header. A common format used for text-based information is <bpt id="1187b6ff-b9ab-4c67-ab3c-d087d64103fb">&lt;em&gt;</bpt>application/x-www-form-urlencoded<ept id="1187b6ff-b9ab-4c67-ab3c-d087d64103fb">&lt;/em&gt;</ept>, which comprises a set of name/value pairs separated by the &amp; character. The next example shows an HTTP PUT request that modifies the information in order 1:</source>
+          <target state="new">When an application sends an HTTP PUT request to update a resource, it specifies the URI of the resource and provides the data to be modified in the body of the request message. It should also specify the format of this data by using the Content-Type header. A common format used for text-based information is <bpt id="1187b6ff-b9ab-4c67-ab3c-d087d64103fb">&lt;em&gt;</bpt>application/x-www-form-urlencoded<ept id="1187b6ff-b9ab-4c67-ab3c-d087d64103fb">&lt;/em&gt;</ept>, which comprises a set of name/value pairs separated by the &amp; character. The next example shows an HTTP PUT request that modifies the information in order 1:</target>
+        </trans-unit>
+        <trans-unit id="f62094c4-944e-4da6-9c7e-0609ea50875a" xml:space="preserve">
+          <source>If the modification is successful, it should ideally respond with an HTTP 204 status code, indicating that the process has been successfully handled, but that the response body contains no further information.</source>
+          <target state="new">If the modification is successful, it should ideally respond with an HTTP 204 status code, indicating that the process has been successfully handled, but that the response body contains no further information.</target>
+        </trans-unit>
+        <trans-unit id="bec832c2-d62c-464b-8ccd-f0a29155ac3e" xml:space="preserve">
+          <source>The Location header in the response contains the URI of the newly updated resource:</source>
+          <target state="new">The Location header in the response contains the URI of the newly updated resource:</target>
+        </trans-unit>
+        <trans-unit id="29955c40-171b-47b0-b34b-ea4eb3710c4f" xml:space="preserve">
+          <source>If the data in an HTTP PUT request message includes date and time information, make sure that your web service accepts dates and times formatted following the ISO 8601 standard.</source>
+          <target state="new">If the data in an HTTP PUT request message includes date and time information, make sure that your web service accepts dates and times formatted following the ISO 8601 standard.</target>
+        </trans-unit>
+        <trans-unit id="6d5efc27-ff39-48ec-803a-3566f8d62057" xml:space="preserve">
+          <source>If the resource to be updated does not exist, the web server can respond with a Not Found response as described earlier.</source>
+          <target state="new">If the resource to be updated does not exist, the web server can respond with a Not Found response as described earlier.</target>
+        </trans-unit>
+        <trans-unit id="db602706-2fcf-42f3-ac10-44cac39458c7" xml:space="preserve">
+          <source>Alternatively, if the server actually creates the object itself it could return the status codes HTTP 200 (OK) or HTTP 201 (Created) and the response body could contain the data for the new resource.</source>
+          <target state="new">Alternatively, if the server actually creates the object itself it could return the status codes HTTP 200 (OK) or HTTP 201 (Created) and the response body could contain the data for the new resource.</target>
+        </trans-unit>
+        <trans-unit id="42c77711-bd9e-4124-8379-aef0923887ab" xml:space="preserve">
+          <source>If the Content-Type header of the request specifies a data format that the web server cannot handle, it should respond with HTTP status code 415 (Unsupported Media Type).</source>
+          <target state="new">If the Content-Type header of the request specifies a data format that the web server cannot handle, it should respond with HTTP status code 415 (Unsupported Media Type).</target>
+        </trans-unit>
+        <trans-unit id="17b63915-f489-46ad-9650-33b728e6773a" xml:space="preserve">
+          <source>Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection.</source>
+          <target state="new">Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection.</target>
+        </trans-unit>
+        <trans-unit id="df37167e-7310-4097-86e8-89f37bd0b78e" xml:space="preserve">
+          <source>The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified.</source>
+          <target state="new">The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified.</target>
+        </trans-unit>
+        <trans-unit id="7dfe4e33-f2f5-4402-b216-f4f74731face" xml:space="preserve">
+          <source>This approach can help to reduce chattiness and improve performance.</source>
+          <target state="new">This approach can help to reduce chattiness and improve performance.</target>
+        </trans-unit>
+        <trans-unit id="01be46d2-9f43-4c2f-9e30-3ef55fa550f8" xml:space="preserve">
+          <source>The format of an HTTP POST requests that create new resources are similar to those of PUT requests; the message body contains the details of the new resource to be added.</source>
+          <target state="new">The format of an HTTP POST requests that create new resources are similar to those of PUT requests; the message body contains the details of the new resource to be added.</target>
+        </trans-unit>
+        <trans-unit id="36c1e2be-59c4-4864-bba1-7965f23d1df5" xml:space="preserve">
+          <source>However, the URI typically specifies the collection to which the resource should be added.</source>
+          <target state="new">However, the URI typically specifies the collection to which the resource should be added.</target>
+        </trans-unit>
+        <trans-unit id="dfbd5028-69d3-4ef0-8a0c-d5c3e1de5f2a" xml:space="preserve">
+          <source>The following example creates a new order and adds it to the orders collection:</source>
+          <target state="new">The following example creates a new order and adds it to the orders collection:</target>
+        </trans-unit>
+        <trans-unit id="87468bbc-a754-44c2-927e-3f6a30463870" xml:space="preserve">
+          <source>If the request is successful, the web server should respond with a message code with HTTP status code 201 (Created).</source>
+          <target state="new">If the request is successful, the web server should respond with a message code with HTTP status code 201 (Created).</target>
+        </trans-unit>
+        <trans-unit id="6ac57ef6-b4bb-4a15-90c4-5535cacf9329" xml:space="preserve">
+          <source>The Location header should contain the URI of the newly created resource, and the body of the response should contain a copy of the new resource; the Content-Type header specifies the format of this data:</source>
+          <target state="new">The Location header should contain the URI of the newly created resource, and the body of the response should contain a copy of the new resource; the Content-Type header specifies the format of this data:</target>
+        </trans-unit>
+        <trans-unit id="1ffe027f-3869-41e6-a110-d1d31a376cfa" xml:space="preserve">
+          <source>If the data provided by a PUT or POST request is invalid, the web server should respond with a message with HTTP status code 400 (Bad Request).</source>
+          <target state="new">If the data provided by a PUT or POST request is invalid, the web server should respond with a message with HTTP status code 400 (Bad Request).</target>
+        </trans-unit>
+        <trans-unit id="fa44e5dc-9c80-45a4-bfeb-19daaaf0e830" xml:space="preserve">
+          <source>The body of this message can contain additional information about the problem with the request and the formats expected, or it can contain a link to a URL that provides more details.</source>
+          <target state="new">The body of this message can contain additional information about the problem with the request and the formats expected, or it can contain a link to a URL that provides more details.</target>
+        </trans-unit>
+        <trans-unit id="5c7fe4e9-4367-4d7f-882f-0bdc8a787b46" xml:space="preserve">
+          <source>To remove a resource, an HTTP DELETE request simply provides the URI of the resource to be deleted.</source>
+          <target state="new">To remove a resource, an HTTP DELETE request simply provides the URI of the resource to be deleted.</target>
+        </trans-unit>
+        <trans-unit id="717fd4de-5452-4665-889b-b136e4733d1b" xml:space="preserve">
+          <source>The following example attempts to remove order 99:</source>
+          <target state="new">The following example attempts to remove order 99:</target>
+        </trans-unit>
+        <trans-unit id="ca17cb32-0fa9-4bdc-b552-2d3ca0899af7" xml:space="preserve">
+          <source>If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information (this is the same response returned by a successful PUT operation, but without a Location header as the resource no longer exists.)</source>
+          <target state="new">If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information (this is the same response returned by a successful PUT operation, but without a Location header as the resource no longer exists.)</target>
+        </trans-unit>
+        <trans-unit id="b3bc609c-cbbc-481b-b54b-5f8caa0f07c4" xml:space="preserve">
+          <source>It is also possible for a DELETE request to return HTTP status code 200 (OK) or 202 (Accepted) if the deletion is performed asynchronously.</source>
+          <target state="new">It is also possible for a DELETE request to return HTTP status code 200 (OK) or 202 (Accepted) if the deletion is performed asynchronously.</target>
+        </trans-unit>
+        <trans-unit id="7daedbeb-e32e-459a-b96c-05e68e1bd183" xml:space="preserve">
+          <source>If the resource is not found, the web server should return a 404 (Not Found) message instead.</source>
+          <target state="new">If the resource is not found, the web server should return a 404 (Not Found) message instead.</target>
+        </trans-unit>
+        <trans-unit id="6327a3c5-e262-4b81-a5ee-aa1020567621" xml:space="preserve">
+          <source>If all the resources in a collection need to be deleted, enable an HTTP DELETE request to be specified for the URI of the collection rather than forcing an application to remove each resource in turn from the collection.</source>
+          <target state="new">If all the resources in a collection need to be deleted, enable an HTTP DELETE request to be specified for the URI of the collection rather than forcing an application to remove each resource in turn from the collection.</target>
+        </trans-unit>
+        <trans-unit id="c71cbe73-e91d-448f-8b4e-aa58bdcbe9f2" xml:space="preserve">
+          <source>You should endeavour to keep the URIs simple and intuitive.</source>
+          <target state="new">You should endeavour to keep the URIs simple and intuitive.</target>
+        </trans-unit>
+        <trans-unit id="d4796b06-be88-43d4-b1ab-cf89bd893e6a" xml:space="preserve">
+          <source>Exposing a collection of resources through a single URI assists in this respect, but it can lead to applications fetching large amounts of data when only a subset of the information is required.</source>
+          <target state="new">Exposing a collection of resources through a single URI assists in this respect, but it can lead to applications fetching large amounts of data when only a subset of the information is required.</target>
+        </trans-unit>
+        <trans-unit id="e94cfa50-e031-493c-af7c-0d89dc1f992e" xml:space="preserve">
+          <source>Generating a large volume of traffic impacts not only the performance and scalability of the web server but also adversely affect the responsiveness of client applications requesting the data.</source>
+          <target state="new">Generating a large volume of traffic impacts not only the performance and scalability of the web server but also adversely affect the responsiveness of client applications requesting the data.</target>
+        </trans-unit>
+        <trans-unit id="0860de72-da00-48e4-be73-74cccee094c4" xml:space="preserve">
+          <source>For example, if orders contain the price paid for the order, a client application that needs to retrieve all orders that have a cost over a specific value might need to retrieve all orders from the <bpt id="85318f51-f677-4bf0-a271-f458e6d11925">&lt;em&gt;</bpt>/orders<ept id="85318f51-f677-4bf0-a271-f458e6d11925">&lt;/em&gt;</ept> URI and then filter these orders locally.</source>
+          <target state="new">For example, if orders contain the price paid for the order, a client application that needs to retrieve all orders that have a cost over a specific value might need to retrieve all orders from the <bpt id="85318f51-f677-4bf0-a271-f458e6d11925">&lt;em&gt;</bpt>/orders<ept id="85318f51-f677-4bf0-a271-f458e6d11925">&lt;/em&gt;</ept> URI and then filter these orders locally.</target>
+        </trans-unit>
+        <trans-unit id="48fa55f9-6565-40b1-851d-b9096f7bd92e" xml:space="preserve">
+          <source>Clearly this process is highly inefficient; it wastes network bandwidth and processing power on the server hosting the web API.</source>
+          <target state="new">Clearly this process is highly inefficient; it wastes network bandwidth and processing power on the server hosting the web API.</target>
+        </trans-unit>
+        <trans-unit id="f7857029-6f6c-4598-8cf4-9f0539113ed9" xml:space="preserve">
+          <source>One solution may be to provide a URI scheme such as <bpt id="618decda-161b-41b6-bf5b-9502ac8d75e8">&lt;em&gt;</bpt>/orders/ordervalue<ept id="618decda-161b-41b6-bf5b-9502ac8d75e8">&lt;/em&gt;</ept>greater<bpt id="e89053d5-9d5a-4c3c-be9c-4c3ccefac032">&lt;em&gt;</bpt>than<ept id="e89053d5-9d5a-4c3c-be9c-4c3ccefac032">&lt;/em&gt;</ept>n_ where <bpt id="be6c468a-6d3a-4b34-9b30-c612117e6d28">&lt;em&gt;</bpt>n<ept id="be6c468a-6d3a-4b34-9b30-c612117e6d28">&lt;/em&gt;</ept> is the order price, but for all but a limited number of prices such an approach is impractical.</source>
+          <target state="new">One solution may be to provide a URI scheme such as <bpt id="618decda-161b-41b6-bf5b-9502ac8d75e8">&lt;em&gt;</bpt>/orders/ordervalue<ept id="618decda-161b-41b6-bf5b-9502ac8d75e8">&lt;/em&gt;</ept>greater<bpt id="e89053d5-9d5a-4c3c-be9c-4c3ccefac032">&lt;em&gt;</bpt>than<ept id="e89053d5-9d5a-4c3c-be9c-4c3ccefac032">&lt;/em&gt;</ept>n_ where <bpt id="be6c468a-6d3a-4b34-9b30-c612117e6d28">&lt;em&gt;</bpt>n<ept id="be6c468a-6d3a-4b34-9b30-c612117e6d28">&lt;/em&gt;</ept> is the order price, but for all but a limited number of prices such an approach is impractical.</target>
+        </trans-unit>
+        <trans-unit id="f12ea0cb-cea3-462e-be25-80be4e0db7e0" xml:space="preserve">
+          <source>Additionally, if you need to query orders based on other criteria, you can end up being faced with providing with a long list of URIs with possibly non-intuitive names.</source>
+          <target state="new">Additionally, if you need to query orders based on other criteria, you can end up being faced with providing with a long list of URIs with possibly non-intuitive names.</target>
+        </trans-unit>
+        <trans-unit id="c6f640f6-1bd0-408c-a71c-aea03b50e66f" xml:space="preserve">
+          <source>A better strategy to filtering data is to provide the filter criteria in the query string that is passed to the web API, such as <bpt id="b3b906ab-d07f-4f05-9012-a14865419e8e">&lt;em&gt;</bpt>/orders?ordervaluethreshold=n<ept id="b3b906ab-d07f-4f05-9012-a14865419e8e">&lt;/em&gt;</ept>.</source>
+          <target state="new">A better strategy to filtering data is to provide the filter criteria in the query string that is passed to the web API, such as <bpt id="b3b906ab-d07f-4f05-9012-a14865419e8e">&lt;em&gt;</bpt>/orders?ordervaluethreshold=n<ept id="b3b906ab-d07f-4f05-9012-a14865419e8e">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7568dd7a-8977-433a-8f50-8bb6c718411c" xml:space="preserve">
+          <source>In this example, the corresponding operation in the web API is responsible for parsing and handling the <bpt id="6eac262b-88dd-48b5-ba5e-c9f366bc5d39">&lt;code&gt;</bpt>ordervaluethreshold<ept id="6eac262b-88dd-48b5-ba5e-c9f366bc5d39">&lt;/code&gt;</ept> parameter in the query string and returning the filtered results in the HTTP response.</source>
+          <target state="new">In this example, the corresponding operation in the web API is responsible for parsing and handling the <bpt id="6eac262b-88dd-48b5-ba5e-c9f366bc5d39">&lt;code&gt;</bpt>ordervaluethreshold<ept id="6eac262b-88dd-48b5-ba5e-c9f366bc5d39">&lt;/code&gt;</ept> parameter in the query string and returning the filtered results in the HTTP response.</target>
+        </trans-unit>
+        <trans-unit id="6ec83a37-305a-4593-9107-3b87ce3b3b08" xml:space="preserve">
+          <source>Some simple HTTP GET requests over collection resources could potentially return a large number of items. To combat the possibility of this occurring you should design the web API to limit the amount of data returned by any single request. You can achieve this by supporting query strings that enable the user to specify the maximum number of items to be retrieved (which could itself be subject to an upperbound limit to help prevent Denial of Service attacks), and a starting offset into the collection. For example, the query string in the URI <bpt id="451d6002-f87e-4abf-b8e7-dde6646765ad">&lt;em&gt;</bpt>/orders?limit=25&amp;offset=50<ept id="451d6002-f87e-4abf-b8e7-dde6646765ad">&lt;/em&gt;</ept> should retrieve 25 orders starting with the 50th order found in the orders collection. As with filtering data, the operation that implements the GET request in the web API is responsible for parsing and handling the <bpt id="8d6187a5-7e06-4abf-94e3-d38c79c6f08d">&lt;code&gt;</bpt>limit<ept id="8d6187a5-7e06-4abf-94e3-d38c79c6f08d">&lt;/code&gt;</ept> and <bpt id="d0c4b87b-9f67-4964-88a8-fde665a5c4ee">&lt;code&gt;</bpt>offset<ept id="d0c4b87b-9f67-4964-88a8-fde665a5c4ee">&lt;/code&gt;</ept> parameters in the query string. To assist client applications, GET requests that return paginated data should also include some form of metadata that indicate the total number of resources available in the collection. You might also consider other intelligent paging strategies; for more information, see <bpt id="5abe2399-725f-4df5-979f-bb759ce6efb5">&lt;linkText&gt;</bpt>API Design Notes: Smart Paging<ept id="5abe2399-725f-4df5-979f-bb759ce6efb5">&lt;/linkText&gt;</ept><bpt id="5abe2399-725f-4df5-979f-bb759ce6efb5">&lt;title&gt;</bpt><ept id="5abe2399-725f-4df5-979f-bb759ce6efb5">&lt;/title&gt;</ept></source>
+          <target state="new">Some simple HTTP GET requests over collection resources could potentially return a large number of items. To combat the possibility of this occurring you should design the web API to limit the amount of data returned by any single request. You can achieve this by supporting query strings that enable the user to specify the maximum number of items to be retrieved (which could itself be subject to an upperbound limit to help prevent Denial of Service attacks), and a starting offset into the collection. For example, the query string in the URI <bpt id="451d6002-f87e-4abf-b8e7-dde6646765ad">&lt;em&gt;</bpt>/orders?limit=25&amp;offset=50<ept id="451d6002-f87e-4abf-b8e7-dde6646765ad">&lt;/em&gt;</ept> should retrieve 25 orders starting with the 50th order found in the orders collection. As with filtering data, the operation that implements the GET request in the web API is responsible for parsing and handling the <bpt id="8d6187a5-7e06-4abf-94e3-d38c79c6f08d">&lt;code&gt;</bpt>limit<ept id="8d6187a5-7e06-4abf-94e3-d38c79c6f08d">&lt;/code&gt;</ept> and <bpt id="d0c4b87b-9f67-4964-88a8-fde665a5c4ee">&lt;code&gt;</bpt>offset<ept id="d0c4b87b-9f67-4964-88a8-fde665a5c4ee">&lt;/code&gt;</ept> parameters in the query string. To assist client applications, GET requests that return paginated data should also include some form of metadata that indicate the total number of resources available in the collection. You might also consider other intelligent paging strategies; for more information, see <bpt id="5abe2399-725f-4df5-979f-bb759ce6efb5">&lt;linkText&gt;</bpt>API Design Notes: Smart Paging<ept id="5abe2399-725f-4df5-979f-bb759ce6efb5">&lt;/linkText&gt;</ept><bpt id="5abe2399-725f-4df5-979f-bb759ce6efb5">&lt;title&gt;</bpt><ept id="5abe2399-725f-4df5-979f-bb759ce6efb5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f0eef45-cf87-4f6b-ae16-b8b9d7069b84" xml:space="preserve">
+          <source>You can follow a similar strategy for sorting data as it is fetched; you could provide a sort parameter that takes a field name as the value, such as <bpt id="2f59a338-1f38-405e-8f62-9c6caa3ff80b">&lt;em&gt;</bpt>/orders?sort=ProductID<ept id="2f59a338-1f38-405e-8f62-9c6caa3ff80b">&lt;/em&gt;</ept>.</source>
+          <target state="new">You can follow a similar strategy for sorting data as it is fetched; you could provide a sort parameter that takes a field name as the value, such as <bpt id="2f59a338-1f38-405e-8f62-9c6caa3ff80b">&lt;em&gt;</bpt>/orders?sort=ProductID<ept id="2f59a338-1f38-405e-8f62-9c6caa3ff80b">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0797a66e-574f-4430-8f10-7bbfbd2b4030" xml:space="preserve">
+          <source>However, note that this approach can have a deleterious effect on caching (query string parameters form part of the resource identifier used by many cache implementations as the key to cached data).</source>
+          <target state="new">However, note that this approach can have a deleterious effect on caching (query string parameters form part of the resource identifier used by many cache implementations as the key to cached data).</target>
+        </trans-unit>
+        <trans-unit id="ff5fcb51-69c2-4230-99fc-484401db66d8" xml:space="preserve">
+          <source>You can extend this approach to limit (project) the fields returned if a single resource item contains a large amount of data.</source>
+          <target state="new">You can extend this approach to limit (project) the fields returned if a single resource item contains a large amount of data.</target>
+        </trans-unit>
+        <trans-unit id="cd9ea32d-4460-4ba6-8d5e-e1333c54b23e" xml:space="preserve">
+          <source>For example, you could use a query string parameter that accepts a comma-delimited list of fields, such as <bpt id="22b9d2f8-1c81-4270-abf3-d64b3657458a">&lt;em&gt;</bpt>/orders?fields=ProductID,Quantity<ept id="22b9d2f8-1c81-4270-abf3-d64b3657458a">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, you could use a query string parameter that accepts a comma-delimited list of fields, such as <bpt id="22b9d2f8-1c81-4270-abf3-d64b3657458a">&lt;em&gt;</bpt>/orders?fields=ProductID,Quantity<ept id="22b9d2f8-1c81-4270-abf3-d64b3657458a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c3f4ff4-5d73-4817-95aa-2898e5ed9fc7" xml:space="preserve">
+          <source>Give all optional parameters in query strings meaningful defaults.</source>
+          <target state="new">Give all optional parameters in query strings meaningful defaults.</target>
+        </trans-unit>
+        <trans-unit id="06c69c4d-f92e-48c3-aa52-12d9d02a93d7" xml:space="preserve">
+          <source>For example, set the <bpt id="a986ddd3-2e75-43dd-81c9-dfdc144d4b7c">&lt;code&gt;</bpt>limit<ept id="a986ddd3-2e75-43dd-81c9-dfdc144d4b7c">&lt;/code&gt;</ept> parameter to 10 and the <bpt id="17318e19-648c-43d5-a1e1-c0783bbe69a4">&lt;code&gt;</bpt>offset<ept id="17318e19-648c-43d5-a1e1-c0783bbe69a4">&lt;/code&gt;</ept> parameter to 0 if you implement pagination, set the sort parameter to the key of the resource if you implement ordering, and set the <bpt id="9f11c789-fba3-471e-a6ea-9c8724d85ed6">&lt;code&gt;</bpt>fields<ept id="9f11c789-fba3-471e-a6ea-9c8724d85ed6">&lt;/code&gt;</ept> parameter to all fields in the resource if you support projections.</source>
+          <target state="new">For example, set the <bpt id="a986ddd3-2e75-43dd-81c9-dfdc144d4b7c">&lt;code&gt;</bpt>limit<ept id="a986ddd3-2e75-43dd-81c9-dfdc144d4b7c">&lt;/code&gt;</ept> parameter to 10 and the <bpt id="17318e19-648c-43d5-a1e1-c0783bbe69a4">&lt;code&gt;</bpt>offset<ept id="17318e19-648c-43d5-a1e1-c0783bbe69a4">&lt;/code&gt;</ept> parameter to 0 if you implement pagination, set the sort parameter to the key of the resource if you implement ordering, and set the <bpt id="9f11c789-fba3-471e-a6ea-9c8724d85ed6">&lt;code&gt;</bpt>fields<ept id="9f11c789-fba3-471e-a6ea-9c8724d85ed6">&lt;/code&gt;</ept> parameter to all fields in the resource if you support projections.</target>
+        </trans-unit>
+        <trans-unit id="fecd81be-19d3-463e-a3a0-d4a36e1caea3" xml:space="preserve">
+          <source>A single resource may contain large binary fields, such as files or images.</source>
+          <target state="new">A single resource may contain large binary fields, such as files or images.</target>
+        </trans-unit>
+        <trans-unit id="f1748262-8dd6-4c13-a3bc-6a4ecfb97e4e" xml:space="preserve">
+          <source>To overcome the transmission problems caused by unreliable and intermittent connections and to improve response times, consider providing operations that enable such resources to be retrieved in chunks by the client application.</source>
+          <target state="new">To overcome the transmission problems caused by unreliable and intermittent connections and to improve response times, consider providing operations that enable such resources to be retrieved in chunks by the client application.</target>
+        </trans-unit>
+        <trans-unit id="42ddc409-7129-427c-b9bd-7748d0cf7c85" xml:space="preserve">
+          <source>To do this, the web API should support the Accept-Ranges header for GET requests for large resources, and ideally implement HTTP HEAD requests for these resources.</source>
+          <target state="new">To do this, the web API should support the Accept-Ranges header for GET requests for large resources, and ideally implement HTTP HEAD requests for these resources.</target>
+        </trans-unit>
+        <trans-unit id="d898b1fd-23e0-4d9e-b9a2-944b277a077c" xml:space="preserve">
+          <source>The Accept-Ranges header indicates that the GET operation supports partial results, and that a client application can submit GET requests that return a subset of a resource specified as a range of bytes.</source>
+          <target state="new">The Accept-Ranges header indicates that the GET operation supports partial results, and that a client application can submit GET requests that return a subset of a resource specified as a range of bytes.</target>
+        </trans-unit>
+        <trans-unit id="9cc25c4b-86fe-4cb7-b4f1-069fb75b29ea" xml:space="preserve">
+          <source>A HEAD request is similar to a GET request except that it only returns a header that describes the resource and an empty message body.</source>
+          <target state="new">A HEAD request is similar to a GET request except that it only returns a header that describes the resource and an empty message body.</target>
+        </trans-unit>
+        <trans-unit id="61ed86ba-f486-491d-8eac-6158263cef0a" xml:space="preserve">
+          <source>A client application can issue a HEAD request to determine whether to fetch a resource by using partial GET requests.</source>
+          <target state="new">A client application can issue a HEAD request to determine whether to fetch a resource by using partial GET requests.</target>
+        </trans-unit>
+        <trans-unit id="69c282ee-3dbe-470c-a298-9072a6d59b1a" xml:space="preserve">
+          <source>The following example shows a HEAD request that obtains information about a product image:</source>
+          <target state="new">The following example shows a HEAD request that obtains information about a product image:</target>
+        </trans-unit>
+        <trans-unit id="b294cbd1-decb-4b11-a5ed-563923ac813c" xml:space="preserve">
+          <source>The response message contains a header that includes the size of the resource (4580 bytes), and the Accept-Ranges header that the corresponding GET operation supports partial results:</source>
+          <target state="new">The response message contains a header that includes the size of the resource (4580 bytes), and the Accept-Ranges header that the corresponding GET operation supports partial results:</target>
+        </trans-unit>
+        <trans-unit id="39d4217f-d3bf-4b0e-b0ff-985bf6f1fd21" xml:space="preserve">
+          <source>The client application can use this information to construct a series of GET operations to retrieve the image in smaller chunks.</source>
+          <target state="new">The client application can use this information to construct a series of GET operations to retrieve the image in smaller chunks.</target>
+        </trans-unit>
+        <trans-unit id="33309a53-7398-4002-8acc-8bc9c8309352" xml:space="preserve">
+          <source>The first request fetches the first 2500 bytes by using the Range header:</source>
+          <target state="new">The first request fetches the first 2500 bytes by using the Range header:</target>
+        </trans-unit>
+        <trans-unit id="ecaf1241-f551-4dc9-ba0f-1847e509e3d4" xml:space="preserve">
+          <source>The response message indicates that this is a partial response by returning HTTP status code 206.</source>
+          <target state="new">The response message indicates that this is a partial response by returning HTTP status code 206.</target>
+        </trans-unit>
+        <trans-unit id="9731cd2a-3dbc-4af4-810b-92c5af3f684e" xml:space="preserve">
+          <source>The Content-Length header specifies the actual number of bytes returned in the message body (not the size of the resource), and the Content-Range header indicates which part of the resource this is (bytes 0-2499 out of 4580):</source>
+          <target state="new">The Content-Length header specifies the actual number of bytes returned in the message body (not the size of the resource), and the Content-Range header indicates which part of the resource this is (bytes 0-2499 out of 4580):</target>
+        </trans-unit>
+        <trans-unit id="530230c1-2270-4feb-8bb4-467ca7be48b1" xml:space="preserve">
+          <source>A subsequent request from the client application can retrieve the remainder of the resource by using an appropriate Range header:</source>
+          <target state="new">A subsequent request from the client application can retrieve the remainder of the resource by using an appropriate Range header:</target>
+        </trans-unit>
+        <trans-unit id="2e30e76b-e27d-47f0-832f-3504f8417820" xml:space="preserve">
+          <source>The corresponding result message should look like this:</source>
+          <target state="new">The corresponding result message should look like this:</target>
+        </trans-unit>
+        <trans-unit id="4a10fbc2-1c24-4ec8-97d9-e80bd7dca8e2" xml:space="preserve">
+          <source>One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme.</source>
+          <target state="new">One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme.</target>
+        </trans-unit>
+        <trans-unit id="0eb1a152-4eaf-488e-9395-e9405d5108a4" xml:space="preserve">
+          <source>Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources.</source>
+          <target state="new">Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources.</target>
+        </trans-unit>
+        <trans-unit id="906617f8-a30a-4f8a-a3fa-7fb794c742f3" xml:space="preserve">
+          <source>This principle is known as HATEOAS, or Hypertext as the Engine of Application State.</source>
+          <target state="new">This principle is known as HATEOAS, or Hypertext as the Engine of Application State.</target>
+        </trans-unit>
+        <trans-unit id="1e25e9db-6e9f-44a6-8eb8-6988b1ccf628" xml:space="preserve">
+          <source>The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to another; no other information should be necessary.</source>
+          <target state="new">The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to another; no other information should be necessary.</target>
+        </trans-unit>
+        <trans-unit id="7dd69d39-cf1b-4e76-831b-42c9b0159e52" xml:space="preserve">
+          <source>Currently there are no standards or specifications that define how to model the HATEOAS principle.</source>
+          <target state="new">Currently there are no standards or specifications that define how to model the HATEOAS principle.</target>
+        </trans-unit>
+        <trans-unit id="815f44d0-0aee-46d0-9c7a-dee9d2bad4ee" xml:space="preserve">
+          <source>The examples shown in this section illustrate one possible solution.</source>
+          <target state="new">The examples shown in this section illustrate one possible solution.</target>
+        </trans-unit>
+        <trans-unit id="d5ea4e42-78ad-4ed1-a095-46946d59f1b7" xml:space="preserve">
+          <source>As an example, to handle the relationship between customers and orders, the data returned in the response for a specific order should contain URIs in the form of a hyperlink identifying the customer that placed the order, and the operations that can be performed on that customer.</source>
+          <target state="new">As an example, to handle the relationship between customers and orders, the data returned in the response for a specific order should contain URIs in the form of a hyperlink identifying the customer that placed the order, and the operations that can be performed on that customer.</target>
+        </trans-unit>
+        <trans-unit id="2cf19a4a-907d-4c0f-a600-539f592b73c9" xml:space="preserve">
+          <source>The body of the response message contains a <bpt id="9492f0f0-ebea-470c-b13c-7bf1ad0756bc">&lt;code&gt;</bpt>Links<ept id="9492f0f0-ebea-470c-b13c-7bf1ad0756bc">&lt;/code&gt;</ept> array (highlighted in the code example) that specifies the nature of the relationship (<bpt id="38756562-db22-49d1-bbe0-f124edd49e1c">&lt;em&gt;</bpt>Customer<ept id="38756562-db22-49d1-bbe0-f124edd49e1c">&lt;/em&gt;</ept>), the URI of the customer (<bpt id="8caf7d97-6c78-45a0-8b6f-62045a925663">&lt;em&gt;</bpt>http://adventure-works.com/customers/3<ept id="8caf7d97-6c78-45a0-8b6f-62045a925663">&lt;/em&gt;</ept>), how to retrieve the details of this customer (<bpt id="708fdbbe-4a31-413c-affd-e297990cc90e">&lt;em&gt;</bpt>GET<ept id="708fdbbe-4a31-413c-affd-e297990cc90e">&lt;/em&gt;</ept>), and the MIME types that the web server supports for retrieving this information (<bpt id="c5645dc3-0a1b-40b9-937b-e12994d35852">&lt;em&gt;</bpt>text/xml<ept id="c5645dc3-0a1b-40b9-937b-e12994d35852">&lt;/em&gt;</ept> and <bpt id="3e328d0e-b497-408b-94e8-59ae9ef8da9d">&lt;em&gt;</bpt>application/json<ept id="3e328d0e-b497-408b-94e8-59ae9ef8da9d">&lt;/em&gt;</ept>).</source>
+          <target state="new">The body of the response message contains a <bpt id="9492f0f0-ebea-470c-b13c-7bf1ad0756bc">&lt;code&gt;</bpt>Links<ept id="9492f0f0-ebea-470c-b13c-7bf1ad0756bc">&lt;/code&gt;</ept> array (highlighted in the code example) that specifies the nature of the relationship (<bpt id="38756562-db22-49d1-bbe0-f124edd49e1c">&lt;em&gt;</bpt>Customer<ept id="38756562-db22-49d1-bbe0-f124edd49e1c">&lt;/em&gt;</ept>), the URI of the customer (<bpt id="8caf7d97-6c78-45a0-8b6f-62045a925663">&lt;em&gt;</bpt>http://adventure-works.com/customers/3<ept id="8caf7d97-6c78-45a0-8b6f-62045a925663">&lt;/em&gt;</ept>), how to retrieve the details of this customer (<bpt id="708fdbbe-4a31-413c-affd-e297990cc90e">&lt;em&gt;</bpt>GET<ept id="708fdbbe-4a31-413c-affd-e297990cc90e">&lt;/em&gt;</ept>), and the MIME types that the web server supports for retrieving this information (<bpt id="c5645dc3-0a1b-40b9-937b-e12994d35852">&lt;em&gt;</bpt>text/xml<ept id="c5645dc3-0a1b-40b9-937b-e12994d35852">&lt;/em&gt;</ept> and <bpt id="3e328d0e-b497-408b-94e8-59ae9ef8da9d">&lt;em&gt;</bpt>application/json<ept id="3e328d0e-b497-408b-94e8-59ae9ef8da9d">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="1e749ab8-beb0-4a0c-a443-d284a68a83fb" xml:space="preserve">
+          <source>This is all the information that a client application needs to be able to fetch the details of the customer.</source>
+          <target state="new">This is all the information that a client application needs to be able to fetch the details of the customer.</target>
+        </trans-unit>
+        <trans-unit id="285c055b-f0e7-4af1-9fdd-163d98364bdb" xml:space="preserve">
+          <source>Additionally, the Links array also includes links for the other operations that can be performed, such as PUT (to modify the customer, together with the format that the web server expects the client to provide), and DELETE.</source>
+          <target state="new">Additionally, the Links array also includes links for the other operations that can be performed, such as PUT (to modify the customer, together with the format that the web server expects the client to provide), and DELETE.</target>
+        </trans-unit>
+        <trans-unit id="dba56735-9160-4f3b-a8a1-f2f7717cb526" xml:space="preserve">
+          <source>For completeness, the Links array should also include self-referencing information pertaining to the resource that has been retrieved.</source>
+          <target state="new">For completeness, the Links array should also include self-referencing information pertaining to the resource that has been retrieved.</target>
+        </trans-unit>
+        <trans-unit id="70d3d549-a6f1-4c96-8d24-cf65f5a57c0f" xml:space="preserve">
+          <source>These links have been omitted from the previous example, but are highlighted in the following code.</source>
+          <target state="new">These links have been omitted from the previous example, but are highlighted in the following code.</target>
+        </trans-unit>
+        <trans-unit id="758ddcc8-53c1-4f54-bd90-8fd679cadf67" xml:space="preserve">
+          <source>Notice that in these links, the relationship <bpt id="8a6de52d-764e-477d-8adf-5ed11efbed23">&lt;em&gt;</bpt>self<ept id="8a6de52d-764e-477d-8adf-5ed11efbed23">&lt;/em&gt;</ept> has been used to indicate that this is a reference to the resource being returned by the operation:</source>
+          <target state="new">Notice that in these links, the relationship <bpt id="8a6de52d-764e-477d-8adf-5ed11efbed23">&lt;em&gt;</bpt>self<ept id="8a6de52d-764e-477d-8adf-5ed11efbed23">&lt;/em&gt;</ept> has been used to indicate that this is a reference to the resource being returned by the operation:</target>
+        </trans-unit>
+        <trans-unit id="c921585b-77bd-4ca8-bafe-06875b7e33f3" xml:space="preserve">
+          <source>For this approach to be effective, client applications must be prepared to retrieve and parse this additional information.</source>
+          <target state="new">For this approach to be effective, client applications must be prepared to retrieve and parse this additional information.</target>
+        </trans-unit>
+        <trans-unit id="e20a2ced-75b2-419f-ab30-b67ad183bb5c" xml:space="preserve">
+          <source>It is highly unlikely that in all but the simplest of situations that a web API will remain static.</source>
+          <target state="new">It is highly unlikely that in all but the simplest of situations that a web API will remain static.</target>
+        </trans-unit>
+        <trans-unit id="b8a5a4b5-d5c8-4c79-9848-a7c1e97d6794" xml:space="preserve">
+          <source>As business requirements change new collections of resources may be added, the relationships between resources might change, and the structure of the data in resources might be amended.</source>
+          <target state="new">As business requirements change new collections of resources may be added, the relationships between resources might change, and the structure of the data in resources might be amended.</target>
+        </trans-unit>
+        <trans-unit id="9860ac8d-be83-4469-bb3f-6df4deaed00c" xml:space="preserve">
+          <source>While updating a web API to handle new or differing requirements is a relatively straightforward process, you must consider the effects that such changes will have on client applications consuming the web API.</source>
+          <target state="new">While updating a web API to handle new or differing requirements is a relatively straightforward process, you must consider the effects that such changes will have on client applications consuming the web API.</target>
+        </trans-unit>
+        <trans-unit id="061e952f-e93b-4249-8523-a9bc85572f9f" xml:space="preserve">
+          <source>The issue is that although the developer designing and implementing a web API has full control over that API, the developer does not have the same degree of control over client applications which may be built by third party organizations operating remotely.</source>
+          <target state="new">The issue is that although the developer designing and implementing a web API has full control over that API, the developer does not have the same degree of control over client applications which may be built by third party organizations operating remotely.</target>
+        </trans-unit>
+        <trans-unit id="a98846ef-6f17-4ddd-b5ea-1c1505292d6f" xml:space="preserve">
+          <source>The primary imperative is to enable existing client applications to continue functioning unchanged while allowing new client applications to take advantage of new features and resources.</source>
+          <target state="new">The primary imperative is to enable existing client applications to continue functioning unchanged while allowing new client applications to take advantage of new features and resources.</target>
+        </trans-unit>
+        <trans-unit id="2528ec50-113a-4f67-8f29-f741b57dfceb" xml:space="preserve">
+          <source>Versioning enables a web API to indicate the features and resources that it exposes, and a client application can submit requests that are directed to a specific version of a feature or resource.</source>
+          <target state="new">Versioning enables a web API to indicate the features and resources that it exposes, and a client application can submit requests that are directed to a specific version of a feature or resource.</target>
+        </trans-unit>
+        <trans-unit id="aabcd37d-41e7-46e0-842d-364a2c0802c2" xml:space="preserve">
+          <source>The following sections describe several different approaches, each of which has its own benefits and trade-offs.</source>
+          <target state="new">The following sections describe several different approaches, each of which has its own benefits and trade-offs.</target>
+        </trans-unit>
+        <trans-unit id="d7e3bff9-9d95-4b97-98b9-ec50723e87a0" xml:space="preserve">
+          <source>This is the simplest approach, and may be acceptable for some internal APIs.</source>
+          <target state="new">This is the simplest approach, and may be acceptable for some internal APIs.</target>
+        </trans-unit>
+        <trans-unit id="95fe93f8-0a30-4c05-8d95-abc34def90f2" xml:space="preserve">
+          <source>Big changes could be represented as new resources or new links.</source>
+          <target state="new">Big changes could be represented as new resources or new links.</target>
+        </trans-unit>
+        <trans-unit id="99b256c2-d573-4d1b-ab93-49c4debd22ce" xml:space="preserve">
+          <source>Adding content to existing resources might not present a breaking change as client applications that are not expecting to see this content will simply ignore it.</source>
+          <target state="new">Adding content to existing resources might not present a breaking change as client applications that are not expecting to see this content will simply ignore it.</target>
+        </trans-unit>
+        <trans-unit id="75fbbfd3-9a28-4ce9-b179-90c8661f2aa5" xml:space="preserve">
+          <source>For example, a request to the URI <bpt id="40035c2b-37f5-4f61-a931-3e4e0fa17416">&lt;em&gt;</bpt>http://adventure-works.com/customers/3<ept id="40035c2b-37f5-4f61-a931-3e4e0fa17416">&lt;/em&gt;</ept> should return the details of a single customer containing <bpt id="00ba0a31-b2e5-4616-96a0-67b411ea523f">&lt;code&gt;</bpt>Id<ept id="00ba0a31-b2e5-4616-96a0-67b411ea523f">&lt;/code&gt;</ept>, <bpt id="2f53686e-e914-47d3-8075-c80f08603b05">&lt;code&gt;</bpt>Name<ept id="2f53686e-e914-47d3-8075-c80f08603b05">&lt;/code&gt;</ept>, and <bpt id="f8f6d6a3-d57c-420c-84a8-9d42a237c8fe">&lt;code&gt;</bpt>Address<ept id="f8f6d6a3-d57c-420c-84a8-9d42a237c8fe">&lt;/code&gt;</ept> fields expected by the client application:</source>
+          <target state="new">For example, a request to the URI <bpt id="40035c2b-37f5-4f61-a931-3e4e0fa17416">&lt;em&gt;</bpt>http://adventure-works.com/customers/3<ept id="40035c2b-37f5-4f61-a931-3e4e0fa17416">&lt;/em&gt;</ept> should return the details of a single customer containing <bpt id="00ba0a31-b2e5-4616-96a0-67b411ea523f">&lt;code&gt;</bpt>Id<ept id="00ba0a31-b2e5-4616-96a0-67b411ea523f">&lt;/code&gt;</ept>, <bpt id="2f53686e-e914-47d3-8075-c80f08603b05">&lt;code&gt;</bpt>Name<ept id="2f53686e-e914-47d3-8075-c80f08603b05">&lt;/code&gt;</ept>, and <bpt id="f8f6d6a3-d57c-420c-84a8-9d42a237c8fe">&lt;code&gt;</bpt>Address<ept id="f8f6d6a3-d57c-420c-84a8-9d42a237c8fe">&lt;/code&gt;</ept> fields expected by the client application:</target>
+        </trans-unit>
+        <trans-unit id="44ad1a9a-7acb-409f-a435-2d4dc3307411" xml:space="preserve">
+          <source>For the purposes of simplicity and clarity, the example responses shown in this section do not include HATEOAS links.</source>
+          <target state="new">For the purposes of simplicity and clarity, the example responses shown in this section do not include HATEOAS links.</target>
+        </trans-unit>
+        <trans-unit id="ce431d33-bf6e-4edb-be5a-a071d98f97bc" xml:space="preserve">
+          <source>If the <bpt id="0cf085ef-53fb-4dff-a3ec-a6ca2b9f0d1f">&lt;code&gt;</bpt>DateCreated<ept id="0cf085ef-53fb-4dff-a3ec-a6ca2b9f0d1f">&lt;/code&gt;</ept> field is added to the schema of the customer resource, then the response would look like this:</source>
+          <target state="new">If the <bpt id="0cf085ef-53fb-4dff-a3ec-a6ca2b9f0d1f">&lt;code&gt;</bpt>DateCreated<ept id="0cf085ef-53fb-4dff-a3ec-a6ca2b9f0d1f">&lt;/code&gt;</ept> field is added to the schema of the customer resource, then the response would look like this:</target>
+        </trans-unit>
+        <trans-unit id="738f337d-d2c1-49eb-a204-60933613c934" xml:space="preserve">
+          <source>Existing client applications might continue functioning correctly if they are capable of ignoring unrecognized fields, while new client applications can be designed to handle this new field.</source>
+          <target state="new">Existing client applications might continue functioning correctly if they are capable of ignoring unrecognized fields, while new client applications can be designed to handle this new field.</target>
+        </trans-unit>
+        <trans-unit id="c5031eb9-300e-4dee-ac63-7f90ba6975ec" xml:space="preserve">
+          <source>However, if more radical changes to the schema of resources occur (such as removing or renaming fields) or the relationships between resources change then these may constitute breaking changes that prevent existing client applications from functioning correctly.</source>
+          <target state="new">However, if more radical changes to the schema of resources occur (such as removing or renaming fields) or the relationships between resources change then these may constitute breaking changes that prevent existing client applications from functioning correctly.</target>
+        </trans-unit>
+        <trans-unit id="2b358724-03d1-47ce-ad3d-661026f50424" xml:space="preserve">
+          <source>In these situations you should consider one of the following approaches.</source>
+          <target state="new">In these situations you should consider one of the following approaches.</target>
+        </trans-unit>
+        <trans-unit id="aeb49355-3977-4dd2-9e7a-4e9620f65d11" xml:space="preserve">
+          <source>Each time you modify the web API or change the schema of resources, you add a version number to the URI for each resource.</source>
+          <target state="new">Each time you modify the web API or change the schema of resources, you add a version number to the URI for each resource.</target>
+        </trans-unit>
+        <trans-unit id="dca7b602-408e-4059-97f4-746126f0b159" xml:space="preserve">
+          <source>The previously existing URIs should continue to operate as before, returning resources that conform to their original schema.</source>
+          <target state="new">The previously existing URIs should continue to operate as before, returning resources that conform to their original schema.</target>
+        </trans-unit>
+        <trans-unit id="91ee055e-4178-4cac-be3f-6ca7a7527822" xml:space="preserve">
+          <source>Extending the previous example, if the <bpt id="5fd618bf-4d0d-44e6-af2e-9fc56577c7ce">&lt;code&gt;</bpt>Address<ept id="5fd618bf-4d0d-44e6-af2e-9fc56577c7ce">&lt;/code&gt;</ept> field is restructured into sub-fields containing each constituent part of the address (such as <bpt id="fecad617-be6f-4a63-a0c9-8621932d2c0f">&lt;code&gt;</bpt>StreetAddress<ept id="fecad617-be6f-4a63-a0c9-8621932d2c0f">&lt;/code&gt;</ept>, <bpt id="8621445c-a58f-4867-a623-6cc9af834e62">&lt;code&gt;</bpt>City<ept id="8621445c-a58f-4867-a623-6cc9af834e62">&lt;/code&gt;</ept>, <bpt id="8853e1a7-778a-4660-96f1-8bd955d037bb">&lt;code&gt;</bpt>State<ept id="8853e1a7-778a-4660-96f1-8bd955d037bb">&lt;/code&gt;</ept>, and <bpt id="d4049803-a89a-4544-83ba-06c611134fae">&lt;code&gt;</bpt>ZipCode<ept id="d4049803-a89a-4544-83ba-06c611134fae">&lt;/code&gt;</ept>), this version of the resource could be exposed through a URI containing a version number, such as http://adventure-works.com/v2/customers/3:</source>
+          <target state="new">Extending the previous example, if the <bpt id="5fd618bf-4d0d-44e6-af2e-9fc56577c7ce">&lt;code&gt;</bpt>Address<ept id="5fd618bf-4d0d-44e6-af2e-9fc56577c7ce">&lt;/code&gt;</ept> field is restructured into sub-fields containing each constituent part of the address (such as <bpt id="fecad617-be6f-4a63-a0c9-8621932d2c0f">&lt;code&gt;</bpt>StreetAddress<ept id="fecad617-be6f-4a63-a0c9-8621932d2c0f">&lt;/code&gt;</ept>, <bpt id="8621445c-a58f-4867-a623-6cc9af834e62">&lt;code&gt;</bpt>City<ept id="8621445c-a58f-4867-a623-6cc9af834e62">&lt;/code&gt;</ept>, <bpt id="8853e1a7-778a-4660-96f1-8bd955d037bb">&lt;code&gt;</bpt>State<ept id="8853e1a7-778a-4660-96f1-8bd955d037bb">&lt;/code&gt;</ept>, and <bpt id="d4049803-a89a-4544-83ba-06c611134fae">&lt;code&gt;</bpt>ZipCode<ept id="d4049803-a89a-4544-83ba-06c611134fae">&lt;/code&gt;</ept>), this version of the resource could be exposed through a URI containing a version number, such as http://adventure-works.com/v2/customers/3:</target>
+        </trans-unit>
+        <trans-unit id="e25cbb8e-ded1-490d-9912-6ad8fd6d7bac" xml:space="preserve">
+          <source>This versioning mechanism is very simple but depends on the server routing the request to the appropriate endpoint.</source>
+          <target state="new">This versioning mechanism is very simple but depends on the server routing the request to the appropriate endpoint.</target>
+        </trans-unit>
+        <trans-unit id="f5647cb3-25fe-4dc5-aaa0-2ca8eed09ca7" xml:space="preserve">
+          <source>However, it can become unwieldy as the web API matures through several iterations and the server has to support a number of different versions.</source>
+          <target state="new">However, it can become unwieldy as the web API matures through several iterations and the server has to support a number of different versions.</target>
+        </trans-unit>
+        <trans-unit id="80b58302-04f2-41e2-8a12-3818fc80931d" xml:space="preserve">
+          <source>Also, from a purist’s point of view, in all cases the client applications are fetching the same data (customer 3), so the URI should not really be different depending on the version.</source>
+          <target state="new">Also, from a purist’s point of view, in all cases the client applications are fetching the same data (customer 3), so the URI should not really be different depending on the version.</target>
+        </trans-unit>
+        <trans-unit id="16e47f4f-b127-4b30-8234-9b8ef770a451" xml:space="preserve">
+          <source>This scheme also complicates implementation of HATEOAS as all links will need to include the version number in their URIs.</source>
+          <target state="new">This scheme also complicates implementation of HATEOAS as all links will need to include the version number in their URIs.</target>
+        </trans-unit>
+        <trans-unit id="23524b57-b8b8-4f4f-9bd2-ae2f0dcdc00b" xml:space="preserve">
+          <source>Rather than providing multiple URIs, you can specify the version of the resource by using a parameter within the query string appended to the HTTP request, such as <bpt id="2deb10d6-9256-41ce-adf5-e8a7a3854a86">&lt;em&gt;</bpt>http://adventure-works.com/customers/3?version=2<ept id="2deb10d6-9256-41ce-adf5-e8a7a3854a86">&lt;/em&gt;</ept>.</source>
+          <target state="new">Rather than providing multiple URIs, you can specify the version of the resource by using a parameter within the query string appended to the HTTP request, such as <bpt id="2deb10d6-9256-41ce-adf5-e8a7a3854a86">&lt;em&gt;</bpt>http://adventure-works.com/customers/3?version=2<ept id="2deb10d6-9256-41ce-adf5-e8a7a3854a86">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0ac201f-7cbf-457e-bb00-75c076281c8d" xml:space="preserve">
+          <source>The version parameter should default to a meaningful value such as 1 if it is omitted by older client applications.</source>
+          <target state="new">The version parameter should default to a meaningful value such as 1 if it is omitted by older client applications.</target>
+        </trans-unit>
+        <trans-unit id="806b68a9-61d9-44ef-b96c-8ea9d7c0b05c" xml:space="preserve">
+          <source>This approach has the semantic advantage that the same resource is always retrieved from the same URI, but it depends on the code that handles the request to parse the query string and send back the appropriate HTTP response.</source>
+          <target state="new">This approach has the semantic advantage that the same resource is always retrieved from the same URI, but it depends on the code that handles the request to parse the query string and send back the appropriate HTTP response.</target>
+        </trans-unit>
+        <trans-unit id="ec0284d1-23d6-4f20-b40d-2e33da2a0ee1" xml:space="preserve">
+          <source>This approach also suffers from the same complications for implementing HATEOAS as the URI versioning mechanism.</source>
+          <target state="new">This approach also suffers from the same complications for implementing HATEOAS as the URI versioning mechanism.</target>
+        </trans-unit>
+        <trans-unit id="9d3dd284-e616-40b2-b098-f6c0f63e92ac" xml:space="preserve">
+          <source>Some older web browsers and web proxies will not cache responses for requests that include a query string in the URL.</source>
+          <target state="new">Some older web browsers and web proxies will not cache responses for requests that include a query string in the URL.</target>
+        </trans-unit>
+        <trans-unit id="3a8044ee-d147-480e-8c2e-d8c4558b4c26" xml:space="preserve">
+          <source>This can have an adverse impact on performance for web applications that use a web API and that run from within such a web browser.</source>
+          <target state="new">This can have an adverse impact on performance for web applications that use a web API and that run from within such a web browser.</target>
+        </trans-unit>
+        <trans-unit id="ebfb3576-1c8e-44e8-9690-190b4a02ce47" xml:space="preserve">
+          <source>Rather than appending the version number as a query string parameter, you could implement a custom header that indicates the version of the resource.</source>
+          <target state="new">Rather than appending the version number as a query string parameter, you could implement a custom header that indicates the version of the resource.</target>
+        </trans-unit>
+        <trans-unit id="3d4183d1-cf1a-4e97-bdf5-2a2dc19b63e4" xml:space="preserve">
+          <source>This approach requires that the client application adds the appropriate header to any requests, although the code handling the client request could use a default value (version 1) if the version header is omitted.</source>
+          <target state="new">This approach requires that the client application adds the appropriate header to any requests, although the code handling the client request could use a default value (version 1) if the version header is omitted.</target>
+        </trans-unit>
+        <trans-unit id="0b0fef35-91a1-4653-9f9d-86b90d8bef2d" xml:space="preserve">
+          <source>The following examples utilize a custom header named <bpt id="c1ade354-e825-49d0-ba65-4c3eb368649e">&lt;em&gt;</bpt>Custom-Header<ept id="c1ade354-e825-49d0-ba65-4c3eb368649e">&lt;/em&gt;</ept>.</source>
+          <target state="new">The following examples utilize a custom header named <bpt id="c1ade354-e825-49d0-ba65-4c3eb368649e">&lt;em&gt;</bpt>Custom-Header<ept id="c1ade354-e825-49d0-ba65-4c3eb368649e">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4aa9d9f-ac63-4dd3-876f-2ca650d7e35e" xml:space="preserve">
+          <source>The value of this header indicates the version of web API.</source>
+          <target state="new">The value of this header indicates the version of web API.</target>
+        </trans-unit>
+        <trans-unit id="f35cc7f5-332e-4866-9ce0-b24646b0d595" xml:space="preserve">
+          <source>Version 1:</source>
+          <target state="new">Version 1:</target>
+        </trans-unit>
+        <trans-unit id="d7ff7a95-9f4c-4167-94fc-9e24e190e946" xml:space="preserve">
+          <source>Version 2:</source>
+          <target state="new">Version 2:</target>
+        </trans-unit>
+        <trans-unit id="5804e4fa-4683-4467-bb6d-7fc2328eb412" xml:space="preserve">
+          <source>Note that as with the previous two approaches, implementing HATEOAS requires including the appropriate custom header in any links.</source>
+          <target state="new">Note that as with the previous two approaches, implementing HATEOAS requires including the appropriate custom header in any links.</target>
+        </trans-unit>
+        <trans-unit id="990f62e4-0ca0-4590-858b-7160e5a493a6" xml:space="preserve">
+          <source>When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance.</source>
+          <target state="new">When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance.</target>
+        </trans-unit>
+        <trans-unit id="aac57d83-7382-442c-b478-f758ec99393e" xml:space="preserve">
+          <source>Frequently the purpose of the <bpt id="0a446682-712f-4a47-a30e-ebb4ff0f7336">&lt;em&gt;</bpt>Accept<ept id="0a446682-712f-4a47-a30e-ebb4ff0f7336">&lt;/em&gt;</ept> header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse.</source>
+          <target state="new">Frequently the purpose of the <bpt id="0a446682-712f-4a47-a30e-ebb4ff0f7336">&lt;em&gt;</bpt>Accept<ept id="0a446682-712f-4a47-a30e-ebb4ff0f7336">&lt;/em&gt;</ept> header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse.</target>
+        </trans-unit>
+        <trans-unit id="c8a0fe4f-0097-481f-82ce-e1f16c82ecaa" xml:space="preserve">
+          <source>However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting.</source>
+          <target state="new">However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting.</target>
+        </trans-unit>
+        <trans-unit id="c4c741f2-61fb-45ab-a7dd-70824b491fad" xml:space="preserve">
+          <source>The following example shows a request that specifies an <bpt id="ab6d6854-c7b6-4edb-aa4f-ed2ac3a0fa35">&lt;em&gt;</bpt>Accept<ept id="ab6d6854-c7b6-4edb-aa4f-ed2ac3a0fa35">&lt;/em&gt;</ept> header with the value <bpt id="afad2db3-e526-4cd8-b724-15a070f1fe75">&lt;em&gt;</bpt>application/vnd.adventure-works.v1+json<ept id="afad2db3-e526-4cd8-b724-15a070f1fe75">&lt;/em&gt;</ept>.</source>
+          <target state="new">The following example shows a request that specifies an <bpt id="ab6d6854-c7b6-4edb-aa4f-ed2ac3a0fa35">&lt;em&gt;</bpt>Accept<ept id="ab6d6854-c7b6-4edb-aa4f-ed2ac3a0fa35">&lt;/em&gt;</ept> header with the value <bpt id="afad2db3-e526-4cd8-b724-15a070f1fe75">&lt;em&gt;</bpt>application/vnd.adventure-works.v1+json<ept id="afad2db3-e526-4cd8-b724-15a070f1fe75">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c09bd1c6-a142-4c9e-90e8-dd6b5e8d0e4b" xml:space="preserve">
+          <source>The <bpt id="4dbb74ea-208b-4681-b04c-3e9303472f6f">&lt;em&gt;</bpt>vnd.adventure-works.v1<ept id="4dbb74ea-208b-4681-b04c-3e9303472f6f">&lt;/em&gt;</ept> element indicates to the web server that it should return version 1 of the resource, while the <bpt id="7e8ef8c4-efb8-4308-a744-a286c9dcb9ed">&lt;em&gt;</bpt>json<ept id="7e8ef8c4-efb8-4308-a744-a286c9dcb9ed">&lt;/em&gt;</ept> element specifies that the format of the response body should be JSON:</source>
+          <target state="new">The <bpt id="4dbb74ea-208b-4681-b04c-3e9303472f6f">&lt;em&gt;</bpt>vnd.adventure-works.v1<ept id="4dbb74ea-208b-4681-b04c-3e9303472f6f">&lt;/em&gt;</ept> element indicates to the web server that it should return version 1 of the resource, while the <bpt id="7e8ef8c4-efb8-4308-a744-a286c9dcb9ed">&lt;em&gt;</bpt>json<ept id="7e8ef8c4-efb8-4308-a744-a286c9dcb9ed">&lt;/em&gt;</ept> element specifies that the format of the response body should be JSON:</target>
+        </trans-unit>
+        <trans-unit id="f4c39a97-0d5b-41f8-9e34-49b2cfb4af29" xml:space="preserve">
+          <source>The code handling the request is responsible for processing the <bpt id="f32cae6d-d778-4642-9744-ad4d305b6bec">&lt;em&gt;</bpt>Accept<ept id="f32cae6d-d778-4642-9744-ad4d305b6bec">&lt;/em&gt;</ept> header and honoring it as far as possible (the client application may specify multiple formats in the <bpt id="a4ee0191-3fd0-494e-b7a2-dd7df7bcc045">&lt;em&gt;</bpt>Accept<ept id="a4ee0191-3fd0-494e-b7a2-dd7df7bcc045">&lt;/em&gt;</ept> header, in which case the web server can choose the most appropriate format for the response body).</source>
+          <target state="new">The code handling the request is responsible for processing the <bpt id="f32cae6d-d778-4642-9744-ad4d305b6bec">&lt;em&gt;</bpt>Accept<ept id="f32cae6d-d778-4642-9744-ad4d305b6bec">&lt;/em&gt;</ept> header and honoring it as far as possible (the client application may specify multiple formats in the <bpt id="a4ee0191-3fd0-494e-b7a2-dd7df7bcc045">&lt;em&gt;</bpt>Accept<ept id="a4ee0191-3fd0-494e-b7a2-dd7df7bcc045">&lt;/em&gt;</ept> header, in which case the web server can choose the most appropriate format for the response body).</target>
+        </trans-unit>
+        <trans-unit id="51830df2-5812-4131-a339-46ca8cbb1c2d" xml:space="preserve">
+          <source>The web server confirms the format of the data in the response body by using the Content-Type header:</source>
+          <target state="new">The web server confirms the format of the data in the response body by using the Content-Type header:</target>
+        </trans-unit>
+        <trans-unit id="e226e0be-11a5-4212-b776-0dcee13ee807" xml:space="preserve">
+          <source>If the Accept header does not specify any known media types, the web server could generate an HTTP 406 (Not Acceptable) response message or return a message with a default media type.</source>
+          <target state="new">If the Accept header does not specify any known media types, the web server could generate an HTTP 406 (Not Acceptable) response message or return a message with a default media type.</target>
+        </trans-unit>
+        <trans-unit id="08874433-80ed-4442-a93f-d6c7289cb6e4" xml:space="preserve">
+          <source>This approach is arguably the purest of the versioning mechanisms and lends itself naturally to HATEOAS, which can include the MIME type of related data in resource links.</source>
+          <target state="new">This approach is arguably the purest of the versioning mechanisms and lends itself naturally to HATEOAS, which can include the MIME type of related data in resource links.</target>
+        </trans-unit>
+        <trans-unit id="08a4cfe8-b15b-44d5-a604-566c5f25b139" xml:space="preserve">
+          <source>When you select a versioning strategy, you should also consider the implications on performance, especially caching on the web server.</source>
+          <target state="new">When you select a versioning strategy, you should also consider the implications on performance, especially caching on the web server.</target>
+        </trans-unit>
+        <trans-unit id="45a52d1f-012d-4be2-8f13-cd59514ff7a6" xml:space="preserve">
+          <source>The URI versioning and Query String versioning schemes are cache-friendly inasmuch as the same URI/query string combination refers to the same data each time.</source>
+          <target state="new">The URI versioning and Query String versioning schemes are cache-friendly inasmuch as the same URI/query string combination refers to the same data each time.</target>
+        </trans-unit>
+        <trans-unit id="633f8b22-aa08-4629-84a2-1e4f67f84b2f" xml:space="preserve">
+          <source>The Header versioning and Media Type versioning mechanisms typically require additional logic to examine the values in the custom header or the Accept header.</source>
+          <target state="new">The Header versioning and Media Type versioning mechanisms typically require additional logic to examine the values in the custom header or the Accept header.</target>
+        </trans-unit>
+        <trans-unit id="702f5598-3fa9-410a-b127-afbfb83d6669" xml:space="preserve">
+          <source>In a large-scale environment, many clients using different versions of a web API can result in a significant amount of duplicated data in a server-side cache.</source>
+          <target state="new">In a large-scale environment, many clients using different versions of a web API can result in a significant amount of duplicated data in a server-side cache.</target>
+        </trans-unit>
+        <trans-unit id="47fc4092-8a8b-4466-8286-064da349977c" xml:space="preserve">
+          <source>This issue can become acute if a client application communicates with a web server through a proxy that implements caching, and that only forwards a request to the web server if it does not currently hold a copy of the requested data in its cache.</source>
+          <target state="new">This issue can become acute if a client application communicates with a web server through a proxy that implements caching, and that only forwards a request to the web server if it does not currently hold a copy of the requested data in its cache.</target>
+        </trans-unit>
+        <trans-unit id="3beeacf9-51a9-456f-af8a-dee6d04d1143" xml:space="preserve">
+          <source>The <bpt id="3417bc38-a3fc-4e92-8146-961eeaa3dcd3">&lt;linkText&gt;</bpt>RESTful Cookbook<ept id="3417bc38-a3fc-4e92-8146-961eeaa3dcd3">&lt;/linkText&gt;</ept><bpt id="3417bc38-a3fc-4e92-8146-961eeaa3dcd3">&lt;title&gt;</bpt><ept id="3417bc38-a3fc-4e92-8146-961eeaa3dcd3">&lt;/title&gt;</ept> contains an introduction to building RESTful APIs.</source>
+          <target state="new">The <bpt id="3417bc38-a3fc-4e92-8146-961eeaa3dcd3">&lt;linkText&gt;</bpt>RESTful Cookbook<ept id="3417bc38-a3fc-4e92-8146-961eeaa3dcd3">&lt;/linkText&gt;</ept><bpt id="3417bc38-a3fc-4e92-8146-961eeaa3dcd3">&lt;title&gt;</bpt><ept id="3417bc38-a3fc-4e92-8146-961eeaa3dcd3">&lt;/title&gt;</ept> contains an introduction to building RESTful APIs.</target>
+        </trans-unit>
+        <trans-unit id="3c3c0b1c-ee7f-49b2-a350-d61ba8072d96" xml:space="preserve">
+          <source>The Web <bpt id="a79cb20f-2369-4292-9fc1-3d22723cb63e">&lt;linkText&gt;</bpt>API Checklist<ept id="a79cb20f-2369-4292-9fc1-3d22723cb63e">&lt;/linkText&gt;</ept><bpt id="a79cb20f-2369-4292-9fc1-3d22723cb63e">&lt;title&gt;</bpt><ept id="a79cb20f-2369-4292-9fc1-3d22723cb63e">&lt;/title&gt;</ept> contains a useful list of items to consider when designing and implementing a Web API.</source>
+          <target state="new">The Web <bpt id="a79cb20f-2369-4292-9fc1-3d22723cb63e">&lt;linkText&gt;</bpt>API Checklist<ept id="a79cb20f-2369-4292-9fc1-3d22723cb63e">&lt;/linkText&gt;</ept><bpt id="a79cb20f-2369-4292-9fc1-3d22723cb63e">&lt;title&gt;</bpt><ept id="a79cb20f-2369-4292-9fc1-3d22723cb63e">&lt;/title&gt;</ept> contains a useful list of items to consider when designing and implementing a Web API.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

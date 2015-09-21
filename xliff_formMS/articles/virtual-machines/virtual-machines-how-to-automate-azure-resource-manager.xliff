@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a021eceb-8aea-4208-8d76-a9cf53d2f6be" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a021eceb-8aea-4208-8d76-a9cf53d2f6be" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a406ffeb-954a-461b-b229-4f98804ea5b2">
+        <trans-unit id="09a33cd5-942d-4357-bc0e-22cb4d027c12" xml:space="preserve">
+          <source>How to automate with Azure Resource Manager</source>
+          <target state="new">How to automate with Azure Resource Manager</target>
+        </trans-unit>
+        <trans-unit id="91ad3212-3962-4683-826f-61a0d6517f01" xml:space="preserve">
+          <source>Get links to topics on how to automate the creation and management of Azure virtual machines by using Resource Manager.</source>
+          <target state="new">Get links to topics on how to automate the creation and management of Azure virtual machines by using Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="f8c842e6-0c55-49ff-8839-663f6ffe5dec" xml:space="preserve">
+          <source>Azure Resource Manager simplifies the deployment and management of complex applications running on Azure infrastructure services.</source>
+          <target state="new">Azure Resource Manager simplifies the deployment and management of complex applications running on Azure infrastructure services.</target>
+        </trans-unit>
+        <trans-unit id="1bc86a16-a269-449d-a4f5-80202afa92a3" xml:space="preserve">
+          <source>Many applications require a combination of compute, network, and storage resources, such as virtual network, Storage account, and virtual machines with network interfaces.</source>
+          <target state="new">Many applications require a combination of compute, network, and storage resources, such as virtual network, Storage account, and virtual machines with network interfaces.</target>
+        </trans-unit>
+        <trans-unit id="7a50de7a-79d1-43b2-817a-881401d25614" xml:space="preserve">
+          <source>Azure Resource Manager allows you to use or construct a JSON template to deploy and manage all these resources together as a single application.</source>
+          <target state="new">Azure Resource Manager allows you to use or construct a JSON template to deploy and manage all these resources together as a single application.</target>
+        </trans-unit>
+        <trans-unit id="7064bf7d-813d-4b70-8574-b563193b19e6" xml:space="preserve">
+          <source><bpt id="e5db53fc-5a62-4d22-ad7e-adff4dceff68">&lt;linkText&gt;</bpt>Azure Resource Manager overview<ept id="e5db53fc-5a62-4d22-ad7e-adff4dceff68">&lt;/linkText&gt;</ept><bpt id="e5db53fc-5a62-4d22-ad7e-adff4dceff68">&lt;title&gt;</bpt><ept id="e5db53fc-5a62-4d22-ad7e-adff4dceff68">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e5db53fc-5a62-4d22-ad7e-adff4dceff68">&lt;linkText&gt;</bpt>Azure Resource Manager overview<ept id="e5db53fc-5a62-4d22-ad7e-adff4dceff68">&lt;/linkText&gt;</ept><bpt id="e5db53fc-5a62-4d22-ad7e-adff4dceff68">&lt;title&gt;</bpt><ept id="e5db53fc-5a62-4d22-ad7e-adff4dceff68">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a59c8a3b-12d0-43ab-8e65-b7dc442e8763" xml:space="preserve">
+          <source><bpt id="10d05ce9-ee43-4320-87d3-c57167e6f0ff">&lt;linkText&gt;</bpt>Azure Quickstart templates<ept id="10d05ce9-ee43-4320-87d3-c57167e6f0ff">&lt;/linkText&gt;</ept><bpt id="10d05ce9-ee43-4320-87d3-c57167e6f0ff">&lt;title&gt;</bpt><ept id="10d05ce9-ee43-4320-87d3-c57167e6f0ff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="10d05ce9-ee43-4320-87d3-c57167e6f0ff">&lt;linkText&gt;</bpt>Azure Quickstart templates<ept id="10d05ce9-ee43-4320-87d3-c57167e6f0ff">&lt;/linkText&gt;</ept><bpt id="10d05ce9-ee43-4320-87d3-c57167e6f0ff">&lt;title&gt;</bpt><ept id="10d05ce9-ee43-4320-87d3-c57167e6f0ff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="491abc93-04fc-4b97-8cbc-4f26c1dfd99d" xml:space="preserve">
+          <source><bpt id="437e1550-7a0b-4901-a5a1-bdd1dde843f2">&lt;linkText&gt;</bpt>Application frameworks using templates<ept id="437e1550-7a0b-4901-a5a1-bdd1dde843f2">&lt;/linkText&gt;</ept><bpt id="437e1550-7a0b-4901-a5a1-bdd1dde843f2">&lt;title&gt;</bpt><ept id="437e1550-7a0b-4901-a5a1-bdd1dde843f2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="437e1550-7a0b-4901-a5a1-bdd1dde843f2">&lt;linkText&gt;</bpt>Application frameworks using templates<ept id="437e1550-7a0b-4901-a5a1-bdd1dde843f2">&lt;/linkText&gt;</ept><bpt id="437e1550-7a0b-4901-a5a1-bdd1dde843f2">&lt;title&gt;</bpt><ept id="437e1550-7a0b-4901-a5a1-bdd1dde843f2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d88b010-575b-40b3-bf8d-c0514af8fe3e" xml:space="preserve">
+          <source><bpt id="58585738-46ef-4491-bc1e-473be60a8b67">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI<ept id="58585738-46ef-4491-bc1e-473be60a8b67">&lt;/linkText&gt;</ept><bpt id="58585738-46ef-4491-bc1e-473be60a8b67">&lt;title&gt;</bpt><ept id="58585738-46ef-4491-bc1e-473be60a8b67">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="58585738-46ef-4491-bc1e-473be60a8b67">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI<ept id="58585738-46ef-4491-bc1e-473be60a8b67">&lt;/linkText&gt;</ept><bpt id="58585738-46ef-4491-bc1e-473be60a8b67">&lt;title&gt;</bpt><ept id="58585738-46ef-4491-bc1e-473be60a8b67">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5622705-942e-4351-824a-7dcfa886ac2e" xml:space="preserve">
+          <source><bpt id="da92e4f5-f775-4a75-82a0-84bcbefe51e1">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell<ept id="da92e4f5-f775-4a75-82a0-84bcbefe51e1">&lt;/linkText&gt;</ept><bpt id="da92e4f5-f775-4a75-82a0-84bcbefe51e1">&lt;title&gt;</bpt><ept id="da92e4f5-f775-4a75-82a0-84bcbefe51e1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="da92e4f5-f775-4a75-82a0-84bcbefe51e1">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell<ept id="da92e4f5-f775-4a75-82a0-84bcbefe51e1">&lt;/linkText&gt;</ept><bpt id="da92e4f5-f775-4a75-82a0-84bcbefe51e1">&lt;title&gt;</bpt><ept id="da92e4f5-f775-4a75-82a0-84bcbefe51e1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0440a85d-7b90-4f79-90f2-1111deb653f5" xml:space="preserve">
+          <source><bpt id="6650d039-4250-420b-894f-63d931de43b1">&lt;linkText&gt;</bpt>Azure Quickstart templates<ept id="6650d039-4250-420b-894f-63d931de43b1">&lt;/linkText&gt;</ept><bpt id="6650d039-4250-420b-894f-63d931de43b1">&lt;title&gt;</bpt><ept id="6650d039-4250-420b-894f-63d931de43b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6650d039-4250-420b-894f-63d931de43b1">&lt;linkText&gt;</bpt>Azure Quickstart templates<ept id="6650d039-4250-420b-894f-63d931de43b1">&lt;/linkText&gt;</ept><bpt id="6650d039-4250-420b-894f-63d931de43b1">&lt;title&gt;</bpt><ept id="6650d039-4250-420b-894f-63d931de43b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d66bf32-ce51-4d36-8305-1b22f53e8d02" xml:space="preserve">
+          <source><bpt id="ac27a48c-0077-486f-8edb-2fba3f60d862">&lt;linkText&gt;</bpt>Azure compute, network, and storage providers under Azure Resource Manager<ept id="ac27a48c-0077-486f-8edb-2fba3f60d862">&lt;/linkText&gt;</ept><bpt id="ac27a48c-0077-486f-8edb-2fba3f60d862">&lt;title&gt;</bpt><ept id="ac27a48c-0077-486f-8edb-2fba3f60d862">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ac27a48c-0077-486f-8edb-2fba3f60d862">&lt;linkText&gt;</bpt>Azure compute, network, and storage providers under Azure Resource Manager<ept id="ac27a48c-0077-486f-8edb-2fba3f60d862">&lt;/linkText&gt;</ept><bpt id="ac27a48c-0077-486f-8edb-2fba3f60d862">&lt;title&gt;</bpt><ept id="ac27a48c-0077-486f-8edb-2fba3f60d862">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c62d022b-fa4c-4544-8918-5d1493e4c6e2" xml:space="preserve">
+          <source><bpt id="b9a795bf-573c-471a-b199-6f4cb85a8934">&lt;linkText&gt;</bpt>Network resource provider<ept id="b9a795bf-573c-471a-b199-6f4cb85a8934">&lt;/linkText&gt;</ept><bpt id="b9a795bf-573c-471a-b199-6f4cb85a8934">&lt;title&gt;</bpt><ept id="b9a795bf-573c-471a-b199-6f4cb85a8934">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b9a795bf-573c-471a-b199-6f4cb85a8934">&lt;linkText&gt;</bpt>Network resource provider<ept id="b9a795bf-573c-471a-b199-6f4cb85a8934">&lt;/linkText&gt;</ept><bpt id="b9a795bf-573c-471a-b199-6f4cb85a8934">&lt;title&gt;</bpt><ept id="b9a795bf-573c-471a-b199-6f4cb85a8934">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dca0d125-4bde-4f46-b160-3738542014e4" xml:space="preserve">
+          <source><bpt id="3947307c-bd39-46e4-b50c-f25f56e4bcfb">&lt;linkText&gt;</bpt>Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager<ept id="3947307c-bd39-46e4-b50c-f25f56e4bcfb">&lt;/linkText&gt;</ept><bpt id="3947307c-bd39-46e4-b50c-f25f56e4bcfb">&lt;title&gt;</bpt><ept id="3947307c-bd39-46e4-b50c-f25f56e4bcfb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3947307c-bd39-46e4-b50c-f25f56e4bcfb">&lt;linkText&gt;</bpt>Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager<ept id="3947307c-bd39-46e4-b50c-f25f56e4bcfb">&lt;/linkText&gt;</ept><bpt id="3947307c-bd39-46e4-b50c-f25f56e4bcfb">&lt;title&gt;</bpt><ept id="3947307c-bd39-46e4-b50c-f25f56e4bcfb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79f95164-bfbc-4df0-b05e-2afb8de550c4" xml:space="preserve">
+          <source><bpt id="6cf8a5b9-e4bc-4158-a37d-c9e4b68295c0">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI<ept id="6cf8a5b9-e4bc-4158-a37d-c9e4b68295c0">&lt;/linkText&gt;</ept><bpt id="6cf8a5b9-e4bc-4158-a37d-c9e4b68295c0">&lt;title&gt;</bpt><ept id="6cf8a5b9-e4bc-4158-a37d-c9e4b68295c0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6cf8a5b9-e4bc-4158-a37d-c9e4b68295c0">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI<ept id="6cf8a5b9-e4bc-4158-a37d-c9e4b68295c0">&lt;/linkText&gt;</ept><bpt id="6cf8a5b9-e4bc-4158-a37d-c9e4b68295c0">&lt;title&gt;</bpt><ept id="6cf8a5b9-e4bc-4158-a37d-c9e4b68295c0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c82a137-afdf-4bbb-a1fa-b3a5ebfdd52d" xml:space="preserve">
+          <source><bpt id="511b5223-0821-4754-91ea-e4be80934d8a">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell<ept id="511b5223-0821-4754-91ea-e4be80934d8a">&lt;/linkText&gt;</ept><bpt id="511b5223-0821-4754-91ea-e4be80934d8a">&lt;title&gt;</bpt><ept id="511b5223-0821-4754-91ea-e4be80934d8a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="511b5223-0821-4754-91ea-e4be80934d8a">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell<ept id="511b5223-0821-4754-91ea-e4be80934d8a">&lt;/linkText&gt;</ept><bpt id="511b5223-0821-4754-91ea-e4be80934d8a">&lt;title&gt;</bpt><ept id="511b5223-0821-4754-91ea-e4be80934d8a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf9d061f-00cb-4c05-899c-631788f9858a" xml:space="preserve">
+          <source><bpt id="2af6956f-9a23-42b9-9b89-f098be377105">&lt;linkText&gt;</bpt>Deploy Azure resources using the .NET Library<ept id="2af6956f-9a23-42b9-9b89-f098be377105">&lt;/linkText&gt;</ept><bpt id="2af6956f-9a23-42b9-9b89-f098be377105">&lt;title&gt;</bpt><ept id="2af6956f-9a23-42b9-9b89-f098be377105">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2af6956f-9a23-42b9-9b89-f098be377105">&lt;linkText&gt;</bpt>Deploy Azure resources using the .NET Library<ept id="2af6956f-9a23-42b9-9b89-f098be377105">&lt;/linkText&gt;</ept><bpt id="2af6956f-9a23-42b9-9b89-f098be377105">&lt;title&gt;</bpt><ept id="2af6956f-9a23-42b9-9b89-f098be377105">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40de9c0a-4f9b-4534-85dd-0680c113db2e" xml:space="preserve">
+          <source><bpt id="34d6e49a-1ae8-4691-aa55-67e1c7661f79">&lt;linkText&gt;</bpt>Managing Azure virtual machines using Azure Automation<ept id="34d6e49a-1ae8-4691-aa55-67e1c7661f79">&lt;/linkText&gt;</ept><bpt id="34d6e49a-1ae8-4691-aa55-67e1c7661f79">&lt;title&gt;</bpt><ept id="34d6e49a-1ae8-4691-aa55-67e1c7661f79">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="34d6e49a-1ae8-4691-aa55-67e1c7661f79">&lt;linkText&gt;</bpt>Managing Azure virtual machines using Azure Automation<ept id="34d6e49a-1ae8-4691-aa55-67e1c7661f79">&lt;/linkText&gt;</ept><bpt id="34d6e49a-1ae8-4691-aa55-67e1c7661f79">&lt;title&gt;</bpt><ept id="34d6e49a-1ae8-4691-aa55-67e1c7661f79">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2db35583-20c9-4055-8c22-f92bc31436ae" xml:space="preserve">
+          <source><bpt id="4b9bbab1-b190-457a-bbb6-c2e85fa2f418">&lt;linkText&gt;</bpt>Virtual Machines documentation<ept id="4b9bbab1-b190-457a-bbb6-c2e85fa2f418">&lt;/linkText&gt;</ept><bpt id="4b9bbab1-b190-457a-bbb6-c2e85fa2f418">&lt;title&gt;</bpt><ept id="4b9bbab1-b190-457a-bbb6-c2e85fa2f418">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4b9bbab1-b190-457a-bbb6-c2e85fa2f418">&lt;linkText&gt;</bpt>Virtual Machines documentation<ept id="4b9bbab1-b190-457a-bbb6-c2e85fa2f418">&lt;/linkText&gt;</ept><bpt id="4b9bbab1-b190-457a-bbb6-c2e85fa2f418">&lt;title&gt;</bpt><ept id="4b9bbab1-b190-457a-bbb6-c2e85fa2f418">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

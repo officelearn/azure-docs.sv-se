@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e077a447-3443-49d1-8911-1479fa036925" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e077a447-3443-49d1-8911-1479fa036925" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="adf93c67-d4d4-4802-a91e-d4d7b118f801">
+        <trans-unit id="1b5df3c8-39c1-45e8-a135-f170ce5d1ea5" xml:space="preserve">
+          <source>Azure AD Cordova Getting Started | Microsoft Azure</source>
+          <target state="new">Azure AD Cordova Getting Started | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e569961e-a6b8-4915-8df7-5af8e77d64fd" xml:space="preserve">
+          <source>How to build a Cordova application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.</source>
+          <target state="new">How to build a Cordova application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.</target>
+        </trans-unit>
+        <trans-unit id="84dfbb32-3ce2-4ef0-bf95-183c51eafbb0" xml:space="preserve">
+          <source><bpt id="15875cc9-b982-48fb-ac9d-7658dd137f58">&lt;token href="../../includes/active-directory-devquickstarts-switcher.md"&gt;</bpt><ept id="15875cc9-b982-48fb-ac9d-7658dd137f58">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="15875cc9-b982-48fb-ac9d-7658dd137f58">&lt;token href="../../includes/active-directory-devquickstarts-switcher.md"&gt;</bpt><ept id="15875cc9-b982-48fb-ac9d-7658dd137f58">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d628e121-4a2e-42a0-abdd-ea589066afb1" xml:space="preserve">
+          <source><bpt id="481765eb-feda-4ff5-88ec-4a7d0bf3aa60">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="481765eb-feda-4ff5-88ec-4a7d0bf3aa60">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="481765eb-feda-4ff5-88ec-4a7d0bf3aa60">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="481765eb-feda-4ff5-88ec-4a7d0bf3aa60">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e68973d-87d2-4054-9f16-95f5ba6353e3" xml:space="preserve">
+          <source>Apache Cordova makes it possible for you to develop HTML5/JavaScript applications which can run on mobile devices as full-fledged native applications.</source>
+          <target state="new">Apache Cordova makes it possible for you to develop HTML5/JavaScript applications which can run on mobile devices as full-fledged native applications.</target>
+        </trans-unit>
+        <trans-unit id="73aa21e0-8ebe-4427-bc52-3ddb81cc221d" xml:space="preserve">
+          <source>With Azure AD, you can add enterprise grade authentication capabilities to your Cordova applications.</source>
+          <target state="new">With Azure AD, you can add enterprise grade authentication capabilities to your Cordova applications.</target>
+        </trans-unit>
+        <trans-unit id="6c5918b6-07aa-4e40-8578-55fd2de6e476" xml:space="preserve">
+          <source>Thanks to a Cordova plugin wrapping Azure AD's native SDKs on iOS, Android, Windows Store and Windows Phone, you can enhance your application to support sign on with your users' AD accounts, gain access to Office 365 and Azure API, and even protect calls to your own custom Web API.</source>
+          <target state="new">Thanks to a Cordova plugin wrapping Azure AD's native SDKs on iOS, Android, Windows Store and Windows Phone, you can enhance your application to support sign on with your users' AD accounts, gain access to Office 365 and Azure API, and even protect calls to your own custom Web API.</target>
+        </trans-unit>
+        <trans-unit id="a02fe854-7d5a-4028-a101-eeec5516fc9b" xml:space="preserve">
+          <source>In this tutorial we will use the Apache Cordova plugin for Active Directory Authentication Library (ADAL) to improve a simple app with the following features:</source>
+          <target state="new">In this tutorial we will use the Apache Cordova plugin for Active Directory Authentication Library (ADAL) to improve a simple app with the following features:</target>
+        </trans-unit>
+        <trans-unit id="c90002f3-88b5-4c5a-a2b8-713d86131f64" xml:space="preserve">
+          <source>With just few lines of code, authenticate an AD user and obtain a token for calling the Azure AD Graph API.</source>
+          <target state="new">With just few lines of code, authenticate an AD user and obtain a token for calling the Azure AD Graph API.</target>
+        </trans-unit>
+        <trans-unit id="1a88aa6a-e75b-4e22-8d0c-135acc78b293" xml:space="preserve">
+          <source>Use that token to invoke the Graph API to query that directory and display the results  </source>
+          <target state="new">Use that token to invoke the Graph API to query that directory and display the results  </target>
+        </trans-unit>
+        <trans-unit id="6e9357ca-37bf-4f57-a89e-d5f43d91d005" xml:space="preserve">
+          <source>Leverage the ADAL token cache for minimizing the authentication prompts for the user.</source>
+          <target state="new">Leverage the ADAL token cache for minimizing the authentication prompts for the user.</target>
+        </trans-unit>
+        <trans-unit id="a81ae761-580a-478f-9f0f-c45b4d8b9976" xml:space="preserve">
+          <source>In order to do this, you’ll need to:</source>
+          <target state="new">In order to do this, you’ll need to:</target>
+        </trans-unit>
+        <trans-unit id="753c3e44-51ad-4f10-bc0b-807e3bd0fd68" xml:space="preserve">
+          <source>Register an application with Azure AD</source>
+          <target state="new">Register an application with Azure AD</target>
+        </trans-unit>
+        <trans-unit id="66946da0-555d-46b8-b7ec-556010e7f623" xml:space="preserve">
+          <source>Add code to your app to request tokens</source>
+          <target state="new">Add code to your app to request tokens</target>
+        </trans-unit>
+        <trans-unit id="cfb45934-2012-4d9f-b2a7-81087b8e1fb5" xml:space="preserve">
+          <source>Add code to use the token for querying the Graph API and display results.</source>
+          <target state="new">Add code to use the token for querying the Graph API and display results.</target>
+        </trans-unit>
+        <trans-unit id="954d2f2c-7df1-4023-8c96-e212a37c97e5" xml:space="preserve">
+          <source>Create the Cordova deployment project with all the platforms you want to target, and the Cordova ADAL plugin and test the solution in emulators.</source>
+          <target state="new">Create the Cordova deployment project with all the platforms you want to target, and the Cordova ADAL plugin and test the solution in emulators.</target>
+        </trans-unit>
+        <trans-unit id="66d834e7-6395-445d-ad60-dd130d43f623" xml:space="preserve">
+          <source>To complete this tutorial you will need:</source>
+          <target state="new">To complete this tutorial you will need:</target>
+        </trans-unit>
+        <trans-unit id="1cf16a49-6edb-4022-8648-add1e60454f2" xml:space="preserve">
+          <source>An Azure AD tenant where you have an account with app development rights</source>
+          <target state="new">An Azure AD tenant where you have an account with app development rights</target>
+        </trans-unit>
+        <trans-unit id="f8b514ca-bded-4720-bc01-bb0f1e42e10b" xml:space="preserve">
+          <source>A development environment configured to use Apache Cordova  </source>
+          <target state="new">A development environment configured to use Apache Cordova  </target>
+        </trans-unit>
+        <trans-unit id="677079fe-d495-4172-89d0-2c8a996b74b0" xml:space="preserve">
+          <source>If you have both already set up, please proceed directly to step 1.</source>
+          <target state="new">If you have both already set up, please proceed directly to step 1.</target>
+        </trans-unit>
+        <trans-unit id="bcf9c6b4-f55d-4d41-84e7-49cd053c2ff2" xml:space="preserve">
+          <source>If you don't have an Azure AD tenant, you can find <bpt id="8174d48e-da72-4bac-96c2-7df0ede8d177">&lt;linkText&gt;</bpt>instructions on how to get one here<ept id="8174d48e-da72-4bac-96c2-7df0ede8d177">&lt;/linkText&gt;</ept><bpt id="8174d48e-da72-4bac-96c2-7df0ede8d177">&lt;title&gt;</bpt><ept id="8174d48e-da72-4bac-96c2-7df0ede8d177">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have an Azure AD tenant, you can find <bpt id="8174d48e-da72-4bac-96c2-7df0ede8d177">&lt;linkText&gt;</bpt>instructions on how to get one here<ept id="8174d48e-da72-4bac-96c2-7df0ede8d177">&lt;/linkText&gt;</ept><bpt id="8174d48e-da72-4bac-96c2-7df0ede8d177">&lt;title&gt;</bpt><ept id="8174d48e-da72-4bac-96c2-7df0ede8d177">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="242a5f22-c848-42f0-9754-554be574ffd7" xml:space="preserve">
+          <source>If you don't have Apache Cordova set up on your machine, please install the following:</source>
+          <target state="new">If you don't have Apache Cordova set up on your machine, please install the following:</target>
+        </trans-unit>
+        <trans-unit id="64df0605-ab79-4c3f-ade6-0e4740b1ae38" xml:space="preserve">
+          <source><bpt id="bfb61134-ea7f-4136-93a4-f6eb6644f5a8">&lt;linkText&gt;</bpt>Git<ept id="bfb61134-ea7f-4136-93a4-f6eb6644f5a8">&lt;/linkText&gt;</ept><bpt id="bfb61134-ea7f-4136-93a4-f6eb6644f5a8">&lt;title&gt;</bpt><ept id="bfb61134-ea7f-4136-93a4-f6eb6644f5a8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bfb61134-ea7f-4136-93a4-f6eb6644f5a8">&lt;linkText&gt;</bpt>Git<ept id="bfb61134-ea7f-4136-93a4-f6eb6644f5a8">&lt;/linkText&gt;</ept><bpt id="bfb61134-ea7f-4136-93a4-f6eb6644f5a8">&lt;title&gt;</bpt><ept id="bfb61134-ea7f-4136-93a4-f6eb6644f5a8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb300085-3f2b-4c0e-b7e9-44d533224206" xml:space="preserve">
+          <source><bpt id="7a19f036-0a9c-4d0d-8521-15b11f7f58b3">&lt;linkText&gt;</bpt>NodeJS<ept id="7a19f036-0a9c-4d0d-8521-15b11f7f58b3">&lt;/linkText&gt;</ept><bpt id="7a19f036-0a9c-4d0d-8521-15b11f7f58b3">&lt;title&gt;</bpt><ept id="7a19f036-0a9c-4d0d-8521-15b11f7f58b3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7a19f036-0a9c-4d0d-8521-15b11f7f58b3">&lt;linkText&gt;</bpt>NodeJS<ept id="7a19f036-0a9c-4d0d-8521-15b11f7f58b3">&lt;/linkText&gt;</ept><bpt id="7a19f036-0a9c-4d0d-8521-15b11f7f58b3">&lt;title&gt;</bpt><ept id="7a19f036-0a9c-4d0d-8521-15b11f7f58b3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="953bd618-6252-4401-ac28-55a8eb995a4e" xml:space="preserve">
+          <source><bpt id="ea7d8e11-94a7-4c1f-ae92-42bfc77b7ce9">&lt;linkText&gt;</bpt>Cordova CLI<ept id="ea7d8e11-94a7-4c1f-ae92-42bfc77b7ce9">&lt;/linkText&gt;</ept><bpt id="ea7d8e11-94a7-4c1f-ae92-42bfc77b7ce9">&lt;title&gt;</bpt><ept id="ea7d8e11-94a7-4c1f-ae92-42bfc77b7ce9">&lt;/title&gt;</ept>
+(can be easily installed via NPM package manager: <bpt id="6f8803b4-012d-41b4-947c-ea2f799328da">&lt;code&gt;</bpt>npm install -g cordova<ept id="6f8803b4-012d-41b4-947c-ea2f799328da">&lt;/code&gt;</ept>)</source>
+          <target state="new"><bpt id="ea7d8e11-94a7-4c1f-ae92-42bfc77b7ce9">&lt;linkText&gt;</bpt>Cordova CLI<ept id="ea7d8e11-94a7-4c1f-ae92-42bfc77b7ce9">&lt;/linkText&gt;</ept><bpt id="ea7d8e11-94a7-4c1f-ae92-42bfc77b7ce9">&lt;title&gt;</bpt><ept id="ea7d8e11-94a7-4c1f-ae92-42bfc77b7ce9">&lt;/title&gt;</ept>
+(can be easily installed via NPM package manager: <bpt id="6f8803b4-012d-41b4-947c-ea2f799328da">&lt;code&gt;</bpt>npm install -g cordova<ept id="6f8803b4-012d-41b4-947c-ea2f799328da">&lt;/code&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="0f3f6609-8e73-427e-ade0-fa7575fe6190" xml:space="preserve">
+          <source>Note that those should work both on the PC and on the Mac.</source>
+          <target state="new">Note that those should work both on the PC and on the Mac.</target>
+        </trans-unit>
+        <trans-unit id="c3348ff8-d01d-4255-a800-1fdf6f7993b8" xml:space="preserve">
+          <source>Each target platform has different prerequisites.</source>
+          <target state="new">Each target platform has different prerequisites.</target>
+        </trans-unit>
+        <trans-unit id="5746863e-025d-4ef5-b52c-b72f8fe09079" xml:space="preserve">
+          <source>To build and run Windows Tablet/PC or Phone app version</source>
+          <target state="new">To build and run Windows Tablet/PC or Phone app version</target>
+        </trans-unit>
+        <trans-unit id="2a6ae527-0d70-4f14-8c6a-3d661d7d591a" xml:space="preserve">
+          <source><bpt id="09b29a6a-00e3-4b3c-9738-890ad49a9403">&lt;linkText&gt;</bpt>Visual Studio 2013 for Windows with Update 2 or later<ept id="09b29a6a-00e3-4b3c-9738-890ad49a9403">&lt;/linkText&gt;</ept><bpt id="09b29a6a-00e3-4b3c-9738-890ad49a9403">&lt;title&gt;</bpt><ept id="09b29a6a-00e3-4b3c-9738-890ad49a9403">&lt;/title&gt;</ept> (Express or another version).</source>
+          <target state="new"><bpt id="09b29a6a-00e3-4b3c-9738-890ad49a9403">&lt;linkText&gt;</bpt>Visual Studio 2013 for Windows with Update 2 or later<ept id="09b29a6a-00e3-4b3c-9738-890ad49a9403">&lt;/linkText&gt;</ept><bpt id="09b29a6a-00e3-4b3c-9738-890ad49a9403">&lt;title&gt;</bpt><ept id="09b29a6a-00e3-4b3c-9738-890ad49a9403">&lt;/title&gt;</ept> (Express or another version).</target>
+        </trans-unit>
+        <trans-unit id="49e918fc-af72-446b-90f1-268cd404023f" xml:space="preserve">
+          <source>To build and run for iOS</source>
+          <target state="new">To build and run for iOS</target>
+        </trans-unit>
+        <trans-unit id="297707e6-a872-4dbe-92e8-42ac305a11d2" xml:space="preserve">
+          <source>Xcode 5.x or greater.</source>
+          <target state="new">Xcode 5.x or greater.</target>
+        </trans-unit>
+        <trans-unit id="4dff7169-6530-4483-9eb3-afcf7bc905bd" xml:space="preserve">
+          <source>Download it at http://developer.apple.com/downloads or the <bpt id="6d743239-f3a9-4f2e-92a6-290901271887">&lt;linkText&gt;</bpt>Mac App Store<ept id="6d743239-f3a9-4f2e-92a6-290901271887">&lt;/linkText&gt;</ept><bpt id="6d743239-f3a9-4f2e-92a6-290901271887">&lt;title&gt;</bpt><ept id="6d743239-f3a9-4f2e-92a6-290901271887">&lt;/title&gt;</ept></source>
+          <target state="new">Download it at http://developer.apple.com/downloads or the <bpt id="6d743239-f3a9-4f2e-92a6-290901271887">&lt;linkText&gt;</bpt>Mac App Store<ept id="6d743239-f3a9-4f2e-92a6-290901271887">&lt;/linkText&gt;</ept><bpt id="6d743239-f3a9-4f2e-92a6-290901271887">&lt;title&gt;</bpt><ept id="6d743239-f3a9-4f2e-92a6-290901271887">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d63b0859-32ef-4d88-aeae-ac9918728ba4" xml:space="preserve">
+          <source><bpt id="fbd1d407-371d-4a1b-9202-549cb694d050">&lt;linkText&gt;</bpt>ios-sim<ept id="fbd1d407-371d-4a1b-9202-549cb694d050">&lt;/linkText&gt;</ept><bpt id="fbd1d407-371d-4a1b-9202-549cb694d050">&lt;title&gt;</bpt><ept id="fbd1d407-371d-4a1b-9202-549cb694d050">&lt;/title&gt;</ept> – allows you to launch iOS apps into the iOS Simulator from the command line (can be easily installed via the terminal: <bpt id="1ed8a039-b069-4e4e-a93d-9eb466b989d2">&lt;code&gt;</bpt>npm install -g ios-sim<ept id="1ed8a039-b069-4e4e-a93d-9eb466b989d2">&lt;/code&gt;</ept>)</source>
+          <target state="new"><bpt id="fbd1d407-371d-4a1b-9202-549cb694d050">&lt;linkText&gt;</bpt>ios-sim<ept id="fbd1d407-371d-4a1b-9202-549cb694d050">&lt;/linkText&gt;</ept><bpt id="fbd1d407-371d-4a1b-9202-549cb694d050">&lt;title&gt;</bpt><ept id="fbd1d407-371d-4a1b-9202-549cb694d050">&lt;/title&gt;</ept> – allows you to launch iOS apps into the iOS Simulator from the command line (can be easily installed via the terminal: <bpt id="1ed8a039-b069-4e4e-a93d-9eb466b989d2">&lt;code&gt;</bpt>npm install -g ios-sim<ept id="1ed8a039-b069-4e4e-a93d-9eb466b989d2">&lt;/code&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="434e34c6-cac6-45fa-b8c0-0f3e9e832f1b" xml:space="preserve">
+          <source>To build and run application for Android</source>
+          <target state="new">To build and run application for Android</target>
+        </trans-unit>
+        <trans-unit id="d45d5eeb-a467-43a2-9a03-0aa4ea2a73aa" xml:space="preserve">
+          <source>Install <bpt id="16213cfa-05fd-4c76-99b4-858d50dc7975">&lt;linkText&gt;</bpt>Java Development Kit (JDK) 7<ept id="16213cfa-05fd-4c76-99b4-858d50dc7975">&lt;/linkText&gt;</ept><bpt id="16213cfa-05fd-4c76-99b4-858d50dc7975">&lt;title&gt;</bpt><ept id="16213cfa-05fd-4c76-99b4-858d50dc7975">&lt;/title&gt;</ept> or later.</source>
+          <target state="new">Install <bpt id="16213cfa-05fd-4c76-99b4-858d50dc7975">&lt;linkText&gt;</bpt>Java Development Kit (JDK) 7<ept id="16213cfa-05fd-4c76-99b4-858d50dc7975">&lt;/linkText&gt;</ept><bpt id="16213cfa-05fd-4c76-99b4-858d50dc7975">&lt;title&gt;</bpt><ept id="16213cfa-05fd-4c76-99b4-858d50dc7975">&lt;/title&gt;</ept> or later.</target>
+        </trans-unit>
+        <trans-unit id="71658fe1-870e-497b-be94-f30c51693113" xml:space="preserve">
+          <source>Make sure <bpt id="1c47148d-aa5f-4155-802d-d636d0f7d350">&lt;code&gt;</bpt>JAVA_HOME<ept id="1c47148d-aa5f-4155-802d-d636d0f7d350">&lt;/code&gt;</ept> (Environment Variable) is correctly set according to JDK installation path (for example C:\Program Files\Java\jdk1.7.0_75).</source>
+          <target state="new">Make sure <bpt id="1c47148d-aa5f-4155-802d-d636d0f7d350">&lt;code&gt;</bpt>JAVA_HOME<ept id="1c47148d-aa5f-4155-802d-d636d0f7d350">&lt;/code&gt;</ept> (Environment Variable) is correctly set according to JDK installation path (for example C:\Program Files\Java\jdk1.7.0_75).</target>
+        </trans-unit>
+        <trans-unit id="46dd6cba-c430-49d2-b358-9e7bf89ea399" xml:space="preserve">
+          <source>Install <bpt id="533bfc6a-e39f-492d-af08-57d0f3f42b44">&lt;linkText&gt;</bpt>Android SDK<ept id="533bfc6a-e39f-492d-af08-57d0f3f42b44">&lt;/linkText&gt;</ept><bpt id="533bfc6a-e39f-492d-af08-57d0f3f42b44">&lt;title&gt;</bpt><ept id="533bfc6a-e39f-492d-af08-57d0f3f42b44">&lt;/title&gt;</ept> and add <bpt id="9a574ec5-c6a7-4add-9ff9-9167efae2236">&lt;code&gt;</bpt>&lt;android-sdk-location&gt;\tools<ept id="9a574ec5-c6a7-4add-9ff9-9167efae2236">&lt;/code&gt;</ept> location (for example, C:\tools\Android\android-sdk\tools) to your <bpt id="8fec6805-c45c-4e11-837b-9a6445cfc9d7">&lt;code&gt;</bpt>PATH<ept id="8fec6805-c45c-4e11-837b-9a6445cfc9d7">&lt;/code&gt;</ept> Environment Variable.</source>
+          <target state="new">Install <bpt id="533bfc6a-e39f-492d-af08-57d0f3f42b44">&lt;linkText&gt;</bpt>Android SDK<ept id="533bfc6a-e39f-492d-af08-57d0f3f42b44">&lt;/linkText&gt;</ept><bpt id="533bfc6a-e39f-492d-af08-57d0f3f42b44">&lt;title&gt;</bpt><ept id="533bfc6a-e39f-492d-af08-57d0f3f42b44">&lt;/title&gt;</ept> and add <bpt id="9a574ec5-c6a7-4add-9ff9-9167efae2236">&lt;code&gt;</bpt>&lt;android-sdk-location&gt;\tools<ept id="9a574ec5-c6a7-4add-9ff9-9167efae2236">&lt;/code&gt;</ept> location (for example, C:\tools\Android\android-sdk\tools) to your <bpt id="8fec6805-c45c-4e11-837b-9a6445cfc9d7">&lt;code&gt;</bpt>PATH<ept id="8fec6805-c45c-4e11-837b-9a6445cfc9d7">&lt;/code&gt;</ept> Environment Variable.</target>
+        </trans-unit>
+        <trans-unit id="5f9a89cc-12f5-4d2b-9e7b-bafbbcd5755e" xml:space="preserve">
+          <source>Open Android SDK Manager (for example, via terminal: <bpt id="c1384fc6-dac2-4cd9-ae22-669ab9fcabdb">&lt;code&gt;</bpt>android<ept id="c1384fc6-dac2-4cd9-ae22-669ab9fcabdb">&lt;/code&gt;</ept>) and install</source>
+          <target state="new">Open Android SDK Manager (for example, via terminal: <bpt id="c1384fc6-dac2-4cd9-ae22-669ab9fcabdb">&lt;code&gt;</bpt>android<ept id="c1384fc6-dac2-4cd9-ae22-669ab9fcabdb">&lt;/code&gt;</ept>) and install</target>
+        </trans-unit>
+        <trans-unit id="56c6964d-309e-4ae1-b351-a025c9d90269" xml:space="preserve">
+          <source><bpt id="d2b7a3a7-834e-49c3-bf82-2d05e0311121">&lt;em&gt;</bpt>Android 5.0.1 (API 21)<ept id="d2b7a3a7-834e-49c3-bf82-2d05e0311121">&lt;/em&gt;</ept> platform SDK</source>
+          <target state="new"><bpt id="d2b7a3a7-834e-49c3-bf82-2d05e0311121">&lt;em&gt;</bpt>Android 5.0.1 (API 21)<ept id="d2b7a3a7-834e-49c3-bf82-2d05e0311121">&lt;/em&gt;</ept> platform SDK</target>
+        </trans-unit>
+        <trans-unit id="b79e166e-b51b-49c6-b0e2-4a570edd1d78" xml:space="preserve">
+          <source><bpt id="2fabbc80-2dca-4faa-b591-4d594d401ef9">&lt;em&gt;</bpt>Android SDK Build-tools<ept id="2fabbc80-2dca-4faa-b591-4d594d401ef9">&lt;/em&gt;</ept> version 19.1.0 or higher</source>
+          <target state="new"><bpt id="2fabbc80-2dca-4faa-b591-4d594d401ef9">&lt;em&gt;</bpt>Android SDK Build-tools<ept id="2fabbc80-2dca-4faa-b591-4d594d401ef9">&lt;/em&gt;</ept> version 19.1.0 or higher</target>
+        </trans-unit>
+        <trans-unit id="821b7538-0ab9-45fe-b530-7bb8cfaf504e" xml:space="preserve">
+          <source><bpt id="c190593a-addb-41b2-aacc-0057927f7a1b">&lt;em&gt;</bpt>Android Support Repository<ept id="c190593a-addb-41b2-aacc-0057927f7a1b">&lt;/em&gt;</ept> (Extras)</source>
+          <target state="new"><bpt id="c190593a-addb-41b2-aacc-0057927f7a1b">&lt;em&gt;</bpt>Android Support Repository<ept id="c190593a-addb-41b2-aacc-0057927f7a1b">&lt;/em&gt;</ept> (Extras)</target>
+        </trans-unit>
+        <trans-unit id="e67c9643-1285-4ad4-82fa-0fa48648c5e9" xml:space="preserve">
+          <source>Android sdk doesn't provide any default emulator instance.</source>
+          <target state="new">Android sdk doesn't provide any default emulator instance.</target>
+        </trans-unit>
+        <trans-unit id="dfcdc525-c8f5-44d9-b806-122e02ea3522" xml:space="preserve">
+          <source>Create a new one by running <bpt id="f0bc51ab-7ba5-4d29-9969-88bffb884bcf">&lt;code&gt;</bpt>android avd<ept id="f0bc51ab-7ba5-4d29-9969-88bffb884bcf">&lt;/code&gt;</ept> from terminal and then selecting <bpt id="4439e53a-fe2b-4039-84dc-af00588e7629">&lt;em&gt;</bpt>Create...<ept id="4439e53a-fe2b-4039-84dc-af00588e7629">&lt;/em&gt;</ept> if you want to run Android app on emulator.</source>
+          <target state="new">Create a new one by running <bpt id="f0bc51ab-7ba5-4d29-9969-88bffb884bcf">&lt;code&gt;</bpt>android avd<ept id="f0bc51ab-7ba5-4d29-9969-88bffb884bcf">&lt;/code&gt;</ept> from terminal and then selecting <bpt id="4439e53a-fe2b-4039-84dc-af00588e7629">&lt;em&gt;</bpt>Create...<ept id="4439e53a-fe2b-4039-84dc-af00588e7629">&lt;/em&gt;</ept> if you want to run Android app on emulator.</target>
+        </trans-unit>
+        <trans-unit id="cb1e56cd-a4e8-4e84-a303-86971d4f5410" xml:space="preserve">
+          <source>Recommended <bpt id="eaec80ff-878e-471c-b97b-59210ec6826a">&lt;em&gt;</bpt>Api Level<ept id="eaec80ff-878e-471c-b97b-59210ec6826a">&lt;/em&gt;</ept> is 19 or higher, see [AVD Manager] (http://developer.android.com/tools/help/avd-manager.html) for more information about Android emulator and creation options.</source>
+          <target state="new">Recommended <bpt id="eaec80ff-878e-471c-b97b-59210ec6826a">&lt;em&gt;</bpt>Api Level<ept id="eaec80ff-878e-471c-b97b-59210ec6826a">&lt;/em&gt;</ept> is 19 or higher, see [AVD Manager] (http://developer.android.com/tools/help/avd-manager.html) for more information about Android emulator and creation options.</target>
+        </trans-unit>
+        <trans-unit id="8c6c27af-218e-4601-8cf2-4e40d9dfee93" xml:space="preserve">
+          <source>Note: this step is optional.</source>
+          <target state="new">Note: this step is optional.</target>
+        </trans-unit>
+        <trans-unit id="90cb85a2-3cab-4c73-a1bf-38fc3b04e6ad" xml:space="preserve">
+          <source>The tutorial provided pre-provisioned values that will allow you to see the sample in action without doing any provisioning in your own tenant.</source>
+          <target state="new">The tutorial provided pre-provisioned values that will allow you to see the sample in action without doing any provisioning in your own tenant.</target>
+        </trans-unit>
+        <trans-unit id="3b966a4d-3a26-4854-81d4-f84b27a69364" xml:space="preserve">
+          <source>However it is recommended that you do perform this step and become familiar with the process, as it will be required when you will create your own applications.</source>
+          <target state="new">However it is recommended that you do perform this step and become familiar with the process, as it will be required when you will create your own applications.</target>
+        </trans-unit>
+        <trans-unit id="1cbfea3d-d24f-4bdb-80b4-8aec7c5aab52" xml:space="preserve">
+          <source>Azure AD will only issue tokens to known applications.</source>
+          <target state="new">Azure AD will only issue tokens to known applications.</target>
+        </trans-unit>
+        <trans-unit id="dcc8a1ad-e18b-49e5-9173-70f2ab1f9723" xml:space="preserve">
+          <source>Before you can use Azure AD from your app, you need to create an entry for it in your tenant.</source>
+          <target state="new">Before you can use Azure AD from your app, you need to create an entry for it in your tenant.</target>
+        </trans-unit>
+        <trans-unit id="834e3e6d-9ebf-4163-a95e-d733b12e5d94" xml:space="preserve">
+          <source>To register a new application in your tenant,</source>
+          <target state="new">To register a new application in your tenant,</target>
+        </trans-unit>
+        <trans-unit id="a486c6fe-1ac9-4e0b-b573-bfcaf93ac264" xml:space="preserve">
+          <source>Sign into the Azure Management Portal</source>
+          <target state="new">Sign into the Azure Management Portal</target>
+        </trans-unit>
+        <trans-unit id="ff2ed392-f796-4c8c-a876-2e045063f7e5" xml:space="preserve">
+          <source>In the left hand nav, click on Active Directory</source>
+          <target state="new">In the left hand nav, click on Active Directory</target>
+        </trans-unit>
+        <trans-unit id="90282e1b-b4c1-4723-b58d-966b62743631" xml:space="preserve">
+          <source>Select the tenant where you wish to register the application</source>
+          <target state="new">Select the tenant where you wish to register the application</target>
+        </trans-unit>
+        <trans-unit id="f205e59e-106c-41a5-9671-c16fed172eac" xml:space="preserve">
+          <source>Click the Applications tab, and click add in the bottom drawer.</source>
+          <target state="new">Click the Applications tab, and click add in the bottom drawer.</target>
+        </trans-unit>
+        <trans-unit id="d43325c0-f012-4f58-b29d-6685f6ccf72b" xml:space="preserve">
+          <source>Follow the prompts and create a new “Native Client Application”</source>
+          <target state="new">Follow the prompts and create a new “Native Client Application”</target>
+        </trans-unit>
+        <trans-unit id="0e94054e-00bd-4113-9bd9-3b97382fe3a3" xml:space="preserve">
+          <source>The name of the application will describe your application to end-users</source>
+          <target state="new">The name of the application will describe your application to end-users</target>
+        </trans-unit>
+        <trans-unit id="5636426b-262f-4186-9f4e-29d68c45fe64" xml:space="preserve">
+          <source>The “Redirect URI” is the URI used to return tokens to your app.</source>
+          <target state="new">The “Redirect URI” is the URI used to return tokens to your app.</target>
+        </trans-unit>
+        <trans-unit id="f17f57db-71f8-4dde-9046-fadbcb204d4a" xml:space="preserve">
+          <source>Enter <bpt id="c6989320-3f70-4c75-9b3e-3fba5421b5de">&lt;code&gt;</bpt>http://MyDirectorySearcherApp<ept id="c6989320-3f70-4c75-9b3e-3fba5421b5de">&lt;/code&gt;</ept>.</source>
+          <target state="new">Enter <bpt id="c6989320-3f70-4c75-9b3e-3fba5421b5de">&lt;code&gt;</bpt>http://MyDirectorySearcherApp<ept id="c6989320-3f70-4c75-9b3e-3fba5421b5de">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fc4f1d6-d4e1-4773-bb46-7769fc574f2e" xml:space="preserve">
+          <source>Once you’ve completed registration, AAD will assign your app a unique client identifier.</source>
+          <target state="new">Once you’ve completed registration, AAD will assign your app a unique client identifier.</target>
+        </trans-unit>
+        <trans-unit id="1023ccc9-7e19-480c-8ead-eb8c046426af" xml:space="preserve">
+          <source>You’ll need this value in the next sections: you can find it in the Configure tab of the newly created app.</source>
+          <target state="new">You’ll need this value in the next sections: you can find it in the Configure tab of the newly created app.</target>
+        </trans-unit>
+        <trans-unit id="8b0bee67-8fe0-4ce2-941a-715478b8af86" xml:space="preserve">
+          <source>From your shell or command line, type the following command:</source>
+          <target state="new">From your shell or command line, type the following command:</target>
+        </trans-unit>
+        <trans-unit id="d2163ebb-ae7c-412f-a6e8-758bbbdb8428" xml:space="preserve">
+          <source>There are multiple ways of creating Cordova applications.</source>
+          <target state="new">There are multiple ways of creating Cordova applications.</target>
+        </trans-unit>
+        <trans-unit id="26d86d92-7744-4505-ac72-edab7547ecdc" xml:space="preserve">
+          <source>In this tutorial we will use the Cordova command line interface (CLI).</source>
+          <target state="new">In this tutorial we will use the Cordova command line interface (CLI).</target>
+        </trans-unit>
+        <trans-unit id="5dc1634f-6baf-45ea-8b78-7ba6f7c2820e" xml:space="preserve">
+          <source>From your shell or command line, type the following command:</source>
+          <target state="new">From your shell or command line, type the following command:</target>
+        </trans-unit>
+        <trans-unit id="ed63b80a-ab16-423d-8821-55770a0c81bd" xml:space="preserve">
+          <source>That will create the folder structure and scaffolding for the Cordova project, copying the content of the starter project in the www subfolder.</source>
+          <target state="new">That will create the folder structure and scaffolding for the Cordova project, copying the content of the starter project in the www subfolder.</target>
+        </trans-unit>
+        <trans-unit id="e1892fb5-ade4-405b-8903-a47294495104" xml:space="preserve">
+          <source>Move to the new DirSearchClient folder.</source>
+          <target state="new">Move to the new DirSearchClient folder.</target>
+        </trans-unit>
+        <trans-unit id="3b78947d-fd7b-43ec-b5cf-d2264894a4e1" xml:space="preserve">
+          <source>Add the whitelist plugin, necessary for invoking the Graph API.</source>
+          <target state="new">Add the whitelist plugin, necessary for invoking the Graph API.</target>
+        </trans-unit>
+        <trans-unit id="627d6996-17c8-4b82-b8ad-08d3cbb6c0d6" xml:space="preserve">
+          <source>Next, add all of the platforms you want to support.</source>
+          <target state="new">Next, add all of the platforms you want to support.</target>
+        </trans-unit>
+        <trans-unit id="38359f84-1992-45d7-9347-32b5c0aae402" xml:space="preserve">
+          <source>In order to have a working sample, you will need to execute at least one of the commands below.</source>
+          <target state="new">In order to have a working sample, you will need to execute at least one of the commands below.</target>
+        </trans-unit>
+        <trans-unit id="528fc2cd-095b-4b99-9e9f-9ffab3ed63a9" xml:space="preserve">
+          <source>Note that you will not be able to emulate iOS on Windows, or Windows/Windows Phone on a Mac.</source>
+          <target state="new">Note that you will not be able to emulate iOS on Windows, or Windows/Windows Phone on a Mac.</target>
+        </trans-unit>
+        <trans-unit id="f133ae0a-d967-4caa-b2d5-10f6df1690d8" xml:space="preserve">
+          <source>Finally, you can add the ADAL for Cordova plugin to your project.</source>
+          <target state="new">Finally, you can add the ADAL for Cordova plugin to your project.</target>
+        </trans-unit>
+        <trans-unit id="fc0cb738-3ca0-4e04-88ad-56bcf8858b94" xml:space="preserve">
+          <source>The application you are developing in this tutorial will provide a bare-bone directory search feature, where the end user can type the alias of any user in the directory and visualize some basic attributes.</source>
+          <target state="new">The application you are developing in this tutorial will provide a bare-bone directory search feature, where the end user can type the alias of any user in the directory and visualize some basic attributes.</target>
+        </trans-unit>
+        <trans-unit id="f740a6ea-d21e-4f76-86ea-d4c18e77d6ab" xml:space="preserve">
+          <source>The starter project contains the definition of the basic user interface of the app (in www/index.html) and the scaffolding that wires up basic app event cycles, user interface bindings and results display logic (in www/js/index.js).</source>
+          <target state="new">The starter project contains the definition of the basic user interface of the app (in www/index.html) and the scaffolding that wires up basic app event cycles, user interface bindings and results display logic (in www/js/index.js).</target>
+        </trans-unit>
+        <trans-unit id="08da3226-9391-4964-8488-5602203938b2" xml:space="preserve">
+          <source>The only thing left out for you is to add the logic implementing identity tasks.</source>
+          <target state="new">The only thing left out for you is to add the logic implementing identity tasks.</target>
+        </trans-unit>
+        <trans-unit id="e08e4c62-b37f-455b-b852-c28725fc9138" xml:space="preserve">
+          <source>The very first thing you need to do is to introduce in your code the protocol values that are used by AAD for identifying your app and the resources you target.</source>
+          <target state="new">The very first thing you need to do is to introduce in your code the protocol values that are used by AAD for identifying your app and the resources you target.</target>
+        </trans-unit>
+        <trans-unit id="4f8de9bb-0f96-4d1b-b31e-d21128d6fb07" xml:space="preserve">
+          <source>Those values will be used to construct the token requests later on.</source>
+          <target state="new">Those values will be used to construct the token requests later on.</target>
+        </trans-unit>
+        <trans-unit id="e2ced917-b7f4-46cb-b4f3-cc061f52f297" xml:space="preserve">
+          <source>Insert the snippet below at the very top of the index.js file.</source>
+          <target state="new">Insert the snippet below at the very top of the index.js file.</target>
+        </trans-unit>
+        <trans-unit id="b3cda5bb-2f2c-49cc-b082-6622bcd9c2a1" xml:space="preserve">
+          <source>The <bpt id="a2cccaf1-bc5d-4d85-928b-086d1945aa2f">&lt;code&gt;</bpt>redirectUri<ept id="a2cccaf1-bc5d-4d85-928b-086d1945aa2f">&lt;/code&gt;</ept> and <bpt id="e71b8a19-5980-4689-a8e6-9c4873013117">&lt;code&gt;</bpt>clientId<ept id="e71b8a19-5980-4689-a8e6-9c4873013117">&lt;/code&gt;</ept> values should match the values describing your app in AAD.</source>
+          <target state="new">The <bpt id="a2cccaf1-bc5d-4d85-928b-086d1945aa2f">&lt;code&gt;</bpt>redirectUri<ept id="a2cccaf1-bc5d-4d85-928b-086d1945aa2f">&lt;/code&gt;</ept> and <bpt id="e71b8a19-5980-4689-a8e6-9c4873013117">&lt;code&gt;</bpt>clientId<ept id="e71b8a19-5980-4689-a8e6-9c4873013117">&lt;/code&gt;</ept> values should match the values describing your app in AAD.</target>
+        </trans-unit>
+        <trans-unit id="6bcbab60-2521-4aed-8b3d-dcf9c4e13629" xml:space="preserve">
+          <source>You can find those from the Configure tab in the Azure portal, as described in step 1 earlier in this tutorial.</source>
+          <target state="new">You can find those from the Configure tab in the Azure portal, as described in step 1 earlier in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="ab35354a-ca6f-4d1c-bf24-20ee5a6f71f1" xml:space="preserve">
+          <source>Note: if you opted for not registering a new app in your own tenant, you can simply paste the pre-configured values above as is - that will allow you to see the sample running, though you should always create your own entry for your apps meant for production.</source>
+          <target state="new">Note: if you opted for not registering a new app in your own tenant, you can simply paste the pre-configured values above as is - that will allow you to see the sample running, though you should always create your own entry for your apps meant for production.</target>
+        </trans-unit>
+        <trans-unit id="fa7b95e3-6a86-47a3-946a-4c17ca3ae366" xml:space="preserve">
+          <source>Next, we need to add the actual token request code.</source>
+          <target state="new">Next, we need to add the actual token request code.</target>
+        </trans-unit>
+        <trans-unit id="29053e78-6a7f-4921-95c8-a3ce7a60b6b1" xml:space="preserve">
+          <source>Insert the following snippet between the <bpt id="281ea7d9-a541-40df-bf43-d473de8f056d">&lt;code&gt;</bpt>search <ept id="281ea7d9-a541-40df-bf43-d473de8f056d">&lt;/code&gt;</ept>and <bpt id="44b048a0-a534-4af2-b355-309f0da99273">&lt;code&gt;</bpt>renderdata <ept id="44b048a0-a534-4af2-b355-309f0da99273">&lt;/code&gt;</ept>definitions.</source>
+          <target state="new">Insert the following snippet between the <bpt id="281ea7d9-a541-40df-bf43-d473de8f056d">&lt;code&gt;</bpt>search <ept id="281ea7d9-a541-40df-bf43-d473de8f056d">&lt;/code&gt;</ept>and <bpt id="44b048a0-a534-4af2-b355-309f0da99273">&lt;code&gt;</bpt>renderdata <ept id="44b048a0-a534-4af2-b355-309f0da99273">&lt;/code&gt;</ept>definitions.</target>
+        </trans-unit>
+        <trans-unit id="c9a2d6d6-5624-4fed-8c7a-7c5741946141" xml:space="preserve">
+          <source>Let's examine that function by breaking it down in its two main parts.</source>
+          <target state="new">Let's examine that function by breaking it down in its two main parts.</target>
+        </trans-unit>
+        <trans-unit id="c43880a0-411b-4faa-8acd-625d913cc383" xml:space="preserve">
+          <source>This sample is designed to work with any tenant, as opposed to be tied to a particular one.</source>
+          <target state="new">This sample is designed to work with any tenant, as opposed to be tied to a particular one.</target>
+        </trans-unit>
+        <trans-unit id="f20c6a20-a6aa-4525-9ba9-d12f7f462242" xml:space="preserve">
+          <source>It uses the "/common" endpoint, which allows the user to enter any account at authentication time and directs the request to the tenant it belongs.</source>
+          <target state="new">It uses the "/common" endpoint, which allows the user to enter any account at authentication time and directs the request to the tenant it belongs.</target>
+        </trans-unit>
+        <trans-unit id="ccc7ccf8-3f50-4eb3-827e-d418002587b1" xml:space="preserve">
+          <source>This first part of the method inspects the ADAL cache to see if there is already a stored token - and if there is, it uses the tenants it came from for re-initializing ADAL.</source>
+          <target state="new">This first part of the method inspects the ADAL cache to see if there is already a stored token - and if there is, it uses the tenants it came from for re-initializing ADAL.</target>
+        </trans-unit>
+        <trans-unit id="a8ffc986-3c9a-4a60-bf68-3cdb02f80844" xml:space="preserve">
+          <source>This is necessary to avoid extra prompts, as the use of "/common" always results in asking the user to enter a new account.</source>
+          <target state="new">This is necessary to avoid extra prompts, as the use of "/common" always results in asking the user to enter a new account.</target>
+        </trans-unit>
+        <trans-unit id="22be9432-52c7-4bb1-b1d6-add06e84fa49" xml:space="preserve">
+          <source>The second part of the method performs the proper tokewn request.</source>
+          <target state="new">The second part of the method performs the proper tokewn request.</target>
+        </trans-unit>
+        <trans-unit id="d08bf2bd-2cb4-4347-bcc3-81853d4de85f" xml:space="preserve">
+          <source>The <bpt id="b4e357e7-5790-4158-a20e-6b7b7c78b59a">&lt;code&gt;</bpt>acquireTokenSilentAsync<ept id="b4e357e7-5790-4158-a20e-6b7b7c78b59a">&lt;/code&gt;</ept> method asks to ADAL to return a token for the specified resource without showing any UX.</source>
+          <target state="new">The <bpt id="b4e357e7-5790-4158-a20e-6b7b7c78b59a">&lt;code&gt;</bpt>acquireTokenSilentAsync<ept id="b4e357e7-5790-4158-a20e-6b7b7c78b59a">&lt;/code&gt;</ept> method asks to ADAL to return a token for the specified resource without showing any UX.</target>
+        </trans-unit>
+        <trans-unit id="2f57afeb-03a1-413c-bc65-314804239dc5" xml:space="preserve">
+          <source>That can happen if the cache already has a suitable access token stored, or if there is a refresh token that can be used to get a new access token without shwoing any prompt.</source>
+          <target state="new">That can happen if the cache already has a suitable access token stored, or if there is a refresh token that can be used to get a new access token without shwoing any prompt.</target>
+        </trans-unit>
+        <trans-unit id="ea0533d2-00b2-444a-8a18-f4a40a4d8830" xml:space="preserve">
+          <source>If that attempt fails, we fall back on <bpt id="d5fdd3db-0b82-4005-830f-f1590a2c174d">&lt;code&gt;</bpt>acquireTokenAsync<ept id="d5fdd3db-0b82-4005-830f-f1590a2c174d">&lt;/code&gt;</ept> - which will visibly prompt the user to authenticate.</source>
+          <target state="new">If that attempt fails, we fall back on <bpt id="d5fdd3db-0b82-4005-830f-f1590a2c174d">&lt;code&gt;</bpt>acquireTokenAsync<ept id="d5fdd3db-0b82-4005-830f-f1590a2c174d">&lt;/code&gt;</ept> - which will visibly prompt the user to authenticate.</target>
+        </trans-unit>
+        <trans-unit id="4f948d4a-da7e-4b30-8432-e8cf962f86c1" xml:space="preserve">
+          <source>Now that we have the token, we can finally invoke the Graph API and perform the search query we want.</source>
+          <target state="new">Now that we have the token, we can finally invoke the Graph API and perform the search query we want.</target>
+        </trans-unit>
+        <trans-unit id="faa8fe3b-a437-4fde-b43d-41c702b839b4" xml:space="preserve">
+          <source>Insert the following snippet right below the <bpt id="d30025f9-a93f-4724-931d-33f7e7bc4c3e">&lt;code&gt;</bpt>authenticate<ept id="d30025f9-a93f-4724-931d-33f7e7bc4c3e">&lt;/code&gt;</ept> definition.</source>
+          <target state="new">Insert the following snippet right below the <bpt id="d30025f9-a93f-4724-931d-33f7e7bc4c3e">&lt;code&gt;</bpt>authenticate<ept id="d30025f9-a93f-4724-931d-33f7e7bc4c3e">&lt;/code&gt;</ept> definition.</target>
+        </trans-unit>
+        <trans-unit id="9ecae861-0ced-4837-82cb-21fb7127d249" xml:space="preserve">
+          <source>The starting point files supplied a barebone UX for entering a user's alias in a textbox.</source>
+          <target state="new">The starting point files supplied a barebone UX for entering a user's alias in a textbox.</target>
+        </trans-unit>
+        <trans-unit id="bbd75e0c-5080-4c71-afa7-a29e7b333746" xml:space="preserve">
+          <source>This method uses that value to construct a query, combine it with the access token, send it to the Graph, and parse the results.</source>
+          <target state="new">This method uses that value to construct a query, combine it with the access token, send it to the Graph, and parse the results.</target>
+        </trans-unit>
+        <trans-unit id="37e496e3-3009-4aa6-bd32-2c87b0cd96fa" xml:space="preserve">
+          <source>The renderData method, already present in the starting point file, takes care to visualize the results.</source>
+          <target state="new">The renderData method, already present in the starting point file, takes care to visualize the results.</target>
+        </trans-unit>
+        <trans-unit id="a99134f8-3ca1-4902-9a33-7ac4ef676305" xml:space="preserve">
+          <source>Your app is finally ready to run!</source>
+          <target state="new">Your app is finally ready to run!</target>
+        </trans-unit>
+        <trans-unit id="7a5fe88b-c99b-4e5f-a400-a85db15671fb" xml:space="preserve">
+          <source>Operating it is very simple: once the app starts, enter in the text box the alias of the user you want to look up - then click the button.</source>
+          <target state="new">Operating it is very simple: once the app starts, enter in the text box the alias of the user you want to look up - then click the button.</target>
+        </trans-unit>
+        <trans-unit id="a21177f8-1e16-4c04-a661-c1882cb12e63" xml:space="preserve">
+          <source>You will be prompted for authentication.</source>
+          <target state="new">You will be prompted for authentication.</target>
+        </trans-unit>
+        <trans-unit id="df8f1568-a127-40f1-908c-39a2e15bb313" xml:space="preserve">
+          <source>Upon successful authentication and successful search, the attributes of the searched user will be displayed.</source>
+          <target state="new">Upon successful authentication and successful search, the attributes of the searched user will be displayed.</target>
+        </trans-unit>
+        <trans-unit id="9a6d028b-9132-43de-92ce-2d7f7da7414d" xml:space="preserve">
+          <source>Subsequent runs will perform the search without showing any prompt, thanks to the presence in cache of the token previously acquired.</source>
+          <target state="new">Subsequent runs will perform the search without showing any prompt, thanks to the presence in cache of the token previously acquired.</target>
+        </trans-unit>
+        <trans-unit id="9be30f0b-01bb-4c5a-8234-51b6e1c2416f" xml:space="preserve">
+          <source>The concrete steps for running the app vary by platform.</source>
+          <target state="new">The concrete steps for running the app vary by platform.</target>
+        </trans-unit>
+        <trans-unit id="33e2a6da-7feb-4ae9-b2c1-f33574db82b2" xml:space="preserve">
+          <source>   <bpt id="7be97fc2-437c-4428-a2d7-5edfad668e04">&lt;code&gt;</bpt>cordova run windows<ept id="7be97fc2-437c-4428-a2d7-5edfad668e04">&lt;/code&gt;</ept></source>
+          <target state="new">   <bpt id="7be97fc2-437c-4428-a2d7-5edfad668e04">&lt;code&gt;</bpt>cordova run windows<ept id="7be97fc2-437c-4428-a2d7-5edfad668e04">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2905735c-3e51-4df3-ae32-d1634f673445" xml:space="preserve">
+          <source><bpt id="a43bf424-3489-4f63-8f91-cb9963ed01b7">&lt;strong&gt;</bpt>Note<ept id="a43bf424-3489-4f63-8f91-cb9963ed01b7">&lt;/strong&gt;</ept>: During first run you may be asked to sign in for a developer license.</source>
+          <target state="new"><bpt id="a43bf424-3489-4f63-8f91-cb9963ed01b7">&lt;strong&gt;</bpt>Note<ept id="a43bf424-3489-4f63-8f91-cb9963ed01b7">&lt;/strong&gt;</ept>: During first run you may be asked to sign in for a developer license.</target>
+        </trans-unit>
+        <trans-unit id="afd95e1c-e7ac-47cb-b8c0-68c20633fba4" xml:space="preserve">
+          <source>See <bpt id="2ffdc805-475e-4f42-a15c-2de21899777e">&lt;linkText&gt;</bpt>Developer license<ept id="2ffdc805-475e-4f42-a15c-2de21899777e">&lt;/linkText&gt;</ept><bpt id="2ffdc805-475e-4f42-a15c-2de21899777e">&lt;title&gt;</bpt><ept id="2ffdc805-475e-4f42-a15c-2de21899777e">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See <bpt id="2ffdc805-475e-4f42-a15c-2de21899777e">&lt;linkText&gt;</bpt>Developer license<ept id="2ffdc805-475e-4f42-a15c-2de21899777e">&lt;/linkText&gt;</ept><bpt id="2ffdc805-475e-4f42-a15c-2de21899777e">&lt;title&gt;</bpt><ept id="2ffdc805-475e-4f42-a15c-2de21899777e">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="27c70599-a3e3-4f00-8429-fd1b43c7e6bc" xml:space="preserve">
+          <source>   To run on connected device: <bpt id="9604e110-2496-46e3-9d4c-2501bc727662">&lt;code&gt;</bpt>cordova run windows --device -- --phone<ept id="9604e110-2496-46e3-9d4c-2501bc727662">&lt;/code&gt;</ept></source>
+          <target state="new">   To run on connected device: <bpt id="9604e110-2496-46e3-9d4c-2501bc727662">&lt;code&gt;</bpt>cordova run windows --device -- --phone<ept id="9604e110-2496-46e3-9d4c-2501bc727662">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6963cf22-7652-4842-9ee8-9ba8f1bc6bea" xml:space="preserve">
+          <source>   To run on default emulator: <bpt id="b7616581-2800-4354-b0f0-bf88c8c6a0a6">&lt;code&gt;</bpt>cordova emulate windows -- --phone<ept id="b7616581-2800-4354-b0f0-bf88c8c6a0a6">&lt;/code&gt;</ept></source>
+          <target state="new">   To run on default emulator: <bpt id="b7616581-2800-4354-b0f0-bf88c8c6a0a6">&lt;code&gt;</bpt>cordova emulate windows -- --phone<ept id="b7616581-2800-4354-b0f0-bf88c8c6a0a6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bac75379-8306-4398-9c24-cdd1e7f0addc" xml:space="preserve">
+          <source>   Use <bpt id="3651be6e-17a5-4a19-b86a-2eede859e9f0">&lt;code&gt;</bpt>cordova run windows --list -- --phone<ept id="3651be6e-17a5-4a19-b86a-2eede859e9f0">&lt;/code&gt;</ept> to see all available targets and <bpt id="4d079428-aaab-42ef-a473-6f7afa568a90">&lt;code&gt;</bpt>cordova run windows --target=&lt;target_name&gt; -- --phone<ept id="4d079428-aaab-42ef-a473-6f7afa568a90">&lt;/code&gt;</ept> to run application on specific device or emulator (for example,  <bpt id="8acef48c-4f55-42e7-ad08-8bec4e43d53b">&lt;code&gt;</bpt>cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone<ept id="8acef48c-4f55-42e7-ad08-8bec4e43d53b">&lt;/code&gt;</ept>).</source>
+          <target state="new">   Use <bpt id="3651be6e-17a5-4a19-b86a-2eede859e9f0">&lt;code&gt;</bpt>cordova run windows --list -- --phone<ept id="3651be6e-17a5-4a19-b86a-2eede859e9f0">&lt;/code&gt;</ept> to see all available targets and <bpt id="4d079428-aaab-42ef-a473-6f7afa568a90">&lt;code&gt;</bpt>cordova run windows --target=&lt;target_name&gt; -- --phone<ept id="4d079428-aaab-42ef-a473-6f7afa568a90">&lt;/code&gt;</ept> to run application on specific device or emulator (for example,  <bpt id="8acef48c-4f55-42e7-ad08-8bec4e43d53b">&lt;code&gt;</bpt>cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone<ept id="8acef48c-4f55-42e7-ad08-8bec4e43d53b">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="d696b1d9-b90c-4aba-aceb-50a1fb546d9c" xml:space="preserve">
+          <source>   To run on connected device: <bpt id="82644dcf-cb46-48ce-9fb6-d39d29260237">&lt;code&gt;</bpt>cordova run android --device<ept id="82644dcf-cb46-48ce-9fb6-d39d29260237">&lt;/code&gt;</ept></source>
+          <target state="new">   To run on connected device: <bpt id="82644dcf-cb46-48ce-9fb6-d39d29260237">&lt;code&gt;</bpt>cordova run android --device<ept id="82644dcf-cb46-48ce-9fb6-d39d29260237">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46efae20-3c97-45fc-9c14-a53057c4b160" xml:space="preserve">
+          <source>   To run on default emulator: <bpt id="6830969e-1c39-46d9-b317-95d9188723c0">&lt;code&gt;</bpt>cordova emulate android<ept id="6830969e-1c39-46d9-b317-95d9188723c0">&lt;/code&gt;</ept></source>
+          <target state="new">   To run on default emulator: <bpt id="6830969e-1c39-46d9-b317-95d9188723c0">&lt;code&gt;</bpt>cordova emulate android<ept id="6830969e-1c39-46d9-b317-95d9188723c0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f87c7e56-6c11-4775-b2d9-d012732ff3d5" xml:space="preserve">
+          <source>   <bpt id="2cfe8d43-ac8e-4ef3-9b7c-14426b41e231">&lt;strong&gt;</bpt>Note<ept id="2cfe8d43-ac8e-4ef3-9b7c-14426b41e231">&lt;/strong&gt;</ept>: Make sure you've created emulator instance using <bpt id="849716ab-7873-4064-927f-a6b2e1bdb22c">&lt;em&gt;</bpt>AVD Manager<ept id="849716ab-7873-4064-927f-a6b2e1bdb22c">&lt;/em&gt;</ept> as it is showed in <bpt id="63694764-8451-4f47-8cfd-a88a078ac098">&lt;em&gt;</bpt>Prerequisites<ept id="63694764-8451-4f47-8cfd-a88a078ac098">&lt;/em&gt;</ept> section.</source>
+          <target state="new">   <bpt id="2cfe8d43-ac8e-4ef3-9b7c-14426b41e231">&lt;strong&gt;</bpt>Note<ept id="2cfe8d43-ac8e-4ef3-9b7c-14426b41e231">&lt;/strong&gt;</ept>: Make sure you've created emulator instance using <bpt id="849716ab-7873-4064-927f-a6b2e1bdb22c">&lt;em&gt;</bpt>AVD Manager<ept id="849716ab-7873-4064-927f-a6b2e1bdb22c">&lt;/em&gt;</ept> as it is showed in <bpt id="63694764-8451-4f47-8cfd-a88a078ac098">&lt;em&gt;</bpt>Prerequisites<ept id="63694764-8451-4f47-8cfd-a88a078ac098">&lt;/em&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="7eee4e93-3cf5-45d2-b3c1-4d010beeeee0" xml:space="preserve">
+          <source>   Use <bpt id="c3fbd5e9-fb51-4f15-a0e1-97ed6c765833">&lt;code&gt;</bpt>cordova run android --list<ept id="c3fbd5e9-fb51-4f15-a0e1-97ed6c765833">&lt;/code&gt;</ept> to see all available targets and <bpt id="44310369-8bc0-4823-b17a-23ac749634e5">&lt;code&gt;</bpt>cordova run android --target=&lt;target_name&gt;<ept id="44310369-8bc0-4823-b17a-23ac749634e5">&lt;/code&gt;</ept> to run application on specific device or emulator (for example,  <bpt id="23b397e5-a200-464f-82c1-7ff293ebfb89">&lt;code&gt;</bpt>cordova run android --target="Nexus4_emulator"<ept id="23b397e5-a200-464f-82c1-7ff293ebfb89">&lt;/code&gt;</ept>).</source>
+          <target state="new">   Use <bpt id="c3fbd5e9-fb51-4f15-a0e1-97ed6c765833">&lt;code&gt;</bpt>cordova run android --list<ept id="c3fbd5e9-fb51-4f15-a0e1-97ed6c765833">&lt;/code&gt;</ept> to see all available targets and <bpt id="44310369-8bc0-4823-b17a-23ac749634e5">&lt;code&gt;</bpt>cordova run android --target=&lt;target_name&gt;<ept id="44310369-8bc0-4823-b17a-23ac749634e5">&lt;/code&gt;</ept> to run application on specific device or emulator (for example,  <bpt id="23b397e5-a200-464f-82c1-7ff293ebfb89">&lt;code&gt;</bpt>cordova run android --target="Nexus4_emulator"<ept id="23b397e5-a200-464f-82c1-7ff293ebfb89">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="71f0855f-4f47-4ab0-a546-027a2f061927" xml:space="preserve">
+          <source>   To run on connected device: <bpt id="c2110361-fac5-4dd8-b62f-789385d9f90c">&lt;code&gt;</bpt>cordova run ios --device<ept id="c2110361-fac5-4dd8-b62f-789385d9f90c">&lt;/code&gt;</ept></source>
+          <target state="new">   To run on connected device: <bpt id="c2110361-fac5-4dd8-b62f-789385d9f90c">&lt;code&gt;</bpt>cordova run ios --device<ept id="c2110361-fac5-4dd8-b62f-789385d9f90c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="304df1a8-1303-4378-989c-018b51aa43ab" xml:space="preserve">
+          <source>   To run on default emulator: <bpt id="08c5eabe-d6dd-4ee4-94a7-4e58cce53d4c">&lt;code&gt;</bpt>cordova emulate ios<ept id="08c5eabe-d6dd-4ee4-94a7-4e58cce53d4c">&lt;/code&gt;</ept></source>
+          <target state="new">   To run on default emulator: <bpt id="08c5eabe-d6dd-4ee4-94a7-4e58cce53d4c">&lt;code&gt;</bpt>cordova emulate ios<ept id="08c5eabe-d6dd-4ee4-94a7-4e58cce53d4c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ff7efc8-9938-49e3-8396-95b9b2c0b4fd" xml:space="preserve">
+          <source><bpt id="518dc4f1-aaf5-49ed-b327-c8140dbd7ed5">&lt;strong&gt;</bpt>Note<ept id="518dc4f1-aaf5-49ed-b327-c8140dbd7ed5">&lt;/strong&gt;</ept>: Make sure you have <bpt id="9ca4ea81-9489-4fb6-9eb5-beebce4e813f">&lt;code&gt;</bpt>ios-sim<ept id="9ca4ea81-9489-4fb6-9eb5-beebce4e813f">&lt;/code&gt;</ept> package installed to run on emulator.</source>
+          <target state="new"><bpt id="518dc4f1-aaf5-49ed-b327-c8140dbd7ed5">&lt;strong&gt;</bpt>Note<ept id="518dc4f1-aaf5-49ed-b327-c8140dbd7ed5">&lt;/strong&gt;</ept>: Make sure you have <bpt id="9ca4ea81-9489-4fb6-9eb5-beebce4e813f">&lt;code&gt;</bpt>ios-sim<ept id="9ca4ea81-9489-4fb6-9eb5-beebce4e813f">&lt;/code&gt;</ept> package installed to run on emulator.</target>
+        </trans-unit>
+        <trans-unit id="29350e68-0b5b-4f36-bda5-1d105d8b4e76" xml:space="preserve">
+          <source>See <bpt id="10b85884-6807-43b1-bb9b-c36a7a50aa18">&lt;em&gt;</bpt>Prerequisites<ept id="10b85884-6807-43b1-bb9b-c36a7a50aa18">&lt;/em&gt;</ept> section for more details.</source>
+          <target state="new">See <bpt id="10b85884-6807-43b1-bb9b-c36a7a50aa18">&lt;em&gt;</bpt>Prerequisites<ept id="10b85884-6807-43b1-bb9b-c36a7a50aa18">&lt;/em&gt;</ept> section for more details.</target>
+        </trans-unit>
+        <trans-unit id="64630b89-e3be-4c4e-b6f2-1efb5860d740" xml:space="preserve">
+          <source>Use <bpt id="0ba1408c-0bba-492b-91ca-f7b8ecb2cf01">&lt;code&gt;</bpt>cordova run --help<ept id="0ba1408c-0bba-492b-91ca-f7b8ecb2cf01">&lt;/code&gt;</ept> to see additional build and run options.</source>
+          <target state="new">Use <bpt id="0ba1408c-0bba-492b-91ca-f7b8ecb2cf01">&lt;code&gt;</bpt>cordova run --help<ept id="0ba1408c-0bba-492b-91ca-f7b8ecb2cf01">&lt;/code&gt;</ept> to see additional build and run options.</target>
+        </trans-unit>
+        <trans-unit id="bbe8bbf3-d427-41e8-bf69-9bf51503c737" xml:space="preserve">
+          <source>For reference, the completed sample (without your configuration values) is provided here.</source>
+          <target state="new">For reference, the completed sample (without your configuration values) is provided here.</target>
+        </trans-unit>
+        <trans-unit id="ad9acb4a-e406-4eed-9f4a-88a2c406de25" xml:space="preserve">
+          <source>You can now move on to more advanced (ok, and more interesting) scenarios.</source>
+          <target state="new">You can now move on to more advanced (ok, and more interesting) scenarios.</target>
+        </trans-unit>
+        <trans-unit id="f35e83e3-c30d-4fd6-86b0-ecfc8908e12e" xml:space="preserve">
+          <source>You may want to try:</source>
+          <target state="new">You may want to try:</target>
+        </trans-unit>
+        <trans-unit id="691d3e90-d70a-427e-bab9-9a4d65b822a4" xml:space="preserve">
+          <source><bpt id="66e7aa75-490a-45c2-b0a5-5ae403c3344b">&lt;linkText&gt;</bpt>Secure a Node.js Web API with Azure AD &gt;&gt;<ept id="66e7aa75-490a-45c2-b0a5-5ae403c3344b">&lt;/linkText&gt;</ept><bpt id="66e7aa75-490a-45c2-b0a5-5ae403c3344b">&lt;title&gt;</bpt><ept id="66e7aa75-490a-45c2-b0a5-5ae403c3344b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="66e7aa75-490a-45c2-b0a5-5ae403c3344b">&lt;linkText&gt;</bpt>Secure a Node.js Web API with Azure AD &gt;&gt;<ept id="66e7aa75-490a-45c2-b0a5-5ae403c3344b">&lt;/linkText&gt;</ept><bpt id="66e7aa75-490a-45c2-b0a5-5ae403c3344b">&lt;title&gt;</bpt><ept id="66e7aa75-490a-45c2-b0a5-5ae403c3344b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c671ec41-0ed6-4542-986b-7e7e0bf84c4e" xml:space="preserve">
+          <source><bpt id="ecf2e850-9e2f-4e45-91c6-1a55ebd4233d">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="ecf2e850-9e2f-4e45-91c6-1a55ebd4233d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ecf2e850-9e2f-4e45-91c6-1a55ebd4233d">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="ecf2e850-9e2f-4e45-91c6-1a55ebd4233d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

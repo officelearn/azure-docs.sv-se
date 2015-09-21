@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cf05ff9d-92d8-4127-b96b-07d435267718" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cf05ff9d-92d8-4127-b96b-07d435267718" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="69268467-b7c0-4ea5-8779-2501a5c7bf77">
+        <trans-unit id="63931295-3d9b-4412-aac6-652093f842cd" xml:space="preserve">
+          <source>In another browser window or tab, go to the <bpt id="4cac4914-efe5-4940-9cb8-00872fe4ba15">&lt;linkText&gt;</bpt>Azure preview portal<ept id="4cac4914-efe5-4940-9cb8-00872fe4ba15">&lt;/linkText&gt;</ept><bpt id="4cac4914-efe5-4940-9cb8-00872fe4ba15">&lt;title&gt;</bpt><ept id="4cac4914-efe5-4940-9cb8-00872fe4ba15">&lt;/title&gt;</ept>.</source>
+          <target state="new">In another browser window or tab, go to the <bpt id="4cac4914-efe5-4940-9cb8-00872fe4ba15">&lt;linkText&gt;</bpt>Azure preview portal<ept id="4cac4914-efe5-4940-9cb8-00872fe4ba15">&lt;/linkText&gt;</ept><bpt id="4cac4914-efe5-4940-9cb8-00872fe4ba15">&lt;title&gt;</bpt><ept id="4cac4914-efe5-4940-9cb8-00872fe4ba15">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a48db91-c166-4a32-a23f-f46dba7f2cda" xml:space="preserve">
+          <source>Go to the <bpt id="2c4671d6-e68c-436f-8fce-48f5f276801e">&lt;strong&gt;</bpt>API App<ept id="2c4671d6-e68c-436f-8fce-48f5f276801e">&lt;/strong&gt;</ept> blade for your Dropbox connector.</source>
+          <target state="new">Go to the <bpt id="2c4671d6-e68c-436f-8fce-48f5f276801e">&lt;strong&gt;</bpt>API App<ept id="2c4671d6-e68c-436f-8fce-48f5f276801e">&lt;/strong&gt;</ept> blade for your Dropbox connector.</target>
+        </trans-unit>
+        <trans-unit id="6dca8bf8-5713-431c-bc59-8e2def9ab7e6" xml:space="preserve">
+          <source>(If you're still on the <bpt id="103a0e19-fb45-424f-b3be-452caedd3cc5">&lt;strong&gt;</bpt>Resource Group<ept id="103a0e19-fb45-424f-b3be-452caedd3cc5">&lt;/strong&gt;</ept> blade, just click the Dropbox connector in the diagram.)</source>
+          <target state="new">(If you're still on the <bpt id="103a0e19-fb45-424f-b3be-452caedd3cc5">&lt;strong&gt;</bpt>Resource Group<ept id="103a0e19-fb45-424f-b3be-452caedd3cc5">&lt;/strong&gt;</ept> blade, just click the Dropbox connector in the diagram.)</target>
+        </trans-unit>
+        <trans-unit id="5d8cdeff-f864-4ecf-8b4c-c62c679e47e2" xml:space="preserve">
+          <source>Click <bpt id="98dcbe6f-2c36-472d-b964-81e5794df5fe">&lt;strong&gt;</bpt>Settings<ept id="98dcbe6f-2c36-472d-b964-81e5794df5fe">&lt;/strong&gt;</ept>, and in the <bpt id="4e49df6e-b585-4c34-b2b3-5e618c21449d">&lt;strong&gt;</bpt>Settings<ept id="4e49df6e-b585-4c34-b2b3-5e618c21449d">&lt;/strong&gt;</ept> blade click <bpt id="47022662-9013-4e46-98a3-e5eb88388149">&lt;strong&gt;</bpt>Authentication<ept id="47022662-9013-4e46-98a3-e5eb88388149">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="98dcbe6f-2c36-472d-b964-81e5794df5fe">&lt;strong&gt;</bpt>Settings<ept id="98dcbe6f-2c36-472d-b964-81e5794df5fe">&lt;/strong&gt;</ept>, and in the <bpt id="4e49df6e-b585-4c34-b2b3-5e618c21449d">&lt;strong&gt;</bpt>Settings<ept id="4e49df6e-b585-4c34-b2b3-5e618c21449d">&lt;/strong&gt;</ept> blade click <bpt id="47022662-9013-4e46-98a3-e5eb88388149">&lt;strong&gt;</bpt>Authentication<ept id="47022662-9013-4e46-98a3-e5eb88388149">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fcad2dc-e94d-4f92-b770-899d08a9e2a5" xml:space="preserve">
+          <source><bpt id="03c21de5-2ad3-4fb4-af53-1bf4d27f23b2">&lt;linkText&gt;</bpt>Click Settings<ept id="03c21de5-2ad3-4fb4-af53-1bf4d27f23b2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="03c21de5-2ad3-4fb4-af53-1bf4d27f23b2">&lt;linkText&gt;</bpt>Click Settings<ept id="03c21de5-2ad3-4fb4-af53-1bf4d27f23b2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc3921f5-d749-46a3-a0ad-12bf83b6355e" xml:space="preserve">
+          <source><bpt id="f94b7217-95f6-4998-8ad2-c189de434e84">&lt;linkText&gt;</bpt>Click Authentication<ept id="f94b7217-95f6-4998-8ad2-c189de434e84">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f94b7217-95f6-4998-8ad2-c189de434e84">&lt;linkText&gt;</bpt>Click Authentication<ept id="f94b7217-95f6-4998-8ad2-c189de434e84">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3694051-3e96-4bec-969b-32433a4b3010" xml:space="preserve">
+          <source>In the Authentication blade, enter the client ID and client secret from the Dropbox site, and then click <bpt id="9ba6f2a3-7c4b-4026-9861-09c46d1ad9c2">&lt;strong&gt;</bpt>Save<ept id="9ba6f2a3-7c4b-4026-9861-09c46d1ad9c2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Authentication blade, enter the client ID and client secret from the Dropbox site, and then click <bpt id="9ba6f2a3-7c4b-4026-9861-09c46d1ad9c2">&lt;strong&gt;</bpt>Save<ept id="9ba6f2a3-7c4b-4026-9861-09c46d1ad9c2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89e7766c-18f8-490d-b7d3-99fbf1530e5e" xml:space="preserve">
+          <source><bpt id="b94ed282-e892-45f5-8097-24c20e0c7b99">&lt;linkText&gt;</bpt>Enter settings and click Save<ept id="b94ed282-e892-45f5-8097-24c20e0c7b99">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b94ed282-e892-45f5-8097-24c20e0c7b99">&lt;linkText&gt;</bpt>Enter settings and click Save<ept id="b94ed282-e892-45f5-8097-24c20e0c7b99">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="863c9266-0557-4741-bdcd-efd73b19812a" xml:space="preserve">
+          <source>Copy the <bpt id="f73aa6a2-e5dd-48b0-91f0-f5787e2de98b">&lt;strong&gt;</bpt>Redirect URI<ept id="f73aa6a2-e5dd-48b0-91f0-f5787e2de98b">&lt;/strong&gt;</ept> (the grey box above the client ID and client secret) and add the value to the page you left open in the previous step.</source>
+          <target state="new">Copy the <bpt id="f73aa6a2-e5dd-48b0-91f0-f5787e2de98b">&lt;strong&gt;</bpt>Redirect URI<ept id="f73aa6a2-e5dd-48b0-91f0-f5787e2de98b">&lt;/strong&gt;</ept> (the grey box above the client ID and client secret) and add the value to the page you left open in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="6ed90f10-ac37-46a5-8432-64b8477fd08f" xml:space="preserve">
+          <source>The redirect URI follows this pattern:</source>
+          <target state="new">The redirect URI follows this pattern:</target>
+        </trans-unit>
+        <trans-unit id="eb7dd73d-f189-400e-872f-cfe0c4c03b00" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="bda71814-2dec-48bc-87d8-b22b002266bb" xml:space="preserve">
+          <source><bpt id="18a3376f-2ab2-4060-97db-5ef93ce2b55f">&lt;linkText&gt;</bpt>Get Redirect URI<ept id="18a3376f-2ab2-4060-97db-5ef93ce2b55f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="18a3376f-2ab2-4060-97db-5ef93ce2b55f">&lt;linkText&gt;</bpt>Get Redirect URI<ept id="18a3376f-2ab2-4060-97db-5ef93ce2b55f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a36ac93e-ec42-4df7-98eb-b51db32303a9" xml:space="preserve">
+          <source><bpt id="c746be37-6006-4855-a067-dbfd326154c3">&lt;linkText&gt;</bpt>Create Dropbox app<ept id="c746be37-6006-4855-a067-dbfd326154c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c746be37-6006-4855-a067-dbfd326154c3">&lt;linkText&gt;</bpt>Create Dropbox app<ept id="c746be37-6006-4855-a067-dbfd326154c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

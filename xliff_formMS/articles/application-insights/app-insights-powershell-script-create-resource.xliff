@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5d820f54-624d-4b59-a4a0-e2c7ea3b5f86" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5d820f54-624d-4b59-a4a0-e2c7ea3b5f86" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d32eba2d-994e-4342-a25b-d83727388479">
+        <trans-unit id="f85604f7-b862-490a-a982-eee7605f43ee" xml:space="preserve">
+          <source>PowerShell script to create an Application Insights resource</source>
+          <target state="new">PowerShell script to create an Application Insights resource</target>
+        </trans-unit>
+        <trans-unit id="7b63cfd7-d6a3-4ccc-b914-8e2bc9dbf30b" xml:space="preserve">
+          <source>Automate creation of Application Insights resources.</source>
+          <target state="new">Automate creation of Application Insights resources.</target>
+        </trans-unit>
+        <trans-unit id="19c06b03-8a14-4c3d-b410-c6be81508baa" xml:space="preserve">
+          <source><bpt id="a2b1018e-66e8-484d-8587-5bbf1a89c907">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="a2b1018e-66e8-484d-8587-5bbf1a89c907">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="a2b1018e-66e8-484d-8587-5bbf1a89c907">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="a2b1018e-66e8-484d-8587-5bbf1a89c907">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6d47162-5e17-4aa6-83a1-0221016c63da" xml:space="preserve">
+          <source>When you want to monitor a new application - or a new version of an application - with <bpt id="32102366-a81c-42ff-987d-8da2d759604a">&lt;linkText&gt;</bpt>Visual Studio Application Insights<ept id="32102366-a81c-42ff-987d-8da2d759604a">&lt;/linkText&gt;</ept><bpt id="32102366-a81c-42ff-987d-8da2d759604a">&lt;title&gt;</bpt><ept id="32102366-a81c-42ff-987d-8da2d759604a">&lt;/title&gt;</ept>, you set up a new resource in Microsoft Azure.</source>
+          <target state="new">When you want to monitor a new application - or a new version of an application - with <bpt id="32102366-a81c-42ff-987d-8da2d759604a">&lt;linkText&gt;</bpt>Visual Studio Application Insights<ept id="32102366-a81c-42ff-987d-8da2d759604a">&lt;/linkText&gt;</ept><bpt id="32102366-a81c-42ff-987d-8da2d759604a">&lt;title&gt;</bpt><ept id="32102366-a81c-42ff-987d-8da2d759604a">&lt;/title&gt;</ept>, you set up a new resource in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="1624831b-13ac-407e-8a3f-52a7b1e9c50f" xml:space="preserve">
+          <source>This resource is where the telemetry data from your app is analyzed and displayed.</source>
+          <target state="new">This resource is where the telemetry data from your app is analyzed and displayed.</target>
+        </trans-unit>
+        <trans-unit id="2c7e251f-9bc3-458c-a2b9-cf09e1965d6a" xml:space="preserve">
+          <source>You can automate the creation of a new resource by using PowerShell.</source>
+          <target state="new">You can automate the creation of a new resource by using PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="8757bf37-2ffb-43e5-846e-208c11e7ead0" xml:space="preserve">
+          <source>For example, if you are developing a mobile device app, it's likely that, at any time, there will be several published versions of your app in use by your customers.</source>
+          <target state="new">For example, if you are developing a mobile device app, it's likely that, at any time, there will be several published versions of your app in use by your customers.</target>
+        </trans-unit>
+        <trans-unit id="e82c5738-7aca-4499-990b-a271eaca5f79" xml:space="preserve">
+          <source>You don't want to get the telemetry results from different versions mixed up.</source>
+          <target state="new">You don't want to get the telemetry results from different versions mixed up.</target>
+        </trans-unit>
+        <trans-unit id="a86c89c0-7fb8-41ac-b034-b4e135bb4845" xml:space="preserve">
+          <source>So you get your build process to create a new resource for each build.</source>
+          <target state="new">So you get your build process to create a new resource for each build.</target>
+        </trans-unit>
+        <trans-unit id="f6ca9694-1881-4d4e-93fa-27b43fad0bc5" xml:space="preserve">
+          <source><bpt id="db62aea2-c561-4ca4-9c57-8d5d52de19bb">&lt;em&gt;</bpt>Output<ept id="db62aea2-c561-4ca4-9c57-8d5d52de19bb">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="db62aea2-c561-4ca4-9c57-8d5d52de19bb">&lt;em&gt;</bpt>Output<ept id="db62aea2-c561-4ca4-9c57-8d5d52de19bb">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49063127-845c-4c2d-bb26-cb19193f9bf8" xml:space="preserve">
+          <source>App Insights Name =  erimattestapp</source>
+          <target state="new">App Insights Name =  erimattestapp</target>
+        </trans-unit>
+        <trans-unit id="41699ce5-aa62-4a68-a6f9-a696beb842e2" xml:space="preserve">
+          <source>IKey =  00000000-0000-0000-0000-000000000000</source>
+          <target state="new">IKey =  00000000-0000-0000-0000-000000000000</target>
+        </trans-unit>
+        <trans-unit id="3dc5fd3c-1289-43be-a273-352ee9021701" xml:space="preserve">
+          <source><bpt id="4eaab9f1-79fd-42fb-9e38-af663838d9cc">&lt;em&gt;</bpt>PowerShell Script<ept id="4eaab9f1-79fd-42fb-9e38-af663838d9cc">&lt;/em&gt;</ept>  </source>
+          <target state="new"><bpt id="4eaab9f1-79fd-42fb-9e38-af663838d9cc">&lt;em&gt;</bpt>PowerShell Script<ept id="4eaab9f1-79fd-42fb-9e38-af663838d9cc">&lt;/em&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="70c085c2-a758-49e0-ba17-b86b8bbd256e" xml:space="preserve">
+          <source>Each resource is identified by its instrumentation key (iKey).</source>
+          <target state="new">Each resource is identified by its instrumentation key (iKey).</target>
+        </trans-unit>
+        <trans-unit id="dea74561-6f2c-44ba-8075-2bbaeb80c7ae" xml:space="preserve">
+          <source>The iKey is an output of the resource creation script.</source>
+          <target state="new">The iKey is an output of the resource creation script.</target>
+        </trans-unit>
+        <trans-unit id="136eaf62-ecdb-4a25-8551-1f0046f063b3" xml:space="preserve">
+          <source>Your build script should provide the iKey to the Application Insights SDK embedded in your app.</source>
+          <target state="new">Your build script should provide the iKey to the Application Insights SDK embedded in your app.</target>
+        </trans-unit>
+        <trans-unit id="b0b20e66-6f4c-4575-9066-0e38c744e270" xml:space="preserve">
+          <source>There are two ways to make the iKey available to the SDK:</source>
+          <target state="new">There are two ways to make the iKey available to the SDK:</target>
+        </trans-unit>
+        <trans-unit id="16da5d76-4d6b-4b30-a8ee-6bd97aadf06e" xml:space="preserve">
+          <source>In <bpt id="f96ec3a8-78e5-4ae8-927e-d301dc6c5221">&lt;linkText&gt;</bpt>ApplicationInsights.config<ept id="f96ec3a8-78e5-4ae8-927e-d301dc6c5221">&lt;/linkText&gt;</ept><bpt id="f96ec3a8-78e5-4ae8-927e-d301dc6c5221">&lt;title&gt;</bpt><ept id="f96ec3a8-78e5-4ae8-927e-d301dc6c5221">&lt;/title&gt;</ept>: </source>
+          <target state="new">In <bpt id="f96ec3a8-78e5-4ae8-927e-d301dc6c5221">&lt;linkText&gt;</bpt>ApplicationInsights.config<ept id="f96ec3a8-78e5-4ae8-927e-d301dc6c5221">&lt;/linkText&gt;</ept><bpt id="f96ec3a8-78e5-4ae8-927e-d301dc6c5221">&lt;title&gt;</bpt><ept id="f96ec3a8-78e5-4ae8-927e-d301dc6c5221">&lt;/title&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="1b596307-4830-4509-9061-7ccaf28462ee" xml:space="preserve">
+          <source><bpt id="64955bd1-80fd-4a88-b03c-2f2e64133e8c">&lt;code&gt;</bpt>&lt;instrumentationkey&gt;<ept id="64955bd1-80fd-4a88-b03c-2f2e64133e8c">&lt;/code&gt;</ept><bpt id="e85196f0-c502-4bd7-9258-4fac68cd7d57">&lt;em&gt;</bpt>ikey<ept id="e85196f0-c502-4bd7-9258-4fac68cd7d57">&lt;/em&gt;</ept><bpt id="b8541724-eaf7-4476-8c19-af4d649395d7">&lt;code&gt;</bpt>&lt;/instrumentationkey&gt;<ept id="b8541724-eaf7-4476-8c19-af4d649395d7">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="64955bd1-80fd-4a88-b03c-2f2e64133e8c">&lt;code&gt;</bpt>&lt;instrumentationkey&gt;<ept id="64955bd1-80fd-4a88-b03c-2f2e64133e8c">&lt;/code&gt;</ept><bpt id="e85196f0-c502-4bd7-9258-4fac68cd7d57">&lt;em&gt;</bpt>ikey<ept id="e85196f0-c502-4bd7-9258-4fac68cd7d57">&lt;/em&gt;</ept><bpt id="b8541724-eaf7-4476-8c19-af4d649395d7">&lt;code&gt;</bpt>&lt;/instrumentationkey&gt;<ept id="b8541724-eaf7-4476-8c19-af4d649395d7">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a4d315e-b3f2-4a91-b346-f9755be76bd0" xml:space="preserve">
+          <source>Or in <bpt id="b49749b8-c8ef-4a73-a224-7d3f9d1d1247">&lt;linkText&gt;</bpt>initialization code<ept id="b49749b8-c8ef-4a73-a224-7d3f9d1d1247">&lt;/linkText&gt;</ept><bpt id="b49749b8-c8ef-4a73-a224-7d3f9d1d1247">&lt;title&gt;</bpt><ept id="b49749b8-c8ef-4a73-a224-7d3f9d1d1247">&lt;/title&gt;</ept>: </source>
+          <target state="new">Or in <bpt id="b49749b8-c8ef-4a73-a224-7d3f9d1d1247">&lt;linkText&gt;</bpt>initialization code<ept id="b49749b8-c8ef-4a73-a224-7d3f9d1d1247">&lt;/linkText&gt;</ept><bpt id="b49749b8-c8ef-4a73-a224-7d3f9d1d1247">&lt;title&gt;</bpt><ept id="b49749b8-c8ef-4a73-a224-7d3f9d1d1247">&lt;/title&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="0dd37fad-af37-4012-898a-ce7f99943aee" xml:space="preserve">
+          <source>`Microsoft.ApplicationInsights.Extensibility.</source>
+          <target state="new">`Microsoft.ApplicationInsights.Extensibility.</target>
+        </trans-unit>
+        <trans-unit id="5996e3b4-c847-43d8-acca-aec652068e94" xml:space="preserve">
+          <source>TelemetryConfiguration.Active.InstrumentationKey = "<bpt id="3bdfddd6-b10a-48c0-8e3d-d60bd8bcab91">&lt;code&gt;</bpt>*iKey*<ept id="3bdfddd6-b10a-48c0-8e3d-d60bd8bcab91">&lt;/code&gt;</ept>";`</source>
+          <target state="new">TelemetryConfiguration.Active.InstrumentationKey = "<bpt id="3bdfddd6-b10a-48c0-8e3d-d60bd8bcab91">&lt;code&gt;</bpt>*iKey*<ept id="3bdfddd6-b10a-48c0-8e3d-d60bd8bcab91">&lt;/code&gt;</ept>";`</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

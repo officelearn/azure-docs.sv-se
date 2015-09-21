@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="35693015-c703-4cdf-96a2-a89c024d9d40" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="35693015-c703-4cdf-96a2-a89c024d9d40" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d651a7c3-375d-4a27-be85-c688f0999783">
+        <trans-unit id="ea447960-2ac3-4278-89b6-34283f4b0545" xml:space="preserve">
+          <source>The final optional step of this tutorial is to check in the SQL Database associated with the mobile service an review the stored data.</source>
+          <target state="new">The final optional step of this tutorial is to check in the SQL Database associated with the mobile service an review the stored data.</target>
+        </trans-unit>
+        <trans-unit id="1f5ebe14-eb6f-4417-aded-4c3dbc4669b3" xml:space="preserve">
+          <source>In the Azure Management Portal, click manage for the database associated with your mobile service.</source>
+          <target state="new">In the Azure Management Portal, click manage for the database associated with your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="9b41abc0-0489-4283-a92b-68e5ec538323" xml:space="preserve">
+          <source><bpt id="1771988d-3dc5-42bc-9923-e04b29b6a6c7">&lt;linkText&gt;</bpt>sign-in to manage SQL Database<ept id="1771988d-3dc5-42bc-9923-e04b29b6a6c7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1771988d-3dc5-42bc-9923-e04b29b6a6c7">&lt;linkText&gt;</bpt>sign-in to manage SQL Database<ept id="1771988d-3dc5-42bc-9923-e04b29b6a6c7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b9ce3e1-b07c-4617-8bc1-811d8250cd8a" xml:space="preserve">
+          <source>In the Management portal execute a query to view the changes made by the Windows Store app. Your query will be similar to the following query but use your database name instead of &lt;code&gt;todolist&lt;/code&gt;.&lt;/p&gt;</source>
+          <target state="new">In the Management portal execute a query to view the changes made by the Windows Store app. Your query will be similar to the following query but use your database name instead of &lt;code&gt;todolist&lt;/code&gt;.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="fbcedba9-0ede-45e6-8616-d033ec2155e2" xml:space="preserve">
+          <source><bpt id="35c8aac1-9b8e-49b3-b52b-a5f1bb21daaa">&lt;linkText&gt;</bpt>query SQL Database for stored items<ept id="35c8aac1-9b8e-49b3-b52b-a5f1bb21daaa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35c8aac1-9b8e-49b3-b52b-a5f1bb21daaa">&lt;linkText&gt;</bpt>query SQL Database for stored items<ept id="35c8aac1-9b8e-49b3-b52b-a5f1bb21daaa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4bfeaa75-472a-4a60-89df-370621cba687" xml:space="preserve">
+          <source>Note that the table includes Id, <bpt id="47f049ba-d79a-4d0f-9fb8-749eb41531e0">&lt;em&gt;</bpt>_createdAt, _<ept id="47f049ba-d79a-4d0f-9fb8-749eb41531e0">&lt;/em&gt;</ept>updatedAt, and __version columns.</source>
+          <target state="new">Note that the table includes Id, <bpt id="47f049ba-d79a-4d0f-9fb8-749eb41531e0">&lt;em&gt;</bpt>_createdAt, _<ept id="47f049ba-d79a-4d0f-9fb8-749eb41531e0">&lt;/em&gt;</ept>updatedAt, and __version columns.</target>
+        </trans-unit>
+        <trans-unit id="a990d0cb-48f6-4002-a745-8b744b0fea7d" xml:space="preserve">
+          <source>These columns support offline data sync and are implemented in the <bpt id="84292989-3454-41e0-aef4-a3d6d7f886d7">&lt;linkText&gt;</bpt>EntityData<ept id="84292989-3454-41e0-aef4-a3d6d7f886d7">&lt;/linkText&gt;</ept><bpt id="84292989-3454-41e0-aef4-a3d6d7f886d7">&lt;title&gt;</bpt><ept id="84292989-3454-41e0-aef4-a3d6d7f886d7">&lt;/title&gt;</ept> base class.</source>
+          <target state="new">These columns support offline data sync and are implemented in the <bpt id="84292989-3454-41e0-aef4-a3d6d7f886d7">&lt;linkText&gt;</bpt>EntityData<ept id="84292989-3454-41e0-aef4-a3d6d7f886d7">&lt;/linkText&gt;</ept><bpt id="84292989-3454-41e0-aef4-a3d6d7f886d7">&lt;title&gt;</bpt><ept id="84292989-3454-41e0-aef4-a3d6d7f886d7">&lt;/title&gt;</ept> base class.</target>
+        </trans-unit>
+        <trans-unit id="4164a1de-67a0-4f84-8948-60aa69f5a82f" xml:space="preserve">
+          <source>For more information, see [Get started with offline data sync].</source>
+          <target state="new">For more information, see [Get started with offline data sync].</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

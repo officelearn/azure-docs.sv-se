@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b89eda67-fe99-4c6e-90d2-fae3d78f813e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b89eda67-fe99-4c6e-90d2-fae3d78f813e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7d0bd984-5d25-4d29-ac81-175f3562380f">
+        <trans-unit id="af337e6f-b468-402f-a244-5e06ed1060df" xml:space="preserve">
+          <source>Upgrade ExpressRoute Bandwidth Dynamically | Microsoft Azure</source>
+          <target state="new">Upgrade ExpressRoute Bandwidth Dynamically | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a0ea82f5-e2c1-4b38-834b-e688f2164254" xml:space="preserve">
+          <source>How to dynamically increase the bandwidth size of an ExpressRoute circuit with no downtime. </source>
+          <target state="new">How to dynamically increase the bandwidth size of an ExpressRoute circuit with no downtime. </target>
+        </trans-unit>
+        <trans-unit id="887adda4-3b55-41ad-9917-f3255a515db6" xml:space="preserve">
+          <source>You can increase the size of an ExpressRoute circuit without any downtime.</source>
+          <target state="new">You can increase the size of an ExpressRoute circuit without any downtime.</target>
+        </trans-unit>
+        <trans-unit id="5cef5e07-5061-4145-918c-0ece7d3bec34" xml:space="preserve">
+          <source>These instructions will help you update the bandwidth of an ExpressRoute circuit using PowerShell.</source>
+          <target state="new">These instructions will help you update the bandwidth of an ExpressRoute circuit using PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="a0038c0f-8c02-4521-a057-88c52afa5d9c" xml:space="preserve">
+          <source>Refer to the <bpt id="66c7cff1-8788-4521-ac55-a789bab3b852">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="66c7cff1-8788-4521-ac55-a789bab3b852">&lt;/linkText&gt;</ept><bpt id="66c7cff1-8788-4521-ac55-a789bab3b852">&lt;title&gt;</bpt><ept id="66c7cff1-8788-4521-ac55-a789bab3b852">&lt;/title&gt;</ept> page for more information on limits and limitations.</source>
+          <target state="new">Refer to the <bpt id="66c7cff1-8788-4521-ac55-a789bab3b852">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="66c7cff1-8788-4521-ac55-a789bab3b852">&lt;/linkText&gt;</ept><bpt id="66c7cff1-8788-4521-ac55-a789bab3b852">&lt;title&gt;</bpt><ept id="66c7cff1-8788-4521-ac55-a789bab3b852">&lt;/title&gt;</ept> page for more information on limits and limitations.</target>
+        </trans-unit>
+        <trans-unit id="bc96a2af-5f6e-4854-971d-a16bb237ae54" xml:space="preserve">
+          <source>Before you begin configuration, verify that you have the following prerequisites:</source>
+          <target state="new">Before you begin configuration, verify that you have the following prerequisites:</target>
+        </trans-unit>
+        <trans-unit id="acc308d5-18ad-4214-9902-76afe0d5406b" xml:space="preserve">
+          <source>An Azure subscription</source>
+          <target state="new">An Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="d6ea9077-d4f7-4752-99c8-5ee34b838a17" xml:space="preserve">
+          <source>The latest version of Azure PowerShell</source>
+          <target state="new">The latest version of Azure PowerShell</target>
+        </trans-unit>
+        <trans-unit id="9d146032-7181-4602-96b4-d102439f20dc" xml:space="preserve">
+          <source>An active ExpressRoute circuit that has been configured and is in operation</source>
+          <target state="new">An active ExpressRoute circuit that has been configured and is in operation</target>
+        </trans-unit>
+        <trans-unit id="0eebfebb-9ae5-4bc9-ab49-0543d3a93166" xml:space="preserve">
+          <source>Windows PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure.</source>
+          <target state="new">Windows PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure.</target>
+        </trans-unit>
+        <trans-unit id="e1ce432c-fdac-46ca-b332-905f4c7b195e" xml:space="preserve">
+          <source>For more information please refer to the PowerShell documentation in <bpt id="26a07e72-715e-4506-affb-db88b8679095">&lt;linkText&gt;</bpt>MSDN<ept id="26a07e72-715e-4506-affb-db88b8679095">&lt;/linkText&gt;</ept><bpt id="26a07e72-715e-4506-affb-db88b8679095">&lt;title&gt;</bpt><ept id="26a07e72-715e-4506-affb-db88b8679095">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information please refer to the PowerShell documentation in <bpt id="26a07e72-715e-4506-affb-db88b8679095">&lt;linkText&gt;</bpt>MSDN<ept id="26a07e72-715e-4506-affb-db88b8679095">&lt;/linkText&gt;</ept><bpt id="26a07e72-715e-4506-affb-db88b8679095">&lt;title&gt;</bpt><ept id="26a07e72-715e-4506-affb-db88b8679095">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b86ff03-d20a-4231-a795-f1eedae9edd0" xml:space="preserve">
+          <source><bpt id="9261f4f9-8484-4a0f-9b55-db09ec688fad">&lt;strong&gt;</bpt>Import the PowerShell module for ExpressRoute.<ept id="9261f4f9-8484-4a0f-9b55-db09ec688fad">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9261f4f9-8484-4a0f-9b55-db09ec688fad">&lt;strong&gt;</bpt>Import the PowerShell module for ExpressRoute.<ept id="9261f4f9-8484-4a0f-9b55-db09ec688fad">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0de2cced-ba22-4243-82c6-cec58b7b27a7" xml:space="preserve">
+          <source><bpt id="e4e73488-c2e7-4c1c-9c4a-72141fc00dd5">&lt;strong&gt;</bpt>Get the details of the ExpressRoute circuit<ept id="e4e73488-c2e7-4c1c-9c4a-72141fc00dd5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e4e73488-c2e7-4c1c-9c4a-72141fc00dd5">&lt;strong&gt;</bpt>Get the details of the ExpressRoute circuit<ept id="e4e73488-c2e7-4c1c-9c4a-72141fc00dd5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cba38d3-c3ad-4de6-aeef-cc9fba416906" xml:space="preserve">
+          <source>You can get the details of your ExpressRoute circuit using the following PowerShell Commandlet:</source>
+          <target state="new">You can get the details of your ExpressRoute circuit using the following PowerShell Commandlet:</target>
+        </trans-unit>
+        <trans-unit id="d0d1ac39-00fb-462f-a419-e3791226eaf2" xml:space="preserve">
+          <source>This command will return a list of all circuits you have created in the subscription.</source>
+          <target state="new">This command will return a list of all circuits you have created in the subscription.</target>
+        </trans-unit>
+        <trans-unit id="b42d0b7e-7c2a-45c3-a61e-2f16163e6eac" xml:space="preserve">
+          <source>You can use the following command to get details of a specific ExpressRoute circuit if you have the service key with you:</source>
+          <target state="new">You can use the following command to get details of a specific ExpressRoute circuit if you have the service key with you:</target>
+        </trans-unit>
+        <trans-unit id="c5ea16e1-7ef8-473b-b168-fab7e575e45d" xml:space="preserve">
+          <source>Replace the &lt;skey&gt; with the actual service key.</source>
+          <target state="new">Replace the &lt;skey&gt; with the actual service key.</target>
+        </trans-unit>
+        <trans-unit id="65b22a1b-6884-46a6-8c09-4eeb84fbe01b" xml:space="preserve">
+          <source><bpt id="3b17ea73-3317-400c-8ba2-94d34bdd615e">&lt;strong&gt;</bpt>Increase the bandwidth of the ExpressRoute circuit on the Microsoft side<ept id="3b17ea73-3317-400c-8ba2-94d34bdd615e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3b17ea73-3317-400c-8ba2-94d34bdd615e">&lt;strong&gt;</bpt>Increase the bandwidth of the ExpressRoute circuit on the Microsoft side<ept id="3b17ea73-3317-400c-8ba2-94d34bdd615e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71f9056a-36e8-44d3-acf8-cbd7ece8dbdf" xml:space="preserve">
+          <source>Check the <bpt id="8c36f55b-1fd8-4d39-a9c1-4911690fb07f">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="8c36f55b-1fd8-4d39-a9c1-4911690fb07f">&lt;/linkText&gt;</ept><bpt id="8c36f55b-1fd8-4d39-a9c1-4911690fb07f">&lt;title&gt;</bpt><ept id="8c36f55b-1fd8-4d39-a9c1-4911690fb07f">&lt;/title&gt;</ept> page for supported bandwidth options for your provider.</source>
+          <target state="new">Check the <bpt id="8c36f55b-1fd8-4d39-a9c1-4911690fb07f">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="8c36f55b-1fd8-4d39-a9c1-4911690fb07f">&lt;/linkText&gt;</ept><bpt id="8c36f55b-1fd8-4d39-a9c1-4911690fb07f">&lt;title&gt;</bpt><ept id="8c36f55b-1fd8-4d39-a9c1-4911690fb07f">&lt;/title&gt;</ept> page for supported bandwidth options for your provider.</target>
+        </trans-unit>
+        <trans-unit id="7e914b46-689e-4971-af9a-428f141894c5" xml:space="preserve">
+          <source>You can pick any size greater than the size of your existing circuit.</source>
+          <target state="new">You can pick any size greater than the size of your existing circuit.</target>
+        </trans-unit>
+        <trans-unit id="467a0470-0765-4b01-975e-b414ed75490b" xml:space="preserve">
+          <source>Once you decided what size you need, you can use the following command to resize your circuit.</source>
+          <target state="new">Once you decided what size you need, you can use the following command to resize your circuit.</target>
+        </trans-unit>
+        <trans-unit id="7aafc94a-4732-42ec-b4b9-06ce2aa2559e" xml:space="preserve">
+          <source>Your circuit will have been sized up on the Microsoft side.</source>
+          <target state="new">Your circuit will have been sized up on the Microsoft side.</target>
+        </trans-unit>
+        <trans-unit id="c66aff13-007c-4e11-9224-20cf978f5796" xml:space="preserve">
+          <source>Note that we will start billing you for the updated bandwidth option from this point on.</source>
+          <target state="new">Note that we will start billing you for the updated bandwidth option from this point on.</target>
+        </trans-unit>
+        <trans-unit id="cec2228d-b902-4801-ac3e-175d93815560" xml:space="preserve">
+          <source><bpt id="1f69dd7a-39a1-4fbf-98b3-e865848e85a7">&lt;strong&gt;</bpt>Increase the bandwidth of the ExpressRoute circuit on the service provider side<ept id="1f69dd7a-39a1-4fbf-98b3-e865848e85a7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1f69dd7a-39a1-4fbf-98b3-e865848e85a7">&lt;strong&gt;</bpt>Increase the bandwidth of the ExpressRoute circuit on the service provider side<ept id="1f69dd7a-39a1-4fbf-98b3-e865848e85a7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a88e2f9-3ef3-4af3-9349-38043b6942c6" xml:space="preserve">
+          <source>Contact your connectivity provider (NSP / EXP) and provided them with information on the updated bandwidth.</source>
+          <target state="new">Contact your connectivity provider (NSP / EXP) and provided them with information on the updated bandwidth.</target>
+        </trans-unit>
+        <trans-unit id="9206fa2e-fde7-4026-9686-1820642faa09" xml:space="preserve">
+          <source>Follow the order update process prescribed by your service provider to complete the task.</source>
+          <target state="new">Follow the order update process prescribed by your service provider to complete the task.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

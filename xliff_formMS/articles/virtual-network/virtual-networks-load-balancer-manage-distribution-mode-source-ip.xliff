@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3021f339-f5d9-49b6-ae21-2907dd8790db" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3021f339-f5d9-49b6-ae21-2907dd8790db" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e7903b03-f4fa-4848-b005-58b4e9a7d99f">
+        <trans-unit id="6f9ef464-ee3e-47bf-8293-f4be4fc5a055" xml:space="preserve">
+          <source>Manage: Load Balancer Distribution Mode (Source IP Affinity)</source>
+          <target state="new">Manage: Load Balancer Distribution Mode (Source IP Affinity)</target>
+        </trans-unit>
+        <trans-unit id="850079c9-16ec-4983-b48b-f5e36067c5b8" xml:space="preserve">
+          <source>Management features for the Azure load balancer distribution mode</source>
+          <target state="new">Management features for the Azure load balancer distribution mode</target>
+        </trans-unit>
+        <trans-unit id="4629c936-ea87-4ab7-875c-c8a87787fbdb" xml:space="preserve">
+          <source><bpt id="254bbddb-b921-497c-8d34-22cb7a40b1bc">&lt;strong&gt;</bpt>Source IP Affinity<ept id="254bbddb-b921-497c-8d34-22cb7a40b1bc">&lt;/strong&gt;</ept> (also known as <bpt id="5ab66b67-5d67-4b37-8dcd-e212a3b54578">&lt;strong&gt;</bpt>session affinity<ept id="5ab66b67-5d67-4b37-8dcd-e212a3b54578">&lt;/strong&gt;</ept> or <bpt id="281b87c7-c287-4f00-84f0-1064825e4624">&lt;strong&gt;</bpt>client IP affinity<ept id="281b87c7-c287-4f00-84f0-1064825e4624">&lt;/strong&gt;</ept>), an Azure load balancer distribution mode, ties connections from a single client to a single Azure-hosted server, rather than distributing each client connection dynamically to different Azure-hosted servers (the default load balancer behavior).</source>
+          <target state="new"><bpt id="254bbddb-b921-497c-8d34-22cb7a40b1bc">&lt;strong&gt;</bpt>Source IP Affinity<ept id="254bbddb-b921-497c-8d34-22cb7a40b1bc">&lt;/strong&gt;</ept> (also known as <bpt id="5ab66b67-5d67-4b37-8dcd-e212a3b54578">&lt;strong&gt;</bpt>session affinity<ept id="5ab66b67-5d67-4b37-8dcd-e212a3b54578">&lt;/strong&gt;</ept> or <bpt id="281b87c7-c287-4f00-84f0-1064825e4624">&lt;strong&gt;</bpt>client IP affinity<ept id="281b87c7-c287-4f00-84f0-1064825e4624">&lt;/strong&gt;</ept>), an Azure load balancer distribution mode, ties connections from a single client to a single Azure-hosted server, rather than distributing each client connection dynamically to different Azure-hosted servers (the default load balancer behavior).</target>
+        </trans-unit>
+        <trans-unit id="fc62651d-092c-4fc7-be01-0d2d0c4cf0a0" xml:space="preserve">
+          <source>Using Source IP Affinity, the Azure load balancer can be configured to use a 2-tuple combination (Source IP, Destination IP) or a 3-tuple combination (Source IP, Destination IP, Protocol) to map traffic to the pool of available Azure-hosted servers.</source>
+          <target state="new">Using Source IP Affinity, the Azure load balancer can be configured to use a 2-tuple combination (Source IP, Destination IP) or a 3-tuple combination (Source IP, Destination IP, Protocol) to map traffic to the pool of available Azure-hosted servers.</target>
+        </trans-unit>
+        <trans-unit id="b3fc54e4-10b2-4329-945f-f3e2676a1379" xml:space="preserve">
+          <source>When using Source IP Affinity, connections initiated from the same client computer are handled by a single DIP endpoint (a single Azure-hosted server).</source>
+          <target state="new">When using Source IP Affinity, connections initiated from the same client computer are handled by a single DIP endpoint (a single Azure-hosted server).</target>
+        </trans-unit>
+        <trans-unit id="9ea235d0-a314-43bb-9876-5a78d6828d0e" xml:space="preserve">
+          <source>Source IP affinity solves a previous <bpt id="b2716cbf-7fb7-4404-af36-112bd1f489ac">&lt;linkText&gt;</bpt>incompatibility between the Azure Load Balancer and RD Gateway (DOC)<ept id="b2716cbf-7fb7-4404-af36-112bd1f489ac">&lt;/linkText&gt;</ept><bpt id="b2716cbf-7fb7-4404-af36-112bd1f489ac">&lt;title&gt;</bpt><ept id="b2716cbf-7fb7-4404-af36-112bd1f489ac">&lt;/title&gt;</ept>.</source>
+          <target state="new">Source IP affinity solves a previous <bpt id="b2716cbf-7fb7-4404-af36-112bd1f489ac">&lt;linkText&gt;</bpt>incompatibility between the Azure Load Balancer and RD Gateway (DOC)<ept id="b2716cbf-7fb7-4404-af36-112bd1f489ac">&lt;/linkText&gt;</ept><bpt id="b2716cbf-7fb7-4404-af36-112bd1f489ac">&lt;title&gt;</bpt><ept id="b2716cbf-7fb7-4404-af36-112bd1f489ac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3718d214-513d-407e-9cab-fc4f3dd926c9" xml:space="preserve">
+          <source>Source IP Affinity can be configured for: </source>
+          <target state="new">Source IP Affinity can be configured for: </target>
+        </trans-unit>
+        <trans-unit id="4670e198-bd69-4024-b980-3a51957fc99d" xml:space="preserve">
+          <source><bpt id="61fc0ea9-6ad6-4184-8481-98462465fdd7">&lt;linkText&gt;</bpt>Virtual machine endpoints<ept id="61fc0ea9-6ad6-4184-8481-98462465fdd7">&lt;/linkText&gt;</ept><bpt id="61fc0ea9-6ad6-4184-8481-98462465fdd7">&lt;title&gt;</bpt><ept id="61fc0ea9-6ad6-4184-8481-98462465fdd7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="61fc0ea9-6ad6-4184-8481-98462465fdd7">&lt;linkText&gt;</bpt>Virtual machine endpoints<ept id="61fc0ea9-6ad6-4184-8481-98462465fdd7">&lt;/linkText&gt;</ept><bpt id="61fc0ea9-6ad6-4184-8481-98462465fdd7">&lt;title&gt;</bpt><ept id="61fc0ea9-6ad6-4184-8481-98462465fdd7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4413535-3648-4adc-a220-ed0b9a52d4fd" xml:space="preserve">
+          <source><bpt id="9dcb25db-c42b-4990-b336-95086b6b8978">&lt;linkText&gt;</bpt>Load-balanced endpoint sets<ept id="9dcb25db-c42b-4990-b336-95086b6b8978">&lt;/linkText&gt;</ept><bpt id="9dcb25db-c42b-4990-b336-95086b6b8978">&lt;title&gt;</bpt><ept id="9dcb25db-c42b-4990-b336-95086b6b8978">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9dcb25db-c42b-4990-b336-95086b6b8978">&lt;linkText&gt;</bpt>Load-balanced endpoint sets<ept id="9dcb25db-c42b-4990-b336-95086b6b8978">&lt;/linkText&gt;</ept><bpt id="9dcb25db-c42b-4990-b336-95086b6b8978">&lt;title&gt;</bpt><ept id="9dcb25db-c42b-4990-b336-95086b6b8978">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91a7ab02-19ed-4dcb-9968-0b852e05815e" xml:space="preserve">
+          <source><bpt id="2e51b0dc-290c-4e3e-835c-81875f8f8844">&lt;linkText&gt;</bpt>Web roles<ept id="2e51b0dc-290c-4e3e-835c-81875f8f8844">&lt;/linkText&gt;</ept><bpt id="2e51b0dc-290c-4e3e-835c-81875f8f8844">&lt;title&gt;</bpt><ept id="2e51b0dc-290c-4e3e-835c-81875f8f8844">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2e51b0dc-290c-4e3e-835c-81875f8f8844">&lt;linkText&gt;</bpt>Web roles<ept id="2e51b0dc-290c-4e3e-835c-81875f8f8844">&lt;/linkText&gt;</ept><bpt id="2e51b0dc-290c-4e3e-835c-81875f8f8844">&lt;title&gt;</bpt><ept id="2e51b0dc-290c-4e3e-835c-81875f8f8844">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28f2c458-6bfb-4ec9-85d0-f72eeddc75ae" xml:space="preserve">
+          <source><bpt id="793ea8fb-79d3-40df-9bca-e70796d575b2">&lt;linkText&gt;</bpt>Worker roles<ept id="793ea8fb-79d3-40df-9bca-e70796d575b2">&lt;/linkText&gt;</ept><bpt id="793ea8fb-79d3-40df-9bca-e70796d575b2">&lt;title&gt;</bpt><ept id="793ea8fb-79d3-40df-9bca-e70796d575b2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="793ea8fb-79d3-40df-9bca-e70796d575b2">&lt;linkText&gt;</bpt>Worker roles<ept id="793ea8fb-79d3-40df-9bca-e70796d575b2">&lt;/linkText&gt;</ept><bpt id="793ea8fb-79d3-40df-9bca-e70796d575b2">&lt;title&gt;</bpt><ept id="793ea8fb-79d3-40df-9bca-e70796d575b2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38b4aaa9-dbb7-4db0-816e-e7a465676005" xml:space="preserve">
+          <source>Remote Desktop Gateway cluster using a single cloud service</source>
+          <target state="new">Remote Desktop Gateway cluster using a single cloud service</target>
+        </trans-unit>
+        <trans-unit id="6dca1dfa-3fdc-46d9-9dc6-ed39449af4ab" xml:space="preserve">
+          <source>Media upload (i.e. UDP for data, TCP for control)</source>
+          <target state="new">Media upload (i.e. UDP for data, TCP for control)</target>
+        </trans-unit>
+        <trans-unit id="bfb56a47-7bbc-4604-86e3-03cd06446d6c" xml:space="preserve">
+          <source>Client initiates a TCP session to the Azure-hosted load-balanced public IP address</source>
+          <target state="new">Client initiates a TCP session to the Azure-hosted load-balanced public IP address</target>
+        </trans-unit>
+        <trans-unit id="afe71940-1560-412f-884a-b0d482d651b2" xml:space="preserve">
+          <source>Client request is directed to a DIP by the load balancer; this channel remains active to monitor connection health</source>
+          <target state="new">Client request is directed to a DIP by the load balancer; this channel remains active to monitor connection health</target>
+        </trans-unit>
+        <trans-unit id="1d8a55f8-b400-4fd0-bc50-291476e48ff8" xml:space="preserve">
+          <source>Client initiates a UDP session to the same Azure-hosted load-balanced public IP address</source>
+          <target state="new">Client initiates a UDP session to the same Azure-hosted load-balanced public IP address</target>
+        </trans-unit>
+        <trans-unit id="b804d4f2-9b6f-4276-a982-b28ea878cbca" xml:space="preserve">
+          <source>The Azure load balancer directs the request to the same DIP endpoint as the TCP connection</source>
+          <target state="new">The Azure load balancer directs the request to the same DIP endpoint as the TCP connection</target>
+        </trans-unit>
+        <trans-unit id="e5e51ecc-0306-4e0a-b0e9-54dc1b284a89" xml:space="preserve">
+          <source>Client uploads media with higher UDP throughput while maintaining the control channel over TCP for reliability</source>
+          <target state="new">Client uploads media with higher UDP throughput while maintaining the control channel over TCP for reliability</target>
+        </trans-unit>
+        <trans-unit id="a137428c-6410-497a-8af3-066e5534e8b1" xml:space="preserve">
+          <source>If the load-balanced set changes (i.e. adding or removing a virtual machine), client channel distribution is recomputed; new connections from existing clients may be handled by a different server than was used originally</source>
+          <target state="new">If the load-balanced set changes (i.e. adding or removing a virtual machine), client channel distribution is recomputed; new connections from existing clients may be handled by a different server than was used originally</target>
+        </trans-unit>
+        <trans-unit id="4cf3bfe5-7cb9-445d-9dd5-cc2784e1b8e0" xml:space="preserve">
+          <source>Using Source IP Affinity may result in an unequal distribution of traffic across Azure-hosted servers</source>
+          <target state="new">Using Source IP Affinity may result in an unequal distribution of traffic across Azure-hosted servers</target>
+        </trans-unit>
+        <trans-unit id="170e80d9-9bc9-487b-9e3d-2e6129a2a374" xml:space="preserve">
+          <source>Clients that route their traffic through a proxy may be seen as a single client by the Azure load balancer</source>
+          <target state="new">Clients that route their traffic through a proxy may be seen as a single client by the Azure load balancer</target>
+        </trans-unit>
+        <trans-unit id="0b4a1249-3bc0-42d1-8ac8-9bf5b7cb655d" xml:space="preserve">
+          <source>Please download <bpt id="e6287dda-7365-4003-b49f-38f7241c9a94">&lt;linkText&gt;</bpt>the latest Azure PowerShell release<ept id="e6287dda-7365-4003-b49f-38f7241c9a94">&lt;/linkText&gt;</ept><bpt id="e6287dda-7365-4003-b49f-38f7241c9a94">&lt;title&gt;</bpt><ept id="e6287dda-7365-4003-b49f-38f7241c9a94">&lt;/title&gt;</ept> for best results.</source>
+          <target state="new">Please download <bpt id="e6287dda-7365-4003-b49f-38f7241c9a94">&lt;linkText&gt;</bpt>the latest Azure PowerShell release<ept id="e6287dda-7365-4003-b49f-38f7241c9a94">&lt;/linkText&gt;</ept><bpt id="e6287dda-7365-4003-b49f-38f7241c9a94">&lt;title&gt;</bpt><ept id="e6287dda-7365-4003-b49f-38f7241c9a94">&lt;/title&gt;</ept> for best results.</target>
+        </trans-unit>
+        <trans-unit id="263fa612-e763-4870-9ca1-da31b40cb66b" xml:space="preserve">
+          <source>LoadBalancerDistribution can be set to sourceIP for 2-tuple (source IP, Destination IP) load balancing, sourceIPProtocol for 3-tuple (source IP, Destination IP, protocol) load balancing, or none if you want the default behavior (5-tuple load balancing).</source>
+          <target state="new">LoadBalancerDistribution can be set to sourceIP for 2-tuple (source IP, Destination IP) load balancing, sourceIPProtocol for 3-tuple (source IP, Destination IP, protocol) load balancing, or none if you want the default behavior (5-tuple load balancing).</target>
+        </trans-unit>
+        <trans-unit id="0b21023a-e375-4af6-8549-8f8e3f51006f" xml:space="preserve">
+          <source>If the LoadBalancerDistribution element is not present then the Azure Load balancer uses the default 5-tuple algorithm</source>
+          <target state="new">If the LoadBalancerDistribution element is not present then the Azure Load balancer uses the default 5-tuple algorithm</target>
+        </trans-unit>
+        <trans-unit id="2dec5bf2-b945-49c6-b0e6-2f20ae7d9f25" xml:space="preserve">
+          <source>If endpoints are part of a load balanced endpoint set, the distribution mode must be set on the load balanced endpoint set.</source>
+          <target state="new">If endpoints are part of a load balanced endpoint set, the distribution mode must be set on the load balanced endpoint set.</target>
+        </trans-unit>
+        <trans-unit id="c62a50b1-0bd3-4f9e-b0b8-3e028aa97478" xml:space="preserve">
+          <source>You can leverage the Azure SDK for .NET to update your Cloud Service</source>
+          <target state="new">You can leverage the Azure SDK for .NET to update your Cloud Service</target>
+        </trans-unit>
+        <trans-unit id="f8da5c54-6942-43f5-b609-9735f761cc80" xml:space="preserve">
+          <source>Endpoint settings for Cloud Services are made in the .csdef.</source>
+          <target state="new">Endpoint settings for Cloud Services are made in the .csdef.</target>
+        </trans-unit>
+        <trans-unit id="3f8faac3-259f-4016-bcc4-c1c695048250" xml:space="preserve">
+          <source>In order to update the load balancer distribution mode for a Cloud Services deployment, a deployment upgrade is required.</source>
+          <target state="new">In order to update the load balancer distribution mode for a Cloud Services deployment, a deployment upgrade is required.</target>
+        </trans-unit>
+        <trans-unit id="b0b9968e-f4ac-459e-abec-da5cc17d2245" xml:space="preserve">
+          <source>Here is an example of .csdef changes for endpoint settings:</source>
+          <target state="new">Here is an example of .csdef changes for endpoint settings:</target>
+        </trans-unit>
+        <trans-unit id="6f59897e-c580-439a-85f3-b1c570505715" xml:space="preserve">
+          <source>Developers can configure the load balancer distribution using the service management API.</source>
+          <target state="new">Developers can configure the load balancer distribution using the service management API.</target>
+        </trans-unit>
+        <trans-unit id="51967b00-3b65-4086-ab8d-b8757ceb36db" xml:space="preserve">
+          <source>Make sure to add the x-ms-version header is set to version 2014-09-01 or higher.</source>
+          <target state="new">Make sure to add the x-ms-version header is set to version 2014-09-01 or higher.</target>
+        </trans-unit>
+        <trans-unit id="48a212d4-ed88-4db1-9f38-af9670310bc2" xml:space="preserve">
+          <source>The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sourceIPProtocol for 3-tuple affinity or none (for no affinity.</source>
+          <target state="new">The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sourceIPProtocol for 3-tuple affinity or none (for no affinity.</target>
+        </trans-unit>
+        <trans-unit id="cb45901e-3f9e-4b19-ad24-482a99fa6f44" xml:space="preserve">
+          <source>i.e. 5-tuple)</source>
+          <target state="new">i.e. 5-tuple)</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="42e0b33a-e461-49e8-8f3b-a23f9d356aae" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="42e0b33a-e461-49e8-8f3b-a23f9d356aae" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c8b30a39-1327-4c3d-8ac5-a64f09d17b27">
+        <trans-unit id="138c5571-5aa6-49c0-885b-5c429b400b65" xml:space="preserve">
+          <source>What is a Network Access Control List (ACL)?</source>
+          <target state="new">What is a Network Access Control List (ACL)?</target>
+        </trans-unit>
+        <trans-unit id="1a762fbe-97f1-41d1-bec7-86522405bd59" xml:space="preserve">
+          <source>Learn about ACLs</source>
+          <target state="new">Learn about ACLs</target>
+        </trans-unit>
+        <trans-unit id="4c19d05d-0c6e-4dbf-85cf-56bcbd04e76e" xml:space="preserve">
+          <source>A Network Access Control List (ACL) is a security enhancement available for your Azure deployment.</source>
+          <target state="new">A Network Access Control List (ACL) is a security enhancement available for your Azure deployment.</target>
+        </trans-unit>
+        <trans-unit id="c5b9e55d-26da-46e3-813f-c9a7d2e49bd7" xml:space="preserve">
+          <source>An ACL provides the ability to selectively permit or deny traffic for a virtual machine endpoint.</source>
+          <target state="new">An ACL provides the ability to selectively permit or deny traffic for a virtual machine endpoint.</target>
+        </trans-unit>
+        <trans-unit id="0679d524-4262-468a-9a4c-0cfabe1f4b63" xml:space="preserve">
+          <source>This packet filtering capability provides an additional layer of security.</source>
+          <target state="new">This packet filtering capability provides an additional layer of security.</target>
+        </trans-unit>
+        <trans-unit id="af397dfc-b4fc-4131-bf1a-5ebd2452ab4a" xml:space="preserve">
+          <source>You can specify network ACLs for endpoints only.</source>
+          <target state="new">You can specify network ACLs for endpoints only.</target>
+        </trans-unit>
+        <trans-unit id="5fe6f375-52b2-4233-922b-98a11e421785" xml:space="preserve">
+          <source>You can't specify an ACL for a virtual network or a specific subnet contained in a virtual network.</source>
+          <target state="new">You can't specify an ACL for a virtual network or a specific subnet contained in a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="5b069de7-5a5b-4494-a43e-bf79f7a6cc86" xml:space="preserve">
+          <source>It is recommended to use Network Security Groups (NSGs) instead of ACLs whenever possible.</source>
+          <target state="new">It is recommended to use Network Security Groups (NSGs) instead of ACLs whenever possible.</target>
+        </trans-unit>
+        <trans-unit id="44a247fe-debd-4256-a9fc-34bb92f8e382" xml:space="preserve">
+          <source>To learn more about NSGs, see <bpt id="3500caa1-f573-4438-a5e6-f5a7bbfe009c">&lt;linkText&gt;</bpt>What is a Network Security Group?<ept id="3500caa1-f573-4438-a5e6-f5a7bbfe009c">&lt;/linkText&gt;</ept><bpt id="3500caa1-f573-4438-a5e6-f5a7bbfe009c">&lt;title&gt;</bpt><ept id="3500caa1-f573-4438-a5e6-f5a7bbfe009c">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about NSGs, see <bpt id="3500caa1-f573-4438-a5e6-f5a7bbfe009c">&lt;linkText&gt;</bpt>What is a Network Security Group?<ept id="3500caa1-f573-4438-a5e6-f5a7bbfe009c">&lt;/linkText&gt;</ept><bpt id="3500caa1-f573-4438-a5e6-f5a7bbfe009c">&lt;title&gt;</bpt><ept id="3500caa1-f573-4438-a5e6-f5a7bbfe009c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14e001aa-c2c7-4f7e-b0b6-42b6216f74a0" xml:space="preserve">
+          <source>ACLs can be configured by using either PowerShell or the Management Portal.</source>
+          <target state="new">ACLs can be configured by using either PowerShell or the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="b3348b50-1dcf-4b70-a869-2dca68a3b072" xml:space="preserve">
+          <source>To configure a network ACL by using PowerShell, see <bpt id="2ab1d371-8a78-4ea4-bb98-cd9c5f585c0b">&lt;linkText&gt;</bpt>Managing Access Control Lists (ACLs) for Endpoints by using PowerShell<ept id="2ab1d371-8a78-4ea4-bb98-cd9c5f585c0b">&lt;/linkText&gt;</ept><bpt id="2ab1d371-8a78-4ea4-bb98-cd9c5f585c0b">&lt;title&gt;</bpt><ept id="2ab1d371-8a78-4ea4-bb98-cd9c5f585c0b">&lt;/title&gt;</ept>.</source>
+          <target state="new">To configure a network ACL by using PowerShell, see <bpt id="2ab1d371-8a78-4ea4-bb98-cd9c5f585c0b">&lt;linkText&gt;</bpt>Managing Access Control Lists (ACLs) for Endpoints by using PowerShell<ept id="2ab1d371-8a78-4ea4-bb98-cd9c5f585c0b">&lt;/linkText&gt;</ept><bpt id="2ab1d371-8a78-4ea4-bb98-cd9c5f585c0b">&lt;title&gt;</bpt><ept id="2ab1d371-8a78-4ea4-bb98-cd9c5f585c0b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae6881e0-b999-4e3b-8302-979d46be9a53" xml:space="preserve">
+          <source>To configure a network ACL by using the Management Portal, see <bpt id="79a00e84-1c43-4787-a63a-a66f09946e37">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="79a00e84-1c43-4787-a63a-a66f09946e37">&lt;/linkText&gt;</ept><bpt id="79a00e84-1c43-4787-a63a-a66f09946e37">&lt;title&gt;</bpt><ept id="79a00e84-1c43-4787-a63a-a66f09946e37">&lt;/title&gt;</ept>.</source>
+          <target state="new">To configure a network ACL by using the Management Portal, see <bpt id="79a00e84-1c43-4787-a63a-a66f09946e37">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="79a00e84-1c43-4787-a63a-a66f09946e37">&lt;/linkText&gt;</ept><bpt id="79a00e84-1c43-4787-a63a-a66f09946e37">&lt;title&gt;</bpt><ept id="79a00e84-1c43-4787-a63a-a66f09946e37">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00d2027d-a88a-45a0-a5d5-877f6dc27ce7" xml:space="preserve">
+          <source>Using Network ACLs, you can do the following:</source>
+          <target state="new">Using Network ACLs, you can do the following:</target>
+        </trans-unit>
+        <trans-unit id="1ce1e812-31a0-436a-9d0e-d7230eb58601" xml:space="preserve">
+          <source>Selectively permit or deny incoming traffic based on remote subnet IPv4 address range to a virtual machine input endpoint.</source>
+          <target state="new">Selectively permit or deny incoming traffic based on remote subnet IPv4 address range to a virtual machine input endpoint.</target>
+        </trans-unit>
+        <trans-unit id="a90ec5b0-4a56-48b8-bcce-b0ea232ded80" xml:space="preserve">
+          <source>Blacklist IP addresses</source>
+          <target state="new">Blacklist IP addresses</target>
+        </trans-unit>
+        <trans-unit id="e6204696-8926-4429-bcf0-0d3f58306b15" xml:space="preserve">
+          <source>Create multiple rules per virtual machine endpoint</source>
+          <target state="new">Create multiple rules per virtual machine endpoint</target>
+        </trans-unit>
+        <trans-unit id="d8de0dbf-cf01-4bb5-9bbf-58646ca8fc94" xml:space="preserve">
+          <source>Specify up to 50 ACL rules per virtual machine endpoint</source>
+          <target state="new">Specify up to 50 ACL rules per virtual machine endpoint</target>
+        </trans-unit>
+        <trans-unit id="e7b73794-013e-43fd-a429-58433c2ad53b" xml:space="preserve">
+          <source>Use rule ordering to ensure the correct set of rules are applied on a given virtual machine endpoint (lowest to highest)</source>
+          <target state="new">Use rule ordering to ensure the correct set of rules are applied on a given virtual machine endpoint (lowest to highest)</target>
+        </trans-unit>
+        <trans-unit id="3376f6f1-2b53-49f3-96bf-6a173d46b3ce" xml:space="preserve">
+          <source>Specify an ACL for a specific remote subnet IPv4 address.</source>
+          <target state="new">Specify an ACL for a specific remote subnet IPv4 address.</target>
+        </trans-unit>
+        <trans-unit id="b2ddc173-7eb9-4286-8367-2187d0ad5bf9" xml:space="preserve">
+          <source>An ACL is an object that contains a list of rules.</source>
+          <target state="new">An ACL is an object that contains a list of rules.</target>
+        </trans-unit>
+        <trans-unit id="b2ded4a8-8a98-4cb2-9ac7-38cd98a55465" xml:space="preserve">
+          <source>When you create an ACL and apply it to a virtual machine endpoint, packet filtering takes place on the host node of your VM.</source>
+          <target state="new">When you create an ACL and apply it to a virtual machine endpoint, packet filtering takes place on the host node of your VM.</target>
+        </trans-unit>
+        <trans-unit id="a7a9c085-5b4a-4214-854f-7229f7c40e96" xml:space="preserve">
+          <source>This means the traffic from remote IP addresses is filtered by the host node for matching ACL rules instead of on your VM.</source>
+          <target state="new">This means the traffic from remote IP addresses is filtered by the host node for matching ACL rules instead of on your VM.</target>
+        </trans-unit>
+        <trans-unit id="2ab5258d-021c-4faa-bf37-fecafa76a258" xml:space="preserve">
+          <source>This prevents your VM from spending the precious CPU cycles on packet filtering.</source>
+          <target state="new">This prevents your VM from spending the precious CPU cycles on packet filtering.</target>
+        </trans-unit>
+        <trans-unit id="d610c8a3-2141-4902-ba83-3362dc173a47" xml:space="preserve">
+          <source>When a virtual machine is created, a default ACL is put in place to block all incoming traffic.</source>
+          <target state="new">When a virtual machine is created, a default ACL is put in place to block all incoming traffic.</target>
+        </trans-unit>
+        <trans-unit id="e1c54f60-45ce-483d-95b8-cc16894a9684" xml:space="preserve">
+          <source>However, if an endpoint is created for (port 3389), then the default ACL is modified to allow all inbound traffic for that endpoint.</source>
+          <target state="new">However, if an endpoint is created for (port 3389), then the default ACL is modified to allow all inbound traffic for that endpoint.</target>
+        </trans-unit>
+        <trans-unit id="cd9cc574-83e7-4690-881f-8cfdb4c2ae10" xml:space="preserve">
+          <source>Inbound traffic from any remote subnet is then allowed to that endpoint and no firewall provisioning is required.</source>
+          <target state="new">Inbound traffic from any remote subnet is then allowed to that endpoint and no firewall provisioning is required.</target>
+        </trans-unit>
+        <trans-unit id="c4e9ffaf-eda4-419e-89eb-ec56502f43bc" xml:space="preserve">
+          <source>All other ports are blocked for inbound traffic unless endpoints are created for those ports.</source>
+          <target state="new">All other ports are blocked for inbound traffic unless endpoints are created for those ports.</target>
+        </trans-unit>
+        <trans-unit id="194c84de-6604-4ce9-9e9d-9a9977ddd36a" xml:space="preserve">
+          <source>Outbound traffic is allowed by default.</source>
+          <target state="new">Outbound traffic is allowed by default.</target>
+        </trans-unit>
+        <trans-unit id="80a7cc5d-378d-4d99-97d7-54389400b870" xml:space="preserve">
+          <source><bpt id="fe1e5da0-711a-4b05-a450-8aea107f0703">&lt;strong&gt;</bpt>Example Default ACL table<ept id="fe1e5da0-711a-4b05-a450-8aea107f0703">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fe1e5da0-711a-4b05-a450-8aea107f0703">&lt;strong&gt;</bpt>Example Default ACL table<ept id="fe1e5da0-711a-4b05-a450-8aea107f0703">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bbddebf-ae71-40da-8f86-f42b608cfdf7" xml:space="preserve">
+          <source><bpt id="afe082f7-7eb1-4759-8458-db6201f78a0d">&lt;strong&gt;</bpt>Rule #<ept id="afe082f7-7eb1-4759-8458-db6201f78a0d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="afe082f7-7eb1-4759-8458-db6201f78a0d">&lt;strong&gt;</bpt>Rule #<ept id="afe082f7-7eb1-4759-8458-db6201f78a0d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99b85466-300b-4972-a143-49435e2c2eb3" xml:space="preserve">
+          <source><bpt id="8a69da27-cda3-42e2-bb03-6a0b65eb66d0">&lt;strong&gt;</bpt>Remote Subnet<ept id="8a69da27-cda3-42e2-bb03-6a0b65eb66d0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8a69da27-cda3-42e2-bb03-6a0b65eb66d0">&lt;strong&gt;</bpt>Remote Subnet<ept id="8a69da27-cda3-42e2-bb03-6a0b65eb66d0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da4799e1-8700-4bbd-be16-197127606472" xml:space="preserve">
+          <source><bpt id="a8b44565-ac1f-482b-add6-f7f07f941ec9">&lt;strong&gt;</bpt>Endpoint<ept id="a8b44565-ac1f-482b-add6-f7f07f941ec9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a8b44565-ac1f-482b-add6-f7f07f941ec9">&lt;strong&gt;</bpt>Endpoint<ept id="a8b44565-ac1f-482b-add6-f7f07f941ec9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a20e0ea4-e7f9-4699-b4a6-1ec54feed069" xml:space="preserve">
+          <source><bpt id="c9cf5fc2-409e-4e38-980f-0ed51e3a291a">&lt;strong&gt;</bpt>Permit/Deny<ept id="c9cf5fc2-409e-4e38-980f-0ed51e3a291a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c9cf5fc2-409e-4e38-980f-0ed51e3a291a">&lt;strong&gt;</bpt>Permit/Deny<ept id="c9cf5fc2-409e-4e38-980f-0ed51e3a291a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="617d844b-e745-4bbd-bb16-402b873f4a96" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="9ef6957e-0a14-4574-8505-45d7696a4813" xml:space="preserve">
+          <source>0.0.0.0/0</source>
+          <target state="new">0.0.0.0/0</target>
+        </trans-unit>
+        <trans-unit id="62b87cbf-3e19-4c95-9b5d-1badb10c3b24" xml:space="preserve">
+          <source>3389</source>
+          <target state="new">3389</target>
+        </trans-unit>
+        <trans-unit id="054bfdd6-e81d-4fa4-8900-83af5d8b9fea" xml:space="preserve">
+          <source>Permit</source>
+          <target state="new">Permit</target>
+        </trans-unit>
+        <trans-unit id="905fe43a-7818-4150-8eba-450e75f433aa" xml:space="preserve">
+          <source>You can selectively permit or deny network traffic for a virtual machine input endpoint by creating rules that specify "permit" or "deny".</source>
+          <target state="new">You can selectively permit or deny network traffic for a virtual machine input endpoint by creating rules that specify "permit" or "deny".</target>
+        </trans-unit>
+        <trans-unit id="e8c3b75a-464c-42a0-8635-b6103e87ac6b" xml:space="preserve">
+          <source>It's important to note that by default, when an endpoint is created, all traffic is denied to the endpoint.</source>
+          <target state="new">It's important to note that by default, when an endpoint is created, all traffic is denied to the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="d7fcc012-be3f-477f-9ba0-28e223a0aefd" xml:space="preserve">
+          <source>For that reason, it's important to understand how to create permit/deny rules and place them in the proper order of precedence if you want granular control over the network traffic that you choose to allow to reach the virtual machine endpoint.</source>
+          <target state="new">For that reason, it's important to understand how to create permit/deny rules and place them in the proper order of precedence if you want granular control over the network traffic that you choose to allow to reach the virtual machine endpoint.</target>
+        </trans-unit>
+        <trans-unit id="0b9c3bf3-ef8c-48e3-b0b5-99d653c5106e" xml:space="preserve">
+          <source>Points to consider:</source>
+          <target state="new">Points to consider:</target>
+        </trans-unit>
+        <trans-unit id="6a7c00fe-3154-45ef-aaa8-2122dc9b95ed" xml:space="preserve">
+          <source><bpt id="5d2603f8-360c-4981-a637-823f9b96fc0e">&lt;strong&gt;</bpt>No ACL –<ept id="5d2603f8-360c-4981-a637-823f9b96fc0e">&lt;/strong&gt;</ept> By default when an endpoint is created, we permit all for the endpoint.</source>
+          <target state="new"><bpt id="5d2603f8-360c-4981-a637-823f9b96fc0e">&lt;strong&gt;</bpt>No ACL –<ept id="5d2603f8-360c-4981-a637-823f9b96fc0e">&lt;/strong&gt;</ept> By default when an endpoint is created, we permit all for the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="80cc910d-4a2f-42db-94bd-2b03143e64d1" xml:space="preserve">
+          <source><bpt id="3d676274-837f-4e42-891b-05be87a968d2">&lt;strong&gt;</bpt>Permit -<ept id="3d676274-837f-4e42-891b-05be87a968d2">&lt;/strong&gt;</ept> When you add one or more "permit" ranges, you are denying all other ranges by default.</source>
+          <target state="new"><bpt id="3d676274-837f-4e42-891b-05be87a968d2">&lt;strong&gt;</bpt>Permit -<ept id="3d676274-837f-4e42-891b-05be87a968d2">&lt;/strong&gt;</ept> When you add one or more "permit" ranges, you are denying all other ranges by default.</target>
+        </trans-unit>
+        <trans-unit id="2646c70e-86ac-4c7c-8297-bd5edcb33251" xml:space="preserve">
+          <source>Only packets from the permitted IP range will be able to communicate with the virtual machine endpoint.</source>
+          <target state="new">Only packets from the permitted IP range will be able to communicate with the virtual machine endpoint.</target>
+        </trans-unit>
+        <trans-unit id="a2b4532f-90c8-4f31-b0ef-b8f2c16bccdc" xml:space="preserve">
+          <source><bpt id="3480a2a5-c904-4834-8218-32e3e9de5c30">&lt;strong&gt;</bpt>Deny -<ept id="3480a2a5-c904-4834-8218-32e3e9de5c30">&lt;/strong&gt;</ept> When you add one or more "deny" ranges, you are permitting all other ranges of traffic by default.</source>
+          <target state="new"><bpt id="3480a2a5-c904-4834-8218-32e3e9de5c30">&lt;strong&gt;</bpt>Deny -<ept id="3480a2a5-c904-4834-8218-32e3e9de5c30">&lt;/strong&gt;</ept> When you add one or more "deny" ranges, you are permitting all other ranges of traffic by default.</target>
+        </trans-unit>
+        <trans-unit id="fd555fd8-872c-4344-b3e7-dbaf74f16c3d" xml:space="preserve">
+          <source><bpt id="8bf1548d-996e-492c-b3ba-2a95478d03b6">&lt;strong&gt;</bpt>Combination of Permit and Deny -<ept id="8bf1548d-996e-492c-b3ba-2a95478d03b6">&lt;/strong&gt;</ept> You can use a combination of "permit" and "deny" when you want to carve out a specific IP range to be permitted or denied.</source>
+          <target state="new"><bpt id="8bf1548d-996e-492c-b3ba-2a95478d03b6">&lt;strong&gt;</bpt>Combination of Permit and Deny -<ept id="8bf1548d-996e-492c-b3ba-2a95478d03b6">&lt;/strong&gt;</ept> You can use a combination of "permit" and "deny" when you want to carve out a specific IP range to be permitted or denied.</target>
+        </trans-unit>
+        <trans-unit id="38781d74-7c48-42f2-8095-1a5ae5a4cf8d" xml:space="preserve">
+          <source>Network ACLs can be set up on specific virtual machine endpoints.</source>
+          <target state="new">Network ACLs can be set up on specific virtual machine endpoints.</target>
+        </trans-unit>
+        <trans-unit id="125f18a4-ad8e-4a58-9583-b9198804ffd3" xml:space="preserve">
+          <source>For example, you can specify a network ACL for an RDP endpoint created on a virtual machine which locks down access for certain IP addresses.</source>
+          <target state="new">For example, you can specify a network ACL for an RDP endpoint created on a virtual machine which locks down access for certain IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="22b8d276-3554-443e-b3e5-9ed9877e7a6e" xml:space="preserve">
+          <source>The table below shows a way to grant access to public virtual IPs (VIPs) of a certain range to permit access for RDP.</source>
+          <target state="new">The table below shows a way to grant access to public virtual IPs (VIPs) of a certain range to permit access for RDP.</target>
+        </trans-unit>
+        <trans-unit id="e463b279-bbb2-41b7-8b71-482cac9a7c28" xml:space="preserve">
+          <source>All other remote IPs are denied.</source>
+          <target state="new">All other remote IPs are denied.</target>
+        </trans-unit>
+        <trans-unit id="daf6012f-92c3-47ea-a87e-24d8ff5ca734" xml:space="preserve">
+          <source>We follow a <bpt id="292ab1f4-9e30-4187-b630-5a7512240b16">&lt;em&gt;</bpt>lowest takes precedence<ept id="292ab1f4-9e30-4187-b630-5a7512240b16">&lt;/em&gt;</ept> rule order.</source>
+          <target state="new">We follow a <bpt id="292ab1f4-9e30-4187-b630-5a7512240b16">&lt;em&gt;</bpt>lowest takes precedence<ept id="292ab1f4-9e30-4187-b630-5a7512240b16">&lt;/em&gt;</ept> rule order.</target>
+        </trans-unit>
+        <trans-unit id="c88dae1a-70a5-4679-ac12-1dcae6519995" xml:space="preserve">
+          <source>In the example below, if you want to allow access to the RDP endpoint only from two public IPv4 address ranges (65.0.0.0/8, and 159.0.0.0/8), you can achieve this by specifying two <bpt id="1e39facc-7aad-423b-83dc-6374fc9e1e45">&lt;em&gt;</bpt>Permit<ept id="1e39facc-7aad-423b-83dc-6374fc9e1e45">&lt;/em&gt;</ept> rules.</source>
+          <target state="new">In the example below, if you want to allow access to the RDP endpoint only from two public IPv4 address ranges (65.0.0.0/8, and 159.0.0.0/8), you can achieve this by specifying two <bpt id="1e39facc-7aad-423b-83dc-6374fc9e1e45">&lt;em&gt;</bpt>Permit<ept id="1e39facc-7aad-423b-83dc-6374fc9e1e45">&lt;/em&gt;</ept> rules.</target>
+        </trans-unit>
+        <trans-unit id="58ed3afc-1c00-4958-a4eb-ae492f5f6192" xml:space="preserve">
+          <source>In this case, since RDP is created by default for a virtual machine, you may want to lock down access to the RDP port based on a remote subnet.</source>
+          <target state="new">In this case, since RDP is created by default for a virtual machine, you may want to lock down access to the RDP port based on a remote subnet.</target>
+        </trans-unit>
+        <trans-unit id="81ccdc00-57c8-40fa-8464-a9d1fb2009ef" xml:space="preserve">
+          <source>The example below shows a way to grant access to public virtual IPs (VIPs) of a certain range to permit access for RDP.</source>
+          <target state="new">The example below shows a way to grant access to public virtual IPs (VIPs) of a certain range to permit access for RDP.</target>
+        </trans-unit>
+        <trans-unit id="1025699b-25c1-448d-9ec6-7d933a0e3c4c" xml:space="preserve">
+          <source>All other remote IPs are denied.</source>
+          <target state="new">All other remote IPs are denied.</target>
+        </trans-unit>
+        <trans-unit id="926a6318-3e18-42a9-b34c-bee85bd462c9" xml:space="preserve">
+          <source>This works because network ACLs can be set up for a specific virtual machine endpoint and access is denied by default.</source>
+          <target state="new">This works because network ACLs can be set up for a specific virtual machine endpoint and access is denied by default.</target>
+        </trans-unit>
+        <trans-unit id="95806bf3-917d-4ac0-99c2-f7d88adf0529" xml:space="preserve">
+          <source><bpt id="9cc996f1-1bcd-4db4-b351-0da9619b70e3">&lt;strong&gt;</bpt>Example – Multiple rules<ept id="9cc996f1-1bcd-4db4-b351-0da9619b70e3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9cc996f1-1bcd-4db4-b351-0da9619b70e3">&lt;strong&gt;</bpt>Example – Multiple rules<ept id="9cc996f1-1bcd-4db4-b351-0da9619b70e3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="292d59c5-e04e-411e-8b12-59ae79f356ba" xml:space="preserve">
+          <source><bpt id="933a75df-ce6a-4dfd-92f1-ee020673ac58">&lt;strong&gt;</bpt>Rule #<ept id="933a75df-ce6a-4dfd-92f1-ee020673ac58">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="933a75df-ce6a-4dfd-92f1-ee020673ac58">&lt;strong&gt;</bpt>Rule #<ept id="933a75df-ce6a-4dfd-92f1-ee020673ac58">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d3c04b6-b67d-4eb9-9c50-5cfdd7595a8f" xml:space="preserve">
+          <source><bpt id="c18b06aa-accc-4bcd-abe8-3d6e7443888f">&lt;strong&gt;</bpt>Remote Subnet<ept id="c18b06aa-accc-4bcd-abe8-3d6e7443888f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c18b06aa-accc-4bcd-abe8-3d6e7443888f">&lt;strong&gt;</bpt>Remote Subnet<ept id="c18b06aa-accc-4bcd-abe8-3d6e7443888f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ceee49f-af3d-47bf-a52a-54a3bcb18c53" xml:space="preserve">
+          <source><bpt id="ff1b85ff-46f2-43fc-b289-d3763ffce7c4">&lt;strong&gt;</bpt>Endpoint<ept id="ff1b85ff-46f2-43fc-b289-d3763ffce7c4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ff1b85ff-46f2-43fc-b289-d3763ffce7c4">&lt;strong&gt;</bpt>Endpoint<ept id="ff1b85ff-46f2-43fc-b289-d3763ffce7c4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7975cbb5-68a4-4855-9aaa-9092e0e3b3cc" xml:space="preserve">
+          <source><bpt id="df1bc1c1-0298-4d46-8c70-e532cc77c8e7">&lt;strong&gt;</bpt>Permit/Deny<ept id="df1bc1c1-0298-4d46-8c70-e532cc77c8e7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="df1bc1c1-0298-4d46-8c70-e532cc77c8e7">&lt;strong&gt;</bpt>Permit/Deny<ept id="df1bc1c1-0298-4d46-8c70-e532cc77c8e7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4fd4a17-e318-4f31-8090-83266192cf9d" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="5b5ba177-7f44-47c8-9c9a-65dfda282066" xml:space="preserve">
+          <source>65.0.0.0/8</source>
+          <target state="new">65.0.0.0/8</target>
+        </trans-unit>
+        <trans-unit id="6fb8a7c3-6f8c-4d70-850c-ba7054a680c6" xml:space="preserve">
+          <source>3389</source>
+          <target state="new">3389</target>
+        </trans-unit>
+        <trans-unit id="5ab90ec1-606d-4ef4-977a-de06e05c1dbd" xml:space="preserve">
+          <source>Permit</source>
+          <target state="new">Permit</target>
+        </trans-unit>
+        <trans-unit id="2acf7d81-fe92-4e94-b4a2-2540db86531d" xml:space="preserve">
+          <source>200</source>
+          <target state="new">200</target>
+        </trans-unit>
+        <trans-unit id="5d989bd6-6c11-489b-8309-0cc8165015d1" xml:space="preserve">
+          <source>159.0.0.0/8</source>
+          <target state="new">159.0.0.0/8</target>
+        </trans-unit>
+        <trans-unit id="e4b4c1eb-b84b-468e-9cf1-eace4885a475" xml:space="preserve">
+          <source>3389</source>
+          <target state="new">3389</target>
+        </trans-unit>
+        <trans-unit id="b0a8da22-b8b4-4e96-b268-a19fb93f64c9" xml:space="preserve">
+          <source>Permit</source>
+          <target state="new">Permit</target>
+        </trans-unit>
+        <trans-unit id="4cbc10e3-09bb-4315-bd56-726bd716136f" xml:space="preserve">
+          <source>Because multiple rules can be specified for an endpoint, there must be a way to organize rules in order to determine which rule takes precedence.</source>
+          <target state="new">Because multiple rules can be specified for an endpoint, there must be a way to organize rules in order to determine which rule takes precedence.</target>
+        </trans-unit>
+        <trans-unit id="03477520-0b78-4eb9-8fa6-552b5970c1fb" xml:space="preserve">
+          <source>The rule order specifies precedence.</source>
+          <target state="new">The rule order specifies precedence.</target>
+        </trans-unit>
+        <trans-unit id="de76fce7-bc6f-461c-b607-8b64fa26a42c" xml:space="preserve">
+          <source>Network ACLs follow a <bpt id="4827b1f2-fea5-4a19-a72c-1483ecf671db">&lt;em&gt;</bpt>lowest takes precedence<ept id="4827b1f2-fea5-4a19-a72c-1483ecf671db">&lt;/em&gt;</ept> rule order.</source>
+          <target state="new">Network ACLs follow a <bpt id="4827b1f2-fea5-4a19-a72c-1483ecf671db">&lt;em&gt;</bpt>lowest takes precedence<ept id="4827b1f2-fea5-4a19-a72c-1483ecf671db">&lt;/em&gt;</ept> rule order.</target>
+        </trans-unit>
+        <trans-unit id="54428d38-df98-4bd2-a2e6-0da2b532435a" xml:space="preserve">
+          <source>In the example below, the endpoint on port 80 is selectively granted access to only certain IP address ranges.</source>
+          <target state="new">In the example below, the endpoint on port 80 is selectively granted access to only certain IP address ranges.</target>
+        </trans-unit>
+        <trans-unit id="7d710235-8dce-49aa-b24f-057db9ead0b8" xml:space="preserve">
+          <source>To configure this, we have a deny rule (Rule \# 100) for addresses in the 175.1.0.1/24 space.</source>
+          <target state="new">To configure this, we have a deny rule (Rule \# 100) for addresses in the 175.1.0.1/24 space.</target>
+        </trans-unit>
+        <trans-unit id="a0cf1296-480c-4c02-8981-9d57d1764809" xml:space="preserve">
+          <source>A second rule is then specified with precedence 200 that permits access to all other addresses under 175.0.0.0/8.</source>
+          <target state="new">A second rule is then specified with precedence 200 that permits access to all other addresses under 175.0.0.0/8.</target>
+        </trans-unit>
+        <trans-unit id="5f34d1cf-11d6-4cad-8a1f-4c5b88fdfbd9" xml:space="preserve">
+          <source><bpt id="073869c9-8a4b-4ca9-90bf-2e1079811941">&lt;strong&gt;</bpt>Example – Rule precedence<ept id="073869c9-8a4b-4ca9-90bf-2e1079811941">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="073869c9-8a4b-4ca9-90bf-2e1079811941">&lt;strong&gt;</bpt>Example – Rule precedence<ept id="073869c9-8a4b-4ca9-90bf-2e1079811941">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c466f8c-dbb8-4ea3-ba2f-55e1cee176af" xml:space="preserve">
+          <source><bpt id="7b5a15a4-3daa-472c-a720-9a06dd732faf">&lt;strong&gt;</bpt>Rule #<ept id="7b5a15a4-3daa-472c-a720-9a06dd732faf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7b5a15a4-3daa-472c-a720-9a06dd732faf">&lt;strong&gt;</bpt>Rule #<ept id="7b5a15a4-3daa-472c-a720-9a06dd732faf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bf3d618-ccba-4d9a-ac49-b369394b865e" xml:space="preserve">
+          <source><bpt id="7cb05492-81d8-4998-8554-1c1d9929276f">&lt;strong&gt;</bpt>Remote Subnet<ept id="7cb05492-81d8-4998-8554-1c1d9929276f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7cb05492-81d8-4998-8554-1c1d9929276f">&lt;strong&gt;</bpt>Remote Subnet<ept id="7cb05492-81d8-4998-8554-1c1d9929276f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abc03b32-3a64-41c3-803a-d25e58475a4b" xml:space="preserve">
+          <source><bpt id="d8deac0b-f3c1-4c31-a05a-295b0f125318">&lt;strong&gt;</bpt>Endpoint<ept id="d8deac0b-f3c1-4c31-a05a-295b0f125318">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d8deac0b-f3c1-4c31-a05a-295b0f125318">&lt;strong&gt;</bpt>Endpoint<ept id="d8deac0b-f3c1-4c31-a05a-295b0f125318">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="587861ce-e822-4aba-98f3-259dfdcda4d9" xml:space="preserve">
+          <source><bpt id="a70b81a8-a62e-4db0-8ef8-69fa089ac718">&lt;strong&gt;</bpt>Permit/Deny<ept id="a70b81a8-a62e-4db0-8ef8-69fa089ac718">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a70b81a8-a62e-4db0-8ef8-69fa089ac718">&lt;strong&gt;</bpt>Permit/Deny<ept id="a70b81a8-a62e-4db0-8ef8-69fa089ac718">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3aa00b32-8d1d-4931-9140-22565c6e854e" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="8cbc1086-cc6e-4551-8816-ac25cf44e778" xml:space="preserve">
+          <source>175.1.0.1/24</source>
+          <target state="new">175.1.0.1/24</target>
+        </trans-unit>
+        <trans-unit id="a16c8fc6-e220-456a-b6ee-e3c011688f0d" xml:space="preserve">
+          <source>80</source>
+          <target state="new">80</target>
+        </trans-unit>
+        <trans-unit id="8ee646bf-1782-493c-85cb-b5a21b0555e9" xml:space="preserve">
+          <source>Deny</source>
+          <target state="new">Deny</target>
+        </trans-unit>
+        <trans-unit id="a1345fc8-3ef3-46b1-9df5-b51f65601982" xml:space="preserve">
+          <source>200</source>
+          <target state="new">200</target>
+        </trans-unit>
+        <trans-unit id="5d1a8b71-dfd6-406b-8bc7-80be53fbc06a" xml:space="preserve">
+          <source>175.0.0.0/8</source>
+          <target state="new">175.0.0.0/8</target>
+        </trans-unit>
+        <trans-unit id="0d71d830-94b6-44ac-9b6e-74f7c81706b3" xml:space="preserve">
+          <source>80</source>
+          <target state="new">80</target>
+        </trans-unit>
+        <trans-unit id="5414fd3c-1623-457b-9de3-1db642e9737b" xml:space="preserve">
+          <source>Permit</source>
+          <target state="new">Permit</target>
+        </trans-unit>
+        <trans-unit id="83ddcbb7-f297-43f5-ba6a-086318bbcb33" xml:space="preserve">
+          <source>Network ACLs can be specified on a Load balanced set (LB Set) endpoint.</source>
+          <target state="new">Network ACLs can be specified on a Load balanced set (LB Set) endpoint.</target>
+        </trans-unit>
+        <trans-unit id="9a2448fa-8dde-494f-a52f-1db3c120ff8f" xml:space="preserve">
+          <source>If an ACL is specified for a LB Set, the Network ACL is applied to all Virtual Machines in that LB Set.</source>
+          <target state="new">If an ACL is specified for a LB Set, the Network ACL is applied to all Virtual Machines in that LB Set.</target>
+        </trans-unit>
+        <trans-unit id="cee23a43-c573-4707-b93e-ca542989f5b6" xml:space="preserve">
+          <source>For example, if a LB Set is created with "Port 80" and the LB Set contains 3 VMs, the Network ACL created on endpoint "Port 80" of one VM will automatically apply to the other VMs.</source>
+          <target state="new">For example, if a LB Set is created with "Port 80" and the LB Set contains 3 VMs, the Network ACL created on endpoint "Port 80" of one VM will automatically apply to the other VMs.</target>
+        </trans-unit>
+        <trans-unit id="7ade9002-5266-4a50-8d05-34b619faba5f" xml:space="preserve">
+          <source><bpt id="64e8d6ce-03f7-47d1-91c1-7ef01030efa8">&lt;linkText&gt;</bpt>Network ACLs and load balanced sets<ept id="64e8d6ce-03f7-47d1-91c1-7ef01030efa8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="64e8d6ce-03f7-47d1-91c1-7ef01030efa8">&lt;linkText&gt;</bpt>Network ACLs and load balanced sets<ept id="64e8d6ce-03f7-47d1-91c1-7ef01030efa8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7cda342-bd77-43f8-b3af-9612f0aaaeaa" xml:space="preserve">
+          <source><bpt id="158b1717-5f7e-4d69-a370-056785946dfd">&lt;linkText&gt;</bpt>How to manage Access Control Lists (ACLs) for Endpoints by using PowerShell<ept id="158b1717-5f7e-4d69-a370-056785946dfd">&lt;/linkText&gt;</ept><bpt id="158b1717-5f7e-4d69-a370-056785946dfd">&lt;title&gt;</bpt><ept id="158b1717-5f7e-4d69-a370-056785946dfd">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="158b1717-5f7e-4d69-a370-056785946dfd">&lt;linkText&gt;</bpt>How to manage Access Control Lists (ACLs) for Endpoints by using PowerShell<ept id="158b1717-5f7e-4d69-a370-056785946dfd">&lt;/linkText&gt;</ept><bpt id="158b1717-5f7e-4d69-a370-056785946dfd">&lt;title&gt;</bpt><ept id="158b1717-5f7e-4d69-a370-056785946dfd">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

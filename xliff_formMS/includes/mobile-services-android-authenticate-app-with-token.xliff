@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e1415b82-8a72-4cd5-abc4-843b916f2708" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e1415b82-8a72-4cd5-abc4-843b916f2708" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="88e04967-ec88-4f40-8f9d-4f046405788a">
+        <trans-unit id="cee5fd95-7295-4ebe-870a-9f18a64c9d8c" xml:space="preserve">
+          <source>The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the mobile service every time that the app starts.</source>
+          <target state="new">The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the mobile service every time that the app starts.</target>
+        </trans-unit>
+        <trans-unit id="ede1bb0c-88ff-41e6-905e-a56a3878a1ea" xml:space="preserve">
+          <source>Not only is this method inefficient, you can run into usage-related issues should many customers try to start you app at the same time.</source>
+          <target state="new">Not only is this method inefficient, you can run into usage-related issues should many customers try to start you app at the same time.</target>
+        </trans-unit>
+        <trans-unit id="9c37e7dc-a55e-484a-a5ee-bbd2e19963f0" xml:space="preserve">
+          <source>A better approach is to cache the authorization token returned by Mobile Services and try to use this first before using a provider-based sign-in.</source>
+          <target state="new">A better approach is to cache the authorization token returned by Mobile Services and try to use this first before using a provider-based sign-in.</target>
+        </trans-unit>
+        <trans-unit id="6784d15f-ebb5-4c4a-8a65-bcf95d0e4822" xml:space="preserve">
+          <source>You can cache the token issued by Mobile Services regardless of whether you are using client-managed or service-managed authentication.</source>
+          <target state="new">You can cache the token issued by Mobile Services regardless of whether you are using client-managed or service-managed authentication.</target>
+        </trans-unit>
+        <trans-unit id="37b014b1-6d30-49fe-a149-283d631cb29d" xml:space="preserve">
+          <source>This tutorial uses service-managed authentication.</source>
+          <target state="new">This tutorial uses service-managed authentication.</target>
+        </trans-unit>
+        <trans-unit id="da5357a1-c608-4c0f-917b-9aa9f40c3fa3" xml:space="preserve">
+          <source>Open the ToDoActivity.java file and add the following import statements:</source>
+          <target state="new">Open the ToDoActivity.java file and add the following import statements:</target>
+        </trans-unit>
+        <trans-unit id="1e94eacc-0b83-403f-b9c0-101634965ae4" xml:space="preserve">
+          <source>Add the the following members to the <bpt id="76a8e4ac-a5a5-44b3-8cee-af2c656570b7">&lt;code&gt;</bpt>ToDoActivity<ept id="76a8e4ac-a5a5-44b3-8cee-af2c656570b7">&lt;/code&gt;</ept> class.</source>
+          <target state="new">Add the the following members to the <bpt id="76a8e4ac-a5a5-44b3-8cee-af2c656570b7">&lt;code&gt;</bpt>ToDoActivity<ept id="76a8e4ac-a5a5-44b3-8cee-af2c656570b7">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="7b2ef690-2f5c-4f08-80cc-867f58984379" xml:space="preserve">
+          <source>In the ToDoActivity.java file, add the the following definition for the <bpt id="d02e8805-f685-4f5a-b166-b2a056341111">&lt;code&gt;</bpt>cacheUserToken<ept id="d02e8805-f685-4f5a-b166-b2a056341111">&lt;/code&gt;</ept> method.</source>
+          <target state="new">In the ToDoActivity.java file, add the the following definition for the <bpt id="d02e8805-f685-4f5a-b166-b2a056341111">&lt;code&gt;</bpt>cacheUserToken<ept id="d02e8805-f685-4f5a-b166-b2a056341111">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="1c5636ed-43d4-4770-be41-d4d256ccd5a2" xml:space="preserve">
+          <source>This method stores the user id and token in a preference file that is marked private.</source>
+          <target state="new">This method stores the user id and token in a preference file that is marked private.</target>
+        </trans-unit>
+        <trans-unit id="c6a8d515-d7c1-4862-bf53-ef39bf80e1d8" xml:space="preserve">
+          <source>This should protect access to the cache so that other apps on the device do not have access to the token because the preference is sandboxed for the app.</source>
+          <target state="new">This should protect access to the cache so that other apps on the device do not have access to the token because the preference is sandboxed for the app.</target>
+        </trans-unit>
+        <trans-unit id="22988908-2537-498c-8ddf-65d64666d1ab" xml:space="preserve">
+          <source>However, if someone gains access to the device, it is possible that they may gain access to the token cache through other means.</source>
+          <target state="new">However, if someone gains access to the device, it is possible that they may gain access to the token cache through other means.</target>
+        </trans-unit>
+        <trans-unit id="b3f936be-4732-421c-adf6-d456a04b0a20" xml:space="preserve">
+          <source>You can further protect the token with encryption if token access to your data is considered highly sensitive and someone may gain access to the device.</source>
+          <target state="new">You can further protect the token with encryption if token access to your data is considered highly sensitive and someone may gain access to the device.</target>
+        </trans-unit>
+        <trans-unit id="b343193b-c049-479d-99c1-d07fc08372de" xml:space="preserve">
+          <source>However, a completely secure solution is beyond the scope of this tutorial and dependent on your security requirements.</source>
+          <target state="new">However, a completely secure solution is beyond the scope of this tutorial and dependent on your security requirements.</target>
+        </trans-unit>
+        <trans-unit id="87af70a4-a82f-4409-8490-a422b1af42c4" xml:space="preserve">
+          <source>In the ToDoActivity.java file, add the the following definition for the <bpt id="03961805-43fa-4c6c-a3ba-fc7fdbf967bc">&lt;code&gt;</bpt>loadUserTokenCache<ept id="03961805-43fa-4c6c-a3ba-fc7fdbf967bc">&lt;/code&gt;</ept> method.</source>
+          <target state="new">In the ToDoActivity.java file, add the the following definition for the <bpt id="03961805-43fa-4c6c-a3ba-fc7fdbf967bc">&lt;code&gt;</bpt>loadUserTokenCache<ept id="03961805-43fa-4c6c-a3ba-fc7fdbf967bc">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="48ee216e-d2a3-4e3f-a3c4-666b626ad944" xml:space="preserve">
+          <source>In the <bpt id="7a0f5407-6def-4ab1-a280-fa83ebf88884">&lt;em&gt;</bpt>ToDoActivity.java<ept id="7a0f5407-6def-4ab1-a280-fa83ebf88884">&lt;/em&gt;</ept> file, replace the <bpt id="e56e87ec-0790-4f53-ab24-2e90e3da0184">&lt;code&gt;</bpt>authenticate<ept id="e56e87ec-0790-4f53-ab24-2e90e3da0184">&lt;/code&gt;</ept> method with the following method which uses a token cache.</source>
+          <target state="new">In the <bpt id="7a0f5407-6def-4ab1-a280-fa83ebf88884">&lt;em&gt;</bpt>ToDoActivity.java<ept id="7a0f5407-6def-4ab1-a280-fa83ebf88884">&lt;/em&gt;</ept> file, replace the <bpt id="e56e87ec-0790-4f53-ab24-2e90e3da0184">&lt;code&gt;</bpt>authenticate<ept id="e56e87ec-0790-4f53-ab24-2e90e3da0184">&lt;/code&gt;</ept> method with the following method which uses a token cache.</target>
+        </trans-unit>
+        <trans-unit id="4589bd0e-ab7a-4004-94e8-8057db9f5e5c" xml:space="preserve">
+          <source>Change the login provider if you want to use an account other than a Microsoft account.</source>
+          <target state="new">Change the login provider if you want to use an account other than a Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="dc9d0464-65c3-4e37-8e68-37341d3944c2" xml:space="preserve">
+          <source>Build the app and test authentication using a valid account.</source>
+          <target state="new">Build the app and test authentication using a valid account.</target>
+        </trans-unit>
+        <trans-unit id="7a78495a-45ba-49b4-b32b-2c0c6b1b43d5" xml:space="preserve">
+          <source>Run it at least twice.</source>
+          <target state="new">Run it at least twice.</target>
+        </trans-unit>
+        <trans-unit id="0b27b96a-60e3-4997-80e3-523b1aae1063" xml:space="preserve">
+          <source>During the first run, you should receive a prompt to login and create the token cache.</source>
+          <target state="new">During the first run, you should receive a prompt to login and create the token cache.</target>
+        </trans-unit>
+        <trans-unit id="64d8e83a-d614-4785-988d-cb28197db928" xml:space="preserve">
+          <source>After that, each run will attempt to load the token cache for authentication and you should not be required to login.</source>
+          <target state="new">After that, each run will attempt to load the token cache for authentication and you should not be required to login.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c872ef2a-82d3-402f-af98-ced0381f65b5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c872ef2a-82d3-402f-af98-ced0381f65b5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4a32abd5-ff6f-4346-9e4c-3e582736bb3c">
+        <trans-unit id="a992b6e7-8643-4354-a43e-87c6398570e8" xml:space="preserve">
+          <source>Create a virtual machine running Linux in Azure</source>
+          <target state="new">Create a virtual machine running Linux in Azure</target>
+        </trans-unit>
+        <trans-unit id="be46a65b-2fc0-42f6-90be-79e4057e8b4d" xml:space="preserve">
+          <source>Learn to create Azure virtual machine (VM) running Linux by using an image from Azure.</source>
+          <target state="new">Learn to create Azure virtual machine (VM) running Linux by using an image from Azure.</target>
+        </trans-unit>
+        <trans-unit id="e9870405-ae37-4645-ab52-b04b040bd1f2" xml:space="preserve">
+          <source>Creating an Azure virtual machine (VM) that runs Linux is easy to do from the command line or from the portal.</source>
+          <target state="new">Creating an Azure virtual machine (VM) that runs Linux is easy to do from the command line or from the portal.</target>
+        </trans-unit>
+        <trans-unit id="7c4d72eb-7ef2-433d-9408-0d4507ff0a4f" xml:space="preserve">
+          <source>This tutorial shows you how to use the Azure Command-Line Interface for Mac, Linux, and Windows (the Azure CLI) to create quickly an Ubuntu Server VM running in Azure, connect to it using <bpt id="8e4d2227-b504-4524-95b8-ed09b2789086">&lt;strong&gt;</bpt>ssh<ept id="8e4d2227-b504-4524-95b8-ed09b2789086">&lt;/strong&gt;</ept>, and creating and mounting a new disk.</source>
+          <target state="new">This tutorial shows you how to use the Azure Command-Line Interface for Mac, Linux, and Windows (the Azure CLI) to create quickly an Ubuntu Server VM running in Azure, connect to it using <bpt id="8e4d2227-b504-4524-95b8-ed09b2789086">&lt;strong&gt;</bpt>ssh<ept id="8e4d2227-b504-4524-95b8-ed09b2789086">&lt;/strong&gt;</ept>, and creating and mounting a new disk.</target>
+        </trans-unit>
+        <trans-unit id="66cfaa07-b6a4-45a8-8f95-1c655cd45d19" xml:space="preserve">
+          <source>(This topic uses an Ubuntu Server VM, but you can also create Linux VMs using <bpt id="350237c9-be31-4226-a2ce-a427af015041">&lt;linkText&gt;</bpt>your own images as templates<ept id="350237c9-be31-4226-a2ce-a427af015041">&lt;/linkText&gt;</ept><bpt id="350237c9-be31-4226-a2ce-a427af015041">&lt;title&gt;</bpt><ept id="350237c9-be31-4226-a2ce-a427af015041">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(This topic uses an Ubuntu Server VM, but you can also create Linux VMs using <bpt id="350237c9-be31-4226-a2ce-a427af015041">&lt;linkText&gt;</bpt>your own images as templates<ept id="350237c9-be31-4226-a2ce-a427af015041">&lt;/linkText&gt;</ept><bpt id="350237c9-be31-4226-a2ce-a427af015041">&lt;title&gt;</bpt><ept id="350237c9-be31-4226-a2ce-a427af015041">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="8c76dcfd-2e5d-400b-b2f7-b9adc259c45d" xml:space="preserve">
+          <source><bpt id="b30976ec-ad18-4e02-a500-e6f6e7c4bb0d">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="b30976ec-ad18-4e02-a500-e6f6e7c4bb0d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b30976ec-ad18-4e02-a500-e6f6e7c4bb0d">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="b30976ec-ad18-4e02-a500-e6f6e7c4bb0d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8166f154-9a6f-4206-809a-b0d0d884b990" xml:space="preserve">
+          <source>Here's a walkthrough of this tutorial.</source>
+          <target state="new">Here's a walkthrough of this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="eb752b34-55c0-4e25-b454-3bde0f146a75" xml:space="preserve">
+          <source>[AZURE.VIDEO building-a-linux-virtual-machine-tutorial]</source>
+          <target state="new">[AZURE.VIDEO building-a-linux-virtual-machine-tutorial]</target>
+        </trans-unit>
+        <trans-unit id="d8f33d2c-0e1a-4df7-9797-cc5b15fbe482" xml:space="preserve">
+          <source>The first step is to <bpt id="5cc2a517-87b6-43da-9a19-6f5c0c11398d">&lt;linkText&gt;</bpt>install the Azure CLI<ept id="5cc2a517-87b6-43da-9a19-6f5c0c11398d">&lt;/linkText&gt;</ept><bpt id="5cc2a517-87b6-43da-9a19-6f5c0c11398d">&lt;title&gt;</bpt><ept id="5cc2a517-87b6-43da-9a19-6f5c0c11398d">&lt;/title&gt;</ept>.</source>
+          <target state="new">The first step is to <bpt id="5cc2a517-87b6-43da-9a19-6f5c0c11398d">&lt;linkText&gt;</bpt>install the Azure CLI<ept id="5cc2a517-87b6-43da-9a19-6f5c0c11398d">&lt;/linkText&gt;</ept><bpt id="5cc2a517-87b6-43da-9a19-6f5c0c11398d">&lt;title&gt;</bpt><ept id="5cc2a517-87b6-43da-9a19-6f5c0c11398d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffdc8d98-6d93-4c82-8cce-8713f0007bc0" xml:space="preserve">
+          <source>Good.</source>
+          <target state="new">Good.</target>
+        </trans-unit>
+        <trans-unit id="00abc75d-fdd8-40a3-a536-cea2972b10d2" xml:space="preserve">
+          <source>Now make sure you're in the resource management mode by typing <bpt id="a2b0e9df-c2c5-4670-b14d-51473fd48be5">&lt;code&gt;</bpt>azure config mode arm<ept id="a2b0e9df-c2c5-4670-b14d-51473fd48be5">&lt;/code&gt;</ept>.</source>
+          <target state="new">Now make sure you're in the resource management mode by typing <bpt id="a2b0e9df-c2c5-4670-b14d-51473fd48be5">&lt;code&gt;</bpt>azure config mode arm<ept id="a2b0e9df-c2c5-4670-b14d-51473fd48be5">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b4a5de6-6cfe-4f72-ac7b-4d73fd0d0257" xml:space="preserve">
+          <source>Even better.</source>
+          <target state="new">Even better.</target>
+        </trans-unit>
+        <trans-unit id="86a45d35-7753-405e-b79b-aea9196642ac" xml:space="preserve">
+          <source>Now log in with your work or school id by typing <bpt id="ed9be420-9a3a-45e6-a0ec-5bf1a4717776">&lt;code&gt;</bpt>azure login<ept id="ed9be420-9a3a-45e6-a0ec-5bf1a4717776">&lt;/code&gt;</ept> and following the prompts.</source>
+          <target state="new">Now log in with your work or school id by typing <bpt id="ed9be420-9a3a-45e6-a0ec-5bf1a4717776">&lt;code&gt;</bpt>azure login<ept id="ed9be420-9a3a-45e6-a0ec-5bf1a4717776">&lt;/code&gt;</ept> and following the prompts.</target>
+        </trans-unit>
+        <trans-unit id="94efd308-3c06-4e21-9abd-732101770327" xml:space="preserve">
+          <source>If you receive an error logging in, you may need to <bpt id="a0893734-130e-410e-8791-748b505b0649">&lt;linkText&gt;</bpt>create a work or school id from your personal Microsoft account<ept id="a0893734-130e-410e-8791-748b505b0649">&lt;/linkText&gt;</ept><bpt id="a0893734-130e-410e-8791-748b505b0649">&lt;title&gt;</bpt><ept id="a0893734-130e-410e-8791-748b505b0649">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you receive an error logging in, you may need to <bpt id="a0893734-130e-410e-8791-748b505b0649">&lt;linkText&gt;</bpt>create a work or school id from your personal Microsoft account<ept id="a0893734-130e-410e-8791-748b505b0649">&lt;/linkText&gt;</ept><bpt id="a0893734-130e-410e-8791-748b505b0649">&lt;title&gt;</bpt><ept id="a0893734-130e-410e-8791-748b505b0649">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91698b0b-2571-4e0c-9f5f-32f7f1248e14" xml:space="preserve">
+          <source>Type <bpt id="c1a1c274-7841-4318-a791-2391602d9653">&lt;code&gt;</bpt>azure group create &lt;my-group-name&gt; westus<ept id="c1a1c274-7841-4318-a791-2391602d9653">&lt;/code&gt;</ept> replacing <bpt id="2f89f3c2-0915-4f2c-b8bf-7343b7ca1f7f">&lt;em&gt;</bpt>&amp;lt;my-group-name&amp;gt;<ept id="2f89f3c2-0915-4f2c-b8bf-7343b7ca1f7f">&lt;/em&gt;</ept> with a group name that's unique to you (you can use a different region if you want). You should see something like the following:</source>
+          <target state="new">Type <bpt id="c1a1c274-7841-4318-a791-2391602d9653">&lt;code&gt;</bpt>azure group create &lt;my-group-name&gt; westus<ept id="c1a1c274-7841-4318-a791-2391602d9653">&lt;/code&gt;</ept> replacing <bpt id="2f89f3c2-0915-4f2c-b8bf-7343b7ca1f7f">&lt;em&gt;</bpt>&amp;lt;my-group-name&amp;gt;<ept id="2f89f3c2-0915-4f2c-b8bf-7343b7ca1f7f">&lt;/em&gt;</ept> with a group name that's unique to you (you can use a different region if you want). You should see something like the following:</target>
+        </trans-unit>
+        <trans-unit id="b30c7a9b-8198-4aa9-9e32-5425014c1ea9" xml:space="preserve">
+          <source>Now create your VM by typing <bpt id="b01eb809-eda9-4a54-8d2c-479fc3a046a1">&lt;code&gt;</bpt>azure vm quick-create<ept id="b01eb809-eda9-4a54-8d2c-479fc3a046a1">&lt;/code&gt;</ept>, and you'll receive prompts to input the remaining parameters.</source>
+          <target state="new">Now create your VM by typing <bpt id="b01eb809-eda9-4a54-8d2c-479fc3a046a1">&lt;code&gt;</bpt>azure vm quick-create<ept id="b01eb809-eda9-4a54-8d2c-479fc3a046a1">&lt;/code&gt;</ept>, and you'll receive prompts to input the remaining parameters.</target>
+        </trans-unit>
+        <trans-unit id="eaa1cf33-57bd-4a98-b05e-8b8565260e0f" xml:space="preserve">
+          <source>Use the name of the resource group that you just created, above, and for the <bpt id="6fd367d9-8b6e-42f9-9c44-dad2d78d6957">&lt;strong&gt;</bpt>ImageURN<ept id="6fd367d9-8b6e-42f9-9c44-dad2d78d6957">&lt;/strong&gt;</ept> value, use <bpt id="62f44855-0764-442f-82a1-80ba53e3cd77">&lt;code&gt;</bpt>canonical:ubuntuserver:14.04.2-LTS:latest<ept id="62f44855-0764-442f-82a1-80ba53e3cd77">&lt;/code&gt;</ept>, so that your experience looks something like:</source>
+          <target state="new">Use the name of the resource group that you just created, above, and for the <bpt id="6fd367d9-8b6e-42f9-9c44-dad2d78d6957">&lt;strong&gt;</bpt>ImageURN<ept id="6fd367d9-8b6e-42f9-9c44-dad2d78d6957">&lt;/strong&gt;</ept> value, use <bpt id="62f44855-0764-442f-82a1-80ba53e3cd77">&lt;code&gt;</bpt>canonical:ubuntuserver:14.04.2-LTS:latest<ept id="62f44855-0764-442f-82a1-80ba53e3cd77">&lt;/code&gt;</ept>, so that your experience looks something like:</target>
+        </trans-unit>
+        <trans-unit id="ab8b9ddb-8f04-4b4d-8000-f3f1d6961644" xml:space="preserve">
+          <source>Your VM is up and running and waiting for you to connect.</source>
+          <target state="new">Your VM is up and running and waiting for you to connect.</target>
+        </trans-unit>
+        <trans-unit id="ada46e5a-36cd-47a3-b46b-42fd5d107e53" xml:space="preserve">
+          <source>With Linux VMs, you typically connect using <bpt id="c15d28d4-5f7d-434c-bdfe-0eb4bd7950ab">&lt;strong&gt;</bpt>ssh<ept id="c15d28d4-5f7d-434c-bdfe-0eb4bd7950ab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">With Linux VMs, you typically connect using <bpt id="c15d28d4-5f7d-434c-bdfe-0eb4bd7950ab">&lt;strong&gt;</bpt>ssh<ept id="c15d28d4-5f7d-434c-bdfe-0eb4bd7950ab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9d9992b-4833-49d5-a1a6-b2cf4c0cfac1" xml:space="preserve">
+          <source>This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see <bpt id="6c2545e2-96b0-4bee-9482-556af3ab3f47">&lt;linkText&gt;</bpt>How to Use SSH with Linux on Azure<ept id="6c2545e2-96b0-4bee-9482-556af3ab3f47">&lt;/linkText&gt;</ept><bpt id="6c2545e2-96b0-4bee-9482-556af3ab3f47">&lt;title&gt;</bpt><ept id="6c2545e2-96b0-4bee-9482-556af3ab3f47">&lt;/title&gt;</ept>.</source>
+          <target state="new">This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see <bpt id="6c2545e2-96b0-4bee-9482-556af3ab3f47">&lt;linkText&gt;</bpt>How to Use SSH with Linux on Azure<ept id="6c2545e2-96b0-4bee-9482-556af3ab3f47">&lt;/linkText&gt;</ept><bpt id="6c2545e2-96b0-4bee-9482-556af3ab3f47">&lt;title&gt;</bpt><ept id="6c2545e2-96b0-4bee-9482-556af3ab3f47">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="134ea20b-c636-424f-b1db-2ec96280c76e" xml:space="preserve">
+          <source>If you're not familiar with connecting with <bpt id="4ba8eb1f-93fe-41b1-9531-61f582c81142">&lt;strong&gt;</bpt>ssh<ept id="4ba8eb1f-93fe-41b1-9531-61f582c81142">&lt;/strong&gt;</ept>, the command takes the form <bpt id="63fda90b-71b3-4f12-814b-d824c0d1465a">&lt;code&gt;</bpt>ssh &lt;username&gt;@&lt;publicdnsaddress&gt; -p &lt;the ssh port&gt;<ept id="63fda90b-71b3-4f12-814b-d824c0d1465a">&lt;/code&gt;</ept>. In this case, we use the username and password from the previous step and port 22, which is the default <bpt id="424d7dc6-834f-424f-a43b-887616d41c74">&lt;strong&gt;</bpt>ssh<ept id="424d7dc6-834f-424f-a43b-887616d41c74">&lt;/strong&gt;</ept> port.</source>
+          <target state="new">If you're not familiar with connecting with <bpt id="4ba8eb1f-93fe-41b1-9531-61f582c81142">&lt;strong&gt;</bpt>ssh<ept id="4ba8eb1f-93fe-41b1-9531-61f582c81142">&lt;/strong&gt;</ept>, the command takes the form <bpt id="63fda90b-71b3-4f12-814b-d824c0d1465a">&lt;code&gt;</bpt>ssh &lt;username&gt;@&lt;publicdnsaddress&gt; -p &lt;the ssh port&gt;<ept id="63fda90b-71b3-4f12-814b-d824c0d1465a">&lt;/code&gt;</ept>. In this case, we use the username and password from the previous step and port 22, which is the default <bpt id="424d7dc6-834f-424f-a43b-887616d41c74">&lt;strong&gt;</bpt>ssh<ept id="424d7dc6-834f-424f-a43b-887616d41c74">&lt;/strong&gt;</ept> port.</target>
+        </trans-unit>
+        <trans-unit id="74f3eb28-a406-4b7a-a74a-a36f539492e1" xml:space="preserve">
+          <source>Now that you're connected to your VM, you're ready to attach a disk.</source>
+          <target state="new">Now that you're connected to your VM, you're ready to attach a disk.</target>
+        </trans-unit>
+        <trans-unit id="8b6e416d-ad98-4fd0-8c52-f21273c7e03b" xml:space="preserve">
+          <source>Attaching a new disk is quick. Just type <bpt id="a4faf685-f640-494c-866c-23de935c95af">&lt;code&gt;</bpt>azure vm disk attach-new &lt;myuniquegroupname&gt; &lt;myuniquevmname&gt; &lt;size-in-GB&gt;<ept id="a4faf685-f640-494c-866c-23de935c95af">&lt;/code&gt;</ept> to create and attach a new GB disk for your VM. It should look something like this:</source>
+          <target state="new">Attaching a new disk is quick. Just type <bpt id="a4faf685-f640-494c-866c-23de935c95af">&lt;code&gt;</bpt>azure vm disk attach-new &lt;myuniquegroupname&gt; &lt;myuniquevmname&gt; &lt;size-in-GB&gt;<ept id="a4faf685-f640-494c-866c-23de935c95af">&lt;/code&gt;</ept> to create and attach a new GB disk for your VM. It should look something like this:</target>
+        </trans-unit>
+        <trans-unit id="02fe99e3-8173-444f-956e-4fe775106e4e" xml:space="preserve">
+          <source>Now let's find the disk, using <bpt id="d74a520b-bcc4-43db-84d3-27f78ebf3555">&lt;code&gt;</bpt>dmesg | grep SCSI<ept id="d74a520b-bcc4-43db-84d3-27f78ebf3555">&lt;/code&gt;</ept> (the method you use to discover your new disk may vary).</source>
+          <target state="new">Now let's find the disk, using <bpt id="d74a520b-bcc4-43db-84d3-27f78ebf3555">&lt;code&gt;</bpt>dmesg | grep SCSI<ept id="d74a520b-bcc4-43db-84d3-27f78ebf3555">&lt;/code&gt;</ept> (the method you use to discover your new disk may vary).</target>
+        </trans-unit>
+        <trans-unit id="f5bb5383-f04b-4ca8-841a-178e4f18d7fc" xml:space="preserve">
+          <source>In this case, it looks something like:</source>
+          <target state="new">In this case, it looks something like:</target>
+        </trans-unit>
+        <trans-unit id="c654e83b-17ba-469d-adcc-95611437c31f" xml:space="preserve">
+          <source>and in the case of this topic, the <bpt id="6a28c50d-ff98-4a45-bc5e-91110057bcbf">&lt;code&gt;</bpt>sdc<ept id="6a28c50d-ff98-4a45-bc5e-91110057bcbf">&lt;/code&gt;</ept> disk is the one that we want.</source>
+          <target state="new">and in the case of this topic, the <bpt id="6a28c50d-ff98-4a45-bc5e-91110057bcbf">&lt;code&gt;</bpt>sdc<ept id="6a28c50d-ff98-4a45-bc5e-91110057bcbf">&lt;/code&gt;</ept> disk is the one that we want.</target>
+        </trans-unit>
+        <trans-unit id="810cfd7b-7b83-460e-9670-8239ec3863da" xml:space="preserve">
+          <source>Now partition the disk with <bpt id="69b13d5f-5de3-48d6-bd0f-a63cdee964ab">&lt;code&gt;</bpt>sudo fdisk /dev/sdc<ept id="69b13d5f-5de3-48d6-bd0f-a63cdee964ab">&lt;/code&gt;</ept> -- assuming that in your case the disk was <bpt id="97ea3f0e-a88f-43ee-b9b5-64ff386f1c31">&lt;code&gt;</bpt>sdc<ept id="97ea3f0e-a88f-43ee-b9b5-64ff386f1c31">&lt;/code&gt;</ept>, and make it a primary disk on partition 1, and accept the other defaults.</source>
+          <target state="new">Now partition the disk with <bpt id="69b13d5f-5de3-48d6-bd0f-a63cdee964ab">&lt;code&gt;</bpt>sudo fdisk /dev/sdc<ept id="69b13d5f-5de3-48d6-bd0f-a63cdee964ab">&lt;/code&gt;</ept> -- assuming that in your case the disk was <bpt id="97ea3f0e-a88f-43ee-b9b5-64ff386f1c31">&lt;code&gt;</bpt>sdc<ept id="97ea3f0e-a88f-43ee-b9b5-64ff386f1c31">&lt;/code&gt;</ept>, and make it a primary disk on partition 1, and accept the other defaults.</target>
+        </trans-unit>
+        <trans-unit id="a13ed517-217e-4497-8998-e812349bb908" xml:space="preserve">
+          <source>Create the partition by typing <bpt id="66fc00f3-a605-45d2-b458-94449737b919">&lt;code&gt;</bpt>p<ept id="66fc00f3-a605-45d2-b458-94449737b919">&lt;/code&gt;</ept> at the prompt:</source>
+          <target state="new">Create the partition by typing <bpt id="66fc00f3-a605-45d2-b458-94449737b919">&lt;code&gt;</bpt>p<ept id="66fc00f3-a605-45d2-b458-94449737b919">&lt;/code&gt;</ept> at the prompt:</target>
+        </trans-unit>
+        <trans-unit id="b33b5e69-2ad7-4762-a0ec-feff36d3e1f3" xml:space="preserve">
+          <source>And write a file system to the partition by using the <bpt id="bcd4027c-43bd-4403-bb47-6df259db79cb">&lt;strong&gt;</bpt>mkfs<ept id="bcd4027c-43bd-4403-bb47-6df259db79cb">&lt;/strong&gt;</ept> command, specifying your filesystem type and the device name.</source>
+          <target state="new">And write a file system to the partition by using the <bpt id="bcd4027c-43bd-4403-bb47-6df259db79cb">&lt;strong&gt;</bpt>mkfs<ept id="bcd4027c-43bd-4403-bb47-6df259db79cb">&lt;/strong&gt;</ept> command, specifying your filesystem type and the device name.</target>
+        </trans-unit>
+        <trans-unit id="5bdeaa50-4257-4535-b83b-7b838fe57b8a" xml:space="preserve">
+          <source>In this topic, we're using <bpt id="87ddc2d5-240d-4784-b3d3-dca8da4231e9">&lt;code&gt;</bpt>ext4<ept id="87ddc2d5-240d-4784-b3d3-dca8da4231e9">&lt;/code&gt;</ept> and <bpt id="a06df87e-a48c-40fb-855a-60b2bdf4b89c">&lt;code&gt;</bpt>/dev/sdc1<ept id="a06df87e-a48c-40fb-855a-60b2bdf4b89c">&lt;/code&gt;</ept> from above:</source>
+          <target state="new">In this topic, we're using <bpt id="87ddc2d5-240d-4784-b3d3-dca8da4231e9">&lt;code&gt;</bpt>ext4<ept id="87ddc2d5-240d-4784-b3d3-dca8da4231e9">&lt;/code&gt;</ept> and <bpt id="a06df87e-a48c-40fb-855a-60b2bdf4b89c">&lt;code&gt;</bpt>/dev/sdc1<ept id="a06df87e-a48c-40fb-855a-60b2bdf4b89c">&lt;/code&gt;</ept> from above:</target>
+        </trans-unit>
+        <trans-unit id="0dc6a42a-6ad9-4e16-948b-760e07ba2e9c" xml:space="preserve">
+          <source>Now we create a directory to mount the file system using <bpt id="5c0f3c87-03d6-435f-ba98-6078193cd152">&lt;code&gt;</bpt>mkdir<ept id="5c0f3c87-03d6-435f-ba98-6078193cd152">&lt;/code&gt;</ept>:</source>
+          <target state="new">Now we create a directory to mount the file system using <bpt id="5c0f3c87-03d6-435f-ba98-6078193cd152">&lt;code&gt;</bpt>mkdir<ept id="5c0f3c87-03d6-435f-ba98-6078193cd152">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="3399c65c-14f5-4cce-a6e1-9add8e7a0c60" xml:space="preserve">
+          <source>And you mount the directory using <bpt id="daa28ced-8bbb-42e3-a1af-1d08c1cafe97">&lt;code&gt;</bpt>mount<ept id="daa28ced-8bbb-42e3-a1af-1d08c1cafe97">&lt;/code&gt;</ept>:</source>
+          <target state="new">And you mount the directory using <bpt id="daa28ced-8bbb-42e3-a1af-1d08c1cafe97">&lt;code&gt;</bpt>mount<ept id="daa28ced-8bbb-42e3-a1af-1d08c1cafe97">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="1be8990c-10e8-4643-afb0-6de11ffa32db" xml:space="preserve">
+          <source>The data disk is now ready to use as <bpt id="d5dd8bab-514c-4d2c-b1d4-3e1d24606d20">&lt;code&gt;</bpt>/datadrive<ept id="d5dd8bab-514c-4d2c-b1d4-3e1d24606d20">&lt;/code&gt;</ept>.</source>
+          <target state="new">The data disk is now ready to use as <bpt id="d5dd8bab-514c-4d2c-b1d4-3e1d24606d20">&lt;code&gt;</bpt>/datadrive<ept id="d5dd8bab-514c-4d2c-b1d4-3e1d24606d20">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c61e49c1-7285-4b48-9256-4d8b46697f30" xml:space="preserve">
+          <source>You can also connect to your Linux virtual machine using an SSH key for identification.</source>
+          <target state="new">You can also connect to your Linux virtual machine using an SSH key for identification.</target>
+        </trans-unit>
+        <trans-unit id="f54cba68-dc19-4187-9330-341cee1555a6" xml:space="preserve">
+          <source>For details, see <bpt id="9ecca332-eaea-4e5e-b408-deb3f9bded7e">&lt;linkText&gt;</bpt>How to Use SSH with Linux on Azure<ept id="9ecca332-eaea-4e5e-b408-deb3f9bded7e">&lt;/linkText&gt;</ept><bpt id="9ecca332-eaea-4e5e-b408-deb3f9bded7e">&lt;title&gt;</bpt><ept id="9ecca332-eaea-4e5e-b408-deb3f9bded7e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="9ecca332-eaea-4e5e-b408-deb3f9bded7e">&lt;linkText&gt;</bpt>How to Use SSH with Linux on Azure<ept id="9ecca332-eaea-4e5e-b408-deb3f9bded7e">&lt;/linkText&gt;</ept><bpt id="9ecca332-eaea-4e5e-b408-deb3f9bded7e">&lt;title&gt;</bpt><ept id="9ecca332-eaea-4e5e-b408-deb3f9bded7e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be7b1802-854d-482c-9ad6-111017add1be" xml:space="preserve">
+          <source>Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your <bpt id="115fb9ff-df15-43eb-93ab-faa5d4a91549">&lt;linkText&gt;</bpt>fstab<ept id="115fb9ff-df15-43eb-93ab-faa5d4a91549">&lt;/linkText&gt;</ept><bpt id="115fb9ff-df15-43eb-93ab-faa5d4a91549">&lt;title&gt;</bpt><ept id="115fb9ff-df15-43eb-93ab-faa5d4a91549">&lt;/title&gt;</ept> file.</source>
+          <target state="new">Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your <bpt id="115fb9ff-df15-43eb-93ab-faa5d4a91549">&lt;linkText&gt;</bpt>fstab<ept id="115fb9ff-df15-43eb-93ab-faa5d4a91549">&lt;/linkText&gt;</ept><bpt id="115fb9ff-df15-43eb-93ab-faa5d4a91549">&lt;title&gt;</bpt><ept id="115fb9ff-df15-43eb-93ab-faa5d4a91549">&lt;/title&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="14630006-0bed-4483-940e-aa5ea285349f" xml:space="preserve">
+          <source>To learn more about Linux on Azure, see:</source>
+          <target state="new">To learn more about Linux on Azure, see:</target>
+        </trans-unit>
+        <trans-unit id="060002bc-ae33-4655-ad6f-a24fd6f26854" xml:space="preserve">
+          <source><bpt id="7882ced5-401e-4719-9b64-5b7fbcce8da9">&lt;linkText&gt;</bpt>Linux and Open-Source Computing on Azure<ept id="7882ced5-401e-4719-9b64-5b7fbcce8da9">&lt;/linkText&gt;</ept><bpt id="7882ced5-401e-4719-9b64-5b7fbcce8da9">&lt;title&gt;</bpt><ept id="7882ced5-401e-4719-9b64-5b7fbcce8da9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7882ced5-401e-4719-9b64-5b7fbcce8da9">&lt;linkText&gt;</bpt>Linux and Open-Source Computing on Azure<ept id="7882ced5-401e-4719-9b64-5b7fbcce8da9">&lt;/linkText&gt;</ept><bpt id="7882ced5-401e-4719-9b64-5b7fbcce8da9">&lt;title&gt;</bpt><ept id="7882ced5-401e-4719-9b64-5b7fbcce8da9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98656bb5-fa0d-4ce1-a3ce-e8edad809e3f" xml:space="preserve">
+          <source><bpt id="5a1f53ce-e487-47a7-8c77-7203d4017f2a">&lt;linkText&gt;</bpt>How to use the Azure Command-Line Interface<ept id="5a1f53ce-e487-47a7-8c77-7203d4017f2a">&lt;/linkText&gt;</ept><bpt id="5a1f53ce-e487-47a7-8c77-7203d4017f2a">&lt;title&gt;</bpt><ept id="5a1f53ce-e487-47a7-8c77-7203d4017f2a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5a1f53ce-e487-47a7-8c77-7203d4017f2a">&lt;linkText&gt;</bpt>How to use the Azure Command-Line Interface<ept id="5a1f53ce-e487-47a7-8c77-7203d4017f2a">&lt;/linkText&gt;</ept><bpt id="5a1f53ce-e487-47a7-8c77-7203d4017f2a">&lt;title&gt;</bpt><ept id="5a1f53ce-e487-47a7-8c77-7203d4017f2a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dcf9177c-b78e-4a86-aae0-78852419babf" xml:space="preserve">
+          <source><bpt id="3798862d-09b9-449b-9e54-f1667d644c7d">&lt;linkText&gt;</bpt>Deploy a LAMP app using the Azure CustomScript Extension for Linux<ept id="3798862d-09b9-449b-9e54-f1667d644c7d">&lt;/linkText&gt;</ept><bpt id="3798862d-09b9-449b-9e54-f1667d644c7d">&lt;title&gt;</bpt><ept id="3798862d-09b9-449b-9e54-f1667d644c7d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3798862d-09b9-449b-9e54-f1667d644c7d">&lt;linkText&gt;</bpt>Deploy a LAMP app using the Azure CustomScript Extension for Linux<ept id="3798862d-09b9-449b-9e54-f1667d644c7d">&lt;/linkText&gt;</ept><bpt id="3798862d-09b9-449b-9e54-f1667d644c7d">&lt;title&gt;</bpt><ept id="3798862d-09b9-449b-9e54-f1667d644c7d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76795752-b5e9-4c17-947e-5c0b4f35c47c" xml:space="preserve">
+          <source><bpt id="8c742a62-1237-4c32-8657-3978c9622403">&lt;linkText&gt;</bpt>About Azure VM configuration settings<ept id="8c742a62-1237-4c32-8657-3978c9622403">&lt;/linkText&gt;</ept><bpt id="8c742a62-1237-4c32-8657-3978c9622403">&lt;title&gt;</bpt><ept id="8c742a62-1237-4c32-8657-3978c9622403">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8c742a62-1237-4c32-8657-3978c9622403">&lt;linkText&gt;</bpt>About Azure VM configuration settings<ept id="8c742a62-1237-4c32-8657-3978c9622403">&lt;/linkText&gt;</ept><bpt id="8c742a62-1237-4c32-8657-3978c9622403">&lt;title&gt;</bpt><ept id="8c742a62-1237-4c32-8657-3978c9622403">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a162b12c-0754-439a-b5ce-14a50f3a37d0" xml:space="preserve">
+          <source><bpt id="e687862b-134f-423b-ae56-cfdde2a1faef">&lt;linkText&gt;</bpt>The Docker Virtual Machine Extension for Linux on Azure<ept id="e687862b-134f-423b-ae56-cfdde2a1faef">&lt;/linkText&gt;</ept><bpt id="e687862b-134f-423b-ae56-cfdde2a1faef">&lt;title&gt;</bpt><ept id="e687862b-134f-423b-ae56-cfdde2a1faef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e687862b-134f-423b-ae56-cfdde2a1faef">&lt;linkText&gt;</bpt>The Docker Virtual Machine Extension for Linux on Azure<ept id="e687862b-134f-423b-ae56-cfdde2a1faef">&lt;/linkText&gt;</ept><bpt id="e687862b-134f-423b-ae56-cfdde2a1faef">&lt;title&gt;</bpt><ept id="e687862b-134f-423b-ae56-cfdde2a1faef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

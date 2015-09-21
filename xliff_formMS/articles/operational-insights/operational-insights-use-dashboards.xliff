@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="74df57ca-d2d1-44c3-b967-3a2c9018d979" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="74df57ca-d2d1-44c3-b967-3a2c9018d979" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c0beadef-7a59-47bb-8b5b-02dd3476a153">
+        <trans-unit id="d8dad06c-4aa9-47f2-9423-6d9d37267ba4" xml:space="preserve">
+          <source>Operational Insights dashboards</source>
+          <target state="new">Operational Insights dashboards</target>
+        </trans-unit>
+        <trans-unit id="05481b78-5411-423a-8b21-d6502ca4febf" xml:space="preserve">
+          <source>Informational article on basic dashboard usage for Operational Insights</source>
+          <target state="new">Informational article on basic dashboard usage for Operational Insights</target>
+        </trans-unit>
+        <trans-unit id="cc696fda-d0ce-4ef9-998a-5fae3154bbc3" xml:space="preserve">
+          <source><bpt id="2eff1a27-e472-4d28-8b0b-04b8aa6bf493">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="2eff1a27-e472-4d28-8b0b-04b8aa6bf493">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2eff1a27-e472-4d28-8b0b-04b8aa6bf493">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="2eff1a27-e472-4d28-8b0b-04b8aa6bf493">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4163c629-ed7e-49eb-8b62-d902b031ad52" xml:space="preserve">
+          <source>This guide helps you understand how Operational Insights Dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.</source>
+          <target state="new">This guide helps you understand how Operational Insights Dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.</target>
+        </trans-unit>
+        <trans-unit id="5c8768ff-0f11-414e-9ae5-f40f690c1b7e" xml:space="preserve">
+          <source><bpt id="d9a4553b-3f19-4dc3-87db-def635ae95a6">&lt;linkText&gt;</bpt>Example Dashboard<ept id="d9a4553b-3f19-4dc3-87db-def635ae95a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d9a4553b-3f19-4dc3-87db-def635ae95a6">&lt;linkText&gt;</bpt>Example Dashboard<ept id="d9a4553b-3f19-4dc3-87db-def635ae95a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e654bdb-807d-43f2-bbd9-01a91c7b9a02" xml:space="preserve">
+          <source>To begin, go to the Azure Operational Insights Overview by clicking the Overview button on the left navigation.</source>
+          <target state="new">To begin, go to the Azure Operational Insights Overview by clicking the Overview button on the left navigation.</target>
+        </trans-unit>
+        <trans-unit id="9205afa4-4ba4-4748-b3e1-a4c2c6c562a5" xml:space="preserve">
+          <source>You'll see the "My Dashboard" tile on the left.</source>
+          <target state="new">You'll see the "My Dashboard" tile on the left.</target>
+        </trans-unit>
+        <trans-unit id="c594725e-4b82-4ba8-b644-e9946fc360d7" xml:space="preserve">
+          <source>Click it to drill down into your dashboard.</source>
+          <target state="new">Click it to drill down into your dashboard.</target>
+        </trans-unit>
+        <trans-unit id="81b445ec-87b4-4956-9a08-6c8f40d686b4" xml:space="preserve">
+          <source><bpt id="5c61cbe3-3ee8-47c3-9748-099d21ac0aa8">&lt;linkText&gt;</bpt>Overview<ept id="5c61cbe3-3ee8-47c3-9748-099d21ac0aa8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5c61cbe3-3ee8-47c3-9748-099d21ac0aa8">&lt;linkText&gt;</bpt>Overview<ept id="5c61cbe3-3ee8-47c3-9748-099d21ac0aa8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d251a91-3a7b-4343-8566-52ceb960e437" xml:space="preserve">
+          <source>In dashboards, tiles are powered by your saved log searches.</source>
+          <target state="new">In dashboards, tiles are powered by your saved log searches.</target>
+        </trans-unit>
+        <trans-unit id="6976101e-8fd6-43ad-af8f-df2fd7c3e119" xml:space="preserve">
+          <source>Operational Insights comes with many pre-made saved log searches, so you can begin right away.</source>
+          <target state="new">Operational Insights comes with many pre-made saved log searches, so you can begin right away.</target>
+        </trans-unit>
+        <trans-unit id="c9445c58-12fb-474d-92e1-606fa115f4a6" xml:space="preserve">
+          <source>You'll see the following pictorial outlining how to begin.</source>
+          <target state="new">You'll see the following pictorial outlining how to begin.</target>
+        </trans-unit>
+        <trans-unit id="bbf8de96-f4c7-4e15-b22a-c29017dca8d7" xml:space="preserve">
+          <source><bpt id="2a87a126-fe1d-43b8-b566-c2ef6ccdef32">&lt;linkText&gt;</bpt>Pictorial<ept id="2a87a126-fe1d-43b8-b566-c2ef6ccdef32">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a87a126-fe1d-43b8-b566-c2ef6ccdef32">&lt;linkText&gt;</bpt>Pictorial<ept id="2a87a126-fe1d-43b8-b566-c2ef6ccdef32">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5804b1c1-69c5-4fff-8888-d15c4d09be61" xml:space="preserve">
+          <source>In the My Dashboard view, simply click on the 'customize' gear at the bottom of the page to enter customize mode.</source>
+          <target state="new">In the My Dashboard view, simply click on the 'customize' gear at the bottom of the page to enter customize mode.</target>
+        </trans-unit>
+        <trans-unit id="a3944648-950e-48d3-8687-9db6da0d3386" xml:space="preserve">
+          <source>The panel that opens on the right side of the page shows all of your workspace's saved log searches.</source>
+          <target state="new">The panel that opens on the right side of the page shows all of your workspace's saved log searches.</target>
+        </trans-unit>
+        <trans-unit id="c44686f6-1081-4392-bd5a-2f2feb0d22c4" xml:space="preserve">
+          <source><bpt id="93c73a43-d9db-4986-bf1b-74c0be831dcc">&lt;linkText&gt;</bpt>Add Tiles 1<ept id="93c73a43-d9db-4986-bf1b-74c0be831dcc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93c73a43-d9db-4986-bf1b-74c0be831dcc">&lt;linkText&gt;</bpt>Add Tiles 1<ept id="93c73a43-d9db-4986-bf1b-74c0be831dcc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07a876a8-b389-4487-a0ce-3b1d33cefc9b" xml:space="preserve">
+          <source>To visualize a saved log search as a tile, just drag it onto the empty space to the left.</source>
+          <target state="new">To visualize a saved log search as a tile, just drag it onto the empty space to the left.</target>
+        </trans-unit>
+        <trans-unit id="64d5df0a-067d-44f6-9500-9e26eeed0128" xml:space="preserve">
+          <source>As you drag it will turn into a tile.</source>
+          <target state="new">As you drag it will turn into a tile.</target>
+        </trans-unit>
+        <trans-unit id="f497f896-96d7-4651-89b4-2c4cc5336db5" xml:space="preserve">
+          <source><bpt id="2d0e2a6d-8fe2-4474-86d8-b15fc2535eef">&lt;linkText&gt;</bpt>Add Tiles 2<ept id="2d0e2a6d-8fe2-4474-86d8-b15fc2535eef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2d0e2a6d-8fe2-4474-86d8-b15fc2535eef">&lt;linkText&gt;</bpt>Add Tiles 2<ept id="2d0e2a6d-8fe2-4474-86d8-b15fc2535eef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1684143b-fb61-4022-a845-8680fabac086" xml:space="preserve">
+          <source><bpt id="eea4ce94-e116-4999-8518-93e1bfc9128a">&lt;linkText&gt;</bpt>Add Tiles 3<ept id="eea4ce94-e116-4999-8518-93e1bfc9128a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eea4ce94-e116-4999-8518-93e1bfc9128a">&lt;linkText&gt;</bpt>Add Tiles 3<ept id="eea4ce94-e116-4999-8518-93e1bfc9128a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0a15711-2e68-4af3-99ff-be2b854ff314" xml:space="preserve">
+          <source>In the My Dashboard view, simply click on the 'customize' gear at the bottom of the page to enter customize mode.</source>
+          <target state="new">In the My Dashboard view, simply click on the 'customize' gear at the bottom of the page to enter customize mode.</target>
+        </trans-unit>
+        <trans-unit id="947a2ad0-2548-4285-9c0d-26dfa5ce82d3" xml:space="preserve">
+          <source>Click the tile you want to edit.</source>
+          <target state="new">Click the tile you want to edit.</target>
+        </trans-unit>
+        <trans-unit id="a25683c7-5cb9-46dd-9ed1-d76d5a3491c7" xml:space="preserve">
+          <source>The right panel changes to edit, and gives a selection of options:
+<bpt id="deb26d01-104b-45f2-9056-d135eaa4b0e3">&lt;linkText&gt;</bpt>Edit Tile<ept id="deb26d01-104b-45f2-9056-d135eaa4b0e3">&lt;/linkText&gt;</ept></source>
+          <target state="new">The right panel changes to edit, and gives a selection of options:
+<bpt id="deb26d01-104b-45f2-9056-d135eaa4b0e3">&lt;linkText&gt;</bpt>Edit Tile<ept id="deb26d01-104b-45f2-9056-d135eaa4b0e3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01de93ef-96ff-4c33-900a-a036ffb4a91e" xml:space="preserve">
+          <source>There are two kinds of tile visualizations to choose from:</source>
+          <target state="new">There are two kinds of tile visualizations to choose from:</target>
+        </trans-unit>
+        <trans-unit id="31caa0e8-4e9c-4bde-ac43-2db5b64a8ec4" xml:space="preserve">
+          <source><bpt id="6757bf3e-f901-4a09-a460-6a9d592ce6e1">&lt;strong&gt;</bpt>Bar Chart<ept id="6757bf3e-f901-4a09-a460-6a9d592ce6e1">&lt;/strong&gt;</ept>
+&lt;p&gt;
+<bpt id="e6e82db6-798f-4041-8a06-6f6c5036ba4e">&lt;linkText&gt;</bpt>Bar Chart<ept id="e6e82db6-798f-4041-8a06-6f6c5036ba4e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6757bf3e-f901-4a09-a460-6a9d592ce6e1">&lt;strong&gt;</bpt>Bar Chart<ept id="6757bf3e-f901-4a09-a460-6a9d592ce6e1">&lt;/strong&gt;</ept>
+&lt;p&gt;
+<bpt id="e6e82db6-798f-4041-8a06-6f6c5036ba4e">&lt;linkText&gt;</bpt>Bar Chart<ept id="e6e82db6-798f-4041-8a06-6f6c5036ba4e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcfba940-b5f6-4b05-8d51-5c8ee95e41f1" xml:space="preserve">
+          <source>This displays a timeline of your saved log search's results, or a list of results by a field depending on if your log search aggregates results by a field or not.</source>
+          <target state="new">This displays a timeline of your saved log search's results, or a list of results by a field depending on if your log search aggregates results by a field or not.</target>
+        </trans-unit>
+        <trans-unit id="a8d88ea8-5c30-42f1-82cb-4b7c3dc321e1" xml:space="preserve">
+          <source><bpt id="7ec3e849-1bef-44f3-bfa4-b799d44a375f">&lt;strong&gt;</bpt>Metric<ept id="7ec3e849-1bef-44f3-bfa4-b799d44a375f">&lt;/strong&gt;</ept>
+&lt;p&gt;
+<bpt id="37fb5140-80eb-4f5a-9721-d9df59550e10">&lt;linkText&gt;</bpt>Metric<ept id="37fb5140-80eb-4f5a-9721-d9df59550e10">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ec3e849-1bef-44f3-bfa4-b799d44a375f">&lt;strong&gt;</bpt>Metric<ept id="7ec3e849-1bef-44f3-bfa4-b799d44a375f">&lt;/strong&gt;</ept>
+&lt;p&gt;
+<bpt id="37fb5140-80eb-4f5a-9721-d9df59550e10">&lt;linkText&gt;</bpt>Metric<ept id="37fb5140-80eb-4f5a-9721-d9df59550e10">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7385d21-ad85-4e76-85af-e69ee3ad5bea" xml:space="preserve">
+          <source>This displays your total log search result hits as a number in a tile.</source>
+          <target state="new">This displays your total log search result hits as a number in a tile.</target>
+        </trans-unit>
+        <trans-unit id="b14fa4c7-64b1-4422-a913-15602ad0e319" xml:space="preserve">
+          <source>Metric tiles allow you to set a threshold that will highlight the tile when the threshold is reached.</source>
+          <target state="new">Metric tiles allow you to set a threshold that will highlight the tile when the threshold is reached.</target>
+        </trans-unit>
+        <trans-unit id="96431d65-2a2a-45cf-9c3d-b59b0287b7c2" xml:space="preserve">
+          <source>You can create a threshold on a tile using the Metric visualization.</source>
+          <target state="new">You can create a threshold on a tile using the Metric visualization.</target>
+        </trans-unit>
+        <trans-unit id="e4731f53-a2f3-49d1-ac69-cee3a0eea2aa" xml:space="preserve">
+          <source>Select on to create a threshold value on the tile.</source>
+          <target state="new">Select on to create a threshold value on the tile.</target>
+        </trans-unit>
+        <trans-unit id="1cd166d9-55fe-4884-a605-15c3ab3d90cf" xml:space="preserve">
+          <source>Choose whether to highlight the tile when the value is over or under the chosen threshold, then set the threshold value below.</source>
+          <target state="new">Choose whether to highlight the tile when the value is over or under the chosen threshold, then set the threshold value below.</target>
+        </trans-unit>
+        <trans-unit id="5400d417-53f2-4e22-977c-20be61f59ead" xml:space="preserve">
+          <source>To organize your dashboard, navigate to the My Dashboard view and click on the 'customize' gear at the bottom of the page to enter customize mode.</source>
+          <target state="new">To organize your dashboard, navigate to the My Dashboard view and click on the 'customize' gear at the bottom of the page to enter customize mode.</target>
+        </trans-unit>
+        <trans-unit id="d307bb2e-2c9e-413c-b9af-9afce7a2ef60" xml:space="preserve">
+          <source>Click and drag the tile you want to move, and move it to where you want your tile to be.</source>
+          <target state="new">Click and drag the tile you want to move, and move it to where you want your tile to be.</target>
+        </trans-unit>
+        <trans-unit id="26ddb97d-33a0-4d0f-8c8d-9155e28d4d83" xml:space="preserve">
+          <source><bpt id="1af494b3-9284-4daa-81d2-47fdb4be13fd">&lt;linkText&gt;</bpt>Organize your Dashboard<ept id="1af494b3-9284-4daa-81d2-47fdb4be13fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1af494b3-9284-4daa-81d2-47fdb4be13fd">&lt;linkText&gt;</bpt>Organize your Dashboard<ept id="1af494b3-9284-4daa-81d2-47fdb4be13fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7683d32f-0e96-4203-8ad0-abec0bca974a" xml:space="preserve">
+          <source>To remove a tile, navigate to the My Dashboard view and click on the <bpt id="c337a86b-539b-4158-b273-85b31e99981d">&lt;strong&gt;</bpt>customize<ept id="c337a86b-539b-4158-b273-85b31e99981d">&lt;/strong&gt;</ept> gear at the bottom of the page to enter customize mode.</source>
+          <target state="new">To remove a tile, navigate to the My Dashboard view and click on the <bpt id="c337a86b-539b-4158-b273-85b31e99981d">&lt;strong&gt;</bpt>customize<ept id="c337a86b-539b-4158-b273-85b31e99981d">&lt;/strong&gt;</ept> gear at the bottom of the page to enter customize mode.</target>
+        </trans-unit>
+        <trans-unit id="0c4299c8-0d8c-4afe-8360-7b9bd0929719" xml:space="preserve">
+          <source>Select the tile you want to remove, then on the right panel select <bpt id="daac4e5a-3398-401d-a759-f5c18fc66d93">&lt;strong&gt;</bpt>Remove Tile<ept id="daac4e5a-3398-401d-a759-f5c18fc66d93">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the tile you want to remove, then on the right panel select <bpt id="daac4e5a-3398-401d-a759-f5c18fc66d93">&lt;strong&gt;</bpt>Remove Tile<ept id="daac4e5a-3398-401d-a759-f5c18fc66d93">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a29a164-cfdb-409b-84b1-4e34240a4b60" xml:space="preserve">
+          <source><bpt id="cab02f51-bbdd-42a3-9d01-9a0a273095c2">&lt;linkText&gt;</bpt>Remove a Tile<ept id="cab02f51-bbdd-42a3-9d01-9a0a273095c2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cab02f51-bbdd-42a3-9d01-9a0a273095c2">&lt;linkText&gt;</bpt>Remove a Tile<ept id="cab02f51-bbdd-42a3-9d01-9a0a273095c2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

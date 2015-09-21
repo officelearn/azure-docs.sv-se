@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="aca95d18-bba2-4f38-a519-d4cccdc3ab70" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="aca95d18-bba2-4f38-a519-d4cccdc3ab70" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7cac3627-4710-49e9-80b9-1649ab5b5d2c">
+        <trans-unit id="b3311730-8ea5-4d46-9336-5bf0305b1f4f" xml:space="preserve">
+          <source>Quickstart for the Azure AD Graph API | Microsoft Aure</source>
+          <target state="new">Quickstart for the Azure AD Graph API | Microsoft Aure</target>
+        </trans-unit>
+        <trans-unit id="be1b8f4c-3397-474d-be83-2f27d45cc894" xml:space="preserve">
+          <source>The Azure Active Directory Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects.</source>
+          <target state="new">The Azure Active Directory Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects.</target>
+        </trans-unit>
+        <trans-unit id="2212a73c-45cd-43d0-9768-8f4a05ffab03" xml:space="preserve">
+          <source>The Azure Active Directory (AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints.</source>
+          <target state="new">The Azure Active Directory (AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints.</target>
+        </trans-unit>
+        <trans-unit id="113f1350-01e4-4b72-b475-ab809606abf6" xml:space="preserve">
+          <source>Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects.</source>
+          <target state="new">Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects.</target>
+        </trans-unit>
+        <trans-unit id="a91dba59-fb27-4f41-ac27-e1f449f36c0f" xml:space="preserve">
+          <source>For example, you can use the Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable or delete the user.</source>
+          <target state="new">For example, you can use the Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable or delete the user.</target>
+        </trans-unit>
+        <trans-unit id="07d98dc0-2966-4fd1-8d1e-c9f535d4d22a" xml:space="preserve">
+          <source>For more information on the Graph API features and application scenarios, see <bpt id="c6251941-cd57-4d6d-9be0-66fa4e7c0995">&lt;linkText&gt;</bpt>Azure AD Graph API<ept id="c6251941-cd57-4d6d-9be0-66fa4e7c0995">&lt;/linkText&gt;</ept><bpt id="c6251941-cd57-4d6d-9be0-66fa4e7c0995">&lt;title&gt;</bpt><ept id="c6251941-cd57-4d6d-9be0-66fa4e7c0995">&lt;/title&gt;</ept> and <bpt id="b1b66d7f-525a-42b7-b938-0ba4e2cded0b">&lt;linkText&gt;</bpt>Azure AD Graph API Prerequisites<ept id="b1b66d7f-525a-42b7-b938-0ba4e2cded0b">&lt;/linkText&gt;</ept><bpt id="b1b66d7f-525a-42b7-b938-0ba4e2cded0b">&lt;title&gt;</bpt><ept id="b1b66d7f-525a-42b7-b938-0ba4e2cded0b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the Graph API features and application scenarios, see <bpt id="c6251941-cd57-4d6d-9be0-66fa4e7c0995">&lt;linkText&gt;</bpt>Azure AD Graph API<ept id="c6251941-cd57-4d6d-9be0-66fa4e7c0995">&lt;/linkText&gt;</ept><bpt id="c6251941-cd57-4d6d-9be0-66fa4e7c0995">&lt;title&gt;</bpt><ept id="c6251941-cd57-4d6d-9be0-66fa4e7c0995">&lt;/title&gt;</ept> and <bpt id="b1b66d7f-525a-42b7-b938-0ba4e2cded0b">&lt;linkText&gt;</bpt>Azure AD Graph API Prerequisites<ept id="b1b66d7f-525a-42b7-b938-0ba4e2cded0b">&lt;/linkText&gt;</ept><bpt id="b1b66d7f-525a-42b7-b938-0ba4e2cded0b">&lt;title&gt;</bpt><ept id="b1b66d7f-525a-42b7-b938-0ba4e2cded0b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7b806fc-1a35-44cc-bbab-774d49efd6ce" xml:space="preserve">
+          <source>In Graph API, in order to access directory data and objects (in other words, resources or entities) against which you want to perform CRUD operations, you can use URLs based on the Open Data (OData) Protocol.</source>
+          <target state="new">In Graph API, in order to access directory data and objects (in other words, resources or entities) against which you want to perform CRUD operations, you can use URLs based on the Open Data (OData) Protocol.</target>
+        </trans-unit>
+        <trans-unit id="bf877e23-f0dc-481b-87a3-846cf584b2f9" xml:space="preserve">
+          <source>The URLs used in Graph API consist of four main parts: service root, tenant identifier, resource path, and query string options: <bpt id="fd41ccf6-459e-4e13-bd56-54bf844611d0">&lt;code&gt;</bpt>https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]<ept id="fd41ccf6-459e-4e13-bd56-54bf844611d0">&lt;/code&gt;</ept>.</source>
+          <target state="new">The URLs used in Graph API consist of four main parts: service root, tenant identifier, resource path, and query string options: <bpt id="fd41ccf6-459e-4e13-bd56-54bf844611d0">&lt;code&gt;</bpt>https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]<ept id="fd41ccf6-459e-4e13-bd56-54bf844611d0">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38bc877a-fd24-42fc-b36a-2acea9612c9e" xml:space="preserve">
+          <source>Take the example of the following URL: <bpt id="9ba1e1fb-8efc-4bce-ab49-a093b8b7e571">&lt;code&gt;</bpt>https://graph.windows.net/contoso.com/groups?api-version=1.5<ept id="9ba1e1fb-8efc-4bce-ab49-a093b8b7e571">&lt;/code&gt;</ept>.</source>
+          <target state="new">Take the example of the following URL: <bpt id="9ba1e1fb-8efc-4bce-ab49-a093b8b7e571">&lt;code&gt;</bpt>https://graph.windows.net/contoso.com/groups?api-version=1.5<ept id="9ba1e1fb-8efc-4bce-ab49-a093b8b7e571">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4d4a27e-4f5b-4914-91d5-6879b7db449c" xml:space="preserve">
+          <source><bpt id="cb55fc78-994c-47ba-825e-0cb0c32edfec">&lt;strong&gt;</bpt>Service Root<ept id="cb55fc78-994c-47ba-825e-0cb0c32edfec">&lt;/strong&gt;</ept>: In Azure AD Graph API, the service root is always https://graph.windows.net.</source>
+          <target state="new"><bpt id="cb55fc78-994c-47ba-825e-0cb0c32edfec">&lt;strong&gt;</bpt>Service Root<ept id="cb55fc78-994c-47ba-825e-0cb0c32edfec">&lt;/strong&gt;</ept>: In Azure AD Graph API, the service root is always https://graph.windows.net.</target>
+        </trans-unit>
+        <trans-unit id="029eed2d-0559-485c-856c-9dbad25f763a" xml:space="preserve">
+          <source><bpt id="dc71c2a7-73a7-45a9-936a-df0920a61ac2">&lt;strong&gt;</bpt>Tenant identifier<ept id="dc71c2a7-73a7-45a9-936a-df0920a61ac2">&lt;/strong&gt;</ept>: This can be a verified (registered) domain name, in the example above, contoso.com.</source>
+          <target state="new"><bpt id="dc71c2a7-73a7-45a9-936a-df0920a61ac2">&lt;strong&gt;</bpt>Tenant identifier<ept id="dc71c2a7-73a7-45a9-936a-df0920a61ac2">&lt;/strong&gt;</ept>: This can be a verified (registered) domain name, in the example above, contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="e1237a61-c913-4d04-ac2c-18695683ea24" xml:space="preserve">
+          <source>It can also be a tenant object ID or the “myorganiztion” or “me” alias.</source>
+          <target state="new">It can also be a tenant object ID or the “myorganiztion” or “me” alias.</target>
+        </trans-unit>
+        <trans-unit id="24a1c0bc-5060-415f-a274-0b341a8c2ca3" xml:space="preserve">
+          <source>For more information, see <bpt id="2a3aeed2-9da4-41df-b8a6-ca46d453c439">&lt;linkText&gt;</bpt>Addressing Entities and Operations in the Graph API<ept id="2a3aeed2-9da4-41df-b8a6-ca46d453c439">&lt;/linkText&gt;</ept><bpt id="2a3aeed2-9da4-41df-b8a6-ca46d453c439">&lt;title&gt;</bpt><ept id="2a3aeed2-9da4-41df-b8a6-ca46d453c439">&lt;/title&gt;</ept>).</source>
+          <target state="new">For more information, see <bpt id="2a3aeed2-9da4-41df-b8a6-ca46d453c439">&lt;linkText&gt;</bpt>Addressing Entities and Operations in the Graph API<ept id="2a3aeed2-9da4-41df-b8a6-ca46d453c439">&lt;/linkText&gt;</ept><bpt id="2a3aeed2-9da4-41df-b8a6-ca46d453c439">&lt;title&gt;</bpt><ept id="2a3aeed2-9da4-41df-b8a6-ca46d453c439">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="5fce0726-b4ee-47ca-9457-b5239ba33414" xml:space="preserve">
+          <source><bpt id="7f3a1770-db47-4f04-a221-90317cef346a">&lt;strong&gt;</bpt>Resource path<ept id="7f3a1770-db47-4f04-a221-90317cef346a">&lt;/strong&gt;</ept>: This section of a URL identifies the resource to be interacted with (users, groups, a particular user, or a particular group, etc.)</source>
+          <target state="new"><bpt id="7f3a1770-db47-4f04-a221-90317cef346a">&lt;strong&gt;</bpt>Resource path<ept id="7f3a1770-db47-4f04-a221-90317cef346a">&lt;/strong&gt;</ept>: This section of a URL identifies the resource to be interacted with (users, groups, a particular user, or a particular group, etc.)</target>
+        </trans-unit>
+        <trans-unit id="1f1e3e38-0165-4b8a-973c-84d5f28b8f4a" xml:space="preserve">
+          <source>In the example above, it is the top-level “groups” to address that resource set.</source>
+          <target state="new">In the example above, it is the top-level “groups” to address that resource set.</target>
+        </trans-unit>
+        <trans-unit id="1f47600b-7b68-42ba-9951-77cfb8683930" xml:space="preserve">
+          <source>You can also address a specific entity, for example “users/{objectId}” or “users/userPrincipalName”.</source>
+          <target state="new">You can also address a specific entity, for example “users/{objectId}” or “users/userPrincipalName”.</target>
+        </trans-unit>
+        <trans-unit id="1558a0ff-d6c6-4334-900b-aeafb551835d" xml:space="preserve">
+          <source><bpt id="b19e2f90-f643-4fc9-be1c-d56199dabee6">&lt;strong&gt;</bpt>Query parameters<ept id="b19e2f90-f643-4fc9-be1c-d56199dabee6">&lt;/strong&gt;</ept>: ?</source>
+          <target state="new"><bpt id="b19e2f90-f643-4fc9-be1c-d56199dabee6">&lt;strong&gt;</bpt>Query parameters<ept id="b19e2f90-f643-4fc9-be1c-d56199dabee6">&lt;/strong&gt;</ept>: ?</target>
+        </trans-unit>
+        <trans-unit id="3eb8f0d9-e230-46d3-b6b0-4a2dbbdcbd03" xml:space="preserve">
+          <source>separates the resource path section from the query parameters section.</source>
+          <target state="new">separates the resource path section from the query parameters section.</target>
+        </trans-unit>
+        <trans-unit id="2883ae80-2b6a-4a91-9014-32c70d4d3f08" xml:space="preserve">
+          <source>The “api-version” query parameter is required on all requests in the Graph API.</source>
+          <target state="new">The “api-version” query parameter is required on all requests in the Graph API.</target>
+        </trans-unit>
+        <trans-unit id="366f9448-5d14-4652-bff8-f69e498e4ba4" xml:space="preserve">
+          <source>The Graph API also supports the following OData query options: <bpt id="b634f30a-2dd1-40ec-8c80-12a5da58c11e">&lt;strong&gt;</bpt>$filter<ept id="b634f30a-2dd1-40ec-8c80-12a5da58c11e">&lt;/strong&gt;</ept>, <bpt id="a40c4415-45fc-496d-b113-1addb8dabab1">&lt;strong&gt;</bpt>$orderby<ept id="a40c4415-45fc-496d-b113-1addb8dabab1">&lt;/strong&gt;</ept>, <bpt id="c6250da0-d951-4aab-b978-d8d03216f49f">&lt;strong&gt;</bpt>$expand<ept id="c6250da0-d951-4aab-b978-d8d03216f49f">&lt;/strong&gt;</ept>, <bpt id="31a14cb9-0f1d-4dc7-bc7b-866b7927d938">&lt;strong&gt;</bpt>$top<ept id="31a14cb9-0f1d-4dc7-bc7b-866b7927d938">&lt;/strong&gt;</ept>, and <bpt id="eaf703da-b0f3-4333-ba97-1095454e8691">&lt;strong&gt;</bpt>$format<ept id="eaf703da-b0f3-4333-ba97-1095454e8691">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The Graph API also supports the following OData query options: <bpt id="b634f30a-2dd1-40ec-8c80-12a5da58c11e">&lt;strong&gt;</bpt>$filter<ept id="b634f30a-2dd1-40ec-8c80-12a5da58c11e">&lt;/strong&gt;</ept>, <bpt id="a40c4415-45fc-496d-b113-1addb8dabab1">&lt;strong&gt;</bpt>$orderby<ept id="a40c4415-45fc-496d-b113-1addb8dabab1">&lt;/strong&gt;</ept>, <bpt id="c6250da0-d951-4aab-b978-d8d03216f49f">&lt;strong&gt;</bpt>$expand<ept id="c6250da0-d951-4aab-b978-d8d03216f49f">&lt;/strong&gt;</ept>, <bpt id="31a14cb9-0f1d-4dc7-bc7b-866b7927d938">&lt;strong&gt;</bpt>$top<ept id="31a14cb9-0f1d-4dc7-bc7b-866b7927d938">&lt;/strong&gt;</ept>, and <bpt id="eaf703da-b0f3-4333-ba97-1095454e8691">&lt;strong&gt;</bpt>$format<ept id="eaf703da-b0f3-4333-ba97-1095454e8691">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edeb7f98-a926-4758-ad87-d10b0ae25d6c" xml:space="preserve">
+          <source>The following query options are not currently supported: <bpt id="841c8390-b4eb-4cbf-a327-b242cd79ff4f">&lt;strong&gt;</bpt>$count<ept id="841c8390-b4eb-4cbf-a327-b242cd79ff4f">&lt;/strong&gt;</ept>, <bpt id="3ab720dd-d260-433a-af61-24d7a8b30dac">&lt;strong&gt;</bpt>$inlinecount<ept id="3ab720dd-d260-433a-af61-24d7a8b30dac">&lt;/strong&gt;</ept>, and <bpt id="eddc5afc-3d46-484e-a57d-7d4e1b869a33">&lt;strong&gt;</bpt>$skip<ept id="eddc5afc-3d46-484e-a57d-7d4e1b869a33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following query options are not currently supported: <bpt id="841c8390-b4eb-4cbf-a327-b242cd79ff4f">&lt;strong&gt;</bpt>$count<ept id="841c8390-b4eb-4cbf-a327-b242cd79ff4f">&lt;/strong&gt;</ept>, <bpt id="3ab720dd-d260-433a-af61-24d7a8b30dac">&lt;strong&gt;</bpt>$inlinecount<ept id="3ab720dd-d260-433a-af61-24d7a8b30dac">&lt;/strong&gt;</ept>, and <bpt id="eddc5afc-3d46-484e-a57d-7d4e1b869a33">&lt;strong&gt;</bpt>$skip<ept id="eddc5afc-3d46-484e-a57d-7d4e1b869a33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f0ca833-018c-4e3c-8895-883528ce6056" xml:space="preserve">
+          <source>For more information, see <bpt id="2b08360f-3f1e-4aca-a1c4-4802dbb32572">&lt;linkText&gt;</bpt>Supported Queries, Filters, and Paging Options in Azure AD Graph API<ept id="2b08360f-3f1e-4aca-a1c4-4802dbb32572">&lt;/linkText&gt;</ept><bpt id="2b08360f-3f1e-4aca-a1c4-4802dbb32572">&lt;title&gt;</bpt><ept id="2b08360f-3f1e-4aca-a1c4-4802dbb32572">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="2b08360f-3f1e-4aca-a1c4-4802dbb32572">&lt;linkText&gt;</bpt>Supported Queries, Filters, and Paging Options in Azure AD Graph API<ept id="2b08360f-3f1e-4aca-a1c4-4802dbb32572">&lt;/linkText&gt;</ept><bpt id="2b08360f-3f1e-4aca-a1c4-4802dbb32572">&lt;title&gt;</bpt><ept id="2b08360f-3f1e-4aca-a1c4-4802dbb32572">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16978e0d-5459-4abd-825a-d9c5d34e26d2" xml:space="preserve">
+          <source>The following versions have been released for the Graph API.</source>
+          <target state="new">The following versions have been released for the Graph API.</target>
+        </trans-unit>
+        <trans-unit id="d0e79deb-a36b-408f-accf-957d2a62725d" xml:space="preserve">
+          <source>Version beta</source>
+          <target state="new">Version beta</target>
+        </trans-unit>
+        <trans-unit id="b3eafc60-d84d-4c4a-a708-275da1443658" xml:space="preserve">
+          <source>Version 1.5</source>
+          <target state="new">Version 1.5</target>
+        </trans-unit>
+        <trans-unit id="43ec4994-2c1f-42db-b952-86573e6d08e0" xml:space="preserve">
+          <source>Version 2013-11-08</source>
+          <target state="new">Version 2013-11-08</target>
+        </trans-unit>
+        <trans-unit id="105ee6c5-563b-4ca8-9535-f3452b9804d3" xml:space="preserve">
+          <source>Version 2013-04-05</source>
+          <target state="new">Version 2013-04-05</target>
+        </trans-unit>
+        <trans-unit id="d219186d-062c-4a9b-9389-06a4334e5e40" xml:space="preserve">
+          <source>You specify the version for a Graph API request in the “api-version” query parameter.</source>
+          <target state="new">You specify the version for a Graph API request in the “api-version” query parameter.</target>
+        </trans-unit>
+        <trans-unit id="a1c00ed3-4ae2-4886-bce6-10c39e5aeed6" xml:space="preserve">
+          <source>For version 1.5 you use a numerical version value; api-version=1.5.</source>
+          <target state="new">For version 1.5 you use a numerical version value; api-version=1.5.</target>
+        </trans-unit>
+        <trans-unit id="1a991e8f-8152-4854-b8cb-d84415663094" xml:space="preserve">
+          <source>For previous versions, you use a date string that adheres to the format YYYY-MM-DD; for example, api-version=2013-11-08.</source>
+          <target state="new">For previous versions, you use a date string that adheres to the format YYYY-MM-DD; for example, api-version=2013-11-08.</target>
+        </trans-unit>
+        <trans-unit id="be2d1cb4-42ad-4faf-b529-bb53f3fdc326" xml:space="preserve">
+          <source>For preview features, use the string “beta”; for example, api-version=beta.</source>
+          <target state="new">For preview features, use the string “beta”; for example, api-version=beta.</target>
+        </trans-unit>
+        <trans-unit id="cfa83fb6-766f-4a07-a0da-f1473fe5af10" xml:space="preserve">
+          <source>For more information about differences between Graph API versions, see <bpt id="3e66ac76-7f5c-4728-8109-fe9e1cf07ca9">&lt;linkText&gt;</bpt>Azure AD Graph API Versioning<ept id="3e66ac76-7f5c-4728-8109-fe9e1cf07ca9">&lt;/linkText&gt;</ept><bpt id="3e66ac76-7f5c-4728-8109-fe9e1cf07ca9">&lt;title&gt;</bpt><ept id="3e66ac76-7f5c-4728-8109-fe9e1cf07ca9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about differences between Graph API versions, see <bpt id="3e66ac76-7f5c-4728-8109-fe9e1cf07ca9">&lt;linkText&gt;</bpt>Azure AD Graph API Versioning<ept id="3e66ac76-7f5c-4728-8109-fe9e1cf07ca9">&lt;/linkText&gt;</ept><bpt id="3e66ac76-7f5c-4728-8109-fe9e1cf07ca9">&lt;title&gt;</bpt><ept id="3e66ac76-7f5c-4728-8109-fe9e1cf07ca9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4165b2e6-6bff-4f63-85d7-50df7dda7fc9" xml:space="preserve">
+          <source>To return the Graph API metadata file, add the “$metadata” segment after the tenant-identifier in the URL For example, the following URL returns metadata for the demo company used by the Graph Explorer: <bpt id="9fe16e8b-7c76-4fa4-b1bc-57e0b91e0fc3">&lt;code&gt;</bpt>https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.5<ept id="9fe16e8b-7c76-4fa4-b1bc-57e0b91e0fc3">&lt;/code&gt;</ept>.</source>
+          <target state="new">To return the Graph API metadata file, add the “$metadata” segment after the tenant-identifier in the URL For example, the following URL returns metadata for the demo company used by the Graph Explorer: <bpt id="9fe16e8b-7c76-4fa4-b1bc-57e0b91e0fc3">&lt;code&gt;</bpt>https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.5<ept id="9fe16e8b-7c76-4fa4-b1bc-57e0b91e0fc3">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe752e24-1385-4d35-bb0b-cf3602fd84b8" xml:space="preserve">
+          <source>You can enter this URL in the address bar of a web browser to see the metadata.</source>
+          <target state="new">You can enter this URL in the address bar of a web browser to see the metadata.</target>
+        </trans-unit>
+        <trans-unit id="4927efbc-c634-48c2-b893-f7d1a1242aa6" xml:space="preserve">
+          <source>The CSDL metadata document returned describes the entities and complex types, their properties, and the functions and actions exposed by the version of Graph API you requested.</source>
+          <target state="new">The CSDL metadata document returned describes the entities and complex types, their properties, and the functions and actions exposed by the version of Graph API you requested.</target>
+        </trans-unit>
+        <trans-unit id="2fbe00d3-a8f6-4246-a93f-be8ac61fbd0a" xml:space="preserve">
+          <source>Omitting the api-version parameter will return metadata for the most recent version.</source>
+          <target state="new">Omitting the api-version parameter will return metadata for the most recent version.</target>
+        </trans-unit>
+        <trans-unit id="23153eb7-e3f0-4966-b242-04f32e01a4ab" xml:space="preserve">
+          <source><bpt id="4fc5ca7d-a0a8-4b37-ace7-57259b08bd4a">&lt;linkText&gt;</bpt>Azure AD Graph API Common Queries<ept id="4fc5ca7d-a0a8-4b37-ace7-57259b08bd4a">&lt;/linkText&gt;</ept><bpt id="4fc5ca7d-a0a8-4b37-ace7-57259b08bd4a">&lt;title&gt;</bpt><ept id="4fc5ca7d-a0a8-4b37-ace7-57259b08bd4a">&lt;/title&gt;</ept> lists common queries that can be used with the Azure AD Graph, including queries that can be used to access top-level resources in your directory and queries to perform operations in your directory.</source>
+          <target state="new"><bpt id="4fc5ca7d-a0a8-4b37-ace7-57259b08bd4a">&lt;linkText&gt;</bpt>Azure AD Graph API Common Queries<ept id="4fc5ca7d-a0a8-4b37-ace7-57259b08bd4a">&lt;/linkText&gt;</ept><bpt id="4fc5ca7d-a0a8-4b37-ace7-57259b08bd4a">&lt;title&gt;</bpt><ept id="4fc5ca7d-a0a8-4b37-ace7-57259b08bd4a">&lt;/title&gt;</ept> lists common queries that can be used with the Azure AD Graph, including queries that can be used to access top-level resources in your directory and queries to perform operations in your directory.</target>
+        </trans-unit>
+        <trans-unit id="e60cee8b-533c-47eb-93f7-cdd00ca4c822" xml:space="preserve">
+          <source>For example, <bpt id="106d4921-caf7-4bb0-b360-6e8cb2c68522">&lt;code&gt;</bpt>https://graph.windows.net/contoso.com/tenantDetails?api-version=1.5<ept id="106d4921-caf7-4bb0-b360-6e8cb2c68522">&lt;/code&gt;</ept> returns company information for directory contoso.com.</source>
+          <target state="new">For example, <bpt id="106d4921-caf7-4bb0-b360-6e8cb2c68522">&lt;code&gt;</bpt>https://graph.windows.net/contoso.com/tenantDetails?api-version=1.5<ept id="106d4921-caf7-4bb0-b360-6e8cb2c68522">&lt;/code&gt;</ept> returns company information for directory contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="21cab74c-206e-4e64-89dc-0a7449cf4283" xml:space="preserve">
+          <source>Or <bpt id="43f0cda3-9d60-435d-b840-4ddcc3b3d55f">&lt;code&gt;</bpt>https://graph.windows.net/contoso.com/users?api-version=1.5<ept id="43f0cda3-9d60-435d-b840-4ddcc3b3d55f">&lt;/code&gt;</ept> lists all user objects in the directory contoso.com.</source>
+          <target state="new">Or <bpt id="43f0cda3-9d60-435d-b840-4ddcc3b3d55f">&lt;code&gt;</bpt>https://graph.windows.net/contoso.com/users?api-version=1.5<ept id="43f0cda3-9d60-435d-b840-4ddcc3b3d55f">&lt;/code&gt;</ept> lists all user objects in the directory contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="af83877e-8376-4e79-83a3-b585ed751b60" xml:space="preserve">
+          <source>You can use the Graph Explorer for the Azure AD Graph API to query the directory data as you build your application.</source>
+          <target state="new">You can use the Graph Explorer for the Azure AD Graph API to query the directory data as you build your application.</target>
+        </trans-unit>
+        <trans-unit id="0a6b0db8-bc26-478f-afd7-76587e570c83" xml:space="preserve">
+          <source>The Graph Explorer does not support writing or deleting the data from a directory.</source>
+          <target state="new">The Graph Explorer does not support writing or deleting the data from a directory.</target>
+        </trans-unit>
+        <trans-unit id="09f548ca-1425-44ab-8a91-be41d88db056" xml:space="preserve">
+          <source>You can only perform read operations on your Azure AD directory with the Graph Explorer.</source>
+          <target state="new">You can only perform read operations on your Azure AD directory with the Graph Explorer.</target>
+        </trans-unit>
+        <trans-unit id="458bcb39-b862-4ed1-b03f-75a7bdfa9990" xml:space="preserve">
+          <source>The following is the output you would see if you were to navigate to the Graph Explorer, select Use Demo Company, and enter <bpt id="617c0a98-e818-4024-bd87-b85253353e1a">&lt;code&gt;</bpt>https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.5<ept id="617c0a98-e818-4024-bd87-b85253353e1a">&lt;/code&gt;</ept> to display all of the users in the demo directory:</source>
+          <target state="new">The following is the output you would see if you were to navigate to the Graph Explorer, select Use Demo Company, and enter <bpt id="617c0a98-e818-4024-bd87-b85253353e1a">&lt;code&gt;</bpt>https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.5<ept id="617c0a98-e818-4024-bd87-b85253353e1a">&lt;/code&gt;</ept> to display all of the users in the demo directory:</target>
+        </trans-unit>
+        <trans-unit id="3bab5432-71b7-4e26-ae19-958b1a445a3a" xml:space="preserve">
+          <source><bpt id="b06087d4-f5c2-494f-80b9-de4ec2f37945">&lt;linkText&gt;</bpt>Azure AD graph api explorer<ept id="b06087d4-f5c2-494f-80b9-de4ec2f37945">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b06087d4-f5c2-494f-80b9-de4ec2f37945">&lt;linkText&gt;</bpt>Azure AD graph api explorer<ept id="b06087d4-f5c2-494f-80b9-de4ec2f37945">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c0f6b40-112b-47f7-b934-43d7d2f01587" xml:space="preserve">
+          <source><bpt id="7ed53791-c084-45cc-88ff-2a7ed6962a7a">&lt;strong&gt;</bpt>Load the Graph Explorer<ept id="7ed53791-c084-45cc-88ff-2a7ed6962a7a">&lt;/strong&gt;</ept>: To load the tool, navigate to <bpt id="facd2aaa-c6d9-4a33-80f0-abe306651cb4">&lt;linkText&gt;</bpt>https://graphexplorer.cloudapp.net/<ept id="facd2aaa-c6d9-4a33-80f0-abe306651cb4">&lt;/linkText&gt;</ept><bpt id="facd2aaa-c6d9-4a33-80f0-abe306651cb4">&lt;title&gt;</bpt><ept id="facd2aaa-c6d9-4a33-80f0-abe306651cb4">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="7ed53791-c084-45cc-88ff-2a7ed6962a7a">&lt;strong&gt;</bpt>Load the Graph Explorer<ept id="7ed53791-c084-45cc-88ff-2a7ed6962a7a">&lt;/strong&gt;</ept>: To load the tool, navigate to <bpt id="facd2aaa-c6d9-4a33-80f0-abe306651cb4">&lt;linkText&gt;</bpt>https://graphexplorer.cloudapp.net/<ept id="facd2aaa-c6d9-4a33-80f0-abe306651cb4">&lt;/linkText&gt;</ept><bpt id="facd2aaa-c6d9-4a33-80f0-abe306651cb4">&lt;title&gt;</bpt><ept id="facd2aaa-c6d9-4a33-80f0-abe306651cb4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac6aaeaf-f865-4ade-b46f-851b75134c5f" xml:space="preserve">
+          <source>Click <bpt id="0764db47-8170-499d-9045-dbda15ebaa5d">&lt;strong&gt;</bpt>Use Demo Company<ept id="0764db47-8170-499d-9045-dbda15ebaa5d">&lt;/strong&gt;</ept> to run the Graph Explorer against data from a sample tenant.</source>
+          <target state="new">Click <bpt id="0764db47-8170-499d-9045-dbda15ebaa5d">&lt;strong&gt;</bpt>Use Demo Company<ept id="0764db47-8170-499d-9045-dbda15ebaa5d">&lt;/strong&gt;</ept> to run the Graph Explorer against data from a sample tenant.</target>
+        </trans-unit>
+        <trans-unit id="8c4a973d-60be-4f62-abbd-1a4ae3bae6ad" xml:space="preserve">
+          <source>You do not need credentials to use the demo company.</source>
+          <target state="new">You do not need credentials to use the demo company.</target>
+        </trans-unit>
+        <trans-unit id="4c871a95-0018-486e-8729-3ade332ba802" xml:space="preserve">
+          <source>Alternatively, you can click <bpt id="2979de0d-f76b-47b6-8192-dc65d535649d">&lt;strong&gt;</bpt>Sign in<ept id="2979de0d-f76b-47b6-8192-dc65d535649d">&lt;/strong&gt;</ept> and sign in with your Azure AD account credentials to run the Graph Explorer against your tenant.</source>
+          <target state="new">Alternatively, you can click <bpt id="2979de0d-f76b-47b6-8192-dc65d535649d">&lt;strong&gt;</bpt>Sign in<ept id="2979de0d-f76b-47b6-8192-dc65d535649d">&lt;/strong&gt;</ept> and sign in with your Azure AD account credentials to run the Graph Explorer against your tenant.</target>
+        </trans-unit>
+        <trans-unit id="0d21493c-f01a-4540-a257-f0cafd07ac05" xml:space="preserve">
+          <source>If you run Graph Explorer against your own tenant, either you or your administrator will need to consent during sign-in.</source>
+          <target state="new">If you run Graph Explorer against your own tenant, either you or your administrator will need to consent during sign-in.</target>
+        </trans-unit>
+        <trans-unit id="0aaf896f-ee77-4cde-ae53-6bea71acaa2c" xml:space="preserve">
+          <source>If you have an Office 365 subscription, you automatically have an Azure AD tenant.</source>
+          <target state="new">If you have an Office 365 subscription, you automatically have an Azure AD tenant.</target>
+        </trans-unit>
+        <trans-unit id="3c4c8eb3-d1b8-4ecd-855d-bd712c18f8c3" xml:space="preserve">
+          <source>The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Graph Explorer.</source>
+          <target state="new">The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Graph Explorer.</target>
+        </trans-unit>
+        <trans-unit id="a19421f9-879c-49f3-8b0e-68e777aedd76" xml:space="preserve">
+          <source><bpt id="80155e50-4bd2-4e19-839f-84c845f1fc55">&lt;strong&gt;</bpt>Run a query<ept id="80155e50-4bd2-4e19-839f-84c845f1fc55">&lt;/strong&gt;</ept>: To run a query, type your query in the request text box and click <bpt id="ffa87915-fdde-472a-adbb-574dcb595fa1">&lt;strong&gt;</bpt>GET<ept id="ffa87915-fdde-472a-adbb-574dcb595fa1">&lt;/strong&gt;</ept> or click the <bpt id="e07cc5ef-853d-422f-9efd-ef27fb21e331">&lt;strong&gt;</bpt>enter<ept id="e07cc5ef-853d-422f-9efd-ef27fb21e331">&lt;/strong&gt;</ept> key.</source>
+          <target state="new"><bpt id="80155e50-4bd2-4e19-839f-84c845f1fc55">&lt;strong&gt;</bpt>Run a query<ept id="80155e50-4bd2-4e19-839f-84c845f1fc55">&lt;/strong&gt;</ept>: To run a query, type your query in the request text box and click <bpt id="ffa87915-fdde-472a-adbb-574dcb595fa1">&lt;strong&gt;</bpt>GET<ept id="ffa87915-fdde-472a-adbb-574dcb595fa1">&lt;/strong&gt;</ept> or click the <bpt id="e07cc5ef-853d-422f-9efd-ef27fb21e331">&lt;strong&gt;</bpt>enter<ept id="e07cc5ef-853d-422f-9efd-ef27fb21e331">&lt;/strong&gt;</ept> key.</target>
+        </trans-unit>
+        <trans-unit id="a310ec27-c42b-4552-beee-5aca0bd9c540" xml:space="preserve">
+          <source>The results are displayed in the response box.</source>
+          <target state="new">The results are displayed in the response box.</target>
+        </trans-unit>
+        <trans-unit id="780c5361-917a-4858-b8a1-aaa81bbe2f1f" xml:space="preserve">
+          <source>For example, <bpt id="61ce4bd6-cdda-463e-9e70-561cbcde430d">&lt;code&gt;</bpt>https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5<ept id="61ce4bd6-cdda-463e-9e70-561cbcde430d">&lt;/code&gt;</ept> will list all group objects in the demo directory.</source>
+          <target state="new">For example, <bpt id="61ce4bd6-cdda-463e-9e70-561cbcde430d">&lt;code&gt;</bpt>https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5<ept id="61ce4bd6-cdda-463e-9e70-561cbcde430d">&lt;/code&gt;</ept> will list all group objects in the demo directory.</target>
+        </trans-unit>
+        <trans-unit id="ad491c03-616e-4c00-a1fd-bd49b0320028" xml:space="preserve">
+          <source>Note the following features and limitations of the Graph Explorer:</source>
+          <target state="new">Note the following features and limitations of the Graph Explorer:</target>
+        </trans-unit>
+        <trans-unit id="b5660084-7538-419b-ae17-081b33a5f79e" xml:space="preserve">
+          <source>Autocomplete capability on resource sets.</source>
+          <target state="new">Autocomplete capability on resource sets.</target>
+        </trans-unit>
+        <trans-unit id="752e66d4-9f26-46e7-8672-65908291b806" xml:space="preserve">
+          <source>To see this, click <bpt id="4f694343-d229-4ced-9b6b-a1774ce0d3d8">&lt;strong&gt;</bpt>Use Demo Company<ept id="4f694343-d229-4ced-9b6b-a1774ce0d3d8">&lt;/strong&gt;</ept> and then click on the request text box (where the company URL appears).</source>
+          <target state="new">To see this, click <bpt id="4f694343-d229-4ced-9b6b-a1774ce0d3d8">&lt;strong&gt;</bpt>Use Demo Company<ept id="4f694343-d229-4ced-9b6b-a1774ce0d3d8">&lt;/strong&gt;</ept> and then click on the request text box (where the company URL appears).</target>
+        </trans-unit>
+        <trans-unit id="31cbb0ba-bb72-400a-949d-f10ee4313e86" xml:space="preserve">
+          <source>You can select a resource set from the dropdown list.</source>
+          <target state="new">You can select a resource set from the dropdown list.</target>
+        </trans-unit>
+        <trans-unit id="67d5f0e4-07d7-440a-a7fb-ec1611658b09" xml:space="preserve">
+          <source>Supports the “me” and “myorganization” addressing aliases.</source>
+          <target state="new">Supports the “me” and “myorganization” addressing aliases.</target>
+        </trans-unit>
+        <trans-unit id="78d58963-8718-4549-a0c6-730a650964ca" xml:space="preserve">
+          <source>For example, you can use <bpt id="72c6a998-7522-4b66-ad88-08ec823afdea">&lt;code&gt;</bpt>https://graph.windows.net/me?api-version=1.5<ept id="72c6a998-7522-4b66-ad88-08ec823afdea">&lt;/code&gt;</ept> to return the user object of the signed-in user or <bpt id="ab18dc53-3511-4160-a1c2-fbbb71dcf96f">&lt;code&gt;</bpt>https://graph.windows.net/myorganization/users?api-version=1.5<ept id="ab18dc53-3511-4160-a1c2-fbbb71dcf96f">&lt;/code&gt;</ept> to return all users in the current directory.</source>
+          <target state="new">For example, you can use <bpt id="72c6a998-7522-4b66-ad88-08ec823afdea">&lt;code&gt;</bpt>https://graph.windows.net/me?api-version=1.5<ept id="72c6a998-7522-4b66-ad88-08ec823afdea">&lt;/code&gt;</ept> to return the user object of the signed-in user or <bpt id="ab18dc53-3511-4160-a1c2-fbbb71dcf96f">&lt;code&gt;</bpt>https://graph.windows.net/myorganization/users?api-version=1.5<ept id="ab18dc53-3511-4160-a1c2-fbbb71dcf96f">&lt;/code&gt;</ept> to return all users in the current directory.</target>
+        </trans-unit>
+        <trans-unit id="dbbdfc8d-b24a-4212-8c23-c210c2c6fcb7" xml:space="preserve">
+          <source>Note that using the “me” alias returns an error for the demo company because there is no signed-in user making the request.</source>
+          <target state="new">Note that using the “me” alias returns an error for the demo company because there is no signed-in user making the request.</target>
+        </trans-unit>
+        <trans-unit id="2b25953a-8e8a-4439-84f1-904a321d125b" xml:space="preserve">
+          <source>A response headers section.</source>
+          <target state="new">A response headers section.</target>
+        </trans-unit>
+        <trans-unit id="f8368118-280b-4f4f-bfb5-5ddf17b77097" xml:space="preserve">
+          <source>This can be used to help troubleshoot issues that occur when running queries.</source>
+          <target state="new">This can be used to help troubleshoot issues that occur when running queries.</target>
+        </trans-unit>
+        <trans-unit id="134b91df-5314-4551-80d3-2d05f927e744" xml:space="preserve">
+          <source>A JSON viewer for the response with expand and collapse capabilities.</source>
+          <target state="new">A JSON viewer for the response with expand and collapse capabilities.</target>
+        </trans-unit>
+        <trans-unit id="b8c2fcc0-bbd8-4006-be2d-e3d961eac343" xml:space="preserve">
+          <source>No support for displaying a thumbnail photo.</source>
+          <target state="new">No support for displaying a thumbnail photo.</target>
+        </trans-unit>
+        <trans-unit id="8db94d65-11fb-4bb8-b5af-e0d21bb4944d" xml:space="preserve">
+          <source>For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger in order to practice performing ‘write’ operations against you Azure AD directory.</source>
+          <target state="new">For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger in order to practice performing ‘write’ operations against you Azure AD directory.</target>
+        </trans-unit>
+        <trans-unit id="efee040a-ab18-47af-8618-5d3affc5513e" xml:space="preserve">
+          <source>For more information and to install Fiddler, see <bpt id="afd62039-940a-4dc0-a813-6c27ae2dd197">&lt;linkText&gt;</bpt>http://www.telerik.com/fiddler<ept id="afd62039-940a-4dc0-a813-6c27ae2dd197">&lt;/linkText&gt;</ept><bpt id="afd62039-940a-4dc0-a813-6c27ae2dd197">&lt;title&gt;</bpt><ept id="afd62039-940a-4dc0-a813-6c27ae2dd197">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information and to install Fiddler, see <bpt id="afd62039-940a-4dc0-a813-6c27ae2dd197">&lt;linkText&gt;</bpt>http://www.telerik.com/fiddler<ept id="afd62039-940a-4dc0-a813-6c27ae2dd197">&lt;/linkText&gt;</ept><bpt id="afd62039-940a-4dc0-a813-6c27ae2dd197">&lt;title&gt;</bpt><ept id="afd62039-940a-4dc0-a813-6c27ae2dd197">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c005b6d2-7c60-4e2f-8030-60a248e18ca0" xml:space="preserve">
+          <source>In the example below, you will use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.</source>
+          <target state="new">In the example below, you will use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.</target>
+        </trans-unit>
+        <trans-unit id="3a54f8af-e6d1-410b-aa7b-0681b7f38f51" xml:space="preserve">
+          <source><bpt id="d73c6ca9-fa55-43e1-bfc7-1546b84654f0">&lt;strong&gt;</bpt>Obtain an access token<ept id="d73c6ca9-fa55-43e1-bfc7-1546b84654f0">&lt;/strong&gt;</ept>: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first.</source>
+          <target state="new"><bpt id="d73c6ca9-fa55-43e1-bfc7-1546b84654f0">&lt;strong&gt;</bpt>Obtain an access token<ept id="d73c6ca9-fa55-43e1-bfc7-1546b84654f0">&lt;/strong&gt;</ept>: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first.</target>
+        </trans-unit>
+        <trans-unit id="66f7d0d2-8a79-4fa1-abeb-b2f556ae9e23" xml:space="preserve">
+          <source>For more information, see <bpt id="07049062-29ac-422b-8178-a8cf97b6e74a">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="07049062-29ac-422b-8178-a8cf97b6e74a">&lt;/linkText&gt;</ept><bpt id="07049062-29ac-422b-8178-a8cf97b6e74a">&lt;title&gt;</bpt><ept id="07049062-29ac-422b-8178-a8cf97b6e74a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="07049062-29ac-422b-8178-a8cf97b6e74a">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="07049062-29ac-422b-8178-a8cf97b6e74a">&lt;/linkText&gt;</ept><bpt id="07049062-29ac-422b-8178-a8cf97b6e74a">&lt;title&gt;</bpt><ept id="07049062-29ac-422b-8178-a8cf97b6e74a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb701803-23f9-447c-bb21-6c39d48e6b2d" xml:space="preserve">
+          <source><bpt id="b99576e0-ef77-4c3d-8157-ffd1a19efb7e">&lt;strong&gt;</bpt>Compose and run a query<ept id="b99576e0-ef77-4c3d-8157-ffd1a19efb7e">&lt;/strong&gt;</ept>: Complete the following steps.</source>
+          <target state="new"><bpt id="b99576e0-ef77-4c3d-8157-ffd1a19efb7e">&lt;strong&gt;</bpt>Compose and run a query<ept id="b99576e0-ef77-4c3d-8157-ffd1a19efb7e">&lt;/strong&gt;</ept>: Complete the following steps.</target>
+        </trans-unit>
+        <trans-unit id="2c322b0d-7cd4-4478-ba6d-2839ef27c9d3" xml:space="preserve">
+          <source>Open Fiddler Web Debugger and switch to the <bpt id="ae5330d6-7bb9-4909-8e5c-be86c9aa34e8">&lt;strong&gt;</bpt>Composer<ept id="ae5330d6-7bb9-4909-8e5c-be86c9aa34e8">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Open Fiddler Web Debugger and switch to the <bpt id="ae5330d6-7bb9-4909-8e5c-be86c9aa34e8">&lt;strong&gt;</bpt>Composer<ept id="ae5330d6-7bb9-4909-8e5c-be86c9aa34e8">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="fc7945e1-a5a4-4b56-83ea-e6f30dbd4863" xml:space="preserve">
+          <source>Since you want to create a new security group, select <bpt id="b6a5c346-9d21-4d35-b572-0450cd133b90">&lt;strong&gt;</bpt>Post<ept id="b6a5c346-9d21-4d35-b572-0450cd133b90">&lt;/strong&gt;</ept> as the HTTP method from the pull-down menu.</source>
+          <target state="new">Since you want to create a new security group, select <bpt id="b6a5c346-9d21-4d35-b572-0450cd133b90">&lt;strong&gt;</bpt>Post<ept id="b6a5c346-9d21-4d35-b572-0450cd133b90">&lt;/strong&gt;</ept> as the HTTP method from the pull-down menu.</target>
+        </trans-unit>
+        <trans-unit id="b91446bb-a497-484f-b8f5-d53ddde4991d" xml:space="preserve">
+          <source>For more information about operations and permissions on a group object, see <bpt id="fc6fbc84-744b-4c62-bded-d1ef632d6716">&lt;linkText&gt;</bpt>Group<ept id="fc6fbc84-744b-4c62-bded-d1ef632d6716">&lt;/linkText&gt;</ept><bpt id="fc6fbc84-744b-4c62-bded-d1ef632d6716">&lt;title&gt;</bpt><ept id="fc6fbc84-744b-4c62-bded-d1ef632d6716">&lt;/title&gt;</ept> within the <bpt id="fbb6afb8-1d20-4f7f-aef6-db0650595a61">&lt;linkText&gt;</bpt>Azure AD Graph REST API Reference<ept id="fbb6afb8-1d20-4f7f-aef6-db0650595a61">&lt;/linkText&gt;</ept><bpt id="fbb6afb8-1d20-4f7f-aef6-db0650595a61">&lt;title&gt;</bpt><ept id="fbb6afb8-1d20-4f7f-aef6-db0650595a61">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about operations and permissions on a group object, see <bpt id="fc6fbc84-744b-4c62-bded-d1ef632d6716">&lt;linkText&gt;</bpt>Group<ept id="fc6fbc84-744b-4c62-bded-d1ef632d6716">&lt;/linkText&gt;</ept><bpt id="fc6fbc84-744b-4c62-bded-d1ef632d6716">&lt;title&gt;</bpt><ept id="fc6fbc84-744b-4c62-bded-d1ef632d6716">&lt;/title&gt;</ept> within the <bpt id="fbb6afb8-1d20-4f7f-aef6-db0650595a61">&lt;linkText&gt;</bpt>Azure AD Graph REST API Reference<ept id="fbb6afb8-1d20-4f7f-aef6-db0650595a61">&lt;/linkText&gt;</ept><bpt id="fbb6afb8-1d20-4f7f-aef6-db0650595a61">&lt;title&gt;</bpt><ept id="fbb6afb8-1d20-4f7f-aef6-db0650595a61">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39da4571-68e0-4be1-858d-e8ede747d791" xml:space="preserve">
+          <source>In the field next to <bpt id="69fb472e-68c7-4ba3-b931-d52924da22b1">&lt;strong&gt;</bpt>Post<ept id="69fb472e-68c7-4ba3-b931-d52924da22b1">&lt;/strong&gt;</ept>, type in the following as the request URL: <bpt id="714c0ab6-20f1-4647-bb1a-b73a4d7d29ef">&lt;code&gt;</bpt>https://graph.windows.net/mytenantdomain/groups?api-version=1.5<ept id="714c0ab6-20f1-4647-bb1a-b73a4d7d29ef">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the field next to <bpt id="69fb472e-68c7-4ba3-b931-d52924da22b1">&lt;strong&gt;</bpt>Post<ept id="69fb472e-68c7-4ba3-b931-d52924da22b1">&lt;/strong&gt;</ept>, type in the following as the request URL: <bpt id="714c0ab6-20f1-4647-bb1a-b73a4d7d29ef">&lt;code&gt;</bpt>https://graph.windows.net/mytenantdomain/groups?api-version=1.5<ept id="714c0ab6-20f1-4647-bb1a-b73a4d7d29ef">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c870adb2-01fc-4111-826c-b947439d07c4" xml:space="preserve">
+          <source>You must substitute mytenantdomain with the domain name of your own Azure AD directory.</source>
+          <target state="new">You must substitute mytenantdomain with the domain name of your own Azure AD directory.</target>
+        </trans-unit>
+        <trans-unit id="fa1428a4-aa62-4c65-a549-2bf91734078f" xml:space="preserve">
+          <source>In the field directly below Post pull-down, type the following:</source>
+          <target state="new">In the field directly below Post pull-down, type the following:</target>
+        </trans-unit>
+        <trans-unit id="93cf643e-f9a3-43de-86b2-f25bbfc8696b" xml:space="preserve">
+          <source>For more information on Azure AD entities and types that are exposed by Graph and information about the operations that can be performed on them with Graph, see <bpt id="7f754194-e51f-4032-94af-49dac7fbca81">&lt;linkText&gt;</bpt>Azure AD Graph REST API Reference<ept id="7f754194-e51f-4032-94af-49dac7fbca81">&lt;/linkText&gt;</ept><bpt id="7f754194-e51f-4032-94af-49dac7fbca81">&lt;title&gt;</bpt><ept id="7f754194-e51f-4032-94af-49dac7fbca81">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on Azure AD entities and types that are exposed by Graph and information about the operations that can be performed on them with Graph, see <bpt id="7f754194-e51f-4032-94af-49dac7fbca81">&lt;linkText&gt;</bpt>Azure AD Graph REST API Reference<ept id="7f754194-e51f-4032-94af-49dac7fbca81">&lt;/linkText&gt;</ept><bpt id="7f754194-e51f-4032-94af-49dac7fbca81">&lt;title&gt;</bpt><ept id="7f754194-e51f-4032-94af-49dac7fbca81">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4745b75d-db50-402e-ad5f-a7dcc571e00c" xml:space="preserve">
+          <source>Learn more about the <bpt id="d4e3776f-a6b7-441e-a029-5d30ff24d0ec">&lt;linkText&gt;</bpt>Azure AD Graph API<ept id="d4e3776f-a6b7-441e-a029-5d30ff24d0ec">&lt;/linkText&gt;</ept><bpt id="d4e3776f-a6b7-441e-a029-5d30ff24d0ec">&lt;title&gt;</bpt><ept id="d4e3776f-a6b7-441e-a029-5d30ff24d0ec">&lt;/title&gt;</ept></source>
+          <target state="new">Learn more about the <bpt id="d4e3776f-a6b7-441e-a029-5d30ff24d0ec">&lt;linkText&gt;</bpt>Azure AD Graph API<ept id="d4e3776f-a6b7-441e-a029-5d30ff24d0ec">&lt;/linkText&gt;</ept><bpt id="d4e3776f-a6b7-441e-a029-5d30ff24d0ec">&lt;title&gt;</bpt><ept id="d4e3776f-a6b7-441e-a029-5d30ff24d0ec">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="743a7bef-5fde-4dc4-a89e-7400fbf0d791" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="743a7bef-5fde-4dc4-a89e-7400fbf0d791" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="66717cf2-c596-4a62-ba45-c778ea24773a">
+        <trans-unit id="09a3eeac-c125-40b4-a7c8-8774351f08c9" xml:space="preserve">
+          <source>How to Map Content Delivery Network (CDN) Content to a Custom Domain</source>
+          <target state="new">How to Map Content Delivery Network (CDN) Content to a Custom Domain</target>
+        </trans-unit>
+        <trans-unit id="8a38096c-1676-415c-8480-fc8922bf22e0" xml:space="preserve">
+          <source>This topic demonstrate how to map a CDN content to a Custom Domain.</source>
+          <target state="new">This topic demonstrate how to map a CDN content to a Custom Domain.</target>
+        </trans-unit>
+        <trans-unit id="7c4e7944-fe22-4ceb-94d5-b8fde90f331f" xml:space="preserve">
+          <source>You can map a custom domain to a CDN endpoint in order to use your own domain name in URLs to cached content, rather than using the CDN endpoint provided to you.</source>
+          <target state="new">You can map a custom domain to a CDN endpoint in order to use your own domain name in URLs to cached content, rather than using the CDN endpoint provided to you.</target>
+        </trans-unit>
+        <trans-unit id="b7797683-a509-4565-9f78-333cab907c93" xml:space="preserve">
+          <source>There are two ways to map your custom domain to a CDN endpoint.</source>
+          <target state="new">There are two ways to map your custom domain to a CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="c28e9ed3-e38e-4f5f-b0bc-a9f117eb1e5a" xml:space="preserve">
+          <source><bpt id="5f9cdf4c-867e-4a85-973a-634d2617f821">&lt;strong&gt;</bpt>Create a CNAME record with your domain registrar and map your custom domain and subdomain to the CDN endpoint<ept id="5f9cdf4c-867e-4a85-973a-634d2617f821">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="5f9cdf4c-867e-4a85-973a-634d2617f821">&lt;strong&gt;</bpt>Create a CNAME record with your domain registrar and map your custom domain and subdomain to the CDN endpoint<ept id="5f9cdf4c-867e-4a85-973a-634d2617f821">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="ef5e6bd7-25f5-41fc-b12c-8db14a65ee9e" xml:space="preserve">
+          <source>A CNAME record is a DNS feature that maps a source domain to a destination domain.</source>
+          <target state="new">A CNAME record is a DNS feature that maps a source domain to a destination domain.</target>
+        </trans-unit>
+        <trans-unit id="a4388429-cae3-4fe1-bd33-af6bdc82358c" xml:space="preserve">
+          <source>In this case, the source domain is your custom domain and subdomain (subdomain is always required).</source>
+          <target state="new">In this case, the source domain is your custom domain and subdomain (subdomain is always required).</target>
+        </trans-unit>
+        <trans-unit id="a443132f-13b7-48fe-a7eb-10cdc4b285a1" xml:space="preserve">
+          <source>The destination domain is your CDN endpoint.</source>
+          <target state="new">The destination domain is your CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="1524dbad-441f-429c-8fe9-10934519f6b9" xml:space="preserve">
+          <source>The process of mapping your custom domain to your CDN endpoint can, however, result in a brief period of downtime for the domain while you are registering the domain in the Azure Management Portal.</source>
+          <target state="new">The process of mapping your custom domain to your CDN endpoint can, however, result in a brief period of downtime for the domain while you are registering the domain in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="2a9aa059-bacd-4fe6-9ef9-0761d815c825" xml:space="preserve">
+          <source><bpt id="ba5fedce-5444-409e-90d3-cc671e3b6a87">&lt;strong&gt;</bpt>Add an intermediate registration step with Azure cdnverify<ept id="ba5fedce-5444-409e-90d3-cc671e3b6a87">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ba5fedce-5444-409e-90d3-cc671e3b6a87">&lt;strong&gt;</bpt>Add an intermediate registration step with Azure cdnverify<ept id="ba5fedce-5444-409e-90d3-cc671e3b6a87">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e554b52e-d5e8-46b3-b425-733ac7e6d197" xml:space="preserve">
+          <source>If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires that there be no downtime, then you can use the Azure <bpt id="895e3b85-c57f-4f80-8a7e-b464f9f0cd1f">&lt;strong&gt;</bpt>cdnverify<ept id="895e3b85-c57f-4f80-8a7e-b464f9f0cd1f">&lt;/strong&gt;</ept> subdomain to provide an intermediate registration step so that users will be able to access your domain while the DNS mapping takes place.</source>
+          <target state="new">If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires that there be no downtime, then you can use the Azure <bpt id="895e3b85-c57f-4f80-8a7e-b464f9f0cd1f">&lt;strong&gt;</bpt>cdnverify<ept id="895e3b85-c57f-4f80-8a7e-b464f9f0cd1f">&lt;/strong&gt;</ept> subdomain to provide an intermediate registration step so that users will be able to access your domain while the DNS mapping takes place.</target>
+        </trans-unit>
+        <trans-unit id="220b2396-b39f-41a0-b305-eb7fd2aa0267" xml:space="preserve">
+          <source>AZURE.NOTE   </source>
+          <target state="new">AZURE.NOTE   </target>
+        </trans-unit>
+        <trans-unit id="9d80d55d-93ac-4a68-8773-17b31a4f92ae" xml:space="preserve">
+          <source>You must create a CNAME record with your domain registrar to map your domain to the CDN endpoint.</source>
+          <target state="new">You must create a CNAME record with your domain registrar to map your domain to the CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="ef232a52-7a4f-4fd1-b5a7-66db29fbd26f" xml:space="preserve">
+          <source>CNAME records map specific subdomains such as www.mydomain.com or myblog.mydomain.com.</source>
+          <target state="new">CNAME records map specific subdomains such as www.mydomain.com or myblog.mydomain.com.</target>
+        </trans-unit>
+        <trans-unit id="d35cf1ae-1772-4998-a03c-0a12fb1fb232" xml:space="preserve">
+          <source>It is not possible to map a CNAME record to a root domain, such as mydomain.com.</source>
+          <target state="new">It is not possible to map a CNAME record to a root domain, such as mydomain.com.</target>
+        </trans-unit>
+        <trans-unit id="6c2dbafe-154f-4deb-9ece-1ea93b2273d7" xml:space="preserve">
+          <source>A subdomain can only be associated with one CDN endpoint.</source>
+          <target state="new">A subdomain can only be associated with one CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="5b960881-1d20-42fc-a702-3dfeaa09579d" xml:space="preserve">
+          <source>The CNAME record that you create will route all traffic addressed to the subdomain to the specified endpoint.</source>
+          <target state="new">The CNAME record that you create will route all traffic addressed to the subdomain to the specified endpoint.</target>
+        </trans-unit>
+        <trans-unit id="66006cd7-3cac-45c5-9a74-b2ff76abf3ef" xml:space="preserve">
+          <source>E.g. If you associate www.mydomain.com with your CDN endpoint, then you cannot associate it with other Azure endpoints, such as a storage account endpoint or a cloud service endpoint.</source>
+          <target state="new">E.g. If you associate www.mydomain.com with your CDN endpoint, then you cannot associate it with other Azure endpoints, such as a storage account endpoint or a cloud service endpoint.</target>
+        </trans-unit>
+        <trans-unit id="c07774a0-874f-47a0-8d99-4921a66d922b" xml:space="preserve">
+          <source>However, you can use different subdomains from the same domain for different service endpoints.</source>
+          <target state="new">However, you can use different subdomains from the same domain for different service endpoints.</target>
+        </trans-unit>
+        <trans-unit id="af12ef4c-77af-4c80-95a5-8ca003be41b4" xml:space="preserve">
+          <source>You can also map different subdomains to the same CDN endpoint.</source>
+          <target state="new">You can also map different subdomains to the same CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="d6c98a33-ff9f-4ccf-b2c1-4636d7cc906a" xml:space="preserve">
+          <source>The procedures in this topic will show you how to:    </source>
+          <target state="new">The procedures in this topic will show you how to:    </target>
+        </trans-unit>
+        <trans-unit id="991d8a7d-27ed-403e-bb9c-400933576a54" xml:space="preserve">
+          <source><bpt id="437d9850-47d8-47e5-a146-090b0fbe9bd6">&lt;linkText&gt;</bpt>Register a custom domain for an Azure CDN endpoint<ept id="437d9850-47d8-47e5-a146-090b0fbe9bd6">&lt;/linkText&gt;</ept><bpt id="437d9850-47d8-47e5-a146-090b0fbe9bd6">&lt;title&gt;</bpt><ept id="437d9850-47d8-47e5-a146-090b0fbe9bd6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="437d9850-47d8-47e5-a146-090b0fbe9bd6">&lt;linkText&gt;</bpt>Register a custom domain for an Azure CDN endpoint<ept id="437d9850-47d8-47e5-a146-090b0fbe9bd6">&lt;/linkText&gt;</ept><bpt id="437d9850-47d8-47e5-a146-090b0fbe9bd6">&lt;title&gt;</bpt><ept id="437d9850-47d8-47e5-a146-090b0fbe9bd6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24deb258-dd7a-4af4-b039-5a9087c99961" xml:space="preserve">
+          <source><bpt id="b91b2e01-a150-43e9-84b6-22aba38a9039">&lt;linkText&gt;</bpt>Register a custom domain for an Azure CDN endpoint using the intermediary cdnverify subdomain<ept id="b91b2e01-a150-43e9-84b6-22aba38a9039">&lt;/linkText&gt;</ept><bpt id="b91b2e01-a150-43e9-84b6-22aba38a9039">&lt;title&gt;</bpt><ept id="b91b2e01-a150-43e9-84b6-22aba38a9039">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b91b2e01-a150-43e9-84b6-22aba38a9039">&lt;linkText&gt;</bpt>Register a custom domain for an Azure CDN endpoint using the intermediary cdnverify subdomain<ept id="b91b2e01-a150-43e9-84b6-22aba38a9039">&lt;/linkText&gt;</ept><bpt id="b91b2e01-a150-43e9-84b6-22aba38a9039">&lt;title&gt;</bpt><ept id="b91b2e01-a150-43e9-84b6-22aba38a9039">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2bffc7dc-f73d-4791-9abb-d0e071b87ecf" xml:space="preserve">
+          <source><bpt id="1c567ba5-8e87-4da2-a397-cef185721c87">&lt;linkText&gt;</bpt>Verify that the custom subdomain references your CDN endpoint<ept id="1c567ba5-8e87-4da2-a397-cef185721c87">&lt;/linkText&gt;</ept><bpt id="1c567ba5-8e87-4da2-a397-cef185721c87">&lt;title&gt;</bpt><ept id="1c567ba5-8e87-4da2-a397-cef185721c87">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="1c567ba5-8e87-4da2-a397-cef185721c87">&lt;linkText&gt;</bpt>Verify that the custom subdomain references your CDN endpoint<ept id="1c567ba5-8e87-4da2-a397-cef185721c87">&lt;/linkText&gt;</ept><bpt id="1c567ba5-8e87-4da2-a397-cef185721c87">&lt;title&gt;</bpt><ept id="1c567ba5-8e87-4da2-a397-cef185721c87">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="122561ff-b958-477d-932d-817233f127bf" xml:space="preserve">
+          <source>Log into the <bpt id="667a9863-722a-472e-b5e2-fbd90bfe8c88">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="667a9863-722a-472e-b5e2-fbd90bfe8c88">&lt;/linkText&gt;</ept><bpt id="667a9863-722a-472e-b5e2-fbd90bfe8c88">&lt;title&gt;</bpt><ept id="667a9863-722a-472e-b5e2-fbd90bfe8c88">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log into the <bpt id="667a9863-722a-472e-b5e2-fbd90bfe8c88">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="667a9863-722a-472e-b5e2-fbd90bfe8c88">&lt;/linkText&gt;</ept><bpt id="667a9863-722a-472e-b5e2-fbd90bfe8c88">&lt;title&gt;</bpt><ept id="667a9863-722a-472e-b5e2-fbd90bfe8c88">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="963ad178-7edb-4ebf-a996-bc3a384d4e44" xml:space="preserve">
+          <source>In the navigation pane, click <bpt id="51e94ceb-932c-4879-a34f-0b0d451f8010">&lt;strong&gt;</bpt>CDN<ept id="51e94ceb-932c-4879-a34f-0b0d451f8010">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the navigation pane, click <bpt id="51e94ceb-932c-4879-a34f-0b0d451f8010">&lt;strong&gt;</bpt>CDN<ept id="51e94ceb-932c-4879-a34f-0b0d451f8010">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b2ccdcd-b3d0-4ca2-949d-f1007bc29892" xml:space="preserve">
+          <source>From the list view, click the name of the CDN endpoint with which you want to associate the subdomain, to navigate to the detail page for that endpoint.</source>
+          <target state="new">From the list view, click the name of the CDN endpoint with which you want to associate the subdomain, to navigate to the detail page for that endpoint.</target>
+        </trans-unit>
+        <trans-unit id="ac63c814-d2d5-4df7-b2a9-aaafc7ecb279" xml:space="preserve">
+          <source>On the ribbon, click <bpt id="9a0ef688-32ce-45c3-a1ec-96feeea2fb77">&lt;strong&gt;</bpt>Manage Domains<ept id="9a0ef688-32ce-45c3-a1ec-96feeea2fb77">&lt;/strong&gt;</ept> to display the <bpt id="412cb7d5-6f23-4d6e-a003-11329953ea96">&lt;strong&gt;</bpt>Manage custom domains<ept id="412cb7d5-6f23-4d6e-a003-11329953ea96">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">On the ribbon, click <bpt id="9a0ef688-32ce-45c3-a1ec-96feeea2fb77">&lt;strong&gt;</bpt>Manage Domains<ept id="9a0ef688-32ce-45c3-a1ec-96feeea2fb77">&lt;/strong&gt;</ept> to display the <bpt id="412cb7d5-6f23-4d6e-a003-11329953ea96">&lt;strong&gt;</bpt>Manage custom domains<ept id="412cb7d5-6f23-4d6e-a003-11329953ea96">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="c477d8a4-1fae-40b2-813e-12517d24ac90" xml:space="preserve">
+          <source>In the text of the dialog box, you'll see the host name, derived from your CDN endpoint, to use in creating a new CNAME record.</source>
+          <target state="new">In the text of the dialog box, you'll see the host name, derived from your CDN endpoint, to use in creating a new CNAME record.</target>
+        </trans-unit>
+        <trans-unit id="56b87c5b-d61d-4040-ae77-6eeeb9cec96e" xml:space="preserve">
+          <source>The format of the host name address will appear as <bpt id="3df65e7b-f917-4fac-b1b1-6bef2a593b7d">&lt;strong&gt;</bpt>az#####.vo.msecnd.net<ept id="3df65e7b-f917-4fac-b1b1-6bef2a593b7d">&lt;/strong&gt;</ept> (where <bpt id="fce1c379-7295-46b2-ba54-8ba43c0468b1">&lt;strong&gt;</bpt>az#####<ept id="fce1c379-7295-46b2-ba54-8ba43c0468b1">&lt;/strong&gt;</ept> is the identifier for your CDN endpoint).</source>
+          <target state="new">The format of the host name address will appear as <bpt id="3df65e7b-f917-4fac-b1b1-6bef2a593b7d">&lt;strong&gt;</bpt>az#####.vo.msecnd.net<ept id="3df65e7b-f917-4fac-b1b1-6bef2a593b7d">&lt;/strong&gt;</ept> (where <bpt id="fce1c379-7295-46b2-ba54-8ba43c0468b1">&lt;strong&gt;</bpt>az#####<ept id="fce1c379-7295-46b2-ba54-8ba43c0468b1">&lt;/strong&gt;</ept> is the identifier for your CDN endpoint).</target>
+        </trans-unit>
+        <trans-unit id="5f9e07d7-1c79-423f-81b5-2ed4686b97d4" xml:space="preserve">
+          <source>You can copy this host name to use in creating the CNAME record.</source>
+          <target state="new">You can copy this host name to use in creating the CNAME record.</target>
+        </trans-unit>
+        <trans-unit id="b1fa9e73-6111-4425-8bdf-5c13ce93a213" xml:space="preserve">
+          <source>For this procedure, ignore the text that refers to the <bpt id="d74fe554-abe9-4766-bd37-28aeed9ebf24">&lt;strong&gt;</bpt>cdnverify<ept id="d74fe554-abe9-4766-bd37-28aeed9ebf24">&lt;/strong&gt;</ept> subdomain.</source>
+          <target state="new">For this procedure, ignore the text that refers to the <bpt id="d74fe554-abe9-4766-bd37-28aeed9ebf24">&lt;strong&gt;</bpt>cdnverify<ept id="d74fe554-abe9-4766-bd37-28aeed9ebf24">&lt;/strong&gt;</ept> subdomain.</target>
+        </trans-unit>
+        <trans-unit id="7b6856cd-d49d-4389-88e2-8c97dc38cd7a" xml:space="preserve">
+          <source>Navigate to your domain registrar's web site, and locate the section for creating DNS records.</source>
+          <target state="new">Navigate to your domain registrar's web site, and locate the section for creating DNS records.</target>
+        </trans-unit>
+        <trans-unit id="e0f546f9-b1c8-4111-a00b-1caf74a3bd4c" xml:space="preserve">
+          <source>You might find this in a section such as <bpt id="589953ba-6ee8-4157-870a-01e4d4a1645b">&lt;strong&gt;</bpt>Domain Name<ept id="589953ba-6ee8-4157-870a-01e4d4a1645b">&lt;/strong&gt;</ept>, <bpt id="4d9f65d5-899b-4f13-9635-da9612ff7297">&lt;strong&gt;</bpt>DNS<ept id="4d9f65d5-899b-4f13-9635-da9612ff7297">&lt;/strong&gt;</ept>, or <bpt id="479a6d6f-f0b2-4f90-810a-cc566025bbd0">&lt;strong&gt;</bpt>Name Server Management<ept id="479a6d6f-f0b2-4f90-810a-cc566025bbd0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You might find this in a section such as <bpt id="589953ba-6ee8-4157-870a-01e4d4a1645b">&lt;strong&gt;</bpt>Domain Name<ept id="589953ba-6ee8-4157-870a-01e4d4a1645b">&lt;/strong&gt;</ept>, <bpt id="4d9f65d5-899b-4f13-9635-da9612ff7297">&lt;strong&gt;</bpt>DNS<ept id="4d9f65d5-899b-4f13-9635-da9612ff7297">&lt;/strong&gt;</ept>, or <bpt id="479a6d6f-f0b2-4f90-810a-cc566025bbd0">&lt;strong&gt;</bpt>Name Server Management<ept id="479a6d6f-f0b2-4f90-810a-cc566025bbd0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3feb6657-818b-4439-90f2-68a1210fddef" xml:space="preserve">
+          <source>Find the section for managing CNAMEs.</source>
+          <target state="new">Find the section for managing CNAMEs.</target>
+        </trans-unit>
+        <trans-unit id="42b46685-14ad-4330-820a-d926cc448ec6" xml:space="preserve">
+          <source>You may have to go to an advanced settings page and look for the words CNAME, Alias, or Subdomains.</source>
+          <target state="new">You may have to go to an advanced settings page and look for the words CNAME, Alias, or Subdomains.</target>
+        </trans-unit>
+        <trans-unit id="b208f87d-fe56-4448-9a9c-ef653a16ccae" xml:space="preserve">
+          <source>Create a new CNAME record that maps your chosen subdomain (for example, <bpt id="118e9cd2-eab6-445d-9be7-8d7bffcfd8eb">&lt;strong&gt;</bpt>www<ept id="118e9cd2-eab6-445d-9be7-8d7bffcfd8eb">&lt;/strong&gt;</ept> or <bpt id="44cf3e8b-c13b-4c47-a433-9febd9820d01">&lt;strong&gt;</bpt>cdn<ept id="44cf3e8b-c13b-4c47-a433-9febd9820d01">&lt;/strong&gt;</ept>) to the host name provided in the <bpt id="bd73298b-d9b4-402f-87af-5a4fd70f863f">&lt;strong&gt;</bpt>Manage custom domains<ept id="bd73298b-d9b4-402f-87af-5a4fd70f863f">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Create a new CNAME record that maps your chosen subdomain (for example, <bpt id="118e9cd2-eab6-445d-9be7-8d7bffcfd8eb">&lt;strong&gt;</bpt>www<ept id="118e9cd2-eab6-445d-9be7-8d7bffcfd8eb">&lt;/strong&gt;</ept> or <bpt id="44cf3e8b-c13b-4c47-a433-9febd9820d01">&lt;strong&gt;</bpt>cdn<ept id="44cf3e8b-c13b-4c47-a433-9febd9820d01">&lt;/strong&gt;</ept>) to the host name provided in the <bpt id="bd73298b-d9b4-402f-87af-5a4fd70f863f">&lt;strong&gt;</bpt>Manage custom domains<ept id="bd73298b-d9b4-402f-87af-5a4fd70f863f">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="96175cca-f6a5-4c72-9140-e8dc24dcdd16" xml:space="preserve">
+          <source>Return to the <bpt id="3ac38bbc-c031-42ea-8e40-bba0465c49d0">&lt;strong&gt;</bpt>Manage custom domains<ept id="3ac38bbc-c031-42ea-8e40-bba0465c49d0">&lt;/strong&gt;</ept> dialog, and enter your custom domain, including the subdomain, in the dialog box.</source>
+          <target state="new">Return to the <bpt id="3ac38bbc-c031-42ea-8e40-bba0465c49d0">&lt;strong&gt;</bpt>Manage custom domains<ept id="3ac38bbc-c031-42ea-8e40-bba0465c49d0">&lt;/strong&gt;</ept> dialog, and enter your custom domain, including the subdomain, in the dialog box.</target>
+        </trans-unit>
+        <trans-unit id="18bdc703-640f-410c-abd3-71542c5dd028" xml:space="preserve">
+          <source>For example, enter the domain name in the format www.mydomain.com or cdn.mydomain.com.</source>
+          <target state="new">For example, enter the domain name in the format www.mydomain.com or cdn.mydomain.com.</target>
+        </trans-unit>
+        <trans-unit id="df1d71dc-4145-4061-b891-85d100043a52" xml:space="preserve">
+          <source>Azure will verify that the CNAME record exists for the domain name you have entered.</source>
+          <target state="new">Azure will verify that the CNAME record exists for the domain name you have entered.</target>
+        </trans-unit>
+        <trans-unit id="4ce14972-03cb-4d11-a0a8-08de6fbbcc56" xml:space="preserve">
+          <source>If the CNAME is correct, your custom domain is validated and ready to use with your CDN content.</source>
+          <target state="new">If the CNAME is correct, your custom domain is validated and ready to use with your CDN content.</target>
+        </trans-unit>
+        <trans-unit id="aa053bee-b14e-4f88-bbad-3c361ef78b8f" xml:space="preserve">
+          <source>Note that in some cases it can take time for the CNAME record to propagate to name servers on the Internet.</source>
+          <target state="new">Note that in some cases it can take time for the CNAME record to propagate to name servers on the Internet.</target>
+        </trans-unit>
+        <trans-unit id="d2a05d0b-d91c-42b2-b5a6-3b1a83a7cb5f" xml:space="preserve">
+          <source>If your domain is not validated immediately, and you believe the CNAME record is correct, then wait a few minutes and try again.</source>
+          <target state="new">If your domain is not validated immediately, and you believe the CNAME record is correct, then wait a few minutes and try again.</target>
+        </trans-unit>
+        <trans-unit id="cdd20fd7-5acd-408c-a2a9-f874b8dd28d4" xml:space="preserve">
+          <source>Log into the <bpt id="810b5950-784b-46f1-9b05-297dbcef9399">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="810b5950-784b-46f1-9b05-297dbcef9399">&lt;/linkText&gt;</ept><bpt id="810b5950-784b-46f1-9b05-297dbcef9399">&lt;title&gt;</bpt><ept id="810b5950-784b-46f1-9b05-297dbcef9399">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log into the <bpt id="810b5950-784b-46f1-9b05-297dbcef9399">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="810b5950-784b-46f1-9b05-297dbcef9399">&lt;/linkText&gt;</ept><bpt id="810b5950-784b-46f1-9b05-297dbcef9399">&lt;title&gt;</bpt><ept id="810b5950-784b-46f1-9b05-297dbcef9399">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf62f0cc-7d28-4796-9b26-6c7418acff3f" xml:space="preserve">
+          <source>In the navigation pane, click <bpt id="53e6dfa0-b00b-4161-b9f0-d24b47006b9e">&lt;strong&gt;</bpt>CDN<ept id="53e6dfa0-b00b-4161-b9f0-d24b47006b9e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the navigation pane, click <bpt id="53e6dfa0-b00b-4161-b9f0-d24b47006b9e">&lt;strong&gt;</bpt>CDN<ept id="53e6dfa0-b00b-4161-b9f0-d24b47006b9e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f72db42a-af2e-4eec-bc5e-8ec536e865b6" xml:space="preserve">
+          <source>From the list view, click the name of the CDN endpoint with which you want to associate the subdomain, to navigate to the detail page for that endpoint.</source>
+          <target state="new">From the list view, click the name of the CDN endpoint with which you want to associate the subdomain, to navigate to the detail page for that endpoint.</target>
+        </trans-unit>
+        <trans-unit id="06560891-17c4-46cc-acf6-1fb5c89e0c39" xml:space="preserve">
+          <source>On the ribbon, click <bpt id="2c2f6cc5-ce5b-46fe-adb0-19a5029837f9">&lt;strong&gt;</bpt>Manage Domains<ept id="2c2f6cc5-ce5b-46fe-adb0-19a5029837f9">&lt;/strong&gt;</ept> to display the <bpt id="214e32cb-b88b-4c97-8494-f8706919c2e4">&lt;strong&gt;</bpt>Manage custom domains<ept id="214e32cb-b88b-4c97-8494-f8706919c2e4">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">On the ribbon, click <bpt id="2c2f6cc5-ce5b-46fe-adb0-19a5029837f9">&lt;strong&gt;</bpt>Manage Domains<ept id="2c2f6cc5-ce5b-46fe-adb0-19a5029837f9">&lt;/strong&gt;</ept> to display the <bpt id="214e32cb-b88b-4c97-8494-f8706919c2e4">&lt;strong&gt;</bpt>Manage custom domains<ept id="214e32cb-b88b-4c97-8494-f8706919c2e4">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="8d5c61aa-307b-414a-9fed-33bba3d481aa" xml:space="preserve">
+          <source>In the text of the dialog box, you'll see the host name, derived from your CDN endpoint, to use in creating a new CNAME record using the <bpt id="5af1fec9-411d-440d-aea3-0901011d1aa2">&lt;strong&gt;</bpt>cdnverify<ept id="5af1fec9-411d-440d-aea3-0901011d1aa2">&lt;/strong&gt;</ept> intermediary subdomain.</source>
+          <target state="new">In the text of the dialog box, you'll see the host name, derived from your CDN endpoint, to use in creating a new CNAME record using the <bpt id="5af1fec9-411d-440d-aea3-0901011d1aa2">&lt;strong&gt;</bpt>cdnverify<ept id="5af1fec9-411d-440d-aea3-0901011d1aa2">&lt;/strong&gt;</ept> intermediary subdomain.</target>
+        </trans-unit>
+        <trans-unit id="6a9168b7-817f-48c6-86f9-e44831cc6ff8" xml:space="preserve">
+          <source>The format of the host name address will appear as <bpt id="e533ee20-c515-400b-9b3f-2dd8ed6ffac4">&lt;strong&gt;</bpt>cdnverify.az#####.vo.msecnd.net<ept id="e533ee20-c515-400b-9b3f-2dd8ed6ffac4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The format of the host name address will appear as <bpt id="e533ee20-c515-400b-9b3f-2dd8ed6ffac4">&lt;strong&gt;</bpt>cdnverify.az#####.vo.msecnd.net<ept id="e533ee20-c515-400b-9b3f-2dd8ed6ffac4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce5fd12e-3307-4c4f-95bb-7e843e61bc51" xml:space="preserve">
+          <source>You can copy this host name to use in creating the CNAME record.</source>
+          <target state="new">You can copy this host name to use in creating the CNAME record.</target>
+        </trans-unit>
+        <trans-unit id="32e6410a-d75e-4d53-b887-17203abfb396" xml:space="preserve">
+          <source>Navigate to your domain registrar's web site, and locate the section for creating DNS records.</source>
+          <target state="new">Navigate to your domain registrar's web site, and locate the section for creating DNS records.</target>
+        </trans-unit>
+        <trans-unit id="3f57a1eb-da94-4e34-ac59-7a1ec1f7b7e8" xml:space="preserve">
+          <source>You might find this in a section such as <bpt id="3fe24880-bc85-4ed7-a0f3-d3a5dbe9085b">&lt;strong&gt;</bpt>Domain Name<ept id="3fe24880-bc85-4ed7-a0f3-d3a5dbe9085b">&lt;/strong&gt;</ept>, <bpt id="e72ee324-c8b4-40fb-b7ba-4261896c8349">&lt;strong&gt;</bpt>DNS<ept id="e72ee324-c8b4-40fb-b7ba-4261896c8349">&lt;/strong&gt;</ept>, or <bpt id="be51b0c8-cd9c-422e-8f42-a8b70ba9b8dd">&lt;strong&gt;</bpt>Name Server Management<ept id="be51b0c8-cd9c-422e-8f42-a8b70ba9b8dd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You might find this in a section such as <bpt id="3fe24880-bc85-4ed7-a0f3-d3a5dbe9085b">&lt;strong&gt;</bpt>Domain Name<ept id="3fe24880-bc85-4ed7-a0f3-d3a5dbe9085b">&lt;/strong&gt;</ept>, <bpt id="e72ee324-c8b4-40fb-b7ba-4261896c8349">&lt;strong&gt;</bpt>DNS<ept id="e72ee324-c8b4-40fb-b7ba-4261896c8349">&lt;/strong&gt;</ept>, or <bpt id="be51b0c8-cd9c-422e-8f42-a8b70ba9b8dd">&lt;strong&gt;</bpt>Name Server Management<ept id="be51b0c8-cd9c-422e-8f42-a8b70ba9b8dd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9be268c1-c1ec-4d25-94ad-69458625c997" xml:space="preserve">
+          <source>Find the section for managing CNAMEs.</source>
+          <target state="new">Find the section for managing CNAMEs.</target>
+        </trans-unit>
+        <trans-unit id="94d576fa-882b-4587-8a49-59bf92ec8296" xml:space="preserve">
+          <source>You may have to go to an advanced settings page and look for the words <bpt id="ea8148f3-af64-49c0-a038-9d32bfc4c57d">&lt;strong&gt;</bpt>CNAME<ept id="ea8148f3-af64-49c0-a038-9d32bfc4c57d">&lt;/strong&gt;</ept>, <bpt id="dae39cb1-240e-4707-84da-827c7f8dcba5">&lt;strong&gt;</bpt>Alias<ept id="dae39cb1-240e-4707-84da-827c7f8dcba5">&lt;/strong&gt;</ept>, or <bpt id="ccecae68-7d90-4e14-8ac0-5f2881c546bf">&lt;strong&gt;</bpt>Subdomains<ept id="ccecae68-7d90-4e14-8ac0-5f2881c546bf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You may have to go to an advanced settings page and look for the words <bpt id="ea8148f3-af64-49c0-a038-9d32bfc4c57d">&lt;strong&gt;</bpt>CNAME<ept id="ea8148f3-af64-49c0-a038-9d32bfc4c57d">&lt;/strong&gt;</ept>, <bpt id="dae39cb1-240e-4707-84da-827c7f8dcba5">&lt;strong&gt;</bpt>Alias<ept id="dae39cb1-240e-4707-84da-827c7f8dcba5">&lt;/strong&gt;</ept>, or <bpt id="ccecae68-7d90-4e14-8ac0-5f2881c546bf">&lt;strong&gt;</bpt>Subdomains<ept id="ccecae68-7d90-4e14-8ac0-5f2881c546bf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a135c84c-e630-4bf8-8cd3-3cbbe6a8cc07" xml:space="preserve">
+          <source>Create a new CNAME record, and provide a subdomain alias that includes the <bpt id="c1c4ee46-3011-4465-bb49-b6dec41440f4">&lt;strong&gt;</bpt>cdnverify<ept id="c1c4ee46-3011-4465-bb49-b6dec41440f4">&lt;/strong&gt;</ept> subdomain.</source>
+          <target state="new">Create a new CNAME record, and provide a subdomain alias that includes the <bpt id="c1c4ee46-3011-4465-bb49-b6dec41440f4">&lt;strong&gt;</bpt>cdnverify<ept id="c1c4ee46-3011-4465-bb49-b6dec41440f4">&lt;/strong&gt;</ept> subdomain.</target>
+        </trans-unit>
+        <trans-unit id="22c7978b-1e97-4b32-875b-e3fccfc9c41f" xml:space="preserve">
+          <source>For example, the subdomain that you specify will be in the format <bpt id="f0d161dc-9031-44cf-8eef-a560aca68214">&lt;strong&gt;</bpt>cdnverify.www<ept id="f0d161dc-9031-44cf-8eef-a560aca68214">&lt;/strong&gt;</ept> or <bpt id="aaf6f86e-62b0-4e81-ab2c-009637ac2cb2">&lt;strong&gt;</bpt>cdnverify.cdn<ept id="aaf6f86e-62b0-4e81-ab2c-009637ac2cb2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, the subdomain that you specify will be in the format <bpt id="f0d161dc-9031-44cf-8eef-a560aca68214">&lt;strong&gt;</bpt>cdnverify.www<ept id="f0d161dc-9031-44cf-8eef-a560aca68214">&lt;/strong&gt;</ept> or <bpt id="aaf6f86e-62b0-4e81-ab2c-009637ac2cb2">&lt;strong&gt;</bpt>cdnverify.cdn<ept id="aaf6f86e-62b0-4e81-ab2c-009637ac2cb2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a76f6cb-8ce3-4e54-ad82-5a001d956e67" xml:space="preserve">
+          <source>Then provide the host name, which is your CDN endpoint, in the format <bpt id="6659c9e4-d775-40ce-b7b2-c07064ac9d17">&lt;strong&gt;</bpt>cdnverify.az#####.vo.msecnd.net<ept id="6659c9e4-d775-40ce-b7b2-c07064ac9d17">&lt;/strong&gt;</ept> (where <bpt id="9a8511ad-9c2f-42b1-ab4a-6a9e8a9501fc">&lt;strong&gt;</bpt>az#####<ept id="9a8511ad-9c2f-42b1-ab4a-6a9e8a9501fc">&lt;/strong&gt;</ept> is the identifier for your CDN endpoint).</source>
+          <target state="new">Then provide the host name, which is your CDN endpoint, in the format <bpt id="6659c9e4-d775-40ce-b7b2-c07064ac9d17">&lt;strong&gt;</bpt>cdnverify.az#####.vo.msecnd.net<ept id="6659c9e4-d775-40ce-b7b2-c07064ac9d17">&lt;/strong&gt;</ept> (where <bpt id="9a8511ad-9c2f-42b1-ab4a-6a9e8a9501fc">&lt;strong&gt;</bpt>az#####<ept id="9a8511ad-9c2f-42b1-ab4a-6a9e8a9501fc">&lt;/strong&gt;</ept> is the identifier for your CDN endpoint).</target>
+        </trans-unit>
+        <trans-unit id="29886ab6-51a8-4e1c-8db5-2fb8b141ceb4" xml:space="preserve">
+          <source>The format of the host name is provided for you in the <bpt id="e3cfad1a-58ec-438c-9a8f-9de1d35c6f16">&lt;strong&gt;</bpt>Manage custom domains<ept id="e3cfad1a-58ec-438c-9a8f-9de1d35c6f16">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">The format of the host name is provided for you in the <bpt id="e3cfad1a-58ec-438c-9a8f-9de1d35c6f16">&lt;strong&gt;</bpt>Manage custom domains<ept id="e3cfad1a-58ec-438c-9a8f-9de1d35c6f16">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="1a495150-b150-4614-bb05-f7fd17aeb37f" xml:space="preserve">
+          <source>Return to the <bpt id="66a4820e-c9ab-4132-9fc2-a0822894677e">&lt;strong&gt;</bpt>Manage custom domains<ept id="66a4820e-c9ab-4132-9fc2-a0822894677e">&lt;/strong&gt;</ept> dialog, and enter your custom domain, including the subdomain, in the dialog box.</source>
+          <target state="new">Return to the <bpt id="66a4820e-c9ab-4132-9fc2-a0822894677e">&lt;strong&gt;</bpt>Manage custom domains<ept id="66a4820e-c9ab-4132-9fc2-a0822894677e">&lt;/strong&gt;</ept> dialog, and enter your custom domain, including the subdomain, in the dialog box.</target>
+        </trans-unit>
+        <trans-unit id="104e4518-ef79-47ba-8351-6350ee18b8fe" xml:space="preserve">
+          <source>For example, enter the domain name in the format <bpt id="6b4d7b2f-8ac6-42bc-a2cc-cfe53cc2de64">&lt;strong&gt;</bpt>www.mydomain.com<ept id="6b4d7b2f-8ac6-42bc-a2cc-cfe53cc2de64">&lt;/strong&gt;</ept> or <bpt id="f59253c6-74b9-44ed-b287-d81e76f30cfd">&lt;strong&gt;</bpt>cdn.mydomain.com<ept id="f59253c6-74b9-44ed-b287-d81e76f30cfd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, enter the domain name in the format <bpt id="6b4d7b2f-8ac6-42bc-a2cc-cfe53cc2de64">&lt;strong&gt;</bpt>www.mydomain.com<ept id="6b4d7b2f-8ac6-42bc-a2cc-cfe53cc2de64">&lt;/strong&gt;</ept> or <bpt id="f59253c6-74b9-44ed-b287-d81e76f30cfd">&lt;strong&gt;</bpt>cdn.mydomain.com<ept id="f59253c6-74b9-44ed-b287-d81e76f30cfd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54bc6c8e-308a-4c67-91a4-49479d722a01" xml:space="preserve">
+          <source>Note that in this step, you do not need to preface the subdomain with <bpt id="96b52476-6665-4568-8836-82508d2c2b4b">&lt;strong&gt;</bpt>cdnverify<ept id="96b52476-6665-4568-8836-82508d2c2b4b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Note that in this step, you do not need to preface the subdomain with <bpt id="96b52476-6665-4568-8836-82508d2c2b4b">&lt;strong&gt;</bpt>cdnverify<ept id="96b52476-6665-4568-8836-82508d2c2b4b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1877a7d9-f919-433c-ab64-7c7072ac2855" xml:space="preserve">
+          <source>Azure will verify that the CNAME record exists for the cdnverify domain name you have entered.</source>
+          <target state="new">Azure will verify that the CNAME record exists for the cdnverify domain name you have entered.</target>
+        </trans-unit>
+        <trans-unit id="e92b1f72-af55-4b6b-941b-b64bbe66287d" xml:space="preserve">
+          <source>At this point, your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your CDN endpoint.</source>
+          <target state="new">At this point, your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="023a4184-e9e5-4835-9b2c-178bc6288c51" xml:space="preserve">
+          <source>To complete the process, return to your DNS registrar's web site, and create another CNAME record that maps your subdomain to your CDN endpoint.</source>
+          <target state="new">To complete the process, return to your DNS registrar's web site, and create another CNAME record that maps your subdomain to your CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="1708e87e-cfce-4c61-8e28-8ee7816759ff" xml:space="preserve">
+          <source>For example, specify the subdomain as <bpt id="ec1f68e1-74c2-4b0b-b385-584accc47495">&lt;strong&gt;</bpt>www<ept id="ec1f68e1-74c2-4b0b-b385-584accc47495">&lt;/strong&gt;</ept> or <bpt id="fd45e1d3-c781-44a3-823c-b33bfc83f96d">&lt;strong&gt;</bpt>cdn<ept id="fd45e1d3-c781-44a3-823c-b33bfc83f96d">&lt;/strong&gt;</ept>, and the hostname as <bpt id="d308bd71-213a-47f5-b487-683d3bf50c77">&lt;strong&gt;</bpt>az#####.vo.msecnd.net<ept id="d308bd71-213a-47f5-b487-683d3bf50c77">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, specify the subdomain as <bpt id="ec1f68e1-74c2-4b0b-b385-584accc47495">&lt;strong&gt;</bpt>www<ept id="ec1f68e1-74c2-4b0b-b385-584accc47495">&lt;/strong&gt;</ept> or <bpt id="fd45e1d3-c781-44a3-823c-b33bfc83f96d">&lt;strong&gt;</bpt>cdn<ept id="fd45e1d3-c781-44a3-823c-b33bfc83f96d">&lt;/strong&gt;</ept>, and the hostname as <bpt id="d308bd71-213a-47f5-b487-683d3bf50c77">&lt;strong&gt;</bpt>az#####.vo.msecnd.net<ept id="d308bd71-213a-47f5-b487-683d3bf50c77">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c4e12b0-3235-4aea-872f-dabb3f926f1c" xml:space="preserve">
+          <source>With this step, the registration of your custom domain is complete.</source>
+          <target state="new">With this step, the registration of your custom domain is complete.</target>
+        </trans-unit>
+        <trans-unit id="36c823ad-c5f7-4037-852a-68584b6dea63" xml:space="preserve">
+          <source>Finally, you can delete the CNAME record you created using <bpt id="bb9372ad-6eed-40dd-bd25-c7288d8da6c6">&lt;strong&gt;</bpt>cdnverify<ept id="bb9372ad-6eed-40dd-bd25-c7288d8da6c6">&lt;/strong&gt;</ept>, as it was necessary only as an intermediary step.</source>
+          <target state="new">Finally, you can delete the CNAME record you created using <bpt id="bb9372ad-6eed-40dd-bd25-c7288d8da6c6">&lt;strong&gt;</bpt>cdnverify<ept id="bb9372ad-6eed-40dd-bd25-c7288d8da6c6">&lt;/strong&gt;</ept>, as it was necessary only as an intermediary step.</target>
+        </trans-unit>
+        <trans-unit id="223ffc26-e7f0-4003-977a-b12a6c587989" xml:space="preserve">
+          <source>After you have completed the registration of your custom domain, you can access content that is cached at your CDN endpoint using the custom domain.</source>
+          <target state="new">After you have completed the registration of your custom domain, you can access content that is cached at your CDN endpoint using the custom domain.</target>
+        </trans-unit>
+        <trans-unit id="4b1a4743-c54d-43a0-b871-3b4824d5c63c" xml:space="preserve">
+          <source>First, ensure that you have public content that is cached at the endpoint.</source>
+          <target state="new">First, ensure that you have public content that is cached at the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="af690001-4a9f-4f56-8114-4e6a15abbdc9" xml:space="preserve">
+          <source>For example, if your CDN endpoint is associated with a storage account, the CDN caches content in public blob containers.</source>
+          <target state="new">For example, if your CDN endpoint is associated with a storage account, the CDN caches content in public blob containers.</target>
+        </trans-unit>
+        <trans-unit id="8d41909c-912a-48a5-8bf4-5602358cb21b" xml:space="preserve">
+          <source>To test the custom domain, ensure that your container is set to allow public access and that it contains at least one blob.</source>
+          <target state="new">To test the custom domain, ensure that your container is set to allow public access and that it contains at least one blob.</target>
+        </trans-unit>
+        <trans-unit id="1fabd914-a721-4f52-8da3-77baddd22342" xml:space="preserve">
+          <source>In your browser, navigate to the address of the blob using the custom domain.</source>
+          <target state="new">In your browser, navigate to the address of the blob using the custom domain.</target>
+        </trans-unit>
+        <trans-unit id="5ec54693-c68f-4bd0-9720-b03fbf074182" xml:space="preserve">
+          <source>For example, if your custom domain is <bpt id="d47f3927-6e42-4b4e-8865-7da6fd9d6f93">&lt;strong&gt;</bpt>www.mydomain.com<ept id="d47f3927-6e42-4b4e-8865-7da6fd9d6f93">&lt;/strong&gt;</ept>, the URL to a cached blob will be similar to the following URL:</source>
+          <target state="new">For example, if your custom domain is <bpt id="d47f3927-6e42-4b4e-8865-7da6fd9d6f93">&lt;strong&gt;</bpt>www.mydomain.com<ept id="d47f3927-6e42-4b4e-8865-7da6fd9d6f93">&lt;/strong&gt;</ept>, the URL to a cached blob will be similar to the following URL:</target>
+        </trans-unit>
+        <trans-unit id="9e22975d-4783-46f4-bb73-4f5ab92c542f" xml:space="preserve">
+          <source>If your CDN endpoint is associated with a cloud service, then the address of your cached content will be similar to the following URL:</source>
+          <target state="new">If your CDN endpoint is associated with a cloud service, then the address of your cached content will be similar to the following URL:</target>
+        </trans-unit>
+        <trans-unit id="4cecd0c0-33af-49f6-aa99-fc03a2f9e5ab" xml:space="preserve">
+          <source>[How to Enable the Content Delivery Network (CDN)  for Azure](./cdn-create-new-endpoint.md
+)  </source>
+          <target state="new">[How to Enable the Content Delivery Network (CDN)  for Azure](./cdn-create-new-endpoint.md
+)  </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c14bbe1e-5bc7-403e-9d3f-61971975ee2c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c14bbe1e-5bc7-403e-9d3f-61971975ee2c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9d4b83f1-681a-4ddb-9535-413f7d0d3b7e">
+        <trans-unit id="ae1aa6ad-e751-46e3-ae0b-6ea65a8bcffa" xml:space="preserve">
+          <source>How to use io.js with Azure App Service Web Apps</source>
+          <target state="new">How to use io.js with Azure App Service Web Apps</target>
+        </trans-unit>
+        <trans-unit id="1e2d6b88-3f57-46d5-9362-7fc616bdd005" xml:space="preserve">
+          <source>Learn how to use a web app in Azure App Service with io.js.</source>
+          <target state="new">Learn how to use a web app in Azure App Service with io.js.</target>
+        </trans-unit>
+        <trans-unit id="dce811e2-9c38-4077-bbe8-2717e63f38ec" xml:space="preserve">
+          <source>The popular Node fork [io.js] features various differences to Joyent's Node.js project, including a more open governance model, a faster release cycle and a faster adoption of new and experimental JavaScript features.</source>
+          <target state="new">The popular Node fork [io.js] features various differences to Joyent's Node.js project, including a more open governance model, a faster release cycle and a faster adoption of new and experimental JavaScript features.</target>
+        </trans-unit>
+        <trans-unit id="010716a0-37be-4b6b-9138-1413b52200e7" xml:space="preserve">
+          <source>While <bpt id="bb2d2fc2-0411-4677-ac14-c69558d7fd62">&lt;linkText&gt;</bpt>Azure App Service<ept id="bb2d2fc2-0411-4677-ac14-c69558d7fd62">&lt;/linkText&gt;</ept><bpt id="bb2d2fc2-0411-4677-ac14-c69558d7fd62">&lt;title&gt;</bpt><ept id="bb2d2fc2-0411-4677-ac14-c69558d7fd62">&lt;/title&gt;</ept> Web Apps has many Node.js versions preinstalled, it also allows for an user-provided Node.js binary.</source>
+          <target state="new">While <bpt id="bb2d2fc2-0411-4677-ac14-c69558d7fd62">&lt;linkText&gt;</bpt>Azure App Service<ept id="bb2d2fc2-0411-4677-ac14-c69558d7fd62">&lt;/linkText&gt;</ept><bpt id="bb2d2fc2-0411-4677-ac14-c69558d7fd62">&lt;title&gt;</bpt><ept id="bb2d2fc2-0411-4677-ac14-c69558d7fd62">&lt;/title&gt;</ept> Web Apps has many Node.js versions preinstalled, it also allows for an user-provided Node.js binary.</target>
+        </trans-unit>
+        <trans-unit id="de83386d-db7c-4463-9df8-386169bbd4b8" xml:space="preserve">
+          <source>This article discusses two methods enabling the use of io.js on App Service Web Apps: The use of an extended deployment script, which automatically configures Azure to use the latest available io.js version, as well as the manual upload of a io.js binary.</source>
+          <target state="new">This article discusses two methods enabling the use of io.js on App Service Web Apps: The use of an extended deployment script, which automatically configures Azure to use the latest available io.js version, as well as the manual upload of a io.js binary.</target>
+        </trans-unit>
+        <trans-unit id="8ccad98a-667a-466e-b9a0-14786479922e" xml:space="preserve">
+          <source><bpt id="8803b48c-0a3c-4195-a89d-9d5f36038651">&lt;bookmark&gt;</bpt><ept id="8803b48c-0a3c-4195-a89d-9d5f36038651">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="8803b48c-0a3c-4195-a89d-9d5f36038651">&lt;bookmark&gt;</bpt><ept id="8803b48c-0a3c-4195-a89d-9d5f36038651">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b692f935-7468-404b-89d3-fd88fa3d1127" xml:space="preserve">
+          <source>Upon deployment of a Node.js app, App Service Web Apps runs a number of small commands to ensure that the environment is configured properly.</source>
+          <target state="new">Upon deployment of a Node.js app, App Service Web Apps runs a number of small commands to ensure that the environment is configured properly.</target>
+        </trans-unit>
+        <trans-unit id="4ac8a8de-ca48-44d5-8670-adc596a2e931" xml:space="preserve">
+          <source>Using a deployment script, this process can be customized to include the download and configuration of io.js.</source>
+          <target state="new">Using a deployment script, this process can be customized to include the download and configuration of io.js.</target>
+        </trans-unit>
+        <trans-unit id="f1db081c-2b29-47d6-bad3-083e3c64f89e" xml:space="preserve">
+          <source>The [io.js Deployment Script] is available on GitHub.</source>
+          <target state="new">The [io.js Deployment Script] is available on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="3da41ab7-676d-4677-9e82-f75a61851c44" xml:space="preserve">
+          <source>To enable io.js on your web app, simply copy <bpt id="b1e726d4-c83d-4c2c-8d3f-5023465de808">&lt;strong&gt;</bpt>.deployment<ept id="b1e726d4-c83d-4c2c-8d3f-5023465de808">&lt;/strong&gt;</ept>, <bpt id="6494204e-97ca-47ee-ba89-dae36ded1010">&lt;strong&gt;</bpt>deploy.cmd<ept id="6494204e-97ca-47ee-ba89-dae36ded1010">&lt;/strong&gt;</ept> and <bpt id="4fef250d-6a92-4345-9e50-01fd077a1c5d">&lt;strong&gt;</bpt>IISNode.yml<ept id="4fef250d-6a92-4345-9e50-01fd077a1c5d">&lt;/strong&gt;</ept> to the root of your application folder and deploy to Web Apps.</source>
+          <target state="new">To enable io.js on your web app, simply copy <bpt id="b1e726d4-c83d-4c2c-8d3f-5023465de808">&lt;strong&gt;</bpt>.deployment<ept id="b1e726d4-c83d-4c2c-8d3f-5023465de808">&lt;/strong&gt;</ept>, <bpt id="6494204e-97ca-47ee-ba89-dae36ded1010">&lt;strong&gt;</bpt>deploy.cmd<ept id="6494204e-97ca-47ee-ba89-dae36ded1010">&lt;/strong&gt;</ept> and <bpt id="4fef250d-6a92-4345-9e50-01fd077a1c5d">&lt;strong&gt;</bpt>IISNode.yml<ept id="4fef250d-6a92-4345-9e50-01fd077a1c5d">&lt;/strong&gt;</ept> to the root of your application folder and deploy to Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="6e6b0c3e-e042-4576-be7b-f2cb69ef505c" xml:space="preserve">
+          <source>The first file, <bpt id="8cb424e4-2ddc-4d1a-ab0e-4c575db3e00d">&lt;strong&gt;</bpt>.deployment<ept id="8cb424e4-2ddc-4d1a-ab0e-4c575db3e00d">&lt;/strong&gt;</ept>, instructs Web Apps to run <bpt id="2c0e0e95-d6fa-4a21-925e-2242e1347e7a">&lt;strong&gt;</bpt>deploy.cmd<ept id="2c0e0e95-d6fa-4a21-925e-2242e1347e7a">&lt;/strong&gt;</ept> upon deployment.</source>
+          <target state="new">The first file, <bpt id="8cb424e4-2ddc-4d1a-ab0e-4c575db3e00d">&lt;strong&gt;</bpt>.deployment<ept id="8cb424e4-2ddc-4d1a-ab0e-4c575db3e00d">&lt;/strong&gt;</ept>, instructs Web Apps to run <bpt id="2c0e0e95-d6fa-4a21-925e-2242e1347e7a">&lt;strong&gt;</bpt>deploy.cmd<ept id="2c0e0e95-d6fa-4a21-925e-2242e1347e7a">&lt;/strong&gt;</ept> upon deployment.</target>
+        </trans-unit>
+        <trans-unit id="3b641f8f-8ed5-491d-b84b-6e26cc73c7db" xml:space="preserve">
+          <source>This script runs all the usual steps for a Node.js applicaion, but also downloads the latest version of io.js.</source>
+          <target state="new">This script runs all the usual steps for a Node.js applicaion, but also downloads the latest version of io.js.</target>
+        </trans-unit>
+        <trans-unit id="5c08386b-cc2f-4cc9-8eb1-644a8f1eaadb" xml:space="preserve">
+          <source>Finally, <bpt id="03a5150b-9886-4763-bdfd-a4fd33374bc2">&lt;strong&gt;</bpt>IISNode.yml<ept id="03a5150b-9886-4763-bdfd-a4fd33374bc2">&lt;/strong&gt;</ept> configures Web Apps to use the just downloaded io.js binary instead of a pre-installed Node.js binary.</source>
+          <target state="new">Finally, <bpt id="03a5150b-9886-4763-bdfd-a4fd33374bc2">&lt;strong&gt;</bpt>IISNode.yml<ept id="03a5150b-9886-4763-bdfd-a4fd33374bc2">&lt;/strong&gt;</ept> configures Web Apps to use the just downloaded io.js binary instead of a pre-installed Node.js binary.</target>
+        </trans-unit>
+        <trans-unit id="e6f3fe3a-2339-45c6-9d5c-347bac86272a" xml:space="preserve">
+          <source>To update the used io.js binary, just redeploy your application - the script will download a new version of io.js every single time the application is deployed.</source>
+          <target state="new">To update the used io.js binary, just redeploy your application - the script will download a new version of io.js every single time the application is deployed.</target>
+        </trans-unit>
+        <trans-unit id="941ad44d-f081-4e9c-9a27-85fada3bad73" xml:space="preserve">
+          <source><bpt id="dfebbf96-2271-4225-a1fd-415a9e04eb05">&lt;bookmark&gt;</bpt><ept id="dfebbf96-2271-4225-a1fd-415a9e04eb05">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="dfebbf96-2271-4225-a1fd-415a9e04eb05">&lt;bookmark&gt;</bpt><ept id="dfebbf96-2271-4225-a1fd-415a9e04eb05">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="549ec899-f256-47f0-8777-0378a4560d9f" xml:space="preserve">
+          <source>The manual installation of a custom io.js version includes only two steps.</source>
+          <target state="new">The manual installation of a custom io.js version includes only two steps.</target>
+        </trans-unit>
+        <trans-unit id="3734cf1d-d1c0-4a37-a238-06165494eb93" xml:space="preserve">
+          <source>First, download the <bpt id="23924443-7292-4a97-9800-38544e4485c4">&lt;strong&gt;</bpt>win-x64<ept id="23924443-7292-4a97-9800-38544e4485c4">&lt;/strong&gt;</ept> binary directly from the [io.js distribution].</source>
+          <target state="new">First, download the <bpt id="23924443-7292-4a97-9800-38544e4485c4">&lt;strong&gt;</bpt>win-x64<ept id="23924443-7292-4a97-9800-38544e4485c4">&lt;/strong&gt;</ept> binary directly from the [io.js distribution].</target>
+        </trans-unit>
+        <trans-unit id="080e4975-e934-4ce2-99a2-d70e2c04d3da" xml:space="preserve">
+          <source>Required are two files - <bpt id="9693c1f1-979d-4ebc-aaf1-fe682ab5ac76">&lt;strong&gt;</bpt>iojs.exe<ept id="9693c1f1-979d-4ebc-aaf1-fe682ab5ac76">&lt;/strong&gt;</ept> and <bpt id="3d7339a1-97c7-4fc3-9d20-dfbdb559dca6">&lt;strong&gt;</bpt>iojs.lib<ept id="3d7339a1-97c7-4fc3-9d20-dfbdb559dca6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Required are two files - <bpt id="9693c1f1-979d-4ebc-aaf1-fe682ab5ac76">&lt;strong&gt;</bpt>iojs.exe<ept id="9693c1f1-979d-4ebc-aaf1-fe682ab5ac76">&lt;/strong&gt;</ept> and <bpt id="3d7339a1-97c7-4fc3-9d20-dfbdb559dca6">&lt;strong&gt;</bpt>iojs.lib<ept id="3d7339a1-97c7-4fc3-9d20-dfbdb559dca6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e996064d-4e79-4e4f-b918-1f7a87c0a326" xml:space="preserve">
+          <source>Save both files to a folder inside your web app, for example in <bpt id="956044db-6b77-4b8c-b7f3-a620f38718f7">&lt;strong&gt;</bpt>bin/iojs<ept id="956044db-6b77-4b8c-b7f3-a620f38718f7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Save both files to a folder inside your web app, for example in <bpt id="956044db-6b77-4b8c-b7f3-a620f38718f7">&lt;strong&gt;</bpt>bin/iojs<ept id="956044db-6b77-4b8c-b7f3-a620f38718f7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d475e62a-ba70-4ef1-b7f3-ca26ba3f9554" xml:space="preserve">
+          <source>To configure Web Apps to use <bpt id="9efc5ce3-41b9-4af6-8b72-839f5a0d45a1">&lt;strong&gt;</bpt>iojs.exe<ept id="9efc5ce3-41b9-4af6-8b72-839f5a0d45a1">&lt;/strong&gt;</ept> instead of a pre-installed Node version, create a <bpt id="fd9983dd-2adb-4e05-997f-5f3841203e6f">&lt;strong&gt;</bpt>IISNode.yml<ept id="fd9983dd-2adb-4e05-997f-5f3841203e6f">&lt;/strong&gt;</ept> file at the root of your application and add the following line.</source>
+          <target state="new">To configure Web Apps to use <bpt id="9efc5ce3-41b9-4af6-8b72-839f5a0d45a1">&lt;strong&gt;</bpt>iojs.exe<ept id="9efc5ce3-41b9-4af6-8b72-839f5a0d45a1">&lt;/strong&gt;</ept> instead of a pre-installed Node version, create a <bpt id="fd9983dd-2adb-4e05-997f-5f3841203e6f">&lt;strong&gt;</bpt>IISNode.yml<ept id="fd9983dd-2adb-4e05-997f-5f3841203e6f">&lt;/strong&gt;</ept> file at the root of your application and add the following line.</target>
+        </trans-unit>
+        <trans-unit id="9e0843b1-0b00-4eaf-a467-3da2bdbb674a" xml:space="preserve">
+          <source><bpt id="fbe0658e-53ee-4b55-825e-03590e4747ab">&lt;bookmark&gt;</bpt><ept id="fbe0658e-53ee-4b55-825e-03590e4747ab">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="fbe0658e-53ee-4b55-825e-03590e4747ab">&lt;bookmark&gt;</bpt><ept id="fbe0658e-53ee-4b55-825e-03590e4747ab">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa9e21bb-5463-48a0-886b-317b81bc29db" xml:space="preserve">
+          <source>In this article you learned how to use io.js with App Service Web Apps, using both provided deployment scripts as well as manual installation.</source>
+          <target state="new">In this article you learned how to use io.js with App Service Web Apps, using both provided deployment scripts as well as manual installation.</target>
+        </trans-unit>
+        <trans-unit id="9665dbcf-a66c-4553-9711-0facd5d241d9" xml:space="preserve">
+          <source>io.js is in heavy development and updated more frequently than Node.js.</source>
+          <target state="new">io.js is in heavy development and updated more frequently than Node.js.</target>
+        </trans-unit>
+        <trans-unit id="d004f909-5c70-430e-9f50-3c01de08278d" xml:space="preserve">
+          <source>A number of Node.js modules might not work with io.js - please consult [io.js on GitHub] for troubleshooting.</source>
+          <target state="new">A number of Node.js modules might not work with io.js - please consult [io.js on GitHub] for troubleshooting.</target>
+        </trans-unit>
+        <trans-unit id="f17a14f3-850e-4894-9c8f-b06f4909fe00" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="18df0ac1-41ff-480e-9db3-e42bacbb84c8">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="18df0ac1-41ff-480e-9db3-e42bacbb84c8">&lt;/linkText&gt;</ept><bpt id="18df0ac1-41ff-480e-9db3-e42bacbb84c8">&lt;title&gt;</bpt><ept id="18df0ac1-41ff-480e-9db3-e42bacbb84c8">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="18df0ac1-41ff-480e-9db3-e42bacbb84c8">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="18df0ac1-41ff-480e-9db3-e42bacbb84c8">&lt;/linkText&gt;</ept><bpt id="18df0ac1-41ff-480e-9db3-e42bacbb84c8">&lt;title&gt;</bpt><ept id="18df0ac1-41ff-480e-9db3-e42bacbb84c8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79001d94-756c-4166-b17a-0cbac7801081" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="5336aefe-1fd1-4060-bb2b-6580f4530ff9">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="5336aefe-1fd1-4060-bb2b-6580f4530ff9">&lt;/linkText&gt;</ept><bpt id="5336aefe-1fd1-4060-bb2b-6580f4530ff9">&lt;title&gt;</bpt><ept id="5336aefe-1fd1-4060-bb2b-6580f4530ff9">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="5336aefe-1fd1-4060-bb2b-6580f4530ff9">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="5336aefe-1fd1-4060-bb2b-6580f4530ff9">&lt;/linkText&gt;</ept><bpt id="5336aefe-1fd1-4060-bb2b-6580f4530ff9">&lt;title&gt;</bpt><ept id="5336aefe-1fd1-4060-bb2b-6580f4530ff9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac6d9cb2-6549-4a49-9b70-ba4cf6f80701" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="5417c141-4637-40e3-b856-845b575e335f">&lt;linkText&gt;</bpt>Try App Service<ept id="5417c141-4637-40e3-b856-845b575e335f">&lt;/linkText&gt;</ept><bpt id="5417c141-4637-40e3-b856-845b575e335f">&lt;title&gt;</bpt><ept id="5417c141-4637-40e3-b856-845b575e335f">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="5417c141-4637-40e3-b856-845b575e335f">&lt;linkText&gt;</bpt>Try App Service<ept id="5417c141-4637-40e3-b856-845b575e335f">&lt;/linkText&gt;</ept><bpt id="5417c141-4637-40e3-b856-845b575e335f">&lt;title&gt;</bpt><ept id="5417c141-4637-40e3-b856-845b575e335f">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="2b4f3453-a589-4ef4-83e0-e439defb3a83" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="e4fd92ef-731e-48a7-98c4-b188a3bb9bfa" xml:space="preserve">
+          <source>https://iojs.org</source>
+          <target state="new">https://iojs.org</target>
+        </trans-unit>
+        <trans-unit id="0c1b81df-2c75-46c9-a1ca-6c0b3081c6b5" xml:space="preserve">
+          <source>https://iojs.org/dist/</source>
+          <target state="new">https://iojs.org/dist/</target>
+        </trans-unit>
+        <trans-unit id="ca06a5e4-5f10-46b2-adf2-6b12ea591e67" xml:space="preserve">
+          <source>https://github.com/iojs/io.js</source>
+          <target state="new">https://github.com/iojs/io.js</target>
+        </trans-unit>
+        <trans-unit id="8343ef13-e59a-4e66-8f00-bd7cb20db501" xml:space="preserve">
+          <source>https://github.com/felixrieseberg/iojs-azure</source>
+          <target state="new">https://github.com/felixrieseberg/iojs-azure</target>
+        </trans-unit>
+      </group>
+      <group id="039cd7d1-97dd-4f37-b27b-bc0045e597c0" />
+    </body>
+  </file>
+</xliff>

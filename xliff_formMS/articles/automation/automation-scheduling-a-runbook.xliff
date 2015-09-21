@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="feb0c75f-1d9e-48c4-bc99-450b7bf6f18c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="feb0c75f-1d9e-48c4-bc99-450b7bf6f18c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c2e2abd4-89e8-4fce-99b0-2a7866550227">
+        <trans-unit id="4de79722-c395-43e4-9fb0-65f634f82fe0" xml:space="preserve">
+          <source>Scheduling a runbook in Azure Automation</source>
+          <target state="new">Scheduling a runbook in Azure Automation</target>
+        </trans-unit>
+        <trans-unit id="059e16eb-1bcf-45d0-882b-cb7c071a29b3" xml:space="preserve">
+          <source>Describes how to create a schedule in Azure Automation so that you can automatically start a runbook at a particular time or on a recurring schedule.</source>
+          <target state="new">Describes how to create a schedule in Azure Automation so that you can automatically start a runbook at a particular time or on a recurring schedule.</target>
+        </trans-unit>
+        <trans-unit id="6e83e5f7-ed08-4d84-b99e-4cc39f890082" xml:space="preserve">
+          <source>To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules.</source>
+          <target state="new">To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules.</target>
+        </trans-unit>
+        <trans-unit id="e2b02757-513a-4150-b2a1-61ef42f40dd0" xml:space="preserve">
+          <source>A schedule can be configured to either run one time or recurring every specified number of hours or days.</source>
+          <target state="new">A schedule can be configured to either run one time or recurring every specified number of hours or days.</target>
+        </trans-unit>
+        <trans-unit id="6a199967-6671-4aed-a719-616a1b974d7e" xml:space="preserve">
+          <source>A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.</source>
+          <target state="new">A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.</target>
+        </trans-unit>
+        <trans-unit id="d3f15bb7-cabb-44cd-a7e2-15cc87f00a38" xml:space="preserve">
+          <source>You can either create a new schedule with the Azure Management Portal or with Windows PowerShell.</source>
+          <target state="new">You can either create a new schedule with the Azure Management Portal or with Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="79439045-cb4a-4796-be86-44820c59bd56" xml:space="preserve">
+          <source>You also have the option of creating a new schedule when you link a runbook to a schedule using the Azure Management Portal.</source>
+          <target state="new">You also have the option of creating a new schedule when you link a runbook to a schedule using the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="13c7e469-08ff-4dc3-938d-aee88905b139" xml:space="preserve">
+          <source>In the Azure Management Portal, select Automation and then then click the name of an automation account.</source>
+          <target state="new">In the Azure Management Portal, select Automation and then then click the name of an automation account.</target>
+        </trans-unit>
+        <trans-unit id="ff575310-4743-4c94-a8c7-5107be773745" xml:space="preserve">
+          <source>Select the <bpt id="34eae746-3b1e-48e4-97b8-c4bd453bdeaf">&lt;strong&gt;</bpt>Assets<ept id="34eae746-3b1e-48e4-97b8-c4bd453bdeaf">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the <bpt id="34eae746-3b1e-48e4-97b8-c4bd453bdeaf">&lt;strong&gt;</bpt>Assets<ept id="34eae746-3b1e-48e4-97b8-c4bd453bdeaf">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="ea8aa80c-e0ae-43ff-8107-2185a155a80f" xml:space="preserve">
+          <source>At the bottom of the window, click <bpt id="d523ce53-e0e8-4de4-8cb2-33b9f339143e">&lt;strong&gt;</bpt>Add Setting<ept id="d523ce53-e0e8-4de4-8cb2-33b9f339143e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the window, click <bpt id="d523ce53-e0e8-4de4-8cb2-33b9f339143e">&lt;strong&gt;</bpt>Add Setting<ept id="d523ce53-e0e8-4de4-8cb2-33b9f339143e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e837d379-7f41-49ed-94b9-d6cbdcf4f514" xml:space="preserve">
+          <source>Click <bpt id="b88da6ee-aacb-4516-a818-00cc268bc538">&lt;strong&gt;</bpt>Add Schedule<ept id="b88da6ee-aacb-4516-a818-00cc268bc538">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b88da6ee-aacb-4516-a818-00cc268bc538">&lt;strong&gt;</bpt>Add Schedule<ept id="b88da6ee-aacb-4516-a818-00cc268bc538">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7d004c6-83df-4cad-8a44-a69774f3a696" xml:space="preserve">
+          <source>Type a <bpt id="d51ffce2-30e2-479a-a7ce-69aaa329e15b">&lt;strong&gt;</bpt>Name<ept id="d51ffce2-30e2-479a-a7ce-69aaa329e15b">&lt;/strong&gt;</ept> and optionally a <bpt id="46e6889c-9bfe-4a9f-9c98-2073d237f28c">&lt;strong&gt;</bpt>Description<ept id="46e6889c-9bfe-4a9f-9c98-2073d237f28c">&lt;/strong&gt;</ept> for the new schedule.</source>
+          <target state="new">Type a <bpt id="d51ffce2-30e2-479a-a7ce-69aaa329e15b">&lt;strong&gt;</bpt>Name<ept id="d51ffce2-30e2-479a-a7ce-69aaa329e15b">&lt;/strong&gt;</ept> and optionally a <bpt id="46e6889c-9bfe-4a9f-9c98-2073d237f28c">&lt;strong&gt;</bpt>Description<ept id="46e6889c-9bfe-4a9f-9c98-2073d237f28c">&lt;/strong&gt;</ept> for the new schedule.</target>
+        </trans-unit>
+        <trans-unit id="46893bb9-ea49-4dea-a4e8-80d674b50ff9" xml:space="preserve">
+          <source>Select whether the schedule will run <bpt id="c3adf7fd-acb1-4768-bfc9-40d6374dbe59">&lt;strong&gt;</bpt>One Time<ept id="c3adf7fd-acb1-4768-bfc9-40d6374dbe59">&lt;/strong&gt;</ept>, <bpt id="f743afce-6d8e-4733-a4af-186bff90d016">&lt;strong&gt;</bpt>Hourly<ept id="f743afce-6d8e-4733-a4af-186bff90d016">&lt;/strong&gt;</ept>, or <bpt id="9774a55b-7a11-4786-bb03-84d540811d45">&lt;strong&gt;</bpt>Daily<ept id="9774a55b-7a11-4786-bb03-84d540811d45">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select whether the schedule will run <bpt id="c3adf7fd-acb1-4768-bfc9-40d6374dbe59">&lt;strong&gt;</bpt>One Time<ept id="c3adf7fd-acb1-4768-bfc9-40d6374dbe59">&lt;/strong&gt;</ept>, <bpt id="f743afce-6d8e-4733-a4af-186bff90d016">&lt;strong&gt;</bpt>Hourly<ept id="f743afce-6d8e-4733-a4af-186bff90d016">&lt;/strong&gt;</ept>, or <bpt id="9774a55b-7a11-4786-bb03-84d540811d45">&lt;strong&gt;</bpt>Daily<ept id="9774a55b-7a11-4786-bb03-84d540811d45">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2916c75-9e4d-46a9-b9b0-e9c642fca073" xml:space="preserve">
+          <source>Specify a <bpt id="636b95cb-ba5e-4a1c-9e0a-adfe3b1e6ece">&lt;strong&gt;</bpt>Start Time<ept id="636b95cb-ba5e-4a1c-9e0a-adfe3b1e6ece">&lt;/strong&gt;</ept> and other options depending on the type of schedule that you selected.</source>
+          <target state="new">Specify a <bpt id="636b95cb-ba5e-4a1c-9e0a-adfe3b1e6ece">&lt;strong&gt;</bpt>Start Time<ept id="636b95cb-ba5e-4a1c-9e0a-adfe3b1e6ece">&lt;/strong&gt;</ept> and other options depending on the type of schedule that you selected.</target>
+        </trans-unit>
+        <trans-unit id="d07591f2-14a0-40e0-a3b5-2e053bafc0ff" xml:space="preserve">
+          <source>You can use the <bpt id="bdd21a2d-1a01-46a0-8376-45a4120bf4c3">&lt;linkText&gt;</bpt>New-AzureAutomationSchedule<ept id="bdd21a2d-1a01-46a0-8376-45a4120bf4c3">&lt;/linkText&gt;</ept><bpt id="bdd21a2d-1a01-46a0-8376-45a4120bf4c3">&lt;title&gt;</bpt><ept id="bdd21a2d-1a01-46a0-8376-45a4120bf4c3">&lt;/title&gt;</ept> cmdlet to create a new schedule in Azure Automation.</source>
+          <target state="new">You can use the <bpt id="bdd21a2d-1a01-46a0-8376-45a4120bf4c3">&lt;linkText&gt;</bpt>New-AzureAutomationSchedule<ept id="bdd21a2d-1a01-46a0-8376-45a4120bf4c3">&lt;/linkText&gt;</ept><bpt id="bdd21a2d-1a01-46a0-8376-45a4120bf4c3">&lt;title&gt;</bpt><ept id="bdd21a2d-1a01-46a0-8376-45a4120bf4c3">&lt;/title&gt;</ept> cmdlet to create a new schedule in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="5796b1d7-1fef-433f-81d1-b7de52e8936b" xml:space="preserve">
+          <source>You must specify the start time for the schedule and whether it should run one time, hourly, or daily.</source>
+          <target state="new">You must specify the start time for the schedule and whether it should run one time, hourly, or daily.</target>
+        </trans-unit>
+        <trans-unit id="a5e1723e-c8c2-4d7e-9339-610e1c3cafb6" xml:space="preserve">
+          <source>The following sample commands show how to create a new schedule that runs each day at 3:30 PM starting on January 20, 2015.</source>
+          <target state="new">The following sample commands show how to create a new schedule that runs each day at 3:30 PM starting on January 20, 2015.</target>
+        </trans-unit>
+        <trans-unit id="a7e30150-5b0d-4100-8c24-af05216067ab" xml:space="preserve">
+          <source>A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.</source>
+          <target state="new">A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.</target>
+        </trans-unit>
+        <trans-unit id="837bceef-767d-47b3-8e6f-99dbe3aeea1e" xml:space="preserve">
+          <source>If a runbook has parameters, then you can provide values for them.</source>
+          <target state="new">If a runbook has parameters, then you can provide values for them.</target>
+        </trans-unit>
+        <trans-unit id="fb189a2d-ad29-4c4d-a0b6-9b40d3f3394d" xml:space="preserve">
+          <source>You must provide values for any mandatory parameters and may provide values for any optional parameters.</source>
+          <target state="new">You must provide values for any mandatory parameters and may provide values for any optional parameters.</target>
+        </trans-unit>
+        <trans-unit id="536a17be-0cf0-48fb-a954-2ae1a203bb41" xml:space="preserve">
+          <source>These values will be used each time the runbook is started by this schedule.</source>
+          <target state="new">These values will be used each time the runbook is started by this schedule.</target>
+        </trans-unit>
+        <trans-unit id="fed570e1-a607-4a47-b627-b32cdc374fdb" xml:space="preserve">
+          <source>You can attach the same runbook to another schedule and specify different parameter values.</source>
+          <target state="new">You can attach the same runbook to another schedule and specify different parameter values.</target>
+        </trans-unit>
+        <trans-unit id="779493ef-0a44-45ac-bf74-ea3be9015f0b" xml:space="preserve">
+          <source>In the Azure Management Portal, select <bpt id="ced45c32-9cab-4e5c-a399-dafd8a24c8bb">&lt;strong&gt;</bpt>Automation<ept id="ced45c32-9cab-4e5c-a399-dafd8a24c8bb">&lt;/strong&gt;</ept> and then then click the name of an automation account.</source>
+          <target state="new">In the Azure Management Portal, select <bpt id="ced45c32-9cab-4e5c-a399-dafd8a24c8bb">&lt;strong&gt;</bpt>Automation<ept id="ced45c32-9cab-4e5c-a399-dafd8a24c8bb">&lt;/strong&gt;</ept> and then then click the name of an automation account.</target>
+        </trans-unit>
+        <trans-unit id="2ff5f532-3102-4fe6-b4f5-8e18c94c35e8" xml:space="preserve">
+          <source>Select the <bpt id="c0d4a04c-0344-451b-99a2-183b9a3db406">&lt;strong&gt;</bpt>Runbooks<ept id="c0d4a04c-0344-451b-99a2-183b9a3db406">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the <bpt id="c0d4a04c-0344-451b-99a2-183b9a3db406">&lt;strong&gt;</bpt>Runbooks<ept id="c0d4a04c-0344-451b-99a2-183b9a3db406">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="53395a8c-2396-465f-a8ac-fb11400384da" xml:space="preserve">
+          <source>Click on the name of the runbook to schedule.</source>
+          <target state="new">Click on the name of the runbook to schedule.</target>
+        </trans-unit>
+        <trans-unit id="3d8415f1-05a8-44ae-9270-e2467d064172" xml:space="preserve">
+          <source>Click the <bpt id="57308245-2dda-4eca-8d11-cd67e1128742">&lt;strong&gt;</bpt>Schedule<ept id="57308245-2dda-4eca-8d11-cd67e1128742">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="57308245-2dda-4eca-8d11-cd67e1128742">&lt;strong&gt;</bpt>Schedule<ept id="57308245-2dda-4eca-8d11-cd67e1128742">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="d2487895-515c-45dc-a9d4-56b63360100c" xml:space="preserve">
+          <source>If the runbook is not currently linked to a schedule, then you will be given the option to <bpt id="89ca1a6e-a0a6-44fd-8a0e-7ded01348ea4">&lt;strong&gt;</bpt>Link to a New Schedule<ept id="89ca1a6e-a0a6-44fd-8a0e-7ded01348ea4">&lt;/strong&gt;</ept> or <bpt id="7c12e9d9-8d8d-4b1f-93b4-4094f6b2f1c8">&lt;strong&gt;</bpt>Link to an Existing Schedule<ept id="7c12e9d9-8d8d-4b1f-93b4-4094f6b2f1c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the runbook is not currently linked to a schedule, then you will be given the option to <bpt id="89ca1a6e-a0a6-44fd-8a0e-7ded01348ea4">&lt;strong&gt;</bpt>Link to a New Schedule<ept id="89ca1a6e-a0a6-44fd-8a0e-7ded01348ea4">&lt;/strong&gt;</ept> or <bpt id="7c12e9d9-8d8d-4b1f-93b4-4094f6b2f1c8">&lt;strong&gt;</bpt>Link to an Existing Schedule<ept id="7c12e9d9-8d8d-4b1f-93b4-4094f6b2f1c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32e37bcd-03e3-4b6d-97c4-b3e1efa4bc8a" xml:space="preserve">
+          <source>If the runbook is currently linked to a schedule, click <bpt id="93bb3163-7dec-4868-a63a-a8eed4a1bd11">&lt;strong&gt;</bpt>Link<ept id="93bb3163-7dec-4868-a63a-a8eed4a1bd11">&lt;/strong&gt;</ept> at the bottom of the window to access these options.</source>
+          <target state="new">If the runbook is currently linked to a schedule, click <bpt id="93bb3163-7dec-4868-a63a-a8eed4a1bd11">&lt;strong&gt;</bpt>Link<ept id="93bb3163-7dec-4868-a63a-a8eed4a1bd11">&lt;/strong&gt;</ept> at the bottom of the window to access these options.</target>
+        </trans-unit>
+        <trans-unit id="aac87ce7-cc8c-41bb-b041-2235767e95fe" xml:space="preserve">
+          <source>If the runbook has parameters, you will be prompted for their values.</source>
+          <target state="new">If the runbook has parameters, you will be prompted for their values.</target>
+        </trans-unit>
+        <trans-unit id="14e82c68-d720-4073-a373-d633eff6df78" xml:space="preserve">
+          <source>You can use the <bpt id="c2065eb0-f2e9-4aab-a032-9aaddeff1545">&lt;linkText&gt;</bpt>Register-AzureAutomationScheduledRunbook<ept id="c2065eb0-f2e9-4aab-a032-9aaddeff1545">&lt;/linkText&gt;</ept><bpt id="c2065eb0-f2e9-4aab-a032-9aaddeff1545">&lt;title&gt;</bpt><ept id="c2065eb0-f2e9-4aab-a032-9aaddeff1545">&lt;/title&gt;</ept> to link a schedule to a runbook.</source>
+          <target state="new">You can use the <bpt id="c2065eb0-f2e9-4aab-a032-9aaddeff1545">&lt;linkText&gt;</bpt>Register-AzureAutomationScheduledRunbook<ept id="c2065eb0-f2e9-4aab-a032-9aaddeff1545">&lt;/linkText&gt;</ept><bpt id="c2065eb0-f2e9-4aab-a032-9aaddeff1545">&lt;title&gt;</bpt><ept id="c2065eb0-f2e9-4aab-a032-9aaddeff1545">&lt;/title&gt;</ept> to link a schedule to a runbook.</target>
+        </trans-unit>
+        <trans-unit id="7a5c1883-30b2-42cb-a223-4604e6120e96" xml:space="preserve">
+          <source>You can specify values for the runbook’s parameters with the Parameters parameter.</source>
+          <target state="new">You can specify values for the runbook’s parameters with the Parameters parameter.</target>
+        </trans-unit>
+        <trans-unit id="cbc6629a-48c3-49ea-8714-7002d5f5ef9f" xml:space="preserve">
+          <source>See <bpt id="a672c01e-a430-44a0-b6b1-3fd32f1b95ae">&lt;linkText&gt;</bpt>Starting a Runbook in Azure Automation<ept id="a672c01e-a430-44a0-b6b1-3fd32f1b95ae">&lt;/linkText&gt;</ept><bpt id="a672c01e-a430-44a0-b6b1-3fd32f1b95ae">&lt;title&gt;</bpt><ept id="a672c01e-a430-44a0-b6b1-3fd32f1b95ae">&lt;/title&gt;</ept> for more information on specifying parameter values.</source>
+          <target state="new">See <bpt id="a672c01e-a430-44a0-b6b1-3fd32f1b95ae">&lt;linkText&gt;</bpt>Starting a Runbook in Azure Automation<ept id="a672c01e-a430-44a0-b6b1-3fd32f1b95ae">&lt;/linkText&gt;</ept><bpt id="a672c01e-a430-44a0-b6b1-3fd32f1b95ae">&lt;title&gt;</bpt><ept id="a672c01e-a430-44a0-b6b1-3fd32f1b95ae">&lt;/title&gt;</ept> for more information on specifying parameter values.</target>
+        </trans-unit>
+        <trans-unit id="28213869-3e0a-4b6b-a56c-a214a4b5d3ce" xml:space="preserve">
+          <source>The following sample commands show how to link a schedule to a runbook with parameters.</source>
+          <target state="new">The following sample commands show how to link a schedule to a runbook with parameters.</target>
+        </trans-unit>
+        <trans-unit id="30314bb8-7a9f-4b5f-badd-c8853c6caaf4" xml:space="preserve">
+          <source>When you disable a schedule, any runbooks linked to it will no longer run on that schedule.</source>
+          <target state="new">When you disable a schedule, any runbooks linked to it will no longer run on that schedule.</target>
+        </trans-unit>
+        <trans-unit id="0b7eb34a-959b-4c31-9e38-a487c96cfaf0" xml:space="preserve">
+          <source>You can manually disable a schedule or set an expiration time for Hourly and Daily schedules when you create them.</source>
+          <target state="new">You can manually disable a schedule or set an expiration time for Hourly and Daily schedules when you create them.</target>
+        </trans-unit>
+        <trans-unit id="af32687b-9c6e-40f9-80f2-381b6da79b63" xml:space="preserve">
+          <source>When the expiration time is reached, the schedule will be disabled.</source>
+          <target state="new">When the expiration time is reached, the schedule will be disabled.</target>
+        </trans-unit>
+        <trans-unit id="9650ee8a-885c-4e29-9c1e-01539e720b1b" xml:space="preserve">
+          <source>You can disable a schedule in the Azure Management Portal from the Schedule Details page for the schedule.</source>
+          <target state="new">You can disable a schedule in the Azure Management Portal from the Schedule Details page for the schedule.</target>
+        </trans-unit>
+        <trans-unit id="385d3449-0a54-44d4-829c-a406e504cd42" xml:space="preserve">
+          <source>In the Azure Management Portal, select Automation and then then click the name of an automation account.</source>
+          <target state="new">In the Azure Management Portal, select Automation and then then click the name of an automation account.</target>
+        </trans-unit>
+        <trans-unit id="9c922ecd-835b-45b2-9dc2-304de60b43fc" xml:space="preserve">
+          <source>Select the Assets tab.</source>
+          <target state="new">Select the Assets tab.</target>
+        </trans-unit>
+        <trans-unit id="5dccc62f-1f7d-4cae-9d32-556539352727" xml:space="preserve">
+          <source>Click the name of a schedule to open its detail page.</source>
+          <target state="new">Click the name of a schedule to open its detail page.</target>
+        </trans-unit>
+        <trans-unit id="190b5677-a51d-4b56-b8b9-8aaddbcbf30f" xml:space="preserve">
+          <source>Change <bpt id="06c33297-1f86-47d7-8aa0-6976b7debfb8">&lt;strong&gt;</bpt>Enabled<ept id="06c33297-1f86-47d7-8aa0-6976b7debfb8">&lt;/strong&gt;</ept> to <bpt id="73da8231-49b5-47b6-b835-da3f3f5ad9c9">&lt;strong&gt;</bpt>No<ept id="73da8231-49b5-47b6-b835-da3f3f5ad9c9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Change <bpt id="06c33297-1f86-47d7-8aa0-6976b7debfb8">&lt;strong&gt;</bpt>Enabled<ept id="06c33297-1f86-47d7-8aa0-6976b7debfb8">&lt;/strong&gt;</ept> to <bpt id="73da8231-49b5-47b6-b835-da3f3f5ad9c9">&lt;strong&gt;</bpt>No<ept id="73da8231-49b5-47b6-b835-da3f3f5ad9c9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e037fa0-d6d1-4281-aac4-46bd27d0f870" xml:space="preserve">
+          <source>You can use the <bpt id="3913b40e-7fea-48aa-bde6-3ff8312cace2">&lt;linkText&gt;</bpt>Set-AzureAutomationSchedule<ept id="3913b40e-7fea-48aa-bde6-3ff8312cace2">&lt;/linkText&gt;</ept><bpt id="3913b40e-7fea-48aa-bde6-3ff8312cace2">&lt;title&gt;</bpt><ept id="3913b40e-7fea-48aa-bde6-3ff8312cace2">&lt;/title&gt;</ept> cmdlet to change the properties of an existing schedule.</source>
+          <target state="new">You can use the <bpt id="3913b40e-7fea-48aa-bde6-3ff8312cace2">&lt;linkText&gt;</bpt>Set-AzureAutomationSchedule<ept id="3913b40e-7fea-48aa-bde6-3ff8312cace2">&lt;/linkText&gt;</ept><bpt id="3913b40e-7fea-48aa-bde6-3ff8312cace2">&lt;title&gt;</bpt><ept id="3913b40e-7fea-48aa-bde6-3ff8312cace2">&lt;/title&gt;</ept> cmdlet to change the properties of an existing schedule.</target>
+        </trans-unit>
+        <trans-unit id="04fc5dba-be62-4007-9763-fb0c0af70d42" xml:space="preserve">
+          <source>To disable the schedule, specify <bpt id="1bdd4bba-933b-48c9-9fd8-0f2909549cca">&lt;strong&gt;</bpt>false<ept id="1bdd4bba-933b-48c9-9fd8-0f2909549cca">&lt;/strong&gt;</ept> for the <bpt id="05b69029-eab6-475f-85c1-9f10836e624e">&lt;strong&gt;</bpt>IsEnabled<ept id="05b69029-eab6-475f-85c1-9f10836e624e">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">To disable the schedule, specify <bpt id="1bdd4bba-933b-48c9-9fd8-0f2909549cca">&lt;strong&gt;</bpt>false<ept id="1bdd4bba-933b-48c9-9fd8-0f2909549cca">&lt;/strong&gt;</ept> for the <bpt id="05b69029-eab6-475f-85c1-9f10836e624e">&lt;strong&gt;</bpt>IsEnabled<ept id="05b69029-eab6-475f-85c1-9f10836e624e">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="5a452b1a-4909-4ecc-b77f-27a6b44c0be9" xml:space="preserve">
+          <source>The following sample commands show how to disable a schedule.</source>
+          <target state="new">The following sample commands show how to disable a schedule.</target>
+        </trans-unit>
+        <trans-unit id="b6523650-91ad-4641-be72-731db10f58a8" xml:space="preserve">
+          <source><bpt id="d413a820-c25f-4ef6-87cd-5b1651c14337">&lt;linkText&gt;</bpt>Schedule Assets in Azure Automation<ept id="d413a820-c25f-4ef6-87cd-5b1651c14337">&lt;/linkText&gt;</ept><bpt id="d413a820-c25f-4ef6-87cd-5b1651c14337">&lt;title&gt;</bpt><ept id="d413a820-c25f-4ef6-87cd-5b1651c14337">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d413a820-c25f-4ef6-87cd-5b1651c14337">&lt;linkText&gt;</bpt>Schedule Assets in Azure Automation<ept id="d413a820-c25f-4ef6-87cd-5b1651c14337">&lt;/linkText&gt;</ept><bpt id="d413a820-c25f-4ef6-87cd-5b1651c14337">&lt;title&gt;</bpt><ept id="d413a820-c25f-4ef6-87cd-5b1651c14337">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3efadd1a-3011-4ecc-b4f2-def4ab977ca9" xml:space="preserve">
+          <source><bpt id="93b79a8e-0f12-4d39-9df5-7529f7c25e89">&lt;linkText&gt;</bpt>Starting a Runbook in Azure Automation<ept id="93b79a8e-0f12-4d39-9df5-7529f7c25e89">&lt;/linkText&gt;</ept><bpt id="93b79a8e-0f12-4d39-9df5-7529f7c25e89">&lt;title&gt;</bpt><ept id="93b79a8e-0f12-4d39-9df5-7529f7c25e89">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="93b79a8e-0f12-4d39-9df5-7529f7c25e89">&lt;linkText&gt;</bpt>Starting a Runbook in Azure Automation<ept id="93b79a8e-0f12-4d39-9df5-7529f7c25e89">&lt;/linkText&gt;</ept><bpt id="93b79a8e-0f12-4d39-9df5-7529f7c25e89">&lt;title&gt;</bpt><ept id="93b79a8e-0f12-4d39-9df5-7529f7c25e89">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

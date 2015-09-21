@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="be0e7780-6536-4d38-af94-0dd2d1ceeb83" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="be0e7780-6536-4d38-af94-0dd2d1ceeb83" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6c74dc0c-718f-4f7c-8ff1-8e8974803891">
+        <trans-unit id="08615d02-8bf5-4722-88f3-52fcb6d0b83c" xml:space="preserve">
+          <source>Explore Java trace logs in Application Insights</source>
+          <target state="new">Explore Java trace logs in Application Insights</target>
+        </trans-unit>
+        <trans-unit id="657fef31-576a-4d03-bd4e-bd7ae5050bdb" xml:space="preserve">
+          <source>Search Log4J or Logback traces in Application Insights</source>
+          <target state="new">Search Log4J or Logback traces in Application Insights</target>
+        </trans-unit>
+        <trans-unit id="51bfdc5d-5ba6-4faa-aff6-0a3cff55c724" xml:space="preserve">
+          <source>If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.</source>
+          <target state="new">If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.</target>
+        </trans-unit>
+        <trans-unit id="f96f1dc6-5f76-4272-a4fd-f7054c5d88d9" xml:space="preserve">
+          <source>Install <bpt id="7240d1cd-de2a-4b03-9014-44048426aa65">&lt;linkText&gt;</bpt>Application Insights SDK for Java[java]<ept id="7240d1cd-de2a-4b03-9014-44048426aa65">&lt;/linkText&gt;</ept><bpt id="7240d1cd-de2a-4b03-9014-44048426aa65">&lt;title&gt;</bpt><ept id="7240d1cd-de2a-4b03-9014-44048426aa65">&lt;/title&gt;</ept>, if you haven't already done that.</source>
+          <target state="new">Install <bpt id="7240d1cd-de2a-4b03-9014-44048426aa65">&lt;linkText&gt;</bpt>Application Insights SDK for Java[java]<ept id="7240d1cd-de2a-4b03-9014-44048426aa65">&lt;/linkText&gt;</ept><bpt id="7240d1cd-de2a-4b03-9014-44048426aa65">&lt;title&gt;</bpt><ept id="7240d1cd-de2a-4b03-9014-44048426aa65">&lt;/title&gt;</ept>, if you haven't already done that.</target>
+        </trans-unit>
+        <trans-unit id="ef2b2916-88de-4d5d-90fd-9426d5a47fd2" xml:space="preserve">
+          <source><bpt id="36bf9301-70a5-4cc3-8215-62f3e52eb649">&lt;em&gt;</bpt>Choose the appropriate way for your project.<ept id="36bf9301-70a5-4cc3-8215-62f3e52eb649">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="36bf9301-70a5-4cc3-8215-62f3e52eb649">&lt;em&gt;</bpt>Choose the appropriate way for your project.<ept id="36bf9301-70a5-4cc3-8215-62f3e52eb649">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72554f95-7575-4286-8819-40c8055a3ec4" xml:space="preserve">
+          <source>If your project is already set up to use Maven for build, merge one of the following snippets of code into your pom.xml file.</source>
+          <target state="new">If your project is already set up to use Maven for build, merge one of the following snippets of code into your pom.xml file.</target>
+        </trans-unit>
+        <trans-unit id="6c954d69-b842-4006-8f33-014eb5f1d5a4" xml:space="preserve">
+          <source>Then refresh the project dependencies, to get the binaries downloaded.</source>
+          <target state="new">Then refresh the project dependencies, to get the binaries downloaded.</target>
+        </trans-unit>
+        <trans-unit id="31b9f76f-94c1-499a-aae5-516781a335fa" xml:space="preserve">
+          <source><bpt id="193e3965-cae2-42ca-9f32-099e559d70ed">&lt;em&gt;</bpt>Logback<ept id="193e3965-cae2-42ca-9f32-099e559d70ed">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="193e3965-cae2-42ca-9f32-099e559d70ed">&lt;em&gt;</bpt>Logback<ept id="193e3965-cae2-42ca-9f32-099e559d70ed">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03d765f3-519e-4b42-818c-d9288badf264" xml:space="preserve">
+          <source><bpt id="5bb67007-751c-4e39-87df-048daec96131">&lt;em&gt;</bpt>Log4J v2.0<ept id="5bb67007-751c-4e39-87df-048daec96131">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="5bb67007-751c-4e39-87df-048daec96131">&lt;em&gt;</bpt>Log4J v2.0<ept id="5bb67007-751c-4e39-87df-048daec96131">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bc036c1-cb76-4b96-92ba-5a686a281aad" xml:space="preserve">
+          <source><bpt id="982e95df-e6a1-47cd-bcd3-648a0c9b4f19">&lt;em&gt;</bpt>Log4J v1.2<ept id="982e95df-e6a1-47cd-bcd3-648a0c9b4f19">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="982e95df-e6a1-47cd-bcd3-648a0c9b4f19">&lt;em&gt;</bpt>Log4J v1.2<ept id="982e95df-e6a1-47cd-bcd3-648a0c9b4f19">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c4e5c7b-51e0-4f46-9fa6-5435b4234246" xml:space="preserve">
+          <source>If your project is already set up to use Gradle for build, add one of the following lines to the <bpt id="c23cd89c-d81c-4b3f-a699-d3badb982624">&lt;code&gt;</bpt>dependencies<ept id="c23cd89c-d81c-4b3f-a699-d3badb982624">&lt;/code&gt;</ept> group in your build.gradle file:</source>
+          <target state="new">If your project is already set up to use Gradle for build, add one of the following lines to the <bpt id="c23cd89c-d81c-4b3f-a699-d3badb982624">&lt;code&gt;</bpt>dependencies<ept id="c23cd89c-d81c-4b3f-a699-d3badb982624">&lt;/code&gt;</ept> group in your build.gradle file:</target>
+        </trans-unit>
+        <trans-unit id="5aba1bc7-3d49-4409-8f2e-44abb39eefdf" xml:space="preserve">
+          <source>Then refresh the project dependencies, to get the binaries downloaded.</source>
+          <target state="new">Then refresh the project dependencies, to get the binaries downloaded.</target>
+        </trans-unit>
+        <trans-unit id="a23e3ef8-1695-488d-a10f-456e6f4f665a" xml:space="preserve">
+          <source><bpt id="499aba13-fcf5-49f9-aa3a-5e06c3a2eb20">&lt;strong&gt;</bpt>Logback<ept id="499aba13-fcf5-49f9-aa3a-5e06c3a2eb20">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="499aba13-fcf5-49f9-aa3a-5e06c3a2eb20">&lt;strong&gt;</bpt>Logback<ept id="499aba13-fcf5-49f9-aa3a-5e06c3a2eb20">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f37386f-11c2-4c7d-bb29-e1b50837d79c" xml:space="preserve">
+          <source><bpt id="4c923cf0-aca3-47e4-bf9a-3b8439c483a6">&lt;strong&gt;</bpt>Log4J v2.0<ept id="4c923cf0-aca3-47e4-bf9a-3b8439c483a6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4c923cf0-aca3-47e4-bf9a-3b8439c483a6">&lt;strong&gt;</bpt>Log4J v2.0<ept id="4c923cf0-aca3-47e4-bf9a-3b8439c483a6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d34a208d-3720-4000-bdd2-2ce75610800a" xml:space="preserve">
+          <source><bpt id="6055d3ef-14a8-4328-8df6-4f06bb7873f7">&lt;strong&gt;</bpt>Log4J v1.2<ept id="6055d3ef-14a8-4328-8df6-4f06bb7873f7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6055d3ef-14a8-4328-8df6-4f06bb7873f7">&lt;strong&gt;</bpt>Log4J v1.2<ept id="6055d3ef-14a8-4328-8df6-4f06bb7873f7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7fe31df-e66e-4fcc-888d-dc4dff888f31" xml:space="preserve">
+          <source>Download and extract the appropriate appender, then add the appropriate library to your project:</source>
+          <target state="new">Download and extract the appropriate appender, then add the appropriate library to your project:</target>
+        </trans-unit>
+        <trans-unit id="483a9797-ba37-44de-a530-02b41520ccf2" xml:space="preserve">
+          <source>Logger</source>
+          <target state="new">Logger</target>
+        </trans-unit>
+        <trans-unit id="ca40ed12-6822-4188-9c30-064d0a08115b" xml:space="preserve">
+          <source>Download</source>
+          <target state="new">Download</target>
+        </trans-unit>
+        <trans-unit id="5f3dfe14-630f-4435-a65b-95e2fffa6331" xml:space="preserve">
+          <source>Library</source>
+          <target state="new">Library</target>
+        </trans-unit>
+        <trans-unit id="eb7d4e72-235b-4a8f-9c27-44415000771d" xml:space="preserve">
+          <source>Logback</source>
+          <target state="new">Logback</target>
+        </trans-unit>
+        <trans-unit id="d79f2f7a-a7de-4040-90a6-ee7b2510ba69" xml:space="preserve">
+          <source><bpt id="5effb90b-0216-430e-8c1d-4129310ee0c5">&lt;linkText&gt;</bpt>SDK with Logback appender<ept id="5effb90b-0216-430e-8c1d-4129310ee0c5">&lt;/linkText&gt;</ept><bpt id="5effb90b-0216-430e-8c1d-4129310ee0c5">&lt;title&gt;</bpt><ept id="5effb90b-0216-430e-8c1d-4129310ee0c5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5effb90b-0216-430e-8c1d-4129310ee0c5">&lt;linkText&gt;</bpt>SDK with Logback appender<ept id="5effb90b-0216-430e-8c1d-4129310ee0c5">&lt;/linkText&gt;</ept><bpt id="5effb90b-0216-430e-8c1d-4129310ee0c5">&lt;title&gt;</bpt><ept id="5effb90b-0216-430e-8c1d-4129310ee0c5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d66a909-1129-4cee-8afb-7c2dcfdbe8f0" xml:space="preserve">
+          <source>applicationinsights-logging-logback</source>
+          <target state="new">applicationinsights-logging-logback</target>
+        </trans-unit>
+        <trans-unit id="3be7ea45-f54d-4fdf-b56e-8b8fd939b391" xml:space="preserve">
+          <source>Log4J v2.0</source>
+          <target state="new">Log4J v2.0</target>
+        </trans-unit>
+        <trans-unit id="49fcfd4a-cc91-4fb8-a573-7b4401900142" xml:space="preserve">
+          <source><bpt id="78cb15f0-0309-4e84-ad20-6a60c566c7d2">&lt;linkText&gt;</bpt>SDK with Log4J v2 appender<ept id="78cb15f0-0309-4e84-ad20-6a60c566c7d2">&lt;/linkText&gt;</ept><bpt id="78cb15f0-0309-4e84-ad20-6a60c566c7d2">&lt;title&gt;</bpt><ept id="78cb15f0-0309-4e84-ad20-6a60c566c7d2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="78cb15f0-0309-4e84-ad20-6a60c566c7d2">&lt;linkText&gt;</bpt>SDK with Log4J v2 appender<ept id="78cb15f0-0309-4e84-ad20-6a60c566c7d2">&lt;/linkText&gt;</ept><bpt id="78cb15f0-0309-4e84-ad20-6a60c566c7d2">&lt;title&gt;</bpt><ept id="78cb15f0-0309-4e84-ad20-6a60c566c7d2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e30c5c33-c4a5-4d93-b497-20e2ee354dd8" xml:space="preserve">
+          <source>applicationinsights-logging-log4j2</source>
+          <target state="new">applicationinsights-logging-log4j2</target>
+        </trans-unit>
+        <trans-unit id="496d53fd-e2e4-41cd-a983-c4a649af34da" xml:space="preserve">
+          <source>Log4j v1.2</source>
+          <target state="new">Log4j v1.2</target>
+        </trans-unit>
+        <trans-unit id="42c84b71-c098-4055-9d45-e1c314d50a3d" xml:space="preserve">
+          <source><bpt id="a11c9786-c6fd-40ec-a365-5ea02af2cd6e">&lt;linkText&gt;</bpt>SDK with Log4J v1.2 appender<ept id="a11c9786-c6fd-40ec-a365-5ea02af2cd6e">&lt;/linkText&gt;</ept><bpt id="a11c9786-c6fd-40ec-a365-5ea02af2cd6e">&lt;title&gt;</bpt><ept id="a11c9786-c6fd-40ec-a365-5ea02af2cd6e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a11c9786-c6fd-40ec-a365-5ea02af2cd6e">&lt;linkText&gt;</bpt>SDK with Log4J v1.2 appender<ept id="a11c9786-c6fd-40ec-a365-5ea02af2cd6e">&lt;/linkText&gt;</ept><bpt id="a11c9786-c6fd-40ec-a365-5ea02af2cd6e">&lt;title&gt;</bpt><ept id="a11c9786-c6fd-40ec-a365-5ea02af2cd6e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d0e0a63-e204-4552-99a2-eba7f1fd8615" xml:space="preserve">
+          <source>applicationinsights-logging-log4j1_2</source>
+          <target state="new">applicationinsights-logging-log4j1_2</target>
+        </trans-unit>
+        <trans-unit id="6e3d0e1d-ea2e-4c56-97b7-cdb72a9acbf6" xml:space="preserve">
+          <source>To start getting traces, merge the relevant snippet of code to the Log4J or Logback configuration file: </source>
+          <target state="new">To start getting traces, merge the relevant snippet of code to the Log4J or Logback configuration file: </target>
+        </trans-unit>
+        <trans-unit id="688a2804-9073-4f0e-aedb-219fef77fd38" xml:space="preserve">
+          <source><bpt id="280e42dc-78d3-4cdf-b925-c25f5b3d6817">&lt;em&gt;</bpt>Logback<ept id="280e42dc-78d3-4cdf-b925-c25f5b3d6817">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="280e42dc-78d3-4cdf-b925-c25f5b3d6817">&lt;em&gt;</bpt>Logback<ept id="280e42dc-78d3-4cdf-b925-c25f5b3d6817">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="738accb4-877c-4e66-ab1c-51afcc7d98a3" xml:space="preserve">
+          <source><bpt id="5ec9fbe7-1209-44f2-adac-619344d5eb4c">&lt;em&gt;</bpt>Log4J v2.0<ept id="5ec9fbe7-1209-44f2-adac-619344d5eb4c">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="5ec9fbe7-1209-44f2-adac-619344d5eb4c">&lt;em&gt;</bpt>Log4J v2.0<ept id="5ec9fbe7-1209-44f2-adac-619344d5eb4c">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35ad2a35-b0b4-47e6-b41c-e72eb70e3013" xml:space="preserve">
+          <source><bpt id="d802b0ec-a417-4758-a519-300d9a59486a">&lt;em&gt;</bpt>Log4J v1.2<ept id="d802b0ec-a417-4758-a519-300d9a59486a">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="d802b0ec-a417-4758-a519-300d9a59486a">&lt;em&gt;</bpt>Log4J v1.2<ept id="d802b0ec-a417-4758-a519-300d9a59486a">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5fef0ef5-f384-444d-8153-2a313c03a676" xml:space="preserve">
+          <source>The Application Insights appenders can be referenced by any configured logger, and not necessarily by the root logger (as shown in the code samples above).</source>
+          <target state="new">The Application Insights appenders can be referenced by any configured logger, and not necessarily by the root logger (as shown in the code samples above).</target>
+        </trans-unit>
+        <trans-unit id="c5975700-41af-481c-acb7-23005601a897" xml:space="preserve">
+          <source>Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the <bpt id="0bf2ddd1-2710-4330-8a75-3df2b8de3ebc">&lt;linkText&gt;</bpt>Diagnostic Search[diagnostic]<ept id="0bf2ddd1-2710-4330-8a75-3df2b8de3ebc">&lt;/linkText&gt;</ept><bpt id="0bf2ddd1-2710-4330-8a75-3df2b8de3ebc">&lt;title&gt;</bpt><ept id="0bf2ddd1-2710-4330-8a75-3df2b8de3ebc">&lt;/title&gt;</ept> blade.</source>
+          <target state="new">Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the <bpt id="0bf2ddd1-2710-4330-8a75-3df2b8de3ebc">&lt;linkText&gt;</bpt>Diagnostic Search[diagnostic]<ept id="0bf2ddd1-2710-4330-8a75-3df2b8de3ebc">&lt;/linkText&gt;</ept><bpt id="0bf2ddd1-2710-4330-8a75-3df2b8de3ebc">&lt;title&gt;</bpt><ept id="0bf2ddd1-2710-4330-8a75-3df2b8de3ebc">&lt;/title&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="d6f4ffce-2e62-4381-8c0c-11eb6539d24e" xml:space="preserve">
+          <source><bpt id="d17c8be8-11a2-4950-a06d-2da44f514f6d">&lt;linkText&gt;</bpt>In the Application Insights portal, open Diagnostic Search<ept id="d17c8be8-11a2-4950-a06d-2da44f514f6d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d17c8be8-11a2-4950-a06d-2da44f514f6d">&lt;linkText&gt;</bpt>In the Application Insights portal, open Diagnostic Search<ept id="d17c8be8-11a2-4950-a06d-2da44f514f6d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d42f971-8ef0-441f-bae3-273f464b8968" xml:space="preserve">
+          <source><bpt id="b5c54863-a645-4d65-8cce-6a3a9d03cece">&lt;linkText&gt;</bpt>Diagnostic search[diagnostic]<ept id="b5c54863-a645-4d65-8cce-6a3a9d03cece">&lt;/linkText&gt;</ept><bpt id="b5c54863-a645-4d65-8cce-6a3a9d03cece">&lt;title&gt;</bpt><ept id="b5c54863-a645-4d65-8cce-6a3a9d03cece">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b5c54863-a645-4d65-8cce-6a3a9d03cece">&lt;linkText&gt;</bpt>Diagnostic search[diagnostic]<ept id="b5c54863-a645-4d65-8cce-6a3a9d03cece">&lt;/linkText&gt;</ept><bpt id="b5c54863-a645-4d65-8cce-6a3a9d03cece">&lt;title&gt;</bpt><ept id="b5c54863-a645-4d65-8cce-6a3a9d03cece">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8831ed51-a743-465c-a3fb-1a3355e4f266" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="19ace1c6-3a26-4823-bfef-4e7ab338553a" xml:space="preserve">
+          <source>app-insights-java-get-started.md</source>
+          <target state="new">app-insights-java-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="48e90019-e1a6-451a-b5c9-6c785402759c" />
+    </body>
+  </file>
+</xliff>

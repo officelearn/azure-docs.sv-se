@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fb49ed7c-be65-4c7b-b647-c200a86dfd3d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fb49ed7c-be65-4c7b-b647-c200a86dfd3d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a4b3cc42-db9e-4449-a39e-52b651f9b0b8">
+        <trans-unit id="08ea8dfb-5033-473c-9649-9a8d49417e15" xml:space="preserve">
+          <source>Application Architecture on Microsoft Azure</source>
+          <target state="new">Application Architecture on Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="03fcf28a-db5b-453c-8600-bc27533cd90d" xml:space="preserve">
+          <source>Architecture overview that covers common design patterns</source>
+          <target state="new">Architecture overview that covers common design patterns</target>
+        </trans-unit>
+        <trans-unit id="a2802e8f-6c09-4044-9b8b-3d324889b0dc" xml:space="preserve">
+          <source>Resources for building applications that use Microsoft Azure.</source>
+          <target state="new">Resources for building applications that use Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="96efe16a-3be0-4dfb-8e34-6cf2a0a2fae8" xml:space="preserve">
+          <source>This includes tools to help you draw diagrams to visually describe software systems.</source>
+          <target state="new">This includes tools to help you draw diagrams to visually describe software systems.</target>
+        </trans-unit>
+        <trans-unit id="63358a12-42fd-4cdc-90ed-51c0300a2cb5" xml:space="preserve">
+          <source>Microsoft just released a new architecture course supporting Microsoft certification exam 70-534.</source>
+          <target state="new">Microsoft just released a new architecture course supporting Microsoft certification exam 70-534.</target>
+        </trans-unit>
+        <trans-unit id="a7c5e08f-5803-4383-9545-dfa1df9437e7" xml:space="preserve">
+          <source>It's <bpt id="6fb358f8-72f8-4ab3-8b19-476cd1ac8d54">&lt;linkText&gt;</bpt>available for free on EDX.ORG<ept id="6fb358f8-72f8-4ab3-8b19-476cd1ac8d54">&lt;/linkText&gt;</ept><bpt id="6fb358f8-72f8-4ab3-8b19-476cd1ac8d54">&lt;title&gt;</bpt><ept id="6fb358f8-72f8-4ab3-8b19-476cd1ac8d54">&lt;/title&gt;</ept>.</source>
+          <target state="new">It's <bpt id="6fb358f8-72f8-4ab3-8b19-476cd1ac8d54">&lt;linkText&gt;</bpt>available for free on EDX.ORG<ept id="6fb358f8-72f8-4ab3-8b19-476cd1ac8d54">&lt;/linkText&gt;</ept><bpt id="6fb358f8-72f8-4ab3-8b19-476cd1ac8d54">&lt;title&gt;</bpt><ept id="6fb358f8-72f8-4ab3-8b19-476cd1ac8d54">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60d2a62d-e6a6-441f-8aaf-af9d5732fd67" xml:space="preserve">
+          <source>It uses the new <bpt id="3d04dbdc-5108-406f-bc30-fe7e1d9ec330">&lt;linkText&gt;</bpt>3D Blueprint Visio Template<ept id="3d04dbdc-5108-406f-bc30-fe7e1d9ec330">&lt;/linkText&gt;</ept><bpt id="3d04dbdc-5108-406f-bc30-fe7e1d9ec330">&lt;title&gt;</bpt><ept id="3d04dbdc-5108-406f-bc30-fe7e1d9ec330">&lt;/title&gt;</ept>.</source>
+          <target state="new">It uses the new <bpt id="3d04dbdc-5108-406f-bc30-fe7e1d9ec330">&lt;linkText&gt;</bpt>3D Blueprint Visio Template<ept id="3d04dbdc-5108-406f-bc30-fe7e1d9ec330">&lt;/linkText&gt;</ept><bpt id="3d04dbdc-5108-406f-bc30-fe7e1d9ec330">&lt;title&gt;</bpt><ept id="3d04dbdc-5108-406f-bc30-fe7e1d9ec330">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6124d390-4503-4a3c-9dfa-63981acbfc32" xml:space="preserve">
+          <source><bpt id="17c888e8-d415-4284-92fc-15664e7ac8ff">&lt;linkText&gt;</bpt>Microsoft Architecture certification course<ept id="17c888e8-d415-4284-92fc-15664e7ac8ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="17c888e8-d415-4284-92fc-15664e7ac8ff">&lt;linkText&gt;</bpt>Microsoft Architecture certification course<ept id="17c888e8-d415-4284-92fc-15664e7ac8ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2958d6f9-b146-45df-8c2b-f493ed786358" xml:space="preserve">
+          <source>Microsoft publishes a set of high level <bpt id="579012b1-712b-42d9-90a4-ae5ce0aafd84">&lt;linkText&gt;</bpt>architecture blueprints<ept id="579012b1-712b-42d9-90a4-ae5ce0aafd84">&lt;/linkText&gt;</ept><bpt id="579012b1-712b-42d9-90a4-ae5ce0aafd84">&lt;title&gt;</bpt><ept id="579012b1-712b-42d9-90a4-ae5ce0aafd84">&lt;/title&gt;</ept> showing how to build specific types of systems using Microsoft products.</source>
+          <target state="new">Microsoft publishes a set of high level <bpt id="579012b1-712b-42d9-90a4-ae5ce0aafd84">&lt;linkText&gt;</bpt>architecture blueprints<ept id="579012b1-712b-42d9-90a4-ae5ce0aafd84">&lt;/linkText&gt;</ept><bpt id="579012b1-712b-42d9-90a4-ae5ce0aafd84">&lt;title&gt;</bpt><ept id="579012b1-712b-42d9-90a4-ae5ce0aafd84">&lt;/title&gt;</ept> showing how to build specific types of systems using Microsoft products.</target>
+        </trans-unit>
+        <trans-unit id="efe31cc0-b282-4459-a13d-62971d444a72" xml:space="preserve">
+          <source>Each blueprint includes a</source>
+          <target state="new">Each blueprint includes a</target>
+        </trans-unit>
+        <trans-unit id="44b4a533-584e-4b6b-a9ca-95ae3be9bd59" xml:space="preserve">
+          <source>Flat <bpt id="07ba0af9-65a9-454e-8c7d-29c37e0f31f1">&lt;strong&gt;</bpt>2D Visio<ept id="07ba0af9-65a9-454e-8c7d-29c37e0f31f1">&lt;/strong&gt;</ept> 2003-based file that you can download and modify </source>
+          <target state="new">Flat <bpt id="07ba0af9-65a9-454e-8c7d-29c37e0f31f1">&lt;strong&gt;</bpt>2D Visio<ept id="07ba0af9-65a9-454e-8c7d-29c37e0f31f1">&lt;/strong&gt;</ept> 2003-based file that you can download and modify </target>
+        </trans-unit>
+        <trans-unit id="edacc0d1-270e-44a1-8c3b-e43deafa6248" xml:space="preserve">
+          <source>Colorful <bpt id="40ced0f6-0bbb-46de-854b-75b4487cee94">&lt;strong&gt;</bpt>3D perspective PDF<ept id="40ced0f6-0bbb-46de-854b-75b4487cee94">&lt;/strong&gt;</ept> file to introduce the blueprint to less technical audiences</source>
+          <target state="new">Colorful <bpt id="40ced0f6-0bbb-46de-854b-75b4487cee94">&lt;strong&gt;</bpt>3D perspective PDF<ept id="40ced0f6-0bbb-46de-854b-75b4487cee94">&lt;/strong&gt;</ept> file to introduce the blueprint to less technical audiences</target>
+        </trans-unit>
+        <trans-unit id="8b768fec-6bd2-4d06-89f6-dec729530ea3" xml:space="preserve">
+          <source><bpt id="7337f382-9faf-4bc4-8ff0-cc318abbc16d">&lt;strong&gt;</bpt>Video<ept id="7337f382-9faf-4bc4-8ff0-cc318abbc16d">&lt;/strong&gt;</ept> that walks through the 3D version.</source>
+          <target state="new"><bpt id="7337f382-9faf-4bc4-8ff0-cc318abbc16d">&lt;strong&gt;</bpt>Video<ept id="7337f382-9faf-4bc4-8ff0-cc318abbc16d">&lt;/strong&gt;</ept> that walks through the 3D version.</target>
+        </trans-unit>
+        <trans-unit id="0b55eeb6-3a50-4ced-896d-afe4600227c9" xml:space="preserve">
+          <source>The Blueprints use the <bpt id="cfcb8fc7-faf5-4821-9b55-ea4c5fb9cc64">&lt;linkText&gt;</bpt>Cloud and Enterprise Symbol Set<ept id="cfcb8fc7-faf5-4821-9b55-ea4c5fb9cc64">&lt;/linkText&gt;</ept><bpt id="cfcb8fc7-faf5-4821-9b55-ea4c5fb9cc64">&lt;title&gt;</bpt><ept id="cfcb8fc7-faf5-4821-9b55-ea4c5fb9cc64">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Blueprints use the <bpt id="cfcb8fc7-faf5-4821-9b55-ea4c5fb9cc64">&lt;linkText&gt;</bpt>Cloud and Enterprise Symbol Set<ept id="cfcb8fc7-faf5-4821-9b55-ea4c5fb9cc64">&lt;/linkText&gt;</ept><bpt id="cfcb8fc7-faf5-4821-9b55-ea4c5fb9cc64">&lt;title&gt;</bpt><ept id="cfcb8fc7-faf5-4821-9b55-ea4c5fb9cc64">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bcc18e2-aabc-459b-be74-31ff2e241972" xml:space="preserve">
+          <source><bpt id="af9eee84-0b8a-48fc-8540-c6ba98496efb">&lt;linkText&gt;</bpt>Microsoft Architecture Blueprint 3D diagram<ept id="af9eee84-0b8a-48fc-8540-c6ba98496efb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af9eee84-0b8a-48fc-8540-c6ba98496efb">&lt;linkText&gt;</bpt>Microsoft Architecture Blueprint 3D diagram<ept id="af9eee84-0b8a-48fc-8540-c6ba98496efb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05f6572e-46f0-441c-a27d-da84d9b0baf7" xml:space="preserve">
+          <source>The 3D versions of the <bpt id="87be0c5a-80da-416a-9ad0-9fff69aa59ba">&lt;linkText&gt;</bpt>Microsoft Architecture Blueprints<ept id="87be0c5a-80da-416a-9ad0-9fff69aa59ba">&lt;/linkText&gt;</ept><bpt id="87be0c5a-80da-416a-9ad0-9fff69aa59ba">&lt;title&gt;</bpt><ept id="87be0c5a-80da-416a-9ad0-9fff69aa59ba">&lt;/title&gt;</ept> were initially created in a non-Microsoft tool, but a new Visio 2013 template shipped on Aug 5, 2015 as part of a <bpt id="a539fe72-33c6-4df4-81ad-ee31b70207f0">&lt;linkText&gt;</bpt>Microsoft Architecture certification course distributed on EDX.ORG<ept id="a539fe72-33c6-4df4-81ad-ee31b70207f0">&lt;/linkText&gt;</ept><bpt id="a539fe72-33c6-4df4-81ad-ee31b70207f0">&lt;title&gt;</bpt><ept id="a539fe72-33c6-4df4-81ad-ee31b70207f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">The 3D versions of the <bpt id="87be0c5a-80da-416a-9ad0-9fff69aa59ba">&lt;linkText&gt;</bpt>Microsoft Architecture Blueprints<ept id="87be0c5a-80da-416a-9ad0-9fff69aa59ba">&lt;/linkText&gt;</ept><bpt id="87be0c5a-80da-416a-9ad0-9fff69aa59ba">&lt;title&gt;</bpt><ept id="87be0c5a-80da-416a-9ad0-9fff69aa59ba">&lt;/title&gt;</ept> were initially created in a non-Microsoft tool, but a new Visio 2013 template shipped on Aug 5, 2015 as part of a <bpt id="a539fe72-33c6-4df4-81ad-ee31b70207f0">&lt;linkText&gt;</bpt>Microsoft Architecture certification course distributed on EDX.ORG<ept id="a539fe72-33c6-4df4-81ad-ee31b70207f0">&lt;/linkText&gt;</ept><bpt id="a539fe72-33c6-4df4-81ad-ee31b70207f0">&lt;title&gt;</bpt><ept id="a539fe72-33c6-4df4-81ad-ee31b70207f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d31b3337-1e30-4c36-b471-190034ef798f" xml:space="preserve">
+          <source>The template is also available outside the course.</source>
+          <target state="new">The template is also available outside the course.</target>
+        </trans-unit>
+        <trans-unit id="70d14bea-1323-4d14-9e5d-2bbb0c5ab709" xml:space="preserve">
+          <source><bpt id="522ab6fc-cb19-4624-93ac-3286c914bb01">&lt;linkText&gt;</bpt>View the training video<ept id="522ab6fc-cb19-4624-93ac-3286c914bb01">&lt;/linkText&gt;</ept><bpt id="522ab6fc-cb19-4624-93ac-3286c914bb01">&lt;title&gt;</bpt><ept id="522ab6fc-cb19-4624-93ac-3286c914bb01">&lt;/title&gt;</ept> first so you know what it can do   </source>
+          <target state="new"><bpt id="522ab6fc-cb19-4624-93ac-3286c914bb01">&lt;linkText&gt;</bpt>View the training video<ept id="522ab6fc-cb19-4624-93ac-3286c914bb01">&lt;/linkText&gt;</ept><bpt id="522ab6fc-cb19-4624-93ac-3286c914bb01">&lt;title&gt;</bpt><ept id="522ab6fc-cb19-4624-93ac-3286c914bb01">&lt;/title&gt;</ept> first so you know what it can do   </target>
+        </trans-unit>
+        <trans-unit id="c0bea2e4-7df5-43bf-bc7b-826622969fba" xml:space="preserve">
+          <source>Download the <bpt id="92853323-2af1-4ef9-a4fc-3a74c622ffdb">&lt;linkText&gt;</bpt>Microsoft 3d Blueprint Visio Template<ept id="92853323-2af1-4ef9-a4fc-3a74c622ffdb">&lt;/linkText&gt;</ept><bpt id="92853323-2af1-4ef9-a4fc-3a74c622ffdb">&lt;title&gt;</bpt><ept id="92853323-2af1-4ef9-a4fc-3a74c622ffdb">&lt;/title&gt;</ept></source>
+          <target state="new">Download the <bpt id="92853323-2af1-4ef9-a4fc-3a74c622ffdb">&lt;linkText&gt;</bpt>Microsoft 3d Blueprint Visio Template<ept id="92853323-2af1-4ef9-a4fc-3a74c622ffdb">&lt;/linkText&gt;</ept><bpt id="92853323-2af1-4ef9-a4fc-3a74c622ffdb">&lt;title&gt;</bpt><ept id="92853323-2af1-4ef9-a4fc-3a74c622ffdb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="649614e9-871d-4c9b-a2b6-770b1695400b" xml:space="preserve">
+          <source>Download the <bpt id="bd15256e-4d73-4ced-8399-5e07f2fd27f9">&lt;linkText&gt;</bpt>Cloud and Enterprise Symbols<ept id="bd15256e-4d73-4ced-8399-5e07f2fd27f9">&lt;/linkText&gt;</ept><bpt id="bd15256e-4d73-4ced-8399-5e07f2fd27f9">&lt;title&gt;</bpt><ept id="bd15256e-4d73-4ced-8399-5e07f2fd27f9">&lt;/title&gt;</ept> to use with the 3D template</source>
+          <target state="new">Download the <bpt id="bd15256e-4d73-4ced-8399-5e07f2fd27f9">&lt;linkText&gt;</bpt>Cloud and Enterprise Symbols<ept id="bd15256e-4d73-4ced-8399-5e07f2fd27f9">&lt;/linkText&gt;</ept><bpt id="bd15256e-4d73-4ced-8399-5e07f2fd27f9">&lt;title&gt;</bpt><ept id="bd15256e-4d73-4ced-8399-5e07f2fd27f9">&lt;/title&gt;</ept> to use with the 3D template</target>
+        </trans-unit>
+        <trans-unit id="a679fbb0-5929-4f62-aa81-4b4e1d4a48a9" xml:space="preserve">
+          <source>Email us at <bpt id="2bdc764a-d3b1-4a7a-9bef-f06073705058">&lt;linkText&gt;</bpt>CnESymbols@microsoft.com<ept id="2bdc764a-d3b1-4a7a-9bef-f06073705058">&lt;/linkText&gt;</ept><bpt id="2bdc764a-d3b1-4a7a-9bef-f06073705058">&lt;title&gt;</bpt><ept id="2bdc764a-d3b1-4a7a-9bef-f06073705058">&lt;/title&gt;</ept> for specific questions not answered by the training materials or to give feedback.</source>
+          <target state="new">Email us at <bpt id="2bdc764a-d3b1-4a7a-9bef-f06073705058">&lt;linkText&gt;</bpt>CnESymbols@microsoft.com<ept id="2bdc764a-d3b1-4a7a-9bef-f06073705058">&lt;/linkText&gt;</ept><bpt id="2bdc764a-d3b1-4a7a-9bef-f06073705058">&lt;title&gt;</bpt><ept id="2bdc764a-d3b1-4a7a-9bef-f06073705058">&lt;/title&gt;</ept> for specific questions not answered by the training materials or to give feedback.</target>
+        </trans-unit>
+        <trans-unit id="7fab2695-5e28-42af-8053-61e3273e40e2" xml:space="preserve">
+          <source>Usability is one of the primary goals of the template so let us know what's good and what gets in the way.</source>
+          <target state="new">Usability is one of the primary goals of the template so let us know what's good and what gets in the way.</target>
+        </trans-unit>
+        <trans-unit id="48d8265f-b56e-49b4-b3b4-d9158808dc2f" xml:space="preserve">
+          <source><bpt id="74c3c8e3-8744-43f4-82f2-64cae993628f">&lt;linkText&gt;</bpt>Microsoft 3D Blueprint Visio Template<ept id="74c3c8e3-8744-43f4-82f2-64cae993628f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="74c3c8e3-8744-43f4-82f2-64cae993628f">&lt;linkText&gt;</bpt>Microsoft 3D Blueprint Visio Template<ept id="74c3c8e3-8744-43f4-82f2-64cae993628f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d361c213-8889-4ac9-b257-09de80b3479d" xml:space="preserve">
+          <source><bpt id="9e1d24bb-d6ca-4ed7-9a96-52df645dbdef">&lt;linkText&gt;</bpt>View the Visio and symbols training video<ept id="9e1d24bb-d6ca-4ed7-9a96-52df645dbdef">&lt;/linkText&gt;</ept><bpt id="9e1d24bb-d6ca-4ed7-9a96-52df645dbdef">&lt;title&gt;</bpt><ept id="9e1d24bb-d6ca-4ed7-9a96-52df645dbdef">&lt;/title&gt;</ept> and then <bpt id="a0d48630-f267-47fd-ac13-d0ea33a35ea1">&lt;linkText&gt;</bpt>download the Cloud and Enterprise Symbol set<ept id="a0d48630-f267-47fd-ac13-d0ea33a35ea1">&lt;/linkText&gt;</ept><bpt id="a0d48630-f267-47fd-ac13-d0ea33a35ea1">&lt;title&gt;</bpt><ept id="a0d48630-f267-47fd-ac13-d0ea33a35ea1">&lt;/title&gt;</ept> to help create technical materials that describe Azure, Windows Server, SQL Server and more.</source>
+          <target state="new"><bpt id="9e1d24bb-d6ca-4ed7-9a96-52df645dbdef">&lt;linkText&gt;</bpt>View the Visio and symbols training video<ept id="9e1d24bb-d6ca-4ed7-9a96-52df645dbdef">&lt;/linkText&gt;</ept><bpt id="9e1d24bb-d6ca-4ed7-9a96-52df645dbdef">&lt;title&gt;</bpt><ept id="9e1d24bb-d6ca-4ed7-9a96-52df645dbdef">&lt;/title&gt;</ept> and then <bpt id="a0d48630-f267-47fd-ac13-d0ea33a35ea1">&lt;linkText&gt;</bpt>download the Cloud and Enterprise Symbol set<ept id="a0d48630-f267-47fd-ac13-d0ea33a35ea1">&lt;/linkText&gt;</ept><bpt id="a0d48630-f267-47fd-ac13-d0ea33a35ea1">&lt;title&gt;</bpt><ept id="a0d48630-f267-47fd-ac13-d0ea33a35ea1">&lt;/title&gt;</ept> to help create technical materials that describe Azure, Windows Server, SQL Server and more.</target>
+        </trans-unit>
+        <trans-unit id="02b24b3e-76d1-4862-919f-5043046fcf19" xml:space="preserve">
+          <source>You can use the symbols in architecture diagrams, training materials, presentations, datasheets, infographics, whitepapers and even 3rd party books if the book trains people to use Microsoft products.</source>
+          <target state="new">You can use the symbols in architecture diagrams, training materials, presentations, datasheets, infographics, whitepapers and even 3rd party books if the book trains people to use Microsoft products.</target>
+        </trans-unit>
+        <trans-unit id="141cc17a-6742-41ee-8ae3-b5370dbc48ac" xml:space="preserve">
+          <source>However, they are not meant for use in user interfaces.</source>
+          <target state="new">However, they are not meant for use in user interfaces.</target>
+        </trans-unit>
+        <trans-unit id="a4ea5281-297f-4062-a2fa-95aba845531b" xml:space="preserve">
+          <source>The CnE symbols are in Visio and PNG formats.</source>
+          <target state="new">The CnE symbols are in Visio and PNG formats.</target>
+        </trans-unit>
+        <trans-unit id="ea0c5da7-9b1b-4bce-b58c-7be9fcdd2166" xml:space="preserve">
+          <source>Additional instructions on how to use the PNGs in PowerPoint are included in the set.</source>
+          <target state="new">Additional instructions on how to use the PNGs in PowerPoint are included in the set.</target>
+        </trans-unit>
+        <trans-unit id="2e3e47c8-47ca-4308-bdf1-1fb50400295d" xml:space="preserve">
+          <source>The symbol set ships quarterly and is updated as new services are released.</source>
+          <target state="new">The symbol set ships quarterly and is updated as new services are released.</target>
+        </trans-unit>
+        <trans-unit id="3b3b04e8-fba2-4b99-b163-022f87f92ad5" xml:space="preserve">
+          <source>Additional symbols are available in the <bpt id="2a2a9934-7668-4a9a-8f51-40ce2ebf49c8">&lt;linkText&gt;</bpt>Microsoft Office Visio stencil<ept id="2a2a9934-7668-4a9a-8f51-40ce2ebf49c8">&lt;/linkText&gt;</ept><bpt id="2a2a9934-7668-4a9a-8f51-40ce2ebf49c8">&lt;title&gt;</bpt><ept id="2a2a9934-7668-4a9a-8f51-40ce2ebf49c8">&lt;/title&gt;</ept>, though they are not optimized for architectural diagrams like the CnE set is.</source>
+          <target state="new">Additional symbols are available in the <bpt id="2a2a9934-7668-4a9a-8f51-40ce2ebf49c8">&lt;linkText&gt;</bpt>Microsoft Office Visio stencil<ept id="2a2a9934-7668-4a9a-8f51-40ce2ebf49c8">&lt;/linkText&gt;</ept><bpt id="2a2a9934-7668-4a9a-8f51-40ce2ebf49c8">&lt;title&gt;</bpt><ept id="2a2a9934-7668-4a9a-8f51-40ce2ebf49c8">&lt;/title&gt;</ept>, though they are not optimized for architectural diagrams like the CnE set is.</target>
+        </trans-unit>
+        <trans-unit id="c77443d3-f56c-44e0-af35-b69a96041c25" xml:space="preserve">
+          <source><bpt id="e8a8d3f1-03fc-4991-b08d-1ec2ea515535">&lt;strong&gt;</bpt>Feedback:<ept id="e8a8d3f1-03fc-4991-b08d-1ec2ea515535">&lt;/strong&gt;</ept> If you've used the CnE symbols, fill out the short 5 question <bpt id="f8df7b07-ecf6-49f8-9db2-e9ca5aaab566">&lt;linkText&gt;</bpt>survey<ept id="f8df7b07-ecf6-49f8-9db2-e9ca5aaab566">&lt;/linkText&gt;</ept><bpt id="f8df7b07-ecf6-49f8-9db2-e9ca5aaab566">&lt;title&gt;</bpt><ept id="f8df7b07-ecf6-49f8-9db2-e9ca5aaab566">&lt;/title&gt;</ept> or email us at <bpt id="08a54341-0fbc-40fa-80b7-00d061a30b91">&lt;linkText&gt;</bpt>CnESymbols@microsoft.com<ept id="08a54341-0fbc-40fa-80b7-00d061a30b91">&lt;/linkText&gt;</ept><bpt id="08a54341-0fbc-40fa-80b7-00d061a30b91">&lt;title&gt;</bpt><ept id="08a54341-0fbc-40fa-80b7-00d061a30b91">&lt;/title&gt;</ept> for specific questions and issues.</source>
+          <target state="new"><bpt id="e8a8d3f1-03fc-4991-b08d-1ec2ea515535">&lt;strong&gt;</bpt>Feedback:<ept id="e8a8d3f1-03fc-4991-b08d-1ec2ea515535">&lt;/strong&gt;</ept> If you've used the CnE symbols, fill out the short 5 question <bpt id="f8df7b07-ecf6-49f8-9db2-e9ca5aaab566">&lt;linkText&gt;</bpt>survey<ept id="f8df7b07-ecf6-49f8-9db2-e9ca5aaab566">&lt;/linkText&gt;</ept><bpt id="f8df7b07-ecf6-49f8-9db2-e9ca5aaab566">&lt;title&gt;</bpt><ept id="f8df7b07-ecf6-49f8-9db2-e9ca5aaab566">&lt;/title&gt;</ept> or email us at <bpt id="08a54341-0fbc-40fa-80b7-00d061a30b91">&lt;linkText&gt;</bpt>CnESymbols@microsoft.com<ept id="08a54341-0fbc-40fa-80b7-00d061a30b91">&lt;/linkText&gt;</ept><bpt id="08a54341-0fbc-40fa-80b7-00d061a30b91">&lt;title&gt;</bpt><ept id="08a54341-0fbc-40fa-80b7-00d061a30b91">&lt;/title&gt;</ept> for specific questions and issues.</target>
+        </trans-unit>
+        <trans-unit id="02d966f9-adbd-486b-9178-01c80d03b8ec" xml:space="preserve">
+          <source>We’d like to know what you think, including positive feedback so we know to continue to invest time in them.</source>
+          <target state="new">We’d like to know what you think, including positive feedback so we know to continue to invest time in them.</target>
+        </trans-unit>
+        <trans-unit id="ce0a7c60-5b46-41d1-aee5-735619ac0e59" xml:space="preserve">
+          <source><bpt id="69599923-a3b2-4e68-b65e-677ba804676d">&lt;linkText&gt;</bpt>Cloud and Enterprise Symbol/Icon set<ept id="69599923-a3b2-4e68-b65e-677ba804676d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="69599923-a3b2-4e68-b65e-677ba804676d">&lt;linkText&gt;</bpt>Cloud and Enterprise Symbol/Icon set<ept id="69599923-a3b2-4e68-b65e-677ba804676d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b380785f-d69e-4d43-a930-424fc4452005" xml:space="preserve">
+          <source>Microsoft publishes series of architectural design patterns to help you compose your own custom designs.</source>
+          <target state="new">Microsoft publishes series of architectural design patterns to help you compose your own custom designs.</target>
+        </trans-unit>
+        <trans-unit id="8dc1473e-44ac-4226-96aa-cf56d593d946" xml:space="preserve">
+          <source>The patterns are intended to be concise architectural guides which can be composed together in order provide guidance on how to best leverage the Microsoft Azure platform to solve your organization’s business needs.</source>
+          <target state="new">The patterns are intended to be concise architectural guides which can be composed together in order provide guidance on how to best leverage the Microsoft Azure platform to solve your organization’s business needs.</target>
+        </trans-unit>
+        <trans-unit id="478a5756-cb9d-4110-b0fc-3e849ac446bc" xml:space="preserve">
+          <source><bpt id="707777d3-f11e-4f54-b541-7d8c0c39b2c8">&lt;linkText&gt;</bpt>Overview<ept id="707777d3-f11e-4f54-b541-7d8c0c39b2c8">&lt;/linkText&gt;</ept><bpt id="707777d3-f11e-4f54-b541-7d8c0c39b2c8">&lt;title&gt;</bpt><ept id="707777d3-f11e-4f54-b541-7d8c0c39b2c8">&lt;/title&gt;</ept> - 
+<bpt id="0f40f826-6ef4-446b-a642-8c02e0eee8a0">&lt;linkText&gt;</bpt>Hybrid networking<ept id="0f40f826-6ef4-446b-a642-8c02e0eee8a0">&lt;/linkText&gt;</ept><bpt id="0f40f826-6ef4-446b-a642-8c02e0eee8a0">&lt;title&gt;</bpt><ept id="0f40f826-6ef4-446b-a642-8c02e0eee8a0">&lt;/title&gt;</ept> - 
+<bpt id="31e56ac6-209b-4581-81a4-08bb40b58757">&lt;linkText&gt;</bpt>Offsite batch processing<ept id="31e56ac6-209b-4581-81a4-08bb40b58757">&lt;/linkText&gt;</ept><bpt id="31e56ac6-209b-4581-81a4-08bb40b58757">&lt;title&gt;</bpt><ept id="31e56ac6-209b-4581-81a4-08bb40b58757">&lt;/title&gt;</ept> -
+<bpt id="9827ebf8-613d-4fc7-9071-8f65dfbe9ed6">&lt;linkText&gt;</bpt>Multi-site data tier<ept id="9827ebf8-613d-4fc7-9071-8f65dfbe9ed6">&lt;/linkText&gt;</ept><bpt id="9827ebf8-613d-4fc7-9071-8f65dfbe9ed6">&lt;title&gt;</bpt><ept id="9827ebf8-613d-4fc7-9071-8f65dfbe9ed6">&lt;/title&gt;</ept> -
+<bpt id="2c74ab05-5ab7-4d58-a59f-57b89fdc3fb3">&lt;linkText&gt;</bpt>Global load balanced web tier<ept id="2c74ab05-5ab7-4d58-a59f-57b89fdc3fb3">&lt;/linkText&gt;</ept><bpt id="2c74ab05-5ab7-4d58-a59f-57b89fdc3fb3">&lt;title&gt;</bpt><ept id="2c74ab05-5ab7-4d58-a59f-57b89fdc3fb3">&lt;/title&gt;</ept> -
+<bpt id="01b943a3-b1c0-470e-8bde-9d7586688778">&lt;linkText&gt;</bpt>Azure search tier<ept id="01b943a3-b1c0-470e-8bde-9d7586688778">&lt;/linkText&gt;</ept><bpt id="01b943a3-b1c0-470e-8bde-9d7586688778">&lt;title&gt;</bpt><ept id="01b943a3-b1c0-470e-8bde-9d7586688778">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="707777d3-f11e-4f54-b541-7d8c0c39b2c8">&lt;linkText&gt;</bpt>Overview<ept id="707777d3-f11e-4f54-b541-7d8c0c39b2c8">&lt;/linkText&gt;</ept><bpt id="707777d3-f11e-4f54-b541-7d8c0c39b2c8">&lt;title&gt;</bpt><ept id="707777d3-f11e-4f54-b541-7d8c0c39b2c8">&lt;/title&gt;</ept> - 
+<bpt id="0f40f826-6ef4-446b-a642-8c02e0eee8a0">&lt;linkText&gt;</bpt>Hybrid networking<ept id="0f40f826-6ef4-446b-a642-8c02e0eee8a0">&lt;/linkText&gt;</ept><bpt id="0f40f826-6ef4-446b-a642-8c02e0eee8a0">&lt;title&gt;</bpt><ept id="0f40f826-6ef4-446b-a642-8c02e0eee8a0">&lt;/title&gt;</ept> - 
+<bpt id="31e56ac6-209b-4581-81a4-08bb40b58757">&lt;linkText&gt;</bpt>Offsite batch processing<ept id="31e56ac6-209b-4581-81a4-08bb40b58757">&lt;/linkText&gt;</ept><bpt id="31e56ac6-209b-4581-81a4-08bb40b58757">&lt;title&gt;</bpt><ept id="31e56ac6-209b-4581-81a4-08bb40b58757">&lt;/title&gt;</ept> -
+<bpt id="9827ebf8-613d-4fc7-9071-8f65dfbe9ed6">&lt;linkText&gt;</bpt>Multi-site data tier<ept id="9827ebf8-613d-4fc7-9071-8f65dfbe9ed6">&lt;/linkText&gt;</ept><bpt id="9827ebf8-613d-4fc7-9071-8f65dfbe9ed6">&lt;title&gt;</bpt><ept id="9827ebf8-613d-4fc7-9071-8f65dfbe9ed6">&lt;/title&gt;</ept> -
+<bpt id="2c74ab05-5ab7-4d58-a59f-57b89fdc3fb3">&lt;linkText&gt;</bpt>Global load balanced web tier<ept id="2c74ab05-5ab7-4d58-a59f-57b89fdc3fb3">&lt;/linkText&gt;</ept><bpt id="2c74ab05-5ab7-4d58-a59f-57b89fdc3fb3">&lt;title&gt;</bpt><ept id="2c74ab05-5ab7-4d58-a59f-57b89fdc3fb3">&lt;/title&gt;</ept> -
+<bpt id="01b943a3-b1c0-470e-8bde-9d7586688778">&lt;linkText&gt;</bpt>Azure search tier<ept id="01b943a3-b1c0-470e-8bde-9d7586688778">&lt;/linkText&gt;</ept><bpt id="01b943a3-b1c0-470e-8bde-9d7586688778">&lt;title&gt;</bpt><ept id="01b943a3-b1c0-470e-8bde-9d7586688778">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f290794a-df9a-46f9-ad54-d3bfd90985d5" xml:space="preserve">
+          <source>Each  pattern contains</source>
+          <target state="new">Each  pattern contains</target>
+        </trans-unit>
+        <trans-unit id="2c8000de-a67f-4806-a93f-b0126aeb34b5" xml:space="preserve">
+          <source>A service description</source>
+          <target state="new">A service description</target>
+        </trans-unit>
+        <trans-unit id="fe592ad5-91b7-4d33-b334-c0117168ac3e" xml:space="preserve">
+          <source>A list of Azure Services required to leverage the pattern</source>
+          <target state="new">A list of Azure Services required to leverage the pattern</target>
+        </trans-unit>
+        <trans-unit id="b88bb7df-aec5-410e-9419-a9e623132a45" xml:space="preserve">
+          <source>Architectural diagrams</source>
+          <target state="new">Architectural diagrams</target>
+        </trans-unit>
+        <trans-unit id="13dff143-36ce-479c-bb9d-2d33312e9066" xml:space="preserve">
+          <source>Architectural dependencies</source>
+          <target state="new">Architectural dependencies</target>
+        </trans-unit>
+        <trans-unit id="547743bf-6a1d-4c4d-99eb-0840470b8037" xml:space="preserve">
+          <source>Design limitations or considerations that may impact the pattern</source>
+          <target state="new">Design limitations or considerations that may impact the pattern</target>
+        </trans-unit>
+        <trans-unit id="90d53890-5012-49ae-ab50-85bff7feb441" xml:space="preserve">
+          <source>Interfaces and endpoints</source>
+          <target state="new">Interfaces and endpoints</target>
+        </trans-unit>
+        <trans-unit id="b8e9eef7-546b-4e54-85b8-f14a815f0060" xml:space="preserve">
+          <source>Anti-patterns</source>
+          <target state="new">Anti-patterns</target>
+        </trans-unit>
+        <trans-unit id="1ca393ed-c3f7-4370-b0ad-d1ce12e471c4" xml:space="preserve">
+          <source>Key high-level architecture considerations including availability and resiliency, composite SLAs for services used, scale and performance, cost and operational considerations.</source>
+          <target state="new">Key high-level architecture considerations including availability and resiliency, composite SLAs for services used, scale and performance, cost and operational considerations.</target>
+        </trans-unit>
+        <trans-unit id="48734c65-9f5e-4b13-a8b6-5a0929def3bd" xml:space="preserve">
+          <source><bpt id="1af834c4-1017-40ee-b960-753296b0a40c">&lt;linkText&gt;</bpt>Azure Architecture Design patterns<ept id="1af834c4-1017-40ee-b960-753296b0a40c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1af834c4-1017-40ee-b960-753296b0a40c">&lt;linkText&gt;</bpt>Azure Architecture Design patterns<ept id="1af834c4-1017-40ee-b960-753296b0a40c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6eec4e07-74ef-42bd-9643-f4a0c424d5e1" xml:space="preserve">
+          <source>Microsoft Patterns and Practices has published the book <bpt id="c93a8307-5a9f-4ab8-94de-27600681a4f3">&lt;linkText&gt;</bpt>Cloud Design Patterns<ept id="c93a8307-5a9f-4ab8-94de-27600681a4f3">&lt;/linkText&gt;</ept><bpt id="c93a8307-5a9f-4ab8-94de-27600681a4f3">&lt;title&gt;</bpt><ept id="c93a8307-5a9f-4ab8-94de-27600681a4f3">&lt;/title&gt;</ept> which is available both on MSDN and in PDF download.</source>
+          <target state="new">Microsoft Patterns and Practices has published the book <bpt id="c93a8307-5a9f-4ab8-94de-27600681a4f3">&lt;linkText&gt;</bpt>Cloud Design Patterns<ept id="c93a8307-5a9f-4ab8-94de-27600681a4f3">&lt;/linkText&gt;</ept><bpt id="c93a8307-5a9f-4ab8-94de-27600681a4f3">&lt;title&gt;</bpt><ept id="c93a8307-5a9f-4ab8-94de-27600681a4f3">&lt;/title&gt;</ept> which is available both on MSDN and in PDF download.</target>
+        </trans-unit>
+        <trans-unit id="f29298bd-514a-4b50-912d-9171f8ed8fed" xml:space="preserve">
+          <source>There is also a large format poster available which lists all the patterns.</source>
+          <target state="new">There is also a large format poster available which lists all the patterns.</target>
+        </trans-unit>
+        <trans-unit id="0a7e6515-32ea-4c75-abdf-67a126bd0a9b" xml:space="preserve">
+          <source><bpt id="ba600856-8f83-4efd-9bbc-620251411047">&lt;linkText&gt;</bpt>Patterns and Practices Cloud Patterns Poster<ept id="ba600856-8f83-4efd-9bbc-620251411047">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ba600856-8f83-4efd-9bbc-620251411047">&lt;linkText&gt;</bpt>Patterns and Practices Cloud Patterns Poster<ept id="ba600856-8f83-4efd-9bbc-620251411047">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1443730-1c79-4140-8005-26a19e0eeed2" xml:space="preserve">
+          <source>Microsoft publishes several architecture related posters/infographics.</source>
+          <target state="new">Microsoft publishes several architecture related posters/infographics.</target>
+        </trans-unit>
+        <trans-unit id="d009fab4-30f4-41c4-8c36-706e74b56bf2" xml:space="preserve">
+          <source>They include <bpt id="5f95f863-32cc-4a3a-b286-68c98401cd46">&lt;linkText&gt;</bpt>Building Real-World Cloud Applications<ept id="5f95f863-32cc-4a3a-b286-68c98401cd46">&lt;/linkText&gt;</ept><bpt id="5f95f863-32cc-4a3a-b286-68c98401cd46">&lt;title&gt;</bpt><ept id="5f95f863-32cc-4a3a-b286-68c98401cd46">&lt;/title&gt;</ept> and <bpt id="cd21827e-4b77-460f-ab75-9a8ba8315adb">&lt;linkText&gt;</bpt>Scaling with Cloud Services<ept id="cd21827e-4b77-460f-ab75-9a8ba8315adb">&lt;/linkText&gt;</ept><bpt id="cd21827e-4b77-460f-ab75-9a8ba8315adb">&lt;title&gt;</bpt><ept id="cd21827e-4b77-460f-ab75-9a8ba8315adb">&lt;/title&gt;</ept> .</source>
+          <target state="new">They include <bpt id="5f95f863-32cc-4a3a-b286-68c98401cd46">&lt;linkText&gt;</bpt>Building Real-World Cloud Applications<ept id="5f95f863-32cc-4a3a-b286-68c98401cd46">&lt;/linkText&gt;</ept><bpt id="5f95f863-32cc-4a3a-b286-68c98401cd46">&lt;title&gt;</bpt><ept id="5f95f863-32cc-4a3a-b286-68c98401cd46">&lt;/title&gt;</ept> and <bpt id="cd21827e-4b77-460f-ab75-9a8ba8315adb">&lt;linkText&gt;</bpt>Scaling with Cloud Services<ept id="cd21827e-4b77-460f-ab75-9a8ba8315adb">&lt;/linkText&gt;</ept><bpt id="cd21827e-4b77-460f-ab75-9a8ba8315adb">&lt;title&gt;</bpt><ept id="cd21827e-4b77-460f-ab75-9a8ba8315adb">&lt;/title&gt;</ept> .</target>
+        </trans-unit>
+        <trans-unit id="714134c3-a43b-41eb-9ed1-3ba80d455c31" xml:space="preserve">
+          <source><bpt id="d51f0255-fd67-40ad-b940-3e5ec4ea2240">&lt;linkText&gt;</bpt>Azure Architecture Infographics<ept id="d51f0255-fd67-40ad-b940-3e5ec4ea2240">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d51f0255-fd67-40ad-b940-3e5ec4ea2240">&lt;linkText&gt;</bpt>Azure Architecture Infographics<ept id="d51f0255-fd67-40ad-b940-3e5ec4ea2240">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

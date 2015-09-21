@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1164c0e9-d5c3-4495-8fc7-c61703701d98" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1164c0e9-d5c3-4495-8fc7-c61703701d98" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="13af0a90-d9a0-477f-884f-50e91f4c0959">
+        <trans-unit id="df735996-23c4-42d2-9d3e-1a6f68cbc5b1" xml:space="preserve">
+          <source>Connect virtual machines in an Azure cloud service</source>
+          <target state="new">Connect virtual machines in an Azure cloud service</target>
+        </trans-unit>
+        <trans-unit id="569dfb3b-6e3d-4675-bb72-174af5d985bb" xml:space="preserve">
+          <source>Learn to connect a virtual machine to an Azure cloud service.</source>
+          <target state="new">Learn to connect a virtual machine to an Azure cloud service.</target>
+        </trans-unit>
+        <trans-unit id="7ab3bd7a-efa9-44b4-9636-e4585b0abdc4" xml:space="preserve">
+          <source><bpt id="b1ade678-d31d-4d78-b020-599c8ed0ca45">&lt;token href="../../includes/howto-connect-vm-cloud-service.md"&gt;</bpt><ept id="b1ade678-d31d-4d78-b020-599c8ed0ca45">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b1ade678-d31d-4d78-b020-599c8ed0ca45">&lt;token href="../../includes/howto-connect-vm-cloud-service.md"&gt;</bpt><ept id="b1ade678-d31d-4d78-b020-599c8ed0ca45">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

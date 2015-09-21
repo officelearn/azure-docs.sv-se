@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6ccbc853-28b7-4575-8a2a-9ec44713ba56" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6ccbc853-28b7-4575-8a2a-9ec44713ba56" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0be03c51-3f4b-4c3b-87be-43042989f217">
+        <trans-unit id="cf4ea2b1-5b59-464a-857a-869b159d6728" xml:space="preserve">
+          <source>Accessing Azure Active Directory Graph Information (Windows Store) | Microsoft Azure</source>
+          <target state="new">Accessing Azure Active Directory Graph Information (Windows Store) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="89a64001-dffb-45eb-b699-c7f8381408fc" xml:space="preserve">
+          <source>Learn how to access Azure Active Directory information using the Graph API in your Windows Store application.</source>
+          <target state="new">Learn how to access Azure Active Directory information using the Graph API in your Windows Store application.</target>
+        </trans-unit>
+        <trans-unit id="f4b7babc-155a-45e0-84a3-bc5fa5605f7f" xml:space="preserve">
+          <source><bpt id="c7d1f193-84d7-4d72-9fe9-102fb79caf50">&lt;token href="../../includes/mobile-services-selector-aad-graph.md"&gt;</bpt><ept id="c7d1f193-84d7-4d72-9fe9-102fb79caf50">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c7d1f193-84d7-4d72-9fe9-102fb79caf50">&lt;token href="../../includes/mobile-services-selector-aad-graph.md"&gt;</bpt><ept id="c7d1f193-84d7-4d72-9fe9-102fb79caf50">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aeea1683-6c43-48d6-a880-fb9bb059eaf9" xml:space="preserve">
+          <source>Like the other identity providers offered with Mobile Services, the Azure Active Directory (AAD) provider also supports a rich Graph API which can be used for programmatic access to the directory.</source>
+          <target state="new">Like the other identity providers offered with Mobile Services, the Azure Active Directory (AAD) provider also supports a rich Graph API which can be used for programmatic access to the directory.</target>
+        </trans-unit>
+        <trans-unit id="b73bcabc-b45e-4bfa-866b-38db5da81b9c" xml:space="preserve">
+          <source>In this tutorial you update the ToDoList app to personalize the authenticated user’s app experience returning additional user information you retrieve from the directory using the [Graph REST API].</source>
+          <target state="new">In this tutorial you update the ToDoList app to personalize the authenticated user’s app experience returning additional user information you retrieve from the directory using the [Graph REST API].</target>
+        </trans-unit>
+        <trans-unit id="de8d69e8-9a9e-4a2a-8b4f-6e525565bc68" xml:space="preserve">
+          <source>For more information on the Azure AD Graph API, see the [Azure Active Directory Graph Team Blog].</source>
+          <target state="new">For more information on the Azure AD Graph API, see the [Azure Active Directory Graph Team Blog].</target>
+        </trans-unit>
+        <trans-unit id="92ddc155-811a-4441-b937-20a65bdd2d6d" xml:space="preserve">
+          <source>The intent of this tutorial is to extend your knowledge of authentication with the Azure Active Directory.</source>
+          <target state="new">The intent of this tutorial is to extend your knowledge of authentication with the Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="deb0916d-a4ee-4743-9e77-eeae8c3cc9ee" xml:space="preserve">
+          <source>It is expected that you have completed the [Add Authentication to your app] tutorial using the Azure Active Directory authentication provider.</source>
+          <target state="new">It is expected that you have completed the [Add Authentication to your app] tutorial using the Azure Active Directory authentication provider.</target>
+        </trans-unit>
+        <trans-unit id="1e9b4161-37b0-456b-9adb-1c8d7b4cfe96" xml:space="preserve">
+          <source>This tutorial continues to update the TodoItem application used in the [Add Authentication to your app] tutorial.</source>
+          <target state="new">This tutorial continues to update the TodoItem application used in the [Add Authentication to your app] tutorial.</target>
+        </trans-unit>
+        <trans-unit id="1a7baea4-9bb4-4f2b-9f0f-c2b85aa38dde" xml:space="preserve">
+          <source>Before you start this tutorial, you must have already completed these Mobile Services tutorials:</source>
+          <target state="new">Before you start this tutorial, you must have already completed these Mobile Services tutorials:</target>
+        </trans-unit>
+        <trans-unit id="0b8432c5-d32c-4146-89f7-4e5624397778" xml:space="preserve">
+          <source>[Add Authentication to your app]&lt;br/&gt;Adds a login requirement to the TodoList sample app.</source>
+          <target state="new">[Add Authentication to your app]&lt;br/&gt;Adds a login requirement to the TodoList sample app.</target>
+        </trans-unit>
+        <trans-unit id="736c785f-cd97-4ef2-8bca-f86a63d5d14d" xml:space="preserve">
+          <source>[Custom API Tutorial]&lt;br/&gt;Demonstrates how to call a custom API.</source>
+          <target state="new">[Custom API Tutorial]&lt;br/&gt;Demonstrates how to call a custom API.</target>
+        </trans-unit>
+        <trans-unit id="56797622-8b00-400d-b13b-24ba626d7db9" xml:space="preserve">
+          <source>During the [Add Authentication to your app] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step.</source>
+          <target state="new">During the [Add Authentication to your app] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step.</target>
+        </trans-unit>
+        <trans-unit id="bd796a0c-ec02-4255-8b66-bfb778515472" xml:space="preserve">
+          <source>In this section you generate a key to be used when reading directory information with that integrated application's client ID.</source>
+          <target state="new">In this section you generate a key to be used when reading directory information with that integrated application's client ID.</target>
+        </trans-unit>
+        <trans-unit id="d96c98fc-763a-42a8-8ac1-6cc44746b655" xml:space="preserve">
+          <source><bpt id="af57f534-f8b8-4102-8c27-5a23908efd39">&lt;token href="../../includes/mobile-services-generate-aad-app-registration-access-key.md"&gt;</bpt><ept id="af57f534-f8b8-4102-8c27-5a23908efd39">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="af57f534-f8b8-4102-8c27-5a23908efd39">&lt;token href="../../includes/mobile-services-generate-aad-app-registration-access-key.md"&gt;</bpt><ept id="af57f534-f8b8-4102-8c27-5a23908efd39">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="486dc0ec-4dab-4bfd-ba9d-81bdc018a54b" xml:space="preserve">
+          <source>In this section, you will create the GetUserInfo custom API that will use the [Graph REST API] to retrieve additional information about the user from the AAD.</source>
+          <target state="new">In this section, you will create the GetUserInfo custom API that will use the [Graph REST API] to retrieve additional information about the user from the AAD.</target>
+        </trans-unit>
+        <trans-unit id="78d38a4b-5ee3-46af-afcb-134e0d59ba3f" xml:space="preserve">
+          <source>If you've never used custom APIs with Mobile Services, you should consider reviewing the [Custom API Tutorial] before completing this section.</source>
+          <target state="new">If you've never used custom APIs with Mobile Services, you should consider reviewing the [Custom API Tutorial] before completing this section.</target>
+        </trans-unit>
+        <trans-unit id="eeaa41e1-b90e-4e20-8683-3cfb3c9d1607" xml:space="preserve">
+          <source>In the [Azure Management Portal], create the new GetUserInfo custom API for your mobile service and set permissions for the get method to <bpt id="b1e681a2-f934-482f-a966-3b09806a623b">&lt;strong&gt;</bpt>Only Authenticated Users<ept id="b1e681a2-f934-482f-a966-3b09806a623b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the [Azure Management Portal], create the new GetUserInfo custom API for your mobile service and set permissions for the get method to <bpt id="b1e681a2-f934-482f-a966-3b09806a623b">&lt;strong&gt;</bpt>Only Authenticated Users<ept id="b1e681a2-f934-482f-a966-3b09806a623b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6734a97-4e09-4823-a02b-46404d8e03b8" xml:space="preserve">
+          <source><bpt id="18a184b7-f0b5-44fd-9228-335373da3f16">&lt;linkText&gt;</bpt><ept id="18a184b7-f0b5-44fd-9228-335373da3f16">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="18a184b7-f0b5-44fd-9228-335373da3f16">&lt;linkText&gt;</bpt><ept id="18a184b7-f0b5-44fd-9228-335373da3f16">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d05c4b5c-0153-401a-ba67-21c938d8bfd5" xml:space="preserve">
+          <source>Open the script editor for the new GetUserInfo API and that the following variables to the top of the script.</source>
+          <target state="new">Open the script editor for the new GetUserInfo API and that the following variables to the top of the script.</target>
+        </trans-unit>
+        <trans-unit id="5f788662-d12e-4870-95da-dfe7ace5e9a2" xml:space="preserve">
+          <source>Add the following definition for the <bpt id="7641a752-3e17-472f-bb16-a0c615113238">&lt;code&gt;</bpt>getAADToken<ept id="7641a752-3e17-472f-bb16-a0c615113238">&lt;/code&gt;</ept> function.</source>
+          <target state="new">Add the following definition for the <bpt id="7641a752-3e17-472f-bb16-a0c615113238">&lt;code&gt;</bpt>getAADToken<ept id="7641a752-3e17-472f-bb16-a0c615113238">&lt;/code&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="9a6ec40f-928e-4d71-8bc2-f4f827ba32ad" xml:space="preserve">
+          <source>Given the <bpt id="5a1d76b6-dc9e-41e6-90f4-45170a78a4a9">&lt;em&gt;</bpt>tenant_domain<ept id="5a1d76b6-dc9e-41e6-90f4-45170a78a4a9">&lt;/em&gt;</ept>, integrated application <bpt id="ce272f89-90bb-4172-944b-159a3ea26247">&lt;em&gt;</bpt>client id<ept id="ce272f89-90bb-4172-944b-159a3ea26247">&lt;/em&gt;</ept>, and application <bpt id="be46068e-b636-4780-84e3-a051d585db28">&lt;em&gt;</bpt>key<ept id="be46068e-b636-4780-84e3-a051d585db28">&lt;/em&gt;</ept>, this function provides a Graph access token used for reading directory information.</source>
+          <target state="new">Given the <bpt id="5a1d76b6-dc9e-41e6-90f4-45170a78a4a9">&lt;em&gt;</bpt>tenant_domain<ept id="5a1d76b6-dc9e-41e6-90f4-45170a78a4a9">&lt;/em&gt;</ept>, integrated application <bpt id="ce272f89-90bb-4172-944b-159a3ea26247">&lt;em&gt;</bpt>client id<ept id="ce272f89-90bb-4172-944b-159a3ea26247">&lt;/em&gt;</ept>, and application <bpt id="be46068e-b636-4780-84e3-a051d585db28">&lt;em&gt;</bpt>key<ept id="be46068e-b636-4780-84e3-a051d585db28">&lt;/em&gt;</ept>, this function provides a Graph access token used for reading directory information.</target>
+        </trans-unit>
+        <trans-unit id="efaa5f82-5070-42af-901c-cbf2e924fc25" xml:space="preserve">
+          <source>Add the following <bpt id="c88bf973-9927-4c51-9601-ef1d49d40c63">&lt;code&gt;</bpt>getUser<ept id="c88bf973-9927-4c51-9601-ef1d49d40c63">&lt;/code&gt;</ept> function which uses the Graph API to return the user's information.</source>
+          <target state="new">Add the following <bpt id="c88bf973-9927-4c51-9601-ef1d49d40c63">&lt;code&gt;</bpt>getUser<ept id="c88bf973-9927-4c51-9601-ef1d49d40c63">&lt;/code&gt;</ept> function which uses the Graph API to return the user's information.</target>
+        </trans-unit>
+        <trans-unit id="9baad739-dc87-4edf-88f7-170b1057e714" xml:space="preserve">
+          <source>This function is a thin wrapper around the [Get User] endpoint of the Graph REST API.</source>
+          <target state="new">This function is a thin wrapper around the [Get User] endpoint of the Graph REST API.</target>
+        </trans-unit>
+        <trans-unit id="ec6c59b5-95a1-41d4-8767-92a779b6463c" xml:space="preserve">
+          <source>It uses the Graph access token to get the user information using the user's object ID.</source>
+          <target state="new">It uses the Graph access token to get the user information using the user's object ID.</target>
+        </trans-unit>
+        <trans-unit id="f08c9ad1-594d-40b3-9b95-dc05e3f14de9" xml:space="preserve">
+          <source>Update the exported <bpt id="e4cdeb8b-65a8-48b3-83bc-58b628050eea">&lt;code&gt;</bpt>get<ept id="e4cdeb8b-65a8-48b3-83bc-58b628050eea">&lt;/code&gt;</ept> method as follows to return user information using the other functions.</source>
+          <target state="new">Update the exported <bpt id="e4cdeb8b-65a8-48b3-83bc-58b628050eea">&lt;code&gt;</bpt>get<ept id="e4cdeb8b-65a8-48b3-83bc-58b628050eea">&lt;/code&gt;</ept> method as follows to return user information using the other functions.</target>
+        </trans-unit>
+        <trans-unit id="bbced7ac-da16-4785-828d-bee910de4e60" xml:space="preserve">
+          <source>In this section you will update the <bpt id="0f900344-d4c3-453d-9c77-2714937b1a0c">&lt;code&gt;</bpt>AuthenticateAsync<ept id="0f900344-d4c3-453d-9c77-2714937b1a0c">&lt;/code&gt;</ept> method you implemented in the [Get Started with Authentication] tutorial to call the custom API and return additional information about the user from the AAD.</source>
+          <target state="new">In this section you will update the <bpt id="0f900344-d4c3-453d-9c77-2714937b1a0c">&lt;code&gt;</bpt>AuthenticateAsync<ept id="0f900344-d4c3-453d-9c77-2714937b1a0c">&lt;/code&gt;</ept> method you implemented in the [Get Started with Authentication] tutorial to call the custom API and return additional information about the user from the AAD.</target>
+        </trans-unit>
+        <trans-unit id="9baf88fb-2318-4fd5-9467-61f1db1eba0a" xml:space="preserve">
+          <source><bpt id="0c9c3ef0-5904-44d8-8584-821b5689f7e2">&lt;token href="../../includes/mobile-services-aad-graph-info-update-app.md"&gt;</bpt><ept id="0c9c3ef0-5904-44d8-8584-821b5689f7e2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0c9c3ef0-5904-44d8-8584-821b5689f7e2">&lt;token href="../../includes/mobile-services-aad-graph-info-update-app.md"&gt;</bpt><ept id="0c9c3ef0-5904-44d8-8584-821b5689f7e2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dbdb84fc-410e-4494-a894-5185a51b4a73" xml:space="preserve">
+          <source><bpt id="79e335c9-c91f-4056-9817-b62aa03842ab">&lt;token href="../../includes/mobile-services-aad-graph-info-test-app.md"&gt;</bpt><ept id="79e335c9-c91f-4056-9817-b62aa03842ab">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="79e335c9-c91f-4056-9817-b62aa03842ab">&lt;token href="../../includes/mobile-services-aad-graph-info-test-app.md"&gt;</bpt><ept id="79e335c9-c91f-4056-9817-b62aa03842ab">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a8e3842-cd5d-4905-a169-047cd579d9ad" xml:space="preserve">
+          <source>In the next tutorial, [Role based access control with the AAD in Mobile Services], you will use role based access control with the Azure Active Directory (AAD) to check group membership before allowing access.</source>
+          <target state="new">In the next tutorial, [Role based access control with the AAD in Mobile Services], you will use role based access control with the Azure Active Directory (AAD) to check group membership before allowing access.</target>
+        </trans-unit>
+        <trans-unit id="65287883-fa7b-40ae-bd6c-3e20b788b160" xml:space="preserve">
+          <source>./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png</source>
+          <target state="new">./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png</target>
+        </trans-unit>
+        <trans-unit id="fe088ec2-a34a-4e9b-9699-d67a0d88116c" xml:space="preserve">
+          <source>../mobile-services-windows-store-dotnet-get-started-users.md</source>
+          <target state="new">../mobile-services-windows-store-dotnet-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="78f50d6f-76a0-4572-9b2f-20b49ab5746c" xml:space="preserve">
+          <source>mobile-services-how-to-register-active-directory-authentication.md</source>
+          <target state="new">mobile-services-how-to-register-active-directory-authentication.md</target>
+        </trans-unit>
+        <trans-unit id="e553e821-9939-49ac-a438-a62b7493095f" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="b17fad4f-d42c-439f-a49c-3bf33b2a04cb" xml:space="preserve">
+          <source>mobile-services-windows-store-dotnet-call-custom-api.md</source>
+          <target state="new">mobile-services-windows-store-dotnet-call-custom-api.md</target>
+        </trans-unit>
+        <trans-unit id="bb61217f-fd2d-4525-8449-b64417d6859c" xml:space="preserve">
+          <source>mobile-services-store-scripts-source-control.md</source>
+          <target state="new">mobile-services-store-scripts-source-control.md</target>
+        </trans-unit>
+        <trans-unit id="2a0e09a8-166d-4055-9be8-85ece08ee9ee" xml:space="preserve">
+          <source>mobile-services-how-to-register-active-directory-authentication.md</source>
+          <target state="new">mobile-services-how-to-register-active-directory-authentication.md</target>
+        </trans-unit>
+        <trans-unit id="9d08811a-6ac4-46a7-b151-51d42f83554d" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/hh974478.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/hh974478.aspx</target>
+        </trans-unit>
+        <trans-unit id="c3e4eab1-ee63-4813-b8a2-b58ca624e994" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/hh974478.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/hh974478.aspx</target>
+        </trans-unit>
+        <trans-unit id="d9c904fd-0bae-467e-9012-bfeaac8bde4b" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn151678.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn151678.aspx</target>
+        </trans-unit>
+        <trans-unit id="82cd2c69-77e4-4dca-bcc1-cebb9f3fb3f2" xml:space="preserve">
+          <source>mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md</source>
+          <target state="new">mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md</target>
+        </trans-unit>
+        <trans-unit id="49b4e82f-f146-4f35-99b3-b065ad5a765a" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=510536</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=510536</target>
+        </trans-unit>
+      </group>
+      <group id="7ec71bd0-c574-467f-b35f-3241ecf19285" />
+    </body>
+  </file>
+</xliff>

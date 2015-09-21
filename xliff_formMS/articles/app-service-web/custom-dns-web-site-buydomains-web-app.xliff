@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d6bc327b-d5fb-44d8-9d9f-975e8b44ee4d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d6bc327b-d5fb-44d8-9d9f-975e8b44ee4d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="edf48b2c-475c-4438-a3cb-6360ebc57fe6">
+        <trans-unit id="964ec456-521b-408a-9fe7-fdbae51b683c" xml:space="preserve">
+          <source>&lt;properties
+    pageTitle="How to buy a custom domain name in Azure App Service Web Apps"
+    description="Learn how to buy a custom domain name with a web app in Azure App Service."
+    services="app-service\web"
+    documentationCenter=""
+    authors="MikeWasson"
+    manager="wpickett"
+    editor=""/&gt;</source>
+          <target state="new">&lt;properties
+    pageTitle="How to buy a custom domain name in Azure App Service Web Apps"
+    description="Learn how to buy a custom domain name with a web app in Azure App Service."
+    services="app-service\web"
+    documentationCenter=""
+    authors="MikeWasson"
+    manager="wpickett"
+    editor=""/&gt;</target>
+        </trans-unit>
+        <trans-unit id="fe8652b6-91ba-4c02-84b6-cd5e14348806" xml:space="preserve">
+          <source>&lt;tags
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/31/2015"
+    ms.author="mwasson"/&gt;</source>
+          <target state="new">&lt;tags
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/31/2015"
+    ms.author="mwasson"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="aa67002f-c1bf-4ce9-a0b4-0792603798af" xml:space="preserve">
+          <source><bpt id="4d87ecaa-7d09-4a31-8664-3c36d361b86a">&lt;token href="../../includes/websites-cloud-services-css-guided-walkthrough.md"&gt;</bpt><ept id="4d87ecaa-7d09-4a31-8664-3c36d361b86a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4d87ecaa-7d09-4a31-8664-3c36d361b86a">&lt;token href="../../includes/websites-cloud-services-css-guided-walkthrough.md"&gt;</bpt><ept id="4d87ecaa-7d09-4a31-8664-3c36d361b86a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a292c52e-1d4e-4000-8b06-238d783aade0" xml:space="preserve">
+          <source>When you create a web app, Azure assigns it to a subdomain of azurewebsites.net.</source>
+          <target state="new">When you create a web app, Azure assigns it to a subdomain of azurewebsites.net.</target>
+        </trans-unit>
+        <trans-unit id="5fe669e1-8049-487b-a59d-2b315e78a4ab" xml:space="preserve">
+          <source>For example, if your web app is named <bpt id="83f3dd85-8358-4ceb-b822-e776c0124e3a">&lt;strong&gt;</bpt>contoso<ept id="83f3dd85-8358-4ceb-b822-e776c0124e3a">&lt;/strong&gt;</ept>, the URL is <bpt id="b25da2c8-325f-41e0-8c16-47f274df2465">&lt;strong&gt;</bpt>contoso.azurewebsites.net<ept id="b25da2c8-325f-41e0-8c16-47f274df2465">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, if your web app is named <bpt id="83f3dd85-8358-4ceb-b822-e776c0124e3a">&lt;strong&gt;</bpt>contoso<ept id="83f3dd85-8358-4ceb-b822-e776c0124e3a">&lt;/strong&gt;</ept>, the URL is <bpt id="b25da2c8-325f-41e0-8c16-47f274df2465">&lt;strong&gt;</bpt>contoso.azurewebsites.net<ept id="b25da2c8-325f-41e0-8c16-47f274df2465">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d756d38-82cf-431b-81cf-08af3c30fc2c" xml:space="preserve">
+          <source>Azure also assigns a virtual IP address.</source>
+          <target state="new">Azure also assigns a virtual IP address.</target>
+        </trans-unit>
+        <trans-unit id="af351215-3326-419d-a458-835504be295b" xml:space="preserve">
+          <source>For a production web app, you probably want users to see a custom domain name.</source>
+          <target state="new">For a production web app, you probably want users to see a custom domain name.</target>
+        </trans-unit>
+        <trans-unit id="4d0b1b7c-9553-4232-8d80-7eba7602cf18" xml:space="preserve">
+          <source>This article explains how to buy and configure a custom domain with <bpt id="da8dcb48-0451-4a06-aa14-423b67dbab6c">&lt;linkText&gt;</bpt>App Service Web Apps<ept id="da8dcb48-0451-4a06-aa14-423b67dbab6c">&lt;/linkText&gt;</ept><bpt id="da8dcb48-0451-4a06-aa14-423b67dbab6c">&lt;title&gt;</bpt><ept id="da8dcb48-0451-4a06-aa14-423b67dbab6c">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article explains how to buy and configure a custom domain with <bpt id="da8dcb48-0451-4a06-aa14-423b67dbab6c">&lt;linkText&gt;</bpt>App Service Web Apps<ept id="da8dcb48-0451-4a06-aa14-423b67dbab6c">&lt;/linkText&gt;</ept><bpt id="da8dcb48-0451-4a06-aa14-423b67dbab6c">&lt;title&gt;</bpt><ept id="da8dcb48-0451-4a06-aa14-423b67dbab6c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad221f40-b936-4a97-a8b4-2c03047036ee" xml:space="preserve">
+          <source><bpt id="0a0d3d10-d440-4bd8-96e4-efeaad79b7f0">&lt;token href="../../includes/custom-dns-web-site-intro-notes.md"&gt;</bpt><ept id="0a0d3d10-d440-4bd8-96e4-efeaad79b7f0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0a0d3d10-d440-4bd8-96e4-efeaad79b7f0">&lt;token href="../../includes/custom-dns-web-site-intro-notes.md"&gt;</bpt><ept id="0a0d3d10-d440-4bd8-96e4-efeaad79b7f0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccdd7e76-d9a3-4aec-b565-a7280522d477" xml:space="preserve">
+          <source>Please do not attempt to purchase a domain using a subscription that does not have an Active Credit Card associated with it.</source>
+          <target state="new">Please do not attempt to purchase a domain using a subscription that does not have an Active Credit Card associated with it.</target>
+        </trans-unit>
+        <trans-unit id="4026c252-bda9-4039-8bac-9c905b934c44" xml:space="preserve">
+          <source>This could result in your subscription being disabled.</source>
+          <target state="new">This could result in your subscription being disabled.</target>
+        </trans-unit>
+        <trans-unit id="d168e2d2-c5d7-48d6-9e82-86209926c028" xml:space="preserve">
+          <source>If you don't have a domain name for your web app, you can easily buy one on <bpt id="d7f9f43e-ec6a-4387-84e1-13d264978066">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="d7f9f43e-ec6a-4387-84e1-13d264978066">&lt;/linkText&gt;</ept><bpt id="d7f9f43e-ec6a-4387-84e1-13d264978066">&lt;title&gt;</bpt><ept id="d7f9f43e-ec6a-4387-84e1-13d264978066">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have a domain name for your web app, you can easily buy one on <bpt id="d7f9f43e-ec6a-4387-84e1-13d264978066">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="d7f9f43e-ec6a-4387-84e1-13d264978066">&lt;/linkText&gt;</ept><bpt id="d7f9f43e-ec6a-4387-84e1-13d264978066">&lt;title&gt;</bpt><ept id="d7f9f43e-ec6a-4387-84e1-13d264978066">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="325bc1c3-2529-4ca9-8b97-e39438f9ebef" xml:space="preserve">
+          <source>During the purchase process you can choose to have WWW and root domain's DNS records be mapped to your web app automatically.</source>
+          <target state="new">During the purchase process you can choose to have WWW and root domain's DNS records be mapped to your web app automatically.</target>
+        </trans-unit>
+        <trans-unit id="ee4a3ab9-32fa-4021-9c7b-9507ec5337ed" xml:space="preserve">
+          <source>You also can manage your domain right inside Azure Portal.</source>
+          <target state="new">You also can manage your domain right inside Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="3b605b7b-41d4-4366-b846-e69ca4baa3ae" xml:space="preserve">
+          <source>Use the following steps to buy domain names and assign to your web app.</source>
+          <target state="new">Use the following steps to buy domain names and assign to your web app.</target>
+        </trans-unit>
+        <trans-unit id="ff76ecef-7bf9-4931-988e-8006e2722943" xml:space="preserve">
+          <source>In your browser, open the <bpt id="3a7f25e5-451b-43b2-b312-b9325a4ff6cd">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="3a7f25e5-451b-43b2-b312-b9325a4ff6cd">&lt;/linkText&gt;</ept><bpt id="3a7f25e5-451b-43b2-b312-b9325a4ff6cd">&lt;title&gt;</bpt><ept id="3a7f25e5-451b-43b2-b312-b9325a4ff6cd">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, open the <bpt id="3a7f25e5-451b-43b2-b312-b9325a4ff6cd">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="3a7f25e5-451b-43b2-b312-b9325a4ff6cd">&lt;/linkText&gt;</ept><bpt id="3a7f25e5-451b-43b2-b312-b9325a4ff6cd">&lt;title&gt;</bpt><ept id="3a7f25e5-451b-43b2-b312-b9325a4ff6cd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43b892ff-a9e9-445c-bfa5-1b664e22ec49" xml:space="preserve">
+          <source>In the <bpt id="7cbe76d9-3de0-4fa4-adc2-691adf9d0488">&lt;strong&gt;</bpt>Web Apps<ept id="7cbe76d9-3de0-4fa4-adc2-691adf9d0488">&lt;/strong&gt;</ept> tab, click the name of your web app, select <bpt id="0f467c61-0e62-446e-9618-ba53cefa29a1">&lt;strong&gt;</bpt>Settings<ept id="0f467c61-0e62-446e-9618-ba53cefa29a1">&lt;/strong&gt;</ept>, and then select <bpt id="61dcd669-2c1c-4213-9f88-e5ce6d604bc3">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="61dcd669-2c1c-4213-9f88-e5ce6d604bc3">&lt;/strong&gt;</ept></source>
+          <target state="new">In the <bpt id="7cbe76d9-3de0-4fa4-adc2-691adf9d0488">&lt;strong&gt;</bpt>Web Apps<ept id="7cbe76d9-3de0-4fa4-adc2-691adf9d0488">&lt;/strong&gt;</ept> tab, click the name of your web app, select <bpt id="0f467c61-0e62-446e-9618-ba53cefa29a1">&lt;strong&gt;</bpt>Settings<ept id="0f467c61-0e62-446e-9618-ba53cefa29a1">&lt;/strong&gt;</ept>, and then select <bpt id="61dcd669-2c1c-4213-9f88-e5ce6d604bc3">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="61dcd669-2c1c-4213-9f88-e5ce6d604bc3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c30f3860-ff5a-4e78-b759-bf82270d87aa" xml:space="preserve">
+          <source><bpt id="5bc3caf1-b8fd-4188-9f9c-387e6b45ab55">&lt;linkText&gt;</bpt><ept id="5bc3caf1-b8fd-4188-9f9c-387e6b45ab55">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5bc3caf1-b8fd-4188-9f9c-387e6b45ab55">&lt;linkText&gt;</bpt><ept id="5bc3caf1-b8fd-4188-9f9c-387e6b45ab55">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2a77a33-1ff4-465f-9b1f-cbccaaf6b0e7" xml:space="preserve">
+          <source>In the <bpt id="06735351-6175-4f0c-87fc-39d54afca96a">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="06735351-6175-4f0c-87fc-39d54afca96a">&lt;/strong&gt;</ept> blade, click <bpt id="8694161a-a74a-47d1-ace2-bd9ec57ec494">&lt;strong&gt;</bpt>Buy domains<ept id="8694161a-a74a-47d1-ace2-bd9ec57ec494">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="06735351-6175-4f0c-87fc-39d54afca96a">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="06735351-6175-4f0c-87fc-39d54afca96a">&lt;/strong&gt;</ept> blade, click <bpt id="8694161a-a74a-47d1-ace2-bd9ec57ec494">&lt;strong&gt;</bpt>Buy domains<ept id="8694161a-a74a-47d1-ace2-bd9ec57ec494">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53dba830-2cf4-4efd-9e13-4eaab174ccd5" xml:space="preserve">
+          <source><bpt id="6ba2b7e3-2eff-4542-a235-7451f28fffbb">&lt;linkText&gt;</bpt><ept id="6ba2b7e3-2eff-4542-a235-7451f28fffbb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ba2b7e3-2eff-4542-a235-7451f28fffbb">&lt;linkText&gt;</bpt><ept id="6ba2b7e3-2eff-4542-a235-7451f28fffbb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a5953f1-d00f-4aea-afb6-51ba28359841" xml:space="preserve">
+          <source>In the <bpt id="712b0d5e-937b-4df9-8cb2-d75117ee9d30">&lt;strong&gt;</bpt>Buy Domains<ept id="712b0d5e-937b-4df9-8cb2-d75117ee9d30">&lt;/strong&gt;</ept> blade, use the text box to type the domain name you want to buy and hit Enter.</source>
+          <target state="new">In the <bpt id="712b0d5e-937b-4df9-8cb2-d75117ee9d30">&lt;strong&gt;</bpt>Buy Domains<ept id="712b0d5e-937b-4df9-8cb2-d75117ee9d30">&lt;/strong&gt;</ept> blade, use the text box to type the domain name you want to buy and hit Enter.</target>
+        </trans-unit>
+        <trans-unit id="2a197bd1-9428-4e8c-bc47-6995de64a4e6" xml:space="preserve">
+          <source>The suggested available domains will be shown just blow the text box.</source>
+          <target state="new">The suggested available domains will be shown just blow the text box.</target>
+        </trans-unit>
+        <trans-unit id="73640323-e39a-4192-bea2-3dd96829073f" xml:space="preserve">
+          <source>Select what domain you want to buy.</source>
+          <target state="new">Select what domain you want to buy.</target>
+        </trans-unit>
+        <trans-unit id="5001f639-84ec-43bf-9c7e-65bc8a5ebea4" xml:space="preserve">
+          <source>You can choose to purchase multiple domains at once.</source>
+          <target state="new">You can choose to purchase multiple domains at once.</target>
+        </trans-unit>
+        <trans-unit id="e1cb9d2d-85f2-4ef8-bf41-710aab3da42f" xml:space="preserve">
+          <source><bpt id="bb981104-3fea-491d-834d-0878cb213699">&lt;linkText&gt;</bpt><ept id="bb981104-3fea-491d-834d-0878cb213699">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb981104-3fea-491d-834d-0878cb213699">&lt;linkText&gt;</bpt><ept id="bb981104-3fea-491d-834d-0878cb213699">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c52b5f2-81a3-4b7d-b368-d40af3426a3b" xml:space="preserve">
+          <source>Click the <bpt id="e3cd8f87-62f2-4554-bc52-d87f8e356e82">&lt;strong&gt;</bpt>Contact Information<ept id="e3cd8f87-62f2-4554-bc52-d87f8e356e82">&lt;/strong&gt;</ept> and fill the domain's contact information form.</source>
+          <target state="new">Click the <bpt id="e3cd8f87-62f2-4554-bc52-d87f8e356e82">&lt;strong&gt;</bpt>Contact Information<ept id="e3cd8f87-62f2-4554-bc52-d87f8e356e82">&lt;/strong&gt;</ept> and fill the domain's contact information form.</target>
+        </trans-unit>
+        <trans-unit id="ae4a9c2b-dfb8-4836-bcac-5dc0d4cfd6c2" xml:space="preserve">
+          <source><bpt id="2cacb7ad-aa04-4250-9afa-b381407c2153">&lt;linkText&gt;</bpt><ept id="2cacb7ad-aa04-4250-9afa-b381407c2153">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2cacb7ad-aa04-4250-9afa-b381407c2153">&lt;linkText&gt;</bpt><ept id="2cacb7ad-aa04-4250-9afa-b381407c2153">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f356398d-caaa-4906-8c0c-ebec92b5c62e" xml:space="preserve">
+          <source>It is very important that you fill out all required fields with as much accuracy as possible, especially the email address.</source>
+          <target state="new">It is very important that you fill out all required fields with as much accuracy as possible, especially the email address.</target>
+        </trans-unit>
+        <trans-unit id="657468dc-fdbe-4e08-86ae-2365e2d4ec8d" xml:space="preserve">
+          <source>In case of purchasing the domain without "Privacy protection", you might be asked to verify your email before the domain becomes active.</source>
+          <target state="new">In case of purchasing the domain without "Privacy protection", you might be asked to verify your email before the domain becomes active.</target>
+        </trans-unit>
+        <trans-unit id="a1417d2d-6be5-4847-82c3-b77833da7dba" xml:space="preserve">
+          <source>In some cases, incorrect data for contact information will result in failure to purchase domains.</source>
+          <target state="new">In some cases, incorrect data for contact information will result in failure to purchase domains.</target>
+        </trans-unit>
+        <trans-unit id="566a3d9e-21f2-4d52-bebf-0d00232c74e9" xml:space="preserve">
+          <source>Now you can choose to,</source>
+          <target state="new">Now you can choose to,</target>
+        </trans-unit>
+        <trans-unit id="d1798774-4aae-4647-9df0-c15922ebd178" xml:space="preserve">
+          <source>a) "Auto renew" your domain every year</source>
+          <target state="new">a) "Auto renew" your domain every year</target>
+        </trans-unit>
+        <trans-unit id="ce1af8e5-78d2-4168-9360-428deff595d0" xml:space="preserve">
+          <source>b) Opt-in for "Privacy protection" which is included in the purchase price for FREE</source>
+          <target state="new">b) Opt-in for "Privacy protection" which is included in the purchase price for FREE</target>
+        </trans-unit>
+        <trans-unit id="07f55a31-53a2-417b-beb1-18f9436d6fb4" xml:space="preserve">
+          <source>c) "Assign default hostnames" for WWW and root domain to the current Web App.</source>
+          <target state="new">c) "Assign default hostnames" for WWW and root domain to the current Web App.</target>
+        </trans-unit>
+        <trans-unit id="b02271ba-fd14-4c12-847c-f89f83064af3" xml:space="preserve">
+          <source><bpt id="a9a7474d-3632-46a1-a622-ee3394226970">&lt;linkText&gt;</bpt><ept id="a9a7474d-3632-46a1-a622-ee3394226970">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a9a7474d-3632-46a1-a622-ee3394226970">&lt;linkText&gt;</bpt><ept id="a9a7474d-3632-46a1-a622-ee3394226970">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f03e10c-f3f6-4c41-ab26-6ad36393cbf9" xml:space="preserve">
+          <source>Option C configures DNS bindings and Hostname bindings automatically for you.</source>
+          <target state="new">Option C configures DNS bindings and Hostname bindings automatically for you.</target>
+        </trans-unit>
+        <trans-unit id="e7e85a58-2153-4219-9cf5-2d15acffe9d3" xml:space="preserve">
+          <source>This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases).</source>
+          <target state="new">This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases).</target>
+        </trans-unit>
+        <trans-unit id="f6e4060b-14be-484a-941a-26e456a07384" xml:space="preserve">
+          <source>In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager.</source>
+          <target state="new">In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="21e0932b-8135-475b-981e-a1f230c1e5f6" xml:space="preserve">
+          <source>You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa.</source>
+          <target state="new">You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa.</target>
+        </trans-unit>
+        <trans-unit id="b69d0877-624c-4587-854f-26b84e2c4e52" xml:space="preserve">
+          <source>See step 8 for more details.</source>
+          <target state="new">See step 8 for more details.</target>
+        </trans-unit>
+        <trans-unit id="4527f727-d2a2-4fe5-8378-f84d75e7f8fc" xml:space="preserve">
+          <source>Click the <bpt id="aa5cdb82-8761-4285-9037-41627843ed9c">&lt;strong&gt;</bpt>Select<ept id="aa5cdb82-8761-4285-9037-41627843ed9c">&lt;/strong&gt;</ept> on <bpt id="ca980687-a664-4e43-966a-20209ab542f8">&lt;strong&gt;</bpt>Buy Domains<ept id="ca980687-a664-4e43-966a-20209ab542f8">&lt;/strong&gt;</ept> blade, then you will see the purchase information on <bpt id="f252805e-95fa-46b6-b4e6-a10bea0fdeb6">&lt;strong&gt;</bpt>Purchase confirmation<ept id="f252805e-95fa-46b6-b4e6-a10bea0fdeb6">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click the <bpt id="aa5cdb82-8761-4285-9037-41627843ed9c">&lt;strong&gt;</bpt>Select<ept id="aa5cdb82-8761-4285-9037-41627843ed9c">&lt;/strong&gt;</ept> on <bpt id="ca980687-a664-4e43-966a-20209ab542f8">&lt;strong&gt;</bpt>Buy Domains<ept id="ca980687-a664-4e43-966a-20209ab542f8">&lt;/strong&gt;</ept> blade, then you will see the purchase information on <bpt id="f252805e-95fa-46b6-b4e6-a10bea0fdeb6">&lt;strong&gt;</bpt>Purchase confirmation<ept id="f252805e-95fa-46b6-b4e6-a10bea0fdeb6">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="0d171656-6a62-4f7d-bb3c-3c75b8c5b52c" xml:space="preserve">
+          <source>If you accept the legal terms and click <bpt id="cb9013dd-d242-4166-94b5-dfdc03e0263f">&lt;strong&gt;</bpt>Buy<ept id="cb9013dd-d242-4166-94b5-dfdc03e0263f">&lt;/strong&gt;</ept>, your order will be submitted and you can monitor the purchasing process on <bpt id="3708fbd8-4e08-45d6-9a14-78ca1e7edbef">&lt;strong&gt;</bpt>Notification<ept id="3708fbd8-4e08-45d6-9a14-78ca1e7edbef">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you accept the legal terms and click <bpt id="cb9013dd-d242-4166-94b5-dfdc03e0263f">&lt;strong&gt;</bpt>Buy<ept id="cb9013dd-d242-4166-94b5-dfdc03e0263f">&lt;/strong&gt;</ept>, your order will be submitted and you can monitor the purchasing process on <bpt id="3708fbd8-4e08-45d6-9a14-78ca1e7edbef">&lt;strong&gt;</bpt>Notification<ept id="3708fbd8-4e08-45d6-9a14-78ca1e7edbef">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa4d2368-8c02-4e3b-a43b-5efa48eb6a7a" xml:space="preserve">
+          <source>Domain purchase can take few minutes to complete.</source>
+          <target state="new">Domain purchase can take few minutes to complete.</target>
+        </trans-unit>
+        <trans-unit id="164a674d-1fcb-4e50-8ab3-23d0ed4bb37e" xml:space="preserve">
+          <source><bpt id="9fb5a6e5-6fe8-4001-adbb-f407f0caab70">&lt;linkText&gt;</bpt><ept id="9fb5a6e5-6fe8-4001-adbb-f407f0caab70">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9fb5a6e5-6fe8-4001-adbb-f407f0caab70">&lt;linkText&gt;</bpt><ept id="9fb5a6e5-6fe8-4001-adbb-f407f0caab70">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1f0f8d7-f311-4941-a350-a305f2f418cd" xml:space="preserve">
+          <source><bpt id="a17659bf-5dfa-4ee2-91a2-70320bed9ead">&lt;linkText&gt;</bpt><ept id="a17659bf-5dfa-4ee2-91a2-70320bed9ead">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a17659bf-5dfa-4ee2-91a2-70320bed9ead">&lt;linkText&gt;</bpt><ept id="a17659bf-5dfa-4ee2-91a2-70320bed9ead">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86fc4f0d-bf53-4949-8871-77ba3436095d" xml:space="preserve">
+          <source>If you successfully ordered a domain, you can manage the domain and assign to your web app.</source>
+          <target state="new">If you successfully ordered a domain, you can manage the domain and assign to your web app.</target>
+        </trans-unit>
+        <trans-unit id="b591f48c-3250-4698-b11a-60f79c8cd6d7" xml:space="preserve">
+          <source>Click the <bpt id="989be855-3dc3-4d0a-ab59-fb32067d467c">&lt;strong&gt;</bpt>"..."<ept id="989be855-3dc3-4d0a-ab59-fb32067d467c">&lt;/strong&gt;</ept> at the right side of your domain.</source>
+          <target state="new">Click the <bpt id="989be855-3dc3-4d0a-ab59-fb32067d467c">&lt;strong&gt;</bpt>"..."<ept id="989be855-3dc3-4d0a-ab59-fb32067d467c">&lt;/strong&gt;</ept> at the right side of your domain.</target>
+        </trans-unit>
+        <trans-unit id="1c7dc505-400e-4632-9cf7-5c51014c8aab" xml:space="preserve">
+          <source>Then you can <bpt id="1ce19e26-b778-4fed-a70f-5560b27f2c1f">&lt;strong&gt;</bpt>Cancel purchase<ept id="1ce19e26-b778-4fed-a70f-5560b27f2c1f">&lt;/strong&gt;</ept> or <bpt id="0144d893-dc77-43c2-b123-cf04af9c2fdd">&lt;strong&gt;</bpt>Manage domain<ept id="0144d893-dc77-43c2-b123-cf04af9c2fdd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then you can <bpt id="1ce19e26-b778-4fed-a70f-5560b27f2c1f">&lt;strong&gt;</bpt>Cancel purchase<ept id="1ce19e26-b778-4fed-a70f-5560b27f2c1f">&lt;/strong&gt;</ept> or <bpt id="0144d893-dc77-43c2-b123-cf04af9c2fdd">&lt;strong&gt;</bpt>Manage domain<ept id="0144d893-dc77-43c2-b123-cf04af9c2fdd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91d5442a-4ff2-4342-87bf-33e00466a5bb" xml:space="preserve">
+          <source>Click <bpt id="72105611-2709-4afa-9967-7cff06f8e0a0">&lt;strong&gt;</bpt>Manage domain<ept id="72105611-2709-4afa-9967-7cff06f8e0a0">&lt;/strong&gt;</ept>, then we can bind <bpt id="d1612c56-c58e-4d97-94c4-3214d28f6971">&lt;strong&gt;</bpt>subdomain<ept id="d1612c56-c58e-4d97-94c4-3214d28f6971">&lt;/strong&gt;</ept> to our web app on <bpt id="42169599-e154-4767-bcb4-bd2d7d9b9783">&lt;strong&gt;</bpt>Manage domain<ept id="42169599-e154-4767-bcb4-bd2d7d9b9783">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click <bpt id="72105611-2709-4afa-9967-7cff06f8e0a0">&lt;strong&gt;</bpt>Manage domain<ept id="72105611-2709-4afa-9967-7cff06f8e0a0">&lt;/strong&gt;</ept>, then we can bind <bpt id="d1612c56-c58e-4d97-94c4-3214d28f6971">&lt;strong&gt;</bpt>subdomain<ept id="d1612c56-c58e-4d97-94c4-3214d28f6971">&lt;/strong&gt;</ept> to our web app on <bpt id="42169599-e154-4767-bcb4-bd2d7d9b9783">&lt;strong&gt;</bpt>Manage domain<ept id="42169599-e154-4767-bcb4-bd2d7d9b9783">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="f5fa019f-6205-4208-b581-0f1d01abe905" xml:space="preserve">
+          <source>If you want to bind a  <bpt id="6ccd8676-76e1-4f9a-bdad-67703ac69214">&lt;strong&gt;</bpt>subdomain<ept id="6ccd8676-76e1-4f9a-bdad-67703ac69214">&lt;/strong&gt;</ept> to a different Web App then perform this step from within the context of the respective Web App.</source>
+          <target state="new">If you want to bind a  <bpt id="6ccd8676-76e1-4f9a-bdad-67703ac69214">&lt;strong&gt;</bpt>subdomain<ept id="6ccd8676-76e1-4f9a-bdad-67703ac69214">&lt;/strong&gt;</ept> to a different Web App then perform this step from within the context of the respective Web App.</target>
+        </trans-unit>
+        <trans-unit id="df591e0d-480f-4a1a-b550-3403b2623301" xml:space="preserve">
+          <source>Over here you an choose to assign the domain to Traffic manager endpoint (if Web App is behind TM) by simply selecting Traffic manager name from the Drop down menu.</source>
+          <target state="new">Over here you an choose to assign the domain to Traffic manager endpoint (if Web App is behind TM) by simply selecting Traffic manager name from the Drop down menu.</target>
+        </trans-unit>
+        <trans-unit id="ac103e6b-e242-4373-b071-94979252dfbb" xml:space="preserve">
+          <source>By doing this, domain/subdomain will be automatically assigned to all the Web Apps behind that Traffic Manager endpoint.</source>
+          <target state="new">By doing this, domain/subdomain will be automatically assigned to all the Web Apps behind that Traffic Manager endpoint.</target>
+        </trans-unit>
+        <trans-unit id="d4059599-baec-4007-9f4f-55c21899ce6b" xml:space="preserve">
+          <source><bpt id="d09d0757-56dc-4006-9c05-393ed0b02d29">&lt;linkText&gt;</bpt><ept id="d09d0757-56dc-4006-9c05-393ed0b02d29">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d09d0757-56dc-4006-9c05-393ed0b02d29">&lt;linkText&gt;</bpt><ept id="d09d0757-56dc-4006-9c05-393ed0b02d29">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f798a4f-ca00-48ca-97ae-3076285013cb" xml:space="preserve">
+          <source>You can "Cancel purchase" within 5 days for full refund.</source>
+          <target state="new">You can "Cancel purchase" within 5 days for full refund.</target>
+        </trans-unit>
+        <trans-unit id="c8febd84-46cf-459d-9988-30c7d02cb960" xml:space="preserve">
+          <source>After 5 days you will not be able to "Cancel purchase", instead you will see an option to "Delete" the domain.</source>
+          <target state="new">After 5 days you will not be able to "Cancel purchase", instead you will see an option to "Delete" the domain.</target>
+        </trans-unit>
+        <trans-unit id="f471b715-38cb-46e0-84c4-8028d581c732" xml:space="preserve">
+          <source>Deleting the domain will result in releasing it from your subscription without refund and will become available domain.</source>
+          <target state="new">Deleting the domain will result in releasing it from your subscription without refund and will become available domain.</target>
+        </trans-unit>
+        <trans-unit id="affe9821-bf6a-4014-9c74-a8c2777ba10d" xml:space="preserve">
+          <source>At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.</source>
+          <target state="new">At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

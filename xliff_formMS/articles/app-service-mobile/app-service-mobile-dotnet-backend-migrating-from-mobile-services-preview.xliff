@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7c84dc18-61b6-4b5f-bfca-0f76c5ace449" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7c84dc18-61b6-4b5f-bfca-0f76c5ace449" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ec91f1f9-bf73-4740-8731-a22703f6ecc7">
+        <trans-unit id="cba92039-64cf-45e2-8eb0-9cea294b7552" xml:space="preserve">
+          <source>Migrate from Mobile Services to an App Service Mobile App</source>
+          <target state="new">Migrate from Mobile Services to an App Service Mobile App</target>
+        </trans-unit>
+        <trans-unit id="dfacba26-a424-4308-ad3a-75dd00a639a0" xml:space="preserve">
+          <source>Learn how to easily migrate your Mobile Services application to an App Service Mobile App</source>
+          <target state="new">Learn how to easily migrate your Mobile Services application to an App Service Mobile App</target>
+        </trans-unit>
+        <trans-unit id="65023cd0-3aab-4502-9a61-9e4cdb80c921" xml:space="preserve">
+          <source>This topic shows you how to migrate an existing application from Azure Mobile Services to a new App Service Mobile App.</source>
+          <target state="new">This topic shows you how to migrate an existing application from Azure Mobile Services to a new App Service Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="ea5c2fc5-3da2-4aac-841b-46794ec309bd" xml:space="preserve">
+          <source>All existing Mobile Services apps can be easily migrated to a new App Service Mobile app.</source>
+          <target state="new">All existing Mobile Services apps can be easily migrated to a new App Service Mobile app.</target>
+        </trans-unit>
+        <trans-unit id="f3e56a82-77db-46d4-a414-f0b7be4553f8" xml:space="preserve">
+          <source>During a migration, your existing Mobile Services application can continue to operate.</source>
+          <target state="new">During a migration, your existing Mobile Services application can continue to operate.</target>
+        </trans-unit>
+        <trans-unit id="5fb6725e-29c9-416e-bfcb-0e0e58dba413" xml:space="preserve">
+          <source>Over time, the process for migrating will become even easier, but for those who wish to migrate today, the following steps can be used.</source>
+          <target state="new">Over time, the process for migrating will become even easier, but for those who wish to migrate today, the following steps can be used.</target>
+        </trans-unit>
+        <trans-unit id="eb9b6f8e-c595-4446-95bc-b2c9fe2c535d" xml:space="preserve">
+          <source>Migrations are currently only supported for customers using the Mobile Services .NET backend.</source>
+          <target state="new">Migrations are currently only supported for customers using the Mobile Services .NET backend.</target>
+        </trans-unit>
+        <trans-unit id="80f8e868-54be-42b9-95f7-f87e4fd7e021" xml:space="preserve">
+          <source>Applications using the Node.JS backend will need to stay on Mobile Services at this time.</source>
+          <target state="new">Applications using the Node.JS backend will need to stay on Mobile Services at this time.</target>
+        </trans-unit>
+        <trans-unit id="79bee13b-cbc0-4847-a3e6-7c3f0bb5cc04" xml:space="preserve">
+          <source>App Service Mobile Apps is a new way to build mobile applications using Microsoft Azure.</source>
+          <target state="new">App Service Mobile Apps is a new way to build mobile applications using Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="48defe4b-7bc8-47f5-a53e-e29c538eaa9f" xml:space="preserve">
+          <source>You can learn more about Mobile Apps in the [What are Mobile Apps?]</source>
+          <target state="new">You can learn more about Mobile Apps in the [What are Mobile Apps?]</target>
+        </trans-unit>
+        <trans-unit id="20e2da27-65b7-4b27-9f54-92ed4f56bde2" xml:space="preserve">
+          <source>topic.</source>
+          <target state="new">topic.</target>
+        </trans-unit>
+        <trans-unit id="953b44fe-0465-4f2e-adea-16afbd628b4d" xml:space="preserve">
+          <source>In a migration to Mobile Apps, all existing app functionality (and code) can be preserved.</source>
+          <target state="new">In a migration to Mobile Apps, all existing app functionality (and code) can be preserved.</target>
+        </trans-unit>
+        <trans-unit id="096201e8-0fbb-4002-9861-ddded3637394" xml:space="preserve">
+          <source>Moreover, new features are available to the application.</source>
+          <target state="new">Moreover, new features are available to the application.</target>
+        </trans-unit>
+        <trans-unit id="37148002-0f72-47ff-995d-af6a2aa456e6" xml:space="preserve">
+          <source>In the Mobile Apps model, your code actually runs on a Web App (the new version of Azure Web Sites).</source>
+          <target state="new">In the Mobile Apps model, your code actually runs on a Web App (the new version of Azure Web Sites).</target>
+        </trans-unit>
+        <trans-unit id="0ef19708-f428-4453-bf5e-7d75de3a0901" xml:space="preserve">
+          <source>You have full control over the web app and how it operates.</source>
+          <target state="new">You have full control over the web app and how it operates.</target>
+        </trans-unit>
+        <trans-unit id="b203519b-1d83-4fd6-8e56-c3d14e31b20d" xml:space="preserve">
+          <source>In addition, Web Apps features which were previously unavailable to Mobile Services customers, such as Traffic Manager and Development Slots, can now be used.</source>
+          <target state="new">In addition, Web Apps features which were previously unavailable to Mobile Services customers, such as Traffic Manager and Development Slots, can now be used.</target>
+        </trans-unit>
+        <trans-unit id="63bad45d-235d-4e7b-ae1b-3ba578afc796" xml:space="preserve">
+          <source>The new model also addresses one of the major difficulties of working with Mobile Services.</source>
+          <target state="new">The new model also addresses one of the major difficulties of working with Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="7ca45ac6-4849-463d-8996-687d04cfb769" xml:space="preserve">
+          <source>Now, any version of any NuGet package can be deployed without worrying about dependency conflicts.</source>
+          <target state="new">Now, any version of any NuGet package can be deployed without worrying about dependency conflicts.</target>
+        </trans-unit>
+        <trans-unit id="4ba753c7-315b-40f5-8c9a-312300a6b19a" xml:space="preserve">
+          <source>More about the benefits of migrating can be found in the [I already use web sites and mobile services – how does App Service help me?]</source>
+          <target state="new">More about the benefits of migrating can be found in the [I already use web sites and mobile services – how does App Service help me?]</target>
+        </trans-unit>
+        <trans-unit id="7c23378a-521a-4c95-b749-0d768d1f3af1" xml:space="preserve">
+          <source>topic.</source>
+          <target state="new">topic.</target>
+        </trans-unit>
+        <trans-unit id="9afeacd7-3584-4e8c-bf64-6c8c39f1fcf0" xml:space="preserve">
+          <source>The simplest way to migrate is to create a new instance of an App Service Mobile App.</source>
+          <target state="new">The simplest way to migrate is to create a new instance of an App Service Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="8aac740c-65ad-499b-a794-464def9add27" xml:space="preserve">
+          <source>In many cases, migrating will be as simple as switching to the new Server SDK and republishing your code onto a new Mobile App.</source>
+          <target state="new">In many cases, migrating will be as simple as switching to the new Server SDK and republishing your code onto a new Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="ec894c34-1724-4c6a-ab64-689311f724ca" xml:space="preserve">
+          <source>There are, however some scenarios which will require some additional configuration, such as advanced authentication scenarios and working with scheduled jobs.</source>
+          <target state="new">There are, however some scenarios which will require some additional configuration, such as advanced authentication scenarios and working with scheduled jobs.</target>
+        </trans-unit>
+        <trans-unit id="00275a61-eaf3-4dd3-97c4-12fb369cae4d" xml:space="preserve">
+          <source>Each of these is covered in the following sections.</source>
+          <target state="new">Each of these is covered in the following sections.</target>
+        </trans-unit>
+        <trans-unit id="eec0d3e4-f8ef-480d-b459-2c30eed39ccf" xml:space="preserve">
+          <source>It is advised that you read and understand the rest of this topic completely before starting a migration.</source>
+          <target state="new">It is advised that you read and understand the rest of this topic completely before starting a migration.</target>
+        </trans-unit>
+        <trans-unit id="cccbffbe-b80b-4569-8b7c-f4f93d06145b" xml:space="preserve">
+          <source>Make note of any features you use which are called out below.</source>
+          <target state="new">Make note of any features you use which are called out below.</target>
+        </trans-unit>
+        <trans-unit id="6a3b010b-5b46-40ca-9283-bd1a03174848" xml:space="preserve">
+          <source>You can move and test your code at your pace.</source>
+          <target state="new">You can move and test your code at your pace.</target>
+        </trans-unit>
+        <trans-unit id="8e6cfeb3-9cad-4809-ac7a-2566c8ab119e" xml:space="preserve">
+          <source>When the Mobile App backend is ready, you can release a new version of your client application.</source>
+          <target state="new">When the Mobile App backend is ready, you can release a new version of your client application.</target>
+        </trans-unit>
+        <trans-unit id="770c4809-4cc5-498c-9a4d-df182ddef150" xml:space="preserve">
+          <source>At this point, you will have two copies of your application backend running side by side.</source>
+          <target state="new">At this point, you will have two copies of your application backend running side by side.</target>
+        </trans-unit>
+        <trans-unit id="d78e637a-ca34-4550-9515-76983530d614" xml:space="preserve">
+          <source>You need to make sure any bug fixes you make get applied to both.</source>
+          <target state="new">You need to make sure any bug fixes you make get applied to both.</target>
+        </trans-unit>
+        <trans-unit id="ad802335-e60c-452a-bf64-681eefafe2b5" xml:space="preserve">
+          <source>Finally, once your users have updated to the newest version, you can delete the original Mobile Service.</source>
+          <target state="new">Finally, once your users have updated to the newest version, you can delete the original Mobile Service.</target>
+        </trans-unit>
+        <trans-unit id="6b6e8c44-1c8b-4a4d-b2b1-4ff7c4373326" xml:space="preserve">
+          <source>The full set of steps for this migration is as follows:</source>
+          <target state="new">The full set of steps for this migration is as follows:</target>
+        </trans-unit>
+        <trans-unit id="e464f13f-c217-4fcd-8629-2cd3b9326f22" xml:space="preserve">
+          <source>Create and configure a new Mobile App</source>
+          <target state="new">Create and configure a new Mobile App</target>
+        </trans-unit>
+        <trans-unit id="bc234521-ca8e-4758-8144-9630de64bf4b" xml:space="preserve">
+          <source>Address any authentication concerns</source>
+          <target state="new">Address any authentication concerns</target>
+        </trans-unit>
+        <trans-unit id="bc7f2978-db8b-4f5a-85cb-67011bb7ee7e" xml:space="preserve">
+          <source>Release a new version of your client application</source>
+          <target state="new">Release a new version of your client application</target>
+        </trans-unit>
+        <trans-unit id="2c3f4ecb-9523-4909-adbf-efc969e6ec14" xml:space="preserve">
+          <source>Delete your original Mobile Services instance</source>
+          <target state="new">Delete your original Mobile Services instance</target>
+        </trans-unit>
+        <trans-unit id="8f6bad6c-3c59-42ed-95c7-9ad5bfec633a" xml:space="preserve">
+          <source>The first step in migrating is to create the Mobile App resource which will host the new version of your application.</source>
+          <target state="new">The first step in migrating is to create the Mobile App resource which will host the new version of your application.</target>
+        </trans-unit>
+        <trans-unit id="04f98737-13ea-414d-835a-7b6cf3875725" xml:space="preserve">
+          <source>You can create a new Mobile App in the [Preview Azure Management Portal].</source>
+          <target state="new">You can create a new Mobile App in the [Preview Azure Management Portal].</target>
+        </trans-unit>
+        <trans-unit id="f40fac11-1f58-4d78-89c3-ee86a10b186b" xml:space="preserve">
+          <source>You can consult the [Create a Mobile App] topic for further detail.</source>
+          <target state="new">You can consult the [Create a Mobile App] topic for further detail.</target>
+        </trans-unit>
+        <trans-unit id="4266f719-ee07-4159-b148-867c2093b63f" xml:space="preserve">
+          <source>You will likely want to use the same database and Notification Hub as you did in Mobile Services.</source>
+          <target state="new">You will likely want to use the same database and Notification Hub as you did in Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="4c74610e-7041-4eb5-9dfe-d7f7891fefea" xml:space="preserve">
+          <source>You can copy these values from the <bpt id="53f5cfe8-4001-4993-8e74-a06785bf8fb4">&lt;strong&gt;</bpt>Configure<ept id="53f5cfe8-4001-4993-8e74-a06785bf8fb4">&lt;/strong&gt;</ept> tab of the Mobile Services section of the [Azure Management Portal].</source>
+          <target state="new">You can copy these values from the <bpt id="53f5cfe8-4001-4993-8e74-a06785bf8fb4">&lt;strong&gt;</bpt>Configure<ept id="53f5cfe8-4001-4993-8e74-a06785bf8fb4">&lt;/strong&gt;</ept> tab of the Mobile Services section of the [Azure Management Portal].</target>
+        </trans-unit>
+        <trans-unit id="0045a0ae-05b5-4469-b1ec-4f7f43f9d321" xml:space="preserve">
+          <source>Under <bpt id="31c10b0d-207e-4288-b07c-8469adce8d3b">&lt;strong&gt;</bpt>Connection Strings<ept id="31c10b0d-207e-4288-b07c-8469adce8d3b">&lt;/strong&gt;</ept>, copy <bpt id="5bb801f5-eddb-49c2-86c0-3675e095ebef">&lt;code&gt;</bpt>MS_NotificationHubConnectionString<ept id="5bb801f5-eddb-49c2-86c0-3675e095ebef">&lt;/code&gt;</ept> and <bpt id="ac82a9ca-ffc0-4b34-b205-2a2df1888d80">&lt;code&gt;</bpt>MS_TableConnectionString<ept id="ac82a9ca-ffc0-4b34-b205-2a2df1888d80">&lt;/code&gt;</ept>.</source>
+          <target state="new">Under <bpt id="31c10b0d-207e-4288-b07c-8469adce8d3b">&lt;strong&gt;</bpt>Connection Strings<ept id="31c10b0d-207e-4288-b07c-8469adce8d3b">&lt;/strong&gt;</ept>, copy <bpt id="5bb801f5-eddb-49c2-86c0-3675e095ebef">&lt;code&gt;</bpt>MS_NotificationHubConnectionString<ept id="5bb801f5-eddb-49c2-86c0-3675e095ebef">&lt;/code&gt;</ept> and <bpt id="ac82a9ca-ffc0-4b34-b205-2a2df1888d80">&lt;code&gt;</bpt>MS_TableConnectionString<ept id="ac82a9ca-ffc0-4b34-b205-2a2df1888d80">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d0fda3d-e494-47ed-877a-ea256454534a" xml:space="preserve">
+          <source>Navigate to your Mobile App site and select <bpt id="e13bd7b9-8585-4a49-88f5-2473272e8282">&lt;strong&gt;</bpt>Settings<ept id="e13bd7b9-8585-4a49-88f5-2473272e8282">&lt;/strong&gt;</ept>, <bpt id="21aeb388-ce76-4027-b13d-f2b53479660d">&lt;strong&gt;</bpt>Application settings<ept id="21aeb388-ce76-4027-b13d-f2b53479660d">&lt;/strong&gt;</ept>, and add these to the <bpt id="0d07f873-309c-4990-affc-ed7380d2ea62">&lt;strong&gt;</bpt>Connection strings<ept id="0d07f873-309c-4990-affc-ed7380d2ea62">&lt;/strong&gt;</ept> section, overwriting any existing values.</source>
+          <target state="new">Navigate to your Mobile App site and select <bpt id="e13bd7b9-8585-4a49-88f5-2473272e8282">&lt;strong&gt;</bpt>Settings<ept id="e13bd7b9-8585-4a49-88f5-2473272e8282">&lt;/strong&gt;</ept>, <bpt id="21aeb388-ce76-4027-b13d-f2b53479660d">&lt;strong&gt;</bpt>Application settings<ept id="21aeb388-ce76-4027-b13d-f2b53479660d">&lt;/strong&gt;</ept>, and add these to the <bpt id="0d07f873-309c-4990-affc-ed7380d2ea62">&lt;strong&gt;</bpt>Connection strings<ept id="0d07f873-309c-4990-affc-ed7380d2ea62">&lt;/strong&gt;</ept> section, overwriting any existing values.</target>
+        </trans-unit>
+        <trans-unit id="dd7d9a9a-1ba9-4098-a044-c15c94103814" xml:space="preserve">
+          <source>Mobile Apps provides a new [Mobile App Server SDK] which provides much of the same functionality as the Mobile Services runtime.</source>
+          <target state="new">Mobile Apps provides a new [Mobile App Server SDK] which provides much of the same functionality as the Mobile Services runtime.</target>
+        </trans-unit>
+        <trans-unit id="c1c5975b-0a3f-42f1-8f14-15abacb3f0a3" xml:space="preserve">
+          <source>First, you should remove the Mobile Services NuGet from your existing project and instead include the Server SDK.</source>
+          <target state="new">First, you should remove the Mobile Services NuGet from your existing project and instead include the Server SDK.</target>
+        </trans-unit>
+        <trans-unit id="8864f76a-fa94-4b61-8213-edc7f1c28396" xml:space="preserve">
+          <source>For this migration, most developers will want to download install the <bpt id="b70f851d-2031-4f23-8bcc-cf7c452661a1">&lt;code&gt;</bpt>Microsoft.Azure.Mobile.Server.Quickstart<ept id="b70f851d-2031-4f23-8bcc-cf7c452661a1">&lt;/code&gt;</ept> package, as this will pull in the entire required set.</source>
+          <target state="new">For this migration, most developers will want to download install the <bpt id="b70f851d-2031-4f23-8bcc-cf7c452661a1">&lt;code&gt;</bpt>Microsoft.Azure.Mobile.Server.Quickstart<ept id="b70f851d-2031-4f23-8bcc-cf7c452661a1">&lt;/code&gt;</ept> package, as this will pull in the entire required set.</target>
+        </trans-unit>
+        <trans-unit id="3c7ee1aa-43bf-46a8-b9cd-e9856d32af75" xml:space="preserve">
+          <source>Then, in WebApiConfig.cs, you can replace</source>
+          <target state="new">Then, in WebApiConfig.cs, you can replace</target>
+        </trans-unit>
+        <trans-unit id="32b8a676-7249-4ca2-b397-2df39ac0039d" xml:space="preserve">
+          <source>with</source>
+          <target state="new">with</target>
+        </trans-unit>
+        <trans-unit id="56a9afaa-cca2-435e-b542-b90452709072" xml:space="preserve">
+          <source>If you wish to learn more about the new Server SDK and how to add/remove features from your app, please see the [How to use the .NET server SDK] topic.</source>
+          <target state="new">If you wish to learn more about the new Server SDK and how to add/remove features from your app, please see the [How to use the .NET server SDK] topic.</target>
+        </trans-unit>
+        <trans-unit id="8d923252-996d-4a07-a857-c3138fc66a89" xml:space="preserve">
+          <source>There are a few other changes between the Mobile Services and Mobile Apps SDKs, but they are easy to address.</source>
+          <target state="new">There are a few other changes between the Mobile Services and Mobile Apps SDKs, but they are easy to address.</target>
+        </trans-unit>
+        <trans-unit id="5877bbf3-a82f-4acf-b0a1-8b5a3df243d9" xml:space="preserve">
+          <source>Throughout your project, you may need to modify some using statements, with which Visual Studio will assist.</source>
+          <target state="new">Throughout your project, you may need to modify some using statements, with which Visual Studio will assist.</target>
+        </trans-unit>
+        <trans-unit id="061238c3-b18e-4270-a570-99a4d13f5d16" xml:space="preserve">
+          <source>You need to add the <bpt id="388cde08-25e5-4055-967c-9608deb6fc2c">&lt;code&gt;</bpt>[MobileAppController]<ept id="388cde08-25e5-4055-967c-9608deb6fc2c">&lt;/code&gt;</ept> attribute to all of your ApiControllers, simply by placing that decorator directly before the class definition.</source>
+          <target state="new">You need to add the <bpt id="388cde08-25e5-4055-967c-9608deb6fc2c">&lt;code&gt;</bpt>[MobileAppController]<ept id="388cde08-25e5-4055-967c-9608deb6fc2c">&lt;/code&gt;</ept> attribute to all of your ApiControllers, simply by placing that decorator directly before the class definition.</target>
+        </trans-unit>
+        <trans-unit id="c0abc590-5c82-4afc-a997-85049d139367" xml:space="preserve">
+          <source>There is no longer an <bpt id="e81453f1-bc2e-41e1-92a3-34b8e0034289">&lt;code&gt;</bpt>[AuthorizeLevel]<ept id="e81453f1-bc2e-41e1-92a3-34b8e0034289">&lt;/code&gt;</ept> attribute, and you should instead decorate your controllers and methods with the standard ASP.NET <bpt id="01384540-1d19-43be-90c3-bb3928a72535">&lt;code&gt;</bpt>[Authorize]<ept id="01384540-1d19-43be-90c3-bb3928a72535">&lt;/code&gt;</ept> attribute.</source>
+          <target state="new">There is no longer an <bpt id="e81453f1-bc2e-41e1-92a3-34b8e0034289">&lt;code&gt;</bpt>[AuthorizeLevel]<ept id="e81453f1-bc2e-41e1-92a3-34b8e0034289">&lt;/code&gt;</ept> attribute, and you should instead decorate your controllers and methods with the standard ASP.NET <bpt id="01384540-1d19-43be-90c3-bb3928a72535">&lt;code&gt;</bpt>[Authorize]<ept id="01384540-1d19-43be-90c3-bb3928a72535">&lt;/code&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="016e0b79-8005-4903-b31f-820a88b3ecc6" xml:space="preserve">
+          <source>Note also that any controller that did not have an <bpt id="9c3c2094-5c1a-494d-916b-7304b80f8b76">&lt;code&gt;</bpt>[AuthorizeLevel]<ept id="9c3c2094-5c1a-494d-916b-7304b80f8b76">&lt;/code&gt;</ept> is no longer protected by an application key; it will be treated as public.</source>
+          <target state="new">Note also that any controller that did not have an <bpt id="9c3c2094-5c1a-494d-916b-7304b80f8b76">&lt;code&gt;</bpt>[AuthorizeLevel]<ept id="9c3c2094-5c1a-494d-916b-7304b80f8b76">&lt;/code&gt;</ept> is no longer protected by an application key; it will be treated as public.</target>
+        </trans-unit>
+        <trans-unit id="54c1bcf0-674a-47dc-9f42-3875c3b33058" xml:space="preserve">
+          <source>The new SDK no longer makes use of an Application Key and Master Key.</source>
+          <target state="new">The new SDK no longer makes use of an Application Key and Master Key.</target>
+        </trans-unit>
+        <trans-unit id="fe6f304c-3026-4783-a98f-1d22b6914acb" xml:space="preserve">
+          <source>For push, the main item that you may find missing from the Server SDK is the PushRegistrationHandler class.</source>
+          <target state="new">For push, the main item that you may find missing from the Server SDK is the PushRegistrationHandler class.</target>
+        </trans-unit>
+        <trans-unit id="a0a5b595-8e87-4d08-80ff-5d45fe448d94" xml:space="preserve">
+          <source>Registrations are handled slightly differently in Mobile Apps, and tagless registrations are enabled by default.</source>
+          <target state="new">Registrations are handled slightly differently in Mobile Apps, and tagless registrations are enabled by default.</target>
+        </trans-unit>
+        <trans-unit id="bbd293bb-b2e9-429d-b666-c47bec7a103f" xml:space="preserve">
+          <source>Managing tags may be accomplished by using custom APIs.</source>
+          <target state="new">Managing tags may be accomplished by using custom APIs.</target>
+        </trans-unit>
+        <trans-unit id="e0de1f08-b32d-475b-89c0-ff0dc7532ebd" xml:space="preserve">
+          <source>Please see the [Add push notifications to your mobile app] topic for more information.</source>
+          <target state="new">Please see the [Add push notifications to your mobile app] topic for more information.</target>
+        </trans-unit>
+        <trans-unit id="2f8192fe-bda4-43cf-acc0-ad43a1700a08" xml:space="preserve">
+          <source>Scheduled jobs are not built into Mobile Apps, so any existing jobs that you have in your .NET backend will need to be migrated individually.</source>
+          <target state="new">Scheduled jobs are not built into Mobile Apps, so any existing jobs that you have in your .NET backend will need to be migrated individually.</target>
+        </trans-unit>
+        <trans-unit id="032564bb-a868-4d98-9826-dbd76888ce76" xml:space="preserve">
+          <source>One option is to create a scheduled [Web Job] on the Mobile App code site.</source>
+          <target state="new">One option is to create a scheduled [Web Job] on the Mobile App code site.</target>
+        </trans-unit>
+        <trans-unit id="5f95e3aa-f440-49d4-a121-99bb5a185118" xml:space="preserve">
+          <source>You could also set up a controller that holds your job code and configure the [Azure Scheduler] to hit that endpoint on the expected schedule.</source>
+          <target state="new">You could also set up a controller that holds your job code and configure the [Azure Scheduler] to hit that endpoint on the expected schedule.</target>
+        </trans-unit>
+        <trans-unit id="b7ab8963-3e65-47da-b0de-58137d4487e9" xml:space="preserve">
+          <source>The <bpt id="ef63b7a2-a15b-416d-942e-919b331d6345">&lt;code&gt;</bpt>ApiServices<ept id="ef63b7a2-a15b-416d-942e-919b331d6345">&lt;/code&gt;</ept> object is no longer part of the SDK.</source>
+          <target state="new">The <bpt id="ef63b7a2-a15b-416d-942e-919b331d6345">&lt;code&gt;</bpt>ApiServices<ept id="ef63b7a2-a15b-416d-942e-919b331d6345">&lt;/code&gt;</ept> object is no longer part of the SDK.</target>
+        </trans-unit>
+        <trans-unit id="31760495-2f35-48bc-bc40-97b93d342863" xml:space="preserve">
+          <source>To access Mobile App settings, you can use the following:</source>
+          <target state="new">To access Mobile App settings, you can use the following:</target>
+        </trans-unit>
+        <trans-unit id="a3c91791-5070-47aa-a9bc-ed6119c1e8b2" xml:space="preserve">
+          <source>Similarly, logging is now accomplished using the standard ASP.NET trace writing:</source>
+          <target state="new">Similarly, logging is now accomplished using the standard ASP.NET trace writing:</target>
+        </trans-unit>
+        <trans-unit id="c87b177b-385d-4d69-b85f-e50ab6cb50f6" xml:space="preserve">
+          <source>One of the biggest differences between Mobile Apps and Mobile Services is that login is now handled by the App Service Gateway in the case of Mobile Apps, not the site running your code.</source>
+          <target state="new">One of the biggest differences between Mobile Apps and Mobile Services is that login is now handled by the App Service Gateway in the case of Mobile Apps, not the site running your code.</target>
+        </trans-unit>
+        <trans-unit id="0901f296-ffb6-4069-90f3-453e7c6c2dc1" xml:space="preserve">
+          <source>If your resource group does not already have one, you can provision a gateway by navigating to your Azure Mobile App in the management portal.</source>
+          <target state="new">If your resource group does not already have one, you can provision a gateway by navigating to your Azure Mobile App in the management portal.</target>
+        </trans-unit>
+        <trans-unit id="66915d2a-9f8e-4f96-9c55-b3c588e0eae1" xml:space="preserve">
+          <source>Then select <bpt id="b816f940-0b72-4789-ac60-3a7d7669ba18">&lt;strong&gt;</bpt>Settings<ept id="b816f940-0b72-4789-ac60-3a7d7669ba18">&lt;/strong&gt;</ept>, and then <bpt id="4bf30ee3-dc4e-4382-87ac-45419e2acd56">&lt;strong&gt;</bpt>User authentication<ept id="4bf30ee3-dc4e-4382-87ac-45419e2acd56">&lt;/strong&gt;</ept> under the <bpt id="b8572b82-faf1-4ecd-a84b-fd4b4b9a4fb1">&lt;strong&gt;</bpt>Mobile<ept id="b8572b82-faf1-4ecd-a84b-fd4b4b9a4fb1">&lt;/strong&gt;</ept> category.</source>
+          <target state="new">Then select <bpt id="b816f940-0b72-4789-ac60-3a7d7669ba18">&lt;strong&gt;</bpt>Settings<ept id="b816f940-0b72-4789-ac60-3a7d7669ba18">&lt;/strong&gt;</ept>, and then <bpt id="4bf30ee3-dc4e-4382-87ac-45419e2acd56">&lt;strong&gt;</bpt>User authentication<ept id="4bf30ee3-dc4e-4382-87ac-45419e2acd56">&lt;/strong&gt;</ept> under the <bpt id="b8572b82-faf1-4ecd-a84b-fd4b4b9a4fb1">&lt;strong&gt;</bpt>Mobile<ept id="b8572b82-faf1-4ecd-a84b-fd4b4b9a4fb1">&lt;/strong&gt;</ept> category.</target>
+        </trans-unit>
+        <trans-unit id="82c09901-45a4-484f-b946-4aa9be8c4060" xml:space="preserve">
+          <source>Click <bpt id="d3028d73-902d-4d10-9192-0b36676fd3be">&lt;strong&gt;</bpt>Create<ept id="d3028d73-902d-4d10-9192-0b36676fd3be">&lt;/strong&gt;</ept> to associate a gateway with your Mobile App.</source>
+          <target state="new">Click <bpt id="d3028d73-902d-4d10-9192-0b36676fd3be">&lt;strong&gt;</bpt>Create<ept id="d3028d73-902d-4d10-9192-0b36676fd3be">&lt;/strong&gt;</ept> to associate a gateway with your Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="6166883a-6e4d-4205-a149-cd4f85f5a77d" xml:space="preserve">
+          <source>Beyond this, most applications will require no additional action, but there are a few advanced scenarios which should be noted.</source>
+          <target state="new">Beyond this, most applications will require no additional action, but there are a few advanced scenarios which should be noted.</target>
+        </trans-unit>
+        <trans-unit id="8688b319-7523-4fac-aec4-5d5bc05ec138" xml:space="preserve">
+          <source>Most apps will be fine to simply use a new registration with the target identity provider, and you can learn about adding identity to an App Service app by following the [Add authentication to your mobile app] tutorial.</source>
+          <target state="new">Most apps will be fine to simply use a new registration with the target identity provider, and you can learn about adding identity to an App Service app by following the [Add authentication to your mobile app] tutorial.</target>
+        </trans-unit>
+        <trans-unit id="9273d875-6869-463e-bbee-a6c3d071b746" xml:space="preserve">
+          <source>If your application takes dependencies on user IDs, such as storing them in a database, it is important to note that the user IDs between Mobile Services and App Service Mobile Apps are different.</source>
+          <target state="new">If your application takes dependencies on user IDs, such as storing them in a database, it is important to note that the user IDs between Mobile Services and App Service Mobile Apps are different.</target>
+        </trans-unit>
+        <trans-unit id="3e03c9dd-687c-40be-8e57-59768dfa964e" xml:space="preserve">
+          <source>However, it is possible to get the Mobile Services User ID in your App Service Mobile App application by using the following (with Facebook as an example):</source>
+          <target state="new">However, it is possible to get the Mobile Services User ID in your App Service Mobile App application by using the following (with Facebook as an example):</target>
+        </trans-unit>
+        <trans-unit id="25adc057-46b7-4a27-a716-df96c0c305bb" xml:space="preserve">
+          <source>Additionally, if you take any dependencies on user IDs, it is important that you leverage the same registration with an identity provider  if possible.</source>
+          <target state="new">Additionally, if you take any dependencies on user IDs, it is important that you leverage the same registration with an identity provider  if possible.</target>
+        </trans-unit>
+        <trans-unit id="116e4740-41b8-4094-a320-23f581b38b9e" xml:space="preserve">
+          <source>User IDs are typically scoped to the application registration that was used, so introducing a new registration could create problems with matching users to their data.</source>
+          <target state="new">User IDs are typically scoped to the application registration that was used, so introducing a new registration could create problems with matching users to their data.</target>
+        </trans-unit>
+        <trans-unit id="c5c1eabd-a7f6-4112-a13e-e26c376bda28" xml:space="preserve">
+          <source>Should your application need to use the same identity provider registration for any reason, you can use the following steps:</source>
+          <target state="new">Should your application need to use the same identity provider registration for any reason, you can use the following steps:</target>
+        </trans-unit>
+        <trans-unit id="c6ef006c-2ed6-446f-93d8-93f7bd972cf1" xml:space="preserve">
+          <source>Copy over the Client ID and Client secret connection information for each provider used by your application.</source>
+          <target state="new">Copy over the Client ID and Client secret connection information for each provider used by your application.</target>
+        </trans-unit>
+        <trans-unit id="88242924-39de-4f81-8d1d-0c3a09607d41" xml:space="preserve">
+          <source>Add the gateway's /signin-* endpoints as an additional redirect URI for each provider.</source>
+          <target state="new">Add the gateway's /signin-* endpoints as an additional redirect URI for each provider.</target>
+        </trans-unit>
+        <trans-unit id="81a276e5-ad62-4987-9785-f991f53595ea" xml:space="preserve">
+          <source>Some providers, such as Twitter and Microsoft Account, do not allow you to specify multiple redirect URIs on different domains.</source>
+          <target state="new">Some providers, such as Twitter and Microsoft Account, do not allow you to specify multiple redirect URIs on different domains.</target>
+        </trans-unit>
+        <trans-unit id="d12d39c3-d3cf-4222-a6d2-065e5f217738" xml:space="preserve">
+          <source>If your app uses one of these providers and takes a dependency on user IDs, it is advised that you do not attempt to migrate at this time.</source>
+          <target state="new">If your app uses one of these providers and takes a dependency on user IDs, it is advised that you do not attempt to migrate at this time.</target>
+        </trans-unit>
+        <trans-unit id="09649e66-5c3e-4540-ae7b-a6db72e85662" xml:space="preserve">
+          <source>Once you have an operational Mobile App backend, you can update your client application to consume the new Mobile App.</source>
+          <target state="new">Once you have an operational Mobile App backend, you can update your client application to consume the new Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="d788f537-6968-4588-9be6-3d23b856a517" xml:space="preserve">
+          <source>Mobile Apps will also include a new version of the Mobile Services client SDKs, which will allow developers to take advantage of new App Service features.</source>
+          <target state="new">Mobile Apps will also include a new version of the Mobile Services client SDKs, which will allow developers to take advantage of new App Service features.</target>
+        </trans-unit>
+        <trans-unit id="07773b52-9604-4254-bfd2-16a06ab1abb2" xml:space="preserve">
+          <source>Once you have a Mobile App version of your backend, you can release a new version of your client application which leverages the new SDK version.</source>
+          <target state="new">Once you have a Mobile App version of your backend, you can release a new version of your client application which leverages the new SDK version.</target>
+        </trans-unit>
+        <trans-unit id="b10eaa10-748e-4c10-bcb2-0cbba21aea1d" xml:space="preserve">
+          <source>The main change that will be required of your client code is in the constructor.</source>
+          <target state="new">The main change that will be required of your client code is in the constructor.</target>
+        </trans-unit>
+        <trans-unit id="2d87a09b-f6ef-4876-8c12-844ff4af6e3f" xml:space="preserve">
+          <source>In addition to the URL of your Mobile App site, you need to provide the URL of the App Service Gateway which hosts your authentication settings:</source>
+          <target state="new">In addition to the URL of your Mobile App site, you need to provide the URL of the App Service Gateway which hosts your authentication settings:</target>
+        </trans-unit>
+        <trans-unit id="4571fe17-7a2e-458a-8cc0-290f8736d03e" xml:space="preserve">
+          <source>This will allow the client to route requests to the components of your Mobile App.</source>
+          <target state="new">This will allow the client to route requests to the components of your Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="8a22d831-5d25-42f9-9498-781cfa8ede56" xml:space="preserve">
+          <source>You can find more details specific to your target platform using the appropriate [Create a Mobile App] topic.</source>
+          <target state="new">You can find more details specific to your target platform using the appropriate [Create a Mobile App] topic.</target>
+        </trans-unit>
+        <trans-unit id="889579a4-a56d-4f36-aac8-4cff8826eb1a" xml:space="preserve">
+          <source>In the same update, you will need to adjust any push notification registration calls that you make.</source>
+          <target state="new">In the same update, you will need to adjust any push notification registration calls that you make.</target>
+        </trans-unit>
+        <trans-unit id="3a0b94c6-62e4-4fbb-87ae-f3ef9972cefe" xml:space="preserve">
+          <source>There are new APIs which make improvements to the registration process (using Windows as an example):</source>
+          <target state="new">There are new APIs which make improvements to the registration process (using Windows as an example):</target>
+        </trans-unit>
+        <trans-unit id="92c6e54f-038c-4b28-8575-62cf578ea302" xml:space="preserve">
+          <source>Please see the [Add push notifications to your mobile app] and [Send cross-platform push notifications] topics for details specific to your target platform.</source>
+          <target state="new">Please see the [Add push notifications to your mobile app] and [Send cross-platform push notifications] topics for details specific to your target platform.</target>
+        </trans-unit>
+        <trans-unit id="d2f6781f-766f-4ffc-a22e-f0ca1af884c0" xml:space="preserve">
+          <source>Once your customers have had a chance to receive these updates, you can delete the Mobile Services version of your app.</source>
+          <target state="new">Once your customers have had a chance to receive these updates, you can delete the Mobile Services version of your app.</target>
+        </trans-unit>
+        <trans-unit id="9dea8ff0-4f81-4377-8835-bcbf45815f6d" xml:space="preserve">
+          <source>At this point, you have completely migrated to an App Service Mobile App.</source>
+          <target state="new">At this point, you have completely migrated to an App Service Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="1ba4623f-d7b8-4b32-a61c-487512c79f23" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="4dd73c8a-2c96-4b92-b06b-c9294015fb68" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="7e3a7009-2776-442e-a567-50ea1fe03581" xml:space="preserve">
+          <source>app-service-mobile-value-prop-preview.md</source>
+          <target state="new">app-service-mobile-value-prop-preview.md</target>
+        </trans-unit>
+        <trans-unit id="642a3298-1aaa-4a01-8777-9cd3e5c1fb9f" xml:space="preserve">
+          <source>/en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview</source>
+          <target state="new">/en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview</target>
+        </trans-unit>
+        <trans-unit id="819a8b33-2dd1-4bad-87ee-d97fe0db864c" xml:space="preserve">
+          <source>http://www.nuget.org/packages/microsoft.azure.mobile.server</source>
+          <target state="new">http://www.nuget.org/packages/microsoft.azure.mobile.server</target>
+        </trans-unit>
+        <trans-unit id="8286ffd2-1f5b-46c9-b64a-5570c7518f73" xml:space="preserve">
+          <source>app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md</source>
+          <target state="new">app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md</target>
+        </trans-unit>
+        <trans-unit id="27cba9cf-6e19-4a28-b477-14035766a39f" xml:space="preserve">
+          <source>app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md</source>
+          <target state="new">app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md</target>
+        </trans-unit>
+        <trans-unit id="49fd32b2-13b7-4689-a5a6-228df1887151" xml:space="preserve">
+          <source>app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md</source>
+          <target state="new">app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md</target>
+        </trans-unit>
+        <trans-unit id="300a8822-6174-43b4-9c65-fb5f6be00789" xml:space="preserve">
+          <source>/en-us/documentation/services/scheduler/</source>
+          <target state="new">/en-us/documentation/services/scheduler/</target>
+        </trans-unit>
+        <trans-unit id="8f158351-7640-492e-837f-dbc9329e07b4" xml:space="preserve">
+          <source>../app-service-web/websites-webjobs-resources.md</source>
+          <target state="new">../app-service-web/websites-webjobs-resources.md</target>
+        </trans-unit>
+        <trans-unit id="47a54b15-1752-4847-a6ac-27bbc310088c" xml:space="preserve">
+          <source>app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md</source>
+          <target state="new">app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md</target>
+        </trans-unit>
+        <trans-unit id="c2dda6d0-cc15-4f31-b1a9-2c0b84facb4b" xml:space="preserve">
+          <source>app-service-mobile-dotnet-backend-how-to-use-server-sdk.md</source>
+          <target state="new">app-service-mobile-dotnet-backend-how-to-use-server-sdk.md</target>
+        </trans-unit>
+      </group>
+      <group id="5141c64d-fef9-42fe-909f-835fc9743e75" />
+    </body>
+  </file>
+</xliff>

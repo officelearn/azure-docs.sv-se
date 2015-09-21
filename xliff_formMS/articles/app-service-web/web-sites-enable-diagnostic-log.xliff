@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="521ee93d-3567-45c3-b3f0-86b077b23fe0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="521ee93d-3567-45c3-b3f0-86b077b23fe0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="28bf5f82-717c-4c9a-8472-1ce13db17402">
+        <trans-unit id="e74ed010-90e4-4df4-9bef-253be13e380b" xml:space="preserve">
+          <source>Enable diagnostics logging for web apps in Azure App Service</source>
+          <target state="new">Enable diagnostics logging for web apps in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="aa559bca-a38a-4de6-ac47-7faa4c97c9be" xml:space="preserve">
+          <source>Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.</source>
+          <target state="new">Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.</target>
+        </trans-unit>
+        <trans-unit id="97a4de5a-95e1-48d1-93a3-df97e8787fc0" xml:space="preserve">
+          <source>Azure provides built-in diagnostics to assist with debugging an <bpt id="30018c26-0428-4588-adab-2d2be519b734">&lt;linkText&gt;</bpt>App Service web app<ept id="30018c26-0428-4588-adab-2d2be519b734">&lt;/linkText&gt;</ept><bpt id="30018c26-0428-4588-adab-2d2be519b734">&lt;title&gt;</bpt><ept id="30018c26-0428-4588-adab-2d2be519b734">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure provides built-in diagnostics to assist with debugging an <bpt id="30018c26-0428-4588-adab-2d2be519b734">&lt;linkText&gt;</bpt>App Service web app<ept id="30018c26-0428-4588-adab-2d2be519b734">&lt;/linkText&gt;</ept><bpt id="30018c26-0428-4588-adab-2d2be519b734">&lt;title&gt;</bpt><ept id="30018c26-0428-4588-adab-2d2be519b734">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89b89fcd-b68f-4364-891e-23fc5541c06b" xml:space="preserve">
+          <source>In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.</source>
+          <target state="new">In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.</target>
+        </trans-unit>
+        <trans-unit id="c93bd765-d26c-4803-b277-535f2ec5fc9f" xml:space="preserve">
+          <source>This article uses the <bpt id="25b9d10f-5cb1-497e-9300-b45e7f05a984">&lt;linkText&gt;</bpt>Azure preview portal<ept id="25b9d10f-5cb1-497e-9300-b45e7f05a984">&lt;/linkText&gt;</ept><bpt id="25b9d10f-5cb1-497e-9300-b45e7f05a984">&lt;title&gt;</bpt><ept id="25b9d10f-5cb1-497e-9300-b45e7f05a984">&lt;/title&gt;</ept>, Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs.</source>
+          <target state="new">This article uses the <bpt id="25b9d10f-5cb1-497e-9300-b45e7f05a984">&lt;linkText&gt;</bpt>Azure preview portal<ept id="25b9d10f-5cb1-497e-9300-b45e7f05a984">&lt;/linkText&gt;</ept><bpt id="25b9d10f-5cb1-497e-9300-b45e7f05a984">&lt;title&gt;</bpt><ept id="25b9d10f-5cb1-497e-9300-b45e7f05a984">&lt;/title&gt;</ept>, Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs.</target>
+        </trans-unit>
+        <trans-unit id="d219737f-be29-44e3-b685-c89007b518c7" xml:space="preserve">
+          <source>For information on working with diagnostic logs using Visual Studio, see <bpt id="ccdb5e8c-958f-4f57-8b3a-d240f35796e4">&lt;linkText&gt;</bpt>Troubleshooting Azure in Visual Studio<ept id="ccdb5e8c-958f-4f57-8b3a-d240f35796e4">&lt;/linkText&gt;</ept><bpt id="ccdb5e8c-958f-4f57-8b3a-d240f35796e4">&lt;title&gt;</bpt><ept id="ccdb5e8c-958f-4f57-8b3a-d240f35796e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on working with diagnostic logs using Visual Studio, see <bpt id="ccdb5e8c-958f-4f57-8b3a-d240f35796e4">&lt;linkText&gt;</bpt>Troubleshooting Azure in Visual Studio<ept id="ccdb5e8c-958f-4f57-8b3a-d240f35796e4">&lt;/linkText&gt;</ept><bpt id="ccdb5e8c-958f-4f57-8b3a-d240f35796e4">&lt;title&gt;</bpt><ept id="ccdb5e8c-958f-4f57-8b3a-d240f35796e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e05e8146-acbc-464b-a718-843ee421ae1c" xml:space="preserve">
+          <source>App Service web apps provide diagnostic functionality for logging information from both the web server and the web application.</source>
+          <target state="new">App Service web apps provide diagnostic functionality for logging information from both the web server and the web application.</target>
+        </trans-unit>
+        <trans-unit id="7375d2b4-b698-4c01-bda2-284457f430ba" xml:space="preserve">
+          <source>These are logically separated into <bpt id="02d65e30-a073-4f82-ba4e-4b0d73d08622">&lt;strong&gt;</bpt>web server diagnostics<ept id="02d65e30-a073-4f82-ba4e-4b0d73d08622">&lt;/strong&gt;</ept> and <bpt id="fd46f10a-533c-4777-af61-dbdfd32a038c">&lt;strong&gt;</bpt>application diagnostics<ept id="fd46f10a-533c-4777-af61-dbdfd32a038c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">These are logically separated into <bpt id="02d65e30-a073-4f82-ba4e-4b0d73d08622">&lt;strong&gt;</bpt>web server diagnostics<ept id="02d65e30-a073-4f82-ba4e-4b0d73d08622">&lt;/strong&gt;</ept> and <bpt id="fd46f10a-533c-4777-af61-dbdfd32a038c">&lt;strong&gt;</bpt>application diagnostics<ept id="fd46f10a-533c-4777-af61-dbdfd32a038c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c511f59-71b7-4799-af01-7314e722a587" xml:space="preserve">
+          <source>You can enable or disable the following kinds of logs:</source>
+          <target state="new">You can enable or disable the following kinds of logs:</target>
+        </trans-unit>
+        <trans-unit id="c7760f8f-01d2-4b2b-a385-4dbbe61485c0" xml:space="preserve">
+          <source><bpt id="6d12b8f7-562c-4162-80f4-67da533fb84c">&lt;strong&gt;</bpt>Detailed Error Logging<ept id="6d12b8f7-562c-4162-80f4-67da533fb84c">&lt;/strong&gt;</ept> - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater).</source>
+          <target state="new"><bpt id="6d12b8f7-562c-4162-80f4-67da533fb84c">&lt;strong&gt;</bpt>Detailed Error Logging<ept id="6d12b8f7-562c-4162-80f4-67da533fb84c">&lt;/strong&gt;</ept> - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater).</target>
+        </trans-unit>
+        <trans-unit id="e8859a3c-691c-471b-bccc-c3410ef853eb" xml:space="preserve">
+          <source>This may contain information that can help determine why the server returned the error code.</source>
+          <target state="new">This may contain information that can help determine why the server returned the error code.</target>
+        </trans-unit>
+        <trans-unit id="c3ad2fba-157e-41c0-a591-9fa082b1a24d" xml:space="preserve">
+          <source><bpt id="664e3242-a8d4-41cf-93b4-3311c89a11e6">&lt;strong&gt;</bpt>Failed Request Tracing<ept id="664e3242-a8d4-41cf-93b4-3311c89a11e6">&lt;/strong&gt;</ept> - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component.</source>
+          <target state="new"><bpt id="664e3242-a8d4-41cf-93b4-3311c89a11e6">&lt;strong&gt;</bpt>Failed Request Tracing<ept id="664e3242-a8d4-41cf-93b4-3311c89a11e6">&lt;/strong&gt;</ept> - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component.</target>
+        </trans-unit>
+        <trans-unit id="2c00a224-4a40-42af-912f-ede192d14324" xml:space="preserve">
+          <source>This can be useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.</source>
+          <target state="new">This can be useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.</target>
+        </trans-unit>
+        <trans-unit id="f3db8169-7114-415b-81be-1e7bd591ee83" xml:space="preserve">
+          <source><bpt id="3f155fb9-9e44-4a41-8b2a-9ae12801e59a">&lt;strong&gt;</bpt>Web Server Logging<ept id="3f155fb9-9e44-4a41-8b2a-9ae12801e59a">&lt;/strong&gt;</ept> - Information about HTTP transactions using the <bpt id="f6623092-1266-40fb-b11b-e711cb95561c">&lt;linkText&gt;</bpt>W3C extended log file format<ept id="f6623092-1266-40fb-b11b-e711cb95561c">&lt;/linkText&gt;</ept><bpt id="f6623092-1266-40fb-b11b-e711cb95561c">&lt;title&gt;</bpt><ept id="f6623092-1266-40fb-b11b-e711cb95561c">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="3f155fb9-9e44-4a41-8b2a-9ae12801e59a">&lt;strong&gt;</bpt>Web Server Logging<ept id="3f155fb9-9e44-4a41-8b2a-9ae12801e59a">&lt;/strong&gt;</ept> - Information about HTTP transactions using the <bpt id="f6623092-1266-40fb-b11b-e711cb95561c">&lt;linkText&gt;</bpt>W3C extended log file format<ept id="f6623092-1266-40fb-b11b-e711cb95561c">&lt;/linkText&gt;</ept><bpt id="f6623092-1266-40fb-b11b-e711cb95561c">&lt;title&gt;</bpt><ept id="f6623092-1266-40fb-b11b-e711cb95561c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a61913ea-790d-43dd-b6fc-94548c147e4e" xml:space="preserve">
+          <source>This is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.</source>
+          <target state="new">This is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.</target>
+        </trans-unit>
+        <trans-unit id="f79e9956-9f69-45df-870c-fa1779e09860" xml:space="preserve">
+          <source>Application diagnostics allows you to capture information produced by a web application.</source>
+          <target state="new">Application diagnostics allows you to capture information produced by a web application.</target>
+        </trans-unit>
+        <trans-unit id="28fbc559-8244-475a-9f29-fd522f334d02" xml:space="preserve">
+          <source>ASP.NET applications can use the <bpt id="ddd30727-287c-4e79-bed1-9594429a45a1">&lt;linkText&gt;</bpt>System.Diagnostics.Trace<ept id="ddd30727-287c-4e79-bed1-9594429a45a1">&lt;/linkText&gt;</ept><bpt id="ddd30727-287c-4e79-bed1-9594429a45a1">&lt;title&gt;</bpt><ept id="ddd30727-287c-4e79-bed1-9594429a45a1">&lt;/title&gt;</ept> class to log information to the application diagnostics log.</source>
+          <target state="new">ASP.NET applications can use the <bpt id="ddd30727-287c-4e79-bed1-9594429a45a1">&lt;linkText&gt;</bpt>System.Diagnostics.Trace<ept id="ddd30727-287c-4e79-bed1-9594429a45a1">&lt;/linkText&gt;</ept><bpt id="ddd30727-287c-4e79-bed1-9594429a45a1">&lt;title&gt;</bpt><ept id="ddd30727-287c-4e79-bed1-9594429a45a1">&lt;/title&gt;</ept> class to log information to the application diagnostics log.</target>
+        </trans-unit>
+        <trans-unit id="4fa4bf80-0940-4699-aa85-7573c1962cfb" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="1d0e08a9-5a0a-4ecd-b770-021a43452892" xml:space="preserve">
+          <source>At runtime you can retrieve these logs to help with troubleshooting.</source>
+          <target state="new">At runtime you can retrieve these logs to help with troubleshooting.</target>
+        </trans-unit>
+        <trans-unit id="afa12f3f-2534-4354-b719-17bec374dd45" xml:space="preserve">
+          <source>For more information, see <bpt id="dec99977-c0f4-403c-a604-0a276d6d91c9">&lt;linkText&gt;</bpt>Troubleshooting Azure web apps in Visual Studio<ept id="dec99977-c0f4-403c-a604-0a276d6d91c9">&lt;/linkText&gt;</ept><bpt id="dec99977-c0f4-403c-a604-0a276d6d91c9">&lt;title&gt;</bpt><ept id="dec99977-c0f4-403c-a604-0a276d6d91c9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="dec99977-c0f4-403c-a604-0a276d6d91c9">&lt;linkText&gt;</bpt>Troubleshooting Azure web apps in Visual Studio<ept id="dec99977-c0f4-403c-a604-0a276d6d91c9">&lt;/linkText&gt;</ept><bpt id="dec99977-c0f4-403c-a604-0a276d6d91c9">&lt;title&gt;</bpt><ept id="dec99977-c0f4-403c-a604-0a276d6d91c9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d39e789a-e72c-4e1c-89b6-9e4fa08f4323" xml:space="preserve">
+          <source>App Service web apps also log deployment information when you publish content to a web app.</source>
+          <target state="new">App Service web apps also log deployment information when you publish content to a web app.</target>
+        </trans-unit>
+        <trans-unit id="0c406185-1f6d-4698-af73-ea42453905bc" xml:space="preserve">
+          <source>This happens automatically and there are no configuration settings for deployment logging.</source>
+          <target state="new">This happens automatically and there are no configuration settings for deployment logging.</target>
+        </trans-unit>
+        <trans-unit id="88269356-5082-4188-b96b-dbd1d322ce46" xml:space="preserve">
+          <source>Deployment logging allows you to determine why a deployment failed.</source>
+          <target state="new">Deployment logging allows you to determine why a deployment failed.</target>
+        </trans-unit>
+        <trans-unit id="40c0e6c6-bf35-4920-8356-424bb17c8755" xml:space="preserve">
+          <source>For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.</source>
+          <target state="new">For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.</target>
+        </trans-unit>
+        <trans-unit id="faa14786-cd27-4c5a-8dde-892a106676a4" xml:space="preserve">
+          <source>To enable diagnostics in the <bpt id="1ead8ffb-7d5f-4d11-9b30-bd6b3200b608">&lt;linkText&gt;</bpt>Azure preview portal<ept id="1ead8ffb-7d5f-4d11-9b30-bd6b3200b608">&lt;/linkText&gt;</ept><bpt id="1ead8ffb-7d5f-4d11-9b30-bd6b3200b608">&lt;title&gt;</bpt><ept id="1ead8ffb-7d5f-4d11-9b30-bd6b3200b608">&lt;/title&gt;</ept>, go to the blade for your web app and click <bpt id="3a0ee865-8b41-4e39-af68-3745fc2bdfd5">&lt;strong&gt;</bpt>Settings &gt; Diagnostics logs<ept id="3a0ee865-8b41-4e39-af68-3745fc2bdfd5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To enable diagnostics in the <bpt id="1ead8ffb-7d5f-4d11-9b30-bd6b3200b608">&lt;linkText&gt;</bpt>Azure preview portal<ept id="1ead8ffb-7d5f-4d11-9b30-bd6b3200b608">&lt;/linkText&gt;</ept><bpt id="1ead8ffb-7d5f-4d11-9b30-bd6b3200b608">&lt;title&gt;</bpt><ept id="1ead8ffb-7d5f-4d11-9b30-bd6b3200b608">&lt;/title&gt;</ept>, go to the blade for your web app and click <bpt id="3a0ee865-8b41-4e39-af68-3745fc2bdfd5">&lt;strong&gt;</bpt>Settings &gt; Diagnostics logs<ept id="3a0ee865-8b41-4e39-af68-3745fc2bdfd5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bebc1c93-9e15-43d6-8fa3-7bd8980f8e8b" xml:space="preserve">
+          <source><bpt id="f642e772-9c04-4807-9509-b19c3e7cca16">&lt;linkText&gt;</bpt>Logs part<ept id="f642e772-9c04-4807-9509-b19c3e7cca16">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f642e772-9c04-4807-9509-b19c3e7cca16">&lt;linkText&gt;</bpt>Logs part<ept id="f642e772-9c04-4807-9509-b19c3e7cca16">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd5d10ce-71c8-41e2-b0b3-434029ff7cce" xml:space="preserve">
+          <source>When you enable <bpt id="0f6ec7e8-23ce-4185-913f-9ce60b8b3c26">&lt;strong&gt;</bpt>application diagnostics<ept id="0f6ec7e8-23ce-4185-913f-9ce60b8b3c26">&lt;/strong&gt;</ept> you also choose the <bpt id="ea992bb2-d668-4bba-be7d-886fd8909c4c">&lt;strong&gt;</bpt>Level<ept id="ea992bb2-d668-4bba-be7d-886fd8909c4c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you enable <bpt id="0f6ec7e8-23ce-4185-913f-9ce60b8b3c26">&lt;strong&gt;</bpt>application diagnostics<ept id="0f6ec7e8-23ce-4185-913f-9ce60b8b3c26">&lt;/strong&gt;</ept> you also choose the <bpt id="ea992bb2-d668-4bba-be7d-886fd8909c4c">&lt;strong&gt;</bpt>Level<ept id="ea992bb2-d668-4bba-be7d-886fd8909c4c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e90570de-3ac7-4b80-a66d-81604672ac8a" xml:space="preserve">
+          <source>This setting allows you to filter the information captured to <bpt id="de261d24-7ddf-4afa-9840-f5fba6f597b9">&lt;strong&gt;</bpt>informational<ept id="de261d24-7ddf-4afa-9840-f5fba6f597b9">&lt;/strong&gt;</ept>, <bpt id="59152feb-6c41-4450-9a82-b10640e5bc1a">&lt;strong&gt;</bpt>warning<ept id="59152feb-6c41-4450-9a82-b10640e5bc1a">&lt;/strong&gt;</ept> or <bpt id="60ba530a-d40e-41d2-9c6a-cb883a9d7dce">&lt;strong&gt;</bpt>error<ept id="60ba530a-d40e-41d2-9c6a-cb883a9d7dce">&lt;/strong&gt;</ept> information.</source>
+          <target state="new">This setting allows you to filter the information captured to <bpt id="de261d24-7ddf-4afa-9840-f5fba6f597b9">&lt;strong&gt;</bpt>informational<ept id="de261d24-7ddf-4afa-9840-f5fba6f597b9">&lt;/strong&gt;</ept>, <bpt id="59152feb-6c41-4450-9a82-b10640e5bc1a">&lt;strong&gt;</bpt>warning<ept id="59152feb-6c41-4450-9a82-b10640e5bc1a">&lt;/strong&gt;</ept> or <bpt id="60ba530a-d40e-41d2-9c6a-cb883a9d7dce">&lt;strong&gt;</bpt>error<ept id="60ba530a-d40e-41d2-9c6a-cb883a9d7dce">&lt;/strong&gt;</ept> information.</target>
+        </trans-unit>
+        <trans-unit id="03f2a1fc-4b2d-4d1a-b918-5dc52b76ab61" xml:space="preserve">
+          <source>Setting this to <bpt id="5af7f54e-7552-45e8-8af7-822a74720319">&lt;strong&gt;</bpt>verbose<ept id="5af7f54e-7552-45e8-8af7-822a74720319">&lt;/strong&gt;</ept> will log all information produced by the application.</source>
+          <target state="new">Setting this to <bpt id="5af7f54e-7552-45e8-8af7-822a74720319">&lt;strong&gt;</bpt>verbose<ept id="5af7f54e-7552-45e8-8af7-822a74720319">&lt;/strong&gt;</ept> will log all information produced by the application.</target>
+        </trans-unit>
+        <trans-unit id="d7c6473d-3e83-40b1-8867-6eba3d411bd7" xml:space="preserve">
+          <source>Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.</source>
+          <target state="new">Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.</target>
+        </trans-unit>
+        <trans-unit id="7894ab87-84e4-4b88-b67f-d59e774fdf1d" xml:space="preserve">
+          <source>In the <bpt id="3ba19c91-845f-4007-84ba-8a12b5216ce2">&lt;linkText&gt;</bpt>Azure portal<ept id="3ba19c91-845f-4007-84ba-8a12b5216ce2">&lt;/linkText&gt;</ept><bpt id="3ba19c91-845f-4007-84ba-8a12b5216ce2">&lt;title&gt;</bpt><ept id="3ba19c91-845f-4007-84ba-8a12b5216ce2">&lt;/title&gt;</ept> Web app <bpt id="ed4cec70-23bd-4b03-9f14-291e250b2f00">&lt;strong&gt;</bpt>Configure<ept id="ed4cec70-23bd-4b03-9f14-291e250b2f00">&lt;/strong&gt;</ept> tab, you can select <bpt id="c963a459-7286-49cf-97d3-c1ee5449b838">&lt;strong&gt;</bpt>storage<ept id="c963a459-7286-49cf-97d3-c1ee5449b838">&lt;/strong&gt;</ept> or <bpt id="8e305d09-c919-4814-9040-75bf73f5bec5">&lt;strong&gt;</bpt>file system<ept id="8e305d09-c919-4814-9040-75bf73f5bec5">&lt;/strong&gt;</ept> for <bpt id="5bb49c8a-56e4-434d-80d4-a76e7881cac5">&lt;strong&gt;</bpt>web server logging<ept id="5bb49c8a-56e4-434d-80d4-a76e7881cac5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="3ba19c91-845f-4007-84ba-8a12b5216ce2">&lt;linkText&gt;</bpt>Azure portal<ept id="3ba19c91-845f-4007-84ba-8a12b5216ce2">&lt;/linkText&gt;</ept><bpt id="3ba19c91-845f-4007-84ba-8a12b5216ce2">&lt;title&gt;</bpt><ept id="3ba19c91-845f-4007-84ba-8a12b5216ce2">&lt;/title&gt;</ept> Web app <bpt id="ed4cec70-23bd-4b03-9f14-291e250b2f00">&lt;strong&gt;</bpt>Configure<ept id="ed4cec70-23bd-4b03-9f14-291e250b2f00">&lt;/strong&gt;</ept> tab, you can select <bpt id="c963a459-7286-49cf-97d3-c1ee5449b838">&lt;strong&gt;</bpt>storage<ept id="c963a459-7286-49cf-97d3-c1ee5449b838">&lt;/strong&gt;</ept> or <bpt id="8e305d09-c919-4814-9040-75bf73f5bec5">&lt;strong&gt;</bpt>file system<ept id="8e305d09-c919-4814-9040-75bf73f5bec5">&lt;/strong&gt;</ept> for <bpt id="5bb49c8a-56e4-434d-80d4-a76e7881cac5">&lt;strong&gt;</bpt>web server logging<ept id="5bb49c8a-56e4-434d-80d4-a76e7881cac5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f8da0ac-0d2f-4ead-817f-8eecf724126c" xml:space="preserve">
+          <source>Selecting <bpt id="ce4955bb-18a2-46f9-a60f-7547a484a65a">&lt;strong&gt;</bpt>storage<ept id="ce4955bb-18a2-46f9-a60f-7547a484a65a">&lt;/strong&gt;</ept> allows you to select a storage account, and then a blob container that the logs will be written to.</source>
+          <target state="new">Selecting <bpt id="ce4955bb-18a2-46f9-a60f-7547a484a65a">&lt;strong&gt;</bpt>storage<ept id="ce4955bb-18a2-46f9-a60f-7547a484a65a">&lt;/strong&gt;</ept> allows you to select a storage account, and then a blob container that the logs will be written to.</target>
+        </trans-unit>
+        <trans-unit id="4d86fd7e-458f-4a7c-a505-33650971a102" xml:space="preserve">
+          <source>All other logs for <bpt id="69433ad1-5c2d-42cd-934d-ca03cc3c1638">&lt;strong&gt;</bpt>site diagnostics<ept id="69433ad1-5c2d-42cd-934d-ca03cc3c1638">&lt;/strong&gt;</ept> are written to the file system only.</source>
+          <target state="new">All other logs for <bpt id="69433ad1-5c2d-42cd-934d-ca03cc3c1638">&lt;strong&gt;</bpt>site diagnostics<ept id="69433ad1-5c2d-42cd-934d-ca03cc3c1638">&lt;/strong&gt;</ept> are written to the file system only.</target>
+        </trans-unit>
+        <trans-unit id="b01bc957-2f11-403a-a385-a06307dd7c23" xml:space="preserve">
+          <source>The <bpt id="77b632e8-ddca-495a-b43b-6b686547c3fb">&lt;linkText&gt;</bpt>Azure portal<ept id="77b632e8-ddca-495a-b43b-6b686547c3fb">&lt;/linkText&gt;</ept><bpt id="77b632e8-ddca-495a-b43b-6b686547c3fb">&lt;title&gt;</bpt><ept id="77b632e8-ddca-495a-b43b-6b686547c3fb">&lt;/title&gt;</ept> Web app <bpt id="b6904382-e3ad-4909-b459-65e07dc7c244">&lt;strong&gt;</bpt>Configure<ept id="b6904382-e3ad-4909-b459-65e07dc7c244">&lt;/strong&gt;</ept> tab also has additional settings for application diagnostics:</source>
+          <target state="new">The <bpt id="77b632e8-ddca-495a-b43b-6b686547c3fb">&lt;linkText&gt;</bpt>Azure portal<ept id="77b632e8-ddca-495a-b43b-6b686547c3fb">&lt;/linkText&gt;</ept><bpt id="77b632e8-ddca-495a-b43b-6b686547c3fb">&lt;title&gt;</bpt><ept id="77b632e8-ddca-495a-b43b-6b686547c3fb">&lt;/title&gt;</ept> Web app <bpt id="b6904382-e3ad-4909-b459-65e07dc7c244">&lt;strong&gt;</bpt>Configure<ept id="b6904382-e3ad-4909-b459-65e07dc7c244">&lt;/strong&gt;</ept> tab also has additional settings for application diagnostics:</target>
+        </trans-unit>
+        <trans-unit id="8fa1481a-26e2-4649-afdb-756eafebb5b0" xml:space="preserve">
+          <source><bpt id="f4802006-2cce-4b3f-ab9f-4ff7ec4733c0">&lt;strong&gt;</bpt>File system<ept id="f4802006-2cce-4b3f-ab9f-4ff7ec4733c0">&lt;/strong&gt;</ept> - stores the application diagnostics information to the web app file system.</source>
+          <target state="new"><bpt id="f4802006-2cce-4b3f-ab9f-4ff7ec4733c0">&lt;strong&gt;</bpt>File system<ept id="f4802006-2cce-4b3f-ab9f-4ff7ec4733c0">&lt;/strong&gt;</ept> - stores the application diagnostics information to the web app file system.</target>
+        </trans-unit>
+        <trans-unit id="c7f3459b-e7b0-405a-982a-c4830323f6da" xml:space="preserve">
+          <source>These files can be accessed by FTP, or downloaded as a Zip archive by using the Azure PowerShell or Azure Command-Line Interface (Azure CLI).</source>
+          <target state="new">These files can be accessed by FTP, or downloaded as a Zip archive by using the Azure PowerShell or Azure Command-Line Interface (Azure CLI).</target>
+        </trans-unit>
+        <trans-unit id="c2c6aceb-2b34-436d-a996-57a246630a86" xml:space="preserve">
+          <source><bpt id="b02647c8-b8b2-47a7-b1ea-7dedb4bd3f47">&lt;strong&gt;</bpt>Table storage<ept id="b02647c8-b8b2-47a7-b1ea-7dedb4bd3f47">&lt;/strong&gt;</ept> - stores the application diagnostics information in the specified Azure Storage Account and table name.</source>
+          <target state="new"><bpt id="b02647c8-b8b2-47a7-b1ea-7dedb4bd3f47">&lt;strong&gt;</bpt>Table storage<ept id="b02647c8-b8b2-47a7-b1ea-7dedb4bd3f47">&lt;/strong&gt;</ept> - stores the application diagnostics information in the specified Azure Storage Account and table name.</target>
+        </trans-unit>
+        <trans-unit id="3900fd18-053e-4120-9c32-48a0301e2611" xml:space="preserve">
+          <source><bpt id="c40e531f-a1cb-4e29-b957-779365c959c5">&lt;strong&gt;</bpt>Blob storage<ept id="c40e531f-a1cb-4e29-b957-779365c959c5">&lt;/strong&gt;</ept> - stores the application diagnostics information in the specified Azure Storage Account and blob container.</source>
+          <target state="new"><bpt id="c40e531f-a1cb-4e29-b957-779365c959c5">&lt;strong&gt;</bpt>Blob storage<ept id="c40e531f-a1cb-4e29-b957-779365c959c5">&lt;/strong&gt;</ept> - stores the application diagnostics information in the specified Azure Storage Account and blob container.</target>
+        </trans-unit>
+        <trans-unit id="0eb0eb9e-9d4a-4f16-a7c3-64cf80ef36e5" xml:space="preserve">
+          <source><bpt id="72c40afe-81bf-4cb3-aa4a-614ec8c7e99f">&lt;strong&gt;</bpt>Retention period<ept id="72c40afe-81bf-4cb3-aa4a-614ec8c7e99f">&lt;/strong&gt;</ept> - by default, logs are not automatically deleted from <bpt id="d854c1fa-7fe6-4522-8508-a51a1ee2ff95">&lt;strong&gt;</bpt>blob storage<ept id="d854c1fa-7fe6-4522-8508-a51a1ee2ff95">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="72c40afe-81bf-4cb3-aa4a-614ec8c7e99f">&lt;strong&gt;</bpt>Retention period<ept id="72c40afe-81bf-4cb3-aa4a-614ec8c7e99f">&lt;/strong&gt;</ept> - by default, logs are not automatically deleted from <bpt id="d854c1fa-7fe6-4522-8508-a51a1ee2ff95">&lt;strong&gt;</bpt>blob storage<ept id="d854c1fa-7fe6-4522-8508-a51a1ee2ff95">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55abfb8a-29fb-4746-912c-166e3a0d7814" xml:space="preserve">
+          <source>Select <bpt id="a726f5a0-2631-4815-8fe2-4abf603442ef">&lt;strong&gt;</bpt>set retention<ept id="a726f5a0-2631-4815-8fe2-4abf603442ef">&lt;/strong&gt;</ept> and enter the number of days to keep logs if you wish to automatically delete logs.</source>
+          <target state="new">Select <bpt id="a726f5a0-2631-4815-8fe2-4abf603442ef">&lt;strong&gt;</bpt>set retention<ept id="a726f5a0-2631-4815-8fe2-4abf603442ef">&lt;/strong&gt;</ept> and enter the number of days to keep logs if you wish to automatically delete logs.</target>
+        </trans-unit>
+        <trans-unit id="16cd0f4e-2bd8-4f53-8963-03978714b4a2" xml:space="preserve">
+          <source>Any combination of file system, table storage, or blob storage can be enabled at the same time, and have individual log level configurations.</source>
+          <target state="new">Any combination of file system, table storage, or blob storage can be enabled at the same time, and have individual log level configurations.</target>
+        </trans-unit>
+        <trans-unit id="961a892e-4631-4c01-b8bf-41dd8de49d6b" xml:space="preserve">
+          <source>For example, you may wish to log errors and warnings to blob storage as a long-term logging solution, while enabling file system logging with a level of verbose.</source>
+          <target state="new">For example, you may wish to log errors and warnings to blob storage as a long-term logging solution, while enabling file system logging with a level of verbose.</target>
+        </trans-unit>
+        <trans-unit id="2c3b2fb5-3c8e-48bc-862f-7fcb795b9ff4" xml:space="preserve">
+          <source>While all three storage locations provide the same basic information for logged events, <bpt id="cd2f4ccb-fb1a-4462-a133-a4e20609acd5">&lt;strong&gt;</bpt>table storage<ept id="cd2f4ccb-fb1a-4462-a133-a4e20609acd5">&lt;/strong&gt;</ept> and <bpt id="8d6bd70c-fee2-46a8-be35-9d9516fa7543">&lt;strong&gt;</bpt>blob storage<ept id="8d6bd70c-fee2-46a8-be35-9d9516fa7543">&lt;/strong&gt;</ept> log additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to <bpt id="fa9d9dd0-82e3-4943-be49-008c1f908917">&lt;strong&gt;</bpt>file system<ept id="fa9d9dd0-82e3-4943-be49-008c1f908917">&lt;/strong&gt;</ept>.</source>
+          <target state="new">While all three storage locations provide the same basic information for logged events, <bpt id="cd2f4ccb-fb1a-4462-a133-a4e20609acd5">&lt;strong&gt;</bpt>table storage<ept id="cd2f4ccb-fb1a-4462-a133-a4e20609acd5">&lt;/strong&gt;</ept> and <bpt id="8d6bd70c-fee2-46a8-be35-9d9516fa7543">&lt;strong&gt;</bpt>blob storage<ept id="8d6bd70c-fee2-46a8-be35-9d9516fa7543">&lt;/strong&gt;</ept> log additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to <bpt id="fa9d9dd0-82e3-4943-be49-008c1f908917">&lt;strong&gt;</bpt>file system<ept id="fa9d9dd0-82e3-4943-be49-008c1f908917">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="962a58f1-8477-4db0-b3f4-955eb28d90c5" xml:space="preserve">
+          <source>Information stored in <bpt id="26fe61f1-f6a2-4816-aa03-48373944a413">&lt;strong&gt;</bpt>table storage<ept id="26fe61f1-f6a2-4816-aa03-48373944a413">&lt;/strong&gt;</ept> or <bpt id="1267adc8-ffb9-45d0-a2a6-1ecf424473b0">&lt;strong&gt;</bpt>blob  storage<ept id="1267adc8-ffb9-45d0-a2a6-1ecf424473b0">&lt;/strong&gt;</ept> can only be accessed using a storage client or an application that can directly work with these storage systems.</source>
+          <target state="new">Information stored in <bpt id="26fe61f1-f6a2-4816-aa03-48373944a413">&lt;strong&gt;</bpt>table storage<ept id="26fe61f1-f6a2-4816-aa03-48373944a413">&lt;/strong&gt;</ept> or <bpt id="1267adc8-ffb9-45d0-a2a6-1ecf424473b0">&lt;strong&gt;</bpt>blob  storage<ept id="1267adc8-ffb9-45d0-a2a6-1ecf424473b0">&lt;/strong&gt;</ept> can only be accessed using a storage client or an application that can directly work with these storage systems.</target>
+        </trans-unit>
+        <trans-unit id="ffaf0757-7665-444b-ad7d-11a28613fae7" xml:space="preserve">
+          <source>For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage.</source>
+          <target state="new">For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage.</target>
+        </trans-unit>
+        <trans-unit id="973f4249-a556-4e8b-bb44-d9e1938411e1" xml:space="preserve">
+          <source>You can also write an application that accesses Azure Storage by using one of the <bpt id="886ebec2-4ae1-401d-bf4d-5c3a7083077b">&lt;linkText&gt;</bpt>Azure SDKs<ept id="886ebec2-4ae1-401d-bf4d-5c3a7083077b">&lt;/linkText&gt;</ept><bpt id="886ebec2-4ae1-401d-bf4d-5c3a7083077b">&lt;title&gt;</bpt><ept id="886ebec2-4ae1-401d-bf4d-5c3a7083077b">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also write an application that accesses Azure Storage by using one of the <bpt id="886ebec2-4ae1-401d-bf4d-5c3a7083077b">&lt;linkText&gt;</bpt>Azure SDKs<ept id="886ebec2-4ae1-401d-bf4d-5c3a7083077b">&lt;/linkText&gt;</ept><bpt id="886ebec2-4ae1-401d-bf4d-5c3a7083077b">&lt;title&gt;</bpt><ept id="886ebec2-4ae1-401d-bf4d-5c3a7083077b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23759830-bded-4f70-b86b-7a00fc88089c" xml:space="preserve">
+          <source>Diagnostics can also be enabled from Azure PowerShell using the <bpt id="0a1be8b5-da61-448c-af89-71bf4e990750">&lt;strong&gt;</bpt>Set-AzureWebsite<ept id="0a1be8b5-da61-448c-af89-71bf4e990750">&lt;/strong&gt;</ept> cmdlet.</source>
+          <target state="new">Diagnostics can also be enabled from Azure PowerShell using the <bpt id="0a1be8b5-da61-448c-af89-71bf4e990750">&lt;strong&gt;</bpt>Set-AzureWebsite<ept id="0a1be8b5-da61-448c-af89-71bf4e990750">&lt;/strong&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="54e44133-5d1a-466d-ba16-261733dfda4a" xml:space="preserve">
+          <source>If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see <bpt id="8d66e232-a910-4f10-a39b-b7a0f9f98c67">&lt;linkText&gt;</bpt>How to Use Azure PowerShell<ept id="8d66e232-a910-4f10-a39b-b7a0f9f98c67">&lt;/linkText&gt;</ept><bpt id="8d66e232-a910-4f10-a39b-b7a0f9f98c67">&lt;title&gt;</bpt><ept id="8d66e232-a910-4f10-a39b-b7a0f9f98c67">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see <bpt id="8d66e232-a910-4f10-a39b-b7a0f9f98c67">&lt;linkText&gt;</bpt>How to Use Azure PowerShell<ept id="8d66e232-a910-4f10-a39b-b7a0f9f98c67">&lt;/linkText&gt;</ept><bpt id="8d66e232-a910-4f10-a39b-b7a0f9f98c67">&lt;title&gt;</bpt><ept id="8d66e232-a910-4f10-a39b-b7a0f9f98c67">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16163d22-8bb8-431f-aa6b-d8bbc4c4b806" xml:space="preserve">
+          <source>Diagnostic information stored to the web app file system can be accessed directly using FTP.</source>
+          <target state="new">Diagnostic information stored to the web app file system can be accessed directly using FTP.</target>
+        </trans-unit>
+        <trans-unit id="e71be08b-fe3b-4367-baf0-233b232975e7" xml:space="preserve">
+          <source>It can also be downloaded as a Zip archive using Azure PowerShell or the Azure Command-Line Interface.</source>
+          <target state="new">It can also be downloaded as a Zip archive using Azure PowerShell or the Azure Command-Line Interface.</target>
+        </trans-unit>
+        <trans-unit id="1574e4c7-92ca-46d6-9e7f-f1e891b832fc" xml:space="preserve">
+          <source>The directory structure that the logs are stored in is as follows:</source>
+          <target state="new">The directory structure that the logs are stored in is as follows:</target>
+        </trans-unit>
+        <trans-unit id="6db5f905-f87d-4634-b8e7-59df2472e41a" xml:space="preserve">
+          <source><bpt id="e9abb303-777a-4cce-a791-65a5a5ae74c5">&lt;strong&gt;</bpt>Application logs<ept id="e9abb303-777a-4cce-a791-65a5a5ae74c5">&lt;/strong&gt;</ept> - /LogFiles/Application/.</source>
+          <target state="new"><bpt id="e9abb303-777a-4cce-a791-65a5a5ae74c5">&lt;strong&gt;</bpt>Application logs<ept id="e9abb303-777a-4cce-a791-65a5a5ae74c5">&lt;/strong&gt;</ept> - /LogFiles/Application/.</target>
+        </trans-unit>
+        <trans-unit id="0cedf6c8-5b57-4bc5-9c19-f23141acdf55" xml:space="preserve">
+          <source>This folder contains one or more text files containing information produced by application logging.</source>
+          <target state="new">This folder contains one or more text files containing information produced by application logging.</target>
+        </trans-unit>
+        <trans-unit id="977193d2-44cd-49ed-b5e4-746c405f6435" xml:space="preserve">
+          <source><bpt id="c69f59ed-fb5d-4344-9e9c-1139ed93ed33">&lt;strong&gt;</bpt>Failed Request Traces<ept id="c69f59ed-fb5d-4344-9e9c-1139ed93ed33">&lt;/strong&gt;</ept> - /LogFiles/W3SVC#########/.</source>
+          <target state="new"><bpt id="c69f59ed-fb5d-4344-9e9c-1139ed93ed33">&lt;strong&gt;</bpt>Failed Request Traces<ept id="c69f59ed-fb5d-4344-9e9c-1139ed93ed33">&lt;/strong&gt;</ept> - /LogFiles/W3SVC#########/.</target>
+        </trans-unit>
+        <trans-unit id="f7fbbf1e-6094-49dd-b323-929aa1fc9d0c" xml:space="preserve">
+          <source>This folder contains an XSL file and one or more XML files.</source>
+          <target state="new">This folder contains an XSL file and one or more XML files.</target>
+        </trans-unit>
+        <trans-unit id="98110f38-ffa0-4e43-917e-061c41fe0e4b" xml:space="preserve">
+          <source>Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.</source>
+          <target state="new">Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.</target>
+        </trans-unit>
+        <trans-unit id="173103d9-8d5f-4449-8f7e-4b890ee6fbbe" xml:space="preserve">
+          <source><bpt id="1d547073-b93b-4b4f-ba6f-3785096d92cd">&lt;strong&gt;</bpt>Detailed Error Logs<ept id="1d547073-b93b-4b4f-ba6f-3785096d92cd">&lt;/strong&gt;</ept> - /LogFiles/DetailedErrors/.</source>
+          <target state="new"><bpt id="1d547073-b93b-4b4f-ba6f-3785096d92cd">&lt;strong&gt;</bpt>Detailed Error Logs<ept id="1d547073-b93b-4b4f-ba6f-3785096d92cd">&lt;/strong&gt;</ept> - /LogFiles/DetailedErrors/.</target>
+        </trans-unit>
+        <trans-unit id="33ca6383-b854-4f76-892d-0bb837f7783a" xml:space="preserve">
+          <source>This folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred.</source>
+          <target state="new">This folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred.</target>
+        </trans-unit>
+        <trans-unit id="18713704-2456-45d2-86d6-fe3f48c418cc" xml:space="preserve">
+          <source><bpt id="a3e76caf-acb6-447c-9da1-e9d5a5c93420">&lt;strong&gt;</bpt>Web Server Logs<ept id="a3e76caf-acb6-447c-9da1-e9d5a5c93420">&lt;/strong&gt;</ept> - /LogFiles/http/RawLogs.</source>
+          <target state="new"><bpt id="a3e76caf-acb6-447c-9da1-e9d5a5c93420">&lt;strong&gt;</bpt>Web Server Logs<ept id="a3e76caf-acb6-447c-9da1-e9d5a5c93420">&lt;/strong&gt;</ept> - /LogFiles/http/RawLogs.</target>
+        </trans-unit>
+        <trans-unit id="184fbaef-6861-472b-93d4-5298435f2d60" xml:space="preserve">
+          <source>This folder contains one or more text files formatted using the <bpt id="88dd0cc1-9d75-4a6a-bc3b-76e075b64610">&lt;linkText&gt;</bpt>W3C extended log file format<ept id="88dd0cc1-9d75-4a6a-bc3b-76e075b64610">&lt;/linkText&gt;</ept><bpt id="88dd0cc1-9d75-4a6a-bc3b-76e075b64610">&lt;title&gt;</bpt><ept id="88dd0cc1-9d75-4a6a-bc3b-76e075b64610">&lt;/title&gt;</ept>.</source>
+          <target state="new">This folder contains one or more text files formatted using the <bpt id="88dd0cc1-9d75-4a6a-bc3b-76e075b64610">&lt;linkText&gt;</bpt>W3C extended log file format<ept id="88dd0cc1-9d75-4a6a-bc3b-76e075b64610">&lt;/linkText&gt;</ept><bpt id="88dd0cc1-9d75-4a6a-bc3b-76e075b64610">&lt;title&gt;</bpt><ept id="88dd0cc1-9d75-4a6a-bc3b-76e075b64610">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2eaf5fbb-76b1-411b-af59-5da27f6f0437" xml:space="preserve">
+          <source><bpt id="eec75bc4-78df-4c48-a6e4-6357a5f3d458">&lt;strong&gt;</bpt>Deployment logs<ept id="eec75bc4-78df-4c48-a6e4-6357a5f3d458">&lt;/strong&gt;</ept> - /LogFiles/Git.</source>
+          <target state="new"><bpt id="eec75bc4-78df-4c48-a6e4-6357a5f3d458">&lt;strong&gt;</bpt>Deployment logs<ept id="eec75bc4-78df-4c48-a6e4-6357a5f3d458">&lt;/strong&gt;</ept> - /LogFiles/Git.</target>
+        </trans-unit>
+        <trans-unit id="51a0d3ed-bcb1-47db-a522-e8da4b632157" xml:space="preserve">
+          <source>This folder contains logs generated by the internal deployment processes used by Azure web apps, as well as logs for Git deployments.</source>
+          <target state="new">This folder contains logs generated by the internal deployment processes used by Azure web apps, as well as logs for Git deployments.</target>
+        </trans-unit>
+        <trans-unit id="3c7c2e3a-6f7e-4cd7-b09b-6a9a58f802f5" xml:space="preserve">
+          <source>To access diagnostic information using FTP, visit the <bpt id="24293dba-6b5e-454e-ab94-617ccd5d10e4">&lt;strong&gt;</bpt>Dashboard<ept id="24293dba-6b5e-454e-ab94-617ccd5d10e4">&lt;/strong&gt;</ept> of your web app in the <bpt id="03006e79-0d52-408e-9a40-6eb7efa487bc">&lt;linkText&gt;</bpt>Azure portal<ept id="03006e79-0d52-408e-9a40-6eb7efa487bc">&lt;/linkText&gt;</ept><bpt id="03006e79-0d52-408e-9a40-6eb7efa487bc">&lt;title&gt;</bpt><ept id="03006e79-0d52-408e-9a40-6eb7efa487bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">To access diagnostic information using FTP, visit the <bpt id="24293dba-6b5e-454e-ab94-617ccd5d10e4">&lt;strong&gt;</bpt>Dashboard<ept id="24293dba-6b5e-454e-ab94-617ccd5d10e4">&lt;/strong&gt;</ept> of your web app in the <bpt id="03006e79-0d52-408e-9a40-6eb7efa487bc">&lt;linkText&gt;</bpt>Azure portal<ept id="03006e79-0d52-408e-9a40-6eb7efa487bc">&lt;/linkText&gt;</ept><bpt id="03006e79-0d52-408e-9a40-6eb7efa487bc">&lt;title&gt;</bpt><ept id="03006e79-0d52-408e-9a40-6eb7efa487bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00ac42dc-53e6-4694-9e51-129136676c01" xml:space="preserve">
+          <source>In the <bpt id="1233fe19-93d2-44e3-b062-aa75323af1e3">&lt;strong&gt;</bpt>quick glance<ept id="1233fe19-93d2-44e3-b062-aa75323af1e3">&lt;/strong&gt;</ept> section, use the <bpt id="cbdb78a7-fb44-43f8-9b88-191e74f7e0ea">&lt;strong&gt;</bpt>FTP Diagnostic Logs<ept id="cbdb78a7-fb44-43f8-9b88-191e74f7e0ea">&lt;/strong&gt;</ept> link to access the log files using FTP.</source>
+          <target state="new">In the <bpt id="1233fe19-93d2-44e3-b062-aa75323af1e3">&lt;strong&gt;</bpt>quick glance<ept id="1233fe19-93d2-44e3-b062-aa75323af1e3">&lt;/strong&gt;</ept> section, use the <bpt id="cbdb78a7-fb44-43f8-9b88-191e74f7e0ea">&lt;strong&gt;</bpt>FTP Diagnostic Logs<ept id="cbdb78a7-fb44-43f8-9b88-191e74f7e0ea">&lt;/strong&gt;</ept> link to access the log files using FTP.</target>
+        </trans-unit>
+        <trans-unit id="fe4e401b-e66a-4ade-b98c-538fa932ba3a" xml:space="preserve">
+          <source>The <bpt id="629e68ed-bdbc-4de5-b6db-69ff3b2f7ca1">&lt;strong&gt;</bpt>Deployment/FTP User<ept id="629e68ed-bdbc-4de5-b6db-69ff3b2f7ca1">&lt;/strong&gt;</ept> entry lists the user name that should be used to access the FTP site.</source>
+          <target state="new">The <bpt id="629e68ed-bdbc-4de5-b6db-69ff3b2f7ca1">&lt;strong&gt;</bpt>Deployment/FTP User<ept id="629e68ed-bdbc-4de5-b6db-69ff3b2f7ca1">&lt;/strong&gt;</ept> entry lists the user name that should be used to access the FTP site.</target>
+        </trans-unit>
+        <trans-unit id="94e464cb-be4a-4697-9ab8-cf58156c4703" xml:space="preserve">
+          <source>If the <bpt id="74a117ac-4b30-4fc4-9ecc-7ec1772a9c1b">&lt;strong&gt;</bpt>Deployment/FTP User<ept id="74a117ac-4b30-4fc4-9ecc-7ec1772a9c1b">&lt;/strong&gt;</ept> entry is not set, or you have forgotten the password for this user, you can create a new user and password by using the <bpt id="91a98fc8-43a9-4622-be90-43a84cdecd35">&lt;strong&gt;</bpt>Reset deployment credentials<ept id="91a98fc8-43a9-4622-be90-43a84cdecd35">&lt;/strong&gt;</ept> link in the <bpt id="9d2f3ff4-dc2e-473b-aacb-e7d3d9609094">&lt;strong&gt;</bpt>quick glance<ept id="9d2f3ff4-dc2e-473b-aacb-e7d3d9609094">&lt;/strong&gt;</ept> section of the <bpt id="cadca9de-e2ff-4272-b072-4c9653ed1f87">&lt;strong&gt;</bpt>Dashboard<ept id="cadca9de-e2ff-4272-b072-4c9653ed1f87">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the <bpt id="74a117ac-4b30-4fc4-9ecc-7ec1772a9c1b">&lt;strong&gt;</bpt>Deployment/FTP User<ept id="74a117ac-4b30-4fc4-9ecc-7ec1772a9c1b">&lt;/strong&gt;</ept> entry is not set, or you have forgotten the password for this user, you can create a new user and password by using the <bpt id="91a98fc8-43a9-4622-be90-43a84cdecd35">&lt;strong&gt;</bpt>Reset deployment credentials<ept id="91a98fc8-43a9-4622-be90-43a84cdecd35">&lt;/strong&gt;</ept> link in the <bpt id="9d2f3ff4-dc2e-473b-aacb-e7d3d9609094">&lt;strong&gt;</bpt>quick glance<ept id="9d2f3ff4-dc2e-473b-aacb-e7d3d9609094">&lt;/strong&gt;</ept> section of the <bpt id="cadca9de-e2ff-4272-b072-4c9653ed1f87">&lt;strong&gt;</bpt>Dashboard<ept id="cadca9de-e2ff-4272-b072-4c9653ed1f87">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9d135df-ffff-41fc-a860-ae569d0a9635" xml:space="preserve">
+          <source>To download the log files, start a new instance of Azure PowerShell and use the following command:</source>
+          <target state="new">To download the log files, start a new instance of Azure PowerShell and use the following command:</target>
+        </trans-unit>
+        <trans-unit id="c03926e7-3705-4671-b98a-97cd924366a8" xml:space="preserve">
+          <source>This will save the logs for the web app specified by the <bpt id="b0d57c8d-92e7-4e16-bd08-6a4a6c0c191d">&lt;strong&gt;</bpt>-Name<ept id="b0d57c8d-92e7-4e16-bd08-6a4a6c0c191d">&lt;/strong&gt;</ept> parameter to a file named <bpt id="478786fe-eea0-4de1-8d9c-b7ec485daac6">&lt;strong&gt;</bpt>logs.zip<ept id="478786fe-eea0-4de1-8d9c-b7ec485daac6">&lt;/strong&gt;</ept> in the current directory.</source>
+          <target state="new">This will save the logs for the web app specified by the <bpt id="b0d57c8d-92e7-4e16-bd08-6a4a6c0c191d">&lt;strong&gt;</bpt>-Name<ept id="b0d57c8d-92e7-4e16-bd08-6a4a6c0c191d">&lt;/strong&gt;</ept> parameter to a file named <bpt id="478786fe-eea0-4de1-8d9c-b7ec485daac6">&lt;strong&gt;</bpt>logs.zip<ept id="478786fe-eea0-4de1-8d9c-b7ec485daac6">&lt;/strong&gt;</ept> in the current directory.</target>
+        </trans-unit>
+        <trans-unit id="9422b840-645f-4bc3-b379-1a2b114ba7c0" xml:space="preserve">
+          <source>If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see <bpt id="527e7ecc-5265-4c4b-baaa-42a42f075159">&lt;linkText&gt;</bpt>How to Use Azure PowerShell<ept id="527e7ecc-5265-4c4b-baaa-42a42f075159">&lt;/linkText&gt;</ept><bpt id="527e7ecc-5265-4c4b-baaa-42a42f075159">&lt;title&gt;</bpt><ept id="527e7ecc-5265-4c4b-baaa-42a42f075159">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see <bpt id="527e7ecc-5265-4c4b-baaa-42a42f075159">&lt;linkText&gt;</bpt>How to Use Azure PowerShell<ept id="527e7ecc-5265-4c4b-baaa-42a42f075159">&lt;/linkText&gt;</ept><bpt id="527e7ecc-5265-4c4b-baaa-42a42f075159">&lt;title&gt;</bpt><ept id="527e7ecc-5265-4c4b-baaa-42a42f075159">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07f7e566-312e-4b10-87c7-906548735a64" xml:space="preserve">
+          <source>To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:</source>
+          <target state="new">To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:</target>
+        </trans-unit>
+        <trans-unit id="912c95f9-058a-4ac1-bc5a-8b8075fb5ff3" xml:space="preserve">
+          <source>This will save the logs for the web app named 'webappname' to a file named <bpt id="2d973447-0e10-4052-92f8-ad5e8150844d">&lt;strong&gt;</bpt>diagnostics.zip<ept id="2d973447-0e10-4052-92f8-ad5e8150844d">&lt;/strong&gt;</ept> in the current directory.</source>
+          <target state="new">This will save the logs for the web app named 'webappname' to a file named <bpt id="2d973447-0e10-4052-92f8-ad5e8150844d">&lt;strong&gt;</bpt>diagnostics.zip<ept id="2d973447-0e10-4052-92f8-ad5e8150844d">&lt;/strong&gt;</ept> in the current directory.</target>
+        </trans-unit>
+        <trans-unit id="30505ed5-2474-4994-b616-75812da2633b" xml:space="preserve">
+          <source>If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see <bpt id="682922fe-bee0-49df-8e29-2794478ca0a3">&lt;linkText&gt;</bpt>How to Use Azure CLI<ept id="682922fe-bee0-49df-8e29-2794478ca0a3">&lt;/linkText&gt;</ept><bpt id="682922fe-bee0-49df-8e29-2794478ca0a3">&lt;title&gt;</bpt><ept id="682922fe-bee0-49df-8e29-2794478ca0a3">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see <bpt id="682922fe-bee0-49df-8e29-2794478ca0a3">&lt;linkText&gt;</bpt>How to Use Azure CLI<ept id="682922fe-bee0-49df-8e29-2794478ca0a3">&lt;/linkText&gt;</ept><bpt id="682922fe-bee0-49df-8e29-2794478ca0a3">&lt;title&gt;</bpt><ept id="682922fe-bee0-49df-8e29-2794478ca0a3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81493179-414e-4181-ac67-d16a8b080976" xml:space="preserve">
+          <source>Visual Studio Application Insights provides tools for filtering and searching logs, and for correlating the logs with requests and other events.</source>
+          <target state="new">Visual Studio Application Insights provides tools for filtering and searching logs, and for correlating the logs with requests and other events.</target>
+        </trans-unit>
+        <trans-unit id="c6cd615f-e49a-4929-b83e-22b57f9a9fb5" xml:space="preserve">
+          <source>Add the Application Insights SDK to your project in Visual Studio.</source>
+          <target state="new">Add the Application Insights SDK to your project in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="d8ac9049-acf6-4679-a533-a57855db5869" xml:space="preserve">
+          <source>In Solution Explorer, right click your project and choose Add Application Insights.</source>
+          <target state="new">In Solution Explorer, right click your project and choose Add Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="02169f0a-886c-477d-befb-3c0671dc456d" xml:space="preserve">
+          <source>You'll be guided through steps that include creating an Application Insights resource.</source>
+          <target state="new">You'll be guided through steps that include creating an Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="67700e7e-1e61-466f-bf21-110685c3a454" xml:space="preserve">
+          <source><bpt id="707aadca-ddcc-4f39-ad72-77d59e52c12e">&lt;linkText&gt;</bpt>Learn more<ept id="707aadca-ddcc-4f39-ad72-77d59e52c12e">&lt;/linkText&gt;</ept><bpt id="707aadca-ddcc-4f39-ad72-77d59e52c12e">&lt;title&gt;</bpt><ept id="707aadca-ddcc-4f39-ad72-77d59e52c12e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="707aadca-ddcc-4f39-ad72-77d59e52c12e">&lt;linkText&gt;</bpt>Learn more<ept id="707aadca-ddcc-4f39-ad72-77d59e52c12e">&lt;/linkText&gt;</ept><bpt id="707aadca-ddcc-4f39-ad72-77d59e52c12e">&lt;title&gt;</bpt><ept id="707aadca-ddcc-4f39-ad72-77d59e52c12e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d85bcfb2-8651-4d9b-8ed0-d71fc6352a09" xml:space="preserve">
+          <source>Add the Trace Listener package to your project.</source>
+          <target state="new">Add the Trace Listener package to your project.</target>
+        </trans-unit>
+        <trans-unit id="17056a0a-6ada-407d-8d5c-57cf9e9ec2b7" xml:space="preserve">
+          <source>Right click your project and choose Manage NuGet Packages.</source>
+          <target state="new">Right click your project and choose Manage NuGet Packages.</target>
+        </trans-unit>
+        <trans-unit id="0902d1c1-03a3-49cd-ad11-aad8655eda33" xml:space="preserve">
+          <source>Select <bpt id="9f1fad72-e526-45f5-a224-a4f53445ce46">&lt;code&gt;</bpt>Microsoft.ApplicationInsights.TraceListener<ept id="9f1fad72-e526-45f5-a224-a4f53445ce46">&lt;/code&gt;</ept> <bpt id="83fa4bf2-f1d1-4a63-b3ab-aea8d3d6e937">&lt;linkText&gt;</bpt>Learn more<ept id="83fa4bf2-f1d1-4a63-b3ab-aea8d3d6e937">&lt;/linkText&gt;</ept><bpt id="83fa4bf2-f1d1-4a63-b3ab-aea8d3d6e937">&lt;title&gt;</bpt><ept id="83fa4bf2-f1d1-4a63-b3ab-aea8d3d6e937">&lt;/title&gt;</ept></source>
+          <target state="new">Select <bpt id="9f1fad72-e526-45f5-a224-a4f53445ce46">&lt;code&gt;</bpt>Microsoft.ApplicationInsights.TraceListener<ept id="9f1fad72-e526-45f5-a224-a4f53445ce46">&lt;/code&gt;</ept> <bpt id="83fa4bf2-f1d1-4a63-b3ab-aea8d3d6e937">&lt;linkText&gt;</bpt>Learn more<ept id="83fa4bf2-f1d1-4a63-b3ab-aea8d3d6e937">&lt;/linkText&gt;</ept><bpt id="83fa4bf2-f1d1-4a63-b3ab-aea8d3d6e937">&lt;title&gt;</bpt><ept id="83fa4bf2-f1d1-4a63-b3ab-aea8d3d6e937">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32f62f20-8f41-43cc-b761-42c683bc05cd" xml:space="preserve">
+          <source>Upload your project and run it to generate log data.</source>
+          <target state="new">Upload your project and run it to generate log data.</target>
+        </trans-unit>
+        <trans-unit id="2d3e0842-b019-4b3a-949c-bb6f1367af7a" xml:space="preserve">
+          <source>In the <bpt id="53b9d90c-4b4a-4ada-822a-4ddbf7a5a969">&lt;linkText&gt;</bpt>Azure preview portal<ept id="53b9d90c-4b4a-4ada-822a-4ddbf7a5a969">&lt;/linkText&gt;</ept><bpt id="53b9d90c-4b4a-4ada-822a-4ddbf7a5a969">&lt;title&gt;</bpt><ept id="53b9d90c-4b4a-4ada-822a-4ddbf7a5a969">&lt;/title&gt;</ept>, browse to your new Application Insights resource, and open <bpt id="f5b51e12-5703-43a9-8044-46a460e8db50">&lt;strong&gt;</bpt>Search<ept id="f5b51e12-5703-43a9-8044-46a460e8db50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="53b9d90c-4b4a-4ada-822a-4ddbf7a5a969">&lt;linkText&gt;</bpt>Azure preview portal<ept id="53b9d90c-4b4a-4ada-822a-4ddbf7a5a969">&lt;/linkText&gt;</ept><bpt id="53b9d90c-4b4a-4ada-822a-4ddbf7a5a969">&lt;title&gt;</bpt><ept id="53b9d90c-4b4a-4ada-822a-4ddbf7a5a969">&lt;/title&gt;</ept>, browse to your new Application Insights resource, and open <bpt id="f5b51e12-5703-43a9-8044-46a460e8db50">&lt;strong&gt;</bpt>Search<ept id="f5b51e12-5703-43a9-8044-46a460e8db50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69b7b0f4-a45c-4a41-b3cf-d62ff67960f9" xml:space="preserve">
+          <source>You'll see your log data, along with request, usage and other telemetry.</source>
+          <target state="new">You'll see your log data, along with request, usage and other telemetry.</target>
+        </trans-unit>
+        <trans-unit id="bb37a541-6c39-4bfb-b87a-0366ec87073e" xml:space="preserve">
+          <source>Some telemetry might take a few minutes to arrive: click Refresh.</source>
+          <target state="new">Some telemetry might take a few minutes to arrive: click Refresh.</target>
+        </trans-unit>
+        <trans-unit id="974f2669-2287-439d-a4ae-744aaccf8743" xml:space="preserve">
+          <source><bpt id="66e37f5c-ee34-4461-a1ce-6028cf4336db">&lt;linkText&gt;</bpt>Learn more<ept id="66e37f5c-ee34-4461-a1ce-6028cf4336db">&lt;/linkText&gt;</ept><bpt id="66e37f5c-ee34-4461-a1ce-6028cf4336db">&lt;title&gt;</bpt><ept id="66e37f5c-ee34-4461-a1ce-6028cf4336db">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="66e37f5c-ee34-4461-a1ce-6028cf4336db">&lt;linkText&gt;</bpt>Learn more<ept id="66e37f5c-ee34-4461-a1ce-6028cf4336db">&lt;/linkText&gt;</ept><bpt id="66e37f5c-ee34-4461-a1ce-6028cf4336db">&lt;title&gt;</bpt><ept id="66e37f5c-ee34-4461-a1ce-6028cf4336db">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="318601db-5b1f-44fa-b1f4-ad460db28709" xml:space="preserve">
+          <source><bpt id="b042bd7f-9590-4950-ac59-180172a6e140">&lt;linkText&gt;</bpt>Learn more about performance tracking with Application Insights<ept id="b042bd7f-9590-4950-ac59-180172a6e140">&lt;/linkText&gt;</ept><bpt id="b042bd7f-9590-4950-ac59-180172a6e140">&lt;title&gt;</bpt><ept id="b042bd7f-9590-4950-ac59-180172a6e140">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b042bd7f-9590-4950-ac59-180172a6e140">&lt;linkText&gt;</bpt>Learn more about performance tracking with Application Insights<ept id="b042bd7f-9590-4950-ac59-180172a6e140">&lt;/linkText&gt;</ept><bpt id="b042bd7f-9590-4950-ac59-180172a6e140">&lt;title&gt;</bpt><ept id="b042bd7f-9590-4950-ac59-180172a6e140">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c130da8e-d461-4651-b4e7-75c99ced8ab0" xml:space="preserve">
+          <source>While developing an application, it is often useful to see logging information in near-real time.</source>
+          <target state="new">While developing an application, it is often useful to see logging information in near-real time.</target>
+        </trans-unit>
+        <trans-unit id="fc1137a8-05a0-4c77-be4b-92b2b3a0912e" xml:space="preserve">
+          <source>This can be accomplished by streaming logging information to your development environment using either Azure PowerShell or the Azure Command-Line Interface.</source>
+          <target state="new">This can be accomplished by streaming logging information to your development environment using either Azure PowerShell or the Azure Command-Line Interface.</target>
+        </trans-unit>
+        <trans-unit id="dafa0741-4668-4477-afd9-ea25a3490747" xml:space="preserve">
+          <source>Some types of logging buffer write to the log file, which can result in out of order events in the stream.</source>
+          <target state="new">Some types of logging buffer write to the log file, which can result in out of order events in the stream.</target>
+        </trans-unit>
+        <trans-unit id="be4373c3-b674-424a-a495-a9fab42728f3" xml:space="preserve">
+          <source>For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.</source>
+          <target state="new">For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.</target>
+        </trans-unit>
+        <trans-unit id="95fff1a5-db79-4dd2-88f1-e6fd825a1d06" xml:space="preserve">
+          <source>Log streaming will also stream information written to any text file stored in the <bpt id="e074f9a5-7a2c-416e-bfa9-be3b9eb047c4">&lt;strong&gt;</bpt>D:\\home\\LogFiles\\<ept id="e074f9a5-7a2c-416e-bfa9-be3b9eb047c4">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">Log streaming will also stream information written to any text file stored in the <bpt id="e074f9a5-7a2c-416e-bfa9-be3b9eb047c4">&lt;strong&gt;</bpt>D:\\home\\LogFiles\\<ept id="e074f9a5-7a2c-416e-bfa9-be3b9eb047c4">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="900e4064-2a89-4064-a431-90b6b25cba0d" xml:space="preserve">
+          <source>To stream logging information, start a new of Azure PowerShell and use the following command:</source>
+          <target state="new">To stream logging information, start a new of Azure PowerShell and use the following command:</target>
+        </trans-unit>
+        <trans-unit id="44f59b7f-1eb9-43b7-ab2c-2039417ada88" xml:space="preserve">
+          <source>This will connect to the web app specified by the <bpt id="ba454d5e-f741-413f-9620-631e1ef484b2">&lt;strong&gt;</bpt>-Name<ept id="ba454d5e-f741-413f-9620-631e1ef484b2">&lt;/strong&gt;</ept> parameter and begin streaming information to the PowerShell window as log events occur on the web app.</source>
+          <target state="new">This will connect to the web app specified by the <bpt id="ba454d5e-f741-413f-9620-631e1ef484b2">&lt;strong&gt;</bpt>-Name<ept id="ba454d5e-f741-413f-9620-631e1ef484b2">&lt;/strong&gt;</ept> parameter and begin streaming information to the PowerShell window as log events occur on the web app.</target>
+        </trans-unit>
+        <trans-unit id="1c8923fd-5fe1-49ce-ba37-d3773ebc3f67" xml:space="preserve">
+          <source>Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.</source>
+          <target state="new">Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.</target>
+        </trans-unit>
+        <trans-unit id="2fac25bb-1d51-43de-bcdf-d08067779ef2" xml:space="preserve">
+          <source>To filter specific events, such as errors, use the <bpt id="d45b0899-f482-4fcb-a964-d221e4009b25">&lt;strong&gt;</bpt>-Message<ept id="d45b0899-f482-4fcb-a964-d221e4009b25">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">To filter specific events, such as errors, use the <bpt id="d45b0899-f482-4fcb-a964-d221e4009b25">&lt;strong&gt;</bpt>-Message<ept id="d45b0899-f482-4fcb-a964-d221e4009b25">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="9b2f3c66-23a7-4561-b49e-be2759c43558" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="62df42f2-07ba-4f14-a204-15f0dda81b2f" xml:space="preserve">
+          <source>To filter specific log types, such as HTTP, use the <bpt id="83faaf74-6abf-483b-8be7-c9bf27f22af2">&lt;strong&gt;</bpt>-Path<ept id="83faaf74-6abf-483b-8be7-c9bf27f22af2">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">To filter specific log types, such as HTTP, use the <bpt id="83faaf74-6abf-483b-8be7-c9bf27f22af2">&lt;strong&gt;</bpt>-Path<ept id="83faaf74-6abf-483b-8be7-c9bf27f22af2">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="cb2254a5-64ca-4d52-bf2c-5e051b808d12" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="fe3dcc18-d8df-42aa-86aa-891cd2151d90" xml:space="preserve">
+          <source>To see a list of available paths, use the -ListPath parameter.</source>
+          <target state="new">To see a list of available paths, use the -ListPath parameter.</target>
+        </trans-unit>
+        <trans-unit id="7ec8a35c-823d-42ac-b0a0-615a29ce43cf" xml:space="preserve">
+          <source>If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see <bpt id="e4467ce9-6533-41cb-addc-e7b2799f9719">&lt;linkText&gt;</bpt>How to Use Azure PowerShell<ept id="e4467ce9-6533-41cb-addc-e7b2799f9719">&lt;/linkText&gt;</ept><bpt id="e4467ce9-6533-41cb-addc-e7b2799f9719">&lt;title&gt;</bpt><ept id="e4467ce9-6533-41cb-addc-e7b2799f9719">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see <bpt id="e4467ce9-6533-41cb-addc-e7b2799f9719">&lt;linkText&gt;</bpt>How to Use Azure PowerShell<ept id="e4467ce9-6533-41cb-addc-e7b2799f9719">&lt;/linkText&gt;</ept><bpt id="e4467ce9-6533-41cb-addc-e7b2799f9719">&lt;title&gt;</bpt><ept id="e4467ce9-6533-41cb-addc-e7b2799f9719">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2fc03f68-c40f-47c8-9b41-bed7a8b08993" xml:space="preserve">
+          <source>To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:</source>
+          <target state="new">To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:</target>
+        </trans-unit>
+        <trans-unit id="fcab91fd-6194-424e-947d-cf56778a564d" xml:space="preserve">
+          <source>This will connect to the web app named 'webappname' and begin streaming information to the window as log events occur on the web app.</source>
+          <target state="new">This will connect to the web app named 'webappname' and begin streaming information to the window as log events occur on the web app.</target>
+        </trans-unit>
+        <trans-unit id="60d49e20-eb18-47ba-b342-11975c544c9c" xml:space="preserve">
+          <source>Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.</source>
+          <target state="new">Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.</target>
+        </trans-unit>
+        <trans-unit id="c1887d09-e2b9-41a7-8337-f65eac5bd060" xml:space="preserve">
+          <source>To filter specific events, such as errors, use the <bpt id="23d1c084-9129-4995-a8ac-f42c0ee7c324">&lt;strong&gt;</bpt>--Filter<ept id="23d1c084-9129-4995-a8ac-f42c0ee7c324">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">To filter specific events, such as errors, use the <bpt id="23d1c084-9129-4995-a8ac-f42c0ee7c324">&lt;strong&gt;</bpt>--Filter<ept id="23d1c084-9129-4995-a8ac-f42c0ee7c324">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="93611bbd-fda4-4e88-a41c-bcce374ee386" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="900d100d-c662-4445-97b4-772ce80f53b2" xml:space="preserve">
+          <source>To filter specific log types, such as HTTP, use the <bpt id="82195f90-1a5c-4a24-9b47-674871c7d806">&lt;strong&gt;</bpt>--Path<ept id="82195f90-1a5c-4a24-9b47-674871c7d806">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">To filter specific log types, such as HTTP, use the <bpt id="82195f90-1a5c-4a24-9b47-674871c7d806">&lt;strong&gt;</bpt>--Path<ept id="82195f90-1a5c-4a24-9b47-674871c7d806">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="5097fb88-66e4-4442-a75f-7b01124acee0" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="a6f7b983-3e45-4473-856c-8fc4379a2e63" xml:space="preserve">
+          <source>If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see <bpt id="8dd13117-468a-4317-942b-ee7fa2bdeefb">&lt;linkText&gt;</bpt>How to Use Azure Command-Line Interface<ept id="8dd13117-468a-4317-942b-ee7fa2bdeefb">&lt;/linkText&gt;</ept><bpt id="8dd13117-468a-4317-942b-ee7fa2bdeefb">&lt;title&gt;</bpt><ept id="8dd13117-468a-4317-942b-ee7fa2bdeefb">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see <bpt id="8dd13117-468a-4317-942b-ee7fa2bdeefb">&lt;linkText&gt;</bpt>How to Use Azure Command-Line Interface<ept id="8dd13117-468a-4317-942b-ee7fa2bdeefb">&lt;/linkText&gt;</ept><bpt id="8dd13117-468a-4317-942b-ee7fa2bdeefb">&lt;title&gt;</bpt><ept id="8dd13117-468a-4317-942b-ee7fa2bdeefb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0c60063-cd45-4068-9a0b-5c18994e24c4" xml:space="preserve">
+          <source>Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system, table storage, or blob storage.</source>
+          <target state="new">Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system, table storage, or blob storage.</target>
+        </trans-unit>
+        <trans-unit id="cd4c2173-2c3d-4d41-9ba2-f7cb5e0ba663" xml:space="preserve">
+          <source>The base set of data stored is the same across all three storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error,) and the event message.</source>
+          <target state="new">The base set of data stored is the same across all three storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error,) and the event message.</target>
+        </trans-unit>
+        <trans-unit id="014ccba1-3b5e-404e-927c-41da1f7f9824" xml:space="preserve">
+          <source><bpt id="ed00835e-f6c6-4cf3-b95c-676006b48c32">&lt;strong&gt;</bpt>File system<ept id="ed00835e-f6c6-4cf3-b95c-676006b48c32">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ed00835e-f6c6-4cf3-b95c-676006b48c32">&lt;strong&gt;</bpt>File system<ept id="ed00835e-f6c6-4cf3-b95c-676006b48c32">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a034eb60-547d-4a5e-a1a9-4b9515e3e4fe" xml:space="preserve">
+          <source>Each line logged to the file system or received using streaming will be in the following format:</source>
+          <target state="new">Each line logged to the file system or received using streaming will be in the following format:</target>
+        </trans-unit>
+        <trans-unit id="7d28f692-5dd0-4e0f-bdd3-d279ae17ab6d" xml:space="preserve">
+          <source>For example, an error event would appear similar to the following:</source>
+          <target state="new">For example, an error event would appear similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="480d94e3-e394-43cd-81f8-060d4571ce8e" xml:space="preserve">
+          <source>Logging to the file system provides the most basic information of the three available methods, providing only the time, process id, event level, and message.</source>
+          <target state="new">Logging to the file system provides the most basic information of the three available methods, providing only the time, process id, event level, and message.</target>
+        </trans-unit>
+        <trans-unit id="8405389d-74d4-4576-a874-11fa40f7536a" xml:space="preserve">
+          <source><bpt id="c5e836d8-b98c-4ae8-a087-671bb3f7698e">&lt;strong&gt;</bpt>Table storage<ept id="c5e836d8-b98c-4ae8-a087-671bb3f7698e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c5e836d8-b98c-4ae8-a087-671bb3f7698e">&lt;strong&gt;</bpt>Table storage<ept id="c5e836d8-b98c-4ae8-a087-671bb3f7698e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ab86235-898e-41d9-b1d2-07865d23ae07" xml:space="preserve">
+          <source>When logging to table storage, additional properties are used to facilitate searching the data stored in the table as well as more granular information on the event.</source>
+          <target state="new">When logging to table storage, additional properties are used to facilitate searching the data stored in the table as well as more granular information on the event.</target>
+        </trans-unit>
+        <trans-unit id="828566c7-87a0-4674-91ae-6892c8f3bb40" xml:space="preserve">
+          <source>The following properties (columns) are used for each entity (row) stored in the table.</source>
+          <target state="new">The following properties (columns) are used for each entity (row) stored in the table.</target>
+        </trans-unit>
+        <trans-unit id="0d5fb3af-76f3-44ac-b9ee-8d44870aa053" xml:space="preserve">
+          <source>Property name</source>
+          <target state="new">Property name</target>
+        </trans-unit>
+        <trans-unit id="ebb04fc2-2e86-4b79-bf7c-5b04cd129e63" xml:space="preserve">
+          <source>Value/format</source>
+          <target state="new">Value/format</target>
+        </trans-unit>
+        <trans-unit id="04deccaa-14ca-4005-9d2e-67cf13deeca9" xml:space="preserve">
+          <source>PartitionKey</source>
+          <target state="new">PartitionKey</target>
+        </trans-unit>
+        <trans-unit id="57b192ba-0bc2-4a12-b11a-6b2843faa211" xml:space="preserve">
+          <source>Date/time of the event in yyyyMMddHH format</source>
+          <target state="new">Date/time of the event in yyyyMMddHH format</target>
+        </trans-unit>
+        <trans-unit id="e0c4c524-6a07-46c7-bfbf-565a97ca68be" xml:space="preserve">
+          <source>RowKey</source>
+          <target state="new">RowKey</target>
+        </trans-unit>
+        <trans-unit id="1ce232e7-8c5d-481e-b622-7321104785bd" xml:space="preserve">
+          <source>A GUID value that uniquely identifies this entity</source>
+          <target state="new">A GUID value that uniquely identifies this entity</target>
+        </trans-unit>
+        <trans-unit id="9ad9bfec-2b5d-4bfa-a623-b70ed93d8a83" xml:space="preserve">
+          <source>Timestamp</source>
+          <target state="new">Timestamp</target>
+        </trans-unit>
+        <trans-unit id="b029bfd2-652f-4fd5-9ec0-338287aac7c8" xml:space="preserve">
+          <source>The date and time that the event occurred</source>
+          <target state="new">The date and time that the event occurred</target>
+        </trans-unit>
+        <trans-unit id="467cc665-cdeb-4fbc-9556-6aa37bb6cfc8" xml:space="preserve">
+          <source>EventTickCount</source>
+          <target state="new">EventTickCount</target>
+        </trans-unit>
+        <trans-unit id="bcb8ef05-b636-4c2d-bb97-4c5375eb9059" xml:space="preserve">
+          <source>The date and time that the event occurred, in Tick format (greater precision)</source>
+          <target state="new">The date and time that the event occurred, in Tick format (greater precision)</target>
+        </trans-unit>
+        <trans-unit id="ca32f576-0d06-4da8-b9c7-4a96f3d7c474" xml:space="preserve">
+          <source>ApplicationName</source>
+          <target state="new">ApplicationName</target>
+        </trans-unit>
+        <trans-unit id="94c0bb01-d75e-485d-8f3c-65ee7da5c912" xml:space="preserve">
+          <source>The web app name</source>
+          <target state="new">The web app name</target>
+        </trans-unit>
+        <trans-unit id="3937ac9f-09d3-4722-8ccd-cfa595fdd902" xml:space="preserve">
+          <source>Level</source>
+          <target state="new">Level</target>
+        </trans-unit>
+        <trans-unit id="75c53af7-366b-44f0-96e7-335bbb52ba6e" xml:space="preserve">
+          <source>Event level (e.g. error, warning, information)</source>
+          <target state="new">Event level (e.g. error, warning, information)</target>
+        </trans-unit>
+        <trans-unit id="cf263836-4fe0-4787-9587-687d620d4117" xml:space="preserve">
+          <source>EventId</source>
+          <target state="new">EventId</target>
+        </trans-unit>
+        <trans-unit id="a526a157-766a-44b3-86d4-230a4b6277b1" xml:space="preserve">
+          <source>The event ID of this event&lt;p&gt;&lt;p&gt;Defaults to 0 if none specified</source>
+          <target state="new">The event ID of this event&lt;p&gt;&lt;p&gt;Defaults to 0 if none specified</target>
+        </trans-unit>
+        <trans-unit id="dd2590aa-ce57-42e3-b900-bd338ed5adbf" xml:space="preserve">
+          <source>InstanceId</source>
+          <target state="new">InstanceId</target>
+        </trans-unit>
+        <trans-unit id="7d80b33f-25c3-4003-bfa7-75d9cc1d63d3" xml:space="preserve">
+          <source>Instance of the web app that the even occurred on</source>
+          <target state="new">Instance of the web app that the even occurred on</target>
+        </trans-unit>
+        <trans-unit id="73566198-3e15-40f4-b443-20b09b3c586a" xml:space="preserve">
+          <source>Pid</source>
+          <target state="new">Pid</target>
+        </trans-unit>
+        <trans-unit id="162ebaab-25d1-42c8-b397-2376f4b50991" xml:space="preserve">
+          <source>Process ID</source>
+          <target state="new">Process ID</target>
+        </trans-unit>
+        <trans-unit id="8c984ec0-4a4a-4bec-9f4d-9d7fd690db63" xml:space="preserve">
+          <source>Tid</source>
+          <target state="new">Tid</target>
+        </trans-unit>
+        <trans-unit id="5e996239-1c7a-429d-84b8-bafa29943e22" xml:space="preserve">
+          <source>The thread ID of the thread that produced the event</source>
+          <target state="new">The thread ID of the thread that produced the event</target>
+        </trans-unit>
+        <trans-unit id="78139d79-05f9-46cb-a360-c4a71d64c1c3" xml:space="preserve">
+          <source>Message</source>
+          <target state="new">Message</target>
+        </trans-unit>
+        <trans-unit id="423b1234-8b21-4342-b148-4ff92b1677c8" xml:space="preserve">
+          <source>Event detail message</source>
+          <target state="new">Event detail message</target>
+        </trans-unit>
+        <trans-unit id="709b8228-7bae-4f86-92bc-5205ca151e2e" xml:space="preserve">
+          <source><bpt id="4eaa189f-2ad9-427d-9831-14a3bc6d5086">&lt;strong&gt;</bpt>Blob storage<ept id="4eaa189f-2ad9-427d-9831-14a3bc6d5086">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4eaa189f-2ad9-427d-9831-14a3bc6d5086">&lt;strong&gt;</bpt>Blob storage<ept id="4eaa189f-2ad9-427d-9831-14a3bc6d5086">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="695700b7-a5e1-409d-a858-b0c72a5f5674" xml:space="preserve">
+          <source>When logging to blob storage, data is stored in comma-separated values (CSV) format.</source>
+          <target state="new">When logging to blob storage, data is stored in comma-separated values (CSV) format.</target>
+        </trans-unit>
+        <trans-unit id="ab84aeee-3124-4035-b8d8-7ba463371111" xml:space="preserve">
+          <source>Similar to table storage, additional fields are logged to provide more granular information about the event.</source>
+          <target state="new">Similar to table storage, additional fields are logged to provide more granular information about the event.</target>
+        </trans-unit>
+        <trans-unit id="56101c0f-653e-4d7e-b13b-843cbbfc56ad" xml:space="preserve">
+          <source>The following properties are used for each row in the CSV:</source>
+          <target state="new">The following properties are used for each row in the CSV:</target>
+        </trans-unit>
+        <trans-unit id="d6c019e3-9251-45e4-8968-f3ca14cd0407" xml:space="preserve">
+          <source>Property name</source>
+          <target state="new">Property name</target>
+        </trans-unit>
+        <trans-unit id="002092aa-0279-4bcb-ab70-8c6dd12a7483" xml:space="preserve">
+          <source>Value/format</source>
+          <target state="new">Value/format</target>
+        </trans-unit>
+        <trans-unit id="8806f300-6235-42ed-9f4b-fe90de1d610b" xml:space="preserve">
+          <source>Date</source>
+          <target state="new">Date</target>
+        </trans-unit>
+        <trans-unit id="be111634-2a76-4e1d-9a82-a1b9f240f833" xml:space="preserve">
+          <source>The date and time that the event occurred</source>
+          <target state="new">The date and time that the event occurred</target>
+        </trans-unit>
+        <trans-unit id="5e4e8c85-c4f5-4411-ab3b-31c80a52acf3" xml:space="preserve">
+          <source>Level</source>
+          <target state="new">Level</target>
+        </trans-unit>
+        <trans-unit id="40be56e0-ade9-4fcf-9b3d-ca2c71507a0b" xml:space="preserve">
+          <source>Event level (e.g. error, warning, information)</source>
+          <target state="new">Event level (e.g. error, warning, information)</target>
+        </trans-unit>
+        <trans-unit id="6418e585-d4e9-48e0-b3c7-f650287aaea0" xml:space="preserve">
+          <source>ApplicationName</source>
+          <target state="new">ApplicationName</target>
+        </trans-unit>
+        <trans-unit id="01a69ee7-0c3b-479c-929b-3f57b1ab8a0d" xml:space="preserve">
+          <source>The web app name</source>
+          <target state="new">The web app name</target>
+        </trans-unit>
+        <trans-unit id="e195ee4b-38fb-4f63-ae01-e605fbcd7388" xml:space="preserve">
+          <source>InstanceId</source>
+          <target state="new">InstanceId</target>
+        </trans-unit>
+        <trans-unit id="69bf31eb-0a41-4f85-9b28-828af15cc0a7" xml:space="preserve">
+          <source>Instance of the web app that the even occurred on</source>
+          <target state="new">Instance of the web app that the even occurred on</target>
+        </trans-unit>
+        <trans-unit id="8687f6e2-da2b-4b9e-8f0c-fb7044c00a4c" xml:space="preserve">
+          <source>EventTickCount</source>
+          <target state="new">EventTickCount</target>
+        </trans-unit>
+        <trans-unit id="c8361e87-5c8c-4cf2-bf6b-f9b501e4b963" xml:space="preserve">
+          <source>The date and time that the event occurred, in Tick format (greater precision)</source>
+          <target state="new">The date and time that the event occurred, in Tick format (greater precision)</target>
+        </trans-unit>
+        <trans-unit id="00009172-c154-4189-9001-3b7bbed8df7f" xml:space="preserve">
+          <source>EventId</source>
+          <target state="new">EventId</target>
+        </trans-unit>
+        <trans-unit id="bb210261-9b79-4a0e-92b1-e80bb76688b6" xml:space="preserve">
+          <source>The event ID of this event&lt;p&gt;&lt;p&gt;Defaults to 0 if none specified</source>
+          <target state="new">The event ID of this event&lt;p&gt;&lt;p&gt;Defaults to 0 if none specified</target>
+        </trans-unit>
+        <trans-unit id="85f50e15-3558-4386-a3ca-d1edafdfc809" xml:space="preserve">
+          <source>Pid</source>
+          <target state="new">Pid</target>
+        </trans-unit>
+        <trans-unit id="69875254-59b9-445d-a76f-a0bc805a274c" xml:space="preserve">
+          <source>Process ID</source>
+          <target state="new">Process ID</target>
+        </trans-unit>
+        <trans-unit id="9ef44e91-bdac-4c9f-a54f-0269ec760e54" xml:space="preserve">
+          <source>Tid</source>
+          <target state="new">Tid</target>
+        </trans-unit>
+        <trans-unit id="80db63f5-5bbe-4279-a428-adc0a3e3310c" xml:space="preserve">
+          <source>The thread ID of the thread that produced the event</source>
+          <target state="new">The thread ID of the thread that produced the event</target>
+        </trans-unit>
+        <trans-unit id="5662d7c7-8a8d-4f5d-9633-d7e2bfd02d4b" xml:space="preserve">
+          <source>Message</source>
+          <target state="new">Message</target>
+        </trans-unit>
+        <trans-unit id="dd55e218-61ca-4369-b9cc-c11efc848725" xml:space="preserve">
+          <source>Event detail message</source>
+          <target state="new">Event detail message</target>
+        </trans-unit>
+        <trans-unit id="e82646fe-a6e3-42e3-a6e2-a8a07c23db62" xml:space="preserve">
+          <source>The data stored in a blob would similar to the following:</source>
+          <target state="new">The data stored in a blob would similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="30debba4-ce05-4e1c-959c-324f0e2d7e9a" xml:space="preserve">
+          <source>The first line of the log will contain the column headers as represented in this example.</source>
+          <target state="new">The first line of the log will contain the column headers as represented in this example.</target>
+        </trans-unit>
+        <trans-unit id="390be529-4356-4f75-ac37-78885f70d13b" xml:space="preserve">
+          <source>Failed request traces are stored in XML files named <bpt id="5943871a-3d03-481f-aa83-92b5f5c2514e">&lt;strong&gt;</bpt>fr######.xml<ept id="5943871a-3d03-481f-aa83-92b5f5c2514e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Failed request traces are stored in XML files named <bpt id="5943871a-3d03-481f-aa83-92b5f5c2514e">&lt;strong&gt;</bpt>fr######.xml<ept id="5943871a-3d03-481f-aa83-92b5f5c2514e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="79d5f1a1-c795-49e1-be05-0781444032ce" xml:space="preserve">
+          <source>To make it easier to view the logged information, an XSL stylesheet named <bpt id="b2a32d3d-2676-4159-8604-38a7a648704c">&lt;strong&gt;</bpt>freb.xsl<ept id="b2a32d3d-2676-4159-8604-38a7a648704c">&lt;/strong&gt;</ept> is provided in the same directory as the XML files.</source>
+          <target state="new">To make it easier to view the logged information, an XSL stylesheet named <bpt id="b2a32d3d-2676-4159-8604-38a7a648704c">&lt;strong&gt;</bpt>freb.xsl<ept id="b2a32d3d-2676-4159-8604-38a7a648704c">&lt;/strong&gt;</ept> is provided in the same directory as the XML files.</target>
+        </trans-unit>
+        <trans-unit id="26c98764-9792-417b-9594-61813adcbea8" xml:space="preserve">
+          <source>Opening one of the XML files in Internet Explorer will use the XSL stylesheet to provide a formatted display of the trace information.</source>
+          <target state="new">Opening one of the XML files in Internet Explorer will use the XSL stylesheet to provide a formatted display of the trace information.</target>
+        </trans-unit>
+        <trans-unit id="17f763c2-323a-4c25-8ffa-626d42633ed8" xml:space="preserve">
+          <source>This will appear similar to the following:</source>
+          <target state="new">This will appear similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="f41067a3-b206-4ca1-83c6-d94f6e2144a8" xml:space="preserve">
+          <source><bpt id="48a7504a-9beb-46c3-ad16-b4e7f14f6bf2">&lt;linkText&gt;</bpt>failed request viewed in the browser<ept id="48a7504a-9beb-46c3-ad16-b4e7f14f6bf2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48a7504a-9beb-46c3-ad16-b4e7f14f6bf2">&lt;linkText&gt;</bpt>failed request viewed in the browser<ept id="48a7504a-9beb-46c3-ad16-b4e7f14f6bf2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="847d10b8-b01a-4d60-a9cd-6e2ad6a22341" xml:space="preserve">
+          <source>Detailed error logs are HTML documents that provide more detailed information on HTTP errors that have occurred.</source>
+          <target state="new">Detailed error logs are HTML documents that provide more detailed information on HTTP errors that have occurred.</target>
+        </trans-unit>
+        <trans-unit id="57df719e-d7d7-434c-84dd-ee7fb49642fc" xml:space="preserve">
+          <source>Since they are simply HTML documents, they can be viewed using a web browser.</source>
+          <target state="new">Since they are simply HTML documents, they can be viewed using a web browser.</target>
+        </trans-unit>
+        <trans-unit id="ee2535e9-2cdc-4066-af90-f55571c8c655" xml:space="preserve">
+          <source>The web server logs are formatted using the <bpt id="89c6a689-2659-4ace-b941-83783020c9ca">&lt;linkText&gt;</bpt>W3C extended log file format<ept id="89c6a689-2659-4ace-b941-83783020c9ca">&lt;/linkText&gt;</ept><bpt id="89c6a689-2659-4ace-b941-83783020c9ca">&lt;title&gt;</bpt><ept id="89c6a689-2659-4ace-b941-83783020c9ca">&lt;/title&gt;</ept>.</source>
+          <target state="new">The web server logs are formatted using the <bpt id="89c6a689-2659-4ace-b941-83783020c9ca">&lt;linkText&gt;</bpt>W3C extended log file format<ept id="89c6a689-2659-4ace-b941-83783020c9ca">&lt;/linkText&gt;</ept><bpt id="89c6a689-2659-4ace-b941-83783020c9ca">&lt;title&gt;</bpt><ept id="89c6a689-2659-4ace-b941-83783020c9ca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df8d684e-70d4-47a8-921f-3709faf06562" xml:space="preserve">
+          <source>This information can be read using a text editor or parsed using utilities such as <bpt id="510b41d4-8e64-4ffa-becc-6103faffaa88">&lt;linkText&gt;</bpt>Log Parser<ept id="510b41d4-8e64-4ffa-becc-6103faffaa88">&lt;/linkText&gt;</ept><bpt id="510b41d4-8e64-4ffa-becc-6103faffaa88">&lt;title&gt;</bpt><ept id="510b41d4-8e64-4ffa-becc-6103faffaa88">&lt;/title&gt;</ept>.</source>
+          <target state="new">This information can be read using a text editor or parsed using utilities such as <bpt id="510b41d4-8e64-4ffa-becc-6103faffaa88">&lt;linkText&gt;</bpt>Log Parser<ept id="510b41d4-8e64-4ffa-becc-6103faffaa88">&lt;/linkText&gt;</ept><bpt id="510b41d4-8e64-4ffa-becc-6103faffaa88">&lt;title&gt;</bpt><ept id="510b41d4-8e64-4ffa-becc-6103faffaa88">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c64aa8e4-41cb-49c5-a506-6d8c29f13144" xml:space="preserve">
+          <source>The logs produced by Azure web apps do not support the <bpt id="b1b18f6f-5a0f-4150-b7bc-108e1802f4dd">&lt;strong&gt;</bpt>s-computername<ept id="b1b18f6f-5a0f-4150-b7bc-108e1802f4dd">&lt;/strong&gt;</ept>, <bpt id="6debaabd-439b-4264-bfd8-ad42966bedb4">&lt;strong&gt;</bpt>s-ip<ept id="6debaabd-439b-4264-bfd8-ad42966bedb4">&lt;/strong&gt;</ept>, or <bpt id="3daf8bcf-88b3-4aa5-8413-51af2e674387">&lt;strong&gt;</bpt>cs-version<ept id="3daf8bcf-88b3-4aa5-8413-51af2e674387">&lt;/strong&gt;</ept> fields.</source>
+          <target state="new">The logs produced by Azure web apps do not support the <bpt id="b1b18f6f-5a0f-4150-b7bc-108e1802f4dd">&lt;strong&gt;</bpt>s-computername<ept id="b1b18f6f-5a0f-4150-b7bc-108e1802f4dd">&lt;/strong&gt;</ept>, <bpt id="6debaabd-439b-4264-bfd8-ad42966bedb4">&lt;strong&gt;</bpt>s-ip<ept id="6debaabd-439b-4264-bfd8-ad42966bedb4">&lt;/strong&gt;</ept>, or <bpt id="3daf8bcf-88b3-4aa5-8413-51af2e674387">&lt;strong&gt;</bpt>cs-version<ept id="3daf8bcf-88b3-4aa5-8413-51af2e674387">&lt;/strong&gt;</ept> fields.</target>
+        </trans-unit>
+        <trans-unit id="59eb8180-90d7-4784-adac-59ddae737b55" xml:space="preserve">
+          <source><bpt id="a568ccf6-28b2-4b31-8469-63ab9ad13399">&lt;linkText&gt;</bpt>How to Monitor Web Apps<ept id="a568ccf6-28b2-4b31-8469-63ab9ad13399">&lt;/linkText&gt;</ept><bpt id="a568ccf6-28b2-4b31-8469-63ab9ad13399">&lt;title&gt;</bpt><ept id="a568ccf6-28b2-4b31-8469-63ab9ad13399">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a568ccf6-28b2-4b31-8469-63ab9ad13399">&lt;linkText&gt;</bpt>How to Monitor Web Apps<ept id="a568ccf6-28b2-4b31-8469-63ab9ad13399">&lt;/linkText&gt;</ept><bpt id="a568ccf6-28b2-4b31-8469-63ab9ad13399">&lt;title&gt;</bpt><ept id="a568ccf6-28b2-4b31-8469-63ab9ad13399">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52df6103-b27c-4069-884b-1f49bd672f29" xml:space="preserve">
+          <source><bpt id="d30d19e7-0423-48cc-9dbe-7f3e42f9dea7">&lt;linkText&gt;</bpt>Troubleshooting Azure web apps in Visual Studio<ept id="d30d19e7-0423-48cc-9dbe-7f3e42f9dea7">&lt;/linkText&gt;</ept><bpt id="d30d19e7-0423-48cc-9dbe-7f3e42f9dea7">&lt;title&gt;</bpt><ept id="d30d19e7-0423-48cc-9dbe-7f3e42f9dea7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d30d19e7-0423-48cc-9dbe-7f3e42f9dea7">&lt;linkText&gt;</bpt>Troubleshooting Azure web apps in Visual Studio<ept id="d30d19e7-0423-48cc-9dbe-7f3e42f9dea7">&lt;/linkText&gt;</ept><bpt id="d30d19e7-0423-48cc-9dbe-7f3e42f9dea7">&lt;title&gt;</bpt><ept id="d30d19e7-0423-48cc-9dbe-7f3e42f9dea7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bd31323-5fa2-4259-a50e-bd2d83cc53ee" xml:space="preserve">
+          <source><bpt id="a456091f-b178-4e48-8ba8-cdb31d022061">&lt;linkText&gt;</bpt>Analyze web app Logs in HDInsight<ept id="a456091f-b178-4e48-8ba8-cdb31d022061">&lt;/linkText&gt;</ept><bpt id="a456091f-b178-4e48-8ba8-cdb31d022061">&lt;title&gt;</bpt><ept id="a456091f-b178-4e48-8ba8-cdb31d022061">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a456091f-b178-4e48-8ba8-cdb31d022061">&lt;linkText&gt;</bpt>Analyze web app Logs in HDInsight<ept id="a456091f-b178-4e48-8ba8-cdb31d022061">&lt;/linkText&gt;</ept><bpt id="a456091f-b178-4e48-8ba8-cdb31d022061">&lt;title&gt;</bpt><ept id="a456091f-b178-4e48-8ba8-cdb31d022061">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a31bb2f-277f-4344-bb13-82d22b3e54b1" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="4212d289-18e1-4f74-af3a-160ceac8675b">&lt;linkText&gt;</bpt>Try App Service<ept id="4212d289-18e1-4f74-af3a-160ceac8675b">&lt;/linkText&gt;</ept><bpt id="4212d289-18e1-4f74-af3a-160ceac8675b">&lt;title&gt;</bpt><ept id="4212d289-18e1-4f74-af3a-160ceac8675b">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="4212d289-18e1-4f74-af3a-160ceac8675b">&lt;linkText&gt;</bpt>Try App Service<ept id="4212d289-18e1-4f74-af3a-160ceac8675b">&lt;/linkText&gt;</ept><bpt id="4212d289-18e1-4f74-af3a-160ceac8675b">&lt;title&gt;</bpt><ept id="4212d289-18e1-4f74-af3a-160ceac8675b">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="0e217221-e0ee-449f-a216-62b4f7e17e9e" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="c307e598-8783-4a46-878e-f6c502f80e71" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="067d1ebe-2c44-4470-833c-6a488f5cbebf">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="067d1ebe-2c44-4470-833c-6a488f5cbebf">&lt;/linkText&gt;</ept><bpt id="067d1ebe-2c44-4470-833c-6a488f5cbebf">&lt;title&gt;</bpt><ept id="067d1ebe-2c44-4470-833c-6a488f5cbebf">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="067d1ebe-2c44-4470-833c-6a488f5cbebf">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="067d1ebe-2c44-4470-833c-6a488f5cbebf">&lt;/linkText&gt;</ept><bpt id="067d1ebe-2c44-4470-833c-6a488f5cbebf">&lt;title&gt;</bpt><ept id="067d1ebe-2c44-4470-833c-6a488f5cbebf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d60b5bc-1db6-4c73-b217-59f17c5d70cd" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="8e463b3c-b257-4ca6-9625-4439aeec5a53">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="8e463b3c-b257-4ca6-9625-4439aeec5a53">&lt;/linkText&gt;</ept><bpt id="8e463b3c-b257-4ca6-9625-4439aeec5a53">&lt;title&gt;</bpt><ept id="8e463b3c-b257-4ca6-9625-4439aeec5a53">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="8e463b3c-b257-4ca6-9625-4439aeec5a53">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="8e463b3c-b257-4ca6-9625-4439aeec5a53">&lt;/linkText&gt;</ept><bpt id="8e463b3c-b257-4ca6-9625-4439aeec5a53">&lt;title&gt;</bpt><ept id="8e463b3c-b257-4ca6-9625-4439aeec5a53">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

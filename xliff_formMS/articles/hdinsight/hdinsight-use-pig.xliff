@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1efb183c-ffe8-4903-98bf-c285815b1e4e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1efb183c-ffe8-4903-98bf-c285815b1e4e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ae7a6740-3fdc-41ce-ab5e-c909c7ed8eed">
+        <trans-unit id="6fea11aa-0347-4946-9c9e-78258e00c591" xml:space="preserve">
+          <source>Use Hadoop Pig in HDInsight | Microsoft Azure</source>
+          <target state="new">Use Hadoop Pig in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="dbeb4afa-f71c-4c4b-9428-678c811813a1" xml:space="preserve">
+          <source>Learn how to use Pig with Hadoop on HDInsight.</source>
+          <target state="new">Learn how to use Pig with Hadoop on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="38dedabc-e91d-4584-91fb-a7e31494889c" xml:space="preserve">
+          <source><bpt id="4ff1b429-390d-4558-9a93-9ae3c00ff8e0">&lt;token href="../../includes/hdinsight-selector-use-pig.md"&gt;</bpt><ept id="4ff1b429-390d-4558-9a93-9ae3c00ff8e0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4ff1b429-390d-4558-9a93-9ae3c00ff8e0">&lt;token href="../../includes/hdinsight-selector-use-pig.md"&gt;</bpt><ept id="4ff1b429-390d-4558-9a93-9ae3c00ff8e0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a42e20b5-8325-4cee-bf08-011e663bf370" xml:space="preserve">
+          <source><bpt id="2adc7d50-fa8f-40d3-adef-08f3dd82ff3f">&lt;linkText&gt;</bpt>Apache Pig<ept id="2adc7d50-fa8f-40d3-adef-08f3dd82ff3f">&lt;/linkText&gt;</ept><bpt id="2adc7d50-fa8f-40d3-adef-08f3dd82ff3f">&lt;title&gt;</bpt><ept id="2adc7d50-fa8f-40d3-adef-08f3dd82ff3f">&lt;/title&gt;</ept> is a platform for creating programs for Hadoop by using a procedural language known as <bpt id="e224610b-4a61-4ace-a301-76de3f3292cf">&lt;em&gt;</bpt>Pig Latin<ept id="e224610b-4a61-4ace-a301-76de3f3292cf">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="2adc7d50-fa8f-40d3-adef-08f3dd82ff3f">&lt;linkText&gt;</bpt>Apache Pig<ept id="2adc7d50-fa8f-40d3-adef-08f3dd82ff3f">&lt;/linkText&gt;</ept><bpt id="2adc7d50-fa8f-40d3-adef-08f3dd82ff3f">&lt;title&gt;</bpt><ept id="2adc7d50-fa8f-40d3-adef-08f3dd82ff3f">&lt;/title&gt;</ept> is a platform for creating programs for Hadoop by using a procedural language known as <bpt id="e224610b-4a61-4ace-a301-76de3f3292cf">&lt;em&gt;</bpt>Pig Latin<ept id="e224610b-4a61-4ace-a301-76de3f3292cf">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="394b159f-164d-4711-b4ad-801c5d817ccd" xml:space="preserve">
+          <source>Pig is an alternative to Java for creating <bpt id="68d106a1-ae24-43df-af6e-e41725901a87">&lt;em&gt;</bpt>MapReduce<ept id="68d106a1-ae24-43df-af6e-e41725901a87">&lt;/em&gt;</ept> solutions, and it is included with Azure HDInsight.</source>
+          <target state="new">Pig is an alternative to Java for creating <bpt id="68d106a1-ae24-43df-af6e-e41725901a87">&lt;em&gt;</bpt>MapReduce<ept id="68d106a1-ae24-43df-af6e-e41725901a87">&lt;/em&gt;</ept> solutions, and it is included with Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="d96d3334-b7ee-4278-a3bc-8bf7500b4813" xml:space="preserve">
+          <source>In this article, you will learn how you can use Pig with HDInsight.</source>
+          <target state="new">In this article, you will learn how you can use Pig with HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="fb0e938c-b456-404e-99a7-bd05eafc1db1" xml:space="preserve">
+          <source>One of the challenges of processing data by using MapReduce in Hadoop is implementing your processing logic by using only a map and a reduce function.</source>
+          <target state="new">One of the challenges of processing data by using MapReduce in Hadoop is implementing your processing logic by using only a map and a reduce function.</target>
+        </trans-unit>
+        <trans-unit id="88774bc6-67cd-4856-b52e-388849e7f035" xml:space="preserve">
+          <source>For complex processing, you often have to break processing into multiple MapReduce operations that are chained together to achieve the desired result.</source>
+          <target state="new">For complex processing, you often have to break processing into multiple MapReduce operations that are chained together to achieve the desired result.</target>
+        </trans-unit>
+        <trans-unit id="fe767801-c158-4aaf-b4d6-3e469bb1c2c8" xml:space="preserve">
+          <source>Instead of forcing you to use only map and reduce functions, Pig allows you to define processing as a series of transformations that the data flows through to produce the desired output.</source>
+          <target state="new">Instead of forcing you to use only map and reduce functions, Pig allows you to define processing as a series of transformations that the data flows through to produce the desired output.</target>
+        </trans-unit>
+        <trans-unit id="d9973b58-b1cd-4e21-bed5-8282f106e116" xml:space="preserve">
+          <source>The Pig Latin language allows you to describe the data flow from raw input, through one or more transformations, to produce the desired output.</source>
+          <target state="new">The Pig Latin language allows you to describe the data flow from raw input, through one or more transformations, to produce the desired output.</target>
+        </trans-unit>
+        <trans-unit id="e3c1a154-0c5a-41c2-9231-812a353110d1" xml:space="preserve">
+          <source>Pig Latin programs follow this general pattern:</source>
+          <target state="new">Pig Latin programs follow this general pattern:</target>
+        </trans-unit>
+        <trans-unit id="7d8b21b2-f076-40c4-aa7f-5bca5814f6e0" xml:space="preserve">
+          <source><bpt id="e355ea8c-1ea8-4d79-9471-ce4f0b82861e">&lt;strong&gt;</bpt>Load<ept id="e355ea8c-1ea8-4d79-9471-ce4f0b82861e">&lt;/strong&gt;</ept>: Read data to be manipulated from the file system</source>
+          <target state="new"><bpt id="e355ea8c-1ea8-4d79-9471-ce4f0b82861e">&lt;strong&gt;</bpt>Load<ept id="e355ea8c-1ea8-4d79-9471-ce4f0b82861e">&lt;/strong&gt;</ept>: Read data to be manipulated from the file system</target>
+        </trans-unit>
+        <trans-unit id="92e48f09-d586-425b-b667-5cb6f96b24e2" xml:space="preserve">
+          <source><bpt id="46da81a9-01ae-4e06-a0cd-f796018f5873">&lt;strong&gt;</bpt>Transform<ept id="46da81a9-01ae-4e06-a0cd-f796018f5873">&lt;/strong&gt;</ept>: Manipulate the data</source>
+          <target state="new"><bpt id="46da81a9-01ae-4e06-a0cd-f796018f5873">&lt;strong&gt;</bpt>Transform<ept id="46da81a9-01ae-4e06-a0cd-f796018f5873">&lt;/strong&gt;</ept>: Manipulate the data</target>
+        </trans-unit>
+        <trans-unit id="1d230714-d80c-4a26-8189-e7d5029683f3" xml:space="preserve">
+          <source><bpt id="201de2a5-2727-4cbd-9b68-b98158e2f5ed">&lt;strong&gt;</bpt>Dump or store<ept id="201de2a5-2727-4cbd-9b68-b98158e2f5ed">&lt;/strong&gt;</ept>: Output data to the screen or store it for processing</source>
+          <target state="new"><bpt id="201de2a5-2727-4cbd-9b68-b98158e2f5ed">&lt;strong&gt;</bpt>Dump or store<ept id="201de2a5-2727-4cbd-9b68-b98158e2f5ed">&lt;/strong&gt;</ept>: Output data to the screen or store it for processing</target>
+        </trans-unit>
+        <trans-unit id="e7276e91-bacc-4c05-b61a-ca4f5a773d16" xml:space="preserve">
+          <source>Pig Latin also supports user-defined functions (UDF), which allows you to invoke external components that implement logic that is difficult to model in Pig Latin.</source>
+          <target state="new">Pig Latin also supports user-defined functions (UDF), which allows you to invoke external components that implement logic that is difficult to model in Pig Latin.</target>
+        </trans-unit>
+        <trans-unit id="5beb3e7e-04e3-453d-8607-aad1288c638b" xml:space="preserve">
+          <source>For more information about Pig Latin, see [Pig Latin Reference Manual 1](http://pig.apache.org/docs/r0.7.0/piglatin<bpt id="63854eeb-3e41-438d-96dd-de8fd7dc4528">&lt;em&gt;</bpt>ref1.html) and [Pig Latin Reference Manual 2](http://pig.apache.org/docs/r0.7.0/piglatin<ept id="63854eeb-3e41-438d-96dd-de8fd7dc4528">&lt;/em&gt;</ept>ref2.html).</source>
+          <target state="new">For more information about Pig Latin, see [Pig Latin Reference Manual 1](http://pig.apache.org/docs/r0.7.0/piglatin<bpt id="63854eeb-3e41-438d-96dd-de8fd7dc4528">&lt;em&gt;</bpt>ref1.html) and [Pig Latin Reference Manual 2](http://pig.apache.org/docs/r0.7.0/piglatin<ept id="63854eeb-3e41-438d-96dd-de8fd7dc4528">&lt;/em&gt;</ept>ref2.html).</target>
+        </trans-unit>
+        <trans-unit id="5ba944fb-c0f0-4409-8468-9ffeb1065471" xml:space="preserve">
+          <source>For an example of using UDFs with Pig, see the following documents:</source>
+          <target state="new">For an example of using UDFs with Pig, see the following documents:</target>
+        </trans-unit>
+        <trans-unit id="d1b0096e-a9a0-44fa-b060-04938ba1a14d" xml:space="preserve">
+          <source><bpt id="00de86cc-d408-450d-b949-10f22575c927">&lt;linkText&gt;</bpt>Using Python with Pig and Hive in HDInsight<ept id="00de86cc-d408-450d-b949-10f22575c927">&lt;/linkText&gt;</ept><bpt id="00de86cc-d408-450d-b949-10f22575c927">&lt;title&gt;</bpt><ept id="00de86cc-d408-450d-b949-10f22575c927">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="00de86cc-d408-450d-b949-10f22575c927">&lt;linkText&gt;</bpt>Using Python with Pig and Hive in HDInsight<ept id="00de86cc-d408-450d-b949-10f22575c927">&lt;/linkText&gt;</ept><bpt id="00de86cc-d408-450d-b949-10f22575c927">&lt;title&gt;</bpt><ept id="00de86cc-d408-450d-b949-10f22575c927">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1d41131-8b14-4813-87d0-844464efbdaf" xml:space="preserve">
+          <source><bpt id="8ddf5a8a-588f-4597-b645-0cf114b9f0b7">&lt;linkText&gt;</bpt>Use C# with Hive and Pig in HDInsight<ept id="8ddf5a8a-588f-4597-b645-0cf114b9f0b7">&lt;/linkText&gt;</ept><bpt id="8ddf5a8a-588f-4597-b645-0cf114b9f0b7">&lt;title&gt;</bpt><ept id="8ddf5a8a-588f-4597-b645-0cf114b9f0b7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8ddf5a8a-588f-4597-b645-0cf114b9f0b7">&lt;linkText&gt;</bpt>Use C# with Hive and Pig in HDInsight<ept id="8ddf5a8a-588f-4597-b645-0cf114b9f0b7">&lt;/linkText&gt;</ept><bpt id="8ddf5a8a-588f-4597-b645-0cf114b9f0b7">&lt;title&gt;</bpt><ept id="8ddf5a8a-588f-4597-b645-0cf114b9f0b7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="871dab45-ca20-49f6-9361-ca961b49f7bf" xml:space="preserve">
+          <source>This example uses a <bpt id="2fd1393c-467d-4eb7-b835-ecd45ad1b79a">&lt;em&gt;</bpt>log4j<ept id="2fd1393c-467d-4eb7-b835-ecd45ad1b79a">&lt;/em&gt;</ept> sample file, which is stored at <bpt id="2171bf09-7802-4cf1-ba3f-abd098b62ad4">&lt;strong&gt;</bpt>/example/data/sample.log<ept id="2171bf09-7802-4cf1-ba3f-abd098b62ad4">&lt;/strong&gt;</ept> in your blob storage container.</source>
+          <target state="new">This example uses a <bpt id="2fd1393c-467d-4eb7-b835-ecd45ad1b79a">&lt;em&gt;</bpt>log4j<ept id="2fd1393c-467d-4eb7-b835-ecd45ad1b79a">&lt;/em&gt;</ept> sample file, which is stored at <bpt id="2171bf09-7802-4cf1-ba3f-abd098b62ad4">&lt;strong&gt;</bpt>/example/data/sample.log<ept id="2171bf09-7802-4cf1-ba3f-abd098b62ad4">&lt;/strong&gt;</ept> in your blob storage container.</target>
+        </trans-unit>
+        <trans-unit id="5f367070-996c-44b7-94d9-340920544cab" xml:space="preserve">
+          <source>Each log inside the file consists of a line of fields that contains a <bpt id="69284ce2-ce20-4281-9301-6494c20eb171">&lt;code&gt;</bpt>[LOG LEVEL]<ept id="69284ce2-ce20-4281-9301-6494c20eb171">&lt;/code&gt;</ept> field to show the type and the severity, for example:</source>
+          <target state="new">Each log inside the file consists of a line of fields that contains a <bpt id="69284ce2-ce20-4281-9301-6494c20eb171">&lt;code&gt;</bpt>[LOG LEVEL]<ept id="69284ce2-ce20-4281-9301-6494c20eb171">&lt;/code&gt;</ept> field to show the type and the severity, for example:</target>
+        </trans-unit>
+        <trans-unit id="816ce840-2e58-4fa3-9dcf-2b6ee94de3a6" xml:space="preserve">
+          <source>In the previous example, the log level is ERROR.</source>
+          <target state="new">In the previous example, the log level is ERROR.</target>
+        </trans-unit>
+        <trans-unit id="6103787e-0ca2-42e0-8869-d3a9f01ce420" xml:space="preserve">
+          <source>You can also generate a log4j file by using the <bpt id="3598409f-b089-4b18-9396-af1cac9ba9bf">&lt;linkText&gt;</bpt>Apache Log4j<ept id="3598409f-b089-4b18-9396-af1cac9ba9bf">&lt;/linkText&gt;</ept><bpt id="3598409f-b089-4b18-9396-af1cac9ba9bf">&lt;title&gt;</bpt><ept id="3598409f-b089-4b18-9396-af1cac9ba9bf">&lt;/title&gt;</ept> logging tool and then upload that file to your blob.</source>
+          <target state="new">You can also generate a log4j file by using the <bpt id="3598409f-b089-4b18-9396-af1cac9ba9bf">&lt;linkText&gt;</bpt>Apache Log4j<ept id="3598409f-b089-4b18-9396-af1cac9ba9bf">&lt;/linkText&gt;</ept><bpt id="3598409f-b089-4b18-9396-af1cac9ba9bf">&lt;title&gt;</bpt><ept id="3598409f-b089-4b18-9396-af1cac9ba9bf">&lt;/title&gt;</ept> logging tool and then upload that file to your blob.</target>
+        </trans-unit>
+        <trans-unit id="d884d585-b1ab-4a75-b7a9-19a60187258c" xml:space="preserve">
+          <source>See <bpt id="9832dd6c-a548-4dce-b689-b92166c55c5a">&lt;linkText&gt;</bpt>Upload Data to HDInsight<ept id="9832dd6c-a548-4dce-b689-b92166c55c5a">&lt;/linkText&gt;</ept><bpt id="9832dd6c-a548-4dce-b689-b92166c55c5a">&lt;title&gt;</bpt><ept id="9832dd6c-a548-4dce-b689-b92166c55c5a">&lt;/title&gt;</ept> for instructions.</source>
+          <target state="new">See <bpt id="9832dd6c-a548-4dce-b689-b92166c55c5a">&lt;linkText&gt;</bpt>Upload Data to HDInsight<ept id="9832dd6c-a548-4dce-b689-b92166c55c5a">&lt;/linkText&gt;</ept><bpt id="9832dd6c-a548-4dce-b689-b92166c55c5a">&lt;title&gt;</bpt><ept id="9832dd6c-a548-4dce-b689-b92166c55c5a">&lt;/title&gt;</ept> for instructions.</target>
+        </trans-unit>
+        <trans-unit id="d17053e2-88a8-4341-8385-7561a2452041" xml:space="preserve">
+          <source>For more information about how blobs in Azure storage are used with HDInsight, see <bpt id="92aeb3d5-4405-45ae-9486-c6ddedb73148">&lt;linkText&gt;</bpt>Use Azure Blob Storage with HDInsight<ept id="92aeb3d5-4405-45ae-9486-c6ddedb73148">&lt;/linkText&gt;</ept><bpt id="92aeb3d5-4405-45ae-9486-c6ddedb73148">&lt;title&gt;</bpt><ept id="92aeb3d5-4405-45ae-9486-c6ddedb73148">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how blobs in Azure storage are used with HDInsight, see <bpt id="92aeb3d5-4405-45ae-9486-c6ddedb73148">&lt;linkText&gt;</bpt>Use Azure Blob Storage with HDInsight<ept id="92aeb3d5-4405-45ae-9486-c6ddedb73148">&lt;/linkText&gt;</ept><bpt id="92aeb3d5-4405-45ae-9486-c6ddedb73148">&lt;title&gt;</bpt><ept id="92aeb3d5-4405-45ae-9486-c6ddedb73148">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60c94780-c173-422b-a828-969d20cb1892" xml:space="preserve">
+          <source>The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters.</source>
+          <target state="new">The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="07fbf037-2c29-490b-90ad-8ea244518b07" xml:space="preserve">
+          <source>HDInsight can access files stored in blobs by using the <bpt id="2d4b94a2-8ede-419b-b880-d3dac7157876">&lt;strong&gt;</bpt>wasb<ept id="2d4b94a2-8ede-419b-b880-d3dac7157876">&lt;/strong&gt;</ept> prefix.</source>
+          <target state="new">HDInsight can access files stored in blobs by using the <bpt id="2d4b94a2-8ede-419b-b880-d3dac7157876">&lt;strong&gt;</bpt>wasb<ept id="2d4b94a2-8ede-419b-b880-d3dac7157876">&lt;/strong&gt;</ept> prefix.</target>
+        </trans-unit>
+        <trans-unit id="d3e68668-3168-4fc9-bebb-494af4370bfe" xml:space="preserve">
+          <source>For example, to access the sample.log file, you would use the following syntax:</source>
+          <target state="new">For example, to access the sample.log file, you would use the following syntax:</target>
+        </trans-unit>
+        <trans-unit id="4bac843f-0902-40b3-91bf-b153ff9b015e" xml:space="preserve">
+          <source>Because WASB is the default storage for HDInsight, you can also access the file by using <bpt id="b5ab5315-d75e-47e8-b433-d9832bac0f6c">&lt;strong&gt;</bpt>/example/data/sample.log<ept id="b5ab5315-d75e-47e8-b433-d9832bac0f6c">&lt;/strong&gt;</ept> from Pig Latin.</source>
+          <target state="new">Because WASB is the default storage for HDInsight, you can also access the file by using <bpt id="b5ab5315-d75e-47e8-b433-d9832bac0f6c">&lt;strong&gt;</bpt>/example/data/sample.log<ept id="b5ab5315-d75e-47e8-b433-d9832bac0f6c">&lt;/strong&gt;</ept> from Pig Latin.</target>
+        </trans-unit>
+        <trans-unit id="21b6622f-3da2-486c-92f3-ba07a7a16c4d" xml:space="preserve">
+          <source>The syntax, <bpt id="c95e11c8-959f-42a4-a6a5-43e66a97f8f4">&lt;strong&gt;</bpt>wasb:///<ept id="c95e11c8-959f-42a4-a6a5-43e66a97f8f4">&lt;/strong&gt;</ept>, is used to access files stored in the default storage container for your HDInsight cluster.</source>
+          <target state="new">The syntax, <bpt id="c95e11c8-959f-42a4-a6a5-43e66a97f8f4">&lt;strong&gt;</bpt>wasb:///<ept id="c95e11c8-959f-42a4-a6a5-43e66a97f8f4">&lt;/strong&gt;</ept>, is used to access files stored in the default storage container for your HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="e79b24d7-dcdc-41ba-8116-2ea7ca6b40b9" xml:space="preserve">
+          <source>If you specified additional storage accounts when you provisioned your cluster, and you want to access files stored in these accounts, you can access the data by specifying the container name and storage account address, for example: <bpt id="745a666f-d5e6-4fe3-947d-9a57c33245f9">&lt;strong&gt;</bpt>wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log<ept id="745a666f-d5e6-4fe3-947d-9a57c33245f9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you specified additional storage accounts when you provisioned your cluster, and you want to access files stored in these accounts, you can access the data by specifying the container name and storage account address, for example: <bpt id="745a666f-d5e6-4fe3-947d-9a57c33245f9">&lt;strong&gt;</bpt>wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log<ept id="745a666f-d5e6-4fe3-947d-9a57c33245f9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="28ddaabb-b050-47ea-99cb-2696336cc2f3" xml:space="preserve">
+          <source>The following Pig Latin job loads the <bpt id="6a87e8b2-ad93-4d1b-b450-03bfab9ed498">&lt;strong&gt;</bpt>sample.log<ept id="6a87e8b2-ad93-4d1b-b450-03bfab9ed498">&lt;/strong&gt;</ept> file from the default storage for your HDInsight cluster.</source>
+          <target state="new">The following Pig Latin job loads the <bpt id="6a87e8b2-ad93-4d1b-b450-03bfab9ed498">&lt;strong&gt;</bpt>sample.log<ept id="6a87e8b2-ad93-4d1b-b450-03bfab9ed498">&lt;/strong&gt;</ept> file from the default storage for your HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="aea261fe-2699-4662-bafb-d2ae1a59a27a" xml:space="preserve">
+          <source>Then it performs a series of transformations that result in a count of how many times each log level occurred in the input data.</source>
+          <target state="new">Then it performs a series of transformations that result in a count of how many times each log level occurred in the input data.</target>
+        </trans-unit>
+        <trans-unit id="43c32f7e-4c05-482b-ad1d-2ef4165738bc" xml:space="preserve">
+          <source>The results are dumped into STDOUT.</source>
+          <target state="new">The results are dumped into STDOUT.</target>
+        </trans-unit>
+        <trans-unit id="2089ac57-e624-4173-8598-f42730ec2fce" xml:space="preserve">
+          <source>The following image shows a breakdown of what each transformation does to the data.</source>
+          <target state="new">The following image shows a breakdown of what each transformation does to the data.</target>
+        </trans-unit>
+        <trans-unit id="8c965137-8cb1-477f-9dac-107b21d503a3" xml:space="preserve">
+          <source><bpt id="adc6a57e-4438-4451-bb73-547682d2d704">&lt;linkText&gt;</bpt>Graphical representation of the transformations<ept id="adc6a57e-4438-4451-bb73-547682d2d704">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="adc6a57e-4438-4451-bb73-547682d2d704">&lt;linkText&gt;</bpt>Graphical representation of the transformations<ept id="adc6a57e-4438-4451-bb73-547682d2d704">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a8a1125-c3a0-4b46-b694-3c53fea95bd2" xml:space="preserve">
+          <source>HDInsight can run Pig Latin jobs by using a variety of methods.</source>
+          <target state="new">HDInsight can run Pig Latin jobs by using a variety of methods.</target>
+        </trans-unit>
+        <trans-unit id="c248e4bd-a4da-4860-bf97-7ee7fb6d8475" xml:space="preserve">
+          <source>Use the following table to decide which method is right for you, then follow the link for a walkthrough.</source>
+          <target state="new">Use the following table to decide which method is right for you, then follow the link for a walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="ae8548c9-99de-46d9-b292-ea4110cc63bb" xml:space="preserve">
+          <source><bpt id="a1d21659-8d77-464a-9117-0b538caf1672">&lt;strong&gt;</bpt>Use this<ept id="a1d21659-8d77-464a-9117-0b538caf1672">&lt;/strong&gt;</ept> if you want...</source>
+          <target state="new"><bpt id="a1d21659-8d77-464a-9117-0b538caf1672">&lt;strong&gt;</bpt>Use this<ept id="a1d21659-8d77-464a-9117-0b538caf1672">&lt;/strong&gt;</ept> if you want...</target>
+        </trans-unit>
+        <trans-unit id="608f87f2-ec44-47cf-bbb3-9f42537903ea" xml:space="preserve">
+          <source>...an <bpt id="49dcca1a-5e64-460c-b4d7-0e7a47173371">&lt;strong&gt;</bpt>interactive<ept id="49dcca1a-5e64-460c-b4d7-0e7a47173371">&lt;/strong&gt;</ept> shell</source>
+          <target state="new">...an <bpt id="49dcca1a-5e64-460c-b4d7-0e7a47173371">&lt;strong&gt;</bpt>interactive<ept id="49dcca1a-5e64-460c-b4d7-0e7a47173371">&lt;/strong&gt;</ept> shell</target>
+        </trans-unit>
+        <trans-unit id="656c30de-b3dc-46dc-88c8-8c64227c726c" xml:space="preserve">
+          <source>...<bpt id="2887c565-79dc-458f-85da-0f0df62716b3">&lt;strong&gt;</bpt>batch<ept id="2887c565-79dc-458f-85da-0f0df62716b3">&lt;/strong&gt;</ept> processing</source>
+          <target state="new">...<bpt id="2887c565-79dc-458f-85da-0f0df62716b3">&lt;strong&gt;</bpt>batch<ept id="2887c565-79dc-458f-85da-0f0df62716b3">&lt;/strong&gt;</ept> processing</target>
+        </trans-unit>
+        <trans-unit id="fdde34f7-1db0-4d6c-ba55-d268d11b3724" xml:space="preserve">
+          <source>...with this <bpt id="2536dc11-ee0e-458f-843a-417f872d2b8c">&lt;strong&gt;</bpt>cluster operating system<ept id="2536dc11-ee0e-458f-843a-417f872d2b8c">&lt;/strong&gt;</ept></source>
+          <target state="new">...with this <bpt id="2536dc11-ee0e-458f-843a-417f872d2b8c">&lt;strong&gt;</bpt>cluster operating system<ept id="2536dc11-ee0e-458f-843a-417f872d2b8c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c0f71b2-bdd9-409a-a699-e32b50eefa91" xml:space="preserve">
+          <source>...from this <bpt id="995f7110-ac54-4c96-b05f-f64a564b5d57">&lt;strong&gt;</bpt>client operating system<ept id="995f7110-ac54-4c96-b05f-f64a564b5d57">&lt;/strong&gt;</ept></source>
+          <target state="new">...from this <bpt id="995f7110-ac54-4c96-b05f-f64a564b5d57">&lt;strong&gt;</bpt>client operating system<ept id="995f7110-ac54-4c96-b05f-f64a564b5d57">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3c9ec82-3584-4e65-b7cb-c0c6e9c2acc1" xml:space="preserve">
+          <source><bpt id="0946f9ba-ac08-4f34-b461-858ca58af48b">&lt;linkText&gt;</bpt>SSH<ept id="0946f9ba-ac08-4f34-b461-858ca58af48b">&lt;/linkText&gt;</ept><bpt id="0946f9ba-ac08-4f34-b461-858ca58af48b">&lt;title&gt;</bpt><ept id="0946f9ba-ac08-4f34-b461-858ca58af48b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0946f9ba-ac08-4f34-b461-858ca58af48b">&lt;linkText&gt;</bpt>SSH<ept id="0946f9ba-ac08-4f34-b461-858ca58af48b">&lt;/linkText&gt;</ept><bpt id="0946f9ba-ac08-4f34-b461-858ca58af48b">&lt;title&gt;</bpt><ept id="0946f9ba-ac08-4f34-b461-858ca58af48b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b479776-505e-4ee8-b22f-c755ac40ed6f" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="4bb76d36-1a87-4265-af6d-f54694a749a6" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="40ad23ac-24d8-49b4-bd78-4a5a78991977" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="167c5e0a-194d-4996-a4b5-138a93b260a0" xml:space="preserve">
+          <source>Linux, Unix, Mac OS X, or Windows</source>
+          <target state="new">Linux, Unix, Mac OS X, or Windows</target>
+        </trans-unit>
+        <trans-unit id="c3c74dd3-e712-43fd-9fef-d4c086039eba" xml:space="preserve">
+          <source><bpt id="59eb0f6c-72dd-4860-a8b7-1dfa693c58c6">&lt;linkText&gt;</bpt>Curl<ept id="59eb0f6c-72dd-4860-a8b7-1dfa693c58c6">&lt;/linkText&gt;</ept><bpt id="59eb0f6c-72dd-4860-a8b7-1dfa693c58c6">&lt;title&gt;</bpt><ept id="59eb0f6c-72dd-4860-a8b7-1dfa693c58c6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="59eb0f6c-72dd-4860-a8b7-1dfa693c58c6">&lt;linkText&gt;</bpt>Curl<ept id="59eb0f6c-72dd-4860-a8b7-1dfa693c58c6">&lt;/linkText&gt;</ept><bpt id="59eb0f6c-72dd-4860-a8b7-1dfa693c58c6">&lt;title&gt;</bpt><ept id="59eb0f6c-72dd-4860-a8b7-1dfa693c58c6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="635c4fd7-8500-492b-84e8-1bd508d526c6" xml:space="preserve">
+          <source>&amp;nbsp;</source>
+          <target state="new">&amp;nbsp;</target>
+        </trans-unit>
+        <trans-unit id="1130eeb6-5398-454b-8fce-9a80fcc813f2" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="7fcce2c7-f867-49af-b73e-88fe46451ef3" xml:space="preserve">
+          <source>Linux or Windows</source>
+          <target state="new">Linux or Windows</target>
+        </trans-unit>
+        <trans-unit id="dac6c1e0-9c06-4a17-9cfa-9dc5b627899a" xml:space="preserve">
+          <source>Linux, Unix, Mac OS X, or Windows</source>
+          <target state="new">Linux, Unix, Mac OS X, or Windows</target>
+        </trans-unit>
+        <trans-unit id="a71e8893-7d5f-4171-8235-e8e3152d3f6b" xml:space="preserve">
+          <source><bpt id="99e966ab-21a0-4f65-b39d-195d6676e296">&lt;linkText&gt;</bpt>.NET SDK for Hadoop<ept id="99e966ab-21a0-4f65-b39d-195d6676e296">&lt;/linkText&gt;</ept><bpt id="99e966ab-21a0-4f65-b39d-195d6676e296">&lt;title&gt;</bpt><ept id="99e966ab-21a0-4f65-b39d-195d6676e296">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="99e966ab-21a0-4f65-b39d-195d6676e296">&lt;linkText&gt;</bpt>.NET SDK for Hadoop<ept id="99e966ab-21a0-4f65-b39d-195d6676e296">&lt;/linkText&gt;</ept><bpt id="99e966ab-21a0-4f65-b39d-195d6676e296">&lt;title&gt;</bpt><ept id="99e966ab-21a0-4f65-b39d-195d6676e296">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3fb3b63-2c28-45b8-b722-3475fc7bee52" xml:space="preserve">
+          <source>&amp;nbsp;</source>
+          <target state="new">&amp;nbsp;</target>
+        </trans-unit>
+        <trans-unit id="0ff72e22-716c-44a7-8dfe-41110271ce91" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="1710473c-c789-4039-a34d-3e3153995564" xml:space="preserve">
+          <source>Linux or Windows</source>
+          <target state="new">Linux or Windows</target>
+        </trans-unit>
+        <trans-unit id="69290110-c84e-4beb-952b-f51d1afb678d" xml:space="preserve">
+          <source>Windows (for now)</source>
+          <target state="new">Windows (for now)</target>
+        </trans-unit>
+        <trans-unit id="f0f23337-deb3-4e96-9819-1cd75985b064" xml:space="preserve">
+          <source><bpt id="99b899c3-a501-4acb-926b-c173d1766e17">&lt;linkText&gt;</bpt>Windows PowerShell<ept id="99b899c3-a501-4acb-926b-c173d1766e17">&lt;/linkText&gt;</ept><bpt id="99b899c3-a501-4acb-926b-c173d1766e17">&lt;title&gt;</bpt><ept id="99b899c3-a501-4acb-926b-c173d1766e17">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="99b899c3-a501-4acb-926b-c173d1766e17">&lt;linkText&gt;</bpt>Windows PowerShell<ept id="99b899c3-a501-4acb-926b-c173d1766e17">&lt;/linkText&gt;</ept><bpt id="99b899c3-a501-4acb-926b-c173d1766e17">&lt;title&gt;</bpt><ept id="99b899c3-a501-4acb-926b-c173d1766e17">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb45aee6-afd5-4a4d-84e5-acca269c4378" xml:space="preserve">
+          <source>&amp;nbsp;</source>
+          <target state="new">&amp;nbsp;</target>
+        </trans-unit>
+        <trans-unit id="a8a533fa-a26e-447f-82e3-3aea2e3b4740" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="36fea4da-daa6-46c4-8b51-5389e6f115b5" xml:space="preserve">
+          <source>Linux or Windows</source>
+          <target state="new">Linux or Windows</target>
+        </trans-unit>
+        <trans-unit id="faf6bcf3-c887-4d51-b7aa-65b0e626dc17" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="b34ffd19-9d73-4d40-b3b1-aab85ab6c1f6" xml:space="preserve">
+          <source><bpt id="22e053a8-6f55-4db2-b8fe-73d562bce100">&lt;linkText&gt;</bpt>Remote Desktop<ept id="22e053a8-6f55-4db2-b8fe-73d562bce100">&lt;/linkText&gt;</ept><bpt id="22e053a8-6f55-4db2-b8fe-73d562bce100">&lt;title&gt;</bpt><ept id="22e053a8-6f55-4db2-b8fe-73d562bce100">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="22e053a8-6f55-4db2-b8fe-73d562bce100">&lt;linkText&gt;</bpt>Remote Desktop<ept id="22e053a8-6f55-4db2-b8fe-73d562bce100">&lt;/linkText&gt;</ept><bpt id="22e053a8-6f55-4db2-b8fe-73d562bce100">&lt;title&gt;</bpt><ept id="22e053a8-6f55-4db2-b8fe-73d562bce100">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f972f4f-95f1-4740-a55f-9ec2e53d3bee" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="80350b1f-fa0d-4773-abeb-cd28d46fb07f" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="75f49098-962f-41e8-bf82-5c3266f742e6" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="2cb1fd04-2f3f-47e3-a3a4-f008be0a7978" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="e829aa7c-3d53-4d40-a26e-c15e612f92e1" xml:space="preserve">
+          <source>You can also use SQL Server Integration Services (SSIS) to run a Pig job.</source>
+          <target state="new">You can also use SQL Server Integration Services (SSIS) to run a Pig job.</target>
+        </trans-unit>
+        <trans-unit id="05a0c209-05d1-43be-8348-58495829c246" xml:space="preserve">
+          <source>The Azure Feature Pack for SSIS provides the following components that work with Pig jobs on HDInsight.</source>
+          <target state="new">The Azure Feature Pack for SSIS provides the following components that work with Pig jobs on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="01978480-d1dd-4c62-9f74-8cbdd8a52a59" xml:space="preserve">
+          <source><bpt id="d29e1c4d-2301-43e1-918b-91d40bb6d701">&lt;linkText&gt;</bpt>Azure HDInsight Pig Task[pigtask]<ept id="d29e1c4d-2301-43e1-918b-91d40bb6d701">&lt;/linkText&gt;</ept><bpt id="d29e1c4d-2301-43e1-918b-91d40bb6d701">&lt;title&gt;</bpt><ept id="d29e1c4d-2301-43e1-918b-91d40bb6d701">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d29e1c4d-2301-43e1-918b-91d40bb6d701">&lt;linkText&gt;</bpt>Azure HDInsight Pig Task[pigtask]<ept id="d29e1c4d-2301-43e1-918b-91d40bb6d701">&lt;/linkText&gt;</ept><bpt id="d29e1c4d-2301-43e1-918b-91d40bb6d701">&lt;title&gt;</bpt><ept id="d29e1c4d-2301-43e1-918b-91d40bb6d701">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05259b66-7e01-4033-86e9-05b49d814b71" xml:space="preserve">
+          <source><bpt id="5fa2526e-62c7-46ba-bf41-3f14a67d34ce">&lt;linkText&gt;</bpt>Azure Subscription Connection Manager[connectionmanager]<ept id="5fa2526e-62c7-46ba-bf41-3f14a67d34ce">&lt;/linkText&gt;</ept><bpt id="5fa2526e-62c7-46ba-bf41-3f14a67d34ce">&lt;title&gt;</bpt><ept id="5fa2526e-62c7-46ba-bf41-3f14a67d34ce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5fa2526e-62c7-46ba-bf41-3f14a67d34ce">&lt;linkText&gt;</bpt>Azure Subscription Connection Manager[connectionmanager]<ept id="5fa2526e-62c7-46ba-bf41-3f14a67d34ce">&lt;/linkText&gt;</ept><bpt id="5fa2526e-62c7-46ba-bf41-3f14a67d34ce">&lt;title&gt;</bpt><ept id="5fa2526e-62c7-46ba-bf41-3f14a67d34ce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7d3dd7a-8d0c-4bf0-af60-f4bc79ccf522" xml:space="preserve">
+          <source>Learn more about the Azure Feature Pack for SSIS <bpt id="a737815c-6a1d-430e-bf30-56b7c0f035c9">&lt;linkText&gt;</bpt>here[ssispack]<ept id="a737815c-6a1d-430e-bf30-56b7c0f035c9">&lt;/linkText&gt;</ept><bpt id="a737815c-6a1d-430e-bf30-56b7c0f035c9">&lt;title&gt;</bpt><ept id="a737815c-6a1d-430e-bf30-56b7c0f035c9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about the Azure Feature Pack for SSIS <bpt id="a737815c-6a1d-430e-bf30-56b7c0f035c9">&lt;linkText&gt;</bpt>here[ssispack]<ept id="a737815c-6a1d-430e-bf30-56b7c0f035c9">&lt;/linkText&gt;</ept><bpt id="a737815c-6a1d-430e-bf30-56b7c0f035c9">&lt;title&gt;</bpt><ept id="a737815c-6a1d-430e-bf30-56b7c0f035c9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da02b152-59df-450e-a362-e4449e8c00cb" xml:space="preserve">
+          <source>Now that you have learned how to use Pig with HDInsight, use the following links to explore other ways to work with Azure HDInsight.</source>
+          <target state="new">Now that you have learned how to use Pig with HDInsight, use the following links to explore other ways to work with Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="12570526-a094-44d2-85df-fc08a2ea479f" xml:space="preserve">
+          <source><bpt id="a2f8b038-46e2-4a87-a195-74ca1c97585a">&lt;linkText&gt;</bpt>Upload data to HDInsight[hdinsight-upload-data]<ept id="a2f8b038-46e2-4a87-a195-74ca1c97585a">&lt;/linkText&gt;</ept><bpt id="a2f8b038-46e2-4a87-a195-74ca1c97585a">&lt;title&gt;</bpt><ept id="a2f8b038-46e2-4a87-a195-74ca1c97585a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a2f8b038-46e2-4a87-a195-74ca1c97585a">&lt;linkText&gt;</bpt>Upload data to HDInsight[hdinsight-upload-data]<ept id="a2f8b038-46e2-4a87-a195-74ca1c97585a">&lt;/linkText&gt;</ept><bpt id="a2f8b038-46e2-4a87-a195-74ca1c97585a">&lt;title&gt;</bpt><ept id="a2f8b038-46e2-4a87-a195-74ca1c97585a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fcc4e49-4818-4e32-b54c-a5742e9b9948" xml:space="preserve">
+          <source><bpt id="d9724c4a-a6da-4a31-bf8f-923fe962ffb6">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="d9724c4a-a6da-4a31-bf8f-923fe962ffb6">&lt;/linkText&gt;</ept><bpt id="d9724c4a-a6da-4a31-bf8f-923fe962ffb6">&lt;title&gt;</bpt><ept id="d9724c4a-a6da-4a31-bf8f-923fe962ffb6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d9724c4a-a6da-4a31-bf8f-923fe962ffb6">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="d9724c4a-a6da-4a31-bf8f-923fe962ffb6">&lt;/linkText&gt;</ept><bpt id="d9724c4a-a6da-4a31-bf8f-923fe962ffb6">&lt;title&gt;</bpt><ept id="d9724c4a-a6da-4a31-bf8f-923fe962ffb6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff5381e0-43f0-4617-ba41-30c49d4e3c26" xml:space="preserve">
+          <source><bpt id="32eefa29-e5be-4b59-9930-07f6b4455521">&lt;linkText&gt;</bpt>Use MapReduce jobs with HDInsight[hdinsight-use-mapreduce]<ept id="32eefa29-e5be-4b59-9930-07f6b4455521">&lt;/linkText&gt;</ept><bpt id="32eefa29-e5be-4b59-9930-07f6b4455521">&lt;title&gt;</bpt><ept id="32eefa29-e5be-4b59-9930-07f6b4455521">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="32eefa29-e5be-4b59-9930-07f6b4455521">&lt;linkText&gt;</bpt>Use MapReduce jobs with HDInsight[hdinsight-use-mapreduce]<ept id="32eefa29-e5be-4b59-9930-07f6b4455521">&lt;/linkText&gt;</ept><bpt id="32eefa29-e5be-4b59-9930-07f6b4455521">&lt;title&gt;</bpt><ept id="32eefa29-e5be-4b59-9930-07f6b4455521">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d197fd3-0f6b-41a9-9438-414735ec9313" xml:space="preserve">
+          <source>./media/hdinsight-use-pig/hdi.checkmark.png</source>
+          <target state="new">./media/hdinsight-use-pig/hdi.checkmark.png</target>
+        </trans-unit>
+        <trans-unit id="64941163-43fe-4b6c-88ff-bb31934c541c" xml:space="preserve">
+          <source>http://pig.apache.org/</source>
+          <target state="new">http://pig.apache.org/</target>
+        </trans-unit>
+        <trans-unit id="b60f2aeb-9d12-40e4-879e-c9277b715aec" xml:space="preserve">
+          <source>http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</source>
+          <target state="new">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</target>
+        </trans-unit>
+        <trans-unit id="99695833-9c12-439c-9639-f86946410d04" xml:space="preserve">
+          <source>http://curl.haxx.se/</source>
+          <target state="new">http://curl.haxx.se/</target>
+        </trans-unit>
+        <trans-unit id="72da1c4a-aa7e-44f0-a03b-033d1349dfaa" xml:space="preserve">
+          <source>http://msdn.microsoft.com/en-US/library/mt146781(v=sql.120).aspx</source>
+          <target state="new">http://msdn.microsoft.com/en-US/library/mt146781(v=sql.120).aspx</target>
+        </trans-unit>
+        <trans-unit id="b562217e-d635-4399-a684-e1a14f062449" xml:space="preserve">
+          <source>http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx</source>
+          <target state="new">http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx</target>
+        </trans-unit>
+        <trans-unit id="803cdeb3-7dcd-4aa2-964c-33ede7bf6d4b" xml:space="preserve">
+          <source>http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx</source>
+          <target state="new">http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx</target>
+        </trans-unit>
+        <trans-unit id="eca07ab0-6e84-4b40-9ca3-cdf5c945d3be" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="d45c2e65-a68d-435d-bc20-4e9a32d8d08e" xml:space="preserve">
+          <source>hdinsight-upload-data.md</source>
+          <target state="new">hdinsight-upload-data.md</target>
+        </trans-unit>
+        <trans-unit id="fd926066-8424-429e-8c2c-3d3e114f7445" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="6c49c438-791a-4633-a9d5-878af4471726" xml:space="preserve">
+          <source>hdinsight-administer-use-powershell.md</source>
+          <target state="new">hdinsight-administer-use-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="0ffa5ee4-9cca-43f6-8d37-ecb5fda4a293" xml:space="preserve">
+          <source>hdinsight-use-hive.md</source>
+          <target state="new">hdinsight-use-hive.md</target>
+        </trans-unit>
+        <trans-unit id="89bc0978-c628-4993-a14d-568b0c1e57f5" xml:space="preserve">
+          <source>hdinsight-use-mapreduce.md</source>
+          <target state="new">hdinsight-use-mapreduce.md</target>
+        </trans-unit>
+        <trans-unit id="085ce111-b0f6-42d2-84d4-ce1671c6654b" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="9046cd1f-df84-4ba6-9228-dbfbf141a5ee" xml:space="preserve">
+          <source>hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk</source>
+          <target state="new">hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk</target>
+        </trans-unit>
+        <trans-unit id="4346b7c6-d9df-43bc-9da1-49a2e539dacb" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="81498c5a-b81a-4ac2-bb8a-c50b657ecd1f" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/hh847889.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/hh847889.aspx</target>
+        </trans-unit>
+        <trans-unit id="add54a99-5d68-474d-8334-8b554cee3f98" xml:space="preserve">
+          <source>./media/hdinsight-use-pig/HDI.wholesamplefile.png</source>
+          <target state="new">./media/hdinsight-use-pig/HDI.wholesamplefile.png</target>
+        </trans-unit>
+        <trans-unit id="04b2071d-9e46-44a8-a564-3d9ea9f12e64" xml:space="preserve">
+          <source>./media/hdinsight-use-pig/HDI.DataTransformation.gif</source>
+          <target state="new">./media/hdinsight-use-pig/HDI.DataTransformation.gif</target>
+        </trans-unit>
+        <trans-unit id="cfe64f30-631f-4756-a596-dd4a064bec9c" xml:space="preserve">
+          <source>./media/hdinsight-use-pig/hdi.pig.powershell.png</source>
+          <target state="new">./media/hdinsight-use-pig/hdi.pig.powershell.png</target>
+        </trans-unit>
+        <trans-unit id="4e17bd69-7ebf-4518-bc14-c949616feb03" xml:space="preserve">
+          <source>./media/hdinsight-use-pig/HDI.Pig.Architecture.png</source>
+          <target state="new">./media/hdinsight-use-pig/HDI.Pig.Architecture.png</target>
+        </trans-unit>
+      </group>
+      <group id="a558208f-97dd-4024-adcc-8b8bb14152ba" />
+    </body>
+  </file>
+</xliff>

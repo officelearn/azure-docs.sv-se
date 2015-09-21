@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="881c680f-6a19-4a3b-978f-bfb4c6fdbcf6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="881c680f-6a19-4a3b-978f-bfb4c6fdbcf6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a99455df-2924-4302-8e62-7cf01dbcbc27">
+        <trans-unit id="7a855cd1-c252-4992-aa3a-112d4e5c4f62" xml:space="preserve">
+          <source>Known Networks</source>
+          <target state="new">Known Networks</target>
+        </trans-unit>
+        <trans-unit id="6662e8d1-6775-4f37-912e-1996a4f1b744" xml:space="preserve">
+          <source>By configuring known networks, you can avoid having IP addresses that are owned by your organization included in the Sign ins from multiple geographies and Sign ins from IP addresses with suspicious activity reports.</source>
+          <target state="new">By configuring known networks, you can avoid having IP addresses that are owned by your organization included in the Sign ins from multiple geographies and Sign ins from IP addresses with suspicious activity reports.</target>
+        </trans-unit>
+        <trans-unit id="d91caf0f-9341-493b-b574-95769ff7ee8e" xml:space="preserve">
+          <source>You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory.</source>
+          <target state="new">You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory.</target>
+        </trans-unit>
+        <trans-unit id="275eb104-5b82-46ef-ac00-0f53862284d3" xml:space="preserve">
+          <source>With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.</source>
+          <target state="new">With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.</target>
+        </trans-unit>
+        <trans-unit id="66d58bab-3402-41d2-b464-6c9eeb24ac98" xml:space="preserve">
+          <source>It is possible that the “<bpt id="f1a7cd97-4e28-493a-95f4-e906cba3964d">&lt;em&gt;</bpt>Sign ins from multiple geographies<ept id="f1a7cd97-4e28-493a-95f4-e906cba3964d">&lt;/em&gt;</ept>” and “<bpt id="bf8e60fc-7774-4c7e-9447-755fd1fcea3c">&lt;em&gt;</bpt>Sign ins from IP addresses with suspicious activity<ept id="bf8e60fc-7774-4c7e-9447-755fd1fcea3c">&lt;/em&gt;</ept>” reports incorrectly flag IP addresses that are actually owned by your organization.</source>
+          <target state="new">It is possible that the “<bpt id="f1a7cd97-4e28-493a-95f4-e906cba3964d">&lt;em&gt;</bpt>Sign ins from multiple geographies<ept id="f1a7cd97-4e28-493a-95f4-e906cba3964d">&lt;/em&gt;</ept>” and “<bpt id="bf8e60fc-7774-4c7e-9447-755fd1fcea3c">&lt;em&gt;</bpt>Sign ins from IP addresses with suspicious activity<ept id="bf8e60fc-7774-4c7e-9447-755fd1fcea3c">&lt;/em&gt;</ept>” reports incorrectly flag IP addresses that are actually owned by your organization.</target>
+        </trans-unit>
+        <trans-unit id="a7544ac6-3246-4280-ad34-932248c0af6c" xml:space="preserve">
+          <source>This can, for example, happen when: </source>
+          <target state="new">This can, for example, happen when: </target>
+        </trans-unit>
+        <trans-unit id="46ad68f5-f00e-40ca-9d01-a584e64fcff4" xml:space="preserve">
+          <source>A user in your Boston office has signed in remotely to your data center in San Francisco triggers the “Sign ins from multiple geographies” report </source>
+          <target state="new">A user in your Boston office has signed in remotely to your data center in San Francisco triggers the “Sign ins from multiple geographies” report </target>
+        </trans-unit>
+        <trans-unit id="522f5159-aa0f-4c0a-ab4b-d925d05263da" xml:space="preserve">
+          <source>A user of your organization tries to sign-on several times with an incorrect password triggers the “Sign ins from IP addresses with suspicious activity” report </source>
+          <target state="new">A user of your organization tries to sign-on several times with an incorrect password triggers the “Sign ins from IP addresses with suspicious activity” report </target>
+        </trans-unit>
+        <trans-unit id="acc98dee-f6a5-45fa-9e6a-4a7668aeddd9" xml:space="preserve">
+          <source>To prevent these cases from generating misleading security reports, you should add known IP address ranges to the list of your organization's public IP address.</source>
+          <target state="new">To prevent these cases from generating misleading security reports, you should add known IP address ranges to the list of your organization's public IP address.</target>
+        </trans-unit>
+        <trans-unit id="3d1dc203-d202-4426-bfe3-1946f6f85be8" xml:space="preserve">
+          <source>Sign-on to the <bpt id="0452f85a-3c7d-4b23-862b-a493b10c8265">&lt;linkText&gt;</bpt>Azure management portal<ept id="0452f85a-3c7d-4b23-862b-a493b10c8265">&lt;/linkText&gt;</ept><bpt id="0452f85a-3c7d-4b23-862b-a493b10c8265">&lt;title&gt;</bpt><ept id="0452f85a-3c7d-4b23-862b-a493b10c8265">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign-on to the <bpt id="0452f85a-3c7d-4b23-862b-a493b10c8265">&lt;linkText&gt;</bpt>Azure management portal<ept id="0452f85a-3c7d-4b23-862b-a493b10c8265">&lt;/linkText&gt;</ept><bpt id="0452f85a-3c7d-4b23-862b-a493b10c8265">&lt;title&gt;</bpt><ept id="0452f85a-3c7d-4b23-862b-a493b10c8265">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b502861-de76-4cee-9f53-6f8e7b1e2732" xml:space="preserve">
+          <source>In the left pane, click <bpt id="857786a2-e30e-4dfb-9fe8-15bbef40f1d9">&lt;strong&gt;</bpt>Active Directory<ept id="857786a2-e30e-4dfb-9fe8-15bbef40f1d9">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;<bpt id="26001ad8-251c-4601-bc65-4101c67b24fb">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="26001ad8-251c-4601-bc65-4101c67b24fb">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the left pane, click <bpt id="857786a2-e30e-4dfb-9fe8-15bbef40f1d9">&lt;strong&gt;</bpt>Active Directory<ept id="857786a2-e30e-4dfb-9fe8-15bbef40f1d9">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;<bpt id="26001ad8-251c-4601-bc65-4101c67b24fb">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="26001ad8-251c-4601-bc65-4101c67b24fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e41b3fc2-a753-409a-99db-b6b08123c45b" xml:space="preserve">
+          <source>In the <bpt id="67975eef-559b-472f-8083-4c234dfe5cfa">&lt;strong&gt;</bpt>Directory<ept id="67975eef-559b-472f-8083-4c234dfe5cfa">&lt;/strong&gt;</ept> tab, select your directory.</source>
+          <target state="new">In the <bpt id="67975eef-559b-472f-8083-4c234dfe5cfa">&lt;strong&gt;</bpt>Directory<ept id="67975eef-559b-472f-8083-4c234dfe5cfa">&lt;/strong&gt;</ept> tab, select your directory.</target>
+        </trans-unit>
+        <trans-unit id="ba41ce3a-1b6a-45e1-98f0-ed29aa0d67a7" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="38acbe32-d763-4b3e-b802-4b5b72df7c9a">&lt;strong&gt;</bpt>Configure<ept id="38acbe32-d763-4b3e-b802-4b5b72df7c9a">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;<bpt id="baca6125-7aa8-4feb-a350-aee0b05912f5">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="baca6125-7aa8-4feb-a350-aee0b05912f5">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the menu on the top, click <bpt id="38acbe32-d763-4b3e-b802-4b5b72df7c9a">&lt;strong&gt;</bpt>Configure<ept id="38acbe32-d763-4b3e-b802-4b5b72df7c9a">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;<bpt id="baca6125-7aa8-4feb-a350-aee0b05912f5">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="baca6125-7aa8-4feb-a350-aee0b05912f5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d033b8bb-1c56-4dee-9831-062abcdf391b" xml:space="preserve">
+          <source>On the Configure tab, go to <bpt id="f09aca2a-83c1-4dcf-aac4-b820516df80d">&lt;strong&gt;</bpt>your organizations public IP address ranges<ept id="f09aca2a-83c1-4dcf-aac4-b820516df80d">&lt;/strong&gt;</ept> &lt;br&gt;&lt;br&gt;<bpt id="f46f010f-1e35-47f9-aa0b-6180af3c8cea">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="f46f010f-1e35-47f9-aa0b-6180af3c8cea">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the Configure tab, go to <bpt id="f09aca2a-83c1-4dcf-aac4-b820516df80d">&lt;strong&gt;</bpt>your organizations public IP address ranges<ept id="f09aca2a-83c1-4dcf-aac4-b820516df80d">&lt;/strong&gt;</ept> &lt;br&gt;&lt;br&gt;<bpt id="f46f010f-1e35-47f9-aa0b-6180af3c8cea">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="f46f010f-1e35-47f9-aa0b-6180af3c8cea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38d0c99c-1de0-4dcb-97fd-3363a4e3f350" xml:space="preserve">
+          <source>Click <bpt id="60a8702f-2b91-4ba3-8473-7a01a5a881b8">&lt;strong&gt;</bpt>Add Known IP Address Ranges<ept id="60a8702f-2b91-4ba3-8473-7a01a5a881b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="60a8702f-2b91-4ba3-8473-7a01a5a881b8">&lt;strong&gt;</bpt>Add Known IP Address Ranges<ept id="60a8702f-2b91-4ba3-8473-7a01a5a881b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f1060f8-c3ab-466b-95bc-ae1529cf5555" xml:space="preserve">
+          <source>Add your address ranges in the dialog box that appears, and then click the check button  when you are done. &lt;br&gt;&lt;br&gt;<bpt id="feacb66c-cbb5-444f-b9c3-e0e857af3fb4">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="feacb66c-cbb5-444f-b9c3-e0e857af3fb4">&lt;/linkText&gt;</ept></source>
+          <target state="new">Add your address ranges in the dialog box that appears, and then click the check button  when you are done. &lt;br&gt;&lt;br&gt;<bpt id="feacb66c-cbb5-444f-b9c3-e0e857af3fb4">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="feacb66c-cbb5-444f-b9c3-e0e857af3fb4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47f5fc60-e9f8-4ccb-b7db-edbd59e10d3e" xml:space="preserve">
+          <source><bpt id="4744eaee-e065-4b7f-9fe4-a373f9382d79">&lt;strong&gt;</bpt>Additional Resources<ept id="4744eaee-e065-4b7f-9fe4-a373f9382d79">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4744eaee-e065-4b7f-9fe4-a373f9382d79">&lt;strong&gt;</bpt>Additional Resources<ept id="4744eaee-e065-4b7f-9fe4-a373f9382d79">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79634ca1-48f0-4854-834f-aa91b1419509" xml:space="preserve">
+          <source><bpt id="4f651dac-5462-439e-a113-d4b92ce7cc92">&lt;linkText&gt;</bpt>View your access and usage reports<ept id="4f651dac-5462-439e-a113-d4b92ce7cc92">&lt;/linkText&gt;</ept><bpt id="4f651dac-5462-439e-a113-d4b92ce7cc92">&lt;title&gt;</bpt><ept id="4f651dac-5462-439e-a113-d4b92ce7cc92">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4f651dac-5462-439e-a113-d4b92ce7cc92">&lt;linkText&gt;</bpt>View your access and usage reports<ept id="4f651dac-5462-439e-a113-d4b92ce7cc92">&lt;/linkText&gt;</ept><bpt id="4f651dac-5462-439e-a113-d4b92ce7cc92">&lt;title&gt;</bpt><ept id="4f651dac-5462-439e-a113-d4b92ce7cc92">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f71c61f2-8d42-4f60-a0b0-ae4fb3260f2b" xml:space="preserve">
+          <source><bpt id="37d283cd-9e8a-4c9f-98d8-1df7394a223c">&lt;linkText&gt;</bpt>Sign ins from IP addresses with suspicious activity<ept id="37d283cd-9e8a-4c9f-98d8-1df7394a223c">&lt;/linkText&gt;</ept><bpt id="37d283cd-9e8a-4c9f-98d8-1df7394a223c">&lt;title&gt;</bpt><ept id="37d283cd-9e8a-4c9f-98d8-1df7394a223c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="37d283cd-9e8a-4c9f-98d8-1df7394a223c">&lt;linkText&gt;</bpt>Sign ins from IP addresses with suspicious activity<ept id="37d283cd-9e8a-4c9f-98d8-1df7394a223c">&lt;/linkText&gt;</ept><bpt id="37d283cd-9e8a-4c9f-98d8-1df7394a223c">&lt;title&gt;</bpt><ept id="37d283cd-9e8a-4c9f-98d8-1df7394a223c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd8836e2-0144-45e9-b6aa-b3ff8c1af1e4" xml:space="preserve">
+          <source><bpt id="82ae59f2-9083-4368-b8cf-ac0f9c07b188">&lt;linkText&gt;</bpt>Sign ins from multiple geographies<ept id="82ae59f2-9083-4368-b8cf-ac0f9c07b188">&lt;/linkText&gt;</ept><bpt id="82ae59f2-9083-4368-b8cf-ac0f9c07b188">&lt;title&gt;</bpt><ept id="82ae59f2-9083-4368-b8cf-ac0f9c07b188">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="82ae59f2-9083-4368-b8cf-ac0f9c07b188">&lt;linkText&gt;</bpt>Sign ins from multiple geographies<ept id="82ae59f2-9083-4368-b8cf-ac0f9c07b188">&lt;/linkText&gt;</ept><bpt id="82ae59f2-9083-4368-b8cf-ac0f9c07b188">&lt;title&gt;</bpt><ept id="82ae59f2-9083-4368-b8cf-ac0f9c07b188">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

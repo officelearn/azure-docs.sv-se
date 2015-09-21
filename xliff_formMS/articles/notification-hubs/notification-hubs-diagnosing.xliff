@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="34db6c6e-bbc4-4b57-af34-3a0d32c76674" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="34db6c6e-bbc4-4b57-af34-3a0d32c76674" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f1a8eef2-e934-42f1-82a4-3d6c37965bc1">
+        <trans-unit id="f8206555-0271-45c6-ba91-a18c634687b5" xml:space="preserve">
+          <source>Azure Notification Hubs - Diagnosis Guidelines</source>
+          <target state="new">Azure Notification Hubs - Diagnosis Guidelines</target>
+        </trans-unit>
+        <trans-unit id="d5eb30a7-4185-4130-9b3c-1a41aa1c55a2" xml:space="preserve">
+          <source>Guidelines on how to diagnose common issues with Azure Notification Hubs.</source>
+          <target state="new">Guidelines on how to diagnose common issues with Azure Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="b40c8d76-eefc-47f5-80ca-879c714140e7" xml:space="preserve">
+          <source>One of the most common questions we hear from Azure Notification Hubs customers is how to figure out why they don’t see a notification sent from their application backend appear on the client device - where and why notifications were dropped and how to fix this.</source>
+          <target state="new">One of the most common questions we hear from Azure Notification Hubs customers is how to figure out why they don’t see a notification sent from their application backend appear on the client device - where and why notifications were dropped and how to fix this.</target>
+        </trans-unit>
+        <trans-unit id="41f9af28-eaed-446a-8cfc-598981a6a395" xml:space="preserve">
+          <source>In this article we will go through the various reasons why notifications may get dropped or do not end up on the devices.</source>
+          <target state="new">In this article we will go through the various reasons why notifications may get dropped or do not end up on the devices.</target>
+        </trans-unit>
+        <trans-unit id="32a26bd7-3841-4330-9466-e2f471557f4a" xml:space="preserve">
+          <source>We will also look through ways in which you can analyze and figure out the root cause.</source>
+          <target state="new">We will also look through ways in which you can analyze and figure out the root cause.</target>
+        </trans-unit>
+        <trans-unit id="07d74f6c-f677-44e4-8ffa-7ccb60fac125" xml:space="preserve">
+          <source>First of all, it is critical to understand how Azure Notification Hubs pushes out notifications to the devices.</source>
+          <target state="new">First of all, it is critical to understand how Azure Notification Hubs pushes out notifications to the devices.</target>
+        </trans-unit>
+        <trans-unit id="f8a8267a-4f32-41ed-a5c8-1b2267fb3c69" xml:space="preserve">
+          <source><bpt id="4f67ad03-fe4a-436f-a347-334983a61ef5">&lt;linkText&gt;</bpt><ept id="4f67ad03-fe4a-436f-a347-334983a61ef5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4f67ad03-fe4a-436f-a347-334983a61ef5">&lt;linkText&gt;</bpt><ept id="4f67ad03-fe4a-436f-a347-334983a61ef5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="696ebc8c-bc73-4248-9cc3-4e612990edca" xml:space="preserve">
+          <source>In a typical send notification flow, the message is sent from the <bpt id="5a508f2b-e070-46d3-b48a-2c04bf0179fa">&lt;strong&gt;</bpt>application backend<ept id="5a508f2b-e070-46d3-b48a-2c04bf0179fa">&lt;/strong&gt;</ept> to <bpt id="2ad98d5b-b1c1-4c02-a3f4-d1ec89b24a4e">&lt;strong&gt;</bpt>Azure Notification Hub (NH)<ept id="2ad98d5b-b1c1-4c02-a3f4-d1ec89b24a4e">&lt;/strong&gt;</ept> which in turn does some processing on all the registrations taking into account the configured tags &amp; tag expressions to determine "targets" i.e. all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle and Baidu for China Android. Once the targets are established, NH then pushes out notifications, split across multiple batch of registrations, to the device platform specific <bpt id="a4c917de-93a2-45f1-b0df-071866b8f694">&lt;strong&gt;</bpt>Push Notification Service (PNS)<ept id="a4c917de-93a2-45f1-b0df-071866b8f694">&lt;/strong&gt;</ept> - e.g. APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure Portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective <bpt id="a60b6e90-86b2-40de-837a-90f8cfeafbd5">&lt;strong&gt;</bpt>client devices<ept id="a60b6e90-86b2-40de-837a-90f8cfeafbd5">&lt;/strong&gt;</ept>. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore we have four major components - <bpt id="2408bc82-65f5-47f2-b3c9-8a79d077e752">&lt;em&gt;</bpt>client<ept id="2408bc82-65f5-47f2-b3c9-8a79d077e752">&lt;/em&gt;</ept>, <bpt id="0e85a78f-8baa-4727-bf1d-a1732042849a">&lt;em&gt;</bpt>application backend<ept id="0e85a78f-8baa-4727-bf1d-a1732042849a">&lt;/em&gt;</ept>, <bpt id="a4153e78-d681-4f5c-b93c-1cf19a1464ec">&lt;em&gt;</bpt>Azure Notification Hubs (NH)<ept id="a4153e78-d681-4f5c-b93c-1cf19a1464ec">&lt;/em&gt;</ept> and <bpt id="d28e0afc-55a9-4328-9c36-9103d5c62c3d">&lt;em&gt;</bpt>Push Notification Services (PNS)<ept id="d28e0afc-55a9-4328-9c36-9103d5c62c3d">&lt;/em&gt;</ept> and any of these may cause notifications getting dropped. More details on this architecture is available on [Notification Hubs Overview].</source>
+          <target state="new">In a typical send notification flow, the message is sent from the <bpt id="5a508f2b-e070-46d3-b48a-2c04bf0179fa">&lt;strong&gt;</bpt>application backend<ept id="5a508f2b-e070-46d3-b48a-2c04bf0179fa">&lt;/strong&gt;</ept> to <bpt id="2ad98d5b-b1c1-4c02-a3f4-d1ec89b24a4e">&lt;strong&gt;</bpt>Azure Notification Hub (NH)<ept id="2ad98d5b-b1c1-4c02-a3f4-d1ec89b24a4e">&lt;/strong&gt;</ept> which in turn does some processing on all the registrations taking into account the configured tags &amp; tag expressions to determine "targets" i.e. all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle and Baidu for China Android. Once the targets are established, NH then pushes out notifications, split across multiple batch of registrations, to the device platform specific <bpt id="a4c917de-93a2-45f1-b0df-071866b8f694">&lt;strong&gt;</bpt>Push Notification Service (PNS)<ept id="a4c917de-93a2-45f1-b0df-071866b8f694">&lt;/strong&gt;</ept> - e.g. APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure Portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective <bpt id="a60b6e90-86b2-40de-837a-90f8cfeafbd5">&lt;strong&gt;</bpt>client devices<ept id="a60b6e90-86b2-40de-837a-90f8cfeafbd5">&lt;/strong&gt;</ept>. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore we have four major components - <bpt id="2408bc82-65f5-47f2-b3c9-8a79d077e752">&lt;em&gt;</bpt>client<ept id="2408bc82-65f5-47f2-b3c9-8a79d077e752">&lt;/em&gt;</ept>, <bpt id="0e85a78f-8baa-4727-bf1d-a1732042849a">&lt;em&gt;</bpt>application backend<ept id="0e85a78f-8baa-4727-bf1d-a1732042849a">&lt;/em&gt;</ept>, <bpt id="a4153e78-d681-4f5c-b93c-1cf19a1464ec">&lt;em&gt;</bpt>Azure Notification Hubs (NH)<ept id="a4153e78-d681-4f5c-b93c-1cf19a1464ec">&lt;/em&gt;</ept> and <bpt id="d28e0afc-55a9-4328-9c36-9103d5c62c3d">&lt;em&gt;</bpt>Push Notification Services (PNS)<ept id="d28e0afc-55a9-4328-9c36-9103d5c62c3d">&lt;/em&gt;</ept> and any of these may cause notifications getting dropped. More details on this architecture is available on [Notification Hubs Overview].</target>
+        </trans-unit>
+        <trans-unit id="590d99aa-060c-4cbf-9389-0663fa6afc7b" xml:space="preserve">
+          <source>Failure to deliver notifications may happen during the initial test/staging phase which may indicate a configuration issue or it may happen in production where either all or some of the notifications may be getting dropped indicating some deeper application or messaging pattern issue.</source>
+          <target state="new">Failure to deliver notifications may happen during the initial test/staging phase which may indicate a configuration issue or it may happen in production where either all or some of the notifications may be getting dropped indicating some deeper application or messaging pattern issue.</target>
+        </trans-unit>
+        <trans-unit id="2799673e-cdf8-476d-9a03-c72b782776fc" xml:space="preserve">
+          <source>In the section, below we will look at various dropped notifications scenarios ranging from common to the rarer kind, some of which you may find obvious and some others not so much.</source>
+          <target state="new">In the section, below we will look at various dropped notifications scenarios ranging from common to the rarer kind, some of which you may find obvious and some others not so much.</target>
+        </trans-unit>
+        <trans-unit id="5edf6d8a-2d23-4a86-aef1-8bde7235a7ad" xml:space="preserve">
+          <source>Azure Notification Hubs needs to authenticate itself in the context of the developer's application to be able to successfully send notifications to the respective PNS.</source>
+          <target state="new">Azure Notification Hubs needs to authenticate itself in the context of the developer's application to be able to successfully send notifications to the respective PNS.</target>
+        </trans-unit>
+        <trans-unit id="50475c51-7668-4adf-8d72-da03cb31682c" xml:space="preserve">
+          <source>This is made possible by the developer creating a developer account with the respective platform (Google, Apple, Windows etc) and then registering their application where they get credentials which need to be configured in the Azure portal under Notification Hubs configuration section.</source>
+          <target state="new">This is made possible by the developer creating a developer account with the respective platform (Google, Apple, Windows etc) and then registering their application where they get credentials which need to be configured in the Azure portal under Notification Hubs configuration section.</target>
+        </trans-unit>
+        <trans-unit id="514fe091-47f2-4b60-a3f3-4d9653cd4639" xml:space="preserve">
+          <source>If no notifications are making through, first step should be to ensure that the correct credentials are configured in the Notification Hub matching them with the application created under their platform specific developer account.</source>
+          <target state="new">If no notifications are making through, first step should be to ensure that the correct credentials are configured in the Notification Hub matching them with the application created under their platform specific developer account.</target>
+        </trans-unit>
+        <trans-unit id="ed541be6-c636-4fdd-a284-1f38f34e455e" xml:space="preserve">
+          <source>You will find our [Getting Started Tutorials] useful to go over this process in a step by step manner.</source>
+          <target state="new">You will find our [Getting Started Tutorials] useful to go over this process in a step by step manner.</target>
+        </trans-unit>
+        <trans-unit id="2256d9bc-ad44-4e3f-a56a-764628178f90" xml:space="preserve">
+          <source>Here are some common mis-configurations:</source>
+          <target state="new">Here are some common mis-configurations:</target>
+        </trans-unit>
+        <trans-unit id="af2f8b60-8ea8-4bd4-9b5b-30b62b3df6c2" xml:space="preserve">
+          <source><bpt id="22bbb49e-11b3-4969-9702-0e1552456725">&lt;strong&gt;</bpt>General<ept id="22bbb49e-11b3-4969-9702-0e1552456725">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="22bbb49e-11b3-4969-9702-0e1552456725">&lt;strong&gt;</bpt>General<ept id="22bbb49e-11b3-4969-9702-0e1552456725">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8369ffe3-54dc-48ea-8637-55169ee239fc" xml:space="preserve">
+          <source>a) Make sure that your notification hub name (without typos) is the same:</source>
+          <target state="new">a) Make sure that your notification hub name (without typos) is the same:</target>
+        </trans-unit>
+        <trans-unit id="d0d02a04-1997-4a93-8428-8a746aa33177" xml:space="preserve">
+          <source>Where you are registering from the client, </source>
+          <target state="new">Where you are registering from the client, </target>
+        </trans-unit>
+        <trans-unit id="2ec0a0c2-6f54-482c-b0fa-6604a9853023" xml:space="preserve">
+          <source>Where you are sending notifications from the backend,  </source>
+          <target state="new">Where you are sending notifications from the backend,  </target>
+        </trans-unit>
+        <trans-unit id="edf92a79-2857-4757-82d8-671229f0c92a" xml:space="preserve">
+          <source>Where you have configured the PNS credentials and </source>
+          <target state="new">Where you have configured the PNS credentials and </target>
+        </trans-unit>
+        <trans-unit id="9dcc74cb-af48-452a-9538-2c0ad78169fb" xml:space="preserve">
+          <source>Whose SAS credentials you have configured on the client and the backend.</source>
+          <target state="new">Whose SAS credentials you have configured on the client and the backend.</target>
+        </trans-unit>
+        <trans-unit id="46b22574-e540-47d8-9849-d75fd0816e74" xml:space="preserve">
+          <source>b) Make sure that you are using the correct SAS configuration strings on the client and the application backend.</source>
+          <target state="new">b) Make sure that you are using the correct SAS configuration strings on the client and the application backend.</target>
+        </trans-unit>
+        <trans-unit id="ef105bd1-e022-4610-b3b9-fe1133e51e6a" xml:space="preserve">
+          <source>As a rule of thumb, you must be using the <bpt id="450b3676-f4f4-4d1f-b856-d01fbd272415">&lt;strong&gt;</bpt>DefaultListenSharedAccessSignature<ept id="450b3676-f4f4-4d1f-b856-d01fbd272415">&lt;/strong&gt;</ept> on the client and <bpt id="68a8ae87-896b-49bf-aa3e-1af45279f702">&lt;strong&gt;</bpt>DefaultFullSharedAccessSignature<ept id="68a8ae87-896b-49bf-aa3e-1af45279f702">&lt;/strong&gt;</ept> on the application backend (which gives permission to be able to send notification to the NH)</source>
+          <target state="new">As a rule of thumb, you must be using the <bpt id="450b3676-f4f4-4d1f-b856-d01fbd272415">&lt;strong&gt;</bpt>DefaultListenSharedAccessSignature<ept id="450b3676-f4f4-4d1f-b856-d01fbd272415">&lt;/strong&gt;</ept> on the client and <bpt id="68a8ae87-896b-49bf-aa3e-1af45279f702">&lt;strong&gt;</bpt>DefaultFullSharedAccessSignature<ept id="68a8ae87-896b-49bf-aa3e-1af45279f702">&lt;/strong&gt;</ept> on the application backend (which gives permission to be able to send notification to the NH)</target>
+        </trans-unit>
+        <trans-unit id="92415581-2ede-4882-97fe-cf3501f17ad9" xml:space="preserve">
+          <source><bpt id="6d542130-2d4f-492c-bf6c-95be2b26263e">&lt;strong&gt;</bpt>Apple Push Notification Service (APNS) configuration<ept id="6d542130-2d4f-492c-bf6c-95be2b26263e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6d542130-2d4f-492c-bf6c-95be2b26263e">&lt;strong&gt;</bpt>Apple Push Notification Service (APNS) configuration<ept id="6d542130-2d4f-492c-bf6c-95be2b26263e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63bc2eac-54c1-45b2-9625-d0f192bb06df" xml:space="preserve">
+          <source>You must maintain two different hubs - one for production and another for testing purpose.</source>
+          <target state="new">You must maintain two different hubs - one for production and another for testing purpose.</target>
+        </trans-unit>
+        <trans-unit id="66428e57-0c17-4ab6-8720-97d35cec9c7a" xml:space="preserve">
+          <source>This means uploading the certificate you are going to use in sandbox environment to a separate hub and the certificate you are going to use in production to a separate hub.</source>
+          <target state="new">This means uploading the certificate you are going to use in sandbox environment to a separate hub and the certificate you are going to use in production to a separate hub.</target>
+        </trans-unit>
+        <trans-unit id="06d8b335-8c57-4616-ba22-be7a0b0f148b" xml:space="preserve">
+          <source>Do not try to upload different types of certificates to the same hub as it may cause notification failures down the line.</source>
+          <target state="new">Do not try to upload different types of certificates to the same hub as it may cause notification failures down the line.</target>
+        </trans-unit>
+        <trans-unit id="7f9a805c-11d0-4922-b76f-843546615953" xml:space="preserve">
+          <source>If you do find yourself in a position where you have inadvertently uploaded different types of certificate to the same hub, it is recommended to delete the hub and start fresh.</source>
+          <target state="new">If you do find yourself in a position where you have inadvertently uploaded different types of certificate to the same hub, it is recommended to delete the hub and start fresh.</target>
+        </trans-unit>
+        <trans-unit id="44140be1-9aac-458d-a144-99016bd4845f" xml:space="preserve">
+          <source>If for some reason, you are not able to delete the hub then at the very least, you must delete all the existing registrations from the hub.</source>
+          <target state="new">If for some reason, you are not able to delete the hub then at the very least, you must delete all the existing registrations from the hub.</target>
+        </trans-unit>
+        <trans-unit id="86152253-07b1-4cc8-b6f1-8f144350da89" xml:space="preserve">
+          <source><bpt id="63c0cf1d-7f34-4ce9-8c68-a7477ce39b76">&lt;strong&gt;</bpt>Google Cloud Messaging (GCM) configuration<ept id="63c0cf1d-7f34-4ce9-8c68-a7477ce39b76">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="63c0cf1d-7f34-4ce9-8c68-a7477ce39b76">&lt;strong&gt;</bpt>Google Cloud Messaging (GCM) configuration<ept id="63c0cf1d-7f34-4ce9-8c68-a7477ce39b76">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="3d1cca3a-5845-44fa-890a-ec78b3a799ce" xml:space="preserve">
+          <source>a) Make sure that you are enabling "Google Cloud Messaging for Android" under your cloud project.</source>
+          <target state="new">a) Make sure that you are enabling "Google Cloud Messaging for Android" under your cloud project.</target>
+        </trans-unit>
+        <trans-unit id="f5427d9c-1888-4fd3-9ed1-ab9205dddda4" xml:space="preserve">
+          <source><bpt id="9bc7c833-d754-4e9a-bc75-1272846c6e5f">&lt;linkText&gt;</bpt><ept id="9bc7c833-d754-4e9a-bc75-1272846c6e5f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9bc7c833-d754-4e9a-bc75-1272846c6e5f">&lt;linkText&gt;</bpt><ept id="9bc7c833-d754-4e9a-bc75-1272846c6e5f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccffaf2e-73fe-432c-b848-8c5845f66d18" xml:space="preserve">
+          <source>b) Make sure that you create a "Server Key" while obtaining the credentials which NH will use to authenticate with GCM.</source>
+          <target state="new">b) Make sure that you create a "Server Key" while obtaining the credentials which NH will use to authenticate with GCM.</target>
+        </trans-unit>
+        <trans-unit id="1e0c8f1e-601e-4c21-a2cd-b3171b0f7c63" xml:space="preserve">
+          <source><bpt id="4d3bc8dc-b57b-41fe-b873-8d8f04f4812a">&lt;linkText&gt;</bpt><ept id="4d3bc8dc-b57b-41fe-b873-8d8f04f4812a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d3bc8dc-b57b-41fe-b873-8d8f04f4812a">&lt;linkText&gt;</bpt><ept id="4d3bc8dc-b57b-41fe-b873-8d8f04f4812a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53c3450d-65cd-47b1-921b-ba88d1bb4909" xml:space="preserve">
+          <source>c) Make sure that you have configured "Project ID" on the client which is an entirely numerical entity that you can obtain from the dashboard:</source>
+          <target state="new">c) Make sure that you have configured "Project ID" on the client which is an entirely numerical entity that you can obtain from the dashboard:</target>
+        </trans-unit>
+        <trans-unit id="fca3c805-521b-4828-ad22-d37f38f58983" xml:space="preserve">
+          <source><bpt id="88893cc5-079a-40bd-81fd-76c75fcbc5d7">&lt;linkText&gt;</bpt><ept id="88893cc5-079a-40bd-81fd-76c75fcbc5d7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="88893cc5-079a-40bd-81fd-76c75fcbc5d7">&lt;linkText&gt;</bpt><ept id="88893cc5-079a-40bd-81fd-76c75fcbc5d7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b20a3729-44d3-49c9-bb1e-5a955f0e6213" xml:space="preserve">
+          <source>1) <bpt id="e8698035-d36f-4d75-bfd1-0221d2095b53">&lt;strong&gt;</bpt>Tags/ Tag expressions<ept id="e8698035-d36f-4d75-bfd1-0221d2095b53">&lt;/strong&gt;</ept></source>
+          <target state="new">1) <bpt id="e8698035-d36f-4d75-bfd1-0221d2095b53">&lt;strong&gt;</bpt>Tags/ Tag expressions<ept id="e8698035-d36f-4d75-bfd1-0221d2095b53">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dad81f4e-0fcf-4c33-8f01-1953bdf19d8f" xml:space="preserve">
+          <source>If you are using tags or tag expressions to segment your audience, it is always possible that when you are sending the notification, there is no target being found based on the tags/tag expressions you are specifying in your send call. It is best to review your registrations to ensure that there are tags which match when you send notification and then verify the notification receipt only from the clients with those registrations. E.g. if all your registrations with NH were done with say tag "Politics" and you are sending a notification with tag "Sports", it will not be sent to any device. A complex case could involve tag expressions where you only registered with "Tag A" OR "Tag B" but while sending notifications, you are targeting "Tag A &amp;&amp; Tag B". In the self-diagnose tips section below, there are ways in which you can review your registrations along with the tags they have. </source>
+          <target state="new">If you are using tags or tag expressions to segment your audience, it is always possible that when you are sending the notification, there is no target being found based on the tags/tag expressions you are specifying in your send call. It is best to review your registrations to ensure that there are tags which match when you send notification and then verify the notification receipt only from the clients with those registrations. E.g. if all your registrations with NH were done with say tag "Politics" and you are sending a notification with tag "Sports", it will not be sent to any device. A complex case could involve tag expressions where you only registered with "Tag A" OR "Tag B" but while sending notifications, you are targeting "Tag A &amp;&amp; Tag B". In the self-diagnose tips section below, there are ways in which you can review your registrations along with the tags they have. </target>
+        </trans-unit>
+        <trans-unit id="7ea77abc-a3f0-4fb0-9f13-4e1991519eef" xml:space="preserve">
+          <source>2) <bpt id="57fddd53-10d1-44dd-86e2-9d9e5fa2f0a1">&lt;strong&gt;</bpt>Template issues<ept id="57fddd53-10d1-44dd-86e2-9d9e5fa2f0a1">&lt;/strong&gt;</ept></source>
+          <target state="new">2) <bpt id="57fddd53-10d1-44dd-86e2-9d9e5fa2f0a1">&lt;strong&gt;</bpt>Template issues<ept id="57fddd53-10d1-44dd-86e2-9d9e5fa2f0a1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e918ceec-d5af-4770-8d97-e83b68e2f1db" xml:space="preserve">
+          <source>If you are using templates then ensure that you are following the guidelines described at [Template guidance].</source>
+          <target state="new">If you are using templates then ensure that you are following the guidelines described at [Template guidance].</target>
+        </trans-unit>
+        <trans-unit id="eb7ba4f0-b9cd-4ee3-a982-b3e60aea7939" xml:space="preserve">
+          <source>3) <bpt id="b2fa05cf-01ca-4020-8154-22e0d6e0589b">&lt;strong&gt;</bpt>Invalid registrations<ept id="b2fa05cf-01ca-4020-8154-22e0d6e0589b">&lt;/strong&gt;</ept></source>
+          <target state="new">3) <bpt id="b2fa05cf-01ca-4020-8154-22e0d6e0589b">&lt;strong&gt;</bpt>Invalid registrations<ept id="b2fa05cf-01ca-4020-8154-22e0d6e0589b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85b05d23-9f97-46a0-a581-81b6b7f612fb" xml:space="preserve">
+          <source>Assuming the Notification Hub was configured correctly and any tags/tag expressions were used correctly resulting in the find of valid targets to which the notifications need to be sent, NH fires off several processing batches in parallel - each batch sending messages to a set of registrations.</source>
+          <target state="new">Assuming the Notification Hub was configured correctly and any tags/tag expressions were used correctly resulting in the find of valid targets to which the notifications need to be sent, NH fires off several processing batches in parallel - each batch sending messages to a set of registrations.</target>
+        </trans-unit>
+        <trans-unit id="68423f42-a99f-495f-8520-b5c65412026d" xml:space="preserve">
+          <source>Since we do the processing in parallel, we don’t guarantee the order in which the notifications will be delivered.</source>
+          <target state="new">Since we do the processing in parallel, we don’t guarantee the order in which the notifications will be delivered.</target>
+        </trans-unit>
+        <trans-unit id="944a3472-f42c-4b4b-882f-7a1542811490" xml:space="preserve">
+          <source>Now Azure Notifications Hub is optimized for an "at-most once" message delivery model.</source>
+          <target state="new">Now Azure Notifications Hub is optimized for an "at-most once" message delivery model.</target>
+        </trans-unit>
+        <trans-unit id="6f0b994c-ab08-4a13-b2ef-87cde5c5f60f" xml:space="preserve">
+          <source>This means that we attempt a de-duplication so that no notifications are delivered more than once to a device.</source>
+          <target state="new">This means that we attempt a de-duplication so that no notifications are delivered more than once to a device.</target>
+        </trans-unit>
+        <trans-unit id="89772438-4b1f-4ef7-aee9-676b546428a6" xml:space="preserve">
+          <source>To ensure this we look through the registrations and make sure that only one message is sent per device identifier before actually sending the message to the PNS.</source>
+          <target state="new">To ensure this we look through the registrations and make sure that only one message is sent per device identifier before actually sending the message to the PNS.</target>
+        </trans-unit>
+        <trans-unit id="99749ea7-fb86-4e9b-b7a5-58a9947dd957" xml:space="preserve">
+          <source>As each batch is sent to the PNS, which in turn is accepting and validating the registrations, it is possible that the PNS detects an error with one or more of the registrations in a batch, returns an error to Azure NH and stops processing thereby dropping that batch completely.</source>
+          <target state="new">As each batch is sent to the PNS, which in turn is accepting and validating the registrations, it is possible that the PNS detects an error with one or more of the registrations in a batch, returns an error to Azure NH and stops processing thereby dropping that batch completely.</target>
+        </trans-unit>
+        <trans-unit id="eb32b7f9-0f52-495e-b190-bd1ace0230f7" xml:space="preserve">
+          <source>This is especially true with APNS which uses a TCP stream protocol.</source>
+          <target state="new">This is especially true with APNS which uses a TCP stream protocol.</target>
+        </trans-unit>
+        <trans-unit id="72fc175a-57cc-4fb4-99d0-9813f9ccdb8d" xml:space="preserve">
+          <source>Since we are optimized for at-most once delivery, it is to be noted that there is no retry for this failed batch since we do not know for sure if the PNS dropped the entire batch or partially.</source>
+          <target state="new">Since we are optimized for at-most once delivery, it is to be noted that there is no retry for this failed batch since we do not know for sure if the PNS dropped the entire batch or partially.</target>
+        </trans-unit>
+        <trans-unit id="21f2317f-aff4-4220-b26f-817b857860da" xml:space="preserve">
+          <source>PNS does however tell Azure NH which registration caused the failure and based on the feedback we remove that registration from our database.</source>
+          <target state="new">PNS does however tell Azure NH which registration caused the failure and based on the feedback we remove that registration from our database.</target>
+        </trans-unit>
+        <trans-unit id="d7e6e588-630f-4429-8cee-60b8b1548845" xml:space="preserve">
+          <source>This implies that it is possible that one registration batch or a subset of it may not receive a notification however since we cleaned up the bad registration, the next time a send is attempted, there is a higher chance of successful send.</source>
+          <target state="new">This implies that it is possible that one registration batch or a subset of it may not receive a notification however since we cleaned up the bad registration, the next time a send is attempted, there is a higher chance of successful send.</target>
+        </trans-unit>
+        <trans-unit id="831c9528-c6ae-4bf2-bd74-ab90ec31b4a1" xml:space="preserve">
+          <source>As the scale of number of target devices grow (some of our customers send notification to millions of devices), dropping an odd batch here and there doesn’t make much difference in the overall percentage of devices receiving notifications however if you are sending a few notifications and there are some PNS errors then you may see either all or most notifications not getting received.</source>
+          <target state="new">As the scale of number of target devices grow (some of our customers send notification to millions of devices), dropping an odd batch here and there doesn’t make much difference in the overall percentage of devices receiving notifications however if you are sending a few notifications and there are some PNS errors then you may see either all or most notifications not getting received.</target>
+        </trans-unit>
+        <trans-unit id="e8cf76ed-b0bb-4a4d-904c-f247037fa0c9" xml:space="preserve">
+          <source>If you are seeing this behavior repeatedly then you must identify any bad registrations and delete them.</source>
+          <target state="new">If you are seeing this behavior repeatedly then you must identify any bad registrations and delete them.</target>
+        </trans-unit>
+        <trans-unit id="724a3856-72c8-4823-b4fc-83c8846745cf" xml:space="preserve">
+          <source>You must definitely delete any hand-formed registrations as they are the most common cause of dropped notifications.</source>
+          <target state="new">You must definitely delete any hand-formed registrations as they are the most common cause of dropped notifications.</target>
+        </trans-unit>
+        <trans-unit id="4f8e5927-bee0-4745-a2fc-fca104dc961b" xml:space="preserve">
+          <source>If this is a test environment, you may also directly delete all the registrations as the apps when opened on the devices will retry and re-register with the Notification Hubs ensuring that all registrations there forth created will be valid ones.</source>
+          <target state="new">If this is a test environment, you may also directly delete all the registrations as the apps when opened on the devices will retry and re-register with the Notification Hubs ensuring that all registrations there forth created will be valid ones.</target>
+        </trans-unit>
+        <trans-unit id="ae9b6100-2c52-47d5-bde0-1bfbbd7ce0f1" xml:space="preserve">
+          <source>Once the notification message has been received by the respective PNS then it is its responsibility to deliver the notification to the device.</source>
+          <target state="new">Once the notification message has been received by the respective PNS then it is its responsibility to deliver the notification to the device.</target>
+        </trans-unit>
+        <trans-unit id="33647b82-af2a-4efe-b9f7-eefaf872f977" xml:space="preserve">
+          <source>Azure Notification Hubs is out of the picture here and has no control on when or if the notification is going to be delivered to the device.</source>
+          <target state="new">Azure Notification Hubs is out of the picture here and has no control on when or if the notification is going to be delivered to the device.</target>
+        </trans-unit>
+        <trans-unit id="483625a2-38c7-4043-9984-6238060302d1" xml:space="preserve">
+          <source>Since the platform notification services are pretty robust, notifications do tend to reach the devices in a few seconds from the PNS.</source>
+          <target state="new">Since the platform notification services are pretty robust, notifications do tend to reach the devices in a few seconds from the PNS.</target>
+        </trans-unit>
+        <trans-unit id="578091cd-3699-42f1-8661-f921c24ef2db" xml:space="preserve">
+          <source>If the PNS however is throttling then Azure Notification Hubs does apply an exponential back off strategy and if the PNS remains unreachable for 30 min then we have a policy in place to expire and drop those messages permanently.</source>
+          <target state="new">If the PNS however is throttling then Azure Notification Hubs does apply an exponential back off strategy and if the PNS remains unreachable for 30 min then we have a policy in place to expire and drop those messages permanently.</target>
+        </trans-unit>
+        <trans-unit id="34320784-5175-4779-81dc-d5aab047df74" xml:space="preserve">
+          <source>If a PNS attempts to deliver a notification but the device is offline, the notification is stored by the PNS for a limited period of time, and delivered to the device when it becomes available. Only one recent notification for a particular app is stored. If multiple notifications are sent while the device is offline, each new notification causes the prior notification to be discarded. This behavior of keeping only the newest notification is referred to as coalescing notifications in APNS and collapsing in GCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for it are discarded. 
+Source - [APNS guidance] &amp; [GCM guidance]</source>
+          <target state="new">If a PNS attempts to deliver a notification but the device is offline, the notification is stored by the PNS for a limited period of time, and delivered to the device when it becomes available. Only one recent notification for a particular app is stored. If multiple notifications are sent while the device is offline, each new notification causes the prior notification to be discarded. This behavior of keeping only the newest notification is referred to as coalescing notifications in APNS and collapsing in GCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for it are discarded. 
+Source - [APNS guidance] &amp; [GCM guidance]</target>
+        </trans-unit>
+        <trans-unit id="05b52fe8-4e31-4b09-b94e-37229775a897" xml:space="preserve">
+          <source>With Azure Notification Hubs - you can pass a coalescing key via an HTTP header using the generic <bpt id="3514c2da-246e-427d-ba16-de459546779c">&lt;code&gt;</bpt>SendNotification<ept id="3514c2da-246e-427d-ba16-de459546779c">&lt;/code&gt;</ept> API (e.g. for .NET SDK – <bpt id="76a6d180-523d-4883-8fb5-b080f1cd8e07">&lt;code&gt;</bpt>SendNotificationAsync<ept id="76a6d180-523d-4883-8fb5-b080f1cd8e07">&lt;/code&gt;</ept>) which also takes HTTP headers which are passes as is to the respective PNS.</source>
+          <target state="new">With Azure Notification Hubs - you can pass a coalescing key via an HTTP header using the generic <bpt id="3514c2da-246e-427d-ba16-de459546779c">&lt;code&gt;</bpt>SendNotification<ept id="3514c2da-246e-427d-ba16-de459546779c">&lt;/code&gt;</ept> API (e.g. for .NET SDK – <bpt id="76a6d180-523d-4883-8fb5-b080f1cd8e07">&lt;code&gt;</bpt>SendNotificationAsync<ept id="76a6d180-523d-4883-8fb5-b080f1cd8e07">&lt;/code&gt;</ept>) which also takes HTTP headers which are passes as is to the respective PNS.</target>
+        </trans-unit>
+        <trans-unit id="d5055de7-8dff-4227-8e1e-74c3cf78a2d2" xml:space="preserve">
+          <source>Here we will examine the various avenues to diagnose and root cause any Notification Hub issues:</source>
+          <target state="new">Here we will examine the various avenues to diagnose and root cause any Notification Hub issues:</target>
+        </trans-unit>
+        <trans-unit id="c293337c-4b0c-4948-aa13-8919f9808776" xml:space="preserve">
+          <source><bpt id="de2815c6-0072-49fe-95a2-63b813677391">&lt;strong&gt;</bpt>PNS developer portal<ept id="de2815c6-0072-49fe-95a2-63b813677391">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="de2815c6-0072-49fe-95a2-63b813677391">&lt;strong&gt;</bpt>PNS developer portal<ept id="de2815c6-0072-49fe-95a2-63b813677391">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9351ddcb-f9d7-4d8e-b7df-dc937ffebcf8" xml:space="preserve">
+          <source>Verify them at the respective PNS developer portal (APNS, GCM, WNS etc) using our [Getting Started Tutorials].</source>
+          <target state="new">Verify them at the respective PNS developer portal (APNS, GCM, WNS etc) using our [Getting Started Tutorials].</target>
+        </trans-unit>
+        <trans-unit id="f05eb686-b73c-4e8c-b68e-41a43f1ada90" xml:space="preserve">
+          <source><bpt id="e274460f-9feb-4b4f-b3db-3d2abd212f29">&lt;strong&gt;</bpt>Azure Management portal<ept id="e274460f-9feb-4b4f-b3db-3d2abd212f29">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e274460f-9feb-4b4f-b3db-3d2abd212f29">&lt;strong&gt;</bpt>Azure Management portal<ept id="e274460f-9feb-4b4f-b3db-3d2abd212f29">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bd51270-4ed3-4842-9c69-bc54975db131" xml:space="preserve">
+          <source>Go to the Configure tab to review and match the credentials with those obtained from the PNS developer portal.</source>
+          <target state="new">Go to the Configure tab to review and match the credentials with those obtained from the PNS developer portal.</target>
+        </trans-unit>
+        <trans-unit id="56905a0c-9d7d-4b7e-ac70-f328c8f2ae46" xml:space="preserve">
+          <source><bpt id="a3cb687a-7bd8-47c8-bb0b-bee70e23ad5e">&lt;linkText&gt;</bpt><ept id="a3cb687a-7bd8-47c8-bb0b-bee70e23ad5e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a3cb687a-7bd8-47c8-bb0b-bee70e23ad5e">&lt;linkText&gt;</bpt><ept id="a3cb687a-7bd8-47c8-bb0b-bee70e23ad5e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b50ab332-ebdf-4393-bfb0-c20b3d5fc648" xml:space="preserve">
+          <source><bpt id="bd204703-0dcc-4a2d-a880-408e992059e3">&lt;strong&gt;</bpt>Visual Studio<ept id="bd204703-0dcc-4a2d-a880-408e992059e3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bd204703-0dcc-4a2d-a880-408e992059e3">&lt;strong&gt;</bpt>Visual Studio<ept id="bd204703-0dcc-4a2d-a880-408e992059e3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da788cfc-2e9d-4fa8-b61a-e0b0be3e426c" xml:space="preserve">
+          <source>If you use Visual Studio for development then you can connect to Microsoft Azure and view and manage a bunch of Azure services including Notifications Hub from "Server Explorer".</source>
+          <target state="new">If you use Visual Studio for development then you can connect to Microsoft Azure and view and manage a bunch of Azure services including Notifications Hub from "Server Explorer".</target>
+        </trans-unit>
+        <trans-unit id="9810cc77-4469-4f37-81ae-15aabf9d03ea" xml:space="preserve">
+          <source>This is primarily useful for your dev/test environment.</source>
+          <target state="new">This is primarily useful for your dev/test environment.</target>
+        </trans-unit>
+        <trans-unit id="3c44e80c-fe9f-4b6a-a0d0-ef873c041615" xml:space="preserve">
+          <source><bpt id="f7b3f83d-f6f0-4cdc-afde-d82c93772ec4">&lt;linkText&gt;</bpt><ept id="f7b3f83d-f6f0-4cdc-afde-d82c93772ec4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f7b3f83d-f6f0-4cdc-afde-d82c93772ec4">&lt;linkText&gt;</bpt><ept id="f7b3f83d-f6f0-4cdc-afde-d82c93772ec4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b51a0bd0-6048-4b61-855c-b9453aac54ea" xml:space="preserve">
+          <source>You can view and manage all the registrations in your hub which are nicely categorized for platform, native or template registration, any tags, PNS identifier, registration id and the expiration date.</source>
+          <target state="new">You can view and manage all the registrations in your hub which are nicely categorized for platform, native or template registration, any tags, PNS identifier, registration id and the expiration date.</target>
+        </trans-unit>
+        <trans-unit id="d1732868-4e4f-4577-b7de-96ef04226f34" xml:space="preserve">
+          <source>You can also edit a registration on the fly - which is useful say if you want to edit any tags.</source>
+          <target state="new">You can also edit a registration on the fly - which is useful say if you want to edit any tags.</target>
+        </trans-unit>
+        <trans-unit id="e7b6c4fa-5375-4fc7-9aba-e2aa980d6cbc" xml:space="preserve">
+          <source><bpt id="6543d306-f7c8-4805-a557-d8df3f16126f">&lt;linkText&gt;</bpt><ept id="6543d306-f7c8-4805-a557-d8df3f16126f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6543d306-f7c8-4805-a557-d8df3f16126f">&lt;linkText&gt;</bpt><ept id="6543d306-f7c8-4805-a557-d8df3f16126f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f4b8eba-679b-40a6-ac2d-d49b457be3ae" xml:space="preserve">
+          <source>Visual Studio functionality to edit registrations should only be used during dev/test with limited number of registrations.</source>
+          <target state="new">Visual Studio functionality to edit registrations should only be used during dev/test with limited number of registrations.</target>
+        </trans-unit>
+        <trans-unit id="09cefdae-445a-4039-8db3-3555b3746d6c" xml:space="preserve">
+          <source>If there arises a need to fix your registrations in bulk, consider using the Export/Import registration functionality described here - [Export/Import Registrations] (Only available in Standard Tier)</source>
+          <target state="new">If there arises a need to fix your registrations in bulk, consider using the Export/Import registration functionality described here - [Export/Import Registrations] (Only available in Standard Tier)</target>
+        </trans-unit>
+        <trans-unit id="163aec9a-cb35-406f-80ef-b26c2d545ad1" xml:space="preserve">
+          <source><bpt id="90a036b1-a697-4f38-a016-420c9be2422e">&lt;strong&gt;</bpt>Service Bus explorer<ept id="90a036b1-a697-4f38-a016-420c9be2422e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="90a036b1-a697-4f38-a016-420c9be2422e">&lt;strong&gt;</bpt>Service Bus explorer<ept id="90a036b1-a697-4f38-a016-420c9be2422e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65dd0321-5897-44f1-a5d5-d1869e45ae5b" xml:space="preserve">
+          <source>Many customers use ServiceBus explorer described here - [ServiceBus Explorer] for viewing and managing their notification hub.</source>
+          <target state="new">Many customers use ServiceBus explorer described here - [ServiceBus Explorer] for viewing and managing their notification hub.</target>
+        </trans-unit>
+        <trans-unit id="5a9f51f6-6ac5-46a4-a8a9-b3819b256e51" xml:space="preserve">
+          <source>It is an open source project available from code.microsoft.com - [ServiceBus Explorer code]</source>
+          <target state="new">It is an open source project available from code.microsoft.com - [ServiceBus Explorer code]</target>
+        </trans-unit>
+        <trans-unit id="1dc60748-dff0-4b93-982f-f147c86f162a" xml:space="preserve">
+          <source><bpt id="a73ee44c-d05e-43b3-a482-35c10fffa018">&lt;strong&gt;</bpt>Azure Portal<ept id="a73ee44c-d05e-43b3-a482-35c10fffa018">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a73ee44c-d05e-43b3-a482-35c10fffa018">&lt;strong&gt;</bpt>Azure Portal<ept id="a73ee44c-d05e-43b3-a482-35c10fffa018">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb87b903-8ba7-47c6-ad53-88366816cd3f" xml:space="preserve">
+          <source>You can go to the "Debug" tab to send test notifications to your clients without needing any service backend up and running.</source>
+          <target state="new">You can go to the "Debug" tab to send test notifications to your clients without needing any service backend up and running.</target>
+        </trans-unit>
+        <trans-unit id="8da16b8c-b09c-48bb-b07c-acf42a9522c3" xml:space="preserve">
+          <source><bpt id="a0317db5-b138-4a34-91cc-02653a21fb03">&lt;linkText&gt;</bpt><ept id="a0317db5-b138-4a34-91cc-02653a21fb03">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a0317db5-b138-4a34-91cc-02653a21fb03">&lt;linkText&gt;</bpt><ept id="a0317db5-b138-4a34-91cc-02653a21fb03">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13e06921-f69e-4b25-a0e9-f9acf3563c2a" xml:space="preserve">
+          <source><bpt id="398c56c0-b474-44ff-b366-ff97e79cb3db">&lt;strong&gt;</bpt>Visual Studio<ept id="398c56c0-b474-44ff-b366-ff97e79cb3db">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="398c56c0-b474-44ff-b366-ff97e79cb3db">&lt;strong&gt;</bpt>Visual Studio<ept id="398c56c0-b474-44ff-b366-ff97e79cb3db">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="206e1343-add9-4e84-9762-b7ac1d878f53" xml:space="preserve">
+          <source>You can also send test notifications from the comforts of Visual Studio:</source>
+          <target state="new">You can also send test notifications from the comforts of Visual Studio:</target>
+        </trans-unit>
+        <trans-unit id="a60bb0d8-f168-4c0f-9a47-57051495a7b2" xml:space="preserve">
+          <source><bpt id="db061baf-1d1b-4d9d-85b3-c58c3ee312eb">&lt;linkText&gt;</bpt><ept id="db061baf-1d1b-4d9d-85b3-c58c3ee312eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="db061baf-1d1b-4d9d-85b3-c58c3ee312eb">&lt;linkText&gt;</bpt><ept id="db061baf-1d1b-4d9d-85b3-c58c3ee312eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cdb694c-b118-4970-9d33-be46a31e74ce" xml:space="preserve">
+          <source>You can read more on the Visual Studio Notification Hub Azure explorer functionality here - </source>
+          <target state="new">You can read more on the Visual Studio Notification Hub Azure explorer functionality here - </target>
+        </trans-unit>
+        <trans-unit id="7a1cbb5c-2388-44fa-ac24-dafa80a7a94f" xml:space="preserve">
+          <source>[VS Server Explorer Overview]</source>
+          <target state="new">[VS Server Explorer Overview]</target>
+        </trans-unit>
+        <trans-unit id="84e62937-ec43-40a2-973c-02e694368d0e" xml:space="preserve">
+          <source>[VS Server Explorer Blog post - 1]</source>
+          <target state="new">[VS Server Explorer Blog post - 1]</target>
+        </trans-unit>
+        <trans-unit id="90f91da7-3ab3-48b6-a67f-f798e2bc21dc" xml:space="preserve">
+          <source>[VS Server Explorer Blog post - 2]</source>
+          <target state="new">[VS Server Explorer Blog post - 2]</target>
+        </trans-unit>
+        <trans-unit id="4edbba7e-9a71-4b9b-9bbf-3b0e81de09c3" xml:space="preserve">
+          <source><bpt id="79589121-6699-4bd8-b324-d7e756cd239a">&lt;strong&gt;</bpt>EnableTestSend property<ept id="79589121-6699-4bd8-b324-d7e756cd239a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="79589121-6699-4bd8-b324-d7e756cd239a">&lt;strong&gt;</bpt>EnableTestSend property<ept id="79589121-6699-4bd8-b324-d7e756cd239a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="291c0e68-9c67-4f67-aa80-3f62e6ecadf0" xml:space="preserve">
+          <source>When you send a notification via Notification Hubs, initially it just gets queued up for NH to do processing to figure out all its targets and then eventually NH sends it to the PNS.</source>
+          <target state="new">When you send a notification via Notification Hubs, initially it just gets queued up for NH to do processing to figure out all its targets and then eventually NH sends it to the PNS.</target>
+        </trans-unit>
+        <trans-unit id="92fe23b1-04e8-4cc8-8218-2d8c120f07b4" xml:space="preserve">
+          <source>This means that when you are using REST API or any of the client SDK, the successful return of your send call only means that the message has been successfully queued up with Notification Hub.</source>
+          <target state="new">This means that when you are using REST API or any of the client SDK, the successful return of your send call only means that the message has been successfully queued up with Notification Hub.</target>
+        </trans-unit>
+        <trans-unit id="1d276855-eb67-4c01-8add-6bb5ed31b789" xml:space="preserve">
+          <source>It doesn’t give an insight into what happened when NH eventually got to send the message to PNS.</source>
+          <target state="new">It doesn’t give an insight into what happened when NH eventually got to send the message to PNS.</target>
+        </trans-unit>
+        <trans-unit id="4ba13d2a-9074-47b6-8efc-c8651c984a71" xml:space="preserve">
+          <source>If your notification is not arriving at the client device, there is a possibility that when NH tried to deliver the message to PNS, there was an error e.g. the payload size exceeded the maximum allowed by the PNS or the credentials configured in NH are invalid etc. 
+To get an insight into the PNS errors, we have introduced a property called [EnableTestSend feature].</source>
+          <target state="new">If your notification is not arriving at the client device, there is a possibility that when NH tried to deliver the message to PNS, there was an error e.g. the payload size exceeded the maximum allowed by the PNS or the credentials configured in NH are invalid etc. 
+To get an insight into the PNS errors, we have introduced a property called [EnableTestSend feature].</target>
+        </trans-unit>
+        <trans-unit id="f968f67c-8af8-461d-9a32-93c6f98063d1" xml:space="preserve">
+          <source>This property is automatically enabled when you send test messages from the portal or Visual Studio client and therefore allows you to see detailed debugging information.</source>
+          <target state="new">This property is automatically enabled when you send test messages from the portal or Visual Studio client and therefore allows you to see detailed debugging information.</target>
+        </trans-unit>
+        <trans-unit id="71ecce4a-9663-4c7e-ae25-0f7e62f25d01" xml:space="preserve">
+          <source>You can use this via APIs taking the example of the .NET SDK where it is available now and will be added to all client SDKs eventually.</source>
+          <target state="new">You can use this via APIs taking the example of the .NET SDK where it is available now and will be added to all client SDKs eventually.</target>
+        </trans-unit>
+        <trans-unit id="87426ecc-a136-4afe-862e-b3e9deff326f" xml:space="preserve">
+          <source>To use this with the REST call, simply append a querystring parameter called "test" at the end of your send call e.g. </source>
+          <target state="new">To use this with the REST call, simply append a querystring parameter called "test" at the end of your send call e.g. </target>
+        </trans-unit>
+        <trans-unit id="7eba543c-321f-4635-b281-4870711a023c" xml:space="preserve">
+          <source><bpt id="3a6fadf7-78a2-49fd-a9db-9a7437df53b7">&lt;em&gt;</bpt>Example (.NET SDK)<ept id="3a6fadf7-78a2-49fd-a9db-9a7437df53b7">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="3a6fadf7-78a2-49fd-a9db-9a7437df53b7">&lt;em&gt;</bpt>Example (.NET SDK)<ept id="3a6fadf7-78a2-49fd-a9db-9a7437df53b7">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d11cfd4-0250-4133-a0c6-fd4adecd040e" xml:space="preserve">
+          <source>Suppose you are using .NET SDK to send a native toast notification:</source>
+          <target state="new">Suppose you are using .NET SDK to send a native toast notification:</target>
+        </trans-unit>
+        <trans-unit id="e8d35fa9-71c2-47ae-be81-38b5c78bcbc1" xml:space="preserve">
+          <source><bpt id="55e57df3-8c82-473b-95a7-828c089fce92">&lt;code&gt;</bpt>result.State<ept id="55e57df3-8c82-473b-95a7-828c089fce92">&lt;/code&gt;</ept> will simply state <bpt id="ab0eb6da-b9c0-481d-a3a1-83b42925c528">&lt;code&gt;</bpt>Enqueued<ept id="ab0eb6da-b9c0-481d-a3a1-83b42925c528">&lt;/code&gt;</ept> at the end of the execution without any insight into what happened to your push.</source>
+          <target state="new"><bpt id="55e57df3-8c82-473b-95a7-828c089fce92">&lt;code&gt;</bpt>result.State<ept id="55e57df3-8c82-473b-95a7-828c089fce92">&lt;/code&gt;</ept> will simply state <bpt id="ab0eb6da-b9c0-481d-a3a1-83b42925c528">&lt;code&gt;</bpt>Enqueued<ept id="ab0eb6da-b9c0-481d-a3a1-83b42925c528">&lt;/code&gt;</ept> at the end of the execution without any insight into what happened to your push.</target>
+        </trans-unit>
+        <trans-unit id="150f40ab-a3ca-40e2-a211-d8671223fec6" xml:space="preserve">
+          <source>Now you can use the <bpt id="7457d8f0-5a2b-4fdf-83af-248f921b504a">&lt;code&gt;</bpt>EnableTestSend<ept id="7457d8f0-5a2b-4fdf-83af-248f921b504a">&lt;/code&gt;</ept> boolean property while initializing the <bpt id="460b1cee-f40e-4e24-850a-619e1df8f5f1">&lt;code&gt;</bpt>NotificationHubClient<ept id="460b1cee-f40e-4e24-850a-619e1df8f5f1">&lt;/code&gt;</ept> and can get detailed status about the PNS errors encountered while sending the notification.</source>
+          <target state="new">Now you can use the <bpt id="7457d8f0-5a2b-4fdf-83af-248f921b504a">&lt;code&gt;</bpt>EnableTestSend<ept id="7457d8f0-5a2b-4fdf-83af-248f921b504a">&lt;/code&gt;</ept> boolean property while initializing the <bpt id="460b1cee-f40e-4e24-850a-619e1df8f5f1">&lt;code&gt;</bpt>NotificationHubClient<ept id="460b1cee-f40e-4e24-850a-619e1df8f5f1">&lt;/code&gt;</ept> and can get detailed status about the PNS errors encountered while sending the notification.</target>
+        </trans-unit>
+        <trans-unit id="f4f440a3-4e0d-4a9b-8f75-98cae63392cd" xml:space="preserve">
+          <source>The send call here will take additional time to return because it is only returning after NH has delivered the notification to PNS to determine the outcome.</source>
+          <target state="new">The send call here will take additional time to return because it is only returning after NH has delivered the notification to PNS to determine the outcome.</target>
+        </trans-unit>
+        <trans-unit id="cb991a6b-39b6-43ac-8150-2605b3b38508" xml:space="preserve">
+          <source><bpt id="d236ffc3-85d1-4566-9082-0ff1f1e4c3f0">&lt;em&gt;</bpt>Sample Output<ept id="d236ffc3-85d1-4566-9082-0ff1f1e4c3f0">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="d236ffc3-85d1-4566-9082-0ff1f1e4c3f0">&lt;em&gt;</bpt>Sample Output<ept id="d236ffc3-85d1-4566-9082-0ff1f1e4c3f0">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a60221e-2fe1-4f5e-9210-afceeb308efa" xml:space="preserve">
+          <source>This message indicates either invalid credentials are configured in the notification hub or an issue with the registrations on the hub and the recommended course would be to delete this registration and let the client recreate it before sending the message.</source>
+          <target state="new">This message indicates either invalid credentials are configured in the notification hub or an issue with the registrations on the hub and the recommended course would be to delete this registration and let the client recreate it before sending the message.</target>
+        </trans-unit>
+        <trans-unit id="ff2480d2-3625-4bdf-8c14-7e58239e5607" xml:space="preserve">
+          <source>Note that the use of this property is heavily throttled and so you must only use this in dev/test environment with limited set of registrations.</source>
+          <target state="new">Note that the use of this property is heavily throttled and so you must only use this in dev/test environment with limited set of registrations.</target>
+        </trans-unit>
+        <trans-unit id="aab0d782-4be5-45d1-a0b6-1d6459e1b77b" xml:space="preserve">
+          <source>We only send debug notifications to 10 devices.</source>
+          <target state="new">We only send debug notifications to 10 devices.</target>
+        </trans-unit>
+        <trans-unit id="26eb3f41-7813-4020-9096-67b354954da3" xml:space="preserve">
+          <source>We also have a limit of processing debug sends to be 10 per minute.</source>
+          <target state="new">We also have a limit of processing debug sends to be 10 per minute.</target>
+        </trans-unit>
+        <trans-unit id="c343deb3-8a52-4e19-8576-9277fdd8f470" xml:space="preserve">
+          <source><bpt id="02e9cf3b-9f1e-4887-a25f-d85e74a31fa4">&lt;strong&gt;</bpt>Use Azure Portal<ept id="02e9cf3b-9f1e-4887-a25f-d85e74a31fa4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="02e9cf3b-9f1e-4887-a25f-d85e74a31fa4">&lt;strong&gt;</bpt>Use Azure Portal<ept id="02e9cf3b-9f1e-4887-a25f-d85e74a31fa4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="efa69fee-e6f1-44ae-bcfc-3a9d503ba5d9" xml:space="preserve">
+          <source>Azure portal enables you to get a quick overview of all the activity on your Notification Hub.</source>
+          <target state="new">Azure portal enables you to get a quick overview of all the activity on your Notification Hub.</target>
+        </trans-unit>
+        <trans-unit id="06b048f8-6bd8-47ca-b93f-cdfd4c78c324" xml:space="preserve">
+          <source>a) From the "dashboard" tab you can view an aggregated view of the registrations, notifications as well as errors per platform.</source>
+          <target state="new">a) From the "dashboard" tab you can view an aggregated view of the registrations, notifications as well as errors per platform.</target>
+        </trans-unit>
+        <trans-unit id="63707438-4790-4c2c-8094-29e4b25537ca" xml:space="preserve">
+          <source><bpt id="e3d046fd-639e-4867-8a80-6198c16f8c96">&lt;linkText&gt;</bpt><ept id="e3d046fd-639e-4867-8a80-6198c16f8c96">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3d046fd-639e-4867-8a80-6198c16f8c96">&lt;linkText&gt;</bpt><ept id="e3d046fd-639e-4867-8a80-6198c16f8c96">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea401ba7-e9a0-4984-83c7-df5db31b2c05" xml:space="preserve">
+          <source>b) You can also add many other platform specific metrics from the "Monitor" tab to take a deeper look particularly at any PNS specific errors returned when NH tries to send the notification to the PNS.</source>
+          <target state="new">b) You can also add many other platform specific metrics from the "Monitor" tab to take a deeper look particularly at any PNS specific errors returned when NH tries to send the notification to the PNS.</target>
+        </trans-unit>
+        <trans-unit id="c1601917-c184-4600-aad5-1319e7ac1ab8" xml:space="preserve">
+          <source><bpt id="418d0b24-7f07-455d-9d34-905a564262d8">&lt;linkText&gt;</bpt><ept id="418d0b24-7f07-455d-9d34-905a564262d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="418d0b24-7f07-455d-9d34-905a564262d8">&lt;linkText&gt;</bpt><ept id="418d0b24-7f07-455d-9d34-905a564262d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66fbbb3a-0c48-4684-a344-8c74e1d07f59" xml:space="preserve">
+          <source>c) You should start with reviewing the <bpt id="fb1c1566-d2eb-4ce1-80dc-a67eb5a4c919">&lt;strong&gt;</bpt>Incoming Messages<ept id="fb1c1566-d2eb-4ce1-80dc-a67eb5a4c919">&lt;/strong&gt;</ept>, <bpt id="1fd5cab8-8e8a-47d0-9c28-8e44260b6a92">&lt;strong&gt;</bpt>Registration Operations<ept id="1fd5cab8-8e8a-47d0-9c28-8e44260b6a92">&lt;/strong&gt;</ept>, <bpt id="49ccd79c-a4dc-45d2-b55c-e8259c2448f8">&lt;strong&gt;</bpt>Successful Notifications<ept id="49ccd79c-a4dc-45d2-b55c-e8259c2448f8">&lt;/strong&gt;</ept> and then go to per platform tab to review the PNS specific errors.</source>
+          <target state="new">c) You should start with reviewing the <bpt id="fb1c1566-d2eb-4ce1-80dc-a67eb5a4c919">&lt;strong&gt;</bpt>Incoming Messages<ept id="fb1c1566-d2eb-4ce1-80dc-a67eb5a4c919">&lt;/strong&gt;</ept>, <bpt id="1fd5cab8-8e8a-47d0-9c28-8e44260b6a92">&lt;strong&gt;</bpt>Registration Operations<ept id="1fd5cab8-8e8a-47d0-9c28-8e44260b6a92">&lt;/strong&gt;</ept>, <bpt id="49ccd79c-a4dc-45d2-b55c-e8259c2448f8">&lt;strong&gt;</bpt>Successful Notifications<ept id="49ccd79c-a4dc-45d2-b55c-e8259c2448f8">&lt;/strong&gt;</ept> and then go to per platform tab to review the PNS specific errors.</target>
+        </trans-unit>
+        <trans-unit id="1d60cc79-fd4a-4069-85ee-beae4eaed23b" xml:space="preserve">
+          <source>d) If you have the notification hub misconfigured with the authentication settings then you will see PNS Authentication Error.</source>
+          <target state="new">d) If you have the notification hub misconfigured with the authentication settings then you will see PNS Authentication Error.</target>
+        </trans-unit>
+        <trans-unit id="baabc272-1043-42d2-a06d-bcb77994c054" xml:space="preserve">
+          <source>This is a good indication to check the PNS credentials.</source>
+          <target state="new">This is a good indication to check the PNS credentials.</target>
+        </trans-unit>
+        <trans-unit id="6b4d7c21-d511-41e4-9f41-e4fd939083b1" xml:space="preserve">
+          <source>2) <bpt id="6646132b-cc64-4770-85bf-8f22350228a2">&lt;strong&gt;</bpt>Programmatic access<ept id="6646132b-cc64-4770-85bf-8f22350228a2">&lt;/strong&gt;</ept></source>
+          <target state="new">2) <bpt id="6646132b-cc64-4770-85bf-8f22350228a2">&lt;strong&gt;</bpt>Programmatic access<ept id="6646132b-cc64-4770-85bf-8f22350228a2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fde968f0-ea92-4a9a-b6d5-0ae9b86b9de0" xml:space="preserve">
+          <source>More details here - </source>
+          <target state="new">More details here - </target>
+        </trans-unit>
+        <trans-unit id="c5e5de69-30ef-4e2b-bc2f-33c11e1a927d" xml:space="preserve">
+          <source>[Programmatic Telemetry Access]</source>
+          <target state="new">[Programmatic Telemetry Access]</target>
+        </trans-unit>
+        <trans-unit id="67d5ac30-d60e-4b4e-bd08-b67d02375b63" xml:space="preserve">
+          <source>[Telemetry Access via APIs sample] </source>
+          <target state="new">[Telemetry Access via APIs sample] </target>
+        </trans-unit>
+        <trans-unit id="f94b5692-3480-4a16-aa41-a618c7e422f5" xml:space="preserve">
+          <source>Several telemetry related features like <bpt id="2f583476-0317-4a5d-b90d-e5563820af84">&lt;strong&gt;</bpt>Export/Import Registrations<ept id="2f583476-0317-4a5d-b90d-e5563820af84">&lt;/strong&gt;</ept>, <bpt id="ef91cbf7-c4e9-47ae-899e-4e4eb02b3883">&lt;strong&gt;</bpt>Telemetry Access via APIs<ept id="ef91cbf7-c4e9-47ae-899e-4e4eb02b3883">&lt;/strong&gt;</ept> etc are only available in Standard tier.</source>
+          <target state="new">Several telemetry related features like <bpt id="2f583476-0317-4a5d-b90d-e5563820af84">&lt;strong&gt;</bpt>Export/Import Registrations<ept id="2f583476-0317-4a5d-b90d-e5563820af84">&lt;/strong&gt;</ept>, <bpt id="ef91cbf7-c4e9-47ae-899e-4e4eb02b3883">&lt;strong&gt;</bpt>Telemetry Access via APIs<ept id="ef91cbf7-c4e9-47ae-899e-4e4eb02b3883">&lt;/strong&gt;</ept> etc are only available in Standard tier.</target>
+        </trans-unit>
+        <trans-unit id="4a38e58d-6d57-410d-8a59-ce7f1939c982" xml:space="preserve">
+          <source>If you attempt to use these features if you are in Free or Basic tier then you will get exception message to this effect while using the SDK and an HTTP 403 (Forbidden) when using them directly from the REST APIs.</source>
+          <target state="new">If you attempt to use these features if you are in Free or Basic tier then you will get exception message to this effect while using the SDK and an HTTP 403 (Forbidden) when using them directly from the REST APIs.</target>
+        </trans-unit>
+        <trans-unit id="b01eb023-1ef1-4fcb-ac16-79da6a09142e" xml:space="preserve">
+          <source>Make sure that you have moved up to Standard tier via Azure Management portal.</source>
+          <target state="new">Make sure that you have moved up to Standard tier via Azure Management portal.</target>
+        </trans-unit>
+        <trans-unit id="35bd1cfb-59b7-45cc-a0f0-7b9fce9af687" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/Architecture.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/Architecture.png</target>
+        </trans-unit>
+        <trans-unit id="373b28a0-af9a-463c-b573-fe2764a2d936" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/GCMConfigure.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/GCMConfigure.png</target>
+        </trans-unit>
+        <trans-unit id="144cae5e-5274-43f3-b7d1-549891723429" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/GCMEnable.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/GCMEnable.png</target>
+        </trans-unit>
+        <trans-unit id="228ef6ff-3fee-48de-a35b-e3a0adc54268" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/GCMServerKey.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/GCMServerKey.png</target>
+        </trans-unit>
+        <trans-unit id="970474a8-6803-41f1-9f21-9372ccd74113" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/PortalConfigure.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/PortalConfigure.png</target>
+        </trans-unit>
+        <trans-unit id="1c1354ac-4d9a-43e3-9203-4d4587253b71" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/PortalDashboard.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/PortalDashboard.png</target>
+        </trans-unit>
+        <trans-unit id="ceea1a63-4bc7-4111-bf95-d8a46395a9bf" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/PortalMonitoring.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/PortalMonitoring.png</target>
+        </trans-unit>
+        <trans-unit id="236de07a-2fa4-454a-b36e-ce34b6b1666d" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/PortalTestNotification.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/PortalTestNotification.png</target>
+        </trans-unit>
+        <trans-unit id="00b5644e-7d4e-4842-913e-f0e628cc5201" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/VSRegistrations.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/VSRegistrations.png</target>
+        </trans-unit>
+        <trans-unit id="3a6b9b3e-0045-4bd8-9e63-5dba152eef5a" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/VSServerExplorer.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/VSServerExplorer.png</target>
+        </trans-unit>
+        <trans-unit id="3e7fe983-2f6d-4fb1-a733-9fe5bb2c9d52" xml:space="preserve">
+          <source>./media/notification-hubs-diagnosing/VSTestNotification.png</source>
+          <target state="new">./media/notification-hubs-diagnosing/VSTestNotification.png</target>
+        </trans-unit>
+        <trans-unit id="c179c775-6687-47ff-b33c-cc4db22011de" xml:space="preserve">
+          <source>notification-hubs-overview.md</source>
+          <target state="new">notification-hubs-overview.md</target>
+        </trans-unit>
+        <trans-unit id="55e7b73d-378f-4e4c-935f-ec5d45f534c8" xml:space="preserve">
+          <source>notification-hubs-windows-store-dotnet-get-started.md</source>
+          <target state="new">notification-hubs-windows-store-dotnet-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="9b9d14c5-218c-4093-9caf-da2fb3c84668" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn530748.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn530748.aspx</target>
+        </trans-unit>
+        <trans-unit id="49fffeeb-d89f-49a9-8b41-fe22641470dd" xml:space="preserve">
+          <source>https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4</source>
+          <target state="new">https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4</target>
+        </trans-unit>
+        <trans-unit id="4644c29d-5bf5-44e2-9ef4-76abe517d295" xml:space="preserve">
+          <source>http://developer.android.com/google/gcm/adv.html</source>
+          <target state="new">http://developer.android.com/google/gcm/adv.html</target>
+        </trans-unit>
+        <trans-unit id="c85995cc-bf43-42a2-972c-64a59e792a3e" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/dn790624.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/dn790624.aspx</target>
+        </trans-unit>
+        <trans-unit id="98c1b1ca-bea5-45e9-9116-ba07b972ff1a" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/dn530751.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/dn530751.aspx</target>
+        </trans-unit>
+        <trans-unit id="181b3c3a-c492-4650-9e6c-3e0c48f77a59" xml:space="preserve">
+          <source>https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a</source>
+          <target state="new">https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a</target>
+        </trans-unit>
+        <trans-unit id="38643005-f6e3-4416-9b9e-f37785b2f47c" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx</target>
+        </trans-unit>
+        <trans-unit id="923e4be8-8a93-4141-ad31-f4f3c625c57e" xml:space="preserve">
+          <source>http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs</source>
+          <target state="new">http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs</target>
+        </trans-unit>
+        <trans-unit id="563c1b88-264e-4c79-ad47-4ef02c9ab544" xml:space="preserve">
+          <source>http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/</source>
+          <target state="new">http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/</target>
+        </trans-unit>
+        <trans-unit id="8b83b648-c000-44d1-bcbf-f31b9e1ce1c7" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx</target>
+        </trans-unit>
+        <trans-unit id="c01570e8-c1d3-491a-9c16-68c1e6e304e4" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn458823.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn458823.aspx</target>
+        </trans-unit>
+        <trans-unit id="eef00393-d0bc-4b04-be2b-70a935af9642" xml:space="preserve">
+          <source>https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel</source>
+          <target state="new">https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel</target>
+        </trans-unit>
+      </group>
+      <group id="788f9906-7499-4d77-8882-52ae8c662d31" />
+    </body>
+  </file>
+</xliff>

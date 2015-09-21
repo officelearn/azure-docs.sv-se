@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cfae5969-d13d-4034-9024-ab8aa3420131" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cfae5969-d13d-4034-9024-ab8aa3420131" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1f6b92b9-9752-4923-85a6-e1f5ace1736f">
+        <trans-unit id="41b69a1e-10a4-4f98-82dc-4f11e1e1d85e" xml:space="preserve">
+          <source>How to create a custom template image for Azure RemoteApp</source>
+          <target state="new">How to create a custom template image for Azure RemoteApp</target>
+        </trans-unit>
+        <trans-unit id="f74e1184-dec0-4177-bf27-7272b27d0375" xml:space="preserve">
+          <source>Learn how to create a custom template image for Azure RemoteApp. You can use this template with either a hybrid or cloud collection.</source>
+          <target state="new">Learn how to create a custom template image for Azure RemoteApp. You can use this template with either a hybrid or cloud collection.</target>
+        </trans-unit>
+        <trans-unit id="242ec6bb-96dc-4bde-9cf7-eb7189976927" xml:space="preserve">
+          <source>Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users.</source>
+          <target state="new">Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users.</target>
+        </trans-unit>
+        <trans-unit id="2b23435d-7380-491e-b504-171689b002da" xml:space="preserve">
+          <source>To create a custom RemoteApp template image, you can start with an existing image or create a new one.</source>
+          <target state="new">To create a custom RemoteApp template image, you can start with an existing image or create a new one.</target>
+        </trans-unit>
+        <trans-unit id="f38f7e8d-5c3e-4dfd-b4af-46b4b5480a7a" xml:space="preserve">
+          <source>The requirements for the image that can be uploaded for use with Azure RemoteApp are:</source>
+          <target state="new">The requirements for the image that can be uploaded for use with Azure RemoteApp are:</target>
+        </trans-unit>
+        <trans-unit id="cf8e202e-b155-4848-9fb1-38371f9023e8" xml:space="preserve">
+          <source>The image size should be a multiple of MBs.</source>
+          <target state="new">The image size should be a multiple of MBs.</target>
+        </trans-unit>
+        <trans-unit id="4fe88223-5e0d-499e-aa8d-2c5f1f5c4802" xml:space="preserve">
+          <source>If you try to upload an image that is not an exact multiple, the upload will fail.</source>
+          <target state="new">If you try to upload an image that is not an exact multiple, the upload will fail.</target>
+        </trans-unit>
+        <trans-unit id="7973d5a5-bb12-42df-bfd2-0397707a3b97" xml:space="preserve">
+          <source>The image size must be 127 GB or smaller.</source>
+          <target state="new">The image size must be 127 GB or smaller.</target>
+        </trans-unit>
+        <trans-unit id="e340780f-476f-4a4e-b6cd-1331ab58dee2" xml:space="preserve">
+          <source>It must be on a VHD file (VHDX files [Hyper-V virtual hard drives] are not currently supported).</source>
+          <target state="new">It must be on a VHD file (VHDX files [Hyper-V virtual hard drives] are not currently supported).</target>
+        </trans-unit>
+        <trans-unit id="e72b6ee4-4de1-4e82-86c4-13d72b72e5dd" xml:space="preserve">
+          <source>The VHD must not be a generation 2 virtual machine.</source>
+          <target state="new">The VHD must not be a generation 2 virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="a9388fce-860a-429a-9e83-5ff9b8c7438d" xml:space="preserve">
+          <source>The VHD can be either fixed-size or dynamically expanding.</source>
+          <target state="new">The VHD can be either fixed-size or dynamically expanding.</target>
+        </trans-unit>
+        <trans-unit id="79a578de-fa41-40ec-a732-74e87293edf2" xml:space="preserve">
+          <source>A dynamically expanding VHD is recommended because it takes less time to upload to Azure than a fixed-size VHD file.</source>
+          <target state="new">A dynamically expanding VHD is recommended because it takes less time to upload to Azure than a fixed-size VHD file.</target>
+        </trans-unit>
+        <trans-unit id="1a541192-6e88-4ca3-94ea-72520ab33c97" xml:space="preserve">
+          <source>The disk must be initialized using the Master Boot Record (MBR) partitioning style.</source>
+          <target state="new">The disk must be initialized using the Master Boot Record (MBR) partitioning style.</target>
+        </trans-unit>
+        <trans-unit id="04bfa23a-c475-4230-b84c-5424f547140f" xml:space="preserve">
+          <source>The GUID partition table (GPT) partition style is not supported.</source>
+          <target state="new">The GUID partition table (GPT) partition style is not supported.</target>
+        </trans-unit>
+        <trans-unit id="ca2bd606-7340-4ac1-8e1c-0361202adb83" xml:space="preserve">
+          <source>The VHD must contain a single installation of Windows Server 2012 R2.</source>
+          <target state="new">The VHD must contain a single installation of Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="88f55ba2-c48b-4892-a840-fb5dc7a604d0" xml:space="preserve">
+          <source>It can contain multiple volumes, but only one that contains an installation of Windows.</source>
+          <target state="new">It can contain multiple volumes, but only one that contains an installation of Windows.</target>
+        </trans-unit>
+        <trans-unit id="2f07b5b0-c7c0-4796-acfb-1940c1334538" xml:space="preserve">
+          <source>The Remote Desktop Session Host (RDSH) role and the Desktop Experience feature must be installed.</source>
+          <target state="new">The Remote Desktop Session Host (RDSH) role and the Desktop Experience feature must be installed.</target>
+        </trans-unit>
+        <trans-unit id="17f1f0a2-9343-4f06-abf6-00fec357facc" xml:space="preserve">
+          <source>The Remote Desktop Connection Broker role must <bpt id="99d12627-a730-4b45-b2c8-539657757d1a">&lt;em&gt;</bpt>not<ept id="99d12627-a730-4b45-b2c8-539657757d1a">&lt;/em&gt;</ept> be installed.</source>
+          <target state="new">The Remote Desktop Connection Broker role must <bpt id="99d12627-a730-4b45-b2c8-539657757d1a">&lt;em&gt;</bpt>not<ept id="99d12627-a730-4b45-b2c8-539657757d1a">&lt;/em&gt;</ept> be installed.</target>
+        </trans-unit>
+        <trans-unit id="56106406-07f0-43ee-9e06-bdc007e7ce71" xml:space="preserve">
+          <source>The Encrypting File System (EFS) must be disabled.</source>
+          <target state="new">The Encrypting File System (EFS) must be disabled.</target>
+        </trans-unit>
+        <trans-unit id="4ec6bbd5-f14b-4286-90e1-633af1ad616a" xml:space="preserve">
+          <source>The image must be SYSPREPed using the parameters <bpt id="3a7eb842-5937-49d6-b308-24b412324418">&lt;strong&gt;</bpt>/oobe /generalize /shutdown<ept id="3a7eb842-5937-49d6-b308-24b412324418">&lt;/strong&gt;</ept> (DO NOT use the <bpt id="49060855-4f03-4342-943f-00a145873499">&lt;strong&gt;</bpt>/mode:vm<ept id="49060855-4f03-4342-943f-00a145873499">&lt;/strong&gt;</ept> parameter).</source>
+          <target state="new">The image must be SYSPREPed using the parameters <bpt id="3a7eb842-5937-49d6-b308-24b412324418">&lt;strong&gt;</bpt>/oobe /generalize /shutdown<ept id="3a7eb842-5937-49d6-b308-24b412324418">&lt;/strong&gt;</ept> (DO NOT use the <bpt id="49060855-4f03-4342-943f-00a145873499">&lt;strong&gt;</bpt>/mode:vm<ept id="49060855-4f03-4342-943f-00a145873499">&lt;/strong&gt;</ept> parameter).</target>
+        </trans-unit>
+        <trans-unit id="e8746d10-9eb8-4a76-9fb7-3fe280014af9" xml:space="preserve">
+          <source>Uploading your VHD from a snapshot chain is not supported.</source>
+          <target state="new">Uploading your VHD from a snapshot chain is not supported.</target>
+        </trans-unit>
+        <trans-unit id="de40ba45-8269-482a-8541-7f9b7a034dbe" xml:space="preserve">
+          <source>Did you know you can now create an image from an Azure VM?</source>
+          <target state="new">Did you know you can now create an image from an Azure VM?</target>
+        </trans-unit>
+        <trans-unit id="c50d9f36-35ba-4d28-924c-d74136615645" xml:space="preserve">
+          <source>True story, and it cuts down on the amount of time it takes to import the image.</source>
+          <target state="new">True story, and it cuts down on the amount of time it takes to import the image.</target>
+        </trans-unit>
+        <trans-unit id="58aeccdd-f6b0-4340-8115-627c503f57a6" xml:space="preserve">
+          <source>Check out the steps <bpt id="7c9158e5-8355-4227-88e2-5a8812106e67">&lt;linkText&gt;</bpt>here<ept id="7c9158e5-8355-4227-88e2-5a8812106e67">&lt;/linkText&gt;</ept><bpt id="7c9158e5-8355-4227-88e2-5a8812106e67">&lt;title&gt;</bpt><ept id="7c9158e5-8355-4227-88e2-5a8812106e67">&lt;/title&gt;</ept>.</source>
+          <target state="new">Check out the steps <bpt id="7c9158e5-8355-4227-88e2-5a8812106e67">&lt;linkText&gt;</bpt>here<ept id="7c9158e5-8355-4227-88e2-5a8812106e67">&lt;/linkText&gt;</ept><bpt id="7c9158e5-8355-4227-88e2-5a8812106e67">&lt;title&gt;</bpt><ept id="7c9158e5-8355-4227-88e2-5a8812106e67">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8eed8a71-9ada-49ef-a1e7-e404a66b18ab" xml:space="preserve">
+          <source><bpt id="8beda025-cc71-42f9-a9ce-0fb773cda575">&lt;strong&gt;</bpt>Before you begin<ept id="8beda025-cc71-42f9-a9ce-0fb773cda575">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8beda025-cc71-42f9-a9ce-0fb773cda575">&lt;strong&gt;</bpt>Before you begin<ept id="8beda025-cc71-42f9-a9ce-0fb773cda575">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f82f57f-8d92-4527-a94a-3a488644c7b9" xml:space="preserve">
+          <source>You need to do the following before creating the service:</source>
+          <target state="new">You need to do the following before creating the service:</target>
+        </trans-unit>
+        <trans-unit id="aeea22df-5765-4bff-8b65-ac3639a2eb48" xml:space="preserve">
+          <source><bpt id="e4bd5e60-ac28-4709-990f-ec5f9ff11bf8">&lt;linkText&gt;</bpt>Sign up<ept id="e4bd5e60-ac28-4709-990f-ec5f9ff11bf8">&lt;/linkText&gt;</ept><bpt id="e4bd5e60-ac28-4709-990f-ec5f9ff11bf8">&lt;title&gt;</bpt><ept id="e4bd5e60-ac28-4709-990f-ec5f9ff11bf8">&lt;/title&gt;</ept> for RemoteApp.</source>
+          <target state="new"><bpt id="e4bd5e60-ac28-4709-990f-ec5f9ff11bf8">&lt;linkText&gt;</bpt>Sign up<ept id="e4bd5e60-ac28-4709-990f-ec5f9ff11bf8">&lt;/linkText&gt;</ept><bpt id="e4bd5e60-ac28-4709-990f-ec5f9ff11bf8">&lt;title&gt;</bpt><ept id="e4bd5e60-ac28-4709-990f-ec5f9ff11bf8">&lt;/title&gt;</ept> for RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="b5713bd8-323b-4bd1-9196-2bf96f02c3ea" xml:space="preserve">
+          <source>Create a user account in Active Directory to use as the RemoteApp service account.</source>
+          <target state="new">Create a user account in Active Directory to use as the RemoteApp service account.</target>
+        </trans-unit>
+        <trans-unit id="49d51f36-b2fb-455a-8045-e5130dfd8d82" xml:space="preserve">
+          <source>Restrict the permissions for this account so that it can only join machines to the domain.</source>
+          <target state="new">Restrict the permissions for this account so that it can only join machines to the domain.</target>
+        </trans-unit>
+        <trans-unit id="5f17bd85-40e2-452e-92f1-d5278bca58fe" xml:space="preserve">
+          <source>See <bpt id="41d7d039-fc66-485c-858a-7d4a88ac2811">&lt;linkText&gt;</bpt>Configure Azure Active Directory for RemoteApp<ept id="41d7d039-fc66-485c-858a-7d4a88ac2811">&lt;/linkText&gt;</ept><bpt id="41d7d039-fc66-485c-858a-7d4a88ac2811">&lt;title&gt;</bpt><ept id="41d7d039-fc66-485c-858a-7d4a88ac2811">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="41d7d039-fc66-485c-858a-7d4a88ac2811">&lt;linkText&gt;</bpt>Configure Azure Active Directory for RemoteApp<ept id="41d7d039-fc66-485c-858a-7d4a88ac2811">&lt;/linkText&gt;</ept><bpt id="41d7d039-fc66-485c-858a-7d4a88ac2811">&lt;title&gt;</bpt><ept id="41d7d039-fc66-485c-858a-7d4a88ac2811">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="6f52666a-7ae8-4644-8e42-faaa8f04f2d1" xml:space="preserve">
+          <source>Gather information about your on-premises network: IP address information and VPN device details.</source>
+          <target state="new">Gather information about your on-premises network: IP address information and VPN device details.</target>
+        </trans-unit>
+        <trans-unit id="e956cde2-3457-4e49-8f8b-6549fa4e032a" xml:space="preserve">
+          <source>Install the <bpt id="61fcf9e0-94eb-4278-b1da-03ea5c390f28">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="61fcf9e0-94eb-4278-b1da-03ea5c390f28">&lt;/linkText&gt;</ept><bpt id="61fcf9e0-94eb-4278-b1da-03ea5c390f28">&lt;title&gt;</bpt><ept id="61fcf9e0-94eb-4278-b1da-03ea5c390f28">&lt;/title&gt;</ept> module.</source>
+          <target state="new">Install the <bpt id="61fcf9e0-94eb-4278-b1da-03ea5c390f28">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="61fcf9e0-94eb-4278-b1da-03ea5c390f28">&lt;/linkText&gt;</ept><bpt id="61fcf9e0-94eb-4278-b1da-03ea5c390f28">&lt;title&gt;</bpt><ept id="61fcf9e0-94eb-4278-b1da-03ea5c390f28">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="ca7619f7-42c6-474b-8ac1-24610def5d72" xml:space="preserve">
+          <source>Gather information about the users that you want to grant access to.</source>
+          <target state="new">Gather information about the users that you want to grant access to.</target>
+        </trans-unit>
+        <trans-unit id="1db2fc96-cfbb-4a4d-b86b-b061c0b8c849" xml:space="preserve">
+          <source>This can be either Microsoft account information or Active Directory work account information for users.</source>
+          <target state="new">This can be either Microsoft account information or Active Directory work account information for users.</target>
+        </trans-unit>
+        <trans-unit id="6dbc02bc-8795-4e6a-8a0b-10288428d075" xml:space="preserve">
+          <source>These are the high level steps to create a new template image from scratch:</source>
+          <target state="new">These are the high level steps to create a new template image from scratch:</target>
+        </trans-unit>
+        <trans-unit id="1831d798-101a-43cb-8052-e4ad64e5b126" xml:space="preserve">
+          <source>Locate a Windows Server 2012 R2 Update DVD or ISO image.</source>
+          <target state="new">Locate a Windows Server 2012 R2 Update DVD or ISO image.</target>
+        </trans-unit>
+        <trans-unit id="dec90bbe-b71b-49f7-8a9c-99119a546be4" xml:space="preserve">
+          <source>Create a VHD file.</source>
+          <target state="new">Create a VHD file.</target>
+        </trans-unit>
+        <trans-unit id="f7e417a2-dc5c-4b0f-a278-3569f0b27658" xml:space="preserve">
+          <source>Install Windows Server 2012 R2.</source>
+          <target state="new">Install Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="be3ad2e6-bdbd-4c94-b87e-a2482332bce0" xml:space="preserve">
+          <source>Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature.</source>
+          <target state="new">Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature.</target>
+        </trans-unit>
+        <trans-unit id="0244ad26-236c-450c-bfc8-14e4433e646f" xml:space="preserve">
+          <source>Install additional features required by your applications.</source>
+          <target state="new">Install additional features required by your applications.</target>
+        </trans-unit>
+        <trans-unit id="3fb7686c-1e19-46ba-8907-e7bfd6760858" xml:space="preserve">
+          <source>Install and configure your applications.</source>
+          <target state="new">Install and configure your applications.</target>
+        </trans-unit>
+        <trans-unit id="573daabc-c8cf-4065-a1b0-e20b112c13cd" xml:space="preserve">
+          <source>Perform any additional Windows configurations required by your applications.</source>
+          <target state="new">Perform any additional Windows configurations required by your applications.</target>
+        </trans-unit>
+        <trans-unit id="e6b8f949-0c3a-4a51-a1f0-3ac6e9ad3af8" xml:space="preserve">
+          <source>Disable the Encrypting File System (EFS).</source>
+          <target state="new">Disable the Encrypting File System (EFS).</target>
+        </trans-unit>
+        <trans-unit id="f3643e3b-c37e-4b4f-8916-063fd4f70551" xml:space="preserve">
+          <source><bpt id="22d2f17f-3d15-4c79-9a8b-15f00df728b3">&lt;strong&gt;</bpt>REQUIRED:<ept id="22d2f17f-3d15-4c79-9a8b-15f00df728b3">&lt;/strong&gt;</ept> Go to Windows Update and install all important updates.</source>
+          <target state="new"><bpt id="22d2f17f-3d15-4c79-9a8b-15f00df728b3">&lt;strong&gt;</bpt>REQUIRED:<ept id="22d2f17f-3d15-4c79-9a8b-15f00df728b3">&lt;/strong&gt;</ept> Go to Windows Update and install all important updates.</target>
+        </trans-unit>
+        <trans-unit id="83fe9922-cd89-4f37-8f4f-77715c64ff27" xml:space="preserve">
+          <source>SYSPREP the image.</source>
+          <target state="new">SYSPREP the image.</target>
+        </trans-unit>
+        <trans-unit id="911ff1ce-4f8e-4ad1-a668-bd9319635a84" xml:space="preserve">
+          <source>The detailed steps for creating a new image are:</source>
+          <target state="new">The detailed steps for creating a new image are:</target>
+        </trans-unit>
+        <trans-unit id="1b38f27b-8040-4f9c-9062-9d0469ec4474" xml:space="preserve">
+          <source>Locate a Windows Server 2012 R2 Update DVD or ISO image.</source>
+          <target state="new">Locate a Windows Server 2012 R2 Update DVD or ISO image.</target>
+        </trans-unit>
+        <trans-unit id="d69ea34a-f1b0-4b26-a671-d777650eea32" xml:space="preserve">
+          <source>Create a VHD file by using Disk Management.</source>
+          <target state="new">Create a VHD file by using Disk Management.</target>
+        </trans-unit>
+        <trans-unit id="42689b52-d876-4d6a-85af-b8c912e813de" xml:space="preserve">
+          <source>Launch Disk Management (diskmgmt.msc).</source>
+          <target state="new">Launch Disk Management (diskmgmt.msc).</target>
+        </trans-unit>
+        <trans-unit id="8826f40b-5d6a-4948-a9f0-4635f65d4665" xml:space="preserve">
+          <source>Create a dynamically expanding VHD of 40 GB or more in size.</source>
+          <target state="new">Create a dynamically expanding VHD of 40 GB or more in size.</target>
+        </trans-unit>
+        <trans-unit id="9f08d8b3-87b1-47a6-aa65-8e36789104a3" xml:space="preserve">
+          <source>(Estimate the amount of space needed for Windows, your applications, and customizations.</source>
+          <target state="new">(Estimate the amount of space needed for Windows, your applications, and customizations.</target>
+        </trans-unit>
+        <trans-unit id="8de1c02c-9b3a-47d3-9013-fca189931920" xml:space="preserve">
+          <source>Windows Server with the RDSH role and Desktop Experience feature installed will require about 10 GB of space).</source>
+          <target state="new">Windows Server with the RDSH role and Desktop Experience feature installed will require about 10 GB of space).</target>
+        </trans-unit>
+        <trans-unit id="4c2347b4-f817-4786-87f2-87b107a1b869" xml:space="preserve">
+          <source>Click <bpt id="ec3980a5-9bf0-49ed-85d0-adf9a3af2fc8">&lt;strong&gt;</bpt>Action &gt; Create VHD<ept id="ec3980a5-9bf0-49ed-85d0-adf9a3af2fc8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ec3980a5-9bf0-49ed-85d0-adf9a3af2fc8">&lt;strong&gt;</bpt>Action &gt; Create VHD<ept id="ec3980a5-9bf0-49ed-85d0-adf9a3af2fc8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e03803c-0184-43e6-b780-23e6d0e9cc20" xml:space="preserve">
+          <source>Specify the location, size, and VHD format.</source>
+          <target state="new">Specify the location, size, and VHD format.</target>
+        </trans-unit>
+        <trans-unit id="ff29c954-d5e1-4e28-98f9-79b9bbea38d3" xml:space="preserve">
+          <source>Select <bpt id="6aacbc75-c75e-445e-be75-c8a390160a4b">&lt;strong&gt;</bpt>Dynamically expanding<ept id="6aacbc75-c75e-445e-be75-c8a390160a4b">&lt;/strong&gt;</ept>, and then click <bpt id="36a1437d-f885-43da-a018-f857b17e472d">&lt;strong&gt;</bpt>OK<ept id="36a1437d-f885-43da-a018-f857b17e472d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="6aacbc75-c75e-445e-be75-c8a390160a4b">&lt;strong&gt;</bpt>Dynamically expanding<ept id="6aacbc75-c75e-445e-be75-c8a390160a4b">&lt;/strong&gt;</ept>, and then click <bpt id="36a1437d-f885-43da-a018-f857b17e472d">&lt;strong&gt;</bpt>OK<ept id="36a1437d-f885-43da-a018-f857b17e472d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ded7b78-5b64-4746-9891-e2b4e8a2ad75" xml:space="preserve">
+          <source>This will run for several seconds.</source>
+          <target state="new">This will run for several seconds.</target>
+        </trans-unit>
+        <trans-unit id="70168779-ecd8-4f58-8f80-041cfc544cde" xml:space="preserve">
+          <source>When the VHD creation is complete, you should see a new disk without any drive letter and in “Not initialized" state in the Disk Management console.</source>
+          <target state="new">When the VHD creation is complete, you should see a new disk without any drive letter and in “Not initialized" state in the Disk Management console.</target>
+        </trans-unit>
+        <trans-unit id="8f7b8885-f3bb-40cc-aa99-c71adefd77b7" xml:space="preserve">
+          <source>Right-click the disk (not the unallocated space), and then click <bpt id="77866a6b-eead-4a28-9c2e-dfe2c54f498d">&lt;strong&gt;</bpt>Initialize Disk<ept id="77866a6b-eead-4a28-9c2e-dfe2c54f498d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the disk (not the unallocated space), and then click <bpt id="77866a6b-eead-4a28-9c2e-dfe2c54f498d">&lt;strong&gt;</bpt>Initialize Disk<ept id="77866a6b-eead-4a28-9c2e-dfe2c54f498d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09375208-cdec-4b52-9e20-358c8164631e" xml:space="preserve">
+          <source>Select <bpt id="05fcbee2-bfd0-49f6-8154-535ca10130bf">&lt;strong&gt;</bpt>MBR<ept id="05fcbee2-bfd0-49f6-8154-535ca10130bf">&lt;/strong&gt;</ept> (Master Boot Record) as the partition style, and then click <bpt id="85731788-96bb-4d1d-9985-4fe515b9cdb5">&lt;strong&gt;</bpt>OK<ept id="85731788-96bb-4d1d-9985-4fe515b9cdb5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="05fcbee2-bfd0-49f6-8154-535ca10130bf">&lt;strong&gt;</bpt>MBR<ept id="05fcbee2-bfd0-49f6-8154-535ca10130bf">&lt;/strong&gt;</ept> (Master Boot Record) as the partition style, and then click <bpt id="85731788-96bb-4d1d-9985-4fe515b9cdb5">&lt;strong&gt;</bpt>OK<ept id="85731788-96bb-4d1d-9985-4fe515b9cdb5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0197f1f1-0089-4eab-bab6-04fc2a3a9970" xml:space="preserve">
+          <source>Create a new volume: right-click the unallocated space, and then click <bpt id="0ca06598-00e4-40ec-8bc4-83d53d84234c">&lt;strong&gt;</bpt>New Simple Volume<ept id="0ca06598-00e4-40ec-8bc4-83d53d84234c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a new volume: right-click the unallocated space, and then click <bpt id="0ca06598-00e4-40ec-8bc4-83d53d84234c">&lt;strong&gt;</bpt>New Simple Volume<ept id="0ca06598-00e4-40ec-8bc4-83d53d84234c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab5d3091-65f6-4498-ae26-8c58415098cc" xml:space="preserve">
+          <source>You can accept the defaults in the wizard, but make sure you assign a drive letter to avoid potential problems when you upload the template image.</source>
+          <target state="new">You can accept the defaults in the wizard, but make sure you assign a drive letter to avoid potential problems when you upload the template image.</target>
+        </trans-unit>
+        <trans-unit id="bb00338f-9013-472d-a101-172b4bb8a9df" xml:space="preserve">
+          <source>Right-click the disk, and then click <bpt id="44ba29ae-0964-42f4-889f-866e6c8c688a">&lt;strong&gt;</bpt>Detach VHD<ept id="44ba29ae-0964-42f4-889f-866e6c8c688a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the disk, and then click <bpt id="44ba29ae-0964-42f4-889f-866e6c8c688a">&lt;strong&gt;</bpt>Detach VHD<ept id="44ba29ae-0964-42f4-889f-866e6c8c688a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="724b4d33-e7ff-49f6-9066-d7760b7fdb5e" xml:space="preserve">
+          <source>Install Windows Server 2012 R2:</source>
+          <target state="new">Install Windows Server 2012 R2:</target>
+        </trans-unit>
+        <trans-unit id="118f7b65-1d54-41cf-a96e-f9d5c8d154ad" xml:space="preserve">
+          <source>Create a new virtual machine.</source>
+          <target state="new">Create a new virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="d32971d1-693f-4a46-8b02-d217335160f3" xml:space="preserve">
+          <source>Use the New Virtual Machine Wizard in Hyper-V Manager or Client Hyper-V.</source>
+          <target state="new">Use the New Virtual Machine Wizard in Hyper-V Manager or Client Hyper-V.</target>
+        </trans-unit>
+        <trans-unit id="b764483a-6061-4d75-be5b-24901807f909" xml:space="preserve">
+          <source>On the Specify Generation page, choose  <bpt id="63f3c11b-3fcf-4d3b-bb7c-44640e8ad26f">&lt;strong&gt;</bpt>Generation 1<ept id="63f3c11b-3fcf-4d3b-bb7c-44640e8ad26f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Specify Generation page, choose  <bpt id="63f3c11b-3fcf-4d3b-bb7c-44640e8ad26f">&lt;strong&gt;</bpt>Generation 1<ept id="63f3c11b-3fcf-4d3b-bb7c-44640e8ad26f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1f7d64e-e787-4fa9-8e0a-012a7a894b87" xml:space="preserve">
+          <source>On the Connect Virtual Hard Disk page, select <bpt id="2054b3ff-eee0-402c-9b09-5984408b5d5b">&lt;strong&gt;</bpt>Use an existing virtual hard disk<ept id="2054b3ff-eee0-402c-9b09-5984408b5d5b">&lt;/strong&gt;</ept>, and browse to the VHD you created in the previous step.</source>
+          <target state="new">On the Connect Virtual Hard Disk page, select <bpt id="2054b3ff-eee0-402c-9b09-5984408b5d5b">&lt;strong&gt;</bpt>Use an existing virtual hard disk<ept id="2054b3ff-eee0-402c-9b09-5984408b5d5b">&lt;/strong&gt;</ept>, and browse to the VHD you created in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="77bcec8f-6faa-4661-b643-8c630046a1bb" xml:space="preserve">
+          <source>On the Installation Options page, select <bpt id="6873f6da-4028-4cc0-af53-d735c0c7ee2a">&lt;strong&gt;</bpt>Install an operating system from a boot CD/DVD_ROM<ept id="6873f6da-4028-4cc0-af53-d735c0c7ee2a">&lt;/strong&gt;</ept>, and then select the location of your Windows Server 2012 R2 installation media.</source>
+          <target state="new">On the Installation Options page, select <bpt id="6873f6da-4028-4cc0-af53-d735c0c7ee2a">&lt;strong&gt;</bpt>Install an operating system from a boot CD/DVD_ROM<ept id="6873f6da-4028-4cc0-af53-d735c0c7ee2a">&lt;/strong&gt;</ept>, and then select the location of your Windows Server 2012 R2 installation media.</target>
+        </trans-unit>
+        <trans-unit id="0eff4544-d2fd-499f-a0a1-71ddd177cb1c" xml:space="preserve">
+          <source>Choose other options in the wizard necessary to install Windows and your applications.</source>
+          <target state="new">Choose other options in the wizard necessary to install Windows and your applications.</target>
+        </trans-unit>
+        <trans-unit id="2b3e4345-775b-4261-9872-800bd986ed92" xml:space="preserve">
+          <source>Finish the wizard.</source>
+          <target state="new">Finish the wizard.</target>
+        </trans-unit>
+        <trans-unit id="8a43fdbb-c281-4a04-b68c-377b5d399bce" xml:space="preserve">
+          <source>After the wizard finishes, edit the settings of the virtual machine and make any other changes necessary to install Windows and your programs, such as the number of virtual processors, and then click <bpt id="3a23a73b-372d-4a55-8bf6-ffdbd57c2f31">&lt;strong&gt;</bpt>OK<ept id="3a23a73b-372d-4a55-8bf6-ffdbd57c2f31">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the wizard finishes, edit the settings of the virtual machine and make any other changes necessary to install Windows and your programs, such as the number of virtual processors, and then click <bpt id="3a23a73b-372d-4a55-8bf6-ffdbd57c2f31">&lt;strong&gt;</bpt>OK<ept id="3a23a73b-372d-4a55-8bf6-ffdbd57c2f31">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a3e92dd-6288-4406-acec-015450010aa1" xml:space="preserve">
+          <source>Connect to the virtual machine and install Windows Server 2012 R2.</source>
+          <target state="new">Connect to the virtual machine and install Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="196f3168-1b8f-429a-a523-78c32e2a2163" xml:space="preserve">
+          <source>Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature:</source>
+          <target state="new">Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature:</target>
+        </trans-unit>
+        <trans-unit id="3bc31751-92e5-40cb-9204-1bdb35c74ef3" xml:space="preserve">
+          <source>Launch Server Manager.</source>
+          <target state="new">Launch Server Manager.</target>
+        </trans-unit>
+        <trans-unit id="9b9a9994-4998-4de7-a663-e496d8571296" xml:space="preserve">
+          <source>Click <bpt id="c25d2db2-12ec-4001-844c-e48f974f57e5">&lt;strong&gt;</bpt>Add Roles and features<ept id="c25d2db2-12ec-4001-844c-e48f974f57e5">&lt;/strong&gt;</ept> on the Welcome screen or from the <bpt id="26054c54-020c-4646-a1f5-aed64670e02b">&lt;strong&gt;</bpt>Manage<ept id="26054c54-020c-4646-a1f5-aed64670e02b">&lt;/strong&gt;</ept> menu.</source>
+          <target state="new">Click <bpt id="c25d2db2-12ec-4001-844c-e48f974f57e5">&lt;strong&gt;</bpt>Add Roles and features<ept id="c25d2db2-12ec-4001-844c-e48f974f57e5">&lt;/strong&gt;</ept> on the Welcome screen or from the <bpt id="26054c54-020c-4646-a1f5-aed64670e02b">&lt;strong&gt;</bpt>Manage<ept id="26054c54-020c-4646-a1f5-aed64670e02b">&lt;/strong&gt;</ept> menu.</target>
+        </trans-unit>
+        <trans-unit id="a8027ea8-0ac2-45e8-9970-b5006542b699" xml:space="preserve">
+          <source>Click <bpt id="7737ea7e-c7b3-4ab3-bfa9-efee891ab7a9">&lt;strong&gt;</bpt>Next<ept id="7737ea7e-c7b3-4ab3-bfa9-efee891ab7a9">&lt;/strong&gt;</ept> on the Before You Begin page.</source>
+          <target state="new">Click <bpt id="7737ea7e-c7b3-4ab3-bfa9-efee891ab7a9">&lt;strong&gt;</bpt>Next<ept id="7737ea7e-c7b3-4ab3-bfa9-efee891ab7a9">&lt;/strong&gt;</ept> on the Before You Begin page.</target>
+        </trans-unit>
+        <trans-unit id="2d8b6939-546d-4f26-8e50-59ed5c1c7859" xml:space="preserve">
+          <source>Select <bpt id="df1cb3db-a7e8-429a-80ab-17bb5241270a">&lt;strong&gt;</bpt>Role-based or feature-based installation<ept id="df1cb3db-a7e8-429a-80ab-17bb5241270a">&lt;/strong&gt;</ept>, and then click <bpt id="9925345e-5ecf-4dbb-b60b-3ba0ba6dbdc9">&lt;strong&gt;</bpt>Next<ept id="9925345e-5ecf-4dbb-b60b-3ba0ba6dbdc9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="df1cb3db-a7e8-429a-80ab-17bb5241270a">&lt;strong&gt;</bpt>Role-based or feature-based installation<ept id="df1cb3db-a7e8-429a-80ab-17bb5241270a">&lt;/strong&gt;</ept>, and then click <bpt id="9925345e-5ecf-4dbb-b60b-3ba0ba6dbdc9">&lt;strong&gt;</bpt>Next<ept id="9925345e-5ecf-4dbb-b60b-3ba0ba6dbdc9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dba6a52b-95a6-4680-b039-568f3034cd30" xml:space="preserve">
+          <source>Select the local machine from the list, and then click <bpt id="37d9e347-06f9-4014-aada-931c7fb9f14c">&lt;strong&gt;</bpt>Next<ept id="37d9e347-06f9-4014-aada-931c7fb9f14c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the local machine from the list, and then click <bpt id="37d9e347-06f9-4014-aada-931c7fb9f14c">&lt;strong&gt;</bpt>Next<ept id="37d9e347-06f9-4014-aada-931c7fb9f14c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdca87ba-d21d-4885-971b-8a07ff123c48" xml:space="preserve">
+          <source>Select <bpt id="e3672f75-0a27-4def-9844-3ff637885fe9">&lt;strong&gt;</bpt>Remote Desktop Services<ept id="e3672f75-0a27-4def-9844-3ff637885fe9">&lt;/strong&gt;</ept>, and then click <bpt id="319f5cdc-133d-46e9-87bb-f2fc0be2e168">&lt;strong&gt;</bpt>Next<ept id="319f5cdc-133d-46e9-87bb-f2fc0be2e168">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e3672f75-0a27-4def-9844-3ff637885fe9">&lt;strong&gt;</bpt>Remote Desktop Services<ept id="e3672f75-0a27-4def-9844-3ff637885fe9">&lt;/strong&gt;</ept>, and then click <bpt id="319f5cdc-133d-46e9-87bb-f2fc0be2e168">&lt;strong&gt;</bpt>Next<ept id="319f5cdc-133d-46e9-87bb-f2fc0be2e168">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1c6bd0e-ce0f-4d41-94c0-23624d7afb43" xml:space="preserve">
+          <source>Expand <bpt id="7f54435a-e705-448f-acab-0a8c25509cf7">&lt;strong&gt;</bpt>User Interfaces and Infrastructure<ept id="7f54435a-e705-448f-acab-0a8c25509cf7">&lt;/strong&gt;</ept> and select <bpt id="258d607a-d870-4dec-9027-3af22bd917b1">&lt;strong&gt;</bpt>Desktop Experience<ept id="258d607a-d870-4dec-9027-3af22bd917b1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand <bpt id="7f54435a-e705-448f-acab-0a8c25509cf7">&lt;strong&gt;</bpt>User Interfaces and Infrastructure<ept id="7f54435a-e705-448f-acab-0a8c25509cf7">&lt;/strong&gt;</ept> and select <bpt id="258d607a-d870-4dec-9027-3af22bd917b1">&lt;strong&gt;</bpt>Desktop Experience<ept id="258d607a-d870-4dec-9027-3af22bd917b1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a34653b-5f42-4804-bbe7-6790dd6e7a7f" xml:space="preserve">
+          <source>Click <bpt id="55ffc153-0808-464e-8371-fb8d0f5a9a70">&lt;strong&gt;</bpt>Add Features<ept id="55ffc153-0808-464e-8371-fb8d0f5a9a70">&lt;/strong&gt;</ept>, and then click <bpt id="60e398d6-8f72-43f5-bff1-95d066d9a86d">&lt;strong&gt;</bpt>Next<ept id="60e398d6-8f72-43f5-bff1-95d066d9a86d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="55ffc153-0808-464e-8371-fb8d0f5a9a70">&lt;strong&gt;</bpt>Add Features<ept id="55ffc153-0808-464e-8371-fb8d0f5a9a70">&lt;/strong&gt;</ept>, and then click <bpt id="60e398d6-8f72-43f5-bff1-95d066d9a86d">&lt;strong&gt;</bpt>Next<ept id="60e398d6-8f72-43f5-bff1-95d066d9a86d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab283681-e1c5-4417-8bcb-e24411be837f" xml:space="preserve">
+          <source>On the Remote Desktop Services page, click <bpt id="63ad47eb-e41b-4b00-b9c4-8b7336a453ba">&lt;strong&gt;</bpt>Next<ept id="63ad47eb-e41b-4b00-b9c4-8b7336a453ba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Remote Desktop Services page, click <bpt id="63ad47eb-e41b-4b00-b9c4-8b7336a453ba">&lt;strong&gt;</bpt>Next<ept id="63ad47eb-e41b-4b00-b9c4-8b7336a453ba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96ceab70-8a90-4b05-9cb3-06e9254f9ceb" xml:space="preserve">
+          <source>Click <bpt id="b85b608a-83cd-4724-bc26-580a57aec710">&lt;strong&gt;</bpt>Remote Desktop Session Host<ept id="b85b608a-83cd-4724-bc26-580a57aec710">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b85b608a-83cd-4724-bc26-580a57aec710">&lt;strong&gt;</bpt>Remote Desktop Session Host<ept id="b85b608a-83cd-4724-bc26-580a57aec710">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0beb28cc-4914-4d6f-839f-d62694acba47" xml:space="preserve">
+          <source>Click <bpt id="d98dc34a-6c48-454f-92b7-5b9fd3baa911">&lt;strong&gt;</bpt>Add Features<ept id="d98dc34a-6c48-454f-92b7-5b9fd3baa911">&lt;/strong&gt;</ept>, and then click <bpt id="f2bca9db-23cb-4597-ac84-f4f18a593744">&lt;strong&gt;</bpt>Next<ept id="f2bca9db-23cb-4597-ac84-f4f18a593744">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d98dc34a-6c48-454f-92b7-5b9fd3baa911">&lt;strong&gt;</bpt>Add Features<ept id="d98dc34a-6c48-454f-92b7-5b9fd3baa911">&lt;/strong&gt;</ept>, and then click <bpt id="f2bca9db-23cb-4597-ac84-f4f18a593744">&lt;strong&gt;</bpt>Next<ept id="f2bca9db-23cb-4597-ac84-f4f18a593744">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dbe2050c-deb1-4e76-8f99-ec1c2ee57547" xml:space="preserve">
+          <source>On the Confirm installation selections page, select <bpt id="ef73edb6-04f1-4bc9-9180-7f7907380677">&lt;strong&gt;</bpt>Restart the destination server automatically if required<ept id="ef73edb6-04f1-4bc9-9180-7f7907380677">&lt;/strong&gt;</ept>, and then click <bpt id="3ced0f62-66d4-4518-b6b1-1d7618efc814">&lt;strong&gt;</bpt>Yes<ept id="3ced0f62-66d4-4518-b6b1-1d7618efc814">&lt;/strong&gt;</ept> on the restart warning.</source>
+          <target state="new">On the Confirm installation selections page, select <bpt id="ef73edb6-04f1-4bc9-9180-7f7907380677">&lt;strong&gt;</bpt>Restart the destination server automatically if required<ept id="ef73edb6-04f1-4bc9-9180-7f7907380677">&lt;/strong&gt;</ept>, and then click <bpt id="3ced0f62-66d4-4518-b6b1-1d7618efc814">&lt;strong&gt;</bpt>Yes<ept id="3ced0f62-66d4-4518-b6b1-1d7618efc814">&lt;/strong&gt;</ept> on the restart warning.</target>
+        </trans-unit>
+        <trans-unit id="0de78548-8745-45d8-b87e-2fbb2dd9c16c" xml:space="preserve">
+          <source>Click <bpt id="84a5a3fb-92fc-4534-8867-7fd31e75c302">&lt;strong&gt;</bpt>Install<ept id="84a5a3fb-92fc-4534-8867-7fd31e75c302">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="84a5a3fb-92fc-4534-8867-7fd31e75c302">&lt;strong&gt;</bpt>Install<ept id="84a5a3fb-92fc-4534-8867-7fd31e75c302">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21c02d5f-eee6-4d70-9826-5f304202885f" xml:space="preserve">
+          <source>The computer will restart.</source>
+          <target state="new">The computer will restart.</target>
+        </trans-unit>
+        <trans-unit id="8e3a3735-ccba-44b1-949b-46b58001fe48" xml:space="preserve">
+          <source>Install additional features required by your applications, such as the .NET Framework 3.5.</source>
+          <target state="new">Install additional features required by your applications, such as the .NET Framework 3.5.</target>
+        </trans-unit>
+        <trans-unit id="6fb022e6-1689-44f7-b86a-b9e46f009d4d" xml:space="preserve">
+          <source>To install the features, run the Add Roles and Features Wizard.</source>
+          <target state="new">To install the features, run the Add Roles and Features Wizard.</target>
+        </trans-unit>
+        <trans-unit id="19a70d26-d990-4fa3-bdf4-80d48afebb14" xml:space="preserve">
+          <source>Install and configure the programs and applications you want to publish through RemoteApp.</source>
+          <target state="new">Install and configure the programs and applications you want to publish through RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="50099ea1-cbca-4e58-993d-e7da33047537" xml:space="preserve">
+          <source><bpt id="f72cca5d-4bed-440a-86a3-a8fa52197068">&lt;strong&gt;</bpt>Important:<ept id="f72cca5d-4bed-440a-86a3-a8fa52197068">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f72cca5d-4bed-440a-86a3-a8fa52197068">&lt;strong&gt;</bpt>Important:<ept id="f72cca5d-4bed-440a-86a3-a8fa52197068">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9d07dff-f8d7-4f9e-b227-af79a5d87ee9" xml:space="preserve">
+          <source>Install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.</source>
+          <target state="new">Install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="9c091d9e-539e-43c6-824a-8a49a40cd41f" xml:space="preserve">
+          <source>Make sure your application appears in the <bpt id="78169a6a-3939-4779-9aa9-5955be882ab1">&lt;strong&gt;</bpt>Start<ept id="78169a6a-3939-4779-9aa9-5955be882ab1">&lt;/strong&gt;</ept> menu.</source>
+          <target state="new">Make sure your application appears in the <bpt id="78169a6a-3939-4779-9aa9-5955be882ab1">&lt;strong&gt;</bpt>Start<ept id="78169a6a-3939-4779-9aa9-5955be882ab1">&lt;/strong&gt;</ept> menu.</target>
+        </trans-unit>
+        <trans-unit id="9e33fc72-dde5-4556-ab43-256259400d8c" xml:space="preserve">
+          <source>Also ensure that the icon you see in the <bpt id="bba549e6-7272-42c7-8899-88384c14534c">&lt;strong&gt;</bpt>Start<ept id="bba549e6-7272-42c7-8899-88384c14534c">&lt;/strong&gt;</ept> menu is what you want users to see.</source>
+          <target state="new">Also ensure that the icon you see in the <bpt id="bba549e6-7272-42c7-8899-88384c14534c">&lt;strong&gt;</bpt>Start<ept id="bba549e6-7272-42c7-8899-88384c14534c">&lt;/strong&gt;</ept> menu is what you want users to see.</target>
+        </trans-unit>
+        <trans-unit id="bb458f3f-c603-4fe9-9182-7708d5804896" xml:space="preserve">
+          <source>If not, change it.</source>
+          <target state="new">If not, change it.</target>
+        </trans-unit>
+        <trans-unit id="72c9d431-fab9-4f2d-8759-3b5d0bde71ad" xml:space="preserve">
+          <source>(You do not <bpt id="a98fdc0f-f27b-47de-8184-c738c0cc8130">&lt;em&gt;</bpt>have<ept id="a98fdc0f-f27b-47de-8184-c738c0cc8130">&lt;/em&gt;</ept> to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp.</source>
+          <target state="new">(You do not <bpt id="a98fdc0f-f27b-47de-8184-c738c0cc8130">&lt;em&gt;</bpt>have<ept id="a98fdc0f-f27b-47de-8184-c738c0cc8130">&lt;/em&gt;</ept> to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="0262281d-ddcf-4b80-8469-7477569d2b26" xml:space="preserve">
+          <source>Otherwise, you have to provide the installation path for the application when you publish the app.)</source>
+          <target state="new">Otherwise, you have to provide the installation path for the application when you publish the app.)</target>
+        </trans-unit>
+        <trans-unit id="f7fe3fc1-b2e2-41ad-9a86-86f1aa4f73f6" xml:space="preserve">
+          <source>Perform any additional Windows configurations required by your applications.</source>
+          <target state="new">Perform any additional Windows configurations required by your applications.</target>
+        </trans-unit>
+        <trans-unit id="2408bd8d-3427-415d-8da3-9c53ee37272f" xml:space="preserve">
+          <source>Disable the Encrypting File System (EFS).</source>
+          <target state="new">Disable the Encrypting File System (EFS).</target>
+        </trans-unit>
+        <trans-unit id="194ac5e6-08ac-48a8-a263-771eaca6900f" xml:space="preserve">
+          <source>Run the following command at an elevated command window:</source>
+          <target state="new">Run the following command at an elevated command window:</target>
+        </trans-unit>
+        <trans-unit id="8a5e345d-59f1-4801-800b-841e2ccc0060" xml:space="preserve">
+          <source>Alternatively, you can set or add the following DWORD value in the registry:</source>
+          <target state="new">Alternatively, you can set or add the following DWORD value in the registry:</target>
+        </trans-unit>
+        <trans-unit id="1cdb2560-a321-49ca-9f69-801a95b0ed0f" xml:space="preserve">
+          <source>If you are building your image inside an Azure virtual machine, rename the <bpt id="9018d3a2-2657-468e-b069-20c25730ebe3">&lt;strong&gt;</bpt>\%windir%\Panther\Unattend.xml<ept id="9018d3a2-2657-468e-b069-20c25730ebe3">&lt;/strong&gt;</ept> file, as this will block the upload script used later from working.</source>
+          <target state="new">If you are building your image inside an Azure virtual machine, rename the <bpt id="9018d3a2-2657-468e-b069-20c25730ebe3">&lt;strong&gt;</bpt>\%windir%\Panther\Unattend.xml<ept id="9018d3a2-2657-468e-b069-20c25730ebe3">&lt;/strong&gt;</ept> file, as this will block the upload script used later from working.</target>
+        </trans-unit>
+        <trans-unit id="facc94ac-43c6-4e32-ae4f-0e092fc649ad" xml:space="preserve">
+          <source>Change the name of this file to Unattend.old so that you will still have the file in case you need to revert your deployment.</source>
+          <target state="new">Change the name of this file to Unattend.old so that you will still have the file in case you need to revert your deployment.</target>
+        </trans-unit>
+        <trans-unit id="302d3970-b3f5-4b60-803a-a625d730bbe5" xml:space="preserve">
+          <source>Go to Windows Update and install all important updates.</source>
+          <target state="new">Go to Windows Update and install all important updates.</target>
+        </trans-unit>
+        <trans-unit id="47776903-3e9c-4ff0-b08b-bc6002fdb104" xml:space="preserve">
+          <source>You might need to run Windows Update multiple times to get all updates.</source>
+          <target state="new">You might need to run Windows Update multiple times to get all updates.</target>
+        </trans-unit>
+        <trans-unit id="d0a809ec-35b5-4232-84e6-888f2ca9003c" xml:space="preserve">
+          <source>(Sometimes you install an update, and that update itself requires an update.)</source>
+          <target state="new">(Sometimes you install an update, and that update itself requires an update.)</target>
+        </trans-unit>
+        <trans-unit id="9f16b60d-87f8-42fe-8b6b-afc2391392f6" xml:space="preserve">
+          <source>SYSPREP the image.</source>
+          <target state="new">SYSPREP the image.</target>
+        </trans-unit>
+        <trans-unit id="b0c7180c-e420-4464-b418-1fde9ae687ec" xml:space="preserve">
+          <source>At an elevated command prompt, run the following command:</source>
+          <target state="new">At an elevated command prompt, run the following command:</target>
+        </trans-unit>
+        <trans-unit id="fc8b391e-74bf-4d48-88c1-df5856e2d902" xml:space="preserve">
+          <source><bpt id="03f7ff16-3df8-4592-9e91-d3b6b69b3e3c">&lt;strong&gt;</bpt>C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown<ept id="03f7ff16-3df8-4592-9e91-d3b6b69b3e3c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="03f7ff16-3df8-4592-9e91-d3b6b69b3e3c">&lt;strong&gt;</bpt>C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown<ept id="03f7ff16-3df8-4592-9e91-d3b6b69b3e3c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf12c8d2-13e0-46a4-a779-d755bfb8d9a6" xml:space="preserve">
+          <source><bpt id="89395c86-8b62-4968-9a97-8761b6cb7018">&lt;strong&gt;</bpt>Note:<ept id="89395c86-8b62-4968-9a97-8761b6cb7018">&lt;/strong&gt;</ept> Do not use the <bpt id="d838e09d-fa30-4e18-bdb7-9b3c92ef6474">&lt;strong&gt;</bpt>/mode:vm<ept id="d838e09d-fa30-4e18-bdb7-9b3c92ef6474">&lt;/strong&gt;</ept> switch of the SYSPREP command even though this is a virtual machine.</source>
+          <target state="new"><bpt id="89395c86-8b62-4968-9a97-8761b6cb7018">&lt;strong&gt;</bpt>Note:<ept id="89395c86-8b62-4968-9a97-8761b6cb7018">&lt;/strong&gt;</ept> Do not use the <bpt id="d838e09d-fa30-4e18-bdb7-9b3c92ef6474">&lt;strong&gt;</bpt>/mode:vm<ept id="d838e09d-fa30-4e18-bdb7-9b3c92ef6474">&lt;/strong&gt;</ept> switch of the SYSPREP command even though this is a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="180f9884-aef3-47be-9745-bcfd955b60ad" xml:space="preserve">
+          <source>Now that you have your custom template image, you need to upload that image to your RemoteApp collection.</source>
+          <target state="new">Now that you have your custom template image, you need to upload that image to your RemoteApp collection.</target>
+        </trans-unit>
+        <trans-unit id="5509c128-bfdf-48b8-af41-df51ce285f25" xml:space="preserve">
+          <source>Use the information in the following articles to create your collection:</source>
+          <target state="new">Use the information in the following articles to create your collection:</target>
+        </trans-unit>
+        <trans-unit id="88d67380-e715-4aa6-bb95-ae1921eb05ef" xml:space="preserve">
+          <source><bpt id="d9c60c11-bfd3-4c67-902c-ee95e2f9a9ea">&lt;linkText&gt;</bpt>How to create a hybrid collection of RemoteApp<ept id="d9c60c11-bfd3-4c67-902c-ee95e2f9a9ea">&lt;/linkText&gt;</ept><bpt id="d9c60c11-bfd3-4c67-902c-ee95e2f9a9ea">&lt;title&gt;</bpt><ept id="d9c60c11-bfd3-4c67-902c-ee95e2f9a9ea">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d9c60c11-bfd3-4c67-902c-ee95e2f9a9ea">&lt;linkText&gt;</bpt>How to create a hybrid collection of RemoteApp<ept id="d9c60c11-bfd3-4c67-902c-ee95e2f9a9ea">&lt;/linkText&gt;</ept><bpt id="d9c60c11-bfd3-4c67-902c-ee95e2f9a9ea">&lt;title&gt;</bpt><ept id="d9c60c11-bfd3-4c67-902c-ee95e2f9a9ea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6beb1b39-2330-45b6-affe-9ae3db9f442c" xml:space="preserve">
+          <source><bpt id="830ee9f0-3cce-4c26-a7e6-01d656b18f57">&lt;linkText&gt;</bpt>How to create a cloud collection of RemoteApp<ept id="830ee9f0-3cce-4c26-a7e6-01d656b18f57">&lt;/linkText&gt;</ept><bpt id="830ee9f0-3cce-4c26-a7e6-01d656b18f57">&lt;title&gt;</bpt><ept id="830ee9f0-3cce-4c26-a7e6-01d656b18f57">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="830ee9f0-3cce-4c26-a7e6-01d656b18f57">&lt;linkText&gt;</bpt>How to create a cloud collection of RemoteApp<ept id="830ee9f0-3cce-4c26-a7e6-01d656b18f57">&lt;/linkText&gt;</ept><bpt id="830ee9f0-3cce-4c26-a7e6-01d656b18f57">&lt;title&gt;</bpt><ept id="830ee9f0-3cce-4c26-a7e6-01d656b18f57">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

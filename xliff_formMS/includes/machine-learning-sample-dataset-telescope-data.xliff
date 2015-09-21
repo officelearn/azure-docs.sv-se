@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1791e158-ddda-4481-abb2-aad201284655" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1791e158-ddda-4481-abb2-aad201284655" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2874aa91-d620-458f-84c7-df674aab4ce6">
+        <trans-unit id="fe7a6713-bb78-4846-a3e4-897769b66991" xml:space="preserve">
+          <source>Records of high energy gamma particle bursts along with background noise, both simulated using a Monte Carlo process.&lt;p&gt; &lt;/p&gt;The intent of the simulation was to improve the accuracy of ground-based atmospheric Cherenkov gamma telescopes, using statistical methods to differentiate between the desired signal (Cherenkov radiation showers) and background noise (hadronic showers initiated by cosmic rays in the upper atmosphere).&lt;p&gt; &lt;/p&gt;The data has been pre-processed to create an elongated cluster with the long axis is oriented towards the camera center.</source>
+          <target state="new">Records of high energy gamma particle bursts along with background noise, both simulated using a Monte Carlo process.&lt;p&gt; &lt;/p&gt;The intent of the simulation was to improve the accuracy of ground-based atmospheric Cherenkov gamma telescopes, using statistical methods to differentiate between the desired signal (Cherenkov radiation showers) and background noise (hadronic showers initiated by cosmic rays in the upper atmosphere).&lt;p&gt; &lt;/p&gt;The data has been pre-processed to create an elongated cluster with the long axis is oriented towards the camera center.</target>
+        </trans-unit>
+        <trans-unit id="5f9e475f-bae4-4f56-9697-620c856e316f" xml:space="preserve">
+          <source>The characteristics of this ellipse, (often called Hillas parameters) are among the image parameters that can be used for discrimination.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Predict whether image of a shower represents signal or background noise.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Notes:&lt;/b&gt; Simple classification accuracy is not meaningful for this data, since classifying a background event as signal is worse than classifying a signal event as background.</source>
+          <target state="new">The characteristics of this ellipse, (often called Hillas parameters) are among the image parameters that can be used for discrimination.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Predict whether image of a shower represents signal or background noise.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Notes:&lt;/b&gt; Simple classification accuracy is not meaningful for this data, since classifying a background event as signal is worse than classifying a signal event as background.</target>
+        </trans-unit>
+        <trans-unit id="e8b8bcba-8012-4a92-9133-4d8dbd2e6a1a" xml:space="preserve">
+          <source>For comparison of different classifiers the ROC graph should be used.</source>
+          <target state="new">For comparison of different classifiers the ROC graph should be used.</target>
+        </trans-unit>
+        <trans-unit id="74daea6a-f0c3-438e-9870-ac5a7a5aa342" xml:space="preserve">
+          <source>The probability of accepting a background event as signal must be below one of the following thresholds: 0.01 , 0.02 , 0.05 , 0.1 , or 0.2.&lt;p&gt; &lt;/p&gt;Also, note that the number of background events (h, for hadronic showers) is underestimated, whereas in real measurements, the h or noise class represents the majority of events.</source>
+          <target state="new">The probability of accepting a background event as signal must be below one of the following thresholds: 0.01 , 0.02 , 0.05 , 0.1 , or 0.2.&lt;p&gt; &lt;/p&gt;Also, note that the number of background events (h, for hadronic showers) is underestimated, whereas in real measurements, the h or noise class represents the majority of events.</target>
+        </trans-unit>
+        <trans-unit id="c0615d77-0d45-436d-b7b6-9764fb83f1ae" xml:space="preserve">
+          <source>&lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Bock, R.K. (1995).</source>
+          <target state="new">&lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Bock, R.K. (1995).</target>
+        </trans-unit>
+        <trans-unit id="73be391a-9196-455e-b2a3-0142eddd073d" xml:space="preserve">
+          <source>UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;.</source>
+          <target state="new">UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="a63b305a-1316-4eca-a64a-13f880464264" xml:space="preserve">
+          <source>Irvine, CA: University of California, School of Information</source>
+          <target state="new">Irvine, CA: University of California, School of Information</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

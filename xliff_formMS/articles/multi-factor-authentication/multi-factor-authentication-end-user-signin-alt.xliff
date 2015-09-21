@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="58a8a6d7-83d8-47c2-b89c-1a0a9119c8ee" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="58a8a6d7-83d8-47c2-b89c-1a0a9119c8ee" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="dc587289-a5b2-4861-86a4-94c928c94113">
+        <trans-unit id="08550023-3f1c-4f36-896d-5f681b57dad8" xml:space="preserve">
+          <source>Signing in using an alternate method with Azure Multi-Factor Authentication</source>
+          <target state="new">Signing in using an alternate method with Azure Multi-Factor Authentication</target>
+        </trans-unit>
+        <trans-unit id="b371af41-9be9-4df2-96c2-555fb7630944" xml:space="preserve">
+          <source>This page will describe how a user can signin using an alternate method with Azure MFA.</source>
+          <target state="new">This page will describe how a user can signin using an alternate method with Azure MFA.</target>
+        </trans-unit>
+        <trans-unit id="0137742c-16df-4f59-b8d6-d75978e2bfee" xml:space="preserve">
+          <source>The following section will show you how to sign in with an alternate method when your primary method may not be available.</source>
+          <target state="new">The following section will show you how to sign in with an alternate method when your primary method may not be available.</target>
+        </trans-unit>
+        <trans-unit id="d8ad1f1c-d3d1-4443-8ac0-c36c2203f548" xml:space="preserve">
+          <source>&lt;ol&gt;</source>
+          <target state="new">&lt;ol&gt;</target>
+        </trans-unit>
+        <trans-unit id="98ba524c-34d9-4540-a1ae-33146e2fdcc0" xml:space="preserve">
+          <source>&lt;li&gt;Sign in to an application or service such as Office 365 using your user name and password.&lt;/li&gt;
+&lt;li&gt;Select use a different verification option.  You will be present with a choice of different options. The number you see will be based on how many you have setup.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Sign in to an application or service such as Office 365 using your user name and password.&lt;/li&gt;
+&lt;li&gt;Select use a different verification option.  You will be present with a choice of different options. The number you see will be based on how many you have setup.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="8989829f-a45b-4b8a-ac2a-9c082bc61bb6" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="5decd85c-3f84-4015-b597-833968175098">&lt;linkText&gt;</bpt>Setup<ept id="5decd85c-3f84-4015-b597-833968175098">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="5decd85c-3f84-4015-b597-833968175098">&lt;linkText&gt;</bpt>Setup<ept id="5decd85c-3f84-4015-b597-833968175098">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="0dce4221-d427-4fe8-ad32-e2eae4b11a17" xml:space="preserve">
+          <source>&lt;li&gt;Choose an alternate method and sign in.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Choose an alternate method and sign in.&lt;/li&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

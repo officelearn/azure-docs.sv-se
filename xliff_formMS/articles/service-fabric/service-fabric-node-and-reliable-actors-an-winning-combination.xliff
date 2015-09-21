@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6f789ec7-d84b-435c-bfdd-fd0aa8b958ff" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6f789ec7-d84b-435c-bfdd-fd0aa8b958ff" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1aef7753-654c-4225-80ee-b0590697f5a8">
+        <trans-unit id="82b19bdd-e86b-46e2-b537-1e708e7a1910" xml:space="preserve">
+          <source>Node.js and reliable actors | Microsoft Azure</source>
+          <target state="new">Node.js and reliable actors | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4d9b96bd-4e47-4544-b5da-ff5932896588" xml:space="preserve">
+          <source>A walk through on how to build an node.js express application that uses Reliable Actors and runs on top of the Azure Service Fabric platform.</source>
+          <target state="new">A walk through on how to build an node.js express application that uses Reliable Actors and runs on top of the Azure Service Fabric platform.</target>
+        </trans-unit>
+        <trans-unit id="bbffe6fa-2353-46a8-a68c-5a31c24b8c8a" xml:space="preserve">
+          <source>This article is an overview on how you can build an application that uses node.js and Reliable Actors.</source>
+          <target state="new">This article is an overview on how you can build an application that uses node.js and Reliable Actors.</target>
+        </trans-unit>
+        <trans-unit id="d3c9ac34-a0d9-4353-90f8-aa872a0615d6" xml:space="preserve">
+          <source>The final solution is a blend of javascript code used mainly to provide the frontend side of the app (Web/Rest APIs) and C# for more complex computation.</source>
+          <target state="new">The final solution is a blend of javascript code used mainly to provide the frontend side of the app (Web/Rest APIs) and C# for more complex computation.</target>
+        </trans-unit>
+        <trans-unit id="a57a768f-cdb5-4ae9-a916-e2da64d4139b" xml:space="preserve">
+          <source>By leveraging Service Fabric programming model, the application is scalable and reliable out of the box.</source>
+          <target state="new">By leveraging Service Fabric programming model, the application is scalable and reliable out of the box.</target>
+        </trans-unit>
+        <trans-unit id="3f42551c-adfb-480b-81aa-47e1d7d031e6" xml:space="preserve">
+          <source>The process is bsed on the following steps:</source>
+          <target state="new">The process is bsed on the following steps:</target>
+        </trans-unit>
+        <trans-unit id="6df90708-2c73-4ce1-a9cf-2ca8b6ea3fbf" xml:space="preserve">
+          <source>create a new Service Fabric Stateless or Stateful Actor project using Service Fabric tools for Visual Studio</source>
+          <target state="new">create a new Service Fabric Stateless or Stateful Actor project using Service Fabric tools for Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="1e9b96b7-2ca3-41d9-b30b-b109c8dcc6ba" xml:space="preserve">
+          <source>create a node.js project using, for instance <bpt id="4626fb6b-abdc-47c1-9c7a-cfba3d7132db">&lt;linkText&gt;</bpt>node.js tools for Visual Studio<ept id="4626fb6b-abdc-47c1-9c7a-cfba3d7132db">&lt;/linkText&gt;</ept><bpt id="4626fb6b-abdc-47c1-9c7a-cfba3d7132db">&lt;title&gt;</bpt><ept id="4626fb6b-abdc-47c1-9c7a-cfba3d7132db">&lt;/title&gt;</ept> </source>
+          <target state="new">create a node.js project using, for instance <bpt id="4626fb6b-abdc-47c1-9c7a-cfba3d7132db">&lt;linkText&gt;</bpt>node.js tools for Visual Studio<ept id="4626fb6b-abdc-47c1-9c7a-cfba3d7132db">&lt;/linkText&gt;</ept><bpt id="4626fb6b-abdc-47c1-9c7a-cfba3d7132db">&lt;title&gt;</bpt><ept id="4626fb6b-abdc-47c1-9c7a-cfba3d7132db">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f303a4d6-43de-40bc-af61-fc5aeba412df" xml:space="preserve">
+          <source>Add a node.js project (a basic express 4 app for instance) to the Service Fabric solution.</source>
+          <target state="new">Add a node.js project (a basic express 4 app for instance) to the Service Fabric solution.</target>
+        </trans-unit>
+        <trans-unit id="75e4426c-0575-4962-a307-bb0fade6ac87" xml:space="preserve">
+          <source>You can simply use solution/Add Existing project to include the node.js project.</source>
+          <target state="new">You can simply use solution/Add Existing project to include the node.js project.</target>
+        </trans-unit>
+        <trans-unit id="1c7bdeb3-b064-444a-8b07-ea4c7334ed9e" xml:space="preserve">
+          <source>Package the node.js app so it can be deployed using VS Tools for Service Fabric</source>
+          <target state="new">Package the node.js app so it can be deployed using VS Tools for Service Fabric</target>
+        </trans-unit>
+        <trans-unit id="995285c7-8ee2-49d4-be05-a73a03a76640" xml:space="preserve">
+          <source>After you create the node.js project and add the dependencies, you need to change the directory structure of the project so it follows the structure that the Service Fabric tools for Visual Studio required in order to be able to package and deploy the app like any other Service Fabric service.</source>
+          <target state="new">After you create the node.js project and add the dependencies, you need to change the directory structure of the project so it follows the structure that the Service Fabric tools for Visual Studio required in order to be able to package and deploy the app like any other Service Fabric service.</target>
+        </trans-unit>
+        <trans-unit id="75838f97-007d-47bb-8edc-721b611c58b9" xml:space="preserve">
+          <source>The goal is to make the changes to the directory structure only once so you can benefits from being able to use the deployment process in Visual Studio and hence deploy your node.js app along with the other services in the solution.</source>
+          <target state="new">The goal is to make the changes to the directory structure only once so you can benefits from being able to use the deployment process in Visual Studio and hence deploy your node.js app along with the other services in the solution.</target>
+        </trans-unit>
+        <trans-unit id="e3a0b061-5534-4cd5-9590-d065a14d8170" xml:space="preserve">
+          <source>The changes that needs to be done to the directory structure are:</source>
+          <target state="new">The changes that needs to be done to the directory structure are:</target>
+        </trans-unit>
+        <trans-unit id="b735aece-51e5-47f3-b1c3-98bd8928ef20" xml:space="preserve">
+          <source>Create a PackageRoot directory</source>
+          <target state="new">Create a PackageRoot directory</target>
+        </trans-unit>
+        <trans-unit id="99c8f97f-ad79-4dec-bed9-a757a36960d9" xml:space="preserve">
+          <source>Create a Code directory under PackageRoot</source>
+          <target state="new">Create a Code directory under PackageRoot</target>
+        </trans-unit>
+        <trans-unit id="acb00158-8eb5-4b58-b82f-100a49871905" xml:space="preserve">
+          <source>Move all files and directories under the Code directory</source>
+          <target state="new">Move all files and directories under the Code directory</target>
+        </trans-unit>
+        <trans-unit id="e426f511-b1f7-43df-b233-658381126bf3" xml:space="preserve">
+          <source>After you are done, the project structure in Visual Studio should look like the following:</source>
+          <target state="new">After you are done, the project structure in Visual Studio should look like the following:</target>
+        </trans-unit>
+        <trans-unit id="db5c8f73-1436-4f3d-94a3-989c6693c1ce" xml:space="preserve">
+          <source><bpt id="e3918eca-a250-469b-904b-671b37e1e4fb">&lt;linkText&gt;</bpt><ept id="e3918eca-a250-469b-904b-671b37e1e4fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3918eca-a250-469b-904b-671b37e1e4fb">&lt;linkText&gt;</bpt><ept id="e3918eca-a250-469b-904b-671b37e1e4fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a81c5052-5d49-40e8-9c0d-1ec911aae9e9" xml:space="preserve">
+          <source>As you can see all the node.js code is under the PackageRoot/Code directory.</source>
+          <target state="new">As you can see all the node.js code is under the PackageRoot/Code directory.</target>
+        </trans-unit>
+        <trans-unit id="1c6283e9-575d-48cd-ae22-c566024b0f4a" xml:space="preserve">
+          <source>Service Fabric does not make any assumption about the applications/libraries installed on the node where the application is going to be deployed so you need to include all the dependencies.</source>
+          <target state="new">Service Fabric does not make any assumption about the applications/libraries installed on the node where the application is going to be deployed so you need to include all the dependencies.</target>
+        </trans-unit>
+        <trans-unit id="3e0fb005-d60a-4725-81c5-e24c3b8cce80" xml:space="preserve">
+          <source>In the case of node.js you need to include node.exe so Service Fabric can run the code (you can find node.exe under the program files\nodejs directory).</source>
+          <target state="new">In the case of node.js you need to include node.exe so Service Fabric can run the code (you can find node.exe under the program files\nodejs directory).</target>
+        </trans-unit>
+        <trans-unit id="16e48fab-2a20-41d6-a598-d39c483d20c2" xml:space="preserve">
+          <source><bpt id="14389300-c5c9-4c3e-95fb-30adcfed2390">&lt;linkText&gt;</bpt><ept id="14389300-c5c9-4c3e-95fb-30adcfed2390">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="14389300-c5c9-4c3e-95fb-30adcfed2390">&lt;linkText&gt;</bpt><ept id="14389300-c5c9-4c3e-95fb-30adcfed2390">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9d5cc3d-b36b-4236-8bf5-3004dae27e56" xml:space="preserve">
+          <source>In order to deploy the node.js application, we need to add a metadata file that is required to specify some properties that will be used by Service Fabric in order to determine how to deploy and launch the application.</source>
+          <target state="new">In order to deploy the node.js application, we need to add a metadata file that is required to specify some properties that will be used by Service Fabric in order to determine how to deploy and launch the application.</target>
+        </trans-unit>
+        <trans-unit id="d2be1d0d-1601-404a-b44c-f3736a84fbb3" xml:space="preserve">
+          <source>This is an example on how the servicemanifest.xml should look like, please refer to <bpt id="e1f59449-6afd-4fdb-abbc-752977cbd286">&lt;linkText&gt;</bpt>this article<ept id="e1f59449-6afd-4fdb-abbc-752977cbd286">&lt;/linkText&gt;</ept><bpt id="e1f59449-6afd-4fdb-abbc-752977cbd286">&lt;title&gt;</bpt><ept id="e1f59449-6afd-4fdb-abbc-752977cbd286">&lt;/title&gt;</ept> for more details on what are the important element that needs to be updated but typically you need to update:</source>
+          <target state="new">This is an example on how the servicemanifest.xml should look like, please refer to <bpt id="e1f59449-6afd-4fdb-abbc-752977cbd286">&lt;linkText&gt;</bpt>this article<ept id="e1f59449-6afd-4fdb-abbc-752977cbd286">&lt;/linkText&gt;</ept><bpt id="e1f59449-6afd-4fdb-abbc-752977cbd286">&lt;title&gt;</bpt><ept id="e1f59449-6afd-4fdb-abbc-752977cbd286">&lt;/title&gt;</ept> for more details on what are the important element that needs to be updated but typically you need to update:</target>
+        </trans-unit>
+        <trans-unit id="b71f642e-2aab-4677-b0e9-c944f76ff47b" xml:space="preserve">
+          <source>Name (ServiceManifest element)</source>
+          <target state="new">Name (ServiceManifest element)</target>
+        </trans-unit>
+        <trans-unit id="755c4d47-0f38-4925-b913-3416bb512524" xml:space="preserve">
+          <source>ServiceTypeName (StatelessServiceType element)</source>
+          <target state="new">ServiceTypeName (StatelessServiceType element)</target>
+        </trans-unit>
+        <trans-unit id="268e8e4c-16fc-432f-a8ff-bd036b1deb4f" xml:space="preserve">
+          <source>Arguments (ExeHost element) to specify the js file that should be used to launch the app.</source>
+          <target state="new">Arguments (ExeHost element) to specify the js file that should be used to launch the app.</target>
+        </trans-unit>
+        <trans-unit id="53fc599b-30e3-4d9f-997a-001b4a1cab48" xml:space="preserve">
+          <source>Please note that one of the servicemanifest.xml options may not work with node.js.</source>
+          <target state="new">Please note that one of the servicemanifest.xml options may not work with node.js.</target>
+        </trans-unit>
+        <trans-unit id="4d4532be-957f-40ce-ad01-93d247d2e45d" xml:space="preserve">
+          <source>In some cases <bpt id="e06d2d97-8e2a-49c6-b2aa-adbf0dcbc8e9">&lt;code&gt;</bpt>ConsoleRedirection<ept id="e06d2d97-8e2a-49c6-b2aa-adbf0dcbc8e9">&lt;/code&gt;</ept> does not work if a node.js module (ex.</source>
+          <target state="new">In some cases <bpt id="e06d2d97-8e2a-49c6-b2aa-adbf0dcbc8e9">&lt;code&gt;</bpt>ConsoleRedirection<ept id="e06d2d97-8e2a-49c6-b2aa-adbf0dcbc8e9">&lt;/code&gt;</ept> does not work if a node.js module (ex.</target>
+        </trans-unit>
+        <trans-unit id="66603837-03dc-4d0e-9ee9-a63179101a7a" xml:space="preserve">
+          <source>Express) assumed that the fd for stdout and stderr are 1 and 2.</source>
+          <target state="new">Express) assumed that the fd for stdout and stderr are 1 and 2.</target>
+        </trans-unit>
+        <trans-unit id="41459307-7e73-4b6a-b10d-e4f905e99f88" xml:space="preserve">
+          <source>After the <bpt id="b17c3a0f-aeea-4f05-8e0b-552e527ee7cc">&lt;code&gt;</bpt>servicemanifest.xml<ept id="b17c3a0f-aeea-4f05-8e0b-552e527ee7cc">&lt;/code&gt;</ept> file is added to the node.js project, the structure of the project should look like this:</source>
+          <target state="new">After the <bpt id="b17c3a0f-aeea-4f05-8e0b-552e527ee7cc">&lt;code&gt;</bpt>servicemanifest.xml<ept id="b17c3a0f-aeea-4f05-8e0b-552e527ee7cc">&lt;/code&gt;</ept> file is added to the node.js project, the structure of the project should look like this:</target>
+        </trans-unit>
+        <trans-unit id="b5a493ca-ef0b-4cd8-a5a3-a95809ba21ea" xml:space="preserve">
+          <source><bpt id="89ca0fb0-de48-4af2-8a3f-6ce0bff23fe0">&lt;linkText&gt;</bpt><ept id="89ca0fb0-de48-4af2-8a3f-6ce0bff23fe0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="89ca0fb0-de48-4af2-8a3f-6ce0bff23fe0">&lt;linkText&gt;</bpt><ept id="89ca0fb0-de48-4af2-8a3f-6ce0bff23fe0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40676af3-d614-447a-962c-fc70fe1aec43" xml:space="preserve">
+          <source>Next step is to add Service Fabric binaries that are used to connect with the Actors running in the Service Fabric cluster.</source>
+          <target state="new">Next step is to add Service Fabric binaries that are used to connect with the Actors running in the Service Fabric cluster.</target>
+        </trans-unit>
+        <trans-unit id="2cf55fcc-cbde-4694-aa59-d104e668b7c9" xml:space="preserve">
+          <source>As you can see in the Edge.js sample, there are some references to asemblies.</source>
+          <target state="new">As you can see in the Edge.js sample, there are some references to asemblies.</target>
+        </trans-unit>
+        <trans-unit id="d200d9fd-b006-4d30-9aa3-33d38a088c8a" xml:space="preserve">
+          <source>To make those assemblies available to edge.js, they need to be copied along with the node.js code.</source>
+          <target state="new">To make those assemblies available to edge.js, they need to be copied along with the node.js code.</target>
+        </trans-unit>
+        <trans-unit id="44666deb-08eb-40e5-b0c5-bc487b52f984" xml:space="preserve">
+          <source>The easiest way is to copy the binaries from an existing projects, the files that needs to be included in the code directory (and will be used by edge.js) are the following:</source>
+          <target state="new">The easiest way is to copy the binaries from an existing projects, the files that needs to be included in the code directory (and will be used by edge.js) are the following:</target>
+        </trans-unit>
+        <trans-unit id="50a2cb12-2e58-4507-9baf-5c9fbc95ea60" xml:space="preserve">
+          <source>After you added the binaries to the project, the project structure should like the following:</source>
+          <target state="new">After you added the binaries to the project, the project structure should like the following:</target>
+        </trans-unit>
+        <trans-unit id="f4b247b2-59c2-4a93-885c-110b82106e57" xml:space="preserve">
+          <source><bpt id="69203b7f-5afb-4242-bc7a-6c72c1378e28">&lt;linkText&gt;</bpt><ept id="69203b7f-5afb-4242-bc7a-6c72c1378e28">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="69203b7f-5afb-4242-bc7a-6c72c1378e28">&lt;linkText&gt;</bpt><ept id="69203b7f-5afb-4242-bc7a-6c72c1378e28">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ffdf680c-e3f1-42ba-b020-de7fd4ad8b24" xml:space="preserve">
+          <source>Next step is to add the node.js service to the application manifest so it can be deployed using Visual Studio tools for Service Fabric.</source>
+          <target state="new">Next step is to add the node.js service to the application manifest so it can be deployed using Visual Studio tools for Service Fabric.</target>
+        </trans-unit>
+        <trans-unit id="38cdfaf0-5192-4a0d-907d-1efcc1b1a57c" xml:space="preserve">
+          <source>This is necessary because there is no integration in Service Fabric tools for Visual Studio with the node.js project so it needs to be added manually.</source>
+          <target state="new">This is necessary because there is no integration in Service Fabric tools for Visual Studio with the node.js project so it needs to be added manually.</target>
+        </trans-unit>
+        <trans-unit id="32251961-a166-4da4-964e-163bbde634e1" xml:space="preserve">
+          <source>In the <bpt id="2a6ba87d-d6b8-4cba-9d41-7dc4d6667dd6">&lt;code&gt;</bpt>applicationmanifest.xml<ept id="2a6ba87d-d6b8-4cba-9d41-7dc4d6667dd6">&lt;/code&gt;</ept> file you need to add the following elements:</source>
+          <target state="new">In the <bpt id="2a6ba87d-d6b8-4cba-9d41-7dc4d6667dd6">&lt;code&gt;</bpt>applicationmanifest.xml<ept id="2a6ba87d-d6b8-4cba-9d41-7dc4d6667dd6">&lt;/code&gt;</ept> file you need to add the following elements:</target>
+        </trans-unit>
+        <trans-unit id="66ae29f1-173a-4d34-a93f-7982e7468ce2" xml:space="preserve">
+          <source><bpt id="654c15c6-faa3-4fe5-a61f-270a8b921a7e">&lt;code&gt;</bpt>ServiceManifestImport<ept id="654c15c6-faa3-4fe5-a61f-270a8b921a7e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="654c15c6-faa3-4fe5-a61f-270a8b921a7e">&lt;code&gt;</bpt>ServiceManifestImport<ept id="654c15c6-faa3-4fe5-a61f-270a8b921a7e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2458332-678d-4c64-ab98-1a95877eb1e5" xml:space="preserve">
+          <source><bpt id="9af63a0e-0090-421e-924a-1ec59ddae6a4">&lt;code&gt;</bpt>Service<ept id="9af63a0e-0090-421e-924a-1ec59ddae6a4">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="9af63a0e-0090-421e-924a-1ec59ddae6a4">&lt;code&gt;</bpt>Service<ept id="9af63a0e-0090-421e-924a-1ec59ddae6a4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6c20baa-eaf3-48d4-8612-045a36d65437" xml:space="preserve">
+          <source>Make sure you are using the same names that you used in the <bpt id="be0bfe0c-3c8a-485e-93b3-fd18439792ff">&lt;code&gt;</bpt>servicemanifest.xml<ept id="be0bfe0c-3c8a-485e-93b3-fd18439792ff">&lt;/code&gt;</ept> to specify <bpt id="42dc1dbf-bad2-499d-9733-9b11879ef279">&lt;code&gt;</bpt>ServiceName<ept id="42dc1dbf-bad2-499d-9733-9b11879ef279">&lt;/code&gt;</ept> and <bpt id="ceabec14-3a96-4a28-bf02-09409a9c11c7">&lt;code&gt;</bpt>ServiceTypeName<ept id="ceabec14-3a96-4a28-bf02-09409a9c11c7">&lt;/code&gt;</ept>.</source>
+          <target state="new">Make sure you are using the same names that you used in the <bpt id="be0bfe0c-3c8a-485e-93b3-fd18439792ff">&lt;code&gt;</bpt>servicemanifest.xml<ept id="be0bfe0c-3c8a-485e-93b3-fd18439792ff">&lt;/code&gt;</ept> to specify <bpt id="42dc1dbf-bad2-499d-9733-9b11879ef279">&lt;code&gt;</bpt>ServiceName<ept id="42dc1dbf-bad2-499d-9733-9b11879ef279">&lt;/code&gt;</ept> and <bpt id="ceabec14-3a96-4a28-bf02-09409a9c11c7">&lt;code&gt;</bpt>ServiceTypeName<ept id="ceabec14-3a96-4a28-bf02-09409a9c11c7">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b036e265-7d89-4c65-a101-59bb787e0343" xml:space="preserve">
+          <source>the <bpt id="96c0685d-6ece-4f14-a2bd-99fcab86495b">&lt;code&gt;</bpt>applicationmanifest.xml<ept id="96c0685d-6ece-4f14-a2bd-99fcab86495b">&lt;/code&gt;</ept> file should be similar to the following:</source>
+          <target state="new">the <bpt id="96c0685d-6ece-4f14-a2bd-99fcab86495b">&lt;code&gt;</bpt>applicationmanifest.xml<ept id="96c0685d-6ece-4f14-a2bd-99fcab86495b">&lt;/code&gt;</ept> file should be similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="6e8ea06e-4e2f-4ed1-9bc6-a3265c5d1ce1" xml:space="preserve">
+          <source>Now that the project structure is set, we can focus on the code that allow the node.js application to connect to Reliable Actors in the cluster like you can do from a .NET application.</source>
+          <target state="new">Now that the project structure is set, we can focus on the code that allow the node.js application to connect to Reliable Actors in the cluster like you can do from a .NET application.</target>
+        </trans-unit>
+        <trans-unit id="09186fe8-b25e-4eb6-8511-80f3f54b05d3" xml:space="preserve">
+          <source>The scenario we want to enable is to buld a node.js application that act as frontend/gateway for client application and expose an web-based application or a set of rest APIs a client app can use.</source>
+          <target state="new">The scenario we want to enable is to buld a node.js application that act as frontend/gateway for client application and expose an web-based application or a set of rest APIs a client app can use.</target>
+        </trans-unit>
+        <trans-unit id="b5f64e64-339c-452a-9350-f1cb485d10d8" xml:space="preserve">
+          <source>Node.js provides the frontend of the app while Reliable Actors provide the scalable and reliable 'application server' layer of the app.</source>
+          <target state="new">Node.js provides the frontend of the app while Reliable Actors provide the scalable and reliable 'application server' layer of the app.</target>
+        </trans-unit>
+        <trans-unit id="c57f5898-72c7-47c5-b157-8fa80e3d44eb" xml:space="preserve">
+          <source>In Service Fabric, Reliable Actors can be invoked by using the <bpt id="a7bebb0b-681e-4d19-9bc8-004cfe88415a">&lt;linkText&gt;</bpt>ActorProxy class<ept id="a7bebb0b-681e-4d19-9bc8-004cfe88415a">&lt;/linkText&gt;</ept><bpt id="a7bebb0b-681e-4d19-9bc8-004cfe88415a">&lt;title&gt;</bpt><ept id="a7bebb0b-681e-4d19-9bc8-004cfe88415a">&lt;/title&gt;</ept>.</source>
+          <target state="new">In Service Fabric, Reliable Actors can be invoked by using the <bpt id="a7bebb0b-681e-4d19-9bc8-004cfe88415a">&lt;linkText&gt;</bpt>ActorProxy class<ept id="a7bebb0b-681e-4d19-9bc8-004cfe88415a">&lt;/linkText&gt;</ept><bpt id="a7bebb0b-681e-4d19-9bc8-004cfe88415a">&lt;title&gt;</bpt><ept id="a7bebb0b-681e-4d19-9bc8-004cfe88415a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="484d0171-f072-4bbb-9e72-ac1bc27d4689" xml:space="preserve">
+          <source>Luckly there is a great node.js module that can be use to call into .NET code: <bpt id="4bfc9f1b-646e-47f6-8e18-efe1f6b0ce5f">&lt;linkText&gt;</bpt>Edge.js<ept id="4bfc9f1b-646e-47f6-8e18-efe1f6b0ce5f">&lt;/linkText&gt;</ept><bpt id="4bfc9f1b-646e-47f6-8e18-efe1f6b0ce5f">&lt;title&gt;</bpt><ept id="4bfc9f1b-646e-47f6-8e18-efe1f6b0ce5f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Luckly there is a great node.js module that can be use to call into .NET code: <bpt id="4bfc9f1b-646e-47f6-8e18-efe1f6b0ce5f">&lt;linkText&gt;</bpt>Edge.js<ept id="4bfc9f1b-646e-47f6-8e18-efe1f6b0ce5f">&lt;/linkText&gt;</ept><bpt id="4bfc9f1b-646e-47f6-8e18-efe1f6b0ce5f">&lt;title&gt;</bpt><ept id="4bfc9f1b-646e-47f6-8e18-efe1f6b0ce5f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4f717d1-f924-47ea-be3b-3e3a352960f3" xml:space="preserve">
+          <source>You can use the instructions on the github repo to find out how to install edge on your machine.</source>
+          <target state="new">You can use the instructions on the github repo to find out how to install edge on your machine.</target>
+        </trans-unit>
+        <trans-unit id="065f7a63-9066-4dad-b6b9-c1f53d694196" xml:space="preserve">
+          <source><bpt id="464bcd6e-3fdc-4086-b0df-d2c01cfbb663">&lt;linkText&gt;</bpt><ept id="464bcd6e-3fdc-4086-b0df-d2c01cfbb663">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="464bcd6e-3fdc-4086-b0df-d2c01cfbb663">&lt;linkText&gt;</bpt><ept id="464bcd6e-3fdc-4086-b0df-d2c01cfbb663">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65e8be6e-61a7-46cc-9cd8-1048e0fb72d1" xml:space="preserve">
+          <source>After you install edge either using NPM or the NPM UI in Visual Studio, you need to move the new installed module in the node_modules directory under the Code subdirectory (we changed the structure of the node.js project and moved all code under the PackageRoot/Code directory).</source>
+          <target state="new">After you install edge either using NPM or the NPM UI in Visual Studio, you need to move the new installed module in the node_modules directory under the Code subdirectory (we changed the structure of the node.js project and moved all code under the PackageRoot/Code directory).</target>
+        </trans-unit>
+        <trans-unit id="7359cfed-6675-48f8-9dc6-8db12907ca79" xml:space="preserve">
+          <source>You can find good examples in the edge.js repo on Github on how you can use edge to call .NET code, the following is a simple example of how the code looks like when you need to call Reliable Actors using the ActorProxy class.</source>
+          <target state="new">You can find good examples in the edge.js repo on Github on how you can use edge to call .NET code, the following is a simple example of how the code looks like when you need to call Reliable Actors using the ActorProxy class.</target>
+        </trans-unit>
+        <trans-unit id="7fd42c5d-af1e-4736-98fe-07d77d6e0ba6" xml:space="preserve">
+          <source>The ActorProxy uses the Actor interface in order to know which actor it should connect to.</source>
+          <target state="new">The ActorProxy uses the Actor interface in order to know which actor it should connect to.</target>
+        </trans-unit>
+        <trans-unit id="f546d6d9-9601-498e-82d6-6e43f2653afd" xml:space="preserve">
+          <source>In order for the managed code running in the node.js process to be able to instantiate that class, the Actor interface assembly needs to be copied in the code directory like the other Service Fabric dlls.</source>
+          <target state="new">In order for the managed code running in the node.js process to be able to instantiate that class, the Actor interface assembly needs to be copied in the code directory like the other Service Fabric dlls.</target>
+        </trans-unit>
+        <trans-unit id="51d92be6-d90a-4374-9c2e-5bb2936e0953" xml:space="preserve">
+          <source>Note: you will have to copy (or set a post-build action in VS) the dll any time you are making changes to methods/parameters in the interface.</source>
+          <target state="new">Note: you will have to copy (or set a post-build action in VS) the dll any time you are making changes to methods/parameters in the interface.</target>
+        </trans-unit>
+        <trans-unit id="b3cad12b-ce96-4221-9757-1d2011bd4706" xml:space="preserve">
+          <source><bpt id="a654705c-4bcb-45a7-b2d4-ec37c1e28859">&lt;linkText&gt;</bpt><ept id="a654705c-4bcb-45a7-b2d4-ec37c1e28859">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a654705c-4bcb-45a7-b2d4-ec37c1e28859">&lt;linkText&gt;</bpt><ept id="a654705c-4bcb-45a7-b2d4-ec37c1e28859">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60b433d5-0b3a-400c-89a7-b8acaa24b3cf" xml:space="preserve">
+          <source>At this point the project can be deployed using Service Fabric Tools for Visual Studio.</source>
+          <target state="new">At this point the project can be deployed using Service Fabric Tools for Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="8837aa94-56b0-48d7-b6eb-1a920ea1584b" xml:space="preserve">
+          <source>The last step of the process is to reference the project in the Service Fabric Application project so it can be included in the Application package and deployed in the cluster.</source>
+          <target state="new">The last step of the process is to reference the project in the Service Fabric Application project so it can be included in the Application package and deployed in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="ef10f46d-c391-4a85-ab2e-2ec1bb279324" xml:space="preserve">
+          <source><bpt id="fbe029cc-7de1-40f7-b44f-53d8a9f1b0b5">&lt;linkText&gt;</bpt><ept id="fbe029cc-7de1-40f7-b44f-53d8a9f1b0b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fbe029cc-7de1-40f7-b44f-53d8a9f1b0b5">&lt;linkText&gt;</bpt><ept id="fbe029cc-7de1-40f7-b44f-53d8a9f1b0b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5ead8d9-b95e-414c-8abd-4114781bfd86" xml:space="preserve">
+          <source>You can deploy the application (that will include the node.js app) by using, for instance, the  solution context menu.</source>
+          <target state="new">You can deploy the application (that will include the node.js app) by using, for instance, the  solution context menu.</target>
+        </trans-unit>
+        <trans-unit id="f98db59f-43f3-49b3-9014-cd33c53dbe18" xml:space="preserve">
+          <source><bpt id="7c4c7d62-b8a4-46c6-8c63-4a72c6bb493d">&lt;linkText&gt;</bpt><ept id="7c4c7d62-b8a4-46c6-8c63-4a72c6bb493d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7c4c7d62-b8a4-46c6-8c63-4a72c6bb493d">&lt;linkText&gt;</bpt><ept id="7c4c7d62-b8a4-46c6-8c63-4a72c6bb493d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27f24868-6567-4870-9f0a-f514d1500c25" xml:space="preserve">
+          <source>Learn more about <bpt id="4a6095be-2940-40a0-a5ef-14e72a423cba">&lt;linkText&gt;</bpt>Reliable Actors<ept id="4a6095be-2940-40a0-a5ef-14e72a423cba">&lt;/linkText&gt;</ept><bpt id="4a6095be-2940-40a0-a5ef-14e72a423cba">&lt;title&gt;</bpt><ept id="4a6095be-2940-40a0-a5ef-14e72a423cba">&lt;/title&gt;</ept></source>
+          <target state="new">Learn more about <bpt id="4a6095be-2940-40a0-a5ef-14e72a423cba">&lt;linkText&gt;</bpt>Reliable Actors<ept id="4a6095be-2940-40a0-a5ef-14e72a423cba">&lt;/linkText&gt;</ept><bpt id="4a6095be-2940-40a0-a5ef-14e72a423cba">&lt;title&gt;</bpt><ept id="4a6095be-2940-40a0-a5ef-14e72a423cba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a995565-d485-4213-a66e-27685c059c5e" xml:space="preserve">
+          <source>Learn more about Service Fabric <bpt id="63bbfa10-6a27-41d3-9560-dfef1f473ba4">&lt;linkText&gt;</bpt>application lifecycle<ept id="63bbfa10-6a27-41d3-9560-dfef1f473ba4">&lt;/linkText&gt;</ept><bpt id="63bbfa10-6a27-41d3-9560-dfef1f473ba4">&lt;title&gt;</bpt><ept id="63bbfa10-6a27-41d3-9560-dfef1f473ba4">&lt;/title&gt;</ept></source>
+          <target state="new">Learn more about Service Fabric <bpt id="63bbfa10-6a27-41d3-9560-dfef1f473ba4">&lt;linkText&gt;</bpt>application lifecycle<ept id="63bbfa10-6a27-41d3-9560-dfef1f473ba4">&lt;/linkText&gt;</ept><bpt id="63bbfa10-6a27-41d3-9560-dfef1f473ba4">&lt;title&gt;</bpt><ept id="63bbfa10-6a27-41d3-9560-dfef1f473ba4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0660af9e-aa69-42b4-8e35-0dac08c57aa7" xml:space="preserve">
+          <source>Lean more about upgrading a <bpt id="2a1e1dae-11ed-415d-9fad-1b04c4c22641">&lt;linkText&gt;</bpt>Service Fabric application<ept id="2a1e1dae-11ed-415d-9fad-1b04c4c22641">&lt;/linkText&gt;</ept><bpt id="2a1e1dae-11ed-415d-9fad-1b04c4c22641">&lt;title&gt;</bpt><ept id="2a1e1dae-11ed-415d-9fad-1b04c4c22641">&lt;/title&gt;</ept> </source>
+          <target state="new">Lean more about upgrading a <bpt id="2a1e1dae-11ed-415d-9fad-1b04c4c22641">&lt;linkText&gt;</bpt>Service Fabric application<ept id="2a1e1dae-11ed-415d-9fad-1b04c4c22641">&lt;/linkText&gt;</ept><bpt id="2a1e1dae-11ed-415d-9fad-1b04c4c22641">&lt;title&gt;</bpt><ept id="2a1e1dae-11ed-415d-9fad-1b04c4c22641">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d42435a3-a999-49d9-8271-5fa2e8065207" xml:space="preserve">
+          <source>./media/service-fabric-node-and-reliable-actors-app/nodejs-project-structure.PNG</source>
+          <target state="new">./media/service-fabric-node-and-reliable-actors-app/nodejs-project-structure.PNG</target>
+        </trans-unit>
+        <trans-unit id="54ebaf48-8708-4ce1-acbb-efbe8f5b1b5e" xml:space="preserve">
+          <source>./media/service-fabric-node-and-reliable-actors-app/edge-js.PNG</source>
+          <target state="new">./media/service-fabric-node-and-reliable-actors-app/edge-js.PNG</target>
+        </trans-unit>
+        <trans-unit id="adc070a6-a433-47ff-8efb-6943f9625fce" xml:space="preserve">
+          <source>./media/service-fabric-node-and-reliable-actors-app/node-exe.PNG</source>
+          <target state="new">./media/service-fabric-node-and-reliable-actors-app/node-exe.PNG</target>
+        </trans-unit>
+        <trans-unit id="a2eb5539-facd-4f3e-b6b2-01871e0fa5e5" xml:space="preserve">
+          <source>./media/service-fabric-node-and-reliable-actors-app/project-structure-with-manifest.PNG</source>
+          <target state="new">./media/service-fabric-node-and-reliable-actors-app/project-structure-with-manifest.PNG</target>
+        </trans-unit>
+        <trans-unit id="befbeea5-c853-423d-a16b-eb368dfa1f6e" xml:space="preserve">
+          <source>./media/service-fabric-node-and-reliable-actors-app/project-structure-with-dlls.PNG</source>
+          <target state="new">./media/service-fabric-node-and-reliable-actors-app/project-structure-with-dlls.PNG</target>
+        </trans-unit>
+        <trans-unit id="0ee30c35-10ba-474c-96b2-8067d21656a1" xml:space="preserve">
+          <source>./media/service-fabric-node-and-reliable-actors-app/project-structure-interface-dll.PNG</source>
+          <target state="new">./media/service-fabric-node-and-reliable-actors-app/project-structure-interface-dll.PNG</target>
+        </trans-unit>
+        <trans-unit id="faef1061-6aba-40cd-9d35-c1cf8911b97f" xml:space="preserve">
+          <source>./media/service-fabric-node-and-reliable-actors-app/project-structure-config.PNG</source>
+          <target state="new">./media/service-fabric-node-and-reliable-actors-app/project-structure-config.PNG</target>
+        </trans-unit>
+        <trans-unit id="7364febf-8176-4cc7-87d9-f4b48edbf71f" xml:space="preserve">
+          <source>./media/service-fabric-node-and-reliable-actors-app/nodejs-project-structure1.PNG</source>
+          <target state="new">./media/service-fabric-node-and-reliable-actors-app/nodejs-project-structure1.PNG</target>
+        </trans-unit>
+        <trans-unit id="8d0c6144-58f2-4120-b8eb-706b9020b86b" xml:space="preserve">
+          <source>./media/service-fabric-node-and-reliable-actors-app/application-project-reference.PNG</source>
+          <target state="new">./media/service-fabric-node-and-reliable-actors-app/application-project-reference.PNG</target>
+        </trans-unit>
+        <trans-unit id="cb27e3d0-e279-4508-bfda-5e16e30eaf6e" xml:space="preserve">
+          <source>./media/service-fabric-node-and-reliable-actors-app/solution-deploy.PNG</source>
+          <target state="new">./media/service-fabric-node-and-reliable-actors-app/solution-deploy.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="ec9938a1-595d-4e36-81f9-afbacd370e08" />
+    </body>
+  </file>
+</xliff>

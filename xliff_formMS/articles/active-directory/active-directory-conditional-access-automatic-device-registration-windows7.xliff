@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4051dbfe-39e2-4e6c-b012-9ec8399dd55a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4051dbfe-39e2-4e6c-b012-9ec8399dd55a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2a443855-dadc-4560-965e-b8037a137b7b">
+        <trans-unit id="25fd80be-7b53-49b9-a1dc-211135b13c9a" xml:space="preserve">
+          <source># Configure automatic device registration for Windows 7 domain joined devices| Microsoft Azure</source>
+          <target state="new"># Configure automatic device registration for Windows 7 domain joined devices| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d94c5028-c441-4e1c-bf15-c011a05ad0bb" xml:space="preserve">
+          <source>Steps to configure your Windows 7 domain joined devices to automatically register with Azure AD. and steps to deploy the device registration software package to your Windows 7 domain joined devices using a software distribution system such as System Center Configuration Manager.</source>
+          <target state="new">Steps to configure your Windows 7 domain joined devices to automatically register with Azure AD. and steps to deploy the device registration software package to your Windows 7 domain joined devices using a software distribution system such as System Center Configuration Manager.</target>
+        </trans-unit>
+        <trans-unit id="dca6416c-c161-48d3-b101-f0c25afd1dff" xml:space="preserve">
+          <source>As an IT admin, you can configure your Windows 7 domain joined devices to automatically register with Azure AD.</source>
+          <target state="new">As an IT admin, you can configure your Windows 7 domain joined devices to automatically register with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="dc83dede-9dcd-437a-a15b-a84aacb12033" xml:space="preserve">
+          <source>To do so, you must deploy the device registration software package to your Windows 7 domain joined devices using a software distribution system such as System Center Configuration Manager.</source>
+          <target state="new">To do so, you must deploy the device registration software package to your Windows 7 domain joined devices using a software distribution system such as System Center Configuration Manager.</target>
+        </trans-unit>
+        <trans-unit id="df7e702d-224e-4b71-8a91-e5979c3bcb67" xml:space="preserve">
+          <source>Be sure to read through and complete the prerequisites listed in Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices.</source>
+          <target state="new">Be sure to read through and complete the prerequisites listed in Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices.</target>
+        </trans-unit>
+        <trans-unit id="d739747c-54c0-4bf5-91c8-3718b595214c" xml:space="preserve">
+          <source>Device registration for Windows 7 is available as a downloadable MSI package.</source>
+          <target state="new">Device registration for Windows 7 is available as a downloadable MSI package.</target>
+        </trans-unit>
+        <trans-unit id="329c1a96-7d47-43e7-9b12-d297c5201f78" xml:space="preserve">
+          <source>The package must be installed on Windows 7 machines that are joined to an Active Directory Domain.</source>
+          <target state="new">The package must be installed on Windows 7 machines that are joined to an Active Directory Domain.</target>
+        </trans-unit>
+        <trans-unit id="650a53a7-2bf9-4688-9039-d761fd229521" xml:space="preserve">
+          <source>You should deploy the package using a software distribution system such as System Center Configuration Manager.</source>
+          <target state="new">You should deploy the package using a software distribution system such as System Center Configuration Manager.</target>
+        </trans-unit>
+        <trans-unit id="ae07eceb-5f2c-4526-950c-8c3105913727" xml:space="preserve">
+          <source>The MSI package supports the standard silent install options using the /quiet parameter.</source>
+          <target state="new">The MSI package supports the standard silent install options using the /quiet parameter.</target>
+        </trans-unit>
+        <trans-unit id="3f2d8ae3-4c9e-487a-a84d-e329ae75de00" xml:space="preserve">
+          <source>The software package is available for download at the Microsoft Connect website.</source>
+          <target state="new">The software package is available for download at the Microsoft Connect website.</target>
+        </trans-unit>
+        <trans-unit id="0985e01b-e927-4dce-8010-b4218ffd5770" xml:space="preserve">
+          <source>Here you can select and then download Workplace Join for Windows 7.</source>
+          <target state="new">Here you can select and then download Workplace Join for Windows 7.</target>
+        </trans-unit>
+        <trans-unit id="9b5dc125-3b92-4c2e-a2d8-d4fa318481ef" xml:space="preserve">
+          <source><bpt id="33c9edb2-9f65-4bc8-a635-59bdf1e5b0e2">&lt;linkText&gt;</bpt><ept id="33c9edb2-9f65-4bc8-a635-59bdf1e5b0e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33c9edb2-9f65-4bc8-a635-59bdf1e5b0e2">&lt;linkText&gt;</bpt><ept id="33c9edb2-9f65-4bc8-a635-59bdf1e5b0e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df41510c-e0f4-44e7-b947-a1ab756cac70" xml:space="preserve">
+          <source>Device registration for Windows 7 domain joined devices does not require or include a user interface.</source>
+          <target state="new">Device registration for Windows 7 domain joined devices does not require or include a user interface.</target>
+        </trans-unit>
+        <trans-unit id="3ebf5a8d-e24a-4d68-b578-19df453e0115" xml:space="preserve">
+          <source>Once installed on the machine, any domain user that logs into the machine will be automatically and silently registered with a device object in Azure AD.</source>
+          <target state="new">Once installed on the machine, any domain user that logs into the machine will be automatically and silently registered with a device object in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="3d99e3ea-4297-49dc-a9c6-5a4dc18d66e7" xml:space="preserve">
+          <source>There will be one device object in Azure AD for every registered user of the physical device.</source>
+          <target state="new">There will be one device object in Azure AD for every registered user of the physical device.</target>
+        </trans-unit>
+        <trans-unit id="a9aa3cf9-b9f3-402d-961e-7d4c33330f34" xml:space="preserve">
+          <source>The installer creates a Scheduled Task on the system that runs in the user’s context and is triggered on user sign-in.</source>
+          <target state="new">The installer creates a Scheduled Task on the system that runs in the user’s context and is triggered on user sign-in.</target>
+        </trans-unit>
+        <trans-unit id="f9bfa029-c07d-420c-9497-1a0b528dc511" xml:space="preserve">
+          <source>The task silently registers the user and device with Azure AD after the user signs-in is complete.</source>
+          <target state="new">The task silently registers the user and device with Azure AD after the user signs-in is complete.</target>
+        </trans-unit>
+        <trans-unit id="1bd353fb-dfab-4319-8618-89bf80ff9342" xml:space="preserve">
+          <source>The Scheduled Task can be found in the Task Scheduler Library under <bpt id="f0525322-1deb-447e-b76f-1e10eca65519">&lt;strong&gt;</bpt>Microsoft<ept id="f0525322-1deb-447e-b76f-1e10eca65519">&lt;/strong&gt;</ept> &gt; <bpt id="d42c2efa-ecd7-439d-934e-cbc6bb6e5ff9">&lt;strong&gt;</bpt>Workplace Join<ept id="d42c2efa-ecd7-439d-934e-cbc6bb6e5ff9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The Scheduled Task can be found in the Task Scheduler Library under <bpt id="f0525322-1deb-447e-b76f-1e10eca65519">&lt;strong&gt;</bpt>Microsoft<ept id="f0525322-1deb-447e-b76f-1e10eca65519">&lt;/strong&gt;</ept> &gt; <bpt id="d42c2efa-ecd7-439d-934e-cbc6bb6e5ff9">&lt;strong&gt;</bpt>Workplace Join<ept id="d42c2efa-ecd7-439d-934e-cbc6bb6e5ff9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd063d46-e96f-45f6-8071-a43c1558b820" xml:space="preserve">
+          <source>The task will run and register any and all Active Directory users that sign-in to the machine.</source>
+          <target state="new">The task will run and register any and all Active Directory users that sign-in to the machine.</target>
+        </trans-unit>
+        <trans-unit id="0882d995-b21b-4161-9b6d-4fd77633ab2d" xml:space="preserve">
+          <source>The following illustration lists the step-by-step process for automatic device registration.</source>
+          <target state="new">The following illustration lists the step-by-step process for automatic device registration.</target>
+        </trans-unit>
+        <trans-unit id="d42d0c96-7fcb-4af1-bb07-400f574326ca" xml:space="preserve">
+          <source><bpt id="63a04425-45ba-4f10-8450-1094411822c0">&lt;linkText&gt;</bpt><ept id="63a04425-45ba-4f10-8450-1094411822c0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="63a04425-45ba-4f10-8450-1094411822c0">&lt;linkText&gt;</bpt><ept id="63a04425-45ba-4f10-8450-1094411822c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9750ea46-7c1c-4dde-bf8f-403e58f1ad21" xml:space="preserve">
+          <source>A user (information worker) logs on to a Windows 7 client computer using Active Directory domain credentials.</source>
+          <target state="new">A user (information worker) logs on to a Windows 7 client computer using Active Directory domain credentials.</target>
+        </trans-unit>
+        <trans-unit id="df6ee718-98b6-49be-a682-c2c19c28c73d" xml:space="preserve">
+          <source>The Workplace Join scheduled task is executed.</source>
+          <target state="new">The Workplace Join scheduled task is executed.</target>
+        </trans-unit>
+        <trans-unit id="fffdef45-f98e-4a34-86e5-f8986ace2399" xml:space="preserve">
+          <source>The user is silently authenticated with AD FS using Windows Integrated Authentication.</source>
+          <target state="new">The user is silently authenticated with AD FS using Windows Integrated Authentication.</target>
+        </trans-unit>
+        <trans-unit id="7f6d54b7-1ece-4a2b-ad73-85837361014e" xml:space="preserve">
+          <source>The Windows 7 PC is registered to the user in Azure AD.</source>
+          <target state="new">The Windows 7 PC is registered to the user in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="072a4f66-c532-4d32-9d66-6f4a9a7c767f" xml:space="preserve">
+          <source>A device object and certificate is created in Azure AD.</source>
+          <target state="new">A device object and certificate is created in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="b970cace-7388-4405-9d1b-c0dc1637c6b0" xml:space="preserve">
+          <source>The object represents the user@device.</source>
+          <target state="new">The object represents the user@device.</target>
+        </trans-unit>
+        <trans-unit id="b807ab3c-0b08-4f37-83b0-624fa351771e" xml:space="preserve">
+          <source>The Workplace Join certificate is stored on the machine.</source>
+          <target state="new">The Workplace Join certificate is stored on the machine.</target>
+        </trans-unit>
+        <trans-unit id="ef3992c5-00ce-4b27-8f39-7d45c4961bc8" xml:space="preserve">
+          <source>You may choose unregister your domain joined Windows 7 devices by doing the following:
+Uninstall the Workplace Join software package from your Windows 7 domain joined devices using a software distribution system such as System Center Configuration Manager.</source>
+          <target state="new">You may choose unregister your domain joined Windows 7 devices by doing the following:
+Uninstall the Workplace Join software package from your Windows 7 domain joined devices using a software distribution system such as System Center Configuration Manager.</target>
+        </trans-unit>
+        <trans-unit id="de9dc5f6-e5e1-4875-bf34-097b3bfdc4d0" xml:space="preserve">
+          <source>Then, open a command prompt on the Windows 7 machine and execute the following command to unregister the device:</source>
+          <target state="new">Then, open a command prompt on the Windows 7 machine and execute the following command to unregister the device:</target>
+        </trans-unit>
+        <trans-unit id="a670ffa6-2752-4613-96c0-316f12ae7c83" xml:space="preserve">
+          <source>This command must be run in the context of each domain user that has signed into the machine.</source>
+          <target state="new">This command must be run in the context of each domain user that has signed into the machine.</target>
+        </trans-unit>
+        <trans-unit id="443c8dc8-2b5d-4278-8323-613d139010d8" xml:space="preserve">
+          <source>Event Viewer and Errors for Windows 7 domain joined devices.</source>
+          <target state="new">Event Viewer and Errors for Windows 7 domain joined devices.</target>
+        </trans-unit>
+        <trans-unit id="3f86eee7-285e-4d25-8577-e2d26a44ef52" xml:space="preserve">
+          <source>The Windows Event Log on the Windows 7 machine will display messages related to Workplace Join.</source>
+          <target state="new">The Windows Event Log on the Windows 7 machine will display messages related to Workplace Join.</target>
+        </trans-unit>
+        <trans-unit id="f282da57-3a8b-49a2-9eaf-9a5cde941234" xml:space="preserve">
+          <source>You can find messages for both successful and unsuccessful Workplace Join events.</source>
+          <target state="new">You can find messages for both successful and unsuccessful Workplace Join events.</target>
+        </trans-unit>
+        <trans-unit id="b70fa847-6cc1-451e-abc2-1d791a57d491" xml:space="preserve">
+          <source>The Event Log can be found in the Event Viewer under Applications and Services Logs&gt; Microsoft-Workplace Join.</source>
+          <target state="new">The Event Log can be found in the Event Viewer under Applications and Services Logs&gt; Microsoft-Workplace Join.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

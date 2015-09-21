@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fe76a9b9-f68b-4058-99ba-cb19199062fc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fe76a9b9-f68b-4058-99ba-cb19199062fc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="38f18aa1-e109-48ac-acdc-e92660505b27">
+        <trans-unit id="db079604-4e22-4d54-be01-ba7cda11eed5" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with LogicMonitor | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with LogicMonitor | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d6797a3c-d086-4654-b6fe-b7355d09dd12" xml:space="preserve">
+          <source>Learn how to use LogicMonitor with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use LogicMonitor with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="e25ae024-4a46-4f0f-91eb-0a49973ce1db" xml:space="preserve">
+          <source>For feedback, click <bpt id="3f6a755e-9544-47e9-9a29-bff2b5856fc0">&lt;linkText&gt;</bpt>here<ept id="3f6a755e-9544-47e9-9a29-bff2b5856fc0">&lt;/linkText&gt;</ept><bpt id="3f6a755e-9544-47e9-9a29-bff2b5856fc0">&lt;title&gt;</bpt><ept id="3f6a755e-9544-47e9-9a29-bff2b5856fc0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="3f6a755e-9544-47e9-9a29-bff2b5856fc0">&lt;linkText&gt;</bpt>here<ept id="3f6a755e-9544-47e9-9a29-bff2b5856fc0">&lt;/linkText&gt;</ept><bpt id="3f6a755e-9544-47e9-9a29-bff2b5856fc0">&lt;title&gt;</bpt><ept id="3f6a755e-9544-47e9-9a29-bff2b5856fc0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3529d8c2-6847-4961-bcea-7026389ca245" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and LogicMonitor.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and LogicMonitor.</target>
+        </trans-unit>
+        <trans-unit id="f51a9aad-6b69-4a35-8fc9-d7c98637fb99" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="0e989506-cb9d-422b-b2b1-e1a5e7ed1612" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="dc37e65e-907f-449e-9249-c3b935dc78e8" xml:space="preserve">
+          <source>A LogicMonitor tenant</source>
+          <target state="new">A LogicMonitor tenant</target>
+        </trans-unit>
+        <trans-unit id="11e1cf9f-8695-4679-906a-ff10bfe26c4c" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="cf62b085-3cc2-4aab-95de-166ff8627a53" xml:space="preserve">
+          <source>Enabling the application integration for LogicMonitor</source>
+          <target state="new">Enabling the application integration for LogicMonitor</target>
+        </trans-unit>
+        <trans-unit id="d1458dc0-0c32-4ac2-a4f1-6e1e365889ab" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="8818732a-ac33-4e86-bd33-87a56e1f1836" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="889b7d00-cfb5-4242-8e24-66439e0a0ca3" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="d93da47b-81fa-4b06-8dc9-1daa80f5b80e" xml:space="preserve">
+          <source><bpt id="f23b3098-c060-4f39-aace-04fbe2ed4afb">&lt;linkText&gt;</bpt>Scenario<ept id="f23b3098-c060-4f39-aace-04fbe2ed4afb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f23b3098-c060-4f39-aace-04fbe2ed4afb">&lt;linkText&gt;</bpt>Scenario<ept id="f23b3098-c060-4f39-aace-04fbe2ed4afb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6b69717-dc31-49f9-b1e5-44b050c37ae3" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for LogicMonitor.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for LogicMonitor.</target>
+        </trans-unit>
+        <trans-unit id="6d6ee438-038c-4d60-ad85-2a8d4e2ed69a" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="5e3f642c-3ec8-4a8c-8cf0-fed43ff0b6e0">&lt;strong&gt;</bpt>Active Directory<ept id="5e3f642c-3ec8-4a8c-8cf0-fed43ff0b6e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="5e3f642c-3ec8-4a8c-8cf0-fed43ff0b6e0">&lt;strong&gt;</bpt>Active Directory<ept id="5e3f642c-3ec8-4a8c-8cf0-fed43ff0b6e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b587d30d-e516-48eb-ae54-c8c9a97d4011" xml:space="preserve">
+          <source><bpt id="8ab8cfd7-90b9-4928-9dbf-b47896199d70">&lt;linkText&gt;</bpt>Active Directory<ept id="8ab8cfd7-90b9-4928-9dbf-b47896199d70">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8ab8cfd7-90b9-4928-9dbf-b47896199d70">&lt;linkText&gt;</bpt>Active Directory<ept id="8ab8cfd7-90b9-4928-9dbf-b47896199d70">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6eb6b9b9-4f8e-4906-90de-f68b4e7a1085" xml:space="preserve">
+          <source>From the <bpt id="44b69914-08d6-4d16-b7cf-c026c2bede42">&lt;strong&gt;</bpt>Directory<ept id="44b69914-08d6-4d16-b7cf-c026c2bede42">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="44b69914-08d6-4d16-b7cf-c026c2bede42">&lt;strong&gt;</bpt>Directory<ept id="44b69914-08d6-4d16-b7cf-c026c2bede42">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="c078cfc1-fe64-46ff-8d7f-168d84105fce" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="1e28e390-5957-4c9b-9fd7-b516a3914814">&lt;strong&gt;</bpt>Applications<ept id="1e28e390-5957-4c9b-9fd7-b516a3914814">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="1e28e390-5957-4c9b-9fd7-b516a3914814">&lt;strong&gt;</bpt>Applications<ept id="1e28e390-5957-4c9b-9fd7-b516a3914814">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="86679457-339b-430b-bfb6-2ac7a39f7a3f" xml:space="preserve">
+          <source><bpt id="7f89f30a-4599-49f7-b150-e9e95b4d9bf6">&lt;linkText&gt;</bpt>Applications<ept id="7f89f30a-4599-49f7-b150-e9e95b4d9bf6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f89f30a-4599-49f7-b150-e9e95b4d9bf6">&lt;linkText&gt;</bpt>Applications<ept id="7f89f30a-4599-49f7-b150-e9e95b4d9bf6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82812560-41f9-48f4-a27a-704fb68f500e" xml:space="preserve">
+          <source>Click <bpt id="c93250c8-6593-44dc-84ba-580e5b07811f">&lt;strong&gt;</bpt>Add<ept id="c93250c8-6593-44dc-84ba-580e5b07811f">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="c93250c8-6593-44dc-84ba-580e5b07811f">&lt;strong&gt;</bpt>Add<ept id="c93250c8-6593-44dc-84ba-580e5b07811f">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="094edeff-444c-431d-bc93-16a0864e11b5" xml:space="preserve">
+          <source><bpt id="b7ad32bf-47cd-4333-8844-e41267dd72a9">&lt;linkText&gt;</bpt>Add application<ept id="b7ad32bf-47cd-4333-8844-e41267dd72a9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7ad32bf-47cd-4333-8844-e41267dd72a9">&lt;linkText&gt;</bpt>Add application<ept id="b7ad32bf-47cd-4333-8844-e41267dd72a9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="273ff5fb-7d45-4e19-9142-2ea7350d7c1b" xml:space="preserve">
+          <source>On the <bpt id="3fe611a6-7e25-418f-a897-6eb323d81efa">&lt;strong&gt;</bpt>What do you want to do<ept id="3fe611a6-7e25-418f-a897-6eb323d81efa">&lt;/strong&gt;</ept> dialog, click <bpt id="35dce155-46a1-4759-b5fb-c0a1fdc0936c">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="35dce155-46a1-4759-b5fb-c0a1fdc0936c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="3fe611a6-7e25-418f-a897-6eb323d81efa">&lt;strong&gt;</bpt>What do you want to do<ept id="3fe611a6-7e25-418f-a897-6eb323d81efa">&lt;/strong&gt;</ept> dialog, click <bpt id="35dce155-46a1-4759-b5fb-c0a1fdc0936c">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="35dce155-46a1-4759-b5fb-c0a1fdc0936c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="350e4a82-de87-4dce-88d5-95b78fcd4c18" xml:space="preserve">
+          <source><bpt id="44f08d55-6806-4a61-89b9-98fb2836b92a">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="44f08d55-6806-4a61-89b9-98fb2836b92a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="44f08d55-6806-4a61-89b9-98fb2836b92a">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="44f08d55-6806-4a61-89b9-98fb2836b92a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93be08e1-c9ac-48ae-926b-3d4a4b629085" xml:space="preserve">
+          <source>In the <bpt id="68bdfc79-ca01-4dd6-8860-f9cb3f649d6d">&lt;strong&gt;</bpt>search box<ept id="68bdfc79-ca01-4dd6-8860-f9cb3f649d6d">&lt;/strong&gt;</ept>, type <bpt id="945ea062-a6d2-4abc-b6ce-94d55b9b14a5">&lt;strong&gt;</bpt>logicmonitor<ept id="945ea062-a6d2-4abc-b6ce-94d55b9b14a5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="68bdfc79-ca01-4dd6-8860-f9cb3f649d6d">&lt;strong&gt;</bpt>search box<ept id="68bdfc79-ca01-4dd6-8860-f9cb3f649d6d">&lt;/strong&gt;</ept>, type <bpt id="945ea062-a6d2-4abc-b6ce-94d55b9b14a5">&lt;strong&gt;</bpt>logicmonitor<ept id="945ea062-a6d2-4abc-b6ce-94d55b9b14a5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd5b8f96-5f5d-41f4-8210-87e269bd1fc3" xml:space="preserve">
+          <source><bpt id="4b5d1f44-eac0-41a3-a179-a2cfcfdc1faf">&lt;linkText&gt;</bpt>Application Gallery<ept id="4b5d1f44-eac0-41a3-a179-a2cfcfdc1faf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b5d1f44-eac0-41a3-a179-a2cfcfdc1faf">&lt;linkText&gt;</bpt>Application Gallery<ept id="4b5d1f44-eac0-41a3-a179-a2cfcfdc1faf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2ffe442-d13f-4cb2-b426-9138f405a019" xml:space="preserve">
+          <source>In the results pane, select <bpt id="eea88670-e746-4d1d-9789-e5c7e367b06f">&lt;strong&gt;</bpt>LogicMonitor<ept id="eea88670-e746-4d1d-9789-e5c7e367b06f">&lt;/strong&gt;</ept>, and then click <bpt id="2e35c235-12aa-4301-89bd-944a57626bde">&lt;strong&gt;</bpt>Complete<ept id="2e35c235-12aa-4301-89bd-944a57626bde">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="eea88670-e746-4d1d-9789-e5c7e367b06f">&lt;strong&gt;</bpt>LogicMonitor<ept id="eea88670-e746-4d1d-9789-e5c7e367b06f">&lt;/strong&gt;</ept>, and then click <bpt id="2e35c235-12aa-4301-89bd-944a57626bde">&lt;strong&gt;</bpt>Complete<ept id="2e35c235-12aa-4301-89bd-944a57626bde">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="db761d9e-3332-486e-b97e-85aa9cdb82d1" xml:space="preserve">
+          <source><bpt id="bc22b677-0b91-4306-8ec3-0eea8eda8e27">&lt;linkText&gt;</bpt>LogicMonitor<ept id="bc22b677-0b91-4306-8ec3-0eea8eda8e27">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bc22b677-0b91-4306-8ec3-0eea8eda8e27">&lt;linkText&gt;</bpt>LogicMonitor<ept id="bc22b677-0b91-4306-8ec3-0eea8eda8e27">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2fa2da2-a0f0-4c55-a6ed-2208fbdc6975" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to LogicMonitor with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to LogicMonitor with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="fdd8d15f-3175-4ac8-ac72-64af819c5bd6" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="4f2a7161-7b4e-4369-a8b1-656426f059c9">&lt;strong&gt;</bpt>LogicMonitor **application integration page, click **Configure single sign-on<ept id="4f2a7161-7b4e-4369-a8b1-656426f059c9">&lt;/strong&gt;</ept> to open the <bpt id="a156ef5f-0bed-46ea-803f-2e07f28be02c">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="a156ef5f-0bed-46ea-803f-2e07f28be02c">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="4f2a7161-7b4e-4369-a8b1-656426f059c9">&lt;strong&gt;</bpt>LogicMonitor **application integration page, click **Configure single sign-on<ept id="4f2a7161-7b4e-4369-a8b1-656426f059c9">&lt;/strong&gt;</ept> to open the <bpt id="a156ef5f-0bed-46ea-803f-2e07f28be02c">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="a156ef5f-0bed-46ea-803f-2e07f28be02c">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="df9f127f-b4a2-481a-9d9d-84c103e5b710" xml:space="preserve">
+          <source><bpt id="df409832-e40e-4271-9a09-00cb53d7fd59">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="df409832-e40e-4271-9a09-00cb53d7fd59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df409832-e40e-4271-9a09-00cb53d7fd59">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="df409832-e40e-4271-9a09-00cb53d7fd59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd535869-76ef-4bb7-9db5-93ea0ff3d5cd" xml:space="preserve">
+          <source>On the <bpt id="6924bb16-2e3d-4d23-87dc-43a602e537a9">&lt;strong&gt;</bpt>How would you like users to sign on to LogicMonitor<ept id="6924bb16-2e3d-4d23-87dc-43a602e537a9">&lt;/strong&gt;</ept> page, select <bpt id="0cce95ba-ada4-4a9e-80b7-8b013ff708b4">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0cce95ba-ada4-4a9e-80b7-8b013ff708b4">&lt;/strong&gt;</ept>, and then click <bpt id="0a5485f4-b8dc-4d55-b1ee-f26a8889f064">&lt;strong&gt;</bpt>Next<ept id="0a5485f4-b8dc-4d55-b1ee-f26a8889f064">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6924bb16-2e3d-4d23-87dc-43a602e537a9">&lt;strong&gt;</bpt>How would you like users to sign on to LogicMonitor<ept id="6924bb16-2e3d-4d23-87dc-43a602e537a9">&lt;/strong&gt;</ept> page, select <bpt id="0cce95ba-ada4-4a9e-80b7-8b013ff708b4">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0cce95ba-ada4-4a9e-80b7-8b013ff708b4">&lt;/strong&gt;</ept>, and then click <bpt id="0a5485f4-b8dc-4d55-b1ee-f26a8889f064">&lt;strong&gt;</bpt>Next<ept id="0a5485f4-b8dc-4d55-b1ee-f26a8889f064">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2021af73-2301-45c3-aa20-d8bdd29b6ec8" xml:space="preserve">
+          <source><bpt id="16f6899d-6138-4b5f-a615-82e8ddd1d6f8">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="16f6899d-6138-4b5f-a615-82e8ddd1d6f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16f6899d-6138-4b5f-a615-82e8ddd1d6f8">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="16f6899d-6138-4b5f-a615-82e8ddd1d6f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd3bc7ee-5b42-4c8a-9ec8-9b838bb26540" xml:space="preserve">
+          <source>On the <bpt id="83133ced-4aa3-4e9e-a0ce-74bc173aed91">&lt;strong&gt;</bpt>Configure App URL<ept id="83133ced-4aa3-4e9e-a0ce-74bc173aed91">&lt;/strong&gt;</ept> page, in the <bpt id="203a753d-b107-4c68-b1e5-ee79293acc0f">&lt;strong&gt;</bpt>Sign On URL<ept id="203a753d-b107-4c68-b1e5-ee79293acc0f">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign on to LogicMonitor \(e,g,: "<bpt id="5ad4a8df-667d-49be-9b3f-7f64b11c00d5">&lt;em&gt;</bpt>http://company.logicmonitor.com<ept id="5ad4a8df-667d-49be-9b3f-7f64b11c00d5">&lt;/em&gt;</ept>"\), and then click <bpt id="9566affc-9501-48b6-b274-5c288a0782c4">&lt;strong&gt;</bpt>Next<ept id="9566affc-9501-48b6-b274-5c288a0782c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="83133ced-4aa3-4e9e-a0ce-74bc173aed91">&lt;strong&gt;</bpt>Configure App URL<ept id="83133ced-4aa3-4e9e-a0ce-74bc173aed91">&lt;/strong&gt;</ept> page, in the <bpt id="203a753d-b107-4c68-b1e5-ee79293acc0f">&lt;strong&gt;</bpt>Sign On URL<ept id="203a753d-b107-4c68-b1e5-ee79293acc0f">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign on to LogicMonitor \(e,g,: "<bpt id="5ad4a8df-667d-49be-9b3f-7f64b11c00d5">&lt;em&gt;</bpt>http://company.logicmonitor.com<ept id="5ad4a8df-667d-49be-9b3f-7f64b11c00d5">&lt;/em&gt;</ept>"\), and then click <bpt id="9566affc-9501-48b6-b274-5c288a0782c4">&lt;strong&gt;</bpt>Next<ept id="9566affc-9501-48b6-b274-5c288a0782c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1d5b1bc-cf18-4ae8-9ef2-8005bac977c5" xml:space="preserve">
+          <source><bpt id="11313e3b-e0e5-4997-a675-f1695a25a849">&lt;linkText&gt;</bpt>Configure App URL<ept id="11313e3b-e0e5-4997-a675-f1695a25a849">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="11313e3b-e0e5-4997-a675-f1695a25a849">&lt;linkText&gt;</bpt>Configure App URL<ept id="11313e3b-e0e5-4997-a675-f1695a25a849">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11776d81-e3d3-4142-9b64-2959242324c2" xml:space="preserve">
+          <source>On the <bpt id="63aa637d-52e5-4a27-a00a-722411817656">&lt;strong&gt;</bpt>Configure single sign-on at LogicMonitor<ept id="63aa637d-52e5-4a27-a00a-722411817656">&lt;/strong&gt;</ept> page, click <bpt id="e96dac31-b182-42b8-b65e-d555d21c37c1">&lt;strong&gt;</bpt>Download metadata<ept id="e96dac31-b182-42b8-b65e-d555d21c37c1">&lt;/strong&gt;</ept>, and then save it on your computer.</source>
+          <target state="new">On the <bpt id="63aa637d-52e5-4a27-a00a-722411817656">&lt;strong&gt;</bpt>Configure single sign-on at LogicMonitor<ept id="63aa637d-52e5-4a27-a00a-722411817656">&lt;/strong&gt;</ept> page, click <bpt id="e96dac31-b182-42b8-b65e-d555d21c37c1">&lt;strong&gt;</bpt>Download metadata<ept id="e96dac31-b182-42b8-b65e-d555d21c37c1">&lt;/strong&gt;</ept>, and then save it on your computer.</target>
+        </trans-unit>
+        <trans-unit id="b02a25fa-9569-49d3-8aa6-3b577a59b078" xml:space="preserve">
+          <source><bpt id="66eaf07a-75b3-415f-8a07-e44fb199f4f7">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="66eaf07a-75b3-415f-8a07-e44fb199f4f7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="66eaf07a-75b3-415f-8a07-e44fb199f4f7">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="66eaf07a-75b3-415f-8a07-e44fb199f4f7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac40e44b-edc8-4f1f-a147-9bf5a4a19501" xml:space="preserve">
+          <source>Log in to your <bpt id="de5923c9-bfa7-4190-992c-dee04da0442d">&lt;strong&gt;</bpt>LogicMonitor<ept id="de5923c9-bfa7-4190-992c-dee04da0442d">&lt;/strong&gt;</ept> company site as an administrator.</source>
+          <target state="new">Log in to your <bpt id="de5923c9-bfa7-4190-992c-dee04da0442d">&lt;strong&gt;</bpt>LogicMonitor<ept id="de5923c9-bfa7-4190-992c-dee04da0442d">&lt;/strong&gt;</ept> company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="cdc3f8f1-1a03-463c-b8a8-12f4354f56ac" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="cd2dd0f9-1b9c-4ad0-8a0a-ec58bc17f635">&lt;strong&gt;</bpt>Settings<ept id="cd2dd0f9-1b9c-4ad0-8a0a-ec58bc17f635">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="cd2dd0f9-1b9c-4ad0-8a0a-ec58bc17f635">&lt;strong&gt;</bpt>Settings<ept id="cd2dd0f9-1b9c-4ad0-8a0a-ec58bc17f635">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b709c0b2-bf69-431a-baca-12d926d32460" xml:space="preserve">
+          <source><bpt id="1731b0d7-8d92-49c0-8d5d-ae2acb8d2610">&lt;linkText&gt;</bpt>Settings<ept id="1731b0d7-8d92-49c0-8d5d-ae2acb8d2610">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1731b0d7-8d92-49c0-8d5d-ae2acb8d2610">&lt;linkText&gt;</bpt>Settings<ept id="1731b0d7-8d92-49c0-8d5d-ae2acb8d2610">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4644ff84-7c09-41bb-a5f2-8b0ede3f46e9" xml:space="preserve">
+          <source>In the navigation bat on the left side, click <bpt id="1e8da4ab-13b0-45e4-8491-3a24a3f3d6db">&lt;strong&gt;</bpt>Single Sign On<ept id="1e8da4ab-13b0-45e4-8491-3a24a3f3d6db">&lt;/strong&gt;</ept></source>
+          <target state="new">In the navigation bat on the left side, click <bpt id="1e8da4ab-13b0-45e4-8491-3a24a3f3d6db">&lt;strong&gt;</bpt>Single Sign On<ept id="1e8da4ab-13b0-45e4-8491-3a24a3f3d6db">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10922e06-532c-442e-8655-846fcba52b0e" xml:space="preserve">
+          <source><bpt id="927ff150-d8f0-4a30-8c14-b6fda242b6cc">&lt;linkText&gt;</bpt>Single Sign-On<ept id="927ff150-d8f0-4a30-8c14-b6fda242b6cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="927ff150-d8f0-4a30-8c14-b6fda242b6cc">&lt;linkText&gt;</bpt>Single Sign-On<ept id="927ff150-d8f0-4a30-8c14-b6fda242b6cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0700ca64-e6e9-4142-8fc0-0a99e7d9ab02" xml:space="preserve">
+          <source>In the <bpt id="3d4fc3af-ab3b-4950-abcc-886bbef7dc51">&lt;strong&gt;</bpt>Single Sign-on (SSO) settings<ept id="3d4fc3af-ab3b-4950-abcc-886bbef7dc51">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="3d4fc3af-ab3b-4950-abcc-886bbef7dc51">&lt;strong&gt;</bpt>Single Sign-on (SSO) settings<ept id="3d4fc3af-ab3b-4950-abcc-886bbef7dc51">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="70bc4dc1-0f17-4f87-a5cb-1275f4325103" xml:space="preserve">
+          <source><bpt id="097cc7e6-37a5-49ee-b19c-ec2cfcbe78d2">&lt;linkText&gt;</bpt>Single Sign-On Settings<ept id="097cc7e6-37a5-49ee-b19c-ec2cfcbe78d2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="097cc7e6-37a5-49ee-b19c-ec2cfcbe78d2">&lt;linkText&gt;</bpt>Single Sign-On Settings<ept id="097cc7e6-37a5-49ee-b19c-ec2cfcbe78d2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bab1b97d-7868-414c-9722-4a6fa359987c" xml:space="preserve">
+          <source>Select <bpt id="9bf5a611-780f-4d27-9383-95ac113164cc">&lt;strong&gt;</bpt>Enable Single Sign-on<ept id="9bf5a611-780f-4d27-9383-95ac113164cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="9bf5a611-780f-4d27-9383-95ac113164cc">&lt;strong&gt;</bpt>Enable Single Sign-on<ept id="9bf5a611-780f-4d27-9383-95ac113164cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0d216aa-30d5-4cb2-9a0a-5000d0051251" xml:space="preserve">
+          <source>As <bpt id="95e0aed0-ed57-4718-8c7a-629acfea1539">&lt;strong&gt;</bpt>Default Role Assignment<ept id="95e0aed0-ed57-4718-8c7a-629acfea1539">&lt;/strong&gt;</ept>, select <bpt id="5a1037f1-7b3c-4ed1-8fc9-63a4e365ca46">&lt;strong&gt;</bpt>readonly<ept id="5a1037f1-7b3c-4ed1-8fc9-63a4e365ca46">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="95e0aed0-ed57-4718-8c7a-629acfea1539">&lt;strong&gt;</bpt>Default Role Assignment<ept id="95e0aed0-ed57-4718-8c7a-629acfea1539">&lt;/strong&gt;</ept>, select <bpt id="5a1037f1-7b3c-4ed1-8fc9-63a4e365ca46">&lt;strong&gt;</bpt>readonly<ept id="5a1037f1-7b3c-4ed1-8fc9-63a4e365ca46">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63170e23-37e6-4a10-b44c-02c431b93cd2" xml:space="preserve">
+          <source>Open the downloaded metadata file in notepad, and then paste content of the file into the <bpt id="7450337f-d842-44af-ac80-9709c984547b">&lt;strong&gt;</bpt>Identity Provider Metadata<ept id="7450337f-d842-44af-ac80-9709c984547b">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Open the downloaded metadata file in notepad, and then paste content of the file into the <bpt id="7450337f-d842-44af-ac80-9709c984547b">&lt;strong&gt;</bpt>Identity Provider Metadata<ept id="7450337f-d842-44af-ac80-9709c984547b">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="af925cad-3b4b-48d5-8a02-2a0e330f4359" xml:space="preserve">
+          <source>Click <bpt id="9436063d-6be6-4d28-b775-203adfba0831">&lt;strong&gt;</bpt>Save Changes<ept id="9436063d-6be6-4d28-b775-203adfba0831">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9436063d-6be6-4d28-b775-203adfba0831">&lt;strong&gt;</bpt>Save Changes<ept id="9436063d-6be6-4d28-b775-203adfba0831">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb489fb4-aa5b-49f3-b556-d5c605a852d4" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="4282cfe1-82b5-4a2e-92cd-984cb64d3acc">&lt;strong&gt;</bpt>Complete<ept id="4282cfe1-82b5-4a2e-92cd-984cb64d3acc">&lt;/strong&gt;</ept> to close the <bpt id="427d3a90-543d-4db2-8c39-6212f1289f40">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="427d3a90-543d-4db2-8c39-6212f1289f40">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="4282cfe1-82b5-4a2e-92cd-984cb64d3acc">&lt;strong&gt;</bpt>Complete<ept id="4282cfe1-82b5-4a2e-92cd-984cb64d3acc">&lt;/strong&gt;</ept> to close the <bpt id="427d3a90-543d-4db2-8c39-6212f1289f40">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="427d3a90-543d-4db2-8c39-6212f1289f40">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="09ff42bd-5a6a-47ab-85fb-c498af0563b0" xml:space="preserve">
+          <source><bpt id="d8a24038-1801-4f82-b2b7-9b95d47c51e2">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="d8a24038-1801-4f82-b2b7-9b95d47c51e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d8a24038-1801-4f82-b2b7-9b95d47c51e2">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="d8a24038-1801-4f82-b2b7-9b95d47c51e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94a062cd-93df-45e2-9cbc-38dc74c60034" xml:space="preserve">
+          <source>For AAD users to be able to sign in, they must be provisioned to the LogicMonitor application using their Azure Active Directory user names.</source>
+          <target state="new">For AAD users to be able to sign in, they must be provisioned to the LogicMonitor application using their Azure Active Directory user names.</target>
+        </trans-unit>
+        <trans-unit id="4f089eb7-4e54-49ba-be6c-ae3936551f17" xml:space="preserve">
+          <source>Log in to your LogicMonitor company site as an administrator.</source>
+          <target state="new">Log in to your LogicMonitor company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="8b5cd36a-f897-4189-b8ea-edd80561ae59" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="a14757e3-ad72-4134-8bc3-cb2a70c6b219">&lt;strong&gt;</bpt>Settings<ept id="a14757e3-ad72-4134-8bc3-cb2a70c6b219">&lt;/strong&gt;</ept>, and then click <bpt id="78c77867-bfc1-4e01-8d83-046913e2e888">&lt;strong&gt;</bpt>Roles and Users<ept id="78c77867-bfc1-4e01-8d83-046913e2e888">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="a14757e3-ad72-4134-8bc3-cb2a70c6b219">&lt;strong&gt;</bpt>Settings<ept id="a14757e3-ad72-4134-8bc3-cb2a70c6b219">&lt;/strong&gt;</ept>, and then click <bpt id="78c77867-bfc1-4e01-8d83-046913e2e888">&lt;strong&gt;</bpt>Roles and Users<ept id="78c77867-bfc1-4e01-8d83-046913e2e888">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70ed590d-9b92-4bcb-ac09-c4cf18b23a35" xml:space="preserve">
+          <source><bpt id="07070ba9-9dae-464b-b9b7-0e206d5dd678">&lt;linkText&gt;</bpt>Roles and Users<ept id="07070ba9-9dae-464b-b9b7-0e206d5dd678">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="07070ba9-9dae-464b-b9b7-0e206d5dd678">&lt;linkText&gt;</bpt>Roles and Users<ept id="07070ba9-9dae-464b-b9b7-0e206d5dd678">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71635ffd-bb04-436b-85dd-e6f84057d6de" xml:space="preserve">
+          <source>Click <bpt id="fd180916-8774-41b0-acab-e096528c4517">&lt;strong&gt;</bpt>Add<ept id="fd180916-8774-41b0-acab-e096528c4517">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fd180916-8774-41b0-acab-e096528c4517">&lt;strong&gt;</bpt>Add<ept id="fd180916-8774-41b0-acab-e096528c4517">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4921da4-8c80-4848-af0f-d4b74c2d8b35" xml:space="preserve">
+          <source>In the <bpt id="1ef30b04-7b68-4665-9613-16b6b803ff54">&lt;strong&gt;</bpt>Add an account<ept id="1ef30b04-7b68-4665-9613-16b6b803ff54">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="1ef30b04-7b68-4665-9613-16b6b803ff54">&lt;strong&gt;</bpt>Add an account<ept id="1ef30b04-7b68-4665-9613-16b6b803ff54">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="6457f32a-135c-4e45-b851-432b08febd10" xml:space="preserve">
+          <source><bpt id="38eb07dd-7cb7-4022-b362-ade522323f90">&lt;linkText&gt;</bpt>Add an account<ept id="38eb07dd-7cb7-4022-b362-ade522323f90">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="38eb07dd-7cb7-4022-b362-ade522323f90">&lt;linkText&gt;</bpt>Add an account<ept id="38eb07dd-7cb7-4022-b362-ade522323f90">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a502fde-a635-47c1-9326-2e0597a85b3a" xml:space="preserve">
+          <source>Type the <bpt id="2f68fea5-bf34-4d05-b939-7f425340551e">&lt;strong&gt;</bpt>Username<ept id="2f68fea5-bf34-4d05-b939-7f425340551e">&lt;/strong&gt;</ept>, <bpt id="b0297df7-1aad-4fc8-8b1d-84584e195103">&lt;strong&gt;</bpt>Email<ept id="b0297df7-1aad-4fc8-8b1d-84584e195103">&lt;/strong&gt;</ept>, <bpt id="68a15b2f-a4f8-4944-afe6-34186cb90dd9">&lt;strong&gt;</bpt>Password<ept id="68a15b2f-a4f8-4944-afe6-34186cb90dd9">&lt;/strong&gt;</ept> and <bpt id="770d2151-3978-43e0-be96-d45a779e2c6f">&lt;strong&gt;</bpt>Retype password<ept id="770d2151-3978-43e0-be96-d45a779e2c6f">&lt;/strong&gt;</ept> values of the Azure Active Directory user you want to provision into the related textboxes.</source>
+          <target state="new">Type the <bpt id="2f68fea5-bf34-4d05-b939-7f425340551e">&lt;strong&gt;</bpt>Username<ept id="2f68fea5-bf34-4d05-b939-7f425340551e">&lt;/strong&gt;</ept>, <bpt id="b0297df7-1aad-4fc8-8b1d-84584e195103">&lt;strong&gt;</bpt>Email<ept id="b0297df7-1aad-4fc8-8b1d-84584e195103">&lt;/strong&gt;</ept>, <bpt id="68a15b2f-a4f8-4944-afe6-34186cb90dd9">&lt;strong&gt;</bpt>Password<ept id="68a15b2f-a4f8-4944-afe6-34186cb90dd9">&lt;/strong&gt;</ept> and <bpt id="770d2151-3978-43e0-be96-d45a779e2c6f">&lt;strong&gt;</bpt>Retype password<ept id="770d2151-3978-43e0-be96-d45a779e2c6f">&lt;/strong&gt;</ept> values of the Azure Active Directory user you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="084996df-ed14-4dab-bc2f-c4db6b2ab7fb" xml:space="preserve">
+          <source>Select <bpt id="4e5ef05b-4934-4f0f-abd1-a9a9c578dabe">&lt;strong&gt;</bpt>Roles<ept id="4e5ef05b-4934-4f0f-abd1-a9a9c578dabe">&lt;/strong&gt;</ept>, <bpt id="405c1be3-68f9-4fe2-a956-fdeeecbbe934">&lt;strong&gt;</bpt>View Permissions<ept id="405c1be3-68f9-4fe2-a956-fdeeecbbe934">&lt;/strong&gt;</ept> and the <bpt id="1f288955-0634-41e1-b0e2-bf40715908ef">&lt;strong&gt;</bpt>Status<ept id="1f288955-0634-41e1-b0e2-bf40715908ef">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="4e5ef05b-4934-4f0f-abd1-a9a9c578dabe">&lt;strong&gt;</bpt>Roles<ept id="4e5ef05b-4934-4f0f-abd1-a9a9c578dabe">&lt;/strong&gt;</ept>, <bpt id="405c1be3-68f9-4fe2-a956-fdeeecbbe934">&lt;strong&gt;</bpt>View Permissions<ept id="405c1be3-68f9-4fe2-a956-fdeeecbbe934">&lt;/strong&gt;</ept> and the <bpt id="1f288955-0634-41e1-b0e2-bf40715908ef">&lt;strong&gt;</bpt>Status<ept id="1f288955-0634-41e1-b0e2-bf40715908ef">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04ab7ab2-e91b-4673-9ca3-3104388ae528" xml:space="preserve">
+          <source>Click <bpt id="9f068478-5e51-4e33-a91b-128f55e12c53">&lt;strong&gt;</bpt>Submit<ept id="9f068478-5e51-4e33-a91b-128f55e12c53">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9f068478-5e51-4e33-a91b-128f55e12c53">&lt;strong&gt;</bpt>Submit<ept id="9f068478-5e51-4e33-a91b-128f55e12c53">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8696d906-6972-473f-9f09-0e13531f3ebe" xml:space="preserve">
+          <source>You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts.</source>
+          <target state="new">You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts.</target>
+        </trans-unit>
+        <trans-unit id="4a9223e9-5850-4754-8d45-7b4309b280c6" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="9a0ad2a4-c8ef-42a3-8fda-15fd5631d3a1" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="7908b45c-2a35-4291-8cb9-df751b5e4846" xml:space="preserve">
+          <source>On the <bpt id="d7759773-17c8-495b-b9ea-769479721c79">&lt;strong&gt;</bpt>LogicMonitor<ept id="d7759773-17c8-495b-b9ea-769479721c79">&lt;/strong&gt;</ept> application integration page, click <bpt id="89f8b315-38cc-4e6f-ae35-3a9b638acd25">&lt;strong&gt;</bpt>Assign users<ept id="89f8b315-38cc-4e6f-ae35-3a9b638acd25">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d7759773-17c8-495b-b9ea-769479721c79">&lt;strong&gt;</bpt>LogicMonitor<ept id="d7759773-17c8-495b-b9ea-769479721c79">&lt;/strong&gt;</ept> application integration page, click <bpt id="89f8b315-38cc-4e6f-ae35-3a9b638acd25">&lt;strong&gt;</bpt>Assign users<ept id="89f8b315-38cc-4e6f-ae35-3a9b638acd25">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4689183a-f0bb-4cd3-85c6-f7aaf8d3fba0" xml:space="preserve">
+          <source><bpt id="b7d0cf05-1592-4327-9296-76af8c61308f">&lt;linkText&gt;</bpt>Assign Users<ept id="b7d0cf05-1592-4327-9296-76af8c61308f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7d0cf05-1592-4327-9296-76af8c61308f">&lt;linkText&gt;</bpt>Assign Users<ept id="b7d0cf05-1592-4327-9296-76af8c61308f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a5a1db6-b70e-46fb-9fc9-0768302e9b3b" xml:space="preserve">
+          <source>Select your test user, click <bpt id="12d9ab65-7794-40b1-9e54-b37656b3d750">&lt;strong&gt;</bpt>Assign<ept id="12d9ab65-7794-40b1-9e54-b37656b3d750">&lt;/strong&gt;</ept>, and then click <bpt id="db1dcfcc-180d-4ddf-a217-124dc00be661">&lt;strong&gt;</bpt>Yes<ept id="db1dcfcc-180d-4ddf-a217-124dc00be661">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="12d9ab65-7794-40b1-9e54-b37656b3d750">&lt;strong&gt;</bpt>Assign<ept id="12d9ab65-7794-40b1-9e54-b37656b3d750">&lt;/strong&gt;</ept>, and then click <bpt id="db1dcfcc-180d-4ddf-a217-124dc00be661">&lt;strong&gt;</bpt>Yes<ept id="db1dcfcc-180d-4ddf-a217-124dc00be661">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="ea5c8839-1d40-420f-b586-da6daa158fcf" xml:space="preserve">
+          <source><bpt id="98d8ecbf-bcff-4f61-b2bf-6ec4f07b84dd">&lt;linkText&gt;</bpt>Yes<ept id="98d8ecbf-bcff-4f61-b2bf-6ec4f07b84dd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="98d8ecbf-bcff-4f61-b2bf-6ec4f07b84dd">&lt;linkText&gt;</bpt>Yes<ept id="98d8ecbf-bcff-4f61-b2bf-6ec4f07b84dd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad6c4be8-56a3-4f14-98ca-e6413196cf50" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="cf9b786b-ce50-4077-a5f7-2db0c72211a7" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="48199fbc-7ffd-4ed9-bd18-38c492231f62">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="48199fbc-7ffd-4ed9-bd18-38c492231f62">&lt;/linkText&gt;</ept><bpt id="48199fbc-7ffd-4ed9-bd18-38c492231f62">&lt;title&gt;</bpt><ept id="48199fbc-7ffd-4ed9-bd18-38c492231f62">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="48199fbc-7ffd-4ed9-bd18-38c492231f62">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="48199fbc-7ffd-4ed9-bd18-38c492231f62">&lt;/linkText&gt;</ept><bpt id="48199fbc-7ffd-4ed9-bd18-38c492231f62">&lt;title&gt;</bpt><ept id="48199fbc-7ffd-4ed9-bd18-38c492231f62">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

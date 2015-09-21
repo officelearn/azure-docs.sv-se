@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="edbdc841-9383-4403-95ff-6069db058b81" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="edbdc841-9383-4403-95ff-6069db058b81" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e57186bb-0e0e-4ebd-801b-4081626f3bfc">
+        <trans-unit id="9b93a725-6fba-4df3-82ab-ecb86c24dd2c" xml:space="preserve">
+          <source>Connection Libraries for SQL Database and SQL Server</source>
+          <target state="new">Connection Libraries for SQL Database and SQL Server</target>
+        </trans-unit>
+        <trans-unit id="5ec89990-dfd2-4cac-8436-7e586aefb08e" xml:space="preserve">
+          <source>Lists the minimum version number for each driver that client programs can use to connect to Azure SQL Database or to Microsoft SQL Server. A link is provided for version information about drivers that are released by the community rather than by Microsoft.</source>
+          <target state="new">Lists the minimum version number for each driver that client programs can use to connect to Azure SQL Database or to Microsoft SQL Server. A link is provided for version information about drivers that are released by the community rather than by Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="d0e37de5-2bd4-4455-af46-ae7604551807" xml:space="preserve">
+          <source>This topic lists the minimum version number for each library/driver that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server.</source>
+          <target state="new">This topic lists the minimum version number for each library/driver that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="a7c85e42-ba92-4901-8603-3b0f1f10e799" xml:space="preserve">
+          <source>This topic is split into two sections:</source>
+          <target state="new">This topic is split into two sections:</target>
+        </trans-unit>
+        <trans-unit id="30891a0b-72be-42c5-ab1c-c1ce4243c768" xml:space="preserve">
+          <source><bpt id="cad6d258-644d-4ee5-bb34-a4c4dde4b563">&lt;em&gt;</bpt>Table of driver libraries released by Microsoft<ept id="cad6d258-644d-4ee5-bb34-a4c4dde4b563">&lt;/em&gt;</ept> - covers libraries that Microsoft has released.</source>
+          <target state="new"><bpt id="cad6d258-644d-4ee5-bb34-a4c4dde4b563">&lt;em&gt;</bpt>Table of driver libraries released by Microsoft<ept id="cad6d258-644d-4ee5-bb34-a4c4dde4b563">&lt;/em&gt;</ept> - covers libraries that Microsoft has released.</target>
+        </trans-unit>
+        <trans-unit id="13d82587-7af3-4d4b-8fd2-63efe6f014e5" xml:space="preserve">
+          <source>Microsoft maintains the information that is in this section.</source>
+          <target state="new">Microsoft maintains the information that is in this section.</target>
+        </trans-unit>
+        <trans-unit id="8ed0145b-22ca-4181-96be-04a9bd9d512e" xml:space="preserve">
+          <source><bpt id="dd362ef9-5f91-4e39-9e28-349d1769d8eb">&lt;em&gt;</bpt>Third party libraries<ept id="dd362ef9-5f91-4e39-9e28-349d1769d8eb">&lt;/em&gt;</ept> - lists libraries that are released and maintained by third parties rather than by Microsoft.</source>
+          <target state="new"><bpt id="dd362ef9-5f91-4e39-9e28-349d1769d8eb">&lt;em&gt;</bpt>Third party libraries<ept id="dd362ef9-5f91-4e39-9e28-349d1769d8eb">&lt;/em&gt;</ept> - lists libraries that are released and maintained by third parties rather than by Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="a8daf382-cf00-4d0f-a8f1-939ea4e06fa0" xml:space="preserve">
+          <source>**Only the public community of developers maintains this section.</source>
+          <target state="new">**Only the public community of developers maintains this section.</target>
+        </trans-unit>
+        <trans-unit id="b32bbdd9-b5a1-43c1-83f5-f8a81eed5fae" xml:space="preserve">
+          <source>Microsoft will not maintain this section.**</source>
+          <target state="new">Microsoft will not maintain this section.**</target>
+        </trans-unit>
+        <trans-unit id="31c286dd-0e0d-4500-93a1-e568cb919d95" xml:space="preserve">
+          <source>The following table displays libraries that are released by Microsoft.</source>
+          <target state="new">The following table displays libraries that are released by Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="7743f47a-6e95-4eca-91c7-54304917a233" xml:space="preserve">
+          <source>The <bpt id="229988b0-1792-441e-bd37-1101409efeed">&lt;strong&gt;</bpt>Libraries<ept id="229988b0-1792-441e-bd37-1101409efeed">&lt;/strong&gt;</ept> column provides links you can use to download each library.</source>
+          <target state="new">The <bpt id="229988b0-1792-441e-bd37-1101409efeed">&lt;strong&gt;</bpt>Libraries<ept id="229988b0-1792-441e-bd37-1101409efeed">&lt;/strong&gt;</ept> column provides links you can use to download each library.</target>
+        </trans-unit>
+        <trans-unit id="c6fb3f16-e9f8-4313-8abd-ccf758b22f45" xml:space="preserve">
+          <source>The <bpt id="782d56ac-8d8a-498f-9147-67420e6cacab">&lt;strong&gt;</bpt>Version<ept id="782d56ac-8d8a-498f-9147-67420e6cacab">&lt;/strong&gt;</ept> column lists the minimum version that is recommended for interacting with Azure SQL Database and Microsoft SQL Server.</source>
+          <target state="new">The <bpt id="782d56ac-8d8a-498f-9147-67420e6cacab">&lt;strong&gt;</bpt>Version<ept id="782d56ac-8d8a-498f-9147-67420e6cacab">&lt;/strong&gt;</ept> column lists the minimum version that is recommended for interacting with Azure SQL Database and Microsoft SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="985f1633-beba-4e55-aa6d-6f3661f6e3a8" xml:space="preserve">
+          <source>Platform</source>
+          <target state="new">Platform</target>
+        </trans-unit>
+        <trans-unit id="9deec06c-1ffd-4c4b-b68f-8c97b553deb3" xml:space="preserve">
+          <source>Oper Sys</source>
+          <target state="new">Oper Sys</target>
+        </trans-unit>
+        <trans-unit id="dbd4660a-a615-4ed3-baac-2d50f4995ea7" xml:space="preserve">
+          <source>Libraries&lt;br/&gt;for Download</source>
+          <target state="new">Libraries&lt;br/&gt;for Download</target>
+        </trans-unit>
+        <trans-unit id="a65f97bf-dd1f-4406-a9d5-fc9f7d9621fc" xml:space="preserve">
+          <source>Version&lt;br/&gt;of Driver</source>
+          <target state="new">Version&lt;br/&gt;of Driver</target>
+        </trans-unit>
+        <trans-unit id="d9538a47-4c95-433b-a71b-99a548b0dd9d" xml:space="preserve">
+          <source>Description&lt;br/&gt;of Driver</source>
+          <target state="new">Description&lt;br/&gt;of Driver</target>
+        </trans-unit>
+        <trans-unit id="e7af43ec-0aa1-4f15-9deb-41a13c090dde" xml:space="preserve">
+          <source>More&lt;br/&gt;Info</source>
+          <target state="new">More&lt;br/&gt;Info</target>
+        </trans-unit>
+        <trans-unit id="57e61364-ac00-4aef-b099-ead65f93079c" xml:space="preserve">
+          <source>.NET</source>
+          <target state="new">.NET</target>
+        </trans-unit>
+        <trans-unit id="461dd746-6b17-4b20-9830-3255840f5706" xml:space="preserve">
+          <source>Cross-platform (.NET)</source>
+          <target state="new">Cross-platform (.NET)</target>
+        </trans-unit>
+        <trans-unit id="cda6d86b-b5ea-4e74-a8c5-537f26e3040a" xml:space="preserve">
+          <source><bpt id="0cb18c03-2e2a-4c3a-8b85-04be48578a10">&lt;linkText&gt;</bpt>ADO.NET, System .Data .SqlClient<ept id="0cb18c03-2e2a-4c3a-8b85-04be48578a10">&lt;/linkText&gt;</ept><bpt id="0cb18c03-2e2a-4c3a-8b85-04be48578a10">&lt;title&gt;</bpt><ept id="0cb18c03-2e2a-4c3a-8b85-04be48578a10">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0cb18c03-2e2a-4c3a-8b85-04be48578a10">&lt;linkText&gt;</bpt>ADO.NET, System .Data .SqlClient<ept id="0cb18c03-2e2a-4c3a-8b85-04be48578a10">&lt;/linkText&gt;</ept><bpt id="0cb18c03-2e2a-4c3a-8b85-04be48578a10">&lt;title&gt;</bpt><ept id="0cb18c03-2e2a-4c3a-8b85-04be48578a10">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05dea5b9-a625-407b-988c-816275136d58" xml:space="preserve">
+          <source>4.5+</source>
+          <target state="new">4.5+</target>
+        </trans-unit>
+        <trans-unit id="2c01e369-317d-4657-8800-7af08d58ea5d" xml:space="preserve">
+          <source>SQL Server Provider for .NET Framework</source>
+          <target state="new">SQL Server Provider for .NET Framework</target>
+        </trans-unit>
+        <trans-unit id="5844589f-fa65-41ea-839d-d5b9f216eb05" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="5579608a-e215-417c-abd1-9e0999ef3f9c" xml:space="preserve">
+          <source>PHP</source>
+          <target state="new">PHP</target>
+        </trans-unit>
+        <trans-unit id="9df2b65b-f114-4a30-ade1-032e987a158b" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="3a3115fe-d732-40db-a219-15388070819a" xml:space="preserve">
+          <source><bpt id="9ecca58e-299f-4615-afaf-d3cf6c735614">&lt;linkText&gt;</bpt>PHP for SQL Server<ept id="9ecca58e-299f-4615-afaf-d3cf6c735614">&lt;/linkText&gt;</ept><bpt id="9ecca58e-299f-4615-afaf-d3cf6c735614">&lt;title&gt;</bpt><ept id="9ecca58e-299f-4615-afaf-d3cf6c735614">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9ecca58e-299f-4615-afaf-d3cf6c735614">&lt;linkText&gt;</bpt>PHP for SQL Server<ept id="9ecca58e-299f-4615-afaf-d3cf6c735614">&lt;/linkText&gt;</ept><bpt id="9ecca58e-299f-4615-afaf-d3cf6c735614">&lt;title&gt;</bpt><ept id="9ecca58e-299f-4615-afaf-d3cf6c735614">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91deb82c-bc2a-4e15-8453-539113fe3a68" xml:space="preserve">
+          <source>2.0+</source>
+          <target state="new">2.0+</target>
+        </trans-unit>
+        <trans-unit id="e6cd30e1-d43b-4e95-a8a9-ff5217311191" xml:space="preserve">
+          <source>PHP Driver for SQL Server</source>
+          <target state="new">PHP Driver for SQL Server</target>
+        </trans-unit>
+        <trans-unit id="0f1b29a2-fde0-459b-99fc-dd6a31076408" xml:space="preserve">
+          <source><bpt id="e5350071-3947-4148-9b12-085a617dd1bc">&lt;linkText&gt;</bpt>Link<ept id="e5350071-3947-4148-9b12-085a617dd1bc">&lt;/linkText&gt;</ept><bpt id="e5350071-3947-4148-9b12-085a617dd1bc">&lt;title&gt;</bpt><ept id="e5350071-3947-4148-9b12-085a617dd1bc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e5350071-3947-4148-9b12-085a617dd1bc">&lt;linkText&gt;</bpt>Link<ept id="e5350071-3947-4148-9b12-085a617dd1bc">&lt;/linkText&gt;</ept><bpt id="e5350071-3947-4148-9b12-085a617dd1bc">&lt;title&gt;</bpt><ept id="e5350071-3947-4148-9b12-085a617dd1bc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4301b44-c765-4ba9-b7d8-1fbae2b6e1a0" xml:space="preserve">
+          <source>Java</source>
+          <target state="new">Java</target>
+        </trans-unit>
+        <trans-unit id="aa238d5b-6deb-45fd-9df7-34d0c6ee49e5" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="71f2b379-caf8-4d65-9887-f57a78103b71" xml:space="preserve">
+          <source><bpt id="054d79bb-8b59-4e8a-bdfa-cd5a1a274c38">&lt;linkText&gt;</bpt>JDBC for SQL Server<ept id="054d79bb-8b59-4e8a-bdfa-cd5a1a274c38">&lt;/linkText&gt;</ept><bpt id="054d79bb-8b59-4e8a-bdfa-cd5a1a274c38">&lt;title&gt;</bpt><ept id="054d79bb-8b59-4e8a-bdfa-cd5a1a274c38">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="054d79bb-8b59-4e8a-bdfa-cd5a1a274c38">&lt;linkText&gt;</bpt>JDBC for SQL Server<ept id="054d79bb-8b59-4e8a-bdfa-cd5a1a274c38">&lt;/linkText&gt;</ept><bpt id="054d79bb-8b59-4e8a-bdfa-cd5a1a274c38">&lt;title&gt;</bpt><ept id="054d79bb-8b59-4e8a-bdfa-cd5a1a274c38">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e24a9e4f-477d-4c92-825c-b48b25948a6b" xml:space="preserve">
+          <source>2.0+</source>
+          <target state="new">2.0+</target>
+        </trans-unit>
+        <trans-unit id="afb4bb5d-6dc1-44b4-b202-144c3eeb5224" xml:space="preserve">
+          <source>Type 4 JDBC driver that provides database connectivity through the standard JDBC API</source>
+          <target state="new">Type 4 JDBC driver that provides database connectivity through the standard JDBC API</target>
+        </trans-unit>
+        <trans-unit id="a16997db-2837-49b1-96e8-9e0522eb4f39" xml:space="preserve">
+          <source><bpt id="fb9b3b5b-898d-4cfc-b4a5-9634b9699e50">&lt;linkText&gt;</bpt>Link<ept id="fb9b3b5b-898d-4cfc-b4a5-9634b9699e50">&lt;/linkText&gt;</ept><bpt id="fb9b3b5b-898d-4cfc-b4a5-9634b9699e50">&lt;title&gt;</bpt><ept id="fb9b3b5b-898d-4cfc-b4a5-9634b9699e50">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fb9b3b5b-898d-4cfc-b4a5-9634b9699e50">&lt;linkText&gt;</bpt>Link<ept id="fb9b3b5b-898d-4cfc-b4a5-9634b9699e50">&lt;/linkText&gt;</ept><bpt id="fb9b3b5b-898d-4cfc-b4a5-9634b9699e50">&lt;title&gt;</bpt><ept id="fb9b3b5b-898d-4cfc-b4a5-9634b9699e50">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51eaabad-0b5c-418a-9e4d-8f219b4745f7" xml:space="preserve">
+          <source>ODBC</source>
+          <target state="new">ODBC</target>
+        </trans-unit>
+        <trans-unit id="edd72f48-e7b1-4936-a1c1-22da7bcd7ff7" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="8892aab1-bdca-4a78-b4fd-7f9ce8ceaae0" xml:space="preserve">
+          <source><bpt id="30b57258-9b43-4b6f-9df0-bace1a37c2e0">&lt;linkText&gt;</bpt>ODBC for SQL Server<ept id="30b57258-9b43-4b6f-9df0-bace1a37c2e0">&lt;/linkText&gt;</ept><bpt id="30b57258-9b43-4b6f-9df0-bace1a37c2e0">&lt;title&gt;</bpt><ept id="30b57258-9b43-4b6f-9df0-bace1a37c2e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="30b57258-9b43-4b6f-9df0-bace1a37c2e0">&lt;linkText&gt;</bpt>ODBC for SQL Server<ept id="30b57258-9b43-4b6f-9df0-bace1a37c2e0">&lt;/linkText&gt;</ept><bpt id="30b57258-9b43-4b6f-9df0-bace1a37c2e0">&lt;title&gt;</bpt><ept id="30b57258-9b43-4b6f-9df0-bace1a37c2e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad79c3df-2e6b-481a-8796-1991e4f6dcb9" xml:space="preserve">
+          <source>11.0+</source>
+          <target state="new">11.0+</target>
+        </trans-unit>
+        <trans-unit id="cc7e79d1-1237-49d7-8ebc-5274a4c3b217" xml:space="preserve">
+          <source>Microsoft ODBC Driver for SQL Server</source>
+          <target state="new">Microsoft ODBC Driver for SQL Server</target>
+        </trans-unit>
+        <trans-unit id="14a0b4e2-b888-49e0-9991-d772f43c3bed" xml:space="preserve">
+          <source><bpt id="37702baa-ead3-4b1f-b43c-82cc3d940817">&lt;linkText&gt;</bpt>Link<ept id="37702baa-ead3-4b1f-b43c-82cc3d940817">&lt;/linkText&gt;</ept><bpt id="37702baa-ead3-4b1f-b43c-82cc3d940817">&lt;title&gt;</bpt><ept id="37702baa-ead3-4b1f-b43c-82cc3d940817">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="37702baa-ead3-4b1f-b43c-82cc3d940817">&lt;linkText&gt;</bpt>Link<ept id="37702baa-ead3-4b1f-b43c-82cc3d940817">&lt;/linkText&gt;</ept><bpt id="37702baa-ead3-4b1f-b43c-82cc3d940817">&lt;title&gt;</bpt><ept id="37702baa-ead3-4b1f-b43c-82cc3d940817">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a13c101c-748d-4b35-9cd7-634eac8be3a5" xml:space="preserve">
+          <source>ODBC</source>
+          <target state="new">ODBC</target>
+        </trans-unit>
+        <trans-unit id="b269c69b-77a5-4e8c-bc92-9d8fdb0cf4d8" xml:space="preserve">
+          <source>Suse Linux</source>
+          <target state="new">Suse Linux</target>
+        </trans-unit>
+        <trans-unit id="817aa687-2193-4e80-8bb6-a7df4fb0f1dd" xml:space="preserve">
+          <source><bpt id="f2431b91-9f07-412e-b779-55b42dfa9335">&lt;linkText&gt;</bpt>ODBC for SQL Server<ept id="f2431b91-9f07-412e-b779-55b42dfa9335">&lt;/linkText&gt;</ept><bpt id="f2431b91-9f07-412e-b779-55b42dfa9335">&lt;title&gt;</bpt><ept id="f2431b91-9f07-412e-b779-55b42dfa9335">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f2431b91-9f07-412e-b779-55b42dfa9335">&lt;linkText&gt;</bpt>ODBC for SQL Server<ept id="f2431b91-9f07-412e-b779-55b42dfa9335">&lt;/linkText&gt;</ept><bpt id="f2431b91-9f07-412e-b779-55b42dfa9335">&lt;title&gt;</bpt><ept id="f2431b91-9f07-412e-b779-55b42dfa9335">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e26e92e2-2e0d-4b63-8e15-5b0cf86ecda0" xml:space="preserve">
+          <source>11.0+</source>
+          <target state="new">11.0+</target>
+        </trans-unit>
+        <trans-unit id="6cfeb43b-b359-468a-bd21-5e1a6de09ab5" xml:space="preserve">
+          <source>Microsoft ODBC Driver for SQL Server</source>
+          <target state="new">Microsoft ODBC Driver for SQL Server</target>
+        </trans-unit>
+        <trans-unit id="a13b2bc9-8305-40e8-a6ae-453ba349a13c" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="4613b1af-bab6-4ba5-8594-ba500c1b5a93" xml:space="preserve">
+          <source>ODBC</source>
+          <target state="new">ODBC</target>
+        </trans-unit>
+        <trans-unit id="2a44a8eb-b0fc-4082-a2e3-303c61b282a4" xml:space="preserve">
+          <source>Redhat Linux</source>
+          <target state="new">Redhat Linux</target>
+        </trans-unit>
+        <trans-unit id="862d375f-83cf-402d-8407-ff07b323b850" xml:space="preserve">
+          <source><bpt id="30bc3c73-3f6f-482f-89f5-1d18c0894745">&lt;linkText&gt;</bpt>ODBC for SQL Server<ept id="30bc3c73-3f6f-482f-89f5-1d18c0894745">&lt;/linkText&gt;</ept><bpt id="30bc3c73-3f6f-482f-89f5-1d18c0894745">&lt;title&gt;</bpt><ept id="30bc3c73-3f6f-482f-89f5-1d18c0894745">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="30bc3c73-3f6f-482f-89f5-1d18c0894745">&lt;linkText&gt;</bpt>ODBC for SQL Server<ept id="30bc3c73-3f6f-482f-89f5-1d18c0894745">&lt;/linkText&gt;</ept><bpt id="30bc3c73-3f6f-482f-89f5-1d18c0894745">&lt;title&gt;</bpt><ept id="30bc3c73-3f6f-482f-89f5-1d18c0894745">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7133cae7-62ab-4d11-bf68-5f72b0bdb684" xml:space="preserve">
+          <source>11.0+</source>
+          <target state="new">11.0+</target>
+        </trans-unit>
+        <trans-unit id="4fdb0961-b5d6-4e6d-9c06-b13cbcd2d2d1" xml:space="preserve">
+          <source>Microsoft ODBC Driver for SQL Server</source>
+          <target state="new">Microsoft ODBC Driver for SQL Server</target>
+        </trans-unit>
+        <trans-unit id="5014002b-999d-43ad-bd35-2dd9dd72d894" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="c1406e33-0209-43e4-b0b6-c74d1d45526f" xml:space="preserve">
+          <source>The Microsoft OLE DB Provider for DB2 Version 5.0 (Data Provider) lets you create distributed applications targeting IBM DB2 databases.</source>
+          <target state="new">The Microsoft OLE DB Provider for DB2 Version 5.0 (Data Provider) lets you create distributed applications targeting IBM DB2 databases.</target>
+        </trans-unit>
+        <trans-unit id="83500747-b6c8-4635-ae5c-1dbe4bf8fc3d" xml:space="preserve">
+          <source>The Data Provider takes advantage of Microsoft SQL Server data access architecture together with a Microsoft network client for DB2 that functions as a Distributed Relational Database Architecture (DRDA) application requester.</source>
+          <target state="new">The Data Provider takes advantage of Microsoft SQL Server data access architecture together with a Microsoft network client for DB2 that functions as a Distributed Relational Database Architecture (DRDA) application requester.</target>
+        </trans-unit>
+        <trans-unit id="f794885b-4aa4-4122-9791-95e9fec9b374" xml:space="preserve">
+          <source>The Data Provider converts Microsoft Component Object Model (COM) OLE DB commands and data types to DRDA protocol code points and data formats.</source>
+          <target state="new">The Data Provider converts Microsoft Component Object Model (COM) OLE DB commands and data types to DRDA protocol code points and data formats.</target>
+        </trans-unit>
+        <trans-unit id="e4681aff-67f3-4d1f-b3ee-4660e216aee6" xml:space="preserve">
+          <source>For more information, see:</source>
+          <target state="new">For more information, see:</target>
+        </trans-unit>
+        <trans-unit id="03a271d5-6059-4b74-afaf-063084d111b7" xml:space="preserve">
+          <source><bpt id="825b7c98-3237-4755-9697-795f9b2c2839">&lt;linkText&gt;</bpt>Microsoft OLE DB Provider for DB2 Version 5.0<ept id="825b7c98-3237-4755-9697-795f9b2c2839">&lt;/linkText&gt;</ept><bpt id="825b7c98-3237-4755-9697-795f9b2c2839">&lt;title&gt;</bpt><ept id="825b7c98-3237-4755-9697-795f9b2c2839">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="825b7c98-3237-4755-9697-795f9b2c2839">&lt;linkText&gt;</bpt>Microsoft OLE DB Provider for DB2 Version 5.0<ept id="825b7c98-3237-4755-9697-795f9b2c2839">&lt;/linkText&gt;</ept><bpt id="825b7c98-3237-4755-9697-795f9b2c2839">&lt;title&gt;</bpt><ept id="825b7c98-3237-4755-9697-795f9b2c2839">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e31f374c-5b82-4b6a-9c0f-ed39c29779c8" xml:space="preserve">
+          <source><bpt id="8ba2e743-7d7b-4fb0-b110-c1374a591e47">&lt;linkText&gt;</bpt>Microsoft OLEDB Provider for DB2 v4.0 for Microsoft SQL Server 2012<ept id="8ba2e743-7d7b-4fb0-b110-c1374a591e47">&lt;/linkText&gt;</ept><bpt id="8ba2e743-7d7b-4fb0-b110-c1374a591e47">&lt;title&gt;</bpt><ept id="8ba2e743-7d7b-4fb0-b110-c1374a591e47">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8ba2e743-7d7b-4fb0-b110-c1374a591e47">&lt;linkText&gt;</bpt>Microsoft OLEDB Provider for DB2 v4.0 for Microsoft SQL Server 2012<ept id="8ba2e743-7d7b-4fb0-b110-c1374a591e47">&lt;/linkText&gt;</ept><bpt id="8ba2e743-7d7b-4fb0-b110-c1374a591e47">&lt;title&gt;</bpt><ept id="8ba2e743-7d7b-4fb0-b110-c1374a591e47">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bd7f9eb-c004-46dd-ad01-6a362f09d311" xml:space="preserve">
+          <source>The following table displays libraries that are released by third parties under third party license terms.</source>
+          <target state="new">The following table displays libraries that are released by third parties under third party license terms.</target>
+        </trans-unit>
+        <trans-unit id="c753c8a0-6df8-4922-8087-f5882c993e86" xml:space="preserve">
+          <source>You are responsible for verifying and complying with the relevant third party licenses in order to use these libraries.</source>
+          <target state="new">You are responsible for verifying and complying with the relevant third party licenses in order to use these libraries.</target>
+        </trans-unit>
+        <trans-unit id="20fd7947-079f-42b3-8422-34285483558b" xml:space="preserve">
+          <source>You bear the risk of using these libraries.</source>
+          <target state="new">You bear the risk of using these libraries.</target>
+        </trans-unit>
+        <trans-unit id="c13afeca-9782-45dd-b01f-2a5ed5a120a4" xml:space="preserve">
+          <source>Microsoft makes no warranties, express or implied, with respect to the information provided here and has merely provided the information as a matter of convenience to the users.</source>
+          <target state="new">Microsoft makes no warranties, express or implied, with respect to the information provided here and has merely provided the information as a matter of convenience to the users.</target>
+        </trans-unit>
+        <trans-unit id="a3281067-7eb4-4226-bdbf-3f87541bd9f8" xml:space="preserve">
+          <source>Nothing herein implies any kind of endorsement by Microsoft.</source>
+          <target state="new">Nothing herein implies any kind of endorsement by Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="74e9476e-361d-4a61-9a02-4d38f000d2f0" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;It is up to the public community of developers to update and maintain the information that is in this "Third party libraries" section, by using the <bpt id="bb1649ca-0308-412a-ada8-0b2851fc1822">&lt;linkText&gt;</bpt>azure-content<ept id="bb1649ca-0308-412a-ada8-0b2851fc1822">&lt;/linkText&gt;</ept><bpt id="bb1649ca-0308-412a-ada8-0b2851fc1822">&lt;title&gt;</bpt><ept id="bb1649ca-0308-412a-ada8-0b2851fc1822">&lt;/title&gt;</ept> repository owned by <bpt id="6e857f86-f706-42b2-8336-1bdf2fa9a418">&lt;strong&gt;</bpt>Azure<ept id="6e857f86-f706-42b2-8336-1bdf2fa9a418">&lt;/strong&gt;</ept> on GitHub.com.</source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;It is up to the public community of developers to update and maintain the information that is in this "Third party libraries" section, by using the <bpt id="bb1649ca-0308-412a-ada8-0b2851fc1822">&lt;linkText&gt;</bpt>azure-content<ept id="bb1649ca-0308-412a-ada8-0b2851fc1822">&lt;/linkText&gt;</ept><bpt id="bb1649ca-0308-412a-ada8-0b2851fc1822">&lt;title&gt;</bpt><ept id="bb1649ca-0308-412a-ada8-0b2851fc1822">&lt;/title&gt;</ept> repository owned by <bpt id="6e857f86-f706-42b2-8336-1bdf2fa9a418">&lt;strong&gt;</bpt>Azure<ept id="6e857f86-f706-42b2-8336-1bdf2fa9a418">&lt;/strong&gt;</ept> on GitHub.com.</target>
+        </trans-unit>
+        <trans-unit id="54c6b509-0fb0-47e3-b281-9f56095f557b" xml:space="preserve">
+          <source>Microsoft encourages developers to update this section.</source>
+          <target state="new">Microsoft encourages developers to update this section.</target>
+        </trans-unit>
+        <trans-unit id="d7c516d3-ee9a-466d-972c-14a7a65f97cf" xml:space="preserve">
+          <source>Microsoft personnel do <bpt id="31c3eb43-ac0d-4a6c-8db0-fd717c7b28c2">&lt;em&gt;</bpt>not<ept id="31c3eb43-ac0d-4a6c-8db0-fd717c7b28c2">&lt;/em&gt;</ept> intend to maintain the information that is in this section, partly because other people are more expert with each particular third party library than we are.</source>
+          <target state="new">Microsoft personnel do <bpt id="31c3eb43-ac0d-4a6c-8db0-fd717c7b28c2">&lt;em&gt;</bpt>not<ept id="31c3eb43-ac0d-4a6c-8db0-fd717c7b28c2">&lt;/em&gt;</ept> intend to maintain the information that is in this section, partly because other people are more expert with each particular third party library than we are.</target>
+        </trans-unit>
+        <trans-unit id="7eaae011-d73c-46c3-a8be-2b5e034d077e" xml:space="preserve">
+          <source>Thank you.</source>
+          <target state="new">Thank you.</target>
+        </trans-unit>
+        <trans-unit id="c5c59aa8-8107-4994-9a9a-41061a631cb2" xml:space="preserve">
+          <source>The following table displays libraries that are released by third parties such as other companies or by the community.</source>
+          <target state="new">The following table displays libraries that are released by third parties such as other companies or by the community.</target>
+        </trans-unit>
+        <trans-unit id="af207e60-842b-4fcf-b6fe-afaf38c40712" xml:space="preserve">
+          <source>Libraries released by Microsoft are restricted to the earlier section in this topic.</source>
+          <target state="new">Libraries released by Microsoft are restricted to the earlier section in this topic.</target>
+        </trans-unit>
+        <trans-unit id="06e4084e-84fd-4dff-9604-8c0b226b34af" xml:space="preserve">
+          <source>Platform</source>
+          <target state="new">Platform</target>
+        </trans-unit>
+        <trans-unit id="e20adfb4-6057-4028-ad36-93a4f426eb5f" xml:space="preserve">
+          <source>Libraries</source>
+          <target state="new">Libraries</target>
+        </trans-unit>
+        <trans-unit id="fa3bda80-6644-4cf6-91fb-d43cdb79b084" xml:space="preserve">
+          <source>Python</source>
+          <target state="new">Python</target>
+        </trans-unit>
+        <trans-unit id="a5207910-1f5b-4f62-9a78-47f728946d01" xml:space="preserve">
+          <source>[pymssql <bpt id="49c5862f-d8eb-4790-ae97-2d2b6d722412">&lt;em&gt;</bpt>(org, stable)<ept id="49c5862f-d8eb-4790-ae97-2d2b6d722412">&lt;/em&gt;</ept>](http://pymssql.org/en/stable/)&lt;br/&gt;&lt;br/&gt;[pymssql <bpt id="b44be9e6-1632-43af-9b9e-47e8c895c052">&lt;em&gt;</bpt>(org)<ept id="b44be9e6-1632-43af-9b9e-47e8c895c052">&lt;/em&gt;</ept>](http://pymssql.org/)</source>
+          <target state="new">[pymssql <bpt id="49c5862f-d8eb-4790-ae97-2d2b6d722412">&lt;em&gt;</bpt>(org, stable)<ept id="49c5862f-d8eb-4790-ae97-2d2b6d722412">&lt;/em&gt;</ept>](http://pymssql.org/en/stable/)&lt;br/&gt;&lt;br/&gt;[pymssql <bpt id="b44be9e6-1632-43af-9b9e-47e8c895c052">&lt;em&gt;</bpt>(org)<ept id="b44be9e6-1632-43af-9b9e-47e8c895c052">&lt;/em&gt;</ept>](http://pymssql.org/)</target>
+        </trans-unit>
+        <trans-unit id="8ee07c9e-4339-460b-9f01-0c3a9fd97385" xml:space="preserve">
+          <source>Node.js</source>
+          <target state="new">Node.js</target>
+        </trans-unit>
+        <trans-unit id="10110081-950d-4d6f-a451-9f760dcd846a" xml:space="preserve">
+          <source>[Tedious <bpt id="bf1698f7-8565-403c-b70b-10b609f29ae7">&lt;em&gt;</bpt>(npmjs)<ept id="bf1698f7-8565-403c-b70b-10b609f29ae7">&lt;/em&gt;</ept>](http://www.npmjs.com/package/tedious)</source>
+          <target state="new">[Tedious <bpt id="bf1698f7-8565-403c-b70b-10b609f29ae7">&lt;em&gt;</bpt>(npmjs)<ept id="bf1698f7-8565-403c-b70b-10b609f29ae7">&lt;/em&gt;</ept>](http://www.npmjs.com/package/tedious)</target>
+        </trans-unit>
+        <trans-unit id="c41be3e5-949e-4573-aa08-80c069b8276f" xml:space="preserve">
+          <source>Node.js</source>
+          <target state="new">Node.js</target>
+        </trans-unit>
+        <trans-unit id="88a1215c-e5ba-42a4-bf66-010dc96b353b" xml:space="preserve">
+          <source>[Node-MSSQL <bpt id="79d8f5d4-9c86-42ef-9a56-ad0657310870">&lt;em&gt;</bpt>(github, patriksimek)<ept id="79d8f5d4-9c86-42ef-9a56-ad0657310870">&lt;/em&gt;</ept>](https://github.com/patriksimek/node-mssql)&lt;br/&gt;&lt;br/&gt;[Node-MSSQL <bpt id="7e94fc88-650f-4670-ad63-882ca01c16d3">&lt;em&gt;</bpt>(npmjs)<ept id="7e94fc88-650f-4670-ad63-882ca01c16d3">&lt;/em&gt;</ept>](https://www.npmjs.com/package/node-mssql)&lt;br/&gt;&lt;br/&gt;[Node-MSSQL-Connector <bpt id="82ce5bdd-1f4e-4362-82a7-674cadcc2de3">&lt;em&gt;</bpt>(npmjs)<ept id="82ce5bdd-1f4e-4362-82a7-674cadcc2de3">&lt;/em&gt;</ept>](https://www.npmjs.com/package/node-mssql-connector)</source>
+          <target state="new">[Node-MSSQL <bpt id="79d8f5d4-9c86-42ef-9a56-ad0657310870">&lt;em&gt;</bpt>(github, patriksimek)<ept id="79d8f5d4-9c86-42ef-9a56-ad0657310870">&lt;/em&gt;</ept>](https://github.com/patriksimek/node-mssql)&lt;br/&gt;&lt;br/&gt;[Node-MSSQL <bpt id="7e94fc88-650f-4670-ad63-882ca01c16d3">&lt;em&gt;</bpt>(npmjs)<ept id="7e94fc88-650f-4670-ad63-882ca01c16d3">&lt;/em&gt;</ept>](https://www.npmjs.com/package/node-mssql)&lt;br/&gt;&lt;br/&gt;[Node-MSSQL-Connector <bpt id="82ce5bdd-1f4e-4362-82a7-674cadcc2de3">&lt;em&gt;</bpt>(npmjs)<ept id="82ce5bdd-1f4e-4362-82a7-674cadcc2de3">&lt;/em&gt;</ept>](https://www.npmjs.com/package/node-mssql-connector)</target>
+        </trans-unit>
+        <trans-unit id="65b4163f-d8b6-4862-8292-36766cf02175" xml:space="preserve">
+          <source>Node.js</source>
+          <target state="new">Node.js</target>
+        </trans-unit>
+        <trans-unit id="4d36b498-8e04-42fb-8c93-1089f539ebee" xml:space="preserve">
+          <source>[Edge.js <bpt id="f8e4f6ba-4989-40bc-a867-632c06ebf06e">&lt;em&gt;</bpt>(github com, tjanczuk)<ept id="f8e4f6ba-4989-40bc-a867-632c06ebf06e">&lt;/em&gt;</ept>](https://github.com/tjanczuk/edge)&lt;br/&gt;&lt;br/&gt;[Edge.js <bpt id="9e835c75-2a45-469d-98fc-597a38c4f117">&lt;em&gt;</bpt>(tjanczuk, github io)<ept id="9e835c75-2a45-469d-98fc-597a38c4f117">&lt;/em&gt;</ept>](http://tjanczuk.github.io/edge/)</source>
+          <target state="new">[Edge.js <bpt id="f8e4f6ba-4989-40bc-a867-632c06ebf06e">&lt;em&gt;</bpt>(github com, tjanczuk)<ept id="f8e4f6ba-4989-40bc-a867-632c06ebf06e">&lt;/em&gt;</ept>](https://github.com/tjanczuk/edge)&lt;br/&gt;&lt;br/&gt;[Edge.js <bpt id="9e835c75-2a45-469d-98fc-597a38c4f117">&lt;em&gt;</bpt>(tjanczuk, github io)<ept id="9e835c75-2a45-469d-98fc-597a38c4f117">&lt;/em&gt;</ept>](http://tjanczuk.github.io/edge/)</target>
+        </trans-unit>
+        <trans-unit id="dbc31390-488e-41ba-9ae0-75adf8b15cec" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="f8beecbc-30eb-4dea-b2ca-a0e8cd4709d7" xml:space="preserve">
+          <source>[FreeTDS <bpt id="0f794f98-d896-4ce8-90b0-1692fe0459e9">&lt;em&gt;</bpt>(org)<ept id="0f794f98-d896-4ce8-90b0-1692fe0459e9">&lt;/em&gt;</ept>](http://www.freetds.org/)</source>
+          <target state="new">[FreeTDS <bpt id="0f794f98-d896-4ce8-90b0-1692fe0459e9">&lt;em&gt;</bpt>(org)<ept id="0f794f98-d896-4ce8-90b0-1692fe0459e9">&lt;/em&gt;</ept>](http://www.freetds.org/)</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

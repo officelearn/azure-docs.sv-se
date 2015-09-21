@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="df7a85da-136d-4c48-aacf-942174a21ee0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="df7a85da-136d-4c48-aacf-942174a21ee0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fda36c6d-3201-4fa4-a872-a00d17ef02e9">
+        <trans-unit id="9697ddc6-ee56-4b2d-99c5-1bd49bbdd1c7" xml:space="preserve">
+          <source>PHP on Windows to SQL DB | Microsoft Azure</source>
+          <target state="new">PHP on Windows to SQL DB | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e33829e2-7276-4c88-b5dd-1b80bb58e4a5" xml:space="preserve">
+          <source>Presents a sample PHP program that connects to Azure SQL Database from a Windows client, and provides links to the necessary software components needed by the client.</source>
+          <target state="new">Presents a sample PHP program that connects to Azure SQL Database from a Windows client, and provides links to the necessary software components needed by the client.</target>
+        </trans-unit>
+        <trans-unit id="ec9b9942-aad5-4d61-9429-28bd5cbfb006" xml:space="preserve">
+          <source><bpt id="302d2df5-19c7-4bd9-8979-a0e3fb2e9cb8">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="302d2df5-19c7-4bd9-8979-a0e3fb2e9cb8">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="302d2df5-19c7-4bd9-8979-a0e3fb2e9cb8">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="302d2df5-19c7-4bd9-8979-a0e3fb2e9cb8">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba882efe-c312-418a-b91e-417c63f14b64" xml:space="preserve">
+          <source>This topic illustrates how you can connect to Azure SQL Database from a client application written in PHP that runs on Windows.</source>
+          <target state="new">This topic illustrates how you can connect to Azure SQL Database from a client application written in PHP that runs on Windows.</target>
+        </trans-unit>
+        <trans-unit id="2f7f8f7d-27f3-4fa0-9024-a9d1eb20ae17" xml:space="preserve">
+          <source><bpt id="9548ad26-b852-48f7-b6b7-e002393cbd58">&lt;token href="../../includes/sql-database-develop-includes-prerequisites-php-windows.md"&gt;</bpt><ept id="9548ad26-b852-48f7-b6b7-e002393cbd58">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9548ad26-b852-48f7-b6b7-e002393cbd58">&lt;token href="../../includes/sql-database-develop-includes-prerequisites-php-windows.md"&gt;</bpt><ept id="9548ad26-b852-48f7-b6b7-e002393cbd58">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1437017b-06f9-4706-9c05-8b210e6424ac" xml:space="preserve">
+          <source>See the <bpt id="27632633-6164-4b6c-92c0-3530ef914761">&lt;linkText&gt;</bpt>Getting Started Topic<ept id="27632633-6164-4b6c-92c0-3530ef914761">&lt;/linkText&gt;</ept><bpt id="27632633-6164-4b6c-92c0-3530ef914761">&lt;title&gt;</bpt><ept id="27632633-6164-4b6c-92c0-3530ef914761">&lt;/title&gt;</ept> to learn how to create a sample database and retrieve your connection string.</source>
+          <target state="new">See the <bpt id="27632633-6164-4b6c-92c0-3530ef914761">&lt;linkText&gt;</bpt>Getting Started Topic<ept id="27632633-6164-4b6c-92c0-3530ef914761">&lt;/linkText&gt;</ept><bpt id="27632633-6164-4b6c-92c0-3530ef914761">&lt;title&gt;</bpt><ept id="27632633-6164-4b6c-92c0-3530ef914761">&lt;/title&gt;</ept> to learn how to create a sample database and retrieve your connection string.</target>
+        </trans-unit>
+        <trans-unit id="5dcce111-3beb-49bc-8b49-3befa925e1f2" xml:space="preserve">
+          <source>It is important you follow the guide to create an <bpt id="aba0ff60-4938-4539-896a-aaa2a8cfc149">&lt;strong&gt;</bpt>AdventureWorks database template<ept id="aba0ff60-4938-4539-896a-aaa2a8cfc149">&lt;/strong&gt;</ept>.</source>
+          <target state="new">It is important you follow the guide to create an <bpt id="aba0ff60-4938-4539-896a-aaa2a8cfc149">&lt;strong&gt;</bpt>AdventureWorks database template<ept id="aba0ff60-4938-4539-896a-aaa2a8cfc149">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="005a45f0-2edc-4d61-ab8a-b3e366f4cf93" xml:space="preserve">
+          <source>The samples shown below only work with the <bpt id="175268bf-7fc5-4ae2-b44f-2c404806a837">&lt;strong&gt;</bpt>AdventureWorks schema<ept id="175268bf-7fc5-4ae2-b44f-2c404806a837">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The samples shown below only work with the <bpt id="175268bf-7fc5-4ae2-b44f-2c404806a837">&lt;strong&gt;</bpt>AdventureWorks schema<ept id="175268bf-7fc5-4ae2-b44f-2c404806a837">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7714961a-e49a-400c-998e-6637646e51d5" xml:space="preserve">
+          <source>This <bpt id="77723dbc-1cbc-4985-bdbc-689f81d64a02">&lt;strong&gt;</bpt>OpenConnection<ept id="77723dbc-1cbc-4985-bdbc-689f81d64a02">&lt;/strong&gt;</ept> function is called near the top in all of the functions that follow.</source>
+          <target state="new">This <bpt id="77723dbc-1cbc-4985-bdbc-689f81d64a02">&lt;strong&gt;</bpt>OpenConnection<ept id="77723dbc-1cbc-4985-bdbc-689f81d64a02">&lt;/strong&gt;</ept> function is called near the top in all of the functions that follow.</target>
+        </trans-unit>
+        <trans-unit id="49597d5a-eb96-45bd-9396-4ec69e763398" xml:space="preserve">
+          <source>The <bpt id="cfb1f695-29a4-4d3d-b436-b9e7b0613eae">&lt;linkText&gt;</bpt>sqlsrv_query()<ept id="cfb1f695-29a4-4d3d-b436-b9e7b0613eae">&lt;/linkText&gt;</ept><bpt id="cfb1f695-29a4-4d3d-b436-b9e7b0613eae">&lt;title&gt;</bpt><ept id="cfb1f695-29a4-4d3d-b436-b9e7b0613eae">&lt;/title&gt;</ept> function can be used to retrieve a result set from a query against SQL Database.</source>
+          <target state="new">The <bpt id="cfb1f695-29a4-4d3d-b436-b9e7b0613eae">&lt;linkText&gt;</bpt>sqlsrv_query()<ept id="cfb1f695-29a4-4d3d-b436-b9e7b0613eae">&lt;/linkText&gt;</ept><bpt id="cfb1f695-29a4-4d3d-b436-b9e7b0613eae">&lt;title&gt;</bpt><ept id="cfb1f695-29a4-4d3d-b436-b9e7b0613eae">&lt;/title&gt;</ept> function can be used to retrieve a result set from a query against SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="5d5f75b5-c8d6-47a0-a150-4b65ef7bad9f" xml:space="preserve">
+          <source>This function essentially accepts any query and the connection object and returns a result set which can be iterated over with the use of [sqlsrv<bpt id="05666707-cb70-49ea-b54b-cc8e3268438f">&lt;em&gt;</bpt>fetch<ept id="05666707-cb70-49ea-b54b-cc8e3268438f">&lt;/em&gt;</ept>array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).</source>
+          <target state="new">This function essentially accepts any query and the connection object and returns a result set which can be iterated over with the use of [sqlsrv<bpt id="05666707-cb70-49ea-b54b-cc8e3268438f">&lt;em&gt;</bpt>fetch<ept id="05666707-cb70-49ea-b54b-cc8e3268438f">&lt;/em&gt;</ept>array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).</target>
+        </trans-unit>
+        <trans-unit id="d285607f-4014-47e8-800d-67f2852ab84c" xml:space="preserve">
+          <source>In SQL Database the <bpt id="9fbca99b-a534-4cc7-9e42-f8d13f45153f">&lt;linkText&gt;</bpt>IDENTITY<ept id="9fbca99b-a534-4cc7-9e42-f8d13f45153f">&lt;/linkText&gt;</ept><bpt id="9fbca99b-a534-4cc7-9e42-f8d13f45153f">&lt;title&gt;</bpt><ept id="9fbca99b-a534-4cc7-9e42-f8d13f45153f">&lt;/title&gt;</ept> property and the <bpt id="227a8c59-e8be-4188-b3ab-a91a45c8108b">&lt;linkText&gt;</bpt>SEQUENCE<ept id="227a8c59-e8be-4188-b3ab-a91a45c8108b">&lt;/linkText&gt;</ept><bpt id="227a8c59-e8be-4188-b3ab-a91a45c8108b">&lt;title&gt;</bpt><ept id="227a8c59-e8be-4188-b3ab-a91a45c8108b">&lt;/title&gt;</ept> object can be used to auto-generate <bpt id="1d1cc074-30a4-4955-bae0-abddadc1d8fe">&lt;linkText&gt;</bpt>primary key<ept id="1d1cc074-30a4-4955-bae0-abddadc1d8fe">&lt;/linkText&gt;</ept><bpt id="1d1cc074-30a4-4955-bae0-abddadc1d8fe">&lt;title&gt;</bpt><ept id="1d1cc074-30a4-4955-bae0-abddadc1d8fe">&lt;/title&gt;</ept> values.</source>
+          <target state="new">In SQL Database the <bpt id="9fbca99b-a534-4cc7-9e42-f8d13f45153f">&lt;linkText&gt;</bpt>IDENTITY<ept id="9fbca99b-a534-4cc7-9e42-f8d13f45153f">&lt;/linkText&gt;</ept><bpt id="9fbca99b-a534-4cc7-9e42-f8d13f45153f">&lt;title&gt;</bpt><ept id="9fbca99b-a534-4cc7-9e42-f8d13f45153f">&lt;/title&gt;</ept> property and the <bpt id="227a8c59-e8be-4188-b3ab-a91a45c8108b">&lt;linkText&gt;</bpt>SEQUENCE<ept id="227a8c59-e8be-4188-b3ab-a91a45c8108b">&lt;/linkText&gt;</ept><bpt id="227a8c59-e8be-4188-b3ab-a91a45c8108b">&lt;title&gt;</bpt><ept id="227a8c59-e8be-4188-b3ab-a91a45c8108b">&lt;/title&gt;</ept> object can be used to auto-generate <bpt id="1d1cc074-30a4-4955-bae0-abddadc1d8fe">&lt;linkText&gt;</bpt>primary key<ept id="1d1cc074-30a4-4955-bae0-abddadc1d8fe">&lt;/linkText&gt;</ept><bpt id="1d1cc074-30a4-4955-bae0-abddadc1d8fe">&lt;title&gt;</bpt><ept id="1d1cc074-30a4-4955-bae0-abddadc1d8fe">&lt;/title&gt;</ept> values.</target>
+        </trans-unit>
+        <trans-unit id="26febcb7-f794-49e9-99f9-f13af19d8fce" xml:space="preserve">
+          <source>This code example demonstrates the use of transactions in which you:</source>
+          <target state="new">This code example demonstrates the use of transactions in which you:</target>
+        </trans-unit>
+        <trans-unit id="9d830fd5-7ed5-4961-8510-ca4d732ed4b8" xml:space="preserve">
+          <source>-Begin a transaction</source>
+          <target state="new">-Begin a transaction</target>
+        </trans-unit>
+        <trans-unit id="0c93211d-f279-4d2a-922d-65a81a880029" xml:space="preserve">
+          <source>-Insert a row of data, Update another row of data</source>
+          <target state="new">-Insert a row of data, Update another row of data</target>
+        </trans-unit>
+        <trans-unit id="8332da84-b337-4c2d-952b-e37cb93ca0b1" xml:space="preserve">
+          <source>-Commit your transaction if the insert and update were successful and rollback the transaction if one of them was not</source>
+          <target state="new">-Commit your transaction if the insert and update were successful and rollback the transaction if one of them was not</target>
+        </trans-unit>
+        <trans-unit id="996cbd94-0860-4787-8320-0ef74a0d1b1e" xml:space="preserve">
+          <source>For more information regarding PHP installation and usage, see <bpt id="7a1c894b-acc7-4288-9bf3-9e2b29b64cee">&lt;linkText&gt;</bpt>Accessing SQL Server Databases with PHP<ept id="7a1c894b-acc7-4288-9bf3-9e2b29b64cee">&lt;/linkText&gt;</ept><bpt id="7a1c894b-acc7-4288-9bf3-9e2b29b64cee">&lt;title&gt;</bpt><ept id="7a1c894b-acc7-4288-9bf3-9e2b29b64cee">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information regarding PHP installation and usage, see <bpt id="7a1c894b-acc7-4288-9bf3-9e2b29b64cee">&lt;linkText&gt;</bpt>Accessing SQL Server Databases with PHP<ept id="7a1c894b-acc7-4288-9bf3-9e2b29b64cee">&lt;/linkText&gt;</ept><bpt id="7a1c894b-acc7-4288-9bf3-9e2b29b64cee">&lt;title&gt;</bpt><ept id="7a1c894b-acc7-4288-9bf3-9e2b29b64cee">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

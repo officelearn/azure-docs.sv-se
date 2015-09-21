@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a030063b-3365-4db7-8765-d719e18c1764" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a030063b-3365-4db7-8765-d719e18c1764" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b02cb417-1f71-42c2-9fd1-4c0cd2cb97e0">
+        <trans-unit id="7608853a-1d39-475d-a06b-5f4076efc2a6" xml:space="preserve">
+          <source>Manage a Service Fabric service | Microsoft Azure</source>
+          <target state="new">Manage a Service Fabric service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e4e2fce9-a63f-4813-8427-77878b99e8cd" xml:space="preserve">
+          <source>Conceptual information and tutorials that help you understand how to manage a Service Fabric service.</source>
+          <target state="new">Conceptual information and tutorials that help you understand how to manage a Service Fabric service.</target>
+        </trans-unit>
+        <trans-unit id="7f4ecd30-eca8-4231-b394-0b952f2ce566" xml:space="preserve">
+          <source>This page has links to overview and conceptual articles and tutorial to help you learn to manage a Service Fabric service.</source>
+          <target state="new">This page has links to overview and conceptual articles and tutorial to help you learn to manage a Service Fabric service.</target>
+        </trans-unit>
+        <trans-unit id="99b864db-fa10-49c6-83cc-8c83083a58d5" xml:space="preserve">
+          <source><bpt id="406efdf7-a2b6-4f7f-a1ec-d5335fb13b14">&lt;linkText&gt;</bpt>Application Lifecycle<ept id="406efdf7-a2b6-4f7f-a1ec-d5335fb13b14">&lt;/linkText&gt;</ept><bpt id="406efdf7-a2b6-4f7f-a1ec-d5335fb13b14">&lt;title&gt;</bpt><ept id="406efdf7-a2b6-4f7f-a1ec-d5335fb13b14">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="406efdf7-a2b6-4f7f-a1ec-d5335fb13b14">&lt;linkText&gt;</bpt>Application Lifecycle<ept id="406efdf7-a2b6-4f7f-a1ec-d5335fb13b14">&lt;/linkText&gt;</ept><bpt id="406efdf7-a2b6-4f7f-a1ec-d5335fb13b14">&lt;title&gt;</bpt><ept id="406efdf7-a2b6-4f7f-a1ec-d5335fb13b14">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94784830-ecef-42b4-b65d-957bce471e91" xml:space="preserve">
+          <source><bpt id="d368e02e-4b98-41e8-a0d9-95c48b2b3758">&lt;linkText&gt;</bpt>Visualizing your cluster using Service Fabric Explorer<ept id="d368e02e-4b98-41e8-a0d9-95c48b2b3758">&lt;/linkText&gt;</ept><bpt id="d368e02e-4b98-41e8-a0d9-95c48b2b3758">&lt;title&gt;</bpt><ept id="d368e02e-4b98-41e8-a0d9-95c48b2b3758">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d368e02e-4b98-41e8-a0d9-95c48b2b3758">&lt;linkText&gt;</bpt>Visualizing your cluster using Service Fabric Explorer<ept id="d368e02e-4b98-41e8-a0d9-95c48b2b3758">&lt;/linkText&gt;</ept><bpt id="d368e02e-4b98-41e8-a0d9-95c48b2b3758">&lt;title&gt;</bpt><ept id="d368e02e-4b98-41e8-a0d9-95c48b2b3758">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03258d7e-2d27-4f09-9afc-d13f20533f7b" xml:space="preserve">
+          <source><bpt id="edd30cfa-96f8-47f4-a727-ec8a2e82cb0e">&lt;linkText&gt;</bpt>Secure replication traffic of stateful services<ept id="edd30cfa-96f8-47f4-a727-ec8a2e82cb0e">&lt;/linkText&gt;</ept><bpt id="edd30cfa-96f8-47f4-a727-ec8a2e82cb0e">&lt;title&gt;</bpt><ept id="edd30cfa-96f8-47f4-a727-ec8a2e82cb0e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="edd30cfa-96f8-47f4-a727-ec8a2e82cb0e">&lt;linkText&gt;</bpt>Secure replication traffic of stateful services<ept id="edd30cfa-96f8-47f4-a727-ec8a2e82cb0e">&lt;/linkText&gt;</ept><bpt id="edd30cfa-96f8-47f4-a727-ec8a2e82cb0e">&lt;title&gt;</bpt><ept id="edd30cfa-96f8-47f4-a727-ec8a2e82cb0e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bff9cdc-1b68-45ce-ba01-4e62881c8ec4" xml:space="preserve">
+          <source>The following topics discuss the Service Fabric application model as well as how to package and deploy your applications.</source>
+          <target state="new">The following topics discuss the Service Fabric application model as well as how to package and deploy your applications.</target>
+        </trans-unit>
+        <trans-unit id="5f6862ad-9fc8-44ce-821f-4f329cd1256b" xml:space="preserve">
+          <source><bpt id="3fc7284f-ddf8-426c-b333-87124862981e">&lt;linkText&gt;</bpt>Application Model<ept id="3fc7284f-ddf8-426c-b333-87124862981e">&lt;/linkText&gt;</ept><bpt id="3fc7284f-ddf8-426c-b333-87124862981e">&lt;title&gt;</bpt><ept id="3fc7284f-ddf8-426c-b333-87124862981e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3fc7284f-ddf8-426c-b333-87124862981e">&lt;linkText&gt;</bpt>Application Model<ept id="3fc7284f-ddf8-426c-b333-87124862981e">&lt;/linkText&gt;</ept><bpt id="3fc7284f-ddf8-426c-b333-87124862981e">&lt;title&gt;</bpt><ept id="3fc7284f-ddf8-426c-b333-87124862981e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b1a253e-982c-4e1c-95c1-3de827f3e2bd" xml:space="preserve">
+          <source><bpt id="3cbe8fa4-422b-4a85-966b-cf8980d73c93">&lt;linkText&gt;</bpt>Service Manifest Resources<ept id="3cbe8fa4-422b-4a85-966b-cf8980d73c93">&lt;/linkText&gt;</ept><bpt id="3cbe8fa4-422b-4a85-966b-cf8980d73c93">&lt;title&gt;</bpt><ept id="3cbe8fa4-422b-4a85-966b-cf8980d73c93">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3cbe8fa4-422b-4a85-966b-cf8980d73c93">&lt;linkText&gt;</bpt>Service Manifest Resources<ept id="3cbe8fa4-422b-4a85-966b-cf8980d73c93">&lt;/linkText&gt;</ept><bpt id="3cbe8fa4-422b-4a85-966b-cf8980d73c93">&lt;title&gt;</bpt><ept id="3cbe8fa4-422b-4a85-966b-cf8980d73c93">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0275462e-96ce-4522-86be-e398ef49f9c7" xml:space="preserve">
+          <source><bpt id="82a103dc-df1d-49a6-8c34-d8aee14edd90">&lt;linkText&gt;</bpt>Package an Application<ept id="82a103dc-df1d-49a6-8c34-d8aee14edd90">&lt;/linkText&gt;</ept><bpt id="82a103dc-df1d-49a6-8c34-d8aee14edd90">&lt;title&gt;</bpt><ept id="82a103dc-df1d-49a6-8c34-d8aee14edd90">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="82a103dc-df1d-49a6-8c34-d8aee14edd90">&lt;linkText&gt;</bpt>Package an Application<ept id="82a103dc-df1d-49a6-8c34-d8aee14edd90">&lt;/linkText&gt;</ept><bpt id="82a103dc-df1d-49a6-8c34-d8aee14edd90">&lt;title&gt;</bpt><ept id="82a103dc-df1d-49a6-8c34-d8aee14edd90">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abc6fa35-82e8-49d7-9693-fa0778cdb57d" xml:space="preserve">
+          <source><bpt id="6c8fecda-fec0-433f-a4ff-3a924f27230f">&lt;linkText&gt;</bpt>Deploy and Remove an Application<ept id="6c8fecda-fec0-433f-a4ff-3a924f27230f">&lt;/linkText&gt;</ept><bpt id="6c8fecda-fec0-433f-a4ff-3a924f27230f">&lt;title&gt;</bpt><ept id="6c8fecda-fec0-433f-a4ff-3a924f27230f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6c8fecda-fec0-433f-a4ff-3a924f27230f">&lt;linkText&gt;</bpt>Deploy and Remove an Application<ept id="6c8fecda-fec0-433f-a4ff-3a924f27230f">&lt;/linkText&gt;</ept><bpt id="6c8fecda-fec0-433f-a4ff-3a924f27230f">&lt;title&gt;</bpt><ept id="6c8fecda-fec0-433f-a4ff-3a924f27230f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46affc23-a7f8-4215-80fe-37f1b96b6a1d" xml:space="preserve">
+          <source><bpt id="e46f3736-c75b-4c2c-9efe-d74dcecb0306">&lt;linkText&gt;</bpt>Deploy an existing application<ept id="e46f3736-c75b-4c2c-9efe-d74dcecb0306">&lt;/linkText&gt;</ept><bpt id="e46f3736-c75b-4c2c-9efe-d74dcecb0306">&lt;title&gt;</bpt><ept id="e46f3736-c75b-4c2c-9efe-d74dcecb0306">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e46f3736-c75b-4c2c-9efe-d74dcecb0306">&lt;linkText&gt;</bpt>Deploy an existing application<ept id="e46f3736-c75b-4c2c-9efe-d74dcecb0306">&lt;/linkText&gt;</ept><bpt id="e46f3736-c75b-4c2c-9efe-d74dcecb0306">&lt;title&gt;</bpt><ept id="e46f3736-c75b-4c2c-9efe-d74dcecb0306">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b5231b73-adf2-4659-a3de-d01227332b47" xml:space="preserve">
+          <source><bpt id="fb339112-8b1f-4f9a-9ffa-bd1d48345248">&lt;linkText&gt;</bpt>Managing your Service Fabric applications in Visual Studio<ept id="fb339112-8b1f-4f9a-9ffa-bd1d48345248">&lt;/linkText&gt;</ept><bpt id="fb339112-8b1f-4f9a-9ffa-bd1d48345248">&lt;title&gt;</bpt><ept id="fb339112-8b1f-4f9a-9ffa-bd1d48345248">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fb339112-8b1f-4f9a-9ffa-bd1d48345248">&lt;linkText&gt;</bpt>Managing your Service Fabric applications in Visual Studio<ept id="fb339112-8b1f-4f9a-9ffa-bd1d48345248">&lt;/linkText&gt;</ept><bpt id="fb339112-8b1f-4f9a-9ffa-bd1d48345248">&lt;title&gt;</bpt><ept id="fb339112-8b1f-4f9a-9ffa-bd1d48345248">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ed970f9-b958-4635-a429-85e1f77b3fda" xml:space="preserve">
+          <source>Read the following to learn how to upgrade an application:</source>
+          <target state="new">Read the following to learn how to upgrade an application:</target>
+        </trans-unit>
+        <trans-unit id="c768d39d-2c60-449e-b1e0-f4fa1f010e6b" xml:space="preserve">
+          <source><bpt id="3cb2df41-3b08-4beb-a5c6-7866a45866b1">&lt;linkText&gt;</bpt>Service Fabric Application Upgrade<ept id="3cb2df41-3b08-4beb-a5c6-7866a45866b1">&lt;/linkText&gt;</ept><bpt id="3cb2df41-3b08-4beb-a5c6-7866a45866b1">&lt;title&gt;</bpt><ept id="3cb2df41-3b08-4beb-a5c6-7866a45866b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3cb2df41-3b08-4beb-a5c6-7866a45866b1">&lt;linkText&gt;</bpt>Service Fabric Application Upgrade<ept id="3cb2df41-3b08-4beb-a5c6-7866a45866b1">&lt;/linkText&gt;</ept><bpt id="3cb2df41-3b08-4beb-a5c6-7866a45866b1">&lt;title&gt;</bpt><ept id="3cb2df41-3b08-4beb-a5c6-7866a45866b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54de3e17-a20b-40e3-82af-f4e956528577" xml:space="preserve">
+          <source><bpt id="d9a157d5-2cdd-455b-bfee-90fde65ebd4e">&lt;linkText&gt;</bpt>Upgrade Parameters<ept id="d9a157d5-2cdd-455b-bfee-90fde65ebd4e">&lt;/linkText&gt;</ept><bpt id="d9a157d5-2cdd-455b-bfee-90fde65ebd4e">&lt;title&gt;</bpt><ept id="d9a157d5-2cdd-455b-bfee-90fde65ebd4e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d9a157d5-2cdd-455b-bfee-90fde65ebd4e">&lt;linkText&gt;</bpt>Upgrade Parameters<ept id="d9a157d5-2cdd-455b-bfee-90fde65ebd4e">&lt;/linkText&gt;</ept><bpt id="d9a157d5-2cdd-455b-bfee-90fde65ebd4e">&lt;title&gt;</bpt><ept id="d9a157d5-2cdd-455b-bfee-90fde65ebd4e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ff31ac5-2ad9-4054-bbf4-c109ef4a9a5e" xml:space="preserve">
+          <source><bpt id="c5a46d17-8005-4236-b2ff-c81230df74b6">&lt;linkText&gt;</bpt>Advanced Topics<ept id="c5a46d17-8005-4236-b2ff-c81230df74b6">&lt;/linkText&gt;</ept><bpt id="c5a46d17-8005-4236-b2ff-c81230df74b6">&lt;title&gt;</bpt><ept id="c5a46d17-8005-4236-b2ff-c81230df74b6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c5a46d17-8005-4236-b2ff-c81230df74b6">&lt;linkText&gt;</bpt>Advanced Topics<ept id="c5a46d17-8005-4236-b2ff-c81230df74b6">&lt;/linkText&gt;</ept><bpt id="c5a46d17-8005-4236-b2ff-c81230df74b6">&lt;title&gt;</bpt><ept id="c5a46d17-8005-4236-b2ff-c81230df74b6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f384cfff-5cdb-430f-84b5-7441efa62437" xml:space="preserve">
+          <source><bpt id="278ecbc5-0873-4dee-a196-25440465f1cf">&lt;linkText&gt;</bpt>Troubleshooting Application Upgrade Failures<ept id="278ecbc5-0873-4dee-a196-25440465f1cf">&lt;/linkText&gt;</ept><bpt id="278ecbc5-0873-4dee-a196-25440465f1cf">&lt;title&gt;</bpt><ept id="278ecbc5-0873-4dee-a196-25440465f1cf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="278ecbc5-0873-4dee-a196-25440465f1cf">&lt;linkText&gt;</bpt>Troubleshooting Application Upgrade Failures<ept id="278ecbc5-0873-4dee-a196-25440465f1cf">&lt;/linkText&gt;</ept><bpt id="278ecbc5-0873-4dee-a196-25440465f1cf">&lt;title&gt;</bpt><ept id="278ecbc5-0873-4dee-a196-25440465f1cf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8aa40907-1643-4092-bc34-7f7c9bee91ed" xml:space="preserve">
+          <source><bpt id="9175702e-5692-4630-94cb-feb0af2fa009">&lt;linkText&gt;</bpt>Application Upgrade Tutorial/Walkthrough<ept id="9175702e-5692-4630-94cb-feb0af2fa009">&lt;/linkText&gt;</ept><bpt id="9175702e-5692-4630-94cb-feb0af2fa009">&lt;title&gt;</bpt><ept id="9175702e-5692-4630-94cb-feb0af2fa009">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9175702e-5692-4630-94cb-feb0af2fa009">&lt;linkText&gt;</bpt>Application Upgrade Tutorial/Walkthrough<ept id="9175702e-5692-4630-94cb-feb0af2fa009">&lt;/linkText&gt;</ept><bpt id="9175702e-5692-4630-94cb-feb0af2fa009">&lt;title&gt;</bpt><ept id="9175702e-5692-4630-94cb-feb0af2fa009">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc4105cc-9e6c-4271-aa65-95c2951854a3" xml:space="preserve">
+          <source><bpt id="2e1ccb25-ed85-4047-924c-ccd4eea20566">&lt;linkText&gt;</bpt>Service Fabric Application Upgrade: Data Serialization<ept id="2e1ccb25-ed85-4047-924c-ccd4eea20566">&lt;/linkText&gt;</ept><bpt id="2e1ccb25-ed85-4047-924c-ccd4eea20566">&lt;title&gt;</bpt><ept id="2e1ccb25-ed85-4047-924c-ccd4eea20566">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="2e1ccb25-ed85-4047-924c-ccd4eea20566">&lt;linkText&gt;</bpt>Service Fabric Application Upgrade: Data Serialization<ept id="2e1ccb25-ed85-4047-924c-ccd4eea20566">&lt;/linkText&gt;</ept><bpt id="2e1ccb25-ed85-4047-924c-ccd4eea20566">&lt;title&gt;</bpt><ept id="2e1ccb25-ed85-4047-924c-ccd4eea20566">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="cafdfbc6-0ba7-4214-8991-0e9f2b182748" xml:space="preserve">
+          <source>The following articles describe scaling and partitioning:</source>
+          <target state="new">The following articles describe scaling and partitioning:</target>
+        </trans-unit>
+        <trans-unit id="2a616db3-240e-4535-be56-ceb37f3185d3" xml:space="preserve">
+          <source><bpt id="d219b57e-8f07-4abc-9d4d-2abd448c4370">&lt;linkText&gt;</bpt>Partitioning Service Fabric services<ept id="d219b57e-8f07-4abc-9d4d-2abd448c4370">&lt;/linkText&gt;</ept><bpt id="d219b57e-8f07-4abc-9d4d-2abd448c4370">&lt;title&gt;</bpt><ept id="d219b57e-8f07-4abc-9d4d-2abd448c4370">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d219b57e-8f07-4abc-9d4d-2abd448c4370">&lt;linkText&gt;</bpt>Partitioning Service Fabric services<ept id="d219b57e-8f07-4abc-9d4d-2abd448c4370">&lt;/linkText&gt;</ept><bpt id="d219b57e-8f07-4abc-9d4d-2abd448c4370">&lt;title&gt;</bpt><ept id="d219b57e-8f07-4abc-9d4d-2abd448c4370">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8451172d-f020-4a35-b9b9-c46b9b3161d8" xml:space="preserve">
+          <source><bpt id="698808b6-be5b-43ed-8bda-fb75e36e498e">&lt;linkText&gt;</bpt>Scaling Service Fabric Applications<ept id="698808b6-be5b-43ed-8bda-fb75e36e498e">&lt;/linkText&gt;</ept><bpt id="698808b6-be5b-43ed-8bda-fb75e36e498e">&lt;title&gt;</bpt><ept id="698808b6-be5b-43ed-8bda-fb75e36e498e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="698808b6-be5b-43ed-8bda-fb75e36e498e">&lt;linkText&gt;</bpt>Scaling Service Fabric Applications<ept id="698808b6-be5b-43ed-8bda-fb75e36e498e">&lt;/linkText&gt;</ept><bpt id="698808b6-be5b-43ed-8bda-fb75e36e498e">&lt;title&gt;</bpt><ept id="698808b6-be5b-43ed-8bda-fb75e36e498e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

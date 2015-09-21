@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6243d987-484d-4e37-b546-72a933916e49" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6243d987-484d-4e37-b546-72a933916e49" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fd72c6b8-ba6e-48cd-bf5d-5968ce7913f9">
+        <trans-unit id="80db5223-6856-43fc-95d4-b2cb449f4dff" xml:space="preserve">
+          <source>Testing the performance of a cloud service | Microsoft Azure</source>
+          <target state="new">Testing the performance of a cloud service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3b1fbf83-d85a-46cf-983a-462df1bdbaab" xml:space="preserve">
+          <source>Test the performance of a cloud service using the Visual Studio profiler</source>
+          <target state="new">Test the performance of a cloud service using the Visual Studio profiler</target>
+        </trans-unit>
+        <trans-unit id="fca6f15a-10d0-4205-a71d-64b9524ffd3c" xml:space="preserve">
+          <source>You can test the performance of a cloud service in the following ways:</source>
+          <target state="new">You can test the performance of a cloud service in the following ways:</target>
+        </trans-unit>
+        <trans-unit id="c2f3655e-5630-47f6-b04a-4ac3de201905" xml:space="preserve">
+          <source>Use Azure Diagnostics to collect information about requests and connections, and to review site statistics that show how the service performs from a customer perspective.</source>
+          <target state="new">Use Azure Diagnostics to collect information about requests and connections, and to review site statistics that show how the service performs from a customer perspective.</target>
+        </trans-unit>
+        <trans-unit id="15e44eb5-cd38-47e2-bc74-8033de5a82de" xml:space="preserve">
+          <source>To get started with , see <bpt id="b91283db-bf75-4af3-ac76-997627c9fd44">&lt;linkText&gt;</bpt>Configuring diagnostics for Azure Cloud Services and Virtual Machines<ept id="b91283db-bf75-4af3-ac76-997627c9fd44">&lt;/linkText&gt;</ept><bpt id="b91283db-bf75-4af3-ac76-997627c9fd44">&lt;title&gt;</bpt><ept id="b91283db-bf75-4af3-ac76-997627c9fd44">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started with , see <bpt id="b91283db-bf75-4af3-ac76-997627c9fd44">&lt;linkText&gt;</bpt>Configuring diagnostics for Azure Cloud Services and Virtual Machines<ept id="b91283db-bf75-4af3-ac76-997627c9fd44">&lt;/linkText&gt;</ept><bpt id="b91283db-bf75-4af3-ac76-997627c9fd44">&lt;title&gt;</bpt><ept id="b91283db-bf75-4af3-ac76-997627c9fd44">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2eaa7e90-7234-4fe3-a109-532ed8eac8e0" xml:space="preserve">
+          <source>Use the Visual Studio profiler to get an in-depth analysis of the computational aspects of how the service runs.</source>
+          <target state="new">Use the Visual Studio profiler to get an in-depth analysis of the computational aspects of how the service runs.</target>
+        </trans-unit>
+        <trans-unit id="6cc4a258-5792-4b2f-96a0-283315bf93ee" xml:space="preserve">
+          <source>As this topic describes, you can use the profiler to measure performance as a service runs in Azure.</source>
+          <target state="new">As this topic describes, you can use the profiler to measure performance as a service runs in Azure.</target>
+        </trans-unit>
+        <trans-unit id="c157570d-1de6-478c-9855-642c4f5713b4" xml:space="preserve">
+          <source>For information about how to use the profiler to measure performance as a service runs locally in a compute emulator, see <bpt id="9495c0e5-79db-454e-a37c-e27cd05b7180">&lt;linkText&gt;</bpt>Testing the Performance of an Azure Cloud Service Locally in the Compute Emulator Using the Visual Studio Profiler<ept id="9495c0e5-79db-454e-a37c-e27cd05b7180">&lt;/linkText&gt;</ept><bpt id="9495c0e5-79db-454e-a37c-e27cd05b7180">&lt;title&gt;</bpt><ept id="9495c0e5-79db-454e-a37c-e27cd05b7180">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to use the profiler to measure performance as a service runs locally in a compute emulator, see <bpt id="9495c0e5-79db-454e-a37c-e27cd05b7180">&lt;linkText&gt;</bpt>Testing the Performance of an Azure Cloud Service Locally in the Compute Emulator Using the Visual Studio Profiler<ept id="9495c0e5-79db-454e-a37c-e27cd05b7180">&lt;/linkText&gt;</ept><bpt id="9495c0e5-79db-454e-a37c-e27cd05b7180">&lt;title&gt;</bpt><ept id="9495c0e5-79db-454e-a37c-e27cd05b7180">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7a76738-9206-497f-91de-ffdedde87e01" xml:space="preserve">
+          <source>Statistics on web pages or services, such as requests and connections.</source>
+          <target state="new">Statistics on web pages or services, such as requests and connections.</target>
+        </trans-unit>
+        <trans-unit id="cf6d3a03-3df1-464d-8242-f73c333d806f" xml:space="preserve">
+          <source>Statistics on roles, such as how often a role is restarted.</source>
+          <target state="new">Statistics on roles, such as how often a role is restarted.</target>
+        </trans-unit>
+        <trans-unit id="c29f4396-3c29-4878-8e6d-6d3b34c8d57d" xml:space="preserve">
+          <source>Overall information about memory usage, such as the percentage of time that the garbage collector takes or the memory set of a running role.</source>
+          <target state="new">Overall information about memory usage, such as the percentage of time that the garbage collector takes or the memory set of a running role.</target>
+        </trans-unit>
+        <trans-unit id="2483050f-d980-49fb-a13c-8778a36c7f57" xml:space="preserve">
+          <source>Determine which functions take the most time.</source>
+          <target state="new">Determine which functions take the most time.</target>
+        </trans-unit>
+        <trans-unit id="a3d874dc-462b-4f70-84a4-1a3b13e4fd3b" xml:space="preserve">
+          <source>Measure how much time each part of a computationally intensive program takes.</source>
+          <target state="new">Measure how much time each part of a computationally intensive program takes.</target>
+        </trans-unit>
+        <trans-unit id="22055e63-6fb8-4a04-937c-e59afb2c1424" xml:space="preserve">
+          <source>Compare detailed performance reports for two versions of a service.</source>
+          <target state="new">Compare detailed performance reports for two versions of a service.</target>
+        </trans-unit>
+        <trans-unit id="3cb3ae6f-7eb5-4bf9-8641-3e4b1630dea4" xml:space="preserve">
+          <source>Analyze memory allocation in more detail than the level of individual memory allocations.</source>
+          <target state="new">Analyze memory allocation in more detail than the level of individual memory allocations.</target>
+        </trans-unit>
+        <trans-unit id="91ce4a7c-65e1-41f4-80d7-e5e87b44b584" xml:space="preserve">
+          <source>Analyze concurrency problems in multithreaded code.</source>
+          <target state="new">Analyze concurrency problems in multithreaded code.</target>
+        </trans-unit>
+        <trans-unit id="7df22114-2214-4b68-a47a-e83c1dc7b11d" xml:space="preserve">
+          <source>When you use the profiler, you can collect data when a cloud service runs locally or in Azure.</source>
+          <target state="new">When you use the profiler, you can collect data when a cloud service runs locally or in Azure.</target>
+        </trans-unit>
+        <trans-unit id="5479596f-1f92-46a7-9d0f-1c025c6b6447" xml:space="preserve">
+          <source>Test the performance of a part of a cloud service, such as the execution of specific worker role, that doesn’t require a realistic simulated load.</source>
+          <target state="new">Test the performance of a part of a cloud service, such as the execution of specific worker role, that doesn’t require a realistic simulated load.</target>
+        </trans-unit>
+        <trans-unit id="0f8f9455-29b4-45f1-af8e-6c77c2f27cd7" xml:space="preserve">
+          <source>Test the performance of a cloud service in isolation, under controlled conditions.</source>
+          <target state="new">Test the performance of a cloud service in isolation, under controlled conditions.</target>
+        </trans-unit>
+        <trans-unit id="f1c10f23-7a9a-4234-b849-3a056049c8fe" xml:space="preserve">
+          <source>Test the performance of a cloud service before you deploy it to Azure.</source>
+          <target state="new">Test the performance of a cloud service before you deploy it to Azure.</target>
+        </trans-unit>
+        <trans-unit id="d71f718d-5b55-4dc1-891a-69e0ef5f2b0b" xml:space="preserve">
+          <source>Test the performance of a cloud service privately, without disturbing the existing deployments.</source>
+          <target state="new">Test the performance of a cloud service privately, without disturbing the existing deployments.</target>
+        </trans-unit>
+        <trans-unit id="096841f8-8267-42c8-890a-ff52fe7870be" xml:space="preserve">
+          <source>Test the performance of the service without incurring charges for running in Azure.</source>
+          <target state="new">Test the performance of the service without incurring charges for running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="6e8fcc25-32ae-4fd9-96c9-16028830fda1" xml:space="preserve">
+          <source>Test the performance of a cloud service under a simulated or real load.</source>
+          <target state="new">Test the performance of a cloud service under a simulated or real load.</target>
+        </trans-unit>
+        <trans-unit id="d7f580a2-53b2-49eb-833e-191c7bc4c858" xml:space="preserve">
+          <source>Use the instrumentation method of collecting profiling data, as this topic describes later.</source>
+          <target state="new">Use the instrumentation method of collecting profiling data, as this topic describes later.</target>
+        </trans-unit>
+        <trans-unit id="92b578ab-4ed7-4cfc-a531-d46a8d555ffa" xml:space="preserve">
+          <source>Test the performance of the service in the same environment as when the service runs in production.</source>
+          <target state="new">Test the performance of the service in the same environment as when the service runs in production.</target>
+        </trans-unit>
+        <trans-unit id="cb0026a4-3291-4328-8135-e56bcefe7fe2" xml:space="preserve">
+          <source>You typically simulate a load to test cloud services under normal or stress conditions.</source>
+          <target state="new">You typically simulate a load to test cloud services under normal or stress conditions.</target>
+        </trans-unit>
+        <trans-unit id="180716ec-0748-47fa-959d-59a0ce43de07" xml:space="preserve">
+          <source>When you publish your cloud service from Visual Studio, you can profile the service and specify the profiling settings that give you the information that you want.</source>
+          <target state="new">When you publish your cloud service from Visual Studio, you can profile the service and specify the profiling settings that give you the information that you want.</target>
+        </trans-unit>
+        <trans-unit id="855a17a1-2b46-4fc3-8b32-b9fcf9c52a9d" xml:space="preserve">
+          <source>A profiling session is started for each instance of a role.</source>
+          <target state="new">A profiling session is started for each instance of a role.</target>
+        </trans-unit>
+        <trans-unit id="3cc92837-bb1c-40b8-8417-230ab0b25157" xml:space="preserve">
+          <source>For more information about how to publish your service from Visual Studio, see <bpt id="fb71a3db-d00b-448f-81a8-81b05a0490b7">&lt;linkText&gt;</bpt>Publishing to an Azure Cloud Service from Visual Studio<ept id="fb71a3db-d00b-448f-81a8-81b05a0490b7">&lt;/linkText&gt;</ept><bpt id="fb71a3db-d00b-448f-81a8-81b05a0490b7">&lt;title&gt;</bpt><ept id="fb71a3db-d00b-448f-81a8-81b05a0490b7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to publish your service from Visual Studio, see <bpt id="fb71a3db-d00b-448f-81a8-81b05a0490b7">&lt;linkText&gt;</bpt>Publishing to an Azure Cloud Service from Visual Studio<ept id="fb71a3db-d00b-448f-81a8-81b05a0490b7">&lt;/linkText&gt;</ept><bpt id="fb71a3db-d00b-448f-81a8-81b05a0490b7">&lt;title&gt;</bpt><ept id="fb71a3db-d00b-448f-81a8-81b05a0490b7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ebc70b85-174c-4a37-975e-ca357f56badc" xml:space="preserve">
+          <source>To understand more about performance profiling in Visual Studio, see <bpt id="2650b6db-78d3-4198-ad07-dc7ef4c7523d">&lt;linkText&gt;</bpt>Beginners Guide to Performance Profiling<ept id="2650b6db-78d3-4198-ad07-dc7ef4c7523d">&lt;/linkText&gt;</ept><bpt id="2650b6db-78d3-4198-ad07-dc7ef4c7523d">&lt;title&gt;</bpt><ept id="2650b6db-78d3-4198-ad07-dc7ef4c7523d">&lt;/title&gt;</ept> and <bpt id="1c0d8174-294d-4853-97eb-ef3d221e8651">&lt;linkText&gt;</bpt>Analyzing Application Performance by Using Profiling Tools<ept id="1c0d8174-294d-4853-97eb-ef3d221e8651">&lt;/linkText&gt;</ept><bpt id="1c0d8174-294d-4853-97eb-ef3d221e8651">&lt;title&gt;</bpt><ept id="1c0d8174-294d-4853-97eb-ef3d221e8651">&lt;/title&gt;</ept>.</source>
+          <target state="new">To understand more about performance profiling in Visual Studio, see <bpt id="2650b6db-78d3-4198-ad07-dc7ef4c7523d">&lt;linkText&gt;</bpt>Beginners Guide to Performance Profiling<ept id="2650b6db-78d3-4198-ad07-dc7ef4c7523d">&lt;/linkText&gt;</ept><bpt id="2650b6db-78d3-4198-ad07-dc7ef4c7523d">&lt;title&gt;</bpt><ept id="2650b6db-78d3-4198-ad07-dc7ef4c7523d">&lt;/title&gt;</ept> and <bpt id="1c0d8174-294d-4853-97eb-ef3d221e8651">&lt;linkText&gt;</bpt>Analyzing Application Performance by Using Profiling Tools<ept id="1c0d8174-294d-4853-97eb-ef3d221e8651">&lt;/linkText&gt;</ept><bpt id="1c0d8174-294d-4853-97eb-ef3d221e8651">&lt;title&gt;</bpt><ept id="1c0d8174-294d-4853-97eb-ef3d221e8651">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f50cf472-2551-4adb-88c4-3052f700707a" xml:space="preserve">
+          <source>You can enable either IntelliTrace or profiling when you publish your cloud service.</source>
+          <target state="new">You can enable either IntelliTrace or profiling when you publish your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="ffead8a0-2aea-45d7-b427-4c4d315b553d" xml:space="preserve">
+          <source>You can't enable both.</source>
+          <target state="new">You can't enable both.</target>
+        </trans-unit>
+        <trans-unit id="720d286b-d43c-4807-aa10-7214aacbba18" xml:space="preserve">
+          <source>You can use different collection methods for profiling, based on your performance issues:</source>
+          <target state="new">You can use different collection methods for profiling, based on your performance issues:</target>
+        </trans-unit>
+        <trans-unit id="f102c2ac-4638-4110-b5dc-105fd5e8b842" xml:space="preserve">
+          <source><bpt id="4015d490-3bc9-408a-bd45-8059f42b6438">&lt;strong&gt;</bpt>CPU sampling<ept id="4015d490-3bc9-408a-bd45-8059f42b6438">&lt;/strong&gt;</ept> - This method collects application statistics that are useful for initial analysis of CPU utilization issues.</source>
+          <target state="new"><bpt id="4015d490-3bc9-408a-bd45-8059f42b6438">&lt;strong&gt;</bpt>CPU sampling<ept id="4015d490-3bc9-408a-bd45-8059f42b6438">&lt;/strong&gt;</ept> - This method collects application statistics that are useful for initial analysis of CPU utilization issues.</target>
+        </trans-unit>
+        <trans-unit id="c74effeb-77a5-4f1a-bf5d-6b7386bcaf23" xml:space="preserve">
+          <source>CPU sampling is the suggested method for starting most performance investigations.</source>
+          <target state="new">CPU sampling is the suggested method for starting most performance investigations.</target>
+        </trans-unit>
+        <trans-unit id="eb3b21d2-8a89-417f-b7d7-2cce046a3bc6" xml:space="preserve">
+          <source>There is a low impact on the application that you are profiling when you collect CPU sampling data.</source>
+          <target state="new">There is a low impact on the application that you are profiling when you collect CPU sampling data.</target>
+        </trans-unit>
+        <trans-unit id="a0576d1c-7eac-4e7e-876d-424a766533dc" xml:space="preserve">
+          <source><bpt id="5ea5276e-6086-48ef-8580-9eb2782bfb55">&lt;strong&gt;</bpt>Instrumentation<ept id="5ea5276e-6086-48ef-8580-9eb2782bfb55">&lt;/strong&gt;</ept> -This method collects detailed timing data that is useful for focused analysis and for analyzing input/output performance issues.</source>
+          <target state="new"><bpt id="5ea5276e-6086-48ef-8580-9eb2782bfb55">&lt;strong&gt;</bpt>Instrumentation<ept id="5ea5276e-6086-48ef-8580-9eb2782bfb55">&lt;/strong&gt;</ept> -This method collects detailed timing data that is useful for focused analysis and for analyzing input/output performance issues.</target>
+        </trans-unit>
+        <trans-unit id="1ff62402-dd7f-4f02-aea1-3a91b177160e" xml:space="preserve">
+          <source>The instrumentation method records each entry, exit, and function call of the functions in a module during a profiling run.</source>
+          <target state="new">The instrumentation method records each entry, exit, and function call of the functions in a module during a profiling run.</target>
+        </trans-unit>
+        <trans-unit id="f915205e-1b96-4ac7-877f-cabe81668716" xml:space="preserve">
+          <source>This method is useful for gathering detailed timing information about a section of your code and for understanding the impact of input and output operations on application performance.</source>
+          <target state="new">This method is useful for gathering detailed timing information about a section of your code and for understanding the impact of input and output operations on application performance.</target>
+        </trans-unit>
+        <trans-unit id="63892ceb-9069-4980-8d30-b0879ffef72e" xml:space="preserve">
+          <source>This method is disabled for a computer running a 32-bit operating system.</source>
+          <target state="new">This method is disabled for a computer running a 32-bit operating system.</target>
+        </trans-unit>
+        <trans-unit id="d9e6cee2-02fb-4c33-af7f-9676b8c73904" xml:space="preserve">
+          <source>This option is available only when you run the cloud service in Azure, not locally in the compute emulator.</source>
+          <target state="new">This option is available only when you run the cloud service in Azure, not locally in the compute emulator.</target>
+        </trans-unit>
+        <trans-unit id="bc21b176-0a91-4ad3-870c-cf5fefe6823a" xml:space="preserve">
+          <source><bpt id="bfac61ab-dfa7-43f0-8ddb-a62da03ea95c">&lt;strong&gt;</bpt>.NET Memory Allocation<ept id="bfac61ab-dfa7-43f0-8ddb-a62da03ea95c">&lt;/strong&gt;</ept> - This method collects .NET Framework memory allocation data by using the sampling profiling method.</source>
+          <target state="new"><bpt id="bfac61ab-dfa7-43f0-8ddb-a62da03ea95c">&lt;strong&gt;</bpt>.NET Memory Allocation<ept id="bfac61ab-dfa7-43f0-8ddb-a62da03ea95c">&lt;/strong&gt;</ept> - This method collects .NET Framework memory allocation data by using the sampling profiling method.</target>
+        </trans-unit>
+        <trans-unit id="1929746e-50a7-40e6-b753-c4cbbd376ef5" xml:space="preserve">
+          <source>The collected data includes the number and size of allocated objects.</source>
+          <target state="new">The collected data includes the number and size of allocated objects.</target>
+        </trans-unit>
+        <trans-unit id="d5e56aa8-501f-4812-94f4-19ca22fed30e" xml:space="preserve">
+          <source><bpt id="c8b4d0be-5779-4d75-bba6-cf30eb078856">&lt;strong&gt;</bpt>Concurrency<ept id="c8b4d0be-5779-4d75-bba6-cf30eb078856">&lt;/strong&gt;</ept> - This method collects resource contention data, and process and thread execution data that is useful in analyzing multi-threaded and multi-process applications.</source>
+          <target state="new"><bpt id="c8b4d0be-5779-4d75-bba6-cf30eb078856">&lt;strong&gt;</bpt>Concurrency<ept id="c8b4d0be-5779-4d75-bba6-cf30eb078856">&lt;/strong&gt;</ept> - This method collects resource contention data, and process and thread execution data that is useful in analyzing multi-threaded and multi-process applications.</target>
+        </trans-unit>
+        <trans-unit id="1cee0a2e-df2b-4c8f-a33e-7448ef375f65" xml:space="preserve">
+          <source>The concurrency method collects data for each event that blocks execution of your code, such as when a thread waits for locked access to an application resource to be freed.</source>
+          <target state="new">The concurrency method collects data for each event that blocks execution of your code, such as when a thread waits for locked access to an application resource to be freed.</target>
+        </trans-unit>
+        <trans-unit id="9e324986-bd88-4331-b016-61552adac0e5" xml:space="preserve">
+          <source>This method is useful for analyzing multi-threaded applications.</source>
+          <target state="new">This method is useful for analyzing multi-threaded applications.</target>
+        </trans-unit>
+        <trans-unit id="c526e869-cf56-4244-9db1-4de7fd890d46" xml:space="preserve">
+          <source>You can also enable <bpt id="fb1fde96-d807-4520-bb9c-74219601fa34">&lt;strong&gt;</bpt>Tier Interaction Profiling<ept id="fb1fde96-d807-4520-bb9c-74219601fa34">&lt;/strong&gt;</ept>, which provides additional information about the execution times of synchronous ADO.NET calls in functions of multi-tiered applications that communicate with one or more databases.</source>
+          <target state="new">You can also enable <bpt id="fb1fde96-d807-4520-bb9c-74219601fa34">&lt;strong&gt;</bpt>Tier Interaction Profiling<ept id="fb1fde96-d807-4520-bb9c-74219601fa34">&lt;/strong&gt;</ept>, which provides additional information about the execution times of synchronous ADO.NET calls in functions of multi-tiered applications that communicate with one or more databases.</target>
+        </trans-unit>
+        <trans-unit id="040f878b-6fcf-477a-974b-870df3668bfd" xml:space="preserve">
+          <source>You can collect tier interaction data with any of the profiling methods.</source>
+          <target state="new">You can collect tier interaction data with any of the profiling methods.</target>
+        </trans-unit>
+        <trans-unit id="e26c0a54-04f0-43e0-900c-6e4f785de14f" xml:space="preserve">
+          <source>For more information about tier interaction profiling, see <bpt id="c4c32983-9c1c-4e4e-b5d1-3c38c511323a">&lt;linkText&gt;</bpt>Tier Interactions View<ept id="c4c32983-9c1c-4e4e-b5d1-3c38c511323a">&lt;/linkText&gt;</ept><bpt id="c4c32983-9c1c-4e4e-b5d1-3c38c511323a">&lt;title&gt;</bpt><ept id="c4c32983-9c1c-4e4e-b5d1-3c38c511323a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about tier interaction profiling, see <bpt id="c4c32983-9c1c-4e4e-b5d1-3c38c511323a">&lt;linkText&gt;</bpt>Tier Interactions View<ept id="c4c32983-9c1c-4e4e-b5d1-3c38c511323a">&lt;/linkText&gt;</ept><bpt id="c4c32983-9c1c-4e4e-b5d1-3c38c511323a">&lt;title&gt;</bpt><ept id="c4c32983-9c1c-4e4e-b5d1-3c38c511323a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74a41f89-e47c-412f-93ae-8c0cac25d7cd" xml:space="preserve">
+          <source>The following illustration shows how to configure your profiling settings from the Publish Azure Application dialog box.</source>
+          <target state="new">The following illustration shows how to configure your profiling settings from the Publish Azure Application dialog box.</target>
+        </trans-unit>
+        <trans-unit id="5e1dbea2-faea-45ec-a2c8-b7406678504d" xml:space="preserve">
+          <source><bpt id="9fa64df2-6540-446d-8da4-21be5a3c0b3f">&lt;linkText&gt;</bpt>Configure Profiling Settings<ept id="9fa64df2-6540-446d-8da4-21be5a3c0b3f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9fa64df2-6540-446d-8da4-21be5a3c0b3f">&lt;linkText&gt;</bpt>Configure Profiling Settings<ept id="9fa64df2-6540-446d-8da4-21be5a3c0b3f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32711356-fbf0-4b00-866d-b93ac2473f00" xml:space="preserve">
+          <source>To enable the <bpt id="09491276-1b79-4bb9-886c-b15c3bb3dc4e">&lt;strong&gt;</bpt>Enable profiling<ept id="09491276-1b79-4bb9-886c-b15c3bb3dc4e">&lt;/strong&gt;</ept> check box, you must have the profiler installed on the local computer that you are using to publish your cloud service.</source>
+          <target state="new">To enable the <bpt id="09491276-1b79-4bb9-886c-b15c3bb3dc4e">&lt;strong&gt;</bpt>Enable profiling<ept id="09491276-1b79-4bb9-886c-b15c3bb3dc4e">&lt;/strong&gt;</ept> check box, you must have the profiler installed on the local computer that you are using to publish your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="2ce687a6-ada1-47fe-83f8-3e56709811db" xml:space="preserve">
+          <source>By default, the profiler is installed when you install Visual Studio.</source>
+          <target state="new">By default, the profiler is installed when you install Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="5aa7e23b-0030-40c6-9bed-4c58dc9e98de" xml:space="preserve">
+          <source>In Solution Explorer, open the shortcut menu for your Azure project, and then choose <bpt id="af72c367-2037-4345-b9b6-4cb53062367f">&lt;strong&gt;</bpt>Publish<ept id="af72c367-2037-4345-b9b6-4cb53062367f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, open the shortcut menu for your Azure project, and then choose <bpt id="af72c367-2037-4345-b9b6-4cb53062367f">&lt;strong&gt;</bpt>Publish<ept id="af72c367-2037-4345-b9b6-4cb53062367f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ab88ade-69ac-46e7-92d8-d9a5f8cc84ad" xml:space="preserve">
+          <source>For detailed steps about how to publish a cloud service, see <bpt id="6d253d9d-28fd-4006-9a10-d984a241a9f6">&lt;linkText&gt;</bpt>Publishing a cloud service using the Azure tools<ept id="6d253d9d-28fd-4006-9a10-d984a241a9f6">&lt;/linkText&gt;</ept><bpt id="6d253d9d-28fd-4006-9a10-d984a241a9f6">&lt;title&gt;</bpt><ept id="6d253d9d-28fd-4006-9a10-d984a241a9f6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed steps about how to publish a cloud service, see <bpt id="6d253d9d-28fd-4006-9a10-d984a241a9f6">&lt;linkText&gt;</bpt>Publishing a cloud service using the Azure tools<ept id="6d253d9d-28fd-4006-9a10-d984a241a9f6">&lt;/linkText&gt;</ept><bpt id="6d253d9d-28fd-4006-9a10-d984a241a9f6">&lt;title&gt;</bpt><ept id="6d253d9d-28fd-4006-9a10-d984a241a9f6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17cfdf9f-15d4-475d-803c-c9ace7c7b50c" xml:space="preserve">
+          <source>In the <bpt id="3eb7bd2c-ed61-4371-b636-f9a190cec673">&lt;strong&gt;</bpt>Publish Azure Application<ept id="3eb7bd2c-ed61-4371-b636-f9a190cec673">&lt;/strong&gt;</ept> dialog box, chose the <bpt id="85686a8c-24b1-4d18-bf37-5f41ba82afae">&lt;strong&gt;</bpt>Advanced Settings<ept id="85686a8c-24b1-4d18-bf37-5f41ba82afae">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the <bpt id="3eb7bd2c-ed61-4371-b636-f9a190cec673">&lt;strong&gt;</bpt>Publish Azure Application<ept id="3eb7bd2c-ed61-4371-b636-f9a190cec673">&lt;/strong&gt;</ept> dialog box, chose the <bpt id="85686a8c-24b1-4d18-bf37-5f41ba82afae">&lt;strong&gt;</bpt>Advanced Settings<ept id="85686a8c-24b1-4d18-bf37-5f41ba82afae">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="c95f6656-9d2a-4cac-b0ff-1deba22a2a5a" xml:space="preserve">
+          <source>To enable profiling, select the <bpt id="35afce6c-25a6-4052-9278-6c0bb68e15db">&lt;strong&gt;</bpt>Enable profiling<ept id="35afce6c-25a6-4052-9278-6c0bb68e15db">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">To enable profiling, select the <bpt id="35afce6c-25a6-4052-9278-6c0bb68e15db">&lt;strong&gt;</bpt>Enable profiling<ept id="35afce6c-25a6-4052-9278-6c0bb68e15db">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="da7542d6-5040-4f8d-8707-04b936fac7f9" xml:space="preserve">
+          <source>To configure your profiling settings, choose the <bpt id="3fb6a8c1-f31a-4d55-93b6-cef532feb63d">&lt;strong&gt;</bpt>Settings<ept id="3fb6a8c1-f31a-4d55-93b6-cef532feb63d">&lt;/strong&gt;</ept> hyperlink.</source>
+          <target state="new">To configure your profiling settings, choose the <bpt id="3fb6a8c1-f31a-4d55-93b6-cef532feb63d">&lt;strong&gt;</bpt>Settings<ept id="3fb6a8c1-f31a-4d55-93b6-cef532feb63d">&lt;/strong&gt;</ept> hyperlink.</target>
+        </trans-unit>
+        <trans-unit id="b2e64e67-e0da-4d5d-82cb-4968e78a89e6" xml:space="preserve">
+          <source>The Profiling Settings dialog box appears.</source>
+          <target state="new">The Profiling Settings dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="b9579a16-1cab-41d2-bd99-1405809090c5" xml:space="preserve">
+          <source>From the <bpt id="f725227a-fb07-45c8-acc2-c14083f71f66">&lt;strong&gt;</bpt>What method of profiling would you like to use<ept id="f725227a-fb07-45c8-acc2-c14083f71f66">&lt;/strong&gt;</ept> option buttons, choose the type of profiling that you need.</source>
+          <target state="new">From the <bpt id="f725227a-fb07-45c8-acc2-c14083f71f66">&lt;strong&gt;</bpt>What method of profiling would you like to use<ept id="f725227a-fb07-45c8-acc2-c14083f71f66">&lt;/strong&gt;</ept> option buttons, choose the type of profiling that you need.</target>
+        </trans-unit>
+        <trans-unit id="88a92c45-49f1-4c1e-85dd-b1e9c55a8b14" xml:space="preserve">
+          <source>To collect the tier interaction profiling data, select the <bpt id="ade0aa67-9a65-4101-a437-ea1d8423e276">&lt;strong&gt;</bpt>Enable Tier Interaction Profiling<ept id="ade0aa67-9a65-4101-a437-ea1d8423e276">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">To collect the tier interaction profiling data, select the <bpt id="ade0aa67-9a65-4101-a437-ea1d8423e276">&lt;strong&gt;</bpt>Enable Tier Interaction Profiling<ept id="ade0aa67-9a65-4101-a437-ea1d8423e276">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="5c26055e-5420-4b64-b043-40686b2de0a0" xml:space="preserve">
+          <source>To save the settings, choose the <bpt id="c40ec32f-b2d3-4e1b-8afe-473985b9291f">&lt;strong&gt;</bpt>OK<ept id="c40ec32f-b2d3-4e1b-8afe-473985b9291f">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">To save the settings, choose the <bpt id="c40ec32f-b2d3-4e1b-8afe-473985b9291f">&lt;strong&gt;</bpt>OK<ept id="c40ec32f-b2d3-4e1b-8afe-473985b9291f">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="dcc0727f-faf4-4d10-94bf-1fdc4f902493" xml:space="preserve">
+          <source>When you publish this application, these settings are used to create the profiling session for each role.</source>
+          <target state="new">When you publish this application, these settings are used to create the profiling session for each role.</target>
+        </trans-unit>
+        <trans-unit id="b9d21dc3-5b1c-4181-a1e7-871a44727e13" xml:space="preserve">
+          <source>A profiling session is created for each instance of a role in your cloud service.</source>
+          <target state="new">A profiling session is created for each instance of a role in your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="dfa6c969-166f-4a9c-83a4-61756fc1d02e" xml:space="preserve">
+          <source>To view your profiling reports of each session from Visual Studio, you can view the Server Explorer window and then choose the Azure Compute node to select an instance of a role.</source>
+          <target state="new">To view your profiling reports of each session from Visual Studio, you can view the Server Explorer window and then choose the Azure Compute node to select an instance of a role.</target>
+        </trans-unit>
+        <trans-unit id="0fd67977-471e-493f-946c-9680e911b209" xml:space="preserve">
+          <source>You can then view the profiling report as shown in the following illustration.</source>
+          <target state="new">You can then view the profiling report as shown in the following illustration.</target>
+        </trans-unit>
+        <trans-unit id="110f015b-d9e5-4d65-ab0c-06ffd8e6fb53" xml:space="preserve">
+          <source><bpt id="5f871946-a4f5-4632-aec8-0d98b60d1930">&lt;linkText&gt;</bpt>View Profiling Report from Azure<ept id="5f871946-a4f5-4632-aec8-0d98b60d1930">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f871946-a4f5-4632-aec8-0d98b60d1930">&lt;linkText&gt;</bpt>View Profiling Report from Azure<ept id="5f871946-a4f5-4632-aec8-0d98b60d1930">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd6f04b6-7495-4500-84b0-9514f3ae63ca" xml:space="preserve">
+          <source>To view the Server Explorer window in Visual Studio, on the menu bar choose View, Server Explorer.</source>
+          <target state="new">To view the Server Explorer window in Visual Studio, on the menu bar choose View, Server Explorer.</target>
+        </trans-unit>
+        <trans-unit id="32a1a3f1-cf32-49be-946a-bbcde44c27d9" xml:space="preserve">
+          <source>Choose the Azure Compute node, and then choose the Azure deployment node for the cloud service that you selected to profile when you published from Visual Studio.</source>
+          <target state="new">Choose the Azure Compute node, and then choose the Azure deployment node for the cloud service that you selected to profile when you published from Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="3dd6fc88-750c-4784-803d-0e715de76387" xml:space="preserve">
+          <source>To view profiling reports for an instance, choose the role in the service, open the shortcut menu for a specific instance, and then choose <bpt id="e922309f-b476-4f79-8680-fb912c95520e">&lt;strong&gt;</bpt>View Profiling Report<ept id="e922309f-b476-4f79-8680-fb912c95520e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To view profiling reports for an instance, choose the role in the service, open the shortcut menu for a specific instance, and then choose <bpt id="e922309f-b476-4f79-8680-fb912c95520e">&lt;strong&gt;</bpt>View Profiling Report<ept id="e922309f-b476-4f79-8680-fb912c95520e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e040e0df-2e96-4bca-9ca4-89169e288155" xml:space="preserve">
+          <source>The report, a .vsp file, is now downloaded from Azure, and the status of the download appears in the  Azure Activity Log. When the download completes, the profiling report appears in a tab in the editor for Visual Studio named &lt;Role name&gt;<bpt id="f136fb97-8c18-40dc-9799-56388ef17bf8">&lt;em&gt;</bpt>&lt;Instance Number&gt;<ept id="f136fb97-8c18-40dc-9799-56388ef17bf8">&lt;/em&gt;</ept>&lt;identifier&gt;.vsp. Summary data for the report appears.</source>
+          <target state="new">The report, a .vsp file, is now downloaded from Azure, and the status of the download appears in the  Azure Activity Log. When the download completes, the profiling report appears in a tab in the editor for Visual Studio named &lt;Role name&gt;<bpt id="f136fb97-8c18-40dc-9799-56388ef17bf8">&lt;em&gt;</bpt>&lt;Instance Number&gt;<ept id="f136fb97-8c18-40dc-9799-56388ef17bf8">&lt;/em&gt;</ept>&lt;identifier&gt;.vsp. Summary data for the report appears.</target>
+        </trans-unit>
+        <trans-unit id="d85e585d-76ba-4e2a-8df3-f8838ff1ab4a" xml:space="preserve">
+          <source>To display different views of the report, in the Current View list, choose the type of view that you want.</source>
+          <target state="new">To display different views of the report, in the Current View list, choose the type of view that you want.</target>
+        </trans-unit>
+        <trans-unit id="5f169926-8eca-4c14-809c-c50eb718930c" xml:space="preserve">
+          <source>For more information, see <bpt id="da7cc1b0-3eb2-4af8-8d75-338708c5be3f">&lt;linkText&gt;</bpt>Profiling Tools Report Views<ept id="da7cc1b0-3eb2-4af8-8d75-338708c5be3f">&lt;/linkText&gt;</ept><bpt id="da7cc1b0-3eb2-4af8-8d75-338708c5be3f">&lt;title&gt;</bpt><ept id="da7cc1b0-3eb2-4af8-8d75-338708c5be3f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="da7cc1b0-3eb2-4af8-8d75-338708c5be3f">&lt;linkText&gt;</bpt>Profiling Tools Report Views<ept id="da7cc1b0-3eb2-4af8-8d75-338708c5be3f">&lt;/linkText&gt;</ept><bpt id="da7cc1b0-3eb2-4af8-8d75-338708c5be3f">&lt;title&gt;</bpt><ept id="da7cc1b0-3eb2-4af8-8d75-338708c5be3f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a3a986a-33d0-486b-b4d3-5de0dcc054f4" xml:space="preserve">
+          <source><bpt id="807df278-eab1-4d6f-9cc4-f6feea90b466">&lt;linkText&gt;</bpt>Debugging Cloud Services<ept id="807df278-eab1-4d6f-9cc4-f6feea90b466">&lt;/linkText&gt;</ept><bpt id="807df278-eab1-4d6f-9cc4-f6feea90b466">&lt;title&gt;</bpt><ept id="807df278-eab1-4d6f-9cc4-f6feea90b466">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="807df278-eab1-4d6f-9cc4-f6feea90b466">&lt;linkText&gt;</bpt>Debugging Cloud Services<ept id="807df278-eab1-4d6f-9cc4-f6feea90b466">&lt;/linkText&gt;</ept><bpt id="807df278-eab1-4d6f-9cc4-f6feea90b466">&lt;title&gt;</bpt><ept id="807df278-eab1-4d6f-9cc4-f6feea90b466">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60fc0c22-d903-4c0b-b3ba-658289dbac0c" xml:space="preserve">
+          <source><bpt id="6dfebe52-6630-473b-a080-5d718aeca545">&lt;linkText&gt;</bpt>Publishing to an Azure Cloud Service from Visual Studio<ept id="6dfebe52-6630-473b-a080-5d718aeca545">&lt;/linkText&gt;</ept><bpt id="6dfebe52-6630-473b-a080-5d718aeca545">&lt;title&gt;</bpt><ept id="6dfebe52-6630-473b-a080-5d718aeca545">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6dfebe52-6630-473b-a080-5d718aeca545">&lt;linkText&gt;</bpt>Publishing to an Azure Cloud Service from Visual Studio<ept id="6dfebe52-6630-473b-a080-5d718aeca545">&lt;/linkText&gt;</ept><bpt id="6dfebe52-6630-473b-a080-5d718aeca545">&lt;title&gt;</bpt><ept id="6dfebe52-6630-473b-a080-5d718aeca545">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

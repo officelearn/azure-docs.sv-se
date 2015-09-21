@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b2fa25d1-a4d8-41c0-8736-63bea7a9bf33" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b2fa25d1-a4d8-41c0-8736-63bea7a9bf33" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fdf66792-3836-48b6-affb-86266c9bfabd">
+        <trans-unit id="fb16aefe-56ec-419d-a166-bc8f142a894b" xml:space="preserve">
+          <source>An Azure virtual network (VNet) is a representation of your own network in the cloud.</source>
+          <target state="new">An Azure virtual network (VNet) is a representation of your own network in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="255d552c-2156-4978-bb3d-14309c2daaaf" xml:space="preserve">
+          <source>You can control your Azure network settings and define DHCP address blocks, DNS settings, security policies, and routing.</source>
+          <target state="new">You can control your Azure network settings and define DHCP address blocks, DNS settings, security policies, and routing.</target>
+        </trans-unit>
+        <trans-unit id="8f88b412-6387-4501-8bb5-bd970f8e1bb5" xml:space="preserve">
+          <source>You can also further segment your VNet into subnets and deploy Azure IaaS virtual machines (VMs) and PaaS role instances, in the same way you can deploy physical and virtual machines to your on-premises datacenter.</source>
+          <target state="new">You can also further segment your VNet into subnets and deploy Azure IaaS virtual machines (VMs) and PaaS role instances, in the same way you can deploy physical and virtual machines to your on-premises datacenter.</target>
+        </trans-unit>
+        <trans-unit id="fd4cc060-bb22-4ef8-a745-b51a563555f8" xml:space="preserve">
+          <source>In essence, you can expand your network to Azure, bringing your own IP address blocks.</source>
+          <target state="new">In essence, you can expand your network to Azure, bringing your own IP address blocks.</target>
+        </trans-unit>
+        <trans-unit id="11ff9d06-c8eb-4421-9aa7-45d0402b980a" xml:space="preserve">
+          <source>Read the <bpt id="a7a681b7-f922-46ff-b437-75cbe981b7fd">&lt;linkText&gt;</bpt>virtual network overview<ept id="a7a681b7-f922-46ff-b437-75cbe981b7fd">&lt;/linkText&gt;</ept><bpt id="a7a681b7-f922-46ff-b437-75cbe981b7fd">&lt;title&gt;</bpt><ept id="a7a681b7-f922-46ff-b437-75cbe981b7fd">&lt;/title&gt;</ept> if you are not familiar with VNets.</source>
+          <target state="new">Read the <bpt id="a7a681b7-f922-46ff-b437-75cbe981b7fd">&lt;linkText&gt;</bpt>virtual network overview<ept id="a7a681b7-f922-46ff-b437-75cbe981b7fd">&lt;/linkText&gt;</ept><bpt id="a7a681b7-f922-46ff-b437-75cbe981b7fd">&lt;title&gt;</bpt><ept id="a7a681b7-f922-46ff-b437-75cbe981b7fd">&lt;/title&gt;</ept> if you are not familiar with VNets.</target>
+        </trans-unit>
+        <trans-unit id="93b3281f-ccf6-4f94-9705-af40dd3a7a3d" xml:space="preserve">
+          <source>Before you create a VNet, it's important to understand that Azure currently works with two deployment models: Resource Manager, and classic.</source>
+          <target state="new">Before you create a VNet, it's important to understand that Azure currently works with two deployment models: Resource Manager, and classic.</target>
+        </trans-unit>
+        <trans-unit id="9e0bd916-60c6-4db8-9654-940eace9df49" xml:space="preserve">
+          <source>Make sure you understand <bpt id="68df2e81-568d-4dfe-9a12-9ed1a520017a">&lt;linkText&gt;</bpt>deployment models and tools<ept id="68df2e81-568d-4dfe-9a12-9ed1a520017a">&lt;/linkText&gt;</ept><bpt id="68df2e81-568d-4dfe-9a12-9ed1a520017a">&lt;title&gt;</bpt><ept id="68df2e81-568d-4dfe-9a12-9ed1a520017a">&lt;/title&gt;</ept> before creating VNets.</source>
+          <target state="new">Make sure you understand <bpt id="68df2e81-568d-4dfe-9a12-9ed1a520017a">&lt;linkText&gt;</bpt>deployment models and tools<ept id="68df2e81-568d-4dfe-9a12-9ed1a520017a">&lt;/linkText&gt;</ept><bpt id="68df2e81-568d-4dfe-9a12-9ed1a520017a">&lt;title&gt;</bpt><ept id="68df2e81-568d-4dfe-9a12-9ed1a520017a">&lt;/title&gt;</ept> before creating VNets.</target>
+        </trans-unit>
+        <trans-unit id="9cc466df-f372-4462-ada8-9a55938d3f97" xml:space="preserve">
+          <source>You can view the documentation for different tools by clicking the tabs at the top of this article.</source>
+          <target state="new">You can view the documentation for different tools by clicking the tabs at the top of this article.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

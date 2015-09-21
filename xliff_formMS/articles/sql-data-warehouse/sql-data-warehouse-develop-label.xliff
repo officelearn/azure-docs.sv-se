@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="885741d1-2629-466b-8d85-e5d73fe55116" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="885741d1-2629-466b-8d85-e5d73fe55116" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0500a465-e6ae-4e27-8cd7-a97e5cf5f577">
+        <trans-unit id="f28c6baa-b5db-4b73-9283-e0debf180248" xml:space="preserve">
+          <source>Use labels to instrument queries in SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Use labels to instrument queries in SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2c938fc1-cff9-40c7-b2b7-a085185084cd" xml:space="preserve">
+          <source>Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="7551256f-c210-4d0a-b677-2d224adde685" xml:space="preserve">
+          <source>SQL Data Warehouse supports a concept called query labels.</source>
+          <target state="new">SQL Data Warehouse supports a concept called query labels.</target>
+        </trans-unit>
+        <trans-unit id="f81e31d9-4cd7-4217-a654-237805178d34" xml:space="preserve">
+          <source>Before going into any depth let's look at an example of one:</source>
+          <target state="new">Before going into any depth let's look at an example of one:</target>
+        </trans-unit>
+        <trans-unit id="a8af0aa9-00ef-4584-989e-d538c708915f" xml:space="preserve">
+          <source>This last line tags the string 'My Query Label' to the query.</source>
+          <target state="new">This last line tags the string 'My Query Label' to the query.</target>
+        </trans-unit>
+        <trans-unit id="a4871e93-1d7b-4e79-9597-0c2ad31187f8" xml:space="preserve">
+          <source>This is particularly helpful as the label is query-able through the DMVs.</source>
+          <target state="new">This is particularly helpful as the label is query-able through the DMVs.</target>
+        </trans-unit>
+        <trans-unit id="15255249-9004-44a6-a1a2-06c78556a33b" xml:space="preserve">
+          <source>This provides us with a mechanism to track down problem queries and also to help identify progress through an ETL run.</source>
+          <target state="new">This provides us with a mechanism to track down problem queries and also to help identify progress through an ETL run.</target>
+        </trans-unit>
+        <trans-unit id="197dc931-2775-4b67-9662-ada5f68263b3" xml:space="preserve">
+          <source>A good naming convention really helps here.</source>
+          <target state="new">A good naming convention really helps here.</target>
+        </trans-unit>
+        <trans-unit id="92327c82-709d-47d0-aaf5-bf7b7b24087d" xml:space="preserve">
+          <source>For example something like ' PROJECT : PROCEDURE : STATEMENT : COMMENT' would help to uniquely identify the query in amongst all the code in source control.</source>
+          <target state="new">For example something like ' PROJECT : PROCEDURE : STATEMENT : COMMENT' would help to uniquely identify the query in amongst all the code in source control.</target>
+        </trans-unit>
+        <trans-unit id="559d3476-ec87-4c3d-9091-02d8e512550d" xml:space="preserve">
+          <source>To search by label you can use the following query that uses the dynamic management views:</source>
+          <target state="new">To search by label you can use the following query that uses the dynamic management views:</target>
+        </trans-unit>
+        <trans-unit id="3e33a95c-260b-4a13-ad67-7ca6f49564b5" xml:space="preserve">
+          <source>It is essential that you wrap square brackets or double quotes around the word label when querying.</source>
+          <target state="new">It is essential that you wrap square brackets or double quotes around the word label when querying.</target>
+        </trans-unit>
+        <trans-unit id="129ccd33-630b-4c7c-a15e-93e1d2a67e37" xml:space="preserve">
+          <source>Label is a reserved word and will caused an error if it has not been delimited.</source>
+          <target state="new">Label is a reserved word and will caused an error if it has not been delimited.</target>
+        </trans-unit>
+        <trans-unit id="96905376-2be2-43e3-9c4c-96ce61b72a5b" xml:space="preserve">
+          <source>For more development tips, see <bpt id="e48803fd-e204-45f8-83b0-c940ada27753">&lt;linkText&gt;</bpt>development overview<ept id="e48803fd-e204-45f8-83b0-c940ada27753">&lt;/linkText&gt;</ept><bpt id="e48803fd-e204-45f8-83b0-c940ada27753">&lt;title&gt;</bpt><ept id="e48803fd-e204-45f8-83b0-c940ada27753">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="e48803fd-e204-45f8-83b0-c940ada27753">&lt;linkText&gt;</bpt>development overview<ept id="e48803fd-e204-45f8-83b0-c940ada27753">&lt;/linkText&gt;</ept><bpt id="e48803fd-e204-45f8-83b0-c940ada27753">&lt;title&gt;</bpt><ept id="e48803fd-e204-45f8-83b0-c940ada27753">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8f3f787-40c8-43ff-90a1-b58d86e92585" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+      </group>
+      <group id="421f9925-4f40-4f73-996e-f81597366ce9" />
+    </body>
+  </file>
+</xliff>

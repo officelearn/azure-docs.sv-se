@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8f0e3a85-fb1a-46c4-99b2-37c9b20d610c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8f0e3a85-fb1a-46c4-99b2-37c9b20d610c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6b157e65-13e0-4cfa-a8f2-0a1569239765">
+        <trans-unit id="37765f26-a3a5-437d-8301-491a35fcf876" xml:space="preserve">
+          <source>Excel add-in for Machine Learning web services | Microsoft Azure</source>
+          <target state="new">Excel add-in for Machine Learning web services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="843f99d6-c312-4a46-974f-32456bd8dea2" xml:space="preserve">
+          <source>How to use Azure Machine Learning web services directly in Excel without writing any code.</source>
+          <target state="new">How to use Azure Machine Learning web services directly in Excel without writing any code.</target>
+        </trans-unit>
+        <trans-unit id="95e96c81-f306-4831-8862-a68e031a7ea3" xml:space="preserve">
+          <source>Excel makes it easy to call web services directly without the need to write any code.</source>
+          <target state="new">Excel makes it easy to call web services directly without the need to write any code.</target>
+        </trans-unit>
+        <trans-unit id="93746fed-7171-4f67-9812-059bcef98149" xml:space="preserve">
+          <source>Open the <bpt id="b586f29b-f92b-4fed-b47b-902a07ec48ab">&lt;linkText&gt;</bpt>sample Excel file<ept id="b586f29b-f92b-4fed-b47b-902a07ec48ab">&lt;/linkText&gt;</ept><bpt id="b586f29b-f92b-4fed-b47b-902a07ec48ab">&lt;title&gt;</bpt><ept id="b586f29b-f92b-4fed-b47b-902a07ec48ab">&lt;/title&gt;</ept>, which contains the Excel add-in and data about passengers on the Titanic.</source>
+          <target state="new">Open the <bpt id="b586f29b-f92b-4fed-b47b-902a07ec48ab">&lt;linkText&gt;</bpt>sample Excel file<ept id="b586f29b-f92b-4fed-b47b-902a07ec48ab">&lt;/linkText&gt;</ept><bpt id="b586f29b-f92b-4fed-b47b-902a07ec48ab">&lt;title&gt;</bpt><ept id="b586f29b-f92b-4fed-b47b-902a07ec48ab">&lt;/title&gt;</ept>, which contains the Excel add-in and data about passengers on the Titanic.</target>
+        </trans-unit>
+        <trans-unit id="03b63481-3db0-42fb-a99e-1f47a1287e71" xml:space="preserve">
+          <source>Choose the web service by clicking it - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" in this example.</source>
+          <target state="new">Choose the web service by clicking it - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" in this example.</target>
+        </trans-unit>
+        <trans-unit id="053de6c5-590b-4b85-ac20-e14aea498090" xml:space="preserve">
+          <source><bpt id="ce11697e-30ab-4925-970e-6c8bb632e457">&lt;linkText&gt;</bpt>Select web service<ept id="ce11697e-30ab-4925-970e-6c8bb632e457">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce11697e-30ab-4925-970e-6c8bb632e457">&lt;linkText&gt;</bpt>Select web service<ept id="ce11697e-30ab-4925-970e-6c8bb632e457">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fce52494-080f-405b-95a2-108138014a8d" xml:space="preserve">
+          <source>This will take you to the <bpt id="ddcfa0b7-e775-4a43-9fb6-ffe9b5fc6792">&lt;strong&gt;</bpt>Predict<ept id="ddcfa0b7-e775-4a43-9fb6-ffe9b5fc6792">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">This will take you to the <bpt id="ddcfa0b7-e775-4a43-9fb6-ffe9b5fc6792">&lt;strong&gt;</bpt>Predict<ept id="ddcfa0b7-e775-4a43-9fb6-ffe9b5fc6792">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="95f36a08-165d-414c-bfaf-b8f385697a71" xml:space="preserve">
+          <source>This workbook already contains sample data, but for a blank workbook you may also select a cell in Excel and click <bpt id="765eff49-504b-408c-b93d-03342e5231f2">&lt;strong&gt;</bpt>Use sample data<ept id="765eff49-504b-408c-b93d-03342e5231f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This workbook already contains sample data, but for a blank workbook you may also select a cell in Excel and click <bpt id="765eff49-504b-408c-b93d-03342e5231f2">&lt;strong&gt;</bpt>Use sample data<ept id="765eff49-504b-408c-b93d-03342e5231f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c6f06cc-af52-4942-bf01-ce0d92f39d75" xml:space="preserve">
+          <source>Select the data with headers and click the input data range icon.</source>
+          <target state="new">Select the data with headers and click the input data range icon.</target>
+        </trans-unit>
+        <trans-unit id="ee182d78-d2b5-4964-88f9-850e11a14251" xml:space="preserve">
+          <source>Make sure the "My data has headers" box is checked.</source>
+          <target state="new">Make sure the "My data has headers" box is checked.</target>
+        </trans-unit>
+        <trans-unit id="6d9934a8-ab40-4464-aebf-0c5a761d0e95" xml:space="preserve">
+          <source>Under <bpt id="732ed236-0780-42e8-9a4e-d587c368e77d">&lt;strong&gt;</bpt>Output<ept id="732ed236-0780-42e8-9a4e-d587c368e77d">&lt;/strong&gt;</ept>, enter the cell number where you want the output to be, e.g. "H1" here.</source>
+          <target state="new">Under <bpt id="732ed236-0780-42e8-9a4e-d587c368e77d">&lt;strong&gt;</bpt>Output<ept id="732ed236-0780-42e8-9a4e-d587c368e77d">&lt;/strong&gt;</ept>, enter the cell number where you want the output to be, e.g. "H1" here.</target>
+        </trans-unit>
+        <trans-unit id="d2df43ef-f14d-497c-b4df-d738eed47865" xml:space="preserve">
+          <source>Click <bpt id="dc5f9ae2-a97c-47a9-bef0-68488241e13d">&lt;strong&gt;</bpt>Predict<ept id="dc5f9ae2-a97c-47a9-bef0-68488241e13d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="dc5f9ae2-a97c-47a9-bef0-68488241e13d">&lt;strong&gt;</bpt>Predict<ept id="dc5f9ae2-a97c-47a9-bef0-68488241e13d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53be5ace-e3fb-4aa8-84c1-e0c8d14190b7" xml:space="preserve">
+          <source><bpt id="f543ac82-faf0-4528-8320-437a64c4f086">&lt;linkText&gt;</bpt>Predict section<ept id="f543ac82-faf0-4528-8320-437a64c4f086">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f543ac82-faf0-4528-8320-437a64c4f086">&lt;linkText&gt;</bpt>Predict section<ept id="f543ac82-faf0-4528-8320-437a64c4f086">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b24469f2-b8fd-4d76-b19a-50b67590bec9" xml:space="preserve">
+          <source>Publish a web service (<bpt id="1eac98df-c7e7-4667-a756-d0b0194b8271">&lt;linkText&gt;</bpt>this page<ept id="1eac98df-c7e7-4667-a756-d0b0194b8271">&lt;/linkText&gt;</ept><bpt id="1eac98df-c7e7-4667-a756-d0b0194b8271">&lt;title&gt;</bpt><ept id="1eac98df-c7e7-4667-a756-d0b0194b8271">&lt;/title&gt;</ept> explains how to do it) or use an existing web service.</source>
+          <target state="new">Publish a web service (<bpt id="1eac98df-c7e7-4667-a756-d0b0194b8271">&lt;linkText&gt;</bpt>this page<ept id="1eac98df-c7e7-4667-a756-d0b0194b8271">&lt;/linkText&gt;</ept><bpt id="1eac98df-c7e7-4667-a756-d0b0194b8271">&lt;title&gt;</bpt><ept id="1eac98df-c7e7-4667-a756-d0b0194b8271">&lt;/title&gt;</ept> explains how to do it) or use an existing web service.</target>
+        </trans-unit>
+        <trans-unit id="8320c3ef-a574-49a1-af0b-7023572443bc" xml:space="preserve">
+          <source>In Excel, go to the <bpt id="1c55dc20-0760-4329-88b5-0a748bd39026">&lt;strong&gt;</bpt>Web Services<ept id="1c55dc20-0760-4329-88b5-0a748bd39026">&lt;/strong&gt;</ept> section (if you are in the <bpt id="6d1662f7-5669-4968-91d4-8b295c73e667">&lt;strong&gt;</bpt>Predict<ept id="6d1662f7-5669-4968-91d4-8b295c73e667">&lt;/strong&gt;</ept> section, click the back arrow to go to the list of web services).</source>
+          <target state="new">In Excel, go to the <bpt id="1c55dc20-0760-4329-88b5-0a748bd39026">&lt;strong&gt;</bpt>Web Services<ept id="1c55dc20-0760-4329-88b5-0a748bd39026">&lt;/strong&gt;</ept> section (if you are in the <bpt id="6d1662f7-5669-4968-91d4-8b295c73e667">&lt;strong&gt;</bpt>Predict<ept id="6d1662f7-5669-4968-91d4-8b295c73e667">&lt;/strong&gt;</ept> section, click the back arrow to go to the list of web services).</target>
+        </trans-unit>
+        <trans-unit id="c20c2bc6-e8a9-463a-b49c-2433211f85a4" xml:space="preserve">
+          <source><bpt id="faff085d-6816-4fc9-9c06-c2fa85b8aae6">&lt;linkText&gt;</bpt>Go to web service selection<ept id="faff085d-6816-4fc9-9c06-c2fa85b8aae6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="faff085d-6816-4fc9-9c06-c2fa85b8aae6">&lt;linkText&gt;</bpt>Go to web service selection<ept id="faff085d-6816-4fc9-9c06-c2fa85b8aae6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8904a88f-173f-43f0-92cb-09a28f400379" xml:space="preserve">
+          <source>Click <bpt id="97f30d9e-4f4a-4756-baf2-cea03bbc0b02">&lt;strong&gt;</bpt>Add Web Service<ept id="97f30d9e-4f4a-4756-baf2-cea03bbc0b02">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="97f30d9e-4f4a-4756-baf2-cea03bbc0b02">&lt;strong&gt;</bpt>Add Web Service<ept id="97f30d9e-4f4a-4756-baf2-cea03bbc0b02">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55563938-9b1e-4995-9608-47729b99530f" xml:space="preserve">
+          <source>In Machine Learning Studio, click the <bpt id="76074c01-c865-4219-acb2-b9344178e9e8">&lt;strong&gt;</bpt>WEB SERVICES<ept id="76074c01-c865-4219-acb2-b9344178e9e8">&lt;/strong&gt;</ept> section in the left pane, and then select the web service.</source>
+          <target state="new">In Machine Learning Studio, click the <bpt id="76074c01-c865-4219-acb2-b9344178e9e8">&lt;strong&gt;</bpt>WEB SERVICES<ept id="76074c01-c865-4219-acb2-b9344178e9e8">&lt;/strong&gt;</ept> section in the left pane, and then select the web service.</target>
+        </trans-unit>
+        <trans-unit id="1ba37bf8-8bc2-4546-8eb9-9fa433b12522" xml:space="preserve">
+          <source><bpt id="1ceaf36b-38e9-441f-b11c-02b2c5e61617">&lt;linkText&gt;</bpt>Studio select web service<ept id="1ceaf36b-38e9-441f-b11c-02b2c5e61617">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ceaf36b-38e9-441f-b11c-02b2c5e61617">&lt;linkText&gt;</bpt>Studio select web service<ept id="1ceaf36b-38e9-441f-b11c-02b2c5e61617">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc7e6ad5-b64d-4b4e-9b54-ebf0a6945b0e" xml:space="preserve">
+          <source>Copy the API key for the web service.</source>
+          <target state="new">Copy the API key for the web service.</target>
+        </trans-unit>
+        <trans-unit id="cce0f834-defd-4c0c-911d-71f483673ae0" xml:space="preserve">
+          <source><bpt id="e9ffd3ac-4101-4c49-aa14-2a7f1208b86f">&lt;linkText&gt;</bpt>Studio API key<ept id="e9ffd3ac-4101-4c49-aa14-2a7f1208b86f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e9ffd3ac-4101-4c49-aa14-2a7f1208b86f">&lt;linkText&gt;</bpt>Studio API key<ept id="e9ffd3ac-4101-4c49-aa14-2a7f1208b86f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66cf764e-dc16-40e6-bc70-c712f60689c6" xml:space="preserve">
+          <source>Paste the API key into the Excel add-in text box labeled <bpt id="608a7afa-967e-45f6-bfb2-5e10492ff39a">&lt;strong&gt;</bpt>API key<ept id="608a7afa-967e-45f6-bfb2-5e10492ff39a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Paste the API key into the Excel add-in text box labeled <bpt id="608a7afa-967e-45f6-bfb2-5e10492ff39a">&lt;strong&gt;</bpt>API key<ept id="608a7afa-967e-45f6-bfb2-5e10492ff39a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dafdee3b-8a9f-4952-8ea0-c88268c65648" xml:space="preserve">
+          <source>On the <bpt id="8dfd2d36-7703-44b2-8ebc-59d09e584084">&lt;strong&gt;</bpt>DASHBOARD<ept id="8dfd2d36-7703-44b2-8ebc-59d09e584084">&lt;/strong&gt;</ept> tab for the web service, click the <bpt id="28b35923-e22b-4e63-b163-07edd29e852f">&lt;strong&gt;</bpt>REQUEST/RESPONSE<ept id="28b35923-e22b-4e63-b163-07edd29e852f">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">On the <bpt id="8dfd2d36-7703-44b2-8ebc-59d09e584084">&lt;strong&gt;</bpt>DASHBOARD<ept id="8dfd2d36-7703-44b2-8ebc-59d09e584084">&lt;/strong&gt;</ept> tab for the web service, click the <bpt id="28b35923-e22b-4e63-b163-07edd29e852f">&lt;strong&gt;</bpt>REQUEST/RESPONSE<ept id="28b35923-e22b-4e63-b163-07edd29e852f">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="401a3163-acab-4dea-9b1d-4cbb91f7ec47" xml:space="preserve">
+          <source>Look for the <bpt id="8cbdd1fe-a026-4be0-8169-73d3f2e33d41">&lt;strong&gt;</bpt>OData Endpoint Address<ept id="8cbdd1fe-a026-4be0-8169-73d3f2e33d41">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Look for the <bpt id="8cbdd1fe-a026-4be0-8169-73d3f2e33d41">&lt;strong&gt;</bpt>OData Endpoint Address<ept id="8cbdd1fe-a026-4be0-8169-73d3f2e33d41">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="7eeee4e1-c6eb-4490-9662-c9ae7ecbcc20" xml:space="preserve">
+          <source>Copy the URL and paste that into the text box labeled <bpt id="d1fa2e52-1578-4512-95e7-155f94d74fc8">&lt;strong&gt;</bpt>URL<ept id="d1fa2e52-1578-4512-95e7-155f94d74fc8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy the URL and paste that into the text box labeled <bpt id="d1fa2e52-1578-4512-95e7-155f94d74fc8">&lt;strong&gt;</bpt>URL<ept id="d1fa2e52-1578-4512-95e7-155f94d74fc8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e83473e-479b-42f8-a0b3-caeae44aa5d3" xml:space="preserve">
+          <source>Click <bpt id="6a0efa0b-b2d3-4b24-902f-2d5ce9cd229e">&lt;strong&gt;</bpt>Add<ept id="6a0efa0b-b2d3-4b24-902f-2d5ce9cd229e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6a0efa0b-b2d3-4b24-902f-2d5ce9cd229e">&lt;strong&gt;</bpt>Add<ept id="6a0efa0b-b2d3-4b24-902f-2d5ce9cd229e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c944c646-05ec-40af-99da-a90b7df27c1f" xml:space="preserve">
+          <source><bpt id="fd55edb6-03d8-404f-8f86-a05d69a54c5d">&lt;linkText&gt;</bpt>URL and API key<ept id="fd55edb6-03d8-404f-8f86-a05d69a54c5d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd55edb6-03d8-404f-8f86-a05d69a54c5d">&lt;linkText&gt;</bpt>URL and API key<ept id="fd55edb6-03d8-404f-8f86-a05d69a54c5d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c16098c-ad31-4467-a6b3-bcefaf83ba01" xml:space="preserve">
+          <source>To use the web service, follow the directions above, "Steps to Use an Existing Web Service".</source>
+          <target state="new">To use the web service, follow the directions above, "Steps to Use an Existing Web Service".</target>
+        </trans-unit>
+        <trans-unit id="e8e94b9f-09f9-40dc-8e45-fc922887caee" xml:space="preserve">
+          <source>If you save your workbook, then the API keys for the web services you have added will also be saved.</source>
+          <target state="new">If you save your workbook, then the API keys for the web services you have added will also be saved.</target>
+        </trans-unit>
+        <trans-unit id="d01a2473-7e96-4d48-bcd9-ac9494ff4743" xml:space="preserve">
+          <source>That means you should only share the workbook with individuals you trust.</source>
+          <target state="new">That means you should only share the workbook with individuals you trust.</target>
+        </trans-unit>
+        <trans-unit id="999942e5-fd95-4e8f-a089-b91c326fb7a9" xml:space="preserve">
+          <source>Ask any questions below or on our <bpt id="93054a61-5621-4814-a97c-b6c8d5bac1dd">&lt;linkText&gt;</bpt>forum<ept id="93054a61-5621-4814-a97c-b6c8d5bac1dd">&lt;/linkText&gt;</ept><bpt id="93054a61-5621-4814-a97c-b6c8d5bac1dd">&lt;title&gt;</bpt><ept id="93054a61-5621-4814-a97c-b6c8d5bac1dd">&lt;/title&gt;</ept>.</source>
+          <target state="new">Ask any questions below or on our <bpt id="93054a61-5621-4814-a97c-b6c8d5bac1dd">&lt;linkText&gt;</bpt>forum<ept id="93054a61-5621-4814-a97c-b6c8d5bac1dd">&lt;/linkText&gt;</ept><bpt id="93054a61-5621-4814-a97c-b6c8d5bac1dd">&lt;title&gt;</bpt><ept id="93054a61-5621-4814-a97c-b6c8d5bac1dd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed1609ec-8564-40a3-8a1b-b017090c6914" xml:space="preserve">
+          <source>./media/machine-learning-excel-add-in-for-web-services/image1.png</source>
+          <target state="new">./media/machine-learning-excel-add-in-for-web-services/image1.png</target>
+        </trans-unit>
+        <trans-unit id="43ff1b8f-68f7-4513-a52c-302c8916b3c3" xml:space="preserve">
+          <source>./media/machine-learning-excel-add-in-for-web-services/image2.png</source>
+          <target state="new">./media/machine-learning-excel-add-in-for-web-services/image2.png</target>
+        </trans-unit>
+        <trans-unit id="3395f75f-4a60-42d7-8f37-9d798a2b6e11" xml:space="preserve">
+          <source>./media/machine-learning-excel-add-in-for-web-services/image3.png</source>
+          <target state="new">./media/machine-learning-excel-add-in-for-web-services/image3.png</target>
+        </trans-unit>
+        <trans-unit id="0e914807-b6a6-4d7b-afc0-7b81bbc9fb26" xml:space="preserve">
+          <source>./media/machine-learning-excel-add-in-for-web-services/image4.png</source>
+          <target state="new">./media/machine-learning-excel-add-in-for-web-services/image4.png</target>
+        </trans-unit>
+        <trans-unit id="ec99d493-7e16-45c2-9fa5-91816369f4ff" xml:space="preserve">
+          <source>./media/machine-learning-excel-add-in-for-web-services/image5.png</source>
+          <target state="new">./media/machine-learning-excel-add-in-for-web-services/image5.png</target>
+        </trans-unit>
+        <trans-unit id="80fd7c8d-51a9-4957-b17d-29bddbd55c15" xml:space="preserve">
+          <source>./media/machine-learning-excel-add-in-for-web-services/image6.png</source>
+          <target state="new">./media/machine-learning-excel-add-in-for-web-services/image6.png</target>
+        </trans-unit>
+      </group>
+      <group id="f692b9b8-4015-41c9-b4a5-2a87e6c4284b" />
+    </body>
+  </file>
+</xliff>

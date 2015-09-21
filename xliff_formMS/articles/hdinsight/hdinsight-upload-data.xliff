@@ -1,0 +1,657 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d5dc7cbe-ca21-423b-a437-83c8833e53e5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d5dc7cbe-ca21-423b-a437-83c8833e53e5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4e2ba5c9-26ec-4390-a180-aabea90ac2a3">
+        <trans-unit id="12329cea-5e16-450d-88b6-f4675348060e" xml:space="preserve">
+          <source>Upload data for Hadoop jobs in HDInsight | Microsoft Azure</source>
+          <target state="new">Upload data for Hadoop jobs in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="eb8b84b4-dc2c-4647-bc06-4e86e3da6df6" xml:space="preserve">
+          <source>Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.</source>
+          <target state="new">Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.</target>
+        </trans-unit>
+        <trans-unit id="d0133970-158e-469e-b407-a1fffb801b91" xml:space="preserve">
+          <source>Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Blob storage.</source>
+          <target state="new">Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="aa455511-030c-47ed-9479-cae015f68763" xml:space="preserve">
+          <source>It is designed as an HDFS extension to provide a seamless experience to customers.</source>
+          <target state="new">It is designed as an HDFS extension to provide a seamless experience to customers.</target>
+        </trans-unit>
+        <trans-unit id="03d61c7a-8d3b-42a8-8e94-d55d3a2b865d" xml:space="preserve">
+          <source>It enables the full set of components in the Hadoop ecosystem to operate directly on the data it manages.</source>
+          <target state="new">It enables the full set of components in the Hadoop ecosystem to operate directly on the data it manages.</target>
+        </trans-unit>
+        <trans-unit id="b6498b68-1b8c-4c04-9e19-06e7f08791e3" xml:space="preserve">
+          <source>Azure Blob storage and HDFS are distinct file systems that are optimized for storage of data and computations on that data.</source>
+          <target state="new">Azure Blob storage and HDFS are distinct file systems that are optimized for storage of data and computations on that data.</target>
+        </trans-unit>
+        <trans-unit id="4baf76e0-5c68-4995-8dac-5e5a7d2419dc" xml:space="preserve">
+          <source>For information about the benefits of using Azure Blob storage, see <bpt id="27e3fb1f-8afb-463f-8c33-e3789dd2b4da">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="27e3fb1f-8afb-463f-8c33-e3789dd2b4da">&lt;/linkText&gt;</ept><bpt id="27e3fb1f-8afb-463f-8c33-e3789dd2b4da">&lt;title&gt;</bpt><ept id="27e3fb1f-8afb-463f-8c33-e3789dd2b4da">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the benefits of using Azure Blob storage, see <bpt id="27e3fb1f-8afb-463f-8c33-e3789dd2b4da">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="27e3fb1f-8afb-463f-8c33-e3789dd2b4da">&lt;/linkText&gt;</ept><bpt id="27e3fb1f-8afb-463f-8c33-e3789dd2b4da">&lt;title&gt;</bpt><ept id="27e3fb1f-8afb-463f-8c33-e3789dd2b4da">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="091e4342-5fe3-4e1a-bf6e-c04de3752a95" xml:space="preserve">
+          <source><bpt id="ed19773d-f04b-4fa7-b9bf-5dad51e2fec6">&lt;strong&gt;</bpt>Prerequisites<ept id="ed19773d-f04b-4fa7-b9bf-5dad51e2fec6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ed19773d-f04b-4fa7-b9bf-5dad51e2fec6">&lt;strong&gt;</bpt>Prerequisites<ept id="ed19773d-f04b-4fa7-b9bf-5dad51e2fec6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a464f40b-588a-4ee5-8aa2-b625af6906d2" xml:space="preserve">
+          <source>Note the following requirement before you begin:</source>
+          <target state="new">Note the following requirement before you begin:</target>
+        </trans-unit>
+        <trans-unit id="c6f0703d-d83a-4cd8-bf3b-05aca6c96502" xml:space="preserve">
+          <source>An Azure HDInsight cluster.</source>
+          <target state="new">An Azure HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="26bc92f1-31fc-4de5-9e43-c267156ae22b" xml:space="preserve">
+          <source>For instructions, see <bpt id="cfb9c9c4-f399-4d70-b3ac-bf51cef2b7dd">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="cfb9c9c4-f399-4d70-b3ac-bf51cef2b7dd">&lt;/linkText&gt;</ept><bpt id="cfb9c9c4-f399-4d70-b3ac-bf51cef2b7dd">&lt;title&gt;</bpt><ept id="cfb9c9c4-f399-4d70-b3ac-bf51cef2b7dd">&lt;/title&gt;</ept> or <bpt id="94c039f5-a475-4b7f-8599-7a96a042437c">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="94c039f5-a475-4b7f-8599-7a96a042437c">&lt;/linkText&gt;</ept><bpt id="94c039f5-a475-4b7f-8599-7a96a042437c">&lt;title&gt;</bpt><ept id="94c039f5-a475-4b7f-8599-7a96a042437c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="cfb9c9c4-f399-4d70-b3ac-bf51cef2b7dd">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="cfb9c9c4-f399-4d70-b3ac-bf51cef2b7dd">&lt;/linkText&gt;</ept><bpt id="cfb9c9c4-f399-4d70-b3ac-bf51cef2b7dd">&lt;title&gt;</bpt><ept id="cfb9c9c4-f399-4d70-b3ac-bf51cef2b7dd">&lt;/title&gt;</ept> or <bpt id="94c039f5-a475-4b7f-8599-7a96a042437c">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="94c039f5-a475-4b7f-8599-7a96a042437c">&lt;/linkText&gt;</ept><bpt id="94c039f5-a475-4b7f-8599-7a96a042437c">&lt;title&gt;</bpt><ept id="94c039f5-a475-4b7f-8599-7a96a042437c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dbe1fe2d-823a-426b-b02f-590c511fbf01" xml:space="preserve">
+          <source>Azure HDInsight clusters are typically deployed to run MapReduce jobs, and the clusters are dropped after these jobs complete.</source>
+          <target state="new">Azure HDInsight clusters are typically deployed to run MapReduce jobs, and the clusters are dropped after these jobs complete.</target>
+        </trans-unit>
+        <trans-unit id="65e5850a-39b2-48aa-b194-586815a814a5" xml:space="preserve">
+          <source>Keeping the data in the HDFS clusters after computations are complete would be an expensive way to store this data.</source>
+          <target state="new">Keeping the data in the HDFS clusters after computations are complete would be an expensive way to store this data.</target>
+        </trans-unit>
+        <trans-unit id="24b624bc-40d7-4b42-b775-23dc49a1f651" xml:space="preserve">
+          <source>Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight.</source>
+          <target state="new">Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="60408f84-06cf-4cb7-899c-bda8ab16f651" xml:space="preserve">
+          <source>Storing data in a blob enables the HDInsight clusters that are used for computation to be safely released without losing data.</source>
+          <target state="new">Storing data in a blob enables the HDInsight clusters that are used for computation to be safely released without losing data.</target>
+        </trans-unit>
+        <trans-unit id="b77495ed-ea4f-426e-9581-d6f2bacc1e56" xml:space="preserve">
+          <source>Azure Blob storage containers store data as key/value pairs, and there is no directory hierarchy.</source>
+          <target state="new">Azure Blob storage containers store data as key/value pairs, and there is no directory hierarchy.</target>
+        </trans-unit>
+        <trans-unit id="d5ba9f02-e7bc-4b78-811d-362a9cbcf7f6" xml:space="preserve">
+          <source>However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure.</source>
+          <target state="new">However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure.</target>
+        </trans-unit>
+        <trans-unit id="9ff173a4-d7db-44e4-9ded-b99a53a965b6" xml:space="preserve">
+          <source>HDInsight sees these as if they are actual directories.</source>
+          <target state="new">HDInsight sees these as if they are actual directories.</target>
+        </trans-unit>
+        <trans-unit id="a9c79364-7f40-473d-bcf7-289b243d25e9" xml:space="preserve">
+          <source>For example, a blob's key may be <bpt id="3741b9ff-ba32-4898-9a41-6a0b860596b1">&lt;em&gt;</bpt>input/log1.txt<ept id="3741b9ff-ba32-4898-9a41-6a0b860596b1">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, a blob's key may be <bpt id="3741b9ff-ba32-4898-9a41-6a0b860596b1">&lt;em&gt;</bpt>input/log1.txt<ept id="3741b9ff-ba32-4898-9a41-6a0b860596b1">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ba1cf35-70c9-4200-805c-559fa0466f37" xml:space="preserve">
+          <source>No actual "input" directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path.</source>
+          <target state="new">No actual "input" directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path.</target>
+        </trans-unit>
+        <trans-unit id="466b1c20-5152-4a42-a9f3-f6959ce23300" xml:space="preserve">
+          <source>Because of this, if you use Azure Explorer tools you may notice some 0 byte files.</source>
+          <target state="new">Because of this, if you use Azure Explorer tools you may notice some 0 byte files.</target>
+        </trans-unit>
+        <trans-unit id="c3fa8458-2355-42cd-a101-09e47067a6e2" xml:space="preserve">
+          <source>These files serve two purposes:</source>
+          <target state="new">These files serve two purposes:</target>
+        </trans-unit>
+        <trans-unit id="eb7bf6fb-e86e-4051-9018-4e411a4e21db" xml:space="preserve">
+          <source>If there are empty folders, they mark of the existence of the folder.</source>
+          <target state="new">If there are empty folders, they mark of the existence of the folder.</target>
+        </trans-unit>
+        <trans-unit id="a5cb0888-5bfe-4d33-92ac-ee748d9448a3" xml:space="preserve">
+          <source>Azure Blob storage is clever enough to know that if a blob called foo/bar exists, there is a folder called <bpt id="ea33d265-2682-44e1-8747-8e15426b2fbb">&lt;strong&gt;</bpt>foo<ept id="ea33d265-2682-44e1-8747-8e15426b2fbb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Azure Blob storage is clever enough to know that if a blob called foo/bar exists, there is a folder called <bpt id="ea33d265-2682-44e1-8747-8e15426b2fbb">&lt;strong&gt;</bpt>foo<ept id="ea33d265-2682-44e1-8747-8e15426b2fbb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1538698d-c013-47ec-83ab-ef95eeca25e4" xml:space="preserve">
+          <source>But the only way to signify an empty folder called <bpt id="ad8fdcb7-1b2f-4b2e-bf88-acc82fdcdec4">&lt;strong&gt;</bpt>foo<ept id="ad8fdcb7-1b2f-4b2e-bf88-acc82fdcdec4">&lt;/strong&gt;</ept> is by having this special 0 byte file in place.</source>
+          <target state="new">But the only way to signify an empty folder called <bpt id="ad8fdcb7-1b2f-4b2e-bf88-acc82fdcdec4">&lt;strong&gt;</bpt>foo<ept id="ad8fdcb7-1b2f-4b2e-bf88-acc82fdcdec4">&lt;/strong&gt;</ept> is by having this special 0 byte file in place.</target>
+        </trans-unit>
+        <trans-unit id="25e55d05-cfdb-4942-9b7b-8dabf5a8c07f" xml:space="preserve">
+          <source>They hold special metadata that is needed by the Hadoop file system, notably the permissions and owners for the folders.</source>
+          <target state="new">They hold special metadata that is needed by the Hadoop file system, notably the permissions and owners for the folders.</target>
+        </trans-unit>
+        <trans-unit id="029d6e95-6353-4a07-afd8-23a435e70432" xml:space="preserve">
+          <source>Microsoft provides the following utilities to work with Azure Blob storage:</source>
+          <target state="new">Microsoft provides the following utilities to work with Azure Blob storage:</target>
+        </trans-unit>
+        <trans-unit id="9023686b-61b7-4716-93ff-95b925ae0035" xml:space="preserve">
+          <source>Tool</source>
+          <target state="new">Tool</target>
+        </trans-unit>
+        <trans-unit id="ac97a038-c3bb-4caf-a421-75863503fdce" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="debea794-cb86-4b4c-ad3b-7c238c6b0492" xml:space="preserve">
+          <source>OS X</source>
+          <target state="new">OS X</target>
+        </trans-unit>
+        <trans-unit id="0a45caa0-df46-4b0e-bc3a-ea3b506521b9" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="9045f911-91bf-4430-8f21-672bead62cc8" xml:space="preserve">
+          <source><bpt id="7216e32b-0e51-4895-96d8-e03b039374ad">&lt;linkText&gt;</bpt>Azure Command-Line Interface[azurecli]<ept id="7216e32b-0e51-4895-96d8-e03b039374ad">&lt;/linkText&gt;</ept><bpt id="7216e32b-0e51-4895-96d8-e03b039374ad">&lt;title&gt;</bpt><ept id="7216e32b-0e51-4895-96d8-e03b039374ad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7216e32b-0e51-4895-96d8-e03b039374ad">&lt;linkText&gt;</bpt>Azure Command-Line Interface[azurecli]<ept id="7216e32b-0e51-4895-96d8-e03b039374ad">&lt;/linkText&gt;</ept><bpt id="7216e32b-0e51-4895-96d8-e03b039374ad">&lt;title&gt;</bpt><ept id="7216e32b-0e51-4895-96d8-e03b039374ad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0908b2e1-ef3a-4981-8af3-9bae3a5aef7e" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="6e0916b7-9e7a-49ef-bd10-f98d66d33520" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="32669202-0f53-4ef2-90a3-eaf4c1f5175f" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="8115090a-1e55-4007-8579-9ae4ef1eeb90" xml:space="preserve">
+          <source><bpt id="ddde9333-578f-4b8f-bb54-00482b3e9ca3">&lt;linkText&gt;</bpt>Azure PowerShell[azure-powershell]<ept id="ddde9333-578f-4b8f-bb54-00482b3e9ca3">&lt;/linkText&gt;</ept><bpt id="ddde9333-578f-4b8f-bb54-00482b3e9ca3">&lt;title&gt;</bpt><ept id="ddde9333-578f-4b8f-bb54-00482b3e9ca3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ddde9333-578f-4b8f-bb54-00482b3e9ca3">&lt;linkText&gt;</bpt>Azure PowerShell[azure-powershell]<ept id="ddde9333-578f-4b8f-bb54-00482b3e9ca3">&lt;/linkText&gt;</ept><bpt id="ddde9333-578f-4b8f-bb54-00482b3e9ca3">&lt;title&gt;</bpt><ept id="ddde9333-578f-4b8f-bb54-00482b3e9ca3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9787426-3385-4ac4-8d8a-127aceaf0b90" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="d25ea052-2f46-4a98-9bdf-f05484abd242" xml:space="preserve">
+          <source><bpt id="55bc96c1-5f55-4498-88b2-d4d139990b24">&lt;linkText&gt;</bpt>AzCopy[azure-azcopy]<ept id="55bc96c1-5f55-4498-88b2-d4d139990b24">&lt;/linkText&gt;</ept><bpt id="55bc96c1-5f55-4498-88b2-d4d139990b24">&lt;title&gt;</bpt><ept id="55bc96c1-5f55-4498-88b2-d4d139990b24">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="55bc96c1-5f55-4498-88b2-d4d139990b24">&lt;linkText&gt;</bpt>AzCopy[azure-azcopy]<ept id="55bc96c1-5f55-4498-88b2-d4d139990b24">&lt;/linkText&gt;</ept><bpt id="55bc96c1-5f55-4498-88b2-d4d139990b24">&lt;title&gt;</bpt><ept id="55bc96c1-5f55-4498-88b2-d4d139990b24">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bffcf1c-32e4-49d1-a63d-e2c58b7d4848" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="488d9ccf-7b4f-4e80-95b0-5f231abfbe56" xml:space="preserve">
+          <source><bpt id="f8c97e57-ea98-40e1-9273-0217620355fa">&lt;linkText&gt;</bpt>Hadoop command<ept id="f8c97e57-ea98-40e1-9273-0217620355fa">&lt;/linkText&gt;</ept><bpt id="f8c97e57-ea98-40e1-9273-0217620355fa">&lt;title&gt;</bpt><ept id="f8c97e57-ea98-40e1-9273-0217620355fa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f8c97e57-ea98-40e1-9273-0217620355fa">&lt;linkText&gt;</bpt>Hadoop command<ept id="f8c97e57-ea98-40e1-9273-0217620355fa">&lt;/linkText&gt;</ept><bpt id="f8c97e57-ea98-40e1-9273-0217620355fa">&lt;title&gt;</bpt><ept id="f8c97e57-ea98-40e1-9273-0217620355fa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf701451-2226-450b-851c-6c63d55efbe8" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="0cc39555-6996-42dd-9a12-520bbcbbc304" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="cef416b0-38bb-48b3-af6b-cd09c7aba524" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="604abd13-3052-44b3-a52c-138c30f66f77" xml:space="preserve">
+          <source>While the Azure CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster and only allows loading data from the local file system into Azure Blob storage.</source>
+          <target state="new">While the Azure CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster and only allows loading data from the local file system into Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="325646f0-f4ac-4999-b474-e39344533201" xml:space="preserve">
+          <source>The Azure CLI is a cross-platform tool that allows you to manage Azure services.</source>
+          <target state="new">The Azure CLI is a cross-platform tool that allows you to manage Azure services.</target>
+        </trans-unit>
+        <trans-unit id="383d29fc-72ed-499d-aff9-c7c3b9631a14" xml:space="preserve">
+          <source>Use the following steps to upload data to Azure Blob storage:</source>
+          <target state="new">Use the following steps to upload data to Azure Blob storage:</target>
+        </trans-unit>
+        <trans-unit id="0a696c67-a152-4459-a842-a61720d4dd1d" xml:space="preserve">
+          <source><bpt id="52c5f057-82e9-4e59-aacc-34499d0ed628">&lt;linkText&gt;</bpt>Install and configure the Azure CLI for Mac, Linux and Windows<ept id="52c5f057-82e9-4e59-aacc-34499d0ed628">&lt;/linkText&gt;</ept><bpt id="52c5f057-82e9-4e59-aacc-34499d0ed628">&lt;title&gt;</bpt><ept id="52c5f057-82e9-4e59-aacc-34499d0ed628">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="52c5f057-82e9-4e59-aacc-34499d0ed628">&lt;linkText&gt;</bpt>Install and configure the Azure CLI for Mac, Linux and Windows<ept id="52c5f057-82e9-4e59-aacc-34499d0ed628">&lt;/linkText&gt;</ept><bpt id="52c5f057-82e9-4e59-aacc-34499d0ed628">&lt;title&gt;</bpt><ept id="52c5f057-82e9-4e59-aacc-34499d0ed628">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d43a727-2434-434c-ad97-2d3b6360b791" xml:space="preserve">
+          <source>Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.</source>
+          <target state="new">Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="0e80ee2e-4b29-4279-97f2-3b72c921100b" xml:space="preserve">
+          <source>When prompted, enter the user name and password for your subscription.</source>
+          <target state="new">When prompted, enter the user name and password for your subscription.</target>
+        </trans-unit>
+        <trans-unit id="275b69c4-6db2-47f0-96c0-529add67e6f5" xml:space="preserve">
+          <source>Enter the following command to list the storage accounts for your subscription:</source>
+          <target state="new">Enter the following command to list the storage accounts for your subscription:</target>
+        </trans-unit>
+        <trans-unit id="af3b5982-0473-4824-aef5-999580cb6885" xml:space="preserve">
+          <source>Select the storage account that contains the blob you want to work with, then use the following command to retrieve the key for this account:</source>
+          <target state="new">Select the storage account that contains the blob you want to work with, then use the following command to retrieve the key for this account:</target>
+        </trans-unit>
+        <trans-unit id="b4111f55-1080-4ea4-8702-ea700dc5ac15" xml:space="preserve">
+          <source>This should return <bpt id="ba0c08b4-bbed-43e8-a0be-fcf0f17a226f">&lt;strong&gt;</bpt>Primary<ept id="ba0c08b4-bbed-43e8-a0be-fcf0f17a226f">&lt;/strong&gt;</ept> and <bpt id="cb102615-ffbe-4cf7-b0a8-8387d52d3107">&lt;strong&gt;</bpt>Secondary<ept id="cb102615-ffbe-4cf7-b0a8-8387d52d3107">&lt;/strong&gt;</ept> keys.</source>
+          <target state="new">This should return <bpt id="ba0c08b4-bbed-43e8-a0be-fcf0f17a226f">&lt;strong&gt;</bpt>Primary<ept id="ba0c08b4-bbed-43e8-a0be-fcf0f17a226f">&lt;/strong&gt;</ept> and <bpt id="cb102615-ffbe-4cf7-b0a8-8387d52d3107">&lt;strong&gt;</bpt>Secondary<ept id="cb102615-ffbe-4cf7-b0a8-8387d52d3107">&lt;/strong&gt;</ept> keys.</target>
+        </trans-unit>
+        <trans-unit id="f71b3a9a-e009-4acc-8f6c-4f3c74e01bd7" xml:space="preserve">
+          <source>Copy the <bpt id="2862a21a-f603-4bf1-a9ae-bffef44b10bc">&lt;strong&gt;</bpt>Primary<ept id="2862a21a-f603-4bf1-a9ae-bffef44b10bc">&lt;/strong&gt;</ept> key value because it will be used in the next steps.</source>
+          <target state="new">Copy the <bpt id="2862a21a-f603-4bf1-a9ae-bffef44b10bc">&lt;strong&gt;</bpt>Primary<ept id="2862a21a-f603-4bf1-a9ae-bffef44b10bc">&lt;/strong&gt;</ept> key value because it will be used in the next steps.</target>
+        </trans-unit>
+        <trans-unit id="42b75568-2b89-4232-9fd1-4923f11b4118" xml:space="preserve">
+          <source>Use the following command to retrieve a list of blob containers within the storage account:</source>
+          <target state="new">Use the following command to retrieve a list of blob containers within the storage account:</target>
+        </trans-unit>
+        <trans-unit id="80305416-c0f4-4ce2-9bf3-f8c796c82bd1" xml:space="preserve">
+          <source>Use the following commands to upload and download files to the blob:</source>
+          <target state="new">Use the following commands to upload and download files to the blob:</target>
+        </trans-unit>
+        <trans-unit id="eb94465a-8bae-4b56-bda7-ced15035ac24" xml:space="preserve">
+          <source>To upload a file:</source>
+          <target state="new">To upload a file:</target>
+        </trans-unit>
+        <trans-unit id="32576ac9-124a-4408-9a16-fcaa01307364" xml:space="preserve">
+          <source>To download a file:</source>
+          <target state="new">To download a file:</target>
+        </trans-unit>
+        <trans-unit id="4da930ce-46aa-4370-b8c4-2b224643b772" xml:space="preserve">
+          <source>If you will always be working with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:</source>
+          <target state="new">If you will always be working with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:</target>
+        </trans-unit>
+        <trans-unit id="dea479c9-f25b-4f77-91c1-7a5d3ca2c89e" xml:space="preserve">
+          <source><bpt id="1c5ffb0a-ce32-4dc3-97fc-26a416174a63">&lt;strong&gt;</bpt>AZURE\_STORAGE\_ACCOUNT<ept id="1c5ffb0a-ce32-4dc3-97fc-26a416174a63">&lt;/strong&gt;</ept>: The storage account name</source>
+          <target state="new"><bpt id="1c5ffb0a-ce32-4dc3-97fc-26a416174a63">&lt;strong&gt;</bpt>AZURE\_STORAGE\_ACCOUNT<ept id="1c5ffb0a-ce32-4dc3-97fc-26a416174a63">&lt;/strong&gt;</ept>: The storage account name</target>
+        </trans-unit>
+        <trans-unit id="944a7ede-8f84-470c-a350-67a3bad0096f" xml:space="preserve">
+          <source><bpt id="9dd18b46-9cf3-49eb-a0d8-1926fff57866">&lt;strong&gt;</bpt>AZURE\_STORAGE\_ACCESS\_KEY<ept id="9dd18b46-9cf3-49eb-a0d8-1926fff57866">&lt;/strong&gt;</ept>: The storage account key</source>
+          <target state="new"><bpt id="9dd18b46-9cf3-49eb-a0d8-1926fff57866">&lt;strong&gt;</bpt>AZURE\_STORAGE\_ACCESS\_KEY<ept id="9dd18b46-9cf3-49eb-a0d8-1926fff57866">&lt;/strong&gt;</ept>: The storage account key</target>
+        </trans-unit>
+        <trans-unit id="70888301-ede6-4f5d-911f-09e57e7c2ba7" xml:space="preserve">
+          <source>Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure.</source>
+          <target state="new">Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure.</target>
+        </trans-unit>
+        <trans-unit id="f2fac97f-4440-4f2e-b72b-1c68948cedf8" xml:space="preserve">
+          <source>For information about configuring your workstation to run Azure PowerShell, see <bpt id="cff95c54-58df-4ebd-9607-d26236fa23ff">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell<ept id="cff95c54-58df-4ebd-9607-d26236fa23ff">&lt;/linkText&gt;</ept><bpt id="cff95c54-58df-4ebd-9607-d26236fa23ff">&lt;title&gt;</bpt><ept id="cff95c54-58df-4ebd-9607-d26236fa23ff">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about configuring your workstation to run Azure PowerShell, see <bpt id="cff95c54-58df-4ebd-9607-d26236fa23ff">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell<ept id="cff95c54-58df-4ebd-9607-d26236fa23ff">&lt;/linkText&gt;</ept><bpt id="cff95c54-58df-4ebd-9607-d26236fa23ff">&lt;title&gt;</bpt><ept id="cff95c54-58df-4ebd-9607-d26236fa23ff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de8605eb-e2a6-4d64-a8dd-5998be111b55" xml:space="preserve">
+          <source><bpt id="78166f6d-e9ed-4c1e-9aa6-a687e37f6170">&lt;strong&gt;</bpt>To upload a local file to Azure Blob storage<ept id="78166f6d-e9ed-4c1e-9aa6-a687e37f6170">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="78166f6d-e9ed-4c1e-9aa6-a687e37f6170">&lt;strong&gt;</bpt>To upload a local file to Azure Blob storage<ept id="78166f6d-e9ed-4c1e-9aa6-a687e37f6170">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9704833-f7e9-497b-b4a2-a3465982e434" xml:space="preserve">
+          <source>Open the Azure PowerShell console as instructed in <bpt id="efe8ac91-b99c-40f4-b421-1dd5bc4f8209">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell<ept id="efe8ac91-b99c-40f4-b421-1dd5bc4f8209">&lt;/linkText&gt;</ept><bpt id="efe8ac91-b99c-40f4-b421-1dd5bc4f8209">&lt;title&gt;</bpt><ept id="efe8ac91-b99c-40f4-b421-1dd5bc4f8209">&lt;/title&gt;</ept>.</source>
+          <target state="new">Open the Azure PowerShell console as instructed in <bpt id="efe8ac91-b99c-40f4-b421-1dd5bc4f8209">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell<ept id="efe8ac91-b99c-40f4-b421-1dd5bc4f8209">&lt;/linkText&gt;</ept><bpt id="efe8ac91-b99c-40f4-b421-1dd5bc4f8209">&lt;title&gt;</bpt><ept id="efe8ac91-b99c-40f4-b421-1dd5bc4f8209">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d854276a-975d-46d4-91dd-ac607713f092" xml:space="preserve">
+          <source>Set the values of the first five variables in the following script:</source>
+          <target state="new">Set the values of the first five variables in the following script:</target>
+        </trans-unit>
+        <trans-unit id="997bae8d-8c06-4000-ab44-f0dbe447be68" xml:space="preserve">
+          <source>Paste the script into the Azure PowerShell console to run it to copy the file.</source>
+          <target state="new">Paste the script into the Azure PowerShell console to run it to copy the file.</target>
+        </trans-unit>
+        <trans-unit id="09110442-49bb-4146-b611-75a1984d572a" xml:space="preserve">
+          <source>For example PowerShell scripts created to work with HDInsight, see <bpt id="f0b9cd94-52b6-4aca-a8ab-09117708bbfb">&lt;linkText&gt;</bpt>HDInsight tools<ept id="f0b9cd94-52b6-4aca-a8ab-09117708bbfb">&lt;/linkText&gt;</ept><bpt id="f0b9cd94-52b6-4aca-a8ab-09117708bbfb">&lt;title&gt;</bpt><ept id="f0b9cd94-52b6-4aca-a8ab-09117708bbfb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For example PowerShell scripts created to work with HDInsight, see <bpt id="f0b9cd94-52b6-4aca-a8ab-09117708bbfb">&lt;linkText&gt;</bpt>HDInsight tools<ept id="f0b9cd94-52b6-4aca-a8ab-09117708bbfb">&lt;/linkText&gt;</ept><bpt id="f0b9cd94-52b6-4aca-a8ab-09117708bbfb">&lt;title&gt;</bpt><ept id="f0b9cd94-52b6-4aca-a8ab-09117708bbfb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89e0a95b-b286-4c10-a81d-d78afdd1a325" xml:space="preserve">
+          <source>AzCopy is a command-line tool that is designed to simplify the task of transferring data into and out of an Azure Storage account.</source>
+          <target state="new">AzCopy is a command-line tool that is designed to simplify the task of transferring data into and out of an Azure Storage account.</target>
+        </trans-unit>
+        <trans-unit id="3cd3592f-8c79-44bc-8f69-383cfd76f211" xml:space="preserve">
+          <source>You can use it as a standalone tool or incorporate this tool in an existing application.</source>
+          <target state="new">You can use it as a standalone tool or incorporate this tool in an existing application.</target>
+        </trans-unit>
+        <trans-unit id="95952103-aa03-4679-91c4-5dfec901b5b6" xml:space="preserve">
+          <source><bpt id="75942a9f-4efe-44ac-8f6a-9eb38b660338">&lt;linkText&gt;</bpt>Download AzCopy[azure-azcopy-download]<ept id="75942a9f-4efe-44ac-8f6a-9eb38b660338">&lt;/linkText&gt;</ept><bpt id="75942a9f-4efe-44ac-8f6a-9eb38b660338">&lt;title&gt;</bpt><ept id="75942a9f-4efe-44ac-8f6a-9eb38b660338">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="75942a9f-4efe-44ac-8f6a-9eb38b660338">&lt;linkText&gt;</bpt>Download AzCopy[azure-azcopy-download]<ept id="75942a9f-4efe-44ac-8f6a-9eb38b660338">&lt;/linkText&gt;</ept><bpt id="75942a9f-4efe-44ac-8f6a-9eb38b660338">&lt;title&gt;</bpt><ept id="75942a9f-4efe-44ac-8f6a-9eb38b660338">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb3f43f8-f296-4cf7-a075-eea638dfa391" xml:space="preserve">
+          <source>The AzCopy syntax is:</source>
+          <target state="new">The AzCopy syntax is:</target>
+        </trans-unit>
+        <trans-unit id="236bb00f-6ec1-44ac-a3f8-6ce1c38cb0f3" xml:space="preserve">
+          <source>For more information, see <bpt id="83911eec-d7ef-426c-b912-d0195d8f7509">&lt;linkText&gt;</bpt>AzCopy - Uploading/Downloading files for Azure Blobs[azure-azcopy]<ept id="83911eec-d7ef-426c-b912-d0195d8f7509">&lt;/linkText&gt;</ept><bpt id="83911eec-d7ef-426c-b912-d0195d8f7509">&lt;title&gt;</bpt><ept id="83911eec-d7ef-426c-b912-d0195d8f7509">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="83911eec-d7ef-426c-b912-d0195d8f7509">&lt;linkText&gt;</bpt>AzCopy - Uploading/Downloading files for Azure Blobs[azure-azcopy]<ept id="83911eec-d7ef-426c-b912-d0195d8f7509">&lt;/linkText&gt;</ept><bpt id="83911eec-d7ef-426c-b912-d0195d8f7509">&lt;title&gt;</bpt><ept id="83911eec-d7ef-426c-b912-d0195d8f7509">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1119d7a-bd1d-48ff-bded-7fc3745bb087" xml:space="preserve">
+          <source>The Hadoop command line is only useful for storing data into blob storage when the data is already present on the cluster head node.</source>
+          <target state="new">The Hadoop command line is only useful for storing data into blob storage when the data is already present on the cluster head node.</target>
+        </trans-unit>
+        <trans-unit id="bfcca87d-0d89-4ef5-a734-81cf78d3f084" xml:space="preserve">
+          <source>In order to use the Hadoop command, you must first connect to the headnode using one of the following methods:</source>
+          <target state="new">In order to use the Hadoop command, you must first connect to the headnode using one of the following methods:</target>
+        </trans-unit>
+        <trans-unit id="9d310a18-b70c-4e63-a807-6367ce1912b3" xml:space="preserve">
+          <source><bpt id="be584b28-5ddd-47ab-8913-d430d588a3b4">&lt;strong&gt;</bpt>Windows-based HDInsight<ept id="be584b28-5ddd-47ab-8913-d430d588a3b4">&lt;/strong&gt;</ept>: <bpt id="7d856617-1eb5-4bf1-ab5e-44090a91efd9">&lt;linkText&gt;</bpt>Connect using Remote Desktop<ept id="7d856617-1eb5-4bf1-ab5e-44090a91efd9">&lt;/linkText&gt;</ept><bpt id="7d856617-1eb5-4bf1-ab5e-44090a91efd9">&lt;title&gt;</bpt><ept id="7d856617-1eb5-4bf1-ab5e-44090a91efd9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="be584b28-5ddd-47ab-8913-d430d588a3b4">&lt;strong&gt;</bpt>Windows-based HDInsight<ept id="be584b28-5ddd-47ab-8913-d430d588a3b4">&lt;/strong&gt;</ept>: <bpt id="7d856617-1eb5-4bf1-ab5e-44090a91efd9">&lt;linkText&gt;</bpt>Connect using Remote Desktop<ept id="7d856617-1eb5-4bf1-ab5e-44090a91efd9">&lt;/linkText&gt;</ept><bpt id="7d856617-1eb5-4bf1-ab5e-44090a91efd9">&lt;title&gt;</bpt><ept id="7d856617-1eb5-4bf1-ab5e-44090a91efd9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be888d7c-bde6-44b6-aaf2-8d3607c95ed5" xml:space="preserve">
+          <source><bpt id="2e25a5a1-343e-4b2f-89c5-6de3c041c28c">&lt;strong&gt;</bpt>Linux-based HDInsight<ept id="2e25a5a1-343e-4b2f-89c5-6de3c041c28c">&lt;/strong&gt;</ept>: Connect using SSH (<bpt id="8b3f9b21-460d-4a24-8333-c09a34b1f092">&lt;linkText&gt;</bpt>the SSH command<ept id="8b3f9b21-460d-4a24-8333-c09a34b1f092">&lt;/linkText&gt;</ept><bpt id="8b3f9b21-460d-4a24-8333-c09a34b1f092">&lt;title&gt;</bpt><ept id="8b3f9b21-460d-4a24-8333-c09a34b1f092">&lt;/title&gt;</ept> or <bpt id="ed19ced9-b0cd-4804-9204-03e85f0e42ca">&lt;linkText&gt;</bpt>PuTTY<ept id="ed19ced9-b0cd-4804-9204-03e85f0e42ca">&lt;/linkText&gt;</ept><bpt id="ed19ced9-b0cd-4804-9204-03e85f0e42ca">&lt;title&gt;</bpt><ept id="ed19ced9-b0cd-4804-9204-03e85f0e42ca">&lt;/title&gt;</ept>)</source>
+          <target state="new"><bpt id="2e25a5a1-343e-4b2f-89c5-6de3c041c28c">&lt;strong&gt;</bpt>Linux-based HDInsight<ept id="2e25a5a1-343e-4b2f-89c5-6de3c041c28c">&lt;/strong&gt;</ept>: Connect using SSH (<bpt id="8b3f9b21-460d-4a24-8333-c09a34b1f092">&lt;linkText&gt;</bpt>the SSH command<ept id="8b3f9b21-460d-4a24-8333-c09a34b1f092">&lt;/linkText&gt;</ept><bpt id="8b3f9b21-460d-4a24-8333-c09a34b1f092">&lt;title&gt;</bpt><ept id="8b3f9b21-460d-4a24-8333-c09a34b1f092">&lt;/title&gt;</ept> or <bpt id="ed19ced9-b0cd-4804-9204-03e85f0e42ca">&lt;linkText&gt;</bpt>PuTTY<ept id="ed19ced9-b0cd-4804-9204-03e85f0e42ca">&lt;/linkText&gt;</ept><bpt id="ed19ced9-b0cd-4804-9204-03e85f0e42ca">&lt;title&gt;</bpt><ept id="ed19ced9-b0cd-4804-9204-03e85f0e42ca">&lt;/title&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="dd95b498-f6cc-4eef-a181-8a9c90e23804" xml:space="preserve">
+          <source>Once connected, you can use the following syntax to upload a file to storage.</source>
+          <target state="new">Once connected, you can use the following syntax to upload a file to storage.</target>
+        </trans-unit>
+        <trans-unit id="64ab0ce7-4089-4f3e-b4ac-c8cd97815f3f" xml:space="preserve">
+          <source>For example, <bpt id="8d82e9e1-4b87-4ea4-8c4f-90d76d06b812">&lt;code&gt;</bpt>hadoop fs -copyFromLocal data.txt /example/data/data.txt<ept id="8d82e9e1-4b87-4ea4-8c4f-90d76d06b812">&lt;/code&gt;</ept></source>
+          <target state="new">For example, <bpt id="8d82e9e1-4b87-4ea4-8c4f-90d76d06b812">&lt;code&gt;</bpt>hadoop fs -copyFromLocal data.txt /example/data/data.txt<ept id="8d82e9e1-4b87-4ea4-8c4f-90d76d06b812">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a88adf6e-d390-46b0-beb9-5a617fcb42b4" xml:space="preserve">
+          <source>Because the default file system for HDInsight is in Azure Blob storage, /example/data.txt is actually in Azure Blob storage.</source>
+          <target state="new">Because the default file system for HDInsight is in Azure Blob storage, /example/data.txt is actually in Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="d5871d63-cdf4-4863-b161-8b26f947853a" xml:space="preserve">
+          <source>You can also refer to the file as:</source>
+          <target state="new">You can also refer to the file as:</target>
+        </trans-unit>
+        <trans-unit id="d2288b1e-046a-464c-878f-97af1c179c08" xml:space="preserve">
+          <source>or</source>
+          <target state="new">or</target>
+        </trans-unit>
+        <trans-unit id="dd365118-ebfb-46d9-9b39-87425941a15d" xml:space="preserve">
+          <source>For a list of other Hadoop commands that work with files, see <bpt id="57a6e237-e8d8-4341-9640-e4ebbf2385e0">&lt;linkText&gt;</bpt>http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html<ept id="57a6e237-e8d8-4341-9640-e4ebbf2385e0">&lt;/linkText&gt;</ept><bpt id="57a6e237-e8d8-4341-9640-e4ebbf2385e0">&lt;title&gt;</bpt><ept id="57a6e237-e8d8-4341-9640-e4ebbf2385e0">&lt;/title&gt;</ept></source>
+          <target state="new">For a list of other Hadoop commands that work with files, see <bpt id="57a6e237-e8d8-4341-9640-e4ebbf2385e0">&lt;linkText&gt;</bpt>http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html<ept id="57a6e237-e8d8-4341-9640-e4ebbf2385e0">&lt;/linkText&gt;</ept><bpt id="57a6e237-e8d8-4341-9640-e4ebbf2385e0">&lt;title&gt;</bpt><ept id="57a6e237-e8d8-4341-9640-e4ebbf2385e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e6fd2e4-226a-47a2-a739-4060eefc1762" xml:space="preserve">
+          <source>There are also several applications that provide a graphical interface for working with Azure Storage.</source>
+          <target state="new">There are also several applications that provide a graphical interface for working with Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="5a43d371-658c-48aa-bb2b-333d2e698c77" xml:space="preserve">
+          <source>The following is a list of a few of these applications:</source>
+          <target state="new">The following is a list of a few of these applications:</target>
+        </trans-unit>
+        <trans-unit id="3b83b378-c7e0-48e6-afe7-28ba6070add7" xml:space="preserve">
+          <source>Client</source>
+          <target state="new">Client</target>
+        </trans-unit>
+        <trans-unit id="250fd1c0-afd6-42d4-94fe-99768c06c0c2" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="90c90ebe-f318-4396-80af-b113c5eb9be5" xml:space="preserve">
+          <source>OS X</source>
+          <target state="new">OS X</target>
+        </trans-unit>
+        <trans-unit id="9737d7a4-27d2-46de-af0d-ac89438a6b5b" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="f22f5e6d-90cd-46c4-9a0c-986118066687" xml:space="preserve">
+          <source><bpt id="ea35893c-1187-4dc6-ba36-133024f801be">&lt;linkText&gt;</bpt>Azure Storage Explorer<ept id="ea35893c-1187-4dc6-ba36-133024f801be">&lt;/linkText&gt;</ept><bpt id="ea35893c-1187-4dc6-ba36-133024f801be">&lt;title&gt;</bpt><ept id="ea35893c-1187-4dc6-ba36-133024f801be">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ea35893c-1187-4dc6-ba36-133024f801be">&lt;linkText&gt;</bpt>Azure Storage Explorer<ept id="ea35893c-1187-4dc6-ba36-133024f801be">&lt;/linkText&gt;</ept><bpt id="ea35893c-1187-4dc6-ba36-133024f801be">&lt;title&gt;</bpt><ept id="ea35893c-1187-4dc6-ba36-133024f801be">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="002b516e-3dcd-44ef-a150-272859e99006" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="001f0835-9a1d-4040-9274-704ebd517e9b" xml:space="preserve">
+          <source><bpt id="969a5b17-d4e4-4726-b02d-4c9b7cad2c4e">&lt;linkText&gt;</bpt>Cloud Storage Studio 2<ept id="969a5b17-d4e4-4726-b02d-4c9b7cad2c4e">&lt;/linkText&gt;</ept><bpt id="969a5b17-d4e4-4726-b02d-4c9b7cad2c4e">&lt;title&gt;</bpt><ept id="969a5b17-d4e4-4726-b02d-4c9b7cad2c4e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="969a5b17-d4e4-4726-b02d-4c9b7cad2c4e">&lt;linkText&gt;</bpt>Cloud Storage Studio 2<ept id="969a5b17-d4e4-4726-b02d-4c9b7cad2c4e">&lt;/linkText&gt;</ept><bpt id="969a5b17-d4e4-4726-b02d-4c9b7cad2c4e">&lt;title&gt;</bpt><ept id="969a5b17-d4e4-4726-b02d-4c9b7cad2c4e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a0a0a3e-66a6-4eb8-a35f-eda8733f9821" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="7231fb41-7b93-4b9b-b282-110ef6e6d1be" xml:space="preserve">
+          <source><bpt id="3f858890-2814-4856-9cea-a397f7da379c">&lt;linkText&gt;</bpt>CloudXplorer<ept id="3f858890-2814-4856-9cea-a397f7da379c">&lt;/linkText&gt;</ept><bpt id="3f858890-2814-4856-9cea-a397f7da379c">&lt;title&gt;</bpt><ept id="3f858890-2814-4856-9cea-a397f7da379c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3f858890-2814-4856-9cea-a397f7da379c">&lt;linkText&gt;</bpt>CloudXplorer<ept id="3f858890-2814-4856-9cea-a397f7da379c">&lt;/linkText&gt;</ept><bpt id="3f858890-2814-4856-9cea-a397f7da379c">&lt;title&gt;</bpt><ept id="3f858890-2814-4856-9cea-a397f7da379c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74bbf6cc-3dab-4c31-842d-e85f93917a57" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="47a7415c-e561-4fe5-a91e-4a27e70d76a7" xml:space="preserve">
+          <source><bpt id="744a97bd-8aa3-4f33-86f7-c863daf6755a">&lt;linkText&gt;</bpt>Azure Explorer<ept id="744a97bd-8aa3-4f33-86f7-c863daf6755a">&lt;/linkText&gt;</ept><bpt id="744a97bd-8aa3-4f33-86f7-c863daf6755a">&lt;title&gt;</bpt><ept id="744a97bd-8aa3-4f33-86f7-c863daf6755a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="744a97bd-8aa3-4f33-86f7-c863daf6755a">&lt;linkText&gt;</bpt>Azure Explorer<ept id="744a97bd-8aa3-4f33-86f7-c863daf6755a">&lt;/linkText&gt;</ept><bpt id="744a97bd-8aa3-4f33-86f7-c863daf6755a">&lt;title&gt;</bpt><ept id="744a97bd-8aa3-4f33-86f7-c863daf6755a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="787157e8-6af3-4e0d-af47-5fdbcfa80c00" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="8e224a3b-ab1c-4aea-b5fb-f3e721365599" xml:space="preserve">
+          <source><bpt id="97f12d0c-186b-498b-8925-4770e44118ab">&lt;linkText&gt;</bpt>Zudio<ept id="97f12d0c-186b-498b-8925-4770e44118ab">&lt;/linkText&gt;</ept><bpt id="97f12d0c-186b-498b-8925-4770e44118ab">&lt;title&gt;</bpt><ept id="97f12d0c-186b-498b-8925-4770e44118ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="97f12d0c-186b-498b-8925-4770e44118ab">&lt;linkText&gt;</bpt>Zudio<ept id="97f12d0c-186b-498b-8925-4770e44118ab">&lt;/linkText&gt;</ept><bpt id="97f12d0c-186b-498b-8925-4770e44118ab">&lt;title&gt;</bpt><ept id="97f12d0c-186b-498b-8925-4770e44118ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1152134f-35fc-4ab9-b431-8be18c0e81de" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="a22ee753-b880-41c4-af08-de477899f969" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="bf93ab4a-d07e-4318-9c94-5c0371e2f039" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="5b642875-1e0b-485c-b1ed-9f96f22d5e95" xml:space="preserve">
+          <source><bpt id="be08ca2d-2000-41e5-a178-ccfc371508fe">&lt;linkText&gt;</bpt>Cyberduck<ept id="be08ca2d-2000-41e5-a178-ccfc371508fe">&lt;/linkText&gt;</ept><bpt id="be08ca2d-2000-41e5-a178-ccfc371508fe">&lt;title&gt;</bpt><ept id="be08ca2d-2000-41e5-a178-ccfc371508fe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="be08ca2d-2000-41e5-a178-ccfc371508fe">&lt;linkText&gt;</bpt>Cyberduck<ept id="be08ca2d-2000-41e5-a178-ccfc371508fe">&lt;/linkText&gt;</ept><bpt id="be08ca2d-2000-41e5-a178-ccfc371508fe">&lt;title&gt;</bpt><ept id="be08ca2d-2000-41e5-a178-ccfc371508fe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6353d808-1135-459f-b1c4-f8bea2890595" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="d02ff28a-b0fd-4586-9663-eb73a4a5ce0b" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="600a5d5c-7c6e-4c81-bfae-348b80d68dd2" xml:space="preserve">
+          <source><bpt id="594bd2f8-8fdc-4dbd-9c54-94b5b3d142cf">&lt;em&gt;</bpt>Azure Storage Explorer<ept id="594bd2f8-8fdc-4dbd-9c54-94b5b3d142cf">&lt;/em&gt;</ept> is a useful tool for inspecting and altering the data in Azure Storage.</source>
+          <target state="new"><bpt id="594bd2f8-8fdc-4dbd-9c54-94b5b3d142cf">&lt;em&gt;</bpt>Azure Storage Explorer<ept id="594bd2f8-8fdc-4dbd-9c54-94b5b3d142cf">&lt;/em&gt;</ept> is a useful tool for inspecting and altering the data in Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="08b5ac6a-0cf1-42da-be38-cd85a9d95baa" xml:space="preserve">
+          <source>It is a free tool that can be downloaded from CodePlex: <bpt id="4a291934-8cc1-4a1e-ae32-2246b9e2e804">&lt;linkText&gt;</bpt>Azure Storage Explorer<ept id="4a291934-8cc1-4a1e-ae32-2246b9e2e804">&lt;/linkText&gt;</ept><bpt id="4a291934-8cc1-4a1e-ae32-2246b9e2e804">&lt;title&gt;</bpt>Azure Storage Explorer<ept id="4a291934-8cc1-4a1e-ae32-2246b9e2e804">&lt;/title&gt;</ept>.</source>
+          <target state="new">It is a free tool that can be downloaded from CodePlex: <bpt id="4a291934-8cc1-4a1e-ae32-2246b9e2e804">&lt;linkText&gt;</bpt>Azure Storage Explorer<ept id="4a291934-8cc1-4a1e-ae32-2246b9e2e804">&lt;/linkText&gt;</ept><bpt id="4a291934-8cc1-4a1e-ae32-2246b9e2e804">&lt;title&gt;</bpt>Azure Storage Explorer<ept id="4a291934-8cc1-4a1e-ae32-2246b9e2e804">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba7468e0-4f18-4354-acbd-6d15dcd1493b" xml:space="preserve">
+          <source>Before using the tool, you must know your Azure storage account name and account key.</source>
+          <target state="new">Before using the tool, you must know your Azure storage account name and account key.</target>
+        </trans-unit>
+        <trans-unit id="8eb27155-f01d-4dd3-8996-e40dad39ef0b" xml:space="preserve">
+          <source>For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of <bpt id="61433a9a-dad8-4cda-bdc0-b6a479f8f0ed">&lt;linkText&gt;</bpt>Create, manage, or delete a storage account[azure-create-storage-account]<ept id="61433a9a-dad8-4cda-bdc0-b6a479f8f0ed">&lt;/linkText&gt;</ept><bpt id="61433a9a-dad8-4cda-bdc0-b6a479f8f0ed">&lt;title&gt;</bpt><ept id="61433a9a-dad8-4cda-bdc0-b6a479f8f0ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of <bpt id="61433a9a-dad8-4cda-bdc0-b6a479f8f0ed">&lt;linkText&gt;</bpt>Create, manage, or delete a storage account[azure-create-storage-account]<ept id="61433a9a-dad8-4cda-bdc0-b6a479f8f0ed">&lt;/linkText&gt;</ept><bpt id="61433a9a-dad8-4cda-bdc0-b6a479f8f0ed">&lt;title&gt;</bpt><ept id="61433a9a-dad8-4cda-bdc0-b6a479f8f0ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5bbf730-1f51-49c8-ac15-6bac526f86fe" xml:space="preserve">
+          <source>Run Azure Storage Explorer.</source>
+          <target state="new">Run Azure Storage Explorer.</target>
+        </trans-unit>
+        <trans-unit id="38fccc92-9870-48a4-82f8-6a7bc64c140d" xml:space="preserve">
+          <source><bpt id="16a9ec18-d43f-4f1f-9253-4cc93c075dea">&lt;linkText&gt;</bpt>HDI.AzureStorageExplorer<ept id="16a9ec18-d43f-4f1f-9253-4cc93c075dea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16a9ec18-d43f-4f1f-9253-4cc93c075dea">&lt;linkText&gt;</bpt>HDI.AzureStorageExplorer<ept id="16a9ec18-d43f-4f1f-9253-4cc93c075dea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2d5436a-6f88-4cb8-a2e0-feeedd8d58fd" xml:space="preserve">
+          <source>Click <bpt id="fe87adc3-50f3-4f4e-8e7d-7f84575fccd1">&lt;strong&gt;</bpt>Add Account<ept id="fe87adc3-50f3-4f4e-8e7d-7f84575fccd1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fe87adc3-50f3-4f4e-8e7d-7f84575fccd1">&lt;strong&gt;</bpt>Add Account<ept id="fe87adc3-50f3-4f4e-8e7d-7f84575fccd1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa3aec83-adba-4b0e-8396-e80cd1c39812" xml:space="preserve">
+          <source>After an account is added to Azure Storage Explorer, you don't need to go through this step again.</source>
+          <target state="new">After an account is added to Azure Storage Explorer, you don't need to go through this step again.</target>
+        </trans-unit>
+        <trans-unit id="2721fd76-45c2-497c-a4aa-1c7baccb795a" xml:space="preserve">
+          <source><bpt id="367223f2-3110-4af1-9364-e76950ac8c48">&lt;linkText&gt;</bpt>HDI.ASEAddAccount<ept id="367223f2-3110-4af1-9364-e76950ac8c48">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="367223f2-3110-4af1-9364-e76950ac8c48">&lt;linkText&gt;</bpt>HDI.ASEAddAccount<ept id="367223f2-3110-4af1-9364-e76950ac8c48">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4909fe93-1d77-420a-90a3-a0de6adb8c15" xml:space="preserve">
+          <source>Enter your <bpt id="d173dd84-3e73-4135-be31-f90952fa3798">&lt;strong&gt;</bpt>Storage account name<ept id="d173dd84-3e73-4135-be31-f90952fa3798">&lt;/strong&gt;</ept> and <bpt id="717d9838-5455-4b86-b077-2fbe2736bc22">&lt;strong&gt;</bpt>Storage account key<ept id="717d9838-5455-4b86-b077-2fbe2736bc22">&lt;/strong&gt;</ept>, and then click <bpt id="2f194706-8b86-454d-93fb-48799c37c99c">&lt;strong&gt;</bpt>Add Storage Account<ept id="2f194706-8b86-454d-93fb-48799c37c99c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter your <bpt id="d173dd84-3e73-4135-be31-f90952fa3798">&lt;strong&gt;</bpt>Storage account name<ept id="d173dd84-3e73-4135-be31-f90952fa3798">&lt;/strong&gt;</ept> and <bpt id="717d9838-5455-4b86-b077-2fbe2736bc22">&lt;strong&gt;</bpt>Storage account key<ept id="717d9838-5455-4b86-b077-2fbe2736bc22">&lt;/strong&gt;</ept>, and then click <bpt id="2f194706-8b86-454d-93fb-48799c37c99c">&lt;strong&gt;</bpt>Add Storage Account<ept id="2f194706-8b86-454d-93fb-48799c37c99c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d77ddbc5-a5c4-4081-8e92-a11b5171131d" xml:space="preserve">
+          <source>You can add multiple storage accounts, and each account will be displayed on a tab.</source>
+          <target state="new">You can add multiple storage accounts, and each account will be displayed on a tab.</target>
+        </trans-unit>
+        <trans-unit id="aee0e946-2d9f-4204-9cff-02f7b3935049" xml:space="preserve">
+          <source>Under <bpt id="cef70b8f-1893-4dde-a185-ec1c1d338510">&lt;strong&gt;</bpt>Storage Type<ept id="cef70b8f-1893-4dde-a185-ec1c1d338510">&lt;/strong&gt;</ept>, click <bpt id="c2e93f9a-fb84-4ad8-86b8-70413d0d5a68">&lt;strong&gt;</bpt>Blobs<ept id="c2e93f9a-fb84-4ad8-86b8-70413d0d5a68">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="cef70b8f-1893-4dde-a185-ec1c1d338510">&lt;strong&gt;</bpt>Storage Type<ept id="cef70b8f-1893-4dde-a185-ec1c1d338510">&lt;/strong&gt;</ept>, click <bpt id="c2e93f9a-fb84-4ad8-86b8-70413d0d5a68">&lt;strong&gt;</bpt>Blobs<ept id="c2e93f9a-fb84-4ad8-86b8-70413d0d5a68">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5376bf47-7d93-47f3-b320-475d859de330" xml:space="preserve">
+          <source><bpt id="23940a8d-03fd-415d-ba7a-ac454ff1edb2">&lt;linkText&gt;</bpt>HDI.ASEBlob<ept id="23940a8d-03fd-415d-ba7a-ac454ff1edb2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23940a8d-03fd-415d-ba7a-ac454ff1edb2">&lt;linkText&gt;</bpt>HDI.ASEBlob<ept id="23940a8d-03fd-415d-ba7a-ac454ff1edb2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7fad26e-1e3e-4529-8705-72c47def4436" xml:space="preserve">
+          <source>Under <bpt id="2a725b64-dec9-4c6e-aaef-76a552b4f97d">&lt;strong&gt;</bpt>Container<ept id="2a725b64-dec9-4c6e-aaef-76a552b4f97d">&lt;/strong&gt;</ept>, click the name of the container that is associated with your HDInsight cluster.</source>
+          <target state="new">Under <bpt id="2a725b64-dec9-4c6e-aaef-76a552b4f97d">&lt;strong&gt;</bpt>Container<ept id="2a725b64-dec9-4c6e-aaef-76a552b4f97d">&lt;/strong&gt;</ept>, click the name of the container that is associated with your HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="6d963ed5-2621-4f25-987a-fdc4bfd9a58c" xml:space="preserve">
+          <source>When you create an HDInsight cluster, you must specify a container.</source>
+          <target state="new">When you create an HDInsight cluster, you must specify a container.</target>
+        </trans-unit>
+        <trans-unit id="b4471da2-394c-4fde-a87f-6e44b3a63af8" xml:space="preserve">
+          <source>Otherwise, the cluster creation process creates one for you.</source>
+          <target state="new">Otherwise, the cluster creation process creates one for you.</target>
+        </trans-unit>
+        <trans-unit id="fb20e851-6c9f-479e-8f2e-3eaad3f7f9a6" xml:space="preserve">
+          <source>Under <bpt id="dc89b419-1150-48c2-b7c9-0ac481328729">&lt;strong&gt;</bpt>Blob<ept id="dc89b419-1150-48c2-b7c9-0ac481328729">&lt;/strong&gt;</ept>, click <bpt id="a16cf262-82a9-4a37-afbd-995d57ec92e7">&lt;strong&gt;</bpt>Upload<ept id="a16cf262-82a9-4a37-afbd-995d57ec92e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="dc89b419-1150-48c2-b7c9-0ac481328729">&lt;strong&gt;</bpt>Blob<ept id="dc89b419-1150-48c2-b7c9-0ac481328729">&lt;/strong&gt;</ept>, click <bpt id="a16cf262-82a9-4a37-afbd-995d57ec92e7">&lt;strong&gt;</bpt>Upload<ept id="a16cf262-82a9-4a37-afbd-995d57ec92e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a8b9cfd-d576-4c0b-bf00-f50d949219a4" xml:space="preserve">
+          <source>Specify a file to upload, and then click <bpt id="0f911721-7c6f-4530-881f-cf4cf0abd9b1">&lt;strong&gt;</bpt>Open<ept id="0f911721-7c6f-4530-881f-cf4cf0abd9b1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify a file to upload, and then click <bpt id="0f911721-7c6f-4530-881f-cf4cf0abd9b1">&lt;strong&gt;</bpt>Open<ept id="0f911721-7c6f-4530-881f-cf4cf0abd9b1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="083b61e3-3d66-42dc-96b2-3db89d7de840" xml:space="preserve">
+          <source>See <bpt id="e777ff8e-9569-4c04-95ba-a422bf5e5d0b">&lt;linkText&gt;</bpt>Mount Azure Blob Storage as Local Drive<ept id="e777ff8e-9569-4c04-95ba-a422bf5e5d0b">&lt;/linkText&gt;</ept><bpt id="e777ff8e-9569-4c04-95ba-a422bf5e5d0b">&lt;title&gt;</bpt><ept id="e777ff8e-9569-4c04-95ba-a422bf5e5d0b">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="e777ff8e-9569-4c04-95ba-a422bf5e5d0b">&lt;linkText&gt;</bpt>Mount Azure Blob Storage as Local Drive<ept id="e777ff8e-9569-4c04-95ba-a422bf5e5d0b">&lt;/linkText&gt;</ept><bpt id="e777ff8e-9569-4c04-95ba-a422bf5e5d0b">&lt;title&gt;</bpt><ept id="e777ff8e-9569-4c04-95ba-a422bf5e5d0b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bb26248-4dfb-48af-9611-ea40e412e922" xml:space="preserve">
+          <source>The Azure Data Factory service is a fully managed service for composing data storage, data processing, and data movement services into streamlined, scalable, and reliable data production pipelines.</source>
+          <target state="new">The Azure Data Factory service is a fully managed service for composing data storage, data processing, and data movement services into streamlined, scalable, and reliable data production pipelines.</target>
+        </trans-unit>
+        <trans-unit id="243a49b6-e67d-4069-8c78-75a0fae21902" xml:space="preserve">
+          <source>Azure Data Factory can be used to move data into Azure Blob storage, or to create data pipelines that directly use HDInsight features such as Hive and Pig.</source>
+          <target state="new">Azure Data Factory can be used to move data into Azure Blob storage, or to create data pipelines that directly use HDInsight features such as Hive and Pig.</target>
+        </trans-unit>
+        <trans-unit id="57630e30-c025-443a-a820-8ad15df45885" xml:space="preserve">
+          <source>For more information, see the <bpt id="6dc38c2d-6c53-4562-9c92-8097d4ae2077">&lt;linkText&gt;</bpt>Azure Data Factory documentation<ept id="6dc38c2d-6c53-4562-9c92-8097d4ae2077">&lt;/linkText&gt;</ept><bpt id="6dc38c2d-6c53-4562-9c92-8097d4ae2077">&lt;title&gt;</bpt><ept id="6dc38c2d-6c53-4562-9c92-8097d4ae2077">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="6dc38c2d-6c53-4562-9c92-8097d4ae2077">&lt;linkText&gt;</bpt>Azure Data Factory documentation<ept id="6dc38c2d-6c53-4562-9c92-8097d4ae2077">&lt;/linkText&gt;</ept><bpt id="6dc38c2d-6c53-4562-9c92-8097d4ae2077">&lt;title&gt;</bpt><ept id="6dc38c2d-6c53-4562-9c92-8097d4ae2077">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c815662c-e81f-4dbd-b227-fb35a42d7f28" xml:space="preserve">
+          <source>Sqoop is a tool designed to transfer data between Hadoop and relational databases.</source>
+          <target state="new">Sqoop is a tool designed to transfer data between Hadoop and relational databases.</target>
+        </trans-unit>
+        <trans-unit id="3174bb28-0aab-4bf5-b8cb-82d2a9ffa81b" xml:space="preserve">
+          <source>You can use it to import data from a relational database management system (RDBMS), such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into an RDBMS.</source>
+          <target state="new">You can use it to import data from a relational database management system (RDBMS), such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into an RDBMS.</target>
+        </trans-unit>
+        <trans-unit id="7b4d6bbd-d2bc-458b-813d-4d54681b3bf2" xml:space="preserve">
+          <source>For more information, see <bpt id="d41064f2-20c4-4003-b823-423722d3a9b3">&lt;linkText&gt;</bpt>Use Sqoop with HDInsight[hdinsight-use-sqoop]<ept id="d41064f2-20c4-4003-b823-423722d3a9b3">&lt;/linkText&gt;</ept><bpt id="d41064f2-20c4-4003-b823-423722d3a9b3">&lt;title&gt;</bpt><ept id="d41064f2-20c4-4003-b823-423722d3a9b3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d41064f2-20c4-4003-b823-423722d3a9b3">&lt;linkText&gt;</bpt>Use Sqoop with HDInsight[hdinsight-use-sqoop]<ept id="d41064f2-20c4-4003-b823-423722d3a9b3">&lt;/linkText&gt;</ept><bpt id="d41064f2-20c4-4003-b823-423722d3a9b3">&lt;title&gt;</bpt><ept id="d41064f2-20c4-4003-b823-423722d3a9b3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d16fee4a-5d15-453a-8fea-e1b30b806a40" xml:space="preserve">
+          <source>Azure Blob storage can also be accessed using an Azure SDK from the following programming languages:</source>
+          <target state="new">Azure Blob storage can also be accessed using an Azure SDK from the following programming languages:</target>
+        </trans-unit>
+        <trans-unit id="bcd1f005-6ad6-4722-8521-d1837f0c75df" xml:space="preserve">
+          <source>.NET</source>
+          <target state="new">.NET</target>
+        </trans-unit>
+        <trans-unit id="9801945a-85db-4e74-befd-072c8d2c2f03" xml:space="preserve">
+          <source>Java</source>
+          <target state="new">Java</target>
+        </trans-unit>
+        <trans-unit id="35ff4458-f8c0-4bbe-b036-075d4af365ee" xml:space="preserve">
+          <source>Node.js</source>
+          <target state="new">Node.js</target>
+        </trans-unit>
+        <trans-unit id="e0b57196-ebdd-4418-b608-32ce220e1f50" xml:space="preserve">
+          <source>PHP</source>
+          <target state="new">PHP</target>
+        </trans-unit>
+        <trans-unit id="a3d9e2d3-473d-45a7-98fd-e027924a67a3" xml:space="preserve">
+          <source>Python</source>
+          <target state="new">Python</target>
+        </trans-unit>
+        <trans-unit id="559ec8e5-ff09-4069-a7ca-c0b6e38bb91b" xml:space="preserve">
+          <source>Ruby</source>
+          <target state="new">Ruby</target>
+        </trans-unit>
+        <trans-unit id="7dfa2c6a-06da-4b54-8850-f12c31d0afed" xml:space="preserve">
+          <source>For more information on installing the Azure SDKs, see <bpt id="a087a218-2506-4d6e-9690-0bb4b3151c0a">&lt;linkText&gt;</bpt>Azure downloads<ept id="a087a218-2506-4d6e-9690-0bb4b3151c0a">&lt;/linkText&gt;</ept><bpt id="a087a218-2506-4d6e-9690-0bb4b3151c0a">&lt;title&gt;</bpt><ept id="a087a218-2506-4d6e-9690-0bb4b3151c0a">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on installing the Azure SDKs, see <bpt id="a087a218-2506-4d6e-9690-0bb4b3151c0a">&lt;linkText&gt;</bpt>Azure downloads<ept id="a087a218-2506-4d6e-9690-0bb4b3151c0a">&lt;/linkText&gt;</ept><bpt id="a087a218-2506-4d6e-9690-0bb4b3151c0a">&lt;title&gt;</bpt><ept id="a087a218-2506-4d6e-9690-0bb4b3151c0a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f60c6e42-83da-4df4-b42c-241c2828badc" xml:space="preserve">
+          <source>Now that you understand how to get data into HDInsight, read the following articles to learn how to perform analysis:</source>
+          <target state="new">Now that you understand how to get data into HDInsight, read the following articles to learn how to perform analysis:</target>
+        </trans-unit>
+        <trans-unit id="1d7fc742-1ad6-44b2-8235-09f8ca37e8fb" xml:space="preserve">
+          <source><bpt id="08ba187a-7127-4c11-adc3-811e23e2aca2">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="08ba187a-7127-4c11-adc3-811e23e2aca2">&lt;/linkText&gt;</ept><bpt id="08ba187a-7127-4c11-adc3-811e23e2aca2">&lt;title&gt;</bpt><ept id="08ba187a-7127-4c11-adc3-811e23e2aca2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="08ba187a-7127-4c11-adc3-811e23e2aca2">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="08ba187a-7127-4c11-adc3-811e23e2aca2">&lt;/linkText&gt;</ept><bpt id="08ba187a-7127-4c11-adc3-811e23e2aca2">&lt;title&gt;</bpt><ept id="08ba187a-7127-4c11-adc3-811e23e2aca2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="633274f7-eb8c-4a75-99c0-e20f9a2197e2" xml:space="preserve">
+          <source><bpt id="962ff85b-d677-46a4-9ddd-374c97d52d13">&lt;linkText&gt;</bpt>Submit Hadoop jobs programmatically[hdinsight-submit-jobs]<ept id="962ff85b-d677-46a4-9ddd-374c97d52d13">&lt;/linkText&gt;</ept><bpt id="962ff85b-d677-46a4-9ddd-374c97d52d13">&lt;title&gt;</bpt><ept id="962ff85b-d677-46a4-9ddd-374c97d52d13">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="962ff85b-d677-46a4-9ddd-374c97d52d13">&lt;linkText&gt;</bpt>Submit Hadoop jobs programmatically[hdinsight-submit-jobs]<ept id="962ff85b-d677-46a4-9ddd-374c97d52d13">&lt;/linkText&gt;</ept><bpt id="962ff85b-d677-46a4-9ddd-374c97d52d13">&lt;title&gt;</bpt><ept id="962ff85b-d677-46a4-9ddd-374c97d52d13">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be354cec-61ed-4be3-806b-eb5867a53a55" xml:space="preserve">
+          <source><bpt id="ef39be6d-da30-4c08-89b5-262238eb69d0">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="ef39be6d-da30-4c08-89b5-262238eb69d0">&lt;/linkText&gt;</ept><bpt id="ef39be6d-da30-4c08-89b5-262238eb69d0">&lt;title&gt;</bpt><ept id="ef39be6d-da30-4c08-89b5-262238eb69d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ef39be6d-da30-4c08-89b5-262238eb69d0">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="ef39be6d-da30-4c08-89b5-262238eb69d0">&lt;/linkText&gt;</ept><bpt id="ef39be6d-da30-4c08-89b5-262238eb69d0">&lt;title&gt;</bpt><ept id="ef39be6d-da30-4c08-89b5-262238eb69d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="358dc76f-0a51-4f57-b7af-39bb75b4ef90" xml:space="preserve">
+          <source><bpt id="ea18afb0-4046-45bf-88a6-4fe6d964f526">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="ea18afb0-4046-45bf-88a6-4fe6d964f526">&lt;/linkText&gt;</ept><bpt id="ea18afb0-4046-45bf-88a6-4fe6d964f526">&lt;title&gt;</bpt><ept id="ea18afb0-4046-45bf-88a6-4fe6d964f526">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ea18afb0-4046-45bf-88a6-4fe6d964f526">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="ea18afb0-4046-45bf-88a6-4fe6d964f526">&lt;/linkText&gt;</ept><bpt id="ea18afb0-4046-45bf-88a6-4fe6d964f526">&lt;title&gt;</bpt><ept id="ea18afb0-4046-45bf-88a6-4fe6d964f526">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb76e2b1-16a9-421d-be4e-bd3998c27519" xml:space="preserve">
+          <source>https://porta.azure.com</source>
+          <target state="new">https://porta.azure.com</target>
+        </trans-unit>
+        <trans-unit id="507b9e3f-974b-445b-bd0a-12929b6fd907" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/jj152841.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/jj152841.aspx</target>
+        </trans-unit>
+        <trans-unit id="858cf359-dae7-4dd1-a4c5-9e61ad363383" xml:space="preserve">
+          <source>/develop/net/how-to-guides/blob-storage/</source>
+          <target state="new">/develop/net/how-to-guides/blob-storage/</target>
+        </trans-unit>
+        <trans-unit id="ddd8f7b3-4b32-4dee-9118-b642b24aed04" xml:space="preserve">
+          <source>../storage-create-storage-account.md</source>
+          <target state="new">../storage-create-storage-account.md</target>
+        </trans-unit>
+        <trans-unit id="5e93ce8a-e122-4e97-8778-441e7a6fe8c9" xml:space="preserve">
+          <source>../storage-use-azcopy.md</source>
+          <target state="new">../storage-use-azcopy.md</target>
+        </trans-unit>
+        <trans-unit id="0e28e39d-de77-41c8-8df4-86313396729c" xml:space="preserve">
+          <source>../storage-use-azcopy.md</source>
+          <target state="new">../storage-use-azcopy.md</target>
+        </trans-unit>
+        <trans-unit id="12dca519-8027-4314-a62e-da68cfe9a181" xml:space="preserve">
+          <source>hdinsight-use-sqoop.md</source>
+          <target state="new">hdinsight-use-sqoop.md</target>
+        </trans-unit>
+        <trans-unit id="0fd5639d-5b5e-4608-9eac-1cf11666bf5c" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="41a42d61-d07e-43a9-884a-c0fc3b42408e" xml:space="preserve">
+          <source>hdinsight-submit-hadoop-jobs-programmatically.md</source>
+          <target state="new">hdinsight-submit-hadoop-jobs-programmatically.md</target>
+        </trans-unit>
+        <trans-unit id="d81a7af9-af5f-46ab-8e31-99845bdbd997" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="a5441b05-a791-4ee9-b0c3-5204689cf5a4" xml:space="preserve">
+          <source>hdinsight-use-hive.md</source>
+          <target state="new">hdinsight-use-hive.md</target>
+        </trans-unit>
+        <trans-unit id="d0b37de4-491b-4c88-9542-e5cd48fb03bc" xml:space="preserve">
+          <source>hdinsight-use-pig.md</source>
+          <target state="new">hdinsight-use-pig.md</target>
+        </trans-unit>
+        <trans-unit id="451bf845-2304-4757-abe1-b6f482e8a7ee" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="0905da23-5715-47fe-9dbf-260840a03fd0" xml:space="preserve">
+          <source>../sql-database-create-configure.md</source>
+          <target state="new">../sql-database-create-configure.md</target>
+        </trans-unit>
+        <trans-unit id="ffe34408-b1aa-4569-993d-f9c95950b508" xml:space="preserve">
+          <source>http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html</source>
+          <target state="new">http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html</target>
+        </trans-unit>
+        <trans-unit id="170c3bcd-43ee-40e0-9e21-672bab05dcdf" xml:space="preserve">
+          <source>../powershell-install-configure.md</source>
+          <target state="new">../powershell-install-configure.md</target>
+        </trans-unit>
+        <trans-unit id="723bbc75-5a1f-4e67-a908-baa3144fa1d1" xml:space="preserve">
+          <source>../xplat-cli.md</source>
+          <target state="new">../xplat-cli.md</target>
+        </trans-unit>
+        <trans-unit id="a10b88a9-a040-42af-88d5-c9f47c0dd007" xml:space="preserve">
+          <source>./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png</source>
+          <target state="new">./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png</target>
+        </trans-unit>
+        <trans-unit id="145c7d34-7f28-4ec0-9385-8ca77030ad57" xml:space="preserve">
+          <source>./media/hdinsight-upload-data/HDI.ASEAddAccount.png</source>
+          <target state="new">./media/hdinsight-upload-data/HDI.ASEAddAccount.png</target>
+        </trans-unit>
+        <trans-unit id="6f2cd4b7-668c-4ef3-b8f9-4038dc2b2f13" xml:space="preserve">
+          <source>./media/hdinsight-upload-data/HDI.ASEBlob.png</source>
+          <target state="new">./media/hdinsight-upload-data/HDI.ASEBlob.png</target>
+        </trans-unit>
+      </group>
+      <group id="608e91e9-2cba-45a9-8362-3a7bf918e5de" />
+    </body>
+  </file>
+</xliff>

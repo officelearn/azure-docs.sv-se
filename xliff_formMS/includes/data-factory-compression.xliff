@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="286f22cb-6a69-48ac-ae94-037f789641ca" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="286f22cb-6a69-48ac-ae94-037f789641ca" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c2d21392-7faa-46aa-bdfc-8ddd8cdd25f7">
+        <trans-unit id="43d28241-41bf-4519-91b3-7b0541b5d87d" xml:space="preserve">
+          <source>Processing large data sets can cause I/O and network bottlenecks.</source>
+          <target state="new">Processing large data sets can cause I/O and network bottlenecks.</target>
+        </trans-unit>
+        <trans-unit id="784eb58f-93f2-4449-adf2-80bc524261be" xml:space="preserve">
+          <source>Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data.</source>
+          <target state="new">Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data.</target>
+        </trans-unit>
+        <trans-unit id="7f1aab9f-4868-45bf-8f5d-f394b3e67053" xml:space="preserve">
+          <source>At this time, compression is supported for file-based data stores such as Azure Blob or On-premises File System.</source>
+          <target state="new">At this time, compression is supported for file-based data stores such as Azure Blob or On-premises File System.</target>
+        </trans-unit>
+        <trans-unit id="064f9e1a-af47-44be-9103-70461caa4c18" xml:space="preserve">
+          <source>To specify compression for a dataset, use the <bpt id="085c04ab-f9cc-4cef-8162-ea3306a1a6b7">&lt;strong&gt;</bpt>compression<ept id="085c04ab-f9cc-4cef-8162-ea3306a1a6b7">&lt;/strong&gt;</ept> property in the dataset JSON as in the following example:   </source>
+          <target state="new">To specify compression for a dataset, use the <bpt id="085c04ab-f9cc-4cef-8162-ea3306a1a6b7">&lt;strong&gt;</bpt>compression<ept id="085c04ab-f9cc-4cef-8162-ea3306a1a6b7">&lt;/strong&gt;</ept> property in the dataset JSON as in the following example:   </target>
+        </trans-unit>
+        <trans-unit id="5ec3f149-1915-413e-8b4b-fc49ea5714f8" xml:space="preserve">
+          <source>Note that the <bpt id="3dddb550-0970-4e0d-8b00-39dd600f4a44">&lt;strong&gt;</bpt>compression<ept id="3dddb550-0970-4e0d-8b00-39dd600f4a44">&lt;/strong&gt;</ept> section has two properties:  </source>
+          <target state="new">Note that the <bpt id="3dddb550-0970-4e0d-8b00-39dd600f4a44">&lt;strong&gt;</bpt>compression<ept id="3dddb550-0970-4e0d-8b00-39dd600f4a44">&lt;/strong&gt;</ept> section has two properties:  </target>
+        </trans-unit>
+        <trans-unit id="1516ff55-6d1f-4a83-8ba1-d65562cf9487" xml:space="preserve">
+          <source><bpt id="5b807566-0cbb-4f47-b88a-368e94bd0988">&lt;strong&gt;</bpt>Type:<ept id="5b807566-0cbb-4f47-b88a-368e94bd0988">&lt;/strong&gt;</ept> the compression codec, which can be <bpt id="9aa02d0b-de90-4934-947b-19dda2b2df41">&lt;strong&gt;</bpt>GZIP<ept id="9aa02d0b-de90-4934-947b-19dda2b2df41">&lt;/strong&gt;</ept>, <bpt id="1c72b86d-6a32-4a2f-b3b3-5d92b9211a80">&lt;strong&gt;</bpt>Deflate<ept id="1c72b86d-6a32-4a2f-b3b3-5d92b9211a80">&lt;/strong&gt;</ept> or <bpt id="9cc950bb-7309-41cc-b6cf-3f785e257e19">&lt;strong&gt;</bpt>BZIP2<ept id="9cc950bb-7309-41cc-b6cf-3f785e257e19">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="5b807566-0cbb-4f47-b88a-368e94bd0988">&lt;strong&gt;</bpt>Type:<ept id="5b807566-0cbb-4f47-b88a-368e94bd0988">&lt;/strong&gt;</ept> the compression codec, which can be <bpt id="9aa02d0b-de90-4934-947b-19dda2b2df41">&lt;strong&gt;</bpt>GZIP<ept id="9aa02d0b-de90-4934-947b-19dda2b2df41">&lt;/strong&gt;</ept>, <bpt id="1c72b86d-6a32-4a2f-b3b3-5d92b9211a80">&lt;strong&gt;</bpt>Deflate<ept id="1c72b86d-6a32-4a2f-b3b3-5d92b9211a80">&lt;/strong&gt;</ept> or <bpt id="9cc950bb-7309-41cc-b6cf-3f785e257e19">&lt;strong&gt;</bpt>BZIP2<ept id="9cc950bb-7309-41cc-b6cf-3f785e257e19">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="942f4c1a-750b-4548-8bed-bf5f7862bbda" xml:space="preserve">
+          <source><bpt id="a82cfa59-e212-4424-a604-670bc1998105">&lt;strong&gt;</bpt>Level:<ept id="a82cfa59-e212-4424-a604-670bc1998105">&lt;/strong&gt;</ept> the compression ratio, which can be <bpt id="def01361-815b-4392-8f6e-a6d893de7b09">&lt;strong&gt;</bpt>Optimal<ept id="def01361-815b-4392-8f6e-a6d893de7b09">&lt;/strong&gt;</ept> or <bpt id="45991010-c126-4d3a-9746-c2e473e18dfa">&lt;strong&gt;</bpt>Fastest<ept id="45991010-c126-4d3a-9746-c2e473e18dfa">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="a82cfa59-e212-4424-a604-670bc1998105">&lt;strong&gt;</bpt>Level:<ept id="a82cfa59-e212-4424-a604-670bc1998105">&lt;/strong&gt;</ept> the compression ratio, which can be <bpt id="def01361-815b-4392-8f6e-a6d893de7b09">&lt;strong&gt;</bpt>Optimal<ept id="def01361-815b-4392-8f6e-a6d893de7b09">&lt;/strong&gt;</ept> or <bpt id="45991010-c126-4d3a-9746-c2e473e18dfa">&lt;strong&gt;</bpt>Fastest<ept id="45991010-c126-4d3a-9746-c2e473e18dfa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bd25ba7-0423-4be7-99f8-7386495e8dc3" xml:space="preserve">
+          <source><bpt id="16e71324-23f8-4f34-bd10-fc68facf7951">&lt;strong&gt;</bpt>Fastest:<ept id="16e71324-23f8-4f34-bd10-fc68facf7951">&lt;/strong&gt;</ept> The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.</source>
+          <target state="new"><bpt id="16e71324-23f8-4f34-bd10-fc68facf7951">&lt;strong&gt;</bpt>Fastest:<ept id="16e71324-23f8-4f34-bd10-fc68facf7951">&lt;/strong&gt;</ept> The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.</target>
+        </trans-unit>
+        <trans-unit id="0b428635-73e8-40af-afb5-2c5cf369c7d6" xml:space="preserve">
+          <source><bpt id="33765f09-16cd-4ed0-aea7-8c79fa73225f">&lt;strong&gt;</bpt>Optimal<ept id="33765f09-16cd-4ed0-aea7-8c79fa73225f">&lt;/strong&gt;</ept>: The compression operation should be optimally compressed, even if the operation takes a longer time to complete.</source>
+          <target state="new"><bpt id="33765f09-16cd-4ed0-aea7-8c79fa73225f">&lt;strong&gt;</bpt>Optimal<ept id="33765f09-16cd-4ed0-aea7-8c79fa73225f">&lt;/strong&gt;</ept>: The compression operation should be optimally compressed, even if the operation takes a longer time to complete.</target>
+        </trans-unit>
+        <trans-unit id="1aa12a82-445e-4b5b-ad30-1398699b77e8" xml:space="preserve">
+          <source>See <bpt id="fbf88364-c099-4afe-9e2a-9b174cc72421">&lt;linkText&gt;</bpt>Compression Level<ept id="fbf88364-c099-4afe-9e2a-9b174cc72421">&lt;/linkText&gt;</ept><bpt id="fbf88364-c099-4afe-9e2a-9b174cc72421">&lt;title&gt;</bpt><ept id="fbf88364-c099-4afe-9e2a-9b174cc72421">&lt;/title&gt;</ept> topic for more information.</source>
+          <target state="new">See <bpt id="fbf88364-c099-4afe-9e2a-9b174cc72421">&lt;linkText&gt;</bpt>Compression Level<ept id="fbf88364-c099-4afe-9e2a-9b174cc72421">&lt;/linkText&gt;</ept><bpt id="fbf88364-c099-4afe-9e2a-9b174cc72421">&lt;title&gt;</bpt><ept id="fbf88364-c099-4afe-9e2a-9b174cc72421">&lt;/title&gt;</ept> topic for more information.</target>
+        </trans-unit>
+        <trans-unit id="5ba2bb05-ae4d-4e5b-960e-ca0ef428f714" xml:space="preserve">
+          <source>Suppose the above sample dataset is used as the output of a copy activity, the copy activity will compresses the output data with GZIP codec using optimal ratio and then write the compressed data into a file named pagecounts.csv.gz in the Azure Blob Storage.</source>
+          <target state="new">Suppose the above sample dataset is used as the output of a copy activity, the copy activity will compresses the output data with GZIP codec using optimal ratio and then write the compressed data into a file named pagecounts.csv.gz in the Azure Blob Storage.</target>
+        </trans-unit>
+        <trans-unit id="61592d33-a014-4c1b-a348-73ade82af410" xml:space="preserve">
+          <source>When you specify compression property in an input dataset JSON, the pipeline can read compressed data from the source and when you specify the property in an output dataset JSON, the copy activity can write compressed data to the destination.</source>
+          <target state="new">When you specify compression property in an input dataset JSON, the pipeline can read compressed data from the source and when you specify the property in an output dataset JSON, the copy activity can write compressed data to the destination.</target>
+        </trans-unit>
+        <trans-unit id="351a7454-394b-4daf-a8d2-461fed191938" xml:space="preserve">
+          <source>Here are a few sample scenarios:</source>
+          <target state="new">Here are a few sample scenarios:</target>
+        </trans-unit>
+        <trans-unit id="6ebecba2-56f9-449a-ad0b-c0c85434087a" xml:space="preserve">
+          <source>Read GZIP compressed data from an Azure blob, decompress it, and write result data to an Azure SQL database.</source>
+          <target state="new">Read GZIP compressed data from an Azure blob, decompress it, and write result data to an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="d30cc8db-c35f-4943-a67f-cdf5c6ac5098" xml:space="preserve">
+          <source>You define the input Azure Blob dataset with the compression JSON property in this case.</source>
+          <target state="new">You define the input Azure Blob dataset with the compression JSON property in this case.</target>
+        </trans-unit>
+        <trans-unit id="ed80dbe8-fc47-4c8b-ba27-b6609f876db9" xml:space="preserve">
+          <source>Read data from a plain-text file from on-premises File System, compress it using GZip format, and write the compressed data to an Azure blob.</source>
+          <target state="new">Read data from a plain-text file from on-premises File System, compress it using GZip format, and write the compressed data to an Azure blob.</target>
+        </trans-unit>
+        <trans-unit id="e6cfb793-8ea1-45f1-a5a8-6caaadc04a1a" xml:space="preserve">
+          <source>You define an output Azure Blob dataset with the compression JSON property in this case.</source>
+          <target state="new">You define an output Azure Blob dataset with the compression JSON property in this case.</target>
+        </trans-unit>
+        <trans-unit id="690d943d-4249-4d0e-9d57-f0cf09c0abcc" xml:space="preserve">
+          <source>Read a GZIP-compressed data from an Azure blob, decompress it, compress it using BZIP2, and write result data to an Azure blob.</source>
+          <target state="new">Read a GZIP-compressed data from an Azure blob, decompress it, compress it using BZIP2, and write result data to an Azure blob.</target>
+        </trans-unit>
+        <trans-unit id="1b90eb26-728b-4ed6-8a96-2321c6df4954" xml:space="preserve">
+          <source>You define the input Azure Blob dataset with compression type set to GZIP and the output dataset with compression type set to BZIP2 in this case.</source>
+          <target state="new">You define the input Azure Blob dataset with compression type set to GZIP and the output dataset with compression type set to BZIP2 in this case.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

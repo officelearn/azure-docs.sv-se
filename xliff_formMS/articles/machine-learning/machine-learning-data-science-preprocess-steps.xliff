@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a58c90aa-4346-42cf-b27b-3d7d20e79a4e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a58c90aa-4346-42cf-b27b-3d7d20e79a4e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d24282e1-caa6-453b-a96b-86ca06a07f60">
+        <trans-unit id="f6a5dd2a-66cc-47b9-b1f8-b24f59544e7c" xml:space="preserve">
+          <source>Pre-process and Clean Data | Microsoft Azure</source>
+          <target state="new">Pre-process and Clean Data | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e0aa412c-33f5-4a2c-96bc-23540bd6dabe" xml:space="preserve">
+          <source>Pre-process and Clean Data</source>
+          <target state="new">Pre-process and Clean Data</target>
+        </trans-unit>
+        <trans-unit id="1d15a673-4d8b-4d8a-afc9-dddc69d7a8b0" xml:space="preserve">
+          <source>Pre-processing and cleaning data are important tasks that typically must be conducted before using a dataset effectively for machine learning.</source>
+          <target state="new">Pre-processing and cleaning data are important tasks that typically must be conducted before using a dataset effectively for machine learning.</target>
+        </trans-unit>
+        <trans-unit id="60696a6d-c489-46d5-843b-3ce80d9597d9" xml:space="preserve">
+          <source>This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning.</source>
+          <target state="new">This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="1a4f211f-ab8e-447b-904e-51d5055b559c" xml:space="preserve">
+          <source>Raw data is often noisy and unreliable, and may be missing values.</source>
+          <target state="new">Raw data is often noisy and unreliable, and may be missing values.</target>
+        </trans-unit>
+        <trans-unit id="3288f204-e88d-4db2-89d1-0e87c9ff8c46" xml:space="preserve">
+          <source>Using such data for modeling can produce misleading results.</source>
+          <target state="new">Using such data for modeling can produce misleading results.</target>
+        </trans-unit>
+        <trans-unit id="dcdf4c5a-f3ae-448f-bbc0-ea33695a0abd" xml:space="preserve">
+          <source>This article introduces various data processing concepts and tasks that can be taken before ingesting data into Azure Machine Learning.</source>
+          <target state="new">This article introduces various data processing concepts and tasks that can be taken before ingesting data into Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="14debe0b-fbb2-4e36-8695-7ea7321d89cf" xml:space="preserve">
+          <source>For more detailed instructions on this process, see the <bpt id="ff629d8f-d1c3-493c-b2b7-772ce1722d9e">&lt;linkText&gt;</bpt>Learning Guide: Advanced data processing in Azure<ept id="ff629d8f-d1c3-493c-b2b7-772ce1722d9e">&lt;/linkText&gt;</ept><bpt id="ff629d8f-d1c3-493c-b2b7-772ce1722d9e">&lt;title&gt;</bpt><ept id="ff629d8f-d1c3-493c-b2b7-772ce1722d9e">&lt;/title&gt;</ept></source>
+          <target state="new">For more detailed instructions on this process, see the <bpt id="ff629d8f-d1c3-493c-b2b7-772ce1722d9e">&lt;linkText&gt;</bpt>Learning Guide: Advanced data processing in Azure<ept id="ff629d8f-d1c3-493c-b2b7-772ce1722d9e">&lt;/linkText&gt;</ept><bpt id="ff629d8f-d1c3-493c-b2b7-772ce1722d9e">&lt;title&gt;</bpt><ept id="ff629d8f-d1c3-493c-b2b7-772ce1722d9e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c0ef857-f755-40a5-94e7-ce28eb3a9efd" xml:space="preserve">
+          <source>Real world data is gathered from various sources and processes and it may contain irregularities or corrupt data compromising the quality of the dataset.</source>
+          <target state="new">Real world data is gathered from various sources and processes and it may contain irregularities or corrupt data compromising the quality of the dataset.</target>
+        </trans-unit>
+        <trans-unit id="248c4382-e6a6-4f29-9ae0-da01acc252b5" xml:space="preserve">
+          <source>The typical data quality issues that arise are:</source>
+          <target state="new">The typical data quality issues that arise are:</target>
+        </trans-unit>
+        <trans-unit id="2faea07f-0281-4450-85f9-89c9cde2342f" xml:space="preserve">
+          <source><bpt id="72a22efc-18e8-480b-9a33-2dee26daedd7">&lt;strong&gt;</bpt>Incomplete<ept id="72a22efc-18e8-480b-9a33-2dee26daedd7">&lt;/strong&gt;</ept>: Data lacks attributes or containing missing values.</source>
+          <target state="new"><bpt id="72a22efc-18e8-480b-9a33-2dee26daedd7">&lt;strong&gt;</bpt>Incomplete<ept id="72a22efc-18e8-480b-9a33-2dee26daedd7">&lt;/strong&gt;</ept>: Data lacks attributes or containing missing values.</target>
+        </trans-unit>
+        <trans-unit id="7734c3dc-039a-4b57-9c2c-10dfa47bd041" xml:space="preserve">
+          <source><bpt id="59fba355-37a5-4d03-b1da-b781fe379c64">&lt;strong&gt;</bpt>Noisy<ept id="59fba355-37a5-4d03-b1da-b781fe379c64">&lt;/strong&gt;</ept>: Data contains erroneous records or outliers.</source>
+          <target state="new"><bpt id="59fba355-37a5-4d03-b1da-b781fe379c64">&lt;strong&gt;</bpt>Noisy<ept id="59fba355-37a5-4d03-b1da-b781fe379c64">&lt;/strong&gt;</ept>: Data contains erroneous records or outliers.</target>
+        </trans-unit>
+        <trans-unit id="b1e58c53-ad7b-4520-8096-f1fc83c8e4a3" xml:space="preserve">
+          <source><bpt id="2d6cb0fb-8f1b-45c9-97c2-188ce94a8dc0">&lt;strong&gt;</bpt>Inconsistent<ept id="2d6cb0fb-8f1b-45c9-97c2-188ce94a8dc0">&lt;/strong&gt;</ept>: Data contains conflicting records or discrepancies.</source>
+          <target state="new"><bpt id="2d6cb0fb-8f1b-45c9-97c2-188ce94a8dc0">&lt;strong&gt;</bpt>Inconsistent<ept id="2d6cb0fb-8f1b-45c9-97c2-188ce94a8dc0">&lt;/strong&gt;</ept>: Data contains conflicting records or discrepancies.</target>
+        </trans-unit>
+        <trans-unit id="b3bd5bba-5c94-4288-b3c1-5b6de0215ba1" xml:space="preserve">
+          <source>Quality data is a prerequisite for quality predictive models.</source>
+          <target state="new">Quality data is a prerequisite for quality predictive models.</target>
+        </trans-unit>
+        <trans-unit id="f4a46550-a189-4970-a486-cafb6cf2c750" xml:space="preserve">
+          <source>To avoid "garbage in, garbage out" and improve data quality and therefore model performance, it is imperative to conduct a data health screen to spot data issues early and decide on the corresponding data processing and cleaning steps.</source>
+          <target state="new">To avoid "garbage in, garbage out" and improve data quality and therefore model performance, it is imperative to conduct a data health screen to spot data issues early and decide on the corresponding data processing and cleaning steps.</target>
+        </trans-unit>
+        <trans-unit id="ac9a461e-8036-42df-825d-a9f48d172fb1" xml:space="preserve">
+          <source>We can check the general quality of data by checking:</source>
+          <target state="new">We can check the general quality of data by checking:</target>
+        </trans-unit>
+        <trans-unit id="2176b2c9-dde1-4cb0-b74b-5fc388074de8" xml:space="preserve">
+          <source>The number of records.</source>
+          <target state="new">The number of records.</target>
+        </trans-unit>
+        <trans-unit id="5c26357f-dd3e-4dd6-a9c4-9991457929c3" xml:space="preserve">
+          <source>The number of attributes (or features).</source>
+          <target state="new">The number of attributes (or features).</target>
+        </trans-unit>
+        <trans-unit id="5cf40690-5316-4e66-a2d8-8184bee8563b" xml:space="preserve">
+          <source>The attribute data types (nominal, ordinal, or continuous).</source>
+          <target state="new">The attribute data types (nominal, ordinal, or continuous).</target>
+        </trans-unit>
+        <trans-unit id="44d974f9-03c6-43c9-bd74-a4ca844dcbb6" xml:space="preserve">
+          <source>The number of missing values.</source>
+          <target state="new">The number of missing values.</target>
+        </trans-unit>
+        <trans-unit id="170b213d-c3a0-4aaa-87b3-160aa9457814" xml:space="preserve">
+          <source>Well-formedness of the data.</source>
+          <target state="new">Well-formedness of the data.</target>
+        </trans-unit>
+        <trans-unit id="0115bdb6-f367-4341-b010-c56a3bba4375" xml:space="preserve">
+          <source>If the data is in tsv or csv, questions whether the column separators and line separators always correctly separate columns and lines.</source>
+          <target state="new">If the data is in tsv or csv, questions whether the column separators and line separators always correctly separate columns and lines.</target>
+        </trans-unit>
+        <trans-unit id="303243dc-f624-4cb2-b958-b46e34c2c120" xml:space="preserve">
+          <source>If the data is in HTML or XML format, check whether the data is well formed based on the respective standards.</source>
+          <target state="new">If the data is in HTML or XML format, check whether the data is well formed based on the respective standards.</target>
+        </trans-unit>
+        <trans-unit id="15ee437f-f3aa-46bf-9d10-e3e702dba7d0" xml:space="preserve">
+          <source>Parsing may also be necessary in order to extract structured information from semi-structured or unstructured data.</source>
+          <target state="new">Parsing may also be necessary in order to extract structured information from semi-structured or unstructured data.</target>
+        </trans-unit>
+        <trans-unit id="200c3e57-1bb6-41c5-b01f-420aa0d4364a" xml:space="preserve">
+          <source>Inconsistent data records.</source>
+          <target state="new">Inconsistent data records.</target>
+        </trans-unit>
+        <trans-unit id="c1de3eae-3ef2-42ae-b6ea-7acb81ae0cc3" xml:space="preserve">
+          <source>e.g. If the data contains student GPA, check if the GPA is in the designated range, say 0~4.</source>
+          <target state="new">e.g. If the data contains student GPA, check if the GPA is in the designated range, say 0~4.</target>
+        </trans-unit>
+        <trans-unit id="238d29b2-cbd0-4d01-a238-75b03e0ae27f" xml:space="preserve">
+          <source>When you find issues with data, processing steps are necessary which often involves cleaning missing values, data normalization, discretization, text processing to remove and/or replace embedded characters which may affect data alignment, mixed data types in common fields, and others.</source>
+          <target state="new">When you find issues with data, processing steps are necessary which often involves cleaning missing values, data normalization, discretization, text processing to remove and/or replace embedded characters which may affect data alignment, mixed data types in common fields, and others.</target>
+        </trans-unit>
+        <trans-unit id="cd26e1f5-9dd9-4346-97a2-ae48475245e6" xml:space="preserve">
+          <source>Azure Machine Learning consumes well-formed tabular data.</source>
+          <target state="new">Azure Machine Learning consumes well-formed tabular data.</target>
+        </trans-unit>
+        <trans-unit id="dc174f76-2f4c-4f2e-b7b4-353d1908335f" xml:space="preserve">
+          <source>If the data is already in tabular form, data pre-processing can be performed directly with Azure Machine Learning in the ML Studio.</source>
+          <target state="new">If the data is already in tabular form, data pre-processing can be performed directly with Azure Machine Learning in the ML Studio.</target>
+        </trans-unit>
+        <trans-unit id="f2937b89-0f7a-4be7-b955-d2565f350eae" xml:space="preserve">
+          <source>If data is not in tabular form, say XML, parsing may be required in order to convert the data to tabular form.</source>
+          <target state="new">If data is not in tabular form, say XML, parsing may be required in order to convert the data to tabular form.</target>
+        </trans-unit>
+        <trans-unit id="478a43eb-dff5-43dd-ae61-9e1bf0c20bfa" xml:space="preserve">
+          <source><bpt id="90710ab1-cceb-4a0e-963e-bb7b256da4fc">&lt;strong&gt;</bpt>Data cleaning<ept id="90710ab1-cceb-4a0e-963e-bb7b256da4fc">&lt;/strong&gt;</ept>:  Fill in or missing values, detect and remove noisy data and outliers.</source>
+          <target state="new"><bpt id="90710ab1-cceb-4a0e-963e-bb7b256da4fc">&lt;strong&gt;</bpt>Data cleaning<ept id="90710ab1-cceb-4a0e-963e-bb7b256da4fc">&lt;/strong&gt;</ept>:  Fill in or missing values, detect and remove noisy data and outliers.</target>
+        </trans-unit>
+        <trans-unit id="2032c7bb-fee7-4fe5-8508-c32d27aa2657" xml:space="preserve">
+          <source><bpt id="685be785-ee0d-43a0-a6f9-57a6986a947f">&lt;strong&gt;</bpt>Data transformation<ept id="685be785-ee0d-43a0-a6f9-57a6986a947f">&lt;/strong&gt;</ept>:  Normalize data to reduce dimensions and noise.</source>
+          <target state="new"><bpt id="685be785-ee0d-43a0-a6f9-57a6986a947f">&lt;strong&gt;</bpt>Data transformation<ept id="685be785-ee0d-43a0-a6f9-57a6986a947f">&lt;/strong&gt;</ept>:  Normalize data to reduce dimensions and noise.</target>
+        </trans-unit>
+        <trans-unit id="1607ee8c-d265-463d-b1c5-1e2756802756" xml:space="preserve">
+          <source><bpt id="38e5dc48-50d5-4792-83bd-097f11af039f">&lt;strong&gt;</bpt>Data reduction<ept id="38e5dc48-50d5-4792-83bd-097f11af039f">&lt;/strong&gt;</ept>:  Sample data records or attributes for easier data handling.</source>
+          <target state="new"><bpt id="38e5dc48-50d5-4792-83bd-097f11af039f">&lt;strong&gt;</bpt>Data reduction<ept id="38e5dc48-50d5-4792-83bd-097f11af039f">&lt;/strong&gt;</ept>:  Sample data records or attributes for easier data handling.</target>
+        </trans-unit>
+        <trans-unit id="ed55e2f3-99c8-468d-a013-bd50921925d2" xml:space="preserve">
+          <source><bpt id="f961deb6-2727-4884-bc2b-0b6583fce831">&lt;strong&gt;</bpt>Data discretization<ept id="f961deb6-2727-4884-bc2b-0b6583fce831">&lt;/strong&gt;</ept>:  Convert continuous attributes to categorical attributes for ease of use with certain machine learning methods.</source>
+          <target state="new"><bpt id="f961deb6-2727-4884-bc2b-0b6583fce831">&lt;strong&gt;</bpt>Data discretization<ept id="f961deb6-2727-4884-bc2b-0b6583fce831">&lt;/strong&gt;</ept>:  Convert continuous attributes to categorical attributes for ease of use with certain machine learning methods.</target>
+        </trans-unit>
+        <trans-unit id="58f53a65-54ca-4ad0-ad11-73c5159f93e8" xml:space="preserve">
+          <source><bpt id="762bdb97-776a-4b1b-b335-94012ee1494a">&lt;strong&gt;</bpt>Text cleaning<ept id="762bdb97-776a-4b1b-b335-94012ee1494a">&lt;/strong&gt;</ept>: remove embedded characters which may cause data misalignment, for e.g., embedded tabs in a tab-separated data file, embedded new lines which may break records, etc.</source>
+          <target state="new"><bpt id="762bdb97-776a-4b1b-b335-94012ee1494a">&lt;strong&gt;</bpt>Text cleaning<ept id="762bdb97-776a-4b1b-b335-94012ee1494a">&lt;/strong&gt;</ept>: remove embedded characters which may cause data misalignment, for e.g., embedded tabs in a tab-separated data file, embedded new lines which may break records, etc.</target>
+        </trans-unit>
+        <trans-unit id="b5bbc47e-9124-40cb-bd20-645e1c6f4379" xml:space="preserve">
+          <source>The sections below detail some of these data processing steps.</source>
+          <target state="new">The sections below detail some of these data processing steps.</target>
+        </trans-unit>
+        <trans-unit id="c25b9c7b-de22-4a2e-85a3-d2c8137f1a28" xml:space="preserve">
+          <source>To deal with missing values, it is best to first identify the reason for the missing values to better handle the problem.</source>
+          <target state="new">To deal with missing values, it is best to first identify the reason for the missing values to better handle the problem.</target>
+        </trans-unit>
+        <trans-unit id="9c387870-a452-43e2-a106-a7f32641460b" xml:space="preserve">
+          <source>Typical missing value handling methods are:</source>
+          <target state="new">Typical missing value handling methods are:</target>
+        </trans-unit>
+        <trans-unit id="60163459-c7a6-44f1-88d3-939ab8b2431e" xml:space="preserve">
+          <source><bpt id="0b73ca36-3e2c-44a9-b8e7-7448608d630c">&lt;strong&gt;</bpt>Deletion<ept id="0b73ca36-3e2c-44a9-b8e7-7448608d630c">&lt;/strong&gt;</ept>: Remove records with missing values</source>
+          <target state="new"><bpt id="0b73ca36-3e2c-44a9-b8e7-7448608d630c">&lt;strong&gt;</bpt>Deletion<ept id="0b73ca36-3e2c-44a9-b8e7-7448608d630c">&lt;/strong&gt;</ept>: Remove records with missing values</target>
+        </trans-unit>
+        <trans-unit id="e2c5598b-3cc6-4f1c-bdb4-f23d972760d0" xml:space="preserve">
+          <source><bpt id="c0465e85-1dbe-476a-9649-da7642e6b0ca">&lt;strong&gt;</bpt>Dummy substitution<ept id="c0465e85-1dbe-476a-9649-da7642e6b0ca">&lt;/strong&gt;</ept>: Replace missing values with a dummy value: e.g, <bpt id="d9622f2a-f1b3-4688-8c30-0a4e7712cad7">&lt;em&gt;</bpt>unknown<ept id="d9622f2a-f1b3-4688-8c30-0a4e7712cad7">&lt;/em&gt;</ept> for categorical or 0 for numerical values.</source>
+          <target state="new"><bpt id="c0465e85-1dbe-476a-9649-da7642e6b0ca">&lt;strong&gt;</bpt>Dummy substitution<ept id="c0465e85-1dbe-476a-9649-da7642e6b0ca">&lt;/strong&gt;</ept>: Replace missing values with a dummy value: e.g, <bpt id="d9622f2a-f1b3-4688-8c30-0a4e7712cad7">&lt;em&gt;</bpt>unknown<ept id="d9622f2a-f1b3-4688-8c30-0a4e7712cad7">&lt;/em&gt;</ept> for categorical or 0 for numerical values.</target>
+        </trans-unit>
+        <trans-unit id="bea956dc-16c0-441b-bc7c-f94b7704527e" xml:space="preserve">
+          <source><bpt id="1ba7711d-ca01-4954-b7ee-01255a334f39">&lt;strong&gt;</bpt>Mean substitution<ept id="1ba7711d-ca01-4954-b7ee-01255a334f39">&lt;/strong&gt;</ept>: If the missing data is numerical, replace the missing values with the mean.</source>
+          <target state="new"><bpt id="1ba7711d-ca01-4954-b7ee-01255a334f39">&lt;strong&gt;</bpt>Mean substitution<ept id="1ba7711d-ca01-4954-b7ee-01255a334f39">&lt;/strong&gt;</ept>: If the missing data is numerical, replace the missing values with the mean.</target>
+        </trans-unit>
+        <trans-unit id="e3ffdc72-fc16-4e43-babb-c53deb6b237c" xml:space="preserve">
+          <source><bpt id="55642fc4-c37a-4b94-a795-037d7b0628d4">&lt;strong&gt;</bpt>Frequent substitution<ept id="55642fc4-c37a-4b94-a795-037d7b0628d4">&lt;/strong&gt;</ept>: If the missing data is categorical, replace the missing values with the most frequent item</source>
+          <target state="new"><bpt id="55642fc4-c37a-4b94-a795-037d7b0628d4">&lt;strong&gt;</bpt>Frequent substitution<ept id="55642fc4-c37a-4b94-a795-037d7b0628d4">&lt;/strong&gt;</ept>: If the missing data is categorical, replace the missing values with the most frequent item</target>
+        </trans-unit>
+        <trans-unit id="7f2194ef-da84-43ef-b9e9-fe8897b5f4b8" xml:space="preserve">
+          <source><bpt id="3b9f5c28-b4b3-4fc2-a81a-7a79cdaf7f55">&lt;strong&gt;</bpt>Regression substitution<ept id="3b9f5c28-b4b3-4fc2-a81a-7a79cdaf7f55">&lt;/strong&gt;</ept>: Use a regression method to replace missing values with regressed values.</source>
+          <target state="new"><bpt id="3b9f5c28-b4b3-4fc2-a81a-7a79cdaf7f55">&lt;strong&gt;</bpt>Regression substitution<ept id="3b9f5c28-b4b3-4fc2-a81a-7a79cdaf7f55">&lt;/strong&gt;</ept>: Use a regression method to replace missing values with regressed values.</target>
+        </trans-unit>
+        <trans-unit id="de5b35a3-9aa7-4a69-89c4-74146ee0689a" xml:space="preserve">
+          <source>Data normalization re-scales numerical values to a specified range.</source>
+          <target state="new">Data normalization re-scales numerical values to a specified range.</target>
+        </trans-unit>
+        <trans-unit id="04a0d2b5-7c98-46b5-b0b5-73092fbd2568" xml:space="preserve">
+          <source>Popular data normalization methods include:</source>
+          <target state="new">Popular data normalization methods include:</target>
+        </trans-unit>
+        <trans-unit id="94987a0e-c2a9-4dfa-97ec-6e9c05d2dc5a" xml:space="preserve">
+          <source><bpt id="173fc032-c40a-47d8-a6cf-a7f955b35c10">&lt;strong&gt;</bpt>Min-Max Normalization<ept id="173fc032-c40a-47d8-a6cf-a7f955b35c10">&lt;/strong&gt;</ept>: Linearly transform the data to a range, say between 0 and 1, where the min value is scaled to 0 and max value to 1.</source>
+          <target state="new"><bpt id="173fc032-c40a-47d8-a6cf-a7f955b35c10">&lt;strong&gt;</bpt>Min-Max Normalization<ept id="173fc032-c40a-47d8-a6cf-a7f955b35c10">&lt;/strong&gt;</ept>: Linearly transform the data to a range, say between 0 and 1, where the min value is scaled to 0 and max value to 1.</target>
+        </trans-unit>
+        <trans-unit id="576a5008-3282-4984-9b14-9d91f5486f2b" xml:space="preserve">
+          <source><bpt id="202463be-10c5-4f78-b6db-6a12b3d30538">&lt;strong&gt;</bpt>Z-score Normalization<ept id="202463be-10c5-4f78-b6db-6a12b3d30538">&lt;/strong&gt;</ept>: Scale data based on mean and standard deviation: divide the difference between the data and the mean by the standard deviation.</source>
+          <target state="new"><bpt id="202463be-10c5-4f78-b6db-6a12b3d30538">&lt;strong&gt;</bpt>Z-score Normalization<ept id="202463be-10c5-4f78-b6db-6a12b3d30538">&lt;/strong&gt;</ept>: Scale data based on mean and standard deviation: divide the difference between the data and the mean by the standard deviation.</target>
+        </trans-unit>
+        <trans-unit id="0fa7505b-a779-437e-b231-6101a1f423d6" xml:space="preserve">
+          <source><bpt id="e3ff2725-7dce-40d3-8785-719d5e8b2321">&lt;strong&gt;</bpt>Decimal scaling<ept id="e3ff2725-7dce-40d3-8785-719d5e8b2321">&lt;/strong&gt;</ept>: Scale the data by moving the decimal point of the attribute value.</source>
+          <target state="new"><bpt id="e3ff2725-7dce-40d3-8785-719d5e8b2321">&lt;strong&gt;</bpt>Decimal scaling<ept id="e3ff2725-7dce-40d3-8785-719d5e8b2321">&lt;/strong&gt;</ept>: Scale the data by moving the decimal point of the attribute value.</target>
+        </trans-unit>
+        <trans-unit id="8d75f265-1bd7-45c9-af74-6568d8b7d0fa" xml:space="preserve">
+          <source>Data can be discretized by converting continuous values to nominal attributes or intervals.</source>
+          <target state="new">Data can be discretized by converting continuous values to nominal attributes or intervals.</target>
+        </trans-unit>
+        <trans-unit id="a2e53bba-23fc-4eeb-88cc-9e8e18058613" xml:space="preserve">
+          <source>Some ways of doing this are:</source>
+          <target state="new">Some ways of doing this are:</target>
+        </trans-unit>
+        <trans-unit id="7830eee7-e4ac-48bd-853f-6c525530cdc5" xml:space="preserve">
+          <source><bpt id="1c0295cb-38b8-4d84-a322-632244d64a94">&lt;strong&gt;</bpt>Equal-Width Binning<ept id="1c0295cb-38b8-4d84-a322-632244d64a94">&lt;/strong&gt;</ept>: Divide the range of all possible values of an attribute into N groups of the same size, and assign the values that fall in a bin with the bin number.</source>
+          <target state="new"><bpt id="1c0295cb-38b8-4d84-a322-632244d64a94">&lt;strong&gt;</bpt>Equal-Width Binning<ept id="1c0295cb-38b8-4d84-a322-632244d64a94">&lt;/strong&gt;</ept>: Divide the range of all possible values of an attribute into N groups of the same size, and assign the values that fall in a bin with the bin number.</target>
+        </trans-unit>
+        <trans-unit id="2be513e2-8a3b-4351-9b25-095ef986342e" xml:space="preserve">
+          <source><bpt id="7d8349e8-ee28-4cdb-a142-f83c53ad0f07">&lt;strong&gt;</bpt>Equal-Height Binning<ept id="7d8349e8-ee28-4cdb-a142-f83c53ad0f07">&lt;/strong&gt;</ept>: Divide the range of all possible values of an attribute into N groups, each containing the same number of instances, then assign the values that fall in a bin with the bin number.</source>
+          <target state="new"><bpt id="7d8349e8-ee28-4cdb-a142-f83c53ad0f07">&lt;strong&gt;</bpt>Equal-Height Binning<ept id="7d8349e8-ee28-4cdb-a142-f83c53ad0f07">&lt;/strong&gt;</ept>: Divide the range of all possible values of an attribute into N groups, each containing the same number of instances, then assign the values that fall in a bin with the bin number.</target>
+        </trans-unit>
+        <trans-unit id="21b3be15-6329-45ef-9266-f240f42169ba" xml:space="preserve">
+          <source>There are various methods to reduce data size for easier data handling.</source>
+          <target state="new">There are various methods to reduce data size for easier data handling.</target>
+        </trans-unit>
+        <trans-unit id="76e6307a-587c-4173-998c-5db45f74539a" xml:space="preserve">
+          <source>Depending on data size and the domain, the following methods can be applied:</source>
+          <target state="new">Depending on data size and the domain, the following methods can be applied:</target>
+        </trans-unit>
+        <trans-unit id="84d2c0e2-e7d4-4d94-8ee2-ecf53d243201" xml:space="preserve">
+          <source><bpt id="bd0252c2-3e77-46d4-8d34-507d276125d1">&lt;strong&gt;</bpt>Record Sampling<ept id="bd0252c2-3e77-46d4-8d34-507d276125d1">&lt;/strong&gt;</ept>: Sample the data records and only choose the representative subset from the data.</source>
+          <target state="new"><bpt id="bd0252c2-3e77-46d4-8d34-507d276125d1">&lt;strong&gt;</bpt>Record Sampling<ept id="bd0252c2-3e77-46d4-8d34-507d276125d1">&lt;/strong&gt;</ept>: Sample the data records and only choose the representative subset from the data.</target>
+        </trans-unit>
+        <trans-unit id="6004fbd7-41f6-484e-b14a-e04cd4195654" xml:space="preserve">
+          <source><bpt id="593a52bc-a35e-4add-8700-12c873fb07ee">&lt;strong&gt;</bpt>Attribute Sampling<ept id="593a52bc-a35e-4add-8700-12c873fb07ee">&lt;/strong&gt;</ept>: Select only a subset of the most important attributes from the data.</source>
+          <target state="new"><bpt id="593a52bc-a35e-4add-8700-12c873fb07ee">&lt;strong&gt;</bpt>Attribute Sampling<ept id="593a52bc-a35e-4add-8700-12c873fb07ee">&lt;/strong&gt;</ept>: Select only a subset of the most important attributes from the data.</target>
+        </trans-unit>
+        <trans-unit id="d9435801-81ff-4ab7-b4b6-e1c019651262" xml:space="preserve">
+          <source><bpt id="96c4a6a4-f7c8-4f05-a484-cb2b69ca432f">&lt;strong&gt;</bpt>Aggregation<ept id="96c4a6a4-f7c8-4f05-a484-cb2b69ca432f">&lt;/strong&gt;</ept>: Divide the data into groups and store the numbers for each group.</source>
+          <target state="new"><bpt id="96c4a6a4-f7c8-4f05-a484-cb2b69ca432f">&lt;strong&gt;</bpt>Aggregation<ept id="96c4a6a4-f7c8-4f05-a484-cb2b69ca432f">&lt;/strong&gt;</ept>: Divide the data into groups and store the numbers for each group.</target>
+        </trans-unit>
+        <trans-unit id="4a728207-62da-43f4-99b7-5b3b54d5c8b3" xml:space="preserve">
+          <source>For example, the daily revenue numbers of a restaurant chain over the past 20 years can be aggregated to monthly revenue to reduce the size of the data.</source>
+          <target state="new">For example, the daily revenue numbers of a restaurant chain over the past 20 years can be aggregated to monthly revenue to reduce the size of the data.</target>
+        </trans-unit>
+        <trans-unit id="bbf6e2df-73c9-41dd-a0f2-679b1a0a82b8" xml:space="preserve">
+          <source><bpt id="c734c323-dd72-4d5f-88c9-f3a7db120281">&lt;strong&gt;</bpt>Text fields in tabular data<ept id="c734c323-dd72-4d5f-88c9-f3a7db120281">&lt;/strong&gt;</ept> may include characters which affect columns alignment and/or record boundaries.</source>
+          <target state="new"><bpt id="c734c323-dd72-4d5f-88c9-f3a7db120281">&lt;strong&gt;</bpt>Text fields in tabular data<ept id="c734c323-dd72-4d5f-88c9-f3a7db120281">&lt;/strong&gt;</ept> may include characters which affect columns alignment and/or record boundaries.</target>
+        </trans-unit>
+        <trans-unit id="f67e663d-adab-42c1-aa23-4487f7197ea8" xml:space="preserve">
+          <source>For e.g., embedded tabs in a tab-separated file cause column misalignment, and embedded new line characters break record lines.</source>
+          <target state="new">For e.g., embedded tabs in a tab-separated file cause column misalignment, and embedded new line characters break record lines.</target>
+        </trans-unit>
+        <trans-unit id="a43d7d28-c7d2-4e73-9bb0-0287f9091e23" xml:space="preserve">
+          <source>Improper text encoding handling while writing/reading text leads to information loss, inadvertent introduction of unreadable characters, e.g., nulls, and may also affect text parsing.</source>
+          <target state="new">Improper text encoding handling while writing/reading text leads to information loss, inadvertent introduction of unreadable characters, e.g., nulls, and may also affect text parsing.</target>
+        </trans-unit>
+        <trans-unit id="c1fa8cea-2108-463b-8b59-94a5c95449aa" xml:space="preserve">
+          <source>Careful parsing and editing may be required in order to clean text fields for proper alignment and/or to extract structured data from unstructured or semi-structured text data.</source>
+          <target state="new">Careful parsing and editing may be required in order to clean text fields for proper alignment and/or to extract structured data from unstructured or semi-structured text data.</target>
+        </trans-unit>
+        <trans-unit id="47a0cf8c-8816-4c65-af5d-b635da3bca6c" xml:space="preserve">
+          <source><bpt id="b9506093-e4ba-4806-80a9-5612b3d6f853">&lt;strong&gt;</bpt>Data exploration<ept id="b9506093-e4ba-4806-80a9-5612b3d6f853">&lt;/strong&gt;</ept> offers an early view into the data.</source>
+          <target state="new"><bpt id="b9506093-e4ba-4806-80a9-5612b3d6f853">&lt;strong&gt;</bpt>Data exploration<ept id="b9506093-e4ba-4806-80a9-5612b3d6f853">&lt;/strong&gt;</ept> offers an early view into the data.</target>
+        </trans-unit>
+        <trans-unit id="84e30d1b-a927-4756-8fe2-6923f9f86208" xml:space="preserve">
+          <source>A number of data issues can be uncovered during this step and  corresponding methods can be applied to address those issues.</source>
+          <target state="new">A number of data issues can be uncovered during this step and  corresponding methods can be applied to address those issues.</target>
+        </trans-unit>
+        <trans-unit id="67a7528d-4b43-4791-a25f-b2ed5d032f61" xml:space="preserve">
+          <source>It is important to ask questions such as what is the source of the issue and how the issue may have been introduced.</source>
+          <target state="new">It is important to ask questions such as what is the source of the issue and how the issue may have been introduced.</target>
+        </trans-unit>
+        <trans-unit id="b4e921be-7604-42d1-9fe6-4f4b541c4d71" xml:space="preserve">
+          <source>This also helps you decide on the data processing steps that need to be taken to resolve them.</source>
+          <target state="new">This also helps you decide on the data processing steps that need to be taken to resolve them.</target>
+        </trans-unit>
+        <trans-unit id="e8283f1a-fac9-4888-80e6-5522f739fef0" xml:space="preserve">
+          <source>The kind of insights one intends to derive from the data can also be used to prioritize the data processing effort.</source>
+          <target state="new">The kind of insights one intends to derive from the data can also be used to prioritize the data processing effort.</target>
+        </trans-unit>
+        <trans-unit id="4dabf0d6-3ba2-4ef0-8555-2dfdda1b4458" xml:space="preserve">
+          <source><bpt id="f3ae5a58-57d1-44ac-907c-05f27ff079fe">&lt;em&gt;</bpt>Data Mining: Concepts and Techniques<ept id="f3ae5a58-57d1-44ac-907c-05f27ff079fe">&lt;/em&gt;</ept>, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei</source>
+          <target state="new"><bpt id="f3ae5a58-57d1-44ac-907c-05f27ff079fe">&lt;em&gt;</bpt>Data Mining: Concepts and Techniques<ept id="f3ae5a58-57d1-44ac-907c-05f27ff079fe">&lt;/em&gt;</ept>, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

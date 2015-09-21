@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b2a8f94c-f69d-4552-974e-8a4b49796929" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b2a8f94c-f69d-4552-974e-8a4b49796929" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cb6a7963-ad11-46df-a788-52dcf04683eb">
+        <trans-unit id="94d2488b-ea2c-41c4-aad2-553713a1f71e" xml:space="preserve">
+          <source>The final stage of this tutorial is to build and run your new app.</source>
+          <target state="new">The final stage of this tutorial is to build and run your new app.</target>
+        </trans-unit>
+        <trans-unit id="bf9ac967-76d5-4312-836b-a01dc7f84bbe" xml:space="preserve">
+          <source>Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.</source>
+          <target state="new">Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="8295c737-a1fc-48ec-977d-63eef9842a72" xml:space="preserve">
+          <source>Press the <bpt id="885388ee-3ba7-4e1a-9a75-dea725286ae1">&lt;strong&gt;</bpt>F5<ept id="885388ee-3ba7-4e1a-9a75-dea725286ae1">&lt;/strong&gt;</ept> key to rebuild the project and start the app.</source>
+          <target state="new">Press the <bpt id="885388ee-3ba7-4e1a-9a75-dea725286ae1">&lt;strong&gt;</bpt>F5<ept id="885388ee-3ba7-4e1a-9a75-dea725286ae1">&lt;/strong&gt;</ept> key to rebuild the project and start the app.</target>
+        </trans-unit>
+        <trans-unit id="f491437d-65b1-4863-b8a1-8f4e1f736a70" xml:space="preserve">
+          <source>In the app, type meaningful text, such as <bpt id="0f7330fa-5c96-4574-83e5-8d542c098548">&lt;em&gt;</bpt>Complete the tutorial<ept id="0f7330fa-5c96-4574-83e5-8d542c098548">&lt;/em&gt;</ept>, in <bpt id="d3d96a7c-e241-4744-a769-847efe36e53e">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="d3d96a7c-e241-4744-a769-847efe36e53e">&lt;/strong&gt;</ept>, and then click <bpt id="a11af5c2-38b0-4a89-87f5-fad194c2ce31">&lt;strong&gt;</bpt>Save<ept id="a11af5c2-38b0-4a89-87f5-fad194c2ce31">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type meaningful text, such as <bpt id="0f7330fa-5c96-4574-83e5-8d542c098548">&lt;em&gt;</bpt>Complete the tutorial<ept id="0f7330fa-5c96-4574-83e5-8d542c098548">&lt;/em&gt;</ept>, in <bpt id="d3d96a7c-e241-4744-a769-847efe36e53e">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="d3d96a7c-e241-4744-a769-847efe36e53e">&lt;/strong&gt;</ept>, and then click <bpt id="a11af5c2-38b0-4a89-87f5-fad194c2ce31">&lt;strong&gt;</bpt>Save<ept id="a11af5c2-38b0-4a89-87f5-fad194c2ce31">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a680f16-e8b4-4e34-8c64-ebdeb5f68717" xml:space="preserve">
+          <source>This sends a POST request to the new mobile service hosted in Azure.</source>
+          <target state="new">This sends a POST request to the new mobile service hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="779bafc3-3bb8-4c4a-af81-6e6b430ad187" xml:space="preserve">
+          <source>Data from the request is inserted into the TodoItem table.</source>
+          <target state="new">Data from the request is inserted into the TodoItem table.</target>
+        </trans-unit>
+        <trans-unit id="d2f63be2-e4ce-482a-80dc-82c442d33a24" xml:space="preserve">
+          <source>Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.</source>
+          <target state="new">Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.</target>
+        </trans-unit>
+        <trans-unit id="251aaa87-3d2d-4ce0-9b90-bbf42e6290f4" xml:space="preserve">
+          <source>(Optional) In a universal Windows solution, change the default start up project to the other app and run the app again.</source>
+          <target state="new">(Optional) In a universal Windows solution, change the default start up project to the other app and run the app again.</target>
+        </trans-unit>
+        <trans-unit id="0b0430f8-44e4-4b4f-a072-1f47008ac790" xml:space="preserve">
+          <source>Notice that data saved from the previous step is loaded from the mobile service after the app starts.</source>
+          <target state="new">Notice that data saved from the previous step is loaded from the mobile service after the app starts.</target>
+        </trans-unit>
+        <trans-unit id="67913f04-22d3-4939-b2a1-1f7a3e129444" xml:space="preserve">
+          <source>Back in the Management Portal, click the <bpt id="07ccc9c5-5427-4412-ba1b-7ed091f8f0d7">&lt;strong&gt;</bpt>Data<ept id="07ccc9c5-5427-4412-ba1b-7ed091f8f0d7">&lt;/strong&gt;</ept> tab and then click the <bpt id="10ab3def-6d71-45f6-a52a-63cb4762ac94">&lt;strong&gt;</bpt>TodoItems<ept id="10ab3def-6d71-45f6-a52a-63cb4762ac94">&lt;/strong&gt;</ept> table.</source>
+          <target state="new">Back in the Management Portal, click the <bpt id="07ccc9c5-5427-4412-ba1b-7ed091f8f0d7">&lt;strong&gt;</bpt>Data<ept id="07ccc9c5-5427-4412-ba1b-7ed091f8f0d7">&lt;/strong&gt;</ept> tab and then click the <bpt id="10ab3def-6d71-45f6-a52a-63cb4762ac94">&lt;strong&gt;</bpt>TodoItems<ept id="10ab3def-6d71-45f6-a52a-63cb4762ac94">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="4f589b43-5365-41f2-a7c7-8262ab1384eb" xml:space="preserve">
+          <source>This lets you browse the data inserted by the app into the table.</source>
+          <target state="new">This lets you browse the data inserted by the app into the table.</target>
+        </trans-unit>
+        <trans-unit id="50ecd4a3-7df3-49ca-834a-dea17dad0fe4" xml:space="preserve">
+          <source><bpt id="7417398d-a5c2-4353-9d4f-462a056acc04">&lt;linkText&gt;</bpt><ept id="7417398d-a5c2-4353-9d4f-462a056acc04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7417398d-a5c2-4353-9d4f-462a056acc04">&lt;linkText&gt;</bpt><ept id="7417398d-a5c2-4353-9d4f-462a056acc04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

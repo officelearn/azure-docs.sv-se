@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7a6f506e-5f3e-4266-a1e4-1de661d159a7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7a6f506e-5f3e-4266-a1e4-1de661d159a7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="63388520-ca50-4e3e-9017-d34c166d9d87">
+        <trans-unit id="3ebb468b-2284-402a-87da-17e7345f906b" xml:space="preserve">
+          <source>Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template | Microsoft Azure</source>
+          <target state="new">Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d3fb7563-da75-4a32-bfca-533c00adca18" xml:space="preserve">
+          <source>Learn how to deploy a DocumentDB account, Azure App Service Web Apps, and a sample web application using an Azure Resource Manager template.</source>
+          <target state="new">Learn how to deploy a DocumentDB account, Azure App Service Web Apps, and a sample web application using an Azure Resource Manager template.</target>
+        </trans-unit>
+        <trans-unit id="83811af8-b321-4d50-8b39-40ed5fc987ab" xml:space="preserve">
+          <source>This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate <bpt id="1854f4cd-4262-48ef-a3a9-d993ca7f41c2">&lt;linkText&gt;</bpt>Microsoft Azure DocumentDB<ept id="1854f4cd-4262-48ef-a3a9-d993ca7f41c2">&lt;/linkText&gt;</ept><bpt id="1854f4cd-4262-48ef-a3a9-d993ca7f41c2">&lt;title&gt;</bpt><ept id="1854f4cd-4262-48ef-a3a9-d993ca7f41c2">&lt;/title&gt;</ept>, an <bpt id="fdd11311-5f77-4fe7-8b22-2bf21b907f27">&lt;linkText&gt;</bpt>Azure App Service<ept id="fdd11311-5f77-4fe7-8b22-2bf21b907f27">&lt;/linkText&gt;</ept><bpt id="fdd11311-5f77-4fe7-8b22-2bf21b907f27">&lt;title&gt;</bpt><ept id="fdd11311-5f77-4fe7-8b22-2bf21b907f27">&lt;/title&gt;</ept> web app, and a sample web application.</source>
+          <target state="new">This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate <bpt id="1854f4cd-4262-48ef-a3a9-d993ca7f41c2">&lt;linkText&gt;</bpt>Microsoft Azure DocumentDB<ept id="1854f4cd-4262-48ef-a3a9-d993ca7f41c2">&lt;/linkText&gt;</ept><bpt id="1854f4cd-4262-48ef-a3a9-d993ca7f41c2">&lt;title&gt;</bpt><ept id="1854f4cd-4262-48ef-a3a9-d993ca7f41c2">&lt;/title&gt;</ept>, an <bpt id="fdd11311-5f77-4fe7-8b22-2bf21b907f27">&lt;linkText&gt;</bpt>Azure App Service<ept id="fdd11311-5f77-4fe7-8b22-2bf21b907f27">&lt;/linkText&gt;</ept><bpt id="fdd11311-5f77-4fe7-8b22-2bf21b907f27">&lt;title&gt;</bpt><ept id="fdd11311-5f77-4fe7-8b22-2bf21b907f27">&lt;/title&gt;</ept> web app, and a sample web application.</target>
+        </trans-unit>
+        <trans-unit id="1ba51937-2ffe-4403-b1dc-a3e168de2f51" xml:space="preserve">
+          <source>After completing this tutorial, you'll be able to answer the following questions:  </source>
+          <target state="new">After completing this tutorial, you'll be able to answer the following questions:  </target>
+        </trans-unit>
+        <trans-unit id="c299aff6-e7fb-4392-9398-90426da0896b" xml:space="preserve">
+          <source>How can I use an Azure Resource Manager template to deploy and integrate a DocumentDB account and a web app in Azure App Service?</source>
+          <target state="new">How can I use an Azure Resource Manager template to deploy and integrate a DocumentDB account and a web app in Azure App Service?</target>
+        </trans-unit>
+        <trans-unit id="68c926eb-689c-4126-a176-9a4d36c1d8c6" xml:space="preserve">
+          <source>How can I use an Azure Resource Manager template to deploy and integrate a DocumentDB account, a web app in App Service Web Apps, and a Webdeploy application?</source>
+          <target state="new">How can I use an Azure Resource Manager template to deploy and integrate a DocumentDB account, a web app in App Service Web Apps, and a Webdeploy application?</target>
+        </trans-unit>
+        <trans-unit id="81443096-b079-4e74-afc7-8826006588b4" xml:space="preserve">
+          <source><bpt id="10ac914b-d3c0-419e-89bb-b58b7486379c">&lt;bookmark&gt;</bpt><ept id="10ac914b-d3c0-419e-89bb-b58b7486379c">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="10ac914b-d3c0-419e-89bb-b58b7486379c">&lt;bookmark&gt;</bpt><ept id="10ac914b-d3c0-419e-89bb-b58b7486379c">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="def3555a-7884-41a1-ae90-9647e2f09314" xml:space="preserve">
+          <source>While this tutorial does not assume prior experience with Azure Resource Manager templates, JSON, or Azure PowerShell, should you wish to modify the referenced templates or deployment options, then knowledge of each of these areas will be required.</source>
+          <target state="new">While this tutorial does not assume prior experience with Azure Resource Manager templates, JSON, or Azure PowerShell, should you wish to modify the referenced templates or deployment options, then knowledge of each of these areas will be required.</target>
+        </trans-unit>
+        <trans-unit id="108b7df1-fb2d-4a47-a305-217f4c02ab4a" xml:space="preserve">
+          <source>Before following the instructions in this tutorial, ensure that you have the following:</source>
+          <target state="new">Before following the instructions in this tutorial, ensure that you have the following:</target>
+        </trans-unit>
+        <trans-unit id="4101e1f9-cdb6-4993-8b3c-b3da28e3407d" xml:space="preserve">
+          <source>An Azure subscription.</source>
+          <target state="new">An Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="684abca3-b5bc-4a9f-bd81-f8459db215e9" xml:space="preserve">
+          <source>Azure is a subscription-based platform.</source>
+          <target state="new">Azure is a subscription-based platform.</target>
+        </trans-unit>
+        <trans-unit id="e53d2d10-956e-4c40-854b-192abe56470c" xml:space="preserve">
+          <source>For more information about obtaining a subscription, see <bpt id="aeb8836f-3b28-4d8b-9154-495064bbfa04">&lt;linkText&gt;</bpt>Purchase Options<ept id="aeb8836f-3b28-4d8b-9154-495064bbfa04">&lt;/linkText&gt;</ept><bpt id="aeb8836f-3b28-4d8b-9154-495064bbfa04">&lt;title&gt;</bpt><ept id="aeb8836f-3b28-4d8b-9154-495064bbfa04">&lt;/title&gt;</ept>, <bpt id="73f9a644-28f2-4db8-8b8a-f0627bcbd59b">&lt;linkText&gt;</bpt>Member Offers<ept id="73f9a644-28f2-4db8-8b8a-f0627bcbd59b">&lt;/linkText&gt;</ept><bpt id="73f9a644-28f2-4db8-8b8a-f0627bcbd59b">&lt;title&gt;</bpt><ept id="73f9a644-28f2-4db8-8b8a-f0627bcbd59b">&lt;/title&gt;</ept>, or <bpt id="157c0071-fc3e-4869-841a-a36eb47665b0">&lt;linkText&gt;</bpt>Free Trial<ept id="157c0071-fc3e-4869-841a-a36eb47665b0">&lt;/linkText&gt;</ept><bpt id="157c0071-fc3e-4869-841a-a36eb47665b0">&lt;title&gt;</bpt><ept id="157c0071-fc3e-4869-841a-a36eb47665b0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about obtaining a subscription, see <bpt id="aeb8836f-3b28-4d8b-9154-495064bbfa04">&lt;linkText&gt;</bpt>Purchase Options<ept id="aeb8836f-3b28-4d8b-9154-495064bbfa04">&lt;/linkText&gt;</ept><bpt id="aeb8836f-3b28-4d8b-9154-495064bbfa04">&lt;title&gt;</bpt><ept id="aeb8836f-3b28-4d8b-9154-495064bbfa04">&lt;/title&gt;</ept>, <bpt id="73f9a644-28f2-4db8-8b8a-f0627bcbd59b">&lt;linkText&gt;</bpt>Member Offers<ept id="73f9a644-28f2-4db8-8b8a-f0627bcbd59b">&lt;/linkText&gt;</ept><bpt id="73f9a644-28f2-4db8-8b8a-f0627bcbd59b">&lt;title&gt;</bpt><ept id="73f9a644-28f2-4db8-8b8a-f0627bcbd59b">&lt;/title&gt;</ept>, or <bpt id="157c0071-fc3e-4869-841a-a36eb47665b0">&lt;linkText&gt;</bpt>Free Trial<ept id="157c0071-fc3e-4869-841a-a36eb47665b0">&lt;/linkText&gt;</ept><bpt id="157c0071-fc3e-4869-841a-a36eb47665b0">&lt;title&gt;</bpt><ept id="157c0071-fc3e-4869-841a-a36eb47665b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6058c8c-d054-4079-a1b1-9f0e462d2a0a" xml:space="preserve">
+          <source>An Azure Storage Account.</source>
+          <target state="new">An Azure Storage Account.</target>
+        </trans-unit>
+        <trans-unit id="42f917e1-3719-4ade-bf3a-1bb2f4d41f94" xml:space="preserve">
+          <source>For instructions, see <bpt id="ca6670f0-c5fa-4416-b597-bb4cee80d526">&lt;linkText&gt;</bpt>About Azure Storage Accounts<ept id="ca6670f0-c5fa-4416-b597-bb4cee80d526">&lt;/linkText&gt;</ept><bpt id="ca6670f0-c5fa-4416-b597-bb4cee80d526">&lt;title&gt;</bpt><ept id="ca6670f0-c5fa-4416-b597-bb4cee80d526">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="ca6670f0-c5fa-4416-b597-bb4cee80d526">&lt;linkText&gt;</bpt>About Azure Storage Accounts<ept id="ca6670f0-c5fa-4416-b597-bb4cee80d526">&lt;/linkText&gt;</ept><bpt id="ca6670f0-c5fa-4416-b597-bb4cee80d526">&lt;title&gt;</bpt><ept id="ca6670f0-c5fa-4416-b597-bb4cee80d526">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b3ddb72-c196-47fa-a3c6-e6fa0cf3dc2d" xml:space="preserve">
+          <source>A workstation with Azure PowerShell.</source>
+          <target state="new">A workstation with Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="e44e3dc5-675e-4825-ac0e-5959783e49b0" xml:space="preserve">
+          <source>For instructions, see <bpt id="237cc7a4-6fc8-4340-8d69-4f26e1877ffd">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell<ept id="237cc7a4-6fc8-4340-8d69-4f26e1877ffd">&lt;/linkText&gt;</ept><bpt id="237cc7a4-6fc8-4340-8d69-4f26e1877ffd">&lt;title&gt;</bpt><ept id="237cc7a4-6fc8-4340-8d69-4f26e1877ffd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="237cc7a4-6fc8-4340-8d69-4f26e1877ffd">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell<ept id="237cc7a4-6fc8-4340-8d69-4f26e1877ffd">&lt;/linkText&gt;</ept><bpt id="237cc7a4-6fc8-4340-8d69-4f26e1877ffd">&lt;title&gt;</bpt><ept id="237cc7a4-6fc8-4340-8d69-4f26e1877ffd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="687f0aa6-8db7-480d-bea6-8c9e1734dd32" xml:space="preserve">
+          <source>Let's start by downloading the sample files we will use in this tutorial.</source>
+          <target state="new">Let's start by downloading the sample files we will use in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="05dc8d0d-5be7-4ed4-9684-f8eaf71ad496" xml:space="preserve">
+          <source>Download the <bpt id="ba8a5034-674a-4938-bd07-1351c3a3d07f">&lt;linkText&gt;</bpt>Create a DocumentDB account, Web Apps, and deploy a demo application sample<ept id="ba8a5034-674a-4938-bd07-1351c3a3d07f">&lt;/linkText&gt;</ept><bpt id="ba8a5034-674a-4938-bd07-1351c3a3d07f">&lt;title&gt;</bpt><ept id="ba8a5034-674a-4938-bd07-1351c3a3d07f">&lt;/title&gt;</ept> to a local folder (e.g. C:\DocumentDBTemplates) and extract the files.</source>
+          <target state="new">Download the <bpt id="ba8a5034-674a-4938-bd07-1351c3a3d07f">&lt;linkText&gt;</bpt>Create a DocumentDB account, Web Apps, and deploy a demo application sample<ept id="ba8a5034-674a-4938-bd07-1351c3a3d07f">&lt;/linkText&gt;</ept><bpt id="ba8a5034-674a-4938-bd07-1351c3a3d07f">&lt;title&gt;</bpt><ept id="ba8a5034-674a-4938-bd07-1351c3a3d07f">&lt;/title&gt;</ept> to a local folder (e.g. C:\DocumentDBTemplates) and extract the files.</target>
+        </trans-unit>
+        <trans-unit id="69c819d1-dccb-43b2-b950-efdd6ae4a2f4" xml:space="preserve">
+          <source>This sample will deploy a DocumentDB account, an App Service web app, and a web application.</source>
+          <target state="new">This sample will deploy a DocumentDB account, an App Service web app, and a web application.</target>
+        </trans-unit>
+        <trans-unit id="b36c6f7b-677c-47d5-831d-b69c1e508778" xml:space="preserve">
+          <source>It will also automatically configure the web application to connect to the DocumentDB account.</source>
+          <target state="new">It will also automatically configure the web application to connect to the DocumentDB account.</target>
+        </trans-unit>
+        <trans-unit id="7734bc8b-03db-47b9-8fba-35728f7f0c8d" xml:space="preserve">
+          <source>Download the <bpt id="f174dc03-5912-41e8-a188-c2d42ce45b19">&lt;linkText&gt;</bpt>Create a DocumentDB account and Web Apps sample<ept id="f174dc03-5912-41e8-a188-c2d42ce45b19">&lt;/linkText&gt;</ept><bpt id="f174dc03-5912-41e8-a188-c2d42ce45b19">&lt;title&gt;</bpt><ept id="f174dc03-5912-41e8-a188-c2d42ce45b19">&lt;/title&gt;</ept> to a local folder (e.g. C:\DocumentDBTemplates) and extract the files.</source>
+          <target state="new">Download the <bpt id="f174dc03-5912-41e8-a188-c2d42ce45b19">&lt;linkText&gt;</bpt>Create a DocumentDB account and Web Apps sample<ept id="f174dc03-5912-41e8-a188-c2d42ce45b19">&lt;/linkText&gt;</ept><bpt id="f174dc03-5912-41e8-a188-c2d42ce45b19">&lt;title&gt;</bpt><ept id="f174dc03-5912-41e8-a188-c2d42ce45b19">&lt;/title&gt;</ept> to a local folder (e.g. C:\DocumentDBTemplates) and extract the files.</target>
+        </trans-unit>
+        <trans-unit id="dc909232-ae51-4915-aa48-e395660aeecf" xml:space="preserve">
+          <source>This sample will deploy a DocumentDB account, an App Service web app, and will modify the web app's configuration to easily surface DocumentDB connection information, but does not include a web application.</source>
+          <target state="new">This sample will deploy a DocumentDB account, an App Service web app, and will modify the web app's configuration to easily surface DocumentDB connection information, but does not include a web application.</target>
+        </trans-unit>
+        <trans-unit id="3c2b00e5-9e2a-4115-bbe0-f41622e20bf0" xml:space="preserve">
+          <source>Note that depending on the security settings of your computer, you may need to unblock the extracted files by right-clicking, clicking <bpt id="1a9db609-de6f-4eed-b778-d08a470bc9ab">&lt;strong&gt;</bpt>Properties<ept id="1a9db609-de6f-4eed-b778-d08a470bc9ab">&lt;/strong&gt;</ept>, and clicking <bpt id="53c7167c-2eb1-4bd9-8cd1-3c042d7c3eb2">&lt;strong&gt;</bpt>Unblock<ept id="53c7167c-2eb1-4bd9-8cd1-3c042d7c3eb2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Note that depending on the security settings of your computer, you may need to unblock the extracted files by right-clicking, clicking <bpt id="1a9db609-de6f-4eed-b778-d08a470bc9ab">&lt;strong&gt;</bpt>Properties<ept id="1a9db609-de6f-4eed-b778-d08a470bc9ab">&lt;/strong&gt;</ept>, and clicking <bpt id="53c7167c-2eb1-4bd9-8cd1-3c042d7c3eb2">&lt;strong&gt;</bpt>Unblock<ept id="53c7167c-2eb1-4bd9-8cd1-3c042d7c3eb2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70968a91-b7f8-4818-bb5f-dcb1803b4ae7" xml:space="preserve">
+          <source><bpt id="a0956e0e-42ce-434e-ae67-9b9e218015ff">&lt;linkText&gt;</bpt>Screenshot of the Properties window with the Unblock button highlighted<ept id="a0956e0e-42ce-434e-ae67-9b9e218015ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a0956e0e-42ce-434e-ae67-9b9e218015ff">&lt;linkText&gt;</bpt>Screenshot of the Properties window with the Unblock button highlighted<ept id="a0956e0e-42ce-434e-ae67-9b9e218015ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba28364b-52fb-4899-a80c-eb3b78cfe94d" xml:space="preserve">
+          <source><bpt id="453ca19b-9b1b-4903-9160-1c38969cfe7b">&lt;bookmark&gt;</bpt><ept id="453ca19b-9b1b-4903-9160-1c38969cfe7b">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="453ca19b-9b1b-4903-9160-1c38969cfe7b">&lt;bookmark&gt;</bpt><ept id="453ca19b-9b1b-4903-9160-1c38969cfe7b">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61e74384-96c8-4319-a878-16ff6942be3e" xml:space="preserve">
+          <source>Now let's deploy our first template.</source>
+          <target state="new">Now let's deploy our first template.</target>
+        </trans-unit>
+        <trans-unit id="778eb03e-179b-46ea-b5de-305b862530cb" xml:space="preserve">
+          <source>The template does not validate that the web app name and DocumentDB account name entered below are a) valid and b) available.</source>
+          <target state="new">The template does not validate that the web app name and DocumentDB account name entered below are a) valid and b) available.</target>
+        </trans-unit>
+        <trans-unit id="534e1cbe-6ac8-48f2-9f07-3226bd7a3ace" xml:space="preserve">
+          <source>It is highly recommended that you verify the availability of the names you plan to supply prior to running the PowerShell deployment script.</source>
+          <target state="new">It is highly recommended that you verify the availability of the names you plan to supply prior to running the PowerShell deployment script.</target>
+        </trans-unit>
+        <trans-unit id="7a21c33b-7d09-4e31-95cb-89708c0629ea" xml:space="preserve">
+          <source>Open Microsoft Azure PowerShell and navigate to the folder in which you downloaded and extracted the <bpt id="1356e519-bb82-45cc-bc9e-edd10371699d">&lt;linkText&gt;</bpt>Create a DocumentDB account, App Service web app, and deploy a demo application sample<ept id="1356e519-bb82-45cc-bc9e-edd10371699d">&lt;/linkText&gt;</ept><bpt id="1356e519-bb82-45cc-bc9e-edd10371699d">&lt;title&gt;</bpt><ept id="1356e519-bb82-45cc-bc9e-edd10371699d">&lt;/title&gt;</ept> (e.g. C:\DocumentDBTemplates\CreateDocDBWebsiteTodo).</source>
+          <target state="new">Open Microsoft Azure PowerShell and navigate to the folder in which you downloaded and extracted the <bpt id="1356e519-bb82-45cc-bc9e-edd10371699d">&lt;linkText&gt;</bpt>Create a DocumentDB account, App Service web app, and deploy a demo application sample<ept id="1356e519-bb82-45cc-bc9e-edd10371699d">&lt;/linkText&gt;</ept><bpt id="1356e519-bb82-45cc-bc9e-edd10371699d">&lt;title&gt;</bpt><ept id="1356e519-bb82-45cc-bc9e-edd10371699d">&lt;/title&gt;</ept> (e.g. C:\DocumentDBTemplates\CreateDocDBWebsiteTodo).</target>
+        </trans-unit>
+        <trans-unit id="f19982c5-9bd1-4b2e-97ec-ef80f0587b1e" xml:space="preserve">
+          <source>We're going to run the CreateDocDBWebsiteTodo.ps1 PowerShell script.</source>
+          <target state="new">We're going to run the CreateDocDBWebsiteTodo.ps1 PowerShell script.</target>
+        </trans-unit>
+        <trans-unit id="c6884e04-e099-4bfc-8de8-855c7765a5ec" xml:space="preserve">
+          <source>The script takes the following mandatory parameters:</source>
+          <target state="new">The script takes the following mandatory parameters:</target>
+        </trans-unit>
+        <trans-unit id="a5e305e7-1797-4f2e-b8fa-897846a624fe" xml:space="preserve">
+          <source>WebsiteName: Specifies the App Service web app name and is used to construct the URL that you will use to access the web app (e.g. if you specify "mydemodocdbwebapp", then the URL by which you will access the web app will be mydemodocdbwebapp.azurewebsites.net).</source>
+          <target state="new">WebsiteName: Specifies the App Service web app name and is used to construct the URL that you will use to access the web app (e.g. if you specify "mydemodocdbwebapp", then the URL by which you will access the web app will be mydemodocdbwebapp.azurewebsites.net).</target>
+        </trans-unit>
+        <trans-unit id="77909fc5-e68e-4787-a73c-3ae79f3d24b3" xml:space="preserve">
+          <source>ResourceGroupName: Specifies the name of the Azure Resource Group to deploy.</source>
+          <target state="new">ResourceGroupName: Specifies the name of the Azure Resource Group to deploy.</target>
+        </trans-unit>
+        <trans-unit id="7cd4669e-909e-4f93-b065-20f5390d8566" xml:space="preserve">
+          <source>If the specified Resource Group doesn't exist, it will be created.</source>
+          <target state="new">If the specified Resource Group doesn't exist, it will be created.</target>
+        </trans-unit>
+        <trans-unit id="a62cb915-7ff5-4ac1-b91b-ea242ed835c6" xml:space="preserve">
+          <source>docDBAccountName: Specifies the name of the DocumentDB account to create.</source>
+          <target state="new">docDBAccountName: Specifies the name of the DocumentDB account to create.</target>
+        </trans-unit>
+        <trans-unit id="5cb35f30-40a1-4940-8226-2d501d58610b" xml:space="preserve">
+          <source>location: Specifies the Azure location in which to create the DocumentDB and web app resources.</source>
+          <target state="new">location: Specifies the Azure location in which to create the DocumentDB and web app resources.</target>
+        </trans-unit>
+        <trans-unit id="6f397c97-59a4-495b-818e-f0bf2cbb6bc6" xml:space="preserve">
+          <source>Valid values are East Asia, Southeast Asia, East US, West US, North Europe, West Europe (note that the location value provided is case sensitive).</source>
+          <target state="new">Valid values are East Asia, Southeast Asia, East US, West US, North Europe, West Europe (note that the location value provided is case sensitive).</target>
+        </trans-unit>
+        <trans-unit id="0edf65bd-8670-40ee-8983-fed5f4e585a2" xml:space="preserve">
+          <source>Here is an example command to run the script:</source>
+          <target state="new">Here is an example command to run the script:</target>
+        </trans-unit>
+        <trans-unit id="f0112cf2-fc42-4137-a6ab-cbff47272f53" xml:space="preserve">
+          <source>Note that you will be prompted to enter your Azure account username and password as part of running the script.</source>
+          <target state="new">Note that you will be prompted to enter your Azure account username and password as part of running the script.</target>
+        </trans-unit>
+        <trans-unit id="6857dbcc-0f56-404a-abd1-150e7f5a670f" xml:space="preserve">
+          <source>The full deployment will take between 10 and 15 minutes to complete.</source>
+          <target state="new">The full deployment will take between 10 and 15 minutes to complete.</target>
+        </trans-unit>
+        <trans-unit id="7cac2566-aae1-46a2-8d06-31fb9eb82d5f" xml:space="preserve">
+          <source>And here is an example of the resulting output: </source>
+          <target state="new">And here is an example of the resulting output: </target>
+        </trans-unit>
+        <trans-unit id="7af84190-3cbf-4e97-9996-91dcc47da768" xml:space="preserve">
+          <source>Before we look at our sample application, let's understand what the template deployment accomplished:</source>
+          <target state="new">Before we look at our sample application, let's understand what the template deployment accomplished:</target>
+        </trans-unit>
+        <trans-unit id="0cc0ed45-2d3a-4428-8a3b-76a0da4d0247" xml:space="preserve">
+          <source>An App Service web app was created.</source>
+          <target state="new">An App Service web app was created.</target>
+        </trans-unit>
+        <trans-unit id="babdb2d3-a650-4e99-a41a-9aa16b309e5e" xml:space="preserve">
+          <source>A DocumentDB account was created.</source>
+          <target state="new">A DocumentDB account was created.</target>
+        </trans-unit>
+        <trans-unit id="03d3b727-819d-4476-9db0-002659aabbbf" xml:space="preserve">
+          <source>A Web Deploy package was deployed to the App Service web app</source>
+          <target state="new">A Web Deploy package was deployed to the App Service web app</target>
+        </trans-unit>
+        <trans-unit id="96f79c7c-0ccc-4232-a531-b4ac9fed973c" xml:space="preserve">
+          <source>The web app configuration was modified such that the DocumentDB endpoint and primary master key were surfaced as application settings.</source>
+          <target state="new">The web app configuration was modified such that the DocumentDB endpoint and primary master key were surfaced as application settings.</target>
+        </trans-unit>
+        <trans-unit id="5fd8861f-80ac-47ce-a3cd-8ef3ebb4c81b" xml:space="preserve">
+          <source>A series of default monitoring rules were created.</source>
+          <target state="new">A series of default monitoring rules were created.</target>
+        </trans-unit>
+        <trans-unit id="a9bb1e9c-15ae-4400-b508-5ada2fce1ab4" xml:space="preserve">
+          <source>In order to use the application, simply navigate to the web app URL (in the example above, the URL would be http://mydemodocdbwebapp.azurewebsites.net).</source>
+          <target state="new">In order to use the application, simply navigate to the web app URL (in the example above, the URL would be http://mydemodocdbwebapp.azurewebsites.net).</target>
+        </trans-unit>
+        <trans-unit id="f0b3f9cc-eb0e-448f-8d85-7c80f561c4a2" xml:space="preserve">
+          <source>You'll see the following web application:</source>
+          <target state="new">You'll see the following web application:</target>
+        </trans-unit>
+        <trans-unit id="0baa2960-4ff9-4982-aafa-05e7bdf33203" xml:space="preserve">
+          <source><bpt id="e1f94204-ddad-437f-9a79-ced807a794dc">&lt;linkText&gt;</bpt>Sample Todo application<ept id="e1f94204-ddad-437f-9a79-ced807a794dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1f94204-ddad-437f-9a79-ced807a794dc">&lt;linkText&gt;</bpt>Sample Todo application<ept id="e1f94204-ddad-437f-9a79-ced807a794dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad20feb3-7712-403d-8ab0-bd813cb8ec64" xml:space="preserve">
+          <source>Go ahead and create a couple of tasks and then let's open the <bpt id="ec689e78-fced-489d-b8f9-b567506721cd">&lt;linkText&gt;</bpt>Microsoft Azure Preview portal<ept id="ec689e78-fced-489d-b8f9-b567506721cd">&lt;/linkText&gt;</ept><bpt id="ec689e78-fced-489d-b8f9-b567506721cd">&lt;title&gt;</bpt><ept id="ec689e78-fced-489d-b8f9-b567506721cd">&lt;/title&gt;</ept>.</source>
+          <target state="new">Go ahead and create a couple of tasks and then let's open the <bpt id="ec689e78-fced-489d-b8f9-b567506721cd">&lt;linkText&gt;</bpt>Microsoft Azure Preview portal<ept id="ec689e78-fced-489d-b8f9-b567506721cd">&lt;/linkText&gt;</ept><bpt id="ec689e78-fced-489d-b8f9-b567506721cd">&lt;title&gt;</bpt><ept id="ec689e78-fced-489d-b8f9-b567506721cd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f0a6a96-379d-4faf-9dfb-e9f69de6330a" xml:space="preserve">
+          <source>Choose to browse Resource Groups and select the Resource Group we created during the deployment (in the sample above, myDemoResourceGroup).</source>
+          <target state="new">Choose to browse Resource Groups and select the Resource Group we created during the deployment (in the sample above, myDemoResourceGroup).</target>
+        </trans-unit>
+        <trans-unit id="77a4d9fc-8416-462d-8ac2-fd2b1ddc3e9f" xml:space="preserve">
+          <source><bpt id="ef4537ca-9296-4350-bf80-551462ddcbea">&lt;linkText&gt;</bpt>Screenshot of the Azure portal with the myDemoResourceGroup highlighted<ept id="ef4537ca-9296-4350-bf80-551462ddcbea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef4537ca-9296-4350-bf80-551462ddcbea">&lt;linkText&gt;</bpt>Screenshot of the Azure portal with the myDemoResourceGroup highlighted<ept id="ef4537ca-9296-4350-bf80-551462ddcbea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c5af9bb-2e60-4f97-93bf-b0e81b58dc3c" xml:space="preserve">
+          <source>Notice how the resource map in the Summary lens shows all of our related resources (DocumentDB account, App Service web app, Monitoring).</source>
+          <target state="new">Notice how the resource map in the Summary lens shows all of our related resources (DocumentDB account, App Service web app, Monitoring).</target>
+        </trans-unit>
+        <trans-unit id="c6f2df75-e2bd-4389-8cca-0481da0a6385" xml:space="preserve">
+          <source><bpt id="80de894d-26f6-485c-8b52-7fc37b50943d">&lt;linkText&gt;</bpt>Screenshot of the Summary lens<ept id="80de894d-26f6-485c-8b52-7fc37b50943d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="80de894d-26f6-485c-8b52-7fc37b50943d">&lt;linkText&gt;</bpt>Screenshot of the Summary lens<ept id="80de894d-26f6-485c-8b52-7fc37b50943d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9dce4d38-6885-48d3-bbb7-8b0d49e26d92" xml:space="preserve">
+          <source>Click your DocumentDB account, and launch Query Explorer (near the bottom of the account blade).</source>
+          <target state="new">Click your DocumentDB account, and launch Query Explorer (near the bottom of the account blade).</target>
+        </trans-unit>
+        <trans-unit id="8ab415fc-4afd-4e64-b7da-13249e0e8311" xml:space="preserve">
+          <source><bpt id="9780036a-18c0-45ee-8b91-71b8cffeb6dc">&lt;linkText&gt;</bpt>Screenshot of the Resource Group and Account blades with the Query Explorer tile highlighted<ept id="9780036a-18c0-45ee-8b91-71b8cffeb6dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9780036a-18c0-45ee-8b91-71b8cffeb6dc">&lt;linkText&gt;</bpt>Screenshot of the Resource Group and Account blades with the Query Explorer tile highlighted<ept id="9780036a-18c0-45ee-8b91-71b8cffeb6dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f94f84c-e506-4b6b-b457-93d3731b7777" xml:space="preserve">
+          <source>Run the default query, "SELECT * FROM c" and inspect the results.</source>
+          <target state="new">Run the default query, "SELECT * FROM c" and inspect the results.</target>
+        </trans-unit>
+        <trans-unit id="5c974c2b-27cc-4e1e-a0da-74416d9f256d" xml:space="preserve">
+          <source>Notice that the query has retrieved the JSON representation of the todo items you created in step 7 above.</source>
+          <target state="new">Notice that the query has retrieved the JSON representation of the todo items you created in step 7 above.</target>
+        </trans-unit>
+        <trans-unit id="02ef5e07-8ed8-4e9f-bfe0-e3c939779e62" xml:space="preserve">
+          <source>Feel free to experiment with queries; for example, try running SELECT * FROM c WHERE c.isComplete = true to return all todo items which have been marked as complete.</source>
+          <target state="new">Feel free to experiment with queries; for example, try running SELECT * FROM c WHERE c.isComplete = true to return all todo items which have been marked as complete.</target>
+        </trans-unit>
+        <trans-unit id="efea7dc9-41a4-4583-8a42-8c69821f6bcd" xml:space="preserve">
+          <source><bpt id="8c8fdb55-f0e3-44fc-885f-c5358fd7969d">&lt;linkText&gt;</bpt>Screenshot of the Query Explorer and Results blades showing the query results<ept id="8c8fdb55-f0e3-44fc-885f-c5358fd7969d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8c8fdb55-f0e3-44fc-885f-c5358fd7969d">&lt;linkText&gt;</bpt>Screenshot of the Query Explorer and Results blades showing the query results<ept id="8c8fdb55-f0e3-44fc-885f-c5358fd7969d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5df3749-e703-46e6-bd12-0cf0d167d254" xml:space="preserve">
+          <source>Feel free to explore the DocumentDB portal experience or modify the sample Todo application.</source>
+          <target state="new">Feel free to explore the DocumentDB portal experience or modify the sample Todo application.</target>
+        </trans-unit>
+        <trans-unit id="33cbf40e-c371-4d4a-bdff-173d0bab96fd" xml:space="preserve">
+          <source>When you're ready, let's deploy another template.</source>
+          <target state="new">When you're ready, let's deploy another template.</target>
+        </trans-unit>
+        <trans-unit id="4de26562-1a97-444f-804e-451220f1bb7b" xml:space="preserve">
+          <source><bpt id="592aafff-8673-44cd-adaa-5eef51213782">&lt;bookmark&gt;</bpt><ept id="592aafff-8673-44cd-adaa-5eef51213782">&lt;/bookmark&gt;</ept> </source>
+          <target state="new"><bpt id="592aafff-8673-44cd-adaa-5eef51213782">&lt;bookmark&gt;</bpt><ept id="592aafff-8673-44cd-adaa-5eef51213782">&lt;/bookmark&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="570f1d49-6227-49c4-bc7e-0f7a306ef238" xml:space="preserve">
+          <source>Now let's deploy our second template.</source>
+          <target state="new">Now let's deploy our second template.</target>
+        </trans-unit>
+        <trans-unit id="1af38acf-d780-4829-bb42-a4bfbf0689e2" xml:space="preserve">
+          <source>The template does not validate that the web app name and DocumentDB account name entered below are a) valid and b) available.</source>
+          <target state="new">The template does not validate that the web app name and DocumentDB account name entered below are a) valid and b) available.</target>
+        </trans-unit>
+        <trans-unit id="b3ada7ca-2f48-4ec7-9865-7bfbc8d0248c" xml:space="preserve">
+          <source>It is highly recommended that you verify the availability of the names you plan to supply prior to running the PowerShell deployment script.</source>
+          <target state="new">It is highly recommended that you verify the availability of the names you plan to supply prior to running the PowerShell deployment script.</target>
+        </trans-unit>
+        <trans-unit id="554c26d8-3e1e-494d-bc6e-3f6daf28bc58" xml:space="preserve">
+          <source>Open Microsoft Azure PowerShell and navigate to the folder in which you downloaded and extracted the <bpt id="faa518a3-a9a6-4653-bf13-0c3a44866905">&lt;linkText&gt;</bpt>Create a DocumentDB account and web app sample<ept id="faa518a3-a9a6-4653-bf13-0c3a44866905">&lt;/linkText&gt;</ept><bpt id="faa518a3-a9a6-4653-bf13-0c3a44866905">&lt;title&gt;</bpt><ept id="faa518a3-a9a6-4653-bf13-0c3a44866905">&lt;/title&gt;</ept> (e.g. C:\DocumentDBTemplates\CreateDocDBWebsite).</source>
+          <target state="new">Open Microsoft Azure PowerShell and navigate to the folder in which you downloaded and extracted the <bpt id="faa518a3-a9a6-4653-bf13-0c3a44866905">&lt;linkText&gt;</bpt>Create a DocumentDB account and web app sample<ept id="faa518a3-a9a6-4653-bf13-0c3a44866905">&lt;/linkText&gt;</ept><bpt id="faa518a3-a9a6-4653-bf13-0c3a44866905">&lt;title&gt;</bpt><ept id="faa518a3-a9a6-4653-bf13-0c3a44866905">&lt;/title&gt;</ept> (e.g. C:\DocumentDBTemplates\CreateDocDBWebsite).</target>
+        </trans-unit>
+        <trans-unit id="5350eba6-022e-448a-83b1-80721f46a7c2" xml:space="preserve">
+          <source>We're going to run the CreateDocDBWebsite.ps1 PowerShell script.</source>
+          <target state="new">We're going to run the CreateDocDBWebsite.ps1 PowerShell script.</target>
+        </trans-unit>
+        <trans-unit id="ad97be74-73e9-4954-946a-6003f5465d61" xml:space="preserve">
+          <source>The script takes the same parameters as the first template we deployed, namely:</source>
+          <target state="new">The script takes the same parameters as the first template we deployed, namely:</target>
+        </trans-unit>
+        <trans-unit id="6da069a4-534b-490e-9739-63c568366d5c" xml:space="preserve">
+          <source>WebsiteName: Specifies the App Service web app name and is used to construct the URL that you will use to access the web app (e.g. if you specify "myotherdocumentdbwebapp", then the URL by which you will access the web app will be myotherdocumentdbwebapp.azurewebsites.net).</source>
+          <target state="new">WebsiteName: Specifies the App Service web app name and is used to construct the URL that you will use to access the web app (e.g. if you specify "myotherdocumentdbwebapp", then the URL by which you will access the web app will be myotherdocumentdbwebapp.azurewebsites.net).</target>
+        </trans-unit>
+        <trans-unit id="0f3d7487-3850-48a2-a772-65a1a742a22f" xml:space="preserve">
+          <source>ResourceGroupName: Specifies the name of the Azure Resource Group to deploy.</source>
+          <target state="new">ResourceGroupName: Specifies the name of the Azure Resource Group to deploy.</target>
+        </trans-unit>
+        <trans-unit id="176bc3a3-4759-4834-9f67-311c324e6f44" xml:space="preserve">
+          <source>If the specified Resource Group doesn't exist, it will be created.</source>
+          <target state="new">If the specified Resource Group doesn't exist, it will be created.</target>
+        </trans-unit>
+        <trans-unit id="14369e9b-ac5a-421d-8ffa-e612f8ed3966" xml:space="preserve">
+          <source>docDBAccountName: Specifies the name of the DocumentDB account to create.</source>
+          <target state="new">docDBAccountName: Specifies the name of the DocumentDB account to create.</target>
+        </trans-unit>
+        <trans-unit id="b56d5043-79af-480f-8d9c-c8fc4d91b28d" xml:space="preserve">
+          <source>location: Specifies the Azure location in which to create the DocumentDB and web app resources.</source>
+          <target state="new">location: Specifies the Azure location in which to create the DocumentDB and web app resources.</target>
+        </trans-unit>
+        <trans-unit id="e39ebcfe-917d-4576-b3b5-123720b7567e" xml:space="preserve">
+          <source>Valid values are East Asia, Southeast Asia, East US, West US, North Europe, West Europe (note that the location value provided is case sensitive).</source>
+          <target state="new">Valid values are East Asia, Southeast Asia, East US, West US, North Europe, West Europe (note that the location value provided is case sensitive).</target>
+        </trans-unit>
+        <trans-unit id="24eb7457-e129-450a-89ae-8b71c80fd910" xml:space="preserve">
+          <source>Here is an example command to run the script:</source>
+          <target state="new">Here is an example command to run the script:</target>
+        </trans-unit>
+        <trans-unit id="5e1c645c-a65c-488a-8e59-36500fd1e824" xml:space="preserve">
+          <source>Note that you will be prompted to enter your Azure account username and password as part of running the script.</source>
+          <target state="new">Note that you will be prompted to enter your Azure account username and password as part of running the script.</target>
+        </trans-unit>
+        <trans-unit id="11f4bbd6-f928-4ebb-be5d-917a1f9abc86" xml:space="preserve">
+          <source>The full deployment will take between 10 and 15 minutes to complete.</source>
+          <target state="new">The full deployment will take between 10 and 15 minutes to complete.</target>
+        </trans-unit>
+        <trans-unit id="0cd083a9-b622-4917-a607-a7d1c984db94" xml:space="preserve">
+          <source>The deployment output will be very similar to the first template example.</source>
+          <target state="new">The deployment output will be very similar to the first template example.</target>
+        </trans-unit>
+        <trans-unit id="fc91e185-37d6-44c9-80f6-8c373ea5c45f" xml:space="preserve">
+          <source>Before we open the Azure Preview portal, let's understand what this template deployment accomplished:</source>
+          <target state="new">Before we open the Azure Preview portal, let's understand what this template deployment accomplished:</target>
+        </trans-unit>
+        <trans-unit id="8767aa33-74f7-4362-b8d2-04911c2eed02" xml:space="preserve">
+          <source>An App Service web app was created.</source>
+          <target state="new">An App Service web app was created.</target>
+        </trans-unit>
+        <trans-unit id="a9b63118-6ea0-49c9-90d1-c978169fa4c6" xml:space="preserve">
+          <source>A DocumentDB account was created.</source>
+          <target state="new">A DocumentDB account was created.</target>
+        </trans-unit>
+        <trans-unit id="d5137426-5955-4c90-a5a5-c7317259c73a" xml:space="preserve">
+          <source>The web app configuration was modified such that the Azure DocumentDB endpoint, primary master key, and secondary master key were surfaced as application settings.</source>
+          <target state="new">The web app configuration was modified such that the Azure DocumentDB endpoint, primary master key, and secondary master key were surfaced as application settings.</target>
+        </trans-unit>
+        <trans-unit id="f1914978-1e04-4812-b42a-4a1868c75edc" xml:space="preserve">
+          <source>A series of default monitoring rules were created.</source>
+          <target state="new">A series of default monitoring rules were created.</target>
+        </trans-unit>
+        <trans-unit id="f22e7e82-f966-4580-9d37-2c2042f92e8b" xml:space="preserve">
+          <source>Let's open the <bpt id="84763e78-0d6b-4d5e-9d77-b582c5f29d7a">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="84763e78-0d6b-4d5e-9d77-b582c5f29d7a">&lt;/linkText&gt;</ept><bpt id="84763e78-0d6b-4d5e-9d77-b582c5f29d7a">&lt;title&gt;</bpt><ept id="84763e78-0d6b-4d5e-9d77-b582c5f29d7a">&lt;/title&gt;</ept>, choose to browse Resource Groups and select the Resource Group we created during the deployment (in the sample above, myOtherDemoResourceGroup).</source>
+          <target state="new">Let's open the <bpt id="84763e78-0d6b-4d5e-9d77-b582c5f29d7a">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="84763e78-0d6b-4d5e-9d77-b582c5f29d7a">&lt;/linkText&gt;</ept><bpt id="84763e78-0d6b-4d5e-9d77-b582c5f29d7a">&lt;title&gt;</bpt><ept id="84763e78-0d6b-4d5e-9d77-b582c5f29d7a">&lt;/title&gt;</ept>, choose to browse Resource Groups and select the Resource Group we created during the deployment (in the sample above, myOtherDemoResourceGroup).</target>
+        </trans-unit>
+        <trans-unit id="f712a9cd-340f-449b-a32a-c954fdeaeaff" xml:space="preserve">
+          <source>In the Summary lens, click the web app which was just deployed.</source>
+          <target state="new">In the Summary lens, click the web app which was just deployed.</target>
+        </trans-unit>
+        <trans-unit id="75b23962-b484-4a88-883d-dd718cfce3a5" xml:space="preserve">
+          <source><bpt id="99e120ee-3811-48a0-8158-5c94eb40b0a4">&lt;linkText&gt;</bpt>Screenshot of the Summary lens with the myotherdocumentdbwebapp web app highlighted<ept id="99e120ee-3811-48a0-8158-5c94eb40b0a4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99e120ee-3811-48a0-8158-5c94eb40b0a4">&lt;linkText&gt;</bpt>Screenshot of the Summary lens with the myotherdocumentdbwebapp web app highlighted<ept id="99e120ee-3811-48a0-8158-5c94eb40b0a4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f55e922-4b6a-42df-b5dc-a7e1f6582c13" xml:space="preserve">
+          <source>On the web app's blade, click <bpt id="4e13f6ef-7689-4160-b537-bbddc2da4cf1">&lt;strong&gt;</bpt>All settings<ept id="4e13f6ef-7689-4160-b537-bbddc2da4cf1">&lt;/strong&gt;</ept>, then <bpt id="68914dbb-c080-4de3-a78c-edce50a2f960">&lt;strong&gt;</bpt>Application Settings<ept id="68914dbb-c080-4de3-a78c-edce50a2f960">&lt;/strong&gt;</ept> and note how there are application settings present for the DocumentDB endpoint and each of the DocumentDB master keys.</source>
+          <target state="new">On the web app's blade, click <bpt id="4e13f6ef-7689-4160-b537-bbddc2da4cf1">&lt;strong&gt;</bpt>All settings<ept id="4e13f6ef-7689-4160-b537-bbddc2da4cf1">&lt;/strong&gt;</ept>, then <bpt id="68914dbb-c080-4de3-a78c-edce50a2f960">&lt;strong&gt;</bpt>Application Settings<ept id="68914dbb-c080-4de3-a78c-edce50a2f960">&lt;/strong&gt;</ept> and note how there are application settings present for the DocumentDB endpoint and each of the DocumentDB master keys.</target>
+        </trans-unit>
+        <trans-unit id="b27b9de7-0e3b-45f8-9567-2e3cee50a19e" xml:space="preserve">
+          <source><bpt id="421bbbf8-ee9f-427c-a990-82af46cad01a">&lt;linkText&gt;</bpt>Screenshot of the web app, Settings, and application settings blades<ept id="421bbbf8-ee9f-427c-a990-82af46cad01a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="421bbbf8-ee9f-427c-a990-82af46cad01a">&lt;linkText&gt;</bpt>Screenshot of the web app, Settings, and application settings blades<ept id="421bbbf8-ee9f-427c-a990-82af46cad01a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d546edf-de3c-4e55-b638-28509ec4b7c4" xml:space="preserve">
+          <source>Feel free to continue exploring the Azure Preview portal, or follow one of our DocumentDB <bpt id="4894c82a-f638-456b-8364-d330c6fcb1d8">&lt;linkText&gt;</bpt>samples<ept id="4894c82a-f638-456b-8364-d330c6fcb1d8">&lt;/linkText&gt;</ept><bpt id="4894c82a-f638-456b-8364-d330c6fcb1d8">&lt;title&gt;</bpt><ept id="4894c82a-f638-456b-8364-d330c6fcb1d8">&lt;/title&gt;</ept> to create your own DocumentDB application.</source>
+          <target state="new">Feel free to continue exploring the Azure Preview portal, or follow one of our DocumentDB <bpt id="4894c82a-f638-456b-8364-d330c6fcb1d8">&lt;linkText&gt;</bpt>samples<ept id="4894c82a-f638-456b-8364-d330c6fcb1d8">&lt;/linkText&gt;</ept><bpt id="4894c82a-f638-456b-8364-d330c6fcb1d8">&lt;title&gt;</bpt><ept id="4894c82a-f638-456b-8364-d330c6fcb1d8">&lt;/title&gt;</ept> to create your own DocumentDB application.</target>
+        </trans-unit>
+        <trans-unit id="abdf1488-4c07-48aa-b8c0-361ad282fc29" xml:space="preserve">
+          <source><bpt id="2c116586-7113-4bb8-9898-c1a97a774c63">&lt;bookmark&gt;</bpt><ept id="2c116586-7113-4bb8-9898-c1a97a774c63">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="2c116586-7113-4bb8-9898-c1a97a774c63">&lt;bookmark&gt;</bpt><ept id="2c116586-7113-4bb8-9898-c1a97a774c63">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abbeb906-53c6-44b6-a315-5ba8dc78a952" xml:space="preserve">
+          <source>Congratulations!</source>
+          <target state="new">Congratulations!</target>
+        </trans-unit>
+        <trans-unit id="3eb867d2-7b65-4f2d-bd5c-267ed813a6f0" xml:space="preserve">
+          <source>You've deployed DocumentDB, App Service web app and a sample web application using Azure Resource Manager templates.</source>
+          <target state="new">You've deployed DocumentDB, App Service web app and a sample web application using Azure Resource Manager templates.</target>
+        </trans-unit>
+        <trans-unit id="0bab8e84-bb45-402e-a59c-105bf602370d" xml:space="preserve">
+          <source>To learn more about DocumentDB, click <bpt id="dff5b5a1-624f-4911-80d3-531a35b81868">&lt;linkText&gt;</bpt>here<ept id="dff5b5a1-624f-4911-80d3-531a35b81868">&lt;/linkText&gt;</ept><bpt id="dff5b5a1-624f-4911-80d3-531a35b81868">&lt;title&gt;</bpt><ept id="dff5b5a1-624f-4911-80d3-531a35b81868">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about DocumentDB, click <bpt id="dff5b5a1-624f-4911-80d3-531a35b81868">&lt;linkText&gt;</bpt>here<ept id="dff5b5a1-624f-4911-80d3-531a35b81868">&lt;/linkText&gt;</ept><bpt id="dff5b5a1-624f-4911-80d3-531a35b81868">&lt;title&gt;</bpt><ept id="dff5b5a1-624f-4911-80d3-531a35b81868">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a43d2c0-827e-4e10-a888-b6bc35465576" xml:space="preserve">
+          <source>To learn more about Azure App Service Web apps, click <bpt id="9645f9cf-4cff-41dc-a911-1925b7248c12">&lt;linkText&gt;</bpt>here<ept id="9645f9cf-4cff-41dc-a911-1925b7248c12">&lt;/linkText&gt;</ept><bpt id="9645f9cf-4cff-41dc-a911-1925b7248c12">&lt;title&gt;</bpt><ept id="9645f9cf-4cff-41dc-a911-1925b7248c12">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Azure App Service Web apps, click <bpt id="9645f9cf-4cff-41dc-a911-1925b7248c12">&lt;linkText&gt;</bpt>here<ept id="9645f9cf-4cff-41dc-a911-1925b7248c12">&lt;/linkText&gt;</ept><bpt id="9645f9cf-4cff-41dc-a911-1925b7248c12">&lt;title&gt;</bpt><ept id="9645f9cf-4cff-41dc-a911-1925b7248c12">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7bc7a1fb-9e81-4399-8fd2-74a29cbef546" xml:space="preserve">
+          <source>To learn more about Azure Resource Manager templates, click <bpt id="5dd89bc4-e505-4f3c-87e1-0a573c5d516d">&lt;linkText&gt;</bpt>here<ept id="5dd89bc4-e505-4f3c-87e1-0a573c5d516d">&lt;/linkText&gt;</ept><bpt id="5dd89bc4-e505-4f3c-87e1-0a573c5d516d">&lt;title&gt;</bpt><ept id="5dd89bc4-e505-4f3c-87e1-0a573c5d516d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Azure Resource Manager templates, click <bpt id="5dd89bc4-e505-4f3c-87e1-0a573c5d516d">&lt;linkText&gt;</bpt>here<ept id="5dd89bc4-e505-4f3c-87e1-0a573c5d516d">&lt;/linkText&gt;</ept><bpt id="5dd89bc4-e505-4f3c-87e1-0a573c5d516d">&lt;title&gt;</bpt><ept id="5dd89bc4-e505-4f3c-87e1-0a573c5d516d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfe17505-3ea3-47cb-827a-0960485d5346" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="8b195fb5-22e2-4e1c-8ce6-0014570106d2">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="8b195fb5-22e2-4e1c-8ce6-0014570106d2">&lt;/linkText&gt;</ept><bpt id="8b195fb5-22e2-4e1c-8ce6-0014570106d2">&lt;title&gt;</bpt><ept id="8b195fb5-22e2-4e1c-8ce6-0014570106d2">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="8b195fb5-22e2-4e1c-8ce6-0014570106d2">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="8b195fb5-22e2-4e1c-8ce6-0014570106d2">&lt;/linkText&gt;</ept><bpt id="8b195fb5-22e2-4e1c-8ce6-0014570106d2">&lt;title&gt;</bpt><ept id="8b195fb5-22e2-4e1c-8ce6-0014570106d2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1392bc12-db06-48a4-aba8-3390269868a9" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="491174a1-10c8-4bb7-baed-f9a99e555aa1">&lt;linkText&gt;</bpt>Reference for navigating the Azure portal<ept id="491174a1-10c8-4bb7-baed-f9a99e555aa1">&lt;/linkText&gt;</ept><bpt id="491174a1-10c8-4bb7-baed-f9a99e555aa1">&lt;title&gt;</bpt><ept id="491174a1-10c8-4bb7-baed-f9a99e555aa1">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="491174a1-10c8-4bb7-baed-f9a99e555aa1">&lt;linkText&gt;</bpt>Reference for navigating the Azure portal<ept id="491174a1-10c8-4bb7-baed-f9a99e555aa1">&lt;/linkText&gt;</ept><bpt id="491174a1-10c8-4bb7-baed-f9a99e555aa1">&lt;title&gt;</bpt><ept id="491174a1-10c8-4bb7-baed-f9a99e555aa1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4514a9e-8f46-49c7-8d18-aab479f73950" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="c1a04da8-686c-481f-af47-5fac83c417fc">&lt;linkText&gt;</bpt>Try App Service<ept id="c1a04da8-686c-481f-af47-5fac83c417fc">&lt;/linkText&gt;</ept><bpt id="c1a04da8-686c-481f-af47-5fac83c417fc">&lt;title&gt;</bpt><ept id="c1a04da8-686c-481f-af47-5fac83c417fc">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="c1a04da8-686c-481f-af47-5fac83c417fc">&lt;linkText&gt;</bpt>Try App Service<ept id="c1a04da8-686c-481f-af47-5fac83c417fc">&lt;/linkText&gt;</ept><bpt id="c1a04da8-686c-481f-af47-5fac83c417fc">&lt;title&gt;</bpt><ept id="c1a04da8-686c-481f-af47-5fac83c417fc">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="3c71484f-6490-437f-814f-7cae5580afde" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

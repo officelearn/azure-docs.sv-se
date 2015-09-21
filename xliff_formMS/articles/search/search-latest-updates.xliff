@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f1bcf626-cb03-4583-b506-d2ae813f556f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f1bcf626-cb03-4583-b506-d2ae813f556f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ecd87bc3-c5d6-4825-ae95-d985aecf815e">
+        <trans-unit id="9de7ad89-def2-4369-8c44-c15934b0fa38" xml:space="preserve">
+          <source>What’s new in the latest update to Azure Search | Microsoft Azure</source>
+          <target state="new">What’s new in the latest update to Azure Search | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="269c9811-6993-4eb2-9993-20f552a09cd7" xml:space="preserve">
+          <source>Release notes for Azure Search describing the latest updates to the service</source>
+          <target state="new">Release notes for Azure Search describing the latest updates to the service</target>
+        </trans-unit>
+        <trans-unit id="c5f1c7da-f27c-4bfe-816c-ea38778fe28d" xml:space="preserve">
+          <source>Azure Search is now generally available, offering a 99.9% availability service-level agreement (SLA) for supported configurations of the <bpt id="f5810800-1568-461c-b2b2-9655093f5a8b">&lt;linkText&gt;</bpt>2015-02-28 version of the API<ept id="f5810800-1568-461c-b2b2-9655093f5a8b">&lt;/linkText&gt;</ept><bpt id="f5810800-1568-461c-b2b2-9655093f5a8b">&lt;title&gt;</bpt><ept id="f5810800-1568-461c-b2b2-9655093f5a8b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure Search is now generally available, offering a 99.9% availability service-level agreement (SLA) for supported configurations of the <bpt id="f5810800-1568-461c-b2b2-9655093f5a8b">&lt;linkText&gt;</bpt>2015-02-28 version of the API<ept id="f5810800-1568-461c-b2b2-9655093f5a8b">&lt;/linkText&gt;</ept><bpt id="f5810800-1568-461c-b2b2-9655093f5a8b">&lt;title&gt;</bpt><ept id="f5810800-1568-461c-b2b2-9655093f5a8b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6186186d-49d2-49b5-ac66-37df5c5aaedc" xml:space="preserve">
+          <source>Features are released separately or jointly through the <bpt id="87239fd1-a28b-4488-a4d8-31bedd5ecf85">&lt;linkText&gt;</bpt>REST API<ept id="87239fd1-a28b-4488-a4d8-31bedd5ecf85">&lt;/linkText&gt;</ept><bpt id="87239fd1-a28b-4488-a4d8-31bedd5ecf85">&lt;title&gt;</bpt><ept id="87239fd1-a28b-4488-a4d8-31bedd5ecf85">&lt;/title&gt;</ept>, <bpt id="6df08ec7-42f7-4b48-90ba-5b8f10fc5825">&lt;linkText&gt;</bpt>.NET SDK<ept id="6df08ec7-42f7-4b48-90ba-5b8f10fc5825">&lt;/linkText&gt;</ept><bpt id="6df08ec7-42f7-4b48-90ba-5b8f10fc5825">&lt;title&gt;</bpt><ept id="6df08ec7-42f7-4b48-90ba-5b8f10fc5825">&lt;/title&gt;</ept>, or the service dashboard in the <bpt id="1cd706fc-bc97-438f-bb91-627d7b047c25">&lt;linkText&gt;</bpt>Azure portal<ept id="1cd706fc-bc97-438f-bb91-627d7b047c25">&lt;/linkText&gt;</ept><bpt id="1cd706fc-bc97-438f-bb91-627d7b047c25">&lt;title&gt;</bpt><ept id="1cd706fc-bc97-438f-bb91-627d7b047c25">&lt;/title&gt;</ept>.</source>
+          <target state="new">Features are released separately or jointly through the <bpt id="87239fd1-a28b-4488-a4d8-31bedd5ecf85">&lt;linkText&gt;</bpt>REST API<ept id="87239fd1-a28b-4488-a4d8-31bedd5ecf85">&lt;/linkText&gt;</ept><bpt id="87239fd1-a28b-4488-a4d8-31bedd5ecf85">&lt;title&gt;</bpt><ept id="87239fd1-a28b-4488-a4d8-31bedd5ecf85">&lt;/title&gt;</ept>, <bpt id="6df08ec7-42f7-4b48-90ba-5b8f10fc5825">&lt;linkText&gt;</bpt>.NET SDK<ept id="6df08ec7-42f7-4b48-90ba-5b8f10fc5825">&lt;/linkText&gt;</ept><bpt id="6df08ec7-42f7-4b48-90ba-5b8f10fc5825">&lt;title&gt;</bpt><ept id="6df08ec7-42f7-4b48-90ba-5b8f10fc5825">&lt;/title&gt;</ept>, or the service dashboard in the <bpt id="1cd706fc-bc97-438f-bb91-627d7b047c25">&lt;linkText&gt;</bpt>Azure portal<ept id="1cd706fc-bc97-438f-bb91-627d7b047c25">&lt;/linkText&gt;</ept><bpt id="1cd706fc-bc97-438f-bb91-627d7b047c25">&lt;title&gt;</bpt><ept id="1cd706fc-bc97-438f-bb91-627d7b047c25">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74606b62-c763-43a3-824e-9a6b33860d64" xml:space="preserve">
+          <source>Both the .NET library and REST APIs have multiple versions.</source>
+          <target state="new">Both the .NET library and REST APIs have multiple versions.</target>
+        </trans-unit>
+        <trans-unit id="eb81c22f-aa26-4998-ad48-e6715b96056a" xml:space="preserve">
+          <source>Older APIs remain operational as we roll out new features.</source>
+          <target state="new">Older APIs remain operational as we roll out new features.</target>
+        </trans-unit>
+        <trans-unit id="fd5ceb15-5457-4c17-bb72-6559ab14c2d8" xml:space="preserve">
+          <source>You can visit <bpt id="4b428ff7-e446-495a-ae96-74ea5f109285">&lt;linkText&gt;</bpt>Search service versioning<ept id="4b428ff7-e446-495a-ae96-74ea5f109285">&lt;/linkText&gt;</ept><bpt id="4b428ff7-e446-495a-ae96-74ea5f109285">&lt;title&gt;</bpt><ept id="4b428ff7-e446-495a-ae96-74ea5f109285">&lt;/title&gt;</ept> to learn more about our versioning policy.</source>
+          <target state="new">You can visit <bpt id="4b428ff7-e446-495a-ae96-74ea5f109285">&lt;linkText&gt;</bpt>Search service versioning<ept id="4b428ff7-e446-495a-ae96-74ea5f109285">&lt;/linkText&gt;</ept><bpt id="4b428ff7-e446-495a-ae96-74ea5f109285">&lt;title&gt;</bpt><ept id="4b428ff7-e446-495a-ae96-74ea5f109285">&lt;/title&gt;</ept> to learn more about our versioning policy.</target>
+        </trans-unit>
+        <trans-unit id="877d1266-0c20-466a-b0a7-335797db4319" xml:space="preserve">
+          <source>This is the second iteration of the .NET client library, Microsoft.Azure.Search.dll.</source>
+          <target state="new">This is the second iteration of the .NET client library, Microsoft.Azure.Search.dll.</target>
+        </trans-unit>
+        <trans-unit id="1cb52dbf-a99e-4f4d-a855-d2f6287058c8" xml:space="preserve">
+          <source>This version adds support for creating, managing, and using Indexers via .NET classes.</source>
+          <target state="new">This version adds support for creating, managing, and using Indexers via .NET classes.</target>
+        </trans-unit>
+        <trans-unit id="c50fe8e8-d369-4685-b91e-397f7fd517e7" xml:space="preserve">
+          <source>Additionally, for Azure SQL Indexers, there is new support for indexing geography points.</source>
+          <target state="new">Additionally, for Azure SQL Indexers, there is new support for indexing geography points.</target>
+        </trans-unit>
+        <trans-unit id="aab2b392-bc44-4077-bb1e-9eeb5b2d1e37" xml:space="preserve">
+          <source><bpt id="075b37c6-4a4e-4c11-b229-4614d54c34b4">&lt;linkText&gt;</bpt>Indexers Class<ept id="075b37c6-4a4e-4c11-b229-4614d54c34b4">&lt;/linkText&gt;</ept><bpt id="075b37c6-4a4e-4c11-b229-4614d54c34b4">&lt;title&gt;</bpt><ept id="075b37c6-4a4e-4c11-b229-4614d54c34b4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="075b37c6-4a4e-4c11-b229-4614d54c34b4">&lt;linkText&gt;</bpt>Indexers Class<ept id="075b37c6-4a4e-4c11-b229-4614d54c34b4">&lt;/linkText&gt;</ept><bpt id="075b37c6-4a4e-4c11-b229-4614d54c34b4">&lt;title&gt;</bpt><ept id="075b37c6-4a4e-4c11-b229-4614d54c34b4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e9af126-90d4-44da-a3df-8d454a829831" xml:space="preserve">
+          <source><bpt id="4ca96ec3-a8e5-4c03-8acc-7d40fb33004d">&lt;linkText&gt;</bpt>DataSource Class<ept id="4ca96ec3-a8e5-4c03-8acc-7d40fb33004d">&lt;/linkText&gt;</ept><bpt id="4ca96ec3-a8e5-4c03-8acc-7d40fb33004d">&lt;title&gt;</bpt><ept id="4ca96ec3-a8e5-4c03-8acc-7d40fb33004d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4ca96ec3-a8e5-4c03-8acc-7d40fb33004d">&lt;linkText&gt;</bpt>DataSource Class<ept id="4ca96ec3-a8e5-4c03-8acc-7d40fb33004d">&lt;/linkText&gt;</ept><bpt id="4ca96ec3-a8e5-4c03-8acc-7d40fb33004d">&lt;title&gt;</bpt><ept id="4ca96ec3-a8e5-4c03-8acc-7d40fb33004d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b015ad46-2ab9-4c36-abc8-cd7944276b2e" xml:space="preserve">
+          <source><bpt id="6090026c-e3d7-4eaa-b639-2bc46c43ba37">&lt;strong&gt;</bpt>Released: 2015 March 5<ept id="6090026c-e3d7-4eaa-b639-2bc46c43ba37">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6090026c-e3d7-4eaa-b639-2bc46c43ba37">&lt;strong&gt;</bpt>Released: 2015 March 5<ept id="6090026c-e3d7-4eaa-b639-2bc46c43ba37">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="782403e9-3600-4898-8005-9acdcb296474" xml:space="preserve">
+          <source>This is the first public release of the .NET SDK for Azure Search.</source>
+          <target state="new">This is the first public release of the .NET SDK for Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="c0ecffe5-99ee-43a8-9eeb-937b22f0e9e7" xml:space="preserve">
+          <source>It includes a client library, Microsoft.Azure.Search.dll, with two namespaces:</source>
+          <target state="new">It includes a client library, Microsoft.Azure.Search.dll, with two namespaces:</target>
+        </trans-unit>
+        <trans-unit id="0d7d9cf4-e2bf-4de5-9246-3a7eec5a8f13" xml:space="preserve">
+          <source><bpt id="dfdbcd19-6c1d-4b8d-a52f-fd294da03dc6">&lt;linkText&gt;</bpt>Microsoft.Azure.Search<ept id="dfdbcd19-6c1d-4b8d-a52f-fd294da03dc6">&lt;/linkText&gt;</ept><bpt id="dfdbcd19-6c1d-4b8d-a52f-fd294da03dc6">&lt;title&gt;</bpt><ept id="dfdbcd19-6c1d-4b8d-a52f-fd294da03dc6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dfdbcd19-6c1d-4b8d-a52f-fd294da03dc6">&lt;linkText&gt;</bpt>Microsoft.Azure.Search<ept id="dfdbcd19-6c1d-4b8d-a52f-fd294da03dc6">&lt;/linkText&gt;</ept><bpt id="dfdbcd19-6c1d-4b8d-a52f-fd294da03dc6">&lt;title&gt;</bpt><ept id="dfdbcd19-6c1d-4b8d-a52f-fd294da03dc6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b01aedb1-8f5a-4560-8104-0592e57887ef" xml:space="preserve">
+          <source><bpt id="650da82a-5ad6-4473-aabd-609575aeb65c">&lt;linkText&gt;</bpt>Microsoft.Azure.Search.Models<ept id="650da82a-5ad6-4473-aabd-609575aeb65c">&lt;/linkText&gt;</ept><bpt id="650da82a-5ad6-4473-aabd-609575aeb65c">&lt;title&gt;</bpt><ept id="650da82a-5ad6-4473-aabd-609575aeb65c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="650da82a-5ad6-4473-aabd-609575aeb65c">&lt;linkText&gt;</bpt>Microsoft.Azure.Search.Models<ept id="650da82a-5ad6-4473-aabd-609575aeb65c">&lt;/linkText&gt;</ept><bpt id="650da82a-5ad6-4473-aabd-609575aeb65c">&lt;title&gt;</bpt><ept id="650da82a-5ad6-4473-aabd-609575aeb65c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f39151e-32e1-4309-b538-5b7ca8bc6c7f" xml:space="preserve">
+          <source>Excludes:</source>
+          <target state="new">Excludes:</target>
+        </trans-unit>
+        <trans-unit id="3eb57a5a-e9e4-427c-95ba-9fa56ada30a3" xml:space="preserve">
+          <source><bpt id="d24e2bde-297b-457d-9825-eb5d6a98df7d">&lt;linkText&gt;</bpt>Indexers<ept id="d24e2bde-297b-457d-9825-eb5d6a98df7d">&lt;/linkText&gt;</ept><bpt id="d24e2bde-297b-457d-9825-eb5d6a98df7d">&lt;title&gt;</bpt><ept id="d24e2bde-297b-457d-9825-eb5d6a98df7d">&lt;/title&gt;</ept> (this feature is no longer excluded in the 0.10.0-preview version)</source>
+          <target state="new"><bpt id="d24e2bde-297b-457d-9825-eb5d6a98df7d">&lt;linkText&gt;</bpt>Indexers<ept id="d24e2bde-297b-457d-9825-eb5d6a98df7d">&lt;/linkText&gt;</ept><bpt id="d24e2bde-297b-457d-9825-eb5d6a98df7d">&lt;title&gt;</bpt><ept id="d24e2bde-297b-457d-9825-eb5d6a98df7d">&lt;/title&gt;</ept> (this feature is no longer excluded in the 0.10.0-preview version)</target>
+        </trans-unit>
+        <trans-unit id="a3a9c2f5-9708-4d33-a4cc-a14f6e2ac3bf" xml:space="preserve">
+          <source><bpt id="173bef0c-ae9c-4abe-874e-9d9402c6a40e">&lt;linkText&gt;</bpt>Management REST API<ept id="173bef0c-ae9c-4abe-874e-9d9402c6a40e">&lt;/linkText&gt;</ept><bpt id="173bef0c-ae9c-4abe-874e-9d9402c6a40e">&lt;title&gt;</bpt><ept id="173bef0c-ae9c-4abe-874e-9d9402c6a40e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="173bef0c-ae9c-4abe-874e-9d9402c6a40e">&lt;linkText&gt;</bpt>Management REST API<ept id="173bef0c-ae9c-4abe-874e-9d9402c6a40e">&lt;/linkText&gt;</ept><bpt id="173bef0c-ae9c-4abe-874e-9d9402c6a40e">&lt;title&gt;</bpt><ept id="173bef0c-ae9c-4abe-874e-9d9402c6a40e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eef1e18a-0c33-4b8a-8bd4-e8b527b125c2" xml:space="preserve">
+          <source><bpt id="b7cf203a-8d15-4ac3-a2eb-636f6fb9acf7">&lt;linkText&gt;</bpt>2015-02-28-Preview<ept id="b7cf203a-8d15-4ac3-a2eb-636f6fb9acf7">&lt;/linkText&gt;</ept><bpt id="b7cf203a-8d15-4ac3-a2eb-636f6fb9acf7">&lt;title&gt;</bpt><ept id="b7cf203a-8d15-4ac3-a2eb-636f6fb9acf7">&lt;/title&gt;</ept> features (currently, preview-only features consist of Microsoft natural language processors and <bpt id="a7f0846d-eaf7-4fa1-b3cb-fbd158b66c7d">&lt;code&gt;</bpt>moreLikeThis<ept id="a7f0846d-eaf7-4fa1-b3cb-fbd158b66c7d">&lt;/code&gt;</ept>).</source>
+          <target state="new"><bpt id="b7cf203a-8d15-4ac3-a2eb-636f6fb9acf7">&lt;linkText&gt;</bpt>2015-02-28-Preview<ept id="b7cf203a-8d15-4ac3-a2eb-636f6fb9acf7">&lt;/linkText&gt;</ept><bpt id="b7cf203a-8d15-4ac3-a2eb-636f6fb9acf7">&lt;title&gt;</bpt><ept id="b7cf203a-8d15-4ac3-a2eb-636f6fb9acf7">&lt;/title&gt;</ept> features (currently, preview-only features consist of Microsoft natural language processors and <bpt id="a7f0846d-eaf7-4fa1-b3cb-fbd158b66c7d">&lt;code&gt;</bpt>moreLikeThis<ept id="a7f0846d-eaf7-4fa1-b3cb-fbd158b66c7d">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="081b37cd-90a4-4157-91b6-13d15d4f5960" xml:space="preserve">
+          <source>Visit <bpt id="9e10e97f-f15f-4991-8727-92d4d3fecd9b">&lt;linkText&gt;</bpt>How to use Azure Search in .NET<ept id="9e10e97f-f15f-4991-8727-92d4d3fecd9b">&lt;/linkText&gt;</ept><bpt id="9e10e97f-f15f-4991-8727-92d4d3fecd9b">&lt;title&gt;</bpt><ept id="9e10e97f-f15f-4991-8727-92d4d3fecd9b">&lt;/title&gt;</ept> for guidance on installation and usage of the SDK.</source>
+          <target state="new">Visit <bpt id="9e10e97f-f15f-4991-8727-92d4d3fecd9b">&lt;linkText&gt;</bpt>How to use Azure Search in .NET<ept id="9e10e97f-f15f-4991-8727-92d4d3fecd9b">&lt;/linkText&gt;</ept><bpt id="9e10e97f-f15f-4991-8727-92d4d3fecd9b">&lt;title&gt;</bpt><ept id="9e10e97f-f15f-4991-8727-92d4d3fecd9b">&lt;/title&gt;</ept> for guidance on installation and usage of the SDK.</target>
+        </trans-unit>
+        <trans-unit id="43a32927-0b50-4f6c-a4da-83afe7677848" xml:space="preserve">
+          <source><bpt id="f0565fae-b784-41c6-93e1-26a31ccf8d18">&lt;strong&gt;</bpt>Released: 2015 April 22<ept id="f0565fae-b784-41c6-93e1-26a31ccf8d18">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f0565fae-b784-41c6-93e1-26a31ccf8d18">&lt;strong&gt;</bpt>Released: 2015 April 22<ept id="f0565fae-b784-41c6-93e1-26a31ccf8d18">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c918d0f6-1e79-4dc3-99b9-e4af4e66a975" xml:space="preserve">
+          <source>Indexers now support fieldMapping constructs that provide field assignments when actual field names are different between the external database and the Azure Search index.</source>
+          <target state="new">Indexers now support fieldMapping constructs that provide field assignments when actual field names are different between the external database and the Azure Search index.</target>
+        </trans-unit>
+        <trans-unit id="10008b02-d781-401d-a8bb-00ea75f9f20a" xml:space="preserve">
+          <source>See <bpt id="6ed21717-e272-49e3-a3e8-31e4ac177b8a">&lt;linkText&gt;</bpt>Indexers<ept id="6ed21717-e272-49e3-a3e8-31e4ac177b8a">&lt;/linkText&gt;</ept><bpt id="6ed21717-e272-49e3-a3e8-31e4ac177b8a">&lt;title&gt;</bpt><ept id="6ed21717-e272-49e3-a3e8-31e4ac177b8a">&lt;/title&gt;</ept> for the <bpt id="736a508f-d3c8-48a8-8d26-bf49b5da7e83">&lt;code&gt;</bpt>2015-02-28-preview<ept id="736a508f-d3c8-48a8-8d26-bf49b5da7e83">&lt;/code&gt;</ept> version of the indexers documentation..</source>
+          <target state="new">See <bpt id="6ed21717-e272-49e3-a3e8-31e4ac177b8a">&lt;linkText&gt;</bpt>Indexers<ept id="6ed21717-e272-49e3-a3e8-31e4ac177b8a">&lt;/linkText&gt;</ept><bpt id="6ed21717-e272-49e3-a3e8-31e4ac177b8a">&lt;title&gt;</bpt><ept id="6ed21717-e272-49e3-a3e8-31e4ac177b8a">&lt;/title&gt;</ept> for the <bpt id="736a508f-d3c8-48a8-8d26-bf49b5da7e83">&lt;code&gt;</bpt>2015-02-28-preview<ept id="736a508f-d3c8-48a8-8d26-bf49b5da7e83">&lt;/code&gt;</ept> version of the indexers documentation..</target>
+        </trans-unit>
+        <trans-unit id="269a01e3-d636-40e4-a278-70e2022891d1" xml:space="preserve">
+          <source>Also in this preview update, indexers now support field type transformations so that you can map a string field in a SQL table to a string collection field in a search index, assuming the source field represents a JSON array.</source>
+          <target state="new">Also in this preview update, indexers now support field type transformations so that you can map a string field in a SQL table to a string collection field in a search index, assuming the source field represents a JSON array.</target>
+        </trans-unit>
+        <trans-unit id="1f7248eb-24b4-4cba-9adf-525325730759" xml:space="preserve">
+          <source><bpt id="b0cfa2bc-4d62-4352-b609-b044e2731b4f">&lt;strong&gt;</bpt>Released: 2015 March 5<ept id="b0cfa2bc-4d62-4352-b609-b044e2731b4f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b0cfa2bc-4d62-4352-b609-b044e2731b4f">&lt;strong&gt;</bpt>Released: 2015 March 5<ept id="b0cfa2bc-4d62-4352-b609-b044e2731b4f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e0d6fd5-13fb-4e00-9cd8-a02177e73d91" xml:space="preserve">
+          <source><bpt id="e467ef2a-3e40-4e07-896e-dfd56ea7d64c">&lt;linkText&gt;</bpt>Microsoft natural language processors<ept id="e467ef2a-3e40-4e07-896e-dfd56ea7d64c">&lt;/linkText&gt;</ept><bpt id="e467ef2a-3e40-4e07-896e-dfd56ea7d64c">&lt;title&gt;</bpt><ept id="e467ef2a-3e40-4e07-896e-dfd56ea7d64c">&lt;/title&gt;</ept> bring support for more languages and expansive stemming for all the languages supported by Office and Bing.</source>
+          <target state="new"><bpt id="e467ef2a-3e40-4e07-896e-dfd56ea7d64c">&lt;linkText&gt;</bpt>Microsoft natural language processors<ept id="e467ef2a-3e40-4e07-896e-dfd56ea7d64c">&lt;/linkText&gt;</ept><bpt id="e467ef2a-3e40-4e07-896e-dfd56ea7d64c">&lt;title&gt;</bpt><ept id="e467ef2a-3e40-4e07-896e-dfd56ea7d64c">&lt;/title&gt;</ept> bring support for more languages and expansive stemming for all the languages supported by Office and Bing.</target>
+        </trans-unit>
+        <trans-unit id="361034e4-35df-49fb-aa29-46c2b8c9f4c6" xml:space="preserve">
+          <source><bpt id="32341013-8f6b-41d0-b4b6-e145e4aec99d">&lt;linkText&gt;</bpt>moreLikeThis=<ept id="32341013-8f6b-41d0-b4b6-e145e4aec99d">&lt;/linkText&gt;</ept><bpt id="32341013-8f6b-41d0-b4b6-e145e4aec99d">&lt;title&gt;</bpt><ept id="32341013-8f6b-41d0-b4b6-e145e4aec99d">&lt;/title&gt;</ept> is a search parameter, mutually exclusive of <bpt id="5b2d1569-21f3-44ff-b6f0-c0bac065647c">&lt;code&gt;</bpt>search=<ept id="5b2d1569-21f3-44ff-b6f0-c0bac065647c">&lt;/code&gt;</ept>, that triggers an alternate query execution path.</source>
+          <target state="new"><bpt id="32341013-8f6b-41d0-b4b6-e145e4aec99d">&lt;linkText&gt;</bpt>moreLikeThis=<ept id="32341013-8f6b-41d0-b4b6-e145e4aec99d">&lt;/linkText&gt;</ept><bpt id="32341013-8f6b-41d0-b4b6-e145e4aec99d">&lt;title&gt;</bpt><ept id="32341013-8f6b-41d0-b4b6-e145e4aec99d">&lt;/title&gt;</ept> is a search parameter, mutually exclusive of <bpt id="5b2d1569-21f3-44ff-b6f0-c0bac065647c">&lt;code&gt;</bpt>search=<ept id="5b2d1569-21f3-44ff-b6f0-c0bac065647c">&lt;/code&gt;</ept>, that triggers an alternate query execution path.</target>
+        </trans-unit>
+        <trans-unit id="749f9325-1875-4af4-a734-b937e1f4a0f5" xml:space="preserve">
+          <source>Instead of full-text search of <bpt id="ee4cc2a5-f9ef-416c-adad-fecf69979fb2">&lt;code&gt;</bpt>search=<ept id="ee4cc2a5-f9ef-416c-adad-fecf69979fb2">&lt;/code&gt;</ept> based on a search term input, <bpt id="ac49ceec-cf4f-4c93-a348-5f85cd246cf2">&lt;code&gt;</bpt>moreLikeThis=<ept id="ac49ceec-cf4f-4c93-a348-5f85cd246cf2">&lt;/code&gt;</ept> finds documents that are similar to a given document by comparing their searchable fields.</source>
+          <target state="new">Instead of full-text search of <bpt id="ee4cc2a5-f9ef-416c-adad-fecf69979fb2">&lt;code&gt;</bpt>search=<ept id="ee4cc2a5-f9ef-416c-adad-fecf69979fb2">&lt;/code&gt;</ept> based on a search term input, <bpt id="ac49ceec-cf4f-4c93-a348-5f85cd246cf2">&lt;code&gt;</bpt>moreLikeThis=<ept id="ac49ceec-cf4f-4c93-a348-5f85cd246cf2">&lt;/code&gt;</ept> finds documents that are similar to a given document by comparing their searchable fields.</target>
+        </trans-unit>
+        <trans-unit id="ae9936c0-b2e7-45b2-9a5b-24ab96f6dd03" xml:space="preserve">
+          <source><bpt id="1c70589f-c5ab-4ace-a35f-daddb2a8c0bb">&lt;strong&gt;</bpt>Released: 2015 March 5<ept id="1c70589f-c5ab-4ace-a35f-daddb2a8c0bb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1c70589f-c5ab-4ace-a35f-daddb2a8c0bb">&lt;strong&gt;</bpt>Released: 2015 March 5<ept id="1c70589f-c5ab-4ace-a35f-daddb2a8c0bb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0676bbb-46b9-45eb-921b-9afc5c06dfe2" xml:space="preserve">
+          <source><bpt id="82ca4441-603a-43b0-a471-942dd229a42b">&lt;linkText&gt;</bpt>Indexers<ept id="82ca4441-603a-43b0-a471-942dd229a42b">&lt;/linkText&gt;</ept><bpt id="82ca4441-603a-43b0-a471-942dd229a42b">&lt;title&gt;</bpt><ept id="82ca4441-603a-43b0-a471-942dd229a42b">&lt;/title&gt;</ept> is a new feature that vastly simplifies indexing from data sources on Azure SQL Database, Azure DocumentDB, and SQL Server on Azure VMs.</source>
+          <target state="new"><bpt id="82ca4441-603a-43b0-a471-942dd229a42b">&lt;linkText&gt;</bpt>Indexers<ept id="82ca4441-603a-43b0-a471-942dd229a42b">&lt;/linkText&gt;</ept><bpt id="82ca4441-603a-43b0-a471-942dd229a42b">&lt;title&gt;</bpt><ept id="82ca4441-603a-43b0-a471-942dd229a42b">&lt;/title&gt;</ept> is a new feature that vastly simplifies indexing from data sources on Azure SQL Database, Azure DocumentDB, and SQL Server on Azure VMs.</target>
+        </trans-unit>
+        <trans-unit id="a5e5981f-f9ed-4c9a-b125-92873e2676a8" xml:space="preserve">
+          <source><bpt id="0edb9d86-d0d3-4bfa-9bac-100b976dd3b8">&lt;linkText&gt;</bpt>Suggesters<ept id="0edb9d86-d0d3-4bfa-9bac-100b976dd3b8">&lt;/linkText&gt;</ept><bpt id="0edb9d86-d0d3-4bfa-9bac-100b976dd3b8">&lt;title&gt;</bpt><ept id="0edb9d86-d0d3-4bfa-9bac-100b976dd3b8">&lt;/title&gt;</ept> replaces the more limited, type-ahead query support of the previous implementation (it only matched on prefixes) by adding support for infix matching.</source>
+          <target state="new"><bpt id="0edb9d86-d0d3-4bfa-9bac-100b976dd3b8">&lt;linkText&gt;</bpt>Suggesters<ept id="0edb9d86-d0d3-4bfa-9bac-100b976dd3b8">&lt;/linkText&gt;</ept><bpt id="0edb9d86-d0d3-4bfa-9bac-100b976dd3b8">&lt;title&gt;</bpt><ept id="0edb9d86-d0d3-4bfa-9bac-100b976dd3b8">&lt;/title&gt;</ept> replaces the more limited, type-ahead query support of the previous implementation (it only matched on prefixes) by adding support for infix matching.</target>
+        </trans-unit>
+        <trans-unit id="7d4ca349-c0be-4e9a-bebc-322260c83655" xml:space="preserve">
+          <source>This implementation can find matches anywhere in a term, and also supports fuzzy matching.</source>
+          <target state="new">This implementation can find matches anywhere in a term, and also supports fuzzy matching.</target>
+        </trans-unit>
+        <trans-unit id="2b7bfa5b-c4a7-4305-83df-6433a570e1da" xml:space="preserve">
+          <source><bpt id="56643e1a-4113-4332-a94d-3f39afbb583c">&lt;linkText&gt;</bpt>Tag boosting<ept id="56643e1a-4113-4332-a94d-3f39afbb583c">&lt;/linkText&gt;</ept><bpt id="56643e1a-4113-4332-a94d-3f39afbb583c">&lt;title&gt;</bpt><ept id="56643e1a-4113-4332-a94d-3f39afbb583c">&lt;/title&gt;</ept> enables a new scenario for scoring profiles.</source>
+          <target state="new"><bpt id="56643e1a-4113-4332-a94d-3f39afbb583c">&lt;linkText&gt;</bpt>Tag boosting<ept id="56643e1a-4113-4332-a94d-3f39afbb583c">&lt;/linkText&gt;</ept><bpt id="56643e1a-4113-4332-a94d-3f39afbb583c">&lt;title&gt;</bpt><ept id="56643e1a-4113-4332-a94d-3f39afbb583c">&lt;/title&gt;</ept> enables a new scenario for scoring profiles.</target>
+        </trans-unit>
+        <trans-unit id="8e86f69d-e39a-4ff8-91eb-ea108decd774" xml:space="preserve">
+          <source>In particular, it leverages persisted data (such as shopping preferences) so that you can boost search results for individual users, based on personalized information.</source>
+          <target state="new">In particular, it leverages persisted data (such as shopping preferences) so that you can boost search results for individual users, based on personalized information.</target>
+        </trans-unit>
+        <trans-unit id="9c4f8b5d-b136-4382-b8e3-9f528090dfc4" xml:space="preserve">
+          <source>Visit <bpt id="08ecf181-cb90-4b07-a43d-d9985c0e4679">&lt;linkText&gt;</bpt>Azure Search is now Generally Available<ept id="08ecf181-cb90-4b07-a43d-d9985c0e4679">&lt;/linkText&gt;</ept><bpt id="08ecf181-cb90-4b07-a43d-d9985c0e4679">&lt;title&gt;</bpt><ept id="08ecf181-cb90-4b07-a43d-d9985c0e4679">&lt;/title&gt;</ept> for the service announcement on the Azure blog that discusses all of these features.</source>
+          <target state="new">Visit <bpt id="08ecf181-cb90-4b07-a43d-d9985c0e4679">&lt;linkText&gt;</bpt>Azure Search is now Generally Available<ept id="08ecf181-cb90-4b07-a43d-d9985c0e4679">&lt;/linkText&gt;</ept><bpt id="08ecf181-cb90-4b07-a43d-d9985c0e4679">&lt;title&gt;</bpt><ept id="08ecf181-cb90-4b07-a43d-d9985c0e4679">&lt;/title&gt;</ept> for the service announcement on the Azure blog that discusses all of these features.</target>
+        </trans-unit>
+        <trans-unit id="373e23e2-9857-4475-b155-4eb5630eeffd" xml:space="preserve">
+          <source><bpt id="790e63a4-960b-42b0-ae09-fda9b3f13778">&lt;strong&gt;</bpt>Released: 2014 November, 2015 January<ept id="790e63a4-960b-42b0-ae09-fda9b3f13778">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="790e63a4-960b-42b0-ae09-fda9b3f13778">&lt;strong&gt;</bpt>Released: 2014 November, 2015 January<ept id="790e63a4-960b-42b0-ae09-fda9b3f13778">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fa557e5-0e25-46ff-bc5f-6e6d4d8fc27c" xml:space="preserve">
+          <source><bpt id="3c612d84-1d9d-461b-bd50-ccba8f981855">&lt;linkText&gt;</bpt>Lucene language analyzers<ept id="3c612d84-1d9d-461b-bd50-ccba8f981855">&lt;/linkText&gt;</ept><bpt id="3c612d84-1d9d-461b-bd50-ccba8f981855">&lt;title&gt;</bpt><ept id="3c612d84-1d9d-461b-bd50-ccba8f981855">&lt;/title&gt;</ept> was added to provide multi-lingual support for the custom language analyzers distributed with Lucene.</source>
+          <target state="new"><bpt id="3c612d84-1d9d-461b-bd50-ccba8f981855">&lt;linkText&gt;</bpt>Lucene language analyzers<ept id="3c612d84-1d9d-461b-bd50-ccba8f981855">&lt;/linkText&gt;</ept><bpt id="3c612d84-1d9d-461b-bd50-ccba8f981855">&lt;title&gt;</bpt><ept id="3c612d84-1d9d-461b-bd50-ccba8f981855">&lt;/title&gt;</ept> was added to provide multi-lingual support for the custom language analyzers distributed with Lucene.</target>
+        </trans-unit>
+        <trans-unit id="7b0c9dc2-25ac-408e-92aa-42d79588368c" xml:space="preserve">
+          <source>Tool support was introduced for building indexes, including scoring profiles, in the <bpt id="fba8e445-b7b1-4109-a954-905bdbae25a3">&lt;linkText&gt;</bpt>Azure management portal<ept id="fba8e445-b7b1-4109-a954-905bdbae25a3">&lt;/linkText&gt;</ept><bpt id="fba8e445-b7b1-4109-a954-905bdbae25a3">&lt;title&gt;</bpt><ept id="fba8e445-b7b1-4109-a954-905bdbae25a3">&lt;/title&gt;</ept>.</source>
+          <target state="new">Tool support was introduced for building indexes, including scoring profiles, in the <bpt id="fba8e445-b7b1-4109-a954-905bdbae25a3">&lt;linkText&gt;</bpt>Azure management portal<ept id="fba8e445-b7b1-4109-a954-905bdbae25a3">&lt;/linkText&gt;</ept><bpt id="fba8e445-b7b1-4109-a954-905bdbae25a3">&lt;title&gt;</bpt><ept id="fba8e445-b7b1-4109-a954-905bdbae25a3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a298a07-4824-4708-8a7c-9af9560e5b72" xml:space="preserve">
+          <source><bpt id="d88892b9-0f75-47e8-8421-59f3fb64c18f">&lt;strong&gt;</bpt>Released: 2014 August 21<ept id="d88892b9-0f75-47e8-8421-59f3fb64c18f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d88892b9-0f75-47e8-8421-59f3fb64c18f">&lt;strong&gt;</bpt>Released: 2014 August 21<ept id="d88892b9-0f75-47e8-8421-59f3fb64c18f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27d6a142-cdc0-44ca-a4d1-2693647dfc9c" xml:space="preserve">
+          <source>This version was the public preview release for Azure Search, providing the following core features:</source>
+          <target state="new">This version was the public preview release for Azure Search, providing the following core features:</target>
+        </trans-unit>
+        <trans-unit id="e50d6ddc-dfc3-43a5-9b8f-16853c9a60b9" xml:space="preserve">
+          <source>REST API for index and document operations.</source>
+          <target state="new">REST API for index and document operations.</target>
+        </trans-unit>
+        <trans-unit id="0324654e-7c46-46e3-a453-7d7af02764a4" xml:space="preserve">
+          <source>The majority of this API version is intact in 2015-02-28.</source>
+          <target state="new">The majority of this API version is intact in 2015-02-28.</target>
+        </trans-unit>
+        <trans-unit id="a62298f8-efdc-4f10-9029-4f5b2667163c" xml:space="preserve">
+          <source>The documentation for version <bpt id="d1528ac0-0617-4bde-8fb0-1f81aa316943">&lt;code&gt;</bpt>2014-07-31-Preview<ept id="d1528ac0-0617-4bde-8fb0-1f81aa316943">&lt;/code&gt;</ept> can be found at <bpt id="36470cf7-66cd-492e-ad81-43923bf379ef">&lt;linkText&gt;</bpt>Azure Search Service REST API Version 2014-07-31<ept id="36470cf7-66cd-492e-ad81-43923bf379ef">&lt;/linkText&gt;</ept><bpt id="36470cf7-66cd-492e-ad81-43923bf379ef">&lt;title&gt;</bpt><ept id="36470cf7-66cd-492e-ad81-43923bf379ef">&lt;/title&gt;</ept>.</source>
+          <target state="new">The documentation for version <bpt id="d1528ac0-0617-4bde-8fb0-1f81aa316943">&lt;code&gt;</bpt>2014-07-31-Preview<ept id="d1528ac0-0617-4bde-8fb0-1f81aa316943">&lt;/code&gt;</ept> can be found at <bpt id="36470cf7-66cd-492e-ad81-43923bf379ef">&lt;linkText&gt;</bpt>Azure Search Service REST API Version 2014-07-31<ept id="36470cf7-66cd-492e-ad81-43923bf379ef">&lt;/linkText&gt;</ept><bpt id="36470cf7-66cd-492e-ad81-43923bf379ef">&lt;title&gt;</bpt><ept id="36470cf7-66cd-492e-ad81-43923bf379ef">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43434a97-1382-4533-8100-31242bd40140" xml:space="preserve">
+          <source>Scoring profiles for tuning search results.</source>
+          <target state="new">Scoring profiles for tuning search results.</target>
+        </trans-unit>
+        <trans-unit id="d3fb86fe-55a7-4943-a4d5-9e6dc334c688" xml:space="preserve">
+          <source>A scoring profile adds criteria used to compute search scores.</source>
+          <target state="new">A scoring profile adds criteria used to compute search scores.</target>
+        </trans-unit>
+        <trans-unit id="44b74d2a-4301-4877-8180-3e02ab764c3f" xml:space="preserve">
+          <source>The documentation for this feature can be found at <bpt id="90b18ca8-e37f-45e6-94a5-4d4c186b5265">&lt;linkText&gt;</bpt>Azure Search Service Scoring Profiles REST API Version 2014-07-31<ept id="90b18ca8-e37f-45e6-94a5-4d4c186b5265">&lt;/linkText&gt;</ept><bpt id="90b18ca8-e37f-45e6-94a5-4d4c186b5265">&lt;title&gt;</bpt><ept id="90b18ca8-e37f-45e6-94a5-4d4c186b5265">&lt;/title&gt;</ept>.</source>
+          <target state="new">The documentation for this feature can be found at <bpt id="90b18ca8-e37f-45e6-94a5-4d4c186b5265">&lt;linkText&gt;</bpt>Azure Search Service Scoring Profiles REST API Version 2014-07-31<ept id="90b18ca8-e37f-45e6-94a5-4d4c186b5265">&lt;/linkText&gt;</ept><bpt id="90b18ca8-e37f-45e6-94a5-4d4c186b5265">&lt;title&gt;</bpt><ept id="90b18ca8-e37f-45e6-94a5-4d4c186b5265">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a01413b7-f1ee-4111-a04f-dbd5665e1e0b" xml:space="preserve">
+          <source>Geospatial support has been available from the beginning, provided through the <bpt id="95a3eb30-aeae-44e7-baaa-b2bf8d0fa171">&lt;code&gt;</bpt>Edm.GeographyPoint<ept id="95a3eb30-aeae-44e7-baaa-b2bf8d0fa171">&lt;/code&gt;</ept> data type that has been part of Azure Search since its inception.</source>
+          <target state="new">Geospatial support has been available from the beginning, provided through the <bpt id="95a3eb30-aeae-44e7-baaa-b2bf8d0fa171">&lt;code&gt;</bpt>Edm.GeographyPoint<ept id="95a3eb30-aeae-44e7-baaa-b2bf8d0fa171">&lt;/code&gt;</ept> data type that has been part of Azure Search since its inception.</target>
+        </trans-unit>
+        <trans-unit id="16038f63-df90-445d-8b42-95468e631e1e" xml:space="preserve">
+          <source>Provisioning in the preview version of the <bpt id="353ddbf1-be38-402f-857b-11fe2bcc2ad7">&lt;linkText&gt;</bpt>Azure management portal<ept id="353ddbf1-be38-402f-857b-11fe2bcc2ad7">&lt;/linkText&gt;</ept><bpt id="353ddbf1-be38-402f-857b-11fe2bcc2ad7">&lt;title&gt;</bpt><ept id="353ddbf1-be38-402f-857b-11fe2bcc2ad7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Provisioning in the preview version of the <bpt id="353ddbf1-be38-402f-857b-11fe2bcc2ad7">&lt;linkText&gt;</bpt>Azure management portal<ept id="353ddbf1-be38-402f-857b-11fe2bcc2ad7">&lt;/linkText&gt;</ept><bpt id="353ddbf1-be38-402f-857b-11fe2bcc2ad7">&lt;title&gt;</bpt><ept id="353ddbf1-be38-402f-857b-11fe2bcc2ad7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c427d1e-018d-4863-8d66-95ff68848603" xml:space="preserve">
+          <source>Azure Search was one of the few services that has only been available in the new portal.</source>
+          <target state="new">Azure Search was one of the few services that has only been available in the new portal.</target>
+        </trans-unit>
+        <trans-unit id="e4506f59-bdb3-434a-b12b-ec622280e33a" xml:space="preserve">
+          <source><bpt id="1fbf1171-814e-4a68-9f11-aeb20f468ddc">&lt;strong&gt;</bpt>Released: 2015 March 5<ept id="1fbf1171-814e-4a68-9f11-aeb20f468ddc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1fbf1171-814e-4a68-9f11-aeb20f468ddc">&lt;strong&gt;</bpt>Released: 2015 March 5<ept id="1fbf1171-814e-4a68-9f11-aeb20f468ddc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cb7efb0-dd07-4032-bf49-08de96471901" xml:space="preserve">
+          <source><bpt id="330bb441-8864-4ce7-961c-dce2fce49a0e">&lt;linkText&gt;</bpt>Management REST API<ept id="330bb441-8864-4ce7-961c-dce2fce49a0e">&lt;/linkText&gt;</ept><bpt id="330bb441-8864-4ce7-961c-dce2fce49a0e">&lt;title&gt;</bpt><ept id="330bb441-8864-4ce7-961c-dce2fce49a0e">&lt;/title&gt;</ept> marks the first version of the management API belonging to the generally available release of Azure Search.</source>
+          <target state="new"><bpt id="330bb441-8864-4ce7-961c-dce2fce49a0e">&lt;linkText&gt;</bpt>Management REST API<ept id="330bb441-8864-4ce7-961c-dce2fce49a0e">&lt;/linkText&gt;</ept><bpt id="330bb441-8864-4ce7-961c-dce2fce49a0e">&lt;title&gt;</bpt><ept id="330bb441-8864-4ce7-961c-dce2fce49a0e">&lt;/title&gt;</ept> marks the first version of the management API belonging to the generally available release of Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="35ee2552-9a91-4649-b8c0-52c3e440c6f3" xml:space="preserve">
+          <source>There are no feature differences between the earlier preview and this one.</source>
+          <target state="new">There are no feature differences between the earlier preview and this one.</target>
+        </trans-unit>
+        <trans-unit id="e7fcdcfb-2e91-4c79-a274-278a3619da9a" xml:space="preserve">
+          <source><bpt id="70a0036a-97af-4113-bd51-0333b6f8b660">&lt;strong&gt;</bpt>Released: 2014 October<ept id="70a0036a-97af-4113-bd51-0333b6f8b660">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="70a0036a-97af-4113-bd51-0333b6f8b660">&lt;strong&gt;</bpt>Released: 2014 October<ept id="70a0036a-97af-4113-bd51-0333b6f8b660">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a64d51e-9aad-444d-b106-5388b272c440" xml:space="preserve">
+          <source>The preview release of <bpt id="6361c29a-cf30-467b-90b7-af3cccc10477">&lt;linkText&gt;</bpt>Management REST API<ept id="6361c29a-cf30-467b-90b7-af3cccc10477">&lt;/linkText&gt;</ept><bpt id="6361c29a-cf30-467b-90b7-af3cccc10477">&lt;title&gt;</bpt><ept id="6361c29a-cf30-467b-90b7-af3cccc10477">&lt;/title&gt;</ept> was added to support service administration programmatically.</source>
+          <target state="new">The preview release of <bpt id="6361c29a-cf30-467b-90b7-af3cccc10477">&lt;linkText&gt;</bpt>Management REST API<ept id="6361c29a-cf30-467b-90b7-af3cccc10477">&lt;/linkText&gt;</ept><bpt id="6361c29a-cf30-467b-90b7-af3cccc10477">&lt;title&gt;</bpt><ept id="6361c29a-cf30-467b-90b7-af3cccc10477">&lt;/title&gt;</ept> was added to support service administration programmatically.</target>
+        </trans-unit>
+        <trans-unit id="d3491420-6945-43d0-9fc9-d565ce79cc20" xml:space="preserve">
+          <source>It is versioned independently of the service REST API.</source>
+          <target state="new">It is versioned independently of the service REST API.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

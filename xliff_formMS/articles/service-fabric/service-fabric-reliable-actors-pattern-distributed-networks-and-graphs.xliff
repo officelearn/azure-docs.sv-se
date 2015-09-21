@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="df34dfd9-260c-4e0d-a72b-7353036dab1b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="df34dfd9-260c-4e0d-a72b-7353036dab1b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fe7407c1-4dc1-4bc0-a368-8bdeac6977cb">
+        <trans-unit id="9b5d7908-d6c4-4769-9f2f-aed990710805" xml:space="preserve">
+          <source>Azure Service Fabric Actors Distributed Networks and Graphs design pattern</source>
+          <target state="new">Azure Service Fabric Actors Distributed Networks and Graphs design pattern</target>
+        </trans-unit>
+        <trans-unit id="ef1c0de7-b39a-461c-909b-5363ae52ea1d" xml:space="preserve">
+          <source>Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs</source>
+          <target state="new">Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs</target>
+        </trans-unit>
+        <trans-unit id="a5de79e9-0ce9-44d5-8b9f-b1f7c9f07fa5" xml:space="preserve">
+          <source>Service Fabric Reliable Actors is a natural fit for modeling complex solutions involving relations and modeling those relations as objects.</source>
+          <target state="new">Service Fabric Reliable Actors is a natural fit for modeling complex solutions involving relations and modeling those relations as objects.</target>
+        </trans-unit>
+        <trans-unit id="d4551fc0-43ce-497e-9721-3770fc914c92" xml:space="preserve">
+          <source><bpt id="d03c3002-e04b-4345-a79d-d495d2797e1e">&lt;linkText&gt;</bpt><ept id="d03c3002-e04b-4345-a79d-d495d2797e1e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d03c3002-e04b-4345-a79d-d495d2797e1e">&lt;linkText&gt;</bpt><ept id="d03c3002-e04b-4345-a79d-d495d2797e1e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ae34129-896d-4dc6-b118-b2527cbac5fb" xml:space="preserve">
+          <source>As the diagram illustrates it is straightforward to model a user as an actor instance (node in the network).</source>
+          <target state="new">As the diagram illustrates it is straightforward to model a user as an actor instance (node in the network).</target>
+        </trans-unit>
+        <trans-unit id="0832a4bc-5657-470b-89aa-f32dad480fcf" xml:space="preserve">
+          <source>For example, the “Friends Feed” (sometimes referred as the "follower" problem) allows users to view status updates from people they are connected to, similar to how Facebook and Twitter work.</source>
+          <target state="new">For example, the “Friends Feed” (sometimes referred as the "follower" problem) allows users to view status updates from people they are connected to, similar to how Facebook and Twitter work.</target>
+        </trans-unit>
+        <trans-unit id="057fcce4-825f-47c9-b44c-38fdbdc585a2" xml:space="preserve">
+          <source>The Actor model provides flexibility to approach the materialization problem.</source>
+          <target state="new">The Actor model provides flexibility to approach the materialization problem.</target>
+        </trans-unit>
+        <trans-unit id="6cda1819-ba71-4b21-8cf1-d820b7ab7641" xml:space="preserve">
+          <source>We can populate the Friends Feed at event time, updating the Friends Feed of all my friends at the moment an update is posted, as illustrated below:</source>
+          <target state="new">We can populate the Friends Feed at event time, updating the Friends Feed of all my friends at the moment an update is posted, as illustrated below:</target>
+        </trans-unit>
+        <trans-unit id="625967ec-1d28-4b4f-847b-7c4a0e09bce8" xml:space="preserve">
+          <source><bpt id="2b5bb396-356b-4d85-898f-60510c19677b">&lt;linkText&gt;</bpt><ept id="2b5bb396-356b-4d85-898f-60510c19677b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2b5bb396-356b-4d85-898f-60510c19677b">&lt;linkText&gt;</bpt><ept id="2b5bb396-356b-4d85-898f-60510c19677b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a09b90fc-93ff-4daa-a41c-3e631689fbb7" xml:space="preserve">
+          <source>Sample code populating Friends Feed:</source>
+          <target state="new">Sample code populating Friends Feed:</target>
+        </trans-unit>
+        <trans-unit id="2d5832e0-1ddc-4e9f-bcd9-d40d44b2790e" xml:space="preserve">
+          <source>Alternatively we can model our Actors to fan out and compile the Friends Feed at the query timer, in other words when the user asks for their friends feed.</source>
+          <target state="new">Alternatively we can model our Actors to fan out and compile the Friends Feed at the query timer, in other words when the user asks for their friends feed.</target>
+        </trans-unit>
+        <trans-unit id="197383bc-7d2e-4b11-843d-1e6baacf514a" xml:space="preserve">
+          <source>Another method we can use is materializing the Friends Feed on a timer, for example, every 5 minutes.</source>
+          <target state="new">Another method we can use is materializing the Friends Feed on a timer, for example, every 5 minutes.</target>
+        </trans-unit>
+        <trans-unit id="2ff65b4f-805f-49cd-9f1a-ff4dd19517ce" xml:space="preserve">
+          <source>Or, we can optimize the model and combine both event time and query time processing with a timer-based model depending on user habits, such as how often they login or post an update.</source>
+          <target state="new">Or, we can optimize the model and combine both event time and query time processing with a timer-based model depending on user habits, such as how often they login or post an update.</target>
+        </trans-unit>
+        <trans-unit id="acc7e41c-c886-44cb-83e1-07721fe83328" xml:space="preserve">
+          <source>When modelling an actor in a social network, one should also consider “super users,” users with millions of followers.</source>
+          <target state="new">When modelling an actor in a social network, one should also consider “super users,” users with millions of followers.</target>
+        </trans-unit>
+        <trans-unit id="1615494e-55e6-40fa-a8fb-1081adc1a5b8" xml:space="preserve">
+          <source>Developers should model the state and behaviour of such users differently to meet the demand.</source>
+          <target state="new">Developers should model the state and behaviour of such users differently to meet the demand.</target>
+        </trans-unit>
+        <trans-unit id="942f0d6d-b01d-47cd-86fc-73c4c2c63c82" xml:space="preserve">
+          <source>Similarly, if we want to model an activity that connects many user actors to a single activity actor (hub and spoke) that can be done as well.</source>
+          <target state="new">Similarly, if we want to model an activity that connects many user actors to a single activity actor (hub and spoke) that can be done as well.</target>
+        </trans-unit>
+        <trans-unit id="cf42899d-a5d7-4a03-b666-220a122d7349" xml:space="preserve">
+          <source>Group chat or game hosting scenarios are two examples.</source>
+          <target state="new">Group chat or game hosting scenarios are two examples.</target>
+        </trans-unit>
+        <trans-unit id="f5c2d8f5-1114-4055-9dda-7812b9318113" xml:space="preserve">
+          <source>Let’s take the group chat example; a set of participants create a group chat actor that can distribute messages from one participant to the group as in the example below:</source>
+          <target state="new">Let’s take the group chat example; a set of participants create a group chat actor that can distribute messages from one participant to the group as in the example below:</target>
+        </trans-unit>
+        <trans-unit id="dd1fafe9-4d9d-4534-b27b-3e638e15604e" xml:space="preserve">
+          <source>All it really does is leverage Reliable Actors' ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialization, or routing.</source>
+          <target state="new">All it really does is leverage Reliable Actors' ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialization, or routing.</target>
+        </trans-unit>
+        <trans-unit id="ec1be81e-1f9a-4447-b9c0-90b485b6a244" xml:space="preserve">
+          <source><bpt id="b520b674-e403-4d72-976a-17835ec57ee7">&lt;linkText&gt;</bpt>Pattern: Smart Cache<ept id="b520b674-e403-4d72-976a-17835ec57ee7">&lt;/linkText&gt;</ept><bpt id="b520b674-e403-4d72-976a-17835ec57ee7">&lt;title&gt;</bpt><ept id="b520b674-e403-4d72-976a-17835ec57ee7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b520b674-e403-4d72-976a-17835ec57ee7">&lt;linkText&gt;</bpt>Pattern: Smart Cache<ept id="b520b674-e403-4d72-976a-17835ec57ee7">&lt;/linkText&gt;</ept><bpt id="b520b674-e403-4d72-976a-17835ec57ee7">&lt;title&gt;</bpt><ept id="b520b674-e403-4d72-976a-17835ec57ee7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1695d54-4694-4f0e-9718-41bd468ada12" xml:space="preserve">
+          <source><bpt id="9f8a092d-3109-4daa-b178-befcfc7b4410">&lt;linkText&gt;</bpt>Pattern: Resource Governance<ept id="9f8a092d-3109-4daa-b178-befcfc7b4410">&lt;/linkText&gt;</ept><bpt id="9f8a092d-3109-4daa-b178-befcfc7b4410">&lt;title&gt;</bpt><ept id="9f8a092d-3109-4daa-b178-befcfc7b4410">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9f8a092d-3109-4daa-b178-befcfc7b4410">&lt;linkText&gt;</bpt>Pattern: Resource Governance<ept id="9f8a092d-3109-4daa-b178-befcfc7b4410">&lt;/linkText&gt;</ept><bpt id="9f8a092d-3109-4daa-b178-befcfc7b4410">&lt;title&gt;</bpt><ept id="9f8a092d-3109-4daa-b178-befcfc7b4410">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f03526fb-6ece-47dc-8f42-22eaaca74580" xml:space="preserve">
+          <source><bpt id="9c9e102a-e65a-4a7b-a7f8-70c8e3664827">&lt;linkText&gt;</bpt>Pattern: Stateful Service Composition<ept id="9c9e102a-e65a-4a7b-a7f8-70c8e3664827">&lt;/linkText&gt;</ept><bpt id="9c9e102a-e65a-4a7b-a7f8-70c8e3664827">&lt;title&gt;</bpt><ept id="9c9e102a-e65a-4a7b-a7f8-70c8e3664827">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9c9e102a-e65a-4a7b-a7f8-70c8e3664827">&lt;linkText&gt;</bpt>Pattern: Stateful Service Composition<ept id="9c9e102a-e65a-4a7b-a7f8-70c8e3664827">&lt;/linkText&gt;</ept><bpt id="9c9e102a-e65a-4a7b-a7f8-70c8e3664827">&lt;title&gt;</bpt><ept id="9c9e102a-e65a-4a7b-a7f8-70c8e3664827">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9aa34e6d-1568-4d3b-b9b6-7ca8b74472b8" xml:space="preserve">
+          <source><bpt id="f1448682-217c-4164-a337-97d7d3bc9cbc">&lt;linkText&gt;</bpt>Pattern: Internet of Things<ept id="f1448682-217c-4164-a337-97d7d3bc9cbc">&lt;/linkText&gt;</ept><bpt id="f1448682-217c-4164-a337-97d7d3bc9cbc">&lt;title&gt;</bpt><ept id="f1448682-217c-4164-a337-97d7d3bc9cbc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f1448682-217c-4164-a337-97d7d3bc9cbc">&lt;linkText&gt;</bpt>Pattern: Internet of Things<ept id="f1448682-217c-4164-a337-97d7d3bc9cbc">&lt;/linkText&gt;</ept><bpt id="f1448682-217c-4164-a337-97d7d3bc9cbc">&lt;title&gt;</bpt><ept id="f1448682-217c-4164-a337-97d7d3bc9cbc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b74d0c2-a20a-4aff-be3d-3b88358afe96" xml:space="preserve">
+          <source><bpt id="9083eea7-d07c-4b76-aa4d-897ca9b89287">&lt;linkText&gt;</bpt>Pattern: Distributed Computation<ept id="9083eea7-d07c-4b76-aa4d-897ca9b89287">&lt;/linkText&gt;</ept><bpt id="9083eea7-d07c-4b76-aa4d-897ca9b89287">&lt;title&gt;</bpt><ept id="9083eea7-d07c-4b76-aa4d-897ca9b89287">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9083eea7-d07c-4b76-aa4d-897ca9b89287">&lt;linkText&gt;</bpt>Pattern: Distributed Computation<ept id="9083eea7-d07c-4b76-aa4d-897ca9b89287">&lt;/linkText&gt;</ept><bpt id="9083eea7-d07c-4b76-aa4d-897ca9b89287">&lt;title&gt;</bpt><ept id="9083eea7-d07c-4b76-aa4d-897ca9b89287">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3873287-c75d-45d7-a520-330f2656e317" xml:space="preserve">
+          <source><bpt id="3bf36fe6-9685-4c81-9cd0-a5cd7862ea7a">&lt;linkText&gt;</bpt>Some Anti-patterns<ept id="3bf36fe6-9685-4c81-9cd0-a5cd7862ea7a">&lt;/linkText&gt;</ept><bpt id="3bf36fe6-9685-4c81-9cd0-a5cd7862ea7a">&lt;title&gt;</bpt><ept id="3bf36fe6-9685-4c81-9cd0-a5cd7862ea7a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3bf36fe6-9685-4c81-9cd0-a5cd7862ea7a">&lt;linkText&gt;</bpt>Some Anti-patterns<ept id="3bf36fe6-9685-4c81-9cd0-a5cd7862ea7a">&lt;/linkText&gt;</ept><bpt id="3bf36fe6-9685-4c81-9cd0-a5cd7862ea7a">&lt;title&gt;</bpt><ept id="3bf36fe6-9685-4c81-9cd0-a5cd7862ea7a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29fa4e4e-02ec-42fe-bf17-726b4f7ab3e0" xml:space="preserve">
+          <source><bpt id="6b7e33a0-f986-4343-a7b6-90f2dba7960a">&lt;linkText&gt;</bpt>Introduction to Service Fabric Actors<ept id="6b7e33a0-f986-4343-a7b6-90f2dba7960a">&lt;/linkText&gt;</ept><bpt id="6b7e33a0-f986-4343-a7b6-90f2dba7960a">&lt;title&gt;</bpt><ept id="6b7e33a0-f986-4343-a7b6-90f2dba7960a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b7e33a0-f986-4343-a7b6-90f2dba7960a">&lt;linkText&gt;</bpt>Introduction to Service Fabric Actors<ept id="6b7e33a0-f986-4343-a7b6-90f2dba7960a">&lt;/linkText&gt;</ept><bpt id="6b7e33a0-f986-4343-a7b6-90f2dba7960a">&lt;title&gt;</bpt><ept id="6b7e33a0-f986-4343-a7b6-90f2dba7960a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75bde4f0-b4a0-4d0d-a518-dac66516b272" xml:space="preserve">
+          <source>./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png</source>
+          <target state="new">./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png</target>
+        </trans-unit>
+        <trans-unit id="11f1439d-071f-42dc-b7d6-8762f334c3a7" xml:space="preserve">
+          <source>./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png</source>
+          <target state="new">./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png</target>
+        </trans-unit>
+      </group>
+      <group id="26c625a7-b226-49de-9e52-68d097d28550" />
+    </body>
+  </file>
+</xliff>

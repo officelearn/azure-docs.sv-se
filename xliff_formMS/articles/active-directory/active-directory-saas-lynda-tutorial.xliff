@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="11ea6b6b-8393-4b39-8e52-dedad4dbff2a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="11ea6b6b-8393-4b39-8e52-dedad4dbff2a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cf7237ab-06c8-4ed7-9909-5d7edae34918">
+        <trans-unit id="7d32cdaf-154f-49f8-9381-84a79f5d059c" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Lynda.com | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Lynda.com | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1b1c6da9-f34c-424c-bc48-221618153ec7" xml:space="preserve">
+          <source>Learn how to use Lynda.com with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Lynda.com with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="928f0f2d-2517-4943-8165-ad7864ab4651" xml:space="preserve">
+          <source>For feedback, click <bpt id="909aae80-8925-42fc-88ab-720a32b0768e">&lt;linkText&gt;</bpt>here<ept id="909aae80-8925-42fc-88ab-720a32b0768e">&lt;/linkText&gt;</ept><bpt id="909aae80-8925-42fc-88ab-720a32b0768e">&lt;title&gt;</bpt><ept id="909aae80-8925-42fc-88ab-720a32b0768e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="909aae80-8925-42fc-88ab-720a32b0768e">&lt;linkText&gt;</bpt>here<ept id="909aae80-8925-42fc-88ab-720a32b0768e">&lt;/linkText&gt;</ept><bpt id="909aae80-8925-42fc-88ab-720a32b0768e">&lt;title&gt;</bpt><ept id="909aae80-8925-42fc-88ab-720a32b0768e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b34cc59f-65ea-4b7d-9ea1-8cbaff38e527" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Lynda.com.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Lynda.com.</target>
+        </trans-unit>
+        <trans-unit id="6aebc284-dadd-40aa-978a-f6a3499996c7" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="f24f714c-6748-470a-988f-0d2be5d84c7a" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="f6c66b8f-fd74-4442-8608-afcae2be4022" xml:space="preserve">
+          <source>A Lynda.com tenant</source>
+          <target state="new">A Lynda.com tenant</target>
+        </trans-unit>
+        <trans-unit id="884addd5-5a46-4ad9-a57d-8c8a92368c69" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Lynda.com will be able to single sign into the application at your Lynda.com company site (service provider initiated sign on), or using the <bpt id="eaaceef2-487c-4cd2-a2b1-f6374237590b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="eaaceef2-487c-4cd2-a2b1-f6374237590b">&lt;/linkText&gt;</ept><bpt id="eaaceef2-487c-4cd2-a2b1-f6374237590b">&lt;title&gt;</bpt><ept id="eaaceef2-487c-4cd2-a2b1-f6374237590b">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Lynda.com will be able to single sign into the application at your Lynda.com company site (service provider initiated sign on), or using the <bpt id="eaaceef2-487c-4cd2-a2b1-f6374237590b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="eaaceef2-487c-4cd2-a2b1-f6374237590b">&lt;/linkText&gt;</ept><bpt id="eaaceef2-487c-4cd2-a2b1-f6374237590b">&lt;title&gt;</bpt><ept id="eaaceef2-487c-4cd2-a2b1-f6374237590b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf280a7a-d095-4134-bfd7-b8b72df0dc94" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="0ff4be5e-ca59-4e66-b69f-95efc3452375" xml:space="preserve">
+          <source>Enabling the application integration for Lynda.com</source>
+          <target state="new">Enabling the application integration for Lynda.com</target>
+        </trans-unit>
+        <trans-unit id="7a7172e7-d2d8-4838-aa4d-8ea8a9a6f139" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="f7f2e873-2eeb-4ba2-99ba-39c5d5b8788c" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="92154f01-6ba5-44ef-a086-72c418f95701" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="bee6a872-1bdb-4961-a09b-cd2a0960e680" xml:space="preserve">
+          <source><bpt id="69ccd973-74b8-422a-be37-d73c6b78e797">&lt;linkText&gt;</bpt>Scenario<ept id="69ccd973-74b8-422a-be37-d73c6b78e797">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="69ccd973-74b8-422a-be37-d73c6b78e797">&lt;linkText&gt;</bpt>Scenario<ept id="69ccd973-74b8-422a-be37-d73c6b78e797">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a453bb6-c8ce-4f66-8bd1-a80573c79287" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Lynda.com.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Lynda.com.</target>
+        </trans-unit>
+        <trans-unit id="fddfbbf7-86b9-4497-9b66-1c05ae9e1f3d" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="5ad0b8a6-446a-4cba-ad46-e05431c0d110">&lt;strong&gt;</bpt>Active Directory<ept id="5ad0b8a6-446a-4cba-ad46-e05431c0d110">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="5ad0b8a6-446a-4cba-ad46-e05431c0d110">&lt;strong&gt;</bpt>Active Directory<ept id="5ad0b8a6-446a-4cba-ad46-e05431c0d110">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52a35f19-b43c-4193-aeb4-915c9372aff8" xml:space="preserve">
+          <source><bpt id="2fed044b-16dc-474c-9b14-d3b6eccfafe1">&lt;linkText&gt;</bpt>Active Directory<ept id="2fed044b-16dc-474c-9b14-d3b6eccfafe1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2fed044b-16dc-474c-9b14-d3b6eccfafe1">&lt;linkText&gt;</bpt>Active Directory<ept id="2fed044b-16dc-474c-9b14-d3b6eccfafe1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c7ac33e-e0e7-4a2b-b7a1-27afdca78558" xml:space="preserve">
+          <source>From the <bpt id="580238c7-e8df-45a9-97d4-362242c3efcc">&lt;strong&gt;</bpt>Directory<ept id="580238c7-e8df-45a9-97d4-362242c3efcc">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="580238c7-e8df-45a9-97d4-362242c3efcc">&lt;strong&gt;</bpt>Directory<ept id="580238c7-e8df-45a9-97d4-362242c3efcc">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="9e727c0c-dc3f-4ab2-ad41-226434b6ca58" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="4a64d107-6712-469b-b3df-c1303688a919">&lt;strong&gt;</bpt>Applications<ept id="4a64d107-6712-469b-b3df-c1303688a919">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="4a64d107-6712-469b-b3df-c1303688a919">&lt;strong&gt;</bpt>Applications<ept id="4a64d107-6712-469b-b3df-c1303688a919">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="eea59cf1-d0c0-423c-9ede-a4ab1230c6a9" xml:space="preserve">
+          <source><bpt id="6ffd7ede-a18c-4a5a-846a-cefcfa683391">&lt;linkText&gt;</bpt>Applications<ept id="6ffd7ede-a18c-4a5a-846a-cefcfa683391">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ffd7ede-a18c-4a5a-846a-cefcfa683391">&lt;linkText&gt;</bpt>Applications<ept id="6ffd7ede-a18c-4a5a-846a-cefcfa683391">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6bf2eef-fa49-4e04-b090-7a3fb170292c" xml:space="preserve">
+          <source>Click <bpt id="5b68d47f-33b3-4a9a-8263-0ae0620f0ff3">&lt;strong&gt;</bpt>Add<ept id="5b68d47f-33b3-4a9a-8263-0ae0620f0ff3">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="5b68d47f-33b3-4a9a-8263-0ae0620f0ff3">&lt;strong&gt;</bpt>Add<ept id="5b68d47f-33b3-4a9a-8263-0ae0620f0ff3">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="c64498e0-80ba-4cf4-b6e2-0a79b8075454" xml:space="preserve">
+          <source><bpt id="0313679f-1b37-4879-852d-ee1d8d12db24">&lt;linkText&gt;</bpt>Add application<ept id="0313679f-1b37-4879-852d-ee1d8d12db24">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0313679f-1b37-4879-852d-ee1d8d12db24">&lt;linkText&gt;</bpt>Add application<ept id="0313679f-1b37-4879-852d-ee1d8d12db24">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85d58a0b-f71d-414d-8526-9e69c6ba8bb0" xml:space="preserve">
+          <source>On the <bpt id="b839c210-151d-4a8f-a009-25484d753915">&lt;strong&gt;</bpt>What do you want to do<ept id="b839c210-151d-4a8f-a009-25484d753915">&lt;/strong&gt;</ept> dialog, click <bpt id="a34b9384-8140-4fc1-8b79-63d03b95a568">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="a34b9384-8140-4fc1-8b79-63d03b95a568">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b839c210-151d-4a8f-a009-25484d753915">&lt;strong&gt;</bpt>What do you want to do<ept id="b839c210-151d-4a8f-a009-25484d753915">&lt;/strong&gt;</ept> dialog, click <bpt id="a34b9384-8140-4fc1-8b79-63d03b95a568">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="a34b9384-8140-4fc1-8b79-63d03b95a568">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f84425a-140d-4b6f-9b4d-b5b0807614a8" xml:space="preserve">
+          <source><bpt id="2243cf5f-ba36-4ba9-8238-7395aa7847df">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="2243cf5f-ba36-4ba9-8238-7395aa7847df">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2243cf5f-ba36-4ba9-8238-7395aa7847df">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="2243cf5f-ba36-4ba9-8238-7395aa7847df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9a2c459-8061-49c3-b726-467bebe1661a" xml:space="preserve">
+          <source>In the <bpt id="cbc99a38-e726-40b0-8e35-b98a9c652a57">&lt;strong&gt;</bpt>search box<ept id="cbc99a38-e726-40b0-8e35-b98a9c652a57">&lt;/strong&gt;</ept>, type <bpt id="b3f94bee-b4e8-4f6e-9433-c3a60d3a17ed">&lt;strong&gt;</bpt>Lynda.com<ept id="b3f94bee-b4e8-4f6e-9433-c3a60d3a17ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="cbc99a38-e726-40b0-8e35-b98a9c652a57">&lt;strong&gt;</bpt>search box<ept id="cbc99a38-e726-40b0-8e35-b98a9c652a57">&lt;/strong&gt;</ept>, type <bpt id="b3f94bee-b4e8-4f6e-9433-c3a60d3a17ed">&lt;strong&gt;</bpt>Lynda.com<ept id="b3f94bee-b4e8-4f6e-9433-c3a60d3a17ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0f0379c-c9a3-47b6-85ac-a29b21b24fe2" xml:space="preserve">
+          <source><bpt id="4bd0f50e-77b3-4ae3-a937-1104d2e84f8b">&lt;linkText&gt;</bpt>Application Gallery<ept id="4bd0f50e-77b3-4ae3-a937-1104d2e84f8b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4bd0f50e-77b3-4ae3-a937-1104d2e84f8b">&lt;linkText&gt;</bpt>Application Gallery<ept id="4bd0f50e-77b3-4ae3-a937-1104d2e84f8b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe82c813-3195-4ed3-81d3-d7056ad35e01" xml:space="preserve">
+          <source>In the results pane, select <bpt id="ac48b0a8-5cbb-4fd9-927b-2b4a591eaa7e">&lt;strong&gt;</bpt>Lynda.com<ept id="ac48b0a8-5cbb-4fd9-927b-2b4a591eaa7e">&lt;/strong&gt;</ept>, and then click <bpt id="15b049fe-8b6c-4010-a3c2-308dccb4c8ee">&lt;strong&gt;</bpt>Complete<ept id="15b049fe-8b6c-4010-a3c2-308dccb4c8ee">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="ac48b0a8-5cbb-4fd9-927b-2b4a591eaa7e">&lt;strong&gt;</bpt>Lynda.com<ept id="ac48b0a8-5cbb-4fd9-927b-2b4a591eaa7e">&lt;/strong&gt;</ept>, and then click <bpt id="15b049fe-8b6c-4010-a3c2-308dccb4c8ee">&lt;strong&gt;</bpt>Complete<ept id="15b049fe-8b6c-4010-a3c2-308dccb4c8ee">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="d071debe-798a-4597-8fbf-91f37f002f76" xml:space="preserve">
+          <source><bpt id="fad2289e-a704-4bc7-a05e-e557d95b8ecb">&lt;linkText&gt;</bpt>Lynda.com<ept id="fad2289e-a704-4bc7-a05e-e557d95b8ecb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fad2289e-a704-4bc7-a05e-e557d95b8ecb">&lt;linkText&gt;</bpt>Lynda.com<ept id="fad2289e-a704-4bc7-a05e-e557d95b8ecb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad76e6b2-ecb1-4b5d-83f9-66ba4fa38ab9" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Lynda.com with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Lynda.com with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="d7897f43-b625-4906-b59c-c165b4d5ef4f" xml:space="preserve">
+          <source>In order to be able to configure single sign-on on your Lynda.com tenant, you need to contact first the Lynda.com technical support to get this feature enabled.</source>
+          <target state="new">In order to be able to configure single sign-on on your Lynda.com tenant, you need to contact first the Lynda.com technical support to get this feature enabled.</target>
+        </trans-unit>
+        <trans-unit id="ecfe542a-9814-4ba0-b1c7-ed09888f809f" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="67a5bbc8-6afd-4231-b9ce-0caec83b0bdf">&lt;strong&gt;</bpt>Lynda.com<ept id="67a5bbc8-6afd-4231-b9ce-0caec83b0bdf">&lt;/strong&gt;</ept> application integration page, click <bpt id="44932ac2-0260-44b7-a908-197f1222e3f4">&lt;strong&gt;</bpt>Configure single sign-on<ept id="44932ac2-0260-44b7-a908-197f1222e3f4">&lt;/strong&gt;</ept> to open the <bpt id="716c3bcb-8d8a-4e47-bef3-09460cb602ed">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="716c3bcb-8d8a-4e47-bef3-09460cb602ed">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="67a5bbc8-6afd-4231-b9ce-0caec83b0bdf">&lt;strong&gt;</bpt>Lynda.com<ept id="67a5bbc8-6afd-4231-b9ce-0caec83b0bdf">&lt;/strong&gt;</ept> application integration page, click <bpt id="44932ac2-0260-44b7-a908-197f1222e3f4">&lt;strong&gt;</bpt>Configure single sign-on<ept id="44932ac2-0260-44b7-a908-197f1222e3f4">&lt;/strong&gt;</ept> to open the <bpt id="716c3bcb-8d8a-4e47-bef3-09460cb602ed">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="716c3bcb-8d8a-4e47-bef3-09460cb602ed">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="0753fde4-7220-48fa-8282-d0ac66f62ac7" xml:space="preserve">
+          <source><bpt id="dc4698a3-38ed-4086-ad02-4bb7fa6cbabd">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="dc4698a3-38ed-4086-ad02-4bb7fa6cbabd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dc4698a3-38ed-4086-ad02-4bb7fa6cbabd">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="dc4698a3-38ed-4086-ad02-4bb7fa6cbabd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02c493b8-61de-4e27-85c1-7c1a7a737650" xml:space="preserve">
+          <source>On the <bpt id="3712f52d-1118-49f9-ba9d-9da58a875660">&lt;strong&gt;</bpt>How would you like users to sign on to Lynda.com<ept id="3712f52d-1118-49f9-ba9d-9da58a875660">&lt;/strong&gt;</ept> page, select <bpt id="acba10c3-4b1e-4f9b-a2d4-4a0b784c2537">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="acba10c3-4b1e-4f9b-a2d4-4a0b784c2537">&lt;/strong&gt;</ept>, and then click <bpt id="9d49f0e3-c739-434a-87bc-85f976328744">&lt;strong&gt;</bpt>Next<ept id="9d49f0e3-c739-434a-87bc-85f976328744">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="3712f52d-1118-49f9-ba9d-9da58a875660">&lt;strong&gt;</bpt>How would you like users to sign on to Lynda.com<ept id="3712f52d-1118-49f9-ba9d-9da58a875660">&lt;/strong&gt;</ept> page, select <bpt id="acba10c3-4b1e-4f9b-a2d4-4a0b784c2537">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="acba10c3-4b1e-4f9b-a2d4-4a0b784c2537">&lt;/strong&gt;</ept>, and then click <bpt id="9d49f0e3-c739-434a-87bc-85f976328744">&lt;strong&gt;</bpt>Next<ept id="9d49f0e3-c739-434a-87bc-85f976328744">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f359418-1079-4e9d-a344-128cddf45b38" xml:space="preserve">
+          <source><bpt id="a9f4aed2-8306-4c11-82a5-2fe89d5f59cc">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a9f4aed2-8306-4c11-82a5-2fe89d5f59cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a9f4aed2-8306-4c11-82a5-2fe89d5f59cc">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a9f4aed2-8306-4c11-82a5-2fe89d5f59cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b46ffba6-44e2-4862-9137-3f8fc5aeafb0" xml:space="preserve">
+          <source>On the <bpt id="1b67871b-f002-43e7-a1e6-32e6431fa4e7">&lt;strong&gt;</bpt>Configure App URL<ept id="1b67871b-f002-43e7-a1e6-32e6431fa4e7">&lt;/strong&gt;</ept> page, in the <bpt id="ef1c3853-0a9a-4b26-8fd7-35e9911e2bab">&lt;strong&gt;</bpt>Lynda.com Sign In URL<ept id="ef1c3853-0a9a-4b26-8fd7-35e9911e2bab">&lt;/strong&gt;</ept> textbox, type your Lynda.com tenant URL (e.g.: <bpt id="04125b0d-fb31-43dd-b05e-ae0b80c70c9c">&lt;em&gt;</bpt>https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=https://sts.windows-ppe.net/6247032d-9415-403c-b72b-277e3fb6f2c8/&amp;target=https://shib.lynda.com/InCommon<ept id="04125b0d-fb31-43dd-b05e-ae0b80c70c9c">&lt;/em&gt;</ept>), and then click <bpt id="3ea71c18-c0ba-4e67-98cb-664c6d4a589c">&lt;strong&gt;</bpt>Next<ept id="3ea71c18-c0ba-4e67-98cb-664c6d4a589c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="1b67871b-f002-43e7-a1e6-32e6431fa4e7">&lt;strong&gt;</bpt>Configure App URL<ept id="1b67871b-f002-43e7-a1e6-32e6431fa4e7">&lt;/strong&gt;</ept> page, in the <bpt id="ef1c3853-0a9a-4b26-8fd7-35e9911e2bab">&lt;strong&gt;</bpt>Lynda.com Sign In URL<ept id="ef1c3853-0a9a-4b26-8fd7-35e9911e2bab">&lt;/strong&gt;</ept> textbox, type your Lynda.com tenant URL (e.g.: <bpt id="04125b0d-fb31-43dd-b05e-ae0b80c70c9c">&lt;em&gt;</bpt>https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=https://sts.windows-ppe.net/6247032d-9415-403c-b72b-277e3fb6f2c8/&amp;target=https://shib.lynda.com/InCommon<ept id="04125b0d-fb31-43dd-b05e-ae0b80c70c9c">&lt;/em&gt;</ept>), and then click <bpt id="3ea71c18-c0ba-4e67-98cb-664c6d4a589c">&lt;strong&gt;</bpt>Next<ept id="3ea71c18-c0ba-4e67-98cb-664c6d4a589c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9386a2b-7f0b-431f-accf-e99ea4cfabb3" xml:space="preserve">
+          <source><bpt id="34864972-8fe4-4943-adb6-f195cdf38b46">&lt;linkText&gt;</bpt>Configure app URL<ept id="34864972-8fe4-4943-adb6-f195cdf38b46">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="34864972-8fe4-4943-adb6-f195cdf38b46">&lt;linkText&gt;</bpt>Configure app URL<ept id="34864972-8fe4-4943-adb6-f195cdf38b46">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c6475b5-6572-4877-8e88-adcdc34a1d5d" xml:space="preserve">
+          <source>On the <bpt id="a703f0e6-3fe2-4046-8c1d-ae19f210e4e7">&lt;strong&gt;</bpt>Configure single sign-on at Lynda.com<ept id="a703f0e6-3fe2-4046-8c1d-ae19f210e4e7">&lt;/strong&gt;</ept> page, to download your metadata, click <bpt id="860a19ea-4907-4151-ad09-2ed9c308a527">&lt;strong&gt;</bpt>Download metadata<ept id="860a19ea-4907-4151-ad09-2ed9c308a527">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</source>
+          <target state="new">On the <bpt id="a703f0e6-3fe2-4046-8c1d-ae19f210e4e7">&lt;strong&gt;</bpt>Configure single sign-on at Lynda.com<ept id="a703f0e6-3fe2-4046-8c1d-ae19f210e4e7">&lt;/strong&gt;</ept> page, to download your metadata, click <bpt id="860a19ea-4907-4151-ad09-2ed9c308a527">&lt;strong&gt;</bpt>Download metadata<ept id="860a19ea-4907-4151-ad09-2ed9c308a527">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="6eb8a537-4309-41fb-b525-f4e9edab065f" xml:space="preserve">
+          <source><bpt id="80a33018-d74d-4064-98fb-319c9c621755">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="80a33018-d74d-4064-98fb-319c9c621755">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="80a33018-d74d-4064-98fb-319c9c621755">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="80a33018-d74d-4064-98fb-319c9c621755">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4136f539-c2a1-447f-9b36-2de9894b7168" xml:space="preserve">
+          <source>Send the downloaded metadata file to the Lynda.com support team.</source>
+          <target state="new">Send the downloaded metadata file to the Lynda.com support team.</target>
+        </trans-unit>
+        <trans-unit id="28c5e5eb-cdc2-4603-9a02-5cbcf64caefa" xml:space="preserve">
+          <source>The Lynda.com support team does the Single Sign On configuration for you.</source>
+          <target state="new">The Lynda.com support team does the Single Sign On configuration for you.</target>
+        </trans-unit>
+        <trans-unit id="81764ef5-3694-43ad-bda6-c86c42c1c77c" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="34603ba1-30d2-4f9d-92df-dec633789ec3">&lt;strong&gt;</bpt>Complete<ept id="34603ba1-30d2-4f9d-92df-dec633789ec3">&lt;/strong&gt;</ept> to close the <bpt id="6c05115b-cde9-480c-a53a-ab7dcaf6d324">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="6c05115b-cde9-480c-a53a-ab7dcaf6d324">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="34603ba1-30d2-4f9d-92df-dec633789ec3">&lt;strong&gt;</bpt>Complete<ept id="34603ba1-30d2-4f9d-92df-dec633789ec3">&lt;/strong&gt;</ept> to close the <bpt id="6c05115b-cde9-480c-a53a-ab7dcaf6d324">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="6c05115b-cde9-480c-a53a-ab7dcaf6d324">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="a0b5cb78-fbc5-47c2-8571-059e099f64c4" xml:space="preserve">
+          <source><bpt id="39fe4d0f-d280-4eb5-9967-1467239fb227">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="39fe4d0f-d280-4eb5-9967-1467239fb227">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="39fe4d0f-d280-4eb5-9967-1467239fb227">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="39fe4d0f-d280-4eb5-9967-1467239fb227">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abb4e9f3-53ea-46d7-ad6f-685dc59d3d7b" xml:space="preserve">
+          <source>There is no action item for you to configure user provisioning to Lynda.com.</source>
+          <target state="new">There is no action item for you to configure user provisioning to Lynda.com.</target>
+        </trans-unit>
+        <trans-unit id="f99be445-6d02-4951-84da-88c7dcf379c3" xml:space="preserve">
+          <source>When an assigned user tries to log into Lynda.com using the access panel, Lynda.com checks whether the user exists.</source>
+          <target state="new">When an assigned user tries to log into Lynda.com using the access panel, Lynda.com checks whether the user exists.</target>
+        </trans-unit>
+        <trans-unit id="86a4fbf3-65a0-48a0-8bd4-9f9680592d39" xml:space="preserve">
+          <source>If there is no user account available yet, it is automatically created by Lynda.com.</source>
+          <target state="new">If there is no user account available yet, it is automatically created by Lynda.com.</target>
+        </trans-unit>
+        <trans-unit id="8a961dd6-cd49-4d45-940d-3a353abaa50b" xml:space="preserve">
+          <source>You can use any other Lynda.com user account creation tools or APIs provided by Lynda.com to provision AAD user accounts.</source>
+          <target state="new">You can use any other Lynda.com user account creation tools or APIs provided by Lynda.com to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="4651ee0d-ba03-4385-89bc-6701fd88d783" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="87e01966-8867-4c6f-a606-b3b1e4f30097" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="e69d89a9-bcf3-4578-960e-8afb614ef41f" xml:space="preserve">
+          <source>On the <bpt id="aa535e55-29aa-4b54-8eb7-7ec4b54d8849">&lt;strong&gt;</bpt>Lynda.com **application integration page, click **Assign users<ept id="aa535e55-29aa-4b54-8eb7-7ec4b54d8849">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="aa535e55-29aa-4b54-8eb7-7ec4b54d8849">&lt;strong&gt;</bpt>Lynda.com **application integration page, click **Assign users<ept id="aa535e55-29aa-4b54-8eb7-7ec4b54d8849">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="730f848e-a52a-4099-9307-18f3f959bcbf" xml:space="preserve">
+          <source><bpt id="d645d4e7-64e3-40c6-8991-4ea999a2fdf3">&lt;linkText&gt;</bpt>Assign users<ept id="d645d4e7-64e3-40c6-8991-4ea999a2fdf3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d645d4e7-64e3-40c6-8991-4ea999a2fdf3">&lt;linkText&gt;</bpt>Assign users<ept id="d645d4e7-64e3-40c6-8991-4ea999a2fdf3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81673c04-2b8c-419d-ad62-8ce66d17e8ed" xml:space="preserve">
+          <source>Select your test user, click <bpt id="217e91ca-d10b-40d8-83c5-1f9da96f83a6">&lt;strong&gt;</bpt>Assign<ept id="217e91ca-d10b-40d8-83c5-1f9da96f83a6">&lt;/strong&gt;</ept>, and then click <bpt id="c0d4ab30-b302-4e55-a202-c44d9adfa829">&lt;strong&gt;</bpt>Yes<ept id="c0d4ab30-b302-4e55-a202-c44d9adfa829">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="217e91ca-d10b-40d8-83c5-1f9da96f83a6">&lt;strong&gt;</bpt>Assign<ept id="217e91ca-d10b-40d8-83c5-1f9da96f83a6">&lt;/strong&gt;</ept>, and then click <bpt id="c0d4ab30-b302-4e55-a202-c44d9adfa829">&lt;strong&gt;</bpt>Yes<ept id="c0d4ab30-b302-4e55-a202-c44d9adfa829">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="4acd18fd-839e-4d84-a2ad-03e7dd116d08" xml:space="preserve">
+          <source><bpt id="35580cd6-b32a-4184-8524-9fa2c3be579d">&lt;linkText&gt;</bpt>Yes<ept id="35580cd6-b32a-4184-8524-9fa2c3be579d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35580cd6-b32a-4184-8524-9fa2c3be579d">&lt;linkText&gt;</bpt>Yes<ept id="35580cd6-b32a-4184-8524-9fa2c3be579d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd28598e-752d-473c-9381-a3428f65aa17" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="3a6f67c0-808a-4eb1-99a5-96c2217ff5a0" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="f68b7279-5186-446d-946a-c04c73f9d02b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="f68b7279-5186-446d-946a-c04c73f9d02b">&lt;/linkText&gt;</ept><bpt id="f68b7279-5186-446d-946a-c04c73f9d02b">&lt;title&gt;</bpt><ept id="f68b7279-5186-446d-946a-c04c73f9d02b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="f68b7279-5186-446d-946a-c04c73f9d02b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="f68b7279-5186-446d-946a-c04c73f9d02b">&lt;/linkText&gt;</ept><bpt id="f68b7279-5186-446d-946a-c04c73f9d02b">&lt;title&gt;</bpt><ept id="f68b7279-5186-446d-946a-c04c73f9d02b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

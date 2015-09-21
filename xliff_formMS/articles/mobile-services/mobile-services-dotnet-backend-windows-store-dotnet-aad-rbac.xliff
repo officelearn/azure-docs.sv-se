@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="775378ee-31f4-4bb4-be1f-fc669432223d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="775378ee-31f4-4bb4-be1f-fc669432223d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cdedc6f0-5dbb-486b-aecc-ad8c476384aa">
+        <trans-unit id="aaa5ecc7-05b8-4f00-ba2d-756535d59f22" xml:space="preserve">
+          <source>Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Microsoft Azure</source>
+          <target state="new">Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8560f347-9650-4bd8-9f9a-a0e03350d432" xml:space="preserve">
+          <source>Learn how to control access based on Azure Active Directory roles in your Windows Store application.</source>
+          <target state="new">Learn how to control access based on Azure Active Directory roles in your Windows Store application.</target>
+        </trans-unit>
+        <trans-unit id="b7e95ae0-ce8c-4cb0-8d90-8a795a63e196" xml:space="preserve">
+          <source><bpt id="aca0e207-b4eb-4f0e-ae5f-17babc60549e">&lt;token href="../../includes/mobile-services-selector-rbac.md"&gt;</bpt><ept id="aca0e207-b4eb-4f0e-ae5f-17babc60549e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="aca0e207-b4eb-4f0e-ae5f-17babc60549e">&lt;token href="../../includes/mobile-services-selector-rbac.md"&gt;</bpt><ept id="aca0e207-b4eb-4f0e-ae5f-17babc60549e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2801d78-c6f7-4969-a3b0-db085c0f9696" xml:space="preserve">
+          <source>Roles-based access control (RBAC) is the practice of assigning permissions to roles that your users can hold.</source>
+          <target state="new">Roles-based access control (RBAC) is the practice of assigning permissions to roles that your users can hold.</target>
+        </trans-unit>
+        <trans-unit id="44a0eecf-662e-4de4-81d9-4ba28f0f663f" xml:space="preserve">
+          <source>It nicely defines boundaries on what certain classes of users can and cannot do.</source>
+          <target state="new">It nicely defines boundaries on what certain classes of users can and cannot do.</target>
+        </trans-unit>
+        <trans-unit id="a1615ccf-af9d-4ad4-a3d2-719a90c20c5e" xml:space="preserve">
+          <source>This tutorial will walk you through how to add basic RBAC to Azure Mobile Services.</source>
+          <target state="new">This tutorial will walk you through how to add basic RBAC to Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="73d7535b-6783-4741-bbf6-d1ca589ffccf" xml:space="preserve">
+          <source>This tutorial will demonstrate role based access control, checking each user's membership to a Sales group defined in the Azure Active Directory (AAD).</source>
+          <target state="new">This tutorial will demonstrate role based access control, checking each user's membership to a Sales group defined in the Azure Active Directory (AAD).</target>
+        </trans-unit>
+        <trans-unit id="a6c83ce4-67c8-4eae-b6fc-76c3646c6a68" xml:space="preserve">
+          <source>The access check will be done with .NET Mobile Service backend using the [Graph REST API] for Azure Active Directory.</source>
+          <target state="new">The access check will be done with .NET Mobile Service backend using the [Graph REST API] for Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="a25fe1aa-396f-473c-9c45-a67a2ecd98ac" xml:space="preserve">
+          <source>Only users who belong to the Sales group will be allowed to query the data.</source>
+          <target state="new">Only users who belong to the Sales group will be allowed to query the data.</target>
+        </trans-unit>
+        <trans-unit id="54dc7267-c11b-4369-94ab-80fb5f429f05" xml:space="preserve">
+          <source>The intent of this tutorial is to extend your knowledge of authentication to include authorization practices.</source>
+          <target state="new">The intent of this tutorial is to extend your knowledge of authentication to include authorization practices.</target>
+        </trans-unit>
+        <trans-unit id="e4553c27-0316-4c93-bf7c-5058d6a95439" xml:space="preserve">
+          <source>It is expected that you first complete the [Add Authentication to your app] tutorial using the Azure Active Directory authentication provider.</source>
+          <target state="new">It is expected that you first complete the [Add Authentication to your app] tutorial using the Azure Active Directory authentication provider.</target>
+        </trans-unit>
+        <trans-unit id="4e7eabfe-6257-4e84-bdea-406505993af8" xml:space="preserve">
+          <source>This tutorial continues to update the TodoItem application used in the [Add Authentication to your app] tutorial.</source>
+          <target state="new">This tutorial continues to update the TodoItem application used in the [Add Authentication to your app] tutorial.</target>
+        </trans-unit>
+        <trans-unit id="ee8a1556-2b96-47ce-bdf3-ed4efdc5c2e5" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="78bcb710-da43-4a04-85a5-f605887ba3cb" xml:space="preserve">
+          <source>Visual Studio 2013 running on Windows 8.1.</source>
+          <target state="new">Visual Studio 2013 running on Windows 8.1.</target>
+        </trans-unit>
+        <trans-unit id="08fc817b-cda6-41c1-8b1e-200072b26181" xml:space="preserve">
+          <source>Completion of the [Add Authentication to your app] tutorial using the Azure Active Directory authentication provider.</source>
+          <target state="new">Completion of the [Add Authentication to your app] tutorial using the Azure Active Directory authentication provider.</target>
+        </trans-unit>
+        <trans-unit id="28741a57-0da0-4daa-85d3-9f19b28bfdb7" xml:space="preserve">
+          <source>During the [Add Authentication to your app] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step.</source>
+          <target state="new">During the [Add Authentication to your app] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step.</target>
+        </trans-unit>
+        <trans-unit id="f155fbf2-ade1-46cd-b895-dea954322b71" xml:space="preserve">
+          <source>In this section you generate a key to be used when reading directory information with that integrated application's client ID.</source>
+          <target state="new">In this section you generate a key to be used when reading directory information with that integrated application's client ID.</target>
+        </trans-unit>
+        <trans-unit id="9c0eb743-f995-462e-b0f5-72b654055330" xml:space="preserve">
+          <source>If you went through the [Accessing Azure Active Directory Graph Information] tutorial, you have already completed this step and can skip this section.</source>
+          <target state="new">If you went through the [Accessing Azure Active Directory Graph Information] tutorial, you have already completed this step and can skip this section.</target>
+        </trans-unit>
+        <trans-unit id="c672b55b-5243-4555-bfe2-a8e7c3a75bbc" xml:space="preserve">
+          <source><bpt id="464b4931-4c3c-40c8-9086-7ae3c8ae0c49">&lt;token href="../../includes/mobile-services-generate-aad-app-registration-access-key.md"&gt;</bpt><ept id="464b4931-4c3c-40c8-9086-7ae3c8ae0c49">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="464b4931-4c3c-40c8-9086-7ae3c8ae0c49">&lt;token href="../../includes/mobile-services-generate-aad-app-registration-access-key.md"&gt;</bpt><ept id="464b4931-4c3c-40c8-9086-7ae3c8ae0c49">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="200e2f9c-ec79-4a0d-b415-71bf89da6b6c" xml:space="preserve">
+          <source><bpt id="115f3357-b3be-42e1-b45f-89e6ccd94fcd">&lt;token href="../../includes/mobile-services-aad-rbac-create-sales-group.md"&gt;</bpt><ept id="115f3357-b3be-42e1-b45f-89e6ccd94fcd">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="115f3357-b3be-42e1-b45f-89e6ccd94fcd">&lt;token href="../../includes/mobile-services-aad-rbac-create-sales-group.md"&gt;</bpt><ept id="115f3357-b3be-42e1-b45f-89e6ccd94fcd">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="addb5267-e88a-42c2-9d67-b3bf5862eb5d" xml:space="preserve">
+          <source>In this section you will create a new custom authorization attribute that can be used to perform access checks on mobile service operations.</source>
+          <target state="new">In this section you will create a new custom authorization attribute that can be used to perform access checks on mobile service operations.</target>
+        </trans-unit>
+        <trans-unit id="3b547f1b-6788-4ac5-b7b8-0ff4f7b92cbc" xml:space="preserve">
+          <source>The attribute will look up an Active Directory group based on the role name passed to it.</source>
+          <target state="new">The attribute will look up an Active Directory group based on the role name passed to it.</target>
+        </trans-unit>
+        <trans-unit id="c7b0cf65-68b7-4d3e-b46e-09eedbcdcd06" xml:space="preserve">
+          <source>It will then perform access checks based on that group's membership.</source>
+          <target state="new">It will then perform access checks based on that group's membership.</target>
+        </trans-unit>
+        <trans-unit id="b3cb2384-4e0f-4064-a9c2-272e42a47315" xml:space="preserve">
+          <source>In Visual Studio, right click mobile service .NET backend project and click <bpt id="34064a68-cb4e-4bdd-b56c-1b92fa80356d">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="34064a68-cb4e-4bdd-b56c-1b92fa80356d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, right click mobile service .NET backend project and click <bpt id="34064a68-cb4e-4bdd-b56c-1b92fa80356d">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="34064a68-cb4e-4bdd-b56c-1b92fa80356d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a18a85c2-c745-47cf-b958-be2bdbd2d2a7" xml:space="preserve">
+          <source>In the NuGet Package Manager dialog, enter <bpt id="2f5e2f2c-e11b-4ceb-a5ca-919797c8b580">&lt;strong&gt;</bpt>ADAL<ept id="2f5e2f2c-e11b-4ceb-a5ca-919797c8b580">&lt;/strong&gt;</ept> in the search criteria to find and install the <bpt id="a31db415-8647-4c33-ae98-2e101515a3d9">&lt;strong&gt;</bpt>Active Directory Authentication Library<ept id="a31db415-8647-4c33-ae98-2e101515a3d9">&lt;/strong&gt;</ept> for your mobile service.</source>
+          <target state="new">In the NuGet Package Manager dialog, enter <bpt id="2f5e2f2c-e11b-4ceb-a5ca-919797c8b580">&lt;strong&gt;</bpt>ADAL<ept id="2f5e2f2c-e11b-4ceb-a5ca-919797c8b580">&lt;/strong&gt;</ept> in the search criteria to find and install the <bpt id="a31db415-8647-4c33-ae98-2e101515a3d9">&lt;strong&gt;</bpt>Active Directory Authentication Library<ept id="a31db415-8647-4c33-ae98-2e101515a3d9">&lt;/strong&gt;</ept> for your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="7cb53b38-249a-4376-a1df-a3efb59b8063" xml:space="preserve">
+          <source>This tutorial was most recently tested with the 3.3.205061641-alpha (Prerelease) version of the ADAL package.</source>
+          <target state="new">This tutorial was most recently tested with the 3.3.205061641-alpha (Prerelease) version of the ADAL package.</target>
+        </trans-unit>
+        <trans-unit id="8528d4be-4a5d-44d8-b5e6-bcfb053f1556" xml:space="preserve">
+          <source>In Visual Studio, right click your mobile service project and click <bpt id="1c76cc5b-8caf-4bf9-aa30-83ab360d5627">&lt;strong&gt;</bpt>Add<ept id="1c76cc5b-8caf-4bf9-aa30-83ab360d5627">&lt;/strong&gt;</ept> then <bpt id="9f09a2cf-3c41-4a14-a55c-48d2d3340f74">&lt;strong&gt;</bpt>New Folder<ept id="9f09a2cf-3c41-4a14-a55c-48d2d3340f74">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, right click your mobile service project and click <bpt id="1c76cc5b-8caf-4bf9-aa30-83ab360d5627">&lt;strong&gt;</bpt>Add<ept id="1c76cc5b-8caf-4bf9-aa30-83ab360d5627">&lt;/strong&gt;</ept> then <bpt id="9f09a2cf-3c41-4a14-a55c-48d2d3340f74">&lt;strong&gt;</bpt>New Folder<ept id="9f09a2cf-3c41-4a14-a55c-48d2d3340f74">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c3485ca5-4704-4586-ab8a-a82a4504c15f" xml:space="preserve">
+          <source>Name the new folder <bpt id="beb107ad-30d4-4989-9071-213c0b2dae96">&lt;strong&gt;</bpt>Utilities<ept id="beb107ad-30d4-4989-9071-213c0b2dae96">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the new folder <bpt id="beb107ad-30d4-4989-9071-213c0b2dae96">&lt;strong&gt;</bpt>Utilities<ept id="beb107ad-30d4-4989-9071-213c0b2dae96">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="beef2084-73d2-4e0f-93d8-d1fed7315c5a" xml:space="preserve">
+          <source>In Visual Studio, right click the new <bpt id="871f9461-e986-4d24-886f-b3e57ad3b678">&lt;strong&gt;</bpt>Utilities<ept id="871f9461-e986-4d24-886f-b3e57ad3b678">&lt;/strong&gt;</ept> folder and add a new class file named <bpt id="dcec02ff-d266-429b-bd6a-0333b49a626b">&lt;strong&gt;</bpt>AuthorizeAadRole.cs<ept id="dcec02ff-d266-429b-bd6a-0333b49a626b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, right click the new <bpt id="871f9461-e986-4d24-886f-b3e57ad3b678">&lt;strong&gt;</bpt>Utilities<ept id="871f9461-e986-4d24-886f-b3e57ad3b678">&lt;/strong&gt;</ept> folder and add a new class file named <bpt id="dcec02ff-d266-429b-bd6a-0333b49a626b">&lt;strong&gt;</bpt>AuthorizeAadRole.cs<ept id="dcec02ff-d266-429b-bd6a-0333b49a626b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4d9f869-5d7c-4dca-a110-d9b2e400c469" xml:space="preserve">
+          <source><bpt id="6f365532-2b31-48d7-ab1a-30fcefa21018">&lt;linkText&gt;</bpt><ept id="6f365532-2b31-48d7-ab1a-30fcefa21018">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f365532-2b31-48d7-ab1a-30fcefa21018">&lt;linkText&gt;</bpt><ept id="6f365532-2b31-48d7-ab1a-30fcefa21018">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a471a1ae-f2fe-4c7a-9777-706f2beef267" xml:space="preserve">
+          <source>In the AuthorizeAadRole.cs file, add the following <bpt id="ddd95a9d-d63a-48ab-a7eb-d2e1b51e86ec">&lt;code&gt;</bpt>using<ept id="ddd95a9d-d63a-48ab-a7eb-d2e1b51e86ec">&lt;/code&gt;</ept> statements at the top of the file.</source>
+          <target state="new">In the AuthorizeAadRole.cs file, add the following <bpt id="ddd95a9d-d63a-48ab-a7eb-d2e1b51e86ec">&lt;code&gt;</bpt>using<ept id="ddd95a9d-d63a-48ab-a7eb-d2e1b51e86ec">&lt;/code&gt;</ept> statements at the top of the file.</target>
+        </trans-unit>
+        <trans-unit id="bec1ffff-6018-4cc9-acb7-e5c1d9605ba0" xml:space="preserve">
+          <source>In AuthorizeAadRole.cs, add the following enumerated type to the Utilities namespace.</source>
+          <target state="new">In AuthorizeAadRole.cs, add the following enumerated type to the Utilities namespace.</target>
+        </trans-unit>
+        <trans-unit id="23039678-2748-4e67-a637-c2f5bb5b8cca" xml:space="preserve">
+          <source>In this example we only deal with the <bpt id="25be9738-3405-483b-afef-73e3410e1df4">&lt;strong&gt;</bpt>Sales<ept id="25be9738-3405-483b-afef-73e3410e1df4">&lt;/strong&gt;</ept> role.</source>
+          <target state="new">In this example we only deal with the <bpt id="25be9738-3405-483b-afef-73e3410e1df4">&lt;strong&gt;</bpt>Sales<ept id="25be9738-3405-483b-afef-73e3410e1df4">&lt;/strong&gt;</ept> role.</target>
+        </trans-unit>
+        <trans-unit id="38976115-c2e2-40a2-9ef4-bb6d55ae535d" xml:space="preserve">
+          <source>The others are just examples of groups you might use.</source>
+          <target state="new">The others are just examples of groups you might use.</target>
+        </trans-unit>
+        <trans-unit id="6c777d89-17d1-402f-a43b-c06c0dcf36db" xml:space="preserve">
+          <source>In AuthorizeAadRole.cs, add the following <bpt id="58f15baf-4d27-401b-9078-aa015da39cbb">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="58f15baf-4d27-401b-9078-aa015da39cbb">&lt;/code&gt;</ept> class definition to the Utilities namespace.</source>
+          <target state="new">In AuthorizeAadRole.cs, add the following <bpt id="58f15baf-4d27-401b-9078-aa015da39cbb">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="58f15baf-4d27-401b-9078-aa015da39cbb">&lt;/code&gt;</ept> class definition to the Utilities namespace.</target>
+        </trans-unit>
+        <trans-unit id="ab1ee0cf-4729-42cd-8f40-e2413f89e237" xml:space="preserve">
+          <source>In AuthorizeAadRole.cs, update the <bpt id="f41853a3-d32e-4ead-8fdf-d8aba1e79520">&lt;code&gt;</bpt>InitGroupIds<ept id="f41853a3-d32e-4ead-8fdf-d8aba1e79520">&lt;/code&gt;</ept> method on the <bpt id="3e6b60d0-2670-4060-8ca8-c8d112166f3e">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="3e6b60d0-2670-4060-8ca8-c8d112166f3e">&lt;/code&gt;</ept> class as follows.</source>
+          <target state="new">In AuthorizeAadRole.cs, update the <bpt id="f41853a3-d32e-4ead-8fdf-d8aba1e79520">&lt;code&gt;</bpt>InitGroupIds<ept id="f41853a3-d32e-4ead-8fdf-d8aba1e79520">&lt;/code&gt;</ept> method on the <bpt id="3e6b60d0-2670-4060-8ca8-c8d112166f3e">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="3e6b60d0-2670-4060-8ca8-c8d112166f3e">&lt;/code&gt;</ept> class as follows.</target>
+        </trans-unit>
+        <trans-unit id="d593453b-19a3-42b9-b0e0-d8def2a69245" xml:space="preserve">
+          <source>This method creates a dictionary mapping of the group ids to each role.</source>
+          <target state="new">This method creates a dictionary mapping of the group ids to each role.</target>
+        </trans-unit>
+        <trans-unit id="04786d43-bd08-48dd-807d-a94af4b6bd39" xml:space="preserve">
+          <source>In AuthorizeAadRole.cs, update the <bpt id="ee678c54-727d-49db-86a2-0e22aab02428">&lt;code&gt;</bpt>GetAADToken<ept id="ee678c54-727d-49db-86a2-0e22aab02428">&lt;/code&gt;</ept> method on the <bpt id="9227c2e9-73af-438c-9492-870ce410980c">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="9227c2e9-73af-438c-9492-870ce410980c">&lt;/code&gt;</ept> class.</source>
+          <target state="new">In AuthorizeAadRole.cs, update the <bpt id="ee678c54-727d-49db-86a2-0e22aab02428">&lt;code&gt;</bpt>GetAADToken<ept id="ee678c54-727d-49db-86a2-0e22aab02428">&lt;/code&gt;</ept> method on the <bpt id="9227c2e9-73af-438c-9492-870ce410980c">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="9227c2e9-73af-438c-9492-870ce410980c">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="cd55cc24-29f2-4f95-b166-0b7a075643ec" xml:space="preserve">
+          <source>This method uses the app settings stored in the Mobile Service to get an access token to the AAD from ADAL.</source>
+          <target state="new">This method uses the app settings stored in the Mobile Service to get an access token to the AAD from ADAL.</target>
+        </trans-unit>
+        <trans-unit id="92365c5a-ac4a-44f6-b684-8d8b3d5cf0b9" xml:space="preserve">
+          <source>ADAL for .NET includes an in-memory token cache by default to help alleviate extra network traffic against your Active Directory.</source>
+          <target state="new">ADAL for .NET includes an in-memory token cache by default to help alleviate extra network traffic against your Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="ffa97bab-e581-4ac8-b475-a13639366154" xml:space="preserve">
+          <source>However, you can write your own cache implementation or disable caching entirely.</source>
+          <target state="new">However, you can write your own cache implementation or disable caching entirely.</target>
+        </trans-unit>
+        <trans-unit id="b671a854-3a28-4a68-b963-c9e1051d0741" xml:space="preserve">
+          <source>For more information see [ADAL for .NET].</source>
+          <target state="new">For more information see [ADAL for .NET].</target>
+        </trans-unit>
+        <trans-unit id="efff7fc8-9223-44ae-a22d-988de8dac2c3" xml:space="preserve">
+          <source>In AuthorizeAadRole.cs, update the <bpt id="54e7105c-61d5-4958-8f94-c7c9f20b6b72">&lt;code&gt;</bpt>CheckMembership<ept id="54e7105c-61d5-4958-8f94-c7c9f20b6b72">&lt;/code&gt;</ept> method on the <bpt id="6490e4e4-8893-4025-b771-edcc6f2c88ce">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="6490e4e4-8893-4025-b771-edcc6f2c88ce">&lt;/code&gt;</ept> class.</source>
+          <target state="new">In AuthorizeAadRole.cs, update the <bpt id="54e7105c-61d5-4958-8f94-c7c9f20b6b72">&lt;code&gt;</bpt>CheckMembership<ept id="54e7105c-61d5-4958-8f94-c7c9f20b6b72">&lt;/code&gt;</ept> method on the <bpt id="6490e4e4-8893-4025-b771-edcc6f2c88ce">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="6490e4e4-8893-4025-b771-edcc6f2c88ce">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="1e495375-9ef2-4bcf-b3be-055a9aba5ff8" xml:space="preserve">
+          <source>This method receives a user's object id.</source>
+          <target state="new">This method receives a user's object id.</target>
+        </trans-unit>
+        <trans-unit id="c5cf632b-5158-4fb5-bf03-e43a2e139d1d" xml:space="preserve">
+          <source>It then uses the AAD Graph REST API to check that object id to see if it is a member id for the group associated to the role selected on the <bpt id="1d3e2dee-d840-49c7-b973-5c3f31fb50bc">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="1d3e2dee-d840-49c7-b973-5c3f31fb50bc">&lt;/code&gt;</ept> class</source>
+          <target state="new">It then uses the AAD Graph REST API to check that object id to see if it is a member id for the group associated to the role selected on the <bpt id="1d3e2dee-d840-49c7-b973-5c3f31fb50bc">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="1d3e2dee-d840-49c7-b973-5c3f31fb50bc">&lt;/code&gt;</ept> class</target>
+        </trans-unit>
+        <trans-unit id="a783bdc5-86bd-40e6-b6e4-09d37831af26" xml:space="preserve">
+          <source>In AuthorizeAadRole.cs, update the <bpt id="b68aeda3-a807-416c-954a-487e62619dca">&lt;code&gt;</bpt>OnAuthorization<ept id="b68aeda3-a807-416c-954a-487e62619dca">&lt;/code&gt;</ept> method in the <bpt id="d7dee6ea-90ef-483e-a5ec-6271f98db278">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="d7dee6ea-90ef-483e-a5ec-6271f98db278">&lt;/code&gt;</ept> class with the following code.</source>
+          <target state="new">In AuthorizeAadRole.cs, update the <bpt id="b68aeda3-a807-416c-954a-487e62619dca">&lt;code&gt;</bpt>OnAuthorization<ept id="b68aeda3-a807-416c-954a-487e62619dca">&lt;/code&gt;</ept> method in the <bpt id="d7dee6ea-90ef-483e-a5ec-6271f98db278">&lt;code&gt;</bpt>AuthorizeAadRole<ept id="d7dee6ea-90ef-483e-a5ec-6271f98db278">&lt;/code&gt;</ept> class with the following code.</target>
+        </trans-unit>
+        <trans-unit id="95a32b8c-290b-4c52-932d-b7081acdefe8" xml:space="preserve">
+          <source>This code expects that the user calling into the Mobiile Service has authenticated with the AAD.</source>
+          <target state="new">This code expects that the user calling into the Mobiile Service has authenticated with the AAD.</target>
+        </trans-unit>
+        <trans-unit id="af74b0de-582f-4990-85da-9a126f3ab2bf" xml:space="preserve">
+          <source>It then gets the user's AAD object id and checks membership with the Active Directory group that corresponds to the role.</source>
+          <target state="new">It then gets the user's AAD object id and checks membership with the Active Directory group that corresponds to the role.</target>
+        </trans-unit>
+        <trans-unit id="57bdd430-5561-4924-b0b9-342aaf631b77" xml:space="preserve">
+          <source>You could look up the Active Directory group by name.</source>
+          <target state="new">You could look up the Active Directory group by name.</target>
+        </trans-unit>
+        <trans-unit id="fb1155a4-046d-40ae-a114-efc1edd7d472" xml:space="preserve">
+          <source>However, in many cases it's a better practice to store the group id as a mobile service app setting.</source>
+          <target state="new">However, in many cases it's a better practice to store the group id as a mobile service app setting.</target>
+        </trans-unit>
+        <trans-unit id="ae4e8d79-6d86-4adf-b266-dc73d3b2df0a" xml:space="preserve">
+          <source>This is because the group name is more likely to change but, the id stays the same.</source>
+          <target state="new">This is because the group name is more likely to change but, the id stays the same.</target>
+        </trans-unit>
+        <trans-unit id="e93d8301-5a97-4576-bbca-27e7394a7576" xml:space="preserve">
+          <source>Save your changes to AuthorizeAadRole.cs.</source>
+          <target state="new">Save your changes to AuthorizeAadRole.cs.</target>
+        </trans-unit>
+        <trans-unit id="42f983db-d09a-4d23-86ab-65562dcc0490" xml:space="preserve">
+          <source>In Visual Studio, expand the <bpt id="27922b1d-4d4c-4a35-b856-bd5b7b6d4f74">&lt;strong&gt;</bpt>Controllers<ept id="27922b1d-4d4c-4a35-b856-bd5b7b6d4f74">&lt;/strong&gt;</ept> folder under the mobile service project.</source>
+          <target state="new">In Visual Studio, expand the <bpt id="27922b1d-4d4c-4a35-b856-bd5b7b6d4f74">&lt;strong&gt;</bpt>Controllers<ept id="27922b1d-4d4c-4a35-b856-bd5b7b6d4f74">&lt;/strong&gt;</ept> folder under the mobile service project.</target>
+        </trans-unit>
+        <trans-unit id="fa933f1b-07f9-4d04-89ad-9b05a26bd8ac" xml:space="preserve">
+          <source>Open TodoItemController.cs.</source>
+          <target state="new">Open TodoItemController.cs.</target>
+        </trans-unit>
+        <trans-unit id="b01967c1-28e0-4e60-91ba-b55d5edfc106" xml:space="preserve">
+          <source>In TodoItemController.cs, add a <bpt id="cfa581b2-e23a-43c3-a2b8-79e26cd99a72">&lt;code&gt;</bpt>using<ept id="cfa581b2-e23a-43c3-a2b8-79e26cd99a72">&lt;/code&gt;</ept> statement for your utilities namespace that contains the custom authorization attribute.</source>
+          <target state="new">In TodoItemController.cs, add a <bpt id="cfa581b2-e23a-43c3-a2b8-79e26cd99a72">&lt;code&gt;</bpt>using<ept id="cfa581b2-e23a-43c3-a2b8-79e26cd99a72">&lt;/code&gt;</ept> statement for your utilities namespace that contains the custom authorization attribute.</target>
+        </trans-unit>
+        <trans-unit id="77c14e00-c84e-44d0-8766-8e453cd352f5" xml:space="preserve">
+          <source>In TodoItemController.cs, you can add the attribute to your controller class or individual methods depending on how you want access checked.</source>
+          <target state="new">In TodoItemController.cs, you can add the attribute to your controller class or individual methods depending on how you want access checked.</target>
+        </trans-unit>
+        <trans-unit id="7ba507a8-0711-46ca-9ed5-89cf428a62b1" xml:space="preserve">
+          <source>If you want all controller operations to check access based on the same role, just add the attribute to the class.</source>
+          <target state="new">If you want all controller operations to check access based on the same role, just add the attribute to the class.</target>
+        </trans-unit>
+        <trans-unit id="7a675f05-2323-474c-94e8-4d4dfc4a8efc" xml:space="preserve">
+          <source>Add the attribute to the class as follows for testing this tutorial.</source>
+          <target state="new">Add the attribute to the class as follows for testing this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="41342cc6-a13e-4c61-84df-ef86046547de" xml:space="preserve">
+          <source>If you only wanted to access check insert, update, and delete operations, you would set the attribute only on those methods as follows.</source>
+          <target state="new">If you only wanted to access check insert, update, and delete operations, you would set the attribute only on those methods as follows.</target>
+        </trans-unit>
+        <trans-unit id="29d0c378-e2de-4022-bedb-4bcdbe136a1c" xml:space="preserve">
+          <source>Save TodoItemController.cs and build the mobile service to verify no syntax errors.</source>
+          <target state="new">Save TodoItemController.cs and build the mobile service to verify no syntax errors.</target>
+        </trans-unit>
+        <trans-unit id="dcda04a7-793d-4338-9816-6bb4a28f7852" xml:space="preserve">
+          <source>Publish the mobile service to your Azure account.</source>
+          <target state="new">Publish the mobile service to your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="2a7eb873-f8e5-45a1-adfd-ef0ded2a62df" xml:space="preserve">
+          <source><bpt id="ad91eab1-4a03-4912-ad37-4678d62332a7">&lt;token href="../../includes/mobile-services-aad-rbac-test-app.md"&gt;</bpt><ept id="ad91eab1-4a03-4912-ad37-4678d62332a7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ad91eab1-4a03-4912-ad37-4678d62332a7">&lt;token href="../../includes/mobile-services-aad-rbac-test-app.md"&gt;</bpt><ept id="ad91eab1-4a03-4912-ad37-4678d62332a7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5dcf7e4f-d7b6-4490-84de-bc00e2fae0a5" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png</target>
+        </trans-unit>
+        <trans-unit id="e4d99adf-4a8c-45c6-9e47-2dcbb67f9090" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="dfa1015e-b5eb-478a-8cc0-6c3794adc01b" xml:space="preserve">
+          <source>mobile-services-how-to-register-active-directory-authentication.md</source>
+          <target state="new">mobile-services-how-to-register-active-directory-authentication.md</target>
+        </trans-unit>
+        <trans-unit id="7a77ef62-9e77-4635-9f48-519612a7422e" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="15a104a0-f1dc-402e-bdf2-360ccd0767f6" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/jj573653.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/jj573653.aspx</target>
+        </trans-unit>
+        <trans-unit id="f63ccf83-d22d-47c0-a1c4-b0cbfcc75db5" xml:space="preserve">
+          <source>mobile-services-store-scripts-source-control.md</source>
+          <target state="new">mobile-services-store-scripts-source-control.md</target>
+        </trans-unit>
+        <trans-unit id="2964bdd8-b89b-4dee-9073-437601aa98cf" xml:space="preserve">
+          <source>mobile-services-how-to-register-active-directory-authentication.md</source>
+          <target state="new">mobile-services-how-to-register-active-directory-authentication.md</target>
+        </trans-unit>
+        <trans-unit id="59ec40c0-5f7a-49f7-abbd-9e94931104e2" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/hh974478.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/hh974478.aspx</target>
+        </trans-unit>
+        <trans-unit id="524ffba0-d43b-4bdf-ad62-c96238060822" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn151601.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn151601.aspx</target>
+        </trans-unit>
+        <trans-unit id="f1b9fce9-322a-4bd0-b117-5d6acade572d" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md</target>
+        </trans-unit>
+        <trans-unit id="35703702-d1c2-410f-912d-37e979b1cd84" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/jj573266.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/jj573266.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="ca0f66d7-b18b-4abd-ae6f-079f53f14fe3" />
+    </body>
+  </file>
+</xliff>
